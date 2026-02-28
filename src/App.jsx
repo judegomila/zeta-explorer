@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { HashRouter, Routes, Route, NavLink } from 'react-router-dom';
 import HomePage from './pages/HomePage.jsx';
 import OscillatorsPage from './pages/OscillatorsPage.jsx';
 import HamiltonianPage from './pages/HamiltonianPage.jsx';
@@ -13,7 +13,7 @@ import './styles/app.css';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="nav-bar">
         <div className="nav-logo">
           ZPO<span> Explorer</span>
@@ -43,6 +43,6 @@ export default function App() {
           <Route path="/literature" element={<LiteraturePage />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

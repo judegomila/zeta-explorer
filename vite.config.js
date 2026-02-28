@@ -9,4 +9,9 @@ export default defineConfig({
     allowedHosts: 'all',
     hmr: false,
   },
+  preview: {
+    port: 3002,
+    host: '0.0.0.0',
+    allowedHosts: 'all',
+  },
 });

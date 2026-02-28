@@ -510,6 +510,444 @@ This makes the model physically concrete: the prime oscillator chain can be expe
       'This could potentially be experimentally realized with engineered resonators',
     ],
     references: ['lapidus-vanfrankenhuijsen-2006', 'connes-1999'],
+    nextSteps: ['exp-014'],
+  },
+  {
+    id: 'exp-014',
+    timestamp: '2026-02-27T14:30:00Z',
+    title: 'Cauer Synthesis: Building the Ladder from the Transfer Function',
+    status: 'complete',
+    category: 'circuit-theory',
+    depth: 4,
+    content: `Wilhelm Cauer's foundational work on network synthesis (1926) shows how to realize any rational impedance function as a **ladder network** via continued fraction expansion. Applied to our model:
+
+Given the zeta function (or rather, $\\log\\zeta(s) = -\\sum_p \\log(1 - p^{-s})$), we can formally expand the impedance as a continued fraction:
+
+$$Z(s) = Z_{p_1}(s) + \\cfrac{1}{Y_{1,2}(s) + \\cfrac{1}{Z_{p_2}(s) + \\cfrac{1}{Y_{2,3}(s) + \\cdots}}}$$
+
+This is exactly Cauer's **first canonical form** for ladder networks. Each $Z_{p_k}$ is a series impedance (our oscillator stage for prime $p_k$) and each $Y_{k,k+1}$ is a shunt admittance (the coupling between stages).
+
+**Cauer's realization theorem**: Any positive-real function (i.e., any function whose real part is non-negative for $\\text{Re}(s) > 0$) can be realized as the driving-point impedance of a passive network. Since $\\zeta(s)$ has no zeros in $\\text{Re}(s) > 1$, the impedance of the direct ladder is positive-real in that half-plane.
+
+**The deep question**: Can $\\zeta(s)$ itself be characterized as a positive-real function in the critical strip? This would be equivalent to RH + additional conditions on the phase of $\\zeta$.
+
+The continued fraction structure also connects to Padé approximants of $\\zeta$, which provide rational approximations that converge more rapidly than partial sums.`,
+    latex: [
+      'Z(s) = Z_{p_1} + \\cfrac{1}{Y_{1,2} + \\cfrac{1}{Z_{p_2} + \\cfrac{1}{Y_{2,3} + \\cdots}}}',
+      '\\text{Cauer I form: series } Z_k \\text{, shunt } Y_{k,k+1} \\text{ alternating}',
+      '\\text{Positive-real: } \\text{Re}[Z(s)] \\geq 0 \\text{ for } \\text{Re}(s) > 0 \\iff \\text{passive network}',
+      '\\log\\zeta(s) = \\sum_p \\sum_{k=1}^\\infty \\frac{p^{-ks}}{k} \\quad \\text{(Cauer expansion generator)}',
+    ],
+    insights: [
+      'Cauer synthesis provides the rigorous framework for building our ladder from the zeta function',
+      'The continued fraction expansion IS the ladder network specification',
+      'Positive-real functions ↔ passive networks ↔ stable systems',
+      'Padé approximants of zeta connect to optimal ladder truncations',
+    ],
+    references: ['cauer-1926', 'belevitch-1968', 'darlington-1939'],
+    nextSteps: ['exp-015'],
+  },
+  {
+    id: 'exp-015',
+    timestamp: '2026-02-27T15:00:00Z',
+    title: 'The ABCD Matrix Formalism: Cascading Euler Factors',
+    status: 'complete',
+    category: 'circuit-theory',
+    depth: 4,
+    content: `In microwave engineering and circuit theory, cascade-connected two-port networks are described by the **ABCD (chain) matrix**:
+
+$$\\begin{pmatrix} V_1 \\\\ I_1 \\end{pmatrix} = \\begin{pmatrix} A & B \\\\ C & D \\end{pmatrix} \\begin{pmatrix} V_2 \\\\ I_2 \\end{pmatrix}$$
+
+The key property: **cascade = matrix multiplication**:
+$$M_{\\text{total}} = M_{p_1} \\cdot M_{p_2} \\cdots M_{p_n}$$
+
+For each Euler factor stage with impedance $Z_p(s)$ and admittance $Y_p(s)$:
+
+$$M_p = \\begin{pmatrix} 1 & Z_p \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} 1 & 0 \\\\ Y_p & 1 \\end{pmatrix} = \\begin{pmatrix} 1 + Z_p Y_p & Z_p \\\\ Y_p & 1 \\end{pmatrix}$$
+
+The total cascade matrix encodes $\\zeta(s)$ through its entries. Specifically:
+
+$$\\zeta(s) \\propto \\frac{1}{C_{\\text{total}}(s)}$$
+
+where $C_{\\text{total}}$ is the (2,1) entry of the total ABCD matrix. This is because $C$ relates to the short-circuit transfer admittance, and $\\zeta(s) = 0$ iff the total transfer admittance diverges (a resonance condition).
+
+**Remarkable fact**: The determinant of each ABCD matrix is $AD - BC = 1$ (for lossless stages). The total determinant remains 1. This is the **unimodularity** condition, and it connects to the fact that $|\\xi(s)| = |\\xi(1-s)|$ on the critical line.`,
+    latex: [
+      'M_{\\text{total}} = \\prod_{p \\leq P} M_p, \\quad M_p = \\begin{pmatrix} 1+Z_pY_p & Z_p \\\\ Y_p & 1 \\end{pmatrix}',
+      '\\det(M_{\\text{total}}) = \\prod_p \\det(M_p) = 1 \\quad \\text{(unimodularity)}',
+      '\\zeta(s) \\propto \\frac{1}{C_{\\text{total}}(s)} \\quad \\text{(transfer admittance)}',
+      'S_{21} = \\frac{2}{A + B/Z_0 + CZ_0 + D} \\quad \\text{(scattering parameter)}',
+    ],
+    insights: [
+      'ABCD matrices make the Euler product cascade computationally concrete',
+      'Unimodularity (det = 1) encodes the functional equation symmetry',
+      'Zeta zeros = resonances of the cascade = poles of the transfer admittance',
+      'The scattering matrix formulation connects directly to RMT (random matrices)',
+    ],
+    references: ['belevitch-1968', 'cauer-1926', 'keating-snaith-2000'],
+    nextSteps: ['exp-016'],
+  },
+  {
+    id: 'exp-016',
+    timestamp: '2026-02-27T15:30:00Z',
+    title: 'The Selberg Trace Formula as a Network Identity',
+    status: 'complete',
+    category: 'trace-formula',
+    depth: 5,
+    content: `The Selberg trace formula for a hyperbolic surface $X$:
+
+$$\\sum_n h(r_n) = \\frac{\\text{Area}(X)}{4\\pi}\\int_{-\\infty}^\\infty r \\tanh(\\pi r) h(r) dr + \\sum_{\\{\\gamma\\}} \\sum_{k=1}^\\infty \\frac{l(\\gamma)}{2\\sinh(kl(\\gamma)/2)} g(kl(\\gamma))$$
+
+Left side: **spectral** (sum over eigenvalues of the Laplacian)
+Right side: **geometric** (sum over primitive closed geodesics of length $l(\\gamma)$)
+
+In our circuit model:
+- **Left side**: Sum over resonant frequencies (zeta zeros) of the system → the total impedance seen at one port
+- **Right side**: Sum over prime oscillators and their harmonics → the Euler product cascade decomposition
+- $h(r)$ is the **test function** → the excitation waveform applied to the circuit
+- $g(u) = \\hat{h}(u)$ is its Fourier transform → the frequency-domain excitation
+
+The trace formula is then: **the total response of the circuit (spectral side) equals the sum of individual stage responses (geometric/Euler side)**.
+
+For the Riemann zeta function specifically, the "geometric side" involves primes and prime powers, and the "spectral side" involves the nontrivial zeros. The explicit formula of von Mangoldt is the special case where $h$ is chosen to pick out a single frequency.
+
+**This is the most general form of the circuit identity**: it holds for any test function $h$, not just for specific frequencies. It's the universal impedance identity for the prime oscillator chain.`,
+    latex: [
+      '\\sum_n h(r_n) = \\int \\cdots + \\sum_{\\gamma} \\sum_k \\frac{l(\\gamma)}{2\\sinh(kl/2)} g(kl)',
+      '\\text{Spectral: } \\sum_{\\rho} h(\\gamma_\\rho) = \\text{Geometric: } \\sum_p \\sum_k \\frac{\\log p}{p^{k/2} - p^{-k/2}} \\hat{h}(k\\log p)',
+      '\\text{Circuit form: } Z_{\\text{total}}[h] = \\sum_p Z_p[h] \\quad \\text{(impedance identity)}',
+    ],
+    insights: [
+      'The trace formula is the master impedance identity for the oscillator chain',
+      'It unifies all the specific identities (explicit formula, functional equation) into one',
+      'The choice of test function h corresponds to the excitation applied to the circuit',
+      'Different h give different "measurements" of the same underlying network',
+    ],
+    references: ['selberg-1956', 'gutzwiller-1971', 'von-mangoldt-1895'],
+    nextSteps: ['exp-017'],
+  },
+  {
+    id: 'exp-017',
+    timestamp: '2026-02-27T16:00:00Z',
+    title: 'Beurling Generalized Primes: Custom Oscillator Chains',
+    status: 'complete',
+    category: 'foundations',
+    depth: 5,
+    content: `Beurling's theory of generalized primes provides a framework for studying oscillator chains with **arbitrary frequency spectra**, not just the classical primes.
+
+A **Beurling system** is a sequence $1 < p_1 \\leq p_2 \\leq \\cdots$ of "generalized primes" that generate "generalized integers" by multiplication. The generalized zeta function is:
+
+$$\\zeta_P(s) = \\prod_j \\frac{1}{1 - p_j^{-s}} = \\sum_n n_P^{-s}$$
+
+**Key result** (Beurling, 1937): If the counting function $N_P(x) = x + O(x/\\log^\\gamma x)$ with $\\gamma > 3/2$, then the generalized PNT holds.
+
+In our model, this means: **the oscillator chain produces prime-like behavior as long as the frequency spectrum is sufficiently regular**. We can:
+
+1. Design "synthetic" oscillator chains with prescribed properties
+2. Test which frequency spectra lead to RH-like behavior
+3. Understand what's special about the actual primes by comparison
+
+**Experiment**: Take generalized primes with gaps that are slightly more regular than actual primes (e.g., $p_n \\approx n\\log n$ with small perturbations). The resulting zeta function has zeros that may or may not satisfy GRH. The zero statistics reveal whether GUE emerges from the specific gap structure or is universal.
+
+This connects to **inverse problems** in network synthesis: given a desired set of resonances (zeros), what oscillator chain (Euler product over generalized primes) produces them?`,
+    latex: [
+      '\\zeta_P(s) = \\prod_j \\frac{1}{1 - p_j^{-s}}, \\quad \\text{Beurling generalized primes } p_j',
+      'N_P(x) = x + O(x/\\log^\\gamma x), \\quad \\gamma > 3/2 \\Rightarrow \\text{PNT holds}',
+      '\\text{Inverse problem: given zeros } \\{\\rho_k\\}, \\text{ find primes } \\{p_j\\} \\text{ such that } \\zeta_P(\\rho_k) = 0',
+    ],
+    insights: [
+      'Beurling generalized primes let us "design" oscillator chains with custom spectra',
+      'The PNT requires only mild regularity of the frequency spectrum',
+      'Inverse problem: reconstruct the oscillator chain from desired resonances',
+      'Comparing generalized prime chains reveals what makes the actual primes special',
+    ],
+    references: ['zagier-1977', 'titchmarsh-1986'],
+    nextSteps: ['exp-018'],
+  },
+  {
+    id: 'exp-018',
+    timestamp: '2026-02-27T16:30:00Z',
+    title: 'The Weil Explicit Formula and Distributional Analysis',
+    status: 'complete',
+    category: 'signal-processing',
+    depth: 5,
+    content: `André Weil generalized von Mangoldt's explicit formula into a distributional identity that holds for a wide class of test functions. The Weil explicit formula:
+
+$$\\sum_\\rho \\hat{f}(\\gamma_\\rho) = \\hat{f}(i/2) + \\hat{f}(-i/2) - \\sum_p \\sum_{m=1}^\\infty \\frac{\\log p}{p^{m/2}} [f(m\\log p) + f(-m\\log p)] + \\int_{-\\infty}^\\infty f(x) d\\sigma(x)$$
+
+In signal processing terms, this is a **generalized Parseval identity**: the total spectral energy (left side, sum over zeros) equals the total time-domain energy decomposed into prime harmonics (right side).
+
+**Filter interpretation**: Each test function $f$ is a **filter** applied to the prime oscillator chain. The explicit formula says: the output of any filter, measured spectrally (via zeros), equals the output measured in the time domain (via primes).
+
+This has profound implications for our model:
+- The oscillator chain is a **linear system** (superposition holds)
+- Any measurement of the system can be decomposed either spectrally or in terms of primes
+- The **positivity** of certain test function outputs is equivalent to RH (Li's criterion is a special case)
+
+**Weil's positivity criterion**: RH $\\iff$ for all test functions $f$ in a certain class, the distribution $\\sum_\\rho \\hat{f}(\\gamma_\\rho) \\geq 0$.
+
+In circuit terms: RH $\\iff$ the oscillator chain is a **passive** system (it never amplifies, for any input signal in the allowed class).`,
+    latex: [
+      '\\sum_\\rho \\hat{f}(\\gamma_\\rho) = \\hat{f}(i/2) + \\hat{f}(-i/2) - \\sum_p \\sum_m \\frac{\\log p}{p^{m/2}} [f(m\\log p) + f(-m\\log p)] + \\cdots',
+      '\\text{RH} \\iff \\sum_\\rho \\hat{f}(\\gamma_\\rho) \\geq 0 \\text{ for all admissible } f \\text{ (Weil positivity)}',
+      '\\text{Circuit: RH} \\iff \\text{the oscillator chain is passive for all inputs}',
+    ],
+    insights: [
+      'The explicit formula is a generalized Parseval identity for the oscillator chain',
+      'Any filter applied to the chain gives the same answer spectrally or prime-by-prime',
+      'Weil positivity = passivity of the network (no amplification)',
+      'Li coefficients are special cases using specific test functions',
+    ],
+    references: ['von-mangoldt-1895', 'li-1997', 'broughan-2017'],
+    nextSteps: ['exp-019'],
+  },
+  {
+    id: 'exp-019',
+    timestamp: '2026-02-27T17:00:00Z',
+    title: 'Quantum Graphs and the Oscillator Chain Spectrum',
+    status: 'in-progress',
+    category: 'physics',
+    depth: 5,
+    content: `A **quantum graph** is a metric graph with a differential operator (typically the Laplacian) defined on its edges, with matching conditions at vertices. Our prime oscillator ladder IS a quantum graph:
+
+- **Edges**: Each oscillator stage (prime $p$) is an edge of length $\\ell_p = \\log p$
+- **Vertices**: The connection points between stages (and to the bridge)
+- **Operator**: The Laplacian $-d^2/dx^2$ on each edge
+- **Boundary conditions**: Neumann-Kirchhoff conditions at vertices (current conservation)
+
+The spectrum of this quantum graph (eigenvalues of the Laplacian with these boundary conditions) is related to the zeta zeros through the trace formula.
+
+For a quantum graph, the **secular equation** (determining the spectrum) involves the determinant of a matrix built from the edge lengths:
+
+$$\\det(I - S \\cdot U(k)) = 0$$
+
+where $S$ is the scattering matrix at vertices and $U(k)$ is a diagonal matrix of phases $e^{ik\\ell_j}$.
+
+**Critical observation**: This is EXACTLY the structure of the Euler product! The edge lengths are $\\log p$ (our oscillator frequencies), and the scattering matrix $S$ encodes the coupling between stages.
+
+The quantum graph perspective gives us:
+- A rigorous self-adjoint operator whose spectrum to analyze
+- Tools from quantum chaos (Gutzwiller trace formula)
+- Numerical methods for computing eigenvalues
+- Connection to the BGS conjecture (quantum chaos ↔ RMT)`,
+    latex: [
+      '\\text{Quantum graph: } -\\frac{d^2\\psi}{dx^2} = k^2 \\psi \\text{ on edges, matching at vertices}',
+      '\\det(I - S \\cdot U(k)) = 0, \\quad U(k) = \\text{diag}(e^{ik\\log p_1}, e^{ik\\log p_2}, \\ldots)',
+      '\\text{Edge lengths: } \\ell_p = \\log p \\quad \\text{(incommensurate, since primes are multiplicatively independent)}',
+      '\\text{Weyl law: } N(k) \\sim \\frac{k}{\\pi} \\sum_p \\log p \\sim \\frac{k}{\\pi} \\cdot \\theta(P)',
+    ],
+    insights: [
+      'The oscillator chain IS a quantum graph with edges of length log(p)',
+      'The secular equation of the quantum graph reproduces the Euler product structure',
+      'Incommensurability of log(p) values (primes are mult. independent) prevents periodic orbits',
+      'Quantum graph theory provides rigorous spectral analysis tools for our model',
+    ],
+    references: ['gutzwiller-1971', 'schumayer-hutchinson-2011', 'selberg-1956'],
+    nextSteps: ['exp-020'],
+  },
+  {
+    id: 'exp-020',
+    timestamp: '2026-02-27T17:30:00Z',
+    title: 'Riemann-Siegel Formula: High-Frequency Asymptotics of the Ladder',
+    status: 'complete',
+    category: 'signal-processing',
+    depth: 3,
+    content: `The Riemann-Siegel formula provides an asymptotic expansion for the zeta function on the critical line that is extraordinarily efficient for computation:
+
+$$Z(t) = 2\\sum_{n \\leq \\sqrt{t/2\\pi}} \\frac{\\cos(\\theta(t) - t\\log n)}{\\sqrt{n}} + R(t)$$
+
+where $\\theta(t) = \\frac{t}{2}\\log\\frac{t}{2\\pi} - \\frac{t}{2} - \\frac{\\pi}{8} + \\cdots$ is the Riemann-Siegel theta function and $R(t)$ is a small remainder.
+
+**Circuit interpretation**: This is the **high-frequency asymptotic** of the ladder network response. At frequency $t$:
+
+1. Only the first $N = \\lfloor\\sqrt{t/2\\pi}\\rfloor$ oscillator stages contribute significantly
+2. Each stage $n$ contributes with amplitude $1/\\sqrt{n}$ and phase $\\theta(t) - t\\log n$
+3. The remainder $R(t)$ accounts for the higher stages that are "above the cutoff frequency"
+
+This is exactly how a **finite-length ladder filter** works:
+- At any given frequency, only a finite number of stages are "active"
+- The cutoff moves higher with frequency: $N \\propto \\sqrt{t}$
+- The Riemann-Siegel formula is the **WKB approximation** for the ladder network
+
+The theta function $\\theta(t)$ is the accumulated **phase shift** through the ladder up to the cutoff. It grows as $\\sim (t/2)\\log(t/2\\pi)$, reflecting the logarithmic dispersion of the prime oscillator frequencies.`,
+    latex: [
+      'Z(t) = 2\\sum_{n \\leq N} \\frac{\\cos(\\theta(t) - t\\log n)}{\\sqrt{n}} + R(t), \\quad N = \\lfloor\\sqrt{t/2\\pi}\\rfloor',
+      '\\theta(t) = \\frac{t}{2}\\log\\frac{t}{2\\pi} - \\frac{t}{2} - \\frac{\\pi}{8} + O(1/t)',
+      '\\text{Active stages: } n \\leq \\sqrt{t/2\\pi} \\quad \\text{(frequency-dependent cutoff)}',
+      '\\text{Cutoff frequency} \\propto \\sqrt{t} \\quad \\text{(sublinear growth)}',
+    ],
+    insights: [
+      'Riemann-Siegel formula = WKB/high-frequency asymptotic of the ladder network',
+      'At frequency t, only ~sqrt(t) oscillator stages contribute significantly',
+      'The theta function is the accumulated phase shift through the active stages',
+      'This explains why zeta computations are efficient: only O(sqrt(t)) terms needed',
+    ],
+    references: ['titchmarsh-1986', 'mazur-stein-2016'],
+    nextSteps: [],
+  },
+  {
+    id: 'exp-021',
+    timestamp: '2026-02-27T18:00:00Z',
+    title: 'Adelic Product Formula and Multi-Scale Resonance',
+    status: 'complete',
+    category: 'foundations',
+    depth: 5,
+    content: `The adelic perspective provides the deepest view of why the oscillator chain has the structure it does. The **product formula** for the rational numbers:
+
+$$\\prod_{p \\leq \\infty} |x|_p = 1 \\quad \\text{for all } x \\in \\mathbb{Q}^\\times$$
+
+says that the archimedean absolute value $|\\cdot|_\\infty$ and all $p$-adic absolute values $|\\cdot|_p$ are balanced. In our model:
+
+- Each prime oscillator operates at its own **$p$-adic scale**
+- The archimedean component ($p = \\infty$) is the "environment" in which the ladder operates
+- The product formula is the **energy conservation law** for the multi-scale system
+
+The completed zeta function:
+$$\\Lambda(s) = \\pi^{-s/2}\\Gamma(s/2)\\zeta(s) = \\prod_{p \\leq \\infty} \\zeta_p(s)$$
+
+where $\\zeta_p(s) = (1-p^{-s})^{-1}$ for finite $p$ and $\\zeta_\\infty(s) = \\pi^{-s/2}\\Gamma(s/2)$.
+
+**The completed Euler product includes a "stage" for $p = \\infty$** — the archimedean oscillator! This is the gamma factor, and it acts as a **frequency-shaping filter** that regularizes the high-frequency behavior of the chain.
+
+In Connes' noncommutative geometry, the adele class space $\\mathbb{A}/\\mathbb{Q}^*$ is the configuration space of the oscillator chain. Each prime provides one degree of freedom, and the quotient by $\\mathbb{Q}^*$ enforces the product formula constraint (energy conservation).`,
+    latex: [
+      '\\prod_{p \\leq \\infty} |x|_p = 1 \\quad \\text{(product formula = energy conservation)}',
+      '\\Lambda(s) = \\pi^{-s/2}\\Gamma(s/2)\\zeta(s) = \\prod_{p \\leq \\infty} \\zeta_p(s)',
+      '\\zeta_\\infty(s) = \\pi^{-s/2}\\Gamma(s/2) \\quad \\text{(archimedean oscillator)}',
+      '\\text{Configuration space: } \\mathbb{A}/\\mathbb{Q}^* \\quad \\text{(Connes, adele class space)}',
+    ],
+    insights: [
+      'The product formula is energy conservation across all scales simultaneously',
+      'The gamma factor is the archimedean (p=∞) oscillator stage',
+      'The completed Euler product includes ALL primes including infinity',
+      'Adele class space is the phase space of the full oscillator chain',
+    ],
+    references: ['connes-1999', 'euler-1737', 'riemann-1859'],
+    nextSteps: [],
+  },
+  {
+    id: 'exp-022',
+    timestamp: '2026-02-27T18:30:00Z',
+    title: 'The Li Criterion as a Passivity Test',
+    status: 'complete',
+    category: 'spectral',
+    depth: 5,
+    content: `Li's criterion states:
+
+$$\\text{RH} \\iff \\lambda_n \\geq 0 \\text{ for all } n \\geq 1$$
+
+where $\\lambda_n = \\sum_\\rho \\left[1 - \\left(1 - \\frac{1}{\\rho}\\right)^n\\right]$ and the sum is over nontrivial zeros.
+
+**Circuit interpretation**: The Li coefficients $\\lambda_n$ are the **Taylor coefficients** of the logarithmic derivative of the bridge transfer function evaluated at specific points:
+
+$$\\sum_{n=1}^\\infty \\lambda_n z^n = -\\frac{d}{dz}\\log\\xi\\left(\\frac{1}{1-z}\\right)$$
+
+The function $\\xi(1/(1-z))$ maps the unit disk to the critical strip, and $\\lambda_n \\geq 0$ means the function is **schlicht** (univalent) — it maps the disk injectively.
+
+In terms of the bridge scattering matrix:
+- $\\lambda_n$ are the **Schur-Cohn coefficients** of the bridge transfer function
+- $\\lambda_n \\geq 0$ means the bridge is **passive** (stable, non-amplifying)
+- This is equivalent to $S^\\dagger S \\leq I$ (the bridge is contractive)
+
+**Keiper-Li asymptotic**: For large $n$:
+$$\\frac{\\lambda_n}{n} \\sim \\frac{1}{2}\\log\\frac{n}{2\\pi e} + \\frac{1}{2}\\gamma_E + \\sum_{k \\geq 1} \\frac{c_k}{n^k}$$
+
+This asymptotic is an **energy equipartition** result: the $n$-th Li coefficient represents the energy in the $n$-th mode, and it grows logarithmically — each mode carries slightly more energy than the last, with the growth rate matching the zero density.`,
+    latex: [
+      '\\lambda_n = \\sum_\\rho \\left[1 - \\left(1 - \\frac{1}{\\rho}\\right)^n\\right] \\geq 0 \\quad \\forall n \\geq 1 \\iff \\text{RH}',
+      '\\sum_n \\lambda_n z^n = -\\frac{d}{dz}\\log\\xi\\left(\\frac{1}{1-z}\\right)',
+      '\\frac{\\lambda_n}{n} \\sim \\frac{1}{2}\\log\\frac{n}{2\\pi e} + \\frac{\\gamma_E}{2} + O(1/n)',
+      '\\lambda_n \\geq 0 \\iff S^\\dagger S \\leq I \\text{ (bridge passivity)}',
+    ],
+    insights: [
+      'Li coefficients are Schur-Cohn coefficients of the bridge transfer function',
+      'λₙ ≥ 0 is equivalent to passivity/contractivity of the scattering matrix',
+      'The Keiper-Li asymptotic is an energy equipartition theorem',
+      'Each Li coefficient tests passivity at a different "angular momentum" mode',
+    ],
+    references: ['li-1997', 'broughan-2017', 'darlington-1939'],
+    nextSteps: [],
+  },
+  {
+    id: 'exp-023',
+    timestamp: '2026-02-27T19:00:00Z',
+    title: 'Transfer Matrices, SL(2,R), and Hyperbolic Geometry',
+    status: 'in-progress',
+    category: 'geometry',
+    depth: 6,
+    content: `Each oscillator stage's ABCD matrix lies in $\\text{SL}(2, \\mathbb{C})$ (determinant = 1). On the critical line, the matrices are in $\\text{SU}(1,1)$, the group of isometries of the hyperbolic plane.
+
+The cascade of ABCD matrices traces a path in the hyperbolic plane:
+
+$$M_{\\text{total}} = M_{p_1} M_{p_2} \\cdots M_{p_n} \\in \\text{SL}(2, \\mathbb{C})$$
+
+The **hyperbolic length** of this path is:
+$$\\ell = \\cosh^{-1}\\left(\\frac{|\\text{tr}(M_{\\text{total}})|}{2}\\right)$$
+
+and it relates to $|\\zeta(s)|$ through the trace of the monodromy matrix.
+
+On the critical line, each matrix preserves the hyperbolic metric, and the cascade is a sequence of hyperbolic translations and rotations. The total transformation has:
+- **Translation component**: related to $|\\zeta(1/2+it)|$
+- **Rotation component**: related to $\\arg\\zeta(1/2+it)$
+
+A **zeta zero** occurs when the total monodromy is a pure rotation by an integer multiple of $\\pi$ — the cascade "returns to the origin" in the hyperbolic plane after a complete cycle.
+
+This connects to:
+- Modular forms and automorphic representations
+- The Selberg trace formula (primitive geodesics = primes)
+- Teichmüller theory and deformation of the ladder structure`,
+    latex: [
+      'M_p \\in \\text{SL}(2, \\mathbb{C}), \\quad \\det(M_p) = 1',
+      '\\text{Critical line: } M_p \\in \\text{SU}(1,1) \\cong \\text{Isom}^+(\\mathbb{H}^2)',
+      '|\\zeta(1/2+it)| \\sim \\cosh(\\ell_{\\text{total}}/2) \\quad \\text{(hyperbolic distance)}',
+      '\\zeta(1/2+it) = 0 \\iff \\text{tr}(M_{\\text{total}}) = \\pm 2 \\text{ (parabolic monodromy)}',
+    ],
+    insights: [
+      'The cascade traces a path in the hyperbolic plane (or SL(2,C))',
+      'Zeta zeros = parabolic monodromy = the path "closes up" in hyperbolic space',
+      'The SU(1,1) structure on the critical line connects to automorphic forms',
+      'Hyperbolic geometry provides the natural metric for measuring ladder convergence',
+    ],
+    references: ['selberg-1956', 'gutzwiller-1971', 'belevitch-1968'],
+    nextSteps: [],
+  },
+  {
+    id: 'exp-024',
+    timestamp: '2026-02-27T19:30:00Z',
+    title: 'Renormalization Group Flow in the Oscillator Chain',
+    status: 'queued',
+    category: 'physics',
+    depth: 6,
+    content: `The prime oscillator chain has a natural **renormalization group (RG) flow**: as we include more primes (UV completion), the system flows in a space of effective coupling constants.
+
+Define the **effective action** at scale $P$ (including primes up to $P$):
+$$S_{\\text{eff}}(P, s) = -\\log\\prod_{p \\leq P} \\frac{1}{1-p^{-s}} = \\sum_{p \\leq P} \\sum_{k=1}^\\infty \\frac{p^{-ks}}{k}$$
+
+The RG beta function:
+$$\\beta(P) = P\\frac{\\partial S_{\\text{eff}}}{\\partial P} = \\sum_{k=1}^\\infty \\frac{P^{-ks+1}}{k}$$
+
+The beta function vanishes at $s = 1$ (the pole of zeta — a fixed point of the RG flow!) and has non-trivial zeros at the Riemann zeros.
+
+**Interpretation**:
+- The RG flow runs from UV (large primes) to IR (small primes)
+- The system has a **fixed point** at $s = 1$ (a phase transition)
+- The critical exponents at this fixed point are determined by the zeta zeros
+- RH says all critical exponents have real part $1/2$: this is **conformal invariance at the fixed point**
+
+The connection to the Hamiltonian: RG flow minimizes the effective action, and the fixed point structure determines the ground state. The critical line is the **conformal manifold** of the RG flow.`,
+    latex: [
+      'S_{\\text{eff}}(P, s) = \\sum_{p \\leq P} \\sum_{k=1}^\\infty \\frac{p^{-ks}}{k}',
+      '\\beta(P) = P\\frac{\\partial S_{\\text{eff}}}{\\partial P}, \\quad \\beta(P) = 0 \\text{ at fixed points}',
+      '\\text{Critical exponents: } \\Delta_\\rho = \\rho - 1/2 \\quad (\\text{RH} \\iff \\Delta_\\rho \\in i\\mathbb{R})',
+      '\\text{RH} \\iff \\text{conformal invariance at the RG fixed point}',
+    ],
+    insights: [
+      'Including more primes = UV completion = RG flow',
+      'The pole at s=1 is a fixed point of the renormalization group',
+      'Zeta zeros determine the critical exponents of the fixed point',
+      'RH is equivalent to conformal invariance: all exponents are purely imaginary',
+    ],
+    references: ['connes-1999', 'ruelle-1986', 'baladi-2000'],
     nextSteps: [],
   },
 ];

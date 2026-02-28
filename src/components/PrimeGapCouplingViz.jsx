@@ -1,0 +1,201 @@
+import React, { useRef, useEffect, useState, useCallback } from 'react';
+import * as d3 from 'd3';
+import { getPrimes, primeFrequency } from '../math/primes.js';
+
+/**
+ * Visualize the coupling strength between adjacent oscillator stages.
+ * Coupling ∝ 1/(log p_{n+1} - log p_n) = 1/log(p_{n+1}/p_n)
+ * Twin primes → strongest coupling. Large gaps → weak coupling.
+ */
+export default function PrimeGapCouplingViz() {
+  const svgRef = useRef();
+  const [numPrimes, setNumPrimes] = useState(60);
+  const [mode, setMode] = useState('coupling');
+
+  const draw = useCallback(() => {
+    const svg = d3.select(svgRef.current);
+    svg.selectAll('*').remove();
+    const width = svgRef.current.clientWidth || 800;
+    const height = 400;
+    svg.attr('viewBox', `0 0 ${width} ${height}`);
+
+    const margin = { top: 30, right: 30, bottom: 50, left: 70 };
+    const w = width - margin.left - margin.right;
+    const h = height - margin.top - margin.bottom;
+    const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+    const primes = getPrimes(numPrimes);
+    const data = [];
+    for (let i = 0; i < primes.length - 1; i++) {
+      const p1 = primes[i];
+      const p2 = primes[i + 1];
+      const gap = p2 - p1;
+      const freqGap = primeFrequency(p2) - primeFrequency(p1);
+      const coupling = 1 / freqGap;
+      const isTwin = gap === 2;
+      data.push({ index: i, p1, p2, gap, freqGap, coupling, isTwin, midPrime: (p1 + p2) / 2 });
+    }
+
+    const x = d3.scaleLinear().domain([0, data.length - 1]).range([0, w]);
+
+    if (mode === 'coupling') {
+      const yMax = d3.max(data, d => d.coupling) * 1.1;
+      const y = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
+
+      g.append('g').attr('transform', `translate(0,${h})`)
+        .call(d3.axisBottom(x).ticks(Math.min(20, data.length)).tickFormat(i => data[i]?.p1 || ''))
+        .selectAll('text').attr('fill', '#64748b').attr('font-size', 8)
+        .attr('transform', 'rotate(-45)').attr('text-anchor', 'end');
+      g.append('g').call(d3.axisLeft(y).ticks(8))
+        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+
+      // Coupling bars
+      const barW = Math.max(2, w / data.length - 1);
+      data.forEach((d, i) => {
+        g.append('rect')
+          .attr('x', x(i) - barW / 2).attr('y', y(d.coupling))
+          .attr('width', barW).attr('height', h - y(d.coupling))
+          .attr('rx', 1)
+          .attr('fill', d.isTwin ? '#ef4444' : `hsl(${210 + d.coupling * 20}, 70%, 55%)`)
+          .attr('opacity', d.isTwin ? 0.9 : 0.6);
+      });
+
+      // Coupling line
+      const line = d3.line().x((d, i) => x(i)).y(d => y(d.coupling)).curve(d3.curveMonotoneX);
+      g.append('path').datum(data).attr('d', line)
+        .attr('fill', 'none').attr('stroke', '#06b6d4').attr('stroke-width', 1.5);
+
+      // Mark twin primes
+      data.filter(d => d.isTwin).forEach(d => {
+        g.append('circle')
+          .attr('cx', x(d.index)).attr('cy', y(d.coupling)).attr('r', 4)
+          .attr('fill', '#ef4444').attr('stroke', '#0a0e1a').attr('stroke-width', 1.5);
+      });
+
+      svg.append('text').attr('x', margin.left + 4).attr('y', 16)
+        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .text('Inter-Stage Coupling Strength Y_{n,n+1} = 1/(log p_{n+1} − log p_n)');
+
+      // Legend
+      const legend = g.append('g').attr('transform', `translate(${w - 160}, 10)`);
+      legend.append('circle').attr('cx', 6).attr('cy', 0).attr('r', 4).attr('fill', '#ef4444');
+      legend.append('text').attr('x', 16).attr('y', 4).attr('fill', '#ef4444').attr('font-size', 11)
+        .text('Twin primes (gap=2)');
+
+    } else if (mode === 'gap') {
+      const yMax = d3.max(data, d => d.gap) * 1.1;
+      const y = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
+
+      g.append('g').attr('transform', `translate(0,${h})`)
+        .call(d3.axisBottom(x).ticks(Math.min(20, data.length)).tickFormat(i => data[i]?.p1 || ''))
+        .selectAll('text').attr('fill', '#64748b').attr('font-size', 8)
+        .attr('transform', 'rotate(-45)').attr('text-anchor', 'end');
+      g.append('g').call(d3.axisLeft(y).ticks(8))
+        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+
+      // Gap bars
+      const barW = Math.max(2, w / data.length - 1);
+      data.forEach((d, i) => {
+        const color = d.gap === 2 ? '#ef4444' :
+                      d.gap === 4 ? '#f59e0b' :
+                      d.gap === 6 ? '#3b82f6' : '#8b5cf6';
+        g.append('rect')
+          .attr('x', x(i) - barW / 2).attr('y', y(d.gap))
+          .attr('width', barW).attr('height', h - y(d.gap))
+          .attr('rx', 1)
+          .attr('fill', color).attr('opacity', 0.7);
+      });
+
+      svg.append('text').attr('x', margin.left + 4).attr('y', 16)
+        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .text('Prime Gaps (p_{n+1} − p_n)');
+
+      const legend = g.append('g').attr('transform', `translate(${w - 120}, 10)`);
+      [
+        { label: 'gap=2', color: '#ef4444' },
+        { label: 'gap=4', color: '#f59e0b' },
+        { label: 'gap=6', color: '#3b82f6' },
+        { label: 'other', color: '#8b5cf6' },
+      ].forEach(({ label, color }, i) => {
+        legend.append('rect').attr('x', 0).attr('y', i * 18 - 6).attr('width', 12).attr('height', 12)
+          .attr('rx', 2).attr('fill', color).attr('opacity', 0.7);
+        legend.append('text').attr('x', 18).attr('y', i * 18 + 4).attr('fill', '#94a3b8').attr('font-size', 10)
+          .text(label);
+      });
+
+    } else {
+      // Frequency spectrum of oscillators
+      const y = d3.scaleLinear().domain([0, primeFrequency(primes[primes.length - 1]) * 1.1]).range([h, 0]);
+
+      g.append('g').attr('transform', `translate(0,${h})`)
+        .call(d3.axisBottom(x).ticks(Math.min(20, primes.length)).tickFormat(i => primes[i] || ''))
+        .selectAll('text').attr('fill', '#64748b').attr('font-size', 8)
+        .attr('transform', 'rotate(-45)').attr('text-anchor', 'end');
+      g.append('g').call(d3.axisLeft(y).ticks(8))
+        .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
+      g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+
+      // Frequency points
+      primes.forEach((p, i) => {
+        const freq = primeFrequency(p);
+        g.append('circle')
+          .attr('cx', x(i)).attr('cy', y(freq)).attr('r', 4)
+          .attr('fill', `hsl(${210 + freq * 15}, 70%, 55%)`)
+          .attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+      });
+
+      // Connect with line
+      const line = d3.line().x((d, i) => x(i)).y(d => y(primeFrequency(d))).curve(d3.curveMonotoneX);
+      g.append('path').datum(primes).attr('d', line)
+        .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 1.5).attr('opacity', 0.6);
+
+      // log(x) reference curve
+      const refCurve = d3.range(0, primes.length).map(i => ({ i, y: Math.log(2 + i * (primes[primes.length-1] - 2) / primes.length) }));
+      g.append('path').datum(refCurve)
+        .attr('d', d3.line().x(d => x(d.i)).y(d => y(d.y)).curve(d3.curveBasis))
+        .attr('fill', 'none').attr('stroke', '#64748b').attr('stroke-dasharray', '4,4').attr('stroke-width', 1);
+
+      svg.append('text').attr('x', margin.left + 4).attr('y', 16)
+        .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
+        .text('Oscillator Frequencies ω_p = log(p)');
+    }
+
+    svg.append('text').attr('x', width / 2).attr('y', height - 6)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+      .text('Prime index n');
+
+  }, [numPrimes, mode]);
+
+  useEffect(() => { draw(); }, [draw]);
+  useEffect(() => {
+    const onResize = () => draw();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw]);
+
+  return (
+    <div>
+      <div className="controls">
+        <div className="control-group">
+          <label>View</label>
+          <select value={mode} onChange={e => setMode(e.target.value)}>
+            <option value="coupling">Coupling Strength</option>
+            <option value="gap">Prime Gaps</option>
+            <option value="frequency">Oscillator Frequencies</option>
+          </select>
+        </div>
+        <div className="control-group">
+          <label>Number of primes</label>
+          <input type="range" min="10" max="200" step="1" value={numPrimes}
+            onChange={e => setNumPrimes(+e.target.value)} />
+          <span className="control-value">{numPrimes}</span>
+        </div>
+      </div>
+      <div className="viz-container">
+        <svg ref={svgRef} style={{ width: '100%', height: 400 }} />
+      </div>
+    </div>
+  );
+}

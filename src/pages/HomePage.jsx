@@ -34,12 +34,12 @@ export default function HomePage() {
           <div className="stat-label">References</div>
         </div>
         <div className="stat-box">
-          <div className="stat-value" style={{ color: '#f59e0b' }}>2</div>
-          <div className="stat-label">Dual Ladders</div>
+          <div className="stat-value" style={{ color: '#f59e0b' }}>9</div>
+          <div className="stat-label">Pages</div>
         </div>
         <div className="stat-box">
-          <div className="stat-value" style={{ color: '#ec4899' }}>1</div>
-          <div className="stat-label">Lossless Bridge</div>
+          <div className="stat-value" style={{ color: '#ec4899' }}>14</div>
+          <div className="stat-label">Visualizations</div>
         </div>
       </div>
 
@@ -93,11 +93,44 @@ export default function HomePage() {
             </div>
           </div>
         </Link>
+        <Link to="/control" style={{ textDecoration: 'none' }}>
+          <div className="card">
+            <h3 style={{ color: '#ef4444' }}>Control Theory</h3>
+            <p>Nyquist plots, Bode diagrams, scattering matrices. RH as a stability criterion.
+               H-infinity optimal control at σ = 1/2.</p>
+            <div className="tags-row" style={{ marginTop: 12 }}>
+              <span className="tag tag-red">Nyquist</span>
+              <span className="tag tag-orange">Bode</span>
+            </div>
+          </div>
+        </Link>
+        <Link to="/statistics" style={{ textDecoration: 'none' }}>
+          <div className="card">
+            <h3 style={{ color: '#8b5cf6' }}>Zero Statistics</h3>
+            <p>GUE spacing distributions, pair correlations, Li criterion, and de Bruijn-Newman
+               heat flow. Random matrix theory meets the oscillator chain.</p>
+            <div className="tags-row" style={{ marginTop: 12 }}>
+              <span className="tag tag-purple">GUE</span>
+              <span className="tag tag-green">Li Criterion</span>
+            </div>
+          </div>
+        </Link>
+        <Link to="/modes" style={{ textDecoration: 'none' }}>
+          <div className="card">
+            <h3 style={{ color: '#06b6d4' }}>Oscillator Modes</h3>
+            <p>Animated mode evolution at zeta zero frequencies, prime gap coupling structure,
+               2D energy landscape, and the exploration dependency graph.</p>
+            <div className="tags-row" style={{ marginTop: 12 }}>
+              <span className="tag tag-cyan">Animated</span>
+              <span className="tag tag-blue">Interactive</span>
+            </div>
+          </div>
+        </Link>
         <Link to="/explorations" style={{ textDecoration: 'none' }}>
           <div className="card">
             <h3 style={{ color: '#ec4899' }}>AI Exploration Journal</h3>
-            <p>Browse the continuously-generated AI investigation — deep mathematical explorations
-               with LaTeX rendering, insights, and cross-references.</p>
+            <p>Browse {explorations.length} continuously-generated AI investigations — deep mathematical
+               explorations with LaTeX rendering, insights, and cross-references.</p>
             <div className="tags-row" style={{ marginTop: 12 }}>
               <span className="tag tag-pink">AI Research</span>
               <span className="tag tag-cyan">LaTeX</span>

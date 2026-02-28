@@ -1,0 +1,209 @@
+import React, { useRef, useEffect, useState, useCallback } from 'react';
+import { energyLandscape } from '../math/oscillators.js';
+import { ZETA_ZEROS } from '../math/zeta.js';
+
+/**
+ * 2D heatmap of the system energy landscape in the (σ, t) plane.
+ * Shows the "valley" along σ = 1/2 where the Hamiltonian is minimized.
+ */
+export default function EnergyLandscapeViz() {
+  const canvasRef = useRef();
+  const [numPrimes, setNumPrimes] = useState(8);
+  const [tMax, setTMax] = useState(50);
+  const [metric, setMetric] = useState('energy');
+  const [hoverInfo, setHoverInfo] = useState(null);
+  const landscapeRef = useRef(null);
+
+  const draw = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const dpr = 2;
+    const dw = canvas.clientWidth;
+    const dh = 440;
+    canvas.width = dw * dpr;
+    canvas.height = dh * dpr;
+    ctx.scale(dpr, dpr);
+
+    ctx.fillStyle = '#111827';
+    ctx.fillRect(0, 0, dw, dh);
+
+    const sigmaRange = [0.05, 0.95];
+    const tRange = [0.5, tMax];
+    const res = 60;
+    const landscape = energyLandscape(sigmaRange, tRange, res, numPrimes);
+    landscapeRef.current = landscape;
+
+    const cellW = dw / (res + 1);
+    const cellH = dh / (res + 1);
+
+    // Find min/max for normalization
+    const values = landscape.data.map(d => {
+      if (metric === 'energy') return d.energy;
+      if (metric === 'mismatch') return d.mismatch;
+      if (metric === 'directMag') return d.directMag;
+      return d.dualMag;
+    });
+    const vMin = Math.min(...values);
+    const vMax = Math.max(...values);
+    const vRange = vMax - vMin || 1;
+
+    // Draw heatmap
+    for (const d of landscape.data) {
+      const val = metric === 'energy' ? d.energy :
+                  metric === 'mismatch' ? d.mismatch :
+                  metric === 'directMag' ? d.directMag : d.dualMag;
+      const norm = (val - vMin) / vRange;
+
+      const i = Math.round((d.sigma - sigmaRange[0]) / (sigmaRange[1] - sigmaRange[0]) * res);
+      const j = Math.round((d.t - tRange[0]) / (tRange[1] - tRange[0]) * res);
+
+      // Colormap: dark blue → teal → yellow → red (for energy)
+      // Or cool blue → white (for mismatch near 0)
+      let r, g, b;
+      if (metric === 'mismatch') {
+        // Blue when matched (low), red when mismatched (high)
+        if (norm < 0.3) {
+          const t2 = norm / 0.3;
+          r = 10 + t2 * 30; g = 40 + t2 * 80; b = 120 + t2 * 80;
+        } else if (norm < 0.6) {
+          const t2 = (norm - 0.3) / 0.3;
+          r = 40 + t2 * 160; g = 120 + t2 * 80; b = 200 - t2 * 100;
+        } else {
+          const t2 = (norm - 0.6) / 0.4;
+          r = 200 + t2 * 55; g = 200 - t2 * 150; b = 100 - t2 * 80;
+        }
+      } else {
+        // Viridis-like
+        if (norm < 0.25) {
+          const t2 = norm / 0.25;
+          r = 68 - t2 * 20; g = 1 + t2 * 50; b = 84 + t2 * 50;
+        } else if (norm < 0.5) {
+          const t2 = (norm - 0.25) / 0.25;
+          r = 48 + t2 * 5; g = 51 + t2 * 80; b = 134 - t2 * 20;
+        } else if (norm < 0.75) {
+          const t2 = (norm - 0.5) / 0.25;
+          r = 53 + t2 * 120; g = 131 + t2 * 50; b = 114 - t2 * 60;
+        } else {
+          const t2 = (norm - 0.75) / 0.25;
+          r = 173 + t2 * 80; g = 181 + t2 * 30; b = 54 - t2 * 30;
+        }
+      }
+
+      ctx.fillStyle = `rgb(${r|0},${g|0},${b|0})`;
+      ctx.fillRect(i * cellW, (res - j) * cellH, cellW + 0.5, cellH + 0.5);
+    }
+
+    // Critical line σ = 0.5
+    const critX = ((0.5 - sigmaRange[0]) / (sigmaRange[1] - sigmaRange[0])) * dw;
+    ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 4]);
+    ctx.beginPath(); ctx.moveTo(critX, 0); ctx.lineTo(critX, dh); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Known zeros
+    for (const gamma of ZETA_ZEROS) {
+      if (gamma >= tRange[0] && gamma <= tRange[1]) {
+        const zy = dh - ((gamma - tRange[0]) / (tRange[1] - tRange[0])) * dh;
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(critX, zy, 5, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = 'rgba(255,255,255,0.3)';
+        ctx.fill();
+      }
+    }
+
+    // Axis labels
+    ctx.fillStyle = '#e2e8f0';
+    ctx.font = '600 13px sans-serif';
+    const titles = {
+      energy: 'System Energy Landscape H(σ, t)',
+      mismatch: 'Impedance Mismatch |Z_direct − Z_dual|',
+      directMag: 'Direct Ladder |ζ(s)|',
+      dualMag: 'Dual Ladder |ζ(1−s)|',
+    };
+    ctx.fillText(titles[metric], 10, 18);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '11px sans-serif';
+    ctx.fillText(`σ: ${sigmaRange[0]} → ${sigmaRange[1]}`, 10, 36);
+    ctx.fillText(`t: ${tRange[0]} → ${tRange[1]}`, 10, 50);
+    ctx.fillText('White line: σ = ½  |  Circles: zeta zeros', 10, 64);
+
+    // Color bar
+    const barX = dw - 30;
+    const barH = dh - 20;
+    for (let i = 0; i < barH; i++) {
+      const norm = i / barH;
+      let r, g, b;
+      if (metric === 'mismatch') {
+        if (norm < 0.3) { r = 10 + norm/0.3 * 30; g = 40 + norm/0.3 * 80; b = 120 + norm/0.3 * 80; }
+        else if (norm < 0.6) { const t2 = (norm-0.3)/0.3; r = 40+t2*160; g = 120+t2*80; b = 200-t2*100; }
+        else { const t2 = (norm-0.6)/0.4; r = 200+t2*55; g = 200-t2*150; b = 100-t2*80; }
+      } else {
+        if (norm < 0.25) { const t2 = norm/0.25; r = 68-t2*20; g = 1+t2*50; b = 84+t2*50; }
+        else if (norm < 0.5) { const t2 = (norm-0.25)/0.25; r = 48+t2*5; g = 51+t2*80; b = 134-t2*20; }
+        else if (norm < 0.75) { const t2 = (norm-0.5)/0.25; r = 53+t2*120; g = 131+t2*50; b = 114-t2*60; }
+        else { const t2 = (norm-0.75)/0.25; r = 173+t2*80; g = 181+t2*30; b = 54-t2*30; }
+      }
+      ctx.fillStyle = `rgb(${r|0},${g|0},${b|0})`;
+      ctx.fillRect(barX, barH - i + 10, 16, 1);
+    }
+    ctx.fillStyle = '#94a3b8'; ctx.font = '9px monospace';
+    ctx.fillText(vMax.toFixed(1), barX - 2, 18);
+    ctx.fillText(vMin.toFixed(1), barX - 2, barH + 18);
+
+  }, [numPrimes, tMax, metric]);
+
+  useEffect(() => { draw(); }, [draw]);
+
+  const handleHover = useCallback((e) => {
+    if (!landscapeRef.current || !canvasRef.current) return;
+    const rect = canvasRef.current.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) / rect.width;
+    const my = (e.clientY - rect.top) / rect.height;
+    const sigma = 0.05 + mx * 0.9;
+    const t = 0.5 + (1 - my) * (tMax - 0.5);
+    setHoverInfo({ sigma: sigma.toFixed(3), t: t.toFixed(2) });
+  }, [tMax]);
+
+  return (
+    <div>
+      <div className="controls">
+        <div className="control-group">
+          <label>Metric</label>
+          <select value={metric} onChange={e => setMetric(e.target.value)}>
+            <option value="energy">System Energy</option>
+            <option value="mismatch">Impedance Mismatch</option>
+            <option value="directMag">|ζ(s)| Direct</option>
+            <option value="dualMag">|ζ(1-s)| Dual</option>
+          </select>
+        </div>
+        <div className="control-group">
+          <label>t max</label>
+          <input type="range" min="10" max="80" step="5" value={tMax}
+            onChange={e => setTMax(+e.target.value)} />
+          <span className="control-value">{tMax}</span>
+        </div>
+        <div className="control-group">
+          <label>Primes</label>
+          <input type="range" min="3" max="15" step="1" value={numPrimes}
+            onChange={e => setNumPrimes(+e.target.value)} />
+          <span className="control-value">{numPrimes}</span>
+        </div>
+        {hoverInfo && (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+            σ={hoverInfo.sigma} t={hoverInfo.t}
+          </div>
+        )}
+      </div>
+      <div className="viz-container">
+        <canvas ref={canvasRef} style={{ width: '100%', height: 440, cursor: 'crosshair' }}
+          onMouseMove={handleHover} onMouseLeave={() => setHoverInfo(null)} />
+      </div>
+    </div>
+  );
+}

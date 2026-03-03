@@ -273,6 +273,41 @@ export default function RHRigorViz() {
     ctx.fillStyle = maxDev < 0.05 ? '#10b981' : maxDev < 0.15 ? '#f59e0b' : '#ef4444';
     ctx.textAlign = 'right';
     ctx.fillText(`Max deviation: ${maxDev.toFixed(4)} | Avg: ${avgDev.toFixed(4)}`, pw, -14);
+
+    // Legend
+    const lx = pw - 170, ly = ph - 90;
+    ctx.fillStyle = 'rgba(13, 17, 23, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.fillRect(lx, ly, 170, 88);
+    ctx.strokeRect(lx, ly, 170, 88);
+
+    const items = [
+      { type: 'dash', color: '#10b981', label: 'σ = ½ (RH prediction)' },
+      { type: 'line', color: '#3b82f6', label: 'σ* trajectory' },
+      { type: 'dot',  color: 'rgb(0, 255, 100)', label: 'Low deviation' },
+      { type: 'dot',  color: 'rgb(255, 0, 100)', label: 'High deviation' },
+      { type: 'band', color: 'rgba(16, 185, 129, 0.08)', label: 'ζ zero location' },
+    ];
+    items.forEach((item, i) => {
+      const iy = ly + 12 + i * 15;
+      if (item.type === 'dash') {
+        ctx.strokeStyle = item.color; ctx.lineWidth = 2; ctx.setLineDash([4, 3]);
+        ctx.beginPath(); ctx.moveTo(lx + 6, iy); ctx.lineTo(lx + 22, iy); ctx.stroke();
+        ctx.setLineDash([]);
+      } else if (item.type === 'line') {
+        ctx.strokeStyle = item.color; ctx.lineWidth = 1.5; ctx.setLineDash([]);
+        ctx.beginPath(); ctx.moveTo(lx + 6, iy); ctx.lineTo(lx + 22, iy); ctx.stroke();
+      } else if (item.type === 'dot') {
+        ctx.fillStyle = item.color;
+        ctx.beginPath(); ctx.arc(lx + 14, iy, 4, 0, Math.PI * 2); ctx.fill();
+      } else if (item.type === 'band') {
+        ctx.fillStyle = 'rgba(16, 185, 129, 0.25)';
+        ctx.fillRect(lx + 6, iy - 6, 16, 12);
+      }
+      ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter, sans-serif'; ctx.textAlign = 'left';
+      ctx.fillText(item.label, lx + 28, iy + 4);
+    });
   }
 
   function drawBridgeTest(ctx, data, pw, ph, w, h, margin) {

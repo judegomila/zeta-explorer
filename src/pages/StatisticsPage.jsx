@@ -49,6 +49,35 @@ export default function StatisticsPage() {
         </div>
       </div>
 
+      <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
+        <h3 style={{ color: '#06b6d4' }}>What to Explore in Each Tab</h3>
+        <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          <strong style={{ color: '#ef4444' }}>Spacing Distribution</strong> compares the nearest-neighbor gaps between
+          consecutive zeta zeros to the GUE Wigner surmise <InlineMath tex="P(s) \propto s^2 e^{-4s^2/\pi}" />.
+          Increase the zero count and watch the histogram lock onto the GUE curve while diverging from Poisson — this
+          is the hallmark of level repulsion (zeros "avoid" each other like eigenvalues of random Hermitian matrices).
+          <strong style={{ color: '#8b5cf6' }}> Pair Correlation</strong> tests Montgomery's conjecture: the two-point
+          correlation <InlineMath tex="R_2(x) = 1 - (\sin\pi x/\pi x)^2" />. Look for the characteristic dip near
+          <InlineMath tex="x = 0" /> (zeros repel) and the approach to 1 at large <InlineMath tex="x" /> (independence at
+          long range).
+          <strong style={{ color: '#06b6d4' }}> Number Variance</strong> plots <InlineMath tex="\Sigma^2(L)" />, the variance of zero
+          counts in intervals of length <InlineMath tex="L" />. GUE predicts logarithmic growth (<InlineMath tex="\sim \frac{1}{\pi^2}\log L" />),
+          far below Poisson's linear growth — this spectral rigidity means zeta zeros are much more regularly spaced
+          than random points.
+        </p>
+        <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          <strong style={{ color: '#10b981' }}>Li Coefficients</strong> plots <InlineMath tex="\lambda_n" /> as a bar chart — RH
+          is equivalent to all bars being non-negative. Watch for bars dipping below zero (they shouldn't with our
+          tabulated zeros).
+          <strong style={{ color: '#f59e0b' }}> Keiper-Li Asymptotic</strong> shows <InlineMath tex="\lambda_n / n" /> against
+          the predicted growth <InlineMath tex="\frac{1}{2}\log(n/2\pi e) + \frac{1}{2}" />. The scatter of data points
+          around the asymptotic line shrinks as you increase zero count.
+          <strong style={{ color: '#8b5cf6' }}> de Bruijn-Newman</strong> visualizes zero trajectories under the heat
+          equation. Drag the <InlineMath tex="\tau" /> slider: at <InlineMath tex="\tau = 0" /> zeros sit on the real axis
+          (assuming RH); positive <InlineMath tex="\tau" /> pushes them apart into the complex plane.
+        </p>
+      </div>
+
       <div style={{ marginTop: 48 }}>
         <div className="viz-title">Li Criterion & de Bruijn-Newman</div>
         <div className="viz-subtitle">

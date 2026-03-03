@@ -47,6 +47,10 @@ function VonMangoldtSpectrumTab() {
   const svgRef = useRef();
   const [maxN, setMaxN] = useState(300);
 
+  // Memoize spectrum data so window resize only re-renders D3 without recomputing
+  // 300 frequency points × ~80 non-zero Λ(n) entries = ~24,000 trig calls
+  const spectrum = useMemo(() => vonMangoldtSpectrum(maxN, 300, [0, 50]), [maxN]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -57,8 +61,6 @@ function VonMangoldtSpectrumTab() {
     const margin = { top: 30, right: 30, bottom: 50, left: 65 };
     const w = width - margin.left - margin.right;
     const h = height - margin.top - margin.bottom;
-
-    const spectrum = vonMangoldtSpectrum(maxN, 300, [0, 50]);
 
     const x = d3.scaleLinear().domain([0, 50]).range([0, w]);
     const yMax = d3.max(spectrum, d => d.magnitude) * 1.1;
@@ -110,7 +112,7 @@ function VonMangoldtSpectrumTab() {
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('|F(ω)|');
 
-  }, [maxN]);
+  }, [spectrum]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

@@ -248,3 +248,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 242 | 2026-03-03T23:00:00Z | Fix OscillatorsPage Dual Ladder card saying 'Impedance matches' instead of 'Conjugate-matches' on critical line | OscillatorsPage.jsx |
 | 243 | 2026-03-03T23:30:00Z | Fix RHRigorPage conflating 'bounded below' with 'self-adjoint' in Hilbert-Pólya program description | RHRigorPage.jsx |
 | 244 | 2026-03-03T23:45:00Z | Make Play/Pause button always visible across all tabs in WaveSimViz with 'animating' hint on non-animated tabs | WaveSimViz.jsx |
+| 245 | 2026-03-04T00:00:00Z | Memoize vonMangoldtSpectrum in VonMangoldtSpectrumTab to avoid recomputing 24,000 trig calls on resize | FourierDomainViz.jsx |

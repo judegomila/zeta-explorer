@@ -251,9 +251,9 @@ export default function OscillatorChainViz() {
     <div>
       <div className="tab-explainer">
         <strong>The math:</strong> The Euler product <InlineMath tex="\\zeta(s) = \\prod_p (1-p^{-s})^{-1}" /> is realized as
-        a cascade of LC oscillator stages. Each prime <InlineMath tex="p" /> contributes a stage with resonant frequency{' '}
-        <InlineMath tex="\\omega_p = \\log p" />, inductance <InlineMath tex="L_p = \\log p" />, and capacitance{' '}
-        <InlineMath tex="C_p = 1/\\log p" />. The blue <strong>direct ladder</strong> computes <InlineMath tex="\\zeta(s)" />;
+        a cascade of oscillator stages. Each prime <InlineMath tex="p" /> contributes a stage with natural frequency{' '}
+        <InlineMath tex="\\omega_p = \\log p" /> (from <InlineMath tex="p^{-s} = e^{-s\\log p}" />) and characteristic
+        impedance <InlineMath tex="Z_p = \\log p" />. The blue <strong>direct ladder</strong> computes <InlineMath tex="\\zeta(s)" />;
         the gold <strong>dual ladder</strong> computes <InlineMath tex="\\zeta(1-s)" />. The purple <strong>bridge</strong> implements
         the functional equation <InlineMath tex="\\zeta(s) = \\chi(s)\\zeta(1-s)" />. At <InlineMath tex="\\sigma = 0.5" />,
         direct and dual are impedance-matched and the bridge is lossless.

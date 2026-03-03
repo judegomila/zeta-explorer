@@ -125,7 +125,12 @@ export function riemannSiegelZ(t) {
   }
   sum *= 2;
   // C_0 correction term: improves accuracy from O(t^{-1/4}) to O(t^{-3/4})
-  const C0 = Math.cos(2 * Math.PI * (p * p - p - 1 / 16)) / Math.cos(2 * Math.PI * p);
+  // Guard removable singularities at p=1/4 and p=3/4 where both numerator
+  // and denominator vanish; by L'Hôpital / Taylor expansion the limit is 1/2.
+  const cosDen = Math.cos(2 * Math.PI * p);
+  const C0 = Math.abs(cosDen) < 1e-8
+    ? 0.5
+    : Math.cos(2 * Math.PI * (p * p - p - 1 / 16)) / cosDen;
   sum += Math.pow(t / (2 * Math.PI), -0.25) * (N % 2 === 0 ? -1 : 1) * C0;
   return sum;
 }

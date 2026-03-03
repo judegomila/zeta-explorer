@@ -184,3 +184,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 178 | 2026-03-03T23:00:00Z | Fix StatisticsPage de Bruijn-Newman description claiming positive τ scatters zeros (actually negative τ does) | StatisticsPage.jsx |
 | 179 | 2026-03-03T23:30:00Z | Add horizontal gridlines to all three modes of ScatteringMatrixViz | ScatteringMatrixViz.jsx |
 | 180 | 2026-03-03T23:45:00Z | Add legends to both EulerPhaseTab charts showing convergence coloring and reference lines | SupercriticalViz.jsx |
+| 181 | 2026-03-03T23:55:00Z | Fix blurry canvas rendering on retina displays in WaveSimViz SignalFlowTab and WaveInterferenceTab | WaveSimViz.jsx |

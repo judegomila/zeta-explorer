@@ -14,6 +14,10 @@ const TABS = [
 ];
 
 // ─── Tab 1: Signal Flow (Canvas) ───────────────────────────────────────
+// Physics: The functional equation ζ(s) = χ(s)·ζ(1-s) couples two active
+// ladders through a bidirectional bridge. Both ladders oscillate simultaneously;
+// energy flows in BOTH directions through the bridge. At σ=0.5 the flows are
+// equal (standing-wave equilibrium). Off the critical line one direction dominates.
 function SignalFlowTab({ sigma, t, numPrimes, playing }) {
   const canvasRef = useRef();
   const animRef = useRef();
@@ -23,8 +27,13 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const W = canvas.width;
-    const H = canvas.height;
+    const dpr = window.devicePixelRatio || 1;
+    const W = canvas.parentElement.clientWidth;
+    const H = Math.max(400, 80 + numPrimes * 34);
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.height = H + 'px';
+    ctx.scale(dpr, dpr);
     ctx.clearRect(0, 0, W, H);
 
     const s = [sigma, t];
@@ -37,8 +46,8 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
     const xDir = W * 0.2;
     const xBridge = W * 0.5;
     const xDual = W * 0.8;
-    const yTop = 50;
-    const yBot = H - 30;
+    const yTop = 60;
+    const yBot = H - 40;
     const ySpacing = (yBot - yTop) / (numPrimes + 1);
 
     // Background
@@ -49,20 +58,42 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
     ctx.font = 'bold 12px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillStyle = '#3b82f6';
-    ctx.fillText('DIRECT ζ(s)', xDir, 20);
+    ctx.fillText('DIRECT ζ(s)', xDir, 18);
     ctx.fillStyle = '#8b5cf6';
-    ctx.fillText('BRIDGE χ(s)', xBridge, 20);
+    ctx.fillText('BRIDGE χ(s)', xBridge, 18);
     ctx.fillStyle = '#f59e0b';
-    ctx.fillText('DUAL ζ(1−s)', xDual, 20);
+    ctx.fillText('DUAL ζ(1−s)', xDual, 18);
 
     // Bridge status
     ctx.font = 'bold 10px Inter, sans-serif';
     ctx.fillStyle = bridge.isUnitary ? '#10b981' : '#ef4444';
-    ctx.fillText(bridge.isUnitary ? 'LOSSLESS' : `LOSSY |χ|=${bridge.magnitude.toFixed(3)}`, xBridge, 35);
+    ctx.fillText(bridge.isUnitary ? 'LOSSLESS' : `LOSSY |χ|=${bridge.magnitude.toFixed(3)}`, xBridge, 33);
+
+    // Bidirectional energy balance:
+    // Direct magnitude |ζ_N(s)| vs dual magnitude |ζ_N(1-s)|
+    // Normalize to get relative flow strengths
+    const dirMag = direct.totalMagnitude;
+    const dualMag = dual.totalMagnitude;
+    const totalMag = dirMag + dualMag + 0.001;
+    const fwdStrength = dirMag / totalMag;   // Direct → Dual flow strength
+    const revStrength = dualMag / totalMag;   // Dual → Direct flow strength
 
     // Reflection coefficient (amplitude ratio); power = Γ²
     const reflCoeff = bridge.reflectionCoeff;
-    const transCoeff = Math.sqrt(1 - reflCoeff * reflCoeff);
+    const transCoeff = Math.sqrt(Math.max(0, 1 - reflCoeff * reflCoeff));
+
+    // Net flow direction indicator
+    const netFlow = sigma < 0.5 ? 'direct → dual' : sigma > 0.5 ? 'dual → direct' : 'equilibrium';
+    ctx.font = '10px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    const eqColor = Math.abs(sigma - 0.5) < 0.02 ? '#10b981' : '#94a3b8';
+    ctx.fillStyle = eqColor;
+    ctx.fillText(
+      Math.abs(sigma - 0.5) < 0.02
+        ? 'EQUILIBRIUM — equal bidirectional flow'
+        : `Net flow: ${netFlow} (${(Math.abs(fwdStrength - revStrength) * 100).toFixed(0)}% imbalance)`,
+      xBridge, 48
+    );
 
     // Draw vertical wires
     ctx.strokeStyle = 'rgba(59,130,246,0.3)';
@@ -88,73 +119,128 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
     ctx.fill();
     ctx.stroke();
 
-    // Animate signal flow through each prime stage
+    // Animate signal flow through each prime stage — BIDIRECTIONAL
     primes.forEach((p, i) => {
       const y = yTop + (i + 1) * ySpacing;
       const stageD = direct.stages[i];
       const stageU = dual.stages[i];
 
-      // Phase of signal at this stage
-      const phase = time * primeFrequency(p) * 0.5;
-      const pulseD = 0.5 + 0.5 * Math.sin(phase);
-      const pulseU = 0.5 + 0.5 * Math.sin(phase + stageU.phase - stageD.phase);
+      // Phase of signal at this stage (each prime has its own frequency)
+      const omega = primeFrequency(p);
+      const phaseD = time * omega * 0.5;
+      const phaseU = time * omega * 0.5 + stageU.phase - stageD.phase;
+      const pulseD = 0.5 + 0.5 * Math.sin(phaseD);
+      const pulseU = 0.5 + 0.5 * Math.sin(phaseU);
 
-      // Direct node
-      const rD = 6 + pulseD * 4;
+      // Direct node — size pulsates with signal magnitude
+      const rD = 5 + pulseD * 4 + stageD.magnitude * 1.5;
       ctx.beginPath();
-      ctx.arc(xDir, y, rD, 0, Math.PI * 2);
+      ctx.arc(xDir, y, Math.min(rD, 14), 0, Math.PI * 2);
       ctx.fillStyle = `hsla(210, 80%, ${40 + pulseD * 30}%, ${0.6 + pulseD * 0.4})`;
       ctx.fill();
 
       // Dual node
-      const rU = 6 + pulseU * 4;
+      const rU = 5 + pulseU * 4 + stageU.magnitude * 1.5;
       ctx.beginPath();
-      ctx.arc(xDual, y, rU, 0, Math.PI * 2);
+      ctx.arc(xDual, y, Math.min(rU, 14), 0, Math.PI * 2);
       ctx.fillStyle = `hsla(35, 80%, ${40 + pulseU * 30}%, ${0.6 + pulseU * 0.4})`;
       ctx.fill();
 
-      // Transmitted signal: direct → bridge → dual
-      const waveX = xDir + (xBridge - xDir) * ((phase % (Math.PI * 2)) / (Math.PI * 2));
-      const txAlpha = transCoeff * (0.3 + 0.5 * pulseD);
+      const nodeRD = Math.min(rD, 14);
+      const nodeRU = Math.min(rU, 14);
+      const leftEdgeDir = xDir + nodeRD + 2;
+      const rightEdgeBridgeL = xBridge - bw / 2 - 2;
+      const leftEdgeBridgeR = xBridge + bw / 2 + 2;
+      const rightEdgeDual = xDual - nodeRU - 2;
+      const spanL = rightEdgeBridgeL - leftEdgeDir;
+      const spanR = rightEdgeDual - leftEdgeBridgeR;
 
-      // Forward arrow (transmitted)
-      ctx.strokeStyle = `rgba(16, 185, 129, ${txAlpha})`;
-      ctx.lineWidth = 2;
+      // ── Forward flow: Direct → Bridge → Dual (green, top track y-2) ──
+      const fwdAlpha = fwdStrength * transCoeff * (0.3 + 0.5 * pulseD);
+      const fwdDotSize = 2 + fwdStrength * 3;
+      const fwdY = y - 3;  // top track
+
+      // Connector line (Direct → Bridge)
+      ctx.strokeStyle = `rgba(16, 185, 129, ${fwdAlpha * 0.6})`;
+      ctx.lineWidth = 1 + fwdStrength * 2;
       ctx.beginPath();
-      ctx.moveTo(xDir + rD + 2, y);
-      ctx.lineTo(xBridge - bw / 2 - 2, y);
+      ctx.moveTo(leftEdgeDir, fwdY);
+      ctx.lineTo(rightEdgeBridgeL, fwdY);
       ctx.stroke();
 
-      // Draw moving pulse dot on the connector
-      const dotProgress = (phase % (Math.PI * 2)) / (Math.PI * 2);
-      const dotX1 = xDir + rD + 2 + dotProgress * (xBridge - bw / 2 - xDir - rD - 4);
+      // Moving dot (Direct → Bridge)
+      const dotFwd1 = (phaseD % (Math.PI * 2)) / (Math.PI * 2);
       ctx.beginPath();
-      ctx.arc(dotX1, y, 3, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(16, 185, 129, ${0.5 + transCoeff * 0.5})`;
+      ctx.arc(leftEdgeDir + dotFwd1 * spanL, fwdY, fwdDotSize, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(16, 185, 129, ${0.5 + fwdStrength * 0.5})`;
       ctx.fill();
 
-      // Bridge → Dual arrow
-      ctx.strokeStyle = `rgba(16, 185, 129, ${txAlpha})`;
+      // Connector line (Bridge → Dual)
+      ctx.strokeStyle = `rgba(16, 185, 129, ${fwdAlpha * 0.6})`;
+      ctx.lineWidth = 1 + fwdStrength * 2;
       ctx.beginPath();
-      ctx.moveTo(xBridge + bw / 2 + 2, y);
-      ctx.lineTo(xDual - rU - 2, y);
+      ctx.moveTo(leftEdgeBridgeR, fwdY);
+      ctx.lineTo(rightEdgeDual, fwdY);
       ctx.stroke();
 
-      const dotX2 = xBridge + bw / 2 + 2 + dotProgress * (xDual - rU - xBridge - bw / 2 - 4);
+      // Moving dot (Bridge → Dual)
       ctx.beginPath();
-      ctx.arc(dotX2, y, 3, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(16, 185, 129, ${0.5 + transCoeff * 0.5})`;
+      ctx.arc(leftEdgeBridgeR + dotFwd1 * spanR, fwdY, fwdDotSize, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(16, 185, 129, ${0.5 + fwdStrength * 0.5})`;
       ctx.fill();
 
-      // Reflected signal (only visible when bridge is lossy)
+      // ── Reverse flow: Dual → Bridge → Direct (cyan, bottom track y+2) ──
+      const revAlpha = revStrength * transCoeff * (0.3 + 0.5 * pulseU);
+      const revDotSize = 2 + revStrength * 3;
+      const revY = y + 3;  // bottom track
+
+      // Connector line (Dual → Bridge)
+      ctx.strokeStyle = `rgba(6, 182, 212, ${revAlpha * 0.6})`;
+      ctx.lineWidth = 1 + revStrength * 2;
+      ctx.beginPath();
+      ctx.moveTo(rightEdgeDual, revY);
+      ctx.lineTo(leftEdgeBridgeR, revY);
+      ctx.stroke();
+
+      // Moving dot (Dual → Bridge) — travels right to left
+      const dotRev1 = (phaseU % (Math.PI * 2)) / (Math.PI * 2);
+      ctx.beginPath();
+      ctx.arc(rightEdgeDual - dotRev1 * spanR, revY, revDotSize, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(6, 182, 212, ${0.5 + revStrength * 0.5})`;
+      ctx.fill();
+
+      // Connector line (Bridge → Direct)
+      ctx.strokeStyle = `rgba(6, 182, 212, ${revAlpha * 0.6})`;
+      ctx.lineWidth = 1 + revStrength * 2;
+      ctx.beginPath();
+      ctx.moveTo(rightEdgeBridgeL, revY);
+      ctx.lineTo(leftEdgeDir, revY);
+      ctx.stroke();
+
+      // Moving dot (Bridge → Direct)
+      ctx.beginPath();
+      ctx.arc(rightEdgeBridgeL - dotRev1 * spanL, revY, revDotSize, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(6, 182, 212, ${0.5 + revStrength * 0.5})`;
+      ctx.fill();
+
+      // ── Reflected waves (only when bridge is lossy) ──
       if (reflCoeff > 0.02) {
-        const refAlpha = reflCoeff * (0.3 + 0.5 * pulseD);
-        const refProgress = 1 - dotProgress;
-        const refDotX = xDir + rD + 2 + refProgress * (xBridge - bw / 2 - xDir - rD - 4);
+        const refSize = 1.5 + reflCoeff * 2;
+        const refAlphaD = reflCoeff * (0.3 + 0.4 * pulseD);
+        const refAlphaU = reflCoeff * (0.3 + 0.4 * pulseU);
 
+        // Direct-side reflection: bounces back from bridge toward direct
+        const refFwdProg = 1 - dotFwd1;
         ctx.beginPath();
-        ctx.arc(refDotX, y - 4, 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(239, 68, 68, ${refAlpha + 0.3})`;
+        ctx.arc(leftEdgeDir + refFwdProg * spanL, fwdY - 3, refSize, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(239, 68, 68, ${refAlphaD + 0.3})`;
+        ctx.fill();
+
+        // Dual-side reflection: bounces back from bridge toward dual
+        const refRevProg = 1 - dotRev1;
+        ctx.beginPath();
+        ctx.arc(rightEdgeDual - refRevProg * spanR, revY + 3, refSize, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(239, 68, 68, ${refAlphaU + 0.3})`;
         ctx.fill();
       }
 
@@ -162,25 +248,47 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
       ctx.font = '9px JetBrains Mono, monospace';
       ctx.textAlign = 'center';
       ctx.fillStyle = '#64748b';
-      ctx.fillText(`p=${p}`, xDir, y + rD + 12);
+      ctx.fillText(`p=${p}`, xDir - nodeRD - 18, y + 4);
     });
 
-    // Energy flow legend (power fractions: P_t = 1-Γ², P_r = Γ²)
+    // ── Legend ──
     const reflPower = reflCoeff * reflCoeff;
+    const lgY = H - 30;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'left';
+
+    // Forward flow swatch
     ctx.fillStyle = '#10b981';
-    ctx.fillText(`Transmitted: ${((1 - reflPower) * 100).toFixed(1)}%`, 12, H - 10);
+    ctx.fillRect(12, lgY - 4, 14, 3);
+    ctx.beginPath(); ctx.arc(26, lgY - 2.5, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillText(`Forward (D→U): ${(fwdStrength * 100).toFixed(0)}%`, 34, lgY);
+
+    // Reverse flow swatch
+    ctx.fillStyle = '#06b6d4';
+    ctx.fillRect(12, lgY + 12, 14, 3);
+    ctx.beginPath(); ctx.arc(26, lgY + 13.5, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillText(`Reverse (U→D): ${(revStrength * 100).toFixed(0)}%`, 34, lgY + 16);
+
+    // Reflection info
     ctx.fillStyle = '#ef4444';
-    ctx.fillText(`Reflected: ${(reflPower * 100).toFixed(1)}%`, 160, H - 10);
+    ctx.textAlign = 'left';
+    ctx.fillText(`Reflection: ${(reflPower * 100).toFixed(1)}%`, W * 0.4, lgY);
+    ctx.fillStyle = '#64748b';
+    ctx.fillText(`Transmitted: ${((1 - reflPower) * 100).toFixed(1)}%`, W * 0.4, lgY + 16);
+
+    // Magnitude summary
+    ctx.font = '10px JetBrains Mono, monospace';
+    ctx.textAlign = 'right';
+    ctx.fillStyle = '#3b82f6';
+    ctx.fillText(`|ζ(s)| ≈ ${dirMag.toFixed(3)}`, W - 12, lgY);
+    ctx.fillStyle = '#f59e0b';
+    ctx.fillText(`|ζ(1−s)| ≈ ${dualMag.toFixed(3)}`, W - 12, lgY + 16);
 
   }, [sigma, t, numPrimes]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = Math.max(400, 80 + numPrimes * 34);
 
     if (playing) {
       const animate = () => {
@@ -317,9 +425,13 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const W = canvas.width;
-    const H = canvas.height;
-    ctx.clearRect(0, 0, W, H);
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    const W = rect.width;
+    const H = rect.height;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.scale(dpr, dpr);
 
     const s = [sigma, t];
     const sDual = [1 - sigma, -t];
@@ -437,8 +549,6 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = 500;
 
     if (playing) {
       const animate = () => {
@@ -864,25 +974,44 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
         .attr('font-size', 10).attr('font-family', 'JetBrains Mono, monospace')
         .text(`${numPrimes} prime stages`);
 
-      // Connecting arrows
-      const arrowY = cy;
-      // Direct → Bridge
+      // Bidirectional connecting arrows
+      // Forward (Direct → Bridge → Dual) — top track
+      const fwdY = cy - 6;
       svg.append('line')
-        .attr('x1', xL + ladderW).attr('y1', arrowY)
-        .attr('x2', xB).attr('y2', arrowY)
-        .attr('stroke', '#3b82f6').attr('stroke-width', 2)
-        .attr('marker-end', 'url(#arrowBlue)');
+        .attr('x1', xL + ladderW).attr('y1', fwdY)
+        .attr('x2', xB).attr('y2', fwdY)
+        .attr('stroke', '#10b981').attr('stroke-width', 2)
+        .attr('marker-end', 'url(#arrowGreen)');
+      svg.append('line')
+        .attr('x1', xB + bridgeW).attr('y1', fwdY)
+        .attr('x2', xR).attr('y2', fwdY)
+        .attr('stroke', '#10b981').attr('stroke-width', 2)
+        .attr('marker-end', 'url(#arrowGreen)');
 
-      // Bridge → Dual
+      // Reverse (Dual → Bridge → Direct) — bottom track
+      const revY = cy + 6;
       svg.append('line')
-        .attr('x1', xB + bridgeW).attr('y1', arrowY)
-        .attr('x2', xR).attr('y2', arrowY)
-        .attr('stroke', '#f59e0b').attr('stroke-width', 2)
-        .attr('marker-end', 'url(#arrowGold)');
+        .attr('x1', xR).attr('y1', revY)
+        .attr('x2', xB + bridgeW).attr('y2', revY)
+        .attr('stroke', '#06b6d4').attr('stroke-width', 2)
+        .attr('marker-end', 'url(#arrowCyan)');
+      svg.append('line')
+        .attr('x1', xB).attr('y1', revY)
+        .attr('x2', xL + ladderW).attr('y2', revY)
+        .attr('stroke', '#06b6d4').attr('stroke-width', 2)
+        .attr('marker-end', 'url(#arrowCyan)');
+
+      // Flow labels
+      svg.append('text').attr('x', (xL + ladderW + xB) / 2).attr('y', fwdY - 6)
+        .attr('text-anchor', 'middle').attr('fill', '#10b981').attr('font-size', 8)
+        .text('forward →');
+      svg.append('text').attr('x', (xL + ladderW + xB) / 2).attr('y', revY + 14)
+        .attr('text-anchor', 'middle').attr('fill', '#06b6d4').attr('font-size', 8)
+        .text('← reverse');
 
       // Arrow markers
       const defs = svg.append('defs');
-      [['arrowBlue', '#3b82f6'], ['arrowGold', '#f59e0b']].forEach(([id, color]) => {
+      [['arrowGreen', '#10b981'], ['arrowCyan', '#06b6d4']].forEach(([id, color]) => {
         defs.append('marker').attr('id', id)
           .attr('viewBox', '0 0 10 6').attr('refX', 10).attr('refY', 3)
           .attr('markerWidth', 8).attr('markerHeight', 6).attr('orient', 'auto')
@@ -1019,9 +1148,10 @@ export default function WaveSimViz() {
         {tab === 'signal' && (
           <>
             <div className="tab-explainer">
-              <strong>Signal Flow:</strong> Watch energy pulses travel through the direct ladder, across the bridge, and into the dual ladder.
-              At <InlineMath tex="\sigma = 0.5" />, signals pass through the bridge perfectly (green dots). Move <InlineMath tex="\sigma" /> away
-              and red reflected dots appear — energy bouncing back from the impedance mismatch.
+              <strong>Signal Flow:</strong> Both ladders are active simultaneously — energy flows in <strong>both directions</strong> through
+              the bridge. Green dots (top track) flow Direct → Dual; cyan dots (bottom track) flow Dual → Direct.
+              At <InlineMath tex="\sigma = 0.5" />, both flows are equal strength (equilibrium). Move <InlineMath tex="\sigma" /> away
+              and one direction dominates; red reflected dots appear from the lossy bridge.
             </div>
             <SignalFlowTab sigma={sigma} t={t} numPrimes={numPrimes} playing={playing} />
           </>

@@ -472,17 +472,23 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
     const primes = getPrimes(numPrimes);
 
     // Compute group delays numerically
+    // Phase unwrap helper: atan2 jumps by ±2π at the ±π boundary, which
+    // would produce a ~2π/2δ ≈ 3141 error in the finite-difference derivative.
+    const unwrapDiff = (a, b) => {
+      let d = a - b;
+      if (d > Math.PI) d -= 2 * Math.PI;
+      if (d < -Math.PI) d += 2 * Math.PI;
+      return d;
+    };
     const delta = 0.001;
     const delays = primes.map(p => {
-      const stD = oscillatorStage(p, s);
       const stDp = oscillatorStage(p, [sigma, t + delta]);
       const stDm = oscillatorStage(p, [sigma, t - delta]);
-      const delayD = -(stDp.phase - stDm.phase) / (2 * delta);
+      const delayD = -unwrapDiff(stDp.phase, stDm.phase) / (2 * delta);
 
-      const stU = oscillatorStage(p, sDual);
       const stUp = oscillatorStage(p, [1 - sigma, -(t + delta)]);
       const stUm = oscillatorStage(p, [1 - sigma, -(t - delta)]);
-      const delayU = -(stUp.phase - stUm.phase) / (2 * delta);
+      const delayU = -unwrapDiff(stUp.phase, stUm.phase) / (2 * delta);
 
       return { prime: p, delayDirect: Math.abs(delayD), delayDual: Math.abs(delayU) };
     });

@@ -19,7 +19,7 @@ export default function WaveSimPage() {
       <BlockMath tex="\text{Bridge pressure: } P(\sigma, t) = \bigl(1 - |\chi(\sigma + it)|\bigr)^2 = 0 \iff \sigma = \tfrac{1}{2}" />
 
       <div style={{ marginTop: 8 }}>
-        <BlockMath tex="\text{Reflection: } \Gamma = \frac{Z_{\text{dir}} - Z_{\text{dual}}}{Z_{\text{dir}} + Z_{\text{dual}}} = 0 \iff \sigma = \tfrac{1}{2}" />
+        <BlockMath tex="\text{Conjugate match: } Z_{\text{dir}} = Z_{\text{dual}}^* \;\text{ at } \sigma = \tfrac{1}{2} \quad (\text{magnitudes equal, phases reflected})" />
       </div>
 
       <div style={{ marginTop: 32 }}>
@@ -47,10 +47,11 @@ export default function WaveSimPage() {
           </p>
           <p style={{ marginBottom: 12 }}>
             At <InlineMath tex="\sigma = 1/2" />, the functional equation symmetry
-            forces <InlineMath tex="Z^{\text{dir}} = Z^{\text{dual}}" />,
-            so the reflection coefficient vanishes:
+            forces <InlineMath tex="Z^{\text{dir}} = (Z^{\text{dual}})^*" /> (conjugate match):
+            magnitudes match but phases are reflected. Combined with the bridge
+            losslessness (<InlineMath tex="|\chi| = 1" />), energy flows through without net loss:
           </p>
-          <BlockMath tex="\Gamma = \frac{Z^{\text{dir}} - Z^{\text{dual}}}{Z^{\text{dir}} + Z^{\text{dual}}} = 0" />
+          <BlockMath tex="|Z^{\text{dir}}| = |Z^{\text{dual}}|, \quad |\chi(\tfrac{1}{2}+it)| = 1 \;\;\forall\, t" />
           <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.7 }}>
             This is the wave-propagation interpretation of RH: if all zeros sit on <InlineMath tex="\sigma = 1/2" />,
             the network transmits every frequency without loss. Move <InlineMath tex="\sigma" /> off 1/2 in the Signal Flow

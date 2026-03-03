@@ -1197,6 +1197,55 @@ In Nyquist terms, RH says the oscillator chain has **infinite phase margin** (no
       'The gap between proven margins (c/(log t)^{2/3}) and conjectured (1/2) is the unresolved territory of RH',
     ],
     references: ['vinogradov-korobov-1958', 'delavalleepoussin-1896', 'nyquist-1932', 'titchmarsh-1986'],
+    nextSteps: ['exp-030'],
+  },
+  {
+    id: 'exp-030',
+    timestamp: '2026-03-03T22:30:00Z',
+    title: 'The Primon Gas: Zeta as a Partition Function',
+    status: 'complete',
+    category: 'statistical',
+    depth: 3,
+    content: `The **primon gas** (Julia, 1990) provides a direct thermodynamic interpretation of the Euler product. Treat each prime $p$ as a quantum particle ("primon") with energy $E_p = \\log p$. Then the zeta function is literally the **partition function** of a free boson gas:
+
+$$\\zeta(s) = \\sum_{n=1}^{\\infty} n^{-s} = \\sum_{n=1}^{\\infty} e^{-s \\log n} = \\sum_{\\{n_p\\}} e^{-s \\sum_p n_p \\log p}$$
+
+where $n_p \\geq 0$ counts the occupation number of each primon. Since the unique factorization theorem guarantees $\\log n = \\sum_p n_p \\log p$, the Dirichlet series is exactly a **grand canonical partition function** with inverse temperature $\\beta = \\sigma = \\text{Re}(s)$.
+
+The Euler product decomposition follows from the independence of the primon occupations:
+
+$$\\zeta(s) = \\prod_p \\frac{1}{1 - p^{-s}} = \\prod_p \\frac{1}{1 - e^{-\\beta E_p}} = \\prod_p Z_p(\\beta)$$
+
+Each factor $Z_p = (1-e^{-\\beta E_p})^{-1}$ is the partition function of a single quantum harmonic oscillator with frequency $\\omega_p = \\log p$ — exactly the oscillator stages in our chain model (exp-002).
+
+**Thermodynamic quantities.** With $\\beta = \\sigma$ and $F = -\\log\\zeta(\\sigma)/\\sigma$ as free energy:
+
+- **Free energy:** $F(\\beta) = -\\frac{1}{\\beta}\\log\\zeta(\\beta) = -\\frac{1}{\\beta}\\sum_p \\log\\frac{1}{1-e^{-\\beta\\log p}}$
+- **Internal energy:** $U = -\\partial_\\beta \\log\\zeta(\\beta) = \\sum_p \\frac{\\log p}{p^\\beta - 1}$
+- **Entropy:** $S = \\beta(U - F) = \\log\\zeta(\\beta) + \\beta\\sum_p \\frac{\\log p}{p^\\beta - 1}$
+
+The pole of $\\zeta(s)$ at $s = 1$ is a **phase transition** at $\\beta_c = 1$: the free energy diverges, signaling the onset of Bose-Einstein condensation of primons.
+
+**The Bost-Connes system.** Bost and Connes (1995) elevated this to a rigorous quantum statistical mechanical system with a C*-algebraic structure. Their key result: the system exhibits spontaneous symmetry breaking at $\\beta = 1$. For $\\beta > 1$ (convergent Euler product), there is a unique equilibrium state (KMS state). For $\\beta < 1$ (critical strip), the symmetry group $\\text{Gal}(\\mathbb{Q}^{\\text{ab}}/\\mathbb{Q})$ acts on a family of extremal KMS states — arithmetic enters through the phase transition.
+
+**Connection to the oscillator chain.** In our model, the oscillator chain at $\\sigma > 1$ is a collection of independent oscillators (ideal gas phase). As $\\sigma$ decreases below 1, the oscillators begin to interact collectively — the bridge coupling becomes essential, and the system transitions into a correlated phase. The critical line $\\sigma = 1/2$ sits deep inside this correlated phase, where the functional equation imposes the strongest constraint (bridge unitarity). The Hamiltonian's minimum at $\\sigma = 1/2$ can be understood thermodynamically: it is the point of maximum entropy subject to the bridge unitarity constraint.
+
+**Caution.** The thermodynamic analogy is suggestive but imperfect. Real thermodynamic partition functions have $\\beta > 0$ (physical temperatures), but the critical strip $0 < \\sigma < 1$ includes the regime where the Dirichlet series does not converge — the primon gas is not well-defined as a standard statistical system there. The analytic continuation of $\\zeta(s)$ extends the partition function beyond its physical domain, and the zeta zeros live in this "unphysical" region. This is precisely what makes RH so deep: it concerns the structure of an analytically continued partition function.`,
+    latex: [
+      '\\zeta(s) = \\sum_{\\{n_p\\}} e^{-s \\sum_p n_p \\log p} = \\prod_p \\frac{1}{1 - e^{-s \\log p}} \\quad \\text{(primon gas partition function)}',
+      'E_p = \\log p, \\quad \\beta = \\sigma, \\quad Z_p(\\beta) = \\frac{1}{1-p^{-\\beta}} \\quad \\text{(single primon = harmonic oscillator)}',
+      'F = -\\frac{1}{\\beta}\\log\\zeta(\\beta), \\quad U = -\\partial_\\beta\\log\\zeta(\\beta) = \\sum_p \\frac{\\log p}{p^\\beta - 1}, \\quad S = \\beta U + \\log\\zeta(\\beta)',
+      '\\beta_c = 1: \\text{ phase transition (Bose-Einstein condensation of primons, pole of } \\zeta)',
+    ],
+    insights: [
+      'The zeta function IS a partition function: σ = inverse temperature β, each prime is a boson with energy log(p)',
+      'The Euler product is the factorization into independent oscillator partition functions — exactly our chain model',
+      'The pole at s=1 is a Bose-Einstein condensation phase transition at β_c=1',
+      'Bost-Connes: spontaneous symmetry breaking below β=1 connects Galois theory to thermodynamics',
+      'The critical strip 0<σ<1 is the analytically continued "unphysical" region — zeta zeros live beyond the physical partition function',
+      'The oscillator chain at σ>1 is an ideal gas; at σ<1 it becomes correlated, with the bridge enforcing collective behavior',
+    ],
+    references: ['julia-1990', 'bost-connes-1995', 'knauf-1999', 'euler-1737'],
     nextSteps: [],
   },
 ];

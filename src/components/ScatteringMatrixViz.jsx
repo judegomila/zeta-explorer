@@ -60,6 +60,11 @@ export default function ScatteringMatrixViz() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+      // Horizontal gridlines
+      const gridMag = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
+      gridMag.select('.domain').remove();
+      gridMag.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+
       // |χ| = 1 reference line
       g.append('line')
         .attr('x1', 0).attr('y1', y(1)).attr('x2', w).attr('y2', y(1))
@@ -134,6 +139,11 @@ export default function ScatteringMatrixViz() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+      // Horizontal gridlines
+      const gridRef = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
+      gridRef.select('.domain').remove();
+      gridRef.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
         .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
@@ -170,6 +180,11 @@ export default function ScatteringMatrixViz() {
       g.append('g').call(d3.axisLeft(y).ticks(8).tickFormat(d => d + '°'))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+
+      // Horizontal gridlines
+      const gridPhase = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
+      gridPhase.select('.domain').remove();
+      gridPhase.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)

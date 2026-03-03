@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
-import { chebyshevPsi, explicitFormulaTerms } from '../math/primes.js';
+import { vonMangoldt, explicitFormulaTerms } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
 export default function ExplicitFormulaViz() {
@@ -25,14 +25,23 @@ export default function ExplicitFormulaViz() {
     const steps = Math.min(maxX, 200);
     const dx = maxX / steps;
 
-    // Compute actual psi(x) and approximation
+    // Precompute cumulative ψ(x) table in one O(maxFloorX) pass instead of calling
+    // chebyshevPsi(x) independently for each sample point. chebyshevPsi restarts the
+    // summation from n=2 every time, giving O(steps × maxX) vonMangoldt evaluations;
+    // the table approach does O(maxX) total — a ~200× reduction at maxX=500.
+    const maxFloorX = Math.floor(2 + steps * dx);
+    const psiTable = new Float64Array(maxFloorX + 1);
+    for (let n = 2; n <= maxFloorX; n++) {
+      psiTable[n] = psiTable[n - 1] + vonMangoldt(n);
+    }
+
     const actualData = [];
     const approxData = [];
     const errorData = [];
 
     for (let i = 1; i <= steps; i++) {
       const x = 2 + i * dx;
-      const psi = chebyshevPsi(Math.floor(x));
+      const psi = psiTable[Math.floor(x)];
       const correction = explicitFormulaTerms(x, zeros);
       const approx = x - correction;
 

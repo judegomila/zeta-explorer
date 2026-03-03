@@ -162,6 +162,18 @@ export default function ScatteringMatrixViz() {
       g.append('path').datum(data).attr('d', line)
         .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2.5);
 
+      // Mark σ = 0.5 point
+      const halfPoint = data.find(d => Math.abs(d.sigma - 0.5) < 0.01);
+      if (halfPoint) {
+        g.append('circle')
+          .attr('cx', x(0.5)).attr('cy', y(Math.min(1, halfPoint.reflection))).attr('r', 5)
+          .attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+        g.append('text')
+          .attr('x', x(0.5) + 8).attr('y', y(Math.min(1, halfPoint.reflection)) - 8)
+          .attr('fill', '#10b981').attr('font-size', 11).attr('font-weight', 600)
+          .text(`Γ(½+${tValue.toFixed(1)}i) = ${halfPoint.reflection.toFixed(4)}`);
+      }
+
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text(`Bridge Reflection Coefficient Γ(σ + ${tValue.toFixed(1)}i) — zero at σ = ½`);
@@ -197,6 +209,19 @@ export default function ScatteringMatrixViz() {
 
       g.append('path').datum(data).attr('d', line)
         .attr('fill', 'none').attr('stroke', '#06b6d4').attr('stroke-width', 2.5);
+
+      // Mark σ = 0.5 point
+      const halfPoint = data.find(d => Math.abs(d.sigma - 0.5) < 0.01);
+      if (halfPoint) {
+        const phaseDeg = halfPoint.chiPhase * 180 / Math.PI;
+        g.append('circle')
+          .attr('cx', x(0.5)).attr('cy', y(phaseDeg)).attr('r', 5)
+          .attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+        g.append('text')
+          .attr('x', x(0.5) + 8).attr('y', y(phaseDeg) - 8)
+          .attr('fill', '#10b981').attr('font-size', 11).attr('font-weight', 600)
+          .text(`arg(χ(½+${tValue.toFixed(1)}i)) = ${phaseDeg.toFixed(1)}°`);
+      }
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)

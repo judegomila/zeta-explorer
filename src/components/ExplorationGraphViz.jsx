@@ -20,6 +20,7 @@ const categoryColors = {
  */
 export default function ExplorationGraphViz() {
   const svgRef = useRef();
+  const simRef = useRef(null);
   const [selectedNode, setSelectedNode] = useState(null);
 
   const draw = useCallback(() => {
@@ -113,6 +114,9 @@ export default function ExplorationGraphViz() {
       .attr('font-family', 'JetBrains Mono, monospace')
       .text(d => d.depth);
 
+    // Store simulation ref for cleanup on unmount
+    simRef.current = simulation;
+
     // Tick
     simulation.on('tick', () => {
       link
@@ -152,7 +156,10 @@ export default function ExplorationGraphViz() {
 
   }, []);
 
-  useEffect(() => { draw(); }, [draw]);
+  useEffect(() => {
+    draw();
+    return () => { if (simRef.current) simRef.current.stop(); };
+  }, [draw]);
 
   return (
     <div>

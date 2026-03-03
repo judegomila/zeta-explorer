@@ -396,7 +396,7 @@ The Keating-Snaith result that $\\zeta(1/2+it)$ behaves like the characteristic 
       'Eigenvalue repulsion in the oscillator spectrum ↔ zero repulsion of zeta',
     ],
     references: ['montgomery-1973', 'odlyzko-1987', 'keating-snaith-2000'],
-    nextSteps: ['exp-014', 'exp-031'],
+    nextSteps: ['exp-014', 'exp-031', 'exp-032'],
   },
   {
     id: 'exp-011',
@@ -1295,6 +1295,58 @@ The prime oscillator chain sits firmly in the strongly coupled regime. The arith
       'GUE (not GOE/GSE) implies the oscillator chain breaks time-reversal symmetry, consistent with complex-valued Euler factors',
     ],
     references: ['montgomery-1973', 'dyson-1962', 'odlyzko-1987', 'katz-sarnak-1999'],
+    nextSteps: ['exp-032'],
+  },
+  {
+    id: 'exp-032',
+    timestamp: '2026-03-03T19:00:00Z',
+    title: 'Keating-Snaith Moments: Power Statistics of the Oscillator Output',
+    status: 'complete',
+    category: 'statistical',
+    depth: 4,
+    content: `The **moments** of the zeta function on the critical line measure the power statistics of the chain output signal. For integer $k \\geq 0$:
+
+$$\\frac{1}{T}\\int_0^T |\\zeta(\\tfrac{1}{2}+it)|^{2k}\\,dt \\;\\sim\\; C_k\\,(\\log T)^{k^2} \\quad \\text{as } T \\to \\infty$$
+
+The exponent $k^2$ (not $k$, not $2k$) is the hallmark prediction of random matrix theory, first conjectured by Keating and Snaith (2000) using the Circular Unitary Ensemble.
+
+**Known results.** The mean square ($k=1$) was computed by Hardy and Littlewood: $\\frac{1}{T}\\int_0^T |\\zeta|^2\\,dt \\sim \\log T$, confirming $(\\log T)^{1^2}$. For $k=2$ (the fourth moment), Ingham proved the $(\\log T)^4$ growth in 1926. For $k \\geq 3$, no rigorous results exist — only the conjecture.
+
+**The coefficient $C_k$ factorizes.** This is the deepest feature:
+
+$$C_k = a_k \\cdot g_k$$
+
+where $a_k$ is an **arithmetic factor** (an Euler product over primes, specific to zeta) and $g_k$ is a **random matrix factor** (a combinatorial constant depending only on the symmetry class). The factorization says: the oscillator chain's output statistics split into a chain-specific part ($a_k$, from the prime resonant frequencies) and a universal part ($g_k$, from the GUE/CUE structure).
+
+$$a_k = \\prod_p \\left(1 - \\frac{1}{p}\\right)^{k^2} \\sum_{m=0}^{\\infty} \\left(\\frac{\\Gamma(m+k)}{m!\\,\\Gamma(k)}\\right)^2 p^{-m}$$
+
+$$g_k = \\frac{G(1+k)^2}{G(1+2k)}$$
+
+where $G$ is the Barnes G-function.
+
+**Oscillator chain interpretation.** The 2k-th moment measures how often the chain output attains large amplitude. The $(\\log T)^{k^2}$ growth (super-polynomial in $k$) means the output has **heavy-tailed power statistics**: extreme spikes are far more common than for a Gaussian signal, which would give $(\\log T)^k$. In physical terms, the coupled prime oscillators can constructively interfere to produce rare but very large resonances.
+
+The $k^2$ exponent arises because producing a spike of height $|\\zeta| \\sim (\\log T)^{k/2}$ requires $\\sim k$ independent oscillator groups to simultaneously align in phase. Each group contributes a factor of $\\log T$ to the probability, and there are $k$ such groups — but the probability of their joint alignment introduces a combinatorial multiplicity of $k$ more factors.
+
+**Connection to extreme values.** The moment conjecture implies (via Mellin inversion) a log-normal-like distribution for $\\log|\\zeta(1/2+it)|$:
+
+$$\\text{Prob}\\bigl(\\log|\\zeta| > V\\bigr) \\;\\approx\\; \\exp\\!\\left(-\\frac{V^2}{2\\log\\log T}\\right)$$
+
+This Gaussian distribution in log-space is characteristic of multiplicative processes — exactly what the Euler product cascade is. Each prime oscillator contributes a multiplicative factor, and by the central limit theorem applied to $\\log|\\zeta| = \\sum_p \\text{Re}\\log H_p$, the sum of many small contributions produces a Gaussian in log-amplitude.`,
+    latex: [
+      '\\frac{1}{T}\\int_0^T |\\zeta(\\tfrac{1}{2}+it)|^{2k}\\,dt \\sim C_k\\,(\\log T)^{k^2}',
+      'C_k = a_k \\cdot g_k, \\quad a_k = \\prod_p \\left(1-\\frac{1}{p}\\right)^{k^2} \\cdots, \\quad g_k = \\frac{G(1+k)^2}{G(1+2k)}',
+      'k=1:\\; (\\log T)^1, \\quad k=2:\\; (\\log T)^4, \\quad k=3:\\; (\\log T)^9 \\quad \\text{(conjectured)}',
+      '\\log|\\zeta(\\tfrac{1}{2}+it)| \\;\\dot{\\sim}\\; \\mathcal{N}(0,\\; \\tfrac{1}{2}\\log\\log T) \\quad \\text{(Selberg CLT)}',
+    ],
+    insights: [
+      'The k² exponent (not k or 2k) is the signature of CUE/GUE random matrix statistics applied to the Euler product',
+      'The coefficient C_k factorizes into an arithmetic factor a_k (prime-specific) and a universal factor g_k (symmetry class)',
+      'Heavy-tailed power statistics mean the oscillator chain can produce rare extreme constructive interference events',
+      'The Euler product cascade is a multiplicative process, so log|ζ| obeys a CLT — giving log-normal amplitude statistics (Selberg 1946)',
+      'For k=1,2 the conjecture is proven; for k≥3 it remains one of the deepest open problems in analytic number theory',
+    ],
+    references: ['keating-snaith-2000', 'hardy-littlewood-1921', 'conrey-2003', 'katz-sarnak-1999'],
     nextSteps: [],
   },
 ];

@@ -23,6 +23,18 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
   const animRef = useRef();
   const timeRef = useRef(0);
 
+  // Memoize expensive ladder/bridge computations: they depend only on sigma, t, numPrimes,
+  // not on animation time, so cache them to avoid ~60 directLadder+dualLadder+losslessBridge calls/sec
+  const flowData = useMemo(() => {
+    const s = [sigma, t];
+    return {
+      bridge: losslessBridge(s),
+      direct: directLadder(s, numPrimes),
+      dual: dualLadder(s, numPrimes),
+      primes: getPrimes(numPrimes),
+    };
+  }, [sigma, t, numPrimes]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -36,11 +48,7 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
     ctx.scale(dpr, dpr);
     ctx.clearRect(0, 0, W, H);
 
-    const s = [sigma, t];
-    const bridge = losslessBridge(s);
-    const direct = directLadder(s, numPrimes);
-    const dual = dualLadder(s, numPrimes);
-    const primes = getPrimes(numPrimes);
+    const { bridge, direct, dual, primes } = flowData;
     const time = timeRef.current;
 
     const xDir = W * 0.2;
@@ -284,7 +292,7 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
     ctx.fillStyle = '#f59e0b';
     ctx.fillText(`|ζ(1−s)| ≈ ${dualMag.toFixed(3)}`, W - 12, lgY + 16);
 
-  }, [sigma, t, numPrimes]);
+  }, [flowData, numPrimes]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

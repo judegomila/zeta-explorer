@@ -233,3 +233,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 227 | 2026-03-03T15:30:00Z | Add nearest-zero proximity indicator to t slider in ExtendedLandscapeTab of SupercriticalViz | SupercriticalViz.jsx |
 | 228 | 2026-03-03T16:00:00Z | Add horizontal gridlines to all three modes of LiCriterionViz for easier value reading | LiCriterionViz.jsx |
 | 229 | 2026-03-03T16:30:00Z | Fix DocsPage Mathematical Model section saying 'impedance-matched' and 'mismatch vanishes' at σ=½ | DocsPage.jsx |
+| 230 | 2026-03-03T17:00:00Z | Memoize directLadder, dualLadder, and losslessBridge in SignalFlowTab to avoid recomputing on every animation frame | WaveSimViz.jsx |

@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import { InlineMath } from './KaTeXMath.jsx';
 import { systemHamiltonian, hamiltonianSigmaScan, losslessBridge, directLadder, dualLadder } from '../math/oscillators.js';
 import { cAbs, cSub, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
+import { getPrimes } from '../math/primes.js';
 
 /**
  * RHRigorViz — Numerical stress tests of ZPO model claims.
@@ -513,7 +514,7 @@ export default function RHRigorViz() {
           <label>Primes</label>
           <input type="range" min="5" max="40" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="t_{\min}" /></label>

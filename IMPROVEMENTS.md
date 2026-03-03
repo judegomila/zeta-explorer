@@ -180,3 +180,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 174 | 2026-03-03T21:00:00Z | Fix DocsPage stale counts (15→16 pages, 17→18 viz) and add missing Rigor page, WaveSimViz, RHRigorViz entries | DocsPage.jsx |
 | 175 | 2026-03-03T21:30:00Z | Fix spectralEnergyDensity dual ladder using wrong sign for imaginary part (ω instead of −ω) | supercritical.js |
 | 176 | 2026-03-03T22:00:00Z | Fix EnergyLandscapeViz missing window resize handler causing blurry/distorted heatmap | EnergyLandscapeViz.jsx |
+| 177 | 2026-03-03T22:30:00Z | Show largest prime (p_max) next to Primes slider count in RHRigorViz | RHRigorViz.jsx |

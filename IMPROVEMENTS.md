@@ -183,3 +183,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 177 | 2026-03-03T22:30:00Z | Show largest prime (p_max) next to Primes slider count in RHRigorViz | RHRigorViz.jsx |
 | 178 | 2026-03-03T23:00:00Z | Fix StatisticsPage de Bruijn-Newman description claiming positive τ scatters zeros (actually negative τ does) | StatisticsPage.jsx |
 | 179 | 2026-03-03T23:30:00Z | Add horizontal gridlines to all three modes of ScatteringMatrixViz | ScatteringMatrixViz.jsx |
+| 180 | 2026-03-03T23:45:00Z | Add legends to both EulerPhaseTab charts showing convergence coloring and reference lines | SupercriticalViz.jsx |

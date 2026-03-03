@@ -634,6 +634,19 @@ function EulerPhaseTab() {
           .curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#06b6d4').attr('stroke-width', 2);
 
+      // Legend for vertical reference lines
+      const topLegend = g.append('g').attr('transform', `translate(${w - 200}, 8)`);
+      topLegend.append('rect').attr('x', -8).attr('y', -6).attr('width', 206).attr('height', 42)
+        .attr('fill', 'rgba(15,23,42,0.85)').attr('rx', 4).attr('stroke', '#2a3050');
+      topLegend.append('line').attr('x1', 0).attr('y1', 6).attr('x2', 18).attr('y2', 6)
+        .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
+      topLegend.append('text').attr('x', 24).attr('y', 10)
+        .attr('fill', '#ef4444').attr('font-size', 10).text('Critical line (σ = ½)');
+      topLegend.append('line').attr('x1', 0).attr('y1', 22).attr('x2', 18).attr('y2', 22)
+        .attr('stroke', '#f59e0b').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
+      topLegend.append('text').attr('x', 24).attr('y', 26)
+        .attr('fill', '#f59e0b').attr('font-size', 10).text('Convergence boundary (σ = 1)');
+
       svg.append('text').attr('x', margin.left).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('log \u220F|1/(1-p^{-s})| \u2014 Euler product log-magnitude');
@@ -676,6 +689,21 @@ function EulerPhaseTab() {
       g.append('path').datum(convergent)
         .attr('d', lineGen)
         .attr('fill', 'none').attr('stroke', '#10b981').attr('stroke-width', 2);
+
+      // Legend for convergence coloring
+      const legend = g.append('g').attr('transform', `translate(${w - 170}, 8)`);
+      legend.append('rect').attr('x', -8).attr('y', -6).attr('width', 176).attr('height', 42)
+        .attr('fill', 'rgba(15,23,42,0.85)').attr('rx', 4).attr('stroke', '#2a3050');
+      // Divergent entry
+      legend.append('line').attr('x1', 0).attr('y1', 6).attr('x2', 18).attr('y2', 6)
+        .attr('stroke', '#ef4444').attr('stroke-width', 2);
+      legend.append('text').attr('x', 24).attr('y', 10)
+        .attr('fill', '#ef4444').attr('font-size', 10).text('Divergent (σ < 1)');
+      // Convergent entry
+      legend.append('line').attr('x1', 0).attr('y1', 22).attr('x2', 18).attr('y2', 22)
+        .attr('stroke', '#10b981').attr('stroke-width', 2);
+      legend.append('text').attr('x', 24).attr('y', 26)
+        .attr('fill', '#10b981').attr('font-size', 10).text('Convergent (σ > 1)');
 
       svg.append('text').attr('x', margin.left).attr('y', yOff - 6)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)

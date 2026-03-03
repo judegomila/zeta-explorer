@@ -342,16 +342,21 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
     const directWave = new Float64Array(xPoints);
     const dualWave = new Float64Array(xPoints);
 
+    // Precompute per-prime stage data once (independent of x-position)
+    const stageData = primes.map(p => {
+      const stD = oscillatorStage(p, s);
+      const stU = oscillatorStage(p, sDual);
+      const omega = primeFrequency(p);
+      return { magD: stD.magnitude, phD: stD.phase, magU: stU.magnitude, phU: stU.phase, omega };
+    });
+
     // Compute superposition waves
     for (let j = 0; j < xPoints; j++) {
       const phase = (j / xPoints) * Math.PI * 8;
       let dSum = 0, uSum = 0;
-      primes.forEach(p => {
-        const stD = oscillatorStage(p, s);
-        const stU = oscillatorStage(p, sDual);
-        const omega = primeFrequency(p);
-        dSum += stD.magnitude * Math.sin(omega * phase + stD.phase + time * omega * 0.3);
-        uSum += stU.magnitude * Math.sin(omega * phase + stU.phase + time * omega * 0.3);
+      stageData.forEach(({ magD, phD, magU, phU, omega }) => {
+        dSum += magD * Math.sin(omega * phase + phD + time * omega * 0.3);
+        uSum += magU * Math.sin(omega * phase + phU + time * omega * 0.3);
       });
       directWave[j] = dSum / numPrimes;
       dualWave[j] = uSum / numPrimes;

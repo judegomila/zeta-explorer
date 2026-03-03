@@ -262,12 +262,18 @@ export default function GUEStatisticsViz() {
 
       const legend = g.append('g').attr('transform', `translate(20, 10)`);
       [
-        { label: 'Zeta zeros', color: '#3b82f6' },
-        { label: 'GUE prediction', color: '#ef4444' },
-        { label: 'Poisson (Σ²=L)', color: '#64748b' },
-      ].forEach(({ label, color }, i) => {
+        { label: 'Zeta zeros', color: '#3b82f6', dash: '', dots: true },
+        { label: 'GUE prediction', color: '#ef4444', dash: '', dots: false },
+        { label: 'Poisson (Σ²=L)', color: '#64748b', dash: '6,4', dots: false },
+      ].forEach(({ label, color, dash, dots }, i) => {
         legend.append('line').attr('x1', 0).attr('y1', i * 20).attr('x2', 22).attr('y2', i * 20)
-          .attr('stroke', color).attr('stroke-width', 2);
+          .attr('stroke', color).attr('stroke-width', 2).attr('stroke-dasharray', dash);
+        if (dots) {
+          legend.append('circle').attr('cx', 5).attr('cy', i * 20).attr('r', 2.5)
+            .attr('fill', color).attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+          legend.append('circle').attr('cx', 17).attr('cy', i * 20).attr('r', 2.5)
+            .attr('fill', color).attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+        }
         legend.append('text').attr('x', 28).attr('y', i * 20 + 4)
           .attr('fill', '#94a3b8').attr('font-size', 11).text(label);
       });

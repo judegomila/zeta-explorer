@@ -282,3 +282,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 276 | 2026-03-03T12:30:00Z | Show largest prime (p_max) next to Primes slider count in TwistorViz | TwistorViz.jsx |
 | 277 | 2026-03-03T12:45:00Z | Add −180° text label to critical phase margin threshold line in Bode phase plot | NyquistBodeViz.jsx |
 | 278 | 2026-03-03T13:00:00Z | Skip redundant gradient computation in hamiltonianSigmaScan | oscillators.js |
+| 279 | 2026-03-03T13:15:00Z | Add 'Where to Start' suggested reading progression card to LiteraturePage | LiteraturePage.jsx |

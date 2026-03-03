@@ -114,6 +114,38 @@ export default function LiteraturePage() {
         </div>
       </div>
 
+      <div className="card" style={{ marginBottom: 24 }}>
+        <h3 style={{ color: '#818cf8' }}>Where to Start</h3>
+        <p style={{ marginTop: 8 }}>
+          With {allRefs.length} references spanning many fields, here is a suggested reading progression:
+        </p>
+        <ol style={{ marginTop: 12, paddingLeft: 20, lineHeight: 1.8, color: '#cbd5e1' }}>
+          <li>
+            <strong style={{ color: '#60a5fa' }}>Foundations</strong> — Start with Riemann's 1859 memoir and Edwards' or Titchmarsh's
+            textbooks to understand the zeta function, functional equation, and explicit formula.
+          </li>
+          <li>
+            <strong style={{ color: '#a78bfa' }}>Random Matrix Theory</strong> — Montgomery's pair correlation conjecture and the
+            Odlyzko computations reveal the GUE connection that motivates the spectral approach.
+          </li>
+          <li>
+            <strong style={{ color: '#34d399' }}>Hamiltonian / Hilbert-Pólya</strong> — Berry-Keating's <em>xp</em> quantization
+            and Connes' trace formula show how zeros might arise as eigenvalues of a self-adjoint operator.
+          </li>
+          <li>
+            <strong style={{ color: '#fb923c' }}>Circuit &amp; Control Theory</strong> — The engineering thread: Euler product as
+            an impedance cascade, Nyquist stability, and Bode sensitivity integrals applied to L-functions.
+          </li>
+          <li>
+            <strong style={{ color: '#f472b6' }}>Physics / Statistical Mechanics</strong> — The partition function viewpoint,
+            Bost-Connes phase transitions, and connections to quantum chaos round out the picture.
+          </li>
+        </ol>
+        <p style={{ marginTop: 12, fontSize: 13, color: '#94a3b8' }}>
+          Click any reference card to expand its full summary, key insight, and relevance to the oscillator model.
+        </p>
+      </div>
+
       <div className="card-grid">
         {filteredRefs.map(ref => {
           const catInfo = categoryLabels[ref.category] || { label: ref.category, color: 'tag-blue' };

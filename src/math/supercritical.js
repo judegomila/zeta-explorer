@@ -227,10 +227,16 @@ export function heatFlowZeros(tau, numZeros = 30) {
  * For visualization, we compute |H_τ(t)| along the real axis
  */
 export function heatEvolvedXi(t, tau, numTerms = 50) {
-  // Approximate Ξ(t) using the Riemann-Siegel-like sum
-  // then apply Gaussian smoothing for heat flow
-  const width = Math.sqrt(Math.max(2 * Math.abs(tau), 0.001));
-  const sign = tau >= 0 ? 1 : -1;
+  // For τ ≤ 0, the backward heat equation (inverse diffusion) is ill-posed and
+  // cannot be computed via Gaussian convolution. Return the unsmoothed Z(t)
+  // directly, which is H₀(t) = Ξ(t) — consistent with zeros staying on the
+  // critical line for τ ≤ 0 (Rodgers-Tao: Λ ≥ 0).
+  if (tau <= 0) {
+    return riemannSiegelZ(t);
+  }
+
+  // For τ > 0, approximate H_τ(t) ≈ Ξ(t) convolved with Gaussian of width √(2τ)
+  const width = Math.sqrt(2 * tau);
 
   // Sample Ξ at nearby points and convolve with Gaussian
   const numSamples = 31;

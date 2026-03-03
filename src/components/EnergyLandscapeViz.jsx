@@ -260,7 +260,7 @@ export default function EnergyLandscapeViz() {
             }} />
           <span className="control-value">{numPrimesDisplay}</span>
         </div>
-        {hoverInfo && (
+        {hoverInfo ? (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
             <InlineMath tex="\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
             {hoverInfo.value != null && (
@@ -268,6 +268,10 @@ export default function EnergyLandscapeViz() {
                 {metric === 'energy' ? 'H' : metric === 'mismatch' ? '|Z₁−Z₂|' : metric === 'directMag' ? '|ζ(s)|' : '|ζ(1−s)|'}={hoverInfo.value}
               </span>
             )}
+          </div>
+        ) : (
+          <div style={{ marginLeft: 'auto', fontSize: 11, color: '#64748b', fontStyle: 'italic' }}>
+            Hover over heatmap to inspect values
           </div>
         )}
       </div>

@@ -84,7 +84,7 @@ export default function OscillatorsPage() {
           lossless two-port network connecting the ladders. It has <InlineMath tex="|\\chi(\\tfrac{1}{2}+it)| = 1" /> for all t.
         </p>
         <BlockMath tex="\\zeta(s) = \\chi(s) \\cdot \\zeta(1-s), \\quad |\\chi(1/2+it)| = 1" />
-        <BlockMath tex="S_{\\text{bridge}} = \\begin{pmatrix} \\Gamma & \\tau \\\\ \\tau & \\Gamma \\end{pmatrix}, \\quad \\Gamma = \\frac{|1-|\\chi||}{1+|\\chi|},\\; \\tau = \\sqrt{1-\\Gamma^2}, \\quad S^\\dagger S = I \\text{ on } \\sigma = \\frac{1}{2}" />
+        <BlockMath tex="S_{\\text{bridge}} = \\begin{pmatrix} \\Gamma & \\tau \\\\ \\tau & -\\Gamma \\end{pmatrix}, \\quad \\Gamma = \\frac{|1-|\\chi||}{1+|\\chi|},\\; \\tau = \\sqrt{1-\\Gamma^2}, \\quad S^\\dagger S = I \\;(\\text{lossless}),\\; \\Gamma = 0 \\text{ at } \\sigma = \\tfrac{1}{2}" />
       </div>
     </div>
   );

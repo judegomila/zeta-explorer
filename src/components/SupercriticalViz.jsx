@@ -296,6 +296,11 @@ function ThermodynamicsTab() {
       })).selectAll('text').attr('fill', '#64748b').attr('font-size', 8);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+      // Horizontal gridlines
+      const gridG = g.append('g').call(d3.axisLeft(y).ticks(4).tickSize(-w).tickFormat(''));
+      gridG.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4');
+      gridG.select('.domain').remove();
+
       // Phase regions
       g.append('rect').attr('x', x(-1)).attr('y', 0)
         .attr('width', x(0) - x(-1)).attr('height', h).attr('fill', 'rgba(59,130,246,0.03)');

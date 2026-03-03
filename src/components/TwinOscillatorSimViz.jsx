@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import { getPrimes, primeFrequency } from '../math/primes.js';
 import { oscillatorStage, systemHamiltonian, hamiltonianSigmaScan, losslessBridge } from '../math/oscillators.js';
@@ -152,22 +152,24 @@ function PerPrimeTab() {
     return () => window.removeEventListener('resize', h);
   }, [draw]);
 
-  // Compute minima for stat grid
-  const primes = getPrimes(numPrimes);
-  const stats = primes.map((p, i) => {
-    let bestSigma = 0.5, bestE = Infinity;
-    for (let j = 0; j <= 100; j++) {
-      const sigma = 0.05 + j * 0.009;
-      const s = [sigma, tValue];
-      const sDual = [1 - sigma, -tValue];
-      const direct = oscillatorStage(p, s);
-      const dual = oscillatorStage(p, sDual);
-      const logP = primeFrequency(p);
-      const e = 0.5 * logP * (direct.magnitude ** 2 + dual.magnitude ** 2);
-      if (e < bestE) { bestE = e; bestSigma = sigma; }
-    }
-    return { prime: p, minSigma: bestSigma, minE: bestE, color: PRIME_COLORS[i % PRIME_COLORS.length] };
-  });
+  // Compute minima for stat grid (memoized to avoid redundant oscillatorStage calls on re-render)
+  const stats = useMemo(() => {
+    const primes = getPrimes(numPrimes);
+    return primes.map((p, i) => {
+      let bestSigma = 0.5, bestE = Infinity;
+      for (let j = 0; j <= 100; j++) {
+        const sigma = 0.05 + j * 0.009;
+        const s = [sigma, tValue];
+        const sDual = [1 - sigma, -tValue];
+        const direct = oscillatorStage(p, s);
+        const dual = oscillatorStage(p, sDual);
+        const logP = primeFrequency(p);
+        const e = 0.5 * logP * (direct.magnitude ** 2 + dual.magnitude ** 2);
+        if (e < bestE) { bestE = e; bestSigma = sigma; }
+      }
+      return { prime: p, minSigma: bestSigma, minE: bestE, color: PRIME_COLORS[i % PRIME_COLORS.length] };
+    });
+  }, [tValue, numPrimes]);
 
   return (
     <div>

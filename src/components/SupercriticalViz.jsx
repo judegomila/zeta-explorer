@@ -416,7 +416,7 @@ function HeatFlowTab() {
       // Draw evolved positions
       evolved.forEach(z => {
         const clampedSigma = Math.max(0.3, Math.min(0.7, z.sigma));
-        const clampedGamma = Math.max(0, Math.min(155, z.gamma));
+        const clampedGamma = Math.max(0, Math.min(xMax, z.gamma));
         g.append('circle')
           .attr('cx', x(clampedGamma)).attr('cy', y(clampedSigma)).attr('r', 5)
           .attr('fill', tau === 0 ? '#10b981' : tau > 0 ? '#f59e0b' : '#3b82f6')

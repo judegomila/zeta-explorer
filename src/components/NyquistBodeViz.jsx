@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import { InlineMath } from './KaTeXMath.jsx';
 import { losslessBridge } from '../math/oscillators.js';
@@ -29,6 +29,39 @@ export default function NyquistBodeViz() {
     return cMul(bridge.chi, ratio);
   }, []);
 
+  // Memoize Nyquist contour data so resize events don't recompute 602 zeta evaluations
+  const nyquistData = useMemo(() => {
+    const points = [];
+    const steps = 300;
+    const dt = (tRange[1] - tRange[0]) / steps;
+    for (let i = 0; i <= steps; i++) {
+      const t = tRange[0] + i * dt;
+      const L = computeLoopGain([sigma, t]);
+      points.push({ t, re: L[0], im: L[1], mag: cAbs(L) });
+    }
+    // Negative frequency (mirror): by Schwarz reflection, L(σ−it) = conj(L(σ+it)),
+    // so Re is unchanged and Im is negated — no need to recompute 301 expensive zeta evaluations
+    const negPoints = points.map(p => ({ t: -p.t, re: p.re, im: -p.im }));
+    return { points, negPoints };
+  }, [sigma, tRange, computeLoopGain]);
+
+  // Memoize Bode frequency response data so resize events don't recompute 502 zeta evaluations
+  const bodeData = useMemo(() => {
+    const points = [];
+    const steps = 250;
+    const logTMin = Math.log10(Math.max(0.5, tRange[0]));
+    const logTMax = Math.log10(tRange[1]);
+    const dLogT = (logTMax - logTMin) / steps;
+    for (let i = 0; i <= steps; i++) {
+      const t = Math.pow(10, logTMin + i * dLogT);
+      const L = computeLoopGain([sigma, t]);
+      const mag = cAbs(L);
+      const phase = Math.atan2(L[1], L[0]);
+      points.push({ t, magdB: 20 * Math.log10(Math.max(1e-10, mag)), phase: phase * 180 / Math.PI, mag });
+    }
+    return points;
+  }, [sigma, tRange, computeLoopGain]);
+
   const drawNyquist = useCallback(() => {
     const svg = d3.select(nyquistRef.current);
     svg.selectAll('*').remove();
@@ -41,18 +74,7 @@ export default function NyquistBodeViz() {
     const h = height - margin.top - margin.bottom;
     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
 
-    // Compute Nyquist contour points
-    const points = [];
-    const steps = 300;
-    const dt = (tRange[1] - tRange[0]) / steps;
-    for (let i = 0; i <= steps; i++) {
-      const t = tRange[0] + i * dt;
-      const L = computeLoopGain([sigma, t]);
-      points.push({ t, re: L[0], im: L[1], mag: cAbs(L) });
-    }
-    // Negative frequency (mirror): by Schwarz reflection, L(σ−it) = conj(L(σ+it)),
-    // so Re is unchanged and Im is negated — no need to recompute 301 expensive zeta evaluations
-    const negPoints = points.map(p => ({ t: -p.t, re: p.re, im: -p.im }));
+    const { points, negPoints } = nyquistData;
 
     const allRe = [...points.map(p => p.re), ...negPoints.map(p => p.re)];
     const allIm = [...points.map(p => p.im), ...negPoints.map(p => p.im)];
@@ -177,7 +199,7 @@ export default function NyquistBodeViz() {
       .attr('fill', sigma === 0.5 ? '#10b981' : '#ef4444').attr('font-size', 11)
       .text(`σ = ${sigma.toFixed(2)} — ${sigma === 0.5 ? 'Critical line: expect 0 encirclements' : 'Off critical line'}`);
 
-  }, [sigma, tRange, computeLoopGain]);
+  }, [sigma, nyquistData]);
 
   const drawBode = useCallback(() => {
     const svg = d3.select(bodeRef.current);
@@ -190,20 +212,7 @@ export default function NyquistBodeViz() {
     const w = width - margin.left - margin.right;
     const halfH = (height - margin.top - margin.bottom - 30) / 2;
 
-    // Compute frequency response
-    const points = [];
-    const steps = 250;
-    const logTMin = Math.log10(Math.max(0.5, tRange[0]));
-    const logTMax = Math.log10(tRange[1]);
-    const dLogT = (logTMax - logTMin) / steps;
-
-    for (let i = 0; i <= steps; i++) {
-      const t = Math.pow(10, logTMin + i * dLogT);
-      const L = computeLoopGain([sigma, t]);
-      const mag = cAbs(L);
-      const phase = Math.atan2(L[1], L[0]);
-      points.push({ t, magdB: 20 * Math.log10(Math.max(1e-10, mag)), phase: phase * 180 / Math.PI, mag });
-    }
+    const points = bodeData;
 
     // Magnitude plot
     const gMag = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
@@ -271,7 +280,7 @@ export default function NyquistBodeViz() {
       .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
       .text(`Bode Plot — σ = ${sigma.toFixed(2)}`);
 
-  }, [sigma, tRange, computeLoopGain]);
+  }, [sigma, tRange, bodeData]);
 
   useEffect(() => {
     if (mode === 'nyquist') drawNyquist();

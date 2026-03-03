@@ -496,7 +496,7 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
 
     const maxDelay = Math.max(0.01, d3.max(delays, d => Math.max(d.delayDirect, d.delayDual)));
 
-    const margin = { top: 40, right: 30, bottom: 50, left: 60 };
+    const margin = { top: 40, right: 60, bottom: 50, left: 60 };
     const chartW = width - margin.left - margin.right;
     const chartH = height - margin.top - margin.bottom;
 
@@ -557,7 +557,7 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
     const maxCum = Math.max(cumD, cumU, 0.01);
     const yCum = d3.scaleLinear().domain([0, maxCum * 1.15]).range([chartH, 0]);
 
-    // Overlay cumulative as lines (secondary y-axis conceptually, but we use same scale)
+    // Cumulative delay lines with right y-axis
     const lineGen = d3.line().x(d => d.x).y(d => yCum(d.y)).curve(d3.curveMonotoneX);
 
     g.append('path').datum(cumDirectPts)
@@ -570,11 +570,30 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
       .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2)
       .attr('stroke-dasharray', '4,3');
 
+    // Right y-axis for cumulative delay
+    const rightAxis = g.append('g').attr('transform', `translate(${chartW},0)`)
+      .call(d3.axisRight(yCum).ticks(5).tickFormat(d3.format('.2f')));
+    rightAxis.selectAll('text').attr('fill', '#94a3b8').attr('font-size', 9);
+    rightAxis.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+
+    svg.append('text').attr('x', width - 10).attr('y', height / 2)
+      .attr('text-anchor', 'middle').attr('transform', `rotate(90,${width - 10},${height / 2})`)
+      .attr('fill', '#94a3b8').attr('font-size', 10)
+      .text('Cumulative Delay (dashed)');
+
     // Legend
-    const lgX = width - margin.right - 180;
-    [[0, '#3b82f6', 'Direct delay'], [1, '#f59e0b', 'Dual delay']].forEach(([i, c, l]) => {
+    const lgX = width - margin.right - 220;
+    // Bar swatches for per-prime delays
+    [[0, '#3b82f6', 'Direct (per-prime)'], [1, '#f59e0b', 'Dual (per-prime)']].forEach(([i, c, l]) => {
       svg.append('rect').attr('x', lgX).attr('y', 12 + i * 16).attr('width', 12).attr('height', 10)
         .attr('rx', 2).attr('fill', c).attr('opacity', 0.8);
+      svg.append('text').attr('x', lgX + 18).attr('y', 20 + i * 16)
+        .attr('fill', '#94a3b8').attr('font-size', 10).text(l);
+    });
+    // Dashed line swatches for cumulative delays
+    [[2, '#3b82f6', 'Direct (cumulative)'], [3, '#f59e0b', 'Dual (cumulative)']].forEach(([i, c, l]) => {
+      svg.append('line').attr('x1', lgX).attr('y1', 17 + i * 16).attr('x2', lgX + 12).attr('y2', 17 + i * 16)
+        .attr('stroke', c).attr('stroke-width', 2).attr('stroke-dasharray', '4,3');
       svg.append('text').attr('x', lgX + 18).attr('y', 20 + i * 16)
         .attr('fill', '#94a3b8').attr('font-size', 10).text(l);
     });

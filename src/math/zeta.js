@@ -268,6 +268,22 @@ export const ZETA_ZEROS = [
   996.205336164, 997.511934752, 998.827547137, 999.791571557, 1001.349482638,
 ];
 
+// Cache for Borwein acceleration weights, keyed by n
+const _borweinWeightCache = new Map();
+
+function getBorweinWeights(n) {
+  if (_borweinWeightCache.has(n)) return _borweinWeightCache.get(n);
+  const e = new Float64Array(n + 1);
+  e[n] = 0;
+  let binom = 1; // starts as C(n, n) = 1
+  for (let k = n - 1; k >= 0; k--) {
+    e[k] = e[k + 1] + binom / Math.pow(2, n);
+    binom = binom * (k + 1) / (n - k);
+  }
+  _borweinWeightCache.set(n, e);
+  return e;
+}
+
 /**
  * Compute zeta on the critical strip using Borwein acceleration.
  * Uses the Dirichlet eta function with Knopp-Hasse binomial acceleration:
@@ -278,16 +294,8 @@ export const ZETA_ZEROS = [
 export function zetaCriticalStrip(s, N = 50) {
   const n = Math.min(N, 60); // cap at 60 to avoid overflow in binomial coefficients
 
-  // Precompute acceleration weights e_k = Σ_{j=k+1}^{n} C(n,j) / 2^n
-  // Computed right-to-left: e[n]=0, e[k] = e[k+1] + C(n,k+1)/2^n
-  const e = new Float64Array(n + 1);
-  e[n] = 0;
-  let binom = 1; // starts as C(n, n) = 1
-  for (let k = n - 1; k >= 0; k--) {
-    e[k] = e[k + 1] + binom / Math.pow(2, n);
-    // Update binomial: C(n, k) = C(n, k+1) · (k+1) / (n-k)
-    binom = binom * (k + 1) / (n - k);
-  }
+  // Acceleration weights are s-independent; cache and reuse across calls
+  const e = getBorweinWeights(n);
 
   // Compute accelerated eta: Σ e_k · (-1)^k · (k+1)^{-s}
   // Optimize: (k+1)^{-s} = exp(-s·ln(k+1)) for real positive base

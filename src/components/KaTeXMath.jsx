@@ -1,8 +1,83 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState, useContext, useCallback, createContext } from 'react';
+import { createPortal } from 'react-dom';
 import katex from 'katex';
+
+// ─── Math Modal Context ─────────────────────────────────────────────────────
+
+const MathModalContext = createContext(null);
+
+export function MathModalProvider({ children }) {
+  const [modal, setModal] = useState(null);
+  const openModal = useCallback((data) => setModal(data), []);
+  const closeModal = useCallback(() => setModal(null), []);
+
+  return (
+    <MathModalContext.Provider value={{ openModal }}>
+      {children}
+      {modal && createPortal(
+        <MathModal tex={modal.tex} displayMode={modal.displayMode} onClose={closeModal} />,
+        document.body
+      )}
+    </MathModalContext.Provider>
+  );
+}
+
+// ─── Math Modal Component ───────────────────────────────────────────────────
+
+function MathModal({ tex, displayMode, onClose }) {
+  const renderedRef = useRef();
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (renderedRef.current) {
+      try {
+        katex.render(tex, renderedRef.current, { throwOnError: false, displayMode: true });
+      } catch (e) {
+        renderedRef.current.textContent = tex;
+      }
+    }
+  }, [tex]);
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(tex).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    });
+  };
+
+  return (
+    <div className="math-modal-backdrop" onClick={onClose}>
+      <div className="math-modal" onClick={e => e.stopPropagation()}>
+        <div className="math-modal-header">
+          <span>Equation</span>
+          <button className="math-modal-close" onClick={onClose}>&times;</button>
+        </div>
+        <div className="math-modal-rendered" ref={renderedRef} />
+        <div className="math-modal-divider" />
+        <div className="math-modal-source-label">LaTeX Source</div>
+        <div className="math-modal-source">
+          <code>{tex}</code>
+          <button className="math-modal-copy" onClick={handleCopy}>
+            {copied ? 'Copied' : 'Copy'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── InlineMath (clickable) ─────────────────────────────────────────────────
 
 export function InlineMath({ tex }) {
   const ref = useRef();
+  const ctx = useContext(MathModalContext);
+
   useEffect(() => {
     if (ref.current) {
       try {
@@ -12,11 +87,22 @@ export function InlineMath({ tex }) {
       }
     }
   }, [tex]);
-  return <span ref={ref} className="math-inline" />;
+
+  const handleClick = (e) => {
+    if (!ctx) return;
+    e.stopPropagation();
+    ctx.openModal({ tex, displayMode: false });
+  };
+
+  return <span ref={ref} className="math-inline math-clickable" onClick={handleClick} />;
 }
+
+// ─── BlockMath (clickable) ──────────────────────────────────────────────────
 
 export function BlockMath({ tex }) {
   const ref = useRef();
+  const ctx = useContext(MathModalContext);
+
   useEffect(() => {
     if (ref.current) {
       try {
@@ -26,8 +112,17 @@ export function BlockMath({ tex }) {
       }
     }
   }, [tex]);
-  return <div ref={ref} className="math-block" />;
+
+  const handleClick = (e) => {
+    if (!ctx) return;
+    e.stopPropagation();
+    ctx.openModal({ tex, displayMode: true });
+  };
+
+  return <div ref={ref} className="math-block math-clickable" onClick={handleClick} />;
 }
+
+// ─── MathText (parses $...$ and $$...$$) ────────────────────────────────────
 
 /**
  * Renders markdown-like text with embedded $...$ and $$...$$ LaTeX.
@@ -35,20 +130,16 @@ export function BlockMath({ tex }) {
 export function MathText({ children }) {
   if (!children) return null;
   const text = typeof children === 'string' ? children : String(children);
-  // Split on $$...$$ blocks first, then $...$ inline
   const parts = [];
   let remaining = text;
   let key = 0;
 
-  // Handle display math $$...$$
   while (remaining.length > 0) {
     const ddStart = remaining.indexOf('$$');
     if (ddStart === -1) {
-      // No more display math, parse inline math
       parts.push(...parseInlineMath(remaining, key));
       break;
     }
-    // Text before $$
     if (ddStart > 0) {
       parts.push(...parseInlineMath(remaining.slice(0, ddStart), key));
       key += 100;
@@ -74,9 +165,7 @@ function parseInlineMath(text, keyOffset = 0) {
   while (remaining.length > 0) {
     const start = remaining.indexOf('$');
     if (start === -1) {
-      if (remaining) {
-        parts.push(...renderMarkdown(remaining, key));
-      }
+      if (remaining) parts.push(...renderMarkdown(remaining, key));
       break;
     }
     if (start > 0) {
@@ -97,7 +186,6 @@ function parseInlineMath(text, keyOffset = 0) {
 }
 
 function renderMarkdown(text, keyOffset = 0) {
-  // Simple bold (**...**) handling
   const parts = [];
   let remaining = text;
   let key = keyOffset;

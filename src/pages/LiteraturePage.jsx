@@ -8,10 +8,14 @@ const categoryLabels = {
   'explicit-formula': { label: 'Explicit Formula', color: 'tag-blue' },
   'circuit-theory': { label: 'Circuit Theory', color: 'tag-orange' },
   'control-theory': { label: 'Control Theory', color: 'tag-red' },
-  'physics': { label: 'Physics', color: 'tag-pink' },
+  'physics': { label: 'Physics / Stat Mech', color: 'tag-pink' },
   'spectral': { label: 'Spectral Theory', color: 'tag-cyan' },
   'foundations': { label: 'Foundations', color: 'tag-blue' },
   'dynamical-systems': { label: 'Dynamical Systems', color: 'tag-green' },
+  'analytic': { label: 'Analytic Number Theory', color: 'tag-orange' },
+  'function-field': { label: 'Function Fields', color: 'tag-purple' },
+  'computational': { label: 'Computational', color: 'tag-cyan' },
+  'signal-processing': { label: 'Signal Processing', color: 'tag-green' },
 };
 
 export default function LiteraturePage() {
@@ -77,6 +81,37 @@ export default function LiteraturePage() {
             </button>
           );
         })}
+      </div>
+
+      <div className="two-col" style={{ marginTop: 24, marginBottom: 24 }}>
+        <div className="card">
+          <h3 style={{ color: '#10b981' }}>The Spectral Thread</h3>
+          <p style={{ marginTop: 8 }}>
+            One major line of research connects the Riemann zeros to eigenvalues of a
+            self-adjoint operator — the Hilbert-Pólya conjecture. Berry and Keating proposed
+            the <em>xp</em> Hamiltonian; Connes used noncommutative geometry; random matrix
+            theory (GUE/CUE) provides the statistical fingerprint. Trace formulas bridge the
+            gap between spectral data (zeros) and geometric data (primes), much as the
+            Selberg trace formula does for hyperbolic surfaces.
+          </p>
+          <p style={{ marginTop: 8, fontSize: 13, color: '#94a3b8' }}>
+            Categories: Hamiltonian, Random Matrix Theory, Trace Formulas, Spectral Theory
+          </p>
+        </div>
+        <div className="card">
+          <h3 style={{ color: '#f59e0b' }}>The Engineering Thread</h3>
+          <p style={{ marginTop: 8 }}>
+            A complementary approach interprets the Euler product as a cascade of
+            impedance-matched stages — an LC ladder network. The functional equation becomes
+            a lossless bridge condition, RH becomes a passivity criterion, and zero
+            statistics correspond to stability margins. Control theory contributes Nyquist
+            and Bode analyses; signal processing provides the Fourier-dual perspective
+            linking prime gaps to spectral energy.
+          </p>
+          <p style={{ marginTop: 8, fontSize: 13, color: '#94a3b8' }}>
+            Categories: Circuit Theory, Control Theory, Signal Processing, Physics
+          </p>
+        </div>
       </div>
 
       <div className="card-grid">

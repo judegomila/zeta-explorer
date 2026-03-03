@@ -72,7 +72,7 @@ export default function AnimatedModesViz() {
       const halfRow = rowH * 0.38;
       ctx.beginPath();
       for (let i = 0; i < xSteps; i++) {
-        const frac = i / xSteps;
+        const frac = i / (xSteps - 1);
         const x = xPad + frac * waveW;
         const logX = 1 + frac * 5; // log-space x from e^1 to e^6
         const val = amplitude * Math.cos(gamma * logX - omega * t) * Math.exp(-0.05 * frac);
@@ -127,7 +127,7 @@ export default function AnimatedModesViz() {
 
     ctx.beginPath();
     for (let i = 0; i < xSteps; i++) {
-      const x = xPad + (i / xSteps) * waveW;
+      const x = xPad + (i / (xSteps - 1)) * waveW;
       const y = superMid - superposition[i] * scale;
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
@@ -140,7 +140,7 @@ export default function AnimatedModesViz() {
     ctx.beginPath();
     ctx.moveTo(xPad, superMid);
     for (let i = 0; i < xSteps; i++) {
-      const x = xPad + (i / xSteps) * waveW;
+      const x = xPad + (i / (xSteps - 1)) * waveW;
       const y = superMid - superposition[i] * scale;
       ctx.lineTo(x, y);
     }

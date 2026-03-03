@@ -554,6 +554,9 @@ function HeatFlowTab() {
           <input type="range" min="10" max="200" step="1" value={numZeros}
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
+          <span style={{ marginLeft: 6, fontSize: 11, color: '#64748b' }}>
+            (γ_max ≈ {ZETA_ZEROS[Math.min(numZeros, ZETA_ZEROS.length) - 1]?.toFixed(1) ?? '?'})
+          </span>
         </div>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau < 0 ? '#f59e0b' : '#64748b' }}>Scatter</span>

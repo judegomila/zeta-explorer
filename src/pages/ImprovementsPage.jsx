@@ -10,12 +10,20 @@ const categoryConfig = {
   content:     { label: 'Content',     color: '#06b6d4', cls: 'tag-cyan' },
 };
 
+const PAGE_SIZE = 20;
+
 export default function ImprovementsPage() {
   const [filter, setFilter] = useState('all');
+  const [page, setPage] = useState(1);
 
   const filtered = filter === 'all'
     ? improvements
     : improvements.filter(i => i.category === filter);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const safePage = Math.min(page, totalPages);
+  const reversed = [...filtered].reverse();
+  const paged = reversed.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
   const counts = {};
   improvements.forEach(i => {
@@ -54,7 +62,7 @@ export default function ImprovementsPage() {
       <div className="filter-bar">
         <button
           className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
-          onClick={() => setFilter('all')}
+          onClick={() => { setFilter('all'); setPage(1); }}
         >
           All ({improvements.length})
         </button>
@@ -63,7 +71,7 @@ export default function ImprovementsPage() {
             <button
               key={key}
               className={`filter-btn ${filter === key ? 'active' : ''}`}
-              onClick={() => setFilter(key)}
+              onClick={() => { setFilter(key); setPage(1); }}
             >
               {cfg.label} ({counts[key]})
             </button>
@@ -89,8 +97,9 @@ export default function ImprovementsPage() {
           </code>
         </div>
       ) : (
+        <>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {[...filtered].reverse().map(imp => {
+          {paged.map(imp => {
             const cfg = categoryConfig[imp.category] || categoryConfig.content;
             return (
               <div key={imp.id} className="card" style={{ borderLeftWidth: 3, borderLeftColor: cfg.color }}>
@@ -135,6 +144,36 @@ export default function ImprovementsPage() {
             );
           })}
         </div>
+        {totalPages > 1 && (
+          <div style={{
+            display: 'flex', justifyContent: 'center', alignItems: 'center',
+            gap: 8, marginTop: 20,
+          }}>
+            <button
+              className="filter-btn"
+              disabled={safePage <= 1}
+              onClick={() => { setPage(p => Math.max(1, p - 1)); window.scrollTo(0, 0); }}
+              style={{ opacity: safePage <= 1 ? 0.4 : 1 }}
+            >
+              Previous
+            </button>
+            <span style={{
+              fontFamily: 'var(--font-mono)', fontSize: 13,
+              color: 'var(--text-secondary)', padding: '0 8px',
+            }}>
+              Page {safePage} of {totalPages}
+            </span>
+            <button
+              className="filter-btn"
+              disabled={safePage >= totalPages}
+              onClick={() => { setPage(p => Math.min(totalPages, p + 1)); window.scrollTo(0, 0); }}
+              style={{ opacity: safePage >= totalPages ? 0.4 : 1 }}
+            >
+              Next
+            </button>
+          </div>
+        )}
+        </>
       )}
 
       {/* How it works */}

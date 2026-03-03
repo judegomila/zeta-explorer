@@ -173,7 +173,7 @@ export default function LiCriterionViz() {
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
-        .text('Keiper-Li: λₙ/n vs n (should approach ½log(n/2πe))');
+        .text('Keiper-Li: λₙ/n vs n (should approach ½log(n/2πe) + ½)');
 
       const legend = g.append('g').attr('transform', `translate(${w - 200}, ${h - 50})`);
       legend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 22).attr('y2', 0)
@@ -183,7 +183,7 @@ export default function LiCriterionViz() {
       legend.append('line').attr('x1', 0).attr('y1', 20).attr('x2', 22).attr('y2', 20)
         .attr('stroke', '#64748b').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,4');
       legend.append('text').attr('x', 28).attr('y', 24).attr('fill', '#94a3b8').attr('font-size', 11)
-        .text('½log(n/2πe)');
+        .text('½log(n/2πe) + ½');
 
     } else {
       // De Bruijn-Newman: show what happens when we "heat" the zeros

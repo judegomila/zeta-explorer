@@ -122,6 +122,10 @@ export default function GUEStatisticsViz() {
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
         .text('Normalized spacing s');
+      svg.append('text')
+        .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('P(s)');
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text('Nearest-Neighbor Spacing Distribution');
@@ -202,6 +206,10 @@ export default function GUEStatisticsViz() {
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
         .text('Normalized distance x');
+      svg.append('text')
+        .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('R₂(x)');
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text('Pair Correlation Function R₂(x)');
@@ -293,6 +301,10 @@ export default function GUEStatisticsViz() {
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
         .text('Interval length L');
+      svg.append('text')
+        .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('Σ²(L)');
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text('Number Variance Σ²(L)');

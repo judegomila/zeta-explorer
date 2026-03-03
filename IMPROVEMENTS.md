@@ -271,3 +271,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 265 | 2026-03-03T21:00:00Z | Add σ=0.5 value markers to reflection and phase modes in ScatteringMatrixViz | ScatteringMatrixViz.jsx |
 | 266 | 2026-03-03T21:30:00Z | Avoid per-frame canvas buffer reallocation in DualPairTab animation loop in TwistorViz | TwistorViz.jsx |
 | 267 | 2026-03-03T22:15:00Z | Add text labels to unlabeled σ=½ and σ=1 reference lines in ThermodynamicsTab charts | SupercriticalViz.jsx |
+| 268 | 2026-03-03T22:30:00Z | Fix Penrose Transform curves misaligned with axis labels due to i/n instead of i/(n-1) x-positioning | TwistorViz.jsx |

@@ -279,7 +279,7 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
     ctx.lineWidth = 2;
     ctx.beginPath();
     for (let i = 0; i < n; i++) {
-      const x = margin.left + (i / n) * chartW;
+      const x = margin.left + (i / (n - 1)) * chartW;
       const y = topY + panelH - (fieldValues[i] / maxField) * (panelH - 24);
       i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
     }
@@ -314,7 +314,7 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
     ctx.lineWidth = 2;
     ctx.beginPath();
     for (let i = 0; i < n; i++) {
-      const x = margin.left + (i / n) * chartW;
+      const x = margin.left + (i / (n - 1)) * chartW;
       const y = botY + panelH - (zetaValues[i] / maxZeta) * (panelH - 24);
       i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
     }

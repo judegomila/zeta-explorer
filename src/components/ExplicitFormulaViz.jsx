@@ -47,6 +47,13 @@ export default function ExplicitFormulaViz() {
 
     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
 
+    // Horizontal gridlines
+    g.append('g')
+      .attr('class', 'grid')
+      .call(d3.axisLeft(yScale).ticks(8).tickSize(-w).tickFormat(''))
+      .selectAll('line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+    g.select('.grid .domain').remove();
+
     // Axes
     g.append('g').attr('transform', `translate(0,${h})`)
       .call(d3.axisBottom(xScale).ticks(10))

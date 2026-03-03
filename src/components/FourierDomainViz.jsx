@@ -71,6 +71,13 @@ function VonMangoldtSpectrumTab() {
       .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
     g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+    // Horizontal gridlines
+    const gridG = g.append('g')
+      .call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(''));
+    gridG.select('.domain').remove();
+    gridG.selectAll('.tick line')
+      .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
+
     // Fill under curve
     g.append('path').datum(spectrum)
       .attr('d', d3.area().x(d => x(d.frequency)).y0(h).y1(d => y(d.magnitude)).curve(d3.curveBasis))

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { partialEulerProduct, cAbs, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
@@ -13,6 +13,14 @@ export default function EulerProductViz() {
   const sigmaDeviation = Math.abs(sigma - 0.5);
   const sigmaColor = sigmaDeviation < 0.02 ? '#10b981' : sigmaDeviation < 0.15 ? '#f59e0b' : '#ef4444';
 
+  // Memoize expensive Euler product and true zeta computations so they don't rerun on resize
+  const eulerData = useMemo(() => {
+    const { stages } = partialEulerProduct([sigma, t], maxPrimes);
+    return stages.slice(1); // skip initial [1,0]
+  }, [sigma, t, maxPrimes]);
+
+  const trueZetaMag = useMemo(() => cAbs(zetaCriticalStrip([sigma, t])), [sigma, t]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -25,8 +33,7 @@ export default function EulerProductViz() {
     const w = width - margin.left - margin.right;
     const h = height - margin.top - margin.bottom;
 
-    const { stages } = partialEulerProduct([sigma, t], maxPrimes);
-    const data = stages.slice(1); // skip initial [1,0]
+    const data = eulerData;
 
     const x = d3.scaleLinear().domain([0, data.length - 1]).range([0, w]);
     const yMag = d3.scaleLinear()
@@ -148,7 +155,7 @@ export default function EulerProductViz() {
       .text('Phase arg(ζ) →');
 
     // True zeta value (Borwein-accelerated) as reference line
-    const trueZeta = cAbs(zetaCriticalStrip([sigma, t]));
+    const trueZeta = trueZetaMag;
     const trueY = yMag(trueZeta);
     if (trueY >= 0 && trueY <= h) {
       g.append('line')
@@ -168,7 +175,7 @@ export default function EulerProductViz() {
       .attr('fill', '#06b6d4').attr('font-size', 12).attr('font-family', 'var(--font-mono)')
       .text(`|ζ(${sigma.toFixed(2)}+${t.toFixed(1)}i)| ≈ ${finalMag.toFixed(4)}`);
 
-  }, [sigma, t, maxPrimes]);
+  }, [sigma, t, eulerData, trueZetaMag]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import { InlineMath } from './KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
@@ -35,6 +35,69 @@ export default function GUEStatisticsViz() {
   const [numZeros, setNumZeros] = useState(50);
   const [mode, setMode] = useState('spacing');
 
+  // Memoize all statistical data so resize events don't recompute O(n²) pair-correlation
+  // and O(n² × 23) number-variance loops (~60,000 iterations at 50 zeros)
+  const statsData = useMemo(() => {
+    const zeros = ZETA_ZEROS.slice(0, numZeros);
+    const TWO_PI = 2 * Math.PI;
+
+    // Spacing histogram
+    const spacings = [];
+    for (let i = 0; i < zeros.length - 1; i++) {
+      const gap = zeros[i + 1] - zeros[i];
+      const dens = Math.log(zeros[i] / TWO_PI) / TWO_PI;
+      spacings.push(gap * dens);
+    }
+    const sMaxS = Math.max(3, d3.max(spacings) * 1.1);
+    const sBinW = sMaxS / 20;
+    const sHist = new Array(20).fill(0);
+    for (const s of spacings) {
+      sHist[Math.min(19, Math.floor(s / sBinW))]++;
+    }
+    const sDensity = sHist.map(c => c / (spacings.length * sBinW));
+
+    // Unfolded zeros (shared by pair-correlation and number-variance)
+    const unfolded = zeros.map(g => (g / TWO_PI) * Math.log(g / TWO_PI) - g / TWO_PI + 7 / 8);
+
+    // Pair correlation histogram
+    const pairDists = [];
+    for (let i = 0; i < zeros.length; i++) {
+      for (let j = i + 1; j < zeros.length; j++) {
+        pairDists.push(unfolded[j] - unfolded[i]);
+      }
+    }
+    const pBinW = 4 / 30;
+    const pHist = new Array(30).fill(0);
+    for (const p of pairDists) {
+      if (p < 4) pHist[Math.floor(p / pBinW)]++;
+    }
+    const pDensity = pHist.map(c => 2 * c / (zeros.length * pBinW));
+
+    // Number variance
+    const nvLs = [];
+    const nvVars = [];
+    for (let L = 0.5; L <= 6; L += 0.25) {
+      let sumSq = 0, count = 0;
+      for (let start = 0; start < unfolded.length; start++) {
+        let n = 0;
+        for (let j = start; j < unfolded.length; j++) {
+          if (unfolded[j] - unfolded[start] <= L) n++;
+          else break;
+        }
+        sumSq += (n - L) * (n - L);
+        count++;
+      }
+      nvLs.push(L);
+      nvVars.push(sumSq / count);
+    }
+
+    return {
+      spacing: { density: sDensity, maxS: sMaxS, binWidth: sBinW },
+      pair: { density: pDensity, binW: pBinW },
+      numVar: { Ls: nvLs, vars: nvVars },
+    };
+  }, [numZeros]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -47,29 +110,9 @@ export default function GUEStatisticsViz() {
     const h = height - margin.top - margin.bottom;
     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
 
-    const zeros = ZETA_ZEROS.slice(0, numZeros);
-
     if (mode === 'spacing') {
-      // Normalize spacings: delta_n = (gamma_{n+1} - gamma_n) * (log(gamma_n/(2pi)) / (2pi))
-      const spacings = [];
-      for (let i = 0; i < zeros.length - 1; i++) {
-        const gap = zeros[i + 1] - zeros[i];
-        const density = Math.log(zeros[i] / (2 * Math.PI)) / (2 * Math.PI);
-        spacings.push(gap * density);
-      }
-
-      // Histogram
+      const { density, maxS, binWidth } = statsData.spacing;
       const bins = 20;
-      const maxS = Math.max(3, d3.max(spacings) * 1.1);
-      const binWidth = maxS / bins;
-      const histogram = new Array(bins).fill(0);
-      for (const s of spacings) {
-        const idx = Math.min(bins - 1, Math.floor(s / binWidth));
-        histogram[idx]++;
-      }
-      // Normalize to probability density
-      const total = spacings.length;
-      const density = histogram.map(c => c / (total * binWidth));
 
       const x = d3.scaleLinear().domain([0, maxS]).range([0, w]);
       const yMax = Math.max(d3.max(density) * 1.2, 1.2);
@@ -141,34 +184,9 @@ export default function GUEStatisticsViz() {
         .text('Nearest-Neighbor Spacing Distribution');
 
     } else if (mode === 'pair-correlation') {
-      // Pair correlation R_2(x) = 1 - (sin(πx)/(πx))^2
-      const zeros = ZETA_ZEROS.slice(0, numZeros);
-      // Unfold zeros using exact Weyl-law formula N̂(γ) = (γ/2π)log(γ/2πe) + 7/8,
-      // matching the number-variance tab. The previous code used a linear approximation
-      // (diff * density_at_i) which underestimates separations for distant pairs by up to 2×.
-      const TWO_PI = 2 * Math.PI;
-      const unfolded = zeros.map(g => (g / TWO_PI) * Math.log(g / TWO_PI) - g / TWO_PI + 7 / 8);
-      const pairs = [];
-      for (let i = 0; i < zeros.length; i++) {
-        for (let j = i + 1; j < zeros.length; j++) {
-          pairs.push(unfolded[j] - unfolded[i]);
-        }
-      }
-
+      const { density, binW } = statsData.pair;
       const maxR = 4;
       const bins = 30;
-      const binW = maxR / bins;
-      const histogram = new Array(bins).fill(0);
-      for (const p of pairs) {
-        if (p < maxR) {
-          histogram[Math.floor(p / binW)]++;
-        }
-      }
-      // Normalize to pair correlation R₂: for each of N zeros, the expected count of
-      // neighbors at distance [r, r+dr] is R₂(r)·dr. Summing over all N zeros gives
-      // N × R₂(r) × binW ordered pairs, but we only counted unordered pairs (i < j),
-      // so each pair was counted once instead of twice. Hence R₂(r) = 2·count / (N × binW).
-      const density = histogram.map(c => 2 * c / (zeros.length * binW));
 
       const x = d3.scaleLinear().domain([0, maxR]).range([0, w]);
       const yMax = Math.max(1.5, d3.max(density) * 1.2);
@@ -228,34 +246,7 @@ export default function GUEStatisticsViz() {
         .text('Pair Correlation Function R₂(x)');
 
     } else {
-      // Number variance Sigma^2(L) — simplified
-      const zeros = ZETA_ZEROS.slice(0, numZeros);
-      // Unfold zeros using the smooth counting function N̂(γ) = (γ/2π)log(γ/2πe) + 7/8
-      // This is the exact Weyl-law formula, replacing the previous Riemann-sum approximation
-      // which used forward-Euler integration and introduced systematic error for low zeros.
-      const TWO_PI = 2 * Math.PI;
-      const unfolded = zeros.map(g => {
-        return (g / TWO_PI) * Math.log(g / TWO_PI) - g / TWO_PI + 7 / 8;
-      });
-
-      // Compute number variance for different interval lengths L
-      const Ls = [];
-      const vars = [];
-      for (let L = 0.5; L <= 6; L += 0.25) {
-        let sumSq = 0;
-        let count = 0;
-        for (let start = 0; start < unfolded.length; start++) {
-          let n = 0;
-          for (let j = start; j < unfolded.length; j++) {
-            if (unfolded[j] - unfolded[start] <= L) n++;
-            else break;
-          }
-          sumSq += (n - L) * (n - L);
-          count++;
-        }
-        Ls.push(L);
-        vars.push(sumSq / count);
-      }
+      const { Ls, vars } = statsData.numVar;
 
       const x = d3.scaleLinear().domain([0, 6]).range([0, w]);
       const yMax = Math.max(1, d3.max(vars) * 1.2);
@@ -319,7 +310,7 @@ export default function GUEStatisticsViz() {
         .text('Number Variance Σ²(L)');
     }
 
-  }, [numZeros, mode]);
+  }, [statsData, mode, numZeros]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

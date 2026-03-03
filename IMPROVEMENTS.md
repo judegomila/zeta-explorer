@@ -241,3 +241,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 235 | 2026-03-03T19:30:00Z | Add scroll-to-top on route change so pages always start at the top | App.jsx |
 | 236 | 2026-03-03T20:00:00Z | Add legend to GradientDescentTab canvas showing H(σ) curve, descent path, critical line, and convergence | TwinOscillatorSimViz.jsx |
 | 237 | 2026-03-03T20:30:00Z | Memoize thermodynamicScan in ThermodynamicsTab to avoid recomputing 120-point scan on resize | SupercriticalViz.jsx |
+| 238 | 2026-03-03T21:00:00Z | Memoize all three GUE statistics (spacing, pair-correlation, number-variance) to avoid recomputing on resize and mode switch | GUEStatisticsViz.jsx |

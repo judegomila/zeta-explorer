@@ -1107,6 +1107,46 @@ This is not the Hilbert-Pólya operator itself — it is a pedagogical model sho
     references: ['berry-keating-1999', 'connes-1999', 'bender-brody-mueller-2017', 'montgomery-1973', 'odlyzko-1987', 'schumayer-hutchinson-2011'],
     nextSteps: [],
   },
+  {
+    id: 'exp-028',
+    timestamp: '2026-03-03T12:00:00Z',
+    title: 'The Mertens Function: Inverse Cascade and Constructive Interference',
+    status: 'complete',
+    category: 'signal-processing',
+    depth: 3,
+    content: `The **Möbius function** $\\mu(n)$ and its summatory function $M(x) = \\sum_{n \\leq x} \\mu(n)$ provide a crucial counterpoint to the oscillator chain narrative. Where $\\zeta(s)$ is the cascade transfer function, its reciprocal is the **inverse cascade**:
+
+$$\\frac{1}{\\zeta(s)} = \\sum_{n=1}^{\\infty} \\frac{\\mu(n)}{n^s} = \\prod_p (1 - p^{-s})$$
+
+Each prime stage contributes a factor $(1 - p^{-s})$ instead of $1/(1 - p^{-s})$. In circuit terms, $1/\\zeta$ is the **admittance** (inverse impedance) of the full cascade. Where each Euler factor $1/(1 - p^{-s})$ is a resonator that amplifies at its natural frequency, the Möbius factor $(1 - p^{-s})$ is a **notch filter** that suppresses it.
+
+The Mertens function $M(x)$ is the "impulse response" of the inverse cascade, analogous to how $\\psi(x)$ is the impulse response of the direct cascade (exp-009). Its explicit formula involves the same zeta zeros:
+
+$$M(x) = \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho\\,\\zeta'(\\rho)} + \\text{lower order terms}$$
+
+**The Mertens conjecture and its disproof.** Stieltjes (1885) and Mertens (1897) conjectured that $|M(x)| < \\sqrt{x}$ for all $x > 1$. If true, this would have implied the Riemann Hypothesis (since $M(x) = O(x^{1/2})$ is equivalent to RH). In 1985, Odlyzko and te Riele disproved the conjecture by showing that the oscillatory contributions from zeta zeros occasionally exhibit **constructive interference** — the modes $x^{\\rho}/(\\rho\\zeta'(\\rho))$ align in phase and reinforce, producing $|M(x)| > \\sqrt{x}$ for some (very large) $x$.
+
+**Oscillator chain interpretation.** In the mode decomposition picture, each zero contributes a damped oscillation $x^{1/2} e^{i\\gamma_n \\log x}$ weighted by $1/(\\rho_n\\,\\zeta'(\\rho_n))$. If the zeros were perfectly "incoherent" (random phases), the sum would be $O(\\sqrt{x \\log\\log x})$ by a central limit argument. But the zeros are **not** independent — they have GUE correlations (exp-010), which introduce subtle long-range phase coherences. The Odlyzko-te Riele result shows that despite the GUE repulsion suppressing nearby zero clustering, the collective oscillation can still occasionally interfere constructively beyond $\\sqrt{x}$.
+
+**Caution.** The Mertens conjecture is false, but RH may still be true. The difference is between pointwise bounds ($|M(x)| < \\sqrt{x}$ for all $x$) and average bounds ($M(x) = O(x^{1/2+\\varepsilon})$). RH is the average statement. The disproof shows that the oscillator modes can transiently superpose to exceed $\\sqrt{x}$, but they cannot sustain this exceedance — the GUE statistics ensure the modes decorrelate over long scales.`,
+    latex: [
+      '\\frac{1}{\\zeta(s)} = \\prod_p (1 - p^{-s}) \\quad \\text{(inverse cascade / notch filter bank)}',
+      'M(x) = \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho\\,\\zeta\'(\\rho)} + \\sum_{k=1}^{\\infty} \\frac{(-1)^{k-1}}{k\\,\\zeta(2k)\\,(2\\pi)^{2k}} x^{-2k} + \\cdots',
+      '|M(x)| < \\sqrt{x} \\quad \\text{(Mertens conjecture — FALSE, Odlyzko-te Riele 1985)}',
+      'M(x) = O(x^{1/2+\\varepsilon}) \\;\\forall\\,\\varepsilon > 0 \\iff \\text{RH}',
+      '\\mu(n) = \\begin{cases} 1 & n=1 \\\\ (-1)^k & n = p_1\\cdots p_k \\text{ distinct primes} \\\\ 0 & p^2 | n \\end{cases}',
+    ],
+    insights: [
+      '1/ζ(s) is the admittance of the cascade — each prime stage becomes a notch filter (1 − p^{−s}) instead of a resonator',
+      'M(x) is the impulse response of the inverse cascade, with the same zeta-zero modes as ψ(x) but different weights 1/(ρζ\'(ρ))',
+      'The Mertens conjecture |M(x)| < √x is false: zeta zero modes can constructively interfere beyond the √x barrier',
+      'RH is the average version: M(x) = O(x^{1/2+ε}), which allows transient constructive interference but not sustained growth',
+      'GUE correlations between zeros control the balance between constructive and destructive interference of modes',
+      'The disproof highlights the difference between individual mode behavior (all on critical line) and collective superposition bounds',
+    ],
+    references: ['titchmarsh-1986', 'odlyzko-1987', 'montgomery-1973', 'euler-1737'],
+    nextSteps: [],
+  },
 ];
 
 export function getAllExplorations() {

@@ -438,6 +438,11 @@ function HeatFlowTab() {
 
       svg.append('text').attr('x', width / 2).attr('y', margin.top + topH + 35)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('γ (imaginary part)');
+
+      svg.append('text')
+        .attr('transform', `translate(18, ${margin.top + topH / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('σ = Re(ρ)');
     }
 
     // ── Bottom: |H_τ(t)| ──
@@ -484,6 +489,11 @@ function HeatFlowTab() {
 
       svg.append('text').attr('x', width / 2).attr('y', yOff + botH + 35)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('t');
+
+      svg.append('text')
+        .attr('transform', `translate(18, ${yOff + botH / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('Hτ(t)');
     }
 
   }, [tau, numZeros]);

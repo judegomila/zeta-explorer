@@ -34,7 +34,7 @@ export default function HomePage() {
           <div className="stat-label">References</div>
         </div>
         <div className="stat-box">
-          <div className="stat-value" style={{ color: '#f59e0b' }}>15</div>
+          <div className="stat-value" style={{ color: '#f59e0b' }}>16</div>
           <div className="stat-label">Pages</div>
         </div>
         <div className="stat-box">

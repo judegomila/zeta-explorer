@@ -403,14 +403,20 @@ export function vonMangoldtSpectrum(maxN = 500, numFreqs = 200, freqRange = [0, 
   const lambda = new Float64Array(maxN + 1);
   const primesList = getPrimes(100);
   for (let n = 2; n <= maxN; n++) {
+    let found = false;
     for (const p of primesList) {
-      if (p > n) break;
+      if (p * p > n) break;
       if (n % p === 0) {
         let m = n;
         while (m % p === 0) m /= p;
-        if (m === 1) { lambda[n] = Math.log(p); break; }
+        if (m === 1) { lambda[n] = Math.log(p); }
+        found = true;
         break;
       }
+    }
+    if (!found) {
+      // n has no prime factor ≤ √n, so n is prime
+      lambda[n] = Math.log(n);
     }
   }
 

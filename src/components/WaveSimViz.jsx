@@ -421,6 +421,20 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
   const animRef = useRef();
   const timeRef = useRef(0);
 
+  // Memoize per-prime stage data: oscillatorStage depends only on sigma, t, numPrimes,
+  // not on animation time, so cache it to avoid 2×numPrimes oscillatorStage calls per frame
+  const stageData = useMemo(() => {
+    const s = [sigma, t];
+    const sDual = [1 - sigma, -t];
+    const primes = getPrimes(numPrimes);
+    return primes.map(p => {
+      const stD = oscillatorStage(p, s);
+      const stU = oscillatorStage(p, sDual);
+      const omega = primeFrequency(p);
+      return { magD: stD.magnitude, phD: stD.phase, magU: stU.magnitude, phU: stU.phase, omega };
+    });
+  }, [sigma, t, numPrimes]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -433,9 +447,6 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
     canvas.height = H * dpr;
     ctx.scale(dpr, dpr);
 
-    const s = [sigma, t];
-    const sDual = [1 - sigma, -t];
-    const primes = getPrimes(numPrimes);
     const time = timeRef.current;
 
     ctx.fillStyle = '#0d1117';
@@ -454,14 +465,6 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
     const xPoints = 400;
     const directWave = new Float64Array(xPoints);
     const dualWave = new Float64Array(xPoints);
-
-    // Precompute per-prime stage data once (independent of x-position)
-    const stageData = primes.map(p => {
-      const stD = oscillatorStage(p, s);
-      const stU = oscillatorStage(p, sDual);
-      const omega = primeFrequency(p);
-      return { magD: stD.magnitude, phD: stD.phase, magU: stU.magnitude, phU: stU.phase, omega };
-    });
 
     // Compute superposition waves
     for (let j = 0; j < xPoints; j++) {
@@ -544,7 +547,7 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
       }
     });
 
-  }, [sigma, t, numPrimes]);
+  }, [stageData, numPrimes]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

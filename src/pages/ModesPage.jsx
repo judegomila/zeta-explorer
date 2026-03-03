@@ -43,6 +43,35 @@ export default function ModesPage() {
         </div>
       </div>
 
+      <div className="card" style={{ marginTop: 24, borderColor: '#10b981' }}>
+        <h3 style={{ color: '#10b981' }}>What to Explore in Each Visualization</h3>
+        <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 2 }}>
+          <li>
+            <strong style={{ color: '#3b82f6' }}>Animated Modes:</strong> select different zeta
+            zeros and watch how the excitation pattern across primes changes. Some primes get
+            phase-flipped (negative amplitude) depending on the zero — the superposition row at
+            the bottom shows constructive/destructive interference building the prime counting correction.
+          </li>
+          <li>
+            <strong style={{ color: '#f59e0b' }}>Prime Gap Coupling:</strong> switch between
+            coupling strength, raw gaps, and oscillator frequencies. Look for twin primes (red bars)
+            creating the strongest coupling spikes. The frequency view shows the logarithmic
+            dispersion <InlineMath tex="\omega_p = \log p" /> that underlies the increasing density of zeta zeros.
+          </li>
+          <li>
+            <strong style={{ color: '#8b5cf6' }}>Energy Landscape:</strong> switch metrics to
+            see the energy valley along <InlineMath tex="\sigma = 1/2" />. The impedance mismatch metric
+            makes the critical line most visible. Hover to read exact values. White circles mark
+            known zeros — check that they sit in the valley floor.
+          </li>
+          <li>
+            <strong style={{ color: '#06b6d4' }}>Exploration Graph:</strong> drag nodes to
+            rearrange the dependency network. Click nodes to see exploration details. Follow
+            colored links to trace reasoning chains from foundational concepts to advanced results.
+          </li>
+        </ul>
+      </div>
+
       <div style={{ marginTop: 24 }}>
         <div className="viz-title">Animated Oscillator Modes</div>
         <div className="viz-subtitle">

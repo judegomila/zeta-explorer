@@ -148,3 +148,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 142 | 2026-03-03T21:30:00Z | Scale horizontal connector opacity and width by per-stage magnitude in OscillatorChainViz | OscillatorChainViz.jsx |
 | 143 | 2026-03-03T22:00:00Z | Memoize primeHarmonicDecomposition to eliminate duplicate computation in PrimeHarmonicsTab | FourierDomainViz.jsx |
 | 144 | 2026-03-03T22:30:00Z | Add suggested learning path to HomePage guiding users through pages in logical progression | HomePage.jsx |
+| 145 | 2026-03-03T23:00:00Z | Add visualization-by-visualization exploration guide card to ModesPage | ModesPage.jsx |

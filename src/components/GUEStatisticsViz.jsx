@@ -125,9 +125,9 @@ export default function GUEStatisticsViz() {
       const zeros = ZETA_ZEROS.slice(0, numZeros);
       const pairs = [];
       for (let i = 0; i < zeros.length; i++) {
+        const density = Math.log(zeros[i] / (2 * Math.PI)) / (2 * Math.PI);
         for (let j = i + 1; j < zeros.length; j++) {
           const diff = zeros[j] - zeros[i];
-          const density = Math.log(zeros[i] / (2 * Math.PI)) / (2 * Math.PI);
           pairs.push(diff * density);
         }
       }

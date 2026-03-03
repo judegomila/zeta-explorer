@@ -512,6 +512,15 @@ export default function RHRigorViz() {
     for (let t = Math.ceil(tRange[0]); t <= tRange[1]; t += Math.ceil((tRange[1] - tRange[0]) / 8)) {
       ctx.fillText(t.toString(), xScale(t), ph + 16);
     }
+    // Y-axis ticks (normalized 0–1 scale)
+    ctx.textAlign = 'right';
+    for (let frac = 0; frac <= 1.0; frac += 0.25) {
+      const y = ph - frac * ph * 0.9;
+      ctx.fillText(frac.toFixed(2), -6, y + 4);
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(4, y); ctx.stroke();
+    }
 
     // Title
     ctx.fillStyle = '#e2e8f0';

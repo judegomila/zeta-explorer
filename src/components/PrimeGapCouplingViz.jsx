@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import * as d3 from 'd3';
+import { InlineMath } from './KaTeXMath.jsx';
 import { getPrimes, primeFrequency } from '../math/primes.js';
 
 /**
@@ -160,6 +161,17 @@ export default function PrimeGapCouplingViz() {
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text('Oscillator Frequencies ω_p = log(p)');
+
+      // Legend
+      const legend = g.append('g').attr('transform', `translate(${w - 160}, 10)`);
+      legend.append('circle').attr('cx', 6).attr('cy', 0).attr('r', 4)
+        .attr('fill', 'hsl(225, 70%, 55%)').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+      legend.append('text').attr('x', 18).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10)
+        .text('ω = log(p)');
+      legend.append('line').attr('x1', 0).attr('y1', 18).attr('x2', 12).attr('y2', 18)
+        .attr('stroke', '#64748b').attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
+      legend.append('text').attr('x', 18).attr('y', 22).attr('fill', '#94a3b8').attr('font-size', 10)
+        .text('log(x) reference');
     }
 
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
@@ -177,6 +189,33 @@ export default function PrimeGapCouplingViz() {
 
   return (
     <div>
+      {mode === 'coupling' && (
+        <div className="tab-explainer accent-red">
+          <strong>The math:</strong> Adjacent oscillator stages are coupled with strength{' '}
+          <InlineMath tex="Y_{n,n+1} \propto 1/\log(p_{n+1}/p_n)" />. Small prime gaps (especially twin primes, gap = 2)
+          produce <strong>strong coupling</strong> &mdash; energy flows easily between those stages, creating resonant cavities.
+          Large gaps weaken the coupling. The twin prime conjecture implies infinitely many strongly-coupled pairs.
+          <strong> Look for:</strong> red spikes at twin primes (3-5, 5-7, 11-13, ...); coupling dropping at large gaps.
+        </div>
+      )}
+      {mode === 'gap' && (
+        <div className="tab-explainer accent-orange">
+          <strong>The math:</strong> Prime gaps <InlineMath tex="g_n = p_{n+1} - p_n" /> determine the physical "distance" between oscillator stages.
+          By the prime number theorem, the average gap near <InlineMath tex="p" /> is <InlineMath tex="\sim \log p" />.
+          The distribution of gaps encodes the fine structure of primes &mdash; and directly sets
+          the inter-stage impedance of the ladder network.
+          <strong> Look for:</strong> gaps growing on average (PNT) with occasional twin prime dips to 2.
+        </div>
+      )}
+      {mode === 'frequency' && (
+        <div className="tab-explainer accent-cyan">
+          <strong>The math:</strong> Each prime <InlineMath tex="p" /> oscillates at natural frequency <InlineMath tex="\omega_p = \log p" />.
+          This is a <strong>logarithmic dispersion relation</strong>: frequency grows as <InlineMath tex="\log(n\log n)" /> for
+          the <InlineMath tex="n" />-th prime. Unlike a uniform lattice, mode spacing decreases at higher frequencies,
+          matching the increasing density of zeta zeros <InlineMath tex="N(T) \sim (T/2\pi)\log T" />.
+          <strong> Look for:</strong> the logarithmic staircase of frequencies.
+        </div>
+      )}
       <div className="controls">
         <div className="control-group">
           <label>View</label>

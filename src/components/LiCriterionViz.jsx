@@ -221,10 +221,11 @@ export default function LiCriterionViz() {
       // σ(τ) ≈ 1/2 + c * τ / γ for each zero γ
       taus.forEach((tau, ti) => {
         zeros.forEach((gamma, zi) => {
-          // Simple model: σ = 1/2 + tau * (random-like perturbation based on gamma)
-          const perturbation = tau > 0
+          // Simple model: σ = 1/2 + perturbation. Forward heat (τ>0) preserves real zeros;
+          // backward heat (τ<0, inverse diffusion) scatters them off the line.
+          const perturbation = tau < 0
             ? tau * Math.sin(gamma * 3.7 + zi * 1.3) / (1 + gamma * 0.05)
-            : 0; // for τ ≤ 0, zeros stay on line (if RH)
+            : 0; // for τ ≥ 0, zeros stay on line (Rodgers-Tao: Λ ≥ 0)
           const sigma = 0.5 + perturbation;
           const clampedSigma = Math.max(0, Math.min(1, sigma));
 
@@ -295,7 +296,7 @@ export default function LiCriterionViz() {
         <div className="tab-explainer accent-purple">
           <strong>The math:</strong> Under the heat equation with parameter <InlineMath tex="\tau" />, zeros of the Xi function
           evolve continuously. At <InlineMath tex="\tau = 0" />, they sit on the real axis (assuming RH). Heating
-          (<InlineMath tex="\tau > 0" />) pushes them off; cooling (<InlineMath tex="\tau < 0" />) pulls them on.
+          (<InlineMath tex="\tau > 0" />) preserves real zeros; inverse diffusion (<InlineMath tex="\tau < 0" />) scatters them off.
           The de Bruijn-Newman constant <InlineMath tex="\Lambda \geq 0" /> (proved by Rodgers-Tao) is the critical
           temperature: the system is already at the coldest point compatible with real zeros.
           <strong> Look for:</strong> zeros migrating off the real axis as <InlineMath tex="\tau" /> increases from 0.

@@ -173,8 +173,9 @@ export default function HamiltonianViz() {
         terms: <strong>kinetic energy</strong> <InlineMath tex="T = \\sum_p \\tfrac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1{-}s)|^2)" /> (blue),{' '}
         <strong>impedance mismatch</strong> <InlineMath tex="V = \\tfrac{1}{2}|Z_{\\text{dir}} - Z_{\\text{dual}}|^2" /> (orange),
         and <strong>bridge penalty</strong> <InlineMath tex="V_b = 100(1-|\\chi|)^2" /> (purple). At <InlineMath tex="\\sigma = 0.5" />,
-        mismatch vanishes (functional equation symmetry) and the bridge is lossless (<InlineMath tex="|\\chi|=1" />),
-        leaving only the minimized kinetic term.
+        the bridge is lossless (<InlineMath tex="|\\chi|=1" />) and the direct/dual impedances are conjugate-matched
+        (equal real parts, opposite imaginary parts from the functional equation), minimizing the total Hamiltonian.
+        The mismatch retains a nonzero imaginary-part residual.
         <strong> Look for:</strong> the green total curve reaching its minimum at <InlineMath tex="\\sigma = 0.5" /> for any value of <InlineMath tex="t" />.
       </div>
       <div className="controls">

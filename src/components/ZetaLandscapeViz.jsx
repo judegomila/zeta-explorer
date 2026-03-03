@@ -110,6 +110,32 @@ export default function ZetaLandscapeViz() {
       ctx.globalAlpha = 1;
     }
 
+    // Y-axis tick marks and labels
+    ctx.fillStyle = '#64748b';
+    ctx.strokeStyle = '#1e293b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'right';
+    // Choose a nice tick step based on maxAbs
+    const rawStep = maxAbs / 3;
+    const mag = Math.pow(10, Math.floor(Math.log10(rawStep)));
+    const niceFracs = [1, 2, 5, 10];
+    const yTickStep = niceFracs.find(f => f * mag >= rawStep) * mag;
+    for (let v = -Math.floor(maxAbs / yTickStep) * yTickStep; v <= maxAbs; v += yTickStep) {
+      if (Math.abs(v) < yTickStep * 0.01) continue; // skip zero line (already drawn)
+      const y = yMid - v * yScale;
+      if (y < 10 || y > dh - 10) continue;
+      // Dashed gridline
+      ctx.setLineDash([4, 4]);
+      ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(dw, y); ctx.stroke();
+      ctx.setLineDash([]);
+      // Tick label
+      ctx.fillStyle = '#64748b';
+      const label = Number.isInteger(v) ? String(v) : v.toFixed(1);
+      ctx.fillText(label, 28, y + 3);
+    }
+    ctx.textAlign = 'start';
+
     // Mark zeta zeros
     for (const gamma of ZETA_ZEROS) {
       if (gamma >= tMin && gamma <= tMax) {

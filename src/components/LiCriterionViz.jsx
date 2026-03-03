@@ -72,6 +72,13 @@ export default function LiCriterionViz() {
       const yMax = d3.max(lambdas, d => d.lambda) * 1.2;
       const y = d3.scaleLinear().domain([yMin, yMax]).range([h, 0]);
 
+      // Horizontal gridlines
+      g.append('g')
+        .attr('class', 'grid')
+        .call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''))
+        .selectAll('line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+      g.select('.grid .domain').remove();
+
       g.append('g').attr('transform', `translate(0,${h})`)
         .call(d3.axisBottom(x).tickFormat(d => d))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
@@ -138,6 +145,13 @@ export default function LiCriterionViz() {
       const yMin = Math.min(0, d3.min(data, d => d.perN) * 1.2);
       const y = d3.scaleLinear().domain([yMin, yMax]).range([h, 0]);
 
+      // Horizontal gridlines
+      g.append('g')
+        .attr('class', 'grid')
+        .call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''))
+        .selectAll('line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+      g.select('.grid .domain').remove();
+
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.append('g').call(d3.axisLeft(y).ticks(8))
@@ -195,6 +209,13 @@ export default function LiCriterionViz() {
       const maxGamma = zeros.length > 0 ? zeros[zeros.length - 1] * 1.05 : 100;
       const x = d3.scaleLinear().domain([0, maxGamma]).range([0, w]);
       const y = d3.scaleLinear().domain([0, 1]).range([h, 0]);
+
+      // Horizontal gridlines
+      g.append('g')
+        .attr('class', 'grid')
+        .call(d3.axisLeft(y).ticks(5).tickSize(-w).tickFormat(''))
+        .selectAll('line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+      g.select('.grid .domain').remove();
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);

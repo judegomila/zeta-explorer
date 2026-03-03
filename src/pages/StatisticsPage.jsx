@@ -74,7 +74,8 @@ export default function StatisticsPage() {
           around the asymptotic line shrinks as you increase zero count.
           <strong style={{ color: '#8b5cf6' }}> de Bruijn-Newman</strong> visualizes zero trajectories under the heat
           equation. Drag the <InlineMath tex="\tau" /> slider: at <InlineMath tex="\tau = 0" /> zeros sit on the real axis
-          (assuming RH); positive <InlineMath tex="\tau" /> pushes them apart into the complex plane.
+          (assuming RH); negative <InlineMath tex="\tau" /> (backward heat) scatters them into the complex plane,
+          while positive <InlineMath tex="\tau" /> preserves real zeros.
         </p>
       </div>
 

@@ -554,10 +554,16 @@ function DualPairTab({ sigma, t, numPrimes, playing }) {
     const dpr = window.devicePixelRatio || 1;
     const W = canvas.parentElement.clientWidth;
     const H = 460;
-    canvas.width = W * dpr;
-    canvas.height = H * dpr;
-    canvas.style.height = H + 'px';
-    ctx.scale(dpr, dpr);
+    const needW = W * dpr;
+    const needH = H * dpr;
+    // Only reallocate canvas buffer when dimensions actually change
+    if (canvas.width !== needW || canvas.height !== needH) {
+      canvas.width = needW;
+      canvas.height = needH;
+      canvas.style.height = H + 'px';
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
 
     ctx.fillStyle = '#0d1117';
     ctx.fillRect(0, 0, W, H);

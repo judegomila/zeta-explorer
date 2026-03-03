@@ -269,3 +269,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 263 | 2026-03-03T20:00:00Z | Fix stale hardcoded Pages (16→17) and Visualizations (18→19) counts on HomePage after TwistorPage addition | HomePage.jsx |
 | 264 | 2026-03-03T20:30:00Z | Add "What to Explore in Each Tab" guide card to TwistorPage | TwistorPage.jsx |
 | 265 | 2026-03-03T21:00:00Z | Add σ=0.5 value markers to reflection and phase modes in ScatteringMatrixViz | ScatteringMatrixViz.jsx |
+| 266 | 2026-03-03T21:30:00Z | Avoid per-frame canvas buffer reallocation in DualPairTab animation loop in TwistorViz | TwistorViz.jsx |

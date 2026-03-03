@@ -1,3 +1,4 @@
+import { InlineMath } from './KaTeXMath.jsx';
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes, primeFrequency } from '../math/primes.js';
@@ -143,10 +144,40 @@ export default function AnimatedModesViz() {
     ctx.fillStyle = 'rgba(16, 185, 129, 0.08)';
     ctx.fill();
 
-    // Time indicator
+    // X-axis with tick marks and labels
+    const axisY = superY + superH;
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(xPad, axisY);
+    ctx.lineTo(xPad + waveW, axisY);
+    ctx.stroke();
+
+    ctx.textAlign = 'center';
+    ctx.font = '10px monospace';
+    for (let logVal = 1; logVal <= 6; logVal++) {
+      const tickX = xPad + ((logVal - 1) / 5) * waveW;
+      ctx.beginPath();
+      ctx.moveTo(tickX, axisY);
+      ctx.lineTo(tickX, axisY + 4);
+      ctx.stroke();
+      ctx.fillStyle = '#64748b';
+      ctx.fillText(logVal.toString(), tickX, axisY + 14);
+    }
+
+    // Axis label
+    ctx.fillStyle = '#475569';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText('log x', xPad - 6, axisY + 14);
+    ctx.textAlign = 'left';
+
+    // Time indicator (top-right)
     ctx.fillStyle = '#64748b';
     ctx.font = '11px monospace';
-    ctx.fillText(`t = ${t.toFixed(2)}`, dw - 80, dh - 8);
+    ctx.textAlign = 'right';
+    ctx.fillText(`t = ${t.toFixed(2)}`, dw - 8, 22);
+    ctx.textAlign = 'left';
 
   }, [numPrimes, zeroIndex, speed]);
 
@@ -170,18 +201,26 @@ export default function AnimatedModesViz() {
 
   return (
     <div>
+      <div className="tab-explainer accent-pink">
+        <strong>The math:</strong> At zeta zero frequency <InlineMath tex="\\gamma_n" />, each prime oscillator vibrates with
+        amplitude <InlineMath tex="\\propto \\text{Re}(p^{-1/2-i\\gamma_n})" /> and phase set by <InlineMath tex="\\gamma_n \\log p" />.
+        The bottom row superposes all prime contributions: this is the <InlineMath tex="\\rho" />-th term in the explicit formula.
+        Different zeros excite different patterns across the prime oscillators, but the frequencies{' '}
+        <InlineMath tex="\\omega_p = \\log p" /> are fixed &mdash; only the driving frequency <InlineMath tex="\\gamma_n" /> changes.
+        <strong> Look for:</strong> small primes making large, slow oscillations; larger primes vibrating faster with smaller amplitude.
+      </div>
       <div className="controls">
         <div className="control-group">
           <label>Zeta Zero</label>
           <select value={zeroIndex} onChange={e => setZeroIndex(+e.target.value)}>
-            {ZETA_ZEROS.slice(0, 30).map((z, i) => (
+            {ZETA_ZEROS.slice(0, 100).map((z, i) => (
               <option key={i} value={i}>γ_{i + 1} = {z.toFixed(3)}</option>
             ))}
           </select>
         </div>
         <div className="control-group">
           <label>Primes</label>
-          <input type="range" min="4" max="20" step="1" value={numPrimes}
+          <input type="range" min="4" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
           <span className="control-value">{numPrimes}</span>
         </div>

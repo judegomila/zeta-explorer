@@ -397,8 +397,10 @@ export default function RHRigorViz() {
     const maxMismatch = Math.max(...data.map(d => d.mismatch), 0.001);
     const maxZeta = Math.max(...data.map(d => d.zetaMag), 0.001);
     const maxMismatchOff = Math.max(...data.map(d => d.mismatchOff), 0.001);
+    // Use shared scale for both mismatch curves so on-line vs off-line comparison is visually meaningful
+    const maxMismatchBoth = Math.max(maxMismatch, maxMismatchOff);
 
-    const yMismatch = (v) => ph - (v / maxMismatch) * ph * 0.9;
+    const yMismatch = (v) => ph - (v / maxMismatchBoth) * ph * 0.9;
     const yZeta = (v) => ph - (v / maxZeta) * ph * 0.9;
 
     // Mark zeta zeros
@@ -447,7 +449,7 @@ export default function RHRigorViz() {
     ctx.strokeStyle = '#ef4444';
     ctx.lineWidth = 1;
     ctx.setLineDash([2, 2]);
-    const yMismatchOff = (v) => ph - (v / maxMismatchOff) * ph * 0.9;
+    const yMismatchOff = (v) => ph - (v / maxMismatchBoth) * ph * 0.9;
     ctx.beginPath();
     data.forEach((pt, i) => {
       const x = xScale(pt.t);

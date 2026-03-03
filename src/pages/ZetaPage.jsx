@@ -18,6 +18,29 @@ export default function ZetaPage() {
 
       <ZetaLandscapeViz />
 
+      <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
+        <h3 style={{ color: '#06b6d4' }}>What to Explore</h3>
+        <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 2 }}>
+          <li>
+            <strong style={{ color: '#3b82f6' }}>Critical Line mode:</strong> watch <InlineMath tex="Z(t)" /> oscillate
+            with increasing "frequency" as <InlineMath tex="t" /> grows — the local wavelength
+            shrinks as <InlineMath tex="2\pi/\log(t/2\pi)" />. Red dots mark sign changes (zeros); compare their
+            positions to the <InlineMath tex="\gamma_n" /> table below.
+          </li>
+          <li>
+            <strong style={{ color: '#f59e0b' }}>Heatmap mode:</strong> switch to the <InlineMath tex="|\zeta(\sigma+it)|" /> landscape
+            and look for dark valleys pinching inward to the center line <InlineMath tex="\sigma = 1/2" />. RH
+            asserts every valley bottom sits exactly on that line. Drag the t-range to higher values
+            to see zeros pack more tightly.
+          </li>
+          <li>
+            <strong style={{ color: '#10b981' }}>Colorbar &amp; scale:</strong> in heatmap mode, the colorbar maps brightness
+            to <InlineMath tex="|\zeta|" />. Near a zero the magnitude plunges to near 0 (black); away from the
+            critical strip it grows rapidly due to the pole at <InlineMath tex="s = 1" /> and the trivial zeros.
+          </li>
+        </ul>
+      </div>
+
       <div className="card" style={{ marginTop: 32 }}>
         <h3 style={{ color: '#8b5cf6' }}>Computing <InlineMath tex="Z(t)" />: The Riemann-Siegel Formula</h3>
         <p style={{ marginTop: 8 }}>

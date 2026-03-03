@@ -1560,6 +1560,45 @@ These are two equivalent descriptions of the same system — like specifying a c
     references: ['hadamard-1896', 'titchmarsh-1986'],
     nextSteps: ['exp-001', 'exp-009', 'exp-022'],
   },
+  {
+    id: 'exp-038',
+    timestamp: '2026-03-04T00:30:00Z',
+    title: "Selberg's Central Limit Theorem: Gaussian Statistics from Prime Oscillators",
+    status: 'complete',
+    category: 'statistical',
+    depth: 3,
+    content: `Selberg (1946) proved a remarkable result: on the critical line, $\\log\\zeta(\\tfrac{1}{2}+it)$ behaves like a **complex Gaussian random variable** with variance $\\sim\\tfrac{1}{2}\\log\\log T$.
+
+More precisely, for $t$ chosen uniformly at random from $[T, 2T]$:
+
+$$\\frac{\\log\\zeta(\\tfrac{1}{2}+it)}{\\sqrt{\\tfrac{1}{2}\\log\\log T}} \\;\\xrightarrow{\\;d\\;} \\;\\mathcal{N}(0,1) + i\\,\\mathcal{N}(0,1)$$
+
+where the real and imaginary parts are **independently** Gaussian. This means the magnitude $|\\zeta(\\tfrac{1}{2}+it)|$ is approximately log-normal, and the phase $\\arg\\zeta(\\tfrac{1}{2}+it)$ is approximately uniform.
+
+**Why it works: the additive structure.** The Euler product gives $\\log\\zeta(s) = -\\sum_p \\log(1-p^{-s}) \\approx \\sum_p p^{-s}$ for $\\text{Re}(s) > 1$. On the critical line, this sum diverges but the partial sums over dyadic blocks $[y, 2y]$ become approximately independent as $T \\to \\infty$. Each block contributes variance $\\sim \\sum_{y < p \\leq 2y} 1/p \\approx \\log 2/\\log y$, and summing $\\sim \\log\\log T$ approximately independent blocks gives total variance $\\sim \\tfrac{1}{2}\\log\\log T$. The central limit theorem does the rest.
+
+**Circuit interpretation.** In the oscillator cascade model, each prime stage $p$ contributes a complex gain $-\\log(1-p^{-s})$ to the log-output. At $\\sigma = 1/2$, these gains have modulus $\\sim p^{-1/2}$ and phase determined by $t\\log p$. As $t$ varies, the phases sweep pseudo-randomly (because $\\log p$ values are linearly independent over $\\mathbb{Q}$), making the stages' contributions approximately independent. Selberg's theorem is thus a **central limit theorem for the cascade output**: many small, approximately independent oscillator contributions sum to produce Gaussian statistics.
+
+**Connection to random matrix theory.** The Keating-Snaith conjecture gives precise moment predictions $\\mathbb{E}[|\\zeta(\\tfrac{1}{2}+it)|^{2k}] \\sim c_k (\\log T)^{k^2}$. These moments are consistent with the log-normal distribution implied by the Gaussian approximation for the bulk. Deviations from Gaussianity in the tails encode deep arithmetic information about prime correlations.
+
+**Implications for the oscillator model.** The $\\sqrt{\\log\\log T}$ normalization is unusually slow — the cascade "almost" stays bounded, with fluctuations growing incredibly slowly. This near-cancellation is a signature of critical coupling $Q=1$: at other values of $\\sigma$, the variance grows as $\\tfrac{1}{2}\\log\\log T$ times a factor that diverges as $\\sigma \\to 1$ (where individual oscillators approach resonance and dominate the sum).`,
+    latex: [
+      '\\frac{\\log\\zeta(\\tfrac{1}{2}+it)}{\\sqrt{\\tfrac{1}{2}\\log\\log T}} \\;\\xrightarrow{\\;d\\;} \\;\\mathcal{N}(0,1) + i\\,\\mathcal{N}(0,1)',
+      '\\log\\zeta(s) = \\sum_p \\sum_{k=1}^{\\infty} \\frac{p^{-ks}}{k} \\approx \\sum_p p^{-s} \\quad \\text{(dominant term)}',
+      '\\text{Var}\\!\\left[\\log|\\zeta(\\tfrac{1}{2}+it)|\\right] \\sim \\tfrac{1}{2}\\log\\log T \\quad \\text{as } T \\to \\infty',
+      '\\text{Oscillator stages } p^{-it} \\text{ pseudo-random} \\;\\Rightarrow\\; \\text{CLT} \\;\\Rightarrow\\; \\text{Gaussian}',
+    ],
+    insights: [
+      'Selberg proved log ζ(½+it) is Gaussian with variance ½ log log T — the cascade output is approximately normal',
+      'The proof uses approximate independence of prime contributions over dyadic blocks — our "oscillator stages"',
+      'Linear independence of log p over Q makes the phases pseudo-random, enabling the CLT',
+      'The log-normal distribution of |ζ| explains why large values are rare but not impossible — controlled by the Gaussian tail',
+      'At σ ≠ ½, the variance changes, reflecting the loss of critical coupling in the oscillator chain',
+      'Keating-Snaith moments are consistent with the Gaussian bulk but add arithmetic corrections in the tails',
+    ],
+    references: ['selberg-1946', 'tsang-1984', 'keating-snaith-2000', 'soundararajan-2009'],
+    nextSteps: ['exp-031', 'exp-033', 'exp-027'],
+  },
 ];
 
 export function getAllExplorations() {

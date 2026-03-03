@@ -213,3 +213,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 207 | 2026-03-03T23:55:00Z | Fix Poisson reference line slope in number-variance plot drawing Σ²=L/4 instead of Σ²=L | GUEStatisticsViz.jsx |
 | 208 | 2026-03-03T12:00:00Z | Precompute per-prime constants in AnimatedModesViz to avoid redundant Math.log/sqrt/cos calls per animation frame | AnimatedModesViz.jsx |
 | 209 | 2026-03-03T23:59:00Z | Add γ_max display next to Zeros slider in SupercriticalViz Heat Flow tab | SupercriticalViz.jsx |
+| 210 | 2026-03-04T00:30:00Z | Add Selberg Central Limit Theorem exploration entry connecting Gaussian statistics to oscillator cascade | explorations.js |

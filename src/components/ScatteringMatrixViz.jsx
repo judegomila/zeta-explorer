@@ -178,7 +178,7 @@ export default function ScatteringMatrixViz() {
       const line = d3.line()
         .x(d => x(d.sigma))
         .y(d => y(d.chiPhase * 180 / Math.PI))
-        .curve(d3.curveBasis);
+        .curve(d3.curveLinear);
 
       g.append('path').datum(data).attr('d', line)
         .attr('fill', 'none').attr('stroke', '#06b6d4').attr('stroke-width', 2.5);

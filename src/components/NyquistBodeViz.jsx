@@ -16,6 +16,10 @@ export default function NyquistBodeViz() {
   const [numPrimes, setNumPrimes] = useState(15);
   const [mode, setMode] = useState('nyquist');
 
+  // Color the sigma slider based on distance from critical line
+  const sigmaDeviation = Math.abs(sigma - 0.5);
+  const sigmaColor = sigmaDeviation < 0.02 ? '#10b981' : sigmaDeviation < 0.15 ? '#f59e0b' : '#ef4444';
+
   const computeLoopGain = useCallback((s, nPrimes) => {
     // L(s) = χ(s) * ζ(1-s) / ζ(s)
     // Use Borwein-accelerated zeta for accuracy in the critical strip
@@ -317,10 +321,11 @@ export default function NyquistBodeViz() {
           </select>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="\sigma = \operatorname{Re}(s)" /></label>
+          <label style={{ color: sigmaColor, fontWeight: 600 }}><InlineMath tex="\sigma = \operatorname{Re}(s)" /></label>
           <input type="range" min="0.1" max="0.9" step="0.01" value={sigma}
-            onChange={e => setSigma(+e.target.value)} />
-          <span className="control-value">{sigma.toFixed(2)}</span>
+            onChange={e => setSigma(+e.target.value)}
+            style={{ accentColor: sigmaColor }} />
+          <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
         </div>
         <div className="control-group">
           <label>t max</label>

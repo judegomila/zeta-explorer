@@ -244,3 +244,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 238 | 2026-03-03T21:00:00Z | Memoize all three GUE statistics (spacing, pair-correlation, number-variance) to avoid recomputing on resize and mode switch | GUEStatisticsViz.jsx |
 | 239 | 2026-03-03T21:30:00Z | Add thermodynamic quantity explainer cards (F, S, C_v, P) to SupercriticalPage | SupercriticalPage.jsx |
 | 240 | 2026-03-03T22:00:00Z | Fix SupercriticalPage inverting de Bruijn-Newman heat flow direction in two places | SupercriticalPage.jsx |
+| 241 | 2026-03-03T22:30:00Z | Fix thermodynamicState producing -Infinity/NaN near zeta zeros due to missing Math.log zero guards | supercritical.js |

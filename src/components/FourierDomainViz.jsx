@@ -203,9 +203,10 @@ function FrequencyResponseTab() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
-      // Phase curve
+      // Phase curve — use curveLinear to avoid curveBasis smoothing across
+      // ±π atan2 wrap discontinuities, which would draw fake arcs through 0
       g.append('path').datum(response)
-        .attr('d', d3.line().x(d => x(d.omega)).y(d => y(d.phase)).curve(d3.curveBasis))
+        .attr('d', d3.line().x(d => x(d.omega)).y(d => y(d.phase)).curve(d3.curveLinear))
         .attr('fill', 'none').attr('stroke', '#8b5cf6').attr('stroke-width', 2);
 
       svg.append('text').attr('x', margin.left).attr('y', yOff - 8)

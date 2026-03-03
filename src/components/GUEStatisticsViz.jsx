@@ -193,10 +193,14 @@ export default function GUEStatisticsViz() {
         .attr('d', d3.line().x(d => x(d.r)).y(d => y(d.p)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2.5);
 
-      // R_2 = 1 reference
+      // R_2 = 1 reference (uncorrelated / Poisson baseline)
       g.append('line')
         .attr('x1', 0).attr('y1', y(1)).attr('x2', w).attr('y2', y(1))
         .attr('stroke', '#64748b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+      g.append('text')
+        .attr('x', w - 4).attr('y', y(1) - 5)
+        .attr('text-anchor', 'end').attr('fill', '#64748b').attr('font-size', 10)
+        .text('R₂ = 1 (uncorrelated)');
 
       const legend = g.append('g').attr('transform', `translate(${w - 220}, 10)`);
       legend.append('rect').attr('x', 2).attr('y', -6).attr('width', 18).attr('height', 12)
@@ -207,6 +211,10 @@ export default function GUEStatisticsViz() {
         .attr('stroke', '#ef4444').attr('stroke-width', 2);
       legend.append('text').attr('x', 28).attr('y', 24)
         .attr('fill', '#94a3b8').attr('font-size', 11).text('GUE: 1 − (sin πx / πx)²');
+      legend.append('line').attr('x1', 0).attr('y1', 40).attr('x2', 22).attr('y2', 40)
+        .attr('stroke', '#64748b').attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
+      legend.append('text').attr('x', 28).attr('y', 44)
+        .attr('fill', '#94a3b8').attr('font-size', 11).text('R₂ = 1 (Poisson limit)');
 
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)

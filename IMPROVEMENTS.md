@@ -214,3 +214,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 208 | 2026-03-03T12:00:00Z | Precompute per-prime constants in AnimatedModesViz to avoid redundant Math.log/sqrt/cos calls per animation frame | AnimatedModesViz.jsx |
 | 209 | 2026-03-03T23:59:00Z | Add γ_max display next to Zeros slider in SupercriticalViz Heat Flow tab | SupercriticalViz.jsx |
 | 210 | 2026-03-04T00:30:00Z | Add Selberg Central Limit Theorem exploration entry connecting Gaussian statistics to oscillator cascade | explorations.js |
+| 211 | 2026-03-04T01:00:00Z | Add label and legend entry for R₂=1 reference line in pair-correlation plot | GUEStatisticsViz.jsx |

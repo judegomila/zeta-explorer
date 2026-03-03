@@ -64,7 +64,9 @@ export default function PrimeGapCouplingViz() {
           .attr('width', barW).attr('height', h - y(d.coupling))
           .attr('rx', 1)
           .attr('fill', d.isTwin ? '#ef4444' : `hsl(${210 + d.coupling * 20}, 70%, 55%)`)
-          .attr('opacity', d.isTwin ? 0.9 : 0.6);
+          .attr('opacity', d.isTwin ? 0.9 : 0.6)
+          .style('cursor', 'crosshair')
+          .append('title').text(`p=${d.p1}→${d.p2} | gap=${d.gap}${d.isTwin ? ' (twin)' : ''} | Y=${d.coupling.toFixed(2)}`);
       });
 
       // Coupling line
@@ -76,7 +78,9 @@ export default function PrimeGapCouplingViz() {
       data.filter(d => d.isTwin).forEach(d => {
         g.append('circle')
           .attr('cx', x(d.index)).attr('cy', y(d.coupling)).attr('r', 4)
-          .attr('fill', '#ef4444').attr('stroke', '#0a0e1a').attr('stroke-width', 1.5);
+          .attr('fill', '#ef4444').attr('stroke', '#0a0e1a').attr('stroke-width', 1.5)
+          .style('cursor', 'crosshair')
+          .append('title').text(`Twin: p=${d.p1},${d.p2} | Y=${d.coupling.toFixed(2)}`);
       });
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
@@ -122,7 +126,9 @@ export default function PrimeGapCouplingViz() {
           .attr('x', x(i) - barW / 2).attr('y', y(d.gap))
           .attr('width', barW).attr('height', h - y(d.gap))
           .attr('rx', 1)
-          .attr('fill', color).attr('opacity', 0.7);
+          .attr('fill', color).attr('opacity', 0.7)
+          .style('cursor', 'crosshair')
+          .append('title').text(`p=${d.p1}→${d.p2} | gap=${d.gap}${d.isTwin ? ' (twin)' : ''}`);
       });
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
@@ -172,7 +178,9 @@ export default function PrimeGapCouplingViz() {
         g.append('circle')
           .attr('cx', x(i)).attr('cy', y(freq)).attr('r', 4)
           .attr('fill', `hsl(${210 + freq * 15}, 70%, 55%)`)
-          .attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+          .attr('stroke', '#0a0e1a').attr('stroke-width', 1)
+          .style('cursor', 'crosshair')
+          .append('title').text(`p=${p} | ω=log(${p})=${freq.toFixed(4)}`);
       });
 
       // Connect with line

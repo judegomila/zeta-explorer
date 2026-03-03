@@ -150,3 +150,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 144 | 2026-03-03T22:30:00Z | Add suggested learning path to HomePage guiding users through pages in logical progression | HomePage.jsx |
 | 145 | 2026-03-03T23:00:00Z | Add visualization-by-visualization exploration guide card to ModesPage | ModesPage.jsx |
 | 146 | 2026-03-03T23:30:00Z | Fix Bode phase plot using curveBasis interpolation across ±180° atan2 wrap discontinuities | NyquistBodeViz.jsx |
+| 147 | 2026-03-04T00:00:00Z | Add hover tooltips to all data bars and dots in PrimeGapCouplingViz showing prime pair, gap, and coupling info | PrimeGapCouplingViz.jsx |

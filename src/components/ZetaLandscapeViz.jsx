@@ -184,6 +184,55 @@ export default function ZetaLandscapeViz() {
       }
     }
 
+    // Colorbar
+    const cbW = 14, cbH = dh - 80, cbX = dw - 36, cbY = 50;
+    // Background
+    ctx.fillStyle = 'rgba(17,24,39,0.75)';
+    ctx.fillRect(cbX - 6, cbY - 18, cbW + 44, cbH + 34);
+    // Gradient strip
+    for (let row = 0; row < cbH; row++) {
+      const normalized = 1 - row / cbH;
+      let r2, g2, b2;
+      if (normalized < 0.25) {
+        const t2 = normalized / 0.25;
+        r2 = 10; g2 = 10 + t2 * 80; b2 = 60 + t2 * 140;
+      } else if (normalized < 0.5) {
+        const t2 = (normalized - 0.25) / 0.25;
+        r2 = 10 + t2 * 50; g2 = 90 + t2 * 120; b2 = 200 - t2 * 40;
+      } else if (normalized < 0.75) {
+        const t2 = (normalized - 0.5) / 0.25;
+        r2 = 60 + t2 * 190; g2 = 210 - t2 * 60; b2 = 160 - t2 * 130;
+      } else {
+        const t2 = (normalized - 0.75) / 0.25;
+        r2 = 250; g2 = 150 - t2 * 100; b2 = 30 - t2 * 20;
+      }
+      ctx.fillStyle = `rgb(${r2|0},${g2|0},${b2|0})`;
+      ctx.fillRect(cbX, cbY + row, cbW, 1);
+    }
+    // Border
+    ctx.strokeStyle = '#64748b';
+    ctx.lineWidth = 0.5;
+    ctx.strokeRect(cbX, cbY, cbW, cbH);
+    // Tick labels
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '9px sans-serif';
+    ctx.textAlign = 'left';
+    for (let v = 0; v <= 4; v++) {
+      const yPos = cbY + cbH - (v / 4) * cbH;
+      ctx.fillRect(cbX + cbW, yPos - 0.25, 3, 0.5);
+      ctx.fillText(String(v), cbX + cbW + 5, yPos + 3);
+    }
+    // Title
+    ctx.save();
+    ctx.translate(cbX + cbW + 28, cbY + cbH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '9px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('log(1+|ζ|)', 0, 0);
+    ctx.restore();
+    ctx.textAlign = 'start';
+
     // Axes labels
     ctx.fillStyle = '#e2e8f0';
     ctx.font = '600 13px sans-serif';

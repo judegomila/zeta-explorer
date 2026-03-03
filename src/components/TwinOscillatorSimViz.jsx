@@ -511,7 +511,7 @@ function ConvergenceTab() {
     svg.selectAll('*').remove();
 
     const width = svgRef.current.clientWidth || 800;
-    const totalHeight = 700;
+    const totalHeight = 780;
     svg.attr('viewBox', `0 0 ${width} ${totalHeight}`);
 
     const primeCounts = [3, 5, 8, 12, 16, 20];
@@ -678,7 +678,7 @@ function ConvergenceTab() {
         </div>
       </div>
       <div className="viz-container">
-        <svg ref={svgRef} style={{ width: '100%', height: 700 }} />
+        <svg ref={svgRef} style={{ width: '100%', height: 780 }} />
       </div>
     </div>
   );

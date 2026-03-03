@@ -299,7 +299,7 @@ export default function LiCriterionViz() {
           (<InlineMath tex="\tau > 0" />) preserves real zeros; inverse diffusion (<InlineMath tex="\tau < 0" />) scatters them off.
           The de Bruijn-Newman constant <InlineMath tex="\Lambda \geq 0" /> (proved by Rodgers-Tao) is the critical
           temperature: the system is already at the coldest point compatible with real zeros.
-          <strong> Look for:</strong> zeros migrating off the real axis as <InlineMath tex="\tau" /> increases from 0.
+          <strong> Look for:</strong> zeros staying on <InlineMath tex="\sigma = \tfrac{1}{2}" /> for <InlineMath tex="\tau \geq 0" /> and scattering off for <InlineMath tex="\tau < 0" /> (backward heat).
         </div>
       )}
       <div className="controls">

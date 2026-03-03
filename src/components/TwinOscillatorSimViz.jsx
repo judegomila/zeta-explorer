@@ -545,6 +545,31 @@ function ConvergenceTab() {
   const svgRef = useRef();
   const [tValue, setTValue] = useState(14.13);
 
+  const primeCounts = [3, 5, 8, 12, 16, 20];
+  const curveColors = ['#3b82f6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+
+  // Memoize expensive curve data to avoid recomputing on window resize.
+  // Each prime count triggers hamiltonianSigmaScan (60 steps) + 3 systemHamiltonian
+  // calls, totalling ~378 Hamiltonian evaluations — only redo when tValue changes.
+  const allCurves = useMemo(() => primeCounts.map((np, i) => {
+    const points = hamiltonianSigmaScan(tValue, [0.05, 0.95], 60, np);
+    const atHalf = systemHamiltonian([0.5, tValue], np);
+
+    // Curvature: (H(0.5+d) + H(0.5-d) - 2*H(0.5)) / d^2
+    const d = 0.02;
+    const Hp = systemHamiltonian([0.5 + d, tValue], np).total;
+    const Hm = systemHamiltonian([0.5 - d, tValue], np).total;
+    const curvature = (Hp + Hm - 2 * atHalf.total) / (d * d);
+
+    return {
+      numPrimes: np,
+      points,
+      gradient: Math.abs(atHalf.gradient),
+      curvature,
+      color: curveColors[i],
+    };
+  }), [tValue]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -552,29 +577,6 @@ function ConvergenceTab() {
     const width = svgRef.current.clientWidth || 800;
     const totalHeight = 780;
     svg.attr('viewBox', `0 0 ${width} ${totalHeight}`);
-
-    const primeCounts = [3, 5, 8, 12, 16, 20];
-    const curveColors = ['#3b82f6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
-
-    // Compute curves + metrics at sigma=0.5
-    const allCurves = primeCounts.map((np, i) => {
-      const points = hamiltonianSigmaScan(tValue, [0.05, 0.95], 60, np);
-      const atHalf = systemHamiltonian([0.5, tValue], np);
-
-      // Curvature: (H(0.5+d) + H(0.5-d) - 2*H(0.5)) / d^2
-      const d = 0.02;
-      const Hp = systemHamiltonian([0.5 + d, tValue], np).total;
-      const Hm = systemHamiltonian([0.5 - d, tValue], np).total;
-      const curvature = (Hp + Hm - 2 * atHalf.total) / (d * d);
-
-      return {
-        numPrimes: np,
-        points,
-        gradient: Math.abs(atHalf.gradient),
-        curvature,
-        color: curveColors[i],
-      };
-    });
 
     const margin = { top: 25, right: 130, bottom: 35, left: 60 };
     const chartH = 180;
@@ -689,7 +691,7 @@ function ConvergenceTab() {
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('Curvature \u2202\u00B2H/\u2202σ\u00B2 at σ = 0.5 (should increase with primes)');
     }
-  }, [tValue]);
+  }, [allCurves]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

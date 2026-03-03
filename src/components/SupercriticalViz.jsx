@@ -259,7 +259,7 @@ function ThermodynamicsTab() {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
     const width = svgRef.current.clientWidth || 800;
-    const totalHeight = 680;
+    const totalHeight = 800;
     svg.attr('viewBox', `0 0 ${width} ${totalHeight}`);
 
     const data = thermodynamicScan(tValue, [-1, 3], 120, numPrimes);
@@ -361,7 +361,7 @@ function ThermodynamicsTab() {
         </div>
       </div>
       <div className="viz-container">
-        <svg ref={svgRef} style={{ width: '100%', height: 680 }} />
+        <svg ref={svgRef} style={{ width: '100%', height: 800 }} />
       </div>
     </div>
   );

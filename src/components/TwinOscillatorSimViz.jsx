@@ -816,6 +816,17 @@ function BridgeTab() {
   const svgRef = useRef();
   const [tValue, setTValue] = useState(14.13);
 
+  const bridgeData = useMemo(() => {
+    const steps = 100;
+    const data = [];
+    for (let i = 0; i <= steps; i++) {
+      const sigma = 0.01 + i * 0.98 / steps;
+      const b = losslessBridge([sigma, tValue]);
+      data.push({ sigma, chiMag: b.magnitude, reflection: b.reflectionCoeff, isUnitary: b.isUnitary });
+    }
+    return data;
+  }, [tValue]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -828,13 +839,7 @@ function BridgeTab() {
     const halfW = (width - margin.left - margin.right - 40) / 2;
     const h = height - margin.top - margin.bottom;
 
-    const steps = 100;
-    const data = [];
-    for (let i = 0; i <= steps; i++) {
-      const sigma = 0.01 + i * 0.98 / steps;
-      const b = losslessBridge([sigma, tValue]);
-      data.push({ sigma, chiMag: b.magnitude, reflection: b.reflectionCoeff, isUnitary: b.isUnitary });
-    }
+    const data = bridgeData;
 
     // ── Left chart: |chi(s)| vs sigma ──
     {
@@ -970,7 +975,7 @@ function BridgeTab() {
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('σ = Re(s)');
 
-  }, [tValue]);
+  }, [bridgeData]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

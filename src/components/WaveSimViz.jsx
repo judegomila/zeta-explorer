@@ -60,9 +60,9 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
     ctx.fillStyle = bridge.isUnitary ? '#10b981' : '#ef4444';
     ctx.fillText(bridge.isUnitary ? 'LOSSLESS' : `LOSSY |χ|=${bridge.magnitude.toFixed(3)}`, xBridge, 35);
 
-    // Reflection coefficient
+    // Reflection coefficient (amplitude ratio); power = Γ²
     const reflCoeff = bridge.reflectionCoeff;
-    const transCoeff = 1 - reflCoeff;
+    const transCoeff = Math.sqrt(1 - reflCoeff * reflCoeff);
 
     // Draw vertical wires
     ctx.strokeStyle = 'rgba(59,130,246,0.3)';
@@ -165,13 +165,14 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
       ctx.fillText(`p=${p}`, xDir, y + rD + 12);
     });
 
-    // Energy flow legend
+    // Energy flow legend (power fractions: P_t = 1-Γ², P_r = Γ²)
+    const reflPower = reflCoeff * reflCoeff;
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'left';
     ctx.fillStyle = '#10b981';
-    ctx.fillText(`Transmitted: ${(transCoeff * 100).toFixed(1)}%`, 12, H - 10);
+    ctx.fillText(`Transmitted: ${((1 - reflPower) * 100).toFixed(1)}%`, 12, H - 10);
     ctx.fillStyle = '#ef4444';
-    ctx.fillText(`Reflected: ${(reflCoeff * 100).toFixed(1)}%`, 160, H - 10);
+    ctx.fillText(`Reflected: ${(reflPower * 100).toFixed(1)}%`, 160, H - 10);
 
   }, [sigma, t, numPrimes]);
 

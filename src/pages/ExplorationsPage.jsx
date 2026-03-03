@@ -13,6 +13,9 @@ const categoryColors = {
   'statistical': 'tag-red',
   'physics': 'tag-blue',
   'geometry': 'tag-cyan',
+  'circuit-theory': 'tag-orange',
+  'trace-formula': 'tag-purple',
+  'spectral': 'tag-red',
 };
 
 const statusLabels = {
@@ -90,7 +93,14 @@ export default function ExplorationsPage() {
                 {new Date(exp.timestamp).toLocaleString()}
               </span>
             </div>
-            <h2>{exp.title}</h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{
+                display: 'inline-block', fontSize: 14, color: '#64748b',
+                transition: 'transform 0.2s ease',
+                transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
+              }}>&#9654;</span>
+              <h2 style={{ margin: 0 }}>{exp.title}</h2>
+            </div>
 
             {isExpanded && (
               <div style={{ marginTop: 16 }}>
@@ -162,7 +172,6 @@ export default function ExplorationsPage() {
             {!isExpanded && (
               <p style={{ marginTop: 8, fontSize: 13, color: '#64748b' }}>
                 {exp.content.slice(0, 180).replace(/\$[^$]*\$/g, '[math]')}...
-                <span style={{ color: '#3b82f6', marginLeft: 8 }}>Click to expand</span>
               </p>
             )}
           </div>

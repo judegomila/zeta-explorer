@@ -192,3 +192,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 186 | 2026-03-03T13:30:00Z | Add "What to Explore" guide card to ControlTheoryPage for Nyquist, Bode, and Scattering visualizations | ControlTheoryPage.jsx |
 | 187 | 2026-03-03T14:00:00Z | Add Davenport-Heilbronn counterexample exploration entry showing why functional equation alone is insufficient for RH | explorations.js |
 | 188 | 2026-03-03T14:30:00Z | Fix waveform off-by-one causing curves to stop one sample short of rightmost x-axis tick in AnimatedModesViz | AnimatedModesViz.jsx |
+| 189 | 2026-03-03T15:00:00Z | Fix hardcoded devicePixelRatio=2 in AnimatedModesViz and EnergyLandscapeViz causing wrong canvas scaling on non-retina displays | AnimatedModesViz.jsx, EnergyLandscapeViz.jsx |

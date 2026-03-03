@@ -30,7 +30,7 @@ export default function EnergyLandscapeViz() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const dpr = 2;
+    const dpr = window.devicePixelRatio || 1;
     const dw = canvas.clientWidth;
     const dh = 440;
     canvas.width = dw * dpr;

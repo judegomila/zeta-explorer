@@ -229,6 +229,13 @@ export default function NyquistBodeViz() {
       .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
     gMag.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+    // Horizontal gridlines for magnitude
+    const magGridG = gMag.append('g')
+      .call(d3.axisLeft(yMag).ticks(6).tickSize(-w).tickFormat(''));
+    magGridG.select('.domain').remove();
+    magGridG.selectAll('.tick line')
+      .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
+
     // 0 dB line
     if (yMagMin < 0 && yMagMax > 0) {
       gMag.append('line')
@@ -257,6 +264,13 @@ export default function NyquistBodeViz() {
       .call(d3.axisLeft(yPhase).ticks(6).tickFormat(d => d + '°'))
       .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
     gPhase.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+
+    // Horizontal gridlines for phase
+    const phaseGridG = gPhase.append('g')
+      .call(d3.axisLeft(yPhase).ticks(6).tickSize(-w).tickFormat(''));
+    phaseGridG.select('.domain').remove();
+    phaseGridG.selectAll('.tick line')
+      .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
 
     // -180° line
     gPhase.append('line')

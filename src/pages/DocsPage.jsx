@@ -77,8 +77,8 @@ export default function DocsPage() {
           Each prime <InlineMath tex="p" /> defines an LC oscillator stage with:
         </p>
         <ul style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8, marginLeft: 20, marginBottom: 12 }}>
-          <li>Resonant frequency: <InlineMath tex="\omega_p = \log p" /></li>
-          <li>Inductance: <InlineMath tex="L_p = \log p" />, Capacitance: <InlineMath tex="C_p = 1/\log p" /></li>
+          <li>Characteristic frequency: <InlineMath tex="\omega_p = \log p" /> (Euler factor phase rotation rate)</li>
+          <li>Inductance: <InlineMath tex="L_p = \log p" />, Capacitance: <InlineMath tex="C_p = 1/\log p" />, LC resonant frequency: <InlineMath tex="\omega_0 = 1/\sqrt{L_p C_p} = 1" /></li>
           <li>Transfer function: <InlineMath tex="H_p(s) = (1 - p^{-s})^{-1}" /></li>
           <li>Quality factor: <InlineMath tex="Q_p = 1/(2\sigma)" /> where <InlineMath tex="\sigma = \text{Re}(s)" /></li>
         </ul>

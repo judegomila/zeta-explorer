@@ -274,3 +274,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 268 | 2026-03-03T22:30:00Z | Fix Penrose Transform curves misaligned with axis labels due to i/n instead of i/(n-1) x-positioning | TwistorViz.jsx |
 | 269 | 2026-03-03T23:00:00Z | Fix number variance explainer showing 2/π² coefficient instead of correct GUE 1/π² | GUEStatisticsViz.jsx |
 | 270 | 2026-03-03T23:15:00Z | Fix Nyquist contour gradient off-by-one and apply missing gradient to negative frequency trace | NyquistBodeViz.jsx |
+| 271 | 2026-03-03T23:30:00Z | Fix DocsPage calling log(p) the 'resonant frequency' when LC parameters give ω₀=1 | DocsPage.jsx |

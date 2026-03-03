@@ -244,12 +244,15 @@ export default function ScatteringMatrixViz() {
       )}
       {mode === 'phase' && (
         <div className="tab-explainer accent-orange">
-          <strong>The math:</strong> The phase <InlineMath tex="\arg\chi(s)" /> is related to the Riemann-Siegel theta function{' '}
-          <InlineMath tex="\theta(t) = \text{Im}\,\log\Gamma(\tfrac{1}{4}+\tfrac{it}{2}) - \tfrac{t}{2}\log\pi" />.
-          Phase changes of <InlineMath tex="\pi" /> between consecutive zeros correspond to sign changes of the Z function.
-          The total phase accumulation up to height <InlineMath tex="t" /> determines the zero counting function{' '}
-          <InlineMath tex="N(T) \sim \theta(T)/\pi" />.
-          <strong> Look for:</strong> monotonically increasing phase with kinks at each zeta zero.
+          <strong>The math:</strong> The bridge phase <InlineMath tex="\arg\chi(\sigma+it)" /> shows the angular rotation of the
+          functional equation prefactor as <InlineMath tex="\sigma" /> varies for fixed <InlineMath tex="t" />.
+          At <InlineMath tex="\sigma = \tfrac{1}{2}" />, where <InlineMath tex="|\chi|=1" />, the phase
+          equals <InlineMath tex="-2\theta(t)" /> where{' '}
+          <InlineMath tex="\theta(t) = \text{Im}\,\log\Gamma(\tfrac{1}{4}+\tfrac{it}{2}) - \tfrac{t}{2}\log\pi" />{' '}
+          is the Riemann-Siegel theta function. Away from the critical line, the phase combines
+          contributions from <InlineMath tex="\Gamma(1-s)" />, <InlineMath tex="2^s\pi^{s-1}" />,
+          and <InlineMath tex="\sin(\pi s/2)" />.
+          <strong> Look for:</strong> the phase value at <InlineMath tex="\sigma = 0.5" /> and how the curve steepens as you increase <InlineMath tex="t" />.
         </div>
       )}
       <div className="controls">

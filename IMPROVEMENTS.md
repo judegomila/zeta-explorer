@@ -199,3 +199,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 193 | 2026-03-03T17:00:00Z | Fix hardcoded devicePixelRatio=2 in ZetaLandscapeViz causing wrong canvas scaling on non-retina displays | ZetaLandscapeViz.jsx |
 | 194 | 2026-03-03T17:30:00Z | Memoize directLadder, dualLadder, and losslessBridge data in OscillatorChainViz to avoid recomputing on resize and stage click | OscillatorChainViz.jsx |
 | 195 | 2026-03-03T18:00:00Z | Add "What to Explore" guide card to ZetaPage for Critical Line and Heatmap modes | ZetaPage.jsx |
+| 196 | 2026-03-03T18:30:00Z | Fix ScatteringMatrixViz phase explainer describing phase-vs-t behavior when chart shows phase-vs-σ | ScatteringMatrixViz.jsx |

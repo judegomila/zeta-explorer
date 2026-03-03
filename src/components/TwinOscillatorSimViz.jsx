@@ -464,6 +464,15 @@ function GradientDescentTab() {
   }, [tValue, startSigma, numPrimes]);
 
   useEffect(() => {
+    const h = () => {
+      const curve = curveData();
+      drawFrame(curve, path, step);
+    };
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, [curveData, drawFrame, path, step]);
+
+  useEffect(() => {
     return () => { if (animRef.current) cancelAnimationFrame(animRef.current); };
   }, []);
 

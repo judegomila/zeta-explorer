@@ -580,6 +580,8 @@ function EulerPhaseTab() {
   const [tValue, setTValue] = useState(14.13);
   const [numPrimes, setNumPrimes] = useState(15);
 
+  const data = useMemo(() => eulerProductPhaseAnalysis(tValue, [-1, 3], 150, numPrimes), [tValue, numPrimes]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -592,8 +594,6 @@ function EulerPhaseTab() {
     const topH = 170;
     const botH = 170;
     const gap = 30;
-
-    const data = eulerProductPhaseAnalysis(tValue, [-1, 3], 150, numPrimes);
 
     // ── Top: Log cumulative magnitude ──
     {
@@ -716,7 +716,7 @@ function EulerPhaseTab() {
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('σ = Re(s)');
 
-  }, [tValue, numPrimes]);
+  }, [data]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

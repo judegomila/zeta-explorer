@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import { InlineMath } from './KaTeXMath.jsx';
 import { ZETA_ZEROS, cAdd, cSub, cMul, cDiv, cAbs, cLog, cPow, cExp } from '../math/zeta.js';
@@ -15,6 +15,43 @@ export default function LiCriterionViz() {
   const [numZeros, setNumZeros] = useState(50);
   const [mode, setMode] = useState('li');
 
+  // Memoize expensive data computations (O(numZeros × maxN)) to avoid recomputing on resize
+  const computedData = useMemo(() => {
+    const zeros = ZETA_ZEROS.slice(0, numZeros);
+
+    if (mode === 'li' || mode === 'keiper-li') {
+      const polarBases = zeros.map(gamma => {
+        const rhoNormSq = 0.25 + gamma * gamma;
+        const baseReal = 1 - 0.5 / rhoNormSq;
+        const baseImag = gamma / rhoNormSq;
+        return { r: Math.sqrt(baseReal * baseReal + baseImag * baseImag), theta: Math.atan2(baseImag, baseReal) };
+      });
+
+      const lambdas = [];
+      for (let n = 1; n <= maxN; n++) {
+        let lambda = 0;
+        for (const { r, theta } of polarBases) {
+          const powReal = Math.pow(r, n) * Math.cos(n * theta);
+          lambda += 2 * (1 - powReal);
+        }
+        lambdas.push({ n, lambda, perN: lambda / n });
+      }
+      return { zeros, lambdas };
+    } else {
+      const taus = [-0.5, -0.2, -0.1, 0, 0.05, 0.1, 0.2, 0.5];
+      const colors = ['#3b82f6', '#06b6d4', '#10b981', '#e2e8f0', '#f59e0b', '#ef4444', '#ec4899', '#8b5cf6'];
+      const scatterPoints = taus.map((tau, ti) =>
+        zeros.map((gamma, zi) => {
+          const perturbation = tau < 0
+            ? tau * Math.sin(gamma * 3.7 + zi * 1.3) / (1 + gamma * 0.05)
+            : 0;
+          return { gamma, sigma: Math.max(0, Math.min(1, 0.5 + perturbation)), tau, color: colors[ti] };
+        })
+      );
+      return { zeros, scatterPoints, taus, colors };
+    }
+  }, [numZeros, maxN, mode]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -28,28 +65,7 @@ export default function LiCriterionViz() {
     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
 
     if (mode === 'li') {
-      // Compute Li coefficients λ_n using first numZeros zeros
-      const zeros = ZETA_ZEROS.slice(0, numZeros);
-      const lambdas = [];
-
-      // Precompute polar form of each base to use De Moivre's theorem: O(1) per power instead of O(n)
-      const polarBases = zeros.map(gamma => {
-        const rhoNormSq = 0.25 + gamma * gamma;
-        const baseReal = 1 - 0.5 / rhoNormSq;
-        const baseImag = gamma / rhoNormSq;
-        return { r: Math.sqrt(baseReal * baseReal + baseImag * baseImag), theta: Math.atan2(baseImag, baseReal) };
-      });
-
-      for (let n = 1; n <= maxN; n++) {
-        let lambda = 0;
-        for (const { r, theta } of polarBases) {
-          // De Moivre: (r∠θ)^n = r^n · cos(nθ) + i·r^n · sin(nθ)
-          const powReal = Math.pow(r, n) * Math.cos(n * theta);
-          // Contribution: 1 - (base)^n, take real part (sum over conjugate pair gives 2*Re)
-          lambda += 2 * (1 - powReal);
-        }
-        lambdas.push({ n, lambda });
-      }
+      const { lambdas } = computedData;
 
       const x = d3.scaleBand().domain(d3.range(1, maxN + 1)).range([0, w]).padding(0.3);
       const yMin = Math.min(0, d3.min(lambdas, d => d.lambda) * 1.2);
@@ -115,25 +131,7 @@ export default function LiCriterionViz() {
 
     } else if (mode === 'keiper-li') {
       // Keiper-Li: plot λ_n / n vs n (should → (1/2)log(n/(2πe)) + ...)
-      const zeros = ZETA_ZEROS.slice(0, numZeros);
-      const data = [];
-
-      // Precompute polar form of each base to use De Moivre's theorem
-      const polarBases = zeros.map(gamma => {
-        const rhoNormSq = 0.25 + gamma * gamma;
-        const baseReal = 1 - 0.5 / rhoNormSq;
-        const baseImag = gamma / rhoNormSq;
-        return { r: Math.sqrt(baseReal * baseReal + baseImag * baseImag), theta: Math.atan2(baseImag, baseReal) };
-      });
-
-      for (let n = 1; n <= maxN; n++) {
-        let lambda = 0;
-        for (const { r, theta } of polarBases) {
-          const powReal = Math.pow(r, n) * Math.cos(n * theta);
-          lambda += 2 * (1 - powReal);
-        }
-        data.push({ n, lambda, perN: lambda / n });
-      }
+      const { lambdas: data } = computedData;
 
       const x = d3.scaleLinear().domain([1, maxN]).range([0, w]);
       const yMax = d3.max(data, d => d.perN) * 1.2;
@@ -192,11 +190,7 @@ export default function LiCriterionViz() {
 
     } else {
       // De Bruijn-Newman: show what happens when we "heat" the zeros
-      // Ξ_τ has zeros at σ = 1/2 for τ ≤ 0 (if RH), wander off for τ > 0
-      // Λ ≥ 0 (Rodgers-Tao): zeros are just barely on the line
-      const zeros = ZETA_ZEROS.slice(0, numZeros);
-      const taus = [-0.5, -0.2, -0.1, 0, 0.05, 0.1, 0.2, 0.5];
-      const colors = ['#3b82f6', '#06b6d4', '#10b981', '#e2e8f0', '#f59e0b', '#ef4444', '#ec4899', '#8b5cf6'];
+      const { zeros, scatterPoints, taus, colors } = computedData;
 
       const maxGamma = zeros.length > 0 ? zeros[zeros.length - 1] * 1.05 : 100;
       const x = d3.scaleLinear().domain([0, maxGamma]).range([0, w]);
@@ -216,24 +210,14 @@ export default function LiCriterionViz() {
         .attr('text-anchor', 'end').attr('fill', '#ef4444').attr('font-size', 10)
         .text('σ = ½');
 
-      // For each τ, show the real parts of zeros under heat flow
-      // Approximate: as τ increases from 0, zeros drift off the line
-      // σ(τ) ≈ 1/2 + c * τ / γ for each zero γ
-      taus.forEach((tau, ti) => {
-        zeros.forEach((gamma, zi) => {
-          // Simple model: σ = 1/2 + perturbation. Forward heat (τ>0) preserves real zeros;
-          // backward heat (τ<0, inverse diffusion) scatters them off the line.
-          const perturbation = tau < 0
-            ? tau * Math.sin(gamma * 3.7 + zi * 1.3) / (1 + gamma * 0.05)
-            : 0; // for τ ≥ 0, zeros stay on line (Rodgers-Tao: Λ ≥ 0)
-          const sigma = 0.5 + perturbation;
-          const clampedSigma = Math.max(0, Math.min(1, sigma));
-
+      // Render precomputed scatter points
+      scatterPoints.forEach((tauPoints) => {
+        tauPoints.forEach(({ gamma, sigma, tau, color }) => {
           g.append('circle')
-            .attr('cx', x(gamma)).attr('cy', y(clampedSigma)).attr('r', 2.5)
-            .attr('fill', colors[ti]).attr('opacity', 0.7)
+            .attr('cx', x(gamma)).attr('cy', y(sigma)).attr('r', 2.5)
+            .attr('fill', color).attr('opacity', 0.7)
             .style('cursor', 'crosshair')
-            .append('title').text(`τ = ${tau}, γ = ${gamma.toFixed(2)}, σ = ${clampedSigma.toFixed(4)}`);
+            .append('title').text(`τ = ${tau}, γ = ${gamma.toFixed(2)}, σ = ${sigma.toFixed(4)}`);
         });
       });
 
@@ -263,7 +247,7 @@ export default function LiCriterionViz() {
         .text('σ = Re(ρ)');
     }
 
-  }, [maxN, numZeros, mode]);
+  }, [maxN, numZeros, mode, computedData]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

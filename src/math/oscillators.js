@@ -275,13 +275,22 @@ export function hamiltonianSigmaScan(t, sigmaRange = [0.05, 0.95], steps = 50, n
   const ds = (sigmaRange[1] - sigmaRange[0]) / steps;
   for (let i = 0; i <= steps; i++) {
     const sigma = sigmaRange[0] + i * ds;
-    const H = systemHamiltonian([sigma, t], numPrimes);
+    const s = [sigma, t];
+    // Compute components directly, skipping the gradient (central difference)
+    // that systemHamiltonian would compute — saves 2 extra ladder evaluations per point
+    const direct = directLadder(s, numPrimes);
+    const dual = dualLadder(s, numPrimes);
+    const bridge = losslessBridge(s);
+    const kinetic = direct.totalEnergy + dual.totalEnergy;
+    const Zdiff = cSub(direct.totalImpedance, dual.totalImpedance);
+    const potential = 0.5 * cAbs(Zdiff) ** 2;
+    const bridgeCoupling = (1 - bridge.magnitude) ** 2 * 100;
     points.push({
       sigma,
-      total: H.total,
-      kinetic: H.kinetic,
-      potential: H.potential,
-      bridgeCoupling: H.bridgeCoupling,
+      total: kinetic + potential + bridgeCoupling,
+      kinetic,
+      potential,
+      bridgeCoupling,
     });
   }
   return points;

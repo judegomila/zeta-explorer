@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
+import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { chebyshevPsi, explicitFormulaTerms } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
@@ -82,16 +83,27 @@ export default function ExplicitFormulaViz() {
 
     // Legend
     const legend = svg.append('g').attr('transform', `translate(${margin.left + 10}, ${margin.top + 10})`);
-    [
-      { label: 'ψ(x) actual (staircase)', color: '#3b82f6' },
-      { label: `Explicit formula (${numZeros} zeros)`, color: '#f59e0b' },
-      { label: 'x (PNT approximation)', color: '#64748b' },
-    ].forEach(({ label, color }, i) => {
-      legend.append('line').attr('x1', 0).attr('y1', i * 18).attr('x2', 20).attr('y2', i * 18)
-        .attr('stroke', color).attr('stroke-width', 2);
-      legend.append('text').attr('x', 26).attr('y', i * 18 + 4)
-        .attr('fill', '#94a3b8').attr('font-size', 11).text(label);
-    });
+
+    // ψ(x) staircase: draw a small step pattern to match curveStepAfter
+    const stairY = 0;
+    legend.append('path')
+      .attr('d', `M0,${stairY + 3} H7 V${stairY - 3} H14 V${stairY + 1} H20`)
+      .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2);
+    legend.append('text').attr('x', 26).attr('y', stairY + 4)
+      .attr('fill', '#94a3b8').attr('font-size', 11).text('ψ(x) actual (staircase)');
+
+    // Explicit formula: solid smooth line
+    legend.append('line').attr('x1', 0).attr('y1', 18).attr('x2', 20).attr('y2', 18)
+      .attr('stroke', '#f59e0b').attr('stroke-width', 2);
+    legend.append('text').attr('x', 26).attr('y', 22)
+      .attr('fill', '#94a3b8').attr('font-size', 11).text(`Explicit formula (${numZeros} zeros)`);
+
+    // PNT approximation: dashed line to match stroke-dasharray '4,4' in the plot
+    legend.append('line').attr('x1', 0).attr('y1', 36).attr('x2', 20).attr('y2', 36)
+      .attr('stroke', '#64748b').attr('stroke-width', 2)
+      .attr('stroke-dasharray', '4,4');
+    legend.append('text').attr('x', 26).attr('y', 40)
+      .attr('fill', '#94a3b8').attr('font-size', 11).text('x (PNT approximation)');
 
     // Axis labels
     svg.append('text')
@@ -115,6 +127,16 @@ export default function ExplicitFormulaViz() {
 
   return (
     <div>
+      <div className="tab-explainer accent-orange">
+        <strong>The math:</strong> Von Mangoldt's explicit formula{' '}
+        <InlineMath tex="\\psi(x) = x - \\sum_\\rho x^\\rho/\\rho - \\log 2\\pi" /> reconstructs the prime counting
+        function from zeta zeros. Each zero <InlineMath tex="\\rho = \\tfrac{1}{2}+i\\gamma" /> contributes a damped
+        sinusoid <InlineMath tex="x^{1/2}\\cos(\\gamma\\log x)/|\\rho|" />. The sum over zeros is the
+        "impulse response" of the oscillator chain &mdash; adding more zeros sharpens the reconstruction of the
+        prime staircase. The error between <InlineMath tex="\\psi(x)" /> and <InlineMath tex="x" /> (the PNT) is
+        controlled by how far zeros can deviate from <InlineMath tex="\\sigma = \\tfrac{1}{2}" />.
+        <strong> Look for:</strong> gold reconstruction converging to the blue staircase as you add more zeros.
+      </div>
       <div className="controls">
         <div className="control-group">
           <label>Range (max x)</label>
@@ -124,7 +146,7 @@ export default function ExplicitFormulaViz() {
         </div>
         <div className="control-group">
           <label>Zeta Zeros Used</label>
-          <input type="range" min="1" max="50" step="1" value={numZeros}
+          <input type="range" min="1" max="200" step="1" value={numZeros}
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
         </div>

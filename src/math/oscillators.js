@@ -41,7 +41,7 @@ export function oscillatorStage(p, s) {
 
   // Resonance analysis
   const resonantFreq = omega;
-  const bandwidth = 2 * s[0] * omega; // proportional to sigma
+  const bandwidth = 2 * s[0]; // BW = ω₀/Q = 2σ (ω₀ = 1/√(LC) = 1 for all primes)
   const Q = 1 / (2 * (s[0] || 0.001));
 
   return {

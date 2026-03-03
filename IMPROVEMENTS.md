@@ -249,3 +249,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 243 | 2026-03-03T23:30:00Z | Fix RHRigorPage conflating 'bounded below' with 'self-adjoint' in Hilbert-Pólya program description | RHRigorPage.jsx |
 | 244 | 2026-03-03T23:45:00Z | Make Play/Pause button always visible across all tabs in WaveSimViz with 'animating' hint on non-animated tabs | WaveSimViz.jsx |
 | 245 | 2026-03-04T00:00:00Z | Memoize vonMangoldtSpectrum in VonMangoldtSpectrumTab to avoid recomputing 24,000 trig calls on resize | FourierDomainViz.jsx |
+| 246 | 2026-03-03T12:00:00Z | Fix bandwidth formula off by factor of log(p): BW = 2σ, not 2σ·log(p) | oscillators.js, supercritical.js |

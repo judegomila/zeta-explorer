@@ -384,7 +384,7 @@ export function primeHarmonicDecomposition(sigma, numPrimes = 20) {
 
     // Fundamental resonance properties
     const Q = 1 / (2 * (sigma || 0.001));
-    const bandwidth = 2 * sigma * omega;
+    const bandwidth = 2 * sigma; // BW = ω₀/Q = 2σ (ω₀ = 1 for all primes)
 
     return {
       prime: p,

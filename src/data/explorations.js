@@ -1479,6 +1479,47 @@ where $a = 0$ if $\\chi(-1) = 1$ (even character) and $a = 1$ if $\\chi(-1) = -1
     references: ['katz-sarnak-1999', 'rudnick-sarnak-1996', 'iwaniec-kowalski-2004', 'sarnak-2004'],
     nextSteps: ['exp-017'],
   },
+  {
+    id: 'exp-036',
+    timestamp: '2026-03-03T13:00:00Z',
+    title: 'The Davenport-Heilbronn Zeta Function: A Counterexample to Naive RH Arguments',
+    status: 'complete',
+    category: 'foundation',
+    depth: 4,
+    content: `The Davenport-Heilbronn zeta function is the most important **counterexample** in the theory of L-functions. It satisfies a functional equation relating $s$ to $1-s$ — yet it has infinitely many zeros **off** the critical line $\\sigma = 1/2$. This makes it the acid test for any purported RH proof strategy: if your argument doesn't fail for Davenport-Heilbronn, it proves too much and must be wrong.
+
+**Construction.** Take two Dirichlet L-functions $L(s, \\chi_1)$ and $L(s, \\chi_2)$ for characters modulo 5, and form a linear combination:
+
+$$f(s) = \\frac{1 - i\\kappa}{2}\\, L(s, \\chi_1) + \\frac{1 + i\\kappa}{2}\\, L(s, \\chi_2)$$
+
+where $\\kappa = (\\sqrt{10 - 2\\sqrt{5}} - 2) / (\\sqrt{5} - 1)$. The constant $\\kappa$ is chosen so that $f$ satisfies a functional equation $\\Lambda_f(s) = \\Lambda_f(1-s)$ of the standard form. Each individual L-function satisfies GRH (conditionally), but the **linear combination** does not.
+
+**Why the oscillator model fails here.** In ZPO language, both $L(s, \\chi_1)$ and $L(s, \\chi_2)$ are oscillator chains with lossless bridges on $\\sigma = 1/2$. The function $f(s)$ is a **superposition** of these two chains' outputs. It inherits a functional equation (lossless bridge), but the zeros of $f$ are not the zeros of either chain — they are points where the two chains' outputs cancel. This cancellation can happen off the critical line because the two chains have different phases.
+
+**The key lesson.** A functional equation (lossless bridge) is necessary but **not sufficient** for RH. The ZPO model's core argument — "the functional equation implies impedance matching on $\\sigma = 1/2$, which implies energy minimization, which implies zeros there" — must break down somewhere for Davenport-Heilbronn. Specifically: $f(s)$ is not an Euler product, so it does not decompose into individual prime oscillator stages. The per-prime factorization is essential, not just the bridge symmetry.
+
+**What distinguishes $\\zeta(s)$.** The Riemann zeta function has three special properties that $f(s)$ lacks:
+1. **Euler product**: $\\zeta(s) = \\prod_p (1-p^{-s})^{-1}$ gives multiplicative structure (individual oscillator stages)
+2. **Unique factorization**: each Euler factor contributes independently — no cross-coupling between different chains
+3. **Selberg class membership**: $\\zeta(s)$ satisfies the Selberg axioms (Ramanujan conjecture, polynomial Euler product, analytic continuation), while $f(s)$ violates the Ramanujan conjecture
+
+Any serious approach to RH via the oscillator model must identify which property of the Euler product prevents the Davenport-Heilbronn failure mode. The functional equation alone cannot do it — the Euler product's multiplicative structure must play a distinguished role.`,
+    latex: [
+      'f(s) = \\alpha\\, L(s, \\chi_1) + \\beta\\, L(s, \\chi_2), \\quad \\Lambda_f(s) = \\Lambda_f(1-s)',
+      '\\text{Functional equation (lossless bridge)} \\;\\not\\!\\!\\Rightarrow\\; \\text{RH}',
+      '\\zeta(s) = \\prod_p (1-p^{-s})^{-1} \\quad \\text{(Euler product: the missing ingredient)}',
+      'f(s) \\neq \\prod_p (\\cdots) \\;\\Rightarrow\\; \\text{no per-prime oscillator decomposition}',
+    ],
+    insights: [
+      'The Davenport-Heilbronn function has a functional equation but zeros off σ=1/2, proving that a lossless bridge is insufficient for RH',
+      'It is a linear combination of two Dirichlet L-functions — a superposition of oscillator chain outputs, not a single chain',
+      'The failure pinpoints the Euler product (per-prime factorization) as the essential ingredient missing from bridge-only arguments',
+      'Any rigorous oscillator-model proof must explain why Euler products prevent the Davenport-Heilbronn failure mode',
+      'The Selberg class axioms formalize which functions "should" satisfy RH — Davenport-Heilbronn violates the Ramanujan conjecture axiom',
+    ],
+    references: ['davenport-heilbronn-1936', 'selberg-1992', 'conrey-ghosh-1993', 'booker-2006'],
+    nextSteps: ['exp-001', 'exp-017', 'exp-035'],
+  },
 ];
 
 export function getAllExplorations() {

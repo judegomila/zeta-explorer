@@ -108,6 +108,32 @@ export default function RHRigorViz() {
     return results;
   }, [activeTest, numPrimes, tRange]);
 
+  // ─── Derived statistics for mismatch test (avoid recomputing on resize) ───
+  const mismatchStats = useMemo(() => {
+    if (!mismatchTestData) return null;
+    const data = mismatchTestData;
+    const n = data.length;
+    const maxMismatch = Math.max(...data.map(d => d.mismatch), 0.001);
+    const maxZeta = Math.max(...data.map(d => d.zetaMag), 0.001);
+    const maxMismatchOff = Math.max(...data.map(d => d.mismatchOff), 0.001);
+    const maxMismatchBoth = Math.max(maxMismatch, maxMismatchOff);
+    let correlation = 0;
+    if (n > 2) {
+      const meanM = data.reduce((s, d) => s + d.mismatch, 0) / n;
+      const meanZ = data.reduce((s, d) => s + d.zetaMag, 0) / n;
+      let num = 0, denM = 0, denZ = 0;
+      data.forEach(d => {
+        const dm = d.mismatch - meanM;
+        const dz = d.zetaMag - meanZ;
+        num += dm * dz;
+        denM += dm * dm;
+        denZ += dz * dz;
+      });
+      correlation = denM > 0 && denZ > 0 ? num / Math.sqrt(denM * denZ) : 0;
+    }
+    return { maxMismatchBoth, maxZeta, correlation };
+  }, [mismatchTestData]);
+
   // ─── Drawing ───
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -149,8 +175,8 @@ export default function RHRigorViz() {
       drawHamiltonianTest(ctx, hamiltonianTestData, pw, ph);
     } else if (activeTest === 'bridge' && bridgeTestData) {
       drawBridgeTest(ctx, bridgeTestData, pw, ph, w, h, margin);
-    } else if (activeTest === 'mismatch' && mismatchTestData) {
-      drawMismatchTest(ctx, mismatchTestData, pw, ph);
+    } else if (activeTest === 'mismatch' && mismatchTestData && mismatchStats) {
+      drawMismatchTest(ctx, mismatchTestData, pw, ph, mismatchStats);
     }
 
     ctx.restore();
@@ -182,7 +208,7 @@ export default function RHRigorViz() {
       ctx.fillText('Normalized magnitude', 0, 0);
       ctx.restore();
     }
-  }, [activeTest, hamiltonianTestData, bridgeTestData, mismatchTestData, tRange]);
+  }, [activeTest, hamiltonianTestData, bridgeTestData, mismatchTestData, mismatchStats, tRange]);
 
   function drawHamiltonianTest(ctx, data, pw, ph) {
     // Plot: for each t, where does H minimize? Should be σ=0.5 if model is correct
@@ -390,15 +416,11 @@ export default function RHRigorViz() {
     ctx.fillText(`dev=${maxDev.toFixed(1)}`, barX + barW + 4, ph);
   }
 
-  function drawMismatchTest(ctx, data, pw, ph) {
+  function drawMismatchTest(ctx, data, pw, ph, stats) {
     // Plot |Z_dir - Z_dual| and |ζ(s)| together to test correlation
     const xScale = (t) => ((t - tRange[0]) / (tRange[1] - tRange[0])) * pw;
 
-    const maxMismatch = Math.max(...data.map(d => d.mismatch), 0.001);
-    const maxZeta = Math.max(...data.map(d => d.zetaMag), 0.001);
-    const maxMismatchOff = Math.max(...data.map(d => d.mismatchOff), 0.001);
-    // Use shared scale for both mismatch curves so on-line vs off-line comparison is visually meaningful
-    const maxMismatchBoth = Math.max(maxMismatch, maxMismatchOff);
+    const { maxMismatchBoth, maxZeta, correlation } = stats;
 
     const yMismatch = (v) => ph - (v / maxMismatchBoth) * ph * 0.9;
     const yZeta = (v) => ph - (v / maxZeta) * ph * 0.9;
@@ -497,22 +519,7 @@ export default function RHRigorViz() {
     ctx.textAlign = 'left';
     ctx.fillText('Test: Does impedance mismatch correlate with |ζ| zeros?', 4, -14);
 
-    // Correlation analysis
-    let correlation = 0;
-    const n = data.length;
-    if (n > 2) {
-      const meanM = data.reduce((s, d) => s + d.mismatch, 0) / n;
-      const meanZ = data.reduce((s, d) => s + d.zetaMag, 0) / n;
-      let num = 0, denM = 0, denZ = 0;
-      data.forEach(d => {
-        const dm = d.mismatch - meanM;
-        const dz = d.zetaMag - meanZ;
-        num += dm * dz;
-        denM += dm * dm;
-        denZ += dz * dz;
-      });
-      correlation = denM > 0 && denZ > 0 ? num / Math.sqrt(denM * denZ) : 0;
-    }
+    // Correlation display (computed in memoized mismatchStats)
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.fillStyle = Math.abs(correlation) > 0.5 ? '#10b981' : '#f59e0b';
     ctx.textAlign = 'right';

@@ -279,3 +279,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 273 | 2026-03-03T23:55:00Z | Add missing horizontal gridlines to SpectralEnergyTab in FourierDomainViz | FourierDomainViz.jsx |
 | 274 | 2026-03-03T12:00:00Z | Fix OscillatorsPage banner formula claiming ω_p=log(p) when LC resonant frequency is ω₀=1 | OscillatorsPage.jsx |
 | 275 | 2026-03-03T12:15:00Z | Show visible zeta zeros count next to t range end slider in ZetaLandscapeViz | ZetaLandscapeViz.jsx |
+| 276 | 2026-03-03T12:30:00Z | Show largest prime (p_max) next to Primes slider count in TwistorViz | TwistorViz.jsx |

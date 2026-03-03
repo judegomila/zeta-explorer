@@ -298,16 +298,21 @@ export function energyLandscape(sigmaRange, tRange, resolution = 30, numPrimes =
     for (let j = 0; j <= resolution; j++) {
       const sigma = sigmaRange[0] + i * ds;
       const t = tRange[0] + j * dt;
-      const direct = directLadder([sigma, t], numPrimes);
-      const dual = dualLadder([sigma, t], numPrimes);
+      const s = [sigma, t];
+      const direct = directLadder(s, numPrimes);
+      const dual = dualLadder(s, numPrimes);
       const mismatch = cAbs(cSub(direct.totalImpedance, dual.totalImpedance));
+      const bridge = losslessBridge(s);
+      const T = direct.totalEnergy + dual.totalEnergy;
+      const V = 0.5 * mismatch * mismatch;
+      const Vbridge = (1 - bridge.magnitude) ** 2 * 100;
       data.push({
         sigma,
         t,
         directMag: direct.totalMagnitude,
         dualMag: dual.totalMagnitude,
         mismatch,
-        energy: direct.totalEnergy + dual.totalEnergy + mismatch * mismatch,
+        energy: T + V + Vbridge,
       });
     }
   }

@@ -331,10 +331,9 @@ export function spectralEnergyDensity(sigma, omegaRange = [0.1, 80], steps = 150
   for (let i = 0; i <= steps; i++) {
     const omega = omegaRange[0] + i * dw;
     const s = [sigma, omega];
-    const sDual = [1 - sigma, omega];
 
     const direct = directLadder(s, numPrimes);
-    const dual = directLadder(sDual, numPrimes);
+    const dual = dualLadder(s, numPrimes);
 
     const directEnergy = direct.totalEnergy;
     const dualEnergy = dual.totalEnergy;

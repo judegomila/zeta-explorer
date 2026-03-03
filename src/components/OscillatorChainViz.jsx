@@ -314,7 +314,7 @@ export default function OscillatorChainViz() {
           <label>Primes</label>
           <input type="range" min="4" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
       </div>
       <div className="viz-container">

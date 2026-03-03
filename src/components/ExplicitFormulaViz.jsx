@@ -155,12 +155,18 @@ export default function ExplicitFormulaViz() {
     <div>
       <div className="tab-explainer accent-orange">
         <strong>The math:</strong> Von Mangoldt's explicit formula{' '}
-        <InlineMath tex="\\psi(x) = x - \\sum_\\rho x^\\rho/\\rho - \\log 2\\pi" /> reconstructs the prime counting
-        function from zeta zeros. Each zero <InlineMath tex="\\rho = \\tfrac{1}{2}+i\\gamma" /> contributes a damped
-        sinusoid <InlineMath tex="x^{1/2}\\cos(\\gamma\\log x)/|\\rho|" />. The sum over zeros is the
-        "impulse response" of the oscillator chain &mdash; adding more zeros sharpens the reconstruction of the
-        prime staircase. The error between <InlineMath tex="\\psi(x)" /> and <InlineMath tex="x" /> (the PNT) is
-        controlled by how far zeros can deviate from <InlineMath tex="\\sigma = \\tfrac{1}{2}" />.
+        <InlineMath tex="\\psi(x) = x - \\sum_\\rho x^\\rho/\\rho - \\log 2\\pi" /> decomposes the Chebyshev function{' '}
+        <InlineMath tex="\\psi(x) = \\sum_{n \\le x} \\Lambda(n)" /> (a log-weighted prime-power count, not the prime
+        counting function <InlineMath tex="\\pi(x)" />) into zeta-zero oscillations.
+        Each zero pair <InlineMath tex="\\rho,\\bar\\rho" /> with{' '}
+        <InlineMath tex="\\rho = \\tfrac{1}{2}+i\\gamma" /> contributes{' '}
+        <InlineMath tex="-(2x^{1/2}/|\\rho|)\\cos(\\gamma\\log x - \\arg\\rho)" />;
+        since <InlineMath tex="\\arg\\rho \\approx \\pi/2" /> for all zeros, these are
+        predominantly <InlineMath tex="\\sim x^{1/2}\\sin(\\gamma\\log x)/\\gamma" /> oscillations.
+        The sum over zeros is the "impulse response" of the oscillator chain &mdash; adding more zeros sharpens the
+        reconstruction of the prime staircase. The error between <InlineMath tex="\\psi(x)" /> and{' '}
+        <InlineMath tex="x" /> (the PNT) is controlled by how far zeros can deviate from{' '}
+        <InlineMath tex="\\sigma = \\tfrac{1}{2}" />.
         <strong> Look for:</strong> gold reconstruction converging to the blue staircase as you add more zeros.
       </div>
       <div className="controls">

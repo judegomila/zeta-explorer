@@ -123,12 +123,15 @@ export default function GUEStatisticsViz() {
     } else if (mode === 'pair-correlation') {
       // Pair correlation R_2(x) = 1 - (sin(πx)/(πx))^2
       const zeros = ZETA_ZEROS.slice(0, numZeros);
+      // Unfold zeros using exact Weyl-law formula N̂(γ) = (γ/2π)log(γ/2πe) + 7/8,
+      // matching the number-variance tab. The previous code used a linear approximation
+      // (diff * density_at_i) which underestimates separations for distant pairs by up to 2×.
+      const TWO_PI = 2 * Math.PI;
+      const unfolded = zeros.map(g => (g / TWO_PI) * Math.log(g / TWO_PI) - g / TWO_PI + 7 / 8);
       const pairs = [];
       for (let i = 0; i < zeros.length; i++) {
-        const density = Math.log(zeros[i] / (2 * Math.PI)) / (2 * Math.PI);
         for (let j = i + 1; j < zeros.length; j++) {
-          const diff = zeros[j] - zeros[i];
-          pairs.push(diff * density);
+          pairs.push(unfolded[j] - unfolded[i]);
         }
       }
 

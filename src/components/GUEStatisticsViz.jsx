@@ -14,8 +14,8 @@ for (let s = 0; s <= REF_MAX_S; s += 0.02) {
   REF_POISSON_CURVE.push({ s, p: Math.exp(-s) });
   REF_GOE_CURVE.push({ s, p: (Math.PI / 2) * s * Math.exp(-Math.PI * s * s / 4) });
 }
-const REF_R2_CURVE = [];
-for (let r = 0.01; r <= 4; r += 0.02) {
+const REF_R2_CURVE = [{ r: 0, p: 0 }];
+for (let r = 0.02; r <= 4; r += 0.02) {
   const sinc = Math.sin(Math.PI * r) / (Math.PI * r);
   REF_R2_CURVE.push({ r, p: 1 - sinc * sinc });
 }

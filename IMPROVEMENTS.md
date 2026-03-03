@@ -216,3 +216,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 210 | 2026-03-04T00:30:00Z | Add Selberg Central Limit Theorem exploration entry connecting Gaussian statistics to oscillator cascade | explorations.js |
 | 211 | 2026-03-04T01:00:00Z | Add label and legend entry for R₂=1 reference line in pair-correlation plot | GUEStatisticsViz.jsx |
 | 212 | 2026-03-04T01:30:00Z | Memoize eulerProductPhaseAnalysis data in EulerPhaseTab to avoid recomputing 150-point scan on resize | SupercriticalViz.jsx |
+| 213 | 2026-03-04T02:00:00Z | Fix pair-correlation reference curve missing R₂(0)=0 boundary point due to loop starting at r=0.01 | GUEStatisticsViz.jsx |

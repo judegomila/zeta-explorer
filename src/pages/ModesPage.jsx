@@ -117,7 +117,7 @@ export default function ModesPage() {
         <div className="viz-title">2D Energy Landscape</div>
         <div className="viz-subtitle">
           The full energy landscape in the <InlineMath tex="(\\sigma, t)" /> plane. See the "valley" along <InlineMath tex="\\sigma = 1/2" /> where
-          impedance mismatch vanishes. Switch between system energy, impedance mismatch,
+          impedance mismatch is minimized (conjugate-matched, not zero). Switch between system energy, impedance mismatch,
           and individual ladder magnitudes. White circles mark known zeta zeros.
         </div>
         <EnergyLandscapeViz />

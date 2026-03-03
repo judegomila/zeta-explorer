@@ -225,3 +225,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 219 | 2026-03-03T12:30:00Z | Memoize per-prime stage data in WaveInterferenceTab to avoid recomputing oscillatorStage on every animation frame | WaveSimViz.jsx |
 | 220 | 2026-03-03T12:45:00Z | Fix mismatch test using independent y-scales for on-line and off-line curves, hiding visual comparison | RHRigorViz.jsx |
 | 221 | 2026-03-03T13:00:00Z | Fix SimulatorPage claiming Z_dir = Z_dual (impedance match) when actually Z_dir = Z*_dual (conjugate match) at σ=½ | SimulatorPage.jsx |
+| 222 | 2026-03-03T13:15:00Z | Fix ModesPage claiming impedance mismatch 'vanishes' on the critical line (it is minimized, not zero) | ModesPage.jsx |

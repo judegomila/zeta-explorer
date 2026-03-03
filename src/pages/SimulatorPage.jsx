@@ -10,7 +10,7 @@ export default function SimulatorPage() {
         <p>
           Interactive exploration of the system Hamiltonian minimization at <InlineMath tex="\sigma = 1/2" />.
           In the model, the energy ground state sits on the critical line because direct and dual
-          ladders are impedance-matched and the bridge scattering matrix is unitary — a property that
+          ladders are conjugate-matched and the bridge scattering matrix is unitary — a property that
           follows from the functional equation, not a proof of RH.
         </p>
       </div>
@@ -59,9 +59,10 @@ export default function SimulatorPage() {
               <strong style={{ color: '#f59e0b' }}>Impedance mismatch</strong>{' '}
               <InlineMath tex="\tfrac{1}{2}|Z_{\text{dir}} - Z_{\text{dual}}|^2" />:
               penalizes the difference between the direct and dual ladder impedances.
-              Impedance matching (<InlineMath tex="Z_{\text{dir}} = Z_{\text{dual}}" />) occurs exactly
-              at <InlineMath tex="\sigma = 1/2" />, where the functional equation guarantees the two
-              networks are complex conjugates. This term drives the energy valley toward the critical line.
+              Conjugate matching (<InlineMath tex="Z_{\text{dir}} = Z_{\text{dual}}^*" />) occurs
+              at <InlineMath tex="\sigma = 1/2" />, where the functional equation guarantees
+              <InlineMath tex="Z_{\text{dual}} = \overline{Z_{\text{dir}}}" /> (equal magnitudes, opposite imaginary parts).
+              The mismatch <InlineMath tex="|Z_{\text{dir}} - Z_{\text{dual}}| = 2|\mathrm{Im}\,Z|" /> is minimized but not zero. This term drives the energy valley toward the critical line.
             </p>
           </div>
         </div>
@@ -82,7 +83,7 @@ export default function SimulatorPage() {
           This Hamiltonian is an <em>engineered</em> energy functional whose minimum is placed
           at <InlineMath tex="\sigma = 1/2" /> by construction — it is <strong>not</strong> a proof
           of the Riemann Hypothesis. The three penalty terms encode known consequences of the functional
-          equation (<InlineMath tex="|\chi| = 1" /> on the critical line, impedance matching at <InlineMath tex="\sigma = 1/2" />),
+          equation (<InlineMath tex="|\chi| = 1" /> on the critical line, conjugate matching at <InlineMath tex="\sigma = 1/2" />),
           so the minimum at <InlineMath tex="\sigma = 1/2" /> follows from input assumptions, not from
           new mathematics. The simulator is a pedagogical tool for visualizing <em>why</em> these
           symmetry properties conspire to single out the critical line.

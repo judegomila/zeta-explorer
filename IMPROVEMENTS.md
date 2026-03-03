@@ -159,3 +159,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 153 | 2026-03-03T23:30:00Z | Add horizontal gridlines to both Bode magnitude and phase panels in NyquistBodeViz | NyquistBodeViz.jsx |
 | 154 | 2026-03-03T23:50:00Z | Memoize Li coefficient and de Bruijn-Newman scatter data to avoid recomputing on resize | LiCriterionViz.jsx |
 | 155 | 2026-03-03T19:00:00Z | Add Voronin universality exploration entry connecting oscillator chain ergodicity to universal approximation | explorations.js |
+| 156 | 2026-03-03T12:45:00Z | Fix EulerProductViz phase curve using curveMonotoneX across ±π atan2 wrap discontinuities | EulerProductViz.jsx |

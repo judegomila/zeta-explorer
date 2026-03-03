@@ -104,7 +104,7 @@ export default function EulerProductViz() {
     const phaseLine = d3.line()
       .x((d, i) => x(i))
       .y(d => yPhase(d.cumulative ? Math.atan2(d.cumulative[1], d.cumulative[0]) : 0))
-      .curve(d3.curveMonotoneX);
+      .curve(d3.curveLinear);
 
     g.append('path')
       .datum(data)

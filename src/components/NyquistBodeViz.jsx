@@ -263,7 +263,7 @@ export default function NyquistBodeViz() {
       .attr('x1', 0).attr('y1', yPhase(-180)).attr('x2', w).attr('y2', yPhase(-180))
       .attr('stroke', '#ef4444').attr('stroke-width', 0.8).attr('stroke-dasharray', '4,4').attr('opacity', 0.4);
 
-    const phaseLine = d3.line().x(d => xLog(d.t)).y(d => yPhase(d.phase)).curve(d3.curveBasis);
+    const phaseLine = d3.line().x(d => xLog(d.t)).y(d => yPhase(d.phase)).curve(d3.curveLinear);
     gPhase.append('path').datum(points).attr('d', phaseLine)
       .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2);
 

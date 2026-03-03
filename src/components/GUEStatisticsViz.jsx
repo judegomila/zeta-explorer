@@ -343,7 +343,7 @@ export default function GUEStatisticsViz() {
       {mode === 'number-variance' && (
         <div className="tab-explainer accent-cyan">
           <strong>The math:</strong> The number variance <InlineMath tex="\Sigma^2(L)" /> measures fluctuations in the count of zeros
-          in intervals of length <InlineMath tex="L" />. For GUE, <InlineMath tex="\Sigma^2(L) = \tfrac{2}{\pi^2}\bigl(\log(2\pi L) + 1 + \gamma_E - \tfrac{\pi^2}{8}\bigr)" /> (logarithmic
+          in intervals of length <InlineMath tex="L" />. For GUE, <InlineMath tex="\Sigma^2(L) = \tfrac{1}{\pi^2}\bigl(\log(2\pi L) + 1 + \gamma_E - \tfrac{\pi^2}{8}\bigr)" /> (logarithmic
           growth) &mdash; much slower than Poisson where <InlineMath tex="\Sigma^2 = L" />. This logarithmic suppression means zeros
           are <strong>rigidly</strong> spaced &mdash; far more regular than random.
           <strong> Look for:</strong> the data following the GUE log curve, not the linear Poisson line.

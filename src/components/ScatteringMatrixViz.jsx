@@ -115,11 +115,11 @@ export default function ScatteringMatrixViz() {
 
       // Annotations
       g.append('text').attr('x', x(0.25)).attr('y', 20)
-        .attr('text-anchor', 'middle').attr('fill', '#3b82f6').attr('font-size', 10)
-        .text('|χ| < 1: absorptive');
-      g.append('text').attr('x', x(0.75)).attr('y', 20)
         .attr('text-anchor', 'middle').attr('fill', '#ef4444').attr('font-size', 10)
         .text('|χ| > 1: amplifying');
+      g.append('text').attr('x', x(0.75)).attr('y', 20)
+        .attr('text-anchor', 'middle').attr('fill', '#3b82f6').attr('font-size', 10)
+        .text('|χ| < 1: attenuating');
 
     } else if (mode === 'reflection') {
       const y = d3.scaleLinear().domain([0, 1]).range([h, 0]);

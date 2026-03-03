@@ -60,20 +60,23 @@ export function chebyshevPsi(x) {
 }
 
 /**
- * Explicit formula oscillatory terms: sum over zeros rho of x^rho / rho
- * Uses first numZeros imaginary parts of known zeta zeros.
+ * Explicit formula: ψ(x) = x - Σ_ρ x^ρ/ρ - log(2π) - ½log(1 - x^{-2})
+ * Returns the oscillatory correction terms (sum over zeros + constants).
  */
 export function explicitFormulaTerms(x, zeros, sigma = 0.5) {
-  let sum = 0;
+  const logx = Math.log(x);
+  const xSigma = Math.pow(x, sigma);
+  let zeroSum = 0;
   for (const t of zeros) {
     // x^(sigma + it) / (sigma + it) + x^(sigma - it) / (sigma - it)
-    const logx = Math.log(x);
-    const xSigma = Math.pow(x, sigma);
     const cosT = Math.cos(t * logx);
     const sinT = Math.sin(t * logx);
     const denom = sigma * sigma + t * t;
     // Real part of x^rho/rho + x^rho_bar/rho_bar
-    sum += 2 * xSigma * (sigma * cosT + t * sinT) / denom;
+    zeroSum += 2 * xSigma * (sigma * cosT + t * sinT) / denom;
   }
-  return sum;
+  // Add constant term log(2π) and trivial zero contribution ½log(1 - x^{-2})
+  const constant = Math.log(2 * Math.PI);
+  const trivialZeros = x > 1 ? 0.5 * Math.log(1 - 1 / (x * x)) : 0;
+  return zeroSum + constant + trivialZeros;
 }

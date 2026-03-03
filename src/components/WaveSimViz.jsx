@@ -1117,17 +1117,18 @@ export default function WaveSimViz() {
             onChange={e => setNumPrimes(+e.target.value)} />
           <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
-        {(tab === 'signal' || tab === 'interference') && (
-          <div className="control-group">
-            <button
-              className={`tab-btn ${playing ? 'tab-active' : ''}`}
-              onClick={() => setPlaying(p => !p)}
-              style={{ minWidth: 70 }}
-            >
-              {playing ? 'Pause' : 'Play'}
-            </button>
-          </div>
-        )}
+        <div className="control-group">
+          <button
+            className={`tab-btn ${playing ? 'tab-active' : ''}`}
+            onClick={() => setPlaying(p => !p)}
+            style={{ minWidth: 70 }}
+          >
+            {playing ? 'Pause' : 'Play'}
+          </button>
+          {tab !== 'signal' && tab !== 'interference' && playing && (
+            <span style={{ fontSize: 11, color: '#f59e0b', marginLeft: 6 }}>animating</span>
+          )}
+        </div>
       </div>
 
       {/* Sigma status indicator */}

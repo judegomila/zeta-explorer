@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import { InlineMath } from './KaTeXMath.jsx';
 import { losslessBridge } from '../math/oscillators.js';
@@ -16,6 +16,26 @@ export default function ScatteringMatrixViz() {
   const [tValue, setTValue] = useState(14.13);
   const [mode, setMode] = useState('magnitude');
 
+  // Memoize expensive bridge data: 101 losslessBridge calls depend only on tValue,
+  // not on mode or viewport size, so avoid recomputing on mode switch or window resize
+  const data = useMemo(() => {
+    const steps = 100;
+    const result = [];
+    for (let i = 0; i <= steps; i++) {
+      const sigma = 0.01 + (i / steps) * 0.98;
+      const bridge = losslessBridge([sigma, tValue]);
+      result.push({
+        sigma,
+        chiMag: bridge.magnitude,
+        chiPhase: bridge.phase,
+        reflection: bridge.reflectionCoeff,
+        isUnitary: bridge.isUnitary,
+        unitarityDev: Math.abs(bridge.magnitude - 1),
+      });
+    }
+    return result;
+  }, [tValue]);
+
   const drawMagnitude = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -27,22 +47,6 @@ export default function ScatteringMatrixViz() {
     const w = width - margin.left - margin.right;
     const h = height - margin.top - margin.bottom;
     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
-
-    // Sweep σ, show |χ(σ + it)|, reflection coefficient, and unitarity deviation
-    const steps = 100;
-    const data = [];
-    for (let i = 0; i <= steps; i++) {
-      const sigma = 0.01 + (i / steps) * 0.98;
-      const bridge = losslessBridge([sigma, tValue]);
-      data.push({
-        sigma,
-        chiMag: bridge.magnitude,
-        chiPhase: bridge.phase,
-        reflection: bridge.reflectionCoeff,
-        isUnitary: bridge.isUnitary,
-        unitarityDev: Math.abs(bridge.magnitude - 1),
-      });
-    }
 
     const x = d3.scaleLinear().domain([0, 1]).range([0, w]);
 
@@ -193,7 +197,7 @@ export default function ScatteringMatrixViz() {
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('σ = Re(s)');
 
-  }, [tValue, mode]);
+  }, [data, tValue, mode]);
 
   useEffect(() => { drawMagnitude(); }, [drawMagnitude]);
   useEffect(() => {

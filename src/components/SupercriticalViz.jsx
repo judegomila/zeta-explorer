@@ -272,6 +272,8 @@ function ThermodynamicsTab() {
   const [tValue, setTValue] = useState(14.13);
   const [numPrimes, setNumPrimes] = useState(12);
 
+  const thermoData = useMemo(() => thermodynamicScan(tValue, [-1, 3], 120, numPrimes), [tValue, numPrimes]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -279,7 +281,7 @@ function ThermodynamicsTab() {
     const totalHeight = 800;
     svg.attr('viewBox', `0 0 ${width} ${totalHeight}`);
 
-    const data = thermodynamicScan(tValue, [-1, 3], 120, numPrimes);
+    const data = thermoData;
 
     const margin = { top: 22, right: 30, bottom: 30, left: 65 };
     const chartH = 130;
@@ -347,7 +349,7 @@ function ThermodynamicsTab() {
         .attr('fill', q.color).attr('font-size', 11).attr('font-weight', 600).text(q.label);
     });
 
-  }, [tValue, numPrimes]);
+  }, [thermoData]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

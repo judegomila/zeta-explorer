@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { vonMangoldt, explicitFormulaTerms } from '../math/primes.js';
@@ -9,26 +9,13 @@ export default function ExplicitFormulaViz() {
   const [maxX, setMaxX] = useState(100);
   const [numZeros, setNumZeros] = useState(20);
 
-  const draw = useCallback(() => {
-    const svg = d3.select(svgRef.current);
-    svg.selectAll('*').remove();
-
-    const width = svgRef.current.clientWidth || 800;
-    const height = 380;
-    svg.attr('viewBox', `0 0 ${width} ${height}`);
-
-    const margin = { top: 30, right: 30, bottom: 50, left: 60 };
-    const w = width - margin.left - margin.right;
-    const h = height - margin.top - margin.bottom;
-
+  // Memoize data arrays so resize events only re-render D3 without recomputing
+  // the psiTable (O(maxX) vonMangoldt calls) and explicitFormulaTerms (O(steps × numZeros))
+  const { actualData, approxData, errorData } = useMemo(() => {
     const zeros = ZETA_ZEROS.slice(0, numZeros);
     const steps = Math.min(maxX, 200);
     const dx = maxX / steps;
 
-    // Precompute cumulative ψ(x) table in one O(maxFloorX) pass instead of calling
-    // chebyshevPsi(x) independently for each sample point. chebyshevPsi restarts the
-    // summation from n=2 every time, giving O(steps × maxX) vonMangoldt evaluations;
-    // the table approach does O(maxX) total — a ~200× reduction at maxX=500.
     const maxFloorX = Math.floor(2 + steps * dx);
     const psiTable = new Float64Array(maxFloorX + 1);
     for (let n = 2; n <= maxFloorX; n++) {
@@ -47,8 +34,23 @@ export default function ExplicitFormulaViz() {
 
       actualData.push({ x, y: psi });
       approxData.push({ x, y: approx });
-      errorData.push({ x, y: psi - x }); // Oscillatory error
+      errorData.push({ x, y: psi - x });
     }
+
+    return { actualData, approxData, errorData };
+  }, [maxX, numZeros]);
+
+  const draw = useCallback(() => {
+    const svg = d3.select(svgRef.current);
+    svg.selectAll('*').remove();
+
+    const width = svgRef.current.clientWidth || 800;
+    const height = 380;
+    svg.attr('viewBox', `0 0 ${width} ${height}`);
+
+    const margin = { top: 30, right: 30, bottom: 50, left: 60 };
+    const w = width - margin.left - margin.right;
+    const h = height - margin.top - margin.bottom;
 
     const xScale = d3.scaleLinear().domain([2, maxX + 2]).range([0, w]);
     const yMax = d3.max(actualData, d => d.y) * 1.05;
@@ -142,7 +144,7 @@ export default function ExplicitFormulaViz() {
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('ψ(x)');
 
-  }, [maxX, numZeros]);
+  }, [maxX, numZeros, actualData, approxData]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

@@ -22,7 +22,7 @@ export default function HamiltonianPage() {
           <strong style={{ color: '#3b82f6' }}>Hamiltonian Energy vs σ</strong> — drag the t slider to a zeta
           zero (<InlineMath tex="t \approx 14.13, 21.02, 25.01" />) and watch the green total-energy curve develop
           a sharp minimum at <InlineMath tex="\sigma = 0.5" />. Compare the three components: the blue kinetic energy
-          is symmetric about <InlineMath tex="\sigma = 0.5" />, the orange mismatch vanishes there, and the purple
+          is symmetric about <InlineMath tex="\sigma = 0.5" />, the orange mismatch is minimized there (conjugate-matched, not zero: <InlineMath tex="|Z_{\text{dir}} - Z_{\text{dual}}| = 2|\text{Im}\,Z|" />), and the purple
           bridge penalty is zero exactly on the critical line. Increase primes to see the valley deepen and narrow.
         </p>
         <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
@@ -57,8 +57,9 @@ export default function HamiltonianPage() {
           <h3 style={{ color: '#f59e0b' }}>Mismatch Potential <InlineMath tex="V(s)" /></h3>
           <BlockMath tex="V_{\\text{mismatch}} = \\frac{1}{2}|Z_{\\text{direct}} - Z_{\\text{dual}}|^2" />
           <p style={{ marginTop: 8 }}>
-            Penalty for impedance mismatch between direct and dual ladders. Vanishes identically
-            at <InlineMath tex="\\sigma = 1/2" /> where the functional equation guarantees symmetry.
+            Penalty for impedance mismatch between direct and dual ladders. Minimized (but not zero)
+            at <InlineMath tex="\\sigma = 1/2" /> where Schwarz reflection gives <InlineMath tex="Z_{\\text{dual}} = \\overline{Z_{\\text{dir}}}" /> (conjugate match),
+            leaving residual <InlineMath tex="|Z_{\\text{dir}} - Z_{\\text{dual}}| = 2|\\text{Im}\\,Z|" />.
           </p>
         </div>
       </div>
@@ -71,11 +72,11 @@ export default function HamiltonianPage() {
         </p>
         <ol style={{ margin: '12px 0 0 20px', color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
           <li><strong style={{ color: '#3b82f6' }}>Balance:</strong> Direct and dual ladders are symmetric, so kinetic energy is balanced</li>
-          <li><strong style={{ color: '#f59e0b' }}>Match:</strong> <InlineMath tex="Z_{\\text{direct}} = Z_{\\text{dual}}" /> by the functional equation, so <InlineMath tex="V_{\\text{mismatch}} = 0" /></li>
+          <li><strong style={{ color: '#f59e0b' }}>Conjugate match:</strong> <InlineMath tex="Z_{\\text{dual}} = \\overline{Z_{\\text{dir}}}" /> by Schwarz reflection (since <InlineMath tex="1 - s = \\bar{s}" /> at <InlineMath tex="\\sigma = 1/2" />), so <InlineMath tex="V_{\\text{mismatch}}" /> is minimized</li>
           <li><strong style={{ color: '#8b5cf6' }}>Lossless:</strong> <InlineMath tex="|\\chi(1/2+it)| = 1" />, so <InlineMath tex="V_{\\text{bridge}} = 0" /></li>
         </ol>
         <p style={{ marginTop: 12 }}>
-          This is an exploratory analogy inspired by the Hilbert-Pólya conjecture. The impedance-matching
+          This is an exploratory analogy inspired by the Hilbert-Pólya conjecture. The conjugate matching
           and bridge unitarity at <InlineMath tex="\\sigma = 1/2" /> follow from the functional equation, which is a theorem.
           However, this model does not constitute a proof of RH — the Hamiltonian is constructed to exhibit
           this minimum, and deriving the zero locations from it would require establishing that the

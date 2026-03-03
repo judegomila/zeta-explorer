@@ -178,7 +178,14 @@ function FrequencyResponseTab() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
-      // 0 dB reference
+      // Horizontal gridlines
+      const magGrid = g.append('g')
+        .call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(''));
+      magGrid.select('.domain').remove();
+      magGrid.selectAll('.tick line')
+        .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
+
+      // 0 dB reference (stronger than gridlines)
       g.append('line').attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
         .attr('stroke', '#64748b').attr('stroke-dasharray', '4,3').attr('opacity', 0.5);
 
@@ -210,6 +217,13 @@ function FrequencyResponseTab() {
       g.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d => `${(d / Math.PI).toFixed(1)}\u03C0`))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+
+      // Horizontal gridlines
+      const phaseGrid = g.append('g')
+        .call(d3.axisLeft(y).ticks(5).tickSize(-w).tickFormat(''));
+      phaseGrid.select('.domain').remove();
+      phaseGrid.selectAll('.tick line')
+        .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
 
       // Phase curve — use curveLinear to avoid curveBasis smoothing across
       // ±π atan2 wrap discontinuities, which would draw fake arcs through 0
@@ -378,9 +392,12 @@ function SpectralEnergyTab() {
         oscillator energy is distributed across frequencies. The direct ladder gives{' '}
         <InlineMath tex="\\mathcal{E}_{\\text{dir}}(\\omega) = |H(\\sigma+i\\omega)|^2" /> and the dual ladder{' '}
         <InlineMath tex="\\mathcal{E}_{\\text{dual}}(\\omega) = |H(1\\!-\\!\\sigma+i\\omega)|^2" />. At{' '}
-        <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, the functional equation guarantees these are identical &mdash;
-        the spectral energy is perfectly balanced between direct and dual. The red mismatch curve shows their difference.
-        <strong> Look for:</strong> blue and orange curves overlapping exactly at <InlineMath tex="\\sigma = 0.5" />; mismatch (red) vanishing.
+        <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, conjugate symmetry of the Euler factors gives equal magnitudes &mdash;
+        the spectral energy is perfectly balanced between direct and dual. The red mismatch curve shows the impedance
+        difference <InlineMath tex="|Z_{\\text{dir}} - Z_{\\text{dual}}|" />, which measures the imaginary-part asymmetry
+        (at <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, the impedances are conjugate-matched, so the mismatch equals{' '}
+        <InlineMath tex="2|\\text{Im}\\,Z|" />, not zero).
+        <strong> Look for:</strong> blue and orange energy curves overlapping exactly at <InlineMath tex="\\sigma = 0.5" />; mismatch (red) minimized but not zero.
       </div>
       <div className="controls">
         <div className="control-group">

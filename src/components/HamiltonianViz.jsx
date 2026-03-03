@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { hamiltonianSigmaScan, systemHamiltonian } from '../math/oscillators.js';
@@ -9,6 +9,8 @@ export default function HamiltonianViz() {
   const [tValue, setTValue] = useState(14.13);
   const [numPrimes, setNumPrimes] = useState(10);
   const [hoverPoint, setHoverPoint] = useState(null);
+
+  const points = useMemo(() => hamiltonianSigmaScan(tValue, [0.05, 0.95], 60, numPrimes), [tValue, numPrimes]);
 
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
@@ -21,8 +23,6 @@ export default function HamiltonianViz() {
     const margin = { top: 30, right: 30, bottom: 50, left: 60 };
     const w = width - margin.left - margin.right;
     const h = height - margin.top - margin.bottom;
-
-    const points = hamiltonianSigmaScan(tValue, [0.05, 0.95], 60, numPrimes);
 
     const x = d3.scaleLinear().domain([0.05, 0.95]).range([0, w]);
     const yMax = d3.max(points, d => d.total) * 1.1;
@@ -157,7 +157,7 @@ export default function HamiltonianViz() {
       setHoverPoint(null);
     });
 
-  }, [tValue, numPrimes]);
+  }, [points]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

@@ -22,7 +22,7 @@ for (let r = 0.02; r <= 4; r += 0.02) {
 const GAMMA_E = 0.5772;
 const REF_NUMVAR_GUE = [];
 for (let L = 0.3; L <= 6; L += 0.05) {
-  const s2 = (2 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 1 + GAMMA_E - Math.PI * Math.PI / 8);
+  const s2 = (1 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 1 + GAMMA_E - Math.PI * Math.PI / 8);
   REF_NUMVAR_GUE.push({ L, s2: Math.max(0, s2) });
 }
 

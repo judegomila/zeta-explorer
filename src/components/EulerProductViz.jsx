@@ -9,6 +9,9 @@ export default function EulerProductViz() {
   const [t, setT] = useState(14.13);
   const [maxPrimes, setMaxPrimes] = useState(30);
 
+  const sigmaDeviation = Math.abs(sigma - 0.5);
+  const sigmaColor = sigmaDeviation < 0.02 ? '#10b981' : sigmaDeviation < 0.15 ? '#f59e0b' : '#ef4444';
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -179,10 +182,13 @@ export default function EulerProductViz() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\sigma = \operatorname{Re}(s)" /></label>
+          <label style={{ color: sigmaColor, fontWeight: 600 }}>
+            <InlineMath tex="\sigma = \operatorname{Re}(s)" />
+          </label>
           <input type="range" min="0.1" max="2" step="0.01" value={sigma}
-            onChange={e => setSigma(+e.target.value)} />
-          <span className="control-value">{sigma.toFixed(2)}</span>
+            onChange={e => setSigma(+e.target.value)}
+            style={{ accentColor: sigmaColor }} />
+          <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>

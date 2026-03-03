@@ -20,6 +20,7 @@ import { getPrimes, primeFrequency } from './primes.js';
 import {
   cMul, cDiv, cAdd, cSub, cAbs, cExp, cLog, cPow,
   zetaDirichlet, zetaEulerProduct, zetaCriticalStrip, eulerFactor, ZETA_ZEROS,
+  riemannSiegelZ,
 } from './zeta.js';
 import { losslessBridge, oscillatorStage, directLadder, dualLadder } from './oscillators.js';
 
@@ -196,10 +197,12 @@ export function heatFlowZeros(tau, numZeros = 30) {
     const velocity = force / (2 * Math.PI);
     const newGamma = gamma + tau * velocity;
 
-    // For τ > 0, zeros can acquire imaginary parts (leave the real line)
-    // The sigma displacement is proportional to τ and local zero density
+    // For τ > 0, zeros acquire imaginary parts (leave the real line)
+    // forming conjugate pairs: one zero goes to σ=0.5+δ, the other to σ=0.5-δ.
+    // The sign alternates so zeros scatter symmetrically around the critical line.
     const localDensity = zeros.filter(z => Math.abs(z - gamma) < 5).length / 10;
-    const sigmaDisplacement = tau > 0 ? tau * 0.1 * localDensity : 0;
+    const pairSign = n % 2 === 0 ? 1 : -1;
+    const sigmaDisplacement = tau > 0 ? tau * 0.1 * localDensity * pairSign : 0;
 
     return {
       index: n,
@@ -234,10 +237,9 @@ export function heatEvolvedXi(t, tau, numTerms = 50) {
   for (let i = 0; i < numSamples; i++) {
     const offset = -sampleRange + (2 * sampleRange * i) / (numSamples - 1);
     const tSample = t + offset;
-    // Approximate Ξ(t) via zeta on critical line — use SIGNED real part of Z(t)
-    // Ξ(t) is real-valued and changes sign at zeros
-    const z = zetaCriticalStrip([0.5, tSample], Math.min(numTerms, 100));
-    const signedVal = z[0]; // Real part carries the sign information
+    // Approximate Ξ(t) via the Riemann-Siegel Z function, which is real-valued
+    // and has zeros exactly where ζ(½+it) does — unlike Re(ζ), which has different zeros
+    const signedVal = riemannSiegelZ(tSample);
     // Gaussian kernel (forward heat equation for τ>0)
     const w = Math.exp(-offset * offset / (2 * width * width));
     result += signedVal * w;

@@ -177,3 +177,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 171 | 2026-03-03T19:30:00Z | Memoize explicit formula data arrays to avoid recomputing psiTable and zero sums on resize | ExplicitFormulaViz.jsx |
 | 172 | 2026-03-03T20:00:00Z | Add Dirichlet L-functions exploration entry on character-twisted oscillator chains and GRH | explorations.js |
 | 173 | 2026-03-03T20:30:00Z | Add Riemann-Siegel formula computation explainer card to ZetaPage | ZetaPage.jsx |
+| 174 | 2026-03-03T21:00:00Z | Fix DocsPage stale counts (15→16 pages, 17→18 viz) and add missing Rigor page, WaveSimViz, RHRigorViz entries | DocsPage.jsx |

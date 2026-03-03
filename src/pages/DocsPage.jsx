@@ -136,13 +136,14 @@ export default function DocsPage() {
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">oscillators.js</span> <span className="comment">— Prime oscillator chain, Hamiltonian, energy landscape</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">primes.js</span> <span className="comment">— Sieve, frequencies, von Mangoldt, explicit formula</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">supercritical.js</span> <span className="comment">— Extended zeta, thermodynamics, heat flow, spectral</span></div>
-          <div>&nbsp;&nbsp;<span className="dir">components/</span> <span className="comment">— 17 visualization components + KaTeX wrapper</span></div>
+          <div>&nbsp;&nbsp;<span className="dir">components/</span> <span className="comment">— 18 visualization components + KaTeX wrapper</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">KaTeXMath.jsx</span> <span className="comment">— InlineMath, BlockMath, MathText, MathModal</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">*Viz.jsx</span> <span className="comment">— Interactive D3/Canvas visualizations</span></div>
-          <div>&nbsp;&nbsp;<span className="dir">pages/</span> <span className="comment">— 15 route pages</span></div>
-          <div>&nbsp;&nbsp;<span className="dir">data/</span> <span className="comment">— Explorations journal, literature references, improvement log</span></div>
+          <div>&nbsp;&nbsp;<span className="dir">pages/</span> <span className="comment">— 16 route pages</span></div>
+          <div>&nbsp;&nbsp;<span className="dir">data/</span> <span className="comment">— Explorations journal, literature references, criticisms, improvement log</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">explorations.js</span> <span className="comment">— AI exploration entries with LaTeX, insights, refs</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">literature.js</span> <span className="comment">— Academic reference database</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">criticisms.js</span> <span className="comment">— RH rigor check: mathematical criticisms of the ZPO model</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">improvements.js</span> <span className="comment">— Auto-improvement log entries with categories and details</span></div>
           <div>&nbsp;&nbsp;<span className="dir">styles/</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">app.css</span> <span className="comment">— All styles (dark theme, responsive)</span></div>
@@ -168,6 +169,7 @@ export default function DocsPage() {
             { route: '/supercritical', name: 'Supercritical', desc: 'SupercriticalViz — 4 tabs (landscape, thermodynamics, heat flow, Euler phase)' },
             { route: '/docs', name: 'Docs', desc: 'This page — complete technical documentation of the application' },
             { route: '/waves', name: 'Waves', desc: 'WaveSimViz — 5-tab wave simulator (signal flow, per-prime waves, interference, phase & delay, circuit diagram)' },
+            { route: '/rigor', name: 'Rigor', desc: 'RHRigorViz — self-criticism of ZPO model claims with severity-rated issues and numerical stress tests' },
             { route: '/improvements', name: 'Improvements', desc: 'Auto-improvement log with filterable history of all changes made to the app' },
           ].map(p => (
             <div key={p.route} className="card">
@@ -272,7 +274,7 @@ export default function DocsPage() {
       <section id="viz-components" className="docs-section">
         <h2>Visualization Components</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14, marginBottom: 16 }}>
-          16 interactive visualization components using D3.js (SVG) and Canvas API.
+          18 interactive visualization components using D3.js (SVG) and Canvas API.
         </p>
         <table className="docs-table">
           <thead>
@@ -301,6 +303,8 @@ export default function DocsPage() {
               ['TwinOscillatorSimViz', 'Simulator', 'Canvas+SVG', '5-tab simulator: per-prime, gradient, convergence, bridge, multi-zero'],
               ['SupercriticalViz', 'Supercritical', 'Canvas+SVG', '4-tab: landscape, thermodynamics, heat flow, Euler phase'],
               ['FourierDomainViz', 'Fourier', 'SVG', '4-tab: von Mangoldt spectrum, frequency response, spectral energy, harmonics'],
+              ['WaveSimViz', 'Waves', 'Canvas+SVG', '5-tab: signal flow, per-prime waves, interference, phase & delay, circuit diagram'],
+              ['RHRigorViz', 'Rigor', 'Canvas', 'Numerical stress tests: Hamiltonian minimization, bridge unitarity, mismatch vs zeros'],
             ].map(([name, page, renderer, purpose]) => (
               <tr key={name}>
                 <td style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-blue)', fontSize: 12 }}>{name}</td>

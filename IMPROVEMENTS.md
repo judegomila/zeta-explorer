@@ -266,3 +266,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 260 | 2026-03-03T19:00:00Z | Fix TwistorPage saying 'impedance match' instead of 'conjugate impedance match' at σ=½ | TwistorPage.jsx |
 | 261 | 2026-03-03T19:30:00Z | Show visible zeta zeros count next to t max slider in EnergyLandscapeViz | EnergyLandscapeViz.jsx |
 | 262 | 2026-03-03T19:45:00Z | Make nearest-zero proximity indicator clickable to snap t slider to exact zero value in HamiltonianViz | HamiltonianViz.jsx |
+| 263 | 2026-03-03T20:00:00Z | Fix stale hardcoded Pages (16→17) and Visualizations (18→19) counts on HomePage after TwistorPage addition | HomePage.jsx |

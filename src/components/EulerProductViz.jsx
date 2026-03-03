@@ -63,22 +63,29 @@ export default function EulerProductViz() {
       const barH = Math.min(h - 5, Math.abs(factorMag - 1) * h * 2);
       const isAmplifying = factorMag > 1;
 
+      const cumMag = cAbs(d.cumulative);
+      const phase = Math.atan2(d.cumulative[1], d.cumulative[0]);
+
       g.append('rect')
         .attr('x', x(i) - barW / 2)
         .attr('y', isAmplifying ? yMag(factorMag) : yMag(1))
         .attr('width', barW)
         .attr('height', Math.max(1, barH))
         .attr('rx', 1)
-        .attr('fill', isAmplifying ? 'rgba(59,130,246,0.4)' : 'rgba(245,158,11,0.4)');
+        .attr('fill', isAmplifying ? 'rgba(59,130,246,0.4)' : 'rgba(245,158,11,0.4)')
+        .style('cursor', 'crosshair')
+        .append('title').text(`p=${d.prime}: |1−p⁻ˢ|⁻¹ = ${factorMag.toFixed(4)}, cumulative |ζ| = ${cumMag.toFixed(4)}`);
 
       // Dot on the magnitude curve
       g.append('circle')
         .attr('cx', x(i))
-        .attr('cy', yMag(cAbs(d.cumulative)))
+        .attr('cy', yMag(cumMag))
         .attr('r', 3)
         .attr('fill', '#3b82f6')
         .attr('stroke', '#0a0e1a')
-        .attr('stroke-width', 1);
+        .attr('stroke-width', 1)
+        .style('cursor', 'crosshair')
+        .append('title').text(`p=${d.prime}: cumulative |ζ| = ${cumMag.toFixed(4)}, phase = ${(phase * 180 / Math.PI).toFixed(1)}°`);
     });
 
     // Reference line at |H| = 1

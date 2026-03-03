@@ -60,7 +60,7 @@ export default function EulerProductViz() {
     const barW = Math.max(2, w / data.length - 2);
     data.forEach((d, i) => {
       const factorMag = cAbs(d.factor);
-      const barH = Math.min(h - 5, Math.abs(factorMag - 1) * h * 2);
+      const barH = Math.abs(yMag(1) - yMag(factorMag));
       const isAmplifying = factorMag > 1;
 
       const cumMag = cAbs(d.cumulative);

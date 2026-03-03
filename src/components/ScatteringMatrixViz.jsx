@@ -216,7 +216,7 @@ export default function ScatteringMatrixViz() {
       )}
       {mode === 'reflection' && (
         <div className="tab-explainer accent-green">
-          <strong>The math:</strong> The reflection coefficient <InlineMath tex="\Gamma = |1 - |\chi(s)||" /> measures how
+          <strong>The math:</strong> The reflection coefficient <InlineMath tex="\Gamma = |1 - |\chi(s)||\,/\,(1 + |\chi(s)|)" /> measures how
           much energy is reflected back rather than transmitted through the bridge. At <InlineMath tex="\sigma = \tfrac{1}{2}" />,{' '}
           <InlineMath tex="\Gamma = 0" /> (perfect transmission, impedance match). This is the scattering-matrix condition for
           lossless two-port networks: <InlineMath tex="S^\dagger S = I" />.

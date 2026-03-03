@@ -71,6 +71,38 @@ export default function ExplorationsPage() {
         ))}
       </div>
 
+      <div className="card" style={{ marginBottom: 24 }}>
+        <h3 style={{ marginTop: 0, color: '#e2e8f0', fontSize: 16 }}>How to Navigate the Explorations</h3>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 13, color: '#94a3b8' }}>
+          <div>
+            <h4 style={{ margin: '0 0 6px', color: '#8b5cf6', fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Categories</h4>
+            <ul style={{ margin: 0, paddingLeft: 16, lineHeight: 1.7 }}>
+              <li><strong style={{ color: '#60a5fa' }}>foundation</strong> — core identities (Euler product, functional equation)</li>
+              <li><strong style={{ color: '#22d3ee' }}>oscillator-model</strong> — prime ladder construction and LC resonators</li>
+              <li><strong style={{ color: '#a78bfa' }}>duality</strong> — direct/dual ladder symmetry and the functional equation</li>
+              <li><strong style={{ color: '#4ade80' }}>hamiltonian</strong> — energy landscape and σ-minimization</li>
+              <li><strong style={{ color: '#fb923c' }}>control-theory</strong> — Nyquist stability and feedback loop analysis</li>
+              <li><strong style={{ color: '#f472b6' }}>signal-processing</strong> — scattering, impedance, wave propagation</li>
+              <li><strong style={{ color: '#f87171' }}>statistical</strong> — GUE statistics, pair correlation, random matrix theory</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style={{ margin: '0 0 6px', color: '#06b6d4', fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Depth Scale</h4>
+            <p style={{ margin: '0 0 8px' }}>
+              Each entry has a <strong style={{ color: '#e2e8f0' }}>Depth 1–6</strong> rating indicating how deep into the ZPO model it reaches:
+            </p>
+            <ul style={{ margin: 0, paddingLeft: 16, lineHeight: 1.7 }}>
+              <li><strong style={{ color: '#e2e8f0' }}>1–2</strong> — Setup: Euler product reinterpretation, single-prime resonators</li>
+              <li><strong style={{ color: '#e2e8f0' }}>3–4</strong> — Core theory: bridge coupling, Hamiltonian, scattering matrix</li>
+              <li><strong style={{ color: '#e2e8f0' }}>5–6</strong> — Advanced: GUE universality, primon gas, zero-free regions</li>
+            </ul>
+            <p style={{ margin: '8px 0 0' }}>
+              Click any entry to expand its full analysis with key equations, insights, and literature references. Follow the <strong style={{ color: '#3b82f6' }}>Leads to</strong> links to trace the chain of reasoning.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {explorations.map(exp => {
         const isExpanded = expandedId === exp.id;
         const statusInfo = statusLabels[exp.status] || statusLabels['queued'];

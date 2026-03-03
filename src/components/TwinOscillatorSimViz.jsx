@@ -621,6 +621,11 @@ function ConvergenceTab() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+      // Horizontal gridlines
+      g.append('g').call(d3.axisLeft(y).ticks(5).tickSize(-w).tickFormat(''))
+        .selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+      g.select('.domain').remove();
+
       // Critical line
       g.append('line').attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
         .attr('stroke', '#ef4444').attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
@@ -664,6 +669,11 @@ function ConvergenceTab() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+      // Horizontal gridlines
+      g.append('g').call(d3.axisLeft(y).ticks(5).tickSize(-w).tickFormat(''))
+        .selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+      g.select('.domain').remove();
+
       // Zero reference
       g.append('line').attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
         .attr('stroke', '#10b981').attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.5);
@@ -699,6 +709,11 @@ function ConvergenceTab() {
       g.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d => d.toFixed(0)))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+
+      // Horizontal gridlines
+      g.append('g').call(d3.axisLeft(y).ticks(5).tickSize(-w).tickFormat(''))
+        .selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3');
+      g.select('.domain').remove();
 
       // Points + line
       const line = d3.line().x((d, i) => x(i)).y(d => y(d.curvature)).curve(d3.curveMonotoneX);

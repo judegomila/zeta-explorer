@@ -275,7 +275,7 @@ export default function OscillatorChainViz() {
         impedance <InlineMath tex="Z_p = \\log p" />. The blue <strong>direct ladder</strong> computes <InlineMath tex="\\zeta(s)" />;
         the gold <strong>dual ladder</strong> computes <InlineMath tex="\\zeta(1-s)" />. The purple <strong>bridge</strong> implements
         the functional equation <InlineMath tex="\\zeta(s) = \\chi(s)\\zeta(1-s)" />. At <InlineMath tex="\\sigma = 0.5" />,
-        direct and dual are impedance-matched and the bridge is lossless.
+        direct and dual are <em>conjugate-matched</em> (equal magnitudes, opposite phases &mdash; since <InlineMath tex="1-s = \\bar{s}" /> and <InlineMath tex="\\zeta(\\bar{s}) = \\overline{\\zeta(s)}" />) and the bridge is lossless (<InlineMath tex="|\\chi|=1" />).
         <strong> Try:</strong> drag <InlineMath tex="\\sigma" /> away from 0.5 and watch the bridge turn lossy.
       </div>
       <div className="controls">

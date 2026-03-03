@@ -1,7 +1,7 @@
 import React from 'react';
 import NyquistBodeViz from '../components/NyquistBodeViz.jsx';
 import ScatteringMatrixViz from '../components/ScatteringMatrixViz.jsx';
-import { BlockMath } from '../components/KaTeXMath.jsx';
+import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
 export default function ControlTheoryPage() {
   return (
@@ -9,9 +9,9 @@ export default function ControlTheoryPage() {
       <div className="page-header">
         <h1>Control Theory & Scattering</h1>
         <p>
-          The Riemann Hypothesis reformulated as a stability criterion in feedback control theory.
-          The Nyquist plot, Bode diagram, and scattering matrix of the ladder-bridge system
-          encode the locations of zeta zeros.
+          An exploratory reformulation of the Riemann Hypothesis as a stability criterion in feedback
+          control theory. The Nyquist plot, Bode diagram, and scattering matrix of the ladder-bridge
+          system provide suggestive analogies for understanding the locations of zeta zeros.
         </p>
       </div>
 
@@ -20,8 +20,8 @@ export default function ControlTheoryPage() {
       <div style={{ marginTop: 32 }}>
         <div className="viz-title">Nyquist Plot & Bode Diagram</div>
         <div className="viz-subtitle">
-          The Nyquist plot traces L(s) as t varies. Encirclements of -1 correspond to zeros off
-          the critical line. At σ = 0.5, expect zero encirclements (RH). The Bode diagram
+          The Nyquist plot traces <InlineMath tex="L(s)" /> as t varies. Encirclements of -1 correspond to zeros off
+          the critical line. At <InlineMath tex="\\sigma = 0.5" />, expect zero encirclements (RH). The Bode diagram
           shows magnitude (dB) and phase vs frequency.
         </div>
         <NyquistBodeViz />
@@ -34,16 +34,16 @@ export default function ControlTheoryPage() {
           <p style={{ marginTop: 8 }}>
             The number of clockwise encirclements of -1 by the Nyquist contour equals the number
             of right-half-plane zeros minus poles. For our system: RH says zero encirclements
-            when σ = 1/2 (marginally stable on the critical line).
+            when <InlineMath tex="\\sigma = 1/2" /> (marginally stable on the critical line).
           </p>
         </div>
         <div className="card">
           <h3 style={{ color: '#f59e0b' }}>Bode Sensitivity Integral</h3>
-          <BlockMath tex="\int_0^\infty \log|S(j\omega)|\, d\omega = \pi \sum_k \sigma_k" />
+          <BlockMath tex="\int_0^\infty \log|S(j\omega)|\, d\omega = \pi \sum_k \text{Re}(p_k)" />
           <p style={{ marginTop: 8 }}>
-            Bode's integral constrains the total sensitivity. For minimum-phase systems, this integral
-            is determined by the RHP poles. Applied to our ladder: the integral evaluates to a quantity
-            related to the prime number theorem. RH controls the error term.
+            Bode's integral constrains the total sensitivity: for a closed-loop stable system with open-loop RHP poles at <InlineMath tex="p_k" />,
+            the integral equals <InlineMath tex="\pi \sum_k \text{Re}(p_k)" />. For stable open-loop systems (no RHP poles),
+            it is zero — sensitivity reduction at some frequencies must be paid for at others. In our analogy, the integral relates to the prime number theorem error term.
           </p>
         </div>
       </div>
@@ -51,20 +51,20 @@ export default function ControlTheoryPage() {
       <div style={{ marginTop: 48 }}>
         <div className="viz-title">Scattering Matrix of the Lossless Bridge</div>
         <div className="viz-subtitle">
-          The bridge connecting direct and dual ladders has |χ(½+it)| = 1 (lossless) on the critical line.
-          Off the critical line, the bridge becomes lossy (|χ| &lt; 1) or amplifying (|χ| &gt; 1).
-          The reflection coefficient Γ vanishes exactly at σ = 1/2.
+          The bridge connecting direct and dual ladders has <InlineMath tex="|\\chi(\\tfrac{1}{2}+it)| = 1" /> (lossless) on the critical line.
+          Off the critical line, the bridge becomes lossy (<InlineMath tex="|\\chi| < 1" />) or amplifying (<InlineMath tex="|\\chi| > 1" />).
+          The reflection coefficient <InlineMath tex="\\Gamma" /> vanishes exactly at <InlineMath tex="\\sigma = 1/2" />.
         </div>
         <ScatteringMatrixViz />
       </div>
 
       <div className="card" style={{ marginTop: 32, borderColor: '#8b5cf6' }}>
-        <h3 style={{ color: '#8b5cf6' }}>H∞ Optimal Control</h3>
+        <h3 style={{ color: '#8b5cf6' }}><InlineMath tex="H_\infty" /> Optimal Control</h3>
         <BlockMath tex="\min_\sigma \|S(\sigma + j\cdot)\|_\infty \quad \text{achieved at } \sigma = \frac{1}{2}" />
         <p style={{ marginTop: 12 }}>
-          The H-infinity optimal control framework naturally selects σ = 1/2 as the operating point
+          The H-infinity optimal control framework naturally selects <InlineMath tex="\\sigma = 1/2" /> as the operating point
           that minimizes the worst-case sensitivity. The sensitivity/complementary sensitivity balance
-          S + T = 1 at σ = 1/2 is the control-theoretic version of the functional equation.
+          <InlineMath tex="S + T = 1" /> at <InlineMath tex="\\sigma = 1/2" /> is the control-theoretic version of the functional equation.
         </p>
         <div className="two-col" style={{ marginTop: 16 }}>
           <div>
@@ -78,8 +78,8 @@ export default function ControlTheoryPage() {
           <div>
             <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
               <strong style={{ color: '#f59e0b' }}>Phase margin:</strong> How much phase lag can
-              be added before instability. Related to the argument of ζ(s) and the S(t) function
-              counting the phase changes of ζ on the critical line.
+              be added before instability. Related to the argument of <InlineMath tex="\\zeta(s)" /> and the <InlineMath tex="S(t)" /> function
+              counting the phase changes of <InlineMath tex="\zeta" /> on the critical line.
             </p>
           </div>
         </div>

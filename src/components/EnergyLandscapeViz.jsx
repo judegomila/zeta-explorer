@@ -253,7 +253,7 @@ export default function EnergyLandscapeViz() {
           <label>t max</label>
           <input type="range" min="10" max="80" step="5" value={tMax}
             onChange={e => setTMax(+e.target.value)} />
-          <span className="control-value">{tMax}</span>
+          <span className="control-value">{tMax} <span style={{ color: '#64748b', fontSize: 11 }}>({ZETA_ZEROS.filter(g => g <= tMax).length} zeros visible)</span></span>
         </div>
         <div className="control-group">
           <label>Primes</label>

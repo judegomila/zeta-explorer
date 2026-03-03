@@ -108,12 +108,14 @@ export function thermodynamicState(sigma, t, numPrimes = 20) {
   const temperature = sigma > 0.01 ? 1 / sigma : 100;
   const freeEnergy = -temperature * logZ[0];
 
-  // Entropy: S = -∂F/∂T = log|ζ| + σ·∂log|ζ|/∂σ
+  // Entropy: S = -∂F/∂T = log|ζ| - σ·∂log|ζ|/∂σ
+  // Derivation: F = -T·log Z, T = 1/σ, so dF/dT = -log Z + σ·∂(log Z)/∂σ,
+  // giving S = -dF/dT = log Z - σ·∂(log Z)/∂σ.
   const ds = 0.01;
   const zPlus = zetaExtended([sigma + ds, t]);
   const zMinus = zetaExtended([sigma - ds, t]);
   const dLogZ = (Math.log(cAbs(zPlus)) - Math.log(cAbs(zMinus))) / (2 * ds);
-  const entropy = Math.log(Math.max(mag, 1e-10)) + sigma * dLogZ;
+  const entropy = Math.log(Math.max(mag, 1e-10)) - sigma * dLogZ;
 
   // Pressure from Euler product: P = Σ_p log(1/(1-p^{-σ})) / V
   // where V = Σ_p 1 (number of "sites")

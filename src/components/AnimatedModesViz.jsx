@@ -1,5 +1,5 @@
 import { InlineMath } from './KaTeXMath.jsx';
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes, primeFrequency } from '../math/primes.js';
 
@@ -16,6 +16,23 @@ export default function AnimatedModesViz() {
   const [zeroIndex, setZeroIndex] = useState(0);
   const [speed, setSpeed] = useState(1);
   const [isPlaying, setIsPlaying] = useState(true);
+
+  // Precompute per-prime constants that only change with numPrimes/zeroIndex, not time
+  const primeData = useMemo(() => {
+    const gamma = ZETA_ZEROS[zeroIndex];
+    const primes = getPrimes(numPrimes);
+    return primes.map(p => {
+      const omega = primeFrequency(p);
+      const logP = Math.log(p);
+      return {
+        p,
+        omega,
+        logP,
+        amplitude: Math.cos(gamma * logP) / Math.sqrt(p),
+        hue: 210 + omega * 15,
+      };
+    });
+  }, [numPrimes, zeroIndex]);
 
   const draw = useCallback((time) => {
     const canvas = canvasRef.current;
@@ -36,7 +53,6 @@ export default function AnimatedModesViz() {
     ctx.fillRect(0, 0, dw, dh);
 
     const gamma = ZETA_ZEROS[zeroIndex]; // zero frequency
-    const primes = getPrimes(numPrimes);
     const t = time * speed * 0.001;
 
     const rowH = (dh - 100) / (numPrimes + 2);
@@ -55,10 +71,9 @@ export default function AnimatedModesViz() {
     let superposition = new Float64Array(200);
     const xSteps = 200;
 
-    primes.forEach((p, idx) => {
-      const omega = primeFrequency(p);
+    primeData.forEach((pd, idx) => {
+      const { p, omega, amplitude, hue } = pd;
       const yCenter = 60 + idx * rowH;
-      const amplitude = Math.cos(gamma * Math.log(p)) / Math.sqrt(p); // Re(p^{-1/2-iγ})
 
       // Label
       ctx.fillStyle = '#64748b';
@@ -84,7 +99,6 @@ export default function AnimatedModesViz() {
         else ctx.lineTo(x, y);
       }
 
-      const hue = 210 + omega * 15;
       ctx.strokeStyle = `hsla(${hue}, 70%, 55%, 0.7)`;
       ctx.lineWidth = 1.5;
       ctx.stroke();
@@ -184,7 +198,7 @@ export default function AnimatedModesViz() {
     ctx.fillText(`t = ${t.toFixed(2)}`, dw - 8, 22);
     ctx.textAlign = 'left';
 
-  }, [numPrimes, zeroIndex, speed]);
+  }, [primeData, zeroIndex, speed]);
 
   useEffect(() => {
     let startTime = performance.now() - elapsedRef.current;

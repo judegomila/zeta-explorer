@@ -393,7 +393,11 @@ export default function ZetaLandscapeViz() {
           <label>t range end</label>
           <input type="range" min="10" max="150" step="1" value={tRange[1]}
             onChange={e => setTRange([tRange[0], Math.max(+e.target.value, tRange[0] + 5)])} />
-          <span className="control-value">{tRange[1]}</span>
+          <span className="control-value">{tRange[1]}{' '}
+            <span style={{ color: '#94a3b8', fontSize: '0.85em' }}>
+              ({ZETA_ZEROS.filter(g => g >= tRange[0] && g <= tRange[1]).length} zeros visible)
+            </span>
+          </span>
         </div>
       </div>
       <div className="viz-container">

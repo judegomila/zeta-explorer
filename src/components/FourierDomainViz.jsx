@@ -318,6 +318,14 @@ function SpectralEnergyTab() {
       .attr('d', d3.line().x(d => x(d.omega)).y(d => y2(d.mismatch)).curve(d3.curveBasis))
       .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
 
+    // Right-side axis for mismatch scale
+    const rightAxis = g.append('g').attr('transform', `translate(${w},0)`)
+      .call(d3.axisRight(y2).ticks(5).tickFormat(d => d.toFixed(1)));
+    rightAxis.selectAll('text').attr('fill', '#ef4444').attr('font-size', 10);
+    rightAxis.selectAll('.domain, .tick line').attr('stroke', '#ef4444').attr('opacity', 0.4);
+    svg.append('text').attr('transform', `translate(${width - 12}, ${height / 2}) rotate(90)`)
+      .attr('text-anchor', 'middle').attr('fill', '#ef4444').attr('font-size', 11).text('Mismatch |E_dir \u2212 E_dual|');
+
     // Legend
     const legend = svg.append('g').attr('transform', `translate(${width - 130}, ${margin.top + 10})`);
     [

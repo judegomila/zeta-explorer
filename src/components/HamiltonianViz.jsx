@@ -170,7 +170,7 @@ export default function HamiltonianViz() {
     <div>
       <div className="tab-explainer accent-green">
         <strong>The math:</strong> The system Hamiltonian <InlineMath tex="\\mathcal{H} = T + V_{\\text{mismatch}} + V_{\\text{bridge}}" /> sums three
-        terms: <strong>kinetic energy</strong> <InlineMath tex="T = \\sum_p \\tfrac{1}{2}\\log p\\,(|H_p|^2 + |H_p^*|^2)" /> (blue),{' '}
+        terms: <strong>kinetic energy</strong> <InlineMath tex="T = \\sum_p \\tfrac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1{-}s)|^2)" /> (blue),{' '}
         <strong>impedance mismatch</strong> <InlineMath tex="V = \\tfrac{1}{2}|Z_{\\text{dir}} - Z_{\\text{dual}}|^2" /> (orange),
         and <strong>bridge penalty</strong> <InlineMath tex="V_b = 100(1-|\\chi|)^2" /> (purple). At <InlineMath tex="\\sigma = 0.5" />,
         mismatch vanishes (functional equation symmetry) and the bridge is lossless (<InlineMath tex="|\\chi|=1" />),

@@ -105,6 +105,31 @@ export default function RHRigorPage() {
         <RHRigorViz />
       </div>
 
+      {/* What to Explore guide card */}
+      <div className="card" style={{ marginBottom: 32, borderColor: '#f59e0b' }}>
+        <h3 style={{ color: '#f59e0b' }}>What to Explore in Each Stress Test</h3>
+        <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 2 }}>
+          <li>
+            <strong style={{ color: '#3b82f6' }}>H Minimization:</strong> drag <InlineMath tex="t" /> through several zeta zeros
+            (<InlineMath tex="\gamma \approx 14.1, 21.0, 25.0" />) and watch whether the blue trajectory stays on the
+            green <InlineMath tex="\sigma = \tfrac{1}{2}" /> line. Increase primes to see deviation shrink — then ask: is this convergence
+            a genuine prediction, or is <InlineMath tex="H" /> engineered to minimize there?
+          </li>
+          <li>
+            <strong style={{ color: '#8b5cf6' }}>Bridge |χ|:</strong> the heatmap shows where the bridge deviates from unitarity.
+            The bright green band at <InlineMath tex="\sigma = \tfrac{1}{2}" /> confirms <InlineMath tex="|\chi| = 1" /> on the critical line —
+            but this is just the functional equation rephrased. Look for how quickly deviation grows off-line: a sharp ridge means
+            the model is sensitive to <InlineMath tex="\sigma" />, while a broad plateau means it is not.
+          </li>
+          <li>
+            <strong style={{ color: '#06b6d4' }}>Mismatch vs Zeros:</strong> compare the orange mismatch curve to the blue <InlineMath tex="|\zeta|" /> curve.
+            If they dip together at the same <InlineMath tex="t" /> values, the mismatch "predicts" zeros. Check the Pearson <InlineMath tex="r" /> in the
+            top-right: a high correlation is suggestive but not proof, since both quantities are built from the same Euler product truncation.
+            The red curve (off-line) should be systematically higher than orange (on-line) if the model distinguishes the critical line.
+          </li>
+        </ul>
+      </div>
+
       {/* Filters */}
       <h2 style={{ fontSize: 18, marginBottom: 12 }}>Issue Registry</h2>
       <div className="filter-bar" style={{ marginBottom: 16 }}>

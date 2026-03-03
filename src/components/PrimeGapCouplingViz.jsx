@@ -276,7 +276,7 @@ export default function PrimeGapCouplingViz() {
           <label>Number of primes</label>
           <input type="range" min="10" max="200" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={primes[primes.length - 1]})</span></span>
         </div>
       </div>
       <div className="viz-container">

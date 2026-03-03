@@ -3,6 +3,29 @@ import * as d3 from 'd3';
 import { InlineMath } from './KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
+// Precompute reference curves at module level — these are mathematical constants
+// that never change, avoiding ~750 trig/exp evaluations per draw call.
+const REF_MAX_S = 6; // generous upper bound for spacing curves
+const REF_GUE_CURVE = [];
+const REF_POISSON_CURVE = [];
+const REF_GOE_CURVE = [];
+for (let s = 0; s <= REF_MAX_S; s += 0.02) {
+  REF_GUE_CURVE.push({ s, p: (32 / (Math.PI * Math.PI)) * s * s * Math.exp(-4 * s * s / Math.PI) });
+  REF_POISSON_CURVE.push({ s, p: Math.exp(-s) });
+  REF_GOE_CURVE.push({ s, p: (Math.PI / 2) * s * Math.exp(-Math.PI * s * s / 4) });
+}
+const REF_R2_CURVE = [];
+for (let r = 0.01; r <= 4; r += 0.02) {
+  const sinc = Math.sin(Math.PI * r) / (Math.PI * r);
+  REF_R2_CURVE.push({ r, p: 1 - sinc * sinc });
+}
+const GAMMA_E = 0.5772;
+const REF_NUMVAR_GUE = [];
+for (let L = 0.3; L <= 6; L += 0.05) {
+  const s2 = (2 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 1 + GAMMA_E - Math.PI * Math.PI / 8);
+  REF_NUMVAR_GUE.push({ L, s2: Math.max(0, s2) });
+}
+
 /**
  * Compare the spacing distribution of zeta zeros with GUE predictions.
  * Shows histogram of normalized spacings vs the GUE Wigner surmise.
@@ -67,34 +90,21 @@ export default function GUEStatisticsViz() {
       }
 
       // GUE Wigner surmise: P(s) = (32/pi^2) * s^2 * exp(-4s^2/pi)
-      const gueCurve = [];
-      for (let s = 0; s <= maxS; s += 0.02) {
-        const p = (32 / (Math.PI * Math.PI)) * s * s * Math.exp(-4 * s * s / Math.PI);
-        gueCurve.push({ s, p });
-      }
       g.append('path')
-        .datum(gueCurve)
+        .datum(REF_GUE_CURVE)
         .attr('d', d3.line().x(d => x(d.s)).y(d => y(d.p)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2.5);
 
       // Poisson (uncorrelated) for comparison: P(s) = exp(-s)
-      const poissonCurve = [];
-      for (let s = 0; s <= maxS; s += 0.02) {
-        poissonCurve.push({ s, p: Math.exp(-s) });
-      }
       g.append('path')
-        .datum(poissonCurve)
+        .datum(REF_POISSON_CURVE)
         .attr('d', d3.line().x(d => x(d.s)).y(d => y(d.p)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#64748b').attr('stroke-width', 1.5)
         .attr('stroke-dasharray', '6,4');
 
       // GOE: P(s) = (pi/2) * s * exp(-pi*s^2/4)
-      const goeCurve = [];
-      for (let s = 0; s <= maxS; s += 0.02) {
-        goeCurve.push({ s, p: (Math.PI / 2) * s * Math.exp(-Math.PI * s * s / 4) });
-      }
       g.append('path')
-        .datum(goeCurve)
+        .datum(REF_GOE_CURVE)
         .attr('d', d3.line().x(d => x(d.s)).y(d => y(d.p)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 1.5)
         .attr('stroke-dasharray', '3,3');
@@ -178,13 +188,8 @@ export default function GUEStatisticsViz() {
       }
 
       // GUE pair correlation: R_2(x) = 1 - (sin(πx)/(πx))^2
-      const r2Curve = [];
-      for (let r = 0.01; r <= maxR; r += 0.02) {
-        const sinc = Math.sin(Math.PI * r) / (Math.PI * r);
-        r2Curve.push({ r, p: 1 - sinc * sinc });
-      }
       g.append('path')
-        .datum(r2Curve)
+        .datum(REF_R2_CURVE)
         .attr('d', d3.line().x(d => x(d.r)).y(d => y(d.p)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2.5);
 
@@ -265,13 +270,7 @@ export default function GUEStatisticsViz() {
       });
 
       // GUE prediction: Sigma^2(L) ~ (2/pi^2)(log(2*pi*L) + 1 + gamma_E - pi^2/8)
-      const gamma_E = 0.5772;
-      const guePrediction = [];
-      for (let L = 0.3; L <= 6; L += 0.05) {
-        const s2 = (2 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 1 + gamma_E - Math.PI * Math.PI / 8);
-        guePrediction.push({ L, s2: Math.max(0, s2) });
-      }
-      g.append('path').datum(guePrediction)
+      g.append('path').datum(REF_NUMVAR_GUE)
         .attr('d', d3.line().x(d => x(d.L)).y(d => y(d.s2)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2.5);
 

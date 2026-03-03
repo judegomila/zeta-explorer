@@ -201,12 +201,13 @@ export function heatFlowZeros(tau, numZeros = 30) {
     const velocity = force / (2 * Math.PI);
     const newGamma = gamma + tau * velocity;
 
-    // For τ > 0, zeros acquire imaginary parts (leave the real line)
-    // forming conjugate pairs: one zero goes to σ=0.5+δ, the other to σ=0.5-δ.
-    // The sign alternates so zeros scatter symmetrically around the critical line.
+    // For τ < 0 (backward heat / inverse diffusion), zeros acquire imaginary parts
+    // (leave the real line), forming conjugate pairs: one goes to σ=0.5+δ, the other to σ=0.5-δ.
+    // For τ > 0 (forward heat / smoothing), zeros stay real — de Bruijn proved H_τ has only
+    // real zeros for all τ ≥ Λ, and Rodgers-Tao showed Λ ≥ 0, so τ > 0 preserves RH.
     const localDensity = zeros.filter(z => Math.abs(z - gamma) < 5).length / 10;
     const pairSign = n % 2 === 0 ? 1 : -1;
-    const sigmaDisplacement = tau > 0 ? tau * 0.1 * localDensity * pairSign : 0;
+    const sigmaDisplacement = tau < 0 ? Math.abs(tau) * 0.1 * localDensity * pairSign : 0;
 
     return {
       index: n,

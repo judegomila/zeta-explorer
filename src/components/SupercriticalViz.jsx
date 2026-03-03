@@ -440,7 +440,7 @@ function HeatFlowTab() {
         const clampedGamma = Math.max(0, Math.min(xMax, z.gamma));
         g.append('circle')
           .attr('cx', x(clampedGamma)).attr('cy', y(clampedSigma)).attr('r', 5)
-          .attr('fill', tau === 0 ? '#10b981' : tau > 0 ? '#f59e0b' : '#3b82f6')
+          .attr('fill', tau === 0 ? '#10b981' : tau < 0 ? '#f59e0b' : '#3b82f6')
           .attr('stroke', '#0a0e1a').attr('stroke-width', 1.5);
 
         // Arrows from original to evolved
@@ -448,7 +448,7 @@ function HeatFlowTab() {
           g.append('line')
             .attr('x1', x(z.gamma0)).attr('y1', y(0.5))
             .attr('x2', x(clampedGamma)).attr('y2', y(clampedSigma))
-            .attr('stroke', tau > 0 ? '#f59e0b' : '#3b82f6')
+            .attr('stroke', tau < 0 ? '#f59e0b' : '#3b82f6')
             .attr('stroke-width', 0.8).attr('opacity', 0.4);
         }
       });
@@ -489,13 +489,13 @@ function HeatFlowTab() {
       // Fill
       g.append('path').datum(scanData)
         .attr('d', d3.area().x(d => x(d.t)).y0(y(0)).y1(d => y(d.value)).curve(d3.curveBasis))
-        .attr('fill', tau === 0 ? 'rgba(16,185,129,0.1)' : tau > 0 ? 'rgba(245,158,11,0.1)' : 'rgba(59,130,246,0.1)');
+        .attr('fill', tau === 0 ? 'rgba(16,185,129,0.1)' : tau < 0 ? 'rgba(245,158,11,0.1)' : 'rgba(59,130,246,0.1)');
 
       // Curve
       g.append('path').datum(scanData)
         .attr('d', d3.line().x(d => x(d.t)).y(d => y(d.value)).curve(d3.curveBasis))
         .attr('fill', 'none')
-        .attr('stroke', tau === 0 ? '#10b981' : tau > 0 ? '#f59e0b' : '#3b82f6')
+        .attr('stroke', tau === 0 ? '#10b981' : tau < 0 ? '#f59e0b' : '#3b82f6')
         .attr('stroke-width', 2);
 
       // Zero locations
@@ -531,12 +531,13 @@ function HeatFlowTab() {
       <div className="tab-explainer accent-orange">
         <strong>The math:</strong> The Xi function <InlineMath tex="\\Xi(t)" /> satisfies the heat equation{' '}
         <InlineMath tex="\\partial H_\\tau/\\partial\\tau = \\partial^2 H_\\tau/\\partial t^2" />.
-        As you heat (<InlineMath tex="\\tau > 0" />), zeros migrate off the real axis &mdash; "vaporizing" from ordered to disordered.
-        Cooling (<InlineMath tex="\\tau < 0" />) pushes them onto the real axis. The de Bruijn-Newman constant{' '}
-        <InlineMath tex="\\Lambda" /> is the critical <InlineMath tex="\\tau" /> above which zeros leave the line.
+        Forward heat flow (<InlineMath tex="\\tau > 0" />) smooths the function, keeping all zeros real.
+        Backward flow (<InlineMath tex="\\tau < 0" />) is inverse diffusion &mdash; zeros scatter off the real axis.
+        The de Bruijn-Newman constant <InlineMath tex="\\Lambda" /> is the infimum of{' '}
+        <InlineMath tex="\\tau" /> such that <InlineMath tex="H_\\tau" /> has only real zeros.
         Rodgers-Tao (2020) proved <InlineMath tex="\\Lambda \\geq 0" />: the zeros are exactly at the threshold &mdash; any
-        heating destroys RH, but no cooling is needed. The system is already at the coldest lossless point.
-        <strong> Look for:</strong> zeros aligned at <InlineMath tex="\\tau = 0" /> then scattering as <InlineMath tex="\\tau" /> increases.
+        backward flow (<InlineMath tex="\\tau < 0" />) can destroy RH, while forward flow preserves it.
+        <strong> Look for:</strong> zeros aligned at <InlineMath tex="\\tau = 0" /> then scattering as <InlineMath tex="\\tau" /> goes negative.
       </div>
       <div className="controls">
         <div className="control-group">
@@ -544,7 +545,7 @@ function HeatFlowTab() {
           <input type="range" min="-0.5" max="0.5" step="0.01" value={tau}
             onChange={e => setTau(+e.target.value)} />
           <span className="control-value" style={{
-            color: tau === 0 ? '#10b981' : tau > 0 ? '#f59e0b' : '#3b82f6'
+            color: tau === 0 ? '#10b981' : tau < 0 ? '#f59e0b' : '#3b82f6'
           }}>{tau.toFixed(2)}</span>
         </div>
         <div className="control-group">
@@ -554,11 +555,11 @@ function HeatFlowTab() {
           <span className="control-value">{numZeros}</span>
         </div>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau < 0 ? '#3b82f6' : '#64748b' }}>Freeze</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau < 0 ? '#f59e0b' : '#64748b' }}>Scatter</span>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#64748b' }}>|</span>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau === 0 ? '#10b981' : '#64748b' }}>RH</span>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#64748b' }}>|</span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau > 0 ? '#f59e0b' : '#64748b' }}>Vaporize</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: tau > 0 ? '#3b82f6' : '#64748b' }}>Smooth</span>
         </div>
       </div>
       <div className="viz-container">

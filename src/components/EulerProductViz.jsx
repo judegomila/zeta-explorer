@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { partialEulerProduct, cAbs, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
+import { getPrimes } from '../math/primes.js';
 
 export default function EulerProductViz() {
   const svgRef = useRef();
@@ -223,7 +224,7 @@ export default function EulerProductViz() {
           <label>Max Primes</label>
           <input type="range" min="5" max="100" step="1" value={maxPrimes}
             onChange={e => setMaxPrimes(+e.target.value)} />
-          <span className="control-value">{maxPrimes}</span>
+          <span className="control-value">{maxPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(maxPrimes)[maxPrimes - 1]})</span></span>
         </div>
       </div>
       <div className="viz-container">

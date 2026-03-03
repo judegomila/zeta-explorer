@@ -93,7 +93,9 @@ export default function LiCriterionViz() {
           .attr('rx', 3)
           .attr('fill', isPositive ? 'rgba(16,185,129,0.6)' : 'rgba(239,68,68,0.6)')
           .attr('stroke', isPositive ? '#10b981' : '#ef4444')
-          .attr('stroke-width', 1);
+          .attr('stroke-width', 1)
+          .style('cursor', 'crosshair')
+          .append('title').text(`λ${n} = ${lambda.toFixed(4)} (${numZeros} zeros used)`);
 
         // Value label
         g.append('text')
@@ -168,7 +170,9 @@ export default function LiCriterionViz() {
 
       data.forEach(d => {
         g.append('circle').attr('cx', x(d.n)).attr('cy', y(d.perN)).attr('r', 3)
-          .attr('fill', '#8b5cf6').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+          .attr('fill', '#8b5cf6').attr('stroke', '#0a0e1a').attr('stroke-width', 1)
+          .style('cursor', 'crosshair')
+          .append('title').text(`n = ${d.n}, λₙ = ${d.lambda.toFixed(4)}, λₙ/n = ${d.perN.toFixed(4)}`);
       });
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
@@ -225,7 +229,9 @@ export default function LiCriterionViz() {
 
           g.append('circle')
             .attr('cx', x(gamma)).attr('cy', y(clampedSigma)).attr('r', 2.5)
-            .attr('fill', colors[ti]).attr('opacity', 0.7);
+            .attr('fill', colors[ti]).attr('opacity', 0.7)
+            .style('cursor', 'crosshair')
+            .append('title').text(`τ = ${tau}, γ = ${gamma.toFixed(2)}, σ = ${clampedSigma.toFixed(4)}`);
         });
       });
 

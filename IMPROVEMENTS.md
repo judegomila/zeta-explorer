@@ -195,3 +195,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 189 | 2026-03-03T15:00:00Z | Fix hardcoded devicePixelRatio=2 in AnimatedModesViz and EnergyLandscapeViz causing wrong canvas scaling on non-retina displays | AnimatedModesViz.jsx, EnergyLandscapeViz.jsx |
 | 190 | 2026-03-03T15:30:00Z | Fix Wave Interference explainer wrongly claiming difference is near zero at σ=0.5 | WaveSimViz.jsx |
 | 191 | 2026-03-03T16:00:00Z | Show largest prime (p_max) next to Primes slider count in PrimeGapCouplingViz | PrimeGapCouplingViz.jsx |
+| 192 | 2026-03-03T16:30:00Z | Add pass/fail legend to MultiZeroTab scatter plot in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |

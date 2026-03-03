@@ -1060,6 +1060,18 @@ function MultiZeroTab() {
         .attr('opacity', 0.9);
     });
 
+    // Legend
+    const legend = g.append('g').attr('transform', `translate(${w - 165}, 0)`);
+    legend.append('rect').attr('x', -8).attr('y', -6).attr('width', 170).attr('height', 38)
+      .attr('rx', 4).attr('fill', 'rgba(10,14,26,0.75)').attr('stroke', '#2a3050').attr('stroke-width', 0.5);
+    [{ label: 'Pass (|σ*−½| < 0.01)', color: '#10b981', dy: 8 },
+     { label: 'Fail', color: '#ef4444', dy: 24 }].forEach(item => {
+      legend.append('circle').attr('cx', 6).attr('cy', item.dy).attr('r', 4)
+        .attr('fill', item.color).attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+      legend.append('text').attr('x', 16).attr('y', item.dy + 3.5)
+        .attr('fill', '#94a3b8').attr('font-size', 10).text(item.label);
+    });
+
     // Axis labels
     svg.append('text').attr('x', width / 2).attr('y', height - 4)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('Zero index');

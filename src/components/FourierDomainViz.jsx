@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import {
   ladderFrequencyResponse,
@@ -403,6 +403,8 @@ function PrimeHarmonicsTab() {
   const [sigma, setSigma] = useState(0.5);
   const [numPrimes, setNumPrimes] = useState(10);
 
+  const harmonics = useMemo(() => primeHarmonicDecomposition(sigma, numPrimes), [sigma, numPrimes]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -413,8 +415,6 @@ function PrimeHarmonicsTab() {
     const margin = { top: 30, right: 30, bottom: 50, left: 65 };
     const w = width - margin.left - margin.right;
     const h = height - margin.top - margin.bottom;
-
-    const harmonics = primeHarmonicDecomposition(sigma, numPrimes);
 
     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
 
@@ -472,7 +472,7 @@ function PrimeHarmonicsTab() {
     svg.append('text').attr('transform', `translate(16, ${height / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('|H_p(σ+iω)|');
 
-  }, [sigma, numPrimes]);
+  }, [harmonics]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {
@@ -480,9 +480,6 @@ function PrimeHarmonicsTab() {
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, [draw]);
-
-  // Compute harmonic data for the stat grid
-  const harmonics = primeHarmonicDecomposition(sigma, numPrimes);
 
   const sigmaDeviation = Math.abs(sigma - 0.5);
   const sigmaColor = sigmaDeviation < 0.02 ? '#10b981' : sigmaDeviation < 0.15 ? '#f59e0b' : '#ef4444';

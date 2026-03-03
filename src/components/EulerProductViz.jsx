@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
+import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
-import { partialEulerProduct, cAbs } from '../math/zeta.js';
+import { partialEulerProduct, cAbs, zetaCriticalStrip } from '../math/zeta.js';
 
 export default function EulerProductViz() {
   const svgRef = useRef();
@@ -119,6 +120,19 @@ export default function EulerProductViz() {
       .attr('fill', '#8b5cf6').attr('font-size', 11).attr('font-weight', 600)
       .text('Phase (purple)');
 
+    // True zeta value (Borwein-accelerated) as reference line
+    const trueZeta = cAbs(zetaCriticalStrip([sigma, t]));
+    const trueY = yMag(trueZeta);
+    if (trueY >= 0 && trueY <= h) {
+      g.append('line')
+        .attr('x1', 0).attr('y1', trueY).attr('x2', w).attr('y2', trueY)
+        .attr('stroke', '#10b981').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,3');
+      g.append('text')
+        .attr('x', w - 4).attr('y', trueY - 6)
+        .attr('text-anchor', 'end').attr('fill', '#10b981').attr('font-size', 10)
+        .text(`True |ζ| = ${trueZeta.toFixed(4)}`);
+    }
+
     // Final value
     const finalMag = data.length > 0 ? cAbs(data[data.length - 1].cumulative) : 0;
     svg.append('text')
@@ -138,22 +152,31 @@ export default function EulerProductViz() {
 
   return (
     <div>
+      <div className="tab-explainer accent-cyan">
+        <strong>The math:</strong> The partial Euler product <InlineMath tex="\\zeta_N(s) = \\prod_{p \\leq p_N} (1-p^{-s})^{-1}" /> builds
+        up the zeta function prime-by-prime. Each factor has magnitude <InlineMath tex="|1-p^{-s}|^{-1}" /> and phase{' '}
+        <InlineMath tex="\\arg(1-p^{-s})^{-1}" />. The cumulative product converges (for <InlineMath tex="\\sigma > 1" />) to{' '}
+        <InlineMath tex="\\zeta(s)" />. In the critical strip (<InlineMath tex="0 < \sigma \leq 1" />), the Euler product <strong>diverges</strong> &mdash;
+        partial products oscillate without settling. The green reference line shows the true <InlineMath tex="|\zeta(s)|" /> computed via
+        analytic continuation (Borwein acceleration), not the Euler product.
+        <strong> Look for:</strong> the blue magnitude line stabilizing as more primes are added (for <InlineMath tex="\sigma > 1" />); divergent oscillations in the critical strip.
+      </div>
       <div className="controls">
         <div className="control-group">
-          <label>σ (Re s)</label>
+          <label><InlineMath tex="\sigma = \operatorname{Re}(s)" /></label>
           <input type="range" min="0.1" max="2" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)} />
           <span className="control-value">{sigma.toFixed(2)}</span>
         </div>
         <div className="control-group">
-          <label>t (Im s)</label>
+          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
           <input type="range" min="0.5" max="60" step="0.1" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
         </div>
         <div className="control-group">
           <label>Max Primes</label>
-          <input type="range" min="5" max="80" step="1" value={maxPrimes}
+          <input type="range" min="5" max="100" step="1" value={maxPrimes}
             onChange={e => setMaxPrimes(+e.target.value)} />
           <span className="control-value">{maxPrimes}</span>
         </div>

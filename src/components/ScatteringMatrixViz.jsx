@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import * as d3 from 'd3';
+import { InlineMath } from './KaTeXMath.jsx';
 import { losslessBridge } from '../math/oscillators.js';
 import { cAbs, cMul, cAdd, cSub, cDiv, ZETA_ZEROS } from '../math/zeta.js';
 
@@ -107,6 +108,11 @@ export default function ScatteringMatrixViz() {
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text(`Bridge Transfer Magnitude |χ(σ + ${tValue.toFixed(1)}i)|`);
 
+      svg.append('text')
+        .attr('transform', `translate(14, ${height / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('|χ(s)|');
+
       // Annotations
       g.append('text').attr('x', x(0.25)).attr('y', 20)
         .attr('text-anchor', 'middle').attr('fill', '#3b82f6').attr('font-size', 10)
@@ -146,6 +152,11 @@ export default function ScatteringMatrixViz() {
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text(`Bridge Reflection Coefficient Γ(σ + ${tValue.toFixed(1)}i) — zero at σ = ½`);
 
+      svg.append('text')
+        .attr('transform', `translate(14, ${height / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('Γ');
+
     } else {
       // Phase
       const y = d3.scaleLinear().domain([-180, 180]).range([h, 0]);
@@ -171,6 +182,11 @@ export default function ScatteringMatrixViz() {
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text(`Bridge Phase arg(χ(σ + ${tValue.toFixed(1)}i))`);
+
+      svg.append('text')
+        .attr('transform', `translate(14, ${height / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('arg(χ) (degrees)');
     }
 
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
@@ -188,6 +204,35 @@ export default function ScatteringMatrixViz() {
 
   return (
     <div>
+      {mode === 'magnitude' && (
+        <div className="tab-explainer accent-purple">
+          <strong>The math:</strong> The bridge factor magnitude <InlineMath tex="|\chi(\sigma+it)|" /> measures whether the connection between
+          direct and dual ladders amplifies or attenuates. On the critical line <InlineMath tex="\sigma = \tfrac{1}{2}" />,{' '}
+          <InlineMath tex="|\chi| = 1" /> exactly (lossless/unitary). For <InlineMath tex="\sigma > \tfrac{1}{2}" />,{' '}
+          <InlineMath tex="|\chi| < 1" /> (attenuating); for <InlineMath tex="\sigma < \tfrac{1}{2}" />,{' '}
+          <InlineMath tex="|\chi| > 1" /> (amplifying). The product <InlineMath tex="|\chi(s)\chi(1-s)| = 1" /> always.
+          <strong> Look for:</strong> the curve crossing 1.0 exactly at <InlineMath tex="\sigma = 0.5" />.
+        </div>
+      )}
+      {mode === 'reflection' && (
+        <div className="tab-explainer accent-green">
+          <strong>The math:</strong> The reflection coefficient <InlineMath tex="\Gamma = |1 - |\chi(s)||" /> measures how
+          much energy is reflected back rather than transmitted through the bridge. At <InlineMath tex="\sigma = \tfrac{1}{2}" />,{' '}
+          <InlineMath tex="\Gamma = 0" /> (perfect transmission, impedance match). This is the scattering-matrix condition for
+          lossless two-port networks: <InlineMath tex="S^\dagger S = I" />.
+          <strong> Look for:</strong> <InlineMath tex="\Gamma" /> touching zero at <InlineMath tex="\sigma = 0.5" />.
+        </div>
+      )}
+      {mode === 'phase' && (
+        <div className="tab-explainer accent-orange">
+          <strong>The math:</strong> The phase <InlineMath tex="\arg\chi(s)" /> is related to the Riemann-Siegel theta function{' '}
+          <InlineMath tex="\theta(t) = \text{Im}\,\log\Gamma(\tfrac{1}{4}+\tfrac{it}{2}) - \tfrac{t}{2}\log\pi" />.
+          Phase changes of <InlineMath tex="\pi" /> between consecutive zeros correspond to sign changes of the Z function.
+          The total phase accumulation up to height <InlineMath tex="t" /> determines the zero counting function{' '}
+          <InlineMath tex="N(T) \sim \theta(T)/\pi" />.
+          <strong> Look for:</strong> monotonically increasing phase with kinks at each zeta zero.
+        </div>
+      )}
       <div className="controls">
         <div className="control-group">
           <label>Property</label>
@@ -198,7 +243,7 @@ export default function ScatteringMatrixViz() {
           </select>
         </div>
         <div className="control-group">
-          <label>t (Im s)</label>
+          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>

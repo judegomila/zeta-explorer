@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BlockMath } from '../components/KaTeXMath.jsx';
+import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { getAllExplorations } from '../data/explorations.js';
 import { getAllReferences } from '../data/literature.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
@@ -34,11 +34,11 @@ export default function HomePage() {
           <div className="stat-label">References</div>
         </div>
         <div className="stat-box">
-          <div className="stat-value" style={{ color: '#f59e0b' }}>9</div>
+          <div className="stat-value" style={{ color: '#f59e0b' }}>15</div>
           <div className="stat-label">Pages</div>
         </div>
         <div className="stat-box">
-          <div className="stat-value" style={{ color: '#ec4899' }}>14</div>
+          <div className="stat-value" style={{ color: '#ec4899' }}>17</div>
           <div className="stat-label">Visualizations</div>
         </div>
       </div>
@@ -52,7 +52,7 @@ export default function HomePage() {
         <Link to="/oscillators" style={{ textDecoration: 'none' }}>
           <div className="card">
             <h3 style={{ color: '#3b82f6' }}>Prime Oscillator Chain</h3>
-            <p>Each prime p generates a resonator with frequency log(p). The Euler product becomes
+            <p>Each prime <InlineMath tex="p" /> generates a resonator with frequency <InlineMath tex="\\log(p)" />. The Euler product becomes
                a cascade of LC oscillator stages forming a ladder network.</p>
             <div className="tags-row" style={{ marginTop: 12 }}>
               <span className="tag tag-blue">Interactive</span>
@@ -63,7 +63,7 @@ export default function HomePage() {
         <Link to="/oscillators" style={{ textDecoration: 'none' }}>
           <div className="card">
             <h3 style={{ color: '#f59e0b' }}>Direct & Dual Ladders</h3>
-            <p>Two ladder networks — one computing ζ(s) and one computing ζ(1-s) — connected
+            <p>Two ladder networks — one computing <InlineMath tex="\\zeta(s)" /> and one computing <InlineMath tex="\\zeta(1-s)" /> — connected
                by a lossless bridge that encodes the functional equation.</p>
             <div className="tags-row" style={{ marginTop: 12 }}>
               <span className="tag tag-orange">Duality</span>
@@ -75,7 +75,7 @@ export default function HomePage() {
           <div className="card">
             <h3 style={{ color: '#10b981' }}>Hamiltonian Minimization</h3>
             <p>The total system energy — kinetic + mismatch + bridge coupling — achieves
-               its minimum at σ = 1/2, the critical line. This is the Hilbert-Pólya dream.</p>
+               its minimum at <InlineMath tex="\\sigma = 1/2" />, the critical line. This is the Hilbert-Pólya dream.</p>
             <div className="tags-row" style={{ marginTop: 12 }}>
               <span className="tag tag-green">Energy</span>
               <span className="tag tag-red">Critical Line</span>
@@ -86,7 +86,7 @@ export default function HomePage() {
           <div className="card">
             <h3 style={{ color: '#8b5cf6' }}>Zeta Landscape</h3>
             <p>Visualize the zeta function across the critical strip, see the Riemann-Siegel Z function,
-               and explore the heatmap of |ζ(s)|.</p>
+               and explore the heatmap of <InlineMath tex="|\\zeta(s)|" />.</p>
             <div className="tags-row" style={{ marginTop: 12 }}>
               <span className="tag tag-purple">Heatmap</span>
               <span className="tag tag-blue">Critical Line</span>
@@ -97,7 +97,7 @@ export default function HomePage() {
           <div className="card">
             <h3 style={{ color: '#ef4444' }}>Control Theory</h3>
             <p>Nyquist plots, Bode diagrams, scattering matrices. RH as a stability criterion.
-               H-infinity optimal control at σ = 1/2.</p>
+               H-infinity optimal control at <InlineMath tex="\\sigma = 1/2" />.</p>
             <div className="tags-row" style={{ marginTop: 12 }}>
               <span className="tag tag-red">Nyquist</span>
               <span className="tag tag-orange">Bode</span>
@@ -163,14 +163,14 @@ export default function HomePage() {
             </thead>
             <tbody>
               {[
-                ['Euler product ∏(1-p⁻ˢ)⁻¹', 'Cascade of two-port networks', 'Ladder of prime oscillators'],
-                ['Functional equation ξ(s)=ξ(1-s)', 'Lossless scattering matrix S†S=I', 'Bridge connecting ladders'],
-                ['Critical line σ=1/2', 'Perfect impedance match', 'Hamiltonian minimum'],
+                [<>Euler product <InlineMath tex="\prod(1-p^{-s})^{-1}" /></>, 'Cascade of two-port networks', 'Ladder of prime oscillators'],
+                [<>Functional equation <InlineMath tex="\xi(s)=\xi(1-s)" /></>, <>Lossless scattering matrix <InlineMath tex="S^\dagger S=I" /></>, 'Bridge connecting ladders'],
+                [<>Critical line <InlineMath tex="\sigma=1/2" /></>, 'Perfect impedance match', 'Hamiltonian minimum'],
                 ['Nontrivial zeros', 'Transmission zeros', 'System resonances'],
                 ['Explicit formula', 'Impulse response decomposition', 'Sum of damped sinusoids'],
                 ['Prime Number Theorem', 'Bode sensitivity integral', 'Low-frequency gain constraint'],
                 ['GUE statistics of zeros', 'Random scattering matrix', 'CUE bridge ensemble'],
-                ['de Bruijn-Newman Λ≥0', 'Zero/negative resistance', 'Exactly lossless system'],
+                [<>de Bruijn-Newman <InlineMath tex="\Lambda \geq 0" /></>, 'Zero/negative resistance', 'At lossless threshold'],
               ].map(([nt, ct, model], i) => (
                 <tr key={i} style={{ borderBottom: '1px solid rgba(42,48,80,0.5)' }}>
                   <td style={{ padding: '10px 14px', color: '#3b82f6', fontFamily: 'var(--font-mono)', fontSize: 12 }}>{nt}</td>

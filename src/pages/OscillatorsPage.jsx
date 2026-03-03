@@ -45,6 +45,31 @@ export default function OscillatorsPage() {
         <EulerProductViz />
       </div>
 
+      <div className="card" style={{ marginTop: 32, borderColor: '#10b981' }}>
+        <h3 style={{ color: '#10b981' }}>What to Observe</h3>
+        <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 2 }}>
+          <li>
+            <strong style={{ color: '#3b82f6' }}>Chain diagram:</strong> Click any oscillator node
+            to inspect its <InlineMath tex="L_p, C_p, Q_p" /> values. At <InlineMath tex="\sigma = 0.5" /> every
+            node shows <InlineMath tex="Q = 1" /> (critical coupling) and the bridge reads LOSSLESS —
+            slide <InlineMath tex="\sigma" /> away to watch Q diverge and the bridge turn LOSSY.
+          </li>
+          <li>
+            <strong style={{ color: '#f59e0b' }}>Euler product:</strong> Blue bars above the
+            unity line amplify; gold bars below attenuate. The cumulative <InlineMath tex="|\zeta|" /> curve
+            shows how the product converges prime by prime. Near a zeta zero
+            (<InlineMath tex="t \approx 14.13" />), the curve plunges toward zero — try sliding t away to see it
+            recover.
+          </li>
+          <li>
+            <strong style={{ color: '#8b5cf6' }}>Bridge symmetry:</strong> The direct and dual
+            columns are mirror images at <InlineMath tex="\sigma = 0.5" />. Move <InlineMath tex="\sigma" /> off the
+            critical line to see the asymmetry grow — node radii will differ between the two ladders,
+            and the bridge magnitude <InlineMath tex="|\chi|" /> departs from 1.
+          </li>
+        </ul>
+      </div>
+
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
           <h3 style={{ color: '#3b82f6' }}>Direct Ladder</h3>

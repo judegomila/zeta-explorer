@@ -1020,6 +1020,13 @@ function MultiZeroTab() {
       .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
     g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+    // Horizontal gridlines for easier σ_min reading
+    y.ticks(5).forEach(tick => {
+      g.append('line')
+        .attr('x1', 0).attr('y1', y(tick)).attr('x2', w).attr('y2', y(tick))
+        .attr('stroke', '#1e293b').attr('stroke-width', 0.5);
+    });
+
     // Reference line at 0.5
     g.append('line').attr('x1', 0).attr('y1', y(0.5)).attr('x2', w).attr('y2', y(0.5))
       .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4').attr('opacity', 0.7);

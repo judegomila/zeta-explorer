@@ -1,5 +1,5 @@
 import { InlineMath } from './KaTeXMath.jsx';
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { energyLandscape } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
@@ -16,6 +16,15 @@ export default function EnergyLandscapeViz() {
   const [metric, setMetric] = useState('energy');
   const [hoverInfo, setHoverInfo] = useState(null);
   const landscapeRef = useRef(null);
+
+  // Memoize the expensive landscape computation — only recompute when
+  // numPrimes or tMax change, NOT when the metric dropdown changes.
+  const landscape = useMemo(() => {
+    const sigmaRange = [0.05, 0.95];
+    const tRange = [0.5, tMax];
+    const res = 60;
+    return energyLandscape(sigmaRange, tRange, res, numPrimes);
+  }, [numPrimes, tMax]);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -34,7 +43,6 @@ export default function EnergyLandscapeViz() {
     const sigmaRange = [0.05, 0.95];
     const tRange = [0.5, tMax];
     const res = 60;
-    const landscape = energyLandscape(sigmaRange, tRange, res, numPrimes);
     landscapeRef.current = landscape;
 
     const cellW = dw / (res + 1);
@@ -189,7 +197,7 @@ export default function EnergyLandscapeViz() {
     ctx.fillText(vMax.toFixed(1), barX - 2, 18);
     ctx.fillText(vMin.toFixed(1), barX - 2, barH + 18);
 
-  }, [numPrimes, tMax, metric]);
+  }, [landscape, tMax, metric]);
 
   useEffect(() => { draw(); }, [draw]);
 

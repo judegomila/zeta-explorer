@@ -71,7 +71,7 @@ export default function ZetaPage() {
           <p style={{ fontSize: 13, color: '#a78bfa' }}>
             <strong>The theta function:</strong> <InlineMath tex="\theta(t) \approx \tfrac{t}{2}\log\!\tfrac{t}{2\pi} - \tfrac{t}{2} - \tfrac{\pi}{8}" /> is
             the phase accumulator that "unwinds" the complex phase of <InlineMath tex="\zeta(1/2 + it)" />, making <InlineMath tex="Z(t)" /> real-valued.
-            Its derivative <InlineMath tex="\theta'(t) \approx \tfrac{1}{2}\log(t/2\pi)" /> gives the local density of zeros via the Weyl law.
+            The local density of zeros is <InlineMath tex="\theta'(t)/\pi \approx \tfrac{1}{2\pi}\log(t/2\pi)" /> (the Weyl law), not <InlineMath tex="\theta'(t)" /> itself.
           </p>
         </div>
       </div>

@@ -205,3 +205,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 199 | 2026-03-03T20:00:00Z | Memoize per-prime energy curves in PerPrimeTab to avoid recomputing 640+ oscillatorStage calls on resize | TwinOscillatorSimViz.jsx |
 | 200 | 2026-03-03T20:30:00Z | Add Hadamard product exploration entry showing the zero-factorization dual to the Euler product | explorations.js |
 | 201 | 2026-03-03T21:00:00Z | Fix GradientDescentTab canvas not redrawing on window resize causing stretched/blurry display | TwinOscillatorSimViz.jsx |
+| 202 | 2026-03-03T22:00:00Z | Fix explicit formula explainer claiming arg(ρ) ≈ π/2 'for all zeros' and missing factor of 2 | ExplicitFormulaViz.jsx |

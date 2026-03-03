@@ -163,8 +163,9 @@ export default function ExplicitFormulaViz() {
         Each zero pair <InlineMath tex="\\rho,\\bar\\rho" /> with{' '}
         <InlineMath tex="\\rho = \\tfrac{1}{2}+i\\gamma" /> contributes{' '}
         <InlineMath tex="-(2x^{1/2}/|\\rho|)\\cos(\\gamma\\log x - \\arg\\rho)" />;
-        since <InlineMath tex="\\arg\\rho \\approx \\pi/2" /> for all zeros, these are
-        predominantly <InlineMath tex="\\sim x^{1/2}\\sin(\\gamma\\log x)/\\gamma" /> oscillations.
+        since <InlineMath tex="\\arg\\rho = \\arctan(2\\gamma) \\to \\pi/2" /> and{' '}
+        <InlineMath tex="|\\rho| = \\sqrt{\\tfrac{1}{4}+\\gamma^2} \\to \\gamma" /> for large <InlineMath tex="\\gamma" />, these are
+        approximately <InlineMath tex="\\sim 2x^{1/2}\\sin(\\gamma\\log x)/\\gamma" /> oscillations.
         The sum over zeros is the "impulse response" of the oscillator chain &mdash; adding more zeros sharpens the
         reconstruction of the prime staircase. The error between <InlineMath tex="\\psi(x)" /> and{' '}
         <InlineMath tex="x" /> (the PNT) is controlled by how far zeros can deviate from{' '}

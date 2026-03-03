@@ -396,7 +396,7 @@ The Keating-Snaith result that $\\zeta(1/2+it)$ behaves like the characteristic 
       'Eigenvalue repulsion in the oscillator spectrum ↔ zero repulsion of zeta',
     ],
     references: ['montgomery-1973', 'odlyzko-1987', 'keating-snaith-2000'],
-    nextSteps: ['exp-014'],
+    nextSteps: ['exp-014', 'exp-031'],
   },
   {
     id: 'exp-011',
@@ -1246,6 +1246,55 @@ The pole of $\\zeta(s)$ at $s = 1$ is a **phase transition** at $\\beta_c = 1$: 
       'The oscillator chain at σ>1 is an ideal gas; at σ<1 it becomes correlated, with the bridge enforcing collective behavior',
     ],
     references: ['julia-1990', 'bost-connes-1995', 'knauf-1999', 'euler-1737'],
+    nextSteps: ['exp-031'],
+  },
+  {
+    id: 'exp-031',
+    timestamp: '2026-03-03T23:00:00Z',
+    title: "Montgomery's Pair Correlation: From Tea-Time to Level Repulsion",
+    status: 'complete',
+    category: 'statistical',
+    depth: 3,
+    content: `In 1973, Hugh Montgomery studied the **pair correlation** of nontrivial zeta zeros: given a zero at height $\\gamma_n$, how likely is it to find another zero nearby at spacing $\\delta$? Working under GRH, he computed the Fourier-space form factor:
+
+$$F(\\alpha) = |\\alpha| \\quad \\text{for } 0 \\leq \\alpha \\leq 1$$
+
+and conjectured $F(\\alpha) = 1$ for $\\alpha > 1$. At a tea break at the Institute for Advanced Study, Freeman Dyson instantly recognized this as the pair correlation of eigenvalues of large random unitary matrices — the **Gaussian Unitary Ensemble (GUE)** from nuclear physics.
+
+Taking the Fourier transform back to real space gives the pair correlation function:
+
+$$R_2(r) = 1 - \\left(\\frac{\\sin \\pi r}{\\pi r}\\right)^2$$
+
+where $r$ is the spacing between zeros in units of the mean spacing. The key feature: $R_2(r) \\sim \\pi^2 r^2$ as $r \\to 0$, meaning zeros exhibit **quadratic level repulsion** — they strongly avoid clustering.
+
+**Oscillator chain interpretation.** In the coupled-oscillator model (exp-010), zeta zeros are the normal-mode frequencies of the chain. Level repulsion says these modes push apart: no two normal modes can be arbitrarily close. This is characteristic of strongly coupled systems — weakly coupled oscillators have independent frequencies (Poisson statistics, no repulsion), while strongly coupled ones develop correlated eigenvalues (GUE statistics, quadratic repulsion).
+
+For a chain of $N$ coupled oscillators:
+- **Uncoupled** ($\\kappa \\to 0$): frequencies are independent → Poisson spacing $P(s) = e^{-s}$
+- **Strongly coupled**: eigenvalue repulsion emerges → GUE spacing $P(s) \\approx \\frac{32}{\\pi^2} s^2 e^{-4s^2/\\pi}$
+
+The prime oscillator chain sits firmly in the strongly coupled regime. The arithmetic coupling through prime gaps is irregular enough to break integrability (no simple pattern) but structured enough to produce universal GUE statistics rather than some exotic distribution.
+
+**Odlyzko's numerical confirmation.** In 1987, Andrew Odlyzko computed millions of zeros near height $t \\approx 10^{20}$ and verified that their pair correlation matches GUE to extraordinary precision. This is the strongest numerical evidence for Montgomery's conjecture and, by extension, for the spectral interpretation of the oscillator chain.
+
+**What pair correlation reveals about chain structure.** The GUE match constrains the coupling matrix of our oscillator chain. Not any coupling pattern produces GUE — integrable systems give Poisson, and certain symmetries produce GOE (orthogonal) or GSE (symplectic) statistics instead. The fact that primes produce GUE implies:
+1. The system has no time-reversal symmetry (consistent with the complex Euler product)
+2. The coupling is neither too regular nor too random
+3. The system is quantum chaotic — its classical limit would show chaotic trajectories`,
+    latex: [
+      'F(\\alpha) = |\\alpha| \\text{ for } 0 \\leq \\alpha \\leq 1, \\quad F(\\alpha) = 1 \\text{ for } \\alpha > 1 \\quad \\text{(Montgomery conjecture)}',
+      'R_2(r) = 1 - \\left(\\frac{\\sin \\pi r}{\\pi r}\\right)^2 \\quad \\text{(GUE pair correlation)}',
+      'R_2(r) \\sim \\pi^2 r^2 \\text{ as } r \\to 0 \\quad \\text{(quadratic level repulsion)}',
+      'P_{\\text{GUE}}(s) \\approx \\frac{32}{\\pi^2} s^2 e^{-4s^2/\\pi} \\quad \\text{vs} \\quad P_{\\text{Poisson}}(s) = e^{-s}',
+    ],
+    insights: [
+      "Montgomery proved F(α) = |α| for 0 ≤ α ≤ 1 under GRH; the conjecture F(α) = 1 for α > 1 completes the GUE match",
+      'Level repulsion R₂(r) ~ π²r² means zeta zeros push apart — normal modes of the oscillator chain cannot cluster',
+      'The prime coupling structure is neither integrable (Poisson) nor fully random — it hits the GUE universality class exactly',
+      'Odlyzko (1987) verified GUE statistics for zeros near γ ≈ 10²⁰ with million-zero samples, confirming the conjecture numerically',
+      'GUE (not GOE/GSE) implies the oscillator chain breaks time-reversal symmetry, consistent with complex-valued Euler factors',
+    ],
+    references: ['montgomery-1973', 'dyson-1962', 'odlyzko-1987', 'katz-sarnak-1999'],
     nextSteps: [],
   },
 ];

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import * as d3 from 'd3';
+import { InlineMath } from './KaTeXMath.jsx';
 import { ZETA_ZEROS, cAdd, cSub, cMul, cDiv, cAbs, cLog, cPow, cExp } from '../math/zeta.js';
 
 /**
@@ -151,10 +152,10 @@ export default function LiCriterionViz() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
-      // Reference curve: (1/2)log(n/(2πe))
+      // Reference curve: (1/2)log(n/(2πe)) + 1/2 (Keiper-Li asymptotic)
       const refCurve = [];
       for (let n = 1; n <= maxN; n += 0.5) {
-        refCurve.push({ n, y: 0.5 * Math.log(n / (2 * Math.PI * Math.E)) });
+        refCurve.push({ n, y: 0.5 * Math.log(n / (2 * Math.PI * Math.E)) + 0.5 });
       }
       g.append('path').datum(refCurve)
         .attr('d', d3.line().x(d => x(d.n)).y(d => y(d.y)).curve(d3.curveBasis))
@@ -188,11 +189,12 @@ export default function LiCriterionViz() {
       // De Bruijn-Newman: show what happens when we "heat" the zeros
       // Ξ_τ has zeros at σ = 1/2 for τ ≤ 0 (if RH), wander off for τ > 0
       // Λ ≥ 0 (Rodgers-Tao): zeros are just barely on the line
-      const zeros = ZETA_ZEROS.slice(0, 30);
+      const zeros = ZETA_ZEROS.slice(0, numZeros);
       const taus = [-0.5, -0.2, -0.1, 0, 0.05, 0.1, 0.2, 0.5];
       const colors = ['#3b82f6', '#06b6d4', '#10b981', '#e2e8f0', '#f59e0b', '#ef4444', '#ec4899', '#8b5cf6'];
 
-      const x = d3.scaleLinear().domain([0, 50]).range([0, w]);
+      const maxGamma = zeros.length > 0 ? zeros[zeros.length - 1] * 1.05 : 100;
+      const x = d3.scaleLinear().domain([0, maxGamma]).range([0, w]);
       const y = d3.scaleLinear().domain([0, 1]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
@@ -259,6 +261,34 @@ export default function LiCriterionViz() {
 
   return (
     <div>
+      {mode === 'li' && (
+        <div className="tab-explainer accent-green">
+          <strong>The math:</strong> The Li coefficients <InlineMath tex="\lambda_n = \sum_\rho [1 - (1-1/\rho)^n]" /> are sums over
+          all nontrivial zeros. Li's criterion (1997): <strong>RH is true if and only if <InlineMath tex="\lambda_n \geq 0" /> for
+          all <InlineMath tex="n" /></strong>. In our model, <InlineMath tex="\lambda_n \geq 0" /> means the bridge scattering matrix
+          is passive (contractive) at every angular mode &mdash; it never amplifies.
+          <strong> Look for:</strong> all bars positive (green), confirming passivity.
+        </div>
+      )}
+      {mode === 'keiper-li' && (
+        <div className="tab-explainer accent-orange">
+          <strong>The math:</strong> The normalized ratio <InlineMath tex="\lambda_n/n" /> should approach{' '}
+          <InlineMath tex="\tfrac{1}{2}\log(n/2\pi e) + \tfrac{1}{2}" /> asymptotically (Keiper-Li formula).
+          This logarithmic growth rate matches the zero density <InlineMath tex="N(T) \sim (T/2\pi)\log(T/2\pi e)" />.
+          Deviations from this curve would signal a zero off the critical line.
+          <strong> Look for:</strong> data points tracking the smooth asymptotic curve.
+        </div>
+      )}
+      {mode === 'debruijn' && (
+        <div className="tab-explainer accent-purple">
+          <strong>The math:</strong> Under the heat equation with parameter <InlineMath tex="\tau" />, zeros of the Xi function
+          evolve continuously. At <InlineMath tex="\tau = 0" />, they sit on the real axis (assuming RH). Heating
+          (<InlineMath tex="\tau > 0" />) pushes them off; cooling (<InlineMath tex="\tau < 0" />) pulls them on.
+          The de Bruijn-Newman constant <InlineMath tex="\Lambda \geq 0" /> (proved by Rodgers-Tao) is the critical
+          temperature: the system is already at the coldest point compatible with real zeros.
+          <strong> Look for:</strong> zeros migrating off the real axis as <InlineMath tex="\tau" /> increases from 0.
+        </div>
+      )}
       <div className="controls">
         <div className="control-group">
           <label>View</label>
@@ -278,7 +308,7 @@ export default function LiCriterionViz() {
         )}
         <div className="control-group">
           <label>Zeros used</label>
-          <input type="range" min="10" max="50" step="1" value={numZeros}
+          <input type="range" min="10" max="200" step="1" value={numZeros}
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
         </div>

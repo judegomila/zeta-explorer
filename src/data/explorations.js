@@ -109,7 +109,7 @@ Off the critical line, $|\\chi(s)| \\neq 1$: the bridge has either gain ($|\\chi
       '\\text{Reflection coefficient: } \\Gamma_{\\text{bridge}} = \\frac{|\\chi(s)| - 1}{|\\chi(s)| + 1} = 0 \\iff \\sigma = \\frac{1}{2}',
     ],
     insights: [
-      'The functional equation IS the impedance matching condition',
+      'The functional equation can be interpreted as an impedance matching condition',
       'σ = 1/2 is the unique line of perfect impedance matching',
       'The completed zeta function ξ(s) is the scattering parameter S₂₁ of the bridge',
       'Zeros of ξ on the critical line = transmission zeros = resonances of the coupled system',
@@ -135,9 +135,9 @@ $$T(s) = \\sum_p \\frac{1}{2}L_p |H_p(s)|^2 + \\sum_p \\frac{1}{2}L_p |H_p(1-s)|
 $$V_{\\text{mismatch}}(s) = \\frac{1}{2}\\left|Z_{\\text{direct}}(s) - Z_{\\text{dual}}(s)\\right|^2$$
 
 **Bridge coupling** $V_{\\text{bridge}}$: penalty for bridge non-unitarity:
-$$V_{\\text{bridge}}(s) = \\left(|\\chi(s)| - 1\\right)^2$$
+$$V_{\\text{bridge}}(s) = 100\\left(|\\chi(s)| - 1\\right)^2$$
 
-**Theorem (circuit-theoretic)**: The Hamiltonian $\\mathcal{H}(\\sigma + it)$ achieves its minimum over $\\sigma$ at $\\sigma = 1/2$ for each fixed $t$.
+**Observation (model-specific)**: The Hamiltonian $\\mathcal{H}(\\sigma + it)$ achieves its minimum over $\\sigma$ at $\\sigma = 1/2$ for each fixed $t$. This is a property of the constructed model, not a theorem about the zeta function.
 
 *Proof sketch*: At $\\sigma = 1/2$:
 1. Direct and dual ladders are symmetric, so $T$ is balanced
@@ -266,7 +266,7 @@ This gives a computable criterion: trace the Nyquist plot and count encirclement
 
 **Bode's sensitivity integral** also applies:
 $$\\int_0^\\infty \\log|S(j\\omega)| d\\omega = 0$$
-where $S$ is the sensitivity function. This constraint is equivalent to the prime number theorem: $\\psi(x) \\sim x$.`,
+where $S$ is the sensitivity function (for minimum-phase systems with no RHP poles). This constraint is analogous to the prime number theorem: $\\psi(x) \\sim x$.`,
     latex: [
       'L(s) = \\chi(s) \\cdot \\frac{\\zeta_{\\text{partial}}(1-s)}{\\zeta_{\\text{partial}}(s)}',
       '\\zeta(s) = 0 \\iff 1 + L(s) = 0',
@@ -276,7 +276,7 @@ where $S$ is the sensitivity function. This constraint is equivalent to the prim
     insights: [
       'RH is a Nyquist stability criterion: zero encirclements of -1',
       'Zeta zeros = closed-loop poles of the feedback system',
-      'Bode sensitivity integral = Prime Number Theorem',
+      'Bode sensitivity integral provides a constraint analogous to the PNT',
       'The gain margin and phase margin of the system encode zero-free regions',
     ],
     references: ['nyquist-1932', 'bode-1945', 'doyle-francis-tannenbaum-2009'],
@@ -304,17 +304,17 @@ In PT-symmetric quantum mechanics, eigenvalues are real iff the PT-symmetry is *
 
 **RH ↔ PT-symmetry of the ladder Hamiltonian is unbroken for all eigenvalues.**
 
-The phase transition between broken and unbroken PT-symmetry occurs at "exceptional points" where eigenvalues coalesce. The de Bruijn-Newman result $\\Lambda \\geq 0$ (Rodgers-Tao) says we are exactly AT the phase transition — PT-symmetry is unbroken but just barely. The system is at the critical point.`,
+The phase transition between broken and unbroken PT-symmetry occurs at "exceptional points" where eigenvalues coalesce. Rodgers-Tao proved $\\Lambda \\geq 0$, meaning backward heat flow would break the reality of zeros. If RH holds ($\\Lambda \\leq 0$), then $\\Lambda = 0$ exactly — the system would be precisely at the PT phase transition critical point.`,
     latex: [
       'P: \\sigma \\to 1-\\sigma \\text{ (swap ladders)}, \\quad T: t \\to -t \\text{ (time reversal)}',
       'PT: s \\to 1 - \\bar{s}, \\quad \\mathcal{H}(1-\\bar{s}) = \\overline{\\mathcal{H}(s)}',
       '\\text{RH} \\iff \\text{PT-symmetry unbroken for all eigenvalues}',
-      '\\Lambda = 0 \\iff \\text{system at PT phase transition critical point}',
+      '\\Lambda \\geq 0 \\;(\\text{Rodgers-Tao}), \\quad \\text{RH} \\iff \\Lambda \\leq 0 \\iff \\Lambda = 0',
     ],
     insights: [
       'The direct ↔ dual exchange is precisely the P (parity) operation in PT-symmetry',
       'RH = unbroken PT-symmetry of the Hamiltonian',
-      'Λ = 0 (Rodgers-Tao) means we are exactly at the PT phase transition',
+      'Λ ≥ 0 (Rodgers-Tao); combined with RH (Λ ≤ 0) this would give Λ = 0 (unproven)',
       'Exceptional points (if they exist off-line) would be RH violations',
     ],
     references: ['bender-brody-mueller-2017', 'rodgers-tao-2020', 'debruijn-1950'],
@@ -457,7 +457,7 @@ The optimal $\\sigma$ that minimizes the worst-case amplification is... $\\sigma
 
 **Why?** At $\\sigma = 1/2$:
 - The loop gain $|L(1/2+it)|$ is balanced: $|\\chi(1/2+it)| = 1$ and $|\\zeta(1/2-it)| = |\\zeta(1/2+it)|$
-- The sensitivity and complementary sensitivity satisfy $|S|^2 + |T|^2 = 1$ (because the system is lossless)
+- By definition $S + T = 1$; additionally, at $\\sigma = 1/2$ the lossless bridge gives $|S|^2 + |T|^2 \\approx 1$ (balanced sensitivity)
 - This is the unique operating point where the system achieves the **balanced sensitivity** property
 
 The $H_\\infty$ framework also provides **robust stability margins**: how far can the system parameters deviate before instability (i.e., before zeros move off the critical line)?`,
@@ -465,7 +465,7 @@ The $H_\\infty$ framework also provides **robust stability margins**: how far ca
       '\\|G\\|_\\infty = \\sup_\\omega |G(j\\omega)|',
       'S(s) = \\frac{1}{1+L(s)}, \\quad T(s) = \\frac{L(s)}{1+L(s)}, \\quad S + T = 1',
       '\\min_\\sigma \\|S(\\sigma + j\\cdot)\\|_\\infty \\quad \\text{achieved at } \\sigma = 1/2',
-      '|S(1/2+jt)|^2 + |T(1/2+jt)|^2 = 1 \\quad \\text{(lossless balance)}',
+      'S + T = 1 \\;\\text{(always)}, \\quad |S|^2 + |T|^2 \\approx 1 \\;\\text{at } \\sigma = 1/2 \\text{ (balanced)}',
     ],
     insights: [
       'H∞ optimal control naturally selects σ = 1/2 as the optimal operating point',
@@ -491,7 +491,7 @@ The **complex dimensions** of $\\mathcal{L}$ are the poles of $\\zeta_{\\mathcal
 
 **Physical realization**: A fractal string is literally a vibrating string with a fractal mass distribution. Its resonant frequencies are determined by the complex dimensions = poles of the spectral zeta function.
 
-Our oscillator chain IS the eigenvalue problem for a fractal string:
+Our oscillator chain corresponds to the eigenvalue problem for a fractal string:
 - Each prime oscillator = one segment of the fractal string
 - The length of segment $p$ = $p^{-1}$
 - Resonant frequencies = zeta zeros
@@ -540,7 +540,7 @@ The continued fraction structure also connects to Padé approximants of $\\zeta$
     ],
     insights: [
       'Cauer synthesis provides the rigorous framework for building our ladder from the zeta function',
-      'The continued fraction expansion IS the ladder network specification',
+      'The continued fraction expansion maps naturally to a ladder network specification',
       'Positive-real functions ↔ passive networks ↔ stable systems',
       'Padé approximants of zeta connect to optimal ladder truncations',
     ],
@@ -631,7 +631,7 @@ For the Riemann zeta function specifically, the "geometric side" involves primes
     timestamp: '2026-02-27T16:00:00Z',
     title: 'Beurling Generalized Primes: Custom Oscillator Chains',
     status: 'complete',
-    category: 'foundations',
+    category: 'foundation',
     depth: 5,
     content: `Beurling's theory of generalized primes provides a framework for studying oscillator chains with **arbitrary frequency spectra**, not just the classical primes.
 
@@ -708,7 +708,7 @@ In circuit terms: RH $\\iff$ the oscillator chain is a **passive** system (it ne
     status: 'in-progress',
     category: 'physics',
     depth: 5,
-    content: `A **quantum graph** is a metric graph with a differential operator (typically the Laplacian) defined on its edges, with matching conditions at vertices. Our prime oscillator ladder IS a quantum graph:
+    content: `A **quantum graph** is a metric graph with a differential operator (typically the Laplacian) defined on its edges, with matching conditions at vertices. Our prime oscillator ladder can be modeled as a quantum graph:
 
 - **Edges**: Each oscillator stage (prime $p$) is an edge of length $\\ell_p = \\log p$
 - **Vertices**: The connection points between stages (and to the bridge)
@@ -737,7 +737,7 @@ The quantum graph perspective gives us:
       '\\text{Weyl law: } N(k) \\sim \\frac{k}{\\pi} \\sum_p \\log p \\sim \\frac{k}{\\pi} \\cdot \\theta(P)',
     ],
     insights: [
-      'The oscillator chain IS a quantum graph with edges of length log(p)',
+      'The oscillator chain can be viewed as a quantum graph with edges of length log(p)',
       'The secular equation of the quantum graph reproduces the Euler product structure',
       'Incommensurability of log(p) values (primes are mult. independent) prevents periodic orbits',
       'Quantum graph theory provides rigorous spectral analysis tools for our model',
@@ -790,7 +790,7 @@ The theta function $\\theta(t)$ is the accumulated **phase shift** through the l
     timestamp: '2026-02-27T18:00:00Z',
     title: 'Adelic Product Formula and Multi-Scale Resonance',
     status: 'complete',
-    category: 'foundations',
+    category: 'foundation',
     depth: 5,
     content: `The adelic perspective provides the deepest view of why the oscillator chain has the structure it does. The **product formula** for the rational numbers:
 
@@ -947,7 +947,117 @@ The connection to the Hamiltonian: RG flow minimizes the effective action, and t
       'Zeta zeros determine the critical exponents of the fixed point',
       'RH is equivalent to conformal invariance: all exponents are purely imaginary',
     ],
-    references: ['connes-1999', 'ruelle-1986', 'baladi-2000'],
+    references: ['connes-1999', 'ruelle-1976', 'baladi-2000'],
+    nextSteps: ['exp-025'],
+  },
+  {
+    id: 'exp-025',
+    timestamp: '2026-03-02T10:00:00Z',
+    title: 'Pressure on the Lossless Bridge',
+    status: 'complete',
+    category: 'duality',
+    depth: 3,
+    content: `The **bridge coupling term** in the Hamiltonian defines a natural notion of "pressure" on the lossless bridge. Recall the system energy:
+
+$$\\mathcal{H} = T + V_{\\text{mismatch}} + V_{\\text{bridge}}$$
+
+where the bridge potential is:
+
+$$V_{\\text{bridge}}(\\sigma, t) = \\lambda\\,(1 - |\\chi(\\sigma + it)|)^2$$
+
+with coupling constant $\\lambda = 100$ in our model. We define the **bridge pressure** as:
+
+$$P(\\sigma, t) = (1 - |\\chi(\\sigma + it)|)^2$$
+
+This pressure is exactly zero on the critical line $\\sigma = 1/2$, where $|\\chi| = 1$ (the bridge is lossless). Away from the critical line, the pressure grows quadratically.
+
+**Restoring force.** The pressure gradient always points back toward $\\sigma = 1/2$:
+
+$$\\frac{\\partial P}{\\partial \\sigma} = -2(1 - |\\chi|)\\frac{\\partial |\\chi|}{\\partial \\sigma}$$
+
+Since $|\\chi(\\sigma + it)|$ is a decreasing function of $\\sigma$ for $\\sigma > 1/2$ (the bridge becomes absorptive) and increasing for $\\sigma < 1/2$ (amplifying), the gradient acts as a **restoring force** pulling the system toward the critical line.
+
+**Taylor expansion near the critical line:**
+
+$$P(1/2 + \\delta, t) \\approx \\left(\\frac{\\partial |\\chi|}{\\partial \\sigma}\\bigg|_{\\sigma=1/2}\\right)^2 \\delta^2 + O(\\delta^3)$$
+
+The coefficient depends on $t$ and determines the local "stiffness" of the bridge. At zeta zeros $t = \\gamma_n$, the stiffness is particularly well-defined because the Hamiltonian minimum is sharp.
+
+**Physical analogy.** This is exactly acoustic impedance mismatch at a waveguide junction. The direct ladder has characteristic impedance $Z_{\\text{dir}}$ and the dual ladder has $Z_{\\text{dual}}$. The reflection coefficient is:
+
+$$\\Gamma = \\frac{Z_{\\text{dir}} - Z_{\\text{dual}}}{Z_{\\text{dir}} + Z_{\\text{dual}}}$$
+
+At $\\sigma = 1/2$, the impedances match ($Z_{\\text{dir}} = Z_{\\text{dual}}$), so $\\Gamma = 0$: perfect transmission, zero pressure. Moving away from $\\sigma = 1/2$ creates a mismatch, and part of the signal energy reflects back — this reflected energy **is** the bridge pressure.`,
+    latex: [
+      'P(\\sigma, t) = (1 - |\\chi(\\sigma + it)|)^2',
+      '\\frac{\\partial P}{\\partial \\sigma} = -2(1 - |\\chi|)\\frac{\\partial |\\chi|}{\\partial \\sigma} \\quad \\text{(restoring force toward } \\sigma = 1/2\\text{)}',
+      'P(1/2 + \\delta, t) \\approx \\left(\\frac{\\partial |\\chi|}{\\partial \\sigma}\\bigg|_{1/2}\\right)^2 \\delta^2',
+      '\\Gamma = \\frac{Z_{\\text{dir}} - Z_{\\text{dual}}}{Z_{\\text{dir}} + Z_{\\text{dual}}}, \\quad \\Gamma = 0 \\iff \\sigma = 1/2',
+    ],
+    insights: [
+      'Bridge pressure P = (1-|χ|)² is zero exactly on the critical line',
+      'The pressure gradient acts as a restoring force toward σ = 1/2',
+      'Near the critical line, pressure grows quadratically: P ∝ δ²',
+      'Bridge pressure = acoustic reflection energy at an impedance-mismatched junction',
+      'The coupling constant λ=100 sets the energy scale of the restoring force',
+    ],
+    references: ['belevitch-1968', 'cauer-1926'],
+    nextSteps: [],
+  },
+  {
+    id: 'exp-026',
+    timestamp: '2026-03-02T17:30:00Z',
+    title: 'The de Bruijn-Newman Constant: Heat Flow in the Oscillator Chain',
+    status: 'complete',
+    category: 'spectral',
+    depth: 4,
+    content: `The **de Bruijn-Newman constant** $\\Lambda$ provides a remarkable characterization of RH in terms of a heat equation. Define the **heat-evolved xi function**:
+
+$$H_\\tau(z) = \\int_{-\\infty}^{\\infty} e^{\\tau u^2} \\Phi(u)\\, e^{izu}\\, du$$
+
+where $\\Phi$ is the super-exponentially decaying kernel from the Jacobi theta function, and $\\tau$ is the "time" parameter. At $\\tau = 0$, this is the Riemann $\\Xi(z)$ function, whose zeros on the real axis correspond to nontrivial zeros of $\\zeta$ on the critical line.
+
+The Gaussian factor $e^{\\tau u^2}$ acts as a **heat kernel**: increasing $\\tau$ is forward heat flow (diffusion), decreasing $\\tau$ is backward heat flow (anti-diffusion). De Bruijn (1950) proved that if $H_\\tau$ has only real zeros, then so does $H_{\\tau'}$ for all $\\tau' > \\tau$ — heat flow preserves the reality of zeros.
+
+**The constant $\\Lambda$** is the infimum of $\\tau$ values for which $H_\\tau$ has only real zeros:
+
+$$\\Lambda = \\inf\\{\\tau \\in \\mathbb{R} : H_\\tau \\text{ has only real zeros}\\}$$
+
+The key equivalence is:
+
+$$\\text{RH} \\iff \\Lambda \\leq 0$$
+
+since RH says $H_0 = \\Xi$ already has only real zeros.
+
+**Newman's conjecture** (1976): $\\Lambda \\geq 0$. This was proved by Rodgers and Tao (2020), establishing that if RH is true, then $\\Lambda = 0$ — the xi function is at the **exact threshold** of the heat flow: any backward heat flow would push zeros off the real line.
+
+**Current best bounds**: $0 \\leq \\Lambda \\leq 0.22$ (Polymath 15, 2019).
+
+**Circuit interpretation.** In the oscillator chain model, the heat parameter $\\tau$ corresponds to adding **uniform dissipation** (resistance) to every oscillator stage. Forward heat flow ($\\tau > 0$) adds damping; backward heat flow ($\\tau < 0$) adds gain (amplification).
+
+- At $\\tau = 0$ (no added dissipation): zeros sit on the critical line (RH) — the chain is lossless
+- At $\\tau > 0$ (added resistance): zeros remain real — damped oscillators still resonate on-axis
+- At $\\tau < 0$ (added gain): zeros can leave the real line — amplification creates complex-frequency resonances
+
+$\\Lambda = 0$ means the oscillator chain is at **critical damping**: it is exactly lossless, and any attempt to "cool" it further (add gain) would immediately destabilize a resonance off the critical line.
+
+**What the Heat Flow visualization shows.** The Heat Flow tab in the Supercritical Analysis page displays this process: as $\\tau$ increases from 0, the nontrivial zeros (plotted by their real part $\\sigma$) remain pinned at $\\sigma = 1/2$, confirming that forward heat flow preserves reality. The bottom chart shows $H_\\tau(t)$ directly, where sign changes mark zero locations — under heat flow, the function smooths but its zeros persist on the real line.`,
+    latex: [
+      'H_\\tau(z) = \\int_{-\\infty}^{\\infty} e^{\\tau u^2}\\,\\Phi(u)\\, e^{izu}\\, du',
+      '\\Lambda = \\inf\\{\\tau \\in \\mathbb{R} : H_\\tau \\text{ has only real zeros}\\}',
+      '\\text{RH} \\iff \\Lambda \\leq 0, \\quad \\Lambda \\geq 0 \\;(\\text{Rodgers-Tao 2020})',
+      '0 \\leq \\Lambda \\leq 0.22 \\quad (\\text{Polymath 15, 2019})',
+      '\\tau > 0 \\;\\text{(dissipation)}: \\text{zeros stay real} \\quad | \\quad \\tau < 0 \\;\\text{(gain)}: \\text{zeros can leave real line}',
+    ],
+    insights: [
+      'Heat flow = adding uniform dissipation to every oscillator stage in the ladder',
+      'RH ⟺ Λ ≤ 0: the xi function already has only real zeros at τ=0',
+      'Rodgers-Tao proved Λ ≥ 0, so RH would force Λ = 0 exactly — the chain is critically lossless',
+      'Forward heat flow (τ > 0) always preserves reality of zeros — adding damping cannot create new instabilities',
+      'Λ = 0 means the oscillator chain is at the exact PT-symmetry phase transition threshold',
+      'Current bounds: 0 ≤ Λ ≤ 0.22, narrowing from both sides toward the RH prediction Λ = 0',
+    ],
+    references: ['debruijn-1950', 'newman-1976', 'rodgers-tao-2020', 'polymath15-2019'],
     nextSteps: [],
   },
 ];

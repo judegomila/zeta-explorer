@@ -308,6 +308,9 @@ export default function LiCriterionViz() {
           <input type="range" min="10" max="200" step="1" value={numZeros}
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
+          <span style={{ color: '#64748b', fontSize: '0.85em', marginLeft: 4 }}>
+            (γ<sub>max</sub> ≈ {ZETA_ZEROS[numZeros - 1]?.toFixed(1)})
+          </span>
         </div>
       </div>
       <div className="viz-container">

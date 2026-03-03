@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { getPrimes, primeFrequency } from '../math/primes.js';
@@ -570,21 +570,10 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
 function PhaseDelayTab({ sigma, t, numPrimes }) {
   const svgRef = useRef();
 
-  const draw = useCallback(() => {
-    const svg = d3.select(svgRef.current);
-    svg.selectAll('*').remove();
-
-    const width = svgRef.current.clientWidth || 900;
-    const height = 420;
-    svg.attr('viewBox', `0 0 ${width} ${height}`);
-
-    const s = [sigma, t];
-    const sDual = [1 - sigma, -t];
+  // Memoize group delay computation — depends only on slider values,
+  // not on canvas/SVG dimensions, so skip recomputing on resize.
+  const delays = useMemo(() => {
     const primes = getPrimes(numPrimes);
-
-    // Compute group delays numerically
-    // Phase unwrap helper: atan2 jumps by ±2π at the ±π boundary, which
-    // would produce a ~2π/2δ ≈ 3141 error in the finite-difference derivative.
     const unwrapDiff = (a, b) => {
       let d = a - b;
       if (d > Math.PI) d -= 2 * Math.PI;
@@ -592,7 +581,7 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
       return d;
     };
     const delta = 0.001;
-    const delays = primes.map(p => {
+    return primes.map(p => {
       const stDp = oscillatorStage(p, [sigma, t + delta]);
       const stDm = oscillatorStage(p, [sigma, t - delta]);
       const delayD = -unwrapDiff(stDp.phase, stDm.phase) / (2 * delta);
@@ -603,6 +592,17 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
 
       return { prime: p, delayDirect: Math.abs(delayD), delayDual: Math.abs(delayU) };
     });
+  }, [sigma, t, numPrimes]);
+
+  const draw = useCallback(() => {
+    const svg = d3.select(svgRef.current);
+    svg.selectAll('*').remove();
+
+    const width = svgRef.current.clientWidth || 900;
+    const height = 420;
+    svg.attr('viewBox', `0 0 ${width} ${height}`);
+
+    const primes = getPrimes(numPrimes);
 
     const maxDelay = Math.max(0.01, d3.max(delays, d => Math.max(d.delayDirect, d.delayDual)));
 
@@ -716,7 +716,7 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
       .attr('font-size', 11).attr('font-weight', 600)
       .text(`Delay asymmetry: ${(asymmetry * 100).toFixed(1)}% ${asymmetry < 0.05 ? '(symmetric at σ=½)' : '(asymmetric — σ≠½)'}`);
 
-  }, [sigma, t, numPrimes]);
+  }, [delays, numPrimes]);
 
   useEffect(() => { draw(); }, [draw]);
 

@@ -552,6 +552,35 @@ export default function RHRigorViz() {
         ))}
       </div>
 
+      {/* Tab explainers */}
+      {activeTest === 'hamiltonian' && (
+        <div className="tab-explainer accent-orange">
+          <strong>The test:</strong> For each <InlineMath tex="t" /> value, scan <InlineMath tex="\sigma \in [0.1, 0.9]" /> to find
+          where <InlineMath tex="H(\sigma, t)" /> is minimized. The ZPO model claims the minimum always occurs
+          at <InlineMath tex="\sigma = \tfrac{1}{2}" /> (the critical line). Each dot shows the minimizing <InlineMath tex="\sigma" /> for
+          one <InlineMath tex="t" /> value; the green dashed line marks <InlineMath tex="\sigma = 0.5" />.
+          <strong> Look for:</strong> how tightly dots cluster around the green line as you increase the number of primes.
+        </div>
+      )}
+      {activeTest === 'bridge' && (
+        <div className="tab-explainer accent-purple">
+          <strong>The test:</strong> Heatmap of <InlineMath tex="|\,|\chi(\sigma+it)| - 1\,|" /> across
+          the <InlineMath tex="(\sigma, t)" /> plane. The functional equation guarantees <InlineMath tex="|\chi(\tfrac{1}{2}+it)| = 1" />,
+          so a green band should appear at <InlineMath tex="\sigma = 0.5" />. This is a known identity, not a prediction — it
+          tests that the bridge construction correctly reproduces the functional equation prefactor.
+          <strong> Look for:</strong> the sharp green vertical stripe at <InlineMath tex="\sigma = 0.5" /> and how deviation grows away from it.
+        </div>
+      )}
+      {activeTest === 'mismatch' && (
+        <div className="tab-explainer accent-cyan">
+          <strong>The test:</strong> Compare impedance mismatch <InlineMath tex="|Z_{\rm dir} - Z_{\rm dual}|" /> (from
+          truncated Euler products) against <InlineMath tex="|\zeta(\tfrac{1}{2}+it)|" /> along the critical line.
+          If mismatch predicted zeros, both curves would dip to zero at the same <InlineMath tex="t" /> values.
+          The Pearson <InlineMath tex="r" /> quantifies correlation.
+          <strong> Look for:</strong> whether mismatch dips align with <InlineMath tex="\zeta" /> zeros, and how <InlineMath tex="r" /> changes with the number of primes.
+        </div>
+      )}
+
       {/* Controls */}
       <div className="controls">
         <div className="control-group">

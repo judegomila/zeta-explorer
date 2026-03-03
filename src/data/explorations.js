@@ -280,7 +280,7 @@ where $S$ is the sensitivity function (for minimum-phase systems with no RHP pol
       'The gain margin and phase margin of the system encode zero-free regions',
     ],
     references: ['nyquist-1932', 'bode-1945', 'doyle-francis-tannenbaum-2009'],
-    nextSteps: ['exp-011'],
+    nextSteps: ['exp-011', 'exp-029'],
   },
   {
     id: 'exp-008',
@@ -1145,6 +1145,58 @@ $$M(x) = \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho\\,\\zeta'(\\rho)} + \\text{lower 
       'The disproof highlights the difference between individual mode behavior (all on critical line) and collective superposition bounds',
     ],
     references: ['titchmarsh-1986', 'odlyzko-1987', 'montgomery-1973', 'euler-1737'],
+    nextSteps: ['exp-029'],
+  },
+  {
+    id: 'exp-029',
+    timestamp: '2026-03-03T19:00:00Z',
+    title: 'Zero-Free Regions as Stability Margins',
+    status: 'complete',
+    category: 'control-theory',
+    depth: 3,
+    content: `Classical analytic number theory establishes **zero-free regions** — subsets of the critical strip where $\\zeta(s) \\neq 0$. In the oscillator chain model, these are **stability margins**: guaranteed distances between the system poles and the instability boundary $\\sigma = 1$.
+
+The strongest known zero-free region (Vinogradov-Korobov, 1958) is:
+
+$$\\sigma > 1 - \\frac{c}{(\\log|t|)^{2/3}(\\log\\log|t|)^{1/3}}$$
+
+for some constant $c > 0$. This shrinks logarithmically as $t \\to \\infty$ — meaning the proven stability margin narrows at high frequencies.
+
+**Control theory interpretation.** In Nyquist analysis (exp-007), a system's **gain margin** measures how much loop gain can increase before instability. For our oscillator chain, the zero-free region translates directly:
+
+- The distance from $\\sigma = 1$ to the nearest zero is the **gain margin** at frequency $t$
+- A wider zero-free region means larger gain margin, hence more robust stability
+- The proven margin $c/(\\log t)^{2/3+\\varepsilon}$ is logarithmically thin — the system is provably stable but with vanishing margin at high frequencies
+
+**Connection to PNT error.** The width of the zero-free region directly controls the error term in the Prime Number Theorem. Define $\\eta(t)$ as the width of the zero-free region at height $t$:
+
+$$\\pi(x) = \\text{Li}(x) + O\\bigl(x\\,\\exp(-c\\sqrt{\\log x})\\bigr) \\quad \\text{(de la Vallée-Poussin)}$$
+
+This error bound comes from $\\eta(t) \\geq c/\\log t$, the classical (1896) zero-free region. The Vinogradov-Korobov improvement to $\\eta(t) \\geq c/(\\log t)^{2/3+\\varepsilon}$ gives:
+
+$$\\pi(x) = \\text{Li}(x) + O\\bigl(x\\,\\exp(-c(\\log x)^{3/5}(\\log\\log x)^{-1/5})\\bigr)$$
+
+In circuit terms: a wider stability margin means the impulse response (the explicit formula of exp-009) settles to its steady state (the PNT) faster.
+
+**RH as infinite gain margin.** The Riemann Hypothesis asserts that the zero-free region extends all the way to $\\sigma > 1/2$ — an enormous stability margin that grows as $1/2$ regardless of frequency. This would give the optimal PNT error:
+
+$$\\pi(x) = \\text{Li}(x) + O(\\sqrt{x}\\,\\log x)$$
+
+In Nyquist terms, RH says the oscillator chain has **infinite phase margin** (no encirclement of the critical point at any frequency) and a gain margin of at least $1/2$ for all $t$. The gap between the proven stability margin $c/(\\log t)^{2/3}$ and the conjectured margin $1/2$ is exactly the unresolved territory of the Riemann Hypothesis.`,
+    latex: [
+      '\\sigma > 1 - \\frac{c}{(\\log|t|)^{2/3}(\\log\\log|t|)^{1/3}} \\quad \\text{(Vinogradov-Korobov zero-free region)}',
+      '\\pi(x) = \\text{Li}(x) + O(x\\,e^{-c\\sqrt{\\log x}}) \\quad \\text{(PNT with classical zero-free region)}',
+      '\\text{RH} \\Rightarrow \\pi(x) = \\text{Li}(x) + O(\\sqrt{x}\\,\\log x) \\quad \\text{(optimal error)}',
+      '\\text{Gain margin at height } t = 1 - \\sup\\{\\sigma : \\zeta(\\sigma+it)=0\\}',
+    ],
+    insights: [
+      'Zero-free regions are stability margins: the minimum distance between system poles and the instability boundary σ=1',
+      'The Vinogradov-Korobov zero-free region gives a logarithmically thin stability margin that narrows at high frequencies',
+      'The PNT error term is directly controlled by the stability margin width — wider margin means faster settling of the impulse response',
+      'RH predicts a frequency-independent stability margin of 1/2 — infinite gain margin in Nyquist terms',
+      'The gap between proven margins (c/(log t)^{2/3}) and conjectured (1/2) is the unresolved territory of RH',
+    ],
+    references: ['vinogradov-korobov-1958', 'delavalleepoussin-1896', 'nyquist-1932', 'titchmarsh-1986'],
     nextSteps: [],
   },
 ];

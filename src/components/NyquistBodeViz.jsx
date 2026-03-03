@@ -151,7 +151,7 @@ export default function NyquistBodeViz() {
 
     // Draw segments with color gradient based on t
     for (let i = 1; i < points.length; i++) {
-      const frac = i / points.length;
+      const frac = i / (points.length - 1);
       const hue = 210 + frac * 60; // blue to cyan
       g.append('line')
         .attr('x1', x(points[i-1].re)).attr('y1', y(points[i-1].im))
@@ -163,11 +163,12 @@ export default function NyquistBodeViz() {
 
     // Negative frequency contour (orange)
     for (let i = 1; i < negPoints.length; i++) {
-      const frac = i / negPoints.length;
+      const frac = i / (negPoints.length - 1);
+      const hue = 25 + frac * 20; // orange gradient
       g.append('line')
         .attr('x1', x(negPoints[i-1].re)).attr('y1', y(negPoints[i-1].im))
         .attr('x2', x(negPoints[i].re)).attr('y2', y(negPoints[i].im))
-        .attr('stroke', `hsl(35, 80%, 55%)`)
+        .attr('stroke', `hsl(${hue}, 80%, 55%)`)
         .attr('stroke-width', 1)
         .attr('opacity', 0.5);
     }

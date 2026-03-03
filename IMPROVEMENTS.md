@@ -170,3 +170,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 164 | 2026-03-03T16:00:00Z | Add per-visualization exploration guide card to HamiltonianPage for energy and explicit formula charts | HamiltonianPage.jsx |
 | 165 | 2026-03-03T16:30:00Z | Fix AnimatedModesViz pause resetting animation to t=0 instead of freezing in place | AnimatedModesViz.jsx |
 | 166 | 2026-03-03T17:00:00Z | Fix PerPrimeTab explainer wrongly attributing dual symmetry to the functional equation | TwinOscillatorSimViz.jsx |
+| 167 | 2026-03-03T17:30:00Z | Fix explicit formula display omitting trivial zeros term ½log(1 − x⁻²) | ExplicitFormulaViz.jsx |

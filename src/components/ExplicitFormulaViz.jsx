@@ -155,7 +155,7 @@ export default function ExplicitFormulaViz() {
     <div>
       <div className="tab-explainer accent-orange">
         <strong>The math:</strong> Von Mangoldt's explicit formula{' '}
-        <InlineMath tex="\\psi(x) = x - \\sum_\\rho x^\\rho/\\rho - \\log 2\\pi" /> decomposes the Chebyshev function{' '}
+        <InlineMath tex="\\psi(x) = x - \\sum_\\rho x^\\rho/\\rho - \\log 2\\pi - \\tfrac{1}{2}\\log(1 - x^{-2})" /> decomposes the Chebyshev function{' '}
         <InlineMath tex="\\psi(x) = \\sum_{n \\le x} \\Lambda(n)" /> (a log-weighted prime-power count, not the prime
         counting function <InlineMath tex="\\pi(x)" />) into zeta-zero oscillations.
         Each zero pair <InlineMath tex="\\rho,\\bar\\rho" /> with{' '}

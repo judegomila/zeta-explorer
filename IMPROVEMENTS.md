@@ -259,3 +259,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 253 | 2026-03-03T15:30:00Z | Memoize incidence status computation in TwistorViz to avoid redundant twistor+incidence calls on tab switch and play toggle | TwistorViz.jsx |
 | 254 | 2026-03-03T22:09:23Z | Fix GUE number variance reference curve using GOE coefficient 2/π² instead of correct GUE coefficient 1/π² | GUEStatisticsViz.jsx |
 | 255 | 2026-03-03T16:30:00Z | Fix incidence relation using Hermitian inner product (grows as t²) instead of symplectic form (vanishes at σ=0.5) | twistor.js |
+| 256 | 2026-03-03T17:00:00Z | Fix WaveSimViz saying 'perfect impedance match' instead of 'conjugate impedance match' at σ=½ | WaveSimViz.jsx |

@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 import { getPrimes, primeFrequency } from '../math/primes.js';
 import { oscillatorStage, directLadder, dualLadder, losslessBridge, systemHamiltonian } from '../math/oscillators.js';
 import { cAbs, ZETA_ZEROS } from '../math/zeta.js';
+import { thermodynamicState } from '../math/supercritical.js';
 
 const TABS = [
   { id: 'signal', label: 'Signal Flow' },
@@ -18,7 +19,7 @@ const TABS = [
 // ladders through a bidirectional bridge. Both ladders oscillate simultaneously;
 // energy flows in BOTH directions through the bridge. At σ=0.5 the flows are
 // equal (standing-wave equilibrium). Off the critical line one direction dominates.
-function SignalFlowTab({ sigma, t, numPrimes, playing }) {
+function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
   const canvasRef = useRef();
   const animRef = useRef();
   const timeRef = useRef(0);
@@ -77,6 +78,17 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
     ctx.fillStyle = bridge.isUnitary ? '#10b981' : '#ef4444';
     ctx.fillText(bridge.isUnitary ? 'LOSSLESS' : `LOSSY |χ|=${bridge.magnitude.toFixed(3)}`, xBridge, 33);
 
+    // Phase-aware speed multiplier
+    const phaseSpeed = phase === 'supercritical' ? 0.15 : phase === 'sub-zero' ? 2.5 : 1.0;
+    const bridgeOpacity = phase === 'supercritical' ? 0.8 : phase === 'sub-zero' ? 0.15 : 0.3;
+
+    // Phase state label in top-right
+    const pMeta = PHASE_META[phase] || PHASE_META['critical-strip'];
+    ctx.font = 'bold 11px Inter, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillStyle = pMeta.color;
+    ctx.fillText(`${pMeta.icon} ${pMeta.label}`, W - 12, 18);
+
     // Bidirectional energy balance:
     // Direct magnitude |ζ_N(s)| vs dual magnitude |ζ_N(1-s)|
     // Normalize to get relative flow strengths
@@ -117,9 +129,9 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
     ctx.lineTo(xDual, yBot);
     ctx.stroke();
 
-    // Bridge column
-    ctx.strokeStyle = bridge.isUnitary ? 'rgba(139,92,246,0.3)' : 'rgba(239,68,68,0.3)';
-    ctx.fillStyle = bridge.isUnitary ? 'rgba(139,92,246,0.05)' : 'rgba(239,68,68,0.05)';
+    // Bridge column — opacity varies by phase
+    ctx.strokeStyle = bridge.isUnitary ? `rgba(139,92,246,${bridgeOpacity})` : `rgba(239,68,68,${bridgeOpacity})`;
+    ctx.fillStyle = bridge.isUnitary ? `rgba(139,92,246,${bridgeOpacity * 0.2})` : `rgba(239,68,68,${bridgeOpacity * 0.2})`;
     ctx.lineWidth = 1.5;
     const bw = 30;
     ctx.beginPath();
@@ -135,8 +147,8 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
 
       // Phase of signal at this stage (each prime has its own frequency)
       const omega = primeFrequency(p);
-      const phaseD = time * omega * 0.5;
-      const phaseU = time * omega * 0.5 + stageU.phase - stageD.phase;
+      const phaseD = time * omega * 0.5 * phaseSpeed;
+      const phaseU = time * omega * 0.5 * phaseSpeed + stageU.phase - stageD.phase;
       const pulseD = 0.5 + 0.5 * Math.sin(phaseD);
       const pulseU = 0.5 + 0.5 * Math.sin(phaseU);
 
@@ -176,10 +188,11 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
       ctx.lineTo(rightEdgeBridgeL, fwdY);
       ctx.stroke();
 
-      // Moving dot (Direct → Bridge)
+      // Moving dot (Direct → Bridge) — scatter in sub-zero
       const dotFwd1 = (phaseD % (Math.PI * 2)) / (Math.PI * 2);
+      const scatter = phase === 'sub-zero' ? (Math.sin(time * 7 + i * 3) * 8) : 0;
       ctx.beginPath();
-      ctx.arc(leftEdgeDir + dotFwd1 * spanL, fwdY, fwdDotSize, 0, Math.PI * 2);
+      ctx.arc(leftEdgeDir + dotFwd1 * spanL, fwdY + scatter, fwdDotSize, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(16, 185, 129, ${0.5 + fwdStrength * 0.5})`;
       ctx.fill();
 
@@ -292,7 +305,7 @@ function SignalFlowTab({ sigma, t, numPrimes, playing }) {
     ctx.fillStyle = '#f59e0b';
     ctx.fillText(`|ζ(1−s)| ≈ ${dualMag.toFixed(3)}`, W - 12, lgY + 16);
 
-  }, [flowData, numPrimes]);
+  }, [flowData, numPrimes, phase]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -394,7 +407,7 @@ function PerPrimeWavesTab({ sigma, t, numPrimes }) {
         .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 1.5)
         .attr('opacity', 0.8);
 
-      // Impedance match indicator in center
+      // Amplitude match indicator in center
       const matchRatio = Math.min(stageD.magnitude, stageU.magnitude) / Math.max(stageD.magnitude, stageU.magnitude, 0.001);
       const matchColor = d3.interpolateRgb('#ef4444', '#10b981')(matchRatio);
       const barH = matchRatio * (rowH * 0.6);
@@ -1064,6 +1077,64 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
   );
 }
 
+// ─── Phase State Helpers ──────────────────────────────────────────────
+const PHASE_META = {
+  'supercritical': { label: 'FROZEN', icon: '\u2744\uFE0F', color: '#60a5fa', bg: 'rgba(96,165,250,0.12)', desc: 'Supercritical region — zeros suppressed, series converges absolutely' },
+  'critical-line': { label: 'EQUILIBRIUM', icon: '\u2696\uFE0F', color: '#10b981', bg: 'rgba(16,185,129,0.12)', desc: 'Critical line — bridge is lossless, conjugate impedance match' },
+  'critical-strip': { label: 'LIQUID', icon: '\uD83C\uDF0A', color: '#f59e0b', bg: 'rgba(245,158,11,0.12)', desc: 'Critical strip — zeros are active, analytic continuation required' },
+  'sub-zero': { label: 'VAPORIZED', icon: '\uD83D\uDD25', color: '#ef4444', bg: 'rgba(239,68,68,0.12)', desc: 'Sub-zero region — trivial zeros, functional equation dominates' },
+};
+
+function ThermoPanel({ sigma, t, numPrimes }) {
+  const thermo = useMemo(() => thermodynamicState(sigma, t, numPrimes), [sigma, t, numPrimes]);
+  const meta = PHASE_META[thermo.phase] || PHASE_META['critical-strip'];
+
+  const metrics = [
+    { label: 'T', value: sigma > 0.01 ? thermo.temperature.toFixed(2) : '\u221E', unit: '= 1/\u03C3', color: '#f59e0b' },
+    { label: 'P', value: thermo.pressure.toFixed(4), unit: 'pressure', color: '#8b5cf6' },
+    { label: 'F', value: thermo.freeEnergy.toFixed(3), unit: 'free energy', color: '#06b6d4' },
+    { label: 'S', value: thermo.entropy.toFixed(3), unit: 'entropy', color: '#10b981' },
+    { label: 'C\u1D65', value: thermo.specificHeat.toFixed(3), unit: 'specific heat', color: '#ec4899' },
+  ];
+
+  return (
+    <div style={{
+      display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center',
+      padding: '8px 12px', marginBottom: 12, borderRadius: 8,
+      background: meta.bg, border: `1px solid ${meta.color}33`,
+    }}>
+      {/* Phase badge */}
+      <div style={{
+        padding: '4px 12px', borderRadius: 6,
+        background: meta.color + '22', border: `1px solid ${meta.color}`,
+        fontWeight: 700, fontSize: 13, color: meta.color,
+        display: 'flex', alignItems: 'center', gap: 6,
+      }}>
+        <span>{meta.icon}</span>
+        <span>{meta.label}</span>
+      </div>
+
+      {/* Metric boxes */}
+      {metrics.map(m => (
+        <div key={m.label} style={{
+          padding: '3px 10px', borderRadius: 6,
+          background: 'rgba(15,23,42,0.5)', border: '1px solid #1e293b',
+          textAlign: 'center', minWidth: 60,
+        }}>
+          <div style={{ fontSize: 10, color: '#64748b', fontWeight: 600 }}>{m.label}</div>
+          <div style={{ fontSize: 14, color: m.color, fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{m.value}</div>
+          <div style={{ fontSize: 8, color: '#475569' }}>{m.unit}</div>
+        </div>
+      ))}
+
+      {/* Phase description */}
+      <div style={{ fontSize: 11, color: meta.color, opacity: 0.8, flex: 1, minWidth: 180 }}>
+        {meta.desc}
+      </div>
+    </div>
+  );
+}
+
 // ─── Main WaveSimViz Component ─────────────────────────────────────────
 export default function WaveSimViz() {
   const [tab, setTab] = useState('signal');
@@ -1072,9 +1143,9 @@ export default function WaveSimViz() {
   const [numPrimes, setNumPrimes] = useState(8);
   const [playing, setPlaying] = useState(true);
 
-  // Color the sigma slider based on distance from 0.5
-  const sigmaDeviation = Math.abs(sigma - 0.5);
-  const sigmaColor = sigmaDeviation < 0.02 ? '#10b981' : sigmaDeviation < 0.15 ? '#f59e0b' : '#ef4444';
+  // Color the sigma slider based on phase region
+  const sigmaColor = sigma > 1 ? '#60a5fa' : sigma < 0 ? '#ef4444'
+    : Math.abs(sigma - 0.5) < 0.05 ? '#10b981' : '#f59e0b';
 
   return (
     <div>
@@ -1084,7 +1155,7 @@ export default function WaveSimViz() {
           <label style={{ color: sigmaColor, fontWeight: 600 }}>
             <InlineMath tex="\sigma = \operatorname{Re}(s)" />
           </label>
-          <input type="range" min="0.05" max="0.95" step="0.01" value={sigma}
+          <input type="range" min="-0.5" max="2.0" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
           <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
@@ -1131,19 +1202,8 @@ export default function WaveSimViz() {
         </div>
       </div>
 
-      {/* Sigma status indicator */}
-      <div style={{
-        padding: '6px 14px', marginBottom: 12, borderRadius: 8,
-        background: sigmaDeviation < 0.02 ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)',
-        border: `1px solid ${sigmaColor}33`,
-        fontSize: 12, color: sigmaColor, fontWeight: 500,
-        textAlign: 'center',
-      }}>
-        {sigmaDeviation < 0.02
-          ? 'σ ≈ 0.5 — Critical line: bridge is lossless, ladders are impedance-matched'
-          : `σ = ${sigma.toFixed(2)} — Off critical line: bridge pressure P = ${((1 - losslessBridge([sigma, t]).magnitude) ** 2).toFixed(4)}, reflection Γ = ${losslessBridge([sigma, t]).reflectionCoeff.toFixed(3)}`
-        }
-      </div>
+      {/* Thermodynamic panel */}
+      <ThermoPanel sigma={sigma} t={t} numPrimes={numPrimes} />
 
       {/* Tab bar */}
       <div className="tab-bar">
@@ -1165,14 +1225,15 @@ export default function WaveSimViz() {
               At <InlineMath tex="\sigma = 0.5" />, both flows are equal strength (equilibrium). Move <InlineMath tex="\sigma" /> away
               and one direction dominates; red reflected dots appear from the lossy bridge.
             </div>
-            <SignalFlowTab sigma={sigma} t={t} numPrimes={numPrimes} playing={playing} />
+            <SignalFlowTab sigma={sigma} t={t} numPrimes={numPrimes} playing={playing}
+              phase={sigma > 1 ? 'supercritical' : sigma < 0 ? 'sub-zero' : Math.abs(sigma - 0.5) < 0.05 ? 'critical-line' : 'critical-strip'} />
           </>
         )}
         {tab === 'perPrime' && (
           <>
             <div className="tab-explainer">
               <strong>Per-Prime Waves:</strong> Each row shows the waveform through one prime's oscillator stage, for both
-              direct (blue, left) and dual (gold, right) ladders. The center bar shows impedance match quality.
+              direct (blue, left) and dual (gold, right) ladders. The center bar shows amplitude match quality.
               At <InlineMath tex="\sigma = 0.5" />, amplitudes match perfectly; away from it, they diverge.
             </div>
             <PerPrimeWavesTab sigma={sigma} t={t} numPrimes={numPrimes} />

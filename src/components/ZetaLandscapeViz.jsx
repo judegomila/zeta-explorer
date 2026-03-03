@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { InlineMath } from './KaTeXMath.jsx';
 import { riemannSiegelZ, ZETA_ZEROS, zetaCriticalStrip, cAbs } from '../math/zeta.js';
 
@@ -135,6 +135,28 @@ export default function ZetaLandscapeViz() {
 
   }, [tRange]);
 
+  // Memoize the 100×100 heatmap grid (10,000 zetaCriticalStrip evaluations)
+  // so resize events only repaint the canvas with cached data
+  const RES = 100;
+  const heatmapGrid = useMemo(() => {
+    const tMin = tRange[0] || 0.5;
+    const tMax = tRange[1] || 50;
+    const sMin = sigmaRange[0];
+    const sMax = sigmaRange[1];
+    const grid = new Float64Array(RES * RES);
+    for (let i = 0; i < RES; i++) {
+      for (let j = 0; j < RES; j++) {
+        const sigma = sMin + (i / RES) * (sMax - sMin);
+        const t = tMin + (j / RES) * (tMax - tMin);
+        const z = zetaCriticalStrip([sigma, t], 50);
+        const mag = cAbs(z);
+        const logMag = Math.log(1 + mag);
+        grid[i * RES + j] = Math.min(1, logMag / 4);
+      }
+    }
+    return grid;
+  }, [tRange, sigmaRange]);
+
   const drawHeatmap = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -148,27 +170,20 @@ export default function ZetaLandscapeViz() {
     ctx.fillStyle = '#111827';
     ctx.fillRect(0, 0, dw, dh);
 
-    const res = 100;
     const tMin = tRange[0] || 0.5;
     const tMax = tRange[1] || 50;
     const sMin = sigmaRange[0];
     const sMax = sigmaRange[1];
-    const cellW = dw / res;
-    const cellH = dh / res;
+    const cellW = dw / RES;
+    const cellH = dh / RES;
 
-    for (let i = 0; i < res; i++) {
-      for (let j = 0; j < res; j++) {
-        const sigma = sMin + (i / res) * (sMax - sMin);
-        const t = tMin + (j / res) * (tMax - tMin);
-        const z = zetaCriticalStrip([sigma, t], 50);
-        const mag = cAbs(z);
-        const logMag = Math.log(1 + mag);
-        const normalized = Math.min(1, logMag / 4);
-
+    for (let i = 0; i < RES; i++) {
+      for (let j = 0; j < RES; j++) {
+        const normalized = heatmapGrid[i * RES + j];
         // Palette lookup (replaces per-pixel interpolation + string concat)
         const palIdx = Math.min(PALETTE_SIZE - 1, (normalized * (PALETTE_SIZE - 1)) | 0);
         ctx.fillStyle = heatmapPalette[palIdx];
-        ctx.fillRect(i * cellW, (res - 1 - j) * cellH, cellW + 0.5, cellH + 0.5);
+        ctx.fillRect(i * cellW, (RES - 1 - j) * cellH, cellW + 0.5, cellH + 0.5);
       }
     }
 
@@ -276,7 +291,7 @@ export default function ZetaLandscapeViz() {
     ctx.fillStyle = '#64748b';
     ctx.font = '11px sans-serif';
     ctx.fillText('White circles: known zeros on σ=½', 30, 34);
-  }, [tRange, sigmaRange]);
+  }, [tRange, sigmaRange, heatmapGrid]);
 
   useEffect(() => {
     if (mode === 'critical-line') drawCriticalLine();

@@ -3,6 +3,7 @@ import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { hamiltonianSigmaScan, systemHamiltonian } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { getPrimes } from '../math/primes.js';
 
 export default function HamiltonianViz() {
   const svgRef = useRef();
@@ -205,7 +206,7 @@ export default function HamiltonianViz() {
           <label>Primes</label>
           <input type="range" min="4" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         {hoverPoint && (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>

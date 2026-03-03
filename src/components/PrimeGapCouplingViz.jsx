@@ -51,6 +51,11 @@ export default function PrimeGapCouplingViz() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+      // Horizontal gridlines
+      const gridG1 = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
+      gridG1.select('.domain').remove();
+      gridG1.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+
       // Coupling bars
       const barW = Math.max(2, w / data.length - 1);
       data.forEach((d, i) => {
@@ -102,6 +107,11 @@ export default function PrimeGapCouplingViz() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+      // Horizontal gridlines
+      const gridG2 = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
+      gridG2.select('.domain').remove();
+      gridG2.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+
       // Gap bars
       const barW = Math.max(2, w / data.length - 1);
       data.forEach((d, i) => {
@@ -150,6 +160,11 @@ export default function PrimeGapCouplingViz() {
       g.append('g').call(d3.axisLeft(y).ticks(8))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+
+      // Horizontal gridlines
+      const gridG3 = g.append('g').call(d3.axisLeft(y).ticks(8).tickSize(-w).tickFormat(''));
+      gridG3.select('.domain').remove();
+      gridG3.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       // Frequency points
       primes.forEach((p, i) => {

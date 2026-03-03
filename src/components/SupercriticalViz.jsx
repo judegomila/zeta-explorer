@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import {
   zetaMagnitudeScan,
@@ -49,6 +49,8 @@ function ExtendedLandscapeTab() {
   const [sigmaMin, setSigmaMin] = useState(-3);
   const [sigmaMax, setSigmaMax] = useState(5);
 
+  const scan = useMemo(() => zetaMagnitudeScan(tValue, [sigmaMin, sigmaMax], 300), [tValue, sigmaMin, sigmaMax]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -71,7 +73,6 @@ function ExtendedLandscapeTab() {
     const botY = H * 0.55;
 
     // ── Top: |ζ(σ+it)| scan ──
-    const scan = zetaMagnitudeScan(tValue, [sigmaMin, sigmaMax], 300);
     const xScale = s => pad.l + (s - sigmaMin) / (sigmaMax - sigmaMin) * chartW;
     const logMags = scan.map(d => d.logMagnitude);
     const yMin = Math.max(d3.min(logMags), -5);
@@ -199,7 +200,7 @@ function ExtendedLandscapeTab() {
     ctx.font = '11px Inter, sans-serif';
     ctx.fillText('σ = Re(s)', W / 2, H - 8);
 
-  }, [tValue, sigmaMin, sigmaMax]);
+  }, [scan, sigmaMin, sigmaMax]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

@@ -127,7 +127,8 @@ export default function PrimeGapCouplingViz() {
       });
 
     } else {
-      // Frequency spectrum of oscillators
+      // Frequency spectrum of oscillators — fix x domain for primes.length points (not data.length)
+      x.domain([0, primes.length - 1]);
       const y = d3.scaleLinear().domain([0, primeFrequency(primes[primes.length - 1]) * 1.1]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`)

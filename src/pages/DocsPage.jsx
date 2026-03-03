@@ -395,10 +395,11 @@ export default function DocsPage() {
             <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
               Fast evaluation on the critical line via the Z function:
             </p>
-            <BlockMath tex="Z(t) = 2 \sum_{n=1}^{N} \frac{\cos(\theta(t) - t\log n)}{n^{1/2}} + C_0(p)" />
+            <BlockMath tex="Z(t) = 2 \sum_{n=1}^{N} \frac{\cos(\theta(t) - t\log n)}{n^{1/2}} + (-1)^{N-1}\!\left(\frac{t}{2\pi}\right)^{\!-1/4}\! C_0(p)" />
             <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-              where <InlineMath tex="N = \lfloor\sqrt{t/(2\pi)}\rfloor" />, <InlineMath tex="p" /> is the fractional
-              part, and <InlineMath tex="C_0" /> is a correction term from the asymptotic expansion.
+              where <InlineMath tex="N = \lfloor\sqrt{t/(2\pi)}\rfloor" />, <InlineMath tex="p = \sqrt{t/(2\pi)} - N" /> is the fractional
+              part, and <InlineMath tex="C_0(p)" /> is a correction term from the asymptotic expansion. The{' '}
+              <InlineMath tex="(-1)^{N-1}(t/2\pi)^{-1/4}" /> prefactor provides the correct sign alternation and decay.
               Used for real-valued evaluations where sign changes indicate zeros.
             </p>
           </div>

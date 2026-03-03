@@ -57,7 +57,7 @@ export default function AnimatedModesViz() {
     primes.forEach((p, idx) => {
       const omega = primeFrequency(p);
       const yCenter = 60 + idx * rowH;
-      const amplitude = 1 / Math.sqrt(p); // amplitude decays with prime
+      const amplitude = Math.cos(gamma * Math.log(p)) / Math.sqrt(p); // Re(p^{-1/2-iγ})
 
       // Label
       ctx.fillStyle = '#64748b';

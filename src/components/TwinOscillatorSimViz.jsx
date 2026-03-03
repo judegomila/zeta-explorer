@@ -54,23 +54,12 @@ function PerPrimeTab() {
   const [tValue, setTValue] = useState(14.13);
   const [numPrimes, setNumPrimes] = useState(8);
 
-  const draw = useCallback(() => {
-    const svg = d3.select(svgRef.current);
-    svg.selectAll('*').remove();
-
-    const width = svgRef.current.clientWidth || 800;
-    const height = 400;
-    svg.attr('viewBox', `0 0 ${width} ${height}`);
-
-    const margin = { top: 30, right: 140, bottom: 50, left: 65 };
-    const w = width - margin.left - margin.right;
-    const h = height - margin.top - margin.bottom;
-
+  // Memoize per-prime energy curves to avoid recomputing 640+ oscillatorStage calls on resize
+  const { curves, minima } = useMemo(() => {
     const primes = getPrimes(numPrimes);
     const steps = 80;
     const sigmaRange = [0.05, 0.95];
 
-    // Compute per-prime energy curves
     const curves = primes.map(p => {
       const points = [];
       for (let i = 0; i <= steps; i++) {
@@ -86,11 +75,27 @@ function PerPrimeTab() {
       return { prime: p, points };
     });
 
-    // Find per-prime minima
     const minima = curves.map(c => {
       const best = c.points.reduce((a, b) => a.energy < b.energy ? a : b);
       return { prime: c.prime, sigma: best.sigma, energy: best.energy };
     });
+
+    return { curves, minima };
+  }, [tValue, numPrimes]);
+
+  const draw = useCallback(() => {
+    const svg = d3.select(svgRef.current);
+    svg.selectAll('*').remove();
+
+    const width = svgRef.current.clientWidth || 800;
+    const height = 400;
+    svg.attr('viewBox', `0 0 ${width} ${height}`);
+
+    const margin = { top: 30, right: 140, bottom: 50, left: 65 };
+    const w = width - margin.left - margin.right;
+    const h = height - margin.top - margin.bottom;
+
+    const sigmaRange = [0.05, 0.95];
 
     const x = d3.scaleLinear().domain(sigmaRange).range([0, w]);
     const yMax = d3.max(curves, c => d3.max(c.points, d => d.energy)) * 1.1;
@@ -148,7 +153,7 @@ function PerPrimeTab() {
     svg.append('text').attr('transform', `translate(16, ${height / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('E_p(σ)');
 
-  }, [tValue, numPrimes]);
+  }, [curves, minima]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

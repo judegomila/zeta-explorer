@@ -202,3 +202,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 196 | 2026-03-03T18:30:00Z | Fix ScatteringMatrixViz phase explainer describing phase-vs-t behavior when chart shows phase-vs-σ | ScatteringMatrixViz.jsx |
 | 197 | 2026-03-03T19:00:00Z | Show highest zero frequency (γ_max) next to Zeros Used slider in LiCriterionViz | LiCriterionViz.jsx |
 | 198 | 2026-03-03T19:30:00Z | Add legend to Hamiltonian test chart in RHRigorViz showing dot colors, trajectory line, and zero bands | RHRigorViz.jsx |
+| 199 | 2026-03-03T20:00:00Z | Memoize per-prime energy curves in PerPrimeTab to avoid recomputing 640+ oscillatorStage calls on resize | TwinOscillatorSimViz.jsx |

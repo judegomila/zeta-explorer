@@ -200,6 +200,11 @@ export default function EnergyLandscapeViz() {
   }, [landscape, tMax, metric]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => {
+    const handleResize = () => draw();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [draw]);
 
   const handleHover = useCallback((e) => {
     if (!landscapeRef.current || !canvasRef.current) return;

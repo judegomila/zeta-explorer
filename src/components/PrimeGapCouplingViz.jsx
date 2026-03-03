@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
 import { InlineMath } from './KaTeXMath.jsx';
 import { getPrimes, primeFrequency } from '../math/primes.js';
@@ -13,6 +13,22 @@ export default function PrimeGapCouplingViz() {
   const [numPrimes, setNumPrimes] = useState(60);
   const [mode, setMode] = useState('coupling');
 
+  // Memoize prime data so it's not recomputed on mode switch or window resize
+  const { primes, data } = useMemo(() => {
+    const primes = getPrimes(numPrimes);
+    const data = [];
+    for (let i = 0; i < primes.length - 1; i++) {
+      const p1 = primes[i];
+      const p2 = primes[i + 1];
+      const gap = p2 - p1;
+      const freqGap = primeFrequency(p2) - primeFrequency(p1);
+      const coupling = 1 / freqGap;
+      const isTwin = gap === 2;
+      data.push({ index: i, p1, p2, gap, freqGap, coupling, isTwin, midPrime: (p1 + p2) / 2 });
+    }
+    return { primes, data };
+  }, [numPrimes]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -25,17 +41,6 @@ export default function PrimeGapCouplingViz() {
     const h = height - margin.top - margin.bottom;
     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
 
-    const primes = getPrimes(numPrimes);
-    const data = [];
-    for (let i = 0; i < primes.length - 1; i++) {
-      const p1 = primes[i];
-      const p2 = primes[i + 1];
-      const gap = p2 - p1;
-      const freqGap = primeFrequency(p2) - primeFrequency(p1);
-      const coupling = 1 / freqGap;
-      const isTwin = gap === 2;
-      data.push({ index: i, p1, p2, gap, freqGap, coupling, isTwin, midPrime: (p1 + p2) / 2 });
-    }
 
     const x = d3.scaleLinear().domain([0, data.length - 1]).range([0, w]);
 
@@ -220,7 +225,7 @@ export default function PrimeGapCouplingViz() {
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('Prime index n');
 
-  }, [numPrimes, mode]);
+  }, [primes, data, mode]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

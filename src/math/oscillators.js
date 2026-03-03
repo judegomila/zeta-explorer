@@ -42,7 +42,7 @@ export function oscillatorStage(p, s) {
   // Resonance analysis
   const resonantFreq = omega;
   const bandwidth = 2 * s[0] * omega; // proportional to sigma
-  const Q = resonantFreq / (2 * s[0] || 0.001);
+  const Q = 1 / (2 * (s[0] || 0.001));
 
   return {
     prime: p,
@@ -121,16 +121,17 @@ export function losslessBridge(s) {
   const twoToS = cPow([2, 0], s);
   const piToSm1 = cPow([Math.PI, 0], [s[0] - 1, s[1]]);
 
-  // sin(pi*s/2)
+  // sin(pi*s/2) via (e^{iz} - e^{-iz}) / (2i) where z = pi*s/2
+  // iz = i*(pi*sigma/2 + i*pi*t/2) = -pi*t/2 + i*pi*sigma/2
   const halfPiS = [Math.PI * s[0] / 2, Math.PI * s[1] / 2];
   const sinTerm = cDiv(
-    cSub(cExp([halfPiS[1], halfPiS[0]]), cExp([-halfPiS[1], -halfPiS[0]])),
+    cSub(cExp([-halfPiS[1], halfPiS[0]]), cExp([halfPiS[1], -halfPiS[0]])),
     [0, 2]
   );
 
   // Gamma(1-s) via Stirling approximation for |s| not too small
   const oneMinusS = [1 - s[0], -s[1]];
-  const gammaApprox = stirlingGamma(oneMinusS);
+  const gammaApprox = lanczosGamma(oneMinusS);
 
   let chi = cMul(twoToS, piToSm1);
   chi = cMul(chi, sinTerm);
@@ -149,30 +150,57 @@ export function losslessBridge(s) {
 }
 
 /**
- * Stirling approximation for Gamma function at complex argument
- * log(Gamma(z)) ≈ (z - 1/2)*log(z) - z + log(2*pi)/2
+ * Complex sine function: sin(z) = (e^{iz} - e^{-iz}) / (2i)
  */
-function stirlingGamma(z) {
-  if (cAbs(z) < 0.5) {
-    // Use reflection formula for small z
-    // Gamma(z) * Gamma(1-z) = pi / sin(pi*z)
+function complexSin(z) {
+  // iz = [-z[1], z[0]], -iz = [z[1], -z[0]]
+  return cDiv(cSub(cExp([-z[1], z[0]]), cExp([z[1], -z[0]])), [0, 2]);
+}
+
+/**
+ * Lanczos approximation for complex Gamma function.
+ * Achieves ~15 digits of accuracy using g=7 with 9 coefficients.
+ * For Re(z) < 0.5, uses the reflection formula Gamma(z)·Gamma(1-z) = pi/sin(pi·z).
+ */
+function lanczosGamma(z) {
+  if (z[0] < 0.5) {
+    // Reflection formula: Gamma(z) = pi / (sin(pi*z) * Gamma(1-z))
     const oneMinusZ = [1 - z[0], -z[1]];
-    const g1mz = stirlingGamma(oneMinusZ);
-    const piZ = [Math.PI * z[0], Math.PI * z[1]];
-    const sinPiZ = cDiv(
-      cSub(cExp([piZ[1], piZ[0]]), cExp([-piZ[1], -piZ[0]])),
-      [0, 2]
-    );
+    const g1mz = lanczosGamma(oneMinusZ);
+    const sinPiZ = complexSin([Math.PI * z[0], Math.PI * z[1]]);
     return cDiv([Math.PI, 0], cMul(sinPiZ, g1mz));
   }
-  const { log, sqrt, PI } = Math;
-  const logZ = [log(cAbs(z)), Math.atan2(z[1], z[0])];
-  const zMinus = [z[0] - 0.5, z[1]];
-  const logGamma = cAdd(
-    cSub(cMul(zMinus, logZ), z),
-    [log(2 * PI) / 2, 0]
-  );
-  return cExp(logGamma);
+
+  // Lanczos coefficients for g=7 (from Numerical Recipes / Pugh 2004)
+  const p = [
+    0.99999999999980993,
+    676.5203681218851,
+    -1259.1392167224028,
+    771.32342877765313,
+    -176.61502916214059,
+    12.507343278686905,
+    -0.13857109526572012,
+    9.9843695780195716e-6,
+    1.5056327351493116e-7,
+  ];
+
+  const zM1 = [z[0] - 1, z[1]]; // z - 1
+  // Compute series: A(z) = p[0] + Σ_{k=1}^{8} p[k] / (z - 1 + k)
+  let x = [p[0], 0];
+  for (let k = 1; k < 9; k++) {
+    x = cAdd(x, cDiv([p[k], 0], [zM1[0] + k, zM1[1]]));
+  }
+
+  // t = z + g - 0.5 = z + 6.5
+  const t = [z[0] + 6.5, z[1]];
+
+  // Gamma(z) = sqrt(2*pi) * t^{z-0.5} * exp(-t) * A(z)
+  const SQRT_TWO_PI = Math.sqrt(2 * Math.PI);
+  const zMinusHalf = [z[0] - 0.5, z[1]];
+  let result = cPow(t, zMinusHalf);              // t^{z-0.5}
+  result = cMul(result, cExp([-t[0], -t[1]]));   // * exp(-t)
+  result = cMul(result, x);                       // * A(z)
+  return [result[0] * SQRT_TWO_PI, result[1] * SQRT_TWO_PI];
 }
 
 /**
@@ -183,6 +211,18 @@ function stirlingGamma(z) {
  * because the direct and dual ladders are perfectly matched
  * and the bridge becomes lossless (unitary scattering).
  */
+// Fast scalar Hamiltonian for gradient computation (avoids full object allocation)
+function systemHamiltonianRaw(s, numPrimes) {
+  const direct = directLadder(s, numPrimes);
+  const dual = dualLadder(s, numPrimes);
+  const bridge = losslessBridge(s);
+  const T = direct.totalEnergy + dual.totalEnergy;
+  const Zdiff = cSub(direct.totalImpedance, dual.totalImpedance);
+  const V = 0.5 * cAbs(Zdiff) ** 2;
+  const Vbridge = (1 - bridge.magnitude) ** 2 * 100;
+  return T + V + Vbridge;
+}
+
 export function systemHamiltonian(s, numPrimes = 20) {
   const direct = directLadder(s, numPrimes);
   const dual = dualLadder(s, numPrimes);
@@ -203,17 +243,13 @@ export function systemHamiltonian(s, numPrimes = 20) {
   // Total Hamiltonian
   const H = T + V + Vbridge;
 
-  // Gradient with respect to sigma (for optimization visualization)
+  // Gradient of full Hamiltonian with respect to sigma (central difference)
   const ds = 0.001;
   const sPlus = [s[0] + ds, s[1]];
   const sMinus = [s[0] - ds, s[1]];
-  const directP = directLadder(sPlus, numPrimes);
-  const directM = directLadder(sMinus, numPrimes);
-  const dualP = dualLadder(sPlus, numPrimes);
-  const dualM = dualLadder(sMinus, numPrimes);
-  const HP = directP.totalEnergy + dualP.totalEnergy;
-  const HM = directM.totalEnergy + dualM.totalEnergy;
-  const gradient = (HP - HM) / (2 * ds);
+  const hPlus = systemHamiltonianRaw(sPlus, numPrimes);
+  const hMinus = systemHamiltonianRaw(sMinus, numPrimes);
+  const gradient = (hPlus - hMinus) / (2 * ds);
 
   return {
     total: H,

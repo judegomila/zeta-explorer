@@ -153,3 +153,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 147 | 2026-03-04T00:00:00Z | Add hover tooltips to all data bars and dots in PrimeGapCouplingViz showing prime pair, gap, and coupling info | PrimeGapCouplingViz.jsx |
 | 148 | 2026-03-03T23:45:00Z | Fix EulerPhaseTab average factor magnitude line drawn as static orange instead of green/red convergence coloring | SupercriticalViz.jsx |
 | 149 | 2026-03-03T12:00:00Z | Add y-axis tick marks and amplitude gridlines to critical-line Z(t) chart in ZetaLandscapeViz | ZetaLandscapeViz.jsx |
+| 150 | 2026-03-03T12:30:00Z | Fix stale docstring comments claiming τ>0 scatters zeros (actually τ<0 does) in supercritical.js | supercritical.js |

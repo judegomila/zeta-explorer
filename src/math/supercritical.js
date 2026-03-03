@@ -176,8 +176,10 @@ export function thermodynamicScan(t, sigmaRange = [-2, 4], steps = 100, numPrime
  * ξ(s) = (1/2)s(s-1)π^{-s/2}Γ(s/2)ζ(s)
  *
  * The heat-evolved family: H_τ(t) satisfies ∂H/∂τ = ∂²H/∂t²
- * At τ=0, H_0(t) = Ξ(t). For τ>0, zeros move off the real line.
- * For τ<0, zeros are pushed onto the real line.
+ * At τ=0, H_0(t) = Ξ(t). For τ>0 (forward heat), zeros stay real —
+ * de Bruijn proved H_τ has only real zeros for τ ≥ Λ, and Rodgers-Tao
+ * showed Λ ≥ 0. For τ<0 (backward heat / inverse diffusion), zeros
+ * can scatter off the real line into conjugate pairs.
  *
  * We approximate by tracking how individual zeros evolve:
  * Under heat flow, zeros at positions γ_n repel each other.
@@ -230,8 +232,8 @@ export function heatFlowZeros(tau, numZeros = 30) {
 export function heatEvolvedXi(t, tau, numTerms = 50) {
   // For τ ≤ 0, the backward heat equation (inverse diffusion) is ill-posed and
   // cannot be computed via Gaussian convolution. Return the unsmoothed Z(t)
-  // directly, which is H₀(t) = Ξ(t) — consistent with zeros staying on the
-  // critical line for τ ≤ 0 (Rodgers-Tao: Λ ≥ 0).
+  // directly as H₀(t) = Ξ(t). Note: τ < 0 is where zeros CAN scatter off the
+  // real line; τ ≥ 0 is where Rodgers-Tao (Λ ≥ 0) guarantees they stay real.
   if (tau <= 0) {
     return riemannSiegelZ(t);
   }

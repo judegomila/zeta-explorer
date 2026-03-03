@@ -234,9 +234,10 @@ function FrequencyResponseTab() {
         <strong>The math:</strong> The Euler product{' '}
         <InlineMath tex="H(\\sigma+i\\omega) = \\prod_p (1-p^{-\\sigma-i\\omega})^{-1}" /> is the transfer function of the
         prime oscillator ladder network, plotted as a standard Bode diagram. The magnitude (top, in dB) shows the gain
-        at each frequency; the phase (bottom) shows the accumulated delay. At zeta zeros, the transfer function has
-        singularities &mdash; the gain diverges. Moving <InlineMath tex="\\sigma" /> off the critical line shifts and broadens
-        these resonance peaks. At <InlineMath tex="\\sigma = 0.5" />, the peaks are sharpest (critically coupled, <InlineMath tex="Q = 1" />).
+        at each frequency; the phase (bottom) shows the accumulated delay. Near zeta zero frequencies, the partial product
+        shows resonance peaks from constructive phase alignment, even though the Euler product only converges for{' '}
+        <InlineMath tex="\\sigma > 1" />. Moving <InlineMath tex="\\sigma" /> off the critical line shifts and broadens
+        these resonance peaks. At <InlineMath tex="\\sigma = 0.5" />, the peaks are sharpest (<InlineMath tex="Q = 1" />).
         <strong> Look for:</strong> resonance spikes at zeta zero frequencies; sharper peaks at <InlineMath tex="\\sigma = 0.5" />.
       </div>
       <div className="controls">

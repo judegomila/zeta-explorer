@@ -108,6 +108,11 @@ export default function LiCriterionViz() {
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
         .text('n');
 
+      svg.append('text')
+        .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('λₙ');
+
     } else if (mode === 'keiper-li') {
       // Keiper-Li: plot λ_n / n vs n (should → (1/2)log(n/(2πe)) + ...)
       const zeros = ZETA_ZEROS.slice(0, numZeros);
@@ -176,6 +181,15 @@ export default function LiCriterionViz() {
       legend.append('text').attr('x', 28).attr('y', 24).attr('fill', '#94a3b8').attr('font-size', 11)
         .text('½log(n/2πe) + ½');
 
+      svg.append('text').attr('x', width / 2).attr('y', height - 6)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('n');
+
+      svg.append('text')
+        .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('λₙ/n');
+
     } else {
       // De Bruijn-Newman: show what happens when we "heat" the zeros
       // Ξ_τ has zeros at σ = 1/2 for τ ≤ 0 (if RH), wander off for τ > 0
@@ -241,6 +255,11 @@ export default function LiCriterionViz() {
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
         .text('Im(ρ) = γ');
+
+      svg.append('text')
+        .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('σ = Re(ρ)');
     }
 
   }, [maxN, numZeros, mode]);

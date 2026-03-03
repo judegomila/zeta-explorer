@@ -18,6 +18,41 @@ export default function ZetaPage() {
 
       <ZetaLandscapeViz />
 
+      <div className="card" style={{ marginTop: 32 }}>
+        <h3 style={{ color: '#8b5cf6' }}>Computing <InlineMath tex="Z(t)" />: The Riemann-Siegel Formula</h3>
+        <p style={{ marginTop: 8 }}>
+          Evaluating <InlineMath tex="\zeta(1/2 + it)" /> directly would require summing a slowly-converging Dirichlet series.
+          The Riemann-Siegel formula exploits the functional equation to give a rapidly convergent approximation
+          using only <InlineMath tex="N = \lfloor\sqrt{t/2\pi}\rfloor" /> terms — a dramatic speedup for large <InlineMath tex="t" />.
+        </p>
+        <BlockMath tex="Z(t) \;\approx\; 2\sum_{n=1}^{N} \frac{\cos\bigl(\theta(t) - t\log n\bigr)}{\sqrt{n}} \;+\; (-1)^{N-1}\!\left(\frac{t}{2\pi}\right)^{\!-1/4}\! C_0(p)" />
+        <div className="two-col" style={{ marginTop: 12, gap: 16 }}>
+          <div>
+            <p style={{ fontSize: 13 }}>
+              <strong style={{ color: '#06b6d4' }}>Main sum</strong> — Each term is a cosine oscillation at
+              frequency <InlineMath tex="\log n" />, damped by <InlineMath tex="1/\sqrt{n}" />, and phase-shifted
+              by the Riemann-Siegel theta function <InlineMath tex="\theta(t)" />. In the oscillator model,
+              these are the natural modes of the chain at integer frequencies.
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: 13 }}>
+              <strong style={{ color: '#f59e0b' }}>Correction term</strong> — The <InlineMath tex="C_0(p)" /> term
+              (where <InlineMath tex="p = \sqrt{t/2\pi} - N" /> is the fractional part) accounts for the
+              truncation of the sum at <InlineMath tex="N" />, improving accuracy
+              from <InlineMath tex="O(t^{-1/4})" /> to <InlineMath tex="O(t^{-3/4})" />.
+            </p>
+          </div>
+        </div>
+        <div style={{ marginTop: 12, padding: 12, background: 'rgba(139,92,246,0.08)', borderRadius: 8 }}>
+          <p style={{ fontSize: 13, color: '#a78bfa' }}>
+            <strong>The theta function:</strong> <InlineMath tex="\theta(t) \approx \tfrac{t}{2}\log\!\tfrac{t}{2\pi} - \tfrac{t}{2} - \tfrac{\pi}{8}" /> is
+            the phase accumulator that "unwinds" the complex phase of <InlineMath tex="\zeta(1/2 + it)" />, making <InlineMath tex="Z(t)" /> real-valued.
+            Its derivative <InlineMath tex="\theta'(t) \approx \tfrac{1}{2}\log(t/2\pi)" /> gives the local density of zeros via the Weyl law.
+          </p>
+        </div>
+      </div>
+
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
           <h3 style={{ color: '#06b6d4' }}>Why <InlineMath tex="Z(t)" />? Real-Valued Zero Detection</h3>

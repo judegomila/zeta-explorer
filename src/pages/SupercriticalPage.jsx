@@ -37,7 +37,8 @@ export default function SupercriticalPage() {
           <InlineMath tex="\sigma = 1" /> and the sign change in entropy near the critical line.
           <strong style={{ color: '#f59e0b' }}> Heat Flow</strong> evolves the Xi function under the heat equation,
           animating how zeros migrate as <InlineMath tex="\tau" /> varies. At <InlineMath tex="\tau = 0" /> zeros sit on the real axis
-          (assuming RH); positive <InlineMath tex="\tau" /> smears them into the complex plane.
+          (assuming RH); negative <InlineMath tex="\tau" /> (backward heat) scatters them into the complex plane, while
+          positive <InlineMath tex="\tau" /> smooths the function and preserves real zeros.
           <strong style={{ color: '#ef4444' }}> Euler Product Phase</strong> decomposes the phase of <InlineMath tex="\zeta" /> into
           individual prime contributions. Look for how phase cancellation between primes sharpens near zeros,
           and how the distribution changes across the <InlineMath tex="\sigma = 1" /> boundary.
@@ -90,9 +91,10 @@ export default function SupercriticalPage() {
           <BlockMath tex="\\frac{\\partial H_\\tau}{\\partial \\tau} = \\frac{\\partial^2 H_\\tau}{\\partial t^2}, \\qquad \\Lambda \\geq 0 \\;\\text{(Rodgers-Tao 2020)}" />
           <p style={{ marginTop: 8 }}>
             The xi function evolves under the heat equation. At <InlineMath tex="\tau = 0" /> (no heating), RH says
-            all zeros are on the real line. Heating (<InlineMath tex="\tau > 0" />) pushes zeros off; cooling (<InlineMath tex="\tau < 0" />)
-            pulls them on. Rodgers-Tao proved <InlineMath tex="\Lambda \geq 0" />: the system is already at the coldest
-            point where zeros stay real.
+            all zeros are on the real line. Forward heat flow (<InlineMath tex="\tau > 0" />) smooths the function and
+            preserves real zeros; backward flow (<InlineMath tex="\tau < 0" />) scatters zeros off the real axis.
+            Rodgers-Tao proved <InlineMath tex="\Lambda \geq 0" />: the system is already at the critical
+            threshold — any backward perturbation destroys real zeros.
           </p>
         </div>
       </div>

@@ -3,7 +3,7 @@ import AnimatedModesViz from '../components/AnimatedModesViz.jsx';
 import PrimeGapCouplingViz from '../components/PrimeGapCouplingViz.jsx';
 import EnergyLandscapeViz from '../components/EnergyLandscapeViz.jsx';
 import ExplorationGraphViz from '../components/ExplorationGraphViz.jsx';
-import { BlockMath } from '../components/KaTeXMath.jsx';
+import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
 export default function ModesPage() {
   return (
@@ -17,6 +17,31 @@ export default function ModesPage() {
       </div>
 
       <BlockMath tex="\psi(x) = x - \sum_\rho \frac{x^\rho}{\rho} \quad \text{Each zero } \rho \text{ is a mode with frequency } \gamma \text{ and decay } \sigma" />
+
+      <div className="two-col" style={{ marginTop: 24 }}>
+        <div className="card">
+          <h3 style={{ color: '#f59e0b' }}>Anatomy of a Mode</h3>
+          <BlockMath tex="x^\rho = x^{\sigma + i\gamma} = x^\sigma \cdot e^{i\gamma\log x}" />
+          <p style={{ marginTop: 8 }}>
+            Each zeta zero <InlineMath tex="\rho = \sigma + i\gamma" /> contributes a <strong>damped
+            oscillation</strong> to the prime counting function. The imaginary part <InlineMath tex="\gamma" /> sets
+            the oscillation frequency in log-space, while the real part <InlineMath tex="\sigma" /> controls the
+            amplitude envelope. Larger <InlineMath tex="\gamma" /> means faster oscillation; smaller <InlineMath tex="\sigma" /> means
+            faster decay.
+          </p>
+        </div>
+        <div className="card">
+          <h3 style={{ color: '#a855f7' }}>Why <InlineMath tex="\sigma = 1/2" /> Matters</h3>
+          <BlockMath tex="\text{RH} \iff \text{all modes decay as } x^{1/2}" />
+          <p style={{ marginTop: 8 }}>
+            If all zeros lie on the critical line (<InlineMath tex="\sigma = 1/2" />), every mode shares the
+            same decay rate <InlineMath tex="x^{1/2}" />. No single oscillatory correction dominates —
+            the energy is distributed <strong>equally</strong> across all modes. A zero
+            off the line would decay at a different rate, breaking this equipartition
+            and causing larger deviations in the prime counting function.
+          </p>
+        </div>
+      </div>
 
       <div style={{ marginTop: 24 }}>
         <div className="viz-title">Animated Oscillator Modes</div>
@@ -32,8 +57,8 @@ export default function ModesPage() {
         <div className="viz-title">Prime Gap Coupling Structure</div>
         <div className="viz-subtitle">
           The coupling strength between adjacent oscillator stages is inversely proportional to the
-          frequency gap: Y ∝ 1/(log p_{'{n+1}'} - log p_n). Twin primes (red) create the strongest coupling.
-          View the oscillator frequencies ω_p = log(p) or the raw prime gaps.
+          frequency gap: <InlineMath tex="Y \\propto 1/(\\log p_{n+1} - \\log p_n)" />. Twin primes (red) create the strongest coupling.
+          View the oscillator frequencies <InlineMath tex="\\omega_p = \\log(p)" /> or the raw prime gaps.
         </div>
         <PrimeGapCouplingViz />
       </div>
@@ -62,7 +87,7 @@ export default function ModesPage() {
       <div style={{ marginTop: 48 }}>
         <div className="viz-title">2D Energy Landscape</div>
         <div className="viz-subtitle">
-          The full energy landscape in the (σ, t) plane. See the "valley" along σ = 1/2 where
+          The full energy landscape in the <InlineMath tex="(\\sigma, t)" /> plane. See the "valley" along <InlineMath tex="\\sigma = 1/2" /> where
           impedance mismatch vanishes. Switch between system energy, impedance mismatch,
           and individual ladder magnitudes. White circles mark known zeta zeros.
         </div>

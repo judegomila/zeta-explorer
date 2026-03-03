@@ -155,3 +155,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 149 | 2026-03-03T12:00:00Z | Add y-axis tick marks and amplitude gridlines to critical-line Z(t) chart in ZetaLandscapeViz | ZetaLandscapeViz.jsx |
 | 150 | 2026-03-03T12:30:00Z | Fix stale docstring comments claiming τ>0 scatters zeros (actually τ<0 does) in supercritical.js | supercritical.js |
 | 151 | 2026-03-03T21:00:00Z | Fix number variance explainer showing leading-order asymptotic instead of the full GUE formula actually plotted | GUEStatisticsViz.jsx |
+| 152 | 2026-03-03T23:00:00Z | Add nearest-zero proximity indicator to t slider in EulerPhaseTab | SupercriticalViz.jsx |

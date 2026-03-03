@@ -63,6 +63,16 @@ export default function ExplicitFormulaViz() {
       .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
     g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+    // Shaded area between PNT (y=x) and spectral approximation highlighting zero correction
+    g.append('path')
+      .datum(approxData)
+      .attr('d', d3.area()
+        .x(d => xScale(d.x))
+        .y0(d => yScale(d.x))
+        .y1(d => yScale(d.y))
+        .curve(d3.curveBasis))
+      .attr('fill', 'rgba(245, 158, 11, 0.08)');
+
     // x line (trivial approximation)
     g.append('path')
       .datum(actualData)

@@ -813,7 +813,7 @@ function BridgeTab() {
           .attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
         g.append('text').attr('x', x(atHalf.sigma) + 10).attr('y', y(Math.min(atHalf.chiMag, yMax)) + 4)
           .attr('fill', '#10b981').attr('font-size', 11).attr('font-weight', 600)
-          .text(`|chi| = ${atHalf.chiMag.toFixed(3)}`);
+          .text(`|χ| = ${atHalf.chiMag.toFixed(3)}`);
       }
 
       // Title

@@ -404,17 +404,26 @@ export function vonMangoldtSpectrum(maxN = 500, numFreqs = 200, freqRange = [0, 
     }
   }
 
+  // Precompute sparse list of non-zero entries with cached log values.
+  // This avoids recomputing Math.log(n) for every frequency (saves ~48k log calls
+  // with maxN=800, numFreqs=300) and skips zero entries without branching.
+  const nonZero = [];
+  for (let n = 2; n <= maxN; n++) {
+    if (lambda[n] !== 0) {
+      nonZero.push({ lambdaN: lambda[n], logN: Math.log(n) });
+    }
+  }
+
   // Compute Fourier transform: F(ω) = Σ Λ(n) · e^{-iω·log(n)}
   const spectrum = [];
   const df = (freqRange[1] - freqRange[0]) / numFreqs;
   for (let i = 0; i <= numFreqs; i++) {
     const freq = freqRange[0] + i * df;
     let re = 0, im = 0;
-    for (let n = 2; n <= maxN; n++) {
-      if (lambda[n] === 0) continue;
-      const phase = -freq * Math.log(n);
-      re += lambda[n] * Math.cos(phase);
-      im += lambda[n] * Math.sin(phase);
+    for (let j = 0; j < nonZero.length; j++) {
+      const phase = -freq * nonZero[j].logN;
+      re += nonZero[j].lambdaN * Math.cos(phase);
+      im += nonZero[j].lambdaN * Math.sin(phase);
     }
     const mag = Math.sqrt(re * re + im * im);
     spectrum.push({ frequency: freq, magnitude: mag, re, im, power: mag * mag });

@@ -78,6 +78,12 @@ export default function PrimeGapCouplingViz() {
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text('Inter-Stage Coupling Strength Y_{n,n+1} = 1/(log p_{n+1} − log p_n)');
 
+      // Y-axis label
+      svg.append('text')
+        .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('Coupling Y');
+
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 160}, 10)`);
       legend.append('circle').attr('cx', 6).attr('cy', 0).attr('r', 4).attr('fill', '#ef4444');
@@ -112,6 +118,12 @@ export default function PrimeGapCouplingViz() {
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text('Prime Gaps (p_{n+1} − p_n)');
+
+      // Y-axis label
+      svg.append('text')
+        .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('Gap size');
 
       const legend = g.append('g').attr('transform', `translate(${w - 120}, 10)`);
       [
@@ -162,6 +174,12 @@ export default function PrimeGapCouplingViz() {
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text('Oscillator Frequencies ω_p = log(p)');
+
+      // Y-axis label
+      svg.append('text')
+        .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
+        .text('Frequency ω');
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 160}, 10)`);

@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
 import * as d3 from 'd3';
 import {
   zetaMagnitudeScan,
-  zetaLandscapeExtended,
   thermodynamicScan,
   heatFlowZeros,
   heatFlowScan,
@@ -217,7 +216,7 @@ function ExtendedLandscapeTab() {
         in the critical strip <InlineMath tex="0 < \\sigma < 1" /> using the Dirichlet eta function{' '}
         <InlineMath tex="\\eta(s) = (1-2^{1-s})\\zeta(s)" />, and for <InlineMath tex="\\sigma < 0" /> via the functional equation{' '}
         <InlineMath tex="\\zeta(s) = \\chi(s)\\zeta(1-s)" />. The top panel shows <InlineMath tex="\\log|\\zeta|" /> as a 1D slice;
-        the bottom shows the 2D heatmap with phase coloring.
+        the bottom shows <InlineMath tex="\\arg\\zeta" /> — the phase (argument) — across the same <InlineMath tex="\\sigma" /> range.
         <strong> Look for:</strong> the Bost-Connes boundary at <InlineMath tex="\\sigma = 1" /> where the Euler product transitions from convergent to divergent,
         and the trivial zeros at negative even integers.
       </div>

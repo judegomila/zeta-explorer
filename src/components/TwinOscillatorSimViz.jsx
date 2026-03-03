@@ -177,8 +177,11 @@ function PerPrimeTab() {
         <strong>The math:</strong> Each prime <InlineMath tex="p" /> defines an oscillator with transfer function{' '}
         <InlineMath tex="H_p(s) = 1/(1 - p^{-s})" />. Its energy across both ladders is{' '}
         <InlineMath tex="E_p(\\sigma) = \\tfrac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1\\!-\\!s)|^2)" />.
-        Because <InlineMath tex="|H_p(s)|^2 + |H_p(1-s)|^2" /> is symmetric about <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> via
-        the functional equation, each prime's energy is individually minimized on the critical line.
+        The sum <InlineMath tex="|H_p(s)|^2 + |H_p(1-s)|^2" /> is symmetric about <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> by
+        construction — pairing each evaluation at <InlineMath tex="s" /> with its dual at <InlineMath tex="1-s" /> makes{' '}
+        <InlineMath tex="f(\\sigma) + f(1-\\sigma)" /> manifestly symmetric. (This is a property of the dual pairing, not
+        of the functional equation, which relates the <em>full</em> product <InlineMath tex="\\zeta(s)" />, not individual factors.)
+        Within the critical strip, each prime's energy is minimized on the critical line.
         <strong> Look for:</strong> all colored curves dipping to their minimum at the same <InlineMath tex="\\sigma = 0.5" /> vertical.
       </div>
       <div className="controls">

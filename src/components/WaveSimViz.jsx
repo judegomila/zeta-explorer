@@ -1041,7 +1041,7 @@ export default function WaveSimViz() {
             <div className="tab-explainer">
               <strong>Wave Interference:</strong> The superposition of all prime oscillators in each ladder. Top: direct ladder wave.
               Middle: dual ladder wave. Bottom: the absolute difference — at <InlineMath tex="\sigma = 0.5" /> this should be near zero
-              (constructive interference / perfect match).
+              (matched amplitudes from direct/dual symmetry).
             </div>
             <WaveInterferenceTab sigma={sigma} t={t} numPrimes={numPrimes} playing={playing} />
           </>

@@ -1,6 +1,6 @@
 import React from 'react';
 import ZetaLandscapeViz from '../components/ZetaLandscapeViz.jsx';
-import { BlockMath } from '../components/KaTeXMath.jsx';
+import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
 export default function ZetaPage() {
@@ -9,7 +9,7 @@ export default function ZetaPage() {
       <div className="page-header">
         <h1>Zeta Function Landscape</h1>
         <p>
-          Explore the Riemann zeta function across the critical strip. The Riemann-Siegel Z(t)
+          Explore the Riemann zeta function across the critical strip. The Riemann-Siegel <InlineMath tex="Z(t)" />
           function shows zeta on the critical line, while the heatmap reveals the full 2D structure.
         </p>
       </div>
@@ -20,8 +20,31 @@ export default function ZetaPage() {
 
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
+          <h3 style={{ color: '#06b6d4' }}>Why <InlineMath tex="Z(t)" />? Real-Valued Zero Detection</h3>
+          <p style={{ marginTop: 8 }}>
+            The raw zeta function <InlineMath tex="\zeta(1/2 + it)" /> is complex-valued, so its zeros are hard to see on a
+            plot — you'd need both real and imaginary parts to vanish simultaneously. The Riemann-Siegel
+            <InlineMath tex="Z" /> function multiplies by a phase factor <InlineMath tex="e^{i\theta(t)}" /> that "straightens" zeta into
+            a real-valued function. Now zeros appear as simple sign changes, making them easy to locate
+            and count by watching <InlineMath tex="Z(t)" /> cross through zero.
+          </p>
+        </div>
+        <div className="card">
+          <h3 style={{ color: '#f59e0b' }}>Reading the Heatmap</h3>
+          <p style={{ marginTop: 8 }}>
+            The 2D landscape plots <InlineMath tex="|\zeta(\sigma + it)|" /> across the critical strip <InlineMath tex="0 < \sigma < 1" />.
+            Dark regions mark where <InlineMath tex="|\zeta|" /> is small; the deepest valleys at <InlineMath tex="\sigma = 1/2" /> are
+            the nontrivial zeros. The vertical center line is the critical line. Notice how <InlineMath tex="|\zeta|" /> grows
+            as <InlineMath tex="\sigma \to 0" /> or <InlineMath tex="\sigma \to 1" />, with the zero valleys pinching inward — RH asserts they
+            all sit exactly on the center line.
+          </p>
+        </div>
+      </div>
+
+      <div className="two-col" style={{ marginTop: 32 }}>
+        <div className="card">
           <h3>Known Nontrivial Zeros</h3>
-          <p style={{ marginBottom: 12 }}>First {ZETA_ZEROS.length} imaginary parts γ_n of zeros ρ = ½ + iγ_n</p>
+          <p style={{ marginBottom: 12 }}>First {ZETA_ZEROS.length} imaginary parts <InlineMath tex="\\gamma_n" /> of zeros <InlineMath tex="\\rho = \\tfrac{1}{2} + i\\gamma_n" /></p>
           <div style={{
             maxHeight: 360,
             overflowY: 'auto',
@@ -31,7 +54,7 @@ export default function ZetaPage() {
           }}>
             {ZETA_ZEROS.map((z, i) => (
               <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '0 8px', borderBottom: '1px solid rgba(42,48,80,0.3)' }}>
-                <span style={{ color: '#64748b' }}>γ_{(i + 1).toString().padStart(2, '0')}</span>
+                <span style={{ color: '#64748b' }}><InlineMath tex={`\\gamma_{${(i + 1).toString().padStart(2, '0')}}`} /></span>
                 <span style={{ color: '#06b6d4' }}>{z.toFixed(6)}</span>
               </div>
             ))}
@@ -41,29 +64,29 @@ export default function ZetaPage() {
           <h3>Zeta Zero Statistics</h3>
           <div style={{ marginTop: 12 }}>
             <div style={{ marginBottom: 16 }}>
-              <span style={{ color: '#64748b', fontSize: 12 }}>Mean spacing (first 50 zeros)</span>
+              <span style={{ color: '#64748b', fontSize: 12 }}>Mean spacing (all {ZETA_ZEROS.length} zeros)</span>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, color: '#3b82f6', marginTop: 4 }}>
-                {((ZETA_ZEROS[49] - ZETA_ZEROS[0]) / 49).toFixed(4)}
+                {((ZETA_ZEROS[ZETA_ZEROS.length - 1] - ZETA_ZEROS[0]) / (ZETA_ZEROS.length - 1)).toFixed(4)}
               </div>
             </div>
             <div style={{ marginBottom: 16 }}>
               <span style={{ color: '#64748b', fontSize: 12 }}>First zero</span>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, color: '#f59e0b', marginTop: 4 }}>
-                γ₁ = {ZETA_ZEROS[0].toFixed(6)}
+                <InlineMath tex="\\gamma_1" /> = {ZETA_ZEROS[0].toFixed(6)}
               </div>
             </div>
             <div style={{ marginBottom: 16 }}>
-              <span style={{ color: '#64748b', fontSize: 12 }}>50th zero</span>
+              <span style={{ color: '#64748b', fontSize: 12 }}>{ZETA_ZEROS.length}th zero</span>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, color: '#8b5cf6', marginTop: 4 }}>
-                γ₅₀ = {ZETA_ZEROS[49].toFixed(6)}
+                <InlineMath tex={`\\gamma_{${ZETA_ZEROS.length}}`} /> = {ZETA_ZEROS[ZETA_ZEROS.length - 1].toFixed(6)}
               </div>
             </div>
           </div>
           <div style={{ marginTop: 16 }}>
             <BlockMath tex="N(T) \\sim \\frac{T}{2\\pi}\\log\\frac{T}{2\\pi e}" />
             <p style={{ fontSize: 13, marginTop: 8 }}>
-              The zero counting function N(T) counts zeros with 0 &lt; γ &lt; T. The average spacing
-              decreases as 2π/log(T/2π), reflecting the increasing density of oscillator modes.
+              The zero counting function <InlineMath tex="N(T)" /> counts zeros with <InlineMath tex="0 < \\gamma < T" />. The average spacing
+              decreases as <InlineMath tex="2\\pi/\\log(T/2\\pi)" />, reflecting the increasing density of oscillator modes.
             </p>
           </div>
           <div style={{ marginTop: 16, padding: 12, background: 'rgba(16,185,129,0.08)', borderRadius: 8 }}>

@@ -30,6 +30,29 @@ export default function TwistorPage() {
         <TwistorViz />
       </div>
 
+      <div className="card" style={{ marginTop: 32, borderColor: '#f59e0b' }}>
+        <h3 style={{ color: '#f59e0b' }}>What to Explore in Each Tab</h3>
+        <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          <strong style={{ color: '#3b82f6' }}>Correspondence</strong> — the s-plane (left) maps to twistor space
+          (right). Drag <InlineMath tex="\sigma" /> across the critical line and watch the twistor <InlineMath tex="Z" /> (blue)
+          and dual twistor <InlineMath tex="W" /> (gold) respond. The intertwiner arc turns green when{' '}
+          <InlineMath tex="|Z \cdot W| \approx 0" /> (incidence satisfied). At <InlineMath tex="\sigma = 0.5" /> the two
+          spinors are related by the lossless bridge — move away to see them decouple.
+          <strong style={{ color: '#10b981' }}> Penrose Transform</strong> — compares the twistor-weighted Euler
+          product (top, cyan) with the raw <InlineMath tex="|\zeta(s)|" /> (bottom, purple) across <InlineMath tex="\sigma" />.
+          The Pearson correlation in the corner measures how faithfully the twistor weighting captures zeta
+          behavior. Increase primes to sharpen both curves and watch the correlation change.
+          <strong style={{ color: '#ef4444' }}> Incidence Relation</strong> — a 2D heatmap of{' '}
+          <InlineMath tex="|Z \cdot W|" /> over the <InlineMath tex="(\sigma, t)" /> plane. Look for the dark band
+          along <InlineMath tex="\sigma = 0.5" /> where incidence is satisfied. Green dots mark known zeta zeros —
+          they should sit on the dark locus. Widen the t-range to see more zeros and confirm the band persists.
+          <strong style={{ color: '#8b5cf6' }}> Dual Pair</strong> — animated spinor rotation showing twistor{' '}
+          <InlineMath tex="Z" /> (blue) and dual <InlineMath tex="W" /> (gold) evolving as t sweeps forward. The
+          central intertwiner shows coupling strength. At <InlineMath tex="\sigma = 0.5" /> the pair is phase-locked
+          with matched helicities; off the critical line, the rotation rates diverge.
+        </p>
+      </div>
+
       <div className="card" style={{ marginTop: 32, borderColor: '#8b5cf6' }}>
         <h3 style={{ color: '#8b5cf6' }}>ZPO / Twistor Correspondence Table</h3>
         <table style={{ width: '100%', marginTop: 12, fontSize: 13, color: 'var(--text-secondary)', borderCollapse: 'collapse' }}>

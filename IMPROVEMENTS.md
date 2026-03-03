@@ -221,3 +221,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 215 | 2026-03-04T02:30:00Z | Fix ZetaPage claiming θ'(t) is the local zero density when the density is θ'(t)/π | ZetaPage.jsx |
 | 216 | 2026-03-04T03:00:00Z | Show largest prime (p_max) next to Primes slider count in EnergyLandscapeViz | EnergyLandscapeViz.jsx |
 | 217 | 2026-03-04T03:30:00Z | Add legend to critical-line Z(t) chart in ZetaLandscapeViz showing positive/negative/zero color coding | ZetaLandscapeViz.jsx |
+| 218 | 2026-03-03T12:00:00Z | Add horizontal gridlines to magnitude axis in EulerProductViz for easier value reading | EulerProductViz.jsx |

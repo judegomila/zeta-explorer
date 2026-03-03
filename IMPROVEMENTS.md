@@ -185,3 +185,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 179 | 2026-03-03T23:30:00Z | Add horizontal gridlines to all three modes of ScatteringMatrixViz | ScatteringMatrixViz.jsx |
 | 180 | 2026-03-03T23:45:00Z | Add legends to both EulerPhaseTab charts showing convergence coloring and reference lines | SupercriticalViz.jsx |
 | 181 | 2026-03-03T23:55:00Z | Fix blurry canvas rendering on retina displays in WaveSimViz SignalFlowTab and WaveInterferenceTab | WaveSimViz.jsx |
+| 182 | 2026-03-03T23:59:00Z | Fix Spectral Decomposition formula equating complex x^ρ/ρ with real cosine (missing conjugate pair and factor of 2) | HamiltonianPage.jsx |

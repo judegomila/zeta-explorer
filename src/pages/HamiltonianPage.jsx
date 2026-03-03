@@ -106,13 +106,13 @@ export default function HamiltonianPage() {
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
           <h3 style={{ color: '#3b82f6' }}>Spectral Decomposition</h3>
-          <BlockMath tex="\frac{x^\rho}{\rho} = \frac{x^{1/2}}{\sqrt{\gamma^2 + 1/4}}\,\cos\!\bigl(\gamma\log x - \arg\rho\bigr)" />
+          <BlockMath tex="\frac{x^\rho}{\rho} + \frac{x^{\bar\rho}}{\bar\rho} = \frac{2x^{1/2}}{\sqrt{\gamma^2 + 1/4}}\,\cos\!\bigl(\gamma\log x - \arg\rho\bigr)" />
           <p style={{ marginTop: 8 }}>
-            Each nontrivial zero <InlineMath tex="\rho = \tfrac{1}{2}+i\gamma" /> contributes a damped sinusoid
-            to <InlineMath tex="\psi(x)" />.
+            Each conjugate pair of nontrivial zeros <InlineMath tex="\rho, \bar\rho = \tfrac{1}{2}\pm i\gamma" /> contributes
+            a damped sinusoid to <InlineMath tex="\psi(x)" />.
             The frequency is <InlineMath tex="\gamma" /> (the imaginary part), the envelope decays
             as <InlineMath tex="x^{1/2}" /> (from <InlineMath tex="\sigma = \tfrac{1}{2}" />), and the amplitude falls
-            off as <InlineMath tex="1/|\rho|" />. Higher zeros contribute smaller, faster oscillations —
+            off as <InlineMath tex="2/|\rho|" />. Higher zeros contribute smaller, faster oscillations —
             fine detail in the prime staircase.
           </p>
         </div>

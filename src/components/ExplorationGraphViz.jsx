@@ -131,6 +131,25 @@ export default function ExplorationGraphViz() {
       .attr('fill', '#64748b').attr('font-size', 11)
       .text('Drag nodes to rearrange. Click for details. Numbers = exploration depth.');
 
+    // Category color legend (top right)
+    const legendCategories = [
+      { label: 'Foundation', color: '#3b82f6' },
+      { label: 'Oscillator Model', color: '#06b6d4' },
+      { label: 'Duality', color: '#8b5cf6' },
+      { label: 'Hamiltonian', color: '#10b981' },
+      { label: 'Control Theory', color: '#f59e0b' },
+      { label: 'Signal Proc.', color: '#ec4899' },
+      { label: 'Statistical', color: '#ef4444' },
+    ];
+    const legend = svg.append('g').attr('transform', `translate(${width - 130}, 8)`);
+    legendCategories.forEach((cat, i) => {
+      const row = legend.append('g').attr('transform', `translate(0, ${i * 15})`);
+      row.append('circle').attr('r', 4.5).attr('cx', 5).attr('cy', 5)
+        .attr('fill', cat.color + '30').attr('stroke', cat.color).attr('stroke-width', 1.5);
+      row.append('text').attr('x', 14).attr('y', 8.5)
+        .attr('fill', '#94a3b8').attr('font-size', 9).text(cat.label);
+    });
+
   }, []);
 
   useEffect(() => { draw(); }, [draw]);

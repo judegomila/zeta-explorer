@@ -48,6 +48,45 @@ export default function ControlTheoryPage() {
         </div>
       </div>
 
+      <div className="card" style={{ marginTop: 32, borderColor: '#f59e0b' }}>
+        <h3 style={{ color: '#f59e0b' }}>What to Explore in Each Visualization</h3>
+        <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 2 }}>
+          <li>
+            <strong style={{ color: '#3b82f6' }}>Nyquist Plot:</strong> at{' '}
+            <InlineMath tex="\sigma = 0.5" /> the contour should never
+            encircle <InlineMath tex="-1" /> (shown as a red dot). Move{' '}
+            <InlineMath tex="\sigma" /> away from <InlineMath tex="0.5" /> and
+            watch the contour inflate and begin to encircle{' '}
+            <InlineMath tex="-1" />, signaling instability. Widen the t-range
+            to trace more of the contour and see additional near-passes.
+          </li>
+          <li>
+            <strong style={{ color: '#10b981' }}>Bode Diagram:</strong> switch
+            to the Bode tab to see magnitude (dB) and phase vs frequency on
+            log scale. At <InlineMath tex="\sigma = 0.5" /> the magnitude
+            hovers near 0 dB (<InlineMath tex="|L| = 1" />); off the critical
+            line the gain curve tilts, revealing how far the system is from
+            marginal stability.
+          </li>
+          <li>
+            <strong style={{ color: '#8b5cf6' }}>Scattering Magnitude:</strong> the{' '}
+            <InlineMath tex="|\chi(\sigma + it)|" /> curve crosses 1 exactly
+            at <InlineMath tex="\sigma = 0.5" />. Drag{' '}
+            <InlineMath tex="t" /> near a zeta zero (e.g. 14.13, 21.02) and
+            watch the curve steepen around the critical line, showing tighter
+            impedance matching near resonance.
+          </li>
+          <li>
+            <strong style={{ color: '#ef4444' }}>Reflection Coefficient:</strong> switch
+            to reflection mode to see <InlineMath tex="\Gamma" /> vanish at{' '}
+            <InlineMath tex="\sigma = 0.5" /> — the bridge is perfectly
+            matched. The sharper the dip, the stronger the lossless condition.
+            Compare at different <InlineMath tex="t" /> values to see how
+            matching quality varies with frequency.
+          </li>
+        </ul>
+      </div>
+
       <div style={{ marginTop: 32 }}>
         <div className="viz-title">Nyquist Plot & Bode Diagram</div>
         <div className="viz-subtitle">

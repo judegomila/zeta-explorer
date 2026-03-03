@@ -189,3 +189,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 183 | 2026-03-03T12:00:00Z | Show largest prime (p_max) next to Primes slider count in all three FourierDomainViz tabs | FourierDomainViz.jsx |
 | 184 | 2026-03-03T12:30:00Z | Memoize prime gap data array in PrimeGapCouplingViz to avoid recomputing on mode switch and resize | PrimeGapCouplingViz.jsx |
 | 185 | 2026-03-03T13:00:00Z | Memoize group delay computation in PhaseDelayTab to avoid recomputing oscillator stages on resize | WaveSimViz.jsx |
+| 186 | 2026-03-03T13:30:00Z | Add "What to Explore" guide card to ControlTheoryPage for Nyquist, Bode, and Scattering visualizations | ControlTheoryPage.jsx |

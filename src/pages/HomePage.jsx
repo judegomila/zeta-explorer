@@ -151,6 +151,60 @@ export default function HomePage() {
       </div>
 
       <div style={{ margin: '48px 0 20px' }}>
+        <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 16 }}>Suggested Learning Path</h2>
+        <div className="card" style={{ padding: '20px 24px' }}>
+          <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 16 }}>
+            New to the ZPO model? Follow this progression — each page builds on concepts from the previous ones.
+          </p>
+          <div style={{ display: 'grid', gap: 8 }}>
+            {[
+              { num: 1, route: '/oscillators', label: 'Prime Oscillator Chain', desc: 'Start here — learn how each prime becomes an LC resonator and the Euler product becomes a ladder network.' },
+              { num: 2, route: '/hamiltonian', label: 'Hamiltonian & Explicit Formula', desc: 'See why the total system energy is minimized at σ = ½, and how zeta zeros decompose the prime staircase.' },
+              { num: 3, route: '/zeta', label: 'Zeta Landscape', desc: 'Explore the raw zeta function — the Z(t) zero detector, the 2D heatmap, and the zero table.' },
+              { num: 4, route: '/fourier', label: 'Fourier Domain', desc: 'View the frequency response of the ladder, the von Mangoldt spectrum, and prime harmonic decomposition.' },
+              { num: 5, route: '/control', label: 'Control Theory', desc: 'Reframe RH as a Nyquist stability criterion — zeros as instability points of a feedback loop.' },
+              { num: 6, route: '/statistics', label: 'Zero Statistics', desc: 'Compare zero spacing to GUE random matrix predictions and explore the Li criterion and de Bruijn-Newman heat flow.' },
+              { num: 7, route: '/simulator', label: 'Twin Oscillator Simulator', desc: 'Run interactive tests — gradient descent, convergence analysis, bridge unitarity, multi-zero verification.' },
+              { num: 8, route: '/modes', label: 'Modes & Structure', desc: 'Watch oscillator modes animate at zero frequencies, inspect prime gap coupling, and explore the 2D energy landscape.' },
+              { num: 9, route: '/supercritical', label: 'Supercritical Analysis', desc: 'Thermodynamics of ζ as a partition function, heat flow evolution, and the extended landscape beyond the critical strip.' },
+              { num: 10, route: '/waves', label: 'Wave Simulator', desc: 'Visualize energy flow through the ladder — signal reflection, wave interference, group delay, and circuit diagrams.' },
+            ].map(({ num, route, label, desc }) => (
+              <Link key={route} to={route} style={{ textDecoration: 'none' }}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: 12,
+                  padding: '8px 12px',
+                  borderRadius: 8,
+                  transition: 'background 0.15s',
+                  cursor: 'pointer',
+                }}>
+                  <span style={{
+                    flexShrink: 0,
+                    width: 24,
+                    height: 24,
+                    borderRadius: '50%',
+                    background: 'rgba(59,130,246,0.15)',
+                    color: '#3b82f6',
+                    fontSize: 12,
+                    fontWeight: 700,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginTop: 2,
+                  }}>{num}</span>
+                  <div>
+                    <span style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: 14 }}>{label}</span>
+                    <span style={{ color: 'var(--text-secondary)', fontSize: 13, marginLeft: 8 }}>{desc}</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div style={{ margin: '48px 0 20px' }}>
         <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 16 }}>Key Mathematical Correspondences</h2>
         <div className="card" style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>

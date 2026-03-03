@@ -105,22 +105,28 @@ export default function OscillatorChainViz() {
       .attr('stroke-width', 1.5);
 
     // Horizontal connectors and nodes for each prime
+    // Scale connector opacity and width by per-stage magnitude
+    const maxMag = Math.max(...direct.stages.map(s => s.magnitude), ...dual.stages.map(s => s.magnitude), 1);
     primes.forEach((p, i) => {
       const y = yStart + (i + 1) * ySpacing;
+      const directMag = direct.stages[i]?.magnitude || 1;
+      const dualMag = dual.stages[i]?.magnitude || 1;
+      const directStrength = directMag / maxMag;
+      const dualStrength = dualMag / maxMag;
 
-      // Direct to bridge connector
+      // Direct to bridge connector — opacity/width scales with stage magnitude
       svg.append('line')
         .attr('x1', xDirect + 22).attr('y1', y)
         .attr('x2', xBridge - bridgeWidth / 2 - 2).attr('y2', y)
-        .attr('stroke', '#8b5cf6').attr('stroke-width', 0.8)
-        .attr('opacity', 0.25).attr('stroke-dasharray', '3,3');
+        .attr('stroke', '#8b5cf6').attr('stroke-width', 0.6 + directStrength * 1.4)
+        .attr('opacity', 0.12 + directStrength * 0.38).attr('stroke-dasharray', '3,3');
 
-      // Bridge to dual connector
+      // Bridge to dual connector — opacity/width scales with stage magnitude
       svg.append('line')
         .attr('x1', xBridge + bridgeWidth / 2 + 2).attr('y1', y)
         .attr('x2', xDual - 22).attr('y2', y)
-        .attr('stroke', '#8b5cf6').attr('stroke-width', 0.8)
-        .attr('opacity', 0.25).attr('stroke-dasharray', '3,3');
+        .attr('stroke', '#8b5cf6').attr('stroke-width', 0.6 + dualStrength * 1.4)
+        .attr('opacity', 0.12 + dualStrength * 0.38).attr('stroke-dasharray', '3,3');
 
       // Small bridge node at center
       const bridgeNodeR = 4;

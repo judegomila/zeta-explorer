@@ -46,6 +46,35 @@ export default function SupercriticalPage() {
 
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
+          <h3 style={{ color: '#3b82f6' }}>Free Energy & Entropy</h3>
+          <BlockMath tex="F(\beta) = -T\log|\zeta(\beta + it)|, \quad S = -\frac{\partial F}{\partial T} = \beta^2 \frac{\partial}{\partial \beta}\log|\zeta|" />
+          <p style={{ marginTop: 8 }}>
+            <strong style={{ color: '#3b82f6' }}>Free energy</strong> <InlineMath tex="F" /> is the thermodynamic
+            potential — it diverges at the pole <InlineMath tex="\sigma = 1" /> (the phase transition) and is smooth
+            elsewhere. <strong style={{ color: '#8b5cf6' }}>Entropy</strong> <InlineMath tex="S" /> measures
+            the disorder of prime occupancy states. It changes sign near
+            the critical line: positive for <InlineMath tex="\sigma < 1" /> (hot, disordered)
+            and negative for <InlineMath tex="\sigma > 1" /> (cold, ordered). The sign change marks the crossover
+            from collective to independent prime behavior.
+          </p>
+        </div>
+        <div className="card">
+          <h3 style={{ color: '#10b981' }}>Specific Heat & Pressure</h3>
+          <BlockMath tex="C_v = \beta^2\frac{\partial^2 \log|\zeta|}{\partial \beta^2}, \quad P = \frac{1}{N}\sum_p \log\frac{1}{|1-p^{-s}|}" />
+          <p style={{ marginTop: 8 }}>
+            <strong style={{ color: '#10b981' }}>Specific heat</strong> <InlineMath tex="C_v" /> measures the
+            system's response to temperature changes — it spikes sharply at the phase
+            transition <InlineMath tex="\sigma = 1" />, signaling critical fluctuations. A second, subtler
+            feature near <InlineMath tex="\sigma = 1/2" /> reflects the oscillator chain's resonance structure.{' '}
+            <strong style={{ color: '#f59e0b' }}>Pressure</strong> <InlineMath tex="P" /> is the average
+            per-prime contribution to <InlineMath tex="\log|\zeta|" />, finite in the gas
+            phase (<InlineMath tex="\sigma > 1" />) and divergent at the transition.
+          </p>
+        </div>
+      </div>
+
+      <div className="two-col" style={{ marginTop: 32 }}>
+        <div className="card">
           <h3 style={{ color: '#f59e0b' }}>Bost-Connes Phase Transition (<InlineMath tex="\sigma = 1" />)</h3>
           <BlockMath tex="\\beta_c = 1: \\quad \\text{symmetry breaking, multiple KMS states} \\;(\\beta > 1) \\;\\leftrightarrow\\; \\text{unique KMS state} \\;(\\beta \\leq 1)" />
           <p style={{ marginTop: 8 }}>

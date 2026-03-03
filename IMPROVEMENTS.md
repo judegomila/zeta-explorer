@@ -242,3 +242,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 236 | 2026-03-03T20:00:00Z | Add legend to GradientDescentTab canvas showing H(σ) curve, descent path, critical line, and convergence | TwinOscillatorSimViz.jsx |
 | 237 | 2026-03-03T20:30:00Z | Memoize thermodynamicScan in ThermodynamicsTab to avoid recomputing 120-point scan on resize | SupercriticalViz.jsx |
 | 238 | 2026-03-03T21:00:00Z | Memoize all three GUE statistics (spacing, pair-correlation, number-variance) to avoid recomputing on resize and mode switch | GUEStatisticsViz.jsx |
+| 239 | 2026-03-03T21:30:00Z | Add thermodynamic quantity explainer cards (F, S, C_v, P) to SupercriticalPage | SupercriticalPage.jsx |

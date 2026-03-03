@@ -173,3 +173,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 167 | 2026-03-03T17:30:00Z | Fix explicit formula display omitting trivial zeros term ½log(1 − x⁻²) | ExplicitFormulaViz.jsx |
 | 168 | 2026-03-03T18:00:00Z | Show largest prime (p_max) next to Primes slider count in WaveSimViz | WaveSimViz.jsx |
 | 169 | 2026-03-03T18:30:00Z | Fix Riemann-Siegel C₀ correction producing NaN at removable singularities p=1/4 and p=3/4 | zeta.js |
+| 170 | 2026-03-03T19:00:00Z | Add horizontal gridlines to both BridgeTab charts in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |

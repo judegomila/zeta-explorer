@@ -104,6 +104,11 @@ function PerPrimeTab() {
       .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
     g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+    // Horizontal gridlines
+    const gridG = g.append('g').call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(''));
+    gridG.select('.domain').remove();
+    gridG.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+
     // Critical line
     g.append('line')
       .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
@@ -783,6 +788,11 @@ function BridgeTab() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+      // Horizontal gridlines
+      const gridL = g.append('g').call(d3.axisLeft(y).ticks(6).tickSize(-halfW).tickFormat(''));
+      gridL.select('.domain').remove();
+      gridL.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
+
       // Reference line at |chi| = 1
       g.append('line').attr('x1', 0).attr('y1', y(1)).attr('x2', halfW).attr('y2', y(1))
         .attr('stroke', '#10b981').attr('stroke-width', 1).attr('stroke-dasharray', '6,3').attr('opacity', 0.7);
@@ -838,6 +848,11 @@ function BridgeTab() {
       g.append('g').call(d3.axisLeft(y).ticks(6).tickFormat(d => d.toFixed(2)))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+
+      // Horizontal gridlines
+      const gridR = g.append('g').call(d3.axisLeft(y).ticks(6).tickSize(-halfW).tickFormat(''));
+      gridR.select('.domain').remove();
+      gridR.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       // Zero reference
       g.append('line').attr('x1', 0).attr('y1', y(0)).attr('x2', halfW).attr('y2', y(0))

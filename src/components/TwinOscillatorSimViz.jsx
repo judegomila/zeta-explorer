@@ -400,6 +400,11 @@ function GradientDescentTab() {
       ctx.font = '11px Inter, sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText('Step', W / 2, botY + botH - 2);
+      ctx.save();
+      ctx.translate(14, byStart + bh / 2);
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillText('σ', 0, 0);
+      ctx.restore();
 
       ctx.fillStyle = '#64748b';
       ctx.font = '10px "JetBrains Mono", monospace';

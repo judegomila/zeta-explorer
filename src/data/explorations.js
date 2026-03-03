@@ -1058,6 +1058,53 @@ $\\Lambda = 0$ means the oscillator chain is at **critical damping**: it is exac
       'Current bounds: 0 ≤ Λ ≤ 0.22, narrowing from both sides toward the RH prediction Λ = 0',
     ],
     references: ['debruijn-1950', 'newman-1976', 'rodgers-tao-2020', 'polymath15-2019'],
+    nextSteps: ['exp-027'],
+  },
+  {
+    id: 'exp-027',
+    timestamp: '2026-03-03T18:30:00Z',
+    title: 'The Hilbert-Pólya Conjecture: Spectral Origin of the Zeros',
+    status: 'complete',
+    category: 'foundation',
+    depth: 3,
+    content: `The **Hilbert-Pólya conjecture** is the oldest and most influential physical interpretation of the Riemann Hypothesis. It asserts that the nontrivial zeros $\\rho = \\frac{1}{2} + i\\gamma_n$ of the Riemann zeta function are the **eigenvalues of a self-adjoint (Hermitian) operator** $\\hat{T}$:
+
+$$\\hat{T}\\, \\psi_n = \\gamma_n\\, \\psi_n$$
+
+If such an operator exists, its spectrum is automatically real (by the spectral theorem for self-adjoint operators), which would force all $\\gamma_n \\in \\mathbb{R}$ — and this is precisely the Riemann Hypothesis.
+
+**Historical thread.** The conjecture originated in a letter from Pólya to Landau (circa 1914) and was independently suggested by Hilbert. For decades it remained a vague aspiration. The modern era began with three key developments:
+
+1. **Montgomery-Odlyzko law (1973/1987):** Montgomery proved that the pair correlation of zeta zeros (assuming RH) matches the GUE statistics of random Hermitian matrices, and Odlyzko confirmed this numerically to extraordinary precision. This is strong circumstantial evidence: if zeros behave statistically like eigenvalues of a Hermitian matrix, perhaps they literally are.
+
+2. **Berry-Keating conjecture (1999):** Berry and Keating proposed that the unknown operator is the quantization of the classical Hamiltonian $H = xp$. The semiclassical eigenvalue density of $xp$ matches the smooth part of the zero counting function $\\bar{N}(T) \\sim \\frac{T}{2\\pi}\\log\\frac{T}{2\\pi e}$ — exactly the Weyl law for zeta zeros.
+
+3. **Connes' trace formula (1999):** Connes showed that the zeros emerge as an **absorption spectrum** of a quantum system on the adele class space $\\mathbb{A}/\\mathbb{Q}^*$. The primes appear as resonant frequencies — precisely what our oscillator model implements.
+
+**Circuit interpretation.** The oscillator chain Hamiltonian $\\hat{H}(\\sigma, t)$ in this app is a finite-dimensional analog of the Hilbert-Pólya operator:
+
+- Each prime contributes an oscillator stage (the "eigenspace" of that prime's frequency $\\log p$)
+- The system energy $\\hat{H}$ depends on $\\sigma$ and $t$, with minima at $\\sigma = 1/2$
+- At $\\sigma = 1/2$, all oscillators are critically coupled ($Q = 1$), the bridge is unitary ($|\\chi| = 1$), and impedance is perfectly matched
+
+This is not the Hilbert-Pólya operator itself — it is a pedagogical model showing **why** self-adjointness maps to critical-line symmetry. The $s \\leftrightarrow 1-s$ symmetry of the functional equation becomes the **PT-symmetry** of the Hamiltonian: parity $P: \\sigma \\to 1-\\sigma$ (swap direct/dual ladders) and time reversal $T: t \\to -t$. A PT-symmetric operator has real eigenvalues if and only if PT-symmetry is unbroken — and the critical line $\\sigma = 1/2$ is exactly the PT-symmetric fixed point.
+
+**Open questions.** Despite decades of progress, no fully rigorous Hilbert-Pólya operator has been constructed. Bender, Brody, and Müller (2017) proposed a PT-symmetric candidate, but completeness of the eigensystem remains unproven. The oscillator chain model shows the structural properties any such operator must have: it must respect the Euler product factorization (cascade structure), the functional equation (bridge unitarity), and produce the correct asymptotic eigenvalue density (Weyl law).`,
+    latex: [
+      '\\hat{T}\\, \\psi_n = \\gamma_n\\, \\psi_n, \\quad \\gamma_n \\in \\mathbb{R} \\;\\Leftrightarrow\\; \\text{RH}',
+      'H_{\\text{classical}} = xp \\quad \\Rightarrow \\quad \\bar{N}(T) \\sim \\frac{T}{2\\pi}\\log\\frac{T}{2\\pi e}',
+      'PT\\text{-symmetry: } P(\\sigma) = 1-\\sigma, \\; T(t) = -t \\quad \\Rightarrow \\quad \\text{fixed line } \\sigma = \\tfrac{1}{2}',
+      '|\\chi(\\tfrac{1}{2}+it)| = 1 \\;\\Leftrightarrow\\; \\text{bridge is unitary} \\;\\Leftrightarrow\\; PT\\text{-symmetry unbroken}',
+    ],
+    insights: [
+      'Hilbert-Pólya reduces RH to a spectral theorem: real eigenvalues ⟺ self-adjoint operator ⟺ zeros on critical line',
+      'Montgomery-Odlyzko: zeta zeros have GUE pair correlation, the same as eigenvalues of random Hermitian matrices',
+      'Berry-Keating: the semiclassical density of H=xp reproduces the Weyl law for zeta zeros exactly',
+      'Connes: primes are absorption frequencies of a quantum system — our oscillator stages are the finite-dimensional analog',
+      'PT-symmetry of the functional equation is the structural requirement any Hilbert-Pólya operator must satisfy',
+      'The oscillator chain Hamiltonian is a pedagogical model of this program, not a proof — but it shows the right structural properties',
+    ],
+    references: ['berry-keating-1999', 'connes-1999', 'bender-brody-mueller-2017', 'montgomery-1973', 'odlyzko-1987', 'schumayer-hutchinson-2011'],
     nextSteps: [],
   },
 ];

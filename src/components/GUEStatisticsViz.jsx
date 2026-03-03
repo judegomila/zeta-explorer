@@ -274,9 +274,11 @@ export default function GUEStatisticsViz() {
         .attr('d', d3.line().x(d => x(d.L)).y(d => y(d.s2)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2.5);
 
-      // Poisson: Sigma^2 = L
+      // Poisson: Sigma^2 = L (slope = 1 in data coords)
+      // End the line where Σ²=L exits the chart (at L=yMax if yMax < 6)
+      const poissonEnd = Math.min(6, yMax);
       g.append('line')
-        .attr('x1', x(0)).attr('y1', y(0)).attr('x2', x(6)).attr('y2', y(6 < yMax ? 6 : yMax))
+        .attr('x1', x(0)).attr('y1', y(0)).attr('x2', x(poissonEnd)).attr('y2', y(poissonEnd))
         .attr('stroke', '#64748b').attr('stroke-dasharray', '6,4').attr('stroke-width', 1.5);
 
       const legend = g.append('g').attr('transform', `translate(20, 10)`);

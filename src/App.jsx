@@ -16,6 +16,7 @@ import SupercriticalPage from './pages/SupercriticalPage.jsx';
 import DocsPage from './pages/DocsPage.jsx';
 import ImprovementsPage from './pages/ImprovementsPage.jsx';
 import WaveSimPage from './pages/WaveSimPage.jsx';
+import RHRigorPage from './pages/RHRigorPage.jsx';
 import './styles/app.css';
 
 function NavBar() {
@@ -63,6 +64,7 @@ function NavBar() {
         <NavLink to="/supercritical">Supercritical</NavLink>
         <NavLink to="/docs">Docs</NavLink>
         <NavLink to="/waves">Waves</NavLink>
+        <NavLink to="/rigor">Rigor</NavLink>
         <NavLink to="/improvements">Improvements</NavLink>
       </nav>
     </div>
@@ -90,6 +92,7 @@ export default function App() {
           <Route path="/supercritical" element={<SupercriticalPage />} />
           <Route path="/docs" element={<DocsPage />} />
           <Route path="/waves" element={<WaveSimPage />} />
+          <Route path="/rigor" element={<RHRigorPage />} />
           <Route path="/improvements" element={<ImprovementsPage />} />
         </Routes>
       </div>

@@ -91,8 +91,39 @@ export default function NyquistBodeViz() {
     g.append('path')
       .datum(circlePoints)
       .attr('d', d3.line())
-      .attr('fill', 'none').attr('stroke', '#2a3050').attr('stroke-width', 0.8)
-      .attr('stroke-dasharray', '3,3');
+      .attr('fill', 'none').attr('stroke', '#64748b').attr('stroke-width', 1)
+      .attr('stroke-dasharray', '4,3');
+    g.append('text')
+      .attr('x', x(1)).attr('y', y(1) - 6)
+      .attr('text-anchor', 'start').attr('fill', '#64748b').attr('font-size', 9)
+      .text('|L|=1');
+
+    // Legend
+    const legend = g.append('g').attr('transform', `translate(${w - 150}, 6)`);
+    const legendBg = legend.append('rect')
+      .attr('x', -8).attr('y', -6).attr('width', 156).attr('height', 72).attr('rx', 4)
+      .attr('fill', '#0f1729').attr('fill-opacity', 0.85).attr('stroke', '#2a3050');
+    const items = [
+      { color: 'hsl(240, 80%, 55%)', label: 'Positive freq (ω > 0)', dash: null },
+      { color: 'hsl(35, 80%, 55%)', label: 'Negative freq (ω < 0)', dash: null },
+      { color: '#64748b', label: 'Unit circle |L|=1', dash: '4,3' },
+      { color: '#ef4444', label: 'Critical point −1', dash: null },
+    ];
+    items.forEach((item, i) => {
+      const row = legend.append('g').attr('transform', `translate(0, ${i * 16 + 4})`);
+      if (item.dash) {
+        row.append('line').attr('x1', 0).attr('y1', 4).attr('x2', 16).attr('y2', 4)
+          .attr('stroke', item.color).attr('stroke-width', 1.5).attr('stroke-dasharray', item.dash);
+      } else if (item.color === '#ef4444') {
+        row.append('circle').attr('cx', 8).attr('cy', 4).attr('r', 4)
+          .attr('fill', 'none').attr('stroke', item.color).attr('stroke-width', 1.5);
+      } else {
+        row.append('line').attr('x1', 0).attr('y1', 4).attr('x2', 16).attr('y2', 4)
+          .attr('stroke', item.color).attr('stroke-width', 2);
+      }
+      row.append('text').attr('x', 22).attr('y', 8)
+        .attr('fill', '#94a3b8').attr('font-size', 10).text(item.label);
+    });
 
     // Positive frequency contour (blue → cyan gradient)
     const posLine = d3.line().x(d => x(d.re)).y(d => y(d.im)).curve(d3.curveBasis);

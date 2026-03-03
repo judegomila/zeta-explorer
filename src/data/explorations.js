@@ -1520,6 +1520,46 @@ Any serious approach to RH via the oscillator model must identify which property
     references: ['davenport-heilbronn-1936', 'selberg-1992', 'conrey-ghosh-1993', 'booker-2006'],
     nextSteps: ['exp-001', 'exp-017', 'exp-035'],
   },
+  {
+    id: 'exp-037',
+    timestamp: '2026-03-03T20:30:00Z',
+    title: 'The Hadamard Product: Factoring ζ over Zeros Instead of Primes',
+    status: 'complete',
+    category: 'duality',
+    depth: 3,
+    content: `The Euler product factors $\\zeta(s)$ over **primes**. The Hadamard product formula provides the complementary factorization over **zeros**. Together they encode the deepest duality in the theory: primes determine zeros, and zeros determine primes.
+
+**The formula.** Hadamard (1893) and von Mangoldt proved that the completed zeta function $\\xi(s) = \\frac{1}{2}s(s-1)\\pi^{-s/2}\\Gamma(s/2)\\zeta(s)$ admits the product representation:
+
+$$\\xi(s) = \\xi(0) \\prod_{\\rho} \\left(1 - \\frac{s}{\\rho}\\right)$$
+
+where the product runs over **all** nontrivial zeros $\\rho$ of $\\zeta$, paired as $\\rho$ and $1-\\rho$ (or equivalently $\\rho$ and $\\bar{\\rho}$ assuming RH). The convergence is conditional — the factors must be grouped in conjugate pairs.
+
+**Circuit interpretation.** In oscillator language, this is the **pole-zero form** of the transfer function:
+- **Euler product** (cascade form): build $\\zeta$ stage-by-stage from prime oscillators, $\\prod_p (1-p^{-s})^{-1}$. Each factor is one stage in the ladder network.
+- **Hadamard product** (pole-zero form): express $\\zeta$ via its zeros, $\\prod_\\rho (1-s/\\rho)$. Each factor is a **notch filter** tuned to frequency $\\gamma = \\text{Im}(\\rho)$.
+
+These are two equivalent descriptions of the same system — like specifying a circuit by its component values (Euler) or by its resonant frequencies (Hadamard). The explicit formula $\\psi(x) = x - \\sum_\\rho x^\\rho/\\rho - \\cdots$ is the Fourier-dual statement: expand the output in terms of the resonant modes.
+
+**Why RH is visible in both forms.** In the Euler product, RH means every oscillator stage has $Q = 1/(2\\sigma) = 1$ (critical coupling). In the Hadamard product, RH means every zero of $\\xi(s)$ sits on $\\text{Re}(s) = 1/2$ — i.e., every notch filter is centered on the critical line. The functional equation $\\xi(s) = \\xi(1-s)$ forces the product to be symmetric under $s \\leftrightarrow 1-s$, which constrains zeros to come in pairs $\\rho, 1-\\rho$. RH is the stronger statement that $\\rho = 1-\\bar{\\rho}$, collapsing each pair to a single point on $\\sigma = 1/2$.
+
+**Connection to the Li criterion.** The Li coefficients $\\lambda_n = \\sum_\\rho [1-(1-1/\\rho)^n]$ are moments of the zero distribution in the Hadamard product. Li's criterion ($\\lambda_n \\geq 0$ for all $n$) is a passivity condition on the product: it says the zeros don't "amplify" at any angular momentum mode. In filter language, the notch filters collectively form a passive (non-amplifying) system if and only if all zeros lie on the critical line.`,
+    latex: [
+      '\\xi(s) = \\xi(0) \\prod_{\\rho} \\left(1 - \\frac{s}{\\rho}\\right) \\quad \\text{(Hadamard product over zeros)}',
+      '\\zeta(s) = \\prod_{p} \\frac{1}{1-p^{-s}} \\quad \\text{(Euler product over primes)}',
+      '\\text{Cascade form (Euler)} \\;\\longleftrightarrow\\; \\text{Pole-zero form (Hadamard)}',
+      '\\lambda_n = \\sum_{\\rho} \\left[1 - \\left(1 - \\frac{1}{\\rho}\\right)^n\\right] \\geq 0 \\;\\Longleftrightarrow\\; \\text{RH}',
+    ],
+    insights: [
+      'The Euler product factors ζ over primes (cascade/component form); the Hadamard product factors it over zeros (pole-zero/spectral form)',
+      'In circuit terms, these are the component-value and resonant-frequency descriptions of the same filter network',
+      'The explicit formula is the Fourier-dual statement: decompose the output signal into resonant modes',
+      'The Li criterion tests passivity of the Hadamard product — zeros on σ=1/2 mean the notch filters never amplify',
+      'The functional equation forces zero pairs (ρ, 1−ρ); RH collapses each pair to a single point on the critical line',
+    ],
+    references: ['hadamard-1896', 'titchmarsh-1986'],
+    nextSteps: ['exp-001', 'exp-009', 'exp-022'],
+  },
 ];
 
 export function getAllExplorations() {

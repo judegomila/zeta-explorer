@@ -51,13 +51,9 @@ export default function NyquistBodeViz() {
       const L = computeLoopGain([sigma, t], numPrimes);
       points.push({ t, re: L[0], im: L[1], mag: cAbs(L) });
     }
-    // Negative frequency (mirror)
-    const negPoints = [];
-    for (let i = 0; i <= steps; i++) {
-      const t = -(tRange[0] + i * dt);
-      const L = computeLoopGain([sigma, t], numPrimes);
-      negPoints.push({ t, re: L[0], im: L[1] });
-    }
+    // Negative frequency (mirror): by Schwarz reflection, L(σ−it) = conj(L(σ+it)),
+    // so Re is unchanged and Im is negated — no need to recompute 301 expensive zeta evaluations
+    const negPoints = points.map(p => ({ t: -p.t, re: p.re, im: -p.im }));
 
     const allRe = [...points.map(p => p.re), ...negPoints.map(p => p.re)];
     const allIm = [...points.map(p => p.im), ...negPoints.map(p => p.im)];

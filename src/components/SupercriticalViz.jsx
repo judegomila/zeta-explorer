@@ -8,6 +8,7 @@ import {
   eulerProductPhaseAnalysis,
 } from '../math/supercritical.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { getPrimes } from '../math/primes.js';
 import { InlineMath } from './KaTeXMath.jsx';
 
 const TABS = [
@@ -378,7 +379,7 @@ function ThermodynamicsTab() {
           <label>Primes</label>
           <input type="range" min="5" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
       </div>
       <div className="viz-container">
@@ -731,7 +732,7 @@ function EulerPhaseTab() {
           <label>Primes</label>
           <input type="range" min="5" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
       </div>
       <div className="viz-container">

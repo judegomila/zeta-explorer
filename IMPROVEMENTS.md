@@ -162,3 +162,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 156 | 2026-03-03T12:45:00Z | Fix EulerProductViz phase curve using curveMonotoneX across ±π atan2 wrap discontinuities | EulerProductViz.jsx |
 | 157 | 2026-03-03T20:30:00Z | Fix D3 force simulation not stopped on unmount in ExplorationGraphViz causing CPU leak | ExplorationGraphViz.jsx |
 | 158 | 2026-03-03T13:15:00Z | Fix Wave Interference explainer using wrong term "constructive interference" for amplitude matching | WaveSimViz.jsx |
+| 159 | 2026-03-03T13:30:00Z | Show largest prime (p_max) next to Primes slider count in SupercriticalViz ThermodynamicsTab and EulerPhaseTab | SupercriticalViz.jsx |

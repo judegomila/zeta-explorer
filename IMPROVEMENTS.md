@@ -255,3 +255,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 249 | 2026-03-03T13:30:00Z | Memoize bridge σ-scan data in BridgeTab to avoid recomputing 101 losslessBridge calls on resize | TwinOscillatorSimViz.jsx |
 | 250 | 2026-03-03T14:00:00Z | Add RH significance context to MultiZeroTab explainer in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
 | 251 | 2026-03-03T14:30:00Z | Add pagination (20 per page) to ImprovementsPage to avoid rendering 250+ cards at once | ImprovementsPage.jsx |
+| 252 | 2026-03-03T15:00:00Z | Add y-axis tick marks and gridlines to both Penrose Transform panels in TwistorViz | TwistorViz.jsx |

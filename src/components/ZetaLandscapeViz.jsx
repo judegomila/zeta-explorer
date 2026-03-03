@@ -34,11 +34,12 @@ export default function ZetaLandscapeViz() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const w = canvas.width = canvas.clientWidth * 2;
-    const h = canvas.height = 400 * 2;
-    ctx.scale(2, 2);
-    const dw = w / 2;
-    const dh = h / 2;
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.width = canvas.clientWidth * dpr;
+    const h = canvas.height = 400 * dpr;
+    ctx.scale(dpr, dpr);
+    const dw = canvas.clientWidth;
+    const dh = 400;
 
     ctx.fillStyle = '#111827';
     ctx.fillRect(0, 0, dw, dh);
@@ -187,11 +188,12 @@ export default function ZetaLandscapeViz() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const w = canvas.width = canvas.clientWidth * 2;
-    const h = canvas.height = 400 * 2;
-    ctx.scale(2, 2);
-    const dw = w / 2;
-    const dh = h / 2;
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.width = canvas.clientWidth * dpr;
+    const h = canvas.height = 400 * dpr;
+    ctx.scale(dpr, dpr);
+    const dw = canvas.clientWidth;
+    const dh = 400;
 
     ctx.fillStyle = '#111827';
     ctx.fillRect(0, 0, dw, dh);

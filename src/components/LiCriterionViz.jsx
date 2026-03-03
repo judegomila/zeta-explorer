@@ -32,30 +32,19 @@ export default function LiCriterionViz() {
       const zeros = ZETA_ZEROS.slice(0, numZeros);
       const lambdas = [];
 
+      // Precompute polar form of each base to use De Moivre's theorem: O(1) per power instead of O(n)
+      const polarBases = zeros.map(gamma => {
+        const rhoNormSq = 0.25 + gamma * gamma;
+        const baseReal = 1 - 0.5 / rhoNormSq;
+        const baseImag = gamma / rhoNormSq;
+        return { r: Math.sqrt(baseReal * baseReal + baseImag * baseImag), theta: Math.atan2(baseImag, baseReal) };
+      });
+
       for (let n = 1; n <= maxN; n++) {
         let lambda = 0;
-        for (const gamma of zeros) {
-          // ρ = 1/2 + iγ
-          // 1 - (1 - 1/ρ)^n
-          // 1/ρ = (1/2 - iγ) / (1/4 + γ²)
-          const rhoReal = 0.5;
-          const rhoImag = gamma;
-          const rhoNormSq = rhoReal * rhoReal + rhoImag * rhoImag;
-          const invRhoReal = rhoReal / rhoNormSq;
-          const invRhoImag = -rhoImag / rhoNormSq;
-
-          const baseReal = 1 - invRhoReal;
-          const baseImag = -invRhoImag;
-
-          // (base)^n via repeated multiplication
-          let powReal = 1, powImag = 0;
-          for (let k = 0; k < n; k++) {
-            const newReal = powReal * baseReal - powImag * baseImag;
-            const newImag = powReal * baseImag + powImag * baseReal;
-            powReal = newReal;
-            powImag = newImag;
-          }
-
+        for (const { r, theta } of polarBases) {
+          // De Moivre: (r∠θ)^n = r^n · cos(nθ) + i·r^n · sin(nθ)
+          const powReal = Math.pow(r, n) * Math.cos(n * theta);
           // Contribution: 1 - (base)^n, take real part (sum over conjugate pair gives 2*Re)
           lambda += 2 * (1 - powReal);
         }
@@ -124,20 +113,18 @@ export default function LiCriterionViz() {
       const zeros = ZETA_ZEROS.slice(0, numZeros);
       const data = [];
 
+      // Precompute polar form of each base to use De Moivre's theorem
+      const polarBases = zeros.map(gamma => {
+        const rhoNormSq = 0.25 + gamma * gamma;
+        const baseReal = 1 - 0.5 / rhoNormSq;
+        const baseImag = gamma / rhoNormSq;
+        return { r: Math.sqrt(baseReal * baseReal + baseImag * baseImag), theta: Math.atan2(baseImag, baseReal) };
+      });
+
       for (let n = 1; n <= maxN; n++) {
         let lambda = 0;
-        for (const gamma of zeros) {
-          const rhoNormSq = 0.25 + gamma * gamma;
-          const invRhoReal = 0.5 / rhoNormSq;
-          const invRhoImag = -gamma / rhoNormSq;
-          const baseReal = 1 - invRhoReal;
-          const baseImag = -invRhoImag;
-          let powReal = 1, powImag = 0;
-          for (let k = 0; k < n; k++) {
-            const newR = powReal * baseReal - powImag * baseImag;
-            const newI = powReal * baseImag + powImag * baseReal;
-            powReal = newR; powImag = newI;
-          }
+        for (const { r, theta } of polarBases) {
+          const powReal = Math.pow(r, n) * Math.cos(n * theta);
           lambda += 2 * (1 - powReal);
         }
         data.push({ n, lambda, perN: lambda / n });

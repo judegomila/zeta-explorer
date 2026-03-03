@@ -87,7 +87,7 @@ export default function DocsPage() {
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
           The <strong>direct ladder</strong> cascades oscillator stages to compute <InlineMath tex="\zeta(s)" />.
           The <strong>dual ladder</strong> applies the transformation <InlineMath tex="s \to 1-s" /> to compute <InlineMath tex="\zeta(1-s)" />.
-          At <InlineMath tex="\sigma = \tfrac{1}{2}" />, both ladders are impedance-matched.
+          At <InlineMath tex="\sigma = \tfrac{1}{2}" />, both ladders are conjugate-matched (<InlineMath tex="Z_{\text{dual}} = \overline{Z_{\text{dir}}}" /> via Schwarz reflection).
         </p>
 
         <h3>Lossless Bridge</h3>
@@ -104,7 +104,7 @@ export default function DocsPage() {
         <BlockMath tex="\mathcal{H} = \underbrace{T_{\text{kinetic}}}_{= \sum_p \frac{1}{2}\log p\,(|H_p(s)|^2 + |H_p(1{-}s)|^2)} + \underbrace{V_{\text{mismatch}}}_{= \frac{1}{2}|Z_{\text{dir}} - Z_{\text{dual}}|^2} + \underbrace{V_{\text{bridge}}}_{= 100(1-|\chi|)^2}" />
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
           The Hamiltonian is minimized at <InlineMath tex="\sigma = \tfrac{1}{2}" /> for all <InlineMath tex="t" />,
-          where mismatch vanishes and the bridge is lossless. Gradient descent on <InlineMath tex="\mathcal{H}" /> always
+          where mismatch is minimized (conjugate-matched, not zero: <InlineMath tex="|Z_{\text{dir}} - Z_{\text{dual}}| = 2|\text{Im}\,Z|" />) and the bridge is lossless. Gradient descent on <InlineMath tex="\mathcal{H}" /> always
           converges to the critical line.
         </p>
       </section>

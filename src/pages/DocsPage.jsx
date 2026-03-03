@@ -136,13 +136,14 @@ export default function DocsPage() {
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">oscillators.js</span> <span className="comment">— Prime oscillator chain, Hamiltonian, energy landscape</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">primes.js</span> <span className="comment">— Sieve, frequencies, von Mangoldt, explicit formula</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">supercritical.js</span> <span className="comment">— Extended zeta, thermodynamics, heat flow, spectral</span></div>
-          <div>&nbsp;&nbsp;<span className="dir">components/</span> <span className="comment">— 16 visualization components + KaTeX wrapper</span></div>
+          <div>&nbsp;&nbsp;<span className="dir">components/</span> <span className="comment">— 17 visualization components + KaTeX wrapper</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">KaTeXMath.jsx</span> <span className="comment">— InlineMath, BlockMath, MathText, MathModal</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">*Viz.jsx</span> <span className="comment">— Interactive D3/Canvas visualizations</span></div>
-          <div>&nbsp;&nbsp;<span className="dir">pages/</span> <span className="comment">— 13 route pages</span></div>
-          <div>&nbsp;&nbsp;<span className="dir">data/</span> <span className="comment">— Explorations journal + literature references</span></div>
+          <div>&nbsp;&nbsp;<span className="dir">pages/</span> <span className="comment">— 15 route pages</span></div>
+          <div>&nbsp;&nbsp;<span className="dir">data/</span> <span className="comment">— Explorations journal, literature references, improvement log</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">explorations.js</span> <span className="comment">— AI exploration entries with LaTeX, insights, refs</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">literature.js</span> <span className="comment">— Academic reference database</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">improvements.js</span> <span className="comment">— Auto-improvement log entries with categories and details</span></div>
           <div>&nbsp;&nbsp;<span className="dir">styles/</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">app.css</span> <span className="comment">— All styles (dark theme, responsive)</span></div>
         </div>
@@ -166,6 +167,8 @@ export default function DocsPage() {
             { route: '/fourier', name: 'Fourier', desc: 'FourierDomainViz — 4 tabs (von Mangoldt spectrum, frequency response, spectral energy, harmonics)' },
             { route: '/supercritical', name: 'Supercritical', desc: 'SupercriticalViz — 4 tabs (landscape, thermodynamics, heat flow, Euler phase)' },
             { route: '/docs', name: 'Docs', desc: 'This page — complete technical documentation of the application' },
+            { route: '/waves', name: 'Waves', desc: 'WaveSimViz — 5-tab wave simulator (signal flow, per-prime waves, interference, phase & delay, circuit diagram)' },
+            { route: '/improvements', name: 'Improvements', desc: 'Auto-improvement log with filterable history of all changes made to the app' },
           ].map(p => (
             <div key={p.route} className="card">
               <h3><span style={{ color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)', fontSize: 13 }}>{p.route}</span> {p.name}</h3>

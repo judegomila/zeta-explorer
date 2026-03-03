@@ -664,11 +664,17 @@ function EulerPhaseTab() {
       g.append('line').attr('x1', x(1)).attr('y1', 0).attr('x2', x(1)).attr('y2', botH)
         .attr('stroke', '#f59e0b').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3').attr('opacity', 0.6);
 
-      // Color the line by convergence
+      // Color the line by convergence: green for σ>1 (convergent), red for σ<1 (divergent)
       const clampedData = data.map(d => ({ ...d, avgFactorMag: Math.min(d.avgFactorMag, yMax) }));
-      g.append('path').datum(clampedData)
-        .attr('d', d3.line().x(d => x(d.sigma)).y(d => y(d.avgFactorMag)).curve(d3.curveBasis))
-        .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2);
+      const lineGen = d3.line().x(d => x(d.sigma)).y(d => y(d.avgFactorMag)).curve(d3.curveBasis);
+      const convergent = clampedData.filter(d => d.sigma >= 1);
+      const divergent = clampedData.filter(d => d.sigma <= 1);
+      g.append('path').datum(divergent)
+        .attr('d', lineGen)
+        .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2);
+      g.append('path').datum(convergent)
+        .attr('d', lineGen)
+        .attr('fill', 'none').attr('stroke', '#10b981').attr('stroke-width', 2);
 
       svg.append('text').attr('x', margin.left).attr('y', yOff - 6)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)

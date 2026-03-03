@@ -2,6 +2,28 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { InlineMath } from './KaTeXMath.jsx';
 import { riemannSiegelZ, ZETA_ZEROS, zetaCriticalStrip, cAbs } from '../math/zeta.js';
 
+// Pre-compute 256-entry colormap palette to avoid per-pixel interpolation + string concat
+const PALETTE_SIZE = 256;
+const heatmapPalette = new Array(PALETTE_SIZE);
+for (let i = 0; i < PALETTE_SIZE; i++) {
+  const normalized = i / (PALETTE_SIZE - 1);
+  let r, g, b;
+  if (normalized < 0.25) {
+    const t2 = normalized / 0.25;
+    r = 10; g = 10 + t2 * 80; b = 60 + t2 * 140;
+  } else if (normalized < 0.5) {
+    const t2 = (normalized - 0.25) / 0.25;
+    r = 10 + t2 * 50; g = 90 + t2 * 120; b = 200 - t2 * 40;
+  } else if (normalized < 0.75) {
+    const t2 = (normalized - 0.5) / 0.25;
+    r = 60 + t2 * 190; g = 210 - t2 * 60; b = 160 - t2 * 130;
+  } else {
+    const t2 = (normalized - 0.75) / 0.25;
+    r = 250; g = 150 - t2 * 100; b = 30 - t2 * 20;
+  }
+  heatmapPalette[i] = `rgb(${r|0},${g|0},${b|0})`;
+}
+
 export default function ZetaLandscapeViz() {
   const canvasRef = useRef();
   const [mode, setMode] = useState('critical-line');
@@ -143,23 +165,9 @@ export default function ZetaLandscapeViz() {
         const logMag = Math.log(1 + mag);
         const normalized = Math.min(1, logMag / 4);
 
-        // Colormap: dark blue -> cyan -> yellow -> red
-        let r, g, b;
-        if (normalized < 0.25) {
-          const t2 = normalized / 0.25;
-          r = 10; g = 10 + t2 * 80; b = 60 + t2 * 140;
-        } else if (normalized < 0.5) {
-          const t2 = (normalized - 0.25) / 0.25;
-          r = 10 + t2 * 50; g = 90 + t2 * 120; b = 200 - t2 * 40;
-        } else if (normalized < 0.75) {
-          const t2 = (normalized - 0.5) / 0.25;
-          r = 60 + t2 * 190; g = 210 - t2 * 60; b = 160 - t2 * 130;
-        } else {
-          const t2 = (normalized - 0.75) / 0.25;
-          r = 250; g = 150 - t2 * 100; b = 30 - t2 * 20;
-        }
-
-        ctx.fillStyle = `rgb(${r|0},${g|0},${b|0})`;
+        // Palette lookup (replaces per-pixel interpolation + string concat)
+        const palIdx = Math.min(PALETTE_SIZE - 1, (normalized * (PALETTE_SIZE - 1)) | 0);
+        ctx.fillStyle = heatmapPalette[palIdx];
         ctx.fillRect(i * cellW, (res - 1 - j) * cellH, cellW + 0.5, cellH + 0.5);
       }
     }
@@ -192,21 +200,8 @@ export default function ZetaLandscapeViz() {
     // Gradient strip
     for (let row = 0; row < cbH; row++) {
       const normalized = 1 - row / cbH;
-      let r2, g2, b2;
-      if (normalized < 0.25) {
-        const t2 = normalized / 0.25;
-        r2 = 10; g2 = 10 + t2 * 80; b2 = 60 + t2 * 140;
-      } else if (normalized < 0.5) {
-        const t2 = (normalized - 0.25) / 0.25;
-        r2 = 10 + t2 * 50; g2 = 90 + t2 * 120; b2 = 200 - t2 * 40;
-      } else if (normalized < 0.75) {
-        const t2 = (normalized - 0.5) / 0.25;
-        r2 = 60 + t2 * 190; g2 = 210 - t2 * 60; b2 = 160 - t2 * 130;
-      } else {
-        const t2 = (normalized - 0.75) / 0.25;
-        r2 = 250; g2 = 150 - t2 * 100; b2 = 30 - t2 * 20;
-      }
-      ctx.fillStyle = `rgb(${r2|0},${g2|0},${b2|0})`;
+      const palIdx = Math.min(PALETTE_SIZE - 1, (normalized * (PALETTE_SIZE - 1)) | 0);
+      ctx.fillStyle = heatmapPalette[palIdx];
       ctx.fillRect(cbX, cbY + row, cbW, 1);
     }
     // Border

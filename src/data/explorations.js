@@ -1347,6 +1347,50 @@ This Gaussian distribution in log-space is characteristic of multiplicative proc
       'For k=1,2 the conjecture is proven; for k≥3 it remains one of the deepest open problems in analytic number theory',
     ],
     references: ['keating-snaith-2000', 'hardy-littlewood-1921', 'conrey-2003', 'katz-sarnak-1999'],
+    nextSteps: ['exp-033'],
+  },
+  {
+    id: 'exp-033',
+    timestamp: '2026-03-03T18:00:00Z',
+    title: "Voronin's Universality: The Oscillator Chain as a Universal Approximator",
+    status: 'complete',
+    category: 'foundation',
+    depth: 5,
+    content: `In 1975, Sergei Voronin proved one of the most striking results in analytic number theory: the Riemann zeta function is a **universal approximator** in the critical strip. Precisely:
+
+**Voronin's Universality Theorem.** Let $f(s)$ be any non-vanishing continuous function on a closed disk $D = \\{|s - 3/4| \\leq r\\}$ with $r < 1/4$, holomorphic in the interior. Then for any $\\varepsilon > 0$:
+
+$$\\liminf_{T \\to \\infty} \\frac{1}{T}\\,\\text{meas}\\!\\left\\{\\tau \\in [0,T] : \\max_{s \\in D} |\\zeta(s + i\\tau) - f(s)| < \\varepsilon\\right\\} > 0$$
+
+In words: the set of vertical translates $\\zeta(s + i\\tau)$ that approximate $f$ to within $\\varepsilon$ has **positive lower density**. No matter what target function you choose, $\\zeta$ will approximate it infinitely often as you slide up the critical strip.
+
+**Why the oscillator chain is universal.** The Euler product gives $\\log \\zeta(s + i\\tau) = -\\sum_p \\log(1 - p^{-s-i\\tau})$. As $\\tau$ varies, each prime oscillator contributes a phase $p^{-i\\tau} = e^{-i\\tau\\log p}$, rotating on the unit circle at angular frequency $\\log p$. The crucial ingredient is:
+
+$$\\{\\log 2, \\log 3, \\log 5, \\log 7, \\ldots\\} \\quad \\text{are linearly independent over } \\mathbb{Q}$$
+
+This means the phases $(p_1^{-i\\tau}, p_2^{-i\\tau}, \\ldots)$ are **jointly ergodic** on the infinite-dimensional torus $\\mathbb{T}^\\infty$. As $\\tau$ sweeps upward, the prime oscillator phases visit every possible configuration, and by a Kronecker-Weyl equidistribution argument, the cascade output $\\zeta(s+i\\tau)$ eventually approximates any target in the range of the Euler product map.
+
+**The non-vanishing condition.** Universality only approximates functions that don't vanish on $D$. This is because $\\log \\zeta$ (the sum of oscillator log-amplitudes) can approximate any continuous function, but $\\zeta = \\exp(\\log \\zeta)$ can never be zero. In circuit terms: the cascade output can produce any non-zero impedance pattern, but it cannot produce a short circuit (zero output) because each multiplicative stage $1/(1-p^{-s})$ has no zeros.
+
+**Connection to RH.** Universality and RH are deeply intertwined:
+- If RH is false, then $\\zeta$ would also be universal inside the critical strip to the left of $\\sigma = 1/2$, and would approximate functions that DO vanish — contradicting the non-vanishing restriction. This is the **self-referential** nature of universality.
+- Bagchi (1981) showed that RH is equivalent to a specific universality property: $\\zeta(s+i\\tau)$ approximates $\\zeta(s)$ itself with positive density. This "self-approximation" is the spectral self-similarity of the oscillator chain.
+
+**Discrete universality.** Steuding and others extended Voronin's theorem to discrete shifts $\\zeta(s + in\\Delta)$ for any fixed $\\Delta > 0$ not of the form $2\\pi k/\\log(m/n)$. This says even discrete sampling of the oscillator output is universal — you don't need continuous sliding.`,
+    latex: [
+      '\\liminf_{T \\to \\infty} \\frac{1}{T}\\,\\text{meas}\\{\\tau : \\max_{s \\in D}|\\zeta(s+i\\tau) - f(s)| < \\varepsilon\\} > 0',
+      '\\log\\zeta(s+i\\tau) = -\\sum_p \\log(1-p^{-s-i\\tau}), \\quad p^{-i\\tau} = e^{-i\\tau\\log p}',
+      '\\{\\log p : p \\text{ prime}\\} \\text{ are } \\mathbb{Q}\\text{-linearly independent} \\;\\Rightarrow\\; \\text{joint ergodicity on } \\mathbb{T}^\\infty',
+      '\\text{Bagchi: RH} \\iff \\liminf_{T} \\frac{1}{T}\\text{meas}\\{\\tau : \\max_{|s-3/4|\\leq r}|\\zeta(s+i\\tau)-\\zeta(s)| < \\varepsilon\\} > 0',
+    ],
+    insights: [
+      'The Euler product cascade is a universal approximator: it can reproduce any non-vanishing holomorphic function via vertical translation',
+      'Universality rests on the Q-linear independence of {log p}, which makes prime oscillator phases jointly ergodic on the infinite torus',
+      'The non-vanishing condition reflects the fact that no single Euler factor 1/(1-p^{-s}) has zeros — the cascade cannot produce a short circuit',
+      'Bagchi showed RH is equivalent to zeta being able to approximate ITSELF — the oscillator chain is spectrally self-similar',
+      'Discrete universality means even sampled output is universal, so no information is lost by discrete observation of the chain',
+    ],
+    references: ['titchmarsh-1986', 'iwaniec-kowalski-2004', 'rudnick-sarnak-1996', 'selberg-1942'],
     nextSteps: [],
   },
 ];

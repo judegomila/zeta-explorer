@@ -228,15 +228,54 @@ export default function ZetaLandscapeViz() {
     ctx.restore();
     ctx.textAlign = 'start';
 
-    // Axes labels
+    // Axis tick marks and labels along edges
+    ctx.fillStyle = '#94a3b8';
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 0.5;
+    ctx.font = '9px sans-serif';
+
+    // Bottom edge: σ ticks
+    ctx.textAlign = 'center';
+    for (let sv = 0.1; sv <= 0.9; sv += 0.1) {
+      if (sv >= sMin && sv <= sMax) {
+        const xPos = ((sv - sMin) / (sMax - sMin)) * dw;
+        ctx.beginPath(); ctx.moveTo(xPos, dh - 4); ctx.lineTo(xPos, dh); ctx.stroke();
+        ctx.fillText(sv.toFixed(1), xPos, dh - 6);
+      }
+    }
+    // σ axis label
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.fillText('σ', dw / 2, dh - 16);
+
+    // Left edge: t ticks
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '9px sans-serif';
+    ctx.textAlign = 'right';
+    const tStep = (tMax - tMin) > 80 ? 20 : (tMax - tMin) > 40 ? 10 : 5;
+    for (let tv = Math.ceil(tMin / tStep) * tStep; tv <= tMax; tv += tStep) {
+      const yPos = dh - ((tv - tMin) / (tMax - tMin)) * dh;
+      ctx.beginPath(); ctx.moveTo(0, yPos); ctx.lineTo(4, yPos); ctx.stroke();
+      ctx.fillText(String(tv), 22, yPos + 3);
+    }
+    // t axis label
+    ctx.save();
+    ctx.translate(8, dh / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('t = Im(s)', 0, 0);
+    ctx.restore();
+    ctx.textAlign = 'start';
+
+    // Title and info
     ctx.fillStyle = '#e2e8f0';
     ctx.font = '600 13px sans-serif';
-    ctx.fillText('|ζ(σ + it)| Heatmap in the Critical Strip', 12, 18);
+    ctx.fillText('|ζ(σ + it)| Heatmap in the Critical Strip', 30, 18);
     ctx.fillStyle = '#64748b';
     ctx.font = '11px sans-serif';
-    ctx.fillText(`σ: ${sMin} → ${sMax}`, 12, 34);
-    ctx.fillText(`t: ${tMin} → ${tMax}`, 12, 48);
-    ctx.fillText('White circles: known zeros on σ=½', 12, 62);
+    ctx.fillText('White circles: known zeros on σ=½', 30, 34);
   }, [tRange, sigmaRange]);
 
   useEffect(() => {

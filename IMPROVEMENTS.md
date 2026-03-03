@@ -263,3 +263,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 257 | 2026-03-03T17:30:00Z | Add nearest-zero proximity indicator to t slider in TwistorViz | TwistorViz.jsx |
 | 258 | 2026-03-03T18:00:00Z | Add dark halo to zeta zero markers in TwistorViz incidence heatmap for better visibility | TwistorViz.jsx |
 | 259 | 2026-03-03T18:30:00Z | Scale AnimatedModesViz canvas height with numPrimes to keep waveforms readable at high prime counts | AnimatedModesViz.jsx |
+| 260 | 2026-03-03T19:00:00Z | Fix TwistorPage saying 'impedance match' instead of 'conjugate impedance match' at σ=½ | TwistorPage.jsx |

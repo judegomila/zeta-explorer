@@ -160,6 +160,33 @@ export default function ZetaLandscapeViz() {
     ctx.font = '11px sans-serif';
     ctx.fillText('Red dots mark nontrivial zeta zeros (Z(t) = 0)', 12, 34);
 
+    // Legend
+    const legendX = dw - 170;
+    const legendY = 10;
+    ctx.fillStyle = 'rgba(17,24,39,0.85)';
+    ctx.fillRect(legendX, legendY, 160, 60);
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 0.5;
+    ctx.strokeRect(legendX, legendY, 160, 60);
+    ctx.font = '10px sans-serif';
+    // Z(t) > 0
+    ctx.strokeStyle = 'rgba(59,130,246,0.9)';
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 14); ctx.lineTo(legendX + 28, legendY + 14); ctx.stroke();
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText('Z(t) > 0', legendX + 34, legendY + 18);
+    // Z(t) < 0
+    ctx.strokeStyle = 'rgba(245,158,11,0.9)';
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 32); ctx.lineTo(legendX + 28, legendY + 32); ctx.stroke();
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText('Z(t) < 0', legendX + 34, legendY + 36);
+    // Zeta zeros
+    ctx.fillStyle = '#ef4444';
+    ctx.beginPath(); ctx.arc(legendX + 18, legendY + 50, 3, 0, 2 * Math.PI); ctx.fill();
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText('ζ zeros (γₙ)', legendX + 34, legendY + 54);
+
   }, [tRange]);
 
   // Memoize the 100×100 heatmap grid (10,000 zetaCriticalStrip evaluations)

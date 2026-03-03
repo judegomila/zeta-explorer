@@ -145,11 +145,10 @@ export default function GUEStatisticsViz() {
         }
       }
       // Normalize to pair correlation R₂: for each of N zeros, the expected count of
-      // neighbors at distance [r, r+dr] is R₂(r)·dr. Total expected count in a bin
-      // is N × R₂(r) × binW, so R₂(r) = count / (N × binW).
-      // Previous code divided by (total_pairs_in_range × binW) which normalizes to a
-      // probability density integrating to 1 — not R₂ which approaches 1 for large r.
-      const density = histogram.map(c => c / (zeros.length * binW));
+      // neighbors at distance [r, r+dr] is R₂(r)·dr. Summing over all N zeros gives
+      // N × R₂(r) × binW ordered pairs, but we only counted unordered pairs (i < j),
+      // so each pair was counted once instead of twice. Hence R₂(r) = 2·count / (N × binW).
+      const density = histogram.map(c => 2 * c / (zeros.length * binW));
 
       const x = d3.scaleLinear().domain([0, maxR]).range([0, w]);
       const yMax = Math.max(1.5, d3.max(density) * 1.2);

@@ -321,13 +321,13 @@ export default function RHRigorPage() {
           </p>
           <ol style={{ paddingLeft: 20, marginTop: 12 }}>
             <li style={{ marginBottom: 8 }}>
-              <strong style={{ color: '#e2e8f0' }}>A self-adjoint operator</strong> (not a classical energy function) whose
+              <strong style={{ color: '#e2e8f0' }}>A symmetric operator</strong> (not a classical energy function) whose
               eigenvalues are <InlineMath tex="\gamma_n" /> where <InlineMath tex="\rho_n = 1/2 + i\gamma_n" /> are the zeros.
               This is the Hilbert-Pólya program (Berry-Keating, Connes, Sierra).
             </li>
             <li style={{ marginBottom: 8 }}>
-              <strong style={{ color: '#e2e8f0' }}>A proof that the operator is bounded below</strong>, which would show all
-              eigenvalues are real, hence all zeros have <InlineMath tex="\sigma = 1/2" />.
+              <strong style={{ color: '#e2e8f0' }}>A proof that the operator is self-adjoint</strong> (not merely symmetric), which
+              would show all eigenvalues are real, hence all zeros have <InlineMath tex="\sigma = 1/2" />.
             </li>
             <li style={{ marginBottom: 8 }}>
               <strong style={{ color: '#e2e8f0' }}>A distinguishing test</strong>: the method must fail when applied to

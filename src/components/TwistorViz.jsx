@@ -453,12 +453,18 @@ function IncidenceRelationTab({ sigma, t }) {
       const tFrac = (z - tRange[0]) / (tRange[1] - tRange[0]);
       const zx = margin.left + critSi;
       const zy = margin.top + tFrac * chartH;
+      // Dark halo for contrast against bright heatmap regions
       ctx.beginPath();
-      ctx.arc(zx, zy, 4, 0, Math.PI * 2);
+      ctx.arc(zx, zy, 8, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,0,0,0.35)';
+      ctx.fill();
+      // Green filled marker
+      ctx.beginPath();
+      ctx.arc(zx, zy, 5, 0, Math.PI * 2);
       ctx.fillStyle = '#10b981';
       ctx.fill();
       ctx.strokeStyle = '#fff';
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 1.5;
       ctx.stroke();
     });
 

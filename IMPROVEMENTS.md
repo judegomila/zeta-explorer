@@ -261,3 +261,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 255 | 2026-03-03T16:30:00Z | Fix incidence relation using Hermitian inner product (grows as t²) instead of symplectic form (vanishes at σ=0.5) | twistor.js |
 | 256 | 2026-03-03T17:00:00Z | Fix WaveSimViz saying 'perfect impedance match' instead of 'conjugate impedance match' at σ=½ | WaveSimViz.jsx |
 | 257 | 2026-03-03T17:30:00Z | Add nearest-zero proximity indicator to t slider in TwistorViz | TwistorViz.jsx |
+| 258 | 2026-03-03T18:00:00Z | Add dark halo to zeta zero markers in TwistorViz incidence heatmap for better visibility | TwistorViz.jsx |

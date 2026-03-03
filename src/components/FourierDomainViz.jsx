@@ -324,7 +324,7 @@ function SpectralEnergyTab() {
     rightAxis.selectAll('text').attr('fill', '#ef4444').attr('font-size', 10);
     rightAxis.selectAll('.domain, .tick line').attr('stroke', '#ef4444').attr('opacity', 0.4);
     svg.append('text').attr('transform', `translate(${width - 12}, ${height / 2}) rotate(90)`)
-      .attr('text-anchor', 'middle').attr('fill', '#ef4444').attr('font-size', 11).text('Mismatch |E_dir \u2212 E_dual|');
+      .attr('text-anchor', 'middle').attr('fill', '#ef4444').attr('font-size', 11).text('Mismatch |Z_dir \u2212 Z_dual|');
 
     // Legend
     const legend = svg.append('g').attr('transform', `translate(${width - 130}, ${margin.top + 10})`);

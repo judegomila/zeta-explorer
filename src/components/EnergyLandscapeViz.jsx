@@ -208,8 +208,20 @@ export default function EnergyLandscapeViz() {
     const my = (e.clientY - rect.top) / rect.height;
     const sigma = 0.05 + mx * 0.9;
     const t = 0.5 + (1 - my) * (tMax - 0.5);
-    setHoverInfo({ sigma: sigma.toFixed(3), t: t.toFixed(2) });
-  }, [tMax]);
+
+    // Look up the nearest grid point to show the metric value
+    const ls = landscapeRef.current;
+    const res = ls.resolution;
+    const gi = Math.round((sigma - ls.sigmaRange[0]) / (ls.sigmaRange[1] - ls.sigmaRange[0]) * res);
+    const gj = Math.round((t - ls.tRange[0]) / (ls.tRange[1] - ls.tRange[0]) * res);
+    const idx = Math.min(Math.max(gi, 0), res) * (res + 1) + Math.min(Math.max(gj, 0), res);
+    const pt = ls.data[idx];
+    const val = pt ? (metric === 'energy' ? pt.energy :
+                      metric === 'mismatch' ? pt.mismatch :
+                      metric === 'directMag' ? pt.directMag : pt.dualMag) : null;
+
+    setHoverInfo({ sigma: sigma.toFixed(3), t: t.toFixed(2), value: val != null ? val.toFixed(4) : null });
+  }, [tMax, metric]);
 
   return (
     <div>
@@ -251,6 +263,11 @@ export default function EnergyLandscapeViz() {
         {hoverInfo && (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
             <InlineMath tex="\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
+            {hoverInfo.value != null && (
+              <span style={{ marginLeft: 8, color: '#f59e0b' }}>
+                {metric === 'energy' ? 'H' : metric === 'mismatch' ? '|Z₁−Z₂|' : metric === 'directMag' ? '|ζ(s)|' : '|ζ(1−s)|'}={hoverInfo.value}
+              </span>
+            )}
           </div>
         )}
       </div>

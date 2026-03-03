@@ -17,6 +17,37 @@ export default function ControlTheoryPage() {
 
       <BlockMath tex="L(s) = \chi(s) \cdot \frac{\zeta(1-s)}{\zeta(s)}, \quad \zeta(s) = 0 \iff 1 + L(s) = 0" />
 
+      <div className="two-col" style={{ marginTop: 24 }}>
+        <div className="card">
+          <h3 style={{ color: '#10b981' }}>The Feedback Loop Analogy</h3>
+          <p style={{ marginTop: 8 }}>
+            In control theory, a feedback system becomes unstable when its <em>loop gain</em>{' '}
+            <InlineMath tex="L(s)" /> satisfies <InlineMath tex="1 + L(s) = 0" />, i.e.{' '}
+            <InlineMath tex="L(s) = -1" />. The key insight is that we can factor{' '}
+            <InlineMath tex="\\zeta(s)" /> using the functional equation{' '}
+            <InlineMath tex="\\zeta(s) = \\chi(s)\\zeta(1-s)" /> to define a loop gain where
+            zeros of <InlineMath tex="\\zeta" /> become exactly the instability points of a
+            feedback loop. The direct ladder <InlineMath tex="\\zeta(s)" /> is the plant,
+            the dual ladder <InlineMath tex="\\zeta(1-s)" /> is the controller, and{' '}
+            <InlineMath tex="\\chi(s)" /> is the feedback channel connecting them.
+          </p>
+        </div>
+        <div className="card">
+          <h3 style={{ color: '#10b981' }}>What This Tells Us About RH</h3>
+          <p style={{ marginTop: 8 }}>
+            On the critical line <InlineMath tex="\\sigma = 1/2" />, the feedback channel{' '}
+            <InlineMath tex="\\chi" /> is <em>lossless</em> (<InlineMath tex="|\\chi| = 1" />),
+            meaning the system is at marginal stability — zeros sit exactly on the stability
+            boundary. If any zero had <InlineMath tex="\\sigma \\neq 1/2" />, the Nyquist
+            plot would encircle <InlineMath tex="-1" />, signaling that the feedback loop
+            has moved from marginal to genuine instability. RH thus becomes: the loop gain
+            never encircles <InlineMath tex="-1" /> when evaluated on the critical line.
+            This does not prove RH, but provides a rich visual and conceptual framework
+            for understanding <em>why</em> the critical line is special.
+          </p>
+        </div>
+      </div>
+
       <div style={{ marginTop: 32 }}>
         <div className="viz-title">Nyquist Plot & Bode Diagram</div>
         <div className="viz-subtitle">

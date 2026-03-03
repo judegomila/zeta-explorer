@@ -208,7 +208,9 @@ export default function AnimatedModesViz() {
       <div className="tab-explainer accent-pink">
         <strong>The math:</strong> At zeta zero frequency <InlineMath tex="\\gamma_n" />, each prime oscillator vibrates with
         amplitude <InlineMath tex="\\propto \\text{Re}(p^{-1/2-i\\gamma_n})" /> and phase set by <InlineMath tex="\\gamma_n \\log p" />.
-        The bottom row superposes all prime contributions: this is the <InlineMath tex="\\rho" />-th term in the explicit formula.
+        The bottom row superposes all prime contributions at this driving frequency &mdash; the collective oscillator chain
+        response to the zero mode <InlineMath tex="\\gamma_n" />. (Note: the explicit formula's per-zero term is{' '}
+        <InlineMath tex="-x^\\rho/\\rho" />, a single oscillation with no per-prime decomposition.)
         Different zeros excite different patterns across the prime oscillators, but the frequencies{' '}
         <InlineMath tex="\\omega_p = \\log p" /> are fixed &mdash; only the driving frequency <InlineMath tex="\\gamma_n" /> changes.
         <strong> Look for:</strong> small primes making large, slow oscillations; larger primes vibrating faster with smaller amplitude.

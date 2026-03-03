@@ -1,3 +1,4 @@
+import { InlineMath } from './KaTeXMath.jsx';
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { energyLandscape } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
@@ -8,7 +9,9 @@ import { ZETA_ZEROS } from '../math/zeta.js';
  */
 export default function EnergyLandscapeViz() {
   const canvasRef = useRef();
+  const [numPrimesDisplay, setNumPrimesDisplay] = useState(8);
   const [numPrimes, setNumPrimes] = useState(8);
+  const debounceRef = useRef();
   const [tMax, setTMax] = useState(50);
   const [metric, setMetric] = useState('energy');
   const [hoverInfo, setHoverInfo] = useState(null);
@@ -129,9 +132,39 @@ export default function EnergyLandscapeViz() {
 
     ctx.fillStyle = '#94a3b8';
     ctx.font = '11px sans-serif';
-    ctx.fillText(`σ: ${sigmaRange[0]} → ${sigmaRange[1]}`, 10, 36);
-    ctx.fillText(`t: ${tRange[0]} → ${tRange[1]}`, 10, 50);
-    ctx.fillText('White line: σ = ½  |  Circles: zeta zeros', 10, 64);
+    ctx.fillText('Dashed line: σ = ½  |  Circles: zeta zeros', 10, 36);
+
+    // σ tick labels along bottom edge
+    ctx.font = '10px monospace';
+    ctx.textAlign = 'center';
+    for (const s of [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) {
+      const tx = ((s - sigmaRange[0]) / (sigmaRange[1] - sigmaRange[0])) * dw;
+      ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(tx, dh); ctx.lineTo(tx, dh - 4); ctx.stroke();
+      ctx.fillStyle = 'rgba(17,24,39,0.75)';
+      ctx.fillRect(tx - 12, dh - 17, 24, 13);
+      ctx.fillStyle = '#cbd5e1';
+      ctx.fillText(s.toFixed(1), tx, dh - 6);
+    }
+
+    // t tick labels along left edge
+    ctx.textAlign = 'left';
+    ctx.font = '10px monospace';
+    for (let k = 1; k <= 5; k++) {
+      const tVal = tRange[0] + (k / 5) * (tRange[1] - tRange[0]);
+      const ty = dh - (k / 5) * dh;
+      if (ty < 50) continue;
+      ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(0, ty); ctx.lineTo(4, ty); ctx.stroke();
+      const lbl = tVal.toFixed(0);
+      ctx.fillStyle = 'rgba(17,24,39,0.75)';
+      ctx.fillRect(5, ty - 6, lbl.length * 7 + 4, 12);
+      ctx.fillStyle = '#cbd5e1';
+      ctx.fillText(lbl, 7, ty + 4);
+    }
+    ctx.textAlign = 'start';
 
     // Color bar
     const barX = dw - 30;
@@ -172,6 +205,14 @@ export default function EnergyLandscapeViz() {
 
   return (
     <div>
+      <div className="tab-explainer accent-purple">
+        <strong>The math:</strong> The 2D heatmap shows the selected quantity over the <InlineMath tex="(\\sigma, t)" /> plane.
+        <strong>System Energy</strong> shows <InlineMath tex="\\mathcal{H}(\\sigma+it)" /> with its valley along <InlineMath tex="\\sigma = 0.5" />.
+        <strong>Impedance Mismatch</strong> shows <InlineMath tex="|Z_{\\text{dir}} - Z_{\\text{dual}}|^2" />, zero on the critical line.
+        The <strong>direct/dual magnitudes</strong> show <InlineMath tex="|\\zeta(s)|" /> and <InlineMath tex="|\\zeta(1-s)|" /> with their
+        symmetric zero structure. White circles mark known zeta zeros <InlineMath tex="\\rho_n" />.
+        <strong> Look for:</strong> the dark valley along <InlineMath tex="\\sigma = 0.5" /> and zeros sitting at valley floor.
+      </div>
       <div className="controls">
         <div className="control-group">
           <label>Metric</label>
@@ -190,13 +231,18 @@ export default function EnergyLandscapeViz() {
         </div>
         <div className="control-group">
           <label>Primes</label>
-          <input type="range" min="3" max="15" step="1" value={numPrimes}
-            onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <input type="range" min="3" max="30" step="1" value={numPrimesDisplay}
+            onChange={e => {
+              const v = +e.target.value;
+              setNumPrimesDisplay(v);
+              clearTimeout(debounceRef.current);
+              debounceRef.current = setTimeout(() => setNumPrimes(v), 200);
+            }} />
+          <span className="control-value">{numPrimesDisplay}</span>
         </div>
         {hoverInfo && (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
-            σ={hoverInfo.sigma} t={hoverInfo.t}
+            <InlineMath tex="\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
           </div>
         )}
       </div>

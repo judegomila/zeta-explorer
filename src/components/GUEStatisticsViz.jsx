@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import * as d3 from 'd3';
+import { InlineMath } from './KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
 /**
@@ -196,13 +197,13 @@ export default function GUEStatisticsViz() {
     } else {
       // Number variance Sigma^2(L) — simplified
       const zeros = ZETA_ZEROS.slice(0, numZeros);
-      const density = zeros.map(g => Math.log(g / (2 * Math.PI)) / (2 * Math.PI));
-      const unfolded = [];
-      let cum = 0;
-      for (let i = 0; i < zeros.length; i++) {
-        cum += (i > 0 ? (zeros[i] - zeros[i-1]) * density[i] : 0);
-        unfolded.push(cum);
-      }
+      // Unfold zeros using the smooth counting function N̂(γ) = (γ/2π)log(γ/2πe) + 7/8
+      // This is the exact Weyl-law formula, replacing the previous Riemann-sum approximation
+      // which used forward-Euler integration and introduced systematic error for low zeros.
+      const TWO_PI = 2 * Math.PI;
+      const unfolded = zeros.map(g => {
+        return (g / TWO_PI) * Math.log(g / TWO_PI) - g / TWO_PI + 7 / 8;
+      });
 
       // Compute number variance for different interval lengths L
       const Ls = [];
@@ -290,6 +291,34 @@ export default function GUEStatisticsViz() {
 
   return (
     <div>
+      {mode === 'spacing' && (
+        <div className="tab-explainer accent-red">
+          <strong>The math:</strong> The nearest-neighbor spacing distribution <InlineMath tex="P(s)" /> measures the probability
+          that consecutive normalized zero gaps have size <InlineMath tex="s" />. For random matrices from the GUE (Gaussian
+          Unitary Ensemble), the Wigner surmise gives <InlineMath tex="P_{\text{GUE}}(s) = (32/\pi^2)s^2 e^{-4s^2/\pi}" />.
+          The key feature is <strong>level repulsion</strong>: <InlineMath tex="P(0) = 0" />, meaning zeros never collide.
+          Poisson (random) would give <InlineMath tex="P(s) = e^{-s}" /> with clustering at zero.
+          <strong> Look for:</strong> the zeta zero histogram matching GUE (red), not Poisson (gray).
+        </div>
+      )}
+      {mode === 'pair-correlation' && (
+        <div className="tab-explainer accent-purple">
+          <strong>The math:</strong> The pair correlation <InlineMath tex="R_2(x) = 1 - (\sin\pi x / \pi x)^2" /> (Montgomery 1973)
+          measures the density of pairs of zeros at separation <InlineMath tex="x" />. The dip at <InlineMath tex="x = 0" /> confirms
+          level repulsion; the oscillations reflect the determinantal structure of GUE eigenvalues.
+          This is the "two-point function" of the zero process.
+          <strong> Look for:</strong> the measured correlation matching the GUE sine-kernel curve.
+        </div>
+      )}
+      {mode === 'number-variance' && (
+        <div className="tab-explainer accent-cyan">
+          <strong>The math:</strong> The number variance <InlineMath tex="\Sigma^2(L)" /> measures fluctuations in the count of zeros
+          in intervals of length <InlineMath tex="L" />. For GUE, <InlineMath tex="\Sigma^2(L) \sim (2/\pi^2)\log L" /> (logarithmic
+          growth) &mdash; much slower than Poisson where <InlineMath tex="\Sigma^2 = L" />. This logarithmic suppression means zeros
+          are <strong>rigidly</strong> spaced &mdash; far more regular than random.
+          <strong> Look for:</strong> the data following the GUE log curve, not the linear Poisson line.
+        </div>
+      )}
       <div className="controls">
         <div className="control-group">
           <label>Statistic</label>
@@ -301,7 +330,7 @@ export default function GUEStatisticsViz() {
         </div>
         <div className="control-group">
           <label>Zeros used</label>
-          <input type="range" min="10" max="50" step="1" value={numZeros}
+          <input type="range" min="10" max="300" step="1" value={numZeros}
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
         </div>

@@ -114,8 +114,11 @@ export function thermodynamicState(sigma, t, numPrimes = 20) {
   const ds = 0.01;
   const zPlus = zetaExtended([sigma + ds, t]);
   const zMinus = zetaExtended([sigma - ds, t]);
-  const dLogZ = (Math.log(cAbs(zPlus)) - Math.log(cAbs(zMinus))) / (2 * ds);
-  const entropy = Math.log(Math.max(mag, 1e-10)) - sigma * dLogZ;
+  const logMagPlus = Math.log(cAbs(zPlus));
+  const logMagMinus = Math.log(cAbs(zMinus));
+  const logMagCenter = Math.log(Math.max(mag, 1e-10));
+  const dLogZ = (logMagPlus - logMagMinus) / (2 * ds);
+  const entropy = logMagCenter - sigma * dLogZ;
 
   // Pressure from Euler product: P = Σ_p log(1/(1-p^{-σ})) / V
   // where V = Σ_p 1 (number of "sites")
@@ -135,9 +138,8 @@ export function thermodynamicState(sigma, t, numPrimes = 20) {
 
   // Specific heat: C_v = β²·∂²log(Z)/∂β² where β = σ
   // Symmetric second derivative stencil: f''(x) ≈ (f(x+h) - 2f(x) + f(x-h)) / h²
-  const zPP = zetaExtended([sigma + ds, t]);
-  const zMM = zetaExtended([sigma - ds, t]);
-  const d2LogZ = (Math.log(cAbs(zPP)) - 2 * Math.log(mag) + Math.log(cAbs(zMM))) / (ds * ds);
+  // Reuse zPlus/zMinus from entropy computation above (same sigma±ds, same t)
+  const d2LogZ = (logMagPlus - 2 * logMagCenter + logMagMinus) / (ds * ds);
   const specificHeat = sigma > 0.01 ? d2LogZ * (sigma * sigma) : 0;
 
   // Phase classification

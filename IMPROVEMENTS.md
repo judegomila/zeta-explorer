@@ -219,3 +219,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 213 | 2026-03-04T02:00:00Z | Fix pair-correlation reference curve missing R₂(0)=0 boundary point due to loop starting at r=0.01 | GUEStatisticsViz.jsx |
 | 214 | 2026-03-03T12:00:00Z | Fix OscillatorChainViz explainer saying 'impedance-matched' instead of 'conjugate-matched' at σ=0.5 | OscillatorChainViz.jsx |
 | 215 | 2026-03-04T02:30:00Z | Fix ZetaPage claiming θ'(t) is the local zero density when the density is θ'(t)/π | ZetaPage.jsx |
+| 216 | 2026-03-04T03:00:00Z | Show largest prime (p_max) next to Primes slider count in EnergyLandscapeViz | EnergyLandscapeViz.jsx |

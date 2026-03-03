@@ -2,6 +2,7 @@ import { InlineMath } from './KaTeXMath.jsx';
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { energyLandscape } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { getPrimes } from '../math/primes.js';
 
 /**
  * 2D heatmap of the system energy landscape in the (σ, t) plane.
@@ -263,7 +264,7 @@ export default function EnergyLandscapeViz() {
               clearTimeout(debounceRef.current);
               debounceRef.current = setTimeout(() => setNumPrimes(v), 200);
             }} />
-          <span className="control-value">{numPrimesDisplay}</span>
+          <span className="control-value">{numPrimesDisplay} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimesDisplay)[numPrimesDisplay - 1]})</span></span>
         </div>
         {hoverInfo ? (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>

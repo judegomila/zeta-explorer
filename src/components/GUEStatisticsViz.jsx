@@ -101,15 +101,21 @@ export default function GUEStatisticsViz() {
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 200}, 10)`);
+      // Zeta zeros: filled rect swatch matching histogram bars
+      legend.append('rect').attr('x', 2).attr('y', -6).attr('width', 18).attr('height', 12)
+        .attr('rx', 1).attr('fill', 'rgba(59,130,246,0.4)').attr('stroke', '#3b82f6').attr('stroke-width', 0.5);
+      legend.append('text').attr('x', 28).attr('y', 4)
+        .attr('fill', '#94a3b8').attr('font-size', 11).text(`Zeta zeros (n=${numZeros})`);
+      // Curve entries: line swatches
       [
-        { label: `Zeta zeros (n=${numZeros})`, color: '#3b82f6', dash: '' },
         { label: 'GUE (Wigner surmise)', color: '#ef4444', dash: '' },
         { label: 'GOE', color: '#f59e0b', dash: '3,3' },
         { label: 'Poisson (uncorrelated)', color: '#64748b', dash: '6,4' },
       ].forEach(({ label, color, dash }, i) => {
-        legend.append('line').attr('x1', 0).attr('y1', i * 20).attr('x2', 22).attr('y2', i * 20)
+        const row = (i + 1) * 20;
+        legend.append('line').attr('x1', 0).attr('y1', row).attr('x2', 22).attr('y2', row)
           .attr('stroke', color).attr('stroke-width', 2).attr('stroke-dasharray', dash);
-        legend.append('text').attr('x', 28).attr('y', i * 20 + 4)
+        legend.append('text').attr('x', 28).attr('y', row + 4)
           .attr('fill', '#94a3b8').attr('font-size', 11).text(label);
       });
 
@@ -184,8 +190,8 @@ export default function GUEStatisticsViz() {
         .attr('stroke', '#64748b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
       const legend = g.append('g').attr('transform', `translate(${w - 220}, 10)`);
-      legend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 22).attr('y2', 0)
-        .attr('stroke', '#8b5cf6').attr('stroke-width', 2);
+      legend.append('rect').attr('x', 2).attr('y', -6).attr('width', 18).attr('height', 12)
+        .attr('rx', 1).attr('fill', 'rgba(139,92,246,0.4)').attr('stroke', '#8b5cf6').attr('stroke-width', 0.5);
       legend.append('text').attr('x', 28).attr('y', 4)
         .attr('fill', '#94a3b8').attr('font-size', 11).text('Zeta zeros (data)');
       legend.append('line').attr('x1', 0).attr('y1', 20).attr('x2', 22).attr('y2', 20)

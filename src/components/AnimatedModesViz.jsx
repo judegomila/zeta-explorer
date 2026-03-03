@@ -23,9 +23,13 @@ export default function AnimatedModesViz() {
     const dpr = 2;
     const dw = canvas.clientWidth;
     const dh = 500;
-    canvas.width = dw * dpr;
-    canvas.height = dh * dpr;
-    ctx.scale(dpr, dpr);
+    const targetW = dw * dpr;
+    const targetH = dh * dpr;
+    if (canvas.width !== targetW || canvas.height !== targetH) {
+      canvas.width = targetW;
+      canvas.height = targetH;
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     ctx.fillStyle = '#0a0e1a';
     ctx.fillRect(0, 0, dw, dh);

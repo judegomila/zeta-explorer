@@ -130,12 +130,12 @@ export function thermodynamicState(sigma, t, numPrimes = 20) {
   // Internal energy: U = F + T·S = -∂log(Z)/∂β where β = σ
   const internalEnergy = -dLogZ;
 
-  // Specific heat: C = ∂U/∂T = -T²·∂²log(Z)/∂T²
+  // Specific heat: C_v = β²·∂²log(Z)/∂β² where β = σ
   // Symmetric second derivative stencil: f''(x) ≈ (f(x+h) - 2f(x) + f(x-h)) / h²
   const zPP = zetaExtended([sigma + ds, t]);
   const zMM = zetaExtended([sigma - ds, t]);
   const d2LogZ = (Math.log(cAbs(zPP)) - 2 * Math.log(mag) + Math.log(cAbs(zMM))) / (ds * ds);
-  const specificHeat = sigma > 0.01 ? d2LogZ / (sigma * sigma) : 0;
+  const specificHeat = sigma > 0.01 ? d2LogZ * (sigma * sigma) : 0;
 
   // Phase classification
   let phase = 'critical-strip';

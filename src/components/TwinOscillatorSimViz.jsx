@@ -360,6 +360,38 @@ function GradientDescentTab() {
       ctx.fillText(`σ=${cur.sigma.toFixed(4)}`, xScale(cur.sigma), yScale(cur.H) - 14);
     }
 
+    // Legend (top-right corner of top panel)
+    const legendX = pad.l + tw - 145;
+    const legendY = pad.t + 6;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX, legendY, 140, 68, 4);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.font = '10px Inter, sans-serif';
+    ctx.textAlign = 'left';
+    // H(σ) curve
+    ctx.strokeStyle = '#10b981'; ctx.lineWidth = 2; ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 14); ctx.lineTo(legendX + 28, legendY + 14); ctx.stroke();
+    ctx.fillStyle = '#cbd5e1'; ctx.fillText('H(σ) landscape', legendX + 34, legendY + 18);
+    // Descent path
+    ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 30); ctx.lineTo(legendX + 22, legendY + 30); ctx.stroke();
+    ctx.beginPath(); ctx.arc(legendX + 25, legendY + 30, 3.5, 0, Math.PI * 2); ctx.fillStyle = '#f59e0b'; ctx.fill();
+    ctx.fillStyle = '#cbd5e1'; ctx.fillText('Descent path', legendX + 34, legendY + 34);
+    // Critical line
+    ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
+    ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 46); ctx.lineTo(legendX + 28, legendY + 46); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#cbd5e1'; ctx.fillText('σ = ½ critical line', legendX + 34, legendY + 50);
+    // Convergence curve
+    ctx.strokeStyle = '#06b6d4'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(legendX + 8, legendY + 62); ctx.lineTo(legendX + 28, legendY + 62); ctx.stroke();
+    ctx.fillStyle = '#cbd5e1'; ctx.fillText('σ convergence', legendX + 34, legendY + 66);
+
     // Top axis labels
     ctx.fillStyle = '#94a3b8';
     ctx.font = '12px Inter, sans-serif';

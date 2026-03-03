@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { getPrimes, primeFrequency } from '../math/primes.js';
@@ -18,6 +18,17 @@ export default function OscillatorChainViz() {
   const sigmaDeviation = Math.abs(sigma - 0.5);
   const sigmaColor = sigmaDeviation < 0.02 ? '#10b981' : sigmaDeviation < 0.15 ? '#f59e0b' : '#ef4444';
 
+  // Memoize ladder/bridge data so resize and selectedStage clicks skip recomputation
+  const chainData = useMemo(() => {
+    const s = [sigma, t];
+    return {
+      direct: directLadder(s, numPrimes),
+      dual: dualLadder(s, numPrimes),
+      bridge: losslessBridge(s),
+      primes: getPrimes(numPrimes),
+    };
+  }, [sigma, t, numPrimes]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -26,11 +37,7 @@ export default function OscillatorChainViz() {
     const height = svgHeight;
     svg.attr('viewBox', `0 0 ${width} ${height}`);
 
-    const s = [sigma, t];
-    const direct = directLadder(s, numPrimes);
-    const dual = dualLadder(s, numPrimes);
-    const bridge = losslessBridge(s);
-    const primes = getPrimes(numPrimes);
+    const { direct, dual, bridge, primes } = chainData;
 
     // Vertical layout: three columns
     const xDirect = width * 0.18;
@@ -250,7 +257,7 @@ export default function OscillatorChainViz() {
       .attr('font-size', 11)
       .text(`|χ|=${bridge.magnitude.toFixed(3)}, Γ=${bridge.reflectionCoeff.toFixed(3)}`);
 
-  }, [sigma, t, numPrimes, selectedStage, svgHeight]);
+  }, [chainData, selectedStage, svgHeight]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

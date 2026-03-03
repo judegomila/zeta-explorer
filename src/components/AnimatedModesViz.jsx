@@ -11,6 +11,7 @@ import { getPrimes, primeFrequency } from '../math/primes.js';
 export default function AnimatedModesViz() {
   const canvasRef = useRef();
   const animRef = useRef();
+  const elapsedRef = useRef(0);
   const [numPrimes, setNumPrimes] = useState(12);
   const [zeroIndex, setZeroIndex] = useState(0);
   const [speed, setSpeed] = useState(1);
@@ -186,9 +187,11 @@ export default function AnimatedModesViz() {
   }, [numPrimes, zeroIndex, speed]);
 
   useEffect(() => {
-    let startTime = performance.now();
+    let startTime = performance.now() - elapsedRef.current;
     const animate = (time) => {
-      draw(time - startTime);
+      const elapsed = time - startTime;
+      elapsedRef.current = elapsed;
+      draw(elapsed);
       if (isPlaying) {
         animRef.current = requestAnimationFrame(animate);
       }
@@ -196,7 +199,7 @@ export default function AnimatedModesViz() {
     if (isPlaying) {
       animRef.current = requestAnimationFrame(animate);
     } else {
-      draw(0);
+      draw(elapsedRef.current);
     }
     return () => {
       if (animRef.current) cancelAnimationFrame(animRef.current);

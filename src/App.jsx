@@ -19,6 +19,66 @@ import WaveSimPage from './pages/WaveSimPage.jsx';
 import RHRigorPage from './pages/RHRigorPage.jsx';
 import './styles/app.css';
 
+const NAV_GROUPS = [
+  {
+    label: 'Model',
+    items: [
+      { to: '/oscillators', label: 'Oscillators' },
+      { to: '/hamiltonian', label: 'Hamiltonian' },
+      { to: '/modes', label: 'Modes' },
+      { to: '/waves', label: 'Waves' },
+      { to: '/simulator', label: 'Simulator' },
+    ],
+  },
+  {
+    label: 'Analysis',
+    items: [
+      { to: '/zeta', label: 'Zeta' },
+      { to: '/fourier', label: 'Fourier' },
+      { to: '/control', label: 'Control' },
+      { to: '/statistics', label: 'Statistics' },
+      { to: '/supercritical', label: 'Supercritical' },
+    ],
+  },
+  {
+    label: 'Reference',
+    items: [
+      { to: '/explorations', label: 'Explorations' },
+      { to: '/literature', label: 'Literature' },
+      { to: '/rigor', label: 'Rigor' },
+      { to: '/docs', label: 'Docs' },
+      { to: '/improvements', label: 'Improvements' },
+    ],
+  },
+];
+
+function NavDropdown({ label, items }) {
+  const location = useLocation();
+  const hasActive = items.some(item => location.pathname === item.to);
+
+  return (
+    <div className={`nav-dropdown ${hasActive ? 'nav-dropdown-active' : ''}`}>
+      <button className="nav-dropdown-trigger">
+        {label}
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" style={{ marginLeft: 4 }}>
+          <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        </svg>
+      </button>
+      <div className="nav-dropdown-menu">
+        {items.map(item => (
+          <NavLink key={item.to} to={item.to}>{item.label}</NavLink>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef();
@@ -51,21 +111,23 @@ function NavBar() {
       </button>
       <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
         <NavLink to="/" end>Home</NavLink>
-        <NavLink to="/oscillators">Oscillators</NavLink>
-        <NavLink to="/hamiltonian">Hamiltonian</NavLink>
-        <NavLink to="/zeta">Zeta</NavLink>
-        <NavLink to="/control">Control</NavLink>
-        <NavLink to="/statistics">Statistics</NavLink>
-        <NavLink to="/modes">Modes</NavLink>
-        <NavLink to="/explorations">Explorations</NavLink>
-        <NavLink to="/literature">Literature</NavLink>
-        <NavLink to="/simulator">Simulator</NavLink>
-        <NavLink to="/fourier">Fourier</NavLink>
-        <NavLink to="/supercritical">Supercritical</NavLink>
-        <NavLink to="/docs">Docs</NavLink>
-        <NavLink to="/waves">Waves</NavLink>
-        <NavLink to="/rigor">Rigor</NavLink>
-        <NavLink to="/improvements">Improvements</NavLink>
+        {/* Desktop: grouped dropdowns */}
+        <div className="nav-desktop-groups">
+          {NAV_GROUPS.map(group => (
+            <NavDropdown key={group.label} label={group.label} items={group.items} />
+          ))}
+        </div>
+        {/* Mobile: flat list with section headers */}
+        <div className="nav-mobile-flat">
+          {NAV_GROUPS.map(group => (
+            <React.Fragment key={group.label}>
+              <div className="nav-mobile-header">{group.label}</div>
+              {group.items.map(item => (
+                <NavLink key={item.to} to={item.to}>{item.label}</NavLink>
+              ))}
+            </React.Fragment>
+          ))}
+        </div>
       </nav>
     </div>
   );
@@ -75,6 +137,7 @@ export default function App() {
   return (
     <MathModalProvider>
     <HashRouter>
+      <ScrollToTop />
       <NavBar />
       <div className="app-content">
         <Routes>

@@ -238,3 +238,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 232 | 2026-03-03T18:00:00Z | Fix heatEvolvedXi ignoring its numTerms parameter, always using hardcoded 31 samples | supercritical.js |
 | 233 | 2026-03-03T18:30:00Z | Fix stale hardcoded Pages count (15→16) on HomePage | HomePage.jsx |
 | 234 | 2026-03-03T19:00:00Z | Fix HamiltonianPage claiming mismatch vanishes and Z_dir = Z_dual at σ=½ (conjugate-matched, minimized not zero) | HamiltonianPage.jsx |
+| 235 | 2026-03-03T19:30:00Z | Add scroll-to-top on route change so pages always start at the top | App.jsx |

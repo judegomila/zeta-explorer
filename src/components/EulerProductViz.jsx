@@ -17,7 +17,7 @@ export default function EulerProductViz() {
     const height = 360;
     svg.attr('viewBox', `0 0 ${width} ${height}`);
 
-    const margin = { top: 30, right: 30, bottom: 50, left: 60 };
+    const margin = { top: 30, right: 55, bottom: 50, left: 60 };
     const w = width - margin.left - margin.right;
     const h = height - margin.top - margin.bottom;
 
@@ -101,7 +101,23 @@ export default function EulerProductViz() {
       .attr('fill', 'none')
       .attr('stroke', '#8b5cf6')
       .attr('stroke-width', 1.5)
-      .attr('opacity', 0.6);
+      .attr('opacity', 0.7);
+
+    // Right y-axis for phase
+    const phaseAxis = d3.axisRight(yPhase)
+      .tickValues([-Math.PI, -Math.PI / 2, 0, Math.PI / 2, Math.PI])
+      .tickFormat(v => {
+        if (Math.abs(v) < 0.01) return '0';
+        if (Math.abs(v - Math.PI) < 0.01) return 'π';
+        if (Math.abs(v + Math.PI) < 0.01) return '−π';
+        if (Math.abs(v - Math.PI / 2) < 0.01) return 'π/2';
+        return '−π/2';
+      });
+    g.append('g')
+      .attr('transform', `translate(${w},0)`)
+      .call(phaseAxis)
+      .selectAll('text').attr('fill', '#8b5cf6').attr('font-size', 10);
+    g.select('g:last-child').selectAll('.domain, .tick line').attr('stroke', '#8b5cf640');
 
     // Labels
     svg.append('text')
@@ -112,13 +128,13 @@ export default function EulerProductViz() {
     svg.append('text')
       .attr('x', margin.left - 8).attr('y', 14)
       .attr('fill', '#3b82f6').attr('font-size', 11).attr('font-weight', 600)
-      .text('Cumulative |ζ| (blue)');
+      .text('← Cumulative |ζ|');
 
     svg.append('text')
       .attr('x', width - margin.right).attr('y', 14)
       .attr('text-anchor', 'end')
       .attr('fill', '#8b5cf6').attr('font-size', 11).attr('font-weight', 600)
-      .text('Phase (purple)');
+      .text('Phase arg(ζ) →');
 
     // True zeta value (Borwein-accelerated) as reference line
     const trueZeta = cAbs(zetaCriticalStrip([sigma, t]));

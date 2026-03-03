@@ -228,7 +228,7 @@ export default function EnergyLandscapeViz() {
       <div className="tab-explainer accent-purple">
         <strong>The math:</strong> The 2D heatmap shows the selected quantity over the <InlineMath tex="(\\sigma, t)" /> plane.
         <strong>System Energy</strong> shows <InlineMath tex="\\mathcal{H}(\\sigma+it)" /> with its valley along <InlineMath tex="\\sigma = 0.5" />.
-        <strong>Impedance Mismatch</strong> shows <InlineMath tex="|Z_{\\text{dir}} - Z_{\\text{dual}}|^2" />, zero on the critical line.
+        <strong>Impedance Mismatch</strong> shows <InlineMath tex="|Z_{\\text{dir}} - Z_{\\text{dual}}|" />, minimized (not zero) on the critical line where the impedances are conjugate-matched.
         The <strong>direct/dual magnitudes</strong> show <InlineMath tex="|\\zeta(s)|" /> and <InlineMath tex="|\\zeta(1-s)|" /> with their
         symmetric zero structure. White circles mark known zeta zeros <InlineMath tex="\\rho_n" />.
         <strong> Look for:</strong> the dark valley along <InlineMath tex="\\sigma = 0.5" /> and zeros sitting at valley floor.

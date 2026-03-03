@@ -236,9 +236,12 @@ function FrequencyResponseTab() {
         prime oscillator ladder network, plotted as a standard Bode diagram. The magnitude (top, in dB) shows the gain
         at each frequency; the phase (bottom) shows the accumulated delay. Near zeta zero frequencies, the partial product
         shows resonance peaks from constructive phase alignment, even though the Euler product only converges for{' '}
-        <InlineMath tex="\\sigma > 1" />. Moving <InlineMath tex="\\sigma" /> off the critical line shifts and broadens
-        these resonance peaks. At <InlineMath tex="\\sigma = 0.5" />, the peaks are sharpest (<InlineMath tex="Q = 1" />).
-        <strong> Look for:</strong> resonance spikes at zeta zero frequencies; sharper peaks at <InlineMath tex="\\sigma = 0.5" />.
+        <InlineMath tex="\\sigma > 1" />. Since <InlineMath tex="Q = 1/(2\\sigma)" />, lower <InlineMath tex="\\sigma" /> gives
+        sharper resonances (<InlineMath tex="Q \\to \\infty" /> as <InlineMath tex="\\sigma \\to 0" />), while higher{' '}
+        <InlineMath tex="\\sigma" /> damps them. At <InlineMath tex="\\sigma = 0.5" />,{' '}
+        <InlineMath tex="Q = 1" /> for all primes &mdash; the critical line is where direct and dual ladders balance,
+        not where resonance is sharpest.
+        <strong> Look for:</strong> resonance spikes at zeta zero frequencies; peaks sharpening as <InlineMath tex="\\sigma \\to 0" />.
       </div>
       <div className="controls">
         <div className="control-group">

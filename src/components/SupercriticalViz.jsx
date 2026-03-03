@@ -334,6 +334,15 @@ function ThermodynamicsTab() {
       // Phase boundary at σ=1
       g.append('line').attr('x1', x(1)).attr('y1', 0).attr('x2', x(1)).attr('y2', h)
         .attr('stroke', '#f59e0b').attr('stroke-width', 1).attr('stroke-dasharray', '4,3').attr('opacity', 0.5);
+      // Label reference lines on the first chart only
+      if (qi === 0) {
+        g.append('text').attr('x', x(0.5)).attr('y', -4)
+          .attr('text-anchor', 'middle').attr('fill', '#ef4444').attr('font-size', 9).attr('opacity', 0.8)
+          .text('\u03C3 = \u00BD');
+        g.append('text').attr('x', x(1)).attr('y', -4)
+          .attr('text-anchor', 'middle').attr('fill', '#f59e0b').attr('font-size', 9).attr('opacity', 0.8)
+          .text('\u03C3 = 1');
+      }
 
       // Plot curve
       const filtered = data.filter(d => isFinite(d[q.key]) && Math.abs(d[q.key]) < 1e6);

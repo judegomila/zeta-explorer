@@ -273,10 +273,12 @@ export default function NyquistBodeViz() {
     phaseGridG.selectAll('.tick line')
       .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
 
-    // -180° line
+    // -180° line (critical phase margin threshold)
     gPhase.append('line')
       .attr('x1', 0).attr('y1', yPhase(-180)).attr('x2', w).attr('y2', yPhase(-180))
-      .attr('stroke', '#ef4444').attr('stroke-width', 0.8).attr('stroke-dasharray', '4,4').attr('opacity', 0.4);
+      .attr('stroke', '#ef4444').attr('stroke-width', 0.8).attr('stroke-dasharray', '4,4').attr('opacity', 0.5);
+    gPhase.append('text').attr('x', w - 4).attr('y', yPhase(-180) - 4)
+      .attr('text-anchor', 'end').attr('fill', '#ef4444').attr('font-size', 10).attr('opacity', 0.8).text('−180°');
 
     const phaseLine = d3.line().x(d => xLog(d.t)).y(d => yPhase(d.phase)).curve(d3.curveLinear);
     gPhase.append('path').datum(points).attr('d', phaseLine)

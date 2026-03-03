@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
+import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { hamiltonianSigmaScan, systemHamiltonian } from '../math/oscillators.js';
+import { ZETA_ZEROS } from '../math/zeta.js';
 
 export default function HamiltonianViz() {
   const svgRef = useRef();
@@ -159,22 +161,47 @@ export default function HamiltonianViz() {
 
   return (
     <div>
+      <div className="tab-explainer accent-green">
+        <strong>The math:</strong> The system Hamiltonian <InlineMath tex="\\mathcal{H} = T + V_{\\text{mismatch}} + V_{\\text{bridge}}" /> sums three
+        terms: <strong>kinetic energy</strong> <InlineMath tex="T = \\sum_p \\tfrac{1}{2}\\log p\\,(|H_p|^2 + |H_p^*|^2)" /> (blue),{' '}
+        <strong>impedance mismatch</strong> <InlineMath tex="V = \\tfrac{1}{2}|Z_{\\text{dir}} - Z_{\\text{dual}}|^2" /> (orange),
+        and <strong>bridge penalty</strong> <InlineMath tex="V_b = 100(1-|\\chi|)^2" /> (purple). At <InlineMath tex="\\sigma = 0.5" />,
+        mismatch vanishes (functional equation symmetry) and the bridge is lossless (<InlineMath tex="|\\chi|=1" />),
+        leaving only the minimized kinetic term.
+        <strong> Look for:</strong> the green total curve reaching its minimum at <InlineMath tex="\\sigma = 0.5" /> for any value of <InlineMath tex="t" />.
+      </div>
       <div className="controls">
         <div className="control-group">
-          <label>t (Im s)</label>
+          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
+          {(() => {
+            let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
+            for (let i = 1; i < ZETA_ZEROS.length; i++) {
+              const d = Math.abs(tValue - ZETA_ZEROS[i]);
+              if (d < bestDist) { bestDist = d; bestIdx = i; }
+              if (ZETA_ZEROS[i] > tValue + 2) break;
+            }
+            return bestDist < 1 ? (
+              <span style={{
+                marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
+                color: bestDist < 0.3 ? '#10b981' : '#64748b',
+              }}>
+                {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+              </span>
+            ) : null;
+          })()}
         </div>
         <div className="control-group">
           <label>Primes</label>
-          <input type="range" min="4" max="20" step="1" value={numPrimes}
+          <input type="range" min="4" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
           <span className="control-value">{numPrimes}</span>
         </div>
         {hoverPoint && (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
-            σ={hoverPoint.sigma.toFixed(3)} | H={hoverPoint.total.toFixed(3)} | T={hoverPoint.kinetic.toFixed(3)} | V={hoverPoint.potential.toFixed(3)}
+            <InlineMath tex="\sigma" />={hoverPoint.sigma.toFixed(3)} | <InlineMath tex="\mathcal{H}" />={hoverPoint.total.toFixed(3)} | <InlineMath tex="T" />={hoverPoint.kinetic.toFixed(3)} | <InlineMath tex="V" />={hoverPoint.potential.toFixed(3)}
           </div>
         )}
       </div>

@@ -229,3 +229,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 223 | 2026-03-03T13:30:00Z | Add "What to Explore" guide card to RHRigorPage explaining each stress test and what to look for | RHRigorPage.jsx |
 | 224 | 2026-03-03T14:00:00Z | Add horizontal gridlines to all three ConvergenceTab sub-charts in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
 | 225 | 2026-03-03T14:30:00Z | Memoize mismatch test derived statistics to avoid 6 array iterations on every draw/resize in RHRigorViz | RHRigorViz.jsx |
+| 226 | 2026-03-03T15:00:00Z | Fix stale hardcoded Visualizations count (17→18) on HomePage | HomePage.jsx |

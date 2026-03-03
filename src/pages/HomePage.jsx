@@ -38,7 +38,7 @@ export default function HomePage() {
           <div className="stat-label">Pages</div>
         </div>
         <div className="stat-box">
-          <div className="stat-value" style={{ color: '#ec4899' }}>17</div>
+          <div className="stat-value" style={{ color: '#ec4899' }}>18</div>
           <div className="stat-label">Visualizations</div>
         </div>
       </div>

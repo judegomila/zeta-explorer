@@ -253,3 +253,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 247 | 2026-03-03T12:30:00Z | Fix HomePage correspondence table saying 'Perfect impedance match' instead of 'Conjugate impedance match' at σ=½ | HomePage.jsx |
 | 248 | 2026-03-03T13:00:00Z | Add y-axis tick marks to mismatch test panel in RHRigorViz | RHRigorViz.jsx |
 | 249 | 2026-03-03T13:30:00Z | Memoize bridge σ-scan data in BridgeTab to avoid recomputing 101 losslessBridge calls on resize | TwinOscillatorSimViz.jsx |
+| 250 | 2026-03-03T14:00:00Z | Add RH significance context to MultiZeroTab explainer in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |

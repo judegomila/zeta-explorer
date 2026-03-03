@@ -1156,6 +1156,9 @@ function MultiZeroTab() {
         If the oscillator model is correct, the minimizing <InlineMath tex="\\sigma^*" /> should equal <InlineMath tex="\\tfrac{1}{2}" /> for every
         zero &mdash; a numerical consistency check that the energy ground state always sits on the critical line.
         A zero "passes" if <InlineMath tex="|\\sigma^* - 0.5| < 0.01" />.
+        <strong> Why it matters:</strong> the Riemann Hypothesis is equivalent to every nontrivial zero having <InlineMath tex="\\sigma = \\tfrac{1}{2}" />.
+        If even one zero's energy minimum lay away from the critical line, the model would be inconsistent with RH.
+        A 100% pass rate across all tested zeros is a necessary (though not sufficient) condition for the oscillator model to be a valid RH framework.
         <strong> Look for:</strong> all dots clustering on the <InlineMath tex="\\sigma = 0.5" /> line; 100% pass rate.
       </div>
       <div className="controls">

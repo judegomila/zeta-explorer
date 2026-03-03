@@ -276,3 +276,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 270 | 2026-03-03T23:15:00Z | Fix Nyquist contour gradient off-by-one and apply missing gradient to negative frequency trace | NyquistBodeViz.jsx |
 | 271 | 2026-03-03T23:30:00Z | Fix DocsPage calling log(p) the 'resonant frequency' when LC parameters give ω₀=1 | DocsPage.jsx |
 | 272 | 2026-03-03T23:45:00Z | Fix DocsPage Riemann-Siegel formula missing (-1)^{N-1}(t/2π)^{-1/4} prefactor on C₀ correction term | DocsPage.jsx |
+| 273 | 2026-03-03T23:55:00Z | Add missing horizontal gridlines to SpectralEnergyTab in FourierDomainViz | FourierDomainViz.jsx |

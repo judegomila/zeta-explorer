@@ -240,6 +240,11 @@ export default function OscillatorChainViz() {
 
     svg.append('text')
       .attr('x', width - 16).attr('y', 92)
+      .attr('text-anchor', 'end').attr('fill', '#f59e0b').attr('font-size', 11)
+      .text(`|ζ(1−s)| ≈ ${dual.totalMagnitude.toFixed(4)}`);
+
+    svg.append('text')
+      .attr('x', width - 16).attr('y', 108)
       .attr('text-anchor', 'end')
       .attr('fill', bridge.isUnitary ? '#10b981' : '#ef4444')
       .attr('font-size', 11)

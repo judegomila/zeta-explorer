@@ -164,3 +164,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 158 | 2026-03-03T13:15:00Z | Fix Wave Interference explainer using wrong term "constructive interference" for amplitude matching | WaveSimViz.jsx |
 | 159 | 2026-03-03T13:30:00Z | Show largest prime (p_max) next to Primes slider count in SupercriticalViz ThermodynamicsTab and EulerPhaseTab | SupercriticalViz.jsx |
 | 160 | 2026-03-03T14:00:00Z | Add horizontal gridlines to Von Mangoldt Spectrum tab for easier magnitude reading | FourierDomainViz.jsx |
+| 161 | 2026-03-03T14:30:00Z | Show dual ladder |ζ(1−s)| in OscillatorChainViz top-right summary alongside direct |ζ(s)| | OscillatorChainViz.jsx |

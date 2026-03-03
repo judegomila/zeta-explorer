@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import * as d3 from 'd3';
+import { InlineMath } from './KaTeXMath.jsx';
 import { directLadder, losslessBridge } from '../math/oscillators.js';
-import { cMul, cDiv, cAdd, cSub, cAbs, cExp, cPow, eulerFactor, zetaCriticalStrip } from '../math/zeta.js';
-import { getPrimes } from '../math/primes.js';
+import { cMul, cDiv, cAdd, cSub, cAbs, cExp, cPow, zetaCriticalStrip } from '../math/zeta.js';
 
 /**
  * Nyquist plot: trace the loop transfer function L(jω) = χ(s)·ζ(1-s)/ζ(s)
@@ -17,14 +17,10 @@ export default function NyquistBodeViz() {
   const [mode, setMode] = useState('nyquist');
 
   const computeLoopGain = useCallback((s, nPrimes) => {
-    // L(s) = χ(s) * ζ_partial(1-s) / ζ_partial(s)
-    const primes = getPrimes(nPrimes);
-    let zetaS = [1, 0];
-    let zeta1mS = [1, 0];
-    for (const p of primes) {
-      zetaS = cMul(zetaS, eulerFactor(p, s));
-      zeta1mS = cMul(zeta1mS, eulerFactor(p, [1 - s[0], -s[1]]));
-    }
+    // L(s) = χ(s) * ζ(1-s) / ζ(s)
+    // Use Borwein-accelerated zeta for accuracy in the critical strip
+    const zetaS = zetaCriticalStrip(s);
+    const zeta1mS = zetaCriticalStrip([1 - s[0], -s[1]]);
     const bridge = losslessBridge(s);
     const ratio = cDiv(zeta1mS, zetaS);
     return cMul(bridge.chi, ratio);
@@ -55,7 +51,7 @@ export default function NyquistBodeViz() {
     const negPoints = [];
     for (let i = 0; i <= steps; i++) {
       const t = -(tRange[0] + i * dt);
-      const L = computeLoopGain([sigma, -t], numPrimes);
+      const L = computeLoopGain([sigma, t], numPrimes);
       negPoints.push({ t, re: L[0], im: L[1] });
     }
 
@@ -260,6 +256,27 @@ export default function NyquistBodeViz() {
 
   return (
     <div>
+      {mode === 'nyquist' && (
+        <div className="tab-explainer">
+          <strong>The math:</strong> The Nyquist plot traces the loop transfer function{' '}
+          <InlineMath tex="L(s) = \chi(s)\zeta(1-s)/\zeta(s)" /> in the complex plane as <InlineMath tex="t" /> varies.
+          By the Nyquist stability criterion, the number of clockwise encirclements of <InlineMath tex="-1" /> equals{' '}
+          <InlineMath tex="Z - P" /> (zeros minus poles in the right half-plane). RH says: on the critical line{' '}
+          (<InlineMath tex="\sigma = \tfrac{1}{2}" />), there are <strong>zero encirclements</strong> &mdash; the system
+          is marginally stable. Moving <InlineMath tex="\sigma" /> off the critical line changes the winding number.
+          <strong> Look for:</strong> the curve not encircling <InlineMath tex="-1" /> at <InlineMath tex="\sigma = 0.5" />.
+        </div>
+      )}
+      {mode === 'bode' && (
+        <div className="tab-explainer accent-orange">
+          <strong>The math:</strong> The Bode diagram shows the loop gain <InlineMath tex="|L(j\omega)|" /> in dB (top) and
+          phase <InlineMath tex="\angle L(j\omega)" /> in degrees (bottom) vs. frequency. Gain crossings (0 dB) correspond
+          to potential instabilities; the <strong>gain margin</strong> measures how much amplification the loop can tolerate.
+          The <strong>phase margin</strong> measures how much phase lag can be added. On the critical line, the system has
+          infinite gain margin &mdash; the oscillator chain can never become unstable.
+          <strong> Look for:</strong> gain peaks at zeta zero frequencies; adequate margins at <InlineMath tex="\sigma = 0.5" />.
+        </div>
+      )}
       <div className="controls">
         <div className="control-group">
           <label>View</label>
@@ -269,7 +286,7 @@ export default function NyquistBodeViz() {
           </select>
         </div>
         <div className="control-group">
-          <label>σ (Re s)</label>
+          <label><InlineMath tex="\sigma = \operatorname{Re}(s)" /></label>
           <input type="range" min="0.1" max="0.9" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)} />
           <span className="control-value">{sigma.toFixed(2)}</span>
@@ -282,7 +299,7 @@ export default function NyquistBodeViz() {
         </div>
         <div className="control-group">
           <label>Primes</label>
-          <input type="range" min="4" max="25" step="1" value={numPrimes}
+          <input type="range" min="4" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
           <span className="control-value">{numPrimes}</span>
         </div>

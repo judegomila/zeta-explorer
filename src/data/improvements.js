@@ -2,4 +2,5 @@
 // Each entry is appended by the auto-improvement engine after a successful run.
 export const improvements = [
   { id: 1, timestamp: "2026-03-02T12:00:00Z", category: "bug", summary: "Fix de Bruijn-Newman x-scale using gamma values instead of zero count", files: ["LiCriterionViz.jsx"], detail: "The de Bruijn-Newman heat flow visualization had its x-axis domain set to [0, numZeros+2] (the count of zeros), but plotted gamma values (imaginary parts of zeta zeros, ranging ~14 to ~1000). This caused most data points to render off-screen. Fixed by setting the domain to [0, maxGamma*1.05] so all zeros are visible." },
+  { id: 2, timestamp: "2026-03-02T12:05:00Z", category: "bug", summary: "Fix Nyquist plot double-negation bug in negative frequency contour", files: ["NyquistBodeViz.jsx"], detail: "The negative frequency contour in the Nyquist plot had a double-negation bug: the loop variable t was already negative, but computeLoopGain was called with -t, making it positive again. This caused the negative frequency contour to duplicate the positive one instead of showing the correct complex-conjugate mirror. Fixed by passing t directly." },
 ];

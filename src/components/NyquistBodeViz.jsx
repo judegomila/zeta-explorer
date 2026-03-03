@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import * as d3 from 'd3';
 import { InlineMath } from './KaTeXMath.jsx';
-import { directLadder, losslessBridge } from '../math/oscillators.js';
+import { losslessBridge } from '../math/oscillators.js';
 import { cMul, cDiv, cAdd, cSub, cAbs, cExp, cPow, zetaCriticalStrip } from '../math/zeta.js';
 
 /**
@@ -13,14 +13,13 @@ export default function NyquistBodeViz() {
   const bodeRef = useRef();
   const [sigma, setSigma] = useState(0.5);
   const [tRange, setTRange] = useState([1, 60]);
-  const [numPrimes, setNumPrimes] = useState(15);
   const [mode, setMode] = useState('nyquist');
 
   // Color the sigma slider based on distance from critical line
   const sigmaDeviation = Math.abs(sigma - 0.5);
   const sigmaColor = sigmaDeviation < 0.02 ? '#10b981' : sigmaDeviation < 0.15 ? '#f59e0b' : '#ef4444';
 
-  const computeLoopGain = useCallback((s, nPrimes) => {
+  const computeLoopGain = useCallback((s) => {
     // L(s) = χ(s) * ζ(1-s) / ζ(s)
     // Use Borwein-accelerated zeta for accuracy in the critical strip
     const zetaS = zetaCriticalStrip(s);
@@ -48,7 +47,7 @@ export default function NyquistBodeViz() {
     const dt = (tRange[1] - tRange[0]) / steps;
     for (let i = 0; i <= steps; i++) {
       const t = tRange[0] + i * dt;
-      const L = computeLoopGain([sigma, t], numPrimes);
+      const L = computeLoopGain([sigma, t]);
       points.push({ t, re: L[0], im: L[1], mag: cAbs(L) });
     }
     // Negative frequency (mirror): by Schwarz reflection, L(σ−it) = conj(L(σ+it)),
@@ -178,7 +177,7 @@ export default function NyquistBodeViz() {
       .attr('fill', sigma === 0.5 ? '#10b981' : '#ef4444').attr('font-size', 11)
       .text(`σ = ${sigma.toFixed(2)} — ${sigma === 0.5 ? 'Critical line: expect 0 encirclements' : 'Off critical line'}`);
 
-  }, [sigma, tRange, numPrimes, computeLoopGain]);
+  }, [sigma, tRange, computeLoopGain]);
 
   const drawBode = useCallback(() => {
     const svg = d3.select(bodeRef.current);
@@ -200,7 +199,7 @@ export default function NyquistBodeViz() {
 
     for (let i = 0; i <= steps; i++) {
       const t = Math.pow(10, logTMin + i * dLogT);
-      const L = computeLoopGain([sigma, t], numPrimes);
+      const L = computeLoopGain([sigma, t]);
       const mag = cAbs(L);
       const phase = Math.atan2(L[1], L[0]);
       points.push({ t, magdB: 20 * Math.log10(Math.max(1e-10, mag)), phase: phase * 180 / Math.PI, mag });
@@ -270,9 +269,9 @@ export default function NyquistBodeViz() {
 
     svg.append('text').attr('x', margin.left + 4).attr('y', 16)
       .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
-      .text(`Bode Plot — σ = ${sigma.toFixed(2)}, ${numPrimes} primes`);
+      .text(`Bode Plot — σ = ${sigma.toFixed(2)}`);
 
-  }, [sigma, tRange, numPrimes, computeLoopGain]);
+  }, [sigma, tRange, computeLoopGain]);
 
   useEffect(() => {
     if (mode === 'nyquist') drawNyquist();
@@ -328,12 +327,6 @@ export default function NyquistBodeViz() {
           <input type="range" min="10" max="100" step="1" value={tRange[1]}
             onChange={e => setTRange([tRange[0], +e.target.value])} />
           <span className="control-value">{tRange[1]}</span>
-        </div>
-        <div className="control-group">
-          <label>Primes</label>
-          <input type="range" min="4" max="50" step="1" value={numPrimes}
-            onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
         </div>
       </div>
       <div className="viz-container">

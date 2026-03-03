@@ -746,6 +746,12 @@ export default function TwistorViz() {
   const sigmaColor = Math.abs(sigma - 0.5) < 0.05 ? '#10b981'
     : Math.abs(sigma - 0.5) < 0.2 ? '#f59e0b' : '#ef4444';
 
+  const incidenceStatus = useMemo(() => {
+    const Z = twistorFromS([sigma, t]);
+    const W = dualTwistorFromS([sigma, t]);
+    return incidenceRelation(Z, W);
+  }, [sigma, t]);
+
   return (
     <div>
       {/* Controls */}
@@ -781,25 +787,18 @@ export default function TwistorViz() {
       </div>
 
       {/* Incidence status */}
-      {(() => {
-        const Z = twistorFromS([sigma, t]);
-        const W = dualTwistorFromS([sigma, t]);
-        const inc = incidenceRelation(Z, W);
-        return (
-          <div style={{
-            padding: '6px 14px', marginBottom: 12, borderRadius: 8,
-            background: inc.satisfied ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)',
-            border: `1px solid ${inc.satisfied ? '#10b981' : '#ef4444'}33`,
-            fontSize: 12, color: inc.satisfied ? '#10b981' : '#ef4444', fontWeight: 500,
-            textAlign: 'center',
-          }}>
-            {inc.satisfied
-              ? 'Z · W ≈ 0 — Incidence relation satisfied: twistor and dual twistor are incident (σ ≈ 0.5)'
-              : `|Z · W| = ${inc.magnitude.toFixed(4)} — Incidence relation violated: twistors are not incident`
-            }
-          </div>
-        );
-      })()}
+      <div style={{
+        padding: '6px 14px', marginBottom: 12, borderRadius: 8,
+        background: incidenceStatus.satisfied ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)',
+        border: `1px solid ${incidenceStatus.satisfied ? '#10b981' : '#ef4444'}33`,
+        fontSize: 12, color: incidenceStatus.satisfied ? '#10b981' : '#ef4444', fontWeight: 500,
+        textAlign: 'center',
+      }}>
+        {incidenceStatus.satisfied
+          ? 'Z · W ≈ 0 — Incidence relation satisfied: twistor and dual twistor are incident (σ ≈ 0.5)'
+          : `|Z · W| = ${incidenceStatus.magnitude.toFixed(4)} — Incidence relation violated: twistors are not incident`
+        }
+      </div>
 
       {/* Tab bar */}
       <div className="tab-bar">

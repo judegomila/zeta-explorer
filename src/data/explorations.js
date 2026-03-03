@@ -783,7 +783,7 @@ The theta function $\\theta(t)$ is the accumulated **phase shift** through the l
       'This explains why zeta computations are efficient: only O(sqrt(t)) terms needed',
     ],
     references: ['titchmarsh-1986', 'mazur-stein-2016'],
-    nextSteps: [],
+    nextSteps: ['exp-034'],
   },
   {
     id: 'exp-021',
@@ -1391,6 +1391,50 @@ This means the phases $(p_1^{-i\\tau}, p_2^{-i\\tau}, \\ldots)$ are **jointly er
       'Discrete universality means even sampled output is universal, so no information is lost by discrete observation of the chain',
     ],
     references: ['titchmarsh-1986', 'iwaniec-kowalski-2004', 'rudnick-sarnak-1996', 'selberg-1942'],
+    nextSteps: ['exp-034'],
+  },
+  {
+    id: 'exp-034',
+    timestamp: '2026-03-03T15:30:00Z',
+    title: 'Gram Points: The Clock Ticks of the Oscillator Chain',
+    status: 'complete',
+    category: 'spectral',
+    depth: 3,
+    content: `The Riemann-Siegel theta function $\\theta(t)$ accumulates the total phase shift through the oscillator chain. Its values at integer multiples of $\\pi$ define the **Gram points** — a natural clock that organizes zero counting.
+
+**Definition.** The $n$-th Gram point $g_n$ satisfies $\\theta(g_n) = n\\pi$, where:
+
+$$\\theta(t) = \\frac{t}{2}\\log\\frac{t}{2\\pi} - \\frac{t}{2} - \\frac{\\pi}{8} + O(1/t)$$
+
+Since $Z(t) = e^{i\\theta(t)}\\zeta(\\tfrac{1}{2}+it)$ is real-valued, evaluating at a Gram point gives:
+
+$$Z(g_n) = e^{in\\pi}\\zeta(\\tfrac{1}{2}+ig_n) = (-1)^n \\cdot |\\zeta(\\tfrac{1}{2}+ig_n)| \\cdot \\text{sgn}(\\text{Re}[\\zeta])$$
+
+**Gram's law** (empirical): $(-1)^n Z(g_n) > 0$ for "most" $n$. When this holds for consecutive $n$ and $n+1$, the sign change guarantees at least one zero in the Gram interval $[g_n, g_{n+1}]$. Combined with the Riemann-von Mangoldt formula predicting $\\sim 1$ zero per Gram interval on average, this means zeros are typically **evenly spaced** — one per clock tick.
+
+**Oscillator interpretation.** The theta function is the cumulative phase of the carrier signal passing through the ladder network. Gram points are where this phase hits integer multiples of $\\pi$ — the **clock ticks** of the oscillator chain. Gram's law says the Z(t) waveform alternates sign at these regular intervals, like a well-behaved oscillation.
+
+When Gram's law **fails** (the Lehmer phenomenon), two zeros cluster within one Gram interval while the next interval is empty. In oscillator terms, this is a **mode bunching** event: the coupling between nearby modes causes their frequencies to attract, temporarily disrupting the regular tick. The rarity of Lehmer violations reflects the level repulsion predicted by GUE statistics — the very same repulsion that Montgomery's pair correlation captures.
+
+**Gram point spacing.** From $\\theta'(t) = \\tfrac{1}{2}\\log(t/2\\pi)$, consecutive Gram points are spaced:
+
+$$g_{n+1} - g_n \\approx \\frac{\\pi}{\\theta'(g_n)} = \\frac{2\\pi}{\\log(g_n/2\\pi)}$$
+
+This is exactly the local mean zero spacing from the Weyl law. So Gram points tile the $t$-axis into intervals that match the average mode spacing — they are the **natural grid** for the oscillator chain's spectral analysis.`,
+    latex: [
+      '\\theta(g_n) = n\\pi, \\quad g_{n+1} - g_n \\approx \\frac{2\\pi}{\\log(g_n/2\\pi)}',
+      'Z(g_n) = (-1)^n \\zeta(\\tfrac{1}{2}+ig_n) \\quad \\text{(real-valued at Gram points)}',
+      "\\text{Gram's law: } (-1)^n Z(g_n) > 0 \\;\\Rightarrow\\; \\text{one zero per Gram interval}",
+      '\\text{Lehmer violation: mode bunching} \\leftrightarrow \\text{GUE level repulsion failure}',
+    ],
+    insights: [
+      'Gram points are where the oscillator chain phase θ(t) hits integer multiples of π — the natural clock ticks of the system',
+      "Gram's law says Z(t) alternates sign at consecutive clock ticks, ensuring one zero per interval",
+      'Gram point spacing matches the Weyl-law mean zero spacing, confirming they form the natural spectral grid',
+      'Lehmer violations (mode bunching) are rare precisely because GUE level repulsion keeps zeros apart',
+      "The Z(t) chart in ZetaLandscapeViz directly shows Gram's law: regular sign alternations with occasional disruptions",
+    ],
+    references: ['titchmarsh-1986', 'mazur-stein-2016', 'hardy-littlewood-1921'],
     nextSteps: [],
   },
 ];

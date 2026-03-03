@@ -166,3 +166,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 160 | 2026-03-03T14:00:00Z | Add horizontal gridlines to Von Mangoldt Spectrum tab for easier magnitude reading | FourierDomainViz.jsx |
 | 161 | 2026-03-03T14:30:00Z | Show dual ladder |ζ(1−s)| in OscillatorChainViz top-right summary alongside direct |ζ(s)| | OscillatorChainViz.jsx |
 | 162 | 2026-03-03T15:00:00Z | Memoize Euler product and true zeta computations to avoid recomputing on resize | EulerProductViz.jsx |
+| 163 | 2026-03-03T15:30:00Z | Add Gram points exploration entry connecting theta function phase ticks to oscillator mode spacing | explorations.js |
+| 164 | 2026-03-03T16:00:00Z | Add per-visualization exploration guide card to HamiltonianPage for energy and explicit formula charts | HamiltonianPage.jsx |

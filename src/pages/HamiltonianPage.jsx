@@ -16,6 +16,24 @@ export default function HamiltonianPage() {
 
       <BlockMath tex="\\mathcal{H}(s) = \\underbrace{T(s)}_{\\text{kinetic}} + \\underbrace{V_{\\text{mismatch}}(s)}_{\\text{impedance}} + \\underbrace{V_{\\text{bridge}}(s)}_{\\text{coupling}}" />
 
+      <div className="card" style={{ marginTop: 24, borderColor: '#10b981' }}>
+        <h3 style={{ color: '#10b981' }}>What to Explore in Each Visualization</h3>
+        <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          <strong style={{ color: '#3b82f6' }}>Hamiltonian Energy vs σ</strong> — drag the t slider to a zeta
+          zero (<InlineMath tex="t \approx 14.13, 21.02, 25.01" />) and watch the green total-energy curve develop
+          a sharp minimum at <InlineMath tex="\sigma = 0.5" />. Compare the three components: the blue kinetic energy
+          is symmetric about <InlineMath tex="\sigma = 0.5" />, the orange mismatch vanishes there, and the purple
+          bridge penalty is zero exactly on the critical line. Increase primes to see the valley deepen and narrow.
+        </p>
+        <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          <strong style={{ color: '#f59e0b' }}>Explicit Formula ψ(x)</strong> — start with few zeros and watch
+          the gold spectral reconstruction deviate from the blue staircase. Add more zeros to see it converge,
+          filling in the steps one oscillation at a time. The shaded area between the PNT line and the
+          spectral approximation shows the error the zeros collectively correct. Near prime powers, the
+          staircase jumps by <InlineMath tex="\log p" /> — look for how each zero's sinusoid lines up with those jumps.
+        </p>
+      </div>
+
       <div style={{ marginTop: 32 }}>
         <div className="viz-title">Hamiltonian Energy vs <InlineMath tex="\\sigma" /> at Fixed t</div>
         <div className="viz-subtitle">

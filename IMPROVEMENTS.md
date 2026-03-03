@@ -175,3 +175,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 169 | 2026-03-03T18:30:00Z | Fix Riemann-Siegel C₀ correction producing NaN at removable singularities p=1/4 and p=3/4 | zeta.js |
 | 170 | 2026-03-03T19:00:00Z | Add horizontal gridlines to PerPrimeTab and BridgeTab charts in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
 | 171 | 2026-03-03T19:30:00Z | Memoize explicit formula data arrays to avoid recomputing psiTable and zero sums on resize | ExplicitFormulaViz.jsx |
+| 172 | 2026-03-03T20:00:00Z | Add Dirichlet L-functions exploration entry on character-twisted oscillator chains and GRH | explorations.js |

@@ -34,7 +34,7 @@ In circuit theory, cascading two-port networks means multiplying their transfer 
       'The sieve of Eratosthenes is the construction procedure for building the ladder stage by stage',
     ],
     references: ['euler-1737', 'cauer-1926', 'belevitch-1968'],
-    nextSteps: ['exp-002', 'exp-003'],
+    nextSteps: ['exp-002', 'exp-003', 'exp-035'],
   },
   {
     id: 'exp-002',
@@ -662,7 +662,7 @@ This connects to **inverse problems** in network synthesis: given a desired set 
       'Comparing generalized prime chains reveals what makes the actual primes special',
     ],
     references: ['zagier-1977', 'titchmarsh-1986'],
-    nextSteps: ['exp-018'],
+    nextSteps: ['exp-018', 'exp-035'],
   },
   {
     id: 'exp-018',
@@ -1435,7 +1435,49 @@ This is exactly the local mean zero spacing from the Weyl law. So Gram points ti
       "The Z(t) chart in ZetaLandscapeViz directly shows Gram's law: regular sign alternations with occasional disruptions",
     ],
     references: ['titchmarsh-1986', 'mazur-stein-2016', 'hardy-littlewood-1921'],
-    nextSteps: [],
+    nextSteps: ['exp-035'],
+  },
+  {
+    id: 'exp-035',
+    timestamp: '2026-03-03T20:00:00Z',
+    title: 'Dirichlet L-Functions: Character-Twisted Oscillator Chains',
+    status: 'complete',
+    category: 'foundation',
+    depth: 3,
+    content: `Every Dirichlet character $\\chi$ modulo $q$ gives rise to its own L-function with an Euler product — and therefore its own oscillator chain:
+
+$$L(s, \\chi) = \\prod_p \\frac{1}{1 - \\chi(p)\\, p^{-s}}$$
+
+The **Generalized Riemann Hypothesis (GRH)** asserts that all nontrivial zeros of every $L(s, \\chi)$ lie on $\\sigma = 1/2$. In oscillator terms: every character-twisted chain has its energy minimum on the critical line.
+
+**The twist.** Compared to the plain Euler product $\\zeta(s) = \\prod_p (1 - p^{-s})^{-1}$, each factor acquires a phase twist $\\chi(p)$. For the principal character ($\\chi_0$), $\\chi_0(p) = 1$ for $\\gcd(p,q)=1$ and the L-function essentially reduces to $\\zeta(s)$ times a finite correction. For non-principal characters, $\\chi(p)$ is a root of unity that rotates each oscillator's coupling by a fixed angle.
+
+**Circuit interpretation.** The character twist inserts a **phase shifter** into each oscillator stage. The $p$-th LC resonator, instead of coupling with real impedance, now couples with a complex impedance rotated by $\\arg(\\chi(p))$. For real characters (quadratic, $\\chi(p) = \\pm 1$), some oscillators have their phase flipped by $\\pi$ — they become "anti-resonators" that destructively interfere with the untwisted signal. For complex characters, the phase shifts break the real-valuedness of $Z(t)$, so the zero-detecting strategy changes.
+
+**Functional equation.** Each $L(s, \\chi)$ has its own functional equation:
+
+$$\\Lambda(s, \\chi) = \\left(\\frac{q}{\\pi}\\right)^{(s+a)/2} \\Gamma\\!\\left(\\frac{s+a}{2}\\right) L(s, \\chi) = \\varepsilon(\\chi)\\, \\Lambda(1-s, \\bar{\\chi})$$
+
+where $a = 0$ if $\\chi(-1) = 1$ (even character) and $a = 1$ if $\\chi(-1) = -1$ (odd character), and $|\\varepsilon(\\chi)| = 1$ is the root number. The bridge connecting the direct and dual twisted ladders is still lossless on $\\sigma = 1/2$ — but now the bridge transfer function depends on the conductor $q$ and the character parity.
+
+**Why GRH matters more than RH.** Most applications of the Riemann Hypothesis in number theory actually require GRH, not just RH for $\\zeta(s)$. The prime number theorem for arithmetic progressions — how primes are distributed among residue classes modulo $q$ — depends on zero-free regions of $L(s, \\chi)$. In oscillator terms: to understand how the prime oscillators are distributed when filtered by congruence conditions, you need *all* the twisted chains to have their zeros on the critical line.
+
+**Symmetry types.** Katz and Sarnak showed that different families of L-functions have different symmetry types for their zero statistics: unitary, symplectic, or orthogonal. In oscillator language, the character twist selects the symmetry class of the coupling matrix. The plain $\\zeta(s)$ has unitary symmetry (GUE); quadratic characters $\\chi(p) = \\left(\\frac{d}{p}\\right)$ give symplectic symmetry; and symmetric-square L-functions give orthogonal symmetry. Each class has its own level repulsion strength and moment asymptotics.`,
+    latex: [
+      'L(s, \\chi) = \\prod_p \\frac{1}{1 - \\chi(p)\\, p^{-s}} \\quad \\text{(character-twisted Euler product)}',
+      '\\chi(p) = e^{2\\pi i k/q} \\;\\Rightarrow\\; \\text{phase-shifted oscillator stage}',
+      '\\Lambda(s,\\chi) = \\varepsilon(\\chi)\\,\\Lambda(1-s,\\bar{\\chi}), \\quad |\\varepsilon(\\chi)|=1 \\;\\text{(lossless bridge)}',
+      '\\text{GRH: all nontrivial zeros of } L(s,\\chi) \\text{ satisfy } \\operatorname{Re}(s) = \\tfrac{1}{2}',
+    ],
+    insights: [
+      'Each Dirichlet character χ twists the oscillator chain by inserting phase shifters χ(p) into every Euler factor',
+      'The functional equation for L(s,χ) still gives a lossless bridge on σ=1/2, but the bridge depends on conductor q and character parity',
+      'GRH is strictly stronger than RH and is what most applications actually need — it governs primes in arithmetic progressions',
+      'Katz-Sarnak symmetry types (unitary, symplectic, orthogonal) arise from different character twists selecting different coupling matrix symmetries',
+      'Real characters flip some oscillators by π (anti-resonators); complex characters rotate by fractional angles, breaking Z(t) real-valuedness',
+    ],
+    references: ['katz-sarnak-1999', 'rudnick-sarnak-1996', 'iwaniec-kowalski-2004', 'sarnak-2004'],
+    nextSteps: ['exp-017'],
   },
 ];
 

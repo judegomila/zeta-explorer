@@ -219,7 +219,7 @@ export default function HomePage() {
               {[
                 [<>Euler product <InlineMath tex="\prod(1-p^{-s})^{-1}" /></>, 'Cascade of two-port networks', 'Ladder of prime oscillators'],
                 [<>Functional equation <InlineMath tex="\xi(s)=\xi(1-s)" /></>, <>Lossless scattering matrix <InlineMath tex="S^\dagger S=I" /></>, 'Bridge connecting ladders'],
-                [<>Critical line <InlineMath tex="\sigma=1/2" /></>, 'Perfect impedance match', 'Hamiltonian minimum'],
+                [<>Critical line <InlineMath tex="\sigma=1/2" /></>, 'Conjugate impedance match', 'Hamiltonian minimum'],
                 ['Nontrivial zeros', 'Transmission zeros', 'System resonances'],
                 ['Explicit formula', 'Impulse response decomposition', 'Sum of damped sinusoids'],
                 ['Prime Number Theorem', 'Bode sensitivity integral', 'Low-frequency gain constraint'],

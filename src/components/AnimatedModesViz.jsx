@@ -34,13 +34,16 @@ export default function AnimatedModesViz() {
     });
   }, [numPrimes, zeroIndex]);
 
+  // Scale canvas height so each prime row stays readable (min 24px per row)
+  const canvasHeight = Math.max(500, 100 + numPrimes * 28);
+
   const draw = useCallback((time) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
     const dw = canvas.clientWidth;
-    const dh = 500;
+    const dh = canvasHeight;
     const targetW = dw * dpr;
     const targetH = dh * dpr;
     if (canvas.width !== targetW || canvas.height !== targetH) {
@@ -198,7 +201,7 @@ export default function AnimatedModesViz() {
     ctx.fillText(`t = ${t.toFixed(2)}`, dw - 8, 22);
     ctx.textAlign = 'left';
 
-  }, [primeData, zeroIndex, speed]);
+  }, [primeData, zeroIndex, speed, canvasHeight]);
 
   useEffect(() => {
     let startTime = performance.now() - elapsedRef.current;
@@ -265,7 +268,7 @@ export default function AnimatedModesViz() {
         </button>
       </div>
       <div className="viz-container">
-        <canvas ref={canvasRef} style={{ width: '100%', height: 500 }} />
+        <canvas ref={canvasRef} style={{ width: '100%', height: canvasHeight }} />
       </div>
     </div>
   );

@@ -97,7 +97,7 @@ export default function OscillatorsPage() {
             <li>Mirror of the direct ladder at <InlineMath tex="s \\to 1-s" /></li>
             <li>Same primes, different operating point</li>
             <li>Symmetric with direct at <InlineMath tex="\\sigma = 1/2" /></li>
-            <li>Impedance matches direct on critical line</li>
+            <li>Conjugate-matches direct on critical line (<InlineMath tex="Z_{\text{dual}} = \bar{Z}_{\text{dir}}" /> by Schwarz reflection)</li>
           </ul>
         </div>
       </div>

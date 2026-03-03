@@ -16,7 +16,7 @@ export default function OscillatorsPage() {
       </div>
 
       <div style={{ marginBottom: 32 }}>
-        <BlockMath tex="\\zeta(s) = \\prod_{p} \\underbrace{\\frac{1}{1 - p^{-s}}}_{H_p(s)} \\quad \\text{where each } H_p \\text{ is an LC oscillator with } \\omega_p = \\log p" />
+        <BlockMath tex="\\zeta(s) = \\prod_{p} \\underbrace{\\frac{1}{1 - p^{-s}}}_{H_p(s)} \\quad \\text{where each } H_p \\text{ is an LC oscillator } (L_p = \\log p,\\; C_p = 1/\\log p,\\; \\omega_0 = 1)" />
       </div>
 
       <div className="viz-title">Direct & Dual Ladder Network with Lossless Bridge</div>
@@ -74,9 +74,9 @@ export default function OscillatorsPage() {
         <div className="card">
           <h3 style={{ color: '#3b82f6' }}>Direct Ladder</h3>
           <p style={{ marginBottom: 12 }}>
-            Computes <InlineMath tex="\\zeta(s)" /> via the Euler product as a cascade of oscillators with increasing
-            resonant frequency. Each stage filters the signal, with the cascade building up
-            the full zeta function.
+            Computes <InlineMath tex="\\zeta(s)" /> via the Euler product as a cascade of oscillators, each with
+            LC resonant frequency <InlineMath tex="\\omega_0 = 1" /> but distinct Euler factor phase rotation
+            rate <InlineMath tex="\\log p" />. The cascade builds up the full zeta function stage by stage.
           </p>
           <BlockMath tex="H_{\\text{direct}}(s) = \\prod_{p \\leq P} \\frac{1}{1-p^{-s}}" />
           <ul style={{ marginTop: 12, marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.8 }}>

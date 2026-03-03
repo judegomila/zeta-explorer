@@ -209,3 +209,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 203 | 2026-03-03T22:30:00Z | Show largest prime (p_max) next to Primes slider count in TwinOscillatorSimViz and OscillatorChainViz | TwinOscillatorSimViz.jsx, OscillatorChainViz.jsx |
 | 204 | 2026-03-03T23:00:00Z | Fix WaveSimPage wrongly claiming Γ = (Z_dir − Z_dual)/(Z_dir + Z_dual) = 0 at σ=½; impedances are conjugate-matched, not equal | WaveSimPage.jsx |
 | 205 | 2026-03-03T23:30:00Z | Add horizontal gridlines to both magnitude and phase panels in FrequencyResponseTab Bode diagram | FourierDomainViz.jsx |
+| 206 | 2026-03-03T23:45:00Z | Fix Spectral Energy explainer wrongly claiming impedance mismatch vanishes at σ=½ (it equals 2|Im Z|, not zero) | FourierDomainViz.jsx |
+| 207 | 2026-03-03T23:55:00Z | Fix Poisson reference line slope in number-variance plot drawing Σ²=L/4 instead of Σ²=L | GUEStatisticsViz.jsx |

@@ -242,7 +242,7 @@ export function heatEvolvedXi(t, tau, numTerms = 50) {
   const width = Math.sqrt(2 * tau);
 
   // Sample Ξ at nearby points and convolve with Gaussian
-  const numSamples = 31;
+  const numSamples = numTerms;
   const sampleRange = width * 4;
   let result = 0;
   let normalization = 0;

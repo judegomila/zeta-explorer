@@ -22,7 +22,7 @@ for (let r = 0.02; r <= 4; r += 0.02) {
 const GAMMA_E = 0.5772;
 const REF_NUMVAR_GUE = [];
 for (let L = 0.3; L <= 6; L += 0.05) {
-  const s2 = (2 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 1 + GAMMA_E - Math.PI * Math.PI / 8);
+  const s2 = (1 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 1 + GAMMA_E - Math.PI * Math.PI / 8);
   REF_NUMVAR_GUE.push({ L, s2: Math.max(0, s2) });
 }
 
@@ -271,7 +271,7 @@ export default function GUEStatisticsViz() {
           .attr('fill', '#3b82f6').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
       });
 
-      // GUE prediction: Sigma^2(L) ~ (2/pi^2)(log(2*pi*L) + 1 + gamma_E - pi^2/8)
+      // GUE prediction: Sigma^2(L) ~ (1/pi^2)(log(2*pi*L) + 1 + gamma_E - pi^2/8)
       g.append('path').datum(REF_NUMVAR_GUE)
         .attr('d', d3.line().x(d => x(d.L)).y(d => y(d.s2)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2.5);

@@ -48,7 +48,7 @@ export default function SupercriticalPage() {
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
           <h3 style={{ color: '#3b82f6' }}>Free Energy & Entropy</h3>
-          <BlockMath tex="F(\beta) = -T\log|\zeta(\beta + it)|, \quad S = -\frac{\partial F}{\partial T} = \beta^2 \frac{\partial}{\partial \beta}\log|\zeta|" />
+          <BlockMath tex="F(\beta) = -T\log|\zeta(\beta + it)|, \quad S = -\frac{\partial F}{\partial T} = \log|\zeta| - \beta\frac{\partial}{\partial \beta}\log|\zeta|" />
           <p style={{ marginTop: 8 }}>
             <strong style={{ color: '#3b82f6' }}>Free energy</strong> <InlineMath tex="F" /> is the thermodynamic
             potential — it diverges at the pole <InlineMath tex="\sigma = 1" /> (the phase transition) and is smooth

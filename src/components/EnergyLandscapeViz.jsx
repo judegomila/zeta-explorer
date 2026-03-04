@@ -212,6 +212,22 @@ export default function EnergyLandscapeViz() {
     ctx.fillText(vMax.toFixed(1), barX - 2, 18);
     ctx.fillText(vMin.toFixed(1), barX - 2, barH + 12);
 
+    // Colorbar title label (rotated, beside the bar)
+    const barLabels = {
+      energy: 'H(σ,t)',
+      mismatch: '|Z_dir − Z_dual|',
+      directMag: '|ζ(s)|',
+      dualMag: '|ζ(1−s)|',
+    };
+    ctx.save();
+    ctx.fillStyle = '#cbd5e1';
+    ctx.font = '600 10px sans-serif';
+    ctx.translate(barX + 20, (barH + 10) / 2 + 5);
+    ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = 'center';
+    ctx.fillText(barLabels[metric], 0, 0);
+    ctx.restore();
+
   }, [landscape, tMax, metric]);
 
   useEffect(() => { draw(); }, [draw]);

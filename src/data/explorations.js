@@ -1783,6 +1783,39 @@ Each zero $\\rho = \\tfrac{1}{2} + i\\gamma$ contributes an oscillating term $\\
     references: ['littlewood-1914', 'skewes-1933', 'bays-hudson-2000'],
     nextSteps: ['exp-009', 'exp-029', 'exp-042'],
   },
+  {
+    id: 'exp-044',
+    timestamp: '2026-03-03T23:00:00Z',
+    title: "Lehmer's Phenomenon: Near-Degenerate Zeros and the Oscillator Chain's Closest Calls",
+    status: 'complete',
+    category: 'spectral',
+    depth: 3,
+    content: `In 1956, Lehmer discovered that $Z(t)$ very nearly fails to change sign near $t \\approx 7005.063$, grazing the axis with $|Z(t)| \\approx 0.0053$. If $Z(t)$ had not crossed zero there, two zeros would have merged and left the critical line — violating RH. These **Lehmer zeros** are the closest calls the Riemann Hypothesis has faced computationally.
+
+**What Lehmer zeros look like.** In the $Z(t)$ plot (ZetaLandscapeViz critical-line mode), a Lehmer zero appears as a near-tangency: the curve dips toward the axis, barely crosses it twice in quick succession, then pulls away. The two zero crossings are extremely close together — sometimes within $\\Delta t < 0.01$.
+
+**Oscillator chain interpretation.** In the ZPO framework, each zeta zero corresponds to a resonant mode of the oscillator chain. Two nearly-colliding zeros represent modes whose frequencies are almost degenerate — a near-resonance where two standing waves have almost the same wavelength. The small gap $\\Delta\\gamma$ between Lehmer zeros measures how narrowly the system avoids mode coalescence.
+
+**GUE level repulsion.** Random matrix theory predicts that eigenvalue spacings of GUE matrices follow the Wigner surmise $P(s) \\propto s^2 e^{-4s^2/\\pi}$, with $P(0) = 0$ — zeros **repel** each other. Lehmer zeros are the extreme tail of this distribution: permitted by GUE statistics but exponentially rare. The observed spacing statistics near Lehmer zeros are consistent with GUE predictions, providing striking evidence for the Montgomery-Odlyzko law.
+
+**Connection to de Bruijn-Newman.** The de Bruijn-Newman constant $\\Lambda$ satisfies $\\Lambda \\geq 0$ (proven in 2018 by Rodgers-Tao). Under backward heat flow ($\\tau < 0$), zeros migrate off the critical line; Lehmer zeros are the first to leave because their small gap makes them the most fragile. This means Lehmer zeros provide **lower bounds** on $\\Lambda$: the closer a Lehmer pair is, the smaller the backward heat time needed to dislodge it, pushing $\\Lambda$ closer to 0 from below.
+
+**Known Lehmer zeros.** Beyond Lehmer's original example at $t \\approx 7005$, many more have been found. The phenomenon persists at all computed heights up to $t \\approx 10^{13}$, always consistent with RH but occasionally hair-raisingly close. Each new Lehmer zero is a stress test for the hypothesis.`,
+    latex: [
+      'Z(t) = e^{i\\theta(t)} \\zeta(\\tfrac{1}{2} + it) \\in \\mathbb{R}',
+      'P_{\\text{GUE}}(s) = \\frac{32}{\\pi^2} s^2 e^{-4s^2/\\pi} \\quad (\\text{Wigner surmise, } P(0) = 0)',
+      '\\Delta\\gamma_{\\text{Lehmer}} \\approx 0.01 \\ll \\langle\\Delta\\gamma\\rangle \\approx \\frac{2\\pi}{\\log(t/2\\pi)}',
+      '\\Lambda \\geq \\sup\\{\\tau : \\Xi_\\tau \\text{ has a double zero}\\}',
+    ],
+    insights: [
+      "Lehmer zeros are the oscillator chain's closest calls — near-degenerate mode pairs that almost coalesce and leave the critical line",
+      'GUE level repulsion (P(0)=0) explains why exact degeneracy never occurs: the eigenvalue distribution has a quadratic zero at zero spacing',
+      'Lehmer zeros provide the tightest lower bounds on the de Bruijn-Newman constant Λ, constraining how much backward heat flow zeros can survive',
+      'Every new Lehmer zero found at greater height reinforces both GUE universality and the Riemann Hypothesis',
+    ],
+    references: ['lehmer-1956', 'montgomery-1973', 'odlyzko-1987', 'rodgers-tao-2020'],
+    nextSteps: ['exp-010', 'exp-026', 'exp-031'],
+  },
 ];
 
 export function getAllExplorations() {

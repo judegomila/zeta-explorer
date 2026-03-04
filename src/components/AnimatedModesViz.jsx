@@ -209,6 +209,18 @@ export default function AnimatedModesViz() {
 
   }, [primeData, zeroIndex, speed, canvasHeight]);
 
+  // Spacebar keyboard shortcut for play/pause
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.code === 'Space' && !['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+        e.preventDefault();
+        setIsPlaying(p => !p);
+      }
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, []);
+
   useEffect(() => {
     let startTime = performance.now() - elapsedRef.current;
     const animate = (time) => {
@@ -264,6 +276,7 @@ export default function AnimatedModesViz() {
         </div>
         <button
           onClick={() => setIsPlaying(!isPlaying)}
+          title="Toggle animation (Space)"
           style={{
             padding: '6px 16px', borderRadius: 6, border: '1px solid var(--border)',
             background: isPlaying ? 'rgba(239,68,68,0.15)' : 'rgba(16,185,129,0.15)',
@@ -272,6 +285,9 @@ export default function AnimatedModesViz() {
         >
           {isPlaying ? 'Pause' : 'Play'}
         </button>
+        <span style={{ color: '#475569', fontSize: 10, marginLeft: 6, fontFamily: 'var(--font-mono)' }}>
+          <kbd style={{ padding: '1px 5px', borderRadius: 3, border: '1px solid #334155', background: '#1e293b', fontSize: 10 }}>Space</kbd>
+        </span>
       </div>
       <div className="viz-container">
         <canvas ref={canvasRef} style={{ width: '100%', height: canvasHeight }} />

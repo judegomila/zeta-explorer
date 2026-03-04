@@ -356,3 +356,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 350 | 2026-03-03T15:30:00Z | Add Cramér's random model exploration entry explaining why primes look random through the oscillator lens | explorations.js |
 | 351 | 2026-03-04T01:30:00Z | Add background box to mismatch test legend in RHRigorViz for readability | RHRigorViz.jsx |
 | 352 | 2026-03-03T16:15:00Z | Fix Phase & Delay explainer showing wrong derivative variable ∂φ/∂ω instead of ∂φ/∂t | WaveSimViz.jsx |
+| 353 | 2026-03-03T16:30:00Z | Add spacebar keyboard shortcut for play/pause in AnimatedModesViz with visual kbd hint | AnimatedModesViz.jsx |

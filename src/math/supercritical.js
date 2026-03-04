@@ -199,8 +199,8 @@ export function heatFlowZeros(tau, numZeros = 30) {
         force += 1 / diff;
       }
     }
-    // Under heat flow, zeros spread apart (τ>0) or compress (τ<0)
-    const velocity = force / (2 * Math.PI);
+    // de Bruijn-Newman ODE: dγ_k/dτ = 2·Σ_{m≠k} 1/(γ_k − γ_m)
+    const velocity = 2 * force;
     const newGamma = gamma + tau * velocity;
 
     // For τ < 0 (backward heat / inverse diffusion), zeros acquire imaginary parts

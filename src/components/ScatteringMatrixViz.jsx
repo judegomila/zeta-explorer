@@ -302,10 +302,15 @@ export default function ScatteringMatrixViz() {
               if (ZETA_ZEROS[i] > tValue + 2) break;
             }
             return bestDist < 1 ? (
-              <span style={{
-                marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                color: bestDist < 0.3 ? '#10b981' : '#64748b',
-              }}>
+              <span
+                style={{
+                  marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
+                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  cursor: 'pointer', borderBottom: '1px dashed currentColor',
+                }}
+                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
+                onClick={() => setTValue(+ZETA_ZEROS[bestIdx].toFixed(1))}
+              >
                 {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
               </span>
             ) : null;

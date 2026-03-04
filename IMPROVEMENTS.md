@@ -362,3 +362,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 356 | 2026-03-03T17:30:00Z | Fix spacing histogram using linear density approximation instead of exact Weyl-law unfolding | GUEStatisticsViz.jsx |
 | 357 | 2026-03-03T18:00:00Z | Add RMS approximation error readout to ExplicitFormulaViz controls | ExplicitFormulaViz.jsx |
 | 358 | 2026-03-03T18:15:00Z | Fix zero-correction area fill opacity mismatch between chart (8%) and legend swatch (25%) in ExplicitFormulaViz | ExplicitFormulaViz.jsx |
+| 359 | 2026-03-04T02:00:00Z | Avoid canvas buffer reallocation on every animation frame in WaveSimViz animated tabs | WaveSimViz.jsx |

@@ -43,11 +43,16 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
     const dpr = window.devicePixelRatio || 1;
     const W = canvas.parentElement.clientWidth;
     const H = Math.max(400, 80 + numPrimes * 34);
-    canvas.width = W * dpr;
-    canvas.height = H * dpr;
-    canvas.style.height = H + 'px';
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, W, H);
+    const needW = W * dpr;
+    const needH = H * dpr;
+    // Only reallocate canvas buffer when dimensions actually change —
+    // setting canvas.width unconditionally forces a GPU buffer clear every frame
+    if (canvas.width !== needW || canvas.height !== needH) {
+      canvas.width = needW;
+      canvas.height = needH;
+      canvas.style.height = H + 'px';
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const { bridge, direct, dual, primes } = flowData;
     const time = timeRef.current;
@@ -464,9 +469,14 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
     const rect = canvas.getBoundingClientRect();
     const W = rect.width;
     const H = rect.height;
-    canvas.width = W * dpr;
-    canvas.height = H * dpr;
-    ctx.scale(dpr, dpr);
+    const needW = W * dpr;
+    const needH = H * dpr;
+    // Only reallocate canvas buffer when dimensions actually change
+    if (canvas.width !== needW || canvas.height !== needH) {
+      canvas.width = needW;
+      canvas.height = needH;
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const time = timeRef.current;
 

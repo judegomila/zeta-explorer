@@ -331,3 +331,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 325 | 2026-03-03T13:45:00Z | Fix WaveInterferenceTab canvas not redrawing on window resize when animation is paused | WaveSimViz.jsx |
 | 326 | 2026-03-03T14:00:00Z | Fix Bost-Connes phase labels reversed: σ>1 is ordered/condensed, not gas | SupercriticalPage.jsx, supercritical.js |
 | 327 | 2026-03-03T14:15:00Z | Fix HomePage card calling log(p) the resonator 'frequency' instead of characteristic impedance Z₀ | HomePage.jsx |
+| 328 | 2026-03-03T14:30:00Z | Add horizontal gridlines to all three modes of GUEStatisticsViz for easier value reading | GUEStatisticsViz.jsx |

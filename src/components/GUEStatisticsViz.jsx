@@ -127,6 +127,13 @@ export default function GUEStatisticsViz() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+      // Horizontal gridlines
+      const gridS = g.append('g')
+        .call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(''));
+      gridS.select('.domain').remove();
+      gridS.selectAll('.tick line')
+        .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
+
       // Histogram bars
       for (let i = 0; i < bins; i++) {
         g.append('rect')
@@ -201,6 +208,13 @@ export default function GUEStatisticsViz() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+      // Horizontal gridlines
+      const gridP = g.append('g')
+        .call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(''));
+      gridP.select('.domain').remove();
+      gridP.selectAll('.tick line')
+        .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
+
       for (let i = 0; i < bins; i++) {
         g.append('rect')
           .attr('x', x(i * binW)).attr('y', y(density[i]))
@@ -260,6 +274,13 @@ export default function GUEStatisticsViz() {
       g.append('g').call(d3.axisLeft(y).ticks(6))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
+
+      // Horizontal gridlines
+      const gridN = g.append('g')
+        .call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(''));
+      gridN.select('.domain').remove();
+      gridN.selectAll('.tick line')
+        .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
 
       // Data points
       const dataLine = d3.line()

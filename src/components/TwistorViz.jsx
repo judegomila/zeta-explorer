@@ -371,6 +371,11 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
   }, [scanData, sigma]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => {
+    const onResize = () => draw();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw]);
 
   return <canvas ref={canvasRef} style={{ width: '100%', borderRadius: 8 }} />;
 }

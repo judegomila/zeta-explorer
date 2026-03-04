@@ -71,7 +71,7 @@ export default function GUEStatisticsViz() {
     for (const p of pairDists) {
       if (p < 4) pHist[Math.floor(p / pBinW)]++;
     }
-    const pDensity = pHist.map(c => c / (zeros.length * pBinW));
+    const pDensity = pHist.map(c => c / (pairDists.length * pBinW));
 
     // Number variance
     const nvLs = [];

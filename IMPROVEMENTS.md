@@ -310,3 +310,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 304 | 2026-03-03T20:30:00Z | Fix GUE number variance reference curve using 1/π² instead of correct 2/π² prefactor | GUEStatisticsViz.jsx |
 | 305 | 2026-03-03T20:45:00Z | Add Lindelöf Hypothesis exploration entry on bounded gain and subconvexity in the oscillator chain | explorations.js |
 | 306 | 2026-03-03T21:00:00Z | Fix oscillators.js module docstring calling log(p) the natural frequency instead of the characteristic impedance | oscillators.js |
+| 307 | 2026-03-03T21:15:00Z | Fix pair correlation histogram normalization dividing by zeros.length instead of pairDists.length | GUEStatisticsViz.jsx |

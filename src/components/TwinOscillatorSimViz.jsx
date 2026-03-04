@@ -912,6 +912,10 @@ function BridgeTab() {
       g.append('text').attr('x', halfW / 2).attr('y', -10)
         .attr('text-anchor', 'middle').attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('|χ(s)| vs σ');
+
+      // Y-axis label
+      g.append('text').attr('transform', `translate(-42, ${h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('|χ(s)|');
     }
 
     // ── Right chart: Reflection coefficient vs sigma ──
@@ -982,6 +986,10 @@ function BridgeTab() {
       g.append('text').attr('x', halfW / 2).attr('y', -10)
         .attr('text-anchor', 'middle').attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('Reflection Coefficient vs σ');
+
+      // Y-axis label
+      g.append('text').attr('transform', `translate(-42, ${h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('R');
     }
 
     // Axis label

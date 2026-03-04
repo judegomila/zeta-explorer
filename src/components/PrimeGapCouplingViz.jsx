@@ -99,9 +99,13 @@ export default function PrimeGapCouplingViz() {
         .text('Coupling Y');
 
       // Legend
-      const legend = g.append('g').attr('transform', `translate(${w - 160}, 10)`);
-      legend.append('circle').attr('cx', 6).attr('cy', 0).attr('r', 4).attr('fill', '#ef4444');
-      legend.append('text').attr('x', 16).attr('y', 4).attr('fill', '#ef4444').attr('font-size', 11)
+      const legend = g.append('g').attr('transform', `translate(${w - 175}, 10)`);
+      legend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 16).attr('y2', 0)
+        .attr('stroke', '#06b6d4').attr('stroke-width', 1.5);
+      legend.append('text').attr('x', 22).attr('y', 4).attr('fill', '#06b6d4').attr('font-size', 11)
+        .text('Coupling trend');
+      legend.append('circle').attr('cx', 8).attr('cy', 18).attr('r', 4).attr('fill', '#ef4444');
+      legend.append('text').attr('x', 22).attr('y', 22).attr('fill', '#ef4444').attr('font-size', 11)
         .text('Twin primes (gap=2)');
 
     } else if (mode === 'gap') {

@@ -288,3 +288,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 282 | 2026-03-03T14:00:00Z | Fix PrimeGapCouplingViz frequency mode calling log(p) the "natural frequency" when LC resonance is ω₀=1 | PrimeGapCouplingViz.jsx |
 | 283 | 2026-03-03T14:15:00Z | Fix misspelling "decoherring" → "decohering" in WaveSimPage intro text | WaveSimPage.jsx |
 | 284 | 2026-03-03T14:30:00Z | Show visible zeta zeros count next to t-range sliders in RHRigorViz | RHRigorViz.jsx |
+| 285 | 2026-03-03T14:45:00Z | Fix oscillatorStage resonantFreq returning log(p) instead of ω₀=1/√(LC)=1 | oscillators.js |

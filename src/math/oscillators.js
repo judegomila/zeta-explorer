@@ -40,7 +40,7 @@ export function oscillatorStage(p, s) {
   const energy = 0.5 * L * Hmag * Hmag;
 
   // Resonance analysis
-  const resonantFreq = omega;
+  const resonantFreq = 1 / Math.sqrt(L * C); // ω₀ = 1/√(LC) = 1 for all primes
   const bandwidth = 2 * s[0]; // BW = ω₀/Q = 2σ (ω₀ = 1/√(LC) = 1 for all primes)
   const Q = 1 / (2 * (s[0] || 0.001));
 

@@ -355,3 +355,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 349 | 2026-03-03T23:15:00Z | Fix ExtendedLandscapeTab showing trivial zero markers at all t values when they only exist at t=0 | SupercriticalViz.jsx |
 | 350 | 2026-03-03T15:30:00Z | Add Cramér's random model exploration entry explaining why primes look random through the oscillator lens | explorations.js |
 | 351 | 2026-03-04T01:30:00Z | Add background box to mismatch test legend in RHRigorViz for readability | RHRigorViz.jsx |
+| 352 | 2026-03-03T16:15:00Z | Fix Phase & Delay explainer showing wrong derivative variable ∂φ/∂ω instead of ∂φ/∂t | WaveSimViz.jsx |

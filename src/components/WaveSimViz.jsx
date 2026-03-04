@@ -1289,7 +1289,7 @@ export default function WaveSimViz() {
         {tab === 'delay' && (
           <>
             <div className="tab-explainer">
-              <strong>Phase & Delay:</strong> Group delay <InlineMath tex="\tau_p = -\partial\phi/\partial\omega" /> for each prime stage.
+              <strong>Phase & Delay:</strong> Group delay <InlineMath tex="\tau_p = -\partial\phi_p/\partial t" /> for each prime oscillator stage.
               Blue bars = direct ladder, gold = dual. At <InlineMath tex="\sigma = 0.5" />, delays are symmetric.
               Dashed lines show cumulative delay building through the cascade.
             </div>

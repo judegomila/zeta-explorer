@@ -54,7 +54,7 @@ export default function DocsPage() {
         <BlockMath tex="\zeta(s) = \prod_{p\;\text{prime}} \frac{1}{1 - p^{-s}}" />
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
           is interpreted as the transfer function of a cascade of LC oscillator stages, one per prime.
-          Each stage has resonant frequency <InlineMath tex="\omega_p = \log p" />, and the entire product forms
+          Each stage has Euler factor phase rate <InlineMath tex="\omega_p = \log p" /> and LC resonant frequency <InlineMath tex="\omega_0 = 1" />, and the entire product forms
           a <strong>ladder network</strong>. The functional equation <InlineMath tex="\zeta(s) = \chi(s)\zeta(1-s)" /> is
           realized as a lossless bridge connecting direct and dual ladder networks. The Riemann Hypothesis (that
           all nontrivial zeros have <InlineMath tex="\text{Re}(s) = \tfrac{1}{2}" />) corresponds to the system being at

@@ -108,6 +108,15 @@ export default function RHRigorViz() {
     return results;
   }, [activeTest, numPrimes, tRange]);
 
+  // ─── Derived statistics for Hamiltonian test (avoid recomputing on resize) ───
+  const hamiltonianStats = useMemo(() => {
+    if (!hamiltonianTestData) return null;
+    const data = hamiltonianTestData;
+    const maxDev = Math.max(...data.map(d => d.deviationFromHalf));
+    const avgDev = data.reduce((s, d) => s + d.deviationFromHalf, 0) / data.length;
+    return { maxDev, avgDev };
+  }, [hamiltonianTestData]);
+
   // ─── Derived statistics for mismatch test (avoid recomputing on resize) ───
   const mismatchStats = useMemo(() => {
     if (!mismatchTestData) return null;
@@ -171,8 +180,8 @@ export default function RHRigorViz() {
       ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, ph); ctx.stroke();
     }
 
-    if (activeTest === 'hamiltonian' && hamiltonianTestData) {
-      drawHamiltonianTest(ctx, hamiltonianTestData, pw, ph);
+    if (activeTest === 'hamiltonian' && hamiltonianTestData && hamiltonianStats) {
+      drawHamiltonianTest(ctx, hamiltonianTestData, pw, ph, hamiltonianStats);
     } else if (activeTest === 'bridge' && bridgeTestData) {
       drawBridgeTest(ctx, bridgeTestData, pw, ph, w, h, margin);
     } else if (activeTest === 'mismatch' && mismatchTestData && mismatchStats) {
@@ -208,9 +217,9 @@ export default function RHRigorViz() {
       ctx.fillText('Normalized magnitude', 0, 0);
       ctx.restore();
     }
-  }, [activeTest, hamiltonianTestData, bridgeTestData, mismatchTestData, mismatchStats, tRange]);
+  }, [activeTest, hamiltonianTestData, hamiltonianStats, bridgeTestData, mismatchTestData, mismatchStats, tRange]);
 
-  function drawHamiltonianTest(ctx, data, pw, ph) {
+  function drawHamiltonianTest(ctx, data, pw, ph, stats) {
     // Plot: for each t, where does H minimize? Should be σ=0.5 if model is correct
     const xScale = (t) => ((t - tRange[0]) / (tRange[1] - tRange[0])) * pw;
     const yScale = (sigma) => ph - ((sigma - 0.1) / 0.8) * ph;
@@ -292,13 +301,11 @@ export default function RHRigorViz() {
     ctx.textAlign = 'left';
     ctx.fillText('Test: Does H(σ,t) minimize at σ = 0.5 for all t?', 4, -14);
 
-    // Verdict
-    const maxDev = Math.max(...data.map(d => d.deviationFromHalf));
-    const avgDev = data.reduce((s, d) => s + d.deviationFromHalf, 0) / data.length;
+    // Verdict (stats pre-computed via useMemo)
     ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = maxDev < 0.05 ? '#10b981' : maxDev < 0.15 ? '#f59e0b' : '#ef4444';
+    ctx.fillStyle = stats.maxDev < 0.05 ? '#10b981' : stats.maxDev < 0.15 ? '#f59e0b' : '#ef4444';
     ctx.textAlign = 'right';
-    ctx.fillText(`Max deviation: ${maxDev.toFixed(4)} | Avg: ${avgDev.toFixed(4)}`, pw, -14);
+    ctx.fillText(`Max deviation: ${stats.maxDev.toFixed(4)} | Avg: ${stats.avgDev.toFixed(4)}`, pw, -14);
 
     // Legend
     const lx = pw - 170, ly = ph - 90;

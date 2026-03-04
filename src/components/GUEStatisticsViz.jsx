@@ -41,12 +41,16 @@ export default function GUEStatisticsViz() {
     const zeros = ZETA_ZEROS.slice(0, numZeros);
     const TWO_PI = 2 * Math.PI;
 
-    // Spacing histogram
+    // Unfolded zeros using exact Weyl-law N̂(γ) = (γ/2π)log(γ/2πe) + 7/8
+    // Shared by spacing, pair-correlation, and number-variance computations
+    const unfolded = zeros.map(g => (g / TWO_PI) * Math.log(g / TWO_PI) - g / TWO_PI + 7 / 8);
+
+    // Spacing histogram using exact Weyl-law unfolded differences
+    // (replaces linear density approximation gap * ρ(γ_i) which can have
+    // significant error for the first few zeros where density changes rapidly)
     const spacings = [];
-    for (let i = 0; i < zeros.length - 1; i++) {
-      const gap = zeros[i + 1] - zeros[i];
-      const dens = Math.log(zeros[i] / TWO_PI) / TWO_PI;
-      spacings.push(gap * dens);
+    for (let i = 0; i < unfolded.length - 1; i++) {
+      spacings.push(unfolded[i + 1] - unfolded[i]);
     }
     const sMaxS = Math.max(3, d3.max(spacings) * 1.1);
     const sBinW = sMaxS / 20;
@@ -55,9 +59,6 @@ export default function GUEStatisticsViz() {
       sHist[Math.min(19, Math.floor(s / sBinW))]++;
     }
     const sDensity = sHist.map(c => c / (spacings.length * sBinW));
-
-    // Unfolded zeros (shared by pair-correlation and number-variance)
-    const unfolded = zeros.map(g => (g / TWO_PI) * Math.log(g / TWO_PI) - g / TWO_PI + 7 / 8);
 
     // Pair correlation histogram
     const pairDists = [];

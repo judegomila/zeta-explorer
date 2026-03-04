@@ -326,3 +326,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 320 | 2026-03-03T12:30:00Z | Reuse superposition Float64Array buffer across animation frames in AnimatedModesViz | AnimatedModesViz.jsx |
 | 321 | 2026-03-03T12:45:00Z | Add Skewes number exploration entry on constructive interference of zero modes flipping π(x)−Li(x) | explorations.js |
 | 322 | 2026-03-03T13:00:00Z | Fix DualPairTab canvas not redrawing on window resize when animation is paused | TwistorViz.jsx |
+| 323 | 2026-03-03T13:15:00Z | Fix PrimeGapCouplingViz labeling log(p) as 'Frequency ω' instead of phase rate | PrimeGapCouplingViz.jsx |

@@ -201,20 +201,20 @@ export default function PrimeGapCouplingViz() {
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
-        .text('Euler Factor Phase Rates ω_p = log(p)  (LC resonance ω₀ = 1)');
+        .text('Euler Factor Phase Rates log(p)  (LC resonance ω₀ = 1)');
 
       // Y-axis label
       svg.append('text')
         .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
-        .text('Frequency ω');
+        .text('Phase rate log(p)');
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 160}, 10)`);
       legend.append('circle').attr('cx', 6).attr('cy', 0).attr('r', 4)
         .attr('fill', 'hsl(225, 70%, 55%)').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
       legend.append('text').attr('x', 18).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10)
-        .text('ω = log(p)');
+        .text('log(p) phase rate');
       legend.append('line').attr('x1', 0).attr('y1', 18).attr('x2', 12).attr('y2', 18)
         .attr('stroke', '#64748b').attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
       legend.append('text').attr('x', 18).attr('y', 22).attr('fill', '#94a3b8').attr('font-size', 10)
@@ -271,7 +271,7 @@ export default function PrimeGapCouplingViz() {
           <select value={mode} onChange={e => setMode(e.target.value)}>
             <option value="coupling">Coupling Strength</option>
             <option value="gap">Prime Gaps</option>
-            <option value="frequency">Oscillator Frequencies</option>
+            <option value="frequency">Phase Rates</option>
           </select>
         </div>
         <div className="control-group">

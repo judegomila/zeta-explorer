@@ -1710,6 +1710,45 @@ This means the "sampling" at integer reciprocals is already sufficient — exact
     references: ['nyman-1950', 'beurling-1955'],
     nextSteps: ['exp-010', 'exp-022', 'exp-001'],
   },
+  {
+    id: 'exp-042',
+    timestamp: '2026-03-03T20:30:00Z',
+    title: 'The Lindelöf Hypothesis: Bounded Gain on the Critical Line',
+    status: 'complete',
+    category: 'statistical',
+    depth: 3,
+    content: `The Lindelöf Hypothesis (1908) is one of the most important consequences of RH. It asserts that zeta grows slower than any power of $t$ on the critical line — in oscillator chain language, the cascade output is bounded in gain.
+
+**The conjecture.** For every $\\varepsilon > 0$:
+$$\\zeta(\\tfrac{1}{2} + it) = O(t^\\varepsilon) \\qquad \\text{as } t \\to \\infty$$
+
+This is weaker than RH but still unproven. The current best unconditional bound is the **Weyl exponent**:
+$$\\zeta(\\tfrac{1}{2} + it) = O(t^{13/84 + \\varepsilon}) \\approx O(t^{0.1548})$$
+due to Bourgain (2017). The "convexity bound" $O(t^{1/4})$ follows directly from the functional equation and Phragmén-Lindelöf; any improvement is called a "subconvexity" result.
+
+**Oscillator chain interpretation.** The cascade transfer function $H(\\tfrac{1}{2} + i\\omega) = \\zeta(\\tfrac{1}{2} + i\\omega)$ evaluated on the critical line is the system's frequency response at the impedance-matched operating point. The Lindelöf Hypothesis says this gain is **subpolynomial** — the cascade never amplifies high-frequency signals by more than $t^\\varepsilon$. In control theory terms, the closed-loop system has bounded gain margin at all frequencies.
+
+**Connection to moments.** The Lindelöf Hypothesis is equivalent to:
+$$\\frac{1}{T}\\int_0^T |\\zeta(\\tfrac{1}{2} + it)|^{2k}\\, dt = O(T^\\varepsilon) \\qquad \\text{for all } k \\in \\mathbb{N}$$
+
+That is, all even moments of $|\\zeta|$ on the critical line grow subpolynomially. Keating-Snaith (2000) conjectured the exact leading coefficient of the $2k$-th moment using random matrix theory, matching the CUE model that appears in the bridge scattering matrix.
+
+**Why RH implies Lindelöf.** If all zeros lie on $\\sigma = \\tfrac{1}{2}$, the zero-free region extends to $\\sigma > \\tfrac{1}{2}$ for all $t$, and a classical estimate via Jensen's formula gives $\\log|\\zeta(\\tfrac{1}{2} + it)| = O(\\log t / \\log\\log t)$, which is much stronger than Lindelöf. In oscillator terms: with all resonances exactly on the critical line, no mode can build up runaway gain at any frequency.`,
+    latex: [
+      '\\zeta(\\tfrac{1}{2} + it) = O(t^\\varepsilon) \\quad \\forall\\, \\varepsilon > 0',
+      '\\text{Convexity bound: } O(t^{1/4}), \\quad \\text{Weyl: } O(t^{13/84})',
+      '\\text{RH} \\;\\Rightarrow\\; \\text{Lindelöf} \\;\\Rightarrow\\; \\text{all moments bounded}',
+      '\\frac{1}{T}\\int_0^T |\\zeta(\\tfrac{1}{2}+it)|^{2k} dt \\sim c_k (\\log T)^{k^2}',
+    ],
+    insights: [
+      'Lindelöf says the oscillator chain output on the critical line has subpolynomial gain — no runaway amplification',
+      'The moment equivalence connects to Keating-Snaith random matrix predictions for the bridge scattering matrix',
+      'Every subconvexity improvement (beating the t^{1/4} bound) constrains how far zeros can stray from σ=1/2',
+      'In control theory language: the closed-loop system has finite gain margin at all frequencies',
+    ],
+    references: ['lindelof-1908', 'titchmarsh-1986', 'bourgain-2017'],
+    nextSteps: ['exp-030', 'exp-012', 'exp-007'],
+  },
 ];
 
 export function getAllExplorations() {

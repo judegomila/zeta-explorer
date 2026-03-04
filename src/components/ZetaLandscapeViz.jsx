@@ -29,6 +29,7 @@ export default function ZetaLandscapeViz() {
   const [mode, setMode] = useState('critical-line');
   const [tRange, setTRange] = useState([0, 50]);
   const [sigmaRange] = useState([0.05, 0.95]);
+  const [hoverInfo, setHoverInfo] = useState(null);
 
   const drawCriticalLine = useCallback(() => {
     const canvas = canvasRef.current;
@@ -348,6 +349,23 @@ export default function ZetaLandscapeViz() {
     ctx.fillText('White circles: known zeros on σ=½', 30, 34);
   }, [tRange, sigmaRange, heatmapGrid]);
 
+  const handleHover = useCallback((e) => {
+    if (mode !== 'heatmap' || !canvasRef.current) return;
+    const rect = canvasRef.current.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) / rect.width;
+    const my = (e.clientY - rect.top) / rect.height;
+    if (mx < 0 || mx > 1 || my < 0 || my > 1) { setHoverInfo(null); return; }
+    const sigma = sigmaRange[0] + mx * (sigmaRange[1] - sigmaRange[0]);
+    const tMin = tRange[0] || 0.5;
+    const tMax = tRange[1] || 50;
+    const t = tMin + (1 - my) * (tMax - tMin);
+    const gi = Math.min(RES - 1, Math.max(0, Math.round((mx) * (RES - 1))));
+    const gj = Math.min(RES - 1, Math.max(0, Math.round((1 - my) * (RES - 1))));
+    const logVal = heatmapGrid[gi * RES + gj];
+    // Reverse: logVal = min(1, log(1+mag)/4), so log(1+mag) ≈ logVal*4 (clamped)
+    setHoverInfo({ sigma: sigma.toFixed(3), t: t.toFixed(2), logMag: (logVal * 4).toFixed(3) });
+  }, [mode, tRange, sigmaRange, heatmapGrid]);
+
   useEffect(() => {
     if (mode === 'critical-line') drawCriticalLine();
     else drawHeatmap();
@@ -399,9 +417,24 @@ export default function ZetaLandscapeViz() {
             </span>
           </span>
         </div>
+        {mode === 'heatmap' && (
+          hoverInfo ? (
+            <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+              <InlineMath tex="\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
+              <span style={{ marginLeft: 8, color: '#f59e0b' }}>
+                log(1+|ζ|)={hoverInfo.logMag}
+              </span>
+            </div>
+          ) : (
+            <div style={{ marginLeft: 'auto', fontSize: 11, color: '#64748b', fontStyle: 'italic' }}>
+              Hover over heatmap to inspect values
+            </div>
+          )
+        )}
       </div>
       <div className="viz-container">
-        <canvas ref={canvasRef} style={{ width: '100%', height: 400 }} />
+        <canvas ref={canvasRef} style={{ width: '100%', height: 400, cursor: mode === 'heatmap' ? 'crosshair' : undefined }}
+          onMouseMove={handleHover} onMouseLeave={() => setHoverInfo(null)} />
       </div>
     </div>
   );

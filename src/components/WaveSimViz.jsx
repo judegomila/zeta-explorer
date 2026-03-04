@@ -1202,6 +1202,12 @@ export default function WaveSimViz() {
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
           <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
+          <span style={{ fontSize: 10, color: sigmaColor, opacity: 0.8, marginLeft: 4, fontFamily: 'var(--font-mono)' }}
+            title={sigma > 1 ? 'Euler product converges absolutely for σ > 1'
+              : sigma < 0 ? 'Analytic continuation via functional equation for σ < 0'
+              : Math.abs(sigma - 0.5) < 0.05 ? 'Critical line Re(s) = ½ where all non-trivial zeros are conjectured to lie'
+              : 'Critical strip 0 < σ < 1 containing all non-trivial zeros'}
+          >{sigma > 1 ? 'convergent' : sigma < 0 ? 'func. eq.' : Math.abs(sigma - 0.5) < 0.05 ? 'critical line' : 'critical strip'}</span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>

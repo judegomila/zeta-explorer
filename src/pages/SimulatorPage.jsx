@@ -49,7 +49,7 @@ export default function SimulatorPage() {
               <strong style={{ color: '#3b82f6' }}>Oscillator energy</strong>{' '}
               <InlineMath tex="\sum_p \tfrac{1}{2}\log p\,(|H_p(s)|^2 + |H_p(1-s)|^2)" />:
               each prime <InlineMath tex="p" /> contributes a pair of oscillators (direct and dual ladder stages).
-              The weight <InlineMath tex="\log p" /> is the natural frequency of the <InlineMath tex="p" />-oscillator.
+              The weight <InlineMath tex="\log p" /> is the characteristic impedance of the <InlineMath tex="p" />-stage (with <InlineMath tex="L_p = \log p, C_p = 1/\log p" />, giving LC resonant frequency <InlineMath tex="\omega_0 = 1" /> for all primes).
               At <InlineMath tex="\sigma = 1/2" /> the two stages are mirror images, and
               their combined energy is minimized by symmetry.
             </p>

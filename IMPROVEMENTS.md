@@ -299,3 +299,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 293 | 2026-03-03T16:45:00Z | Fix OscillatorChainViz explainer incorrectly calling log(p) the natural frequency when LC resonant frequency is ω₀=1 for all primes | OscillatorChainViz.jsx |
 | 294 | 2026-03-03T17:00:00Z | Add axis name labels 'σ (Re s)' and 't (Im s)' to EnergyLandscapeViz heatmap | EnergyLandscapeViz.jsx |
 | 295 | 2026-03-03T17:15:00Z | Memoize Hamiltonian test verdict statistics to avoid recomputing maxDev/avgDev on every canvas redraw | RHRigorViz.jsx |
+| 296 | 2026-03-03T17:30:00Z | Fix SimulatorPage calling log(p) the 'natural frequency' when it is the characteristic impedance and ω₀=1 | SimulatorPage.jsx |

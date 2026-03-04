@@ -104,6 +104,19 @@ function VonMangoldtSpectrumTab() {
       }
     });
 
+    // Legend
+    const legend = g.append('g').attr('transform', `translate(${w - 140}, 4)`);
+    // Spectrum entry: filled rect + line
+    legend.append('rect').attr('x', 0).attr('y', -5).attr('width', 16).attr('height', 10)
+      .attr('fill', 'rgba(59, 130, 246, 0.15)').attr('stroke', '#3b82f6').attr('stroke-width', 1.5);
+    legend.append('text').attr('x', 22).attr('y', 4)
+      .attr('fill', '#3b82f6').attr('font-size', 10).text('|Λ̂(ω)| spectrum');
+    // Zeta zeros entry: dashed line
+    legend.append('line').attr('x1', 0).attr('y1', 18).attr('x2', 16).attr('y2', 18)
+      .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '3,3').attr('opacity', 0.7);
+    legend.append('text').attr('x', 22).attr('y', 22)
+      .attr('fill', '#ef4444').attr('font-size', 10).text('Zeta zeros γₙ');
+
     // Labels
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)

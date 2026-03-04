@@ -173,6 +173,37 @@ export default function NyquistBodeViz() {
         .attr('opacity', 0.5);
     }
 
+    // Direction arrows along contours (essential for encirclement counting)
+    const drawArrows = (pts, xAccessor, yAccessor, hueBase, hueRange, arrowSize) => {
+      const arrowCount = 4;
+      for (let a = 0; a < arrowCount; a++) {
+        const idx = Math.round((a + 1) * (pts.length - 2) / (arrowCount + 1));
+        if (idx < 1 || idx >= pts.length - 1) continue;
+        const px = xAccessor(pts[idx]);
+        const py = yAccessor(pts[idx]);
+        const dx = xAccessor(pts[idx + 1]) - xAccessor(pts[idx - 1]);
+        const dy = yAccessor(pts[idx + 1]) - yAccessor(pts[idx - 1]);
+        const len = Math.sqrt(dx * dx + dy * dy);
+        if (len < 1e-6) continue;
+        const ux = dx / len, uy = dy / len;
+        const frac = idx / (pts.length - 1);
+        const hue = hueBase + frac * hueRange;
+        // Draw small filled triangle pointing in direction of travel
+        const tipX = px + ux * arrowSize;
+        const tipY = py + uy * arrowSize;
+        const baseX1 = px - ux * arrowSize * 0.5 + uy * arrowSize * 0.6;
+        const baseY1 = py - uy * arrowSize * 0.5 - ux * arrowSize * 0.6;
+        const baseX2 = px - ux * arrowSize * 0.5 - uy * arrowSize * 0.6;
+        const baseY2 = py - uy * arrowSize * 0.5 + ux * arrowSize * 0.6;
+        g.append('polygon')
+          .attr('points', `${tipX},${tipY} ${baseX1},${baseY1} ${baseX2},${baseY2}`)
+          .attr('fill', `hsl(${hue}, 80%, 60%)`)
+          .attr('stroke', '#0a0e1a').attr('stroke-width', 0.5);
+      }
+    };
+    drawArrows(points, d => x(d.re), d => y(d.im), 210, 60, 6);
+    drawArrows(negPoints, d => x(d.re), d => y(d.im), 25, 20, 5);
+
     // Start/end markers
     if (points.length > 0) {
       g.append('circle')

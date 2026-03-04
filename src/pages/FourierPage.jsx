@@ -78,6 +78,22 @@ export default function FourierPage() {
         </div>
       </div>
 
+      <div className="card" style={{ marginTop: 24, borderColor: '#ef4444' }}>
+        <h3 style={{ color: '#ef4444' }}>Why Λ(n), Not π(x)?</h3>
+        <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          The prime-counting function <InlineMath tex="\pi(x)" /> seems like the obvious signal to analyze, but
+          it has an awkward Dirichlet series. The von Mangoldt function <InlineMath tex="\Lambda(n)" /> (which
+          equals <InlineMath tex="\log p" /> when <InlineMath tex="n = p^k" /> and 0 otherwise) is preferred because
+          its generating function is the logarithmic derivative of zeta:
+        </p>
+        <BlockMath tex="-\frac{\zeta'(s)}{\zeta(s)} = \sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}" />
+        <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          This identity makes <InlineMath tex="\Lambda(n)" /> the natural "impulse response" of the prime
+          distribution: its poles are exactly the zeta zeros, and its Fourier transform produces clean
+          spectral peaks at each <InlineMath tex="\gamma_n" /> without the staircase artifacts that <InlineMath tex="\pi(x)" /> would introduce.
+        </p>
+      </div>
+
       <div className="card" style={{ marginTop: 24, borderColor: '#8b5cf6' }}>
         <h3 style={{ color: '#8b5cf6' }}>Fourier Duality and the Functional Equation</h3>
         <BlockMath tex="\\xi(s) = \\xi(1-s) \\;\\Longleftrightarrow\\; \\text{The ladder is its own Fourier dual}" />

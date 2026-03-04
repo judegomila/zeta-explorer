@@ -90,7 +90,7 @@ export default function ExplicitFormulaViz() {
         .y0(d => yScale(d.x))
         .y1(d => yScale(d.y))
         .curve(d3.curveBasis))
-      .attr('fill', 'rgba(245, 158, 11, 0.08)');
+      .attr('fill', 'rgba(245, 158, 11, 0.15)');
 
     // x line (trivial approximation)
     g.append('path')
@@ -143,7 +143,7 @@ export default function ExplicitFormulaViz() {
 
     // Zero correction shaded area
     legend.append('rect').attr('x', 0).attr('y', 48).attr('width', 20).attr('height', 10)
-      .attr('fill', 'rgba(245, 158, 11, 0.25)').attr('stroke', '#f59e0b').attr('stroke-width', 0.5);
+      .attr('fill', 'rgba(245, 158, 11, 0.15)').attr('stroke', '#f59e0b').attr('stroke-width', 0.5);
     legend.append('text').attr('x', 26).attr('y', 58)
       .attr('fill', '#94a3b8').attr('font-size', 11).text('Zero correction (x − spectral)');
 

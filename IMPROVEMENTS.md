@@ -361,3 +361,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 355 | 2026-03-03T17:15:00Z | Fix PrimeGapCouplingViz using simplified N(T)~(T/2π)log T instead of standard Riemann-von Mangoldt formula | PrimeGapCouplingViz.jsx |
 | 356 | 2026-03-03T17:30:00Z | Fix spacing histogram using linear density approximation instead of exact Weyl-law unfolding | GUEStatisticsViz.jsx |
 | 357 | 2026-03-03T18:00:00Z | Add RMS approximation error readout to ExplicitFormulaViz controls | ExplicitFormulaViz.jsx |
+| 358 | 2026-03-03T18:15:00Z | Fix zero-correction area fill opacity mismatch between chart (8%) and legend swatch (25%) in ExplicitFormulaViz | ExplicitFormulaViz.jsx |

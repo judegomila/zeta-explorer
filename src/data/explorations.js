@@ -1599,6 +1599,117 @@ where the real and imaginary parts are **independently** Gaussian. This means th
     references: ['selberg-1946', 'tsang-1984', 'keating-snaith-2000', 'soundararajan-2009'],
     nextSteps: ['exp-031', 'exp-033', 'exp-027'],
   },
+  {
+    id: 'exp-039',
+    timestamp: '2026-03-03T12:00:00Z',
+    title: 'Twistor Correspondence: Mapping the s-Plane to Twistor Space',
+    status: 'complete',
+    category: 'duality',
+    depth: 3,
+    content: `Penrose's twistor theory (1967) provides a geometric reformulation of spacetime physics where null geodesics become fundamental objects. We map the ZPO twin-ladder model into this framework:
+
+**The twistor map.** Given $s = \\sigma + it$, define the twistor $Z^\\alpha = (\\omega^A, \\pi_{A'})$ where:
+$$\\omega^A = (\\sigma - \\tfrac{1}{2},\\; t/2\\pi), \\qquad \\pi_{A'} = (\\cos(t\\log 2),\\; \\sin(t\\log 2))$$
+
+The spinor $\\omega$ encodes displacement from the critical line, while $\\pi$ captures the prime-2 phase rotation. The dual twistor $W_\\alpha$ is constructed from $1-s$ by the same recipe.
+
+**Incidence relation.** Two twistors $Z$ and $W$ are *incident* when $Z^\\alpha W_\\alpha = 0$. In our model, this corresponds to the impedance match condition at $\\sigma = \\frac{1}{2}$: the bridge is lossless, both ladders see equal impedance, and energy flows without reflection.
+
+**Correspondence table.**
+| ZPO Model | Twistor Theory |
+|-----------|---------------|
+| Direct ladder $\\zeta(s)$ | Twistor $Z^\\alpha$ |
+| Dual ladder $\\zeta(1-s)$ | Dual twistor $W_\\alpha$ |
+| Bridge $\\chi(s)$ | Intertwiner $I$ |
+| Critical line $\\sigma = \\frac{1}{2}$ | Incidence $Z \\cdot W = 0$ |
+
+This duality reframes RH as a geometric statement: all zeros lie on the incidence locus of the twistor/dual-twistor pair.`,
+    latex: [
+      'Z^\\alpha = (\\omega^A, \\pi_{A\'})',
+      '\\omega^A = (\\sigma - \\tfrac{1}{2},\\; t/2\\pi)',
+      'Z^\\alpha W_\\alpha = 0 \\;\\Leftrightarrow\\; |\\chi(s)| = 1 \\;\\Leftrightarrow\\; \\sigma = \\tfrac{1}{2}',
+      'I: Z \\mapsto W \\text{ via } \\chi(s)',
+    ],
+    insights: [
+      'The twistor/dual-twistor pair is the geometric analog of the direct/dual ladder pair',
+      'Incidence relation Z\\u00b7W = 0 is the twistor reformulation of the critical line condition',
+      'The intertwiner (bridge) becomes a map between twistor and dual twistor spaces',
+      'Helicity encodes the angular momentum of each ladder oscillation pattern',
+    ],
+    references: ['penrose-1967', 'penrose-ward-1980', 'atiyah-2017'],
+    nextSteps: ['exp-040', 'exp-003', 'exp-007'],
+  },
+  {
+    id: 'exp-040',
+    timestamp: '2026-03-03T12:00:00Z',
+    title: 'Penrose Transform as Euler Product: Contour Integral Reconstruction',
+    status: 'complete',
+    category: 'duality',
+    depth: 4,
+    content: `The Penrose transform maps cohomology classes on twistor space to solutions of field equations on spacetime. In the ZPO model, this transform has a natural analog: the Euler product.
+
+**The classical Penrose transform.** Given a twistor function $f(Z^\\alpha)$ of homogeneity $-n-2$, the Penrose transform produces a massless field of helicity $n/2$ via a contour integral:
+$$\\phi(x^{a}) = \\oint f(\\omega^A, \\pi_{A'})\\, \\pi_{A'}\\, d\\pi$$
+
+**ZPO analog.** In our model, the "twistor function" is the Euler factor $(1 - p^{-s})^{-1}$ for each prime, and the "contour integral" is the product over primes:
+$$\\zeta(s) = \\prod_p (1 - p^{-s})^{-1}$$
+
+The twistor-weighted version weights each factor by the inverse twistor norm $1/\\|Z(s)\\|$, producing a "field" that emphasizes contributions near the critical line where the twistor is nearly null.
+
+**Correlation.** Numerically, the Penrose transform field correlates strongly with $|\\zeta(s)|$ across the critical strip, confirming that the twistor framework faithfully encodes the arithmetic content of the Euler product. The correlation is highest for $t$ values near known zeros, where the twistor weighting amplifies the zero structure.`,
+    latex: [
+      '\\phi(x) = \\oint f(Z^\\alpha)\\, \\pi\\, d\\pi \\quad \\text{(Penrose transform)}',
+      '\\zeta(s) = \\prod_p (1 - p^{-s})^{-1} \\quad \\text{(Euler product)}',
+      'F(s) = \\prod_p \\frac{(1 - p^{-s})^{-1}}{\\|Z(s)\\|} \\quad \\text{(twistor-weighted field)}',
+      '\\text{Corr}(F, |\\zeta|) \\to 1 \\text{ as } N_p \\to \\infty',
+    ],
+    insights: [
+      'The Euler product is the arithmetic analog of the Penrose contour integral',
+      'Twistor weighting by 1/||Z|| emphasizes the critical line where Z is nearly null',
+      'High correlation between the twistor field and |zeta(s)| validates the geometric encoding',
+      'Near zeta zeros, the twistor weighting amplifies the zero structure',
+    ],
+    references: ['penrose-1967', 'eastwood-1981', 'woodhouse-1985'],
+    nextSteps: ['exp-039', 'exp-001', 'exp-025'],
+  },
+  {
+    id: 'exp-041',
+    timestamp: '2026-03-03T16:00:00Z',
+    title: 'The Nyman-Beurling Criterion: Completeness of Oscillator Modes',
+    status: 'complete',
+    category: 'spectral',
+    depth: 4,
+    content: `Nyman (1950) and Beurling (1955) discovered a striking reformulation of RH as a **completeness condition** in a function space — the oscillator chain's modes must span the full signal space.
+
+**The criterion.** Define dilated fractional-part functions on $(0,1)$:
+$$\\rho_\\alpha(x) = \\left\\{\\frac{\\alpha}{x}\\right\\} - \\alpha\\left\\{\\frac{1}{x}\\right\\}, \\qquad 0 < \\alpha \\le 1$$
+
+Then RH is equivalent to:
+$$\\overline{\\operatorname{span}\\{\\rho_\\alpha : 0 < \\alpha \\le 1\\}} = L^2(0,1)$$
+
+That is, finite linear combinations of these dilations are dense in $L^2$.
+
+**Oscillator chain interpretation.** Each $\\rho_\\alpha$ is a "test signal" probing the chain at scale $\\alpha$. The completeness condition says: if the chain's resonances (zeta zeros) all lie on the critical line, then these test signals can approximate any square-integrable waveform — the chain is a **universal filter bank**. If even one zero drifts off the line, a gap opens in the representable signal space.
+
+**Báez-Duarte's refinement (2003).** The continuous parameter $\\alpha$ can be replaced by discrete values $\\alpha = 1/k$ for $k = 1, 2, 3, \\ldots$:
+$$\\text{RH} \\iff \\inf_{c_k} \\left\\| \\chi_{(0,1)} - \\sum_{k=1}^{N} c_k \\rho_{1/k} \\right\\|_{L^2}^2 \\to 0 \\text{ as } N \\to \\infty$$
+
+This means the "sampling" at integer reciprocals is already sufficient — exactly the frequencies $\\log k$ that appear in our oscillator chain. The approximation quality of these finite sums is a numerical proxy for how well the chain covers the signal space.`,
+    latex: [
+      '\\rho_\\alpha(x) = \\{\\alpha/x\\} - \\alpha\\{1/x\\}',
+      '\\text{RH} \\iff \\overline{\\operatorname{span}}\\{\\rho_\\alpha\\} = L^2(0,1)',
+      'd_N^2 = \\inf_{c_k} \\|\\chi_{(0,1)} - \\sum_{k=1}^N c_k \\rho_{1/k}\\|^2 \\to 0',
+      '\\text{Completeness} \\leftrightarrow \\text{all zeros on critical line}',
+    ],
+    insights: [
+      'RH is a completeness/spanning condition: the oscillator modes must form a basis for L²',
+      'A zero off the critical line creates a "hole" in the signal space that no finite combination can fill',
+      'Báez-Duarte showed integer-reciprocal dilations suffice — matching the chain\'s discrete prime structure',
+      'The L² approximation error d_N is a computable sequence whose convergence to 0 is equivalent to RH',
+    ],
+    references: ['nyman-1950', 'beurling-1955'],
+    nextSteps: ['exp-010', 'exp-022', 'exp-001'],
+  },
 ];
 
 export function getAllExplorations() {

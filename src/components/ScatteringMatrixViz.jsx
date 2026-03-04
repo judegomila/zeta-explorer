@@ -15,6 +15,7 @@ export default function ScatteringMatrixViz() {
   const canvasRef = useRef();
   const [tValue, setTValue] = useState(14.13);
   const [mode, setMode] = useState('magnitude');
+  const [hoverPoint, setHoverPoint] = useState(null);
 
   // Memoize expensive bridge data: 101 losslessBridge calls depend only on tValue,
   // not on mode or viewport size, so avoid recomputing on mode switch or window resize
@@ -237,6 +238,52 @@ export default function ScatteringMatrixViz() {
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('σ = Re(s)');
 
+    // Hover crosshair interaction (works for all modes)
+    const hoverOverlay = g.append('rect')
+      .attr('width', w).attr('height', h)
+      .attr('fill', 'transparent')
+      .attr('cursor', 'crosshair');
+
+    const hoverLine = g.append('line')
+      .attr('y1', 0).attr('y2', h)
+      .attr('stroke', '#e2e8f0').attr('stroke-width', 0.5)
+      .attr('opacity', 0);
+
+    const hoverDot = g.append('circle')
+      .attr('r', 4).attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2)
+      .attr('opacity', 0);
+
+    // Build y-scale and accessor matching current mode
+    let yScale, yAccessor;
+    if (mode === 'magnitude') {
+      const yMax = Math.min(10, d3.max(data, d => d.chiMag) * 1.2);
+      yScale = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
+      yAccessor = d => Math.min(yMax, d.chiMag);
+    } else if (mode === 'reflection') {
+      yScale = d3.scaleLinear().domain([0, 1]).range([h, 0]);
+      yAccessor = d => Math.min(1, d.reflection);
+    } else {
+      yScale = d3.scaleLinear().domain([-180, 180]).range([h, 0]);
+      yAccessor = d => d.chiPhase * 180 / Math.PI;
+    }
+
+    const setHP = setHoverPoint;
+    hoverOverlay.on('mousemove', (event) => {
+      const [mx] = d3.pointer(event);
+      const sigma = x.invert(mx);
+      const closest = data.reduce((best, p) =>
+        Math.abs(p.sigma - sigma) < Math.abs(best.sigma - sigma) ? p : best
+      , data[0]);
+
+      hoverLine.attr('x1', x(closest.sigma)).attr('x2', x(closest.sigma)).attr('opacity', 0.3);
+      hoverDot.attr('cx', x(closest.sigma)).attr('cy', yScale(yAccessor(closest))).attr('opacity', 1);
+      setHP(closest);
+    }).on('mouseleave', () => {
+      hoverLine.attr('opacity', 0);
+      hoverDot.attr('opacity', 0);
+      setHP(null);
+    });
+
   }, [data, tValue, mode]);
 
   useEffect(() => { drawMagnitude(); }, [drawMagnitude]);
@@ -316,6 +363,18 @@ export default function ScatteringMatrixViz() {
             ) : null;
           })()}
         </div>
+        {hoverPoint ? (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+            σ={hoverPoint.sigma.toFixed(3)} |
+            {mode === 'magnitude' && <> |χ|={hoverPoint.chiMag.toFixed(4)} | Γ={hoverPoint.reflection.toFixed(4)}</>}
+            {mode === 'reflection' && <> Γ={hoverPoint.reflection.toFixed(4)} | |χ|={hoverPoint.chiMag.toFixed(4)}</>}
+            {mode === 'phase' && <> arg(χ)={(hoverPoint.chiPhase * 180 / Math.PI).toFixed(1)}°</>}
+          </div>
+        ) : (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', fontStyle: 'italic' }}>
+            Hover over chart to inspect values
+          </div>
+        )}
       </div>
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: 380 }} />

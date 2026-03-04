@@ -347,3 +347,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 341 | 2026-03-03T23:55:00Z | Add click-to-snap-to-zero on nearest-zero indicators in all 4 TwinOscillatorSimViz tabs | TwinOscillatorSimViz.jsx |
 | 342 | 2026-03-04T01:00:00Z | Fix EnergyLandscapeViz x-axis label and colorbar min label clipped at canvas bottom edge | EnergyLandscapeViz.jsx |
 | 343 | 2026-03-03T15:15:00Z | Fix StatisticsPage still showing old wrong Keiper-Li asymptotic formula missing Euler-Mascheroni constant γ | StatisticsPage.jsx |
+| 344 | 2026-03-03T16:00:00Z | Add hover crosshair to ScatteringMatrixViz showing σ, |χ|, Γ, and phase values | ScatteringMatrixViz.jsx |

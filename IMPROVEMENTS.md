@@ -370,3 +370,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 364 | 2026-03-04T03:00:00Z | Add missing y-axis labels to both charts in BridgeTab | TwinOscillatorSimViz.jsx |
 | 365 | 2026-03-04T03:15:00Z | Replace superposition.map(Math.abs) spread with inline loop in AnimatedModesViz draw | AnimatedModesViz.jsx |
 | 366 | 2026-03-04T04:00:00Z | Add thermodynamic and Li criterion rows to HomePage correspondence table | HomePage.jsx |
+| 367 | 2026-03-04T06:00:00Z | Add missing window resize listener to CorrespondenceTab in TwistorViz | TwistorViz.jsx |

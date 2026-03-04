@@ -342,3 +342,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 336 | 2026-03-04T00:30:00Z | Fix pair correlation histogram normalization dividing by N(N-1)/2 instead of N | GUEStatisticsViz.jsx |
 | 337 | 2026-03-03T23:30:00Z | Add missing horizontal gridlines to Prime Harmonics tab in FourierDomainViz | FourierDomainViz.jsx |
 | 338 | 2026-03-03T15:00:00Z | Fix Keiper-Li asymptotic formula missing Euler-Mascheroni constant γ term | LiCriterionViz.jsx |
+| 339 | 2026-03-03T23:45:00Z | Pre-compute critical-line stroke color palettes to avoid per-segment string allocation in ZetaLandscapeViz | ZetaLandscapeViz.jsx |

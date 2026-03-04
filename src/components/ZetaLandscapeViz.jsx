@@ -2,6 +2,16 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import { InlineMath } from './KaTeXMath.jsx';
 import { riemannSiegelZ, ZETA_ZEROS, zetaCriticalStrip, cAbs } from '../math/zeta.js';
 
+// Pre-compute critical-line stroke color palettes (32 levels each) to avoid per-segment string interpolation
+const CL_PALETTE_SIZE = 32;
+const clPalettePos = new Array(CL_PALETTE_SIZE);
+const clPaletteNeg = new Array(CL_PALETTE_SIZE);
+for (let i = 0; i < CL_PALETTE_SIZE; i++) {
+  const alpha = (0.4 + (i / (CL_PALETTE_SIZE - 1)) * 0.6).toFixed(2);
+  clPalettePos[i] = `rgba(59,130,246,${alpha})`;
+  clPaletteNeg[i] = `rgba(245,158,11,${alpha})`;
+}
+
 // Pre-compute 256-entry colormap palette to avoid per-pixel interpolation + string concat
 const PALETTE_SIZE = 256;
 const heatmapPalette = new Array(PALETTE_SIZE);
@@ -86,14 +96,11 @@ export default function ZetaLandscapeViz() {
       const y0 = yMid - values[i - 1].z * yScale;
       const y1 = yMid - values[i].z * yScale;
 
-      // Color: blue when positive, orange when negative
+      // Color: blue when positive, orange when negative (palette lookup avoids string alloc)
       const val = values[i].z;
       const intensity = Math.min(1, Math.abs(val) / maxAbs);
-      if (val >= 0) {
-        ctx.strokeStyle = `rgba(59,130,246,${0.4 + intensity * 0.6})`;
-      } else {
-        ctx.strokeStyle = `rgba(245,158,11,${0.4 + intensity * 0.6})`;
-      }
+      const palIdx = Math.min(CL_PALETTE_SIZE - 1, (intensity * (CL_PALETTE_SIZE - 1)) | 0);
+      ctx.strokeStyle = val >= 0 ? clPalettePos[palIdx] : clPaletteNeg[palIdx];
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.moveTo(x0, y0);

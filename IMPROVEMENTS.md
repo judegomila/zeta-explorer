@@ -324,3 +324,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 318 | 2026-03-03T12:00:00Z | Fix PenroseTransformTab canvas not redrawing on window resize causing stretched/blurry display | TwistorViz.jsx |
 | 319 | 2026-03-03T12:15:00Z | Add legend entry for shaded zero-correction region in ExplicitFormulaViz | ExplicitFormulaViz.jsx |
 | 320 | 2026-03-03T12:30:00Z | Reuse superposition Float64Array buffer across animation frames in AnimatedModesViz | AnimatedModesViz.jsx |
+| 321 | 2026-03-03T12:45:00Z | Add Skewes number exploration entry on constructive interference of zero modes flipping π(x)−Li(x) | explorations.js |

@@ -1749,6 +1749,40 @@ That is, all even moments of $|\\zeta|$ on the critical line grow subpolynomiall
     references: ['lindelof-1908', 'titchmarsh-1986', 'bourgain-2017'],
     nextSteps: ['exp-030', 'exp-012', 'exp-007'],
   },
+  {
+    id: 'exp-043',
+    timestamp: '2026-03-03T12:45:00Z',
+    title: 'The Skewes Number: When Oscillator Modes Overpower the Main Signal',
+    status: 'complete',
+    category: 'spectral',
+    depth: 3,
+    content: `Littlewood proved in 1914 that $\\pi(x) - \\mathrm{Li}(x)$ changes sign infinitely often, even though it is negative for all computed values up to at least $10^{19}$. The first sign change is related to the Skewes number — originally bounded as $e^{e^{e^{79}}}$ assuming RH.
+
+**The explicit formula connection.** The explicit formula gives:
+$$\\pi(x) - \\mathrm{Li}(x) \\approx -\\frac{1}{\\log x}\\sum_\\rho \\mathrm{Li}(x^\\rho) + \\text{smaller terms}$$
+
+Each zero $\\rho = \\tfrac{1}{2} + i\\gamma$ contributes an oscillating term $\\sim x^{1/2} \\cos(\\gamma \\log x) / (\\gamma \\log x)$. For moderate $x$, these modes partially cancel. But Littlewood showed that for some large $x$, enough modes constructively interfere to overpower the negative bias.
+
+**Oscillator chain interpretation.** In the ZPO framework, $\\pi(x) - \\mathrm{Li}(x)$ is the difference between the actual cascade output and the "DC" (smooth) response. Each zeta zero contributes a standing-wave mode with frequency $\\gamma$ and amplitude $\\sim x^{1/2}/\\gamma$. At small $x$, the low-frequency modes create a net negative offset (Chebyshev bias). At the Skewes number, the modes align in phase — like synchronized oscillators producing a rogue wave — and the sum goes positive.
+
+**Why RH matters.** Under RH, all modes decay as $x^{1/2}$, so the oscillatory sum is $O(x^{1/2} \\log^2 x)$. Without RH, a zero at $\\sigma > 1/2$ would contribute a mode decaying as $x^\\sigma$, potentially making sign changes happen much sooner or later. The tightest conditional bounds place the first sign change before $e^{727.951}$ (Bays-Hudson, 2000), while unconditional bounds are much larger.
+
+**The bias at moderate $x$.** The persistent $\\pi(x) < \\mathrm{Li}(x)$ for "small" $x$ comes from the low-lying zeros ($\\gamma_1 \\approx 14.13$, $\\gamma_2 \\approx 21.02$, etc.) whose slow oscillations maintain a coherent negative sum over a vast range. The first sign change requires frequencies high enough for constructive interference to overcome this low-frequency bias.`,
+    latex: [
+      '\\pi(x) - \\mathrm{Li}(x) \\approx -\\frac{1}{\\log x}\\sum_\\rho \\mathrm{Li}(x^\\rho)',
+      'x^\\rho = x^{1/2} e^{i\\gamma \\log x} \\quad (\\text{oscillating mode})',
+      '\\text{RH} \\;\\Rightarrow\\; \\pi(x) - \\mathrm{Li}(x) = O(x^{1/2} \\log^2 x)',
+      '\\text{First sign change} < e^{727.951} \\quad (\\text{assuming RH})',
+    ],
+    insights: [
+      'The Skewes number marks where enough oscillator modes align in phase to overpower the smooth main signal — a rogue wave in the prime-counting function',
+      'Chebyshev bias (π(x) < Li(x) for small x) arises from low-frequency modes maintaining coherent destructive interference',
+      'RH bounds the amplitude of every mode to x^{1/2}, controlling how far the oscillatory sum can deviate from zero',
+      'Without RH, an off-critical-line zero would create a dominant mode that could make the sign-change behavior qualitatively different',
+    ],
+    references: ['littlewood-1914', 'skewes-1933', 'bays-hudson-2000'],
+    nextSteps: ['exp-009', 'exp-029', 'exp-042'],
+  },
 ];
 
 export function getAllExplorations() {

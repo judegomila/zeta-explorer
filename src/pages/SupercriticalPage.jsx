@@ -10,8 +10,8 @@ export default function SupercriticalPage() {
         <p>
           Push the zeta function beyond the critical strip into the supercritical regime (<InlineMath tex="\sigma > 1" />)
           and below zero (<InlineMath tex="\sigma < 0" />). Using Tao's thermodynamic framework, <InlineMath tex="\sigma" /> acts as inverse
-          temperature: the Bost-Connes phase transition at <InlineMath tex="\sigma = 1" /> separates the convergent "gas phase"
-          from the interacting "condensed phase" of the critical strip. The critical line <InlineMath tex="\sigma = 1/2" />
+          temperature: the Bost-Connes phase transition at <InlineMath tex="\sigma = 1" /> separates the ordered "condensed phase"
+          (<InlineMath tex="\sigma > 1" />, cold) from the disordered "gas phase" of the critical strip. The critical line <InlineMath tex="\sigma = 1/2" />
           is the equilibrium point.
         </p>
       </div>

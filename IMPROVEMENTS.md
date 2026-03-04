@@ -329,3 +329,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 323 | 2026-03-03T13:15:00Z | Fix PrimeGapCouplingViz labeling log(p) as 'Frequency ω' instead of phase rate | PrimeGapCouplingViz.jsx |
 | 324 | 2026-03-03T13:30:00Z | Add hover-to-inspect σ, t, and log(1+|ζ|) values on ZetaLandscapeViz heatmap | ZetaLandscapeViz.jsx |
 | 325 | 2026-03-03T13:45:00Z | Fix WaveInterferenceTab canvas not redrawing on window resize when animation is paused | WaveSimViz.jsx |
+| 326 | 2026-03-03T14:00:00Z | Fix Bost-Connes phase labels reversed: σ>1 is ordered/condensed, not gas | SupercriticalPage.jsx, supercritical.js |

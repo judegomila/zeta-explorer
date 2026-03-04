@@ -10,7 +10,7 @@
  *   Entropy S ↔ -∂F/∂T
  *
  * The phase transition at σ = 1 (Bost-Connes) separates the
- * convergent "gas" phase from the critical strip "condensed" phase.
+ * ordered "condensed" phase (σ > 1, cold) from the disordered "gas" phase (σ < 1, hot).
  * The critical line σ = 1/2 is where the system achieves equilibrium.
  *
  * Also implements heat flow (de Bruijn-Newman) for the xi function.

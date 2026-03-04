@@ -369,3 +369,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 363 | 2026-03-03T23:45:00Z | Add region label and tooltip to color-coded σ slider in WaveSimViz | WaveSimViz.jsx |
 | 364 | 2026-03-04T03:00:00Z | Add missing y-axis labels to both charts in BridgeTab | TwinOscillatorSimViz.jsx |
 | 365 | 2026-03-04T03:15:00Z | Replace superposition.map(Math.abs) spread with inline loop in AnimatedModesViz draw | AnimatedModesViz.jsx |
+| 366 | 2026-03-04T04:00:00Z | Add thermodynamic and Li criterion rows to HomePage correspondence table | HomePage.jsx |

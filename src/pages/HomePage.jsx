@@ -225,6 +225,8 @@ export default function HomePage() {
                 ['Prime Number Theorem', 'Bode sensitivity integral', 'Low-frequency gain constraint'],
                 ['GUE statistics of zeros', 'Random scattering matrix', 'CUE bridge ensemble'],
                 [<>de Bruijn-Newman <InlineMath tex="\Lambda \geq 0" /></>, 'Zero/negative resistance', 'At lossless threshold'],
+                [<><InlineMath tex="\sigma" /> as inverse temperature <InlineMath tex="\beta" /></>, <>Bose-Einstein partition function</>, <>Primon gas; Bost-Connes transition at <InlineMath tex="\sigma=1" /></>],
+                [<>Li coefficients <InlineMath tex="\lambda_n \geq 0" /></>, 'Passivity (contractive S-matrix)', 'Schur-Cohn stability test'],
               ].map(([nt, ct, model], i) => (
                 <tr key={i} style={{ borderBottom: '1px solid rgba(42,48,80,0.5)' }}>
                   <td style={{ padding: '10px 14px', color: '#3b82f6', fontFamily: 'var(--font-mono)', fontSize: 12 }}>{nt}</td>

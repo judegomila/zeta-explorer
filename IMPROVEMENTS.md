@@ -376,3 +376,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 370 | 2026-03-04T09:00:00Z | Add missing coupling trend line legend entry in PrimeGapCouplingViz coupling mode | PrimeGapCouplingViz.jsx |
 | 371 | 2026-03-04T10:00:00Z | Add missing window resize listener to ZetaLandscapeViz canvas | ZetaLandscapeViz.jsx |
 | 372 | 2026-03-04T11:00:00Z | Fix spectral energy formula showing |H(s)|² instead of Σ_p ½log(p)|H_p(s)|² | FourierDomainViz.jsx |
+| 373 | 2026-03-04T12:00:00Z | Add critical-strip region label and tooltip to σ slider in TwistorViz | TwistorViz.jsx |

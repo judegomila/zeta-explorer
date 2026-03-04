@@ -808,6 +808,11 @@ export default function TwistorViz() {
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
           <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
+          <span style={{ fontSize: 10, color: sigmaColor, opacity: 0.8, marginLeft: 4, fontFamily: 'var(--font-mono)' }}
+            title={Math.abs(sigma - 0.5) < 0.03 ? 'Critical line Re(s) = ½ — twistor incidence relation vanishes'
+              : sigma < 0.5 ? 'Left half of critical strip — dual ladder dominates'
+              : 'Right half of critical strip — direct ladder dominates'}
+          >{Math.abs(sigma - 0.5) < 0.03 ? 'critical line' : sigma < 0.5 ? 'critical strip (σ<½)' : 'critical strip (σ>½)'}</span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>

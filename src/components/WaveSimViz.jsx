@@ -771,6 +771,11 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
   }, [delays, numPrimes]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => {
+    const onResize = () => draw();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw]);
 
   return <svg ref={svgRef} style={{ width: '100%', height: 420 }} />;
 }

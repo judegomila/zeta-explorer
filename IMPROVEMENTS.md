@@ -334,3 +334,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 328 | 2026-03-03T14:30:00Z | Add horizontal gridlines to all three modes of GUEStatisticsViz for easier value reading | GUEStatisticsViz.jsx |
 | 329 | 2026-03-03T22:15:00Z | Pre-render IncidenceRelationTab heatmap to offscreen canvas to avoid 4,941 fillRect calls on every slider change | TwistorViz.jsx |
 | 330 | 2026-03-03T23:00:00Z | Add Lehmer's phenomenon exploration entry on near-degenerate zeros and GUE level repulsion | explorations.js |
+| 331 | 2026-03-04T00:00:00Z | Fix PhaseDelayTab SVG not redrawing on window resize due to missing resize handler | WaveSimViz.jsx |

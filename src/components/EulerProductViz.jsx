@@ -211,6 +211,11 @@ export default function EulerProductViz() {
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
           <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
+          <span style={{ fontSize: 10, color: sigma > 1 ? '#60a5fa' : sigmaColor, opacity: 0.8, marginLeft: 4, fontFamily: 'var(--font-mono)' }}
+            title={sigma > 1 ? 'Euler product ∏(1−p⁻ˢ)⁻¹ converges absolutely for σ > 1'
+              : Math.abs(sigma - 0.5) < 0.03 ? 'Critical line Re(s) = ½ — Euler product diverges, use analytic continuation'
+              : 'Critical strip 0 < σ < 1 — Euler product diverges, partial products oscillate'}
+          >{sigma > 1 ? 'convergent' : Math.abs(sigma - 0.5) < 0.03 ? 'critical line' : 'critical strip'}</span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>

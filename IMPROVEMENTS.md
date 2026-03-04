@@ -372,3 +372,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 366 | 2026-03-04T04:00:00Z | Add thermodynamic and Li criterion rows to HomePage correspondence table | HomePage.jsx |
 | 367 | 2026-03-04T06:00:00Z | Add missing window resize listener to CorrespondenceTab in TwistorViz | TwistorViz.jsx |
 | 368 | 2026-03-04T07:00:00Z | Fix heat flow zero velocity coefficient from 1/(2π) to 2 in heatFlowZeros | supercritical.js |
+| 369 | 2026-03-04T08:00:00Z | Add convergent/critical-strip region label to sigma slider in EulerProductViz | EulerProductViz.jsx |

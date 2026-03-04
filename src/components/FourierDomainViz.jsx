@@ -153,6 +153,9 @@ function FrequencyResponseTab() {
   const [sigma, setSigma] = useState(0.5);
   const [numPrimes, setNumPrimes] = useState(12);
 
+  // Memoize frequency response data to avoid recomputing 201×numPrimes Euler factor evaluations on resize
+  const response = useMemo(() => ladderFrequencyResponse(sigma, [0.5, 60], 200, numPrimes), [sigma, numPrimes]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -164,8 +167,6 @@ function FrequencyResponseTab() {
     const w = width - margin.left - margin.right;
     const chartH = 190;
     const gap = 30;
-
-    const response = ladderFrequencyResponse(sigma, [0.5, 60], 200, numPrimes);
 
     // ── Top: Magnitude (dB) ──
     {
@@ -241,7 +242,7 @@ function FrequencyResponseTab() {
     svg.append('text').attr('x', width / 2).attr('y', height - 4)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('ω (frequency)');
 
-  }, [sigma, numPrimes]);
+  }, [response]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

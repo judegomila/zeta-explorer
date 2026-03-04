@@ -293,3 +293,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 287 | 2026-03-03T15:15:00Z | Add π-labeled y-axis ticks and gridlines to phase panel in ExtendedLandscapeTab | SupercriticalViz.jsx |
 | 288 | 2026-03-03T15:30:00Z | Make nearest-zero proximity indicator clickable to snap t to exact zero value in EulerProductViz | EulerProductViz.jsx |
 | 289 | 2026-03-03T15:45:00Z | Show visible zeta zeros count next to t max slider in NyquistBodeViz | NyquistBodeViz.jsx |
+| 290 | 2026-03-03T16:00:00Z | Memoize ladderFrequencyResponse in FrequencyResponseTab to avoid recomputing 201×numPrimes Euler factor evaluations on resize | FourierDomainViz.jsx |

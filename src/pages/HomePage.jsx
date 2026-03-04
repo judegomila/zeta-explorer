@@ -52,8 +52,8 @@ export default function HomePage() {
         <Link to="/oscillators" style={{ textDecoration: 'none' }}>
           <div className="card">
             <h3 style={{ color: '#3b82f6' }}>Prime Oscillator Chain</h3>
-            <p>Each prime <InlineMath tex="p" /> generates a resonator with frequency <InlineMath tex="\\log(p)" />. The Euler product becomes
-               a cascade of LC oscillator stages forming a ladder network.</p>
+            <p>Each prime <InlineMath tex="p" /> generates an LC resonator with characteristic impedance <InlineMath tex="Z_0 = \\log(p)" />. The Euler product becomes
+               a cascade of oscillator stages forming a ladder network.</p>
             <div className="tags-row" style={{ marginTop: 12 }}>
               <span className="tag tag-blue">Interactive</span>
               <span className="tag tag-cyan">D3 Visualization</span>

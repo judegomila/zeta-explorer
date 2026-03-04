@@ -80,7 +80,10 @@ export default function GUEStatisticsViz() {
       let sumSq = 0, count = 0;
       for (let start = 0; start < unfolded.length; start++) {
         let n = 0;
-        for (let j = start; j < unfolded.length; j++) {
+        // Start from j = start + 1 to exclude the anchor zero itself.
+        // Including it (j = start) always adds 1 to the count, biasing
+        // E[(n−L)²] by +1 since the expected count becomes 1+L instead of L.
+        for (let j = start + 1; j < unfolded.length; j++) {
           if (unfolded[j] - unfolded[start] <= L) n++;
           else break;
         }

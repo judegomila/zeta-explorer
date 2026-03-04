@@ -314,3 +314,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 308 | 2026-03-03T21:30:00Z | Fix oscillator node labels showing ω=log(p) instead of Z₀=log(p) in OscillatorChainViz | OscillatorChainViz.jsx |
 | 309 | 2026-03-03T22:00:00Z | Fix primes.js module docstring calling log(p) the oscillator angular frequency instead of the Euler factor phase rate | primes.js |
 | 310 | 2026-03-03T22:15:00Z | Scale de Bruijn-Newman scatter dot radius by displacement from critical line | LiCriterionViz.jsx |
+| 311 | 2026-03-03T22:30:00Z | Fix number variance including anchor zero in count, biasing Σ²(L) by +1 | GUEStatisticsViz.jsx |

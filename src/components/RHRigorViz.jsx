@@ -610,6 +610,11 @@ export default function RHRigorViz() {
             onChange={e => setTRange([tRange[0], Math.max(tRange[0] + 10, +e.target.value)])} />
           <span className="control-value">{tRange[1]}</span>
         </div>
+        <div className="control-group">
+          <span style={{ color: '#64748b', fontSize: 11 }}>
+            ({ZETA_ZEROS.filter(g => g >= tRange[0] && g <= tRange[1]).length} zeros in range)
+          </span>
+        </div>
       </div>
 
       {/* Canvas */}

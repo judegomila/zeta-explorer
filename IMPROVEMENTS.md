@@ -287,3 +287,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 281 | 2026-03-03T13:45:00Z | Fix inverted imaginary axis in TwistorViz s-plane Correspondence diagram | TwistorViz.jsx |
 | 282 | 2026-03-03T14:00:00Z | Fix PrimeGapCouplingViz frequency mode calling log(p) the "natural frequency" when LC resonance is ω₀=1 | PrimeGapCouplingViz.jsx |
 | 283 | 2026-03-03T14:15:00Z | Fix misspelling "decoherring" → "decohering" in WaveSimPage intro text | WaveSimPage.jsx |
+| 284 | 2026-03-03T14:30:00Z | Show visible zeta zeros count next to t-range sliders in RHRigorViz | RHRigorViz.jsx |

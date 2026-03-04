@@ -201,7 +201,7 @@ export default function PrimeGapCouplingViz() {
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
-        .text('Oscillator Frequencies ω_p = log(p)');
+        .text('Euler Factor Phase Rates ω_p = log(p)  (LC resonance ω₀ = 1)');
 
       // Y-axis label
       svg.append('text')
@@ -256,10 +256,12 @@ export default function PrimeGapCouplingViz() {
       )}
       {mode === 'frequency' && (
         <div className="tab-explainer accent-cyan">
-          <strong>The math:</strong> Each prime <InlineMath tex="p" /> oscillates at natural frequency <InlineMath tex="\omega_p = \log p" />.
-          This is a <strong>logarithmic dispersion relation</strong>: frequency grows as <InlineMath tex="\log(n\log n)" /> for
-          the <InlineMath tex="n" />-th prime. Unlike a uniform lattice, mode spacing decreases at higher frequencies,
-          matching the increasing density of zeta zeros <InlineMath tex="N(T) \sim (T/2\pi)\log T" />.
+          <strong>The math:</strong> Each prime <InlineMath tex="p" /> has Euler factor phase rotation rate <InlineMath tex="\omega_p = \log p" /> (the
+          frequency at which <InlineMath tex="p^{-it}" /> oscillates as <InlineMath tex="t" /> varies). Note: the LC circuit resonant
+          frequency is <InlineMath tex="\omega_0 = 1/\sqrt{L_p C_p} = 1" /> for all primes; <InlineMath tex="\log p" /> is the characteristic
+          dispersion rate, not the resonance. This grows as <InlineMath tex="\log(n\log n)" /> for the <InlineMath tex="n" />-th prime,
+          with mode spacing decreasing at higher frequencies — matching the increasing density of zeta
+          zeros <InlineMath tex="N(T) \sim (T/2\pi)\log T" />.
           <strong> Look for:</strong> the logarithmic staircase of frequencies.
         </div>
       )}

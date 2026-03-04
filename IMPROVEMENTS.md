@@ -285,3 +285,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 279 | 2026-03-03T13:15:00Z | Add 'Where to Start' suggested reading progression card to LiteraturePage | LiteraturePage.jsx |
 | 280 | 2026-03-03T13:30:00Z | Fix pair-correlation histogram over-normalized by factor of 2 in GUEStatisticsViz | GUEStatisticsViz.jsx |
 | 281 | 2026-03-03T13:45:00Z | Fix inverted imaginary axis in TwistorViz s-plane Correspondence diagram | TwistorViz.jsx |
+| 282 | 2026-03-03T14:00:00Z | Fix PrimeGapCouplingViz frequency mode calling log(p) the "natural frequency" when LC resonance is ω₀=1 | PrimeGapCouplingViz.jsx |

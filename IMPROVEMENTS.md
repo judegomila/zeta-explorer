@@ -368,3 +368,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 362 | 2026-03-03T23:30:00Z | Fix explicit formula exploration entry claiming zero amplitude decays as 1/γ² instead of 1/γ | explorations.js |
 | 363 | 2026-03-03T23:45:00Z | Add region label and tooltip to color-coded σ slider in WaveSimViz | WaveSimViz.jsx |
 | 364 | 2026-03-04T03:00:00Z | Add missing y-axis labels to both charts in BridgeTab | TwinOscillatorSimViz.jsx |
+| 365 | 2026-03-04T03:15:00Z | Replace superposition.map(Math.abs) spread with inline loop in AnimatedModesViz draw | AnimatedModesViz.jsx |

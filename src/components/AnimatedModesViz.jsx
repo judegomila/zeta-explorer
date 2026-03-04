@@ -145,7 +145,11 @@ export default function AnimatedModesViz() {
     ctx.font = '600 12px sans-serif';
     ctx.fillText('Σ all modes', 6, superMid + 4);
 
-    const maxSuper = Math.max(0.01, ...superposition.map(Math.abs));
+    let maxSuper = 0.01;
+    for (let i = 0; i < xSteps; i++) {
+      const abs = Math.abs(superposition[i]);
+      if (abs > maxSuper) maxSuper = abs;
+    }
     const scale = (superH * 0.4) / maxSuper;
 
     ctx.beginPath();

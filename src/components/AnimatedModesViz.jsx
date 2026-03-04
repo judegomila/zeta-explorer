@@ -12,6 +12,7 @@ export default function AnimatedModesViz() {
   const canvasRef = useRef();
   const animRef = useRef();
   const elapsedRef = useRef(0);
+  const superpositionRef = useRef(new Float64Array(200));
   const [numPrimes, setNumPrimes] = useState(12);
   const [zeroIndex, setZeroIndex] = useState(0);
   const [speed, setSpeed] = useState(1);
@@ -70,8 +71,9 @@ export default function AnimatedModesViz() {
     ctx.font = '11px sans-serif';
     ctx.fillText('Each row: one prime oscillator. Right: superposition of all modes.', 12, 40);
 
-    // Draw each prime's oscillation
-    let superposition = new Float64Array(200);
+    // Draw each prime's oscillation — reuse buffer to avoid per-frame allocation
+    const superposition = superpositionRef.current;
+    superposition.fill(0);
     const xSteps = 200;
 
     primeData.forEach((pd, idx) => {

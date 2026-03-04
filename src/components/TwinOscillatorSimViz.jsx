@@ -257,10 +257,11 @@ function GradientDescentTab() {
   const [path, setPath] = useState([]);
   const [step, setStep] = useState(0);
 
-  // Pre-compute the H(sigma) curve
-  const curveData = useCallback(() => {
-    return hamiltonianSigmaScan(tValue, [0.05, 0.95], 80, numPrimes);
-  }, [tValue, numPrimes]);
+  // Pre-compute the H(sigma) curve once per (tValue, numPrimes) — not on every resize or redraw
+  const curveData = useMemo(() =>
+    hamiltonianSigmaScan(tValue, [0.05, 0.95], 80, numPrimes),
+    [tValue, numPrimes]
+  );
 
   const computePath = useCallback(() => {
     const steps = [];
@@ -464,7 +465,7 @@ function GradientDescentTab() {
     setPath(pathData);
     setStep(0);
     setIsRunning(true);
-    const curve = curveData();
+    const curve = curveData;
 
     let currentStep = 0;
     const animate = () => {
@@ -486,18 +487,18 @@ function GradientDescentTab() {
     setIsRunning(false);
     setPath([]);
     setStep(0);
-    const curve = curveData();
+    const curve = curveData;
     drawFrame(curve, [], 0);
   }, [curveData, drawFrame]);
 
   useEffect(() => {
-    const curve = curveData();
+    const curve = curveData;
     drawFrame(curve, path, step);
   }, [tValue, startSigma, numPrimes]);
 
   useEffect(() => {
     const h = () => {
-      const curve = curveData();
+      const curve = curveData;
       drawFrame(curve, path, step);
     };
     window.addEventListener('resize', h);

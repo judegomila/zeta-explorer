@@ -68,14 +68,14 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
       .attr('stroke', '#475569').attr('stroke-width', 0.5);
     svg.append('text').attr('x', sPlaneX + sPlaneR + 4).attr('y', sPlaneY + 4)
       .attr('fill', '#64748b').attr('font-size', 9).text('σ');
-    svg.append('text').attr('x', sPlaneX + 4).attr('y', sPlaneY + sPlaneR + 14)
+    svg.append('text').attr('x', sPlaneX - 12).attr('y', sPlaneY - sPlaneR - 6)
       .attr('fill', '#64748b').attr('font-size', 9).text('t');
 
     // Plot s point
     const sNormSig = Math.max(-1, Math.min(1, (sigma - 0.5) / 1.0));
     const sNormT = Math.max(-1, Math.min(1, t / 60));
     const sPx = sPlaneX + sNormSig * sPlaneR;
-    const sPy = sPlaneY + sNormT * sPlaneR;
+    const sPy = sPlaneY - sNormT * sPlaneR;
     svg.append('circle').attr('cx', sPx).attr('cy', sPy).attr('r', 6)
       .attr('fill', '#3b82f6').attr('stroke', '#fff').attr('stroke-width', 1.5);
     svg.append('text').attr('x', sPx + 10).attr('y', sPy + 4)
@@ -86,7 +86,7 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
     const dualSig = -sNormSig;
     const dualT = -sNormT;
     const dPx = sPlaneX + dualSig * sPlaneR;
-    const dPy = sPlaneY + dualT * sPlaneR;
+    const dPy = sPlaneY - dualT * sPlaneR;
     svg.append('circle').attr('cx', dPx).attr('cy', dPy).attr('r', 5)
       .attr('fill', '#f59e0b').attr('stroke', '#fff').attr('stroke-width', 1.5);
     svg.append('text').attr('x', dPx + 10).attr('y', dPy + 4)

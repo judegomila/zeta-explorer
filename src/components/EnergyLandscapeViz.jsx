@@ -175,6 +175,20 @@ export default function EnergyLandscapeViz() {
     }
     ctx.textAlign = 'start';
 
+    // Axis name labels
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '600 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('σ (Re s)', dw / 2, dh - 0);
+    ctx.textAlign = 'start';
+
+    ctx.save();
+    ctx.translate(2, dh / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = 'center';
+    ctx.fillText('t (Im s)', 0, 10);
+    ctx.restore();
+
     // Color bar
     const barX = dw - 30;
     const barH = dh - 20;

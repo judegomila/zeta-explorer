@@ -12,7 +12,7 @@ export default function WaveSimPage() {
           The key control is <InlineMath tex="\sigma = \operatorname{Re}(s)" />: at <InlineMath tex="\sigma = 0.5" /> the
           direct and dual ladders are impedance-matched, the bridge is lossless, and signals flow through
           without reflection. Move <InlineMath tex="\sigma" /> away from 0.5 to see energy reflecting off the
-          bridge, waves decoherring, and delays becoming asymmetric.
+          bridge, waves decohering, and delays becoming asymmetric.
         </p>
       </div>
 

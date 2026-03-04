@@ -339,3 +339,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 333 | 2026-03-03T12:15:00Z | Brighten near-invisible center baselines in AnimatedModesViz waveform rows and superposition panel | AnimatedModesViz.jsx |
 | 334 | 2026-03-03T22:30:00Z | Add disabled state styling for buttons and sliders during long-running operations | app.css |
 | 335 | 2026-03-03T14:45:00Z | Add missing legend to Von Mangoldt Spectrum tab in FourierDomainViz | FourierDomainViz.jsx |
+| 336 | 2026-03-04T00:30:00Z | Fix pair correlation histogram normalization dividing by N(N-1)/2 instead of N | GUEStatisticsViz.jsx |
+| 337 | 2026-03-03T23:30:00Z | Add missing horizontal gridlines to Prime Harmonics tab in FourierDomainViz | FourierDomainViz.jsx |

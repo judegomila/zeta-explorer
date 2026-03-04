@@ -136,7 +136,7 @@ function VonMangoldtSpectrumTab() {
           <label>Max N</label>
           <input type="range" min="100" max="800" step="50" value={maxN}
             onChange={e => setMaxN(+e.target.value)} />
-          <span className="control-value">{maxN}</span>
+          <span className="control-value">{maxN} <span style={{ color: '#64748b', fontSize: 11 }}>({getPrimes(200).filter(p => p <= maxN).length} primes ≤ N)</span></span>
         </div>
       </div>
       <div className="viz-container">

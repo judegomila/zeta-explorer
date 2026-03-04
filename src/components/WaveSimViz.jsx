@@ -514,12 +514,34 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
       ctx.fillRect(margin, py, W - margin * 2, panelH);
 
       // Zero line
-      ctx.strokeStyle = 'rgba(100,116,139,0.3)';
-      ctx.lineWidth = 0.5;
+      ctx.strokeStyle = 'rgba(100,116,139,0.5)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 4]);
       ctx.beginPath();
       ctx.moveTo(margin, mid);
       ctx.lineTo(W - margin, mid);
       ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Amplitude scale ticks (+1, 0, −1) on left edge
+      const ampScale = panelH * 0.4;
+      const tickLabels = pi === 2 ? ['+1', '0'] : ['+1', '0', '−1'];
+      const tickYs = pi === 2 ? [mid - ampScale, mid] : [mid - ampScale, mid, mid + ampScale];
+      ctx.font = '9px JetBrains Mono, monospace';
+      ctx.fillStyle = 'rgba(148,163,184,0.7)';
+      ctx.textAlign = 'right';
+      tickLabels.forEach((lbl, ti) => {
+        const ty = tickYs[ti];
+        // Small tick mark
+        ctx.strokeStyle = 'rgba(100,116,139,0.4)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(margin - 4, ty);
+        ctx.lineTo(margin, ty);
+        ctx.stroke();
+        // Label
+        ctx.fillText(lbl, margin - 6, ty + 3);
+      });
 
       // Label
       ctx.font = '11px Inter, sans-serif';

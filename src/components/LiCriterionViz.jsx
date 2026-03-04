@@ -231,14 +231,17 @@ export default function LiCriterionViz() {
         .attr('text-anchor', 'end').attr('fill', '#ef4444').attr('font-size', 10)
         .text('σ = ½');
 
-      // Render precomputed scatter points
+      // Render precomputed scatter points — radius scales with displacement from critical line
       scatterPoints.forEach((tauPoints) => {
         tauPoints.forEach(({ gamma, sigma, tau, color }) => {
+          const dist = Math.abs(sigma - 0.5);
+          const r = 2 + dist * 12; // 2px on the line → up to 8px at σ=0 or σ=1
           g.append('circle')
-            .attr('cx', x(gamma)).attr('cy', y(sigma)).attr('r', 2.5)
+            .attr('cx', x(gamma)).attr('cy', y(sigma)).attr('r', r)
             .attr('fill', color).attr('opacity', 0.7)
+            .attr('stroke', dist > 0.01 ? '#fff' : 'none').attr('stroke-width', 0.5)
             .style('cursor', 'crosshair')
-            .append('title').text(`τ = ${tau}, γ = ${gamma.toFixed(2)}, σ = ${sigma.toFixed(4)}`);
+            .append('title').text(`τ = ${tau}, γ = ${gamma.toFixed(2)}, σ = ${sigma.toFixed(4)}, |σ−½| = ${dist.toFixed(4)}`);
         });
       });
 

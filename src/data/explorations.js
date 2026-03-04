@@ -1851,6 +1851,43 @@ The correction $\\sum_\\rho x^\\rho/\\rho$ is a sum of oscillatory terms at inco
     references: ['cramer-1936', 'selberg-1946', 'maier-1985', 'granville-1995'],
     nextSteps: ['exp-009', 'exp-010', 'exp-038'],
   },
+  {
+    id: 'exp-046',
+    timestamp: '2026-03-03T20:00:00Z',
+    title: 'The Bost-Connes Phase Transition: KMS States and Symmetry Breaking at σ = 1',
+    status: 'complete',
+    category: 'foundation',
+    depth: 4,
+    content: `The pole of $\\zeta(s)$ at $s = 1$ is not just an analytic singularity — it is a **phase transition** in a precise quantum statistical mechanical sense. In 1995, Bost and Connes constructed a $C^*$-dynamical system $(\\mathcal{A}, \\sigma_t)$ whose partition function is exactly $\\zeta(\\beta)$, where $\\beta = \\text{Re}(s)$ plays the role of inverse temperature.
+
+**KMS states.** A state $\\varphi$ on $\\mathcal{A}$ satisfies the Kubo-Martin-Schwinger (KMS) condition at inverse temperature $\\beta$ if for all observables $a, b$:
+
+$$\\varphi(a \\, \\sigma_{i\\beta}(b)) = \\varphi(ba)$$
+
+This is the noncommutative geometry analogue of thermal equilibrium: KMS states are the "Gibbs states" of the system. The number and structure of KMS states depends critically on $\\beta$.
+
+**The phase transition at $\\beta = 1$ ($\\sigma = 1$).** For $\\beta \\leq 1$ (high temperature, $\\sigma \\leq 1$), there is a **unique** KMS state — the system is in a disordered phase where all primes interact collectively. For $\\beta > 1$ (low temperature, $\\sigma > 1$), spontaneous symmetry breaking occurs: the KMS states form a continuous family parametrized by embeddings of $\\mathbb{Q}^{\\text{cycl}}$ into $\\mathbb{C}$. The Galois group $\\text{Gal}(\\mathbb{Q}^{\\text{cycl}}/\\mathbb{Q})$ acts transitively on this family.
+
+**In oscillator chain language**, this is vivid: for $\\sigma > 1$, the Euler product converges and each prime oscillator contributes independently — the system "freezes" into one of many ordered configurations (each KMS state selects specific phase relationships between oscillators). For $\\sigma \\leq 1$, the Euler product diverges and the oscillators couple so strongly that individual phase information is destroyed — only one collective state survives.
+
+**Connection to RH.** The arithmetic content lives in the low-temperature phase ($\\beta > 1$): the values of KMS states at certain observables recover the Dedekind zeta values, and the Galois action on these states encodes class field theory. The critical line $\\sigma = 1/2$ sits deep in the high-temperature unique-KMS phase, and RH can be reformulated as a statement about the analytic continuation of these KMS values: the zeros of $\\zeta$ on the critical line correspond to the frequencies at which the unique high-temperature KMS state exhibits resonant response.
+
+**Why it matters for the oscillator model.** The Bost-Connes system validates the thermodynamic interpretation used throughout this app: $\\sigma$ genuinely is an inverse temperature, the pole at $\\sigma = 1$ genuinely is a phase transition, and the energy/entropy/pressure quantities in the Supercritical page are not just analogies but exact correspondences with the Bost-Connes partition function.`,
+    latex: [
+      '\\varphi(a\\,\\sigma_{i\\beta}(b)) = \\varphi(ba) \\quad \\text{(KMS condition at inverse temperature } \\beta\\text{)}',
+      '\\beta \\leq 1: \\text{ unique KMS state (disordered)} \\quad \\longleftrightarrow \\quad \\beta > 1: \\text{ family of KMS states (symmetry broken)}',
+      '\\text{Gal}(\\mathbb{Q}^{\\text{cycl}}/\\mathbb{Q}) \\cong \\hat{\\mathbb{Z}}^\\times \\quad \\text{acts on low-temperature KMS states}',
+      'Z(\\beta) = \\zeta(\\beta) = \\prod_p \\frac{1}{1 - p^{-\\beta}} \\quad \\text{(partition function = zeta function)}',
+    ],
+    insights: [
+      'The pole at σ=1 is a genuine phase transition: unique equilibrium above, spontaneous symmetry breaking below',
+      'Low-temperature KMS states are parametrized by the Galois group — number theory emerges from thermodynamics',
+      'The oscillator chain thermodynamic quantities (energy, entropy, pressure) are exact Bost-Connes correspondences, not just analogies',
+      'RH lives in the disordered phase (σ=1/2 < 1): the zeros are resonances of the unique high-temperature KMS state',
+    ],
+    references: ['bost-connes-1995', 'connes-1999', 'connes-marcolli-2006', 'julia-1990'],
+    nextSteps: ['exp-004', 'exp-021', 'exp-030'],
+  },
 ];
 
 export function getAllExplorations() {

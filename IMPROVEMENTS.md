@@ -303,3 +303,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 297 | 2026-03-03T18:00:00Z | Fix IncidenceRelationTab canvas not redrawing on window resize causing stretched/blurry heatmap | TwistorViz.jsx |
 | 298 | 2026-03-03T18:15:00Z | Fix DocsPage intro calling log(p) the resonant frequency instead of the Euler factor phase rate | DocsPage.jsx |
 | 299 | 2026-03-03T18:30:00Z | Make nearest-zero proximity indicator clickable to snap t to exact zero value in ScatteringMatrixViz | ScatteringMatrixViz.jsx |
+| 300 | 2026-03-03T19:00:00Z | Make nearest-zero proximity indicator clickable to snap t to exact zero value in OscillatorChainViz | OscillatorChainViz.jsx |

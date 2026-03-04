@@ -201,8 +201,8 @@ export default function ZetaLandscapeViz() {
   // so resize events only repaint the canvas with cached data
   const RES = 100;
   const heatmapGrid = useMemo(() => {
-    const tMin = tRange[0] || 0.5;
-    const tMax = tRange[1] || 50;
+    const tMin = tRange[0];
+    const tMax = tRange[1];
     const sMin = sigmaRange[0];
     const sMax = sigmaRange[1];
     const grid = new Float64Array(RES * RES);
@@ -233,8 +233,8 @@ export default function ZetaLandscapeViz() {
     ctx.fillStyle = '#111827';
     ctx.fillRect(0, 0, dw, dh);
 
-    const tMin = tRange[0] || 0.5;
-    const tMax = tRange[1] || 50;
+    const tMin = tRange[0];
+    const tMax = tRange[1];
     const sMin = sigmaRange[0];
     const sMax = sigmaRange[1];
     const cellW = dw / RES;
@@ -363,8 +363,8 @@ export default function ZetaLandscapeViz() {
     const my = (e.clientY - rect.top) / rect.height;
     if (mx < 0 || mx > 1 || my < 0 || my > 1) { setHoverInfo(null); return; }
     const sigma = sigmaRange[0] + mx * (sigmaRange[1] - sigmaRange[0]);
-    const tMin = tRange[0] || 0.5;
-    const tMax = tRange[1] || 50;
+    const tMin = tRange[0];
+    const tMax = tRange[1];
     const t = tMin + (1 - my) * (tMax - tMin);
     const gi = Math.min(RES - 1, Math.max(0, Math.round((mx) * (RES - 1))));
     const gj = Math.min(RES - 1, Math.max(0, Math.round((1 - my) * (RES - 1))));

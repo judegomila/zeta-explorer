@@ -364,3 +364,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 358 | 2026-03-03T18:15:00Z | Fix zero-correction area fill opacity mismatch between chart (8%) and legend swatch (25%) in ExplicitFormulaViz | ExplicitFormulaViz.jsx |
 | 359 | 2026-03-04T02:00:00Z | Avoid canvas buffer reallocation on every animation frame in WaveSimViz animated tabs | WaveSimViz.jsx |
 | 360 | 2026-03-03T20:00:00Z | Add Bost-Connes phase transition exploration entry explaining KMS states and symmetry breaking at σ=1 | explorations.js |
+| 361 | 2026-03-03T21:00:00Z | Fix heatmap using tRange[0]||0.5 which silently replaces 0 with 0.5 due to JS falsy zero | ZetaLandscapeViz.jsx |

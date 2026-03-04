@@ -109,12 +109,14 @@ export default function AnimatedModesViz() {
       ctx.stroke();
 
       // Center line
-      ctx.strokeStyle = '#1a1f36';
+      ctx.strokeStyle = '#334155';
       ctx.lineWidth = 0.5;
+      ctx.setLineDash([3, 4]);
       ctx.beginPath();
       ctx.moveTo(xPad, yCenter);
       ctx.lineTo(xPad + waveW, yCenter);
       ctx.stroke();
+      ctx.setLineDash([]);
 
       // Pulsing dot at start
       const phase = (gamma * 1 - omega * t) % (2 * Math.PI);
@@ -130,12 +132,14 @@ export default function AnimatedModesViz() {
     const superH = dh - superY - 20;
     const superMid = superY + superH / 2;
 
-    ctx.strokeStyle = '#2a3050';
+    ctx.strokeStyle = '#334155';
     ctx.lineWidth = 0.5;
+    ctx.setLineDash([3, 4]);
     ctx.beginPath();
     ctx.moveTo(xPad, superMid);
     ctx.lineTo(xPad + waveW, superMid);
     ctx.stroke();
+    ctx.setLineDash([]);
 
     ctx.fillStyle = '#10b981';
     ctx.font = '600 12px sans-serif';

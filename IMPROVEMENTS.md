@@ -336,3 +336,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 330 | 2026-03-03T23:00:00Z | Add Lehmer's phenomenon exploration entry on near-degenerate zeros and GUE level repulsion | explorations.js |
 | 331 | 2026-03-04T00:00:00Z | Fix PhaseDelayTab SVG not redrawing on window resize due to missing resize handler | WaveSimViz.jsx |
 | 332 | 2026-03-03T12:00:00Z | Fix DocsPage stale function counts (46→48 total, 16→15 for zeta.js) in Math Modules section | DocsPage.jsx |
+| 333 | 2026-03-03T12:15:00Z | Brighten near-invisible center baselines in AnimatedModesViz waveform rows and superposition panel | AnimatedModesViz.jsx |

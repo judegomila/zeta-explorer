@@ -187,10 +187,30 @@ function ExtendedLandscapeTab() {
     });
     ctx.stroke();
 
-    // Phase zero line
-    ctx.strokeStyle = '#2a3050';
-    ctx.lineWidth = 0.5;
-    ctx.beginPath(); ctx.moveTo(pad.l, phaseScale(0)); ctx.lineTo(pad.l + chartW, phaseScale(0)); ctx.stroke();
+    // Phase y-axis ticks and gridlines
+    const phaseTicks = [
+      { val: -Math.PI, label: '−π' },
+      { val: -Math.PI / 2, label: '−π/2' },
+      { val: 0, label: '0' },
+      { val: Math.PI / 2, label: 'π/2' },
+      { val: Math.PI, label: 'π' },
+    ];
+    ctx.font = '9px "JetBrains Mono", monospace';
+    ctx.textAlign = 'right';
+    phaseTicks.forEach(({ val, label }) => {
+      const py = phaseScale(val);
+      // Gridline
+      ctx.strokeStyle = '#2a3050';
+      ctx.lineWidth = 0.5;
+      ctx.setLineDash(val === 0 ? [] : [3, 3]);
+      ctx.beginPath(); ctx.moveTo(pad.l, py); ctx.lineTo(pad.l + chartW, py); ctx.stroke();
+      // Tick mark
+      ctx.setLineDash([]);
+      ctx.beginPath(); ctx.moveTo(pad.l - 4, py); ctx.lineTo(pad.l, py); ctx.stroke();
+      // Label
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText(label, pad.l - 7, py + 3);
+    });
 
     ctx.fillStyle = '#e2e8f0';
     ctx.font = '12px Inter, sans-serif';

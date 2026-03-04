@@ -306,3 +306,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 300 | 2026-03-03T19:00:00Z | Make nearest-zero proximity indicator clickable to snap t to exact zero value in OscillatorChainViz | OscillatorChainViz.jsx |
 | 301 | 2026-03-03T19:30:00Z | Show prime count context next to Max N slider in VonMangoldtSpectrumTab | FourierDomainViz.jsx |
 | 302 | 2026-03-03T20:00:00Z | Add amplitude scale ticks and improve zero-line visibility in WaveInterferenceTab panels | WaveSimViz.jsx |
+| 303 | 2026-03-03T20:15:00Z | Memoize spectralEnergyDensity in SpectralEnergyTab to avoid recomputing 120×numPrimes Euler factor evaluations on resize | FourierDomainViz.jsx |

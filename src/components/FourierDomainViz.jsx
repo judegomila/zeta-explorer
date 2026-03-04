@@ -298,6 +298,8 @@ function SpectralEnergyTab() {
   const [sigma, setSigma] = useState(0.5);
   const [numPrimes, setNumPrimes] = useState(10);
 
+  const data = useMemo(() => spectralEnergyDensity(sigma, [0.5, 60], 120, numPrimes), [sigma, numPrimes]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -308,8 +310,6 @@ function SpectralEnergyTab() {
     const margin = { top: 30, right: 140, bottom: 50, left: 65 };
     const w = width - margin.left - margin.right;
     const h = height - margin.top - margin.bottom;
-
-    const data = spectralEnergyDensity(sigma, [0.5, 60], 120, numPrimes);
 
     const x = d3.scaleLinear().domain([0.5, 60]).range([0, w]);
     const yMax = d3.max(data, d => d.totalEnergy) * 1.1;
@@ -383,7 +383,7 @@ function SpectralEnergyTab() {
     svg.append('text').attr('transform', `translate(16, ${height / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('Energy');
 
-  }, [sigma, numPrimes]);
+  }, [data]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

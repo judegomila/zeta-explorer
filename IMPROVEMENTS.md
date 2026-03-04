@@ -343,3 +343,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 337 | 2026-03-03T23:30:00Z | Add missing horizontal gridlines to Prime Harmonics tab in FourierDomainViz | FourierDomainViz.jsx |
 | 338 | 2026-03-03T15:00:00Z | Fix Keiper-Li asymptotic formula missing Euler-Mascheroni constant γ term | LiCriterionViz.jsx |
 | 339 | 2026-03-03T23:45:00Z | Pre-compute critical-line stroke color palettes to avoid per-segment string allocation in ZetaLandscapeViz | ZetaLandscapeViz.jsx |
+| 340 | 2026-03-03T23:50:00Z | Make nearest-zero proximity indicator clickable to snap t to exact zero value in SupercriticalViz | SupercriticalViz.jsx |

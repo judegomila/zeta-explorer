@@ -410,6 +410,32 @@ function IncidenceRelationTab({ sigma, t }) {
     return { grid, maxVal, sigmaRange, tRange, sigmaSteps, tSteps };
   }, []);
 
+  // Pre-render heatmap to an offscreen canvas so it doesn't need to be
+  // redrawn (4,941 fillRect calls) on every sigma/t slider change
+  const heatmapImage = useMemo(() => {
+    const { grid, maxVal, sigmaSteps, tSteps } = heatData;
+    const w = sigmaSteps + 1;
+    const h = tSteps + 1;
+    const offscreen = document.createElement('canvas');
+    offscreen.width = w;
+    offscreen.height = h;
+    const octx = offscreen.getContext('2d');
+    const imgData = octx.createImageData(w, h);
+    const d = imgData.data;
+    for (let si = 0; si <= sigmaSteps; si++) {
+      for (let ti = 0; ti <= tSteps; ti++) {
+        const norm = Math.min(grid[si][ti] / Math.max(maxVal, 0.01), 1);
+        const idx = (ti * w + si) * 4;
+        d[idx]     = Math.floor(norm * 255);
+        d[idx + 1] = Math.floor(norm * 200);
+        d[idx + 2] = Math.floor((1 - norm) * 80);
+        d[idx + 3] = 255;
+      }
+    }
+    octx.putImageData(imgData, 0, 0);
+    return offscreen;
+  }, [heatData]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -425,31 +451,15 @@ function IncidenceRelationTab({ sigma, t }) {
     ctx.fillStyle = '#0d1117';
     ctx.fillRect(0, 0, W, H);
 
-    const { grid, maxVal, sigmaRange, tRange, sigmaSteps, tSteps } = heatData;
+    const { maxVal, sigmaRange, tRange, sigmaSteps, tSteps } = heatData;
     const margin = { top: 50, right: 80, bottom: 50, left: 60 };
     const chartW = W - margin.left - margin.right;
     const chartH = H - margin.top - margin.bottom;
 
-    // Draw heatmap
-    const cellW = chartW / (sigmaSteps + 1);
-    const cellH = chartH / (tSteps + 1);
-
-    for (let si = 0; si <= sigmaSteps; si++) {
-      for (let ti = 0; ti <= tSteps; ti++) {
-        const val = grid[si][ti];
-        const norm = Math.min(val / Math.max(maxVal, 0.01), 1);
-        // Dark (near 0, incidence satisfied) → bright yellow (high, not satisfied)
-        const r = Math.floor(norm * 255);
-        const g = Math.floor(norm * 200);
-        const b = Math.floor((1 - norm) * 80);
-        ctx.fillStyle = `rgb(${r},${g},${b})`;
-        ctx.fillRect(
-          margin.left + si * cellW,
-          margin.top + ti * cellH,
-          cellW + 1, cellH + 1
-        );
-      }
-    }
+    // Blit pre-rendered heatmap image (scaled to chart area)
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(heatmapImage, margin.left, margin.top, chartW, chartH);
+    ctx.imageSmoothingEnabled = true;
 
     // Mark known zeta zeros on σ=0.5 line
     const critSi = ((0.5 - sigmaRange[0]) / (sigmaRange[1] - sigmaRange[0])) * chartW;
@@ -539,7 +549,7 @@ function IncidenceRelationTab({ sigma, t }) {
     ctx.fillText(`${maxVal.toFixed(2)}`, cbX + cbW + 4, margin.top + chartH);
     ctx.fillText('|Z·W|', cbX, margin.top - 6);
 
-  }, [heatData, sigma, t]);
+  }, [heatData, heatmapImage, sigma, t]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

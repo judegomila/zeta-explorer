@@ -332,3 +332,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 326 | 2026-03-03T14:00:00Z | Fix Bost-Connes phase labels reversed: σ>1 is ordered/condensed, not gas | SupercriticalPage.jsx, supercritical.js |
 | 327 | 2026-03-03T14:15:00Z | Fix HomePage card calling log(p) the resonator 'frequency' instead of characteristic impedance Z₀ | HomePage.jsx |
 | 328 | 2026-03-03T14:30:00Z | Add horizontal gridlines to all three modes of GUEStatisticsViz for easier value reading | GUEStatisticsViz.jsx |
+| 329 | 2026-03-03T22:15:00Z | Pre-render IncidenceRelationTab heatmap to offscreen canvas to avoid 4,941 fillRect calls on every slider change | TwistorViz.jsx |

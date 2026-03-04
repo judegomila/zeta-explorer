@@ -1816,6 +1816,41 @@ Each zero $\\rho = \\tfrac{1}{2} + i\\gamma$ contributes an oscillating term $\\
     references: ['lehmer-1956', 'montgomery-1973', 'odlyzko-1987', 'rodgers-tao-2020'],
     nextSteps: ['exp-010', 'exp-026', 'exp-031'],
   },
+  {
+    id: 'exp-045',
+    timestamp: '2026-03-03T15:30:00Z',
+    title: "Cramér's Random Model: Why Primes Look Random Through the Oscillator Lens",
+    status: 'complete',
+    category: 'statistical',
+    depth: 4,
+    content: `In 1936, Cramér proposed a probabilistic model where each integer $n > 2$ is "prime" independently with probability $1/\\log n$. This simple model reproduces many prime distribution statistics with remarkable accuracy — yet primes are completely deterministic. The oscillator chain framework explains **why** this works.
+
+**The explicit formula as a sum of oscillators.** The Chebyshev function decomposes as:
+
+$$\\psi(x) = x - \\sum_\\rho \\frac{x^\\rho}{\\rho} - \\log 2\\pi - \\tfrac{1}{2}\\log(1 - x^{-2})$$
+
+The correction $\\sum_\\rho x^\\rho/\\rho$ is a sum of oscillatory terms at incommensurate frequencies $\\gamma_1, \\gamma_2, \\ldots$ Since these frequencies are linearly independent over $\\mathbb{Q}$ (a consequence of $\\log p$ being $\\mathbb{Q}$-linearly independent), the phases $\\gamma_n \\log x$ behave like independent uniform random variables for large $x$ — this is exactly the input to the central limit theorem.
+
+**Why Cramér works.** Each zero contributes $\\sim x^{1/2} \\sin(\\gamma_n \\log x)/\\gamma_n$ to the prime correction. Because the frequencies $\\gamma_n$ are incommensurate, different zeros' contributions are effectively uncorrelated over long intervals. The sum of many uncorrelated oscillations looks Gaussian by the CLT — which is precisely Selberg's theorem that $\\log|\\zeta(\\tfrac{1}{2}+it)|$ is asymptotically normal. This Gaussian behavior in the zero sum produces the same local statistics as Cramér's coin-flip model.
+
+**Where Cramér fails.** The model breaks down for correlations between primes at different scales, because the oscillator modes are **not** truly independent — they interact through the coupling structure of the chain. The Cramér model predicts maximal prime gaps $\\sim (\\log p)^2$, but Maier (1985) showed that primes have unexpected concentrations in short intervals that violate this. In oscillator terms, the coupling between modes creates constructive interference patterns (like the Skewes phenomenon) that a naive independence assumption misses.
+
+**The GUE connection.** Cramér's model assumes Poisson spacing between primes, but the zeros themselves follow GUE statistics (Montgomery's pair correlation). The oscillator coupling converts GUE-spaced frequencies into pseudo-Poisson-spaced primes: the level repulsion of zeros, combined with the many-to-one mapping from frequency to position space, washes out the correlations and produces approximately independent increments — but not perfectly, which is why Cramér's model is a heuristic, not exact.`,
+    latex: [
+      'P(n \\text{ is prime}) = \\frac{1}{\\log n} \\quad \\text{(Cramér model)}',
+      '\\psi(x) - x = -\\sum_\\rho \\frac{x^\\rho}{\\rho} \\quad \\text{(sum of incommensurate oscillators)}',
+      '\\frac{\\log|\\zeta(\\tfrac{1}{2}+it)|}{\\sqrt{\\tfrac{1}{2}\\log\\log T}} \\xrightarrow{d} \\mathcal{N}(0,1) \\quad \\text{(Selberg CLT)}',
+      '\\max_{p_n \\leq x}(p_{n+1} - p_n) \\stackrel{?}{\\sim} (\\log x)^2 \\quad \\text{(Cramér conjecture)}',
+    ],
+    insights: [
+      'Primes look random because the explicit formula is a sum of oscillators at incommensurate frequencies — the CLT converts deterministic oscillations into Gaussian statistics',
+      "Cramér's model works for local statistics because GUE zero spacing, filtered through the explicit formula, produces approximately Poisson prime gaps",
+      "The model fails for multi-scale correlations (Maier's theorem) because oscillator coupling creates constructive interference patterns absent from a coin-flip model",
+      'The oscillator chain framework demystifies the Cramér heuristic: primes are not random, they just look random because you cannot hear the individual modes',
+    ],
+    references: ['cramer-1936', 'selberg-1946', 'maier-1985', 'granville-1995'],
+    nextSteps: ['exp-009', 'exp-010', 'exp-038'],
+  },
 ];
 
 export function getAllExplorations() {

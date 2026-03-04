@@ -11,7 +11,7 @@ export default function ExplicitFormulaViz() {
 
   // Memoize data arrays so resize events only re-render D3 without recomputing
   // the psiTable (O(maxX) vonMangoldt calls) and explicitFormulaTerms (O(steps × numZeros))
-  const { actualData, approxData, errorData } = useMemo(() => {
+  const { actualData, approxData, errorData, rmsError } = useMemo(() => {
     const zeros = ZETA_ZEROS.slice(0, numZeros);
     const steps = Math.min(maxX, 200);
     const dx = maxX / steps;
@@ -37,7 +37,15 @@ export default function ExplicitFormulaViz() {
       errorData.push({ x, y: psi - x });
     }
 
-    return { actualData, approxData, errorData };
+    // RMS error between explicit formula approximation and actual ψ(x)
+    let sumSqErr = 0;
+    for (let i = 0; i < actualData.length; i++) {
+      const diff = actualData[i].y - approxData[i].y;
+      sumSqErr += diff * diff;
+    }
+    const rmsError = Math.sqrt(sumSqErr / actualData.length);
+
+    return { actualData, approxData, errorData, rmsError };
   }, [maxX, numZeros]);
 
   const draw = useCallback(() => {
@@ -193,6 +201,9 @@ export default function ExplicitFormulaViz() {
           <span style={{ marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)', color: '#64748b' }}>
             (γ_max ≈ {ZETA_ZEROS[Math.min(numZeros, ZETA_ZEROS.length) - 1]?.toFixed(1) ?? '?'})
           </span>
+        </div>
+        <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: rmsError < 1 ? '#10b981' : rmsError < 5 ? '#f59e0b' : '#ef4444' }}>
+          RMS error: {rmsError.toFixed(2)}
         </div>
       </div>
       <div className="viz-container">

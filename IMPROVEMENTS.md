@@ -360,3 +360,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 354 | 2026-03-03T17:00:00Z | Fix mismatch test legend showing solid line for Known zeros but plot draws them dashed | RHRigorViz.jsx |
 | 355 | 2026-03-03T17:15:00Z | Fix PrimeGapCouplingViz using simplified N(T)~(T/2π)log T instead of standard Riemann-von Mangoldt formula | PrimeGapCouplingViz.jsx |
 | 356 | 2026-03-03T17:30:00Z | Fix spacing histogram using linear density approximation instead of exact Weyl-law unfolding | GUEStatisticsViz.jsx |
+| 357 | 2026-03-03T18:00:00Z | Add RMS approximation error readout to ExplicitFormulaViz controls | ExplicitFormulaViz.jsx |

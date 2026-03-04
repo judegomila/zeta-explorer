@@ -296,3 +296,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 290 | 2026-03-03T16:00:00Z | Memoize ladderFrequencyResponse in FrequencyResponseTab to avoid recomputing 201×numPrimes Euler factor evaluations on resize | FourierDomainViz.jsx |
 | 291 | 2026-03-03T16:15:00Z | Add 'Why Λ(n), Not π(x)?' explainer card to FourierPage explaining the von Mangoldt function's spectral advantage | FourierPage.jsx |
 | 292 | 2026-03-03T16:30:00Z | Add Nyman-Beurling criterion exploration entry on L² completeness of oscillator modes and RH equivalence | explorations.js |
+| 293 | 2026-03-03T16:45:00Z | Fix OscillatorChainViz explainer incorrectly calling log(p) the natural frequency when LC resonant frequency is ω₀=1 for all primes | OscillatorChainViz.jsx |

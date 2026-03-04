@@ -52,12 +52,24 @@ export default function NyquistBodeViz() {
     const logTMin = Math.log10(Math.max(0.5, tRange[0]));
     const logTMax = Math.log10(tRange[1]);
     const dLogT = (logTMax - logTMin) / steps;
+    let prevRawPhase = null;
+    let unwrapped = 0;
     for (let i = 0; i <= steps; i++) {
       const t = Math.pow(10, logTMin + i * dLogT);
       const L = computeLoopGain([sigma, t]);
       const mag = cAbs(L);
-      const phase = Math.atan2(L[1], L[0]);
-      points.push({ t, magdB: 20 * Math.log10(Math.max(1e-10, mag)), phase: phase * 180 / Math.PI, mag });
+      const rawPhase = Math.atan2(L[1], L[0]) * 180 / Math.PI;
+      // Unwrap phase: remove ±360° jumps between consecutive samples
+      if (prevRawPhase !== null) {
+        let delta = rawPhase - prevRawPhase;
+        if (delta > 180) delta -= 360;
+        if (delta < -180) delta += 360;
+        unwrapped += delta;
+      } else {
+        unwrapped = rawPhase;
+      }
+      prevRawPhase = rawPhase;
+      points.push({ t, magdB: 20 * Math.log10(Math.max(1e-10, mag)), phase: unwrapped, mag });
     }
     return points;
   }, [sigma, tRange, computeLoopGain]);
@@ -285,9 +297,12 @@ export default function NyquistBodeViz() {
       .attr('fill', '#3b82f6').attr('font-size', 12).attr('font-weight', 600)
       .text('Magnitude (dB)');
 
-    // Phase plot
+    // Phase plot (dynamic domain from unwrapped phase)
     const gPhase = svg.append('g').attr('transform', `translate(${margin.left},${margin.top + halfH + 30})`);
-    const yPhase = d3.scaleLinear().domain([-180, 180]).range([halfH, 0]);
+    const phaseMin = d3.min(points, d => d.phase);
+    const phaseMax = d3.max(points, d => d.phase);
+    const phasePad = Math.max(10, (phaseMax - phaseMin) * 0.05);
+    const yPhase = d3.scaleLinear().domain([phaseMin - phasePad, phaseMax + phasePad]).range([halfH, 0]);
 
     gPhase.append('g').attr('transform', `translate(0,${halfH})`)
       .call(d3.axisBottom(xLog).ticks(8, '~s'))
@@ -304,12 +319,14 @@ export default function NyquistBodeViz() {
     phaseGridG.selectAll('.tick line')
       .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
 
-    // -180° line (critical phase margin threshold)
-    gPhase.append('line')
-      .attr('x1', 0).attr('y1', yPhase(-180)).attr('x2', w).attr('y2', yPhase(-180))
-      .attr('stroke', '#ef4444').attr('stroke-width', 0.8).attr('stroke-dasharray', '4,4').attr('opacity', 0.5);
-    gPhase.append('text').attr('x', w - 4).attr('y', yPhase(-180) - 4)
-      .attr('text-anchor', 'end').attr('fill', '#ef4444').attr('font-size', 10).attr('opacity', 0.8).text('−180°');
+    // -180° line (critical phase margin threshold) — only draw if visible in the dynamic domain
+    if (phaseMin - phasePad <= -180 && phaseMax + phasePad >= -180) {
+      gPhase.append('line')
+        .attr('x1', 0).attr('y1', yPhase(-180)).attr('x2', w).attr('y2', yPhase(-180))
+        .attr('stroke', '#ef4444').attr('stroke-width', 0.8).attr('stroke-dasharray', '4,4').attr('opacity', 0.5);
+      gPhase.append('text').attr('x', w - 4).attr('y', yPhase(-180) - 4)
+        .attr('text-anchor', 'end').attr('fill', '#ef4444').attr('font-size', 10).attr('opacity', 0.8).text('−180°');
+    }
 
     const phaseLine = d3.line().x(d => xLog(d.t)).y(d => yPhase(d.phase)).curve(d3.curveLinear);
     gPhase.append('path').datum(points).attr('d', phaseLine)

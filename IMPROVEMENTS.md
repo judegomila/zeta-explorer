@@ -349,3 +349,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 343 | 2026-03-03T15:15:00Z | Fix StatisticsPage still showing old wrong Keiper-Li asymptotic formula missing Euler-Mascheroni constant γ | StatisticsPage.jsx |
 | 344 | 2026-03-03T16:00:00Z | Add hover crosshair to ScatteringMatrixViz showing σ, |χ|, Γ, and phase values | ScatteringMatrixViz.jsx |
 | 345 | 2026-03-03T22:09:00Z | Add rotated metric title label to EnergyLandscapeViz colorbar | EnergyLandscapeViz.jsx |
+| 346 | 2026-03-03T22:30:00Z | Fix Bode phase plot using raw atan2 without unwrapping, causing false ±180° jumps | NyquistBodeViz.jsx |

@@ -1,8 +1,10 @@
 /**
  * Prime Oscillator Chain Model
  *
- * Each prime p defines an oscillator with:
- *   - Natural frequency: omega_p = log(p)
+ * Each prime p defines an LC oscillator stage with:
+ *   - Inductance L_p = log(p), capacitance C_p = 1/log(p)
+ *   - Resonant frequency: ω₀ = 1/√(L·C) = 1 (same for all primes)
+ *   - Characteristic impedance: Z₀ = √(L/C) = log(p) (varies per prime)
  *   - The Euler factor 1/(1 - p^{-s}) acts as a resonator/filter
  *
  * Two ladder networks (direct and dual) connect via a lossless bridge.

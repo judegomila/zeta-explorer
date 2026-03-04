@@ -138,17 +138,17 @@ function ExtendedLandscapeTab() {
     ctx.beginPath(); ctx.moveTo(pad.l, yScale(0)); ctx.lineTo(pad.l + chartW, yScale(0)); ctx.stroke();
     ctx.setLineDash([]);
 
-    // Trivial zeros markers
-    for (let n = -2; n >= sigmaMin; n -= 2) {
-      if (n < sigmaMin) break;
-      ctx.fillStyle = '#f59e0b';
-      ctx.beginPath();
-      ctx.arc(xScale(n), yScale(yMin), 4, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = '#f59e0b';
-      ctx.font = '9px "JetBrains Mono", monospace';
-      ctx.textAlign = 'center';
-      ctx.fillText(`s=${n}`, xScale(n), yScale(yMin) + 14);
+    // Trivial zeros markers — only shown when t ≈ 0 (trivial zeros exist only on the real axis)
+    if (Math.abs(tValue) < 0.5) {
+      for (let n = -2; n >= sigmaMin; n -= 2) {
+        ctx.fillStyle = '#f59e0b';
+        ctx.beginPath();
+        ctx.arc(xScale(n), yScale(yMin), 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.font = '9px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(`s=${n}`, xScale(n), yScale(yMin) + 14);
+      }
     }
 
     // Labels

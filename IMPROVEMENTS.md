@@ -292,3 +292,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 286 | 2026-03-03T15:00:00Z | Fix displayed entropy formula showing β²∂log|ζ|/∂β instead of correct log|ζ|−β·∂log|ζ|/∂β | SupercriticalPage.jsx |
 | 287 | 2026-03-03T15:15:00Z | Add π-labeled y-axis ticks and gridlines to phase panel in ExtendedLandscapeTab | SupercriticalViz.jsx |
 | 288 | 2026-03-03T15:30:00Z | Make nearest-zero proximity indicator clickable to snap t to exact zero value in EulerProductViz | EulerProductViz.jsx |
+| 289 | 2026-03-03T15:45:00Z | Show visible zeta zeros count next to t max slider in NyquistBodeViz | NyquistBodeViz.jsx |

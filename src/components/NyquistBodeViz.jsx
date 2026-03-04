@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import * as d3 from 'd3';
 import { InlineMath } from './KaTeXMath.jsx';
 import { losslessBridge } from '../math/oscillators.js';
-import { cMul, cDiv, cAdd, cSub, cAbs, cExp, cPow, zetaCriticalStrip } from '../math/zeta.js';
+import { cMul, cDiv, cAdd, cSub, cAbs, cExp, cPow, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
 
 /**
  * Nyquist plot: trace the loop transfer function L(jω) = χ(s)·ζ(1-s)/ζ(s)
@@ -352,7 +352,7 @@ export default function NyquistBodeViz() {
           <label>t max</label>
           <input type="range" min="10" max="100" step="1" value={tRange[1]}
             onChange={e => setTRange([tRange[0], +e.target.value])} />
-          <span className="control-value">{tRange[1]}</span>
+          <span className="control-value">{tRange[1]} ({ZETA_ZEROS.filter(g => g >= tRange[0] && g <= tRange[1]).length} zeros in range)</span>
         </div>
       </div>
       <div className="viz-container">

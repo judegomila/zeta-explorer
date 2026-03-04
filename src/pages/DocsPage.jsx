@@ -186,12 +186,12 @@ export default function DocsPage() {
       <section id="math-modules" className="docs-section">
         <h2>Math Modules</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14, marginBottom: 16 }}>
-          46 exported functions + 1 constant across 5 pure-math modules. All complex numbers are <code style={{ color: 'var(--accent-cyan)' }}>[re, im]</code> tuples.
+          48 exported functions + 1 constant across 5 pure-math modules. All complex numbers are <code style={{ color: 'var(--accent-cyan)' }}>[re, im]</code> tuples.
         </p>
 
         <details>
           <summary>
-            <span style={{ color: 'var(--accent-blue)' }}>zeta.js</span> — Complex arithmetic &amp; zeta computation (16 functions + 1 constant)
+            <span style={{ color: 'var(--accent-blue)' }}>zeta.js</span> — Complex arithmetic &amp; zeta computation (15 functions + 1 constant)
           </summary>
           <div>
             <h3>Complex Arithmetic</h3>

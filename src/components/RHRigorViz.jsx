@@ -489,27 +489,35 @@ export default function RHRigorViz() {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    // Legend
-    const legendY = 10;
-    ctx.font = '11px Inter, sans-serif';
-    [
+    // Legend with background box
+    const legendItems = [
       { color: '#3b82f6', label: '|ζ(½+it)| (true zeta)', dash: false },
       { color: '#f59e0b', label: '|Z_dir - Z_dual| at σ=0.5', dash: true },
       { color: '#ef4444', label: '|Z_dir - Z_dual| at σ=0.6', dash: true },
       { color: '#10b981', label: 'Known zeros', dash: false },
-    ].forEach((item, i) => {
-      const lx = pw - 220;
-      const ly = legendY + i * 16;
+    ];
+    const lx = pw - 230, legendY = 4;
+    const legendW = 230, legendH = legendItems.length * 16 + 10;
+    ctx.fillStyle = 'rgba(13, 17, 23, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.fillRect(lx, legendY, legendW, legendH);
+    ctx.strokeRect(lx, legendY, legendW, legendH);
+
+    ctx.font = '11px Inter, sans-serif';
+    legendItems.forEach((item, i) => {
+      const ix = lx + 8;
+      const ly = legendY + 12 + i * 16;
       ctx.strokeStyle = item.color;
       ctx.fillStyle = item.color;
       ctx.lineWidth = 2;
       if (item.dash) ctx.setLineDash([4, 2]);
       else ctx.setLineDash([]);
-      ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(lx + 20, ly); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(ix, ly); ctx.lineTo(ix + 20, ly); ctx.stroke();
       ctx.setLineDash([]);
       ctx.font = '10px Inter, sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText(item.label, lx + 24, ly + 4);
+      ctx.fillText(item.label, ix + 24, ly + 4);
     });
 
     // Axis ticks

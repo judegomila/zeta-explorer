@@ -374,3 +374,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 368 | 2026-03-04T07:00:00Z | Fix heat flow zero velocity coefficient from 1/(2π) to 2 in heatFlowZeros | supercritical.js |
 | 369 | 2026-03-04T08:00:00Z | Add convergent/critical-strip region label to sigma slider in EulerProductViz | EulerProductViz.jsx |
 | 370 | 2026-03-04T09:00:00Z | Add missing coupling trend line legend entry in PrimeGapCouplingViz coupling mode | PrimeGapCouplingViz.jsx |
+| 371 | 2026-03-04T10:00:00Z | Add missing window resize listener to ZetaLandscapeViz canvas | ZetaLandscapeViz.jsx |

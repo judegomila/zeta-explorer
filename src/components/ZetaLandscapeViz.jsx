@@ -378,6 +378,15 @@ export default function ZetaLandscapeViz() {
     else drawHeatmap();
   }, [mode, drawCriticalLine, drawHeatmap]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (mode === 'critical-line') drawCriticalLine();
+      else drawHeatmap();
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [mode, drawCriticalLine, drawHeatmap]);
+
   return (
     <div>
       {mode === 'critical-line' && (

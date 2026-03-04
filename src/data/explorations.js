@@ -339,7 +339,7 @@ $$-\\frac{x^{1/2 + i\\gamma_n}}{1/2 + i\\gamma_n} - \\frac{x^{1/2 - i\\gamma_n}}
 These are **damped sinusoids** with:
 - Decay envelope: $x^{1/2}$ (square root — because σ = 1/2)
 - Frequency: $\\gamma_n / (2\\pi)$ in the log-x domain
-- Amplitude: $\\propto 1/|\\rho|^2 \\approx 1/\\gamma_n^2$
+- Amplitude: $\\propto 1/|\\rho| \\approx 1/\\gamma_n$
 
 If RH is true, ALL terms decay as $x^{1/2}$, giving the best possible error term in the PNT: $\\psi(x) = x + O(x^{1/2} \\log^2 x)$.
 

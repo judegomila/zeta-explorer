@@ -179,7 +179,7 @@ export default function EnergyLandscapeViz() {
     ctx.fillStyle = '#94a3b8';
     ctx.font = '600 11px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('σ (Re s)', dw / 2, dh - 0);
+    ctx.fillText('σ (Re s)', dw / 2, dh - 4);
     ctx.textAlign = 'start';
 
     ctx.save();
@@ -210,7 +210,7 @@ export default function EnergyLandscapeViz() {
     }
     ctx.fillStyle = '#94a3b8'; ctx.font = '9px monospace';
     ctx.fillText(vMax.toFixed(1), barX - 2, 18);
-    ctx.fillText(vMin.toFixed(1), barX - 2, barH + 18);
+    ctx.fillText(vMin.toFixed(1), barX - 2, barH + 12);
 
   }, [landscape, tMax, metric]);
 

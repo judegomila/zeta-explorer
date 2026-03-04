@@ -345,3 +345,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 339 | 2026-03-03T23:45:00Z | Pre-compute critical-line stroke color palettes to avoid per-segment string allocation in ZetaLandscapeViz | ZetaLandscapeViz.jsx |
 | 340 | 2026-03-03T23:50:00Z | Make nearest-zero proximity indicator clickable to snap t to exact zero value in SupercriticalViz | SupercriticalViz.jsx |
 | 341 | 2026-03-03T23:55:00Z | Add click-to-snap-to-zero on nearest-zero indicators in all 4 TwinOscillatorSimViz tabs | TwinOscillatorSimViz.jsx |
+| 342 | 2026-03-04T01:00:00Z | Fix EnergyLandscapeViz x-axis label and colorbar min label clipped at canvas bottom edge | EnergyLandscapeViz.jsx |

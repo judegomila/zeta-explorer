@@ -494,7 +494,7 @@ export default function RHRigorViz() {
       { color: '#3b82f6', label: '|ζ(½+it)| (true zeta)', dash: false },
       { color: '#f59e0b', label: '|Z_dir - Z_dual| at σ=0.5', dash: true },
       { color: '#ef4444', label: '|Z_dir - Z_dual| at σ=0.6', dash: true },
-      { color: '#10b981', label: 'Known zeros', dash: false },
+      { color: '#10b981', label: 'Known zeros', dash: [2, 3] },
     ];
     const lx = pw - 230, legendY = 4;
     const legendW = 230, legendH = legendItems.length * 16 + 10;
@@ -511,7 +511,8 @@ export default function RHRigorViz() {
       ctx.strokeStyle = item.color;
       ctx.fillStyle = item.color;
       ctx.lineWidth = 2;
-      if (item.dash) ctx.setLineDash([4, 2]);
+      if (Array.isArray(item.dash)) ctx.setLineDash(item.dash);
+      else if (item.dash) ctx.setLineDash([4, 2]);
       else ctx.setLineDash([]);
       ctx.beginPath(); ctx.moveTo(ix, ly); ctx.lineTo(ix + 20, ly); ctx.stroke();
       ctx.setLineDash([]);

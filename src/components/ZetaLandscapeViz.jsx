@@ -208,8 +208,8 @@ export default function ZetaLandscapeViz() {
     const grid = new Float64Array(RES * RES);
     for (let i = 0; i < RES; i++) {
       for (let j = 0; j < RES; j++) {
-        const sigma = sMin + (i / RES) * (sMax - sMin);
-        const t = tMin + (j / RES) * (tMax - tMin);
+        const sigma = sMin + (i / (RES - 1)) * (sMax - sMin);
+        const t = tMin + (j / (RES - 1)) * (tMax - tMin);
         const z = zetaCriticalStrip([sigma, t], 50);
         const mag = cAbs(z);
         const logMag = Math.log(1 + mag);

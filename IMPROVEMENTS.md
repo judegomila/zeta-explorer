@@ -315,3 +315,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 309 | 2026-03-03T22:00:00Z | Fix primes.js module docstring calling log(p) the oscillator angular frequency instead of the Euler factor phase rate | primes.js |
 | 310 | 2026-03-03T22:15:00Z | Scale de Bruijn-Newman scatter dot radius by displacement from critical line | LiCriterionViz.jsx |
 | 311 | 2026-03-03T22:30:00Z | Fix number variance including anchor zero in count, biasing Σ²(L) by +1 | GUEStatisticsViz.jsx |
+| 312 | 2026-03-03T22:45:00Z | Make nearest-zero proximity indicator clickable to snap t to exact zero value in WaveSimViz | WaveSimViz.jsx |

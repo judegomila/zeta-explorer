@@ -351,3 +351,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 345 | 2026-03-03T22:09:00Z | Add rotated metric title label to EnergyLandscapeViz colorbar | EnergyLandscapeViz.jsx |
 | 346 | 2026-03-03T22:30:00Z | Fix Bode phase plot using raw atan2 without unwrapping, causing false ±180° jumps | NyquistBodeViz.jsx |
 | 347 | 2026-03-03T22:45:00Z | Fix ZetaLandscapeViz heatmap off-by-one causing zero markers to misalign with heatmap data | ZetaLandscapeViz.jsx |
+| 348 | 2026-03-03T23:00:00Z | Reuse memoized chainData.primes instead of redundant getPrimes() call in OscillatorChainViz JSX | OscillatorChainViz.jsx |

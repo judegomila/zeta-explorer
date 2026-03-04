@@ -318,3 +318,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 312 | 2026-03-03T22:45:00Z | Make nearest-zero proximity indicator clickable to snap t to exact zero value in WaveSimViz | WaveSimViz.jsx |
 | 313 | 2026-03-03T23:00:00Z | Add direction arrows along Nyquist contour to indicate increasing frequency traversal | NyquistBodeViz.jsx |
 | 314 | 2026-03-03T23:15:00Z | Replace useCallback with useMemo for GradientDescentTab H(σ) curve to avoid recomputing 80 Hamiltonian evaluations on every resize and redraw | TwinOscillatorSimViz.jsx |
+| 315 | 2026-03-03T23:30:00Z | Fix DocsPage stale counts (18→19 viz, 16→17 pages, 4→5 modules) and add missing TwistorViz, TwistorPage, twistor.js entries | DocsPage.jsx |

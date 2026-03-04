@@ -136,10 +136,11 @@ export default function DocsPage() {
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">oscillators.js</span> <span className="comment">— Prime oscillator chain, Hamiltonian, energy landscape</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">primes.js</span> <span className="comment">— Sieve, frequencies, von Mangoldt, explicit formula</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">supercritical.js</span> <span className="comment">— Extended zeta, thermodynamics, heat flow, spectral</span></div>
-          <div>&nbsp;&nbsp;<span className="dir">components/</span> <span className="comment">— 18 visualization components + KaTeX wrapper</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">twistor.js</span> <span className="comment">— Twistor duality, Penrose transform, incidence relation</span></div>
+          <div>&nbsp;&nbsp;<span className="dir">components/</span> <span className="comment">— 19 visualization components + KaTeX wrapper</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">KaTeXMath.jsx</span> <span className="comment">— InlineMath, BlockMath, MathText, MathModal</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">*Viz.jsx</span> <span className="comment">— Interactive D3/Canvas visualizations</span></div>
-          <div>&nbsp;&nbsp;<span className="dir">pages/</span> <span className="comment">— 16 route pages</span></div>
+          <div>&nbsp;&nbsp;<span className="dir">pages/</span> <span className="comment">— 17 route pages</span></div>
           <div>&nbsp;&nbsp;<span className="dir">data/</span> <span className="comment">— Explorations journal, literature references, criticisms, improvement log</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">explorations.js</span> <span className="comment">— AI exploration entries with LaTeX, insights, refs</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">literature.js</span> <span className="comment">— Academic reference database</span></div>
@@ -170,6 +171,7 @@ export default function DocsPage() {
             { route: '/docs', name: 'Docs', desc: 'This page — complete technical documentation of the application' },
             { route: '/waves', name: 'Waves', desc: 'WaveSimViz — 5-tab wave simulator (signal flow, per-prime waves, interference, phase & delay, circuit diagram)' },
             { route: '/rigor', name: 'Rigor', desc: 'RHRigorViz — self-criticism of ZPO model claims with severity-rated issues and numerical stress tests' },
+            { route: '/twistor', name: 'Twistor', desc: 'TwistorViz — 4-tab twistor duality (correspondence, Penrose transform, incidence relation, dual pair animation)' },
             { route: '/improvements', name: 'Improvements', desc: 'Auto-improvement log with filterable history of all changes made to the app' },
           ].map(p => (
             <div key={p.route} className="card">
@@ -184,7 +186,7 @@ export default function DocsPage() {
       <section id="math-modules" className="docs-section">
         <h2>Math Modules</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14, marginBottom: 16 }}>
-          40 exported functions + 1 constant across 4 pure-math modules. All complex numbers are <code style={{ color: 'var(--accent-cyan)' }}>[re, im]</code> tuples.
+          46 exported functions + 1 constant across 5 pure-math modules. All complex numbers are <code style={{ color: 'var(--accent-cyan)' }}>[re, im]</code> tuples.
         </p>
 
         <details>
@@ -268,13 +270,29 @@ export default function DocsPage() {
             <Fn name="eulerProductPhaseAnalysis" params="t, sigmaRange, steps, numPrimes" desc="Euler product convergence vs σ = 1 boundary" />
           </div>
         </details>
+
+        <details>
+          <summary>
+            <span style={{ color: 'var(--accent-blue)' }}>twistor.js</span> — Twistor duality &amp; Penrose transform (6 functions)
+          </summary>
+          <div>
+            <h3>Twistor Maps</h3>
+            <Fn name="twistorFromS" params="s" desc="Map s = σ+it to twistor Z^α = (ω^A, π_{A'})" />
+            <Fn name="dualTwistorFromS" params="s" desc="Map 1−s to dual twistor W_α" />
+            <Fn name="intertwiner" params="twistor, s" desc="Bridge intertwiner I: Z → W using χ(s)" />
+            <h3>Incidence &amp; Scans</h3>
+            <Fn name="incidenceRelation" params="twistor, dualTwistor" desc="Symplectic inner product Z·Ω·W (vanishes at σ=0.5)" />
+            <Fn name="twistorCorrespondence" params="t, sigmaRange, steps" desc="Scan incidence magnitude across σ" />
+            <Fn name="penroseTransformScan" params="t, sigmaRange, steps, numPrimes" desc="Euler-product-weighted twistor field vs |ζ(s)|" />
+          </div>
+        </details>
       </section>
 
       {/* 6. Visualization Components */}
       <section id="viz-components" className="docs-section">
         <h2>Visualization Components</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14, marginBottom: 16 }}>
-          18 interactive visualization components using D3.js (SVG) and Canvas API.
+          19 interactive visualization components using D3.js (SVG) and Canvas API.
         </p>
         <table className="docs-table">
           <thead>
@@ -305,6 +323,7 @@ export default function DocsPage() {
               ['FourierDomainViz', 'Fourier', 'SVG', '4-tab: von Mangoldt spectrum, frequency response, spectral energy, harmonics'],
               ['WaveSimViz', 'Waves', 'Canvas+SVG', '5-tab: signal flow, per-prime waves, interference, phase & delay, circuit diagram'],
               ['RHRigorViz', 'Rigor', 'Canvas', 'Numerical stress tests: Hamiltonian minimization, bridge unitarity, mismatch vs zeros'],
+              ['TwistorViz', 'Twistor', 'Canvas+SVG', '4-tab: correspondence, Penrose transform, incidence relation, dual pair animation'],
             ].map(([name, page, renderer, purpose]) => (
               <tr key={name}>
                 <td style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-blue)', fontSize: 12 }}>{name}</td>

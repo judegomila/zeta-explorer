@@ -175,12 +175,12 @@ export default function OscillatorChainViz() {
         .attr('font-family', 'JetBrains Mono, monospace')
         .text(stage.prime);
 
-      // Frequency label to the left
+      // Characteristic impedance label to the left
       group.append('text')
         .attr('x', xDirect - radius - 8).attr('y', y + 1)
         .attr('text-anchor', 'end').attr('dominant-baseline', 'middle')
         .attr('fill', '#64748b').attr('font-size', 8)
-        .text(`ω=${primeFrequency(stage.prime).toFixed(2)}`);
+        .text(`Z₀=${primeFrequency(stage.prime).toFixed(2)}`);
 
       // Magnitude bar extending left
       const barW = Math.min(40, stage.magnitude * 5);
@@ -219,12 +219,12 @@ export default function OscillatorChainViz() {
         .attr('font-family', 'JetBrains Mono, monospace')
         .text(stage.prime);
 
-      // Frequency label to the right
+      // Characteristic impedance label to the right
       group.append('text')
         .attr('x', xDual + radius + 8).attr('y', y + 1)
         .attr('text-anchor', 'start').attr('dominant-baseline', 'middle')
         .attr('fill', '#64748b').attr('font-size', 8)
-        .text(`ω=${primeFrequency(stage.prime).toFixed(2)}`);
+        .text(`Z₀=${primeFrequency(stage.prime).toFixed(2)}`);
 
       // Magnitude bar extending right
       const barW = Math.min(40, stage.magnitude * 5);

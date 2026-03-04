@@ -311,3 +311,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 305 | 2026-03-03T20:45:00Z | Add Lindelöf Hypothesis exploration entry on bounded gain and subconvexity in the oscillator chain | explorations.js |
 | 306 | 2026-03-03T21:00:00Z | Fix oscillators.js module docstring calling log(p) the natural frequency instead of the characteristic impedance | oscillators.js |
 | 307 | 2026-03-03T21:15:00Z | Fix pair correlation histogram normalization dividing by zeros.length instead of pairDists.length | GUEStatisticsViz.jsx |
+| 308 | 2026-03-03T21:30:00Z | Fix oscillator node labels showing ω=log(p) instead of Z₀=log(p) in OscillatorChainViz | OscillatorChainViz.jsx |

@@ -133,6 +133,12 @@ export default function ExplicitFormulaViz() {
     legend.append('text').attr('x', 26).attr('y', 40)
       .attr('fill', '#94a3b8').attr('font-size', 11).text('x (PNT approximation)');
 
+    // Zero correction shaded area
+    legend.append('rect').attr('x', 0).attr('y', 48).attr('width', 20).attr('height', 10)
+      .attr('fill', 'rgba(245, 158, 11, 0.25)').attr('stroke', '#f59e0b').attr('stroke-width', 0.5);
+    legend.append('text').attr('x', 26).attr('y', 58)
+      .attr('fill', '#94a3b8').attr('font-size', 11).text('Zero correction (x − spectral)');
+
     // Axis labels
     svg.append('text')
       .attr('x', width / 2).attr('y', height - 6)

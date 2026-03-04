@@ -322,3 +322,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 316 | 2026-03-03T23:45:00Z | Fix GUE number variance prefactor using GOE 2/π² instead of correct GUE 1/π² | GUEStatisticsViz.jsx |
 | 317 | 2026-03-04T00:00:00Z | Make nearest-zero proximity indicator clickable to snap t to exact zero value in TwistorViz | TwistorViz.jsx |
 | 318 | 2026-03-03T12:00:00Z | Fix PenroseTransformTab canvas not redrawing on window resize causing stretched/blurry display | TwistorViz.jsx |
+| 319 | 2026-03-03T12:15:00Z | Add legend entry for shaded zero-correction region in ExplicitFormulaViz | ExplicitFormulaViz.jsx |

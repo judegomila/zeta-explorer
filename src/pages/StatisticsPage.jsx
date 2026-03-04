@@ -70,7 +70,7 @@ export default function StatisticsPage() {
           is equivalent to all bars being non-negative. Watch for bars dipping below zero (they shouldn't with our
           tabulated zeros).
           <strong style={{ color: '#f59e0b' }}> Keiper-Li Asymptotic</strong> shows <InlineMath tex="\lambda_n / n" /> against
-          the predicted growth <InlineMath tex="\frac{1}{2}\log(n/2\pi e) + \frac{1}{2}" />. The scatter of data points
+          the predicted growth <InlineMath tex="\frac{1}{2}(\log(n/2\pi) + \gamma - 1)" /> (Coffey 2005). The scatter of data points
           around the asymptotic line shrinks as you increase zero count.
           <strong style={{ color: '#8b5cf6' }}> de Bruijn-Newman</strong> visualizes zero trajectories under the heat
           equation. Drag the <InlineMath tex="\tau" /> slider: at <InlineMath tex="\tau = 0" /> zeros sit on the real axis
@@ -83,7 +83,7 @@ export default function StatisticsPage() {
         <div className="viz-title">Li Criterion & de Bruijn-Newman</div>
         <div className="viz-subtitle">
           Li's criterion: RH ⟺ all <InlineMath tex="\\lambda_n \\geq 0" />. The Keiper-Li asymptotic shows <InlineMath tex="\\lambda_n/n" /> approaching
-          <InlineMath tex="\tfrac{1}{2}\log(n/2\pi e) + \tfrac{1}{2}" />. The de Bruijn-Newman view shows how zeros drift under heat flow,
+          <InlineMath tex="\tfrac{1}{2}(\log(n/2\pi) + \gamma - 1)" /> where <InlineMath tex="\gamma \approx 0.577" /> is the Euler-Mascheroni constant. The de Bruijn-Newman view shows how zeros drift under heat flow,
           with <InlineMath tex="\\Lambda \\geq 0" /> (Rodgers-Tao). RH is equivalent to <InlineMath tex="\\Lambda = 0" /> (unproven).
         </div>
         <LiCriterionViz />

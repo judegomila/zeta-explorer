@@ -484,6 +484,13 @@ function PrimeHarmonicsTab() {
       .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
     g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
+    // Horizontal gridlines (matching other tabs in this component)
+    const gridG = g.append('g')
+      .call(d3.axisLeft(y).ticks(6).tickSize(-w).tickFormat(''));
+    gridG.select('.domain').remove();
+    gridG.selectAll('.tick line')
+      .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
+
     const primeColors = [
       '#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6',
       '#06b6d4', '#ec4899', '#84cc16', '#f97316', '#14b8a6',

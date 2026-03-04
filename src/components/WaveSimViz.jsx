@@ -609,6 +609,12 @@ function WaveInterferenceTab({ sigma, t, numPrimes, playing }) {
     return () => { if (animRef.current) cancelAnimationFrame(animRef.current); };
   }, [draw, playing]);
 
+  useEffect(() => {
+    const onResize = () => draw();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw]);
+
   return <canvas ref={canvasRef} style={{ width: '100%', height: 500, borderRadius: 8 }} />;
 }
 

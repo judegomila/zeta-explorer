@@ -261,7 +261,7 @@ export default function PrimeGapCouplingViz() {
           frequency is <InlineMath tex="\omega_0 = 1/\sqrt{L_p C_p} = 1" /> for all primes; <InlineMath tex="\log p" /> is the characteristic
           dispersion rate, not the resonance. This grows as <InlineMath tex="\log(n\log n)" /> for the <InlineMath tex="n" />-th prime,
           with mode spacing decreasing at higher frequencies — matching the increasing density of zeta
-          zeros <InlineMath tex="N(T) \sim (T/2\pi)\log T" />.
+          zeros <InlineMath tex="N(T) \sim (T/2\pi)\log(T/2\pi e)" />.
           <strong> Look for:</strong> the logarithmic staircase of frequencies.
         </div>
       )}

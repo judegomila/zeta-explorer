@@ -1,6 +1,8 @@
 /**
- * Prime number utilities and oscillator frequency generation.
- * Each prime p generates an oscillator with angular frequency omega_p = log(p).
+ * Prime number utilities and Euler factor phase rates.
+ * Each prime p has Euler factor phase rotation rate log(p) from p^{-s} = e^{-s·log(p)}.
+ * In the LC oscillator model, log(p) is the characteristic impedance Z₀ = √(L/C),
+ * while the resonant frequency is ω₀ = 1/√(LC) = 1 for all primes.
  */
 
 export function sieveOfEratosthenes(limit) {

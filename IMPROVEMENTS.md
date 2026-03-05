@@ -442,3 +442,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 481 | 2026-03-05T22:30:00Z | Fix spider phase formula claiming α_p = −t·log(p) at σ=0 (only valid when p^{-σ} ≪ 1) | ZXCalculusPage.jsx, zxcalculus.js |
 | 482 | 2026-03-05T23:00:00Z | Fix Mellin transform formula missing s/(s-1) main term and wrong convergence region | FourierPage.jsx |
 | 483 | 2026-03-05T23:30:00Z | Fix stale numPrimes closure in AnimatedModesViz draw callback by using primeData.length | AnimatedModesViz.jsx |
+| 484 | 2026-03-06T00:00:00Z | Fix missing minus sign in explicit formula asymptotic approximation | ExplicitFormulaViz.jsx |

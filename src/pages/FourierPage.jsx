@@ -194,7 +194,7 @@ export default function FourierPage() {
           The Riemann zeta function itself is a Mellin transform of the fractional part of the floor
           function:
         </p>
-        <BlockMath tex={"\\zeta(s) = s \\int_1^{\\infty} \\frac{\\{x\\}}{x^{s+1}}\\, dx \\qquad (\\operatorname{Re}(s) > 1)"} />
+        <BlockMath tex={"\\zeta(s) = \\frac{s}{s-1} - s \\int_1^{\\infty} \\frac{\\{x\\}}{x^{s+1}}\\, dx \\qquad (\\operatorname{Re}(s) > 0)"} />
         <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
           The inverse Mellin transform recovers the prime counting function from the zeta zeros. The
           Chebyshev function is recovered via:

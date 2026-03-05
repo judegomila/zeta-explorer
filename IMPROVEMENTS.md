@@ -406,3 +406,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 399 | 2026-03-06T06:00:00Z | Remove redundant stats useMemo that re-scanned all primes in PerPrimeTab | TwinOscillatorSimViz.jsx |
 | 400 | 2026-03-05T23:00:00Z | Fix KL divergence explainer saying 'nats' when computation uses log₂ (bits) | InformationTheoryViz.jsx |
 | 401 | 2026-03-05T23:30:00Z | Fix Li coefficients logLambda using Math.log (ln) but chart label saying log₁₀ | rh-attack.js, RHAttackViz.jsx |
+| 402 | 2026-03-05T12:00:00Z | Fix GUE number variance reference curve using 2/π² instead of correct 1/π² | GUEStatisticsViz.jsx |

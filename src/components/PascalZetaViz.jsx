@@ -421,6 +421,25 @@ function HasseTab() {
       .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
       .text(`Hasse–Sondow convergence at s = ${sigma.toFixed(2)} + ${t.toFixed(2)}i`);
 
+    // Legend
+    const leg = g.append('g').attr('transform', `translate(${w - 200}, 10)`);
+    const legBg = leg.append('rect')
+      .attr('x', -6).attr('y', -8).attr('width', 200).attr('height', 50).attr('rx', 4)
+      .attr('fill', 'rgba(10,14,26,0.85)').attr('stroke', '#1e293b');
+    leg.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
+      .attr('stroke', '#3b82f6').attr('stroke-width', 2.5);
+    leg.append('circle').attr('cx', 8).attr('cy', 0).attr('r', 2).attr('fill', '#3b82f6');
+    leg.append('text').attr('x', 22).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10)
+      .text('|ζ(s)| partial sum');
+    leg.append('rect').attr('x', 0).attr('y', 12).attr('width', 16).attr('height', 8)
+      .attr('fill', '#8b5cf6').attr('opacity', 0.3);
+    leg.append('text').attr('x', 22).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10)
+      .text('Row contribution (5× scale)');
+    leg.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 30).attr('y2', 30)
+      .attr('stroke', '#10b981').attr('stroke-dasharray', '6,3').attr('opacity', 0.6);
+    leg.append('text').attr('x', 22).attr('y', 34).attr('fill', '#94a3b8').attr('font-size', 10)
+      .text('Converged value');
+
   }, [convergence, maxRows, sigma, t]);
 
   useEffect(() => { draw(); }, [draw]);

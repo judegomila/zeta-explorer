@@ -8,6 +8,7 @@ export default function ExplicitFormulaViz() {
   const svgRef = useRef();
   const [maxX, setMaxX] = useState(100);
   const [numZeros, setNumZeros] = useState(20);
+  const [hoverPoint, setHoverPoint] = useState(null);
 
   // Memoize data arrays so resize events only re-render D3 without recomputing
   // the psiTable (O(maxX) vonMangoldt calls) and explicitFormulaTerms (O(steps × numZeros))
@@ -156,6 +157,44 @@ export default function ExplicitFormulaViz() {
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('ψ(x)');
 
+    // Hover interaction
+    const overlay = g.append('rect')
+      .attr('width', w).attr('height', h)
+      .attr('fill', 'transparent')
+      .attr('cursor', 'crosshair');
+
+    const hoverLine = g.append('line')
+      .attr('y1', 0).attr('y2', h)
+      .attr('stroke', '#e2e8f0').attr('stroke-width', 0.5)
+      .attr('opacity', 0);
+
+    const hoverDotActual = g.append('circle')
+      .attr('r', 4).attr('fill', '#3b82f6').attr('stroke', '#0a0e1a').attr('stroke-width', 2)
+      .attr('opacity', 0);
+    const hoverDotApprox = g.append('circle')
+      .attr('r', 4).attr('fill', '#f59e0b').attr('stroke', '#0a0e1a').attr('stroke-width', 2)
+      .attr('opacity', 0);
+
+    overlay.on('mousemove', (event) => {
+      const [mx] = d3.pointer(event);
+      const xVal = xScale.invert(mx);
+      const closest = actualData.reduce((best, p) =>
+        Math.abs(p.x - xVal) < Math.abs(best.x - xVal) ? p : best
+      , actualData[0]);
+      const idx = actualData.indexOf(closest);
+      const approxPt = approxData[idx];
+
+      hoverLine.attr('x1', xScale(closest.x)).attr('x2', xScale(closest.x)).attr('opacity', 0.3);
+      hoverDotActual.attr('cx', xScale(closest.x)).attr('cy', yScale(closest.y)).attr('opacity', 1);
+      hoverDotApprox.attr('cx', xScale(approxPt.x)).attr('cy', yScale(approxPt.y)).attr('opacity', 1);
+      setHoverPoint({ x: closest.x, psi: closest.y, approx: approxPt.y, pnt: closest.x });
+    }).on('mouseleave', () => {
+      hoverLine.attr('opacity', 0);
+      hoverDotActual.attr('opacity', 0);
+      hoverDotApprox.attr('opacity', 0);
+      setHoverPoint(null);
+    });
+
   }, [maxX, numZeros, actualData, approxData]);
 
   useEffect(() => { draw(); }, [draw]);
@@ -200,9 +239,15 @@ export default function ExplicitFormulaViz() {
             (γ_max ≈ {ZETA_ZEROS[Math.min(numZeros, ZETA_ZEROS.length) - 1]?.toFixed(1) ?? '?'})
           </span>
         </div>
-        <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: rmsError < 1 ? '#10b981' : rmsError < 5 ? '#f59e0b' : '#ef4444' }}>
-          RMS error: {rmsError.toFixed(2)}
-        </div>
+        {hoverPoint ? (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+            x={hoverPoint.x.toFixed(1)} | <span style={{ color: '#3b82f6' }}>ψ={hoverPoint.psi.toFixed(1)}</span> | <span style={{ color: '#f59e0b' }}>approx={hoverPoint.approx.toFixed(1)}</span> | <span style={{ color: '#64748b' }}>err={Math.abs(hoverPoint.psi - hoverPoint.approx).toFixed(2)}</span>
+          </div>
+        ) : (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: rmsError < 1 ? '#10b981' : rmsError < 5 ? '#f59e0b' : '#ef4444' }}>
+            RMS error: {rmsError.toFixed(2)} <span style={{ color: '#475569', fontSize: 11, fontStyle: 'italic', marginLeft: 8 }}>Hover to inspect</span>
+          </div>
+        )}
       </div>
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: 380 }} />

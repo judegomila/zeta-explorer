@@ -444,3 +444,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 483 | 2026-03-05T23:30:00Z | Fix stale numPrimes closure in AnimatedModesViz draw callback by using primeData.length | AnimatedModesViz.jsx |
 | 484 | 2026-03-06T00:00:00Z | Fix missing minus sign in explicit formula asymptotic approximation | ExplicitFormulaViz.jsx |
 | 485 | 2026-03-06T00:30:00Z | Fix number variance formula using GOE coefficient 2/π² instead of correct GUE coefficient 1/π² | StatisticsPage.jsx |
+| 486 | 2026-03-05T01:00:00Z | Add hover crosshair to ExplicitFormulaViz showing ψ(x), approximation, and error at cursor | ExplicitFormulaViz.jsx |

@@ -348,6 +348,23 @@ function RateDistortionTab({ sigma, t }) {
     const curve = rd.curve;
     const maxDist = Math.max(...curve.map(c => c.relativeDistortion), 0.01);
 
+    // Y-axis tick labels and gridlines
+    ctx.font = '9px var(--font-mono)';
+    ctx.fillStyle = '#64748b';
+    ctx.textAlign = 'right';
+    for (let frac = 0; frac <= 1; frac += 0.25) {
+      const y = h - margin.bottom - frac * plotH * 0.85;
+      ctx.fillText(frac.toFixed(2), margin.left - 6, y + 3);
+      ctx.beginPath();
+      ctx.moveTo(margin.left, y);
+      ctx.lineTo(margin.left + plotW, y);
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 0.5;
+      ctx.setLineDash([3, 3]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
     // Plot relative distortion vs number of primes
     ctx.beginPath();
     curve.forEach((c, i) => {

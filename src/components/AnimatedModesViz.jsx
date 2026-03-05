@@ -59,7 +59,7 @@ export default function AnimatedModesViz() {
     const gamma = ZETA_ZEROS[zeroIndex]; // zero frequency
     const t = time * speed * 0.001;
 
-    const rowH = (dh - 100) / (numPrimes + 2);
+    const rowH = (dh - 100) / (primeData.length + 2);
     const xPad = 80;
     const waveW = dw - xPad - 20;
 
@@ -128,7 +128,7 @@ export default function AnimatedModesViz() {
     });
 
     // Superposition at bottom
-    const superY = 60 + numPrimes * rowH + 10;
+    const superY = 60 + primeData.length * rowH + 10;
     const superH = dh - superY - 20;
     const superMid = superY + superH / 2;
 

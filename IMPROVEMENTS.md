@@ -414,3 +414,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 454 | 2026-03-05T23:00:00Z | Add missing window resize handlers to all four RHAttackViz canvas tabs | RHAttackViz.jsx |
 | 455 | 2026-03-05T23:30:00Z | Add missing bridge penalty (V_b) to HamiltonianViz hover tooltip | HamiltonianViz.jsx |
 | 456 | 2026-03-05T23:45:00Z | Add missing σ=0.2 tick label to Penrose Transform x-axis in TwistorViz | TwistorViz.jsx |
+| 457 | 2026-03-05T22:00:00Z | Fix Li coefficient formula on PascalPage using undefined (-1)! factorial and wrong form | PascalPage.jsx |

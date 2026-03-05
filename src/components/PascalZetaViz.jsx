@@ -6,6 +6,30 @@ import {
   brothersEConvergence, piFromPascal, piArcsinSeries,
   hasseZeta, pascalZetaScan, pascalRowConvergence, rowWeightedDirichlet,
 } from '../math/pascal.js';
+import { ZETA_ZEROS } from '../math/zeta.js';
+
+function ZeroSnap({ tValue, setTValue }) {
+  let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
+  for (let i = 1; i < ZETA_ZEROS.length; i++) {
+    const d = Math.abs(tValue - ZETA_ZEROS[i]);
+    if (d < bestDist) { bestDist = d; bestIdx = i; }
+    if (ZETA_ZEROS[i] > tValue + 2) break;
+  }
+  if (bestDist >= 1) return null;
+  return (
+    <span
+      style={{
+        marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
+        color: bestDist < 0.3 ? '#10b981' : '#64748b',
+        cursor: 'pointer', borderBottom: '1px dashed currentColor',
+      }}
+      title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
+      onClick={() => setTValue(+ZETA_ZEROS[bestIdx].toFixed(1))}
+    >
+      {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+    </span>
+  );
+}
 
 const TABS = [
   { id: 'triangle', label: "Pascal's Triangle" },
@@ -467,6 +491,7 @@ function HasseTab() {
           <input type="range" min="1" max="60" step="0.5" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
+          <ZeroSnap tValue={t} setTValue={setT} />
         </div>
         <div className="control-group">
           <label>Rows</label>
@@ -629,6 +654,7 @@ function DecoratedTab() {
           <input type="range" min="1" max="60" step="0.5" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
+          <ZeroSnap tValue={t} setTValue={setT} />
         </div>
         <div className="control-group">
           <label>Pascal Row N</label>

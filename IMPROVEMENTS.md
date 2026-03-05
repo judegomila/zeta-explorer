@@ -434,3 +434,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 473 | 2026-03-06T00:30:00Z | Fix stale Q-factor explainer card on OscillatorsPage still showing wrong prime-dependent formula | OscillatorsPage.jsx |
 | 474 | 2026-03-05T23:00:00Z | Fix Darlington S21 using |Zd| instead of sqrt(Re(Zd)·Re(Zdl)) in transmission coefficient | gap-closing.js |
 | 475 | 2026-03-06T00:45:00Z | Add Davenport-Heilbronn counterexample warning card to ControlTheoryPage | ControlTheoryPage.jsx |
+| 476 | 2026-03-05T22:00:00Z | Add zeta zero snap indicators to t sliders in PascalZetaViz Hasse and Decorated tabs | PascalZetaViz.jsx |

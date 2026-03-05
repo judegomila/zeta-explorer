@@ -115,7 +115,12 @@ function LiCoefficientsTab() {
 
   }, [data]);
 
-  useEffect(() => { draw(); }, [draw]);
+  useEffect(() => {
+    draw();
+    const onResize = () => draw();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw]);
 
   return (
     <div>
@@ -286,7 +291,12 @@ function HamiltonianTab() {
 
   }, [data]);
 
-  useEffect(() => { draw(); }, [draw]);
+  useEffect(() => {
+    draw();
+    const onResize = () => draw();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw]);
 
   return (
     <div>
@@ -439,7 +449,12 @@ function SMatrixTab() {
 
   }, [data]);
 
-  useEffect(() => { draw(); }, [draw]);
+  useEffect(() => {
+    draw();
+    const onResize = () => draw();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw]);
 
   return (
     <div>
@@ -613,7 +628,12 @@ function HeatFlowTab() {
 
   }, [data, tauIdx]);
 
-  useEffect(() => { draw(); }, [draw]);
+  useEffect(() => {
+    draw();
+    const onResize = () => draw();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw]);
 
   const activeTau = tauValues[tauIdx];
   const activeData = data.results[activeTau];

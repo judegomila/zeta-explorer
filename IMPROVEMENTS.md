@@ -411,3 +411,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 404 | 2026-03-05T12:30:00Z | Fix KL divergence y-axis label saying 'nats' when computation uses log₂ (bits) | InformationTheoryViz.jsx |
 | 405 | 2026-03-05T14:00:00Z | Fix WaveSimPage saying 'impedance-matched' instead of 'conjugate-matched' at σ=½ | WaveSimPage.jsx |
 | 406 | 2026-03-05T15:00:00Z | Fix explorations claiming V_mismatch = 0 at σ=½ instead of minimized (conjugate match) | explorations.js, information-theory.js |
+| 454 | 2026-03-05T23:00:00Z | Add missing window resize handlers to all four RHAttackViz canvas tabs | RHAttackViz.jsx |

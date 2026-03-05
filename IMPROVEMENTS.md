@@ -400,3 +400,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 394 | 2026-03-05T23:50:00Z | Fix KL divergence and Jensen-Shannon using natural log (nats) instead of log₂ (bits) | information-theory.js |
 | 395 | 2026-03-06T03:00:00Z | Fix inlineKL in spectral-attack.js using Math.log (nats) instead of Math.log2 (bits) | spectral-attack.js |
 | 396 | 2026-03-05T22:30:00Z | Fix twistor incidence derivation using natural pairing (+) instead of symplectic form (−) | TwistorPage.jsx |
+| 397 | 2026-03-06T04:00:00Z | Fix dual ladder magnitude bars overlapping Z₀ labels in OscillatorChainViz | OscillatorChainViz.jsx |

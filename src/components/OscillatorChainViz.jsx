@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 import { getPrimes, primeFrequency } from '../math/primes.js';
 import { directLadder, dualLadder, losslessBridge } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import ThermoBar from './ThermoBar.jsx';
 
 export default function OscillatorChainViz() {
   const svgRef = useRef();
@@ -226,36 +227,31 @@ export default function OscillatorChainViz() {
         .attr('fill', '#64748b').attr('font-size', 8)
         .text(`Z₀=${primeFrequency(stage.prime).toFixed(2)}`);
 
-      // Magnitude bar extending right
+      // Magnitude bar extending right, offset past Z₀ label to avoid overlap
       const barW = Math.min(40, stage.magnitude * 5);
       group.append('rect')
-        .attr('x', xDual + radius + 8).attr('y', y - 2)
+        .attr('x', xDual + radius + 56).attr('y', y - 2)
         .attr('width', barW).attr('height', 4)
         .attr('rx', 2).attr('fill', `hsla(${hue}, 70%, 55%, 0.5)`);
     });
 
-    // Summary text (top-right)
-    svg.append('text')
-      .attr('x', width - 16).attr('y', 60)
-      .attr('text-anchor', 'end').attr('fill', '#64748b').attr('font-size', 11)
-      .text(`s = ${sigma.toFixed(2)} + ${t.toFixed(2)}i`);
-
-    svg.append('text')
-      .attr('x', width - 16).attr('y', 76)
-      .attr('text-anchor', 'end').attr('fill', '#3b82f6').attr('font-size', 11)
-      .text(`|ζ(s)| ≈ ${direct.totalMagnitude.toFixed(4)}`);
-
-    svg.append('text')
-      .attr('x', width - 16).attr('y', 92)
-      .attr('text-anchor', 'end').attr('fill', '#f59e0b').attr('font-size', 11)
-      .text(`|ζ(1−s)| ≈ ${dual.totalMagnitude.toFixed(4)}`);
-
-    svg.append('text')
-      .attr('x', width - 16).attr('y', 108)
-      .attr('text-anchor', 'end')
-      .attr('fill', bridge.isUnitary ? '#10b981' : '#ef4444')
-      .attr('font-size', 11)
-      .text(`|χ|=${bridge.magnitude.toFixed(3)}, Γ=${bridge.reflectionCoeff.toFixed(3)}`);
+    // Summary text (top-right) — with background panel for readability
+    const infoG = svg.append('g').attr('transform', `translate(${width - 16}, 52)`);
+    infoG.append('rect')
+      .attr('x', -200).attr('y', -8).attr('width', 208).attr('height', 4 * 20 + 4)
+      .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+    [
+      { text: `s = ${sigma.toFixed(2)} + ${t.toFixed(2)}i`, color: '#94a3b8' },
+      { text: `|ζ(s)| ≈ ${direct.totalMagnitude.toFixed(4)}`, color: '#3b82f6' },
+      { text: `|ζ(1−s)| ≈ ${dual.totalMagnitude.toFixed(4)}`, color: '#f59e0b' },
+      { text: `|χ| = ${bridge.magnitude.toFixed(3)},  Γ = ${bridge.reflectionCoeff.toFixed(3)}`, color: bridge.isUnitary ? '#10b981' : '#ef4444' },
+    ].forEach(({ text, color }, i) => {
+      infoG.append('text')
+        .attr('x', 0).attr('y', i * 20)
+        .attr('text-anchor', 'end').attr('fill', color)
+        .attr('font-size', 11).attr('font-family', 'var(--font-mono)')
+        .text(text);
+    });
 
   }, [chainData, selectedStage, svgHeight]);
 
@@ -269,7 +265,7 @@ export default function OscillatorChainViz() {
   return (
     <div>
       <div className="tab-explainer">
-        <strong>The math:</strong> The Euler product <InlineMath tex="\\zeta(s) = \\prod_p (1-p^{-s})^{-1}" /> is realized as
+        The Euler product <InlineMath tex="\\zeta(s) = \\prod_p (1-p^{-s})^{-1}" /> is realized as
         a cascade of oscillator stages. Each prime <InlineMath tex="p" /> contributes an LC stage with inductance{' '}
         <InlineMath tex="L_p = \\log p" /> and capacitance <InlineMath tex="C_p = 1/\\log p" /> (from <InlineMath tex="p^{-s} = e^{-s\\log p}" />),
         giving a normalized resonant frequency <InlineMath tex="\\omega_0 = 1/\\sqrt{L_p C_p} = 1" /> for every prime. The blue <strong>direct ladder</strong> computes <InlineMath tex="\\zeta(s)" />;
@@ -281,7 +277,7 @@ export default function OscillatorChainViz() {
       <div className="controls">
         <div className="control-group">
           <label style={{ color: sigmaColor, fontWeight: 600 }}>
-            <InlineMath tex="\sigma = \operatorname{Re}(s)" />
+            <InlineMath tex="\\sigma = \\operatorname{Re}(s)" />
           </label>
           <input type="range" min="0.05" max="0.95" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)}
@@ -289,7 +285,7 @@ export default function OscillatorChainViz() {
           <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.1" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
@@ -322,6 +318,7 @@ export default function OscillatorChainViz() {
           <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={chainData.primes[numPrimes - 1]})</span></span>
         </div>
       </div>
+      <ThermoBar sigma={sigma} t={t} numPrimes={numPrimes} />
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: svgHeight }} />
       </div>
@@ -331,7 +328,7 @@ export default function OscillatorChainViz() {
             {selectedStage.ladder === 'direct' ? 'Direct' : 'Dual'} Ladder — Prime {selectedStage.prime}
           </h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 12, marginTop: 12 }}>
-            <div><span style={{ color: '#64748b', fontSize: 11 }}>Frequency <InlineMath tex="\omega" /></span><br/>
+            <div><span style={{ color: '#64748b', fontSize: 11 }}>Frequency <InlineMath tex="\\omega" /></span><br/>
               <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.frequency.toFixed(4)}</span></div>
             <div><span style={{ color: '#64748b', fontSize: 11 }}>|H(s)|</span><br/>
               <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.magnitude.toFixed(4)}</span></div>

@@ -461,7 +461,7 @@ function KLDivergenceTab({ sigma, t, numPrimes }) {
         ))}
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        KL divergence <InlineMath tex="D_{KL}(P_\sigma \| P_{1/2})" /> measures how many extra nats
+        KL divergence <InlineMath tex="D_{KL}(P_\sigma \| P_{1/2})" /> measures how many extra bits
         are needed to describe the system at σ compared to equilibrium at σ = ½.
         At <strong style={{ color: '#10b981' }}>σ = ½</strong>: D<sub>KL</sub> = 0 (no extra cost — system is at equilibrium).
         This connects to the thermodynamic interpretation: D<sub>KL</sub> is proportional to the free energy

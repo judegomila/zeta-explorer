@@ -2,8 +2,8 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import { InlineMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { getPrimes, primeFrequency } from '../math/primes.js';
-import { oscillatorStage, directLadder, dualLadder, losslessBridge, systemHamiltonian } from '../math/oscillators.js';
-import { cAbs, ZETA_ZEROS } from '../math/zeta.js';
+import { oscillatorStage, directLadder, dualLadder, losslessBridge, systemHamiltonian, accuracyMetrics } from '../math/oscillators.js';
+import { cAbs, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
 import { thermodynamicState } from '../math/supercritical.js';
 
 const TABS = [
@@ -144,35 +144,77 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
     ctx.fill();
     ctx.stroke();
 
-    // Animate signal flow through each prime stage — BIDIRECTIONAL
+    // ── Standing wave indicator: check if t is near a zeta zero ──
+    let nearZero = false;
+    let nearZeroDist = Infinity;
+    for (let zi = 0; zi < ZETA_ZEROS.length && ZETA_ZEROS[zi] < t + 3; zi++) {
+      const d = Math.abs(t - ZETA_ZEROS[zi]);
+      if (d < nearZeroDist) nearZeroDist = d;
+    }
+    nearZero = nearZeroDist < 0.5;
+
+    // Standing wave notification
+    if (nearZero) {
+      ctx.font = 'bold 10px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = `rgba(16,185,129,${0.6 + 0.4 * Math.sin(time * 3)})`;
+      ctx.fillText('⟳ STANDING WAVE — near ζ zero', xBridge, 60);
+    }
+
+    // Animate signal flow through each prime stage — WAVE PROPAGATION MODEL
     primes.forEach((p, i) => {
       const y = yTop + (i + 1) * ySpacing;
       const stageD = direct.stages[i];
       const stageU = dual.stages[i];
 
-      // Phase of signal at this stage (each prime has its own frequency)
+      // Wave properties for this stage
       const omega = primeFrequency(p);
+      const Z0 = omega; // characteristic impedance = log(p)
+
+      // Impedance mismatch ratio per stage (how well this stage is matched)
+      const Zmag = cAbs(stageD.impedance);
+      const mismatchRatio = Math.abs(Zmag - Z0) / (Z0 + 0.001);
+      const matchColor = mismatchRatio < 0.3 ? '#10b981' : mismatchRatio < 1 ? '#f59e0b' : '#ef4444';
+
+      // Phase of propagating wave at this stage
       const phaseD = time * omega * 0.5 * phaseSpeed;
       const phaseU = time * omega * 0.5 * phaseSpeed + stageU.phase - stageD.phase;
-      const pulseD = 0.5 + 0.5 * Math.sin(phaseD);
-      const pulseU = 0.5 + 0.5 * Math.sin(phaseU);
 
-      // Direct node — size pulsates with signal magnitude
+      // Cumulative amplitude envelope — signal decays/grows through the ladder
+      const cumAmpD = stageD.cumulativeMagnitude;
+      const cumAmpU = stageU.cumulativeMagnitude;
+      const normAmpD = Math.min(cumAmpD / (direct.totalMagnitude + 0.001), 2);
+      const normAmpU = Math.min(cumAmpU / (dual.totalMagnitude + 0.001), 2);
+
+      // Standing wave modulation (nodes form near zeta zeros)
+      const standingMod = nearZero ? 0.3 + 0.7 * Math.abs(Math.sin(i * Math.PI / numPrimes)) : 1;
+
+      const pulseD = 0.5 + 0.5 * Math.sin(phaseD) * standingMod;
+      const pulseU = 0.5 + 0.5 * Math.sin(phaseU) * standingMod;
+
+      // ── Direct node — impedance-aware coloring ──
       const rD = 5 + pulseD * 4 + stageD.magnitude * 1.5;
+      const nodeRD = Math.min(rD, 14);
       ctx.beginPath();
-      ctx.arc(xDir, y, Math.min(rD, 14), 0, Math.PI * 2);
+      ctx.arc(xDir, y, nodeRD, 0, Math.PI * 2);
       ctx.fillStyle = `hsla(210, 80%, ${40 + pulseD * 30}%, ${0.6 + pulseD * 0.4})`;
       ctx.fill();
+      // Impedance ring (green=matched, red=mismatched)
+      ctx.strokeStyle = matchColor;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
 
-      // Dual node
+      // ── Dual node ──
       const rU = 5 + pulseU * 4 + stageU.magnitude * 1.5;
+      const nodeRU = Math.min(rU, 14);
       ctx.beginPath();
-      ctx.arc(xDual, y, Math.min(rU, 14), 0, Math.PI * 2);
+      ctx.arc(xDual, y, nodeRU, 0, Math.PI * 2);
       ctx.fillStyle = `hsla(35, 80%, ${40 + pulseU * 30}%, ${0.6 + pulseU * 0.4})`;
       ctx.fill();
+      ctx.strokeStyle = matchColor;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
 
-      const nodeRD = Math.min(rD, 14);
-      const nodeRU = Math.min(rU, 14);
       const leftEdgeDir = xDir + nodeRD + 2;
       const rightEdgeBridgeL = xBridge - bw / 2 - 2;
       const leftEdgeBridgeR = xBridge + bw / 2 + 2;
@@ -180,135 +222,157 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
       const spanL = rightEdgeBridgeL - leftEdgeDir;
       const spanR = rightEdgeDual - leftEdgeBridgeR;
 
-      // ── Forward flow: Direct → Bridge → Dual (green, top track y-2) ──
+      // ── Forward wavefronts: Direct → Bridge → Dual (green, top track) ──
+      const fwdY = y - 3;
       const fwdAlpha = fwdStrength * transCoeff * (0.3 + 0.5 * pulseD);
-      const fwdDotSize = 2 + fwdStrength * 3;
-      const fwdY = y - 3;  // top track
 
-      // Connector line (Direct → Bridge)
-      ctx.strokeStyle = `rgba(16, 185, 129, ${fwdAlpha * 0.6})`;
+      // Connector line with impedance-aware coloring
+      const lineAlpha = fwdAlpha * 0.6;
+      ctx.strokeStyle = `rgba(16, 185, 129, ${lineAlpha})`;
       ctx.lineWidth = 1 + fwdStrength * 2;
       ctx.beginPath();
       ctx.moveTo(leftEdgeDir, fwdY);
       ctx.lineTo(rightEdgeBridgeL, fwdY);
       ctx.stroke();
-
-      // Moving dot (Direct → Bridge) — scatter in sub-zero
-      const dotFwd1 = (phaseD % (Math.PI * 2)) / (Math.PI * 2);
-      const scatter = phase === 'sub-zero' ? (Math.sin(time * 7 + i * 3) * 8) : 0;
-      ctx.beginPath();
-      ctx.arc(leftEdgeDir + dotFwd1 * spanL, fwdY + scatter, fwdDotSize, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(16, 185, 129, ${0.5 + fwdStrength * 0.5})`;
-      ctx.fill();
-
-      // Connector line (Bridge → Dual)
-      ctx.strokeStyle = `rgba(16, 185, 129, ${fwdAlpha * 0.6})`;
-      ctx.lineWidth = 1 + fwdStrength * 2;
       ctx.beginPath();
       ctx.moveTo(leftEdgeBridgeR, fwdY);
       ctx.lineTo(rightEdgeDual, fwdY);
       ctx.stroke();
 
-      // Moving dot (Bridge → Dual)
-      ctx.beginPath();
-      ctx.arc(leftEdgeBridgeR + dotFwd1 * spanR, fwdY, fwdDotSize, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(16, 185, 129, ${0.5 + fwdStrength * 0.5})`;
-      ctx.fill();
+      // Multiple propagating wavefronts (3 per stage for wave-like appearance)
+      const scatter = phase === 'sub-zero' ? (Math.sin(time * 7 + i * 3) * 8) : 0;
+      for (let w = 0; w < 3; w++) {
+        const wPhase = (phaseD + w * Math.PI * 2 / 3) % (Math.PI * 2);
+        const prog = wPhase / (Math.PI * 2);
+        const waveAmp = (0.5 + 0.5 * Math.cos(wPhase)) * fwdStrength;
+        const dotR = 1.5 + waveAmp * 2.5;
+        const dotAlpha = 0.3 + waveAmp * 0.7;
 
-      // ── Reverse flow: Dual → Bridge → Direct (cyan, bottom track y+2) ──
+        // Direct → Bridge segment
+        ctx.beginPath();
+        ctx.arc(leftEdgeDir + prog * spanL, fwdY + scatter, dotR, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(16, 185, 129, ${dotAlpha})`;
+        ctx.fill();
+
+        // Bridge → Dual segment
+        ctx.beginPath();
+        ctx.arc(leftEdgeBridgeR + prog * spanR, fwdY, dotR, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(16, 185, 129, ${dotAlpha})`;
+        ctx.fill();
+      }
+
+      // ── Reverse wavefronts: Dual → Bridge → Direct (cyan, bottom track) ──
+      const revY = y + 3;
       const revAlpha = revStrength * transCoeff * (0.3 + 0.5 * pulseU);
-      const revDotSize = 2 + revStrength * 3;
-      const revY = y + 3;  // bottom track
 
-      // Connector line (Dual → Bridge)
       ctx.strokeStyle = `rgba(6, 182, 212, ${revAlpha * 0.6})`;
       ctx.lineWidth = 1 + revStrength * 2;
       ctx.beginPath();
       ctx.moveTo(rightEdgeDual, revY);
       ctx.lineTo(leftEdgeBridgeR, revY);
       ctx.stroke();
-
-      // Moving dot (Dual → Bridge) — travels right to left
-      const dotRev1 = (phaseU % (Math.PI * 2)) / (Math.PI * 2);
-      ctx.beginPath();
-      ctx.arc(rightEdgeDual - dotRev1 * spanR, revY, revDotSize, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(6, 182, 212, ${0.5 + revStrength * 0.5})`;
-      ctx.fill();
-
-      // Connector line (Bridge → Direct)
-      ctx.strokeStyle = `rgba(6, 182, 212, ${revAlpha * 0.6})`;
-      ctx.lineWidth = 1 + revStrength * 2;
       ctx.beginPath();
       ctx.moveTo(rightEdgeBridgeL, revY);
       ctx.lineTo(leftEdgeDir, revY);
       ctx.stroke();
 
-      // Moving dot (Bridge → Direct)
-      ctx.beginPath();
-      ctx.arc(rightEdgeBridgeL - dotRev1 * spanL, revY, revDotSize, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(6, 182, 212, ${0.5 + revStrength * 0.5})`;
-      ctx.fill();
+      for (let w = 0; w < 3; w++) {
+        const wPhase = (phaseU + w * Math.PI * 2 / 3) % (Math.PI * 2);
+        const prog = wPhase / (Math.PI * 2);
+        const waveAmp = (0.5 + 0.5 * Math.cos(wPhase)) * revStrength;
+        const dotR = 1.5 + waveAmp * 2.5;
+        const dotAlpha = 0.3 + waveAmp * 0.7;
 
-      // ── Reflected waves (only when bridge is lossy) ──
-      if (reflCoeff > 0.02) {
-        const refSize = 1.5 + reflCoeff * 2;
-        const refAlphaD = reflCoeff * (0.3 + 0.4 * pulseD);
-        const refAlphaU = reflCoeff * (0.3 + 0.4 * pulseU);
-
-        // Direct-side reflection: bounces back from bridge toward direct
-        const refFwdProg = 1 - dotFwd1;
+        // Dual → Bridge
         ctx.beginPath();
-        ctx.arc(leftEdgeDir + refFwdProg * spanL, fwdY - 3, refSize, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(239, 68, 68, ${refAlphaD + 0.3})`;
+        ctx.arc(rightEdgeDual - prog * spanR, revY, dotR, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(6, 182, 212, ${dotAlpha})`;
         ctx.fill();
 
-        // Dual-side reflection: bounces back from bridge toward dual
-        const refRevProg = 1 - dotRev1;
+        // Bridge → Direct
         ctx.beginPath();
-        ctx.arc(rightEdgeDual - refRevProg * spanR, revY + 3, refSize, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(239, 68, 68, ${refAlphaU + 0.3})`;
+        ctx.arc(rightEdgeBridgeL - prog * spanL, revY, dotR, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(6, 182, 212, ${dotAlpha})`;
         ctx.fill();
       }
 
-      // Prime label
+      // ── Reflected waves at bridge (per-stage, proportional to mismatch) ──
+      const stageRefl = reflCoeff * (1 + mismatchRatio * 0.3);
+      if (stageRefl > 0.02) {
+        const refSize = 1 + stageRefl * 2;
+        for (let w = 0; w < 2; w++) {
+          const refPhase = (phaseD + Math.PI + w * Math.PI) % (Math.PI * 2);
+          const refProg = refPhase / (Math.PI * 2);
+          const refAlpha = stageRefl * (0.3 + 0.4 * Math.cos(refPhase));
+
+          // Direct-side reflection
+          ctx.beginPath();
+          ctx.arc(leftEdgeDir + (1 - refProg) * spanL, fwdY - 2, refSize, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(239, 68, 68, ${Math.abs(refAlpha) + 0.15})`;
+          ctx.fill();
+        }
+      }
+
+      // Cumulative amplitude envelope (subtle glow behind each row)
+      const envAlphaD = Math.min(normAmpD * 0.15, 0.3);
+      const envAlphaU = Math.min(normAmpU * 0.15, 0.3);
+      ctx.fillStyle = `rgba(59,130,246,${envAlphaD})`;
+      ctx.fillRect(leftEdgeDir, y - ySpacing * 0.3, spanL, ySpacing * 0.6);
+      ctx.fillStyle = `rgba(245,158,11,${envAlphaU})`;
+      ctx.fillRect(leftEdgeBridgeR, y - ySpacing * 0.3, spanR, ySpacing * 0.6);
+
+      // Prime label with impedance indicator
       ctx.font = '9px JetBrains Mono, monospace';
       ctx.textAlign = 'center';
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = matchColor;
       ctx.fillText(`p=${p}`, xDir - nodeRD - 18, y + 4);
     });
 
-    // ── Legend ──
+    // ── Legend (two rows, spread across width) ──
     const reflPower = reflCoeff * reflCoeff;
-    const lgY = H - 30;
+    const lgY = H - 36;
+
+    // Background panel for legend
+    ctx.fillStyle = 'rgba(13,17,23,0.9)';
+    ctx.beginPath();
+    ctx.roundRect(6, lgY - 14, W - 12, 46, 6);
+    ctx.fill();
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
     ctx.font = '10px Inter, sans-serif';
-    ctx.textAlign = 'left';
 
-    // Forward flow swatch
+    // Row 1: flow + reflection + |ζ(s)|
+    ctx.textAlign = 'left';
     ctx.fillStyle = '#10b981';
-    ctx.fillRect(12, lgY - 4, 14, 3);
-    ctx.beginPath(); ctx.arc(26, lgY - 2.5, 3, 0, Math.PI * 2); ctx.fill();
-    ctx.fillText(`Forward (D→U): ${(fwdStrength * 100).toFixed(0)}%`, 34, lgY);
+    ctx.fillRect(14, lgY - 4, 12, 3);
+    ctx.beginPath(); ctx.arc(26, lgY - 2.5, 2.5, 0, Math.PI * 2); ctx.fill();
+    ctx.fillText(`Forward: ${(fwdStrength * 100).toFixed(0)}%`, 34, lgY);
 
-    // Reverse flow swatch
-    ctx.fillStyle = '#06b6d4';
-    ctx.fillRect(12, lgY + 12, 14, 3);
-    ctx.beginPath(); ctx.arc(26, lgY + 13.5, 3, 0, Math.PI * 2); ctx.fill();
-    ctx.fillText(`Reverse (U→D): ${(revStrength * 100).toFixed(0)}%`, 34, lgY + 16);
-
-    // Reflection info
     ctx.fillStyle = '#ef4444';
-    ctx.textAlign = 'left';
-    ctx.fillText(`Reflection: ${(reflPower * 100).toFixed(1)}%`, W * 0.4, lgY);
-    ctx.fillStyle = '#64748b';
-    ctx.fillText(`Transmitted: ${((1 - reflPower) * 100).toFixed(1)}%`, W * 0.4, lgY + 16);
+    ctx.fillText(`Γ² = ${(reflPower * 100).toFixed(1)}%`, W * 0.38, lgY);
 
-    // Magnitude summary
     ctx.font = '10px JetBrains Mono, monospace';
     ctx.textAlign = 'right';
     ctx.fillStyle = '#3b82f6';
-    ctx.fillText(`|ζ(s)| ≈ ${dirMag.toFixed(3)}`, W - 12, lgY);
+    ctx.fillText(`|ζ(s)| ≈ ${isFinite(dirMag) ? dirMag.toFixed(3) : '—'}`, W - 14, lgY);
+
+    // Row 2: reverse + transmitted + |ζ(1−s)|
+    ctx.font = '10px Inter, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#06b6d4';
+    ctx.fillRect(14, lgY + 14, 12, 3);
+    ctx.beginPath(); ctx.arc(26, lgY + 15.5, 2.5, 0, Math.PI * 2); ctx.fill();
+    ctx.fillText(`Reverse: ${(revStrength * 100).toFixed(0)}%`, 34, lgY + 18);
+
+    ctx.fillStyle = '#64748b';
+    ctx.fillText(`T = ${((1 - reflPower) * 100).toFixed(1)}%`, W * 0.38, lgY + 18);
+
+    ctx.font = '10px JetBrains Mono, monospace';
+    ctx.textAlign = 'right';
     ctx.fillStyle = '#f59e0b';
-    ctx.fillText(`|ζ(1−s)| ≈ ${dualMag.toFixed(3)}`, W - 12, lgY + 16);
+    ctx.fillText(`|ζ(1−s)| ≈ ${isFinite(dualMag) ? dualMag.toFixed(3) : '—'}`, W - 14, lgY + 18);
 
   }, [flowData, numPrimes, phase]);
 
@@ -634,23 +698,36 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
 
   // Memoize group delay computation — depends only on slider values,
   // not on canvas/SVG dimensions, so skip recomputing on resize.
+  // Uses centered finite differences with dt=0.01 for good accuracy:
+  //   tau_g = -dphi/dt ~ -(phi(t+dt) - phi(t-dt)) / (2*dt)
+  // We use the unwrapped cumulative phase from the ladder (sum of per-stage phases)
+  // to avoid atan2 wrapping artifacts.
   const delays = useMemo(() => {
     const primes = getPrimes(numPrimes);
-    const unwrapDiff = (a, b) => {
-      let d = a - b;
-      if (d > Math.PI) d -= 2 * Math.PI;
-      if (d < -Math.PI) d += 2 * Math.PI;
-      return d;
-    };
-    const delta = 0.001;
+    const delta = 0.01; // centered difference step — 0.01 balances truncation vs round-off error
     return primes.map(p => {
+      // Direct ladder: per-stage group delay via centered difference on unwrapped phase
+      // phase(s) = -atan2(p^{-sigma}*sin(t*logp), 1 - p^{-sigma}*cos(t*logp))
+      // Use oscillatorStage which now computes this explicitly
       const stDp = oscillatorStage(p, [sigma, t + delta]);
       const stDm = oscillatorStage(p, [sigma, t - delta]);
-      const delayD = -unwrapDiff(stDp.phase, stDm.phase) / (2 * delta);
+      // The per-stage phase is already correctly computed as -arg(1 - p^{-s})
+      // For group delay, use unwrapped difference (phases are small per-stage, rarely wrap)
+      let dPhiD = stDp.phase - stDm.phase;
+      // Unwrap if needed
+      while (dPhiD > Math.PI) dPhiD -= 2 * Math.PI;
+      while (dPhiD < -Math.PI) dPhiD += 2 * Math.PI;
+      const delayD = -dPhiD / (2 * delta);
 
+      // Dual ladder: s_dual = [1-sigma, -t], so d/dt of dual means d/d(-t)
+      // phi_dual(t) = phase at s_dual = [1-sigma, -t]
+      // tau_dual = -d(phi_dual)/dt = -(phi([1-sigma, -(t+dt)]) - phi([1-sigma, -(t-dt)])) / (2*dt)
       const stUp = oscillatorStage(p, [1 - sigma, -(t + delta)]);
       const stUm = oscillatorStage(p, [1 - sigma, -(t - delta)]);
-      const delayU = -unwrapDiff(stUp.phase, stUm.phase) / (2 * delta);
+      let dPhiU = stUp.phase - stUm.phase;
+      while (dPhiU > Math.PI) dPhiU -= 2 * Math.PI;
+      while (dPhiU < -Math.PI) dPhiU += 2 * Math.PI;
+      const delayU = -dPhiU / (2 * delta);
 
       return { prime: p, delayDirect: Math.abs(delayD), delayDual: Math.abs(delayU) };
     });
@@ -691,7 +768,7 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
     svg.append('text').attr('x', 14).attr('y', height / 2)
       .attr('text-anchor', 'middle').attr('transform', `rotate(-90,14,${height / 2})`)
       .attr('fill', '#64748b').attr('font-size', 10)
-      .text('Group Delay τ (s)');
+      .text('Group Delay τ_g = −dφ/dt');
 
     // Bar width
     const barW = x.bandwidth() / 2 - 1;
@@ -1087,13 +1164,14 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
 
       // Impedance mismatch indicator
       const ham = systemHamiltonian(s, numPrimes);
+      const sf = (v, d = 3) => isFinite(v) ? v.toFixed(d) : '—';
       const mismatchColor = ham.bridgeCoupling < 1 ? '#10b981' : '#ef4444';
       svg.append('text').attr('x', width / 2).attr('y', cy + 80)
         .attr('text-anchor', 'middle').attr('fill', '#64748b').attr('font-size', 11)
-        .text(`Hamiltonian: H = ${ham.total.toFixed(4)}`);
+        .text(`Hamiltonian: H = ${sf(ham.total, 4)}`);
       svg.append('text').attr('x', width / 2).attr('y', cy + 96)
         .attr('text-anchor', 'middle').attr('fill', mismatchColor).attr('font-size', 10)
-        .text(`Kinetic: ${ham.kinetic.toFixed(3)} | Mismatch: ${ham.potential.toFixed(3)} | Bridge: ${ham.bridgeCoupling.toFixed(3)}`);
+        .text(`Kinetic: ${sf(ham.kinetic)} | Mismatch: ${sf(ham.potential)} | Bridge: ${sf(ham.bridgeCoupling)}`);
 
       // Functional equation
       svg.append('text').attr('x', width / 2).attr('y', height - 20)
@@ -1120,6 +1198,74 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
   );
 }
 
+// ─── Accuracy Badge ──────────────────────────────────────────────────
+function AccuracyBadge({ sigma, t, numPrimes }) {
+  const metrics = useMemo(() => accuracyMetrics([sigma, t], numPrimes), [sigma, t, numPrimes]);
+
+  const color = metrics.level === 'good' ? '#10b981'
+    : metrics.level === 'moderate' ? '#f59e0b' : '#ef4444';
+  const bgColor = metrics.level === 'good' ? 'rgba(16,185,129,0.12)'
+    : metrics.level === 'moderate' ? 'rgba(245,158,11,0.12)' : 'rgba(239,68,68,0.12)';
+
+  const pctError = (metrics.relativeError * 100).toFixed(1);
+
+  return (
+    <div style={{
+      display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap',
+    }}>
+      {/* Accuracy indicator */}
+      <div style={{
+        display: 'inline-flex', alignItems: 'center', gap: 6,
+        padding: '3px 10px', borderRadius: 6,
+        background: bgColor, border: `1px solid ${color}44`,
+        fontSize: 11, fontFamily: 'JetBrains Mono, monospace',
+      }}>
+        <span style={{
+          width: 8, height: 8, borderRadius: '50%',
+          background: color, display: 'inline-block',
+          boxShadow: `0 0 4px ${color}`,
+        }} />
+        <span style={{ color, fontWeight: 600 }}>
+          {pctError}% err
+        </span>
+        <span style={{ color: '#64748b', fontSize: 10 }}>
+          vs <InlineMath tex={"\\zeta_{\\text{exact}}"} />
+        </span>
+      </div>
+
+      {/* Convergence indicator */}
+      {metrics.convergenceEstimate > 0 && (
+        <div style={{
+          display: 'inline-flex', alignItems: 'center', gap: 4,
+          padding: '3px 8px', borderRadius: 6,
+          background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.3)',
+          fontSize: 10, color: '#818cf8',
+        }}>
+          +{metrics.convergenceEstimate} primes for {'<'}1%
+        </div>
+      )}
+
+      {/* Boundary warning */}
+      {metrics.nearBoundary && (
+        <div style={{
+          display: 'inline-flex', alignItems: 'center', gap: 4,
+          padding: '3px 8px', borderRadius: 6,
+          background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)',
+          fontSize: 10, color: '#ef4444', fontWeight: 600,
+        }}>
+          Euler product diverges near {sigma < 0.2 ? '\u03C3 \u2192 0' : '\u03C3 \u2192 1'}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Safe display helper ─────────────────────────────────────────────
+function safeNum(v, decimals = 3) {
+  if (v === undefined || v === null || !isFinite(v)) return '—';
+  return v.toFixed(decimals);
+}
+
 // ─── Phase State Helpers ──────────────────────────────────────────────
 const PHASE_META = {
   'supercritical': { label: 'FROZEN', icon: '\u2744\uFE0F', color: '#60a5fa', bg: 'rgba(96,165,250,0.12)', desc: 'Supercritical region — zeros suppressed, series converges absolutely' },
@@ -1128,21 +1274,191 @@ const PHASE_META = {
   'sub-zero': { label: 'VAPORIZED', icon: '\uD83D\uDD25', color: '#ef4444', bg: 'rgba(239,68,68,0.12)', desc: 'Sub-zero region — trivial zeros, functional equation dominates' },
 };
 
-function ThermoPanel({ sigma, t, numPrimes }) {
+// ─── Semicircular Gauge Component (interactive when onChange provided) ──
+function GaugeDial({ value, min, max, label, unit, color, size = 64, onChange }) {
+  const canvasRef = useRef();
+  const dragging = useRef(false);
+  const interactive = !!onChange;
+  const clampedVal = Math.max(min, Math.min(max, isFinite(value) ? value : min));
+  const fraction = (clampedVal - min) / (max - min);
+
+  // Convert mouse position to a value on the dial arc
+  const posToValue = useCallback((clientX, clientY) => {
+    const c = canvasRef.current;
+    if (!c) return value;
+    const rect = c.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height * 0.85; // pivot point (bottom-center of arc)
+    const dx = clientX - cx;
+    const dy = cy - clientY; // flip y so up is positive
+    let angle = Math.atan2(dy, dx); // 0=right, PI=left
+    // Clamp to the semicircle range [0, PI]
+    angle = Math.max(0, Math.min(Math.PI, angle));
+    const frac = (Math.PI - angle) / Math.PI; // 0=left(min), 1=right(max)
+    return min + frac * (max - min);
+  }, [min, max, value]);
+
+  const handlePointerDown = useCallback((e) => {
+    if (!interactive) return;
+    dragging.current = true;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    onChange(posToValue(e.clientX, e.clientY));
+  }, [interactive, onChange, posToValue]);
+
+  const handlePointerMove = useCallback((e) => {
+    if (!dragging.current) return;
+    onChange(posToValue(e.clientX, e.clientY));
+  }, [onChange, posToValue]);
+
+  const handlePointerUp = useCallback(() => {
+    dragging.current = false;
+  }, []);
+
+  useEffect(() => {
+    const c = canvasRef.current;
+    if (!c) return;
+    const dpr = window.devicePixelRatio || 1;
+    c.width = size * dpr;
+    c.height = (size * 0.65) * dpr;
+    c.style.width = size + 'px';
+    c.style.height = (size * 0.65) + 'px';
+    const ctx = c.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    const cx = size / 2, cy = size * 0.55, r = size * 0.38;
+    const startAngle = Math.PI;
+    const needleAngle = Math.PI - fraction * Math.PI;
+
+    // Background arc
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, startAngle, 0);
+    ctx.lineWidth = interactive ? 6 : 4;
+    ctx.strokeStyle = '#1e293b';
+    ctx.stroke();
+
+    // Colored arc (filled portion)
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, startAngle, startAngle + fraction * Math.PI);
+    ctx.lineWidth = interactive ? 6 : 4;
+    ctx.strokeStyle = color;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+
+    // Tick marks
+    for (let i = 0; i <= 5; i++) {
+      const a = Math.PI - (i / 5) * Math.PI;
+      const inner = r - 6;
+      const outer = r + 2;
+      ctx.beginPath();
+      ctx.moveTo(cx + Math.cos(a) * inner, cy - Math.sin(a) * inner);
+      ctx.lineTo(cx + Math.cos(a) * outer, cy - Math.sin(a) * outer);
+      ctx.strokeStyle = '#475569';
+      ctx.lineWidth = 1;
+      ctx.lineCap = 'butt';
+      ctx.stroke();
+    }
+
+    // Needle (thicker if interactive)
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + Math.cos(needleAngle) * (r - 3), cy - Math.sin(needleAngle) * (r - 3));
+    ctx.strokeStyle = interactive ? '#f8fafc' : '#e2e8f0';
+    ctx.lineWidth = interactive ? 2 : 1.5;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+
+    // Center dot
+    ctx.beginPath();
+    ctx.arc(cx, cy, interactive ? 3 : 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+
+    // Label
+    ctx.font = 'bold 9px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = color;
+    ctx.fillText(label, cx, cy + 12);
+
+    // Interactive hint
+    if (interactive) {
+      ctx.font = '7px Inter, sans-serif';
+      ctx.fillStyle = '#64748b';
+      ctx.fillText('drag', cx, cy + 20);
+    }
+  }, [value, min, max, color, label, size, fraction, interactive]);
+
+  return (
+    <div style={{ textAlign: 'center' }}>
+      <canvas
+        ref={canvasRef}
+        style={{ cursor: interactive ? 'grab' : 'default', touchAction: 'none' }}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
+      />
+      <div style={{ fontSize: 12, fontWeight: 700, color, fontFamily: 'JetBrains Mono, monospace', marginTop: -2 }}>
+        {!isFinite(value) ? '∞' : value.toFixed(2)}
+      </div>
+      <div style={{ fontSize: 8, color: '#475569' }}>{unit}</div>
+    </div>
+  );
+}
+
+function ThermoPanel({ sigma, t, numPrimes, onSigmaChange }) {
   const thermo = useMemo(() => thermodynamicState(sigma, t, numPrimes), [sigma, t, numPrimes]);
   const meta = PHASE_META[thermo.phase] || PHASE_META['critical-strip'];
 
-  const metrics = [
-    { label: 'T', value: sigma > 0.01 ? thermo.temperature.toFixed(2) : '\u221E', unit: '= 1/\u03C3', color: '#f59e0b' },
-    { label: 'P', value: thermo.pressure.toFixed(4), unit: 'pressure', color: '#8b5cf6' },
-    { label: 'F', value: thermo.freeEnergy.toFixed(3), unit: 'free energy', color: '#06b6d4' },
-    { label: 'S', value: thermo.entropy.toFixed(3), unit: 'entropy', color: '#10b981' },
-    { label: 'C\u1D65', value: thermo.specificHeat.toFixed(3), unit: 'specific heat', color: '#ec4899' },
+  // T dial controls σ: T = 1/σ ⇒ σ = 1/T
+  const handleTempChange = useCallback((newT) => {
+    if (!onSigmaChange || newT < 0.05) return;
+    const newSigma = Math.max(-0.5, Math.min(2.0, 1 / newT));
+    onSigmaChange(newSigma);
+  }, [onSigmaChange]);
+
+  // P dial controls σ via bisection: for fixed t, P(σ) is roughly monotonic
+  // so we solve P(σ_new, t) ≈ targetP by bisecting over σ ∈ [-0.5, 2.0]
+  const handlePressureChange = useCallback((targetP) => {
+    if (!onSigmaChange) return;
+    // Quick bisection: 12 iterations → precision ≈ (2.5)/2^12 ≈ 0.0006
+    let lo = -0.5, hi = 2.0;
+    const pLo = thermodynamicState(lo, t, numPrimes).pressure;
+    const pHi = thermodynamicState(hi, t, numPrimes).pressure;
+    // Determine if P is increasing or decreasing in σ
+    const increasing = pHi > pLo;
+    for (let iter = 0; iter < 12; iter++) {
+      const mid = (lo + hi) / 2;
+      const pMid = thermodynamicState(mid, t, numPrimes).pressure;
+      if ((increasing && pMid < targetP) || (!increasing && pMid > targetP)) {
+        lo = mid;
+      } else {
+        hi = mid;
+      }
+    }
+    onSigmaChange(Math.round((lo + hi) / 2 * 100) / 100);
+  }, [onSigmaChange, t, numPrimes]);
+
+  // Pressure range for the dial: scan a few σ values to find min/max
+  const pRange = useMemo(() => {
+    const samples = [-0.5, 0.1, 0.5, 1.0, 2.0];
+    let lo = Infinity, hi = -Infinity;
+    for (const s of samples) {
+      const p = thermodynamicState(s, t, numPrimes).pressure;
+      if (isFinite(p)) { lo = Math.min(lo, p); hi = Math.max(hi, p); }
+    }
+    const pad = Math.max(0.1, (hi - lo) * 0.1);
+    return [lo - pad, hi + pad];
+  }, [t, numPrimes]);
+
+  const smallMetrics = [
+    { label: 'F', value: safeNum(thermo.freeEnergy, 3), unit: 'free energy', color: '#06b6d4' },
+    { label: 'S', value: safeNum(thermo.entropy, 3), unit: 'entropy', color: '#10b981' },
+    { label: 'C\u1D65', value: safeNum(thermo.specificHeat, 3), unit: 'specific heat', color: '#ec4899' },
   ];
 
   return (
     <div style={{
-      display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center',
+      display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'center',
       padding: '8px 12px', marginBottom: 12, borderRadius: 8,
       background: meta.bg, border: `1px solid ${meta.color}33`,
     }}>
@@ -1157,21 +1473,37 @@ function ThermoPanel({ sigma, t, numPrimes }) {
         <span>{meta.label}</span>
       </div>
 
-      {/* Metric boxes */}
-      {metrics.map(m => (
+      {/* Temperature dial — INTERACTIVE: drag to change σ */}
+      <GaugeDial
+        value={thermo.temperature}
+        min={0.5} max={20}
+        label="T" unit="= 1/σ" color="#f59e0b" size={76}
+        onChange={onSigmaChange ? handleTempChange : undefined}
+      />
+
+      {/* Pressure dial — INTERACTIVE: drag to change σ via bisection */}
+      <GaugeDial
+        value={thermo.pressure}
+        min={pRange[0]} max={pRange[1]}
+        label="P" unit="pressure" color="#8b5cf6" size={76}
+        onChange={onSigmaChange ? handlePressureChange : undefined}
+      />
+
+      {/* Remaining small metrics */}
+      {smallMetrics.map(m => (
         <div key={m.label} style={{
           padding: '3px 10px', borderRadius: 6,
           background: 'rgba(15,23,42,0.5)', border: '1px solid #1e293b',
-          textAlign: 'center', minWidth: 60,
+          textAlign: 'center', minWidth: 52,
         }}>
           <div style={{ fontSize: 10, color: '#64748b', fontWeight: 600 }}>{m.label}</div>
-          <div style={{ fontSize: 14, color: m.color, fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{m.value}</div>
+          <div style={{ fontSize: 13, color: m.color, fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{m.value}</div>
           <div style={{ fontSize: 8, color: '#475569' }}>{m.unit}</div>
         </div>
       ))}
 
       {/* Phase description */}
-      <div style={{ fontSize: 11, color: meta.color, opacity: 0.8, flex: 1, minWidth: 180 }}>
+      <div style={{ fontSize: 11, color: meta.color, opacity: 0.8, flex: 1, minWidth: 150 }}>
         {meta.desc}
       </div>
     </div>
@@ -1196,7 +1528,7 @@ export default function WaveSimViz() {
       <div className="controls">
         <div className="control-group">
           <label style={{ color: sigmaColor, fontWeight: 600 }}>
-            <InlineMath tex="\sigma = \operatorname{Re}(s)" />
+            <InlineMath tex={"\\sigma = \\operatorname{Re}(s)"} />
           </label>
           <input type="range" min="-0.5" max="2.0" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)}
@@ -1210,7 +1542,7 @@ export default function WaveSimViz() {
           >{sigma > 1 ? 'convergent' : sigma < 0 ? 'func. eq.' : Math.abs(sigma - 0.5) < 0.05 ? 'critical line' : 'critical strip'}</span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="1" max="60" step="0.1" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
@@ -1256,7 +1588,12 @@ export default function WaveSimViz() {
       </div>
 
       {/* Thermodynamic panel */}
-      <ThermoPanel sigma={sigma} t={t} numPrimes={numPrimes} />
+      <ThermoPanel sigma={sigma} t={t} numPrimes={numPrimes} onSigmaChange={setSigma} />
+
+      {/* Accuracy badge — shared across all tabs */}
+      <div style={{ marginBottom: 8 }}>
+        <AccuracyBadge sigma={sigma} t={t} numPrimes={numPrimes} />
+      </div>
 
       {/* Tab bar */}
       <div className="tab-bar">
@@ -1273,10 +1610,13 @@ export default function WaveSimViz() {
         {tab === 'signal' && (
           <>
             <div className="tab-explainer">
-              <strong>Signal Flow:</strong> Both ladders are active simultaneously — energy flows in <strong>both directions</strong> through
-              the bridge. Green dots (top track) flow Direct → Dual; cyan dots (bottom track) flow Dual → Direct.
-              At <InlineMath tex="\sigma = 0.5" />, both flows are equal strength (equilibrium). Move <InlineMath tex="\sigma" /> away
-              and one direction dominates; red reflected dots appear from the lossy bridge.
+              <strong>Signal Flow:</strong> Propagating wavefronts travel bidirectionally through the LC ladder.
+              Green (top) = Direct&#x2192;Dual; cyan (bottom) = Dual&#x2192;Direct.
+              Node rings show <strong>impedance matching</strong>: <span style={{ color: '#10b981' }}>green</span> = matched,{' '}
+              <span style={{ color: '#f59e0b' }}>yellow</span> = moderate mismatch,{' '}
+              <span style={{ color: '#ef4444' }}>red</span> = severe.
+              At <InlineMath tex={"\\sigma = 0.5"} /> flows balance and impedances match.
+              Near zeta zeros, <strong>standing waves</strong> form. Red dots = reflected energy from lossy bridge.
             </div>
             <SignalFlowTab sigma={sigma} t={t} numPrimes={numPrimes} playing={playing}
               phase={sigma > 1 ? 'supercritical' : sigma < 0 ? 'sub-zero' : Math.abs(sigma - 0.5) < 0.05 ? 'critical-line' : 'critical-strip'} />
@@ -1287,7 +1627,7 @@ export default function WaveSimViz() {
             <div className="tab-explainer">
               <strong>Per-Prime Waves:</strong> Each row shows the waveform through one prime's oscillator stage, for both
               direct (blue, left) and dual (gold, right) ladders. The center bar shows amplitude match quality.
-              At <InlineMath tex="\sigma = 0.5" />, amplitudes match perfectly; away from it, they diverge.
+              At <InlineMath tex={"\\sigma = 0.5"} />, amplitudes match perfectly; away from it, they diverge.
             </div>
             <PerPrimeWavesTab sigma={sigma} t={t} numPrimes={numPrimes} />
           </>
@@ -1296,7 +1636,7 @@ export default function WaveSimViz() {
           <>
             <div className="tab-explainer">
               <strong>Wave Interference:</strong> The superposition of all prime oscillators in each ladder. Top: direct ladder wave.
-              Middle: dual ladder wave. Bottom: the absolute difference — at <InlineMath tex="\sigma = 0.5" /> the amplitudes match
+              Middle: dual ladder wave. Bottom: the absolute difference -- at <InlineMath tex={"\\sigma = 0.5"} /> the amplitudes match
               but phases are conjugate-reflected, so the difference measures phase asymmetry rather than amplitude mismatch.
             </div>
             <WaveInterferenceTab sigma={sigma} t={t} numPrimes={numPrimes} playing={playing} />
@@ -1305,8 +1645,8 @@ export default function WaveSimViz() {
         {tab === 'delay' && (
           <>
             <div className="tab-explainer">
-              <strong>Phase & Delay:</strong> Group delay <InlineMath tex="\tau_p = -\partial\phi_p/\partial t" /> for each prime oscillator stage.
-              Blue bars = direct ladder, gold = dual. At <InlineMath tex="\sigma = 0.5" />, delays are symmetric.
+              <strong>Phase & Delay:</strong> Group delay <InlineMath tex={"\\tau_p = -\\partial\\phi_p/\\partial t"} /> for each prime oscillator stage.
+              Blue bars = direct ladder, gold = dual. At <InlineMath tex={"\\sigma = 0.5"} />, delays are symmetric.
               Dashed lines show cumulative delay building through the cascade.
             </div>
             <PhaseDelayTab sigma={sigma} t={t} numPrimes={numPrimes} />
@@ -1318,7 +1658,7 @@ export default function WaveSimViz() {
               <strong>Component Diagram:</strong> The literal circuit schematic at three zoom levels.
               <strong> Single Prime:</strong> one LC resonator. <strong> Ladder:</strong> series cascade of stages.
               <strong> Full System:</strong> twin ladders connected by the bridge two-port network.
-              Values update live as you change <InlineMath tex="\sigma" />.
+              Values update live as you change <InlineMath tex={"\\sigma"} />.
             </div>
             <ComponentDiagramTab sigma={sigma} t={t} numPrimes={numPrimes} />
           </>

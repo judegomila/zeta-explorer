@@ -148,6 +148,7 @@ function EntropyTab({ sigma, t, numPrimes }) {
   }, [scan, sigma]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   return (
     <div>
@@ -194,6 +195,7 @@ function CapacityTab({ sigma, t, numPrimes }) {
   }, [scan, sigma]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   return (
     <div>
@@ -240,6 +242,7 @@ function MutualInfoTab({ sigma, t, numPrimes }) {
   }, [scan, sigma]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   return (
     <div>
@@ -287,6 +290,7 @@ function FisherTab({ sigma, t, numPrimes }) {
   }, [scan, sigma]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   return (
     <div>
@@ -395,6 +399,7 @@ function RateDistortionTab({ sigma, t }) {
   }, [rd]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   const last = rd.curve[rd.curve.length - 1];
 
@@ -443,6 +448,7 @@ function KLDivergenceTab({ sigma, t, numPrimes }) {
   }, [scan, sigma]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   return (
     <div>

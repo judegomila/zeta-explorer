@@ -423,3 +423,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 462 | 2026-03-06T00:10:00Z | Fix dual energy formula showing +iω instead of correct −iω in Spectral Energy explainer | FourierDomainViz.jsx |
 | 463 | 2026-03-05T23:00:00Z | Add missing circle markers to error convergence chart in PascalZetaViz ConstantsTab | PascalZetaViz.jsx |
 | 464 | 2026-03-05T23:59:00Z | Add missing y-axis tick labels and gridlines to both charts in OddZetaViz Transfer Function tab | OddZetaViz.jsx |
+| 465 | 2026-03-05T17:30:00Z | Fix KL divergence unit label showing "nats" instead of "bits" in InfoTheoryExperimentsViz dashboard | InfoTheoryExperimentsViz.jsx |

@@ -168,7 +168,7 @@ function EfficiencyDashboard({ sigma, t, numPrimes }) {
       { key: 'entropy', label: 'Shannon Entropy', value: measures.entropyNorm, raw: measures.entropy.toFixed(3) + ' bits' },
       { key: 'capacity', label: 'Channel Capacity', value: measures.capacityNorm, raw: measures.capacity.toFixed(2) + ' bits' },
       { key: 'fisher', label: 'Fisher Info', value: measures.fisherNorm, raw: measures.fisher.toFixed(2) },
-      { key: 'kl', label: 'KL Divergence', value: measures.klNorm, raw: measures.kl.toFixed(4) + ' nats' },
+      { key: 'kl', label: 'KL Divergence', value: measures.klNorm, raw: measures.kl.toFixed(4) + ' bits' },
       { key: 'mutual', label: 'Mutual Info', value: measures.mutualNorm, raw: measures.mutual.toFixed(3) + ' bits' },
       { key: 'confinement', label: 'Confinement', value: measures.confinement, raw: measures.confinement.toFixed(3) },
     ];

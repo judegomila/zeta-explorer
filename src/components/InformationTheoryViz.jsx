@@ -439,7 +439,7 @@ function KLDivergenceTab({ sigma, t, numPrimes }) {
     const ctx = canvas.getContext('2d');
     ctx.scale(dpr, dpr);
     ctx.clearRect(0, 0, w, h);
-    drawScanPlot(ctx, w, h, scan, 'kl', '#ef4444', 'KL Divergence from Equilibrium (σ = ½)', sigma, 'D_KL (nats)');
+    drawScanPlot(ctx, w, h, scan, 'kl', '#ef4444', 'KL Divergence from Equilibrium (σ = ½)', sigma, 'D_KL (bits)');
   }, [scan, sigma]);
 
   useEffect(() => { draw(); }, [draw]);

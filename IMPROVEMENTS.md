@@ -378,3 +378,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 372 | 2026-03-04T11:00:00Z | Fix spectral energy formula showing |H(s)|² instead of Σ_p ½log(p)|H_p(s)|² | FourierDomainViz.jsx |
 | 373 | 2026-03-04T12:00:00Z | Add critical-strip region label and tooltip to σ slider in TwistorViz | TwistorViz.jsx |
 | 374 | 2026-03-05T12:00:00Z | Add missing legends to Frequency Response tab magnitude and phase charts in FourierDomainViz | FourierDomainViz.jsx |
+| 375 | 2026-03-05T14:00:00Z | Fix Jensen-Shannon divergence using Jeffreys divergence formula instead of correct midpoint formula | information-theory.js |

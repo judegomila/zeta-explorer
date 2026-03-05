@@ -77,8 +77,19 @@ export function zetaEulerProduct(s, numPrimes = 100) {
  * This is the transfer function of one oscillator stage.
  */
 export function eulerFactor(p, s) {
-  const pMinusS = cPow([p, 0], [-s[0], -s[1]]);
-  return cDiv([1, 0], cSub([1, 0], pMinusS));
+  // Fast path for real base: p^{-s} = p^{-σ} · e^{-it·log(p)}
+  // Avoids cPow's generic cLog (atan2+sqrt) → cMul → cExp path
+  const logP = Math.log(p);
+  const mag = Math.exp(-s[0] * logP);      // p^{-σ}
+  const phase = -s[1] * logP;              // -t·log(p)
+  const pmsRe = mag * Math.cos(phase);
+  const pmsIm = mag * Math.sin(phase);
+  // 1/(1 - p^{-s})
+  const denRe = 1 - pmsRe;
+  const denIm = -pmsIm;
+  const d = denRe * denRe + denIm * denIm;
+  if (d < 1e-30) return [0, 0];
+  return [denRe / d, -denIm / d];
 }
 
 /**
@@ -114,7 +125,7 @@ export function riemannSiegelTheta(t) {
 }
 
 export function riemannSiegelZ(t) {
-  if (t < 2) return 0; // formula not valid for very small t
+  if (t < 2 * Math.PI) return 0; // need N = floor(sqrt(t/2π)) >= 1
   const tau = Math.sqrt(t / (2 * Math.PI));
   const N = Math.floor(tau);
   const p = tau - N; // fractional part for correction term

@@ -162,29 +162,21 @@ function PerPrimeTab() {
     return () => window.removeEventListener('resize', h);
   }, [draw]);
 
-  // Compute minima for stat grid (memoized to avoid redundant oscillatorStage calls on re-render)
-  const stats = useMemo(() => {
-    const primes = getPrimes(numPrimes);
-    return primes.map((p, i) => {
-      let bestSigma = 0.5, bestE = Infinity;
-      for (let j = 0; j <= 100; j++) {
-        const sigma = 0.05 + j * 0.009;
-        const s = [sigma, tValue];
-        const sDual = [1 - sigma, -tValue];
-        const direct = oscillatorStage(p, s);
-        const dual = oscillatorStage(p, sDual);
-        const logP = primeFrequency(p);
-        const e = 0.5 * logP * (direct.magnitude ** 2 + dual.magnitude ** 2);
-        if (e < bestE) { bestE = e; bestSigma = sigma; }
-      }
-      return { prime: p, minSigma: bestSigma, minE: bestE, color: PRIME_COLORS[i % PRIME_COLORS.length] };
-    });
-  }, [tValue, numPrimes]);
+  // Derive stat grid from already-computed minima (avoids redundant oscillatorStage calls)
+  const stats = useMemo(() =>
+    minima.map((m, i) => ({
+      prime: m.prime,
+      minSigma: m.sigma,
+      minE: m.energy,
+      color: PRIME_COLORS[i % PRIME_COLORS.length],
+    })),
+    [minima]
+  );
 
   return (
     <div>
       <div className="tab-explainer">
-        <strong>The math:</strong> Each prime <InlineMath tex="p" /> defines an oscillator with transfer function{' '}
+        Each prime <InlineMath tex="p" /> defines an oscillator with transfer function{' '}
         <InlineMath tex="H_p(s) = 1/(1 - p^{-s})" />. Its energy across both ladders is{' '}
         <InlineMath tex="E_p(\\sigma) = \\tfrac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1\\!-\\!s)|^2)" />.
         The sum <InlineMath tex="|H_p(s)|^2 + |H_p(1-s)|^2" /> is symmetric about <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> by
@@ -196,7 +188,7 @@ function PerPrimeTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
@@ -518,7 +510,7 @@ function GradientDescentTab() {
   return (
     <div>
       <div className="tab-explainer accent-orange">
-        <strong>The math:</strong> Gradient descent updates <InlineMath tex="\\sigma_{n+1} = \\sigma_n - \\eta\\,\\partial\\mathcal{H}/\\partial\\sigma" /> where{' '}
+        Gradient descent updates <InlineMath tex="\\sigma_{n+1} = \\sigma_n - \\eta\\,\\partial\\mathcal{H}/\\partial\\sigma" /> where{' '}
         <InlineMath tex="\\eta" /> is the learning rate. The gradient <InlineMath tex="\\partial\\mathcal{H}/\\partial\\sigma" /> is computed
         numerically from the full Hamiltonian (kinetic + mismatch + bridge). Since <InlineMath tex="\\mathcal{H}" /> has a unique
         global minimum at <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> (a convex potential well), any starting point converges there.
@@ -526,7 +518,7 @@ function GradientDescentTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label>Start <InlineMath tex="\sigma" /></label>
+          <label>Start <InlineMath tex="\\sigma" /></label>
           <input type="range" min="0.1" max="0.9" step="0.01" value={startSigma}
             onChange={e => { setStartSigma(+e.target.value); handleReset(); }} disabled={isRunning} />
           <span className="control-value">{startSigma.toFixed(2)}</span>
@@ -585,15 +577,15 @@ function GradientDescentTab() {
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: '#f59e0b' }}>{currentPoint.step}</div>
           </div>
           <div className="stat-box" style={{ borderColor: '#06b6d4' }}>
-            <div style={{ color: '#64748b', fontSize: 11 }}><InlineMath tex="\sigma" /></div>
+            <div style={{ color: '#64748b', fontSize: 11 }}><InlineMath tex="\\sigma" /></div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: '#06b6d4' }}>{currentPoint.sigma.toFixed(6)}</div>
           </div>
           <div className="stat-box" style={{ borderColor: '#10b981' }}>
-            <div style={{ color: '#64748b', fontSize: 11 }}><InlineMath tex="\mathcal{H}(\sigma)" /></div>
+            <div style={{ color: '#64748b', fontSize: 11 }}><InlineMath tex="\\mathcal{H}(\\sigma)" /></div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: '#10b981' }}>{currentPoint.H.toFixed(4)}</div>
           </div>
           <div className="stat-box" style={{ borderColor: '#8b5cf6' }}>
-            <div style={{ color: '#64748b', fontSize: 11 }}><InlineMath tex="|\nabla|" /></div>
+            <div style={{ color: '#64748b', fontSize: 11 }}><InlineMath tex="|\\nabla|" /></div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, color: '#8b5cf6' }}>{Math.abs(currentPoint.gradient).toFixed(4)}</div>
           </div>
         </div>
@@ -781,7 +773,7 @@ function ConvergenceTab() {
   return (
     <div>
       <div className="tab-explainer accent-purple">
-        <strong>The math:</strong> The Hamiltonian <InlineMath tex="\\mathcal{H}_N = \\sum_{p \\leq p_N} E_p" /> includes the first{' '}
+        The Hamiltonian <InlineMath tex="\\mathcal{H}_N = \\sum_{p \\leq p_N} E_p" /> includes the first{' '}
         <InlineMath tex="N" /> primes. As <InlineMath tex="N \\to \\infty" />, each new prime adds another term to the
         sum, deepening the energy well at <InlineMath tex="\\sigma = \\tfrac{1}{2}" />. The curvature{' '}
         <InlineMath tex="\\partial^2\\mathcal{H}/\\partial\\sigma^2\\big|_{1/2}" /> grows with{' '}
@@ -790,7 +782,7 @@ function ConvergenceTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
@@ -1008,7 +1000,7 @@ function BridgeTab() {
   return (
     <div>
       <div className="tab-explainer accent-cyan">
-        <strong>The math:</strong> The bridge factor <InlineMath tex="\\chi(s) = 2^s \\pi^{s-1} \\sin(\\pi s/2)\\,\\Gamma(1-s)" /> connects
+        The bridge factor <InlineMath tex="\\chi(s) = 2^s \\pi^{s-1} \\sin(\\pi s/2)\\,\\Gamma(1-s)" /> connects
         the functional equation <InlineMath tex="\\zeta(s) = \\chi(s)\\zeta(1-s)" />. On the critical line,{' '}
         <InlineMath tex="|\\chi(\\tfrac{1}{2}+it)| = 1" /> exactly &mdash; the bridge is lossless (unitary scattering matrix).
         Off the critical line, <InlineMath tex="|\\chi| \\neq 1" /> means the bridge either absorbs or amplifies, breaking unitarity.
@@ -1017,7 +1009,7 @@ function BridgeTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
@@ -1176,7 +1168,7 @@ function MultiZeroTab() {
   return (
     <div>
       <div className="tab-explainer accent-pink">
-        <strong>The math:</strong> For each known nontrivial zero <InlineMath tex="\\rho_n = \\tfrac{1}{2} + i\\gamma_n" />, we
+        For each known nontrivial zero <InlineMath tex="\\rho_n = \\tfrac{1}{2} + i\\gamma_n" />, we
         numerically minimize <InlineMath tex="\\mathcal{H}(\\sigma + i\\gamma_n)" /> over <InlineMath tex="\\sigma" />.
         If the oscillator model is correct, the minimizing <InlineMath tex="\\sigma^*" /> should equal <InlineMath tex="\\tfrac{1}{2}" /> for every
         zero &mdash; a numerical consistency check that the energy ground state always sits on the critical line.
@@ -1231,7 +1223,7 @@ function MultiZeroTab() {
             }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid #2a3050' }}>
-                  {['#', <InlineMath tex="\gamma" />, <InlineMath tex="\sigma_{\min}" />, <InlineMath tex="H_{\min}" />, <InlineMath tex="|\nabla|" />, <InlineMath tex="|\chi|" />, 'Pass'].map((h, idx) => (
+                  {['#', <InlineMath tex="\\gamma" />, <InlineMath tex="\\sigma_{\\min}" />, <InlineMath tex="H_{\\min}" />, <InlineMath tex="|\\nabla|" />, <InlineMath tex="|\\chi|" />, 'Pass'].map((h, idx) => (
                     <th key={idx} style={{ padding: '8px 10px', textAlign: 'left', color: '#64748b', fontWeight: 600, fontSize: 11 }}>{h}</th>
                   ))}
                 </tr>

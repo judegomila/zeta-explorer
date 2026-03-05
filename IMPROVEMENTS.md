@@ -443,3 +443,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 482 | 2026-03-05T23:00:00Z | Fix Mellin transform formula missing s/(s-1) main term and wrong convergence region | FourierPage.jsx |
 | 483 | 2026-03-05T23:30:00Z | Fix stale numPrimes closure in AnimatedModesViz draw callback by using primeData.length | AnimatedModesViz.jsx |
 | 484 | 2026-03-06T00:00:00Z | Fix missing minus sign in explicit formula asymptotic approximation | ExplicitFormulaViz.jsx |
+| 485 | 2026-03-06T00:30:00Z | Fix number variance formula using GOE coefficient 2/π² instead of correct GUE coefficient 1/π² | StatisticsPage.jsx |

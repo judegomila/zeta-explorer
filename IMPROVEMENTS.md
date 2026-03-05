@@ -396,3 +396,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 390 | 2026-03-05T23:30:00Z | Fix Weil explicit formula prime-power sum using f instead of fHat | weil-connes.js |
 | 391 | 2026-03-05T23:45:00Z | Fix GUE number variance reference curve missing factor of 2 in leading coefficient | GUEStatisticsViz.jsx |
 | 392 | 2026-03-06T02:30:00Z | Add background box to Regularization tab legend in GapClosingViz for readability | GapClosingViz.jsx |
+| 393 | 2026-03-05T22:00:00Z | Fix oscillators.js docstrings saying 'impedance-matched' instead of 'conjugate-matched' at σ=½ | oscillators.js |

@@ -9,11 +9,12 @@
  *
  * Two ladder networks (direct and dual) connect via a lossless bridge.
  * The critical line Re(s) = 1/2 represents the point of Hamiltonian minimization
- * where the direct and dual ladders are perfectly impedance-matched.
+ * where the direct and dual ladders are conjugate-matched (Z_dual = Z̄_dir via
+ * Schwarz reflection, minimizing but not zeroing |Z_dir − Z_dual| = 2|Im Z|).
  */
 
 import { getPrimes, primeFrequency } from './primes.js';
-import { eulerFactor, cMul, cDiv, cAdd, cSub, cAbs, cExp, cPow } from './zeta.js';
+import { eulerFactor, cMul, cDiv, cAdd, cSub, cAbs, cExp, cPow, zetaCriticalStrip, zetaEulerProduct } from './zeta.js';
 
 /**
  * Oscillator stage for prime p at complex frequency s.
@@ -35,7 +36,24 @@ export function oscillatorStage(p, s) {
   const Z = cAdd(sL, invSC);
 
   // Transfer function through this stage (Euler factor interpretation)
+  // H_p(s) = 1/(1 - p^{-s})
   const H = eulerFactor(p, s);
+
+  // Phase: arg(H_p(s)) = -arg(1 - p^{-s})
+  // Compute directly for numerical accuracy:
+  //   1 - p^{-s} has real part: 1 - p^{-σ}cos(t·log p)
+  //   and imaginary part:        p^{-σ}sin(t·log p)    (note: -(-sin) = +sin)
+  // So arg(1 - p^{-s}) = atan2(p^{-σ}sin(t·log p), 1 - p^{-σ}cos(t·log p))
+  // and phase = -atan2(p^{-σ}sin(t·log p), 1 - p^{-σ}cos(t·log p))
+  const sigma = s[0], tVal = s[1];
+  const logP = Math.log(p);
+  const pMinusSigma = Math.pow(p, -sigma);
+  const cosArg = pMinusSigma * Math.cos(tVal * logP);
+  const sinArg = pMinusSigma * Math.sin(tVal * logP);
+  // 1 - p^{-s} = (1 - cosArg) + i*(sinArg)  [since p^{-s} = pMinusSigma*(cos - i*sin)]
+  // Actually p^{-s} = p^{-σ} * (cos(t logp) - i sin(t logp))
+  // So 1 - p^{-s} = (1 - p^{-σ}cos(t logp)) + i*(p^{-σ}sin(t logp))
+  const phaseH = -Math.atan2(sinArg, 1 - cosArg);
 
   // Energy stored in this oscillator
   const Hmag = cAbs(H);
@@ -44,7 +62,7 @@ export function oscillatorStage(p, s) {
   // Resonance analysis
   const resonantFreq = 1 / Math.sqrt(L * C); // ω₀ = 1/√(LC) = 1 for all primes
   const bandwidth = 2 * s[0]; // BW = ω₀/Q = 2σ (ω₀ = 1/√(LC) = 1 for all primes)
-  const Q = 1 / (2 * (s[0] || 0.001));
+  const Q = 1 / (2 * Math.max(Math.abs(s[0]), 0.001));
 
   return {
     prime: p,
@@ -54,7 +72,7 @@ export function oscillatorStage(p, s) {
     impedance: Z,
     transferFunction: H,
     magnitude: Hmag,
-    phase: Math.atan2(H[1], H[0]),
+    phase: phaseH,
     energy,
     Q,
     bandwidth,
@@ -72,17 +90,23 @@ export function directLadder(s, numPrimes = 20) {
   let cumulativeH = [1, 0];
   let totalEnergy = 0;
   let totalImpedance = [0, 0];
+  let unwrappedPhase = 0; // Track unwrapped cumulative phase for group delay
 
   for (const p of primes) {
     const stage = oscillatorStage(p, s);
     cumulativeH = cMul(cumulativeH, stage.transferFunction);
     totalEnergy += stage.energy;
     totalImpedance = cAdd(totalImpedance, stage.impedance);
+
+    // Accumulate unwrapped phase (sum of per-stage phases)
+    unwrappedPhase += stage.phase;
+
     stages.push({
       ...stage,
       cumulativeTransfer: [...cumulativeH],
       cumulativeMagnitude: cAbs(cumulativeH),
-      cumulativePhase: Math.atan2(cumulativeH[1], cumulativeH[0]),
+      cumulativePhase: unwrappedPhase,
+      wrappedPhase: Math.atan2(cumulativeH[1], cumulativeH[0]),
     });
   }
 
@@ -90,7 +114,8 @@ export function directLadder(s, numPrimes = 20) {
     stages,
     totalTransfer: cumulativeH,
     totalMagnitude: cAbs(cumulativeH),
-    totalPhase: Math.atan2(cumulativeH[1], cumulativeH[0]),
+    totalPhase: unwrappedPhase,
+    wrappedPhase: Math.atan2(cumulativeH[1], cumulativeH[0]),
     totalEnergy,
     totalImpedance,
   };
@@ -109,6 +134,52 @@ export function directLadder(s, numPrimes = 20) {
 export function dualLadder(s, numPrimes = 20) {
   const sDual = [1 - s[0], -s[1]];
   return directLadder(sDual, numPrimes);
+}
+
+/**
+ * Compute accuracy metrics: compare Euler product approximation to true ζ value.
+ * Returns relative error and convergence info.
+ */
+export function accuracyMetrics(s, numPrimes) {
+  const euler = directLadder(s, numPrimes);
+  const zetaExact = zetaCriticalStrip(s, 50);
+  const zetaApprox = euler.totalTransfer;
+
+  const exactMag = cAbs(zetaExact);
+  const diff = cSub(zetaApprox, zetaExact);
+  const diffMag = cAbs(diff);
+  const relativeError = exactMag > 1e-12 ? diffMag / exactMag : diffMag;
+
+  // Convergence: estimate how many more primes would help
+  // by checking the marginal improvement from the last prime
+  let convergenceEstimate = 0;
+  if (numPrimes >= 2) {
+    const eulerSmaller = directLadder(s, numPrimes - 1);
+    const prevApprox = eulerSmaller.totalTransfer;
+    const prevDiff = cAbs(cSub(prevApprox, zetaExact));
+    const improvement = prevDiff > 1e-15 ? diffMag / prevDiff : 1;
+    // If each prime reduces error by factor `improvement`, need log(relErr/0.01)/log(improvement) more
+    if (improvement < 1 && improvement > 0) {
+      convergenceEstimate = Math.max(0, Math.ceil(Math.log(0.01 / Math.max(relativeError, 1e-15)) / Math.log(improvement)));
+    } else {
+      convergenceEstimate = relativeError > 0.01 ? 50 : 0; // rough fallback
+    }
+  }
+
+  // Boundary warning
+  const sigma = s[0];
+  const nearBoundary = sigma < 0.2 || sigma > 0.8;
+
+  return {
+    relativeError,
+    zetaExact,
+    zetaApprox,
+    exactMagnitude: exactMag,
+    approxMagnitude: cAbs(zetaApprox),
+    convergenceEstimate: Math.min(convergenceEstimate, 100),
+    nearBoundary,
+    level: relativeError < 0.01 ? 'good' : relativeError < 0.05 ? 'moderate' : 'poor',
+  };
 }
 
 /**
@@ -210,8 +281,9 @@ function lanczosGamma(z) {
  * H = H_direct + H_dual + H_bridge
  *
  * The critical line sigma = 1/2 minimizes the total Hamiltonian
- * because the direct and dual ladders are perfectly matched
- * and the bridge becomes lossless (unitary scattering).
+ * because the direct and dual ladders are conjugate-matched
+ * (Z_dual = Z̄_dir, minimizing mismatch) and the bridge becomes
+ * lossless (unitary scattering).
  */
 // Fast scalar Hamiltonian for gradient computation (avoids full object allocation)
 function systemHamiltonianRaw(s, numPrimes) {

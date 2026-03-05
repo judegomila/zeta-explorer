@@ -36,7 +36,7 @@ const KNOWN_ZEROS_50 = [
  * Evaluate the Weil explicit formula on both sides:
  *
  *   Zero side:  sum_rho f(rho)
- *   Prime side: f_hat(0) + f_hat(1) - sum_p sum_k (log p / p^(k/2)) [f(k*log p) + f(-k*log p)]
+ *   Prime side: f_hat(0) + f_hat(1) - sum_p sum_k (log p / p^(k/2)) [f_hat(k*log p) + f_hat(-k*log p)]
  *
  * @param {Function} f       - Test function f: R -> R (even, Schwartz-class)
  * @param {Function} fHat    - Fourier transform of f
@@ -60,7 +60,7 @@ export function weilExplicitFormula(f, fHat, zeros, primes, maxK = 3) {
     for (let k = 1; k <= maxK; k++) {
       const weight = logP / Math.pow(p, k / 2);
       const arg = k * logP;
-      primeSide -= weight * (f(arg) + f(-arg));
+      primeSide -= weight * (fHat(arg) + fHat(-arg));
     }
   }
 

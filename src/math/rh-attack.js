@@ -60,7 +60,7 @@ export function liCoefficients(maxN = 30, numZeros = 100) {
       n,
       lambda,
       positive: lambda > 0,
-      logLambda: lambda > 0 ? Math.log(lambda) : null,
+      logLambda: lambda > 0 ? Math.log10(lambda) : null,
     });
   }
 

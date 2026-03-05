@@ -110,7 +110,7 @@ function LiCoefficientsTab() {
     ctx.save();
     ctx.translate(12, h / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillText('log(λ_n)', 0, 0);
+    ctx.fillText('log₁₀(λ_n)', 0, 0);
     ctx.restore();
 
   }, [data]);

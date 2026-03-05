@@ -404,3 +404,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 398 | 2026-03-06T05:00:00Z | Fix KL divergence in InfoTheoryExperimentsViz using Math.log (nats) instead of Math.log2 (bits) | InfoTheoryExperimentsViz.jsx |
 | 399 | 2026-03-06T06:00:00Z | Remove redundant stats useMemo that re-scanned all primes in PerPrimeTab | TwinOscillatorSimViz.jsx |
 | 400 | 2026-03-05T23:00:00Z | Fix KL divergence explainer saying 'nats' when computation uses log₂ (bits) | InformationTheoryViz.jsx |
+| 401 | 2026-03-05T23:30:00Z | Fix Li coefficients logLambda using Math.log (ln) but chart label saying log₁₀ | rh-attack.js, RHAttackViz.jsx |

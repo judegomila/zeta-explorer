@@ -426,3 +426,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 465 | 2026-03-05T17:30:00Z | Fix KL divergence unit label showing "nats" instead of "bits" in InfoTheoryExperimentsViz dashboard | InfoTheoryExperimentsViz.jsx |
 | 466 | 2026-03-05T18:00:00Z | Cap algorithmicRandomnessTest to float64 mantissa precision (52 bits) instead of analyzing 200 bits of rounding noise | odd-zeta.js |
 | 467 | 2026-03-05T19:00:00Z | Add hover-to-inspect tooltip for Z(t) values and nearest zero in critical-line mode of ZetaLandscapeViz | ZetaLandscapeViz.jsx |
+| 468 | 2026-03-05T19:30:00Z | Fix KL divergence y-axis label showing "nats" instead of "bits" in SpectralAttackViz Lyapunov tab | SpectralAttackViz.jsx |

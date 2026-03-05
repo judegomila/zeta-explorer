@@ -352,7 +352,7 @@ function LyapunovTab({ t, numPrimes }) {
     ctx.fillStyle = '#10b981';
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('D_KL (nats)', 0, 0);
+    ctx.fillText('D_KL (bits)', 0, 0);
     ctx.restore();
   }, [data]);
 

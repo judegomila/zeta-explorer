@@ -428,8 +428,8 @@ export function klDivergenceFromEquilibrium(s, numPrimes = 15) {
     let klContrib = 0;
     let revContrib = 0;
     if (pCur > 1e-20 && pEq > 1e-20) {
-      klContrib = pCur * Math.log(pCur / pEq);
-      revContrib = pEq * Math.log(pEq / pCur);
+      klContrib = pCur * Math.log2(pCur / pEq);
+      revContrib = pEq * Math.log2(pEq / pCur);
     }
     kl += klContrib;
     reverseKl += revContrib;
@@ -443,8 +443,8 @@ export function klDivergenceFromEquilibrium(s, numPrimes = 15) {
     const pEq = equil[i] / totalEquil;
     const m = (pCur + pEq) / 2;
     if (m > 1e-20) {
-      if (pCur > 1e-20) js += 0.5 * pCur * Math.log(pCur / m);
-      if (pEq > 1e-20) js += 0.5 * pEq * Math.log(pEq / m);
+      if (pCur > 1e-20) js += 0.5 * pCur * Math.log2(pCur / m);
+      if (pEq > 1e-20) js += 0.5 * pEq * Math.log2(pEq / m);
     }
   }
 

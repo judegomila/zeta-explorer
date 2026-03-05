@@ -384,3 +384,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 378 | 2026-03-05T20:00:00Z | Add missing y-axis tick labels and gridlines to all Information Theory scan plots | InformationTheoryViz.jsx |
 | 379 | 2026-03-05T22:00:00Z | Fix rh-attack.js using uncorrected Riemann-Siegel Z without C₀ term in heat flow scan | rh-attack.js |
 | 380 | 2026-03-05T23:00:00Z | Remove unused errorData computation from ExplicitFormulaViz useMemo | ExplicitFormulaViz.jsx |
+| 381 | 2026-03-06T00:00:00Z | Fix Li Coefficients reference line label showing λ=0 instead of λ=1 on log scale | RHAttackViz.jsx |

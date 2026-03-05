@@ -409,3 +409,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 402 | 2026-03-05T12:00:00Z | Fix GUE number variance reference curve using 2/π² instead of correct 1/π² | GUEStatisticsViz.jsx |
 | 403 | 2026-03-05T23:45:00Z | Fix Montgomery pair correlation form factor showing 1+|α| instead of min(|α|,1) | FourierPage.jsx |
 | 404 | 2026-03-05T12:30:00Z | Fix KL divergence y-axis label saying 'nats' when computation uses log₂ (bits) | InformationTheoryViz.jsx |
+| 405 | 2026-03-05T14:00:00Z | Fix WaveSimPage saying 'impedance-matched' instead of 'conjugate-matched' at σ=½ | WaveSimPage.jsx |

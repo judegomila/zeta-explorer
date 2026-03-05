@@ -438,3 +438,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 477 | 2026-03-05T23:00:00Z | Add hover-to-inspect hint text to HamiltonianViz when not hovering | HamiltonianViz.jsx |
 | 478 | 2026-03-05T23:30:00Z | Fix GUE concept entry showing pair correlation R₂(r) mislabeled as gap probability P(gap=r) | ConceptsPage.jsx |
 | 479 | 2026-03-05T12:00:00Z | Fix truncated Euler-Mascheroni constant in GUE number variance reference curve | GUEStatisticsViz.jsx |
+| 480 | 2026-03-05T23:59:00Z | Fix formal-proof.js S6 claiming V_mismatch vanishes and Z_dir = Z_dual at σ=½ (conjugate-matched, minimized not zero) | formal-proof.js |

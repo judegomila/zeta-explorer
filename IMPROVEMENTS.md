@@ -432,3 +432,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 471 | 2026-03-05T21:00:00Z | Add missing y-axis tick labels and gridlines to Rate-Distortion tab in InformationTheoryViz | InformationTheoryViz.jsx |
 | 472 | 2026-03-05T21:30:00Z | Optimize eulerFactor to use direct real-base arithmetic instead of generic cPow | zeta.js |
 | 473 | 2026-03-06T00:30:00Z | Fix stale Q-factor explainer card on OscillatorsPage still showing wrong prime-dependent formula | OscillatorsPage.jsx |
+| 474 | 2026-03-05T23:00:00Z | Fix Darlington S21 using |Zd| instead of sqrt(Re(Zd)·Re(Zdl)) in transmission coefficient | gap-closing.js |

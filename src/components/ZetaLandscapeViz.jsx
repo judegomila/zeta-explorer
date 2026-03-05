@@ -40,6 +40,7 @@ for (let i = 0; i < PALETTE_SIZE; i++) {
 
 export default function ZetaLandscapeViz() {
   const canvasRef = useRef();
+  const clValuesRef = useRef([]); // cached Z(t) values for critical-line hover
   const [mode, setMode] = useState('critical-line');
   const [tRange, setTRange] = useState([0, 50]);
   const [sigmaRange] = useState([0.05, 0.95]);
@@ -71,6 +72,7 @@ export default function ZetaLandscapeViz() {
       const z = t > 2 ? riemannSiegelZ(t) : 0;
       values.push({ t, z });
     }
+    clValuesRef.current = values;
 
     const maxAbs = Math.max(1, ...values.map(v => Math.abs(v.z)));
     const xScale = dw / steps;
@@ -370,20 +372,34 @@ export default function ZetaLandscapeViz() {
   }, [tRange, sigmaRange, heatmapGrid]);
 
   const handleHover = useCallback((e) => {
-    if (mode !== 'heatmap' || !canvasRef.current) return;
+    if (!canvasRef.current) return;
     const rect = canvasRef.current.getBoundingClientRect();
     const mx = (e.clientX - rect.left) / rect.width;
     const my = (e.clientY - rect.top) / rect.height;
     if (mx < 0 || mx > 1 || my < 0 || my > 1) { setHoverInfo(null); return; }
-    const sigma = sigmaRange[0] + mx * (sigmaRange[1] - sigmaRange[0]);
-    const tMin = tRange[0];
-    const tMax = tRange[1];
-    const t = tMin + (1 - my) * (tMax - tMin);
-    const gi = Math.min(RES - 1, Math.max(0, Math.round((mx) * (RES - 1))));
-    const gj = Math.min(RES - 1, Math.max(0, Math.round((1 - my) * (RES - 1))));
-    const logVal = heatmapGrid[gi * RES + gj];
-    // Reverse: logVal = min(1, log(1+mag)/4), so log(1+mag) ≈ logVal*4 (clamped)
-    setHoverInfo({ sigma: sigma.toFixed(3), t: t.toFixed(2), logMag: (logVal * 4).toFixed(3) });
+    if (mode === 'heatmap') {
+      const sigma = sigmaRange[0] + mx * (sigmaRange[1] - sigmaRange[0]);
+      const tMin = tRange[0];
+      const tMax = tRange[1];
+      const t = tMin + (1 - my) * (tMax - tMin);
+      const gi = Math.min(RES - 1, Math.max(0, Math.round((mx) * (RES - 1))));
+      const gj = Math.min(RES - 1, Math.max(0, Math.round((1 - my) * (RES - 1))));
+      const logVal = heatmapGrid[gi * RES + gj];
+      setHoverInfo({ mode: 'heatmap', sigma: sigma.toFixed(3), t: t.toFixed(2), logMag: (logVal * 4).toFixed(3) });
+    } else {
+      const vals = clValuesRef.current;
+      if (!vals.length) return;
+      const idx = Math.min(vals.length - 1, Math.max(0, Math.round(mx * (vals.length - 1))));
+      const { t, z } = vals[idx];
+      // Find nearest zeta zero
+      let nearestZero = null;
+      let nearestDist = Infinity;
+      for (const gamma of ZETA_ZEROS) {
+        const d = Math.abs(gamma - t);
+        if (d < nearestDist) { nearestDist = d; nearestZero = gamma; }
+      }
+      setHoverInfo({ mode: 'critical-line', t: t.toFixed(2), z: z.toFixed(4), nearestZero: nearestDist < 2 ? nearestZero.toFixed(3) : null });
+    }
   }, [mode, tRange, sigmaRange, heatmapGrid]);
 
   useEffect(() => {
@@ -446,23 +462,35 @@ export default function ZetaLandscapeViz() {
             </span>
           </span>
         </div>
-        {mode === 'heatmap' && (
-          hoverInfo ? (
-            <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
-              <InlineMath tex="\\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
-              <span style={{ marginLeft: 8, color: '#f59e0b' }}>
-                log(1+|ζ|)={hoverInfo.logMag}
+        {hoverInfo && hoverInfo.mode === 'heatmap' && (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+            <InlineMath tex="\\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
+            <span style={{ marginLeft: 8, color: '#f59e0b' }}>
+              log(1+|ζ|)={hoverInfo.logMag}
+            </span>
+          </div>
+        )}
+        {hoverInfo && hoverInfo.mode === 'critical-line' && (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+            <InlineMath tex="t" />={hoverInfo.t}
+            <span style={{ marginLeft: 8, color: '#3b82f6' }}>
+              Z(t)={hoverInfo.z}
+            </span>
+            {hoverInfo.nearestZero && (
+              <span style={{ marginLeft: 8, color: '#ef4444', fontSize: 11 }}>
+                nearest zero: γ≈{hoverInfo.nearestZero}
               </span>
-            </div>
-          ) : (
-            <div style={{ marginLeft: 'auto', fontSize: 11, color: '#64748b', fontStyle: 'italic' }}>
-              Hover over heatmap to inspect values
-            </div>
-          )
+            )}
+          </div>
+        )}
+        {!hoverInfo && (
+          <div style={{ marginLeft: 'auto', fontSize: 11, color: '#64748b', fontStyle: 'italic' }}>
+            Hover over chart to inspect values
+          </div>
         )}
       </div>
       <div className="viz-container">
-        <canvas ref={canvasRef} style={{ width: '100%', height: 400, cursor: mode === 'heatmap' ? 'crosshair' : undefined }}
+        <canvas ref={canvasRef} style={{ width: '100%', height: 400, cursor: 'crosshair' }}
           onMouseMove={handleHover} onMouseLeave={() => setHoverInfo(null)} />
       </div>
     </div>

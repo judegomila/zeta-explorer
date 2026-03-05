@@ -389,6 +389,7 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 383 | 2026-03-05T23:30:00Z | Fix selbergTraceAnalog missing conjugate zeros in spectral side sum | weil-connes.js |
 | 384 | 2026-03-06T00:30:00Z | Add missing window resize handlers to all five SpectralAttackViz canvas tabs | SpectralAttackViz.jsx |
 | 385 | 2026-03-05T22:00:00Z | Fix incorrect unit '(s)' on group delay y-axis label in Phase & Delay tab | WaveSimViz.jsx |
+| 386 | 2026-03-05T23:00:00Z | Add missing circle markers to error convergence chart in PascalZetaViz ConstantsTab | PascalZetaViz.jsx |
 | 386 | 2026-03-05T23:45:00Z | Replace 10,000 fillRect calls with single putImageData in ZetaLandscape heatmap | ZetaLandscapeViz.jsx |
 | 387 | 2026-03-06T01:00:00Z | Add background box to de Bruijn-Newman scatter plot legend for readability | LiCriterionViz.jsx |
 | 388 | 2026-03-05T02:00:00Z | Fix von Mangoldt spectrum missing n^{-1/2} weight needed to align peaks with zeta zeros | supercritical.js, FourierDomainViz.jsx |

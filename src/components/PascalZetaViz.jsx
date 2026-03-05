@@ -267,6 +267,10 @@ function ConstantsTab() {
       .datum(eErrors)
       .attr('d', d3.line().x(d => x3(d.n)).y(d => y3(d.error)).curve(d3.curveMonotoneX))
       .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2);
+    eErrors.forEach(d => {
+      g3.append('circle').attr('cx', x3(d.n)).attr('cy', y3(d.error))
+        .attr('r', 2.5).attr('fill', '#3b82f6');
+    });
 
     // pi errors
     const piErrors = data.piData.filter(d => d.error > 0);
@@ -274,6 +278,10 @@ function ConstantsTab() {
       .datum(piErrors)
       .attr('d', d3.line().x(d => x3(d.n)).y(d => y3(d.error)).curve(d3.curveMonotoneX))
       .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2);
+    piErrors.forEach(d => {
+      g3.append('circle').attr('cx', x3(d.n)).attr('cy', y3(d.error))
+        .attr('r', 2.5).attr('fill', '#f59e0b');
+    });
 
     g3.append('text').attr('x', 4).attr('y', -6)
       .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)

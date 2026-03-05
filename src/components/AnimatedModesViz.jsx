@@ -248,7 +248,7 @@ export default function AnimatedModesViz() {
   return (
     <div>
       <div className="tab-explainer accent-pink">
-        <strong>The math:</strong> At zeta zero frequency <InlineMath tex="\\gamma_n" />, each prime oscillator vibrates with
+        At zeta zero frequency <InlineMath tex="\\gamma_n" />, each prime oscillator vibrates with
         amplitude <InlineMath tex="\\propto \\text{Re}(p^{-1/2-i\\gamma_n})" /> and phase set by <InlineMath tex="\\gamma_n \\log p" />.
         The bottom row superposes all prime contributions at this driving frequency &mdash; the collective oscillator chain
         response to the zero mode <InlineMath tex="\\gamma_n" />. (Note: the explicit formula's per-zero term is{' '}
@@ -262,7 +262,7 @@ export default function AnimatedModesViz() {
           <label>Zeta Zero</label>
           <select value={zeroIndex} onChange={e => setZeroIndex(+e.target.value)}>
             {ZETA_ZEROS.slice(0, 100).map((z, i) => (
-              <option key={i} value={i}>γ_{i + 1} = {z.toFixed(3)}</option>
+              <option key={i} value={i}>γ{String(i + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')} = {z.toFixed(3)}</option>
             ))}
           </select>
         </div>

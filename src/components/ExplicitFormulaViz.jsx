@@ -11,7 +11,7 @@ export default function ExplicitFormulaViz() {
 
   // Memoize data arrays so resize events only re-render D3 without recomputing
   // the psiTable (O(maxX) vonMangoldt calls) and explicitFormulaTerms (O(steps × numZeros))
-  const { actualData, approxData, errorData, rmsError } = useMemo(() => {
+  const { actualData, approxData, rmsError } = useMemo(() => {
     const zeros = ZETA_ZEROS.slice(0, numZeros);
     const steps = Math.min(maxX, 200);
     const dx = maxX / steps;
@@ -24,7 +24,6 @@ export default function ExplicitFormulaViz() {
 
     const actualData = [];
     const approxData = [];
-    const errorData = [];
 
     for (let i = 1; i <= steps; i++) {
       const x = 2 + i * dx;
@@ -34,7 +33,6 @@ export default function ExplicitFormulaViz() {
 
       actualData.push({ x, y: psi });
       approxData.push({ x, y: approx });
-      errorData.push({ x, y: psi - x });
     }
 
     // RMS error between explicit formula approximation and actual ψ(x)
@@ -45,7 +43,7 @@ export default function ExplicitFormulaViz() {
     }
     const rmsError = Math.sqrt(sumSqErr / actualData.length);
 
-    return { actualData, approxData, errorData, rmsError };
+    return { actualData, approxData, rmsError };
   }, [maxX, numZeros]);
 
   const draw = useCallback(() => {
@@ -170,7 +168,7 @@ export default function ExplicitFormulaViz() {
   return (
     <div>
       <div className="tab-explainer accent-orange">
-        <strong>The math:</strong> Von Mangoldt's explicit formula{' '}
+        Von Mangoldt's explicit formula{' '}
         <InlineMath tex="\\psi(x) = x - \\sum_\\rho x^\\rho/\\rho - \\log 2\\pi - \\tfrac{1}{2}\\log(1 - x^{-2})" /> decomposes the Chebyshev function{' '}
         <InlineMath tex="\\psi(x) = \\sum_{n \\le x} \\Lambda(n)" /> (a log-weighted prime-power count, not the prime
         counting function <InlineMath tex="\\pi(x)" />) into zeta-zero oscillations.

@@ -383,3 +383,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 377 | 2026-03-05T18:00:00Z | Fix x-axis label saying "Prime index n" when tick labels show prime values | PrimeGapCouplingViz.jsx |
 | 378 | 2026-03-05T20:00:00Z | Add missing y-axis tick labels and gridlines to all Information Theory scan plots | InformationTheoryViz.jsx |
 | 379 | 2026-03-05T22:00:00Z | Fix rh-attack.js using uncorrected Riemann-Siegel Z without C₀ term in heat flow scan | rh-attack.js |
+| 380 | 2026-03-05T23:00:00Z | Remove unused errorData computation from ExplicitFormulaViz useMemo | ExplicitFormulaViz.jsx |

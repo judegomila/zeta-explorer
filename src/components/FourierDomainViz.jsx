@@ -433,7 +433,7 @@ function SpectralEnergyTab() {
         The spectral energy density <InlineMath tex="\\mathcal{E}(\\omega)" /> measures how
         oscillator energy is distributed across frequencies. The direct ladder gives{' '}
         <InlineMath tex="\\mathcal{E}_{\\text{dir}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(\\sigma{+}i\\omega)|^2" /> and the dual ladder{' '}
-        <InlineMath tex="\\mathcal{E}_{\\text{dual}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(1{-}\\sigma{+}i\\omega)|^2" />, where each prime's
+        <InlineMath tex="\\mathcal{E}_{\\text{dual}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(1{-}\\sigma{-}i\\omega)|^2" />, where each prime's
         contribution is weighted by its characteristic impedance <InlineMath tex="\\log p" />. At{' '}
         <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, conjugate symmetry of the Euler factors gives equal magnitudes &mdash;
         the spectral energy is perfectly balanced between direct and dual. The red mismatch curve shows the impedance

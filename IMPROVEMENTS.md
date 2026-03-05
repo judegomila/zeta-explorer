@@ -419,3 +419,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 459 | 2026-03-05T22:15:00Z | Fix ScatteringMatrixViz reflection explainer saying 'impedance match' instead of 'conjugate match' | ScatteringMatrixViz.jsx |
 | 460 | 2026-03-05T14:30:00Z | Add missing window resize handlers to all six InformationTheoryViz canvas tabs | InformationTheoryViz.jsx |
 | 461 | 2026-03-05T16:00:00Z | Add missing window resize handlers to all three ZXCalculusViz canvas tabs | ZXCalculusViz.jsx |
+| 462 | 2026-03-06T00:10:00Z | Fix dual energy formula showing +iω instead of correct −iω in Spectral Energy explainer | FourierDomainViz.jsx |

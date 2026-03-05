@@ -381,3 +381,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 375 | 2026-03-05T14:00:00Z | Fix Jensen-Shannon divergence using Jeffreys divergence formula instead of correct midpoint formula | information-theory.js |
 | 376 | 2026-03-05T16:00:00Z | Add missing y-axis tick labels to log|ζ| panel in Extended Landscape tab | SupercriticalViz.jsx |
 | 377 | 2026-03-05T18:00:00Z | Fix x-axis label saying "Prime index n" when tick labels show prime values | PrimeGapCouplingViz.jsx |
+| 378 | 2026-03-05T20:00:00Z | Add missing y-axis tick labels and gridlines to all Information Theory scan plots | InformationTheoryViz.jsx |

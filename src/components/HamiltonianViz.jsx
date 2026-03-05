@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 import { hamiltonianSigmaScan, systemHamiltonian } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
+import ThermoBar from './ThermoBar.jsx';
 
 export default function HamiltonianViz() {
   const svgRef = useRef();
@@ -103,16 +104,20 @@ export default function HamiltonianViz() {
       .text(`min @ σ=${minPoint.sigma.toFixed(2)}`);
 
     // Legend
-    const legend = svg.append('g').attr('transform', `translate(${width - 180}, ${margin.top + 10})`);
+    const legend = svg.append('g').attr('transform', `translate(${width - 160}, ${margin.top + 8})`);
+    // Semi-transparent background for legend
+    legend.append('rect')
+      .attr('x', -8).attr('y', -10).attr('width', 120).attr('height', 4 * 22 + 8)
+      .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
     [
-      { label: 'Total H', color: '#10b981' },
-      { label: 'Kinetic T', color: '#3b82f6' },
-      { label: 'Mismatch V', color: '#f59e0b' },
-      { label: 'Bridge V', color: '#8b5cf6' },
+      { label: 'ℋ total', color: '#10b981' },
+      { label: 'T kinetic', color: '#3b82f6' },
+      { label: 'V mismatch', color: '#f59e0b' },
+      { label: 'V bridge', color: '#8b5cf6' },
     ].forEach(({ label, color }, i) => {
-      legend.append('line').attr('x1', 0).attr('y1', i * 18).attr('x2', 20).attr('y2', i * 18)
+      legend.append('line').attr('x1', 0).attr('y1', i * 22).attr('x2', 20).attr('y2', i * 22)
         .attr('stroke', color).attr('stroke-width', 2);
-      legend.append('text').attr('x', 26).attr('y', i * 18 + 4)
+      legend.append('text').attr('x', 26).attr('y', i * 22 + 4)
         .attr('fill', color).attr('font-size', 11).text(label);
     });
 
@@ -170,7 +175,7 @@ export default function HamiltonianViz() {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        <strong>The math:</strong> The system Hamiltonian <InlineMath tex="\\mathcal{H} = T + V_{\\text{mismatch}} + V_{\\text{bridge}}" /> sums three
+        The system Hamiltonian <InlineMath tex="\\mathcal{H} = T + V_{\\text{mismatch}} + V_{\\text{bridge}}" /> sums three
         terms: <strong>kinetic energy</strong> <InlineMath tex="T = \\sum_p \\tfrac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1{-}s)|^2)" /> (blue),{' '}
         <strong>impedance mismatch</strong> <InlineMath tex="V = \\tfrac{1}{2}|Z_{\\text{dir}} - Z_{\\text{dual}}|^2" /> (orange),
         and <strong>bridge penalty</strong> <InlineMath tex="V_b = 100(1-|\\chi|)^2" /> (purple). At <InlineMath tex="\\sigma = 0.5" />,
@@ -181,7 +186,7 @@ export default function HamiltonianViz() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
@@ -215,10 +220,11 @@ export default function HamiltonianViz() {
         </div>
         {hoverPoint && (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
-            <InlineMath tex="\sigma" />={hoverPoint.sigma.toFixed(3)} | <InlineMath tex="\mathcal{H}" />={hoverPoint.total.toFixed(3)} | <InlineMath tex="T" />={hoverPoint.kinetic.toFixed(3)} | <InlineMath tex="V" />={hoverPoint.potential.toFixed(3)}
+            <InlineMath tex="\\sigma" />={hoverPoint.sigma.toFixed(3)} | <InlineMath tex="\\mathcal{H}" />={hoverPoint.total.toFixed(3)} | <InlineMath tex="T" />={hoverPoint.kinetic.toFixed(3)} | <InlineMath tex="V" />={hoverPoint.potential.toFixed(3)} | <span style={{ color: '#8b5cf6' }}><InlineMath tex="V_b" />={hoverPoint.bridgeCoupling.toFixed(3)}</span>
           </div>
         )}
       </div>
+      <ThermoBar sigma={0.5} t={tValue} numPrimes={numPrimes} />
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: 380 }} />
       </div>

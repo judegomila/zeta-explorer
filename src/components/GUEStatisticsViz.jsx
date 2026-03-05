@@ -19,7 +19,7 @@ for (let r = 0.02; r <= 4; r += 0.02) {
   const sinc = Math.sin(Math.PI * r) / (Math.PI * r);
   REF_R2_CURVE.push({ r, p: 1 - sinc * sinc });
 }
-const GAMMA_E = 0.5772;
+const GAMMA_E = 0.5772156649015329;
 const REF_NUMVAR_GUE = [];
 for (let L = 0.3; L <= 6; L += 0.05) {
   const s2 = (1 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 1 + GAMMA_E - Math.PI * Math.PI / 8);

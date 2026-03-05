@@ -137,7 +137,7 @@ function VonMangoldtSpectrumTab() {
   return (
     <div>
       <div className="tab-explainer">
-        <strong>The math:</strong> The von Mangoldt function <InlineMath tex="\\Lambda(n) = \\log p" /> when{' '}
+        The von Mangoldt function <InlineMath tex="\\Lambda(n) = \\log p" /> when{' '}
         <InlineMath tex="n = p^k" />, and zero otherwise, encodes prime locations as a "signal." Its discrete Fourier
         transform <InlineMath tex="\\hat{\\Lambda}(\\omega) = \\sum_n \\Lambda(n)\\,e^{-i\\omega\\log n}" /> has peaks at
         each zeta zero imaginary part <InlineMath tex="\\gamma_n" />. This is the explicit formula in action:
@@ -216,6 +216,17 @@ function FrequencyResponseTab() {
           .attr('stroke', '#ef4444').attr('stroke-width', 0.5).attr('stroke-dasharray', '2,2').attr('opacity', 0.4);
       });
 
+      // Legend for magnitude panel
+      const magLegend = g.append('g').attr('transform', `translate(${w - 180}, 6)`);
+      magLegend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 16).attr('y2', 0)
+        .attr('stroke', '#10b981').attr('stroke-width', 2);
+      magLegend.append('text').attr('x', 22).attr('y', 4)
+        .attr('fill', '#10b981').attr('font-size', 10).text('|H(σ+iω)| (dB)');
+      magLegend.append('line').attr('x1', 0).attr('y1', 16).attr('x2', 16).attr('y2', 16)
+        .attr('stroke', '#ef4444').attr('stroke-width', 1).attr('stroke-dasharray', '2,2').attr('opacity', 0.7);
+      magLegend.append('text').attr('x', 22).attr('y', 20)
+        .attr('fill', '#ef4444').attr('font-size', 10).text('Zeta zeros γₙ');
+
       svg.append('text').attr('x', margin.left).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('Magnitude Response |H(σ+iω)| (dB)');
@@ -247,6 +258,13 @@ function FrequencyResponseTab() {
         .attr('d', d3.line().x(d => x(d.omega)).y(d => y(d.phase)).curve(d3.curveLinear))
         .attr('fill', 'none').attr('stroke', '#8b5cf6').attr('stroke-width', 2);
 
+      // Legend for phase panel
+      const phaseLegend = g.append('g').attr('transform', `translate(${w - 160}, 6)`);
+      phaseLegend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 16).attr('y2', 0)
+        .attr('stroke', '#8b5cf6').attr('stroke-width', 2);
+      phaseLegend.append('text').attr('x', 22).attr('y', 4)
+        .attr('fill', '#8b5cf6').attr('font-size', 10).text('∠H(σ+iω)');
+
       svg.append('text').attr('x', margin.left).attr('y', yOff - 8)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('Phase Response \u2220H(σ+iω)');
@@ -270,7 +288,7 @@ function FrequencyResponseTab() {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        <strong>The math:</strong> The Euler product{' '}
+        The Euler product{' '}
         <InlineMath tex="H(\\sigma+i\\omega) = \\prod_p (1-p^{-\\sigma-i\\omega})^{-1}" /> is the transfer function of the
         prime oscillator ladder network, plotted as a standard Bode diagram. The magnitude (top, in dB) shows the gain
         at each frequency; the phase (bottom) shows the accumulated delay. Near zeta zero frequencies, the partial product
@@ -284,7 +302,7 @@ function FrequencyResponseTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\sigma" /></label>
+          <label><InlineMath tex="\\sigma" /></label>
           <input type="range" min="0.1" max="2" step="0.05" value={sigma}
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
@@ -411,7 +429,7 @@ function SpectralEnergyTab() {
   return (
     <div>
       <div className="tab-explainer accent-purple">
-        <strong>The math:</strong> The spectral energy density <InlineMath tex="\\mathcal{E}(\\omega)" /> measures how
+        The spectral energy density <InlineMath tex="\\mathcal{E}(\\omega)" /> measures how
         oscillator energy is distributed across frequencies. The direct ladder gives{' '}
         <InlineMath tex="\\mathcal{E}_{\\text{dir}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(\\sigma{+}i\\omega)|^2" /> and the dual ladder{' '}
         <InlineMath tex="\\mathcal{E}_{\\text{dual}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(1{-}\\sigma{+}i\\omega)|^2" />, where each prime's
@@ -425,7 +443,7 @@ function SpectralEnergyTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\sigma" /></label>
+          <label><InlineMath tex="\\sigma" /></label>
           <input type="range" min="0.1" max="1.5" step="0.05" value={sigma}
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
@@ -543,7 +561,7 @@ function PrimeHarmonicsTab() {
   return (
     <div>
       <div className="tab-explainer accent-cyan">
-        <strong>The math:</strong> Each prime <InlineMath tex="p" /> contributes a fundamental oscillation at frequency{' '}
+        Each prime <InlineMath tex="p" /> contributes a fundamental oscillation at frequency{' '}
         <InlineMath tex="\\omega_p = \\log p" /> plus overtones at <InlineMath tex="k\\log p" /> (from the geometric series{' '}
         <InlineMath tex="(1-p^{-s})^{-1} = \\sum_k p^{-ks}" />). The quality factor{' '}
         <InlineMath tex="Q_p = 1/(2\\sigma)" /> controls resonance sharpness: at <InlineMath tex="\\sigma = 0.5" />,{' '}
@@ -554,7 +572,7 @@ function PrimeHarmonicsTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\sigma" /></label>
+          <label><InlineMath tex="\\sigma" /></label>
           <input type="range" min="0.1" max="2" step="0.05" value={sigma}
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />

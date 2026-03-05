@@ -138,10 +138,11 @@ function VonMangoldtSpectrumTab() {
     <div>
       <div className="tab-explainer">
         The von Mangoldt function <InlineMath tex="\\Lambda(n) = \\log p" /> when{' '}
-        <InlineMath tex="n = p^k" />, and zero otherwise, encodes prime locations as a "signal." Its discrete Fourier
-        transform <InlineMath tex="\\hat{\\Lambda}(\\omega) = \\sum_n \\Lambda(n)\\,e^{-i\\omega\\log n}" /> has peaks at
-        each zeta zero imaginary part <InlineMath tex="\\gamma_n" />. This is the explicit formula in action:
-        primes live in "position space," zeta zeros in "frequency space." More terms sharpen the spectral peaks.
+        <InlineMath tex="n = p^k" />, and zero otherwise, encodes prime locations as a "signal." The weighted
+        transform <InlineMath tex="F(\\omega) = \\sum_n \\Lambda(n)\\,n^{-1/2}\\,e^{-i\\omega\\log n}" /> equals{' '}
+        <InlineMath tex="-\\zeta'(\\tfrac{1}{2}+i\\omega)/\\zeta(\\tfrac{1}{2}+i\\omega)" />, which has poles at
+        each zeta zero <InlineMath tex="\\gamma_n" />. The <InlineMath tex="n^{-1/2}" /> weight places the evaluation on the critical
+        line — without it, peaks would not align with zeros. More terms sharpen the spectral peaks.
         <strong> Look for:</strong> vertical red dashed lines (known zeros) aligning with the spectral peaks of the blue DFT curve.
       </div>
       <div className="controls">

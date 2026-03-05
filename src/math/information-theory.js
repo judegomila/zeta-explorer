@@ -103,8 +103,8 @@ export function entropySigmaScan(t, sigmaRange = [0.1, 2.0], steps = 80, numPrim
  * where SNR = |H(s)|² · P / N₀ (signal-to-noise ratio)
  *
  * The "noise" is the impedance mismatch between direct and dual ladders.
- * At σ = ½: mismatch = 0, so SNR → ∞ and capacity is maximized.
- * Off the critical line: mismatch adds "noise", reducing capacity.
+ * At σ = ½: conjugate match Z_dual = Z̄_dir minimizes mismatch, maximizing SNR and capacity.
+ * Off the critical line: mismatch grows, adding "noise" and reducing capacity.
  *
  * This gives an information-theoretic interpretation of the critical line:
  * it's the operating point of maximum channel capacity.

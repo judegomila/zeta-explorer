@@ -394,3 +394,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 388 | 2026-03-05T02:00:00Z | Fix von Mangoldt spectrum missing n^{-1/2} weight needed to align peaks with zeta zeros | supercritical.js, FourierDomainViz.jsx |
 | 389 | 2026-03-05T23:00:00Z | Use Unicode subscript digits in AnimatedModesViz zeta zero dropdown | AnimatedModesViz.jsx |
 | 390 | 2026-03-05T23:30:00Z | Fix Weil explicit formula prime-power sum using f instead of fHat | weil-connes.js |
+| 391 | 2026-03-05T23:45:00Z | Fix GUE number variance reference curve missing factor of 2 in leading coefficient | GUEStatisticsViz.jsx |

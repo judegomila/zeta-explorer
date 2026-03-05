@@ -22,7 +22,7 @@ for (let r = 0.02; r <= 4; r += 0.02) {
 const GAMMA_E = 0.5772;
 const REF_NUMVAR_GUE = [];
 for (let L = 0.3; L <= 6; L += 0.05) {
-  const s2 = (1 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 1 + GAMMA_E - Math.PI * Math.PI / 8);
+  const s2 = (2 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 1 + GAMMA_E - Math.PI * Math.PI / 8);
   REF_NUMVAR_GUE.push({ L, s2: Math.max(0, s2) });
 }
 
@@ -348,9 +348,9 @@ export default function GUEStatisticsViz() {
     <div>
       {mode === 'spacing' && (
         <div className="tab-explainer accent-red">
-          <strong>The math:</strong> The nearest-neighbor spacing distribution <InlineMath tex="P(s)" /> measures the probability
+          The nearest-neighbor spacing distribution <InlineMath tex="P(s)" /> measures the probability
           that consecutive normalized zero gaps have size <InlineMath tex="s" />. For random matrices from the GUE (Gaussian
-          Unitary Ensemble), the Wigner surmise gives <InlineMath tex="P_{\text{GUE}}(s) = (32/\pi^2)s^2 e^{-4s^2/\pi}" />.
+          Unitary Ensemble), the Wigner surmise gives <InlineMath tex="P_{\\text{GUE}}(s) = (32/\\pi^2)s^2 e^{-4s^2/\\pi}" />.
           The key feature is <strong>level repulsion</strong>: <InlineMath tex="P(0) = 0" />, meaning zeros never collide.
           Poisson (random) would give <InlineMath tex="P(s) = e^{-s}" /> with clustering at zero.
           <strong> Look for:</strong> the zeta zero histogram matching GUE (red), not Poisson (gray).
@@ -358,7 +358,7 @@ export default function GUEStatisticsViz() {
       )}
       {mode === 'pair-correlation' && (
         <div className="tab-explainer accent-purple">
-          <strong>The math:</strong> The pair correlation <InlineMath tex="R_2(x) = 1 - (\sin\pi x / \pi x)^2" /> (Montgomery 1973)
+          The pair correlation <InlineMath tex="R_2(x) = 1 - (\\sin\\pi x / \\pi x)^2" /> (Montgomery 1973)
           measures the density of pairs of zeros at separation <InlineMath tex="x" />. The dip at <InlineMath tex="x = 0" /> confirms
           level repulsion; the oscillations reflect the determinantal structure of GUE eigenvalues.
           This is the "two-point function" of the zero process.
@@ -367,9 +367,9 @@ export default function GUEStatisticsViz() {
       )}
       {mode === 'number-variance' && (
         <div className="tab-explainer accent-cyan">
-          <strong>The math:</strong> The number variance <InlineMath tex="\Sigma^2(L)" /> measures fluctuations in the count of zeros
-          in intervals of length <InlineMath tex="L" />. For GUE, <InlineMath tex="\Sigma^2(L) = \tfrac{1}{\pi^2}\bigl(\log(2\pi L) + 1 + \gamma_E - \tfrac{\pi^2}{8}\bigr)" /> (logarithmic
-          growth) &mdash; much slower than Poisson where <InlineMath tex="\Sigma^2 = L" />. This logarithmic suppression means zeros
+          The number variance <InlineMath tex="\\Sigma^2(L)" /> measures fluctuations in the count of zeros
+          in intervals of length <InlineMath tex="L" />. For GUE, <InlineMath tex="\\Sigma^2(L) = \\tfrac{1}{\\pi^2}\\bigl(\\log(2\\pi L) + 1 + \\gamma_E - \\tfrac{\\pi^2}{8}\\bigr)" /> (logarithmic
+          growth) &mdash; much slower than Poisson where <InlineMath tex="\\Sigma^2 = L" />. This logarithmic suppression means zeros
           are <strong>rigidly</strong> spaced &mdash; far more regular than random.
           <strong> Look for:</strong> the data following the GUE log curve, not the linear Poisson line.
         </div>

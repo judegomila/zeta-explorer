@@ -404,6 +404,24 @@ function ThermodynamicsTab() {
       // Title
       svg.append('text').attr('x', margin.left).attr('y', yOff + 14)
         .attr('fill', q.color).attr('font-size', 11).attr('font-weight', 600).text(q.label);
+
+      // X-axis label on the bottom chart only
+      if (qi === quantities.length - 1) {
+        svg.append('text')
+          .attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + margin.bottom + 2)
+          .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+          .text('σ = Re(s)');
+      }
+
+      // Repeat σ = ½ and σ = 1 labels on the last chart for readability
+      if (qi === quantities.length - 1) {
+        g.append('text').attr('x', x(0.5)).attr('y', -4)
+          .attr('text-anchor', 'middle').attr('fill', '#ef4444').attr('font-size', 9).attr('opacity', 0.8)
+          .text('\u03C3 = \u00BD');
+        g.append('text').attr('x', x(1)).attr('y', -4)
+          .attr('text-anchor', 'middle').attr('fill', '#f59e0b').attr('font-size', 9).attr('opacity', 0.8)
+          .text('\u03C3 = 1');
+      }
     });
 
   }, [thermoData]);

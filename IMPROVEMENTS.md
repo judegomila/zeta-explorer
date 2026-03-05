@@ -428,3 +428,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 467 | 2026-03-05T19:00:00Z | Add hover-to-inspect tooltip for Z(t) values and nearest zero in critical-line mode of ZetaLandscapeViz | ZetaLandscapeViz.jsx |
 | 468 | 2026-03-05T19:30:00Z | Fix KL divergence y-axis label showing "nats" instead of "bits" in SpectralAttackViz Lyapunov tab | SpectralAttackViz.jsx |
 | 469 | 2026-03-05T20:00:00Z | Add missing legend to Hasse–Sondow convergence chart in PascalZetaViz | PascalZetaViz.jsx |
+| 470 | 2026-03-05T20:30:00Z | Add x-axis label and repeat phase boundary labels on bottom chart of Thermodynamics tab | SupercriticalViz.jsx |

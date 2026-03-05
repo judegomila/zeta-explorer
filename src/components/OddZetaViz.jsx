@@ -1069,6 +1069,48 @@ export default function OddZetaViz() {
         )}
       </div>
 
+      {activeTab === 0 && (
+        <div className="tab-explainer accent-green">
+          Odd zeta values <InlineMath tex="\zeta(3), \zeta(5), \zeta(7), \ldots" /> are computed via the Euler
+          product <InlineMath tex="\prod_p (1-p^{-n})^{-1}" />. The top chart shows how values decay toward 1
+          as <InlineMath tex="n" /> grows; the bottom traces how adding primes builds up the product.
+          <strong> Look for:</strong> rapid convergence for large <InlineMath tex="n" /> (fewer primes needed).
+        </div>
+      )}
+      {activeTab === 1 && (
+        <div className="tab-explainer accent-blue">
+          Ap&eacute;ry&rsquo;s remarkable recurrence generates rational convergents <InlineMath tex="a_n/b_n \to \zeta(3)" /> at
+          geometric rate <InlineMath tex="\sim (1+\sqrt{2})^{-4n}" />. This speed proves irrationality: no rational
+          number can be approximated this fast by other rationals.
+          <strong> Look for:</strong> error dropping exponentially (straight line on log scale).
+        </div>
+      )}
+      {activeTab === 2 && (
+        <div className="tab-explainer accent-purple">
+          At <InlineMath tex="s = n" /> (real axis), each prime contributes a purely real Euler
+          factor <InlineMath tex="1/(1-p^{-n})" />. The excess <InlineMath tex="|H_p(n)| - 1 \approx p^{-n}" /> decays
+          as a power of the prime, with higher <InlineMath tex="n" /> giving faster decay.
+          <strong> Look for:</strong> how the factor profile steepens with increasing <InlineMath tex="n" />.
+        </div>
+      )}
+      {activeTab === 3 && (
+        <div className="tab-explainer accent-orange">
+          The Gram matrix <InlineMath tex="\langle \zeta(m), \zeta(n) \rangle = \sum_p \log p / (p^m-1)(p^n-1)" /> tests
+          linear independence of <InlineMath tex="\{1, \zeta(3), \zeta(5), \ldots\}" /> over <InlineMath tex="\mathbb{Q}" />.
+          A nonzero determinant implies independence (consistent with Rivoal&rsquo;s theorem).
+          <strong> Look for:</strong> positive determinant and low cosine angles between pairs.
+        </div>
+      )}
+      {activeTab === 4 && (
+        <div className="tab-explainer accent-red">
+          The irrationality measure <InlineMath tex="\mu" /> bounds how well <InlineMath tex="\zeta(n)" /> can be
+          approximated by rationals: <InlineMath tex="|\zeta(n) - p/q| > c/q^\mu" />. For <InlineMath tex="\zeta(3)" />,
+          Rhin &amp; Viola proved <InlineMath tex="\mu \leq 5.51" />. We estimate <InlineMath tex="\mu" /> from the
+          slope of <InlineMath tex="\log|error|" /> vs <InlineMath tex="\log q" /> in continued fraction convergents.
+          <strong> Look for:</strong> the slope of the log-log plot giving the measure estimate.
+        </div>
+      )}
+
       <div style={{ marginTop: 8 }}>
         {activeTab === 0 && <ValuesTab selectedN={selectedN} numPrimes={numPrimes} />}
         {activeTab === 1 && <AperyTab />}

@@ -631,7 +631,55 @@ function HeatFlowTab() {
       ctx.fillText(`τ = ${tau}`, w - margin.right - 124, y + 4);
     });
 
-    // X-axis
+    // Y-axis tick labels
+    ctx.fillStyle = '#64748b';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'right';
+    const yTicks = 5;
+    for (let i = 0; i <= yTicks; i++) {
+      const frac = i / yTicks;
+      const val = globalMaxVal * (1 - 2 * frac); // from +max to -max
+      const y = margin.top + frac * plotH;
+      ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
+      // Gridline
+      if (i > 0 && i < yTicks) {
+        ctx.beginPath();
+        ctx.setLineDash([3, 3]);
+        ctx.moveTo(margin.left, y);
+        ctx.lineTo(w - margin.right, y);
+        ctx.strokeStyle = '#1e293b';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    }
+
+    // Y-axis label
+    ctx.save();
+    ctx.translate(12, h / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Hτ(t)', 0, 0);
+    ctx.restore();
+
+    // X-axis tick labels
+    if (curve0) {
+      const tMin = curve0[0].t;
+      const tMax = curve0[curve0.length - 1].t;
+      const xTicks = 5;
+      for (let i = 0; i <= xTicks; i++) {
+        const tVal = tMin + (i / xTicks) * (tMax - tMin);
+        const x = margin.left + (i / xTicks) * plotW;
+        ctx.fillStyle = '#64748b';
+        ctx.font = '9px var(--font-mono)';
+        ctx.textAlign = 'center';
+        ctx.fillText(tVal.toFixed(0), x, h - margin.bottom + 14);
+      }
+    }
+
+    // X-axis label
     ctx.fillStyle = '#64748b';
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';

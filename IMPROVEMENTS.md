@@ -472,3 +472,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 511 | 2026-03-06T19:00:00Z | Fix InsightDAG legend missing Analogous and Extends edge types | InsightDAG.jsx |
 | 512 | 2026-03-06T20:00:00Z | Fix false claim that Λ≥0 (Rodgers-Tao) means zeros are on the critical line at τ=0 | LiCriterionViz.jsx |
 | 513 | 2026-03-06T21:00:00Z | Fix markdown **bold** syntax rendering as literal asterisks in JSX on ModesPage | ModesPage.jsx |
+| 514 | 2026-03-06T22:00:00Z | Add missing y-axis tick labels, gridlines, and x-axis tick labels to Heat Flow tab in RHAttackViz | RHAttackViz.jsx |

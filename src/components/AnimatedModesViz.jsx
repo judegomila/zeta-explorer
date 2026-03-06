@@ -77,6 +77,19 @@ export default function AnimatedModesViz() {
     superposition.fill(0);
     const xSteps = 200;
 
+    // Precompute x-step constants that are the same for every prime row
+    const xFrac = new Float64Array(xSteps);     // fractional position [0,1]
+    const xPos = new Float64Array(xSteps);       // pixel x coordinate
+    const logXArr = new Float64Array(xSteps);    // log-space x value
+    const envelope = new Float64Array(xSteps);   // decay envelope exp(-0.05*frac)
+    for (let i = 0; i < xSteps; i++) {
+      const frac = i / (xSteps - 1);
+      xFrac[i] = frac;
+      xPos[i] = xPad + frac * waveW;
+      logXArr[i] = 1 + frac * 5;  // log-space x from e^1 to e^6
+      envelope[i] = Math.exp(-0.05 * frac);
+    }
+
     primeData.forEach((pd, idx) => {
       const { p, omega, amplitude, hue } = pd;
       const yCenter = 60 + idx * rowH;
@@ -91,18 +104,16 @@ export default function AnimatedModesViz() {
 
       // Draw waveform: cos(gamma * ln(x) - omega * t)
       const halfRow = rowH * 0.38;
+      const phaseOffset = omega * t;
       ctx.beginPath();
       for (let i = 0; i < xSteps; i++) {
-        const frac = i / (xSteps - 1);
-        const x = xPad + frac * waveW;
-        const logX = 1 + frac * 5; // log-space x from e^1 to e^6
-        const val = amplitude * Math.cos(gamma * logX - omega * t) * Math.exp(-0.05 * frac);
+        const val = amplitude * Math.cos(gamma * logXArr[i] - phaseOffset) * envelope[i];
         const y = yCenter - val * halfRow;
 
         superposition[i] += val;
 
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
+        if (i === 0) ctx.moveTo(xPos[i], y);
+        else ctx.lineTo(xPos[i], y);
       }
 
       ctx.strokeStyle = `hsla(${hue}, 70%, 55%, 0.7)`;
@@ -155,10 +166,9 @@ export default function AnimatedModesViz() {
 
     ctx.beginPath();
     for (let i = 0; i < xSteps; i++) {
-      const x = xPad + (i / (xSteps - 1)) * waveW;
       const y = superMid - superposition[i] * scale;
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+      if (i === 0) ctx.moveTo(xPos[i], y);
+      else ctx.lineTo(xPos[i], y);
     }
     ctx.strokeStyle = '#10b981';
     ctx.lineWidth = 2.5;
@@ -166,13 +176,12 @@ export default function AnimatedModesViz() {
 
     // Fill
     ctx.beginPath();
-    ctx.moveTo(xPad, superMid);
+    ctx.moveTo(xPos[0], superMid);
     for (let i = 0; i < xSteps; i++) {
-      const x = xPad + (i / (xSteps - 1)) * waveW;
       const y = superMid - superposition[i] * scale;
-      ctx.lineTo(x, y);
+      ctx.lineTo(xPos[i], y);
     }
-    ctx.lineTo(xPad + waveW, superMid);
+    ctx.lineTo(xPos[xSteps - 1], superMid);
     ctx.closePath();
     ctx.fillStyle = 'rgba(16, 185, 129, 0.08)';
     ctx.fill();

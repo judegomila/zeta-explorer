@@ -716,11 +716,18 @@ function FullReportTab({ numPrimes }) {
     }, 50);
   }, [numPrimes]);
 
+  // Auto-run the check when the tab mounts
+  useEffect(() => {
+    if (!report && !loading) {
+      runCheck();
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   if (!report && !loading) {
     return (
       <div style={{ textAlign: 'center', padding: '40px 0' }}>
         <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16 }}>
-          Click "Run Full Check" above to execute all tests.
+          Running full proof check...
         </p>
       </div>
     );
@@ -961,14 +968,9 @@ function FullReportTab({ numPrimes }) {
 export default function ProofCheckerViz() {
   const [activeTab, setActiveTab] = useState(0);
   const [numPrimes, setNumPrimes] = useState(12);
-  const fullReportRef = useRef(null);
 
   const handleRunFullCheck = useCallback(() => {
     setActiveTab(3);
-    // Trigger the full report tab to run
-    if (fullReportRef.current) {
-      fullReportRef.current();
-    }
   }, []);
 
   return (

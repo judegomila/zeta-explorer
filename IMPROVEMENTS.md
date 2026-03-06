@@ -481,3 +481,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 519 | 2026-03-06T23:45:00Z | Remove dead code with x2-x2 typo in ZXCalculusViz drawArrow helper | ZXCalculusViz.jsx |
 | 520 | 2026-03-06T14:30:00Z | Precompute (1−1/ρ) values outside n-loop in liCoefficients to avoid redundant cDiv/cSub per zero | rh-attack.js |
 | 522 | 2026-03-06T21:00:00Z | Fix Full Report tab in ProofCheckerViz never running due to disconnected ref callback | ProofCheckerViz.jsx |
+| 523 | 2026-03-07T02:00:00Z | Fix Heat Flow tab claiming Λ = 0 instead of Λ ≥ 0 (Rodgers–Tao proved the lower bound, not equality) | RHAttackViz.jsx |

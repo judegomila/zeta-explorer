@@ -735,7 +735,7 @@ function HeatFlowTab() {
         border: '1px solid #10b98140',
         fontSize: 12,
       }}>
-        <strong style={{ color: '#10b981' }}>Λ = 0 (Rodgers–Tao, 2020)</strong>
+        <strong style={{ color: '#10b981' }}>Λ ≥ 0 (Rodgers–Tao, 2018)</strong>
         <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 11 }}>
           {data.gap}
         </div>

@@ -452,3 +452,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 491 | 2026-03-05T18:00:00Z | Fix wrong claim that Euler factor weights are uniform at σ=½ in PrimeContributions explainer | InfoTheoryExperimentsViz.jsx |
 | 492 | 2026-03-05T19:00:00Z | Fix PaperPage abstract claiming reflected power 'vanishes' at σ=½ (it is minimized, not zero) | PaperPage.jsx |
 | 493 | 2026-03-06T01:30:00Z | Add horizontal gridlines to Li Coefficients bar chart in RHAttackViz | RHAttackViz.jsx |
+| 494 | 2026-03-06T02:00:00Z | Fix information-theory.js docstrings falsely claiming entropy is maximized via uniform distribution at σ=½ | information-theory.js |

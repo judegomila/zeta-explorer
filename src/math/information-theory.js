@@ -33,7 +33,8 @@ import { getPrimes, primeFrequency } from './primes.js';
  *
  * H(s) = -Σ_p p_k · log₂(p_k)  where p_k = |H_p(s)|² / Σ|H_p(s)|²
  *
- * At σ = ½: entropy is maximized (all stages contribute equally = uniform distribution)
+ * At σ = ½: direct and dual weight distributions coincide (functional equation symmetry),
+ *   but the distribution is NOT uniform — small primes always dominate (p^{-1/2} > q^{-1/2} for p < q).
  * At σ >> 1: large primes contribute negligibly (low entropy, peaked at small primes)
  * At σ → 0: entropy diverges (all stages blow up)
  *
@@ -493,7 +494,7 @@ export function informationSummary(s, numPrimes = 12) {
  * The critical-line optimality theorem (information-theoretic form):
  *
  * Claim: σ = ½ simultaneously:
- *   (1) Maximizes entropy efficiency (most uniform prime distribution)
+ *   (1) Maximizes entropy efficiency (direct/dual distributions best aligned)
  *   (2) Maximizes channel capacity (optimal signal transfer)
  *   (3) Maximizes mutual information (maximum direct-dual coupling)
  *   (4) Minimizes KL divergence (equilibrium state)

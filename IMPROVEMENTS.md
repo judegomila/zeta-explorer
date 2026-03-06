@@ -515,3 +515,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 554 | 2026-03-06T20:00:00Z | Add click-to-snap nearest-zero indicator to t slider in ZXCalculusViz | ZXCalculusViz.jsx |
 | 555 | 2026-03-06T21:30:00Z | Fix Li Coefficients bar chart anchoring bars at x-axis instead of zero reference line | RHAttackViz.jsx |
 | 556 | 2026-03-06T23:00:00Z | Add missing axis labels to first sub-chart in Convergence tab of TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
+| 557 | 2026-03-06T23:50:00Z | Add missing y-axis labels to both charts in Transfer Function tab of OddZetaViz | OddZetaViz.jsx |

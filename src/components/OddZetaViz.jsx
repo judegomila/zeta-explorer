@@ -592,6 +592,16 @@ function TransferTab({ selectedN, numPrimes }) {
     ctx.textAlign = 'center';
     ctx.fillText('Prime p', w / 2, margin.top + halfH + 28);
 
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, margin.top + halfH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('|H_p(n)| \u2212 1', 0, 0);
+    ctx.restore();
+
     // ─── Bottom: Impedance profile for selected n ───
     const g2Top = margin.top + halfH + 44;
     const g2H = halfH;
@@ -657,6 +667,16 @@ function TransferTab({ selectedN, numPrimes }) {
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Prime p', w / 2, g2Top + g2H + 28);
+
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, g2Top + g2H / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Impedance Z_p', 0, 0);
+    ctx.restore();
 
   }, [comparisonData, tfData, selectedN]);
 

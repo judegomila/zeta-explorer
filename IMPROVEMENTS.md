@@ -498,3 +498,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 537 | 2026-03-06T22:00:00Z | Add missing y-axis labels to both charts in OddZetaViz Values & Convergence tab | OddZetaViz.jsx |
 | 538 | 2026-03-07T08:00:00Z | Add tab explainer banners to all 4 tabs in FormalProofViz | FormalProofViz.jsx |
 | 539 | 2026-03-07T09:00:00Z | Add tab explainer banners to all 5 tabs in SpectralAttackViz | SpectralAttackViz.jsx |
+| 540 | 2026-03-06T10:00:00Z | Fix Von Mangoldt spectrum legend using wrong notation |Λ̂(ω)| instead of |F(ω)| | FourierDomainViz.jsx |

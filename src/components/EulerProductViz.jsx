@@ -114,19 +114,30 @@ export default function EulerProductViz() {
       .text('|H| = 1');
 
     // Phase plot (secondary axis)
+    // Break path at ±π wrap discontinuities to avoid false vertical lines
     const yPhase = d3.scaleLinear().domain([-Math.PI, Math.PI]).range([h, 0]);
-    const phaseLine = d3.line()
-      .x((d, i) => x(i))
-      .y(d => yPhase(d.cumulative ? Math.atan2(d.cumulative[1], d.cumulative[0]) : 0))
-      .curve(d3.curveLinear);
+    const phases = data.map(d => d.cumulative ? Math.atan2(d.cumulative[1], d.cumulative[0]) : 0);
+    const phaseSegments = [];
+    let seg = [{ i: 0, phase: phases[0] }];
+    for (let i = 1; i < phases.length; i++) {
+      if (Math.abs(phases[i] - phases[i - 1]) > Math.PI) {
+        phaseSegments.push(seg);
+        seg = [];
+      }
+      seg.push({ i, phase: phases[i] });
+    }
+    if (seg.length > 0) phaseSegments.push(seg);
 
-    g.append('path')
-      .datum(data)
-      .attr('d', phaseLine)
-      .attr('fill', 'none')
-      .attr('stroke', '#8b5cf6')
-      .attr('stroke-width', 1.5)
-      .attr('opacity', 0.7);
+    for (const segment of phaseSegments) {
+      if (segment.length < 2) continue;
+      g.append('path')
+        .datum(segment)
+        .attr('d', d3.line().x(d => x(d.i)).y(d => yPhase(d.phase)).curve(d3.curveLinear))
+        .attr('fill', 'none')
+        .attr('stroke', '#8b5cf6')
+        .attr('stroke-width', 1.5)
+        .attr('opacity', 0.7);
+    }
 
     // Right y-axis for phase
     const phaseAxis = d3.axisRight(yPhase)

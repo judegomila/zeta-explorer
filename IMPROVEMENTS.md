@@ -465,3 +465,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 504 | 2026-03-06T12:00:00Z | Fix false claim that prime weights are uniform at σ=½ in InformationTheoryViz entropy tab | InformationTheoryViz.jsx |
 | 505 | 2026-03-06T13:00:00Z | Add nearest-zero proximity indicator to t slider in InfoTheoryExperimentsViz | InfoTheoryExperimentsViz.jsx |
 | 506 | 2026-03-06T14:00:00Z | Add missing Y-axis label to critical-line Z(t) plot in ZetaLandscapeViz | ZetaLandscapeViz.jsx |
+| 507 | 2026-03-06T15:00:00Z | Fix phase plot false discontinuities at ±π wraps in EulerProductViz | EulerProductViz.jsx |

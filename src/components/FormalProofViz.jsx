@@ -678,7 +678,7 @@ function EvidenceTab({ numPrimes, numZeros }) {
             color: evidence.zeroDeviation?.allOnLine ? '#10b981' : '#ef4444',
             fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)',
           }}>
-            {evidence.zeroDeviation?.count || 0}/{evidence.zeroDeviation?.count || 0}
+            {evidence.zeroDeviation?.onLineCount ?? 0}/{evidence.zeroDeviation?.count || 0}
           </div>
           <div style={{ color: '#64748b', fontSize: 10 }}>Zeros on line</div>
         </div>

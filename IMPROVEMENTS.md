@@ -508,3 +508,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 547 | 2026-03-06T23:45:00Z | Fix incorrect |H| = 1 reference line label in EulerProductViz to |factor| = 1 | EulerProductViz.jsx |
 | 548 | 2026-03-06T23:55:00Z | Add missing y-axis labels to Hilbert-Polya tab in GapClosingViz | GapClosingViz.jsx |
 | 549 | 2026-03-07T10:30:00Z | Disable Primes slider on Bridge test in RHRigorViz since losslessBridge ignores numPrimes | RHRigorViz.jsx |
+| 550 | 2026-03-06T16:00:00Z | Fix Evidence tab showing count/count instead of onLineCount/count for zeros on critical line | FormalProofViz.jsx, formal-proof.js |

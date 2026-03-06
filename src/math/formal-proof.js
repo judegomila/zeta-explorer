@@ -716,6 +716,7 @@ export function computationalEvidence(numZeros = 20, numPrimes = 10) {
   evidence.zeroDeviation = {
     zeros: zeroDeviation,
     allOnLine: zeroDeviation.every(z => z.onLine),
+    onLineCount: zeroDeviation.filter(z => z.onLine).length,
     count: zeroDeviation.length,
   };
 

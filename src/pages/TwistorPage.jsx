@@ -266,9 +266,17 @@ export default function TwistorPage() {
           </p>
           <BlockMath tex={"Z \\cdot W = (\\sigma - \\tfrac{1}{2})\\cos(t\\log 2) - (\\tfrac{1}{2} - \\sigma)\\cos(t\\log 2) = 2(\\sigma - \\tfrac{1}{2})\\cos(t\\log 2)"} />
           <p style={{ color: '#10b981', fontSize: 13, lineHeight: 1.8, marginTop: 8, fontWeight: 600 }}>
-            Therefore <InlineMath tex={"Z \\cdot W = 0"} /> if and only if
-            <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> (since <InlineMath tex={"\\cos(t\\log 2) \\neq 0"} /> generically).
-            The critical line IS the incidence locus.
+            Therefore <InlineMath tex={"Z \\cdot W = 0"} /> when
+            <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> (for all <InlineMath tex={"t"} />).
+            The critical line is the incidence locus.
+          </p>
+          <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 6 }}>
+            <strong style={{ color: '#f59e0b' }}>Caveat:</strong> the factor <InlineMath tex={"\\cos(t\\log 2)"} /> also
+            vanishes at isolated values <InlineMath tex={"t = (2k+1)\\pi/(2\\log 2)"} />, making{' '}
+            <InlineMath tex={"Z \\cdot W = 0"} /> for <em>any</em> <InlineMath tex={"\\sigma"} /> at those heights.
+            These are artifacts of using only prime <InlineMath tex={"p = 2"} /> in the spinor encoding — a
+            richer encoding using all primes would eliminate the spurious incidence locus, leaving only{' '}
+            <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
           </p>
         </div>
 
@@ -356,7 +364,7 @@ export default function TwistorPage() {
             condition at <InlineMath tex="\\sigma = \\frac{1}{2}" /> (where <InlineMath tex="Z_{\\text{dual}} = \\overline{Z_{\\text{dir}}}" /> via Schwarz reflection). When the twistor and dual twistor are
             incident, the bridge is lossless and the system is in equilibrium:
           </p>
-          <BlockMath tex="Z \\cdot W = 0 \\iff |\\chi(s)| = 1 \\iff \\sigma = \\tfrac{1}{2}" />
+          <BlockMath tex="|\\chi(s)| = 1 \\iff \\sigma = \\tfrac{1}{2} \\implies Z \\cdot W = 0" />
           <p style={{ color: 'var(--text-secondary)', fontSize: 13 }}>
             The incidence heatmap tab visualizes this: the dark band along <InlineMath tex="\\sigma = 0.5" />
             is where the twistor pair satisfies the null condition, and known zeta zeros sit

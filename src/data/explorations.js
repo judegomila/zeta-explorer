@@ -3542,6 +3542,42 @@ The Montgomery-Dyson encounter remains one of the most remarkable moments in mat
       'The Montgomery conjecture (full R₂ for all α) remains unproven and implies RH',
     ],
     references: ['montgomery-1973', 'odlyzko-1987', 'keating-snaith-2000'],
+    nextSteps: ['exp-084'],
+  },
+  {
+    id: 'exp-084',
+    timestamp: '2026-03-07T01:00:00Z',
+    title: "Deninger's Foliated Spaces: A Geometric Home for Prime Oscillators",
+    category: 'analysis',
+    depth: 4,
+    status: 'complete',
+    date: '2026-03-07',
+    content: `Christopher Deninger proposed (1992–2005) that the zeta function should arise as a **regularized determinant** of an operator acting on a foliated space — a geometric object whose leaves carry a natural flow. The zeros of $\\zeta(s)$ would then be eigenvalues of a **leafwise Laplacian**, giving a spectral interpretation of RH.
+
+Deninger's key insight: for each prime $p$, there should be a closed orbit of length $\\log p$ in this foliated space. The Euler product then decomposes as a product over periodic orbits — exactly as in the Selberg trace formula for hyperbolic surfaces, but now for an arithmetic object.
+
+**ZPO connection**: This maps directly onto the prime oscillator chain. Each prime's closed orbit of length $\\log p$ is the fundamental period of the oscillator tuned to frequency $\\omega_p = \\log p$. The leafwise Laplacian is the ZPO Hamiltonian, and its eigenvalues are the zeros $\\rho = \\tfrac{1}{2} + i\\gamma_n$. The foliation flow is the time evolution of the coupled oscillator system.
+
+Deninger's framework predicts:
+
+1. **Positivity**: The foliation should carry a transverse measure making the Laplacian positive — corresponding to the Hilbert-Pólya operator being self-adjoint with real eigenvalues (i.e., RH)
+2. **Explicit formula as trace**: The von Mangoldt explicit formula should be the trace formula for the foliation flow, with primes on the geometric side and zeros on the spectral side
+3. **Functional equation as Poincaré duality**: The symmetry $s \\leftrightarrow 1-s$ should arise from a duality on the cohomology of the foliated space
+
+The program remains incomplete — no one has constructed the actual foliated space for $\\mathbb{Q}$. But Deninger verified it works for function fields (where the Weil conjectures provide the geometry), and the formal structure matches the ZPO framework remarkably: prime oscillators $\\leftrightarrow$ closed orbits, zeros $\\leftrightarrow$ eigenvalues, cascade coupling $\\leftrightarrow$ foliation transversality.`,
+    latex: [
+      '\\det_{\\text{reg}}(s - \\Theta | H^1) = \\frac{\\xi(s)}{s(s-1)} \\quad \\text{(Deninger regularized determinant)}',
+      '\\text{Closed orbits: } \\gamma_p \\text{ of length } \\ell(\\gamma_p) = \\log p \\quad \\text{for each prime } p',
+      '\\text{Trace formula: } \\sum_\\rho h(\\gamma_\\rho) = \\hat{h}(0) \\log \\frac{|d|}{4\\pi^2} + \\sum_p \\sum_{m=1}^\\infty \\frac{\\log p}{p^{m/2}} g(m \\log p)',
+    ],
+    insights: [
+      "Deninger's foliated space gives each prime a closed orbit of length log p — the oscillator's fundamental period",
+      'The leafwise Laplacian plays the role of the ZPO Hamiltonian with zeros as eigenvalues',
+      'RH becomes a positivity condition on the transverse measure of the foliation',
+      'The functional equation arises as Poincaré duality on foliation cohomology',
+      'Program verified for function fields but the arithmetic case remains open',
+    ],
+    references: ['connes-1999', 'berry-keating-1999'],
     nextSteps: [],
   },
 ];

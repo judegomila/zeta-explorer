@@ -475,3 +475,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 514 | 2026-03-06T22:00:00Z | Add missing y-axis tick labels, gridlines, and x-axis tick labels to Heat Flow tab in RHAttackViz | RHAttackViz.jsx |
 | 515 | 2026-03-06T23:00:00Z | Add missing window resize handler to FormalProofViz EvidenceTab canvases | FormalProofViz.jsx |
 | 516 | 2026-03-07T00:00:00Z | Add missing legend for derivative color coding in SpectralAttackViz Lyapunov tab | SpectralAttackViz.jsx |
+| 517 | 2026-03-07T01:00:00Z | Add Deninger foliated spaces exploration entry connecting closed orbits to prime oscillators | explorations.js |

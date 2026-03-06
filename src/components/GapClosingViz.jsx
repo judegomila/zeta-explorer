@@ -436,6 +436,25 @@ function HilbertPolyaTab({ numPrimes }) {
     ctx.textAlign = 'center';
     ctx.fillText('Matrix size K', w / 2, h - 4);
 
+    // Y-axis labels (rotated)
+    ctx.save();
+    ctx.translate(12, topH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Eigenvalue / Zero', 0, 0);
+    ctx.restore();
+
+    ctx.save();
+    ctx.translate(12, topH + botH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Avg Error', 0, 0);
+    ctx.restore();
+
   }, [data]);
 
   useEffect(() => { draw(); }, [draw]);

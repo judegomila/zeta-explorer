@@ -42,7 +42,7 @@ export default function InformationTheoryPage() {
             </thead>
             <tbody>
               {[
-                ['Shannon Entropy', 'Maximum (uniform prime distribution)'],
+                ['Shannon Entropy', 'Maximum (most balanced prime weighting)'],
                 ['Channel Capacity', 'Maximum (conjugate-matched, noise minimized)'],
                 ['Mutual Information I(D;D*)', 'Maximum (bridge unitary, full coupling)'],
                 ['Fisher Information', 'Singularity at zeros (infinite sensitivity)'],
@@ -137,7 +137,7 @@ export default function InformationTheoryPage() {
         <div className="card">
           <h3 style={{ color: '#10b981', fontSize: 14 }}>Novel Observations</h3>
           <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 12, lineHeight: 2 }}>
-            <li>The Euler product entropy is maximized at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (uniform prime distribution)</li>
+            <li>The Euler product entropy is maximized at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (most balanced prime weighting)</li>
             <li>KL divergence <InlineMath tex={"D_{\\text{KL}}(P_\\sigma \\| P_{1/2})"} /> is a natural "distance from RH" measure</li>
             <li>Fisher information diverges at zeros like <InlineMath tex="|\zeta(\sigma+it)|^{-2}" /></li>
             <li>Rate-distortion curve quantifies the "complexity" of <InlineMath tex="\zeta(s)" /> in prime-oscillator bits</li>
@@ -157,8 +157,9 @@ export default function InformationTheoryPage() {
         <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 2.2, marginTop: 8 }}>
           <li>
             <strong style={{ color: '#06b6d4' }}>Shannon entropy of Euler factors:</strong> maximized
-            at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> where all primes contribute equally to the
-            product, giving a uniform distribution over oscillator modes.
+            at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> where the direct/dual weight distributions
+            coincide. The distribution is not uniform — small primes still dominate via <InlineMath tex={"p^{-1/2}"} /> — but
+            entropy is maximized because the functional equation symmetry makes the weighting most balanced.
           </li>
           <li>
             <strong style={{ color: '#f59e0b' }}>KL divergence:</strong> <InlineMath tex={"D_{\\text{KL}}(P_\\sigma \\| P_{1/2}) \\geq 0"} /> with

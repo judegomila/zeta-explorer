@@ -468,3 +468,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 507 | 2026-03-06T15:00:00Z | Fix phase plot false discontinuities at ±π wraps in EulerProductViz | EulerProductViz.jsx |
 | 508 | 2026-03-06T16:00:00Z | Eliminate duplicate gapClosingReport computation in GapClosingViz ConfinementTab | GapClosingViz.jsx |
 | 509 | 2026-03-06T17:00:00Z | Add missing y-axis tick labels and gridlines to Irrationality Measure chart in OddZetaViz | OddZetaViz.jsx |
+| 510 | 2026-03-06T18:00:00Z | Fix false claim that Euler product entropy gives uniform prime distribution at sigma=1/2 | InformationTheoryPage.jsx |

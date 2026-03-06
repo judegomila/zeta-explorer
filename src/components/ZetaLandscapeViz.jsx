@@ -151,6 +151,16 @@ export default function ZetaLandscapeViz() {
     }
     ctx.textAlign = 'start';
 
+    // Y-axis label
+    ctx.save();
+    ctx.translate(8, yMid);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Z(t)', 0, 0);
+    ctx.restore();
+
     // Mark zeta zeros
     for (const gamma of ZETA_ZEROS) {
       if (gamma >= tMin && gamma <= tMax) {

@@ -367,10 +367,10 @@ export function weilPositivityTest(aValues = [0.5, 1, 2, 5, 10], numZeros = 100,
     }
 
     // RHS: prime sum contribution
-    // ĥ(u) = √(π/a) · exp(−u²/(4a)) for our Gaussian
-    // Prime contribution: Σ_p Σ_m (log p / p^{m/2}) · 2 · ĥ(m·log p)
+    // g(r) = h(½+ir) = exp(−a/4)·exp(−ar²), so ĝ(u) = exp(−a/4)·√(π/a)·exp(−u²/(4a))
+    // Prime contribution: Σ_p Σ_m (log p / p^{m/2}) · 2 · ĝ(m·log p)
     let primeSum = 0;
-    const hatCoeff = Math.sqrt(Math.PI / a);
+    const hatCoeff = Math.exp(-a / 4) * Math.sqrt(Math.PI / a);
     for (const p of primes) {
       const logP = Math.log(p);
       for (let m = 1; m <= 3; m++) { // truncate at m = 3

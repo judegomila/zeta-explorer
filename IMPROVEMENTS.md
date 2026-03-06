@@ -490,3 +490,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 529 | 2026-03-06T18:00:00Z | Add missing y-axis label to Symmetry tab in ZXCalculusViz | ZXCalculusViz.jsx |
 | 530 | 2026-03-06T19:30:00Z | Add tab explainer banners to all 6 tabs in InformationTheoryViz | InformationTheoryViz.jsx |
 | 531 | 2026-03-07T06:00:00Z | Fix Hilbert-Polya text saying operator must be "positive" instead of "self-adjoint" | StatisticsPage.jsx |
+| 532 | 2026-03-07T07:00:00Z | Fix Lyapunov tab legend incorrectly labeling positive dD_KL/dσ as "away from ½" | SpectralAttackViz.jsx |

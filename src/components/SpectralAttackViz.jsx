@@ -319,7 +319,7 @@ function LyapunovTab({ t, numPrimes }) {
       ctx.beginPath();
       ctx.moveTo(x0, y0);
       ctx.lineTo(x1, y1);
-      // negative derivative (left of 0.5) -> red; positive (right) -> blue
+      // negative derivative (σ < 0.5) -> red; positive (σ > 0.5) -> blue
       ctx.strokeStyle = pts[i].dkl < 0 ? '#ef4444' : '#3b82f6';
       ctx.lineWidth = 1.5;
       ctx.stroke();
@@ -364,8 +364,8 @@ function LyapunovTab({ t, numPrimes }) {
     ctx.fillRect(legX, legY, 140, 34);
     ctx.strokeRect(legX, legY, 140, 34);
     [
-      { color: '#ef4444', label: 'dD_KL/d\u03C3 < 0 (toward \u00BD)' },
-      { color: '#3b82f6', label: 'dD_KL/d\u03C3 > 0 (away from \u00BD)' },
+      { color: '#ef4444', label: 'dD_KL/d\u03C3 < 0 (\u03C3 < \u00BD)' },
+      { color: '#3b82f6', label: 'dD_KL/d\u03C3 > 0 (\u03C3 > \u00BD)' },
     ].forEach((item, i) => {
       const iy = legY + 10 + i * 14;
       ctx.beginPath();

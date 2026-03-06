@@ -203,6 +203,14 @@ export default function ScatteringMatrixViz() {
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
         .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
 
+      // 0° reference line
+      g.append('line')
+        .attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
+        .attr('stroke', '#64748b').attr('stroke-width', 1).attr('stroke-dasharray', '6,4');
+      g.append('text').attr('x', w - 4).attr('y', y(0) - 6)
+        .attr('text-anchor', 'end').attr('fill', '#64748b').attr('font-size', 10)
+        .text('0° (real axis)');
+
       const line = d3.line()
         .x(d => x(d.sigma))
         .y(d => y(d.chiPhase * 180 / Math.PI))

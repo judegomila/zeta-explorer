@@ -274,7 +274,7 @@ function ConstantsTab() {
     // ─ Chart 3: Error convergence (log scale) ─
     const y3Off = y2Off + chartH + 56;
     const g3 = svg.append('g').attr('transform', `translate(${margin.left},${y3Off})`);
-    const x3 = d3.scaleLinear().domain([2, maxN]).range([0, w]);
+    const x3 = d3.scaleLinear().domain([1, maxN]).range([0, w]);
     const allErrors = [
       ...data.eData.map(d => d.error),
       ...data.piData.map(d => d.error),

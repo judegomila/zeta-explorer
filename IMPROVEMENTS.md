@@ -509,3 +509,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 548 | 2026-03-06T23:55:00Z | Add missing y-axis labels to Hilbert-Polya tab in GapClosingViz | GapClosingViz.jsx |
 | 549 | 2026-03-07T10:30:00Z | Disable Primes slider on Bridge test in RHRigorViz since losslessBridge ignores numPrimes | RHRigorViz.jsx |
 | 550 | 2026-03-06T16:00:00Z | Fix Evidence tab showing count/count instead of onLineCount/count for zeros on critical line | FormalProofViz.jsx, formal-proof.js |
+| 551 | 2026-03-06T17:00:00Z | Fix error convergence chart x-domain clipping first pi error point in PascalZetaViz | PascalZetaViz.jsx |

@@ -66,7 +66,8 @@ export default function AnimatedModesViz() {
     // Title
     ctx.fillStyle = '#e2e8f0';
     ctx.font = '600 14px sans-serif';
-    ctx.fillText(`Oscillator Modes at Zeta Zero γ₍${zeroIndex + 1}₎ = ${gamma.toFixed(3)}`, 12, 22);
+    const subIdx = String(zeroIndex + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('');
+    ctx.fillText(`Oscillator Modes at Zeta Zero γ${subIdx} = ${gamma.toFixed(3)}`, 12, 22);
     ctx.fillStyle = '#64748b';
     ctx.font = '11px sans-serif';
     ctx.fillText('Each row: one prime oscillator. Right: superposition of all modes.', 12, 40);

@@ -560,6 +560,15 @@ function HeatFlowTab() {
 
     const tauColors = ['#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6'];
 
+    // Compute shared y-scale across all tau curves so amplitude differences are visible
+    let globalMaxVal = 1;
+    tauValues.forEach((tau) => {
+      const curveData = data.results[tau];
+      if (!curveData) return;
+      const m = Math.max(...curveData.curve.map(p => Math.abs(p.value)));
+      if (m > globalMaxVal) globalMaxVal = m;
+    });
+
     // Draw each tau curve
     tauValues.forEach((tau, tIdx) => {
       const curveData = data.results[tau];
@@ -567,7 +576,6 @@ function HeatFlowTab() {
       const curve = curveData.curve;
       const tMin = curve[0].t;
       const tMax = curve[curve.length - 1].t;
-      const maxVal = Math.max(...curve.map(p => Math.abs(p.value)), 1);
 
       const isActive = tIdx === tauIdx;
       const midY = margin.top + plotH / 2;
@@ -575,7 +583,7 @@ function HeatFlowTab() {
       ctx.beginPath();
       curve.forEach((p, i) => {
         const x = margin.left + ((p.t - tMin) / (tMax - tMin)) * plotW;
-        const y = midY - (p.value / maxVal) * plotH * 0.4;
+        const y = midY - (p.value / globalMaxVal) * plotH * 0.4;
         if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
       });
       ctx.strokeStyle = tauColors[tIdx];

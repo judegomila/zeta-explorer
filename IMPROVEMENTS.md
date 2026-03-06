@@ -459,3 +459,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 498 | 2026-03-06T06:00:00Z | Precompute log(p) and log(p)/p weights in hilbertPolyaMatrix to avoid redundant Math.log calls | gap-closing.js |
 | 499 | 2026-03-06T07:00:00Z | Fix heat flow ZPO interpretation saying t>0 scatters zeros (correct: t<0 scatters, t>0 preserves) | SupercriticalPage.jsx |
 | 500 | 2026-03-06T08:00:00Z | Add Montgomery-Dyson encounter exploration entry connecting GUE random matrix statistics to zeta zeros | explorations.js |
+| 501 | 2026-03-06T09:00:00Z | Fix Heat Flow tab using per-curve y-normalization hiding amplitude differences across τ values | RHAttackViz.jsx |

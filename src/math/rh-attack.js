@@ -33,21 +33,19 @@ export function liCoefficients(maxN = 30, numZeros = 100) {
   const zeros = ZETA_ZEROS.slice(0, numZeros);
   const lambdas = [];
 
+  // Precompute (1 − 1/ρ) for each zero — these depend only on γ, not n
+  const oneMinusInvRhos = zeros.map(gamma => {
+    const rho = [0.5, gamma];
+    const invRho = cDiv([1, 0], rho);
+    return cSub([1, 0], invRho);
+  });
+
   for (let n = 1; n <= maxN; n++) {
     let lambda = 0;
 
-    for (const gamma of zeros) {
-      // ρ = 0.5 + i·γ
-      const rho = [0.5, gamma];
-
-      // 1/ρ
-      const invRho = cDiv([1, 0], rho);
-
-      // 1 − 1/ρ
-      const oneMinusInvRho = cSub([1, 0], invRho);
-
+    for (let zi = 0; zi < oneMinusInvRhos.length; zi++) {
       // (1 − 1/ρ)^n
-      const powered = cPow(oneMinusInvRho, [n, 0]);
+      const powered = cPow(oneMinusInvRhos[zi], [n, 0]);
 
       // 1 − (1 − 1/ρ)^n
       const term = cSub([1, 0], powered);

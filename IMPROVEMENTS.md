@@ -518,3 +518,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 557 | 2026-03-06T23:50:00Z | Add missing y-axis labels to both charts in Transfer Function tab of OddZetaViz | OddZetaViz.jsx |
 | 558 | 2026-03-07T00:15:00Z | Fix inconsistent σ slider color thresholds in TwistorViz (0.05/0.2 → 0.02/0.15) | TwistorViz.jsx |
 | 559 | 2026-03-07T01:00:00Z | Fix Strategy Scores bar fill drawing three overlapping fills resulting in fully opaque bars instead of semi-transparent | SpectralAttackViz.jsx |
+| 560 | 2026-03-07T11:00:00Z | Add missing axis labels to all three charts in Constants tab of PascalZetaViz | PascalZetaViz.jsx |

@@ -206,6 +206,12 @@ function ConstantsTab() {
       .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
       .text("Brothers' e from Pascal row products");
 
+    // Y-axis label
+    g1.append('text')
+      .attr('transform', `translate(-42, ${chartH / 2}) rotate(-90)`)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .text('Ratio');
+
     // Legend
     const leg1 = g1.append('g').attr('transform', `translate(${w - 180}, 10)`);
     leg1.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
@@ -260,6 +266,12 @@ function ConstantsTab() {
     g2.append('text').attr('x', 4).attr('y', -6)
       .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
       .text('π from Central Binomial Coefficients');
+
+    // Y-axis label
+    g2.append('text')
+      .attr('transform', `translate(-42, ${chartH / 2}) rotate(-90)`)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .text('π approx');
 
     const leg2 = g2.append('g').attr('transform', `translate(${w - 200}, 10)`);
     leg2.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
@@ -316,6 +328,16 @@ function ConstantsTab() {
     g3.append('text').attr('x', 4).attr('y', -6)
       .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
       .text('Convergence Error (log scale)');
+
+    // Axis labels
+    g3.append('text')
+      .attr('x', w / 2).attr('y', chartH + 30)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .text('n');
+    g3.append('text')
+      .attr('transform', `translate(-42, ${chartH / 2}) rotate(-90)`)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .text('|Error|');
 
     const leg3 = g3.append('g').attr('transform', `translate(${w - 120}, 10)`);
     leg3.append('circle').attr('cx', 6).attr('cy', 0).attr('r', 4).attr('fill', '#3b82f6');

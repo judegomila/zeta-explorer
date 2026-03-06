@@ -496,3 +496,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 535 | 2026-03-06T20:00:00Z | Add missing window resize handler to AnimatedModesViz when paused | AnimatedModesViz.jsx |
 | 536 | 2026-03-06T21:00:00Z | Add missing axis labels to gradient and curvature sub-charts in ConvergenceTab | TwinOscillatorSimViz.jsx |
 | 537 | 2026-03-06T22:00:00Z | Add missing y-axis labels to both charts in OddZetaViz Values & Convergence tab | OddZetaViz.jsx |
+| 538 | 2026-03-07T08:00:00Z | Add tab explainer banners to all 4 tabs in FormalProofViz | FormalProofViz.jsx |

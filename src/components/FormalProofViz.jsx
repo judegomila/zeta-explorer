@@ -900,6 +900,43 @@ export default function FormalProofViz() {
         )}
       </div>
 
+      {/* Tab explainers */}
+      {tab === 0 && (
+        <div className="tab-explainer accent-green">
+          <strong>Proof Map:</strong> Dependency graph of the ZPO proof sections. Each node is a proof step
+          (S1–S9) colored by status: <span style={{ color: '#10b981' }}>proven</span>, <span style={{ color: '#f59e0b' }}>conditional</span>,
+          or <span style={{ color: '#ef4444' }}>open</span>. Arrows show logical dependencies — a section
+          cannot be fully established until all its prerequisites are resolved.
+          <strong> Click a node</strong> to see its description and dependencies.
+        </div>
+      )}
+      {tab === 1 && (
+        <div className="tab-explainer accent-blue">
+          <strong>Verification:</strong> Run numerical checks on each proof section. Each section has a set of
+          test assertions (e.g. Hamiltonian convexity, bridge unitarity, Li positivity) that are evaluated
+          with the current number of primes and zeros.
+          <strong> Look for:</strong> which sections pass all checks vs. which have failing assertions — failures indicate
+          where the proof's claims don't hold numerically.
+        </div>
+      )}
+      {tab === 2 && (
+        <div className="tab-explainer accent-yellow">
+          <strong>Evidence:</strong> Three diagnostic charts showing computational evidence for the ZPO model:
+          Li coefficient positivity, Hamiltonian minimization at <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+          and zero confinement to the critical line. These support but do not prove the formal claims.
+          <strong> Look for:</strong> how the evidence strengthens as you increase the number of primes and zeros.
+        </div>
+      )}
+      {tab === 3 && (
+        <div className="tab-explainer accent-red">
+          <strong>Gaps:</strong> Catalog of unresolved proof gaps and conditional steps. Each entry describes
+          what remains to be shown and why it matters for the overall argument. These are the hardest
+          parts — analytic continuation of the cascade (S4), Hilbert–Polya operator construction (S5),
+          and Darlington synthesis (S7).
+          <strong> Look for:</strong> severity rankings and which gaps block the most downstream conclusions.
+        </div>
+      )}
+
       {/* Tab content */}
       {tab === 0 && <ProofMapTab numPrimes={numPrimes} />}
       {tab === 1 && <VerificationTab numPrimes={numPrimes} />}

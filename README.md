@@ -4,6 +4,24 @@ An interactive web application exploring the Riemann Hypothesis through the **Ze
 
 **Live site:** Deploy with `npm run build` and serve the `dist/` directory.
 
+## Screenshots
+
+| Home Page | RH Attack Strategies |
+|:-:|:-:|
+| ![Home](screenshots/home.png) | ![RH Attack](screenshots/rh-attack.png) |
+
+| Historical Reasoning | Gap Closing |
+|:-:|:-:|
+| ![Reasoning](screenshots/reasoning.png) | ![Gap Closing](screenshots/gap-closing.png) |
+
+| Prime Oscillators | Hamiltonian Energy |
+|:-:|:-:|
+| ![Oscillators](screenshots/oscillators.png) | ![Hamiltonian](screenshots/hamiltonian.png) |
+
+| GUE Statistics | AI Explorations |
+|:-:|:-:|
+| ![Statistics](screenshots/statistics.png) | ![Explorations](screenshots/explorations.png) |
+
 ## The ZPO Model in Brief
 
 Every prime `p` defines a harmonic oscillator with energy levels `E_k = k * log(p)`. Summing over excitations gives the geometric series:

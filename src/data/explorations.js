@@ -3508,6 +3508,42 @@ Zagier's insight is that both counting problems live in the world of (mock) modu
     references: ['guth-maynard-2024'],
     nextSteps: [],
   },
+  {
+    id: 'exp-083',
+    timestamp: '2026-03-06T08:00:00Z',
+    title: 'The Montgomery-Dyson Encounter: Nuclear Physics Meets Number Theory',
+    category: 'analysis',
+    depth: 3,
+    status: 'complete',
+    date: '2026-03-06',
+    content: `In 1972, Hugh Montgomery visited the Institute for Advanced Study to present his pair correlation conjecture for zeta zeros. He had computed the two-point correlation function
+
+$$R_2(\\alpha) = 1 - \\left(\\frac{\\sin \\pi \\alpha}{\\pi \\alpha}\\right)^2$$
+
+for the normalized spacings between nontrivial zeros of $\\zeta(s)$, valid for $|\\alpha| \\leq 1$ under RH. During afternoon tea, Freeman Dyson recognized this as exactly the pair correlation function of eigenvalues of large random unitary matrices from the **Gaussian Unitary Ensemble (GUE)** — the same statistics governing energy levels of heavy nuclei.
+
+This was a thunderbolt: it meant zeta zeros behave statistically like energy levels of a quantum chaotic system. In ZPO language, the prime oscillator cascade produces a spectrum (the zeros) whose statistical fingerprint matches that of a random Hamiltonian. The GUE connection provides three key predictions testable in the app:
+
+1. **Nearest-neighbor spacing**: zeros repel (probability of small gaps vanishes as $s^2$), unlike Poisson-distributed random points
+2. **Number variance**: $\\Sigma^2(L) \\sim \\frac{1}{\\pi^2}\\log L + C$ grows logarithmically, much slower than the linear $\\Sigma^2 = L$ of Poisson
+3. **Form factor**: the Fourier transform of $R_2$ has a characteristic dip-ramp-plateau structure
+
+The Montgomery-Dyson encounter remains one of the most remarkable moments in mathematics — a chance conversation revealing that primes and nuclear physics share the same deep structure. Odlyzko's numerical verification (1987) of GUE statistics for the first $10^{20}$ zeros cemented this as one of the strongest pieces of evidence for RH.`,
+    latex: [
+      'R_2(\\alpha) = 1 - \\left(\\frac{\\sin \\pi \\alpha}{\\pi \\alpha}\\right)^2 \\quad \\text{(Montgomery, 1972)}',
+      'P(s) = \\frac{32}{\\pi^2} s^2 e^{-4s^2/\\pi} \\quad \\text{(GUE nearest-neighbor spacing)}',
+      '\\Sigma^2(L) = \\frac{1}{\\pi^2}(\\log 2\\pi L + \\gamma + 1) + O(L^{-1}) \\quad \\text{(GUE number variance)}',
+    ],
+    insights: [
+      'Zeta zeros repel like eigenvalues of random matrices — the GUE universality class',
+      'The pair correlation function from number theory exactly matches nuclear physics',
+      'In ZPO terms: the prime cascade produces a "quantum chaotic" spectrum with GUE statistics',
+      'Odlyzko verified GUE statistics for 10^20 zeros — strongest numerical evidence for RH',
+      'The Montgomery conjecture (full R₂ for all α) remains unproven and implies RH',
+    ],
+    references: ['montgomery-1973', 'odlyzko-1987', 'keating-snaith-2000'],
+    nextSteps: [],
+  },
 ];
 export function getAllExplorations() {
   return explorations;

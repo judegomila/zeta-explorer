@@ -492,3 +492,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 531 | 2026-03-07T06:00:00Z | Fix Hilbert-Polya text saying operator must be "positive" instead of "self-adjoint" | StatisticsPage.jsx |
 | 532 | 2026-03-07T07:00:00Z | Fix Lyapunov tab legend incorrectly labeling positive dD_KL/dσ as "away from ½" | SpectralAttackViz.jsx |
 | 533 | 2026-03-06T08:00:00Z | Eliminate redundant Euler product loop in oddZetaValue by saving second-to-last cumulative value | odd-zeta.js |
+| 534 | 2026-03-06T08:30:00Z | Add tab explainer banners to all 5 tabs in RHAttackViz | RHAttackViz.jsx |

@@ -127,6 +127,14 @@ function LiCoefficientsTab() {
 
   return (
     <div>
+      <div className="tab-explainer accent-blue">
+        Li's criterion: RH is equivalent to all <InlineMath tex="\lambda_n > 0" />, where{' '}
+        <InlineMath tex="\lambda_n = \sum_{\rho} \left[1 - \left(1 - \tfrac{1}{\rho}\right)^n\right]" /> sums
+        over nontrivial zeros. Using the first <em>N</em> known zeros gives a finite approximation.
+        On a log scale, positive <InlineMath tex="\lambda_n" /> appear above the red zero-line;
+        all bars above = consistent with RH. More zeros sharpen the approximation.
+        <strong> Look for:</strong> all bars above the zero-line, growing roughly linearly in log scale.
+      </div>
       <div style={{ display: 'flex', gap: 16, marginBottom: 12, alignItems: 'center' }}>
         <div className="control-group">
           <label>Max n</label>
@@ -303,6 +311,15 @@ function HamiltonianTab() {
 
   return (
     <div>
+      <div className="tab-explainer accent-green">
+        Tests whether the oscillator Hamiltonian <InlineMath tex="\mathcal{H}(\sigma, t)" /> has a genuine
+        minimum at <InlineMath tex="\sigma = \tfrac{1}{2}" /> for each <InlineMath tex="t" />. The blue curve
+        shows <InlineMath tex="\partial^2 \mathcal{H}/\partial\sigma^2" /> (convexity) and the amber curve shows{' '}
+        <InlineMath tex="\partial \mathcal{H}/\partial\sigma" /> (stationarity). Green dots = confirmed minimum
+        (convex + stationary), amber = convex but not stationary, red = not convex. Vertical dashed lines mark
+        known zeta zeros <InlineMath tex="\gamma_n" />.
+        <strong> Look for:</strong> all dots green, confirming <InlineMath tex="\sigma = \tfrac{1}{2}" /> is a minimum at every tested <InlineMath tex="t" />.
+      </div>
       <div className="control-group" style={{ marginBottom: 12 }}>
         <label>Primes</label>
         <input type="range" min="4" max="20" step="1" value={numPrimes}
@@ -461,6 +478,15 @@ function SMatrixTab() {
 
   return (
     <div>
+      <div className="tab-explainer accent-cyan">
+        The S-matrix / Darlington synthesis models <InlineMath tex="\zeta(s)" /> as the transmission coefficient of
+        a lossless scattering network. At known zeros (red bars), <InlineMath tex="|\zeta(\tfrac{1}{2}+it)| \to 0" /> (no
+        transmission), while the bridge function <InlineMath tex="|\chi| = 1" /> (fully unitary). At non-zero
+        frequencies (blue bars), transmission is nonzero. The zero deviation table below cross-checks each
+        known <InlineMath tex="\gamma_n" /> against the Riemann&ndash;Siegel formula.
+        <strong> Look for:</strong> red "ZERO" labels only at known <InlineMath tex="\gamma_n" />;
+        green bridge bars reaching full height (unitarity).
+      </div>
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: 280, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
@@ -699,6 +725,16 @@ function HeatFlowTab() {
 
   return (
     <div>
+      <div className="tab-explainer accent-yellow">
+        The de Bruijn&ndash;Newman constant <InlineMath tex="\Lambda" /> controls how the <InlineMath tex="\Xi" /> function
+        behaves under heat flow: <InlineMath tex="H_\tau(t)" /> has only real zeros for{' '}
+        <InlineMath tex="\tau \geq \Lambda" />. Rodgers&ndash;Tao (2018) proved <InlineMath tex="\Lambda \geq 0" />;
+        RH is equivalent to <InlineMath tex="\Lambda \leq 0" />, hence <InlineMath tex="\Lambda = 0" />. Each curve
+        shows <InlineMath tex="H_\tau(t)" /> for a different heat time <InlineMath tex="\tau" />. Red dots mark
+        known zeta zeros on the <InlineMath tex="\tau = 0" /> curve.
+        <strong> Look for:</strong> zero crossings aligning with known zeros at <InlineMath tex="\tau = 0" />;
+        zeros coalescing as <InlineMath tex="\tau" /> increases.
+      </div>
       <div style={{ display: 'flex', gap: 6, marginBottom: 12 }}>
         {tauValues.map((tau, i) => (
           <button key={tau}
@@ -751,6 +787,14 @@ function ProofMapTab() {
 
   return (
     <div>
+      <div className="tab-explainer accent-purple">
+        A structured overview of the logical status of each RH attack vector. <strong>Established</strong> results
+        are rigorously proven theorems or verified identities. <strong>Critical Gaps</strong> highlight where
+        each proof strategy breaks down &mdash; including known-false claims (flagged red) that would, if true,
+        over-prove RH. The <strong>Most Promising Attack</strong> section identifies the strategy with the
+        fewest remaining gaps and strongest supporting evidence.
+        <strong> Look for:</strong> which claims are rigorous vs. which have critical gaps; any "KNOWN FALSE" flags.
+      </div>
       {/* Established */}
       <h4 style={{ color: '#10b981', fontSize: 13, marginBottom: 12 }}>What Is Established</h4>
       {gaps.established.map((item, i) => (

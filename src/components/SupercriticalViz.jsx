@@ -766,6 +766,12 @@ function EulerPhaseTab() {
       svg.append('text').attr('x', margin.left).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('log \u220F|1/(1-p^{-s})| \u2014 Euler product log-magnitude');
+
+      // Y-axis label
+      svg.append('text')
+        .attr('transform', `translate(14, ${margin.top + topH / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('log |Euler product|');
     }
 
     // ── Bottom: Average factor magnitude ──
@@ -824,6 +830,12 @@ function EulerPhaseTab() {
       svg.append('text').attr('x', margin.left).attr('y', yOff - 6)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('Average Euler factor magnitude \u2014 convergence vs divergence boundary');
+
+      // Y-axis label
+      svg.append('text')
+        .attr('transform', `translate(14, ${yOff + botH / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('Avg |1/(1\u2212p\u207B\u02E2)|');
     }
 
     svg.append('text').attr('x', width / 2).attr('y', height - 6)

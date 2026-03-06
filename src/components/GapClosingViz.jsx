@@ -602,15 +602,26 @@ function DarlingtonTab({ numPrimes, t }) {
     ctx.fillText('Magnitude', 0, 0);
     ctx.restore();
 
-    // Legend
+    // Legend with background box
     const legendItems = [
       { color: '#f59e0b', label: '|S\u2081\u2081| (reflection)' },
       { color: '#06b6d4', label: '|S\u2082\u2081| (transmission)' },
       { color: '#ef4444', label: '|S\u2020S - I| (unitarity err)' },
     ];
+    const legendX = w - margin.right - 184;
+    const legendY0 = margin.top + 2;
+    const legendW = 180;
+    const legendH = legendItems.length * 16 + 6;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
+    ctx.fill();
+    ctx.stroke();
     legendItems.forEach((item, i) => {
-      const lx = w - margin.right - 180;
-      const ly = margin.top + 8 + i * 16;
+      const lx = legendX + 8;
+      const ly = legendY0 + 14 + i * 16;
       ctx.beginPath();
       ctx.moveTo(lx, ly);
       ctx.lineTo(lx + 16, ly);

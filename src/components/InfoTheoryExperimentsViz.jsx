@@ -440,12 +440,15 @@ function PrimeContributions({ sigma, t, numPrimes }) {
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
         {isUniform ? (
           <>At <strong style={{ color: '#10b981' }}><InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /></strong>,
-          all primes contribute nearly equally (maximum entropy = uniform distribution).
-          This is the information-theoretic signature of the critical line.</>
+          the direct and dual ladders share the same weight distribution (functional equation symmetry
+          maps <InlineMath tex={"s \\leftrightarrow 1-\\bar{s}"} />). This minimizes KL divergence and maximizes mutual information —
+          the information-theoretic signature of the critical line. Small primes still contribute more than large ones,
+          but direct and dual weights are perfectly matched.</>
         ) : (
-          <>Away from <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, small primes dominate the distribution.
+          <>Away from <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, small primes dominate the distribution
+          and direct/dual weight distributions diverge.
           At <strong style={{ color: sigmaStatusColor(sigma) }}><InlineMath tex={"\\sigma"} /> = {sigma.toFixed(2)}</strong>,
-          the distribution is non-uniform, reducing entropy and efficiency.</>
+          the KL divergence between direct and dual distributions is nonzero, reducing channel efficiency.</>
         )}
       </div>
     </div>

@@ -674,6 +674,15 @@ function ConvergenceTab() {
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('H(σ) curves \u2014 valley sharpens with more primes');
 
+      // Axis labels
+      svg.append('text').attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + 32)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('σ = Re(s)');
+      svg.append('text')
+        .attr('transform', `translate(${margin.left - 48}, ${yOff + margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('H(σ)');
+
       // Legend
       const legend = svg.append('g').attr('transform', `translate(${width - 120}, ${yOff + margin.top + 5})`);
       allCurves.forEach((c, i) => {

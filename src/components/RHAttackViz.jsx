@@ -97,9 +97,12 @@ function LiCoefficientsTab() {
       ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
       ctx.beginPath();
       ctx.moveTo(margin.left, y);
-      ctx.lineTo(margin.left + 4, y);
-      ctx.strokeStyle = '#334155';
+      ctx.lineTo(margin.left + plotW, y);
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 0.5;
+      ctx.setLineDash([3, 3]);
       ctx.stroke();
+      ctx.setLineDash([]);
     }
 
     // Axis labels

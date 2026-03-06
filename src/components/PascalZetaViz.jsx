@@ -109,6 +109,12 @@ function TriangleTab() {
 
   return (
     <div>
+      <div className="tab-explainer accent-green">
+        Pascal's triangle visualized as a heatmap with log-scaled coloring. Central binomial
+        coefficients <InlineMath tex="\binom{2n}{n}" /> are highlighted in gold — these connect to{' '}
+        <InlineMath tex="\pi" /> and appear as the spine of the triangle.
+        <strong> Look for:</strong> the gold-outlined entries growing much faster than their neighbors.
+      </div>
       <div className="controls">
         <div className="control-group">
           <label>Rows</label>
@@ -328,6 +334,14 @@ function ConstantsTab() {
 
   return (
     <div>
+      <div className="tab-explainer accent-blue">
+        Three fundamental constants extracted from Pascal's triangle:{' '}
+        <InlineMath tex="e" /> via Brothers' row-product ratios,{' '}
+        <InlineMath tex="\pi" /> via central binomials, and{' '}
+        <InlineMath tex="i" /> via Euler's identity. The bottom chart shows convergence errors on a log scale.
+        <strong> Look for:</strong> Brothers' formula (blue) converging faster than the classical{' '}
+        <InlineMath tex="(1+1/n)^n" /> (purple dashed).
+      </div>
       <div className="controls">
         <div className="control-group">
           <label>Max n</label>
@@ -478,6 +492,13 @@ function HasseTab() {
 
   return (
     <div>
+      <div className="tab-explainer accent-purple">
+        The Hasse–Sondow formula computes <InlineMath tex="\zeta(s)" /> entirely from Pascal triangle
+        rows: each row <InlineMath tex="n" /> contributes a weighted forward difference of <InlineMath tex="(k+1)^{-s}" />.
+        Purple bars show per-row contribution magnitude; the blue curve is the running partial sum.
+        <strong> Look for:</strong> rapid convergence when <InlineMath tex="t" /> is snapped to a zeta zero
+        (green indicator appears), where <InlineMath tex="|\zeta(s)| \to 0" />.
+      </div>
       <div className="controls">
         <div className="control-group">
           <label><InlineMath tex="\\sigma" /></label>
@@ -648,6 +669,13 @@ function DecoratedTab() {
 
   return (
     <div>
+      <div className="tab-explainer accent-orange">
+        The "decorated" zeta scans <InlineMath tex="|\zeta(\sigma + it)|" /> across <InlineMath tex="\sigma" /> using the
+        full Hasse–Sondow series (top), while the bottom shows a single Pascal row's Dirichlet
+        polynomial <InlineMath tex="Z_N(s) = \sum_{k=0}^N \binom{N}{k}(k+1)^{-s}" />.
+        <strong> Look for:</strong> the dip near <InlineMath tex="\sigma = 0.5" /> when <InlineMath tex="t" /> is
+        close to a zeta zero, and higher rows growing exponentially for small <InlineMath tex="\sigma" />.
+      </div>
       <div className="controls">
         <div className="control-group">
           <label><InlineMath tex="t" /></label>

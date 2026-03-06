@@ -74,8 +74,7 @@ function drawWire(ctx, x1, y1, x2, y2, color = '#475569', width = 1, dashed = fa
   ctx.stroke();
   if (dashed) ctx.setLineDash([]);
 
-  // Arrow
-  const angle = Math.atan2(y2 - (midY - curve), x2 - x2);
+  // Arrow direction along chord from start to end
   const arrowAngle = Math.atan2(y2 - y1, x2 - x1);
   ctx.beginPath();
   ctx.moveTo(x2, y2);

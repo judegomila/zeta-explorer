@@ -527,7 +527,18 @@ export default function InformationTheoryViz() {
             }
             if (bestDist < 1.0) {
               const clr = bestDist < 0.3 ? '#10b981' : '#f59e0b';
-              return <span style={{ marginLeft: 6, fontSize: 11, color: clr }}>≈ γ<sub>{bestIdx + 1}</sub>={ZETA_ZEROS[bestIdx].toFixed(1)}</span>;
+              return (
+                <span
+                  style={{
+                    marginLeft: 6, fontSize: 11, color: clr,
+                    cursor: 'pointer', borderBottom: '1px dashed currentColor',
+                  }}
+                  title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
+                  onClick={() => setT(+ZETA_ZEROS[bestIdx].toFixed(1))}
+                >
+                  ≈ γ<sub>{bestIdx + 1}</sub>={ZETA_ZEROS[bestIdx].toFixed(1)}
+                </span>
+              );
             }
             return null;
           })()}

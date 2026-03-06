@@ -723,6 +723,17 @@ function ConvergenceTab() {
       svg.append('text').attr('x', margin.left).attr('y', yOff + 16)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('|\u2207H| at σ = 0.5 vs number of primes (should stay \u22480)');
+
+      // X-axis label
+      svg.append('text').attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + 32)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('Number of primes');
+
+      // Y-axis label
+      svg.append('text')
+        .attr('transform', `translate(${margin.left - 48}, ${yOff + margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('|∂H/∂σ|');
     }
 
     // ── Sub-chart 3: Curvature at sigma=0.5 vs numPrimes ──
@@ -760,6 +771,17 @@ function ConvergenceTab() {
       svg.append('text').attr('x', margin.left).attr('y', yOff + 16)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('Curvature \u2202\u00B2H/\u2202σ\u00B2 at σ = 0.5 (should increase with primes)');
+
+      // X-axis label
+      svg.append('text').attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + 32)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('Number of primes');
+
+      // Y-axis label
+      svg.append('text')
+        .attr('transform', `translate(${margin.left - 48}, ${yOff + margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('∂²H/∂σ²');
     }
   }, [allCurves]);
 

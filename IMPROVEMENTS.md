@@ -494,3 +494,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 533 | 2026-03-06T08:00:00Z | Eliminate redundant Euler product loop in oddZetaValue by saving second-to-last cumulative value | odd-zeta.js |
 | 534 | 2026-03-06T08:30:00Z | Add tab explainer banners to all 5 tabs in RHAttackViz | RHAttackViz.jsx |
 | 535 | 2026-03-06T20:00:00Z | Add missing window resize handler to AnimatedModesViz when paused | AnimatedModesViz.jsx |
+| 536 | 2026-03-06T21:00:00Z | Add missing axis labels to gradient and curvature sub-charts in ConvergenceTab | TwinOscillatorSimViz.jsx |

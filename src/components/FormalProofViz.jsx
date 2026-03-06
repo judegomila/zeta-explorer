@@ -635,6 +635,13 @@ function EvidenceTab({ numPrimes, numZeros }) {
   useEffect(() => { drawHamiltonian(); }, [drawHamiltonian]);
   useEffect(() => { drawZeros(); }, [drawZeros]);
 
+  // Redraw all canvases on window resize to prevent blurry/distorted display
+  useEffect(() => {
+    const handleResize = () => { drawLi(); drawHamiltonian(); drawZeros(); };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [drawLi, drawHamiltonian, drawZeros]);
+
   return (
     <div>
       {/* Summary stats */}

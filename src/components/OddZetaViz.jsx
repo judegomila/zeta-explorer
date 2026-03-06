@@ -941,7 +941,25 @@ function IrrationalityMeasureTab({ selectedN }) {
       ctx.fillText('\u03BC = 2 (all irrationals)', w - margin.right - 4, margin.top + 42);
     }
 
-    // Axis labels
+    // Y-axis tick labels
+    ctx.fillStyle = '#64748b';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'right';
+    for (let i = 0; i <= 5; i++) {
+      const val = minLE + (i / 5) * leRange;
+      const y = margin.top + plotH - (i / 5) * plotH * 0.85 - plotH * 0.05;
+      ctx.beginPath();
+      ctx.setLineDash([2, 3]);
+      ctx.strokeStyle = '#1e293b';
+      ctx.moveTo(margin.left, y);
+      ctx.lineTo(w - margin.right, y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#64748b';
+      ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
+    }
+
+    // X-axis tick labels
     ctx.fillStyle = '#64748b';
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'center';

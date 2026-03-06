@@ -907,11 +907,8 @@ function StrategyScoresTab({ t, numPrimes }) {
       else if (s.score >= 5) barColor = '#f59e0b';
       else barColor = '#ef4444';
 
-      // Bar
-      ctx.fillStyle = barColor + '30';
-      ctx.fillRect(margin.left, y, barWidth, barH);
+      // Bar fill (semi-transparent)
       ctx.fillStyle = barColor;
-      ctx.fillRect(margin.left, y, barWidth, barH);
       ctx.globalAlpha = 0.3;
       ctx.fillRect(margin.left, y, barWidth, barH);
       ctx.globalAlpha = 1;

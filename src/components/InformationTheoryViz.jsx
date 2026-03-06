@@ -550,12 +550,73 @@ export default function InformationTheoryViz() {
         ))}
       </div>
 
-      {tab === 0 && <EntropyTab sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 1 && <CapacityTab sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 2 && <MutualInfoTab sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 3 && <FisherTab sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 4 && <RateDistortionTab sigma={sigma} t={t} />}
-      {tab === 5 && <KLDivergenceTab sigma={sigma} t={t} numPrimes={numPrimes} />}
+      {tab === 0 && (
+        <>
+          <div className="tab-explainer accent-green">
+            Shannon entropy <InlineMath tex="H(\sigma) = -\sum_k p_k \log p_k" /> of the Euler factor weight
+            distribution measures how evenly energy is spread across primes. At <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+            the functional equation makes direct and dual weight distributions coincide, giving the most balanced
+            (though not uniform) weighting.
+            <strong> Look for:</strong> entropy peaking near <InlineMath tex="\sigma = 0.5" /> and dropping symmetrically on both sides.
+          </div>
+          <EntropyTab sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 1 && (
+        <>
+          <div className="tab-explainer" style={{ borderColor: '#3b82f6', background: 'rgba(59,130,246,0.04)' }}>
+            Channel capacity <InlineMath tex="C(\sigma) = \log K - H_{\min}" /> measures the maximum rate at which
+            the oscillator chain can transmit information. The critical line <InlineMath tex="\sigma = \tfrac{1}{2}" /> maximizes
+            capacity because the matched direct/dual ladders provide optimal signal-to-noise ratio.
+            <strong> Look for:</strong> capacity peaking sharply at <InlineMath tex="\sigma = 0.5" />, especially near zeta zeros where the channel saturates.
+          </div>
+          <CapacityTab sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 2 && (
+        <>
+          <div className="tab-explainer accent-purple">
+            Mutual information <InlineMath tex="I(\sigma) = H_{\text{dir}} + H_{\text{dual}} - H_{\text{joint}}" /> quantifies
+            how much the direct ladder tells you about the dual ladder. At <InlineMath tex="\sigma = \tfrac{1}{2}" />, the
+            functional equation symmetry maximizes this coupling.
+            <strong> Look for:</strong> mutual information peaking at the critical line, confirming maximum direct-dual correlation.
+          </div>
+          <MutualInfoTab sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 3 && (
+        <>
+          <div className="tab-explainer accent-orange">
+            Fisher information <InlineMath tex="I_F(\sigma) = \sum_k (\partial_\sigma \log |H_k|)^2" /> measures
+            sensitivity of the prime weight distribution to <InlineMath tex="\sigma" /> perturbations. It diverges at
+            zeta zeros, creating information-theoretic &ldquo;walls&rdquo; that confine zeros to a sharp locus.
+            <strong> Look for:</strong> sharp spikes near zeta zeros and a characteristic saddle shape around <InlineMath tex="\sigma = 0.5" />.
+          </div>
+          <FisherTab sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 4 && (
+        <>
+          <div className="tab-explainer accent-cyan">
+            Rate-distortion theory asks: how many bits are needed to approximate the zeta function to a given
+            accuracy? The rate-distortion curve <InlineMath tex="R(D)" /> shows the fundamental tradeoff between
+            compression rate and reconstruction error for the oscillator chain.
+            <strong> Look for:</strong> the curve dropping steeply at first (easy gains) then flattening (diminishing returns from more primes).
+          </div>
+          <RateDistortionTab sigma={sigma} t={t} />
+        </>
+      )}
+      {tab === 5 && (
+        <>
+          <div className="tab-explainer accent-red">
+            KL divergence <InlineMath tex="D_{KL}(P_\sigma \| P_{1/2}) = \sum_k p_k(\sigma) \log \frac{p_k(\sigma)}{p_k(1/2)}" /> measures
+            how far the prime weight distribution at <InlineMath tex="\sigma" /> is from the critical-line reference. It acts as a
+            Lyapunov function: non-negative everywhere, zero only at <InlineMath tex="\sigma = \tfrac{1}{2}" />.
+            <strong> Look for:</strong> a smooth bowl centered at <InlineMath tex="\sigma = 0.5" /> with <InlineMath tex="D_{KL} = 0" /> at the minimum.
+          </div>
+          <KLDivergenceTab sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
     </div>
   );
 }

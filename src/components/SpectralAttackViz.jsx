@@ -189,6 +189,13 @@ function FisherTwistorTab({ t, numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-blue">
+        Fisher information <InlineMath tex="I_F(\sigma)" /> measures parameter sensitivity of the Euler factor
+        distribution, while the twistor incidence <InlineMath tex="|Z \cdot W|" /> measures how close the direct/dual
+        twistor pair is to the null condition. Their anti-correlation (Pearson <InlineMath tex="r" />) quantifies how
+        strongly both diagnostics point to the same critical line.
+        <strong> Look for:</strong> Fisher info peaking and twistor incidence dipping together near <InlineMath tex="\sigma = \tfrac{1}{2}" />.
+      </div>
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
@@ -390,6 +397,15 @@ function LyapunovTab({ t, numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-green">
+        The KL divergence <InlineMath tex="D_{KL}(\sigma \| \tfrac{1}{2})" /> measures how far the Euler factor
+        weight distribution at <InlineMath tex="\sigma" /> is from the critical-line distribution. If it forms a
+        valid Lyapunov function (positive, zero at equilibrium, monotonically decreasing toward <InlineMath tex="\sigma = \tfrac{1}{2}" />),
+        the critical line is a stable attractor. The lower panel shows the derivative <InlineMath tex="dD_{KL}/d\sigma" />,
+        colored by sign.
+        <strong> Look for:</strong> the V-shape in <InlineMath tex="D_{KL}" /> with minimum at <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+        and a clean sign change in the derivative.
+      </div>
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
@@ -616,6 +632,15 @@ function PhaseBarriersTab({ t, numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-orange">
+        Treating the oscillator chain as a thermodynamic system with <InlineMath tex="\beta = \sigma" />, the free
+        energy difference <InlineMath tex="\Delta F(\sigma)" /> (gold) and specific heat <InlineMath tex="C_v" /> (red)
+        reveal phase transitions. Background shading marks thermodynamic regimes: vaporized
+        (<InlineMath tex="\sigma \approx 0" />), the critical strip, the equilibrium zone near <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+        and the frozen regime (<InlineMath tex="\sigma \approx 1" />).
+        <strong> Look for:</strong> free energy barriers trapping the system near <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+        and specific heat spikes at phase boundaries.
+      </div>
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
@@ -780,6 +805,13 @@ function CorrelationMatrixTab({ t, numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-purple">
+        Cross-correlation matrix of eight diagnostic measures evaluated across the critical strip.
+        Red cells indicate positive correlation, blue negative. Strong correlations
+        (<InlineMath tex="|r| > 0.7" />, white borders) reveal which measures carry redundant information about
+        zero confinement, while independent measures provide genuinely distinct evidence for the critical line.
+        <strong> Look for:</strong> clusters of correlated measures and the count of independent diagnostics.
+      </div>
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
@@ -939,6 +971,13 @@ function StrategyScoresTab({ t, numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-red">
+        Each "attack strategy" combines multiple confinement diagnostics into a single score (0–10) reflecting
+        how strongly that approach constrains zeros to the critical line. Bars are colored green ({'\u2265'}8),
+        yellow ({'\u2265'}5), or red ({'<'}5). The overall score aggregates all strategies.
+        <strong> Look for:</strong> which strategies score highest and whether weaknesses reveal potential gaps
+        in the confinement argument.
+      </div>
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}

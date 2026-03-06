@@ -489,3 +489,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 528 | 2026-03-07T05:00:00Z | Add background box to legend in ExplicitFormulaViz for readability over chart data | ExplicitFormulaViz.jsx |
 | 529 | 2026-03-06T18:00:00Z | Add missing y-axis label to Symmetry tab in ZXCalculusViz | ZXCalculusViz.jsx |
 | 530 | 2026-03-06T19:30:00Z | Add tab explainer banners to all 6 tabs in InformationTheoryViz | InformationTheoryViz.jsx |
+| 531 | 2026-03-07T06:00:00Z | Fix Hilbert-Polya text saying operator must be "positive" instead of "self-adjoint" | StatisticsPage.jsx |

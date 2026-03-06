@@ -101,8 +101,8 @@ export default function StatisticsPage() {
           <p style={{ fontSize: 14, color: '#8b5cf6' }}>
             <strong>The Hilbert-Polya Dream:</strong> This striking match suggests that there exists
             a self-adjoint (Hermitian) operator whose eigenvalues are the imaginary parts of the
-            zeta zeros. If such an operator can be constructed and shown to be positive, RH follows
-            automatically — eigenvalues of Hermitian operators are real.
+            zeta zeros. If such an operator can be constructed and shown to be self-adjoint, RH follows
+            automatically — eigenvalues of self-adjoint operators are real.
           </p>
         </div>
       </div>

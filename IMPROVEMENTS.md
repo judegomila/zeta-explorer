@@ -450,3 +450,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 489 | 2026-03-05T16:00:00Z | Fix wrapped phase plot in Frequency Response tab showing false discontinuities at ±π | FourierDomainViz.jsx |
 | 490 | 2026-03-05T17:00:00Z | Fix phase plot false discontinuities at ±π wraps in Extended Landscape tab | SupercriticalViz.jsx |
 | 491 | 2026-03-05T18:00:00Z | Fix wrong claim that Euler factor weights are uniform at σ=½ in PrimeContributions explainer | InfoTheoryExperimentsViz.jsx |
+| 492 | 2026-03-05T19:00:00Z | Fix PaperPage abstract claiming reflected power 'vanishes' at σ=½ (it is minimized, not zero) | PaperPage.jsx |

@@ -711,6 +711,28 @@ function SymmetryTab({ sigma, t, numPrimes }) {
     ctx.stroke();
     ctx.setLineDash([]);
 
+    // Y-axis tick labels and gridlines
+    ctx.fillStyle = '#64748b';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'right';
+    const yTicks = 5;
+    for (let i = 0; i <= yTicks; i++) {
+      const val = (i / yTicks) * maxMag;
+      const y = h - margin.bottom - (i / yTicks) * plotH;
+      // Gridline
+      ctx.beginPath();
+      ctx.setLineDash([3, 3]);
+      ctx.moveTo(margin.left, y);
+      ctx.lineTo(w - margin.right, y);
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+      ctx.setLineDash([]);
+      // Label
+      ctx.fillStyle = '#64748b';
+      ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
+    }
+
     // X-axis labels
     ctx.fillStyle = '#64748b';
     ctx.font = '10px var(--font-mono)';

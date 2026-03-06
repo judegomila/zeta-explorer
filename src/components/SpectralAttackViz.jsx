@@ -354,6 +354,31 @@ function LyapunovTab({ t, numPrimes }) {
     ctx.textAlign = 'center';
     ctx.fillText('D_KL (bits)', 0, 0);
     ctx.restore();
+
+    // Legend for derivative colors (lower section)
+    const legX = w - margin.right - 140;
+    const legY = splitY + 14;
+    ctx.fillStyle = 'rgba(10,14,26,0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.fillRect(legX, legY, 140, 34);
+    ctx.strokeRect(legX, legY, 140, 34);
+    [
+      { color: '#ef4444', label: 'dD_KL/d\u03C3 < 0 (toward \u00BD)' },
+      { color: '#3b82f6', label: 'dD_KL/d\u03C3 > 0 (away from \u00BD)' },
+    ].forEach((item, i) => {
+      const iy = legY + 10 + i * 14;
+      ctx.beginPath();
+      ctx.moveTo(legX + 6, iy);
+      ctx.lineTo(legX + 22, iy);
+      ctx.strokeStyle = item.color;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '8px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(item.label, legX + 26, iy + 3);
+    });
   }, [data]);
 
   useEffect(() => { draw(); }, [draw]);

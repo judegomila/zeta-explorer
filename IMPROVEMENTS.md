@@ -474,3 +474,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 513 | 2026-03-06T21:00:00Z | Fix markdown **bold** syntax rendering as literal asterisks in JSX on ModesPage | ModesPage.jsx |
 | 514 | 2026-03-06T22:00:00Z | Add missing y-axis tick labels, gridlines, and x-axis tick labels to Heat Flow tab in RHAttackViz | RHAttackViz.jsx |
 | 515 | 2026-03-06T23:00:00Z | Add missing window resize handler to FormalProofViz EvidenceTab canvases | FormalProofViz.jsx |
+| 516 | 2026-03-07T00:00:00Z | Add missing legend for derivative color coding in SpectralAttackViz Lyapunov tab | SpectralAttackViz.jsx |

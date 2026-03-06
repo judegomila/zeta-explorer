@@ -234,6 +234,7 @@ function EfficiencyDashboard({ sigma, t, numPrimes }) {
   }, [measures]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   return (
     <div>
@@ -415,6 +416,7 @@ function PrimeContributions({ sigma, t, numPrimes }) {
   }, [data]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   // Compute uniformity metric
   const uniformity = data.contribs.length > 0
@@ -590,6 +592,7 @@ function LandscapeScan({ sigma, t, numPrimes }) {
   }, [scanData, sigma, t]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   return (
     <div>
@@ -779,6 +782,7 @@ function CompressionExperiment({ sigma, t }) {
   }, [data, t]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   // Compute 5-prime errors for the stat boxes
   const err5 = {};

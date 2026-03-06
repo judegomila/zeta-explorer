@@ -483,3 +483,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 522 | 2026-03-06T21:00:00Z | Fix Full Report tab in ProofCheckerViz never running due to disconnected ref callback | ProofCheckerViz.jsx |
 | 523 | 2026-03-07T02:00:00Z | Fix Heat Flow tab claiming Λ = 0 instead of Λ ≥ 0 (Rodgers–Tao proved the lower bound, not equality) | RHAttackViz.jsx |
 | 524 | 2026-03-07T03:00:00Z | Add descriptive slider labels and tooltips to PascalZetaViz Hasse-Sondow and Decorated tabs | PascalZetaViz.jsx |
+| 525 | 2026-03-07T04:00:00Z | Add missing window resize handlers to all 4 canvas tabs in InfoTheoryExperimentsViz | InfoTheoryExperimentsViz.jsx |

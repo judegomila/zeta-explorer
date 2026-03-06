@@ -505,3 +505,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 544 | 2026-03-06T23:30:00Z | Add tab explainer banners to all 4 tabs in ProofCheckerViz | ProofCheckerViz.jsx |
 | 545 | 2026-03-07T10:00:00Z | Fix impulse response formula containing Laplace variable s and wrong delta arguments | OscillatorsPage.jsx |
 | 546 | 2026-03-06T15:00:00Z | Hoist per-x-step constants out of per-prime loop in AnimatedModesViz draw function | AnimatedModesViz.jsx |
+| 547 | 2026-03-06T23:45:00Z | Fix incorrect |H| = 1 reference line label in EulerProductViz to |factor| = 1 | EulerProductViz.jsx |

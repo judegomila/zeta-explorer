@@ -103,7 +103,7 @@ export default function EulerProductViz() {
         .append('title').text(`p=${d.prime}: cumulative |ζ| = ${cumMag.toFixed(4)}, phase = ${(phase * 180 / Math.PI).toFixed(1)}°`);
     });
 
-    // Reference line at |H| = 1
+    // Reference line at magnitude = 1 (boundary between amplifying and attenuating factors)
     g.append('line')
       .attr('x1', 0).attr('y1', yMag(1)).attr('x2', w).attr('y2', yMag(1))
       .attr('stroke', '#64748b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
@@ -111,7 +111,7 @@ export default function EulerProductViz() {
     g.append('text')
       .attr('x', w - 4).attr('y', yMag(1) - 6)
       .attr('text-anchor', 'end').attr('fill', '#64748b').attr('font-size', 10)
-      .text('|H| = 1');
+      .text('|factor| = 1');
 
     // Phase plot (secondary axis)
     // Break path at ±π wrap discontinuities to avoid false vertical lines

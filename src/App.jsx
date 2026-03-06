@@ -1,23 +1,49 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import { MathModalProvider } from './components/KaTeXMath.jsx';
 import HomePage from './pages/HomePage.jsx';
-import OscillatorsPage from './pages/OscillatorsPage.jsx';
-import HamiltonianPage from './pages/HamiltonianPage.jsx';
-import ZetaPage from './pages/ZetaPage.jsx';
-import ControlTheoryPage from './pages/ControlTheoryPage.jsx';
-import StatisticsPage from './pages/StatisticsPage.jsx';
-import ModesPage from './pages/ModesPage.jsx';
-import ExplorationsPage from './pages/ExplorationsPage.jsx';
-import LiteraturePage from './pages/LiteraturePage.jsx';
-import SimulatorPage from './pages/SimulatorPage.jsx';
-import FourierPage from './pages/FourierPage.jsx';
-import SupercriticalPage from './pages/SupercriticalPage.jsx';
-import DocsPage from './pages/DocsPage.jsx';
-import ImprovementsPage from './pages/ImprovementsPage.jsx';
-import WaveSimPage from './pages/WaveSimPage.jsx';
-import RHRigorPage from './pages/RHRigorPage.jsx';
 import './styles/app.css';
+
+// Lazy-load all pages except HomePage for code-splitting
+const OscillatorsPage = lazy(() => import('./pages/OscillatorsPage.jsx'));
+const HamiltonianPage = lazy(() => import('./pages/HamiltonianPage.jsx'));
+const ZetaPage = lazy(() => import('./pages/ZetaPage.jsx'));
+const ControlTheoryPage = lazy(() => import('./pages/ControlTheoryPage.jsx'));
+const StatisticsPage = lazy(() => import('./pages/StatisticsPage.jsx'));
+const ModesPage = lazy(() => import('./pages/ModesPage.jsx'));
+const ExplorationsPage = lazy(() => import('./pages/ExplorationsPage.jsx'));
+const LiteraturePage = lazy(() => import('./pages/LiteraturePage.jsx'));
+const SimulatorPage = lazy(() => import('./pages/SimulatorPage.jsx'));
+const FourierPage = lazy(() => import('./pages/FourierPage.jsx'));
+const SupercriticalPage = lazy(() => import('./pages/SupercriticalPage.jsx'));
+const DocsPage = lazy(() => import('./pages/DocsPage.jsx'));
+const ImprovementsPage = lazy(() => import('./pages/ImprovementsPage.jsx'));
+const WaveSimPage = lazy(() => import('./pages/WaveSimPage.jsx'));
+const RHRigorPage = lazy(() => import('./pages/RHRigorPage.jsx'));
+const TwistorPage = lazy(() => import('./pages/TwistorPage.jsx'));
+const PaperPage = lazy(() => import('./pages/PaperPage.jsx'));
+const HistoryPage = lazy(() => import('./pages/HistoryPage.jsx'));
+const ConceptsPage = lazy(() => import('./pages/ConceptsPage.jsx'));
+const PascalPage = lazy(() => import('./pages/PascalPage.jsx'));
+const ZXCalculusPage = lazy(() => import('./pages/ZXCalculusPage.jsx'));
+const RHAttackPage = lazy(() => import('./pages/RHAttackPage.jsx'));
+const InformationTheoryPage = lazy(() => import('./pages/InformationTheoryPage.jsx'));
+const FormalProofPage = lazy(() => import('./pages/FormalProofPage.jsx'));
+const OddZetaPage = lazy(() => import('./pages/OddZetaPage.jsx'));
+const GapClosingPage = lazy(() => import('./pages/GapClosingPage.jsx'));
+const SpectralAttackPage = lazy(() => import('./pages/SpectralAttackPage.jsx'));
+const ProofCheckerPage = lazy(() => import('./pages/ProofCheckerPage.jsx'));
+const HistoricalReasoningPage = lazy(() => import('./pages/HistoricalReasoningPage.jsx'));
+
+function PageLoader() {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '40vh', color: '#64748b' }}>
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ fontSize: 24, marginBottom: 8, fontFamily: 'var(--font-mono)' }}>Loading...</div>
+      </div>
+    </div>
+  );
+}
 
 const NAV_GROUPS = [
   {
@@ -25,27 +51,46 @@ const NAV_GROUPS = [
     items: [
       { to: '/oscillators', label: 'Oscillators' },
       { to: '/hamiltonian', label: 'Hamiltonian' },
-      { to: '/modes', label: 'Modes' },
+      { to: '/zeta', label: 'Zeta' },
       { to: '/waves', label: 'Waves' },
+      { to: '/modes', label: 'Modes' },
       { to: '/simulator', label: 'Simulator' },
     ],
   },
   {
     label: 'Analysis',
     items: [
-      { to: '/zeta', label: 'Zeta' },
       { to: '/fourier', label: 'Fourier' },
       { to: '/control', label: 'Control' },
       { to: '/statistics', label: 'Statistics' },
       { to: '/supercritical', label: 'Supercritical' },
+      { to: '/info-theory', label: 'Info Theory' },
+      { to: '/pascal', label: 'Pascal' },
+      { to: '/odd-zeta', label: 'Odd Zeta' },
+    ],
+  },
+  {
+    label: 'Attack',
+    items: [
+      { to: '/rh-attack', label: 'RH Attack' },
+      { to: '/spectral-attack', label: 'Spectral' },
+      { to: '/gap-closing', label: 'Gap Closing' },
+      { to: '/twistor', label: 'Twistor' },
+      { to: '/zx-calculus', label: 'ZX-Calculus' },
+      { to: '/formal-proof', label: 'Formal Proof' },
+      { to: '/proof-checker', label: 'Proof Checker' },
+      { to: '/reasoning', label: 'Reasoning' },
+      { to: '/rigor', label: 'Rigor' },
     ],
   },
   {
     label: 'Reference',
     items: [
+      { to: '/concepts', label: 'Concepts' },
+      { to: '/history', label: 'History' },
       { to: '/explorations', label: 'Explorations' },
       { to: '/literature', label: 'Literature' },
-      { to: '/rigor', label: 'Rigor' },
+      { to: '/paper', label: 'Paper' },
       { to: '/docs', label: 'Docs' },
       { to: '/improvements', label: 'Improvements' },
     ],
@@ -99,9 +144,9 @@ function NavBar() {
 
   return (
     <div className="nav-bar" ref={navRef}>
-      <div className="nav-logo">
+      <NavLink to="/" end className="nav-logo" style={{ textDecoration: 'none' }}>
         ZPO<span className="nav-logo-text"> Explorer</span>
-      </div>
+      </NavLink>
       <button
         className={`hamburger-btn ${menuOpen ? 'hamburger-open' : ''}`}
         onClick={() => setMenuOpen(o => !o)}
@@ -110,7 +155,6 @@ function NavBar() {
         <span /><span /><span />
       </button>
       <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
-        <NavLink to="/" end>Home</NavLink>
         {/* Desktop: grouped dropdowns */}
         <div className="nav-desktop-groups">
           {NAV_GROUPS.map(group => (
@@ -140,6 +184,7 @@ export default function App() {
       <ScrollToTop />
       <NavBar />
       <div className="app-content">
+        <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/oscillators" element={<OscillatorsPage />} />
@@ -157,8 +202,34 @@ export default function App() {
           <Route path="/waves" element={<WaveSimPage />} />
           <Route path="/rigor" element={<RHRigorPage />} />
           <Route path="/improvements" element={<ImprovementsPage />} />
+          <Route path="/twistor" element={<TwistorPage />} />
+          <Route path="/paper" element={<PaperPage />} />
+          <Route path="/history" element={<HistoryPage />} />
+          <Route path="/concepts" element={<ConceptsPage />} />
+          <Route path="/pascal" element={<PascalPage />} />
+          <Route path="/zx-calculus" element={<ZXCalculusPage />} />
+          <Route path="/rh-attack" element={<RHAttackPage />} />
+          <Route path="/info-theory" element={<InformationTheoryPage />} />
+          <Route path="/formal-proof" element={<FormalProofPage />} />
+          <Route path="/odd-zeta" element={<OddZetaPage />} />
+          <Route path="/gap-closing" element={<GapClosingPage />} />
+          <Route path="/spectral-attack" element={<SpectralAttackPage />} />
+          <Route path="/proof-checker" element={<ProofCheckerPage />} />
+          <Route path="/reasoning" element={<HistoricalReasoningPage />} />
         </Routes>
+        </Suspense>
       </div>
+      <footer style={{
+        textAlign: 'center',
+        padding: '24px 16px',
+        color: '#475569',
+        fontSize: 13,
+        borderTop: '1px solid #1e293b',
+        marginTop: 48,
+        fontFamily: 'var(--font-mono)',
+      }}>
+        &copy; Jude Gomila 2026-onwards
+      </footer>
     </HashRouter>
     </MathModalProvider>
   );

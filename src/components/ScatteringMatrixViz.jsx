@@ -297,34 +297,34 @@ export default function ScatteringMatrixViz() {
     <div>
       {mode === 'magnitude' && (
         <div className="tab-explainer accent-purple">
-          <strong>The math:</strong> The bridge factor magnitude <InlineMath tex="|\chi(\sigma+it)|" /> measures whether the connection between
-          direct and dual ladders amplifies or attenuates. On the critical line <InlineMath tex="\sigma = \tfrac{1}{2}" />,{' '}
-          <InlineMath tex="|\chi| = 1" /> exactly (lossless/unitary). For <InlineMath tex="\sigma > \tfrac{1}{2}" />,{' '}
-          <InlineMath tex="|\chi| < 1" /> (attenuating); for <InlineMath tex="\sigma < \tfrac{1}{2}" />,{' '}
-          <InlineMath tex="|\chi| > 1" /> (amplifying). The product <InlineMath tex="|\chi(s)\chi(1-s)| = 1" /> always.
-          <strong> Look for:</strong> the curve crossing 1.0 exactly at <InlineMath tex="\sigma = 0.5" />.
+          The bridge factor magnitude <InlineMath tex="|\\chi(\\sigma+it)|" /> measures whether the connection between
+          direct and dual ladders amplifies or attenuates. On the critical line <InlineMath tex="\\sigma = \\tfrac{1}{2}" />,{' '}
+          <InlineMath tex="|\\chi| = 1" /> exactly (lossless/unitary). For <InlineMath tex="\\sigma > \\tfrac{1}{2}" />,{' '}
+          <InlineMath tex="|\\chi| < 1" /> (attenuating); for <InlineMath tex="\\sigma < \\tfrac{1}{2}" />,{' '}
+          <InlineMath tex="|\\chi| > 1" /> (amplifying). The product <InlineMath tex="|\\chi(s)\\chi(1-s)| = 1" /> always.
+          <strong> Look for:</strong> the curve crossing 1.0 exactly at <InlineMath tex="\\sigma = 0.5" />.
         </div>
       )}
       {mode === 'reflection' && (
         <div className="tab-explainer accent-green">
-          <strong>The math:</strong> The reflection coefficient <InlineMath tex="\Gamma = |1 - |\chi(s)||\,/\,(1 + |\chi(s)|)" /> measures how
-          much energy is reflected back rather than transmitted through the bridge. At <InlineMath tex="\sigma = \tfrac{1}{2}" />,{' '}
-          <InlineMath tex="\Gamma = 0" /> (perfect transmission, impedance match). This is the scattering-matrix condition for
-          lossless two-port networks: <InlineMath tex="S^\dagger S = I" />.
-          <strong> Look for:</strong> <InlineMath tex="\Gamma" /> touching zero at <InlineMath tex="\sigma = 0.5" />.
+          The reflection coefficient <InlineMath tex="\\Gamma = |1 - |\\chi(s)||\\,/\\,(1 + |\\chi(s)|)" /> measures how
+          much energy is reflected back rather than transmitted through the bridge. At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />,{' '}
+          <InlineMath tex="\\Gamma = 0" /> (perfect transmission, conjugate match). This is the scattering-matrix condition for
+          lossless two-port networks: <InlineMath tex="S^\\dagger S = I" />.
+          <strong> Look for:</strong> <InlineMath tex="\\Gamma" /> touching zero at <InlineMath tex="\\sigma = 0.5" />.
         </div>
       )}
       {mode === 'phase' && (
         <div className="tab-explainer accent-orange">
-          <strong>The math:</strong> The bridge phase <InlineMath tex="\arg\chi(\sigma+it)" /> shows the angular rotation of the
-          functional equation prefactor as <InlineMath tex="\sigma" /> varies for fixed <InlineMath tex="t" />.
-          At <InlineMath tex="\sigma = \tfrac{1}{2}" />, where <InlineMath tex="|\chi|=1" />, the phase
-          equals <InlineMath tex="-2\theta(t)" /> where{' '}
-          <InlineMath tex="\theta(t) = \text{Im}\,\log\Gamma(\tfrac{1}{4}+\tfrac{it}{2}) - \tfrac{t}{2}\log\pi" />{' '}
+          The bridge phase <InlineMath tex="\\arg\\chi(\\sigma+it)" /> shows the angular rotation of the
+          functional equation prefactor as <InlineMath tex="\\sigma" /> varies for fixed <InlineMath tex="t" />.
+          At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, where <InlineMath tex="|\\chi|=1" />, the phase
+          equals <InlineMath tex="-2\\theta(t)" /> where{' '}
+          <InlineMath tex="\\theta(t) = \\text{Im}\\,\\log\\Gamma(\\tfrac{1}{4}+\\tfrac{it}{2}) - \\tfrac{t}{2}\\log\\pi" />{' '}
           is the Riemann-Siegel theta function. Away from the critical line, the phase combines
-          contributions from <InlineMath tex="\Gamma(1-s)" />, <InlineMath tex="2^s\pi^{s-1}" />,
-          and <InlineMath tex="\sin(\pi s/2)" />.
-          <strong> Look for:</strong> the phase value at <InlineMath tex="\sigma = 0.5" /> and how the curve steepens as you increase <InlineMath tex="t" />.
+          contributions from <InlineMath tex="\\Gamma(1-s)" />, <InlineMath tex="2^s\\pi^{s-1}" />,
+          and <InlineMath tex="\\sin(\\pi s/2)" />.
+          <strong> Look for:</strong> the phase value at <InlineMath tex="\\sigma = 0.5" /> and how the curve steepens as you increase <InlineMath tex="t" />.
         </div>
       )}
       <div className="controls">
@@ -337,7 +337,7 @@ export default function ScatteringMatrixViz() {
           </select>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>

@@ -182,6 +182,21 @@ export default function LiteraturePage() {
                       DOI: <span style={{ fontFamily: 'var(--font-mono)', color: '#3b82f6' }}>{ref.doi}</span>
                     </div>
                   )}
+                  {(ref.doi || ref.url) && (
+                    <a
+                      href={ref.doi ? (ref.doi.includes('arXiv') ? `https://arxiv.org/abs/${ref.doi.replace('10.48550/arXiv.', '')}` : `https://doi.org/${ref.doi}`) : ref.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={e => e.stopPropagation()}
+                      style={{
+                        display: 'inline-block', marginTop: 8,
+                        color: '#3b82f6', fontSize: 12,
+                        textDecoration: 'none',
+                      }}
+                    >
+                      View Paper ↗
+                    </a>
+                  )}
                 </>
               ) : (
                 <div className="ref-summary" style={{
@@ -206,6 +221,19 @@ export default function LiteraturePage() {
             </div>
           );
         })}
+      </div>
+      {/* Related Pages */}
+      <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>
+        <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          <a href="#/paper" style={{ color: '#3b82f6', fontSize: 13 }}>Paper</a>
+          <span style={{ color: '#334155' }}>|</span>
+          <a href="#/history" style={{ color: '#f59e0b', fontSize: 13 }}>History</a>
+          <span style={{ color: '#334155' }}>|</span>
+          <a href="#/concepts" style={{ color: '#06b6d4', fontSize: 13 }}>Concepts</a>
+          <span style={{ color: '#334155' }}>|</span>
+          <a href="#/explorations" style={{ color: '#8b5cf6', fontSize: 13 }}>Explorations</a>
+        </div>
       </div>
     </div>
   );

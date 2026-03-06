@@ -16,6 +16,10 @@ const categoryColors = {
   'circuit-theory': 'tag-orange',
   'trace-formula': 'tag-purple',
   'spectral': 'tag-red',
+  'quantum-info': 'tag-pink',
+  'analysis': 'tag-green',
+  'number-theory': 'tag-blue',
+  'thermodynamics': 'tag-orange',
 };
 
 const statusLabels = {
@@ -122,7 +126,7 @@ export default function ExplorationsPage() {
                 {statusInfo.label}
               </span>
               <span style={{ fontSize: 12, color: '#64748b', fontFamily: 'var(--font-mono)' }}>
-                {new Date(exp.timestamp).toLocaleString()}
+                {exp.date || (exp.timestamp ? new Date(exp.timestamp).toLocaleDateString() : '')}
               </span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -151,12 +155,25 @@ export default function ExplorationsPage() {
                   </div>
                 )}
 
+                {exp.mathContent && exp.mathContent.length > 0 && (
+                  <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(59,130,246,0.06)', borderRadius: 8, border: '1px solid rgba(59,130,246,0.15)' }}>
+                    <h4 style={{ fontSize: 12, fontWeight: 600, color: '#3b82f6', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      ZPO Correspondence
+                    </h4>
+                    {exp.mathContent.map((tex, i) => (
+                      <div key={i} style={{ marginBottom: 4 }}>
+                        <BlockMath tex={tex} />
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 {exp.insights && exp.insights.length > 0 && (
                   <div className="exploration-insights">
                     <h4>Key Insights</h4>
                     <ul>
                       {exp.insights.map((ins, i) => (
-                        <li key={i}>{ins}</li>
+                        <li key={i}><MathText>{ins}</MathText></li>
                       ))}
                     </ul>
                   </div>
@@ -203,7 +220,7 @@ export default function ExplorationsPage() {
 
             {!isExpanded && (
               <p style={{ marginTop: 8, fontSize: 13, color: '#64748b' }}>
-                {exp.content.slice(0, 180).replace(/\$[^$]*\$/g, '[math]')}...
+                {exp.summary || exp.content.slice(0, 180).replace(/\$[^$]*\$/g, '[math]') + '...'}
               </p>
             )}
           </div>

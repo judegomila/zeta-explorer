@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import { energyLandscape } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
+import ThermoBar from './ThermoBar.jsx';
 
 /**
  * 2D heatmap of the system energy landscape in the (σ, t) plane.
@@ -262,7 +263,7 @@ export default function EnergyLandscapeViz() {
   return (
     <div>
       <div className="tab-explainer accent-purple">
-        <strong>The math:</strong> The 2D heatmap shows the selected quantity over the <InlineMath tex="(\\sigma, t)" /> plane.
+        The 2D heatmap shows the selected quantity over the <InlineMath tex="(\\sigma, t)" /> plane.
         <strong>System Energy</strong> shows <InlineMath tex="\\mathcal{H}(\\sigma+it)" /> with its valley along <InlineMath tex="\\sigma = 0.5" />.
         <strong>Impedance Mismatch</strong> shows <InlineMath tex="|Z_{\\text{dir}} - Z_{\\text{dual}}|" />, minimized (not zero) on the critical line where the impedances are conjugate-matched.
         The <strong>direct/dual magnitudes</strong> show <InlineMath tex="|\\zeta(s)|" /> and <InlineMath tex="|\\zeta(1-s)|" /> with their
@@ -298,7 +299,7 @@ export default function EnergyLandscapeViz() {
         </div>
         {hoverInfo ? (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
-            <InlineMath tex="\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
+            <InlineMath tex="\\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
             {hoverInfo.value != null && (
               <span style={{ marginLeft: 8, color: '#f59e0b' }}>
                 {metric === 'energy' ? 'H' : metric === 'mismatch' ? '|Z₁−Z₂|' : metric === 'directMag' ? '|ζ(s)|' : '|ζ(1−s)|'}={hoverInfo.value}
@@ -311,6 +312,7 @@ export default function EnergyLandscapeViz() {
           </div>
         )}
       </div>
+      <ThermoBar sigma={0.5} t={tMax / 2} numPrimes={numPrimes} />
       <div className="viz-container">
         <canvas ref={canvasRef} style={{ width: '100%', height: 440, cursor: 'crosshair' }}
           onMouseMove={handleHover} onMouseLeave={() => setHoverInfo(null)} />

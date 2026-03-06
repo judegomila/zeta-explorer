@@ -80,11 +80,34 @@ function ExtendedLandscapeTab() {
     const yMax = Math.min(d3.max(logMags), 10);
     const yScale = v => pad.t + topH - (v - yMin) / (yMax - yMin) * topH;
 
-    // Grid
+    // Grid — vertical lines
     ctx.strokeStyle = '#1e293b';
     ctx.lineWidth = 0.5;
     for (let s = Math.ceil(sigmaMin); s <= sigmaMax; s++) {
       ctx.beginPath(); ctx.moveTo(xScale(s), pad.t); ctx.lineTo(xScale(s), pad.t + topH); ctx.stroke();
+    }
+
+    // Y-axis ticks and labels for log|ζ| panel
+    {
+      const yTickStep = (yMax - yMin) > 8 ? 2 : 1;
+      ctx.font = '9px "JetBrains Mono", monospace';
+      ctx.textAlign = 'right';
+      for (let v = Math.ceil(yMin); v <= Math.floor(yMax); v += yTickStep) {
+        const py = yScale(v);
+        // Horizontal gridline
+        ctx.strokeStyle = '#1e293b';
+        ctx.lineWidth = 0.5;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath(); ctx.moveTo(pad.l, py); ctx.lineTo(pad.l + chartW, py); ctx.stroke();
+        ctx.setLineDash([]);
+        // Tick mark
+        ctx.strokeStyle = '#2a3050';
+        ctx.beginPath(); ctx.moveTo(pad.l - 4, py); ctx.lineTo(pad.l, py); ctx.stroke();
+        // Label
+        ctx.fillStyle = '#94a3b8';
+        ctx.fillText(v.toString(), pad.l - 7, py + 3);
+      }
+      ctx.textAlign = 'left'; // reset
     }
 
     // Phase regions
@@ -175,15 +198,30 @@ function ExtendedLandscapeTab() {
     }
 
     // ── Bottom: Phase (argument) ──
+    // Break the line at ±π wrap discontinuities to avoid false vertical lines
     const phaseScale = v => botY + botH / 2 - (v / Math.PI) * (botH / 2);
 
     ctx.strokeStyle = '#8b5cf6';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
+    let needsMove = true;
     scan.forEach((d, i) => {
       const px = xScale(d.sigma);
       const py = phaseScale(d.phase);
-      i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      if (needsMove) {
+        ctx.moveTo(px, py);
+        needsMove = false;
+      } else {
+        // Detect wrap: if consecutive phases jump by more than π, break the path
+        const prevPhase = scan[i - 1].phase;
+        if (Math.abs(d.phase - prevPhase) > Math.PI) {
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(px, py);
+        } else {
+          ctx.lineTo(px, py);
+        }
+      }
     });
     ctx.stroke();
 
@@ -233,7 +271,7 @@ function ExtendedLandscapeTab() {
   return (
     <div>
       <div className="tab-explainer">
-        <strong>The math:</strong> The Riemann zeta function <InlineMath tex="\\zeta(s) = \\sum n^{-s}" /> converges only for{' '}
+        The Riemann zeta function <InlineMath tex="\\zeta(s) = \\sum n^{-s}" /> converges only for{' '}
         <InlineMath tex="\\sigma > 1" /> (the "supercritical" or gas phase). We extend it everywhere via analytic continuation:
         in the critical strip <InlineMath tex="0 < \\sigma < 1" /> using the Dirichlet eta function{' '}
         <InlineMath tex="\\eta(s) = (1-2^{1-s})\\zeta(s)" />, and for <InlineMath tex="\\sigma < 0" /> via the functional equation{' '}
@@ -244,7 +282,7 @@ function ExtendedLandscapeTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
@@ -271,13 +309,13 @@ function ExtendedLandscapeTab() {
           })()}
         </div>
         <div className="control-group">
-          <label><InlineMath tex="\sigma" /> min</label>
+          <label><InlineMath tex="\\sigma" /> min</label>
           <input type="range" min="-8" max="0" step="0.5" value={sigmaMin}
             onChange={e => setSigmaMin(+e.target.value)} />
           <span className="control-value">{sigmaMin}</span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="\sigma" /> max</label>
+          <label><InlineMath tex="\\sigma" /> max</label>
           <input type="range" min="2" max="10" step="0.5" value={sigmaMax}
             onChange={e => setSigmaMax(+e.target.value)} />
           <span className="control-value">{sigmaMax}</span>
@@ -381,6 +419,24 @@ function ThermodynamicsTab() {
       // Title
       svg.append('text').attr('x', margin.left).attr('y', yOff + 14)
         .attr('fill', q.color).attr('font-size', 11).attr('font-weight', 600).text(q.label);
+
+      // X-axis label on the bottom chart only
+      if (qi === quantities.length - 1) {
+        svg.append('text')
+          .attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + margin.bottom + 2)
+          .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+          .text('σ = Re(s)');
+      }
+
+      // Repeat σ = ½ and σ = 1 labels on the last chart for readability
+      if (qi === quantities.length - 1) {
+        g.append('text').attr('x', x(0.5)).attr('y', -4)
+          .attr('text-anchor', 'middle').attr('fill', '#ef4444').attr('font-size', 9).attr('opacity', 0.8)
+          .text('\u03C3 = \u00BD');
+        g.append('text').attr('x', x(1)).attr('y', -4)
+          .attr('text-anchor', 'middle').attr('fill', '#f59e0b').attr('font-size', 9).attr('opacity', 0.8)
+          .text('\u03C3 = 1');
+      }
     });
 
   }, [thermoData]);
@@ -395,7 +451,7 @@ function ThermodynamicsTab() {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        <strong>The math:</strong> In the primon gas (Julia 1990), each prime <InlineMath tex="p" /> is a quantum with energy{' '}
+        In the primon gas (Julia 1990), each prime <InlineMath tex="p" /> is a quantum with energy{' '}
         <InlineMath tex="\\log p" />, and <InlineMath tex="\\sigma" /> acts as inverse temperature <InlineMath tex="\\beta" />.
         The partition function is <InlineMath tex="Z(\\beta) = \\zeta(\\beta)" />, giving free energy{' '}
         <InlineMath tex="F = -T\\log\\zeta(\\beta)" />, entropy <InlineMath tex="S = -\\partial F/\\partial T" />, and pressure{' '}
@@ -406,7 +462,7 @@ function ThermodynamicsTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
@@ -587,19 +643,19 @@ function HeatFlowTab() {
   return (
     <div>
       <div className="tab-explainer accent-orange">
-        <strong>The math:</strong> The Xi function <InlineMath tex="\\Xi(t)" /> satisfies the heat equation{' '}
-        <InlineMath tex="\\partial H_\\tau/\\partial\\tau = \\partial^2 H_\\tau/\\partial t^2" />.
+        The Xi function <InlineMath tex="\\Xi(t)" /> satisfies the heat equation{' '}
+        <InlineMath tex="\\partial H_{\\tau}/\\partial\\tau = \\partial^2 H_{\\tau}/\\partial t^2" />.
         Forward heat flow (<InlineMath tex="\\tau > 0" />) smooths the function, keeping all zeros real.
         Backward flow (<InlineMath tex="\\tau < 0" />) is inverse diffusion &mdash; zeros scatter off the real axis.
         The de Bruijn-Newman constant <InlineMath tex="\\Lambda" /> is the infimum of{' '}
-        <InlineMath tex="\\tau" /> such that <InlineMath tex="H_\\tau" /> has only real zeros.
+        <InlineMath tex="\\tau" /> such that <InlineMath tex="H_{\\tau}" /> has only real zeros.
         Rodgers-Tao (2020) proved <InlineMath tex="\\Lambda \\geq 0" />: the zeros are exactly at the threshold &mdash; any
         backward flow (<InlineMath tex="\\tau < 0" />) can destroy RH, while forward flow preserves it.
         <strong> Look for:</strong> zeros aligned at <InlineMath tex="\\tau = 0" /> then scattering as <InlineMath tex="\\tau" /> goes negative.
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\tau" /> (heat parameter)</label>
+          <label><InlineMath tex="\\tau" /> (heat parameter)</label>
           <input type="range" min="-0.5" max="0.5" step="0.01" value={tau}
             onChange={e => setTau(+e.target.value)} />
           <span className="control-value" style={{
@@ -785,7 +841,7 @@ function EulerPhaseTab() {
   return (
     <div>
       <div className="tab-explainer accent-red">
-        <strong>The math:</strong> The Euler product <InlineMath tex="\\zeta(s) = \\prod_p (1-p^{-s})^{-1}" /> is a cascade
+        The Euler product <InlineMath tex="\\zeta(s) = \\prod_p (1-p^{-s})^{-1}" /> is a cascade
         of independent prime oscillator stages. Each factor <InlineMath tex="(1-p^{-s})^{-1}" /> has magnitude{' '}
         <InlineMath tex="> 1" />, so the infinite product converges only when these factors approach 1 fast enough &mdash;
         precisely when <InlineMath tex="\\sigma > 1" />. At <InlineMath tex="\\sigma = 1" />, the product diverges (the harmonic series),
@@ -795,7 +851,7 @@ function EulerPhaseTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>

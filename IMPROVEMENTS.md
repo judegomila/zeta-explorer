@@ -377,3 +377,80 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 371 | 2026-03-04T10:00:00Z | Add missing window resize listener to ZetaLandscapeViz canvas | ZetaLandscapeViz.jsx |
 | 372 | 2026-03-04T11:00:00Z | Fix spectral energy formula showing |H(s)|² instead of Σ_p ½log(p)|H_p(s)|² | FourierDomainViz.jsx |
 | 373 | 2026-03-04T12:00:00Z | Add critical-strip region label and tooltip to σ slider in TwistorViz | TwistorViz.jsx |
+| 374 | 2026-03-05T12:00:00Z | Add missing legends to Frequency Response tab magnitude and phase charts in FourierDomainViz | FourierDomainViz.jsx |
+| 375 | 2026-03-05T14:00:00Z | Fix Jensen-Shannon divergence using Jeffreys divergence formula instead of correct midpoint formula | information-theory.js |
+| 376 | 2026-03-05T16:00:00Z | Add missing y-axis tick labels to log|ζ| panel in Extended Landscape tab | SupercriticalViz.jsx |
+| 377 | 2026-03-05T18:00:00Z | Fix x-axis label saying "Prime index n" when tick labels show prime values | PrimeGapCouplingViz.jsx |
+| 378 | 2026-03-05T20:00:00Z | Add missing y-axis tick labels and gridlines to all Information Theory scan plots | InformationTheoryViz.jsx |
+| 379 | 2026-03-05T22:00:00Z | Fix rh-attack.js using uncorrected Riemann-Siegel Z without C₀ term in heat flow scan | rh-attack.js |
+| 380 | 2026-03-05T23:00:00Z | Remove unused errorData computation from ExplicitFormulaViz useMemo | ExplicitFormulaViz.jsx |
+| 381 | 2026-03-06T00:00:00Z | Fix Li Coefficients reference line label showing λ=0 instead of λ=1 on log scale | RHAttackViz.jsx |
+| 382 | 2026-03-05T22:30:00Z | Add missing y-axis labels to both charts in Decorated Zeta tab of PascalZetaViz | PascalZetaViz.jsx |
+| 383 | 2026-03-05T23:30:00Z | Fix selbergTraceAnalog missing conjugate zeros in spectral side sum | weil-connes.js |
+| 384 | 2026-03-06T00:30:00Z | Add missing window resize handlers to all five SpectralAttackViz canvas tabs | SpectralAttackViz.jsx |
+| 385 | 2026-03-05T22:00:00Z | Fix incorrect unit '(s)' on group delay y-axis label in Phase & Delay tab | WaveSimViz.jsx |
+| 386 | 2026-03-05T23:00:00Z | Add missing circle markers to error convergence chart in PascalZetaViz ConstantsTab | PascalZetaViz.jsx |
+| 386 | 2026-03-05T23:45:00Z | Replace 10,000 fillRect calls with single putImageData in ZetaLandscape heatmap | ZetaLandscapeViz.jsx |
+| 387 | 2026-03-06T01:00:00Z | Add background box to de Bruijn-Newman scatter plot legend for readability | LiCriterionViz.jsx |
+| 388 | 2026-03-05T02:00:00Z | Fix von Mangoldt spectrum missing n^{-1/2} weight needed to align peaks with zeta zeros | supercritical.js, FourierDomainViz.jsx |
+| 389 | 2026-03-05T23:00:00Z | Use Unicode subscript digits in AnimatedModesViz zeta zero dropdown | AnimatedModesViz.jsx |
+| 448 | 2026-03-05T22:00:00Z | Fix InformationTheoryPage saying 'impedance matched, zero noise' instead of 'conjugate-matched, noise minimized' | InformationTheoryPage.jsx |
+| 390 | 2026-03-05T23:30:00Z | Fix Weil explicit formula prime-power sum using f instead of fHat | weil-connes.js |
+| 391 | 2026-03-05T23:45:00Z | Fix GUE number variance reference curve missing factor of 2 in leading coefficient | GUEStatisticsViz.jsx |
+| 392 | 2026-03-06T02:30:00Z | Add background box to Regularization tab legend in GapClosingViz for readability | GapClosingViz.jsx |
+| 393 | 2026-03-05T22:00:00Z | Fix oscillators.js docstrings saying 'impedance-matched' instead of 'conjugate-matched' at σ=½ | oscillators.js |
+| 394 | 2026-03-05T23:50:00Z | Fix KL divergence and Jensen-Shannon using natural log (nats) instead of log₂ (bits) | information-theory.js |
+| 395 | 2026-03-06T03:00:00Z | Fix inlineKL in spectral-attack.js using Math.log (nats) instead of Math.log2 (bits) | spectral-attack.js |
+| 396 | 2026-03-05T22:30:00Z | Fix twistor incidence derivation using natural pairing (+) instead of symplectic form (−) | TwistorPage.jsx |
+| 397 | 2026-03-06T04:00:00Z | Fix dual ladder magnitude bars overlapping Z₀ labels in OscillatorChainViz | OscillatorChainViz.jsx |
+| 398 | 2026-03-06T05:00:00Z | Fix KL divergence in InfoTheoryExperimentsViz using Math.log (nats) instead of Math.log2 (bits) | InfoTheoryExperimentsViz.jsx |
+| 399 | 2026-03-06T06:00:00Z | Remove redundant stats useMemo that re-scanned all primes in PerPrimeTab | TwinOscillatorSimViz.jsx |
+| 400 | 2026-03-05T23:00:00Z | Fix KL divergence explainer saying 'nats' when computation uses log₂ (bits) | InformationTheoryViz.jsx |
+| 401 | 2026-03-05T23:30:00Z | Fix Li coefficients logLambda using Math.log (ln) but chart label saying log₁₀ | rh-attack.js, RHAttackViz.jsx |
+| 402 | 2026-03-05T12:00:00Z | Fix GUE number variance reference curve using 2/π² instead of correct 1/π² | GUEStatisticsViz.jsx |
+| 403 | 2026-03-05T23:45:00Z | Fix Montgomery pair correlation form factor showing 1+|α| instead of min(|α|,1) | FourierPage.jsx |
+| 404 | 2026-03-05T12:30:00Z | Fix KL divergence y-axis label saying 'nats' when computation uses log₂ (bits) | InformationTheoryViz.jsx |
+| 405 | 2026-03-05T14:00:00Z | Fix WaveSimPage saying 'impedance-matched' instead of 'conjugate-matched' at σ=½ | WaveSimPage.jsx |
+| 406 | 2026-03-05T15:00:00Z | Fix explorations claiming V_mismatch = 0 at σ=½ instead of minimized (conjugate match) | explorations.js, information-theory.js |
+| 454 | 2026-03-05T23:00:00Z | Add missing window resize handlers to all four RHAttackViz canvas tabs | RHAttackViz.jsx |
+| 455 | 2026-03-05T23:30:00Z | Add missing bridge penalty (V_b) to HamiltonianViz hover tooltip | HamiltonianViz.jsx |
+| 456 | 2026-03-05T23:45:00Z | Add missing σ=0.2 tick label to Penrose Transform x-axis in TwistorViz | TwistorViz.jsx |
+| 457 | 2026-03-05T22:00:00Z | Fix Li coefficient formula on PascalPage using undefined (-1)! factorial and wrong form | PascalPage.jsx |
+| 458 | 2026-03-05T23:55:00Z | Fix Ball-Rivoal dimension bound formula growing as s/log(s) instead of correct log(s) | OddZetaPage.jsx |
+| 459 | 2026-03-05T22:15:00Z | Fix ScatteringMatrixViz reflection explainer saying 'impedance match' instead of 'conjugate match' | ScatteringMatrixViz.jsx |
+| 460 | 2026-03-05T14:30:00Z | Add missing window resize handlers to all six InformationTheoryViz canvas tabs | InformationTheoryViz.jsx |
+| 461 | 2026-03-05T16:00:00Z | Add missing window resize handlers to all three ZXCalculusViz canvas tabs | ZXCalculusViz.jsx |
+| 462 | 2026-03-06T00:10:00Z | Fix dual energy formula showing +iω instead of correct −iω in Spectral Energy explainer | FourierDomainViz.jsx |
+| 463 | 2026-03-05T23:00:00Z | Add missing circle markers to error convergence chart in PascalZetaViz ConstantsTab | PascalZetaViz.jsx |
+| 464 | 2026-03-05T23:59:00Z | Add missing y-axis tick labels and gridlines to both charts in OddZetaViz Transfer Function tab | OddZetaViz.jsx |
+| 465 | 2026-03-05T17:30:00Z | Fix KL divergence unit label showing "nats" instead of "bits" in InfoTheoryExperimentsViz dashboard | InfoTheoryExperimentsViz.jsx |
+| 466 | 2026-03-05T18:00:00Z | Cap algorithmicRandomnessTest to float64 mantissa precision (52 bits) instead of analyzing 200 bits of rounding noise | odd-zeta.js |
+| 467 | 2026-03-05T19:00:00Z | Add hover-to-inspect tooltip for Z(t) values and nearest zero in critical-line mode of ZetaLandscapeViz | ZetaLandscapeViz.jsx |
+| 468 | 2026-03-05T19:30:00Z | Fix KL divergence y-axis label showing "nats" instead of "bits" in SpectralAttackViz Lyapunov tab | SpectralAttackViz.jsx |
+| 469 | 2026-03-05T20:00:00Z | Add missing legend to Hasse–Sondow convergence chart in PascalZetaViz | PascalZetaViz.jsx |
+| 470 | 2026-03-05T20:30:00Z | Add x-axis label and repeat phase boundary labels on bottom chart of Thermodynamics tab | SupercriticalViz.jsx |
+| 471 | 2026-03-05T21:00:00Z | Add missing y-axis tick labels and gridlines to Rate-Distortion tab in InformationTheoryViz | InformationTheoryViz.jsx |
+| 472 | 2026-03-05T21:30:00Z | Optimize eulerFactor to use direct real-base arithmetic instead of generic cPow | zeta.js |
+| 473 | 2026-03-06T00:30:00Z | Fix stale Q-factor explainer card on OscillatorsPage still showing wrong prime-dependent formula | OscillatorsPage.jsx |
+| 474 | 2026-03-05T23:00:00Z | Fix Darlington S21 using |Zd| instead of sqrt(Re(Zd)·Re(Zdl)) in transmission coefficient | gap-closing.js |
+| 475 | 2026-03-06T00:45:00Z | Add Davenport-Heilbronn counterexample warning card to ControlTheoryPage | ControlTheoryPage.jsx |
+| 476 | 2026-03-05T22:00:00Z | Add zeta zero snap indicators to t sliders in PascalZetaViz Hasse and Decorated tabs | PascalZetaViz.jsx |
+| 477 | 2026-03-05T23:00:00Z | Add hover-to-inspect hint text to HamiltonianViz when not hovering | HamiltonianViz.jsx |
+| 478 | 2026-03-05T23:30:00Z | Fix GUE concept entry showing pair correlation R₂(r) mislabeled as gap probability P(gap=r) | ConceptsPage.jsx |
+| 479 | 2026-03-05T12:00:00Z | Fix truncated Euler-Mascheroni constant in GUE number variance reference curve | GUEStatisticsViz.jsx |
+| 480 | 2026-03-05T23:59:00Z | Fix formal-proof.js S6 claiming V_mismatch vanishes and Z_dir = Z_dual at σ=½ (conjugate-matched, minimized not zero) | formal-proof.js |
+| 481 | 2026-03-05T22:30:00Z | Fix spider phase formula claiming α_p = −t·log(p) at σ=0 (only valid when p^{-σ} ≪ 1) | ZXCalculusPage.jsx, zxcalculus.js |
+| 482 | 2026-03-05T23:00:00Z | Fix Mellin transform formula missing s/(s-1) main term and wrong convergence region | FourierPage.jsx |
+| 483 | 2026-03-05T23:30:00Z | Fix stale numPrimes closure in AnimatedModesViz draw callback by using primeData.length | AnimatedModesViz.jsx |
+| 484 | 2026-03-06T00:00:00Z | Fix missing minus sign in explicit formula asymptotic approximation | ExplicitFormulaViz.jsx |
+| 485 | 2026-03-06T00:30:00Z | Fix number variance formula using GOE coefficient 2/π² instead of correct GUE coefficient 1/π² | StatisticsPage.jsx |
+| 486 | 2026-03-05T01:00:00Z | Add hover crosshair to ExplicitFormulaViz showing ψ(x), approximation, and error at cursor | ExplicitFormulaViz.jsx |
+| 487 | 2026-03-05T14:00:00Z | Add tab explainer banners to all 5 tabs in OddZetaViz | OddZetaViz.jsx |
+| 488 | 2026-03-05T15:00:00Z | Add tab explainer banners to all 4 tabs in PascalZetaViz | PascalZetaViz.jsx |
+| 489 | 2026-03-05T16:00:00Z | Fix wrapped phase plot in Frequency Response tab showing false discontinuities at ±π | FourierDomainViz.jsx |
+| 490 | 2026-03-05T17:00:00Z | Fix phase plot false discontinuities at ±π wraps in Extended Landscape tab | SupercriticalViz.jsx |
+| 491 | 2026-03-05T18:00:00Z | Fix wrong claim that Euler factor weights are uniform at σ=½ in PrimeContributions explainer | InfoTheoryExperimentsViz.jsx |
+| 492 | 2026-03-05T19:00:00Z | Fix PaperPage abstract claiming reflected power 'vanishes' at σ=½ (it is minimized, not zero) | PaperPage.jsx |
+| 493 | 2026-03-06T01:30:00Z | Add horizontal gridlines to Li Coefficients bar chart in RHAttackViz | RHAttackViz.jsx |
+| 494 | 2026-03-06T02:00:00Z | Fix information-theory.js docstrings falsely claiming entropy is maximized via uniform distribution at σ=½ | information-theory.js |
+| 495 | 2026-03-06T03:00:00Z | Fix Weil positivity Fourier transform missing exp(-a/4) prefactor from test function | rh-attack.js |

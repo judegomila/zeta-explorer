@@ -248,6 +248,10 @@ export default function LiCriterionViz() {
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(10, 10)`);
+      const legendH = taus.length * 16 + 8;
+      legend.append('rect')
+        .attr('x', -6).attr('y', -10).attr('width', 80).attr('height', legendH)
+        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       taus.forEach((tau, i) => {
         legend.append('circle').attr('cx', 6).attr('cy', i * 16).attr('r', 3).attr('fill', colors[i]);
         legend.append('text').attr('x', 14).attr('y', i * 16 + 4)
@@ -285,30 +289,30 @@ export default function LiCriterionViz() {
     <div>
       {mode === 'li' && (
         <div className="tab-explainer accent-green">
-          <strong>The math:</strong> The Li coefficients <InlineMath tex="\lambda_n = \sum_\rho [1 - (1-1/\rho)^n]" /> are sums over
-          all nontrivial zeros. Li's criterion (1997): <strong>RH is true if and only if <InlineMath tex="\lambda_n \geq 0" /> for
-          all <InlineMath tex="n" /></strong>. In our model, <InlineMath tex="\lambda_n \geq 0" /> means the bridge scattering matrix
+          The Li coefficients <InlineMath tex="\\lambda_n = \\sum_\\rho [1 - (1-1/\\rho)^n]" /> are sums over
+          all nontrivial zeros. Li's criterion (1997): <strong>RH is true if and only if <InlineMath tex="\\lambda_n \\geq 0" /> for
+          all <InlineMath tex="n" /></strong>. In our model, <InlineMath tex="\\lambda_n \\geq 0" /> means the bridge scattering matrix
           is passive (contractive) at every angular mode &mdash; it never amplifies.
           <strong> Look for:</strong> all bars positive (green), confirming passivity.
         </div>
       )}
       {mode === 'keiper-li' && (
         <div className="tab-explainer accent-orange">
-          <strong>The math:</strong> The normalized ratio <InlineMath tex="\lambda_n/n" /> should approach{' '}
-          <InlineMath tex="\tfrac{1}{2}(\log(n/2\pi) + \gamma - 1)" /> asymptotically (Keiper-Li formula, where <InlineMath tex="\gamma \approx 0.577" /> is the Euler-Mascheroni constant).
-          This logarithmic growth rate matches the zero density <InlineMath tex="N(T) \sim (T/2\pi)\log(T/2\pi e)" />.
+          The normalized ratio <InlineMath tex="\\lambda_n/n" /> should approach{' '}
+          <InlineMath tex="\\tfrac{1}{2}(\\log(n/2\\pi) + \\gamma - 1)" /> asymptotically (Keiper-Li formula, where <InlineMath tex="\\gamma \\approx 0.577" /> is the Euler-Mascheroni constant).
+          This logarithmic growth rate matches the zero density <InlineMath tex="N(T) \\sim (T/2\\pi)\\log(T/2\\pi e)" />.
           Deviations from this curve would signal a zero off the critical line.
           <strong> Look for:</strong> data points tracking the smooth asymptotic curve.
         </div>
       )}
       {mode === 'debruijn' && (
         <div className="tab-explainer accent-purple">
-          <strong>The math:</strong> Under the heat equation with parameter <InlineMath tex="\tau" />, zeros of the Xi function
-          evolve continuously. At <InlineMath tex="\tau = 0" />, they sit on the real axis (assuming RH). Heating
-          (<InlineMath tex="\tau > 0" />) preserves real zeros; inverse diffusion (<InlineMath tex="\tau < 0" />) scatters them off.
-          The de Bruijn-Newman constant <InlineMath tex="\Lambda \geq 0" /> (proved by Rodgers-Tao) is the critical
+          Under the heat equation with parameter <InlineMath tex="\\tau" />, zeros of the Xi function
+          evolve continuously. At <InlineMath tex="\\tau = 0" />, they sit on the real axis (assuming RH). Heating
+          (<InlineMath tex="\\tau > 0" />) preserves real zeros; inverse diffusion (<InlineMath tex="\\tau < 0" />) scatters them off.
+          The de Bruijn-Newman constant <InlineMath tex="\\Lambda \\geq 0" /> (proved by Rodgers-Tao) is the critical
           temperature: the system is already at the coldest point compatible with real zeros.
-          <strong> Look for:</strong> zeros staying on <InlineMath tex="\sigma = \tfrac{1}{2}" /> for <InlineMath tex="\tau \geq 0" /> and scattering off for <InlineMath tex="\tau < 0" /> (backward heat).
+          <strong> Look for:</strong> zeros staying on <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> for <InlineMath tex="\\tau \\geq 0" /> and scattering off for <InlineMath tex="\\tau < 0" /> (backward heat).
         </div>
       )}
       <div className="controls">

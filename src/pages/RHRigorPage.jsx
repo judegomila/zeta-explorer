@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getAllCriticisms, getCriticismsByCategory, getCriticismsBySeverity, SEVERITY_META, CATEGORY_META } from '../data/criticisms.js';
 import { MathText, BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import RHRigorViz from '../components/RHRigorViz.jsx';
@@ -13,6 +14,7 @@ export default function RHRigorPage() {
   const [expandedId, setExpandedId] = useState(null);
   const [filterSeverity, setFilterSeverity] = useState('all');
   const [filterCategory, setFilterCategory] = useState('all');
+  const [filterStatus, setFilterStatus] = useState('all');
 
   const allCriticisms = getAllCriticisms();
   const bySeverity = getCriticismsBySeverity();
@@ -21,11 +23,13 @@ export default function RHRigorPage() {
   const filtered = allCriticisms.filter(c => {
     if (filterSeverity !== 'all' && c.severity !== filterSeverity) return false;
     if (filterCategory !== 'all' && c.category !== filterCategory) return false;
+    if (filterStatus !== 'all' && c.status !== filterStatus) return false;
     return true;
   });
 
   const openCount = allCriticisms.filter(c => c.status === 'open').length;
   const patchedCount = allCriticisms.filter(c => c.status === 'patched').length;
+  const disputedCount = allCriticisms.filter(c => c.status === 'disputed').length;
 
   return (
     <div className="page">
@@ -56,6 +60,12 @@ export default function RHRigorPage() {
           </div>
           <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>Patched</div>
         </div>
+        <div className="card" style={{ textAlign: 'center', padding: '16px 12px' }}>
+          <div style={{ fontSize: 32, fontWeight: 700, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>
+            {disputedCount}
+          </div>
+          <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>Disputed</div>
+        </div>
         {Object.entries(bySeverity).map(([sev, items]) => (
           <div key={sev} className="card" style={{ textAlign: 'center', padding: '16px 12px' }}>
             <div style={{
@@ -78,16 +88,16 @@ export default function RHRigorPage() {
           The Central Problem
         </h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-          The ZPO model constructs a Hamiltonian <InlineMath tex="H(\sigma,t)" /> that is minimized
-          at <InlineMath tex="\sigma = 1/2" /> and interprets this as evidence for RH. However, the
+          The ZPO model constructs a Hamiltonian <InlineMath tex="H(\\sigma,t)" /> that is minimized
+          at <InlineMath tex="\\sigma = 1/2" /> and interprets this as evidence for RH. However, the
           Hamiltonian is <strong style={{ color: '#e2e8f0' }}>designed</strong> to have this minimum —
-          it is not derived from the zeros of <InlineMath tex="\zeta" />. The argument is:
+          it is not derived from the zeros of <InlineMath tex="\\zeta" />. The argument is:
         </p>
-        <BlockMath tex="\text{Build symmetric } H \;\Rightarrow\; \min_\sigma H = H(\tfrac{1}{2}, t) \;\Rightarrow\; \text{``therefore RH''}" />
+        <BlockMath tex="\\text{Build symmetric } H \\;\\Rightarrow\\; \\min_\\sigma H = H(\\tfrac{1}{2}, t) \\;\\Rightarrow\\; \\text{``therefore RH''}" />
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
           But the correct logical chain would require:
         </p>
-        <BlockMath tex="\text{Derive } H \text{ from } \zeta \;\Rightarrow\; \text{Prove } \min H \iff \zeta = 0 \;\Rightarrow\; \text{Prove } \min H \text{ at } \sigma = \tfrac{1}{2}" />
+        <BlockMath tex="\\text{Derive } H \\text{ from } \\zeta \\;\\Rightarrow\\; \\text{Prove } \\min H \\iff \\zeta = 0 \\;\\Rightarrow\\; \\text{Prove } \\min H \\text{ at } \\sigma = \\tfrac{1}{2}" />
         <p style={{ color: '#f59e0b', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
           The first two steps are missing. Without them, the ZPO model is a vivid illustration of what
           RH "looks like" in circuit language, but not a path to proving it. Below we enumerate every
@@ -111,18 +121,18 @@ export default function RHRigorPage() {
         <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 2 }}>
           <li>
             <strong style={{ color: '#3b82f6' }}>H Minimization:</strong> drag <InlineMath tex="t" /> through several zeta zeros
-            (<InlineMath tex="\gamma \approx 14.1, 21.0, 25.0" />) and watch whether the blue trajectory stays on the
-            green <InlineMath tex="\sigma = \tfrac{1}{2}" /> line. Increase primes to see deviation shrink — then ask: is this convergence
+            (<InlineMath tex="\\gamma \\approx 14.1, 21.0, 25.0" />) and watch whether the blue trajectory stays on the
+            green <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> line. Increase primes to see deviation shrink — then ask: is this convergence
             a genuine prediction, or is <InlineMath tex="H" /> engineered to minimize there?
           </li>
           <li>
             <strong style={{ color: '#8b5cf6' }}>Bridge |χ|:</strong> the heatmap shows where the bridge deviates from unitarity.
-            The bright green band at <InlineMath tex="\sigma = \tfrac{1}{2}" /> confirms <InlineMath tex="|\chi| = 1" /> on the critical line —
+            The bright green band at <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> confirms <InlineMath tex="|\\chi| = 1" /> on the critical line —
             but this is just the functional equation rephrased. Look for how quickly deviation grows off-line: a sharp ridge means
-            the model is sensitive to <InlineMath tex="\sigma" />, while a broad plateau means it is not.
+            the model is sensitive to <InlineMath tex="\\sigma" />, while a broad plateau means it is not.
           </li>
           <li>
-            <strong style={{ color: '#06b6d4' }}>Mismatch vs Zeros:</strong> compare the orange mismatch curve to the blue <InlineMath tex="|\zeta|" /> curve.
+            <strong style={{ color: '#06b6d4' }}>Mismatch vs Zeros:</strong> compare the orange mismatch curve to the blue <InlineMath tex="|\\zeta|" /> curve.
             If they dip together at the same <InlineMath tex="t" /> values, the mismatch "predicts" zeros. Check the Pearson <InlineMath tex="r" /> in the
             top-right: a high correlation is suggestive but not proof, since both quantities are built from the same Euler product truncation.
             The red curve (off-line) should be systematically higher than orange (on-line) if the model distinguishes the critical line.
@@ -166,6 +176,27 @@ export default function RHRigorPage() {
             {CATEGORY_META[cat.name]?.label || cat.name} ({cat.count})
           </button>
         ))}
+      </div>
+      <div className="filter-bar" style={{ marginBottom: 16 }}>
+        <button
+          className={`filter-btn ${filterStatus === 'all' ? 'active' : ''}`}
+          onClick={() => setFilterStatus('all')}
+        >
+          All Statuses
+        </button>
+        {Object.entries(STATUS_LABELS).map(([key, meta]) => {
+          const count = allCriticisms.filter(c => c.status === key).length;
+          return (
+            <button
+              key={key}
+              className={`filter-btn ${filterStatus === key ? 'active' : ''}`}
+              onClick={() => setFilterStatus(key)}
+              style={{ borderColor: filterStatus === key ? meta.color : undefined }}
+            >
+              {meta.label} ({count})
+            </button>
+          );
+        })}
       </div>
 
       {/* Criticism entries */}
@@ -322,12 +353,12 @@ export default function RHRigorPage() {
           <ol style={{ paddingLeft: 20, marginTop: 12 }}>
             <li style={{ marginBottom: 8 }}>
               <strong style={{ color: '#e2e8f0' }}>A symmetric operator</strong> (not a classical energy function) whose
-              eigenvalues are <InlineMath tex="\gamma_n" /> where <InlineMath tex="\rho_n = 1/2 + i\gamma_n" /> are the zeros.
+              eigenvalues are <InlineMath tex="\\gamma_n" /> where <InlineMath tex="\\rho_n = 1/2 + i\\gamma_n" /> are the zeros.
               This is the Hilbert-Pólya program (Berry-Keating, Connes, Sierra).
             </li>
             <li style={{ marginBottom: 8 }}>
               <strong style={{ color: '#e2e8f0' }}>A proof that the operator is self-adjoint</strong> (not merely symmetric), which
-              would show all eigenvalues are real, hence all zeros have <InlineMath tex="\sigma = 1/2" />.
+              would show all eigenvalues are real, hence all zeros have <InlineMath tex="\\sigma = 1/2" />.
             </li>
             <li style={{ marginBottom: 8 }}>
               <strong style={{ color: '#e2e8f0' }}>A distinguishing test</strong>: the method must fail when applied to
@@ -336,7 +367,7 @@ export default function RHRigorPage() {
             </li>
             <li style={{ marginBottom: 8 }}>
               <strong style={{ color: '#e2e8f0' }}>Convergence in the critical strip</strong>: any Euler-product-based
-              argument must handle the divergence of the product for <InlineMath tex="\sigma \leq 1" />, using analytic
+              argument must handle the divergence of the product for <InlineMath tex="\\sigma \\leq 1" />, using analytic
               continuation or the explicit formula instead.
             </li>
           </ol>
@@ -344,6 +375,92 @@ export default function RHRigorPage() {
             The ZPO Explorer is a tool for building intuition, not a proof. Treat it as a playground for
             understanding <em>why</em> mathematicians believe RH is true, not as evidence that it is.
           </p>
+        </div>
+      </div>
+      {/* Connes 2026 section */}
+      <div style={{ marginTop: 32 }}>
+        <h2 style={{ fontSize: 18, marginBottom: 12 }}>What Connes' 2026 Result Changes</h2>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
+          In early 2026, Alain Connes showed that extremizing the Weil quadratic form using only
+          the primes 2, 3, 5, 7, 11 (all primes less than 13) approximates the first 50 nontrivial
+          zeta zeros with accuracy ranging from <InlineMath tex="10^{-55}" /> to <InlineMath tex="10^{-3}" />.
+          This is a remarkable result, but it does not close any of the gaps identified above. Here is what it changes:
+        </p>
+
+        <div className="card" style={{ marginBottom: 16, borderLeft: '3px solid #10b981' }}>
+          <h4 style={{ color: '#10b981', margin: '0 0 12px', fontSize: 14 }}>What the result validates</h4>
+          <ul style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 2, marginLeft: 16 }}>
+            <li>
+              <strong style={{ color: '#e2e8f0' }}>The spectral approach works (Gap S5 path):</strong> The
+              Weil form extremization is fundamentally a spectral method -- it recovers eigenvalue-like
+              data from a quadratic form. The fact that it succeeds so well with so little prime data
+              validates the Hilbert-Polya intuition that the zeros behave as eigenvalues of an operator.
+            </li>
+            <li>
+              <strong style={{ color: '#e2e8f0' }}>Finite prime data is surprisingly powerful:</strong> Only
+              5 primes encode enough information to approximate 50 zeros to extraordinary precision.
+              This supports the ZPO rate-distortion picture: the oscillator chain's information content
+              is dominated by its first few stages.
+            </li>
+            <li>
+              <strong style={{ color: '#e2e8f0' }}>The approximations lie on the critical line by construction:</strong> The
+              Weil form extremization produces values that are real (as imaginary parts of
+              points <InlineMath tex="\\tfrac{1}{2} + i\\gamma" />). But this is built into the method --
+              it does not prove that the actual zeros lie on the critical line.
+            </li>
+          </ul>
+        </div>
+
+        <div className="card" style={{ marginBottom: 16, borderLeft: '3px solid #f59e0b' }}>
+          <h4 style={{ color: '#f59e0b', margin: '0 0 12px', fontSize: 14 }}>What the result does NOT do</h4>
+          <ul style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 2, marginLeft: 16 }}>
+            <li>
+              It does not prove <InlineMath tex="W \\geq 0" /> (the Weil positivity condition equivalent to RH).
+            </li>
+            <li>
+              It does not construct a self-adjoint operator (Gap S5 remains open).
+            </li>
+            <li>
+              The approximation accuracy, however impressive, is numerical evidence, not proof.
+              The same method applied to a function with off-line zeros might also produce good
+              approximations on the critical line.
+            </li>
+            <li>
+              It does not address the Euler product convergence problem (Gap S4) or the Darlington
+              synthesis gap (Gap S7).
+            </li>
+          </ul>
+        </div>
+
+        <div className="card" style={{
+          borderLeft: '3px solid #8b5cf6',
+          background: 'rgba(139, 92, 246, 0.06)',
+        }}>
+          <h4 style={{ color: '#a78bfa', margin: '0 0 8px', fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+            Key Insight
+          </h4>
+          <p style={{ color: '#e2e8f0', fontSize: 14, lineHeight: 1.8, margin: 0 }}>
+            Connes' result is the strongest evidence yet that the spectral approach (S5) can work --
+            the operator's spectrum IS encoded in a finite number of primes. But encoding is not the
+            same as proving. The gap between "5 primes approximate 50 zeros" and "all zeros lie
+            on <InlineMath tex="\\sigma = \\tfrac{1}{2}" />" remains the central challenge.
+          </p>
+        </div>
+      </div>
+
+      {/* Related Pages */}
+      <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>
+        <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          <Link to="/proof-checker" style={{ color: '#ef4444', fontSize: 13 }}>Proof Checker</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/formal-proof" style={{ color: '#10b981', fontSize: 13 }}>Formal Proof</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/rh-attack" style={{ color: '#3b82f6', fontSize: 13 }}>RH Attack</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/gap-closing" style={{ color: '#f97316', fontSize: 13 }}>Gap Closing</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/concepts" style={{ color: '#8b5cf6', fontSize: 13 }}>Concepts</Link>
         </div>
       </div>
     </div>

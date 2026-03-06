@@ -194,18 +194,18 @@ export default function EulerProductViz() {
   return (
     <div>
       <div className="tab-explainer accent-cyan">
-        <strong>The math:</strong> The partial Euler product <InlineMath tex="\\zeta_N(s) = \\prod_{p \\leq p_N} (1-p^{-s})^{-1}" /> builds
+        The partial Euler product <InlineMath tex="\\zeta_N(s) = \\prod_{p \\leq p_N} (1-p^{-s})^{-1}" /> builds
         up the zeta function prime-by-prime. Each factor has magnitude <InlineMath tex="|1-p^{-s}|^{-1}" /> and phase{' '}
         <InlineMath tex="\\arg(1-p^{-s})^{-1}" />. The cumulative product converges (for <InlineMath tex="\\sigma > 1" />) to{' '}
-        <InlineMath tex="\\zeta(s)" />. In the critical strip (<InlineMath tex="0 < \sigma \leq 1" />), the Euler product <strong>diverges</strong> &mdash;
-        partial products oscillate without settling. The green reference line shows the true <InlineMath tex="|\zeta(s)|" /> computed via
+        <InlineMath tex="\\zeta(s)" />. In the critical strip (<InlineMath tex="0 < \\sigma \\leq 1" />), the Euler product <strong>diverges</strong> &mdash;
+        partial products oscillate without settling. The green reference line shows the true <InlineMath tex="|\\zeta(s)|" /> computed via
         analytic continuation (Borwein acceleration), not the Euler product.
-        <strong> Look for:</strong> the blue magnitude line stabilizing as more primes are added (for <InlineMath tex="\sigma > 1" />); divergent oscillations in the critical strip.
+        <strong> Look for:</strong> the blue magnitude line stabilizing as more primes are added (for <InlineMath tex="\\sigma > 1" />); divergent oscillations in the critical strip.
       </div>
       <div className="controls">
         <div className="control-group">
           <label style={{ color: sigmaColor, fontWeight: 600 }}>
-            <InlineMath tex="\sigma = \operatorname{Re}(s)" />
+            <InlineMath tex="\\sigma = \\operatorname{Re}(s)" />
           </label>
           <input type="range" min="0.1" max="2" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)}
@@ -218,7 +218,7 @@ export default function EulerProductViz() {
           >{sigma > 1 ? 'convergent' : Math.abs(sigma - 0.5) < 0.03 ? 'critical line' : 'critical strip'}</span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="0.5" max="60" step="0.1" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>

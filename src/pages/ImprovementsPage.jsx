@@ -8,6 +8,7 @@ const categoryConfig = {
   visual:      { label: 'Visual',      color: '#8b5cf6', cls: 'tag-purple' },
   performance: { label: 'Performance', color: '#10b981', cls: 'tag-green' },
   content:     { label: 'Content',     color: '#06b6d4', cls: 'tag-cyan' },
+  architecture:{ label: 'Architecture', color: '#ec4899', cls: 'tag-pink' },
 };
 
 const PAGE_SIZE = 20;
@@ -36,7 +37,7 @@ export default function ImprovementsPage() {
         <h1>Auto-Improvements</h1>
         <p>
           Live log of automated improvements made by the Claude Code auto-improvement engine.
-          The engine runs every 10 minutes, picking one atomic improvement to make each cycle.
+          The engine runs every minute, picking one atomic improvement to make each cycle.
         </p>
       </div>
 
@@ -184,7 +185,7 @@ export default function ImprovementsPage() {
         <div style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.8 }}>
           <p>
             The auto-improvement engine (<code style={{ color: 'var(--accent-cyan)' }}>scripts/auto-improve.sh</code>)
-            invokes the Claude Code CLI every 10 minutes with a prompt to:
+            invokes the Claude Code CLI every minute with a prompt to:
           </p>
           <ol style={{ marginLeft: 20, marginTop: 8 }}>
             <li>Pick one improvement category (bug fix, accuracy, UX, visual, performance, content)</li>

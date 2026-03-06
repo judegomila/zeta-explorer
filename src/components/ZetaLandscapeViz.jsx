@@ -12,9 +12,10 @@ for (let i = 0; i < CL_PALETTE_SIZE; i++) {
   clPaletteNeg[i] = `rgba(245,158,11,${alpha})`;
 }
 
-// Pre-compute 256-entry colormap palette to avoid per-pixel interpolation + string concat
+// Pre-compute 256-entry RGB colormap as flat Uint8 array for ImageData-based rendering
 const PALETTE_SIZE = 256;
-const heatmapPalette = new Array(PALETTE_SIZE);
+const heatmapPaletteRGB = new Uint8Array(PALETTE_SIZE * 3);
+const heatmapPalette = new Array(PALETTE_SIZE); // string version for colorbar
 for (let i = 0; i < PALETTE_SIZE; i++) {
   const normalized = i / (PALETTE_SIZE - 1);
   let r, g, b;
@@ -31,11 +32,15 @@ for (let i = 0; i < PALETTE_SIZE; i++) {
     const t2 = (normalized - 0.75) / 0.25;
     r = 250; g = 150 - t2 * 100; b = 30 - t2 * 20;
   }
+  heatmapPaletteRGB[i * 3] = r | 0;
+  heatmapPaletteRGB[i * 3 + 1] = g | 0;
+  heatmapPaletteRGB[i * 3 + 2] = b | 0;
   heatmapPalette[i] = `rgb(${r|0},${g|0},${b|0})`;
 }
 
 export default function ZetaLandscapeViz() {
   const canvasRef = useRef();
+  const clValuesRef = useRef([]); // cached Z(t) values for critical-line hover
   const [mode, setMode] = useState('critical-line');
   const [tRange, setTRange] = useState([0, 50]);
   const [sigmaRange] = useState([0.05, 0.95]);
@@ -67,6 +72,7 @@ export default function ZetaLandscapeViz() {
       const z = t > 2 ? riemannSiegelZ(t) : 0;
       values.push({ t, z });
     }
+    clValuesRef.current = values;
 
     const maxAbs = Math.max(1, ...values.map(v => Math.abs(v.z)));
     const xScale = dw / steps;
@@ -237,18 +243,27 @@ export default function ZetaLandscapeViz() {
     const tMax = tRange[1];
     const sMin = sigmaRange[0];
     const sMax = sigmaRange[1];
-    const cellW = dw / RES;
-    const cellH = dh / RES;
-
-    for (let i = 0; i < RES; i++) {
-      for (let j = 0; j < RES; j++) {
+    // Render heatmap via ImageData (single putImageData replaces 10,000 fillRect calls)
+    const imgW = w;  // use full backing-pixel width for crisp rendering
+    const imgH = h;
+    const imgData = ctx.createImageData(imgW, imgH);
+    const pixels = imgData.data;
+    for (let py = 0; py < imgH; py++) {
+      // Map pixel row to grid j (t-axis, bottom = low j, top = high j)
+      const j = Math.min(RES - 1, ((imgH - 1 - py) / (imgH - 1) * (RES - 1)) | 0);
+      for (let px = 0; px < imgW; px++) {
+        // Map pixel col to grid i (sigma-axis)
+        const i = Math.min(RES - 1, (px / (imgW - 1) * (RES - 1)) | 0);
         const normalized = heatmapGrid[i * RES + j];
-        // Palette lookup (replaces per-pixel interpolation + string concat)
         const palIdx = Math.min(PALETTE_SIZE - 1, (normalized * (PALETTE_SIZE - 1)) | 0);
-        ctx.fillStyle = heatmapPalette[palIdx];
-        ctx.fillRect(i * cellW, (RES - 1 - j) * cellH, cellW + 0.5, cellH + 0.5);
+        const off = (py * imgW + px) * 4;
+        pixels[off] = heatmapPaletteRGB[palIdx * 3];
+        pixels[off + 1] = heatmapPaletteRGB[palIdx * 3 + 1];
+        pixels[off + 2] = heatmapPaletteRGB[palIdx * 3 + 2];
+        pixels[off + 3] = 255;
       }
     }
+    ctx.putImageData(imgData, 0, 0);
 
     // Critical line overlay
     const critX = ((0.5 - sMin) / (sMax - sMin)) * dw;
@@ -357,20 +372,34 @@ export default function ZetaLandscapeViz() {
   }, [tRange, sigmaRange, heatmapGrid]);
 
   const handleHover = useCallback((e) => {
-    if (mode !== 'heatmap' || !canvasRef.current) return;
+    if (!canvasRef.current) return;
     const rect = canvasRef.current.getBoundingClientRect();
     const mx = (e.clientX - rect.left) / rect.width;
     const my = (e.clientY - rect.top) / rect.height;
     if (mx < 0 || mx > 1 || my < 0 || my > 1) { setHoverInfo(null); return; }
-    const sigma = sigmaRange[0] + mx * (sigmaRange[1] - sigmaRange[0]);
-    const tMin = tRange[0];
-    const tMax = tRange[1];
-    const t = tMin + (1 - my) * (tMax - tMin);
-    const gi = Math.min(RES - 1, Math.max(0, Math.round((mx) * (RES - 1))));
-    const gj = Math.min(RES - 1, Math.max(0, Math.round((1 - my) * (RES - 1))));
-    const logVal = heatmapGrid[gi * RES + gj];
-    // Reverse: logVal = min(1, log(1+mag)/4), so log(1+mag) ≈ logVal*4 (clamped)
-    setHoverInfo({ sigma: sigma.toFixed(3), t: t.toFixed(2), logMag: (logVal * 4).toFixed(3) });
+    if (mode === 'heatmap') {
+      const sigma = sigmaRange[0] + mx * (sigmaRange[1] - sigmaRange[0]);
+      const tMin = tRange[0];
+      const tMax = tRange[1];
+      const t = tMin + (1 - my) * (tMax - tMin);
+      const gi = Math.min(RES - 1, Math.max(0, Math.round((mx) * (RES - 1))));
+      const gj = Math.min(RES - 1, Math.max(0, Math.round((1 - my) * (RES - 1))));
+      const logVal = heatmapGrid[gi * RES + gj];
+      setHoverInfo({ mode: 'heatmap', sigma: sigma.toFixed(3), t: t.toFixed(2), logMag: (logVal * 4).toFixed(3) });
+    } else {
+      const vals = clValuesRef.current;
+      if (!vals.length) return;
+      const idx = Math.min(vals.length - 1, Math.max(0, Math.round(mx * (vals.length - 1))));
+      const { t, z } = vals[idx];
+      // Find nearest zeta zero
+      let nearestZero = null;
+      let nearestDist = Infinity;
+      for (const gamma of ZETA_ZEROS) {
+        const d = Math.abs(gamma - t);
+        if (d < nearestDist) { nearestDist = d; nearestZero = gamma; }
+      }
+      setHoverInfo({ mode: 'critical-line', t: t.toFixed(2), z: z.toFixed(4), nearestZero: nearestDist < 2 ? nearestZero.toFixed(3) : null });
+    }
   }, [mode, tRange, sigmaRange, heatmapGrid]);
 
   useEffect(() => {
@@ -391,22 +420,22 @@ export default function ZetaLandscapeViz() {
     <div>
       {mode === 'critical-line' && (
         <div className="tab-explainer">
-          <strong>The math:</strong> The Riemann-Siegel Z function <InlineMath tex="Z(t) = e^{i\theta(t)}\zeta(\tfrac{1}{2}+it)" /> is{' '}
-          <strong>real-valued</strong> on the critical line. Its zeros are exactly the nontrivial zeros of <InlineMath tex="\zeta" />.
-          The prefactor <InlineMath tex="e^{i\theta(t)}" /> rotates away the phase, exposing the zero crossings directly.
+          The Riemann-Siegel Z function <InlineMath tex="Z(t) = e^{i\\theta(t)}\\zeta(\\tfrac{1}{2}+it)" /> is{' '}
+          <strong>real-valued</strong> on the critical line. Its zeros are exactly the nontrivial zeros of <InlineMath tex="\\zeta" />.
+          The prefactor <InlineMath tex="e^{i\\theta(t)}" /> rotates away the phase, exposing the zero crossings directly.
           Between consecutive zeros, <InlineMath tex="Z(t)" /> oscillates with quasi-random amplitude &mdash;
           the "music" generated by the prime oscillator chain.
-          <strong> Look for:</strong> zero crossings (red dots) matching the known <InlineMath tex="\gamma_n" /> values.
+          <strong> Look for:</strong> zero crossings (red dots) matching the known <InlineMath tex="\\gamma_n" /> values.
         </div>
       )}
       {mode === 'heatmap' && (
         <div className="tab-explainer accent-purple">
-          <strong>The math:</strong> The heatmap shows <InlineMath tex="|\zeta(\sigma+it)|" /> across the critical strip{' '}
-          <InlineMath tex="0 < \sigma < 1" />. Dark valleys are where <InlineMath tex="|\zeta|" /> is small; bright ridges
-          where it is large. The nontrivial zeros appear as deep blue pits along <InlineMath tex="\sigma = 0.5" />.
-          The functional equation <InlineMath tex="\zeta(s) = \chi(s)\zeta(1-s)" /> creates the left-right symmetry about
+          The heatmap shows <InlineMath tex="|\\zeta(\\sigma+it)|" /> across the critical strip{' '}
+          <InlineMath tex="0 < \\sigma < 1" />. Dark valleys are where <InlineMath tex="|\\zeta|" /> is small; bright ridges
+          where it is large. The nontrivial zeros appear as deep blue pits along <InlineMath tex="\\sigma = 0.5" />.
+          The functional equation <InlineMath tex="\\zeta(s) = \\chi(s)\\zeta(1-s)" /> creates the left-right symmetry about
           the critical line.
-          <strong> Look for:</strong> all zero pits aligning vertically on <InlineMath tex="\sigma = 0.5" />.
+          <strong> Look for:</strong> all zero pits aligning vertically on <InlineMath tex="\\sigma = 0.5" />.
         </div>
       )}
       <div className="controls">
@@ -433,23 +462,35 @@ export default function ZetaLandscapeViz() {
             </span>
           </span>
         </div>
-        {mode === 'heatmap' && (
-          hoverInfo ? (
-            <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
-              <InlineMath tex="\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
-              <span style={{ marginLeft: 8, color: '#f59e0b' }}>
-                log(1+|ζ|)={hoverInfo.logMag}
+        {hoverInfo && hoverInfo.mode === 'heatmap' && (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+            <InlineMath tex="\\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
+            <span style={{ marginLeft: 8, color: '#f59e0b' }}>
+              log(1+|ζ|)={hoverInfo.logMag}
+            </span>
+          </div>
+        )}
+        {hoverInfo && hoverInfo.mode === 'critical-line' && (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+            <InlineMath tex="t" />={hoverInfo.t}
+            <span style={{ marginLeft: 8, color: '#3b82f6' }}>
+              Z(t)={hoverInfo.z}
+            </span>
+            {hoverInfo.nearestZero && (
+              <span style={{ marginLeft: 8, color: '#ef4444', fontSize: 11 }}>
+                nearest zero: γ≈{hoverInfo.nearestZero}
               </span>
-            </div>
-          ) : (
-            <div style={{ marginLeft: 'auto', fontSize: 11, color: '#64748b', fontStyle: 'italic' }}>
-              Hover over heatmap to inspect values
-            </div>
-          )
+            )}
+          </div>
+        )}
+        {!hoverInfo && (
+          <div style={{ marginLeft: 'auto', fontSize: 11, color: '#64748b', fontStyle: 'italic' }}>
+            Hover over chart to inspect values
+          </div>
         )}
       </div>
       <div className="viz-container">
-        <canvas ref={canvasRef} style={{ width: '100%', height: 400, cursor: mode === 'heatmap' ? 'crosshair' : undefined }}
+        <canvas ref={canvasRef} style={{ width: '100%', height: 400, cursor: 'crosshair' }}
           onMouseMove={handleHover} onMouseLeave={() => setHoverInfo(null)} />
       </div>
     </div>

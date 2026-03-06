@@ -227,7 +227,7 @@ export default function PrimeGapCouplingViz() {
 
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
-      .text('Prime index n');
+      .text('Prime pₙ');
 
   }, [primes, data, mode]);
 
@@ -242,8 +242,8 @@ export default function PrimeGapCouplingViz() {
     <div>
       {mode === 'coupling' && (
         <div className="tab-explainer accent-red">
-          <strong>The math:</strong> Adjacent oscillator stages are coupled with strength{' '}
-          <InlineMath tex="Y_{n,n+1} \propto 1/\log(p_{n+1}/p_n)" />. Small prime gaps (especially twin primes, gap = 2)
+          Adjacent oscillator stages are coupled with strength{' '}
+          <InlineMath tex="Y_{n,n+1} \\propto 1/\\log(p_{n+1}/p_n)" />. Small prime gaps (especially twin primes, gap = 2)
           produce <strong>strong coupling</strong> &mdash; energy flows easily between those stages, creating resonant cavities.
           Large gaps weaken the coupling. The twin prime conjecture implies infinitely many strongly-coupled pairs.
           <strong> Look for:</strong> red spikes at twin primes (3-5, 5-7, 11-13, ...); coupling dropping at large gaps.
@@ -251,8 +251,8 @@ export default function PrimeGapCouplingViz() {
       )}
       {mode === 'gap' && (
         <div className="tab-explainer accent-orange">
-          <strong>The math:</strong> Prime gaps <InlineMath tex="g_n = p_{n+1} - p_n" /> determine the physical "distance" between oscillator stages.
-          By the prime number theorem, the average gap near <InlineMath tex="p" /> is <InlineMath tex="\sim \log p" />.
+          Prime gaps <InlineMath tex="g_n = p_{n+1} - p_n" /> determine the physical "distance" between oscillator stages.
+          By the prime number theorem, the average gap near <InlineMath tex="p" /> is <InlineMath tex="\\sim \\log p" />.
           The distribution of gaps encodes the fine structure of primes &mdash; and directly sets
           the inter-stage impedance of the ladder network.
           <strong> Look for:</strong> gaps growing on average (PNT) with occasional twin prime dips to 2.
@@ -260,12 +260,12 @@ export default function PrimeGapCouplingViz() {
       )}
       {mode === 'frequency' && (
         <div className="tab-explainer accent-cyan">
-          <strong>The math:</strong> Each prime <InlineMath tex="p" /> has Euler factor phase rotation rate <InlineMath tex="\omega_p = \log p" /> (the
+          Each prime <InlineMath tex="p" /> has Euler factor phase rotation rate <InlineMath tex="\\omega_p = \\log p" /> (the
           frequency at which <InlineMath tex="p^{-it}" /> oscillates as <InlineMath tex="t" /> varies). Note: the LC circuit resonant
-          frequency is <InlineMath tex="\omega_0 = 1/\sqrt{L_p C_p} = 1" /> for all primes; <InlineMath tex="\log p" /> is the characteristic
-          dispersion rate, not the resonance. This grows as <InlineMath tex="\log(n\log n)" /> for the <InlineMath tex="n" />-th prime,
+          frequency is <InlineMath tex="\\omega_0 = 1/\\sqrt{L_p C_p} = 1" /> for all primes; <InlineMath tex="\\log p" /> is the characteristic
+          dispersion rate, not the resonance. This grows as <InlineMath tex="\\log(n\\log n)" /> for the <InlineMath tex="n" />-th prime,
           with mode spacing decreasing at higher frequencies — matching the increasing density of zeta
-          zeros <InlineMath tex="N(T) \sim (T/2\pi)\log(T/2\pi e)" />.
+          zeros <InlineMath tex="N(T) \\sim (T/2\\pi)\\log(T/2\\pi e)" />.
           <strong> Look for:</strong> the logarithmic staircase of frequencies.
         </div>
       )}

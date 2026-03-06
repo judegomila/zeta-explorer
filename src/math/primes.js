@@ -63,7 +63,8 @@ export function chebyshevPsi(x) {
 
 /**
  * Explicit formula: ψ(x) = x - Σ_ρ x^ρ/ρ - log(2π) - ½log(1 - x^{-2})
- * Returns the oscillatory correction terms (sum over zeros + constants).
+ * Returns the terms to subtract from x: zeroSum + log(2π) + ½log(1-x^{-2}).
+ * Usage: ψ(x) ≈ x - explicitFormulaTerms(x, zeros).
  */
 export function explicitFormulaTerms(x, zeros, sigma = 0.5) {
   const logx = Math.log(x);

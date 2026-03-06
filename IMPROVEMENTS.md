@@ -500,3 +500,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 539 | 2026-03-07T09:00:00Z | Add tab explainer banners to all 5 tabs in SpectralAttackViz | SpectralAttackViz.jsx |
 | 540 | 2026-03-06T10:00:00Z | Fix Von Mangoldt spectrum legend using wrong notation |Λ̂(ω)| instead of |F(ω)| | FourierDomainViz.jsx |
 | 541 | 2026-03-06T11:00:00Z | Add Hadamard product formula card to ZetaPage with ξ(s) factorization and ZPO notch-filter interpretation | ZetaPage.jsx |
+| 542 | 2026-03-06T22:30:00Z | Change Confinement tab Hamiltonian curve from orange to pink for better contrast with Bridge curve | GapClosingViz.jsx |

@@ -754,7 +754,7 @@ function ConfinementTab({ numPrimes, t, report }) {
     drawCurve(klVals, '#10b981', 1);       // KL: green
     drawCurve(twistorVals, '#3b82f6', 1);  // twistor: blue
     drawCurve(bridgeVals, '#f59e0b', 1);   // bridge: yellow/orange
-    drawCurve(hamiltonianVals, '#f97316', 1); // Hamiltonian: orange
+    drawCurve(hamiltonianVals, '#ec4899', 1); // Hamiltonian: pink
 
     // Total confinement potential (thick purple)
     drawCurve(potentials, '#8b5cf6', 3);
@@ -815,7 +815,7 @@ function ConfinementTab({ numPrimes, t, report }) {
       { color: '#10b981', label: 'KL divergence', width: 1 },
       { color: '#3b82f6', label: 'Twistor', width: 1 },
       { color: '#f59e0b', label: 'Bridge', width: 1 },
-      { color: '#f97316', label: 'Hamiltonian', width: 1 },
+      { color: '#ec4899', label: 'Hamiltonian', width: 1 },
     ];
     const legendX = w - margin.right - 148;
     const legendY0 = margin.top + 2;

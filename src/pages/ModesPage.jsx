@@ -107,8 +107,8 @@ export default function ModesPage() {
           <h3 style={{ color: '#06b6d4' }}>Frequency Dispersion</h3>
           <BlockMath tex={"\\omega_p = \\log p \\Rightarrow \\omega_{p_n} \\sim \\log(n\\log n)"} />
           <p style={{ marginTop: 8 }}>
-            The oscillator frequencies grow logarithmically — this is a **logarithmic dispersion
-            relation**. Unlike a uniform lattice (linear dispersion), the mode spacing decreases
+            The oscillator frequencies grow logarithmically — this is a <strong>logarithmic dispersion
+            relation</strong>. Unlike a uniform lattice (linear dispersion), the mode spacing decreases
             at higher frequencies, leading to the increasing density of zeta zeros.
           </p>
         </div>

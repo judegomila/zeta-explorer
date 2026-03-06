@@ -663,17 +663,12 @@ function DarlingtonTab({ numPrimes, t }) {
 
 // ─── Tab 4: Confinement ─────────────────────────────────────────────────────
 
-function ConfinementTab({ numPrimes, t }) {
+function ConfinementTab({ numPrimes, t, report }) {
   const canvasRef = useRef();
 
   const data = useMemo(
     () => confinementScan(t, [0.1, 0.9], 60, numPrimes),
     [t, numPrimes],
-  );
-
-  const report = useMemo(
-    () => gapClosingReport(numPrimes, 10),
-    [numPrimes],
   );
 
   const draw = useCallback(() => {
@@ -931,7 +926,7 @@ export default function GapClosingViz() {
       {tab === 0 && <RegularizationTab numPrimes={numPrimes} t={tValue} />}
       {tab === 1 && <HilbertPolyaTab numPrimes={numPrimes} />}
       {tab === 2 && <DarlingtonTab numPrimes={numPrimes} t={tValue} />}
-      {tab === 3 && <ConfinementTab numPrimes={numPrimes} t={tValue} />}
+      {tab === 3 && <ConfinementTab numPrimes={numPrimes} t={tValue} report={report} />}
 
       {/* Summary panel */}
       <div style={{

@@ -809,7 +809,7 @@ function ConfinementTab({ numPrimes, t, report }) {
     ctx.fillText('\u03A6(\u03C3) potential', 0, 0);
     ctx.restore();
 
-    // Legend
+    // Legend with background box
     const legendItems = [
       { color: '#8b5cf6', label: 'Total \u03A6(\u03C3)', width: 3 },
       { color: '#10b981', label: 'KL divergence', width: 1 },
@@ -817,9 +817,20 @@ function ConfinementTab({ numPrimes, t, report }) {
       { color: '#f59e0b', label: 'Bridge', width: 1 },
       { color: '#f97316', label: 'Hamiltonian', width: 1 },
     ];
+    const legendX = w - margin.right - 148;
+    const legendY0 = margin.top + 2;
+    const legendW = 144;
+    const legendH = legendItems.length * 14 + 6;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
+    ctx.fill();
+    ctx.stroke();
     legendItems.forEach((item, i) => {
-      const lx = w - margin.right - 140;
-      const ly = margin.top + 8 + i * 14;
+      const lx = legendX + 8;
+      const ly = legendY0 + 12 + i * 14;
       ctx.beginPath();
       ctx.moveTo(lx, ly);
       ctx.lineTo(lx + 14, ly);

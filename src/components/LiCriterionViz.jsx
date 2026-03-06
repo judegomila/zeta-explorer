@@ -264,7 +264,7 @@ export default function LiCriterionViz() {
         .text('de Bruijn-Newman: Zero Drift Under Heat Flow');
       svg.append('text').attr('x', margin.left + 4).attr('y', 32)
         .attr('fill', '#64748b').attr('font-size', 11)
-        .text('Λ ≥ 0 (Rodgers-Tao): zeros at τ=0 are exactly on the critical line');
+        .text('Λ ≥ 0 (Rodgers-Tao): backward heat (τ<0) always creates non-real zeros');
 
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)

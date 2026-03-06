@@ -470,3 +470,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 509 | 2026-03-06T17:00:00Z | Add missing y-axis tick labels and gridlines to Irrationality Measure chart in OddZetaViz | OddZetaViz.jsx |
 | 510 | 2026-03-06T18:00:00Z | Fix false claim that Euler product entropy gives uniform prime distribution at sigma=1/2 | InformationTheoryPage.jsx |
 | 511 | 2026-03-06T19:00:00Z | Fix InsightDAG legend missing Analogous and Extends edge types | InsightDAG.jsx |
+| 512 | 2026-03-06T20:00:00Z | Fix false claim that Λ≥0 (Rodgers-Tao) means zeros are on the critical line at τ=0 | LiCriterionViz.jsx |

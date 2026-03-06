@@ -501,23 +501,26 @@ function HasseTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\\sigma" /></label>
+          <label title="Real part of s — controls convergence region"><InlineMath tex="\\sigma = \\operatorname{Re}(s)" /></label>
           <input type="range" min="0.1" max="2" step="0.05" value={sigma}
             onChange={e => setSigma(+e.target.value)}
+            title={sigma > 1 ? 'Convergent region (σ > 1)' : sigma > 0.5 ? 'Critical strip (½ < σ ≤ 1)' : 'Near critical line (σ ≈ ½)'}
             style={{ accentColor: sigmaColor }} />
           <span className="control-value" style={{ color: sigmaColor }}>{sigma.toFixed(2)}</span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t" /></label>
+          <label title="Imaginary part of s — zeta zeros occur at specific t values"><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={t}
-            onChange={e => setT(+e.target.value)} />
+            onChange={e => setT(+e.target.value)}
+            title="Imaginary part of s — snap to a zeta zero using the indicator" />
           <span className="control-value">{t.toFixed(1)}</span>
           <ZeroSnap tValue={t} setTValue={setT} />
         </div>
         <div className="control-group">
-          <label>Rows</label>
+          <label title="Number of Pascal triangle rows used in the Hasse–Sondow series — more rows give better convergence">Rows</label>
           <input type="range" min="5" max="50" step="1" value={maxRows}
-            onChange={e => setMaxRows(+e.target.value)} />
+            onChange={e => setMaxRows(+e.target.value)}
+            title="More rows = better convergence of the Hasse–Sondow series" />
           <span className="control-value">{maxRows}</span>
         </div>
       </div>
@@ -678,22 +681,25 @@ function DecoratedTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t" /></label>
+          <label title="Imaginary part of s — snap to a zeta zero using the indicator"><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={t}
-            onChange={e => setT(+e.target.value)} />
+            onChange={e => setT(+e.target.value)}
+            title="Imaginary part of s — snap to a zeta zero using the indicator" />
           <span className="control-value">{t.toFixed(1)}</span>
           <ZeroSnap tValue={t} setTValue={setT} />
         </div>
         <div className="control-group">
-          <label>Pascal Row N</label>
+          <label title="Which row of Pascal's triangle to show as a Dirichlet polynomial in the lower chart">Pascal Row N</label>
           <input type="range" min="1" max="15" step="1" value={selectedRow}
-            onChange={e => setSelectedRow(+e.target.value)} />
+            onChange={e => setSelectedRow(+e.target.value)}
+            title="Row N of Pascal's triangle used for the Dirichlet polynomial Z_N(s)" />
           <span className="control-value">{selectedRow}</span>
         </div>
         <div className="control-group">
-          <label>Hasse Terms</label>
+          <label title="Number of terms in the Hasse–Sondow series for the upper chart">Hasse Terms</label>
           <input type="range" min="5" max="50" step="1" value={maxTerms}
-            onChange={e => setMaxTerms(+e.target.value)} />
+            onChange={e => setMaxTerms(+e.target.value)}
+            title="More terms = more accurate ζ(s) approximation in the upper chart" />
           <span className="control-value">{maxTerms}</span>
         </div>
       </div>

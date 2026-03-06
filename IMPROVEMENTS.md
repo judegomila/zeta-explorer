@@ -461,3 +461,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 500 | 2026-03-06T08:00:00Z | Add Montgomery-Dyson encounter exploration entry connecting GUE random matrix statistics to zeta zeros | explorations.js |
 | 501 | 2026-03-06T09:00:00Z | Fix Heat Flow tab using per-curve y-normalization hiding amplitude differences across τ values | RHAttackViz.jsx |
 | 502 | 2026-03-06T10:00:00Z | Fix false biconditional Z·W=0 ⟺ σ=½ in twistor derivation (incidence also vanishes at cos(t log 2)=0) | TwistorPage.jsx |
+| 503 | 2026-03-06T11:00:00Z | Replace white-centered correlation matrix heatmap with dark-friendly diverging color scale | SpectralAttackViz.jsx |

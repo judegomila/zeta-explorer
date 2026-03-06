@@ -662,16 +662,18 @@ function CorrelationMatrixTab({ t, numPrimes }) {
         const x = margin.left + j * cellW;
         const y = margin.top + i * cellH;
 
-        // Color: red for positive, blue for negative, white for 0
+        // Color: red for positive, blue for negative, dark neutral for 0
+        // Dark-friendly diverging scale centered on #1e293b
         let r, g, b;
         if (val >= 0) {
-          r = Math.round(255);
-          g = Math.round(255 * (1 - val));
-          b = Math.round(255 * (1 - val));
+          r = Math.round(30 + 225 * val);
+          g = Math.round(41 * (1 - val));
+          b = Math.round(59 * (1 - val));
         } else {
-          r = Math.round(255 * (1 + val));
-          g = Math.round(255 * (1 + val));
-          b = Math.round(255);
+          const a = -val;
+          r = Math.round(30 * (1 - a));
+          g = Math.round(41 * (1 - a));
+          b = Math.round(59 + 196 * a);
         }
         ctx.fillStyle = `rgb(${r},${g},${b})`;
         ctx.fillRect(x + 1, y + 1, cellW - 2, cellH - 2);
@@ -684,7 +686,7 @@ function CorrelationMatrixTab({ t, numPrimes }) {
         }
 
         // Value text
-        ctx.fillStyle = Math.abs(val) > 0.5 ? '#0a0e1a' : '#e2e8f0';
+        ctx.fillStyle = '#e2e8f0';
         ctx.font = `${Math.abs(val) > 0.7 ? 'bold ' : ''}${cellW > 30 ? 9 : 7}px var(--font-mono)`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -725,9 +727,10 @@ function CorrelationMatrixTab({ t, numPrimes }) {
       const val = 1 - 2 * i / legendH; // +1 at top, -1 at bottom
       let lr, lg, lb;
       if (val >= 0) {
-        lr = 255; lg = Math.round(255 * (1 - val)); lb = Math.round(255 * (1 - val));
+        lr = Math.round(30 + 225 * val); lg = Math.round(41 * (1 - val)); lb = Math.round(59 * (1 - val));
       } else {
-        lr = Math.round(255 * (1 + val)); lg = Math.round(255 * (1 + val)); lb = 255;
+        const a = -val;
+        lr = Math.round(30 * (1 - a)); lg = Math.round(41 * (1 - a)); lb = Math.round(59 + 196 * a);
       }
       ctx.fillStyle = `rgb(${lr},${lg},${lb})`;
       ctx.fillRect(legendX, legendY + i, 12, 1);

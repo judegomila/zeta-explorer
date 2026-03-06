@@ -448,3 +448,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 487 | 2026-03-05T14:00:00Z | Add tab explainer banners to all 5 tabs in OddZetaViz | OddZetaViz.jsx |
 | 488 | 2026-03-05T15:00:00Z | Add tab explainer banners to all 4 tabs in PascalZetaViz | PascalZetaViz.jsx |
 | 489 | 2026-03-05T16:00:00Z | Fix wrapped phase plot in Frequency Response tab showing false discontinuities at ±π | FourierDomainViz.jsx |
+| 490 | 2026-03-05T17:00:00Z | Fix phase plot false discontinuities at ±π wraps in Extended Landscape tab | SupercriticalViz.jsx |

@@ -198,15 +198,30 @@ function ExtendedLandscapeTab() {
     }
 
     // ── Bottom: Phase (argument) ──
+    // Break the line at ±π wrap discontinuities to avoid false vertical lines
     const phaseScale = v => botY + botH / 2 - (v / Math.PI) * (botH / 2);
 
     ctx.strokeStyle = '#8b5cf6';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
+    let needsMove = true;
     scan.forEach((d, i) => {
       const px = xScale(d.sigma);
       const py = phaseScale(d.phase);
-      i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      if (needsMove) {
+        ctx.moveTo(px, py);
+        needsMove = false;
+      } else {
+        // Detect wrap: if consecutive phases jump by more than π, break the path
+        const prevPhase = scan[i - 1].phase;
+        if (Math.abs(d.phase - prevPhase) > Math.PI) {
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(px, py);
+        } else {
+          ctx.lineTo(px, py);
+        }
+      }
     });
     ctx.stroke();
 

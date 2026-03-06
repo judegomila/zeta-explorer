@@ -455,3 +455,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 494 | 2026-03-06T02:00:00Z | Fix information-theory.js docstrings falsely claiming entropy is maximized via uniform distribution at σ=½ | information-theory.js |
 | 495 | 2026-03-06T03:00:00Z | Fix Weil positivity Fourier transform missing exp(-a/4) prefactor from test function | rh-attack.js |
 | 496 | 2026-03-06T04:00:00Z | Add legend background box to Darlington tab in GapClosingViz for readability | GapClosingViz.jsx |
+| 497 | 2026-03-06T05:00:00Z | Add nearest-zero proximity indicator to t slider in InformationTheoryViz | InformationTheoryViz.jsx |

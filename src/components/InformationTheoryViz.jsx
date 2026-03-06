@@ -518,6 +518,18 @@ export default function InformationTheoryViz() {
           <input type="range" min="1" max="60" step="0.5" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
+          {(() => {
+            let bestIdx = -1, bestDist = Infinity;
+            for (let i = 0; i < ZETA_ZEROS.length; i++) {
+              const d = Math.abs(t - ZETA_ZEROS[i]);
+              if (d < bestDist) { bestDist = d; bestIdx = i; }
+            }
+            if (bestDist < 1.0) {
+              const clr = bestDist < 0.3 ? '#10b981' : '#f59e0b';
+              return <span style={{ marginLeft: 6, fontSize: 11, color: clr }}>≈ γ<sub>{bestIdx + 1}</sub>={ZETA_ZEROS[bestIdx].toFixed(1)}</span>;
+            }
+            return null;
+          })()}
         </div>
         <div className="control-group">
           <label>Primes</label>

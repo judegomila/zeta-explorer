@@ -120,6 +120,16 @@ function ValuesTab({ selectedN, numPrimes }) {
     ctx.textAlign = 'center';
     ctx.fillText('n (odd)', w / 2, g1Top + halfH + 30);
 
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, g1Top + halfH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('\u03B6(n)', 0, 0);
+    ctx.restore();
+
     // ─── Bottom: Euler product convergence for selected n ───
     const g2Top = g1Top + halfH + 44;
     const g2H = halfH;
@@ -203,6 +213,16 @@ function ValuesTab({ selectedN, numPrimes }) {
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Number of primes', w / 2, g2Top + g2H + 14);
+
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, g2Top + g2H / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('\u220F 1/(1\u2212p\u207B\u207F)', 0, 0);
+    ctx.restore();
 
   }, [decayData, trace, currentValue, selectedN]);
 

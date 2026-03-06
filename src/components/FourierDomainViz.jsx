@@ -233,12 +233,31 @@ function FrequencyResponseTab() {
         .text('Magnitude Response |H(σ+iω)| (dB)');
     }
 
-    // ── Bottom: Phase ──
+    // ── Bottom: Phase (unwrapped) ──
     {
       const yOff = chartH + margin.top + margin.bottom + gap;
       const g = svg.append('g').attr('transform', `translate(${margin.left},${yOff})`);
       const x = d3.scaleLinear().domain([0.5, 60]).range([0, w]);
-      const y = d3.scaleLinear().domain([-Math.PI, Math.PI]).range([chartH, 0]);
+
+      // Unwrap phase: remove ±2π jumps between consecutive samples
+      // The raw phase from atan2 wraps at ±π, creating false discontinuities
+      const unwrappedPhase = [];
+      let cumPhase = response[0].phase;
+      unwrappedPhase.push(cumPhase);
+      for (let i = 1; i < response.length; i++) {
+        let delta = response[i].phase - response[i - 1].phase;
+        if (delta > Math.PI) delta -= 2 * Math.PI;
+        if (delta < -Math.PI) delta += 2 * Math.PI;
+        cumPhase += delta;
+        unwrappedPhase.push(cumPhase);
+      }
+
+      const phaseMin = Math.min(...unwrappedPhase);
+      const phaseMax = Math.max(...unwrappedPhase);
+      const phaseRange = phaseMax - phaseMin || 1;
+      const yLo = phaseMin - phaseRange * 0.05;
+      const yHi = phaseMax + phaseRange * 0.05;
+      const y = d3.scaleLinear().domain([yLo, yHi]).range([chartH, 0]);
 
       g.append('g').attr('transform', `translate(0,${chartH})`).call(d3.axisBottom(x).ticks(10))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 9);
@@ -253,22 +272,27 @@ function FrequencyResponseTab() {
       phaseGrid.selectAll('.tick line')
         .attr('stroke', '#1e293b').attr('stroke-dasharray', '3,3').attr('stroke-width', 0.8);
 
-      // Phase curve — use curveLinear to avoid curveBasis smoothing across
-      // ±π atan2 wrap discontinuities, which would draw fake arcs through 0
-      g.append('path').datum(response)
-        .attr('d', d3.line().x(d => x(d.omega)).y(d => y(d.phase)).curve(d3.curveLinear))
+      // 0 radian reference line
+      if (yLo < 0 && yHi > 0) {
+        g.append('line').attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
+          .attr('stroke', '#64748b').attr('stroke-dasharray', '4,3').attr('opacity', 0.4);
+      }
+
+      // Unwrapped phase curve — smooth curveBasis is now safe since there are no wrap discontinuities
+      g.append('path').datum(response.map((d, i) => ({ omega: d.omega, phase: unwrappedPhase[i] })))
+        .attr('d', d3.line().x(d => x(d.omega)).y(d => y(d.phase)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#8b5cf6').attr('stroke-width', 2);
 
       // Legend for phase panel
-      const phaseLegend = g.append('g').attr('transform', `translate(${w - 160}, 6)`);
+      const phaseLegend = g.append('g').attr('transform', `translate(${w - 200}, 6)`);
       phaseLegend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 16).attr('y2', 0)
         .attr('stroke', '#8b5cf6').attr('stroke-width', 2);
       phaseLegend.append('text').attr('x', 22).attr('y', 4)
-        .attr('fill', '#8b5cf6').attr('font-size', 10).text('∠H(σ+iω)');
+        .attr('fill', '#8b5cf6').attr('font-size', 10).text('∠H(σ+iω) (unwrapped)');
 
       svg.append('text').attr('x', margin.left).attr('y', yOff - 8)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
-        .text('Phase Response \u2220H(σ+iω)');
+        .text('Phase Response \u2220H(σ+iω) (unwrapped)');
     }
 
     svg.append('text').attr('x', width / 2).attr('y', height - 4)

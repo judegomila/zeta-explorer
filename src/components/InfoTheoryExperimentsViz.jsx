@@ -897,10 +897,54 @@ export default function InfoTheoryExperimentsViz() {
         ))}
       </div>
 
-      {tab === 0 && <EfficiencyDashboard sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 1 && <PrimeContributions sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 2 && <LandscapeScan sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 3 && <CompressionExperiment sigma={sigma} t={t} />}
+      {tab === 0 && (
+        <>
+          <div className="tab-explainer accent-green">
+            <strong>Efficiency Dashboard:</strong> Six information-theoretic measures — Shannon entropy, channel capacity,
+            Fisher information, KL divergence, mutual information, and a composite confinement potential — each
+            normalized to [0, 1]. All six reach their optimum simultaneously at{' '}
+            <InlineMath tex="\sigma = \tfrac{1}{2}" />.
+            <strong> Look for:</strong> all bars turning green as you approach the critical line.
+          </div>
+          <EfficiencyDashboard sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 1 && (
+        <>
+          <div className="tab-explainer accent-purple">
+            <strong>Prime Contributions:</strong> Per-prime breakdown of entropy, channel capacity, and Fisher information.
+            Each bar group shows how much each prime oscillator contributes to the total measure.
+            At <InlineMath tex="\sigma = \tfrac{1}{2}" />, contributions are most uniformly distributed across primes
+            (functional equation symmetry equalizes direct and dual weights).
+            <strong> Look for:</strong> how small primes dominate away from the critical line.
+          </div>
+          <PrimeContributions sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 2 && (
+        <>
+          <div className="tab-explainer accent-blue">
+            <strong>Landscape Scan:</strong> All six measures plotted as functions of{' '}
+            <InlineMath tex="\sigma" /> at fixed <InlineMath tex="t" />. Each curve is individually
+            normalized so their shapes can be compared on the same chart. The dashed green line marks{' '}
+            <InlineMath tex="\sigma = \tfrac{1}{2}" />.
+            <strong> Look for:</strong> all six curves peaking (or troughing for KL) at the critical line — six independent lenses, one answer.
+          </div>
+          <LandscapeScan sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 3 && (
+        <>
+          <div className="tab-explainer accent-cyan">
+            <strong>Compression Experiment:</strong> How many primes (Euler product factors) are needed to approximate{' '}
+            <InlineMath tex="\zeta(s)" /> to a given accuracy? Compares convergence at{' '}
+            <InlineMath tex="\sigma = 0.3, 0.5, 0.7" />. The vertical line marks the "Connes threshold" (5 primes).
+            <strong> Look for:</strong> the <InlineMath tex="\sigma = 0.5" /> curve (green) achieving
+            lower error with fewer primes than off-critical values.
+          </div>
+          <CompressionExperiment sigma={sigma} t={t} />
+        </>
+      )}
     </div>
   );
 }

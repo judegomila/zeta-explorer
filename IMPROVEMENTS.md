@@ -507,3 +507,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 546 | 2026-03-06T15:00:00Z | Hoist per-x-step constants out of per-prime loop in AnimatedModesViz draw function | AnimatedModesViz.jsx |
 | 547 | 2026-03-06T23:45:00Z | Fix incorrect |H| = 1 reference line label in EulerProductViz to |factor| = 1 | EulerProductViz.jsx |
 | 548 | 2026-03-06T23:55:00Z | Add missing y-axis labels to Hilbert-Polya tab in GapClosingViz | GapClosingViz.jsx |
+| 549 | 2026-03-07T10:30:00Z | Disable Primes slider on Bridge test in RHRigorViz since losslessBridge ignores numPrimes | RHRigorViz.jsx |

@@ -84,10 +84,13 @@ export function oddZetaValue(n, numPrimes = 50) {
   }
 
   // Euler product: ζ(n) = Π_p 1/(1 - p^{-n})
+  // Track second-to-last cumulative value for convergence rate
   const primes = getPrimes(numPrimes);
   let eulerProduct = 1;
-  for (const p of primes) {
-    eulerProduct *= 1 / (1 - Math.pow(p, -n));
+  let eulerPrev = 1;
+  for (let i = 0; i < primes.length; i++) {
+    if (i === primes.length - 1) eulerPrev = eulerProduct;
+    eulerProduct *= 1 / (1 - Math.pow(primes[i], -n));
   }
 
   // Dirichlet series: ζ(n) = Σ_{k=1}^{N} 1/k^n
@@ -102,11 +105,6 @@ export function oddZetaValue(n, numPrimes = 50) {
   const relativeError = Math.abs(eulerProduct - exact) / exact;
 
   // Convergence rate: how fast does adding more primes improve the product?
-  // Compare product with numPrimes vs numPrimes-1
-  let eulerPrev = 1;
-  for (let i = 0; i < primes.length - 1; i++) {
-    eulerPrev *= 1 / (1 - Math.pow(primes[i], -n));
-  }
   const convergenceRate = Math.abs(eulerProduct - eulerPrev) / eulerProduct;
 
   return {

@@ -27,6 +27,7 @@ export function MathModalProvider({ children }) {
 function MathModal({ tex, displayMode, onClose }) {
   const renderedRef = useRef();
   const [copied, setCopied] = useState(false);
+  const [showSource, setShowSource] = useState(false);
 
   useEffect(() => {
     if (renderedRef.current) {
@@ -51,22 +52,48 @@ function MathModal({ tex, displayMode, onClose }) {
     });
   };
 
+  const handleCopyRendered = () => {
+    // Copy as both plain TeX and the rendered text
+    const rendered = renderedRef.current?.textContent || tex;
+    navigator.clipboard.writeText(`${rendered}\n\nLaTeX: ${tex}`).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    });
+  };
+
   return (
     <div className="math-modal-backdrop" onClick={onClose}>
       <div className="math-modal" onClick={e => e.stopPropagation()}>
         <div className="math-modal-header">
-          <span>Equation</span>
-          <button className="math-modal-close" onClick={onClose}>&times;</button>
+          <span className="math-modal-title">Equation Detail</span>
+          <div className="math-modal-actions">
+            <button
+              className={`math-modal-action-btn ${showSource ? 'active' : ''}`}
+              onClick={() => setShowSource(s => !s)}
+              title="Toggle LaTeX source"
+            >
+              {'</>'}
+            </button>
+            <button
+              className="math-modal-action-btn"
+              onClick={handleCopy}
+              title="Copy LaTeX"
+            >
+              {copied ? 'Copied' : 'Copy'}
+            </button>
+            <button className="math-modal-close" onClick={onClose}>&times;</button>
+          </div>
         </div>
         <div className="math-modal-rendered" ref={renderedRef} />
-        <div className="math-modal-divider" />
-        <div className="math-modal-source-label">LaTeX Source</div>
-        <div className="math-modal-source">
-          <code>{tex}</code>
-          <button className="math-modal-copy" onClick={handleCopy}>
-            {copied ? 'Copied' : 'Copy'}
-          </button>
-        </div>
+        {showSource && (
+          <>
+            <div className="math-modal-divider" />
+            <div className="math-modal-source-label">LaTeX Source</div>
+            <div className="math-modal-source">
+              <code>{tex}</code>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

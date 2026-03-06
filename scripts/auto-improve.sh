@@ -12,7 +12,7 @@ PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 PID_FILE="$SCRIPT_DIR/.auto-improve.pid"
 LOG_DIR="$SCRIPT_DIR/logs"
 IMPROVEMENTS_FILE="$PROJECT_DIR/IMPROVEMENTS.md"
-INTERVAL=600  # 10 minutes
+INTERVAL=60   # 1 minute
 MAX_RUNS=100
 
 # The prompt given to Claude Code on each iteration
@@ -187,7 +187,7 @@ case "${1:-}" in
   *)
     echo "Usage: $0 {start|stop|status}"
     echo ""
-    echo "  start   - Start the auto-improvement loop (runs every 10 min)"
+    echo "  start   - Start the auto-improvement loop (runs every 1 min)"
     echo "  stop    - Stop the running loop"
     echo "  status  - Check if running and show stats"
     exit 1

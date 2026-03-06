@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SupercriticalViz from '../components/SupercriticalViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
@@ -8,10 +9,10 @@ export default function SupercriticalPage() {
       <div className="page-header">
         <h1>Supercritical Phase Explorer</h1>
         <p>
-          Push the zeta function beyond the critical strip into the supercritical regime (<InlineMath tex="\sigma > 1" />)
-          and below zero (<InlineMath tex="\sigma < 0" />). Using Tao's thermodynamic framework, <InlineMath tex="\sigma" /> acts as inverse
-          temperature: the Bost-Connes phase transition at <InlineMath tex="\sigma = 1" /> separates the ordered "condensed phase"
-          (<InlineMath tex="\sigma > 1" />, cold) from the disordered "gas phase" of the critical strip. The critical line <InlineMath tex="\sigma = 1/2" />
+          Push the zeta function beyond the critical strip into the supercritical regime (<InlineMath tex="\\sigma > 1" />)
+          and below zero (<InlineMath tex="\\sigma < 0" />). Using Tao's thermodynamic framework, <InlineMath tex="\\sigma" /> acts as inverse
+          temperature: the Bost-Connes phase transition at <InlineMath tex="\\sigma = 1" /> separates the ordered "condensed phase"
+          (<InlineMath tex="\\sigma > 1" />, cold) from the disordered "gas phase" of the critical strip. The critical line <InlineMath tex="\\sigma = \\tfrac{1}{2}" />
           is the equilibrium point.
         </p>
       </div>
@@ -29,71 +30,71 @@ export default function SupercriticalPage() {
       <div className="card" style={{ marginTop: 32, borderColor: '#8b5cf6' }}>
         <h3 style={{ color: '#8b5cf6' }}>What to Explore in Each Tab</h3>
         <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-          <strong style={{ color: '#3b82f6' }}>Extended Landscape</strong> plots <InlineMath tex="|\zeta(\sigma+it)|" /> over the
-          full <InlineMath tex="\sigma" /> range, including the supercritical region. Look for the pole at <InlineMath tex="\sigma = 1" /> and the
-          functional equation symmetry reflecting the plot about <InlineMath tex="\sigma = 1/2" />.
+          <strong style={{ color: '#3b82f6' }}>Extended Landscape</strong> plots <InlineMath tex="|\\zeta(\\sigma+it)|" /> over the
+          full <InlineMath tex="\\sigma" /> range, including the supercritical region. Look for the pole at <InlineMath tex="\\sigma = 1" /> and the
+          functional equation symmetry reflecting the plot about <InlineMath tex="\\sigma = \\tfrac{1}{2}" />.
           <strong style={{ color: '#10b981' }}> Thermodynamics</strong> shows the free energy, entropy, specific heat,
-          and pressure as functions of <InlineMath tex="\sigma" />. Watch for the divergence at the Bost-Connes transition
-          <InlineMath tex="\sigma = 1" /> and the sign change in entropy near the critical line.
+          and pressure as functions of <InlineMath tex="\\sigma" />. Watch for the divergence at the Bost-Connes transition
+          <InlineMath tex="\\sigma = 1" /> and the sign change in entropy near the critical line.
           <strong style={{ color: '#f59e0b' }}> Heat Flow</strong> evolves the Xi function under the heat equation,
-          animating how zeros migrate as <InlineMath tex="\tau" /> varies. At <InlineMath tex="\tau = 0" /> zeros sit on the real axis
-          (assuming RH); negative <InlineMath tex="\tau" /> (backward heat) scatters them into the complex plane, while
-          positive <InlineMath tex="\tau" /> smooths the function and preserves real zeros.
-          <strong style={{ color: '#ef4444' }}> Euler Product Phase</strong> decomposes the phase of <InlineMath tex="\zeta" /> into
+          animating how zeros migrate as <InlineMath tex="\\tau" /> varies. At <InlineMath tex="\\tau = 0" /> zeros sit on the real axis
+          (assuming RH); negative <InlineMath tex="\\tau" /> (backward heat) scatters them into the complex plane, while
+          positive <InlineMath tex="\\tau" /> smooths the function and preserves real zeros.
+          <strong style={{ color: '#ef4444' }}> Euler Product Phase</strong> decomposes the phase of <InlineMath tex="\\zeta" /> into
           individual prime contributions. Look for how phase cancellation between primes sharpens near zeros,
-          and how the distribution changes across the <InlineMath tex="\sigma = 1" /> boundary.
+          and how the distribution changes across the <InlineMath tex="\\sigma = 1" /> boundary.
         </p>
       </div>
 
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
           <h3 style={{ color: '#3b82f6' }}>Free Energy & Entropy</h3>
-          <BlockMath tex="F(\beta) = -T\log|\zeta(\beta + it)|, \quad S = -\frac{\partial F}{\partial T} = \log|\zeta| - \beta\frac{\partial}{\partial \beta}\log|\zeta|" />
+          <BlockMath tex="F(\\beta) = -T\\log|\\zeta(\\beta + it)|, \\quad S = -\\frac{\\partial F}{\\partial T} = \\log|\\zeta| - \\beta\\frac{\\partial}{\\partial \\beta}\\log|\\zeta|" />
           <p style={{ marginTop: 8 }}>
             <strong style={{ color: '#3b82f6' }}>Free energy</strong> <InlineMath tex="F" /> is the thermodynamic
-            potential — it diverges at the pole <InlineMath tex="\sigma = 1" /> (the phase transition) and is smooth
+            potential — it diverges at the pole <InlineMath tex="\\sigma = 1" /> (the phase transition) and is smooth
             elsewhere. <strong style={{ color: '#8b5cf6' }}>Entropy</strong> <InlineMath tex="S" /> measures
             the disorder of prime occupancy states. It changes sign near
-            the critical line: positive for <InlineMath tex="\sigma < 1" /> (hot, disordered)
-            and negative for <InlineMath tex="\sigma > 1" /> (cold, ordered). The sign change marks the crossover
+            the critical line: positive for <InlineMath tex="\\sigma < 1" /> (hot, disordered)
+            and negative for <InlineMath tex="\\sigma > 1" /> (cold, ordered). The sign change marks the crossover
             from collective to independent prime behavior.
           </p>
         </div>
         <div className="card">
           <h3 style={{ color: '#10b981' }}>Specific Heat & Pressure</h3>
-          <BlockMath tex="C_v = \beta^2\frac{\partial^2 \log|\zeta|}{\partial \beta^2}, \quad P = \frac{1}{N}\sum_p \log\frac{1}{|1-p^{-s}|}" />
+          <BlockMath tex="C_v = \\beta^2\\frac{\\partial^2 \\log|\\zeta|}{\\partial \\beta^2}, \\quad P = \\frac{1}{N}\\sum_p \\log\\frac{1}{|1-p^{-s}|}" />
           <p style={{ marginTop: 8 }}>
             <strong style={{ color: '#10b981' }}>Specific heat</strong> <InlineMath tex="C_v" /> measures the
             system's response to temperature changes — it spikes sharply at the phase
-            transition <InlineMath tex="\sigma = 1" />, signaling critical fluctuations. A second, subtler
-            feature near <InlineMath tex="\sigma = 1/2" /> reflects the oscillator chain's resonance structure.{' '}
+            transition <InlineMath tex="\\sigma = 1" />, signaling critical fluctuations. A second, subtler
+            feature near <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> reflects the oscillator chain's resonance structure.{' '}
             <strong style={{ color: '#f59e0b' }}>Pressure</strong> <InlineMath tex="P" /> is the average
-            per-prime contribution to <InlineMath tex="\log|\zeta|" />, finite in the gas
-            phase (<InlineMath tex="\sigma > 1" />) and divergent at the transition.
+            per-prime contribution to <InlineMath tex="\\log|\\zeta|" />, finite in the gas
+            phase (<InlineMath tex="\\sigma > 1" />) and divergent at the transition.
           </p>
         </div>
       </div>
 
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
-          <h3 style={{ color: '#f59e0b' }}>Bost-Connes Phase Transition (<InlineMath tex="\sigma = 1" />)</h3>
+          <h3 style={{ color: '#f59e0b' }}>Bost-Connes Phase Transition (<InlineMath tex="\\sigma = 1" />)</h3>
           <BlockMath tex="\\beta_c = 1: \\quad \\text{symmetry breaking, multiple KMS states} \\;(\\beta > 1) \\;\\leftrightarrow\\; \\text{unique KMS state} \\;(\\beta \\leq 1)" />
           <p style={{ marginTop: 8 }}>
-            Above <InlineMath tex="\sigma = 1" /> (cold/supercritical), the Euler product converges absolutely but symmetry
+            Above <InlineMath tex="\\sigma = 1" /> (cold/supercritical), the Euler product converges absolutely but symmetry
             is spontaneously broken — the system selects a preferred KMS state among many, labelled by
-            embeddings of <InlineMath tex="\mathbb{Q}^{\text{ab}}" /> into <InlineMath tex="\mathbb{C}" />. Below <InlineMath tex="\sigma = 1" /> (hot), symmetry is
+            embeddings of <InlineMath tex="\\mathbb{Q}^{\\text{ab}}" /> into <InlineMath tex="\\mathbb{C}" />. Below <InlineMath tex="\\sigma = 1" /> (hot), symmetry is
             restored and the KMS state is unique — primes interact collectively in a "disordered phase."
-            The critical strip <InlineMath tex="0 < \sigma < 1" /> is where all the interesting physics happens.
+            The critical strip <InlineMath tex="0 < \\sigma < 1" /> is where all the interesting physics happens.
           </p>
         </div>
         <div className="card">
-          <h3 style={{ color: '#06b6d4' }}>De Bruijn-Newman Heat Flow</h3>
-          <BlockMath tex="\\frac{\\partial H_\\tau}{\\partial \\tau} = \\frac{\\partial^2 H_\\tau}{\\partial t^2}, \\qquad \\Lambda \\geq 0 \\;\\text{(Rodgers-Tao 2020)}" />
+          <h3 style={{ color: '#06b6d4' }}>De Bruijn–Newman Heat Flow</h3>
+          <BlockMath tex="\\frac{\\partial H_{\\tau}}{\\partial \\tau} = \\frac{\\partial^2 H_{\\tau}}{\\partial t^2}, \\qquad \\Lambda \\geq 0 \\;\\text{(Rodgers–Tao 2020)}" />
           <p style={{ marginTop: 8 }}>
-            The xi function evolves under the heat equation. At <InlineMath tex="\tau = 0" /> (no heating), RH says
-            all zeros are on the real line. Forward heat flow (<InlineMath tex="\tau > 0" />) smooths the function and
-            preserves real zeros; backward flow (<InlineMath tex="\tau < 0" />) scatters zeros off the real axis.
-            Rodgers-Tao proved <InlineMath tex="\Lambda \geq 0" />: the system is already at the critical
+            The xi function evolves under the heat equation. At <InlineMath tex="\\tau = 0" /> (no heating), RH says
+            all zeros are on the real line. Forward heat flow (<InlineMath tex="\\tau > 0" />) smooths the function and
+            preserves real zeros; backward flow (<InlineMath tex="\\tau < 0" />) scatters zeros off the real axis.
+            Rodgers–Tao proved <InlineMath tex="\\Lambda \\geq 0" />: the system is already at the critical
             threshold — any backward perturbation destroys real zeros.
           </p>
         </div>
@@ -102,14 +103,210 @@ export default function SupercriticalPage() {
       <div className="card" style={{ marginTop: 24, borderColor: '#10b981' }}>
         <h3 style={{ color: '#10b981' }}>The Primon Gas: Pressure Interpretation</h3>
         <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-          In the primon gas model (Julia 1990), each prime p is a quantum particle with energy
-          <InlineMath tex="\log(p)" />. The Euler product decomposes <InlineMath tex="\zeta(\beta)" /> into independent "prime partition functions."
+          In the primon gas model (Julia 1990), each prime <InlineMath tex="p" /> is a quantum particle with energy
+          <InlineMath tex="\\log(p)" />. The Euler product decomposes <InlineMath tex="\\zeta(\\beta)" /> into independent "prime partition functions."
           <strong style={{ color: '#f59e0b' }}> Pressure </strong> measures the average contribution per prime
           oscillator to the total log-partition function. In the supercritical phase, pressure is
-          finite and decreases as <InlineMath tex="\sigma" /> increases (colder = less pressure). At the phase transition
-          <InlineMath tex="\sigma = 1" />, pressure diverges. In the critical strip, the effective pressure is determined by
-          the interplay between direct and dual ladders, achieving its equilibrium value at <InlineMath tex="\sigma = 1/2" />.
+          finite and decreases as <InlineMath tex="\\sigma" /> increases (colder = less pressure). At the phase transition
+          <InlineMath tex="\\sigma = 1" />, pressure diverges. In the critical strip, the effective pressure is determined by
+          the interplay between direct and dual ladders, achieving its equilibrium value at <InlineMath tex="\\sigma = \\tfrac{1}{2}" />.
         </p>
+      </div>
+
+      {/* ── Bost-Connes meets Primon Gas: The Critical Strip as Hot Phase ── */}
+      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #ec4899' }}>
+        <h3 style={{ color: '#ec4899', fontSize: 14, marginBottom: 12 }}>
+          Bost-Connes + Primon Gas: Why Zeros Live in the Hot Phase
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+          The Bost-Connes system and the primon gas are two faces of the same thermodynamic coin.
+          Together they reveal <em>why</em> nontrivial zeros must inhabit the critical strip{' '}
+          <InlineMath tex={"0 < \\sigma < 1"} /> and <em>why</em> the critical line{' '}
+          <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> is special within it.
+        </p>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, marginBottom: 16 }}>
+          {/* Cold phase */}
+          <div style={{
+            padding: '12px 14px', borderRadius: 8, background: '#0a0e1a',
+            border: '1px solid #3b82f630',
+          }}>
+            <h4 style={{ color: '#3b82f6', fontSize: 12, marginBottom: 6 }}>
+              Cold Phase (<InlineMath tex={"\\sigma > 1"} />)
+            </h4>
+            <p style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.7 }}>
+              Euler product converges absolutely. Each prime oscillator is independently frozen in
+              its ground state. The primon gas is a{' '}
+              <strong style={{ color: '#3b82f6' }}>Bose-Einstein condensate</strong> — symmetry is
+              broken, KMS states are labelled by Galois automorphisms of{' '}
+              <InlineMath tex={"\\mathbb{Q}^{\\mathrm{ab}}"} />.
+              No zeros can exist here because <InlineMath tex={"\\zeta(s) \\neq 0"} /> for{' '}
+              <InlineMath tex={"\\sigma > 1"} />.
+            </p>
+          </div>
+
+          {/* Hot phase */}
+          <div style={{
+            padding: '12px 14px', borderRadius: 8, background: '#0a0e1a',
+            border: '1px solid #ef444430',
+          }}>
+            <h4 style={{ color: '#ef4444', fontSize: 12, marginBottom: 6 }}>
+              Hot Phase (<InlineMath tex={"0 < \\sigma < 1"} />)
+            </h4>
+            <p style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.7 }}>
+              Euler product diverges; primes interact collectively. The primon gas is{' '}
+              <strong style={{ color: '#ef4444' }}>disordered</strong> — the unique KMS state
+              means all Galois symmetry is restored. Phase cancellations between prime oscillators
+              become possible, and it is precisely these cancellations that create{' '}
+              <InlineMath tex={"\\zeta(\\rho) = 0"} />.
+              <strong style={{ color: '#ec4899' }}> This is where zeros live.</strong>
+            </p>
+          </div>
+
+          {/* Critical line */}
+          <div style={{
+            padding: '12px 14px', borderRadius: 8, background: '#0a0e1a',
+            border: '1px solid #ec489930',
+          }}>
+            <h4 style={{ color: '#ec4899', fontSize: 12, marginBottom: 6 }}>
+              Critical Line (<InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />)
+            </h4>
+            <p style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.7 }}>
+              The thermal equilibrium between direct and dual ladders. In primon gas terms,
+              <InlineMath tex={"\\beta = \\tfrac{1}{2}"} /> is the{' '}
+              <strong style={{ color: '#ec4899' }}>maximum entropy point</strong> of the hot phase —
+              the temperature at which the partition function's phase cancellations are most
+              perfectly balanced. RH asserts all zeros sit at this equilibrium.
+            </p>
+          </div>
+        </div>
+
+        <BlockMath tex={
+          "\\underbrace{\\zeta(\\beta) = \\prod_p \\frac{1}{1 - p^{-\\beta}}}_{\\text{primon gas partition function}}" +
+          "\\qquad \\xrightarrow{\\;\\beta \\to 1^-\\;} \\qquad" +
+          "\\underbrace{+\\infty}_{\\text{Bost-Connes phase transition}}"
+        } />
+
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 12 }}>
+          The deep connection: the Bost-Connes phase transition at{' '}
+          <InlineMath tex={"\\sigma = 1"} /> is the <em>boundary</em> of the primon gas's
+          disordered regime. As <InlineMath tex={"\\sigma"} /> decreases below 1, collective
+          prime interactions switch on. The nontrivial zeros of{' '}
+          <InlineMath tex={"\\zeta(s)"} /> are the <strong style={{ color: '#ec4899' }}>resonant
+          frequencies of the disordered phase</strong> — the specific imaginary parts{' '}
+          <InlineMath tex={"t = \\gamma_n"} /> at which prime oscillator phases cancel perfectly.
+          The functional equation's symmetry under{' '}
+          <InlineMath tex={"s \\leftrightarrow 1 - s"} /> then forces these resonances onto{' '}
+          <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, the midpoint of the hot phase.
+          In ZPO language: the bridge unitarity{' '}
+          <InlineMath tex={"|\\chi(\\tfrac{1}{2} + it)| = 1"} /> is the scattering condition
+          that pins the resonance exactly at the thermal equilibrium temperature.
+        </p>
+
+        <div style={{
+          marginTop: 14, padding: '10px 14px', borderRadius: 6,
+          background: 'rgba(236,72,153,0.08)', border: '1px solid #ec489930',
+          fontSize: 12, color: '#f472b6', lineHeight: 1.7,
+        }}>
+          <strong>Physical picture:</strong> Think of the critical strip as a hot gas of primes
+          where collective oscillations produce standing waves (zeros). The Bost-Connes transition
+          at <InlineMath tex={"\\sigma = 1"} /> is the condensation point — below it, primes
+          interact strongly enough for cancellations to occur. The critical line is the
+          temperature of maximum resonance. RH says: all standing waves form at exactly this
+          temperature.
+        </div>
+      </div>
+
+      {/* ── de Bruijn-Newman Constant and Heat Flow ── */}
+      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #a855f7' }}>
+        <h3 style={{ color: '#a855f7', fontSize: 14, marginBottom: 12 }}>
+          de Bruijn-Newman Constant and Heat Flow
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+          Start with the Riemann xi function <InlineMath tex={"\\Xi(z) = \\xi(\\tfrac{1}{2} + iz)"} /> and
+          apply the <strong style={{ color: '#a855f7' }}>heat equation</strong> to obtain a one-parameter
+          family of deformed zeta functions <InlineMath tex={"\\Xi_t(z)"} />:
+        </p>
+
+        <BlockMath tex={"\\frac{\\partial \\Xi_t}{\\partial t} = \\frac{\\partial^2 \\Xi_t}{\\partial z^2}"} />
+
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 12, marginBottom: 12 }}>
+          The explicit integral representation involves the Jacobi theta function factor{' '}
+          <InlineMath tex={"\\Phi"} />:
+        </p>
+
+        <BlockMath tex={"\\Xi_t(z) = \\int_0^{\\infty} e^{tu^2}\\,\\Phi(u)\\,\\cos(zu)\\,du"} />
+
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 12, marginBottom: 16 }}>
+          The <strong style={{ color: '#a855f7' }}>de Bruijn-Newman constant</strong>{' '}
+          <InlineMath tex={"\\Lambda"} /> is defined as the infimum of all{' '}
+          <InlineMath tex={"t"} /> for which <InlineMath tex={"\\Xi_t"} /> still has only real zeros:
+        </p>
+
+        <BlockMath tex={"\\Lambda = \\inf\\{\\, t \\in \\mathbb{R} : \\Xi_t \\text{ has only real zeros}\\,\\}"} />
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginTop: 16, marginBottom: 16 }}>
+          {/* Newman's conjecture */}
+          <div style={{
+            padding: '12px 14px', borderRadius: 8, background: '#0a0e1a',
+            border: '1px solid #a855f730',
+          }}>
+            <h4 style={{ color: '#c084fc', fontSize: 12, marginBottom: 6 }}>
+              Newman's Conjecture (1976)
+            </h4>
+            <p style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.7 }}>
+              Newman conjectured that <InlineMath tex={"\\Lambda \\geq 0"} />, meaning that the
+              heat flow is already at or past the critical threshold: no backward perturbation
+              can be applied without destroying the all-real-zeros property.
+            </p>
+          </div>
+
+          {/* Rodgers-Tao */}
+          <div style={{
+            padding: '12px 14px', borderRadius: 8, background: '#0a0e1a',
+            border: '1px solid #22c55e30',
+          }}>
+            <h4 style={{ color: '#22c55e', fontSize: 12, marginBottom: 6 }}>
+              Rodgers-Tao Theorem (2020)
+            </h4>
+            <p style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.7 }}>
+              Rodgers and Tao proved <InlineMath tex={"\\Lambda \\geq 0"} />, confirming Newman's
+              conjecture. Since RH is equivalent to <InlineMath tex={"\\Lambda \\leq 0"} />, the
+              two statements together imply:
+            </p>
+            <BlockMath tex={"\\text{RH} \\iff \\Lambda = 0"} />
+          </div>
+        </div>
+
+        <div style={{
+          marginTop: 4, padding: '10px 14px', borderRadius: 6,
+          background: 'rgba(168,85,247,0.08)', border: '1px solid #a855f730',
+          fontSize: 12, color: '#c4b5fd', lineHeight: 1.7,
+        }}>
+          <strong>ZPO interpretation:</strong> Heat flow "blurs" the oscillator frequencies. At{' '}
+          <InlineMath tex={"t > 0"} />, the resonances spread and overlap — zeros drift off the
+          real axis. At <InlineMath tex={"t = 0"} /> (no blur), zeros are maximally sharp and
+          sit exactly on the critical line. The Rodgers-Tao result says we are precisely at{' '}
+          <InlineMath tex={"t = 0"} />: any heating preserves real zeros, any cooling destroys
+          them. The system is at the <strong style={{ color: '#a855f7' }}>critical threshold
+          of resonance sharpness</strong>.
+        </div>
+      </div>
+
+      {/* Related Pages */}
+      <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>
+        <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          <Link to="/hamiltonian" style={{ color: '#10b981', fontSize: 13 }}>Hamiltonian (energy landscape)</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/waves" style={{ color: '#06b6d4', fontSize: 13 }}>Wave Simulator (phase behavior)</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/spectral-attack" style={{ color: '#f97316', fontSize: 13 }}>Spectral Attack (phase barriers)</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/statistics" style={{ color: '#8b5cf6', fontSize: 13 }}>Statistics (de Bruijn-Newman)</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/concepts" style={{ color: '#3b82f6', fontSize: 13 }}>Concepts (Bost-Connes, partition function)</Link>
+        </div>
       </div>
     </div>
   );

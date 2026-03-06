@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import HamiltonianViz from '../components/HamiltonianViz.jsx';
 import ExplicitFormulaViz from '../components/ExplicitFormulaViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
@@ -20,9 +21,9 @@ export default function HamiltonianPage() {
         <h3 style={{ color: '#10b981' }}>What to Explore in Each Visualization</h3>
         <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
           <strong style={{ color: '#3b82f6' }}>Hamiltonian Energy vs σ</strong> — drag the t slider to a zeta
-          zero (<InlineMath tex="t \approx 14.13, 21.02, 25.01" />) and watch the green total-energy curve develop
-          a sharp minimum at <InlineMath tex="\sigma = 0.5" />. Compare the three components: the blue kinetic energy
-          is symmetric about <InlineMath tex="\sigma = 0.5" />, the orange mismatch is minimized there (conjugate-matched, not zero: <InlineMath tex="|Z_{\text{dir}} - Z_{\text{dual}}| = 2|\text{Im}\,Z|" />), and the purple
+          zero (<InlineMath tex="t \\approx 14.13, 21.02, 25.01" />) and watch the green total-energy curve develop
+          a sharp minimum at <InlineMath tex="\\sigma = 0.5" />. Compare the three components: the blue kinetic energy
+          is symmetric about <InlineMath tex="\\sigma = 0.5" />, the orange mismatch is minimized there (conjugate-matched, not zero: <InlineMath tex="|Z_{\\text{dir}} - Z_{\\text{dual}}| = 2|\\text{Im}\\,Z|" />), and the purple
           bridge penalty is zero exactly on the critical line. Increase primes to see the valley deepen and narrow.
         </p>
         <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
@@ -30,7 +31,7 @@ export default function HamiltonianPage() {
           the gold spectral reconstruction deviate from the blue staircase. Add more zeros to see it converge,
           filling in the steps one oscillation at a time. The shaded area between the PNT line and the
           spectral approximation shows the error the zeros collectively correct. Near prime powers, the
-          staircase jumps by <InlineMath tex="\log p" /> — look for how each zero's sinusoid lines up with those jumps.
+          staircase jumps by <InlineMath tex="\\log p" /> — look for how each zero's sinusoid lines up with those jumps.
         </p>
       </div>
 
@@ -107,25 +108,25 @@ export default function HamiltonianPage() {
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
           <h3 style={{ color: '#3b82f6' }}>Spectral Decomposition</h3>
-          <BlockMath tex="\frac{x^\rho}{\rho} + \frac{x^{\bar\rho}}{\bar\rho} = \frac{2x^{1/2}}{\sqrt{\gamma^2 + 1/4}}\,\cos\!\bigl(\gamma\log x - \arg\rho\bigr)" />
+          <BlockMath tex="\\frac{x^\\rho}{\\rho} + \\frac{x^{\\bar\\rho}}{\\bar\\rho} = \\frac{2x^{1/2}}{\\sqrt{\\gamma^2 + 1/4}}\\,\\cos\\!\\bigl(\\gamma\\log x - \\arg\\rho\\bigr)" />
           <p style={{ marginTop: 8 }}>
-            Each conjugate pair of nontrivial zeros <InlineMath tex="\rho, \bar\rho = \tfrac{1}{2}\pm i\gamma" /> contributes
-            a damped sinusoid to <InlineMath tex="\psi(x)" />.
-            The frequency is <InlineMath tex="\gamma" /> (the imaginary part), the envelope decays
-            as <InlineMath tex="x^{1/2}" /> (from <InlineMath tex="\sigma = \tfrac{1}{2}" />), and the amplitude falls
-            off as <InlineMath tex="2/|\rho|" />. Higher zeros contribute smaller, faster oscillations —
+            Each conjugate pair of nontrivial zeros <InlineMath tex="\\rho, \\bar\\rho = \\tfrac{1}{2}\\pm i\\gamma" /> contributes
+            a damped sinusoid to <InlineMath tex="\\psi(x)" />.
+            The frequency is <InlineMath tex="\\gamma" /> (the imaginary part), the envelope decays
+            as <InlineMath tex="x^{1/2}" /> (from <InlineMath tex="\\sigma = \\tfrac{1}{2}" />), and the amplitude falls
+            off as <InlineMath tex="2/|\\rho|" />. Higher zeros contribute smaller, faster oscillations —
             fine detail in the prime staircase.
           </p>
         </div>
         <div className="card">
           <h3 style={{ color: '#f59e0b' }}>Convergence & Error</h3>
-          <BlockMath tex="\psi(x) - x = -\sum_\rho \frac{x^\rho}{\rho} + O(1)" />
+          <BlockMath tex="\\psi(x) - x = -\\sum_\\rho \\frac{x^\\rho}{\\rho} + O(1)" />
           <p style={{ marginTop: 8 }}>
-            The error between <InlineMath tex="\psi(x)" /> and its leading term <InlineMath tex="x" /> is entirely
-            controlled by zeta zeros. If all zeros satisfy <InlineMath tex="\text{Re}(\rho) = \tfrac{1}{2}" /> (RH),
-            the error is <InlineMath tex="O(\sqrt{x}\,\log^2 x)" /> — the best possible bound. Each zero
+            The error between <InlineMath tex="\\psi(x)" /> and its leading term <InlineMath tex="x" /> is entirely
+            controlled by zeta zeros. If all zeros satisfy <InlineMath tex="\\text{Re}(\\rho) = \\tfrac{1}{2}" /> (RH),
+            the error is <InlineMath tex="O(\\sqrt{x}\\,\\log^2 x)" /> — the best possible bound. Each zero
             off the critical line would contribute a term decaying more slowly
-            than <InlineMath tex="\sqrt{x}" />, degrading the approximation.
+            than <InlineMath tex="\\sqrt{x}" />, degrading the approximation.
           </p>
         </div>
       </div>
@@ -136,10 +137,113 @@ export default function HamiltonianPage() {
           In the oscillator chain model, the explicit formula is the system's <strong>impulse response</strong>.
           Hitting the ladder network with a delta function excites all its resonant modes — one per
           zeta zero. The output is the superposition of all these ringing modes, each decaying at a rate
-          set by <InlineMath tex="\sigma" />. If the system is <em>lossless</em> (<InlineMath tex="\sigma = \tfrac{1}{2}" /> for
+          set by <InlineMath tex="\\sigma" />. If the system is <em>lossless</em> (<InlineMath tex="\\sigma = \\tfrac{1}{2}" /> for
           all modes), every mode decays at exactly the same rate, and the step response reconstructs the
           prime staircase with optimal fidelity.
         </p>
+      </div>
+
+      {/* Weil Connection */}
+      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #8b5cf6' }}>
+        <h3 style={{ color: '#8b5cf6', fontSize: 14, marginBottom: 8 }}>Connection: Weil Quadratic Form (Connes 2026)</h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          The Hamiltonian minimization at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> has a deep
+          connection to the <strong>Weil quadratic form</strong>. Connes (2026) showed that the Weil
+          positivity condition <InlineMath tex={"W(g \\star \\tilde{g}) \\geq 0"} /> is equivalent to
+          RH, and that extremizing this form using only primes {"<"} 13 approximates 50 zeros with
+          accuracy up to <InlineMath tex={"10^{-55}"} />. In ZPO terms: the Hamiltonian <InlineMath tex={"\\mathcal{H}"} /> being
+          bounded below is the physical manifestation of Weil positivity. The explicit formula
+          that drives the spectral decomposition above is the <em>same</em> formula that defines
+          the Weil kernel.
+        </p>
+      </div>
+
+      {/* Berry-Keating Semiclassical Quantization */}
+      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #e11d48' }}>
+        <h3 style={{ color: '#e11d48' }}>Berry-Keating Semiclassical Quantization</h3>
+        <p style={{ marginTop: 12 }}>
+          Berry and Keating (1999) proposed the simplest Hamiltonian whose spectrum is related to the
+          zeta zeros:
+        </p>
+        <BlockMath tex={"H = xp"} />
+        <p style={{ marginTop: 12 }}>
+          Under semiclassical quantization the trace formula becomes a sum over prime periodic orbits:
+        </p>
+        <BlockMath tex={"\\sum_{\\rho} h(\\gamma_\\rho) = \\sum_p \\sum_{k=1}^{\\infty} \\frac{\\log p}{p^{k/2}}\\, g(k \\log p)"} />
+        <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          Each prime <InlineMath tex={"p"} /> defines a periodic orbit of
+          period <InlineMath tex={"T_p = \\log p"} /> and
+          action <InlineMath tex={"S_p = \\tfrac{1}{2}\\log p"} />.
+          The Maslov index correction reshapes the eigenvalue condition into
+          the <InlineMath tex={"\\tfrac{1}{4} + t^2"} /> form, ensuring that the quantized
+          energies <InlineMath tex={"E_n"} /> correspond to the nontrivial zeros:
+        </p>
+        <BlockMath tex={"E_n \\;\\longleftrightarrow\\; \\rho_n = \\tfrac{1}{2} + i\\gamma_n"} />
+        <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          <strong>Connection to the ZPO model:</strong> the <InlineMath tex={"xp"} /> Hamiltonian is the
+          continuum limit of the discrete ladder Hamiltonian used in the prime oscillator chain. In
+          the ZPO picture every prime contributes a separate oscillator; taking the product over all
+          primes and passing to the continuum recovers the Berry-Keating operator.
+        </p>
+      </div>
+
+      {/* Why sigma = 1/2 Minimizes the Hamiltonian (detailed) */}
+      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #0ea5e9' }}>
+        <h3 style={{ color: '#0ea5e9' }}>Why <InlineMath tex={"\\sigma = 1/2"} /> Minimizes the Hamiltonian</h3>
+        <p style={{ marginTop: 12 }}>
+          The ZPO Hamiltonian decomposes into kinetic and potential parts:
+        </p>
+        <BlockMath tex={"\\mathcal{H}(\\sigma, t) = T(\\sigma, t) + V(\\sigma, t)"} />
+
+        <ol style={{ margin: '12px 0 0 20px', color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          <li>
+            <strong style={{ color: '#0ea5e9' }}>Zero potential at <InlineMath tex={"\\sigma = 1/2"} />:</strong>{" "}
+            The bridge factor <InlineMath tex={"\\chi(s)"} /> satisfies <InlineMath tex={"|\\chi(\\tfrac{1}{2}+it)| = 1"} /> (unitarity),
+            so <InlineMath tex={"V = 0"} /> on the critical line.
+          </li>
+          <li style={{ marginTop: 8 }}>
+            <strong style={{ color: '#0ea5e9' }}>Minimum kinetic curvature:</strong>{" "}
+            The kinetic term
+            <BlockMath tex={"T = \\sum_p \\frac{(\\log p)^2\\, p^{-2\\sigma}}{(1 - p^{-2\\sigma})^2}"} />
+            has its minimum curvature at <InlineMath tex={"\\sigma = 1/2"} />, where the oscillator amplitudes
+            are balanced between the direct and dual ladders.
+          </li>
+          <li style={{ marginTop: 8 }}>
+            <strong style={{ color: '#0ea5e9' }}>Convexity:</strong>{" "}
+            The second variation is strictly positive at the critical line:
+            <BlockMath tex={"\\frac{\\partial^2 \\mathcal{H}}{\\partial \\sigma^2}\\bigg|_{\\sigma = 1/2} > 0"} />
+            confirming that <InlineMath tex={"\\sigma = 1/2"} /> is a true minimum, not merely a saddle point.
+          </li>
+          <li style={{ marginTop: 8 }}>
+            <strong style={{ color: '#0ea5e9' }}>Restoring force off the critical line:</strong>{" "}
+            When <InlineMath tex={"\\sigma \\neq 1/2"} />, the bridge factor
+            satisfies <InlineMath tex={"|\\chi(s)| \\neq 1"} />, so <InlineMath tex={"V > 0"} />.
+            This creates a restoring potential that pushes the system back
+            toward <InlineMath tex={"\\sigma = 1/2"} />.
+          </li>
+          <li style={{ marginTop: 8 }}>
+            <strong style={{ color: '#0ea5e9' }}>Mexican-hat profile:</strong>{" "}
+            Along the <InlineMath tex={"\\sigma"} />-axis the total Hamiltonian has a "Mexican hat" potential
+            profile — a ring of minima at <InlineMath tex={"\\sigma = 1/2"} /> for
+            every <InlineMath tex={"t = \\gamma_n"} />, with the potential rising symmetrically on both sides.
+          </li>
+        </ol>
+      </div>
+
+      {/* Related Pages */}
+      <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>
+        <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          <Link to="/oscillators" style={{ color: '#3b82f6', fontSize: 13 }}>Prime Oscillators</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/gap-closing" style={{ color: '#f97316', fontSize: 13 }}>Gap Closing (S5 operator)</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/spectral-attack" style={{ color: '#06b6d4', fontSize: 13 }}>Spectral Attack (unified potential)</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/formal-proof" style={{ color: '#10b981', fontSize: 13 }}>Formal Proof (S6 status)</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/simulator" style={{ color: '#f59e0b', fontSize: 13 }}>Simulator (gradient descent)</Link>
+        </div>
       </div>
     </div>
   );

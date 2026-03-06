@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import { InlineMath } from './KaTeXMath.jsx';
 import { losslessBridge } from '../math/oscillators.js';
 import { cMul, cDiv, cAdd, cSub, cAbs, cExp, cPow, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
+import ThermoBar from './ThermoBar.jsx';
 
 /**
  * Nyquist plot: trace the loop transfer function L(jω) = χ(s)·ζ(1-s)/ζ(s)
@@ -362,23 +363,23 @@ export default function NyquistBodeViz() {
     <div>
       {mode === 'nyquist' && (
         <div className="tab-explainer">
-          <strong>The math:</strong> The Nyquist plot traces the loop transfer function{' '}
-          <InlineMath tex="L(s) = \chi(s)\zeta(1-s)/\zeta(s)" /> in the complex plane as <InlineMath tex="t" /> varies.
+          The Nyquist plot traces the loop transfer function{' '}
+          <InlineMath tex="L(s) = \\chi(s)\\zeta(1-s)/\\zeta(s)" /> in the complex plane as <InlineMath tex="t" /> varies.
           By the Nyquist stability criterion, the number of clockwise encirclements of <InlineMath tex="-1" /> equals{' '}
           <InlineMath tex="Z - P" /> (zeros minus poles in the right half-plane). RH says: on the critical line{' '}
-          (<InlineMath tex="\sigma = \tfrac{1}{2}" />), there are <strong>zero encirclements</strong> &mdash; the system
-          is marginally stable. Moving <InlineMath tex="\sigma" /> off the critical line changes the winding number.
-          <strong> Look for:</strong> the curve not encircling <InlineMath tex="-1" /> at <InlineMath tex="\sigma = 0.5" />.
+          (<InlineMath tex="\\sigma = \\tfrac{1}{2}" />), there are <strong>zero encirclements</strong> &mdash; the system
+          is marginally stable. Moving <InlineMath tex="\\sigma" /> off the critical line changes the winding number.
+          <strong> Look for:</strong> the curve not encircling <InlineMath tex="-1" /> at <InlineMath tex="\\sigma = 0.5" />.
         </div>
       )}
       {mode === 'bode' && (
         <div className="tab-explainer accent-orange">
-          <strong>The math:</strong> The Bode diagram shows the loop gain <InlineMath tex="|L(j\omega)|" /> in dB (top) and
-          phase <InlineMath tex="\angle L(j\omega)" /> in degrees (bottom) vs. frequency. Gain crossings (0 dB) correspond
+          The Bode diagram shows the loop gain <InlineMath tex="|L(j\\omega)|" /> in dB (top) and
+          phase <InlineMath tex="\\angle L(j\\omega)" /> in degrees (bottom) vs. frequency. Gain crossings (0 dB) correspond
           to potential instabilities; the <strong>gain margin</strong> measures how much amplification the loop can tolerate.
           The <strong>phase margin</strong> measures how much phase lag can be added. On the critical line, the system has
           infinite gain margin &mdash; the oscillator chain can never become unstable.
-          <strong> Look for:</strong> gain peaks at zeta zero frequencies; adequate margins at <InlineMath tex="\sigma = 0.5" />.
+          <strong> Look for:</strong> gain peaks at zeta zero frequencies; adequate margins at <InlineMath tex="\\sigma = 0.5" />.
         </div>
       )}
       <div className="controls">
@@ -390,7 +391,7 @@ export default function NyquistBodeViz() {
           </select>
         </div>
         <div className="control-group">
-          <label style={{ color: sigmaColor, fontWeight: 600 }}><InlineMath tex="\sigma = \operatorname{Re}(s)" /></label>
+          <label style={{ color: sigmaColor, fontWeight: 600 }}><InlineMath tex="\\sigma = \\operatorname{Re}(s)" /></label>
           <input type="range" min="0.1" max="0.9" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
@@ -403,6 +404,7 @@ export default function NyquistBodeViz() {
           <span className="control-value">{tRange[1]} ({ZETA_ZEROS.filter(g => g >= tRange[0] && g <= tRange[1]).length} zeros in range)</span>
         </div>
       </div>
+      <ThermoBar sigma={sigma} t={tRange[0]} numPrimes={10} />
       <div className="viz-container">
         {mode === 'nyquist'
           ? <svg ref={nyquistRef} style={{ width: '100%', height: 520 }} />

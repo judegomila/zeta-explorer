@@ -788,8 +788,8 @@ export default function TwistorViz() {
   const [numPrimes, setNumPrimes] = useState(8);
   const [playing, setPlaying] = useState(true);
 
-  const sigmaColor = Math.abs(sigma - 0.5) < 0.05 ? '#10b981'
-    : Math.abs(sigma - 0.5) < 0.2 ? '#f59e0b' : '#ef4444';
+  const sigmaColor = Math.abs(sigma - 0.5) < 0.02 ? '#10b981'
+    : Math.abs(sigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444';
 
   const incidenceStatus = useMemo(() => {
     const Z = twistorFromS([sigma, t]);

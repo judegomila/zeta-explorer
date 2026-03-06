@@ -333,6 +333,31 @@ export default function ZetaPage() {
         </div>
       </div>
 
+      {/* Hadamard Product Formula */}
+      <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
+        <h3 style={{ color: '#06b6d4' }}>Hadamard Product: Factoring <InlineMath tex={"\\zeta"} /> Over Its Zeros</h3>
+        <p style={{ marginTop: 8, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          Just as a polynomial factors as a product over its roots, Hadamard (1893) showed that the
+          completed zeta function <InlineMath tex={"\\xi(s)"} /> factors as an infinite product over the nontrivial zeros:
+        </p>
+        <BlockMath tex={"\\xi(s) = \\tfrac{1}{2} s(s-1) \\pi^{-s/2} \\Gamma(s/2)\\, \\zeta(s) = \\xi(0) \\prod_{\\rho} \\left(1 - \\frac{s}{\\rho}\\right)"} />
+        <p style={{ marginTop: 12, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          where the product runs over all nontrivial zeros <InlineMath tex={"\\rho"} /> (paired
+          as <InlineMath tex={"\\rho"} /> and <InlineMath tex={"1-\\rho"} /> to ensure convergence).
+          This is a <strong>spectral determinant</strong>: each zero contributes one factor, and
+          the entire function is determined by its zero set — exactly as a quantum system's
+          partition function is determined by its energy spectrum.
+        </p>
+        <div style={{ marginTop: 12, padding: 12, background: 'rgba(6,182,212,0.08)', borderRadius: 8 }}>
+          <p style={{ fontSize: 13, color: '#22d3ee' }}>
+            <strong>ZPO interpretation:</strong> The Hadamard product is the transfer function of the
+            oscillator chain written as a cascade of resonance notches — one notch filter per zero. Each
+            zero <InlineMath tex={"\\rho = \\tfrac{1}{2} + i\\gamma"} /> contributes a transmission null at
+            frequency <InlineMath tex={"\\gamma"} />, and the complete chain response is the product of all notch filters.
+          </p>
+        </div>
+      </div>
+
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>
         <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>

@@ -118,6 +118,9 @@ export default function ExplicitFormulaViz() {
 
     // Legend
     const legend = svg.append('g').attr('transform', `translate(${margin.left + 10}, ${margin.top + 10})`);
+    legend.append('rect')
+      .attr('x', -8).attr('y', -10).attr('width', 240).attr('height', 78)
+      .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
 
     // ψ(x) staircase: draw a small step pattern to match curveStepAfter
     const stairY = 0;

@@ -486,3 +486,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 525 | 2026-03-07T04:00:00Z | Add missing window resize handlers to all 4 canvas tabs in InfoTheoryExperimentsViz | InfoTheoryExperimentsViz.jsx |
 | 526 | 2026-03-06T15:30:00Z | Use Unicode subscript digits instead of subscript parentheses in AnimatedModesViz canvas title | AnimatedModesViz.jsx |
 | 527 | 2026-03-06T16:00:00Z | Add missing y-axis labels to both charts in Euler Phase tab | SupercriticalViz.jsx |
+| 528 | 2026-03-07T05:00:00Z | Add background box to legend in ExplicitFormulaViz for readability over chart data | ExplicitFormulaViz.jsx |

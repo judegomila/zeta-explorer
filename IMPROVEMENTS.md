@@ -512,3 +512,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 551 | 2026-03-06T17:00:00Z | Fix error convergence chart x-domain clipping first pi error point in PascalZetaViz | PascalZetaViz.jsx |
 | 552 | 2026-03-06T18:00:00Z | Add 0° reference line to phase mode in ScatteringMatrixViz | ScatteringMatrixViz.jsx |
 | 553 | 2026-03-06T19:00:00Z | Add click-to-snap on nearest-zero indicator in InformationTheoryViz t slider | InformationTheoryViz.jsx |
+| 554 | 2026-03-06T20:00:00Z | Add click-to-snap nearest-zero indicator to t slider in ZXCalculusViz | ZXCalculusViz.jsx |

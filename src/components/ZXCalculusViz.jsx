@@ -5,6 +5,7 @@ import {
   spiderFusion, colorChange, phaseAccumulation, symmetryScan,
   bialgebraExpansion, transmissionAnalysis, createHadamardBox,
 } from '../math/zxcalculus.js';
+import { ZETA_ZEROS } from '../math/zeta.js';
 
 const TABS = ['Spider Chain', 'Twin Ladder', 'Rewrite Rules', 'Symmetry'];
 
@@ -831,6 +832,27 @@ export default function ZXCalculusViz() {
           <input type="range" min="1" max="60" step="0.5" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
+          {(() => {
+            let bestIdx = 0, bestDist = Math.abs(t - ZETA_ZEROS[0]);
+            for (let i = 1; i < ZETA_ZEROS.length; i++) {
+              const d = Math.abs(t - ZETA_ZEROS[i]);
+              if (d < bestDist) { bestDist = d; bestIdx = i; }
+              if (ZETA_ZEROS[i] > t + 2) break;
+            }
+            return bestDist < 1 ? (
+              <span
+                style={{
+                  marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
+                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  cursor: 'pointer', borderBottom: '1px dashed currentColor',
+                }}
+                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
+                onClick={() => setT(+ZETA_ZEROS[bestIdx].toFixed(1))}
+              >
+                {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+              </span>
+            ) : null;
+          })()}
         </div>
         <div className="control-group">
           <label>Primes</label>

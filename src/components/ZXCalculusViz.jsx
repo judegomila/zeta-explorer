@@ -742,6 +742,16 @@ function SymmetryTab({ sigma, t, numPrimes }) {
     }
     ctx.fillText('σ', w - margin.right + 10, h - margin.bottom + 14);
 
+    // Y-axis label
+    ctx.save();
+    ctx.translate(12, margin.top + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('|Euler product|', 0, 0);
+    ctx.restore();
+
     // Legend
     const legendX = margin.left + 8;
     const legendY = margin.top + 10;

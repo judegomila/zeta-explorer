@@ -462,3 +462,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 501 | 2026-03-06T09:00:00Z | Fix Heat Flow tab using per-curve y-normalization hiding amplitude differences across τ values | RHAttackViz.jsx |
 | 502 | 2026-03-06T10:00:00Z | Fix false biconditional Z·W=0 ⟺ σ=½ in twistor derivation (incidence also vanishes at cos(t log 2)=0) | TwistorPage.jsx |
 | 503 | 2026-03-06T11:00:00Z | Replace white-centered correlation matrix heatmap with dark-friendly diverging color scale | SpectralAttackViz.jsx |
+| 504 | 2026-03-06T12:00:00Z | Fix false claim that prime weights are uniform at σ=½ in InformationTheoryViz entropy tab | InformationTheoryViz.jsx |

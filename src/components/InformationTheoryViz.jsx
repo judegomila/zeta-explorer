@@ -168,9 +168,10 @@ function EntropyTab({ sigma, t, numPrimes }) {
         ))}
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        At <strong style={{ color: '#10b981' }}>σ = ½</strong>, the energy is most uniformly distributed
-        across primes (maximum entropy). This means each prime oscillator contributes equally — the system
-        is in its most "democratic" state. Moving σ away concentrates energy into fewer primes (lower entropy).
+        At <strong style={{ color: '#10b981' }}>σ = ½</strong>, the direct and dual ladder weight distributions
+        coincide via the functional equation, maximizing entropy efficiency. Small primes still dominate
+        (the distribution is not uniform), but the symmetry between ladders is exact. Moving σ away breaks this
+        symmetry and reduces the entropy ratio H/H_max.
       </div>
     </div>
   );

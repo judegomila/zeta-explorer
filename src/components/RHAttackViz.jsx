@@ -71,11 +71,12 @@ function LiCoefficientsTab() {
     lambdas.forEach((l, i) => {
       const x = margin.left + (i + 0.5) / lambdas.length * plotW;
       const logVal = l.logLambda !== null ? l.logLambda : -10;
-      const barH = (logVal - minLog) / yRange * plotH;
-      const barY = h - margin.bottom - barH;
+      const valueY = h - margin.bottom - (logVal - minLog) / yRange * plotH;
+      const barTop = Math.min(valueY, zeroY);
+      const barHeight = Math.abs(valueY - zeroY);
 
       ctx.fillStyle = l.positive ? '#10b981' : '#ef4444';
-      ctx.fillRect(x - barW / 2, barY, barW, barH);
+      ctx.fillRect(x - barW / 2, barTop, barW, barHeight);
 
       // Label every few bars
       if (i % Math.max(1, Math.floor(lambdas.length / 15)) === 0) {

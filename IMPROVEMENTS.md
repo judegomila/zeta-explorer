@@ -503,3 +503,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 542 | 2026-03-06T22:30:00Z | Change Confinement tab Hamiltonian curve from orange to pink for better contrast with Bridge curve | GapClosingViz.jsx |
 | 543 | 2026-03-06T23:00:00Z | Add tab explainer banners to all 4 tabs in InfoTheoryExperimentsViz | InfoTheoryExperimentsViz.jsx |
 | 544 | 2026-03-06T23:30:00Z | Add tab explainer banners to all 4 tabs in ProofCheckerViz | ProofCheckerViz.jsx |
+| 545 | 2026-03-07T10:00:00Z | Fix impulse response formula containing Laplace variable s and wrong delta arguments | OscillatorsPage.jsx |

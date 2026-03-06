@@ -456,3 +456,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 495 | 2026-03-06T03:00:00Z | Fix Weil positivity Fourier transform missing exp(-a/4) prefactor from test function | rh-attack.js |
 | 496 | 2026-03-06T04:00:00Z | Add legend background box to Darlington tab in GapClosingViz for readability | GapClosingViz.jsx |
 | 497 | 2026-03-06T05:00:00Z | Add nearest-zero proximity indicator to t slider in InformationTheoryViz | InformationTheoryViz.jsx |
+| 498 | 2026-03-06T06:00:00Z | Precompute log(p) and log(p)/p weights in hilbertPolyaMatrix to avoid redundant Math.log calls | gap-closing.js |

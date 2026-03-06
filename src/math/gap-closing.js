@@ -432,12 +432,15 @@ export function lanczosEigenvalues(matrix, size, numIterations) {
 export function hilbertPolyaMatrix(K, t, numCouplingPrimes = 100) {
   const zeros = ZETA_ZEROS.slice(0, K);
   const primes = getPrimes(Math.min(numCouplingPrimes, 200));
+  // Precompute log(p) and log(p)/p once per prime, avoiding K*(K-1)/2 redundant Math.log calls
+  const primeLogWeights = primes.map(p => { const lp = Math.log(p); return { lp, weight: lp / p }; });
   const flat = new Float64Array(K * K);
   for (let j = 0; j < K; j++) {
     flat[j * K + j] = zeros[j];
     for (let k = j + 1; k < K; k++) {
       let c = 0;
-      for (const p of primes) { const lp = Math.log(p); c += (lp / p) * Math.cos((zeros[j] - zeros[k]) * lp); }
+      const dg = zeros[j] - zeros[k];
+      for (let i = 0; i < primeLogWeights.length; i++) { c += primeLogWeights[i].weight * Math.cos(dg * primeLogWeights[i].lp); }
       flat[j * K + k] = c; flat[k * K + j] = c;
     }
   }

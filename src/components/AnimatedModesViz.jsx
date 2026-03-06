@@ -246,6 +246,14 @@ export default function AnimatedModesViz() {
     };
   }, [draw, isPlaying]);
 
+  // Redraw on window resize when paused (animation loop handles it when playing)
+  useEffect(() => {
+    if (isPlaying) return;
+    const onResize = () => draw(elapsedRef.current);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw, isPlaying]);
+
   return (
     <div>
       <div className="tab-explainer accent-pink">

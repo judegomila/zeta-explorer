@@ -550,3 +550,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 589 | 2026-03-06T23:00:00Z | Fix primeHarmonicDecomposition computing full Euler factor at wrong s instead of k-th Taylor harmonic | supercritical.js |
 | 590 | 2026-03-06T04:30:00Z | Fix formal-proof.js claiming Rodgers-Tao proved Λ = 0 instead of Λ ≥ 0 (Λ = 0 would mean RH is proved) | formal-proof.js |
 | 591 | 2026-03-06T23:30:00Z | Fix OscillatorChainViz detail card labeling log(p) as Frequency ω instead of Impedance Z₀ | OscillatorChainViz.jsx |
+| 592 | 2026-03-06T14:00:00Z | Add horizontal gridlines to Fisher-Twistor tab in SpectralAttackViz for easier value reading | SpectralAttackViz.jsx |

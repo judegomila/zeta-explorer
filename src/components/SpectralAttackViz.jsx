@@ -63,6 +63,19 @@ function FisherTwistorTab({ t, numPrimes }) {
     const incidences = pts.map(p => p.incidence);
     const maxI = Math.max(...incidences, 0.01);
 
+    // Horizontal gridlines
+    ctx.setLineDash([3, 4]);
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    for (let i = 1; i <= 4; i++) {
+      const y = h - margin.bottom - (i / 4) * plotH * 0.9;
+      ctx.beginPath();
+      ctx.moveTo(margin.left, y);
+      ctx.lineTo(w - margin.right, y);
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+
     // sigma = 0.5 dashed line
     const halfX = margin.left + ((0.5 - minS) / (maxS - minS)) * plotW;
     ctx.beginPath();

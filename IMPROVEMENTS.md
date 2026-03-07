@@ -544,3 +544,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 583 | 2026-03-07T01:30:00Z | Fix π chart y-scale excluding arcsin series data, clipping early points off-screen | PascalZetaViz.jsx |
 | 584 | 2026-03-07T01:45:00Z | Add tab-explainer divs to all 4 tabs in ZXCalculusViz (Spider Chain, Twin Ladder, Rewrite Rules, Symmetry) | ZXCalculusViz.jsx |
 | 585 | 2026-03-06T23:00:00Z | Fix D-H phase entropy evalFn ignoring n parameter, making all 20 samples identical and entropy trivially zero | proof-checker.js |
+| 586 | 2026-03-07T02:00:00Z | Use rounded corners on legend boxes in RHRigorViz for consistency with other canvas charts | RHRigorViz.jsx |

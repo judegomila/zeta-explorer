@@ -525,3 +525,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 564 | 2026-03-06T22:00:00Z | Add missing CSS rules for accent-blue and accent-yellow tab-explainer classes | app.css |
 | 565 | 2026-03-06T23:30:00Z | Add missing y-axis tick labels and rotated axis label to Hamiltonian Convexity chart in RHAttackViz | RHAttackViz.jsx |
 | 566 | 2026-03-06T23:55:00Z | Eliminate redundant eulerFactor calls in PrimeContributions per-prime loop | InfoTheoryExperimentsViz.jsx |
+| 567 | 2026-03-07T12:00:00Z | Replace inline styles with accent-blue class on Channel Capacity tab explainer in InformationTheoryViz | InformationTheoryViz.jsx |

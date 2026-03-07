@@ -575,7 +575,7 @@ export default function InformationTheoryViz() {
       )}
       {tab === 1 && (
         <>
-          <div className="tab-explainer" style={{ borderColor: '#3b82f6', background: 'rgba(59,130,246,0.04)' }}>
+          <div className="tab-explainer accent-blue">
             Channel capacity <InlineMath tex="C(\sigma) = \log K - H_{\min}" /> measures the maximum rate at which
             the oscillator chain can transmit information. The critical line <InlineMath tex="\sigma = \tfrac{1}{2}" /> maximizes
             capacity because the matched direct/dual ladders provide optimal signal-to-noise ratio.

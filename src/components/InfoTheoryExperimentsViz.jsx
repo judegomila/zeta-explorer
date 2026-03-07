@@ -54,9 +54,9 @@ function computeWeights(sigma, t, numPrimes) {
   return weights.map(w => ({ ...w, w: w.mag2 / total }));
 }
 
-function computeAllMeasures(sigma, t, numPrimes) {
+function computeAllMeasures(sigma, t, numPrimes, precomputedWeightsHalf) {
   const weights = computeWeights(sigma, t, numPrimes);
-  const weightsHalf = computeWeights(0.5, t, numPrimes);
+  const weightsHalf = precomputedWeightsHalf || computeWeights(0.5, t, numPrimes);
 
   // 1. Shannon Entropy
   let entropy = 0;
@@ -464,10 +464,11 @@ function LandscapeScan({ sigma, t, numPrimes }) {
 
   const scanData = useMemo(() => {
     const steps = 80;
+    const weightsHalf = computeWeights(0.5, t, numPrimes);
     const results = [];
     for (let i = 0; i <= steps; i++) {
       const s = 0.1 + i * (0.8 / steps);
-      const m = computeAllMeasures(s, t, numPrimes);
+      const m = computeAllMeasures(s, t, numPrimes, weightsHalf);
       results.push({ sigma: s, ...m });
     }
     return results;

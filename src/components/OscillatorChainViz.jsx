@@ -264,7 +264,7 @@ export default function OscillatorChainViz() {
 
   return (
     <div>
-      <div className="tab-explainer">
+      <div className="tab-explainer accent-blue">
         The Euler product <InlineMath tex="\\zeta(s) = \\prod_p (1-p^{-s})^{-1}" /> is realized as
         a cascade of oscillator stages. Each prime <InlineMath tex="p" /> contributes an LC stage with inductance{' '}
         <InlineMath tex="L_p = \\log p" /> and capacitance <InlineMath tex="C_p = 1/\\log p" /> (from <InlineMath tex="p^{-s} = e^{-s\\log p}" />),

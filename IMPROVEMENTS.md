@@ -537,3 +537,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 576 | 2026-03-06T23:00:00Z | Fix scattering resonance concept entry contradicting itself: said 'transmits perfectly' but also 'S₂₁ → 0' | ConceptsPage.jsx |
 | 577 | 2026-03-06T16:00:00Z | Fix Li coefficients bar chart drawing bars from chart bottom instead of zero baseline in FormalProofViz | FormalProofViz.jsx |
 | 578 | 2026-03-06T23:30:00Z | Hoist constant logX and envelope arrays out of AnimatedModesViz per-frame draw loop | AnimatedModesViz.jsx |
+| 579 | 2026-03-06T23:45:00Z | Fix RHAttackPage falsely claiming Rodgers-Tao proved Λ = 0 (they proved Λ ≥ 0; Λ = 0 would prove RH) | RHAttackPage.jsx |

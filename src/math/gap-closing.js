@@ -89,34 +89,29 @@ function riemannSiegelZeta(s) {
   const tau = Math.sqrt(absT / (2 * Math.PI));
   const N = Math.floor(tau);
 
+  // Compute both sums in a single pass to avoid redundant Math.log(n) calls:
   // Main sum: sum_{n=1}^{N} n^{-s}
+  // Conj sum: sum_{n=1}^{N} n^{-(1-s)}
   let mainRe = 0, mainIm = 0;
-  for (let n = 1; n <= N; n++) {
-    const logN = Math.log(n);
-    const mag = Math.exp(-sigma * logN);
-    const phase = -t * logN;
-    mainRe += mag * Math.cos(phase);
-    mainIm += mag * Math.sin(phase);
-  }
-
-  // chi(s) prefactor for the second sum: chi(s) = 2^s pi^{s-1} sin(pi*s/2) Gamma(1-s)
-  // Use the approximate functional equation: zeta(s) ≈ mainSum + chi(s) * conjSum
-  // where conjSum = sum_{n=1}^{N} n^{-(1-s)}
   let conjRe = 0, conjIm = 0;
+  const sigma1 = 1 - sigma;
   for (let n = 1; n <= N; n++) {
     const logN = Math.log(n);
-    const mag = Math.exp(-(1 - sigma) * logN);
-    const phase = t * logN;
-    conjRe += mag * Math.cos(phase);
-    conjIm += mag * Math.sin(phase);
+    const mainMag = Math.exp(-sigma * logN);
+    const mainPhase = -t * logN;
+    mainRe += mainMag * Math.cos(mainPhase);
+    mainIm += mainMag * Math.sin(mainPhase);
+    const conjMag = Math.exp(-sigma1 * logN);
+    conjRe += conjMag * Math.cos(-mainPhase);
+    conjIm += conjMag * Math.sin(-mainPhase);
   }
 
-  // chi(s) via the bridge
+  // chi(s) prefactor via the bridge
   const bridge = losslessBridge(s);
   const chi = bridge.chi;
   const secondTerm = cMul(chi, [conjRe, conjIm]);
 
-  // Riemann-Siegel C0 correction (applied as a correction to the main sum approach)
+  // Riemann-Siegel C0 correction
   const p = tau - N;
   const cosDen = Math.cos(2 * Math.PI * p);
   const C0 = Math.abs(cosDen) < 1e-8
@@ -124,10 +119,12 @@ function riemannSiegelZeta(s) {
     : Math.cos(2 * Math.PI * (p * p - p - 1 / 16)) / cosDen;
   const corrMag = Math.pow(absT / (2 * Math.PI), -0.25);
   const theta = riemannSiegelTheta(absT);
-  const corrPhase = theta - t * Math.log(N + 1);
+  const logNp1 = Math.log(N + 1);
+  const corrPhase = theta - t * logNp1;
   const corrSign = (N % 2 === 0 ? -1 : 1);
-  const corrRe = corrSign * corrMag * C0 * Math.cos(corrPhase) * (sigma < 1 ? Math.exp(-(sigma - 0.5) * Math.log(N + 1)) : 1);
-  const corrIm = corrSign * corrMag * C0 * Math.sin(corrPhase) * (sigma < 1 ? Math.exp(-(sigma - 0.5) * Math.log(N + 1)) : 1);
+  const corrSigmaFactor = sigma < 1 ? Math.exp(-(sigma - 0.5) * logNp1) : 1;
+  const corrRe = corrSign * corrMag * C0 * Math.cos(corrPhase) * corrSigmaFactor;
+  const corrIm = corrSign * corrMag * C0 * Math.sin(corrPhase) * corrSigmaFactor;
 
   return [mainRe + secondTerm[0] + corrRe, mainIm + secondTerm[1] + corrIm];
 }

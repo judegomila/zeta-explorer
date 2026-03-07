@@ -261,7 +261,7 @@ export const PROOF_SECTIONS = [
       'resonances occur at energy minima, and the minimum is at sigma = 1/2, then Re(rho) = 1/2. ' +
       'None of these paths is complete. The strongest current evidence comes from: ' +
       '- Numerical verification of the first 10^13 zeros (Platt, 2021). ' +
-      '- The Rodgers-Tao theorem Lambda = 0 (2020), showing RH is "infinitesimally true". ' +
+      '- The Rodgers-Tao theorem Lambda >= 0 (2020), showing the zeros sit at the heat-flow threshold. ' +
       '- The de la Vallee-Poussin zero-free region: Re(rho) < 1 - c/log(Im(rho)).',
     dependencies: ['S5', 'S6', 'S7'],
     gapAnalysis:

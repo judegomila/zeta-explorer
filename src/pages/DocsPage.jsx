@@ -295,7 +295,7 @@ export default function DocsPage() {
           <div>
             <Fn name="sieveOfEratosthenes" params="limit" desc="All primes up to limit via sieve" />
             <Fn name="getPrimes" params="n" desc="First n primes (pre-computed)" />
-            <Fn name="primeFrequency" params="p" desc="Oscillator frequency ω = log(p)" />
+            <Fn name="primeFrequency" params="p" desc="Characteristic impedance Z₀ = log(p) (all primes share ω₀ = 1)" />
             <Fn name="primeWavelength" params="p" desc="Wavelength λ = 2π/log(p)" />
             <Fn name="vonMangoldt" params="n" desc="Λ(n) = log(p) if n=p^k, else 0" />
             <Fn name="chebyshevPsi" params="x" desc="Chebyshev ψ(x) = Σ Λ(n) for n ≤ x" />

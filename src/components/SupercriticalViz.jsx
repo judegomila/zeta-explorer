@@ -270,7 +270,7 @@ function ExtendedLandscapeTab() {
 
   return (
     <div>
-      <div className="tab-explainer">
+      <div className="tab-explainer accent-cyan">
         The Riemann zeta function <InlineMath tex="\\zeta(s) = \\sum n^{-s}" /> converges only for{' '}
         <InlineMath tex="\\sigma > 1" /> (the "supercritical" or gas phase). We extend it everywhere via analytic continuation:
         in the critical strip <InlineMath tex="0 < \\sigma < 1" /> using the Dirichlet eta function{' '}

@@ -255,28 +255,36 @@ export function linearIndependenceTest(maxOdd = 11, numPrimes = 50) {
   const dim = oddIndices.length;
   const gramMatrix = Array.from({ length: dim }, () => new Array(dim).fill(0));
 
-  // Compute inner products
+  // Precompute log(p), p^k - 1 for all (prime, oddIndex) pairs,
+  // and log(p) / (p*(p-1)) for the <1,1> diagonal entry,
+  // to avoid redundant Math.log and Math.pow calls in the triple-nested loop.
+  const numP = primes.length;
+  const logP = new Float64Array(numP);
+  const oneOneTerms = new Float64Array(numP); // log(p) / (p*(p-1))
+  // powMinus1[pi * dim + ki] = p^oddIndices[ki] - 1
+  const powMinus1 = new Float64Array(numP * dim);
+  for (let pi = 0; pi < numP; pi++) {
+    const p = primes[pi];
+    logP[pi] = Math.log(p);
+    oneOneTerms[pi] = logP[pi] / (p * (p - 1));
+    for (let ki = 0; ki < dim; ki++) {
+      const k = oddIndices[ki];
+      powMinus1[pi * dim + ki] = Math.pow(p, k) - 1; // k=1 gives p-1
+    }
+  }
+
+  // Compute inner products using precomputed tables
   for (let i = 0; i < dim; i++) {
     for (let j = i; j < dim; j++) {
-      const m = oddIndices[i];
-      const n = oddIndices[j];
       let ip = 0;
-
-      for (const p of primes) {
-        const logP = Math.log(p);
-        if (m === 1 && n === 1) {
-          // <1, 1> = Σ_p log(p) / p(p-1)
-          ip += logP / (p * (p - 1));
-        } else if (m === 1) {
-          // <1, ζ(n)> = Σ_p log(p) / (p - 1)(p^n - 1)
-          ip += logP / ((p - 1) * (Math.pow(p, n) - 1));
-        } else if (n === 1) {
-          ip += logP / ((p - 1) * (Math.pow(p, m) - 1));
-        } else {
-          ip += logP / ((Math.pow(p, m) - 1) * (Math.pow(p, n) - 1));
+      if (i === 0 && j === 0) {
+        // <1, 1> = Σ_p log(p) / (p*(p-1)), special formula
+        for (let pi = 0; pi < numP; pi++) ip += oneOneTerms[pi];
+      } else {
+        for (let pi = 0; pi < numP; pi++) {
+          ip += logP[pi] / (powMinus1[pi * dim + i] * powMinus1[pi * dim + j]);
         }
       }
-
       gramMatrix[i][j] = ip;
       gramMatrix[j][i] = ip;
     }

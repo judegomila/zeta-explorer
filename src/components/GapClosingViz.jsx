@@ -502,7 +502,7 @@ function DarlingtonTab({ numPrimes, t }) {
     ctx.scale(dpr, dpr);
     ctx.clearRect(0, 0, w, h);
 
-    const margin = { left: 56, right: 20, top: 30, bottom: 40 };
+    const margin = { left: 56, right: 50, top: 30, bottom: 40 };
     const plotW = w - margin.left - margin.right;
     const plotH = h - margin.top - margin.bottom;
 
@@ -610,6 +610,29 @@ function DarlingtonTab({ numPrimes, t }) {
       }
     }
 
+    // Right-side y-axis for unitarity error (red scale)
+    ctx.strokeStyle = '#ef444460';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(w - margin.right, margin.top);
+    ctx.lineTo(w - margin.right, h - margin.bottom);
+    ctx.stroke();
+    ctx.fillStyle = '#ef4444';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'left';
+    const errTicks = 3;
+    for (let i = 0; i <= errTicks; i++) {
+      const val = (i / errTicks) * errMax;
+      const y = toYErr(val);
+      ctx.beginPath();
+      ctx.moveTo(w - margin.right, y);
+      ctx.lineTo(w - margin.right + 4, y);
+      ctx.strokeStyle = '#ef444460';
+      ctx.stroke();
+      ctx.fillStyle = '#ef4444';
+      ctx.fillText(val < 0.01 ? val.toExponential(0) : val.toFixed(2), w - margin.right + 6, y + 3);
+    }
+
     // Axis labels
     ctx.fillStyle = '#94a3b8';
     ctx.font = '10px sans-serif';
@@ -619,6 +642,16 @@ function DarlingtonTab({ numPrimes, t }) {
     ctx.translate(12, h / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillText('Magnitude', 0, 0);
+    ctx.restore();
+
+    // Right y-axis label (unitarity error)
+    ctx.save();
+    ctx.translate(w - 4, margin.top + plotH * 0.15);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#ef4444';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Unitarity Error', 0, 0);
     ctx.restore();
 
     // Legend with background box

@@ -282,11 +282,39 @@ function HamiltonianTab() {
       }
     }
 
+    // Y-axis tick labels for ∂²H/∂σ²
+    ctx.fillStyle = '#64748b';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'right';
+    const yTickCount = 4;
+    for (let i = -yTickCount; i <= yTickCount; i++) {
+      const frac = i / yTickCount;
+      const val = frac * maxD2H;
+      const y = zeroY - frac * plotH * 0.4;
+      if (y < margin.top || y > h - margin.bottom) continue;
+      ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
+      if (i !== 0) {
+        ctx.beginPath();
+        ctx.moveTo(margin.left, y);
+        ctx.lineTo(margin.left + 4, y);
+        ctx.strokeStyle = '#334155';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+
     // Labels
     ctx.fillStyle = '#64748b';
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';
     ctx.fillText('t', w / 2, h - 4);
+    ctx.save();
+    ctx.translate(12, h / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.fillText('∂²H/∂σ²', 0, 0);
+    ctx.restore();
 
     // Legend
     [

@@ -523,3 +523,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 562 | 2026-03-06T12:30:00Z | Add missing accent-cyan class to Extended Landscape tab explainer in SupercriticalViz | SupercriticalViz.jsx |
 | 563 | 2026-03-06T18:00:00Z | Add missing accent color classes to all four tab explainers in TwistorViz | TwistorViz.jsx |
 | 564 | 2026-03-06T22:00:00Z | Add missing CSS rules for accent-blue and accent-yellow tab-explainer classes | app.css |
+| 565 | 2026-03-06T23:30:00Z | Add missing y-axis tick labels and rotated axis label to Hamiltonian Convexity chart in RHAttackViz | RHAttackViz.jsx |

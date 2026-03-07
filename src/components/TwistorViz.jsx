@@ -886,7 +886,7 @@ export default function TwistorViz() {
       <div className="viz-container" style={{ marginTop: 12 }}>
         {tab === 'correspondence' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-blue">
               <strong>Twistor Correspondence:</strong> The s-plane (left) maps to twistor space (right).
               The twistor <InlineMath tex="Z^\\alpha = (\\omega^A, \\pi_{A'})" /> (blue) encodes the direct ladder,
               the dual twistor <InlineMath tex="W_\\alpha" /> (gold) encodes the dual ladder.
@@ -898,7 +898,7 @@ export default function TwistorViz() {
         )}
         {tab === 'penrose' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-cyan">
               <strong>Penrose Transform:</strong> The Penrose transform maps twistor cohomology to spacetime fields.
               Here, the twistor-weighted Euler product (top, cyan) is compared with the raw <InlineMath tex="|\\zeta(s)|" /> (bottom, purple).
               High correlation indicates the twistor framework faithfully encodes zeta behavior.
@@ -908,7 +908,7 @@ export default function TwistorViz() {
         )}
         {tab === 'incidence' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-green">
               <strong>Incidence Relation:</strong> Heatmap of <InlineMath tex="|Z \\cdot W|" /> over
               the <InlineMath tex="(\\sigma, t)" /> plane. Dark regions satisfy the incidence relation
               (twistors are null-separated). Green dots mark known zeta zeros on the critical line.
@@ -919,7 +919,7 @@ export default function TwistorViz() {
         )}
         {tab === 'dualPair' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-orange">
               <strong>Dual Pair:</strong> Watch the twistor Z (blue, left) and dual twistor W (gold, right) rotate
               as t sweeps forward. The central intertwiner I shows coupling strength. When the helicities match
               and <InlineMath tex="|Z \\cdot W| \\approx 0" />, the pair is phase-locked at equilibrium.

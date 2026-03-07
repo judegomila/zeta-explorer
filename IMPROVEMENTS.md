@@ -534,3 +534,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 573 | 2026-03-06T23:45:00Z | Add missing accent color classes to all 5 tab explainers in WaveSimViz | WaveSimViz.jsx |
 | 574 | 2026-03-06T12:00:00Z | Fix ZXCalculusViz hover tooltip labeling log(p) as ω (frequency) instead of Z₀ (characteristic impedance) | ZXCalculusViz.jsx |
 | 575 | 2026-03-06T13:00:00Z | Fix inconsistent Gram matrix inner product for constant '1' element in linearIndependenceTest | odd-zeta.js |
+| 576 | 2026-03-06T23:00:00Z | Fix scattering resonance concept entry contradicting itself: said 'transmits perfectly' but also 'S₂₁ → 0' | ConceptsPage.jsx |

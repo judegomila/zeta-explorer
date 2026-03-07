@@ -294,9 +294,9 @@ const CONCEPTS = [
     id: 'scattering-resonance',
     category: 'quantum',
     term: 'Scattering Resonance',
-    definition: 'In quantum scattering, a resonance is a complex energy where the S-matrix has a pole. The ZPO model maps zeta zeros to transmission resonances of the oscillator cascade — frequencies where the signal passes through perfectly.',
+    definition: 'In quantum scattering, a resonance is a complex energy where the S-matrix has a pole. The ZPO model maps zeta zeros to transmission nulls of the oscillator cascade — frequencies where the cascade output vanishes via total destructive interference.',
     formula: 'S(E) = \\frac{E - E_r + i\\Gamma/2}{E - E_r - i\\Gamma/2}, \\quad \\text{resonance at } E = E_r',
-    intuition: 'At a zeta zero, the twin-ladder transmits perfectly (S₂₁ → 0 means total destructive interference).',
+    intuition: 'At a zeta zero, the cascade transfer function vanishes: ζ(ρ) = 0 means the oscillator stages interfere destructively, producing zero net output.',
   },
   {
     id: 'path-integral',

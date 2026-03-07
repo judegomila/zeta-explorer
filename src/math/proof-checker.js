@@ -417,12 +417,18 @@ export function eulerProductDiscriminator(t, numPrimes = 15) {
       return H;
     }
     const zetaEvalFn = (s, n) => eulerFactor(getPrimes(n + 1)[n], s);
+    // Use per-term Dirichlet coefficients chi_1(n)*n^{-s} for D-H, analogous to per-prime Euler factors for zeta
+    const dhEvalFn = (s, n) => {
+      const chi = chi1Mod5(n);
+      if (chi[0] === 0 && chi[1] === 0) return [1e-30, 0]; // n≡0 mod 5: negligible placeholder to avoid atan2(0,0) bias
+      return cMul(chi, cDiv([1, 0], cPow([n, 0], s)));
+    };
     let zetaMaxS = 0.5, zetaMaxE = -Infinity;
     let dhMaxS = 0.5, dhMaxE = -Infinity;
     for (let sigma = 0.1; sigma <= 0.9; sigma += 0.05) {
       const ze = phaseEntropy(sigma, t, zetaEvalFn);
       if (ze > zetaMaxE) { zetaMaxE = ze; zetaMaxS = sigma; }
-      const de = phaseEntropy(sigma, t, (s) => davenportHeilbronnZeta(s, 100));
+      const de = phaseEntropy(sigma, t, dhEvalFn);
       if (de > dhMaxE) { dhMaxE = de; dhMaxS = sigma; }
     }
     const zetaWorks = Math.abs(zetaMaxS - 0.5) < 0.15;

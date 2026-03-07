@@ -529,3 +529,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 568 | 2026-03-06T23:59:00Z | Add right-side y-axis with error scale for unitarity error curve in Darlington tab | GapClosingViz.jsx |
 | 569 | 2026-03-06T12:45:00Z | Add missing accent-blue class to OscillatorChainViz tab explainer | OscillatorChainViz.jsx |
 | 570 | 2026-03-06T23:00:00Z | Add missing accent-blue class to Von Mangoldt Spectrum tab explainer in FourierDomainViz | FourierDomainViz.jsx |
+| 571 | 2026-03-06T23:00:00Z | Fix false claim that de Bruijn-Newman Λ = 0 is a proven theorem | rh-attack.js |

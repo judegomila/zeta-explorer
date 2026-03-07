@@ -281,12 +281,12 @@ export function deBruijnNewmanScan(tRange = [10, 50], steps = 200, tauValues = [
   return {
     results,
     tauValues,
-    gap: 'Rodgers–Tao (2020) proved Λ ≥ 0, confirming the lower bound. Combined with de Bruijn\'s ' +
-         'upper bound, this gives Λ = 0. This is the state of the art. ' +
+    gap: 'Rodgers–Tao (2020) proved Λ ≥ 0. De Bruijn (1950) proved Λ ≤ ½. ' +
+         'So we know 0 ≤ Λ ≤ ½, but Λ = 0 is equivalent to RH and remains open. ' +
          'The ZPO connection: the heat parameter τ corresponds to the "temperature" 1/σ in the ' +
          'thermodynamic interpretation. At τ = 0 (σ = ½), the system is at the critical temperature ' +
          'where zeros are exactly real. Positive τ (lower σ) smooths zeros but keeps them real; ' +
-         'negative τ (higher σ) would push zeros off-axis, but Λ = 0 says this doesn\'t happen.',
+         'negative τ (higher σ) would push zeros off-axis if Λ > 0.',
   };
 }
 
@@ -436,9 +436,9 @@ export function proofGapAnalysis() {
         detail: 'Computed from first 650 zeros. Consistent with RH but not a proof — we only used finitely many zeros.',
       },
       {
-        claim: 'de Bruijn–Newman constant Λ = 0',
+        claim: 'de Bruijn–Newman constant Λ ≥ 0',
         status: 'theorem',
-        detail: 'Proved by Rodgers–Tao (2020). This is equivalent to RH being "infinitesimally close to true" in the heat flow sense.',
+        detail: 'Proved by Rodgers–Tao (2020). Combined with de Bruijn\'s Λ ≤ ½, we know 0 ≤ Λ ≤ ½. The stronger claim Λ = 0 is equivalent to RH and remains open.',
       },
     ],
     gaps: [

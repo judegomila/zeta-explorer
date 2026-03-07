@@ -264,7 +264,7 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
             α = {data.spiders[hovered].phase.toFixed(4)} rad
           </span>
           <span style={{ color: '#64748b', marginLeft: 12 }}>
-            ω = log({data.spiders[hovered].prime}) = {data.spiders[hovered].frequency.toFixed(3)}
+            Z₀ = log({data.spiders[hovered].prime}) = {data.spiders[hovered].frequency.toFixed(3)}
           </span>
         </div>
       )}

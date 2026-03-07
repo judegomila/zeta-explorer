@@ -227,9 +227,12 @@ function ConstantsTab() {
     const y2Off = margin.top + chartH + 56;
     const g2 = svg.append('g').attr('transform', `translate(${margin.left},${y2Off})`);
     const x2 = d3.scaleLinear().domain([1, data.piData.length]).range([0, w]);
-    const piVals = data.piData.map(d => d.piApprox);
+    const allPiVals = [
+      ...data.piData.map(d => d.piApprox),
+      ...data.piArcsin.map(d => d.piApprox),
+    ];
     const y2 = d3.scaleLinear()
-      .domain([d3.min(piVals) * 0.99, d3.max(piVals) * 1.01])
+      .domain([d3.min(allPiVals) * 0.99, d3.max(allPiVals) * 1.01])
       .range([chartH, 0]);
 
     g2.append('g').attr('transform', `translate(0,${chartH})`)

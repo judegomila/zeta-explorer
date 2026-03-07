@@ -189,7 +189,7 @@ export default function PrimeGapCouplingViz() {
           .attr('fill', `hsl(${210 + freq * 15}, 70%, 55%)`)
           .attr('stroke', '#0a0e1a').attr('stroke-width', 1)
           .style('cursor', 'crosshair')
-          .append('title').text(`p=${p} | ω=log(${p})=${freq.toFixed(4)}`);
+          .append('title').text(`p=${p} | Z₀=log(${p})=${freq.toFixed(4)}`);
       });
 
       // Connect with line

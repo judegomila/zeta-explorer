@@ -951,7 +951,7 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
 
       // Stats box
       const stats = [
-        `ω = log(${p}) = ${stage.frequency.toFixed(4)}`,
+        `Z₀ = log(${p}) = ${stage.frequency.toFixed(4)}`,
         `|H(s)| = ${stage.magnitude.toFixed(4)}`,
         `Q = ${stage.Q.toFixed(2)}`,
         `Z = ${cAbs(stage.impedance).toFixed(3)}`,

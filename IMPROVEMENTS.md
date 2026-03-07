@@ -546,3 +546,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 585 | 2026-03-06T23:00:00Z | Fix D-H phase entropy evalFn ignoring n parameter, making all 20 samples identical and entropy trivially zero | proof-checker.js |
 | 586 | 2026-03-07T02:00:00Z | Use rounded corners on legend boxes in RHRigorViz for consistency with other canvas charts | RHRigorViz.jsx |
 | 587 | 2026-03-06T12:00:00Z | Precompute σ=0.5 reference weights once for LandscapeScan instead of recomputing in all 81 iterations | InfoTheoryExperimentsViz.jsx |
+| 588 | 2026-03-06T18:30:00Z | Fix Component Diagram and frequency tooltip labeling log(p) as ω (frequency) instead of Z₀ (impedance) | WaveSimViz.jsx, PrimeGapCouplingViz.jsx |

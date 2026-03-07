@@ -255,18 +255,15 @@ export function linearIndependenceTest(maxOdd = 11, numPrimes = 50) {
   const dim = oddIndices.length;
   const gramMatrix = Array.from({ length: dim }, () => new Array(dim).fill(0));
 
-  // Precompute log(p), p^k - 1 for all (prime, oddIndex) pairs,
-  // and log(p) / (p*(p-1)) for the <1,1> diagonal entry,
+  // Precompute log(p) and p^k - 1 for all (prime, oddIndex) pairs
   // to avoid redundant Math.log and Math.pow calls in the triple-nested loop.
   const numP = primes.length;
   const logP = new Float64Array(numP);
-  const oneOneTerms = new Float64Array(numP); // log(p) / (p*(p-1))
   // powMinus1[pi * dim + ki] = p^oddIndices[ki] - 1
   const powMinus1 = new Float64Array(numP * dim);
   for (let pi = 0; pi < numP; pi++) {
     const p = primes[pi];
     logP[pi] = Math.log(p);
-    oneOneTerms[pi] = logP[pi] / (p * (p - 1));
     for (let ki = 0; ki < dim; ki++) {
       const k = oddIndices[ki];
       powMinus1[pi * dim + ki] = Math.pow(p, k) - 1; // k=1 gives p-1
@@ -274,16 +271,17 @@ export function linearIndependenceTest(maxOdd = 11, numPrimes = 50) {
   }
 
   // Compute inner products using precomputed tables
+  // Use the general formula <f_m, f_n> = Σ_p log(p) / ((p^m - 1)(p^n - 1))
+  // consistently for all entries, including the "1" element (treated as index 1,
+  // so p^1 - 1 = p - 1). This ensures the Gram matrix corresponds to a single
+  // consistent inner product — the previous special-case for <1,1> used
+  // Σ log(p)/(p(p-1)) which was inconsistent with the off-diagonal <1, ζ(k)>
+  // entries that used Σ log(p)/((p-1)(p^k - 1)).
   for (let i = 0; i < dim; i++) {
     for (let j = i; j < dim; j++) {
       let ip = 0;
-      if (i === 0 && j === 0) {
-        // <1, 1> = Σ_p log(p) / (p*(p-1)), special formula
-        for (let pi = 0; pi < numP; pi++) ip += oneOneTerms[pi];
-      } else {
-        for (let pi = 0; pi < numP; pi++) {
-          ip += logP[pi] / (powMinus1[pi * dim + i] * powMinus1[pi * dim + j]);
-        }
+      for (let pi = 0; pi < numP; pi++) {
+        ip += logP[pi] / (powMinus1[pi * dim + i] * powMinus1[pi * dim + j]);
       }
       gramMatrix[i][j] = ip;
       gramMatrix[j][i] = ip;

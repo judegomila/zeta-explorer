@@ -328,7 +328,7 @@ export default function OscillatorChainViz() {
             {selectedStage.ladder === 'direct' ? 'Direct' : 'Dual'} Ladder — Prime {selectedStage.prime}
           </h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 12, marginTop: 12 }}>
-            <div><span style={{ color: '#64748b', fontSize: 11 }}>Frequency <InlineMath tex="\\omega" /></span><br/>
+            <div><span style={{ color: '#64748b', fontSize: 11 }}>Impedance <InlineMath tex="Z_0 = \\log p" /></span><br/>
               <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.frequency.toFixed(4)}</span></div>
             <div><span style={{ color: '#64748b', fontSize: 11 }}>|H(s)|</span><br/>
               <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.magnitude.toFixed(4)}</span></div>

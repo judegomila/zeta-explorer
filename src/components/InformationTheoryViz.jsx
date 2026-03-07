@@ -576,10 +576,10 @@ export default function InformationTheoryViz() {
       {tab === 1 && (
         <>
           <div className="tab-explainer accent-blue">
-            Channel capacity <InlineMath tex="C(\sigma) = \log K - H_{\min}" /> measures the maximum rate at which
-            the oscillator chain can transmit information. The critical line <InlineMath tex="\sigma = \tfrac{1}{2}" /> maximizes
-            capacity because the matched direct/dual ladders provide optimal signal-to-noise ratio.
-            <strong> Look for:</strong> capacity peaking sharply at <InlineMath tex="\sigma = 0.5" />, especially near zeta zeros where the channel saturates.
+            Channel capacity <InlineMath tex="C(\sigma) = \tfrac{1}{2}\log_2(1 + \text{SNR})" /> measures the maximum rate at which
+            the oscillator chain can transmit information (Shannon-Hartley). The critical line <InlineMath tex="\sigma = \tfrac{1}{2}" /> maximizes
+            capacity because the matched direct/dual ladders minimize impedance mismatch noise, maximizing SNR.
+            <strong> Look for:</strong> capacity peaking sharply at <InlineMath tex="\sigma = 0.5" />, especially near zeta zeros where SNR diverges.
           </div>
           <CapacityTab sigma={sigma} t={t} numPrimes={numPrimes} />
         </>

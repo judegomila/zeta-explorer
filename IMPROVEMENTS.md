@@ -538,3 +538,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 577 | 2026-03-06T16:00:00Z | Fix Li coefficients bar chart drawing bars from chart bottom instead of zero baseline in FormalProofViz | FormalProofViz.jsx |
 | 578 | 2026-03-06T23:30:00Z | Hoist constant logX and envelope arrays out of AnimatedModesViz per-frame draw loop | AnimatedModesViz.jsx |
 | 579 | 2026-03-06T23:45:00Z | Fix RHAttackPage falsely claiming Rodgers-Tao proved Λ = 0 (they proved Λ ≥ 0; Λ = 0 would prove RH) | RHAttackPage.jsx |
+| 580 | 2026-03-06T23:55:00Z | Fix Channel Capacity tab explainer showing wrong formula C = log K − H_min instead of Shannon-Hartley ½log₂(1+SNR) | InformationTheoryViz.jsx |

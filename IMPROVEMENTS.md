@@ -536,3 +536,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 575 | 2026-03-06T13:00:00Z | Fix inconsistent Gram matrix inner product for constant '1' element in linearIndependenceTest | odd-zeta.js |
 | 576 | 2026-03-06T23:00:00Z | Fix scattering resonance concept entry contradicting itself: said 'transmits perfectly' but also 'S₂₁ → 0' | ConceptsPage.jsx |
 | 577 | 2026-03-06T16:00:00Z | Fix Li coefficients bar chart drawing bars from chart bottom instead of zero baseline in FormalProofViz | FormalProofViz.jsx |
+| 578 | 2026-03-06T23:30:00Z | Hoist constant logX and envelope arrays out of AnimatedModesViz per-frame draw loop | AnimatedModesViz.jsx |

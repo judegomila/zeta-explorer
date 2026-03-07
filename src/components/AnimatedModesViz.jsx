@@ -3,6 +3,20 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes, primeFrequency } from '../math/primes.js';
 
+// Precompute x-step constants at module level — these depend only on the
+// hardcoded xSteps=200 and never change, saving 200 Math.exp calls + 3
+// Float64Array allocations per animation frame (~60fps = 12,000 exp/s).
+const ANIM_X_STEPS = 200;
+const ANIM_X_FRAC = new Float64Array(ANIM_X_STEPS);
+const ANIM_LOG_X = new Float64Array(ANIM_X_STEPS);
+const ANIM_ENVELOPE = new Float64Array(ANIM_X_STEPS);
+for (let i = 0; i < ANIM_X_STEPS; i++) {
+  const frac = i / (ANIM_X_STEPS - 1);
+  ANIM_X_FRAC[i] = frac;
+  ANIM_LOG_X[i] = 1 + frac * 5;       // log-space x from e^1 to e^6
+  ANIM_ENVELOPE[i] = Math.exp(-0.05 * frac);
+}
+
 /**
  * Animated visualization of oscillator modes.
  * Shows the time evolution of each prime oscillator at a zeta zero frequency,
@@ -75,19 +89,12 @@ export default function AnimatedModesViz() {
     // Draw each prime's oscillation — reuse buffer to avoid per-frame allocation
     const superposition = superpositionRef.current;
     superposition.fill(0);
-    const xSteps = 200;
+    const xSteps = ANIM_X_STEPS;
 
-    // Precompute x-step constants that are the same for every prime row
-    const xFrac = new Float64Array(xSteps);     // fractional position [0,1]
-    const xPos = new Float64Array(xSteps);       // pixel x coordinate
-    const logXArr = new Float64Array(xSteps);    // log-space x value
-    const envelope = new Float64Array(xSteps);   // decay envelope exp(-0.05*frac)
+    // xPos depends on canvas width, so compute per-frame (cheap: just add+multiply)
+    const xPos = new Float64Array(xSteps);
     for (let i = 0; i < xSteps; i++) {
-      const frac = i / (xSteps - 1);
-      xFrac[i] = frac;
-      xPos[i] = xPad + frac * waveW;
-      logXArr[i] = 1 + frac * 5;  // log-space x from e^1 to e^6
-      envelope[i] = Math.exp(-0.05 * frac);
+      xPos[i] = xPad + ANIM_X_FRAC[i] * waveW;
     }
 
     primeData.forEach((pd, idx) => {
@@ -107,7 +114,7 @@ export default function AnimatedModesViz() {
       const phaseOffset = omega * t;
       ctx.beginPath();
       for (let i = 0; i < xSteps; i++) {
-        const val = amplitude * Math.cos(gamma * logXArr[i] - phaseOffset) * envelope[i];
+        const val = amplitude * Math.cos(gamma * ANIM_LOG_X[i] - phaseOffset) * ANIM_ENVELOPE[i];
         const y = yCenter - val * halfRow;
 
         superposition[i] += val;

@@ -291,14 +291,14 @@ function PrimeContributions({ sigma, t, numPrimes }) {
       // Entropy contribution: -w * log2(w)
       const entropyContrib = w > 1e-20 ? -w * Math.log2(w) : 0;
 
-      // Capacity contribution per stage
-      const efMag2 = cAbs(eulerFactor(p, [sigma, t])) ** 2;
+      // Capacity contribution per stage — reuse mags[i] instead of recomputing eulerFactor
+      const efMag2 = mags[i];
       const stage = oscillatorStage(p, [sigma, t]);
       const stageNoise = 1 / (stage.Q * stage.Q + 1);
       const capContrib = 0.5 * Math.log2(1 + efMag2 / Math.max(stageNoise, 1e-10));
 
-      // Fisher contribution
-      const efC = cAbs(eulerFactor(p, [sigma, t]));
+      // Fisher contribution — reuse mags[i] for efC instead of recomputing eulerFactor
+      const efC = Math.sqrt(mags[i]);
       const efP = cAbs(eulerFactor(p, [sigma + ds, t]));
       const efM = cAbs(eulerFactor(p, [sigma - ds, t]));
       let fisherContrib = 0;

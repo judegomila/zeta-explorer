@@ -477,6 +477,7 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 515 | 2026-03-06T23:00:00Z | Add missing window resize handler to FormalProofViz EvidenceTab canvases | FormalProofViz.jsx |
 | 516 | 2026-03-07T00:00:00Z | Add missing legend for derivative color coding in SpectralAttackViz Lyapunov tab | SpectralAttackViz.jsx |
 | 517 | 2026-03-07T01:00:00Z | Add Deninger foliated spaces exploration entry connecting closed orbits to prime oscillators | explorations.js |
+| 518 | 2026-03-06T23:45:00Z | Fix darlingtonSMatrix docstring showing wrong S21 formula: |Z_d| instead of √(Re(Z_d)·Re(Z_dual)) | gap-closing.js |
 | 518 | 2026-03-06T21:30:00Z | Add missing y-axis tick labels and gridlines to ZXCalculusViz Symmetry tab | ZXCalculusViz.jsx |
 | 519 | 2026-03-06T23:45:00Z | Remove dead code with x2-x2 typo in ZXCalculusViz drawArrow helper | ZXCalculusViz.jsx |
 | 520 | 2026-03-06T14:30:00Z | Precompute (1−1/ρ) values outside n-loop in liCoefficients to avoid redundant cDiv/cSub per zero | rh-attack.js |

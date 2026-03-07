@@ -595,7 +595,7 @@ export function spectralGapAnalysis(K) {
 
 /**
  * Compute the 2x2 scattering matrix for the twin-ladder at s.
- * S11 = (Z_direct - Z_dual)/(Z_direct + Z_dual), S21 = 2|Z_d|/(Z_d + Z_dual).
+ * S11 = (Z_direct - Z_dual)/(Z_direct + Z_dual), S21 = 2√(Re(Z_d)·Re(Z_dual))/(Z_d + Z_dual).
  * @param {number[]} s - Complex number [sigma, t]
  * @param {number} numPrimes
  * @returns {{ S11, S21, S12, S22, unitarityError, isUnitary }}

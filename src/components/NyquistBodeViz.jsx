@@ -362,7 +362,7 @@ export default function NyquistBodeViz() {
   return (
     <div>
       {mode === 'nyquist' && (
-        <div className="tab-explainer">
+        <div className="tab-explainer accent-blue">
           The Nyquist plot traces the loop transfer function{' '}
           <InlineMath tex="L(s) = \\chi(s)\\zeta(1-s)/\\zeta(s)" /> in the complex plane as <InlineMath tex="t" /> varies.
           By the Nyquist stability criterion, the number of clockwise encirclements of <InlineMath tex="-1" /> equals{' '}

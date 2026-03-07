@@ -540,3 +540,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 579 | 2026-03-06T23:45:00Z | Fix RHAttackPage falsely claiming Rodgers-Tao proved Λ = 0 (they proved Λ ≥ 0; Λ = 0 would prove RH) | RHAttackPage.jsx |
 | 580 | 2026-03-06T23:55:00Z | Fix Channel Capacity tab explainer showing wrong formula C = log K − H_min instead of Shannon-Hartley ½log₂(1+SNR) | InformationTheoryViz.jsx |
 | 581 | 2026-03-07T00:10:00Z | Add missing accent-blue class to Nyquist Plot tab explainer in NyquistBodeViz | NyquistBodeViz.jsx |
+| 582 | 2026-03-07T00:20:00Z | Add missing accent-blue class to Per-Prime Energy tab explainer in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |

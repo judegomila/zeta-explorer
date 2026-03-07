@@ -175,7 +175,7 @@ function PerPrimeTab() {
 
   return (
     <div>
-      <div className="tab-explainer">
+      <div className="tab-explainer accent-blue">
         Each prime <InlineMath tex="p" /> defines an oscillator with transfer function{' '}
         <InlineMath tex="H_p(s) = 1/(1 - p^{-s})" />. Its energy across both ladders is{' '}
         <InlineMath tex="E_p(\\sigma) = \\tfrac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1\\!-\\!s)|^2)" />.

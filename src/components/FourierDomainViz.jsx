@@ -136,7 +136,7 @@ function VonMangoldtSpectrumTab() {
 
   return (
     <div>
-      <div className="tab-explainer">
+      <div className="tab-explainer accent-blue">
         The von Mangoldt function <InlineMath tex="\\Lambda(n) = \\log p" /> when{' '}
         <InlineMath tex="n = p^k" />, and zero otherwise, encodes prime locations as a "signal." The weighted
         transform <InlineMath tex="F(\\omega) = \\sum_n \\Lambda(n)\\,n^{-1/2}\\,e^{-i\\omega\\log n}" /> equals{' '}

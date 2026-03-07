@@ -542,3 +542,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 581 | 2026-03-07T00:10:00Z | Add missing accent-blue class to Nyquist Plot tab explainer in NyquistBodeViz | NyquistBodeViz.jsx |
 | 582 | 2026-03-07T00:20:00Z | Add missing accent-blue class to Per-Prime Energy tab explainer in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
 | 583 | 2026-03-07T01:30:00Z | Fix π chart y-scale excluding arcsin series data, clipping early points off-screen | PascalZetaViz.jsx |
+| 584 | 2026-03-07T01:45:00Z | Add tab-explainer divs to all 4 tabs in ZXCalculusViz (Spider Chain, Twin Ladder, Rewrite Rules, Symmetry) | ZXCalculusViz.jsx |

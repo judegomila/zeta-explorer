@@ -531,3 +531,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 570 | 2026-03-06T23:00:00Z | Add missing accent-blue class to Von Mangoldt Spectrum tab explainer in FourierDomainViz | FourierDomainViz.jsx |
 | 571 | 2026-03-06T23:00:00Z | Fix false claim that de Bruijn-Newman Λ = 0 is a proven theorem | rh-attack.js |
 | 572 | 2026-03-06T23:30:00Z | Precompute log(p) and p^k tables to eliminate redundant Math calls in linearIndependenceTest Gram matrix loop | odd-zeta.js |
+| 573 | 2026-03-06T23:45:00Z | Add missing accent color classes to all 5 tab explainers in WaveSimViz | WaveSimViz.jsx |

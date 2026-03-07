@@ -1609,7 +1609,7 @@ export default function WaveSimViz() {
       <div className="viz-container" style={{ marginTop: 12 }}>
         {tab === 'signal' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-green">
               <strong>Signal Flow:</strong> Propagating wavefronts travel bidirectionally through the LC ladder.
               Green (top) = Direct&#x2192;Dual; cyan (bottom) = Dual&#x2192;Direct.
               Node rings show <strong>impedance matching</strong>: <span style={{ color: '#10b981' }}>green</span> = matched,{' '}
@@ -1624,7 +1624,7 @@ export default function WaveSimViz() {
         )}
         {tab === 'perPrime' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-blue">
               <strong>Per-Prime Waves:</strong> Each row shows the waveform through one prime's oscillator stage, for both
               direct (blue, left) and dual (gold, right) ladders. The center bar shows amplitude match quality.
               At <InlineMath tex={"\\sigma = 0.5"} />, amplitudes match perfectly; away from it, they diverge.
@@ -1634,7 +1634,7 @@ export default function WaveSimViz() {
         )}
         {tab === 'interference' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-purple">
               <strong>Wave Interference:</strong> The superposition of all prime oscillators in each ladder. Top: direct ladder wave.
               Middle: dual ladder wave. Bottom: the absolute difference -- at <InlineMath tex={"\\sigma = 0.5"} /> the amplitudes match
               but phases are conjugate-reflected, so the difference measures phase asymmetry rather than amplitude mismatch.
@@ -1644,7 +1644,7 @@ export default function WaveSimViz() {
         )}
         {tab === 'delay' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-orange">
               <strong>Phase & Delay:</strong> Group delay <InlineMath tex={"\\tau_p = -\\partial\\phi_p/\\partial t"} /> for each prime oscillator stage.
               Blue bars = direct ladder, gold = dual. At <InlineMath tex={"\\sigma = 0.5"} />, delays are symmetric.
               Dashed lines show cumulative delay building through the cascade.
@@ -1654,7 +1654,7 @@ export default function WaveSimViz() {
         )}
         {tab === 'circuit' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-cyan">
               <strong>Component Diagram:</strong> The literal circuit schematic at three zoom levels.
               <strong> Single Prime:</strong> one LC resonator. <strong> Ladder:</strong> series cascade of stages.
               <strong> Full System:</strong> twin ladders connected by the bridge two-port network.

@@ -34,6 +34,9 @@ const GapClosingPage = lazy(() => import('./pages/GapClosingPage.jsx'));
 const SpectralAttackPage = lazy(() => import('./pages/SpectralAttackPage.jsx'));
 const ProofCheckerPage = lazy(() => import('./pages/ProofCheckerPage.jsx'));
 const HistoricalReasoningPage = lazy(() => import('./pages/HistoricalReasoningPage.jsx'));
+const PaperUploadPage = lazy(() => import('./pages/PaperUploadPage.jsx'));
+const PapersListPage = lazy(() => import('./pages/PapersListPage.jsx'));
+const TwinLadderPage = lazy(() => import('./pages/TwinLadderPage.jsx'));
 
 function PageLoader() {
   return (
@@ -67,6 +70,7 @@ const NAV_GROUPS = [
       { to: '/info-theory', label: 'Info Theory' },
       { to: '/pascal', label: 'Pascal' },
       { to: '/odd-zeta', label: 'Odd Zeta' },
+      { to: '/twin-ladder', label: 'Twin Ladder' },
     ],
   },
   {
@@ -91,6 +95,8 @@ const NAV_GROUPS = [
       { to: '/explorations', label: 'Explorations' },
       { to: '/literature', label: 'Literature' },
       { to: '/paper', label: 'Paper' },
+      { to: '/papers', label: 'Papers' },
+      { to: '/paper-upload', label: 'Upload' },
       { to: '/docs', label: 'Docs' },
       { to: '/improvements', label: 'Improvements' },
     ],
@@ -216,6 +222,9 @@ export default function App() {
           <Route path="/spectral-attack" element={<SpectralAttackPage />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
+          <Route path="/papers" element={<PapersListPage />} />
+          <Route path="/paper-upload" element={<PaperUploadPage />} />
+          <Route path="/twin-ladder" element={<TwinLadderPage />} />
         </Routes>
         </Suspense>
       </div>

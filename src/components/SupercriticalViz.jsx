@@ -189,6 +189,40 @@ function ExtendedLandscapeTab() {
     ctx.fillStyle = 'rgba(16, 185, 129, 0.6)';
     if (sigmaMax > 1.5) ctx.fillText('Supercritical', xScale(Math.max(1.5, (1 + sigmaMax) / 2)), pad.t + 16);
 
+    // Legend for curves and reference lines
+    const legendItems = [
+      { color: '#06b6d4', dash: [], label: 'log₁₀|ζ(σ+it)|' },
+      { color: '#ef4444', dash: [], label: 'σ = ½ (critical line)' },
+      { color: '#f59e0b', dash: [6, 4], label: 'σ = 1 (convergence boundary)' },
+    ];
+    const lgX = pad.l + 6;
+    const lgY = pad.t + topH - legendItems.length * 16 - 10;
+    const lgW = 192;
+    const lgH = legendItems.length * 16 + 8;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(lgX, lgY, lgW, lgH, 4);
+    ctx.fill();
+    ctx.stroke();
+    legendItems.forEach((item, i) => {
+      const lx = lgX + 8;
+      const ly = lgY + 14 + i * 16;
+      ctx.strokeStyle = item.color;
+      ctx.lineWidth = 2;
+      ctx.setLineDash(item.dash);
+      ctx.beginPath();
+      ctx.moveTo(lx, ly);
+      ctx.lineTo(lx + 16, ly);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '10px Inter, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(item.label, lx + 22, ly + 3);
+    });
+
     // Axis ticks
     ctx.fillStyle = '#64748b';
     ctx.font = '10px "JetBrains Mono", monospace';

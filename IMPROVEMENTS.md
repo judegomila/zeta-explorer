@@ -555,3 +555,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 593 | 2026-03-06T18:00:00Z | Update outdated de Bruijn-Newman upper bound from Λ ≤ ½ (1950) to Λ ≤ 0.2 (Platt-Trudgian 2021) | rh-attack.js |
 | 595 | 2026-03-07T03:00:00Z | Fix DocsPage describing primeFrequency as "Oscillator frequency ω = log(p)" instead of impedance Z₀ | DocsPage.jsx |
 | 596 | 2026-03-11T12:00:00Z | Fix AnimatedModesViz labeling log(p) as ω (frequency) instead of Z₀ (impedance) | AnimatedModesViz.jsx |
+| 597 | 2026-03-11T14:00:00Z | Add legend to SupercriticalViz main panel identifying curve and reference lines | SupercriticalViz.jsx |

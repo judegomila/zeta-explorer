@@ -176,6 +176,47 @@ export default function FourierPage() {
         </p>
       </div>
 
+      {/* ─── Parseval's Theorem ─── */}
+      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #14b8a6' }}>
+        <h3 style={{ color: '#14b8a6' }}>Parseval's Theorem: Energy Conservation Across Domains</h3>
+        <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          Parseval's theorem states that the total energy of a signal is the same whether
+          measured in the time domain or the frequency domain. For the Mellin transform on
+          the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, this becomes:
+        </p>
+        <BlockMath tex={"\\sum_{n=1}^{\\infty} \\frac{|a_n|^2}{n} = \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} \\left|\\sum_{n=1}^{\\infty} \\frac{a_n}{n^{1/2+it}}\\right|^2 dt"} />
+        <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          In the ZPO model, this is the statement that <strong>total oscillator energy is
+          conserved</strong> between the prime-indexed "position" basis and the zero-indexed
+          "frequency" basis. The critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> is
+          special because it is the unique line where the Mellin-Parseval identity holds with
+          equal weighting — the <InlineMath tex={"n^{-1}"} /> weight on the left matches the
+          natural <InlineMath tex={"L^2"} /> norm on the right.
+        </p>
+        <div className="two-col" style={{ marginTop: 16 }}>
+          <div style={{ padding: 16, background: '#0a0e1a', borderRadius: 8, border: '1px solid #1e293b' }}>
+            <h4 style={{ color: '#14b8a6', fontSize: 13, marginBottom: 8 }}>Connection to Unitarity</h4>
+            <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
+              The bridge scattering matrix satisfies <InlineMath tex={"S^\\dagger S = I"} /> on{' '}
+              <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> — this is exactly Parseval's theorem
+              applied to the cascade transfer function. Energy entering the ladder equals energy
+              leaving it: no amplification, no absorption.
+            </p>
+          </div>
+          <div style={{ padding: 16, background: '#0a0e1a', borderRadius: 8, border: '1px solid #1e293b' }}>
+            <h4 style={{ color: '#14b8a6', fontSize: 13, marginBottom: 8 }}>Why Only at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />?</h4>
+            <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
+              Off the critical line, the Parseval weights become{' '}
+              <InlineMath tex={"n^{-2\\sigma}"} /> instead of <InlineMath tex={"n^{-1}"} />,
+              breaking the symmetry between large and small <InlineMath tex={"n"} />.
+              For <InlineMath tex={"\\sigma > \\tfrac{1}{2}"} /> the high-frequency modes are
+              over-damped; for <InlineMath tex={"\\sigma < \\tfrac{1}{2}"} /> they are
+              under-damped. Only at the critical line is the energy budget balanced.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* ─── The Mellin Transform ─── */}
       <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #f97316' }}>
         <h3 style={{ color: '#f97316' }}>The Mellin Transform: Fourier's Cousin for Multiplicative Problems</h3>

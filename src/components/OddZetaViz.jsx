@@ -1023,6 +1023,47 @@ function IrrationalityMeasureTab({ selectedN }) {
     ctx.textAlign = 'left';
     ctx.fillText(`Best Rational Approximations to \u03B6(${selectedN})`, margin.left + 4, margin.top + 14);
 
+    // Legend
+    const legendItems = [
+      { color: '#ef4444', label: 'Best approximations p/q', dash: false, dot: true },
+      { color: '#f59e0b', label: `Slope \u03BC ${data.aperyBound ? '\u2264 ' + mu.toFixed(3) + ' (known)' : '\u2248 ' + (mu || 0).toFixed(2) + ' (est.)'}`, dash: true, dot: false },
+      { color: '#10b981', label: '\u03BC = 2 (all irrationals)', dash: true, dot: false },
+    ];
+    const legendX = margin.left + 8;
+    const legendY0 = h - margin.bottom - legendItems.length * 16 - 14;
+    const legendW = 210;
+    const legendH = legendItems.length * 16 + 8;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
+    ctx.fill();
+    ctx.stroke();
+    legendItems.forEach((item, i) => {
+      const lx = legendX + 8;
+      const ly = legendY0 + 14 + i * 16;
+      if (item.dot) {
+        ctx.beginPath();
+        ctx.arc(lx + 4, ly, 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = item.color;
+        ctx.fill();
+      } else {
+        ctx.beginPath();
+        if (item.dash) ctx.setLineDash([5, 3]);
+        ctx.moveTo(lx, ly);
+        ctx.lineTo(lx + 14, ly);
+        ctx.strokeStyle = item.color;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '9px var(--font-mono)';
+      ctx.textAlign = 'left';
+      ctx.fillText(item.label, lx + 20, ly + 3);
+    });
+
   }, [data, selectedN]);
 
   useEffect(() => { draw(); }, [draw]);

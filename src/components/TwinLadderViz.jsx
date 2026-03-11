@@ -9,7 +9,31 @@ import {
   phaseDiagram,
 } from '../math/twin-ladder.js';
 import { getPrimes } from '../math/primes.js';
+import { ZETA_ZEROS } from '../math/zeta.js';
 import { InlineMath } from './KaTeXMath.jsx';
+
+function ZeroSnap({ tValue, setTValue }) {
+  let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
+  for (let i = 1; i < ZETA_ZEROS.length; i++) {
+    const d = Math.abs(tValue - ZETA_ZEROS[i]);
+    if (d < bestDist) { bestDist = d; bestIdx = i; }
+    if (ZETA_ZEROS[i] > tValue + 2) break;
+  }
+  if (bestDist >= 1) return null;
+  return (
+    <span
+      style={{
+        marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
+        color: bestDist < 0.3 ? '#10b981' : '#64748b',
+        cursor: 'pointer', borderBottom: '1px dashed currentColor',
+      }}
+      title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
+      onClick={() => setTValue(+ZETA_ZEROS[bestIdx].toFixed(1))}
+    >
+      {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+    </span>
+  );
+}
 
 const TABS = [
   { id: 'anatomy', label: 'Ladder Anatomy' },
@@ -282,7 +306,7 @@ function LadderAnatomyTab() {
           <label><InlineMath tex="T" /> (spectral)</label>
           <input type="range" min="0" max="50" step="0.1" value={T}
             onChange={e => setT(+e.target.value)} />
-          <span className="control-value">{T.toFixed(1)}</span>
+          <span className="control-value">{T.toFixed(1)}<ZeroSnap tValue={T} setTValue={setT} /></span>
         </div>
       </div>
       <div className="viz-container">
@@ -719,7 +743,7 @@ function LadderFreezingTab() {
           <label><InlineMath tex="T" /></label>
           <input type="range" min="1" max="50" step="0.5" value={T}
             onChange={e => setT(+e.target.value)} />
-          <span className="control-value">{T.toFixed(1)}</span>
+          <span className="control-value">{T.toFixed(1)}<ZeroSnap tValue={T} setTValue={setT} /></span>
         </div>
       </div>
       <div className="viz-container">
@@ -1167,7 +1191,7 @@ function PhaseDiagramTab() {
           <label><InlineMath tex="T" /> (spectral height)</label>
           <input type="range" min="1" max="50" step="0.5" value={T}
             onChange={e => { setT(+e.target.value); setClickPoint(null); }} />
-          <span className="control-value">{T.toFixed(1)}</span>
+          <span className="control-value">{T.toFixed(1)}<ZeroSnap tValue={T} setTValue={(v) => { setT(v); setClickPoint(null); }} /></span>
         </div>
         <div className="control-group">
           <label>Rungs <InlineMath tex="M" /></label>

@@ -27,6 +27,8 @@ export default function AnimatedModesViz() {
   const animRef = useRef();
   const elapsedRef = useRef(0);
   const superpositionRef = useRef(new Float64Array(200));
+  const xPosRef = useRef(new Float64Array(ANIM_X_STEPS));
+  const lastWaveWRef = useRef(-1);
   const [numPrimes, setNumPrimes] = useState(12);
   const [zeroIndex, setZeroIndex] = useState(0);
   const [speed, setSpeed] = useState(1);
@@ -91,10 +93,13 @@ export default function AnimatedModesViz() {
     superposition.fill(0);
     const xSteps = ANIM_X_STEPS;
 
-    // xPos depends on canvas width, so compute per-frame (cheap: just add+multiply)
-    const xPos = new Float64Array(xSteps);
-    for (let i = 0; i < xSteps; i++) {
-      xPos[i] = xPad + ANIM_X_FRAC[i] * waveW;
+    // xPos depends on canvas width — reuse buffer, only recompute when waveW changes
+    const xPos = xPosRef.current;
+    if (lastWaveWRef.current !== waveW) {
+      for (let i = 0; i < xSteps; i++) {
+        xPos[i] = xPad + ANIM_X_FRAC[i] * waveW;
+      }
+      lastWaveWRef.current = waveW;
     }
 
     primeData.forEach((pd, idx) => {

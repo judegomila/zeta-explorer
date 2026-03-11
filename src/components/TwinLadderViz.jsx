@@ -184,7 +184,7 @@ function LadderAnatomyTab() {
     ctx.fillStyle = '#e2e8f0';
     ctx.font = '10px "JetBrains Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillText(`\u03A3 = ${totalRe.toFixed(3)} + ${totalIm.toFixed(3)}i`, px + 8, py - 6);
+    ctx.fillText(`\u03A3 = ${totalRe.toFixed(3)} ${totalIm >= 0 ? '+' : '\u2212'} ${Math.abs(totalIm).toFixed(3)}i`, px + 8, py - 6);
     ctx.fillText(`|\u03A3| = ${totalAbs.toFixed(4)}`, px + 8, py + 8);
 
     // Title

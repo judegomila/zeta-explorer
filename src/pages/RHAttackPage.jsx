@@ -300,7 +300,7 @@ export default function RHAttackPage() {
       </div>
 
       <div className="card" style={{ marginTop: 24 }}>
-        <h3 style={{ color: '#06b6d4', fontSize: 14 }}>Known Equivalences to RH</h3>
+        <h3 style={{ color: '#06b6d4', fontSize: 14 }}>Known Equivalences & Related Criteria</h3>
         <table style={{ width: '100%', marginTop: 12, fontSize: 12, color: 'var(--text-secondary)', borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ borderBottom: '1px solid #334155' }}>
@@ -318,7 +318,7 @@ export default function RHAttackPage() {
               ['Robin inequality: σ(n) < eᵞ n ln ln n', 'No', 'Requires computing σ(n) for large n'],
               ['Lagarias: σ(n) ≤ Hₙ + eᴴⁿ ln Hₙ', 'No', 'Requires harmonic number bounds'],
               ['Selberg: N(T) = (T/2π)log(T/2πe) + S(T)', 'Partial', 'S(T) = O(log T) follows from RH'],
-              ['GUE hypothesis (pair correlation)', 'No', 'Would require high-precision zero data'],
+              ['GUE hypothesis (pair correlation)', 'Yes (Statistics)', 'NOT an equivalence — related but independent conjecture (Montgomery 1973, Odlyzko 1987)'],
             ].map(([criterion, tested, status], i) => (
               <tr key={i} style={{ borderBottom: '1px solid #1e293b' }}>
                 <td style={{ padding: '6px 10px', color: '#06b6d4' }}>{criterion}</td>

@@ -572,3 +572,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 611 | 2026-03-11T23:50:00Z | Fix Shannon entropy formula showing log instead of log₂ to match code that computes in bits | InformationTheoryViz.jsx |
 | 612 | 2026-03-11T23:55:00Z | Fix oscillator frequency label showing Z₀ instead of ω in AnimatedModesViz | AnimatedModesViz.jsx |
 | 613 | 2026-03-11T23:58:00Z | Fix inverted color bar in TwistorViz Incidence Relation heatmap to follow standard low-bottom high-top convention | TwistorViz.jsx |
+| 614 | 2026-03-11T12:05:00Z | Replace linear ZETA_ZEROS scans with binary search in ZetaLandscapeViz hover and zero count | ZetaLandscapeViz.jsx |

@@ -2,6 +2,32 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import { InlineMath } from './KaTeXMath.jsx';
 import { riemannSiegelZ, ZETA_ZEROS, zetaCriticalStrip, cAbs } from '../math/zeta.js';
 
+// Binary search for nearest value in sorted ZETA_ZEROS array — O(log n) instead of O(n)
+function nearestZetaZero(target) {
+  let lo = 0, hi = ZETA_ZEROS.length - 1;
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (ZETA_ZEROS[mid] < target) lo = mid + 1;
+    else hi = mid;
+  }
+  // Check lo and lo-1 to find the closest
+  let best = lo;
+  if (lo > 0 && Math.abs(ZETA_ZEROS[lo - 1] - target) < Math.abs(ZETA_ZEROS[lo] - target)) {
+    best = lo - 1;
+  }
+  return { zero: ZETA_ZEROS[best], dist: Math.abs(ZETA_ZEROS[best] - target) };
+}
+
+// Count zeros in [a, b] using binary search on sorted ZETA_ZEROS — O(log n) instead of O(n) filter
+function countZerosInRange(a, b) {
+  let lo = 0, hi = ZETA_ZEROS.length;
+  while (lo < hi) { const m = (lo + hi) >> 1; if (ZETA_ZEROS[m] < a) lo = m + 1; else hi = m; }
+  const start = lo;
+  lo = 0; hi = ZETA_ZEROS.length;
+  while (lo < hi) { const m = (lo + hi) >> 1; if (ZETA_ZEROS[m] <= b) lo = m + 1; else hi = m; }
+  return lo - start;
+}
+
 // Pre-compute critical-line stroke color palettes (32 levels each) to avoid per-segment string interpolation
 const CL_PALETTE_SIZE = 32;
 const clPalettePos = new Array(CL_PALETTE_SIZE);
@@ -401,13 +427,8 @@ export default function ZetaLandscapeViz() {
       if (!vals.length) return;
       const idx = Math.min(vals.length - 1, Math.max(0, Math.round(mx * (vals.length - 1))));
       const { t, z } = vals[idx];
-      // Find nearest zeta zero
-      let nearestZero = null;
-      let nearestDist = Infinity;
-      for (const gamma of ZETA_ZEROS) {
-        const d = Math.abs(gamma - t);
-        if (d < nearestDist) { nearestDist = d; nearestZero = gamma; }
-      }
+      // Find nearest zeta zero via binary search (O(log n) instead of O(n) linear scan)
+      const { zero: nearestZero, dist: nearestDist } = nearestZetaZero(t);
       setHoverInfo({ mode: 'critical-line', t: t.toFixed(2), z: z.toFixed(4), nearestZero: nearestDist < 2 ? nearestZero.toFixed(3) : null });
     }
   }, [mode, tRange, sigmaRange, heatmapGrid]);
@@ -468,7 +489,7 @@ export default function ZetaLandscapeViz() {
             onChange={e => setTRange([tRange[0], Math.max(+e.target.value, tRange[0] + 5)])} />
           <span className="control-value">{tRange[1]}{' '}
             <span style={{ color: '#94a3b8', fontSize: '0.85em' }}>
-              ({ZETA_ZEROS.filter(g => g >= tRange[0] && g <= tRange[1]).length} zeros visible)
+              ({countZerosInRange(tRange[0], tRange[1])} zeros visible)
             </span>
           </span>
         </div>

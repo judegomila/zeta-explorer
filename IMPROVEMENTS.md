@@ -560,3 +560,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 599 | 2026-03-11T18:00:00Z | Fix phasor sum label showing "+ -0.567i" instead of "− 0.567i" for negative imaginary parts | TwinLadderViz.jsx |
 | 600 | 2026-03-11T20:00:00Z | Replace 3,721 fillRect calls with single putImageData in EnergyLandscapeViz heatmap | EnergyLandscapeViz.jsx |
 | 601 | 2026-03-11T22:00:00Z | Add Parseval energy conservation explainer card to FourierPage linking unitarity to spectral balance | FourierPage.jsx |
+| 602 | 2026-03-12T00:00:00Z | Add zeta zero frequency markers to Bode diagram in NyquistBodeViz | NyquistBodeViz.jsx |

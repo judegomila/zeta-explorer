@@ -337,6 +337,30 @@ export default function NyquistBodeViz() {
       .attr('fill', '#f59e0b').attr('font-size', 12).attr('font-weight', 600)
       .text('Phase (degrees)');
 
+    // Mark zeta zero frequencies on both magnitude and phase panels
+    const visibleZeros = ZETA_ZEROS.filter(g => g >= Math.max(0.5, tRange[0]) && g <= tRange[1]);
+    visibleZeros.forEach((gamma, i) => {
+      const zx = xLog(gamma);
+      // Magnitude panel
+      gMag.append('line')
+        .attr('x1', zx).attr('y1', 0).attr('x2', zx).attr('y2', halfH)
+        .attr('stroke', '#ef4444').attr('stroke-width', 0.7)
+        .attr('stroke-dasharray', '2,3').attr('opacity', 0.35);
+      // Phase panel
+      gPhase.append('line')
+        .attr('x1', zx).attr('y1', 0).attr('x2', zx).attr('y2', halfH)
+        .attr('stroke', '#ef4444').attr('stroke-width', 0.7)
+        .attr('stroke-dasharray', '2,3').attr('opacity', 0.35);
+      // Label first few zeros on magnitude panel
+      if (i < 8) {
+        gMag.append('text')
+          .attr('x', zx).attr('y', halfH - 4)
+          .attr('text-anchor', 'middle').attr('fill', '#ef4444')
+          .attr('font-size', 8).attr('opacity', 0.6)
+          .text(`γ${String(i + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}`);
+      }
+    });
+
     // Title
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)

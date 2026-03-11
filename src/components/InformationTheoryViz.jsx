@@ -564,7 +564,7 @@ export default function InformationTheoryViz() {
       {tab === 0 && (
         <>
           <div className="tab-explainer accent-green">
-            Shannon entropy <InlineMath tex="H(\sigma) = -\sum_k p_k \log p_k" /> of the Euler factor weight
+            Shannon entropy <InlineMath tex="H(\sigma) = -\sum_k p_k \log_2 p_k" /> of the Euler factor weight
             distribution measures how evenly energy is spread across primes. At <InlineMath tex="\sigma = \tfrac{1}{2}" />,
             the functional equation makes direct and dual weight distributions coincide, giving the most balanced
             (though not uniform) weighting.

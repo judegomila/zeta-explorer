@@ -46,6 +46,7 @@ export default function FourierDomainViz() {
 function VonMangoldtSpectrumTab() {
   const svgRef = useRef();
   const [maxN, setMaxN] = useState(300);
+  const [hoverPoint, setHoverPoint] = useState(null);
 
   // Memoize spectrum data so window resize only re-renders D3 without recomputing
   // 300 frequency points × ~80 non-zero Λ(n) entries = ~24,000 trig calls
@@ -125,6 +126,47 @@ function VonMangoldtSpectrumTab() {
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('|F(ω)|');
 
+    // Hover crosshair interaction
+    const overlay = g.append('rect')
+      .attr('width', w).attr('height', h)
+      .attr('fill', 'transparent')
+      .attr('cursor', 'crosshair');
+
+    const hoverLine = g.append('line')
+      .attr('y1', 0).attr('y2', h)
+      .attr('stroke', '#e2e8f0').attr('stroke-width', 0.5)
+      .attr('opacity', 0);
+
+    const hoverDot = g.append('circle')
+      .attr('r', 4).attr('fill', '#3b82f6').attr('stroke', '#0a0e1a').attr('stroke-width', 2)
+      .attr('opacity', 0);
+
+    const setHP = setHoverPoint;
+    overlay.on('mousemove', (event) => {
+      const [mx] = d3.pointer(event);
+      const freq = x.invert(mx);
+      const closest = spectrum.reduce((best, p) =>
+        Math.abs(p.frequency - freq) < Math.abs(best.frequency - freq) ? p : best
+      , spectrum[0]);
+
+      hoverLine.attr('x1', x(closest.frequency)).attr('x2', x(closest.frequency)).attr('opacity', 0.3);
+      hoverDot.attr('cx', x(closest.frequency)).attr('cy', y(closest.magnitude)).attr('opacity', 1);
+
+      // Find nearest zeta zero
+      let nearestZero = null, nearestDist = Infinity;
+      for (const gamma of ZETA_ZEROS) {
+        const d = Math.abs(closest.frequency - gamma);
+        if (d < nearestDist) { nearestDist = d; nearestZero = gamma; }
+        if (gamma > closest.frequency + 5) break;
+      }
+
+      setHP({ ...closest, nearestZero, nearestDist });
+    }).on('mouseleave', () => {
+      hoverLine.attr('opacity', 0);
+      hoverDot.attr('opacity', 0);
+      setHP(null);
+    });
+
   }, [spectrum]);
 
   useEffect(() => { draw(); }, [draw]);
@@ -152,6 +194,20 @@ function VonMangoldtSpectrumTab() {
             onChange={e => setMaxN(+e.target.value)} />
           <span className="control-value">{maxN} <span style={{ color: '#64748b', fontSize: 11 }}>({getPrimes(200).filter(p => p <= maxN).length} primes ≤ N)</span></span>
         </div>
+        {hoverPoint ? (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+            ω={hoverPoint.frequency.toFixed(2)} | |F|={hoverPoint.magnitude.toFixed(2)}
+            {hoverPoint.nearestDist < 2 && (
+              <span style={{ color: hoverPoint.nearestDist < 0.5 ? '#10b981' : '#64748b', marginLeft: 6 }}>
+                nearest γ={hoverPoint.nearestZero.toFixed(2)} (Δ={hoverPoint.nearestDist.toFixed(2)})
+              </span>
+            )}
+          </div>
+        ) : (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', fontStyle: 'italic' }}>
+            Hover over chart to inspect values
+          </div>
+        )}
       </div>
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: 400 }} />

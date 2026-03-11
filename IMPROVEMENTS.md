@@ -565,3 +565,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 604 | 2026-03-12T04:00:00Z | Fix ambiguous phase notation in Euler product explainer: arg(1-p^{-s})^{-1} → -arg(1-p^{-s}) | EulerProductViz.jsx |
 | 605 | 2026-03-12T06:00:00Z | Fix pair correlation histogram showing half the correct density in GUEStatisticsViz | GUEStatisticsViz.jsx |
 | 606 | 2026-03-11T22:30:00Z | Eliminate per-frame Float64Array allocation in AnimatedModesViz animation loop | AnimatedModesViz.jsx |
+| 607 | 2026-03-11T23:00:00Z | Add hover crosshair and readout to Von Mangoldt Spectrum tab in FourierDomainViz | FourierDomainViz.jsx |

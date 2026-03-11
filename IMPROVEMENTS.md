@@ -570,3 +570,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 609 | 2026-03-12T08:00:00Z | Fix Borwein error bound using 3^{-n} instead of correct 2^{-n} for Knopp-Hasse weights | gap-closing.js |
 | 610 | 2026-03-11T23:45:00Z | Add descriptive tooltips to ThermoBar explaining T, P, F, S quantities and phase badge | ThermoBar.jsx |
 | 611 | 2026-03-11T23:50:00Z | Fix Shannon entropy formula showing log instead of log₂ to match code that computes in bits | InformationTheoryViz.jsx |
+| 612 | 2026-03-11T23:55:00Z | Fix oscillator frequency label showing Z₀ instead of ω in AnimatedModesViz | AnimatedModesViz.jsx |

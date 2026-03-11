@@ -207,7 +207,7 @@ export default function EulerProductViz() {
       <div className="tab-explainer accent-cyan">
         The partial Euler product <InlineMath tex="\\zeta_N(s) = \\prod_{p \\leq p_N} (1-p^{-s})^{-1}" /> builds
         up the zeta function prime-by-prime. Each factor has magnitude <InlineMath tex="|1-p^{-s}|^{-1}" /> and phase{' '}
-        <InlineMath tex="\\arg(1-p^{-s})^{-1}" />. The cumulative product converges (for <InlineMath tex="\\sigma > 1" />) to{' '}
+        <InlineMath tex="-\\arg(1-p^{-s})" />. The cumulative product converges (for <InlineMath tex="\\sigma > 1" />) to{' '}
         <InlineMath tex="\\zeta(s)" />. In the critical strip (<InlineMath tex="0 < \\sigma \\leq 1" />), the Euler product <strong>diverges</strong> &mdash;
         partial products oscillate without settling. The green reference line shows the true <InlineMath tex="|\\zeta(s)|" /> computed via
         analytic continuation (Borwein acceleration), not the Euler product.

@@ -537,11 +537,11 @@ function IncidenceRelationTab({ sigma, t }) {
     ctx.fillStyle = '#64748b';
     ctx.fillText('Dark = incidence satisfied (Z·W ≈ 0), green dots = known zeta zeros', W / 2, 36);
 
-    // Color bar
+    // Color bar (low at bottom, high at top — standard scientific convention)
     const cbX = W - margin.right + 12;
     const cbW = 16;
     for (let y = 0; y < chartH; y++) {
-      const norm = y / chartH;
+      const norm = 1 - y / chartH;
       const r = Math.floor(norm * 255);
       const g = Math.floor(norm * 200);
       const b = Math.floor((1 - norm) * 80);
@@ -551,8 +551,8 @@ function IncidenceRelationTab({ sigma, t }) {
     ctx.font = '8px JetBrains Mono, monospace';
     ctx.fillStyle = '#94a3b8';
     ctx.textAlign = 'left';
-    ctx.fillText('0', cbX + cbW + 4, margin.top + 8);
-    ctx.fillText(`${maxVal.toFixed(2)}`, cbX + cbW + 4, margin.top + chartH);
+    ctx.fillText(`${maxVal.toFixed(2)}`, cbX + cbW + 4, margin.top + 8);
+    ctx.fillText('0', cbX + cbW + 4, margin.top + chartH);
     ctx.fillText('|Z·W|', cbX, margin.top - 6);
 
   }, [heatData, heatmapImage, sigma, t]);

@@ -140,7 +140,9 @@ export default function GUEStatisticsViz() {
         g.append('rect')
           .attr('x', x(i * binWidth)).attr('y', y(density[i]))
           .attr('width', x(binWidth) - x(0) - 1).attr('height', h - y(density[i]))
-          .attr('fill', 'rgba(59,130,246,0.4)').attr('stroke', '#3b82f6').attr('stroke-width', 0.5);
+          .attr('fill', 'rgba(59,130,246,0.4)').attr('stroke', '#3b82f6').attr('stroke-width', 0.5)
+          .style('cursor', 'crosshair')
+          .append('title').text(`s ∈ [${(i * binWidth).toFixed(2)}, ${((i + 1) * binWidth).toFixed(2)}), P(s) = ${density[i].toFixed(4)}`);
       }
 
       // GUE Wigner surmise: P(s) = (32/pi^2) * s^2 * exp(-4s^2/pi)
@@ -220,7 +222,9 @@ export default function GUEStatisticsViz() {
         g.append('rect')
           .attr('x', x(i * binW)).attr('y', y(density[i]))
           .attr('width', x(binW) - x(0) - 1).attr('height', h - y(density[i]))
-          .attr('fill', 'rgba(139,92,246,0.4)').attr('stroke', '#8b5cf6').attr('stroke-width', 0.5);
+          .attr('fill', 'rgba(139,92,246,0.4)').attr('stroke', '#8b5cf6').attr('stroke-width', 0.5)
+          .style('cursor', 'crosshair')
+          .append('title').text(`x ∈ [${(i * binW).toFixed(2)}, ${((i + 1) * binW).toFixed(2)}), R₂ = ${density[i].toFixed(4)}`);
       }
 
       // GUE pair correlation: R_2(x) = 1 - (sin(πx)/(πx))^2
@@ -290,7 +294,9 @@ export default function GUEStatisticsViz() {
         .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2);
       vars.forEach((v, i) => {
         g.append('circle').attr('cx', x(Ls[i])).attr('cy', y(v)).attr('r', 3)
-          .attr('fill', '#3b82f6').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+          .attr('fill', '#3b82f6').attr('stroke', '#0a0e1a').attr('stroke-width', 1)
+          .style('cursor', 'crosshair')
+          .append('title').text(`L = ${Ls[i].toFixed(2)}, Σ²(L) = ${v.toFixed(4)}`);
       });
 
       // GUE prediction: Sigma^2(L) ~ (1/pi^2)(log(2*pi*L) + 1 + gamma_E - pi^2/8)

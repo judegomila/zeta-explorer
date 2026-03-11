@@ -107,7 +107,7 @@ export default function AnimatedModesViz() {
       ctx.fillText(`p=${p}`, 6, yCenter + 4);
       ctx.fillStyle = '#3b82f6';
       ctx.font = '9px monospace';
-      ctx.fillText(`ω=${omega.toFixed(2)}`, 6, yCenter + 16);
+      ctx.fillText(`Z₀=${omega.toFixed(2)}`, 6, yCenter + 16);
 
       // Draw waveform: cos(gamma * ln(x) - omega * t)
       const halfRow = rowH * 0.38;

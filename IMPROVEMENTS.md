@@ -554,3 +554,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 592 | 2026-03-06T14:00:00Z | Add horizontal gridlines to Fisher-Twistor tab in SpectralAttackViz for easier value reading | SpectralAttackViz.jsx |
 | 593 | 2026-03-06T18:00:00Z | Update outdated de Bruijn-Newman upper bound from Λ ≤ ½ (1950) to Λ ≤ 0.2 (Platt-Trudgian 2021) | rh-attack.js |
 | 595 | 2026-03-07T03:00:00Z | Fix DocsPage describing primeFrequency as "Oscillator frequency ω = log(p)" instead of impedance Z₀ | DocsPage.jsx |
+| 596 | 2026-03-11T12:00:00Z | Fix AnimatedModesViz labeling log(p) as ω (frequency) instead of Z₀ (impedance) | AnimatedModesViz.jsx |

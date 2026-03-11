@@ -563,3 +563,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 602 | 2026-03-12T00:00:00Z | Add zeta zero frequency markers to Bode diagram in NyquistBodeViz | NyquistBodeViz.jsx |
 | 603 | 2026-03-12T02:00:00Z | Add nearest-zeta-zero snap indicator to T sliders in TwinLadderViz | TwinLadderViz.jsx |
 | 604 | 2026-03-12T04:00:00Z | Fix ambiguous phase notation in Euler product explainer: arg(1-p^{-s})^{-1} → -arg(1-p^{-s}) | EulerProductViz.jsx |
+| 605 | 2026-03-12T06:00:00Z | Fix pair correlation histogram showing half the correct density in GUEStatisticsViz | GUEStatisticsViz.jsx |

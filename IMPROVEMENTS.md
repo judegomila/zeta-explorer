@@ -567,3 +567,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 606 | 2026-03-11T22:30:00Z | Eliminate per-frame Float64Array allocation in AnimatedModesViz animation loop | AnimatedModesViz.jsx |
 | 607 | 2026-03-11T23:00:00Z | Add hover crosshair and readout to Von Mangoldt Spectrum tab in FourierDomainViz | FourierDomainViz.jsx |
 | 608 | 2026-03-11T23:30:00Z | Add legend box to Irrationality Measure tab in OddZetaViz identifying data points and reference lines | OddZetaViz.jsx |
+| 609 | 2026-03-12T08:00:00Z | Fix Borwein error bound using 3^{-n} instead of correct 2^{-n} for Knopp-Hasse weights | gap-closing.js |

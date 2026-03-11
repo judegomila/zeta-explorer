@@ -159,11 +159,12 @@ export function regularizedEulerProduct(s, numPrimes = 50, method = 'eta') {
 
     // Compute rigorous error bounds
     if (method === 'borwein') {
-      // Borwein acceleration: error is O(3^{-n}) where n = number of terms
-      // More precisely, |error| <= C * 3^{-n} / |1 - 2^{1-s}| where C depends on s
+      // Knopp-Hasse binomial acceleration: error is O(2^{-n}) where n = number of terms
+      // (the weights e_k = Σ_{j=k+1}^n C(n,j)/2^n converge at rate 2^{-n}, not 3^{-n})
+      // More precisely, |error| <= C * 2^{-n} / |1 - 2^{1-s}| where C depends on s
       const n = 50;
       const denomMag = cAbs(cSub([1, 0], cPow([2, 0], [1 - s[0], -s[1]])));
-      const rawErrorBound = Math.pow(3, -n);
+      const rawErrorBound = Math.pow(2, -n);
       errorBound = denomMag > 1e-12 ? rawErrorBound / denomMag : rawErrorBound;
     } else if (method === 'cesaro') {
       // Cesaro summation: error is O(N^{-sigma}) for sigma > 0

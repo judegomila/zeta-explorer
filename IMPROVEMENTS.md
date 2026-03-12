@@ -629,3 +629,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 668 | 2026-03-11T07:30:00Z | Add largest-prime hint to Primes slider in InformationTheoryViz | InformationTheoryViz.jsx |
 | 669 | 2026-03-11T12:00:00Z | Track phase min/max inline during unwrap loop instead of spreading array twice in FourierDomainViz | FourierDomainViz.jsx |
 | 670 | 2026-03-12T02:00:00Z | Add largest-prime hint to Primes slider in OddZetaViz | OddZetaViz.jsx |
+| 671 | 2026-03-11T12:30:00Z | Fix Ladder Freezing legend: use dashed line for proxy and add background box | TwinLadderViz.jsx |

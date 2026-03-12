@@ -623,18 +623,35 @@ function LadderFreezingTab() {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    // Legend
-    ctx.fillStyle = '#3b82f6';
-    ctx.fillRect(pad.l + 10, pad.t + 6, 14, 3);
-    ctx.fillStyle = '#3b82f6';
+    // Legend with background box
+    const legX = pad.l + 8;
+    const legY = pad.t + 2;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legX, legY, 180, 34, 4);
+    ctx.fill();
+    ctx.stroke();
+
+    // Exact: solid line to match the plot
+    ctx.strokeStyle = '#3b82f6';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(legX + 6, legY + 10); ctx.lineTo(legX + 20, legY + 10); ctx.stroke();
+    ctx.fillStyle = '#94a3b8';
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText('Exact', pad.l + 28, pad.t + 12);
+    ctx.fillText('Exact', legX + 24, legY + 14);
 
-    ctx.fillStyle = '#f59e0b';
-    ctx.fillRect(pad.l + 80, pad.t + 6, 14, 3);
-    ctx.fillStyle = '#f59e0b';
-    ctx.fillText('Gaussian Proxy', pad.l + 98, pad.t + 12);
+    // Gaussian Proxy: dashed line to match the plot's setLineDash([6, 4])
+    ctx.strokeStyle = '#f59e0b';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 4]);
+    ctx.beginPath(); ctx.moveTo(legX + 6, legY + 24); ctx.lineTo(legX + 20, legY + 24); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText('Gaussian Proxy', legX + 24, legY + 28);
 
     // X-axis
     ctx.fillStyle = '#64748b';

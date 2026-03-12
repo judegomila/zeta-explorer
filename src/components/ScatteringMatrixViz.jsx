@@ -135,7 +135,7 @@ export default function ScatteringMatrixViz() {
         .text('|χ| < 1: attenuating');
 
     } else if (mode === 'reflection') {
-      const y = d3.scaleLinear().domain([0, 1]).range([h, 0]);
+      const y = d3.scaleLinear().domain([-1, 1]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
@@ -148,6 +148,14 @@ export default function ScatteringMatrixViz() {
       gridRef.select('.domain').remove();
       gridRef.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
+      // Γ = 0 reference line
+      g.append('line')
+        .attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
+        .attr('stroke', '#475569').attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
+      g.append('text').attr('x', w - 4).attr('y', y(0) - 4)
+        .attr('text-anchor', 'end').attr('fill', '#475569').attr('font-size', 9)
+        .text('Γ = 0');
+
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
         .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
@@ -155,14 +163,15 @@ export default function ScatteringMatrixViz() {
         .attr('fill', '#ef4444').attr('font-size', 10).attr('font-weight', 600)
         .text('σ = ½');
 
-      const line = d3.line().x(d => x(d.sigma)).y(d => y(Math.min(1, d.reflection))).curve(d3.curveBasis);
+      const clampRefl = d => Math.max(-1, Math.min(1, d.reflection));
+      const line = d3.line().x(d => x(d.sigma)).y(d => y(clampRefl(d))).curve(d3.curveBasis);
 
       g.append('path')
         .datum(data)
         .attr('d', d3.area()
           .x(d => x(d.sigma))
-          .y0(h)
-          .y1(d => y(Math.min(1, d.reflection)))
+          .y0(y(0))
+          .y1(d => y(clampRefl(d)))
           .curve(d3.curveBasis))
         .attr('fill', 'rgba(245,158,11,0.15)');
 
@@ -173,13 +182,21 @@ export default function ScatteringMatrixViz() {
       const halfPoint = data.find(d => Math.abs(d.sigma - 0.5) < 0.01);
       if (halfPoint) {
         g.append('circle')
-          .attr('cx', x(0.5)).attr('cy', y(Math.min(1, halfPoint.reflection))).attr('r', 5)
+          .attr('cx', x(0.5)).attr('cy', y(clampRefl(halfPoint))).attr('r', 5)
           .attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
         g.append('text')
-          .attr('x', x(0.5) + 8).attr('y', y(Math.min(1, halfPoint.reflection)) - 8)
+          .attr('x', x(0.5) + 8).attr('y', y(clampRefl(halfPoint)) - 8)
           .attr('fill', '#10b981').attr('font-size', 11).attr('font-weight', 600)
           .text(`Γ(½+${tValue.toFixed(1)}i) = ${halfPoint.reflection.toFixed(4)}`);
       }
+
+      // Region labels
+      g.append('text').attr('x', 6).attr('y', y(0.5))
+        .attr('fill', '#3b82f6').attr('font-size', 10).attr('opacity', 0.7)
+        .text('Γ > 0: attenuating (|χ| < 1)');
+      g.append('text').attr('x', 6).attr('y', y(-0.5))
+        .attr('fill', '#f59e0b').attr('font-size', 10).attr('opacity', 0.7)
+        .text('Γ < 0: amplifying (|χ| > 1)');
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
@@ -277,8 +294,8 @@ export default function ScatteringMatrixViz() {
       yScale = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
       yAccessor = d => Math.min(yMax, d.chiMag);
     } else if (mode === 'reflection') {
-      yScale = d3.scaleLinear().domain([0, 1]).range([h, 0]);
-      yAccessor = d => Math.min(1, d.reflection);
+      yScale = d3.scaleLinear().domain([-1, 1]).range([h, 0]);
+      yAccessor = d => Math.max(-1, Math.min(1, d.reflection));
     } else {
       yScale = d3.scaleLinear().domain([-180, 180]).range([h, 0]);
       yAccessor = d => d.chiPhase * 180 / Math.PI;
@@ -324,11 +341,12 @@ export default function ScatteringMatrixViz() {
       )}
       {mode === 'reflection' && (
         <div className="tab-explainer accent-green">
-          The reflection coefficient <InlineMath tex="\\Gamma = |1 - |\\chi(s)||\\,/\\,(1 + |\\chi(s)|)" /> measures how
+          The reflection coefficient <InlineMath tex="\\Gamma = (1 - |\\chi(s)|)\\,/\\,(1 + |\\chi(s)|)" /> measures how
           much energy is reflected back rather than transmitted through the bridge. At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />,{' '}
-          <InlineMath tex="\\Gamma = 0" /> (perfect transmission, conjugate match). This is the scattering-matrix condition for
-          lossless two-port networks: <InlineMath tex="S^\\dagger S = I" />.
-          <strong> Look for:</strong> <InlineMath tex="\\Gamma" /> touching zero at <InlineMath tex="\\sigma = 0.5" />.
+          <InlineMath tex="\\Gamma = 0" /> (perfect transmission, conjugate match). For <InlineMath tex="\\sigma > \\tfrac{1}{2}" />,{' '}
+          <InlineMath tex="\\Gamma > 0" /> (attenuating); for <InlineMath tex="\\sigma < \\tfrac{1}{2}" />,{' '}
+          <InlineMath tex="\\Gamma < 0" /> (amplifying, |χ| {'>'} 1). This sign distinguishes passive from active regions.
+          <strong> Look for:</strong> <InlineMath tex="\\Gamma" /> crossing zero at <InlineMath tex="\\sigma = 0.5" />.
         </div>
       )}
       {mode === 'phase' && (

@@ -7,6 +7,7 @@ import {
   klDivergenceFromEquilibrium,
 } from '../math/information-theory.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { getPrimes } from '../math/primes.js';
 
 const TABS = ['Entropy', 'Channel Capacity', 'Mutual Info', 'Fisher Info', 'Rate-Distortion', 'KL Divergence'];
 const TAB_COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#06b6d4', '#ef4444'];
@@ -547,7 +548,7 @@ export default function InformationTheoryViz() {
           <label>Primes</label>
           <input type="range" min="4" max="20" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
       </div>
 

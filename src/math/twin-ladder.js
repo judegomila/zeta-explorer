@@ -5,7 +5,7 @@
  * with freezing, ground-state collapse, and computable slack index.
  *
  * Each prime p generates a "ladder" of rungs m = 0, 1, 2, ...
- * with amplitude p^{-m/2} and phase m·T·log(p).
+ * with amplitude p^{-m/2} and phase -m·T·log(p).
  * Thermodynamic weights exp(-β·m·log(p) - P·ψ(m·log(p))) deform
  * the ladder, suppressing higher rungs as β or P increase.
  */
@@ -15,7 +15,8 @@ import { cAdd, cAbs } from './zeta.js';
 
 /**
  * Basic ladder rungs for prime p.
- * Each rung m has amplitude p^{-m/2} and phase m·T·log(p).
+ * Each rung m has amplitude p^{-m/2} and phase -m·T·log(p).
+ * p^{-m(1/2+iT)} = p^{-m/2} · e^{-imT·log(p)}, so phase = -m·T·log(p).
  * Returns complex phasor (re, im) for each rung.
  */
 export function ladderRungs(p, M, T) {
@@ -23,7 +24,7 @@ export function ladderRungs(p, M, T) {
   const rungs = [];
   for (let m = 0; m <= M; m++) {
     const amp = Math.pow(p, -m / 2);
-    const phase = m * T * logP;
+    const phase = -m * T * logP;
     rungs.push({
       m,
       amp,
@@ -53,7 +54,7 @@ export function weightedLadderRungs(p, M, T, beta, P) {
   const rungs = [];
   for (let m = 0; m <= M; m++) {
     const amp = Math.pow(p, -m / 2);
-    const phase = m * T * logP;
+    const phase = -m * T * logP;
     const w = thermodynamicWeight(p, m, beta, P);
     const wAmp = amp * w;
     rungs.push({
@@ -166,7 +167,7 @@ export function collapseAnimation(p, M, T, betaSteps) {
         amp,
         weight: w,
         weightedAmp: amp * w,
-        phase: m * T * logP,
+        phase: -m * T * logP,
       });
     }
     return { beta, rungs };

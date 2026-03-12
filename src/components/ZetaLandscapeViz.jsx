@@ -187,18 +187,39 @@ export default function ZetaLandscapeViz() {
     ctx.fillText('Z(t)', 0, 0);
     ctx.restore();
 
-    // Mark zeta zeros
-    for (const gamma of ZETA_ZEROS) {
+    // Mark zeta zeros with index labels
+    // Decide label density: show labels when zeros are spaced ≥ 20px apart on average
+    const visibleZeros = [];
+    for (let zi = 0; zi < ZETA_ZEROS.length; zi++) {
+      const gamma = ZETA_ZEROS[zi];
       if (gamma >= tMin && gamma <= tMax) {
-        const x = ((gamma - tMin) / (tMax - tMin)) * dw;
-        ctx.strokeStyle = '#ef4444';
-        ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(x, yMid - 8); ctx.lineTo(x, yMid + 8); ctx.stroke();
+        visibleZeros.push({ gamma, index: zi + 1 });
+      }
+    }
+    const avgPixelSpacing = visibleZeros.length > 1
+      ? dw / visibleZeros.length : Infinity;
+    const showLabels = avgPixelSpacing >= 20;
 
+    for (const { gamma, index } of visibleZeros) {
+      const x = ((gamma - tMin) / (tMax - tMin)) * dw;
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x, yMid - 8); ctx.lineTo(x, yMid + 8); ctx.stroke();
+
+      ctx.fillStyle = '#ef4444';
+      ctx.beginPath();
+      ctx.arc(x, yMid, 3, 0, 2 * Math.PI);
+      ctx.fill();
+
+      // Label with γₙ index (alternating above/below to avoid overlap)
+      if (showLabels) {
+        const subscript = String(index).split('').map(c => String.fromCharCode(0x2080 + +c)).join('');
         ctx.fillStyle = '#ef4444';
-        ctx.beginPath();
-        ctx.arc(x, yMid, 3, 0, 2 * Math.PI);
-        ctx.fill();
+        ctx.font = '9px var(--font-mono, monospace)';
+        ctx.textAlign = 'center';
+        const labelY = index % 2 === 1 ? yMid - 14 : yMid + 20;
+        ctx.fillText(`γ${subscript}`, x, labelY);
+        ctx.textAlign = 'start';
       }
     }
 

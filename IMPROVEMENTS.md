@@ -610,3 +610,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 649 | 2026-03-11T23:30:00Z | Replace O(n) reduce+indexOf with O(1) direct index computation in ExplicitFormulaViz hover | ExplicitFormulaViz.jsx |
 | 650 | 2026-03-12T00:00:00Z | Clarify contradictory Q-factor formulas on ModesPage (per-zero vs per-prime) | ModesPage.jsx |
 | 651 | 2026-03-11T23:45:00Z | Add worked example card showing per-prime phase cancellation at first zeta zero | WaveSimPage.jsx |
+| 652 | 2026-03-12T00:30:00Z | Add γₙ index labels to zeta zero markers on critical line Z(t) plot | ZetaLandscapeViz.jsx |

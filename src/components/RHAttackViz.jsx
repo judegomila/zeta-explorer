@@ -5,6 +5,7 @@ import {
   deBruijnNewmanScan, weilPositivityTest, proofGapAnalysis, zeroDeviationScan,
 } from '../math/rh-attack.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { getPrimes } from '../math/primes.js';
 
 const TABS = ['Li Coefficients', 'Hamiltonian', 'S-Matrix', 'Heat Flow', 'Proof Map'];
 
@@ -148,6 +149,9 @@ function LiCoefficientsTab() {
           <input type="range" min="20" max="650" step="10" value={numZeros}
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
+          <span style={{ color: '#64748b', fontSize: 11, marginLeft: 4, fontFamily: 'var(--font-mono)' }}>
+            (γ<sub>max</sub> ≈ {ZETA_ZEROS[Math.min(numZeros, ZETA_ZEROS.length) - 1]?.toFixed(1) ?? '?'})
+          </span>
         </div>
       </div>
       <canvas
@@ -353,7 +357,7 @@ function HamiltonianTab() {
         <label>Primes</label>
         <input type="range" min="4" max="20" step="1" value={numPrimes}
           onChange={e => setNumPrimes(+e.target.value)} />
-        <span className="control-value">{numPrimes}</span>
+        <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
       </div>
       <canvas
         ref={canvasRef}

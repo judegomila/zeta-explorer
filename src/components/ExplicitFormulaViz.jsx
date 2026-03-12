@@ -178,13 +178,12 @@ export default function ExplicitFormulaViz() {
       .attr('r', 4).attr('fill', '#f59e0b').attr('stroke', '#0a0e1a').attr('stroke-width', 2)
       .attr('opacity', 0);
 
+    const dx = maxX / Math.min(maxX, 200);
     overlay.on('mousemove', (event) => {
       const [mx] = d3.pointer(event);
       const xVal = xScale.invert(mx);
-      const closest = actualData.reduce((best, p) =>
-        Math.abs(p.x - xVal) < Math.abs(best.x - xVal) ? p : best
-      , actualData[0]);
-      const idx = actualData.indexOf(closest);
+      const idx = Math.max(0, Math.min(actualData.length - 1, Math.round((xVal - 2) / dx - 1)));
+      const closest = actualData[idx];
       const approxPt = approxData[idx];
 
       hoverLine.attr('x1', xScale(closest.x)).attr('x2', xScale(closest.x)).attr('opacity', 0.3);

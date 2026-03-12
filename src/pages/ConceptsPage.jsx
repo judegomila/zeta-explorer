@@ -689,6 +689,32 @@ export default function ConceptsPage() {
         </div>
       </div>
 
+      {/* ─── Quick Notation Reference ─── */}
+      <div className="card" style={{ marginBottom: 20, borderLeft: '3px solid #06b6d4' }}>
+        <h3 style={{ color: '#06b6d4', fontSize: 14, marginBottom: 12 }}>Quick Notation Reference</h3>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, fontSize: 12 }}>
+          {[
+            { sym: 's = \\sigma + it', meaning: 'Complex variable (real part σ, imaginary part t)' },
+            { sym: '\\zeta(s)', meaning: 'Riemann zeta function' },
+            { sym: '\\rho = \\tfrac{1}{2} + i\\gamma', meaning: 'Nontrivial zero (RH form)' },
+            { sym: '\\chi(s)', meaning: 'Functional equation bridge factor' },
+            { sym: '\\xi(s)', meaning: 'Completed zeta function (entire, symmetric)' },
+            { sym: 'H_p(s) = (1-p^{-s})^{-1}', meaning: 'Euler factor / oscillator stage for prime p' },
+            { sym: 'Q = 1/(2\\sigma)', meaning: 'Quality factor (Q = 1 at critical line)' },
+            { sym: 'Z_0 = \\log p', meaning: 'Characteristic impedance of p-stage' },
+            { sym: '\\Lambda(n)', meaning: 'Von Mangoldt function (log p if n = p^k)' },
+            { sym: '\\psi(x)', meaning: 'Chebyshev function (weighted prime count)' },
+            { sym: 'S^\\dagger S = I', meaning: 'Scattering matrix unitarity (lossless)' },
+            { sym: '\\lambda_n', meaning: 'Li coefficients (RH ⟺ all ≥ 0)' },
+          ].map(({ sym, meaning }, i) => (
+            <div key={i} style={{ padding: '6px 8px', background: 'rgba(6,182,212,0.04)', borderRadius: 4, display: 'flex', alignItems: 'baseline', gap: 8 }}>
+              <span style={{ flexShrink: 0 }}><InlineMath tex={sym} /></span>
+              <span style={{ color: '#94a3b8', fontSize: 11 }}>{meaning}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div style={{ display: 'grid', gap: 12 }}>
         {filtered.map(concept => {
           const cat = CATEGORIES.find(c => c.id === concept.category);

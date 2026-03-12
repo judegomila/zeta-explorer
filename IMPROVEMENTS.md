@@ -617,3 +617,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 656 | 2026-03-11T15:00:00Z | Add semi-transparent background boxes to all three PrimeGapCouplingViz legends | PrimeGapCouplingViz.jsx |
 | 657 | 2026-03-11T16:00:00Z | Add descriptive σ proximity text and tooltip to OscillatorChainViz σ slider | OscillatorChainViz.jsx |
 | 658 | 2026-03-11T17:00:00Z | Memoize min/max metric scan in EnergyLandscapeViz draw callback | EnergyLandscapeViz.jsx |
+| 659 | 2026-03-11T18:00:00Z | Add quick notation reference card to ConceptsPage listing key symbols used throughout the app | ConceptsPage.jsx |

@@ -342,11 +342,15 @@ function ConstantsTab() {
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
       .text('|Error|');
 
-    const leg3 = g3.append('g').attr('transform', `translate(${w - 120}, 10)`);
-    leg3.append('circle').attr('cx', 6).attr('cy', 0).attr('r', 4).attr('fill', '#3b82f6');
-    leg3.append('text').attr('x', 14).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10).text('|e − approx|');
-    leg3.append('circle').attr('cx', 6).attr('cy', 16).attr('r', 4).attr('fill', '#f59e0b');
-    leg3.append('text').attr('x', 14).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10).text('|π − approx|');
+    const leg3 = g3.append('g').attr('transform', `translate(${w - 130}, 10)`);
+    leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
+      .attr('stroke', '#3b82f6').attr('stroke-width', 2);
+    leg3.append('circle').attr('cx', 8).attr('cy', 0).attr('r', 2.5).attr('fill', '#3b82f6');
+    leg3.append('text').attr('x', 22).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10).text('|e − approx|');
+    leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 16).attr('y2', 16)
+      .attr('stroke', '#f59e0b').attr('stroke-width', 2);
+    leg3.append('circle').attr('cx', 8).attr('cy', 16).attr('r', 2.5).attr('fill', '#f59e0b');
+    leg3.append('text').attr('x', 22).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10).text('|π − approx|');
 
   }, [data, maxN]);
 

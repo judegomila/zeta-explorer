@@ -632,3 +632,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 671 | 2026-03-11T12:30:00Z | Fix Ladder Freezing legend: use dashed line for proxy and add background box | TwinLadderViz.jsx |
 | 672 | 2026-03-11T16:00:00Z | Fix transmission coefficient label from T to T² for consistency with Γ² in WaveSimViz | WaveSimViz.jsx |
 | 673 | 2026-03-12T02:30:00Z | Add Lehmer phenomenon explainer card to ZetaPage | ZetaPage.jsx |
+| 674 | 2026-03-11T17:00:00Z | Fix error convergence legend in PascalZetaViz Constants tab to show line+circle markers | PascalZetaViz.jsx |

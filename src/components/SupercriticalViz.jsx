@@ -11,6 +11,17 @@ import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
 import { InlineMath } from './KaTeXMath.jsx';
 
+// Shared helper: find nearest zeta zero to a given t value
+function findNearestZetaZero(tValue) {
+  let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
+  for (let i = 1; i < ZETA_ZEROS.length; i++) {
+    const d = Math.abs(tValue - ZETA_ZEROS[i]);
+    if (d < bestDist) { bestDist = d; bestIdx = i; }
+    if (ZETA_ZEROS[i] > tValue + 2) break;
+  }
+  return { bestIdx, bestDist };
+}
+
 const TABS = [
   { id: 'landscape', label: 'Extended Landscape' },
   { id: 'thermo', label: 'Thermodynamics' },
@@ -51,6 +62,7 @@ function ExtendedLandscapeTab() {
   const [sigmaMax, setSigmaMax] = useState(5);
 
   const scan = useMemo(() => zetaMagnitudeScan(tValue, [sigmaMin, sigmaMax], 300), [tValue, sigmaMin, sigmaMax]);
+  const nearest = useMemo(() => findNearestZetaZero(tValue), [tValue]);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -320,27 +332,19 @@ function ExtendedLandscapeTab() {
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
-          {(() => {
-            let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
-            for (let i = 1; i < ZETA_ZEROS.length; i++) {
-              const d = Math.abs(tValue - ZETA_ZEROS[i]);
-              if (d < bestDist) { bestDist = d; bestIdx = i; }
-              if (ZETA_ZEROS[i] > tValue + 2) break;
-            }
-            return bestDist < 1 ? (
+          {nearest.bestDist < 1 ? (
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: nearest.bestDist < 0.3 ? '#10b981' : '#64748b',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
-                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
-                onClick={() => setTValue(+ZETA_ZEROS[bestIdx].toFixed(1))}
+                title={`Click to snap t to γ${nearest.bestIdx + 1} = ${ZETA_ZEROS[nearest.bestIdx].toFixed(3)}`}
+                onClick={() => setTValue(+ZETA_ZEROS[nearest.bestIdx].toFixed(1))}
               >
-                {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+                {'\u2248 \u03B3'}{String(nearest.bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[nearest.bestIdx].toFixed(1)}
               </span>
-            ) : null;
-          })()}
+            ) : null}
         </div>
         <div className="control-group">
           <label><InlineMath tex="\\sigma" /> min</label>
@@ -370,6 +374,7 @@ function ThermodynamicsTab() {
   const [numPrimes, setNumPrimes] = useState(12);
 
   const thermoData = useMemo(() => thermodynamicScan(tValue, [-1, 3], 120, numPrimes), [tValue, numPrimes]);
+  const nearest = useMemo(() => findNearestZetaZero(tValue), [tValue]);
 
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
@@ -500,27 +505,19 @@ function ThermodynamicsTab() {
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
-          {(() => {
-            let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
-            for (let i = 1; i < ZETA_ZEROS.length; i++) {
-              const d = Math.abs(tValue - ZETA_ZEROS[i]);
-              if (d < bestDist) { bestDist = d; bestIdx = i; }
-              if (ZETA_ZEROS[i] > tValue + 2) break;
-            }
-            return bestDist < 1 ? (
+          {nearest.bestDist < 1 ? (
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: nearest.bestDist < 0.3 ? '#10b981' : '#64748b',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
-                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
-                onClick={() => setTValue(+ZETA_ZEROS[bestIdx].toFixed(1))}
+                title={`Click to snap t to γ${nearest.bestIdx + 1} = ${ZETA_ZEROS[nearest.bestIdx].toFixed(3)}`}
+                onClick={() => setTValue(+ZETA_ZEROS[nearest.bestIdx].toFixed(1))}
               >
-                {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+                {'\u2248 \u03B3'}{String(nearest.bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[nearest.bestIdx].toFixed(1)}
               </span>
-            ) : null;
-          })()}
+            ) : null}
         </div>
         <div className="control-group">
           <label>Primes</label>
@@ -728,6 +725,7 @@ function EulerPhaseTab() {
   const [numPrimes, setNumPrimes] = useState(15);
 
   const data = useMemo(() => eulerProductPhaseAnalysis(tValue, [-1, 3], 150, numPrimes), [tValue, numPrimes]);
+  const nearest = useMemo(() => findNearestZetaZero(tValue), [tValue]);
 
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
@@ -901,27 +899,19 @@ function EulerPhaseTab() {
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
-          {(() => {
-            let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
-            for (let i = 1; i < ZETA_ZEROS.length; i++) {
-              const d = Math.abs(tValue - ZETA_ZEROS[i]);
-              if (d < bestDist) { bestDist = d; bestIdx = i; }
-              if (ZETA_ZEROS[i] > tValue + 2) break;
-            }
-            return bestDist < 1 ? (
+          {nearest.bestDist < 1 ? (
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: nearest.bestDist < 0.3 ? '#10b981' : '#64748b',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
-                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
-                onClick={() => setTValue(+ZETA_ZEROS[bestIdx].toFixed(1))}
+                title={`Click to snap t to γ${nearest.bestIdx + 1} = ${ZETA_ZEROS[nearest.bestIdx].toFixed(3)}`}
+                onClick={() => setTValue(+ZETA_ZEROS[nearest.bestIdx].toFixed(1))}
               >
-                {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+                {'\u2248 \u03B3'}{String(nearest.bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[nearest.bestIdx].toFixed(1)}
               </span>
-            ) : null;
-          })()}
+            ) : null}
         </div>
         <div className="control-group">
           <label>Primes</label>

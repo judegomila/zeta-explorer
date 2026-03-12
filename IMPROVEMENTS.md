@@ -597,3 +597,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 636 | 2026-03-11T13:55:00Z | Fix von Mangoldt spectrum explainer claiming truncated DFT "equals" −ζ'/ζ on critical line | FourierDomainViz.jsx |
 | 637 | 2026-03-11T14:00:00Z | Add Reset button to AnimatedModesViz to restart animation from t=0 | AnimatedModesViz.jsx |
 | 638 | 2026-03-11T14:05:00Z | Color-code per-point error in ExplicitFormulaViz hover tooltip to match RMS error styling | ExplicitFormulaViz.jsx |
+| 639 | 2026-03-11T14:10:00Z | Memoize eigenvalue/zero y-bounds in HilbertPolyaTab to avoid flatMap on every resize | GapClosingViz.jsx |

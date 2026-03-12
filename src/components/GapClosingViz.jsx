@@ -256,6 +256,17 @@ function HilbertPolyaTab({ numPrimes }) {
     [numPrimes],
   );
 
+  // Pre-compute y-axis bounds from eigenvalues/zeros (avoid flatMap + spread in draw)
+  const yBounds = useMemo(() => {
+    if (data.length === 0) return { yMin: 0, yMax: 1 };
+    let lo = Infinity, hi = -Infinity;
+    for (const d of data) {
+      for (const v of d.eigenvalues) { if (v < lo) lo = v; if (v > hi) hi = v; }
+      for (const v of d.targetZeros) { if (v < lo) lo = v; if (v > hi) hi = v; }
+    }
+    return { yMin: lo - 2, yMax: hi + 2 };
+  }, [data]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -285,11 +296,7 @@ function HilbertPolyaTab({ numPrimes }) {
     const plotTopH = topH - margin.top - margin.bottom;
     const plotBotH = botH - marginBot.top - marginBot.bottom;
 
-    // Gather all eigenvalues and zeros across K values
-    const allEigs = data.flatMap(d => d.eigenvalues);
-    const allZeros = data.flatMap(d => d.targetZeros);
-    const yMin = Math.min(...allEigs, ...allZeros) - 2;
-    const yMax = Math.max(...allEigs, ...allZeros) + 2;
+    const { yMin, yMax } = yBounds;
     const yRange = yMax - yMin || 1;
 
     const kMin = data[0].K;
@@ -456,7 +463,7 @@ function HilbertPolyaTab({ numPrimes }) {
     ctx.fillText('Avg Error', 0, 0);
     ctx.restore();
 
-  }, [data]);
+  }, [data, yBounds]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

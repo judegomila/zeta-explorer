@@ -648,3 +648,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 687 | 2026-03-11T09:00:00Z | Fix incorrect specific heat formula in ConceptsPage glossary definition | ConceptsPage.jsx |
 | 688 | 2026-03-11T10:00:00Z | Replace 4 temporary array allocations with single loop for Nyquist plot bounds | NyquistBodeViz.jsx |
 | 689 | 2026-03-11T11:00:00Z | Add 'Look for' observational hint to Incidence Relation tab explainer in TwistorViz | TwistorViz.jsx |
+| 690 | 2026-03-12T00:00:00Z | Add prime range and gamma-max hints to Primes and Zeros sliders in FormalProofViz | FormalProofViz.jsx |

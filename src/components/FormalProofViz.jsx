@@ -4,6 +4,8 @@ import {
   PROOF_SECTIONS, proofDependencyGraph, overallProofStatus,
   verifySection, computationalEvidence,
 } from '../math/formal-proof.js';
+import { getPrimes } from '../math/primes.js';
+import { ZETA_ZEROS } from '../math/zeta.js';
 
 const TABS = ['Proof Map', 'Verification', 'Evidence', 'Gaps'];
 const TAB_COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444'];
@@ -886,7 +888,7 @@ export default function FormalProofViz() {
             value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)}
           />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         {(tab === 2 || tab === 1) && (
           <div className="control-group">
@@ -896,7 +898,11 @@ export default function FormalProofViz() {
               value={numZeros}
               onChange={e => setNumZeros(+e.target.value)}
             />
-            <span className="control-value">{numZeros}</span>
+            <span className="control-value">{numZeros}
+              <span style={{ color: '#64748b', fontSize: 11, marginLeft: 4, fontFamily: 'var(--font-mono)' }}>
+                (γ<sub>max</sub> ≈ {ZETA_ZEROS[Math.min(numZeros, ZETA_ZEROS.length) - 1]?.toFixed(1) ?? '?'})
+              </span>
+            </span>
           </div>
         )}
       </div>

@@ -329,10 +329,14 @@ function ExtendedLandscapeTab() {
       <div className="controls">
         <div className="control-group">
           <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
-          <input type="range" min="1" max="60" step="0.5" value={tValue}
+          <input type="range" min="0" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
-          {nearest.bestDist < 1 ? (
+          {tValue < 0.5 ? (
+            <span style={{ marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)', color: '#f59e0b' }}>
+              trivial zeros visible
+            </span>
+          ) : nearest.bestDist < 1 ? (
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',

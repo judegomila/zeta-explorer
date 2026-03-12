@@ -612,3 +612,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 651 | 2026-03-11T23:45:00Z | Add worked example card showing per-prime phase cancellation at first zeta zero | WaveSimPage.jsx |
 | 652 | 2026-03-12T00:30:00Z | Add γₙ index labels to zeta zero markers on critical line Z(t) plot | ZetaLandscapeViz.jsx |
 | 653 | 2026-03-12T01:00:00Z | Fix inverted LZ76 loop condition in Lempel-Ziv complexity algorithm | odd-zeta.js |
+| 654 | 2026-03-11T14:30:00Z | Fix unreachable trivial zeros in Extended Landscape — t slider min was 1 but markers require t < 0.5 | SupercriticalViz.jsx |

@@ -174,13 +174,29 @@ function FisherTwistorTab({ t, numPrimes }) {
       { color: '#3b82f6', label: 'Fisher Info (left axis)' },
       { color: '#eab308', label: 'Twistor |Z\u00B7W| (right axis)' },
     ];
+    const legBoxX = margin.left + 4;
+    const legBoxY = margin.top + 0;
+    const legBoxW = 170;
+    const legBoxH = legendItems.length * 14 + 8;
+    ctx.fillStyle = 'rgba(10,14,26,0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    ctx.fill();
+    ctx.stroke();
     legendItems.forEach((item, i) => {
-      ctx.fillStyle = item.color;
-      ctx.fillRect(margin.left + 8, margin.top + 4 + i * 14, 12, 3);
+      const iy = legBoxY + 10 + i * 14;
+      ctx.beginPath();
+      ctx.moveTo(legBoxX + 6, iy);
+      ctx.lineTo(legBoxX + 22, iy);
+      ctx.strokeStyle = item.color;
+      ctx.lineWidth = 2;
+      ctx.stroke();
       ctx.fillStyle = '#94a3b8';
       ctx.font = '9px sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText(item.label, margin.left + 24, margin.top + 8 + i * 14);
+      ctx.fillText(item.label, legBoxX + 26, iy + 3);
     });
 
     // Correlation coefficient in corner

@@ -145,9 +145,15 @@ function VonMangoldtSpectrumTab() {
     overlay.on('mousemove', (event) => {
       const [mx] = d3.pointer(event);
       const freq = x.invert(mx);
-      const closest = spectrum.reduce((best, p) =>
-        Math.abs(p.frequency - freq) < Math.abs(best.frequency - freq) ? p : best
-      , spectrum[0]);
+      // Binary search for nearest frequency (spectrum is sorted by frequency)
+      let lo = 0, hi = spectrum.length - 1;
+      while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        if (spectrum[mid].frequency < freq) lo = mid + 1;
+        else hi = mid;
+      }
+      const closest = lo > 0 && Math.abs(spectrum[lo - 1].frequency - freq) < Math.abs(spectrum[lo].frequency - freq)
+        ? spectrum[lo - 1] : spectrum[lo];
 
       hoverLine.attr('x1', x(closest.frequency)).attr('x2', x(closest.frequency)).attr('opacity', 0.3);
       hoverDot.attr('cx', x(closest.frequency)).attr('cy', y(closest.magnitude)).attr('opacity', 1);

@@ -651,3 +651,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 690 | 2026-03-12T00:00:00Z | Add prime range and gamma-max hints to Primes and Zeros sliders in FormalProofViz | FormalProofViz.jsx |
 | 691 | 2026-03-12T08:00:00Z | Fix right-side monotonicity check comparing against skipped left-side points in KL Lyapunov analysis | spectral-attack.js |
 | 692 | 2026-03-12T09:00:00Z | Fix Scattering Matrix glossary formula conflating Euler factor with bridge unitarity | ConceptsPage.jsx |
+| 693 | 2026-03-12T12:00:00Z | Add spider-type legend to Twin Ladder canvas in ZXCalculusViz | ZXCalculusViz.jsx |

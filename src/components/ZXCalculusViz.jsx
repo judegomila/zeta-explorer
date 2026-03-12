@@ -394,6 +394,39 @@ function TwinLadderTab({ sigma, t, numPrimes }) {
     ctx.fillText(`|∏ Z| = ${diagram.direct.totalMagnitude.toFixed(4)}`, w - margin, topY + 30);
     ctx.fillText(`|∏ X| = ${diagram.dual.totalMagnitude.toFixed(4)}`, w - margin, botY + 30);
 
+    // Legend
+    const legendX = w - margin - 140;
+    const legendY = 12;
+    ctx.fillStyle = 'rgba(10,14,26,0.85)';
+    ctx.fillRect(legendX - 6, legendY - 4, 148, 52);
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(legendX - 6, legendY - 4, 148, 52);
+
+    const legendItems = [
+      { color: '#10b981', shape: 'circle', label: 'Z-spider (direct)' },
+      { color: '#ef4444', shape: 'circle', label: 'X-spider (dual)' },
+      { color: '#f59e0b', shape: 'square', label: 'H-box (bridge χ)' },
+    ];
+    legendItems.forEach((item, i) => {
+      const ly = legendY + 6 + i * 15;
+      if (item.shape === 'circle') {
+        ctx.beginPath();
+        ctx.arc(legendX + 5, ly, 4, 0, Math.PI * 2);
+        ctx.strokeStyle = item.color;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      } else {
+        ctx.strokeStyle = item.color;
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(legendX + 1, ly - 4, 8, 8);
+      }
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '9px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(item.label, legendX + 14, ly + 3);
+    });
+
   }, [diagram, sigma]);
 
   useEffect(() => {

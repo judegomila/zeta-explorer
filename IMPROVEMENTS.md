@@ -646,3 +646,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 685 | 2026-03-12T07:00:00Z | Add critical-line color indicator to Start σ slider in gradient descent tab | TwinOscillatorSimViz.jsx |
 | 686 | 2026-03-11T08:00:00Z | Add background box and line markers to Fisher-Twistor tab legend in SpectralAttackViz | SpectralAttackViz.jsx |
 | 687 | 2026-03-11T09:00:00Z | Fix incorrect specific heat formula in ConceptsPage glossary definition | ConceptsPage.jsx |
+| 688 | 2026-03-11T10:00:00Z | Replace 4 temporary array allocations with single loop for Nyquist plot bounds | NyquistBodeViz.jsx |

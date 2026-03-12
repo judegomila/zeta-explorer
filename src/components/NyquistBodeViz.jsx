@@ -89,10 +89,19 @@ export default function NyquistBodeViz() {
 
     const { points, negPoints } = nyquistData;
 
-    const allRe = [...points.map(p => p.re), ...negPoints.map(p => p.re)];
-    const allIm = [...points.map(p => p.im), ...negPoints.map(p => p.im)];
-    const rBound = Math.max(3, d3.max(allRe.map(Math.abs)) * 1.1);
-    const iBound = Math.max(3, d3.max(allIm.map(Math.abs)) * 1.1);
+    let maxAbsRe = 0, maxAbsIm = 0;
+    for (const p of points) {
+      const ar = Math.abs(p.re), ai = Math.abs(p.im);
+      if (ar > maxAbsRe) maxAbsRe = ar;
+      if (ai > maxAbsIm) maxAbsIm = ai;
+    }
+    for (const p of negPoints) {
+      const ar = Math.abs(p.re), ai = Math.abs(p.im);
+      if (ar > maxAbsRe) maxAbsRe = ar;
+      if (ai > maxAbsIm) maxAbsIm = ai;
+    }
+    const rBound = Math.max(3, maxAbsRe * 1.1);
+    const iBound = Math.max(3, maxAbsIm * 1.1);
     const bound = Math.min(20, Math.max(rBound, iBound));
 
     const x = d3.scaleLinear().domain([-bound, bound]).range([0, w]);

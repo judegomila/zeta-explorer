@@ -613,3 +613,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 652 | 2026-03-12T00:30:00Z | Add γₙ index labels to zeta zero markers on critical line Z(t) plot | ZetaLandscapeViz.jsx |
 | 653 | 2026-03-12T01:00:00Z | Fix inverted LZ76 loop condition in Lempel-Ziv complexity algorithm | odd-zeta.js |
 | 654 | 2026-03-11T14:30:00Z | Fix unreachable trivial zeros in Extended Landscape — t slider min was 1 but markers require t < 0.5 | SupercriticalViz.jsx |
+| 655 | 2026-03-11T14:35:00Z | Fix number variance explainer formula still showing spurious −π²/8 term removed in #640 | GUEStatisticsViz.jsx |

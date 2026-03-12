@@ -299,7 +299,7 @@ export default function GUEStatisticsViz() {
           .append('title').text(`L = ${Ls[i].toFixed(2)}, Σ²(L) = ${v.toFixed(4)}`);
       });
 
-      // GUE prediction: Sigma^2(L) ~ (1/pi^2)(log(2*pi*L) + 1 + gamma_E - pi^2/8)
+      // GUE prediction: Sigma^2(L) ~ (1/pi^2)(log(2*pi*L) + 1 + gamma_E)
       g.append('path').datum(REF_NUMVAR_GUE)
         .attr('d', d3.line().x(d => x(d.L)).y(d => y(d.s2)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2.5);
@@ -374,7 +374,7 @@ export default function GUEStatisticsViz() {
       {mode === 'number-variance' && (
         <div className="tab-explainer accent-cyan">
           The number variance <InlineMath tex="\\Sigma^2(L)" /> measures fluctuations in the count of zeros
-          in intervals of length <InlineMath tex="L" />. For GUE, <InlineMath tex="\\Sigma^2(L) = \\tfrac{1}{\\pi^2}\\bigl(\\log(2\\pi L) + 1 + \\gamma_E - \\tfrac{\\pi^2}{8}\\bigr)" /> (logarithmic
+          in intervals of length <InlineMath tex="L" />. For GUE, <InlineMath tex="\\Sigma^2(L) = \\tfrac{1}{\\pi^2}\\bigl(\\log(2\\pi L) + 1 + \\gamma_E\\bigr)" /> (logarithmic
           growth) &mdash; much slower than Poisson where <InlineMath tex="\\Sigma^2 = L" />. This logarithmic suppression means zeros
           are <strong>rigidly</strong> spaced &mdash; far more regular than random.
           <strong> Look for:</strong> the data following the GUE log curve, not the linear Poisson line.

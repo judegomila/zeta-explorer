@@ -29,7 +29,12 @@ export default function ScatteringMatrixViz() {
         sigma,
         chiMag: bridge.magnitude,
         chiPhase: bridge.phase,
-        reflection: bridge.reflectionCoeff,
+        // Use signed reflection coefficient (1 - |χ|)/(1 + |χ|) so the chart
+        // correctly shows Γ < 0 for the amplifying regime (|χ| > 1, σ < ½)
+        // and Γ > 0 for the attenuating regime (|χ| < 1, σ > ½).
+        // losslessBridge().reflectionCoeff uses Math.abs and is always ≥ 0,
+        // which is correct for the BridgeTab but wrong here where we need the sign.
+        reflection: (1 - bridge.magnitude) / (1 + bridge.magnitude),
         isUnitary: bridge.isUnitary,
         unitarityDev: Math.abs(bridge.magnitude - 1),
       });

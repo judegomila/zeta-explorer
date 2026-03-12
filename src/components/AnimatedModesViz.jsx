@@ -279,7 +279,8 @@ export default function AnimatedModesViz() {
     <div>
       <div className="tab-explainer accent-pink">
         At zeta zero frequency <InlineMath tex="\\gamma_n" />, each prime oscillator vibrates with
-        amplitude <InlineMath tex="\\propto \\text{Re}(p^{-1/2-i\\gamma_n})" /> and phase set by <InlineMath tex="\\gamma_n \\log p" />.
+        amplitude <InlineMath tex="\\propto \\log(p)\\cdot\\text{Re}(p^{-1/2-i\\gamma_n})" /> and phase set by <InlineMath tex="\\gamma_n \\log p" />.
+        The <InlineMath tex="\\log(p)" /> weighting comes from the oscillator inductance <InlineMath tex="L_p = \\log(p)" />.
         The bottom row superposes all prime contributions at this driving frequency &mdash; the collective oscillator chain
         response to the zero mode <InlineMath tex="\\gamma_n" />. (Note: the explicit formula's per-zero term is{' '}
         <InlineMath tex="-x^\\rho/\\rho" />, a single oscillation with no per-prime decomposition.)

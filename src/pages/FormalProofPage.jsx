@@ -313,7 +313,7 @@ export default function FormalProofPage() {
               ],
               [
                 'First 10^13 zeros on critical line',
-                'Confirmed (Platt 2021)',
+                'Confirmed (Gourdon 2004; Platt-Trudgian 2021 rigorous to 3×10¹²)',
                 'No. Any finite check cannot prove RH.'
               ],
               [
@@ -592,7 +592,7 @@ export default function FormalProofPage() {
             { name: 'Bootstrap Confidence', section: 'S8', verdict: 'MIXED', color: '#f59e0b', icon: 'B',
               detail: '2 strong + 4 weak strategies' },
             { name: 'Platt Zero Check', section: 'S10', verdict: 'PASS', color: '#10b981', icon: '#',
-              detail: 'First 10^13 zeros on critical line' },
+              detail: 'Zeros verified to height 3×10¹² (rigorous)' },
             { name: 'Entropy Peak', section: 'S4', verdict: 'PASS', color: '#10b981', icon: 'S',
               detail: 'Entropy/capacity/MI peak at sigma=1/2' },
             { name: 'de Bruijn-Newman', section: 'S10', verdict: 'PROVEN', color: '#06b6d4', icon: 'L',

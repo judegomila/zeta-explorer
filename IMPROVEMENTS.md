@@ -578,3 +578,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 617 | 2026-03-11T12:20:00Z | Fix Phase tab explainer accent color mismatch in ScatteringMatrixViz | ScatteringMatrixViz.jsx |
 | 618 | 2026-03-11T12:25:00Z | Add zero reference line and y-axis labels to cumulative phase graph in ZXCalculusViz Spider Chain tab | ZXCalculusViz.jsx |
 | 619 | 2026-03-11T12:30:00Z | Fix Phase Rates tooltip showing Z₀ (impedance) instead of ω (frequency) in PrimeGapCouplingViz | PrimeGapCouplingViz.jsx |
+| 620 | 2026-03-11T12:35:00Z | Fix misattribution of 10^13 zero verification to Platt instead of Gourdon in proof checker | FormalProofPage.jsx, formal-proof.js |

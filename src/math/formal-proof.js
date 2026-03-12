@@ -260,7 +260,7 @@ export const PROOF_SECTIONS = [
       '(C) Hamiltonian path (S6 + link): If zeros of zeta correspond to resonances of H, and ' +
       'resonances occur at energy minima, and the minimum is at sigma = 1/2, then Re(rho) = 1/2. ' +
       'None of these paths is complete. The strongest current evidence comes from: ' +
-      '- Numerical verification of the first 10^13 zeros (Platt, 2021). ' +
+      '- Numerical verification: 10^13 zeros (Gourdon, 2004); rigorous to height 3×10^12 (Platt-Trudgian, 2021). ' +
       '- The Rodgers-Tao theorem Lambda >= 0 (2020), showing the zeros sit at the heat-flow threshold. ' +
       '- The de la Vallee-Poussin zero-free region: Re(rho) < 1 - c/log(Im(rho)).',
     dependencies: ['S5', 'S6', 'S7'],

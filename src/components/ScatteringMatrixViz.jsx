@@ -78,6 +78,9 @@ export default function ScatteringMatrixViz() {
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
         .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
+      g.append('text').attr('x', x(0.5) + 4).attr('y', h - 6)
+        .attr('fill', '#ef4444').attr('font-size', 10).attr('font-weight', 600)
+        .text('σ = ½');
 
       // |χ(s)| curve
       const line = d3.line().x(d => x(d.sigma)).y(d => y(Math.min(yMax, d.chiMag))).curve(d3.curveBasis);
@@ -148,6 +151,9 @@ export default function ScatteringMatrixViz() {
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
         .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
+      g.append('text').attr('x', x(0.5) + 4).attr('y', h - 6)
+        .attr('fill', '#ef4444').attr('font-size', 10).attr('font-weight', 600)
+        .text('σ = ½');
 
       const line = d3.line().x(d => x(d.sigma)).y(d => y(Math.min(1, d.reflection))).curve(d3.curveBasis);
 
@@ -202,6 +208,9 @@ export default function ScatteringMatrixViz() {
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
         .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
+      g.append('text').attr('x', x(0.5) + 4).attr('y', h - 6)
+        .attr('fill', '#ef4444').attr('font-size', 10).attr('font-weight', 600)
+        .text('σ = ½');
 
       // 0° reference line
       g.append('line')

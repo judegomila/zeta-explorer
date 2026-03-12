@@ -590,3 +590,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 629 | 2026-03-11T13:20:00Z | Fix lempelZivComplexity always returning 1 due to empty-prefix search at i=0 | odd-zeta.js |
 | 630 | 2026-03-11T13:25:00Z | Fix spectralGapAnalysis to use GUE statistics instead of GOE for Wigner surmise CDF and variance | gap-closing.js |
 | 631 | 2026-03-11T13:30:00Z | Use fast real-base exponentiation in zetaDirichlet and zetaEulerProduct instead of generic cPow | zeta.js |
+| 632 | 2026-03-11T13:35:00Z | Add σ = ½ label to critical line in all three ScatteringMatrixViz modes | ScatteringMatrixViz.jsx |

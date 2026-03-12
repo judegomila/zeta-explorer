@@ -467,6 +467,16 @@ function PressureTemperatureTab() {
     ctx.font = '10px Inter, sans-serif';
     ctx.fillText('T = Im(s)', W / 2, H - 6);
 
+    // Y-axis label for bottom chart
+    ctx.save();
+    ctx.translate(14, botY + botH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#06b6d4';
+    ctx.font = '10px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('|Z_TL|', 0, 0);
+    ctx.restore();
+
   }, [unweightedRungs, weightedRungs, scanData, prime, M, beta, P]);
 
   useEffect(() => { draw(); }, [draw]);

@@ -192,6 +192,15 @@ function HamiltonianTab() {
 
   const data = useMemo(() => hamiltonianConvexityTest(tValues, numPrimes), [tValues, numPrimes]);
 
+  const scales = useMemo(() => {
+    const results = data.results;
+    const maxD2H = Math.max(...results.map(r => Math.abs(r.d2H_dSigma2)), 1);
+    const tMin = Math.min(...results.map(r => r.t));
+    const tMax = Math.max(...results.map(r => r.t));
+    const maxDH = Math.max(...results.map(r => Math.abs(r.dH_dSigma)), 0.1);
+    return { maxD2H, tMin, tMax, maxDH };
+  }, [data]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -219,7 +228,7 @@ function HamiltonianTab() {
     ctx.stroke();
 
     // Plot d²H/dσ² vs t
-    const maxD2H = Math.max(...results.map(r => Math.abs(r.d2H_dSigma2)), 1);
+    const { maxD2H, tMin, tMax, maxDH } = scales;
 
     // Zero line
     const zeroY = h - margin.bottom - plotH / 2;
@@ -230,9 +239,6 @@ function HamiltonianTab() {
     ctx.strokeStyle = '#475569';
     ctx.stroke();
     ctx.setLineDash([]);
-
-    const tMin = Math.min(...results.map(r => r.t));
-    const tMax = Math.max(...results.map(r => r.t));
 
     // d²H/dσ² curve
     ctx.beginPath();
@@ -259,7 +265,6 @@ function HamiltonianTab() {
     });
 
     // dH/dσ curve (should be near zero)
-    const maxDH = Math.max(...results.map(r => Math.abs(r.dH_dSigma)), 0.1);
     ctx.beginPath();
     results.forEach((r, i) => {
       const x = margin.left + ((r.t - tMin) / (tMax - tMin)) * plotW;
@@ -333,7 +338,7 @@ function HamiltonianTab() {
       ctx.fillText(item.label, margin.left + 24, margin.top + 8 + i * 14);
     });
 
-  }, [data]);
+  }, [data, scales]);
 
   useEffect(() => {
     draw();
@@ -428,6 +433,14 @@ function SMatrixTab() {
   const data = useMemo(() => sMatrixZeroConfinement(tValues, 15), [tValues]);
   const zeroData = useMemo(() => zeroDeviationScan(20, 12), []);
 
+  const sMatrixScales = useMemo(() => {
+    const results = data.results;
+    const maxT = Math.max(...results.map(r => r.t));
+    const minT = Math.min(...results.map(r => r.t));
+    const maxMag = Math.max(...results.map(r => r.transmission), 5);
+    return { maxT, minT, maxMag };
+  }, [data]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -454,9 +467,7 @@ function SMatrixTab() {
     ctx.stroke();
 
     // Plot |ζ| at σ=0.5 for each t, and bridge magnitude
-    const maxT = Math.max(...data.results.map(r => r.t));
-    const minT = Math.min(...data.results.map(r => r.t));
-    const maxMag = Math.max(...data.results.map(r => r.transmission), 5);
+    const { maxT, minT, maxMag } = sMatrixScales;
 
     // Bar for each t
     const barW = plotW / data.results.length * 0.6;
@@ -532,7 +543,7 @@ function SMatrixTab() {
     ctx.fillStyle = '#94a3b8';
     ctx.fillText('|χ| (bridge unitarity)', margin.left + 24, margin.top + 26);
 
-  }, [data]);
+  }, [data, sMatrixScales]);
 
   useEffect(() => {
     draw();

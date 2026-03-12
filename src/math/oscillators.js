@@ -218,7 +218,7 @@ export function losslessBridge(s) {
     magnitude: chiMag,
     phase: Math.atan2(chi[1], chi[0]),
     isUnitary: Math.abs(chiMag - 1) < 0.01,
-    reflectionCoeff: (1 - chiMag) / (1 + chiMag),
+    reflectionCoeff: Math.abs(1 - chiMag) / (1 + chiMag),
   };
 }
 

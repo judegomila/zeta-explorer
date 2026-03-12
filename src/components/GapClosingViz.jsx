@@ -356,26 +356,43 @@ function HilbertPolyaTab({ numPrimes }) {
       ctx.fillText(val.toFixed(0), margin.left - 6, y + 3);
     }
 
-    // Legend (top)
+    // Legend (top) with background box
+    const legendX = w - margin.right - 140;
+    const legendY0 = margin.top + 2;
+    const legendW = 136;
+    const legendH = 2 * 16 + 6;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
+    ctx.fill();
+    ctx.stroke();
+
+    // Eigenvalues entry (dot marker)
+    const lx = legendX + 8;
+    const ly1 = legendY0 + 14;
     ctx.fillStyle = '#3b82f6';
     ctx.beginPath();
-    ctx.arc(w - margin.right - 130, margin.top + 8, 3, 0, Math.PI * 2);
+    ctx.arc(lx + 7, ly1, 3, 0, Math.PI * 2);
     ctx.fill();
     ctx.fillStyle = '#94a3b8';
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'left';
-    ctx.fillText('Eigenvalues', w - margin.right - 124, margin.top + 11);
+    ctx.fillText('Eigenvalues', lx + 18, ly1 + 3);
 
+    // Target zeros entry (dashed line marker)
+    const ly2 = legendY0 + 14 + 16;
     ctx.beginPath();
     ctx.setLineDash([4, 3]);
-    ctx.moveTo(w - margin.right - 134, margin.top + 24);
-    ctx.lineTo(w - margin.right - 122, margin.top + 24);
+    ctx.moveTo(lx, ly2);
+    ctx.lineTo(lx + 14, ly2);
     ctx.strokeStyle = '#ef4444';
     ctx.lineWidth = 1;
     ctx.stroke();
     ctx.setLineDash([]);
     ctx.fillStyle = '#94a3b8';
-    ctx.fillText('Target zeros', w - margin.right - 118, margin.top + 27);
+    ctx.fillText('Target zeros', lx + 18, ly2 + 3);
 
     // Bottom panel: spectral error convergence
     const errMax = Math.max(...data.map(d => d.avgError), 0.01);

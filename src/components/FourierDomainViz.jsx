@@ -181,10 +181,14 @@ function VonMangoldtSpectrumTab() {
       <div className="tab-explainer accent-blue">
         The von Mangoldt function <InlineMath tex="\\Lambda(n) = \\log p" /> when{' '}
         <InlineMath tex="n = p^k" />, and zero otherwise, encodes prime locations as a "signal." The weighted
-        transform <InlineMath tex="F(\\omega) = \\sum_n \\Lambda(n)\\,n^{-1/2}\\,e^{-i\\omega\\log n}" /> equals{' '}
-        <InlineMath tex="-\\zeta'(\\tfrac{1}{2}+i\\omega)/\\zeta(\\tfrac{1}{2}+i\\omega)" />, which has poles at
-        each zeta zero <InlineMath tex="\\gamma_n" />. The <InlineMath tex="n^{-1/2}" /> weight places the evaluation on the critical
-        line — without it, peaks would not align with zeros. More terms sharpen the spectral peaks.
+        transform <InlineMath tex="F(\\omega) = \\sum_n \\Lambda(n)\\,n^{-1/2}\\,e^{-i\\omega\\log n}" /> is a truncated
+        approximation to{' '}
+        <InlineMath tex="-\\zeta'(\\tfrac{1}{2}+i\\omega)/\\zeta(\\tfrac{1}{2}+i\\omega)" />. (The Dirichlet series{' '}
+        <InlineMath tex="-\\zeta'/\\zeta(s) = \\sum \\Lambda(n)\\,n^{-s}" /> converges only for{' '}
+        <InlineMath tex="\\mathrm{Re}(s) > 1" />, so on the critical line the finite sum serves as a spectral
+        approximation whose peaks reveal the poles at zeros <InlineMath tex="\\gamma_n" />.)
+        The <InlineMath tex="n^{-1/2}" /> weight targets the critical line — without it, peaks would not align
+        with zeros. More terms sharpen the spectral peaks.
         <strong> Look for:</strong> vertical red dashed lines (known zeros) aligning with the spectral peaks of the blue DFT curve.
       </div>
       <div className="controls">

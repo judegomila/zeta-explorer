@@ -21,6 +21,25 @@ function RegularizationTab({ numPrimes, t }) {
     [t, numPrimes],
   );
 
+  // Pre-compute log magnitudes outside draw callback — depends only on data, not canvas size
+  const logMags = useMemo(() => {
+    const computeLog = (re, im) => {
+      const mag = Math.sqrt(re * re + im * im);
+      return mag > 1e-20 ? Math.log10(mag) : -20;
+    };
+    const eulerLog = data.map(d => computeLog(d.eulerProduct[0], d.eulerProduct[1]));
+    const regLog = data.map(d => computeLog(d.regularized[0], d.regularized[1]));
+    const trueLog = data.map(d => computeLog(d.zetaTrue[0], d.zetaTrue[1]));
+
+    let yMin = -2, yMax = 2;
+    for (let i = 0; i < eulerLog.length; i++) {
+      if (eulerLog[i] > -15) { if (eulerLog[i] < yMin) yMin = eulerLog[i]; if (eulerLog[i] > yMax) yMax = eulerLog[i]; }
+      if (regLog[i] > -15) { if (regLog[i] < yMin) yMin = regLog[i]; if (regLog[i] > yMax) yMax = regLog[i]; }
+      if (trueLog[i] > -15) { if (trueLog[i] < yMin) yMin = trueLog[i]; if (trueLog[i] > yMax) yMax = trueLog[i]; }
+    }
+    return { eulerLog, regLog, trueLog, yMin, yMax };
+  }, [data]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -37,23 +56,7 @@ function RegularizationTab({ numPrimes, t }) {
     const plotW = w - margin.left - margin.right;
     const plotH = h - margin.top - margin.bottom;
 
-    // Compute log magnitudes for each curve
-    const eulerLog = data.map(d => {
-      const mag = Math.sqrt(d.eulerProduct[0] ** 2 + d.eulerProduct[1] ** 2);
-      return mag > 1e-20 ? Math.log10(mag) : -20;
-    });
-    const regLog = data.map(d => {
-      const mag = Math.sqrt(d.regularized[0] ** 2 + d.regularized[1] ** 2);
-      return mag > 1e-20 ? Math.log10(mag) : -20;
-    });
-    const trueLog = data.map(d => {
-      const mag = Math.sqrt(d.zetaTrue[0] ** 2 + d.zetaTrue[1] ** 2);
-      return mag > 1e-20 ? Math.log10(mag) : -20;
-    });
-
-    const allVals = [...eulerLog, ...regLog, ...trueLog].filter(v => v > -15);
-    const yMin = Math.min(...allVals, -2);
-    const yMax = Math.max(...allVals, 2);
+    const { eulerLog, regLog, trueLog, yMin, yMax } = logMags;
     const yRange = yMax - yMin || 1;
 
     const sigmaMin = data[0].sigma;
@@ -221,7 +224,7 @@ function RegularizationTab({ numPrimes, t }) {
       ctx.fillText(item.label, lx + 20, ly + 3);
     });
 
-  }, [data]);
+  }, [data, logMags]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

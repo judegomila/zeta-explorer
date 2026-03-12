@@ -634,3 +634,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 673 | 2026-03-12T02:30:00Z | Add Lehmer phenomenon explainer card to ZetaPage | ZetaPage.jsx |
 | 674 | 2026-03-11T17:00:00Z | Fix error convergence legend in PascalZetaViz Constants tab to show line+circle markers | PascalZetaViz.jsx |
 | 675 | 2026-03-11T19:00:00Z | Add background box to Hilbert-Polya tab legend in GapClosingViz | GapClosingViz.jsx |
+| 676 | 2026-03-11T20:00:00Z | Memoize log-magnitude arrays in RegularizationTab to avoid recomputing on resize | GapClosingViz.jsx |

@@ -100,6 +100,9 @@ export default function PrimeGapCouplingViz() {
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 175}, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -10).attr('width', 178).attr('height', 42)
+        .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       legend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 16).attr('y2', 0)
         .attr('stroke', '#06b6d4').attr('stroke-width', 1.5);
       legend.append('text').attr('x', 22).attr('y', 4).attr('fill', '#06b6d4').attr('font-size', 11)
@@ -160,6 +163,9 @@ export default function PrimeGapCouplingViz() {
         .text('Gap size');
 
       const legend = g.append('g').attr('transform', `translate(${w - 145}, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -12).attr('width', 140).attr('height', 5 * 18 + 6)
+        .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       [
         { label: 'gap=2', color: '#ef4444' },
         { label: 'gap=4', color: '#f59e0b' },
@@ -229,6 +235,9 @@ export default function PrimeGapCouplingViz() {
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 160}, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -10).attr('width', 152).attr('height', 42)
+        .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       legend.append('circle').attr('cx', 6).attr('cy', 0).attr('r', 4)
         .attr('fill', 'hsl(225, 70%, 55%)').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
       legend.append('text').attr('x', 18).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10)

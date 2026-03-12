@@ -242,9 +242,30 @@ export default function ScatteringMatrixViz() {
         .attr('text-anchor', 'end').attr('fill', '#64748b').attr('font-size', 10)
         .text('0° (real axis)');
 
+      // ±90° reference lines for quarter-turn context
+      for (const deg of [-90, 90]) {
+        g.append('line')
+          .attr('x1', 0).attr('y1', y(deg)).attr('x2', w).attr('y2', y(deg))
+          .attr('stroke', '#334155').attr('stroke-width', 0.8).attr('stroke-dasharray', '3,5');
+        g.append('text').attr('x', w - 4).attr('y', y(deg) - 4)
+          .attr('text-anchor', 'end').attr('fill', '#475569').attr('font-size', 9)
+          .text(`${deg > 0 ? '+' : ''}${deg}°`);
+      }
+
+      const phaseDegAccessor = d => d.chiPhase * 180 / Math.PI;
+
+      // Semi-transparent fill between curve and 0° axis (matching magnitude/reflection style)
+      const phaseArea = d3.area()
+        .x(d => x(d.sigma))
+        .y0(y(0))
+        .y1(d => y(phaseDegAccessor(d)))
+        .curve(d3.curveLinear);
+      g.append('path').datum(data).attr('d', phaseArea)
+        .attr('fill', 'rgba(6,182,212,0.1)');
+
       const line = d3.line()
         .x(d => x(d.sigma))
-        .y(d => y(d.chiPhase * 180 / Math.PI))
+        .y(d => y(phaseDegAccessor(d)))
         .curve(d3.curveLinear);
 
       g.append('path').datum(data).attr('d', line)

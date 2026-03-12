@@ -619,3 +619,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 658 | 2026-03-11T17:00:00Z | Memoize min/max metric scan in EnergyLandscapeViz draw callback | EnergyLandscapeViz.jsx |
 | 659 | 2026-03-11T18:00:00Z | Add quick notation reference card to ConceptsPage listing key symbols used throughout the app | ConceptsPage.jsx |
 | 660 | 2026-03-11T19:00:00Z | Add missing log(p) von Mangoldt weight to per-prime mode amplitude in AnimatedModesViz | AnimatedModesViz.jsx |
+| 661 | 2026-03-11T20:00:00Z | Add fill area and ±90° reference lines to phase mode in ScatteringMatrixViz | ScatteringMatrixViz.jsx |

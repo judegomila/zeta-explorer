@@ -28,6 +28,20 @@ export default function EnergyLandscapeViz() {
     return energyLandscape(sigmaRange, tRange, res, numPrimes);
   }, [numPrimes, tMax]);
 
+  // Memoize min/max scan per metric — avoids 3,721-iteration loop on every draw call
+  const metricBounds = useMemo(() => {
+    const res = 60;
+    const gridLen = (res + 1) * (res + 1);
+    const metricKey = metric === 'energy' ? 'energy' : metric === 'mismatch' ? 'mismatch' : metric === 'directMag' ? 'directMag' : 'dualMag';
+    let vMin = Infinity, vMax = -Infinity;
+    for (let k = 0; k < gridLen; k++) {
+      const v = landscape.data[k][metricKey];
+      if (v < vMin) vMin = v;
+      if (v > vMax) vMax = v;
+    }
+    return { vMin, vMax, vRange: vMax - vMin || 1, metricKey };
+  }, [landscape, metric]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -47,16 +61,7 @@ export default function EnergyLandscapeViz() {
     const res = 60;
     landscapeRef.current = landscape;
 
-    // Build flat grid of normalized values and find min/max
-    const gridLen = (res + 1) * (res + 1);
-    const metricKey = metric === 'energy' ? 'energy' : metric === 'mismatch' ? 'mismatch' : metric === 'directMag' ? 'directMag' : 'dualMag';
-    let vMin = Infinity, vMax = -Infinity;
-    for (let k = 0; k < gridLen; k++) {
-      const v = landscape.data[k][metricKey];
-      if (v < vMin) vMin = v;
-      if (v > vMax) vMax = v;
-    }
-    const vRange = vMax - vMin || 1;
+    const { vMin, vMax, vRange, metricKey } = metricBounds;
 
     // Render heatmap via ImageData (single putImageData replaces 3,721 fillRect calls)
     const imgW = dw * dpr | 0;
@@ -230,7 +235,7 @@ export default function EnergyLandscapeViz() {
     ctx.fillText(barLabels[metric], 0, 0);
     ctx.restore();
 
-  }, [landscape, tMax, metric]);
+  }, [landscape, tMax, metric, metricBounds]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

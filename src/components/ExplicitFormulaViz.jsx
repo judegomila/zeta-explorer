@@ -244,7 +244,7 @@ export default function ExplicitFormulaViz() {
         </div>
         {hoverPoint ? (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
-            x={hoverPoint.x.toFixed(1)} | <span style={{ color: '#3b82f6' }}>ψ={hoverPoint.psi.toFixed(1)}</span> | <span style={{ color: '#f59e0b' }}>approx={hoverPoint.approx.toFixed(1)}</span> | <span style={{ color: '#64748b' }}>err={Math.abs(hoverPoint.psi - hoverPoint.approx).toFixed(2)}</span>
+            x={hoverPoint.x.toFixed(1)} | <span style={{ color: '#3b82f6' }}>ψ={hoverPoint.psi.toFixed(1)}</span> | <span style={{ color: '#f59e0b' }}>approx={hoverPoint.approx.toFixed(1)}</span> | <span style={{ color: Math.abs(hoverPoint.psi - hoverPoint.approx) < 1 ? '#10b981' : Math.abs(hoverPoint.psi - hoverPoint.approx) < 5 ? '#f59e0b' : '#ef4444' }}>err={Math.abs(hoverPoint.psi - hoverPoint.approx).toFixed(2)}</span>
           </div>
         ) : (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: rmsError < 1 ? '#10b981' : rmsError < 5 ? '#f59e0b' : '#ef4444' }}>

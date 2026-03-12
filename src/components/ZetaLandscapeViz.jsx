@@ -276,7 +276,7 @@ export default function ZetaLandscapeViz() {
         const z = zetaCriticalStrip([sigma, t], 50);
         const mag = cAbs(z);
         const logMag = Math.log(1 + mag);
-        grid[i * RES + j] = Math.min(1, logMag / 4);
+        grid[i * RES + j] = logMag / 4;
       }
     }
     return grid;
@@ -311,7 +311,7 @@ export default function ZetaLandscapeViz() {
       for (let px = 0; px < imgW; px++) {
         // Map pixel col to grid i (sigma-axis)
         const i = Math.min(RES - 1, (px / (imgW - 1) * (RES - 1)) | 0);
-        const normalized = heatmapGrid[i * RES + j];
+        const normalized = Math.min(1, heatmapGrid[i * RES + j]);
         const palIdx = Math.min(PALETTE_SIZE - 1, (normalized * (PALETTE_SIZE - 1)) | 0);
         const off = (py * imgW + px) * 4;
         pixels[off] = heatmapPaletteRGB[palIdx * 3];
@@ -453,7 +453,7 @@ export default function ZetaLandscapeViz() {
       const gi = Math.min(RES - 1, Math.max(0, Math.round((mx) * (RES - 1))));
       const gj = Math.min(RES - 1, Math.max(0, Math.round((1 - my) * (RES - 1))));
       const logVal = heatmapGrid[gi * RES + gj];
-      setHoverInfo({ mode: 'heatmap', sigma: sigma.toFixed(3), t: t.toFixed(2), logMag: (logVal * 4).toFixed(3) });
+      setHoverInfo({ mode: 'heatmap', sigma: sigma.toFixed(3), t: t.toFixed(2), logMag: (logVal * 4).toFixed(3), mag: (Math.exp(logVal * 4) - 1).toFixed(2) });
     } else {
       const vals = clValuesRef.current;
       if (!vals.length) return;
@@ -529,7 +529,7 @@ export default function ZetaLandscapeViz() {
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
             <InlineMath tex="\\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
             <span style={{ marginLeft: 8, color: '#f59e0b' }}>
-              log(1+|ζ|)={hoverInfo.logMag}
+              log(1+|ζ|)={hoverInfo.logMag} &nbsp;|ζ|≈{hoverInfo.mag}
             </span>
           </div>
         )}

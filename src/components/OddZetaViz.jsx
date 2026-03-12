@@ -342,6 +342,16 @@ function AperyTab() {
       ctx.fillText(`${i}`, x, margin.top + halfH + 14);
     }
 
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, margin.top + halfH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('a\u2099/b\u2099', 0, 0);
+    ctx.restore();
+
     ctx.fillStyle = '#3b82f6';
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
@@ -412,6 +422,16 @@ function AperyTab() {
       ctx.stroke();
       ctx.setLineDash([]);
     }
+
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, g2Top + g2H / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('log\u2081\u2080|error|', 0, 0);
+    ctx.restore();
 
     ctx.fillStyle = '#ef4444';
     ctx.font = 'bold 11px sans-serif';

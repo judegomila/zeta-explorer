@@ -163,9 +163,11 @@ export function klLyapunovAnalysis(t, numPrimes = 15) {
   for (let i = 1; i < points.length && points[i].sigma < 0.49; i++)
     if (points[i].kl > points[i - 1].kl + 1e-8) { monotoneLeft = false; break; }
   let monotoneRight = true;
-  for (let i = 1; i < points.length; i++) {
+  let prevRight = -1;
+  for (let i = 0; i < points.length; i++) {
     if (points[i].sigma <= 0.51) continue;
-    if (points[i].kl < points[i - 1].kl - 1e-8) { monotoneRight = false; break; }
+    if (prevRight >= 0 && points[i].kl < points[prevRight].kl - 1e-8) { monotoneRight = false; break; }
+    prevRight = i;
   }
   const isLyapunov = zeroAtHalf && monotoneLeft && monotoneRight;
   const verdict = isLyapunov

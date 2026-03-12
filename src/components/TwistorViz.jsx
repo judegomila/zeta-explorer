@@ -73,7 +73,7 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
       .attr('fill', '#64748b').attr('font-size', 9).text('t');
 
     // Plot s point
-    const sNormSig = Math.max(-1, Math.min(1, (sigma - 0.5) / 1.0));
+    const sNormSig = Math.max(-1, Math.min(1, (sigma - 0.5) / 0.5));
     const sNormT = Math.max(-1, Math.min(1, t / 60));
     const sPx = sPlaneX + sNormSig * sPlaneR;
     const sPy = sPlaneY - sNormT * sPlaneR;

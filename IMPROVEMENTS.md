@@ -652,3 +652,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 691 | 2026-03-12T08:00:00Z | Fix right-side monotonicity check comparing against skipped left-side points in KL Lyapunov analysis | spectral-attack.js |
 | 692 | 2026-03-12T09:00:00Z | Fix Scattering Matrix glossary formula conflating Euler factor with bridge unitarity | ConceptsPage.jsx |
 | 693 | 2026-03-12T12:00:00Z | Add spider-type legend to Twin Ladder canvas in ZXCalculusViz | ZXCalculusViz.jsx |
+| 694 | 2026-03-12T15:00:00Z | Fix sigma normalization dividing by 1.0 instead of 0.5 in TwistorViz Correspondence s-plane | TwistorViz.jsx |

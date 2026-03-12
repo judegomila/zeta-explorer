@@ -529,10 +529,22 @@ export function berryKeatingEigenvalues(K, N) {
 }
 
 /**
+ * Approximate error function erf(x) using Abramowitz & Stegun formula 7.1.26.
+ * Max error: 1.5 × 10⁻⁷.
+ */
+function erf(x) {
+  const sign = x >= 0 ? 1 : -1;
+  const ax = Math.abs(x);
+  const t = 1 / (1 + 0.3275911 * ax);
+  const y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-ax * ax);
+  return sign * y;
+}
+
+/**
  * Spectral gap analysis: compute the minimum eigenvalue spacing and compare
  * to the Gaussian Unitary Ensemble (GUE) prediction.
- * GUE predicts the normalized spacing distribution P(s) ~ (32/pi^2) s^2 exp(-4s^2/pi)
- * with mean spacing delta = 2*pi / log(gamma / (2*pi*e)).
+ * GUE Wigner surmise: P(s) = (32/pi^2) s^2 exp(-4s^2/pi)
+ * with mean spacing delta = 2*pi / log(gamma / (2*pi)).
  * @param {number} K - Number of zeros/eigenvalues to analyze
  * @returns {{ spacings: number[], normalizedSpacings: number[], minSpacing: number, meanSpacing: number, gueRatio: number, nearestNeighborStats: { mean: number, variance: number, wignerSurmise: number }, verdict: string }}
  */
@@ -558,20 +570,21 @@ export function spectralGapAnalysis(K) {
 
   // GUE nearest neighbor spacing statistics
   // Mean of normalized spacing should be 1 by construction
-  // Variance for GUE: Var = (4 - pi) / pi ≈ 0.273
-  const gueVariance = (4 - Math.PI) / Math.PI;
+  // Variance for GUE Wigner surmise P(s) = (32/π²)s²exp(-4s²/π): Var = 3π/8 − 1 ≈ 0.178
+  const gueVariance = 3 * Math.PI / 8 - 1;
   const normMean = normalizedSpacings.reduce((a, b) => a + b, 0) / normalizedSpacings.length;
   let normVar = 0;
   for (const s of normalizedSpacings) normVar += (s - normMean) * (s - normMean);
   normVar /= normalizedSpacings.length;
 
-  // Wigner surmise: P(s) = (pi/2) s exp(-pi s^2 / 4) (simpler GUE approx)
-  // Compute KS-like statistic: compare CDF of our spacings to Wigner surmise CDF
+  // GUE Wigner surmise CDF: F(s) = erf(2s/√π) − (4s/π)exp(−4s²/π)
+  // Derived from integrating P(s) = (32/π²)s²exp(−4s²/π) by parts.
   const sortedNorm = [...normalizedSpacings].sort((a, b) => a - b);
   let maxKS = 0;
   for (let i = 0; i < sortedNorm.length; i++) {
     const empiricalCDF = (i + 1) / sortedNorm.length;
-    const wignerCDF = 1 - Math.exp(-Math.PI * sortedNorm[i] * sortedNorm[i] / 4);
+    const s = sortedNorm[i];
+    const wignerCDF = erf(2 * s / Math.sqrt(Math.PI)) - (4 * s / Math.PI) * Math.exp(-4 * s * s / Math.PI);
     const diff = Math.abs(empiricalCDF - wignerCDF);
     if (diff > maxKS) maxKS = diff;
   }

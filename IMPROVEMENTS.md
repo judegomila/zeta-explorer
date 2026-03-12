@@ -606,3 +606,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 645 | 2026-03-11T20:30:00Z | Fix pair correlation histogram normalization inflated by spurious factor of 2 | GUEStatisticsViz.jsx |
 | 646 | 2026-03-11T21:00:00Z | Fix ScatteringMatrixViz reflection coefficient always non-negative after Math.abs fix | ScatteringMatrixViz.jsx |
 | 647 | 2026-03-11T22:00:00Z | Add PNT expected average gap ~log(p) trend line to Prime Gaps chart | PrimeGapCouplingViz.jsx |
+| 648 | 2026-03-11T23:00:00Z | Add hover tooltips to Phase & Delay bar chart showing exact group delay values | WaveSimViz.jsx |

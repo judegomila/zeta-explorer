@@ -776,19 +776,23 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
     // Direct delay bars (left half)
     delays.forEach(d => {
       const bx = x(String(d.prime));
-      g.append('rect')
+      const bar = g.append('rect')
         .attr('x', bx).attr('y', y(d.delayDirect))
         .attr('width', barW).attr('height', chartH - y(d.delayDirect))
-        .attr('rx', 2).attr('fill', '#3b82f6').attr('opacity', 0.8);
+        .attr('rx', 2).attr('fill', '#3b82f6').attr('opacity', 0.8)
+        .style('cursor', 'crosshair');
+      bar.append('title').text(`p=${d.prime}, Direct τ_g = ${d.delayDirect.toFixed(4)}`);
     });
 
     // Dual delay bars (right half)
     delays.forEach(d => {
       const bx = x(String(d.prime)) + barW + 2;
-      g.append('rect')
+      const bar = g.append('rect')
         .attr('x', bx).attr('y', y(d.delayDual))
         .attr('width', barW).attr('height', chartH - y(d.delayDual))
-        .attr('rx', 2).attr('fill', '#f59e0b').attr('opacity', 0.8);
+        .attr('rx', 2).attr('fill', '#f59e0b').attr('opacity', 0.8)
+        .style('cursor', 'crosshair');
+      bar.append('title').text(`p=${d.prime}, Dual τ_g = ${d.delayDual.toFixed(4)}`);
     });
 
     // Cumulative delay lines

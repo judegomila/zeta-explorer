@@ -177,6 +177,27 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
 
       // Plot cumulative phase
       const maxPhase = Math.max(...phases.map(p => Math.abs(p.cumulativePhase)), 0.1);
+
+      // Zero reference line
+      ctx.beginPath();
+      ctx.setLineDash([4, 3]);
+      ctx.moveTo(margin, graphY);
+      ctx.lineTo(w - margin, graphY);
+      ctx.strokeStyle = '#47556960';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Y-axis tick labels (±maxPhase)
+      ctx.fillStyle = '#64748b';
+      ctx.font = '8px var(--font-mono)';
+      ctx.textAlign = 'right';
+      const topPhaseY = graphY - graphH * 0.4;
+      const botPhaseY = graphY + graphH * 0.4;
+      ctx.fillText(`+${maxPhase.toFixed(1)}`, margin - 4, topPhaseY + 3);
+      ctx.fillText('0', margin - 4, graphY + 3);
+      ctx.fillText(`−${maxPhase.toFixed(1)}`, margin - 4, botPhaseY + 3);
+
       ctx.beginPath();
       for (let i = 0; i < phases.length; i++) {
         const px = margin + spacing * (i + 1);
@@ -201,7 +222,7 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
       ctx.fillStyle = '#64748b';
       ctx.font = '10px sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText('Cumulative phase along chain', margin + 4, graphY - graphH / 2 - 4);
+      ctx.fillText('Cumulative phase (rad)', margin + 4, graphY - graphH / 2 - 4);
     }
   }, [data, phases, showFused, hovered]);
 

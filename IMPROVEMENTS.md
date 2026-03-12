@@ -576,3 +576,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 615 | 2026-03-11T12:10:00Z | Fix GUE hypothesis listed as RH equivalence and marked untested in Known Equivalences table | RHAttackPage.jsx |
 | 616 | 2026-03-11T12:15:00Z | Use math-rendered label for t slider in Gradient Descent tab of TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
 | 617 | 2026-03-11T12:20:00Z | Fix Phase tab explainer accent color mismatch in ScatteringMatrixViz | ScatteringMatrixViz.jsx |
+| 618 | 2026-03-11T12:25:00Z | Add zero reference line and y-axis labels to cumulative phase graph in ZXCalculusViz Spider Chain tab | ZXCalculusViz.jsx |

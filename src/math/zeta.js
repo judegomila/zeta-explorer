@@ -36,11 +36,13 @@ export function cExp(a) {
 }
 
 export function cLog(a) {
-  return [Math.log(cAbs(a)), Math.atan2(a[1], a[0])];
+  const r = cAbs(a);
+  if (r < 1e-300) return [-690, Math.atan2(a[1], a[0])]; // log(1e-300) ≈ -690, avoid -Infinity
+  return [Math.log(r), Math.atan2(a[1], a[0])];
 }
 
 export function cPow(base, exp) {
-  if (base[0] === 0 && base[1] === 0) return [0, 0];
+  if (cAbs(base) < 1e-300) return [0, 0];
   return cExp(cMul(exp, cLog(base)));
 }
 

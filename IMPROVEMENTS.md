@@ -623,3 +623,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 662 | 2026-03-11T21:00:00Z | Fix wrong sign of ladder rung phase in twin-ladder: used +mT·log(p) instead of −mT·log(p) | twin-ladder.js |
 | 663 | 2026-03-11T22:00:00Z | Add hover crosshair and value readout to Thermodynamics tab in SupercriticalViz | SupercriticalViz.jsx |
 | 664 | 2026-03-11T23:00:00Z | Memoize heatFlowZeros and heatFlowScan in HeatFlowTab to avoid recomputing on resize | SupercriticalViz.jsx |
+| 665 | 2026-03-12T00:15:00Z | Guard cLog and cPow against near-zero magnitudes that produce -Infinity/NaN | zeta.js |

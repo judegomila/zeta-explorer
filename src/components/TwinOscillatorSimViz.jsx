@@ -530,7 +530,7 @@ function GradientDescentTab() {
           <span className="control-value">{learningRate.toFixed(3)}</span>
         </div>
         <div className="control-group">
-          <label>t</label>
+          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => { setTValue(+e.target.value); handleReset(); }} disabled={isRunning} />
           <span className="control-value">{tValue.toFixed(1)}</span>

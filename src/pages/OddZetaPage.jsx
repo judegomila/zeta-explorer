@@ -114,6 +114,38 @@ export default function OddZetaPage() {
       {/* ─── Visualization ─── */}
       <OddZetaViz />
 
+      <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
+        <h3 style={{ color: '#06b6d4' }}>What to Explore in Each Tab</h3>
+        <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          <strong style={{ color: '#3b82f6' }}>Values & Convergence</strong> shows how the Euler product partial
+          products build up <InlineMath tex={"\\zeta(n)"} /> prime by prime. Watch how odd values (3, 5, 7, ...)
+          converge more slowly than even values — each prime's contribution <InlineMath tex={"(1 - p^{-n})^{-1}"} /> is
+          closer to 1 for larger <InlineMath tex={"n"} />, so small primes dominate. Try increasing the prime count
+          and notice how the partial product locks in quickly for <InlineMath tex={"\\zeta(7)"} /> but takes longer
+          for <InlineMath tex={"\\zeta(3)"} />.
+          <strong style={{ color: '#10b981' }}> Apery Sequences</strong> plots the rational approximants{' '}
+          <InlineMath tex={"a_n / b_n"} /> from Apery's recurrence, showing their exponential convergence
+          to <InlineMath tex={"\\zeta(3)"} /> at rate <InlineMath tex={"(1 + \\sqrt{2})^{-4n}"} />. The log-error
+          plot reveals the constant convergence rate — a straight line on the log scale confirms the
+          geometric nature of the approximation.
+          <strong style={{ color: '#f59e0b' }}> Transfer Function</strong> visualizes{' '}
+          <InlineMath tex={"|H_p(s)| = |1 - p^{-s}|^{-1}"} /> for individual prime stages at real integer
+          arguments. Compare how the transfer function magnitude changes between even and odd{' '}
+          <InlineMath tex={"s"} /> — at even integers the dual ladder provides <InlineMath tex={"\\pi"} />-dependent
+          information, while at odd integers the dual maps to a trivial zero.
+          <strong style={{ color: '#8b5cf6' }}> Linear Independence</strong> tests whether{' '}
+          <InlineMath tex={"1, \\zeta(3), \\zeta(5), \\ldots, \\zeta(2k+1)"} /> are linearly independent
+          over <InlineMath tex={"\\mathbb{Q}"} /> by searching for small integer relations. Watch the minimum
+          relation norm grow as you add more values — growth indicates independence.
+          <strong style={{ color: '#ef4444' }}> Irrationality Measure</strong> estimates{' '}
+          <InlineMath tex={"\\mu(\\zeta(n))"} /> by finding the best rational approximations{' '}
+          <InlineMath tex={"p/q"} /> and plotting <InlineMath tex={"\\log|\\zeta(n) - p/q|"} /> vs{' '}
+          <InlineMath tex={"\\log q"} />. The slope gives the irrationality exponent — compare against the
+          known bound <InlineMath tex={"\\mu(\\zeta(3)) \\leq 5.51"} /> and the generic expectation{' '}
+          <InlineMath tex={"\\mu = 2"} />.
+        </p>
+      </div>
+
       {/* ─── Ball-Rivoal Theorem Context ─── */}
       <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #10b981' }}>
         <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: '#10b981' }}>

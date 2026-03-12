@@ -605,3 +605,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 644 | 2026-03-11T19:00:00Z | Replace O(n) linear scan with O(log n) binary search in FourierDomainViz hover handler | FourierDomainViz.jsx |
 | 645 | 2026-03-11T20:30:00Z | Fix pair correlation histogram normalization inflated by spurious factor of 2 | GUEStatisticsViz.jsx |
 | 646 | 2026-03-11T21:00:00Z | Fix ScatteringMatrixViz reflection coefficient always non-negative after Math.abs fix | ScatteringMatrixViz.jsx |
+| 647 | 2026-03-11T22:00:00Z | Add PNT expected average gap ~log(p) trend line to Prime Gaps chart | PrimeGapCouplingViz.jsx |

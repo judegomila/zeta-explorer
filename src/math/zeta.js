@@ -49,12 +49,18 @@ export function cPow(base, exp) {
  * zeta(s) = sum_{n=1}^{N} 1/n^s
  */
 export function zetaDirichlet(s, N = 1000) {
-  let result = [0, 0];
+  // Fast path: n^{-s} = n^{-σ} · e^{-it·log(n)} for real positive base n
+  // Avoids cPow's generic cLog (atan2+sqrt) → cMul → cExp per term
+  let re = 0, im = 0;
+  const sigma = s[0], t = s[1];
   for (let n = 1; n <= N; n++) {
-    const term = cPow([n, 0], [-s[0], -s[1]]);
-    result = cAdd(result, term);
+    const logN = Math.log(n);
+    const mag = Math.exp(-sigma * logN);  // n^{-σ}
+    const phase = -t * logN;              // -t·log(n)
+    re += mag * Math.cos(phase);
+    im += mag * Math.sin(phase);
   }
-  return result;
+  return [re, im];
 }
 
 /**
@@ -65,8 +71,14 @@ export function zetaEulerProduct(s, numPrimes = 100) {
   const primes = getPrimes(numPrimes);
   let result = [1, 0];
   for (const p of primes) {
-    const pMinusS = cPow([p, 0], [-s[0], -s[1]]);
-    const factor = cSub([1, 0], pMinusS);
+    // Fast path: p^{-s} = p^{-σ} · e^{-it·log(p)} for real positive base p
+    // Avoids cPow's generic cLog (atan2+sqrt) → cMul → cExp per prime
+    const logP = Math.log(p);
+    const mag = Math.exp(-s[0] * logP);
+    const phase = -s[1] * logP;
+    const pmsRe = mag * Math.cos(phase);
+    const pmsIm = mag * Math.sin(phase);
+    const factor = [1 - pmsRe, -pmsIm];
     result = cDiv(result, factor);
   }
   return result;

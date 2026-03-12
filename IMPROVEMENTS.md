@@ -589,3 +589,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 628 | 2026-03-11T13:15:00Z | Add "(up to p=X)" label to Primes slider in InfoTheoryExperimentsViz for consistency | InfoTheoryExperimentsViz.jsx |
 | 629 | 2026-03-11T13:20:00Z | Fix lempelZivComplexity always returning 1 due to empty-prefix search at i=0 | odd-zeta.js |
 | 630 | 2026-03-11T13:25:00Z | Fix spectralGapAnalysis to use GUE statistics instead of GOE for Wigner surmise CDF and variance | gap-closing.js |
+| 631 | 2026-03-11T13:30:00Z | Use fast real-base exponentiation in zetaDirichlet and zetaEulerProduct instead of generic cPow | zeta.js |

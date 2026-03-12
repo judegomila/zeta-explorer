@@ -592,3 +592,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 631 | 2026-03-11T13:30:00Z | Use fast real-base exponentiation in zetaDirichlet and zetaEulerProduct instead of generic cPow | zeta.js |
 | 632 | 2026-03-11T13:35:00Z | Add σ = ½ label to critical line in all three ScatteringMatrixViz modes | ScatteringMatrixViz.jsx |
 | 633 | 2026-03-11T13:40:00Z | Add functional equation explainer card to ZetaPage with symmetric/asymmetric forms and bridge interpretation | ZetaPage.jsx |
+| 634 | 2026-03-11T13:45:00Z | Add status label and tooltip to σ slider in NyquistBodeViz for critical line proximity | NyquistBodeViz.jsx |

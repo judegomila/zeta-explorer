@@ -5,6 +5,7 @@ import {
   linearIndependenceTest, irrationalityMeasure, oddZetaDecay,
   eulerProductTrace, transferFunctionDecayComparison,
 } from '../math/odd-zeta.js';
+import { getPrimes } from '../math/primes.js';
 
 const TABS = ['Values & Convergence', 'Apery Sequences', 'Transfer Function', 'Linear Independence', 'Irrationality Measure'];
 const TAB_COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444'];
@@ -1170,7 +1171,7 @@ export default function OddZetaViz() {
           <label>Primes</label>
           <input type="range" min="5" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         {activeTab === 3 && (
           <div className="control-group">

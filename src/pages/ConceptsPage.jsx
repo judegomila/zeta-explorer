@@ -215,9 +215,9 @@ const CONCEPTS = [
     category: 'physics',
     term: 'Scattering Matrix',
     symbol: '\\mathbf{S}',
-    definition: 'Relates incident and reflected waves at a network port. The bridge scattering matrix encodes the functional equation.',
-    formula: 'S_{21} = \\frac{1}{1 - p^{-s}}, \\quad |S_{11}|^2 + |S_{21}|^2 = 1 \\text{ (on critical line)}',
-    intuition: 'How much signal passes through vs. bounces back at each oscillator stage.',
+    definition: 'Relates incident and reflected waves at a network port. The bridge scattering matrix encodes the functional equation, with transmission coefficient S₂₁ = χ(s).',
+    formula: 'S_{21} = \\chi(s), \\quad |\\chi(\\tfrac{1}{2}+it)| = 1 \\;\\Rightarrow\\; |S_{11}|^2 + |S_{21}|^2 = 1 \\text{ (on critical line)}',
+    intuition: 'How much signal the bridge transmits (χ) vs. reflects — lossless at σ = ½, lossy elsewhere.',
   },
   {
     id: 'hamiltonian',

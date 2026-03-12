@@ -600,3 +600,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 639 | 2026-03-11T14:10:00Z | Memoize eigenvalue/zero y-bounds in HilbertPolyaTab to avoid flatMap on every resize | GapClosingViz.jsx |
 | 640 | 2026-03-12T00:15:00Z | Remove spurious −π²/8 constant from GUE number variance reference curve formula | GUEStatisticsViz.jsx |
 | 641 | 2026-03-11T14:20:00Z | Add L_p and C_p values to OscillatorChainViz selected-stage detail card | OscillatorChainViz.jsx |
+| 642 | 2026-03-11T17:30:00Z | Add σ = ½ label on heatmap critical line overlay in ZetaLandscapeViz | ZetaLandscapeViz.jsx |

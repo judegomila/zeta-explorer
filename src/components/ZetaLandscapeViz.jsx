@@ -309,6 +309,17 @@ export default function ZetaLandscapeViz() {
     ctx.beginPath(); ctx.moveTo(critX, 0); ctx.lineTo(critX, dh); ctx.stroke();
     ctx.setLineDash([]);
 
+    // Critical line label
+    ctx.save();
+    ctx.translate(critX + 10, 48);
+    ctx.fillStyle = 'rgba(17,24,39,0.7)';
+    ctx.fillRect(-2, -10, 36, 14);
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.font = '600 10px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('σ = ½', 0, 0);
+    ctx.restore();
+
     // Mark zeros
     for (const gamma of ZETA_ZEROS) {
       if (gamma >= tMin && gamma <= tMax) {

@@ -139,6 +139,10 @@ function PerPrimeTab() {
 
     // Legend
     const legend = svg.append('g').attr('transform', `translate(${width - 125}, ${margin.top + 5})`);
+    legend.append('rect')
+      .attr('x', -8).attr('y', -10)
+      .attr('width', 90).attr('height', curves.length * 17 + 8)
+      .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
     curves.forEach((c, i) => {
       const color = PRIME_COLORS[i % PRIME_COLORS.length];
       legend.append('line').attr('x1', 0).attr('y1', i * 17).attr('x2', 16).attr('y2', i * 17)

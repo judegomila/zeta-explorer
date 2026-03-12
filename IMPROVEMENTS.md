@@ -641,3 +641,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 680 | 2026-03-11T23:30:00Z | Add γ_max and largest-prime hints to sliders in RHAttackViz | RHAttackViz.jsx |
 | 681 | 2026-03-12T03:00:00Z | Memoize Z(t) values in ZetaLandscapeViz critical-line mode to avoid recomputing on resize | ZetaLandscapeViz.jsx |
 | 682 | 2026-03-12T04:00:00Z | Add tab-by-tab exploration guide card to OddZetaPage for all five OddZetaViz tabs | OddZetaPage.jsx |
+| 683 | 2026-03-12T05:00:00Z | Add background box to Per-Prime Energy tab legend in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |

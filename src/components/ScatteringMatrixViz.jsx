@@ -376,7 +376,7 @@ export default function ScatteringMatrixViz() {
             σ={hoverPoint.sigma.toFixed(3)} |
             {mode === 'magnitude' && <> |χ|={hoverPoint.chiMag.toFixed(4)} | Γ={hoverPoint.reflection.toFixed(4)}</>}
             {mode === 'reflection' && <> Γ={hoverPoint.reflection.toFixed(4)} | |χ|={hoverPoint.chiMag.toFixed(4)}</>}
-            {mode === 'phase' && <> arg(χ)={(hoverPoint.chiPhase * 180 / Math.PI).toFixed(1)}°</>}
+            {mode === 'phase' && <> arg(χ)={(hoverPoint.chiPhase * 180 / Math.PI).toFixed(1)}° | |χ|={hoverPoint.chiMag.toFixed(4)}</>}
           </div>
         ) : (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', fontStyle: 'italic' }}>

@@ -72,6 +72,24 @@ export default function ZetaLandscapeViz() {
   const [sigmaRange] = useState([0.05, 0.95]);
   const [hoverInfo, setHoverInfo] = useState(null);
 
+  // Memoize Z(t) values so resize events skip 600 riemannSiegelZ evaluations
+  const CL_STEPS = 600;
+  const clData = useMemo(() => {
+    const tMin = tRange[0];
+    const tMax = tRange[1];
+    const dt = (tMax - tMin) / CL_STEPS;
+    const values = [];
+    let maxAbs = 1;
+    for (let i = 0; i <= CL_STEPS; i++) {
+      const t = tMin + i * dt;
+      const z = t > 2 ? riemannSiegelZ(t) : 0;
+      values.push({ t, z });
+      const a = Math.abs(z);
+      if (a > maxAbs) maxAbs = a;
+    }
+    return { values, maxAbs };
+  }, [tRange]);
+
   const drawCriticalLine = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -88,19 +106,9 @@ export default function ZetaLandscapeViz() {
 
     const tMin = tRange[0];
     const tMax = tRange[1];
-    const steps = Math.min(dw, 600);
-    const dt = (tMax - tMin) / steps;
-
-    // Compute Z(t) values
-    const values = [];
-    for (let i = 0; i <= steps; i++) {
-      const t = tMin + i * dt;
-      const z = t > 2 ? riemannSiegelZ(t) : 0;
-      values.push({ t, z });
-    }
+    const { values, maxAbs } = clData;
+    const steps = values.length - 1;
     clValuesRef.current = values;
-
-    const maxAbs = Math.max(1, ...values.map(v => Math.abs(v.z)));
     const xScale = dw / steps;
     const yMid = dh / 2;
     const yScale = (dh / 2 - 20) / maxAbs;
@@ -258,7 +266,7 @@ export default function ZetaLandscapeViz() {
     ctx.fillStyle = '#94a3b8';
     ctx.fillText('ζ zeros (γₙ)', legendX + 34, legendY + 54);
 
-  }, [tRange]);
+  }, [tRange, clData]);
 
   // Memoize the 100×100 heatmap grid (10,000 zetaCriticalStrip evaluations)
   // so resize events only repaint the canvas with cached data

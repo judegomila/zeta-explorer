@@ -483,6 +483,38 @@ function SMatrixTab() {
       }
     });
 
+    // Y-axis tick labels
+    ctx.fillStyle = '#64748b';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'right';
+    const yTicks = 5;
+    for (let i = 0; i <= yTicks; i++) {
+      const val = (i / yTicks) * maxMag;
+      const y = h - margin.bottom - (val / maxMag) * plotH * 0.8;
+      ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
+      if (i > 0) {
+        ctx.beginPath();
+        ctx.setLineDash([3, 3]);
+        ctx.moveTo(margin.left, y);
+        ctx.lineTo(w - margin.right, y);
+        ctx.strokeStyle = '#1e293b';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    }
+
+    // Axis labels
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('t (imaginary part)', w / 2, h - 4);
+    ctx.save();
+    ctx.translate(12, h / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText('Magnitude', 0, 0);
+    ctx.restore();
+
     // Legend
     ctx.fillStyle = '#3b82f6';
     ctx.fillRect(margin.left + 8, margin.top + 4, 12, 8);

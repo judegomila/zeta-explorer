@@ -348,7 +348,7 @@ const CONCEPTS = [
     category: 'thermo',
     term: 'Specific Heat & Zeros',
     symbol: 'C_v',
-    definition: 'The specific heat C_v = -β² ∂²F/∂β² measures energy fluctuations. Near zeta zeros, C_v diverges (the system becomes infinitely sensitive to temperature changes).',
+    definition: 'The specific heat C_v = β² ∂²(log Z)/∂β² measures energy fluctuations (variance of the energy). Near zeta zeros, C_v diverges (the system becomes infinitely sensitive to temperature changes).',
     formula: 'C_v(\\sigma, t) = \\sigma^2 \\frac{\\partial^2}{\\partial \\sigma^2} \\left[\\sigma \\cdot F(\\sigma,t)\\right]',
     intuition: 'Zeta zeros are "thermodynamic singularities" where the specific heat blows up — like critical points in real physical systems.',
   },

@@ -586,3 +586,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 625 | 2026-03-11T13:00:00Z | Add missing rotated y-axis labels to both AperyTab charts in OddZetaViz | OddZetaViz.jsx |
 | 626 | 2026-03-11T13:05:00Z | Add "(up to p=X)" label to Primes slider in GapClosingViz for consistency with other components | GapClosingViz.jsx |
 | 627 | 2026-03-11T13:10:00Z | Add missing rotated y-axis label to PressureTemperatureTab bottom chart in TwinLadderViz | TwinLadderViz.jsx |
+| 628 | 2026-03-11T13:15:00Z | Add "(up to p=X)" label to Primes slider in InfoTheoryExperimentsViz for consistency | InfoTheoryExperimentsViz.jsx |

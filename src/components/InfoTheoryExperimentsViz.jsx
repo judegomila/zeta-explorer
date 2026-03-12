@@ -868,7 +868,7 @@ export default function InfoTheoryExperimentsViz() {
           <label>Primes</label>
           <input type="range" min="3" max="20" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <button
           onClick={() => setSigma(0.5)}

@@ -185,6 +185,34 @@ export default function EulerProductViz() {
         .text(`True |ζ| = ${trueZeta.toFixed(4)}`);
     }
 
+    // Legend box
+    const legend = svg.append('g').attr('transform', `translate(${margin.left + 10}, ${margin.top + 8})`);
+    const legendItems = [
+      { label: 'Cumulative |ζ|', color: '#3b82f6', type: 'line' },
+      { label: 'arg(ζ) phase', color: '#8b5cf6', type: 'line' },
+      { label: 'True |ζ| (Borwein)', color: '#10b981', type: 'dash' },
+      { label: '|factor| > 1', color: 'rgba(59,130,246,0.6)', type: 'rect' },
+      { label: '|factor| < 1', color: 'rgba(245,158,11,0.6)', type: 'rect' },
+    ];
+    legend.append('rect')
+      .attr('x', -6).attr('y', -10).attr('width', 150).attr('height', legendItems.length * 18 + 8)
+      .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+    legendItems.forEach(({ label, color, type }, i) => {
+      const ly = i * 18;
+      if (type === 'line') {
+        legend.append('line').attr('x1', 0).attr('y1', ly).attr('x2', 16).attr('y2', ly)
+          .attr('stroke', color).attr('stroke-width', 2);
+      } else if (type === 'dash') {
+        legend.append('line').attr('x1', 0).attr('y1', ly).attr('x2', 16).attr('y2', ly)
+          .attr('stroke', color).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
+      } else {
+        legend.append('rect').attr('x', 2).attr('y', ly - 5).attr('width', 12).attr('height', 10)
+          .attr('rx', 1).attr('fill', color);
+      }
+      legend.append('text').attr('x', 22).attr('y', ly + 4)
+        .attr('fill', '#94a3b8').attr('font-size', 10).text(label);
+    });
+
     // Final value
     const finalMag = data.length > 0 ? cAbs(data[data.length - 1].cumulative) : 0;
     svg.append('text')

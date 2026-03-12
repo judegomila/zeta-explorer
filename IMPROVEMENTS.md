@@ -580,3 +580,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 619 | 2026-03-11T12:30:00Z | Fix Phase Rates tooltip showing Z₀ (impedance) instead of ω (frequency) in PrimeGapCouplingViz | PrimeGapCouplingViz.jsx |
 | 620 | 2026-03-11T12:35:00Z | Fix misattribution of 10^13 zero verification to Platt instead of Gourdon in proof checker | FormalProofPage.jsx, formal-proof.js |
 | 621 | 2026-03-11T12:40:00Z | Add missing y-axis tick labels, gridlines, and axis labels to S-Matrix tab in RHAttackViz | RHAttackViz.jsx |
+| 622 | 2026-03-11T12:45:00Z | Add legend box to EulerProductViz identifying magnitude curve, phase curve, reference line, and factor bars | EulerProductViz.jsx |

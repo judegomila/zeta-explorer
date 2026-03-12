@@ -367,7 +367,7 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
     ctx.fillText(`Reverse: ${(revStrength * 100).toFixed(0)}%`, 34, lgY + 18);
 
     ctx.fillStyle = '#64748b';
-    ctx.fillText(`T = ${((1 - reflPower) * 100).toFixed(1)}%`, W * 0.38, lgY + 18);
+    ctx.fillText(`T² = ${((1 - reflPower) * 100).toFixed(1)}%`, W * 0.38, lgY + 18);
 
     ctx.font = '10px JetBrains Mono, monospace';
     ctx.textAlign = 'right';

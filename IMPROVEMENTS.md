@@ -630,3 +630,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 669 | 2026-03-11T12:00:00Z | Track phase min/max inline during unwrap loop instead of spreading array twice in FourierDomainViz | FourierDomainViz.jsx |
 | 670 | 2026-03-12T02:00:00Z | Add largest-prime hint to Primes slider in OddZetaViz | OddZetaViz.jsx |
 | 671 | 2026-03-11T12:30:00Z | Fix Ladder Freezing legend: use dashed line for proxy and add background box | TwinLadderViz.jsx |
+| 672 | 2026-03-11T16:00:00Z | Fix transmission coefficient label from T to T² for consistency with Γ² in WaveSimViz | WaveSimViz.jsx |

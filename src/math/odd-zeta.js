@@ -768,8 +768,11 @@ function lempelZivComplexity(seq) {
   let i = 1;
   while (i < s.length) {
     let len = 1;
-    // Search for longest match in the history s[0..i-1]
-    while (i + len <= s.length && s.substring(0, i).indexOf(s.substring(i, i + len)) === -1) {
+    // Find the longest prefix of s[i..] that appears in history s[0..i-1].
+    // Extend len while the substring IS found (!== -1); stop when it's NOT found.
+    // Then len is the first non-match length, so the longest match has length len-1.
+    // New phrase = longest match (len-1) + one new character = length len.
+    while (i + len <= s.length && s.substring(0, i).indexOf(s.substring(i, i + len)) !== -1) {
       len++;
     }
     complexity++;

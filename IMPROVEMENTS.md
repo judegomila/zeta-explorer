@@ -636,3 +636,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 675 | 2026-03-11T19:00:00Z | Add background box to Hilbert-Polya tab legend in GapClosingViz | GapClosingViz.jsx |
 | 676 | 2026-03-11T20:00:00Z | Memoize log-magnitude arrays in RegularizationTab to avoid recomputing on resize | GapClosingViz.jsx |
 | 677 | 2026-03-11T21:30:00Z | Fix heatmap hover tooltip clamped at log(1+|ζ|)=4.000 for large zeta magnitudes | ZetaLandscapeViz.jsx |
+| 678 | 2026-03-11T22:00:00Z | Fix wrong sign in impulse response phase formula: +arg ρ should be −arg ρ | PaperPage.jsx |

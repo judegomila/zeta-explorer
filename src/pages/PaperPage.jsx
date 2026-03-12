@@ -353,7 +353,7 @@ export default function PaperPage() {
           In the oscillator chain, this is the <em>impulse response</em>. Each zero <InlineMath tex="\\rho" /> contributes
           an oscillatory term:
         </P>
-        <BlockMath tex="\\frac{x^{\\rho}}{\\rho} = \\frac{x^{\\beta}}{|\\rho|} e^{i(\\gamma \\log x + \\arg \\rho)}" />
+        <BlockMath tex="\\frac{x^{\\rho}}{\\rho} = \\frac{x^{\\beta}}{|\\rho|} e^{i(\\gamma \\log x - \\arg \\rho)}" />
         <P>
           The frequency of oscillation is <InlineMath tex="\\gamma = \\operatorname{Im}(\\rho)" />, the decay rate is controlled
           by <InlineMath tex="\\beta = \\operatorname{Re}(\\rho)" />. If RH holds (<InlineMath tex="\\beta = \\tfrac{1}{2}" /> for all <InlineMath tex="\\rho" />),

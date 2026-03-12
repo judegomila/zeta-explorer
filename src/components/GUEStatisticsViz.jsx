@@ -167,6 +167,9 @@ export default function GUEStatisticsViz() {
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 200}, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -14).attr('width', 208).attr('height', 88)
+        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       // Zeta zeros: filled rect swatch matching histogram bars
       legend.append('rect').attr('x', 2).attr('y', -6).attr('width', 18).attr('height', 12)
         .attr('rx', 1).attr('fill', 'rgba(59,130,246,0.4)').attr('stroke', '#3b82f6').attr('stroke-width', 0.5);
@@ -243,6 +246,9 @@ export default function GUEStatisticsViz() {
         .text('R₂ = 1 (uncorrelated)');
 
       const legend = g.append('g').attr('transform', `translate(${w - 220}, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -14).attr('width', 220).attr('height', 68)
+        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       legend.append('rect').attr('x', 2).attr('y', -6).attr('width', 18).attr('height', 12)
         .attr('rx', 1).attr('fill', 'rgba(139,92,246,0.4)').attr('stroke', '#8b5cf6').attr('stroke-width', 0.5);
       legend.append('text').attr('x', 28).attr('y', 4)
@@ -312,6 +318,9 @@ export default function GUEStatisticsViz() {
         .attr('stroke', '#64748b').attr('stroke-dasharray', '6,4').attr('stroke-width', 1.5);
 
       const legend = g.append('g').attr('transform', `translate(20, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -14).attr('width', 160).attr('height', 68)
+        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       [
         { label: 'Zeta zeros', color: '#3b82f6', dash: '', dots: true },
         { label: 'GUE prediction', color: '#ef4444', dash: '', dots: false },

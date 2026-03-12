@@ -584,3 +584,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 623 | 2026-03-11T12:50:00Z | Add |χ| magnitude to Phase mode hover tooltip in ScatteringMatrixViz for cross-mode visibility | ScatteringMatrixViz.jsx |
 | 624 | 2026-03-11T12:55:00Z | Memoize nearest-zero lookup in three SupercriticalViz tabs to avoid per-render IIFE loops | SupercriticalViz.jsx |
 | 625 | 2026-03-11T13:00:00Z | Add missing rotated y-axis labels to both AperyTab charts in OddZetaViz | OddZetaViz.jsx |
+| 626 | 2026-03-11T13:05:00Z | Add "(up to p=X)" label to Primes slider in GapClosingViz for consistency with other components | GapClosingViz.jsx |

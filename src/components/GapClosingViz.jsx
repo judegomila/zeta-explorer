@@ -6,6 +6,7 @@ import {
   darlingtonSMatrix, darlingtonScan, darlingtonRealizability,
   confinementScan, gapClosingReport,
 } from '../math/gap-closing.js';
+import { getPrimes } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
 const TABS = ['Regularization', 'Hilbert-Polya', 'Darlington', 'Confinement'];
@@ -964,7 +965,7 @@ export default function GapClosingViz() {
           <label>Primes</label>
           <input type="range" min="4" max="20" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>

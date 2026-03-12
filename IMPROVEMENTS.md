@@ -595,3 +595,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 634 | 2026-03-11T13:45:00Z | Add status label and tooltip to σ slider in NyquistBodeViz for critical line proximity | NyquistBodeViz.jsx |
 | 635 | 2026-03-11T13:50:00Z | Remove spurious Math.abs from reflection coefficient formula, allowing signed Γ | oscillators.js, ScatteringMatrixViz.jsx |
 | 636 | 2026-03-11T13:55:00Z | Fix von Mangoldt spectrum explainer claiming truncated DFT "equals" −ζ'/ζ on critical line | FourierDomainViz.jsx |
+| 637 | 2026-03-11T14:00:00Z | Add Reset button to AnimatedModesViz to restart animation from t=0 | AnimatedModesViz.jsx |

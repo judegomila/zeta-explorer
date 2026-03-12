@@ -319,6 +319,17 @@ export default function AnimatedModesViz() {
         >
           {isPlaying ? 'Pause' : 'Play'}
         </button>
+        <button
+          onClick={() => { elapsedRef.current = 0; if (!isPlaying) draw(0); }}
+          title="Reset animation to t = 0"
+          style={{
+            padding: '6px 16px', borderRadius: 6, border: '1px solid var(--border)',
+            background: 'rgba(100,116,139,0.15)',
+            color: '#94a3b8', cursor: 'pointer', fontSize: 13, marginLeft: 4,
+          }}
+        >
+          Reset
+        </button>
         <span style={{ color: '#475569', fontSize: 10, marginLeft: 6, fontFamily: 'var(--font-mono)' }}>
           <kbd style={{ padding: '1px 5px', borderRadius: 3, border: '1px solid #334155', background: '#1e293b', fontSize: 10 }}>Space</kbd>
         </span>

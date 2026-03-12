@@ -185,8 +185,13 @@ export default function LiCriterionViz() {
         .text('Keiper-Li: λₙ/n vs n (should approach ½(log(n/2π) + γ − 1))');
 
       const legend = g.append('g').attr('transform', `translate(${w - 200}, ${h - 50})`);
+      legend.append('rect')
+        .attr('x', -6).attr('y', -10).attr('width', 196).attr('height', 42)
+        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       legend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 22).attr('y2', 0)
         .attr('stroke', '#8b5cf6').attr('stroke-width', 2);
+      legend.append('circle').attr('cx', 11).attr('cy', 0).attr('r', 3)
+        .attr('fill', '#8b5cf6').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
       legend.append('text').attr('x', 28).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 11)
         .text('λₙ/n (data)');
       legend.append('line').attr('x1', 0).attr('y1', 20).attr('x2', 22).attr('y2', 20)

@@ -637,3 +637,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 676 | 2026-03-11T20:00:00Z | Memoize log-magnitude arrays in RegularizationTab to avoid recomputing on resize | GapClosingViz.jsx |
 | 677 | 2026-03-11T21:30:00Z | Fix heatmap hover tooltip clamped at log(1+|ζ|)=4.000 for large zeta magnitudes | ZetaLandscapeViz.jsx |
 | 678 | 2026-03-11T22:00:00Z | Fix wrong sign in impulse response phase formula: +arg ρ should be −arg ρ | PaperPage.jsx |
+| 679 | 2026-03-11T23:00:00Z | Add background box and circle marker to Keiper-Li tab legend in LiCriterionViz | LiCriterionViz.jsx |

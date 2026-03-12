@@ -217,6 +217,42 @@ export default function ZetaPage() {
         </div>
       </div>
 
+      {/* Lehmer Phenomenon */}
+      <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #f97316' }}>
+        <h3 style={{ color: '#f97316' }}>The Lehmer Phenomenon: When Zeros Nearly Collide</h3>
+        <p style={{ marginTop: 8, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          Occasionally, <InlineMath tex={"Z(t)"} /> dips very close to zero without actually changing sign,
+          then quickly crosses zero twice in rapid succession. This is the <strong>Lehmer phenomenon</strong>,
+          named after D.H. Lehmer who first observed it near <InlineMath tex={"t \\approx 7005"} />.
+        </p>
+        <BlockMath tex={"Z(7005.06) \\approx -0.0053 \\quad \\text{(barely negative — nearly misses a sign change)}"} />
+        <div className="two-col" style={{ marginTop: 16, gap: 16 }}>
+          <div style={{ padding: 12, background: 'rgba(249,115,22,0.08)', borderRadius: 8 }}>
+            <p style={{ fontSize: 13, color: '#fb923c' }}>
+              <strong>What{"'"}s happening:</strong> Two nearby zeros <InlineMath tex={"\\gamma_n"} /> and{' '}
+              <InlineMath tex={"\\gamma_{n+1}"} /> are so close together that <InlineMath tex={"Z(t)"} />{' '}
+              barely dips to the opposite sign between them. The function grazes the axis rather than
+              making a clean crossing. If it failed to cross entirely, the zero count would be off —
+              but this has never been observed.
+            </p>
+          </div>
+          <div style={{ padding: 12, background: 'rgba(139,92,246,0.08)', borderRadius: 8 }}>
+            <p style={{ fontSize: 13, color: '#a78bfa' }}>
+              <strong>GUE connection:</strong> In random matrix theory, nearby eigenvalues experience
+              {' '}<em>level repulsion</em> — the probability of two eigenvalues being within distance{' '}
+              <InlineMath tex={"s"} /> vanishes as <InlineMath tex={"s^2"} /> for GUE. Lehmer-type
+              events correspond to rare fluctuations where this repulsion is nearly overcome, but
+              the GUE statistics correctly predict their extreme rarity.
+            </p>
+          </div>
+        </div>
+        <p style={{ marginTop: 12, color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
+          Try setting the t-range to include <InlineMath tex={"t \\approx 7005"} /> in the Critical
+          Line chart above to see a Lehmer event: <InlineMath tex={"Z(t)"} /> will show two closely
+          spaced zeros with an unusually shallow dip between them.
+        </p>
+      </div>
+
       {/* The Eta Relation and Regularization */}
       <div className="card" style={{ marginTop: 32, borderColor: '#10b981' }}>
         <h3 style={{ color: '#10b981' }}>The Eta Relation and Regularization</h3>

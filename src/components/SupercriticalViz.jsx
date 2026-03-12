@@ -587,6 +587,11 @@ function HeatFlowTab() {
   const [tau, setTau] = useState(0);
   const [numZeros, setNumZeros] = useState(25);
 
+  // Memoize expensive heat flow computations so window resize only re-renders D3
+  // heatFlowZeros is O(numZeros²) and heatFlowScan calls riemannSiegelZ up to 5,050 times for τ > 0
+  const evolved = useMemo(() => heatFlowZeros(tau, numZeros), [tau, numZeros]);
+  const scanData = useMemo(() => heatFlowScan(tau, [10, 50], 100), [tau]);
+
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
@@ -603,7 +608,7 @@ function HeatFlowTab() {
     // ── Top: Zero positions under heat flow ──
     {
       const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
-      const evolved = heatFlowZeros(tau, numZeros);
+      // evolved is pre-computed via useMemo above
 
       const xMax = evolved.length > 0 ? Math.max(155, d3.max(evolved, d => d.gamma) * 1.1) : 155;
       const x = d3.scaleLinear().domain([0, xMax]).range([0, w]);
@@ -663,7 +668,7 @@ function HeatFlowTab() {
       const yOff = margin.top + topH + gap + 15;
       const g = svg.append('g').attr('transform', `translate(${margin.left},${yOff})`);
 
-      const scanData = heatFlowScan(tau, [10, 50], 100);
+      // scanData is pre-computed via useMemo above
       const x = d3.scaleLinear().domain([10, 50]).range([0, w]);
       const yMax = d3.max(scanData, d => Math.abs(d.value)) * 1.1 || 1;
       const y = d3.scaleLinear().domain([-yMax, yMax]).range([botH, 0]);
@@ -709,7 +714,7 @@ function HeatFlowTab() {
         .text('Hτ(t)');
     }
 
-  }, [tau, numZeros]);
+  }, [tau, evolved, scanData]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

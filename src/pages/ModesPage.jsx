@@ -147,10 +147,12 @@ export default function ModesPage() {
         <BlockMath tex={"\\psi(x) = x - \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho} + O(1)"} />
         <p style={{ marginTop: 8, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
           The total mode response — the superposition of all oscillator outputs — reconstructs
-          the Chebyshev function <InlineMath tex={"\\psi(x)"} /> exactly. Each mode is a resonance with
-          quality factor <InlineMath tex={"Q_n = \\gamma_n / (2\\sigma)"} />, and the sum over all modes is
-          the explicit formula. The oscillator chain does not approximate the explicit formula;
-          it <strong>implements</strong> it.
+          the Chebyshev function <InlineMath tex={"\\psi(x)"} /> exactly. Each zero mode oscillates at
+          frequency <InlineMath tex={"\\gamma_n"} /> with decay envelope <InlineMath tex={"x^\\sigma"} />, and the sum over all
+          modes is the explicit formula. The oscillator chain does not approximate the explicit
+          formula; it <strong>implements</strong> it. (Note: the per-prime Q-factor <InlineMath tex={"Q = 1/(2\\sigma)"} /> discussed
+          below measures Euler factor sharpness at a fixed <InlineMath tex={"\\sigma"} />, not the
+          individual zero-mode resonance <InlineMath tex={"\\gamma_n/(2\\sigma)"} /> which varies per zero.)
         </p>
       </div>
 

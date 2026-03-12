@@ -603,3 +603,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 642 | 2026-03-11T17:30:00Z | Add σ = ½ label on heatmap critical line overlay in ZetaLandscapeViz | ZetaLandscapeViz.jsx |
 | 643 | 2026-03-11T18:00:00Z | Fix reflection coefficient going negative for σ < 0.5 due to missing Math.abs | oscillators.js |
 | 644 | 2026-03-11T19:00:00Z | Replace O(n) linear scan with O(log n) binary search in FourierDomainViz hover handler | FourierDomainViz.jsx |
+| 645 | 2026-03-11T20:30:00Z | Fix pair correlation histogram normalization inflated by spurious factor of 2 | GUEStatisticsViz.jsx |

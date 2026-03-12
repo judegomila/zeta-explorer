@@ -627,3 +627,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 666 | 2026-03-11T23:45:00Z | Add semi-transparent background boxes to all three legends in GUEStatisticsViz | GUEStatisticsViz.jsx |
 | 667 | 2026-03-12T01:00:00Z | Fix AnimatedModesViz explainer omitting log(p) factor from stated amplitude formula | AnimatedModesViz.jsx |
 | 668 | 2026-03-11T07:30:00Z | Add largest-prime hint to Primes slider in InformationTheoryViz | InformationTheoryViz.jsx |
+| 669 | 2026-03-11T12:00:00Z | Track phase min/max inline during unwrap loop instead of spreading array twice in FourierDomainViz | FourierDomainViz.jsx |

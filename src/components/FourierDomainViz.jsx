@@ -309,17 +309,17 @@ function FrequencyResponseTab() {
       // The raw phase from atan2 wraps at ±π, creating false discontinuities
       const unwrappedPhase = [];
       let cumPhase = response[0].phase;
+      let phaseMin = cumPhase, phaseMax = cumPhase;
       unwrappedPhase.push(cumPhase);
       for (let i = 1; i < response.length; i++) {
         let delta = response[i].phase - response[i - 1].phase;
         if (delta > Math.PI) delta -= 2 * Math.PI;
         if (delta < -Math.PI) delta += 2 * Math.PI;
         cumPhase += delta;
+        if (cumPhase < phaseMin) phaseMin = cumPhase;
+        if (cumPhase > phaseMax) phaseMax = cumPhase;
         unwrappedPhase.push(cumPhase);
       }
-
-      const phaseMin = Math.min(...unwrappedPhase);
-      const phaseMax = Math.max(...unwrappedPhase);
       const phaseRange = phaseMax - phaseMin || 1;
       const yLo = phaseMin - phaseRange * 0.05;
       const yHi = phaseMax + phaseRange * 0.05;

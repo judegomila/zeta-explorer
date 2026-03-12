@@ -45,7 +45,7 @@ export default function AnimatedModesViz() {
         p,
         omega,
         logP,
-        amplitude: Math.cos(gamma * logP) / Math.sqrt(p),
+        amplitude: logP * Math.cos(gamma * logP) / Math.sqrt(p),
         hue: 210 + omega * 15,
       };
     });

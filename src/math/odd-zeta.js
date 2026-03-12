@@ -760,13 +760,15 @@ export function kolmogorovComplexityEstimate(n, bits = 200) {
   };
 }
 
-// Lempel-Ziv complexity: count the number of distinct factors in sequential parsing
+// Lempel-Ziv complexity (LZ76): count distinct factors in sequential parsing
 function lempelZivComplexity(seq) {
   const s = seq.join('');
-  let complexity = 0;
-  let i = 0;
+  if (s.length === 0) return 0;
+  let complexity = 1; // first character is always a new phrase
+  let i = 1;
   while (i < s.length) {
     let len = 1;
+    // Search for longest match in the history s[0..i-1]
     while (i + len <= s.length && s.substring(0, i).indexOf(s.substring(i, i + len)) === -1) {
       len++;
     }

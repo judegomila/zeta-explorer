@@ -913,6 +913,7 @@ export default function TwistorViz() {
               the <InlineMath tex="(\\sigma, t)" /> plane. Dark regions satisfy the incidence relation
               (twistors are null-separated). Green dots mark known zeta zeros on the critical line.
               The incidence locus near <InlineMath tex="\\sigma = 0.5" /> mirrors the zero distribution.
+              <strong> Look for:</strong> a dark vertical band along <InlineMath tex="\\sigma = 0.5" /> where incidence is nearly satisfied; green dots sitting in the darkest pockets where <InlineMath tex="|Z \\cdot W| \\approx 0" />.
             </div>
             <IncidenceRelationTab sigma={sigma} t={t} />
           </>

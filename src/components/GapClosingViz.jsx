@@ -61,7 +61,7 @@ function RegularizationTab({ numPrimes, t }) {
 
     const sigmaMin = data[0].sigma;
     const sigmaMax = data[data.length - 1].sigma;
-    const sigmaRange = sigmaMax - sigmaMin;
+    const sigmaRange = sigmaMax - sigmaMin || 1;
 
     const toX = (sigma) => margin.left + ((sigma - sigmaMin) / sigmaRange) * plotW;
     const toY = (logVal) => margin.top + plotH - ((logVal - yMin) / yRange) * plotH;
@@ -536,7 +536,7 @@ function DarlingtonTab({ numPrimes, t }) {
 
     const sigmaMin = data[0].sigma;
     const sigmaMax = data[data.length - 1].sigma;
-    const sigmaRange = sigmaMax - sigmaMin;
+    const sigmaRange = sigmaMax - sigmaMin || 1;
 
     // Determine y range for S11, S21
     const allMags = data.flatMap(d => [d.S11mag, d.S21mag]);
@@ -769,7 +769,7 @@ function ConfinementTab({ numPrimes, t, report }) {
 
     const sigmaMin = data[0].sigma;
     const sigmaMax = data[data.length - 1].sigma;
-    const sigmaRange = sigmaMax - sigmaMin;
+    const sigmaRange = sigmaMax - sigmaMin || 1;
 
     // Gather all potential values and component values
     const potentials = data.map(d => d.potential);

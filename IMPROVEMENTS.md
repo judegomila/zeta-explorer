@@ -643,3 +643,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 682 | 2026-03-12T04:00:00Z | Add tab-by-tab exploration guide card to OddZetaPage for all five OddZetaViz tabs | OddZetaPage.jsx |
 | 683 | 2026-03-12T05:00:00Z | Add background box to Per-Prime Energy tab legend in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
 | 684 | 2026-03-12T06:00:00Z | Fix division-by-zero in sigmaRange scaling across three GapClosingViz tabs | GapClosingViz.jsx |
+| 685 | 2026-03-12T07:00:00Z | Add critical-line color indicator to Start σ slider in gradient descent tab | TwinOscillatorSimViz.jsx |

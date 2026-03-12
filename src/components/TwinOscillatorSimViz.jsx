@@ -522,10 +522,11 @@ function GradientDescentTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label>Start <InlineMath tex="\\sigma" /></label>
+          <label style={{ color: Math.abs(startSigma - 0.5) < 0.02 ? '#10b981' : Math.abs(startSigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444', fontWeight: 600 }}>Start <InlineMath tex="\\sigma" /></label>
           <input type="range" min="0.1" max="0.9" step="0.01" value={startSigma}
-            onChange={e => { setStartSigma(+e.target.value); handleReset(); }} disabled={isRunning} />
-          <span className="control-value">{startSigma.toFixed(2)}</span>
+            onChange={e => { setStartSigma(+e.target.value); handleReset(); }} disabled={isRunning}
+            style={{ accentColor: Math.abs(startSigma - 0.5) < 0.02 ? '#10b981' : Math.abs(startSigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444' }} />
+          <span className="control-value" style={{ color: Math.abs(startSigma - 0.5) < 0.02 ? '#10b981' : Math.abs(startSigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444', fontWeight: 700 }}>{startSigma.toFixed(2)}</span>
         </div>
         <div className="control-group">
           <label>Learning Rate</label>

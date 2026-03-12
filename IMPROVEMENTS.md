@@ -575,3 +575,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 614 | 2026-03-11T12:05:00Z | Replace linear ZETA_ZEROS scans with binary search in ZetaLandscapeViz hover and zero count | ZetaLandscapeViz.jsx |
 | 615 | 2026-03-11T12:10:00Z | Fix GUE hypothesis listed as RH equivalence and marked untested in Known Equivalences table | RHAttackPage.jsx |
 | 616 | 2026-03-11T12:15:00Z | Use math-rendered label for t slider in Gradient Descent tab of TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
+| 617 | 2026-03-11T12:20:00Z | Fix Phase tab explainer accent color mismatch in ScatteringMatrixViz | ScatteringMatrixViz.jsx |

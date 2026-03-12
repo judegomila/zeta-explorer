@@ -323,7 +323,7 @@ export default function ScatteringMatrixViz() {
         </div>
       )}
       {mode === 'phase' && (
-        <div className="tab-explainer accent-orange">
+        <div className="tab-explainer accent-cyan">
           The bridge phase <InlineMath tex="\\arg\\chi(\\sigma+it)" /> shows the angular rotation of the
           functional equation prefactor as <InlineMath tex="\\sigma" /> varies for fixed <InlineMath tex="t" />.
           At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, where <InlineMath tex="|\\chi|=1" />, the phase

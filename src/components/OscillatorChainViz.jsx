@@ -283,6 +283,11 @@ export default function OscillatorChainViz() {
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
           <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
+          <span style={{ fontSize: 10, color: sigmaColor, opacity: 0.8, marginLeft: 4, fontFamily: 'var(--font-mono)' }}
+            title={sigmaDeviation < 0.02 ? 'σ ≈ ½ — on the critical line where direct/dual ladders are conjugate-matched'
+              : sigmaDeviation < 0.15 ? 'Near the critical line — small impedance mismatch'
+              : 'Far from critical line — large impedance mismatch between ladders'}
+          >{sigmaDeviation < 0.02 ? 'critical line' : sigmaDeviation < 0.15 ? 'near critical' : 'off-axis'}</span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>

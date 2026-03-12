@@ -615,3 +615,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 654 | 2026-03-11T14:30:00Z | Fix unreachable trivial zeros in Extended Landscape — t slider min was 1 but markers require t < 0.5 | SupercriticalViz.jsx |
 | 655 | 2026-03-11T14:35:00Z | Fix number variance explainer formula still showing spurious −π²/8 term removed in #640 | GUEStatisticsViz.jsx |
 | 656 | 2026-03-11T15:00:00Z | Add semi-transparent background boxes to all three PrimeGapCouplingViz legends | PrimeGapCouplingViz.jsx |
+| 657 | 2026-03-11T16:00:00Z | Add descriptive σ proximity text and tooltip to OscillatorChainViz σ slider | OscillatorChainViz.jsx |

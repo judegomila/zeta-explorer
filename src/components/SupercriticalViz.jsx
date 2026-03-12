@@ -376,6 +376,7 @@ function ThermodynamicsTab() {
   const svgRef = useRef();
   const [tValue, setTValue] = useState(14.13);
   const [numPrimes, setNumPrimes] = useState(12);
+  const [hoverPoint, setHoverPoint] = useState(null);
 
   const thermoData = useMemo(() => thermodynamicScan(tValue, [-1, 3], 120, numPrimes), [tValue, numPrimes]);
   const nearest = useMemo(() => findNearestZetaZero(tValue), [tValue]);
@@ -482,6 +483,34 @@ function ThermodynamicsTab() {
       }
     });
 
+    // Hover interaction: vertical crosshair spanning all 4 charts
+    const w = width - margin.left - margin.right;
+    const xH = d3.scaleLinear().domain([-1, 3]).range([0, w]);
+    const fullH = quantities.length * (chartH + margin.top + margin.bottom + gap);
+    const hoverLine = svg.append('line')
+      .attr('x1', 0).attr('x2', 0).attr('y1', 0).attr('y2', fullH)
+      .attr('stroke', '#e2e8f0').attr('stroke-width', 0.5).attr('opacity', 0)
+      .attr('pointer-events', 'none');
+
+    svg.append('rect')
+      .attr('x', margin.left).attr('y', 0)
+      .attr('width', w).attr('height', fullH)
+      .attr('fill', 'transparent').attr('cursor', 'crosshair')
+      .on('mousemove', (event) => {
+        const [mx] = d3.pointer(event);
+        const sigma = xH.invert(mx - margin.left);
+        const closest = data.reduce((best, d) =>
+          Math.abs(d.sigma - sigma) < Math.abs(best.sigma - sigma) ? d : best
+        , data[0]);
+        const px = margin.left + xH(closest.sigma);
+        hoverLine.attr('x1', px).attr('x2', px).attr('opacity', 0.3);
+        setHoverPoint(closest);
+      })
+      .on('mouseleave', () => {
+        hoverLine.attr('opacity', 0);
+        setHoverPoint(null);
+      });
+
   }, [thermoData]);
 
   useEffect(() => { draw(); }, [draw]);
@@ -529,6 +558,20 @@ function ThermodynamicsTab() {
             onChange={e => setNumPrimes(+e.target.value)} />
           <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
+        {hoverPoint ? (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#06b6d4', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <span>σ={hoverPoint.sigma.toFixed(2)}</span>
+            <span style={{ color: '#3b82f6' }}>F={isFinite(hoverPoint.freeEnergy) ? hoverPoint.freeEnergy.toFixed(2) : '∞'}</span>
+            <span style={{ color: '#10b981' }}>S={isFinite(hoverPoint.entropy) ? hoverPoint.entropy.toFixed(2) : '∞'}</span>
+            <span style={{ color: '#f59e0b' }}>P={isFinite(hoverPoint.pressure) ? hoverPoint.pressure.toFixed(3) : '∞'}</span>
+            <span style={{ color: '#ef4444' }}>C={isFinite(hoverPoint.specificHeat) ? hoverPoint.specificHeat.toFixed(2) : '∞'}</span>
+            <span style={{ color: '#64748b' }}>[{hoverPoint.phase}]</span>
+          </div>
+        ) : (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', fontStyle: 'italic' }}>
+            Hover over charts to inspect values
+          </div>
+        )}
       </div>
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: 800 }} />

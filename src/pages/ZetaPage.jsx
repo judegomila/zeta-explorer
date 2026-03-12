@@ -333,6 +333,46 @@ export default function ZetaPage() {
         </div>
       </div>
 
+      {/* Functional Equation */}
+      <div className="card" style={{ marginTop: 32, borderColor: '#ec4899' }}>
+        <h3 style={{ color: '#ec4899' }}>The Functional Equation</h3>
+        <p style={{ marginTop: 8, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          The functional equation is the deepest symmetry of <InlineMath tex={"\\zeta(s)"} />, relating its
+          values at <InlineMath tex={"s"} /> and <InlineMath tex={"1-s"} />. In its symmetric form, define the
+          <strong style={{ color: '#e2e8f0' }}> completed zeta function</strong>:
+        </p>
+        <BlockMath tex={"\\xi(s) = \\tfrac{1}{2}s(s-1)\\,\\pi^{-s/2}\\,\\Gamma(s/2)\\,\\zeta(s)"} />
+        <p style={{ marginTop: 12, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          Then <InlineMath tex={"\\xi(s)"} /> is entire (no poles) and satisfies the reflection symmetry:
+        </p>
+        <BlockMath tex={"\\xi(s) = \\xi(1-s)"} />
+        <p style={{ marginTop: 12, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          The asymmetric form, which isolates the <strong style={{ color: '#e2e8f0' }}>bridge
+          factor</strong> <InlineMath tex={"\\chi(s)"} />, is:
+        </p>
+        <BlockMath tex={"\\zeta(s) = \\chi(s)\\,\\zeta(1-s), \\qquad \\chi(s) = 2^s\\,\\pi^{s-1}\\sin\\!\\left(\\frac{\\pi s}{2}\\right)\\Gamma(1-s)"} />
+        <div className="two-col" style={{ marginTop: 16, gap: 16 }}>
+          <div style={{ padding: 12, background: 'rgba(236,72,153,0.08)', borderRadius: 8 }}>
+            <p style={{ fontSize: 13, color: '#f472b6' }}>
+              <strong>Key property:</strong> On the critical
+              line, <InlineMath tex={"|\\chi(\\tfrac{1}{2}+it)| = 1"} /> for all <InlineMath tex={"t"} />. This
+              means <InlineMath tex={"\\chi"} /> is a pure phase rotation — it preserves magnitudes. In the ZPO
+              model, this is the lossless bridge connecting direct and dual ladders: no energy is gained or
+              lost when crossing from <InlineMath tex={"\\zeta(s)"} /> to <InlineMath tex={"\\zeta(1-s)"} />.
+            </p>
+          </div>
+          <div style={{ padding: 12, background: 'rgba(139,92,246,0.08)', borderRadius: 8 }}>
+            <p style={{ fontSize: 13, color: '#a78bfa' }}>
+              <strong>Why it matters for RH:</strong> The functional equation forces zeros to come in
+              pairs: if <InlineMath tex={"\\zeta(\\rho)=0"} />,
+              then <InlineMath tex={"\\zeta(1-\\rho)=0"} /> as well. RH is the conjecture that these
+              pairs collapse — every zero satisfies <InlineMath tex={"\\rho = 1-\\rho"} /> (up to conjugation),
+              i.e., <InlineMath tex={"\\mathrm{Re}(\\rho)=\\tfrac{1}{2}"} />.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Hadamard Product Formula */}
       <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
         <h3 style={{ color: '#06b6d4' }}>Hadamard Product: Factoring <InlineMath tex={"\\zeta"} /> Over Its Zeros</h3>

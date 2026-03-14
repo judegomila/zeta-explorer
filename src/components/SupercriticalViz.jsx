@@ -9,7 +9,7 @@ import {
 } from '../math/supercritical.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 
 // Shared helper: find nearest zeta zero to a given t value
 function findNearestZetaZero(tValue) {
@@ -523,14 +523,19 @@ function ThermodynamicsTab() {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        In the primon gas (Julia 1990), each prime <InlineMath tex="p" /> is a quantum with energy{' '}
-        <InlineMath tex="\\log p" />, and <InlineMath tex="\\sigma" /> acts as inverse temperature <InlineMath tex="\\beta" />.
-        The partition function is <InlineMath tex="Z(\\beta) = \\zeta(\\beta)" />, giving free energy{' '}
-        <InlineMath tex="F = -T\\log\\zeta(\\beta)" />, entropy <InlineMath tex="S = -\\partial F/\\partial T" />, and pressure{' '}
-        <InlineMath tex="P = \\tfrac{1}{N}\\sum_p \\log|1/(1-p^{-s})|" /> (average log-contribution per prime oscillator).
-        At <InlineMath tex="\\sigma = 1" /> (Bost-Connes transition), the partition function diverges &mdash; a phase transition from
-        the ordered "condensed" phase to the disordered "gas" phase.
-        <strong> Look for:</strong> divergences at <InlineMath tex="\\sigma = 1" />; entropy changing sign; specific heat peak at the transition.
+        <p style={{ margin: '0 0 8px' }}>
+          In the primon gas (Julia 1990), each prime <InlineMath tex={"p"} /> is a quantum with
+          energy <InlineMath tex={"\\log p"} />, and <InlineMath tex={"\\sigma"} /> acts as inverse
+          temperature. The partition function <InlineMath tex={"Z(\\beta) = \\zeta(\\beta)"} /> gives:
+        </p>
+        <BlockMath tex={"F = -T\\log\\zeta(\\beta), \\qquad S = -\\frac{\\partial F}{\\partial T}, \\qquad P = \\frac{1}{N}\\sum_p \\log\\!\\left|\\frac{1}{1-p^{-s}}\\right|"} />
+        <p style={{ margin: '8px 0' }}>
+          At <InlineMath tex={"\\sigma = 1"} /> (Bost-Connes transition), the partition function diverges &mdash;
+          a phase transition from the ordered "condensed" phase to the disordered "gas" phase.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> divergences at <InlineMath tex={"\\sigma = 1"} />; entropy changing sign; specific heat peak at the transition.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">

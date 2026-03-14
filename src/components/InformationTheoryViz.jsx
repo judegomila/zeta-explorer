@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import {
   entropySigmaScan, capacitySigmaScan, mutualInfoSigmaScan,
   fisherSigmaScan, klDivergenceScan, rateDistortion, criticalLineOptimality,
@@ -621,10 +621,16 @@ export default function InformationTheoryViz() {
       {tab === 5 && (
         <>
           <div className="tab-explainer accent-red">
-            KL divergence <InlineMath tex="D_{KL}(P_\sigma \| P_{1/2}) = \sum_k p_k(\sigma) \log \frac{p_k(\sigma)}{p_k(1/2)}" /> measures
-            how far the prime weight distribution at <InlineMath tex="\sigma" /> is from the critical-line reference. It acts as a
-            Lyapunov function: non-negative everywhere, zero only at <InlineMath tex="\sigma = \tfrac{1}{2}" />.
-            <strong> Look for:</strong> a smooth bowl centered at <InlineMath tex="\sigma = 0.5" /> with <InlineMath tex="D_{KL} = 0" /> at the minimum.
+            <p style={{ margin: '0 0 8px' }}>
+              KL divergence measures how far the prime weight distribution at <InlineMath tex={"\\sigma"} /> is from the critical-line reference:
+            </p>
+            <BlockMath tex={"D_{KL}(P_\\sigma \\| P_{1/2}) = \\sum_k p_k(\\sigma) \\log \\frac{p_k(\\sigma)}{p_k(1/2)}"} />
+            <p style={{ margin: '8px 0' }}>
+              It acts as a Lyapunov function: non-negative everywhere, zero only at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
+            </p>
+            <p style={{ margin: '4px 0 0' }}>
+              <strong>Look for:</strong> a smooth bowl centered at <InlineMath tex={"\\sigma = 0.5"} /> with <InlineMath tex={"D_{KL} = 0"} /> at the minimum.
+            </p>
           </div>
           <KLDivergenceTab sigma={sigma} t={t} numPrimes={numPrimes} />
         </>

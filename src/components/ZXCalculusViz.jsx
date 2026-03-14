@@ -556,7 +556,7 @@ function RewriteRulesTab({ sigma, t, numPrimes }) {
             </div>
           </div>
           <div style={{ marginTop: 12, padding: '8px 12px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-            <InlineMath tex={`H_{${fusionData.before[0].prime}} \\cdot H_{${fusionData.before[1].prime}} = H_{\\text{fused}}`} />
+            <InlineMath tex={"H_{" + fusionData.before[0].prime + "} \\cdot H_{" + fusionData.before[1].prime + "} = H_{\\text{fused}}"} />
             <span style={{ marginLeft: 8 }}>
               |{fusionData.before[0].magnitude.toFixed(3)}| · |{fusionData.before[1].magnitude.toFixed(3)}| = |{fusionData.after.magnitude.toFixed(3)}|
             </span>

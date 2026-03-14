@@ -10,7 +10,7 @@ import {
 } from '../math/twin-ladder.js';
 import { getPrimes } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 
 function ZeroSnap({ tValue, setTValue }) {
   let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
@@ -731,10 +731,14 @@ function LadderFreezingTab() {
   return (
     <div>
       <div className="tab-explainer accent-orange">
-        <strong>Ladder freezing</strong> replaces exact rung sums with a smooth Gaussian proxy{' '}
-        <InlineMath tex="\\Phi_{\\text{fr}}(u) = e^{-\\alpha u^2}\\sum c_{2k}u^{2k}" />.
-        The <strong>slack index</strong> <InlineMath tex="\\Pi_{\\text{slack}} = (\\alpha - t - \\varepsilon)U^2" /> measures
-        how much room remains before the approximation degrades. Green = safe margin; red = tight.
+        <p style={{ margin: '0 0 8px' }}>
+          <strong>Ladder freezing</strong> replaces exact rung sums with a smooth Gaussian proxy:
+        </p>
+        <BlockMath tex={"\\Phi_{\\text{fr}}(u) = e^{-\\alpha u^2}\\sum c_{2k}\\,u^{2k}, \\qquad \\Pi_{\\text{slack}} = (\\alpha - t - \\varepsilon)U^2"} />
+        <p style={{ margin: '8px 0 0' }}>
+          The <strong>slack index</strong> <InlineMath tex={"\\Pi_{\\text{slack}}"} /> measures how much room remains
+          before the approximation degrades. Green = safe margin; red = tight.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">

@@ -180,15 +180,20 @@ function PerPrimeTab() {
   return (
     <div>
       <div className="tab-explainer accent-blue">
-        Each prime <InlineMath tex="p" /> defines an oscillator with transfer function{' '}
-        <InlineMath tex="H_p(s) = 1/(1 - p^{-s})" />. Its energy across both ladders is{' '}
-        <InlineMath tex="E_p(\\sigma) = \\tfrac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1\\!-\\!s)|^2)" />.
-        The sum <InlineMath tex="|H_p(s)|^2 + |H_p(1-s)|^2" /> is symmetric about <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> by
-        construction — pairing each evaluation at <InlineMath tex="s" /> with its dual at <InlineMath tex="1-s" /> makes{' '}
-        <InlineMath tex="f(\\sigma) + f(1-\\sigma)" /> manifestly symmetric. (This is a property of the dual pairing, not
-        of the functional equation, which relates the <em>full</em> product <InlineMath tex="\\zeta(s)" />, not individual factors.)
-        Within the critical strip, each prime's energy is minimized on the critical line.
-        <strong> Look for:</strong> all colored curves dipping to their minimum at the same <InlineMath tex="\\sigma = 0.5" /> vertical.
+        <p style={{ margin: '0 0 8px' }}>
+          Each prime <InlineMath tex={"p"} /> defines an oscillator with transfer
+          function <InlineMath tex={"H_p(s) = 1/(1 - p^{-s})"} />. Its energy across both ladders:
+        </p>
+        <BlockMath tex={"E_p(\\sigma) = \\tfrac{1}{2}\\log p\\,\\bigl(|H_p(s)|^2 + |H_p(1-s)|^2\\bigr)"} />
+        <p style={{ margin: '8px 0' }}>
+          The sum <InlineMath tex={"|H_p(s)|^2 + |H_p(1-s)|^2"} /> is symmetric
+          about <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> by construction &mdash; pairing each evaluation
+          at <InlineMath tex={"s"} /> with its dual at <InlineMath tex={"1-s"} /> makes the symmetry manifest.
+          Within the critical strip, each prime's energy is minimized on the critical line.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> all colored curves dipping to their minimum at the same <InlineMath tex={"\\sigma = 0.5"} /> vertical.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">

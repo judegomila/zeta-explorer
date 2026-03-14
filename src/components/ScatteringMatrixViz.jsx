@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { losslessBridge } from '../math/oscillators.js';
 import { cAbs, cMul, cAdd, cSub, cDiv, ZETA_ZEROS } from '../math/zeta.js';
 
@@ -377,15 +377,19 @@ export default function ScatteringMatrixViz() {
       )}
       {mode === 'phase' && (
         <div className="tab-explainer accent-cyan">
-          The bridge phase <InlineMath tex="\\arg\\chi(\\sigma+it)" /> shows the angular rotation of the
-          functional equation prefactor as <InlineMath tex="\\sigma" /> varies for fixed <InlineMath tex="t" />.
-          At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, where <InlineMath tex="|\\chi|=1" />, the phase
-          equals <InlineMath tex="-2\\theta(t)" /> where{' '}
-          <InlineMath tex="\\theta(t) = \\text{Im}\\,\\log\\Gamma(\\tfrac{1}{4}+\\tfrac{it}{2}) - \\tfrac{t}{2}\\log\\pi" />{' '}
-          is the Riemann-Siegel theta function. Away from the critical line, the phase combines
-          contributions from <InlineMath tex="\\Gamma(1-s)" />, <InlineMath tex="2^s\\pi^{s-1}" />,
-          and <InlineMath tex="\\sin(\\pi s/2)" />.
-          <strong> Look for:</strong> the phase value at <InlineMath tex="\\sigma = 0.5" /> and how the curve steepens as you increase <InlineMath tex="t" />.
+          <p style={{ margin: '0 0 8px' }}>
+            The bridge phase <InlineMath tex={"\\arg\\chi(\\sigma+it)"} /> shows the angular rotation of the
+            functional equation prefactor. At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (where <InlineMath tex={"|\\chi|=1"} />),
+            the phase equals <InlineMath tex={"-2\\theta(t)"} /> via the Riemann-Siegel theta function:
+          </p>
+          <BlockMath tex={"\\theta(t) = \\text{Im}\\,\\log\\Gamma\\!\\left(\\tfrac{1}{4}+\\tfrac{it}{2}\\right) - \\tfrac{t}{2}\\log\\pi"} />
+          <p style={{ margin: '8px 0' }}>
+            Away from the critical line, the phase combines contributions from
+            <InlineMath tex={"\\Gamma(1-s)"} />, <InlineMath tex={"2^s\\pi^{s-1}"} />, and <InlineMath tex={"\\sin(\\pi s/2)"} />.
+          </p>
+          <p style={{ margin: '4px 0 0' }}>
+            <strong>Look for:</strong> the phase value at <InlineMath tex={"\\sigma = 0.5"} /> and how the curve steepens as you increase <InlineMath tex={"t"} />.
+          </p>
         </div>
       )}
       <div className="controls">

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { partialEulerProduct, cAbs, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
@@ -233,13 +233,21 @@ export default function EulerProductViz() {
   return (
     <div>
       <div className="tab-explainer accent-cyan">
-        The partial Euler product <InlineMath tex="\\zeta_N(s) = \\prod_{p \\leq p_N} (1-p^{-s})^{-1}" /> builds
-        up the zeta function prime-by-prime. Each factor has magnitude <InlineMath tex="|1-p^{-s}|^{-1}" /> and phase{' '}
-        <InlineMath tex="-\\arg(1-p^{-s})" />. The cumulative product converges (for <InlineMath tex="\\sigma > 1" />) to{' '}
-        <InlineMath tex="\\zeta(s)" />. In the critical strip (<InlineMath tex="0 < \\sigma \\leq 1" />), the Euler product <strong>diverges</strong> &mdash;
-        partial products oscillate without settling. The green reference line shows the true <InlineMath tex="|\\zeta(s)|" /> computed via
-        analytic continuation (Borwein acceleration), not the Euler product.
-        <strong> Look for:</strong> the blue magnitude line stabilizing as more primes are added (for <InlineMath tex="\\sigma > 1" />); divergent oscillations in the critical strip.
+        <p style={{ margin: '0 0 8px' }}>
+          The partial Euler product builds up the zeta function prime-by-prime:
+        </p>
+        <BlockMath tex={"\\zeta_N(s) = \\prod_{p \\leq p_N} \\frac{1}{1-p^{-s}}"} />
+        <p style={{ margin: '8px 0' }}>
+          Each factor has magnitude <InlineMath tex={"|1-p^{-s}|^{-1}"} /> and
+          phase <InlineMath tex={"-\\arg(1-p^{-s})"} />.
+          For <InlineMath tex={"\\sigma > 1"} />, the product converges to <InlineMath tex={"\\zeta(s)"} />.
+          In the critical strip (<InlineMath tex={"0 < \\sigma \\leq 1"} />), it <strong>diverges</strong> &mdash;
+          partial products oscillate without settling. The green reference shows the
+          true <InlineMath tex={"|\\zeta(s)|"} /> via analytic continuation.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> the blue magnitude stabilizing as more primes are added (for <InlineMath tex={"\\sigma > 1"} />); divergent oscillations in the critical strip.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">

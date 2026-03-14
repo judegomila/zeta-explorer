@@ -601,7 +601,7 @@ export default function DocsPage() {
               Evolves zeta zeros under the heat equation <InlineMath tex="\\partial_{\\tau} H = \\partial_t^2 H" />.
               Zero dynamics follow a repulsive ODE: each zero experiences logarithmic repulsion from its neighbors.
               The de Bruijn-Newman constant <InlineMath tex="\\Lambda" /> is the infimum of <InlineMath tex="\\tau" /> such
-              that <InlineMath tex="H_\\tau" /> has only real zeros. Rodgers-Tao (2020) proved <InlineMath tex="\\Lambda \\geq 0" />;
+              that <InlineMath tex="H_{\\tau}" /> has only real zeros. Rodgers-Tao (2020) proved <InlineMath tex="\\Lambda \\geq 0" />;
               RH is equivalent to <InlineMath tex="\\Lambda \\leq 0" />, i.e., <InlineMath tex="\\Lambda = 0" />.
             </p>
           </div>

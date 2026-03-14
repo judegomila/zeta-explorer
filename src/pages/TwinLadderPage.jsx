@@ -88,7 +88,7 @@ export default function TwinLadderPage() {
         </div>
         <div className="card">
           <h3 style={{ color: '#ef4444' }}>Ground-State Collapse</h3>
-          <BlockMath tex="\\lim_{\\beta\\to\\infty} w(p,m) = \\begin{cases} 1 & m = 0 \\\\ 0 & m \\geq 1 \\end{cases}" />
+          <BlockMath tex={"\\lim_{\\beta\\to\\infty} w(p,m) = \\begin{cases} 1 & m = 0 \\\\ 0 & m \\geq 1 \\end{cases}"} />
           <p style={{ marginTop: 8 }}>
             In the zero-temperature limit, only the <InlineMath tex="m = 0" /> rung survives.
             The entire prime ladder collapses to its ground state: the identity contribution{' '}

@@ -8,7 +8,7 @@ import {
 } from '../math/supercritical.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 
 const TABS = [
   { id: 'spectrum', label: 'Von Mangoldt Spectrum' },
@@ -185,17 +185,24 @@ function VonMangoldtSpectrumTab() {
   return (
     <div>
       <div className="tab-explainer accent-blue">
-        The von Mangoldt function <InlineMath tex="\\Lambda(n) = \\log p" /> when{' '}
-        <InlineMath tex="n = p^k" />, and zero otherwise, encodes prime locations as a "signal." The weighted
-        transform <InlineMath tex="F(\\omega) = \\sum_n \\Lambda(n)\\,n^{-1/2}\\,e^{-i\\omega\\log n}" /> is a truncated
-        approximation to{' '}
-        <InlineMath tex="-\\zeta'(\\tfrac{1}{2}+i\\omega)/\\zeta(\\tfrac{1}{2}+i\\omega)" />. (The Dirichlet series{' '}
-        <InlineMath tex="-\\zeta'/\\zeta(s) = \\sum \\Lambda(n)\\,n^{-s}" /> converges only for{' '}
-        <InlineMath tex="\\mathrm{Re}(s) > 1" />, so on the critical line the finite sum serves as a spectral
-        approximation whose peaks reveal the poles at zeros <InlineMath tex="\\gamma_n" />.)
-        The <InlineMath tex="n^{-1/2}" /> weight targets the critical line — without it, peaks would not align
-        with zeros. More terms sharpen the spectral peaks.
-        <strong> Look for:</strong> vertical red dashed lines (known zeros) aligning with the spectral peaks of the blue DFT curve.
+        <p style={{ margin: '0 0 8px' }}>
+          The von Mangoldt function <InlineMath tex={"\\Lambda(n) = \\log p"} /> when <InlineMath tex={"n = p^k"} />,
+          and zero otherwise, encodes prime locations as a "signal." Its weighted Fourier transform:
+        </p>
+        <BlockMath tex={"F(\\omega) = \\sum_{n} \\Lambda(n)\\, n^{-1/2}\\, e^{-i\\omega \\log n}"} />
+        <p style={{ margin: '8px 0' }}>
+          is a truncated approximation to the logarithmic derivative of zeta on the critical line:
+        </p>
+        <BlockMath tex={"-\\frac{\\zeta'(\\tfrac{1}{2}+i\\omega)}{\\zeta(\\tfrac{1}{2}+i\\omega)} = \\sum_{n=1}^{\\infty} \\frac{\\Lambda(n)}{n^{1/2+i\\omega}}"} />
+        <p style={{ margin: '8px 0' }}>
+          The Dirichlet series converges only for <InlineMath tex={"\\mathrm{Re}(s) > 1"} />, so the finite
+          sum serves as a spectral approximation whose peaks reveal the zeros <InlineMath tex={"\\gamma_n"} />.
+          The <InlineMath tex={"n^{-1/2}"} /> weight targets the critical line — without it, peaks would
+          not align with zeros. More terms sharpen the spectral peaks.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> vertical red dashed lines (known zeros) aligning with the spectral peaks of the blue DFT curve.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">
@@ -379,17 +386,26 @@ function FrequencyResponseTab() {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        The Euler product{' '}
-        <InlineMath tex="H(\\sigma+i\\omega) = \\prod_p (1-p^{-\\sigma-i\\omega})^{-1}" /> is the transfer function of the
-        prime oscillator ladder network, plotted as a standard Bode diagram. The magnitude (top, in dB) shows the gain
-        at each frequency; the phase (bottom) shows the accumulated delay. Near zeta zero frequencies, the partial product
-        shows resonance peaks from constructive phase alignment, even though the Euler product only converges for{' '}
-        <InlineMath tex="\\sigma > 1" />. Since <InlineMath tex="Q = 1/(2\\sigma)" />, lower <InlineMath tex="\\sigma" /> gives
-        sharper resonances (<InlineMath tex="Q \\to \\infty" /> as <InlineMath tex="\\sigma \\to 0" />), while higher{' '}
-        <InlineMath tex="\\sigma" /> damps them. At <InlineMath tex="\\sigma = 0.5" />,{' '}
-        <InlineMath tex="Q = 1" /> for all primes &mdash; the critical line is where direct and dual ladders balance,
-        not where resonance is sharpest.
-        <strong> Look for:</strong> resonance spikes at zeta zero frequencies; peaks sharpening as <InlineMath tex="\\sigma \\to 0" />.
+        <p style={{ margin: '0 0 8px' }}>
+          The Euler product defines the transfer function of the prime oscillator ladder network:
+        </p>
+        <BlockMath tex={"H(\\sigma+i\\omega) = \\prod_p \\frac{1}{1-p^{-\\sigma-i\\omega}}"} />
+        <p style={{ margin: '8px 0' }}>
+          Plotted as a Bode diagram: magnitude (top, dB) shows gain, phase (bottom) shows accumulated delay.
+          Near zeta zero frequencies, the partial product shows resonance peaks from constructive phase alignment,
+          even though the Euler product only converges for <InlineMath tex={"\\sigma > 1"} />.
+        </p>
+        <p style={{ margin: '8px 0' }}>
+          The quality factor <InlineMath tex={"Q = 1/(2\\sigma)"} /> controls resonance sharpness:
+          lower <InlineMath tex={"\\sigma"} /> gives sharper resonances
+          (<InlineMath tex={"Q \\to \\infty"} /> as <InlineMath tex={"\\sigma \\to 0"} />),
+          while higher <InlineMath tex={"\\sigma"} /> damps them.
+          At <InlineMath tex={"\\sigma = 0.5"} />, <InlineMath tex={"Q = 1"} /> for all primes &mdash;
+          the critical line is where direct and dual ladders balance, not where resonance is sharpest.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> resonance spikes at zeta zero frequencies; peaks sharpening as <InlineMath tex={"\\sigma \\to 0"} />.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">
@@ -520,17 +536,21 @@ function SpectralEnergyTab() {
   return (
     <div>
       <div className="tab-explainer accent-purple">
-        The spectral energy density <InlineMath tex="\\mathcal{E}(\\omega)" /> measures how
-        oscillator energy is distributed across frequencies. The direct ladder gives{' '}
-        <InlineMath tex="\\mathcal{E}_{\\text{dir}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(\\sigma{+}i\\omega)|^2" /> and the dual ladder{' '}
-        <InlineMath tex="\\mathcal{E}_{\\text{dual}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(1{-}\\sigma{-}i\\omega)|^2" />, where each prime's
-        contribution is weighted by its characteristic impedance <InlineMath tex="\\log p" />. At{' '}
-        <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, conjugate symmetry of the Euler factors gives equal magnitudes &mdash;
-        the spectral energy is perfectly balanced between direct and dual. The red mismatch curve shows the impedance
-        difference <InlineMath tex="|Z_{\\text{dir}} - Z_{\\text{dual}}|" />, which measures the imaginary-part asymmetry
-        (at <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, the impedances are conjugate-matched, so the mismatch equals{' '}
-        <InlineMath tex="2|\\text{Im}\\,Z|" />, not zero).
-        <strong> Look for:</strong> blue and orange energy curves overlapping exactly at <InlineMath tex="\\sigma = 0.5" />; mismatch (red) minimized but not zero.
+        <p style={{ margin: '0 0 8px' }}>
+          The spectral energy density <InlineMath tex={"\\mathcal{E}(\\omega)"} /> measures how oscillator
+          energy is distributed across frequencies. The direct and dual ladders contribute:
+        </p>
+        <BlockMath tex={"\\mathcal{E}_{\\text{dir}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(\\sigma+i\\omega)|^2, \\qquad \\mathcal{E}_{\\text{dual}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(1-\\sigma-i\\omega)|^2"} />
+        <p style={{ margin: '8px 0' }}>
+          Each prime's contribution is weighted by its characteristic impedance <InlineMath tex={"\\log p"} />.
+          At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, conjugate symmetry of the Euler factors gives equal
+          magnitudes &mdash; spectral energy is perfectly balanced. The red mismatch curve shows
+          <InlineMath tex={"|Z_{\\text{dir}} - Z_{\\text{dual}}|"} />, which at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> equals
+          <InlineMath tex={"2|\\text{Im}\\,Z|"} /> (conjugate-matched, not zero).
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> blue and orange energy curves overlapping at <InlineMath tex={"\\sigma = 0.5"} />; mismatch (red) minimized but not zero.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">
@@ -652,14 +672,21 @@ function PrimeHarmonicsTab() {
   return (
     <div>
       <div className="tab-explainer accent-cyan">
-        Each prime <InlineMath tex="p" /> contributes a fundamental oscillation at frequency{' '}
-        <InlineMath tex="\\omega_p = \\log p" /> plus overtones at <InlineMath tex="k\\log p" /> (from the geometric series{' '}
-        <InlineMath tex="(1-p^{-s})^{-1} = \\sum_k p^{-ks}" />). The quality factor{' '}
-        <InlineMath tex="Q_p = 1/(2\\sigma)" /> controls resonance sharpness: at <InlineMath tex="\\sigma = 0.5" />,{' '}
-        <InlineMath tex="Q = 1" /> for all primes (critical coupling). Higher <InlineMath tex="Q" /> means sharper, more selective
-        resonances; lower <InlineMath tex="Q" /> means broader, more damped responses. This is why <InlineMath tex="\\sigma = 0.5" /> is
-        the balance point &mdash; every oscillator is critically coupled simultaneously.
-        <strong> Look for:</strong> <InlineMath tex="Q = 1.00" /> for all primes at <InlineMath tex="\\sigma = 0.5" />; harmonics weakening at higher overtones.
+        <p style={{ margin: '0 0 8px' }}>
+          Each prime <InlineMath tex={"p"} /> contributes a fundamental oscillation at frequency
+          <InlineMath tex={"\\omega_p = \\log p"} /> plus overtones at <InlineMath tex={"k\\log p"} />, from the geometric series:
+        </p>
+        <BlockMath tex={"\\frac{1}{1-p^{-s}} = \\sum_{k=0}^{\\infty} p^{-ks}"} />
+        <p style={{ margin: '8px 0' }}>
+          The quality factor <InlineMath tex={"Q_p = 1/(2\\sigma)"} /> controls resonance sharpness.
+          At <InlineMath tex={"\\sigma = 0.5"} />, <InlineMath tex={"Q = 1"} /> for all primes (critical coupling).
+          Higher <InlineMath tex={"Q"} /> means sharper resonances; lower <InlineMath tex={"Q"} /> means broader, more
+          damped responses. This is why <InlineMath tex={"\\sigma = 0.5"} /> is the balance point &mdash;
+          every oscillator is critically coupled simultaneously.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> <InlineMath tex={"Q = 1.00"} /> for all primes at <InlineMath tex={"\\sigma = 0.5"} />; harmonics weakening at higher overtones.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">

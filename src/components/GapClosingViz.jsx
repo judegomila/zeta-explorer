@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import {
   regularizedEulerProduct, cascadeContinuation, convergenceAnalysis,
   hilbertPolyaMatrix, spectralConvergence,
@@ -495,10 +495,14 @@ function HilbertPolyaTab({ numPrimes }) {
   return (
     <div>
       <div className="tab-explainer accent-blue">
-        The Hilbert-Polya matrix <InlineMath tex={"M_{jk} = \\sum_p \\frac{\\log p}{p} \\cos((\\gamma_j - \\gamma_k)\\log p)"} />{' '}
-        couples prime oscillators. If a self-adjoint operator exists with{' '}
-        <InlineMath tex={"\\text{Spec}(\\mathcal{A}) = \\{\\gamma_n\\}"} />, RH follows immediately.
-        Blue dots show computed eigenvalues; red lines show target zeros.
+        <p style={{ margin: '0 0 8px' }}>
+          The Hilbert-Polya matrix couples prime oscillators:
+        </p>
+        <BlockMath tex={"M_{jk} = \\sum_p \\frac{\\log p}{p} \\cos\\bigl((\\gamma_j - \\gamma_k)\\log p\\bigr)"} />
+        <p style={{ margin: '8px 0 0' }}>
+          If a self-adjoint operator exists with <InlineMath tex={"\\text{Spec}(\\mathcal{A}) = \\{\\gamma_n\\}"} />,
+          RH follows immediately. Blue dots show computed eigenvalues; red lines show target zeros.
+        </p>
       </div>
       <canvas
         ref={canvasRef}
@@ -938,9 +942,13 @@ function ConfinementTab({ numPrimes, t, report }) {
   return (
     <div>
       <div className="tab-explainer accent-purple">
-        The confinement potential <InlineMath tex={"\\Phi(\\sigma) = \\alpha D_{KL} + \\beta |Z^*W|^2 + \\gamma(1-|\\chi|)^2 + \\delta \\Delta H"} />{' '}
-        should be minimized at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, confining all zeros
-        to the critical line. The thick purple curve shows the total; thin lines show individual components.
+        <p style={{ margin: '0 0 8px' }}>
+          The confinement potential should be minimized at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, confining all zeros to the critical line:
+        </p>
+        <BlockMath tex={"\\Phi(\\sigma) = \\alpha\\, D_{KL} + \\beta\\, |Z^*W|^2 + \\gamma\\,(1-|\\chi|)^2 + \\delta\\, \\Delta H"} />
+        <p style={{ margin: '8px 0 0' }}>
+          The thick purple curve shows the total; thin lines show individual components.
+        </p>
       </div>
       <canvas
         ref={canvasRef}

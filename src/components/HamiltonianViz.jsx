@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { hamiltonianSigmaScan, systemHamiltonian } from '../math/oscillators.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
@@ -175,14 +175,18 @@ export default function HamiltonianViz() {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        The system Hamiltonian <InlineMath tex="\\mathcal{H} = T + V_{\\text{mismatch}} + V_{\\text{bridge}}" /> sums three
-        terms: <strong>kinetic energy</strong> <InlineMath tex="T = \\sum_p \\tfrac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1{-}s)|^2)" /> (blue),{' '}
-        <strong>impedance mismatch</strong> <InlineMath tex="V = \\tfrac{1}{2}|Z_{\\text{dir}} - Z_{\\text{dual}}|^2" /> (orange),
-        and <strong>bridge penalty</strong> <InlineMath tex="V_b = 100(1-|\\chi|)^2" /> (purple). At <InlineMath tex="\\sigma = 0.5" />,
-        the bridge is lossless (<InlineMath tex="|\\chi|=1" />) and the direct/dual impedances are conjugate-matched
-        (equal real parts, opposite imaginary parts from the functional equation), minimizing the total Hamiltonian.
-        The mismatch retains a nonzero imaginary-part residual.
-        <strong> Look for:</strong> the green total curve reaching its minimum at <InlineMath tex="\\sigma = 0.5" /> for any value of <InlineMath tex="t" />.
+        <p style={{ margin: '0 0 8px' }}>
+          The system Hamiltonian sums three terms:
+        </p>
+        <BlockMath tex={"\\mathcal{H} = \\underbrace{\\sum_p \\tfrac{1}{2}\\log p\\,(|H_p|^2 + |H_p'|^2)}_{T\\text{ (kinetic)}} + \\underbrace{\\tfrac{1}{2}|Z_{\\text{dir}} - Z_{\\text{dual}}|^2}_{V\\text{ (mismatch)}} + \\underbrace{100(1-|\\chi|)^2}_{V_b\\text{ (bridge)}}"} />
+        <p style={{ margin: '8px 0' }}>
+          At <InlineMath tex={"\\sigma = 0.5"} />, the bridge is lossless (<InlineMath tex={"|\\chi|=1"} />) and the
+          direct/dual impedances are conjugate-matched, minimizing the total Hamiltonian.
+          The mismatch retains a nonzero imaginary-part residual.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> the green total curve reaching its minimum at <InlineMath tex={"\\sigma = 0.5"} /> for any <InlineMath tex={"t"} />.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">

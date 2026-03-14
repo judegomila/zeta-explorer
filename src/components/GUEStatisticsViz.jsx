@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
 // Precompute reference curves at module level — these are mathematical constants
@@ -363,12 +363,18 @@ export default function GUEStatisticsViz() {
     <div>
       {mode === 'spacing' && (
         <div className="tab-explainer accent-red">
-          The nearest-neighbor spacing distribution <InlineMath tex="P(s)" /> measures the probability
-          that consecutive normalized zero gaps have size <InlineMath tex="s" />. For random matrices from the GUE (Gaussian
-          Unitary Ensemble), the Wigner surmise gives <InlineMath tex="P_{\\text{GUE}}(s) = (32/\\pi^2)s^2 e^{-4s^2/\\pi}" />.
-          The key feature is <strong>level repulsion</strong>: <InlineMath tex="P(0) = 0" />, meaning zeros never collide.
-          Poisson (random) would give <InlineMath tex="P(s) = e^{-s}" /> with clustering at zero.
-          <strong> Look for:</strong> the zeta zero histogram matching GUE (red), not Poisson (gray).
+          <p style={{ margin: '0 0 8px' }}>
+            The nearest-neighbor spacing distribution <InlineMath tex={"P(s)"} /> measures the probability
+            that consecutive normalized zero gaps have size <InlineMath tex={"s"} />. The GUE Wigner surmise:
+          </p>
+          <BlockMath tex={"P_{\\text{GUE}}(s) = \\frac{32}{\\pi^2}\\, s^2\\, e^{-4s^2/\\pi}"} />
+          <p style={{ margin: '8px 0' }}>
+            The key feature is <strong>level repulsion</strong>: <InlineMath tex={"P(0) = 0"} />, meaning zeros never collide.
+            Poisson (random) would give <InlineMath tex={"P(s) = e^{-s}"} /> with clustering at zero.
+          </p>
+          <p style={{ margin: '4px 0 0' }}>
+            <strong>Look for:</strong> the zeta zero histogram matching GUE (red), not Poisson (gray).
+          </p>
         </div>
       )}
       {mode === 'pair-correlation' && (
@@ -382,11 +388,18 @@ export default function GUEStatisticsViz() {
       )}
       {mode === 'number-variance' && (
         <div className="tab-explainer accent-cyan">
-          The number variance <InlineMath tex="\\Sigma^2(L)" /> measures fluctuations in the count of zeros
-          in intervals of length <InlineMath tex="L" />. For GUE, <InlineMath tex="\\Sigma^2(L) = \\tfrac{1}{\\pi^2}\\bigl(\\log(2\\pi L) + 1 + \\gamma_E\\bigr)" /> (logarithmic
-          growth) &mdash; much slower than Poisson where <InlineMath tex="\\Sigma^2 = L" />. This logarithmic suppression means zeros
-          are <strong>rigidly</strong> spaced &mdash; far more regular than random.
-          <strong> Look for:</strong> the data following the GUE log curve, not the linear Poisson line.
+          <p style={{ margin: '0 0 8px' }}>
+            The number variance <InlineMath tex={"\\Sigma^2(L)"} /> measures fluctuations in the count of zeros
+            in intervals of length <InlineMath tex={"L"} />. For GUE:
+          </p>
+          <BlockMath tex={"\\Sigma^2(L) = \\frac{1}{\\pi^2}\\bigl(\\log(2\\pi L) + 1 + \\gamma_E\\bigr)"} />
+          <p style={{ margin: '8px 0' }}>
+            This is logarithmic growth &mdash; much slower than Poisson where <InlineMath tex={"\\Sigma^2 = L"} />.
+            The suppression means zeros are <strong>rigidly</strong> spaced, far more regular than random.
+          </p>
+          <p style={{ margin: '4px 0 0' }}>
+            <strong>Look for:</strong> the data following the GUE log curve, not the linear Poisson line.
+          </p>
         </div>
       )}
       <div className="controls">

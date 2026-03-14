@@ -239,7 +239,7 @@ function FisherTwistorTab({ t, numPrimes }) {
           {data.verdict}
         </strong>
         <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 11 }}>
-          Peak Fisher/Incidence ratio at <InlineMath tex={`\\sigma = ${data.peakSigma.toFixed(3)}`} />.
+          Peak Fisher/Incidence ratio at <InlineMath tex={"\\sigma = " + data.peakSigma.toFixed(3)} />.
           Fisher info spikes where twistor incidence vanishes -- both point to the critical line.
         </div>
       </div>

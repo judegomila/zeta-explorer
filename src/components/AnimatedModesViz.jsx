@@ -1,4 +1,4 @@
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes, primeFrequency } from '../math/primes.js';
@@ -278,15 +278,20 @@ export default function AnimatedModesViz() {
   return (
     <div>
       <div className="tab-explainer accent-pink">
-        At zeta zero frequency <InlineMath tex="\\gamma_n" />, each prime oscillator vibrates with
-        amplitude <InlineMath tex="\\propto \\log(p)\\cdot\\text{Re}(p^{-1/2-i\\gamma_n})" /> and phase set by <InlineMath tex="\\gamma_n \\log p" />.
-        The <InlineMath tex="\\log(p)" /> weighting comes from the oscillator inductance <InlineMath tex="L_p = \\log(p)" />.
-        The bottom row superposes all prime contributions at this driving frequency &mdash; the collective oscillator chain
-        response to the zero mode <InlineMath tex="\\gamma_n" />. (Note: the explicit formula's per-zero term is{' '}
-        <InlineMath tex="-x^\\rho/\\rho" />, a single oscillation with no per-prime decomposition.)
-        Different zeros excite different patterns across the prime oscillators, but the frequencies{' '}
-        <InlineMath tex="\\omega_p = \\log p" /> are fixed &mdash; only the driving frequency <InlineMath tex="\\gamma_n" /> changes.
-        <strong> Look for:</strong> small primes making large, slow oscillations; larger primes vibrating faster with smaller amplitude.
+        <p style={{ margin: '0 0 8px' }}>
+          At zeta zero frequency <InlineMath tex={"\\gamma_n"} />, each prime oscillator vibrates with amplitude
+          and phase determined by:
+        </p>
+        <BlockMath tex={"A_p \\propto \\log(p) \\cdot \\text{Re}\\bigl(p^{-1/2 - i\\gamma_n}\\bigr), \\qquad \\phi_p = \\gamma_n \\log p"} />
+        <p style={{ margin: '8px 0' }}>
+          The <InlineMath tex={"\\log(p)"} /> weighting comes from the oscillator inductance <InlineMath tex={"L_p = \\log(p)"} />.
+          The bottom row superposes all prime contributions &mdash; the collective chain response to
+          mode <InlineMath tex={"\\gamma_n"} />. Different zeros excite different patterns, but the
+          frequencies <InlineMath tex={"\\omega_p = \\log p"} /> are fixed.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> small primes making large, slow oscillations; larger primes vibrating faster with smaller amplitude.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">

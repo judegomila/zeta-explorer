@@ -888,8 +888,8 @@ export default function TwistorViz() {
           <>
             <div className="tab-explainer accent-blue">
               <strong>Twistor Correspondence:</strong> The s-plane (left) maps to twistor space (right).
-              The twistor <InlineMath tex="Z^\\alpha = (\\omega^A, \\pi_{A'})" /> (blue) encodes the direct ladder,
-              the dual twistor <InlineMath tex="W_\\alpha" /> (gold) encodes the dual ladder.
+              The twistor <InlineMath tex="Z^{\\alpha} = (\\omega^A, \\pi_{A'})" /> (blue) encodes the direct ladder,
+              the dual twistor <InlineMath tex="W_{\\alpha}" /> (gold) encodes the dual ladder.
               The intertwiner arc shows whether they are incident (<InlineMath tex="Z \\cdot W = 0" />).
               At <InlineMath tex="\\sigma = 0.5" />, Z and W are related by the lossless bridge.
             </div>

@@ -129,9 +129,11 @@ function TriangleTab() {
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13 }}>
         <p style={{ color: '#94a3b8' }}>
           Each entry <InlineMath tex="C(n,k) = \\binom{n}{k}" /> is the binomial coefficient.
-          Central binomials <InlineMath tex="C(2n,n)" /> (gold outlines) connect to <InlineMath tex="\\pi" /> via{' '}
-          <InlineMath tex="\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,C(2n,n)^2}" />.
-          Row products connect to <InlineMath tex="e" /> via Brothers' formula.
+          Central binomials <InlineMath tex={"C(2n,n)"} /> (gold outlines) connect to <InlineMath tex={"\\pi"} /> and
+          row products connect to <InlineMath tex={"e"} /> via:
+        </p>
+        <BlockMath tex={"\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,C(2n,n)^2}"} />
+        <p style={{ color: '#94a3b8', margin: 0 }}>
         </p>
       </div>
     </div>
@@ -383,15 +385,15 @@ function ConstantsTab() {
         <svg ref={svgRef} style={{ width: '100%', height: 520 }} />
       </div>
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13 }}>
-        <p style={{ color: '#94a3b8', marginBottom: 8 }}>
-          <strong style={{ color: '#3b82f6' }}>Euler's number</strong> from Brothers' result:{' '}
-          <InlineMath tex="e = \\lim_{n\\to\\infty} \\frac{s_{n-1}\\cdot s_{n+1}}{s_n^2}" /> where{' '}
-          <InlineMath tex="s_n = \\prod_{k=0}^{n} \\binom{n}{k}" />.
+        <p style={{ color: '#94a3b8', marginBottom: 4 }}>
+          <strong style={{ color: '#3b82f6' }}>Euler's number</strong> from Brothers' result,
+          where <InlineMath tex={"s_n = \\prod_{k=0}^{n} \\binom{n}{k}"} />:
         </p>
-        <p style={{ color: '#94a3b8', marginBottom: 8 }}>
-          <strong style={{ color: '#f59e0b' }}>Pi</strong> from central binomials:{' '}
-          <InlineMath tex="\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,\\binom{2n}{n}^2}" />.
+        <BlockMath tex={"e = \\lim_{n\\to\\infty} \\frac{s_{n-1}\\cdot s_{n+1}}{s_n^2}"} />
+        <p style={{ color: '#94a3b8', marginBottom: 4 }}>
+          <strong style={{ color: '#f59e0b' }}>Pi</strong> from central binomials:
         </p>
+        <BlockMath tex={"\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,\\binom{2n}{n}^2}"} />
         <p style={{ color: '#94a3b8' }}>
           <strong style={{ color: '#ec4899' }}>Euler's identity</strong>{' '}
           <InlineMath tex="e^{i\\pi} + 1 = 0" /> unites all three: having extracted{' '}
@@ -557,11 +559,11 @@ function HasseTab() {
         <svg ref={svgRef} style={{ width: '100%', height: 420 }} />
       </div>
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13, color: '#94a3b8' }}>
-        <p>
-          Each bar shows the magnitude of row <InlineMath tex="n" />'s contribution. The blue curve is the running
-          approximation <InlineMath tex="|\\zeta(s)|" /> as more Pascal triangle rows are included.
-          Purple bars = <InlineMath tex="\\frac{1}{2^{n+1}} \\sum_{k=0}^{n}(-1)^k\\binom{n}{k}(k+1)^{-s}" />.
+        <p style={{ margin: '0 0 8px' }}>
+          Each bar shows the magnitude of row <InlineMath tex={"n"} />'s contribution. The blue curve is the running
+          approximation <InlineMath tex={"|\\zeta(s)|"} /> as more Pascal triangle rows are included:
         </p>
+        <BlockMath tex={"\\text{Row } n: \\quad \\frac{1}{2^{n+1}} \\sum_{k=0}^{n}(-1)^k\\binom{n}{k}(k+1)^{-s}"} />
       </div>
     </div>
   );
@@ -741,9 +743,12 @@ function DecoratedTab() {
           <InlineMath tex="|\\zeta(\\sigma+it)|" /> computed entirely from Pascal triangle rows via the Hasse–Sondow formula.
         </p>
         <p>
-          <strong style={{ color: '#8b5cf6' }}>Bottom:</strong> A single row's Dirichlet polynomial{' '}
-          <InlineMath tex="Z_N(s) = \\sum_{k=0}^{N} \\binom{N}{k}(k+1)^{-s}" /> — the "shape" of row{' '}
-          <InlineMath tex="N" />'s contribution. Higher rows grow exponentially for small <InlineMath tex="\\sigma" />.
+          <strong style={{ color: '#8b5cf6' }}>Bottom:</strong> A single row's Dirichlet polynomial —
+          the "shape" of row <InlineMath tex={"N"} />'s contribution:
+        </p>
+        <BlockMath tex={"Z_N(s) = \\sum_{k=0}^{N} \\binom{N}{k}(k+1)^{-s}"} />
+        <p style={{ margin: 0 }}>
+          Higher rows grow exponentially for small <InlineMath tex={"\\sigma"} />.
         </p>
       </div>
     </div>

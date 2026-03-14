@@ -22,9 +22,13 @@ export default function HamiltonianPage() {
         <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
           <strong style={{ color: '#3b82f6' }}>Hamiltonian Energy vs σ</strong> — drag the t slider to a zeta
           zero (<InlineMath tex="t \\approx 14.13, 21.02, 25.01" />) and watch the green total-energy curve develop
-          a sharp minimum at <InlineMath tex="\\sigma = 0.5" />. Compare the three components: the blue kinetic energy
-          is symmetric about <InlineMath tex="\\sigma = 0.5" />, the orange mismatch is minimized there (conjugate-matched, not zero: <InlineMath tex="|Z_{\\text{dir}} - Z_{\\text{dual}}| = 2|\\text{Im}\\,Z|" />), and the purple
-          bridge penalty is zero exactly on the critical line. Increase primes to see the valley deepen and narrow.
+          a sharp minimum at <InlineMath tex={"\\sigma = 0.5"} />. Compare the three components: the blue kinetic energy
+          is symmetric about <InlineMath tex={"\\sigma = 0.5"} />, the orange mismatch is minimized there (conjugate-matched, not zero), and the purple
+          bridge penalty is zero exactly on the critical line:
+        </p>
+        <BlockMath tex={"|Z_{\\text{dir}} - Z_{\\text{dual}}| = 2|\\text{Im}\\,Z| \\quad \\text{(residual mismatch)}"} />
+        <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          Increase primes to see the valley deepen and narrow.
         </p>
         <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
           <strong style={{ color: '#f59e0b' }}>Explicit Formula ψ(x)</strong> — start with few zeros and watch
@@ -94,7 +98,7 @@ export default function HamiltonianPage() {
             to the step response of the prime oscillator chain.
           </p>
         </div>
-        <BlockMath tex="\\psi(x) = x - \\sum_{\\rho} \\frac{x^\\rho}{\\rho} - \\log 2\\pi - \\frac{1}{2}\\log(1 - x^{-2})" />
+        <BlockMath tex="\\psi(x) = x - \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho} - \\log 2\\pi - \\frac{1}{2}\\log(1 - x^{-2})" />
         <div style={{ marginTop: 20 }}>
           <div className="viz-title">Chebyshev <InlineMath tex="\\psi(x)" /> and Spectral Reconstruction</div>
           <div className="viz-subtitle">
@@ -108,9 +112,9 @@ export default function HamiltonianPage() {
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
           <h3 style={{ color: '#3b82f6' }}>Spectral Decomposition</h3>
-          <BlockMath tex="\\frac{x^\\rho}{\\rho} + \\frac{x^{\\bar\\rho}}{\\bar\\rho} = \\frac{2x^{1/2}}{\\sqrt{\\gamma^2 + 1/4}}\\,\\cos\\!\\bigl(\\gamma\\log x - \\arg\\rho\\bigr)" />
+          <BlockMath tex="\\frac{x^{\\rho}}{\\rho} + \\frac{x^{\\bar{\\rho}}}{\\bar{\\rho}} = \\frac{2x^{1/2}}{\\sqrt{\\gamma^2 + 1/4}}\\,\\cos\\!\\bigl(\\gamma\\log x - \\arg\\rho\\bigr)" />
           <p style={{ marginTop: 8 }}>
-            Each conjugate pair of nontrivial zeros <InlineMath tex="\\rho, \\bar\\rho = \\tfrac{1}{2}\\pm i\\gamma" /> contributes
+            Each conjugate pair of nontrivial zeros <InlineMath tex="\\rho, \\bar{\\rho} = \\tfrac{1}{2}\\pm i\\gamma" /> contributes
             a damped sinusoid to <InlineMath tex="\\psi(x)" />.
             The frequency is <InlineMath tex="\\gamma" /> (the imaginary part), the envelope decays
             as <InlineMath tex="x^{1/2}" /> (from <InlineMath tex="\\sigma = \\tfrac{1}{2}" />), and the amplitude falls
@@ -120,7 +124,7 @@ export default function HamiltonianPage() {
         </div>
         <div className="card">
           <h3 style={{ color: '#f59e0b' }}>Convergence & Error</h3>
-          <BlockMath tex="\\psi(x) - x = -\\sum_\\rho \\frac{x^\\rho}{\\rho} + O(1)" />
+          <BlockMath tex="\\psi(x) - x = -\\sum_{\\rho} \\frac{x^{\\rho}}{\\rho} + O(1)" />
           <p style={{ marginTop: 8 }}>
             The error between <InlineMath tex="\\psi(x)" /> and its leading term <InlineMath tex="x" /> is entirely
             controlled by zeta zeros. If all zeros satisfy <InlineMath tex="\\text{Re}(\\rho) = \\tfrac{1}{2}" /> (RH),

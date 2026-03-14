@@ -346,7 +346,7 @@ export default function TwistorDiagram3D() {
           The <strong style={{ color: '#10b981' }}>green arc</strong> is the intertwiner (bridge){' '}
           <InlineMath tex="\\chi(s)" />.
           At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, the incidence relation{' '}
-          <InlineMath tex="Z^\\alpha W_\\alpha = 0" /> is satisfied (bridge is lossless, <InlineMath tex="|\\chi|=1" />).
+          <InlineMath tex="Z^{\\alpha} W_{\\alpha} = 0" /> is satisfied (bridge is lossless, <InlineMath tex="|\\chi|=1" />).
           Red dots along the <InlineMath tex="t" />-axis mark known zeta zeros.
         </p>
       </div>

@@ -93,7 +93,7 @@ export default function RHRigorPage() {
           Hamiltonian is <strong style={{ color: '#e2e8f0' }}>designed</strong> to have this minimum —
           it is not derived from the zeros of <InlineMath tex="\\zeta" />. The argument is:
         </p>
-        <BlockMath tex="\\text{Build symmetric } H \\;\\Rightarrow\\; \\min_\\sigma H = H(\\tfrac{1}{2}, t) \\;\\Rightarrow\\; \\text{``therefore RH''}" />
+        <BlockMath tex="\\text{Build symmetric } H \\;\\Rightarrow\\; \\min_{\\sigma} H = H(\\tfrac{1}{2}, t) \\;\\Rightarrow\\; \\text{``therefore RH''}" />
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
           But the correct logical chain would require:
         </p>

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { vonMangoldt, explicitFormulaTerms } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
@@ -209,21 +209,24 @@ export default function ExplicitFormulaViz() {
   return (
     <div>
       <div className="tab-explainer accent-orange">
-        Von Mangoldt's explicit formula{' '}
-        <InlineMath tex="\\psi(x) = x - \\sum_\\rho x^\\rho/\\rho - \\log 2\\pi - \\tfrac{1}{2}\\log(1 - x^{-2})" /> decomposes the Chebyshev function{' '}
-        <InlineMath tex="\\psi(x) = \\sum_{n \\le x} \\Lambda(n)" /> (a log-weighted prime-power count, not the prime
-        counting function <InlineMath tex="\\pi(x)" />) into zeta-zero oscillations.
-        Each zero pair <InlineMath tex="\\rho,\\bar\\rho" /> with{' '}
-        <InlineMath tex="\\rho = \\tfrac{1}{2}+i\\gamma" /> contributes{' '}
-        <InlineMath tex="-(2x^{1/2}/|\\rho|)\\cos(\\gamma\\log x - \\arg\\rho)" />;
-        since <InlineMath tex="\\arg\\rho = \\arctan(2\\gamma) \\to \\pi/2" /> and{' '}
-        <InlineMath tex="|\\rho| = \\sqrt{\\tfrac{1}{4}+\\gamma^2} \\to \\gamma" /> for large <InlineMath tex="\\gamma" />, these are
-        approximately <InlineMath tex="\\sim -2x^{1/2}\\sin(\\gamma\\log x)/\\gamma" /> oscillations.
-        The sum over zeros is the "impulse response" of the oscillator chain &mdash; adding more zeros sharpens the
-        reconstruction of the prime staircase. The error between <InlineMath tex="\\psi(x)" /> and{' '}
-        <InlineMath tex="x" /> (the PNT) is controlled by how far zeros can deviate from{' '}
-        <InlineMath tex="\\sigma = \\tfrac{1}{2}" />.
-        <strong> Look for:</strong> gold reconstruction converging to the blue staircase as you add more zeros.
+        <p style={{ margin: '0 0 8px' }}>
+          Von Mangoldt's explicit formula decomposes the Chebyshev function
+          <InlineMath tex={"\\psi(x) = \\sum_{n \\le x} \\Lambda(n)"} /> into zeta-zero oscillations:
+        </p>
+        <BlockMath tex={"\\psi(x) = x - \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho} - \\log 2\\pi - \\tfrac{1}{2}\\log(1 - x^{-2})"} />
+        <p style={{ margin: '8px 0' }}>
+          Each zero pair <InlineMath tex={"\\rho, \\bar{\\rho}"} /> with <InlineMath tex={"\\rho = \\tfrac{1}{2}+i\\gamma"} /> contributes
+          an oscillation that, for large <InlineMath tex={"\\gamma"} />, simplifies to:
+        </p>
+        <BlockMath tex={"\\approx -\\frac{2x^{1/2}}{\\gamma}\\sin(\\gamma\\log x)"} />
+        <p style={{ margin: '8px 0' }}>
+          Adding more zeros sharpens the reconstruction of the prime staircase.
+          The error between <InlineMath tex={"\\psi(x)"} /> and <InlineMath tex={"x"} /> (the PNT)
+          is controlled by how far zeros can deviate from <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> gold reconstruction converging to the blue staircase as you add more zeros.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">

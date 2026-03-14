@@ -69,11 +69,15 @@ export default function ZetaPage() {
           </div>
         </div>
         <div style={{ marginTop: 12, padding: 12, background: 'rgba(139,92,246,0.08)', borderRadius: 8 }}>
-          <p style={{ fontSize: 13, color: '#a78bfa' }}>
-            <strong>The theta function:</strong> <InlineMath tex="\\theta(t) \\approx \\tfrac{t}{2}\\log\\!\\tfrac{t}{2\\pi} - \\tfrac{t}{2} - \\tfrac{\\pi}{8}" /> is
-            the phase accumulator that "unwinds" the complex phase of <InlineMath tex="\\zeta(1/2 + it)" />, making <InlineMath tex="Z(t)" /> real-valued.
-            The local density of zeros is <InlineMath tex="\\theta'(t)/\\pi \\approx \\tfrac{1}{2\\pi}\\log(t/2\\pi)" /> (the Weyl law), not <InlineMath tex="\\theta'(t)" /> itself.
+          <p style={{ fontSize: 13, color: '#a78bfa', margin: '0 0 8px' }}>
+            <strong>The theta function</strong> is the phase accumulator that "unwinds" the complex phase
+            of <InlineMath tex={"\\zeta(1/2 + it)"} />, making <InlineMath tex={"Z(t)"} /> real-valued:
           </p>
+          <BlockMath tex={"\\theta(t) \\approx \\frac{t}{2}\\log\\frac{t}{2\\pi} - \\frac{t}{2} - \\frac{\\pi}{8}"} />
+          <p style={{ fontSize: 13, color: '#a78bfa', margin: '8px 0 0' }}>
+            The local density of zeros (the Weyl law) is:
+          </p>
+          <BlockMath tex={"\\frac{\\theta'(t)}{\\pi} \\approx \\frac{1}{2\\pi}\\log\\frac{t}{2\\pi}"} />
         </div>
       </div>
 
@@ -113,7 +117,7 @@ export default function ZetaPage() {
           }}>
             {ZETA_ZEROS.map((z, i) => (
               <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '0 8px', borderBottom: '1px solid rgba(42,48,80,0.3)' }}>
-                <span style={{ color: '#64748b' }}><InlineMath tex={`\\gamma_{${(i + 1).toString().padStart(2, '0')}}`} /></span>
+                <span style={{ color: '#64748b' }}><InlineMath tex={"\\gamma_{" + (i + 1).toString().padStart(2, '0') + "}"} /></span>
                 <span style={{ color: '#06b6d4' }}>{z.toFixed(6)}</span>
               </div>
             ))}
@@ -137,7 +141,7 @@ export default function ZetaPage() {
             <div style={{ marginBottom: 16 }}>
               <span style={{ color: '#64748b', fontSize: 12 }}>{ZETA_ZEROS.length}th zero</span>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, color: '#8b5cf6', marginTop: 4 }}>
-                <InlineMath tex={`\\gamma_{${ZETA_ZEROS.length}}`} /> = {ZETA_ZEROS[ZETA_ZEROS.length - 1].toFixed(6)}
+                <InlineMath tex={"\\gamma_{" + ZETA_ZEROS.length + "}"} /> = {ZETA_ZEROS[ZETA_ZEROS.length - 1].toFixed(6)}
               </div>
             </div>
           </div>

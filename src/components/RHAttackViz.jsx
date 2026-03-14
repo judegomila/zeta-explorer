@@ -130,12 +130,18 @@ function LiCoefficientsTab() {
   return (
     <div>
       <div className="tab-explainer accent-blue">
-        Li's criterion: RH is equivalent to all <InlineMath tex="\lambda_n > 0" />, where{' '}
-        <InlineMath tex="\lambda_n = \sum_{\rho} \left[1 - \left(1 - \tfrac{1}{\rho}\right)^n\right]" /> sums
-        over nontrivial zeros. Using the first <em>N</em> known zeros gives a finite approximation.
-        On a log scale, positive <InlineMath tex="\lambda_n" /> appear above the red zero-line;
-        all bars above = consistent with RH. More zeros sharpen the approximation.
-        <strong> Look for:</strong> all bars above the zero-line, growing roughly linearly in log scale.
+        <p style={{ margin: '0 0 8px' }}>
+          Li's criterion: RH is equivalent to all <InlineMath tex={"\\lambda_n > 0"} />, where:
+        </p>
+        <BlockMath tex={"\\lambda_n = \\sum_{\\rho} \\left[1 - \\left(1 - \\frac{1}{\\rho}\\right)^{\\!n}\\right]"} />
+        <p style={{ margin: '8px 0' }}>
+          Using the first <em>N</em> known zeros gives a finite approximation.
+          On a log scale, positive <InlineMath tex={"\\lambda_n"} /> appear above the red zero-line;
+          all bars above = consistent with RH.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> all bars above the zero-line, growing roughly linearly in log scale.
+        </p>
       </div>
       <div style={{ display: 'flex', gap: 16, marginBottom: 12, alignItems: 'center' }}>
         <div className="control-group">

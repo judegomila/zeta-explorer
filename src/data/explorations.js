@@ -2077,7 +2077,7 @@ $$Z_N(s) = \\sum_{k=0}^{N} \\binom{N}{k}(k+1)^{-s}$$
     nextSteps: ['exp-048', 'exp-001', 'exp-021'],
   },
   {
-    id: 'exp-048',
+    id: 'exp-081',
     title: 'ZX-Calculus as Diagrammatic Framework for the ZPO Model',
     category: 'categorical',
     depth: 3,
@@ -2106,10 +2106,10 @@ The completeness theorem for ZX-calculus (Hadzihasanovic–Ng–Wang, 2018) mean
       'The Frobenius algebra structure of ZX-calculus matches impedance series/parallel composition in the LC network',
     ],
     references: ['berry-keating-1999'],
-    nextSteps: ['exp-049', 'exp-001', 'exp-039'],
+    nextSteps: ['exp-082', 'exp-001', 'exp-039'],
   },
   {
-    id: 'exp-049',
+    id: 'exp-082',
     title: 'Bialgebra Expansion: Euler Product ↔ Dirichlet Series',
     category: 'categorical',
     depth: 3,
@@ -2130,7 +2130,7 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
       'The product-to-sum expansion tracks factorization paths through the ZX diagram',
     ],
     references: ['berry-keating-1999'],
-    nextSteps: ['exp-048', 'exp-001'],
+    nextSteps: ['exp-081', 'exp-001'],
   },
   {
     id: 'exp-050',
@@ -2173,7 +2173,7 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
       'Information-theoretic optimality (exp-050) provides a 6th independent piece of evidence but not a proof',
     ],
     references: ['riemann-1859', 'hilbert-1900', 'berry-keating-1999', 'connes-1999'],
-    nextSteps: ['exp-050', 'exp-048', 'exp-039'],
+    nextSteps: ['exp-050', 'exp-081', 'exp-039'],
   },
   {
     id: 'exp-052',

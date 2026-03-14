@@ -60,7 +60,7 @@ export default function WaveSimPage() {
         <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 2.2 }}>
           <li>
             <strong>Phase velocity:</strong>{' '}
-            <InlineMath tex="v_\\varphi = \\frac{\\omega}{k}" /> where <InlineMath tex="k = \\log p" /> for
+            <InlineMath tex="v_{\\varphi} = \\frac{\\omega}{k}" /> where <InlineMath tex="k = \\log p" /> for
             the <InlineMath tex="p" />-th oscillator.
           </li>
           <li>

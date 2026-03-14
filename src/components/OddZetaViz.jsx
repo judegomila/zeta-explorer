@@ -864,11 +864,13 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
         ))}
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        The Gram matrix uses the inner product{' '}
-        <InlineMath tex="\\langle \\zeta(m), \\zeta(n) \\rangle = \\sum_p \\frac{\\log p}{(p^m-1)(p^n-1)}" />.
-        A nonzero determinant supports linear independence of{' '}
-        <InlineMath tex="\\{1, \\zeta(3), \\zeta(5), \\ldots, \\zeta(" /><InlineMath tex={`${maxOdd})`} /><InlineMath tex="\\}" />.
-        Ball-Rivoal proved <InlineMath tex="\\dim \\geq c \\cdot \\log s" />.
+        <p style={{ margin: '0 0 6px' }}>The Gram matrix uses the inner product:</p>
+        <BlockMath tex={"\\langle \\zeta(m), \\zeta(n) \\rangle = \\sum_p \\frac{\\log p}{(p^m-1)(p^n-1)}"} />
+        <p style={{ margin: '6px 0 0' }}>
+          A nonzero determinant supports linear independence of{' '}
+          <InlineMath tex={"\\{1, \\zeta(3), \\zeta(5), \\ldots, \\zeta(" + maxOdd + ")\\}"} />.
+          Ball-Rivoal proved <InlineMath tex={"\\dim \\geq c \\cdot \\log s"} />.
+        </p>
       </div>
     </div>
   );
@@ -1126,7 +1128,7 @@ function IrrationalityMeasureTab({ selectedN }) {
           <span> For <InlineMath tex="\\zeta(3)" />, Rhin & Viola (2001) proved <InlineMath tex="\\mu \\leq 5.513891" />.</span>
         )}
         {selectedN !== 3 && (
-          <span> For <InlineMath tex={`\\zeta(${selectedN})`} />, irrationality has not been individually proven (only ζ(3) is known).</span>
+          <span> For <InlineMath tex={"\\zeta(" + selectedN + ")"} />, irrationality has not been individually proven (only ζ(3) is known).</span>
         )}
       </div>
     </div>

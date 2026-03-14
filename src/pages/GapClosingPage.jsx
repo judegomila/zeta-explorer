@@ -128,8 +128,9 @@ export default function GapClosingPage() {
           <BlockMath tex={"\\zeta(s) = \\sum_{n=1}^\\infty n^{-s} = \\sum_{n \\text{ odd}} n^{-s} + \\sum_{n \\text{ even}} n^{-s} = \\sum_{n \\text{ odd}} n^{-s} + 2^{-s}\\zeta(s)"} />
           <BlockMath tex={"\\implies \\sum_{n \\text{ odd}} n^{-s} = (1 - 2^{-s})\\zeta(s)"} />
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 4, marginBottom: 8 }}>
-            Meanwhile, the eta function is: <InlineMath tex={"\\eta(s) = \\sum_{n \\text{ odd}} n^{-s} - \\sum_{n \\text{ even}} n^{-s} = (1 - 2^{-s})\\zeta(s) - 2^{-s}\\zeta(s)"} />
+            Meanwhile, the eta function is:
           </p>
+          <BlockMath tex={"\\eta(s) = \\sum_{n \\text{ odd}} n^{-s} - \\sum_{n \\text{ even}} n^{-s} = (1 - 2^{-s})\\zeta(s) - 2^{-s}\\zeta(s)"} />
           <BlockMath tex={"\\eta(s) = (1 - 2^{1-s})\\zeta(s)"} />
 
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>

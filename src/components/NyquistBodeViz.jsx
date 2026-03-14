@@ -89,10 +89,19 @@ export default function NyquistBodeViz() {
 
     const { points, negPoints } = nyquistData;
 
-    const allRe = [...points.map(p => p.re), ...negPoints.map(p => p.re)];
-    const allIm = [...points.map(p => p.im), ...negPoints.map(p => p.im)];
-    const rBound = Math.max(3, d3.max(allRe.map(Math.abs)) * 1.1);
-    const iBound = Math.max(3, d3.max(allIm.map(Math.abs)) * 1.1);
+    let maxAbsRe = 0, maxAbsIm = 0;
+    for (const p of points) {
+      const ar = Math.abs(p.re), ai = Math.abs(p.im);
+      if (ar > maxAbsRe) maxAbsRe = ar;
+      if (ai > maxAbsIm) maxAbsIm = ai;
+    }
+    for (const p of negPoints) {
+      const ar = Math.abs(p.re), ai = Math.abs(p.im);
+      if (ar > maxAbsRe) maxAbsRe = ar;
+      if (ai > maxAbsIm) maxAbsIm = ai;
+    }
+    const rBound = Math.max(3, maxAbsRe * 1.1);
+    const iBound = Math.max(3, maxAbsIm * 1.1);
     const bound = Math.min(20, Math.max(rBound, iBound));
 
     const x = d3.scaleLinear().domain([-bound, bound]).range([0, w]);
@@ -337,6 +346,30 @@ export default function NyquistBodeViz() {
       .attr('fill', '#f59e0b').attr('font-size', 12).attr('font-weight', 600)
       .text('Phase (degrees)');
 
+    // Mark zeta zero frequencies on both magnitude and phase panels
+    const visibleZeros = ZETA_ZEROS.filter(g => g >= Math.max(0.5, tRange[0]) && g <= tRange[1]);
+    visibleZeros.forEach((gamma, i) => {
+      const zx = xLog(gamma);
+      // Magnitude panel
+      gMag.append('line')
+        .attr('x1', zx).attr('y1', 0).attr('x2', zx).attr('y2', halfH)
+        .attr('stroke', '#ef4444').attr('stroke-width', 0.7)
+        .attr('stroke-dasharray', '2,3').attr('opacity', 0.35);
+      // Phase panel
+      gPhase.append('line')
+        .attr('x1', zx).attr('y1', 0).attr('x2', zx).attr('y2', halfH)
+        .attr('stroke', '#ef4444').attr('stroke-width', 0.7)
+        .attr('stroke-dasharray', '2,3').attr('opacity', 0.35);
+      // Label first few zeros on magnitude panel
+      if (i < 8) {
+        gMag.append('text')
+          .attr('x', zx).attr('y', halfH - 4)
+          .attr('text-anchor', 'middle').attr('fill', '#ef4444')
+          .attr('font-size', 8).attr('opacity', 0.6)
+          .text(`γ${String(i + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}`);
+      }
+    });
+
     // Title
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
@@ -362,7 +395,7 @@ export default function NyquistBodeViz() {
   return (
     <div>
       {mode === 'nyquist' && (
-        <div className="tab-explainer">
+        <div className="tab-explainer accent-blue">
           The Nyquist plot traces the loop transfer function{' '}
           <InlineMath tex="L(s) = \\chi(s)\\zeta(1-s)/\\zeta(s)" /> in the complex plane as <InlineMath tex="t" /> varies.
           By the Nyquist stability criterion, the number of clockwise encirclements of <InlineMath tex="-1" /> equals{' '}
@@ -396,6 +429,11 @@ export default function NyquistBodeViz() {
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
           <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
+          <span style={{ fontSize: 10, color: sigmaColor, opacity: 0.8, marginLeft: 4, fontFamily: 'var(--font-mono)' }}
+            title={sigmaDeviation < 0.02 ? 'σ ≈ ½ — on the critical line where |χ| = 1 (lossless)'
+              : sigmaDeviation < 0.15 ? 'Near the critical line — small reflection coefficient'
+              : 'Far from σ = ½ — large gain imbalance between ζ(s) and ζ(1−s)'}
+          >{sigmaDeviation < 0.02 ? 'critical line' : sigmaDeviation < 0.15 ? 'near critical' : 'off-axis'}</span>
         </div>
         <div className="control-group">
           <label>t max</label>

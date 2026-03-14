@@ -37,7 +37,7 @@ export default function OscillatorsPage() {
         <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
           Expanding the geometric series gives the impulse response (inverse Laplace transform of <InlineMath tex={"H_p"} />):
         </p>
-        <BlockMath tex={"h_p(t) = \\sum_{k=0}^{\\infty} p^{-ks} \\cdot \\delta(t - k)"} />
+        <BlockMath tex={"h_p(t) = \\sum_{k=0}^{\\infty} \\delta(t - k\\log p)"} />
         <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
           The poles of <InlineMath tex={"H_p(s)"} /> occur where <InlineMath tex={"p^{-s} = 1"} />, i.e. where <InlineMath tex={"e^{-s \\log p} = 1"} />:
         </p>

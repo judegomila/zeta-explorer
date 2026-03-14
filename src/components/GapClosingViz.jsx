@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import {
   regularizedEulerProduct, cascadeContinuation, convergenceAnalysis,
   hilbertPolyaMatrix, spectralConvergence,
   darlingtonSMatrix, darlingtonScan, darlingtonRealizability,
   confinementScan, gapClosingReport,
 } from '../math/gap-closing.js';
+import { getPrimes } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
 const TABS = ['Regularization', 'Hilbert-Polya', 'Darlington', 'Confinement'];
@@ -19,6 +20,25 @@ function RegularizationTab({ numPrimes, t }) {
     () => cascadeContinuation(t, [0.1, 2.0], 60, numPrimes),
     [t, numPrimes],
   );
+
+  // Pre-compute log magnitudes outside draw callback — depends only on data, not canvas size
+  const logMags = useMemo(() => {
+    const computeLog = (re, im) => {
+      const mag = Math.sqrt(re * re + im * im);
+      return mag > 1e-20 ? Math.log10(mag) : -20;
+    };
+    const eulerLog = data.map(d => computeLog(d.eulerProduct[0], d.eulerProduct[1]));
+    const regLog = data.map(d => computeLog(d.regularized[0], d.regularized[1]));
+    const trueLog = data.map(d => computeLog(d.zetaTrue[0], d.zetaTrue[1]));
+
+    let yMin = -2, yMax = 2;
+    for (let i = 0; i < eulerLog.length; i++) {
+      if (eulerLog[i] > -15) { if (eulerLog[i] < yMin) yMin = eulerLog[i]; if (eulerLog[i] > yMax) yMax = eulerLog[i]; }
+      if (regLog[i] > -15) { if (regLog[i] < yMin) yMin = regLog[i]; if (regLog[i] > yMax) yMax = regLog[i]; }
+      if (trueLog[i] > -15) { if (trueLog[i] < yMin) yMin = trueLog[i]; if (trueLog[i] > yMax) yMax = trueLog[i]; }
+    }
+    return { eulerLog, regLog, trueLog, yMin, yMax };
+  }, [data]);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -36,28 +56,12 @@ function RegularizationTab({ numPrimes, t }) {
     const plotW = w - margin.left - margin.right;
     const plotH = h - margin.top - margin.bottom;
 
-    // Compute log magnitudes for each curve
-    const eulerLog = data.map(d => {
-      const mag = Math.sqrt(d.eulerProduct[0] ** 2 + d.eulerProduct[1] ** 2);
-      return mag > 1e-20 ? Math.log10(mag) : -20;
-    });
-    const regLog = data.map(d => {
-      const mag = Math.sqrt(d.regularized[0] ** 2 + d.regularized[1] ** 2);
-      return mag > 1e-20 ? Math.log10(mag) : -20;
-    });
-    const trueLog = data.map(d => {
-      const mag = Math.sqrt(d.zetaTrue[0] ** 2 + d.zetaTrue[1] ** 2);
-      return mag > 1e-20 ? Math.log10(mag) : -20;
-    });
-
-    const allVals = [...eulerLog, ...regLog, ...trueLog].filter(v => v > -15);
-    const yMin = Math.min(...allVals, -2);
-    const yMax = Math.max(...allVals, 2);
+    const { eulerLog, regLog, trueLog, yMin, yMax } = logMags;
     const yRange = yMax - yMin || 1;
 
     const sigmaMin = data[0].sigma;
     const sigmaMax = data[data.length - 1].sigma;
-    const sigmaRange = sigmaMax - sigmaMin;
+    const sigmaRange = sigmaMax - sigmaMin || 1;
 
     const toX = (sigma) => margin.left + ((sigma - sigmaMin) / sigmaRange) * plotW;
     const toY = (logVal) => margin.top + plotH - ((logVal - yMin) / yRange) * plotH;
@@ -220,7 +224,7 @@ function RegularizationTab({ numPrimes, t }) {
       ctx.fillText(item.label, lx + 20, ly + 3);
     });
 
-  }, [data]);
+  }, [data, logMags]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {
@@ -255,6 +259,17 @@ function HilbertPolyaTab({ numPrimes }) {
     [numPrimes],
   );
 
+  // Pre-compute y-axis bounds from eigenvalues/zeros (avoid flatMap + spread in draw)
+  const yBounds = useMemo(() => {
+    if (data.length === 0) return { yMin: 0, yMax: 1 };
+    let lo = Infinity, hi = -Infinity;
+    for (const d of data) {
+      for (const v of d.eigenvalues) { if (v < lo) lo = v; if (v > hi) hi = v; }
+      for (const v of d.targetZeros) { if (v < lo) lo = v; if (v > hi) hi = v; }
+    }
+    return { yMin: lo - 2, yMax: hi + 2 };
+  }, [data]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -284,11 +299,7 @@ function HilbertPolyaTab({ numPrimes }) {
     const plotTopH = topH - margin.top - margin.bottom;
     const plotBotH = botH - marginBot.top - marginBot.bottom;
 
-    // Gather all eigenvalues and zeros across K values
-    const allEigs = data.flatMap(d => d.eigenvalues);
-    const allZeros = data.flatMap(d => d.targetZeros);
-    const yMin = Math.min(...allEigs, ...allZeros) - 2;
-    const yMax = Math.max(...allEigs, ...allZeros) + 2;
+    const { yMin, yMax } = yBounds;
     const yRange = yMax - yMin || 1;
 
     const kMin = data[0].K;
@@ -348,26 +359,43 @@ function HilbertPolyaTab({ numPrimes }) {
       ctx.fillText(val.toFixed(0), margin.left - 6, y + 3);
     }
 
-    // Legend (top)
+    // Legend (top) with background box
+    const legendX = w - margin.right - 140;
+    const legendY0 = margin.top + 2;
+    const legendW = 136;
+    const legendH = 2 * 16 + 6;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
+    ctx.fill();
+    ctx.stroke();
+
+    // Eigenvalues entry (dot marker)
+    const lx = legendX + 8;
+    const ly1 = legendY0 + 14;
     ctx.fillStyle = '#3b82f6';
     ctx.beginPath();
-    ctx.arc(w - margin.right - 130, margin.top + 8, 3, 0, Math.PI * 2);
+    ctx.arc(lx + 7, ly1, 3, 0, Math.PI * 2);
     ctx.fill();
     ctx.fillStyle = '#94a3b8';
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'left';
-    ctx.fillText('Eigenvalues', w - margin.right - 124, margin.top + 11);
+    ctx.fillText('Eigenvalues', lx + 18, ly1 + 3);
 
+    // Target zeros entry (dashed line marker)
+    const ly2 = legendY0 + 14 + 16;
     ctx.beginPath();
     ctx.setLineDash([4, 3]);
-    ctx.moveTo(w - margin.right - 134, margin.top + 24);
-    ctx.lineTo(w - margin.right - 122, margin.top + 24);
+    ctx.moveTo(lx, ly2);
+    ctx.lineTo(lx + 14, ly2);
     ctx.strokeStyle = '#ef4444';
     ctx.lineWidth = 1;
     ctx.stroke();
     ctx.setLineDash([]);
     ctx.fillStyle = '#94a3b8';
-    ctx.fillText('Target zeros', w - margin.right - 118, margin.top + 27);
+    ctx.fillText('Target zeros', lx + 18, ly2 + 3);
 
     // Bottom panel: spectral error convergence
     const errMax = Math.max(...data.map(d => d.avgError), 0.01);
@@ -436,7 +464,26 @@ function HilbertPolyaTab({ numPrimes }) {
     ctx.textAlign = 'center';
     ctx.fillText('Matrix size K', w / 2, h - 4);
 
-  }, [data]);
+    // Y-axis labels (rotated)
+    ctx.save();
+    ctx.translate(12, topH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Eigenvalue / Zero', 0, 0);
+    ctx.restore();
+
+    ctx.save();
+    ctx.translate(12, topH + botH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Avg Error', 0, 0);
+    ctx.restore();
+
+  }, [data, yBounds]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {
@@ -448,10 +495,14 @@ function HilbertPolyaTab({ numPrimes }) {
   return (
     <div>
       <div className="tab-explainer accent-blue">
-        The Hilbert-Polya matrix <InlineMath tex={"M_{jk} = \\sum_p \\frac{\\log p}{p} \\cos((\\gamma_j - \\gamma_k)\\log p)"} />{' '}
-        couples prime oscillators. If a self-adjoint operator exists with{' '}
-        <InlineMath tex={"\\text{Spec}(\\mathcal{A}) = \\{\\gamma_n\\}"} />, RH follows immediately.
-        Blue dots show computed eigenvalues; red lines show target zeros.
+        <p style={{ margin: '0 0 8px' }}>
+          The Hilbert-Polya matrix couples prime oscillators:
+        </p>
+        <BlockMath tex={"M_{jk} = \\sum_p \\frac{\\log p}{p} \\cos\\bigl((\\gamma_j - \\gamma_k)\\log p\\bigr)"} />
+        <p style={{ margin: '8px 0 0' }}>
+          If a self-adjoint operator exists with <InlineMath tex={"\\text{Spec}(\\mathcal{A}) = \\{\\gamma_n\\}"} />,
+          RH follows immediately. Blue dots show computed eigenvalues; red lines show target zeros.
+        </p>
       </div>
       <canvas
         ref={canvasRef}
@@ -483,13 +534,13 @@ function DarlingtonTab({ numPrimes, t }) {
     ctx.scale(dpr, dpr);
     ctx.clearRect(0, 0, w, h);
 
-    const margin = { left: 56, right: 20, top: 30, bottom: 40 };
+    const margin = { left: 56, right: 50, top: 30, bottom: 40 };
     const plotW = w - margin.left - margin.right;
     const plotH = h - margin.top - margin.bottom;
 
     const sigmaMin = data[0].sigma;
     const sigmaMax = data[data.length - 1].sigma;
-    const sigmaRange = sigmaMax - sigmaMin;
+    const sigmaRange = sigmaMax - sigmaMin || 1;
 
     // Determine y range for S11, S21
     const allMags = data.flatMap(d => [d.S11mag, d.S21mag]);
@@ -591,6 +642,29 @@ function DarlingtonTab({ numPrimes, t }) {
       }
     }
 
+    // Right-side y-axis for unitarity error (red scale)
+    ctx.strokeStyle = '#ef444460';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(w - margin.right, margin.top);
+    ctx.lineTo(w - margin.right, h - margin.bottom);
+    ctx.stroke();
+    ctx.fillStyle = '#ef4444';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'left';
+    const errTicks = 3;
+    for (let i = 0; i <= errTicks; i++) {
+      const val = (i / errTicks) * errMax;
+      const y = toYErr(val);
+      ctx.beginPath();
+      ctx.moveTo(w - margin.right, y);
+      ctx.lineTo(w - margin.right + 4, y);
+      ctx.strokeStyle = '#ef444460';
+      ctx.stroke();
+      ctx.fillStyle = '#ef4444';
+      ctx.fillText(val < 0.01 ? val.toExponential(0) : val.toFixed(2), w - margin.right + 6, y + 3);
+    }
+
     // Axis labels
     ctx.fillStyle = '#94a3b8';
     ctx.font = '10px sans-serif';
@@ -602,15 +676,36 @@ function DarlingtonTab({ numPrimes, t }) {
     ctx.fillText('Magnitude', 0, 0);
     ctx.restore();
 
-    // Legend
+    // Right y-axis label (unitarity error)
+    ctx.save();
+    ctx.translate(w - 4, margin.top + plotH * 0.15);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#ef4444';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Unitarity Error', 0, 0);
+    ctx.restore();
+
+    // Legend with background box
     const legendItems = [
       { color: '#f59e0b', label: '|S\u2081\u2081| (reflection)' },
       { color: '#06b6d4', label: '|S\u2082\u2081| (transmission)' },
       { color: '#ef4444', label: '|S\u2020S - I| (unitarity err)' },
     ];
+    const legendX = w - margin.right - 184;
+    const legendY0 = margin.top + 2;
+    const legendW = 180;
+    const legendH = legendItems.length * 16 + 6;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
+    ctx.fill();
+    ctx.stroke();
     legendItems.forEach((item, i) => {
-      const lx = w - margin.right - 180;
-      const ly = margin.top + 8 + i * 16;
+      const lx = legendX + 8;
+      const ly = legendY0 + 14 + i * 16;
       ctx.beginPath();
       ctx.moveTo(lx, ly);
       ctx.lineTo(lx + 16, ly);
@@ -652,17 +747,12 @@ function DarlingtonTab({ numPrimes, t }) {
 
 // ─── Tab 4: Confinement ─────────────────────────────────────────────────────
 
-function ConfinementTab({ numPrimes, t }) {
+function ConfinementTab({ numPrimes, t, report }) {
   const canvasRef = useRef();
 
   const data = useMemo(
     () => confinementScan(t, [0.1, 0.9], 60, numPrimes),
     [t, numPrimes],
-  );
-
-  const report = useMemo(
-    () => gapClosingReport(numPrimes, 10),
-    [numPrimes],
   );
 
   const draw = useCallback(() => {
@@ -683,7 +773,7 @@ function ConfinementTab({ numPrimes, t }) {
 
     const sigmaMin = data[0].sigma;
     const sigmaMax = data[data.length - 1].sigma;
-    const sigmaRange = sigmaMax - sigmaMin;
+    const sigmaRange = sigmaMax - sigmaMin || 1;
 
     // Gather all potential values and component values
     const potentials = data.map(d => d.potential);
@@ -748,7 +838,7 @@ function ConfinementTab({ numPrimes, t }) {
     drawCurve(klVals, '#10b981', 1);       // KL: green
     drawCurve(twistorVals, '#3b82f6', 1);  // twistor: blue
     drawCurve(bridgeVals, '#f59e0b', 1);   // bridge: yellow/orange
-    drawCurve(hamiltonianVals, '#f97316', 1); // Hamiltonian: orange
+    drawCurve(hamiltonianVals, '#ec4899', 1); // Hamiltonian: pink
 
     // Total confinement potential (thick purple)
     drawCurve(potentials, '#8b5cf6', 3);
@@ -803,17 +893,28 @@ function ConfinementTab({ numPrimes, t }) {
     ctx.fillText('\u03A6(\u03C3) potential', 0, 0);
     ctx.restore();
 
-    // Legend
+    // Legend with background box
     const legendItems = [
       { color: '#8b5cf6', label: 'Total \u03A6(\u03C3)', width: 3 },
       { color: '#10b981', label: 'KL divergence', width: 1 },
       { color: '#3b82f6', label: 'Twistor', width: 1 },
       { color: '#f59e0b', label: 'Bridge', width: 1 },
-      { color: '#f97316', label: 'Hamiltonian', width: 1 },
+      { color: '#ec4899', label: 'Hamiltonian', width: 1 },
     ];
+    const legendX = w - margin.right - 148;
+    const legendY0 = margin.top + 2;
+    const legendW = 144;
+    const legendH = legendItems.length * 14 + 6;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
+    ctx.fill();
+    ctx.stroke();
     legendItems.forEach((item, i) => {
-      const lx = w - margin.right - 140;
-      const ly = margin.top + 8 + i * 14;
+      const lx = legendX + 8;
+      const ly = legendY0 + 12 + i * 14;
       ctx.beginPath();
       ctx.moveTo(lx, ly);
       ctx.lineTo(lx + 14, ly);
@@ -841,9 +942,13 @@ function ConfinementTab({ numPrimes, t }) {
   return (
     <div>
       <div className="tab-explainer accent-purple">
-        The confinement potential <InlineMath tex={"\\Phi(\\sigma) = \\alpha D_{KL} + \\beta |Z^*W|^2 + \\gamma(1-|\\chi|)^2 + \\delta \\Delta H"} />{' '}
-        should be minimized at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, confining all zeros
-        to the critical line. The thick purple curve shows the total; thin lines show individual components.
+        <p style={{ margin: '0 0 8px' }}>
+          The confinement potential should be minimized at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, confining all zeros to the critical line:
+        </p>
+        <BlockMath tex={"\\Phi(\\sigma) = \\alpha\\, D_{KL} + \\beta\\, |Z^*W|^2 + \\gamma\\,(1-|\\chi|)^2 + \\delta\\, \\Delta H"} />
+        <p style={{ margin: '8px 0 0' }}>
+          The thick purple curve shows the total; thin lines show individual components.
+        </p>
       </div>
       <canvas
         ref={canvasRef}
@@ -895,7 +1000,7 @@ export default function GapClosingViz() {
           <label>Primes</label>
           <input type="range" min="4" max="20" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
@@ -920,7 +1025,7 @@ export default function GapClosingViz() {
       {tab === 0 && <RegularizationTab numPrimes={numPrimes} t={tValue} />}
       {tab === 1 && <HilbertPolyaTab numPrimes={numPrimes} />}
       {tab === 2 && <DarlingtonTab numPrimes={numPrimes} t={tValue} />}
-      {tab === 3 && <ConfinementTab numPrimes={numPrimes} t={tValue} />}
+      {tab === 3 && <ConfinementTab numPrimes={numPrimes} t={tValue} report={report} />}
 
       {/* Summary panel */}
       <div style={{

@@ -47,7 +47,7 @@ export default function RHAttackPage() {
             </li>
             <li>
               <strong style={{ color: '#f59e0b' }}>de Bruijn–Newman</strong> — Heat flow parameter{' '}
-              <InlineMath tex="\Lambda = 0" /> (proved by Rodgers–Tao, 2020).
+              <InlineMath tex="\Lambda \geq 0" /> (proved by Rodgers–Tao, 2020); RH <InlineMath tex="\Leftrightarrow \Lambda \leq 0" />.
             </li>
             <li>
               <strong style={{ color: '#ef4444' }}>Proof Map</strong> — Explicit gap analysis:
@@ -62,7 +62,7 @@ export default function RHAttackPage() {
           </p>
           <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
             <li>The bridge <InlineMath tex="\chi(s)" /> is unitary (<InlineMath tex="|\chi| = 1" />)</li>
-            <li>Direct and dual ladders are impedance-matched</li>
+            <li>Direct and dual ladders are conjugate impedance-matched</li>
             <li>The Hamiltonian is minimized</li>
             <li>The S-matrix is on the unitarity boundary</li>
           </ul>
@@ -300,7 +300,7 @@ export default function RHAttackPage() {
       </div>
 
       <div className="card" style={{ marginTop: 24 }}>
-        <h3 style={{ color: '#06b6d4', fontSize: 14 }}>Known Equivalences to RH</h3>
+        <h3 style={{ color: '#06b6d4', fontSize: 14 }}>Known Equivalences & Related Criteria</h3>
         <table style={{ width: '100%', marginTop: 12, fontSize: 12, color: 'var(--text-secondary)', borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ borderBottom: '1px solid #334155' }}>
@@ -312,13 +312,13 @@ export default function RHAttackPage() {
           <tbody>
             {[
               ['Li: λ_n > 0 ∀n ≥ 1', 'Yes (Tab 1)', 'Consistent (finite computation)'],
-              ['de Bruijn–Newman: Λ ≤ 0', 'Yes (Tab 4)', 'Proved: Λ = 0 (Rodgers–Tao)'],
+              ['de Bruijn–Newman: Λ ≥ 0', 'Yes (Tab 4)', 'Proved: Λ ≥ 0 (Rodgers–Tao); RH ⟺ Λ ≤ 0'],
               ['Weil positivity', 'Partial', 'Tested for Gaussian test functions'],
               ['Nyman–Beurling–Báez-Duarte', 'No', 'Requires L² approximation bounds'],
               ['Robin inequality: σ(n) < eᵞ n ln ln n', 'No', 'Requires computing σ(n) for large n'],
               ['Lagarias: σ(n) ≤ Hₙ + eᴴⁿ ln Hₙ', 'No', 'Requires harmonic number bounds'],
               ['Selberg: N(T) = (T/2π)log(T/2πe) + S(T)', 'Partial', 'S(T) = O(log T) follows from RH'],
-              ['GUE hypothesis (pair correlation)', 'No', 'Would require high-precision zero data'],
+              ['GUE hypothesis (pair correlation)', 'Yes (Statistics)', 'NOT an equivalence — related but independent conjecture (Montgomery 1973, Odlyzko 1987)'],
             ].map(([criterion, tested, status], i) => (
               <tr key={i} style={{ borderBottom: '1px solid #1e293b' }}>
                 <td style={{ padding: '6px 10px', color: '#06b6d4' }}>{criterion}</td>

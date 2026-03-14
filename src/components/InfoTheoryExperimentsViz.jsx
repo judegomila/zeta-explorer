@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react'
 import { InlineMath } from './KaTeXMath.jsx';
 import { getPrimes } from '../math/primes.js';
 import { oscillatorStage, directLadder, dualLadder, losslessBridge } from '../math/oscillators.js';
-import { zetaCriticalStrip, cMul, cAdd, cSub, cDiv, cAbs, cExp, cLog, eulerFactor, partialEulerProduct } from '../math/zeta.js';
+import { zetaCriticalStrip, cMul, cAdd, cSub, cDiv, cAbs, cExp, cLog, eulerFactor, partialEulerProduct, ZETA_ZEROS } from '../math/zeta.js';
 
 // ─── Shared color helpers ────────────────────────────────────────────────────
 
@@ -54,9 +54,9 @@ function computeWeights(sigma, t, numPrimes) {
   return weights.map(w => ({ ...w, w: w.mag2 / total }));
 }
 
-function computeAllMeasures(sigma, t, numPrimes) {
+function computeAllMeasures(sigma, t, numPrimes, precomputedWeightsHalf) {
   const weights = computeWeights(sigma, t, numPrimes);
-  const weightsHalf = computeWeights(0.5, t, numPrimes);
+  const weightsHalf = precomputedWeightsHalf || computeWeights(0.5, t, numPrimes);
 
   // 1. Shannon Entropy
   let entropy = 0;
@@ -234,6 +234,7 @@ function EfficiencyDashboard({ sigma, t, numPrimes }) {
   }, [measures]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   return (
     <div>
@@ -290,14 +291,14 @@ function PrimeContributions({ sigma, t, numPrimes }) {
       // Entropy contribution: -w * log2(w)
       const entropyContrib = w > 1e-20 ? -w * Math.log2(w) : 0;
 
-      // Capacity contribution per stage
-      const efMag2 = cAbs(eulerFactor(p, [sigma, t])) ** 2;
+      // Capacity contribution per stage — reuse mags[i] instead of recomputing eulerFactor
+      const efMag2 = mags[i];
       const stage = oscillatorStage(p, [sigma, t]);
       const stageNoise = 1 / (stage.Q * stage.Q + 1);
       const capContrib = 0.5 * Math.log2(1 + efMag2 / Math.max(stageNoise, 1e-10));
 
-      // Fisher contribution
-      const efC = cAbs(eulerFactor(p, [sigma, t]));
+      // Fisher contribution — reuse mags[i] for efC instead of recomputing eulerFactor
+      const efC = Math.sqrt(mags[i]);
       const efP = cAbs(eulerFactor(p, [sigma + ds, t]));
       const efM = cAbs(eulerFactor(p, [sigma - ds, t]));
       let fisherContrib = 0;
@@ -415,6 +416,7 @@ function PrimeContributions({ sigma, t, numPrimes }) {
   }, [data]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   // Compute uniformity metric
   const uniformity = data.contribs.length > 0
@@ -462,10 +464,11 @@ function LandscapeScan({ sigma, t, numPrimes }) {
 
   const scanData = useMemo(() => {
     const steps = 80;
+    const weightsHalf = computeWeights(0.5, t, numPrimes);
     const results = [];
     for (let i = 0; i <= steps; i++) {
       const s = 0.1 + i * (0.8 / steps);
-      const m = computeAllMeasures(s, t, numPrimes);
+      const m = computeAllMeasures(s, t, numPrimes, weightsHalf);
       results.push({ sigma: s, ...m });
     }
     return results;
@@ -590,6 +593,7 @@ function LandscapeScan({ sigma, t, numPrimes }) {
   }, [scanData, sigma, t]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   return (
     <div>
@@ -779,6 +783,7 @@ function CompressionExperiment({ sigma, t }) {
   }, [data, t]);
 
   useEffect(() => { draw(); }, [draw]);
+  useEffect(() => { const h = () => draw(); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, [draw]);
 
   // Compute 5-prime errors for the stat boxes
   const err5 = {};
@@ -837,12 +842,33 @@ export default function InfoTheoryExperimentsViz() {
           <input type="range" min="1" max="60" step="0.5" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
+          {(() => {
+            let bestIdx = 0, bestDist = Math.abs(t - ZETA_ZEROS[0]);
+            for (let i = 1; i < ZETA_ZEROS.length; i++) {
+              const d = Math.abs(t - ZETA_ZEROS[i]);
+              if (d < bestDist) { bestDist = d; bestIdx = i; }
+              if (ZETA_ZEROS[i] > t + 2) break;
+            }
+            return bestDist < 1 ? (
+              <span
+                style={{
+                  marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
+                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  cursor: 'pointer', borderBottom: '1px dashed currentColor',
+                }}
+                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
+                onClick={() => setT(+ZETA_ZEROS[bestIdx].toFixed(1))}
+              >
+                {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+              </span>
+            ) : null;
+          })()}
         </div>
         <div className="control-group">
           <label>Primes</label>
           <input type="range" min="3" max="20" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <button
           onClick={() => setSigma(0.5)}
@@ -872,10 +898,54 @@ export default function InfoTheoryExperimentsViz() {
         ))}
       </div>
 
-      {tab === 0 && <EfficiencyDashboard sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 1 && <PrimeContributions sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 2 && <LandscapeScan sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 3 && <CompressionExperiment sigma={sigma} t={t} />}
+      {tab === 0 && (
+        <>
+          <div className="tab-explainer accent-green">
+            <strong>Efficiency Dashboard:</strong> Six information-theoretic measures — Shannon entropy, channel capacity,
+            Fisher information, KL divergence, mutual information, and a composite confinement potential — each
+            normalized to [0, 1]. All six reach their optimum simultaneously at{' '}
+            <InlineMath tex="\sigma = \tfrac{1}{2}" />.
+            <strong> Look for:</strong> all bars turning green as you approach the critical line.
+          </div>
+          <EfficiencyDashboard sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 1 && (
+        <>
+          <div className="tab-explainer accent-purple">
+            <strong>Prime Contributions:</strong> Per-prime breakdown of entropy, channel capacity, and Fisher information.
+            Each bar group shows how much each prime oscillator contributes to the total measure.
+            At <InlineMath tex="\sigma = \tfrac{1}{2}" />, contributions are most uniformly distributed across primes
+            (functional equation symmetry equalizes direct and dual weights).
+            <strong> Look for:</strong> how small primes dominate away from the critical line.
+          </div>
+          <PrimeContributions sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 2 && (
+        <>
+          <div className="tab-explainer accent-blue">
+            <strong>Landscape Scan:</strong> All six measures plotted as functions of{' '}
+            <InlineMath tex="\sigma" /> at fixed <InlineMath tex="t" />. Each curve is individually
+            normalized so their shapes can be compared on the same chart. The dashed green line marks{' '}
+            <InlineMath tex="\sigma = \tfrac{1}{2}" />.
+            <strong> Look for:</strong> all six curves peaking (or troughing for KL) at the critical line — six independent lenses, one answer.
+          </div>
+          <LandscapeScan sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 3 && (
+        <>
+          <div className="tab-explainer accent-cyan">
+            <strong>Compression Experiment:</strong> How many primes (Euler product factors) are needed to approximate{' '}
+            <InlineMath tex="\zeta(s)" /> to a given accuracy? Compares convergence at{' '}
+            <InlineMath tex="\sigma = 0.3, 0.5, 0.7" />. The vertical line marks the "Connes threshold" (5 primes).
+            <strong> Look for:</strong> the <InlineMath tex="\sigma = 0.5" /> curve (green) achieving
+            lower error with fewer primes than off-critical values.
+          </div>
+          <CompressionExperiment sigma={sigma} t={t} />
+        </>
+      )}
     </div>
   );
 }

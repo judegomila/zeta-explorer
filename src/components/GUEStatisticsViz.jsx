@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
 // Precompute reference curves at module level — these are mathematical constants
@@ -22,7 +22,7 @@ for (let r = 0.02; r <= 4; r += 0.02) {
 const GAMMA_E = 0.5772156649015329;
 const REF_NUMVAR_GUE = [];
 for (let L = 0.3; L <= 6; L += 0.05) {
-  const s2 = (1 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 1 + GAMMA_E - Math.PI * Math.PI / 8);
+  const s2 = (1 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 1 + GAMMA_E);
   REF_NUMVAR_GUE.push({ L, s2: Math.max(0, s2) });
 }
 
@@ -140,7 +140,9 @@ export default function GUEStatisticsViz() {
         g.append('rect')
           .attr('x', x(i * binWidth)).attr('y', y(density[i]))
           .attr('width', x(binWidth) - x(0) - 1).attr('height', h - y(density[i]))
-          .attr('fill', 'rgba(59,130,246,0.4)').attr('stroke', '#3b82f6').attr('stroke-width', 0.5);
+          .attr('fill', 'rgba(59,130,246,0.4)').attr('stroke', '#3b82f6').attr('stroke-width', 0.5)
+          .style('cursor', 'crosshair')
+          .append('title').text(`s ∈ [${(i * binWidth).toFixed(2)}, ${((i + 1) * binWidth).toFixed(2)}), P(s) = ${density[i].toFixed(4)}`);
       }
 
       // GUE Wigner surmise: P(s) = (32/pi^2) * s^2 * exp(-4s^2/pi)
@@ -165,6 +167,9 @@ export default function GUEStatisticsViz() {
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 200}, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -14).attr('width', 208).attr('height', 88)
+        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       // Zeta zeros: filled rect swatch matching histogram bars
       legend.append('rect').attr('x', 2).attr('y', -6).attr('width', 18).attr('height', 12)
         .attr('rx', 1).attr('fill', 'rgba(59,130,246,0.4)').attr('stroke', '#3b82f6').attr('stroke-width', 0.5);
@@ -220,7 +225,9 @@ export default function GUEStatisticsViz() {
         g.append('rect')
           .attr('x', x(i * binW)).attr('y', y(density[i]))
           .attr('width', x(binW) - x(0) - 1).attr('height', h - y(density[i]))
-          .attr('fill', 'rgba(139,92,246,0.4)').attr('stroke', '#8b5cf6').attr('stroke-width', 0.5);
+          .attr('fill', 'rgba(139,92,246,0.4)').attr('stroke', '#8b5cf6').attr('stroke-width', 0.5)
+          .style('cursor', 'crosshair')
+          .append('title').text(`x ∈ [${(i * binW).toFixed(2)}, ${((i + 1) * binW).toFixed(2)}), R₂ = ${density[i].toFixed(4)}`);
       }
 
       // GUE pair correlation: R_2(x) = 1 - (sin(πx)/(πx))^2
@@ -239,6 +246,9 @@ export default function GUEStatisticsViz() {
         .text('R₂ = 1 (uncorrelated)');
 
       const legend = g.append('g').attr('transform', `translate(${w - 220}, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -14).attr('width', 220).attr('height', 68)
+        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       legend.append('rect').attr('x', 2).attr('y', -6).attr('width', 18).attr('height', 12)
         .attr('rx', 1).attr('fill', 'rgba(139,92,246,0.4)').attr('stroke', '#8b5cf6').attr('stroke-width', 0.5);
       legend.append('text').attr('x', 28).attr('y', 4)
@@ -290,10 +300,12 @@ export default function GUEStatisticsViz() {
         .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2);
       vars.forEach((v, i) => {
         g.append('circle').attr('cx', x(Ls[i])).attr('cy', y(v)).attr('r', 3)
-          .attr('fill', '#3b82f6').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
+          .attr('fill', '#3b82f6').attr('stroke', '#0a0e1a').attr('stroke-width', 1)
+          .style('cursor', 'crosshair')
+          .append('title').text(`L = ${Ls[i].toFixed(2)}, Σ²(L) = ${v.toFixed(4)}`);
       });
 
-      // GUE prediction: Sigma^2(L) ~ (1/pi^2)(log(2*pi*L) + 1 + gamma_E - pi^2/8)
+      // GUE prediction: Sigma^2(L) ~ (1/pi^2)(log(2*pi*L) + 1 + gamma_E)
       g.append('path').datum(REF_NUMVAR_GUE)
         .attr('d', d3.line().x(d => x(d.L)).y(d => y(d.s2)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#ef4444').attr('stroke-width', 2.5);
@@ -306,6 +318,9 @@ export default function GUEStatisticsViz() {
         .attr('stroke', '#64748b').attr('stroke-dasharray', '6,4').attr('stroke-width', 1.5);
 
       const legend = g.append('g').attr('transform', `translate(20, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -14).attr('width', 160).attr('height', 68)
+        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       [
         { label: 'Zeta zeros', color: '#3b82f6', dash: '', dots: true },
         { label: 'GUE prediction', color: '#ef4444', dash: '', dots: false },
@@ -348,12 +363,18 @@ export default function GUEStatisticsViz() {
     <div>
       {mode === 'spacing' && (
         <div className="tab-explainer accent-red">
-          The nearest-neighbor spacing distribution <InlineMath tex="P(s)" /> measures the probability
-          that consecutive normalized zero gaps have size <InlineMath tex="s" />. For random matrices from the GUE (Gaussian
-          Unitary Ensemble), the Wigner surmise gives <InlineMath tex="P_{\\text{GUE}}(s) = (32/\\pi^2)s^2 e^{-4s^2/\\pi}" />.
-          The key feature is <strong>level repulsion</strong>: <InlineMath tex="P(0) = 0" />, meaning zeros never collide.
-          Poisson (random) would give <InlineMath tex="P(s) = e^{-s}" /> with clustering at zero.
-          <strong> Look for:</strong> the zeta zero histogram matching GUE (red), not Poisson (gray).
+          <p style={{ margin: '0 0 8px' }}>
+            The nearest-neighbor spacing distribution <InlineMath tex={"P(s)"} /> measures the probability
+            that consecutive normalized zero gaps have size <InlineMath tex={"s"} />. The GUE Wigner surmise:
+          </p>
+          <BlockMath tex={"P_{\\text{GUE}}(s) = \\frac{32}{\\pi^2}\\, s^2\\, e^{-4s^2/\\pi}"} />
+          <p style={{ margin: '8px 0' }}>
+            The key feature is <strong>level repulsion</strong>: <InlineMath tex={"P(0) = 0"} />, meaning zeros never collide.
+            Poisson (random) would give <InlineMath tex={"P(s) = e^{-s}"} /> with clustering at zero.
+          </p>
+          <p style={{ margin: '4px 0 0' }}>
+            <strong>Look for:</strong> the zeta zero histogram matching GUE (red), not Poisson (gray).
+          </p>
         </div>
       )}
       {mode === 'pair-correlation' && (
@@ -367,11 +388,18 @@ export default function GUEStatisticsViz() {
       )}
       {mode === 'number-variance' && (
         <div className="tab-explainer accent-cyan">
-          The number variance <InlineMath tex="\\Sigma^2(L)" /> measures fluctuations in the count of zeros
-          in intervals of length <InlineMath tex="L" />. For GUE, <InlineMath tex="\\Sigma^2(L) = \\tfrac{1}{\\pi^2}\\bigl(\\log(2\\pi L) + 1 + \\gamma_E - \\tfrac{\\pi^2}{8}\\bigr)" /> (logarithmic
-          growth) &mdash; much slower than Poisson where <InlineMath tex="\\Sigma^2 = L" />. This logarithmic suppression means zeros
-          are <strong>rigidly</strong> spaced &mdash; far more regular than random.
-          <strong> Look for:</strong> the data following the GUE log curve, not the linear Poisson line.
+          <p style={{ margin: '0 0 8px' }}>
+            The number variance <InlineMath tex={"\\Sigma^2(L)"} /> measures fluctuations in the count of zeros
+            in intervals of length <InlineMath tex={"L"} />. For GUE:
+          </p>
+          <BlockMath tex={"\\Sigma^2(L) = \\frac{1}{\\pi^2}\\bigl(\\log(2\\pi L) + 1 + \\gamma_E\\bigr)"} />
+          <p style={{ margin: '8px 0' }}>
+            This is logarithmic growth &mdash; much slower than Poisson where <InlineMath tex={"\\Sigma^2 = L"} />.
+            The suppression means zeros are <strong>rigidly</strong> spaced, far more regular than random.
+          </p>
+          <p style={{ margin: '4px 0 0' }}>
+            <strong>Look for:</strong> the data following the GUE log curve, not the linear Poisson line.
+          </p>
         </div>
       )}
       <div className="controls">

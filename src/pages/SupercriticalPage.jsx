@@ -284,9 +284,10 @@ export default function SupercriticalPage() {
           fontSize: 12, color: '#c4b5fd', lineHeight: 1.7,
         }}>
           <strong>ZPO interpretation:</strong> Heat flow "blurs" the oscillator frequencies. At{' '}
-          <InlineMath tex={"t > 0"} />, the resonances spread and overlap — zeros drift off the
-          real axis. At <InlineMath tex={"t = 0"} /> (no blur), zeros are maximally sharp and
-          sit exactly on the critical line. The Rodgers-Tao result says we are precisely at{' '}
+          <InlineMath tex={"t < 0"} /> (backward flow), resonances sharpen destructively and zeros
+          drift off the real axis. At <InlineMath tex={"t = 0"} />, zeros are maximally sharp and
+          sit exactly on the critical line (assuming RH). Forward flow (<InlineMath tex={"t > 0"} />)
+          smooths the function but preserves real zeros. The Rodgers-Tao result says we are precisely at{' '}
           <InlineMath tex={"t = 0"} />: any heating preserves real zeros, any cooling destroys
           them. The system is at the <strong style={{ color: '#a855f7' }}>critical threshold
           of resonance sharpness</strong>.

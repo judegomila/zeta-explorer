@@ -312,8 +312,10 @@ export default function RHRigorViz() {
     ctx.fillStyle = 'rgba(13, 17, 23, 0.85)';
     ctx.strokeStyle = '#1e293b';
     ctx.lineWidth = 1;
-    ctx.fillRect(lx, ly, 170, 88);
-    ctx.strokeRect(lx, ly, 170, 88);
+    ctx.beginPath();
+    ctx.roundRect(lx, ly, 170, 88, 4);
+    ctx.fill();
+    ctx.stroke();
 
     const items = [
       { type: 'dash', color: '#10b981', label: 'σ = ½ (RH prediction)' },
@@ -501,8 +503,10 @@ export default function RHRigorViz() {
     ctx.fillStyle = 'rgba(13, 17, 23, 0.85)';
     ctx.strokeStyle = '#1e293b';
     ctx.lineWidth = 1;
-    ctx.fillRect(lx, legendY, legendW, legendH);
-    ctx.strokeRect(lx, legendY, legendW, legendH);
+    ctx.beginPath();
+    ctx.roundRect(lx, legendY, legendW, legendH, 4);
+    ctx.fill();
+    ctx.stroke();
 
     ctx.font = '11px Inter, sans-serif';
     legendItems.forEach((item, i) => {
@@ -608,11 +612,14 @@ export default function RHRigorViz() {
 
       {/* Controls */}
       <div className="controls">
-        <div className="control-group">
+        <div className="control-group" style={{ opacity: activeTest === 'bridge' ? 0.4 : 1 }}>
           <label>Primes</label>
           <input type="range" min="5" max="40" step="1" value={numPrimes}
+            disabled={activeTest === 'bridge'}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>
+            {activeTest === 'bridge' ? '(not used by bridge test)' : `(up to p=${getPrimes(numPrimes)[numPrimes - 1]})`}
+          </span></span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="t_{\\min}" /></label>

@@ -264,7 +264,7 @@ export default function OscillatorChainViz() {
 
   return (
     <div>
-      <div className="tab-explainer">
+      <div className="tab-explainer accent-blue">
         The Euler product <InlineMath tex="\\zeta(s) = \\prod_p (1-p^{-s})^{-1}" /> is realized as
         a cascade of oscillator stages. Each prime <InlineMath tex="p" /> contributes an LC stage with inductance{' '}
         <InlineMath tex="L_p = \\log p" /> and capacitance <InlineMath tex="C_p = 1/\\log p" /> (from <InlineMath tex="p^{-s} = e^{-s\\log p}" />),
@@ -283,6 +283,11 @@ export default function OscillatorChainViz() {
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
           <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
+          <span style={{ fontSize: 10, color: sigmaColor, opacity: 0.8, marginLeft: 4, fontFamily: 'var(--font-mono)' }}
+            title={sigmaDeviation < 0.02 ? 'σ ≈ ½ — on the critical line where direct/dual ladders are conjugate-matched'
+              : sigmaDeviation < 0.15 ? 'Near the critical line — small impedance mismatch'
+              : 'Far from critical line — large impedance mismatch between ladders'}
+          >{sigmaDeviation < 0.02 ? 'critical line' : sigmaDeviation < 0.15 ? 'near critical' : 'off-axis'}</span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
@@ -328,7 +333,11 @@ export default function OscillatorChainViz() {
             {selectedStage.ladder === 'direct' ? 'Direct' : 'Dual'} Ladder — Prime {selectedStage.prime}
           </h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 12, marginTop: 12 }}>
-            <div><span style={{ color: '#64748b', fontSize: 11 }}>Frequency <InlineMath tex="\\omega" /></span><br/>
+            <div><span style={{ color: '#64748b', fontSize: 11 }}>Inductance <InlineMath tex="L_p = \\log p" /></span><br/>
+              <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.frequency.toFixed(4)}</span></div>
+            <div><span style={{ color: '#64748b', fontSize: 11 }}>Capacitance <InlineMath tex="C_p = 1/\\log p" /></span><br/>
+              <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{(1 / selectedStage.frequency).toFixed(4)}</span></div>
+            <div><span style={{ color: '#64748b', fontSize: 11 }}>Impedance <InlineMath tex="Z_0 = \\log p" /></span><br/>
               <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.frequency.toFixed(4)}</span></div>
             <div><span style={{ color: '#64748b', fontSize: 11 }}>|H(s)|</span><br/>
               <span style={{ fontFamily: 'var(--font-mono)', color: '#06b6d4' }}>{selectedStage.magnitude.toFixed(4)}</span></div>

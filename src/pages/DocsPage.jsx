@@ -295,7 +295,7 @@ export default function DocsPage() {
           <div>
             <Fn name="sieveOfEratosthenes" params="limit" desc="All primes up to limit via sieve" />
             <Fn name="getPrimes" params="n" desc="First n primes (pre-computed)" />
-            <Fn name="primeFrequency" params="p" desc="Oscillator frequency ω = log(p)" />
+            <Fn name="primeFrequency" params="p" desc="Characteristic impedance Z₀ = log(p) (all primes share ω₀ = 1)" />
             <Fn name="primeWavelength" params="p" desc="Wavelength λ = 2π/log(p)" />
             <Fn name="vonMangoldt" params="n" desc="Λ(n) = log(p) if n=p^k, else 0" />
             <Fn name="chebyshevPsi" params="x" desc="Chebyshev ψ(x) = Σ Λ(n) for n ≤ x" />
@@ -601,7 +601,7 @@ export default function DocsPage() {
               Evolves zeta zeros under the heat equation <InlineMath tex="\\partial_{\\tau} H = \\partial_t^2 H" />.
               Zero dynamics follow a repulsive ODE: each zero experiences logarithmic repulsion from its neighbors.
               The de Bruijn-Newman constant <InlineMath tex="\\Lambda" /> is the infimum of <InlineMath tex="\\tau" /> such
-              that <InlineMath tex="H_\\tau" /> has only real zeros. Rodgers-Tao (2020) proved <InlineMath tex="\\Lambda \\geq 0" />;
+              that <InlineMath tex="H_{\\tau}" /> has only real zeros. Rodgers-Tao (2020) proved <InlineMath tex="\\Lambda \\geq 0" />;
               RH is equivalent to <InlineMath tex="\\Lambda \\leq 0" />, i.e., <InlineMath tex="\\Lambda = 0" />.
             </p>
           </div>

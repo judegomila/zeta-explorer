@@ -62,7 +62,7 @@ const LAYERS = [
       { id: 'thermo', label: 'Thermodynamics', tex: 'F=-T\\ln Z,\\; T=1/\\sigma', x: 0.42 },
       { id: 'rmt', label: 'Random Matrix (GUE)', tex: 'P(s) \\sim s^2 e^{-4s^2/\\pi}', x: 0.6 },
       { id: 'heat-flow', label: 'De Bruijn–Newman', tex: '\\partial_\\tau H_\\tau = \\partial_t^2 H_\\tau', x: 0.78 },
-      { id: 'twistor', label: 'Twistor Duality', tex: 'Z^\\alpha W_\\alpha = 0', x: 0.93 },
+      { id: 'twistor', label: 'Twistor Duality', tex: 'Z^{\\alpha} W_{\\alpha} = 0', x: 0.93 },
     ],
   },
   {

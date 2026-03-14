@@ -33,21 +33,19 @@ export function liCoefficients(maxN = 30, numZeros = 100) {
   const zeros = ZETA_ZEROS.slice(0, numZeros);
   const lambdas = [];
 
+  // Precompute (1 − 1/ρ) for each zero — these depend only on γ, not n
+  const oneMinusInvRhos = zeros.map(gamma => {
+    const rho = [0.5, gamma];
+    const invRho = cDiv([1, 0], rho);
+    return cSub([1, 0], invRho);
+  });
+
   for (let n = 1; n <= maxN; n++) {
     let lambda = 0;
 
-    for (const gamma of zeros) {
-      // ρ = 0.5 + i·γ
-      const rho = [0.5, gamma];
-
-      // 1/ρ
-      const invRho = cDiv([1, 0], rho);
-
-      // 1 − 1/ρ
-      const oneMinusInvRho = cSub([1, 0], invRho);
-
+    for (let zi = 0; zi < oneMinusInvRhos.length; zi++) {
       // (1 − 1/ρ)^n
-      const powered = cPow(oneMinusInvRho, [n, 0]);
+      const powered = cPow(oneMinusInvRhos[zi], [n, 0]);
 
       // 1 − (1 − 1/ρ)^n
       const term = cSub([1, 0], powered);
@@ -283,12 +281,12 @@ export function deBruijnNewmanScan(tRange = [10, 50], steps = 200, tauValues = [
   return {
     results,
     tauValues,
-    gap: 'Rodgers–Tao (2020) proved Λ ≥ 0, confirming the lower bound. Combined with de Bruijn\'s ' +
-         'upper bound, this gives Λ = 0. This is the state of the art. ' +
+    gap: 'Rodgers–Tao (2020) proved Λ ≥ 0. The best known upper bound is Λ ≤ 0.2 (Platt–Trudgian, 2021). ' +
+         'So we know 0 ≤ Λ ≤ 0.2, but Λ = 0 is equivalent to RH and remains open. ' +
          'The ZPO connection: the heat parameter τ corresponds to the "temperature" 1/σ in the ' +
          'thermodynamic interpretation. At τ = 0 (σ = ½), the system is at the critical temperature ' +
          'where zeros are exactly real. Positive τ (lower σ) smooths zeros but keeps them real; ' +
-         'negative τ (higher σ) would push zeros off-axis, but Λ = 0 says this doesn\'t happen.',
+         'negative τ (higher σ) would push zeros off-axis if Λ > 0.',
   };
 }
 
@@ -438,9 +436,9 @@ export function proofGapAnalysis() {
         detail: 'Computed from first 650 zeros. Consistent with RH but not a proof — we only used finitely many zeros.',
       },
       {
-        claim: 'de Bruijn–Newman constant Λ = 0',
+        claim: 'de Bruijn–Newman constant Λ ≥ 0',
         status: 'theorem',
-        detail: 'Proved by Rodgers–Tao (2020). This is equivalent to RH being "infinitesimally close to true" in the heat flow sense.',
+        detail: 'Proved by Rodgers–Tao (2020). Combined with the best upper bound Λ ≤ 0.2 (Platt–Trudgian, 2021), we know 0 ≤ Λ ≤ 0.2. The stronger claim Λ = 0 is equivalent to RH and remains open.',
       },
     ],
     gaps: [

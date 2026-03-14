@@ -139,6 +139,10 @@ function PerPrimeTab() {
 
     // Legend
     const legend = svg.append('g').attr('transform', `translate(${width - 125}, ${margin.top + 5})`);
+    legend.append('rect')
+      .attr('x', -8).attr('y', -10)
+      .attr('width', 90).attr('height', curves.length * 17 + 8)
+      .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
     curves.forEach((c, i) => {
       const color = PRIME_COLORS[i % PRIME_COLORS.length];
       legend.append('line').attr('x1', 0).attr('y1', i * 17).attr('x2', 16).attr('y2', i * 17)
@@ -175,16 +179,21 @@ function PerPrimeTab() {
 
   return (
     <div>
-      <div className="tab-explainer">
-        Each prime <InlineMath tex="p" /> defines an oscillator with transfer function{' '}
-        <InlineMath tex="H_p(s) = 1/(1 - p^{-s})" />. Its energy across both ladders is{' '}
-        <InlineMath tex="E_p(\\sigma) = \\tfrac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1\\!-\\!s)|^2)" />.
-        The sum <InlineMath tex="|H_p(s)|^2 + |H_p(1-s)|^2" /> is symmetric about <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> by
-        construction — pairing each evaluation at <InlineMath tex="s" /> with its dual at <InlineMath tex="1-s" /> makes{' '}
-        <InlineMath tex="f(\\sigma) + f(1-\\sigma)" /> manifestly symmetric. (This is a property of the dual pairing, not
-        of the functional equation, which relates the <em>full</em> product <InlineMath tex="\\zeta(s)" />, not individual factors.)
-        Within the critical strip, each prime's energy is minimized on the critical line.
-        <strong> Look for:</strong> all colored curves dipping to their minimum at the same <InlineMath tex="\\sigma = 0.5" /> vertical.
+      <div className="tab-explainer accent-blue">
+        <p style={{ margin: '0 0 8px' }}>
+          Each prime <InlineMath tex={"p"} /> defines an oscillator with transfer
+          function <InlineMath tex={"H_p(s) = 1/(1 - p^{-s})"} />. Its energy across both ladders:
+        </p>
+        <BlockMath tex={"E_p(\\sigma) = \\tfrac{1}{2}\\log p\\,\\bigl(|H_p(s)|^2 + |H_p(1-s)|^2\\bigr)"} />
+        <p style={{ margin: '8px 0' }}>
+          The sum <InlineMath tex={"|H_p(s)|^2 + |H_p(1-s)|^2"} /> is symmetric
+          about <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> by construction &mdash; pairing each evaluation
+          at <InlineMath tex={"s"} /> with its dual at <InlineMath tex={"1-s"} /> makes the symmetry manifest.
+          Within the critical strip, each prime's energy is minimized on the critical line.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> all colored curves dipping to their minimum at the same <InlineMath tex={"\\sigma = 0.5"} /> vertical.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">
@@ -518,10 +527,11 @@ function GradientDescentTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label>Start <InlineMath tex="\\sigma" /></label>
+          <label style={{ color: Math.abs(startSigma - 0.5) < 0.02 ? '#10b981' : Math.abs(startSigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444', fontWeight: 600 }}>Start <InlineMath tex="\\sigma" /></label>
           <input type="range" min="0.1" max="0.9" step="0.01" value={startSigma}
-            onChange={e => { setStartSigma(+e.target.value); handleReset(); }} disabled={isRunning} />
-          <span className="control-value">{startSigma.toFixed(2)}</span>
+            onChange={e => { setStartSigma(+e.target.value); handleReset(); }} disabled={isRunning}
+            style={{ accentColor: Math.abs(startSigma - 0.5) < 0.02 ? '#10b981' : Math.abs(startSigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444' }} />
+          <span className="control-value" style={{ color: Math.abs(startSigma - 0.5) < 0.02 ? '#10b981' : Math.abs(startSigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444', fontWeight: 700 }}>{startSigma.toFixed(2)}</span>
         </div>
         <div className="control-group">
           <label>Learning Rate</label>
@@ -530,7 +540,7 @@ function GradientDescentTab() {
           <span className="control-value">{learningRate.toFixed(3)}</span>
         </div>
         <div className="control-group">
-          <label>t</label>
+          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => { setTValue(+e.target.value); handleReset(); }} disabled={isRunning} />
           <span className="control-value">{tValue.toFixed(1)}</span>
@@ -674,6 +684,15 @@ function ConvergenceTab() {
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('H(σ) curves \u2014 valley sharpens with more primes');
 
+      // Axis labels
+      svg.append('text').attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + 32)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('σ = Re(s)');
+      svg.append('text')
+        .attr('transform', `translate(${margin.left - 48}, ${yOff + margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('H(σ)');
+
       // Legend
       const legend = svg.append('g').attr('transform', `translate(${width - 120}, ${yOff + margin.top + 5})`);
       allCurves.forEach((c, i) => {
@@ -723,6 +742,17 @@ function ConvergenceTab() {
       svg.append('text').attr('x', margin.left).attr('y', yOff + 16)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('|\u2207H| at σ = 0.5 vs number of primes (should stay \u22480)');
+
+      // X-axis label
+      svg.append('text').attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + 32)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('Number of primes');
+
+      // Y-axis label
+      svg.append('text')
+        .attr('transform', `translate(${margin.left - 48}, ${yOff + margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('|∂H/∂σ|');
     }
 
     // ── Sub-chart 3: Curvature at sigma=0.5 vs numPrimes ──
@@ -760,6 +790,17 @@ function ConvergenceTab() {
       svg.append('text').attr('x', margin.left).attr('y', yOff + 16)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('Curvature \u2202\u00B2H/\u2202σ\u00B2 at σ = 0.5 (should increase with primes)');
+
+      // X-axis label
+      svg.append('text').attr('x', margin.left + w / 2).attr('y', yOff + margin.top + h + 32)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('Number of primes');
+
+      // Y-axis label
+      svg.append('text')
+        .attr('transform', `translate(${margin.left - 48}, ${yOff + margin.top + h / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('∂²H/∂σ²');
     }
   }, [allCurves]);
 

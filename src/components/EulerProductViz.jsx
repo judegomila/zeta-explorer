@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { partialEulerProduct, cAbs, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
@@ -103,7 +103,7 @@ export default function EulerProductViz() {
         .append('title').text(`p=${d.prime}: cumulative |ζ| = ${cumMag.toFixed(4)}, phase = ${(phase * 180 / Math.PI).toFixed(1)}°`);
     });
 
-    // Reference line at |H| = 1
+    // Reference line at magnitude = 1 (boundary between amplifying and attenuating factors)
     g.append('line')
       .attr('x1', 0).attr('y1', yMag(1)).attr('x2', w).attr('y2', yMag(1))
       .attr('stroke', '#64748b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
@@ -111,22 +111,33 @@ export default function EulerProductViz() {
     g.append('text')
       .attr('x', w - 4).attr('y', yMag(1) - 6)
       .attr('text-anchor', 'end').attr('fill', '#64748b').attr('font-size', 10)
-      .text('|H| = 1');
+      .text('|factor| = 1');
 
     // Phase plot (secondary axis)
+    // Break path at ±π wrap discontinuities to avoid false vertical lines
     const yPhase = d3.scaleLinear().domain([-Math.PI, Math.PI]).range([h, 0]);
-    const phaseLine = d3.line()
-      .x((d, i) => x(i))
-      .y(d => yPhase(d.cumulative ? Math.atan2(d.cumulative[1], d.cumulative[0]) : 0))
-      .curve(d3.curveLinear);
+    const phases = data.map(d => d.cumulative ? Math.atan2(d.cumulative[1], d.cumulative[0]) : 0);
+    const phaseSegments = [];
+    let seg = [{ i: 0, phase: phases[0] }];
+    for (let i = 1; i < phases.length; i++) {
+      if (Math.abs(phases[i] - phases[i - 1]) > Math.PI) {
+        phaseSegments.push(seg);
+        seg = [];
+      }
+      seg.push({ i, phase: phases[i] });
+    }
+    if (seg.length > 0) phaseSegments.push(seg);
 
-    g.append('path')
-      .datum(data)
-      .attr('d', phaseLine)
-      .attr('fill', 'none')
-      .attr('stroke', '#8b5cf6')
-      .attr('stroke-width', 1.5)
-      .attr('opacity', 0.7);
+    for (const segment of phaseSegments) {
+      if (segment.length < 2) continue;
+      g.append('path')
+        .datum(segment)
+        .attr('d', d3.line().x(d => x(d.i)).y(d => yPhase(d.phase)).curve(d3.curveLinear))
+        .attr('fill', 'none')
+        .attr('stroke', '#8b5cf6')
+        .attr('stroke-width', 1.5)
+        .attr('opacity', 0.7);
+    }
 
     // Right y-axis for phase
     const phaseAxis = d3.axisRight(yPhase)
@@ -174,6 +185,34 @@ export default function EulerProductViz() {
         .text(`True |ζ| = ${trueZeta.toFixed(4)}`);
     }
 
+    // Legend box
+    const legend = svg.append('g').attr('transform', `translate(${margin.left + 10}, ${margin.top + 8})`);
+    const legendItems = [
+      { label: 'Cumulative |ζ|', color: '#3b82f6', type: 'line' },
+      { label: 'arg(ζ) phase', color: '#8b5cf6', type: 'line' },
+      { label: 'True |ζ| (Borwein)', color: '#10b981', type: 'dash' },
+      { label: '|factor| > 1', color: 'rgba(59,130,246,0.6)', type: 'rect' },
+      { label: '|factor| < 1', color: 'rgba(245,158,11,0.6)', type: 'rect' },
+    ];
+    legend.append('rect')
+      .attr('x', -6).attr('y', -10).attr('width', 150).attr('height', legendItems.length * 18 + 8)
+      .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
+    legendItems.forEach(({ label, color, type }, i) => {
+      const ly = i * 18;
+      if (type === 'line') {
+        legend.append('line').attr('x1', 0).attr('y1', ly).attr('x2', 16).attr('y2', ly)
+          .attr('stroke', color).attr('stroke-width', 2);
+      } else if (type === 'dash') {
+        legend.append('line').attr('x1', 0).attr('y1', ly).attr('x2', 16).attr('y2', ly)
+          .attr('stroke', color).attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
+      } else {
+        legend.append('rect').attr('x', 2).attr('y', ly - 5).attr('width', 12).attr('height', 10)
+          .attr('rx', 1).attr('fill', color);
+      }
+      legend.append('text').attr('x', 22).attr('y', ly + 4)
+        .attr('fill', '#94a3b8').attr('font-size', 10).text(label);
+    });
+
     // Final value
     const finalMag = data.length > 0 ? cAbs(data[data.length - 1].cumulative) : 0;
     svg.append('text')
@@ -194,13 +233,21 @@ export default function EulerProductViz() {
   return (
     <div>
       <div className="tab-explainer accent-cyan">
-        The partial Euler product <InlineMath tex="\\zeta_N(s) = \\prod_{p \\leq p_N} (1-p^{-s})^{-1}" /> builds
-        up the zeta function prime-by-prime. Each factor has magnitude <InlineMath tex="|1-p^{-s}|^{-1}" /> and phase{' '}
-        <InlineMath tex="\\arg(1-p^{-s})^{-1}" />. The cumulative product converges (for <InlineMath tex="\\sigma > 1" />) to{' '}
-        <InlineMath tex="\\zeta(s)" />. In the critical strip (<InlineMath tex="0 < \\sigma \\leq 1" />), the Euler product <strong>diverges</strong> &mdash;
-        partial products oscillate without settling. The green reference line shows the true <InlineMath tex="|\\zeta(s)|" /> computed via
-        analytic continuation (Borwein acceleration), not the Euler product.
-        <strong> Look for:</strong> the blue magnitude line stabilizing as more primes are added (for <InlineMath tex="\\sigma > 1" />); divergent oscillations in the critical strip.
+        <p style={{ margin: '0 0 8px' }}>
+          The partial Euler product builds up the zeta function prime-by-prime:
+        </p>
+        <BlockMath tex={"\\zeta_N(s) = \\prod_{p \\leq p_N} \\frac{1}{1-p^{-s}}"} />
+        <p style={{ margin: '8px 0' }}>
+          Each factor has magnitude <InlineMath tex={"|1-p^{-s}|^{-1}"} /> and
+          phase <InlineMath tex={"-\\arg(1-p^{-s})"} />.
+          For <InlineMath tex={"\\sigma > 1"} />, the product converges to <InlineMath tex={"\\zeta(s)"} />.
+          In the critical strip (<InlineMath tex={"0 < \\sigma \\leq 1"} />), it <strong>diverges</strong> &mdash;
+          partial products oscillate without settling. The green reference shows the
+          true <InlineMath tex={"|\\zeta(s)|"} /> via analytic continuation.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> the blue magnitude stabilizing as more primes are added (for <InlineMath tex={"\\sigma > 1"} />); divergent oscillations in the critical strip.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">

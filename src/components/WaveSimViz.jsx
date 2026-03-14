@@ -367,7 +367,7 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
     ctx.fillText(`Reverse: ${(revStrength * 100).toFixed(0)}%`, 34, lgY + 18);
 
     ctx.fillStyle = '#64748b';
-    ctx.fillText(`T = ${((1 - reflPower) * 100).toFixed(1)}%`, W * 0.38, lgY + 18);
+    ctx.fillText(`T² = ${((1 - reflPower) * 100).toFixed(1)}%`, W * 0.38, lgY + 18);
 
     ctx.font = '10px JetBrains Mono, monospace';
     ctx.textAlign = 'right';
@@ -776,19 +776,23 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
     // Direct delay bars (left half)
     delays.forEach(d => {
       const bx = x(String(d.prime));
-      g.append('rect')
+      const bar = g.append('rect')
         .attr('x', bx).attr('y', y(d.delayDirect))
         .attr('width', barW).attr('height', chartH - y(d.delayDirect))
-        .attr('rx', 2).attr('fill', '#3b82f6').attr('opacity', 0.8);
+        .attr('rx', 2).attr('fill', '#3b82f6').attr('opacity', 0.8)
+        .style('cursor', 'crosshair');
+      bar.append('title').text(`p=${d.prime}, Direct τ_g = ${d.delayDirect.toFixed(4)}`);
     });
 
     // Dual delay bars (right half)
     delays.forEach(d => {
       const bx = x(String(d.prime)) + barW + 2;
-      g.append('rect')
+      const bar = g.append('rect')
         .attr('x', bx).attr('y', y(d.delayDual))
         .attr('width', barW).attr('height', chartH - y(d.delayDual))
-        .attr('rx', 2).attr('fill', '#f59e0b').attr('opacity', 0.8);
+        .attr('rx', 2).attr('fill', '#f59e0b').attr('opacity', 0.8)
+        .style('cursor', 'crosshair');
+      bar.append('title').text(`p=${d.prime}, Dual τ_g = ${d.delayDual.toFixed(4)}`);
     });
 
     // Cumulative delay lines
@@ -951,7 +955,7 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
 
       // Stats box
       const stats = [
-        `ω = log(${p}) = ${stage.frequency.toFixed(4)}`,
+        `Z₀ = log(${p}) = ${stage.frequency.toFixed(4)}`,
         `|H(s)| = ${stage.magnitude.toFixed(4)}`,
         `Q = ${stage.Q.toFixed(2)}`,
         `Z = ${cAbs(stage.impedance).toFixed(3)}`,
@@ -1609,7 +1613,7 @@ export default function WaveSimViz() {
       <div className="viz-container" style={{ marginTop: 12 }}>
         {tab === 'signal' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-green">
               <strong>Signal Flow:</strong> Propagating wavefronts travel bidirectionally through the LC ladder.
               Green (top) = Direct&#x2192;Dual; cyan (bottom) = Dual&#x2192;Direct.
               Node rings show <strong>impedance matching</strong>: <span style={{ color: '#10b981' }}>green</span> = matched,{' '}
@@ -1624,7 +1628,7 @@ export default function WaveSimViz() {
         )}
         {tab === 'perPrime' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-blue">
               <strong>Per-Prime Waves:</strong> Each row shows the waveform through one prime's oscillator stage, for both
               direct (blue, left) and dual (gold, right) ladders. The center bar shows amplitude match quality.
               At <InlineMath tex={"\\sigma = 0.5"} />, amplitudes match perfectly; away from it, they diverge.
@@ -1634,7 +1638,7 @@ export default function WaveSimViz() {
         )}
         {tab === 'interference' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-purple">
               <strong>Wave Interference:</strong> The superposition of all prime oscillators in each ladder. Top: direct ladder wave.
               Middle: dual ladder wave. Bottom: the absolute difference -- at <InlineMath tex={"\\sigma = 0.5"} /> the amplitudes match
               but phases are conjugate-reflected, so the difference measures phase asymmetry rather than amplitude mismatch.
@@ -1644,7 +1648,7 @@ export default function WaveSimViz() {
         )}
         {tab === 'delay' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-orange">
               <strong>Phase & Delay:</strong> Group delay <InlineMath tex={"\\tau_p = -\\partial\\phi_p/\\partial t"} /> for each prime oscillator stage.
               Blue bars = direct ladder, gold = dual. At <InlineMath tex={"\\sigma = 0.5"} />, delays are symmetric.
               Dashed lines show cumulative delay building through the cascade.
@@ -1654,7 +1658,7 @@ export default function WaveSimViz() {
         )}
         {tab === 'circuit' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-cyan">
               <strong>Component Diagram:</strong> The literal circuit schematic at three zoom levels.
               <strong> Single Prime:</strong> one LC resonator. <strong> Ladder:</strong> series cascade of stages.
               <strong> Full System:</strong> twin ladders connected by the bridge two-port network.

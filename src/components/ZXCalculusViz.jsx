@@ -5,6 +5,7 @@ import {
   spiderFusion, colorChange, phaseAccumulation, symmetryScan,
   bialgebraExpansion, transmissionAnalysis, createHadamardBox,
 } from '../math/zxcalculus.js';
+import { ZETA_ZEROS } from '../math/zeta.js';
 
 const TABS = ['Spider Chain', 'Twin Ladder', 'Rewrite Rules', 'Symmetry'];
 
@@ -74,8 +75,7 @@ function drawWire(ctx, x1, y1, x2, y2, color = '#475569', width = 1, dashed = fa
   ctx.stroke();
   if (dashed) ctx.setLineDash([]);
 
-  // Arrow
-  const angle = Math.atan2(y2 - (midY - curve), x2 - x2);
+  // Arrow direction along chord from start to end
   const arrowAngle = Math.atan2(y2 - y1, x2 - x1);
   ctx.beginPath();
   ctx.moveTo(x2, y2);
@@ -177,6 +177,27 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
 
       // Plot cumulative phase
       const maxPhase = Math.max(...phases.map(p => Math.abs(p.cumulativePhase)), 0.1);
+
+      // Zero reference line
+      ctx.beginPath();
+      ctx.setLineDash([4, 3]);
+      ctx.moveTo(margin, graphY);
+      ctx.lineTo(w - margin, graphY);
+      ctx.strokeStyle = '#47556960';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Y-axis tick labels (±maxPhase)
+      ctx.fillStyle = '#64748b';
+      ctx.font = '8px var(--font-mono)';
+      ctx.textAlign = 'right';
+      const topPhaseY = graphY - graphH * 0.4;
+      const botPhaseY = graphY + graphH * 0.4;
+      ctx.fillText(`+${maxPhase.toFixed(1)}`, margin - 4, topPhaseY + 3);
+      ctx.fillText('0', margin - 4, graphY + 3);
+      ctx.fillText(`−${maxPhase.toFixed(1)}`, margin - 4, botPhaseY + 3);
+
       ctx.beginPath();
       for (let i = 0; i < phases.length; i++) {
         const px = margin + spacing * (i + 1);
@@ -201,7 +222,7 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
       ctx.fillStyle = '#64748b';
       ctx.font = '10px sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText('Cumulative phase along chain', margin + 4, graphY - graphH / 2 - 4);
+      ctx.fillText('Cumulative phase (rad)', margin + 4, graphY - graphH / 2 - 4);
     }
   }, [data, phases, showFused, hovered]);
 
@@ -264,7 +285,7 @@ function SpiderChainTab({ sigma, t, numPrimes }) {
             α = {data.spiders[hovered].phase.toFixed(4)} rad
           </span>
           <span style={{ color: '#64748b', marginLeft: 12 }}>
-            ω = log({data.spiders[hovered].prime}) = {data.spiders[hovered].frequency.toFixed(3)}
+            Z₀ = log({data.spiders[hovered].prime}) = {data.spiders[hovered].frequency.toFixed(3)}
           </span>
         </div>
       )}
@@ -372,6 +393,39 @@ function TwinLadderTab({ sigma, t, numPrimes }) {
     ctx.textAlign = 'right';
     ctx.fillText(`|∏ Z| = ${diagram.direct.totalMagnitude.toFixed(4)}`, w - margin, topY + 30);
     ctx.fillText(`|∏ X| = ${diagram.dual.totalMagnitude.toFixed(4)}`, w - margin, botY + 30);
+
+    // Legend
+    const legendX = w - margin - 140;
+    const legendY = 12;
+    ctx.fillStyle = 'rgba(10,14,26,0.85)';
+    ctx.fillRect(legendX - 6, legendY - 4, 148, 52);
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(legendX - 6, legendY - 4, 148, 52);
+
+    const legendItems = [
+      { color: '#10b981', shape: 'circle', label: 'Z-spider (direct)' },
+      { color: '#ef4444', shape: 'circle', label: 'X-spider (dual)' },
+      { color: '#f59e0b', shape: 'square', label: 'H-box (bridge χ)' },
+    ];
+    legendItems.forEach((item, i) => {
+      const ly = legendY + 6 + i * 15;
+      if (item.shape === 'circle') {
+        ctx.beginPath();
+        ctx.arc(legendX + 5, ly, 4, 0, Math.PI * 2);
+        ctx.strokeStyle = item.color;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      } else {
+        ctx.strokeStyle = item.color;
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(legendX + 1, ly - 4, 8, 8);
+      }
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '9px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(item.label, legendX + 14, ly + 3);
+    });
 
   }, [diagram, sigma]);
 
@@ -502,7 +556,7 @@ function RewriteRulesTab({ sigma, t, numPrimes }) {
             </div>
           </div>
           <div style={{ marginTop: 12, padding: '8px 12px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-            <InlineMath tex={`H_{${fusionData.before[0].prime}} \\cdot H_{${fusionData.before[1].prime}} = H_{\\text{fused}}`} />
+            <InlineMath tex={"H_{" + fusionData.before[0].prime + "} \\cdot H_{" + fusionData.before[1].prime + "} = H_{\\text{fused}}"} />
             <span style={{ marginLeft: 8 }}>
               |{fusionData.before[0].magnitude.toFixed(3)}| · |{fusionData.before[1].magnitude.toFixed(3)}| = |{fusionData.after.magnitude.toFixed(3)}|
             </span>
@@ -711,6 +765,28 @@ function SymmetryTab({ sigma, t, numPrimes }) {
     ctx.stroke();
     ctx.setLineDash([]);
 
+    // Y-axis tick labels and gridlines
+    ctx.fillStyle = '#64748b';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'right';
+    const yTicks = 5;
+    for (let i = 0; i <= yTicks; i++) {
+      const val = (i / yTicks) * maxMag;
+      const y = h - margin.bottom - (i / yTicks) * plotH;
+      // Gridline
+      ctx.beginPath();
+      ctx.setLineDash([3, 3]);
+      ctx.moveTo(margin.left, y);
+      ctx.lineTo(w - margin.right, y);
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+      ctx.setLineDash([]);
+      // Label
+      ctx.fillStyle = '#64748b';
+      ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
+    }
+
     // X-axis labels
     ctx.fillStyle = '#64748b';
     ctx.font = '10px var(--font-mono)';
@@ -720,6 +796,16 @@ function SymmetryTab({ sigma, t, numPrimes }) {
       ctx.fillText(s.toFixed(1), x, h - margin.bottom + 14);
     }
     ctx.fillText('σ', w - margin.right + 10, h - margin.bottom + 14);
+
+    // Y-axis label
+    ctx.save();
+    ctx.translate(12, margin.top + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('|Euler product|', 0, 0);
+    ctx.restore();
 
     // Legend
     const legendX = margin.left + 8;
@@ -800,6 +886,27 @@ export default function ZXCalculusViz() {
           <input type="range" min="1" max="60" step="0.5" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
+          {(() => {
+            let bestIdx = 0, bestDist = Math.abs(t - ZETA_ZEROS[0]);
+            for (let i = 1; i < ZETA_ZEROS.length; i++) {
+              const d = Math.abs(t - ZETA_ZEROS[i]);
+              if (d < bestDist) { bestDist = d; bestIdx = i; }
+              if (ZETA_ZEROS[i] > t + 2) break;
+            }
+            return bestDist < 1 ? (
+              <span
+                style={{
+                  marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
+                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  cursor: 'pointer', borderBottom: '1px dashed currentColor',
+                }}
+                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
+                onClick={() => setT(+ZETA_ZEROS[bestIdx].toFixed(1))}
+              >
+                {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+              </span>
+            ) : null;
+          })()}
         </div>
         <div className="control-group">
           <label>Primes</label>
@@ -818,6 +925,40 @@ export default function ZXCalculusViz() {
           >{label}</button>
         ))}
       </div>
+
+      {/* Tab explainers */}
+      {tab === 0 && (
+        <div className="tab-explainer accent-green">
+          Each prime <InlineMath tex="p" /> becomes a <strong>Z-spider</strong> with phase <InlineMath tex="\alpha_p = -t\log p" /> and
+          magnitude <InlineMath tex="p^{-\sigma}" />. The cascade product of all spiders gives the Euler product
+          for <InlineMath tex="\zeta(s)" />. Toggle <em>Fused</em> to see spider fusion collapse the chain into a single node
+          whose phase is the total phase accumulation.
+        </div>
+      )}
+      {tab === 1 && (
+        <div className="tab-explainer accent-purple">
+          The twin ladder shows the <strong>direct</strong> path (green, <InlineMath tex="\zeta(s)" />) and <strong>dual</strong> path
+          (red, <InlineMath tex="\zeta(1-s)" />) connected by the <strong>bridge</strong> <InlineMath tex="\chi(s)" /> (gold).
+          At <InlineMath tex="\sigma = \tfrac{1}{2}" /> the bridge becomes unitary and both ladders have equal magnitude —
+          this is the functional equation rendered as a ZX diagram.
+        </div>
+      )}
+      {tab === 2 && (
+        <div className="tab-explainer accent-blue">
+          Three ZX rewrite rules applied to the zeta diagram: <strong>Spider Fusion</strong> merges adjacent same-color
+          spiders (phases add, magnitudes multiply), <strong>Color Change</strong> swaps Z ↔ X spiders via the Hadamard
+          box (connecting direct and dual representations), and <strong>Bialgebra</strong> expands the Euler product into
+          its Dirichlet series using the copy-multiply interaction.
+        </div>
+      )}
+      {tab === 3 && (
+        <div className="tab-explainer accent-yellow">
+          Scans <InlineMath tex="\sigma" /> across the critical strip and plots the magnitude of the Z-chain (direct) vs
+          X-chain (dual). At <InlineMath tex="\sigma = \tfrac{1}{2}" /> the two curves cross — the diagram has perfect
+          Z ↔ X <strong>color symmetry</strong>. The gold asymmetry curve measures the gap; its zero at the critical line
+          is the functional equation's fixed point.
+        </div>
+      )}
 
       {/* Tab content */}
       {tab === 0 && <SpiderChainTab sigma={sigma} t={t} numPrimes={numPrimes} />}

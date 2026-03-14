@@ -14,14 +14,14 @@ export default function TwistorPage() {
           correspondence reframes the direct/dual ladder pair as a twistor/dual-twistor pair
           coupled by an intertwiner — the bridge <InlineMath tex="\\chi(s)" />. The critical line
           condition <InlineMath tex="\\sigma = \\frac{1}{2}" /> becomes the twistor incidence relation
-          <InlineMath tex="Z^\\alpha W_\\alpha = 0" />.
+          <InlineMath tex="Z^{\\alpha} W_{\\alpha} = 0" />.
         </p>
       </div>
 
-      <BlockMath tex="Z^\\alpha = (\\omega^A, \\pi_{A'}) \\quad \\longleftrightarrow \\quad \\text{Direct ladder } \\zeta(s)" />
+      <BlockMath tex="Z^{\\alpha} = (\\omega^A, \\pi_{A'}) \\quad \\longleftrightarrow \\quad \\text{Direct ladder } \\zeta(s)" />
 
       <div style={{ marginTop: 8 }}>
-        <BlockMath tex="W_\\alpha = (\\tilde{\\omega}^{A'}, \\tilde{\\pi}_A) \\quad \\longleftrightarrow \\quad \\text{Dual ladder } \\zeta(1-s)" />
+        <BlockMath tex="W_{\\alpha} = (\\tilde{\\omega}^{A'}, \\tilde{\\pi}_A) \\quad \\longleftrightarrow \\quad \\text{Dual ladder } \\zeta(1-s)" />
       </div>
 
       <div style={{ marginTop: 8 }}>
@@ -32,8 +32,8 @@ export default function TwistorPage() {
         <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>3D Penrose Twistor Diagram</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 13, marginBottom: 16 }}>
           Interactive 3D visualization of the twistor/dual-twistor pair in projective twistor space.
-          Drag to orbit. The blue sphere is <InlineMath tex="Z^\\alpha" /> (direct ladder), gold is{' '}
-          <InlineMath tex="W_\\alpha" /> (dual ladder). Arrows show spinor components. The green arc is the
+          Drag to orbit. The blue sphere is <InlineMath tex="Z^{\\alpha}" /> (direct ladder), gold is{' '}
+          <InlineMath tex="W_{\\alpha}" /> (dual ladder). Arrows show spinor components. The green arc is the
           intertwiner bridge. Red dots along the <InlineMath tex="t" />-axis mark known zeta zeros.
         </p>
         <Suspense fallback={<div style={{ height: 480, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b' }}>Loading 3D...</div>}>
@@ -117,20 +117,20 @@ export default function TwistorPage() {
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
             In Penrose twistor theory, a point in spacetime does not correspond to a point in twistor
             space — it corresponds to an entire <em>line</em> (a <InlineMath tex={"\\mathbb{CP}^1"} />).
-            Conversely, a single twistor <InlineMath tex={"Z^\\alpha"} /> represents a light ray in spacetime.
+            Conversely, a single twistor <InlineMath tex={"Z^{\\alpha}"} /> represents a light ray in spacetime.
             This "points to lines" duality is the engine that converts analytic conditions into geometry.
           </p>
         </div>
 
         <div style={{ marginBottom: 20 }}>
           <h4 style={{ color: '#3b82f6', fontSize: 13, marginBottom: 8 }}>
-            The incidence relation <InlineMath tex={"Z^\\alpha W_\\alpha = 0"} />
+            The incidence relation <InlineMath tex={"Z^{\\alpha} W_{\\alpha} = 0"} />
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
             A twistor <InlineMath tex={"Z"} /> and a dual twistor <InlineMath tex={"W"} /> are called
             <em> incident</em> when they satisfy the relation:
           </p>
-          <BlockMath tex={"Z^\\alpha \\Omega_{\\alpha\\beta} W^\\beta = \\omega^A \\tilde{\\pi}_A - \\pi_{A'} \\tilde{\\omega}^{A'} = 0"} />
+          <BlockMath tex={"Z^{\\alpha} \\Omega_{\\alpha\\beta} W^\\beta = \\omega^A \\tilde{\\pi}_A - \\pi_{A'} \\tilde{\\omega}^{A'} = 0"} />
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
             Geometrically, this means they share a common spacetime point — the light rays they represent
             intersect. The incidence locus is a real hypersurface in the product space
@@ -216,12 +216,12 @@ export default function TwistorPage() {
             Step 2: Constructing the Twistor
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
-            In Penrose's twistor theory, a twistor <InlineMath tex={"Z^\\alpha"} /> is a pair of spinors
+            In Penrose's twistor theory, a twistor <InlineMath tex={"Z^{\\alpha}"} /> is a pair of spinors
             <InlineMath tex={"(\\omega^A, \\pi_{A'})"} /> in <InlineMath tex={"\\mathbb{C}^4"} />. We map our
             s-plane point to twistor space by encoding the displacement from the critical line in
             <InlineMath tex={"\\omega"} /> and the prime-phase oscillation in <InlineMath tex={"\\pi"} />:
           </p>
-          <BlockMath tex={"Z^\\alpha = (\\omega^A, \\pi_{A'}) = \\left(\\sigma - \\tfrac{1}{2},\\; \\frac{t}{2\\pi},\\; \\cos(t\\log 2),\\; \\sin(t\\log 2)\\right)"} />
+          <BlockMath tex={"Z^{\\alpha} = (\\omega^A, \\pi_{A'}) = \\left(\\sigma - \\tfrac{1}{2},\\; \\frac{t}{2\\pi},\\; \\cos(t\\log 2),\\; \\sin(t\\log 2)\\right)"} />
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
             <strong style={{ color: '#e2e8f0' }}>Why this encoding?</strong> The first component
             <InlineMath tex={"\\omega_0 = \\sigma - \\frac{1}{2}"} /> measures displacement from the critical line —
@@ -238,9 +238,9 @@ export default function TwistorPage() {
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
             The functional equation <InlineMath tex={"\\zeta(s) = \\chi(s)\\zeta(1-s)"} /> maps
             <InlineMath tex={"s \\mapsto 1-s"} />. We construct the dual twistor
-            <InlineMath tex={"W_\\alpha"} /> from this reflected point:
+            <InlineMath tex={"W_{\\alpha}"} /> from this reflected point:
           </p>
-          <BlockMath tex={"W_\\alpha = \\left(\\tfrac{1}{2} - \\sigma,\\; -\\frac{t}{2\\pi},\\; \\cos(-t\\log 2),\\; \\sin(-t\\log 2)\\right)"} />
+          <BlockMath tex={"W_{\\alpha} = \\left(\\tfrac{1}{2} - \\sigma,\\; -\\frac{t}{2\\pi},\\; \\cos(-t\\log 2),\\; \\sin(-t\\log 2)\\right)"} />
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
             Note that <InlineMath tex={"W"} /> is the "mirror image" of <InlineMath tex={"Z"} />:
             the displacement <InlineMath tex={"\\omega"} /> flips sign, and the spinor phase conjugates.
@@ -256,7 +256,7 @@ export default function TwistorPage() {
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
             Two twistors are <em>incident</em> when their inner product vanishes. We compute:
           </p>
-          <BlockMath tex={"Z^\\alpha \\Omega_{\\alpha\\beta} W^\\beta = \\omega^A \\tilde{\\pi}_A - \\pi_{A'} \\tilde{\\omega}^{A'}"} />
+          <BlockMath tex={"Z^{\\alpha} \\Omega_{\\alpha\\beta} W^\\beta = \\omega^A \\tilde{\\pi}_A - \\pi_{A'} \\tilde{\\omega}^{A'}"} />
           <BlockMath tex={"= \\bigl[(\\sigma - \\tfrac{1}{2}) \\cos(-t\\log 2) + \\tfrac{t}{2\\pi} \\sin(-t\\log 2)\\bigr]"} />
           <BlockMath tex={"\\quad - \\bigl[\\cos(t\\log 2)(\\tfrac{1}{2} - \\sigma) + \\sin(t\\log 2)(-\\tfrac{t}{2\\pi})\\bigr]"} />
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
@@ -266,9 +266,17 @@ export default function TwistorPage() {
           </p>
           <BlockMath tex={"Z \\cdot W = (\\sigma - \\tfrac{1}{2})\\cos(t\\log 2) - (\\tfrac{1}{2} - \\sigma)\\cos(t\\log 2) = 2(\\sigma - \\tfrac{1}{2})\\cos(t\\log 2)"} />
           <p style={{ color: '#10b981', fontSize: 13, lineHeight: 1.8, marginTop: 8, fontWeight: 600 }}>
-            Therefore <InlineMath tex={"Z \\cdot W = 0"} /> if and only if
-            <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> (since <InlineMath tex={"\\cos(t\\log 2) \\neq 0"} /> generically).
-            The critical line IS the incidence locus.
+            Therefore <InlineMath tex={"Z \\cdot W = 0"} /> when
+            <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> (for all <InlineMath tex={"t"} />).
+            The critical line is the incidence locus.
+          </p>
+          <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 6 }}>
+            <strong style={{ color: '#f59e0b' }}>Caveat:</strong> the factor <InlineMath tex={"\\cos(t\\log 2)"} /> also
+            vanishes at isolated values <InlineMath tex={"t = (2k+1)\\pi/(2\\log 2)"} />, making{' '}
+            <InlineMath tex={"Z \\cdot W = 0"} /> for <em>any</em> <InlineMath tex={"\\sigma"} /> at those heights.
+            These are artifacts of using only prime <InlineMath tex={"p = 2"} /> in the spinor encoding — a
+            richer encoding using all primes would eliminate the spurious incidence locus, leaving only{' '}
+            <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
           </p>
         </div>
 
@@ -300,7 +308,7 @@ export default function TwistorPage() {
             In classical twistor theory, the Penrose transform reconstructs spacetime fields from
             twistor data via a contour integral. In our setting, the Euler product provides the analog:
           </p>
-          <BlockMath tex={"\\zeta(s) = \\prod_p \\frac{1}{1 - p^{-s}} \\;\\longleftrightarrow\\; \\phi(x) = \\frac{1}{2\\pi i} \\oint f(Z^\\alpha) \\pi_{A'} d\\pi^{A'}"} />
+          <BlockMath tex={"\\zeta(s) = \\prod_p \\frac{1}{1 - p^{-s}} \\;\\longleftrightarrow\\; \\phi(x) = \\frac{1}{2\\pi i} \\oint f(Z^{\\alpha}) \\pi_{A'} d\\pi^{A'}"} />
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
             Each Euler factor corresponds to a "twistor function" for prime <InlineMath tex={"p"} />,
             and the product/integral reconstructs the full zeta function. The Penrose transform
@@ -348,7 +356,7 @@ export default function TwistorPage() {
           <h3 style={{ color: '#06b6d4' }}>Incidence & the Critical Line</h3>
           <p style={{ marginBottom: 12 }}>
             In Penrose twistor theory, two twistors <InlineMath tex="Z" /> and <InlineMath tex="W" /> are
-            <em> incident</em> when <InlineMath tex="Z^\\alpha W_\\alpha = 0" />. This null condition defines
+            <em> incident</em> when <InlineMath tex="Z^{\\alpha} W_{\\alpha} = 0" />. This null condition defines
             the geometry of light rays in spacetime.
           </p>
           <p style={{ marginBottom: 12 }}>
@@ -356,7 +364,7 @@ export default function TwistorPage() {
             condition at <InlineMath tex="\\sigma = \\frac{1}{2}" /> (where <InlineMath tex="Z_{\\text{dual}} = \\overline{Z_{\\text{dir}}}" /> via Schwarz reflection). When the twistor and dual twistor are
             incident, the bridge is lossless and the system is in equilibrium:
           </p>
-          <BlockMath tex="Z \\cdot W = 0 \\iff |\\chi(s)| = 1 \\iff \\sigma = \\tfrac{1}{2}" />
+          <BlockMath tex="|\\chi(s)| = 1 \\iff \\sigma = \\tfrac{1}{2} \\implies Z \\cdot W = 0" />
           <p style={{ color: 'var(--text-secondary)', fontSize: 13 }}>
             The incidence heatmap tab visualizes this: the dark band along <InlineMath tex="\\sigma = 0.5" />
             is where the twistor pair satisfies the null condition, and known zeta zeros sit

@@ -28,6 +28,20 @@ export default function EnergyLandscapeViz() {
     return energyLandscape(sigmaRange, tRange, res, numPrimes);
   }, [numPrimes, tMax]);
 
+  // Memoize min/max scan per metric — avoids 3,721-iteration loop on every draw call
+  const metricBounds = useMemo(() => {
+    const res = 60;
+    const gridLen = (res + 1) * (res + 1);
+    const metricKey = metric === 'energy' ? 'energy' : metric === 'mismatch' ? 'mismatch' : metric === 'directMag' ? 'directMag' : 'dualMag';
+    let vMin = Infinity, vMax = -Infinity;
+    for (let k = 0; k < gridLen; k++) {
+      const v = landscape.data[k][metricKey];
+      if (v < vMin) vMin = v;
+      if (v > vMax) vMax = v;
+    }
+    return { vMin, vMax, vRange: vMax - vMin || 1, metricKey };
+  }, [landscape, metric]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -47,65 +61,57 @@ export default function EnergyLandscapeViz() {
     const res = 60;
     landscapeRef.current = landscape;
 
-    const cellW = dw / (res + 1);
-    const cellH = dh / (res + 1);
+    const { vMin, vMax, vRange, metricKey } = metricBounds;
 
-    // Find min/max for normalization
-    const values = landscape.data.map(d => {
-      if (metric === 'energy') return d.energy;
-      if (metric === 'mismatch') return d.mismatch;
-      if (metric === 'directMag') return d.directMag;
-      return d.dualMag;
-    });
-    const vMin = Math.min(...values);
-    const vMax = Math.max(...values);
-    const vRange = vMax - vMin || 1;
+    // Render heatmap via ImageData (single putImageData replaces 3,721 fillRect calls)
+    const imgW = dw * dpr | 0;
+    const imgH = dh * dpr | 0;
+    const imgData = ctx.createImageData(imgW, imgH);
+    const pixels = imgData.data;
+    for (let py = 0; py < imgH; py++) {
+      // Map pixel row to grid j (t-axis: bottom = low j, top = high j)
+      const j = Math.min(res, ((imgH - 1 - py) / (imgH - 1) * res) | 0);
+      for (let px = 0; px < imgW; px++) {
+        // Map pixel col to grid i (sigma-axis)
+        const i = Math.min(res, (px / (imgW - 1) * res) | 0);
+        const val = landscape.data[i * (res + 1) + j][metricKey];
+        const norm = (val - vMin) / vRange;
 
-    // Draw heatmap
-    for (const d of landscape.data) {
-      const val = metric === 'energy' ? d.energy :
-                  metric === 'mismatch' ? d.mismatch :
-                  metric === 'directMag' ? d.directMag : d.dualMag;
-      const norm = (val - vMin) / vRange;
-
-      const i = Math.round((d.sigma - sigmaRange[0]) / (sigmaRange[1] - sigmaRange[0]) * res);
-      const j = Math.round((d.t - tRange[0]) / (tRange[1] - tRange[0]) * res);
-
-      // Colormap: dark blue → teal → yellow → red (for energy)
-      // Or cool blue → white (for mismatch near 0)
-      let r, g, b;
-      if (metric === 'mismatch') {
-        // Blue when matched (low), red when mismatched (high)
-        if (norm < 0.3) {
-          const t2 = norm / 0.3;
-          r = 10 + t2 * 30; g = 40 + t2 * 80; b = 120 + t2 * 80;
-        } else if (norm < 0.6) {
-          const t2 = (norm - 0.3) / 0.3;
-          r = 40 + t2 * 160; g = 120 + t2 * 80; b = 200 - t2 * 100;
+        let r, g, b;
+        if (metric === 'mismatch') {
+          if (norm < 0.3) {
+            const t2 = norm / 0.3;
+            r = 10 + t2 * 30; g = 40 + t2 * 80; b = 120 + t2 * 80;
+          } else if (norm < 0.6) {
+            const t2 = (norm - 0.3) / 0.3;
+            r = 40 + t2 * 160; g = 120 + t2 * 80; b = 200 - t2 * 100;
+          } else {
+            const t2 = (norm - 0.6) / 0.4;
+            r = 200 + t2 * 55; g = 200 - t2 * 150; b = 100 - t2 * 80;
+          }
         } else {
-          const t2 = (norm - 0.6) / 0.4;
-          r = 200 + t2 * 55; g = 200 - t2 * 150; b = 100 - t2 * 80;
+          if (norm < 0.25) {
+            const t2 = norm / 0.25;
+            r = 68 - t2 * 20; g = 1 + t2 * 50; b = 84 + t2 * 50;
+          } else if (norm < 0.5) {
+            const t2 = (norm - 0.25) / 0.25;
+            r = 48 + t2 * 5; g = 51 + t2 * 80; b = 134 - t2 * 20;
+          } else if (norm < 0.75) {
+            const t2 = (norm - 0.5) / 0.25;
+            r = 53 + t2 * 120; g = 131 + t2 * 50; b = 114 - t2 * 60;
+          } else {
+            const t2 = (norm - 0.75) / 0.25;
+            r = 173 + t2 * 80; g = 181 + t2 * 30; b = 54 - t2 * 30;
+          }
         }
-      } else {
-        // Viridis-like
-        if (norm < 0.25) {
-          const t2 = norm / 0.25;
-          r = 68 - t2 * 20; g = 1 + t2 * 50; b = 84 + t2 * 50;
-        } else if (norm < 0.5) {
-          const t2 = (norm - 0.25) / 0.25;
-          r = 48 + t2 * 5; g = 51 + t2 * 80; b = 134 - t2 * 20;
-        } else if (norm < 0.75) {
-          const t2 = (norm - 0.5) / 0.25;
-          r = 53 + t2 * 120; g = 131 + t2 * 50; b = 114 - t2 * 60;
-        } else {
-          const t2 = (norm - 0.75) / 0.25;
-          r = 173 + t2 * 80; g = 181 + t2 * 30; b = 54 - t2 * 30;
-        }
+        const off = (py * imgW + px) * 4;
+        pixels[off] = r | 0;
+        pixels[off + 1] = g | 0;
+        pixels[off + 2] = b | 0;
+        pixels[off + 3] = 255;
       }
-
-      ctx.fillStyle = `rgb(${r|0},${g|0},${b|0})`;
-      ctx.fillRect(i * cellW, (res - j) * cellH, cellW + 0.5, cellH + 0.5);
     }
+    ctx.putImageData(imgData, 0, 0);
 
     // Critical line σ = 0.5
     const critX = ((0.5 - sigmaRange[0]) / (sigmaRange[1] - sigmaRange[0])) * dw;
@@ -229,7 +235,7 @@ export default function EnergyLandscapeViz() {
     ctx.fillText(barLabels[metric], 0, 0);
     ctx.restore();
 
-  }, [landscape, tMax, metric]);
+  }, [landscape, tMax, metric, metricBounds]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

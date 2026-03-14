@@ -70,9 +70,12 @@ export default function StatisticsPage() {
           <strong style={{ color: '#10b981' }}>Li Coefficients</strong> plots <InlineMath tex="\\lambda_n" /> as a bar chart — RH
           is equivalent to all bars being non-negative. Watch for bars dipping below zero (they shouldn't with our
           tabulated zeros).
-          <strong style={{ color: '#f59e0b' }}> Keiper-Li Asymptotic</strong> shows <InlineMath tex="\\lambda_n / n" /> against
-          the predicted growth <InlineMath tex="\\frac{1}{2}(\\log(n/2\\pi) + \\gamma - 1)" /> (Coffey 2005). The scatter of data points
-          around the asymptotic line shrinks as you increase zero count.
+          <strong style={{ color: '#f59e0b' }}> Keiper-Li Asymptotic</strong> shows <InlineMath tex={"\\lambda_n / n"} /> against
+          the predicted growth (Coffey 2005):
+        </p>
+        <BlockMath tex={"\\frac{\\lambda_n}{n} \\to \\frac{1}{2}\\bigl(\\log(n/2\\pi) + \\gamma - 1\\bigr)"} />
+        <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          The scatter of data points around the asymptotic line shrinks as you increase zero count.
           <strong style={{ color: '#8b5cf6' }}> de Bruijn-Newman</strong> visualizes zero trajectories under the heat
           equation. Drag the <InlineMath tex="\\tau" /> slider: at <InlineMath tex="\\tau = 0" /> zeros sit on the real axis
           (assuming RH); negative <InlineMath tex="\\tau" /> (backward heat) scatters them into the complex plane,
@@ -101,8 +104,8 @@ export default function StatisticsPage() {
           <p style={{ fontSize: 14, color: '#8b5cf6' }}>
             <strong>The Hilbert-Polya Dream:</strong> This striking match suggests that there exists
             a self-adjoint (Hermitian) operator whose eigenvalues are the imaginary parts of the
-            zeta zeros. If such an operator can be constructed and shown to be positive, RH follows
-            automatically — eigenvalues of Hermitian operators are real.
+            zeta zeros. If such an operator can be constructed and shown to be self-adjoint, RH follows
+            automatically — eigenvalues of self-adjoint operators are real.
           </p>
         </div>
       </div>
@@ -169,7 +172,7 @@ export default function StatisticsPage() {
 
       <div className="card" style={{ marginTop: 32, borderColor: '#10b981' }}>
         <h3 style={{ color: '#10b981' }}>Circuit Interpretation of Li's Criterion</h3>
-        <BlockMath tex="\\lambda_n \\geq 0 \\iff S^\\dagger S \\leq I \\iff \\text{bridge is passive (contractive)}" />
+        <BlockMath tex="\\lambda_n \\geq 0 \\iff S^{\\dagger} S \\leq I \\iff \\text{bridge is passive (contractive)}" />
         <p style={{ marginTop: 12 }}>
           The Li coefficients are the Schur-Cohn coefficients of the bridge transfer function.
           Their non-negativity is equivalent to the bridge scattering matrix being contractive

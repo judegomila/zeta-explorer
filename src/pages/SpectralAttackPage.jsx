@@ -191,9 +191,10 @@ export default function SpectralAttackPage() {
           equivalent to the Riemann Hypothesis:
         </p>
         <BlockMath tex={"W(g \\ast \\tilde{g}) = \\int\\!\\int g(x)\\, K(x,y)\\, \\overline{g(y)}\\, dx\\, dy \\geq 0 \\quad \\Longleftrightarrow \\quad \\text{RH}"} />
-        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 4, marginBottom: 12 }}>
-          where the kernel encodes prime information: <InlineMath tex={"K(x,y) = \\sum_p \\frac{\\log p}{\\sqrt{p}} [\\delta(x{-}y{-}\\log p) + \\delta(x{-}y{+}\\log p)]"} />.
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 4, marginBottom: 4 }}>
+          where the kernel encodes prime information:
         </p>
+        <BlockMath tex={"K(x,y) = \\sum_p \\frac{\\log p}{\\sqrt{p}} \\bigl[\\delta(x{-}y{-}\\log p) + \\delta(x{-}y{+}\\log p)\\bigr]"} />
 
         {/* Key Result */}
         <div style={{ marginBottom: 20 }}>

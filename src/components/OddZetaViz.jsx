@@ -5,6 +5,7 @@ import {
   linearIndependenceTest, irrationalityMeasure, oddZetaDecay,
   eulerProductTrace, transferFunctionDecayComparison,
 } from '../math/odd-zeta.js';
+import { getPrimes } from '../math/primes.js';
 
 const TABS = ['Values & Convergence', 'Apery Sequences', 'Transfer Function', 'Linear Independence', 'Irrationality Measure'];
 const TAB_COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444'];
@@ -120,6 +121,16 @@ function ValuesTab({ selectedN, numPrimes }) {
     ctx.textAlign = 'center';
     ctx.fillText('n (odd)', w / 2, g1Top + halfH + 30);
 
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, g1Top + halfH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('\u03B6(n)', 0, 0);
+    ctx.restore();
+
     // ─── Bottom: Euler product convergence for selected n ───
     const g2Top = g1Top + halfH + 44;
     const g2H = halfH;
@@ -203,6 +214,16 @@ function ValuesTab({ selectedN, numPrimes }) {
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Number of primes', w / 2, g2Top + g2H + 14);
+
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, g2Top + g2H / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('\u220F 1/(1\u2212p\u207B\u207F)', 0, 0);
+    ctx.restore();
 
   }, [decayData, trace, currentValue, selectedN]);
 
@@ -322,6 +343,16 @@ function AperyTab() {
       ctx.fillText(`${i}`, x, margin.top + halfH + 14);
     }
 
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, margin.top + halfH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('a\u2099/b\u2099', 0, 0);
+    ctx.restore();
+
     ctx.fillStyle = '#3b82f6';
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
@@ -392,6 +423,16 @@ function AperyTab() {
       ctx.stroke();
       ctx.setLineDash([]);
     }
+
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, g2Top + g2H / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('log\u2081\u2080|error|', 0, 0);
+    ctx.restore();
 
     ctx.fillStyle = '#ef4444';
     ctx.font = 'bold 11px sans-serif';
@@ -572,6 +613,16 @@ function TransferTab({ selectedN, numPrimes }) {
     ctx.textAlign = 'center';
     ctx.fillText('Prime p', w / 2, margin.top + halfH + 28);
 
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, margin.top + halfH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('|H_p(n)| \u2212 1', 0, 0);
+    ctx.restore();
+
     // ─── Bottom: Impedance profile for selected n ───
     const g2Top = margin.top + halfH + 44;
     const g2H = halfH;
@@ -637,6 +688,16 @@ function TransferTab({ selectedN, numPrimes }) {
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Prime p', w / 2, g2Top + g2H + 28);
+
+    // Y-axis label (rotated)
+    ctx.save();
+    ctx.translate(14, g2Top + g2H / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Impedance Z_p', 0, 0);
+    ctx.restore();
 
   }, [comparisonData, tfData, selectedN]);
 
@@ -803,11 +864,13 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
         ))}
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        The Gram matrix uses the inner product{' '}
-        <InlineMath tex="\\langle \\zeta(m), \\zeta(n) \\rangle = \\sum_p \\frac{\\log p}{(p^m-1)(p^n-1)}" />.
-        A nonzero determinant supports linear independence of{' '}
-        <InlineMath tex="\\{1, \\zeta(3), \\zeta(5), \\ldots, \\zeta(" /><InlineMath tex={`${maxOdd})`} /><InlineMath tex="\\}" />.
-        Ball-Rivoal proved <InlineMath tex="\\dim \\geq c \\cdot \\log s" />.
+        <p style={{ margin: '0 0 6px' }}>The Gram matrix uses the inner product:</p>
+        <BlockMath tex={"\\langle \\zeta(m), \\zeta(n) \\rangle = \\sum_p \\frac{\\log p}{(p^m-1)(p^n-1)}"} />
+        <p style={{ margin: '6px 0 0' }}>
+          A nonzero determinant supports linear independence of{' '}
+          <InlineMath tex={"\\{1, \\zeta(3), \\zeta(5), \\ldots, \\zeta(" + maxOdd + ")\\}"} />.
+          Ball-Rivoal proved <InlineMath tex={"\\dim \\geq c \\cdot \\log s"} />.
+        </p>
       </div>
     </div>
   );
@@ -941,7 +1004,25 @@ function IrrationalityMeasureTab({ selectedN }) {
       ctx.fillText('\u03BC = 2 (all irrationals)', w - margin.right - 4, margin.top + 42);
     }
 
-    // Axis labels
+    // Y-axis tick labels
+    ctx.fillStyle = '#64748b';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'right';
+    for (let i = 0; i <= 5; i++) {
+      const val = minLE + (i / 5) * leRange;
+      const y = margin.top + plotH - (i / 5) * plotH * 0.85 - plotH * 0.05;
+      ctx.beginPath();
+      ctx.setLineDash([2, 3]);
+      ctx.strokeStyle = '#1e293b';
+      ctx.moveTo(margin.left, y);
+      ctx.lineTo(w - margin.right, y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#64748b';
+      ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
+    }
+
+    // X-axis tick labels
     ctx.fillStyle = '#64748b';
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'center';
@@ -964,6 +1045,47 @@ function IrrationalityMeasureTab({ selectedN }) {
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(`Best Rational Approximations to \u03B6(${selectedN})`, margin.left + 4, margin.top + 14);
+
+    // Legend
+    const legendItems = [
+      { color: '#ef4444', label: 'Best approximations p/q', dash: false, dot: true },
+      { color: '#f59e0b', label: `Slope \u03BC ${data.aperyBound ? '\u2264 ' + mu.toFixed(3) + ' (known)' : '\u2248 ' + (mu || 0).toFixed(2) + ' (est.)'}`, dash: true, dot: false },
+      { color: '#10b981', label: '\u03BC = 2 (all irrationals)', dash: true, dot: false },
+    ];
+    const legendX = margin.left + 8;
+    const legendY0 = h - margin.bottom - legendItems.length * 16 - 14;
+    const legendW = 210;
+    const legendH = legendItems.length * 16 + 8;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX, legendY0, legendW, legendH, 4);
+    ctx.fill();
+    ctx.stroke();
+    legendItems.forEach((item, i) => {
+      const lx = legendX + 8;
+      const ly = legendY0 + 14 + i * 16;
+      if (item.dot) {
+        ctx.beginPath();
+        ctx.arc(lx + 4, ly, 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = item.color;
+        ctx.fill();
+      } else {
+        ctx.beginPath();
+        if (item.dash) ctx.setLineDash([5, 3]);
+        ctx.moveTo(lx, ly);
+        ctx.lineTo(lx + 14, ly);
+        ctx.strokeStyle = item.color;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '9px var(--font-mono)';
+      ctx.textAlign = 'left';
+      ctx.fillText(item.label, lx + 20, ly + 3);
+    });
 
   }, [data, selectedN]);
 
@@ -1006,7 +1128,7 @@ function IrrationalityMeasureTab({ selectedN }) {
           <span> For <InlineMath tex="\\zeta(3)" />, Rhin & Viola (2001) proved <InlineMath tex="\\mu \\leq 5.513891" />.</span>
         )}
         {selectedN !== 3 && (
-          <span> For <InlineMath tex={`\\zeta(${selectedN})`} />, irrationality has not been individually proven (only ζ(3) is known).</span>
+          <span> For <InlineMath tex={"\\zeta(" + selectedN + ")"} />, irrationality has not been individually proven (only ζ(3) is known).</span>
         )}
       </div>
     </div>
@@ -1051,7 +1173,7 @@ export default function OddZetaViz() {
           <label>Primes</label>
           <input type="range" min="5" max="50" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         {activeTab === 3 && (
           <div className="control-group">

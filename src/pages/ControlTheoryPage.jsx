@@ -110,10 +110,10 @@ export default function ControlTheoryPage() {
         </div>
         <div className="card">
           <h3 style={{ color: '#f59e0b' }}>Bode Sensitivity Integral</h3>
-          <BlockMath tex="\\int_0^\\infty \\log|S(j\\omega)|\\, d\\omega = \\pi \\sum_k \\text{Re}(p_k)" />
+          <BlockMath tex="\\int_0^{\\infty} \\log|S(j\\omega)|\\, d\\omega = \\pi \\sum_{k} \\text{Re}(p_k)" />
           <p style={{ marginTop: 8 }}>
             Bode's integral constrains the total sensitivity: for a closed-loop stable system with open-loop RHP poles at <InlineMath tex="p_k" />,
-            the integral equals <InlineMath tex="\\pi \\sum_k \\text{Re}(p_k)" />. For stable open-loop systems (no RHP poles),
+            the integral equals <InlineMath tex="\\pi \\sum_{k} \\text{Re}(p_k)" />. For stable open-loop systems (no RHP poles),
             it is zero — sensitivity reduction at some frequencies must be paid for at others. In our analogy, the integral relates to the prime number theorem error term.
           </p>
         </div>
@@ -130,8 +130,8 @@ export default function ControlTheoryPage() {
       </div>
 
       <div className="card" style={{ marginTop: 32, borderColor: '#8b5cf6' }}>
-        <h3 style={{ color: '#8b5cf6' }}><InlineMath tex="H_\\infty" /> Optimal Control</h3>
-        <BlockMath tex="\\min_\\sigma \\|S(\\sigma + j\\cdot)\\|_\\infty \\quad \\text{achieved at } \\sigma = \\frac{1}{2}" />
+        <h3 style={{ color: '#8b5cf6' }}><InlineMath tex="H_{\\infty}" /> Optimal Control</h3>
+        <BlockMath tex="\\min_{\\sigma} \\|S(\\sigma + j\\cdot)\\|_{\\infty} \\quad \\text{achieved at } \\sigma = \\frac{1}{2}" />
         <p style={{ marginTop: 12 }}>
           The H-infinity optimal control framework naturally selects <InlineMath tex="\\sigma = 1/2" /> as the operating point
           that minimizes the worst-case sensitivity. The sensitivity/complementary sensitivity balance
@@ -189,7 +189,7 @@ export default function ControlTheoryPage() {
         </div>
 
         <div className="card" style={{ borderColor: '#06b6d4' }}>
-          <h3 style={{ color: '#06b6d4' }}><InlineMath tex={"H_\\infty"} /> Control and the Sensitivity Function</h3>
+          <h3 style={{ color: '#06b6d4' }}><InlineMath tex={"H_{\\infty}"} /> Control and the Sensitivity Function</h3>
           <p style={{ marginTop: 8 }}>
             The sensitivity function <InlineMath tex={"S(s)"} /> and complementary
             sensitivity <InlineMath tex={"T(s)"} /> capture how a feedback system
@@ -200,7 +200,7 @@ export default function ControlTheoryPage() {
             They satisfy <InlineMath tex={"S(s) + T(s) = 1"} /> at every frequency.
             The Bode sensitivity integral constrains total sensitivity:
           </p>
-          <BlockMath tex={"\\int_0^{\\infty} \\log |S(j\\omega)|\\, d\\omega = \\pi \\sum_k p_k"} />
+          <BlockMath tex={"\\int_0^{\\infty} \\log |S(j\\omega)|\\, d\\omega = \\pi \\sum_{k} p_k"} />
           <p style={{ marginTop: 8 }}>
             where the sum runs over the right-half-plane poles{' '}
             <InlineMath tex={"p_k"} /> of the open-loop system. This is the

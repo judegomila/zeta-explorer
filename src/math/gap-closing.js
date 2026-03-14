@@ -89,34 +89,29 @@ function riemannSiegelZeta(s) {
   const tau = Math.sqrt(absT / (2 * Math.PI));
   const N = Math.floor(tau);
 
+  // Compute both sums in a single pass to avoid redundant Math.log(n) calls:
   // Main sum: sum_{n=1}^{N} n^{-s}
+  // Conj sum: sum_{n=1}^{N} n^{-(1-s)}
   let mainRe = 0, mainIm = 0;
-  for (let n = 1; n <= N; n++) {
-    const logN = Math.log(n);
-    const mag = Math.exp(-sigma * logN);
-    const phase = -t * logN;
-    mainRe += mag * Math.cos(phase);
-    mainIm += mag * Math.sin(phase);
-  }
-
-  // chi(s) prefactor for the second sum: chi(s) = 2^s pi^{s-1} sin(pi*s/2) Gamma(1-s)
-  // Use the approximate functional equation: zeta(s) ≈ mainSum + chi(s) * conjSum
-  // where conjSum = sum_{n=1}^{N} n^{-(1-s)}
   let conjRe = 0, conjIm = 0;
+  const sigma1 = 1 - sigma;
   for (let n = 1; n <= N; n++) {
     const logN = Math.log(n);
-    const mag = Math.exp(-(1 - sigma) * logN);
-    const phase = t * logN;
-    conjRe += mag * Math.cos(phase);
-    conjIm += mag * Math.sin(phase);
+    const mainMag = Math.exp(-sigma * logN);
+    const mainPhase = -t * logN;
+    mainRe += mainMag * Math.cos(mainPhase);
+    mainIm += mainMag * Math.sin(mainPhase);
+    const conjMag = Math.exp(-sigma1 * logN);
+    conjRe += conjMag * Math.cos(-mainPhase);
+    conjIm += conjMag * Math.sin(-mainPhase);
   }
 
-  // chi(s) via the bridge
+  // chi(s) prefactor via the bridge
   const bridge = losslessBridge(s);
   const chi = bridge.chi;
   const secondTerm = cMul(chi, [conjRe, conjIm]);
 
-  // Riemann-Siegel C0 correction (applied as a correction to the main sum approach)
+  // Riemann-Siegel C0 correction
   const p = tau - N;
   const cosDen = Math.cos(2 * Math.PI * p);
   const C0 = Math.abs(cosDen) < 1e-8
@@ -124,10 +119,12 @@ function riemannSiegelZeta(s) {
     : Math.cos(2 * Math.PI * (p * p - p - 1 / 16)) / cosDen;
   const corrMag = Math.pow(absT / (2 * Math.PI), -0.25);
   const theta = riemannSiegelTheta(absT);
-  const corrPhase = theta - t * Math.log(N + 1);
+  const logNp1 = Math.log(N + 1);
+  const corrPhase = theta - t * logNp1;
   const corrSign = (N % 2 === 0 ? -1 : 1);
-  const corrRe = corrSign * corrMag * C0 * Math.cos(corrPhase) * (sigma < 1 ? Math.exp(-(sigma - 0.5) * Math.log(N + 1)) : 1);
-  const corrIm = corrSign * corrMag * C0 * Math.sin(corrPhase) * (sigma < 1 ? Math.exp(-(sigma - 0.5) * Math.log(N + 1)) : 1);
+  const corrSigmaFactor = sigma < 1 ? Math.exp(-(sigma - 0.5) * logNp1) : 1;
+  const corrRe = corrSign * corrMag * C0 * Math.cos(corrPhase) * corrSigmaFactor;
+  const corrIm = corrSign * corrMag * C0 * Math.sin(corrPhase) * corrSigmaFactor;
 
   return [mainRe + secondTerm[0] + corrRe, mainIm + secondTerm[1] + corrIm];
 }
@@ -162,11 +159,12 @@ export function regularizedEulerProduct(s, numPrimes = 50, method = 'eta') {
 
     // Compute rigorous error bounds
     if (method === 'borwein') {
-      // Borwein acceleration: error is O(3^{-n}) where n = number of terms
-      // More precisely, |error| <= C * 3^{-n} / |1 - 2^{1-s}| where C depends on s
+      // Knopp-Hasse binomial acceleration: error is O(2^{-n}) where n = number of terms
+      // (the weights e_k = Σ_{j=k+1}^n C(n,j)/2^n converge at rate 2^{-n}, not 3^{-n})
+      // More precisely, |error| <= C * 2^{-n} / |1 - 2^{1-s}| where C depends on s
       const n = 50;
       const denomMag = cAbs(cSub([1, 0], cPow([2, 0], [1 - s[0], -s[1]])));
-      const rawErrorBound = Math.pow(3, -n);
+      const rawErrorBound = Math.pow(2, -n);
       errorBound = denomMag > 1e-12 ? rawErrorBound / denomMag : rawErrorBound;
     } else if (method === 'cesaro') {
       // Cesaro summation: error is O(N^{-sigma}) for sigma > 0
@@ -432,12 +430,15 @@ export function lanczosEigenvalues(matrix, size, numIterations) {
 export function hilbertPolyaMatrix(K, t, numCouplingPrimes = 100) {
   const zeros = ZETA_ZEROS.slice(0, K);
   const primes = getPrimes(Math.min(numCouplingPrimes, 200));
+  // Precompute log(p) and log(p)/p once per prime, avoiding K*(K-1)/2 redundant Math.log calls
+  const primeLogWeights = primes.map(p => { const lp = Math.log(p); return { lp, weight: lp / p }; });
   const flat = new Float64Array(K * K);
   for (let j = 0; j < K; j++) {
     flat[j * K + j] = zeros[j];
     for (let k = j + 1; k < K; k++) {
       let c = 0;
-      for (const p of primes) { const lp = Math.log(p); c += (lp / p) * Math.cos((zeros[j] - zeros[k]) * lp); }
+      const dg = zeros[j] - zeros[k];
+      for (let i = 0; i < primeLogWeights.length; i++) { c += primeLogWeights[i].weight * Math.cos(dg * primeLogWeights[i].lp); }
       flat[j * K + k] = c; flat[k * K + j] = c;
     }
   }
@@ -528,10 +529,22 @@ export function berryKeatingEigenvalues(K, N) {
 }
 
 /**
+ * Approximate error function erf(x) using Abramowitz & Stegun formula 7.1.26.
+ * Max error: 1.5 × 10⁻⁷.
+ */
+function erf(x) {
+  const sign = x >= 0 ? 1 : -1;
+  const ax = Math.abs(x);
+  const t = 1 / (1 + 0.3275911 * ax);
+  const y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-ax * ax);
+  return sign * y;
+}
+
+/**
  * Spectral gap analysis: compute the minimum eigenvalue spacing and compare
  * to the Gaussian Unitary Ensemble (GUE) prediction.
- * GUE predicts the normalized spacing distribution P(s) ~ (32/pi^2) s^2 exp(-4s^2/pi)
- * with mean spacing delta = 2*pi / log(gamma / (2*pi*e)).
+ * GUE Wigner surmise: P(s) = (32/pi^2) s^2 exp(-4s^2/pi)
+ * with mean spacing delta = 2*pi / log(gamma / (2*pi)).
  * @param {number} K - Number of zeros/eigenvalues to analyze
  * @returns {{ spacings: number[], normalizedSpacings: number[], minSpacing: number, meanSpacing: number, gueRatio: number, nearestNeighborStats: { mean: number, variance: number, wignerSurmise: number }, verdict: string }}
  */
@@ -557,20 +570,21 @@ export function spectralGapAnalysis(K) {
 
   // GUE nearest neighbor spacing statistics
   // Mean of normalized spacing should be 1 by construction
-  // Variance for GUE: Var = (4 - pi) / pi ≈ 0.273
-  const gueVariance = (4 - Math.PI) / Math.PI;
+  // Variance for GUE Wigner surmise P(s) = (32/π²)s²exp(-4s²/π): Var = 3π/8 − 1 ≈ 0.178
+  const gueVariance = 3 * Math.PI / 8 - 1;
   const normMean = normalizedSpacings.reduce((a, b) => a + b, 0) / normalizedSpacings.length;
   let normVar = 0;
   for (const s of normalizedSpacings) normVar += (s - normMean) * (s - normMean);
   normVar /= normalizedSpacings.length;
 
-  // Wigner surmise: P(s) = (pi/2) s exp(-pi s^2 / 4) (simpler GUE approx)
-  // Compute KS-like statistic: compare CDF of our spacings to Wigner surmise CDF
+  // GUE Wigner surmise CDF: F(s) = erf(2s/√π) − (4s/π)exp(−4s²/π)
+  // Derived from integrating P(s) = (32/π²)s²exp(−4s²/π) by parts.
   const sortedNorm = [...normalizedSpacings].sort((a, b) => a - b);
   let maxKS = 0;
   for (let i = 0; i < sortedNorm.length; i++) {
     const empiricalCDF = (i + 1) / sortedNorm.length;
-    const wignerCDF = 1 - Math.exp(-Math.PI * sortedNorm[i] * sortedNorm[i] / 4);
+    const s = sortedNorm[i];
+    const wignerCDF = erf(2 * s / Math.sqrt(Math.PI)) - (4 * s / Math.PI) * Math.exp(-4 * s * s / Math.PI);
     const diff = Math.abs(empiricalCDF - wignerCDF);
     if (diff > maxKS) maxKS = diff;
   }
@@ -595,7 +609,7 @@ export function spectralGapAnalysis(K) {
 
 /**
  * Compute the 2x2 scattering matrix for the twin-ladder at s.
- * S11 = (Z_direct - Z_dual)/(Z_direct + Z_dual), S21 = 2|Z_d|/(Z_d + Z_dual).
+ * S11 = (Z_direct - Z_dual)/(Z_direct + Z_dual), S21 = 2√(Re(Z_d)·Re(Z_dual))/(Z_d + Z_dual).
  * @param {number[]} s - Complex number [sigma, t]
  * @param {number} numPrimes
  * @returns {{ S11, S21, S12, S22, unitarityError, isUnitary }}

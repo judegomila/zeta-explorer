@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { vonMangoldt, explicitFormulaTerms } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
@@ -118,6 +118,9 @@ export default function ExplicitFormulaViz() {
 
     // Legend
     const legend = svg.append('g').attr('transform', `translate(${margin.left + 10}, ${margin.top + 10})`);
+    legend.append('rect')
+      .attr('x', -8).attr('y', -10).attr('width', 240).attr('height', 78)
+      .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
 
     // ψ(x) staircase: draw a small step pattern to match curveStepAfter
     const stairY = 0;
@@ -175,13 +178,12 @@ export default function ExplicitFormulaViz() {
       .attr('r', 4).attr('fill', '#f59e0b').attr('stroke', '#0a0e1a').attr('stroke-width', 2)
       .attr('opacity', 0);
 
+    const dx = maxX / Math.min(maxX, 200);
     overlay.on('mousemove', (event) => {
       const [mx] = d3.pointer(event);
       const xVal = xScale.invert(mx);
-      const closest = actualData.reduce((best, p) =>
-        Math.abs(p.x - xVal) < Math.abs(best.x - xVal) ? p : best
-      , actualData[0]);
-      const idx = actualData.indexOf(closest);
+      const idx = Math.max(0, Math.min(actualData.length - 1, Math.round((xVal - 2) / dx - 1)));
+      const closest = actualData[idx];
       const approxPt = approxData[idx];
 
       hoverLine.attr('x1', xScale(closest.x)).attr('x2', xScale(closest.x)).attr('opacity', 0.3);
@@ -207,21 +209,24 @@ export default function ExplicitFormulaViz() {
   return (
     <div>
       <div className="tab-explainer accent-orange">
-        Von Mangoldt's explicit formula{' '}
-        <InlineMath tex="\\psi(x) = x - \\sum_\\rho x^\\rho/\\rho - \\log 2\\pi - \\tfrac{1}{2}\\log(1 - x^{-2})" /> decomposes the Chebyshev function{' '}
-        <InlineMath tex="\\psi(x) = \\sum_{n \\le x} \\Lambda(n)" /> (a log-weighted prime-power count, not the prime
-        counting function <InlineMath tex="\\pi(x)" />) into zeta-zero oscillations.
-        Each zero pair <InlineMath tex="\\rho,\\bar\\rho" /> with{' '}
-        <InlineMath tex="\\rho = \\tfrac{1}{2}+i\\gamma" /> contributes{' '}
-        <InlineMath tex="-(2x^{1/2}/|\\rho|)\\cos(\\gamma\\log x - \\arg\\rho)" />;
-        since <InlineMath tex="\\arg\\rho = \\arctan(2\\gamma) \\to \\pi/2" /> and{' '}
-        <InlineMath tex="|\\rho| = \\sqrt{\\tfrac{1}{4}+\\gamma^2} \\to \\gamma" /> for large <InlineMath tex="\\gamma" />, these are
-        approximately <InlineMath tex="\\sim -2x^{1/2}\\sin(\\gamma\\log x)/\\gamma" /> oscillations.
-        The sum over zeros is the "impulse response" of the oscillator chain &mdash; adding more zeros sharpens the
-        reconstruction of the prime staircase. The error between <InlineMath tex="\\psi(x)" /> and{' '}
-        <InlineMath tex="x" /> (the PNT) is controlled by how far zeros can deviate from{' '}
-        <InlineMath tex="\\sigma = \\tfrac{1}{2}" />.
-        <strong> Look for:</strong> gold reconstruction converging to the blue staircase as you add more zeros.
+        <p style={{ margin: '0 0 8px' }}>
+          Von Mangoldt's explicit formula decomposes the Chebyshev function
+          <InlineMath tex={"\\psi(x) = \\sum_{n \\le x} \\Lambda(n)"} /> into zeta-zero oscillations:
+        </p>
+        <BlockMath tex={"\\psi(x) = x - \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho} - \\log 2\\pi - \\tfrac{1}{2}\\log(1 - x^{-2})"} />
+        <p style={{ margin: '8px 0' }}>
+          Each zero pair <InlineMath tex={"\\rho, \\bar{\\rho}"} /> with <InlineMath tex={"\\rho = \\tfrac{1}{2}+i\\gamma"} /> contributes
+          an oscillation that, for large <InlineMath tex={"\\gamma"} />, simplifies to:
+        </p>
+        <BlockMath tex={"\\approx -\\frac{2x^{1/2}}{\\gamma}\\sin(\\gamma\\log x)"} />
+        <p style={{ margin: '8px 0' }}>
+          Adding more zeros sharpens the reconstruction of the prime staircase.
+          The error between <InlineMath tex={"\\psi(x)"} /> and <InlineMath tex={"x"} /> (the PNT)
+          is controlled by how far zeros can deviate from <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> gold reconstruction converging to the blue staircase as you add more zeros.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">
@@ -241,7 +246,7 @@ export default function ExplicitFormulaViz() {
         </div>
         {hoverPoint ? (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
-            x={hoverPoint.x.toFixed(1)} | <span style={{ color: '#3b82f6' }}>ψ={hoverPoint.psi.toFixed(1)}</span> | <span style={{ color: '#f59e0b' }}>approx={hoverPoint.approx.toFixed(1)}</span> | <span style={{ color: '#64748b' }}>err={Math.abs(hoverPoint.psi - hoverPoint.approx).toFixed(2)}</span>
+            x={hoverPoint.x.toFixed(1)} | <span style={{ color: '#3b82f6' }}>ψ={hoverPoint.psi.toFixed(1)}</span> | <span style={{ color: '#f59e0b' }}>approx={hoverPoint.approx.toFixed(1)}</span> | <span style={{ color: Math.abs(hoverPoint.psi - hoverPoint.approx) < 1 ? '#10b981' : Math.abs(hoverPoint.psi - hoverPoint.approx) < 5 ? '#f59e0b' : '#ef4444' }}>err={Math.abs(hoverPoint.psi - hoverPoint.approx).toFixed(2)}</span>
           </div>
         ) : (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: rmsError < 1 ? '#10b981' : rmsError < 5 ? '#f59e0b' : '#ef4444' }}>

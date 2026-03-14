@@ -4,6 +4,8 @@ import {
   PROOF_SECTIONS, proofDependencyGraph, overallProofStatus,
   verifySection, computationalEvidence,
 } from '../math/formal-proof.js';
+import { getPrimes } from '../math/primes.js';
+import { ZETA_ZEROS } from '../math/zeta.js';
 
 const TABS = ['Proof Map', 'Verification', 'Evidence', 'Gaps'];
 const TAB_COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444'];
@@ -447,15 +449,16 @@ function EvidenceTab({ numPrimes, numZeros }) {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    // Bars
+    // Bars — extend from zero baseline, not chart bottom
     const barW = Math.min(plotW / lambdas.length * 0.7, 24);
     lambdas.forEach((l, i) => {
       const x = margin.left + (i + 0.5) / lambdas.length * plotW;
       const logVal = l.logLambda !== null ? l.logLambda : -10;
-      const barH = (logVal - minLog) / yRange * plotH;
-      const barY = h - margin.bottom - barH;
+      const valY = h - margin.bottom - (logVal - minLog) / yRange * plotH;
+      const barTop = Math.min(valY, zeroY);
+      const barHeight = Math.abs(valY - zeroY);
       ctx.fillStyle = l.positive ? '#10b981' : '#ef4444';
-      ctx.fillRect(x - barW / 2, barY, barW, barH);
+      ctx.fillRect(x - barW / 2, barTop, barW, barHeight);
 
       if (i % Math.max(1, Math.floor(lambdas.length / 10)) === 0) {
         ctx.fillStyle = '#64748b';
@@ -635,6 +638,13 @@ function EvidenceTab({ numPrimes, numZeros }) {
   useEffect(() => { drawHamiltonian(); }, [drawHamiltonian]);
   useEffect(() => { drawZeros(); }, [drawZeros]);
 
+  // Redraw all canvases on window resize to prevent blurry/distorted display
+  useEffect(() => {
+    const handleResize = () => { drawLi(); drawHamiltonian(); drawZeros(); };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [drawLi, drawHamiltonian, drawZeros]);
+
   return (
     <div>
       {/* Summary stats */}
@@ -671,7 +681,7 @@ function EvidenceTab({ numPrimes, numZeros }) {
             color: evidence.zeroDeviation?.allOnLine ? '#10b981' : '#ef4444',
             fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)',
           }}>
-            {evidence.zeroDeviation?.count || 0}/{evidence.zeroDeviation?.count || 0}
+            {evidence.zeroDeviation?.onLineCount ?? 0}/{evidence.zeroDeviation?.count || 0}
           </div>
           <div style={{ color: '#64748b', fontSize: 10 }}>Zeros on line</div>
         </div>
@@ -878,7 +888,7 @@ export default function FormalProofViz() {
             value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)}
           />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         {(tab === 2 || tab === 1) && (
           <div className="control-group">
@@ -888,10 +898,51 @@ export default function FormalProofViz() {
               value={numZeros}
               onChange={e => setNumZeros(+e.target.value)}
             />
-            <span className="control-value">{numZeros}</span>
+            <span className="control-value">{numZeros}
+              <span style={{ color: '#64748b', fontSize: 11, marginLeft: 4, fontFamily: 'var(--font-mono)' }}>
+                (γ<sub>max</sub> ≈ {ZETA_ZEROS[Math.min(numZeros, ZETA_ZEROS.length) - 1]?.toFixed(1) ?? '?'})
+              </span>
+            </span>
           </div>
         )}
       </div>
+
+      {/* Tab explainers */}
+      {tab === 0 && (
+        <div className="tab-explainer accent-green">
+          <strong>Proof Map:</strong> Dependency graph of the ZPO proof sections. Each node is a proof step
+          (S1–S9) colored by status: <span style={{ color: '#10b981' }}>proven</span>, <span style={{ color: '#f59e0b' }}>conditional</span>,
+          or <span style={{ color: '#ef4444' }}>open</span>. Arrows show logical dependencies — a section
+          cannot be fully established until all its prerequisites are resolved.
+          <strong> Click a node</strong> to see its description and dependencies.
+        </div>
+      )}
+      {tab === 1 && (
+        <div className="tab-explainer accent-blue">
+          <strong>Verification:</strong> Run numerical checks on each proof section. Each section has a set of
+          test assertions (e.g. Hamiltonian convexity, bridge unitarity, Li positivity) that are evaluated
+          with the current number of primes and zeros.
+          <strong> Look for:</strong> which sections pass all checks vs. which have failing assertions — failures indicate
+          where the proof's claims don't hold numerically.
+        </div>
+      )}
+      {tab === 2 && (
+        <div className="tab-explainer accent-yellow">
+          <strong>Evidence:</strong> Three diagnostic charts showing computational evidence for the ZPO model:
+          Li coefficient positivity, Hamiltonian minimization at <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+          and zero confinement to the critical line. These support but do not prove the formal claims.
+          <strong> Look for:</strong> how the evidence strengthens as you increase the number of primes and zeros.
+        </div>
+      )}
+      {tab === 3 && (
+        <div className="tab-explainer accent-red">
+          <strong>Gaps:</strong> Catalog of unresolved proof gaps and conditional steps. Each entry describes
+          what remains to be shown and why it matters for the overall argument. These are the hardest
+          parts — analytic continuation of the cascade (S4), Hilbert–Polya operator construction (S5),
+          and Darlington synthesis (S7).
+          <strong> Look for:</strong> severity rankings and which gaps block the most downstream conclusions.
+        </div>
+      )}
 
       {/* Tab content */}
       {tab === 0 && <ProofMapTab numPrimes={numPrimes} />}

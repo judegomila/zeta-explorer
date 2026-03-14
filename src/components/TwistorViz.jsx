@@ -73,7 +73,7 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
       .attr('fill', '#64748b').attr('font-size', 9).text('t');
 
     // Plot s point
-    const sNormSig = Math.max(-1, Math.min(1, (sigma - 0.5) / 1.0));
+    const sNormSig = Math.max(-1, Math.min(1, (sigma - 0.5) / 0.5));
     const sNormT = Math.max(-1, Math.min(1, t / 60));
     const sPx = sPlaneX + sNormSig * sPlaneR;
     const sPy = sPlaneY - sNormT * sPlaneR;
@@ -537,11 +537,11 @@ function IncidenceRelationTab({ sigma, t }) {
     ctx.fillStyle = '#64748b';
     ctx.fillText('Dark = incidence satisfied (Z·W ≈ 0), green dots = known zeta zeros', W / 2, 36);
 
-    // Color bar
+    // Color bar (low at bottom, high at top — standard scientific convention)
     const cbX = W - margin.right + 12;
     const cbW = 16;
     for (let y = 0; y < chartH; y++) {
-      const norm = y / chartH;
+      const norm = 1 - y / chartH;
       const r = Math.floor(norm * 255);
       const g = Math.floor(norm * 200);
       const b = Math.floor((1 - norm) * 80);
@@ -551,8 +551,8 @@ function IncidenceRelationTab({ sigma, t }) {
     ctx.font = '8px JetBrains Mono, monospace';
     ctx.fillStyle = '#94a3b8';
     ctx.textAlign = 'left';
-    ctx.fillText('0', cbX + cbW + 4, margin.top + 8);
-    ctx.fillText(`${maxVal.toFixed(2)}`, cbX + cbW + 4, margin.top + chartH);
+    ctx.fillText(`${maxVal.toFixed(2)}`, cbX + cbW + 4, margin.top + 8);
+    ctx.fillText('0', cbX + cbW + 4, margin.top + chartH);
     ctx.fillText('|Z·W|', cbX, margin.top - 6);
 
   }, [heatData, heatmapImage, sigma, t]);
@@ -788,8 +788,8 @@ export default function TwistorViz() {
   const [numPrimes, setNumPrimes] = useState(8);
   const [playing, setPlaying] = useState(true);
 
-  const sigmaColor = Math.abs(sigma - 0.5) < 0.05 ? '#10b981'
-    : Math.abs(sigma - 0.5) < 0.2 ? '#f59e0b' : '#ef4444';
+  const sigmaColor = Math.abs(sigma - 0.5) < 0.02 ? '#10b981'
+    : Math.abs(sigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444';
 
   const incidenceStatus = useMemo(() => {
     const Z = twistorFromS([sigma, t]);
@@ -886,10 +886,10 @@ export default function TwistorViz() {
       <div className="viz-container" style={{ marginTop: 12 }}>
         {tab === 'correspondence' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-blue">
               <strong>Twistor Correspondence:</strong> The s-plane (left) maps to twistor space (right).
-              The twistor <InlineMath tex="Z^\\alpha = (\\omega^A, \\pi_{A'})" /> (blue) encodes the direct ladder,
-              the dual twistor <InlineMath tex="W_\\alpha" /> (gold) encodes the dual ladder.
+              The twistor <InlineMath tex="Z^{\\alpha} = (\\omega^A, \\pi_{A'})" /> (blue) encodes the direct ladder,
+              the dual twistor <InlineMath tex="W_{\\alpha}" /> (gold) encodes the dual ladder.
               The intertwiner arc shows whether they are incident (<InlineMath tex="Z \\cdot W = 0" />).
               At <InlineMath tex="\\sigma = 0.5" />, Z and W are related by the lossless bridge.
             </div>
@@ -898,7 +898,7 @@ export default function TwistorViz() {
         )}
         {tab === 'penrose' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-cyan">
               <strong>Penrose Transform:</strong> The Penrose transform maps twistor cohomology to spacetime fields.
               Here, the twistor-weighted Euler product (top, cyan) is compared with the raw <InlineMath tex="|\\zeta(s)|" /> (bottom, purple).
               High correlation indicates the twistor framework faithfully encodes zeta behavior.
@@ -908,18 +908,19 @@ export default function TwistorViz() {
         )}
         {tab === 'incidence' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-green">
               <strong>Incidence Relation:</strong> Heatmap of <InlineMath tex="|Z \\cdot W|" /> over
               the <InlineMath tex="(\\sigma, t)" /> plane. Dark regions satisfy the incidence relation
               (twistors are null-separated). Green dots mark known zeta zeros on the critical line.
               The incidence locus near <InlineMath tex="\\sigma = 0.5" /> mirrors the zero distribution.
+              <strong> Look for:</strong> a dark vertical band along <InlineMath tex="\\sigma = 0.5" /> where incidence is nearly satisfied; green dots sitting in the darkest pockets where <InlineMath tex="|Z \\cdot W| \\approx 0" />.
             </div>
             <IncidenceRelationTab sigma={sigma} t={t} />
           </>
         )}
         {tab === 'dualPair' && (
           <>
-            <div className="tab-explainer">
+            <div className="tab-explainer accent-orange">
               <strong>Dual Pair:</strong> Watch the twistor Z (blue, left) and dual twistor W (gold, right) rotate
               as t sweeps forward. The central intertwiner I shows coupling strength. When the helicities match
               and <InlineMath tex="|Z \\cdot W| \\approx 0" />, the pair is phase-locked at equilibrium.

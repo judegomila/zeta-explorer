@@ -392,6 +392,7 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 386 | 2026-03-05T23:00:00Z | Add missing circle markers to error convergence chart in PascalZetaViz ConstantsTab | PascalZetaViz.jsx |
 | 386 | 2026-03-05T23:45:00Z | Replace 10,000 fillRect calls with single putImageData in ZetaLandscape heatmap | ZetaLandscapeViz.jsx |
 | 387 | 2026-03-06T01:00:00Z | Add background box to de Bruijn-Newman scatter plot legend for readability | LiCriterionViz.jsx |
+| 388 | 2026-03-06T12:00:00Z | Add background box to Confinement tab legend in GapClosingViz for readability | GapClosingViz.jsx |
 | 388 | 2026-03-05T02:00:00Z | Fix von Mangoldt spectrum missing n^{-1/2} weight needed to align peaks with zeta zeros | supercritical.js, FourierDomainViz.jsx |
 | 389 | 2026-03-05T23:00:00Z | Use Unicode subscript digits in AnimatedModesViz zeta zero dropdown | AnimatedModesViz.jsx |
 | 448 | 2026-03-05T22:00:00Z | Fix InformationTheoryPage saying 'impedance matched, zero noise' instead of 'conjugate-matched, noise minimized' | InformationTheoryPage.jsx |
@@ -454,3 +455,202 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 493 | 2026-03-06T01:30:00Z | Add horizontal gridlines to Li Coefficients bar chart in RHAttackViz | RHAttackViz.jsx |
 | 494 | 2026-03-06T02:00:00Z | Fix information-theory.js docstrings falsely claiming entropy is maximized via uniform distribution at σ=½ | information-theory.js |
 | 495 | 2026-03-06T03:00:00Z | Fix Weil positivity Fourier transform missing exp(-a/4) prefactor from test function | rh-attack.js |
+| 496 | 2026-03-06T04:00:00Z | Add legend background box to Darlington tab in GapClosingViz for readability | GapClosingViz.jsx |
+| 497 | 2026-03-06T05:00:00Z | Add nearest-zero proximity indicator to t slider in InformationTheoryViz | InformationTheoryViz.jsx |
+| 498 | 2026-03-06T06:00:00Z | Precompute log(p) and log(p)/p weights in hilbertPolyaMatrix to avoid redundant Math.log calls | gap-closing.js |
+| 499 | 2026-03-06T07:00:00Z | Fix heat flow ZPO interpretation saying t>0 scatters zeros (correct: t<0 scatters, t>0 preserves) | SupercriticalPage.jsx |
+| 500 | 2026-03-06T08:00:00Z | Add Montgomery-Dyson encounter exploration entry connecting GUE random matrix statistics to zeta zeros | explorations.js |
+| 501 | 2026-03-06T09:00:00Z | Fix Heat Flow tab using per-curve y-normalization hiding amplitude differences across τ values | RHAttackViz.jsx |
+| 502 | 2026-03-06T10:00:00Z | Fix false biconditional Z·W=0 ⟺ σ=½ in twistor derivation (incidence also vanishes at cos(t log 2)=0) | TwistorPage.jsx |
+| 503 | 2026-03-06T11:00:00Z | Replace white-centered correlation matrix heatmap with dark-friendly diverging color scale | SpectralAttackViz.jsx |
+| 504 | 2026-03-06T12:00:00Z | Fix false claim that prime weights are uniform at σ=½ in InformationTheoryViz entropy tab | InformationTheoryViz.jsx |
+| 505 | 2026-03-06T13:00:00Z | Add nearest-zero proximity indicator to t slider in InfoTheoryExperimentsViz | InfoTheoryExperimentsViz.jsx |
+| 506 | 2026-03-06T14:00:00Z | Add missing Y-axis label to critical-line Z(t) plot in ZetaLandscapeViz | ZetaLandscapeViz.jsx |
+| 507 | 2026-03-06T15:00:00Z | Fix phase plot false discontinuities at ±π wraps in EulerProductViz | EulerProductViz.jsx |
+| 508 | 2026-03-06T16:00:00Z | Eliminate duplicate gapClosingReport computation in GapClosingViz ConfinementTab | GapClosingViz.jsx |
+| 509 | 2026-03-06T17:00:00Z | Add missing y-axis tick labels and gridlines to Irrationality Measure chart in OddZetaViz | OddZetaViz.jsx |
+| 510 | 2026-03-06T18:00:00Z | Fix false claim that Euler product entropy gives uniform prime distribution at sigma=1/2 | InformationTheoryPage.jsx |
+| 511 | 2026-03-06T19:00:00Z | Fix InsightDAG legend missing Analogous and Extends edge types | InsightDAG.jsx |
+| 512 | 2026-03-06T20:00:00Z | Fix false claim that Λ≥0 (Rodgers-Tao) means zeros are on the critical line at τ=0 | LiCriterionViz.jsx |
+| 513 | 2026-03-06T21:00:00Z | Fix markdown **bold** syntax rendering as literal asterisks in JSX on ModesPage | ModesPage.jsx |
+| 514 | 2026-03-06T22:00:00Z | Add missing y-axis tick labels, gridlines, and x-axis tick labels to Heat Flow tab in RHAttackViz | RHAttackViz.jsx |
+| 515 | 2026-03-06T23:00:00Z | Add missing window resize handler to FormalProofViz EvidenceTab canvases | FormalProofViz.jsx |
+| 516 | 2026-03-07T00:00:00Z | Add missing legend for derivative color coding in SpectralAttackViz Lyapunov tab | SpectralAttackViz.jsx |
+| 517 | 2026-03-07T01:00:00Z | Add Deninger foliated spaces exploration entry connecting closed orbits to prime oscillators | explorations.js |
+| 518 | 2026-03-06T23:45:00Z | Fix darlingtonSMatrix docstring showing wrong S21 formula: |Z_d| instead of √(Re(Z_d)·Re(Z_dual)) | gap-closing.js |
+| 518 | 2026-03-06T21:30:00Z | Add missing y-axis tick labels and gridlines to ZXCalculusViz Symmetry tab | ZXCalculusViz.jsx |
+| 519 | 2026-03-06T23:45:00Z | Remove dead code with x2-x2 typo in ZXCalculusViz drawArrow helper | ZXCalculusViz.jsx |
+| 520 | 2026-03-06T14:30:00Z | Precompute (1−1/ρ) values outside n-loop in liCoefficients to avoid redundant cDiv/cSub per zero | rh-attack.js |
+| 522 | 2026-03-06T21:00:00Z | Fix Full Report tab in ProofCheckerViz never running due to disconnected ref callback | ProofCheckerViz.jsx |
+| 523 | 2026-03-07T02:00:00Z | Fix Heat Flow tab claiming Λ = 0 instead of Λ ≥ 0 (Rodgers–Tao proved the lower bound, not equality) | RHAttackViz.jsx |
+| 524 | 2026-03-07T03:00:00Z | Add descriptive slider labels and tooltips to PascalZetaViz Hasse-Sondow and Decorated tabs | PascalZetaViz.jsx |
+| 525 | 2026-03-07T04:00:00Z | Add missing window resize handlers to all 4 canvas tabs in InfoTheoryExperimentsViz | InfoTheoryExperimentsViz.jsx |
+| 526 | 2026-03-06T15:30:00Z | Use Unicode subscript digits instead of subscript parentheses in AnimatedModesViz canvas title | AnimatedModesViz.jsx |
+| 527 | 2026-03-06T16:00:00Z | Add missing y-axis labels to both charts in Euler Phase tab | SupercriticalViz.jsx |
+| 528 | 2026-03-07T05:00:00Z | Add background box to legend in ExplicitFormulaViz for readability over chart data | ExplicitFormulaViz.jsx |
+| 529 | 2026-03-06T18:00:00Z | Add missing y-axis label to Symmetry tab in ZXCalculusViz | ZXCalculusViz.jsx |
+| 530 | 2026-03-06T19:30:00Z | Add tab explainer banners to all 6 tabs in InformationTheoryViz | InformationTheoryViz.jsx |
+| 531 | 2026-03-07T06:00:00Z | Fix Hilbert-Polya text saying operator must be "positive" instead of "self-adjoint" | StatisticsPage.jsx |
+| 532 | 2026-03-07T07:00:00Z | Fix Lyapunov tab legend incorrectly labeling positive dD_KL/dσ as "away from ½" | SpectralAttackViz.jsx |
+| 533 | 2026-03-06T08:00:00Z | Eliminate redundant Euler product loop in oddZetaValue by saving second-to-last cumulative value | odd-zeta.js |
+| 534 | 2026-03-06T08:30:00Z | Add tab explainer banners to all 5 tabs in RHAttackViz | RHAttackViz.jsx |
+| 535 | 2026-03-06T20:00:00Z | Add missing window resize handler to AnimatedModesViz when paused | AnimatedModesViz.jsx |
+| 536 | 2026-03-06T21:00:00Z | Add missing axis labels to gradient and curvature sub-charts in ConvergenceTab | TwinOscillatorSimViz.jsx |
+| 537 | 2026-03-06T22:00:00Z | Add missing y-axis labels to both charts in OddZetaViz Values & Convergence tab | OddZetaViz.jsx |
+| 538 | 2026-03-07T08:00:00Z | Add tab explainer banners to all 4 tabs in FormalProofViz | FormalProofViz.jsx |
+| 539 | 2026-03-07T09:00:00Z | Add tab explainer banners to all 5 tabs in SpectralAttackViz | SpectralAttackViz.jsx |
+| 540 | 2026-03-06T10:00:00Z | Fix Von Mangoldt spectrum legend using wrong notation |Λ̂(ω)| instead of |F(ω)| | FourierDomainViz.jsx |
+| 541 | 2026-03-06T11:00:00Z | Add Hadamard product formula card to ZetaPage with ξ(s) factorization and ZPO notch-filter interpretation | ZetaPage.jsx |
+| 542 | 2026-03-06T22:30:00Z | Change Confinement tab Hamiltonian curve from orange to pink for better contrast with Bridge curve | GapClosingViz.jsx |
+| 543 | 2026-03-06T23:00:00Z | Add tab explainer banners to all 4 tabs in InfoTheoryExperimentsViz | InfoTheoryExperimentsViz.jsx |
+| 544 | 2026-03-06T23:30:00Z | Add tab explainer banners to all 4 tabs in ProofCheckerViz | ProofCheckerViz.jsx |
+| 545 | 2026-03-07T10:00:00Z | Fix impulse response formula containing Laplace variable s and wrong delta arguments | OscillatorsPage.jsx |
+| 546 | 2026-03-06T15:00:00Z | Hoist per-x-step constants out of per-prime loop in AnimatedModesViz draw function | AnimatedModesViz.jsx |
+| 547 | 2026-03-06T23:45:00Z | Fix incorrect |H| = 1 reference line label in EulerProductViz to |factor| = 1 | EulerProductViz.jsx |
+| 548 | 2026-03-06T23:55:00Z | Add missing y-axis labels to Hilbert-Polya tab in GapClosingViz | GapClosingViz.jsx |
+| 549 | 2026-03-07T10:30:00Z | Disable Primes slider on Bridge test in RHRigorViz since losslessBridge ignores numPrimes | RHRigorViz.jsx |
+| 550 | 2026-03-06T16:00:00Z | Fix Evidence tab showing count/count instead of onLineCount/count for zeros on critical line | FormalProofViz.jsx, formal-proof.js |
+| 551 | 2026-03-06T17:00:00Z | Fix error convergence chart x-domain clipping first pi error point in PascalZetaViz | PascalZetaViz.jsx |
+| 552 | 2026-03-06T18:00:00Z | Add 0° reference line to phase mode in ScatteringMatrixViz | ScatteringMatrixViz.jsx |
+| 553 | 2026-03-06T19:00:00Z | Add click-to-snap on nearest-zero indicator in InformationTheoryViz t slider | InformationTheoryViz.jsx |
+| 554 | 2026-03-06T20:00:00Z | Add click-to-snap nearest-zero indicator to t slider in ZXCalculusViz | ZXCalculusViz.jsx |
+| 555 | 2026-03-06T21:30:00Z | Fix Li Coefficients bar chart anchoring bars at x-axis instead of zero reference line | RHAttackViz.jsx |
+| 556 | 2026-03-06T23:00:00Z | Add missing axis labels to first sub-chart in Convergence tab of TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
+| 557 | 2026-03-06T23:50:00Z | Add missing y-axis labels to both charts in Transfer Function tab of OddZetaViz | OddZetaViz.jsx |
+| 558 | 2026-03-07T00:15:00Z | Fix inconsistent σ slider color thresholds in TwistorViz (0.05/0.2 → 0.02/0.15) | TwistorViz.jsx |
+| 559 | 2026-03-07T01:00:00Z | Fix Strategy Scores bar fill drawing three overlapping fills resulting in fully opaque bars instead of semi-transparent | SpectralAttackViz.jsx |
+| 560 | 2026-03-07T11:00:00Z | Add missing axis labels to all three charts in Constants tab of PascalZetaViz | PascalZetaViz.jsx |
+| 561 | 2026-03-06T12:00:00Z | Merge duplicate loops and hoist shared Math.log calls in riemannSiegelZeta | gap-closing.js |
+| 562 | 2026-03-06T12:30:00Z | Add missing accent-cyan class to Extended Landscape tab explainer in SupercriticalViz | SupercriticalViz.jsx |
+| 563 | 2026-03-06T18:00:00Z | Add missing accent color classes to all four tab explainers in TwistorViz | TwistorViz.jsx |
+| 564 | 2026-03-06T22:00:00Z | Add missing CSS rules for accent-blue and accent-yellow tab-explainer classes | app.css |
+| 565 | 2026-03-06T23:30:00Z | Add missing y-axis tick labels and rotated axis label to Hamiltonian Convexity chart in RHAttackViz | RHAttackViz.jsx |
+| 566 | 2026-03-06T23:55:00Z | Eliminate redundant eulerFactor calls in PrimeContributions per-prime loop | InfoTheoryExperimentsViz.jsx |
+| 567 | 2026-03-07T12:00:00Z | Replace inline styles with accent-blue class on Channel Capacity tab explainer in InformationTheoryViz | InformationTheoryViz.jsx |
+| 568 | 2026-03-06T23:59:00Z | Add right-side y-axis with error scale for unitarity error curve in Darlington tab | GapClosingViz.jsx |
+| 569 | 2026-03-06T12:45:00Z | Add missing accent-blue class to OscillatorChainViz tab explainer | OscillatorChainViz.jsx |
+| 570 | 2026-03-06T23:00:00Z | Add missing accent-blue class to Von Mangoldt Spectrum tab explainer in FourierDomainViz | FourierDomainViz.jsx |
+| 571 | 2026-03-06T23:00:00Z | Fix false claim that de Bruijn-Newman Λ = 0 is a proven theorem | rh-attack.js |
+| 572 | 2026-03-06T23:30:00Z | Precompute log(p) and p^k tables to eliminate redundant Math calls in linearIndependenceTest Gram matrix loop | odd-zeta.js |
+| 573 | 2026-03-06T23:45:00Z | Add missing accent color classes to all 5 tab explainers in WaveSimViz | WaveSimViz.jsx |
+| 574 | 2026-03-06T12:00:00Z | Fix ZXCalculusViz hover tooltip labeling log(p) as ω (frequency) instead of Z₀ (characteristic impedance) | ZXCalculusViz.jsx |
+| 575 | 2026-03-06T13:00:00Z | Fix inconsistent Gram matrix inner product for constant '1' element in linearIndependenceTest | odd-zeta.js |
+| 576 | 2026-03-06T23:00:00Z | Fix scattering resonance concept entry contradicting itself: said 'transmits perfectly' but also 'S₂₁ → 0' | ConceptsPage.jsx |
+| 577 | 2026-03-06T16:00:00Z | Fix Li coefficients bar chart drawing bars from chart bottom instead of zero baseline in FormalProofViz | FormalProofViz.jsx |
+| 578 | 2026-03-06T23:30:00Z | Hoist constant logX and envelope arrays out of AnimatedModesViz per-frame draw loop | AnimatedModesViz.jsx |
+| 579 | 2026-03-06T23:45:00Z | Fix RHAttackPage falsely claiming Rodgers-Tao proved Λ = 0 (they proved Λ ≥ 0; Λ = 0 would prove RH) | RHAttackPage.jsx |
+| 580 | 2026-03-06T23:55:00Z | Fix Channel Capacity tab explainer showing wrong formula C = log K − H_min instead of Shannon-Hartley ½log₂(1+SNR) | InformationTheoryViz.jsx |
+| 581 | 2026-03-07T00:10:00Z | Add missing accent-blue class to Nyquist Plot tab explainer in NyquistBodeViz | NyquistBodeViz.jsx |
+| 582 | 2026-03-07T00:20:00Z | Add missing accent-blue class to Per-Prime Energy tab explainer in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
+| 583 | 2026-03-07T01:30:00Z | Fix π chart y-scale excluding arcsin series data, clipping early points off-screen | PascalZetaViz.jsx |
+| 584 | 2026-03-07T01:45:00Z | Add tab-explainer divs to all 4 tabs in ZXCalculusViz (Spider Chain, Twin Ladder, Rewrite Rules, Symmetry) | ZXCalculusViz.jsx |
+| 585 | 2026-03-06T23:00:00Z | Fix D-H phase entropy evalFn ignoring n parameter, making all 20 samples identical and entropy trivially zero | proof-checker.js |
+| 586 | 2026-03-07T02:00:00Z | Use rounded corners on legend boxes in RHRigorViz for consistency with other canvas charts | RHRigorViz.jsx |
+| 587 | 2026-03-06T12:00:00Z | Precompute σ=0.5 reference weights once for LandscapeScan instead of recomputing in all 81 iterations | InfoTheoryExperimentsViz.jsx |
+| 588 | 2026-03-06T18:30:00Z | Fix Component Diagram and frequency tooltip labeling log(p) as ω (frequency) instead of Z₀ (impedance) | WaveSimViz.jsx, PrimeGapCouplingViz.jsx |
+| 589 | 2026-03-06T23:00:00Z | Fix primeHarmonicDecomposition computing full Euler factor at wrong s instead of k-th Taylor harmonic | supercritical.js |
+| 590 | 2026-03-06T04:30:00Z | Fix formal-proof.js claiming Rodgers-Tao proved Λ = 0 instead of Λ ≥ 0 (Λ = 0 would mean RH is proved) | formal-proof.js |
+| 591 | 2026-03-06T23:30:00Z | Fix OscillatorChainViz detail card labeling log(p) as Frequency ω instead of Impedance Z₀ | OscillatorChainViz.jsx |
+| 592 | 2026-03-06T14:00:00Z | Add horizontal gridlines to Fisher-Twistor tab in SpectralAttackViz for easier value reading | SpectralAttackViz.jsx |
+| 593 | 2026-03-06T18:00:00Z | Update outdated de Bruijn-Newman upper bound from Λ ≤ ½ (1950) to Λ ≤ 0.2 (Platt-Trudgian 2021) | rh-attack.js |
+| 595 | 2026-03-07T03:00:00Z | Fix DocsPage describing primeFrequency as "Oscillator frequency ω = log(p)" instead of impedance Z₀ | DocsPage.jsx |
+| 596 | 2026-03-11T12:00:00Z | Fix AnimatedModesViz labeling log(p) as ω (frequency) instead of Z₀ (impedance) | AnimatedModesViz.jsx |
+| 597 | 2026-03-11T14:00:00Z | Add legend to SupercriticalViz main panel identifying curve and reference lines | SupercriticalViz.jsx |
+| 598 | 2026-03-11T16:00:00Z | Add hover tooltips to all GUEStatisticsViz data elements (histogram bars and number-variance dots) | GUEStatisticsViz.jsx |
+| 599 | 2026-03-11T18:00:00Z | Fix phasor sum label showing "+ -0.567i" instead of "− 0.567i" for negative imaginary parts | TwinLadderViz.jsx |
+| 600 | 2026-03-11T20:00:00Z | Replace 3,721 fillRect calls with single putImageData in EnergyLandscapeViz heatmap | EnergyLandscapeViz.jsx |
+| 601 | 2026-03-11T22:00:00Z | Add Parseval energy conservation explainer card to FourierPage linking unitarity to spectral balance | FourierPage.jsx |
+| 602 | 2026-03-12T00:00:00Z | Add zeta zero frequency markers to Bode diagram in NyquistBodeViz | NyquistBodeViz.jsx |
+| 603 | 2026-03-12T02:00:00Z | Add nearest-zeta-zero snap indicator to T sliders in TwinLadderViz | TwinLadderViz.jsx |
+| 604 | 2026-03-12T04:00:00Z | Fix ambiguous phase notation in Euler product explainer: arg(1-p^{-s})^{-1} → -arg(1-p^{-s}) | EulerProductViz.jsx |
+| 605 | 2026-03-12T06:00:00Z | Fix pair correlation histogram showing half the correct density in GUEStatisticsViz | GUEStatisticsViz.jsx |
+| 606 | 2026-03-11T22:30:00Z | Eliminate per-frame Float64Array allocation in AnimatedModesViz animation loop | AnimatedModesViz.jsx |
+| 607 | 2026-03-11T23:00:00Z | Add hover crosshair and readout to Von Mangoldt Spectrum tab in FourierDomainViz | FourierDomainViz.jsx |
+| 608 | 2026-03-11T23:30:00Z | Add legend box to Irrationality Measure tab in OddZetaViz identifying data points and reference lines | OddZetaViz.jsx |
+| 609 | 2026-03-12T08:00:00Z | Fix Borwein error bound using 3^{-n} instead of correct 2^{-n} for Knopp-Hasse weights | gap-closing.js |
+| 610 | 2026-03-11T23:45:00Z | Add descriptive tooltips to ThermoBar explaining T, P, F, S quantities and phase badge | ThermoBar.jsx |
+| 611 | 2026-03-11T23:50:00Z | Fix Shannon entropy formula showing log instead of log₂ to match code that computes in bits | InformationTheoryViz.jsx |
+| 612 | 2026-03-11T23:55:00Z | Fix oscillator frequency label showing Z₀ instead of ω in AnimatedModesViz | AnimatedModesViz.jsx |
+| 613 | 2026-03-11T23:58:00Z | Fix inverted color bar in TwistorViz Incidence Relation heatmap to follow standard low-bottom high-top convention | TwistorViz.jsx |
+| 614 | 2026-03-11T12:05:00Z | Replace linear ZETA_ZEROS scans with binary search in ZetaLandscapeViz hover and zero count | ZetaLandscapeViz.jsx |
+| 615 | 2026-03-11T12:10:00Z | Fix GUE hypothesis listed as RH equivalence and marked untested in Known Equivalences table | RHAttackPage.jsx |
+| 616 | 2026-03-11T12:15:00Z | Use math-rendered label for t slider in Gradient Descent tab of TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
+| 617 | 2026-03-11T12:20:00Z | Fix Phase tab explainer accent color mismatch in ScatteringMatrixViz | ScatteringMatrixViz.jsx |
+| 618 | 2026-03-11T12:25:00Z | Add zero reference line and y-axis labels to cumulative phase graph in ZXCalculusViz Spider Chain tab | ZXCalculusViz.jsx |
+| 619 | 2026-03-11T12:30:00Z | Fix Phase Rates tooltip showing Z₀ (impedance) instead of ω (frequency) in PrimeGapCouplingViz | PrimeGapCouplingViz.jsx |
+| 620 | 2026-03-11T12:35:00Z | Fix misattribution of 10^13 zero verification to Platt instead of Gourdon in proof checker | FormalProofPage.jsx, formal-proof.js |
+| 621 | 2026-03-11T12:40:00Z | Add missing y-axis tick labels, gridlines, and axis labels to S-Matrix tab in RHAttackViz | RHAttackViz.jsx |
+| 622 | 2026-03-11T12:45:00Z | Add legend box to EulerProductViz identifying magnitude curve, phase curve, reference line, and factor bars | EulerProductViz.jsx |
+| 623 | 2026-03-11T12:50:00Z | Add |χ| magnitude to Phase mode hover tooltip in ScatteringMatrixViz for cross-mode visibility | ScatteringMatrixViz.jsx |
+| 624 | 2026-03-11T12:55:00Z | Memoize nearest-zero lookup in three SupercriticalViz tabs to avoid per-render IIFE loops | SupercriticalViz.jsx |
+| 625 | 2026-03-11T13:00:00Z | Add missing rotated y-axis labels to both AperyTab charts in OddZetaViz | OddZetaViz.jsx |
+| 626 | 2026-03-11T13:05:00Z | Add "(up to p=X)" label to Primes slider in GapClosingViz for consistency with other components | GapClosingViz.jsx |
+| 627 | 2026-03-11T13:10:00Z | Add missing rotated y-axis label to PressureTemperatureTab bottom chart in TwinLadderViz | TwinLadderViz.jsx |
+| 628 | 2026-03-11T13:15:00Z | Add "(up to p=X)" label to Primes slider in InfoTheoryExperimentsViz for consistency | InfoTheoryExperimentsViz.jsx |
+| 629 | 2026-03-11T13:20:00Z | Fix lempelZivComplexity always returning 1 due to empty-prefix search at i=0 | odd-zeta.js |
+| 630 | 2026-03-11T13:25:00Z | Fix spectralGapAnalysis to use GUE statistics instead of GOE for Wigner surmise CDF and variance | gap-closing.js |
+| 631 | 2026-03-11T13:30:00Z | Use fast real-base exponentiation in zetaDirichlet and zetaEulerProduct instead of generic cPow | zeta.js |
+| 632 | 2026-03-11T13:35:00Z | Add σ = ½ label to critical line in all three ScatteringMatrixViz modes | ScatteringMatrixViz.jsx |
+| 633 | 2026-03-11T13:40:00Z | Add functional equation explainer card to ZetaPage with symmetric/asymmetric forms and bridge interpretation | ZetaPage.jsx |
+| 634 | 2026-03-11T13:45:00Z | Add status label and tooltip to σ slider in NyquistBodeViz for critical line proximity | NyquistBodeViz.jsx |
+| 635 | 2026-03-11T13:50:00Z | Remove spurious Math.abs from reflection coefficient formula, allowing signed Γ | oscillators.js, ScatteringMatrixViz.jsx |
+| 636 | 2026-03-11T13:55:00Z | Fix von Mangoldt spectrum explainer claiming truncated DFT "equals" −ζ'/ζ on critical line | FourierDomainViz.jsx |
+| 637 | 2026-03-11T14:00:00Z | Add Reset button to AnimatedModesViz to restart animation from t=0 | AnimatedModesViz.jsx |
+| 638 | 2026-03-11T14:05:00Z | Color-code per-point error in ExplicitFormulaViz hover tooltip to match RMS error styling | ExplicitFormulaViz.jsx |
+| 639 | 2026-03-11T14:10:00Z | Memoize eigenvalue/zero y-bounds in HilbertPolyaTab to avoid flatMap on every resize | GapClosingViz.jsx |
+| 640 | 2026-03-12T00:15:00Z | Remove spurious −π²/8 constant from GUE number variance reference curve formula | GUEStatisticsViz.jsx |
+| 641 | 2026-03-11T14:20:00Z | Add L_p and C_p values to OscillatorChainViz selected-stage detail card | OscillatorChainViz.jsx |
+| 642 | 2026-03-11T17:30:00Z | Add σ = ½ label on heatmap critical line overlay in ZetaLandscapeViz | ZetaLandscapeViz.jsx |
+| 643 | 2026-03-11T18:00:00Z | Fix reflection coefficient going negative for σ < 0.5 due to missing Math.abs | oscillators.js |
+| 644 | 2026-03-11T19:00:00Z | Replace O(n) linear scan with O(log n) binary search in FourierDomainViz hover handler | FourierDomainViz.jsx |
+| 645 | 2026-03-11T20:30:00Z | Fix pair correlation histogram normalization inflated by spurious factor of 2 | GUEStatisticsViz.jsx |
+| 646 | 2026-03-11T21:00:00Z | Fix ScatteringMatrixViz reflection coefficient always non-negative after Math.abs fix | ScatteringMatrixViz.jsx |
+| 647 | 2026-03-11T22:00:00Z | Add PNT expected average gap ~log(p) trend line to Prime Gaps chart | PrimeGapCouplingViz.jsx |
+| 648 | 2026-03-11T23:00:00Z | Add hover tooltips to Phase & Delay bar chart showing exact group delay values | WaveSimViz.jsx |
+| 649 | 2026-03-11T23:30:00Z | Replace O(n) reduce+indexOf with O(1) direct index computation in ExplicitFormulaViz hover | ExplicitFormulaViz.jsx |
+| 650 | 2026-03-12T00:00:00Z | Clarify contradictory Q-factor formulas on ModesPage (per-zero vs per-prime) | ModesPage.jsx |
+| 651 | 2026-03-11T23:45:00Z | Add worked example card showing per-prime phase cancellation at first zeta zero | WaveSimPage.jsx |
+| 652 | 2026-03-12T00:30:00Z | Add γₙ index labels to zeta zero markers on critical line Z(t) plot | ZetaLandscapeViz.jsx |
+| 653 | 2026-03-12T01:00:00Z | Fix inverted LZ76 loop condition in Lempel-Ziv complexity algorithm | odd-zeta.js |
+| 654 | 2026-03-11T14:30:00Z | Fix unreachable trivial zeros in Extended Landscape — t slider min was 1 but markers require t < 0.5 | SupercriticalViz.jsx |
+| 655 | 2026-03-11T14:35:00Z | Fix number variance explainer formula still showing spurious −π²/8 term removed in #640 | GUEStatisticsViz.jsx |
+| 656 | 2026-03-11T15:00:00Z | Add semi-transparent background boxes to all three PrimeGapCouplingViz legends | PrimeGapCouplingViz.jsx |
+| 657 | 2026-03-11T16:00:00Z | Add descriptive σ proximity text and tooltip to OscillatorChainViz σ slider | OscillatorChainViz.jsx |
+| 658 | 2026-03-11T17:00:00Z | Memoize min/max metric scan in EnergyLandscapeViz draw callback | EnergyLandscapeViz.jsx |
+| 659 | 2026-03-11T18:00:00Z | Add quick notation reference card to ConceptsPage listing key symbols used throughout the app | ConceptsPage.jsx |
+| 660 | 2026-03-11T19:00:00Z | Add missing log(p) von Mangoldt weight to per-prime mode amplitude in AnimatedModesViz | AnimatedModesViz.jsx |
+| 661 | 2026-03-11T20:00:00Z | Add fill area and ±90° reference lines to phase mode in ScatteringMatrixViz | ScatteringMatrixViz.jsx |
+| 662 | 2026-03-11T21:00:00Z | Fix wrong sign of ladder rung phase in twin-ladder: used +mT·log(p) instead of −mT·log(p) | twin-ladder.js |
+| 663 | 2026-03-11T22:00:00Z | Add hover crosshair and value readout to Thermodynamics tab in SupercriticalViz | SupercriticalViz.jsx |
+| 664 | 2026-03-11T23:00:00Z | Memoize heatFlowZeros and heatFlowScan in HeatFlowTab to avoid recomputing on resize | SupercriticalViz.jsx |
+| 665 | 2026-03-12T00:15:00Z | Guard cLog and cPow against near-zero magnitudes that produce -Infinity/NaN | zeta.js |
+| 666 | 2026-03-11T23:45:00Z | Add semi-transparent background boxes to all three legends in GUEStatisticsViz | GUEStatisticsViz.jsx |
+| 667 | 2026-03-12T01:00:00Z | Fix AnimatedModesViz explainer omitting log(p) factor from stated amplitude formula | AnimatedModesViz.jsx |
+| 668 | 2026-03-11T07:30:00Z | Add largest-prime hint to Primes slider in InformationTheoryViz | InformationTheoryViz.jsx |
+| 669 | 2026-03-11T12:00:00Z | Track phase min/max inline during unwrap loop instead of spreading array twice in FourierDomainViz | FourierDomainViz.jsx |
+| 670 | 2026-03-12T02:00:00Z | Add largest-prime hint to Primes slider in OddZetaViz | OddZetaViz.jsx |
+| 671 | 2026-03-11T12:30:00Z | Fix Ladder Freezing legend: use dashed line for proxy and add background box | TwinLadderViz.jsx |
+| 672 | 2026-03-11T16:00:00Z | Fix transmission coefficient label from T to T² for consistency with Γ² in WaveSimViz | WaveSimViz.jsx |
+| 673 | 2026-03-12T02:30:00Z | Add Lehmer phenomenon explainer card to ZetaPage | ZetaPage.jsx |
+| 674 | 2026-03-11T17:00:00Z | Fix error convergence legend in PascalZetaViz Constants tab to show line+circle markers | PascalZetaViz.jsx |
+| 675 | 2026-03-11T19:00:00Z | Add background box to Hilbert-Polya tab legend in GapClosingViz | GapClosingViz.jsx |
+| 676 | 2026-03-11T20:00:00Z | Memoize log-magnitude arrays in RegularizationTab to avoid recomputing on resize | GapClosingViz.jsx |
+| 677 | 2026-03-11T21:30:00Z | Fix heatmap hover tooltip clamped at log(1+|ζ|)=4.000 for large zeta magnitudes | ZetaLandscapeViz.jsx |
+| 678 | 2026-03-11T22:00:00Z | Fix wrong sign in impulse response phase formula: +arg ρ should be −arg ρ | PaperPage.jsx |
+| 679 | 2026-03-11T23:00:00Z | Add background box and circle marker to Keiper-Li tab legend in LiCriterionViz | LiCriterionViz.jsx |
+| 680 | 2026-03-11T23:30:00Z | Add γ_max and largest-prime hints to sliders in RHAttackViz | RHAttackViz.jsx |
+| 681 | 2026-03-12T03:00:00Z | Memoize Z(t) values in ZetaLandscapeViz critical-line mode to avoid recomputing on resize | ZetaLandscapeViz.jsx |
+| 682 | 2026-03-12T04:00:00Z | Add tab-by-tab exploration guide card to OddZetaPage for all five OddZetaViz tabs | OddZetaPage.jsx |
+| 683 | 2026-03-12T05:00:00Z | Add background box to Per-Prime Energy tab legend in TwinOscillatorSimViz | TwinOscillatorSimViz.jsx |
+| 684 | 2026-03-12T06:00:00Z | Fix division-by-zero in sigmaRange scaling across three GapClosingViz tabs | GapClosingViz.jsx |
+| 685 | 2026-03-12T07:00:00Z | Add critical-line color indicator to Start σ slider in gradient descent tab | TwinOscillatorSimViz.jsx |
+| 686 | 2026-03-11T08:00:00Z | Add background box and line markers to Fisher-Twistor tab legend in SpectralAttackViz | SpectralAttackViz.jsx |
+| 687 | 2026-03-11T09:00:00Z | Fix incorrect specific heat formula in ConceptsPage glossary definition | ConceptsPage.jsx |
+| 688 | 2026-03-11T10:00:00Z | Replace 4 temporary array allocations with single loop for Nyquist plot bounds | NyquistBodeViz.jsx |
+| 689 | 2026-03-11T11:00:00Z | Add 'Look for' observational hint to Incidence Relation tab explainer in TwistorViz | TwistorViz.jsx |
+| 690 | 2026-03-12T00:00:00Z | Add prime range and gamma-max hints to Primes and Zeros sliders in FormalProofViz | FormalProofViz.jsx |
+| 691 | 2026-03-12T08:00:00Z | Fix right-side monotonicity check comparing against skipped left-side points in KL Lyapunov analysis | spectral-attack.js |
+| 692 | 2026-03-12T09:00:00Z | Fix Scattering Matrix glossary formula conflating Euler factor with bridge unitarity | ConceptsPage.jsx |
+| 693 | 2026-03-12T12:00:00Z | Add spider-type legend to Twin Ladder canvas in ZXCalculusViz | ZXCalculusViz.jsx |
+| 694 | 2026-03-12T15:00:00Z | Fix sigma normalization dividing by 1.0 instead of 0.5 in TwistorViz Correspondence s-plane | TwistorViz.jsx |
+| 695 | 2026-03-12T18:00:00Z | Memoize scale range computations in RHAttackViz Hamiltonian and S-Matrix draw callbacks | RHAttackViz.jsx |

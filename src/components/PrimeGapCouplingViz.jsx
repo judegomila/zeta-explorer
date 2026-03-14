@@ -100,6 +100,9 @@ export default function PrimeGapCouplingViz() {
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 175}, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -10).attr('width', 178).attr('height', 42)
+        .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       legend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 16).attr('y2', 0)
         .attr('stroke', '#06b6d4').attr('stroke-width', 1.5);
       legend.append('text').attr('x', 22).attr('y', 4).attr('fill', '#06b6d4').attr('font-size', 11)
@@ -140,6 +143,15 @@ export default function PrimeGapCouplingViz() {
           .append('title').text(`p=${d.p1}→${d.p2} | gap=${d.gap}${d.isTwin ? ' (twin)' : ''}`);
       });
 
+      // PNT expected average gap: log(p) trend line
+      const pntLine = d3.line()
+        .x((d, i) => x(i))
+        .y(d => y(Math.log(d.p1)))
+        .curve(d3.curveBasis);
+      g.append('path').datum(data).attr('d', pntLine)
+        .attr('fill', 'none').attr('stroke', '#10b981').attr('stroke-width', 1.5)
+        .attr('stroke-dasharray', '6,3').attr('opacity', 0.8);
+
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
         .text('Prime Gaps (p_{n+1} − p_n)');
@@ -150,7 +162,10 @@ export default function PrimeGapCouplingViz() {
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
         .text('Gap size');
 
-      const legend = g.append('g').attr('transform', `translate(${w - 120}, 10)`);
+      const legend = g.append('g').attr('transform', `translate(${w - 145}, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -12).attr('width', 140).attr('height', 5 * 18 + 6)
+        .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       [
         { label: 'gap=2', color: '#ef4444' },
         { label: 'gap=4', color: '#f59e0b' },
@@ -162,6 +177,11 @@ export default function PrimeGapCouplingViz() {
         legend.append('text').attr('x', 18).attr('y', i * 18 + 4).attr('fill', '#94a3b8').attr('font-size', 10)
           .text(label);
       });
+      // PNT trend legend entry
+      legend.append('line').attr('x1', 0).attr('y1', 4 * 18 - 2).attr('x2', 12).attr('y2', 4 * 18 - 2)
+        .attr('stroke', '#10b981').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,3');
+      legend.append('text').attr('x', 18).attr('y', 4 * 18 + 2).attr('fill', '#10b981').attr('font-size', 10)
+        .text('~log(p) (PNT)');
 
     } else {
       // Frequency spectrum of oscillators — fix x domain for primes.length points (not data.length)
@@ -215,6 +235,9 @@ export default function PrimeGapCouplingViz() {
 
       // Legend
       const legend = g.append('g').attr('transform', `translate(${w - 160}, 10)`);
+      legend.append('rect')
+        .attr('x', -8).attr('y', -10).attr('width', 152).attr('height', 42)
+        .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       legend.append('circle').attr('cx', 6).attr('cy', 0).attr('r', 4)
         .attr('fill', 'hsl(225, 70%, 55%)').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
       legend.append('text').attr('x', 18).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10)

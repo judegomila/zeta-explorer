@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { losslessBridge } from '../math/oscillators.js';
 import { cAbs, cMul, cAdd, cSub, cDiv, ZETA_ZEROS } from '../math/zeta.js';
 
@@ -29,7 +29,12 @@ export default function ScatteringMatrixViz() {
         sigma,
         chiMag: bridge.magnitude,
         chiPhase: bridge.phase,
-        reflection: bridge.reflectionCoeff,
+        // Use signed reflection coefficient (1 - |χ|)/(1 + |χ|) so the chart
+        // correctly shows Γ < 0 for the amplifying regime (|χ| > 1, σ < ½)
+        // and Γ > 0 for the attenuating regime (|χ| < 1, σ > ½).
+        // losslessBridge().reflectionCoeff uses Math.abs and is always ≥ 0,
+        // which is correct for the BridgeTab but wrong here where we need the sign.
+        reflection: (1 - bridge.magnitude) / (1 + bridge.magnitude),
         isUnitary: bridge.isUnitary,
         unitarityDev: Math.abs(bridge.magnitude - 1),
       });
@@ -78,6 +83,9 @@ export default function ScatteringMatrixViz() {
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
         .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
+      g.append('text').attr('x', x(0.5) + 4).attr('y', h - 6)
+        .attr('fill', '#ef4444').attr('font-size', 10).attr('font-weight', 600)
+        .text('σ = ½');
 
       // |χ(s)| curve
       const line = d3.line().x(d => x(d.sigma)).y(d => y(Math.min(yMax, d.chiMag))).curve(d3.curveBasis);
@@ -132,7 +140,7 @@ export default function ScatteringMatrixViz() {
         .text('|χ| < 1: attenuating');
 
     } else if (mode === 'reflection') {
-      const y = d3.scaleLinear().domain([0, 1]).range([h, 0]);
+      const y = d3.scaleLinear().domain([-1, 1]).range([h, 0]);
 
       g.append('g').attr('transform', `translate(0,${h})`).call(d3.axisBottom(x).ticks(10))
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
@@ -145,18 +153,30 @@ export default function ScatteringMatrixViz() {
       gridRef.select('.domain').remove();
       gridRef.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
+      // Γ = 0 reference line
+      g.append('line')
+        .attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
+        .attr('stroke', '#475569').attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
+      g.append('text').attr('x', w - 4).attr('y', y(0) - 4)
+        .attr('text-anchor', 'end').attr('fill', '#475569').attr('font-size', 9)
+        .text('Γ = 0');
+
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
         .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
+      g.append('text').attr('x', x(0.5) + 4).attr('y', h - 6)
+        .attr('fill', '#ef4444').attr('font-size', 10).attr('font-weight', 600)
+        .text('σ = ½');
 
-      const line = d3.line().x(d => x(d.sigma)).y(d => y(Math.min(1, d.reflection))).curve(d3.curveBasis);
+      const clampRefl = d => Math.max(-1, Math.min(1, d.reflection));
+      const line = d3.line().x(d => x(d.sigma)).y(d => y(clampRefl(d))).curve(d3.curveBasis);
 
       g.append('path')
         .datum(data)
         .attr('d', d3.area()
           .x(d => x(d.sigma))
-          .y0(h)
-          .y1(d => y(Math.min(1, d.reflection)))
+          .y0(y(0))
+          .y1(d => y(clampRefl(d)))
           .curve(d3.curveBasis))
         .attr('fill', 'rgba(245,158,11,0.15)');
 
@@ -167,13 +187,21 @@ export default function ScatteringMatrixViz() {
       const halfPoint = data.find(d => Math.abs(d.sigma - 0.5) < 0.01);
       if (halfPoint) {
         g.append('circle')
-          .attr('cx', x(0.5)).attr('cy', y(Math.min(1, halfPoint.reflection))).attr('r', 5)
+          .attr('cx', x(0.5)).attr('cy', y(clampRefl(halfPoint))).attr('r', 5)
           .attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
         g.append('text')
-          .attr('x', x(0.5) + 8).attr('y', y(Math.min(1, halfPoint.reflection)) - 8)
+          .attr('x', x(0.5) + 8).attr('y', y(clampRefl(halfPoint)) - 8)
           .attr('fill', '#10b981').attr('font-size', 11).attr('font-weight', 600)
           .text(`Γ(½+${tValue.toFixed(1)}i) = ${halfPoint.reflection.toFixed(4)}`);
       }
+
+      // Region labels
+      g.append('text').attr('x', 6).attr('y', y(0.5))
+        .attr('fill', '#3b82f6').attr('font-size', 10).attr('opacity', 0.7)
+        .text('Γ > 0: attenuating (|χ| < 1)');
+      g.append('text').attr('x', 6).attr('y', y(-0.5))
+        .attr('fill', '#f59e0b').attr('font-size', 10).attr('opacity', 0.7)
+        .text('Γ < 0: amplifying (|χ| > 1)');
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
@@ -202,10 +230,42 @@ export default function ScatteringMatrixViz() {
       g.append('line')
         .attr('x1', x(0.5)).attr('y1', 0).attr('x2', x(0.5)).attr('y2', h)
         .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,4');
+      g.append('text').attr('x', x(0.5) + 4).attr('y', h - 6)
+        .attr('fill', '#ef4444').attr('font-size', 10).attr('font-weight', 600)
+        .text('σ = ½');
+
+      // 0° reference line
+      g.append('line')
+        .attr('x1', 0).attr('y1', y(0)).attr('x2', w).attr('y2', y(0))
+        .attr('stroke', '#64748b').attr('stroke-width', 1).attr('stroke-dasharray', '6,4');
+      g.append('text').attr('x', w - 4).attr('y', y(0) - 6)
+        .attr('text-anchor', 'end').attr('fill', '#64748b').attr('font-size', 10)
+        .text('0° (real axis)');
+
+      // ±90° reference lines for quarter-turn context
+      for (const deg of [-90, 90]) {
+        g.append('line')
+          .attr('x1', 0).attr('y1', y(deg)).attr('x2', w).attr('y2', y(deg))
+          .attr('stroke', '#334155').attr('stroke-width', 0.8).attr('stroke-dasharray', '3,5');
+        g.append('text').attr('x', w - 4).attr('y', y(deg) - 4)
+          .attr('text-anchor', 'end').attr('fill', '#475569').attr('font-size', 9)
+          .text(`${deg > 0 ? '+' : ''}${deg}°`);
+      }
+
+      const phaseDegAccessor = d => d.chiPhase * 180 / Math.PI;
+
+      // Semi-transparent fill between curve and 0° axis (matching magnitude/reflection style)
+      const phaseArea = d3.area()
+        .x(d => x(d.sigma))
+        .y0(y(0))
+        .y1(d => y(phaseDegAccessor(d)))
+        .curve(d3.curveLinear);
+      g.append('path').datum(data).attr('d', phaseArea)
+        .attr('fill', 'rgba(6,182,212,0.1)');
 
       const line = d3.line()
         .x(d => x(d.sigma))
-        .y(d => y(d.chiPhase * 180 / Math.PI))
+        .y(d => y(phaseDegAccessor(d)))
         .curve(d3.curveLinear);
 
       g.append('path').datum(data).attr('d', line)
@@ -260,8 +320,8 @@ export default function ScatteringMatrixViz() {
       yScale = d3.scaleLinear().domain([0, yMax]).range([h, 0]);
       yAccessor = d => Math.min(yMax, d.chiMag);
     } else if (mode === 'reflection') {
-      yScale = d3.scaleLinear().domain([0, 1]).range([h, 0]);
-      yAccessor = d => Math.min(1, d.reflection);
+      yScale = d3.scaleLinear().domain([-1, 1]).range([h, 0]);
+      yAccessor = d => Math.max(-1, Math.min(1, d.reflection));
     } else {
       yScale = d3.scaleLinear().domain([-180, 180]).range([h, 0]);
       yAccessor = d => d.chiPhase * 180 / Math.PI;
@@ -307,24 +367,29 @@ export default function ScatteringMatrixViz() {
       )}
       {mode === 'reflection' && (
         <div className="tab-explainer accent-green">
-          The reflection coefficient <InlineMath tex="\\Gamma = |1 - |\\chi(s)||\\,/\\,(1 + |\\chi(s)|)" /> measures how
+          The reflection coefficient <InlineMath tex="\\Gamma = (1 - |\\chi(s)|)\\,/\\,(1 + |\\chi(s)|)" /> measures how
           much energy is reflected back rather than transmitted through the bridge. At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />,{' '}
-          <InlineMath tex="\\Gamma = 0" /> (perfect transmission, conjugate match). This is the scattering-matrix condition for
-          lossless two-port networks: <InlineMath tex="S^\\dagger S = I" />.
-          <strong> Look for:</strong> <InlineMath tex="\\Gamma" /> touching zero at <InlineMath tex="\\sigma = 0.5" />.
+          <InlineMath tex="\\Gamma = 0" /> (perfect transmission, conjugate match). For <InlineMath tex="\\sigma > \\tfrac{1}{2}" />,{' '}
+          <InlineMath tex="\\Gamma > 0" /> (attenuating); for <InlineMath tex="\\sigma < \\tfrac{1}{2}" />,{' '}
+          <InlineMath tex="\\Gamma < 0" /> (amplifying, |χ| {'>'} 1). This sign distinguishes passive from active regions.
+          <strong> Look for:</strong> <InlineMath tex="\\Gamma" /> crossing zero at <InlineMath tex="\\sigma = 0.5" />.
         </div>
       )}
       {mode === 'phase' && (
-        <div className="tab-explainer accent-orange">
-          The bridge phase <InlineMath tex="\\arg\\chi(\\sigma+it)" /> shows the angular rotation of the
-          functional equation prefactor as <InlineMath tex="\\sigma" /> varies for fixed <InlineMath tex="t" />.
-          At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, where <InlineMath tex="|\\chi|=1" />, the phase
-          equals <InlineMath tex="-2\\theta(t)" /> where{' '}
-          <InlineMath tex="\\theta(t) = \\text{Im}\\,\\log\\Gamma(\\tfrac{1}{4}+\\tfrac{it}{2}) - \\tfrac{t}{2}\\log\\pi" />{' '}
-          is the Riemann-Siegel theta function. Away from the critical line, the phase combines
-          contributions from <InlineMath tex="\\Gamma(1-s)" />, <InlineMath tex="2^s\\pi^{s-1}" />,
-          and <InlineMath tex="\\sin(\\pi s/2)" />.
-          <strong> Look for:</strong> the phase value at <InlineMath tex="\\sigma = 0.5" /> and how the curve steepens as you increase <InlineMath tex="t" />.
+        <div className="tab-explainer accent-cyan">
+          <p style={{ margin: '0 0 8px' }}>
+            The bridge phase <InlineMath tex={"\\arg\\chi(\\sigma+it)"} /> shows the angular rotation of the
+            functional equation prefactor. At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (where <InlineMath tex={"|\\chi|=1"} />),
+            the phase equals <InlineMath tex={"-2\\theta(t)"} /> via the Riemann-Siegel theta function:
+          </p>
+          <BlockMath tex={"\\theta(t) = \\text{Im}\\,\\log\\Gamma\\!\\left(\\tfrac{1}{4}+\\tfrac{it}{2}\\right) - \\tfrac{t}{2}\\log\\pi"} />
+          <p style={{ margin: '8px 0' }}>
+            Away from the critical line, the phase combines contributions from
+            <InlineMath tex={"\\Gamma(1-s)"} />, <InlineMath tex={"2^s\\pi^{s-1}"} />, and <InlineMath tex={"\\sin(\\pi s/2)"} />.
+          </p>
+          <p style={{ margin: '4px 0 0' }}>
+            <strong>Look for:</strong> the phase value at <InlineMath tex={"\\sigma = 0.5"} /> and how the curve steepens as you increase <InlineMath tex={"t"} />.
+          </p>
         </div>
       )}
       <div className="controls">
@@ -368,7 +433,7 @@ export default function ScatteringMatrixViz() {
             σ={hoverPoint.sigma.toFixed(3)} |
             {mode === 'magnitude' && <> |χ|={hoverPoint.chiMag.toFixed(4)} | Γ={hoverPoint.reflection.toFixed(4)}</>}
             {mode === 'reflection' && <> Γ={hoverPoint.reflection.toFixed(4)} | |χ|={hoverPoint.chiMag.toFixed(4)}</>}
-            {mode === 'phase' && <> arg(χ)={(hoverPoint.chiPhase * 180 / Math.PI).toFixed(1)}°</>}
+            {mode === 'phase' && <> arg(χ)={(hoverPoint.chiPhase * 180 / Math.PI).toFixed(1)}° | |χ|={hoverPoint.chiMag.toFixed(4)}</>}
           </div>
         ) : (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', fontStyle: 'italic' }}>

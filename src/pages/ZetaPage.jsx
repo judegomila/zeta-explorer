@@ -69,11 +69,15 @@ export default function ZetaPage() {
           </div>
         </div>
         <div style={{ marginTop: 12, padding: 12, background: 'rgba(139,92,246,0.08)', borderRadius: 8 }}>
-          <p style={{ fontSize: 13, color: '#a78bfa' }}>
-            <strong>The theta function:</strong> <InlineMath tex="\\theta(t) \\approx \\tfrac{t}{2}\\log\\!\\tfrac{t}{2\\pi} - \\tfrac{t}{2} - \\tfrac{\\pi}{8}" /> is
-            the phase accumulator that "unwinds" the complex phase of <InlineMath tex="\\zeta(1/2 + it)" />, making <InlineMath tex="Z(t)" /> real-valued.
-            The local density of zeros is <InlineMath tex="\\theta'(t)/\\pi \\approx \\tfrac{1}{2\\pi}\\log(t/2\\pi)" /> (the Weyl law), not <InlineMath tex="\\theta'(t)" /> itself.
+          <p style={{ fontSize: 13, color: '#a78bfa', margin: '0 0 8px' }}>
+            <strong>The theta function</strong> is the phase accumulator that "unwinds" the complex phase
+            of <InlineMath tex={"\\zeta(1/2 + it)"} />, making <InlineMath tex={"Z(t)"} /> real-valued:
           </p>
+          <BlockMath tex={"\\theta(t) \\approx \\frac{t}{2}\\log\\frac{t}{2\\pi} - \\frac{t}{2} - \\frac{\\pi}{8}"} />
+          <p style={{ fontSize: 13, color: '#a78bfa', margin: '8px 0 0' }}>
+            The local density of zeros (the Weyl law) is:
+          </p>
+          <BlockMath tex={"\\frac{\\theta'(t)}{\\pi} \\approx \\frac{1}{2\\pi}\\log\\frac{t}{2\\pi}"} />
         </div>
       </div>
 
@@ -113,7 +117,7 @@ export default function ZetaPage() {
           }}>
             {ZETA_ZEROS.map((z, i) => (
               <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '0 8px', borderBottom: '1px solid rgba(42,48,80,0.3)' }}>
-                <span style={{ color: '#64748b' }}><InlineMath tex={`\\gamma_{${(i + 1).toString().padStart(2, '0')}}`} /></span>
+                <span style={{ color: '#64748b' }}><InlineMath tex={"\\gamma_{" + (i + 1).toString().padStart(2, '0') + "}"} /></span>
                 <span style={{ color: '#06b6d4' }}>{z.toFixed(6)}</span>
               </div>
             ))}
@@ -137,7 +141,7 @@ export default function ZetaPage() {
             <div style={{ marginBottom: 16 }}>
               <span style={{ color: '#64748b', fontSize: 12 }}>{ZETA_ZEROS.length}th zero</span>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 18, color: '#8b5cf6', marginTop: 4 }}>
-                <InlineMath tex={`\\gamma_{${ZETA_ZEROS.length}}`} /> = {ZETA_ZEROS[ZETA_ZEROS.length - 1].toFixed(6)}
+                <InlineMath tex={"\\gamma_{" + ZETA_ZEROS.length + "}"} /> = {ZETA_ZEROS[ZETA_ZEROS.length - 1].toFixed(6)}
               </div>
             </div>
           </div>
@@ -215,6 +219,42 @@ export default function ZetaPage() {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Lehmer Phenomenon */}
+      <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #f97316' }}>
+        <h3 style={{ color: '#f97316' }}>The Lehmer Phenomenon: When Zeros Nearly Collide</h3>
+        <p style={{ marginTop: 8, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          Occasionally, <InlineMath tex={"Z(t)"} /> dips very close to zero without actually changing sign,
+          then quickly crosses zero twice in rapid succession. This is the <strong>Lehmer phenomenon</strong>,
+          named after D.H. Lehmer who first observed it near <InlineMath tex={"t \\approx 7005"} />.
+        </p>
+        <BlockMath tex={"Z(7005.06) \\approx -0.0053 \\quad \\text{(barely negative — nearly misses a sign change)}"} />
+        <div className="two-col" style={{ marginTop: 16, gap: 16 }}>
+          <div style={{ padding: 12, background: 'rgba(249,115,22,0.08)', borderRadius: 8 }}>
+            <p style={{ fontSize: 13, color: '#fb923c' }}>
+              <strong>What{"'"}s happening:</strong> Two nearby zeros <InlineMath tex={"\\gamma_n"} /> and{' '}
+              <InlineMath tex={"\\gamma_{n+1}"} /> are so close together that <InlineMath tex={"Z(t)"} />{' '}
+              barely dips to the opposite sign between them. The function grazes the axis rather than
+              making a clean crossing. If it failed to cross entirely, the zero count would be off —
+              but this has never been observed.
+            </p>
+          </div>
+          <div style={{ padding: 12, background: 'rgba(139,92,246,0.08)', borderRadius: 8 }}>
+            <p style={{ fontSize: 13, color: '#a78bfa' }}>
+              <strong>GUE connection:</strong> In random matrix theory, nearby eigenvalues experience
+              {' '}<em>level repulsion</em> — the probability of two eigenvalues being within distance{' '}
+              <InlineMath tex={"s"} /> vanishes as <InlineMath tex={"s^2"} /> for GUE. Lehmer-type
+              events correspond to rare fluctuations where this repulsion is nearly overcome, but
+              the GUE statistics correctly predict their extreme rarity.
+            </p>
+          </div>
+        </div>
+        <p style={{ marginTop: 12, color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
+          Try setting the t-range to include <InlineMath tex={"t \\approx 7005"} /> in the Critical
+          Line chart above to see a Lehmer event: <InlineMath tex={"Z(t)"} /> will show two closely
+          spaced zeros with an unusually shallow dip between them.
+        </p>
       </div>
 
       {/* The Eta Relation and Regularization */}
@@ -329,6 +369,71 @@ export default function ZetaPage() {
             for <InlineMath tex={"\\sigma > 1"} />, and the functional equation
             reflects <InlineMath tex={"\\sigma \\leftrightarrow 1 - \\sigma"} />. All the action — zeros,
             analytic continuation, and the deepest questions — happens inside the strip.
+          </p>
+        </div>
+      </div>
+
+      {/* Functional Equation */}
+      <div className="card" style={{ marginTop: 32, borderColor: '#ec4899' }}>
+        <h3 style={{ color: '#ec4899' }}>The Functional Equation</h3>
+        <p style={{ marginTop: 8, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          The functional equation is the deepest symmetry of <InlineMath tex={"\\zeta(s)"} />, relating its
+          values at <InlineMath tex={"s"} /> and <InlineMath tex={"1-s"} />. In its symmetric form, define the
+          <strong style={{ color: '#e2e8f0' }}> completed zeta function</strong>:
+        </p>
+        <BlockMath tex={"\\xi(s) = \\tfrac{1}{2}s(s-1)\\,\\pi^{-s/2}\\,\\Gamma(s/2)\\,\\zeta(s)"} />
+        <p style={{ marginTop: 12, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          Then <InlineMath tex={"\\xi(s)"} /> is entire (no poles) and satisfies the reflection symmetry:
+        </p>
+        <BlockMath tex={"\\xi(s) = \\xi(1-s)"} />
+        <p style={{ marginTop: 12, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          The asymmetric form, which isolates the <strong style={{ color: '#e2e8f0' }}>bridge
+          factor</strong> <InlineMath tex={"\\chi(s)"} />, is:
+        </p>
+        <BlockMath tex={"\\zeta(s) = \\chi(s)\\,\\zeta(1-s), \\qquad \\chi(s) = 2^s\\,\\pi^{s-1}\\sin\\!\\left(\\frac{\\pi s}{2}\\right)\\Gamma(1-s)"} />
+        <div className="two-col" style={{ marginTop: 16, gap: 16 }}>
+          <div style={{ padding: 12, background: 'rgba(236,72,153,0.08)', borderRadius: 8 }}>
+            <p style={{ fontSize: 13, color: '#f472b6' }}>
+              <strong>Key property:</strong> On the critical
+              line, <InlineMath tex={"|\\chi(\\tfrac{1}{2}+it)| = 1"} /> for all <InlineMath tex={"t"} />. This
+              means <InlineMath tex={"\\chi"} /> is a pure phase rotation — it preserves magnitudes. In the ZPO
+              model, this is the lossless bridge connecting direct and dual ladders: no energy is gained or
+              lost when crossing from <InlineMath tex={"\\zeta(s)"} /> to <InlineMath tex={"\\zeta(1-s)"} />.
+            </p>
+          </div>
+          <div style={{ padding: 12, background: 'rgba(139,92,246,0.08)', borderRadius: 8 }}>
+            <p style={{ fontSize: 13, color: '#a78bfa' }}>
+              <strong>Why it matters for RH:</strong> The functional equation forces zeros to come in
+              pairs: if <InlineMath tex={"\\zeta(\\rho)=0"} />,
+              then <InlineMath tex={"\\zeta(1-\\rho)=0"} /> as well. RH is the conjecture that these
+              pairs collapse — every zero satisfies <InlineMath tex={"\\rho = 1-\\rho"} /> (up to conjugation),
+              i.e., <InlineMath tex={"\\mathrm{Re}(\\rho)=\\tfrac{1}{2}"} />.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Hadamard Product Formula */}
+      <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
+        <h3 style={{ color: '#06b6d4' }}>Hadamard Product: Factoring <InlineMath tex={"\\zeta"} /> Over Its Zeros</h3>
+        <p style={{ marginTop: 8, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          Just as a polynomial factors as a product over its roots, Hadamard (1893) showed that the
+          completed zeta function <InlineMath tex={"\\xi(s)"} /> factors as an infinite product over the nontrivial zeros:
+        </p>
+        <BlockMath tex={"\\xi(s) = \\tfrac{1}{2} s(s-1) \\pi^{-s/2} \\Gamma(s/2)\\, \\zeta(s) = \\xi(0) \\prod_{\\rho} \\left(1 - \\frac{s}{\\rho}\\right)"} />
+        <p style={{ marginTop: 12, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          where the product runs over all nontrivial zeros <InlineMath tex={"\\rho"} /> (paired
+          as <InlineMath tex={"\\rho"} /> and <InlineMath tex={"1-\\rho"} /> to ensure convergence).
+          This is a <strong>spectral determinant</strong>: each zero contributes one factor, and
+          the entire function is determined by its zero set — exactly as a quantum system's
+          partition function is determined by its energy spectrum.
+        </p>
+        <div style={{ marginTop: 12, padding: 12, background: 'rgba(6,182,212,0.08)', borderRadius: 8 }}>
+          <p style={{ fontSize: 13, color: '#22d3ee' }}>
+            <strong>ZPO interpretation:</strong> The Hadamard product is the transfer function of the
+            oscillator chain written as a cascade of resonance notches — one notch filter per zero. Each
+            zero <InlineMath tex={"\\rho = \\tfrac{1}{2} + i\\gamma"} /> contributes a transmission null at
+            frequency <InlineMath tex={"\\gamma"} />, and the complete chain response is the product of all notch filters.
           </p>
         </div>
       </div>

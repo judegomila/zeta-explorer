@@ -2077,7 +2077,7 @@ $$Z_N(s) = \\sum_{k=0}^{N} \\binom{N}{k}(k+1)^{-s}$$
     nextSteps: ['exp-048', 'exp-001', 'exp-021'],
   },
   {
-    id: 'exp-048',
+    id: 'exp-081',
     title: 'ZX-Calculus as Diagrammatic Framework for the ZPO Model',
     category: 'categorical',
     depth: 3,
@@ -2106,10 +2106,10 @@ The completeness theorem for ZX-calculus (Hadzihasanovic–Ng–Wang, 2018) mean
       'The Frobenius algebra structure of ZX-calculus matches impedance series/parallel composition in the LC network',
     ],
     references: ['berry-keating-1999'],
-    nextSteps: ['exp-049', 'exp-001', 'exp-039'],
+    nextSteps: ['exp-082', 'exp-001', 'exp-039'],
   },
   {
-    id: 'exp-049',
+    id: 'exp-082',
     title: 'Bialgebra Expansion: Euler Product ↔ Dirichlet Series',
     category: 'categorical',
     depth: 3,
@@ -2130,7 +2130,7 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
       'The product-to-sum expansion tracks factorization paths through the ZX diagram',
     ],
     references: ['berry-keating-1999'],
-    nextSteps: ['exp-048', 'exp-001'],
+    nextSteps: ['exp-081', 'exp-001'],
   },
   {
     id: 'exp-050',
@@ -2173,7 +2173,7 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
       'Information-theoretic optimality (exp-050) provides a 6th independent piece of evidence but not a proof',
     ],
     references: ['riemann-1859', 'hilbert-1900', 'berry-keating-1999', 'connes-1999'],
-    nextSteps: ['exp-050', 'exp-048', 'exp-039'],
+    nextSteps: ['exp-050', 'exp-081', 'exp-039'],
   },
   {
     id: 'exp-052',
@@ -3506,6 +3506,78 @@ Zagier's insight is that both counting problems live in the world of (mock) modu
       'Guth-Maynard\'s harmonic analysis tools may apply directly to S-matrix norm bounds',
     ],
     references: ['guth-maynard-2024'],
+    nextSteps: [],
+  },
+  {
+    id: 'exp-083',
+    timestamp: '2026-03-06T08:00:00Z',
+    title: 'The Montgomery-Dyson Encounter: Nuclear Physics Meets Number Theory',
+    category: 'analysis',
+    depth: 3,
+    status: 'complete',
+    date: '2026-03-06',
+    content: `In 1972, Hugh Montgomery visited the Institute for Advanced Study to present his pair correlation conjecture for zeta zeros. He had computed the two-point correlation function
+
+$$R_2(\\alpha) = 1 - \\left(\\frac{\\sin \\pi \\alpha}{\\pi \\alpha}\\right)^2$$
+
+for the normalized spacings between nontrivial zeros of $\\zeta(s)$, valid for $|\\alpha| \\leq 1$ under RH. During afternoon tea, Freeman Dyson recognized this as exactly the pair correlation function of eigenvalues of large random unitary matrices from the **Gaussian Unitary Ensemble (GUE)** — the same statistics governing energy levels of heavy nuclei.
+
+This was a thunderbolt: it meant zeta zeros behave statistically like energy levels of a quantum chaotic system. In ZPO language, the prime oscillator cascade produces a spectrum (the zeros) whose statistical fingerprint matches that of a random Hamiltonian. The GUE connection provides three key predictions testable in the app:
+
+1. **Nearest-neighbor spacing**: zeros repel (probability of small gaps vanishes as $s^2$), unlike Poisson-distributed random points
+2. **Number variance**: $\\Sigma^2(L) \\sim \\frac{1}{\\pi^2}\\log L + C$ grows logarithmically, much slower than the linear $\\Sigma^2 = L$ of Poisson
+3. **Form factor**: the Fourier transform of $R_2$ has a characteristic dip-ramp-plateau structure
+
+The Montgomery-Dyson encounter remains one of the most remarkable moments in mathematics — a chance conversation revealing that primes and nuclear physics share the same deep structure. Odlyzko's numerical verification (1987) of GUE statistics for the first $10^{20}$ zeros cemented this as one of the strongest pieces of evidence for RH.`,
+    latex: [
+      'R_2(\\alpha) = 1 - \\left(\\frac{\\sin \\pi \\alpha}{\\pi \\alpha}\\right)^2 \\quad \\text{(Montgomery, 1972)}',
+      'P(s) = \\frac{32}{\\pi^2} s^2 e^{-4s^2/\\pi} \\quad \\text{(GUE nearest-neighbor spacing)}',
+      '\\Sigma^2(L) = \\frac{1}{\\pi^2}(\\log 2\\pi L + \\gamma + 1) + O(L^{-1}) \\quad \\text{(GUE number variance)}',
+    ],
+    insights: [
+      'Zeta zeros repel like eigenvalues of random matrices — the GUE universality class',
+      'The pair correlation function from number theory exactly matches nuclear physics',
+      'In ZPO terms: the prime cascade produces a "quantum chaotic" spectrum with GUE statistics',
+      'Odlyzko verified GUE statistics for 10^20 zeros — strongest numerical evidence for RH',
+      'The Montgomery conjecture (full R₂ for all α) remains unproven and implies RH',
+    ],
+    references: ['montgomery-1973', 'odlyzko-1987', 'keating-snaith-2000'],
+    nextSteps: ['exp-084'],
+  },
+  {
+    id: 'exp-084',
+    timestamp: '2026-03-07T01:00:00Z',
+    title: "Deninger's Foliated Spaces: A Geometric Home for Prime Oscillators",
+    category: 'analysis',
+    depth: 4,
+    status: 'complete',
+    date: '2026-03-07',
+    content: `Christopher Deninger proposed (1992–2005) that the zeta function should arise as a **regularized determinant** of an operator acting on a foliated space — a geometric object whose leaves carry a natural flow. The zeros of $\\zeta(s)$ would then be eigenvalues of a **leafwise Laplacian**, giving a spectral interpretation of RH.
+
+Deninger's key insight: for each prime $p$, there should be a closed orbit of length $\\log p$ in this foliated space. The Euler product then decomposes as a product over periodic orbits — exactly as in the Selberg trace formula for hyperbolic surfaces, but now for an arithmetic object.
+
+**ZPO connection**: This maps directly onto the prime oscillator chain. Each prime's closed orbit of length $\\log p$ is the fundamental period of the oscillator tuned to frequency $\\omega_p = \\log p$. The leafwise Laplacian is the ZPO Hamiltonian, and its eigenvalues are the zeros $\\rho = \\tfrac{1}{2} + i\\gamma_n$. The foliation flow is the time evolution of the coupled oscillator system.
+
+Deninger's framework predicts:
+
+1. **Positivity**: The foliation should carry a transverse measure making the Laplacian positive — corresponding to the Hilbert-Pólya operator being self-adjoint with real eigenvalues (i.e., RH)
+2. **Explicit formula as trace**: The von Mangoldt explicit formula should be the trace formula for the foliation flow, with primes on the geometric side and zeros on the spectral side
+3. **Functional equation as Poincaré duality**: The symmetry $s \\leftrightarrow 1-s$ should arise from a duality on the cohomology of the foliated space
+
+The program remains incomplete — no one has constructed the actual foliated space for $\\mathbb{Q}$. But Deninger verified it works for function fields (where the Weil conjectures provide the geometry), and the formal structure matches the ZPO framework remarkably: prime oscillators $\\leftrightarrow$ closed orbits, zeros $\\leftrightarrow$ eigenvalues, cascade coupling $\\leftrightarrow$ foliation transversality.`,
+    latex: [
+      '\\det_{\\text{reg}}(s - \\Theta | H^1) = \\frac{\\xi(s)}{s(s-1)} \\quad \\text{(Deninger regularized determinant)}',
+      '\\text{Closed orbits: } \\gamma_p \\text{ of length } \\ell(\\gamma_p) = \\log p \\quad \\text{for each prime } p',
+      '\\text{Trace formula: } \\sum_\\rho h(\\gamma_\\rho) = \\hat{h}(0) \\log \\frac{|d|}{4\\pi^2} + \\sum_p \\sum_{m=1}^\\infty \\frac{\\log p}{p^{m/2}} g(m \\log p)',
+    ],
+    insights: [
+      "Deninger's foliated space gives each prime a closed orbit of length log p — the oscillator's fundamental period",
+      'The leafwise Laplacian plays the role of the ZPO Hamiltonian with zeros as eigenvalues',
+      'RH becomes a positivity condition on the transverse measure of the foliation',
+      'The functional equation arises as Poincaré duality on foliation cohomology',
+      'Program verified for function fields but the arithmetic case remains open',
+    ],
+    references: ['connes-1999', 'berry-keating-1999'],
     nextSteps: [],
   },
 ];

@@ -202,7 +202,7 @@ export default function PaperPage() {
           The complementary sensitivity function of the feedback loop satisfies:
           <BlockMath tex="S(s) + T(s) = 1, \\qquad S = \\frac{1}{1 + L}, \\quad T = \\frac{L}{1 + L}" />
           At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, the loop gain <InlineMath tex="|L| = 1" /> (unity gain), giving
-          <InlineMath tex="|S| = |T| = \\tfrac{1}{\\sqrt{2}}" /> — the system operates at the <InlineMath tex="H_\\infty" />-optimal
+          <InlineMath tex="|S| = |T| = \\tfrac{1}{\\sqrt{2}}" /> — the system operates at the <InlineMath tex="H_{\\infty}" />-optimal
           point, minimizing worst-case amplification.
         </Thm>
         <P>
@@ -231,7 +231,7 @@ export default function PaperPage() {
         <P>
           The cascade scattering matrix of the full ladder is computed via the ABCD (chain) matrix formalism:
         </P>
-        <BlockMath tex="\\mathbf{A}_{\\text{total}} = \\prod_{p \\leq P} \\mathbf{A}_p(s), \\qquad \\mathbf{A}_p = \\begin{pmatrix} 1 & Z_p \\\\ Y_p & 1 + Z_p Y_p \\end{pmatrix}" />
+        <BlockMath tex={"\\mathbf{A}_{\\text{total}} = \\prod_{p \\leq P} \\mathbf{A}_p(s), \\qquad \\mathbf{A}_p = \\begin{pmatrix} 1 & Z_p \\\\ Y_p & 1 + Z_p Y_p \\end{pmatrix}"} />
         <P>
           where <InlineMath tex="Z_p = s \\cdot \\log p" /> (series impedance) and <InlineMath tex="Y_p = s / \\log p" /> (shunt admittance).
           The total transmission through the cascade gives <InlineMath tex="\\zeta(s)" /> as a continued fraction / matrix product.
@@ -353,7 +353,7 @@ export default function PaperPage() {
           In the oscillator chain, this is the <em>impulse response</em>. Each zero <InlineMath tex="\\rho" /> contributes
           an oscillatory term:
         </P>
-        <BlockMath tex="\\frac{x^{\\rho}}{\\rho} = \\frac{x^{\\beta}}{|\\rho|} e^{i(\\gamma \\log x + \\arg \\rho)}" />
+        <BlockMath tex="\\frac{x^{\\rho}}{\\rho} = \\frac{x^{\\beta}}{|\\rho|} e^{i(\\gamma \\log x - \\arg \\rho)}" />
         <P>
           The frequency of oscillation is <InlineMath tex="\\gamma = \\operatorname{Im}(\\rho)" />, the decay rate is controlled
           by <InlineMath tex="\\beta = \\operatorname{Re}(\\rho)" />. If RH holds (<InlineMath tex="\\beta = \\tfrac{1}{2}" /> for all <InlineMath tex="\\rho" />),
@@ -382,13 +382,13 @@ export default function PaperPage() {
           theory. The map sends the <InlineMath tex="s" />-plane to twistor space:
         </P>
         <Def label="Definition 10.1 (Twistor Map)">
-          For <InlineMath tex="s = \\sigma + it" />, define the twistor <InlineMath tex="Z^\\alpha = (\\omega^A, \\pi_{A'})" /> by:
+          For <InlineMath tex="s = \\sigma + it" />, define the twistor <InlineMath tex="Z^{\\alpha} = (\\omega^A, \\pi_{A'})" /> by:
           <BlockMath tex="\\omega = \\begin{pmatrix} \\sigma - \\tfrac{1}{2} \\\\ t/(2\\pi) \\end{pmatrix}, \\qquad \\pi = \\begin{pmatrix} \\cos(t \\log 2) \\\\ \\sin(t \\log 2) \\end{pmatrix}" />
-          The dual twistor <InlineMath tex="W_\\alpha" /> is defined analogously from <InlineMath tex="1-s" />.
+          The dual twistor <InlineMath tex="W_{\\alpha}" /> is defined analogously from <InlineMath tex="1-s" />.
           The intertwiner <InlineMath tex="I: Z \\to W" /> acts via the bridge factor <InlineMath tex="\\chi(s)" />.
         </Def>
         <Thm label="Observation 10.2 (Incidence Relation)">
-          The twistor incidence relation <InlineMath tex="Z^\\alpha \\Omega_{\\alpha\\beta} W^\\beta = 0" /> (with symplectic
+          The twistor incidence relation <InlineMath tex="Z^{\\alpha} \\Omega_{\\alpha\\beta} W^{\\beta} = 0" /> (with symplectic
           form <InlineMath tex="\\Omega" />) is satisfied if and only if <InlineMath tex="\\sigma = \\tfrac{1}{2}" />.
           <BlockMath tex="\\sigma = \\tfrac{1}{2} \\;\\Longleftrightarrow\\; Z \\cdot \\Omega \\cdot W = 0 \\;\\Longleftrightarrow\\; \\text{incidence (null twistor pair)}" />
         </Thm>
@@ -426,7 +426,7 @@ export default function PaperPage() {
           oscillator chain framework:
         </P>
         <Thm label="Li Criterion (Li, 1997)">
-          RH holds if and only if the sequence <InlineMath tex="\\lambda_n = \\sum_\\rho \\left[1 - (1 - 1/\\rho)^n\\right]" /> satisfies <InlineMath tex="\\lambda_n > 0" /> for all <InlineMath tex="n \\geq 1" />.
+          RH holds if and only if the sequence <InlineMath tex="\\lambda_n = \\sum_{\\rho} \\left[1 - (1 - 1/\\rho)^n\\right]" /> satisfies <InlineMath tex="\\lambda_n > 0" /> for all <InlineMath tex="n \\geq 1" />.
           In the oscillator chain: <InlineMath tex="\\lambda_n > 0" /> is a <em>passivity condition</em> — the bridge transfer function
           is passive (does not generate energy) at all frequencies.
         </Thm>
@@ -437,7 +437,7 @@ export default function PaperPage() {
           signal can be reconstructed from the oscillator basis.
         </Thm>
         <Thm label="Lindelof Hypothesis">
-          <InlineMath tex="\\zeta(\\tfrac{1}{2} + it) = O(t^\\varepsilon)" /> for any <InlineMath tex="\\varepsilon > 0" />.
+          <InlineMath tex="\\zeta(\\tfrac{1}{2} + it) = O(t^{\\varepsilon})" /> for any <InlineMath tex="\\varepsilon > 0" />.
           In the oscillator chain: <em>bounded gain</em> on the critical line — the ladder transfer function
           does not amplify signals beyond any polynomial bound. This is implied by RH but remains unproven independently.
         </Thm>

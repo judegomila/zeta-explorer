@@ -129,9 +129,11 @@ function TriangleTab() {
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13 }}>
         <p style={{ color: '#94a3b8' }}>
           Each entry <InlineMath tex="C(n,k) = \\binom{n}{k}" /> is the binomial coefficient.
-          Central binomials <InlineMath tex="C(2n,n)" /> (gold outlines) connect to <InlineMath tex="\\pi" /> via{' '}
-          <InlineMath tex="\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,C(2n,n)^2}" />.
-          Row products connect to <InlineMath tex="e" /> via Brothers' formula.
+          Central binomials <InlineMath tex={"C(2n,n)"} /> (gold outlines) connect to <InlineMath tex={"\\pi"} /> and
+          row products connect to <InlineMath tex={"e"} /> via:
+        </p>
+        <BlockMath tex={"\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,C(2n,n)^2}"} />
+        <p style={{ color: '#94a3b8', margin: 0 }}>
         </p>
       </div>
     </div>
@@ -206,6 +208,12 @@ function ConstantsTab() {
       .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
       .text("Brothers' e from Pascal row products");
 
+    // Y-axis label
+    g1.append('text')
+      .attr('transform', `translate(-42, ${chartH / 2}) rotate(-90)`)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .text('Ratio');
+
     // Legend
     const leg1 = g1.append('g').attr('transform', `translate(${w - 180}, 10)`);
     leg1.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
@@ -221,9 +229,12 @@ function ConstantsTab() {
     const y2Off = margin.top + chartH + 56;
     const g2 = svg.append('g').attr('transform', `translate(${margin.left},${y2Off})`);
     const x2 = d3.scaleLinear().domain([1, data.piData.length]).range([0, w]);
-    const piVals = data.piData.map(d => d.piApprox);
+    const allPiVals = [
+      ...data.piData.map(d => d.piApprox),
+      ...data.piArcsin.map(d => d.piApprox),
+    ];
     const y2 = d3.scaleLinear()
-      .domain([d3.min(piVals) * 0.99, d3.max(piVals) * 1.01])
+      .domain([d3.min(allPiVals) * 0.99, d3.max(allPiVals) * 1.01])
       .range([chartH, 0]);
 
     g2.append('g').attr('transform', `translate(0,${chartH})`)
@@ -261,6 +272,12 @@ function ConstantsTab() {
       .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
       .text('π from Central Binomial Coefficients');
 
+    // Y-axis label
+    g2.append('text')
+      .attr('transform', `translate(-42, ${chartH / 2}) rotate(-90)`)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .text('π approx');
+
     const leg2 = g2.append('g').attr('transform', `translate(${w - 200}, 10)`);
     leg2.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
       .attr('stroke', '#f59e0b').attr('stroke-width', 2);
@@ -274,7 +291,7 @@ function ConstantsTab() {
     // ─ Chart 3: Error convergence (log scale) ─
     const y3Off = y2Off + chartH + 56;
     const g3 = svg.append('g').attr('transform', `translate(${margin.left},${y3Off})`);
-    const x3 = d3.scaleLinear().domain([2, maxN]).range([0, w]);
+    const x3 = d3.scaleLinear().domain([1, maxN]).range([0, w]);
     const allErrors = [
       ...data.eData.map(d => d.error),
       ...data.piData.map(d => d.error),
@@ -317,11 +334,25 @@ function ConstantsTab() {
       .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
       .text('Convergence Error (log scale)');
 
-    const leg3 = g3.append('g').attr('transform', `translate(${w - 120}, 10)`);
-    leg3.append('circle').attr('cx', 6).attr('cy', 0).attr('r', 4).attr('fill', '#3b82f6');
-    leg3.append('text').attr('x', 14).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10).text('|e − approx|');
-    leg3.append('circle').attr('cx', 6).attr('cy', 16).attr('r', 4).attr('fill', '#f59e0b');
-    leg3.append('text').attr('x', 14).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10).text('|π − approx|');
+    // Axis labels
+    g3.append('text')
+      .attr('x', w / 2).attr('y', chartH + 30)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .text('n');
+    g3.append('text')
+      .attr('transform', `translate(-42, ${chartH / 2}) rotate(-90)`)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .text('|Error|');
+
+    const leg3 = g3.append('g').attr('transform', `translate(${w - 130}, 10)`);
+    leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
+      .attr('stroke', '#3b82f6').attr('stroke-width', 2);
+    leg3.append('circle').attr('cx', 8).attr('cy', 0).attr('r', 2.5).attr('fill', '#3b82f6');
+    leg3.append('text').attr('x', 22).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 10).text('|e − approx|');
+    leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 16).attr('y2', 16)
+      .attr('stroke', '#f59e0b').attr('stroke-width', 2);
+    leg3.append('circle').attr('cx', 8).attr('cy', 16).attr('r', 2.5).attr('fill', '#f59e0b');
+    leg3.append('text').attr('x', 22).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10).text('|π − approx|');
 
   }, [data, maxN]);
 
@@ -354,15 +385,15 @@ function ConstantsTab() {
         <svg ref={svgRef} style={{ width: '100%', height: 520 }} />
       </div>
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13 }}>
-        <p style={{ color: '#94a3b8', marginBottom: 8 }}>
-          <strong style={{ color: '#3b82f6' }}>Euler's number</strong> from Brothers' result:{' '}
-          <InlineMath tex="e = \\lim_{n\\to\\infty} \\frac{s_{n-1}\\cdot s_{n+1}}{s_n^2}" /> where{' '}
-          <InlineMath tex="s_n = \\prod_{k=0}^{n} \\binom{n}{k}" />.
+        <p style={{ color: '#94a3b8', marginBottom: 4 }}>
+          <strong style={{ color: '#3b82f6' }}>Euler's number</strong> from Brothers' result,
+          where <InlineMath tex={"s_n = \\prod_{k=0}^{n} \\binom{n}{k}"} />:
         </p>
-        <p style={{ color: '#94a3b8', marginBottom: 8 }}>
-          <strong style={{ color: '#f59e0b' }}>Pi</strong> from central binomials:{' '}
-          <InlineMath tex="\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,\\binom{2n}{n}^2}" />.
+        <BlockMath tex={"e = \\lim_{n\\to\\infty} \\frac{s_{n-1}\\cdot s_{n+1}}{s_n^2}"} />
+        <p style={{ color: '#94a3b8', marginBottom: 4 }}>
+          <strong style={{ color: '#f59e0b' }}>Pi</strong> from central binomials:
         </p>
+        <BlockMath tex={"\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,\\binom{2n}{n}^2}"} />
         <p style={{ color: '#94a3b8' }}>
           <strong style={{ color: '#ec4899' }}>Euler's identity</strong>{' '}
           <InlineMath tex="e^{i\\pi} + 1 = 0" /> unites all three: having extracted{' '}
@@ -501,23 +532,26 @@ function HasseTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\\sigma" /></label>
+          <label title="Real part of s — controls convergence region"><InlineMath tex="\\sigma = \\operatorname{Re}(s)" /></label>
           <input type="range" min="0.1" max="2" step="0.05" value={sigma}
             onChange={e => setSigma(+e.target.value)}
+            title={sigma > 1 ? 'Convergent region (σ > 1)' : sigma > 0.5 ? 'Critical strip (½ < σ ≤ 1)' : 'Near critical line (σ ≈ ½)'}
             style={{ accentColor: sigmaColor }} />
           <span className="control-value" style={{ color: sigmaColor }}>{sigma.toFixed(2)}</span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t" /></label>
+          <label title="Imaginary part of s — zeta zeros occur at specific t values"><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={t}
-            onChange={e => setT(+e.target.value)} />
+            onChange={e => setT(+e.target.value)}
+            title="Imaginary part of s — snap to a zeta zero using the indicator" />
           <span className="control-value">{t.toFixed(1)}</span>
           <ZeroSnap tValue={t} setTValue={setT} />
         </div>
         <div className="control-group">
-          <label>Rows</label>
+          <label title="Number of Pascal triangle rows used in the Hasse–Sondow series — more rows give better convergence">Rows</label>
           <input type="range" min="5" max="50" step="1" value={maxRows}
-            onChange={e => setMaxRows(+e.target.value)} />
+            onChange={e => setMaxRows(+e.target.value)}
+            title="More rows = better convergence of the Hasse–Sondow series" />
           <span className="control-value">{maxRows}</span>
         </div>
       </div>
@@ -525,11 +559,11 @@ function HasseTab() {
         <svg ref={svgRef} style={{ width: '100%', height: 420 }} />
       </div>
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13, color: '#94a3b8' }}>
-        <p>
-          Each bar shows the magnitude of row <InlineMath tex="n" />'s contribution. The blue curve is the running
-          approximation <InlineMath tex="|\\zeta(s)|" /> as more Pascal triangle rows are included.
-          Purple bars = <InlineMath tex="\\frac{1}{2^{n+1}} \\sum_{k=0}^{n}(-1)^k\\binom{n}{k}(k+1)^{-s}" />.
+        <p style={{ margin: '0 0 8px' }}>
+          Each bar shows the magnitude of row <InlineMath tex={"n"} />'s contribution. The blue curve is the running
+          approximation <InlineMath tex={"|\\zeta(s)|"} /> as more Pascal triangle rows are included:
         </p>
+        <BlockMath tex={"\\text{Row } n: \\quad \\frac{1}{2^{n+1}} \\sum_{k=0}^{n}(-1)^k\\binom{n}{k}(k+1)^{-s}"} />
       </div>
     </div>
   );
@@ -678,22 +712,25 @@ function DecoratedTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t" /></label>
+          <label title="Imaginary part of s — snap to a zeta zero using the indicator"><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
           <input type="range" min="1" max="60" step="0.5" value={t}
-            onChange={e => setT(+e.target.value)} />
+            onChange={e => setT(+e.target.value)}
+            title="Imaginary part of s — snap to a zeta zero using the indicator" />
           <span className="control-value">{t.toFixed(1)}</span>
           <ZeroSnap tValue={t} setTValue={setT} />
         </div>
         <div className="control-group">
-          <label>Pascal Row N</label>
+          <label title="Which row of Pascal's triangle to show as a Dirichlet polynomial in the lower chart">Pascal Row N</label>
           <input type="range" min="1" max="15" step="1" value={selectedRow}
-            onChange={e => setSelectedRow(+e.target.value)} />
+            onChange={e => setSelectedRow(+e.target.value)}
+            title="Row N of Pascal's triangle used for the Dirichlet polynomial Z_N(s)" />
           <span className="control-value">{selectedRow}</span>
         </div>
         <div className="control-group">
-          <label>Hasse Terms</label>
+          <label title="Number of terms in the Hasse–Sondow series for the upper chart">Hasse Terms</label>
           <input type="range" min="5" max="50" step="1" value={maxTerms}
-            onChange={e => setMaxTerms(+e.target.value)} />
+            onChange={e => setMaxTerms(+e.target.value)}
+            title="More terms = more accurate ζ(s) approximation in the upper chart" />
           <span className="control-value">{maxTerms}</span>
         </div>
       </div>
@@ -706,9 +743,12 @@ function DecoratedTab() {
           <InlineMath tex="|\\zeta(\\sigma+it)|" /> computed entirely from Pascal triangle rows via the Hasse–Sondow formula.
         </p>
         <p>
-          <strong style={{ color: '#8b5cf6' }}>Bottom:</strong> A single row's Dirichlet polynomial{' '}
-          <InlineMath tex="Z_N(s) = \\sum_{k=0}^{N} \\binom{N}{k}(k+1)^{-s}" /> — the "shape" of row{' '}
-          <InlineMath tex="N" />'s contribution. Higher rows grow exponentially for small <InlineMath tex="\\sigma" />.
+          <strong style={{ color: '#8b5cf6' }}>Bottom:</strong> A single row's Dirichlet polynomial —
+          the "shape" of row <InlineMath tex={"N"} />'s contribution:
+        </p>
+        <BlockMath tex={"Z_N(s) = \\sum_{k=0}^{N} \\binom{N}{k}(k+1)^{-s}"} />
+        <p style={{ margin: 0 }}>
+          Higher rows grow exponentially for small <InlineMath tex={"\\sigma"} />.
         </p>
       </div>
     </div>

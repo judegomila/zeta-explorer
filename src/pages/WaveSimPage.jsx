@@ -60,7 +60,7 @@ export default function WaveSimPage() {
         <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 2.2 }}>
           <li>
             <strong>Phase velocity:</strong>{' '}
-            <InlineMath tex="v_\\varphi = \\frac{\\omega}{k}" /> where <InlineMath tex="k = \\log p" /> for
+            <InlineMath tex="v_{\\varphi} = \\frac{\\omega}{k}" /> where <InlineMath tex="k = \\log p" /> for
             the <InlineMath tex="p" />-th oscillator.
           </li>
           <li>
@@ -136,6 +136,52 @@ export default function WaveSimPage() {
             </li>
           </ul>
         </div>
+      </div>
+
+      {/* Worked Example: First Zeta Zero */}
+      <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #a855f7' }}>
+        <h3 style={{ color: '#a855f7', fontSize: 14, marginBottom: 12 }}>
+          Worked Example: Destructive Interference at <InlineMath tex="\gamma_1 \approx 14.134" />
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+          At the first zeta zero <InlineMath tex="t = \gamma_1 \approx 14.134" />, the oscillator
+          phases from each prime conspire to cancel. Each prime <InlineMath tex="p" /> contributes a
+          phasor <InlineMath tex="p^{-1/2} e^{-i \gamma_1 \log p}" /> to the Euler product. Here are the
+          individual phases (in degrees) for the first few primes:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 8, marginBottom: 16 }}>
+          {[
+            { p: 2, phase: -9.795, deg: '-561.2°' },
+            { p: 3, phase: -15.525, deg: '-889.5°' },
+            { p: 5, phase: -22.741, deg: '-1302.8°' },
+            { p: 7, phase: -27.506, deg: '-1575.6°' },
+            { p: 11, phase: -33.880, deg: '-1941.0°' },
+          ].map(({ p, deg }) => (
+            <div key={p} style={{ padding: '8px', background: '#0a0e1a', borderRadius: 6, textAlign: 'center', border: '1px solid #1e293b' }}>
+              <div style={{ color: '#06b6d4', fontSize: 14, fontWeight: 700 }}>p = {p}</div>
+              <div style={{ color: '#94a3b8', fontSize: 11, marginTop: 4 }}>
+                phase: {deg}
+              </div>
+              <div style={{ color: '#64748b', fontSize: 10, marginTop: 2 }}>
+                amp: {(1/Math.sqrt(p)).toFixed(3)}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
+          Each phasor points in a different direction, and at <InlineMath tex="t = \gamma_1" /> they
+          are distributed around the complex plane so that their vector sum cancels. This is the
+          "destructive interference" condition: no single prime dominates — instead, the cumulative
+          product of all <InlineMath tex="(1 - p^{-s})^{-1}" /> factors reaches zero magnitude.
+        </p>
+        <BlockMath tex="\prod_{p} \frac{1}{1 - p^{-1/2 - i\gamma_1}} = 0 \quad \Longleftrightarrow \quad \text{phasors cancel in the Euler product}" />
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
+          Use the <strong style={{ color: '#f59e0b' }}>Per-Prime Waves</strong> tab with{' '}
+          <InlineMath tex="t \approx 14.13" /> to see this cancellation visually. Each row shows
+          a prime's direct and dual waveforms; the{' '}
+          <strong style={{ color: '#10b981' }}>Wave Interference</strong> tab then shows the
+          superposition plunging toward zero at this frequency.
+        </p>
       </div>
 
       {/* Impedance Matching */}

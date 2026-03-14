@@ -63,6 +63,19 @@ function FisherTwistorTab({ t, numPrimes }) {
     const incidences = pts.map(p => p.incidence);
     const maxI = Math.max(...incidences, 0.01);
 
+    // Horizontal gridlines
+    ctx.setLineDash([3, 4]);
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    for (let i = 1; i <= 4; i++) {
+      const y = h - margin.bottom - (i / 4) * plotH * 0.9;
+      ctx.beginPath();
+      ctx.moveTo(margin.left, y);
+      ctx.lineTo(w - margin.right, y);
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+
     // sigma = 0.5 dashed line
     const halfX = margin.left + ((0.5 - minS) / (maxS - minS)) * plotW;
     ctx.beginPath();
@@ -161,13 +174,29 @@ function FisherTwistorTab({ t, numPrimes }) {
       { color: '#3b82f6', label: 'Fisher Info (left axis)' },
       { color: '#eab308', label: 'Twistor |Z\u00B7W| (right axis)' },
     ];
+    const legBoxX = margin.left + 4;
+    const legBoxY = margin.top + 0;
+    const legBoxW = 170;
+    const legBoxH = legendItems.length * 14 + 8;
+    ctx.fillStyle = 'rgba(10,14,26,0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    ctx.fill();
+    ctx.stroke();
     legendItems.forEach((item, i) => {
-      ctx.fillStyle = item.color;
-      ctx.fillRect(margin.left + 8, margin.top + 4 + i * 14, 12, 3);
+      const iy = legBoxY + 10 + i * 14;
+      ctx.beginPath();
+      ctx.moveTo(legBoxX + 6, iy);
+      ctx.lineTo(legBoxX + 22, iy);
+      ctx.strokeStyle = item.color;
+      ctx.lineWidth = 2;
+      ctx.stroke();
       ctx.fillStyle = '#94a3b8';
       ctx.font = '9px sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText(item.label, margin.left + 24, margin.top + 8 + i * 14);
+      ctx.fillText(item.label, legBoxX + 26, iy + 3);
     });
 
     // Correlation coefficient in corner
@@ -189,6 +218,13 @@ function FisherTwistorTab({ t, numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-blue">
+        Fisher information <InlineMath tex="I_F(\sigma)" /> measures parameter sensitivity of the Euler factor
+        distribution, while the twistor incidence <InlineMath tex="|Z \cdot W|" /> measures how close the direct/dual
+        twistor pair is to the null condition. Their anti-correlation (Pearson <InlineMath tex="r" />) quantifies how
+        strongly both diagnostics point to the same critical line.
+        <strong> Look for:</strong> Fisher info peaking and twistor incidence dipping together near <InlineMath tex="\sigma = \tfrac{1}{2}" />.
+      </div>
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
@@ -203,7 +239,7 @@ function FisherTwistorTab({ t, numPrimes }) {
           {data.verdict}
         </strong>
         <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 11 }}>
-          Peak Fisher/Incidence ratio at <InlineMath tex={`\\sigma = ${data.peakSigma.toFixed(3)}`} />.
+          Peak Fisher/Incidence ratio at <InlineMath tex={"\\sigma = " + data.peakSigma.toFixed(3)} />.
           Fisher info spikes where twistor incidence vanishes -- both point to the critical line.
         </div>
       </div>
@@ -319,7 +355,7 @@ function LyapunovTab({ t, numPrimes }) {
       ctx.beginPath();
       ctx.moveTo(x0, y0);
       ctx.lineTo(x1, y1);
-      // negative derivative (left of 0.5) -> red; positive (right) -> blue
+      // negative derivative (σ < 0.5) -> red; positive (σ > 0.5) -> blue
       ctx.strokeStyle = pts[i].dkl < 0 ? '#ef4444' : '#3b82f6';
       ctx.lineWidth = 1.5;
       ctx.stroke();
@@ -354,6 +390,31 @@ function LyapunovTab({ t, numPrimes }) {
     ctx.textAlign = 'center';
     ctx.fillText('D_KL (bits)', 0, 0);
     ctx.restore();
+
+    // Legend for derivative colors (lower section)
+    const legX = w - margin.right - 140;
+    const legY = splitY + 14;
+    ctx.fillStyle = 'rgba(10,14,26,0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.fillRect(legX, legY, 140, 34);
+    ctx.strokeRect(legX, legY, 140, 34);
+    [
+      { color: '#ef4444', label: 'dD_KL/d\u03C3 < 0 (\u03C3 < \u00BD)' },
+      { color: '#3b82f6', label: 'dD_KL/d\u03C3 > 0 (\u03C3 > \u00BD)' },
+    ].forEach((item, i) => {
+      const iy = legY + 10 + i * 14;
+      ctx.beginPath();
+      ctx.moveTo(legX + 6, iy);
+      ctx.lineTo(legX + 22, iy);
+      ctx.strokeStyle = item.color;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '8px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(item.label, legX + 26, iy + 3);
+    });
   }, [data]);
 
   useEffect(() => { draw(); }, [draw]);
@@ -365,6 +426,15 @@ function LyapunovTab({ t, numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-green">
+        The KL divergence <InlineMath tex="D_{KL}(\sigma \| \tfrac{1}{2})" /> measures how far the Euler factor
+        weight distribution at <InlineMath tex="\sigma" /> is from the critical-line distribution. If it forms a
+        valid Lyapunov function (positive, zero at equilibrium, monotonically decreasing toward <InlineMath tex="\sigma = \tfrac{1}{2}" />),
+        the critical line is a stable attractor. The lower panel shows the derivative <InlineMath tex="dD_{KL}/d\sigma" />,
+        colored by sign.
+        <strong> Look for:</strong> the V-shape in <InlineMath tex="D_{KL}" /> with minimum at <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+        and a clean sign change in the derivative.
+      </div>
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
@@ -591,6 +661,15 @@ function PhaseBarriersTab({ t, numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-orange">
+        Treating the oscillator chain as a thermodynamic system with <InlineMath tex="\beta = \sigma" />, the free
+        energy difference <InlineMath tex="\Delta F(\sigma)" /> (gold) and specific heat <InlineMath tex="C_v" /> (red)
+        reveal phase transitions. Background shading marks thermodynamic regimes: vaporized
+        (<InlineMath tex="\sigma \approx 0" />), the critical strip, the equilibrium zone near <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+        and the frozen regime (<InlineMath tex="\sigma \approx 1" />).
+        <strong> Look for:</strong> free energy barriers trapping the system near <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+        and specific heat spikes at phase boundaries.
+      </div>
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
@@ -662,16 +741,18 @@ function CorrelationMatrixTab({ t, numPrimes }) {
         const x = margin.left + j * cellW;
         const y = margin.top + i * cellH;
 
-        // Color: red for positive, blue for negative, white for 0
+        // Color: red for positive, blue for negative, dark neutral for 0
+        // Dark-friendly diverging scale centered on #1e293b
         let r, g, b;
         if (val >= 0) {
-          r = Math.round(255);
-          g = Math.round(255 * (1 - val));
-          b = Math.round(255 * (1 - val));
+          r = Math.round(30 + 225 * val);
+          g = Math.round(41 * (1 - val));
+          b = Math.round(59 * (1 - val));
         } else {
-          r = Math.round(255 * (1 + val));
-          g = Math.round(255 * (1 + val));
-          b = Math.round(255);
+          const a = -val;
+          r = Math.round(30 * (1 - a));
+          g = Math.round(41 * (1 - a));
+          b = Math.round(59 + 196 * a);
         }
         ctx.fillStyle = `rgb(${r},${g},${b})`;
         ctx.fillRect(x + 1, y + 1, cellW - 2, cellH - 2);
@@ -684,7 +765,7 @@ function CorrelationMatrixTab({ t, numPrimes }) {
         }
 
         // Value text
-        ctx.fillStyle = Math.abs(val) > 0.5 ? '#0a0e1a' : '#e2e8f0';
+        ctx.fillStyle = '#e2e8f0';
         ctx.font = `${Math.abs(val) > 0.7 ? 'bold ' : ''}${cellW > 30 ? 9 : 7}px var(--font-mono)`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -725,9 +806,10 @@ function CorrelationMatrixTab({ t, numPrimes }) {
       const val = 1 - 2 * i / legendH; // +1 at top, -1 at bottom
       let lr, lg, lb;
       if (val >= 0) {
-        lr = 255; lg = Math.round(255 * (1 - val)); lb = Math.round(255 * (1 - val));
+        lr = Math.round(30 + 225 * val); lg = Math.round(41 * (1 - val)); lb = Math.round(59 * (1 - val));
       } else {
-        lr = Math.round(255 * (1 + val)); lg = Math.round(255 * (1 + val)); lb = 255;
+        const a = -val;
+        lr = Math.round(30 * (1 - a)); lg = Math.round(41 * (1 - a)); lb = Math.round(59 + 196 * a);
       }
       ctx.fillStyle = `rgb(${lr},${lg},${lb})`;
       ctx.fillRect(legendX, legendY + i, 12, 1);
@@ -752,6 +834,13 @@ function CorrelationMatrixTab({ t, numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-purple">
+        Cross-correlation matrix of eight diagnostic measures evaluated across the critical strip.
+        Red cells indicate positive correlation, blue negative. Strong correlations
+        (<InlineMath tex="|r| > 0.7" />, white borders) reveal which measures carry redundant information about
+        zero confinement, while independent measures provide genuinely distinct evidence for the critical line.
+        <strong> Look for:</strong> clusters of correlated measures and the count of independent diagnostics.
+      </div>
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
@@ -847,11 +936,8 @@ function StrategyScoresTab({ t, numPrimes }) {
       else if (s.score >= 5) barColor = '#f59e0b';
       else barColor = '#ef4444';
 
-      // Bar
-      ctx.fillStyle = barColor + '30';
-      ctx.fillRect(margin.left, y, barWidth, barH);
+      // Bar fill (semi-transparent)
       ctx.fillStyle = barColor;
-      ctx.fillRect(margin.left, y, barWidth, barH);
       ctx.globalAlpha = 0.3;
       ctx.fillRect(margin.left, y, barWidth, barH);
       ctx.globalAlpha = 1;
@@ -911,6 +997,13 @@ function StrategyScoresTab({ t, numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-red">
+        Each "attack strategy" combines multiple confinement diagnostics into a single score (0–10) reflecting
+        how strongly that approach constrains zeros to the critical line. Bars are colored green ({'\u2265'}8),
+        yellow ({'\u2265'}5), or red ({'<'}5). The overall score aggregates all strategies.
+        <strong> Look for:</strong> which strategies score highest and whether weaknesses reveal potential gaps
+        in the confinement argument.
+      </div>
       <canvas
         ref={canvasRef}
         style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}

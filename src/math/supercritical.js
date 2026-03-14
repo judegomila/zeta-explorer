@@ -369,16 +369,17 @@ export function primeHarmonicDecomposition(sigma, numPrimes = 20) {
     const harmonics = [];
 
     // Each prime contributes at frequencies k·log(p) for k=1,2,3,...
+    // From the Taylor expansion: log(1/(1-p^{-s})) = Σ_{k=1}^∞ p^{-ks}/k
+    // The k-th harmonic has amplitude p^{-kσ}/k and frequency k·log(p)
     for (let k = 1; k <= 5; k++) {
       const freq = k * omega;
-      const s = [sigma, freq];
-      const factor = eulerFactor(p, s);
+      const mag = Math.pow(p, -k * sigma) / k;
       harmonics.push({
         k,
         frequency: freq,
-        magnitude: cAbs(factor),
-        phase: Math.atan2(factor[1], factor[0]),
-        energy: 0.5 * omega * cAbs(factor) ** 2,
+        magnitude: mag,
+        phase: 0, // real-valued when evaluated on the real axis (t=0)
+        energy: 0.5 * omega * mag * mag,
       });
     }
 

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import {
   entropySigmaScan, capacitySigmaScan, mutualInfoSigmaScan,
   fisherSigmaScan, klDivergenceScan, rateDistortion, criticalLineOptimality,
@@ -7,6 +7,7 @@ import {
   klDivergenceFromEquilibrium,
 } from '../math/information-theory.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { getPrimes } from '../math/primes.js';
 
 const TABS = ['Entropy', 'Channel Capacity', 'Mutual Info', 'Fisher Info', 'Rate-Distortion', 'KL Divergence'];
 const TAB_COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#06b6d4', '#ef4444'];
@@ -168,9 +169,10 @@ function EntropyTab({ sigma, t, numPrimes }) {
         ))}
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        At <strong style={{ color: '#10b981' }}>σ = ½</strong>, the energy is most uniformly distributed
-        across primes (maximum entropy). This means each prime oscillator contributes equally — the system
-        is in its most "democratic" state. Moving σ away concentrates energy into fewer primes (lower entropy).
+        At <strong style={{ color: '#10b981' }}>σ = ½</strong>, the direct and dual ladder weight distributions
+        coincide via the functional equation, maximizing entropy efficiency. Small primes still dominate
+        (the distribution is not uniform), but the symmetry between ladders is exact. Moving σ away breaks this
+        symmetry and reduces the entropy ratio H/H_max.
       </div>
     </div>
   );
@@ -518,12 +520,35 @@ export default function InformationTheoryViz() {
           <input type="range" min="1" max="60" step="0.5" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
+          {(() => {
+            let bestIdx = -1, bestDist = Infinity;
+            for (let i = 0; i < ZETA_ZEROS.length; i++) {
+              const d = Math.abs(t - ZETA_ZEROS[i]);
+              if (d < bestDist) { bestDist = d; bestIdx = i; }
+            }
+            if (bestDist < 1.0) {
+              const clr = bestDist < 0.3 ? '#10b981' : '#f59e0b';
+              return (
+                <span
+                  style={{
+                    marginLeft: 6, fontSize: 11, color: clr,
+                    cursor: 'pointer', borderBottom: '1px dashed currentColor',
+                  }}
+                  title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
+                  onClick={() => setT(+ZETA_ZEROS[bestIdx].toFixed(1))}
+                >
+                  ≈ γ<sub>{bestIdx + 1}</sub>={ZETA_ZEROS[bestIdx].toFixed(1)}
+                </span>
+              );
+            }
+            return null;
+          })()}
         </div>
         <div className="control-group">
           <label>Primes</label>
           <input type="range" min="4" max="20" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
       </div>
 
@@ -537,12 +562,79 @@ export default function InformationTheoryViz() {
         ))}
       </div>
 
-      {tab === 0 && <EntropyTab sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 1 && <CapacityTab sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 2 && <MutualInfoTab sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 3 && <FisherTab sigma={sigma} t={t} numPrimes={numPrimes} />}
-      {tab === 4 && <RateDistortionTab sigma={sigma} t={t} />}
-      {tab === 5 && <KLDivergenceTab sigma={sigma} t={t} numPrimes={numPrimes} />}
+      {tab === 0 && (
+        <>
+          <div className="tab-explainer accent-green">
+            Shannon entropy <InlineMath tex="H(\sigma) = -\sum_k p_k \log_2 p_k" /> of the Euler factor weight
+            distribution measures how evenly energy is spread across primes. At <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+            the functional equation makes direct and dual weight distributions coincide, giving the most balanced
+            (though not uniform) weighting.
+            <strong> Look for:</strong> entropy peaking near <InlineMath tex="\sigma = 0.5" /> and dropping symmetrically on both sides.
+          </div>
+          <EntropyTab sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 1 && (
+        <>
+          <div className="tab-explainer accent-blue">
+            Channel capacity <InlineMath tex="C(\sigma) = \tfrac{1}{2}\log_2(1 + \text{SNR})" /> measures the maximum rate at which
+            the oscillator chain can transmit information (Shannon-Hartley). The critical line <InlineMath tex="\sigma = \tfrac{1}{2}" /> maximizes
+            capacity because the matched direct/dual ladders minimize impedance mismatch noise, maximizing SNR.
+            <strong> Look for:</strong> capacity peaking sharply at <InlineMath tex="\sigma = 0.5" />, especially near zeta zeros where SNR diverges.
+          </div>
+          <CapacityTab sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 2 && (
+        <>
+          <div className="tab-explainer accent-purple">
+            Mutual information <InlineMath tex="I(\sigma) = H_{\text{dir}} + H_{\text{dual}} - H_{\text{joint}}" /> quantifies
+            how much the direct ladder tells you about the dual ladder. At <InlineMath tex="\sigma = \tfrac{1}{2}" />, the
+            functional equation symmetry maximizes this coupling.
+            <strong> Look for:</strong> mutual information peaking at the critical line, confirming maximum direct-dual correlation.
+          </div>
+          <MutualInfoTab sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 3 && (
+        <>
+          <div className="tab-explainer accent-orange">
+            Fisher information <InlineMath tex="I_F(\sigma) = \sum_k (\partial_\sigma \log |H_k|)^2" /> measures
+            sensitivity of the prime weight distribution to <InlineMath tex="\sigma" /> perturbations. It diverges at
+            zeta zeros, creating information-theoretic &ldquo;walls&rdquo; that confine zeros to a sharp locus.
+            <strong> Look for:</strong> sharp spikes near zeta zeros and a characteristic saddle shape around <InlineMath tex="\sigma = 0.5" />.
+          </div>
+          <FisherTab sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
+      {tab === 4 && (
+        <>
+          <div className="tab-explainer accent-cyan">
+            Rate-distortion theory asks: how many bits are needed to approximate the zeta function to a given
+            accuracy? The rate-distortion curve <InlineMath tex="R(D)" /> shows the fundamental tradeoff between
+            compression rate and reconstruction error for the oscillator chain.
+            <strong> Look for:</strong> the curve dropping steeply at first (easy gains) then flattening (diminishing returns from more primes).
+          </div>
+          <RateDistortionTab sigma={sigma} t={t} />
+        </>
+      )}
+      {tab === 5 && (
+        <>
+          <div className="tab-explainer accent-red">
+            <p style={{ margin: '0 0 8px' }}>
+              KL divergence measures how far the prime weight distribution at <InlineMath tex={"\\sigma"} /> is from the critical-line reference:
+            </p>
+            <BlockMath tex={"D_{KL}(P_\\sigma \\| P_{1/2}) = \\sum_k p_k(\\sigma) \\log \\frac{p_k(\\sigma)}{p_k(1/2)}"} />
+            <p style={{ margin: '8px 0' }}>
+              It acts as a Lyapunov function: non-negative everywhere, zero only at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
+            </p>
+            <p style={{ margin: '4px 0 0' }}>
+              <strong>Look for:</strong> a smooth bowl centered at <InlineMath tex={"\\sigma = 0.5"} /> with <InlineMath tex={"D_{KL} = 0"} /> at the minimum.
+            </p>
+          </div>
+          <KLDivergenceTab sigma={sigma} t={t} numPrimes={numPrimes} />
+        </>
+      )}
     </div>
   );
 }

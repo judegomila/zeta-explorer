@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { ZETA_ZEROS, cAdd, cSub, cMul, cDiv, cAbs, cLog, cPow, cExp } from '../math/zeta.js';
 
 /**
@@ -185,8 +185,13 @@ export default function LiCriterionViz() {
         .text('Keiper-Li: λₙ/n vs n (should approach ½(log(n/2π) + γ − 1))');
 
       const legend = g.append('g').attr('transform', `translate(${w - 200}, ${h - 50})`);
+      legend.append('rect')
+        .attr('x', -6).attr('y', -10).attr('width', 196).attr('height', 42)
+        .attr('rx', 4).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       legend.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 22).attr('y2', 0)
         .attr('stroke', '#8b5cf6').attr('stroke-width', 2);
+      legend.append('circle').attr('cx', 11).attr('cy', 0).attr('r', 3)
+        .attr('fill', '#8b5cf6').attr('stroke', '#0a0e1a').attr('stroke-width', 1);
       legend.append('text').attr('x', 28).attr('y', 4).attr('fill', '#94a3b8').attr('font-size', 11)
         .text('λₙ/n (data)');
       legend.append('line').attr('x1', 0).attr('y1', 20).attr('x2', 22).attr('y2', 20)
@@ -264,7 +269,7 @@ export default function LiCriterionViz() {
         .text('de Bruijn-Newman: Zero Drift Under Heat Flow');
       svg.append('text').attr('x', margin.left + 4).attr('y', 32)
         .attr('fill', '#64748b').attr('font-size', 11)
-        .text('Λ ≥ 0 (Rodgers-Tao): zeros at τ=0 are exactly on the critical line');
+        .text('Λ ≥ 0 (Rodgers-Tao): backward heat (τ<0) always creates non-real zeros');
 
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
@@ -289,20 +294,35 @@ export default function LiCriterionViz() {
     <div>
       {mode === 'li' && (
         <div className="tab-explainer accent-green">
-          The Li coefficients <InlineMath tex="\\lambda_n = \\sum_\\rho [1 - (1-1/\\rho)^n]" /> are sums over
-          all nontrivial zeros. Li's criterion (1997): <strong>RH is true if and only if <InlineMath tex="\\lambda_n \\geq 0" /> for
-          all <InlineMath tex="n" /></strong>. In our model, <InlineMath tex="\\lambda_n \\geq 0" /> means the bridge scattering matrix
-          is passive (contractive) at every angular mode &mdash; it never amplifies.
-          <strong> Look for:</strong> all bars positive (green), confirming passivity.
+          <p style={{ margin: '0 0 8px' }}>
+            The Li coefficients are sums over all nontrivial zeros:
+          </p>
+          <BlockMath tex={"\\lambda_n = \\sum_{\\rho} \\left[1 - \\left(1-\\frac{1}{\\rho}\\right)^{\\!n}\\right]"} />
+          <p style={{ margin: '8px 0' }}>
+            Li's criterion (1997): <strong>RH is true iff <InlineMath tex={"\\lambda_n \\geq 0"} /> for
+            all <InlineMath tex={"n"} /></strong>. In our model, this means the bridge scattering matrix
+            is passive (contractive) at every angular mode.
+          </p>
+          <p style={{ margin: '4px 0 0' }}>
+            <strong>Look for:</strong> all bars positive (green), confirming passivity.
+          </p>
         </div>
       )}
       {mode === 'keiper-li' && (
         <div className="tab-explainer accent-orange">
-          The normalized ratio <InlineMath tex="\\lambda_n/n" /> should approach{' '}
-          <InlineMath tex="\\tfrac{1}{2}(\\log(n/2\\pi) + \\gamma - 1)" /> asymptotically (Keiper-Li formula, where <InlineMath tex="\\gamma \\approx 0.577" /> is the Euler-Mascheroni constant).
-          This logarithmic growth rate matches the zero density <InlineMath tex="N(T) \\sim (T/2\\pi)\\log(T/2\\pi e)" />.
-          Deviations from this curve would signal a zero off the critical line.
-          <strong> Look for:</strong> data points tracking the smooth asymptotic curve.
+          <p style={{ margin: '0 0 8px' }}>
+            The normalized ratio <InlineMath tex={"\\lambda_n/n"} /> should approach the Keiper-Li asymptotic:
+          </p>
+          <BlockMath tex={"\\frac{\\lambda_n}{n} \\to \\frac{1}{2}\\bigl(\\log(n/2\\pi) + \\gamma - 1\\bigr)"} />
+          <p style={{ margin: '8px 0' }}>
+            where <InlineMath tex={"\\gamma \\approx 0.577"} /> is the Euler-Mascheroni constant.
+            This logarithmic growth matches the zero
+            density <InlineMath tex={"N(T) \\sim (T/2\\pi)\\log(T/2\\pi e)"} />.
+            Deviations from this curve would signal a zero off the critical line.
+          </p>
+          <p style={{ margin: '4px 0 0' }}>
+            <strong>Look for:</strong> data points tracking the smooth asymptotic curve.
+          </p>
         </div>
       )}
       {mode === 'debruijn' && (

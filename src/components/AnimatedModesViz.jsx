@@ -1,7 +1,21 @@
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes, primeFrequency } from '../math/primes.js';
+
+// Precompute x-step constants at module level — these depend only on the
+// hardcoded xSteps=200 and never change, saving 200 Math.exp calls + 3
+// Float64Array allocations per animation frame (~60fps = 12,000 exp/s).
+const ANIM_X_STEPS = 200;
+const ANIM_X_FRAC = new Float64Array(ANIM_X_STEPS);
+const ANIM_LOG_X = new Float64Array(ANIM_X_STEPS);
+const ANIM_ENVELOPE = new Float64Array(ANIM_X_STEPS);
+for (let i = 0; i < ANIM_X_STEPS; i++) {
+  const frac = i / (ANIM_X_STEPS - 1);
+  ANIM_X_FRAC[i] = frac;
+  ANIM_LOG_X[i] = 1 + frac * 5;       // log-space x from e^1 to e^6
+  ANIM_ENVELOPE[i] = Math.exp(-0.05 * frac);
+}
 
 /**
  * Animated visualization of oscillator modes.
@@ -13,6 +27,8 @@ export default function AnimatedModesViz() {
   const animRef = useRef();
   const elapsedRef = useRef(0);
   const superpositionRef = useRef(new Float64Array(200));
+  const xPosRef = useRef(new Float64Array(ANIM_X_STEPS));
+  const lastWaveWRef = useRef(-1);
   const [numPrimes, setNumPrimes] = useState(12);
   const [zeroIndex, setZeroIndex] = useState(0);
   const [speed, setSpeed] = useState(1);
@@ -29,7 +45,7 @@ export default function AnimatedModesViz() {
         p,
         omega,
         logP,
-        amplitude: Math.cos(gamma * logP) / Math.sqrt(p),
+        amplitude: logP * Math.cos(gamma * logP) / Math.sqrt(p),
         hue: 210 + omega * 15,
       };
     });
@@ -66,7 +82,8 @@ export default function AnimatedModesViz() {
     // Title
     ctx.fillStyle = '#e2e8f0';
     ctx.font = '600 14px sans-serif';
-    ctx.fillText(`Oscillator Modes at Zeta Zero γ₍${zeroIndex + 1}₎ = ${gamma.toFixed(3)}`, 12, 22);
+    const subIdx = String(zeroIndex + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('');
+    ctx.fillText(`Oscillator Modes at Zeta Zero γ${subIdx} = ${gamma.toFixed(3)}`, 12, 22);
     ctx.fillStyle = '#64748b';
     ctx.font = '11px sans-serif';
     ctx.fillText('Each row: one prime oscillator. Right: superposition of all modes.', 12, 40);
@@ -74,7 +91,16 @@ export default function AnimatedModesViz() {
     // Draw each prime's oscillation — reuse buffer to avoid per-frame allocation
     const superposition = superpositionRef.current;
     superposition.fill(0);
-    const xSteps = 200;
+    const xSteps = ANIM_X_STEPS;
+
+    // xPos depends on canvas width — reuse buffer, only recompute when waveW changes
+    const xPos = xPosRef.current;
+    if (lastWaveWRef.current !== waveW) {
+      for (let i = 0; i < xSteps; i++) {
+        xPos[i] = xPad + ANIM_X_FRAC[i] * waveW;
+      }
+      lastWaveWRef.current = waveW;
+    }
 
     primeData.forEach((pd, idx) => {
       const { p, omega, amplitude, hue } = pd;
@@ -90,18 +116,16 @@ export default function AnimatedModesViz() {
 
       // Draw waveform: cos(gamma * ln(x) - omega * t)
       const halfRow = rowH * 0.38;
+      const phaseOffset = omega * t;
       ctx.beginPath();
       for (let i = 0; i < xSteps; i++) {
-        const frac = i / (xSteps - 1);
-        const x = xPad + frac * waveW;
-        const logX = 1 + frac * 5; // log-space x from e^1 to e^6
-        const val = amplitude * Math.cos(gamma * logX - omega * t) * Math.exp(-0.05 * frac);
+        const val = amplitude * Math.cos(gamma * ANIM_LOG_X[i] - phaseOffset) * ANIM_ENVELOPE[i];
         const y = yCenter - val * halfRow;
 
         superposition[i] += val;
 
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
+        if (i === 0) ctx.moveTo(xPos[i], y);
+        else ctx.lineTo(xPos[i], y);
       }
 
       ctx.strokeStyle = `hsla(${hue}, 70%, 55%, 0.7)`;
@@ -154,10 +178,9 @@ export default function AnimatedModesViz() {
 
     ctx.beginPath();
     for (let i = 0; i < xSteps; i++) {
-      const x = xPad + (i / (xSteps - 1)) * waveW;
       const y = superMid - superposition[i] * scale;
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+      if (i === 0) ctx.moveTo(xPos[i], y);
+      else ctx.lineTo(xPos[i], y);
     }
     ctx.strokeStyle = '#10b981';
     ctx.lineWidth = 2.5;
@@ -165,13 +188,12 @@ export default function AnimatedModesViz() {
 
     // Fill
     ctx.beginPath();
-    ctx.moveTo(xPad, superMid);
+    ctx.moveTo(xPos[0], superMid);
     for (let i = 0; i < xSteps; i++) {
-      const x = xPad + (i / (xSteps - 1)) * waveW;
       const y = superMid - superposition[i] * scale;
-      ctx.lineTo(x, y);
+      ctx.lineTo(xPos[i], y);
     }
-    ctx.lineTo(xPad + waveW, superMid);
+    ctx.lineTo(xPos[xSteps - 1], superMid);
     ctx.closePath();
     ctx.fillStyle = 'rgba(16, 185, 129, 0.08)';
     ctx.fill();
@@ -245,17 +267,31 @@ export default function AnimatedModesViz() {
     };
   }, [draw, isPlaying]);
 
+  // Redraw on window resize when paused (animation loop handles it when playing)
+  useEffect(() => {
+    if (isPlaying) return;
+    const onResize = () => draw(elapsedRef.current);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw, isPlaying]);
+
   return (
     <div>
       <div className="tab-explainer accent-pink">
-        At zeta zero frequency <InlineMath tex="\\gamma_n" />, each prime oscillator vibrates with
-        amplitude <InlineMath tex="\\propto \\text{Re}(p^{-1/2-i\\gamma_n})" /> and phase set by <InlineMath tex="\\gamma_n \\log p" />.
-        The bottom row superposes all prime contributions at this driving frequency &mdash; the collective oscillator chain
-        response to the zero mode <InlineMath tex="\\gamma_n" />. (Note: the explicit formula's per-zero term is{' '}
-        <InlineMath tex="-x^\\rho/\\rho" />, a single oscillation with no per-prime decomposition.)
-        Different zeros excite different patterns across the prime oscillators, but the frequencies{' '}
-        <InlineMath tex="\\omega_p = \\log p" /> are fixed &mdash; only the driving frequency <InlineMath tex="\\gamma_n" /> changes.
-        <strong> Look for:</strong> small primes making large, slow oscillations; larger primes vibrating faster with smaller amplitude.
+        <p style={{ margin: '0 0 8px' }}>
+          At zeta zero frequency <InlineMath tex={"\\gamma_n"} />, each prime oscillator vibrates with amplitude
+          and phase determined by:
+        </p>
+        <BlockMath tex={"A_p \\propto \\log(p) \\cdot \\text{Re}\\bigl(p^{-1/2 - i\\gamma_n}\\bigr), \\qquad \\phi_p = \\gamma_n \\log p"} />
+        <p style={{ margin: '8px 0' }}>
+          The <InlineMath tex={"\\log(p)"} /> weighting comes from the oscillator inductance <InlineMath tex={"L_p = \\log(p)"} />.
+          The bottom row superposes all prime contributions &mdash; the collective chain response to
+          mode <InlineMath tex={"\\gamma_n"} />. Different zeros excite different patterns, but the
+          frequencies <InlineMath tex={"\\omega_p = \\log p"} /> are fixed.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> small primes making large, slow oscillations; larger primes vibrating faster with smaller amplitude.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">
@@ -288,6 +324,17 @@ export default function AnimatedModesViz() {
           }}
         >
           {isPlaying ? 'Pause' : 'Play'}
+        </button>
+        <button
+          onClick={() => { elapsedRef.current = 0; if (!isPlaying) draw(0); }}
+          title="Reset animation to t = 0"
+          style={{
+            padding: '6px 16px', borderRadius: 6, border: '1px solid var(--border)',
+            background: 'rgba(100,116,139,0.15)',
+            color: '#94a3b8', cursor: 'pointer', fontSize: 13, marginLeft: 4,
+          }}
+        >
+          Reset
         </button>
         <span style={{ color: '#475569', fontSize: 10, marginLeft: 6, fontFamily: 'var(--font-mono)' }}>
           <kbd style={{ padding: '1px 5px', borderRadius: 3, border: '1px solid #334155', background: '#1e293b', fontSize: 10 }}>Space</kbd>

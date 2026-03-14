@@ -215,9 +215,9 @@ const CONCEPTS = [
     category: 'physics',
     term: 'Scattering Matrix',
     symbol: '\\mathbf{S}',
-    definition: 'Relates incident and reflected waves at a network port. The bridge scattering matrix encodes the functional equation.',
-    formula: 'S_{21} = \\frac{1}{1 - p^{-s}}, \\quad |S_{11}|^2 + |S_{21}|^2 = 1 \\text{ (on critical line)}',
-    intuition: 'How much signal passes through vs. bounces back at each oscillator stage.',
+    definition: 'Relates incident and reflected waves at a network port. The bridge scattering matrix encodes the functional equation, with transmission coefficient S₂₁ = χ(s).',
+    formula: 'S_{21} = \\chi(s), \\quad |\\chi(\\tfrac{1}{2}+it)| = 1 \\;\\Rightarrow\\; |S_{11}|^2 + |S_{21}|^2 = 1 \\text{ (on critical line)}',
+    intuition: 'How much signal the bridge transmits (χ) vs. reflects — lossless at σ = ½, lossy elsewhere.',
   },
   {
     id: 'hamiltonian',
@@ -294,9 +294,9 @@ const CONCEPTS = [
     id: 'scattering-resonance',
     category: 'quantum',
     term: 'Scattering Resonance',
-    definition: 'In quantum scattering, a resonance is a complex energy where the S-matrix has a pole. The ZPO model maps zeta zeros to transmission resonances of the oscillator cascade — frequencies where the signal passes through perfectly.',
+    definition: 'In quantum scattering, a resonance is a complex energy where the S-matrix has a pole. The ZPO model maps zeta zeros to transmission nulls of the oscillator cascade — frequencies where the cascade output vanishes via total destructive interference.',
     formula: 'S(E) = \\frac{E - E_r + i\\Gamma/2}{E - E_r - i\\Gamma/2}, \\quad \\text{resonance at } E = E_r',
-    intuition: 'At a zeta zero, the twin-ladder transmits perfectly (S₂₁ → 0 means total destructive interference).',
+    intuition: 'At a zeta zero, the cascade transfer function vanishes: ζ(ρ) = 0 means the oscillator stages interfere destructively, producing zero net output.',
   },
   {
     id: 'path-integral',
@@ -348,7 +348,7 @@ const CONCEPTS = [
     category: 'thermo',
     term: 'Specific Heat & Zeros',
     symbol: 'C_v',
-    definition: 'The specific heat C_v = -β² ∂²F/∂β² measures energy fluctuations. Near zeta zeros, C_v diverges (the system becomes infinitely sensitive to temperature changes).',
+    definition: 'The specific heat C_v = β² ∂²(log Z)/∂β² measures energy fluctuations (variance of the energy). Near zeta zeros, C_v diverges (the system becomes infinitely sensitive to temperature changes).',
     formula: 'C_v(\\sigma, t) = \\sigma^2 \\frac{\\partial^2}{\\partial \\sigma^2} \\left[\\sigma \\cdot F(\\sigma,t)\\right]',
     intuition: 'Zeta zeros are "thermodynamic singularities" where the specific heat blows up — like critical points in real physical systems.',
   },
@@ -686,6 +686,32 @@ export default function ConceptsPage() {
               </button>
             );
           })}
+        </div>
+      </div>
+
+      {/* ─── Quick Notation Reference ─── */}
+      <div className="card" style={{ marginBottom: 20, borderLeft: '3px solid #06b6d4' }}>
+        <h3 style={{ color: '#06b6d4', fontSize: 14, marginBottom: 12 }}>Quick Notation Reference</h3>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, fontSize: 12 }}>
+          {[
+            { sym: 's = \\sigma + it', meaning: 'Complex variable (real part σ, imaginary part t)' },
+            { sym: '\\zeta(s)', meaning: 'Riemann zeta function' },
+            { sym: '\\rho = \\tfrac{1}{2} + i\\gamma', meaning: 'Nontrivial zero (RH form)' },
+            { sym: '\\chi(s)', meaning: 'Functional equation bridge factor' },
+            { sym: '\\xi(s)', meaning: 'Completed zeta function (entire, symmetric)' },
+            { sym: 'H_p(s) = (1-p^{-s})^{-1}', meaning: 'Euler factor / oscillator stage for prime p' },
+            { sym: 'Q = 1/(2\\sigma)', meaning: 'Quality factor (Q = 1 at critical line)' },
+            { sym: 'Z_0 = \\log p', meaning: 'Characteristic impedance of p-stage' },
+            { sym: '\\Lambda(n)', meaning: 'Von Mangoldt function (log p if n = p^k)' },
+            { sym: '\\psi(x)', meaning: 'Chebyshev function (weighted prime count)' },
+            { sym: 'S^\\dagger S = I', meaning: 'Scattering matrix unitarity (lossless)' },
+            { sym: '\\lambda_n', meaning: 'Li coefficients (RH ⟺ all ≥ 0)' },
+          ].map(({ sym, meaning }, i) => (
+            <div key={i} style={{ padding: '6px 8px', background: 'rgba(6,182,212,0.04)', borderRadius: 4, display: 'flex', alignItems: 'baseline', gap: 8 }}>
+              <span style={{ flexShrink: 0 }}><InlineMath tex={sym} /></span>
+              <span style={{ color: '#94a3b8', fontSize: 11 }}>{meaning}</span>
+            </div>
+          ))}
         </div>
       </div>
 

@@ -8,7 +8,7 @@ import {
 } from '../math/supercritical.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 
 const TABS = [
   { id: 'spectrum', label: 'Von Mangoldt Spectrum' },
@@ -46,6 +46,7 @@ export default function FourierDomainViz() {
 function VonMangoldtSpectrumTab() {
   const svgRef = useRef();
   const [maxN, setMaxN] = useState(300);
+  const [hoverPoint, setHoverPoint] = useState(null);
 
   // Memoize spectrum data so window resize only re-renders D3 without recomputing
   // 300 frequency points × ~80 non-zero Λ(n) entries = ~24,000 trig calls
@@ -110,7 +111,7 @@ function VonMangoldtSpectrumTab() {
     legend.append('rect').attr('x', 0).attr('y', -5).attr('width', 16).attr('height', 10)
       .attr('fill', 'rgba(59, 130, 246, 0.15)').attr('stroke', '#3b82f6').attr('stroke-width', 1.5);
     legend.append('text').attr('x', 22).attr('y', 4)
-      .attr('fill', '#3b82f6').attr('font-size', 10).text('|Λ̂(ω)| spectrum');
+      .attr('fill', '#3b82f6').attr('font-size', 10).text('|F(ω)| spectrum');
     // Zeta zeros entry: dashed line
     legend.append('line').attr('x1', 0).attr('y1', 18).attr('x2', 16).attr('y2', 18)
       .attr('stroke', '#ef4444').attr('stroke-width', 1.5).attr('stroke-dasharray', '3,3').attr('opacity', 0.7);
@@ -125,6 +126,53 @@ function VonMangoldtSpectrumTab() {
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('|F(ω)|');
 
+    // Hover crosshair interaction
+    const overlay = g.append('rect')
+      .attr('width', w).attr('height', h)
+      .attr('fill', 'transparent')
+      .attr('cursor', 'crosshair');
+
+    const hoverLine = g.append('line')
+      .attr('y1', 0).attr('y2', h)
+      .attr('stroke', '#e2e8f0').attr('stroke-width', 0.5)
+      .attr('opacity', 0);
+
+    const hoverDot = g.append('circle')
+      .attr('r', 4).attr('fill', '#3b82f6').attr('stroke', '#0a0e1a').attr('stroke-width', 2)
+      .attr('opacity', 0);
+
+    const setHP = setHoverPoint;
+    overlay.on('mousemove', (event) => {
+      const [mx] = d3.pointer(event);
+      const freq = x.invert(mx);
+      // Binary search for nearest frequency (spectrum is sorted by frequency)
+      let lo = 0, hi = spectrum.length - 1;
+      while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        if (spectrum[mid].frequency < freq) lo = mid + 1;
+        else hi = mid;
+      }
+      const closest = lo > 0 && Math.abs(spectrum[lo - 1].frequency - freq) < Math.abs(spectrum[lo].frequency - freq)
+        ? spectrum[lo - 1] : spectrum[lo];
+
+      hoverLine.attr('x1', x(closest.frequency)).attr('x2', x(closest.frequency)).attr('opacity', 0.3);
+      hoverDot.attr('cx', x(closest.frequency)).attr('cy', y(closest.magnitude)).attr('opacity', 1);
+
+      // Find nearest zeta zero
+      let nearestZero = null, nearestDist = Infinity;
+      for (const gamma of ZETA_ZEROS) {
+        const d = Math.abs(closest.frequency - gamma);
+        if (d < nearestDist) { nearestDist = d; nearestZero = gamma; }
+        if (gamma > closest.frequency + 5) break;
+      }
+
+      setHP({ ...closest, nearestZero, nearestDist });
+    }).on('mouseleave', () => {
+      hoverLine.attr('opacity', 0);
+      hoverDot.attr('opacity', 0);
+      setHP(null);
+    });
+
   }, [spectrum]);
 
   useEffect(() => { draw(); }, [draw]);
@@ -136,14 +184,25 @@ function VonMangoldtSpectrumTab() {
 
   return (
     <div>
-      <div className="tab-explainer">
-        The von Mangoldt function <InlineMath tex="\\Lambda(n) = \\log p" /> when{' '}
-        <InlineMath tex="n = p^k" />, and zero otherwise, encodes prime locations as a "signal." The weighted
-        transform <InlineMath tex="F(\\omega) = \\sum_n \\Lambda(n)\\,n^{-1/2}\\,e^{-i\\omega\\log n}" /> equals{' '}
-        <InlineMath tex="-\\zeta'(\\tfrac{1}{2}+i\\omega)/\\zeta(\\tfrac{1}{2}+i\\omega)" />, which has poles at
-        each zeta zero <InlineMath tex="\\gamma_n" />. The <InlineMath tex="n^{-1/2}" /> weight places the evaluation on the critical
-        line — without it, peaks would not align with zeros. More terms sharpen the spectral peaks.
-        <strong> Look for:</strong> vertical red dashed lines (known zeros) aligning with the spectral peaks of the blue DFT curve.
+      <div className="tab-explainer accent-blue">
+        <p style={{ margin: '0 0 8px' }}>
+          The von Mangoldt function <InlineMath tex={"\\Lambda(n) = \\log p"} /> when <InlineMath tex={"n = p^k"} />,
+          and zero otherwise, encodes prime locations as a "signal." Its weighted Fourier transform:
+        </p>
+        <BlockMath tex={"F(\\omega) = \\sum_{n} \\Lambda(n)\\, n^{-1/2}\\, e^{-i\\omega \\log n}"} />
+        <p style={{ margin: '8px 0' }}>
+          is a truncated approximation to the logarithmic derivative of zeta on the critical line:
+        </p>
+        <BlockMath tex={"-\\frac{\\zeta'(\\tfrac{1}{2}+i\\omega)}{\\zeta(\\tfrac{1}{2}+i\\omega)} = \\sum_{n=1}^{\\infty} \\frac{\\Lambda(n)}{n^{1/2+i\\omega}}"} />
+        <p style={{ margin: '8px 0' }}>
+          The Dirichlet series converges only for <InlineMath tex={"\\mathrm{Re}(s) > 1"} />, so the finite
+          sum serves as a spectral approximation whose peaks reveal the zeros <InlineMath tex={"\\gamma_n"} />.
+          The <InlineMath tex={"n^{-1/2}"} /> weight targets the critical line — without it, peaks would
+          not align with zeros. More terms sharpen the spectral peaks.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> vertical red dashed lines (known zeros) aligning with the spectral peaks of the blue DFT curve.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">
@@ -152,6 +211,20 @@ function VonMangoldtSpectrumTab() {
             onChange={e => setMaxN(+e.target.value)} />
           <span className="control-value">{maxN} <span style={{ color: '#64748b', fontSize: 11 }}>({getPrimes(200).filter(p => p <= maxN).length} primes ≤ N)</span></span>
         </div>
+        {hoverPoint ? (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
+            ω={hoverPoint.frequency.toFixed(2)} | |F|={hoverPoint.magnitude.toFixed(2)}
+            {hoverPoint.nearestDist < 2 && (
+              <span style={{ color: hoverPoint.nearestDist < 0.5 ? '#10b981' : '#64748b', marginLeft: 6 }}>
+                nearest γ={hoverPoint.nearestZero.toFixed(2)} (Δ={hoverPoint.nearestDist.toFixed(2)})
+              </span>
+            )}
+          </div>
+        ) : (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', fontStyle: 'italic' }}>
+            Hover over chart to inspect values
+          </div>
+        )}
       </div>
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: 400 }} />
@@ -243,17 +316,17 @@ function FrequencyResponseTab() {
       // The raw phase from atan2 wraps at ±π, creating false discontinuities
       const unwrappedPhase = [];
       let cumPhase = response[0].phase;
+      let phaseMin = cumPhase, phaseMax = cumPhase;
       unwrappedPhase.push(cumPhase);
       for (let i = 1; i < response.length; i++) {
         let delta = response[i].phase - response[i - 1].phase;
         if (delta > Math.PI) delta -= 2 * Math.PI;
         if (delta < -Math.PI) delta += 2 * Math.PI;
         cumPhase += delta;
+        if (cumPhase < phaseMin) phaseMin = cumPhase;
+        if (cumPhase > phaseMax) phaseMax = cumPhase;
         unwrappedPhase.push(cumPhase);
       }
-
-      const phaseMin = Math.min(...unwrappedPhase);
-      const phaseMax = Math.max(...unwrappedPhase);
       const phaseRange = phaseMax - phaseMin || 1;
       const yLo = phaseMin - phaseRange * 0.05;
       const yHi = phaseMax + phaseRange * 0.05;
@@ -313,17 +386,26 @@ function FrequencyResponseTab() {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        The Euler product{' '}
-        <InlineMath tex="H(\\sigma+i\\omega) = \\prod_p (1-p^{-\\sigma-i\\omega})^{-1}" /> is the transfer function of the
-        prime oscillator ladder network, plotted as a standard Bode diagram. The magnitude (top, in dB) shows the gain
-        at each frequency; the phase (bottom) shows the accumulated delay. Near zeta zero frequencies, the partial product
-        shows resonance peaks from constructive phase alignment, even though the Euler product only converges for{' '}
-        <InlineMath tex="\\sigma > 1" />. Since <InlineMath tex="Q = 1/(2\\sigma)" />, lower <InlineMath tex="\\sigma" /> gives
-        sharper resonances (<InlineMath tex="Q \\to \\infty" /> as <InlineMath tex="\\sigma \\to 0" />), while higher{' '}
-        <InlineMath tex="\\sigma" /> damps them. At <InlineMath tex="\\sigma = 0.5" />,{' '}
-        <InlineMath tex="Q = 1" /> for all primes &mdash; the critical line is where direct and dual ladders balance,
-        not where resonance is sharpest.
-        <strong> Look for:</strong> resonance spikes at zeta zero frequencies; peaks sharpening as <InlineMath tex="\\sigma \\to 0" />.
+        <p style={{ margin: '0 0 8px' }}>
+          The Euler product defines the transfer function of the prime oscillator ladder network:
+        </p>
+        <BlockMath tex={"H(\\sigma+i\\omega) = \\prod_p \\frac{1}{1-p^{-\\sigma-i\\omega}}"} />
+        <p style={{ margin: '8px 0' }}>
+          Plotted as a Bode diagram: magnitude (top, dB) shows gain, phase (bottom) shows accumulated delay.
+          Near zeta zero frequencies, the partial product shows resonance peaks from constructive phase alignment,
+          even though the Euler product only converges for <InlineMath tex={"\\sigma > 1"} />.
+        </p>
+        <p style={{ margin: '8px 0' }}>
+          The quality factor <InlineMath tex={"Q = 1/(2\\sigma)"} /> controls resonance sharpness:
+          lower <InlineMath tex={"\\sigma"} /> gives sharper resonances
+          (<InlineMath tex={"Q \\to \\infty"} /> as <InlineMath tex={"\\sigma \\to 0"} />),
+          while higher <InlineMath tex={"\\sigma"} /> damps them.
+          At <InlineMath tex={"\\sigma = 0.5"} />, <InlineMath tex={"Q = 1"} /> for all primes &mdash;
+          the critical line is where direct and dual ladders balance, not where resonance is sharpest.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> resonance spikes at zeta zero frequencies; peaks sharpening as <InlineMath tex={"\\sigma \\to 0"} />.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">
@@ -454,17 +536,21 @@ function SpectralEnergyTab() {
   return (
     <div>
       <div className="tab-explainer accent-purple">
-        The spectral energy density <InlineMath tex="\\mathcal{E}(\\omega)" /> measures how
-        oscillator energy is distributed across frequencies. The direct ladder gives{' '}
-        <InlineMath tex="\\mathcal{E}_{\\text{dir}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(\\sigma{+}i\\omega)|^2" /> and the dual ladder{' '}
-        <InlineMath tex="\\mathcal{E}_{\\text{dual}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(1{-}\\sigma{-}i\\omega)|^2" />, where each prime's
-        contribution is weighted by its characteristic impedance <InlineMath tex="\\log p" />. At{' '}
-        <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, conjugate symmetry of the Euler factors gives equal magnitudes &mdash;
-        the spectral energy is perfectly balanced between direct and dual. The red mismatch curve shows the impedance
-        difference <InlineMath tex="|Z_{\\text{dir}} - Z_{\\text{dual}}|" />, which measures the imaginary-part asymmetry
-        (at <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, the impedances are conjugate-matched, so the mismatch equals{' '}
-        <InlineMath tex="2|\\text{Im}\\,Z|" />, not zero).
-        <strong> Look for:</strong> blue and orange energy curves overlapping exactly at <InlineMath tex="\\sigma = 0.5" />; mismatch (red) minimized but not zero.
+        <p style={{ margin: '0 0 8px' }}>
+          The spectral energy density <InlineMath tex={"\\mathcal{E}(\\omega)"} /> measures how oscillator
+          energy is distributed across frequencies. The direct and dual ladders contribute:
+        </p>
+        <BlockMath tex={"\\mathcal{E}_{\\text{dir}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(\\sigma+i\\omega)|^2, \\qquad \\mathcal{E}_{\\text{dual}}(\\omega) = \\sum_p \\tfrac{1}{2}\\log p\\,|H_p(1-\\sigma-i\\omega)|^2"} />
+        <p style={{ margin: '8px 0' }}>
+          Each prime's contribution is weighted by its characteristic impedance <InlineMath tex={"\\log p"} />.
+          At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, conjugate symmetry of the Euler factors gives equal
+          magnitudes &mdash; spectral energy is perfectly balanced. The red mismatch curve shows
+          <InlineMath tex={"|Z_{\\text{dir}} - Z_{\\text{dual}}|"} />, which at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> equals
+          <InlineMath tex={"2|\\text{Im}\\,Z|"} /> (conjugate-matched, not zero).
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> blue and orange energy curves overlapping at <InlineMath tex={"\\sigma = 0.5"} />; mismatch (red) minimized but not zero.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">
@@ -586,14 +672,21 @@ function PrimeHarmonicsTab() {
   return (
     <div>
       <div className="tab-explainer accent-cyan">
-        Each prime <InlineMath tex="p" /> contributes a fundamental oscillation at frequency{' '}
-        <InlineMath tex="\\omega_p = \\log p" /> plus overtones at <InlineMath tex="k\\log p" /> (from the geometric series{' '}
-        <InlineMath tex="(1-p^{-s})^{-1} = \\sum_k p^{-ks}" />). The quality factor{' '}
-        <InlineMath tex="Q_p = 1/(2\\sigma)" /> controls resonance sharpness: at <InlineMath tex="\\sigma = 0.5" />,{' '}
-        <InlineMath tex="Q = 1" /> for all primes (critical coupling). Higher <InlineMath tex="Q" /> means sharper, more selective
-        resonances; lower <InlineMath tex="Q" /> means broader, more damped responses. This is why <InlineMath tex="\\sigma = 0.5" /> is
-        the balance point &mdash; every oscillator is critically coupled simultaneously.
-        <strong> Look for:</strong> <InlineMath tex="Q = 1.00" /> for all primes at <InlineMath tex="\\sigma = 0.5" />; harmonics weakening at higher overtones.
+        <p style={{ margin: '0 0 8px' }}>
+          Each prime <InlineMath tex={"p"} /> contributes a fundamental oscillation at frequency
+          <InlineMath tex={"\\omega_p = \\log p"} /> plus overtones at <InlineMath tex={"k\\log p"} />, from the geometric series:
+        </p>
+        <BlockMath tex={"\\frac{1}{1-p^{-s}} = \\sum_{k=0}^{\\infty} p^{-ks}"} />
+        <p style={{ margin: '8px 0' }}>
+          The quality factor <InlineMath tex={"Q_p = 1/(2\\sigma)"} /> controls resonance sharpness.
+          At <InlineMath tex={"\\sigma = 0.5"} />, <InlineMath tex={"Q = 1"} /> for all primes (critical coupling).
+          Higher <InlineMath tex={"Q"} /> means sharper resonances; lower <InlineMath tex={"Q"} /> means broader, more
+          damped responses. This is why <InlineMath tex={"\\sigma = 0.5"} /> is the balance point &mdash;
+          every oscillator is critically coupled simultaneously.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> <InlineMath tex={"Q = 1.00"} /> for all primes at <InlineMath tex={"\\sigma = 0.5"} />; harmonics weakening at higher overtones.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">

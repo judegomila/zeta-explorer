@@ -107,6 +107,13 @@ function IdentityTestsTab({ numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-green">
+        Numerical verification of three mathematical identities used by the ZPO model:
+        the functional equation <InlineMath tex="\zeta(s) = \chi(s)\,\zeta(1-s)" />,
+        bridge unitarity <InlineMath tex="|\chi(\tfrac{1}{2}+it)| = 1" />, and Euler product
+        convergence for <InlineMath tex="\text{Re}(s) > 1" />. Click any row to expand details.
+        <strong> These are known identities</strong> &mdash; passing confirms the numerics are correct, not that RH is proven.
+      </div>
       <table style={{
         width: '100%', borderCollapse: 'collapse', fontSize: 12,
         fontFamily: 'var(--font-mono)',
@@ -428,6 +435,13 @@ function DHCounterexampleTab() {
 
   return (
     <div>
+      <div className="tab-explainer accent-red">
+        The Davenport&ndash;Heilbronn zeta function satisfies a functional equation identical in form
+        to Riemann&rsquo;s, yet has zeros <em>off</em> the critical line. This is the sharpest counterexample to any
+        &ldquo;proof&rdquo; of RH that relies only on functional equation symmetry. The plot compares <InlineMath tex="|\zeta(\tfrac{1}{2}+it)|" /> (blue)
+        against <InlineMath tex="|f_{\rm DH}(\tfrac{1}{2}+it)|" /> (red) &mdash; both dip at their zeros, but only <InlineMath tex="\zeta" />&rsquo;s zeros
+        are conjectured to all lie on the critical line.
+      </div>
       {/* t slider */}
       <div style={{ marginBottom: 12, display: 'flex', alignItems: 'center', gap: 12 }}>
         <label style={{ color: '#94a3b8', fontSize: 12, fontFamily: 'var(--font-mono)' }}>
@@ -544,6 +558,13 @@ function LogicGapsTab({ numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-orange">
+        Automated analysis of logical gaps in the ZPO &ldquo;proof&rdquo; chain. The circularity checker traces
+        which claims depend on which assumptions and flags circular reasoning. The implication strength
+        tester evaluates whether each step is a rigorous proof, a strong heuristic, a weak analogy,
+        or outright circular.
+        <strong> Every gap found here</strong> is a place where the ZPO argument fails to constitute a proof.
+      </div>
       {/* Circularity Check */}
       <h4 style={{ color: '#f59e0b', fontSize: 13, marginBottom: 10 }}>
         Circularity Analysis
@@ -716,11 +737,18 @@ function FullReportTab({ numPrimes }) {
     }, 50);
   }, [numPrimes]);
 
+  // Auto-run the check when the tab mounts
+  useEffect(() => {
+    if (!report && !loading) {
+      runCheck();
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   if (!report && !loading) {
     return (
       <div style={{ textAlign: 'center', padding: '40px 0' }}>
         <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16 }}>
-          Click "Run Full Check" above to execute all tests.
+          Running full proof check...
         </p>
       </div>
     );
@@ -830,6 +858,12 @@ function FullReportTab({ numPrimes }) {
 
   return (
     <div>
+      <div className="tab-explainer accent-purple">
+        Aggregated proof-checking report combining all identity tests, counterexample analysis, and logic
+        gap detection into a single verdict. The score reflects how many checks pass, how many gaps remain,
+        and how severe the circularity issues are.
+        <strong> Result:</strong> the ZPO model is a pedagogical tool for visualizing RH &mdash; not a proof.
+      </div>
       {/* Verdict box */}
       <div style={{
         padding: '16px 20px', marginBottom: 20, borderRadius: 8,
@@ -961,14 +995,9 @@ function FullReportTab({ numPrimes }) {
 export default function ProofCheckerViz() {
   const [activeTab, setActiveTab] = useState(0);
   const [numPrimes, setNumPrimes] = useState(12);
-  const fullReportRef = useRef(null);
 
   const handleRunFullCheck = useCallback(() => {
     setActiveTab(3);
-    // Trigger the full report tab to run
-    if (fullReportRef.current) {
-      fullReportRef.current();
-    }
   }, []);
 
   return (

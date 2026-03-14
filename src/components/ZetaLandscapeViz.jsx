@@ -2,6 +2,32 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import { InlineMath } from './KaTeXMath.jsx';
 import { riemannSiegelZ, ZETA_ZEROS, zetaCriticalStrip, cAbs } from '../math/zeta.js';
 
+// Binary search for nearest value in sorted ZETA_ZEROS array — O(log n) instead of O(n)
+function nearestZetaZero(target) {
+  let lo = 0, hi = ZETA_ZEROS.length - 1;
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (ZETA_ZEROS[mid] < target) lo = mid + 1;
+    else hi = mid;
+  }
+  // Check lo and lo-1 to find the closest
+  let best = lo;
+  if (lo > 0 && Math.abs(ZETA_ZEROS[lo - 1] - target) < Math.abs(ZETA_ZEROS[lo] - target)) {
+    best = lo - 1;
+  }
+  return { zero: ZETA_ZEROS[best], dist: Math.abs(ZETA_ZEROS[best] - target) };
+}
+
+// Count zeros in [a, b] using binary search on sorted ZETA_ZEROS — O(log n) instead of O(n) filter
+function countZerosInRange(a, b) {
+  let lo = 0, hi = ZETA_ZEROS.length;
+  while (lo < hi) { const m = (lo + hi) >> 1; if (ZETA_ZEROS[m] < a) lo = m + 1; else hi = m; }
+  const start = lo;
+  lo = 0; hi = ZETA_ZEROS.length;
+  while (lo < hi) { const m = (lo + hi) >> 1; if (ZETA_ZEROS[m] <= b) lo = m + 1; else hi = m; }
+  return lo - start;
+}
+
 // Pre-compute critical-line stroke color palettes (32 levels each) to avoid per-segment string interpolation
 const CL_PALETTE_SIZE = 32;
 const clPalettePos = new Array(CL_PALETTE_SIZE);
@@ -46,6 +72,24 @@ export default function ZetaLandscapeViz() {
   const [sigmaRange] = useState([0.05, 0.95]);
   const [hoverInfo, setHoverInfo] = useState(null);
 
+  // Memoize Z(t) values so resize events skip 600 riemannSiegelZ evaluations
+  const CL_STEPS = 600;
+  const clData = useMemo(() => {
+    const tMin = tRange[0];
+    const tMax = tRange[1];
+    const dt = (tMax - tMin) / CL_STEPS;
+    const values = [];
+    let maxAbs = 1;
+    for (let i = 0; i <= CL_STEPS; i++) {
+      const t = tMin + i * dt;
+      const z = t > 2 ? riemannSiegelZ(t) : 0;
+      values.push({ t, z });
+      const a = Math.abs(z);
+      if (a > maxAbs) maxAbs = a;
+    }
+    return { values, maxAbs };
+  }, [tRange]);
+
   const drawCriticalLine = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -62,19 +106,9 @@ export default function ZetaLandscapeViz() {
 
     const tMin = tRange[0];
     const tMax = tRange[1];
-    const steps = Math.min(dw, 600);
-    const dt = (tMax - tMin) / steps;
-
-    // Compute Z(t) values
-    const values = [];
-    for (let i = 0; i <= steps; i++) {
-      const t = tMin + i * dt;
-      const z = t > 2 ? riemannSiegelZ(t) : 0;
-      values.push({ t, z });
-    }
+    const { values, maxAbs } = clData;
+    const steps = values.length - 1;
     clValuesRef.current = values;
-
-    const maxAbs = Math.max(1, ...values.map(v => Math.abs(v.z)));
     const xScale = dw / steps;
     const yMid = dh / 2;
     const yScale = (dh / 2 - 20) / maxAbs;
@@ -151,18 +185,49 @@ export default function ZetaLandscapeViz() {
     }
     ctx.textAlign = 'start';
 
-    // Mark zeta zeros
-    for (const gamma of ZETA_ZEROS) {
-      if (gamma >= tMin && gamma <= tMax) {
-        const x = ((gamma - tMin) / (tMax - tMin)) * dw;
-        ctx.strokeStyle = '#ef4444';
-        ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(x, yMid - 8); ctx.lineTo(x, yMid + 8); ctx.stroke();
+    // Y-axis label
+    ctx.save();
+    ctx.translate(8, yMid);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Z(t)', 0, 0);
+    ctx.restore();
 
+    // Mark zeta zeros with index labels
+    // Decide label density: show labels when zeros are spaced ≥ 20px apart on average
+    const visibleZeros = [];
+    for (let zi = 0; zi < ZETA_ZEROS.length; zi++) {
+      const gamma = ZETA_ZEROS[zi];
+      if (gamma >= tMin && gamma <= tMax) {
+        visibleZeros.push({ gamma, index: zi + 1 });
+      }
+    }
+    const avgPixelSpacing = visibleZeros.length > 1
+      ? dw / visibleZeros.length : Infinity;
+    const showLabels = avgPixelSpacing >= 20;
+
+    for (const { gamma, index } of visibleZeros) {
+      const x = ((gamma - tMin) / (tMax - tMin)) * dw;
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x, yMid - 8); ctx.lineTo(x, yMid + 8); ctx.stroke();
+
+      ctx.fillStyle = '#ef4444';
+      ctx.beginPath();
+      ctx.arc(x, yMid, 3, 0, 2 * Math.PI);
+      ctx.fill();
+
+      // Label with γₙ index (alternating above/below to avoid overlap)
+      if (showLabels) {
+        const subscript = String(index).split('').map(c => String.fromCharCode(0x2080 + +c)).join('');
         ctx.fillStyle = '#ef4444';
-        ctx.beginPath();
-        ctx.arc(x, yMid, 3, 0, 2 * Math.PI);
-        ctx.fill();
+        ctx.font = '9px var(--font-mono, monospace)';
+        ctx.textAlign = 'center';
+        const labelY = index % 2 === 1 ? yMid - 14 : yMid + 20;
+        ctx.fillText(`γ${subscript}`, x, labelY);
+        ctx.textAlign = 'start';
       }
     }
 
@@ -201,7 +266,7 @@ export default function ZetaLandscapeViz() {
     ctx.fillStyle = '#94a3b8';
     ctx.fillText('ζ zeros (γₙ)', legendX + 34, legendY + 54);
 
-  }, [tRange]);
+  }, [tRange, clData]);
 
   // Memoize the 100×100 heatmap grid (10,000 zetaCriticalStrip evaluations)
   // so resize events only repaint the canvas with cached data
@@ -219,7 +284,7 @@ export default function ZetaLandscapeViz() {
         const z = zetaCriticalStrip([sigma, t], 50);
         const mag = cAbs(z);
         const logMag = Math.log(1 + mag);
-        grid[i * RES + j] = Math.min(1, logMag / 4);
+        grid[i * RES + j] = logMag / 4;
       }
     }
     return grid;
@@ -254,7 +319,7 @@ export default function ZetaLandscapeViz() {
       for (let px = 0; px < imgW; px++) {
         // Map pixel col to grid i (sigma-axis)
         const i = Math.min(RES - 1, (px / (imgW - 1) * (RES - 1)) | 0);
-        const normalized = heatmapGrid[i * RES + j];
+        const normalized = Math.min(1, heatmapGrid[i * RES + j]);
         const palIdx = Math.min(PALETTE_SIZE - 1, (normalized * (PALETTE_SIZE - 1)) | 0);
         const off = (py * imgW + px) * 4;
         pixels[off] = heatmapPaletteRGB[palIdx * 3];
@@ -272,6 +337,17 @@ export default function ZetaLandscapeViz() {
     ctx.setLineDash([4, 4]);
     ctx.beginPath(); ctx.moveTo(critX, 0); ctx.lineTo(critX, dh); ctx.stroke();
     ctx.setLineDash([]);
+
+    // Critical line label
+    ctx.save();
+    ctx.translate(critX + 10, 48);
+    ctx.fillStyle = 'rgba(17,24,39,0.7)';
+    ctx.fillRect(-2, -10, 36, 14);
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.font = '600 10px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('σ = ½', 0, 0);
+    ctx.restore();
 
     // Mark zeros
     for (const gamma of ZETA_ZEROS) {
@@ -385,19 +461,14 @@ export default function ZetaLandscapeViz() {
       const gi = Math.min(RES - 1, Math.max(0, Math.round((mx) * (RES - 1))));
       const gj = Math.min(RES - 1, Math.max(0, Math.round((1 - my) * (RES - 1))));
       const logVal = heatmapGrid[gi * RES + gj];
-      setHoverInfo({ mode: 'heatmap', sigma: sigma.toFixed(3), t: t.toFixed(2), logMag: (logVal * 4).toFixed(3) });
+      setHoverInfo({ mode: 'heatmap', sigma: sigma.toFixed(3), t: t.toFixed(2), logMag: (logVal * 4).toFixed(3), mag: (Math.exp(logVal * 4) - 1).toFixed(2) });
     } else {
       const vals = clValuesRef.current;
       if (!vals.length) return;
       const idx = Math.min(vals.length - 1, Math.max(0, Math.round(mx * (vals.length - 1))));
       const { t, z } = vals[idx];
-      // Find nearest zeta zero
-      let nearestZero = null;
-      let nearestDist = Infinity;
-      for (const gamma of ZETA_ZEROS) {
-        const d = Math.abs(gamma - t);
-        if (d < nearestDist) { nearestDist = d; nearestZero = gamma; }
-      }
+      // Find nearest zeta zero via binary search (O(log n) instead of O(n) linear scan)
+      const { zero: nearestZero, dist: nearestDist } = nearestZetaZero(t);
       setHoverInfo({ mode: 'critical-line', t: t.toFixed(2), z: z.toFixed(4), nearestZero: nearestDist < 2 ? nearestZero.toFixed(3) : null });
     }
   }, [mode, tRange, sigmaRange, heatmapGrid]);
@@ -458,7 +529,7 @@ export default function ZetaLandscapeViz() {
             onChange={e => setTRange([tRange[0], Math.max(+e.target.value, tRange[0] + 5)])} />
           <span className="control-value">{tRange[1]}{' '}
             <span style={{ color: '#94a3b8', fontSize: '0.85em' }}>
-              ({ZETA_ZEROS.filter(g => g >= tRange[0] && g <= tRange[1]).length} zeros visible)
+              ({countZerosInRange(tRange[0], tRange[1])} zeros visible)
             </span>
           </span>
         </div>
@@ -466,7 +537,7 @@ export default function ZetaLandscapeViz() {
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
             <InlineMath tex="\\sigma" />={hoverInfo.sigma} <InlineMath tex="t" />={hoverInfo.t}
             <span style={{ marginLeft: 8, color: '#f59e0b' }}>
-              log(1+|ζ|)={hoverInfo.logMag}
+              log(1+|ζ|)={hoverInfo.logMag} &nbsp;|ζ|≈{hoverInfo.mag}
             </span>
           </div>
         )}

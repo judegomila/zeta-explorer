@@ -84,10 +84,13 @@ export function oddZetaValue(n, numPrimes = 50) {
   }
 
   // Euler product: ζ(n) = Π_p 1/(1 - p^{-n})
+  // Track second-to-last cumulative value for convergence rate
   const primes = getPrimes(numPrimes);
   let eulerProduct = 1;
-  for (const p of primes) {
-    eulerProduct *= 1 / (1 - Math.pow(p, -n));
+  let eulerPrev = 1;
+  for (let i = 0; i < primes.length; i++) {
+    if (i === primes.length - 1) eulerPrev = eulerProduct;
+    eulerProduct *= 1 / (1 - Math.pow(primes[i], -n));
   }
 
   // Dirichlet series: ζ(n) = Σ_{k=1}^{N} 1/k^n
@@ -102,11 +105,6 @@ export function oddZetaValue(n, numPrimes = 50) {
   const relativeError = Math.abs(eulerProduct - exact) / exact;
 
   // Convergence rate: how fast does adding more primes improve the product?
-  // Compare product with numPrimes vs numPrimes-1
-  let eulerPrev = 1;
-  for (let i = 0; i < primes.length - 1; i++) {
-    eulerPrev *= 1 / (1 - Math.pow(primes[i], -n));
-  }
   const convergenceRate = Math.abs(eulerProduct - eulerPrev) / eulerProduct;
 
   return {
@@ -257,28 +255,34 @@ export function linearIndependenceTest(maxOdd = 11, numPrimes = 50) {
   const dim = oddIndices.length;
   const gramMatrix = Array.from({ length: dim }, () => new Array(dim).fill(0));
 
-  // Compute inner products
+  // Precompute log(p) and p^k - 1 for all (prime, oddIndex) pairs
+  // to avoid redundant Math.log and Math.pow calls in the triple-nested loop.
+  const numP = primes.length;
+  const logP = new Float64Array(numP);
+  // powMinus1[pi * dim + ki] = p^oddIndices[ki] - 1
+  const powMinus1 = new Float64Array(numP * dim);
+  for (let pi = 0; pi < numP; pi++) {
+    const p = primes[pi];
+    logP[pi] = Math.log(p);
+    for (let ki = 0; ki < dim; ki++) {
+      const k = oddIndices[ki];
+      powMinus1[pi * dim + ki] = Math.pow(p, k) - 1; // k=1 gives p-1
+    }
+  }
+
+  // Compute inner products using precomputed tables
+  // Use the general formula <f_m, f_n> = Σ_p log(p) / ((p^m - 1)(p^n - 1))
+  // consistently for all entries, including the "1" element (treated as index 1,
+  // so p^1 - 1 = p - 1). This ensures the Gram matrix corresponds to a single
+  // consistent inner product — the previous special-case for <1,1> used
+  // Σ log(p)/(p(p-1)) which was inconsistent with the off-diagonal <1, ζ(k)>
+  // entries that used Σ log(p)/((p-1)(p^k - 1)).
   for (let i = 0; i < dim; i++) {
     for (let j = i; j < dim; j++) {
-      const m = oddIndices[i];
-      const n = oddIndices[j];
       let ip = 0;
-
-      for (const p of primes) {
-        const logP = Math.log(p);
-        if (m === 1 && n === 1) {
-          // <1, 1> = Σ_p log(p) / p(p-1)
-          ip += logP / (p * (p - 1));
-        } else if (m === 1) {
-          // <1, ζ(n)> = Σ_p log(p) / (p - 1)(p^n - 1)
-          ip += logP / ((p - 1) * (Math.pow(p, n) - 1));
-        } else if (n === 1) {
-          ip += logP / ((p - 1) * (Math.pow(p, m) - 1));
-        } else {
-          ip += logP / ((Math.pow(p, m) - 1) * (Math.pow(p, n) - 1));
-        }
+      for (let pi = 0; pi < numP; pi++) {
+        ip += logP[pi] / (powMinus1[pi * dim + i] * powMinus1[pi * dim + j]);
       }
-
       gramMatrix[i][j] = ip;
       gramMatrix[j][i] = ip;
     }
@@ -756,14 +760,19 @@ export function kolmogorovComplexityEstimate(n, bits = 200) {
   };
 }
 
-// Lempel-Ziv complexity: count the number of distinct factors in sequential parsing
+// Lempel-Ziv complexity (LZ76): count distinct factors in sequential parsing
 function lempelZivComplexity(seq) {
   const s = seq.join('');
-  let complexity = 0;
-  let i = 0;
+  if (s.length === 0) return 0;
+  let complexity = 1; // first character is always a new phrase
+  let i = 1;
   while (i < s.length) {
     let len = 1;
-    while (i + len <= s.length && s.substring(0, i).indexOf(s.substring(i, i + len)) === -1) {
+    // Find the longest prefix of s[i..] that appears in history s[0..i-1].
+    // Extend len while the substring IS found (!== -1); stop when it's NOT found.
+    // Then len is the first non-match length, so the longest match has length len-1.
+    // New phrase = longest match (len-1) + one new character = length len.
+    while (i + len <= s.length && s.substring(0, i).indexOf(s.substring(i, i + len)) !== -1) {
       len++;
     }
     complexity++;

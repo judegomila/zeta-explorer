@@ -9,7 +9,18 @@ import {
 } from '../math/supercritical.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
+
+// Shared helper: find nearest zeta zero to a given t value
+function findNearestZetaZero(tValue) {
+  let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
+  for (let i = 1; i < ZETA_ZEROS.length; i++) {
+    const d = Math.abs(tValue - ZETA_ZEROS[i]);
+    if (d < bestDist) { bestDist = d; bestIdx = i; }
+    if (ZETA_ZEROS[i] > tValue + 2) break;
+  }
+  return { bestIdx, bestDist };
+}
 
 const TABS = [
   { id: 'landscape', label: 'Extended Landscape' },
@@ -51,6 +62,7 @@ function ExtendedLandscapeTab() {
   const [sigmaMax, setSigmaMax] = useState(5);
 
   const scan = useMemo(() => zetaMagnitudeScan(tValue, [sigmaMin, sigmaMax], 300), [tValue, sigmaMin, sigmaMax]);
+  const nearest = useMemo(() => findNearestZetaZero(tValue), [tValue]);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -189,6 +201,40 @@ function ExtendedLandscapeTab() {
     ctx.fillStyle = 'rgba(16, 185, 129, 0.6)';
     if (sigmaMax > 1.5) ctx.fillText('Supercritical', xScale(Math.max(1.5, (1 + sigmaMax) / 2)), pad.t + 16);
 
+    // Legend for curves and reference lines
+    const legendItems = [
+      { color: '#06b6d4', dash: [], label: 'log₁₀|ζ(σ+it)|' },
+      { color: '#ef4444', dash: [], label: 'σ = ½ (critical line)' },
+      { color: '#f59e0b', dash: [6, 4], label: 'σ = 1 (convergence boundary)' },
+    ];
+    const lgX = pad.l + 6;
+    const lgY = pad.t + topH - legendItems.length * 16 - 10;
+    const lgW = 192;
+    const lgH = legendItems.length * 16 + 8;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(lgX, lgY, lgW, lgH, 4);
+    ctx.fill();
+    ctx.stroke();
+    legendItems.forEach((item, i) => {
+      const lx = lgX + 8;
+      const ly = lgY + 14 + i * 16;
+      ctx.strokeStyle = item.color;
+      ctx.lineWidth = 2;
+      ctx.setLineDash(item.dash);
+      ctx.beginPath();
+      ctx.moveTo(lx, ly);
+      ctx.lineTo(lx + 16, ly);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '10px Inter, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(item.label, lx + 22, ly + 3);
+    });
+
     // Axis ticks
     ctx.fillStyle = '#64748b';
     ctx.font = '10px "JetBrains Mono", monospace';
@@ -270,7 +316,7 @@ function ExtendedLandscapeTab() {
 
   return (
     <div>
-      <div className="tab-explainer">
+      <div className="tab-explainer accent-cyan">
         The Riemann zeta function <InlineMath tex="\\zeta(s) = \\sum n^{-s}" /> converges only for{' '}
         <InlineMath tex="\\sigma > 1" /> (the "supercritical" or gas phase). We extend it everywhere via analytic continuation:
         in the critical strip <InlineMath tex="0 < \\sigma < 1" /> using the Dirichlet eta function{' '}
@@ -283,30 +329,26 @@ function ExtendedLandscapeTab() {
       <div className="controls">
         <div className="control-group">
           <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
-          <input type="range" min="1" max="60" step="0.5" value={tValue}
+          <input type="range" min="0" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
-          {(() => {
-            let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
-            for (let i = 1; i < ZETA_ZEROS.length; i++) {
-              const d = Math.abs(tValue - ZETA_ZEROS[i]);
-              if (d < bestDist) { bestDist = d; bestIdx = i; }
-              if (ZETA_ZEROS[i] > tValue + 2) break;
-            }
-            return bestDist < 1 ? (
+          {tValue < 0.5 ? (
+            <span style={{ marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)', color: '#f59e0b' }}>
+              trivial zeros visible
+            </span>
+          ) : nearest.bestDist < 1 ? (
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: nearest.bestDist < 0.3 ? '#10b981' : '#64748b',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
-                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
-                onClick={() => setTValue(+ZETA_ZEROS[bestIdx].toFixed(1))}
+                title={`Click to snap t to γ${nearest.bestIdx + 1} = ${ZETA_ZEROS[nearest.bestIdx].toFixed(3)}`}
+                onClick={() => setTValue(+ZETA_ZEROS[nearest.bestIdx].toFixed(1))}
               >
-                {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+                {'\u2248 \u03B3'}{String(nearest.bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[nearest.bestIdx].toFixed(1)}
               </span>
-            ) : null;
-          })()}
+            ) : null}
         </div>
         <div className="control-group">
           <label><InlineMath tex="\\sigma" /> min</label>
@@ -334,8 +376,10 @@ function ThermodynamicsTab() {
   const svgRef = useRef();
   const [tValue, setTValue] = useState(14.13);
   const [numPrimes, setNumPrimes] = useState(12);
+  const [hoverPoint, setHoverPoint] = useState(null);
 
   const thermoData = useMemo(() => thermodynamicScan(tValue, [-1, 3], 120, numPrimes), [tValue, numPrimes]);
+  const nearest = useMemo(() => findNearestZetaZero(tValue), [tValue]);
 
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
@@ -439,6 +483,34 @@ function ThermodynamicsTab() {
       }
     });
 
+    // Hover interaction: vertical crosshair spanning all 4 charts
+    const w = width - margin.left - margin.right;
+    const xH = d3.scaleLinear().domain([-1, 3]).range([0, w]);
+    const fullH = quantities.length * (chartH + margin.top + margin.bottom + gap);
+    const hoverLine = svg.append('line')
+      .attr('x1', 0).attr('x2', 0).attr('y1', 0).attr('y2', fullH)
+      .attr('stroke', '#e2e8f0').attr('stroke-width', 0.5).attr('opacity', 0)
+      .attr('pointer-events', 'none');
+
+    svg.append('rect')
+      .attr('x', margin.left).attr('y', 0)
+      .attr('width', w).attr('height', fullH)
+      .attr('fill', 'transparent').attr('cursor', 'crosshair')
+      .on('mousemove', (event) => {
+        const [mx] = d3.pointer(event);
+        const sigma = xH.invert(mx - margin.left);
+        const closest = data.reduce((best, d) =>
+          Math.abs(d.sigma - sigma) < Math.abs(best.sigma - sigma) ? d : best
+        , data[0]);
+        const px = margin.left + xH(closest.sigma);
+        hoverLine.attr('x1', px).attr('x2', px).attr('opacity', 0.3);
+        setHoverPoint(closest);
+      })
+      .on('mouseleave', () => {
+        hoverLine.attr('opacity', 0);
+        setHoverPoint(null);
+      });
+
   }, [thermoData]);
 
   useEffect(() => { draw(); }, [draw]);
@@ -451,14 +523,19 @@ function ThermodynamicsTab() {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        In the primon gas (Julia 1990), each prime <InlineMath tex="p" /> is a quantum with energy{' '}
-        <InlineMath tex="\\log p" />, and <InlineMath tex="\\sigma" /> acts as inverse temperature <InlineMath tex="\\beta" />.
-        The partition function is <InlineMath tex="Z(\\beta) = \\zeta(\\beta)" />, giving free energy{' '}
-        <InlineMath tex="F = -T\\log\\zeta(\\beta)" />, entropy <InlineMath tex="S = -\\partial F/\\partial T" />, and pressure{' '}
-        <InlineMath tex="P = \\tfrac{1}{N}\\sum_p \\log|1/(1-p^{-s})|" /> (average log-contribution per prime oscillator).
-        At <InlineMath tex="\\sigma = 1" /> (Bost-Connes transition), the partition function diverges &mdash; a phase transition from
-        the ordered "condensed" phase to the disordered "gas" phase.
-        <strong> Look for:</strong> divergences at <InlineMath tex="\\sigma = 1" />; entropy changing sign; specific heat peak at the transition.
+        <p style={{ margin: '0 0 8px' }}>
+          In the primon gas (Julia 1990), each prime <InlineMath tex={"p"} /> is a quantum with
+          energy <InlineMath tex={"\\log p"} />, and <InlineMath tex={"\\sigma"} /> acts as inverse
+          temperature. The partition function <InlineMath tex={"Z(\\beta) = \\zeta(\\beta)"} /> gives:
+        </p>
+        <BlockMath tex={"F = -T\\log\\zeta(\\beta), \\qquad S = -\\frac{\\partial F}{\\partial T}, \\qquad P = \\frac{1}{N}\\sum_p \\log\\!\\left|\\frac{1}{1-p^{-s}}\\right|"} />
+        <p style={{ margin: '8px 0' }}>
+          At <InlineMath tex={"\\sigma = 1"} /> (Bost-Connes transition), the partition function diverges &mdash;
+          a phase transition from the ordered "condensed" phase to the disordered "gas" phase.
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Look for:</strong> divergences at <InlineMath tex={"\\sigma = 1"} />; entropy changing sign; specific heat peak at the transition.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">
@@ -466,27 +543,19 @@ function ThermodynamicsTab() {
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
-          {(() => {
-            let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
-            for (let i = 1; i < ZETA_ZEROS.length; i++) {
-              const d = Math.abs(tValue - ZETA_ZEROS[i]);
-              if (d < bestDist) { bestDist = d; bestIdx = i; }
-              if (ZETA_ZEROS[i] > tValue + 2) break;
-            }
-            return bestDist < 1 ? (
+          {nearest.bestDist < 1 ? (
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: nearest.bestDist < 0.3 ? '#10b981' : '#64748b',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
-                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
-                onClick={() => setTValue(+ZETA_ZEROS[bestIdx].toFixed(1))}
+                title={`Click to snap t to γ${nearest.bestIdx + 1} = ${ZETA_ZEROS[nearest.bestIdx].toFixed(3)}`}
+                onClick={() => setTValue(+ZETA_ZEROS[nearest.bestIdx].toFixed(1))}
               >
-                {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+                {'\u2248 \u03B3'}{String(nearest.bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[nearest.bestIdx].toFixed(1)}
               </span>
-            ) : null;
-          })()}
+            ) : null}
         </div>
         <div className="control-group">
           <label>Primes</label>
@@ -494,6 +563,20 @@ function ThermodynamicsTab() {
             onChange={e => setNumPrimes(+e.target.value)} />
           <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
+        {hoverPoint ? (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#06b6d4', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <span>σ={hoverPoint.sigma.toFixed(2)}</span>
+            <span style={{ color: '#3b82f6' }}>F={isFinite(hoverPoint.freeEnergy) ? hoverPoint.freeEnergy.toFixed(2) : '∞'}</span>
+            <span style={{ color: '#10b981' }}>S={isFinite(hoverPoint.entropy) ? hoverPoint.entropy.toFixed(2) : '∞'}</span>
+            <span style={{ color: '#f59e0b' }}>P={isFinite(hoverPoint.pressure) ? hoverPoint.pressure.toFixed(3) : '∞'}</span>
+            <span style={{ color: '#ef4444' }}>C={isFinite(hoverPoint.specificHeat) ? hoverPoint.specificHeat.toFixed(2) : '∞'}</span>
+            <span style={{ color: '#64748b' }}>[{hoverPoint.phase}]</span>
+          </div>
+        ) : (
+          <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', fontStyle: 'italic' }}>
+            Hover over charts to inspect values
+          </div>
+        )}
       </div>
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: 800 }} />
@@ -508,6 +591,11 @@ function HeatFlowTab() {
   const svgRef = useRef();
   const [tau, setTau] = useState(0);
   const [numZeros, setNumZeros] = useState(25);
+
+  // Memoize expensive heat flow computations so window resize only re-renders D3
+  // heatFlowZeros is O(numZeros²) and heatFlowScan calls riemannSiegelZ up to 5,050 times for τ > 0
+  const evolved = useMemo(() => heatFlowZeros(tau, numZeros), [tau, numZeros]);
+  const scanData = useMemo(() => heatFlowScan(tau, [10, 50], 100), [tau]);
 
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
@@ -525,7 +613,7 @@ function HeatFlowTab() {
     // ── Top: Zero positions under heat flow ──
     {
       const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
-      const evolved = heatFlowZeros(tau, numZeros);
+      // evolved is pre-computed via useMemo above
 
       const xMax = evolved.length > 0 ? Math.max(155, d3.max(evolved, d => d.gamma) * 1.1) : 155;
       const x = d3.scaleLinear().domain([0, xMax]).range([0, w]);
@@ -585,7 +673,7 @@ function HeatFlowTab() {
       const yOff = margin.top + topH + gap + 15;
       const g = svg.append('g').attr('transform', `translate(${margin.left},${yOff})`);
 
-      const scanData = heatFlowScan(tau, [10, 50], 100);
+      // scanData is pre-computed via useMemo above
       const x = d3.scaleLinear().domain([10, 50]).range([0, w]);
       const yMax = d3.max(scanData, d => Math.abs(d.value)) * 1.1 || 1;
       const y = d3.scaleLinear().domain([-yMax, yMax]).range([botH, 0]);
@@ -631,7 +719,7 @@ function HeatFlowTab() {
         .text('Hτ(t)');
     }
 
-  }, [tau, numZeros]);
+  }, [tau, evolved, scanData]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {
@@ -694,6 +782,7 @@ function EulerPhaseTab() {
   const [numPrimes, setNumPrimes] = useState(15);
 
   const data = useMemo(() => eulerProductPhaseAnalysis(tValue, [-1, 3], 150, numPrimes), [tValue, numPrimes]);
+  const nearest = useMemo(() => findNearestZetaZero(tValue), [tValue]);
 
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
@@ -766,6 +855,12 @@ function EulerPhaseTab() {
       svg.append('text').attr('x', margin.left).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('log \u220F|1/(1-p^{-s})| \u2014 Euler product log-magnitude');
+
+      // Y-axis label
+      svg.append('text')
+        .attr('transform', `translate(14, ${margin.top + topH / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('log |Euler product|');
     }
 
     // ── Bottom: Average factor magnitude ──
@@ -824,6 +919,12 @@ function EulerPhaseTab() {
       svg.append('text').attr('x', margin.left).attr('y', yOff - 6)
         .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
         .text('Average Euler factor magnitude \u2014 convergence vs divergence boundary');
+
+      // Y-axis label
+      svg.append('text')
+        .attr('transform', `translate(14, ${yOff + botH / 2}) rotate(-90)`)
+        .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+        .text('Avg |1/(1\u2212p\u207B\u02E2)|');
     }
 
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
@@ -855,27 +956,19 @@ function EulerPhaseTab() {
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
-          {(() => {
-            let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
-            for (let i = 1; i < ZETA_ZEROS.length; i++) {
-              const d = Math.abs(tValue - ZETA_ZEROS[i]);
-              if (d < bestDist) { bestDist = d; bestIdx = i; }
-              if (ZETA_ZEROS[i] > tValue + 2) break;
-            }
-            return bestDist < 1 ? (
+          {nearest.bestDist < 1 ? (
               <span
                 style={{
                   marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)',
-                  color: bestDist < 0.3 ? '#10b981' : '#64748b',
+                  color: nearest.bestDist < 0.3 ? '#10b981' : '#64748b',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
-                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
-                onClick={() => setTValue(+ZETA_ZEROS[bestIdx].toFixed(1))}
+                title={`Click to snap t to γ${nearest.bestIdx + 1} = ${ZETA_ZEROS[nearest.bestIdx].toFixed(3)}`}
+                onClick={() => setTValue(+ZETA_ZEROS[nearest.bestIdx].toFixed(1))}
               >
-                {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
+                {'\u2248 \u03B3'}{String(nearest.bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[nearest.bestIdx].toFixed(1)}
               </span>
-            ) : null;
-          })()}
+            ) : null}
         </div>
         <div className="control-group">
           <label>Primes</label>

@@ -47,11 +47,13 @@ export default function SimulatorPage() {
         <div className="two-col" style={{ marginTop: 16 }}>
           <div>
             <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-              <strong style={{ color: '#3b82f6' }}>Oscillator energy</strong>{' '}
-              <InlineMath tex="\\sum_p \\tfrac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1-s)|^2)" />:
-              each prime <InlineMath tex="p" /> contributes a pair of oscillators (direct and dual ladder stages).
-              The weight <InlineMath tex="\\log p" /> is the characteristic impedance of the <InlineMath tex="p" />-stage (with <InlineMath tex="L_p = \\log p, C_p = 1/\\log p" />, giving LC resonant frequency <InlineMath tex="\\omega_0 = 1" /> for all primes).
-              At <InlineMath tex="\\sigma = 1/2" /> the two stages are mirror images, and
+              <strong style={{ color: '#3b82f6' }}>Oscillator energy:</strong>
+            </p>
+            <BlockMath tex={"T = \\sum_p \\tfrac{1}{2}\\log p\\,\\bigl(|H_p(s)|^2 + |H_p(1-s)|^2\\bigr)"} />
+            <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+              Each prime <InlineMath tex={"p"} /> contributes a pair of oscillators (direct and dual).
+              The weight <InlineMath tex={"\\log p"} /> is the characteristic impedance.
+              At <InlineMath tex={"\\sigma = 1/2"} /> the two stages are mirror images, and
               their combined energy is minimized by symmetry.
             </p>
           </div>
@@ -174,8 +176,9 @@ export default function SimulatorPage() {
             <div style={{ color: '#ef4444', fontSize: 12, fontWeight: 700, marginBottom: 4 }}>Prime Sensitivity</div>
             <p style={{ color: '#94a3b8', fontSize: 11, lineHeight: 1.6 }}>
               Adding more primes sharpens the minimum. With N primes, the
-              curvature <InlineMath tex={"\\partial^2 \\mathcal{H}/\\partial\\sigma^2 \\sim \\sum_{p \\leq p_N} (\\log p)^2 / p"} />.
+              curvature grows as:
             </p>
+            <BlockMath tex={"\\frac{\\partial^2 \\mathcal{H}}{\\partial\\sigma^2} \\sim \\sum_{p \\leq p_N} \\frac{(\\log p)^2}{p}"} />
           </div>
         </div>
       </div>

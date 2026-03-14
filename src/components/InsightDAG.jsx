@@ -289,10 +289,12 @@ function Legend() {
     { label: 'Derives', stroke: '#64748b', dash: '' },
     { label: 'Composes', stroke: '#8b5cf6', dash: '', thick: true },
     { label: 'Inspires', stroke: '#06b6d4', dash: '6,4' },
+    { label: 'Analogous', stroke: '#ec4899', dash: '2,3' },
     { label: 'Requires', stroke: '#f97316', dash: '', arrow: true },
     { label: 'Proves', stroke: '#10b981', dash: '', thick: true },
     { label: 'Equivalent', stroke: '#ef4444', dash: '', double: true },
     { label: 'Supports', stroke: '#94a3b8', dash: '4,3' },
+    { label: 'Extends', stroke: '#a78bfa', dash: '' },
   ];
 
   const baseY = PADDING_TOP + LAYER_Y[4] + NODE_H / 2 + 30;
@@ -317,7 +319,7 @@ function Legend() {
         EDGES:
       </text>
       {edgeItems.map((item, i) => {
-        const lx = PADDING_X + 55 + i * 130;
+        const lx = PADDING_X + 55 + i * 108;
         return (
           <g key={item.label}>
             {item.double ? (

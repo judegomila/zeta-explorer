@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { losslessBridge } from '../math/oscillators.js';
 import { cMul, cDiv, cAdd, cSub, cAbs, cExp, cPow, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
 import ThermoBar from './ThermoBar.jsx';
@@ -396,13 +396,17 @@ export default function NyquistBodeViz() {
     <div>
       {mode === 'nyquist' && (
         <div className="tab-explainer accent-blue">
-          The Nyquist plot traces the loop transfer function{' '}
-          <InlineMath tex="L(s) = \\chi(s)\\zeta(1-s)/\\zeta(s)" /> in the complex plane as <InlineMath tex="t" /> varies.
-          By the Nyquist stability criterion, the number of clockwise encirclements of <InlineMath tex="-1" /> equals{' '}
-          <InlineMath tex="Z - P" /> (zeros minus poles in the right half-plane). RH says: on the critical line{' '}
-          (<InlineMath tex="\\sigma = \\tfrac{1}{2}" />), there are <strong>zero encirclements</strong> &mdash; the system
-          is marginally stable. Moving <InlineMath tex="\\sigma" /> off the critical line changes the winding number.
-          <strong> Look for:</strong> the curve not encircling <InlineMath tex="-1" /> at <InlineMath tex="\\sigma = 0.5" />.
+          <p style={{ margin: '0 0 8px' }}>
+            The Nyquist plot traces the loop transfer function in the complex plane as <InlineMath tex="t" /> varies:
+          </p>
+          <BlockMath tex="L(s) = \\chi(s)\\,\\frac{\\zeta(1-s)}{\\zeta(s)}" />
+          <p style={{ margin: '8px 0 0' }}>
+            By the Nyquist stability criterion, the number of clockwise encirclements of <InlineMath tex="-1" /> equals{' '}
+            <InlineMath tex="Z - P" /> (zeros minus poles in the right half-plane). RH says: on the critical line{' '}
+            (<InlineMath tex="\\sigma = \\tfrac{1}{2}" />), there are <strong>zero encirclements</strong> &mdash; the system
+            is marginally stable. Moving <InlineMath tex="\\sigma" /> off the critical line changes the winding number.
+            <strong> Look for:</strong> the curve not encircling <InlineMath tex="-1" /> at <InlineMath tex="\\sigma = 0.5" />.
+          </p>
         </div>
       )}
       {mode === 'bode' && (

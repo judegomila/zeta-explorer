@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as d3 from 'd3';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { getPrimes, primeFrequency } from '../math/primes.js';
 
 /**
@@ -265,11 +265,16 @@ export default function PrimeGapCouplingViz() {
     <div>
       {mode === 'coupling' && (
         <div className="tab-explainer accent-red">
-          Adjacent oscillator stages are coupled with strength{' '}
-          <InlineMath tex="Y_{n,n+1} \\propto 1/\\log(p_{n+1}/p_n)" />. Small prime gaps (especially twin primes, gap = 2)
-          produce <strong>strong coupling</strong> &mdash; energy flows easily between those stages, creating resonant cavities.
-          Large gaps weaken the coupling. The twin prime conjecture implies infinitely many strongly-coupled pairs.
-          <strong> Look for:</strong> red spikes at twin primes (3-5, 5-7, 11-13, ...); coupling dropping at large gaps.
+          <p style={{ margin: '0 0 8px' }}>
+            Adjacent oscillator stages are coupled with strength:
+          </p>
+          <BlockMath tex="Y_{n,n+1} \\propto \\frac{1}{\\log(p_{n+1}/p_n)}" />
+          <p style={{ margin: '8px 0 0' }}>
+            Small prime gaps (especially twin primes, gap = 2)
+            produce <strong>strong coupling</strong> &mdash; energy flows easily between those stages, creating resonant cavities.
+            Large gaps weaken the coupling. The twin prime conjecture implies infinitely many strongly-coupled pairs.
+            <strong> Look for:</strong> red spikes at twin primes (3-5, 5-7, 11-13, ...); coupling dropping at large gaps.
+          </p>
         </div>
       )}
       {mode === 'gap' && (

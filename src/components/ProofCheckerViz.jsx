@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import {
   verifyFunctionalEquation, verifyBridgeUnitarity, verifyEulerProductConvergence,
   testHamiltonianMinimum, testImpedanceMatching, testEntropyMaximum,
@@ -108,11 +108,14 @@ function IdentityTestsTab({ numPrimes }) {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        Numerical verification of three mathematical identities used by the ZPO model:
-        the functional equation <InlineMath tex="\zeta(s) = \chi(s)\,\zeta(1-s)" />,
-        bridge unitarity <InlineMath tex="|\chi(\tfrac{1}{2}+it)| = 1" />, and Euler product
-        convergence for <InlineMath tex="\text{Re}(s) > 1" />. Click any row to expand details.
-        <strong> These are known identities</strong> &mdash; passing confirms the numerics are correct, not that RH is proven.
+        <p style={{ margin: '0 0 8px' }}>
+          Numerical verification of three mathematical identities used by the ZPO model:
+        </p>
+        <BlockMath tex="\\zeta(s) = \\chi(s)\\,\\zeta(1-s), \\qquad |\\chi(\\tfrac{1}{2}+it)| = 1, \\qquad \\prod_p (1 - p^{-s})^{-1} \\;\\text{for } \\operatorname{Re}(s) > 1" />
+        <p style={{ margin: '8px 0 0' }}>
+          Click any row to expand details.
+          <strong> These are known identities</strong> &mdash; passing confirms the numerics are correct, not that RH is proven.
+        </p>
       </div>
       <table style={{
         width: '100%', borderCollapse: 'collapse', fontSize: 12,

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { getPrimes } from '../math/primes.js';
 import { cAbs, ZETA_ZEROS } from '../math/zeta.js';
@@ -887,11 +887,14 @@ export default function TwistorViz() {
         {tab === 'correspondence' && (
           <>
             <div className="tab-explainer accent-blue">
-              <strong>Twistor Correspondence:</strong> The s-plane (left) maps to twistor space (right).
-              The twistor <InlineMath tex="Z^{\\alpha} = (\\omega^A, \\pi_{A'})" /> (blue) encodes the direct ladder,
-              the dual twistor <InlineMath tex="W_{\\alpha}" /> (gold) encodes the dual ladder.
-              The intertwiner arc shows whether they are incident (<InlineMath tex="Z \\cdot W = 0" />).
-              At <InlineMath tex="\\sigma = 0.5" />, Z and W are related by the lossless bridge.
+              <p style={{ margin: '0 0 8px' }}>
+                <strong>Twistor Correspondence:</strong> The s-plane (left) maps to twistor space (right):
+              </p>
+              <BlockMath tex="Z^{\\alpha} = (\\omega^A,\\, \\pi_{A'}) \\quad \\text{(direct)}, \\qquad W_{\\alpha} \\quad \\text{(dual)}, \\qquad Z \\cdot W = 0 \\;\\Leftrightarrow\\; \\text{incident}" />
+              <p style={{ margin: '8px 0 0' }}>
+                The twistor (blue) encodes the direct ladder, the dual twistor (gold) encodes the dual ladder.
+                At <InlineMath tex="\\sigma = 0.5" />, Z and W are related by the lossless bridge.
+              </p>
             </div>
             <CorrespondenceTab sigma={sigma} t={t} numPrimes={numPrimes} />
           </>

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { getPrimes, primeFrequency } from '../math/primes.js';
 import { oscillatorStage, directLadder, dualLadder, losslessBridge, systemHamiltonian, accuracyMetrics } from '../math/oscillators.js';
@@ -1649,9 +1649,14 @@ export default function WaveSimViz() {
         {tab === 'delay' && (
           <>
             <div className="tab-explainer accent-orange">
-              <strong>Phase & Delay:</strong> Group delay <InlineMath tex={"\\tau_p = -\\partial\\phi_p/\\partial t"} /> for each prime oscillator stage.
-              Blue bars = direct ladder, gold = dual. At <InlineMath tex={"\\sigma = 0.5"} />, delays are symmetric.
-              Dashed lines show cumulative delay building through the cascade.
+              <p style={{ margin: '0 0 8px' }}>
+                <strong>Phase & Delay:</strong> Group delay for each prime oscillator stage:
+              </p>
+              <BlockMath tex={"\\tau_p = -\\frac{\\partial \\phi_p}{\\partial t}"} />
+              <p style={{ margin: '8px 0 0' }}>
+                Blue bars = direct ladder, gold = dual. At <InlineMath tex={"\\sigma = 0.5"} />, delays are symmetric.
+                Dashed lines show cumulative delay building through the cascade.
+              </p>
             </div>
             <PhaseDelayTab sigma={sigma} t={t} numPrimes={numPrimes} />
           </>

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
-import { InlineMath } from './KaTeXMath.jsx';
+import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import * as d3 from 'd3';
 import { getPrimes, primeFrequency } from '../math/primes.js';
 import { directLadder, dualLadder, losslessBridge } from '../math/oscillators.js';
@@ -265,14 +265,26 @@ export default function OscillatorChainViz() {
   return (
     <div>
       <div className="tab-explainer accent-blue">
-        The Euler product <InlineMath tex="\\zeta(s) = \\prod_p (1-p^{-s})^{-1}" /> is realized as
-        a cascade of oscillator stages. Each prime <InlineMath tex="p" /> contributes an LC stage with inductance{' '}
-        <InlineMath tex="L_p = \\log p" /> and capacitance <InlineMath tex="C_p = 1/\\log p" /> (from <InlineMath tex="p^{-s} = e^{-s\\log p}" />),
-        giving a normalized resonant frequency <InlineMath tex="\\omega_0 = 1/\\sqrt{L_p C_p} = 1" /> for every prime. The blue <strong>direct ladder</strong> computes <InlineMath tex="\\zeta(s)" />;
-        the gold <strong>dual ladder</strong> computes <InlineMath tex="\\zeta(1-s)" />. The purple <strong>bridge</strong> implements
-        the functional equation <InlineMath tex="\\zeta(s) = \\chi(s)\\zeta(1-s)" />. At <InlineMath tex="\\sigma = 0.5" />,
-        direct and dual are <em>conjugate-matched</em> (equal magnitudes, opposite phases &mdash; since <InlineMath tex="1-s = \\bar{s}" /> and <InlineMath tex="\\zeta(\\bar{s}) = \\overline{\\zeta(s)}" />) and the bridge is lossless (<InlineMath tex="|\\chi|=1" />).
-        <strong> Try:</strong> drag <InlineMath tex="\\sigma" /> away from 0.5 and watch the bridge turn lossy.
+        <p style={{ margin: '0 0 8px' }}>
+          The Euler product is realized as a cascade of oscillator stages:
+        </p>
+        <BlockMath tex={"\\zeta(s) = \\prod_p \\frac{1}{1-p^{-s}}, \\qquad L_p = \\log p,\\; C_p = \\frac{1}{\\log p},\\; \\omega_0 = \\frac{1}{\\sqrt{L_p C_p}} = 1"} />
+        <p style={{ margin: '8px 0' }}>
+          Each prime <InlineMath tex={"p"} /> contributes an LC stage
+          (from <InlineMath tex={"p^{-s} = e^{-s\\log p}"} />), all with resonant
+          frequency <InlineMath tex={"\\omega_0 = 1"} />.
+          The blue <strong>direct ladder</strong> computes <InlineMath tex={"\\zeta(s)"} />;
+          the gold <strong>dual ladder</strong> computes <InlineMath tex={"\\zeta(1-s)"} />.
+          The purple <strong>bridge</strong> implements the functional equation:
+        </p>
+        <BlockMath tex={"\\zeta(s) = \\chi(s)\\,\\zeta(1-s)"} />
+        <p style={{ margin: '8px 0' }}>
+          At <InlineMath tex={"\\sigma = 0.5"} />, direct and dual are <em>conjugate-matched</em> (since <InlineMath tex={"1-s = \\bar{s}"} /> and <InlineMath tex={"\\zeta(\\bar{s}) = \\overline{\\zeta(s)}"} />) and the bridge is
+          lossless (<InlineMath tex={"|\\chi|=1"} />).
+        </p>
+        <p style={{ margin: '4px 0 0' }}>
+          <strong>Try:</strong> drag <InlineMath tex={"\\sigma"} /> away from 0.5 and watch the bridge turn lossy.
+        </p>
       </div>
       <div className="controls">
         <div className="control-group">

@@ -1231,3 +1231,57 @@ input[type="range"]:disabled {
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ─── Paper Upload ──────────────────────────────────────────────────────────── */
+.paper-upload-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.latex-textarea {
+  width: 100%;
+  min-height: 600px;
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: #7dd3fc;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  padding: 16px;
+  resize: vertical;
+  tab-size: 2;
+}
+
+.latex-textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+}
+
+.latex-textarea::placeholder {
+  color: #334155;
+}
+
+.paper-preview-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+.paper-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .paper-upload-grid { grid-template-columns: 1fr; }
+  .latex-textarea { min-height: 300px; }
+  .paper-preview-panel { max-height: 500px; }
+}

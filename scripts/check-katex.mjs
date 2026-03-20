@@ -19,11 +19,13 @@ function walkDir(dir) {
 function extractTexStrings(filePath) {
   const src = fs.readFileSync(filePath, 'utf8');
   const results = [];
+  let m;
 
   // Pattern 1: tex="..." (JSX string attribute - backslashes are literal)
   const re1 = /tex="([^"]+)"/g;
-  let m;
   while ((m = re1.exec(src)) !== null) {
+    // Skip if preceded by { which means it's tex={"..."} (handled by pattern 2)
+    if (src[m.index + 4] === '{') continue;
     const line = src.substring(0, m.index).split('\n').length;
     results.push({ line, tex: m[1], type: 'jsx-attr' });
   }
@@ -32,12 +34,11 @@ function extractTexStrings(filePath) {
   const re2 = /tex=\{"([^"]+)"\}/g;
   while ((m = re2.exec(src)) !== null) {
     const line = src.substring(0, m.index).split('\n').length;
-    // Evaluate the JS string to get actual content
     let tex;
     try {
       tex = JSON.parse('"' + m[1] + '"');
     } catch {
-      tex = m[1]; // fallback
+      tex = m[1];
     }
     results.push({ line, tex, type: 'js-expr' });
   }
@@ -47,6 +48,74 @@ function extractTexStrings(filePath) {
   while ((m = re3.exec(src)) !== null) {
     const line = src.substring(0, m.index).split('\n').length;
     results.push({ line, tex: m[1], type: 'template' });
+  }
+
+  // Pattern 4: tex={...multiline concat with +...} - concatenated strings
+  const re4 = /tex=\{(\s*(?:'[^']*'\s*\+?\s*)+)\}/gs;
+  while ((m = re4.exec(src)) !== null) {
+    const line = src.substring(0, m.index).split('\n').length;
+    // Combine the string parts
+    const parts = m[1].match(/'([^']*)'/g);
+    if (parts) {
+      let combined = parts.map(p => p.slice(1, -1)).join('');
+      let tex;
+      try {
+        tex = JSON.parse('"' + combined.replace(/"/g, '\\"') + '"');
+      } catch {
+        tex = combined;
+      }
+      results.push({ line, tex, type: 'concat' });
+    }
+  }
+
+  // Pattern 5: $...$ and $$...$$ inside JS string literals (for data files)
+  const dollarRegex = /\$\$([^$]+?)\$\$|\$([^$\n]+?)\$/g;
+  while ((m = dollarRegex.exec(src)) !== null) {
+    const tex = m[1] || m[2];
+    const isDisplay = !!m[1];
+    const line = src.substring(0, m.index).split('\n').length;
+
+    // Only process if inside a string context (rough heuristic)
+    const lineText = src.split('\n')[line - 1] || '';
+    if (!lineText.includes("'") && !lineText.includes('"') && !lineText.includes('`')) continue;
+    // Skip if it looks like it's in a comment
+    const trimmed = lineText.trimStart();
+    if (trimmed.startsWith('//') || trimmed.startsWith('*')) continue;
+
+    let processed;
+    try {
+      processed = JSON.parse('"' + tex.replace(/"/g, '\\"') + '"');
+    } catch {
+      processed = tex;
+    }
+
+    results.push({ line, tex: processed, type: isDisplay ? 'dollar-display' : 'dollar-inline' });
+  }
+
+  // Pattern 6: formula: '...' in concept arrays
+  const formulaRegex = /formula:\s*'([^']+)'/g;
+  while ((m = formulaRegex.exec(src)) !== null) {
+    const line = src.substring(0, m.index).split('\n').length;
+    let tex;
+    try {
+      tex = JSON.parse('"' + m[1].replace(/"/g, '\\"') + '"');
+    } catch {
+      tex = m[1];
+    }
+    results.push({ line, tex, type: 'formula-prop' });
+  }
+
+  // Pattern 7: symbol: '...' and sym: '...'
+  const symRegex = /(?:symbol|sym):\s*'([^']+)'/g;
+  while ((m = symRegex.exec(src)) !== null) {
+    const line = src.substring(0, m.index).split('\n').length;
+    let tex;
+    try {
+      tex = JSON.parse('"' + m[1].replace(/"/g, '\\"') + '"');
+    } catch {
+      tex = m[1];
+    }
+    results.push({ line, tex, type: 'symbol-prop' });
   }
 
   return results;
@@ -59,19 +128,35 @@ const errorsByFile = {};
 for (const file of allFiles) {
   const texStrings = extractTexStrings(file);
   for (const { line, tex, type } of texStrings) {
+    // Try both display modes
+    let hasError = false;
+    let errorMsg = '';
+
+    const displayMode = type === 'dollar-display' || type === 'formula-prop' ||
+                        type.includes('block') || tex.includes('\\begin{');
     try {
-      katex.renderToString(tex, { throwOnError: true, displayMode: false });
+      katex.renderToString(tex, { throwOnError: true, displayMode });
     } catch (e) {
+      // Try the other mode
       try {
-        katex.renderToString(tex, { throwOnError: true, displayMode: true });
+        katex.renderToString(tex, { throwOnError: true, displayMode: !displayMode });
       } catch (e2) {
-        const rel = path.relative(path.join(__dirname, '..'), file);
-        if (!errorsByFile[rel]) errorsByFile[rel] = [];
+        hasError = true;
+        errorMsg = e2.message;
+      }
+    }
+
+    if (hasError) {
+      const rel = path.relative(path.join(__dirname, '..'), file);
+      if (!errorsByFile[rel]) errorsByFile[rel] = [];
+      // Deduplicate
+      const existing = errorsByFile[rel].find(e => e.tex === tex.substring(0, 100));
+      if (!existing) {
         errorsByFile[rel].push({
           line,
           type,
-          error: e2.message.substring(0, 80),
-          tex: tex.substring(0, 80),
+          error: errorMsg.substring(0, 120),
+          tex: tex.substring(0, 100),
         });
         totalErrors++;
       }
@@ -79,7 +164,7 @@ for (const file of allFiles) {
   }
 }
 
-for (const [file, errors] of Object.entries(errorsByFile)) {
+for (const [file, errors] of Object.entries(errorsByFile).sort()) {
   console.log(`\n=== ${file} (${errors.length} errors) ===`);
   for (const e of errors) {
     console.log(`  L${e.line} [${e.type}]: ${e.error}`);

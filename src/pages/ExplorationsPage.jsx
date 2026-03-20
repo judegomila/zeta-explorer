@@ -28,6 +28,25 @@ const statusLabels = {
   'queued': { label: 'Queued', cls: 'status-queued' },
 };
 
+function truncateMathSafe(text, maxLen) {
+  if (!text || text.length <= maxLen) return text;
+  let truncated = text.slice(0, maxLen);
+  // Check for unclosed $$ (display math) - count $$ pairs
+  const ddMatches = truncated.match(/\$\$/g) || [];
+  if (ddMatches.length % 2 !== 0) {
+    const lastDD = truncated.lastIndexOf('$$');
+    truncated = truncated.slice(0, lastDD);
+  }
+  // Check for unclosed $ (inline math) after removing $$
+  const withoutDD = truncated.replace(/\$\$/g, '');
+  const singleCount = (withoutDD.match(/\$/g) || []).length;
+  if (singleCount % 2 !== 0) {
+    const lastDollar = truncated.lastIndexOf('$');
+    truncated = truncated.slice(0, lastDollar);
+  }
+  return truncated + '...';
+}
+
 export default function ExplorationsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [expandedId, setExpandedId] = useState(null);
@@ -220,7 +239,7 @@ export default function ExplorationsPage() {
 
             {!isExpanded && (
               <p style={{ marginTop: 8, fontSize: 13, color: '#64748b' }}>
-                {exp.summary || exp.content.slice(0, 180).replace(/\$[^$]*\$/g, '[math]') + '...'}
+                <MathText>{exp.summary || truncateMathSafe(exp.content, 250)}</MathText>
               </p>
             )}
           </div>

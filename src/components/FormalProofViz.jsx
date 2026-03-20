@@ -929,7 +929,7 @@ export default function FormalProofViz() {
       {tab === 2 && (
         <div className="tab-explainer accent-yellow">
           <strong>Evidence:</strong> Three diagnostic charts showing computational evidence for the ZPO model:
-          Li coefficient positivity, Hamiltonian minimization at <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+          Li coefficient positivity, Hamiltonian minimization at <InlineMath tex={"\sigma = \tfrac{1}{2}"} />,
           and zero confinement to the critical line. These support but do not prove the formal claims.
           <strong> Look for:</strong> how the evidence strengthens as you increase the number of primes and zeros.
         </div>

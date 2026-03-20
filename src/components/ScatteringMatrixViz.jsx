@@ -357,22 +357,22 @@ export default function ScatteringMatrixViz() {
     <div>
       {mode === 'magnitude' && (
         <div className="tab-explainer accent-purple">
-          The bridge factor magnitude <InlineMath tex="|\\chi(\\sigma+it)|" /> measures whether the connection between
-          direct and dual ladders amplifies or attenuates. On the critical line <InlineMath tex="\\sigma = \\tfrac{1}{2}" />,{' '}
-          <InlineMath tex="|\\chi| = 1" /> exactly (lossless/unitary). For <InlineMath tex="\\sigma > \\tfrac{1}{2}" />,{' '}
-          <InlineMath tex="|\\chi| < 1" /> (attenuating); for <InlineMath tex="\\sigma < \\tfrac{1}{2}" />,{' '}
-          <InlineMath tex="|\\chi| > 1" /> (amplifying). The product <InlineMath tex="|\\chi(s)\\chi(1-s)| = 1" /> always.
-          <strong> Look for:</strong> the curve crossing 1.0 exactly at <InlineMath tex="\\sigma = 0.5" />.
+          The bridge factor magnitude <InlineMath tex={"|\\chi(\\sigma+it)|"} /> measures whether the connection between
+          direct and dual ladders amplifies or attenuates. On the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />,{' '}
+          <InlineMath tex={"|\\chi| = 1"} /> exactly (lossless/unitary). For <InlineMath tex={"\\sigma > \\tfrac{1}{2}"} />,{' '}
+          <InlineMath tex={"|\\chi| < 1"} /> (attenuating); for <InlineMath tex={"\\sigma < \\tfrac{1}{2}"} />,{' '}
+          <InlineMath tex={"|\\chi| > 1"} /> (amplifying). The product <InlineMath tex={"|\\chi(s)\\chi(1-s)| = 1"} /> always.
+          <strong> Look for:</strong> the curve crossing 1.0 exactly at <InlineMath tex={"\\sigma = 0.5"} />.
         </div>
       )}
       {mode === 'reflection' && (
         <div className="tab-explainer accent-green">
-          The reflection coefficient <InlineMath tex="\\Gamma = (1 - |\\chi(s)|)\\,/\\,(1 + |\\chi(s)|)" /> measures how
-          much energy is reflected back rather than transmitted through the bridge. At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />,{' '}
-          <InlineMath tex="\\Gamma = 0" /> (perfect transmission, conjugate match). For <InlineMath tex="\\sigma > \\tfrac{1}{2}" />,{' '}
-          <InlineMath tex="\\Gamma > 0" /> (attenuating); for <InlineMath tex="\\sigma < \\tfrac{1}{2}" />,{' '}
-          <InlineMath tex="\\Gamma < 0" /> (amplifying, |χ| {'>'} 1). This sign distinguishes passive from active regions.
-          <strong> Look for:</strong> <InlineMath tex="\\Gamma" /> crossing zero at <InlineMath tex="\\sigma = 0.5" />.
+          The reflection coefficient <InlineMath tex={"\\Gamma = (1 - |\\chi(s)|)\\,/\\,(1 + |\\chi(s)|)"} /> measures how
+          much energy is reflected back rather than transmitted through the bridge. At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />,{' '}
+          <InlineMath tex={"\\Gamma = 0"} /> (perfect transmission, conjugate match). For <InlineMath tex={"\\sigma > \\tfrac{1}{2}"} />,{' '}
+          <InlineMath tex={"\\Gamma > 0"} /> (attenuating); for <InlineMath tex={"\\sigma < \\tfrac{1}{2}"} />,{' '}
+          <InlineMath tex={"\\Gamma < 0"} /> (amplifying, |χ| {'>'} 1). This sign distinguishes passive from active regions.
+          <strong> Look for:</strong> <InlineMath tex={"\\Gamma"} /> crossing zero at <InlineMath tex={"\\sigma = 0.5"} />.
         </div>
       )}
       {mode === 'phase' && (
@@ -402,7 +402,7 @@ export default function ScatteringMatrixViz() {
           </select>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
+          <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>

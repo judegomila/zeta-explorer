@@ -317,18 +317,18 @@ function ExtendedLandscapeTab() {
   return (
     <div>
       <div className="tab-explainer accent-cyan">
-        The Riemann zeta function <InlineMath tex="\\zeta(s) = \\sum n^{-s}" /> converges only for{' '}
-        <InlineMath tex="\\sigma > 1" /> (the "supercritical" or gas phase). We extend it everywhere via analytic continuation:
-        in the critical strip <InlineMath tex="0 < \\sigma < 1" /> using the Dirichlet eta function{' '}
-        <InlineMath tex="\\eta(s) = (1-2^{1-s})\\zeta(s)" />, and for <InlineMath tex="\\sigma < 0" /> via the functional equation{' '}
-        <InlineMath tex="\\zeta(s) = \\chi(s)\\zeta(1-s)" />. The top panel shows <InlineMath tex="\\log|\\zeta|" /> as a 1D slice;
-        the bottom shows <InlineMath tex="\\arg\\zeta" /> — the phase (argument) — across the same <InlineMath tex="\\sigma" /> range.
-        <strong> Look for:</strong> the Bost-Connes boundary at <InlineMath tex="\\sigma = 1" /> where the Euler product transitions from convergent to divergent,
+        The Riemann zeta function <InlineMath tex={"\\zeta(s) = \\sum n^{-s}"} /> converges only for{' '}
+        <InlineMath tex={"\\sigma > 1"} /> (the "supercritical" or gas phase). We extend it everywhere via analytic continuation:
+        in the critical strip <InlineMath tex={"0 < \\sigma < 1"} /> using the Dirichlet eta function{' '}
+        <InlineMath tex={"\\eta(s) = (1-2^{1-s})\\zeta(s)"} />, and for <InlineMath tex={"\\sigma < 0"} /> via the functional equation{' '}
+        <InlineMath tex={"\\zeta(s) = \\chi(s)\\zeta(1-s)"} />. The top panel shows <InlineMath tex={"\\log|\\zeta|"} /> as a 1D slice;
+        the bottom shows <InlineMath tex={"\\arg\\zeta"} /> — the phase (argument) — across the same <InlineMath tex={"\\sigma"} /> range.
+        <strong> Look for:</strong> the Bost-Connes boundary at <InlineMath tex={"\\sigma = 1"} /> where the Euler product transitions from convergent to divergent,
         and the trivial zeros at negative even integers.
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
+          <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="0" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
@@ -351,13 +351,13 @@ function ExtendedLandscapeTab() {
             ) : null}
         </div>
         <div className="control-group">
-          <label><InlineMath tex="\\sigma" /> min</label>
+          <label><InlineMath tex={"\\sigma"} /> min</label>
           <input type="range" min="-8" max="0" step="0.5" value={sigmaMin}
             onChange={e => setSigmaMin(+e.target.value)} />
           <span className="control-value">{sigmaMin}</span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="\\sigma" /> max</label>
+          <label><InlineMath tex={"\\sigma"} /> max</label>
           <input type="range" min="2" max="10" step="0.5" value={sigmaMax}
             onChange={e => setSigmaMax(+e.target.value)} />
           <span className="control-value">{sigmaMax}</span>
@@ -539,7 +539,7 @@ function ThermodynamicsTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
+          <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
@@ -731,19 +731,19 @@ function HeatFlowTab() {
   return (
     <div>
       <div className="tab-explainer accent-orange">
-        The Xi function <InlineMath tex="\\Xi(t)" /> satisfies the heat equation{' '}
-        <InlineMath tex="\\partial H_{\\tau}/\\partial\\tau = \\partial^2 H_{\\tau}/\\partial t^2" />.
-        Forward heat flow (<InlineMath tex="\\tau > 0" />) smooths the function, keeping all zeros real.
-        Backward flow (<InlineMath tex="\\tau < 0" />) is inverse diffusion &mdash; zeros scatter off the real axis.
-        The de Bruijn-Newman constant <InlineMath tex="\\Lambda" /> is the infimum of{' '}
-        <InlineMath tex="\\tau" /> such that <InlineMath tex="H_{\\tau}" /> has only real zeros.
-        Rodgers-Tao (2020) proved <InlineMath tex="\\Lambda \\geq 0" />: the zeros are exactly at the threshold &mdash; any
-        backward flow (<InlineMath tex="\\tau < 0" />) can destroy RH, while forward flow preserves it.
-        <strong> Look for:</strong> zeros aligned at <InlineMath tex="\\tau = 0" /> then scattering as <InlineMath tex="\\tau" /> goes negative.
+        The Xi function <InlineMath tex={"\\Xi(t)"} /> satisfies the heat equation{' '}
+        <InlineMath tex={"\\partial H_{\\tau}/\\partial\\tau = \\partial^2 H_{\\tau}/\\partial t^2"} />.
+        Forward heat flow (<InlineMath tex={"\\tau > 0"} />) smooths the function, keeping all zeros real.
+        Backward flow (<InlineMath tex={"\\tau < 0"} />) is inverse diffusion &mdash; zeros scatter off the real axis.
+        The de Bruijn-Newman constant <InlineMath tex={"\\Lambda"} /> is the infimum of{' '}
+        <InlineMath tex={"\\tau"} /> such that <InlineMath tex={"H_{\\tau}"} /> has only real zeros.
+        Rodgers-Tao (2020) proved <InlineMath tex={"\\Lambda \\geq 0"} />: the zeros are exactly at the threshold &mdash; any
+        backward flow (<InlineMath tex={"\\tau < 0"} />) can destroy RH, while forward flow preserves it.
+        <strong> Look for:</strong> zeros aligned at <InlineMath tex={"\\tau = 0"} /> then scattering as <InlineMath tex={"\\tau"} /> goes negative.
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\\tau" /> (heat parameter)</label>
+          <label><InlineMath tex={"\\tau"} /> (heat parameter)</label>
           <input type="range" min="-0.5" max="0.5" step="0.01" value={tau}
             onChange={e => setTau(+e.target.value)} />
           <span className="control-value" style={{
@@ -942,17 +942,17 @@ function EulerPhaseTab() {
   return (
     <div>
       <div className="tab-explainer accent-red">
-        The Euler product <InlineMath tex="\\zeta(s) = \\prod_p (1-p^{-s})^{-1}" /> is a cascade
+        The Euler product <InlineMath tex={"\\zeta(s) = \\prod_p (1-p^{-s})^{-1}"} /> is a cascade
         of independent prime oscillator stages. Each factor <InlineMath tex="(1-p^{-s})^{-1}" /> has magnitude{' '}
         <InlineMath tex="> 1" />, so the infinite product converges only when these factors approach 1 fast enough &mdash;
-        precisely when <InlineMath tex="\\sigma > 1" />. At <InlineMath tex="\\sigma = 1" />, the product diverges (the harmonic series),
+        precisely when <InlineMath tex={"\\sigma > 1"} />. At <InlineMath tex={"\\sigma = 1"} />, the product diverges (the harmonic series),
         marking the Bost-Connes phase transition. Above: primes are independent oscillators (gas). Below: they
         interact collectively (condensate). The average factor magnitude measures the "coupling strength."
-        <strong> Look for:</strong> the sharp transition from convergent (green) to divergent (red) at <InlineMath tex="\\sigma = 1" />.
+        <strong> Look for:</strong> the sharp transition from convergent (green) to divergent (red) at <InlineMath tex={"\\sigma = 1"} />.
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
+          <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>

@@ -236,9 +236,9 @@ function RegularizationTab({ numPrimes, t }) {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        The raw Euler product <InlineMath tex="\prod_p (1-p^{-s})^{-1}" /> diverges for{' '}
-        <InlineMath tex="\sigma \leq 1" />. The regularized product uses the eta relation{' '}
-        <InlineMath tex="\zeta(s) = \eta(s)/(1-2^{1-s})" /> to extend analytically into the
+        The raw Euler product <InlineMath tex={"\prod_p (1-p^{-s})^{-1}"} /> diverges for{' '}
+        <InlineMath tex={"\sigma \leq 1"} />. The regularized product uses the eta relation{' '}
+        <InlineMath tex={"\zeta(s) = \eta(s)/(1-2^{1-s})"} /> to extend analytically into the
         critical strip. Compare the red (raw, diverging) vs green (regularized, converging) curves.
       </div>
       <canvas
@@ -734,7 +734,7 @@ function DarlingtonTab({ numPrimes, t }) {
         <InlineMath tex="|S_{11}|^2 + |S_{21}|^2 = 1" /> on the critical line.
         Orange shows reflection <InlineMath tex="|S_{11}|" />, cyan shows transmission{' '}
         <InlineMath tex="|S_{21}|" />, and the red curve shows the unitarity error{' '}
-        <InlineMath tex="|S^\dagger S - I|" /> (should be near zero at{' '}
+        <InlineMath tex={"|S^\dagger S - I|"} /> (should be near zero at{' '}
         <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />).
       </div>
       <canvas
@@ -1003,7 +1003,7 @@ export default function GapClosingViz() {
           <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t = \operatorname{Im}(s)" /></label>
+          <label><InlineMath tex={"t = \operatorname{Im}(s)"} /></label>
           <input type="range" min="0" max="9" step="1" value={tIdx}
             onChange={e => setTIdx(+e.target.value)} />
           <span className="control-value" style={{ fontFamily: 'var(--font-mono)', fontSize: 12 }}>

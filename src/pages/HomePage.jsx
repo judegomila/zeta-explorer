@@ -361,7 +361,7 @@ function LadderChainDiagram() {
 
       {/* Bottom label */}
       <text x={totalW / 2} y="182" textAnchor="middle" fill="#10b981" fontSize="11" fontFamily="var(--font-mono)">
-        {"\u03b6(s) = \u220f H_p(s) = \u220f 1/(1 \u2212 p^\u207b\u02e2)   (cascade = product)"}
+        {"\u03b6(s) = \u220f H_p(s) = \u220f 1/(1 \u2212 p\u207b\u02e2)   (cascade = product)"}
       </text>
 
       {/* Convergence note */}

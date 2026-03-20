@@ -287,7 +287,7 @@ export default function TwistorDiagram3D() {
     <div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\\sigma" /></label>
+          <label><InlineMath tex={"\\sigma"} /></label>
           <input type="range" min="0.05" max="0.95" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)} style={{ accentColor: sigmaColor }} />
           <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
@@ -337,16 +337,16 @@ export default function TwistorDiagram3D() {
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13, color: '#94a3b8' }}>
         <p style={{ marginBottom: 6 }}>
           <strong style={{ color: '#3b82f6' }}>Blue (Z<sup>α</sup>)</strong>: Direct twistor encoding{' '}
-          <InlineMath tex="\\zeta(s)" />.{' '}
+          <InlineMath tex={"\\zeta(s)"} />.{' '}
           <strong style={{ color: '#f59e0b' }}>Gold (W<sub>α</sub>)</strong>: Dual twistor encoding{' '}
-          <InlineMath tex="\\zeta(1-s)" />.{' '}
-          Arrows show spinor components <InlineMath tex="\\omega^A" /> and <InlineMath tex="\\pi_{A'}" />.
+          <InlineMath tex={"\\zeta(1-s)"} />.{' '}
+          Arrows show spinor components <InlineMath tex={"\\omega^A"} /> and <InlineMath tex={"\\pi_{A'}"} />.
         </p>
         <p>
           The <strong style={{ color: '#10b981' }}>green arc</strong> is the intertwiner (bridge){' '}
-          <InlineMath tex="\\chi(s)" />.
-          At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, the incidence relation{' '}
-          <InlineMath tex="Z^{\\alpha} W_{\\alpha} = 0" /> is satisfied (bridge is lossless, <InlineMath tex="|\\chi|=1" />).
+          <InlineMath tex={"\\chi(s)"} />.
+          At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, the incidence relation{' '}
+          <InlineMath tex={"Z^{\\alpha} W_{\\alpha} = 0"} /> is satisfied (bridge is lossless, <InlineMath tex={"|\\chi|=1"} />).
           Red dots along the <InlineMath tex="t" />-axis mark known zeta zeros.
         </p>
       </div>

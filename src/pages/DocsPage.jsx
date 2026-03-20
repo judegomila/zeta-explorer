@@ -58,13 +58,13 @@ export default function DocsPage() {
           ZPO Explorer is an interactive mathematical visualization app that explores the Riemann zeta function
           through the lens of a <strong>Zeta Prime Oscillator (ZPO)</strong> model. The central idea: the Euler product
         </p>
-        <BlockMath tex="\\zeta(s) = \\prod_{p\\;\\text{prime}} \\frac{1}{1 - p^{-s}}" />
+        <BlockMath tex={"\\zeta(s) = \\prod_{p\\;\\text{prime}} \\frac{1}{1 - p^{-s}}"} />
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
           is interpreted as the transfer function of a cascade of LC oscillator stages, one per prime.
-          Each stage has Euler factor phase rate <InlineMath tex="\\omega_p = \\log p" /> and LC resonant frequency <InlineMath tex="\\omega_0 = 1" />, and the entire product forms
-          a <strong>ladder network</strong>. The functional equation <InlineMath tex="\\zeta(s) = \\chi(s)\\zeta(1-s)" /> is
+          Each stage has Euler factor phase rate <InlineMath tex={"\\omega_p = \\log p"} /> and LC resonant frequency <InlineMath tex={"\\omega_0 = 1"} />, and the entire product forms
+          a <strong>ladder network</strong>. The functional equation <InlineMath tex={"\\zeta(s) = \\chi(s)\\zeta(1-s)"} /> is
           realized as a lossless bridge connecting direct and dual ladder networks. The Riemann Hypothesis (that
-          all nontrivial zeros have <InlineMath tex="\\text{Re}(s) = \\tfrac{1}{2}" />) corresponds to the system being at
+          all nontrivial zeros have <InlineMath tex={"\\text{Re}(s) = \\tfrac{1}{2}"} />) corresponds to the system being at
           its minimum energy, maximum symmetry, critically coupled configuration.
         </p>
         <div className="card" style={{ marginTop: 16, borderColor: 'var(--accent-orange)' }}>
@@ -111,34 +111,34 @@ export default function DocsPage() {
           Each prime <InlineMath tex="p" /> defines an LC oscillator stage with:
         </p>
         <ul style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8, marginLeft: 20, marginBottom: 12 }}>
-          <li>Characteristic frequency: <InlineMath tex="\\omega_p = \\log p" /> (Euler factor phase rotation rate)</li>
-          <li>Inductance: <InlineMath tex="L_p = \\log p" />, Capacitance: <InlineMath tex="C_p = 1/\\log p" />, LC resonant frequency: <InlineMath tex="\\omega_0 = 1/\\sqrt{L_p C_p} = 1" /></li>
+          <li>Characteristic frequency: <InlineMath tex={"\\omega_p = \\log p"} /> (Euler factor phase rotation rate)</li>
+          <li>Inductance: <InlineMath tex={"L_p = \\log p"} />, Capacitance: <InlineMath tex={"C_p = 1/\\log p"} />, LC resonant frequency: <InlineMath tex={"\\omega_0 = 1/\\sqrt{L_p C_p} = 1"} /></li>
           <li>Transfer function: <InlineMath tex="H_p(s) = (1 - p^{-s})^{-1}" /></li>
-          <li>Quality factor: <InlineMath tex="Q_p = 1/(2\\sigma)" /> where <InlineMath tex="\\sigma = \\text{Re}(s)" /></li>
+          <li>Quality factor: <InlineMath tex={"Q_p = 1/(2\\sigma)"} /> where <InlineMath tex={"\\sigma = \\text{Re}(s)"} /></li>
         </ul>
 
         <h3>Direct and Dual Ladders</h3>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
-          The <strong>direct ladder</strong> cascades oscillator stages to compute <InlineMath tex="\\zeta(s)" />.
-          The <strong>dual ladder</strong> applies the transformation <InlineMath tex="s \\to 1-s" /> to compute <InlineMath tex="\\zeta(1-s)" />.
-          At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, both ladders are conjugate-matched (<InlineMath tex="Z_{\\text{dual}} = \\overline{Z_{\\text{dir}}}" /> via Schwarz reflection).
+          The <strong>direct ladder</strong> cascades oscillator stages to compute <InlineMath tex={"\\zeta(s)"} />.
+          The <strong>dual ladder</strong> applies the transformation <InlineMath tex={"s \\to 1-s"} /> to compute <InlineMath tex={"\\zeta(1-s)"} />.
+          At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, both ladders are conjugate-matched (<InlineMath tex={"Z_{\\text{dual}} = \\overline{Z_{\\text{dir}}}"} /> via Schwarz reflection).
         </p>
 
         <h3>Lossless Bridge</h3>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
-          The bridge factor <InlineMath tex="\\chi(s)" /> from the functional equation connects the ladders:
+          The bridge factor <InlineMath tex={"\\chi(s)"} /> from the functional equation connects the ladders:
         </p>
-        <BlockMath tex="\\chi(s) = 2^s \\pi^{s-1} \\sin\\!\\left(\\frac{\\pi s}{2}\\right) \\Gamma(1-s)" />
+        <BlockMath tex={"\\chi(s) = 2^s \\pi^{s-1} \\sin\\!\\left(\\frac{\\pi s}{2}\\right) \\Gamma(1-s)"} />
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
-          At <InlineMath tex="\\sigma = \\tfrac{1}{2}" />, <InlineMath tex="|\\chi(s)| = 1" /> (lossless/unitary).
-          Off the critical line, <InlineMath tex="|\\chi| \\neq 1" /> and the bridge becomes lossy.
+          At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, <InlineMath tex={"|\\chi(s)| = 1"} /> (lossless/unitary).
+          Off the critical line, <InlineMath tex={"|\\chi| \\neq 1"} /> and the bridge becomes lossy.
         </p>
 
         <h3>System Hamiltonian</h3>
-        <BlockMath tex="\\mathcal{H} = \\underbrace{T_{\\text{kinetic}}}_{= \\sum_p \\frac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1{-}s)|^2)} + \\underbrace{V_{\\text{mismatch}}}_{= \\frac{1}{2}|Z_{\\text{dir}} - Z_{\\text{dual}}|^2} + \\underbrace{V_{\\text{bridge}}}_{= 100(1-|\\chi|)^2}" />
+        <BlockMath tex={"\\mathcal{H} = \\underbrace{T_{\\text{kinetic}}}_{= \\sum_p \\frac{1}{2}\\log p\\,(|H_p(s)|^2 + |H_p(1{-}s)|^2)} + \\underbrace{V_{\\text{mismatch}}}_{= \\frac{1}{2}|Z_{\\text{dir}} - Z_{\\text{dual}}|^2} + \\underbrace{V_{\\text{bridge}}}_{= 100(1-|\\chi|)^2}"} />
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
-          The Hamiltonian is minimized at <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> for all <InlineMath tex="t" />,
-          where mismatch is minimized (conjugate-matched, not zero: <InlineMath tex="|Z_{\\text{dir}} - Z_{\\text{dual}}| = 2|\\text{Im}\\,Z|" />) and the bridge is lossless. Gradient descent on <InlineMath tex="\\mathcal{H}" /> always
+          The Hamiltonian is minimized at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> for all <InlineMath tex="t" />,
+          where mismatch is minimized (conjugate-matched, not zero: <InlineMath tex={"|Z_{\\text{dir}} - Z_{\\text{dual}}| = 2|\\text{Im}\\,Z|"} />) and the bridge is lossless. Gradient descent on <InlineMath tex={"\\mathcal{H}"} /> always
           converges to the critical line.
         </p>
       </section>
@@ -555,9 +555,9 @@ export default function DocsPage() {
           <summary>Borwein/Knopp-Hasse Acceleration</summary>
           <div>
             <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-              The primary method for computing <InlineMath tex="\\zeta(s)" /> in the critical strip. Uses the alternating series:
+              The primary method for computing <InlineMath tex={"\\zeta(s)"} /> in the critical strip. Uses the alternating series:
             </p>
-            <BlockMath tex="\\zeta(s) = \\frac{1}{1-2^{1-s}} \\sum_{k=0}^{N-1} \\frac{(-1)^k}{(k+1)^s} \\cdot \\frac{d_k - d_N}{d_N}" />
+            <BlockMath tex={"\\zeta(s) = \\frac{1}{1-2^{1-s}} \\sum_{k=0}^{N-1} \\frac{(-1)^k}{(k+1)^s} \\cdot \\frac{d_k - d_N}{d_N}"} />
             <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
               where <InlineMath tex="d_k" /> are binomial-weighted sums. With <InlineMath tex="N = 50" />, this gives
               approximately 15 digits of precision across the entire critical strip. Implemented
@@ -570,9 +570,9 @@ export default function DocsPage() {
           <summary>Lanczos Gamma Approximation</summary>
           <div>
             <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-              Used in the functional equation for <InlineMath tex="\\Gamma(s)" />. Uses <InlineMath tex="g = 7" /> and
-              9 Lanczos coefficients with the reflection formula <InlineMath tex="\\Gamma(s)\\Gamma(1-s) = \\pi/\\sin(\\pi s)" /> for{' '}
-              <InlineMath tex="\\text{Re}(s) < 0.5" />. Achieves approximately 15-digit accuracy. Implemented
+              Used in the functional equation for <InlineMath tex={"\\Gamma(s)"} />. Uses <InlineMath tex="g = 7" /> and
+              9 Lanczos coefficients with the reflection formula <InlineMath tex={"\\Gamma(s)\\Gamma(1-s) = \\pi/\\sin(\\pi s)"} /> for{' '}
+              <InlineMath tex={"\\text{Re}(s) < 0.5"} />. Achieves approximately 15-digit accuracy. Implemented
               in <code style={{ color: 'var(--accent-cyan)' }}>losslessBridge()</code>.
             </p>
           </div>
@@ -584,11 +584,11 @@ export default function DocsPage() {
             <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
               Fast evaluation on the critical line via the Z function:
             </p>
-            <BlockMath tex="Z(t) = 2 \\sum_{n=1}^{N} \\frac{\\cos(\\theta(t) - t\\log n)}{n^{1/2}} + (-1)^{N-1}\\!\\left(\\frac{t}{2\\pi}\\right)^{\\!-1/4}\\! C_0(p)" />
+            <BlockMath tex={"Z(t) = 2 \\sum_{n=1}^{N} \\frac{\\cos(\\theta(t) - t\\log n)}{n^{1/2}} + (-1)^{N-1}\\!\\left(\\frac{t}{2\\pi}\\right)^{\\!-1/4}\\! C_0(p)"} />
             <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-              where <InlineMath tex="N = \\lfloor\\sqrt{t/(2\\pi)}\\rfloor" />, <InlineMath tex="p = \\sqrt{t/(2\\pi)} - N" /> is the fractional
+              where <InlineMath tex={"N = \\lfloor\\sqrt{t/(2\\pi)}\\rfloor"} />, <InlineMath tex={"p = \\sqrt{t/(2\\pi)} - N"} /> is the fractional
               part, and <InlineMath tex="C_0(p)" /> is a correction term from the asymptotic expansion. The{' '}
-              <InlineMath tex="(-1)^{N-1}(t/2\\pi)^{-1/4}" /> prefactor provides the correct sign alternation and decay.
+              <InlineMath tex={"(-1)^{N-1}(t/2\\pi)^{-1/4}"} /> prefactor provides the correct sign alternation and decay.
               Used for real-valued evaluations where sign changes indicate zeros.
             </p>
           </div>
@@ -598,11 +598,11 @@ export default function DocsPage() {
           <summary>De Bruijn-Newman Heat Flow</summary>
           <div>
             <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-              Evolves zeta zeros under the heat equation <InlineMath tex="\\partial_{\\tau} H = \\partial_t^2 H" />.
+              Evolves zeta zeros under the heat equation <InlineMath tex={"\\partial_{\\tau} H = \\partial_t^2 H"} />.
               Zero dynamics follow a repulsive ODE: each zero experiences logarithmic repulsion from its neighbors.
-              The de Bruijn-Newman constant <InlineMath tex="\\Lambda" /> is the infimum of <InlineMath tex="\\tau" /> such
-              that <InlineMath tex="H_{\\tau}" /> has only real zeros. Rodgers-Tao (2020) proved <InlineMath tex="\\Lambda \\geq 0" />;
-              RH is equivalent to <InlineMath tex="\\Lambda \\leq 0" />, i.e., <InlineMath tex="\\Lambda = 0" />.
+              The de Bruijn-Newman constant <InlineMath tex={"\\Lambda"} /> is the infimum of <InlineMath tex={"\\tau"} /> such
+              that <InlineMath tex={"H_{\\tau}"} /> has only real zeros. Rodgers-Tao (2020) proved <InlineMath tex={"\\Lambda \\geq 0"} />;
+              RH is equivalent to <InlineMath tex={"\\Lambda \\leq 0"} />, i.e., <InlineMath tex={"\\Lambda = 0"} />.
             </p>
           </div>
         </details>
@@ -611,12 +611,12 @@ export default function DocsPage() {
           <summary>Hamiltonian Gradient Descent</summary>
           <div>
             <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-              The gradient <InlineMath tex="\\partial\\mathcal{H}/\\partial\\sigma" /> is computed via symmetric central
+              The gradient <InlineMath tex={"\\partial\\mathcal{H}/\\partial\\sigma"} /> is computed via symmetric central
               difference of the full Hamiltonian (kinetic + mismatch + bridge). The update rule:
             </p>
-            <BlockMath tex="\\sigma_{n+1} = \\sigma_n - \\eta \\cdot \\frac{\\partial\\mathcal{H}}{\\partial\\sigma}" />
+            <BlockMath tex={"\\sigma_{n+1} = \\sigma_n - \\eta \\cdot \\frac{\\partial\\mathcal{H}}{\\partial\\sigma}"} />
             <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-              converges to <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> from any starting point, since the potential well
+              converges to <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> from any starting point, since the potential well
               is convex (the Hamiltonian has a unique global minimum on the critical line).
             </p>
           </div>

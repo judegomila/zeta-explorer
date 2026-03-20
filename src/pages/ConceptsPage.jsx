@@ -439,7 +439,7 @@ const CONCEPTS = [
     id: 'twistor',
     category: 'geometry',
     term: 'Twistor',
-    symbol: 'Z^\\alpha = (\\omega^A, \\pi_{A\'})',
+    symbol: 'Z^{\\alpha} = (\\omega^A, \\pi_{A\'})',
     definition: 'A point in Penrose twistor space. In the ZPO mapping, s = σ + it maps to a 4-component twistor with ω encoding displacement from the critical line and π encoding prime-phase oscillation.',
     formula: 'Z^\\alpha = \\left(\\sigma - \\tfrac{1}{2},\\; \\frac{t}{2\\pi},\\; \\cos(t\\log 2),\\; \\sin(t\\log 2)\\right)',
     intuition: 'A different coordinate system for the s-plane that makes the critical line condition geometric — it becomes "two vectors being perpendicular."',
@@ -602,7 +602,7 @@ const CONCEPTS = [
     term: 'Chebyshev Psi Function',
     symbol: '\\psi(x)',
     definition: 'The sum of von Mangoldt values up to x: ψ(x) = Σ_{n≤x} Λ(n). A weighted prime counting function whose "staircase" jumps at prime powers. The explicit formula decomposes it into zeta zero oscillations.',
-    formula: '\\psi(x) = \\sum_{n \\leq x} \\Lambda(n) = x - \\sum_\\rho \\frac{x^\\rho}{\\rho} - \\frac{\\zeta\'(0)}{\\zeta(0)} + O(1)',
+    formula: '\\psi(x) = \\sum_{n \\leq x} \\Lambda(n) = x - \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho} - \\frac{\\zeta\'(0)}{\\zeta(0)} + O(1)',
     intuition: 'A staircase that jumps by log(p) at each prime p and prime power. The ZPO explicit formula decomposes this staircase into oscillating modes — one per zeta zero.',
   },
   {

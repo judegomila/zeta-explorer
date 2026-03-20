@@ -219,11 +219,11 @@ function FisherTwistorTab({ t, numPrimes }) {
   return (
     <div>
       <div className="tab-explainer accent-blue">
-        Fisher information <InlineMath tex="I_F(\sigma)" /> measures parameter sensitivity of the Euler factor
-        distribution, while the twistor incidence <InlineMath tex="|Z \cdot W|" /> measures how close the direct/dual
+        Fisher information <InlineMath tex={"I_F(\sigma)"} /> measures parameter sensitivity of the Euler factor
+        distribution, while the twistor incidence <InlineMath tex={"|Z \cdot W|"} /> measures how close the direct/dual
         twistor pair is to the null condition. Their anti-correlation (Pearson <InlineMath tex="r" />) quantifies how
         strongly both diagnostics point to the same critical line.
-        <strong> Look for:</strong> Fisher info peaking and twistor incidence dipping together near <InlineMath tex="\sigma = \tfrac{1}{2}" />.
+        <strong> Look for:</strong> Fisher info peaking and twistor incidence dipping together near <InlineMath tex={"\sigma = \tfrac{1}{2}"} />.
       </div>
       <canvas
         ref={canvasRef}
@@ -427,12 +427,12 @@ function LyapunovTab({ t, numPrimes }) {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        The KL divergence <InlineMath tex="D_{KL}(\sigma \| \tfrac{1}{2})" /> measures how far the Euler factor
-        weight distribution at <InlineMath tex="\sigma" /> is from the critical-line distribution. If it forms a
-        valid Lyapunov function (positive, zero at equilibrium, monotonically decreasing toward <InlineMath tex="\sigma = \tfrac{1}{2}" />),
-        the critical line is a stable attractor. The lower panel shows the derivative <InlineMath tex="dD_{KL}/d\sigma" />,
+        The KL divergence <InlineMath tex={"D_{KL}(\sigma \| \tfrac{1}{2})"} /> measures how far the Euler factor
+        weight distribution at <InlineMath tex={"\sigma"} /> is from the critical-line distribution. If it forms a
+        valid Lyapunov function (positive, zero at equilibrium, monotonically decreasing toward <InlineMath tex={"\sigma = \tfrac{1}{2}"} />),
+        the critical line is a stable attractor. The lower panel shows the derivative <InlineMath tex={"dD_{KL}/d\sigma"} />,
         colored by sign.
-        <strong> Look for:</strong> the V-shape in <InlineMath tex="D_{KL}" /> with minimum at <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+        <strong> Look for:</strong> the V-shape in <InlineMath tex="D_{KL}" /> with minimum at <InlineMath tex={"\sigma = \tfrac{1}{2}"} />,
         and a clean sign change in the derivative.
       </div>
       <canvas
@@ -662,12 +662,12 @@ function PhaseBarriersTab({ t, numPrimes }) {
   return (
     <div>
       <div className="tab-explainer accent-orange">
-        Treating the oscillator chain as a thermodynamic system with <InlineMath tex="\beta = \sigma" />, the free
-        energy difference <InlineMath tex="\Delta F(\sigma)" /> (gold) and specific heat <InlineMath tex="C_v" /> (red)
+        Treating the oscillator chain as a thermodynamic system with <InlineMath tex={"\beta = \sigma"} />, the free
+        energy difference <InlineMath tex={"\Delta F(\sigma)"} /> (gold) and specific heat <InlineMath tex="C_v" /> (red)
         reveal phase transitions. Background shading marks thermodynamic regimes: vaporized
-        (<InlineMath tex="\sigma \approx 0" />), the critical strip, the equilibrium zone near <InlineMath tex="\sigma = \tfrac{1}{2}" />,
-        and the frozen regime (<InlineMath tex="\sigma \approx 1" />).
-        <strong> Look for:</strong> free energy barriers trapping the system near <InlineMath tex="\sigma = \tfrac{1}{2}" />,
+        (<InlineMath tex={"\sigma \approx 0"} />), the critical strip, the equilibrium zone near <InlineMath tex={"\sigma = \tfrac{1}{2}"} />,
+        and the frozen regime (<InlineMath tex={"\sigma \approx 1"} />).
+        <strong> Look for:</strong> free energy barriers trapping the system near <InlineMath tex={"\sigma = \tfrac{1}{2}"} />,
         and specific heat spikes at phase boundaries.
       </div>
       <canvas
@@ -695,8 +695,8 @@ function PhaseBarriersTab({ t, numPrimes }) {
         <strong style={{ color: '#f59e0b' }}>Thermodynamic Confinement</strong>
         <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 11 }}>
           Free energy barriers trap zeros near <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
-          Specific heat spikes at phase boundaries (Euler product convergence at <InlineMath tex="\sigma = 1" />,
-          functional equation symmetry at <InlineMath tex="\sigma = 0" />).
+          Specific heat spikes at phase boundaries (Euler product convergence at <InlineMath tex={"\sigma = 1"} />,
+          functional equation symmetry at <InlineMath tex={"\sigma = 0"} />).
         </div>
       </div>
     </div>

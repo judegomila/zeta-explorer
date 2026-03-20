@@ -111,7 +111,7 @@ function IdentityTestsTab({ numPrimes }) {
         <p style={{ margin: '0 0 8px' }}>
           Numerical verification of three mathematical identities used by the ZPO model:
         </p>
-        <BlockMath tex="\\zeta(s) = \\chi(s)\\,\\zeta(1-s), \\qquad |\\chi(\\tfrac{1}{2}+it)| = 1, \\qquad \\prod_p (1 - p^{-s})^{-1} \\;\\text{for } \\operatorname{Re}(s) > 1" />
+        <BlockMath tex={"\\zeta(s) = \\chi(s)\\,\\zeta(1-s), \\qquad |\\chi(\\tfrac{1}{2}+it)| = 1, \\qquad \\prod_p (1 - p^{-s})^{-1} \\;\\text{for } \\operatorname{Re}(s) > 1"} />
         <p style={{ margin: '8px 0 0' }}>
           Click any row to expand details.
           <strong> These are known identities</strong> &mdash; passing confirms the numerics are correct, not that RH is proven.
@@ -441,8 +441,8 @@ function DHCounterexampleTab() {
       <div className="tab-explainer accent-red">
         The Davenport&ndash;Heilbronn zeta function satisfies a functional equation identical in form
         to Riemann&rsquo;s, yet has zeros <em>off</em> the critical line. This is the sharpest counterexample to any
-        &ldquo;proof&rdquo; of RH that relies only on functional equation symmetry. The plot compares <InlineMath tex="|\zeta(\tfrac{1}{2}+it)|" /> (blue)
-        against <InlineMath tex="|f_{\rm DH}(\tfrac{1}{2}+it)|" /> (red) &mdash; both dip at their zeros, but only <InlineMath tex="\zeta" />&rsquo;s zeros
+        &ldquo;proof&rdquo; of RH that relies only on functional equation symmetry. The plot compares <InlineMath tex={"|\zeta(\tfrac{1}{2}+it)|"} /> (blue)
+        against <InlineMath tex={"|f_{\rm DH}(\tfrac{1}{2}+it)|"} /> (red) &mdash; both dip at their zeros, but only <InlineMath tex={"\zeta"} />&rsquo;s zeros
         are conjectured to all lie on the critical line.
       </div>
       {/* t slider */}
@@ -472,7 +472,7 @@ function DHCounterexampleTab() {
       }}>
         The <strong style={{ color: '#3b82f6' }}>Euler product / Darlington synthesis</strong> is the{' '}
         <strong style={{ color: '#ef4444' }}>ONLY</strong> ZPO property that distinguishes{' '}
-        <InlineMath tex="\zeta" /> from Davenport-Heilbronn.
+        <InlineMath tex={"\zeta"} /> from Davenport-Heilbronn.
       </div>
 
       {/* Discriminator table */}

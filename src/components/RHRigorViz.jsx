@@ -584,29 +584,29 @@ export default function RHRigorViz() {
       {/* Tab explainers */}
       {activeTest === 'hamiltonian' && (
         <div className="tab-explainer accent-orange">
-          <strong>The test:</strong> For each <InlineMath tex="t" /> value, scan <InlineMath tex="\\sigma \\in [0.1, 0.9]" /> to find
-          where <InlineMath tex="H(\\sigma, t)" /> is minimized. The ZPO model claims the minimum always occurs
-          at <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> (the critical line). Each dot shows the minimizing <InlineMath tex="\\sigma" /> for
-          one <InlineMath tex="t" /> value; the green dashed line marks <InlineMath tex="\\sigma = 0.5" />.
+          <strong>The test:</strong> For each <InlineMath tex="t" /> value, scan <InlineMath tex={"\\sigma \\in [0.1, 0.9]"} /> to find
+          where <InlineMath tex={"H(\\sigma, t)"} /> is minimized. The ZPO model claims the minimum always occurs
+          at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (the critical line). Each dot shows the minimizing <InlineMath tex={"\\sigma"} /> for
+          one <InlineMath tex="t" /> value; the green dashed line marks <InlineMath tex={"\\sigma = 0.5"} />.
           <strong> Look for:</strong> how tightly dots cluster around the green line as you increase the number of primes.
         </div>
       )}
       {activeTest === 'bridge' && (
         <div className="tab-explainer accent-purple">
-          <strong>The test:</strong> Heatmap of <InlineMath tex="|\\,|\\chi(\\sigma+it)| - 1\\,|" /> across
-          the <InlineMath tex="(\\sigma, t)" /> plane. The functional equation guarantees <InlineMath tex="|\\chi(\\tfrac{1}{2}+it)| = 1" />,
-          so a green band should appear at <InlineMath tex="\\sigma = 0.5" />. This is a known identity, not a prediction — it
+          <strong>The test:</strong> Heatmap of <InlineMath tex={"|\\,|\\chi(\\sigma+it)| - 1\\,|"} /> across
+          the <InlineMath tex={"(\\sigma, t)"} /> plane. The functional equation guarantees <InlineMath tex={"|\\chi(\\tfrac{1}{2}+it)| = 1"} />,
+          so a green band should appear at <InlineMath tex={"\\sigma = 0.5"} />. This is a known identity, not a prediction — it
           tests that the bridge construction correctly reproduces the functional equation prefactor.
-          <strong> Look for:</strong> the sharp green vertical stripe at <InlineMath tex="\\sigma = 0.5" /> and how deviation grows away from it.
+          <strong> Look for:</strong> the sharp green vertical stripe at <InlineMath tex={"\\sigma = 0.5"} /> and how deviation grows away from it.
         </div>
       )}
       {activeTest === 'mismatch' && (
         <div className="tab-explainer accent-cyan">
-          <strong>The test:</strong> Compare impedance mismatch <InlineMath tex="|Z_{\\rm dir} - Z_{\\rm dual}|" /> (from
-          truncated Euler products) against <InlineMath tex="|\\zeta(\\tfrac{1}{2}+it)|" /> along the critical line.
+          <strong>The test:</strong> Compare impedance mismatch <InlineMath tex={"|Z_{\\rm dir} - Z_{\\rm dual}|"} /> (from
+          truncated Euler products) against <InlineMath tex={"|\\zeta(\\tfrac{1}{2}+it)|"} /> along the critical line.
           If mismatch predicted zeros, both curves would dip to zero at the same <InlineMath tex="t" /> values.
           The Pearson <InlineMath tex="r" /> quantifies correlation.
-          <strong> Look for:</strong> whether mismatch dips align with <InlineMath tex="\\zeta" /> zeros, and how <InlineMath tex="r" /> changes with the number of primes.
+          <strong> Look for:</strong> whether mismatch dips align with <InlineMath tex={"\\zeta"} /> zeros, and how <InlineMath tex="r" /> changes with the number of primes.
         </div>
       )}
 
@@ -622,13 +622,13 @@ export default function RHRigorViz() {
           </span></span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t_{\\min}" /></label>
+          <label><InlineMath tex={"t_{\\min}"} /></label>
           <input type="range" min="1" max="40" step="1" value={tRange[0]}
             onChange={e => setTRange([+e.target.value, Math.max(+e.target.value + 10, tRange[1])])} />
           <span className="control-value">{tRange[0]}</span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t_{\\max}" /></label>
+          <label><InlineMath tex={"t_{\\max}"} /></label>
           <input type="range" min="20" max="80" step="1" value={tRange[1]}
             onChange={e => setTRange([tRange[0], Math.max(tRange[0] + 10, +e.target.value)])} />
           <span className="control-value">{tRange[1]}</span>
@@ -651,14 +651,14 @@ export default function RHRigorViz() {
           <>
             <h4 style={{ color: '#f59e0b', margin: '0 0 8px' }}>Interpretation: Hamiltonian Minimization Test</h4>
             <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7 }}>
-              For each value of <InlineMath tex="t" />, we scan <InlineMath tex="\\sigma \\in [0.1, 0.9]" /> and find
-              where <InlineMath tex="H(\\sigma, t)" /> is minimized. <strong style={{ color: '#e2e8f0' }}>If the ZPO model's claim
+              For each value of <InlineMath tex="t" />, we scan <InlineMath tex={"\\sigma \\in [0.1, 0.9]"} /> and find
+              where <InlineMath tex={"H(\\sigma, t)"} /> is minimized. <strong style={{ color: '#e2e8f0' }}>If the ZPO model's claim
               is correct</strong>, all points should lie exactly on the green dashed
-              line at <InlineMath tex="\\sigma = 0.5" />.
+              line at <InlineMath tex={"\\sigma = 0.5"} />.
             </p>
             <p style={{ color: '#ef4444', fontSize: 13, lineHeight: 1.7, marginTop: 8 }}>
               <strong>Criticism (crit-001):</strong> The Hamiltonian is <em>constructed</em> to be symmetric
-              about <InlineMath tex="\\sigma = 0.5" /> — the bridge term <InlineMath tex="100(1-|\\chi|)^2" /> dominates
+              about <InlineMath tex={"\\sigma = 0.5"} /> — the bridge term <InlineMath tex={"100(1-|\\chi|)^2"} /> dominates
               and is minimized there by design. This is a tautology, not a prediction. The deviations visible
               with few primes are due to the kinetic energy term breaking exact symmetry.
             </p>
@@ -668,14 +668,14 @@ export default function RHRigorViz() {
           <>
             <h4 style={{ color: '#8b5cf6', margin: '0 0 8px' }}>Interpretation: Bridge Unitarity Heatmap</h4>
             <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7 }}>
-              The heatmap shows <InlineMath tex="||\\chi(\\sigma+it)| - 1|" /> across the <InlineMath tex="(\\sigma, t)" /> plane.
-              The green vertical band at <InlineMath tex="\\sigma = 0.5" /> confirms that <InlineMath tex="|\\chi| = 1" /> on the
+              The heatmap shows <InlineMath tex={"||\\chi(\\sigma+it)| - 1|"} /> across the <InlineMath tex={"(\\sigma, t)"} /> plane.
+              The green vertical band at <InlineMath tex={"\\sigma = 0.5"} /> confirms that <InlineMath tex={"|\\chi| = 1"} /> on the
               critical line.
             </p>
             <p style={{ color: '#ef4444', fontSize: 13, lineHeight: 1.7, marginTop: 8 }}>
               <strong>Criticism (crit-003):</strong> This is just the functional equation —
-              a proven identity, not new information. The fact that <InlineMath tex="|\\chi(1/2+it)| = 1" /> was known
-              to Riemann in 1859. It tells us about the symmetry of <InlineMath tex="\\zeta" />, not about where
+              a proven identity, not new information. The fact that <InlineMath tex={"|\\chi(1/2+it)| = 1"} /> was known
+              to Riemann in 1859. It tells us about the symmetry of <InlineMath tex={"\\zeta"} />, not about where
               its zeros are.
             </p>
           </>
@@ -684,14 +684,14 @@ export default function RHRigorViz() {
           <>
             <h4 style={{ color: '#06b6d4', margin: '0 0 8px' }}>Interpretation: Mismatch vs Zero Correlation</h4>
             <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7 }}>
-              We plot <InlineMath tex="|\\zeta(1/2+it)|" /> (blue) against the impedance
-              mismatch <InlineMath tex="|Z_{\\rm dir} - Z_{\\rm dual}|" /> (orange/red). If the mismatch predicted
+              We plot <InlineMath tex={"|\\zeta(1/2+it)|"} /> (blue) against the impedance
+              mismatch <InlineMath tex={"|Z_{\\rm dir} - Z_{\\rm dual}|"} /> (orange/red). If the mismatch predicted
               zeros, the orange curve would dip to zero at the same places as the blue curve.
             </p>
             <p style={{ color: '#ef4444', fontSize: 13, lineHeight: 1.7, marginTop: 8 }}>
               <strong>Criticism (crit-005):</strong> The mismatch is computed from a <em>divergent</em> Euler
               product truncation (crit-002). Its behavior with {numPrimes} primes does not reliably
-              predict the true <InlineMath tex="\\zeta" /> zeros. The Pearson correlation shown is between
+              predict the true <InlineMath tex={"\\zeta"} /> zeros. The Pearson correlation shown is between
               two unrelated quantities — mismatch measures matching, zeros measure cancellation.
             </p>
           </>

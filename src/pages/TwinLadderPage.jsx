@@ -10,18 +10,18 @@ export default function TwinLadderPage() {
         <h1>Twin Ladder Explorer</h1>
         <p>
           Each prime <InlineMath tex="p" /> generates a <strong>ladder</strong> of rungs{' '}
-          <InlineMath tex="m = 0, 1, 2, \\ldots" /> with amplitude <InlineMath tex="p^{-m/2}" /> and
-          oscillating phase <InlineMath tex="m \\cdot T \\cdot \\log p" />. By introducing thermodynamic
-          weights controlled by inverse temperature <InlineMath tex="\\beta" /> and pressure{' '}
+          <InlineMath tex={"m = 0, 1, 2, \\ldots"} /> with amplitude <InlineMath tex="p^{-m/2}" /> and
+          oscillating phase <InlineMath tex={"m \\cdot T \\cdot \\log p"} />. By introducing thermodynamic
+          weights controlled by inverse temperature <InlineMath tex={"\\beta"} /> and pressure{' '}
           <InlineMath tex="P" />, we can deform the ladder, freeze individual rungs via Gaussian proxies,
-          and watch ground-state collapse as <InlineMath tex="\\beta \\to \\infty" />.
+          and watch ground-state collapse as <InlineMath tex={"\\beta \\to \\infty"} />.
         </p>
       </div>
 
-      <BlockMath tex="Z_{TL}\\bigl(\\tfrac{1}{2}+iT;\\,\\beta,P\\bigr) = \\sum_p \\sum_{m=0}^{M} p^{-m/2}\\, e^{imT\\log p}\\, e^{-\\beta\\, m\\log p \\;-\\; P\\,\\psi(m\\log p)}" />
+      <BlockMath tex={"Z_{TL}\\bigl(\\tfrac{1}{2}+iT;\\,\\beta,P\\bigr) = \\sum_p \\sum_{m=0}^{M} p^{-m/2}\\, e^{imT\\log p}\\, e^{-\\beta\\, m\\log p \\;-\\; P\\,\\psi(m\\log p)}"} />
 
       <div style={{ marginTop: 8 }}>
-        <BlockMath tex="\\psi(x) = x^2 \\quad\\text{(convex penalty)}, \\qquad \\Pi_{\\text{slack}} = (\\alpha - t - \\varepsilon)\\,U^2" />
+        <BlockMath tex={"\\psi(x) = x^2 \\quad\\text{(convex penalty)}, \\qquad \\Pi_{\\text{slack}} = (\\alpha - t - \\varepsilon)\\,U^2"} />
       </div>
 
       <div style={{ marginTop: 32 }}>
@@ -36,25 +36,25 @@ export default function TwinLadderPage() {
           Watch how increasing <InlineMath tex="T" /> spins the phasors faster (higher rungs rotate more).
           <strong style={{ color: '#10b981' }}> Pressure & Temperature</strong> compares unweighted vs
           thermodynamically weighted rungs side-by-side, and plots{' '}
-          <InlineMath tex="|Z_{TL}|" /> along the critical line as you change <InlineMath tex="\\beta" /> and{' '}
+          <InlineMath tex="|Z_{TL}|" /> along the critical line as you change <InlineMath tex={"\\beta"} /> and{' '}
           <InlineMath tex="P" />.
           <strong style={{ color: '#f59e0b' }}> Ladder Freezing</strong> compares the exact rung sum
-          to a smooth Gaussian proxy <InlineMath tex="\\Phi_{\\text{fr}}" /> and shows the slack index
+          to a smooth Gaussian proxy <InlineMath tex={"\\Phi_{\\text{fr}}"} /> and shows the slack index
           that measures approximation quality.
           <strong style={{ color: '#ef4444' }}> Ground-State Collapse</strong> animates how cranking{' '}
-          <InlineMath tex="\\beta" /> kills every rung except <InlineMath tex="m = 0" />.
+          <InlineMath tex={"\\beta"} /> kills every rung except <InlineMath tex="m = 0" />.
           <strong style={{ color: '#8b5cf6' }}> Phase Diagram</strong> renders a 2D heatmap of{' '}
-          <InlineMath tex="|Z_{TL}|" /> over the <InlineMath tex="(\\beta, P)" /> plane.
+          <InlineMath tex="|Z_{TL}|" /> over the <InlineMath tex={"(\\beta, P)"} /> plane.
         </p>
       </div>
 
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
           <h3 style={{ color: '#06b6d4' }}>Ladder Rungs & Phasors</h3>
-          <BlockMath tex="\\text{Rung } m: \\quad a_m = p^{-m/2},\\quad \\phi_m = m\\,T\\,\\log p" />
+          <BlockMath tex={"\\text{Rung } m: \\quad a_m = p^{-m/2},\\quad \\phi_m = m\\,T\\,\\log p"} />
           <p style={{ marginTop: 8 }}>
             Each rung of the ladder for prime <InlineMath tex="p" /> contributes a phasor{' '}
-            <InlineMath tex="a_m e^{i\\phi_m}" /> to the complex plane. The amplitudes decay
+            <InlineMath tex={"a_m e^{i\\phi_m}"} /> to the complex plane. The amplitudes decay
             geometrically as <InlineMath tex="p^{-m/2}" />, while phases increase linearly with
             the rung index <InlineMath tex="m" />. The total ladder sum determines the prime's
             contribution to the deformed zeta function.
@@ -62,11 +62,11 @@ export default function TwinLadderPage() {
         </div>
         <div className="card">
           <h3 style={{ color: '#10b981' }}>Thermodynamic Weights</h3>
-          <BlockMath tex="w(p,m) = \\exp\\bigl(-\\beta\\,m\\log p \\;-\\; P\\cdot(m\\log p)^2\\bigr)" />
+          <BlockMath tex={"w(p,m) = \\exp\\bigl(-\\beta\\,m\\log p \\;-\\; P\\cdot(m\\log p)^2\\bigr)"} />
           <p style={{ marginTop: 8 }}>
             The weight combines two suppression mechanisms.{' '}
-            <strong style={{ color: '#3b82f6' }}>Temperature</strong> (<InlineMath tex="\\beta" />)
-            gives exponential decay in rung energy <InlineMath tex="m\\log p" />.{' '}
+            <strong style={{ color: '#3b82f6' }}>Temperature</strong> (<InlineMath tex={"\\beta"} />)
+            gives exponential decay in rung energy <InlineMath tex={"m\\log p"} />.{' '}
             <strong style={{ color: '#f59e0b' }}>Pressure</strong> (<InlineMath tex="P" />) adds a
             quadratic penalty that further suppresses high-energy rungs. Together they control
             which rungs contribute to the deformed <InlineMath tex="Z_{TL}" />.
@@ -77,11 +77,11 @@ export default function TwinLadderPage() {
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">
           <h3 style={{ color: '#f59e0b' }}>Gaussian Freezing & Slack</h3>
-          <BlockMath tex="\\Phi_{\\text{fr}}(u) = e^{-\\alpha u^2}\\sum_{k} c_{2k}\\,u^{2k}" />
+          <BlockMath tex={"\\Phi_{\\text{fr}}(u) = e^{-\\alpha u^2}\\sum_{k} c_{2k}\\,u^{2k}"} />
           <p style={{ marginTop: 8 }}>
             Freezing replaces the discrete rung sum with a smooth Gaussian envelope.
             The <strong style={{ color: '#10b981' }}>slack index</strong>{' '}
-            <InlineMath tex="\\Pi_{\\text{slack}} = (\\alpha - t - \\varepsilon)U^2" /> quantifies
+            <InlineMath tex={"\\Pi_{\\text{slack}} = (\\alpha - t - \\varepsilon)U^2"} /> quantifies
             how much margin remains. When slack is positive and large, the proxy is reliable;
             as it approaches zero, the approximation tightens and may fail.
           </p>
@@ -104,13 +104,13 @@ export default function TwinLadderPage() {
           Phase Diagram Interpretation
         </h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-          The <InlineMath tex="(\\beta, P)" /> phase diagram reveals the structure of the deformed
-          zeta function. At <InlineMath tex="\\beta = 0, P = 0" /> (origin), we recover the undeformed
-          ladder sum. Moving right (increasing <InlineMath tex="\\beta" />) suppresses higher rungs
+          The <InlineMath tex={"(\\beta, P)"} /> phase diagram reveals the structure of the deformed
+          zeta function. At <InlineMath tex={"\\beta = 0, P = 0"} /> (origin), we recover the undeformed
+          ladder sum. Moving right (increasing <InlineMath tex={"\\beta"} />) suppresses higher rungs
           via Boltzmann-type weighting. Moving up (increasing <InlineMath tex="P" />) adds quadratic
           penalty. The zero loci of <InlineMath tex="|Z_{TL}|" /> trace curves in this plane,
           showing how the zeros of the deformed function depend on the thermodynamic parameters.
-          At large <InlineMath tex="\\beta" />, ground-state collapse makes{' '}
+          At large <InlineMath tex={"\\beta"} />, ground-state collapse makes{' '}
           <InlineMath tex="|Z_{TL}|" /> uniformly non-zero.
         </p>
       </div>

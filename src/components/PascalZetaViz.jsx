@@ -111,8 +111,8 @@ function TriangleTab() {
     <div>
       <div className="tab-explainer accent-green">
         Pascal's triangle visualized as a heatmap with log-scaled coloring. Central binomial
-        coefficients <InlineMath tex="\binom{2n}{n}" /> are highlighted in gold — these connect to{' '}
-        <InlineMath tex="\pi" /> and appear as the spine of the triangle.
+        coefficients <InlineMath tex={"\binom{2n}{n}"} /> are highlighted in gold — these connect to{' '}
+        <InlineMath tex={"\pi"} /> and appear as the spine of the triangle.
         <strong> Look for:</strong> the gold-outlined entries growing much faster than their neighbors.
       </div>
       <div className="controls">
@@ -128,7 +128,7 @@ function TriangleTab() {
       </div>
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13 }}>
         <p style={{ color: '#94a3b8' }}>
-          Each entry <InlineMath tex="C(n,k) = \\binom{n}{k}" /> is the binomial coefficient.
+          Each entry <InlineMath tex={"C(n,k) = \\binom{n}{k}"} /> is the binomial coefficient.
           Central binomials <InlineMath tex={"C(2n,n)"} /> (gold outlines) connect to <InlineMath tex={"\\pi"} /> and
           row products connect to <InlineMath tex={"e"} /> via:
         </p>
@@ -368,7 +368,7 @@ function ConstantsTab() {
       <div className="tab-explainer accent-blue">
         Three fundamental constants extracted from Pascal's triangle:{' '}
         <InlineMath tex="e" /> via Brothers' row-product ratios,{' '}
-        <InlineMath tex="\pi" /> via central binomials, and{' '}
+        <InlineMath tex={"\pi"} /> via central binomials, and{' '}
         <InlineMath tex="i" /> via Euler's identity. The bottom chart shows convergence errors on a log scale.
         <strong> Look for:</strong> Brothers' formula (blue) converging faster than the classical{' '}
         <InlineMath tex="(1+1/n)^n" /> (purple dashed).
@@ -396,9 +396,9 @@ function ConstantsTab() {
         <BlockMath tex={"\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,\\binom{2n}{n}^2}"} />
         <p style={{ color: '#94a3b8' }}>
           <strong style={{ color: '#ec4899' }}>Euler's identity</strong>{' '}
-          <InlineMath tex="e^{i\\pi} + 1 = 0" /> unites all three: having extracted{' '}
-          <InlineMath tex="e" /> and <InlineMath tex="\\pi" /> from Pascal's triangle, we obtain{' '}
-          <InlineMath tex="i = \\frac{\\log(-1)}{\\pi}" /> — the imaginary unit lives implicitly
+          <InlineMath tex={"e^{i\\pi} + 1 = 0"} /> unites all three: having extracted{' '}
+          <InlineMath tex="e" /> and <InlineMath tex={"\\pi"} /> from Pascal's triangle, we obtain{' '}
+          <InlineMath tex={"i = \\frac{\\log(-1)}{\\pi}"} /> — the imaginary unit lives implicitly
           in every row of the triangle.
         </p>
       </div>
@@ -524,15 +524,15 @@ function HasseTab() {
   return (
     <div>
       <div className="tab-explainer accent-purple">
-        The Hasse–Sondow formula computes <InlineMath tex="\zeta(s)" /> entirely from Pascal triangle
+        The Hasse–Sondow formula computes <InlineMath tex={"\zeta(s)"} /> entirely from Pascal triangle
         rows: each row <InlineMath tex="n" /> contributes a weighted forward difference of <InlineMath tex="(k+1)^{-s}" />.
         Purple bars show per-row contribution magnitude; the blue curve is the running partial sum.
         <strong> Look for:</strong> rapid convergence when <InlineMath tex="t" /> is snapped to a zeta zero
-        (green indicator appears), where <InlineMath tex="|\zeta(s)| \to 0" />.
+        (green indicator appears), where <InlineMath tex={"|\zeta(s)| \to 0"} />.
       </div>
       <div className="controls">
         <div className="control-group">
-          <label title="Real part of s — controls convergence region"><InlineMath tex="\\sigma = \\operatorname{Re}(s)" /></label>
+          <label title="Real part of s — controls convergence region"><InlineMath tex={"\\sigma = \\operatorname{Re}(s)"} /></label>
           <input type="range" min="0.1" max="2" step="0.05" value={sigma}
             onChange={e => setSigma(+e.target.value)}
             title={sigma > 1 ? 'Convergent region (σ > 1)' : sigma > 0.5 ? 'Critical strip (½ < σ ≤ 1)' : 'Near critical line (σ ≈ ½)'}
@@ -540,7 +540,7 @@ function HasseTab() {
           <span className="control-value" style={{ color: sigmaColor }}>{sigma.toFixed(2)}</span>
         </div>
         <div className="control-group">
-          <label title="Imaginary part of s — zeta zeros occur at specific t values"><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
+          <label title="Imaginary part of s — zeta zeros occur at specific t values"><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="1" max="60" step="0.5" value={t}
             onChange={e => setT(+e.target.value)}
             title="Imaginary part of s — snap to a zeta zero using the indicator" />
@@ -704,15 +704,15 @@ function DecoratedTab() {
   return (
     <div>
       <div className="tab-explainer accent-orange">
-        The "decorated" zeta scans <InlineMath tex="|\zeta(\sigma + it)|" /> across <InlineMath tex="\sigma" /> using the
+        The "decorated" zeta scans <InlineMath tex={"|\zeta(\sigma + it)|"} /> across <InlineMath tex={"\sigma"} /> using the
         full Hasse–Sondow series (top), while the bottom shows a single Pascal row's Dirichlet
-        polynomial <InlineMath tex="Z_N(s) = \sum_{k=0}^N \binom{N}{k}(k+1)^{-s}" />.
-        <strong> Look for:</strong> the dip near <InlineMath tex="\sigma = 0.5" /> when <InlineMath tex="t" /> is
-        close to a zeta zero, and higher rows growing exponentially for small <InlineMath tex="\sigma" />.
+        polynomial <InlineMath tex={"Z_N(s) = \sum_{k=0}^N \binom{N}{k}(k+1)^{-s}"} />.
+        <strong> Look for:</strong> the dip near <InlineMath tex={"\sigma = 0.5"} /> when <InlineMath tex="t" /> is
+        close to a zeta zero, and higher rows growing exponentially for small <InlineMath tex={"\sigma"} />.
       </div>
       <div className="controls">
         <div className="control-group">
-          <label title="Imaginary part of s — snap to a zeta zero using the indicator"><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
+          <label title="Imaginary part of s — snap to a zeta zero using the indicator"><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="1" max="60" step="0.5" value={t}
             onChange={e => setT(+e.target.value)}
             title="Imaginary part of s — snap to a zeta zero using the indicator" />
@@ -740,7 +740,7 @@ function DecoratedTab() {
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13, color: '#94a3b8' }}>
         <p style={{ marginBottom: 8 }}>
           <strong style={{ color: '#3b82f6' }}>Top:</strong> The full "decorated" zeta —{' '}
-          <InlineMath tex="|\\zeta(\\sigma+it)|" /> computed entirely from Pascal triangle rows via the Hasse–Sondow formula.
+          <InlineMath tex={"|\\zeta(\\sigma+it)|"} /> computed entirely from Pascal triangle rows via the Hasse–Sondow formula.
         </p>
         <p>
           <strong style={{ color: '#8b5cf6' }}>Bottom:</strong> A single row's Dirichlet polynomial —

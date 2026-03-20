@@ -10,17 +10,17 @@ export default function WaveSimPage() {
         <h1>Wave & Energy Flow Simulator</h1>
         <p>
           Visualize how energy and waves propagate through the prime oscillator ladder network.
-          The key control is <InlineMath tex="\\sigma = \\operatorname{Re}(s)" />: at <InlineMath tex="\\sigma = 0.5" /> the
+          The key control is <InlineMath tex={"\\sigma = \\operatorname{Re}(s)"} />: at <InlineMath tex={"\\sigma = 0.5"} /> the
           direct and dual ladders are conjugate-matched, the bridge is lossless, and signals flow through
-          with minimum reflection. Move <InlineMath tex="\\sigma" /> away from 0.5 to see energy reflecting off the
+          with minimum reflection. Move <InlineMath tex={"\\sigma"} /> away from 0.5 to see energy reflecting off the
           bridge, waves decohering, and delays becoming asymmetric.
         </p>
       </div>
 
-      <BlockMath tex="\\text{Bridge pressure: } P(\\sigma, t) = \\bigl(1 - |\\chi(\\sigma + it)|\\bigr)^2 = 0 \\iff \\sigma = \\tfrac{1}{2}" />
+      <BlockMath tex={"\\text{Bridge pressure: } P(\\sigma, t) = \\bigl(1 - |\\chi(\\sigma + it)|\\bigr)^2 = 0 \\iff \\sigma = \\tfrac{1}{2}"} />
 
       <div style={{ marginTop: 8 }}>
-        <BlockMath tex="\\text{Conjugate match: } Z_{\\text{dir}} = Z_{\\text{dual}}^* \\;\\text{ at } \\sigma = \\tfrac{1}{2} \\quad (\\text{magnitudes equal, phases reflected})" />
+        <BlockMath tex={"\\text{Conjugate match: } Z_{\\text{dir}} = Z_{\\text{dual}}^* \\;\\text{ at } \\sigma = \\tfrac{1}{2} \\quad (\\text{magnitudes equal, phases reflected})"} />
       </div>
 
       {/* Wave Physics in the ZPO Model */}
@@ -29,25 +29,25 @@ export default function WaveSimPage() {
         <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 2.2 }}>
           <li>
             Each prime <InlineMath tex="p" /> creates a standing wave with wavelength{' '}
-            <InlineMath tex="\\lambda_p = \\frac{2\\pi}{\\log p}" />.
+            <InlineMath tex={"\\lambda_p = \\frac{2\\pi}{\\log p}"} />.
           </li>
           <li>
             The superposition of all prime waves creates the zeta function's behavior:{' '}
-            <InlineMath tex="\\zeta(s) = \\prod_p \\bigl(1 - p^{-s}\\bigr)^{-1}" />.
+            <InlineMath tex={"\\zeta(s) = \\prod_p \\bigl(1 - p^{-s}\\bigr)^{-1}"} />.
           </li>
           <li>
-            At <InlineMath tex="\\sigma = 1/2" />, direct and reflected waves are in <strong>perfect balance</strong> (conjugate matching).
+            At <InlineMath tex={"\\sigma = 1/2"} />, direct and reflected waves are in <strong>perfect balance</strong> (conjugate matching).
           </li>
           <li>
             Off the critical line, one direction dominates (impedance mismatch) — the reflected wave
             carries energy back toward the source.
           </li>
           <li>
-            The transmission zeros (where <InlineMath tex="\\zeta(s) = 0" />) are the <strong>destructive interference points</strong> —
+            The transmission zeros (where <InlineMath tex={"\\zeta(s) = 0"} />) are the <strong>destructive interference points</strong> —
             all prime waves cancel exactly.
           </li>
         </ul>
-        <BlockMath tex="\\zeta\\!\\left(\\tfrac{1}{2} + it\\right) = 0 \\;\\;\\Longleftrightarrow\\;\\; \\sum_p \\frac{\\sin\\bigl(t \\log p\\bigr)}{\\sqrt{p}} \\;\\text{ destructively interferes}" />
+        <BlockMath tex={"\\zeta\\!\\left(\\tfrac{1}{2} + it\\right) = 0 \\;\\;\\Longleftrightarrow\\;\\; \\sum_p \\frac{\\sin\\bigl(t \\log p\\bigr)}{\\sqrt{p}} \\;\\text{ destructively interferes}"} />
       </div>
 
       <div style={{ marginTop: 32 }}>
@@ -60,23 +60,23 @@ export default function WaveSimPage() {
         <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 2.2 }}>
           <li>
             <strong>Phase velocity:</strong>{' '}
-            <InlineMath tex="v_{\\varphi} = \\frac{\\omega}{k}" /> where <InlineMath tex="k = \\log p" /> for
+            <InlineMath tex={"v_{\\varphi} = \\frac{\\omega}{k}"} /> where <InlineMath tex={"k = \\log p"} /> for
             the <InlineMath tex="p" />-th oscillator.
           </li>
           <li>
             <strong>Group delay:</strong>{' '}
-            <InlineMath tex="\\tau_g = -\\frac{d\\varphi}{d\\omega}" /> measures how long a signal spends at each frequency.
+            <InlineMath tex={"\\tau_g = -\\frac{d\\varphi}{d\\omega}"} /> measures how long a signal spends at each frequency.
           </li>
           <li>
-            At zeros of <InlineMath tex="\\zeta" />, the group delay <strong>diverges</strong> — the signal gets "trapped"
+            At zeros of <InlineMath tex={"\\zeta"} />, the group delay <strong>diverges</strong> — the signal gets "trapped"
             at the resonant frequency.
           </li>
           <li>
-            This connects to <strong>Fisher information</strong>: information about <InlineMath tex="\\sigma" /> diverges at zeros,
+            This connects to <strong>Fisher information</strong>: information about <InlineMath tex={"\\sigma"} /> diverges at zeros,
             making the critical line maximally detectable.
           </li>
         </ul>
-        <BlockMath tex="\\tau_g(\\omega) = -\\frac{\\partial}{\\partial \\omega} \\arg H(j\\omega) \\;\\;\\xrightarrow{\\;\\omega \\to \\gamma_n\\;} \\;\\infty" />
+        <BlockMath tex={"\\tau_g(\\omega) = -\\frac{\\partial}{\\partial \\omega} \\arg H(j\\omega) \\;\\;\\xrightarrow{\\;\\omega \\to \\gamma_n\\;} \\;\\infty"} />
       </div>
 
       <div className="card" style={{ marginTop: 32, borderColor: '#8b5cf6' }}>
@@ -85,7 +85,7 @@ export default function WaveSimPage() {
           <strong style={{ color: '#3b82f6' }}>Signal Flow</strong> — animated energy pulses showing transmission vs reflection at the bridge.
           <strong style={{ color: '#f59e0b' }}> Per-Prime Waves</strong> — individual oscillator waveforms for direct and dual ladders side by side.
           <strong style={{ color: '#10b981' }}> Wave Interference</strong> — superposition of all prime oscillators showing constructive/destructive patterns.
-          <strong style={{ color: '#06b6d4' }}> Phase & Delay</strong> — group delay per prime, showing symmetric timing at <InlineMath tex="\\sigma = 0.5" />.
+          <strong style={{ color: '#06b6d4' }}> Phase & Delay</strong> — group delay per prime, showing symmetric timing at <InlineMath tex={"\\sigma = 0.5"} />.
           <strong style={{ color: '#ec4899' }}> Component Diagram</strong> — circuit schematics at individual prime, ladder, and full system levels.
         </p>
       </div>
@@ -95,19 +95,19 @@ export default function WaveSimPage() {
           <h3 style={{ color: '#3b82f6' }}>Impedance Matching & Perfect Transmission</h3>
           <p style={{ marginBottom: 12 }}>
             In the oscillator model, each prime <InlineMath tex="p" /> contributes a stage with impedance
-            that depends on <InlineMath tex="\\sigma" />. The direct ladder sees <InlineMath tex="Z_p^{\\text{dir}}(\\sigma)" /> while the dual
-            ladder sees <InlineMath tex="Z_p^{\\text{dual}}(\\sigma) = Z_p^{\\text{dir}}(1-\\sigma)" />.
+            that depends on <InlineMath tex={"\\sigma"} />. The direct ladder sees <InlineMath tex={"Z_p^{\\text{dir}}(\\sigma)"} /> while the dual
+            ladder sees <InlineMath tex={"Z_p^{\\text{dual}}(\\sigma) = Z_p^{\\text{dir}}(1-\\sigma)"} />.
           </p>
           <p style={{ marginBottom: 12 }}>
-            At <InlineMath tex="\\sigma = 1/2" />, the functional equation symmetry
-            forces <InlineMath tex="Z^{\\text{dir}} = (Z^{\\text{dual}})^*" /> (conjugate match):
+            At <InlineMath tex={"\\sigma = 1/2"} />, the functional equation symmetry
+            forces <InlineMath tex={"Z^{\\text{dir}} = (Z^{\\text{dual}})^*"} /> (conjugate match):
             magnitudes match but phases are reflected. Combined with the bridge
-            losslessness (<InlineMath tex="|\\chi| = 1" />), energy flows through without net loss:
+            losslessness (<InlineMath tex={"|\\chi| = 1"} />), energy flows through without net loss:
           </p>
-          <BlockMath tex="|Z^{\\text{dir}}| = |Z^{\\text{dual}}|, \\quad |\\chi(\\tfrac{1}{2}+it)| = 1 \\;\\;\\forall\\, t" />
+          <BlockMath tex={"|Z^{\\text{dir}}| = |Z^{\\text{dual}}|, \\quad |\\chi(\\tfrac{1}{2}+it)| = 1 \\;\\;\\forall\\, t"} />
           <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.7 }}>
-            This is the wave-propagation interpretation of RH: if all zeros sit on <InlineMath tex="\\sigma = 1/2" />,
-            the network transmits every frequency without loss. Move <InlineMath tex="\\sigma" /> off 1/2 in the Signal Flow
+            This is the wave-propagation interpretation of RH: if all zeros sit on <InlineMath tex={"\\sigma = 1/2"} />,
+            the network transmits every frequency without loss. Move <InlineMath tex={"\\sigma"} /> off 1/2 in the Signal Flow
             tab to watch energy reflect back from the bridge.
           </p>
         </div>
@@ -115,7 +115,7 @@ export default function WaveSimPage() {
           <h3 style={{ color: '#f59e0b' }}>What to Look For</h3>
           <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 2 }}>
             <li>
-              <strong style={{ color: '#10b981' }}>At <InlineMath tex="\\sigma = 0.5" />:</strong> direct and dual waveforms are mirror
+              <strong style={{ color: '#10b981' }}>At <InlineMath tex={"\\sigma = 0.5"} />:</strong> direct and dual waveforms are mirror
               images, interference is constructive, group delays are symmetric across primes, and
               the bridge transmits 100%.
             </li>
@@ -125,8 +125,8 @@ export default function WaveSimPage() {
               split apart, and reflected energy appears.
             </li>
             <li>
-              <strong style={{ color: '#06b6d4' }}>Near a zero</strong> (<InlineMath tex="t \\approx \\gamma_n" />): the oscillator modes
-              resonate — wave amplitudes peak, the scattering matrix exhibits phase jumps of <InlineMath tex="\\pi" />,
+              <strong style={{ color: '#06b6d4' }}>Near a zero</strong> (<InlineMath tex={"t \\approx \\gamma_n"} />): the oscillator modes
+              resonate — wave amplitudes peak, the scattering matrix exhibits phase jumps of <InlineMath tex={"\\pi"} />,
               and the Per-Prime tab reveals which harmonics dominate.
             </li>
             <li>
@@ -141,12 +141,12 @@ export default function WaveSimPage() {
       {/* Worked Example: First Zeta Zero */}
       <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #a855f7' }}>
         <h3 style={{ color: '#a855f7', fontSize: 14, marginBottom: 12 }}>
-          Worked Example: Destructive Interference at <InlineMath tex="\gamma_1 \approx 14.134" />
+          Worked Example: Destructive Interference at <InlineMath tex={"\gamma_1 \approx 14.134"} />
         </h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
-          At the first zeta zero <InlineMath tex="t = \gamma_1 \approx 14.134" />, the oscillator
+          At the first zeta zero <InlineMath tex={"t = \gamma_1 \approx 14.134"} />, the oscillator
           phases from each prime conspire to cancel. Each prime <InlineMath tex="p" /> contributes a
-          phasor <InlineMath tex="p^{-1/2} e^{-i \gamma_1 \log p}" /> to the Euler product. Here are the
+          phasor <InlineMath tex={"p^{-1/2} e^{-i \gamma_1 \log p}"} /> to the Euler product. Here are the
           individual phases (in degrees) for the first few primes:
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 8, marginBottom: 16 }}>
@@ -169,15 +169,15 @@ export default function WaveSimPage() {
           ))}
         </div>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
-          Each phasor points in a different direction, and at <InlineMath tex="t = \gamma_1" /> they
+          Each phasor points in a different direction, and at <InlineMath tex={"t = \gamma_1"} /> they
           are distributed around the complex plane so that their vector sum cancels. This is the
           "destructive interference" condition: no single prime dominates — instead, the cumulative
           product of all <InlineMath tex="(1 - p^{-s})^{-1}" /> factors reaches zero magnitude.
         </p>
-        <BlockMath tex="\prod_{p} \frac{1}{1 - p^{-1/2 - i\gamma_1}} = 0 \quad \Longleftrightarrow \quad \text{phasors cancel in the Euler product}" />
+        <BlockMath tex={"\prod_{p} \frac{1}{1 - p^{-1/2 - i\gamma_1}} = 0 \quad \Longleftrightarrow \quad \text{phasors cancel in the Euler product}"} />
         <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
           Use the <strong style={{ color: '#f59e0b' }}>Per-Prime Waves</strong> tab with{' '}
-          <InlineMath tex="t \approx 14.13" /> to see this cancellation visually. Each row shows
+          <InlineMath tex={"t \approx 14.13"} /> to see this cancellation visually. Each row shows
           a prime's direct and dual waveforms; the{' '}
           <strong style={{ color: '#10b981' }}>Wave Interference</strong> tab then shows the
           superposition plunging toward zero at this frequency.
@@ -190,12 +190,12 @@ export default function WaveSimPage() {
         <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 2.2 }}>
           <li>
             <strong>Characteristic impedance:</strong>{' '}
-            <InlineMath tex="Z_0 = \\sqrt{L/C}" /> for each prime oscillator stage,
+            <InlineMath tex={"Z_0 = \\sqrt{L/C}"} /> for each prime oscillator stage,
             where <InlineMath tex="L" /> and <InlineMath tex="C" /> encode the prime's contribution to the Euler product.
           </li>
           <li>
-            At <InlineMath tex="\\sigma = 1/2" />: impedances of the direct and dual ladders are <strong>complex conjugates</strong>,{' '}
-            <InlineMath tex="Z_{\\text{dir}} = Z_{\\text{dual}}^*" />.
+            At <InlineMath tex={"\\sigma = 1/2"} />: impedances of the direct and dual ladders are <strong>complex conjugates</strong>,{' '}
+            <InlineMath tex={"Z_{\\text{dir}} = Z_{\\text{dual}}^*"} />.
           </li>
           <li>
             The <strong>maximum power transfer theorem</strong> applies: all energy passes through the bridge
@@ -203,10 +203,10 @@ export default function WaveSimPage() {
           </li>
           <li>
             This is the engineering interpretation of the functional equation symmetry{' '}
-            <InlineMath tex="\\xi(s) = \\xi(1 - s)" />.
+            <InlineMath tex={"\\xi(s) = \\xi(1 - s)"} />.
           </li>
         </ul>
-        <BlockMath tex="\\Gamma = \\frac{Z_{\\text{dir}} - Z_{\\text{dual}}^*}{Z_{\\text{dir}} + Z_{\\text{dual}}^*} = 0 \\;\\;\\text{ at } \\sigma = \\tfrac{1}{2} \\quad \\Longrightarrow \\quad |T|^2 = 1 \\;\\text{ (perfect transmission)}" />
+        <BlockMath tex={"\\Gamma = \\frac{Z_{\\text{dir}} - Z_{\\text{dual}}^*}{Z_{\\text{dir}} + Z_{\\text{dual}}^*} = 0 \\;\\;\\text{ at } \\sigma = \\tfrac{1}{2} \\quad \\Longrightarrow \\quad |T|^2 = 1 \\;\\text{ (perfect transmission)}"} />
       </div>
 
       {/* Related Pages */}

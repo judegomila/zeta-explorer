@@ -379,7 +379,7 @@ export default function GUEStatisticsViz() {
       )}
       {mode === 'pair-correlation' && (
         <div className="tab-explainer accent-purple">
-          The pair correlation <InlineMath tex="R_2(x) = 1 - (\\sin\\pi x / \\pi x)^2" /> (Montgomery 1973)
+          The pair correlation <InlineMath tex={"R_2(x) = 1 - (\\sin\\pi x / \\pi x)^2"} /> (Montgomery 1973)
           measures the density of pairs of zeros at separation <InlineMath tex="x" />. The dip at <InlineMath tex="x = 0" /> confirms
           level repulsion; the oscillations reflect the determinantal structure of GUE eigenvalues.
           This is the "two-point function" of the zero process.

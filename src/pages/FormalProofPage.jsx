@@ -136,8 +136,8 @@ export default function FormalProofPage() {
               Euler factors <InlineMath tex="H_p(s) = 1/(1-p^{-s})" /> are valid transfer functions (S1)
             </li>
             <li>
-              The cascade <InlineMath tex="\zeta(s) = \prod H_p(s)" /> converges for{' '}
-              <InlineMath tex="\sigma > 1" /> (S2)
+              The cascade <InlineMath tex={"\zeta(s) = \prod H_p(s)"} /> converges for{' '}
+              <InlineMath tex={"\sigma > 1"} /> (S2)
             </li>
             <li>
               The bridge satisfies <InlineMath tex={"|\\chi(\\tfrac{1}{2}+it)| = 1"} /> exactly (S3)
@@ -220,7 +220,7 @@ export default function FormalProofPage() {
               <li style={{ color: '#f97316', fontWeight: 600 }}>
                 S7: Prove exact Darlington conditions <span>[GAP]</span>
               </li>
-              <li>S8: Transmission zeros confined to <InlineMath tex="j\\omega" /> axis</li>
+              <li>S8: Transmission zeros confined to <InlineMath tex={"j\\omega"} /> axis</li>
             </ol>
           </div>
 
@@ -273,9 +273,9 @@ export default function FormalProofPage() {
           '\\;\\Longrightarrow\\; \\text{RH.}'
         } />
         <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 12 }}>
-          The ZPO candidate for <InlineMath tex="\mathcal{A}" /> is the quantization of the
-          Hamiltonian <InlineMath tex="\mathcal{H}(\sigma,t)" /> restricted to the critical line.
-          The Hilbert space <InlineMath tex="L^2(X,\mu)" /> would be constructed from the prime
+          The ZPO candidate for <InlineMath tex={"\mathcal{A}"} /> is the quantization of the
+          Hamiltonian <InlineMath tex={"\mathcal{H}(\sigma,t)"} /> restricted to the critical line.
+          The Hilbert space <InlineMath tex={"L^2(X,\mu)"} /> would be constructed from the prime
           oscillator chain. <strong style={{ color: '#ef4444' }}>This construction is not yet
           achieved</strong> — it is the content of Gap S5.
         </p>

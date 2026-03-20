@@ -399,24 +399,24 @@ export default function NyquistBodeViz() {
           <p style={{ margin: '0 0 8px' }}>
             The Nyquist plot traces the loop transfer function in the complex plane as <InlineMath tex="t" /> varies:
           </p>
-          <BlockMath tex="L(s) = \\chi(s)\\,\\frac{\\zeta(1-s)}{\\zeta(s)}" />
+          <BlockMath tex={"L(s) = \\chi(s)\\,\\frac{\\zeta(1-s)}{\\zeta(s)}"} />
           <p style={{ margin: '8px 0 0' }}>
             By the Nyquist stability criterion, the number of clockwise encirclements of <InlineMath tex="-1" /> equals{' '}
             <InlineMath tex="Z - P" /> (zeros minus poles in the right half-plane). RH says: on the critical line{' '}
-            (<InlineMath tex="\\sigma = \\tfrac{1}{2}" />), there are <strong>zero encirclements</strong> &mdash; the system
-            is marginally stable. Moving <InlineMath tex="\\sigma" /> off the critical line changes the winding number.
-            <strong> Look for:</strong> the curve not encircling <InlineMath tex="-1" /> at <InlineMath tex="\\sigma = 0.5" />.
+            (<InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />), there are <strong>zero encirclements</strong> &mdash; the system
+            is marginally stable. Moving <InlineMath tex={"\\sigma"} /> off the critical line changes the winding number.
+            <strong> Look for:</strong> the curve not encircling <InlineMath tex="-1" /> at <InlineMath tex={"\\sigma = 0.5"} />.
           </p>
         </div>
       )}
       {mode === 'bode' && (
         <div className="tab-explainer accent-orange">
-          The Bode diagram shows the loop gain <InlineMath tex="|L(j\\omega)|" /> in dB (top) and
-          phase <InlineMath tex="\\angle L(j\\omega)" /> in degrees (bottom) vs. frequency. Gain crossings (0 dB) correspond
+          The Bode diagram shows the loop gain <InlineMath tex={"|L(j\\omega)|"} /> in dB (top) and
+          phase <InlineMath tex={"\\angle L(j\\omega)"} /> in degrees (bottom) vs. frequency. Gain crossings (0 dB) correspond
           to potential instabilities; the <strong>gain margin</strong> measures how much amplification the loop can tolerate.
           The <strong>phase margin</strong> measures how much phase lag can be added. On the critical line, the system has
           infinite gain margin &mdash; the oscillator chain can never become unstable.
-          <strong> Look for:</strong> gain peaks at zeta zero frequencies; adequate margins at <InlineMath tex="\\sigma = 0.5" />.
+          <strong> Look for:</strong> gain peaks at zeta zero frequencies; adequate margins at <InlineMath tex={"\\sigma = 0.5"} />.
         </div>
       )}
       <div className="controls">
@@ -428,7 +428,7 @@ export default function NyquistBodeViz() {
           </select>
         </div>
         <div className="control-group">
-          <label style={{ color: sigmaColor, fontWeight: 600 }}><InlineMath tex="\\sigma = \\operatorname{Re}(s)" /></label>
+          <label style={{ color: sigmaColor, fontWeight: 600 }}><InlineMath tex={"\\sigma = \\operatorname{Re}(s)"} /></label>
           <input type="range" min="0.1" max="0.9" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />

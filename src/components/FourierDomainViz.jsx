@@ -409,7 +409,7 @@ function FrequencyResponseTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\\sigma" /></label>
+          <label><InlineMath tex={"\\sigma"} /></label>
           <input type="range" min="0.1" max="2" step="0.05" value={sigma}
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
@@ -554,7 +554,7 @@ function SpectralEnergyTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\\sigma" /></label>
+          <label><InlineMath tex={"\\sigma"} /></label>
           <input type="range" min="0.1" max="1.5" step="0.05" value={sigma}
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />
@@ -690,7 +690,7 @@ function PrimeHarmonicsTab() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="\\sigma" /></label>
+          <label><InlineMath tex={"\\sigma"} /></label>
           <input type="range" min="0.1" max="2" step="0.05" value={sigma}
             onChange={e => setSigma(+e.target.value)}
             style={{ accentColor: sigmaColor }} />

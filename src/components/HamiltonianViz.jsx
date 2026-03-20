@@ -190,7 +190,7 @@ export default function HamiltonianViz() {
       </div>
       <div className="controls">
         <div className="control-group">
-          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
+          <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
@@ -224,7 +224,7 @@ export default function HamiltonianViz() {
         </div>
         {hoverPoint ? (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
-            <InlineMath tex="\\sigma" />={hoverPoint.sigma.toFixed(3)} | <InlineMath tex="\\mathcal{H}" />={hoverPoint.total.toFixed(3)} | <InlineMath tex="T" />={hoverPoint.kinetic.toFixed(3)} | <InlineMath tex="V" />={hoverPoint.potential.toFixed(3)} | <span style={{ color: '#8b5cf6' }}><InlineMath tex="V_b" />={hoverPoint.bridgeCoupling.toFixed(3)}</span>
+            <InlineMath tex={"\\sigma"} />={hoverPoint.sigma.toFixed(3)} | <InlineMath tex={"\\mathcal{H}"} />={hoverPoint.total.toFixed(3)} | <InlineMath tex="T" />={hoverPoint.kinetic.toFixed(3)} | <InlineMath tex="V" />={hoverPoint.potential.toFixed(3)} | <span style={{ color: '#8b5cf6' }}><InlineMath tex="V_b" />={hoverPoint.bridgeCoupling.toFixed(3)}</span>
           </div>
         ) : (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', fontStyle: 'italic' }}>

@@ -21,9 +21,9 @@ export default function InformationTheoryPage() {
         <h3 style={{ color: '#10b981', fontSize: 14, marginBottom: 8 }}>The Channel Model</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
           Treat the Euler product cascade as a discrete memoryless channel: input is the complex
-          frequency <InlineMath tex="s = \sigma + it" />, each prime oscillator stage adds noise
-          proportional to the impedance mismatch <InlineMath tex="\Delta Z_p" />, and the channel
-          output is <InlineMath tex="\zeta(s)" />. The bridge <InlineMath tex="\chi(s)" /> acts as
+          frequency <InlineMath tex={"s = \sigma + it"} />, each prime oscillator stage adds noise
+          proportional to the impedance mismatch <InlineMath tex={"\Delta Z_p"} />, and the channel
+          output is <InlineMath tex={"\zeta(s)"} />. The bridge <InlineMath tex={"\chi(s)"} /> acts as
           the feedback path coupling direct and dual ladders.
         </p>
       </div>
@@ -61,7 +61,7 @@ export default function InformationTheoryPage() {
           <h3 style={{ color: '#f59e0b', fontSize: 14 }}>Why This Matters for RH</h3>
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
             If the twin ladder is a <em>capacity-achieving</em> channel at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />,
-            then zeros of the transfer function <InlineMath tex="\zeta(s)" /> correspond to
+            then zeros of the transfer function <InlineMath tex={"\zeta(s)"} /> correspond to
             channel capacity singularities. Information theory provides a framework where:
           </p>
           <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
@@ -73,7 +73,7 @@ export default function InformationTheoryPage() {
           <p style={{ color: '#ef4444', fontSize: 12, marginTop: 12, fontWeight: 600 }}>
             Gap: These are properties of the model at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />,
             not proofs that zeros must lie there. The Fisher singularity is the most suggestive:
-            it says the system has infinite sensitivity to <InlineMath tex="\sigma" />-perturbation
+            it says the system has infinite sensitivity to <InlineMath tex={"\sigma"} />-perturbation
             at zeros, which is consistent with (but does not prove) confinement to the critical line.
           </p>
         </div>
@@ -101,12 +101,12 @@ export default function InformationTheoryPage() {
         <BlockMath tex={"\\text{If } \\; \\sigma^* = \\arg\\max_\\sigma C(\\sigma, t) \\;\\text{ and }\\; \\zeta(\\sigma^* + it) = 0 \\;\\Longrightarrow\\; \\sigma^* = \\tfrac{1}{2}"} />
         <ol style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 2.2 }}>
           <li>
-            <strong>Step 1:</strong> Prove the channel capacity <InlineMath tex="C(\sigma, t)" /> is
-            strictly concave in <InlineMath tex="\sigma" /> with unique maximum at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
+            <strong>Step 1:</strong> Prove the channel capacity <InlineMath tex={"C(\sigma, t)"} /> is
+            strictly concave in <InlineMath tex={"\sigma"} /> with unique maximum at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
             <span style={{ color: '#10b981', marginLeft: 8 }}>(Numerically verified)</span>
           </li>
           <li>
-            <strong>Step 2:</strong> Prove zeros of <InlineMath tex="\zeta(s)" /> are channel capacity
+            <strong>Step 2:</strong> Prove zeros of <InlineMath tex={"\zeta(s)"} /> are channel capacity
             singularities — the transfer function vanishes exactly where the channel capacity is maximized.
             <span style={{ color: '#f59e0b', marginLeft: 8 }}>(Plausible but unproven)</span>
           </li>
@@ -139,9 +139,9 @@ export default function InformationTheoryPage() {
           <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 12, lineHeight: 2 }}>
             <li>The Euler product entropy is maximized at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (most balanced prime weighting)</li>
             <li>KL divergence <InlineMath tex={"D_{\\text{KL}}(P_\\sigma \\| P_{1/2})"} /> is a natural "distance from RH" measure</li>
-            <li>Fisher information diverges at zeros like <InlineMath tex="|\zeta(\sigma+it)|^{-2}" /></li>
-            <li>Rate-distortion curve quantifies the "complexity" of <InlineMath tex="\zeta(s)" /> in prime-oscillator bits</li>
-            <li>Channel capacity duality: <InlineMath tex="C(\sigma) = C(1-\sigma)" /> from functional equation</li>
+            <li>Fisher information diverges at zeros like <InlineMath tex={"|\zeta(\sigma+it)|^{-2}"} /></li>
+            <li>Rate-distortion curve quantifies the "complexity" of <InlineMath tex={"\zeta(s)"} /> in prime-oscillator bits</li>
+            <li>Channel capacity duality: <InlineMath tex={"C(\sigma) = C(1-\sigma)"} /> from functional equation</li>
           </ul>
         </div>
       </div>

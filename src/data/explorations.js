@@ -2629,7 +2629,7 @@ $$E[\\psi] = \\langle \\psi | H_{\\text{ZPO}} | \\psi \\rangle = \\sum_p \\langl
 The Weil positivity $W[f] \\geq 0$ is equivalent to $E[\\psi] \\geq 0$ for all states $\\psi$ in the ZPO Hilbert space. This means the Hamiltonian is **positive semi-definite**, which forces its eigenvalues (= imaginary parts of zeta zeros) to be real.
 
 **Connes' spectral realization**: The adele class space $\\mathbb{A}_\\mathbb{Q} / \\mathbb{Q}^*$ is the configuration space of the ZPO ladder. The trace formula on this space reproduces the explicit formula:
-$$\\text{Tr}(f | H) = \\hat{f}(0) + \\hat{f}(1) - \\sum_p \\sum_{m=1}^\\infty} \\frac{\\log p}{p^{m/2}} f(m \\log p) - \\sum_\\rho \\hat{f}(\\rho)$$
+$$\\text{Tr}(f | H) = \\hat{f}(0) + \\hat{f}(1) - \\sum_p \\sum_{m=1}^{\\infty} \\frac{\\log p}{p^{m/2}} f(m \\log p) - \\sum_{\\rho} \\hat{f}(\\rho)$$
 
 The positivity of $W[f]$ is precisely the condition that ensures all $\\rho$ lie on $\\text{Re}(s) = 1/2$.
 

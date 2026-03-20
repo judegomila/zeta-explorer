@@ -10,6 +10,25 @@ const STATUS_LABELS = {
   disputed: { label: 'Disputed', color: '#f59e0b' },
 };
 
+function truncateMathSafe(text, maxLen) {
+  if (!text || text.length <= maxLen) return text;
+  let truncated = text.slice(0, maxLen);
+  // Check for unclosed $$ (display math)
+  const ddMatches = truncated.match(/\$\$/g) || [];
+  if (ddMatches.length % 2 !== 0) {
+    const lastDD = truncated.lastIndexOf('$$');
+    truncated = truncated.slice(0, lastDD);
+  }
+  // Check for unclosed $ (inline math) after removing $$
+  const withoutDD = truncated.replace(/\$\$/g, '');
+  const singleCount = (withoutDD.match(/\$/g) || []).length;
+  if (singleCount % 2 !== 0) {
+    const lastDollar = truncated.lastIndexOf('$');
+    truncated = truncated.slice(0, lastDollar);
+  }
+  return truncated + '...';
+}
+
 export default function RHRigorPage() {
   const [expandedId, setExpandedId] = useState(null);
   const [filterSeverity, setFilterSeverity] = useState('all');
@@ -88,16 +107,16 @@ export default function RHRigorPage() {
           The Central Problem
         </h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-          The ZPO model constructs a Hamiltonian <InlineMath tex="H(\\sigma,t)" /> that is minimized
-          at <InlineMath tex="\\sigma = 1/2" /> and interprets this as evidence for RH. However, the
+          The ZPO model constructs a Hamiltonian <InlineMath tex={"H(\\sigma,t)"} /> that is minimized
+          at <InlineMath tex={"\\sigma = 1/2"} /> and interprets this as evidence for RH. However, the
           Hamiltonian is <strong style={{ color: '#e2e8f0' }}>designed</strong> to have this minimum —
-          it is not derived from the zeros of <InlineMath tex="\\zeta" />. The argument is:
+          it is not derived from the zeros of <InlineMath tex={"\\zeta"} />. The argument is:
         </p>
-        <BlockMath tex="\\text{Build symmetric } H \\;\\Rightarrow\\; \\min_{\\sigma} H = H(\\tfrac{1}{2}, t) \\;\\Rightarrow\\; \\text{``therefore RH''}" />
+        <BlockMath tex={"\\text{Build symmetric } H \\;\\Rightarrow\\; \\min_{\\sigma} H = H(\\tfrac{1}{2}, t) \\;\\Rightarrow\\; \\text{``therefore RH''}"} />
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
           But the correct logical chain would require:
         </p>
-        <BlockMath tex="\\text{Derive } H \\text{ from } \\zeta \\;\\Rightarrow\\; \\text{Prove } \\min H \\iff \\zeta = 0 \\;\\Rightarrow\\; \\text{Prove } \\min H \\text{ at } \\sigma = \\tfrac{1}{2}" />
+        <BlockMath tex={"\\text{Derive } H \\text{ from } \\zeta \\;\\Rightarrow\\; \\text{Prove } \\min H \\iff \\zeta = 0 \\;\\Rightarrow\\; \\text{Prove } \\min H \\text{ at } \\sigma = \\tfrac{1}{2}"} />
         <p style={{ color: '#f59e0b', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
           The first two steps are missing. Without them, the ZPO model is a vivid illustration of what
           RH "looks like" in circuit language, but not a path to proving it. Below we enumerate every
@@ -121,18 +140,18 @@ export default function RHRigorPage() {
         <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 2 }}>
           <li>
             <strong style={{ color: '#3b82f6' }}>H Minimization:</strong> drag <InlineMath tex="t" /> through several zeta zeros
-            (<InlineMath tex="\\gamma \\approx 14.1, 21.0, 25.0" />) and watch whether the blue trajectory stays on the
-            green <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> line. Increase primes to see deviation shrink — then ask: is this convergence
+            (<InlineMath tex={"\\gamma \\approx 14.1, 21.0, 25.0"} />) and watch whether the blue trajectory stays on the
+            green <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> line. Increase primes to see deviation shrink — then ask: is this convergence
             a genuine prediction, or is <InlineMath tex="H" /> engineered to minimize there?
           </li>
           <li>
             <strong style={{ color: '#8b5cf6' }}>Bridge |χ|:</strong> the heatmap shows where the bridge deviates from unitarity.
-            The bright green band at <InlineMath tex="\\sigma = \\tfrac{1}{2}" /> confirms <InlineMath tex="|\\chi| = 1" /> on the critical line —
+            The bright green band at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> confirms <InlineMath tex={"|\\chi| = 1"} /> on the critical line —
             but this is just the functional equation rephrased. Look for how quickly deviation grows off-line: a sharp ridge means
-            the model is sensitive to <InlineMath tex="\\sigma" />, while a broad plateau means it is not.
+            the model is sensitive to <InlineMath tex={"\\sigma"} />, while a broad plateau means it is not.
           </li>
           <li>
-            <strong style={{ color: '#06b6d4' }}>Mismatch vs Zeros:</strong> compare the orange mismatch curve to the blue <InlineMath tex="|\\zeta|" /> curve.
+            <strong style={{ color: '#06b6d4' }}>Mismatch vs Zeros:</strong> compare the orange mismatch curve to the blue <InlineMath tex={"|\\zeta|"} /> curve.
             If they dip together at the same <InlineMath tex="t" /> values, the mismatch "predicts" zeros. Check the Pearson <InlineMath tex="r" /> in the
             top-right: a high correlation is suggestive but not proof, since both quantities are built from the same Euler product truncation.
             The red curve (off-line) should be systematically higher than orange (on-line) if the model distinguishes the critical line.
@@ -251,7 +270,7 @@ export default function RHRigorPage() {
 
             {!isExpanded && (
               <p style={{ marginTop: 8, fontSize: 13, color: '#64748b' }}>
-                {crit.issue.slice(0, 200).replace(/\$[^$]*\$/g, '[math]').replace(/\*\*/g, '')}...
+                <MathText>{truncateMathSafe(crit.issue, 250)}</MathText>
               </p>
             )}
 
@@ -353,12 +372,12 @@ export default function RHRigorPage() {
           <ol style={{ paddingLeft: 20, marginTop: 12 }}>
             <li style={{ marginBottom: 8 }}>
               <strong style={{ color: '#e2e8f0' }}>A symmetric operator</strong> (not a classical energy function) whose
-              eigenvalues are <InlineMath tex="\\gamma_n" /> where <InlineMath tex="\\rho_n = 1/2 + i\\gamma_n" /> are the zeros.
+              eigenvalues are <InlineMath tex={"\\gamma_n"} /> where <InlineMath tex={"\\rho_n = 1/2 + i\\gamma_n"} /> are the zeros.
               This is the Hilbert-Pólya program (Berry-Keating, Connes, Sierra).
             </li>
             <li style={{ marginBottom: 8 }}>
               <strong style={{ color: '#e2e8f0' }}>A proof that the operator is self-adjoint</strong> (not merely symmetric), which
-              would show all eigenvalues are real, hence all zeros have <InlineMath tex="\\sigma = 1/2" />.
+              would show all eigenvalues are real, hence all zeros have <InlineMath tex={"\\sigma = 1/2"} />.
             </li>
             <li style={{ marginBottom: 8 }}>
               <strong style={{ color: '#e2e8f0' }}>A distinguishing test</strong>: the method must fail when applied to
@@ -367,7 +386,7 @@ export default function RHRigorPage() {
             </li>
             <li style={{ marginBottom: 8 }}>
               <strong style={{ color: '#e2e8f0' }}>Convergence in the critical strip</strong>: any Euler-product-based
-              argument must handle the divergence of the product for <InlineMath tex="\\sigma \\leq 1" />, using analytic
+              argument must handle the divergence of the product for <InlineMath tex={"\\sigma \\leq 1"} />, using analytic
               continuation or the explicit formula instead.
             </li>
           </ol>
@@ -405,7 +424,7 @@ export default function RHRigorPage() {
             <li>
               <strong style={{ color: '#e2e8f0' }}>The approximations lie on the critical line by construction:</strong> The
               Weil form extremization produces values that are real (as imaginary parts of
-              points <InlineMath tex="\\tfrac{1}{2} + i\\gamma" />). But this is built into the method --
+              points <InlineMath tex={"\\tfrac{1}{2} + i\\gamma"} />). But this is built into the method --
               it does not prove that the actual zeros lie on the critical line.
             </li>
           </ul>
@@ -415,7 +434,7 @@ export default function RHRigorPage() {
           <h4 style={{ color: '#f59e0b', margin: '0 0 12px', fontSize: 14 }}>What the result does NOT do</h4>
           <ul style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 2, marginLeft: 16 }}>
             <li>
-              It does not prove <InlineMath tex="W \\geq 0" /> (the Weil positivity condition equivalent to RH).
+              It does not prove <InlineMath tex={"W \\geq 0"} /> (the Weil positivity condition equivalent to RH).
             </li>
             <li>
               It does not construct a self-adjoint operator (Gap S5 remains open).
@@ -443,7 +462,7 @@ export default function RHRigorPage() {
             Connes' result is the strongest evidence yet that the spectral approach (S5) can work --
             the operator's spectrum IS encoded in a finite number of primes. But encoding is not the
             same as proving. The gap between "5 primes approximate 50 zeros" and "all zeros lie
-            on <InlineMath tex="\\sigma = \\tfrac{1}{2}" />" remains the central challenge.
+            on <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />" remains the central challenge.
           </p>
         </div>
       </div>

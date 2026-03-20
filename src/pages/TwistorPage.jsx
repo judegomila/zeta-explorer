@@ -12,28 +12,28 @@ export default function TwistorPage() {
         <p>
           Map the ZPO twin-ladder model into Penrose twistor geometry. The twistor
           correspondence reframes the direct/dual ladder pair as a twistor/dual-twistor pair
-          coupled by an intertwiner — the bridge <InlineMath tex="\\chi(s)" />. The critical line
-          condition <InlineMath tex="\\sigma = \\frac{1}{2}" /> becomes the twistor incidence relation
-          <InlineMath tex="Z^{\\alpha} W_{\\alpha} = 0" />.
+          coupled by an intertwiner — the bridge <InlineMath tex={"\\chi(s)"} />. The critical line
+          condition <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> becomes the twistor incidence relation
+          <InlineMath tex={"Z^{\\alpha} W_{\\alpha} = 0"} />.
         </p>
       </div>
 
-      <BlockMath tex="Z^{\\alpha} = (\\omega^A, \\pi_{A'}) \\quad \\longleftrightarrow \\quad \\text{Direct ladder } \\zeta(s)" />
+      <BlockMath tex={"Z^{\\alpha} = (\\omega^A, \\pi_{A'}) \\quad \\longleftrightarrow \\quad \\text{Direct ladder } \\zeta(s)"} />
 
       <div style={{ marginTop: 8 }}>
-        <BlockMath tex="W_{\\alpha} = (\\tilde{\\omega}^{A'}, \\tilde{\\pi}_A) \\quad \\longleftrightarrow \\quad \\text{Dual ladder } \\zeta(1-s)" />
+        <BlockMath tex={"W_{\\alpha} = (\\tilde{\\omega}^{A'}, \\tilde{\\pi}_A) \\quad \\longleftrightarrow \\quad \\text{Dual ladder } \\zeta(1-s)"} />
       </div>
 
       <div style={{ marginTop: 8 }}>
-        <BlockMath tex="I: Z \\mapsto W \\text{ via } \\chi(s) \\quad \\longleftrightarrow \\quad \\text{Bridge (intertwiner)}" />
+        <BlockMath tex={"I: Z \\mapsto W \\text{ via } \\chi(s) \\quad \\longleftrightarrow \\quad \\text{Bridge (intertwiner)}"} />
       </div>
 
       <div className="card" style={{ marginTop: 32, marginBottom: 32 }}>
         <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>3D Penrose Twistor Diagram</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 13, marginBottom: 16 }}>
           Interactive 3D visualization of the twistor/dual-twistor pair in projective twistor space.
-          Drag to orbit. The blue sphere is <InlineMath tex="Z^{\\alpha}" /> (direct ladder), gold is{' '}
-          <InlineMath tex="W_{\\alpha}" /> (dual ladder). Arrows show spinor components. The green arc is the
+          Drag to orbit. The blue sphere is <InlineMath tex={"Z^{\\alpha}"} /> (direct ladder), gold is{' '}
+          <InlineMath tex={"W_{\\alpha}"} /> (dual ladder). Arrows show spinor components. The green arc is the
           intertwiner bridge. Red dots along the <InlineMath tex="t" />-axis mark known zeta zeros.
         </p>
         <Suspense fallback={<div style={{ height: 480, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b' }}>Loading 3D...</div>}>
@@ -50,21 +50,21 @@ export default function TwistorPage() {
         <h3 style={{ color: '#f59e0b' }}>What to Explore in Each Tab</h3>
         <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
           <strong style={{ color: '#3b82f6' }}>Correspondence</strong> — the s-plane (left) maps to twistor space
-          (right). Drag <InlineMath tex="\\sigma" /> across the critical line and watch the twistor <InlineMath tex="Z" /> (blue)
+          (right). Drag <InlineMath tex={"\\sigma"} /> across the critical line and watch the twistor <InlineMath tex="Z" /> (blue)
           and dual twistor <InlineMath tex="W" /> (gold) respond. The intertwiner arc turns green when{' '}
-          <InlineMath tex="|Z \\cdot W| \\approx 0" /> (incidence satisfied). At <InlineMath tex="\\sigma = 0.5" /> the two
+          <InlineMath tex={"|Z \\cdot W| \\approx 0"} /> (incidence satisfied). At <InlineMath tex={"\\sigma = 0.5"} /> the two
           spinors are related by the lossless bridge — move away to see them decouple.
           <strong style={{ color: '#10b981' }}> Penrose Transform</strong> — compares the twistor-weighted Euler
-          product (top, cyan) with the raw <InlineMath tex="|\\zeta(s)|" /> (bottom, purple) across <InlineMath tex="\\sigma" />.
+          product (top, cyan) with the raw <InlineMath tex={"|\\zeta(s)|"} /> (bottom, purple) across <InlineMath tex={"\\sigma"} />.
           The Pearson correlation in the corner measures how faithfully the twistor weighting captures zeta
           behavior. Increase primes to sharpen both curves and watch the correlation change.
           <strong style={{ color: '#ef4444' }}> Incidence Relation</strong> — a 2D heatmap of{' '}
-          <InlineMath tex="|Z \\cdot W|" /> over the <InlineMath tex="(\\sigma, t)" /> plane. Look for the dark band
-          along <InlineMath tex="\\sigma = 0.5" /> where incidence is satisfied. Green dots mark known zeta zeros —
+          <InlineMath tex={"|Z \\cdot W|"} /> over the <InlineMath tex={"(\\sigma, t)"} /> plane. Look for the dark band
+          along <InlineMath tex={"\\sigma = 0.5"} /> where incidence is satisfied. Green dots mark known zeta zeros —
           they should sit on the dark locus. Widen the t-range to see more zeros and confirm the band persists.
           <strong style={{ color: '#8b5cf6' }}> Dual Pair</strong> — animated spinor rotation showing twistor{' '}
           <InlineMath tex="Z" /> (blue) and dual <InlineMath tex="W" /> (gold) evolving as t sweeps forward. The
-          central intertwiner shows coupling strength. At <InlineMath tex="\\sigma = 0.5" /> the pair is phase-locked
+          central intertwiner shows coupling strength. At <InlineMath tex={"\\sigma = 0.5"} /> the pair is phase-locked
           with matched helicities; off the critical line, the rotation rates diverge.
         </p>
       </div>
@@ -356,17 +356,17 @@ export default function TwistorPage() {
           <h3 style={{ color: '#06b6d4' }}>Incidence & the Critical Line</h3>
           <p style={{ marginBottom: 12 }}>
             In Penrose twistor theory, two twistors <InlineMath tex="Z" /> and <InlineMath tex="W" /> are
-            <em> incident</em> when <InlineMath tex="Z^{\\alpha} W_{\\alpha} = 0" />. This null condition defines
+            <em> incident</em> when <InlineMath tex={"Z^{\\alpha} W_{\\alpha} = 0"} />. This null condition defines
             the geometry of light rays in spacetime.
           </p>
           <p style={{ marginBottom: 12 }}>
             In our ZPO mapping, the incidence relation corresponds to the conjugate impedance match
-            condition at <InlineMath tex="\\sigma = \\frac{1}{2}" /> (where <InlineMath tex="Z_{\\text{dual}} = \\overline{Z_{\\text{dir}}}" /> via Schwarz reflection). When the twistor and dual twistor are
+            condition at <InlineMath tex={"\\sigma = \\frac{1}{2}"} /> (where <InlineMath tex={"Z_{\\text{dual}} = \\overline{Z_{\\text{dir}}}"} /> via Schwarz reflection). When the twistor and dual twistor are
             incident, the bridge is lossless and the system is in equilibrium:
           </p>
-          <BlockMath tex="|\\chi(s)| = 1 \\iff \\sigma = \\tfrac{1}{2} \\implies Z \\cdot W = 0" />
+          <BlockMath tex={"|\\chi(s)| = 1 \\iff \\sigma = \\tfrac{1}{2} \\implies Z \\cdot W = 0"} />
           <p style={{ color: 'var(--text-secondary)', fontSize: 13 }}>
-            The incidence heatmap tab visualizes this: the dark band along <InlineMath tex="\\sigma = 0.5" />
+            The incidence heatmap tab visualizes this: the dark band along <InlineMath tex={"\\sigma = 0.5"} />
             is where the twistor pair satisfies the null condition, and known zeta zeros sit
             precisely on this locus.
           </p>
@@ -375,11 +375,11 @@ export default function TwistorPage() {
           <h3 style={{ color: '#ec4899' }}>Key Insights</h3>
           <ul style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 2 }}>
             <li>
-              <strong style={{ color: '#3b82f6' }}>Twistor norm</strong> <InlineMath tex="\\|Z\\|" /> measures
+              <strong style={{ color: '#3b82f6' }}>Twistor norm</strong> <InlineMath tex={"\\|Z\\|"} /> measures
               displacement from the critical line — it vanishes when the direct ladder is "on-shell."
             </li>
             <li>
-              <strong style={{ color: '#f59e0b' }}>Helicity</strong> <InlineMath tex="h = \\text{Im}(\\omega \\cdot \\bar\\pi)" />
+              <strong style={{ color: '#f59e0b' }}>Helicity</strong> <InlineMath tex={"h = \\text{Im}(\\omega \\cdot \\bar\\pi)"} />
               encodes the angular momentum of each ladder's oscillation pattern.
             </li>
             <li>

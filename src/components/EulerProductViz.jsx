@@ -252,7 +252,7 @@ export default function EulerProductViz() {
       <div className="controls">
         <div className="control-group">
           <label style={{ color: sigmaColor, fontWeight: 600 }}>
-            <InlineMath tex="\\sigma = \\operatorname{Re}(s)" />
+            <InlineMath tex={"\\sigma = \\operatorname{Re}(s)"} />
           </label>
           <input type="range" min="0.1" max="2" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)}
@@ -265,7 +265,7 @@ export default function EulerProductViz() {
           >{sigma > 1 ? 'convergent' : Math.abs(sigma - 0.5) < 0.03 ? 'critical line' : 'critical strip'}</span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
+          <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="0.5" max="60" step="0.1" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>

@@ -273,8 +273,8 @@ function LadderAnatomyTab() {
     <div>
       <div className="tab-explainer accent-cyan">
         Each prime <InlineMath tex="p" /> generates a <strong>ladder</strong> of rungs{' '}
-        <InlineMath tex="m = 0, 1, 2, \\ldots" /> with amplitude <InlineMath tex="p^{-m/2}" /> and
-        phase <InlineMath tex="m \\cdot T \\cdot \\log p" />. The phasor diagram shows each rung as a
+        <InlineMath tex={"m = 0, 1, 2, \\ldots"} /> with amplitude <InlineMath tex="p^{-m/2}" /> and
+        phase <InlineMath tex={"m \\cdot T \\cdot \\log p"} />. The phasor diagram shows each rung as a
         rotating vector in the complex plane. The sum vector (dashed) is the total ladder contribution
         for this prime. Adjust <InlineMath tex="T" /> to watch the phase spiral.
       </div>
@@ -489,8 +489,8 @@ function PressureTemperatureTab() {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        Apply thermodynamic weights <InlineMath tex="e^{-\\beta m\\log p - P\\psi(m\\log p)}" /> to each rung.
-        Increasing <InlineMath tex="\\beta" /> (inverse temperature) suppresses higher rungs exponentially.
+        Apply thermodynamic weights <InlineMath tex={"e^{-\\beta m\\log p - P\\psi(m\\log p)}"} /> to each rung.
+        Increasing <InlineMath tex={"\\beta"} /> (inverse temperature) suppresses higher rungs exponentially.
         Increasing <InlineMath tex="P" /> (pressure) adds a quadratic penalty. The bottom plot shows how{' '}
         <InlineMath tex="|Z_{TL}|" /> changes along the critical line as you deform.
       </div>
@@ -513,7 +513,7 @@ function PressureTemperatureTab() {
           </div>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="\\beta" /> (inv. temp)</label>
+          <label><InlineMath tex={"\\beta"} /> (inv. temp)</label>
           <input type="range" min="0" max="20" step="0.1" value={beta}
             onChange={e => setBeta(+e.target.value)} />
           <span className="control-value">{beta.toFixed(1)}</span>
@@ -759,7 +759,7 @@ function LadderFreezingTab() {
           </div>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="\\alpha" /> (Gaussian width)</label>
+          <label><InlineMath tex={"\\alpha"} /> (Gaussian width)</label>
           <input type="range" min="0.5" max="5" step="0.1" value={alpha}
             onChange={e => setAlpha(+e.target.value)} />
           <span className="control-value">{alpha.toFixed(1)}</span>
@@ -943,8 +943,8 @@ function CollapseTab() {
   return (
     <div>
       <div className="tab-explainer accent-red">
-        As <InlineMath tex="\\beta \\to \\infty" />, the thermodynamic weight{' '}
-        <InlineMath tex="e^{-\\beta m\\log p}" /> kills every rung except <InlineMath tex="m = 0" />.
+        As <InlineMath tex={"\\beta \\to \\infty"} />, the thermodynamic weight{' '}
+        <InlineMath tex={"e^{-\\beta m\\log p}"} /> kills every rung except <InlineMath tex="m = 0" />.
         This is <strong>ground-state collapse</strong>: the entire ladder collapses to its trivial
         (identity) contribution. Play the animation to watch higher rungs fade away.
       </div>
@@ -996,7 +996,7 @@ function CollapseTab() {
           <span className="control-value">{speed}x</span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="\\beta" /></label>
+          <label><InlineMath tex={"\\beta"} /></label>
           <input type="range" min="0" max={betaSteps.length - 1} step="1" value={betaIdx}
             onChange={e => { setBetaIdx(+e.target.value); setPlaying(false); }} />
           <span className="control-value" style={{
@@ -1212,10 +1212,10 @@ function PhaseDiagramTab() {
     <div>
       <div className="tab-explainer accent-purple">
         The 2D phase diagram shows <InlineMath tex="|Z_{TL}|" /> as a heatmap over{' '}
-        <InlineMath tex="\\beta" /> (inverse temperature) and <InlineMath tex="P" /> (pressure).
+        <InlineMath tex={"\\beta"} /> (inverse temperature) and <InlineMath tex="P" /> (pressure).
         Bright regions correspond to large <InlineMath tex="|Z_{TL}|" />; dark regions are
         near-zeros. Adjust <InlineMath tex="T" /> to scan different heights on the critical line.
-        Click the heatmap to inspect the ladder state at any <InlineMath tex="(\\beta, P)" /> point.
+        Click the heatmap to inspect the ladder state at any <InlineMath tex={"(\\beta, P)"} /> point.
       </div>
       <div className="controls">
         <div className="control-group">

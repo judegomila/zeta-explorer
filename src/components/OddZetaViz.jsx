@@ -488,10 +488,10 @@ function AperyTab() {
         ))}
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        Apery proved <InlineMath tex="\\zeta(3)" /> is irrational using the recurrence{' '}
+        Apery proved <InlineMath tex={"\\zeta(3)"} /> is irrational using the recurrence{' '}
         <InlineMath tex="(n+1)^3 a_{n+1} = (2n+1)(17n^2+17n+5)a_n - n^3 a_{n-1}" />.{' '}
-        The convergents <InlineMath tex="a_n/b_n" /> approach <InlineMath tex="\\zeta(3)" /> at a geometric rate{' '}
-        <InlineMath tex="\\sim (1+\\sqrt{2})^{-4n}" />, which is too fast for <InlineMath tex="\\zeta(3)" /> to be rational.
+        The convergents <InlineMath tex="a_n/b_n" /> approach <InlineMath tex={"\\zeta(3)"} /> at a geometric rate{' '}
+        <InlineMath tex={"\\sim (1+\\sqrt{2})^{-4n}"} />, which is too fast for <InlineMath tex={"\\zeta(3)"} /> to be rational.
       </div>
     </div>
   );
@@ -728,7 +728,7 @@ function TransferTab({ selectedN, numPrimes }) {
         <strong style={{ color: '#8b5cf6' }}>Top:</strong> Each prime's Euler factor excess{' '}
         <InlineMath tex="|H_p(n)| - 1 = p^{-n}/(1 - p^{-n})" /> decays as <InlineMath tex="p^{-n}" />.
         Higher <InlineMath tex="n" /> means faster decay: fewer primes contribute significantly.{' '}
-        <strong style={{ color: '#f59e0b' }}>Bottom:</strong> Impedance <InlineMath tex="Z_p(n) = n\\log p + \\log p / n" /> grows with the prime.
+        <strong style={{ color: '#f59e0b' }}>Bottom:</strong> Impedance <InlineMath tex={"Z_p(n) = n\\log p + \\log p / n"} /> grows with the prime.
       </div>
     </div>
   );
@@ -1122,10 +1122,10 @@ function IrrationalityMeasureTab({ selectedN }) {
         ))}
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        The irrationality measure <InlineMath tex="\\mu" /> bounds how well <InlineMath tex="\\zeta(n)" /> can be
-        approximated by rationals: <InlineMath tex="|\\zeta(n) - p/q| > c/q^{\\mu}" /> for large <InlineMath tex="q" />.
+        The irrationality measure <InlineMath tex={"\\mu"} /> bounds how well <InlineMath tex={"\\zeta(n)"} /> can be
+        approximated by rationals: <InlineMath tex={"|\\zeta(n) - p/q| > c/q^{\\mu}"} /> for large <InlineMath tex="q" />.
         {selectedN === 3 && (
-          <span> For <InlineMath tex="\\zeta(3)" />, Rhin & Viola (2001) proved <InlineMath tex="\\mu \\leq 5.513891" />.</span>
+          <span> For <InlineMath tex={"\\zeta(3)"} />, Rhin & Viola (2001) proved <InlineMath tex={"\\mu \\leq 5.513891"} />.</span>
         )}
         {selectedN !== 3 && (
           <span> For <InlineMath tex={"\\zeta(" + selectedN + ")"} />, irrationality has not been individually proven (only ζ(3) is known).</span>
@@ -1193,16 +1193,16 @@ export default function OddZetaViz() {
 
       {activeTab === 0 && (
         <div className="tab-explainer accent-green">
-          Odd zeta values <InlineMath tex="\zeta(3), \zeta(5), \zeta(7), \ldots" /> are computed via the Euler
-          product <InlineMath tex="\prod_p (1-p^{-n})^{-1}" />. The top chart shows how values decay toward 1
+          Odd zeta values <InlineMath tex={"\zeta(3), \zeta(5), \zeta(7), \ldots"} /> are computed via the Euler
+          product <InlineMath tex={"\prod_p (1-p^{-n})^{-1}"} />. The top chart shows how values decay toward 1
           as <InlineMath tex="n" /> grows; the bottom traces how adding primes builds up the product.
           <strong> Look for:</strong> rapid convergence for large <InlineMath tex="n" /> (fewer primes needed).
         </div>
       )}
       {activeTab === 1 && (
         <div className="tab-explainer accent-blue">
-          Ap&eacute;ry&rsquo;s remarkable recurrence generates rational convergents <InlineMath tex="a_n/b_n \to \zeta(3)" /> at
-          geometric rate <InlineMath tex="\sim (1+\sqrt{2})^{-4n}" />. This speed proves irrationality: no rational
+          Ap&eacute;ry&rsquo;s remarkable recurrence generates rational convergents <InlineMath tex={"a_n/b_n \to \zeta(3)"} /> at
+          geometric rate <InlineMath tex={"\sim (1+\sqrt{2})^{-4n}"} />. This speed proves irrationality: no rational
           number can be approximated this fast by other rationals.
           <strong> Look for:</strong> error dropping exponentially (straight line on log scale).
         </div>
@@ -1210,25 +1210,25 @@ export default function OddZetaViz() {
       {activeTab === 2 && (
         <div className="tab-explainer accent-purple">
           At <InlineMath tex="s = n" /> (real axis), each prime contributes a purely real Euler
-          factor <InlineMath tex="1/(1-p^{-n})" />. The excess <InlineMath tex="|H_p(n)| - 1 \approx p^{-n}" /> decays
+          factor <InlineMath tex="1/(1-p^{-n})" />. The excess <InlineMath tex={"|H_p(n)| - 1 \approx p^{-n}"} /> decays
           as a power of the prime, with higher <InlineMath tex="n" /> giving faster decay.
           <strong> Look for:</strong> how the factor profile steepens with increasing <InlineMath tex="n" />.
         </div>
       )}
       {activeTab === 3 && (
         <div className="tab-explainer accent-orange">
-          The Gram matrix <InlineMath tex="\langle \zeta(m), \zeta(n) \rangle = \sum_p \log p / (p^m-1)(p^n-1)" /> tests
-          linear independence of <InlineMath tex="\{1, \zeta(3), \zeta(5), \ldots\}" /> over <InlineMath tex="\mathbb{Q}" />.
+          The Gram matrix <InlineMath tex={"\langle \zeta(m), \zeta(n) \rangle = \sum_p \log p / (p^m-1)(p^n-1)"} /> tests
+          linear independence of <InlineMath tex={"\{1, \zeta(3), \zeta(5), \ldots\}"} /> over <InlineMath tex={"\mathbb{Q}"} />.
           A nonzero determinant implies independence (consistent with Rivoal&rsquo;s theorem).
           <strong> Look for:</strong> positive determinant and low cosine angles between pairs.
         </div>
       )}
       {activeTab === 4 && (
         <div className="tab-explainer accent-red">
-          The irrationality measure <InlineMath tex="\mu" /> bounds how well <InlineMath tex="\zeta(n)" /> can be
-          approximated by rationals: <InlineMath tex="|\zeta(n) - p/q| > c/q^\mu" />. For <InlineMath tex="\zeta(3)" />,
-          Rhin &amp; Viola proved <InlineMath tex="\mu \leq 5.51" />. We estimate <InlineMath tex="\mu" /> from the
-          slope of <InlineMath tex="\log|error|" /> vs <InlineMath tex="\log q" /> in continued fraction convergents.
+          The irrationality measure <InlineMath tex={"\mu"} /> bounds how well <InlineMath tex={"\zeta(n)"} /> can be
+          approximated by rationals: <InlineMath tex={"|\zeta(n) - p/q| > c/q^\mu"} />. For <InlineMath tex={"\zeta(3)"} />,
+          Rhin &amp; Viola proved <InlineMath tex={"\mu \leq 5.51"} />. We estimate <InlineMath tex={"\mu"} /> from the
+          slope of <InlineMath tex={"\log|error|"} /> vs <InlineMath tex={"\log q"} /> in continued fraction convergents.
           <strong> Look for:</strong> the slope of the log-log plot giving the measure estimate.
         </div>
       )}

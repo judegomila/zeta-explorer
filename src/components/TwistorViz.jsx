@@ -803,7 +803,7 @@ export default function TwistorViz() {
       <div className="controls">
         <div className="control-group">
           <label style={{ color: sigmaColor, fontWeight: 600 }}>
-            <InlineMath tex="\\sigma = \\operatorname{Re}(s)" />
+            <InlineMath tex={"\\sigma = \\operatorname{Re}(s)"} />
           </label>
           <input type="range" min="0.05" max="0.95" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)}
@@ -816,7 +816,7 @@ export default function TwistorViz() {
           >{Math.abs(sigma - 0.5) < 0.03 ? 'critical line' : sigma < 0.5 ? 'critical strip (σ<½)' : 'critical strip (σ>½)'}</span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex="t = \\operatorname{Im}(s)" /></label>
+          <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="1" max="60" step="0.1" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
@@ -890,10 +890,10 @@ export default function TwistorViz() {
               <p style={{ margin: '0 0 8px' }}>
                 <strong>Twistor Correspondence:</strong> The s-plane (left) maps to twistor space (right):
               </p>
-              <BlockMath tex="Z^{\\alpha} = (\\omega^A,\\, \\pi_{A'}) \\quad \\text{(direct)}, \\qquad W_{\\alpha} \\quad \\text{(dual)}, \\qquad Z \\cdot W = 0 \\;\\Leftrightarrow\\; \\text{incident}" />
+              <BlockMath tex={"Z^{\\alpha} = (\\omega^A,\\, \\pi_{A'}) \\quad \\text{(direct)}, \\qquad W_{\\alpha} \\quad \\text{(dual)}, \\qquad Z \\cdot W = 0 \\;\\Leftrightarrow\\; \\text{incident}"} />
               <p style={{ margin: '8px 0 0' }}>
                 The twistor (blue) encodes the direct ladder, the dual twistor (gold) encodes the dual ladder.
-                At <InlineMath tex="\\sigma = 0.5" />, Z and W are related by the lossless bridge.
+                At <InlineMath tex={"\\sigma = 0.5"} />, Z and W are related by the lossless bridge.
               </p>
             </div>
             <CorrespondenceTab sigma={sigma} t={t} numPrimes={numPrimes} />
@@ -903,7 +903,7 @@ export default function TwistorViz() {
           <>
             <div className="tab-explainer accent-cyan">
               <strong>Penrose Transform:</strong> The Penrose transform maps twistor cohomology to spacetime fields.
-              Here, the twistor-weighted Euler product (top, cyan) is compared with the raw <InlineMath tex="|\\zeta(s)|" /> (bottom, purple).
+              Here, the twistor-weighted Euler product (top, cyan) is compared with the raw <InlineMath tex={"|\\zeta(s)|"} /> (bottom, purple).
               High correlation indicates the twistor framework faithfully encodes zeta behavior.
             </div>
             <PenroseTransformTab sigma={sigma} t={t} numPrimes={numPrimes} />
@@ -912,11 +912,11 @@ export default function TwistorViz() {
         {tab === 'incidence' && (
           <>
             <div className="tab-explainer accent-green">
-              <strong>Incidence Relation:</strong> Heatmap of <InlineMath tex="|Z \\cdot W|" /> over
-              the <InlineMath tex="(\\sigma, t)" /> plane. Dark regions satisfy the incidence relation
+              <strong>Incidence Relation:</strong> Heatmap of <InlineMath tex={"|Z \\cdot W|"} /> over
+              the <InlineMath tex={"(\\sigma, t)"} /> plane. Dark regions satisfy the incidence relation
               (twistors are null-separated). Green dots mark known zeta zeros on the critical line.
-              The incidence locus near <InlineMath tex="\\sigma = 0.5" /> mirrors the zero distribution.
-              <strong> Look for:</strong> a dark vertical band along <InlineMath tex="\\sigma = 0.5" /> where incidence is nearly satisfied; green dots sitting in the darkest pockets where <InlineMath tex="|Z \\cdot W| \\approx 0" />.
+              The incidence locus near <InlineMath tex={"\\sigma = 0.5"} /> mirrors the zero distribution.
+              <strong> Look for:</strong> a dark vertical band along <InlineMath tex={"\\sigma = 0.5"} /> where incidence is nearly satisfied; green dots sitting in the darkest pockets where <InlineMath tex={"|Z \\cdot W| \\approx 0"} />.
             </div>
             <IncidenceRelationTab sigma={sigma} t={t} />
           </>
@@ -926,7 +926,7 @@ export default function TwistorViz() {
             <div className="tab-explainer accent-orange">
               <strong>Dual Pair:</strong> Watch the twistor Z (blue, left) and dual twistor W (gold, right) rotate
               as t sweeps forward. The central intertwiner I shows coupling strength. When the helicities match
-              and <InlineMath tex="|Z \\cdot W| \\approx 0" />, the pair is phase-locked at equilibrium.
+              and <InlineMath tex={"|Z \\cdot W| \\approx 0"} />, the pair is phase-locked at equilibrium.
             </div>
             <DualPairTab sigma={sigma} t={t} numPrimes={numPrimes} playing={playing} />
           </>

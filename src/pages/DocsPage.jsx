@@ -184,12 +184,12 @@ export default function DocsPage() {
           <div>&nbsp;&nbsp;<span className="dir">components/</span> <span className="comment">— 34 visualization components + KaTeX wrapper</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">KaTeXMath.jsx</span> <span className="comment">— InlineMath, BlockMath, MathText, MathModal</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">*Viz.jsx</span> <span className="comment">— Interactive D3/Canvas visualizations</span></div>
-          <div>&nbsp;&nbsp;<span className="dir">pages/</span> <span className="comment">— 29 route pages</span></div>
+          <div>&nbsp;&nbsp;<span className="dir">pages/</span> <span className="comment">— 34 route pages</span></div>
           <div>&nbsp;&nbsp;<span className="dir">data/</span> <span className="comment">— Explorations, literature, criticisms, improvements, insight DAG</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">explorations.js</span> <span className="comment">— 72 AI exploration entries with LaTeX, insights, refs</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">literature.js</span> <span className="comment">— 85+ annotated references with DOI/arXiv links</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">criticisms.js</span> <span className="comment">— 12 criticisms (9 patched, 1 disputed, 2 open)</span></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">improvements.js</span> <span className="comment">— 400+ auto-improvement log entries</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">improvements.js</span> <span className="comment">— 700+ auto-improvement log entries</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">insight-dag.js</span> <span className="comment">— 30-node DAG of connected mathematical insights with 70+ edges</span></div>
           <div>&nbsp;&nbsp;<span className="dir">styles/</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">app.css</span> <span className="comment">— All styles (dark theme, responsive)</span></div>
@@ -229,7 +229,12 @@ export default function DocsPage() {
             { route: '/literature', name: 'Literature', desc: '85+ annotated references with clickable DOI/arXiv paper links' },
             { route: '/paper', name: 'Paper', desc: 'Formal write-up of the ZPO framework as a research paper (14 sections)' },
             { route: '/docs', name: 'Docs', desc: 'This page — complete technical documentation of the application' },
-            { route: '/improvements', name: 'Improvements', desc: '380+ auto-improvement log entries with filterable categories' },
+            { route: '/improvements', name: 'Improvements', desc: '700+ auto-improvement log entries with filterable categories' },
+            { route: '/reasoning', name: 'Reasoning', desc: 'Historical reasoning log — evolving proof strategy entries organized by epoch' },
+            { route: '/papers', name: 'Papers', desc: 'Uploaded LaTeX papers list with parsed rendering and management' },
+            { route: '/paper-upload', name: 'Paper Upload', desc: 'LaTeX paper upload and parsing tool with live preview' },
+            { route: '/twin-ladder', name: 'Twin Ladder', desc: 'TwinLadderViz — 5-tab (anatomy, pressure/temperature, freezing, collapse, phase diagram)' },
+            { route: '/calabi-yau', name: 'Calabi-Yau', desc: 'CalabiYauViz — Calabi-Yau manifold attack on RH via Weil conjecture cohomological machinery' },
           ].map(p => (
             <div key={p.route} className="card">
               <h3><span style={{ color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)', fontSize: 13 }}>{p.route}</span> {p.name}</h3>

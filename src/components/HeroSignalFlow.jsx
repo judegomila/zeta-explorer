@@ -17,6 +17,8 @@ export default function HeroSignalFlow() {
   const [sigma, setSigma] = useState(0.5);
   const [numPrimes, setNumPrimes] = useState(4);
   const [speed, setSpeed] = useState(1);
+  const sigmaDeviation = Math.abs(sigma - 0.5);
+  const sigmaColor = sigmaDeviation < 0.02 ? '#10b981' : sigmaDeviation < 0.15 ? '#f59e0b' : '#ef4444';
 
   const draw = useCallback((time) => {
     const canvas = canvasRef.current;
@@ -214,11 +216,11 @@ export default function HeroSignalFlow() {
         minHeight: 36, alignItems: 'center',
       }}>
         <div className="control-group" style={{ flex: '1 1 120px' }}>
-          <label>σ (re-part)</label>
+          <label style={{ color: sigmaColor, fontWeight: 600 }}>σ = Re(s)</label>
           <input type="range" min="0.1" max="0.9" step="0.01" value={sigma}
             onChange={e => setSigma(+e.target.value)}
-            style={{ flex: 1 }} />
-          <span className="control-value" style={{ minWidth: 32 }}>{sigma.toFixed(2)}</span>
+            style={{ flex: 1, accentColor: sigmaColor }} />
+          <span className="control-value" style={{ minWidth: 32, color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
         </div>
         <div className="control-group" style={{ flex: '1 1 100px' }}>
           <label>Primes</label>

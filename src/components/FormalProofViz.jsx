@@ -632,6 +632,31 @@ function EvidenceTab({ numPrimes, numZeros }) {
     ctx.font = '9px var(--font-mono)';
     ctx.textAlign = 'center';
     ctx.fillText('gamma (zero location)', w / 2, h - 4);
+
+    // Legend
+    const legendX = w - margin.right - 130;
+    const legendY = margin.top + 2;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.75)';
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX, legendY, 122, 38, 4);
+    ctx.fill();
+    ctx.stroke();
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'left';
+    // On-line entry
+    ctx.beginPath();
+    ctx.arc(legendX + 10, legendY + 12, 3, 0, Math.PI * 2);
+    ctx.fillStyle = '#10b981';
+    ctx.fill();
+    ctx.fillText('on critical line', legendX + 18, legendY + 15);
+    // Off-line entry
+    ctx.beginPath();
+    ctx.arc(legendX + 10, legendY + 27, 3, 0, Math.PI * 2);
+    ctx.fillStyle = '#ef4444';
+    ctx.fill();
+    ctx.fillText('off critical line', legendX + 18, legendY + 30);
   }, [evidence]);
 
   useEffect(() => { drawLi(); }, [drawLi]);

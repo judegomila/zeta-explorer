@@ -665,3 +665,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 704 | 2026-03-26T00:00:00Z | Add critical line color indicator and fix unclear label on HeroSignalFlow σ slider | HeroSignalFlow.jsx |
 | 705 | 2026-03-26T01:30:00Z | Add on/off critical line legend to Zero Deviation scatter in FormalProofViz | FormalProofViz.jsx |
 | 706 | 2026-03-26T03:00:00Z | Fix DocsPage stale counts (29→34 pages, 400+→700+ improvements) and add 5 missing page entries | DocsPage.jsx |
+| 707 | 2026-03-26T04:30:00Z | Fix σ region label wrongly showing 'near critical line' for all σ < 0.47 in HasseTab | PascalZetaViz.jsx |

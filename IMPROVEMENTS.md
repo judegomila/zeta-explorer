@@ -696,3 +696,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 734 | 2026-03-25T17:45:00Z | Add descriptive tooltips to all controls in ZetaLandscapeViz | ZetaLandscapeViz.jsx |
 | 735 | 2026-03-25T18:00:00Z | Fix inaccurate claim that Euler product converges 'at σ=1' in SpectralAttackViz Phase Barriers | SpectralAttackViz.jsx |
 | 736 | 2026-03-25T19:00:00Z | Add Calabi-Yau / Weil conjectures exploration entry connecting finite-field RH to ZPO framework | explorations.js |
+| 737 | 2026-03-25T20:00:00Z | Add graduated color scale for large prime gaps (≥8) in PrimeGapCouplingViz gap mode | PrimeGapCouplingViz.jsx |

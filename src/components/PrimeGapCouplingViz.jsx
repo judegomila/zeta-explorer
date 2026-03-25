@@ -128,12 +128,14 @@ export default function PrimeGapCouplingViz() {
       gridG2.select('.domain').remove();
       gridG2.selectAll('.tick line').attr('stroke', '#1e293b').attr('stroke-dasharray', '4,4').attr('stroke-width', 0.8);
 
-      // Gap bars
+      // Gap bars — graduated color for gaps > 6
+      const maxGap = d3.max(data, d => d.gap) || 2;
       const barW = Math.max(2, w / data.length - 1);
       data.forEach((d, i) => {
         const color = d.gap === 2 ? '#ef4444' :
                       d.gap === 4 ? '#f59e0b' :
-                      d.gap === 6 ? '#3b82f6' : '#8b5cf6';
+                      d.gap === 6 ? '#3b82f6' :
+                      `hsl(${270 - Math.min((d.gap - 8) / (maxGap - 8), 1) * 30}, 60%, ${55 - Math.min((d.gap - 8) / (maxGap - 8), 1) * 15}%)`;
         g.append('rect')
           .attr('x', x(i) - barW / 2).attr('y', y(d.gap))
           .attr('width', barW).attr('height', h - y(d.gap))
@@ -162,21 +164,30 @@ export default function PrimeGapCouplingViz() {
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
         .text('Gap size');
 
-      const legend = g.append('g').attr('transform', `translate(${w - 145}, 10)`);
+      const legend = g.append('g').attr('transform', `translate(${w - 155}, 10)`);
       legend.append('rect')
-        .attr('x', -8).attr('y', -12).attr('width', 140).attr('height', 5 * 18 + 6)
+        .attr('x', -8).attr('y', -12).attr('width', 150).attr('height', 5 * 18 + 6)
         .attr('rx', 6).attr('fill', 'rgba(13,17,23,0.85)').attr('stroke', '#1e293b');
       [
         { label: 'gap=2', color: '#ef4444' },
         { label: 'gap=4', color: '#f59e0b' },
         { label: 'gap=6', color: '#3b82f6' },
-        { label: 'other', color: '#8b5cf6' },
       ].forEach(({ label, color }, i) => {
         legend.append('rect').attr('x', 0).attr('y', i * 18 - 6).attr('width', 12).attr('height', 12)
           .attr('rx', 2).attr('fill', color).attr('opacity', 0.7);
         legend.append('text').attr('x', 18).attr('y', i * 18 + 4).attr('fill', '#94a3b8').attr('font-size', 10)
           .text(label);
       });
+      // Graduated swatch for gaps > 6
+      const gradId = 'gapGrad';
+      const defs = svg.append('defs');
+      const grad = defs.append('linearGradient').attr('id', gradId);
+      grad.append('stop').attr('offset', '0%').attr('stop-color', 'hsl(270, 60%, 55%)');
+      grad.append('stop').attr('offset', '100%').attr('stop-color', 'hsl(240, 60%, 40%)');
+      legend.append('rect').attr('x', 0).attr('y', 3 * 18 - 6).attr('width', 12).attr('height', 12)
+        .attr('rx', 2).attr('fill', `url(#${gradId})`).attr('opacity', 0.7);
+      legend.append('text').attr('x', 18).attr('y', 3 * 18 + 4).attr('fill', '#94a3b8').attr('font-size', 10)
+        .text('gap≥8 (graded)');
       // PNT trend legend entry
       legend.append('line').attr('x1', 0).attr('y1', 4 * 18 - 2).attr('x2', 12).attr('y2', 4 * 18 - 2)
         .attr('stroke', '#10b981').attr('stroke-width', 1.5).attr('stroke-dasharray', '6,3');

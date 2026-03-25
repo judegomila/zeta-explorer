@@ -171,7 +171,7 @@ function ValuesTab({ selectedN, numPrimes }) {
 
       ctx.beginPath();
       trace.forEach((pt, i) => {
-        const x = margin.left + (i / (trace.length - 1)) * plotW;
+        const x = margin.left + (trace.length > 1 ? i / (trace.length - 1) : 0.5) * plotW;
         const y = g2Top + g2H - ((pt.cumulativeProduct - prodMin) / prodRange) * g2H * 0.8 - g2H * 0.1;
         if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
       });
@@ -182,7 +182,7 @@ function ValuesTab({ selectedN, numPrimes }) {
       // Dots
       trace.forEach((pt, i) => {
         if (i % Math.max(1, Math.floor(trace.length / 25)) === 0 || i === trace.length - 1) {
-          const x = margin.left + (i / (trace.length - 1)) * plotW;
+          const x = margin.left + (trace.length > 1 ? i / (trace.length - 1) : 0.5) * plotW;
           const y = g2Top + g2H - ((pt.cumulativeProduct - prodMin) / prodRange) * g2H * 0.8 - g2H * 0.1;
           ctx.beginPath();
           ctx.arc(x, y, 2.5, 0, Math.PI * 2);

@@ -694,3 +694,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 732 | 2026-03-25T23:59:00Z | Fix division-by-zero in OddZetaViz LinearIndependenceTab heatmap when maxAbs is zero | OddZetaViz.jsx |
 | 733 | 2026-03-26T01:15:00Z | Memoize data filtering and min/max bounds in CalabiYauViz PeriodsTab to avoid recomputing on resize | CalabiYauViz.jsx |
 | 734 | 2026-03-25T17:45:00Z | Add descriptive tooltips to all controls in ZetaLandscapeViz | ZetaLandscapeViz.jsx |
+| 735 | 2026-03-25T18:00:00Z | Fix inaccurate claim that Euler product converges 'at σ=1' in SpectralAttackViz Phase Barriers | SpectralAttackViz.jsx |

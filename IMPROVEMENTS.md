@@ -688,3 +688,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 726 | 2026-03-26T00:15:00Z | Avoid per-frame canvas buffer reallocation in CollapseTab animation loop in TwinLadderViz | TwinLadderViz.jsx |
 | 727 | 2026-03-25T12:30:00Z | Fix unescaped backslashes in ProofCheckerViz D-H tab TeX strings causing garbled LaTeX | ProofCheckerViz.jsx |
 | 728 | 2026-03-25T21:30:00Z | Fix Hasse-Weil zeta formula showing P₁⁻¹ and P₅⁻¹ instead of P₁ and P₅ in numerator | CalabiYauViz.jsx, calabi-yau.js |
+| 729 | 2026-03-25T23:00:00Z | Fix Weyl's law constant off by factor 6^{1/3} in calabiYauSpectrum eigenvalue formula | calabi-yau.js |

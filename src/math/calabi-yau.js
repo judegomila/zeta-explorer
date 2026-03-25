@@ -277,9 +277,9 @@ export function calabiYauSpectrum(h11, h21, numEigenvalues = 200) {
   const euler = 2 * (h11 - h21);
   const volume = 1; // normalized
 
-  // Weyl's law for 6D: N(λ) ~ (vol·ω₆)/(6·(2π)⁶) · λ³
-  // → λ_n ~ C · n^{1/3} for large n
-  const weylConst = Math.pow(6 * Math.pow(2 * Math.PI, 6) / (volume * Math.pow(Math.PI, 3) / 6), 1 / 3);
+  // Weyl's law for 6D: N(λ) ~ ω₆·vol/(2π)⁶ · λ³, ω₆ = π³/6
+  // → λ_n ~ C · n^{1/3} for large n, C = ((2π)⁶/(vol·ω₆))^{1/3}
+  const weylConst = Math.pow(Math.pow(2 * Math.PI, 6) / (volume * Math.pow(Math.PI, 3) / 6), 1 / 3);
 
   const eigenvalues = [];
   for (let n = 1; n <= numEigenvalues; n++) {

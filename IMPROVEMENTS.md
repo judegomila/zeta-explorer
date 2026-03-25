@@ -672,3 +672,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 711 | 2026-03-25T18:00:00Z | Add missing rotated y-axis labels to both panels in Penrose Transform tab | TwistorViz.jsx |
 | 712 | 2026-03-25T19:30:00Z | Fix Picard-Fuchs equation in Periods tab missing factor of 3125 (displayed θ⁴=z∏(θ+k/5) instead of correct operator) | CalabiYauViz.jsx |
 | 713 | 2026-03-25T21:00:00Z | Eliminate per-rung trig calls in TwinLadderViz phasor arrowheads using angle addition identities | TwinLadderViz.jsx |
+| 714 | 2026-03-25T23:45:00Z | Fix Ramanujan bound legend showing literal LaTeX braces '2p^{3/2}' instead of plain text in CalabiYauViz | CalabiYauViz.jsx |

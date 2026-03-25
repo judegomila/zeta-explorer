@@ -504,7 +504,7 @@ function LocalZetaTab() {
     ctx.textAlign = 'left';
     ctx.fillText('|a_p| (blue=pos, red=neg)', margin.left + 8, margin.top + 14);
     ctx.fillStyle = '#f59e0b';
-    ctx.fillText('— Ramanujan bound: 2p^{3/2}', margin.left + 8, margin.top + 30);
+    ctx.fillText('— Ramanujan bound: 2p^(3/2)', margin.left + 8, margin.top + 30);
 
     ctx.fillStyle = '#64748b';
     ctx.textAlign = 'center';

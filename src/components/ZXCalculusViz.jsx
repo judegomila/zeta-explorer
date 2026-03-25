@@ -6,6 +6,7 @@ import {
   bialgebraExpansion, transmissionAnalysis, createHadamardBox,
 } from '../math/zxcalculus.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { getPrimes } from '../math/primes.js';
 
 const TABS = ['Spider Chain', 'Twin Ladder', 'Rewrite Rules', 'Symmetry'];
 
@@ -912,7 +913,7 @@ export default function ZXCalculusViz() {
           <label>Primes</label>
           <input type="range" min="3" max="15" step="1" value={numPrimes}
             onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value">{numPrimes}</span>
+          <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
       </div>
 

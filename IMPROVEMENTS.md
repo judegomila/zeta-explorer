@@ -667,3 +667,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 706 | 2026-03-26T03:00:00Z | Fix DocsPage stale counts (29→34 pages, 400+→700+ improvements) and add 5 missing page entries | DocsPage.jsx |
 | 707 | 2026-03-26T04:30:00Z | Fix σ region label wrongly showing 'near critical line' for all σ < 0.47 in HasseTab | PascalZetaViz.jsx |
 | 708 | 2026-03-26T06:00:00Z | Hoist duplicate getPrimes(6) to module-level constant in TwinLadderViz | TwinLadderViz.jsx |
+| 709 | 2026-03-25T07:30:00Z | Add '(up to p=N)' label to Primes slider in ZXCalculusViz | ZXCalculusViz.jsx |

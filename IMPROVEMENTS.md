@@ -658,3 +658,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 697 | 2026-03-25T14:30:00Z | Fix missing factor of 5 in Picard-Fuchs harmonic correction for quintic CY3 period | calabi-yau.js |
 | 698 | 2026-03-25T16:00:00Z | Add visible convergence region label to σ slider in PascalZetaViz | PascalZetaViz.jsx |
 | 699 | 2026-03-25T17:30:00Z | Add critical line and phase boundary markers to arg(ζ) panel in SupercriticalViz | SupercriticalViz.jsx |
+| 700 | 2026-03-25T19:00:00Z | Eliminate O(n²) allocation in pair correlation by early-breaking on sorted unfolded zeros | GUEStatisticsViz.jsx |

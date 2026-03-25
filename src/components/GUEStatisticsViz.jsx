@@ -60,17 +60,16 @@ export default function GUEStatisticsViz() {
     }
     const sDensity = sHist.map(c => c / (spacings.length * sBinW));
 
-    // Pair correlation histogram
-    const pairDists = [];
-    for (let i = 0; i < zeros.length; i++) {
-      for (let j = i + 1; j < zeros.length; j++) {
-        pairDists.push(unfolded[j] - unfolded[i]);
-      }
-    }
+    // Pair correlation histogram — only distances < 4 matter, and unfolded
+    // zeros are sorted, so break the inner loop early to avoid O(n²) work.
     const pBinW = 4 / 30;
     const pHist = new Array(30).fill(0);
-    for (const p of pairDists) {
-      if (p < 4) pHist[Math.floor(p / pBinW)]++;
+    for (let i = 0; i < unfolded.length; i++) {
+      for (let j = i + 1; j < unfolded.length; j++) {
+        const d = unfolded[j] - unfolded[i];
+        if (d >= 4) break;
+        pHist[Math.floor(d / pBinW)]++;
+      }
     }
     const pDensity = pHist.map(c => c / (zeros.length * pBinW));
 

@@ -219,6 +219,41 @@ export default function AnimatedModesViz() {
       ctx.fillText(logVal.toString(), tickX, axisY + 14);
     }
 
+    // Y-axis for superposition panel
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(xPad, superY);
+    ctx.lineTo(xPad, axisY);
+    ctx.stroke();
+
+    // Y-axis tick marks at ±half amplitude and center
+    const yTicks = [
+      { y: superMid, label: '0' },
+      { y: superY + superH * 0.1, label: '+' },
+      { y: superY + superH * 0.9, label: '\u2212' },
+    ];
+    ctx.font = '9px monospace';
+    ctx.textAlign = 'right';
+    for (const tick of yTicks) {
+      ctx.beginPath();
+      ctx.moveTo(xPad - 3, tick.y);
+      ctx.lineTo(xPad, tick.y);
+      ctx.stroke();
+      ctx.fillStyle = '#64748b';
+      ctx.fillText(tick.label, xPad - 5, tick.y + 3);
+    }
+
+    // Rotated y-axis label for superposition
+    ctx.save();
+    ctx.translate(xPad - 18, superMid);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#475569';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Amplitude', 0, 0);
+    ctx.restore();
+
     // Axis label
     ctx.fillStyle = '#475569';
     ctx.font = '10px sans-serif';

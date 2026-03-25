@@ -149,6 +149,21 @@ function PeriodsTab() {
   const canvasRef = useRef();
   const data = useMemo(() => picardFuchsPeriods(300), []);
 
+  // Pre-filter and compute data-dependent bounds once, not on every resize
+  const { valid, maxOmega, maxZ, validMirror, minM, maxM, rangeM } = useMemo(() => {
+    const v = data.filter(d => isFinite(d.omega0) && d.omega0 > 0 && d.omega0 < 1e6);
+    if (v.length < 2) return { valid: v, maxOmega: 1, maxZ: 1, validMirror: [], minM: 0, maxM: 1, rangeM: 1 };
+    const mOmega = Math.max(...v.map(d => d.omega0));
+    const mZ = v[v.length - 1].z;
+    const vm = v.filter(d => isFinite(d.mirrorMap));
+    let lo = Infinity, hi = -Infinity;
+    for (let i = 0; i < vm.length; i++) {
+      if (vm[i].mirrorMap < lo) lo = vm[i].mirrorMap;
+      if (vm[i].mirrorMap > hi) hi = vm[i].mirrorMap;
+    }
+    return { valid: v, maxOmega: mOmega, maxZ: mZ, validMirror: vm, minM: lo, maxM: hi, rangeM: (hi - lo) || 1 };
+  }, [data]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -176,12 +191,7 @@ function PeriodsTab() {
     ctx.lineTo(w - margin.right, h - margin.bottom);
     ctx.stroke();
 
-    // Filter valid data
-    const valid = data.filter(d => isFinite(d.omega0) && d.omega0 > 0 && d.omega0 < 1e6);
     if (valid.length < 2) return;
-
-    const maxOmega = Math.max(...valid.map(d => d.omega0));
-    const maxZ = valid[valid.length - 1].z;
 
     // ω₀ curve
     ctx.strokeStyle = '#3b82f6';
@@ -195,11 +205,7 @@ function PeriodsTab() {
     ctx.stroke();
 
     // Mirror map curve (scaled)
-    const validMirror = valid.filter(d => isFinite(d.mirrorMap));
     if (validMirror.length > 2) {
-      const minM = Math.min(...validMirror.map(d => d.mirrorMap));
-      const maxM = Math.max(...validMirror.map(d => d.mirrorMap));
-      const rangeM = maxM - minM || 1;
 
       ctx.strokeStyle = '#f59e0b';
       ctx.lineWidth = 2;
@@ -230,7 +236,7 @@ function PeriodsTab() {
     ctx.rotate(-Math.PI / 2);
     ctx.fillText('Period', 0, 0);
     ctx.restore();
-  }, [data]);
+  }, [valid, maxOmega, maxZ, validMirror, minM, rangeM]);
 
   useEffect(() => {
     draw();

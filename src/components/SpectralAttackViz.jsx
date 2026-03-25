@@ -1083,7 +1083,7 @@ export default function SpectralAttackViz() {
             }}
           >
             {tOptions.map((z, i) => (
-              <option key={i} value={i}>{z.toFixed(6)}</option>
+              <option key={i} value={i}>γ{String(i + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')} = {z.toFixed(3)}</option>
             ))}
           </select>
         </div>

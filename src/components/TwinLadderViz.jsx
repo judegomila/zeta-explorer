@@ -12,6 +12,8 @@ import { getPrimes } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 
+const DEFAULT_PRIMES = getPrimes(6);
+
 function ZeroSnap({ tValue, setTValue }) {
   let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
   for (let i = 1; i < ZETA_ZEROS.length; i++) {
@@ -325,13 +327,11 @@ function PressureTemperatureTab() {
   const [P, setP] = useState(0);
   const [M, setM] = useState(10);
 
-  const primesList = useMemo(() => getPrimes(6), []);
-
   const unweightedRungs = useMemo(() => ladderRungs(prime, M, 14.13), [prime, M]);
   const weightedRungs = useMemo(() => weightedLadderRungs(prime, M, 14.13, beta, P), [prime, M, beta, P]);
   const scanData = useMemo(
-    () => deformedZScan([0, 50], beta, P, primesList, M, 200),
-    [beta, P, primesList, M]
+    () => deformedZScan([0, 50], beta, P, DEFAULT_PRIMES, M, 200),
+    [M, beta, P]
   );
 
   const draw = useCallback(() => {
@@ -1025,11 +1025,9 @@ function PhaseDiagramTab() {
   const [M, setM] = useState(6);
   const [clickPoint, setClickPoint] = useState(null);
 
-  const primesList = useMemo(() => getPrimes(6), []);
-
   const diagram = useMemo(
-    () => phaseDiagram([0, 15], [0, 8], primesList, M, T, 35),
-    [primesList, M, T]
+    () => phaseDiagram([0, 15], [0, 8], DEFAULT_PRIMES, M, T, 35),
+    [M, T]
   );
 
   const draw = useCallback(() => {

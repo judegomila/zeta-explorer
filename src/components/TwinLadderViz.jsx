@@ -14,6 +14,10 @@ import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 
 const DEFAULT_PRIMES = getPrimes(6);
 
+// Precomputed arrowhead angle constants — eliminates atan2 + 4 trig calls per rung
+const ARROW_COS = Math.cos(0.4);
+const ARROW_SIN = Math.sin(0.4);
+
 function ZeroSnap({ tValue, setTValue }) {
   let bestIdx = 0, bestDist = Math.abs(tValue - ZETA_ZEROS[0]);
   for (let i = 1; i < ZETA_ZEROS.length; i++) {
@@ -160,17 +164,22 @@ function LadderAnatomyTab() {
       ctx.lineTo(nx, ny);
       ctx.stroke();
 
-      // Arrowhead
+      // Arrowhead — use unit vector + precomputed cos/sin(0.4) to avoid trig calls
       const dx = nx - px, dy = ny - py;
       const len = Math.sqrt(dx * dx + dy * dy);
       if (len > 4) {
-        const angle = Math.atan2(dy, dx);
+        const ca = dx / len, sa = dy / len; // cos(angle), sin(angle) from unit vector
         const headLen = Math.min(6, len * 0.3);
+        // angle addition: cos(a∓0.4) = ca·C ± sa·S, sin(a∓0.4) = sa·C ∓ ca·S
+        const hxM = headLen * (ca * ARROW_COS + sa * ARROW_SIN);
+        const hyM = headLen * (sa * ARROW_COS - ca * ARROW_SIN);
+        const hxP = headLen * (ca * ARROW_COS - sa * ARROW_SIN);
+        const hyP = headLen * (sa * ARROW_COS + ca * ARROW_SIN);
         ctx.beginPath();
         ctx.moveTo(nx, ny);
-        ctx.lineTo(nx - headLen * Math.cos(angle - 0.4), ny - headLen * Math.sin(angle - 0.4));
+        ctx.lineTo(nx - hxM, ny - hyM);
         ctx.moveTo(nx, ny);
-        ctx.lineTo(nx - headLen * Math.cos(angle + 0.4), ny - headLen * Math.sin(angle + 0.4));
+        ctx.lineTo(nx - hxP, ny - hyP);
         ctx.stroke();
       }
 

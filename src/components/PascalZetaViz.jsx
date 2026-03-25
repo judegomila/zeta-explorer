@@ -537,7 +537,13 @@ function HasseTab() {
             onChange={e => setSigma(+e.target.value)}
             title={sigma > 1 ? 'Convergent region (σ > 1)' : sigma > 0.5 ? 'Critical strip (½ < σ ≤ 1)' : 'Near critical line (σ ≈ ½)'}
             style={{ accentColor: sigmaColor }} />
-          <span className="control-value" style={{ color: sigmaColor }}>{sigma.toFixed(2)}</span>
+          <span className="control-value" style={{ color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
+          <span style={{ fontSize: 10, color: sigmaColor, opacity: 0.8, marginLeft: 4, fontFamily: 'var(--font-mono)' }}
+            title={sigma > 1 ? 'Convergent region — Euler product converges absolutely'
+              : Math.abs(sigma - 0.5) < 0.03 ? 'Critical line Re(s) = ½'
+              : sigma > 0.5 ? 'Critical strip — analytic continuation required'
+              : 'Near critical line (σ ≈ ½)'}
+          >{sigma > 1 ? 'convergent' : Math.abs(sigma - 0.5) < 0.03 ? 'critical line' : sigma > 0.5 ? 'critical strip' : 'near critical line'}</span>
         </div>
         <div className="control-group">
           <label title="Imaginary part of s — zeta zeros occur at specific t values"><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>

@@ -516,21 +516,24 @@ export default function ZetaLandscapeViz() {
       )}
       <div className="controls">
         <div className="control-group">
-          <label>View Mode</label>
-          <select value={mode} onChange={e => setMode(e.target.value)}>
+          <label title="Switch between the critical-line Z(t) plot and the full |ζ(σ+it)| heatmap in the critical strip">View Mode</label>
+          <select value={mode} onChange={e => setMode(e.target.value)}
+            title="Critical Line Z(t) shows the Riemann-Siegel Z function along σ=½; Heatmap shows |ζ(s)| across the critical strip 0<σ<1">
             <option value="critical-line">Critical Line Z(t)</option>
             <option value="heatmap">|ζ(s)| Heatmap</option>
           </select>
         </div>
         <div className="control-group">
-          <label>t range start</label>
+          <label title="Lower bound of the imaginary part t — controls where the visible window starts on the critical line">t range start</label>
           <input type="range" min="0" max="100" step="1" value={tRange[0]}
+            title={`Start of visible t range (currently ${tRange[0]}). Increase to scroll up along the critical line.`}
             onChange={e => setTRange([Math.min(+e.target.value, tRange[1] - 5), tRange[1]])} />
           <span className="control-value">{tRange[0]}</span>
         </div>
         <div className="control-group">
-          <label>t range end</label>
+          <label title="Upper bound of the imaginary part t — controls where the visible window ends on the critical line">t range end</label>
           <input type="range" min="10" max="150" step="1" value={tRange[1]}
+            title={`End of visible t range (currently ${tRange[1]}). Increase to see higher zeta zeros.`}
             onChange={e => setTRange([tRange[0], Math.max(+e.target.value, tRange[0] + 5)])} />
           <span className="control-value">{tRange[1]}{' '}
             <span style={{ color: '#94a3b8', fontSize: '0.85em' }}>

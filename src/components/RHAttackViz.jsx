@@ -356,13 +356,13 @@ function HamiltonianTab() {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        Tests whether the oscillator Hamiltonian <InlineMath tex={"\mathcal{H}(\sigma, t)"} /> has a genuine
-        minimum at <InlineMath tex={"\sigma = \tfrac{1}{2}"} /> for each <InlineMath tex="t" />. The blue curve
-        shows <InlineMath tex={"\partial^2 \mathcal{H}/\partial\sigma^2"} /> (convexity) and the amber curve shows{' '}
-        <InlineMath tex={"\partial \mathcal{H}/\partial\sigma"} /> (stationarity). Green dots = confirmed minimum
+        Tests whether the oscillator Hamiltonian <InlineMath tex={"\\mathcal{H}(\\sigma, t)"} /> has a genuine
+        minimum at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> for each <InlineMath tex="t" />. The blue curve
+        shows <InlineMath tex={"\\partial^2 \\mathcal{H}/\\partial\\sigma^2"} /> (convexity) and the amber curve shows{' '}
+        <InlineMath tex={"\\partial \\mathcal{H}/\\partial\\sigma"} /> (stationarity). Green dots = confirmed minimum
         (convex + stationary), amber = convex but not stationary, red = not convex. Vertical dashed lines mark
-        known zeta zeros <InlineMath tex={"\gamma_n"} />.
-        <strong> Look for:</strong> all dots green, confirming <InlineMath tex={"\sigma = \tfrac{1}{2}"} /> is a minimum at every tested <InlineMath tex="t" />.
+        known zeta zeros <InlineMath tex={"\\gamma_n"} />.
+        <strong> Look for:</strong> all dots green, confirming <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> is a minimum at every tested <InlineMath tex="t" />.
       </div>
       <div className="control-group" style={{ marginBottom: 12 }}>
         <label>Primes</label>

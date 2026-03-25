@@ -676,3 +676,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 715 | 2026-03-26T00:15:00Z | Add γₙ index labels to zeta zero dropdown in SpectralAttackViz | SpectralAttackViz.jsx |
 | 716 | 2026-03-26T06:30:00Z | Add missing Y-axis line, tick marks, and rotated amplitude label to superposition panel in AnimatedModesViz | AnimatedModesViz.jsx |
 | 717 | 2026-03-25T21:30:00Z | Fix Hodge diamond highlighting h^{1,2} and h^{2,2} as mirror pair cells when only h^{1,1} and h^{2,1} are the mirror pair | CalabiYauViz.jsx |
+| 718 | 2026-03-25T22:00:00Z | Fix unescaped backslashes in Hamiltonian tab TeX strings causing garbled LaTeX rendering | RHAttackViz.jsx |

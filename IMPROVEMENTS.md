@@ -655,3 +655,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 694 | 2026-03-12T15:00:00Z | Fix sigma normalization dividing by 1.0 instead of 0.5 in TwistorViz Correspondence s-plane | TwistorViz.jsx |
 | 695 | 2026-03-12T18:00:00Z | Memoize scale range computations in RHAttackViz Hamiltonian and S-Matrix draw callbacks | RHAttackViz.jsx |
 | 696 | 2026-03-25T12:00:00Z | Add tab-by-tab exploration guide card to SpectralAttackPage | SpectralAttackPage.jsx |
+| 697 | 2026-03-25T14:30:00Z | Fix missing factor of 5 in Picard-Fuchs harmonic correction for quintic CY3 period | calabi-yau.js |

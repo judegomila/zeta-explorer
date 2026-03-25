@@ -52,8 +52,7 @@ function HodgeDiamondTab() {
 
         // Cell background
         const isHighlight = val > 1;
-        const isMirrorPair = (row === 2 && col === 1) || (row === 3 && col === 1) ||
-                             (row === 3 && col === 2) || (row === 4 && col === 1);
+        const isMirrorPair = (row === 2 && col === 1) || (row === 3 && col === 1);
         ctx.fillStyle = isHighlight ? 'rgba(139, 92, 246, 0.25)' :
                         isMirrorPair ? 'rgba(59, 130, 246, 0.15)' :
                         'rgba(30, 41, 59, 0.5)';

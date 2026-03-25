@@ -654,3 +654,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 693 | 2026-03-12T12:00:00Z | Add spider-type legend to Twin Ladder canvas in ZXCalculusViz | ZXCalculusViz.jsx |
 | 694 | 2026-03-12T15:00:00Z | Fix sigma normalization dividing by 1.0 instead of 0.5 in TwistorViz Correspondence s-plane | TwistorViz.jsx |
 | 695 | 2026-03-12T18:00:00Z | Memoize scale range computations in RHAttackViz Hamiltonian and S-Matrix draw callbacks | RHAttackViz.jsx |
+| 696 | 2026-03-25T12:00:00Z | Add tab-by-tab exploration guide card to SpectralAttackPage | SpectralAttackPage.jsx |

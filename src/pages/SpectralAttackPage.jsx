@@ -286,7 +286,32 @@ export default function SpectralAttackPage() {
         </p>
       </div>
 
-      <div style={{ marginTop: 32 }}>
+      <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
+        <h3 style={{ color: '#06b6d4' }}>What to Explore in Each Tab</h3>
+        <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          <strong style={{ color: '#3b82f6' }}>Fisher-Twistor</strong> plots Fisher information (blue, left axis) and
+          twistor incidence (green, right axis) across <InlineMath tex={"\\sigma"} />. Fisher info peaks sharply
+          near <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> while twistor incidence vanishes there — slide{' '}
+          <InlineMath tex="t" /> near a zeta zero (e.g. 14.13) to see the Fisher peak intensify dramatically.
+          <strong style={{ color: '#10b981' }}> Lyapunov</strong> shows the KL divergence landscape: it forms a
+          V-shaped valley centered on the critical line, confirming{' '}
+          <InlineMath tex={"D_{KL}(\\sigma \\| \\tfrac{1}{2}) = 0"} /> only at{' '}
+          <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />. Watch the valley steepen as you increase the number of primes.
+          <strong style={{ color: '#f59e0b' }}> Phase Barriers</strong> visualizes the thermodynamic free energy
+          and entropy across the critical strip — look for the entropy maximum and free energy minimum
+          coinciding at the critical line, creating a potential barrier that confines zeros.
+          <strong style={{ color: '#8b5cf6' }}> Correlation Matrix</strong> shows the pairwise correlations between
+          all attack measures. Low off-diagonal values (blues) mean the measures are independent —
+          the more independent they are, the stronger the combined evidence. High correlations (reds)
+          reveal which measures are essentially measuring the same thing.
+          <strong style={{ color: '#ef4444' }}> Strategy Scores</strong> evaluates each attack vector's
+          effectiveness, showing how confidently each measure pins zeros to the critical line. Compare
+          scores at different <InlineMath tex="t" /> values to see which measures are strongest near zeros
+          vs. between zeros.
+        </p>
+      </div>
+
+      <div style={{ marginTop: 24 }}>
         <SpectralAttackViz />
       </div>
 

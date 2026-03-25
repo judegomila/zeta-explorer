@@ -691,3 +691,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 729 | 2026-03-25T23:00:00Z | Fix Weyl's law constant off by factor 6^{1/3} in calabiYauSpectrum eigenvalue formula | calabi-yau.js |
 | 730 | 2026-03-25T23:30:00Z | Add '(up to p=X)' hint to Primes slider in SpectralAttackViz | SpectralAttackViz.jsx |
 | 731 | 2026-03-26T00:45:00Z | Add color legend showing prime oscillator colors and superposition in AnimatedModesViz | AnimatedModesViz.jsx |
+| 732 | 2026-03-25T23:59:00Z | Fix division-by-zero in OddZetaViz LinearIndependenceTab heatmap when maxAbs is zero | OddZetaViz.jsx |

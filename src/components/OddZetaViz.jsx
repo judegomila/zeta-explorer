@@ -755,6 +755,7 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
 
     const gram = data.gramMatrix;
     const dim = gram.length;
+    if (dim === 0) return;
     const labels = data.indices.map(k => k === 1 ? '1' : `\u03B6(${k})`);
 
     // Find range for color mapping
@@ -764,6 +765,7 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
         maxAbs = Math.max(maxAbs, Math.abs(gram[i][j]));
       }
     }
+    if (maxAbs === 0) maxAbs = 1; // Prevent division by zero when all entries are zero
 
     const cellW = Math.min(plotW / dim, plotH / dim);
     const totalW = cellW * dim;

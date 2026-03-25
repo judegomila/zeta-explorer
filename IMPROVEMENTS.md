@@ -657,3 +657,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 696 | 2026-03-25T12:00:00Z | Add tab-by-tab exploration guide card to SpectralAttackPage | SpectralAttackPage.jsx |
 | 697 | 2026-03-25T14:30:00Z | Fix missing factor of 5 in Picard-Fuchs harmonic correction for quintic CY3 period | calabi-yau.js |
 | 698 | 2026-03-25T16:00:00Z | Add visible convergence region label to σ slider in PascalZetaViz | PascalZetaViz.jsx |
+| 699 | 2026-03-25T17:30:00Z | Add critical line and phase boundary markers to arg(ζ) panel in SupercriticalViz | SupercriticalViz.jsx |

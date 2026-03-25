@@ -247,6 +247,23 @@ function ExtendedLandscapeTab() {
     // Break the line at ±π wrap discontinuities to avoid false vertical lines
     const phaseScale = v => botY + botH / 2 - (v / Math.PI) * (botH / 2);
 
+    // Phase boundary at σ=1 (matches top panel)
+    if (sigmaMin < 1 && sigmaMax > 1) {
+      ctx.strokeStyle = '#f59e0b';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([6, 4]);
+      ctx.beginPath(); ctx.moveTo(xScale(1), botY); ctx.lineTo(xScale(1), botY + botH); ctx.stroke();
+      ctx.setLineDash([]);
+    }
+    // Critical line at σ=0.5 (matches top panel)
+    if (sigmaMin < 0.5 && sigmaMax > 0.5) {
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([6, 4]);
+      ctx.beginPath(); ctx.moveTo(xScale(0.5), botY); ctx.lineTo(xScale(0.5), botY + botH); ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
     ctx.strokeStyle = '#8b5cf6';
     ctx.lineWidth = 1.5;
     ctx.beginPath();

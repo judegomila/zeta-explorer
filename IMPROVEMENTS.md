@@ -683,3 +683,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 721 | 2026-03-25T23:00:00Z | Add descriptive tooltips to all controls in LiCriterionViz | LiCriterionViz.jsx |
 | 722 | 2026-03-25T23:30:00Z | Add color bar legend to Gram matrix heatmap in Linear Independence tab | OddZetaViz.jsx |
 | 723 | 2026-03-26T00:00:00Z | Fix Li criterion using strict > 0 instead of standard ≥ 0 in RHAttackViz | RHAttackViz.jsx |
+| 724 | 2026-03-25T23:59:00Z | Fix division-by-zero in OddZetaViz ValuesTab when trace has one data point | OddZetaViz.jsx |
+| 725 | 2026-03-25T23:45:00Z | Memoize nearest-zero search in InformationTheoryViz to avoid O(n) IIFE on every render | InformationTheoryViz.jsx |

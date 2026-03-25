@@ -506,6 +506,15 @@ export default function InformationTheoryViz() {
   const sigmaColor = Math.abs(sigma - 0.5) < 0.02 ? '#10b981'
     : Math.abs(sigma - 0.5) < 0.15 ? '#f59e0b' : '#ef4444';
 
+  const nearestZero = useMemo(() => {
+    let bestIdx = -1, bestDist = Infinity;
+    for (let i = 0; i < ZETA_ZEROS.length; i++) {
+      const d = Math.abs(t - ZETA_ZEROS[i]);
+      if (d < bestDist) { bestDist = d; bestIdx = i; }
+    }
+    return bestDist < 1.0 ? { idx: bestIdx, dist: bestDist, gamma: ZETA_ZEROS[bestIdx] } : null;
+  }, [t]);
+
   return (
     <div>
       <div className="controls">
@@ -520,29 +529,19 @@ export default function InformationTheoryViz() {
           <input type="range" min="1" max="60" step="0.5" value={t}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
-          {(() => {
-            let bestIdx = -1, bestDist = Infinity;
-            for (let i = 0; i < ZETA_ZEROS.length; i++) {
-              const d = Math.abs(t - ZETA_ZEROS[i]);
-              if (d < bestDist) { bestDist = d; bestIdx = i; }
-            }
-            if (bestDist < 1.0) {
-              const clr = bestDist < 0.3 ? '#10b981' : '#f59e0b';
-              return (
-                <span
-                  style={{
-                    marginLeft: 6, fontSize: 11, color: clr,
-                    cursor: 'pointer', borderBottom: '1px dashed currentColor',
-                  }}
-                  title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
-                  onClick={() => setT(+ZETA_ZEROS[bestIdx].toFixed(1))}
-                >
-                  ≈ γ<sub>{bestIdx + 1}</sub>={ZETA_ZEROS[bestIdx].toFixed(1)}
-                </span>
-              );
-            }
-            return null;
-          })()}
+          {nearestZero && (
+            <span
+              style={{
+                marginLeft: 6, fontSize: 11,
+                color: nearestZero.dist < 0.3 ? '#10b981' : '#f59e0b',
+                cursor: 'pointer', borderBottom: '1px dashed currentColor',
+              }}
+              title={`Click to snap t to γ${nearestZero.idx + 1} = ${nearestZero.gamma.toFixed(3)}`}
+              onClick={() => setT(+nearestZero.gamma.toFixed(1))}
+            >
+              ≈ γ<sub>{nearestZero.idx + 1}</sub>={nearestZero.gamma.toFixed(1)}
+            </span>
+          )}
         </div>
         <div className="control-group">
           <label>Primes</label>

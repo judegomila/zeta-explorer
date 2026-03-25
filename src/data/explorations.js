@@ -3580,6 +3580,40 @@ The program remains incomplete — no one has constructed the actual foliated sp
     references: ['connes-1999', 'berry-keating-1999'],
     nextSteps: [],
   },
+  {
+    id: 'exp-085',
+    timestamp: '2026-03-25T19:00:00Z',
+    title: 'Calabi-Yau Manifolds and the Weil Conjectures: Finite-Field RH as a Template',
+    category: 'geometry',
+    depth: 4,
+    status: 'complete',
+    date: '2026-03-25',
+    content: `Deligne's proof (1974) of the Weil conjectures establishes the **Riemann Hypothesis for varieties over finite fields**: the eigenvalues of Frobenius acting on $H^k_{\\text{ét}}(X, \\mathbb{Q}_\\ell)$ have absolute value $q^{k/2}$. For a Calabi-Yau 3-fold $X$ over $\\mathbb{F}_p$, the local zeta function factors as
+
+$$Z(X/\\mathbb{F}_p, T) = \\frac{P_1(T) \\cdot P_3(T) \\cdot P_5(T)}{P_0(T) \\cdot P_2(T) \\cdot P_4(T) \\cdot P_6(T)}$$
+
+where the roots of $P_k(T)$ satisfy $|\\alpha| = p^{k/2}$ — this **is** the Riemann Hypothesis in the finite-field setting.
+
+**ZPO connection**: The CY local zeta function is itself an Euler-like product over Frobenius eigenvalues, mirroring the prime oscillator cascade. The Hodge structure of the CY constrains the degrees of the $P_k$ polynomials, just as the LC oscillator parameters constrain the transfer function poles. The middle cohomology $H^3(X)$ carries the Galois representation whose L-function is the object most analogous to $\\zeta(s)$.
+
+The critical observation: for **rigid** CY 3-folds ($h^{2,1} = 0$), the L-function equals that of a weight-4 modular form, and the Ramanujan-Petersson conjecture $|a_p| \\leq 2p^{3/2}$ — proved by Deligne — is the CY version of RH. Mirror symmetry exchanges Kähler and complex structure moduli ($h^{1,1} \\leftrightarrow h^{2,1}$), giving a geometric origin for the functional equation symmetry $s \\leftrightarrow 1-s$ that the ZPO twin-ladder model encodes as direct/dual duality.
+
+The gap: we have RH for CY varieties over $\\mathbb{F}_p$ but not over $\\mathbb{Q}$. Closing this gap requires proving that $\\zeta(s)$ arises as the L-function of a "motive" — the most ambitious form of the Langlands program.`,
+    latex: [
+      'Z(X/\\mathbb{F}_p, T) = \\exp\\!\\left(\\sum_{n=1}^{\\infty} \\frac{|X(\\mathbb{F}_{p^n})|}{n} T^n\\right) = \\prod_k P_k(T)^{(-1)^{k+1}}',
+      '\\text{Weil RH: roots of } P_k(T) \\text{ satisfy } |\\alpha| = p^{k/2}',
+      '\\text{Rigid CY3: } L(X, s) = \\sum_{n} a_n n^{-s} \\text{ is a weight-4 modular form, } |a_p| \\leq 2p^{3/2}',
+    ],
+    insights: [
+      'The Weil conjectures are the closest proven analog of RH — same statement, different ground field',
+      'Mirror symmetry gives a geometric origin for the functional equation, paralleling ZPO direct/dual duality',
+      'Rigid CY3 L-functions are modular forms, connecting Hodge theory to automorphic forms',
+      'The Langlands program seeks to extend these methods from F_p to Q — the missing step for classical RH',
+      'Laplacian eigenvalue spacings on CY manifolds follow GUE statistics, the same universality class as zeta zeros',
+    ],
+    references: ['deligne-1974', 'candelas-1991', 'serre-1970', 'langlands-1967'],
+    nextSteps: [],
+  },
 ];
 export function getAllExplorations() {
   return explorations;

@@ -660,3 +660,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 699 | 2026-03-25T17:30:00Z | Add critical line and phase boundary markers to arg(ζ) panel in SupercriticalViz | SupercriticalViz.jsx |
 | 700 | 2026-03-25T19:00:00Z | Eliminate O(n²) allocation in pair correlation by early-breaking on sorted unfolded zeros | GUEStatisticsViz.jsx |
 | 701 | 2026-03-25T20:30:00Z | Fix wrong Keiper-Li asymptotic formula: log(n/2π)+γ−1 → log(n/4π)+1+γ | LiCriterionViz.jsx |
+| 702 | 2026-03-25T22:00:00Z | Fix missing moveTo before first bezierCurveTo in HeroSignalFlow bridge coupling symbol | HeroSignalFlow.jsx |

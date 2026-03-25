@@ -661,3 +661,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 700 | 2026-03-25T19:00:00Z | Eliminate O(n²) allocation in pair correlation by early-breaking on sorted unfolded zeros | GUEStatisticsViz.jsx |
 | 701 | 2026-03-25T20:30:00Z | Fix wrong Keiper-Li asymptotic formula: log(n/2π)+γ−1 → log(n/4π)+1+γ | LiCriterionViz.jsx |
 | 702 | 2026-03-25T22:00:00Z | Fix missing moveTo before first bezierCurveTo in HeroSignalFlow bridge coupling symbol | HeroSignalFlow.jsx |
+| 703 | 2026-03-25T23:30:00Z | Fix broken S†S−I LaTeX in Darlington tab due to unescaped backslash in JS string | GapClosingViz.jsx |

@@ -734,7 +734,7 @@ function DarlingtonTab({ numPrimes, t }) {
         <InlineMath tex="|S_{11}|^2 + |S_{21}|^2 = 1" /> on the critical line.
         Orange shows reflection <InlineMath tex="|S_{11}|" />, cyan shows transmission{' '}
         <InlineMath tex="|S_{21}|" />, and the red curve shows the unitarity error{' '}
-        <InlineMath tex={"|S^\dagger S - I|"} /> (should be near zero at{' '}
+        <InlineMath tex={"|S^\\dagger S - I|"} /> (should be near zero at{' '}
         <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />).
       </div>
       <canvas

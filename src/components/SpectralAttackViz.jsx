@@ -19,6 +19,17 @@ function FisherTwistorTab({ t, numPrimes }) {
     [t, numPrimes],
   );
 
+  const scales = useMemo(() => {
+    const pts = data.points;
+    if (pts.length === 0) return null;
+    const sigmas = pts.map(p => p.sigma);
+    const minS = Math.min(...sigmas);
+    const maxS = Math.max(...sigmas);
+    const maxF = Math.max(...pts.map(p => p.fisher), 1);
+    const maxI = Math.max(...pts.map(p => p.incidence), 0.01);
+    return { minS, maxS, maxF, maxI };
+  }, [data]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -51,17 +62,9 @@ function FisherTwistorTab({ t, numPrimes }) {
     ctx.stroke();
 
     const pts = data.points;
-    if (pts.length === 0) return;
+    if (!scales) return;
 
-    const sigmas = pts.map(p => p.sigma);
-    const minS = Math.min(...sigmas);
-    const maxS = Math.max(...sigmas);
-
-    const fishers = pts.map(p => p.fisher);
-    const maxF = Math.max(...fishers, 1);
-
-    const incidences = pts.map(p => p.incidence);
-    const maxI = Math.max(...incidences, 0.01);
+    const { minS, maxS, maxF, maxI } = scales;
 
     // Horizontal gridlines
     ctx.setLineDash([3, 4]);
@@ -207,7 +210,7 @@ function FisherTwistorTab({ t, numPrimes }) {
     ctx.fillStyle = '#64748b';
     ctx.font = '9px sans-serif';
     ctx.fillText('Pearson correlation', w - margin.right - 8, margin.top + 26);
-  }, [data]);
+  }, [data, scales]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {
@@ -253,6 +256,17 @@ function LyapunovTab({ t, numPrimes }) {
   const canvasRef = useRef();
   const data = useMemo(() => klLyapunovAnalysis(t, numPrimes), [t, numPrimes]);
 
+  const scales = useMemo(() => {
+    const pts = data.points;
+    if (pts.length === 0) return null;
+    const sigmas = pts.map(p => p.sigma);
+    const minS = Math.min(...sigmas);
+    const maxS = Math.max(...sigmas);
+    const maxKL = Math.max(...pts.map(p => p.kl), 0.01);
+    const maxDKL = Math.max(...pts.map(p => Math.abs(p.dkl)), 0.01);
+    return { minS, maxS, maxKL, maxDKL };
+  }, [data]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -279,15 +293,11 @@ function LyapunovTab({ t, numPrimes }) {
     ctx.stroke();
 
     const pts = data.points;
-    if (pts.length === 0) return;
+    if (!scales) return;
 
-    const sigmas = pts.map(p => p.sigma);
-    const minS = Math.min(...sigmas);
-    const maxS = Math.max(...sigmas);
+    const { minS, maxS, maxKL, maxDKL } = scales;
 
     // Upper half: D_KL (green V-shape)
-    const klValues = pts.map(p => p.kl);
-    const maxKL = Math.max(...klValues, 0.01);
     const splitY = margin.top + plotH * 0.55;
 
     // sigma = 0.5 dashed line
@@ -331,8 +341,6 @@ function LyapunovTab({ t, numPrimes }) {
     ctx.setLineDash([]);
 
     // Lower half: dD_KL/dsigma (red/blue split at zero crossing)
-    const dklValues = pts.map(p => p.dkl);
-    const maxDKL = Math.max(...dklValues.map(Math.abs), 0.01);
     const lowerH = h - margin.bottom - splitY - 15;
     const lowerMidY = splitY + 10 + lowerH / 2;
 
@@ -415,7 +423,7 @@ function LyapunovTab({ t, numPrimes }) {
       ctx.textAlign = 'left';
       ctx.fillText(item.label, legX + 26, iy + 3);
     });
-  }, [data]);
+  }, [data, scales]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {
@@ -480,6 +488,17 @@ function PhaseBarriersTab({ t, numPrimes }) {
   const canvasRef = useRef();
   const data = useMemo(() => phaseBarrierAnalysis(t, numPrimes), [t, numPrimes]);
 
+  const scales = useMemo(() => {
+    const barriers = data.barriers;
+    if (barriers.length === 0) return null;
+    const sigmas = barriers.map(b => b.sigma);
+    const minS = Math.min(...sigmas);
+    const maxS = Math.max(...sigmas);
+    const maxDeltaF = Math.max(...barriers.map(b => Math.abs(b.deltaF)), 0.01);
+    const maxCv = Math.max(...barriers.map(b => Math.abs(b.specificHeat)), 0.01);
+    return { minS, maxS, maxDeltaF, maxCv };
+  }, [data]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -497,11 +516,9 @@ function PhaseBarriersTab({ t, numPrimes }) {
     const plotH = h - margin.top - margin.bottom;
 
     const barriers = data.barriers;
-    if (barriers.length === 0) return;
+    if (!scales) return;
 
-    const sigmas = barriers.map(b => b.sigma);
-    const minS = Math.min(...sigmas);
-    const maxS = Math.max(...sigmas);
+    const { minS, maxS, maxDeltaF, maxCv } = scales;
 
     // Color-code background regions
     const regionColors = [
@@ -536,9 +553,6 @@ function PhaseBarriersTab({ t, numPrimes }) {
     ctx.stroke();
 
     // Delta-F (left axis)
-    const deltaFs = barriers.map(b => b.deltaF);
-    const maxDeltaF = Math.max(...deltaFs.map(Math.abs), 0.01);
-
     ctx.beginPath();
     barriers.forEach((b, i) => {
       const x = margin.left + ((b.sigma - minS) / (maxS - minS)) * plotW;
@@ -550,9 +564,6 @@ function PhaseBarriersTab({ t, numPrimes }) {
     ctx.stroke();
 
     // Specific heat (right axis)
-    const cvs = barriers.map(b => b.specificHeat);
-    const maxCv = Math.max(...cvs.map(Math.abs), 0.01);
-
     ctx.beginPath();
     barriers.forEach((b, i) => {
       const x = margin.left + ((b.sigma - minS) / (maxS - minS)) * plotW;
@@ -650,7 +661,7 @@ function PhaseBarriersTab({ t, numPrimes }) {
       ctx.textAlign = 'left';
       ctx.fillText(item.label, w - margin.right - 114, margin.top + 8 + i * 14);
     });
-  }, [data]);
+  }, [data, scales]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

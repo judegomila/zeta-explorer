@@ -678,3 +678,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 717 | 2026-03-25T21:30:00Z | Fix Hodge diamond highlighting h^{1,2} and h^{2,2} as mirror pair cells when only h^{1,1} and h^{2,1} are the mirror pair | CalabiYauViz.jsx |
 | 718 | 2026-03-25T22:00:00Z | Fix unescaped backslashes in Hamiltonian tab TeX strings causing garbled LaTeX rendering | RHAttackViz.jsx |
 | 719 | 2026-03-25T12:00:00Z | Fix unescaped backslashes in GapClosingViz TeX strings rendering as plain text instead of LaTeX | GapClosingViz.jsx |
+| 720 | 2026-03-25T22:30:00Z | Memoize derived scale bounds in all three SpectralAttackViz canvas tabs to avoid recomputing on resize | SpectralAttackViz.jsx |

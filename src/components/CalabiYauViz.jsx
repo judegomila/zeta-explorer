@@ -250,7 +250,7 @@ function PeriodsTab() {
         </p>
       </div>
 
-      <BlockMath tex="\omega_0(z) = \sum_{n=0}^{\infty} \frac{(5n)!}{(n!)^5} z^n, \qquad \theta^4 \omega_0 = z \prod_{k=1}^{4}(\theta + k/5)\,\omega_0" />
+      <BlockMath tex="\omega_0(z) = \sum_{n=0}^{\infty} \frac{(5n)!}{(n!)^5} z^n, \qquad \left[\theta^4 - 5z(5\theta{+}1)(5\theta{+}2)(5\theta{+}3)(5\theta{+}4)\right]\omega_0 = 0" />
 
       <canvas ref={canvasRef}
         style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a',

@@ -679,3 +679,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 718 | 2026-03-25T22:00:00Z | Fix unescaped backslashes in Hamiltonian tab TeX strings causing garbled LaTeX rendering | RHAttackViz.jsx |
 | 719 | 2026-03-25T12:00:00Z | Fix unescaped backslashes in GapClosingViz TeX strings rendering as plain text instead of LaTeX | GapClosingViz.jsx |
 | 720 | 2026-03-25T22:30:00Z | Memoize derived scale bounds in all three SpectralAttackViz canvas tabs to avoid recomputing on resize | SpectralAttackViz.jsx |
+| 721 | 2026-03-25T23:00:00Z | Add descriptive tooltips to all controls in LiCriterionViz | LiCriterionViz.jsx |

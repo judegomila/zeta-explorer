@@ -337,8 +337,9 @@ export default function LiCriterionViz() {
       )}
       <div className="controls">
         <div className="control-group">
-          <label>View</label>
-          <select value={mode} onChange={e => setMode(e.target.value)}>
+          <label title="Switch between Li coefficients, Keiper-Li asymptotics, and de Bruijn-Newman heat flow visualizations">View</label>
+          <select value={mode} onChange={e => setMode(e.target.value)}
+            title="Select visualization mode">
             <option value="li">Li Coefficients λₙ</option>
             <option value="keiper-li">Keiper-Li: λₙ/n</option>
             <option value="debruijn">de Bruijn-Newman Heat Flow</option>
@@ -346,16 +347,18 @@ export default function LiCriterionViz() {
         </div>
         {mode !== 'debruijn' && (
           <div className="control-group">
-            <label>Max n</label>
+            <label title="Maximum index n for Li coefficient computation — higher values test RH at finer resolution but require more zeros">Max n</label>
             <input type="range" min="5" max="40" step="1" value={maxN}
-              onChange={e => setMaxN(+e.target.value)} />
+              onChange={e => setMaxN(+e.target.value)}
+              title="Number of Li coefficients to compute (λ₁ through λₙ)" />
             <span className="control-value">{maxN}</span>
           </div>
         )}
         <div className="control-group">
-          <label>Zeros used</label>
+          <label title="Number of nontrivial zeta zeros used in the Li coefficient sum — more zeros give more accurate coefficients">Zeros used</label>
           <input type="range" min="10" max="200" step="1" value={numZeros}
-            onChange={e => setNumZeros(+e.target.value)} />
+            onChange={e => setNumZeros(+e.target.value)}
+            title="More zeros = more accurate Li coefficients and heat flow trajectories" />
           <span className="control-value">{numZeros}</span>
           <span style={{ color: '#64748b', fontSize: '0.85em', marginLeft: 4 }}>
             (γ<sub>max</sub> ≈ {ZETA_ZEROS[numZeros - 1]?.toFixed(1)})

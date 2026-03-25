@@ -462,6 +462,13 @@ function IncidenceRelationTab({ sigma, t }) {
     return offscreen;
   }, [heatData]);
 
+  // Memoize filtered zeta zeros to avoid re-filtering ZETA_ZEROS array on every
+  // draw call (sigma/t slider change, window resize). Only depends on tRange.
+  const zerosInRange = useMemo(() => {
+    const { tRange } = heatData;
+    return ZETA_ZEROS.filter(z => z >= tRange[0] && z <= tRange[1]);
+  }, [heatData]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -489,7 +496,6 @@ function IncidenceRelationTab({ sigma, t }) {
 
     // Mark known zeta zeros on σ=0.5 line
     const critSi = ((0.5 - sigmaRange[0]) / (sigmaRange[1] - sigmaRange[0])) * chartW;
-    const zerosInRange = ZETA_ZEROS.filter(z => z >= tRange[0] && z <= tRange[1]);
     zerosInRange.forEach(z => {
       const tFrac = (z - tRange[0]) / (tRange[1] - tRange[0]);
       const zx = margin.left + critSi;
@@ -575,7 +581,7 @@ function IncidenceRelationTab({ sigma, t }) {
     ctx.fillText('0', cbX + cbW + 4, margin.top + chartH);
     ctx.fillText('|Z·W|', cbX, margin.top - 6);
 
-  }, [heatData, heatmapImage, sigma, t]);
+  }, [heatData, heatmapImage, sigma, t, zerosInRange]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

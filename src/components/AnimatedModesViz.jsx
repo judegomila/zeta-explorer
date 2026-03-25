@@ -268,6 +268,48 @@ export default function AnimatedModesViz() {
     ctx.fillText(`t = ${t.toFixed(2)}`, dw - 8, 22);
     ctx.textAlign = 'left';
 
+    // Legend showing first few prime colors + superposition
+    const legendX = dw - 170;
+    const legendY = 32;
+    const legendItems = Math.min(primeData.length, 5);
+    const legendH = (legendItems + 1) * 16 + 10;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX - 8, legendY - 4, 168, legendH, 4);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.font = '10px sans-serif';
+    for (let li = 0; li < legendItems; li++) {
+      const pd = primeData[li];
+      const ly = legendY + 10 + li * 16;
+      ctx.strokeStyle = `hsla(${pd.hue}, 70%, 55%, 0.9)`;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(legendX, ly);
+      ctx.lineTo(legendX + 20, ly);
+      ctx.stroke();
+      ctx.fillStyle = '#cbd5e1';
+      ctx.fillText(`p = ${pd.p}  (ω = ${pd.omega.toFixed(2)})`, legendX + 26, ly + 3);
+    }
+    // Superposition entry
+    const superLegY = legendY + 10 + legendItems * 16;
+    ctx.strokeStyle = '#10b981';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(legendX, superLegY);
+    ctx.lineTo(legendX + 20, superLegY);
+    ctx.stroke();
+    ctx.fillStyle = '#10b981';
+    ctx.fillText('Σ all modes', legendX + 26, superLegY + 3);
+    if (primeData.length > 5) {
+      ctx.fillStyle = '#64748b';
+      ctx.font = '9px sans-serif';
+      ctx.fillText(`… + ${primeData.length - 5} more primes`, legendX + 26, superLegY + 16);
+    }
+
   }, [primeData, zeroIndex, speed, canvasHeight]);
 
   // Spacebar keyboard shortcut for play/pause

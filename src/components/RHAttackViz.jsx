@@ -131,7 +131,7 @@ function LiCoefficientsTab() {
     <div>
       <div className="tab-explainer accent-blue">
         <p style={{ margin: '0 0 8px' }}>
-          Li's criterion: RH is equivalent to all <InlineMath tex={"\\lambda_n > 0"} />, where:
+          Li's criterion: RH is equivalent to all <InlineMath tex={"\\lambda_n \\geq 0"} />, where:
         </p>
         <BlockMath tex={"\\lambda_n = \\sum_{\\rho} \\left[1 - \\left(1 - \\frac{1}{\\rho}\\right)^{\\!n}\\right]"} />
         <p style={{ margin: '8px 0' }}>

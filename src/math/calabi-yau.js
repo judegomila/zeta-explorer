@@ -183,7 +183,7 @@ export function mirrorPrepotential(tValues, { kappa = 5, gwInvariants = null } =
  * Hasse-Weil zeta function of a CY3 over F_p.
  *
  * For a smooth CY3 X/F_p, the local zeta is:
- *   Z(X/F_p, T) = P₁(T)^{-1} · P₃(T) · P₅(T)^{-1} / (P₀(T) · P₂(T) · P₄(T) · P₆(T))
+ *   Z(X/F_p, T) = P₁(T) · P₃(T) · P₅(T) / (P₀(T) · P₂(T) · P₄(T) · P₆(T))
  *
  * where deg(P_k) = b_k (Betti number).
  *

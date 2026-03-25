@@ -528,7 +528,7 @@ function LocalZetaTab() {
         </p>
       </div>
 
-      <BlockMath tex="Z(X/\mathbb{F}_p, T) = \frac{P_1(T)^{-1}\, P_3(T)\, P_5(T)^{-1}}{P_0(T)\, P_2(T)\, P_4(T)\, P_6(T)}, \quad |a_p| \leq 2p^{3/2}" />
+      <BlockMath tex="Z(X/\mathbb{F}_p, T) = \frac{P_1(T)\, P_3(T)\, P_5(T)}{P_0(T)\, P_2(T)\, P_4(T)\, P_6(T)}, \quad |a_p| \leq 2p^{3/2}" />
 
       <div style={{ display: 'flex', gap: 16, marginBottom: 12, flexWrap: 'wrap' }}>
         <div className="control-group">

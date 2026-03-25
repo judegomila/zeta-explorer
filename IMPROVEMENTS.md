@@ -685,3 +685,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 723 | 2026-03-26T00:00:00Z | Fix Li criterion using strict > 0 instead of standard ≥ 0 in RHAttackViz | RHAttackViz.jsx |
 | 724 | 2026-03-25T23:59:00Z | Fix division-by-zero in OddZetaViz ValuesTab when trace has one data point | OddZetaViz.jsx |
 | 725 | 2026-03-25T23:45:00Z | Memoize nearest-zero search in InformationTheoryViz to avoid O(n) IIFE on every render | InformationTheoryViz.jsx |
+| 726 | 2026-03-26T00:15:00Z | Avoid per-frame canvas buffer reallocation in CollapseTab animation loop in TwinLadderViz | TwinLadderViz.jsx |

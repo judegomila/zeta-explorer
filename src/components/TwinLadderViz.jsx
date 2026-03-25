@@ -853,12 +853,17 @@ function CollapseTab() {
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    ctx.scale(dpr, dpr);
+    const targetW = Math.round(rect.width * dpr);
+    const targetH = Math.round(rect.height * dpr);
+    if (canvas.width !== targetW || canvas.height !== targetH) {
+      canvas.width = targetW;
+      canvas.height = targetH;
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const W = rect.width;
     const H = rect.height;
 
+    ctx.clearRect(0, 0, W, H);
     ctx.fillStyle = '#0a0e1a';
     ctx.fillRect(0, 0, W, H);
 

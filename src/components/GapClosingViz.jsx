@@ -236,9 +236,9 @@ function RegularizationTab({ numPrimes, t }) {
   return (
     <div>
       <div className="tab-explainer accent-green">
-        The raw Euler product <InlineMath tex={"\prod_p (1-p^{-s})^{-1}"} /> diverges for{' '}
-        <InlineMath tex={"\sigma \leq 1"} />. The regularized product uses the eta relation{' '}
-        <InlineMath tex={"\zeta(s) = \eta(s)/(1-2^{1-s})"} /> to extend analytically into the
+        The raw Euler product <InlineMath tex={"\\prod_p (1-p^{-s})^{-1}"} /> diverges for{' '}
+        <InlineMath tex={"\\sigma \\leq 1"} />. The regularized product uses the eta relation{' '}
+        <InlineMath tex={"\\zeta(s) = \\eta(s)/(1-2^{1-s})"} /> to extend analytically into the
         critical strip. Compare the red (raw, diverging) vs green (regularized, converging) curves.
       </div>
       <canvas
@@ -1003,7 +1003,7 @@ export default function GapClosingViz() {
           <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
         <div className="control-group">
-          <label><InlineMath tex={"t = \operatorname{Im}(s)"} /></label>
+          <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="0" max="9" step="1" value={tIdx}
             onChange={e => setTIdx(+e.target.value)} />
           <span className="control-value" style={{ fontFamily: 'var(--font-mono)', fontSize: 12 }}>

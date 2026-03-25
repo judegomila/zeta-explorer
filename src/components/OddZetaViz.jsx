@@ -838,6 +838,40 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
     ctx.textAlign = 'right';
     ctx.fillText(detStr, w - margin.right - 4, margin.top + 14);
 
+    // Color bar legend
+    const barW = 12;
+    const barH = Math.min(totalH * 0.6, 120);
+    const barX = offsetX + totalW + 16;
+    const barY = offsetY + (totalH - barH) / 2;
+    const barSteps = 40;
+    for (let s = 0; s < barSteps; s++) {
+      const frac = s / (barSteps - 1); // 0 = bottom (negative) to 1 = top (positive)
+      const normalized = frac * 2 - 1; // -1 to +1
+      let cr, cg, cb;
+      if (normalized >= 0) {
+        cr = Math.round(16 + 0 * normalized);
+        cg = Math.round(30 + 155 * normalized);
+        cb = Math.round(40 + 89 * normalized);
+      } else {
+        cr = Math.round(16 + 43 * (-normalized));
+        cg = Math.round(30 + 100 * (-normalized));
+        cb = Math.round(40 + 206 * (-normalized));
+      }
+      ctx.fillStyle = `rgb(${cr}, ${cg}, ${cb})`;
+      ctx.fillRect(barX, barY + barH - (s + 1) * (barH / barSteps), barW, barH / barSteps + 0.5);
+    }
+    // Color bar border
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(barX, barY, barW, barH);
+    // Color bar labels
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '8px var(--font-mono)';
+    ctx.textAlign = 'left';
+    ctx.fillText(`+${maxAbs.toExponential(1)}`, barX + barW + 4, barY + 4);
+    ctx.fillText('0', barX + barW + 4, barY + barH / 2 + 3);
+    ctx.fillText(`\u2212${maxAbs.toExponential(1)}`, barX + barW + 4, barY + barH + 2);
+
   }, [data]);
 
   useEffect(() => { draw(); }, [draw]);

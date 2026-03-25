@@ -291,6 +291,16 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
     }
     ctx.stroke();
 
+    // Rotated y-axis label for top panel
+    ctx.save();
+    ctx.translate(14, topY + panelH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#06b6d4';
+    ctx.font = '10px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Field amplitude', 0, 0);
+    ctx.restore();
+
     // ── Bottom panel: |ζ(s)| ──
     const botY = topY + panelH + 30;
     ctx.fillStyle = 'rgba(26,31,54,0.4)';
@@ -325,6 +335,16 @@ function PenroseTransformTab({ sigma, t, numPrimes }) {
       i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
     }
     ctx.stroke();
+
+    // Rotated y-axis label for bottom panel
+    ctx.save();
+    ctx.translate(14, botY + panelH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#8b5cf6';
+    ctx.font = '10px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('|ζ(s)|', 0, 0);
+    ctx.restore();
 
     // ── Vertical line at current σ ──
     const sigmaFrac = (sigma - 0.1) / (2.0 - 0.1);

@@ -669,3 +669,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 708 | 2026-03-26T06:00:00Z | Hoist duplicate getPrimes(6) to module-level constant in TwinLadderViz | TwinLadderViz.jsx |
 | 709 | 2026-03-25T07:30:00Z | Add '(up to p=N)' label to Primes slider in ZXCalculusViz | ZXCalculusViz.jsx |
 | 710 | 2026-03-25T12:00:00Z | Fix Point Counts header showing literal 'F_{prime}' instead of interpolated prime value | CalabiYauViz.jsx |
+| 711 | 2026-03-25T18:00:00Z | Add missing rotated y-axis labels to both panels in Penrose Transform tab | TwistorViz.jsx |

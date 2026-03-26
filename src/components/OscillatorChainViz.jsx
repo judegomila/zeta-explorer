@@ -244,7 +244,7 @@ export default function OscillatorChainViz() {
       { text: `s = ${sigma.toFixed(2)} + ${t.toFixed(2)}i`, color: '#94a3b8' },
       { text: `|ζ(s)| ≈ ${direct.totalMagnitude.toFixed(4)}`, color: '#3b82f6' },
       { text: `|ζ(1−s)| ≈ ${dual.totalMagnitude.toFixed(4)}`, color: '#f59e0b' },
-      { text: `|χ| = ${bridge.magnitude.toFixed(3)},  Γ = ${bridge.reflectionCoeff.toFixed(3)}`, color: bridge.isUnitary ? '#10b981' : '#ef4444' },
+      { text: `|χ| = ${bridge.magnitude.toFixed(3)},  Γ = ${((1 - bridge.magnitude) / (1 + bridge.magnitude)).toFixed(3)}`, color: bridge.isUnitary ? '#10b981' : '#ef4444' },
     ].forEach(({ text, color }, i) => {
       infoG.append('text')
         .attr('x', 0).attr('y', i * 20)

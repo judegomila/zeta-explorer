@@ -1105,7 +1105,7 @@ function ComponentDiagramTab({ sigma, t, numPrimes }) {
       svg.append('text').attr('x', xB + bridgeW / 2).attr('y', cy + 35)
         .attr('text-anchor', 'middle').attr('fill', '#64748b')
         .attr('font-size', 9).attr('font-family', 'JetBrains Mono, monospace')
-        .text(`|χ|=${bridge.magnitude.toFixed(3)}, Γ=${bridge.reflectionCoeff.toFixed(3)}`);
+        .text(`|χ|=${bridge.magnitude.toFixed(3)}, Γ=${((1 - bridge.magnitude) / (1 + bridge.magnitude)).toFixed(3)}`);
 
       // Dual ladder box
       svg.append('rect')

@@ -708,3 +708,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 746 | 2026-03-25T21:00:00Z | Fix reflection coefficient formula using |1-|χ|| instead of signed (1-|χ|) | OscillatorsPage.jsx, TwinOscillatorSimViz.jsx |
 | 747 | 2026-03-25T22:00:00Z | Add per-component hover dots to Hamiltonian energy landscape chart | HamiltonianViz.jsx |
 | 748 | 2026-03-25T22:30:00Z | Replace O(n) linear scan with O(log n) binary search for nearest zeta zero in RHRigorViz | RHRigorViz.jsx |
+| 749 | 2026-03-25T23:00:00Z | Fix Γ display showing unsigned |Γ| in WaveSimViz and OscillatorChainViz bridge labels | WaveSimViz.jsx, OscillatorChainViz.jsx |

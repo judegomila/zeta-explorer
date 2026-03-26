@@ -704,3 +704,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 742 | 2026-03-25T23:30:00Z | Add distinct dash patterns to confinement potential component curves in GapClosingViz | GapClosingViz.jsx |
 | 743 | 2026-03-26T00:00:00Z | Fix Keiper-Li asymptotic formula using 4π instead of correct 2π | LiCriterionViz.jsx |
 | 744 | 2026-03-25T00:30:00Z | Hoist zeta-zero proximity search out of 60fps animation loop in SignalFlowTab | WaveSimViz.jsx |
+| 745 | 2026-03-26T00:30:00Z | Add Turing's method exploration entry connecting computational RH verification to ZPO phase counting | explorations.js |

@@ -3614,6 +3614,46 @@ The gap: we have RH for CY varieties over $\\mathbb{F}_p$ but not over $\\mathbb
     references: ['deligne-1974', 'candelas-1991', 'serre-1970', 'langlands-1967'],
     nextSteps: [],
   },
+  {
+    id: 'exp-086',
+    timestamp: '2026-03-25T12:00:00Z',
+    title: "Turing's Method: Computationally Certifying Zero Locations",
+    category: 'computation',
+    depth: 3,
+    status: 'complete',
+    date: '2026-03-25',
+    content: `Alan Turing (1953) devised a rigorous method to **computationally verify** that all zeros of $\\zeta(s)$ up to a given height $T$ lie on the critical line. The method relies on two ingredients: the zero-counting function $N(T)$ and sign changes of the Hardy $Z$-function.
+
+**The zero-counting function** counts the number of zeros $\\rho = \\sigma + i\\gamma$ with $0 < \\gamma \\leq T$:
+
+$$N(T) = \\frac{\\theta(T)}{\\pi} + 1 + S(T)$$
+
+where $\\theta(T) = \\arg\\Gamma(1/4 + iT/2) - (T/2)\\log\\pi$ is the Riemann-Siegel theta function and $S(T) = \\frac{1}{\\pi}\\arg\\zeta(1/2 + iT)$ is the argument of zeta on the critical line. The smooth part $\\theta(T)/\\pi + 1$ gives the Weyl-law average, while $S(T)$ oscillates and captures the deviation.
+
+**Turing's key insight**: if we can find enough sign changes of $Z(t)$ between consecutive Gram points to account for all $N(T)$ zeros, then every zero must lie on the critical line. Each sign change of $Z(t)$ certifies at least one zero on the critical line. If the count of certified zeros matches $N(T)$, no zeros can be hiding off-line.
+
+**Gram points** $g_n$ are defined by $\\theta(g_n) = n\\pi$. The **Gram's law** heuristic (which fails occasionally) states that $(-1)^n Z(g_n) > 0$. When Gram's law fails at a Gram point, Turing's method uses "Gram blocks" — groups of consecutive Gram intervals that collectively contain the right number of sign changes.
+
+**ZPO interpretation**: Turing's method is a phase-counting argument. The smooth part of $N(T)$ counts how many oscillator modes fit below frequency $T$ — this is the Weyl law for the prime cascade. The deviation $S(T)$ measures phase slippage: how far the actual oscillator phases drift from their average spacing. Gram points are the frequencies where the total accumulated phase crosses a multiple of $\\pi$, analogous to nodes in a standing wave. A Gram violation is a phase slip — the oscillator chain skips or doubles a node, requiring analysis of a wider interval (Gram block) to confirm the zero count.
+
+The method has been pushed to verify RH for the first $10^{13}$ zeros (Platt, 2021), with each verification step essentially checking that the prime oscillator cascade's phase accumulation is consistent with all resonances occurring at $\\sigma = 1/2$.`,
+    latex: [
+      'N(T) = \\frac{\\theta(T)}{\\pi} + 1 + S(T), \\quad \\theta(T) = \\arg\\Gamma(1/4 + iT/2) - \\frac{T}{2}\\log\\pi',
+      'S(T) = \\frac{1}{\\pi}\\arg\\zeta(1/2 + iT) = O(\\log T) \\quad \\text{(unconditionally)}',
+      '\\text{Gram points: } \\theta(g_n) = n\\pi, \\quad g_n \\approx \\frac{2\\pi n}{\\log n} \\text{ for large } n',
+      '\\text{Turing criterion: } \\#\\{\\text{sign changes of } Z(t) \\text{ in } [0, T]\\} = N(T) \\;\\Longrightarrow\\; \\text{RH holds up to } T',
+    ],
+    insights: [
+      "Turing's method reduces RH verification to counting sign changes of Z(t) at Gram points",
+      'Gram points are the natural nodes of the prime oscillator standing wave — phase = n*pi',
+      'Gram violations (phase slips) correspond to oscillator modes that are closely spaced or nearly degenerate',
+      'The S(T) function measures total phase deviation from the Weyl-law average — it is the error signal of the oscillator chain',
+      'RH has been computationally verified for 10^13 zeros using refinements of this method (Platt 2021)',
+      'Each Gram block verification is a local check that the cascade phase accumulation is consistent with critical-line zeros',
+    ],
+    references: ['turing-1953', 'platt-2021', 'edwards-1974', 'odlyzko-1987'],
+    nextSteps: [],
+  },
 ];
 export function getAllExplorations() {
   return explorations;

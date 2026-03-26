@@ -699,3 +699,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 736 | 2026-03-25T19:00:00Z | Add Calabi-Yau / Weil conjectures exploration entry connecting finite-field RH to ZPO framework | explorations.js |
 | 737 | 2026-03-25T20:00:00Z | Add graduated color scale for large prime gaps (≥8) in PrimeGapCouplingViz gap mode | PrimeGapCouplingViz.jsx |
 | 739 | 2026-03-25T22:00:00Z | Fix Bode plot zero labels using filter index instead of true ZETA_ZEROS index | NyquistBodeViz.jsx |
+| 740 | 2026-03-25T22:30:00Z | Add descriptive tooltips to all controls in HamiltonianViz | HamiltonianViz.jsx |

@@ -27,12 +27,35 @@ export default function LiCriterionViz() {
         return { r: Math.sqrt(baseReal * baseReal + baseImag * baseImag), theta: Math.atan2(baseImag, baseReal) };
       });
 
+      // Use incremental recurrence instead of Math.pow/Math.cos per (n, zero) pair.
+      // For each zero, maintain running r^n via multiplication and cos(n·θ)/sin(n·θ)
+      // via the angle-addition identity: cos((n+1)θ) = cos(nθ)·cos(θ) − sin(nθ)·sin(θ).
       const lambdas = [];
+      const numBases = polarBases.length;
+      // Precompute cos(θ), sin(θ), and initialize running powers for n=1
+      const cosTheta = new Float64Array(numBases);
+      const sinTheta = new Float64Array(numBases);
+      const rn = new Float64Array(numBases);       // r^n, starts at r^1
+      const cosN = new Float64Array(numBases);     // cos(n·θ), starts at cos(θ)
+      const sinN = new Float64Array(numBases);     // sin(n·θ), starts at sin(θ)
+      for (let j = 0; j < numBases; j++) {
+        const { r, theta } = polarBases[j];
+        cosTheta[j] = Math.cos(theta);
+        sinTheta[j] = Math.sin(theta);
+        rn[j] = r;
+        cosN[j] = cosTheta[j];
+        sinN[j] = sinTheta[j];
+      }
       for (let n = 1; n <= maxN; n++) {
         let lambda = 0;
-        for (const { r, theta } of polarBases) {
-          const powReal = Math.pow(r, n) * Math.cos(n * theta);
-          lambda += 2 * (1 - powReal);
+        for (let j = 0; j < numBases; j++) {
+          lambda += 2 * (1 - rn[j] * cosN[j]);
+          // Advance to n+1: r^(n+1) = r^n · r
+          rn[j] *= polarBases[j].r;
+          // cos((n+1)θ) = cos(nθ)cos(θ) − sin(nθ)sin(θ)
+          const nextCos = cosN[j] * cosTheta[j] - sinN[j] * sinTheta[j];
+          sinN[j] = sinN[j] * cosTheta[j] + cosN[j] * sinTheta[j];
+          cosN[j] = nextCos;
         }
         lambdas.push({ n, lambda, perN: lambda / n });
       }

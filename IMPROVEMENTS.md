@@ -738,3 +738,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 776 | 2026-03-25T23:59:00Z | Fix swapped capacitor plate colors in HeroSignalFlow (direct used amber, dual used blue — opposite of ladder color scheme) | HeroSignalFlow.jsx |
 | 777 | 2026-03-25T22:00:00Z | Fix Phase Barriers explainer wrongly calling σ=0 the 'functional equation symmetry' line | SpectralAttackViz.jsx |
 | 778 | 2026-03-25T23:59:45Z | Add y-axis tick labels, gridlines, and rotated axis label to LocalZetaTab chart in CalabiYauViz | CalabiYauViz.jsx |
+| 779 | 2026-03-26T00:05:00Z | Replace Math.pow/Math.cos with incremental recurrence in Li criterion lambda loop | LiCriterionViz.jsx |

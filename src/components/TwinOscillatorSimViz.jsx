@@ -1045,7 +1045,7 @@ function BridgeTab() {
         the functional equation <InlineMath tex={"\\zeta(s) = \\chi(s)\\zeta(1-s)"} />. On the critical line,{' '}
         <InlineMath tex={"|\\chi(\\tfrac{1}{2}+it)| = 1"} /> exactly &mdash; the bridge is lossless (unitary scattering matrix).
         Off the critical line, <InlineMath tex={"|\\chi| \\neq 1"} /> means the bridge either absorbs or amplifies, breaking unitarity.
-        The reflection coefficient <InlineMath tex={"R = |1 - |\\chi||\\,/\\,(1 + |\\chi|)"} /> measures this deviation.
+        The reflection coefficient <InlineMath tex={"R = (1 - |\\chi|)\\,/\\,(1 + |\\chi|)"} /> measures this deviation.
         <strong> Look for:</strong> <InlineMath tex={"|\\chi| = 1"} /> and <InlineMath tex="R = 0" /> precisely at <InlineMath tex={"\\sigma = 0.5"} />.
       </div>
       <div className="controls">

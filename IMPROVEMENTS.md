@@ -749,3 +749,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 787 | 2026-03-25T00:20:00Z | Add missing tooltips to all sliders in TwinLadderViz (M, T, β, P) | TwinLadderViz.jsx |
 | 788 | 2026-03-25T12:00:00Z | Split DecoratedTab useMemo to avoid recomputing 80-point zeta scan when only selectedRow changes | PascalZetaViz.jsx |
 | 789 | 2026-03-25T14:30:00Z | Add missing tooltips to all sliders in OddZetaViz (Max Terms, Max Denominator, Primes) | OddZetaViz.jsx |
+| 790 | 2026-03-25T15:00:00Z | Add missing tooltips to all sliders in TwinLadderViz Freezing, Collapse, and Phase Diagram tabs | TwinLadderViz.jsx |

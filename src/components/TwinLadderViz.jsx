@@ -826,18 +826,21 @@ function LadderFreezingTab() {
         <div className="control-group">
           <label><InlineMath tex={"\\alpha"} /> (Gaussian width)</label>
           <input type="range" min="0.5" max="5" step="0.1" value={alpha}
+            title="Gaussian width α — controls how tightly the proxy approximates the exact ladder; larger α gives faster decay but may miss structure"
             onChange={e => setAlpha(+e.target.value)} />
           <span className="control-value">{alpha.toFixed(1)}</span>
         </div>
         <div className="control-group">
           <label>Rungs <InlineMath tex="M" /></label>
           <input type="range" min="3" max="30" step="1" value={M}
+            title="Number of rungs M in the ladder sum — more rungs give a more accurate exact sum for comparison"
             onChange={e => setM(+e.target.value)} />
           <span className="control-value">{M}</span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="T" /></label>
           <input type="range" min="1" max="50" step="0.5" value={T}
+            title="Spectral parameter T — imaginary part of s = ½ + iT; the slack index depends on this value"
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{T.toFixed(1)}<ZeroSnap tValue={T} setTValue={setT} /></span>
         </div>
@@ -1087,12 +1090,14 @@ function CollapseTab() {
         <div className="control-group">
           <label>Speed</label>
           <input type="range" min="0.5" max="4" step="0.5" value={speed}
+            title="Animation speed multiplier — controls how fast β increases during playback"
             onChange={e => setSpeed(+e.target.value)} />
           <span className="control-value">{speed}x</span>
         </div>
         <div className="control-group">
           <label><InlineMath tex={"\\beta"} /></label>
           <input type="range" min="0" max={betaSteps.length - 1} step="1" value={betaIdx}
+            title="Inverse temperature β — scrub manually to see how higher rungs are progressively suppressed"
             onChange={e => { setBetaIdx(+e.target.value); setPlaying(false); }} />
           <span className="control-value" style={{
             color: currentFrame?.beta < 1 ? '#10b981' : currentFrame?.beta < 10 ? '#f59e0b' : '#ef4444'
@@ -1101,6 +1106,7 @@ function CollapseTab() {
         <div className="control-group">
           <label>Rungs <InlineMath tex="M" /></label>
           <input type="range" min="3" max="20" step="1" value={M}
+            title="Number of rungs M — more rungs make the collapse animation more dramatic as higher harmonics fade"
             onChange={e => { setM(+e.target.value); setBetaIdx(0); }} />
           <span className="control-value">{M}</span>
         </div>
@@ -1314,12 +1320,14 @@ function PhaseDiagramTab() {
         <div className="control-group">
           <label><InlineMath tex="T" /> (spectral height)</label>
           <input type="range" min="1" max="50" step="0.5" value={T}
+            title="Spectral height T — imaginary part of s = ½ + iT; try values near zeta zeros to see how the phase diagram changes"
             onChange={e => { setT(+e.target.value); setClickPoint(null); }} />
           <span className="control-value">{T.toFixed(1)}<ZeroSnap tValue={T} setTValue={(v) => { setT(v); setClickPoint(null); }} /></span>
         </div>
         <div className="control-group">
           <label>Rungs <InlineMath tex="M" /></label>
           <input type="range" min="3" max="12" step="1" value={M}
+            title="Number of rungs M per prime ladder — more rungs improve accuracy but increase computation for the 2D heatmap"
             onChange={e => { setM(+e.target.value); setClickPoint(null); }} />
           <span className="control-value">{M}</span>
         </div>

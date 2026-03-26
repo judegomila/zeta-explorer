@@ -292,36 +292,39 @@ export function deBruijnNewmanScan(tRange = [10, 50], steps = 200, tauValues = [
 
 /**
  * Approximate heat-flowed Xi function.
- * H_τ(t) ≈ Σ_k Z(t_k) · exp(-τ(t - t_k)²/w²) · Δt / √(4πτ)
+ * H_τ(t) ≈ Σ_k Z(t_k) · exp(-(t - t_k)²/(4τ)) · Δt / √(4πτ)
  * where Z is the Riemann-Siegel Z function.
  *
  * For τ = 0, just returns Z(t) (the Xi function on the critical line).
  * For τ > 0, Gaussian smoothing (keeps zeros real).
- * For τ < 0, Gaussian sharpening (potential complex zeros).
+ * For τ ≤ 0, the backward heat equation (inverse diffusion) is ill-posed
+ * and cannot be computed via convolution. Returns unsmoothed Z(t).
  */
 function heatFlowedXi(t, tau) {
   if (t < 2 * Math.PI) return 0;
 
-  if (Math.abs(tau) < 1e-10) {
-    // No heat flow — just Z(t)
+  // For τ ≤ 0 the backward heat equation is ill-posed: the previous code
+  // applied an exponentially growing kernel exp(+(u-t)²/(4|τ|)) which
+  // amplifies distant samples and produces numerically meaningless results.
+  // Return unsmoothed Z(t) instead (same fix as supercritical.js #79).
+  if (tau <= 0) {
     return riemannSiegelZ(t);
   }
 
-  // Gaussian convolution with width proportional to |τ|
-  const width = Math.sqrt(Math.abs(tau)) * 3;
+  // For τ > 0, approximate H_τ(t) via Gaussian convolution with width √(2τ)
+  const width = Math.sqrt(2 * tau);
+  const sampleRange = width * 4;
   const numPoints = 40;
-  const delta = (2 * width) / numPoints;
+  const delta = (2 * sampleRange) / numPoints;
   let sum = 0;
   let weightSum = 0;
 
   for (let i = 0; i <= numPoints; i++) {
-    const u = t - width + i * delta;
+    const u = t - sampleRange + i * delta;
     if (u < 2 * Math.PI) continue;
     const z = riemannSiegelZ(u);
-    const exponent = tau > 0
-      ? -(u - t) * (u - t) / (4 * tau)
-      : (u - t) * (u - t) / (4 * Math.abs(tau)); // sharpening for τ < 0
-    const w = Math.exp(Math.max(-50, Math.min(50, exponent)));
+    const offset = u - t;
+    const w = Math.exp(-offset * offset / (2 * width * width));
     sum += z * w * delta;
     weightSum += w * delta;
   }

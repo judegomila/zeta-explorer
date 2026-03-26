@@ -733,3 +733,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 771 | 2026-03-25T12:00:00Z | Fix BridgeTab explainer showing signed R formula but plotting unsigned |R| | TwinOscillatorSimViz.jsx |
 | 772 | 2026-03-25T23:59:00Z | Fix Heat Flow tab y-axis labels misaligned with curve data due to different scaling factors | RHAttackViz.jsx |
 | 773 | 2026-03-25T23:59:30Z | Add dot color legend to Hamiltonian Minimum tab in RHAttackViz explaining green/amber/red classification | RHAttackViz.jsx |
+| 774 | 2026-03-25T18:00:00Z | Fix error convergence legend mislabeling π approximation error as |π − C(2n,n)| instead of |π − 4²ⁿ/(n·C²)| | PascalZetaViz.jsx |

@@ -365,7 +365,7 @@ function ConstantsTab() {
     leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 16).attr('y2', 16)
       .attr('stroke', '#f59e0b').attr('stroke-width', 2);
     leg3.append('circle').attr('cx', 8).attr('cy', 16).attr('r', 2.5).attr('fill', '#f59e0b');
-    leg3.append('text').attr('x', 22).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10).text('|π − C(2n,n)|');
+    leg3.append('text').attr('x', 22).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10).text('|π − 4²ⁿ/(n·C²)|');
     leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 32).attr('y2', 32)
       .attr('stroke', '#ec4899').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
     leg3.append('circle').attr('cx', 8).attr('cy', 32).attr('r', 2).attr('fill', '#ec4899');

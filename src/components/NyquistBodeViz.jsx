@@ -360,13 +360,14 @@ export default function NyquistBodeViz() {
         .attr('x1', zx).attr('y1', 0).attr('x2', zx).attr('y2', halfH)
         .attr('stroke', '#ef4444').attr('stroke-width', 0.7)
         .attr('stroke-dasharray', '2,3').attr('opacity', 0.35);
-      // Label first few zeros on magnitude panel
+      // Label first few visible zeros on magnitude panel using their true index in ZETA_ZEROS
       if (i < 8) {
+        const trueIdx = ZETA_ZEROS.indexOf(gamma) + 1;
         gMag.append('text')
           .attr('x', zx).attr('y', halfH - 4)
           .attr('text-anchor', 'middle').attr('fill', '#ef4444')
           .attr('font-size', 8).attr('opacity', 0.6)
-          .text(`γ${String(i + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}`);
+          .text(`γ${String(trueIdx).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}`);
       }
     });
 

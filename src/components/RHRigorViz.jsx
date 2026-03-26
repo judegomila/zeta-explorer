@@ -4,6 +4,25 @@ import { systemHamiltonian, hamiltonianSigmaScan, losslessBridge, directLadder, 
 import { cAbs, cSub, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
 
+/** Binary search for nearest zeta zero to a given t value. O(log n) vs O(n) linear scan. */
+function findNearestZetaZero(t) {
+  const Z = ZETA_ZEROS;
+  let lo = 0, hi = Z.length - 1;
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (Z[mid] < t) lo = mid + 1;
+    else hi = mid;
+  }
+  // lo is the first index >= t; check lo and lo-1 for the nearest
+  let bestDist = Math.abs(Z[lo] - t);
+  let bestIdx = lo;
+  if (lo > 0) {
+    const d = Math.abs(Z[lo - 1] - t);
+    if (d < bestDist) { bestDist = d; bestIdx = lo - 1; }
+  }
+  return { nearestZero: Z[bestIdx], nearestDist: bestDist };
+}
+
 /**
  * RHRigorViz — Numerical stress tests of ZPO model claims.
  *
@@ -31,12 +50,7 @@ export default function RHRigorViz() {
         if (pt.total < minH) { minH = pt.total; minSigma = pt.sigma; }
       });
       // Check if ζ has a zero near this t
-      let nearestZero = null, nearestDist = Infinity;
-      for (const g of ZETA_ZEROS) {
-        const d = Math.abs(g - t);
-        if (d < nearestDist) { nearestDist = d; nearestZero = g; }
-        if (g > t + 5) break;
-      }
+      const { nearestDist } = findNearestZetaZero(t);
       results.push({
         t,
         minSigma,
@@ -92,12 +106,7 @@ export default function RHRigorViz() {
       const mismatchOff = cAbs(cSub(dirOff.totalImpedance, dualOff.totalImpedance));
       const zetaMagOff = cAbs(zetaCriticalStrip(sOff));
 
-      let nearestZero = null, nearestDist = Infinity;
-      for (const g of ZETA_ZEROS) {
-        const d = Math.abs(g - t);
-        if (d < nearestDist) { nearestDist = d; nearestZero = g; }
-        if (g > t + 5) break;
-      }
+      const { nearestDist } = findNearestZetaZero(t);
 
       results.push({
         t, mismatch, zetaMag, mismatchOff, zetaMagOff,

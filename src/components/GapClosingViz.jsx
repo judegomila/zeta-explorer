@@ -498,8 +498,9 @@ function HilbertPolyaTab({ numPrimes }) {
         <p style={{ margin: '0 0 8px' }}>
           The Hilbert-Polya matrix couples prime oscillators:
         </p>
-        <BlockMath tex={"M_{jk} = \\sum_p \\frac{\\log p}{p} \\cos\\bigl((\\gamma_j - \\gamma_k)\\log p\\bigr)"} />
+        <BlockMath tex={"M_{jj} = \\gamma_j, \\qquad M_{jk} = \\sum_p \\frac{\\log p}{p} \\cos\\bigl((\\gamma_j - \\gamma_k)\\log p\\bigr) \\;\\; (j \\neq k)"} />
         <p style={{ margin: '8px 0 0' }}>
+          Diagonal entries are the known zeta zeros; off-diagonal entries couple them via primes.
           If a self-adjoint operator exists with <InlineMath tex={"\\text{Spec}(\\mathcal{A}) = \\{\\gamma_n\\}"} />,
           RH follows immediately. Blue dots show computed eigenvalues; red lines show target zeros.
         </p>

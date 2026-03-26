@@ -727,3 +727,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 765 | 2026-03-25T23:45:00Z | Fix heatFlowedXi applying exponentially growing kernel for negative τ in rh-attack.js | rh-attack.js |
 | 766 | 2026-03-26T00:00:00Z | Fix Channel Capacity explainer wrongly claiming impedance mismatch vanishes and SNR→∞ at σ=½ | InformationTheoryViz.jsx |
 | 767 | 2026-03-26T00:30:00Z | Fix inverted y-axis for twistor vectors in TwistorViz Correspondence tab | TwistorViz.jsx |
+| 768 | 2026-03-25T01:00:00Z | Fix Hilbert-Polya explainer showing only off-diagonal formula, omitting M_{jj}=γ_j diagonal | GapClosingViz.jsx |

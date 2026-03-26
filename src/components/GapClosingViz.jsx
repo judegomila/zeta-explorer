@@ -755,6 +755,21 @@ function ConfinementTab({ numPrimes, t, report }) {
     [t, numPrimes],
   );
 
+  const { potentials, klVals, twistorVals, bridgeVals, hamiltonianVals, yMax } = useMemo(() => {
+    const pots = data.map(d => d.potential);
+    const kl = data.map(d => d.components.klTerm);
+    const tw = data.map(d => d.components.twistorTerm);
+    const br = data.map(d => d.components.bridgeTerm);
+    const ham = data.map(d => d.components.hamiltonianTerm);
+    let max = 1;
+    for (let i = 0; i < data.length; i++) {
+      for (const v of [pots[i], kl[i], tw[i], br[i], ham[i]]) {
+        if (isFinite(v) && v > max) max = v;
+      }
+    }
+    return { potentials: pots, klVals: kl, twistorVals: tw, bridgeVals: br, hamiltonianVals: ham, yMax: max * 1.1 };
+  }, [data]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -774,16 +789,6 @@ function ConfinementTab({ numPrimes, t, report }) {
     const sigmaMin = data[0].sigma;
     const sigmaMax = data[data.length - 1].sigma;
     const sigmaRange = sigmaMax - sigmaMin || 1;
-
-    // Gather all potential values and component values
-    const potentials = data.map(d => d.potential);
-    const klVals = data.map(d => d.components.klTerm);
-    const twistorVals = data.map(d => d.components.twistorTerm);
-    const bridgeVals = data.map(d => d.components.bridgeTerm);
-    const hamiltonianVals = data.map(d => d.components.hamiltonianTerm);
-
-    const allVals = [...potentials, ...klVals, ...twistorVals, ...bridgeVals, ...hamiltonianVals];
-    const yMax = Math.max(...allVals.filter(v => isFinite(v)), 1) * 1.1;
 
     const toX = (sigma) => margin.left + ((sigma - sigmaMin) / sigmaRange) * plotW;
     const toY = (val) => margin.top + plotH - (Math.min(val, yMax) / yMax) * plotH;
@@ -931,7 +936,7 @@ function ConfinementTab({ numPrimes, t, report }) {
       ctx.fillText(item.label, lx + 18, ly + 3);
     });
 
-  }, [data]);
+  }, [data, potentials, klVals, twistorVals, bridgeVals, hamiltonianVals, yMax]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

@@ -608,6 +608,32 @@ function LadderFreezingTab() {
       ctx.beginPath(); ctx.moveTo(xScale(t), pad.t); ctx.lineTo(xScale(t), pad.t + topH); ctx.stroke();
     }
 
+    // Y-axis ticks and gridlines for top chart
+    ctx.fillStyle = '#64748b';
+    ctx.font = '8px "JetBrains Mono", monospace';
+    ctx.textAlign = 'right';
+    const yTicks = 5;
+    for (let i = 0; i <= yTicks; i++) {
+      const v = (i / yTicks) * maxVal;
+      const y = yScale(v);
+      ctx.setLineDash([3, 3]);
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + chartW, y); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillText(v < 1 ? v.toFixed(3) : v.toFixed(1), pad.l - 4, y + 3);
+    }
+
+    // Y-axis label for top chart
+    ctx.save();
+    ctx.translate(14, pad.t + topH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('|Ladder sum|', 0, 0);
+    ctx.restore();
+
     // Exact curve
     ctx.strokeStyle = '#3b82f6';
     ctx.lineWidth = 2;
@@ -685,6 +711,31 @@ function LadderFreezingTab() {
       ctx.lineWidth = 0.5;
       ctx.beginPath(); ctx.moveTo(xScale(t), botY); ctx.lineTo(xScale(t), botY + botH); ctx.stroke();
     }
+
+    // Y-axis ticks and gridlines for error chart
+    ctx.fillStyle = '#64748b';
+    ctx.font = '8px "JetBrains Mono", monospace';
+    ctx.textAlign = 'right';
+    for (let i = 0; i <= 4; i++) {
+      const v = (i / 4) * maxErr;
+      const y = yScaleErr(v);
+      ctx.setLineDash([3, 3]);
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + chartW, y); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillText(v < 0.01 ? v.toExponential(1) : v.toFixed(3), pad.l - 4, y + 3);
+    }
+
+    // Y-axis label for error chart
+    ctx.save();
+    ctx.translate(14, botY + botH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#ef4444';
+    ctx.font = '10px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('|Error|', 0, 0);
+    ctx.restore();
 
     // Error fill
     ctx.fillStyle = 'rgba(239, 68, 68, 0.1)';

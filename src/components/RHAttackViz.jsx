@@ -331,7 +331,7 @@ function HamiltonianTab() {
     ctx.fillText('∂²H/∂σ²', 0, 0);
     ctx.restore();
 
-    // Legend
+    // Legend — curves
     [
       { color: '#3b82f6', label: '∂²H/∂σ² (convexity)' },
       { color: '#f59e0b', label: '∂H/∂σ (stationarity)' },
@@ -342,6 +342,24 @@ function HamiltonianTab() {
       ctx.font = '9px sans-serif';
       ctx.textAlign = 'left';
       ctx.fillText(item.label, margin.left + 24, margin.top + 8 + i * 14);
+    });
+
+    // Legend — dot classification
+    const dotLegendTop = margin.top + 4 + 2 * 14 + 4;
+    [
+      { color: '#10b981', label: 'Minimum (convex + stationary)' },
+      { color: '#f59e0b', label: 'Convex but not stationary' },
+      { color: '#ef4444', label: 'Not convex' },
+    ].forEach((item, i) => {
+      const y = dotLegendTop + i * 14;
+      ctx.beginPath();
+      ctx.arc(margin.left + 14, y + 1, 4, 0, Math.PI * 2);
+      ctx.fillStyle = item.color;
+      ctx.fill();
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '9px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(item.label, margin.left + 24, y + 4);
     });
 
   }, [data, scales]);

@@ -732,3 +732,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 770 | 2026-03-25T01:15:00Z | Fix Decorated Zeta row polynomial missing (-1)^k alternating sign from Hasse-Sondow formula | pascal.js, PascalZetaViz.jsx |
 | 771 | 2026-03-25T12:00:00Z | Fix BridgeTab explainer showing signed R formula but plotting unsigned |R| | TwinOscillatorSimViz.jsx |
 | 772 | 2026-03-25T23:59:00Z | Fix Heat Flow tab y-axis labels misaligned with curve data due to different scaling factors | RHAttackViz.jsx |
+| 773 | 2026-03-25T23:59:30Z | Add dot color legend to Hamiltonian Minimum tab in RHAttackViz explaining green/amber/red classification | RHAttackViz.jsx |

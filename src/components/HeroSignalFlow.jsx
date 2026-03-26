@@ -26,10 +26,16 @@ export default function HeroSignalFlow() {
     const dpr = window.devicePixelRatio || 1;
     const w = canvas.clientWidth;
     const h = canvas.clientHeight;
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
+    const needW = w * dpr;
+    const needH = h * dpr;
+    // Only reallocate canvas buffer when dimensions actually change —
+    // setting width/height every frame forces expensive GPU reallocation
+    if (canvas.width !== needW || canvas.height !== needH) {
+      canvas.width = needW;
+      canvas.height = needH;
+    }
     const ctx = canvas.getContext('2d');
-    ctx.scale(dpr, dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const t = time * 0.001 * speed;
 

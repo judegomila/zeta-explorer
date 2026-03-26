@@ -823,8 +823,9 @@ function ConfinementTab({ numPrimes, t, report }) {
     ctx.setLineDash([]);
 
     // Draw component curves (thin lines)
-    const drawCurve = (values, color, lineWidth) => {
+    const drawCurve = (values, color, lineWidth, dash) => {
       ctx.beginPath();
+      if (dash) ctx.setLineDash(dash);
       data.forEach((d, i) => {
         const x = toX(d.sigma);
         const y = toY(values[i]);
@@ -833,15 +834,16 @@ function ConfinementTab({ numPrimes, t, report }) {
       ctx.strokeStyle = color;
       ctx.lineWidth = lineWidth;
       ctx.stroke();
+      if (dash) ctx.setLineDash([]);
     };
 
-    drawCurve(klVals, '#10b981', 1);       // KL: green
-    drawCurve(twistorVals, '#3b82f6', 1);  // twistor: blue
-    drawCurve(bridgeVals, '#f59e0b', 1);   // bridge: yellow/orange
-    drawCurve(hamiltonianVals, '#ec4899', 1); // Hamiltonian: pink
+    drawCurve(klVals, '#10b981', 1.2, []);            // KL: green, solid
+    drawCurve(twistorVals, '#3b82f6', 1.2, [6, 3]);   // twistor: blue, dashed
+    drawCurve(bridgeVals, '#f59e0b', 1.2, [2, 3]);    // bridge: yellow, dotted
+    drawCurve(hamiltonianVals, '#ec4899', 1.2, [8, 3, 2, 3]); // Hamiltonian: pink, dash-dot
 
     // Total confinement potential (thick purple)
-    drawCurve(potentials, '#8b5cf6', 3);
+    drawCurve(potentials, '#8b5cf6', 3, []);
 
     // Mark minimum
     let minIdx = 0;
@@ -895,11 +897,11 @@ function ConfinementTab({ numPrimes, t, report }) {
 
     // Legend with background box
     const legendItems = [
-      { color: '#8b5cf6', label: 'Total \u03A6(\u03C3)', width: 3 },
-      { color: '#10b981', label: 'KL divergence', width: 1 },
-      { color: '#3b82f6', label: 'Twistor', width: 1 },
-      { color: '#f59e0b', label: 'Bridge', width: 1 },
-      { color: '#ec4899', label: 'Hamiltonian', width: 1 },
+      { color: '#8b5cf6', label: 'Total \u03A6(\u03C3)', width: 3, dash: [] },
+      { color: '#10b981', label: 'KL divergence', width: 1.2, dash: [] },
+      { color: '#3b82f6', label: 'Twistor', width: 1.2, dash: [6, 3] },
+      { color: '#f59e0b', label: 'Bridge', width: 1.2, dash: [2, 3] },
+      { color: '#ec4899', label: 'Hamiltonian', width: 1.2, dash: [8, 3, 2, 3] },
     ];
     const legendX = w - margin.right - 148;
     const legendY0 = margin.top + 2;
@@ -916,11 +918,13 @@ function ConfinementTab({ numPrimes, t, report }) {
       const lx = legendX + 8;
       const ly = legendY0 + 12 + i * 14;
       ctx.beginPath();
+      if (item.dash && item.dash.length) ctx.setLineDash(item.dash);
       ctx.moveTo(lx, ly);
       ctx.lineTo(lx + 14, ly);
       ctx.strokeStyle = item.color;
       ctx.lineWidth = item.width;
       ctx.stroke();
+      ctx.setLineDash([]);
       ctx.fillStyle = '#94a3b8';
       ctx.font = '9px var(--font-mono)';
       ctx.textAlign = 'left';

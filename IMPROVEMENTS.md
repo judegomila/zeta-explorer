@@ -701,3 +701,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 739 | 2026-03-25T22:00:00Z | Fix Bode plot zero labels using filter index instead of true ZETA_ZEROS index | NyquistBodeViz.jsx |
 | 740 | 2026-03-25T22:30:00Z | Add descriptive tooltips to all controls in HamiltonianViz | HamiltonianViz.jsx |
 | 741 | 2026-03-25T23:00:00Z | Fix Hodge number h^{2,1} definition using tangent sheaf T_X instead of Ω²_X in CalabiYauPage | CalabiYauPage.jsx |
+| 742 | 2026-03-25T23:30:00Z | Add distinct dash patterns to confinement potential component curves in GapClosingViz | GapClosingViz.jsx |

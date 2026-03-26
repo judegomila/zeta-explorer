@@ -54,7 +54,7 @@ export default function TwinLadderPage() {
           <BlockMath tex={"\\text{Rung } m: \\quad a_m = p^{-m/2},\\quad \\phi_m = m\\,T\\,\\log p"} />
           <p style={{ marginTop: 8 }}>
             Each rung of the ladder for prime <InlineMath tex="p" /> contributes a phasor{' '}
-            <InlineMath tex={"a_m e^{i\\phi_m}"} /> to the complex plane. The amplitudes decay
+            <InlineMath tex={"a_m e^{-i\\phi_m}"} /> to the complex plane. The amplitudes decay
             geometrically as <InlineMath tex="p^{-m/2}" />, while phases increase linearly with
             the rung index <InlineMath tex="m" />. The total ladder sum determines the prime's
             contribution to the deformed zeta function.

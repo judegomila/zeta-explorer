@@ -640,7 +640,9 @@ function PrimeHarmonicsTab() {
           .attr('width', barWidth)
           .attr('height', h - y(harm.magnitude))
           .attr('fill', color)
-          .attr('opacity', isFundamental ? 0.8 : 0.4);
+          .attr('opacity', isFundamental ? 0.8 : 0.4)
+          .style('cursor', 'crosshair')
+          .append('title').text(`p=${p.prime}, k=${harm.k} | ω=${harm.frequency.toFixed(3)} | |H|=${harm.magnitude.toFixed(4)}`);
 
         // Label fundamental frequencies
         if (isFundamental) {

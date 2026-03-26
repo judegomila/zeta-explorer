@@ -469,6 +469,7 @@ function AperyTab() {
         <div className="control-group">
           <label>Max Terms</label>
           <input type="range" min="5" max="25" step="1" value={maxTerms}
+            title="Number of terms in Apéry's recurrence — more terms give faster convergence to ζ(3) but may lose precision due to large intermediate values"
             onChange={e => setMaxTerms(+e.target.value)} />
           <span className="control-value">{maxTerms}</span>
         </div>
@@ -1138,6 +1139,7 @@ function IrrationalityMeasureTab({ selectedN }) {
         <div className="control-group">
           <label>Max Denominator</label>
           <input type="range" min="500" max="20000" step="500" value={maxDenom}
+            title="Maximum denominator q for continued fraction approximations p/q — larger values probe finer rational approximations and improve the irrationality measure estimate"
             onChange={e => setMaxDenom(+e.target.value)} />
           <span className="control-value">{maxDenom}</span>
         </div>
@@ -1208,6 +1210,7 @@ export default function OddZetaViz() {
         <div className="control-group">
           <label>Primes</label>
           <input type="range" min="5" max="50" step="1" value={numPrimes}
+            title="Number of primes in the Euler product — more primes improve accuracy of ζ(n) but convergence is already rapid for large odd n"
             onChange={e => setNumPrimes(+e.target.value)} />
           <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>

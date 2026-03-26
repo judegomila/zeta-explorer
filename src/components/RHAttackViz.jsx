@@ -747,7 +747,7 @@ function HeatFlowTab() {
     for (let i = 0; i <= yTicks; i++) {
       const frac = i / yTicks;
       const val = globalMaxVal * (1 - 2 * frac); // from +max to -max
-      const y = margin.top + frac * plotH;
+      const y = midY - (1 - 2 * frac) * plotH * 0.4;
       ctx.fillText(val.toFixed(1), margin.left - 6, y + 3);
       // Gridline
       if (i > 0 && i < yTicks) {

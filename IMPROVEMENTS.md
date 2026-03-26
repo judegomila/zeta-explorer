@@ -746,3 +746,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 784 | 2026-03-25T23:40:00Z | Add Viridis colorbar legend to Pascal triangle heatmap in PascalZetaViz | PascalZetaViz.jsx |
 | 785 | 2026-03-25T23:55:00Z | Add missing convergence status legend to Hilbert-Polya spectral error chart | GapClosingViz.jsx |
 | 786 | 2026-03-25T23:59:00Z | Fix wrong sign in rung phasor formula on TwinLadderPage explainer | TwinLadderPage.jsx |
+| 787 | 2026-03-25T00:20:00Z | Add missing tooltips to all sliders in TwinLadderViz (M, T, β, P) | TwinLadderViz.jsx |

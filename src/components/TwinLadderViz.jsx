@@ -310,12 +310,14 @@ function LadderAnatomyTab() {
         <div className="control-group">
           <label>Rungs <InlineMath tex="M" /></label>
           <input type="range" min="1" max="30" step="1" value={M}
+            title="Number of rungs M in the ladder sum — more rungs improve accuracy but slow convergence"
             onChange={e => setM(+e.target.value)} />
           <span className="control-value">{M}</span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="T" /> (spectral)</label>
           <input type="range" min="0" max="50" step="0.1" value={T}
+            title="Spectral parameter T — imaginary part of s = σ + iT; try values near zeta zeros (14.1, 21.0, 25.0)"
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{T.toFixed(1)}<ZeroSnap tValue={T} setTValue={setT} /></span>
         </div>
@@ -524,18 +526,21 @@ function PressureTemperatureTab() {
         <div className="control-group">
           <label><InlineMath tex={"\\beta"} /> (inv. temp)</label>
           <input type="range" min="0" max="20" step="0.1" value={beta}
+            title="Inverse temperature β — higher values exponentially suppress higher rungs, concentrating weight on lower harmonics"
             onChange={e => setBeta(+e.target.value)} />
           <span className="control-value">{beta.toFixed(1)}</span>
         </div>
         <div className="control-group">
           <label><InlineMath tex="P" /> (pressure)</label>
           <input type="range" min="0" max="10" step="0.1" value={P}
+            title="Pressure P — applies a linear energy tilt to the partition function, shifting the weight distribution across rungs"
             onChange={e => setP(+e.target.value)} />
           <span className="control-value">{P.toFixed(1)}</span>
         </div>
         <div className="control-group">
           <label>Rungs <InlineMath tex="M" /></label>
           <input type="range" min="2" max="20" step="1" value={M}
+            title="Number of rungs M in the ladder sum — controls truncation of the prime power series"
             onChange={e => setM(+e.target.value)} />
           <span className="control-value">{M}</span>
         </div>

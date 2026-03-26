@@ -700,3 +700,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 737 | 2026-03-25T20:00:00Z | Add graduated color scale for large prime gaps (≥8) in PrimeGapCouplingViz gap mode | PrimeGapCouplingViz.jsx |
 | 739 | 2026-03-25T22:00:00Z | Fix Bode plot zero labels using filter index instead of true ZETA_ZEROS index | NyquistBodeViz.jsx |
 | 740 | 2026-03-25T22:30:00Z | Add descriptive tooltips to all controls in HamiltonianViz | HamiltonianViz.jsx |
+| 741 | 2026-03-25T23:00:00Z | Fix Hodge number h^{2,1} definition using tangent sheaf T_X instead of Ω²_X in CalabiYauPage | CalabiYauPage.jsx |

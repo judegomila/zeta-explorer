@@ -115,7 +115,7 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
     // Twistor Z as vector
     const zScale = Math.min(twistR * 0.8, twistR * 0.8 / Math.max(Z.norm, 0.5));
     const zOmegaX = twistX + Z.omega[0] * zScale;
-    const zOmegaY = twistY + Z.omega[1] * zScale;
+    const zOmegaY = twistY - Z.omega[1] * zScale;
 
     // Arrow for Z
     svg.append('line')
@@ -132,7 +132,7 @@ function CorrespondenceTab({ sigma, t, numPrimes }) {
 
     // Dual twistor W as vector
     const wOmegaX = twistX + W.omega[0] * zScale;
-    const wOmegaY = twistY + W.omega[1] * zScale;
+    const wOmegaY = twistY - W.omega[1] * zScale;
 
     svg.append('line')
       .attr('x1', twistX).attr('y1', twistY)

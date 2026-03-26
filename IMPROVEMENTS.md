@@ -716,3 +716,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 754 | 2026-03-25T23:45:00Z | Fix Rodgers-Tao citation year showing 2018 instead of 2020 in RHAttackViz Heat Flow tab | RHAttackViz.jsx |
 | 755 | 2026-03-26T00:30:00Z | Add missing arcsin series error curve to convergence chart in PascalZetaViz Constants tab | PascalZetaViz.jsx |
 | 756 | 2026-03-25T14:00:00Z | Fix pair correlation histogram underestimated by factor of 2 due to unordered pair counting | GUEStatisticsViz.jsx |
+| 757 | 2026-03-25T14:15:00Z | Fix missing negative sign in ladder rung phase formula in TwinLadderViz explainer | TwinLadderViz.jsx |

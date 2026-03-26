@@ -285,7 +285,7 @@ function LadderAnatomyTab() {
       <div className="tab-explainer accent-cyan">
         Each prime <InlineMath tex="p" /> generates a <strong>ladder</strong> of rungs{' '}
         <InlineMath tex={"m = 0, 1, 2, \\ldots"} /> with amplitude <InlineMath tex="p^{-m/2}" /> and
-        phase <InlineMath tex={"m \\cdot T \\cdot \\log p"} />. The phasor diagram shows each rung as a
+        phase <InlineMath tex={"-m \\cdot T \\cdot \\log p"} />. The phasor diagram shows each rung as a
         rotating vector in the complex plane. The sum vector (dashed) is the total ladder contribution
         for this prime. Adjust <InlineMath tex="T" /> to watch the phase spiral.
       </div>

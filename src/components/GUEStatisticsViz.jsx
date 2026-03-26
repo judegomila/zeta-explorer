@@ -71,7 +71,7 @@ export default function GUEStatisticsViz() {
         pHist[Math.floor(d / pBinW)]++;
       }
     }
-    const pDensity = pHist.map(c => c / (zeros.length * pBinW));
+    const pDensity = pHist.map(c => 2 * c / (zeros.length * pBinW));
 
     // Number variance
     const nvLs = [];

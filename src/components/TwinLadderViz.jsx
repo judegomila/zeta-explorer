@@ -996,6 +996,31 @@ function CollapseTab() {
     ctx.fillText('Weighted amplitude', 0, 0);
     ctx.restore();
 
+    // Legend
+    const legendX = W - pad.r - 170;
+    const legendY = pad.t + 6;
+    const legendItems = [
+      { color: '#10b981', label: 'Weight > 0.5 (active)' },
+      { color: '#f59e0b', label: 'Weight 0.1–0.5 (fading)' },
+      { color: '#ef4444', label: 'Weight < 0.1 (suppressed)' },
+      { color: 'rgba(100, 116, 139, 0.35)', label: 'Unweighted amplitude' },
+    ];
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.8)';
+    ctx.strokeStyle = 'rgba(100, 116, 139, 0.3)';
+    ctx.lineWidth = 1;
+    const lW = 165, lH = legendItems.length * 18 + 10;
+    ctx.fillRect(legendX, legendY, lW, lH);
+    ctx.strokeRect(legendX, legendY, lW, lH);
+    legendItems.forEach((item, i) => {
+      const y = legendY + 16 + i * 18;
+      ctx.fillStyle = item.color;
+      ctx.fillRect(legendX + 8, y - 8, 12, 10);
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '9px Inter, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(item.label, legendX + 26, y);
+    });
+
   }, [currentFrame, prime, M]);
 
   useEffect(() => { draw(); }, [draw]);

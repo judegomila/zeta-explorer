@@ -728,3 +728,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 766 | 2026-03-26T00:00:00Z | Fix Channel Capacity explainer wrongly claiming impedance mismatch vanishes and SNR→∞ at σ=½ | InformationTheoryViz.jsx |
 | 767 | 2026-03-26T00:30:00Z | Fix inverted y-axis for twistor vectors in TwistorViz Correspondence tab | TwistorViz.jsx |
 | 768 | 2026-03-25T01:00:00Z | Fix Hilbert-Polya explainer showing only off-diagonal formula, omitting M_{jj}=γ_j diagonal | GapClosingViz.jsx |
+| 769 | 2026-03-26T00:45:00Z | Add missing legend to Collapse tab in TwinLadderViz explaining weight-based bar colors | TwinLadderViz.jsx |

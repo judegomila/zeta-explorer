@@ -275,7 +275,7 @@ function drawStage(ctx, x, y, w, prime, color, t, sigma, type) {
 
   // Capacitor plates
   const capX = x + w - 14;
-  ctx.strokeStyle = type === 'direct' ? '#f59e0b60' : '#3b82f660';
+  ctx.strokeStyle = type === 'direct' ? '#3b82f660' : '#f59e0b60';
   ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.moveTo(capX, y - 6);

@@ -62,7 +62,7 @@ export default function StatisticsPage() {
           <InlineMath tex="x = 0" /> (zeros repel) and the approach to 1 at large <InlineMath tex="x" /> (independence at
           long range).
           <strong style={{ color: '#06b6d4' }}> Number Variance</strong> plots <InlineMath tex={"\\Sigma^2(L)"} />, the variance of zero
-          counts in intervals of length <InlineMath tex="L" />. GUE predicts logarithmic growth (<InlineMath tex={"\\sim \\frac{1}{\\pi^2}\\log L"} />),
+          counts in intervals of length <InlineMath tex="L" />. GUE predicts logarithmic growth (<InlineMath tex={"\\sim \\frac{1}{\\pi^2}\\ln(2\\pi L)"} />),
           far below Poisson's linear growth — this spectral rigidity means zeta zeros are much more regularly spaced
           than random points.
         </p>

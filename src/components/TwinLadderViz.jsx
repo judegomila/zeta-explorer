@@ -1137,7 +1137,7 @@ function PhaseDiagramTab() {
         r = Math.round(16 + t * 229); g = Math.round(182 + t * 64); b = Math.round(212 - t * 180);
       } else {
         const t = (norm - 0.75) / 0.25;
-        r = Math.round(245 + t * 10); g = Math.round(246 - t * 88); b = Math.round(32 + t * 200);
+        r = Math.round(245 + t * 10); g = Math.round(246 + t * 9); b = Math.round(32 + t * 223);
       }
 
       ctx.fillStyle = `rgb(${r},${g},${b})`;
@@ -1203,7 +1203,7 @@ function PhaseDiagramTab() {
         r = Math.round(16 + t * 229); g = Math.round(182 + t * 64); b = Math.round(212 - t * 180);
       } else {
         const t = (norm - 0.75) / 0.25;
-        r = Math.round(245 + t * 10); g = Math.round(246 - t * 88); b = Math.round(32 + t * 200);
+        r = Math.round(245 + t * 10); g = Math.round(246 + t * 9); b = Math.round(32 + t * 223);
       }
       ctx.fillStyle = `rgb(${r},${g},${b})`;
       ctx.fillRect(barX, pad.t + i, barW, 1);

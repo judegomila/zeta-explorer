@@ -598,7 +598,7 @@ function LadderFreezingTab() {
     ctx.fillText('Exact Ladder vs Gaussian Proxy', W / 2, pad.t - 8);
 
     const maxVal = Math.max(...comparisonData.map(d => Math.max(d.exact, d.proxy)), 0.01);
-    const xScale = t => pad.l + ((t - 0.5) / 49.5) * chartW;
+    const xScale = t => pad.l + (t / 50) * chartW;
     const yScale = v => pad.t + topH - (v / maxVal) * topH;
 
     // Grid

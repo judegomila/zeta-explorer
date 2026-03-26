@@ -809,10 +809,11 @@ function CompressionExperiment({ sigma, t }) {
         ))}
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        The green curve (<InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />) converges fastest: fewer primes are
-        needed to approximate <InlineMath tex={"\\zeta(s)"} /> to a given accuracy on the critical line.
-        The yellow vertical marks the <strong style={{ color: '#f59e0b' }}>Connes threshold</strong>: with
-        just 5 primes (up to p=11), how close can we get? The critical line wins.
+        <strong>Caveat:</strong> The Euler product <InlineMath tex={"\\prod_p(1-p^{-s})^{-1}"} /> only converges
+        for <InlineMath tex={"\\text{Re}(s) > 1"} />. At all three <InlineMath tex={"\\sigma"} /> values shown
+        (0.3, 0.5, 0.7) it formally diverges; the chart measures how close the first 20 partial products come
+        to the analytically continued <InlineMath tex={"\\zeta(s)"} />, not true convergence.
+        The yellow vertical marks the <strong style={{ color: '#f59e0b' }}>Connes threshold</strong> (5 primes, up to p=11).
       </div>
     </div>
   );

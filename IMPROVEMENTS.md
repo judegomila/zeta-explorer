@@ -220,6 +220,7 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 213 | 2026-03-04T02:00:00Z | Fix pair-correlation reference curve missing R₂(0)=0 boundary point due to loop starting at r=0.01 | GUEStatisticsViz.jsx |
 | 214 | 2026-03-03T12:00:00Z | Fix OscillatorChainViz explainer saying 'impedance-matched' instead of 'conjugate-matched' at σ=0.5 | OscillatorChainViz.jsx |
 | 215 | 2026-03-04T02:30:00Z | Fix ZetaPage claiming θ'(t) is the local zero density when the density is θ'(t)/π | ZetaPage.jsx |
+| 216 | 2026-03-25T23:59:00Z | Fix Compression Experiment explainer wrongly claiming Euler product convergence in the critical strip | InfoTheoryExperimentsViz.jsx |
 | 738 | 2026-03-25T21:00:00Z | Memoize zeta zeros filtering in TwistorViz IncidenceTab to avoid re-filtering on every draw call | TwistorViz.jsx |
 | 216 | 2026-03-04T03:00:00Z | Show largest prime (p_max) next to Primes slider count in EnergyLandscapeViz | EnergyLandscapeViz.jsx |
 | 217 | 2026-03-04T03:30:00Z | Add legend to critical-line Z(t) chart in ZetaLandscapeViz showing positive/negative/zero color coding | ZetaLandscapeViz.jsx |

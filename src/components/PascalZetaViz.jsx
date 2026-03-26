@@ -633,11 +633,8 @@ function DecoratedTab() {
   const [maxTerms, setMaxTerms] = useState(25);
   const svgRef = useRef();
 
-  const data = useMemo(() => {
-    const scan = pascalZetaScan(t, [0.05, 2.5], 80, maxTerms);
-    const rowDirichlet = rowWeightedDirichlet(selectedRow, [0.05, 2.5], t, 80);
-    return { scan, rowDirichlet };
-  }, [t, selectedRow, maxTerms]);
+  const scan = useMemo(() => pascalZetaScan(t, [0.05, 2.5], 80, maxTerms), [t, maxTerms]);
+  const rowDirichlet = useMemo(() => rowWeightedDirichlet(selectedRow, [0.05, 2.5], t, 80), [selectedRow, t]);
 
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
@@ -655,7 +652,7 @@ function DecoratedTab() {
     // ─ Top: Hasse |ζ(s)| scan across σ ─
     const g1 = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
     const x = d3.scaleLinear().domain([0.05, 2.5]).range([0, w]);
-    const y1Max = d3.max(data.scan, d => d.zetaMag) * 1.1;
+    const y1Max = d3.max(scan, d => d.zetaMag) * 1.1;
     const y1 = d3.scaleLinear().domain([0, Math.min(y1Max, 10)]).range([h1, 0]);
 
     g1.append('g').attr('transform', `translate(0,${h1})`)
@@ -682,7 +679,7 @@ function DecoratedTab() {
 
     // Fill area
     g1.append('path')
-      .datum(data.scan.filter(d => d.zetaMag < y1Max))
+      .datum(scan.filter(d => d.zetaMag < y1Max))
       .attr('d', d3.area()
         .x(d => x(d.sigma))
         .y0(h1)
@@ -691,7 +688,7 @@ function DecoratedTab() {
       .attr('fill', 'rgba(59,130,246,0.15)');
 
     g1.append('path')
-      .datum(data.scan.filter(d => d.zetaMag < y1Max))
+      .datum(scan.filter(d => d.zetaMag < y1Max))
       .attr('d', d3.line().x(d => x(d.sigma)).y(d => y1(Math.min(d.zetaMag, y1Max))).curve(d3.curveMonotoneX))
       .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 2);
 
@@ -707,8 +704,8 @@ function DecoratedTab() {
 
     // ─ Bottom: Row-weighted Dirichlet polynomial ─
     const g2 = svg.append('g').attr('transform', `translate(${margin.left},${margin.top + h1 + gap})`);
-    const y2Max = d3.max(data.rowDirichlet.points, d => d.logMag) * 1.1;
-    const y2Min = d3.min(data.rowDirichlet.points, d => d.logMag);
+    const y2Max = d3.max(rowDirichlet.points, d => d.logMag) * 1.1;
+    const y2Min = d3.min(rowDirichlet.points, d => d.logMag);
     const y2 = d3.scaleLinear().domain([y2Min, y2Max]).range([h2, 0]);
 
     g2.append('g').attr('transform', `translate(0,${h2})`)
@@ -725,7 +722,7 @@ function DecoratedTab() {
       .attr('stroke', '#10b981').attr('stroke-dasharray', '4,4').attr('opacity', 0.6);
 
     g2.append('path')
-      .datum(data.rowDirichlet.points)
+      .datum(rowDirichlet.points)
       .attr('d', d3.area()
         .x(d => x(d.sigma))
         .y0(h2)
@@ -734,7 +731,7 @@ function DecoratedTab() {
       .attr('fill', 'rgba(139,92,246,0.15)');
 
     g2.append('path')
-      .datum(data.rowDirichlet.points)
+      .datum(rowDirichlet.points)
       .attr('d', d3.line().x(d => x(d.sigma)).y(d => y2(d.logMag)).curve(d3.curveMonotoneX))
       .attr('fill', 'none').attr('stroke', '#8b5cf6').attr('stroke-width', 2);
 
@@ -748,7 +745,7 @@ function DecoratedTab() {
       .attr('text-anchor', 'middle').attr('fill', '#64748b').attr('font-size', 11)
       .text('log₁₀|Z_N(s)|');
 
-  }, [data, t, selectedRow, maxTerms]);
+  }, [scan, rowDirichlet, t, selectedRow, maxTerms]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {

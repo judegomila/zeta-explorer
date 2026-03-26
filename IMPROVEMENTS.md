@@ -719,3 +719,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 757 | 2026-03-25T14:15:00Z | Fix missing negative sign in ladder rung phase formula in TwinLadderViz explainer | TwinLadderViz.jsx |
 | 758 | 2026-03-25T14:30:00Z | Add missing y-axis labels and tick marks to both charts in LadderFreezingTab | TwinLadderViz.jsx |
 | 759 | 2026-03-25T21:00:00Z | Fix phase diagram heatmap colormap producing pink instead of white at high values | TwinLadderViz.jsx |
+| 760 | 2026-03-25T21:30:00Z | Add spacebar keyboard shortcut for play/pause in WaveSimViz | WaveSimViz.jsx |

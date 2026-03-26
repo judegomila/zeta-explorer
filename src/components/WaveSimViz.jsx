@@ -1526,6 +1526,18 @@ export default function WaveSimViz() {
   const [numPrimes, setNumPrimes] = useState(8);
   const [playing, setPlaying] = useState(true);
 
+  // Spacebar keyboard shortcut for play/pause
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.code === 'Space' && !['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+        e.preventDefault();
+        setPlaying(p => !p);
+      }
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, []);
+
   // Color the sigma slider based on phase region
   const sigmaColor = sigma > 1 ? '#60a5fa' : sigma < 0 ? '#ef4444'
     : Math.abs(sigma - 0.5) < 0.05 ? '#10b981' : '#f59e0b';
@@ -1585,10 +1597,14 @@ export default function WaveSimViz() {
           <button
             className={`tab-btn ${playing ? 'tab-active' : ''}`}
             onClick={() => setPlaying(p => !p)}
+            title="Toggle animation (Space)"
             style={{ minWidth: 70 }}
           >
             {playing ? 'Pause' : 'Play'}
           </button>
+          <span style={{ color: '#475569', fontSize: 10, marginLeft: 6, fontFamily: 'var(--font-mono)' }}>
+            <kbd style={{ padding: '1px 5px', borderRadius: 3, border: '1px solid #334155', background: '#1e293b', fontSize: 10 }}>Space</kbd>
+          </span>
           {tab !== 'signal' && tab !== 'interference' && playing && (
             <span style={{ fontSize: 11, color: '#f59e0b', marginLeft: 6 }}>animating</span>
           )}

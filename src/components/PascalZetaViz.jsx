@@ -98,6 +98,40 @@ function TriangleTab() {
       .attr('text-anchor', 'middle')
       .attr('fill', '#94a3b8').attr('font-size', 11)
       .text(`${numRows} rows — central binomials highlighted in gold`);
+
+    // Colorbar for the Viridis heatmap scale
+    const barW = 14;
+    const barH = Math.min(120, height * 0.4);
+    const barX = width / 2 + (numRows / 2 + 1) * cellSize;
+    const barY0 = 30;
+    const defs = svg.append('defs');
+    const gradId = 'pascal-viridis-grad';
+    const grad = defs.append('linearGradient')
+      .attr('id', gradId).attr('x1', 0).attr('y1', 1).attr('x2', 0).attr('y2', 0);
+    const barSteps = 10;
+    for (let i = 0; i <= barSteps; i++) {
+      const t = i / barSteps;
+      grad.append('stop')
+        .attr('offset', `${t * 100}%`)
+        .attr('stop-color', d3.interpolateViridis(t));
+    }
+    svg.append('rect')
+      .attr('x', barX).attr('y', barY0)
+      .attr('width', barW).attr('height', barH)
+      .attr('rx', 3).attr('fill', `url(#${gradId})`)
+      .attr('stroke', '#334155').attr('stroke-width', 0.5);
+    svg.append('text')
+      .attr('x', barX + barW / 2).attr('y', barY0 - 5)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 9)
+      .text(maxVal > 99999 ? maxVal.toExponential(1) : maxVal);
+    svg.append('text')
+      .attr('x', barX + barW / 2).attr('y', barY0 + barH + 12)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 9)
+      .text('1');
+    svg.append('text')
+      .attr('x', barX + barW + 4).attr('y', barY0 + barH / 2 + 3)
+      .attr('fill', '#64748b').attr('font-size', 9)
+      .text('Value');
   }, [rows, numRows]);
 
   useEffect(() => { draw(); }, [draw]);

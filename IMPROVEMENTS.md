@@ -706,3 +706,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 744 | 2026-03-25T00:30:00Z | Hoist zeta-zero proximity search out of 60fps animation loop in SignalFlowTab | WaveSimViz.jsx |
 | 745 | 2026-03-26T00:30:00Z | Add Turing's method exploration entry connecting computational RH verification to ZPO phase counting | explorations.js |
 | 746 | 2026-03-25T21:00:00Z | Fix reflection coefficient formula using |1-|χ|| instead of signed (1-|χ|) | OscillatorsPage.jsx, TwinOscillatorSimViz.jsx |
+| 747 | 2026-03-25T22:00:00Z | Add per-component hover dots to Hamiltonian energy landscape chart | HamiltonianViz.jsx |

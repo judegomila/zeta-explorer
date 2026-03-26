@@ -146,6 +146,15 @@ export default function HamiltonianViz() {
     const hoverDot = g.append('circle')
       .attr('r', 4).attr('fill', '#10b981').attr('stroke', '#0a0e1a').attr('stroke-width', 2)
       .attr('opacity', 0);
+    const hoverDotKinetic = g.append('circle')
+      .attr('r', 3).attr('fill', '#3b82f6').attr('stroke', '#0a0e1a').attr('stroke-width', 1.5)
+      .attr('opacity', 0);
+    const hoverDotPotential = g.append('circle')
+      .attr('r', 3).attr('fill', '#f59e0b').attr('stroke', '#0a0e1a').attr('stroke-width', 1.5)
+      .attr('opacity', 0);
+    const hoverDotBridge = g.append('circle')
+      .attr('r', 3).attr('fill', '#8b5cf6').attr('stroke', '#0a0e1a').attr('stroke-width', 1.5)
+      .attr('opacity', 0);
 
     overlay.on('mousemove', (event) => {
       const [mx] = d3.pointer(event);
@@ -154,12 +163,19 @@ export default function HamiltonianViz() {
         Math.abs(p.sigma - sigma) < Math.abs(best.sigma - sigma) ? p : best
       , points[0]);
 
-      hoverLine.attr('x1', x(closest.sigma)).attr('x2', x(closest.sigma)).attr('opacity', 0.3);
-      hoverDot.attr('cx', x(closest.sigma)).attr('cy', y(closest.total)).attr('opacity', 1);
+      const cx = x(closest.sigma);
+      hoverLine.attr('x1', cx).attr('x2', cx).attr('opacity', 0.3);
+      hoverDot.attr('cx', cx).attr('cy', y(closest.total)).attr('opacity', 1);
+      hoverDotKinetic.attr('cx', cx).attr('cy', y(closest.kinetic)).attr('opacity', 1);
+      hoverDotPotential.attr('cx', cx).attr('cy', y(closest.potential)).attr('opacity', 1);
+      hoverDotBridge.attr('cx', cx).attr('cy', y(closest.bridgeCoupling)).attr('opacity', 1);
       setHoverPoint(closest);
     }).on('mouseleave', () => {
       hoverLine.attr('opacity', 0);
       hoverDot.attr('opacity', 0);
+      hoverDotKinetic.attr('opacity', 0);
+      hoverDotPotential.attr('opacity', 0);
+      hoverDotBridge.attr('opacity', 0);
       setHoverPoint(null);
     });
 

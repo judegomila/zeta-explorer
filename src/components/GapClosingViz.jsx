@@ -458,6 +458,38 @@ function HilbertPolyaTab({ numPrimes }) {
     ctx.textAlign = 'left';
     ctx.fillText('Avg spectral error', marginBot.left + 4, topH + marginBot.top + 12);
 
+    // Bottom legend: convergence status of dots
+    const botLegendX = w - marginBot.right - 148;
+    const botLegendY = topH + marginBot.top + 2;
+    const botLegendW = 144;
+    const botLegendH = 2 * 16 + 6;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(botLegendX, botLegendY, botLegendW, botLegendH, 4);
+    ctx.fill();
+    ctx.stroke();
+    // Converging entry
+    const blx = botLegendX + 8;
+    const bly1 = botLegendY + 14;
+    ctx.beginPath();
+    ctx.arc(blx + 4, bly1, 3, 0, Math.PI * 2);
+    ctx.fillStyle = '#10b981';
+    ctx.fill();
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'left';
+    ctx.fillText('Converging', blx + 14, bly1 + 3);
+    // Not converging entry
+    const bly2 = botLegendY + 14 + 16;
+    ctx.beginPath();
+    ctx.arc(blx + 4, bly2, 3, 0, Math.PI * 2);
+    ctx.fillStyle = '#ef4444';
+    ctx.fill();
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText('Not converging', blx + 14, bly2 + 3);
+
     // X-axis label
     ctx.fillStyle = '#94a3b8';
     ctx.font = '10px sans-serif';

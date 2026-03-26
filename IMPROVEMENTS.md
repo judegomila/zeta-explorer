@@ -744,3 +744,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 782 | 2026-03-25T23:20:00Z | Add missing tooltips to Range and Zeta Zeros sliders in ExplicitFormulaViz | ExplicitFormulaViz.jsx |
 | 783 | 2026-03-25T23:30:00Z | Add GOE explanation to spacing distribution explainer in GUEStatisticsViz | GUEStatisticsViz.jsx |
 | 784 | 2026-03-25T23:40:00Z | Add Viridis colorbar legend to Pascal triangle heatmap in PascalZetaViz | PascalZetaViz.jsx |
+| 785 | 2026-03-25T23:55:00Z | Add missing convergence status legend to Hilbert-Polya spectral error chart | GapClosingViz.jsx |

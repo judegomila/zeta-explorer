@@ -218,8 +218,9 @@ function CapacityTab({ sigma, t, numPrimes }) {
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
         The twin-ladder acts as a Gaussian channel: <InlineMath tex={"C = \\tfrac{1}{2}\\log_2(1 + \\text{SNR})"} />.
-        At <strong style={{ color: '#3b82f6' }}>σ = ½</strong>, impedance mismatch (noise) vanishes,
-        SNR → ∞, and capacity is maximized. The critical line is the channel capacity boundary.
+        At <strong style={{ color: '#3b82f6' }}>σ = ½</strong>, the bridge is unitary (|χ| = 1) and impedances are
+        conjugate-matched (Z<sub>dual</sub> = Z̄<sub>dir</sub>), minimizing mismatch noise and maximizing capacity.
+        SNR peaks especially near zeta zeros where signal power spikes.
       </div>
     </div>
   );
@@ -578,7 +579,7 @@ export default function InformationTheoryViz() {
           <div className="tab-explainer accent-blue">
             Channel capacity <InlineMath tex={"C(\sigma) = \tfrac{1}{2}\log_2(1 + \text{SNR})"} /> measures the maximum rate at which
             the oscillator chain can transmit information (Shannon-Hartley). The critical line <InlineMath tex={"\sigma = \tfrac{1}{2}"} /> maximizes
-            capacity because the matched direct/dual ladders minimize impedance mismatch noise, maximizing SNR.
+            capacity because the conjugate-matched direct/dual ladders minimize (but do not eliminate) impedance mismatch noise, maximizing SNR.
             <strong> Look for:</strong> capacity peaking sharply at <InlineMath tex={"\sigma = 0.5"} />, especially near zeta zeros where SNR diverges.
           </div>
           <CapacityTab sigma={sigma} t={t} numPrimes={numPrimes} />

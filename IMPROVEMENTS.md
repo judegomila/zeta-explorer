@@ -725,3 +725,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 763 | 2026-03-25T23:00:00Z | Fix LadderFreezingTab grid lines and tick labels at t=0 rendering outside chart boundary | TwinLadderViz.jsx |
 | 764 | 2026-03-25T23:30:00Z | Fix misleading |a_p| absolute-value label on signed coefficient chart in CalabiYauViz | CalabiYauViz.jsx |
 | 765 | 2026-03-25T23:45:00Z | Fix heatFlowedXi applying exponentially growing kernel for negative τ in rh-attack.js | rh-attack.js |
+| 766 | 2026-03-26T00:00:00Z | Fix Channel Capacity explainer wrongly claiming impedance mismatch vanishes and SNR→∞ at σ=½ | InformationTheoryViz.jsx |

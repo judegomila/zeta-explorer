@@ -696,6 +696,26 @@ function SpectralTab() {
     ctx.lineTo(w - margin.right, h - margin.bottom);
     ctx.stroke();
 
+    // Y-axis tick labels
+    const numYTicks = 4;
+    ctx.font = '10px "JetBrains Mono", monospace';
+    for (let i = 0; i <= numYTicks; i++) {
+      const frac = i / numYTicks;
+      const val = frac * maxY;
+      const yPos = h - margin.bottom - frac * plotH;
+      ctx.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+      ctx.lineWidth = 0.5;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(margin.left, yPos);
+      ctx.lineTo(w - margin.right, yPos);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#64748b';
+      ctx.textAlign = 'right';
+      ctx.fillText(val.toFixed(1), margin.left - 6, yPos + 3);
+    }
+
     // Legend
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.fillStyle = '#8b5cf6';
@@ -709,6 +729,16 @@ function SpectralTab() {
     ctx.fillStyle = '#64748b';
     ctx.textAlign = 'center';
     ctx.fillText('Normalized spacing s', w / 2, h - 6);
+
+    // Y-axis label
+    ctx.save();
+    ctx.translate(12, margin.top + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '11px "JetBrains Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('P(s)', 0, 0);
+    ctx.restore();
 
     // KL divergence
     ctx.textAlign = 'right';

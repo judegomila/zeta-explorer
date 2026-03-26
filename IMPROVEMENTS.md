@@ -737,3 +737,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 775 | 2026-03-25T22:00:00Z | Add missing tooltip to t slider in OscillatorChainViz for consistency with σ slider | OscillatorChainViz.jsx |
 | 776 | 2026-03-25T23:59:00Z | Fix swapped capacitor plate colors in HeroSignalFlow (direct used amber, dual used blue — opposite of ladder color scheme) | HeroSignalFlow.jsx |
 | 777 | 2026-03-25T22:00:00Z | Fix Phase Barriers explainer wrongly calling σ=0 the 'functional equation symmetry' line | SpectralAttackViz.jsx |
+| 778 | 2026-03-25T23:59:45Z | Add y-axis tick labels, gridlines, and rotated axis label to LocalZetaTab chart in CalabiYauViz | CalabiYauViz.jsx |

@@ -494,6 +494,40 @@ function LocalZetaTab() {
       ctx.fillText(c.p.toString(), x + barW / 2, h - margin.bottom + 12);
     });
 
+    // Y-axis tick labels and horizontal gridlines
+    const numTicks = 5;
+    ctx.font = '10px "JetBrains Mono", monospace';
+    for (let i = 0; i <= numTicks; i++) {
+      const frac = i / numTicks;
+      const val = frac * maxBound;
+      const yPos = h - margin.bottom - frac * plotH;
+
+      // Gridline
+      ctx.strokeStyle = 'rgba(51, 65, 85, 0.5)';
+      ctx.lineWidth = 0.5;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(margin.left, yPos);
+      ctx.lineTo(w - margin.right, yPos);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Tick label
+      ctx.fillStyle = '#64748b';
+      ctx.textAlign = 'right';
+      ctx.fillText(Math.round(val).toString(), margin.left - 6, yPos + 3);
+    }
+
+    // Rotated y-axis label
+    ctx.save();
+    ctx.translate(12, margin.top + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '11px "JetBrains Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('|a_p|', 0, 0);
+    ctx.restore();
+
     // Axes
     ctx.strokeStyle = '#334155';
     ctx.lineWidth = 1;

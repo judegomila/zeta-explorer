@@ -707,8 +707,8 @@ function PhaseBarriersTab({ t, numPrimes }) {
         <strong style={{ color: '#f59e0b' }}>Thermodynamic Confinement</strong>
         <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 11 }}>
           Free energy barriers trap zeros near <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
-          Specific heat spikes at phase boundaries (Euler product convergence boundary at <InlineMath tex={"\\sigma = 1"} /> where <InlineMath tex={"\\zeta"} /> has a pole,
-          functional equation symmetry at <InlineMath tex={"\\sigma = 0"} />).
+          Specific heat spikes at the critical strip boundaries: the Euler product convergence boundary at <InlineMath tex={"\\sigma = 1"} /> (where <InlineMath tex={"\\zeta"} /> has a pole)
+          and its functional equation mirror at <InlineMath tex={"\\sigma = 0"} />. The functional equation reflects across <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, not <InlineMath tex={"\\sigma = 0"} />.
         </div>
       </div>
     </div>

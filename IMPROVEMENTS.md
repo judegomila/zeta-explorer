@@ -739,3 +739,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 777 | 2026-03-25T22:00:00Z | Fix Phase Barriers explainer wrongly calling σ=0 the 'functional equation symmetry' line | SpectralAttackViz.jsx |
 | 778 | 2026-03-25T23:59:45Z | Add y-axis tick labels, gridlines, and rotated axis label to LocalZetaTab chart in CalabiYauViz | CalabiYauViz.jsx |
 | 779 | 2026-03-26T00:05:00Z | Replace Math.pow/Math.cos with incremental recurrence in Li criterion lambda loop | LiCriterionViz.jsx |
+| 780 | 2026-03-26T00:10:00Z | Fix incomplete mirror pair highlighting in CalabiYauViz Hodge diamond | CalabiYauViz.jsx |

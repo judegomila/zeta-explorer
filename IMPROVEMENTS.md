@@ -730,3 +730,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 768 | 2026-03-25T01:00:00Z | Fix Hilbert-Polya explainer showing only off-diagonal formula, omitting M_{jj}=γ_j diagonal | GapClosingViz.jsx |
 | 769 | 2026-03-26T00:45:00Z | Add missing legend to Collapse tab in TwinLadderViz explaining weight-based bar colors | TwinLadderViz.jsx |
 | 770 | 2026-03-25T01:15:00Z | Fix Decorated Zeta row polynomial missing (-1)^k alternating sign from Hasse-Sondow formula | pascal.js, PascalZetaViz.jsx |
+| 771 | 2026-03-25T12:00:00Z | Fix BridgeTab explainer showing signed R formula but plotting unsigned |R| | TwinOscillatorSimViz.jsx |

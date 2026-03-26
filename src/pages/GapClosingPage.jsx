@@ -394,6 +394,58 @@ export default function GapClosingPage() {
 
       <GapClosingViz />
 
+      {/* ─── What to Explore ─── */}
+      <div className="card" style={{
+        marginTop: 24,
+        marginBottom: 24,
+        background: 'linear-gradient(135deg, rgba(6,182,212,0.06), rgba(139,92,246,0.06))',
+        borderLeft: '3px solid #06b6d4'
+      }}>
+        <h3 style={{ color: '#06b6d4', fontSize: 16, marginBottom: 12 }}>
+          What to Explore in Each Tab
+        </h3>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+          <div>
+            <h4 style={{ color: '#f59e0b', fontSize: 13, marginBottom: 4 }}>Regularization</h4>
+            <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7 }}>
+              Compare the raw Euler product (blue), eta-regularized value (orange), and true{' '}
+              <InlineMath tex={"\\zeta(s)"} /> (green dashed). Watch the Euler product diverge below{' '}
+              <InlineMath tex={"\\sigma = 1"} /> while the regularized curve tracks the true value
+              through the critical strip. Drag the t slider near a zeta zero to see all three
+              curves respond.
+            </p>
+          </div>
+          <div>
+            <h4 style={{ color: '#ef4444', fontSize: 13, marginBottom: 4 }}>Hilbert-Polya</h4>
+            <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7 }}>
+              The candidate matrix <InlineMath tex={"M_{jk}"} /> is built from prime-weighted cosines.
+              Increase the matrix size and check how its eigenvalues align with known{' '}
+              <InlineMath tex={"\\gamma_n"} />. Green bars show eigenvalues near a zeta zero;
+              red bars show mismatches. Convergence is slow — this is the hardest gap.
+            </p>
+          </div>
+          <div>
+            <h4 style={{ color: '#f97316', fontSize: 13, marginBottom: 4 }}>Darlington</h4>
+            <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7 }}>
+              The scattering matrix <InlineMath tex={"S"} /> should satisfy{' '}
+              <InlineMath tex={"S^\\dagger S = I"} /> on the critical line. Watch the unitarity
+              deficit shrink as primes increase. The Youla realizability index measures how
+              close the network is to a physically realizable lossless two-port.
+            </p>
+          </div>
+          <div>
+            <h4 style={{ color: '#8b5cf6', fontSize: 13, marginBottom: 4 }}>Confinement</h4>
+            <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7 }}>
+              A composite view showing confinement strength across{' '}
+              <InlineMath tex={"\\sigma"} />. The confinement potential combines all three
+              gap measures into a single landscape. A deep minimum at{' '}
+              <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> means all three conditions
+              align — look for the valley to deepen as you add more primes.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom: what closing these gaps would mean */}
       <div className="card" style={{ marginTop: 24, borderColor: '#8b5cf6' }}>
         <h3 style={{ color: '#8b5cf6', fontSize: 14 }}>What Closing These Gaps Would Mean</h3>

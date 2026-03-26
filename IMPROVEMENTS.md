@@ -711,3 +711,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 749 | 2026-03-25T23:00:00Z | Fix Γ display showing unsigned |Γ| in WaveSimViz and OscillatorChainViz bridge labels | WaveSimViz.jsx, OscillatorChainViz.jsx |
 | 750 | 2026-03-25T14:30:00Z | Fix misleading 'conjugate-matched' RF terminology in impedance mismatch explainer | EnergyLandscapeViz.jsx, oscillators.js |
 | 751 | 2026-03-26T00:15:00Z | Add descriptive tooltips to all controls in EnergyLandscapeViz | EnergyLandscapeViz.jsx |
+| 752 | 2026-03-25T23:30:00Z | Add 'What to Explore in Each Tab' guide card to GapClosingPage | GapClosingPage.jsx |

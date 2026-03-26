@@ -277,7 +277,7 @@ export function fisherInformation(s, numPrimes = 15) {
 
     if (efCenter > 1e-20) {
       // ∂/∂σ log|H_p| ≈ (log|H_p(σ+dσ)| - log|H_p(σ-dσ)|) / (2dσ)
-      const dLogH = (Math.log(efPlus) - Math.log(efMinus)) / (2 * ds);
+      const dLogH = (Math.log(Math.max(efPlus, 1e-20)) - Math.log(Math.max(efMinus, 1e-20))) / (2 * ds);
       fisher += dLogH * dLogH;
       contributions.push({ prime: p, contribution: dLogH * dLogH, dLogH });
     }

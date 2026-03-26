@@ -753,3 +753,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 790 | 2026-03-25T15:00:00Z | Add missing tooltips to all sliders in TwinLadderViz Freezing, Collapse, and Phase Diagram tabs | TwinLadderViz.jsx |
 | 791 | 2026-03-25T16:00:00Z | Add missing y-axis label and tick marks to Spectral tab chart in CalabiYauViz | CalabiYauViz.jsx |
 | 792 | 2026-03-25T17:00:00Z | Add missing hover tooltips to harmonic bars in FourierDomainViz Prime Harmonics tab | FourierDomainViz.jsx |
+| 793 | 2026-03-25T23:59:00Z | Fix Compression Experiment explainer wrongly claiming Euler product convergence in the critical strip | InfoTheoryExperimentsViz.jsx |
+| 794 | 2026-03-26T00:30:00Z | Fix unguarded Math.log in Fisher information per-prime loop causing NaN when Euler factor magnitude is near zero | information-theory.js |

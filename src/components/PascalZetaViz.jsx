@@ -295,6 +295,7 @@ function ConstantsTab() {
     const allErrors = [
       ...data.eData.map(d => d.error),
       ...data.piData.map(d => d.error),
+      ...data.piArcsin.map(d => d.error),
     ].filter(e => e > 0);
     const y3 = d3.scaleLog()
       .domain([d3.min(allErrors) * 0.1, d3.max(allErrors) * 2])
@@ -330,6 +331,18 @@ function ConstantsTab() {
         .attr('r', 2.5).attr('fill', '#f59e0b');
     });
 
+    // arcsin pi errors
+    const arcsinErrors = data.piArcsin.filter(d => d.error > 0);
+    g3.append('path')
+      .datum(arcsinErrors)
+      .attr('d', d3.line().x(d => x3(d.n + 1)).y(d => y3(d.error)).curve(d3.curveMonotoneX))
+      .attr('fill', 'none').attr('stroke', '#ec4899').attr('stroke-width', 1.5)
+      .attr('stroke-dasharray', '4,3');
+    arcsinErrors.forEach(d => {
+      g3.append('circle').attr('cx', x3(d.n + 1)).attr('cy', y3(d.error))
+        .attr('r', 2).attr('fill', '#ec4899');
+    });
+
     g3.append('text').attr('x', 4).attr('y', -6)
       .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
       .text('Convergence Error (log scale)');
@@ -344,7 +357,7 @@ function ConstantsTab() {
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
       .text('|Error|');
 
-    const leg3 = g3.append('g').attr('transform', `translate(${w - 130}, 10)`);
+    const leg3 = g3.append('g').attr('transform', `translate(${w - 150}, 10)`);
     leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 0).attr('y2', 0)
       .attr('stroke', '#3b82f6').attr('stroke-width', 2);
     leg3.append('circle').attr('cx', 8).attr('cy', 0).attr('r', 2.5).attr('fill', '#3b82f6');
@@ -352,7 +365,11 @@ function ConstantsTab() {
     leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 16).attr('y2', 16)
       .attr('stroke', '#f59e0b').attr('stroke-width', 2);
     leg3.append('circle').attr('cx', 8).attr('cy', 16).attr('r', 2.5).attr('fill', '#f59e0b');
-    leg3.append('text').attr('x', 22).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10).text('|π − approx|');
+    leg3.append('text').attr('x', 22).attr('y', 20).attr('fill', '#94a3b8').attr('font-size', 10).text('|π − C(2n,n)|');
+    leg3.append('line').attr('x1', 0).attr('x2', 16).attr('y1', 32).attr('y2', 32)
+      .attr('stroke', '#ec4899').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3');
+    leg3.append('circle').attr('cx', 8).attr('cy', 32).attr('r', 2).attr('fill', '#ec4899');
+    leg3.append('text').attr('x', 22).attr('y', 36).attr('fill', '#94a3b8').attr('font-size', 10).text('|π − arcsin|');
 
   }, [data, maxN]);
 

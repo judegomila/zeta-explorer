@@ -740,3 +740,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 778 | 2026-03-25T23:59:45Z | Add y-axis tick labels, gridlines, and rotated axis label to LocalZetaTab chart in CalabiYauViz | CalabiYauViz.jsx |
 | 779 | 2026-03-26T00:05:00Z | Replace Math.pow/Math.cos with incremental recurrence in Li criterion lambda loop | LiCriterionViz.jsx |
 | 780 | 2026-03-26T00:10:00Z | Fix incomplete mirror pair highlighting in CalabiYauViz Hodge diamond | CalabiYauViz.jsx |
+| 781 | 2026-03-26T00:15:00Z | Fix wrong sign in Z_TL display formula: phase exponential should be e^{-imT log p} not e^{+imT log p} | TwinLadderPage.jsx |

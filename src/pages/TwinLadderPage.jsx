@@ -18,7 +18,7 @@ export default function TwinLadderPage() {
         </p>
       </div>
 
-      <BlockMath tex={"Z_{TL}\\bigl(\\tfrac{1}{2}+iT;\\,\\beta,P\\bigr) = \\sum_p \\sum_{m=0}^{M} p^{-m/2}\\, e^{imT\\log p}\\, e^{-\\beta\\, m\\log p \\;-\\; P\\,\\psi(m\\log p)}"} />
+      <BlockMath tex={"Z_{TL}\\bigl(\\tfrac{1}{2}+iT;\\,\\beta,P\\bigr) = \\sum_p \\sum_{m=0}^{M} p^{-m/2}\\, e^{-imT\\log p}\\, e^{-\\beta\\, m\\log p \\;-\\; P\\,\\psi(m\\log p)}"} />
 
       <div style={{ marginTop: 8 }}>
         <BlockMath tex={"\\psi(x) = x^2 \\quad\\text{(convex penalty)}, \\qquad \\Pi_{\\text{slack}} = (\\alpha - t - \\varepsilon)\\,U^2"} />

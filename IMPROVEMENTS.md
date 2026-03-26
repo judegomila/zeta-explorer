@@ -742,3 +742,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 780 | 2026-03-26T00:10:00Z | Fix incomplete mirror pair highlighting in CalabiYauViz Hodge diamond | CalabiYauViz.jsx |
 | 781 | 2026-03-26T00:15:00Z | Fix wrong sign in Z_TL display formula: phase exponential should be e^{-imT log p} not e^{+imT log p} | TwinLadderPage.jsx |
 | 782 | 2026-03-25T23:20:00Z | Add missing tooltips to Range and Zeta Zeros sliders in ExplicitFormulaViz | ExplicitFormulaViz.jsx |
+| 783 | 2026-03-25T23:30:00Z | Add GOE explanation to spacing distribution explainer in GUEStatisticsViz | GUEStatisticsViz.jsx |

@@ -370,9 +370,16 @@ export default function GUEStatisticsViz() {
           <p style={{ margin: '8px 0' }}>
             The key feature is <strong>level repulsion</strong>: <InlineMath tex={"P(0) = 0"} />, meaning zeros never collide.
             Poisson (random) would give <InlineMath tex={"P(s) = e^{-s}"} /> with clustering at zero.
+            The amber curve shows the <strong>GOE</strong> (Gaussian Orthogonal Ensemble) surmise{' '}
+            <InlineMath tex={"P_{\\text{GOE}}(s) = (\\pi/2)\\,s\\,e^{-\\pi s^2/4}"} />, which has weaker{' '}
+            <InlineMath tex={"\\sim s"} /> repulsion vs GUE&rsquo;s <InlineMath tex={"\\sim s^2"} />. GOE governs
+            time-reversal-invariant systems (real symmetric matrices); GUE governs systems where
+            time-reversal is broken (complex Hermitian matrices). Zeta zeros follow GUE because
+            the functional equation <InlineMath tex={"\\zeta(s) = \\chi(s)\\zeta(1-s)"} /> maps <InlineMath tex={"s \\mapsto 1-\\bar{s}"} />,
+            which is an anti-unitary symmetry that breaks T-invariance.
           </p>
           <p style={{ margin: '4px 0 0' }}>
-            <strong>Look for:</strong> the zeta zero histogram matching GUE (red), not Poisson (gray).
+            <strong>Look for:</strong> the zeta zero histogram matching GUE (red), not GOE (amber) or Poisson (gray).
           </p>
         </div>
       )}

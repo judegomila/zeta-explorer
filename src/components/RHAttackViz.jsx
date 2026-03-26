@@ -810,7 +810,7 @@ function HeatFlowTab() {
       <div className="tab-explainer accent-yellow">
         The de Bruijn&ndash;Newman constant <InlineMath tex={"\Lambda"} /> controls how the <InlineMath tex={"\Xi"} /> function
         behaves under heat flow: <InlineMath tex={"H_\tau(t)"} /> has only real zeros for{' '}
-        <InlineMath tex={"\tau \geq \Lambda"} />. Rodgers&ndash;Tao (2018) proved <InlineMath tex={"\Lambda \geq 0"} />;
+        <InlineMath tex={"\tau \geq \Lambda"} />. Rodgers&ndash;Tao (2020) proved <InlineMath tex={"\Lambda \geq 0"} />;
         RH is equivalent to <InlineMath tex={"\Lambda \leq 0"} />, hence <InlineMath tex={"\Lambda = 0"} />. Each curve
         shows <InlineMath tex={"H_\tau(t)"} /> for a different heat time <InlineMath tex={"\tau"} />. Red dots mark
         known zeta zeros on the <InlineMath tex={"\tau = 0"} /> curve.
@@ -853,7 +853,7 @@ function HeatFlowTab() {
         border: '1px solid #10b98140',
         fontSize: 12,
       }}>
-        <strong style={{ color: '#10b981' }}>Λ ≥ 0 (Rodgers–Tao, 2018)</strong>
+        <strong style={{ color: '#10b981' }}>Λ ≥ 0 (Rodgers–Tao, 2020)</strong>
         <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 11 }}>
           {data.gap}
         </div>

@@ -713,3 +713,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 751 | 2026-03-26T00:15:00Z | Add descriptive tooltips to all controls in EnergyLandscapeViz | EnergyLandscapeViz.jsx |
 | 752 | 2026-03-25T23:30:00Z | Add 'What to Explore in Each Tab' guide card to GapClosingPage | GapClosingPage.jsx |
 | 753 | 2026-03-25T14:45:00Z | Memoize ConfinementTab component arrays and yMax to avoid recomputing on resize | GapClosingViz.jsx |
+| 754 | 2026-03-25T23:45:00Z | Fix Rodgers-Tao citation year showing 2018 instead of 2020 in RHAttackViz Heat Flow tab | RHAttackViz.jsx |

@@ -281,8 +281,8 @@ function lanczosGamma(z) {
  * H = H_direct + H_dual + H_bridge
  *
  * The critical line sigma = 1/2 minimizes the total Hamiltonian
- * because the direct and dual ladders are conjugate-matched
- * (Z_dual = Z̄_dir, minimizing mismatch) and the bridge becomes
+ * because the direct and dual ladders are complex conjugates
+ * (Z_dual = Z̄_dir by the functional equation, so |Z_dir - Z_dual| = 2|Im Z_dir|, minimized) and the bridge becomes
  * lossless (unitary scattering).
  */
 // Fast scalar Hamiltonian for gradient computation (avoids full object allocation)

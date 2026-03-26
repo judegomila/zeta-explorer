@@ -232,12 +232,14 @@ export default function ExplicitFormulaViz() {
         <div className="control-group">
           <label>Range (max x)</label>
           <input type="range" min="20" max="500" step="10" value={maxX}
+            title="Upper limit of the x-axis — larger values show more of the prime-counting staircase but require more zeros for accurate reconstruction."
             onChange={e => setMaxX(+e.target.value)} />
           <span className="control-value">{maxX}</span>
         </div>
         <div className="control-group">
           <label>Zeta Zeros Used</label>
           <input type="range" min="1" max="200" step="1" value={numZeros}
+            title="Number of zeta zeros in the explicit formula sum — more zeros give a closer fit to the true prime-counting function ψ(x)."
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
           <span style={{ marginLeft: 6, fontSize: 11, fontFamily: 'var(--font-mono)', color: '#64748b' }}>

@@ -755,3 +755,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 792 | 2026-03-25T17:00:00Z | Add missing hover tooltips to harmonic bars in FourierDomainViz Prime Harmonics tab | FourierDomainViz.jsx |
 | 793 | 2026-03-25T23:59:00Z | Fix Compression Experiment explainer wrongly claiming Euler product convergence in the critical strip | InfoTheoryExperimentsViz.jsx |
 | 794 | 2026-03-26T00:30:00Z | Fix unguarded Math.log in Fisher information per-prime loop causing NaN when Euler factor magnitude is near zero | information-theory.js |
+| 795 | 2026-03-25T18:30:00Z | Merge redundant darlingtonSMatrix calls in reciprocity and unitarity test loops | gap-closing.js |

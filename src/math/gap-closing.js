@@ -658,23 +658,19 @@ export function darlingtonRealizability(numPrimes = 15, numTestPoints = 20) {
   const testTs = [];
   for (let i = 0; i < numTestPoints; i++) testTs.push(ZETA_ZEROS[i % ZETA_ZEROS.length]);
 
-  // (a) Reciprocity
+  // (a) Reciprocity + (b) Unitarity — merged into one loop to avoid
+  // computing darlingtonSMatrix([0.5, tv], numPrimes) twice per test point
   let rMax = 0; const rPts = [];
-  for (const tv of testTs) {
-    const sm = darlingtonSMatrix([0.5, tv], numPrimes);
-    const err = cAbs(cSub(sm.S12, sm.S21)); if (err > rMax) rMax = err;
-    rPts.push({ t: tv, error: err });
-  }
-  const reciprocityTest = { points: rPts, maxError: rMax, passes: rMax < 1e-10 };
-
-  // (b) Unitarity
   let uMax = 0; const uPts = [];
   for (const tv of testTs) {
     const sm = darlingtonSMatrix([0.5, tv], numPrimes);
-    const pw = cAbs(sm.S11)**2 + cAbs(sm.S21)**2, err = Math.abs(pw - 1);
-    if (err > uMax) uMax = err;
-    uPts.push({ t: tv, powerSum: pw, error: err });
+    const rErr = cAbs(cSub(sm.S12, sm.S21)); if (rErr > rMax) rMax = rErr;
+    rPts.push({ t: tv, error: rErr });
+    const pw = cAbs(sm.S11)**2 + cAbs(sm.S21)**2, uErr = Math.abs(pw - 1);
+    if (uErr > uMax) uMax = uErr;
+    uPts.push({ t: tv, powerSum: pw, error: uErr });
   }
+  const reciprocityTest = { points: rPts, maxError: rMax, passes: rMax < 1e-10 };
   const unitarityTest = { points: uPts, maxError: uMax, passes: uMax < 0.1 };
 
   // (c) Realizability

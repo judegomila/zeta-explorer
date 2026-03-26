@@ -232,8 +232,10 @@ export function pascalRowConvergence(s, maxRows = 40) {
 }
 
 /**
- * Row-weighted Dirichlet polynomial: Z_N(s) = Σ_{k=0}^{N} C(N,k)(k+1)^{-s}
- * Shows the "shape" of a single Pascal row's contribution to zeta
+ * Row-weighted Dirichlet polynomial: Z_N(s) = Σ_{k=0}^{N} (-1)^k C(N,k)(k+1)^{-s}
+ * Shows the "shape" of a single Pascal row's contribution to the Hasse–Sondow series.
+ * The alternating sign (-1)^k is essential — it matches hasseInnerSum and is what
+ * makes the series converge for Re(s) > 0 rather than only Re(s) > 1.
  */
 export function rowWeightedDirichlet(N, sigmaRange = [0.05, 3.0], t = 0, steps = 60) {
   const points = [];
@@ -243,7 +245,8 @@ export function rowWeightedDirichlet(N, sigmaRange = [0.05, 3.0], t = 0, steps =
     const s = [sigma, t];
     let re = 0, im = 0;
     for (let k = 0; k <= N; k++) {
-      const coeff = binomial(N, k);
+      const sign = (k % 2 === 0) ? 1 : -1;
+      const coeff = sign * binomial(N, k);
       const base = k + 1;
       const mag = Math.pow(base, -sigma);
       const phase = -t * Math.log(base);

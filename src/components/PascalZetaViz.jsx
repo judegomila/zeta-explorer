@@ -728,7 +728,7 @@ function DecoratedTab() {
       <div className="tab-explainer accent-orange">
         The "decorated" zeta scans <InlineMath tex={"|\zeta(\sigma + it)|"} /> across <InlineMath tex={"\sigma"} /> using the
         full Hasse–Sondow series (top), while the bottom shows a single Pascal row's Dirichlet
-        polynomial <InlineMath tex={"Z_N(s) = \sum_{k=0}^N \binom{N}{k}(k+1)^{-s}"} />.
+        polynomial <InlineMath tex={"Z_N(s) = \\sum_{k=0}^N (-1)^k\\binom{N}{k}(k+1)^{-s}"} />.
         <strong> Look for:</strong> the dip near <InlineMath tex={"\sigma = 0.5"} /> when <InlineMath tex="t" /> is
         close to a zeta zero, and higher rows growing exponentially for small <InlineMath tex={"\sigma"} />.
       </div>
@@ -768,7 +768,7 @@ function DecoratedTab() {
           <strong style={{ color: '#8b5cf6' }}>Bottom:</strong> A single row's Dirichlet polynomial —
           the "shape" of row <InlineMath tex={"N"} />'s contribution:
         </p>
-        <BlockMath tex={"Z_N(s) = \\sum_{k=0}^{N} \\binom{N}{k}(k+1)^{-s}"} />
+        <BlockMath tex={"Z_N(s) = \\sum_{k=0}^{N} (-1)^k\\binom{N}{k}(k+1)^{-s}"} />
         <p style={{ margin: 0 }}>
           Higher rows grow exponentially for small <InlineMath tex={"\\sigma"} />.
         </p>

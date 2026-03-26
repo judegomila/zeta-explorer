@@ -279,7 +279,8 @@ export default function EnergyLandscapeViz() {
       <div className="controls">
         <div className="control-group">
           <label>Metric</label>
-          <select value={metric} onChange={e => setMetric(e.target.value)}>
+          <select value={metric} onChange={e => setMetric(e.target.value)}
+            title="Choose which quantity to display on the heatmap: total Hamiltonian energy, impedance mismatch between direct/dual ladders, or raw zeta magnitude.">
             <option value="energy">System Energy</option>
             <option value="mismatch">Impedance Mismatch</option>
             <option value="directMag">|ζ(s)| Direct</option>
@@ -289,12 +290,14 @@ export default function EnergyLandscapeViz() {
         <div className="control-group">
           <label>t max</label>
           <input type="range" min="10" max="80" step="5" value={tMax}
+            title="Upper bound for the imaginary axis — controls how many zeta zeros fall within the visible heatmap region."
             onChange={e => setTMax(+e.target.value)} />
           <span className="control-value">{tMax} <span style={{ color: '#64748b', fontSize: 11 }}>({ZETA_ZEROS.filter(g => g <= tMax).length} zeros visible)</span></span>
         </div>
         <div className="control-group">
           <label>Primes</label>
           <input type="range" min="3" max="30" step="1" value={numPrimesDisplay}
+            title="Number of prime oscillators — more primes refine the energy landscape but increase computation time."
             onChange={e => {
               const v = +e.target.value;
               setNumPrimesDisplay(v);

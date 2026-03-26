@@ -710,3 +710,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 748 | 2026-03-25T22:30:00Z | Replace O(n) linear scan with O(log n) binary search for nearest zeta zero in RHRigorViz | RHRigorViz.jsx |
 | 749 | 2026-03-25T23:00:00Z | Fix Γ display showing unsigned |Γ| in WaveSimViz and OscillatorChainViz bridge labels | WaveSimViz.jsx, OscillatorChainViz.jsx |
 | 750 | 2026-03-25T14:30:00Z | Fix misleading 'conjugate-matched' RF terminology in impedance mismatch explainer | EnergyLandscapeViz.jsx, oscillators.js |
+| 751 | 2026-03-26T00:15:00Z | Add descriptive tooltips to all controls in EnergyLandscapeViz | EnergyLandscapeViz.jsx |

@@ -304,6 +304,7 @@ export default function OscillatorChainViz() {
         <div className="control-group">
           <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="1" max="60" step="0.1" value={t}
+            title="Imaginary part of s — controls oscillation frequencies. Near a zeta zero γₙ the chain resonates and energy peaks."
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
           {(() => {

@@ -703,3 +703,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 741 | 2026-03-25T23:00:00Z | Fix Hodge number h^{2,1} definition using tangent sheaf T_X instead of Ω²_X in CalabiYauPage | CalabiYauPage.jsx |
 | 742 | 2026-03-25T23:30:00Z | Add distinct dash patterns to confinement potential component curves in GapClosingViz | GapClosingViz.jsx |
 | 743 | 2026-03-26T00:00:00Z | Fix Keiper-Li asymptotic formula using 4π instead of correct 2π | LiCriterionViz.jsx |
+| 744 | 2026-03-25T00:30:00Z | Hoist zeta-zero proximity search out of 60fps animation loop in SignalFlowTab | WaveSimViz.jsx |

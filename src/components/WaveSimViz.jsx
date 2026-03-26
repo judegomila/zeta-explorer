@@ -36,6 +36,16 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
     };
   }, [sigma, t, numPrimes]);
 
+  // Hoist zeta-zero proximity check out of the 60fps draw loop — it depends only on t
+  const nearZeroData = useMemo(() => {
+    let dist = Infinity;
+    for (let zi = 0; zi < ZETA_ZEROS.length && ZETA_ZEROS[zi] < t + 3; zi++) {
+      const d = Math.abs(t - ZETA_ZEROS[zi]);
+      if (d < dist) dist = d;
+    }
+    return { nearZero: dist < 0.5, nearZeroDist: dist };
+  }, [t]);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -144,14 +154,8 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
     ctx.fill();
     ctx.stroke();
 
-    // ── Standing wave indicator: check if t is near a zeta zero ──
-    let nearZero = false;
-    let nearZeroDist = Infinity;
-    for (let zi = 0; zi < ZETA_ZEROS.length && ZETA_ZEROS[zi] < t + 3; zi++) {
-      const d = Math.abs(t - ZETA_ZEROS[zi]);
-      if (d < nearZeroDist) nearZeroDist = d;
-    }
-    nearZero = nearZeroDist < 0.5;
+    // ── Standing wave indicator: use memoized zeta-zero proximity ──
+    const { nearZero, nearZeroDist } = nearZeroData;
 
     // Standing wave notification
     if (nearZero) {
@@ -374,7 +378,7 @@ function SignalFlowTab({ sigma, t, numPrimes, playing, phase }) {
     ctx.fillStyle = '#f59e0b';
     ctx.fillText(`|ζ(1−s)| ≈ ${isFinite(dualMag) ? dualMag.toFixed(3) : '—'}`, W - 14, lgY + 18);
 
-  }, [flowData, numPrimes, phase]);
+  }, [flowData, nearZeroData, numPrimes, phase]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

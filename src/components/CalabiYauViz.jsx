@@ -507,7 +507,7 @@ function LocalZetaTab() {
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.fillStyle = '#3b82f6';
     ctx.textAlign = 'left';
-    ctx.fillText('|a_p| (blue=pos, red=neg)', margin.left + 8, margin.top + 14);
+    ctx.fillText('a_p coefficients (blue \u2265 0, red < 0)', margin.left + 8, margin.top + 14);
     ctx.fillStyle = '#f59e0b';
     ctx.fillText('— Ramanujan bound: 2p^(3/2)', margin.left + 8, margin.top + 30);
 

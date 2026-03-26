@@ -723,3 +723,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 761 | 2026-03-25T22:00:00Z | Avoid per-frame canvas buffer reallocation in HeroSignalFlow animation | HeroSignalFlow.jsx |
 | 762 | 2026-03-25T22:30:00Z | Fix GUE number variance formula missing 2π factor in StatisticsPage overview | StatisticsPage.jsx |
 | 763 | 2026-03-25T23:00:00Z | Fix LadderFreezingTab grid lines and tick labels at t=0 rendering outside chart boundary | TwinLadderViz.jsx |
+| 764 | 2026-03-25T23:30:00Z | Fix misleading |a_p| absolute-value label on signed coefficient chart in CalabiYauViz | CalabiYauViz.jsx |

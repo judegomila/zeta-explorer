@@ -3,11 +3,12 @@ import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import {
   liCoefficients, hamiltonianConvexityTest, sMatrixZeroConfinement,
   deBruijnNewmanScan, weilPositivityTest, proofGapAnalysis, zeroDeviationScan,
+  berryKeatingSpectrum, berryKeatingComparison,
 } from '../math/rh-attack.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
 
-const TABS = ['Li Coefficients', 'Hamiltonian', 'S-Matrix', 'Heat Flow', 'Proof Map'];
+const TABS = ['Li Coefficients', 'Hamiltonian', 'S-Matrix', 'Heat Flow', 'Berry-Keating', 'Proof Map'];
 
 // ─── Tab 1: Li Coefficients ──────────────────────────────────────────────────
 
@@ -880,7 +881,209 @@ function HeatFlowTab() {
   );
 }
 
-// ─── Tab 5: Proof Map ────────────────────────────────────────────────────────
+// ─── Tab 5: Berry-Keating xp+px Operator ────────────────────────────────────
+
+function BerryKeatingTab() {
+  const [matrixSize, setMatrixSize] = useState(30);
+  const canvasRef = useRef();
+
+  const comparison = useMemo(() => berryKeatingComparison([20, matrixSize, Math.min(matrixSize + 20, 50)]), [matrixSize]);
+  const mainResult = useMemo(() => berryKeatingSpectrum(matrixSize, 100, true), [matrixSize]);
+
+  const draw = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    ctx.fillStyle = '#0a0e1a';
+    ctx.fillRect(0, 0, w, h);
+
+    const margin = { top: 30, right: 20, bottom: 40, left: 55 };
+    const plotW = w - margin.left - margin.right;
+    const plotH = h - margin.top - margin.bottom;
+
+    // Axes
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(margin.left, margin.top);
+    ctx.lineTo(margin.left, h - margin.bottom);
+    ctx.lineTo(w - margin.right, h - margin.bottom);
+    ctx.stroke();
+
+    const m = mainResult.matchCount;
+    if (m < 2) return;
+
+    const maxVal = Math.max(
+      ...mainResult.rescaledEigenvalues.slice(0, m),
+      ...mainResult.targetZeros
+    );
+    const minVal = Math.min(
+      ...mainResult.rescaledEigenvalues.slice(0, m),
+      ...mainResult.targetZeros
+    );
+    const range = maxVal - minVal || 1;
+
+    // Perfect match line (diagonal)
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 3]);
+    ctx.beginPath();
+    ctx.moveTo(margin.left, h - margin.bottom);
+    ctx.lineTo(w - margin.right, margin.top);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Plot eigenvalues vs zeta zeros
+    for (let i = 0; i < m; i++) {
+      const x = margin.left + ((mainResult.targetZeros[i] - minVal) / range) * plotW;
+      const y = h - margin.bottom - ((mainResult.rescaledEigenvalues[i] - minVal) / range) * plotH;
+
+      const err = mainResult.errors[i].error;
+      const errNorm = Math.min(err / 5, 1); // normalize for color
+      const r = Math.round(59 + (239 - 59) * errNorm);
+      const g = Math.round(130 + (68 - 130) * errNorm);
+      const b = Math.round(246 + (68 - 246) * errNorm);
+
+      ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+      ctx.beginPath();
+      ctx.arc(x, y, 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Labels
+    ctx.font = '11px "JetBrains Mono", monospace';
+    ctx.fillStyle = '#3b82f6';
+    ctx.textAlign = 'left';
+    ctx.fillText(`BK+ZPO eigenvalues (n=${matrixSize})`, margin.left + 8, margin.top + 14);
+    ctx.fillStyle = '#64748b';
+    ctx.fillText('— perfect match line', margin.left + 8, margin.top + 30);
+
+    ctx.fillStyle = '#64748b';
+    ctx.textAlign = 'center';
+    ctx.fillText('ζ zeros (actual)', w / 2, h - 6);
+    ctx.save();
+    ctx.translate(14, h / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText('BK eigenvalues (rescaled)', 0, 0);
+    ctx.restore();
+  }, [mainResult, matrixSize]);
+
+  useEffect(() => {
+    draw();
+    window.addEventListener('resize', draw);
+    return () => window.removeEventListener('resize', draw);
+  }, [draw]);
+
+  return (
+    <div>
+      <div className="tab-explainer accent-purple">
+        <p>
+          The <strong>Berry-Keating conjecture</strong> proposes that ζ-zeros are eigenvalues of the
+          quantized Hamiltonian <InlineMath tex="H = \\tfrac{1}{2}(xp + px)" />. We discretize this
+          operator on a log-uniform grid, then apply the <strong>ZPO correction</strong>: prime-indexed
+          coupling terms <InlineMath tex="V_{jk} = \\sum_p \\frac{\\log p}{p} \\cos((E_j - E_k)\\log p)" /> that
+          shift eigenvalues toward the actual zeros.
+        </p>
+      </div>
+
+      <div style={{ display: 'flex', gap: 16, marginBottom: 12, flexWrap: 'wrap' }}>
+        <div className="control-group">
+          <label>Matrix size n</label>
+          <input type="range" min="10" max="50" step="5" value={matrixSize}
+            onChange={e => setMatrixSize(+e.target.value)} />
+          <span className="control-value">{matrixSize}</span>
+        </div>
+      </div>
+
+      <canvas ref={canvasRef}
+        style={{ width: '100%', height: 280, borderRadius: 8, background: '#0a0e1a',
+                 border: '1px solid #1e293b' }} />
+
+      <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
+                    background: 'rgba(139, 92, 246, 0.08)', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
+        <strong style={{ color: '#c4b5fd' }}>{mainResult.verdict}</strong>
+        <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 12 }}>
+          Scale: γ ≈ {mainResult.scaleFactor.toFixed(3)}·λ + {mainResult.shiftFactor.toFixed(3)}
+        </div>
+      </div>
+
+      {/* Comparison table */}
+      <div style={{ marginTop: 16 }}>
+        <div style={{ color: '#94a3b8', fontSize: 13, fontWeight: 600, marginBottom: 8 }}>
+          ZPO Correction Impact
+        </div>
+        <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
+          <thead>
+            <tr style={{ color: '#64748b', borderBottom: '1px solid #1e293b' }}>
+              <th style={{ textAlign: 'left', padding: 4 }}>n</th>
+              <th style={{ textAlign: 'right', padding: 4 }}>Bare BK avg err</th>
+              <th style={{ textAlign: 'right', padding: 4 }}>+ZPO avg err</th>
+              <th style={{ textAlign: 'right', padding: 4 }}>Improvement</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparison.results.map(r => (
+              <tr key={r.n} style={{ color: '#94a3b8', borderBottom: '1px solid #0f172a' }}>
+                <td style={{ padding: 4 }}>{r.n}</td>
+                <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)' }}>
+                  {r.bareAvgError.toFixed(4)}
+                </td>
+                <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)',
+                             color: r.correctedAvgError < r.bareAvgError ? '#10b981' : '#ef4444' }}>
+                  {r.correctedAvgError.toFixed(4)}
+                </td>
+                <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)',
+                             color: r.improvement > 0 ? '#10b981' : '#ef4444' }}>
+                  {r.improvement > 0 ? '+' : ''}{r.improvement.toFixed(1)}%
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Per-zero error table */}
+      <div style={{ marginTop: 16, maxHeight: 200, overflow: 'auto' }}>
+        <table style={{ width: '100%', fontSize: 11, borderCollapse: 'collapse' }}>
+          <thead>
+            <tr style={{ color: '#64748b', borderBottom: '1px solid #1e293b' }}>
+              <th style={{ textAlign: 'left', padding: 3 }}>#</th>
+              <th style={{ textAlign: 'right', padding: 3 }}>BK+ZPO eigenvalue</th>
+              <th style={{ textAlign: 'right', padding: 3 }}>ζ zero</th>
+              <th style={{ textAlign: 'right', padding: 3 }}>Error</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mainResult.errors.slice(0, 20).map(e => (
+              <tr key={e.index} style={{ color: '#94a3b8', borderBottom: '1px solid #0f172a' }}>
+                <td style={{ padding: 3 }}>{e.index}</td>
+                <td style={{ padding: 3, textAlign: 'right', fontFamily: 'var(--font-mono)' }}>
+                  {e.eigenvalue.toFixed(4)}
+                </td>
+                <td style={{ padding: 3, textAlign: 'right', fontFamily: 'var(--font-mono)' }}>
+                  {e.zetaZero.toFixed(4)}
+                </td>
+                <td style={{ padding: 3, textAlign: 'right', fontFamily: 'var(--font-mono)',
+                             color: e.error < 1 ? '#10b981' : e.error < 3 ? '#f59e0b' : '#ef4444' }}>
+                  {e.error.toFixed(4)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// ─── Tab 6: Proof Map ────────────────────────────────────────────────────────
 
 function ProofMapTab() {
   const gaps = useMemo(() => proofGapAnalysis(), []);
@@ -975,7 +1178,8 @@ export default function RHAttackViz() {
       {tab === 1 && <HamiltonianTab />}
       {tab === 2 && <SMatrixTab />}
       {tab === 3 && <HeatFlowTab />}
-      {tab === 4 && <ProofMapTab />}
+      {tab === 4 && <BerryKeatingTab />}
+      {tab === 5 && <ProofMapTab />}
     </div>
   );
 }

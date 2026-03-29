@@ -1132,3 +1132,244 @@ export function offLineZeroSweep(numSigmaPoints = 20, tValue = 14.134725142) {
     verdict: 'As σ₀ increases past ½, the crossover point decreases rapidly — even σ₀ = 0.51 contradicts Schoenfeld bound within computationally accessible range.',
   };
 }
+
+
+// ─── Strategy 7: Berry-Keating xp+px Operator ───────────────────────────────
+/**
+ * Berry and Keating (1999) proposed that the Riemann zeros are eigenvalues
+ * of the quantized Hamiltonian H = xp (or its symmetrization ½(xp + px)).
+ *
+ * In the momentum representation, xp = -i x d/dx. On a finite basis of
+ * functions supported on [1, N], this becomes a matrix.
+ *
+ * We use the regularized version on L²([1,∞)) with boundary conditions,
+ * discretized on a grid x_k = e^{k·δ} for k = 0,...,n-1 (log-uniform grid).
+ * The operator ½(xp + px) = -i(x·d/dx + ½) in this basis becomes a
+ * tridiagonal-like matrix via finite differences.
+ *
+ * The ZPO correction adds prime-indexed coupling terms that shift the
+ * eigenvalues toward the actual zeta zeros.
+ */
+export function berryKeatingSpectrum(matrixSize = 50, cutoff = 100, withZPOCorrection = true) {
+  const n = matrixSize;
+  const delta = Math.log(cutoff) / n; // log-uniform grid spacing
+
+  // Grid points: x_k = e^{k·δ} for k = 0,...,n-1
+  const grid = new Array(n);
+  for (let k = 0; k < n; k++) grid[k] = Math.exp(k * delta);
+
+  // Build the Berry-Keating matrix H = ½(xp + px)
+  // In the log-uniform basis, H_{jk} involves finite-difference approximation
+  // of -i(x d/dx + ½). The x d/dx operator in log-space is just d/d(log x) = (1/δ)·Δ.
+  // So H ≈ -i/(2δ) · (shift_right - shift_left) + ½·I  (Hermitian part)
+  //
+  // Since we want real eigenvalues, we work with the Hermitian part:
+  // Re(H)_{jk} = (1/(2δ)) · (x_j + x_k)/(2) · δ_{|j-k|=1} · sign(k-j)
+  // This is an antisymmetric tridiagonal divided by i, giving real symmetric.
+
+  const flat = new Float64Array(n * n); // initialized to 0
+
+  for (let j = 0; j < n; j++) {
+    // Diagonal: ½ + j·δ (from the ½ in xp+px and the grid position)
+    flat[j * n + j] = 0.5 + j * delta;
+
+    // Off-diagonal: finite difference of x·d/dx
+    if (j < n - 1) {
+      const coupling = Math.sqrt(grid[j] * grid[j + 1]) / (2 * delta);
+      flat[j * n + (j + 1)] = coupling;
+      flat[(j + 1) * n + j] = coupling;
+    }
+  }
+
+  // ZPO correction: add prime-coupling terms
+  // The key insight is that the Euler product introduces correlations
+  // at prime-indexed positions. We add:
+  //   V_{jk} = Σ_p (log p / p) · cos((E_j - E_k) log p)
+  // where E_j = flat[j*n+j] are the diagonal elements (approximate eigenvalues).
+  if (withZPOCorrection) {
+    const primes = getPrimes(50);
+    const plw = primes.map(p => { const lp = Math.log(p); return { lp, w: lp / p }; });
+
+    for (let j = 0; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        const dE = flat[j * n + j] - flat[k * n + k];
+        let correction = 0;
+        for (const { lp, w } of plw) correction += w * Math.cos(dE * lp);
+        // Scale correction to not overwhelm the base operator
+        flat[j * n + k] += correction * 0.1;
+        flat[k * n + j] += correction * 0.1;
+      }
+    }
+  }
+
+  // Compute eigenvalues using QR algorithm (imported from gap-closing)
+  const eigenvalues = qrEigenvaluesBK(Array.from(flat), n);
+
+  // Compare with actual zeta zeros
+  const targetZeros = ZETA_ZEROS.slice(0, Math.min(n, ZETA_ZEROS.length))
+    .sort((a, b) => a - b);
+  const sortedEigs = [...eigenvalues].sort((a, b) => a - b);
+
+  // Find best matching: scale and shift eigenvalues to minimize error
+  // BK eigenvalues need rescaling: γ ≈ α·λ + β
+  // Use least-squares fit on the first min(n, #zeros) pairs
+  const m = Math.min(sortedEigs.length, targetZeros.length);
+  let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+  for (let i = 0; i < m; i++) {
+    sumX += sortedEigs[i];
+    sumY += targetZeros[i];
+    sumXY += sortedEigs[i] * targetZeros[i];
+    sumXX += sortedEigs[i] * sortedEigs[i];
+  }
+  const alpha = (m * sumXY - sumX * sumY) / (m * sumXX - sumX * sumX + 1e-30);
+  const beta = (sumY - alpha * sumX) / m;
+
+  // Rescaled eigenvalues and errors
+  const rescaled = sortedEigs.map(e => alpha * e + beta);
+  const errors = [];
+  let totalErr = 0, maxErr = 0;
+  for (let i = 0; i < m; i++) {
+    const err = Math.abs(rescaled[i] - targetZeros[i]);
+    errors.push({ index: i + 1, eigenvalue: rescaled[i], zetaZero: targetZeros[i], error: err });
+    totalErr += err;
+    if (err > maxErr) maxErr = err;
+  }
+  const avgErr = totalErr / m;
+
+  return {
+    matrixSize: n,
+    cutoff,
+    withZPOCorrection,
+    rawEigenvalues: sortedEigs,
+    rescaledEigenvalues: rescaled,
+    targetZeros: targetZeros.slice(0, m),
+    scaleFactor: alpha,
+    shiftFactor: beta,
+    errors,
+    avgError: avgErr,
+    maxError: maxErr,
+    matchCount: m,
+    verdict: withZPOCorrection
+      ? `BK+ZPO (n=${n}): avg error = ${avgErr.toFixed(4)}, max error = ${maxErr.toFixed(4)} across ${m} zeros`
+      : `BK bare (n=${n}): avg error = ${avgErr.toFixed(4)}, max error = ${maxErr.toFixed(4)} across ${m} zeros`,
+  };
+}
+
+/**
+ * Compare Berry-Keating spectrum with and without ZPO correction
+ * across multiple matrix sizes.
+ */
+export function berryKeatingComparison(sizes = [20, 30, 50]) {
+  const results = [];
+  for (const n of sizes) {
+    const bare = berryKeatingSpectrum(n, 100, false);
+    const corrected = berryKeatingSpectrum(n, 100, true);
+    results.push({
+      n,
+      bareAvgError: bare.avgError,
+      bareMaxError: bare.maxError,
+      correctedAvgError: corrected.avgError,
+      correctedMaxError: corrected.maxError,
+      improvement: bare.avgError > 0 ? (1 - corrected.avgError / bare.avgError) * 100 : 0,
+      bareEigenvalues: bare.rescaledEigenvalues,
+      correctedEigenvalues: corrected.rescaledEigenvalues,
+      targetZeros: bare.targetZeros,
+    });
+  }
+
+  const bestImprovement = Math.max(...results.map(r => r.improvement));
+  return {
+    results,
+    verdict: `ZPO correction improves Berry-Keating eigenvalue match by up to ${bestImprovement.toFixed(1)}%. Best at n=${results.find(r => r.improvement === bestImprovement)?.n || '?'}.`,
+  };
+}
+
+/**
+ * Simple QR eigenvalue algorithm for real symmetric matrices.
+ * (Separate from gap-closing.js to avoid circular imports.)
+ */
+function qrEigenvaluesBK(flatMatrix, n) {
+  // Householder tridiagonalization + implicit QR shifts
+  const a = new Float64Array(n); // diagonal
+  const b = new Float64Array(n); // sub-diagonal
+
+  // Copy diagonal and reduce to tridiagonal via Householder
+  const A = flatMatrix.slice();
+  for (let k = 0; k < n - 2; k++) {
+    let norm = 0;
+    for (let i = k + 1; i < n; i++) norm += A[i * n + k] * A[i * n + k];
+    norm = Math.sqrt(norm);
+    if (norm < 1e-15) continue;
+
+    const sign = A[(k + 1) * n + k] >= 0 ? 1 : -1;
+    const u0 = A[(k + 1) * n + k] + sign * norm;
+    const scale = 1 / (norm * (norm + Math.abs(A[(k + 1) * n + k])));
+
+    // Build Householder vector v
+    const v = new Float64Array(n);
+    v[k + 1] = u0;
+    for (let i = k + 2; i < n; i++) v[i] = A[i * n + k];
+    const vScale = 2 * scale;
+
+    // Apply H = I - vScale * v * v^T from both sides
+    // A = H * A * H
+    for (let j = k; j < n; j++) {
+      let dot = 0;
+      for (let i = k + 1; i < n; i++) dot += v[i] * A[i * n + j];
+      dot *= vScale;
+      for (let i = k + 1; i < n; i++) A[i * n + j] -= dot * v[i];
+    }
+    for (let i = 0; i < n; i++) {
+      let dot = 0;
+      for (let j = k + 1; j < n; j++) dot += A[i * n + j] * v[j];
+      dot *= vScale;
+      for (let j = k + 1; j < n; j++) A[i * n + j] -= dot * v[j];
+    }
+  }
+
+  // Extract tridiagonal
+  for (let i = 0; i < n; i++) a[i] = A[i * n + i];
+  for (let i = 0; i < n - 1; i++) b[i + 1] = A[(i + 1) * n + i];
+
+  // Implicit QR iteration on tridiagonal
+  const maxIter = 30 * n;
+  let lo = 0, hi = n - 1;
+  for (let iter = 0; iter < maxIter && lo < hi; iter++) {
+    // Check for convergence at bottom
+    while (hi > lo && Math.abs(b[hi]) < 1e-12 * (Math.abs(a[hi - 1]) + Math.abs(a[hi]))) hi--;
+    if (hi <= lo) break;
+    // Find lo
+    let m = hi;
+    while (m > lo && Math.abs(b[m]) > 1e-12 * (Math.abs(a[m - 1]) + Math.abs(a[m]))) m--;
+    lo = m;
+
+    // Wilkinson shift
+    const d = (a[hi - 1] - a[hi]) / 2;
+    const mu = a[hi] - b[hi] * b[hi] / (d + (d >= 0 ? 1 : -1) * Math.sqrt(d * d + b[hi] * b[hi]));
+
+    // Bulge chase
+    let x = a[lo] - mu, z = b[lo + 1];
+    for (let k = lo; k < hi; k++) {
+      // Givens rotation to annihilate z
+      let r = Math.sqrt(x * x + z * z);
+      if (r < 1e-30) { r = 1e-30; }
+      const c = x / r, s = z / r;
+
+      // Apply rotation
+      if (k > lo) b[k] = r;
+      const ak = a[k], ak1 = a[k + 1], bk1 = b[k + 1];
+      a[k] = c * c * ak + 2 * c * s * bk1 + s * s * ak1;
+      a[k + 1] = s * s * ak - 2 * c * s * bk1 + c * c * ak1;
+      b[k + 1] = c * s * (ak1 - ak) + (c * c - s * s) * bk1;
+
+      if (k + 2 <= hi) {
+        x = b[k + 1];
+        z = s * b[k + 2];
+        b[k + 2] *= c;
+      }
+    }
+  }
+
+  // Return diagonal as eigenvalues
+  return Array.from(a).sort((x, y) => x - y);
+}

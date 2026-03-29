@@ -4,6 +4,7 @@ import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { getAllExplorations } from '../data/explorations.js';
 import { getAllReferences } from '../data/literature.js';
 import InsightDAG from '../components/InsightDAG.jsx';
+import HeroSignalFlow from '../components/HeroSignalFlow.jsx';
 
 /* ─── Inline SVG diagrams for model build-up ─── */
 
@@ -607,30 +608,14 @@ export default function HomePage() {
       <div className="hero">
         <h1>Zeta Prime Oscillator Explorer</h1>
         <p>
-          Understanding the Riemann Hypothesis through prime oscillator chains,
-          ladder networks, and Hamiltonian minimization — a bridge between number theory,
-          circuit theory, and control systems.
+          A computational laboratory for attacking the Riemann Hypothesis from every angle —
+          circuit theory, spectral geometry, Calabi-Yau manifolds, information theory, twistor duality,
+          random matrices, and control systems. Interactive visualizations, formal proof attempts,
+          and adversarial testing across 30+ pages of mathematical exploration.
         </p>
       </div>
 
-      <div className="stat-grid">
-        <div className="stat-box">
-          <div className="stat-value" style={{ color: '#3b82f6' }}>{explorations.length}</div>
-          <div className="stat-label">Explorations</div>
-        </div>
-        <div className="stat-box">
-          <div className="stat-value" style={{ color: '#8b5cf6' }}>{references.length}</div>
-          <div className="stat-label">References</div>
-        </div>
-        <div className="stat-box">
-          <div className="stat-value" style={{ color: '#f59e0b' }}>29</div>
-          <div className="stat-label">Pages</div>
-        </div>
-        <div className="stat-box">
-          <div className="stat-value" style={{ color: '#ec4899' }}>34</div>
-          <div className="stat-label">Visualizations</div>
-        </div>
-      </div>
+      <HeroSignalFlow />
 
       {/* ══════════════ BUILDING THE MODEL ══════════════ */}
       <h2 style={{ fontSize: 22, fontWeight: 700, marginTop: 48, marginBottom: 8 }}>
@@ -901,6 +886,13 @@ export default function HomePage() {
             <h3 style={{ color: '#f97316' }}>Odd Zeta Values</h3>
             <p>Irrationality of <InlineMath tex={"\\zeta(2n+1)"} /> via Chaitin's constant and
                algorithmic information theory.</p>
+          </div>
+        </Link>
+        <Link to="/calabi-yau" style={{ textDecoration: 'none' }}>
+          <div className="card">
+            <h3 style={{ color: '#8b5cf6' }}>Calabi-Yau Attack</h3>
+            <p>6-dimensional manifold geometry, Weil conjectures as finite-field RH,
+               Hodge structure, and spectral universality.</p>
           </div>
         </Link>
       </div>

@@ -37,6 +37,7 @@ const HistoricalReasoningPage = lazy(() => import('./pages/HistoricalReasoningPa
 const PaperUploadPage = lazy(() => import('./pages/PaperUploadPage.jsx'));
 const PapersListPage = lazy(() => import('./pages/PapersListPage.jsx'));
 const TwinLadderPage = lazy(() => import('./pages/TwinLadderPage.jsx'));
+const CalabiYauPage = lazy(() => import('./pages/CalabiYauPage.jsx'));
 
 function PageLoader() {
   return (
@@ -71,6 +72,7 @@ const NAV_GROUPS = [
       { to: '/pascal', label: 'Pascal' },
       { to: '/odd-zeta', label: 'Odd Zeta' },
       { to: '/twin-ladder', label: 'Twin Ladder' },
+      { to: '/calabi-yau', label: 'Calabi-Yau' },
     ],
   },
   {
@@ -225,6 +227,7 @@ export default function App() {
           <Route path="/papers" element={<PapersListPage />} />
           <Route path="/paper-upload" element={<PaperUploadPage />} />
           <Route path="/twin-ladder" element={<TwinLadderPage />} />
+          <Route path="/calabi-yau" element={<CalabiYauPage />} />
         </Routes>
         </Suspense>
       </div>

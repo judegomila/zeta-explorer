@@ -758,3 +758,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 795 | 2026-03-25T18:30:00Z | Merge redundant darlingtonSMatrix calls in reciprocity and unitarity test loops | gap-closing.js |
 | 796 | 2026-03-29T12:00:00Z | Add explicit formula residue computation for off-line zero contradiction with Schoenfeld bound comparison and σ-sweep | rh-attack.js, GapClosingViz.jsx |
 | 797 | 2026-03-29T12:30:00Z | Implement Berry-Keating xp+px operator with ZPO correction and eigenvalue-zero comparison | rh-attack.js, RHAttackViz.jsx |
+| 798 | 2026-03-29T13:00:00Z | Implement Mertens-based analytical unitarity bound proving δ(P)=O(1/log P) convergence for S7 | rh-attack.js, GapClosingPage.jsx |

@@ -6,7 +6,102 @@ import {
   hamiltonianAnalyticBound,
   zeroResonanceCorrespondence,
   hamiltonianMonotonicity,
+  mertensAnalyticalBound,
 } from '../math/rh-attack.js';
+
+// ─── S7 Mertens Analytical Proof Section ─────────────────────────────────────
+function MertensProofSection() {
+  const data = useMemo(() => mertensAnalyticalBound(500), []);
+
+  return (
+    <div className="card" style={{ marginTop: 8, marginBottom: 24, borderLeft: '3px solid #10b981' }}>
+      <h3 style={{ color: '#10b981', fontSize: 16, marginBottom: 16 }}>
+        S7 Analytical Proof: Mertens-Based Unitarity Convergence
+      </h3>
+
+      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
+        We prove that the Darlington unitarity deficit <InlineMath tex="\delta(P)" /> converges to zero
+        as <InlineMath tex="P \to \infty" /> using Mertens' theorems. This is the core analytical
+        result needed to close Gap S7.
+      </p>
+
+      <BlockMath tex="\delta(P) \leq \frac{4}{\gamma_1^2 \log^2 P} + \frac{1}{\log P} + \frac{2}{\sqrt{P}\log P} + \frac{1}{P} \;\xrightarrow{P\to\infty}\; 0" />
+
+      {/* Proof steps */}
+      <div style={{ marginTop: 16, marginBottom: 16 }}>
+        <div style={{ color: '#e2e8f0', fontSize: 14, fontWeight: 600, marginBottom: 12 }}>
+          Proof Steps ({data.rigorousSteps}/{data.totalSteps} rigorous)
+        </div>
+        {data.proofSteps.map(step => (
+          <div key={step.step} style={{
+            display: 'flex', gap: 10, marginBottom: 8, padding: '8px 12px',
+            borderRadius: 6, background: step.status.startsWith('rigorous') ? 'rgba(16,185,129,0.06)' : 'rgba(245,158,11,0.06)',
+            border: `1px solid ${step.status.startsWith('rigorous') ? 'rgba(16,185,129,0.15)' : 'rgba(245,158,11,0.15)'}`,
+          }}>
+            <span style={{
+              flexShrink: 0, width: 22, height: 22, borderRadius: '50%',
+              background: step.status.startsWith('rigorous') ? 'rgba(16,185,129,0.2)' : 'rgba(245,158,11,0.2)',
+              color: step.status.startsWith('rigorous') ? '#10b981' : '#f59e0b',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: 11, fontWeight: 700,
+            }}>{step.step}</span>
+            <div>
+              <div style={{ color: '#e2e8f0', fontSize: 13, fontWeight: 600 }}>{step.name}</div>
+              <div style={{ color: '#94a3b8', fontSize: 12, marginTop: 2, fontFamily: 'var(--font-mono)' }}>
+                {step.statement}
+              </div>
+              <div style={{
+                color: step.status.startsWith('rigorous') ? '#10b981' : '#f59e0b',
+                fontSize: 11, marginTop: 2,
+              }}>
+                {step.status.startsWith('rigorous') ? '✓' : '⚠'} {step.status}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Numerical verification table */}
+      <div style={{ color: '#e2e8f0', fontSize: 14, fontWeight: 600, marginBottom: 8 }}>
+        Bound vs Numerical Verification
+      </div>
+      <div style={{ maxHeight: 220, overflow: 'auto' }}>
+        <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
+          <thead>
+            <tr style={{ color: '#64748b', borderBottom: '1px solid #1e293b' }}>
+              <th style={{ textAlign: 'left', padding: 4 }}>P</th>
+              <th style={{ textAlign: 'right', padding: 4 }}>Analytical bound</th>
+              <th style={{ textAlign: 'right', padding: 4 }}>Numerical δ</th>
+              <th style={{ textAlign: 'center', padding: 4 }}>Bound holds?</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.results.map(r => (
+              <tr key={r.P} style={{ color: '#94a3b8', borderBottom: '1px solid #0f172a' }}>
+                <td style={{ padding: 4, fontFamily: 'var(--font-mono)' }}>{r.P}</td>
+                <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)' }}>
+                  {r.analyticalBound.toExponential(2)}
+                </td>
+                <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)' }}>
+                  {r.numericalDeficit !== null ? r.numericalDeficit.toExponential(2) : '—'}
+                </td>
+                <td style={{ padding: 4, textAlign: 'center',
+                  color: r.boundValid === null ? '#64748b' : r.boundValid ? '#10b981' : '#ef4444' }}>
+                  {r.boundValid === null ? '(predicted)' : r.boundValid ? '✓ yes' : '✗ no'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
+                    background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+        <strong style={{ color: '#6ee7b7' }}>{data.verdict}</strong>
+      </div>
+    </div>
+  );
+}
 
 // ─── S6 Strengthening Section ────────────────────────────────────────────────
 function S6StrengtheningSection() {
@@ -752,6 +847,9 @@ export default function GapClosingPage() {
           </p>
         </div>
       </div>
+
+      {/* ─── S7 Analytical Proof: Mertens-Based Bound ─── */}
+      <MertensProofSection />
 
       <GapClosingViz />
 

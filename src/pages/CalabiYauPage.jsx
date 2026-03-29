@@ -185,6 +185,144 @@ export default function CalabiYauPage() {
         </ul>
       </div>
 
+      <div className="card" style={{ marginTop: 16, borderLeft: '3px solid #f43f5e' }}>
+        <h3 style={{ color: '#f43f5e', fontSize: 14, marginBottom: 12 }}>
+          6. The Threefold Lift Strategy
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          The most direct route from Deligne to classical RH would be: find a Calabi-Yau 3-fold{' '}
+          <InlineMath tex="X / \mathbb{Q}" /> whose L-function of middle cohomology <em>equals</em> the
+          Riemann zeta function:
+        </p>
+        <BlockMath tex="L\bigl(H^3_{\text{\'{e}t}}(X),\, s\bigr) = \zeta(s)" />
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+          If such an <InlineMath tex="X" /> existed, Deligne{"'"}s theorem would immediately yield: the
+          eigenvalues of <InlineMath tex="\mathrm{Frob}_p" /> on <InlineMath tex="H^3" /> have absolute
+          value <InlineMath tex="p^{3/2}" />, and the zeros of <InlineMath tex="\zeta(s)" /> would be
+          forced onto the critical line. This is the <strong>threefold lift</strong> strategy.
+        </p>
+
+        <div style={{ marginTop: 16, padding: '12px 16px', borderRadius: 8,
+                      background: 'rgba(244, 63, 94, 0.08)', border: '1px solid rgba(244, 63, 94, 0.2)' }}>
+          <strong style={{ color: '#fb7185', fontSize: 13 }}>Why This Fails (Three Fundamental Obstructions)</strong>
+          <ol style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 2, marginTop: 8 }}>
+            <li>
+              <strong style={{ color: '#fbbf24' }}>Euler factor degree mismatch.</strong>{' '}
+              <InlineMath tex="\zeta(s)" /> has Euler factors <InlineMath tex="(1 - p^{-s})^{-1}" /> of
+              degree 1. A CY3 L-function has local factors{' '}
+              <InlineMath tex="P_3(p^{-s})^{-1}" /> of degree{' '}
+              <InlineMath tex="\deg P_3 = b_3 = 2 + 2h^{2,1}" />, which is at least 2 (for rigid CY3s
+              with <InlineMath tex="h^{2,1} = 0" />, <InlineMath tex="\deg P_3 = 2" />). There is no
+              variety whose <InlineMath tex="P_3" /> has degree 1.
+            </li>
+            <li>
+              <strong style={{ color: '#fbbf24' }}>Weight mismatch.</strong>{' '}
+              Deligne{"'"}s purity theorem gives Frobenius eigenvalues of absolute value{' '}
+              <InlineMath tex="p^{3/2}" /> (weight 3) on <InlineMath tex="H^3" />. But{' '}
+              <InlineMath tex="\zeta(s)" /> zeros correspond to weight 0 (eigenvalue{' '}
+              <InlineMath tex="p^{1/2}" /> at the critical point). No Tate twist or motivic operation
+              can bridge a weight gap of 3.
+            </li>
+            <li>
+              <strong style={{ color: '#fbbf24' }}>Infinite vs. finite.</strong>{' '}
+              <InlineMath tex="\zeta(s)" /> has infinitely many nontrivial zeros, so any "motivic"
+              realization would require infinite-dimensional cohomology. All algebraic varieties
+              produce finite-dimensional <InlineMath tex="H^k" />. This is the deepest
+              obstruction, pointing toward Deninger{"'"}s infinite-dimensional foliated spaces
+              or Connes{"'"} noncommutative geometry as potential frameworks.
+            </li>
+          </ol>
+        </div>
+
+        <div style={{ marginTop: 16, padding: '12px 16px', borderRadius: 8,
+                      background: 'rgba(59, 130, 246, 0.08)', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+          <strong style={{ color: '#93c5fd', fontSize: 13 }}>Partial Results & Analogies</strong>
+          <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+            <li>
+              <strong>Function field analog:</strong> For <InlineMath tex="\zeta_C(s)" /> of a curve{' '}
+              <InlineMath tex="C / \mathbb{F}_q" />, the threefold lift <em>does</em> work: the
+              zeta function is a rational function with finitely many zeros, all on{' '}
+              <InlineMath tex="\mathrm{Re}(s) = 1/2" /> (Weil, 1948).
+            </li>
+            <li>
+              <strong>Deninger{"'"}s program:</strong> Seeks an infinite-dimensional "arithmetic site"{' '}
+              <InlineMath tex="\mathcal{S}" /> with a foliation whose leaf-wise Laplacian has
+              spectrum equal to the Riemann zeros. The "regularized determinant" of this operator
+              would equal <InlineMath tex="\zeta(s)" />.
+            </li>
+            <li>
+              <strong>Connes{"'"} approach:</strong> The adele class space{' '}
+              <InlineMath tex="\mathbb{A}_{\mathbb{Q}} / \mathbb{Q}^*" /> carries a natural flow
+              whose Lefschetz trace formula reproduces the explicit formula for{' '}
+              <InlineMath tex="\zeta(s)" />. This is the closest noncommutative analog of the
+              threefold lift.
+            </li>
+            <li>
+              <strong>Families of CY3s:</strong> While no single CY3 suffices, families of CY3s
+              parameterized by moduli spaces produce L-functions that collectively encode rich
+              arithmetic data. The Langlands program connects these to automorphic forms.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="card" style={{ marginTop: 16, borderLeft: '3px solid #06b6d4' }}>
+        <h3 style={{ color: '#06b6d4', fontSize: 14, marginBottom: 12 }}>
+          7. The Fisher Efficiency Bridge
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          A striking connection between the CY spectral zeta and the Riemann zeta emerges through
+          <strong> Fisher information</strong>. For any spectral zeta function{' '}
+          <InlineMath tex="\zeta_\Delta(s) = \sum_n \lambda_n^{-s}" />, we can define a probability
+          distribution over eigenvalues parametrized by <InlineMath tex="\sigma = \mathrm{Re}(s)" />:
+        </p>
+        <BlockMath tex="p_n(\sigma) = \frac{\lambda_n^{-\sigma}}{\zeta_\Delta(\sigma)}, \qquad F(\sigma) = \sum_n p_n(\sigma)\!\left(\log\lambda_n - \langle\log\lambda\rangle_\sigma\right)^2" />
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+          This Fisher information <InlineMath tex="F(\sigma)" /> measures how sensitively the spectral
+          density responds to shifts in <InlineMath tex="\sigma" />. The key observation: <strong>both</strong> the
+          Riemann zeta (via its Euler product) and the CY spectral zeta exhibit a Fisher information
+          peak at their respective critical points — <InlineMath tex="\sigma = 1/2" /> for{' '}
+          <InlineMath tex="\zeta(s)" /> and <InlineMath tex="\sigma_c" /> for{' '}
+          <InlineMath tex="\zeta_\Delta(s)" />.
+        </p>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+          When we normalize both profiles to the rescaled coordinate{' '}
+          <InlineMath tex="\tilde\sigma = \sigma/\sigma_c" />, the Fisher curves align. This
+          <strong> universality of the Fisher peak</strong> suggests that the critical line is not a
+          coincidence specific to <InlineMath tex="\zeta(s)" />, but an information-theoretic
+          necessity: it is the point of maximal statistical distinguishability in the spectral
+          parameter, the point where the "spectral density" is most efficiently estimated.
+        </p>
+        <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+          <li>
+            <strong>Riemann zeta:</strong> The Euler product weights{' '}
+            <InlineMath tex="|1 - p^{-s}|^{-2}" /> define a prime-indexed distribution whose
+            Fisher information diverges as <InlineMath tex="\sigma \to 1/2" /> — the zeros
+            concentrate statistical sensitivity onto the critical line.
+          </li>
+          <li>
+            <strong>CY spectral zeta:</strong> The Laplacian eigenvalue weights{' '}
+            <InlineMath tex="\lambda_n^{-\sigma}" /> define a spectral distribution whose Fisher
+            information peaks at a critical <InlineMath tex="\sigma_c" /> determined by Weyl
+            asymptotics. For a 6-dimensional CY3, this is governed by the{' '}
+            <InlineMath tex="n^{1/3}" /> growth rate of eigenvalues.
+          </li>
+          <li>
+            <strong>Cross-check:</strong> We validate this bridge by comparing three independent
+            measures — GUE spacing statistics, Fisher profile correlation, and the Montgomery
+            pair correlation function <InlineMath tex="R_2" /> — between the CY spectrum and
+            Riemann zeros. High agreement across all three channels provides evidence for a
+            shared information-geometric structure.
+          </li>
+        </ul>
+        <p style={{ color: '#06b6d4', fontSize: 13, lineHeight: 1.8, marginTop: 12, fontWeight: 600 }}>
+          Implication: If the Fisher peak universality can be made rigorous — showing that
+          any "well-behaved" spectral zeta function must have its Fisher information concentrated
+          at the critical point — this would provide a new information-theoretic route to
+          understanding why zeros cluster on the critical line.
+        </p>
+      </div>
+
       {/* Gap analysis */}
       <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #ef4444' }}>
         <h3 style={{ color: '#ef4444', fontSize: 14, marginBottom: 12 }}>

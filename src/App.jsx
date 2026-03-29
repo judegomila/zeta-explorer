@@ -38,6 +38,7 @@ const PaperUploadPage = lazy(() => import('./pages/PaperUploadPage.jsx'));
 const PapersListPage = lazy(() => import('./pages/PapersListPage.jsx'));
 const TwinLadderPage = lazy(() => import('./pages/TwinLadderPage.jsx'));
 const CalabiYauPage = lazy(() => import('./pages/CalabiYauPage.jsx'));
+const CrossAttackPage = lazy(() => import('./pages/CrossAttackPage.jsx'));
 
 function PageLoader() {
   return (
@@ -87,6 +88,7 @@ const NAV_GROUPS = [
       { to: '/proof-checker', label: 'Proof Checker' },
       { to: '/reasoning', label: 'Reasoning' },
       { to: '/rigor', label: 'Rigor' },
+      { to: '/cross-attack', label: 'Cross-Attack' },
     ],
   },
   {
@@ -228,6 +230,7 @@ export default function App() {
           <Route path="/paper-upload" element={<PaperUploadPage />} />
           <Route path="/twin-ladder" element={<TwinLadderPage />} />
           <Route path="/calabi-yau" element={<CalabiYauPage />} />
+          <Route path="/cross-attack" element={<CrossAttackPage />} />
         </Routes>
         </Suspense>
       </div>

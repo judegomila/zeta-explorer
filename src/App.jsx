@@ -40,6 +40,7 @@ const TwinLadderPage = lazy(() => import('./pages/TwinLadderPage.jsx'));
 const CalabiYauPage = lazy(() => import('./pages/CalabiYauPage.jsx'));
 const CrossAttackPage = lazy(() => import('./pages/CrossAttackPage.jsx'));
 const ProofPlannerPage = lazy(() => import('./pages/ProofPlannerPage.jsx'));
+const ImprovementQueuePage = lazy(() => import('./pages/ImprovementQueuePage.jsx'));
 
 function PageLoader() {
   return (
@@ -105,6 +106,7 @@ const NAV_GROUPS = [
       { to: '/paper-upload', label: 'Upload' },
       { to: '/docs', label: 'Docs' },
       { to: '/improvements', label: 'Improvements' },
+      { to: '/improvement-queue', label: 'Queue' },
     ],
   },
 ];
@@ -234,6 +236,7 @@ export default function App() {
           <Route path="/calabi-yau" element={<CalabiYauPage />} />
           <Route path="/cross-attack" element={<CrossAttackPage />} />
           <Route path="/proof-planner" element={<ProofPlannerPage />} />
+          <Route path="/improvement-queue" element={<ImprovementQueuePage />} />
         </Routes>
         </Suspense>
       </div>

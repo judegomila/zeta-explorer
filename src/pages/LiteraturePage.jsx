@@ -178,23 +178,45 @@ export default function LiteraturePage() {
                     </div>
                   )}
                   {ref.doi && (
-                    <div style={{ marginTop: 8, fontSize: 12, color: '#64748b' }}>
+                    <div style={{ marginTop: 8, fontSize: 12, color: '#64748b', display: 'flex', alignItems: 'center', gap: 8 }}>
                       DOI: <span style={{ fontFamily: 'var(--font-mono)', color: '#3b82f6' }}>{ref.doi}</span>
+                      <a
+                        href={ref.doi.startsWith('10.48550/arXiv.') ? `https://arxiv.org/abs/${ref.doi.replace('10.48550/arXiv.', '')}` : `https://doi.org/${ref.doi}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={e => e.stopPropagation()}
+                        style={{ color: '#3b82f6', textDecoration: 'none', fontSize: 11 }}
+                      >
+                        ↗
+                      </a>
                     </div>
                   )}
-                  {(ref.doi || ref.url) && (
+                  {ref.url && (
                     <a
-                      href={ref.doi ? (ref.doi.includes('arXiv') ? `https://arxiv.org/abs/${ref.doi.replace('10.48550/arXiv.', '')}` : `https://doi.org/${ref.doi}`) : ref.url}
+                      href={ref.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={e => e.stopPropagation()}
                       style={{
-                        display: 'inline-block', marginTop: 8,
-                        color: '#3b82f6', fontSize: 12,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 6,
+                        marginTop: 10,
+                        padding: '5px 12px',
+                        background: 'rgba(59, 130, 246, 0.1)',
+                        border: '1px solid rgba(59, 130, 246, 0.3)',
+                        borderRadius: 6,
+                        color: '#3b82f6',
+                        fontSize: 12,
+                        fontWeight: 500,
                         textDecoration: 'none',
+                        transition: 'background 0.2s, border-color 0.2s',
+                        cursor: 'pointer',
                       }}
+                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(59, 130, 246, 0.2)'; e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'rgba(59, 130, 246, 0.1)'; e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)'; }}
                     >
-                      View Paper ↗
+                      Open Paper ↗
                     </a>
                   )}
                 </>

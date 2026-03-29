@@ -6,10 +6,13 @@ import {
   darlingtonSMatrix, darlingtonScan, darlingtonRealizability,
   confinementScan, gapClosingReport,
 } from '../math/gap-closing.js';
+import {
+  darlingtonConvergenceRate, infiniteProductUnitarityBound, darlingtonRealizabilityTest,
+} from '../math/rh-attack.js';
 import { getPrimes } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
-const TABS = ['Regularization', 'Hilbert-Polya', 'Darlington', 'Confinement'];
+const TABS = ['Regularization', 'Hilbert-Polya', 'Darlington', 'S7 Convergence', 'Confinement'];
 
 // ─── Tab 1: Regularization ──────────────────────────────────────────────────
 
@@ -778,7 +781,354 @@ function DarlingtonTab({ numPrimes, t }) {
   );
 }
 
-// ─── Tab 4: Confinement ─────────────────────────────────────────────────────
+// ─── Tab 4: S7 Convergence ──────────────────────────────────────────────────
+
+function S7ConvergenceTab({ numPrimes, t }) {
+  const canvasRef = useRef();
+
+  const convergenceData = useMemo(
+    () => darlingtonConvergenceRate(Math.max(numPrimes, 50), [t, ZETA_ZEROS[1], ZETA_ZEROS[2]]),
+    [numPrimes, t],
+  );
+
+  const tailBound = useMemo(
+    () => infiniteProductUnitarityBound(Math.max(numPrimes, 20), 4),
+    [numPrimes],
+  );
+
+  const realizability = useMemo(
+    () => darlingtonRealizabilityTest(numPrimes),
+    [numPrimes],
+  );
+
+  const draw = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+
+    const margin = { left: 60, right: 30, top: 30, bottom: 44 };
+    const plotW = w - margin.left - margin.right;
+    const plotH = h - margin.top - margin.bottom;
+
+    // Collect all points for axis range
+    const allPts = convergenceData.curves.flatMap(c => c.points);
+    const logNMin = Math.min(...allPts.map(p => p.logPrimes));
+    const logNMax = Math.max(...allPts.map(p => p.logPrimes));
+    const validDeficits = allPts.filter(p => p.logDeficit > -18);
+    const logDMin = validDeficits.length > 0 ? Math.min(...validDeficits.map(p => p.logDeficit)) - 0.5 : -8;
+    const logDMax = validDeficits.length > 0 ? Math.max(...validDeficits.map(p => p.logDeficit)) + 0.5 : 1;
+    const xRange = (logNMax - logNMin) || 1;
+    const yRange = (logDMax - logDMin) || 1;
+
+    const toX = (logN) => margin.left + ((logN - logNMin) / xRange) * plotW;
+    const toY = (logD) => margin.top + plotH - ((logD - logDMin) / yRange) * plotH;
+
+    // Background grid
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 0.5;
+    ctx.setLineDash([3, 3]);
+    for (let i = 0; i <= 5; i++) {
+      const val = logDMin + (i / 5) * yRange;
+      const y = toY(val);
+      ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(w - margin.right, y); ctx.stroke();
+    }
+    for (let i = 0; i <= 4; i++) {
+      const val = logNMin + (i / 4) * xRange;
+      const x = toX(val);
+      ctx.beginPath(); ctx.moveTo(x, margin.top); ctx.lineTo(x, h - margin.bottom); ctx.stroke();
+    }
+    ctx.setLineDash([]);
+
+    // Axes
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(margin.left, margin.top);
+    ctx.lineTo(margin.left, h - margin.bottom);
+    ctx.lineTo(w - margin.right, h - margin.bottom);
+    ctx.stroke();
+
+    // Draw curves for each t value
+    const colors = ['#06b6d4', '#f59e0b', '#a855f7'];
+    convergenceData.curves.forEach((curve, ci) => {
+      const color = colors[ci % colors.length];
+      const pts = curve.points.filter(p => p.logDeficit > -18);
+
+      // Line
+      ctx.beginPath();
+      pts.forEach((p, i) => {
+        const x = toX(p.logPrimes);
+        const y = toY(p.logDeficit);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Points
+      pts.forEach((p) => {
+        const x = toX(p.logPrimes);
+        const y = toY(p.logDeficit);
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+      });
+    });
+
+    // Draw fitted power law line for first curve
+    if (convergenceData.fittedExponents.length > 0) {
+      const fit = convergenceData.fittedExponents[0];
+      if (Math.abs(fit.exponent) > 0.01) {
+        ctx.beginPath();
+        ctx.setLineDash([6, 4]);
+        const x1 = logNMin;
+        const x2 = logNMax;
+        const y1 = (fit.exponent * Math.log(Math.pow(10, x1)) + fit.intercept) / Math.LN10;
+        const y2 = (fit.exponent * Math.log(Math.pow(10, x2)) + fit.intercept) / Math.LN10;
+        ctx.moveTo(toX(x1), toY(Math.max(Math.min(y1, logDMax), logDMin)));
+        ctx.lineTo(toX(x2), toY(Math.max(Math.min(y2, logDMax), logDMin)));
+        ctx.strokeStyle = '#ef444480';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    }
+
+    // Tail bound indicator
+    if (tailBound.tailEstimate > 0) {
+      const tailLogD = Math.log10(tailBound.tailEstimate);
+      if (tailLogD >= logDMin && tailLogD <= logDMax) {
+        ctx.setLineDash([4, 4]);
+        ctx.strokeStyle = '#10b98180';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(margin.left, toY(tailLogD));
+        ctx.lineTo(w - margin.right, toY(tailLogD));
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#10b981';
+        ctx.font = '9px var(--font-mono)';
+        ctx.textAlign = 'left';
+        ctx.fillText(`Tail bound: ${tailBound.tailEstimate.toExponential(1)}`, margin.left + 4, toY(tailLogD) - 4);
+      }
+    }
+
+    // Y-axis labels
+    ctx.fillStyle = '#64748b';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'right';
+    for (let i = 0; i <= 5; i++) {
+      const val = logDMin + (i / 5) * yRange;
+      ctx.fillText(val.toFixed(1), margin.left - 6, toY(val) + 3);
+    }
+
+    // X-axis labels
+    ctx.textAlign = 'center';
+    for (let i = 0; i <= 4; i++) {
+      const val = logNMin + (i / 4) * xRange;
+      ctx.fillText(`10^${val.toFixed(1)}`, toX(val), h - margin.bottom + 14);
+    }
+
+    // Axis labels
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Number of primes (log scale)', w / 2, h - 4);
+    ctx.save();
+    ctx.translate(12, h / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText('log\u2081\u2080(unitarity deficit)', 0, 0);
+    ctx.restore();
+
+    // Title
+    ctx.fillStyle = '#e2e8f0';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('S7 Convergence: Unitarity Deficit vs. Prime Count', margin.left, margin.top - 12);
+
+    // Legend
+    const legendX = w - margin.right - 190;
+    const legendY0 = margin.top + 2;
+    ctx.fillStyle = 'rgba(10, 14, 26, 0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legendX, legendY0, 186, convergenceData.curves.length * 16 + 22, 4);
+    ctx.fill(); ctx.stroke();
+
+    convergenceData.curves.forEach((curve, ci) => {
+      const lx = legendX + 8;
+      const ly = legendY0 + 14 + ci * 16;
+      ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(lx + 16, ly);
+      ctx.strokeStyle = colors[ci % colors.length]; ctx.lineWidth = 2; ctx.stroke();
+      ctx.fillStyle = '#94a3b8'; ctx.font = '9px var(--font-mono)'; ctx.textAlign = 'left';
+      ctx.fillText(`t = ${curve.t.toFixed(2)}`, lx + 20, ly + 3);
+    });
+    // Fit line legend entry
+    const fitLy = legendY0 + 14 + convergenceData.curves.length * 16;
+    ctx.setLineDash([6, 4]);
+    ctx.beginPath(); ctx.moveTo(legendX + 8, fitLy); ctx.lineTo(legendX + 24, fitLy);
+    ctx.strokeStyle = '#ef444480'; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#94a3b8'; ctx.font = '9px var(--font-mono)'; ctx.textAlign = 'left';
+    const avgExp = convergenceData.averageExponent;
+    ctx.fillText(`Fit: N^{${avgExp.toFixed(2)}}`, legendX + 28, fitLy + 3);
+
+  }, [convergenceData, tailBound]);
+
+  useEffect(() => { draw(); }, [draw]);
+  useEffect(() => {
+    const onResize = () => draw();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw]);
+
+  return (
+    <div>
+      <div className="tab-explainer accent-cyan">
+        S7 Convergence: How the unitarity deficit{' '}
+        <InlineMath tex={"|S_{11}|^2 + |S_{21}|^2 - 1"} /> shrinks as more primes are included.
+        A negative slope on this log-log plot confirms power-law convergence to exact losslessness.
+      </div>
+
+      <canvas
+        ref={canvasRef}
+        style={{ width: '100%', height: 320, background: '#0a0e1a', borderRadius: 8, border: '1px solid #1e293b' }}
+      />
+
+      {/* Fitted exponent and tail bound */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginTop: 12 }}>
+        <div style={{ padding: 12, background: '#0f172a', borderRadius: 8, border: '1px solid #1e293b' }}>
+          <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>Fitted Power Law Exponent</div>
+          <div style={{ fontSize: 20, fontWeight: 700, color: '#06b6d4', fontFamily: 'var(--font-mono)' }}>
+            N<sup style={{ fontSize: 12 }}>{convergenceData.averageExponent.toFixed(3)}</sup>
+          </div>
+          <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>
+            {convergenceData.averageExponent < -0.5
+              ? 'Strong convergence (faster than 1/sqrt(N))'
+              : convergenceData.averageExponent < -0.1
+                ? 'Moderate convergence detected'
+                : 'Convergence rate is slow or inconclusive'}
+          </div>
+        </div>
+        <div style={{ padding: 12, background: '#0f172a', borderRadius: 8, border: '1px solid #1e293b' }}>
+          <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>PNT Tail Bound</div>
+          <div style={{ fontSize: 16, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)' }}>
+            {tailBound.tailEstimate.toExponential(3)}
+          </div>
+          <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>
+            {tailBound.theoreticalRate}
+          </div>
+        </div>
+      </div>
+
+      {/* Darlington conditions checkboxes */}
+      <div style={{ marginTop: 16, padding: 14, background: '#0f172a', borderRadius: 8, border: '1px solid #1e293b' }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0', marginBottom: 10 }}>
+          Darlington Realization Conditions
+        </div>
+        {[
+          {
+            label: '(1) Symmetry: S\u2081\u2082 = S\u2082\u2081 (reciprocity)',
+            pass: realizability.symmetry.pass,
+            detail: realizability.symmetry.description,
+          },
+          {
+            label: '(2) Unitarity: S\u2020S = I on \u03C3 = \u00BD',
+            pass: realizability.unitarity.pass,
+            detail: realizability.unitarity.description,
+          },
+          {
+            label: '(3) Analyticity: bounded in \u03C3 > \u00BD',
+            pass: realizability.analyticity.pass,
+            detail: realizability.analyticity.description,
+          },
+        ].map((cond, i) => (
+          <div key={i} style={{
+            display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 8,
+            padding: '6px 8px', borderRadius: 6,
+            background: cond.pass ? 'rgba(16,185,129,0.06)' : 'rgba(239,68,68,0.06)',
+          }}>
+            <div style={{
+              width: 18, height: 18, borderRadius: 4, flexShrink: 0, marginTop: 1,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              background: cond.pass ? '#10b981' : '#ef4444',
+              color: '#fff', fontSize: 12, fontWeight: 700,
+            }}>
+              {cond.pass ? '\u2713' : '\u2717'}
+            </div>
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 600, color: cond.pass ? '#10b981' : '#ef4444' }}>
+                {cond.label}
+              </div>
+              <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>
+                {cond.detail}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* S7 Gap Score */}
+      <div style={{
+        marginTop: 16, padding: 16, borderRadius: 8,
+        background: 'linear-gradient(135deg, rgba(249,115,22,0.08), rgba(6,182,212,0.08))',
+        border: '1px solid rgba(249,115,22,0.3)',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+          <div style={{ textAlign: 'center' }}>
+            <div style={{
+              fontSize: 36, fontWeight: 800,
+              color: realizability.score >= 80 ? '#10b981' : realizability.score >= 50 ? '#f59e0b' : '#ef4444',
+            }}>
+              {realizability.score}%
+            </div>
+            <div style={{ fontSize: 10, color: '#94a3b8', fontWeight: 600 }}>S7 GAP SCORE</div>
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 600, marginBottom: 6 }}>
+              Gap S7 Resolution Status
+            </div>
+            <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.6 }}>
+              {realizability.verdict}
+              {' '}Convergence rate: <span style={{ color: '#06b6d4', fontFamily: 'var(--font-mono)' }}>
+                N<sup>{convergenceData.averageExponent.toFixed(2)}</sup>
+              </span>.
+              {' '}Tail bound: <span style={{ color: '#10b981', fontFamily: 'var(--font-mono)' }}>
+                {tailBound.tailEstimate.toExponential(2)}
+              </span>.
+            </div>
+            {/* Progress bar */}
+            <div style={{
+              marginTop: 8, height: 6, borderRadius: 3,
+              background: 'rgba(255,255,255,0.1)',
+              overflow: 'hidden',
+            }}>
+              <div style={{
+                width: `${realizability.score}%`, height: '100%', borderRadius: 3,
+                background: realizability.score >= 80
+                  ? 'linear-gradient(90deg, #10b981, #06b6d4)'
+                  : realizability.score >= 50
+                    ? 'linear-gradient(90deg, #f59e0b, #f97316)'
+                    : 'linear-gradient(90deg, #ef4444, #f97316)',
+              }} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Tab 5: Confinement ─────────────────────────────────────────────────────
 
 function ConfinementTab({ numPrimes, t, report }) {
   const canvasRef = useRef();
@@ -1067,7 +1417,8 @@ export default function GapClosingViz() {
       {tab === 0 && <RegularizationTab numPrimes={numPrimes} t={tValue} />}
       {tab === 1 && <HilbertPolyaTab numPrimes={numPrimes} />}
       {tab === 2 && <DarlingtonTab numPrimes={numPrimes} t={tValue} />}
-      {tab === 3 && <ConfinementTab numPrimes={numPrimes} t={tValue} report={report} />}
+      {tab === 3 && <S7ConvergenceTab numPrimes={numPrimes} t={tValue} />}
+      {tab === 4 && <ConfinementTab numPrimes={numPrimes} t={tValue} report={report} />}
 
       {/* Summary panel */}
       <div style={{

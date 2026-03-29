@@ -8,11 +8,12 @@ import {
 } from '../math/gap-closing.js';
 import {
   darlingtonConvergenceRate, infiniteProductUnitarityBound, darlingtonRealizabilityTest,
+  explicitFormulaResidue, offLineZeroSweep,
 } from '../math/rh-attack.js';
 import { getPrimes } from '../math/primes.js';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
-const TABS = ['Regularization', 'Hilbert-Polya', 'Darlington', 'S7 Convergence', 'Confinement'];
+const TABS = ['Regularization', 'Hilbert-Polya', 'Darlington', 'S7 Convergence', 'Off-Line Contradiction', 'Confinement'];
 
 // ─── Tab 1: Regularization ──────────────────────────────────────────────────
 
@@ -1128,7 +1129,224 @@ function S7ConvergenceTab({ numPrimes, t }) {
   );
 }
 
-// ─── Tab 5: Confinement ─────────────────────────────────────────────────────
+// ─── Tab 5: Off-Line Zero Contradiction ─────────────────────────────────────
+
+function OffLineContradictionTab() {
+  const [sigmaOff, setSigmaOff] = useState(0.6);
+  const [tOff, setTOff] = useState(14.13);
+  const canvasRef = useRef();
+
+  const xValues = useMemo(() => {
+    const xs = [];
+    for (let exp = 1; exp <= 18; exp += 0.5) xs.push(Math.pow(10, exp));
+    return xs;
+  }, []);
+
+  const data = useMemo(() => explicitFormulaResidue(sigmaOff, tOff, xValues), [sigmaOff, tOff, xValues]);
+  const sweep = useMemo(() => offLineZeroSweep(20, tOff), [tOff]);
+
+  const draw = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    ctx.fillStyle = '#0a0e1a';
+    ctx.fillRect(0, 0, w, h);
+
+    const margin = { top: 30, right: 20, bottom: 45, left: 65 };
+    const plotW = w - margin.left - margin.right;
+    const plotH = h - margin.top - margin.bottom;
+
+    // Axes
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(margin.left, margin.top);
+    ctx.lineTo(margin.left, h - margin.bottom);
+    ctx.lineTo(w - margin.right, h - margin.bottom);
+    ctx.stroke();
+
+    const valid = data.results.filter(r => r.totalDistortion > 0 && r.schoenfeldBound > 0);
+    if (valid.length < 2) return;
+
+    // Log-log plot: x-axis = log10(x), y-axis = log10(value)
+    const minLogX = Math.log10(valid[0].x);
+    const maxLogX = Math.log10(valid[valid.length - 1].x);
+    const allVals = valid.flatMap(r => [r.totalDistortion, r.schoenfeldBound]);
+    const minLogY = Math.floor(Math.log10(Math.max(Math.min(...allVals), 1e-30)));
+    const maxLogY = Math.ceil(Math.log10(Math.max(...allVals)));
+    const rangeLogX = maxLogX - minLogX || 1;
+    const rangeLogY = maxLogY - minLogY || 1;
+
+    const toX = logx => margin.left + ((logx - minLogX) / rangeLogX) * plotW;
+    const toY = logy => h - margin.bottom - ((logy - minLogY) / rangeLogY) * plotH;
+
+    // Grid lines
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 0.5;
+    for (let ly = minLogY; ly <= maxLogY; ly += 2) {
+      const y = toY(ly);
+      ctx.beginPath();
+      ctx.moveTo(margin.left, y);
+      ctx.lineTo(w - margin.right, y);
+      ctx.stroke();
+    }
+
+    // Schoenfeld bound (green line — the allowed region)
+    ctx.strokeStyle = '#10b981';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    valid.forEach((r, i) => {
+      const x = toX(Math.log10(r.x));
+      const y = toY(Math.log10(Math.max(r.schoenfeldBound, 1e-30)));
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    // Off-line zero distortion (red line — the violation)
+    ctx.strokeStyle = '#ef4444';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    valid.forEach((r, i) => {
+      const x = toX(Math.log10(r.x));
+      const y = toY(Math.log10(Math.max(r.totalDistortion, 1e-30)));
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    // Contradiction zone (shade where red > green)
+    const crossIdx = valid.findIndex(r => r.contradicts);
+    if (crossIdx >= 0) {
+      ctx.fillStyle = 'rgba(239, 68, 68, 0.08)';
+      ctx.beginPath();
+      ctx.moveTo(toX(Math.log10(valid[crossIdx].x)), h - margin.bottom);
+      ctx.lineTo(toX(Math.log10(valid[crossIdx].x)), margin.top);
+      ctx.lineTo(w - margin.right, margin.top);
+      ctx.lineTo(w - margin.right, h - margin.bottom);
+      ctx.closePath();
+      ctx.fill();
+
+      // Contradiction label
+      ctx.fillStyle = '#ef4444';
+      ctx.font = 'bold 11px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('CONTRADICTION', (toX(Math.log10(valid[crossIdx].x)) + w - margin.right) / 2, margin.top + 16);
+    }
+
+    // Legend
+    ctx.font = '11px "JetBrains Mono", monospace';
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#ef4444';
+    ctx.fillText(`Off-line zero distortion (σ₀=${sigmaOff})`, margin.left + 8, margin.top + 14);
+    ctx.fillStyle = '#10b981';
+    ctx.fillText('Schoenfeld bound (RH-consistent)', margin.left + 8, margin.top + 30);
+
+    // Axis labels
+    ctx.fillStyle = '#64748b';
+    ctx.textAlign = 'center';
+    ctx.fillText('log₁₀(x)', w / 2, h - 6);
+    ctx.save();
+    ctx.translate(14, h / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText('log₁₀(contribution)', 0, 0);
+    ctx.restore();
+
+    // X axis ticks
+    ctx.font = '9px "JetBrains Mono", monospace';
+    ctx.textAlign = 'center';
+    for (let lx = Math.ceil(minLogX); lx <= maxLogX; lx += 2) {
+      const x = toX(lx);
+      ctx.fillStyle = '#475569';
+      ctx.fillText(`10^${lx}`, x, h - margin.bottom + 14);
+    }
+  }, [data, sigmaOff]);
+
+  useEffect(() => {
+    draw();
+    window.addEventListener('resize', draw);
+    return () => window.removeEventListener('resize', draw);
+  }, [draw]);
+
+  return (
+    <div>
+      <div className="tab-explainer accent-red">
+        <p>
+          <strong>Off-line zero contradiction:</strong> If a hypothetical zero existed at{' '}
+          <InlineMath tex={`\\rho_0 = ${sigmaOff} + ${tOff}i`} />, its contribution to the
+          explicit formula for <InlineMath tex="\\psi(x)" /> would grow as{' '}
+          <InlineMath tex={`x^{${sigmaOff}}`} />, eventually exceeding the Schoenfeld bound{' '}
+          <InlineMath tex="\\sqrt{x} \\log^2(x) / (8\\pi)" /> which assumes RH.
+        </p>
+      </div>
+
+      <div style={{ display: 'flex', gap: 16, marginBottom: 12, flexWrap: 'wrap' }}>
+        <div className="control-group">
+          <label>σ₀ (off-line)</label>
+          <input type="range" min="0.51" max="0.9" step="0.01" value={sigmaOff}
+            onChange={e => setSigmaOff(+e.target.value)} />
+          <span className="control-value">{sigmaOff.toFixed(2)}</span>
+        </div>
+        <div className="control-group">
+          <label>t₀ (imaginary part)</label>
+          <input type="range" min="5" max="100" step="0.5" value={tOff}
+            onChange={e => setTOff(+e.target.value)} />
+          <span className="control-value">{tOff.toFixed(1)}</span>
+        </div>
+      </div>
+
+      <canvas ref={canvasRef}
+        style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a',
+                 border: '1px solid #1e293b' }} />
+
+      <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6,
+                    background: data.firstContradiction ? 'rgba(239,68,68,0.08)' : 'rgba(245,158,11,0.08)',
+                    border: `1px solid ${data.firstContradiction ? 'rgba(239,68,68,0.2)' : 'rgba(245,158,11,0.2)'}` }}>
+        <strong style={{ color: data.firstContradiction ? '#ef4444' : '#f59e0b' }}>
+          {data.verdict}
+        </strong>
+      </div>
+
+      {/* Sigma sweep summary */}
+      <div style={{ marginTop: 16, maxHeight: 200, overflow: 'auto' }}>
+        <table style={{ width: '100%', fontSize: 12, borderCollapse: 'collapse' }}>
+          <thead>
+            <tr style={{ color: '#64748b', borderBottom: '1px solid #1e293b' }}>
+              <th style={{ textAlign: 'left', padding: 4 }}>σ₀</th>
+              <th style={{ textAlign: 'right', padding: 4 }}>Crossover x</th>
+              <th style={{ textAlign: 'right', padding: 4 }}>Max ratio</th>
+              <th style={{ textAlign: 'left', padding: 4 }}>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sweep.sweep.map(({ sigma, crossoverX, crossoverLog10, maxRatio }) => (
+              <tr key={sigma} style={{ color: '#94a3b8', borderBottom: '1px solid #0f172a' }}>
+                <td style={{ padding: 4, fontFamily: 'var(--font-mono)' }}>{sigma.toFixed(2)}</td>
+                <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)' }}>
+                  {crossoverX ? `10^${crossoverLog10.toFixed(0)}` : '> 10^30'}
+                </td>
+                <td style={{ padding: 4, textAlign: 'right', fontFamily: 'var(--font-mono)',
+                             color: maxRatio > 1 ? '#ef4444' : '#f59e0b' }}>
+                  {maxRatio.toFixed(1)}×
+                </td>
+                <td style={{ padding: 4, color: maxRatio > 1 ? '#ef4444' : '#f59e0b' }}>
+                  {maxRatio > 1 ? '✗ Contradicts' : '⚠ Grows'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// ─── Tab 6: Confinement ─────────────────────────────────────────────────────
 
 function ConfinementTab({ numPrimes, t, report }) {
   const canvasRef = useRef();
@@ -1418,7 +1636,8 @@ export default function GapClosingViz() {
       {tab === 1 && <HilbertPolyaTab numPrimes={numPrimes} />}
       {tab === 2 && <DarlingtonTab numPrimes={numPrimes} t={tValue} />}
       {tab === 3 && <S7ConvergenceTab numPrimes={numPrimes} t={tValue} />}
-      {tab === 4 && <ConfinementTab numPrimes={numPrimes} t={tValue} report={report} />}
+      {tab === 4 && <OffLineContradictionTab />}
+      {tab === 5 && <ConfinementTab numPrimes={numPrimes} t={tValue} report={report} />}
 
       {/* Summary panel */}
       <div style={{

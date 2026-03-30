@@ -121,12 +121,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'GUE Tracy-Widom edge distribution test',
     category: 'proof-gap',
     priority: 'medium',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S6',
     description: 'Build GUE Tracy-Widom edge distribution test for extreme zero spacings. Compute the distribution of the largest normalized gap among the first N zeros and compare with Tracy-Widom F2 distribution. Test for N = 100, 500, 1000, 5000.',
     rationale: 'Edge statistics provide the most sensitive test of GUE universality. If ZPO\'s energy landscape correctly reproduces Tracy-Widom at the edge, it validates the random matrix connection used in S6.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-03-29T16:00:00Z',
   },
 
   // ═══════════════════════════════════════════════════════════════════

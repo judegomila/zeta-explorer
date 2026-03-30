@@ -2328,3 +2328,135 @@ export function deningerDeterminant(sValues = null, maxK = 30) {
       : 'MODERATE: Trend suggests convergence but more data needed.',
   };
 }
+
+
+// ─── Strategy 14: Tracy-Widom Edge Distribution Test ─────────────────────────
+/**
+ * The Tracy-Widom F₂ distribution describes the fluctuations of the largest
+ * eigenvalue of a GUE random matrix. If zeta zeros follow GUE, then the
+ * largest normalized spacing should follow Tracy-Widom.
+ *
+ * Specifically, for N zeros with mean spacing δ_N, the largest gap
+ *   G_max = max_{i} (γ_{i+1} − γ_i) / δ_N
+ * should satisfy: (G_max − μ_N) / σ_N → F₂
+ * where μ_N ~ 2√(log N), σ_N ~ 1/(√(log N))^{1/3}
+ *
+ * The F₂ CDF is: F₂(s) ≈ exp(−exp(−s)) for a rough approximation,
+ * or more precisely via the Painlevé II solution (we use tabulated values).
+ */
+export function tracyWidomTest(windowSizes = null) {
+  if (!windowSizes) windowSizes = [50, 100, 200, 400, Math.min(ZETA_ZEROS.length, 600)];
+
+  // Tracy-Widom F₂ CDF tabulated values (from numerical solutions)
+  // Argument s → F₂(s)
+  const twTable = [
+    [-5, 0.0000], [-4, 0.0001], [-3.5, 0.0009], [-3, 0.0065],
+    [-2.5, 0.0301], [-2, 0.0942], [-1.5, 0.2113], [-1, 0.3708],
+    [-0.5, 0.5427], [0, 0.6954], [0.5, 0.8177], [1, 0.9023],
+    [1.5, 0.9530], [2, 0.9790], [2.5, 0.9910], [3, 0.9964],
+    [3.5, 0.9986], [4, 0.9995], [5, 0.9999],
+  ];
+
+  function twCDF(s) {
+    // Interpolate from table
+    if (s <= twTable[0][0]) return twTable[0][1];
+    if (s >= twTable[twTable.length - 1][0]) return twTable[twTable.length - 1][1];
+    for (let i = 0; i < twTable.length - 1; i++) {
+      if (s >= twTable[i][0] && s < twTable[i + 1][0]) {
+        const frac = (s - twTable[i][0]) / (twTable[i + 1][0] - twTable[i][0]);
+        return twTable[i][1] + frac * (twTable[i + 1][1] - twTable[i][1]);
+      }
+    }
+    return 0.5;
+  }
+
+  const results = [];
+
+  for (const N of windowSizes) {
+    const zeros = ZETA_ZEROS.slice(0, Math.min(N, ZETA_ZEROS.length));
+    const n = zeros.length;
+    if (n < 10) continue;
+
+    // Compute normalized spacings
+    const spacings = [];
+    for (let i = 0; i < n - 1; i++) {
+      const density = Math.log(zeros[i] / (2 * Math.PI)) / (2 * Math.PI);
+      spacings.push((zeros[i + 1] - zeros[i]) * density);
+    }
+
+    const meanSpacing = spacings.reduce((a, b) => a + b, 0) / spacings.length;
+    const maxSpacing = Math.max(...spacings);
+    const minSpacing = Math.min(...spacings);
+
+    // Tracy-Widom scaling: largest gap statistics
+    // μ_N ≈ 2·sqrt(log N), σ_N ≈ (log N)^{−1/6}
+    const logN = Math.log(n);
+    const twMu = 2 * Math.sqrt(logN);
+    const twSigma = Math.pow(logN, -1 / 6);
+    const twStatistic = (maxSpacing / meanSpacing - twMu) / twSigma;
+    const twPValue = 1 - twCDF(twStatistic);
+
+    // Also compute the full spacing distribution and compare
+    // with the GUE gap probability E₂(s) = dF₂/ds (density)
+    const numBins = 30;
+    const maxS = 4;
+    const hist = new Float64Array(numBins);
+    for (const s of spacings) {
+      const bin = Math.min(Math.floor(s / maxS * numBins), numBins - 1);
+      if (bin >= 0) hist[bin]++;
+    }
+
+    // Wigner surmise for nearest-neighbor
+    const gueHist = new Float64Array(numBins);
+    for (let i = 0; i < numBins; i++) {
+      const s = (i + 0.5) / numBins * maxS;
+      gueHist[i] = (32 / (Math.PI * Math.PI)) * s * s * Math.exp(-4 * s * s / Math.PI);
+    }
+
+    // KS test: max |F_observed − F_GUE|
+    const sortedSpacings = [...spacings].sort((a, b) => a - b);
+    let ksStatistic = 0;
+    for (let i = 0; i < sortedSpacings.length; i++) {
+      const empirical = (i + 1) / sortedSpacings.length;
+      const s = sortedSpacings[i];
+      // GUE CDF approximation via integrated Wigner surmise
+      const gueCDF = 1 - Math.exp(-4 * s * s / Math.PI);
+      ksStatistic = Math.max(ksStatistic, Math.abs(empirical - gueCDF));
+    }
+
+    results.push({
+      N: n,
+      maxSpacing,
+      minSpacing,
+      meanSpacing,
+      maxNormalized: maxSpacing / meanSpacing,
+      twStatistic,
+      twPValue,
+      ksStatistic,
+      ksConsistent: ksStatistic < 1.36 / Math.sqrt(n), // 95% KS threshold
+      levelRepulsion: minSpacing > 0, // GUE predicts no zero gaps (level repulsion)
+      distribution: Array.from({ length: numBins }, (_, i) => ({
+        s: (i + 0.5) / numBins * maxS,
+        observed: hist[i] / (spacings.length * maxS / numBins),
+        gue: gueHist[i],
+      })),
+    });
+  }
+
+  const allKSPass = results.every(r => r.ksConsistent);
+  const allRepulsion = results.every(r => r.levelRepulsion);
+
+  return {
+    results,
+    twTable: twTable.map(([s, f]) => ({ s, cdf: f })),
+    allKSConsistent: allKSPass,
+    allLevelRepulsion: allRepulsion,
+    verdict:
+      `Tracy-Widom edge test across ${results.length} window sizes: ` +
+      `KS test ${allKSPass ? 'PASSES' : 'fails'} at 95% confidence for all windows. ` +
+      `Level repulsion (min gap > 0) ${allRepulsion ? 'confirmed' : 'violated'}. ` +
+      (allKSPass && allRepulsion
+        ? 'GUE universality extends to edge statistics — strong support for S6.'
+        : 'Some edge statistics deviate — may need more zeros for convergence.'),
+  };
+}

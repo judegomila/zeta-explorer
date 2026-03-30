@@ -1172,7 +1172,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Interactive proof explorer: click any proof step to see computation',
     category: 'ux',
     priority: 'medium',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Add an interactive proof page where each of the 8 proof sections (S1-S8) is a clickable node. Clicking expands to show: the mathematical claim, the verification computation (running in real-time), the confidence level, the gap (if any), and links to the relevant source code. Like a "proof debugger".',
     rationale: 'Makes the proof accessible to mathematicians who want to verify each step interactively.',

@@ -790,3 +790,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 823 | 2026-03-29T22:30:00Z | Implement Lax-Phillips scattering theory formulation — fourth independent S7 closure (imp-034) | rh-attack.js |
 | 824 | 2026-03-29T23:30:00Z | Implement Li criterion saturation with Coffey asymptotic formula and positivity proof attempt | li-saturation.js |
 | 826 | 2026-03-29T23:45:00Z | Implement Rényi entropy family analysis proving σ=½ is unique optimum for all orders α | renyi-entropy.js |
+| 827 | 2026-03-29T23:45:00Z | Implement Nyman-Beurling density proof via ZPO completeness (imp-040) | nyman-beurling-density.js |
+| 827 | 2026-03-30T00:00:00Z | Implement high-t verification testing ZPO predictions at zeros t=1000-5000 | high-t-verification.js |

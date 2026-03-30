@@ -1222,7 +1222,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Construct explicit Cauchy sequence in trace norm for S_N',
     category: 'proof',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S7',
     description: 'The trace class module shows ||S_{N+1}-S_N||_F ~ N^{-2σ}. For σ > 1/2 (which holds on the critical line), the sum Σ N^{-2σ} converges. Therefore S_N is a Cauchy sequence in Frobenius norm. Since the space of bounded operators is complete (Banach space), S_∞ = lim S_N exists. Write the explicit ε-N argument: given ε>0, find N₀ such that ||S_M - S_N|| < ε for all M,N > N₀.',
     rationale: 'This is the most elementary closure argument: Cauchy + complete = convergent. The trace class decay rate gives the explicit N₀(ε).',

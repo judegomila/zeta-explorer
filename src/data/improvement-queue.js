@@ -1246,7 +1246,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'End-to-end machine-verified proof chain: S1 through S8',
     category: 'proof',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Assemble the complete S1→S8 proof chain with every step explicitly justified. For each step, state the theorem used, cite the reference, and verify computationally. Steps: S1 (Euler product = transfer function, trivial), S2 (cascade = product, trivial), S3 (functional eq = bridge unitarity, proved), S4 (analytic continuation via eta, proved), S5 (self-adjoint operator via GNS, conditional), S6 (Hamiltonian minimum at σ=½, verified for 870+ zeros with Turing certification), S7 (Darlington closure: trace class Cauchy → S_∞ exists → SL(2,R) closed → det=1 → SU(2) → unitarity), S8 (unitary S-matrix → zeros on critical line, Darlington 1939). Output a structured proof object with dependencies, status, and confidence for each step.',
     rationale: 'The individual pieces exist. This assembles them into one connected argument and identifies any remaining logical gaps.',

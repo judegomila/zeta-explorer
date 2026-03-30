@@ -1272,7 +1272,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Verify S₂₁ vanishes at first 100 ζ-zeros numerically',
     category: 'verification',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Compute S₂₁(½+iγ_n) for the first 100 known zeta zeros γ_n using the cascade transfer matrix with N=200 primes. If |S₂₁| is small (< 0.01) at each zero, this provides strong numerical evidence that cascade transmission zeros = ζ-zeros.',
     rationale: 'Direct numerical verification of the zero identification.',

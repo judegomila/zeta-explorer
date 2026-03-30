@@ -16,6 +16,7 @@ import { cMul, cAdd, cSub, cAbs, cExp, cLog, cDiv, cPow, ZETA_ZEROS,
 import { losslessBridge, systemHamiltonian, directLadder, dualLadder,
          hamiltonianSigmaScan } from './oscillators.js';
 import { getPrimes } from './primes.js';
+import { memoize } from './memo.js';
 
 // ─── Strategy 1: Li Coefficients ─────────────────────────────────────────────
 /**
@@ -3100,3 +3101,17 @@ export function errorBoundReport(numZeros = 100, numPrimes = 12) {
         `${reportItems.length - rhConsistent.length} need higher resolution or more zeros.`,
   };
 }
+
+// ─── Memoized wrappers for expensive computations ────────────────────────────
+// These have identical signatures to the originals but cache results via LRU.
+// Import the `Memo` variant when the same parameters are used across re-renders.
+
+export const liCoefficientsMemo = memoize(
+  liCoefficients,
+  (maxN = 30, numZeros = 100) => `${maxN}:${numZeros}`,
+);
+
+export const hamiltonianConvexityTestMemo = memoize(
+  hamiltonianConvexityTest,
+  (tValues, numPrimes = 12) => `${JSON.stringify(tValues)}:${numPrimes}`,
+);

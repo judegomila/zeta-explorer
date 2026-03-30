@@ -777,3 +777,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 814 | 2026-03-29T19:30:00Z | Add Lean4 integration plan and continuous pipeline cards to Accelerating tab (imp-028, imp-029) | ImprovementQueuePage.jsx, improvement-queue.js |
 | 814 | 2026-03-29T19:30:00Z | Add memoize/memoizeWithTTL/clearAllCaches utility and memoized wrappers for liCoefficients, hamiltonianConvexityTest | memo.js, rh-attack.js |
 | 814 | 2026-03-29T19:30:00Z | Add keyboard shortcuts for navigation with help overlay and nav bar hint button | App.jsx |
+| 814 | 2026-03-29T19:30:00Z | Enhance Memory System card with discovery persistence, failed-approach tracking, proof state memory types, and examples | ImprovementQueuePage.jsx, improvement-queue.js |
+| 815 | 2026-03-29T19:30:00Z | Enhance Multi-Session Strategy card with 4-session protocol (S5/S7/S6/new), merge protocol, and conflict resolution | ImprovementQueuePage.jsx, improvement-queue.js |

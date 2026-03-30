@@ -1136,7 +1136,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Generate complete LaTeX proof document with all S7 closure paths',
     category: 'content',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Update the LaTeX paper generator (proof-paper.js) to include all 5 S7 closure paths, the cross-validation implication graph, adversarial D-H discrimination results, and interval arithmetic rigorous bounds. The paper should be submission-ready for arXiv.',
     rationale: 'A complete, well-structured paper is the output that matters. All the computational work needs to be organized into a coherent argument.',

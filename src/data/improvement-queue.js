@@ -1432,7 +1432,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Write the definitive 5-page proof with all referee concerns pre-addressed',
     category: 'content',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Update the peer review summary (imp-102) incorporating ALL improvements since: imp-103 (topology bypass), imp-104 (analytical resolvent), imp-105 (frequency mapping), imp-106 (certificates), imp-107 (adversarial testing). Address each referee concern inline. This is the document that gets sent to mathematicians.',
     rationale: 'All the work is meaningless without a clear, honest, complete writeup.',

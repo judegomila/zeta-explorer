@@ -807,3 +807,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 837 | 2026-03-30T05:30:00Z | Extend ZPO to Dirichlet L-functions testing GRH for χ mod 3, 4, 5 | dirichlet-l-functions.js |
 | 838 | 2026-03-30T06:00:00Z | Compute explicit constants replacing all O() notation in Mertens bound | explicit-mertens.js |
 | 839 | 2026-03-30T07:00:00Z | Implement Bombieri-type zero density estimate from ZPO energy barrier | zero-density.js |
+| 840 | 2026-03-30T07:30:00Z | Implement bulk zero computation with adaptive step-size R-S and GUE verification | bulk-zeros.js |

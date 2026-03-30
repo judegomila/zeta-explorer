@@ -1370,7 +1370,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Stress test: run full proof chain on adversarial function families',
     category: 'verification',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Beyond D-H: test the proof chain on (1) Epstein zeta functions ζ_Q(s) which violate RH for certain Q, (2) Hurwitz zeta ζ(s,a) which has off-line zeros for a ≠ 1, ½, (3) random Dirichlet series with planted off-line zeros. Every step that passes for ζ(s) should FAIL for these. If a step passes falsely, it is not RH-specific.',
     rationale: 'Adversarial testing is the best defense against false positive proofs. Tests the full chain, not just S7.',

@@ -1234,7 +1234,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Prove inherited unitarity: S_N unitary ∀N + S_N→S_∞ ⟹ S_∞ unitary',
     category: 'proof',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S7',
     description: 'The set U(n) of unitary matrices is closed in the operator norm topology (standard fact: U(n) = {S : S*S = I} and the map S ↦ S*S is continuous). Combined with the Cauchy sequence argument (imp-095), this gives S_∞ unitary. Combined with det(S_∞)=1 (imp-093), we get S_∞ ∈ SU(2). Implement the full chain: trace class → Cauchy → limit exists → closed sets → inherited properties → RH.',
     rationale: 'This assembles the full rigorous argument from existing pieces. Each step uses a standard topology/analysis fact.',

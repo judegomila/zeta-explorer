@@ -889,12 +889,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add interval arithmetic to all critical computations',
     category: 'accuracy',
     priority: 'medium',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Replace floating-point arithmetic in key proof computations with interval arithmetic [a,b] that tracks rounding errors. If the interval for δ(P) is [lo, hi] and hi < 0.01, the unitarity claim is RIGOROUS. Implement for: Mertens bound, Potapov J-contractivity check, Li coefficient computation.',
     rationale: 'Interval arithmetic turns numerical evidence into rigorous proof. This is the standard for computer-assisted proofs in number theory.',
     estimatedComplexity: 'large',
-    completedAt: null,
+    completedAt: '2026-03-30T08:00:00Z',
   },
 
   // ─── MAKE IT VIRAL ────────────────────────────────────────────────

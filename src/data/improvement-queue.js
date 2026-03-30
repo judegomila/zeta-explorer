@@ -1358,7 +1358,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Implement formal verification of Mertens bound in interval arithmetic end-to-end',
     category: 'verification',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Combine rigorous-mertens.js (imp-084) with the full proof chain: run the ENTIRE δ(P) computation from raw prime data to final bound using only interval arithmetic. Every intermediate value is an interval. Output a certificate: "δ(10⁸) ∈ [lo, hi] with hi < 10⁻⁶, verified with IEEE 754 directed rounding."',
     rationale: 'A machine-checkable certificate for the Mertens step strengthens the proof.',

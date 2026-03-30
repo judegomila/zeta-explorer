@@ -1,5 +1,7 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
+
+const ProofStatusCard = lazy(() => import('../components/ProofStatusCard.jsx'));
 
 /**
  * RH Proof Dashboard — Live Metrics (imp-060)
@@ -407,6 +409,17 @@ export default function DashboardPage() {
         >
           Recompute All
         </button>
+      </div>
+
+      {/* Shareable Status Card */}
+      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #8b5cf6' }}>
+        <h3 style={{ color: '#8b5cf6', fontSize: 14, marginBottom: 12 }}>Shareable Proof Status Card</h3>
+        <p style={{ color: '#94a3b8', fontSize: 12, marginBottom: 12 }}>
+          Generate a shareable image showing proof status. Click "Save as PNG" to download.
+        </p>
+        <Suspense fallback={<div style={{ color: '#64748b', fontSize: 12 }}>Loading card...</div>}>
+          <ProofStatusCard />
+        </Suspense>
       </div>
 
       {/* Navigation links */}

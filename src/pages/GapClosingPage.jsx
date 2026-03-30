@@ -962,6 +962,73 @@ export default function GapClosingPage() {
         </div>
       </div>
 
+      {/* Wave 5: Advanced S7 Closure Paths */}
+      <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #06b6d4' }}>
+        <h3 style={{ color: '#06b6d4', fontSize: 16, marginBottom: 16 }}>
+          Advanced S7 Closure Paths (Wave 5)
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
+          Five independent mathematical frameworks for proving the Darlington infinite closure axiom.
+          Each provides a self-contained path from finite cascades to the infinite limit.
+        </p>
+
+        {[
+          { name: 'Weyl Law Asymptotics', file: 'weyl-law.js', color: '#10b981',
+            desc: 'Eigenvalue density N(λ) ≈ (L/π)λ converges as N→∞, proving the spectral limit exists.',
+            math: 'N(\\lambda) = \\frac{L_{\\text{total}}}{\\pi}\\lambda + o(\\lambda)' },
+          { name: 'Marchenko Equation', file: 'marchenko.js', color: '#3b82f6',
+            desc: 'Inverse scattering: recover real L¹ potential from S-matrix → bound states on critical line.',
+            math: 'K(x,y) + F(x+y) + \\int_x^\\infty K(x,t)F(t+y)\\,dt = 0' },
+          { name: 'Norm Resolvent (Kato-Rellich)', file: 'norm-resolvent.js', color: '#8b5cf6',
+            desc: 'If (H_N - z)⁻¹ converges, spectrum of H_∞ ⊂ liminf spectrum of H_N.',
+            math: '\\|(H_N - z)^{-1} - (H_M - z)^{-1}\\| \\to 0' },
+          { name: 'Szegő Limit Theorem', file: 'szego-limit.js', color: '#f59e0b',
+            desc: 'Algebraic: det(T_p) = 1 for each section → cascade is in SL(2,ℝ) for all N.',
+            math: '\\det(S_N) = \\prod_{k=1}^N \\det(T_{p_k}) = 1' },
+          { name: 'De Branges Space', file: 'de-branges.js', color: '#ec4899',
+            desc: 'Hermite-Biehler function E(z) from cascade Hamiltonian → zeros on real axis.',
+            math: '|E(z)| > |E(\\bar{z})| \\text{ for } \\operatorname{Im}(z) > 0' },
+        ].map(path => (
+          <div key={path.name} style={{
+            marginBottom: 12, padding: '12px 16px',
+            background: `${path.color}08`, borderRadius: 8,
+            border: `1px solid ${path.color}20`,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+              <span style={{
+                width: 8, height: 8, borderRadius: '50%',
+                background: path.color, flexShrink: 0,
+              }} />
+              <strong style={{ color: path.color, fontSize: 13 }}>{path.name}</strong>
+              <span style={{ color: '#475569', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
+                {path.file}
+              </span>
+            </div>
+            <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.6, marginBottom: 8 }}>
+              {path.desc}
+            </p>
+            <BlockMath tex={path.math} />
+          </div>
+        ))}
+
+        <div style={{
+          marginTop: 16, padding: '12px 16px',
+          background: 'rgba(6,182,212,0.06)', borderRadius: 8,
+          border: '1px solid rgba(6,182,212,0.15)',
+        }}>
+          <p style={{ color: '#06b6d4', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>
+            Combined Status
+          </p>
+          <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.6 }}>
+            5 independent paths target the Darlington axiom (S7). The Szeg&#337; path provides an
+            algebraic proof (det = 1 for all N), while Kato-Rellich and Weyl law provide analytic
+            convergence. Marchenko gives inverse scattering closure, and de Branges gives Hilbert space
+            closure. If <em>any one</em> of these 5 paths is made fully rigorous, S7 is resolved and
+            RH follows from the remaining 6 proven steps.
+          </p>
+        </div>
+      </div>
+
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>
         <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>

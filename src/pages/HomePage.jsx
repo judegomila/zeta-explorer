@@ -608,10 +608,10 @@ export default function HomePage() {
       <div className="hero">
         <h1>Zeta Prime Oscillator Explorer</h1>
         <p>
-          A computational laboratory for attacking the Riemann Hypothesis from every angle —
-          circuit theory, spectral geometry, Calabi-Yau manifolds, information theory, twistor duality,
-          random matrices, and control systems. Interactive visualizations, formal proof attempts,
-          and adversarial testing across 30+ pages of mathematical exploration.
+          Exploring the Riemann Hypothesis through the lens of circuit theory, spectral geometry,
+          and scattering matrices — a personal investigation by Jude Gomila into connections between
+          prime oscillator networks, Calabi-Yau geometry, information theory, and random matrices.
+          Interactive visualizations, computational proof attempts, and adversarial testing.
         </p>
       </div>
 

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import ZetaLandscapeViz from '../components/ZetaLandscapeViz.jsx';
 import ZetaPhasePortrait from '../components/ZetaPhasePortrait.jsx';
+const Zeta3DLandscape = lazy(() => import('../components/Zeta3DLandscape.jsx'));
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
@@ -19,6 +20,17 @@ export default function ZetaPage() {
       <BlockMath tex={"Z(t) = e^{i\\theta(t)} \\zeta(1/2 + it), \\quad Z(t) \\in \\mathbb{R}"} />
 
       <ZetaLandscapeViz />
+
+      <div style={{ marginTop: 32 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 12 }}>3D Zeta Landscape</h2>
+        <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 12 }}>
+          Interactive 3D height field of <InlineMath tex="|\zeta(\sigma + it)|" /> over the critical strip.
+          Zeros appear as valleys touching the floor. Drag to rotate, scroll to zoom.
+        </p>
+        <Suspense fallback={<div style={{ height: 450, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', background: '#060a14', borderRadius: 12, border: '1px solid #1e293b' }}>Loading 3D...</div>}>
+          <Zeta3DLandscape />
+        </Suspense>
+      </div>
 
       <div style={{ marginTop: 32 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 12 }}>Phase Portrait</h2>

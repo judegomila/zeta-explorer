@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ZetaLandscapeViz from '../components/ZetaLandscapeViz.jsx';
+import ZetaPhasePortrait from '../components/ZetaPhasePortrait.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
@@ -18,6 +19,11 @@ export default function ZetaPage() {
       <BlockMath tex={"Z(t) = e^{i\\theta(t)} \\zeta(1/2 + it), \\quad Z(t) \\in \\mathbb{R}"} />
 
       <ZetaLandscapeViz />
+
+      <div style={{ marginTop: 32 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 12 }}>Phase Portrait</h2>
+        <ZetaPhasePortrait />
+      </div>
 
       <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
         <h3 style={{ color: '#06b6d4' }}>What to Explore</h3>

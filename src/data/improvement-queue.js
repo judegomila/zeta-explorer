@@ -1296,7 +1296,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Implement Titchmarsh representation theorem for ζ(s) as S₂₁',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Use the Titchmarsh representation: ζ(s) = ζ(s₀)·exp(∫_{s₀}^s (ζ\'/ζ)(w) dw). The cascade S₂₁ has the same logarithmic derivative as ζ(s) on σ>1 (both are Σ Λ(n)/n^s). By Carlson theorem (bounded growth + agreement on a half-plane), the functions are identical.',
     rationale: 'Carlson theorem is the standard tool for extending identities from a half-plane to the full domain.',

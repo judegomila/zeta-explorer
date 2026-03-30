@@ -809,3 +809,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 839 | 2026-03-30T07:00:00Z | Implement Bombieri-type zero density estimate from ZPO energy barrier | zero-density.js |
 | 840 | 2026-03-30T07:30:00Z | Implement bulk zero computation with adaptive step-size R-S and GUE verification | bulk-zeros.js |
 | 841 | 2026-03-30T08:00:00Z | Implement interval arithmetic for rigorous Mertens bound verification | interval-arithmetic.js |
+| 842 | 2026-03-30T08:30:00Z | Extend ZPO to Dedekind zeta for 8 quadratic fields with splitting statistics | dedekind-zeta.js |

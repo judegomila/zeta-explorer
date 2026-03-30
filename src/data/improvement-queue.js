@@ -1346,7 +1346,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Prove the ZPO frequency mapping jω ↔ σ=½ rigorously',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S8',
     description: 'The Darlington step uses jω axis ↔ critical line σ=½. Make this rigorous: in the ZPO model, s = σ+it maps to complex frequency ω = t (imaginary part) and σ controls attenuation. At σ=½, the bridge χ(s) is unitary (|χ|=1), meaning zero attenuation = jω axis in circuit theory. Prove this mapping preserves the zero structure.',
     rationale: 'Referee check item (v) from imp-102. A clear proof of the mapping makes Darlington applicable.',

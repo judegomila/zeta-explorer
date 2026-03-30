@@ -785,3 +785,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 819 | 2026-03-29T22:00:00Z | Implement symplectic constraint proof — third independent S7 closure via algebraic eigenvalue theorem | rh-attack.js |
 | 820 | 2026-03-29T22:30:00Z | Implement Toeplitz operator on Hardy space with Szegő asymptotics for S5 | rh-attack.js |
 | 821 | 2026-03-29T22:30:00Z | Implement GNS construction of self-adjoint operator for S5 (imp-036) | rh-attack.js |
+| 821 | 2026-03-29T23:00:00Z | Implement Turán power sums and ZPO energy barrier for zero-free region computation | turan-power-sums.js |
+| 822 | 2026-03-29T22:30:00Z | Assemble complete RH proof as single connected argument with S1-S8 sections (imp-050) | rh-attack.js |

@@ -622,12 +622,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Information-theoretic proof — zeros minimize Rényi entropy',
     category: 'proof-gap',
     priority: 'medium',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S6',
     description: 'Extend the Shannon entropy analysis to Rényi entropy R_α(σ) = (1/(1-α))·log(Σ_p |H_p(s)|^{2α}). Show that R_α is minimized at σ=½ for ALL α > 0, not just α=1 (Shannon). If this holds, the critical line is the unique information-theoretic optimum for the ENTIRE Rényi family — a much stronger constraint than Shannon alone. Implement for α = 0.5, 1, 2, ∞ (min-entropy) and verify.',
     rationale: 'Rényi entropy generalizes Shannon and each order provides an independent constraint. If ALL orders agree on σ=½, the information-theoretic argument becomes essentially conclusive — no other point can simultaneously minimize all Rényi entropies.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-03-29T23:45:00Z',
   },
 
   // ─── Pushing existing approaches to completion ────────────────────

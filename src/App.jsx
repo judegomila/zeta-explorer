@@ -96,6 +96,7 @@ const NAV_GROUPS = [
       { to: '/cross-attack', label: 'Cross-Attack' },
       { to: '/proof-planner', label: 'Proof Planner' },
       { to: '/proof-overview', label: 'Proof Overview' },
+      { to: '/break-it', label: 'Break It' },
     ],
   },
   {
@@ -368,6 +369,7 @@ function AppShell() {
           <Route path="/improvement-queue" element={<ImprovementQueuePage />} />
           <Route path="/proof-overview" element={<ProofOverviewPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/break-it" element={<BreakItPage />} />
         </Routes>
         </Suspense>
       </div>

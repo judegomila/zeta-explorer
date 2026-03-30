@@ -1334,7 +1334,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Prove resolvent convergence analytically via Weyl asymptotic + spectral shift',
     category: 'proof',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S7',
     description: 'The Trotter-Kato path needs resolvent convergence analytically (currently numerical). Use: (1) Weyl asymptotics give eigenvalue density → spectrum is discrete, (2) rank-2 perturbation shifts eigenvalues by at most ||V||/gap (min-max), (3) spectral gap stabilizes (imp-087), (4) therefore resolvent perturbation is O(||V||/gap²) which is summable. This upgrades Trotter-Kato from numerical to analytical.',
     rationale: 'This closes the Trotter-Kato path analytically — giving a FULLY rigorous proof with zero numerical dependencies.',

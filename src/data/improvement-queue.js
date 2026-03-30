@@ -558,12 +558,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Automated counterexample search — stress-test with D-H and Epstein zeta',
     category: 'proof-gap',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Aggressively search for counterexamples to our proof claims using: (1) Davenport-Heilbronn function (violates RH but has functional equation), (2) Epstein zeta functions (some satisfy RH, some don\'t), (3) Dedekind zeta of number fields with known off-line zeros. For each, test whether our ZPO criteria (Hamiltonian convexity, unitarity, Weil positivity) correctly DISTINGUISH functions that satisfy RH from those that don\'t. Any criterion that can\'t tell them apart is logically weak.',
     rationale: 'The strongest test of our proof is adversarial. If ZPO criteria pass for ζ but FAIL for Davenport-Heilbronn, they contain genuinely RH-specific information. This is the gold standard for computational proof validation.',
     estimatedComplexity: 'large',
-    completedAt: null,
+    completedAt: '2026-03-29T23:45:00Z',
   },
 
   // ─── Bridge to rigorous mathematics ───────────────────────────────

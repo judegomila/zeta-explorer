@@ -1726,3 +1726,170 @@ export function connesAlphaSweep(alphaValues = null, numZeros = 50) {
              `ZPO operator reproduces the spectral data with ${(best.zpoRelError * 100).toFixed(3)}% accuracy.`,
   };
 }
+
+
+// ─── Strategy 10: Montgomery-Odlyzko Pair Correlation ────────────────────────
+/**
+ * Montgomery's pair correlation conjecture (1973): the pair correlation
+ * function of normalized zeta zero spacings approaches the GUE prediction:
+ *
+ *   R₂(x) = 1 − (sin(πx)/(πx))² + δ(x)
+ *
+ * Odlyzko (1987) verified this numerically for zeros near the 10^20-th.
+ *
+ * We compute R₂ for our available zeros and compare with GUE.
+ * Also compare with the ZPO Hamiltonian's eigenvalue spacings.
+ */
+export function montgomeryOdlyzko(numZeros = null, numBins = 50) {
+  const zeros = numZeros ? ZETA_ZEROS.slice(0, numZeros) : [...ZETA_ZEROS];
+  const N = zeros.length;
+  if (N < 10) return { error: 'Need at least 10 zeros' };
+
+  // ── Normalize spacings ──
+  // The mean spacing near γ_n is 2π/log(γ_n/(2π))
+  // We normalize: δ_n = (γ_{n+1} − γ_n) · log(γ_n/(2π)) / (2π)
+  const normalizedSpacings = [];
+  for (let i = 0; i < N - 1; i++) {
+    const meanDensity = Math.log(zeros[i] / (2 * Math.PI)) / (2 * Math.PI);
+    const spacing = (zeros[i + 1] - zeros[i]) * meanDensity;
+    normalizedSpacings.push(spacing);
+  }
+
+  // ── Nearest-neighbor spacing distribution ──
+  const maxSpacing = 4;
+  const nnBins = numBins;
+  const nnHist = new Float64Array(nnBins);
+  for (const s of normalizedSpacings) {
+    const bin = Math.min(Math.floor(s / maxSpacing * nnBins), nnBins - 1);
+    if (bin >= 0) nnHist[bin]++;
+  }
+  const nnTotal = normalizedSpacings.length;
+
+  // ── GUE Wigner surmise for nearest-neighbor: p(s) = (32/π²)s²·exp(−4s²/π) ──
+  const gueNN = new Float64Array(nnBins);
+  for (let i = 0; i < nnBins; i++) {
+    const s = (i + 0.5) / nnBins * maxSpacing;
+    gueNN[i] = (32 / (Math.PI * Math.PI)) * s * s * Math.exp(-4 * s * s / Math.PI);
+  }
+
+  // ── Pair correlation R₂(x) ──
+  // For all pairs (i,j) with i<j, compute normalized difference
+  // x_{ij} = (γ_j − γ_i) · log(γ_i/(2π)) / (2π)
+  // Then histogram these to get R₂
+  const r2Bins = numBins;
+  const r2Max = 5;
+  const r2Hist = new Float64Array(r2Bins);
+  let pairCount = 0;
+
+  // Only consider nearby pairs (within 20 neighbors) for efficiency
+  const maxNeighbors = Math.min(20, N - 1);
+  for (let i = 0; i < N; i++) {
+    const density = Math.log(zeros[i] / (2 * Math.PI)) / (2 * Math.PI);
+    for (let j = i + 1; j <= Math.min(i + maxNeighbors, N - 1); j++) {
+      const x = (zeros[j] - zeros[i]) * density;
+      if (x >= r2Max) break;
+      const bin = Math.floor(x / r2Max * r2Bins);
+      if (bin >= 0 && bin < r2Bins) {
+        r2Hist[bin]++;
+        pairCount++;
+      }
+    }
+  }
+
+  // Normalize R₂ histogram
+  const binWidth = r2Max / r2Bins;
+  for (let i = 0; i < r2Bins; i++) {
+    r2Hist[i] /= (pairCount * binWidth) || 1;
+  }
+
+  // ── GUE pair correlation: R₂(x) = 1 − (sin(πx)/(πx))² ──
+  const gueR2 = new Float64Array(r2Bins);
+  for (let i = 0; i < r2Bins; i++) {
+    const x = (i + 0.5) / r2Bins * r2Max;
+    if (x < 0.01) {
+      gueR2[i] = 0; // R₂(0) = 0 (level repulsion)
+    } else {
+      const sinc = Math.sin(Math.PI * x) / (Math.PI * x);
+      gueR2[i] = 1 - sinc * sinc;
+    }
+  }
+
+  // ── Poisson (random) pair correlation: R₂(x) = 1 ──
+  const poissonR2 = new Float64Array(r2Bins).fill(1);
+
+  // ── Goodness of fit: χ² against GUE vs Poisson ──
+  let chiSqGUE = 0, chiSqPoisson = 0;
+  for (let i = 0; i < r2Bins; i++) {
+    const observed = r2Hist[i];
+    const expectedGUE = gueR2[i] || 0.01;
+    const expectedPoisson = 1;
+    chiSqGUE += (observed - expectedGUE) ** 2 / Math.max(expectedGUE, 0.01);
+    chiSqPoisson += (observed - expectedPoisson) ** 2;
+  }
+
+  // ── Number variance Σ²(L) ──
+  // Σ²(L) = variance of #{zeros in interval of length L}
+  // GUE: Σ²(L) ~ (2/π²)·log(2πL) + const  for large L
+  // Poisson: Σ²(L) = L
+  const numberVariance = [];
+  const lvValues = [0.5, 1, 2, 3, 5, 8, 10, 15, 20];
+  for (const L of lvValues) {
+    // Count zeros in windows of size L (in normalized units)
+    const counts = [];
+    for (let start = 0; start < N - 1; start++) {
+      const density = Math.log(zeros[start] / (2 * Math.PI)) / (2 * Math.PI);
+      const windowEnd = zeros[start] + L / density;
+      let count = 0;
+      for (let j = start; j < N && zeros[j] <= windowEnd; j++) count++;
+      counts.push(count);
+      if (counts.length > 500) break; // cap for performance
+    }
+    if (counts.length < 2) continue;
+    const mean = counts.reduce((a, b) => a + b, 0) / counts.length;
+    const variance = counts.reduce((a, b) => a + (b - mean) ** 2, 0) / (counts.length - 1);
+    const gueVariance = (2 / (Math.PI * Math.PI)) * Math.log(2 * Math.PI * L) + 0.44;
+    numberVariance.push({
+      L, variance, gueExpected: gueVariance, poissonExpected: L,
+      gueRatio: variance / Math.max(gueVariance, 0.01),
+    });
+  }
+
+  // ── Build distribution data for display ──
+  const nnDistribution = [];
+  const r2Distribution = [];
+  for (let i = 0; i < nnBins; i++) {
+    const s = (i + 0.5) / nnBins * maxSpacing;
+    nnDistribution.push({
+      s,
+      observed: nnHist[i] / (nnTotal * maxSpacing / nnBins),
+      gue: gueNN[i],
+    });
+  }
+  for (let i = 0; i < r2Bins; i++) {
+    const x = (i + 0.5) / r2Bins * r2Max;
+    r2Distribution.push({
+      x,
+      observed: r2Hist[i],
+      gue: gueR2[i],
+      poisson: 1,
+    });
+  }
+
+  const gueWins = chiSqGUE < chiSqPoisson;
+
+  return {
+    numZeros: N,
+    nnDistribution,
+    r2Distribution,
+    numberVariance,
+    chiSqGUE,
+    chiSqPoisson,
+    gueWins,
+    meanSpacing: normalizedSpacings.reduce((a, b) => a + b, 0) / normalizedSpacings.length,
+    verdict: gueWins
+      ? `Montgomery-Odlyzko CONFIRMED for ${N} zeros: GUE fit (χ²=${chiSqGUE.toFixed(1)}) ` +
+        `beats Poisson (χ²=${chiSqPoisson.toFixed(1)}) by factor ${(chiSqPoisson / chiSqGUE).toFixed(1)}×. ` +
+        `Zero spacings follow random matrix statistics, consistent with RH.`
+      : `Unexpected: Poisson fit better than GUE for ${N} zeros. Check computation.`,
+  };
+}

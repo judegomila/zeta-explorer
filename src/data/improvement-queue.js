@@ -1446,7 +1446,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Devil\'s advocate: write the strongest possible REFUTATION of our proof',
     category: 'proof',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Steel-man the opposition. Write a module that systematically attacks every step with the strongest possible objections a skeptical mathematician would raise. For each attack: (1) state the objection precisely, (2) assess whether our current defense holds, (3) if not, flag it as a genuine weakness. Be BRUTALLY honest. The goal is to find any flaw before a referee does.',
     rationale: 'The best way to strengthen a proof is to try to destroy it.',

@@ -1396,7 +1396,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Verify Darlington applies to INFINITE lossless networks (not just finite)',
     category: 'proof',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Darlington (1939) proved his theorem for FINITE reactance networks. We apply it to S_∞ (the limit of finite cascades). The question: does Darlington extend to infinite networks? Our argument: S_∞ ∈ SO(2) is a well-defined 2×2 matrix (not infinite-dimensional), so it IS a finite lossless 2-port. But: is the zero structure preserved in the limit? Prove: if S_N → S_∞ and each S_N has transmission zeros on jω, then S_∞ has transmission zeros on jω (Hurwitz theorem on limits of analytic functions with zeros on a line).',
     rationale: 'This is referee check item (iv). The extension from finite to infinite is the crux.',

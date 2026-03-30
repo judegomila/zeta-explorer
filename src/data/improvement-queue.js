@@ -1284,7 +1284,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Prove cascade S-matrix is the scattering matrix of the ZPO Hamiltonian',
     category: 'proof',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S8',
     description: 'The missing link between the transfer matrix cascade and the Hamiltonian scattering theory: prove that the S-matrix extracted from S_N via the Cayley transform is the SAME as the scattering matrix of H_N in the Lax-Phillips sense. This connects the algebraic path (SO(2)) with the analytical path (LP contraction). Use the stationary scattering theory: S(k) = I - 2πi·V·(H-k²-i0)⁻¹·V* where V is the coupling to leads.',
     rationale: 'Unifies the two S7 closure paths and makes the zero identification automatic.',

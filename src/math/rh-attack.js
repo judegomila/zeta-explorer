@@ -2568,3 +2568,283 @@ export function bagchiUniversalityTest(sigmaCenter = 0.75, tWindow = 500, numSam
         `Increase tWindow or numSamples for better coverage.`,
   };
 }
+
+// ─── Strategy 11: Nyman-Beurling Criterion ──────────────────────────────────
+/**
+ * Nyman-Beurling criterion: RH ⟺ the indicator function 1_{(0,1]}
+ * can be approximated in L²(0,1) by linear combinations of fractional
+ * parts {θ/x} for θ ∈ (0,1].
+ *
+ * We compute the best L² approximation distance d_N using N basis functions
+ * {θ_k / x} with θ_k = k/(N+1) for k = 1..N.
+ *
+ * The Gram matrix G_{jk} = ∫₀¹ {θ_j/x}{θ_k/x} dx and the moment vector
+ * b_j = ∫₀¹ {θ_j/x} dx are computed numerically. The best approximation
+ * distance is d_N² = 1 - b^T G^{-1} b (since ∫₀¹ 1² dx = 1).
+ *
+ * Track whether d_N → 0 as N → ∞ (which would confirm RH).
+ *
+ * @param {number} maxN - maximum number of basis terms to test
+ * @returns {object} convergence data for d_N at multiple N values
+ */
+export function nymanBeurlingTest(maxN = 100) {
+  const testNs = [5, 10, 20, 50, 100].filter(n => n <= maxN);
+  const numQuad = 500; // quadrature points for integration on (0,1]
+  const dx = 1 / numQuad;
+  const results = [];
+
+  for (const N of testNs) {
+    // Choose θ values uniformly in (0,1]
+    const thetas = [];
+    for (let k = 1; k <= N; k++) thetas.push(k / (N + 1));
+
+    // Evaluate basis functions {θ/x} at quadrature points
+    // {y} = y - floor(y) is the fractional part
+    const basis = []; // basis[j][i] = {θ_j / x_i}
+    const xPts = [];
+    for (let i = 1; i <= numQuad; i++) xPts.push(i * dx);
+
+    for (let j = 0; j < N; j++) {
+      const row = new Float64Array(numQuad);
+      for (let i = 0; i < numQuad; i++) {
+        const y = thetas[j] / xPts[i];
+        row[i] = y - Math.floor(y);
+      }
+      basis.push(row);
+    }
+
+    // Gram matrix G_{jk} = ∫₀¹ {θ_j/x}{θ_k/x} dx ≈ Σ_i basis[j][i]*basis[k][i]*dx
+    const G = [];
+    for (let j = 0; j < N; j++) {
+      G.push(new Float64Array(N));
+      for (let k = j; k < N; k++) {
+        let sum = 0;
+        for (let i = 0; i < numQuad; i++) sum += basis[j][i] * basis[k][i];
+        sum *= dx;
+        G[j][k] = sum;
+        if (k !== j) {
+          if (!G[k]) G[k] = new Float64Array(N);
+          G[k][j] = sum;
+        }
+      }
+    }
+
+    // Moment vector b_j = ∫₀¹ {θ_j/x} · 1 dx
+    const b = new Float64Array(N);
+    for (let j = 0; j < N; j++) {
+      let sum = 0;
+      for (let i = 0; i < numQuad; i++) sum += basis[j][i];
+      b[j] = sum * dx;
+    }
+
+    // Solve G·c = b using Cholesky-like approach (G is symmetric positive semi-definite)
+    // Add small regularization for stability
+    for (let j = 0; j < N; j++) G[j][j] += 1e-10;
+
+    // Gaussian elimination with partial pivoting to solve G·c = b
+    const A = G.map(row => Float64Array.from(row));
+    const rhs = Float64Array.from(b);
+
+    for (let col = 0; col < N; col++) {
+      // Partial pivoting
+      let maxVal = Math.abs(A[col][col]);
+      let maxRow = col;
+      for (let row = col + 1; row < N; row++) {
+        if (Math.abs(A[row][col]) > maxVal) {
+          maxVal = Math.abs(A[row][col]);
+          maxRow = row;
+        }
+      }
+      if (maxRow !== col) {
+        [A[col], A[maxRow]] = [A[maxRow], A[col]];
+        [rhs[col], rhs[maxRow]] = [rhs[maxRow], rhs[col]];
+      }
+
+      const pivot = A[col][col];
+      if (Math.abs(pivot) < 1e-15) continue;
+
+      for (let row = col + 1; row < N; row++) {
+        const factor = A[row][col] / pivot;
+        for (let k = col; k < N; k++) A[row][k] -= factor * A[col][k];
+        rhs[row] -= factor * rhs[col];
+      }
+    }
+
+    // Back-substitution
+    const c = new Float64Array(N);
+    for (let row = N - 1; row >= 0; row--) {
+      let sum = rhs[row];
+      for (let k = row + 1; k < N; k++) sum -= A[row][k] * c[k];
+      c[row] = Math.abs(A[row][row]) > 1e-15 ? sum / A[row][row] : 0;
+    }
+
+    // d_N² = ∫₀¹ |1 - Σ c_j {θ_j/x}|² dx = 1 - 2·b^T·c + c^T·G_orig·c
+    // Simpler: compute directly via quadrature
+    let dSq = 0;
+    for (let i = 0; i < numQuad; i++) {
+      let approx = 0;
+      for (let j = 0; j < N; j++) approx += c[j] * basis[j][i];
+      const residual = 1 - approx; // 1_{(0,1]}(x) = 1 for x in (0,1]
+      dSq += residual * residual;
+    }
+    dSq *= dx;
+    const dN = Math.sqrt(Math.max(0, dSq));
+
+    results.push({
+      N,
+      dN,
+      dNSquared: dSq,
+      logDN: dN > 0 ? Math.log10(dN) : -Infinity,
+    });
+  }
+
+  // Check convergence: is d_N decreasing?
+  const isDecreasing = results.every((r, i) =>
+    i === 0 || r.dN <= results[i - 1].dN + 1e-10
+  );
+
+  // Estimate convergence rate by fitting log(d_N) vs log(N)
+  let rate = null;
+  if (results.length >= 2) {
+    const last = results[results.length - 1];
+    const first = results[0];
+    if (last.dN > 0 && first.dN > 0) {
+      rate = (Math.log(last.dN) - Math.log(first.dN)) /
+             (Math.log(last.N) - Math.log(first.N));
+    }
+  }
+
+  return {
+    results,
+    isDecreasing,
+    convergenceRate: rate,
+    rhConsistent: isDecreasing && results[results.length - 1].dN < results[0].dN * 0.5,
+    verdict: isDecreasing
+      ? `Nyman-Beurling distances d_N are DECREASING: d_${results[0].N}=${results[0].dN.toFixed(4)} → ` +
+        `d_${results[results.length - 1].N}=${results[results.length - 1].dN.toFixed(4)}` +
+        (rate ? ` (rate ≈ N^{${rate.toFixed(2)}})` : '') +
+        `. Convergence to 0 is consistent with RH.`
+      : `WARNING: Nyman-Beurling distances are NOT monotonically decreasing. ` +
+        `This may indicate numerical instability at higher N — increase quadrature points.`,
+  };
+}
+
+// ─── Strategy 12: Baez-Duarte Criterion ─────────────────────────────────────
+/**
+ * Baez-Duarte criterion: RH ⟺ c_k → 0 as k → ∞, where
+ *   c_k = Σ_{j=0}^{k} (-1)^j C(k,j) / ζ(2j+2)
+ *
+ * This is a remarkably simple equivalent to RH involving only values of ζ
+ * at even positive integers (which are known explicitly via Bernoulli numbers).
+ *
+ * We compute c_k for k = 0, 1, ..., maxK and compare the convergence rate
+ * with Li coefficients λ_n.
+ *
+ * @param {number} maxK - maximum k to compute
+ * @returns {object} Baez-Duarte coefficients and convergence comparison
+ */
+export function baezDuarteCriterion(maxK = 50) {
+  // Precompute ζ(2j+2) for j = 0..maxK using Bernoulli numbers
+  // ζ(2n) = (-1)^{n+1} B_{2n} (2π)^{2n} / (2·(2n)!)
+  // For practical purposes we use the formula:
+  // ζ(2) = π²/6, ζ(4) = π⁴/90, ζ(6) = π⁶/945, ...
+  // General: ζ(2n) = (2π)^{2n} |B_{2n}| / (2·(2n)!)
+
+  // Bernoulli numbers B_{2n} for n = 1..52 (we need up to B_{2*(maxK+1)})
+  // Use the recurrence or known values
+  const zetaEven = new Float64Array(maxK + 2); // zetaEven[j] = ζ(2j+2) for j=0..maxK
+  for (let j = 0; j <= maxK; j++) {
+    const n = j + 1; // ζ(2n) where n = j+1, so ζ(2j+2)
+    // Compute ζ(2n) directly using the series (converges fast for large 2n)
+    // ζ(s) = 1 + 1/2^s + 1/3^s + ... converges quickly for s ≥ 2
+    const s = 2 * n;
+    let val = 0;
+    for (let m = 1; m <= 200; m++) {
+      val += 1 / Math.pow(m, s);
+      if (m > 10 && 1 / Math.pow(m, s) < 1e-16) break;
+    }
+    zetaEven[j] = val;
+  }
+
+  // Compute c_k = Σ_{j=0}^{k} (-1)^j C(k,j) / ζ(2j+2)
+  const coefficients = [];
+
+  // Precompute log of binomial coefficients to avoid overflow
+  // C(k,j) = k! / (j!(k-j)!)
+  // Use log-space computation for large k
+  const logFact = new Float64Array(maxK + 1);
+  logFact[0] = 0;
+  for (let i = 1; i <= maxK; i++) logFact[i] = logFact[i - 1] + Math.log(i);
+
+  for (let k = 0; k <= maxK; k++) {
+    let ck = 0;
+
+    for (let j = 0; j <= k; j++) {
+      const sign = (j % 2 === 0) ? 1 : -1;
+      // C(k,j) in log space
+      const logBinom = logFact[k] - logFact[j] - logFact[k - j];
+      const binom = Math.exp(logBinom);
+      ck += sign * binom / zetaEven[j];
+    }
+
+    coefficients.push({
+      k,
+      ck,
+      absCk: Math.abs(ck),
+      logAbsCk: Math.abs(ck) > 0 ? Math.log10(Math.abs(ck)) : -Infinity,
+    });
+  }
+
+  // Check if |c_k| → 0
+  const lastFew = coefficients.slice(-10);
+  const firstFew = coefficients.slice(0, Math.min(10, coefficients.length));
+  const lastAvg = lastFew.reduce((s, c) => s + c.absCk, 0) / lastFew.length;
+  const firstAvg = firstFew.reduce((s, c) => s + c.absCk, 0) / firstFew.length;
+  const isConverging = lastAvg < firstAvg;
+
+  // Compare with Li coefficients convergence rate
+  const liResult = liCoefficients(Math.min(maxK, 30), 100);
+  const liComparison = {
+    liGrowthRate: null,
+    bdDecayRate: null,
+  };
+
+  // Estimate Li growth rate: λ_n ~ ½ log(n/(2πe))
+  if (liResult.lambdas.length >= 2) {
+    const liLast = liResult.lambdas[liResult.lambdas.length - 1];
+    const liFirst = liResult.lambdas[0];
+    if (liLast.lambda > 0 && liFirst.lambda > 0) {
+      liComparison.liGrowthRate =
+        (Math.log(liLast.lambda) - Math.log(liFirst.lambda)) /
+        (Math.log(liLast.n) - Math.log(liFirst.n));
+    }
+  }
+
+  // Estimate Baez-Duarte decay rate
+  if (coefficients.length >= 10) {
+    const bdLate = coefficients[coefficients.length - 1];
+    const bdEarly = coefficients[Math.min(5, coefficients.length - 1)];
+    if (bdLate.absCk > 0 && bdEarly.absCk > 0 && bdLate.k > bdEarly.k) {
+      liComparison.bdDecayRate =
+        (Math.log(bdLate.absCk) - Math.log(bdEarly.absCk)) /
+        (Math.log(bdLate.k + 1) - Math.log(bdEarly.k + 1));
+    }
+  }
+
+  return {
+    coefficients,
+    isConverging,
+    liComparison,
+    verdict: isConverging
+      ? `Baez-Duarte coefficients |c_k| are DECREASING: ` +
+        `mean |c_k| for k≤${firstFew[firstFew.length - 1].k} is ${firstAvg.toExponential(3)}, ` +
+        `mean |c_k| for k≥${lastFew[0].k} is ${lastAvg.toExponential(3)}. ` +
+        `Convergence c_k → 0 is consistent with RH. ` +
+        (liComparison.bdDecayRate
+          ? `Decay rate ≈ k^{${liComparison.bdDecayRate.toFixed(2)}} ` +
+            `(Li coefficients grow ≈ n^{${(liComparison.liGrowthRate || 0).toFixed(2)}}).`
+          : '')
+      : `WARNING: Baez-Duarte coefficients are NOT converging to zero. ` +
+        `This may indicate numerical precision limits for large k.`,
+  };
+}

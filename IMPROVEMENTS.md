@@ -770,3 +770,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 807 | 2026-03-29T17:30:00Z | Expand ZETA_ZEROS from 650 to 870 entries for improved statistical power | zeta.js |
 | 808 | 2026-03-29T18:00:00Z | Add enhanced Riemann-Siegel formula with C₁,C₂ corrections and fast zero-finder | zeta.js |
 | 809 | 2026-03-29T18:30:00Z | Add comprehensive Connes NCG deep dive with adeles, Weil proof, spectral realization, ZPO connection | ConceptsPage.jsx |
+| 810 | 2026-03-29T19:00:00Z | Implement Nyman-Beurling and Baez-Duarte criteria as independent RH equivalences | rh-attack.js |
+| 811 | 2026-03-29T19:00:00Z | Add Langlands program connection to CY page with motives and Hasse-Weil exposition | CalabiYauPage.jsx |

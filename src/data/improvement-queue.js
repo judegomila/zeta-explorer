@@ -837,12 +837,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Implement Bombieri-type zero density estimate from ZPO',
     category: 'proof-gap',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Even without full RH, the ZPO energy barrier provides zero density estimates: N(σ,T) = #{ρ : Re(ρ)≥σ, |Im(ρ)|≤T} ≤ C·T^{f(σ)}. Compute f(σ) from the Hamiltonian barrier and compare with Bombieri\'s N(σ,T) ≤ T^{3(1-σ)/(2-σ)+ε}. Any improvement would be a publishable result.',
     rationale: 'Zero density estimates are valuable even without RH. Improving Bombieri via ZPO would be a concrete mathematical contribution.',
     estimatedComplexity: 'large',
-    completedAt: null,
+    completedAt: '2026-03-30T07:00:00Z',
   },
 
   // ─── EXTEND THE FRAMEWORK ─────────────────────────────────────────

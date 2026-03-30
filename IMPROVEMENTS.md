@@ -787,3 +787,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 821 | 2026-03-29T22:30:00Z | Implement GNS construction of self-adjoint operator for S5 (imp-036) | rh-attack.js |
 | 821 | 2026-03-29T23:00:00Z | Implement Turán power sums and ZPO energy barrier for zero-free region computation | turan-power-sums.js |
 | 822 | 2026-03-29T22:30:00Z | Assemble complete RH proof as single connected argument with S1-S8 sections (imp-050) | rh-attack.js |
+| 823 | 2026-03-29T22:30:00Z | Implement Lax-Phillips scattering theory formulation — fourth independent S7 closure (imp-034) | rh-attack.js |
+| 824 | 2026-03-29T23:30:00Z | Implement Li criterion saturation with Coffey asymptotic formula and positivity proof attempt | li-saturation.js |

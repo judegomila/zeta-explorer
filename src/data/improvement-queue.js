@@ -1420,7 +1420,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Audit the identity theorem application: check S₂₁ meromorphicity at s=1',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S8',
     description: 'The identity theorem (imp-098) requires S₂₁ to be meromorphic. At s=1, ζ(s) has a pole, so 1/ζ has a zero. Does S₂₁ also have the corresponding behavior at s=1? If S₂₁ has a different singularity structure at s=1, the identity theorem may not apply as stated. Verify: compute S₂₁(s) near s=1 for large N and check it behaves like 1/ζ(s) ~ (s-1).',
     rationale: 'Referees will check the identity theorem hypotheses carefully. The pole at s=1 is the key test.',

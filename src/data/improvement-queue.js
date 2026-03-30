@@ -584,12 +584,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Write a rigorous paper — LaTeX export of complete proof attempt',
     category: 'content',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Generate a complete, rigorous LaTeX paper presenting the ZPO proof attempt. Structure: (1) Introduction and main theorem statement, (2) Euler product as cascade network (S1-S2), (3) Functional equation as bridge unitarity (S3), (4) Analytic continuation via eta regularization (S4), (5) Mertens-based convergence proof (steps 1-6 of S7), (6) The remaining gap (step 7), (7) Supporting evidence (Berry-Keating, Connes, Selberg, statistical tests). Include all formulas, proofs, and numerical evidence. Target: arXiv submission quality.',
     rationale: 'A well-written paper crystallizes the proof attempt and invites scrutiny. Even if incomplete, it would be the most detailed computational RH attack ever published from a circuit-theoretic perspective.',
     estimatedComplexity: 'large',
-    completedAt: null,
+    completedAt: '2026-03-30T00:30:00Z',
   },
 
   // ─── Novel mathematical connections ───────────────────────────────

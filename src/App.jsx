@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
-import { HashRouter, Routes, Route, NavLink, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { MathModalProvider } from './components/KaTeXMath.jsx';
 import HomePage from './pages/HomePage.jsx';
 import './styles/app.css';
@@ -138,7 +138,115 @@ function ScrollToTop() {
   return null;
 }
 
-function NavBar() {
+const KEYBOARD_SHORTCUTS = [
+  { key: '1', label: 'Home', path: '/' },
+  { key: '2', label: 'Oscillators', path: '/oscillators' },
+  { key: '3', label: 'Zeta', path: '/zeta' },
+  { key: '4', label: 'RH Attack', path: '/rh-attack' },
+  { key: '5', label: 'Gap Closing', path: '/gap-closing' },
+  { key: '6', label: 'Statistics', path: '/statistics' },
+  { key: '7', label: 'Spectral Attack', path: '/spectral-attack' },
+  { key: '8', label: 'Cross-Attack', path: '/cross-attack' },
+  { key: '9', label: 'Proof Planner', path: '/proof-planner' },
+];
+
+function KeyboardShortcutOverlay({ show, onClose }) {
+  if (!show) return null;
+  return (
+    <div
+      style={{
+        position: 'fixed', inset: 0, zIndex: 9999,
+        background: 'rgba(0,0,0,0.7)', display: 'flex',
+        justifyContent: 'center', alignItems: 'center',
+      }}
+      onClick={onClose}
+    >
+      <div
+        style={{
+          background: '#1e293b', border: '1px solid #334155',
+          borderRadius: 12, padding: '28px 36px', maxWidth: 420, width: '90%',
+          color: '#e2e8f0', fontFamily: 'var(--font-mono)',
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
+          <h3 style={{ margin: 0, fontSize: 18, color: '#f8fafc' }}>Keyboard Shortcuts</h3>
+          <button
+            onClick={onClose}
+            style={{
+              background: 'none', border: 'none', color: '#94a3b8',
+              fontSize: 20, cursor: 'pointer', padding: '0 4px',
+            }}
+            aria-label="Close"
+          >
+            &times;
+          </button>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {KEYBOARD_SHORTCUTS.map(s => (
+            <div key={s.key} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <kbd style={{
+                background: '#334155', border: '1px solid #475569',
+                borderRadius: 4, padding: '2px 8px', fontSize: 14,
+                minWidth: 24, textAlign: 'center', color: '#e0f2fe',
+              }}>{s.key}</kbd>
+              <span style={{ color: '#cbd5e1', fontSize: 14 }}>{s.label}</span>
+            </div>
+          ))}
+          <div style={{ borderTop: '1px solid #334155', margin: '8px 0', paddingTop: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <kbd style={{
+                background: '#334155', border: '1px solid #475569',
+                borderRadius: 4, padding: '2px 8px', fontSize: 14,
+                minWidth: 24, textAlign: 'center', color: '#e0f2fe',
+              }}>?</kbd>
+              <span style={{ color: '#cbd5e1', fontSize: 14 }}>Show this help</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 8 }}>
+              <kbd style={{
+                background: '#334155', border: '1px solid #475569',
+                borderRadius: 4, padding: '2px 8px', fontSize: 14,
+                minWidth: 24, textAlign: 'center', color: '#e0f2fe',
+              }}>Esc</kbd>
+              <span style={{ color: '#cbd5e1', fontSize: 14 }}>Close overlay</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function useKeyboardShortcuts(navigate) {
+  const [showHelp, setShowHelp] = useState(false);
+
+  useEffect(() => {
+    const handler = (e) => {
+      // Don't fire when typing in inputs
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT' || e.target.isContentEditable) return;
+
+      if (e.key === 'Escape') {
+        setShowHelp(false);
+        return;
+      }
+      if (e.key === '?') {
+        setShowHelp(prev => !prev);
+        return;
+      }
+      const shortcut = KEYBOARD_SHORTCUTS.find(s => s.key === e.key);
+      if (shortcut) {
+        setShowHelp(false);
+        navigate(shortcut.path);
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [navigate]);
+
+  return { showHelp, setShowHelp };
+}
+
+function NavBar({ onShowShortcuts }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef();
   const location = useLocation();
@@ -161,6 +269,19 @@ function NavBar() {
       <NavLink to="/" end className="nav-logo" style={{ textDecoration: 'none' }}>
         ZPO<span className="nav-logo-text"> Explorer</span>
       </NavLink>
+      <button
+        onClick={onShowShortcuts}
+        aria-label="Keyboard shortcuts"
+        title="Keyboard shortcuts (?)"
+        style={{
+          background: '#334155', border: '1px solid #475569',
+          borderRadius: 6, color: '#94a3b8', fontSize: 14,
+          width: 28, height: 28, cursor: 'pointer', display: 'flex',
+          alignItems: 'center', justifyContent: 'center',
+          fontFamily: 'var(--font-mono)', marginLeft: 'auto',
+          flexShrink: 0,
+        }}
+      >?</button>
       <button
         className={`hamburger-btn ${menuOpen ? 'hamburger-open' : ''}`}
         onClick={() => setMenuOpen(o => !o)}
@@ -191,12 +312,15 @@ function NavBar() {
   );
 }
 
-export default function App() {
+function AppShell() {
+  const navigate = useNavigate();
+  const { showHelp, setShowHelp } = useKeyboardShortcuts(navigate);
+
   return (
-    <MathModalProvider>
-    <HashRouter>
+    <>
       <ScrollToTop />
-      <NavBar />
+      <NavBar onShowShortcuts={() => setShowHelp(true)} />
+      <KeyboardShortcutOverlay show={showHelp} onClose={() => setShowHelp(false)} />
       <div className="app-content">
         <Suspense fallback={<PageLoader />}>
         <Routes>
@@ -251,6 +375,15 @@ export default function App() {
       }}>
         &copy; Jude Gomila 2026-onwards
       </footer>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <MathModalProvider>
+    <HashRouter>
+      <AppShell />
     </HashRouter>
     </MathModalProvider>
   );

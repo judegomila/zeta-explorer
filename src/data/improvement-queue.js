@@ -1308,7 +1308,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Final proof document: single-page summary for peer review',
     category: 'content',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'A 2-page document that a mathematician can read in 10 minutes: (1) the claim, (2) the proof in 10 steps with exact references, (3) the honest gap assessment, (4) what would need to be checked by a referee. No visualizations, no code — pure mathematics.',
     rationale: 'The proof is meaningless if no mathematician reads it. A short, clear summary is the delivery vehicle.',

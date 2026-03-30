@@ -863,12 +863,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add Rankin-Selberg L-function test',
     category: 'proof-gap',
     priority: 'medium',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Implement Rankin-Selberg L-functions L(s, f×g) for modular forms f,g. These have degree-4 Euler factors. Test whether ZPO unitarity convergence holds for higher-degree factors. If yes, the framework extends to automorphic L-functions.',
     rationale: 'Rankin-Selberg is the testing ground for Langlands beyond GL(1). Success here would place ZPO in the mainstream of automorphic theory.',
     estimatedComplexity: 'large',
-    completedAt: null,
+    completedAt: '2026-03-30T09:00:00Z',
   },
 
   // ─── IMPROVE NUMERICS ─────────────────────────────────────────────

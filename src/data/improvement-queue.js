@@ -1184,7 +1184,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Monte Carlo error estimation for all non-rigorous computations',
     category: 'verification',
     priority: 'medium',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'For every computation that uses floating-point (not interval arithmetic), run a Monte Carlo analysis: perturb inputs by machine epsilon, run 100 trials, measure output variance. Any computation where variance > 1% of the value is flagged for interval arithmetic upgrade.',
     rationale: 'Systematic identification of all remaining numerical fragilities.',

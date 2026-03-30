@@ -1408,7 +1408,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Prove the cluster-point argument rigorously: compact + accumulation = convergence',
     category: 'proof',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S7',
     description: 'The imp-103 argument says "any cluster point of {S_N} is in SO(2)". But Darlington needs a SPECIFIC S_∞, not just cluster points. Strengthen: (1) {S_N} is bounded (||S_N|| bounded by Szegő Lyapunov), (2) bounded sequence in ℝ⁴ (= M(2,ℝ)) has convergent subsequence (Bolzano-Weierstrass), (3) every convergent subsequence converges to SO(2) (imp-103), (4) if all subsequential limits are in the SAME connected component of SO(2), the full sequence converges. Verify (4) numerically: does the rotation angle θ_N of S_N converge?',
     rationale: 'Converts "cluster points in SO(2)" to "S_N converges to a specific SO(2) element", which is what Darlington needs.',

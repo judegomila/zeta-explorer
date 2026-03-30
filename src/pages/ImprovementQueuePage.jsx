@@ -274,6 +274,18 @@ function AcceleratingSection() {
       content: 'Open multiple Claude Code sessions simultaneously, each tackling a different proof path. Session 1 attacks S5 spectral realization. Session 2 works on S7 scattering. Session 3 develops S6 energy arguments. A fourth session periodically reviews all three and identifies synergies or contradictions.',
       code: '// Session 1: "Focus on S5 spectral realization"\n// Session 2: "Focus on S7 scattering matrix"\n// Session 3: "Focus on S6 energy landscape"\n// Session 4: "Review & merge all proof progress"',
     },
+    {
+      title: 'Formal Verification with Lean4',
+      color: '#22d3ee',
+      content: 'Integrate the Lean4 theorem prover to formally verify key proof steps. Priority targets: (1) S1 Euler product convergence identity, (2) S3 functional equation symmetry, (3) S4 eta regularization bounds. Mathlib already provides NumberTheory.ZetaFunction, NumberTheory.ArithmeticFunction, and Analysis.SpecificLimits.Basic for foundational lemmas. Roadmap: start by formalizing the basic algebraic identities (Euler product finite truncation), then ladder composition (twin oscillator coupling commutativity), then bridge unitarity (Darlington S-matrix is unitary in the N-limit). Each formalized lemma becomes a bulletproof building block; lemmas that resist formalization reveal the true proof gaps.',
+      code: '-- Lean4: Euler product identity (pseudocode)\nimport Mathlib.NumberTheory.ZetaFunction\nimport Mathlib.Analysis.SpecificLimits.Basic\n\ntheorem euler_product_truncated (N : Nat) (s : Complex)\n    (hs : s.re > 1) :\n    ∏ p in (Finset.filter Nat.Prime (Finset.range N)),\n      (1 - p ^ (-s))⁻¹ =\n    ∑ n in smoothNumbers N,\n      n ^ (-s) := by\n  induction N with\n  | zero => simp\n  | succ n ih => sorry -- extend via sieve\n\n-- Next: ladder_composition_commutes\n-- Then: darlington_unitarity_limit',
+    },
+    {
+      title: 'Continuous Improvement Pipeline',
+      color: '#fb923c',
+      content: 'A queue-driven approach (this very system) ensures systematic progress. The pipeline: (1) Maintain a ranked priority queue of improvements targeting proof gaps, accuracy, visualization, and meta-workflow. (2) Automated build verification after each change — every commit must pass npm run build before merge. (3) Cross-validation: every numerical claim is checked against the de Bruijn-Newman constant Lambda, Odlyzko zero tables, GUE pair correlation predictions, and Li coefficient positivity bounds. Any inconsistency with the Dirichlet-Hardy counterexample function triggers immediate investigation. (4) Progress tracking via the improvement log (IMPROVEMENTS.md) provides a complete audit trail of every change, enabling rollback and trend analysis.',
+      code: '// Continuous pipeline cycle:\n// 1. Pick highest-priority queued item\n//    from IMPROVEMENT_QUEUE\n// 2. Implement the change\n// 3. npm run build  (must pass)\n// 4. Cross-validate:\n//    - D-H function consistency\n//    - Odlyzko zero table match\n//    - GUE pair correlation check\n//    - Li coefficient positivity\n// 5. git commit with audit trail\n// 6. Mark item completed, update log\n// 7. Repeat (via /loop or next session)',
+    },
   ];
 
   return (

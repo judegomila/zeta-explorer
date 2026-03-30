@@ -774,3 +774,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 811 | 2026-03-29T19:00:00Z | Add Langlands program connection to CY page with motives and Hasse-Weil exposition | CalabiYauPage.jsx |
 | 812 | 2026-03-29T19:00:00Z | Add animated flowing edges and status-based glow to proof dependency graph | ProofPlannerViz.jsx |
 | 813 | 2026-03-29T19:00:00Z | Add error bound estimation framework with Richardson extrapolation and condition numbers | rh-attack.js |
+| 814 | 2026-03-29T19:30:00Z | Add Lean4 integration plan and continuous pipeline cards to Accelerating tab (imp-028, imp-029) | ImprovementQueuePage.jsx, improvement-queue.js |

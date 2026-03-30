@@ -1,0 +1,426 @@
+import React, { useState, useMemo, useCallback } from 'react';
+import { Link } from 'react-router-dom';
+
+/**
+ * RH Proof Dashboard — Live Metrics (imp-060)
+ *
+ * A "mission control" page showing all key proof metrics in real time.
+ * Each card computes its metric via useMemo and shows a status badge.
+ */
+
+// Lightweight inline computations to avoid heavy imports at page load.
+// We dynamically import the math modules so the dashboard itself is small.
+
+function useAsyncMetric(computeFn) {
+  const [state, setState] = useState({ loading: true, value: null, error: null });
+
+  useMemo(() => {
+    let cancelled = false;
+    setState({ loading: true, value: null, error: null });
+    // Use a microtask to avoid blocking the initial render
+    Promise.resolve().then(async () => {
+      try {
+        const value = await computeFn();
+        if (!cancelled) setState({ loading: false, value, error: null });
+      } catch (err) {
+        if (!cancelled) setState({ loading: false, value: null, error: err.message });
+      }
+    });
+    return () => { cancelled = true; };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return state;
+}
+
+function Spinner() {
+  return (
+    <div style={{
+      display: 'inline-block',
+      width: 20, height: 20,
+      border: '2px solid #334155',
+      borderTop: '2px solid #38bdf8',
+      borderRadius: '50%',
+      animation: 'dashboard-spin 0.8s linear infinite',
+    }} />
+  );
+}
+
+const STATUS_COLORS = {
+  green: { border: '#10b981', bg: 'rgba(16,185,129,0.08)', badge: '#10b981', text: 'PASS' },
+  red: { border: '#ef4444', bg: 'rgba(239,68,68,0.08)', badge: '#ef4444', text: 'FAIL' },
+  yellow: { border: '#f59e0b', bg: 'rgba(245,158,11,0.08)', badge: '#f59e0b', text: 'COND' },
+};
+
+function MetricCard({ title, subtitle, status, value, detail, loading, error }) {
+  const colors = STATUS_COLORS[status] || STATUS_COLORS.yellow;
+
+  return (
+    <div style={{
+      background: loading ? '#0f172a' : colors.bg,
+      border: `1.5px solid ${loading ? '#334155' : colors.border}`,
+      borderRadius: 10,
+      padding: '18px 20px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 8,
+      minHeight: 140,
+      transition: 'all 0.3s ease',
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h3 style={{ margin: 0, fontSize: 14, color: '#e2e8f0', fontWeight: 600 }}>{title}</h3>
+        {!loading && !error && (
+          <span style={{
+            background: colors.badge,
+            color: '#000',
+            fontSize: 10,
+            fontWeight: 700,
+            padding: '2px 8px',
+            borderRadius: 4,
+            fontFamily: 'var(--font-mono)',
+            letterSpacing: 0.5,
+          }}>
+            {colors.text}
+          </span>
+        )}
+      </div>
+      {subtitle && (
+        <div style={{ color: '#64748b', fontSize: 11, fontFamily: 'var(--font-mono)' }}>{subtitle}</div>
+      )}
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {loading ? (
+          <Spinner />
+        ) : error ? (
+          <div style={{ color: '#ef4444', fontSize: 12 }}>Error: {error}</div>
+        ) : (
+          <div style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 22,
+            fontWeight: 700,
+            color: colors.border,
+            textAlign: 'center',
+          }}>
+            {value}
+          </div>
+        )}
+      </div>
+      {!loading && !error && detail && (
+        <div style={{ color: '#94a3b8', fontSize: 11, lineHeight: 1.5 }}>{detail}</div>
+      )}
+    </div>
+  );
+}
+
+// ── Metric computations ──────────────────────────────────────────────────────
+
+function computeUnitarityDeficit() {
+  return import('../math/rh-attack.js').then(mod => {
+    const result = mod.infiniteProductUnitarityBound(100, 6);
+    const avgDeficit = result.actualAvgDeficit;
+    return {
+      status: avgDeficit < 0.01 ? 'green' : avgDeficit < 0.1 ? 'yellow' : 'red',
+      value: avgDeficit.toExponential(4),
+      detail: `P=${result.P}, tail bound ${result.tailEstimate.toExponential(2)}. Converges to 0 as P grows.`,
+    };
+  });
+}
+
+function computeLiCoefficients() {
+  return import('../math/rh-attack.js').then(mod => {
+    const result = mod.liCoefficients(5, 50);
+    const lambdas = result.coefficients.slice(0, 5);
+    const allPositive = lambdas.every(c => c.lambda > 0);
+    const display = lambdas.map((c, i) =>
+      `\u03BB${i + 1}=${c.lambda.toFixed(4)}`
+    ).join('  ');
+    return {
+      status: allPositive ? 'green' : 'red',
+      value: allPositive ? 'All Positive' : 'NEGATIVE FOUND',
+      detail: display,
+    };
+  });
+}
+
+function computePotapov() {
+  return import('../math/rh-attack.js').then(mod => {
+    const result = mod.potapovFactorization(60, 15);
+    const passed = result.overallPass;
+    return {
+      status: passed ? 'green' : 'red',
+      value: passed ? 'J-Contractive' : 'VIOLATION',
+      detail: `${result.proofChain.filter(s => s.status === 'verified').length}/${result.proofChain.length} steps verified. `
+        + (result.schurClassPass ? 'Schur class OK.' : 'Schur class fail.'),
+    };
+  });
+}
+
+function computeGUESpacing() {
+  return import('../math/rh-attack.js').then(mod => {
+    const result = mod.montgomeryOdlyzko(100, 30);
+    const nv = result.numberVariance;
+    const variance = nv ? nv.normalizedVariance : null;
+    if (variance !== null) {
+      return {
+        status: variance < 0.5 ? 'green' : variance < 1.0 ? 'yellow' : 'red',
+        value: variance.toFixed(4),
+        detail: `Normalized variance (GUE expects ~0.27). `
+          + `Pair corr R2=${result.pairCorrelation?.averageR2?.toFixed(3) || 'N/A'}.`,
+      };
+    }
+    // Fallback: use pair correlation
+    const r2 = result.pairCorrelation?.averageR2;
+    return {
+      status: r2 && Math.abs(r2 - 1) < 0.3 ? 'green' : 'yellow',
+      value: r2 ? `R2=${r2.toFixed(4)}` : 'N/A',
+      detail: 'Pair correlation computed. Number variance unavailable.',
+    };
+  });
+}
+
+function computeWeilPositivity() {
+  return import('../math/rh-attack.js').then(mod => {
+    const result = mod.weilPositivityTest([0.5, 1, 2, 5, 10], 80, 50);
+    const tests = result.tests;
+    const allPositive = tests.every(t => t.sum >= -1e-10);
+    const minSum = Math.min(...tests.map(t => t.sum));
+    return {
+      status: allPositive ? 'green' : 'red',
+      value: allPositive ? 'Non-Negative' : `Min = ${minSum.toExponential(3)}`,
+      detail: `Tested ${tests.length} Gaussian widths. Min sum = ${minSum.toExponential(3)}.`,
+    };
+  });
+}
+
+function computeProofCompleteness() {
+  return import('../math/rh-attack.js').then(mod => {
+    const result = mod.assembleCompleteProof(30, 50);
+    const sections = result.sections;
+    const proven = sections.filter(s => s.status === 'proven').length;
+    const verified = sections.filter(s => s.status === 'verified-numerical').length;
+    const total = sections.length;
+    return {
+      status: proven + verified >= total ? 'green' : proven + verified >= 6 ? 'yellow' : 'red',
+      value: `${proven + verified} / ${total}`,
+      detail: `${proven} proven, ${verified} numerically verified. `
+        + `Weakest: ${result.weakestLink || 'N/A'}. Completeness: ${(result.completeness * 100).toFixed(0)}%.`,
+      completeness: result.completeness,
+    };
+  });
+}
+
+// ── Main component ───────────────────────────────────────────────────────────
+
+export default function DashboardPage() {
+  const [recomputeKey, setRecomputeKey] = useState(0);
+  const [lastVerified, setLastVerified] = useState(null);
+
+  // Each metric recomputes when recomputeKey changes
+  const unitarity = useAsyncMetric(
+    useCallback(() => computeUnitarityDeficit(), [recomputeKey]) // eslint-disable-line react-hooks/exhaustive-deps
+  );
+  const liCoeffs = useAsyncMetric(
+    useCallback(() => computeLiCoefficients(), [recomputeKey]) // eslint-disable-line react-hooks/exhaustive-deps
+  );
+  const potapov = useAsyncMetric(
+    useCallback(() => computePotapov(), [recomputeKey]) // eslint-disable-line react-hooks/exhaustive-deps
+  );
+  const gue = useAsyncMetric(
+    useCallback(() => computeGUESpacing(), [recomputeKey]) // eslint-disable-line react-hooks/exhaustive-deps
+  );
+  const weil = useAsyncMetric(
+    useCallback(() => computeWeilPositivity(), [recomputeKey]) // eslint-disable-line react-hooks/exhaustive-deps
+  );
+  const proof = useAsyncMetric(
+    useCallback(() => computeProofCompleteness(), [recomputeKey]) // eslint-disable-line react-hooks/exhaustive-deps
+  );
+
+  const allDone = !unitarity.loading && !liCoeffs.loading && !potapov.loading
+    && !gue.loading && !weil.loading && !proof.loading;
+
+  // Set lastVerified when all computations finish
+  useMemo(() => {
+    if (allDone && !lastVerified) {
+      setLastVerified(new Date().toISOString());
+    }
+  }, [allDone]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleRecompute = () => {
+    setLastVerified(null);
+    setRecomputeKey(k => k + 1);
+  };
+
+  // Overall completeness bar
+  const completeness = proof.value?.completeness ?? 0;
+  const passingCards = [unitarity, liCoeffs, potapov, gue, weil].filter(
+    m => m.value && m.value.status === 'green'
+  ).length;
+
+  return (
+    <div className="page">
+      <style>{`
+        @keyframes dashboard-spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
+
+      <div className="page-header">
+        <h1>RH Proof Dashboard -- Live Metrics</h1>
+        <p>
+          Real-time computation of key Riemann Hypothesis proof metrics from the ZPO
+          oscillator framework. Each card runs an independent computation and reports
+          pass/fail status with numerical values.
+        </p>
+      </div>
+
+      {/* 2x3 metric grid */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: 16,
+        marginBottom: 24,
+      }}>
+        <MetricCard
+          title="S7 Unitarity Deficit"
+          subtitle="delta(P) for P=100 primes"
+          loading={unitarity.loading}
+          error={unitarity.error}
+          status={unitarity.value?.status}
+          value={unitarity.value?.value}
+          detail={unitarity.value?.detail}
+        />
+        <MetricCard
+          title="Li Coefficients"
+          subtitle="lambda_1 through lambda_5"
+          loading={liCoeffs.loading}
+          error={liCoeffs.error}
+          status={liCoeffs.value?.status}
+          value={liCoeffs.value?.value}
+          detail={liCoeffs.value?.detail}
+        />
+        <MetricCard
+          title="Potapov J-Contractivity"
+          subtitle="J-contractive factorization check"
+          loading={potapov.loading}
+          error={potapov.error}
+          status={potapov.value?.status}
+          value={potapov.value?.value}
+          detail={potapov.value?.detail}
+        />
+        <MetricCard
+          title="GUE Spacing"
+          subtitle="Normalized variance (target < 0.5)"
+          loading={gue.loading}
+          error={gue.error}
+          status={gue.value?.status}
+          value={gue.value?.value}
+          detail={gue.value?.detail}
+        />
+        <MetricCard
+          title="Weil Positivity"
+          subtitle="Sum h(gamma) >= 0 for Gaussian test"
+          loading={weil.loading}
+          error={weil.error}
+          status={weil.value?.status}
+          value={weil.value?.value}
+          detail={weil.value?.detail}
+        />
+        <MetricCard
+          title="Proof Completeness"
+          subtitle="Sections proven or numerically verified"
+          loading={proof.loading}
+          error={proof.error}
+          status={proof.value?.status}
+          value={proof.value?.value}
+          detail={proof.value?.detail}
+        />
+      </div>
+
+      {/* Proof Status bar */}
+      <div className="card" style={{ marginBottom: 24 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+          <h3 style={{ margin: 0, fontSize: 14, color: '#e2e8f0' }}>Overall Proof Status</h3>
+          <span style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 14,
+            color: completeness >= 0.8 ? '#10b981' : completeness >= 0.5 ? '#f59e0b' : '#ef4444',
+            fontWeight: 700,
+          }}>
+            {proof.loading ? '...' : `${(completeness * 100).toFixed(0)}%`}
+          </span>
+        </div>
+        <div style={{
+          height: 12,
+          background: '#1e293b',
+          borderRadius: 6,
+          overflow: 'hidden',
+        }}>
+          <div style={{
+            height: '100%',
+            width: proof.loading ? '0%' : `${completeness * 100}%`,
+            background: completeness >= 0.8
+              ? 'linear-gradient(90deg, #10b981, #34d399)'
+              : completeness >= 0.5
+                ? 'linear-gradient(90deg, #f59e0b, #fbbf24)'
+                : 'linear-gradient(90deg, #ef4444, #f87171)',
+            borderRadius: 6,
+            transition: 'width 0.6s ease',
+          }} />
+        </div>
+        <div style={{
+          display: 'flex', justifyContent: 'space-between',
+          marginTop: 8, fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)',
+        }}>
+          <span>S1 -- S8 proof sections</span>
+          <span>{passingCards}/5 metric checks passing</span>
+        </div>
+      </div>
+
+      {/* Footer with timestamp and recompute */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: 12,
+      }}>
+        <div style={{ color: '#64748b', fontSize: 12, fontFamily: 'var(--font-mono)' }}>
+          Last verified: {lastVerified
+            ? new Date(lastVerified).toLocaleString()
+            : (allDone ? new Date().toLocaleString() : 'Computing...')}
+        </div>
+        <button
+          onClick={handleRecompute}
+          disabled={!allDone}
+          style={{
+            background: allDone ? '#3b82f6' : '#334155',
+            color: allDone ? '#fff' : '#64748b',
+            border: 'none',
+            borderRadius: 6,
+            padding: '8px 20px',
+            fontSize: 13,
+            fontWeight: 600,
+            cursor: allDone ? 'pointer' : 'not-allowed',
+            fontFamily: 'var(--font-mono)',
+            transition: 'background 0.2s',
+          }}
+        >
+          Recompute All
+        </button>
+      </div>
+
+      {/* Navigation links */}
+      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #3b82f6' }}>
+        <h3 style={{ color: '#3b82f6', fontSize: 14, marginBottom: 8 }}>Related Pages</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+          <Link to="/rh-attack" style={{ color: '#38bdf8', fontSize: 12 }}>RH Attack</Link>
+          <Link to="/proof-checker" style={{ color: '#38bdf8', fontSize: 12 }}>Proof Checker</Link>
+          <Link to="/proof-overview" style={{ color: '#38bdf8', fontSize: 12 }}>Proof Overview</Link>
+          <Link to="/proof-planner" style={{ color: '#38bdf8', fontSize: 12 }}>Proof Planner</Link>
+          <Link to="/statistics" style={{ color: '#38bdf8', fontSize: 12 }}>Statistics</Link>
+          <Link to="/gap-closing" style={{ color: '#38bdf8', fontSize: 12 }}>Gap Closing</Link>
+        </div>
+      </div>
+    </div>
+  );
+}

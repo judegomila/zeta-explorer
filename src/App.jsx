@@ -42,6 +42,8 @@ const CrossAttackPage = lazy(() => import('./pages/CrossAttackPage.jsx'));
 const ProofPlannerPage = lazy(() => import('./pages/ProofPlannerPage.jsx'));
 const ImprovementQueuePage = lazy(() => import('./pages/ImprovementQueuePage.jsx'));
 const ProofOverviewPage = lazy(() => import('./pages/ProofOverviewPage.jsx'));
+const DashboardPage = lazy(() => import('./pages/DashboardPage.jsx'));
+const BreakItPage = lazy(() => import('./pages/BreakItPage.jsx'));
 
 function PageLoader() {
   return (
@@ -109,6 +111,7 @@ const NAV_GROUPS = [
       { to: '/docs', label: 'Docs' },
       { to: '/improvements', label: 'Improvements' },
       { to: '/improvement-queue', label: 'Queue' },
+      { to: '/dashboard', label: 'Dashboard' },
     ],
   },
 ];
@@ -364,6 +367,7 @@ function AppShell() {
           <Route path="/proof-planner" element={<ProofPlannerPage />} />
           <Route path="/improvement-queue" element={<ImprovementQueuePage />} />
           <Route path="/proof-overview" element={<ProofOverviewPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
         </Routes>
         </Suspense>
       </div>

@@ -915,7 +915,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Write a blog post explaining the proof attempt for non-mathematicians',
     category: 'content',
     priority: 'low',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Add a /blog page with a plain-English explanation: "Imagine the primes as musical instruments in an orchestra. Each one plays a note (its resonant frequency). The Riemann Hypothesis says all the harmonics line up perfectly. We showed the orchestra\'s sound system is lossless — and if it\'s lossless, the harmonics MUST line up."',
     rationale: 'Public understanding drives funding and attention. A good analogy makes the work accessible to millions.',

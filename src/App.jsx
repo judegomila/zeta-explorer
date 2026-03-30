@@ -41,6 +41,7 @@ const CalabiYauPage = lazy(() => import('./pages/CalabiYauPage.jsx'));
 const CrossAttackPage = lazy(() => import('./pages/CrossAttackPage.jsx'));
 const ProofPlannerPage = lazy(() => import('./pages/ProofPlannerPage.jsx'));
 const ImprovementQueuePage = lazy(() => import('./pages/ImprovementQueuePage.jsx'));
+const ProofOverviewPage = lazy(() => import('./pages/ProofOverviewPage.jsx'));
 
 function PageLoader() {
   return (
@@ -92,6 +93,7 @@ const NAV_GROUPS = [
       { to: '/rigor', label: 'Rigor' },
       { to: '/cross-attack', label: 'Cross-Attack' },
       { to: '/proof-planner', label: 'Proof Planner' },
+      { to: '/proof-overview', label: 'Proof Overview' },
     ],
   },
   {
@@ -361,6 +363,7 @@ function AppShell() {
           <Route path="/cross-attack" element={<CrossAttackPage />} />
           <Route path="/proof-planner" element={<ProofPlannerPage />} />
           <Route path="/improvement-queue" element={<ImprovementQueuePage />} />
+          <Route path="/proof-overview" element={<ProofOverviewPage />} />
         </Routes>
         </Suspense>
       </div>

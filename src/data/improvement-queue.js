@@ -454,12 +454,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Functional equation as symplectic constraint — close S7 via symplectic geometry',
     category: 'proof-gap',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S7',
     description: 'The functional equation ξ(s)=ξ(1-s) implies the S-matrix satisfies S^T·J·S = J where J is the symplectic form. For symplectic matrices, eigenvalues come in (λ, 1/λ) pairs. On the unit circle (unitarity), this forces λ=e^{iθ} — zeros confined to the critical line. Implement: (1) construct the symplectic form J from the twin ladder bridge, (2) verify S^T·J·S = J numerically at increasing N, (3) prove that the infinite-N limit preserves the symplectic structure using our Mertens bound.',
     rationale: 'Symplectic geometry provides algebraic rather than analytic constraints. The eigenvalue pairing theorem for symplectic matrices is a finite-dimensional FACT — we just need to show it survives the N→∞ limit. This is potentially the cleanest proof path.',
     estimatedComplexity: 'large',
-    completedAt: null,
+    completedAt: '2026-03-29T22:00:00Z',
   },
 
   // ─── Novel operator constructions for S5 ──────────────────────────

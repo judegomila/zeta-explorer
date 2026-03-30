@@ -1210,7 +1210,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Implement Grönwall inequality for operator semigroup convergence',
     category: 'proof',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S7',
     description: 'The Lax-Phillips semigroup Z(t)=Pe^{iHt}P is a contraction. Use the Grönwall inequality: if ||Z_N(t) - Z_M(t)|| ≤ C·||H_N - H_M||·t·e^{ωt}, and ||H_N - H_M|| → 0 (rank-1 perturbation), then Z_N → Z_∞ uniformly on compact t-intervals. This makes the Lax-Phillips path rigorous without finite-dimensional approximation.',
     rationale: 'Grönwall gives explicit convergence rates for semigroups. Combined with our rank-1 perturbation bound, this closes the LP path rigorously.',

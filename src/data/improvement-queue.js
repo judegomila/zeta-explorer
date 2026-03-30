@@ -480,12 +480,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Toeplitz operator approach — zeros as eigenvalues of T_φ',
     category: 'proof-gap',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S5',
     description: 'Construct a Toeplitz operator T_φ on Hardy space H² where the symbol φ is derived from the Euler product. Specifically, φ(z) = Π_p (1 - z^{log p})^{-1} restricted to the unit circle. The eigenvalues of T_φ on a finite-dimensional truncation should approximate the zeta zeros. The key theorem (Szegő) relates det(T_φ^{(N)}) to exp(N · ∫log φ) which connects to ζ(s). Implement the truncated Toeplitz matrix and track eigenvalue convergence.',
     rationale: 'Toeplitz operators on Hardy space are well-understood — Szegő theory gives precise asymptotics. If ζ zeros ARE eigenvalues of a Toeplitz operator, we inherit the full Szegő machinery which could provide the zero confinement for free.',
     estimatedComplexity: 'large',
-    completedAt: null,
+    completedAt: '2026-03-29T22:30:00Z',
   },
 
   // ─── Direct contradiction approaches ──────────────────────────────

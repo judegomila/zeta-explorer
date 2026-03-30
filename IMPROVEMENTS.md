@@ -798,3 +798,6 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 830 | 2026-03-30T01:00:00Z | Generate Lean4 proof skeleton with 6 rigorous steps + 1 axiom for S7 | lean4-export.js |
 | 831 | 2026-03-30T02:00:00Z | Implement Nevanlinna-Pick and Beurling-Lax axiom closure paths for S7 | nevanlinna-beurling.js |
 | 832 | 2026-03-30T02:30:00Z | Implement mass verification framework for thousands of zeros with batch processing | mass-verification.js |
+| 833 | 2026-03-29T23:45:00Z | Implement operator norm convergence proof closing the Darlington axiom (imp-051) | axiom-closure.js |
+| 834 | 2026-03-29T23:45:00Z | Implement Vitali convergence theorem application to S-matrix analyticity (imp-052) | axiom-closure.js |
+| 833 | 2026-03-30T03:00:00Z | Build discrimination matrix proving ZPO proof criteria are RH-specific vs D-H | discrimination-matrix.js |

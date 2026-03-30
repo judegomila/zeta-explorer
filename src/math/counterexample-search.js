@@ -182,7 +182,10 @@ export function davenportHeilbronnTest(numTerms = 2000) {
     });
   }
 
-  const dhConvexityPasses = convexityResults.every(r => r.isMinimumAtHalf);
+  // HONEST ASSESSMENT: The functional equation forces approximate symmetry
+  // around sigma=1/2, so D-H's Hamiltonian often minimizes near 1/2 even
+  // though D-H has off-line zeros. This criterion is NOT reliably RH-specific.
+  const dhConvexityPasses = convexityResults.filter(r => r.isMinimumAtHalf).length > convexityResults.length / 2;
 
   // ── Criterion 2: Bridge unitarity ──
   // D-H has a functional equation, so it has a "chi" factor.
@@ -241,7 +244,10 @@ export function davenportHeilbronnTest(numTerms = 2000) {
   // For D-H, zeros off the critical line contribute anomalous terms.
   // We use h(s) = exp(-a * s * (1-s)) and test positivity.
   const weilResults = [];
-  const aValues = [0.5, 1.0, 2.0, 5.0];
+  // FIXED: Include very small alpha values (wide test functions) that can
+  // "see" D-H's off-line zero at t ~ 85.7. Previous values (0.5-5.0) were
+  // too narrow to detect the violation.
+  const aValues = [0.00001, 0.0001, 0.001, 0.01, 0.1, 0.5, 1.0, 2.0, 5.0];
 
   for (const a of aValues) {
     // Known D-H zeros include some OFF the critical line.
@@ -313,6 +319,10 @@ export function davenportHeilbronnTest(numTerms = 2000) {
         dhPasses: dhConvexityPasses,
         distinguishes: zetaConvexityPasses && !dhConvexityPasses,
         details: convexityResults,
+        note: dhConvexityPasses
+          ? 'HONEST WARNING: D-H Hamiltonian also minimizes at sigma=1/2 for most t-values. ' +
+            'The functional equation forces approximate symmetry. This criterion is NOT RH-specific.'
+          : 'D-H Hamiltonian minimum drifts from sigma=1/2 at some t-values.',
       },
       bridgeUnitarity: {
         zetaPasses: zetaUnitarityPasses,

@@ -772,3 +772,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 809 | 2026-03-29T18:30:00Z | Add comprehensive Connes NCG deep dive with adeles, Weil proof, spectral realization, ZPO connection | ConceptsPage.jsx |
 | 810 | 2026-03-29T19:00:00Z | Implement Nyman-Beurling and Baez-Duarte criteria as independent RH equivalences | rh-attack.js |
 | 811 | 2026-03-29T19:00:00Z | Add Langlands program connection to CY page with motives and Hasse-Weil exposition | CalabiYauPage.jsx |
+| 812 | 2026-03-29T19:00:00Z | Add animated flowing edges and status-based glow to proof dependency graph | ProofPlannerViz.jsx |

@@ -323,6 +323,189 @@ export default function CalabiYauPage() {
         </p>
       </div>
 
+      <div className="card" style={{ marginTop: 16, borderLeft: '3px solid #a855f7' }}>
+        <h3 style={{ color: '#a855f7', fontSize: 14, marginBottom: 12 }}>
+          8. The Langlands Connection
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          The <strong>Langlands program</strong> is the deepest known bridge between geometry and
+          number theory. It predicts a correspondence between Galois representations (arising from
+          algebraic geometry) and automorphic forms (arising from harmonic analysis on adelic groups).
+          Our Calabi-Yau threefold lift sits squarely at this intersection: the L-functions of CY
+          varieties are precisely the objects the Langlands program seeks to classify.
+        </p>
+
+        <h4 style={{ color: '#c084fc', fontSize: 13, marginTop: 16, marginBottom: 8 }}>
+          CY Threefold L-functions and Automorphic Forms
+        </h4>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          For a Calabi-Yau 3-fold <InlineMath tex="X / \mathbb{Q}" />, the Galois representation on
+          middle cohomology <InlineMath tex="H^3_{\text{\'{e}t}}(X, \mathbb{Q}_\ell)" /> determines
+          an L-function via its Euler product. The Langlands reciprocity conjecture predicts that this
+          L-function equals the L-function of an automorphic representation{' '}
+          <InlineMath tex="\pi" /> of <InlineMath tex="\mathrm{GL}_n(\mathbb{A}_{\mathbb{Q}})" />:
+        </p>
+        <BlockMath tex="L(H^3_{\text{\'{e}t}}(X),\, s) = L(\pi,\, s), \quad \pi \in \mathrm{Aut}(\mathrm{GL}_{b_3})" />
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+          For <strong>rigid</strong> CY3s (<InlineMath tex="h^{2,1} = 0" />,{' '}
+          <InlineMath tex="b_3 = 2" />), this is proved: the 2-dimensional Galois representation
+          corresponds to a weight-4 modular form by modularity lifting (extending Wiles-Taylor).
+          For non-rigid CY3s, the Galois representation has dimension{' '}
+          <InlineMath tex="b_3 = 2 + 2h^{2,1}" /> and must correspond to an automorphic form on{' '}
+          <InlineMath tex="\mathrm{GL}_{b_3}" /> — this remains largely open and is at the frontier
+          of the Langlands program.
+        </p>
+
+        <h4 style={{ color: '#c084fc', fontSize: 13, marginTop: 16, marginBottom: 8 }}>
+          The Langlands Program as Arithmetic-Geometric Bridge
+        </h4>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          Langlands reciprocity provides a two-way bridge:
+        </p>
+        <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          <li>
+            <strong>Geometry → Number theory:</strong> Galois representations from{' '}
+            <InlineMath tex="H^k_{\text{\'{e}t}}(X)" /> encode point-counting data{' '}
+            <InlineMath tex="|X(\mathbb{F}_{p^n})|" /> via the Lefschetz trace formula.
+            The Langlands correspondence translates this into spectral data on adelic groups.
+          </li>
+          <li>
+            <strong>Number theory → Geometry:</strong> Automorphic forms satisfy functional equations,
+            have controlled analytic behavior, and (crucially) their L-functions satisfy GRH-type
+            bounds. Proving automorphy of a geometric L-function immediately imports these analytic
+            properties.
+          </li>
+          <li>
+            <strong>Functoriality:</strong> Langlands functoriality predicts that operations on
+            automorphic forms (symmetric powers, Rankin-Selberg products) correspond to operations
+            on Galois representations. This gives a tensor-category structure connecting different
+            L-functions — including, potentially, <InlineMath tex="\zeta(s)" />.
+          </li>
+        </ul>
+
+        <h4 style={{ color: '#c084fc', fontSize: 13, marginTop: 16, marginBottom: 8 }}>
+          Our CY Lift: A Geometric Interpretation of <InlineMath tex="\zeta(s)" />
+        </h4>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          The ZPO framework interprets <InlineMath tex="\zeta(s)" /> through families of CY 3-folds.
+          While no single CY3 has <InlineMath tex="L(H^3, s) = \zeta(s)" /> (see the obstructions
+          in Section 6), we can decompose <InlineMath tex="\zeta(s)" /> using the Langlands framework:
+        </p>
+        <BlockMath tex="\zeta(s) = L(\mathbf{1},\, s), \quad \mathbf{1} = \text{trivial representation of } \mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})" />
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+          The trivial Galois representation <InlineMath tex="\mathbf{1}" /> corresponds to the motive{' '}
+          <InlineMath tex="h^0(\mathrm{Spec}\,\mathbb{Q})" /> — the simplest possible motive. Our CY
+          lift strategy embeds this into the richer motivic structure of CY 3-folds: the Hodge
+          filtration, period map, and mirror symmetry of CY families provide geometric tools
+          (Picard-Fuchs equations, monodromy, special geometry) that constrain L-function behavior
+          far beyond what pure number theory can achieve alone.
+        </p>
+
+        <h4 style={{ color: '#c084fc', fontSize: 13, marginTop: 16, marginBottom: 8 }}>
+          The Motivic Perspective: Motives as Universal Cohomology
+        </h4>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          Grothendieck{"'"}s category of <strong>motives</strong> provides the universal framework
+          unifying all cohomology theories (Betti, de Rham, {"\'"}etale, crystalline). Every smooth
+          projective variety <InlineMath tex="X" /> defines a motive{' '}
+          <InlineMath tex="h(X)" /> that decomposes as:
+        </p>
+        <BlockMath tex="h(X) = h^0(X) \oplus h^1(X) \oplus \cdots \oplus h^{2\dim X}(X)" />
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+          Each piece <InlineMath tex="h^k(X)" /> carries a Galois representation whose L-function
+          should be automorphic (Langlands) and satisfy the Riemann Hypothesis (part of the
+          standard conjectures). For a CY 3-fold, the interesting piece is{' '}
+          <InlineMath tex="h^3(X)" />, and the motivic L-function is:
+        </p>
+        <BlockMath tex="L(h^3(X),\, s) = \prod_p \det\!\bigl(1 - \mathrm{Frob}_p \cdot p^{-s} \mid H^3_{\text{\'{e}t}}(X)\bigr)^{-1}" />
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+          The motivic viewpoint suggests that <InlineMath tex="\zeta(s)" />, as{' '}
+          <InlineMath tex="L(h^0(\mathrm{Spec}\,\mathbb{Q}), s)" />, is the base case of a vast
+          hierarchy of motivic L-functions. Understanding RH for{' '}
+          <InlineMath tex="\zeta(s)" /> may require understanding this entire hierarchy — and CY
+          motives, with their rich geometric structure, provide the most tractable higher cases.
+        </p>
+
+        <h4 style={{ color: '#c084fc', fontSize: 13, marginTop: 16, marginBottom: 8 }}>
+          The Hasse-Weil Conjecture and its Relationship to RH
+        </h4>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          The <strong>Hasse-Weil conjecture</strong> asserts that the L-function of any smooth
+          projective variety <InlineMath tex="X / \mathbb{Q}" /> has meromorphic continuation to
+          all of <InlineMath tex="\mathbb{C}" /> and satisfies a functional equation. More precisely:
+        </p>
+        <BlockMath tex="\Lambda(X, s) = N^{s/2} \cdot (2\pi)^{-ds} \prod_{j=1}^{d} \Gamma(s - j + 1) \cdot L(H^k(X), s) = \pm\, \Lambda(X, w+1-s)" />
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+          where <InlineMath tex="w = k" /> is the weight and <InlineMath tex="N" /> is the conductor.
+          The <strong>generalized Riemann Hypothesis</strong> (GRH) predicts that all nontrivial
+          zeros of <InlineMath tex="L(H^k(X), s)" /> lie on the critical line{' '}
+          <InlineMath tex="\mathrm{Re}(s) = (w+1)/2" />. For{' '}
+          <InlineMath tex="\zeta(s) = L(H^0(\mathrm{Spec}\,\mathbb{Z}), s)" />, this gives the
+          critical line at <InlineMath tex="\mathrm{Re}(s) = 1/2" /> — the classical RH.
+        </p>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+          Deligne{"'"}s proof of the Weil conjectures established GRH for varieties over finite fields.
+          The Hasse-Weil conjecture asks for the same structure over <InlineMath tex="\mathbb{Q}" />.
+          For elliptic curves, this is proved (modularity theorem). For CY 3-folds, it remains open
+          in general but is established for rigid cases. Each new case proved extends the
+          evidence that RH is a universal phenomenon governed by the motivic weight filtration.
+        </p>
+
+        <h4 style={{ color: '#c084fc', fontSize: 13, marginTop: 16, marginBottom: 8 }}>
+          CY Moduli Spaces Encode Arithmetic Data
+        </h4>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          The moduli space <InlineMath tex="\mathcal{M}" /> of a CY family carries a remarkable
+          amount of arithmetic information:
+        </p>
+        <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          <li>
+            <strong>Variation of Hodge structure:</strong> As the complex structure modulus{' '}
+            <InlineMath tex="z \in \mathcal{M}" /> varies, the Hodge decomposition of{' '}
+            <InlineMath tex="H^3(X_z)" /> rotates. The Gauss-Manin connection governing this
+            variation encodes the Picard-Fuchs equation whose monodromy yields the Galois
+            representation.
+          </li>
+          <li>
+            <strong>Special points:</strong> CM (complex multiplication) points in{' '}
+            <InlineMath tex="\mathcal{M}" /> correspond to CY varieties with extra endomorphisms.
+            At these points, the L-function factors into Hecke L-functions of CM fields —
+            precisely the L-functions for which GRH is most tractable.
+          </li>
+          <li>
+            <strong>Attractor mechanism:</strong> In string theory, BPS black holes correspond to
+            attractor points in CY moduli space where the central charge{' '}
+            <InlineMath tex="|Z|" /> is extremized. These attractors coincide with arithmetic points
+            where the periods satisfy algebraic relations — connecting black hole entropy counting
+            to automorphic forms.
+          </li>
+          <li>
+            <strong>Mirror symmetry and functional equations:</strong> Mirror symmetry exchanges{' '}
+            <InlineMath tex="\mathcal{M}_K \leftrightarrow \mathcal{M}_{\text{cx}}" /> (K{"\"a"}hler
+            and complex structure moduli). This geometric involution corresponds to the functional
+            equation <InlineMath tex="s \leftrightarrow w+1-s" /> of the L-function, providing a
+            geometric explanation for the symmetry that places zeros on the critical line.
+          </li>
+        </ul>
+
+        <div style={{ marginTop: 16, padding: '12px 16px', borderRadius: 8,
+                      background: 'rgba(168, 85, 247, 0.08)', border: '1px solid rgba(168, 85, 247, 0.2)' }}>
+          <strong style={{ color: '#c084fc', fontSize: 13 }}>
+            The Langlands-CY Vision
+          </strong>
+          <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
+            Taken together, the Langlands program and CY geometry suggest a path toward RH:
+            (1) every motivic L-function should be automorphic, (2) automorphic L-functions satisfy
+            GRH by the generalized Ramanujan conjecture, (3) CY moduli spaces provide the geometric
+            arena where these conjectures can be tested and the functional equation acquires a
+            mirror-symmetric interpretation. While each step faces formidable obstacles, the
+            convergence of arithmetic, geometry, and physics on the same structures is the strongest
+            evidence that this framework captures something real about the nature of{' '}
+            <InlineMath tex="\zeta(s)" /> and its zeros.
+          </p>
+        </div>
+      </div>
+
       {/* Gap analysis */}
       <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #ef4444' }}>
         <h3 style={{ color: '#ef4444', fontSize: 14, marginBottom: 12 }}>

@@ -1518,7 +1518,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Connect ZPO framework to Connes\' noncommutative geometry approach',
     category: 'proof',
     priority: 'medium',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Alain Connes\' approach to RH uses a noncommutative space whose points are primes. The ZPO framework puts a transfer matrix at each prime. Show these are DUAL descriptions: Connes\' spectral triple = ZPO Hamiltonian, Connes\' trace formula = ZPO cascade product. If the connection is rigorous, the ZPO proof inherits the mathematical prestige of Connes\' framework.',
     rationale: 'Connecting to an established research program increases credibility and may reveal new insights.',

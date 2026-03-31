@@ -1506,7 +1506,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Analyze what happens if the proof is WRONG: which step most likely fails?',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Bayesian analysis: assign prior probabilities to each step being correct (based on how "standard" the math is). Steps using Pythagorean identity: P(correct)≈1. Steps using identity theorem: P≈0.99. Steps using Darlington for limits: P≈0.90. Steps using topology of cluster points: P≈0.95. Compute the posterior probability that the ENTIRE chain is correct. Identify the step with the lowest probability — that is where to focus further work.',
     rationale: 'If the proof is wrong, knowing WHERE it fails is more valuable than hoping it is right.',

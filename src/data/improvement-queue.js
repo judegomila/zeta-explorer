@@ -1494,7 +1494,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Create exportable LaTeX + PDF of the definitive proof from the app',
     category: 'ux',
     priority: 'medium',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Add a "Download Proof PDF" button to the Proof Explorer page. Uses the LaTeX from definitive-proof.js, renders it via KaTeX or a LaTeX-to-HTML converter, and offers download as a self-contained HTML file that can be printed to PDF. No external LaTeX installation needed.',
     rationale: 'Mathematicians need a PDF they can print and mark up. Make it one click.',

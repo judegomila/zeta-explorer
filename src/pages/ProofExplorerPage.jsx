@@ -400,6 +400,52 @@ function ProofStepCard({ step }) {
   );
 }
 
+// ── Download buttons ─────────────────────────────────────────────────────────
+
+function DownloadButton({ label, format }) {
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = async () => {
+    setLoading(true);
+    try {
+      if (format === 'tex') {
+        const { generateDefinitiveProof } = await import('../math/definitive-proof.js');
+        const proof = generateDefinitiveProof();
+        downloadFile('rh-proof-darlington.tex', proof.latex, 'application/x-latex');
+      } else if (format === 'json') {
+        const { verifyProof } = await import('../math/verify-proof.js');
+        const cert = verifyProof();
+        downloadFile('rh-proof-certificate.json', JSON.stringify(cert, null, 2), 'application/json');
+      }
+    } catch (err) {
+      console.error('Download error:', err);
+    }
+    setLoading(false);
+  };
+
+  return (
+    <button onClick={handleClick} disabled={loading} style={{
+      padding: '8px 16px', borderRadius: 6, cursor: loading ? 'wait' : 'pointer',
+      background: format === 'tex' ? 'rgba(16,185,129,0.15)' : 'rgba(59,130,246,0.15)',
+      color: format === 'tex' ? '#6ee7b7' : '#93c5fd',
+      border: `1px solid ${format === 'tex' ? 'rgba(16,185,129,0.3)' : 'rgba(59,130,246,0.3)'}`,
+      fontSize: 12, fontWeight: 600, fontFamily: 'var(--font-mono)',
+    }}>
+      {loading ? 'Generating...' : label}
+    </button>
+  );
+}
+
+function downloadFile(filename, content, mimeType) {
+  const blob = new Blob([content], { type: mimeType });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 // ── Main page ────────────────────────────────────────────────────────────────
 
 export default function ProofExplorerPage() {
@@ -437,6 +483,12 @@ export default function ProofExplorerPage() {
             <div style={{ color: '#64748b', fontSize: 10 }}>{m.label}</div>
           </div>
         ))}
+      </div>
+
+      {/* Download buttons */}
+      <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
+        <DownloadButton label="Download LaTeX (.tex)" format="tex" />
+        <DownloadButton label="Download Certificate (JSON)" format="json" />
       </div>
 
       {/* Main proof chain */}

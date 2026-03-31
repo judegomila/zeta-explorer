@@ -1580,7 +1580,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Compute the exact proportionality constant c in S₂₁ = c/ζ(s)',
     category: 'verification',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S8',
     description: 'The identity theorem gives S₂₁·ζ = c for some constant c. What IS c? Compute it analytically from the ABCD construction and verify numerically. If c depends on ω (frequency), the identification is wrong. If c is a true constant (independent of s), the identification is confirmed.',
     rationale: 'Knowing c explicitly makes the S₂₁ ∝ 1/ζ claim concrete and testable.',

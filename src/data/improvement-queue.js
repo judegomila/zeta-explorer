@@ -1556,7 +1556,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Prove S₂₁,∞(s) is analytic via Weierstrass M-test on cascade entries',
     category: 'proof',
     priority: 'critical',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Devil\'s advocate A2 asks: is S₂₁,∞(s) an analytic function of s (not just a matrix limit)? Prove: the ABCD entries A_N(s), B_N(s), C_N(s), D_N(s) are analytic for each N (finite products of analytic functions). The differences A_{N+1}-A_N are bounded by ||T_p-I|| ~ O(p^{-σ}) which is summable for σ > 1 (Weierstrass M-test). By Weierstrass: uniform limit of analytic functions on compact subsets of σ > 1 is analytic. Extend to σ > ½ via the cascade oscillatory convergence (imp-114). This upgrades A2 from MODERATE to STRONG.',
     rationale: 'This is the #1 weakest link (85%). Proving analyticity makes Hurwitz theorem applicable and Darlington rigorous.',

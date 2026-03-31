@@ -1482,7 +1482,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Implement the proof as a verifiable computation (deterministic, reproducible)',
     category: 'verification',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Create a single function verifyProof() that runs the ENTIRE proof chain deterministically: (1) compute det(T_p)=1 for p≤1000, (2) compute det(S_N)=1 for N≤200, (3) compute δ(P) with interval arithmetic, (4) verify SO(2) membership, (5) compute S₂₁·ζ proportionality, (6) verify bridge unitarity, (7) check Darlington conditions. Output: a JSON certificate with every intermediate value. Anyone can run it and get the same result.',
     rationale: 'Reproducibility is the gold standard. A single deterministic function makes the proof independently verifiable.',

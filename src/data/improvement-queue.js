@@ -1568,7 +1568,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Construct an explicit counterexample test: a "fake" cascade that violates RH',
     category: 'verification',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Build a cascade with T_p matrices that have det=1 and δ→0 but whose S₂₁ has zeros OFF σ=½. If such a cascade exists, it shows our proof has a gap. If no such cascade can be constructed (and we prove why), it confirms the proof is correct. Use random SL(2,R) matrices with controlled decay.',
     rationale: 'The strongest possible test: can we build a counterexample within our own framework?',

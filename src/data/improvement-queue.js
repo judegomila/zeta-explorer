@@ -1470,7 +1470,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Extend the proof to Dirichlet L-functions (prove GRH)',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'The proof chain generalizes: each Dirichlet L-function L(s,χ) has an Euler product with factors 1/(1-χ(p)p^{-s}). The transfer matrices T_p(s,χ) still have det=1 (|χ(p)|=1 for primitive characters). Mertens-type bounds hold for L-functions. The functional equation gives |χ_L(½+it)|=1. Darlington applies. Write the complete GRH proof as a generalization of the ζ(s) proof.',
     rationale: 'If our proof works for ζ(s), it should work for all L-functions in the Selberg class. GRH is the natural generalization.',

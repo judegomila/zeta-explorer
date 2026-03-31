@@ -1530,7 +1530,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Test proof robustness: what if Mertens constant is slightly wrong?',
     category: 'verification',
     priority: 'medium',
-    status: 'queued',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Sensitivity analysis: perturb the Rosser-Schoenfeld constants by ±10% and check if the proof still goes through. If δ(P) < ε requires exact constants, the proof is fragile. If it works with any reasonable constants, the proof is robust. This tests whether the proof depends on SPECIFIC numbers or just on the STRUCTURE of the argument.',
     rationale: 'A proof that breaks if you change a constant slightly is suspicious. A robust proof works for a range of constants.',

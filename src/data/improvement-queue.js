@@ -1592,7 +1592,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Write a 1-page "where could this proof be wrong?" for honest public posting',
     category: 'content',
     priority: 'medium',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'A brutally honest 1-page document summarizing: (1) the two weakest points (Darlington for limits, exact S₂₁ identification), (2) the Bayesian probabilities, (3) what a referee should check, (4) what would DISPROVE the argument. Post publicly to invite scrutiny.',
     rationale: 'Inviting criticism is more credible than claiming certainty.',

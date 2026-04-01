@@ -1655,4 +1655,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  // ─── WAVE 18: RESOLVE THE ZERO/POLE ISSUE ─────────────────────────────────
+  {
+    id: 'imp-130',
+    title: 'Restructure: use S₁₁ (reflection) instead of S₂₁ (transmission) — S₁₁ ZEROS = ζ-zeros',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'imp-129 showed Darlington confines S₂₁ ZEROS, but ζ-zeros are S₂₁ POLES. The fix: use S₁₁ (the REFLECTION coefficient) instead. For a 2-port: S₁₁ = (A+B-C-D)/(A+B+C+D). Compute S₁₁ for our cascade using the imp-121 induction. If S₁₁ ZEROS correspond to ζ-zeros, then Darlington (which confines zeros of ANY S-parameter to jω for lossless networks) gives RH. Alternatively: the CLASSICAL Darlington result is about S₂₁ zeros AND S₁₁ zeros — both lie on jω for lossless. Check: are ζ-zeros the zeros of S₁₁ rather than poles of S₂₁?',
+    rationale: 'The entire proof may work by switching from S₂₁ to S₁₁. This is a ONE-LINE FIX if S₁₁ zeros = ζ-zeros.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

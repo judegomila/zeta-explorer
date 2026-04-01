@@ -1613,4 +1613,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  // ─── WAVE 15: SCRUTINIZE THE SIMPLIFIED PROOF ─────────────────────────────
+  {
+    id: 'imp-127',
+    title: 'Devil\'s advocate on imp-126: does |S₂₁|<1 for σ≠½ actually hold for the INFINITE cascade?',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'imp-126 claims: for σ≠½, the cascade is lossy so |S₂₁|<1. But |S₂₁| is computed for the FINITE cascade S_N. For S_∞, we need |S₂₁,∞|<1 for σ≠½. The Mertens bound gives δ_N→0 at σ=½. But does it prove δ_∞>0 at σ≠½? The bridge factor |χ(σ+it)|≠1 for σ≠½ gives the bridge contribution to loss. But the TOTAL deficit δ depends on BOTH bridge and ladder. Prove rigorously: for σ≠½, δ_∞(σ)>0 (the infinite cascade is STRICTLY lossy off the critical line).',
+    rationale: 'This is the NEW #1 weakness after imp-126. The contradiction argument requires STRICT lossiness off σ=½.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

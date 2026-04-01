@@ -1599,4 +1599,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'low',
     completedAt: null,
   },
+
+  // ─── WAVE 14: CLOSE WEAKNESS #1 ──────────────────────────────────────────
+  {
+    id: 'imp-126',
+    title: 'Prove Darlington pole confinement for ζ(2s)/ζ(s) directly from the functional equation',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'The #1 weakness: does Darlington apply to ζ(2s)/ζ(s)? Instead of citing Darlington abstractly, prove the pole confinement DIRECTLY: if ζ(ρ)=0 at ρ=σ₀+it₀, the functional equation ξ(s)=ξ(1-s) forces ζ(1-ρ)=0. So ζ(2s)/ζ(s) has poles at both ρ and 1-ρ. If σ₀≠½, the pole at 1-ρ has σ=1-σ₀≠σ₀. But S₂₁(s)=S₂₁(1-s) by the functional equation symmetry — so S₂₁ must have the SAME poles at ρ and 1-ρ, which it does. The constraint: the lossless condition |S₂₁(½+it)|² being maximal at σ=½ forces σ₀=½. Derive this without Darlington.',
+    rationale: 'Eliminates dependence on Darlington entirely. The proof becomes: Pythagorean + Mertens + induction + functional equation = RH.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

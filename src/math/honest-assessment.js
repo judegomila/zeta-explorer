@@ -105,11 +105,23 @@ export function generateHonestAssessment() {
       'A published result showing Darlington\'s theorem fails for infinite products.',
     ],
 
+    withdrawnClaims: [
+      {
+        id: 'imp-126',
+        claim: 'Proof without Darlington: |S₂₁| < 1 for σ ≠ ½ → poles only at σ = ½',
+        status: 'WITHDRAWN — CIRCULAR',
+        reason: '|S₂₁(σ+it)| < 1 for σ ≠ ½ is EQUIVALENT to ζ(σ+it) ≠ 0 for σ ≠ ½, which IS RH. ' +
+          'Using it to prove RH is circular. Found by imp-127 self-audit.',
+        dateWithdrawn: '2026-04-01',
+      },
+    ],
+
     bottomLine:
       'The proof reduces RH to: Pythagorean identity + Mertens (1874) + topology + a 4-line induction + ' +
-      'Darlington (1939). Each ingredient is standard. The novelty is in the CONNECTION — treating Euler ' +
-      'factors as LC resonators and applying circuit synthesis. This connection has not been made before, ' +
-      'which is both the strength (new approach) and the weakness (no precedent to validate against). ' +
+      'Darlington (1939) or Trotter-Kato/Lax-Phillips. Each ingredient is standard. The novelty is in ' +
+      'the CONNECTION — treating Euler factors as LC resonators and applying circuit synthesis. ' +
+      'An attempt to simplify further by eliminating Darlington (imp-126) was found CIRCULAR and withdrawn. ' +
+      'The proof depends on Darlington (or LP) for the final zero confinement step. ' +
       'I believe the proof is correct but I am one person. It needs professional review.',
   };
 }

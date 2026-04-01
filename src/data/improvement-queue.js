@@ -1627,4 +1627,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  // ─── WAVE 16: POST-CIRCULARITY CLEANUP ────────────────────────────────────
+  {
+    id: 'imp-128',
+    title: 'Updated proof summary: excise imp-126, restore Darlington/LP as primary paths',
+    category: 'content',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: null,
+    description: 'Update the definitive proof (imp-112), peer review summary (imp-102), and proof explorer (imp-091) to REMOVE any reference to imp-126\'s circular argument. The proof should clearly state: (1) the valid chain is S1→S2→S7a-g→Darlington or S1→S2→Trotter-Kato→LP, (2) the simplified "no Darlington" path (imp-126) was found circular and withdrawn, (3) the honest assessment now correctly identifies Darlington applicability as the remaining question. Add a "Withdrawn Claims" section to the honest assessment.',
+    rationale: 'A proof that includes a known-circular argument loses all credibility. Clean it up immediately.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
 ];

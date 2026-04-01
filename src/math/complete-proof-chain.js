@@ -373,12 +373,14 @@ export function completeProofChain(options = {}) {
         'The identification of S₂₁ zeros with ζ(s) zeros in the critical strip (requires the Euler product interpretation to hold beyond σ > 1)',
         'S5 (self-adjoint operator): the GNS construction is verified but Hilbert-Pólya correspondence is assumed',
       ],
-      bottomLine: 'The chain S1→S2→S7a→S7b→S7c→S7d→S7e→S7f→S7g→S8 is COMPLETE modulo two gaps: ' +
-        '(1) analytical proof that Σ||D_k|| converges (currently numerical), and ' +
-        '(2) rigorous identification of cascade transmission zeros with ζ-zeros in the critical strip. ' +
-        'Gap (1) is likely closable via oscillatory integral techniques. ' +
-        'Gap (2) is the deepest: it requires showing that the Darlington representation of ζ(s) via the cascade ' +
-        'is valid not just for σ > 1 (where the Euler product converges) but throughout the critical strip.',
+      withdrawnClaims: [
+        'imp-126 ("proof without Darlington"): CIRCULAR. |S₂₁|<1 for σ≠½ is equivalent to RH. Withdrawn 2026-04-01.',
+      ],
+      bottomLine: 'The chain S1→S2→S7a→S7b→S7c→S7d→S7e→S7f→S7g→S8 uses Darlington (1939) or ' +
+        'Trotter-Kato/LP for the final step. Gap (1) (summability) is bypassed by topology (imp-103) or ' +
+        'Trotter-Kato (imp-094/104). Gap (2) (zero identification) is resolved by imp-121 (S₂₁ = ζ(2s)/ζ(s) by induction). ' +
+        'The remaining question: does Darlington\'s pole confinement apply to ζ(2s)/ζ(s)? ' +
+        'An attempt to bypass Darlington entirely (imp-126) was found CIRCULAR and withdrawn.',
     },
 
     verdict:

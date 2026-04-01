@@ -1641,4 +1641,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'medium',
     completedAt: null,
   },
+
+  // ─── WAVE 17: THE REAL FINAL STEP ─────────────────────────────────────────
+  {
+    id: 'imp-129',
+    title: 'Analyze EXACTLY what Darlington gives us for ζ(2s)/ζ(s) and what it doesn\'t',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'After the circularity of imp-126, the proof needs Darlington or LP for the final step. But what EXACTLY does Darlington say about S₂₁ = ζ(2s)/ζ(s)? Darlington (1939): for a lossless reciprocal 2-port, transmission zeros (= S₂₁ zeros, NOT poles) lie on jω axis. But our ζ-zeros are POLES of S₂₁, not zeros. Darlington confines S₂₁ ZEROS (where ζ(2s)=0, i.e. s=ρ/2) to σ=¼. It does NOT directly confine S₂₁ POLES (where ζ(s)=0). This is a FUNDAMENTAL issue. Analyze: does any classical circuit theorem confine the POLES of S₂₁ for a lossless network? What about the LP approach — does it confine poles or zeros?',
+    rationale: 'We may have been confusing S₂₁ poles with zeros throughout. If Darlington confines ZEROS (not poles), the entire argument needs restructuring.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

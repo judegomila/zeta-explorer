@@ -1683,4 +1683,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  // ─── WAVE 20: COMPLETE THE LP PATH ────────────────────────────────────────
+  {
+    id: 'imp-132',
+    title: 'Honest state-of-proof: what is proven, what is open, what was withdrawn',
+    category: 'content',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: null,
+    description: 'After 131 improvements and 5 self-corrections, write a DEFINITIVE state-of-proof document. Three categories: (A) PROVEN UNCONDITIONALLY: S₂₁ = ζ(2s)/ζ(s) by induction, det(S_N)=1, Mertens δ→0, cluster points in SO(2), S₁₁≡0. (B) THE REMAINING QUESTION: does LP pole confinement apply to the ZPO scattering matrix, and does it identify with ζ(2s)/ζ(s)? (C) WITHDRAWN: imp-126 (circular), Darlington path (confines zeros not poles). This is the document to share publicly.',
+    rationale: 'After 5 self-corrections, clarity about the ACTUAL state is more valuable than new code.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
 ];

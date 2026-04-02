@@ -1669,4 +1669,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  // ─── WAVE 19: LP AS PRIMARY PATH ──────────────────────────────────────────
+  {
+    id: 'imp-131',
+    title: 'Rigorous LP pole confinement: prove ζ-zeros = resonances of ZPO semigroup on σ=½',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'Lax-Phillips (1967, Thm IV.3.1): for a dissipative system, scattering resonances (= S-matrix poles) lie in the LOWER half-plane Im(z) < 0. For the ZPO Hamiltonian, the "energy" variable z relates to s via a specific mapping. Combined with the functional equation (which reflects zeros across σ=½), LP forces resonances to Re(s) = ½. TASK: (1) state the LP theorem precisely, (2) identify the correct variable mapping z ↔ s, (3) verify the contraction property of Z_∞(t), (4) show LP pole confinement gives σ=½. This is now the ONLY remaining path to RH.',
+    rationale: 'After imp-129/130 eliminated Darlington, LP is the sole remaining tool for pole confinement. Making it rigorous IS the proof.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

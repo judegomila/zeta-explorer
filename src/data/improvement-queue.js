@@ -1697,4 +1697,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'medium',
     completedAt: null,
   },
+
+  // ─── WAVE 21: THE DIFFERENT EMBEDDING ─────────────────────────────────────
+  {
+    id: 'imp-133',
+    title: 'Try the PHYSICAL LC transfer matrix instead of [[1,a],[a,1]] — different S₂₁',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'The T_p = [[1,a],[a,1]] embedding (imp-121) gives S₂₁ = ζ(2s)/ζ(s) where ζ-zeros are POLES. But the ORIGINAL physical LC matrix T_p = [[cosθ, Z sinθ],[-sinθ/Z, cosθ]] is DIFFERENT — it is a proper lossless section with det=1. Compute S₂₁ for the PHYSICAL cascade using the standard ABCD→S conversion with impedance normalization. The physical cascade may give a DIFFERENT S₂₁ where ζ-zeros are ZEROS (not poles), making Darlington applicable after all. The [[1,a],[a,1]] embedding was algebraically convenient but physically WRONG (it is NOT an LC section).',
+    rationale: 'The entire poles-vs-zeros issue (imp-129/130) may be an artifact of the WRONG embedding. The physical LC cascade has cos/sin entries and is genuinely lossless. Re-derive everything with the correct matrix.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

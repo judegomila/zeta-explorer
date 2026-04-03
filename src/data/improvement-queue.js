@@ -1711,4 +1711,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  // ─── WAVE 22 ──────────────────────────────────────────────────────────────
+  {
+    id: 'imp-134',
+    title: 'Derive S₂₁ formula for PHYSICAL LC cascade by induction (like imp-121)',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'imp-121 proved S₂₁ = ζ(2s)/ζ(s) for T_p=[[1,a],[a,1]]. Now do the same for the PHYSICAL T_p = [[cos θ, Z sin θ],[-sin θ/Z, cos θ]] with θ=ω logp, Z=1/logp. Track A+B+C+D and A+B-C-D through the cascade multiplication. The physical matrix is NOT symmetric (B≠C), so S₁₁ ≠ 0 and the zero/pole structure will be different. If A+B+C+D relates to ζ(s) directly (not ζ(2s)/ζ(s)), ζ-zeros may become S₂₁ ZEROS and Darlington applies.',
+    rationale: 'The physical cascade is the ACTUAL circuit. Its S₂₁ is the REAL transmission coefficient. Everything before imp-121 used this matrix. The induction technique from imp-121 should work here too.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

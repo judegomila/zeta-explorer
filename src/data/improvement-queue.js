@@ -1829,7 +1829,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Heat flow + surface tension minimization: Hamiltonian via Hessian of log|ζ|, de Bruijn-Newman annealing',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Define surface tension T(s) = Hessian of log|ζ(s)| (the "curvature" of the log-modulus landscape). In Fourier domain: the heat equation ∂_t Ξ = ΔΞ smooths the landscape, moving zeros toward equilibrium. The de Bruijn-Newman constant Λ = 0 (Rodgers-Tao 2020) means the zeros are already AT equilibrium under heat flow. Model this as thermodynamic annealing: T(s) → min at σ=½, and the Hamiltonian H = ∫ T(s) ds is minimized on the critical line. Also explore "vaporizing" the bubbles: what happens to zeros under extreme heat flow? They should merge into the critical line.',
     rationale: 'Heat flow is the de Bruijn-Newman approach. Surface tension via Hessian gives a new Hamiltonian. If H is minimized on σ=½, RH follows from energy minimization.',

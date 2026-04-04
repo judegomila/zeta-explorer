@@ -1913,4 +1913,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'medium',
     completedAt: null,
   },
+
+  // ─── WAVE 26: CONCRETE COMPUTATIONAL EXPERIMENTS ──────────────────────────
+  {
+    id: 'imp-150',
+    title: 'Compute LP scattering matrix of ZPO Hamiltonian directly — verify it equals ζ(2s)/ζ(s)',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'The critical open question (imp-131): does the LP scattering matrix of H_∞ equal ζ(2s)/ζ(s)? Implement DIRECTLY: build H_N, attach semi-infinite leads, compute wave operators W_± numerically, extract S-matrix S(E) from W_+† W_-, compare with ζ(2s)/ζ(s) formula. If they agree, the LP path is numerically confirmed (concrete evidence for the correct identification). If they disagree, the LP path needs different formulation.',
+    rationale: 'This is the ONE computation that would make imp-131 concrete. Currently we have LP theory and imp-121 formula separately — need to show they are the SAME S-matrix.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

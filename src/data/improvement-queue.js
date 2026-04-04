@@ -1853,7 +1853,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Is ζ(s) literally the partition function of a string on an infinite-dimensional torus?',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'ζ(s) = Σ n^{-s} = Σ exp(-s·log n). This is the partition function Z(β) = Σ exp(-β·E_n) with β=s and E_n = log(n). The "energies" log(n) are the energies of a free particle on a torus T^∞ = Π S¹_{log p} where the k-th circle has circumference log(p_k). A string wrapping the k-th circle n_k times has energy Σ n_k·log(p_k) = log(Π p_k^{n_k}) = log(n). So ζ(s) IS the partition function of a string on the infinite torus T^∞. RH then says: the partition function has no phase transitions off the critical temperature β=½. Check: does string theory on T^∞ have this property? Is there a known no-phase-transition theorem?',
     rationale: 'If ζ is literally a string partition function, RH becomes a statement about critical phenomena on T^∞. String theorists may have already answered this.',

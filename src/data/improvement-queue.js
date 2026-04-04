@@ -1769,7 +1769,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'IV/UV regimes and phase transitions in the supercritical zeta under pressure + branched flow',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'The zeta function has different regimes: σ>1 (IR, convergent Euler product, "gas phase"), σ=½ (critical, "phase transition"), σ<½ (UV, functional equation domain, "condensed phase"). Map the IR/UV transition at σ=½ as a genuine phase transition with order parameter |ζ(s)|. Apply branched flow dynamics: in the supercritical regime σ<1, the "pressure" pushes the system toward the critical point σ=½ where branched flow caustics (superwires) form. Visualize the pressure-driven phase transition with caustic formation.',
     rationale: 'Phase transitions in physics are universal. If RH corresponds to a critical point, the universality class determines the zero structure.',

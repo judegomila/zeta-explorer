@@ -1841,7 +1841,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Convexity attack: use functional equation symmetry σ ↔ 1-σ for a convexity proof of RH',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'The functional equation gives ζ(s) = χ(s)·ζ(1-s). The map σ ↔ 1-σ reflects across σ=½. If log|ζ(σ+it)| is CONVEX in σ (which is the Lindelöf hypothesis, implied by RH but weaker), then the minimum of a convex function symmetric about σ=½ is at σ=½. Approach: (1) prove log|ζ| is convex in σ for fixed t (unconditional convexity bounds exist from Phragmén-Lindelöf), (2) use symmetry ζ(s)=χ(s)ζ(1-s) to get the reflection, (3) minimum of symmetric convex function = symmetry axis = σ=½. Check if existing convexity bounds suffice or if ZPO adds new ones.',
     rationale: 'Convexity + symmetry is the simplest possible geometric argument. If it works, the proof is 3 lines.',

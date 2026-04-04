@@ -1757,7 +1757,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Topological invariants in the twistor dual form of the twin ladder',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'The twin ladder (direct + dual + bridge) has a twistor-like structure: two copies of a space connected by a map. Look for topological invariants: (1) winding number of the S-matrix as s traverses a contour, (2) Chern number of the bridge bundle, (3) index of the Dirac-like operator D on the twin ladder. If a topological invariant is non-trivial and forces zeros to the critical line (like a topological insulator forces edge states to the boundary), this gives a topological proof of RH.',
     rationale: 'Topological arguments are the most powerful in modern physics — they give exact results independent of details. If RH has a topological origin, the proof would be robust.',

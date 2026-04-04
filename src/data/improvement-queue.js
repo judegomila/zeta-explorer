@@ -1745,7 +1745,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Branched flow dynamics ("superwires") as channels in the lossless bridge under pressure sweep',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Branched flow dynamics: when waves propagate through a weakly correlated random potential, they form "superwires" — caustic channels of focused intensity. Model the twin ladder bridge as a medium with the prime-indexed potential landscape. Sweep "pressure" (the parameter σ) and visualize how branched flow channels form, merge, and focus. At σ=½ the channels should be maximally coherent (lossless bridge). Build a visualization showing the branched flow caustics as σ varies from 0 to 1. The superwires ARE the zero-free regions where ζ(s) cannot vanish.',
     rationale: 'Branched flow is a real physics phenomenon (Topinka et al. 2001, Heller 2021). If the prime potential creates branched flow with caustics on σ=½, this is a new physical mechanism for RH.',

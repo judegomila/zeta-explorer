@@ -1872,4 +1872,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'medium',
     completedAt: null,
   },
+
+  // ─── WAVE 24: SYNTHESIZE THE UNIFIED PICTURE ──────────────────────────────
+  {
+    id: 'imp-147',
+    title: 'Unified self-duality framework: single document connecting 7 physical pictures',
+    category: 'content',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: null,
+    description: 'Wave 23 produced 7 physical pictures all pointing to σ=½: T^∞ partition function (145), surface tension Hamiltonian (143), vacuum bubbles (142), Mach-Zehnder (140), topological insulator (137), IR/UV T-duality (138), branched flow superwires (136). Each gives σ=½ as "critical/self-dual/caustic/fixed/saturation/defect". Synthesize into ONE unified statement: the self-duality of the prime gas partition function forces its Lee-Yang zeros to the self-dual locus. Connect to the concrete LP scattering framework (path we established as primary in imp-131). The goal: a field-theoretic RH argument.',
+    rationale: 'Seven independent physical pictures converging on σ=½ is striking. Synthesizing them may reveal the common mathematical structure.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

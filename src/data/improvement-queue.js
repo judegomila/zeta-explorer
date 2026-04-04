@@ -1781,7 +1781,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'What structure has primes as its resonant frequency modes?',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'If each prime p is a resonant mode with frequency ω_p = log(p), what PHYSICAL STRUCTURE has exactly these resonances? Candidates: (1) a drum/membrane whose eigenvalues are log(p) — connected to Selberg zeta and hyperbolic geometry, (2) a quantum graph with edges of length log(p) — connected to quantum chaos, (3) a string on a fractal with spectral gaps at primes — connected to Lapidus fractal strings, (4) a crystal with unit cell determined by prime factorization — connected to quasicrystals. Investigate which structure is most natural and what it implies for RH.',
     rationale: 'If we find the structure whose spectrum IS the primes, the zeta function is literally its spectral zeta function, and RH may follow from self-adjointness.',

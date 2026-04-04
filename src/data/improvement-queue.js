@@ -1940,4 +1940,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  {
+    id: 'imp-152',
+    title: 'Test the "degree-2 cover" hypothesis: variable change s→s/2+½ maps CdV to our formula',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'Candidate fix: under s → s\' = s/2 + ½, CdV\'s φ(s) = ζ(2s-1)/ζ(2s) becomes φ(s/2+½) = ζ(s)/ζ(s+1). This is DIFFERENT from our ζ(2s)/ζ(s). Try other transformations systematically: s→s+½, s→1-s, s→s/2, s→2s, etc. Find which (if any) maps CdV to our formula. If none: our formula captures a DIFFERENT arithmetic structure.',
+    rationale: 'A simple variable change could reconcile the two formulas and import CdV rigor.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
 ];

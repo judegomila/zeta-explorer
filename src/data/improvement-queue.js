@@ -1865,7 +1865,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Scattering theory literature review: build database of papers on ζ and scattering',
     category: 'content',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Survey and build a searchable database of papers connecting zeta functions to scattering theory. Key authors: Lax-Phillips (1976 automorphic scattering), Pavlov-Faddeev (1972 model operator), Colin de Verdière (scattering on hyperbolic surfaces), Borthwick (spectral theory for hyperbolic surfaces), Lapidus (fractal strings), Berry-Keating (quantum chaos). For each paper: title, authors, year, key result, relevance to ZPO, whether it addresses the LP-to-ζ connection. Store as a JS data module that powers a searchable /papers page.',
     rationale: 'The LP connection to ζ is not new — it was explored by Lax-Phillips themselves in 1976. Understanding what they proved (and didn\'t) focuses our effort.',

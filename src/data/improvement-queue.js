@@ -1817,7 +1817,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Zeta zeros as vacuum bubbles in the supercritical phase approaching equilibrium',
     category: 'proof',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'In the supercritical regime (σ near ½): model ζ-zeros as "vacuum bubbles" — localized regions where |ζ|≈0 surrounded by |ζ|>0. These are analogous to vapor bubbles in a superheated liquid approaching the boiling point (σ=½ = critical temperature). The bubbles nucleate, grow, and equilibrate on the critical line. Compute the "surface tension" of a bubble using the Hessian of log|ζ| (imp item 10). If the free energy is minimized when bubbles sit exactly at σ=½, RH follows from thermodynamic equilibrium.',
     rationale: 'Bubble nucleation in phase transitions is well-understood physics. Mapping ζ-zeros to bubbles imports a century of thermodynamic machinery.',

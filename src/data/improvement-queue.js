@@ -1966,4 +1966,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  {
+    id: 'imp-154',
+    title: 'Fermionic prime gas on T^∞: ζ(2s)/ζ(s) as fermion parity partition function',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'imp-145: ζ(s) is the BOSONIC partition function on T^∞ (unlimited winding). imp-153: ζ(2s)/ζ(s) = L(s) has Liouville λ(n) = (-1)^{Ω(n)}. CONJECTURE: ζ(2s)/ζ(s) is the FERMIONIC partition function on T^∞ with Pauli exclusion (each prime-winding state at most once, gives μ²(n) = squarefree indicator with parity). Compute: (a) the supertrace Str(e^{-βH}) = Σλ(n)·e^{-βlogn}, (b) the relation to the supersymmetric index, (c) RH as a WITTEN INDEX condition on T^∞.',
+    rationale: 'If ζ(2s)/ζ(s) is the Witten index of a supersymmetric theory on T^∞, its zeros and poles may be topologically protected.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

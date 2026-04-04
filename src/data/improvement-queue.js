@@ -1927,4 +1927,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  {
+    id: 'imp-151',
+    title: 'Reconcile Colin de Verdière φ(s)=ζ(2s-1)/ζ(2s) with our ζ(2s)/ζ(s) — find the correct Hamiltonian',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'Colin de Verdière (1983) proved the scattering determinant on the modular surface is φ(s) = ζ(2s-1)/ζ(2s). Our imp-121 gives S₂₁ = ζ(2s)/ζ(s). These are DIFFERENT functions but both meromorphic with ζ-zero structure. Reconcile: (a) what variable change maps one to the other? (b) is one a transformed version of the other? (c) what Hamiltonian gives each? The modular surface works; our tridiagonal doesn\'t (imp-150). Find the gap.',
+    rationale: 'The modular surface result IS proven. If we can show our S₂₁ = ζ(2s)/ζ(s) is structurally equivalent, we inherit rigor.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

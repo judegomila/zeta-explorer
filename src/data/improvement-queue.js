@@ -1886,4 +1886,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  // ─── WAVE 25: THE SYMMETRY-BREAKING QUESTION ──────────────────────────────
+  {
+    id: 'imp-148',
+    title: 'Can the self-duality s↔1-s be spontaneously broken? Rule out asymmetric zero pairs',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'imp-147 identified the key gap: self-duality forces zeros to be PAIRED (ρ↔1-ρ), not necessarily at σ=½. An asymmetric pair at ½+ε±iγ and ½-ε±iγ satisfies the functional equation. RULE OUT such pairs using: (1) unitarity of the LP scattering matrix, (2) reflection positivity of the ZPO Hamiltonian, (3) positivity of the spectral density. Any of these would force symmetric = self-dual = σ=½.',
+    rationale: 'This is the PRECISE mathematical question now. Answering it resolves RH within the self-duality framework.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

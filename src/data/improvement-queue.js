@@ -1953,4 +1953,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'medium',
     completedAt: null,
   },
+
+  {
+    id: 'imp-153',
+    title: 'ζ(2s)/ζ(s) and the Möbius function: RH equivalent via Mertens conjecture relations',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'imp-152 showed ζ(2s)/ζ(s) = 1/Σ|μ(n)|/n^s. But more directly: 1/ζ(s) = Σμ(n)/n^s. So ζ(2s)/ζ(s) = ζ(2s)·Σμ(n)/n^s. The squarefree function Q(x) = #{n≤x squarefree} has M(x) = Σ_{n≤x} μ(n) as its signed counterpart. RH ⟺ M(x) = O(x^{½+ε}) (Mertens conjecture form of RH). Our ZPO formula may encode this equivalence! Trace the connection: cascade S₂₁ → Möbius sum → Mertens-form RH.',
+    rationale: 'The Möbius connection gives a DIFFERENT equivalent form of RH — may provide new attack angles.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

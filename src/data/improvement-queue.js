@@ -1979,4 +1979,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  {
+    id: 'imp-155',
+    title: 'Test the Liouville/parity framework against Selberg zeta for compact hyperbolic surfaces',
+    category: 'proof',
+    priority: 'high',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'Selberg zeta functions Z_Γ(s) for compact hyperbolic surfaces Γ\\H have ALL zeros on critical line σ=½ (PROVEN, unlike RH for Riemann ζ). If our ZPO framework / Liouville interpretation is correct, it should apply to Selberg zeta AND predict the known result. Compute: (a) Selberg zeta Z_Γ(s) for the simplest compact surface, (b) its "cascade" form via geodesic Euler product, (c) verify zeros on σ=½. If framework works for Selberg: strong evidence it works for Riemann too.',
+    rationale: 'Selberg zeta has PROVEN RH analog. Testing our framework on it gives a ground-truth check.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

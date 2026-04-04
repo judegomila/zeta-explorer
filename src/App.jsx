@@ -46,6 +46,7 @@ const DashboardPage = lazy(() => import('./pages/DashboardPage.jsx'));
 const BreakItPage = lazy(() => import('./pages/BreakItPage.jsx'));
 const ProofExplorerPage = lazy(() => import('./pages/ProofExplorerPage.jsx'));
 const BlogPage = lazy(() => import('./pages/BlogPage.jsx'));
+const WikiPage = lazy(() => import('./pages/WikiPage.jsx'));
 
 function PageLoader() {
   return (
@@ -113,6 +114,7 @@ const NAV_GROUPS = [
       { to: '/papers', label: 'Papers' },
       { to: '/paper-upload', label: 'Upload' },
       { to: '/blog', label: 'Blog' },
+      { to: '/wiki', label: 'Wiki' },
       { to: '/docs', label: 'Docs' },
       { to: '/improvements', label: 'Improvements' },
       { to: '/improvement-queue', label: 'Queue' },
@@ -375,6 +377,7 @@ function AppShell() {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/proof-explorer" element={<ProofExplorerPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/wiki" element={<WikiPage />} />
           <Route path="/break-it" element={<BreakItPage />} />
         </Routes>
         </Suspense>

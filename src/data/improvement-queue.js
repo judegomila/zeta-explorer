@@ -1805,7 +1805,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Build internal wiki/glossary of all terms, definitions, and concepts used in the project',
     category: 'content',
     priority: 'high',
-    status: 'queued',
+    status: 'completed',
     proofSection: null,
     description: 'Create a comprehensive /wiki page with definitions for every concept: ZPO, twin ladder, bridge, Darlington, Mertens, Euler product, cascade, transfer matrix, S-matrix, S₂₁, S₁₁, unitarity deficit, lossless, SO(2), SL(2,R), Lax-Phillips, Trotter-Kato, Combes-Thomas, Hurwitz, Carlson, identity theorem, functional equation, primorial, branched flow, superwires, topological invariant, phase transition, interferometer. Each entry: 1-2 sentence definition, relevance to the proof, link to the imp where it was used.',
     rationale: 'The project uses 50+ technical terms. A glossary makes it accessible to newcomers and serves as the conceptual backbone.',

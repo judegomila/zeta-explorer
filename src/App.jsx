@@ -47,6 +47,7 @@ const BreakItPage = lazy(() => import('./pages/BreakItPage.jsx'));
 const ProofExplorerPage = lazy(() => import('./pages/ProofExplorerPage.jsx'));
 const BlogPage = lazy(() => import('./pages/BlogPage.jsx'));
 const WikiPage = lazy(() => import('./pages/WikiPage.jsx'));
+const ProjectIndexPage = lazy(() => import('./pages/ProjectIndexPage.jsx'));
 
 function PageLoader() {
   return (
@@ -115,6 +116,7 @@ const NAV_GROUPS = [
       { to: '/paper-upload', label: 'Upload' },
       { to: '/blog', label: 'Blog' },
       { to: '/wiki', label: 'Wiki' },
+      { to: '/index', label: 'Index' },
       { to: '/docs', label: 'Docs' },
       { to: '/improvements', label: 'Improvements' },
       { to: '/improvement-queue', label: 'Queue' },
@@ -378,6 +380,7 @@ function AppShell() {
           <Route path="/proof-explorer" element={<ProofExplorerPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/wiki" element={<WikiPage />} />
+          <Route path="/index" element={<ProjectIndexPage />} />
           <Route path="/break-it" element={<BreakItPage />} />
         </Routes>
         </Suspense>

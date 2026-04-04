@@ -1900,4 +1900,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  {
+    id: 'imp-149',
+    title: 'Project index page: navigable summary of all 148 improvements organized by topic',
+    category: 'ux',
+    priority: 'high',
+    status: 'completed',
+    proofSection: null,
+    description: 'Create /index (or /summary) page that groups all 148 improvements by WAVE (1-25) and TOPIC, with links to the relevant modules, one-line descriptions, and status tags (proven/open/withdrawn). Make the 148-improvement history browsable instead of buried in improvements.js. Include: timeline view, topic clusters (S7 closure, physics analogies, self-correction, etc.), and direct links to key results (imp-121 induction, imp-131 LP path, imp-147 unified self-duality).',
+    rationale: 'After 148 improvements, a navigable summary is essential for anyone (including future-us) to understand what was done.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
 ];

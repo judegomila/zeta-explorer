@@ -2713,12 +2713,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Hurwitz zeta function ζ(s, a) spectrum',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Hurwitz zeta ζ(s, a) = Σ 1/(n+a)^s. Compute for various a, analyze zero distribution. Unlike Riemann ζ, Hurwitz generally has zeros OFF σ=½ for non-special a.',
     rationale: 'Hurwitz ζ\'s differences from Riemann ζ illuminate what is special about ζ(s) = ζ(s, 1).',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T02:00:00Z',
   },
 
   {

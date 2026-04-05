@@ -2284,12 +2284,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Cramér model: heuristic prime-zero duality statistics',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Cramér (1936) proposed that primes behave like random with density 1/log(n). Under this model, predict prime gaps, twin prime density, and zero-spacing statistics. Test model against both primes AND ζ-zeros to see duality. Gives heuristic RH equivalence via statistical model.',
     rationale: 'Cramér\'s model is one of the most influential heuristics for RH; testing its predictions numerically informs proof strategies.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-04T14:30:00Z',
   },
 
   {

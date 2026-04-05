@@ -827,3 +827,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 942 | 2026-04-04T13:00:00Z | Backlund-Titchmarsh rigorous zero count: |S(T)|≤Trudgian bound verified (imp-175) | backlund-zero-count.js |
 | 943 | 2026-04-04T13:30:00Z | Gonek-Hejhal moments of |ζ'(ρ)|² at zeros; J_1 → (logT)³/12 (imp-176) | gonek-moments.js |
 | 944 | 2026-04-04T14:00:00Z | Schoenfeld bounds |ψ(x)-x|<(1/8π)√x(log x)² verified up to x=10^5 (imp-177) | schoenfeld-bounds.js |
+| 945 | 2026-04-04T14:30:00Z | Cramér-GUE duality: primes random (Cramér mean gap 12.7) vs zeros GUE rigid (var 0.134) (imp-178) | cramer-model.js |

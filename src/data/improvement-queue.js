@@ -2336,12 +2336,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Chowla conjecture partial sums for Liouville function λ(n)',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Chowla conjectured Σ_{n≤x}λ(n)λ(n+h) = o(x) for any h≥1. Matomäki-Radziwiłł 2015 proved averaged version. Compute pair correlations for h=1..10, verify o(1) behavior.',
     rationale: 'Chowla connects S₂₁ (Liouville) to deep open problem.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T10:30:00Z',
   },
 
   {

@@ -831,3 +831,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 946 | 2026-04-04T15:00:00Z | Hardy Z sign-change counting: 6/6 ranges up to t=5100 verified on critical line (imp-180) | hardy-z-counting.js |
 | 947 | 2026-04-04T15:30:00Z | GRH verified for Dirichlet L mod 3, 4, 5: first zeros on σ=½ to err 0.006 (imp-179) | dirichlet-l-grh.js |
 | 948 | 2026-04-05T10:00:00Z | Selberg CLT for log|ζ(½+it)| verified over 49k samples (imp-181) | selberg-clt.js |
+| 949 | 2026-04-05T10:30:00Z | Chowla conjecture: max |C_h(10^5)|=0.006 for h=1..20, C_1→0 (imp-182) | chowla-liouville.js |

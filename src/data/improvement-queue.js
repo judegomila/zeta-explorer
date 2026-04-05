@@ -2674,12 +2674,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Goldbach comet and ternary Goldbach (Helfgott 2013)',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Helfgott 2013 proved ternary Goldbach: every odd n ≥ 7 is sum of 3 primes. Compute number of Goldbach partitions r(n) for even n, plot "comet" distribution. Binary Goldbach still open.',
     rationale: 'Major recent proven theorem, related to additive prime distribution.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T00:30:00Z',
   },
 
   {

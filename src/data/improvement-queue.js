@@ -2700,11 +2700,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Keiper-Li coefficients extended to n=100',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Extends li-saturation.js (which tested small n): compute Li coefficients λ_n for n up to 100 using many ζ-zeros, verify Keiper-Li asymptotic λ_n ~ (n/2)·log(n/(2πe)) + O(log n).',
     rationale: 'Extends Li criterion testing to larger range for tighter RH verification.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T23:30:00Z',
   },
 ];

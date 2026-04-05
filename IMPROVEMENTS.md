@@ -860,3 +860,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 975 | 2026-04-05T23:30:00Z | Keiper-Li Coffey asymptotic: all λ_n>0 for n=1..50, residual O(√n log n) (imp-210) | keiper-li-growth.js |
 | 976 | 2026-04-06T00:00:00Z | Burgess character sums tested for χ mod q∈{3..13}: bounded by O(1) for quadratic χ (imp-209) | burgess-character-sums.js |
 | 977 | 2026-04-06T00:30:00Z | Goldbach comet (binary) + ternary (Helfgott 2013) verified to n=10000 (imp-208) | goldbach-comet.js |
+| 978 | 2026-04-06T01:00:00Z | Dedekind ζ_K for Q(i), Q(√-2), Q(√-3), Q(√-7): factorization verified (imp-211) | dedekind-zeta-imaginary.js |

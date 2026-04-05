@@ -884,3 +884,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 999 | 2026-04-06T11:30:00Z | Selberg ζ modular: 17 primitive geodesics + PGT verified (imp-231) | selberg-zeta-modular.js |
 | 1000 | 2026-04-06T12:00:00Z | Weil explicit formula verified to machine precision for 7 Gaussians (imp-235) | weil-explicit-formula-opt.js |
 | 1001 | 2026-04-06T12:30:00Z | Montgomery-Odlyzko GUE: tridiag sim, Wigner + R_2 match ~9% rel L² (imp-233) | montgomery-odlyzko-gue.js |
+| 1002 | 2026-04-06T13:00:00Z | Sarnak Möbius disjointness: (1/N)Σμ(n)f(T^n x)→0 for 7 systems (imp-234) | sarnak-mobius-disjointness.js |

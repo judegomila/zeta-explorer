@@ -897,3 +897,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1012 | 2026-04-06T18:00:00Z | Symmetric square L(s,sym²f): Euler vs Hecke identity to <0.8% (imp-244) | symmetric-square-l.js |
 | 1013 | 2026-04-06T18:30:00Z | **CRITICAL** Rodgers-Tao Λ=0: H_t zeros match ζ exactly, heat flow verified (imp-246) | rodgers-tao-de-bruijn-newman.js |
 | 1014 | 2026-04-06T19:00:00Z | Cramér model: G/(log x)²≤0.66, gap dist mean=1.00 (imp-247) | cramer-prime-gaps.js |
+| 1015 | 2026-04-06T19:30:00Z | Vinogradov-Korobov: best zero-free σ>1-c/(log t)^{2/3}, width shrinks (imp-248) | vinogradov-korobov-zero-free.js |

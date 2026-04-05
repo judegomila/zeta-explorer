@@ -3194,12 +3194,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Vinogradov-Korobov zero-free region for ζ(s)',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
     description: 'Best known zero-free region: ζ(σ+it) ≠ 0 for σ > 1 - c/(log t)^{2/3}·(log log t)^{1/3}. Vinogradov-Korobov 1958. Verify numerically that no known zeros violate this.',
     rationale: 'The Vinogradov-Korobov region is the best unconditional approach toward RH from the left.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

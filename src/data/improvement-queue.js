@@ -2031,4 +2031,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  {
+    id: 'imp-159',
+    title: 'Abelian flow on T^∞: irrational rotation with prime-log frequencies as spectral realization',
+    category: 'proof',
+    priority: 'high',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'imp-158 identified the commutativity obstacle. Abelian solution: consider the FLOW on T^∞ = Π S¹_{log p} by translation (ω_1,ω_2,...) → (ω_1+t·log(p_1), ω_2+t·log(p_2),...). Orbits are dense (Kronecker-Weyl) since log(p_i) are Q-linearly independent. "Closed orbits" = returns to ω_k=0 mod 2π, require t·log(p_k) = 2π·n_k. Primitive returns at t = 2π/log(p_k). This gives DISCRETE spectrum {2π/log(p_k)} — NOT {log p}, but commutative! Explore the variation.',
+    rationale: 'Abelian flows have commutative structure matching prime multiplication. May give rigorous spectral realization.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

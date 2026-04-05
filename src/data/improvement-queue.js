@@ -2310,11 +2310,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Hardy Z-function zero counting: sign changes in [1000, 1100]',
     category: 'verification',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Compute Z(t) = e^{iθ(t)}·ζ(½+it) at dense t-grid, count sign changes in [1000, 1100]. Compare with main-term prediction N(1100)-N(1000) ≈ 25. Rigorously verifies all zeros in range are on critical line.',
     rationale: 'Z-sign-change counting is the simplest rigorous method for RH verification on bounded range.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-04T15:00:00Z',
   },
 ];

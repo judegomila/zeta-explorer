@@ -2362,12 +2362,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Heath-Brown 6th moment of ζ on critical line',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Keating-Snaith k=3 conjecture: M_3(T)~c_3·(log T)^9 with conjectural c_3. Compute 6th moment of |ζ(½+it)| numerically, test against conjecture. Extends imp-168 (k=1,2 known).',
     rationale: 'k=3 moment is conjectural; test extends proven k=1,2 cases.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05T11:00:00Z',
   },
 
   {

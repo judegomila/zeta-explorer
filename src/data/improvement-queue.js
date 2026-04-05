@@ -2700,12 +2700,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Siegel zeros: exceptional real zeros of L(s, χ)',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Siegel zeros are exceptional real zeros β of L(s, χ_d) with β close to 1. GRH forbids them (β=½). Numerically scan L(s, χ_d) for small d, verify no Siegel zero.',
     rationale: 'Siegel zeros are the last barrier to effective GRH-like bounds; their nonexistence is a key open question.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T01:30:00Z',
   },
 
   {

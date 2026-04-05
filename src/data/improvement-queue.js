@@ -2531,12 +2531,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Selberg zeta for modular surface: proven RH analog',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Selberg zeta Z_Γ(s) for modular surface PSL(2,ℤ)\\ℍ has all zeros on σ=½ by spectral theory (self-adjoint Laplacian). Toy implementation with synthetic geodesic spectrum; verify Selberg RH analog.',
     rationale: 'Selberg case is PROVEN RH; contrasts with open Riemann ζ, shows what H-P would give.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05T18:30:00Z',
   },
 
   {

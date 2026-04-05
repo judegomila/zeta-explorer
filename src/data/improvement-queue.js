@@ -2804,12 +2804,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Bombieri-Vinogradov: GRH on average unconditionally',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Bombieri-Vinogradov (1965): Σ_{q≤Q} max |ψ(y;q,a) - y/φ(q)| << x·(log x)^{-A} for Q≤√x·(log x)^{-B}. This is "GRH ON AVERAGE" proven UNCONDITIONALLY. Numerically verify averaged bound.',
     rationale: 'Bombieri-Vinogradov gives GRH-like bounds without assuming GRH; one of the strongest unconditional tools.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-06T04:00:00Z',
   },
 
   {

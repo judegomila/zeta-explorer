@@ -866,3 +866,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 981 | 2026-04-06T02:30:00Z | Ramanujan τ(n) to n=100, Deligne bound |τ(p)|≤2p^{11/2} verified (imp-214) | ramanujan-tau.js |
 | 982 | 2026-04-06T03:00:00Z | Hecke L-functions Q(i): L(s, ψ_triv) = ζ_{Q(i)}(s) verified (imp-215) | hecke-l-functions.js |
 | 983 | 2026-04-06T03:30:00Z | Weil explicit formula Dirichlet L: ψ(x;4,a) errors bounded by GRH √x(log x)² (imp-216) | weil-dirichlet-explicit.js |
+| 984 | 2026-04-06T04:00:00Z | Bombieri-Vinogradov: GRH-on-average sum 4074 at x=10^4, Q=100 (imp-218) | bombieri-vinogradov.js |

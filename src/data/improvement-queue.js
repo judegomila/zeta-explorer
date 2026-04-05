@@ -2856,12 +2856,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Epstein zeta function for 2D lattices',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Epstein zeta Z(s, Q) = Σ_{v≠0} Q(v)^{-s} for positive definite binary quadratic form Q. For imaginary quadratic K = Q(√-d), ζ_K(s) decomposes as sum of Epstein zetas over ideal classes.',
     rationale: 'Epstein zeta connects Dedekind to binary quadratic forms, refines class number analysis.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T07:00:00Z',
   },
 
   {

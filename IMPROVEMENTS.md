@@ -872,3 +872,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 987 | 2026-04-06T05:30:00Z | Dirichlet class number formula: h(K) extracted for 10 imaginary quadratic fields (imp-220) | class-number-formula.js |
 | 988 | 2026-04-06T06:00:00Z | Gauss sums |τ(χ)|²=q exact, sign theorem verified for 7 characters (imp-221) | gauss-sums.js |
 | 989 | 2026-04-06T06:30:00Z | Katz-Sarnak low-lying zeros for L(s,χ_d): symplectic symmetry verified (imp-223) | katz-sarnak-low-lying.js |
+| 990 | 2026-04-06T07:00:00Z | Epstein ζ(s,Q) for 3 principal forms: Z/w = ζ_K verified (imp-222) | epstein-zeta.js |

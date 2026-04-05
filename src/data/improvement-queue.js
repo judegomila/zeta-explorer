@@ -3116,12 +3116,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Soundararajan-Harper moments method',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Soundararajan-Harper (2019-2020): sharp bounds on moments |log ζ(1/2+it)|^k via resonance + long sieve methods. Gives optimal bounds conditional on RH.',
     rationale: 'Moment estimates control distribution of ζ on critical line — directly test RH heuristics.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

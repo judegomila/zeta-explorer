@@ -2018,4 +2018,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'medium',
     completedAt: null,
   },
+
+  {
+    id: 'imp-158',
+    title: 'Prime graph construction: build graph whose closed-walk spectrum IS {log p}',
+    category: 'proof',
+    priority: 'high',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'Research direction from imp-157: "combinatorial graph whose closed walks have prime-log lengths". Construct EXPLICITLY: nodes labeled by primes, edges weighted by log(p). A closed walk that visits primes p_1, p_2, ..., p_k has length Σ log(p_i) = log(Π p_i). For the spectrum to be {log p}, we need closed walks visiting exactly ONE prime each — self-loops. Build this graph: each prime has a self-loop of weight log(p). Its Ihara zeta function ζ_G(u) relates to Riemann ζ via the prime labeling.',
+    rationale: 'Concrete combinatorial construction. Ihara zeta functions are well-studied; if our graph has the right structure, ζ_G might factor through ζ(s).',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

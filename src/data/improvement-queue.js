@@ -2115,11 +2115,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Idele class group spectrum: Connes\' construction made concrete',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'The idele class group C_K = A_K*/K* for K=ℚ carries a dilation action whose L² spectrum (suitably truncated) gives ζ-zeros per Connes 1999 / Connes-Meyer-Marcolli. Implement a TRUNCATED finite-dimensional version: take finitely many primes p_1,...,p_N, consider (ℝ* × Π Q_{p_k}*)/ℚ*, dilation generator, compute spectrum numerically. Compare with ζ-zeros {14.13..., 21.02..., ...}.',
     rationale: 'Makes Connes\' adelic H-P construction computationally tangible, bridging abstract NCG and numerical verification.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-04T08:00:00Z',
   },
 ];

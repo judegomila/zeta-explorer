@@ -2440,11 +2440,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Effective Korobov-Vinogradov zero-free region constants',
     category: 'verification',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Korobov-Vinogradov: ζ(σ+it) ≠ 0 for σ > 1 - c/((log|t|)^{2/3}(log log|t|)^{1/3}). Ford 2002: explicit c = 57.54. Verify numerically |ζ| stays bounded away from 0 in this region for t up to 1000.',
     rationale: 'Classical unconditional zero-free region; effective constants needed for prime counting applications.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T14:00:00Z',
   },
 ];

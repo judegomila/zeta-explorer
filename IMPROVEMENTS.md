@@ -838,3 +838,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 953 | 2026-04-05T12:30:00Z | Hadamard product ξ(s)=ξ(0)·Π(1-s/ρ) verified — zeros reconstruct ξ (imp-186) | hadamard-product.js |
 | 954 | 2026-04-05T13:00:00Z | Mertens M(x) to x=10^6: max |M|/√x=0.89, 1651 sign changes, |M|/x^0.6=0.053 (imp-187) | mertens-function.js |
 | 955 | 2026-04-05T13:30:00Z | Zhang-Maynard-Tao bounded prime gaps: 8169 twins, 1393 triples, 5 sextuples, all gaps≤246 (imp-189) | bounded-prime-gaps.js |
+| 956 | 2026-04-05T14:00:00Z | Korobov-Vinogradov zero-free region verified at 8 heights; RH/KV gap 79-165× (imp-190) | korobov-vinogradov-zfr.js |

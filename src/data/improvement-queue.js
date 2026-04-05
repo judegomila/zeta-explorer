@@ -2297,12 +2297,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'GRH for small-conductor Dirichlet L-functions numerical verification',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Generalized Riemann Hypothesis: all L(s,χ) have nontrivial zeros on σ=½. Compute L(s,χ) for small Dirichlet characters χ (mod 3, 4, 5) on the critical line, find zeros via sign changes of real-valued L, verify they match known first-few zeros of L(s,χ).',
     rationale: 'GRH extends RH to Dirichlet L-functions; numerical verification establishes proof-of-concept for L-function zeros.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-04T15:30:00Z',
   },
 
   {

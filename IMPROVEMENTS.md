@@ -818,3 +818,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 933 | 2026-04-04T08:30:00Z | Tate adelic ξ(s) = Z_∞(s)·Π_p Z_p(s) verified to 10^-6 (imp-162) | tate-adelic-zeta.js |
 | 934 | 2026-04-04T09:00:00Z | Speiser criterion: no ζ'(s) zeros found in 0<σ<½ up to t=50 (imp-167) | speiser-criterion.js |
 | 935 | 2026-04-04T09:30:00Z | Keating-Snaith moment conjecture: ζ moments match GUE, M_1 to 0.1% at T=300 (imp-168) | keating-snaith-moments.js |
+| 936 | 2026-04-04T10:00:00Z | Lehmer pair scan: 7 close pairs in first 870 zeros, CSV Λ bounds, GUE fit (imp-169) | lehmer-pairs.js |

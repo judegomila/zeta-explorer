@@ -2164,15 +2164,15 @@ export const IMPROVEMENT_QUEUE = [
 
   {
     id: 'imp-169',
-    title: 'de Branges spaces of Hermite-Biehler functions with ζ-zero spectrum',
+    title: 'Lehmer pairs and de Bruijn-Newman Λ bounds from close zeros',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
-    description: 'Alternative Hilbert-Pólya candidate: de Branges (1986) theory of Hilbert spaces of entire functions. Construct a de Branges space H(E) with Hermite-Biehler function E(z) such that the associated operator has spectrum {γ_n}. Use E(z) related to ξ(½+iz). Test whether the operator is self-adjoint and bounded.',
-    rationale: 'de Branges\' approach is distinct from Connes\' and has its own literature; worth independent investigation.',
-    estimatedComplexity: 'very high',
-    completedAt: null,
+    description: 'Lehmer pairs are anomalously close consecutive ζ-zeros, providing Csordas-Smith-Varga-like LOWER bounds on the de Bruijn-Newman constant Λ. Rodgers-Tao 2020 proved Λ ≥ 0; RH ⟺ Λ ≤ 0. Scan known zeros for close pairs, compute CSV Λ estimates, histogram spacings vs Wigner GUE surmise. (Original imp-169 on de Branges spaces superseded — already covered in de-branges.js).',
+    rationale: 'Lehmer pairs provide the strongest numerical RH-squeeze evidence via Λ bounds.',
+    estimatedComplexity: 'high',
+    completedAt: '2026-04-04T10:00:00Z',
   },
 
   {

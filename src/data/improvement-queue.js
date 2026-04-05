@@ -2791,12 +2791,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Meissel-Mertens constant and explicit Mertens theorems',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Compute M_1(x)=Σlog p/p, M_2(x)=Σ1/p - log log x, verify Mertens 1st/2nd/3rd theorems with explicit constants (Meissel-Mertens M ≈ 0.2614).',
     rationale: 'Foundational prime-distribution constants underlying RH-equivalent bounds.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T04:30:00Z',
   },
 
   {

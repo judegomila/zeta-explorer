@@ -2570,11 +2570,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Function field RH: Deligne-Weil bound demonstrations',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'RH for function fields (Weil 1948, Deligne 1974) is PROVEN. For elliptic curve E over F_p: |#E(F_p) - (p+1)| ≤ 2√p. Verify Hasse-Weil bound for various E, p via direct point counting.',
     rationale: 'Function field RH is proven; understanding it informs number field case.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T19:00:00Z',
   },
 ];

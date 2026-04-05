@@ -848,3 +848,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 963 | 2026-04-05T17:30:00Z | Explicit formula reconstructs M(x) from 50 ζ-zeros + ζ'(ρ); err -1.6 at x=10^4 (imp-196) | mertens-explicit-formula.js |
 | 964 | 2026-04-05T18:00:00Z | Polya Φ cosine transform: first 5 Ξ zeros EXACTLY match γ_1..γ_5 (imp-198) | polya-phi.js |
 | 965 | 2026-04-05T18:30:00Z | Selberg zeta toy (Bolza-like surface): proven RH analog template (imp-197) | selberg-zeta-toy.js |
+| 966 | 2026-04-05T19:00:00Z | Hasse-Weil bound verified at 135 pairs — function field RH (Weil 1948, Deligne 1974) (imp-200) | hasse-weil-bound.js |

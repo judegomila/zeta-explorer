@@ -2232,12 +2232,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'n-level correlations via determinantal kernel: GUE test at n≥3',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'GUE n-level correlations are given by det(K(x_i, x_j)) where K(x,y) = sin(π(x-y))/(π(x-y)). Compute empirical n-level correlations from ζ-zeros for n=3,4 and compare with determinantal GUE predictions.',
     rationale: 'Definitive Hilbert-Pólya signature at higher correlation levels.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-04T12:30:00Z',
   },
 
   {

@@ -880,3 +880,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 995 | 2026-04-06T09:30:00Z | Effective Chebotarev for S_3 extension: max discrepancy/GRH-bound ≤ 0.012 (imp-227) | chebotarev-density.js |
 | 996 | 2026-04-06T10:00:00Z | Higher-weight cusp forms S_k, k∈{16,18,20,22,24}: Deligne bound verified (imp-229) | higher-weight-cusp-forms.js |
 | 997 | 2026-04-06T10:30:00Z | Local L-factors at ramified primes: Dirichlet 5/5, EC reduction types, ζ_{Q(i)} (imp-230) | local-l-factors-ramified.js |
+| 998 | 2026-04-06T11:00:00Z | Ihara ζ: graph-theoretic RH verified for 10 Ramanujan graphs (imp-232) | ihara-zeta-ramanujan.js |

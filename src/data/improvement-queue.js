@@ -2986,12 +2986,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Ihara zeta for regular graphs (Ramanujan graphs)',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Ihara ζ_X(u) = Π_{[C]} (1 - u^{l(C)})^{-1} for primes C of a graph X. Ramanujan graphs satisfy graph-theoretic RH: all non-trivial zeros satisfy |u| = 1/√(q) where q+1 is regularity.',
     rationale: 'Another proven RH analog — combinatorial, discrete setting. Compares to Selberg ζ.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

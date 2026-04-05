@@ -811,3 +811,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 841 | 2026-03-30T08:00:00Z | Implement interval arithmetic for rigorous Mertens bound verification | interval-arithmetic.js |
 | 842 | 2026-03-30T08:30:00Z | Extend ZPO to Dedekind zeta for 8 quadratic fields with splitting statistics | dedekind-zeta.js |
 | 843 | 2026-03-30T09:00:00Z | Add Rankin-Selberg L(s,Δ×Δ) with degree-4 Euler factors and Deligne bound check | rankin-selberg.js |
+| 929 | 2026-04-04T06:30:00Z | Verify T^∞ closed-orbit data ⟺ ζ-zeros via von Mangoldt explicit formula (imp-161) | tinfty-explicit-formula.js |

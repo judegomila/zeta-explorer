@@ -841,3 +841,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 956 | 2026-04-05T14:00:00Z | Korobov-Vinogradov zero-free region verified at 8 heights; RH/KV gap 79-165× (imp-190) | korobov-vinogradov-zfr.js |
 | 957 | 2026-04-05T14:30:00Z | Stieltjes constants γ_0, γ_1, γ_2 via Euler-Maclaurin; γ_0=Euler-Mascheroni verified (imp-188) | stieltjes-constants.js |
 | 958 | 2026-04-05T15:00:00Z | Riemann R(x) beats Li(x) by ~50% as π(x) approximation (imp-191) | riemann-r-function.js |
+| 959 | 2026-04-05T15:30:00Z | Lindelöf test: α_eff=0.21 from max|Z(t)| in windows T∈[100,10^4] (imp-193) | lindelof-hypothesis.js |

@@ -2479,12 +2479,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Lindelöf hypothesis: ζ(½+it) = O(t^ε) test',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Lindelöf (weaker than RH): ζ(½+it) = O(t^ε). Compute max|ζ| in windows to test sub-polynomial growth.',
     rationale: 'Lindelöf is weaker than RH; numerical test probes RH-adjacent conjecture.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T15:30:00Z',
   },
 
   {

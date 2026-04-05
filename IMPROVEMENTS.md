@@ -833,3 +833,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 948 | 2026-04-05T10:00:00Z | Selberg CLT for log|ζ(½+it)| verified over 49k samples (imp-181) | selberg-clt.js |
 | 949 | 2026-04-05T10:30:00Z | Chowla conjecture: max |C_h(10^5)|=0.006 for h=1..20, C_1→0 (imp-182) | chowla-liouville.js |
 | 950 | 2026-04-05T11:00:00Z | Keating-Snaith k=3 moment: M_3(300)=1392 vs c_3(log T)^9=856 (ratio 1.63) (imp-184) | heath-brown-6th-moment.js |
+| 951 | 2026-04-05T11:30:00Z | S(T) Selberg CLT: 971 samples, norm SD 1.29, kurtosis 2.51, fit 0.053 (imp-183) | s-of-t-distribution.js |

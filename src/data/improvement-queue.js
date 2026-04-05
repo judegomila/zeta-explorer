@@ -2349,12 +2349,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Argument of ζ on critical line: S(T) distribution vs Selberg CLT',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'S(T) = (1/π)arg ζ(½+iT) has Selberg CLT: S(T)/√((log log T)/(2π²))→N(0,1). Compute S(T) via theta accumulation, verify CLT statistics.',
     rationale: 'S(T) distribution tests Selberg CLT and refines RH verification.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T11:30:00Z',
   },
 
   {

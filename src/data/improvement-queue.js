@@ -2466,12 +2466,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Chebyshev bias: π(x; 4, 3) vs π(x; 4, 1) race',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Chebyshev bias: primes ≡3 mod 4 lead ≡1 mod 4 for most x. Track lead changes in prime race.',
     rationale: 'GRH-adjacent prime race.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T16:00:00Z',
   },
 
   {

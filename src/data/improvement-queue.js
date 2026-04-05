@@ -2102,12 +2102,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Projected flow: generator restricted to cuspidal/L_0 subspace of L²(T^∞)',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'The full L²(T^∞) has trivial constant modes and integer-lattice Fourier modes. Project to a subspace orthogonal to constants and to "low-frequency" modes — analogous to the cuspidal subspace in automorphic forms. Compute the spectrum of ∂ restricted to this subspace. Does projection recover ζ-zeros?',
     rationale: 'In Connes\' construction, cuspidal projection (removing Eisenstein modes) is essential for getting the discrete ζ-zero spectrum.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-04T07:30:00Z',
   },
 
   {

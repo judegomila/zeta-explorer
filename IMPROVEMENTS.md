@@ -813,3 +813,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 843 | 2026-03-30T09:00:00Z | Add Rankin-Selberg L(s,Δ×Δ) with degree-4 Euler factors and Deligne bound check | rankin-selberg.js |
 | 929 | 2026-04-04T06:30:00Z | Verify T^∞ closed-orbit data ⟺ ζ-zeros via von Mangoldt explicit formula (imp-161) | tinfty-explicit-formula.js |
 | 930 | 2026-04-04T07:00:00Z | T^∞ spectral zeta = Riemann ζ(s) under integer-indexing of Fourier modes (imp-163) | tinfty-spectral-zeta.js |
+| 931 | 2026-04-04T07:30:00Z | Projections of ∂ on T^∞ yield all RH-equivalent series (ζ, 1/ζ, ζ/ζ(2s), S₂₁) (imp-164) | tinfty-projected-generator.js |

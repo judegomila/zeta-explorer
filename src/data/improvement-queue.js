@@ -2427,12 +2427,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Zhang-Maynard bounded prime gaps: witnesses for H_1 ≤ 246',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Zhang 2013: infinitely many primes p with p_{n+1}-p_n ≤ 70M. Polymath8/Maynard-Tao 2014: gap ≤ 246 (assuming GRH). Compute ACTUAL smallest prime pairs with gap k for various k, verify existence of Maynard-Tao style prime k-tuples.',
     rationale: 'Bounded prime gaps breakthrough connects to RH/GRH.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T13:30:00Z',
   },
 
   {

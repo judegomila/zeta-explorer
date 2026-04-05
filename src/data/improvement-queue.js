@@ -2973,12 +2973,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Selberg zeta function for hyperbolic surfaces',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Selberg ζ_Γ(s) = Π_{γ} Π_{k≥0} (1 - e^{-(s+k)·l(γ)}) for primitive closed geodesics γ on Γ\\H. Nontrivial zeros at s = 1/2 + i·r_n where λ_n = 1/4 + r_n² are Laplace eigenvalues. RH-ANALOG PROVEN — zeros related to geometry.',
     rationale: 'Selberg ζ gives a PROVEN RH analog. Study structure to see what makes it work vs classical ζ.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

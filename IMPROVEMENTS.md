@@ -889,3 +889,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1004 | 2026-04-06T14:00:00Z | Bombieri-Lagarias: all 50 λ_n > 0 via 4·sin²(nθ/2) manifest positivity (imp-237) | bombieri-lagarias-positivity.js |
 | 1005 | 2026-04-06T14:30:00Z | de Branges spaces: Paley-Wiener H(e^{-iπz}) sinc kernel, 4 properties verified (imp-239) | de-branges-hilbert-spaces.js |
 | 1006 | 2026-04-06T15:00:00Z | Connes adelic: ξ(s)=ζ_∞(s)·Π ζ_p(s) verified to rel_err<1e-4 (imp-238) | connes-adelic-trace.js |
+| 1007 | 2026-04-06T15:30:00Z | Iwaniec-Kowalski analytic conductor: N(T) match to 0.2% at T=1000 (imp-240) | analytic-conductor.js |

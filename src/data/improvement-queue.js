@@ -2830,11 +2830,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Rankin-Selberg L-functions L(s, f×g)',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Rankin-Selberg L(s, f×g) for modular forms f, g. Structure: Euler product of degree 4 over primes. RH extends to this family.',
     rationale: 'Rankin-Selberg is the simplest non-trivial L-function beyond degree 2.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T05:30:00Z',
   },
 ];

@@ -869,3 +869,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 984 | 2026-04-06T04:00:00Z | Bombieri-Vinogradov: GRH-on-average sum 4074 at x=10^4, Q=100 (imp-218) | bombieri-vinogradov.js |
 | 985 | 2026-04-06T04:30:00Z | Meissel-Mertens M=0.26150 verified to 4e-5, e^{-γ}=0.5615 to 2e-5 (imp-217) | meissel-mertens.js |
 | 986 | 2026-04-06T05:00:00Z | Artin L-functions: abelian case L(s,χ_{-3}) verified, Frobenius splitting (imp-219) | artin-l-functions.js |
+| 987 | 2026-04-06T05:30:00Z | Dirichlet class number formula: h(K) extracted for 10 imaginary quadratic fields (imp-220) | class-number-formula.js |

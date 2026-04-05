@@ -3025,11 +3025,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Explicit Weil explicit formula with test function optimization',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
     description: 'Weil explicit formula: Σ_ρ h(γ) = ... for test h. Optimize h to extract strongest zero bounds. Guinand-Weil formulas and variants. Connect to de Branges spaces (imp-080).',
     rationale: 'Weil explicit formula with optimized test functions gives known best bounds on zeros — key proof ingredient.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 ];

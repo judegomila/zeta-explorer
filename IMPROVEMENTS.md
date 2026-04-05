@@ -882,3 +882,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 997 | 2026-04-06T10:30:00Z | Local L-factors at ramified primes: Dirichlet 5/5, EC reduction types, ζ_{Q(i)} (imp-230) | local-l-factors-ramified.js |
 | 998 | 2026-04-06T11:00:00Z | Ihara ζ: graph-theoretic RH verified for 10 Ramanujan graphs (imp-232) | ihara-zeta-ramanujan.js |
 | 999 | 2026-04-06T11:30:00Z | Selberg ζ modular: 17 primitive geodesics + PGT verified (imp-231) | selberg-zeta-modular.js |
+| 1000 | 2026-04-06T12:00:00Z | Weil explicit formula verified to machine precision for 7 Gaussians (imp-235) | weil-explicit-formula-opt.js |

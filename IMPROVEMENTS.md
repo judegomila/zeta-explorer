@@ -846,3 +846,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 961 | 2026-04-05T16:30:00Z | Skewes: π(x)-Li(x)<0 up to 10^7 (first crossing >10^316, Chao-Plymen 2015) (imp-194) | skewes-number.js |
 | 962 | 2026-04-05T17:00:00Z | Brun constant B_2≈1.9022 verified to 4 decimals via sieve to x=10^7 (imp-195) | brun-constant.js |
 | 963 | 2026-04-05T17:30:00Z | Explicit formula reconstructs M(x) from 50 ζ-zeros + ζ'(ρ); err -1.6 at x=10^4 (imp-196) | mertens-explicit-formula.js |
+| 964 | 2026-04-05T18:00:00Z | Polya Φ cosine transform: first 5 Ξ zeros EXACTLY match γ_1..γ_5 (imp-198) | polya-phi.js |

@@ -2544,12 +2544,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Polya\'s Φ positivity criterion for RH',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Polya (1927): Φ(t) := Σ_{n≥1} (2π²n⁴·exp(9t) - 3πn²·exp(5t)) · exp(-πn²·exp(4t)). RH ⟺ integral transform Ξ(z/2) = ∫_0^∞ Φ(t)cos(zt)dt has all real zeros. Numerically verify Φ(t) decays rapidly and its cosine transform has only real zeros.',
     rationale: 'Polya\'s Φ is the heat-equation Xi transform; direct RH equivalent via Fourier analysis.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T18:00:00Z',
   },
 
   {

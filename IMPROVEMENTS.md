@@ -840,3 +840,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 955 | 2026-04-05T13:30:00Z | Zhang-Maynard-Tao bounded prime gaps: 8169 twins, 1393 triples, 5 sextuples, all gaps≤246 (imp-189) | bounded-prime-gaps.js |
 | 956 | 2026-04-05T14:00:00Z | Korobov-Vinogradov zero-free region verified at 8 heights; RH/KV gap 79-165× (imp-190) | korobov-vinogradov-zfr.js |
 | 957 | 2026-04-05T14:30:00Z | Stieltjes constants γ_0, γ_1, γ_2 via Euler-Maclaurin; γ_0=Euler-Mascheroni verified (imp-188) | stieltjes-constants.js |
+| 958 | 2026-04-05T15:00:00Z | Riemann R(x) beats Li(x) by ~50% as π(x) approximation (imp-191) | riemann-r-function.js |

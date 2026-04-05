@@ -2414,12 +2414,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Stieltjes constants γ_n from Laurent expansion of ζ at s=1',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'ζ(s) = 1/(s-1) + Σ_{n≥0} (-1)^n γ_n (s-1)^n / n! (Laurent expansion at s=1). γ_0 = Euler-Mascheroni γ ≈ 0.5772. Higher γ_n involve ζ-zeros. Compute γ_0 through γ_10 numerically, verify known values.',
     rationale: 'Stieltjes constants connect ζ Laurent expansion to prime counting and ζ-zeros.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T14:30:00Z',
   },
 
   {

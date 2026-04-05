@@ -2089,12 +2089,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Regularized flow generator: Mellin-transformed spectrum of ∂ on T^∞',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'The generator ∂ on T^∞ has raw spectrum {2π Σ n_k/log p_k} (imp-160). Apply REGULARIZATION: (a) zeta-regularize the trace Tr(e^{-t∂²}); (b) Mellin transform to get ζ_∂(s) = Σ λ^{-s}; (c) compare with Riemann ζ analytic continuation. Investigate whether the regularized zeta has zeros on σ=½.',
     rationale: 'Zeta regularization of operator traces is a standard way to extract physical spectra from formally divergent sums. May reveal ζ-zeros hiding in T^∞ flow spectrum.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-04T07:00:00Z',
   },
 
   {

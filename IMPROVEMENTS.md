@@ -895,3 +895,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1010 | 2026-04-06T17:00:00Z | Elliott-Halberstam BV: A>0 for θ≤1/2, A<0 for θ>1/2 as expected (imp-245) | elliott-halberstam-effective-bv.js |
 | 1011 | 2026-04-06T17:30:00Z | Rankin-Selberg L(s,f×g): Selberg orthogonality, diag/off-diag=2.44 (imp-243) | rankin-selberg-convolution.js |
 | 1012 | 2026-04-06T18:00:00Z | Symmetric square L(s,sym²f): Euler vs Hecke identity to <0.8% (imp-244) | symmetric-square-l.js |
+| 1013 | 2026-04-06T18:30:00Z | **CRITICAL** Rodgers-Tao Λ=0: H_t zeros match ζ exactly, heat flow verified (imp-246) | rodgers-tao-de-bruijn-newman.js |

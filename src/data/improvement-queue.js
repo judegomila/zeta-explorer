@@ -3168,12 +3168,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Rodgers-Tao de Bruijn-Newman constant Λ = 0',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Rodgers-Tao (2020) proved Λ ≥ 0 (de Bruijn-Newman constant), complementing Newman (1976) Λ ≤ 0 conjectured by Newman. RH ⟺ Λ = 0. Numerically Λ ∈ [0, 0.22]. Verify via Ξ_t(z) = ∫ Φ(u)·e^{tu²}·cos(zu) du deformation.',
     rationale: 'Rodgers-Tao is the most recent BREAKTHROUGH on RH approach. Λ=0 ⟺ RH is now sharpened from both sides.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

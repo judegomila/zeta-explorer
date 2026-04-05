@@ -2726,12 +2726,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Ramanujan tau function τ(n) and Lehmer conjecture',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Ramanujan τ(n) from Δ(q)=q·Π(1-q^n)^24. Lehmer: τ(n) ≠ 0 for all n (OPEN). Compute τ(n) to n=1000, verify non-vanishing. Also Ramanujan\'s conjecture |τ(p)| ≤ 2p^{11/2} (Deligne 1974).',
     rationale: 'τ function connects modular forms to L-functions (proven RH analog by Deligne).',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T02:30:00Z',
   },
 
   {

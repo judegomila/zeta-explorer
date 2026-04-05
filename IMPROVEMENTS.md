@@ -863,3 +863,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 978 | 2026-04-06T01:00:00Z | Dedekind ζ_K for Q(i), Q(√-2), Q(√-3), Q(√-7): factorization verified (imp-211) | dedekind-zeta-imaginary.js |
 | 979 | 2026-04-06T01:30:00Z | Siegel zeros search: 0 found in 18 discriminants, L(1,χ_{-3})=π/(3√3) verified (imp-212) | siegel-zeros.js |
 | 980 | 2026-04-06T02:00:00Z | Hurwitz ζ(s,a): special cases exact; RH specific to Riemann ζ (imp-213) | hurwitz-zeta.js |
+| 981 | 2026-04-06T02:30:00Z | Ramanujan τ(n) to n=100, Deligne bound |τ(p)|≤2p^{11/2} verified (imp-214) | ramanujan-tau.js |

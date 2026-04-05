@@ -2596,12 +2596,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Lagarias criterion: σ(n) ≤ H_n + exp(H_n)·log(H_n) ⟺ RH',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Lagarias (2002): RH ⟺ σ(n) ≤ H_n + exp(H_n)·log(H_n) for all n≥1 (equality iff n=1). Verify numerically.',
     rationale: 'Another elementary RH-equivalent using harmonic numbers.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T20:30:00Z',
   },
 
   {

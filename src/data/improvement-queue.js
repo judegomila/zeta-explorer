@@ -2271,12 +2271,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Schoenfeld explicit bounds for ψ(x) and zero-free region',
     category: 'verification',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Schoenfeld 1976: explicit constants in |ψ(x)-x| < (1/8π)·√x·(log x)² under RH. Alternative: |ψ(x)-x| < x·exp(-0.8273·√(log x)) unconditionally. Compute both bounds numerically for x up to 10^6 and verify against actual ψ(x) computed from Λ.',
     rationale: 'Schoenfeld bounds are the classical rigorous explicit constants linking RH to prime counting. Essential for any rigorous RH-conditional consequences.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-04T14:00:00Z',
   },
 
   {

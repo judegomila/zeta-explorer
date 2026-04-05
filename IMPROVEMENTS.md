@@ -879,3 +879,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 994 | 2026-04-06T09:00:00Z | Heath-Brown 4th moment M_2(T) leading asymptotic converges to 1/(2π²) (imp-228) | heath-brown-4th-moment.js |
 | 995 | 2026-04-06T09:30:00Z | Effective Chebotarev for S_3 extension: max discrepancy/GRH-bound ≤ 0.012 (imp-227) | chebotarev-density.js |
 | 996 | 2026-04-06T10:00:00Z | Higher-weight cusp forms S_k, k∈{16,18,20,22,24}: Deligne bound verified (imp-229) | higher-weight-cusp-forms.js |
+| 997 | 2026-04-06T10:30:00Z | Local L-factors at ramified primes: Dirichlet 5/5, EC reduction types, ζ_{Q(i)} (imp-230) | local-l-factors-ramified.js |

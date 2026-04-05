@@ -2206,12 +2206,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Triple correlation R_3 of ζ-zeros: beyond Montgomery pair correlation',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Rudnick-Sarnak (1996) extended Montgomery to n-level correlations. R_3 is the triple correlation. For GUE: R_3(x,y) = det(kernel matrix). Compute empirical R_3 from first 870 zeros and compare with GUE prediction. This is n=3 level confirmation of quantum chaos in ζ-zeros.',
     rationale: 'Beyond pair correlation; triple correlation is sensitive to finer statistical structure and tests Hilbert-Pólya more stringently.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-04T12:00:00Z',
   },
 
   {

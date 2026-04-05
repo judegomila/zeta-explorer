@@ -2375,11 +2375,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Montgomery Λ² conjecture: refined pair correlation via F(α)',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Montgomery Λ² conjecture via F(α, T). Compute F(α) numerically from first 500 zeros, compare with Montgomery prediction |F(α)|² ≈ 1-α².',
     rationale: 'Sharper test than basic R_2 pair correlation.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05T12:00:00Z',
   },
 ];

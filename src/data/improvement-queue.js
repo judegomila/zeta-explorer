@@ -2661,12 +2661,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Linear independence (LI) hypothesis for ζ-zeros',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'LI hypothesis: imaginary parts {γ_n} of ζ-zeros are Q-linearly independent. Under LI+RH, Rubinstein-Sarnak compute log-densities of prime races. Test numerical independence: check small-rational-combination γ_m - γ_n.',
     rationale: 'LI is a conjecture driving modern GRH-adjacent results.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T23:00:00Z',
   },
 
   {

@@ -856,3 +856,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 971 | 2026-04-05T21:30:00Z | Nicolas criterion: 30/30 primorials satisfy f(k)>e^γ, margin tightens 3.36→0.08 (imp-204) | nicolas-criterion.js |
 | 972 | 2026-04-05T22:00:00Z | Oppermann conjecture verified n∈[2,200]: primes around n² (imp-205) | oppermann-conjecture.js |
 | 973 | 2026-04-05T22:30:00Z | Jensen polys J^{d,n} for Ξ all hyperbolic (GORZ 2019 breakthrough) (imp-206) | jensen-polynomials.js |
+| 974 | 2026-04-05T23:00:00Z | LI hypothesis: no suspicious small-integer relations in 10^6 triples (imp-207) | li-hypothesis.js |

@@ -2817,12 +2817,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Artin L-functions: non-abelian extension of Hecke',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Artin L-functions L(s, ρ) for Galois representations ρ. Abelian case = Hecke L. Non-abelian: Artin conjecture (holomorphy). Construct for small examples.',
     rationale: 'Artin L-functions are central to Langlands program and extend GRH to non-abelian setting.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T05:00:00Z',
   },
 
   {

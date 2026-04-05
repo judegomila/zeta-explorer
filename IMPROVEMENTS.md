@@ -852,3 +852,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 967 | 2026-04-05T19:30:00Z | Refined ψ(x) with 500 zeros: error 2.37→0.44 (5.4×), decays 1/N^1.13 (imp-199) | psi-explicit-refined.js |
 | 968 | 2026-04-05T20:00:00Z | Robin's criterion σ(n)<e^γ·n·log log n: 0 violations n>5040 up to 10^6 (imp-201) | robin-criterion.js |
 | 969 | 2026-04-05T20:30:00Z | Lagarias σ(n)≤H_n+exp(H_n)log(H_n): 0 violations n≤10^6, equality at n=1 (imp-202) | lagarias-criterion.js |
+| 970 | 2026-04-05T21:00:00Z | Redheffer matrix det(R_n)=M(n) verified up to n=500 (imp-203) | redheffer-matrix.js |

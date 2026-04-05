@@ -2609,12 +2609,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Redheffer matrix: det(R_n) = M(n), eigenvalue bounds',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Redheffer matrix R_n: R_{ij}=1 if j=1 or i|j, else 0. Then det(R_n)=M(n) (Mertens). Eigenvalues have structure tied to RH.',
     rationale: 'Matrix-theoretic RH equivalent; eigenvalue analysis ties combinatorics to ζ-zeros.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T21:00:00Z',
   },
 
   {

@@ -2151,15 +2151,15 @@ export const IMPROVEMENT_QUEUE = [
 
   {
     id: 'imp-168',
-    title: 'Connes trace formula: numerical evaluation on truncated idele class group',
+    title: 'Keating-Snaith moment conjecture: GUE random matrix signature of ζ',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
-    description: 'Connes 1999: RH is equivalent to a positivity statement for a specific trace formula on C_ℚ = A_ℚ*/ℚ*. Implement the finite-dimensional truncation: pick finite S = {∞, 2, 3, ..., p_N}, restrict to L²((ℝ_+ × Π_{p∈S-∞} ℚ_p*)/ℤ[1/S]_+*). Compute the Weil-like trace and verify the Connes positivity heuristic numerically.',
-    rationale: 'Connes\' program has stalled on rigorously evaluating his trace formula. Numerical evaluation could provide insights.',
-    estimatedComplexity: 'very high',
-    completedAt: null,
+    description: 'Keating-Snaith 2000: moments of |ζ(½+it)|^{2k} asymptotically match GUE random matrix characteristic polynomial moments. Compute M_k(T) = (1/T)∫_0^T|ζ(½+it)|^{2k}dt for k=1,2 (proven cases) and verify the asymptotic c_k·(log T)^{k²}. This is direct quantum-chaos evidence for Hilbert-Pólya.',
+    rationale: 'Keating-Snaith is the cleanest connection between ζ and random matrix theory, the signature of H-P. Numerical verification strengthens GUE/H-P evidence beyond pair correlation.',
+    estimatedComplexity: 'high',
+    completedAt: '2026-04-04T09:30:00Z',
   },
 
   {

@@ -886,3 +886,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1001 | 2026-04-06T12:30:00Z | Montgomery-Odlyzko GUE: tridiag sim, Wigner + R_2 match ~9% rel L² (imp-233) | montgomery-odlyzko-gue.js |
 | 1002 | 2026-04-06T13:00:00Z | Sarnak Möbius disjointness: (1/N)Σμ(n)f(T^n x)→0 for 7 systems (imp-234) | sarnak-mobius-disjointness.js |
 | 1003 | 2026-04-06T13:30:00Z | Beurling-Nyman: d_N ↓ 0.560→0.192 monotone, rate N^{-0.43} (imp-236) | beurling-nyman-criterion.js |
+| 1004 | 2026-04-06T14:00:00Z | Bombieri-Lagarias: all 50 λ_n > 0 via 4·sin²(nθ/2) manifest positivity (imp-237) | bombieri-lagarias-positivity.js |

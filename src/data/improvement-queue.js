@@ -3051,12 +3051,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Bombieri-Lagarias positivity criterion for RH',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Bombieri-Lagarias (1999): RH ⟺ positivity of certain quadratic forms in zeros. Refined Li criterion via positivity of λ_n. Lagarias sequences.',
     rationale: 'Positivity criteria reformulate RH as infinite-dim quadratic optimization — tractable numerical approach.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

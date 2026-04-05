@@ -3155,11 +3155,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Bombieri-Vinogradov theorem effective version',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S5',
     description: 'B-V: Σ_{q≤Q} max_a |ψ(x;q,a) - x/φ(q)| ≪ x(log x)^{-A} for Q ≤ x^{1/2}/(log x)^B. "GRH on average". Key tool for Goldbach, twin primes (Zhang-Maynard).',
     rationale: 'Bombieri-Vinogradov gives GRH-strength bounds UNCONDITIONALLY on average — major tool.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 ];

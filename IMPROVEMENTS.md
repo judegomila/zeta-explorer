@@ -854,3 +854,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 969 | 2026-04-05T20:30:00Z | Lagarias σ(n)≤H_n+exp(H_n)log(H_n): 0 violations n≤10^6, equality at n=1 (imp-202) | lagarias-criterion.js |
 | 970 | 2026-04-05T21:00:00Z | Redheffer matrix det(R_n)=M(n) verified up to n=500 (imp-203) | redheffer-matrix.js |
 | 971 | 2026-04-05T21:30:00Z | Nicolas criterion: 30/30 primorials satisfy f(k)>e^γ, margin tightens 3.36→0.08 (imp-204) | nicolas-criterion.js |
+| 972 | 2026-04-05T22:00:00Z | Oppermann conjecture verified n∈[2,200]: primes around n² (imp-205) | oppermann-conjecture.js |

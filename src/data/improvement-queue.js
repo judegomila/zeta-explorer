@@ -2635,11 +2635,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Oppermann conjecture: primes between n² and n²+n',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Oppermann: for every n>1, there is at least one prime between n²-n and n², and between n² and n²+n. RH implies stronger prime gap bounds.',
     rationale: 'Prime-gap conjecture adjacent to RH.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T22:00:00Z',
   },
 ];

@@ -2869,12 +2869,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Low-lying zeros of L-functions: Katz-Sarnak density',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Katz-Sarnak (1999): low-lying zero statistics of L-function families match eigenvalue statistics of classical compact groups (unitary/symplectic/orthogonal). Compute first few low-lying zeros for L-function families, compare with RMT densities.',
     rationale: 'Katz-Sarnak philosophy is the culmination of random matrix connections to L-functions.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-06T06:30:00Z',
   },
 
   {

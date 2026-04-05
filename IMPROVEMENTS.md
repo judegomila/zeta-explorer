@@ -871,3 +871,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 986 | 2026-04-06T05:00:00Z | Artin L-functions: abelian case L(s,χ_{-3}) verified, Frobenius splitting (imp-219) | artin-l-functions.js |
 | 987 | 2026-04-06T05:30:00Z | Dirichlet class number formula: h(K) extracted for 10 imaginary quadratic fields (imp-220) | class-number-formula.js |
 | 988 | 2026-04-06T06:00:00Z | Gauss sums |τ(χ)|²=q exact, sign theorem verified for 7 characters (imp-221) | gauss-sums.js |
+| 989 | 2026-04-06T06:30:00Z | Katz-Sarnak low-lying zeros for L(s,χ_d): symplectic symmetry verified (imp-223) | katz-sarnak-low-lying.js |

@@ -2005,4 +2005,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'medium',
     completedAt: null,
   },
+
+  {
+    id: 'imp-157',
+    title: 'Geodesic spectrum comparator: test if a candidate length spectrum matches {log p}',
+    category: 'verification',
+    priority: 'high',
+    status: 'completed',
+    proofSection: 'S8',
+    description: 'Build a computational tool that takes a CANDIDATE hyperbolic surface (via its first N geodesic lengths or its underlying group generators) and compares the spectrum with {log p : p prime}. Quantify: closest match via Kantorovich-Rubinstein distance, spectral discrepancy, density matching. Useful for testing candidate surfaces (modular surface variants, arithmetic quotients, Hecke triangle groups, Bianchi groups) against the Deninger-Connes target.',
+    rationale: 'A concrete computational tool for the Deninger-Connes problem. May help researchers test candidate surfaces quickly.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
 ];

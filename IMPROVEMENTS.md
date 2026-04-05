@@ -843,3 +843,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 958 | 2026-04-05T15:00:00Z | Riemann R(x) beats Li(x) by ~50% as π(x) approximation (imp-191) | riemann-r-function.js |
 | 959 | 2026-04-05T15:30:00Z | Lindelöf test: α_eff=0.21 from max|Z(t)| in windows T∈[100,10^4] (imp-193) | lindelof-hypothesis.js |
 | 960 | 2026-04-05T16:00:00Z | Chebyshev bias: first sign change x=26861 (Leech 1957) verified, log-density 95.8% (imp-192) | chebyshev-bias.js |
+| 961 | 2026-04-05T16:30:00Z | Skewes: π(x)-Li(x)<0 up to 10^7 (first crossing >10^316, Chao-Plymen 2015) (imp-194) | skewes-number.js |

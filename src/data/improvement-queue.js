@@ -2492,12 +2492,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Skewes number: π(x)-Li(x) sign change behavior',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Track π(x)-Li(x) for x up to 10^7; verify Li(x) dominates in computable range (Skewes bound is astronomical).',
     rationale: 'Historic result; ζ-zero oscillations drive sign changes.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T16:30:00Z',
   },
 
   {

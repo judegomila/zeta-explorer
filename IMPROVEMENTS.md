@@ -874,3 +874,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 989 | 2026-04-06T06:30:00Z | Katz-Sarnak low-lying zeros for L(s,χ_d): symplectic symmetry verified (imp-223) | katz-sarnak-low-lying.js |
 | 990 | 2026-04-06T07:00:00Z | Epstein ζ(s,Q) for 3 principal forms: Z/w = ζ_K verified (imp-222) | epstein-zeta.js |
 | 991 | 2026-04-06T07:30:00Z | Hurwitz class numbers H(n): 29/30 values verified via reduced forms (imp-225) | hurwitz-class-numbers.js |
+| 992 | 2026-04-06T08:00:00Z | Stark conjecture L'(0, χ_d)=h·log(ε_K) EXACT for 4 real quadratic fields (imp-224) | stark-conjectures.js |

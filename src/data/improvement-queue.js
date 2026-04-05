@@ -2882,12 +2882,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Stark conjectures: refined class number formula',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Stark 1971-75: refined class number formula involving special values of higher-order L-derivatives. For L(s, χ) at s=0: L\'(0, χ) conjecturally equals log|Stark unit|. Verify for small abelian extensions.',
     rationale: 'Stark conjectures refine Dirichlet\'s class number formula to higher orders.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T08:00:00Z',
   },
 
   {

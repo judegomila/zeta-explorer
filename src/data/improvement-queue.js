@@ -3181,12 +3181,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Cramér probabilistic model for large prime gaps',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S5',
     description: 'Cramér model: primes as random with P(n prime)=1/log n. Implies max gap ≤ C·(log p)². Under RH: max gap ≤ C·√p·log p (Cramér-Granville). Test against actual gap data to 10^6.',
     rationale: 'Probabilistic model connects primes/gaps to RH bounds — foundation of gap theory.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

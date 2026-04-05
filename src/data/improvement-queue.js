@@ -3038,12 +3038,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Beurling-Nyman criterion numerical verification',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Beurling (1955): RH ⟺ characteristic function of (0,1) is in closure of span{ρ(θ_k/x)} in L²(0,1), where ρ(y)=y-⌊y⌋ fractional part and θ_k ∈ (0,1). Nyman-Báez-Duarte refinement: finite approximations.',
     rationale: 'Beurling-Nyman reduces RH to L² approximation problem — completely different angle from analytic/algebraic approaches.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

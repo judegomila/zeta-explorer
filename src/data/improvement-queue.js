@@ -2687,12 +2687,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Burgess character sum bounds',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Burgess 1957: |Σ_{n≤x}χ(n)| < x^{1-1/r}·q^{(r+1)/(4r²)+ε} for character χ mod q. Verify numerically for small moduli. Bounds character sums tightly, GRH gives sharper results.',
     rationale: 'Classical unconditional bound; GRH improvement path.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T00:00:00Z',
   },
 
   {

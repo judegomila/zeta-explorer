@@ -2180,11 +2180,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Adelic Poisson summation: verify functional equation ξ(s)=ξ(1-s) operationally',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'imp-162 noted ξ(s)=ξ(1-s) follows from adelic Poisson summation but didn\'t verify operationally. Implement adelic Poisson: Φ̂=Φ (self-dual under adelic Fourier) for the canonical Φ=exp(-πx²)⊗Π𝟙_{ℤ_p}. Verify numerically that the Mellin transform ∫Φ(x)|x|^s d*x satisfies symmetry s↔1-s, reproducing the functional equation.',
     rationale: 'Grounds the functional equation in explicit adelic computation. Verifies a classical theorem from the adelic perspective.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-04T10:30:00Z',
   },
 ];

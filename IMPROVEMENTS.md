@@ -836,3 +836,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 951 | 2026-04-05T11:30:00Z | S(T) Selberg CLT: 971 samples, norm SD 1.29, kurtosis 2.51, fit 0.053 (imp-183) | s-of-t-distribution.js |
 | 952 | 2026-04-05T12:00:00Z | Montgomery F(α) tracks GUE form factor min(|α|,1); L² err 0.42 (imp-185) | montgomery-f-alpha.js |
 | 953 | 2026-04-05T12:30:00Z | Hadamard product ξ(s)=ξ(0)·Π(1-s/ρ) verified — zeros reconstruct ξ (imp-186) | hadamard-product.js |
+| 954 | 2026-04-05T13:00:00Z | Mertens M(x) to x=10^6: max |M|/√x=0.89, 1651 sign changes, |M|/x^0.6=0.053 (imp-187) | mertens-function.js |

@@ -2401,12 +2401,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Mertens function M(x) and Odlyzko-te Riele disproof',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Mertens function M(x) = Σ_{n≤x}μ(n). Mertens conjecture (1897): |M(x)| ≤ √x. Disproven by Odlyzko-te Riele (1985) via zeros of ζ. But M(x) = O(x^{½+ε}) REMAINS EQUIVALENT TO RH. Compute M(x) up to 10^6, analyze growth rate, compare with |M(x)|/√x bounds.',
     rationale: 'Historical milestone; direct RH-equivalent via Mertens bound.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T13:00:00Z',
   },
 
   {

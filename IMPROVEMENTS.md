@@ -835,3 +835,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 950 | 2026-04-05T11:00:00Z | Keating-Snaith k=3 moment: M_3(300)=1392 vs c_3(log T)^9=856 (ratio 1.63) (imp-184) | heath-brown-6th-moment.js |
 | 951 | 2026-04-05T11:30:00Z | S(T) Selberg CLT: 971 samples, norm SD 1.29, kurtosis 2.51, fit 0.053 (imp-183) | s-of-t-distribution.js |
 | 952 | 2026-04-05T12:00:00Z | Montgomery F(α) tracks GUE form factor min(|α|,1); L² err 0.42 (imp-185) | montgomery-f-alpha.js |
+| 953 | 2026-04-05T12:30:00Z | Hadamard product ξ(s)=ξ(0)·Π(1-s/ρ) verified — zeros reconstruct ξ (imp-186) | hadamard-product.js |

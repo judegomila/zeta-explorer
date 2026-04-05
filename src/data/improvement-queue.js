@@ -2921,12 +2921,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Effective Chebotarev density theorem bounds',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Chebotarev: for Galois extension L/K, density of primes with Frobenius in conjugacy class C equals |C|/|Gal|. Effective version: explicit error bounds. Under GRH: sharp O(√x log x) error.',
     rationale: 'Chebotarev density is the central tool for Galois-theoretic prime distribution.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

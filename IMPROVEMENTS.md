@@ -877,3 +877,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 992 | 2026-04-06T08:00:00Z | Stark conjecture L'(0, χ_d)=h·log(ε_K) EXACT for 4 real quadratic fields (imp-224) | stark-conjectures.js |
 | 993 | 2026-04-06T08:30:00Z | BSD: L(1,E) pattern matches rank for 6 elliptic curves (imp-226) | bsd-elliptic-curves.js |
 | 994 | 2026-04-06T09:00:00Z | Heath-Brown 4th moment M_2(T) leading asymptotic converges to 1/(2π²) (imp-228) | heath-brown-4th-moment.js |
+| 995 | 2026-04-06T09:30:00Z | Effective Chebotarev for S_3 extension: max discrepancy/GRH-bound ≤ 0.012 (imp-227) | chebotarev-density.js |

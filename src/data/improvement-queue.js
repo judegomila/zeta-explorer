@@ -2076,12 +2076,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Adelic upgrade: p-adic circle S¹_p and complete adele construction',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Upgrade T^∞ (which is the real-place part) to the full ADELE. For each prime p, replace S¹_{log p} with the p-adic circle Q_p*/Z_p* or equivalently the p-adic integers Z_p. The adele space A = ℝ × Π_p Q_p carries the Connes dilation flow. Construct L²(A/Q*) and explore its spectrum. Compare: naïve T^∞ translation flow (gives Euler product, not zeros) vs adelic dilation flow (gives zeros per Connes 1999).',
     rationale: 'imp-160 concluded adelic structure is what\'s missing. This builds it explicitly.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-04T08:30:00Z',
   },
 
   {

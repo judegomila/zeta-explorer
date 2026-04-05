@@ -815,3 +815,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 930 | 2026-04-04T07:00:00Z | T^∞ spectral zeta = Riemann ζ(s) under integer-indexing of Fourier modes (imp-163) | tinfty-spectral-zeta.js |
 | 931 | 2026-04-04T07:30:00Z | Projections of ∂ on T^∞ yield all RH-equivalent series (ζ, 1/ζ, ζ/ζ(2s), S₂₁) (imp-164) | tinfty-projected-generator.js |
 | 932 | 2026-04-04T08:00:00Z | Berry-Keating H=xp box spectrum: density mismatch quantified, Connes projection identified (imp-165) | berry-keating-connes.js |
+| 933 | 2026-04-04T08:30:00Z | Tate adelic ξ(s) = Z_∞(s)·Π_p Z_p(s) verified to 10^-6 (imp-162) | tate-adelic-zeta.js |

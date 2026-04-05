@@ -1992,4 +1992,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
   },
+
+  {
+    id: 'imp-156',
+    title: 'State of proof v3: consolidate Wave 26+ findings into final research frontier',
+    category: 'content',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: null,
+    description: 'After imp-150-155, the picture has sharpened dramatically. Update the state-of-proof document to reflect: (1) LP path is blocked until the scattering surface is found, (2) S₂₁ = ζ(2s)/ζ(s) IS the Liouville Dirichlet series = supertrace of graded integer system, (3) the specific open problem is finding the hyperbolic surface with geodesic spectrum {log p}, (4) this IS the Deninger-Connes conjecture. The research frontier is now CONCRETE and published-problem-connected.',
+    rationale: 'Wave 26 dramatically sharpened our understanding. Document the new frontier.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
 ];

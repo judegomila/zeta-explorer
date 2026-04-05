@@ -844,3 +844,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 959 | 2026-04-05T15:30:00Z | Lindelöf test: α_eff=0.21 from max|Z(t)| in windows T∈[100,10^4] (imp-193) | lindelof-hypothesis.js |
 | 960 | 2026-04-05T16:00:00Z | Chebyshev bias: first sign change x=26861 (Leech 1957) verified, log-density 95.8% (imp-192) | chebyshev-bias.js |
 | 961 | 2026-04-05T16:30:00Z | Skewes: π(x)-Li(x)<0 up to 10^7 (first crossing >10^316, Chao-Plymen 2015) (imp-194) | skewes-number.js |
+| 962 | 2026-04-05T17:00:00Z | Brun constant B_2≈1.9022 verified to 4 decimals via sieve to x=10^7 (imp-195) | brun-constant.js |

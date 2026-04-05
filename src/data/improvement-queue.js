@@ -2505,11 +2505,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Brun constant for twin primes B_2',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Brun 1919: Σ(1/p + 1/(p+2)) over twin primes converges to B_2 ≈ 1.902. Compute partial sums up to 10^7.',
     rationale: 'Twin prime reciprocal convergence; Brun constant fundamental.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T17:00:00Z',
   },
 ];

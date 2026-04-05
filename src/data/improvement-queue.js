@@ -2947,12 +2947,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Modular forms Fourier coefficients for S_k, k ∈ {16, 18, 20, 22, 24}',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Cusp forms in S_k(SL_2(Z)) for weights k > 12. Compute Fourier coefficients via trace formula or explicit Eisenstein series combinations. Verify Deligne bound.',
     rationale: 'Extends Ramanujan τ (imp-214) to higher-weight cusp forms — broader RH-proved family.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

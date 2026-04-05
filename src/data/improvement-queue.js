@@ -2999,12 +2999,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Montgomery-Odlyzko GUE comparison at height T=10^20',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S3',
     description: 'Extend pair correlation (imp-074) to zeros near height 10^20 using known Odlyzko zero data (first 10^9 zeros + sampled high zeros). Verify GUE statistics stability at ultra-high heights.',
     rationale: 'Montgomery-Odlyzko GUE conjecture at extreme heights — strongest numerical evidence for Hilbert-Polya.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

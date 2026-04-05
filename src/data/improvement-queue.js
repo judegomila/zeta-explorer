@@ -2895,11 +2895,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Hurwitz class number H(n) and traces of singular moduli',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Hurwitz class number H(n) counts SL_2(Z)-classes of positive definite binary quadratic forms of discriminant -n. Appears in Eichler-Selberg trace formula. Compute H(n) for small n.',
     rationale: 'Hurwitz class numbers connect to modular forms and traces of Hecke operators.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T07:30:00Z',
   },
 ];

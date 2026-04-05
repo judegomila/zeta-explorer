@@ -824,3 +824,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 939 | 2026-04-04T11:30:00Z | Gram points + Hutchinson 1925 exception at n=126 reproduced; 3 exceptions in [0,200] (imp-173) | gram-points.js |
 | 940 | 2026-04-04T12:00:00Z | Triple correlation R_3 of ζ-zeros matches GUE determinantal formula (ratio 1.007) (imp-172) | triple-correlation.js |
 | 941 | 2026-04-04T12:30:00Z | Quadruple correlation R_4 matches GUE; extends H-P GUE chain to n=4 (imp-174) | quadruple-correlation.js |
+| 942 | 2026-04-04T13:00:00Z | Backlund-Titchmarsh rigorous zero count: |S(T)|≤Trudgian bound verified (imp-175) | backlund-zero-count.js |

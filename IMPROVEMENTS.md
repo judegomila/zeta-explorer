@@ -830,3 +830,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 945 | 2026-04-04T14:30:00Z | Cramér-GUE duality: primes random (Cramér mean gap 12.7) vs zeros GUE rigid (var 0.134) (imp-178) | cramer-model.js |
 | 946 | 2026-04-04T15:00:00Z | Hardy Z sign-change counting: 6/6 ranges up to t=5100 verified on critical line (imp-180) | hardy-z-counting.js |
 | 947 | 2026-04-04T15:30:00Z | GRH verified for Dirichlet L mod 3, 4, 5: first zeros on σ=½ to err 0.006 (imp-179) | dirichlet-l-grh.js |
+| 948 | 2026-04-05T10:00:00Z | Selberg CLT for log|ζ(½+it)| verified over 49k samples (imp-181) | selberg-clt.js |

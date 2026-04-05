@@ -2622,12 +2622,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Nicolas criterion: n/φ(n)/log log n < e^γ for primorials',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Nicolas (1983): for N_k = k-th primorial, RH ⟺ N_k/(φ(N_k)·log log N_k) < e^γ for all k. Test for first 20 primorials.',
     rationale: 'Primorial-based RH criterion; complements Robin.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T21:30:00Z',
   },
 
   {

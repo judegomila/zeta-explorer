@@ -2219,12 +2219,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Gram points and Gram exceptions: Rosser rule verification',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Gram points g_n are defined by θ(g_n) = nπ. Gram\'s law (usually true): sgn Z(g_n) = (-1)^n. Exceptions are important for zero counting and Rosser\'s rule (which gives certified zero counts). Count Gram exceptions in [0, 1000] and verify Rosser\'s rule: zero count in [g_n, g_{n+1}] is correct on average.',
     rationale: 'Classical Gram-Rosser methods for rigorous RH verification in finite ranges.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-04T11:30:00Z',
   },
 
   {

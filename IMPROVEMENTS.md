@@ -821,3 +821,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 936 | 2026-04-04T10:00:00Z | Lehmer pair scan: 7 close pairs in first 870 zeros, CSV Λ bounds, GUE fit (imp-169) | lehmer-pairs.js |
 | 937 | 2026-04-04T10:30:00Z | Adelic Poisson: Φ̂=Φ verified at machine precision, forces ξ(s)=ξ(1-s) (imp-170) | adelic-poisson.js |
 | 938 | 2026-04-04T11:00:00Z | Dyson flow of ζ-zeros: de Bruijn-Newman Λ estimation via backward heat flow (imp-171) | dyson-zero-flow.js |
+| 939 | 2026-04-04T11:30:00Z | Gram points + Hutchinson 1925 exception at n=126 reproduced; 3 exceptions in [0,200] (imp-173) | gram-points.js |

@@ -3103,12 +3103,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Subconvexity bounds for L(1/2, π) in conductor',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Convexity: |L(1/2, π)| ≪ q(π)^{1/4+ε}. Subconvexity: improve to q^{1/4-δ}. Connects to GRH (which gives q^ε). Proven for GL_1, GL_2, GL_2×GL_1 (Burgess, Conrey-Iwaniec, Michel-Venkatesh).',
     rationale: 'Subconvexity bounds are WEAKER than GRH but give equidistribution. Key RH-related progress.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

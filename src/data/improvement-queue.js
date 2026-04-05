@@ -2934,12 +2934,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Heath-Brown 4th moment explicit polynomial P_4(log T)',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Heath-Brown 1979: M_2(T) = (1/T)∫|ζ(½+it)|^4 dt = P_4(log T)/(2π²) + O(T^{-1/8}) with explicit quartic polynomial P_4. Extends imp-168 beyond leading term.',
     rationale: 'Exact polynomial form gives sharper moment tests and verifies Keating-Snaith predictions.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

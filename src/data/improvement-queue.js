@@ -2739,12 +2739,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Hecke L-functions overview',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Hecke L(s, χ) for Grossencharacters generalize Dirichlet L. Construct for small conductor, verify Euler product and functional equation structure.',
     rationale: 'Hecke L-functions span the algebraic part of Langlands program; RH generalizes to this family.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06T03:00:00Z',
   },
 
   {

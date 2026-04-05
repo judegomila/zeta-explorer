@@ -3064,12 +3064,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Connes adelic approach: trace formula on adele class space',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Connes (1999): construct spectral triple from adele class space A_Q/Q*; zeros of ζ emerge as spectrum. Absorption spectrum interpretation. Connes trace formula as noncommutative Selberg formula.',
     rationale: 'Connes framework makes ζ-zeros eigenvalues of explicit operator — a concrete Hilbert-Polya candidate.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

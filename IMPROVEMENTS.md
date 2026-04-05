@@ -893,3 +893,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1008 | 2026-04-06T16:00:00Z | Subconvexity: avg |L(1/2,χ)|~q^{0.17} beats Burgess 3/16 for 1009 characters (imp-241) | subconvexity-bounds.js |
 | 1009 | 2026-04-06T16:30:00Z | Soundararajan-Harper: M_k empirical α={1.18, 3.76, 6.84} → k²={1,4,9} (imp-242) | soundararajan-harper-moments.js |
 | 1010 | 2026-04-06T17:00:00Z | Elliott-Halberstam BV: A>0 for θ≤1/2, A<0 for θ>1/2 as expected (imp-245) | elliott-halberstam-effective-bv.js |
+| 1011 | 2026-04-06T17:30:00Z | Rankin-Selberg L(s,f×g): Selberg orthogonality, diag/off-diag=2.44 (imp-243) | rankin-selberg-convolution.js |

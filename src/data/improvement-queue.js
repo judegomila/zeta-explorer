@@ -3129,12 +3129,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Rankin-Selberg convolution L-functions',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'L(s, f × g) for automorphic f, g has Euler product, functional equation. Central values |L(1/2, f×g)| bounded via moment method. GRH for Rankin-Selberg implied by Langlands functoriality.',
     rationale: 'Rankin-Selberg products extend RH-family analysis; crucial for subconvexity.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

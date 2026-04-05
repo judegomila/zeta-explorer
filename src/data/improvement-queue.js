@@ -2557,12 +2557,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Refined explicit formula for ψ(x) with more zeros',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Refinement of imp-161: compute ψ(x) = x − Σ_ρ x^ρ/ρ − log(2π) − ½log(1−x^{−2}) using 500 zeros instead of 100, verify tighter accuracy.',
     rationale: 'Extends earlier trace-formula verification with more zeros for higher precision.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05T19:30:00Z',
   },
 
   {

@@ -3402,12 +3402,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Cohen-Lenstra heuristics for class groups',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Cohen-Lenstra (1984): distribution of odd parts of class groups of imaginary quadratic fields. P(p|h(-d)) ~ 1-prod(1-1/p^k). Connected to Iwasawa (imp-258) and BSD (imp-226).',
     rationale: 'Class group statistics connect algebraic RH (Iwasawa) to probabilistic models.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

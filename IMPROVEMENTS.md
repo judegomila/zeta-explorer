@@ -915,3 +915,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1030 | 2026-04-07T03:00:00Z | Polymath 8: 8169 twins, k=50 diameter=246 matches H_50 exactly (imp-261) | polymath8-bounded-gaps.js |
 | 1031 | 2026-04-07T03:30:00Z | Cohen-Lenstra: P(p\|h) ratios 0.78-0.85 for 3043 discriminants (imp-264) | cohen-lenstra-class-groups.js |
 | 1032 | 2026-04-07T04:00:00Z | Maass-Selberg: 10 eigenvalues, λ_1=91.14 (365× threshold) (imp-263) | maass-selberg-eigenvalue.js |
+| 1033 | 2026-04-07T04:30:00Z | **CRITICAL** Berry-Keating H=xp: density 0.999 match, GUE missing (imp-266) | berry-keating-xp-operator.js |

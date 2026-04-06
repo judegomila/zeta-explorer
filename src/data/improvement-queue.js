@@ -3467,12 +3467,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Conrey-Ghosh-Gonek shifted moments and ratios conjecture',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S3',
     description: 'Ratios conjecture: predict Sigma_chi |L(1/2,chi)|^2 / L(1/2+alpha,chi) for Dirichlet family. Gives n-correlation of zeros. Verified for k=1,2. Connect to GUE and Keating-Snaith.',
     rationale: 'Ratios conjecture unifies moment predictions and gives ALL n-point correlations.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

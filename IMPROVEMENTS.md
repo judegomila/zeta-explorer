@@ -919,3 +919,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1034 | 2026-04-07T05:00:00Z | Vasyunin-BN: d_N to N=50, decay 0.560→0.124 monotone (imp-267) | vasyunin-beurling-nyman.js |
 | 1035 | 2026-04-07T05:30:00Z | Guinand-Weil distributional: 5/5 Gaussians, positivity consistent (imp-268) | guinand-weil-distributional.js |
 | 1036 | 2026-04-07T06:00:00Z | Zero repulsion: dLVP 1-β≥c/log γ, explicit formula mechanism (imp-270) | zero-repulsion-region.js |
+| 1037 | 2026-04-07T06:30:00Z | Conrey ratios: M_2 ratios converge to 1, R_2 GUE match (imp-269) | conrey-ratios-conjecture.js |

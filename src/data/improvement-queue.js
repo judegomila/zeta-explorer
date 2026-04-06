@@ -3721,4 +3721,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: '2026-04-06',
   },
+
+  {
+    id: 'imp-289',
+    title: 'Weil PSD with beta<1/2 zeros: |w|>1 growth breaks PSD at critical N',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-286-288 tested beta>1/2 (|w|<1, decay, benign). For beta<1/2: |w|>1, w^n GROWS. This SHOULD break PSD at large enough N. Find the N. Test beta=0.4,0.3,0.1 with small gamma to amplify |w| deviation.',
+    rationale: 'Completing the picture: WHICH side of sigma=1/2 actually breaks Weil PSD? This is the critical asymmetry.',
+    estimatedComplexity: 'high',
+    completedAt: '2026-04-06',
+  },
 ];

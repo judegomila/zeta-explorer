@@ -3246,12 +3246,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Helfgott ternary Goldbach: every odd > 5 is sum of 3 primes',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S5',
     description: 'Helfgott (2013) proved ternary Goldbach unconditionally. Uses Vinogradov circle method + BV-type estimates. Tests prime representation count r_3(n) = #{p+q+r=n} vs Hardy-Littlewood prediction.',
     rationale: 'Major unconditional result using RH-adjacent tools (circle method + zero density).',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

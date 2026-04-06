@@ -903,3 +903,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1018 | 2026-04-06T21:00:00Z | **CRITICAL** Levinson-Conrey: N_0/N(T)≈1.02 at T=1000, all zeros on σ=1/2 (imp-254) | levinson-conrey-critical-line.js |
 | 1019 | 2026-04-06T21:30:00Z | **CRITICAL** Zero density N(σ,T): Ingham/Huxley exponents, all zeros at σ=1/2 (imp-253) | zero-density-estimates.js |
 | 1020 | 2026-04-06T22:00:00Z | Schoenfeld: |π(x)-Li(x)|<√x·log x/(8π) verified, 284× over unconditional (imp-255) | schoenfeld-explicit-bounds.js |
+| 1021 | 2026-04-06T22:30:00Z | Helfgott ternary Goldbach: r_3(n)>0 for all 587 odd n, min=1 at n=7 (imp-252) | helfgott-ternary-goldbach.js |

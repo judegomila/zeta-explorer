@@ -3363,12 +3363,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Polymath 8: bounded gaps between primes (Zhang-Maynard composite)',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S5',
     description: 'Zhang (2013): liminf(p_{n+1}-p_n) < 70M. Maynard-Tao (2014): < 600. Polymath 8b: < 246. Uses BV + GPY sieve. Verify the sieve mechanism numerically.',
     rationale: 'Bounded gaps is the biggest unconditional result using RH-adjacent tools since BV.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

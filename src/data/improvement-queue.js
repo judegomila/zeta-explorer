@@ -3207,12 +3207,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Turán power sum method for ζ-zeros',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Turán: S_N(x) = Σ_{n≤N} n^{-x} power sums approximate ζ(x). If S_N(σ+it) ≠ 0 for σ > 1-c/log N, deduce zero-free region. Montgomery showed this approach cannot prove RH.',
     rationale: 'Turán method is a NEGATIVE result — understanding WHY it fails informs what IS needed.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

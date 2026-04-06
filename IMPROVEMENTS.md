@@ -909,3 +909,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1024 | 2026-04-07T00:00:00Z | Deninger: function field RH 92/92 Hasse, analogy table (imp-257) | deninger-function-field-rh.js |
 | 1025 | 2026-04-07T00:30:00Z | Iwasawa p-adic L: Kummer congruences 5/5 pass, Bernoulli exact (imp-258) | iwasawa-padic-l.js |
 | 1026 | 2026-04-07T01:00:00Z | Stieltjes γ_0..γ_8: Laurent verified to 10^{-11} rel err (imp-259) | stieltjes-constants.js |
+| 1027 | 2026-04-07T01:30:00Z | Functional equation ξ(s)=ξ(1-s) at 100 complex points (imp-260) | functional-equation-complex.js |

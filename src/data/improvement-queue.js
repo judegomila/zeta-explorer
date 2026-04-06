@@ -3285,11 +3285,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Explicit formula for pi(x) with sharp Schoenfeld bounds',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S5',
     description: 'Schoenfeld (1976): under RH, |pi(x) - Li(x)| < sqrt(x)*log(x)/(8*pi) for x >= 2657. Platt-Trudgian refined. Test numerically for x up to 10^6.',
     rationale: 'Schoenfeld bounds are the SHARPEST explicit consequences of RH for prime counting.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 ];

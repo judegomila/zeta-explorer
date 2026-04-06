@@ -3337,12 +3337,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Explicit computation of Stieltjes constants gamma_k',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
     description: 'ζ(s) = 1/(s-1) + Σ_{k=0}^∞ (-1)^k γ_k (s-1)^k / k!. Stieltjes constants γ_0=γ_Euler, γ_1=-0.0728..., etc. Control Laurent expansion. Connected to Li coefficients (imp-237).',
     rationale: 'Stieltjes constants encode complete local behavior of ζ at s=1 — building block for many RH tests.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

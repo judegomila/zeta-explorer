@@ -3272,12 +3272,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Levinson-Conrey: >40% of zeta-zeros on critical line',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Hardy (1914): infinitely many zeros on sigma=1/2. Selberg (1942): positive proportion. Levinson (1974): >1/3. Conrey (1989): >2/5. Best: >41.05% (Bui-Conrey-Young 2011). Verify proportion numerically.',
     rationale: 'Progressive increase of proportion on critical line is the closest unconditional approach to RH.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

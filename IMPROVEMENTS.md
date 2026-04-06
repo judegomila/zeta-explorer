@@ -900,3 +900,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1015 | 2026-04-06T19:30:00Z | Vinogradov-Korobov: best zero-free σ>1-c/(log t)^{2/3}, width shrinks (imp-248) | vinogradov-korobov-zero-free.js |
 | 1016 | 2026-04-06T20:00:00Z | Turán power sums: 33 spurious near-zeros, Montgomery obstruction (imp-249) | turan-power-sums.js |
 | 1017 | 2026-04-06T20:30:00Z | Pretentious NT: D(μ,1)²=2(loglog x+M) to 0.01%, Halász verified (imp-250) | pretentious-number-theory.js |
+| 1018 | 2026-04-06T21:00:00Z | **CRITICAL** Levinson-Conrey: N_0/N(T)≈1.02 at T=1000, all zeros on σ=1/2 (imp-254) | levinson-conrey-critical-line.js |

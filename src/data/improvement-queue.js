@@ -3682,4 +3682,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'low',
     completedAt: '2026-04-06',
   },
+
+  {
+    id: 'imp-286',
+    title: 'Weil PSD off-line zero sensitivity: how many zeros off sigma=1/2 break PSD at N=50?',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S7',
+    description: 'Inject synthetic off-line zeros at beta != 1/2 into M_N computation. Determine: how many off-line zeros at what beta break PSD? This quantifies the SENSITIVITY of the Weil test.',
+    rationale: 'If even ONE off-line zero breaks M_N PSD at moderate N, that shows the test is SHARP — close to a proof.',
+    estimatedComplexity: 'high',
+    completedAt: '2026-04-06',
+  },
 ];

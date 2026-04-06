@@ -3675,11 +3675,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Complete module index: searchable catalog of all 278 math modules',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Generate a searchable index of all ~100 JS modules in src/math/ with: module name, imp IDs, key result, RH connection, proof tier. Enable navigation of the entire exploration.',
     rationale: 'After 278 improvements, finding specific results requires a proper catalog.',
     estimatedComplexity: 'low',
-    completedAt: null,
+    completedAt: '2026-04-06',
   },
 ];

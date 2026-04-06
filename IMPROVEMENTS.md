@@ -926,3 +926,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1041 | 2026-04-07T08:30:00Z | Explicit constants: R=5.573 classical, c=1/57.54 VK, 10^13 zeros (imp-273) | explicit-zero-free-constants.js |
 | 1042 | 2026-04-07T09:00:00Z | Extended zeros: 1506 total to T=2000, Turing verified (imp-272) | extended-zero-verification.js |
 | 1043 | 2026-04-07T09:30:00Z | **CRITICAL** Weil M_N PSD through N=100, max~N^{2.72} (imp-276) | weil-eigenvalue-growth.js |
+| 1044 | 2026-04-06T10:00:00Z | Nicolas: phi(N_k)/N_k < bound for k=2..20, ALL HOLD (imp-277) | nicolas-criterion.js |

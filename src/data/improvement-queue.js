@@ -3571,12 +3571,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Nicolas criterion: primorial phi(N_k)/N_k vs e^{-gamma}/loglog(N_k)',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Nicolas (1983): RH iff phi(N_k)/N_k < e^{-gamma}/log(log N_k) for all k, where N_k = product of first k primes. Verify for k up to 15 (N_15 = 614889782588491410).',
     rationale: 'Nicolas is one of the simplest RH equivalences to verify numerically — clean, direct test.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06',
   },
 
   {

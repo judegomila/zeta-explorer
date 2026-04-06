@@ -3532,12 +3532,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Generalized Lindelof hypothesis and moment bounds',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Lindelof: |zeta(1/2+it)| << t^eps. Equivalent to: M_k(T) << T^eps for all k. RH implies Lindelof. Test Lindelof via max|zeta(1/2+it)| in intervals. Extend to L-function families.',
     rationale: 'Lindelof is WEAKER than RH but implies strong moment bounds. A stepping stone.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

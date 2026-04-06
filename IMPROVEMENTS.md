@@ -922,3 +922,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1037 | 2026-04-07T06:30:00Z | Conrey ratios: M_2 ratios converge to 1, R_2 GUE match (imp-269) | conrey-ratios-conjecture.js |
 | 1038 | 2026-04-07T07:00:00Z | **CRITICAL** Sierra H=xp: prime potentials shift eigenvalues (imp-271) | sierra-xp-regularization.js |
 | 1039 | 2026-04-07T07:30:00Z | Grand synthesis: 6-layer graph, 4 critical paths → POSITIVITY (imp-275) | rh-dependency-graph.js |
+| 1040 | 2026-04-07T08:00:00Z | Lindelof: mu=0.35 empirical, moments subpolynomial, RH stepping stone (imp-274) | lindelof-hypothesis.js |

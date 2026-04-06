@@ -3259,12 +3259,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Zero density estimates N(sigma, T) for zeta',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
     description: 'N(sigma, T) = #{rho: Re(rho)>sigma, |Im(rho)|<T}. Ingham: N(sigma,T) << T^{3(1-sigma)/(2-sigma)} log^5 T. Huxley: N(sigma,T) << T^{12(1-sigma)/5} for sigma near 1. RH: N(sigma,T)=0 for sigma>1/2.',
     rationale: 'Zero density estimates are the QUANTITATIVE approach to RH — bounding how many zeros can be off the critical line.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

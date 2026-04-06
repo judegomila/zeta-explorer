@@ -3298,12 +3298,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Master RH equivalences dashboard: Robin-Lagarias-Nicolas-Li-Redheffer-Weil-Chowla-Beurling unified',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Consolidate ALL implemented RH equivalences into a single dashboard module that runs each test and reports pass/fail. Robin, Lagarias, Nicolas, Li (imp-207), Redheffer, Weil (imp-216), Chowla, Beurling-Nyman (imp-236), Bombieri-Lagarias (imp-237). One unified RH status report.',
     rationale: 'Having 50+ RH tests dispersed is less powerful than running them all together. Unified dashboard shows the FULL weight of evidence.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

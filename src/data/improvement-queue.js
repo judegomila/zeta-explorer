@@ -3389,12 +3389,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Maass waveforms and Selberg eigenvalue conjecture',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S3',
     description: 'Maass forms: eigenfunctions of Laplacian on SL_2(Z)\\H with eigenvalue lambda=1/4+r^2. Selberg conjecture: lambda >= 1/4 (r real). Known: lambda >= 975/4096. GRH for L(s,f_Maass).',
     rationale: 'Maass eigenvalues connect spectral theory to L-functions; Selberg conjecture is an RH-parallel.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

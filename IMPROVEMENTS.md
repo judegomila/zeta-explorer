@@ -899,3 +899,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1014 | 2026-04-06T19:00:00Z | Cramér model: G/(log x)²≤0.66, gap dist mean=1.00 (imp-247) | cramer-prime-gaps.js |
 | 1015 | 2026-04-06T19:30:00Z | Vinogradov-Korobov: best zero-free σ>1-c/(log t)^{2/3}, width shrinks (imp-248) | vinogradov-korobov-zero-free.js |
 | 1016 | 2026-04-06T20:00:00Z | Turán power sums: 33 spurious near-zeros, Montgomery obstruction (imp-249) | turan-power-sums.js |
+| 1017 | 2026-04-06T20:30:00Z | Pretentious NT: D(μ,1)²=2(loglog x+M) to 0.01%, Halász verified (imp-250) | pretentious-number-theory.js |

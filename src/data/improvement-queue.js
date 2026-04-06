@@ -3649,12 +3649,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Effective Selberg sieve for twin prime counting',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S5',
     description: 'Selberg sieve upper bound for pi_2(x) = #{p<=x: p+2 prime}. Compare to Hardy-Littlewood twin prime constant C_2=0.6602. Under GRH: sharper sieve bounds.',
     rationale: 'Sieve methods are the TOOL that enabled Zhang-Maynard. Mastering them advances gap theory.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06',
   },
 
   {

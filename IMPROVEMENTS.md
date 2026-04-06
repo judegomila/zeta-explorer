@@ -936,3 +936,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1051 | 2026-04-06T13:30:00Z | Hadamard product: 870-zero partial, ratio 1.004 at s=2 (imp-284) | hadamard-product-xi.js |
 | 1052 | 2026-04-06T14:00:00Z | Module index: 245 files, 9 categories — QUEUE COMPLETE (imp-285) | module-index.js |
 | 1053 | 2026-04-06T14:30:00Z | **CRITICAL** Weil PSD ROBUST to off-line zeros at N=30 (imp-286) | weil-offline-sensitivity.js |
+| 1054 | 2026-04-06T15:00:00Z | **CRITICAL** 200 off-line zeros DON'T break M_30 — low rank (imp-287) | weil-breaking-point.js |

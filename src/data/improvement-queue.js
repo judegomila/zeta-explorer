@@ -3695,4 +3695,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: '2026-04-06',
   },
+
+  {
+    id: 'imp-287',
+    title: 'Weil PSD breaking point: inject K off-line zeros simultaneously at beta=0.6',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-286 showed 1 off-line zero undetectable. Now inject K=1,5,10,50,100 off-line zeros at beta=0.6 simultaneously. Find the K where M_N PSD breaks. This determines how MANY violations RH can tolerate before Weil catches them.',
+    rationale: 'Quantifies the detection threshold: how many RH violations needed to break finite-N Weil test.',
+    estimatedComplexity: 'high',
+    completedAt: '2026-04-06',
+  },
 ];

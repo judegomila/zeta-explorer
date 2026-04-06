@@ -3446,7 +3446,7 @@ export const IMPROVEMENT_QUEUE = [
     description: 'Vasyunin (1995): explicit formula for d_N^2 involving zeta. Optimize coefficients c_k in Beurling-Nyman (imp-236) using Vasyunin inner products. Track d_N decay rate more precisely.',
     rationale: 'Vasyunin formula makes Beurling-Nyman computationally sharp — closest L^2 path to RH.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

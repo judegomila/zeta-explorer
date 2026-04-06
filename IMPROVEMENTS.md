@@ -925,3 +925,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1040 | 2026-04-07T08:00:00Z | Lindelof: mu=0.35 empirical, moments subpolynomial, RH stepping stone (imp-274) | lindelof-hypothesis.js |
 | 1041 | 2026-04-07T08:30:00Z | Explicit constants: R=5.573 classical, c=1/57.54 VK, 10^13 zeros (imp-273) | explicit-zero-free-constants.js |
 | 1042 | 2026-04-07T09:00:00Z | Extended zeros: 1506 total to T=2000, Turing verified (imp-272) | extended-zero-verification.js |
+| 1043 | 2026-04-07T09:30:00Z | **CRITICAL** Weil M_N PSD through N=100, max~N^{2.72} (imp-276) | weil-eigenvalue-growth.js |

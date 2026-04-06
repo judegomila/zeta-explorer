@@ -3506,12 +3506,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Comprehensive numerical RH verification: first 10^4 zeros via R-S + Turing method',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
     description: 'Extend zero computation from 870 to 10000+ using optimized Riemann-Siegel with Turing method (verify no zeros missed by checking N(T) counts). Strengthen ALL numerical tests.',
     rationale: 'More zeros = stronger tests. 870 is small compared to Odlyzko 10^9. Even 10^4 would improve all statistics.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

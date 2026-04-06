@@ -3519,12 +3519,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Explicit zero-free region constants via Kadiri-Lumley-Ng',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
     description: 'Kadiri (2005), Kadiri-Lumley-Ng (2018): explicit constants in zero-free region. sigma > 1 - 1/(R*log t) with R=5.573412. Compare to VK explicit constants from Ford (2002).',
     rationale: 'Explicit constants turn asymptotic results into COMPUTABLE bounds — needed for applications.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

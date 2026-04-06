@@ -923,3 +923,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1038 | 2026-04-07T07:00:00Z | **CRITICAL** Sierra H=xp: prime potentials shift eigenvalues (imp-271) | sierra-xp-regularization.js |
 | 1039 | 2026-04-07T07:30:00Z | Grand synthesis: 6-layer graph, 4 critical paths → POSITIVITY (imp-275) | rh-dependency-graph.js |
 | 1040 | 2026-04-07T08:00:00Z | Lindelof: mu=0.35 empirical, moments subpolynomial, RH stepping stone (imp-274) | lindelof-hypothesis.js |
+| 1041 | 2026-04-07T08:30:00Z | Explicit constants: R=5.573 classical, c=1/57.54 VK, 10^13 zeros (imp-273) | explicit-zero-free-constants.js |

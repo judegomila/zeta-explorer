@@ -3376,12 +3376,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Weil positivity criterion: sum |hat(h)(rho)|^2 >= 0',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Weil (1952): RH iff sum_rho |hat(h)(rho)|^2 >= 0 for all admissible h. Verify numerically for specific test functions h. This is the POSITIVITY approach to RH.',
     rationale: 'Weil positivity is the purest reformulation: RH = positivity of a quadratic form. Every approach reduces to this.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

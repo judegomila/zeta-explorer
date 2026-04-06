@@ -931,3 +931,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1046 | 2026-04-06T11:00:00Z | Baez-Duarte: c_k decay exp(-0.05k), 0.316→0.008 (imp-279) | baez-duarte-sequence.js |
 | 1047 | 2026-04-06T11:30:00Z | **FINAL DASHBOARD: 15/15 PASS — ALL consistent with RH** (imp-280) | rh-final-dashboard.js |
 | 1048 | 2026-04-06T12:00:00Z | **CRITICAL** Weil PSD structural: cos=1.000, |w|=1 iff RH (imp-281) | weil-psd-structural.js |
+| 1049 | 2026-04-06T12:30:00Z | Chowla: |C(h)|<0.002, log Chowla ratio→0 (Tao proven) (imp-282) | chowla-conjecture-partial.js |

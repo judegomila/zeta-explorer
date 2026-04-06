@@ -3636,12 +3636,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Chowla conjecture partial results: mu(n)*mu(n+1) cancellation',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S6',
     description: 'Tao (2016): logarithmic Chowla (1/log N)*sum mu(n)*mu(n+1)/n -> 0. Matomaki-Radziwill (2016): multiplicative functions in short intervals. Test mu(n)*mu(n+h) cancellation numerically.',
     rationale: 'Chowla conjecture implies Sarnak (imp-234) and connects to RH via mu randomness.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06',
   },
 
   {

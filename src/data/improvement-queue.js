@@ -3324,12 +3324,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Iwasawa theory and p-adic L-functions',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S8',
     description: 'Iwasawa main conjecture (proved by Mazur-Wiles 1984): connects p-adic L-functions to ideal class groups of Z_p-extensions. p-adic analog of RH. Kubota-Leopoldt p-adic ζ.',
     rationale: 'p-adic L-functions are the algebraic side of RH — proved equivalences give structural insights.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

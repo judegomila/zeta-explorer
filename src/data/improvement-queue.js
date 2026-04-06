@@ -3584,12 +3584,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Redheffer matrix det(R_n) = M(n) Mertens connection',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Redheffer (1977): det of n×n matrix R with R[i,j]=1 if j=1 or i|j equals M(n). RH iff |det(R_n)| = O(n^{1/2+eps}). Compute for n up to 200.',
     rationale: 'Redheffer gives a LINEAR ALGEBRA formulation of RH via Mertens function.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-06',
   },
 
   {

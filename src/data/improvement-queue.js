@@ -3311,12 +3311,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Deninger motivic cohomology approach to RH',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Deninger (1998-2002): conjectural cohomology theory H^i(Spec Z, ...) where ζ = det(1-Frobenius). Zeros = eigenvalues of "Frobenius" on H^1. Analogy with Weil for function fields.',
     rationale: 'Deninger program is the deepest structural approach — if realized would prove RH via Weil-type argument.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

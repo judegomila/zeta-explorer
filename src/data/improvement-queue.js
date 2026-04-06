@@ -3597,12 +3597,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Baez-Duarte sequence c_k and its role in Beurling-Nyman',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Baez-Duarte (2003): c_k = sum_{j=0}^k (-1)^j * C(k,j) * zeta(2+2j/k)^{-1}. RH iff c_k -> 0. Compute c_k for k up to 100 and track convergence.',
     rationale: 'Baez-Duarte coefficients give the sharpest known Beurling-Nyman convergence test.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-06',
   },
 
   {

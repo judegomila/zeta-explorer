@@ -3441,7 +3441,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Nyman-Beurling completeness: optimize d_N via Vasyunin formula',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Vasyunin (1995): explicit formula for d_N^2 involving zeta. Optimize coefficients c_k in Beurling-Nyman (imp-236) using Vasyunin inner products. Track d_N decay rate more precisely.',
     rationale: 'Vasyunin formula makes Beurling-Nyman computationally sharp — closest L^2 path to RH.',
@@ -3454,12 +3454,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Guinand-Weil distributional explicit formula',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
     description: 'Guinand (1947) / Weil (1952): explicit formula as DISTRIBUTIONAL identity. For test phi in Schwartz space: sum_rho phi_hat(rho) = integral + sum_p terms. Verify as distribution, not pointwise.',
     rationale: 'Distributional formulation is more general than imp-235; needed for positivity arguments.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 
   {

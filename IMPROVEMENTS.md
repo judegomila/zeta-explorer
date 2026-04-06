@@ -917,3 +917,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1032 | 2026-04-07T04:00:00Z | Maass-Selberg: 10 eigenvalues, λ_1=91.14 (365× threshold) (imp-263) | maass-selberg-eigenvalue.js |
 | 1033 | 2026-04-07T04:30:00Z | **CRITICAL** Berry-Keating H=xp: density 0.999 match, GUE missing (imp-266) | berry-keating-xp-operator.js |
 | 1034 | 2026-04-07T05:00:00Z | Vasyunin-BN: d_N to N=50, decay 0.560→0.124 monotone (imp-267) | vasyunin-beurling-nyman.js |
+| 1035 | 2026-04-07T05:30:00Z | Guinand-Weil distributional: 5/5 Gaussians, positivity consistent (imp-268) | guinand-weil-distributional.js |

@@ -937,3 +937,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1052 | 2026-04-06T14:00:00Z | Module index: 245 files, 9 categories — QUEUE COMPLETE (imp-285) | module-index.js |
 | 1053 | 2026-04-06T14:30:00Z | **CRITICAL** Weil PSD ROBUST to off-line zeros at N=30 (imp-286) | weil-offline-sensitivity.js |
 | 1054 | 2026-04-06T15:00:00Z | **CRITICAL** 200 off-line zeros DON'T break M_30 — low rank (imp-287) | weil-breaking-point.js |
+| 1055 | 2026-04-06T15:30:00Z | **CRITICAL** Rank 1→7, all off-line still PSD at N=100 (imp-288) | weil-rank-detection-threshold.js |

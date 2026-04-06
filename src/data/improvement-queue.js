@@ -3708,4 +3708,17 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: '2026-04-06',
   },
+
+  {
+    id: 'imp-288',
+    title: 'M_N effective rank growth rate and detection threshold vs N',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S7',
+    description: 'imp-276 showed rank grows 1→4 at N=100. imp-287 showed N=30 cant detect off-line zeros. Compute effective rank at N=50,100,200 and test: at what N does a single off-line zero at beta=0.9 finally break PSD? This determines the CRITICAL N for detection.',
+    rationale: 'The N where off-line zeros become detectable is the boundary between trivial and meaningful Weil test.',
+    estimatedComplexity: 'high',
+    completedAt: '2026-04-06',
+  },
 ];

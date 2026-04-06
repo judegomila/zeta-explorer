@@ -3480,11 +3480,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Zero repulsion and de la Vallee Poussin region via explicit formula',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
     description: 'Derive the classical zero-free region sigma > 1 - c/log t directly from the explicit formula. Show how zeros REPEL each other near sigma=1. Quantify repulsion via pair correlation.',
     rationale: 'Zero repulsion is the mechanism behind ALL zero-free regions. Understanding it deeply is key.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-05',
   },
 ];

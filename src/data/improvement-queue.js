@@ -3840,12 +3840,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'P15-3: Backward heat flow collision finder — locate t_c where zeros first merge',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Using Dyson ODE (imp-296), integrate backward (t<0) from known zeros. Find t_c = most negative t where min spacing → 0. This gives Λ ≈ |t_c| directly. Track which PAIR collides first (the tightest Lehmer pair from imp-295).',
     rationale: 'This is the DIRECT computation of Λ. If |t_c| < 0.2, we improve the bound.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-07',
   },
 
   {

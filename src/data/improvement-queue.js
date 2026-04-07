@@ -3796,11 +3796,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Critical line proportion: implement Pratt-Robles-Zaharescu-Zeindler 2023 mollifier giving >41.7%',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'PRZZ 2023 pushed to 41.7% (up from 41.49%). Implement their improved mollifier M(s) and verify the proportion computation. Our imp-254 infrastructure supports this.',
     rationale: 'Pushing the proportion higher is the Levinson-Conrey program. Each fraction of a percent is significant.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-07',
   },
 ];

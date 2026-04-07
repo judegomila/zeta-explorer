@@ -3866,12 +3866,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'P15-5: Effective barrier B(t) with power-law extrapolation for Λ estimate',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Track B(t) = min_n |γ_{n+1}(t) - γ_n(t)| as t varies from 0 backward. Near collision: B(t_c-t) ~ (t_c-t)^{1/2}. Fit power law to extrapolate t_c from partial data. This gives Λ estimate even without reaching collision.',
     rationale: 'Power-law extrapolation lets us predict Λ from finite backward integration — key for computational efficiency.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-07',
   },
 
   {

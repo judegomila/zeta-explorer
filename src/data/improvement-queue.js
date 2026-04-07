@@ -3814,12 +3814,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'P15-1: Lehmer pair database — find all tight zero pairs in 1506 zeros',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Scan all consecutive (γ_n, γ_{n+1}) pairs. Compute normalized gap = (γ_{n+1}-γ_n)·log(γ_n/(2π))/(2π). Catalog pairs with normalized gap < 0.5. These Lehmer pairs are the BOTTLENECK for Λ — they determine how close zeros can approach under backward heat flow.',
     rationale: 'Lehmer pairs give LOWER bounds on Λ via Csordas-Smith-Varga. Must find them before computing Λ.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-07',
   },
 
   {

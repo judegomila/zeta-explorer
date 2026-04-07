@@ -945,3 +945,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1059 | 2026-04-07T11:00:00Z | **SOTA** Polymath15 barrier: spacing grows 1.77→2.32, safe to t=0.5 (imp-292) | polymath15-lambda-barrier.js |
 | 1060 | 2026-04-07T11:30:00Z | **SOTA** PRZZ 2023: >41.7% on critical line (imp-294) | przz2023-critical-line.js |
 | 1061 | 2026-04-07T12:00:00Z | **SOTA** HPY 2026: |ζ(1/2+it)|≤2.38·t^{1/6}·log^{2/3}t — **PHASE 2 COMPLETE** (imp-293) | hiary-patel-yang-2026.js |
+| | | **═══ PHASE 3: POLYMATH15 Λ ATTACK ═══** | |
+| 1062 | 2026-04-07T13:00:00Z | P15-1: Lehmer database — tightest gap 0.236 at γ=750.7 (imp-295) | lehmer-pair-database.js |

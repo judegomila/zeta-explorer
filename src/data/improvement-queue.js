@@ -3783,12 +3783,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Hiary-Patel-Yang 2026 explicit ζ(1/2+it) bound: implement van der Corput refinement',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
     description: 'Hiary-Patel-Yang (Feb 2026): improved explicit subconvexity on the critical line via refined van der Corput + computation. Implement their method and verify their constants.',
     rationale: 'Most recent (2026!) improvement to ζ bounds. Fresh enough that independent verification is valuable.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-07',
   },
 
   {

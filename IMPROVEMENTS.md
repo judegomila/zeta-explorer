@@ -950,3 +950,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1063 | 2026-04-07T13:30:00Z | P15-2: Dyson ODE — **COLLISION at t=-0.1435 → Λ~0.143** (imp-296) | dyson-ode-integrator.js |
 | 1064 | 2026-04-07T14:00:00Z | P15-3: Collision vs N — extrapolated **Λ~0.011** (needs mean-field) (imp-297) | backward-collision-finder.js |
 | 1065 | 2026-04-07T14:30:00Z | P15-4: Mean-field — tiny effect ~0.001 (tail too far) (imp-298) | dyson-mean-field.js |
+| 1066 | 2026-04-07T15:00:00Z | **P15-10 CAPSTONE: Λ extrapolated ~0.011** (imp-304) | lambda-final-assembly.js |

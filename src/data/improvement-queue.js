@@ -3931,11 +3931,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'P15-10: FINAL — assemble full Λ bound from all components',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Combine: Lehmer pairs (imp-295) + Dyson ODE (imp-296) + backward collision (imp-297) + mean-field (imp-298) + barrier extrapolation (imp-299) + CSV lower (imp-300) + extended zeros (imp-301) + GM density (imp-302) + precision (imp-303). Output: our best Λ ∈ [lower, upper].',
     rationale: 'The CAPSTONE. All 9 preceding tickets feed into this single Λ computation.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-07',
   },
 ];

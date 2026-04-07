@@ -3734,4 +3734,73 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: '2026-04-06',
   },
+
+  // ══════════════════════════════════════════════════════════
+  // PHASE 2: BEAT STATE-OF-ART BOUNDS (focused attack)
+  // ══════════════════════════════════════════════════════════
+
+  {
+    id: 'imp-290',
+    title: 'SOTA baseline: implement Guth-Maynard 2024 zero density N(σ,T) ≤ T^{30(1-σ)/13}',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S4',
+    description: 'Guth-Maynard (May 2024): FIRST improvement to Ingham 1940 in 80 years. New exponent 30(1-σ)/13 replaces 3(1-σ)/(2-σ). Compare at all σ values. This changes the prime-gap landscape.',
+    rationale: 'Must implement the new SOTA before trying to beat it. Guth-Maynard is the biggest RH-adjacent breakthrough since Rodgers-Tao.',
+    estimatedComplexity: 'high',
+    completedAt: '2026-04-07',
+  },
+
+  {
+    id: 'imp-291',
+    title: 'Mossinghoff-Trudgian-Yang 2024: updated zero-free region R=5.558691 and VK c=1/55.241',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S4',
+    description: 'Update explicit constants from imp-248/273 to MTY 2024 values: classical R=5.558691 (was 5.573), VK c=1/55.241 (was 1/57.54). Recompute all boundaries and compare improvement.',
+    rationale: 'These are the freshest explicit bounds. Implementing them correctly is prerequisite to pushing further.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+
+  {
+    id: 'imp-292',
+    title: 'Polymath15 heat flow barrier: reproduce Λ ≤ 0.2 computation methodology',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'Reproduce the Platt-Trudgian barrier method: H_t zeros tracked as t varies from 0 to 0.2. If ALL zeros stay real for t in [0, 0.2], then Λ ≤ 0.2. Our imp-246 has the infrastructure. Push toward Λ ≤ 0.19.',
+    rationale: 'Directly attacking the de Bruijn-Newman bound. If we can verify more zeros at higher t, we tighten Λ.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+
+  {
+    id: 'imp-293',
+    title: 'Hiary-Patel-Yang 2026 explicit ζ(1/2+it) bound: implement van der Corput refinement',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S4',
+    description: 'Hiary-Patel-Yang (Feb 2026): improved explicit subconvexity on the critical line via refined van der Corput + computation. Implement their method and verify their constants.',
+    rationale: 'Most recent (2026!) improvement to ζ bounds. Fresh enough that independent verification is valuable.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+
+  {
+    id: 'imp-294',
+    title: 'Critical line proportion: implement Pratt-Robles-Zaharescu-Zeindler 2023 mollifier giving >41.7%',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'PRZZ 2023 pushed to 41.7% (up from 41.49%). Implement their improved mollifier M(s) and verify the proportion computation. Our imp-254 infrastructure supports this.',
+    rationale: 'Pushing the proportion higher is the Levinson-Conrey program. Each fraction of a percent is significant.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

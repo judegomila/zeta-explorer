@@ -939,3 +939,5 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1054 | 2026-04-06T15:00:00Z | **CRITICAL** 200 off-line zeros DON'T break M_30 — low rank (imp-287) | weil-breaking-point.js |
 | 1055 | 2026-04-06T15:30:00Z | **CRITICAL** Rank 1→7, all off-line still PSD at N=100 (imp-288) | weil-rank-detection-threshold.js |
 | 1056 | 2026-04-06T16:00:00Z | **BREAKTHROUGH** PSD BREAKS at N=30 for β<1/2 zeros (|w|>1) (imp-289) | weil-left-side-breaking.js |
+| | | **═══ PHASE 2: BEATING SOTA BOUNDS ═══** | |
+| 1057 | 2026-04-07T10:00:00Z | **SOTA** Guth-Maynard 2024: N(σ,T)≤T^{30(1-σ)/13} (imp-290) | guth-maynard-zero-density.js |

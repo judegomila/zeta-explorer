@@ -3853,12 +3853,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'P15-4: Mean-field correction for truncated zero sum in Dyson ODE',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'We only have 1506 zeros but the ODE sums over ALL zeros. Add mean-field tail: for k > N, replace discrete sum by integral using density ρ(γ) = log(γ/(2π))/(2π). This correction is CRITICAL for accuracy.',
     rationale: 'Without mean-field, finite-N Dyson ODE gives wrong Λ. The tail contribution is O(1/T_0) but matters for precision.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-07',
   },
 
   {

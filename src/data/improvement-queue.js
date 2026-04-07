@@ -3757,12 +3757,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Mossinghoff-Trudgian-Yang 2024: updated zero-free region R=5.558691 and VK c=1/55.241',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
     description: 'Update explicit constants from imp-248/273 to MTY 2024 values: classical R=5.558691 (was 5.573), VK c=1/55.241 (was 1/57.54). Recompute all boundaries and compare improvement.',
     rationale: 'These are the freshest explicit bounds. Implementing them correctly is prerequisite to pushing further.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-07',
   },
 
   {

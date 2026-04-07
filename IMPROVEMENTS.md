@@ -941,3 +941,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1056 | 2026-04-06T16:00:00Z | **BREAKTHROUGH** PSD BREAKS at N=30 for β<1/2 zeros (|w|>1) (imp-289) | weil-left-side-breaking.js |
 | | | **═══ PHASE 2: BEATING SOTA BOUNDS ═══** | |
 | 1057 | 2026-04-07T10:00:00Z | **SOTA** Guth-Maynard 2024: N(σ,T)≤T^{30(1-σ)/13} (imp-290) | guth-maynard-zero-density.js |
+| 1058 | 2026-04-07T10:30:00Z | **SOTA** MTY 2024: R=5.559, c=55.24, B=4.45 (imp-291) | mty2024-zero-free-update.js |

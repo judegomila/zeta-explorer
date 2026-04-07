@@ -3770,12 +3770,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Polymath15 heat flow barrier: reproduce Λ ≤ 0.2 computation methodology',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Reproduce the Platt-Trudgian barrier method: H_t zeros tracked as t varies from 0 to 0.2. If ALL zeros stay real for t in [0, 0.2], then Λ ≤ 0.2. Our imp-246 has the infrastructure. Push toward Λ ≤ 0.19.',
     rationale: 'Directly attacking the de Bruijn-Newman bound. If we can verify more zeros at higher t, we tighten Λ.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-07',
   },
 
   {

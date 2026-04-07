@@ -947,3 +947,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1061 | 2026-04-07T12:00:00Z | **SOTA** HPY 2026: |ζ(1/2+it)|≤2.38·t^{1/6}·log^{2/3}t — **PHASE 2 COMPLETE** (imp-293) | hiary-patel-yang-2026.js |
 | | | **═══ PHASE 3: POLYMATH15 Λ ATTACK ═══** | |
 | 1062 | 2026-04-07T13:00:00Z | P15-1: Lehmer database — tightest gap 0.236 at γ=750.7 (imp-295) | lehmer-pair-database.js |
+| 1063 | 2026-04-07T13:30:00Z | P15-2: Dyson ODE — **COLLISION at t=-0.1435 → Λ~0.143** (imp-296) | dyson-ode-integrator.js |

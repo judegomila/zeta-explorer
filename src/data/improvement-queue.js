@@ -3827,12 +3827,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'P15-2: Dyson ODE integrator — RK4 for zero dynamics under heat flow',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Implement dγ_n/dt = 2·Σ_{k≠n} 1/(γ_n - γ_k) via RK4. Track first 50 zeros forward (t>0) and BACKWARD (t<0). Forward: zeros repel (spacing grows). Backward: zeros ATTRACT (spacing shrinks → collision → Λ).',
     rationale: 'The Dyson ODE is the CORE engine. Sign changes of H_t are slow; ODE tracking is 100× faster and gives collision prediction.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-07',
   },
 
   {

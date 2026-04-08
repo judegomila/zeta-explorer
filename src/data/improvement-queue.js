@@ -3938,4 +3938,74 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: '2026-04-07',
   },
+
+  // ══════════════════════════════════════════════════════════════
+  // PHASE 4: HYBRID PATH C — Certified Λ Bound
+  // Goal: first independent Λ via Dyson ODE with error bounds
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id: 'imp-305',
+    title: 'C-1: Extended zeros to T=5000 with Turing verification + error tracking',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S4',
+    description: 'Push from 1506 zeros (T=2000) to ~3500 zeros (T=5000). At each step: verify N_found = N(T) via Turing method. Track R-S error bounds. This is the foundation — more zeros = better scaling law test.',
+    rationale: 'Extending zero range tests whether 1/N scaling holds at N=3500. Also provides more Lehmer pairs.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+
+  {
+    id: 'imp-306',
+    title: 'C-2: Dyson ODE with certified error bounds — interval-like tracking',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'Replace float64 Dyson ODE with error-tracked version: at each RK4 step, propagate error bound ε(t). The collision time becomes t_c ± δ(t_c). Use compensated summation for the 1/(γ_n-γ_k) sum.',
+    rationale: 'Float64 error accumulates over 10000+ steps. Error tracking makes the collision time CERTIFIED.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+
+  {
+    id: 'imp-307',
+    title: 'C-3: Test 1/N scaling law at N=1500, 2000, 3500 — does it hold?',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'The key question: does |t_c| = a + b/N hold at larger N? Run Dyson backward at N=1500 (our extended zeros from imp-272) and N=3500 (from imp-305). If scaling breaks, the extrapolation is invalid.',
+    rationale: 'This VALIDATES or INVALIDATES our Λ≈0.011 extrapolation. The most important single test.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+
+  {
+    id: 'imp-308',
+    title: 'C-4: Guth-Maynard tail bound for certified barrier beyond T_0',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S4',
+    description: 'Beyond our zero range T_0, bound the tail contribution using Guth-Maynard N(σ,T)≤T^{30(1-σ)/13}. This certifies that no off-line zeros exist beyond T_0 that could invalidate the barrier.',
+    rationale: 'Rigorous tail bound + verified zeros up to T_0 + Dyson ODE = certified Λ.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+
+  {
+    id: 'imp-309',
+    title: 'C-5: CERTIFIED Λ BOUND — assemble all Path C components',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'Combine: verified zeros (imp-305) + error-tracked Dyson (imp-306) + validated scaling (imp-307) + tail bound (imp-308) → FIRST independent certified Λ bound via Dyson ODE approach.',
+    rationale: 'The deliverable: a Λ bound with tracked error bars. Even Λ ≤ 0.19 would be novel methodology.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
 ];

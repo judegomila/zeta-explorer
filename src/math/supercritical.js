@@ -105,7 +105,13 @@ export function thermodynamicState(sigma, t, numPrimes = 20) {
   const logZ = cLog(z); // log(partition function)
 
   // Free energy: F = -T·log(Z) = -(1/σ)·log|ζ(σ+it)|
-  const temperature = sigma > 0.01 ? 1 / sigma : 100;
+  // Temperature: the primon-gas identification ζ(σ) = Σ exp(-σ·log n) only converges
+  // (and so only carries a partition-function interpretation) for σ > 0. For σ ≤ 0 we
+  // return NaN — not a hard-coded clamp like 100, which previously made ThermoBar and
+  // the SupercriticalViz Free-Energy chart show finite, physically meaningless values
+  // throughout the sub-zero phase. ThermoBar's safe() helper renders NaN as '—', and
+  // SupercriticalViz already filters non-finite samples out of its drawn curve.
+  const temperature = sigma > 0 ? 1 / sigma : NaN;
   const freeEnergy = -temperature * logZ[0];
 
   // Entropy: S = -∂F/∂T = log|ζ| - σ·∂log|ζ|/∂σ

@@ -7,6 +7,7 @@ import {
   twistorCorrespondence,
 } from '../math/twistor.js';
 import { losslessBridge } from '../math/oscillators.js';
+import { ZETA_ZEROS } from '../math/zeta.js';
 import { InlineMath } from './KaTeXMath.jsx';
 
 // ─── Twistor Arrow (spinor component as 3D arrow) ───────────────────────────
@@ -248,7 +249,15 @@ function Axes() {
 // ─── Scene ───────────────────────────────────────────────────────────────────
 
 function TwistorScene({ sigma, t, animate }) {
-  const firstZeros = [14.13, 21.02, 25.01, 30.42, 32.94, 37.59, 40.92, 43.33, 48.01, 49.77];
+  // ZetaZeroMarkers maps γ ∈ [0, 60] onto the z-axis via (γ/60 − 0.5) · 4, so
+  // the display range is everything with γ < 60. Previously a hardcoded list
+  // of the first 10 zeros stopped at γ₁₀ ≈ 49.77 and silently dropped γ₁₁,
+  // γ₁₂, γ₁₃ (52.97, 56.45, 59.35), which all fit inside the plotted axis —
+  // the upper ~17% of the t-axis had no markers despite there being known
+  // zeros there. Pulling the list from ZETA_ZEROS and cutting at γ < 60
+  // restores the missing markers and keeps the list auto-consistent with the
+  // z-axis mapping if that mapping is later widened or narrowed.
+  const firstZeros = ZETA_ZEROS.filter((gamma) => gamma < 60);
 
   return (
     <>

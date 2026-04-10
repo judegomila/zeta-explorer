@@ -38,14 +38,16 @@
  *   • A useful per-strip number for the barrier: at the strip
  *     σ_0 = 1/2 + δ with δ = c / log T_0, the GM exponent at the strip is
  *
- *         e(δ) = 30 δ / 13 = 30 c / (13 log T_0),
+ *         e(σ_0) = 30 (1 − σ_0) / 13 = 30 (1/2 − δ) / 13,
  *
- *     so the tail count up to a probe height T_1 is bounded by
- *     T_1^{1 − e(δ)}. With T_0 ≈ 3000 (log ≈ 8.0), c = 1 gives
- *     e ≈ 0.288 and the tail bound at T_1 = 10·T_0 = 30000 is
- *     30000^{1 − 0.288} ≈ 30000^{0.712} ≈ 1.4·10³. This is the explicit
- *     tail budget the Path C barrier has to absorb in any extension
- *     beyond T_0.
+ *     so the tail count up to a probe height T_1 is bounded by T_1^{e(σ_0)}.
+ *     With T_0 ≈ 3000 (log ≈ 8.0), c = 1 gives δ ≈ 0.125, σ_0 ≈ 0.625, and
+ *     e ≈ 0.865. The tail bound at T_1 = 10·T_0 = 30000 is then
+ *     30000^{0.865} ≈ 7.5·10³. This is the explicit tail budget the
+ *     Path C barrier has to absorb in any extension beyond T_0. (The
+ *     previous version of this file printed ≈ 1.4·10³ via the wrong
+ *     formula T_1^{1−e(δ)} with e(δ) = 30 δ / 13 — both errors are
+ *     fixed in the runtime block below.)
  *
  * What this file is and is not
  * ----------------------------
@@ -126,25 +128,37 @@ export const GUTH_MAYNARD_TAIL_BOUND = {
   unconditionalReference: 'arXiv:2405.20552',
 
   // Worked example used by the bridge file: a "thin strip" δ = 1/log T_0.
+  // BUG FIX (imp-326 partial / accuracy): the previous version computed
+  // bound = T_1^{1 − e} with the comment "e = 30 δ / 13", both of which
+  // were wrong. Guth-Maynard gives N(σ,T) ≤ T^{30(1−σ)/13}, so the
+  // exponent at σ = 1/2 + δ is 30(1/2 − δ)/13 (NOT 30 δ /13) and the
+  // bound is T_1^e (NOT T_1^{1−e}). At σ ≈ 0.625, T_1 = 30000 the
+  // honest GM tail count is 30000^0.865 ≈ 7.5·10³, materially larger
+  // than the 1.4·10³ the file used to advertise. The bound is still
+  // unconditional and finite; it is just looser than the previous
+  // misstatement implied, so the Path C barrier has more tail to absorb
+  // above T_0 = 3000 than the bridge file used to claim.
   thinStripExample: (() => {
     const c = 1;
     const delta = c / LOG_T0;
     const sigma = 0.5 + delta;
-    const e = gmExponent(sigma); // = 30 δ / 13
+    const e = gmExponent(sigma); // = 30 (1 − σ) / 13 = 30 (1/2 − δ) / 13
     const T1 = 10 * T0;
-    const bound = Math.pow(T1, 1 - e);
+    const bound = Math.pow(T1, e);
     return {
       c,
       delta: +delta.toFixed(6),
       sigma: +sigma.toFixed(6),
       gm_exponent_at_strip: +e.toFixed(6),
       probe_height_T1: T1,
-      bound_on_offline_zero_count: +bound.toFixed(3),
+      bound_on_offline_zero_count: +bound.toFixed(0),
       reading:
         'At the strip σ = 1/2 + 1/log T_0 ≈ 0.625 the GM exponent is ' +
-        '≈ 0.288 and the tail count up to 10·T_0 = 30000 is bounded by ' +
-        '≈ 30000^0.712 ≈ 1.4·10³. This is the explicit budget the Path C ' +
-        'barrier must absorb in any extension above T_0.',
+        '30(1−σ)/13 ≈ 0.865 and the tail count up to 10·T_0 = 30000 is ' +
+        'bounded by 30000^0.865 ≈ 7.5·10³ off-line zeros. This is the ' +
+        'explicit unconditional budget the Path C barrier must absorb in ' +
+        'any extension above T_0 — looser than the previously published ' +
+        '≈ 1.4·10³ figure, which was a formula transcription error.',
     };
   })(),
 

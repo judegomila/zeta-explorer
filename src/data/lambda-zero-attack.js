@@ -149,7 +149,7 @@ export const LAMBDA_ZERO_BLOCKERS = [
     numericalForm:
       'guth-maynard-tail-bound.js bounds the number of off-line zeros above ' +
       'T_0 by N(σ,T) ≤ T^{30(1-σ)/13} (Guth-Maynard 2024). At the worked ' +
-      'thin strip σ ≈ 0.625 this gives ≈ 1.4·10³ zeros up to 10·T_0 — a ' +
+      'thin strip σ ≈ 0.625 this gives ≈ 7.5·10³ zeros up to 10·T_0 — a ' +
       'budget the barrier method must absorb. The actual count of off-line ' +
       'zeros above T_0 is conjecturally zero (RH).',
     analyticGoal:

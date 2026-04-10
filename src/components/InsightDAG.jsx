@@ -231,17 +231,26 @@ function Tooltip({ node, svgRef }) {
   if (!node) return null;
   const statusColor = STATUS_COLORS[node.status] || '#64748b';
 
-  // Position tooltip above the node
+  // Position tooltip above the node by default. For top-row (FOUNDATION) nodes
+  // the default `node.y - 58` lands at negative y, outside the SVG viewBox, so
+  // hovering over euler-product / functional-eq / analytic-cont rendered an
+  // invisible tooltip. Flip below the node when there's not enough room above.
   const tx = node.cx;
-  const ty = node.y - 10;
+  const tooltipH = 44;
+  const gap = 10;
+  const aboveY = node.y - gap - tooltipH;
+  const flipBelow = aboveY < 0;
+  const rectY = flipBelow ? node.y + NODE_H + gap : aboveY;
+  const titleY = rectY + 16;
+  const descY = rectY + 32;
 
   return (
     <g style={{ pointerEvents: 'none' }}>
       <rect
         x={tx - 140}
-        y={ty - 48}
+        y={rectY}
         width={280}
-        height={44}
+        height={tooltipH}
         rx={6}
         fill="#0f172a"
         stroke={statusColor + '80'}
@@ -250,7 +259,7 @@ function Tooltip({ node, svgRef }) {
       />
       <text
         x={tx}
-        y={ty - 32}
+        y={titleY}
         textAnchor="middle"
         fill={statusColor}
         fontSize={10}
@@ -261,7 +270,7 @@ function Tooltip({ node, svgRef }) {
       </text>
       <text
         x={tx}
-        y={ty - 16}
+        y={descY}
         textAnchor="middle"
         fill="#94a3b8"
         fontSize={8.5}

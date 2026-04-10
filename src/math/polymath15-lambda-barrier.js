@@ -21,11 +21,15 @@
 
 import { riemannSiegelZEnhanced, ZETA_ZEROS } from './zeta.js';
 
-// Polya Phi kernel for H_t computation
+// Polya Phi kernel for H_t computation (imp-303: 50 Φ-kernel terms, was 20).
+// The early-break on expArg < −500 still kicks in well before n = 50 for any
+// u ≥ 0, so the upper bound is purely a safety ceiling and adds no measurable
+// runtime cost — but it removes a hard cap that would have started biasing the
+// kernel near u = 0 if the threshold were ever loosened.
 function polyaPhi(u) {
   let sum = 0;
   const e2u = Math.exp(2*u), e9h = Math.exp(9*u/2), e5h = Math.exp(5*u/2);
-  for (let n = 1; n <= 20; n++) {
+  for (let n = 1; n <= 50; n++) {
     const n2 = n*n, n4 = n2*n2;
     const expArg = -Math.PI*n2*e2u;
     if (expArg < -500) break;
@@ -34,15 +38,35 @@ function polyaPhi(u) {
   return sum;
 }
 
-// H_t(z) = integral Phi(u)*exp(t*u^2)*cos(zu) du
-function H_t(t, z, uMax = 10, du = 0.005) {
-  let integral = 0, prev = null;
-  for (let u = 0; u <= uMax; u += du) {
-    const f = polyaPhi(u) * Math.exp(t*u*u) * Math.cos(z*u);
-    if (prev !== null) integral += (prev + f)/2 * du;
-    prev = f;
-  }
-  return integral;
+// H_t(z) = integral_0^uMax Phi(u)*exp(t*u^2)*cos(zu) du.
+//
+// imp-303: switched from trapezoidal at du = 0.005 to composite Simpson 1/3 at
+// du = 0.001 with Richardson extrapolation between (du, du/2) sub-grids. The
+// integrand is C^∞ on [0, uMax] with rapid Φ decay, so Simpson kills the
+// leading O(du²) trapezoidal error and Richardson cancels Simpson's leading
+// O(du⁴) term, leaving an O(du⁶) residual on the underlying analytic integrand.
+// This is the precision-tightening step the imp-303 ticket asked for; the
+// finer grid removes the H_t numerical noise that previously limited the
+// barrier-side zero-tracking accuracy.
+function H_t(t, z, uMax = 10, du = 0.001) {
+  // Simpson 1/3 on a uniform grid with an even number of intervals.
+  const simpson = (h) => {
+    let n = Math.max(2, Math.round(uMax / h));
+    if (n % 2 === 1) n += 1;                  // Simpson needs even n
+    const step = uMax / n;
+    const f = (u) => polyaPhi(u) * Math.exp(t*u*u) * Math.cos(z*u);
+    let sum = f(0) + f(uMax);
+    for (let i = 1; i < n; i++) {
+      const u = i * step;
+      sum += (i & 1) ? 4 * f(u) : 2 * f(u);
+    }
+    return sum * step / 3;
+  };
+  // Richardson extrapolation: the Simpson error scales as h^4, so combining
+  // I(h) and I(h/2) cancels the leading term: (16·I(h/2) − I(h)) / 15.
+  const I_h  = simpson(du);
+  const I_h2 = simpson(du / 2);
+  return (16 * I_h2 - I_h) / 15;
 }
 
 // Find zeros of H_t near known ζ-zeros by tracking from t=0

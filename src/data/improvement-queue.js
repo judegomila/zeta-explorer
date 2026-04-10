@@ -3918,12 +3918,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'P15-9: Higher-precision H_t with extended Φ kernel and Richardson extrapolation',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
-    description: 'Current Φ(u) uses 20 terms, du=0.005. Increase to 50 terms, du=0.001, with Richardson extrapolation for the integral. This removes numerical error from the H_t zero tracking, tightening the barrier.',
+    description: 'Current Φ(u) uses 20 terms, du=0.005. Increase to 50 terms, du=0.001, with Richardson extrapolation for the integral. This removes numerical error from the H_t zero tracking, tightening the barrier. DELIVERED in src/math/polymath15-lambda-barrier.js: polyaPhi() loop ceiling raised from n ≤ 20 to n ≤ 50 (the early-break expArg < −500 still bites well before n = 50 at every u ≥ 0, so the change is a safety ceiling at zero runtime cost but removes a hard cap that would have started biasing the kernel near u = 0 if the threshold were ever loosened). H_t() rewritten from trapezoidal at du = 0.005 to composite Simpson 1/3 at du = 0.001, then Richardson-extrapolated between (du, du/2) sub-grids: I = (16·I(du/2) − I(du))/15. The integrand Φ(u)·exp(t u²)·cos(zu) is C^∞ on [0, uMax] with rapid Φ decay, so Simpson kills the leading O(du²) trapezoidal error and Richardson cancels Simpson\'s leading O(du⁴) term, leaving an O(du⁶) residual on the underlying analytic integrand — the precision improvement the barrier-side zero tracking needs. Honest scope: polymath15-lambda-barrier.js is currently a methodology-demo module not invoked by any live page (it ships in the bundle for the methodology log only), so the runtime cost increase from the finer grid is not a UX concern; the matching change in src/math/rodgers-tao-de-bruijn-newman.js (same H_t skeleton) is left as a follow-up since this ticket is one atomic file.',
     rationale: 'Numerical precision in H_t directly limits barrier precision. 10× finer grid = much tighter zeros.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-10',
   },
 
   {

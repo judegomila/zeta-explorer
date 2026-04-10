@@ -1279,9 +1279,9 @@ function OffLineContradictionTab() {
         <p>
           <strong>Off-line zero contradiction:</strong> If a hypothetical zero existed at{' '}
           <InlineMath tex={`\\rho_0 = ${sigmaOff} + ${tOff}i`} />, its contribution to the
-          explicit formula for <InlineMath tex="\\psi(x)" /> would grow as{' '}
+          explicit formula for <InlineMath tex="\psi(x)" /> would grow as{' '}
           <InlineMath tex={`x^{${sigmaOff}}`} />, eventually exceeding the Schoenfeld bound{' '}
-          <InlineMath tex="\\sqrt{x} \\log^2(x) / (8\\pi)" /> which assumes RH.
+          <InlineMath tex="\sqrt{x} \log^2(x) / (8\pi)" /> which assumes RH.
         </p>
       </div>
 

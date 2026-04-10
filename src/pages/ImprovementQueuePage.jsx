@@ -5,6 +5,8 @@ import { IMPROVEMENT_QUEUE_ALL as IMPROVEMENT_QUEUE } from '../data/improvement-
 
 const CATEGORY_CONFIG = {
   'proof-gap':    { label: 'Proof-Gap',     color: '#ef4444', icon: '\u2205' },
+  'proof':        { label: 'Proof',         color: '#a855f7', icon: '\u22a2' },
+  'verification': { label: 'Verification',  color: '#14b8a6', icon: '\u2713' },
   'visualization':{ label: 'Visualization', color: '#8b5cf6', icon: '\u25ce' },
   'accuracy':     { label: 'Accuracy',      color: '#f59e0b', icon: '\u25c9' },
   'ux':           { label: 'UX',            color: '#3b82f6', icon: '\u2726' },

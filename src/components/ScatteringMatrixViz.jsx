@@ -110,8 +110,11 @@ export default function ScatteringMatrixViz() {
       g.append('path').datum(data).attr('d', line)
         .attr('fill', 'none').attr('stroke', '#8b5cf6').attr('stroke-width', 2.5);
 
-      // Mark σ = 0.5 point
-      const halfPoint = data.find(d => Math.abs(d.sigma - 0.5) < 0.01);
+      // Mark σ = 0.5 point. Tolerance must be tighter than the grid spacing
+      // (0.0098 ≈ 0.98/100) so that the i=49 sample at σ≈0.4902 — which is within
+      // 0.0098 of 0.5 — does NOT match before the exact i=50 sample at σ=0.5;
+      // the previous tolerance of 0.01 always returned the wrong neighbor.
+      const halfPoint = data.find(d => Math.abs(d.sigma - 0.5) < 0.005);
       if (halfPoint) {
         g.append('circle')
           .attr('cx', x(0.5)).attr('cy', y(Math.min(yMax, halfPoint.chiMag))).attr('r', 5)
@@ -183,8 +186,9 @@ export default function ScatteringMatrixViz() {
       g.append('path').datum(data).attr('d', line)
         .attr('fill', 'none').attr('stroke', '#f59e0b').attr('stroke-width', 2.5);
 
-      // Mark σ = 0.5 point
-      const halfPoint = data.find(d => Math.abs(d.sigma - 0.5) < 0.01);
+      // Mark σ = 0.5 point — tighter tolerance than grid spacing (0.0098) to
+      // exclude the i=49 neighbor at σ≈0.4902 and pick the exact i=50 sample.
+      const halfPoint = data.find(d => Math.abs(d.sigma - 0.5) < 0.005);
       if (halfPoint) {
         g.append('circle')
           .attr('cx', x(0.5)).attr('cy', y(clampRefl(halfPoint))).attr('r', 5)
@@ -271,8 +275,9 @@ export default function ScatteringMatrixViz() {
       g.append('path').datum(data).attr('d', line)
         .attr('fill', 'none').attr('stroke', '#06b6d4').attr('stroke-width', 2.5);
 
-      // Mark σ = 0.5 point
-      const halfPoint = data.find(d => Math.abs(d.sigma - 0.5) < 0.01);
+      // Mark σ = 0.5 point — tighter tolerance than grid spacing (0.0098) to
+      // exclude the i=49 neighbor at σ≈0.4902 and pick the exact i=50 sample.
+      const halfPoint = data.find(d => Math.abs(d.sigma - 0.5) < 0.005);
       if (halfPoint) {
         const phaseDeg = halfPoint.chiPhase * 180 / Math.PI;
         g.append('circle')

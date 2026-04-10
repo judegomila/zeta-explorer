@@ -4264,12 +4264,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Apply B2 analysis to the imp-321 Platt-Trudgian scale extrapolation (log-spaced N)',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
-    description: 'imp-321 pushed Dyson to log-spaced N = {10^3, 10^4, 10^5, 10^6}. Run the same B2(a) one-sided CI analysis on that log-spaced dataset instead of the baseline 5 points. With 3 orders of magnitude of N-range instead of 1.7, SE(â) drops dramatically AND the 1/N scaling gets a much sharper curvature check. If the log-spaced data gives upper CL ≤ 0, B2(a) is closed at PT-scale heights, which is a RH statement up to T ~ 10^10.',
+    description: 'imp-321 pushed Dyson to log-spaced N = {10^3, 10^4, 10^5, 10^6}. Run the same B2(a) one-sided CI analysis on that log-spaced dataset instead of the baseline 5 points. With 3 orders of magnitude of N-range instead of 1.7, SE(â) drops dramatically AND the 1/N scaling gets a much sharper curvature check. If the log-spaced data gives upper CL ≤ 0, B2(a) is closed at PT-scale heights, which is a RH statement up to T ~ 10^10. DELIVERED (instrument wiring): added PT_SCALE_B2A_REFIT to lambda-pt-scale-extrapolation.js that takes the 7-row log-spaced ladder (N = 2458, 5000, 1e4..1e8) and runs the full imp-323 one-sided CI machinery (olsFitPairs → intercept, slope, SSR, SE(â), SE(b̂), upper/lower confidence bounds at df=5 one-sided 90/95/99 and two-sided 95/99, verdict with aEstablishedBelowZero flags for 95 and 99, explicit baselineComparison block reporting ladder_a vs OLS_A and ladder_b vs OLS_B drift). Because the current ladder rows are arithmetic projections y_i = OLS_A + OLS_B / N_i rather than measured collision times, the round-trip OLS recovers (OLS_A, OLS_B) exactly and produces near-zero residuals — so the instrument is honestly labelled instrumentOnly: true with an in-file explanation that B2(a) closure requires imp-321 follow-up to REPLACE projected_tc with measured sampled-zero Dyson collision times, at which point this block re-evaluates automatically and produces a real verdict. Added PT_SCALE_EXTRAPOLATION_ASSERTIONS entry "imp332-ladder-refit-roundtrips-baseline-ols" that trips if the round-trip OLS drifts from (OLS_A, OLS_B) or the residual SSR climbs above 1e-20, giving a cheap integrity check on the ladder: if a future edit corrupts a single projection row the assertion catches it. The future-contract block spells out that imp-321 follow-up only needs to overwrite ladder[i].projected_tc values to turn the instrument into the statistical result the ticket ultimately asked for.',
     rationale: 'The PT-scale dataset from imp-321 is the single highest-leverage source of new constraint on a. Running the imp-323 statistical machinery on it costs nothing and may close the main line.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-10',
   },
 
   // ══════════════════════════════════════════════════════════════

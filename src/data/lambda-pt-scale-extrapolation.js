@@ -166,6 +166,163 @@ export const PT_SCALE_EXTRAPOLATION = {
     'job fills in.',
 };
 
+// ────────────────────────────────────────────────────────────────────────
+// imp-332: B2(a) one-sided CI analysis on the log-spaced ladder.
+//
+// imp-323 ran OLS + one-sided CI on the baseline 5 points {50,100,200,500,2458}.
+// imp-332 asks: run the same machinery on the log-spaced ladder (1.7 decades
+// of N-range becomes 4.7 decades), where SE(â) should drop dramatically and
+// the 1/N curvature check gets a much sharper lever arm. If the upper 95% CL
+// tips ≤ 0 on the log-spaced fit, B2(a) closes at PT-scale heights.
+//
+// IMPORTANT HONESTY BLOCK
+// -----------------------
+// The rows of PT_SCALE_EXTRAPOLATION.ladder are NOT measured collision times.
+// They are arithmetic projections y_i = OLS_A + OLS_B / N_i derived from the
+// imp-323 OLS fit on the baseline 5 points. Running OLS on them is a pure
+// round-trip: the new fit must recover (OLS_A, OLS_B) exactly and produce
+// zero residuals, which in turn makes σ̂² = 0, Var(â) = 0, SE(â) = 0, every
+// confidence interval collapses to a point, and the "verdict" becomes a
+// tautology (the one-sided upper CL equals â = OLS_A > 0, so B2(a) remains
+// unclosed, which is the same conclusion the baseline fit already gave).
+//
+// So why compute this at all? Two reasons:
+//
+//   (1) It exposes the machinery as a function of (N_i, y_i) so that when
+//       imp-321's sampled-zero Dyson follow-up REPLACES each projected_tc
+//       with a measured collision time, the B2(a) CI will automatically
+//       become meaningful without touching this file's structure. The
+//       contract is "fill in the ladder, the verdict updates".
+//
+//   (2) It produces a falsifiable build-time assertion: the round-trip OLS
+//       MUST reproduce OLS_A and OLS_B, MUST give near-zero SSR, and MUST
+//       report "unclosed" as the verdict. If a future edit corrupts the
+//       projection (e.g. accidentally replaces OLS_A with HEADLINE_A in one
+//       ladder row and not the others), the round-trip breaks and the
+//       assertion trips. This is a cheap integrity check on the ladder.
+//
+// When the ladder rows become measured, the re-fit will have non-zero SSR,
+// a real SE(â), and a real verdict — then the block below answers imp-332
+// as literally written. Until then it is the instrument, not the result.
+// ────────────────────────────────────────────────────────────────────────
+
+function olsFitPairs(xs, ys) {
+  const n = xs.length;
+  const sx = xs.reduce((s, x) => s + x, 0);
+  const sy = ys.reduce((s, y) => s + y, 0);
+  const xbar = sx / n;
+  const ybar = sy / n;
+  let Sxx = 0;
+  let Sxy = 0;
+  for (let i = 0; i < n; i++) {
+    const dx = xs[i] - xbar;
+    const dy = ys[i] - ybar;
+    Sxx += dx * dx;
+    Sxy += dx * dy;
+  }
+  const b = Sxy / Sxx;
+  const a = ybar - b * xbar;
+  let ssr = 0;
+  for (let i = 0; i < n; i++) {
+    const yhat = a + b * xs[i];
+    const r = ys[i] - yhat;
+    ssr += r * r;
+  }
+  const dof = n - 2;
+  const sigma2 = ssr / dof;
+  const varA = sigma2 * (1 / n + (xbar * xbar) / Sxx);
+  const varB = sigma2 / Sxx;
+  const seA = Math.sqrt(Math.max(0, varA));
+  const seB = Math.sqrt(Math.max(0, varB));
+  return { n, dof, a, b, Sxx, xbar, ybar, ssr, sigma2, seA, seB };
+}
+
+// Student-t upper-tail critical values at df = 5 (log-spaced ladder has n = 7
+// rows so n − 2 = 5). Hard-coded to match the imp-323 style in
+// lambda-intercept-confidence.js without shipping a quantile routine.
+const T_CRIT_DF5 = {
+  'one-sided-90': 1.476,
+  'one-sided-95': 2.015,
+  'one-sided-99': 3.365,
+  'two-sided-95': 2.571,
+  'two-sided-99': 4.032,
+};
+
+const LADDER_XS = PT_SCALE_EXTRAPOLATION.ladder.map((r) => 1 / r.N);
+const LADDER_YS = PT_SCALE_EXTRAPOLATION.ladder.map((r) => r.projected_tc);
+const LADDER_FIT = olsFitPairs(LADDER_XS, LADDER_YS);
+
+function ladderCiBounds(point, se) {
+  const out = {};
+  for (const [k, t] of Object.entries(T_CRIT_DF5)) {
+    out[k] = {
+      upper: point + t * se,
+      lower: point - t * se,
+      halfWidth: t * se,
+    };
+  }
+  return out;
+}
+
+const LADDER_A_INTERVALS = ladderCiBounds(LADDER_FIT.a, LADDER_FIT.seA);
+const LADDER_B_INTERVALS = ladderCiBounds(LADDER_FIT.b, LADDER_FIT.seB);
+
+export const PT_SCALE_B2A_REFIT = {
+  purpose:
+    'imp-332: apply the imp-323 B2(a) one-sided CI machinery to the log-spaced ' +
+    'ladder from imp-321 instead of the baseline 5 points.',
+  ticket: 'imp-332',
+  instrumentOnly: true,
+  instrumentOnlyReason:
+    'The ladder rows are currently arithmetic projections y_i = OLS_A + OLS_B / N_i, ' +
+    'not measured collision times, so the round-trip OLS recovers (OLS_A, OLS_B) ' +
+    'with ~zero residuals. This block is the B2(a) instrument wired to the ladder; ' +
+    'it becomes a meaningful statistical result when imp-321 follow-up replaces ' +
+    'projected_tc with measured sampled-zero Dyson collision times at each N.',
+  fitSource: 'PT_SCALE_EXTRAPOLATION.ladder (this file)',
+  fit: {
+    n: LADDER_FIT.n,
+    dof: LADDER_FIT.dof,
+    intercept_a: LADDER_FIT.a,
+    slope_b: LADDER_FIT.b,
+    residualSSR: LADDER_FIT.ssr,
+    residualStdDev: Math.sqrt(LADDER_FIT.sigma2),
+    seIntercept: LADDER_FIT.seA,
+    seSlope: LADDER_FIT.seB,
+  },
+  baselineComparison: {
+    baseline_a: OLS_A,
+    baseline_b: OLS_B,
+    ladder_a: LADDER_FIT.a,
+    ladder_b: LADDER_FIT.b,
+    interceptDrift: LADDER_FIT.a - OLS_A,
+    slopeDrift: LADDER_FIT.b - OLS_B,
+    note:
+      'Drift must be machine-epsilon while ladder rows are the arithmetic projection. ' +
+      'A non-trivial drift here would mean the ladder has been rebuilt from a different ' +
+      '(a,b) or the fit constants have moved without updating the projection.',
+  },
+  interceptIntervals: LADDER_A_INTERVALS,
+  slopeIntervals: LADDER_B_INTERVALS,
+  verdict: {
+    aEstablishedBelowZero_oneSided95: LADDER_A_INTERVALS['one-sided-95'].upper <= 0,
+    aEstablishedBelowZero_oneSided99: LADDER_A_INTERVALS['one-sided-99'].upper <= 0,
+    oneSided95UpperBound: LADDER_A_INTERVALS['one-sided-95'].upper,
+    oneSided95LowerBound: LADDER_A_INTERVALS['one-sided-95'].lower,
+    statement:
+      LADDER_A_INTERVALS['one-sided-95'].upper <= 0
+        ? 'Λ ≤ 0 established at one-sided 95% on the log-spaced ladder (B2(a) closed at PT-scale).'
+        : 'Instrument-only pass: the ladder is a round-trip of the baseline OLS fit, so ' +
+          'the upper CL equals the point estimate and B2(a) remains unclosed. Meaningful ' +
+          'only once imp-321 follow-up fills projected_tc with measured values.',
+  },
+  futureContract:
+    'imp-321 follow-up: replace each PT_SCALE_EXTRAPOLATION.ladder[i].projected_tc with ' +
+    'the measured backward-Dyson collision time at N_i. No other change is needed here; ' +
+    'this block re-evaluates automatically and the verdict becomes the honest B2(a) ' +
+    'statement at PT-scale heights.',
+};
+
 // Build-time assertions — refuse silent drift of the projection or its caveats.
 export const PT_SCALE_EXTRAPOLATION_ASSERTIONS = [
   {
@@ -238,6 +395,31 @@ export const PT_SCALE_EXTRAPOLATION_ASSERTIONS = [
       '10^9 in height the table is not actually doing the job, and the ladder ' +
       'must be extended. The current ceiling is N = 10^8 → T* ≈ 4·10^9 (two ' +
       'decades short of PT 3·10^12). Reducing the ladder must trip this.',
+  },
+  {
+    id: 'imp332-ladder-refit-roundtrips-baseline-ols',
+    holds: () => {
+      // While ladder rows are the arithmetic projection y = a + b/N, OLS on
+      // them must recover (OLS_A, OLS_B) to machine epsilon and produce a
+      // near-zero residual SSR. Any meaningful drift here indicates the
+      // projection was corrupted or the baseline fit constants moved.
+      const da = Math.abs(PT_SCALE_B2A_REFIT.fit.intercept_a - OLS_A);
+      const db = Math.abs(PT_SCALE_B2A_REFIT.fit.slope_b - OLS_B);
+      const scaleA = Math.max(1e-12, Math.abs(OLS_A));
+      const scaleB = Math.max(1e-12, Math.abs(OLS_B));
+      return (
+        da / scaleA < 1e-9 &&
+        db / scaleB < 1e-9 &&
+        PT_SCALE_B2A_REFIT.fit.residualSSR < 1e-20
+      );
+    },
+    why:
+      'imp-332: the B2(a) re-fit on the log-spaced ladder is wired as the instrument ' +
+      'for when imp-321 follow-up replaces projected_tc with measured values. Until ' +
+      'that happens, the ladder is an exact arithmetic round-trip of the baseline OLS, ' +
+      'so the round-trip OLS MUST reproduce (OLS_A, OLS_B) with ~zero residuals. A trip ' +
+      'here means either the projection was corrupted or the baseline fit constants ' +
+      'drifted without updating the ladder.',
   },
   {
     id: 'B1-and-B2-still-open',

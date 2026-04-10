@@ -3879,12 +3879,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'P15-6: Csordas-Smith-Varga lower bound on Λ from tightest Lehmer pair',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
-    description: 'CSV formula: Λ ≥ f(gap, γ) for the tightest Lehmer pair. Compute from imp-295 database. Historical: CSV(1988) gave Λ > -50; Saouter-Demichel(2011) gave Λ > -1.15e-11. Our 1506 zeros give a (weaker) bound.',
+    description: 'CSV formula: Λ ≥ f(gap, γ) for the tightest Lehmer pair. Compute from imp-295 database. Historical: CSV(1988) gave Λ > -50; Saouter-Demichel(2011) gave Λ > -1.15e-11. Our 1506 zeros give a (weaker) bound. DELIVERED in src/data/csv-lambda-lower-bound.js: CSV_LAMBDA_LOWER_BOUND exports the simplified Csordas-Norfolk-Varga 1988 formula applied to the in-tree ZETA_ZEROS list (870 zeros), with top-5 tightest pairs and their per-pair Λ_n^CSV, the binding (least-negative) bound across the top 50 ranked pairs, the historical chain (CNV 1988 → CSV 1994 → Odlyzko 2000 → Saouter-Demichel-Trudgian 2011 → Rodgers-Tao 2020), and three CSV_LOWER_BOUND_ASSERTIONS guarding sign, dominance by Rodgers-Tao, and historical-chain monotonicity. Pairs with lambda-error-budget.js and bridge-lambda-rh.js so the squeeze (CSV_lower ≤ Λ ≤ Path C upper) is wired into the same data layer.',
     rationale: 'Combined with barrier upper bound: CSV_lower ≤ Λ ≤ barrier_upper. Squeezing from both sides.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-09',
   },
 
   {

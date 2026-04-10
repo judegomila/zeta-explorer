@@ -191,8 +191,8 @@ export default function EulerProductViz() {
       { label: 'Cumulative |ζ|', color: '#3b82f6', type: 'line' },
       { label: 'arg(ζ) phase', color: '#8b5cf6', type: 'line' },
       { label: 'True |ζ| (Borwein)', color: '#10b981', type: 'dash' },
-      { label: '|factor| > 1', color: 'rgba(59,130,246,0.6)', type: 'rect' },
-      { label: '|factor| < 1', color: 'rgba(245,158,11,0.6)', type: 'rect' },
+      { label: '|factor| > 1', color: 'rgba(59,130,246,0.4)', type: 'rect' },
+      { label: '|factor| < 1', color: 'rgba(245,158,11,0.4)', type: 'rect' },
     ];
     legend.append('rect')
       .attr('x', -6).attr('y', -10).attr('width', 150).attr('height', legendItems.length * 18 + 8)

@@ -7,7 +7,7 @@ import {
 } from '../math/odd-zeta.js';
 import { getPrimes } from '../math/primes.js';
 
-const TABS = ['Values & Convergence', 'Apery Sequences', 'Transfer Function', 'Linear Independence', 'Irrationality Measure'];
+const TABS = ['Values & Convergence', 'Apéry Sequences', 'Transfer Function', 'Linear Independence', 'Irrationality Measure'];
 const TAB_COLORS = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444'];
 
 // ─── Shared canvas drawing helpers ──────────────────────────────────────────
@@ -255,7 +255,7 @@ function ValuesTab({ selectedN, numPrimes }) {
   );
 }
 
-// ─── Tab 2: Apery Sequences ─────────────────────────────────────────────────
+// ─── Tab 2: Apéry Sequences ─────────────────────────────────────────────────
 
 function AperyTab() {
   const [maxTerms, setMaxTerms] = useState(18);
@@ -356,7 +356,7 @@ function AperyTab() {
     ctx.fillStyle = '#3b82f6';
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText("Apery convergents a_n/b_n approaching \u03B6(3)", margin.left + 4, margin.top + 14);
+    ctx.fillText("Ap\u00e9ry convergents a_n/b_n approaching \u03B6(3)", margin.left + 4, margin.top + 14);
 
     // ─── Bottom: Error convergence (log scale) ───
     const g2Top = margin.top + halfH + 44;
@@ -485,7 +485,7 @@ function AperyTab() {
         style={{ width: '100%', height: 420, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }} />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 12 }}>
         {[
-          { label: "Apery's Constant", value: data.aperyConstant?.toFixed(10) || 'N/A', color: '#10b981' },
+          { label: "Apéry's Constant", value: data.aperyConstant?.toFixed(10) || 'N/A', color: '#10b981' },
           { label: 'Best Convergent', value: data.convergents[data.convergents.length - 1]?.value?.toFixed(10) || 'N/A', color: '#3b82f6' },
           { label: 'Final Error', value: data.convergents[data.convergents.length - 1]?.error?.toExponential(2) || 'N/A', color: '#ef4444' },
         ].map(m => (
@@ -496,7 +496,7 @@ function AperyTab() {
         ))}
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        Apery proved <InlineMath tex={"\\zeta(3)"} /> is irrational using the recurrence{' '}
+        Apéry proved <InlineMath tex={"\\zeta(3)"} /> is irrational using the recurrence{' '}
         <InlineMath tex="(n+1)^3 a_{n+1} = (2n+1)(17n^2+17n+5)a_n - n^3 a_{n-1}" />.{' '}
         The convergents <InlineMath tex="a_n/b_n" /> approach <InlineMath tex={"\\zeta(3)"} /> at a geometric rate{' '}
         <InlineMath tex={"\\sim (1+\\sqrt{2})^{-4n}"} />, which is too fast for <InlineMath tex={"\\zeta(3)"} /> to be rational.

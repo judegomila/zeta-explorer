@@ -145,8 +145,8 @@ function TriangleTab() {
     <div>
       <div className="tab-explainer accent-green">
         Pascal's triangle visualized as a heatmap with log-scaled coloring. Central binomial
-        coefficients <InlineMath tex={"\binom{2n}{n}"} /> are highlighted in gold — these connect to{' '}
-        <InlineMath tex={"\pi"} /> and appear as the spine of the triangle.
+        coefficients <InlineMath tex={"\\binom{2n}{n}"} /> are highlighted in gold — these connect to{' '}
+        <InlineMath tex={"\\pi"} /> and appear as the spine of the triangle.
         <strong> Look for:</strong> the gold-outlined entries growing much faster than their neighbors.
       </div>
       <div className="controls">

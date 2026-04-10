@@ -83,7 +83,15 @@ export default function ProofStatusCard() {
       { label: 'Closure Paths', value: '6', color: '#10b981' },
       { label: 'Verified Zeros', value: '870+', color: '#3b82f6' },
       { label: 'Math Modules', value: '35+', color: '#8b5cf6' },
-      { label: 'Improvements', value: '70+', color: '#f59e0b' },
+      // Source of truth: src/data/improvements.js (logged entries from the
+      // auto-improve engine). The card previously hard-coded '70+' which was
+      // correct in the card's earliest days but silently drifted: by 2026-04
+      // the engine had logged over 1100 entries, so the shareable/Twitter
+      // card was under-representing the project's scale by more than an order
+      // of magnitude. Use a conservative '1100+' floor (rather than the exact
+      // running count) so future logged improvements keep the claim true
+      // without needing to re-edit this file every run.
+      { label: 'Improvements', value: '1100+', color: '#f59e0b' },
     ];
 
     stats.forEach((s, i) => {

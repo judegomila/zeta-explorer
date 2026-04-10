@@ -216,8 +216,10 @@ export default function EnergyLandscapeViz() {
       ctx.fillRect(barX, barH - i + 10, 16, 1);
     }
     ctx.fillStyle = '#94a3b8'; ctx.font = '9px monospace';
+    ctx.textAlign = 'right';
     ctx.fillText(vMax.toFixed(1), barX - 2, 18);
     ctx.fillText(vMin.toFixed(1), barX - 2, barH + 12);
+    ctx.textAlign = 'start';
 
     // Colorbar title label (rotated, beside the bar)
     const barLabels = {

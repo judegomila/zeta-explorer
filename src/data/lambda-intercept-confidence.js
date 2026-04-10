@@ -143,7 +143,93 @@ function olsFit(points) {
   return { n, dof, a, b, Sxx, Sxy, xbar, ybar, sigma, sigma2, seA, seB, residuals, ssr };
 }
 
+// imp-331: Weighted least squares re-fit of the same baseline.
+//
+// imp-331 asked for WLS with weights w_i = 1/δ(t_c, N_i)² using the certified
+// per-N bounds from interval-dyson-collision.js (imp-318). That file runs a
+// verified-computing backward Dyson at a single witness N = 12 and does NOT
+// currently produce δ(t_c) at the baseline values N ∈ {50, 100, 200, 500,
+// 2458}, so the literal weight list called for in the ticket is not yet
+// available. In its place we adopt a DECLARED relative-error model
+//
+//     δ(t_c, N_i) ≈ σ_rel · y_i
+//
+// motivated by the empirical behaviour of the float64 RK4 + Kahan backward
+// integrator: the per-trajectory drift is dominated by the accumulated
+// Richardson tail at the final steps, which scales with the collision time
+// t_c itself rather than with N directly. With that model the weights become
+//
+//     w_i = 1 / (σ_rel² · y_i²)   ∝   1 / y_i²
+//
+// and, crucially, the WLS point estimate and the CI half-widths are invariant
+// under rescaling w_i → k·w_i (the empirical residual variance σ̂²_w absorbs
+// the constant and the k cancels out of Var(â) = σ̂²_w · S_wxx / D). So the
+// (unknown) value of σ_rel drops out of everything reported here — we are
+// not smuggling in a guessed error magnitude, only the relative SHAPE of the
+// error as a function of N, and that shape is the minimum the ticket needs.
+//
+// What this WLS is useful for:
+//   - The large-N points (N = 500, 2458) have y_i ≈ 0.016, 0.009 which under
+//     this model are ~ (0.143/0.009)² ≈ 250× more precise than the N = 50
+//     point. WLS lets those tight points dominate the fit, which the ticket
+//     predicted would shift â toward zero and shrink SE(â).
+//   - It provides an independent B2(a) instrument alongside OLS — if WLS and
+//     OLS give meaningfully different â, the 5-point fit is sensitive to the
+//     weighting scheme and the whole angle-(a) route is fragile at this N.
+//
+// Honesty: this is NOT the certified-δ WLS imp-331 literally requested. It
+// IS a principled WLS re-fit with defensible weights and is clearly labelled
+// below as the interim deliverable. The certified-δ WLS becomes possible
+// once interval-dyson-collision.js (or a successor) runs at the baseline N.
+function wlsFit(points, weights) {
+  const n = points.length;
+  const xs = points.map((p) => 1 / p.N);
+  const ys = points.map((p) => p.tc);
+  const ws = weights;
+
+  let Sw = 0, Swx = 0, Swy = 0, Swxx = 0, Swxy = 0;
+  for (let i = 0; i < n; i++) {
+    const w = ws[i];
+    Sw += w;
+    Swx += w * xs[i];
+    Swy += w * ys[i];
+    Swxx += w * xs[i] * xs[i];
+    Swxy += w * xs[i] * ys[i];
+  }
+  const D = Sw * Swxx - Swx * Swx;
+  const b = (Sw * Swxy - Swx * Swy) / D;
+  const a = (Swxx * Swy - Swx * Swxy) / D;
+
+  const residuals = [];
+  let ssrW = 0;
+  for (let i = 0; i < n; i++) {
+    const yhat = a + b * xs[i];
+    const r = ys[i] - yhat;
+    residuals.push(r);
+    ssrW += ws[i] * r * r;
+  }
+  const dof = n - 2;
+  // Empirical (reduced) residual variance. Invariant to w → k·w because k
+  // enters numerator once and cancels against the k² in D in the Var(â)
+  // formula below, leaving the reported standard errors in the natural
+  // units of y regardless of how the weights are normalised.
+  const sigma2 = ssrW / dof;
+  const sigma = Math.sqrt(sigma2);
+
+  // Normal-equation variances: Var(â) = σ̂²_w · S_wxx / D, Var(b̂) = σ̂²_w · S_w / D.
+  const varA = sigma2 * Swxx / D;
+  const varB = sigma2 * Sw / D;
+  const seA = Math.sqrt(Math.abs(varA));
+  const seB = Math.sqrt(Math.abs(varB));
+
+  return { n, dof, a, b, sigma, sigma2, seA, seB, residuals, ssrW, weights: ws.slice() };
+}
+
 const FIT = olsFit(PATH_C_BASELINE_FIT);
+
+// Relative-error weights w_i = 1 / y_i² (invariant to the unknown σ_rel).
+const WLS_WEIGHTS = PATH_C_BASELINE_FIT.map((p) => 1 / (p.tc * p.tc));
+const WLS = wlsFit(PATH_C_BASELINE_FIT, WLS_WEIGHTS);
 
 function ciBounds(pointEstimate, standardError) {
   const out = {};
@@ -160,8 +246,12 @@ function ciBounds(pointEstimate, standardError) {
 const A_INTERVALS = ciBounds(FIT.a, FIT.seA);
 const B_INTERVALS = ciBounds(FIT.b, FIT.seB);
 
+const A_INTERVALS_WLS = ciBounds(WLS.a, WLS.seA);
+const B_INTERVALS_WLS = ciBounds(WLS.b, WLS.seB);
+
 // How far off zero we are in SE units — "how many SE to cross 0 from a".
 const aOverSe = FIT.a / FIT.seA;
+const aOverSeWls = WLS.a / WLS.seA;
 
 export const LAMBDA_INTERCEPT_CONFIDENCE = {
   purpose:
@@ -244,6 +334,39 @@ export const LAMBDA_INTERCEPT_CONFIDENCE = {
   // Same for the slope, for completeness.
   slopeIntervals: B_INTERVALS,
 
+  // imp-331: weighted least squares re-fit with relative-error weights
+  // w_i = 1/y_i² (see wlsFit comment above for the full honesty block).
+  // Reported alongside the OLS so the B2(a) angle (a) instrument can be
+  // cross-checked under a weighting scheme that favours the precise large-N
+  // points over the noisier small-N points.
+  wlsFit: {
+    weights: WLS.weights,
+    weightModel: 'w_i = 1/y_i² (relative-error model δ(t_c) ∝ t_c; see wlsFit JSDoc block)',
+    n: WLS.n,
+    dof: WLS.dof,
+    intercept_a: WLS.a,
+    slope_b: WLS.b,
+    residualStdDev: WLS.sigma,
+    residualSSR_weighted: WLS.ssrW,
+    seIntercept: WLS.seA,
+    seSlope: WLS.seB,
+    residuals: WLS.residuals,
+    interceptIntervals: A_INTERVALS_WLS,
+    slopeIntervals: B_INTERVALS_WLS,
+    tStatAgainstZero: aOverSeWls,
+    nullAEqualsZeroRejected95: Math.abs(aOverSeWls) > T_CRIT['two-sided-95'],
+    interceptShiftFromOLS: WLS.a - FIT.a,
+    seShrinkFromOLS: FIT.seA - WLS.seA,
+    aEstablishedBelowZero_oneSided95: A_INTERVALS_WLS['one-sided-95'].upper <= 0,
+    aConsistentWithZero_twoSided95: A_INTERVALS_WLS['two-sided-95'].lower <= 0,
+    note:
+      'interval-dyson-collision.js (imp-318) does not currently produce certified ' +
+      'δ(t_c, N_i) at the baseline N ∈ {50, 100, 200, 500, 2458}. Until it does, ' +
+      'this WLS uses a DECLARED relative-error model that is invariant to the ' +
+      'unknown σ_rel constant. It is a principled interim deliverable for imp-331, ' +
+      'not the certified-δ WLS the ticket ultimately calls for.',
+  },
+
   // How many SEs â is above 0 — equivalently, the t-statistic against H0: a = 0.
   tStatAgainstZero: aOverSe,
   // Whether the null a = 0 is rejected at two-sided 95% on df = 3.
@@ -307,6 +430,21 @@ export const INTERCEPT_CONFIDENCE_ASSERTIONS = [
       'This file currently documents the HONEST state that B2(a) is not yet closed. If an ' +
       'edit flips this assertion to "closed" silently, it must also update ' +
       'lambda-zero-attack.js LAMBDA_ZERO_CLOSURE and bridge-lambda-rh.js remainingSteps.',
+  },
+  {
+    id: 'wls-intercept-finite-and-non-negative',
+    holds: () =>
+      Number.isFinite(LAMBDA_INTERCEPT_CONFIDENCE.wlsFit.intercept_a) &&
+      LAMBDA_INTERCEPT_CONFIDENCE.wlsFit.intercept_a >= 0,
+    why:
+      'imp-331: the WLS re-fit must produce a finite, non-negative â. Rodgers-Tao ' +
+      'forces Λ ≥ 0, so a negative WLS intercept would indicate a broken weighting ' +
+      'scheme or a corrupted baseline tuple, not a violation of the true lower bound.',
+  },
+  {
+    id: 'wls-se-strictly-positive',
+    holds: () => LAMBDA_INTERCEPT_CONFIDENCE.wlsFit.seIntercept > 0,
+    why: 'imp-331: a degenerate WLS with zero SE collapses the CI construction.',
   },
   {
     id: 'headline-within-one-se',

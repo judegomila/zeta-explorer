@@ -724,7 +724,9 @@ function TransferTab({ selectedN, numPrimes }) {
         {[
           { label: `\u03B6(${selectedN}) Total Transfer`, value: tfData.totalTransfer?.toFixed(8) || 'N/A', color: '#8b5cf6' },
           { label: 'Stages', value: `${tfData.stages?.length || 0} primes`, color: '#3b82f6' },
-          { label: 'Leading Decay', value: tfData.stages?.[0] ? `2^{-${selectedN}} = ${tfData.stages[0].decay.toExponential(3)}` : 'N/A', color: '#f59e0b' },
+          // Render the exponent with Unicode superscript digits so the stat-box label
+          // shows "2⁻ⁿ = …" instead of leaking literal LaTeX braces "2^{-n} = …" to the user.
+          { label: 'Leading Decay', value: tfData.stages?.[0] ? `2⁻${String(selectedN).split('').map(d => '⁰¹²³⁴⁵⁶⁷⁸⁹'[+d]).join('')} = ${tfData.stages[0].decay.toExponential(3)}` : 'N/A', color: '#f59e0b' },
         ].map(m => (
           <div key={m.label} className="stat-box" style={{ padding: '8px 10px' }}>
             <div style={{ color: m.color, fontWeight: 700, fontSize: 13, fontFamily: 'var(--font-mono)' }}>{m.value}</div>

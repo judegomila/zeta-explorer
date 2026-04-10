@@ -22,7 +22,10 @@ export default function ThermoBar({ sigma, t, numPrimes = 10 }) {
   const meta = PHASE_META[thermo.phase] || PHASE_META['critical-strip'];
 
   const items = [
-    { k: 'T', v: Math.abs(sigma) < 0.01 ? '\u221E' : safe(thermo.temperature, 2), c: '#f59e0b', tip: 'Temperature T = 1/σ — inverse of the real part of s. Diverges at σ → 0; the critical line σ = ½ corresponds to T = 2.' },
+    // ∞ only shown when σ approaches 0 from the positive (convergent) side; for σ ≤ 0 the
+    // primon-gas partition function ζ(σ) = Σ n^{-σ} does not converge so T is undefined, not
+    // infinite — supercritical.js returns NaN there and safe() renders it as '—'. See imp-1160.
+    { k: 'T', v: sigma > 0 && sigma < 0.01 ? '\u221E' : safe(thermo.temperature, 2), c: '#f59e0b', tip: 'Temperature T = 1/σ — inverse of the real part of s. Diverges as σ → 0⁺ (T undefined for σ ≤ 0 since ζ(σ) = Σ n^{-σ} does not converge); the critical line σ = ½ corresponds to T = 2.' },
     { k: 'P', v: safe(thermo.pressure, 4), c: '#8b5cf6', tip: 'Pressure P = (1/N) Σ_p log|1/(1−p^{−s})| — average log-magnitude of Euler factors, measuring how hard primes "push" at this point in the critical strip.' },
     { k: 'F', v: safe(thermo.freeEnergy, 3), c: '#06b6d4', tip: 'Free energy F = −T·log|ζ(s)| — thermodynamic potential minimized at equilibrium. Zeta zeros correspond to F → +∞ (phase transitions).' },
     { k: 'S', v: safe(thermo.entropy, 3), c: '#10b981', tip: 'Entropy S = log|ζ| − σ·∂log|ζ|/∂σ — measures the disorder of the oscillator chain. Higher entropy = more spread in prime oscillator phases.' },

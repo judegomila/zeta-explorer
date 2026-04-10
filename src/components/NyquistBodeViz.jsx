@@ -41,8 +41,14 @@ export default function NyquistBodeViz() {
       points.push({ t, re: L[0], im: L[1], mag: cAbs(L) });
     }
     // Negative frequency (mirror): by Schwarz reflection, L(σ−it) = conj(L(σ+it)),
-    // so Re is unchanged and Im is negated — no need to recompute 301 expensive zeta evaluations
-    const negPoints = points.map(p => ({ t: -p.t, re: p.re, im: -p.im }));
+    // so Re is unchanged and Im is negated — no need to recompute 301 expensive zeta evaluations.
+    // REVERSE before negating so the mirror is stored in increasing-ω order (t=−tMax → t=−tMin).
+    // The Nyquist contour is traversed with ω monotonically increasing from −∞ through 0 to +∞;
+    // without the reverse, negPoints ran t=−1 → t=−60 (ω decreasing), which flipped the arrow
+    // directions drawn below and inverted the encirclement sense of −1 — the whole point of a
+    // Nyquist plot, since encirclements of −1 count zeros off the critical line via the argument
+    // principle. The curve shape is unchanged by the reverse; only arrow orientation is fixed.
+    const negPoints = points.slice().reverse().map(p => ({ t: -p.t, re: p.re, im: -p.im }));
     return { points, negPoints };
   }, [sigma, tRange, computeLoopGain]);
 

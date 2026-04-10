@@ -422,7 +422,7 @@ function ConstantsTab() {
       <div className="tab-explainer accent-blue">
         Three fundamental constants extracted from Pascal's triangle:{' '}
         <InlineMath tex="e" /> via Brothers' row-product ratios,{' '}
-        <InlineMath tex={"\pi"} /> via central binomials, and{' '}
+        <InlineMath tex={"\\pi"} /> via central binomials, and{' '}
         <InlineMath tex="i" /> via Euler's identity. The bottom chart shows convergence errors on a log scale.
         <strong> Look for:</strong> Brothers' formula (blue) converging faster than the classical{' '}
         <InlineMath tex="(1+1/n)^n" /> (purple dashed).

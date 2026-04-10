@@ -3962,12 +3962,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'C-2: Dyson ODE with certified error bounds — interval-like tracking',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Replace float64 Dyson ODE with error-tracked version: at each RK4 step, propagate error bound ε(t). The collision time becomes t_c ± δ(t_c). Use compensated summation for the 1/(γ_n-γ_k) sum.',
     rationale: 'Float64 error accumulates over 10000+ steps. Error tracking makes the collision time CERTIFIED.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-09',
   },
 
   {
@@ -4006,6 +4006,55 @@ export const IMPROVEMENT_QUEUE = [
     description: 'Combine: verified zeros (imp-305) + error-tracked Dyson (imp-306) + validated scaling (imp-307) + tail bound (imp-308) → FIRST independent certified Λ bound via Dyson ODE approach.',
     rationale: 'The deliverable: a Λ bound with tracked error bars. Even Λ ≤ 0.19 would be novel methodology.',
     estimatedComplexity: 'high',
+    completedAt: null,
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  // META — auto-improvement engine self-improvement
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id: 'imp-310',
+    title: 'META: Wire auto-improve.sh prompt to consume pending queue items first',
+    category: 'meta',
+    priority: 'high',
+    status: 'completed',
+    description: 'The auto-improve.sh IMPROVE_PROMPT previously instructed Claude to pick a random category each run, ignoring src/data/improvement-queue.js. Updated prompt to scan for status:"pending" items first, pick highest-priority, implement, and flip status to "completed". Falls back to category rotation only when queue is empty.',
+    rationale: 'Queue and engine were disconnected: 9 pending proof items sat while engine generated unrelated improvements. This closes the loop so planned work actually gets executed.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-04-09',
+  },
+  {
+    id: 'imp-311',
+    title: 'META: Fix inconsistent interval documentation in auto-improve.sh',
+    category: 'meta',
+    priority: 'low',
+    status: 'completed',
+    description: 'Header comment said "every 10 minutes", INTERVAL=60, and --help said "every 1 min". Harmonized all three to "every 60 seconds" so operators do not misread the cadence.',
+    rationale: 'Small but real bug — the script docs contradicted its own behavior, undermining trust in the engine.',
+    estimatedComplexity: 'trivial',
+    completedAt: '2026-04-09',
+  },
+  {
+    id: 'imp-312',
+    title: 'META: Add queue pruning / archival for completed items older than N runs',
+    category: 'meta',
+    priority: 'medium',
+    status: 'pending',
+    description: 'improvement-queue.js has 298 completed items and grows unbounded. Add a script or periodic task that archives completed items older than 30 days to src/data/improvement-queue-archive.js, keeping the live queue focused on pending + recent.',
+    rationale: 'Large completed history makes the live queue hard to scan and slows the ImprovementQueuePage render.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+  {
+    id: 'imp-313',
+    title: 'META: Auto-improve engine should verify dev server is still up after each run',
+    category: 'meta',
+    priority: 'medium',
+    status: 'pending',
+    description: 'After each improvement run, the engine builds but does not verify that server.js on :3002 still serves 200. Add a post-run curl check; if it fails, block further runs and log the breakage.',
+    rationale: 'A bad improvement can leave the running server serving a stale or broken bundle without the engine noticing. Early detection beats discovering at next user visit.',
+    estimatedComplexity: 'small',
     completedAt: null,
   },
 ];

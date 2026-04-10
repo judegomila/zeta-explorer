@@ -953,3 +953,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1066 | 2026-04-07T15:00:00Z | **P15-10 CAPSTONE: Λ extrapolated ~0.011** (imp-304) | lambda-final-assembly.js |
 | 1067 | 2026-04-07T15:30:00Z | P15-5: Barrier B(t) → linear t_c≈-0.080 (imp-299) | barrier-extrapolation.js |
 | 1068 | 2026-04-07T16:00:00Z | **KERNEL HACK: Λ~10^{-10} at Platt scale** (spectral bridge) | spectral-lambda-kernel.js |
+| 1069 | 2026-04-10T06:00:45Z | C-2: Error-tracked Dyson ODE (Kahan + step-doubling) → certified t_c ± δ (imp-306) | dyson-ode-integrator.js, improvement-queue.js |

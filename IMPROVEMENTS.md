@@ -955,3 +955,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1068 | 2026-04-07T16:00:00Z | **KERNEL HACK: Λ~10^{-10} at Platt scale** (spectral bridge) | spectral-lambda-kernel.js |
 | 1069 | 2026-04-10T06:00:45Z | C-2: Error-tracked Dyson ODE (Kahan + step-doubling) → certified t_c ± δ (imp-306) | dyson-ode-integrator.js, improvement-queue.js |
 | 1070 | 2026-04-09T12:00:00Z | **Bridge theorem Λ→RH: explicit chain + unit-testable assertions** (imp-316) | bridge-lambda-rh.js, improvement-queue.js |
+| 1071 | 2026-04-09T13:00:00Z | **Λ error-budget audit**: ±0.01 itemised → fit-intercept SE binding (imp-314) | lambda-error-budget.js, improvement-queue.js |

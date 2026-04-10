@@ -578,11 +578,11 @@ function HasseTab() {
   return (
     <div>
       <div className="tab-explainer accent-purple">
-        The Hasse–Sondow formula computes <InlineMath tex={"\zeta(s)"} /> entirely from Pascal triangle
+        The Hasse–Sondow formula computes <InlineMath tex={"\\zeta(s)"} /> entirely from Pascal triangle
         rows: each row <InlineMath tex="n" /> contributes a weighted forward difference of <InlineMath tex="(k+1)^{-s}" />.
         Purple bars show per-row contribution magnitude; the blue curve is the running partial sum.
         <strong> Look for:</strong> rapid convergence when <InlineMath tex="t" /> is snapped to a zeta zero
-        (green indicator appears), where <InlineMath tex={"|\zeta(s)| \to 0"} />.
+        (green indicator appears), where <InlineMath tex={"|\\zeta(s)| \\to 0"} />.
       </div>
       <div className="controls">
         <div className="control-group">
@@ -760,11 +760,11 @@ function DecoratedTab() {
   return (
     <div>
       <div className="tab-explainer accent-orange">
-        The "decorated" zeta scans <InlineMath tex={"|\zeta(\sigma + it)|"} /> across <InlineMath tex={"\sigma"} /> using the
+        The "decorated" zeta scans <InlineMath tex={"|\\zeta(\\sigma + it)|"} /> across <InlineMath tex={"\\sigma"} /> using the
         full Hasse–Sondow series (top), while the bottom shows a single Pascal row's Dirichlet
         polynomial <InlineMath tex={"Z_N(s) = \\sum_{k=0}^N (-1)^k\\binom{N}{k}(k+1)^{-s}"} />.
-        <strong> Look for:</strong> the dip near <InlineMath tex={"\sigma = 0.5"} /> when <InlineMath tex="t" /> is
-        close to a zeta zero, and higher rows growing exponentially for small <InlineMath tex={"\sigma"} />.
+        <strong> Look for:</strong> the dip near <InlineMath tex={"\\sigma = 0.5"} /> when <InlineMath tex="t" /> is
+        close to a zeta zero, and higher rows growing exponentially for small <InlineMath tex={"\\sigma"} />.
       </div>
       <div className="controls">
         <div className="control-group">

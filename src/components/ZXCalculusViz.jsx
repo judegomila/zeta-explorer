@@ -930,17 +930,17 @@ export default function ZXCalculusViz() {
       {/* Tab explainers */}
       {tab === 0 && (
         <div className="tab-explainer accent-green">
-          Each prime <InlineMath tex="p" /> becomes a <strong>Z-spider</strong> with phase <InlineMath tex={"\alpha_p = -t\log p"} /> and
-          magnitude <InlineMath tex={"p^{-\sigma}"} />. The cascade product of all spiders gives the Euler product
-          for <InlineMath tex={"\zeta(s)"} />. Toggle <em>Fused</em> to see spider fusion collapse the chain into a single node
+          Each prime <InlineMath tex="p" /> becomes a <strong>Z-spider</strong> with phase <InlineMath tex={"\\alpha_p = -t\\log p"} /> and
+          magnitude <InlineMath tex={"p^{-\\sigma}"} />. The cascade product of all spiders gives the Euler product
+          for <InlineMath tex={"\\zeta(s)"} />. Toggle <em>Fused</em> to see spider fusion collapse the chain into a single node
           whose phase is the total phase accumulation.
         </div>
       )}
       {tab === 1 && (
         <div className="tab-explainer accent-purple">
-          The twin ladder shows the <strong>direct</strong> path (green, <InlineMath tex={"\zeta(s)"} />) and <strong>dual</strong> path
-          (red, <InlineMath tex={"\zeta(1-s)"} />) connected by the <strong>bridge</strong> <InlineMath tex={"\chi(s)"} /> (gold).
-          At <InlineMath tex={"\sigma = \tfrac{1}{2}"} /> the bridge becomes unitary and both ladders have equal magnitude —
+          The twin ladder shows the <strong>direct</strong> path (green, <InlineMath tex={"\\zeta(s)"} />) and <strong>dual</strong> path
+          (red, <InlineMath tex={"\\zeta(1-s)"} />) connected by the <strong>bridge</strong> <InlineMath tex={"\\chi(s)"} /> (gold).
+          At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> the bridge becomes unitary and both ladders have equal magnitude —
           this is the functional equation rendered as a ZX diagram.
         </div>
       )}
@@ -954,8 +954,8 @@ export default function ZXCalculusViz() {
       )}
       {tab === 3 && (
         <div className="tab-explainer accent-yellow">
-          Scans <InlineMath tex={"\sigma"} /> across the critical strip and plots the magnitude of the Z-chain (direct) vs
-          X-chain (dual). At <InlineMath tex={"\sigma = \tfrac{1}{2}"} /> the two curves cross — the diagram has perfect
+          Scans <InlineMath tex={"\\sigma"} /> across the critical strip and plots the magnitude of the Z-chain (direct) vs
+          X-chain (dual). At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> the two curves cross — the diagram has perfect
           Z ↔ X <strong>color symmetry</strong>. The gold asymmetry curve measures the gap; its zero at the critical line
           is the functional equation's fixed point.
         </div>

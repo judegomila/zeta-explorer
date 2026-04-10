@@ -141,12 +141,12 @@ export default function WaveSimPage() {
       {/* Worked Example: First Zeta Zero */}
       <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #a855f7' }}>
         <h3 style={{ color: '#a855f7', fontSize: 14, marginBottom: 12 }}>
-          Worked Example: Destructive Interference at <InlineMath tex={"\gamma_1 \approx 14.134"} />
+          Worked Example: Destructive Interference at <InlineMath tex={"\\gamma_1 \\approx 14.134"} />
         </h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
-          At the first zeta zero <InlineMath tex={"t = \gamma_1 \approx 14.134"} />, the oscillator
+          At the first zeta zero <InlineMath tex={"t = \\gamma_1 \\approx 14.134"} />, the oscillator
           phases from each prime conspire to cancel. Each prime <InlineMath tex="p" /> contributes a
-          phasor <InlineMath tex={"p^{-1/2} e^{-i \gamma_1 \log p}"} /> to the Euler product. Here are the
+          phasor <InlineMath tex={"p^{-1/2} e^{-i \\gamma_1 \\log p}"} /> to the Euler product. Here are the
           individual phases (in degrees) for the first few primes:
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 8, marginBottom: 16 }}>
@@ -169,15 +169,15 @@ export default function WaveSimPage() {
           ))}
         </div>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
-          Each phasor points in a different direction, and at <InlineMath tex={"t = \gamma_1"} /> they
+          Each phasor points in a different direction, and at <InlineMath tex={"t = \\gamma_1"} /> they
           are distributed around the complex plane so that their vector sum cancels. This is the
           "destructive interference" condition: no single prime dominates — instead, the cumulative
           product of all <InlineMath tex="(1 - p^{-s})^{-1}" /> factors reaches zero magnitude.
         </p>
-        <BlockMath tex={"\prod_{p} \frac{1}{1 - p^{-1/2 - i\gamma_1}} = 0 \quad \Longleftrightarrow \quad \text{phasors cancel in the Euler product}"} />
+        <BlockMath tex={"\\prod_{p} \\frac{1}{1 - p^{-1/2 - i\\gamma_1}} = 0 \\quad \\Longleftrightarrow \\quad \\text{phasors cancel in the Euler product}"} />
         <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
           Use the <strong style={{ color: '#f59e0b' }}>Per-Prime Waves</strong> tab with{' '}
-          <InlineMath tex={"t \approx 14.13"} /> to see this cancellation visually. Each row shows
+          <InlineMath tex={"t \\approx 14.13"} /> to see this cancellation visually. Each row shows
           a prime's direct and dual waveforms; the{' '}
           <strong style={{ color: '#10b981' }}>Wave Interference</strong> tab then shows the
           superposition plunging toward zero at this frequency.

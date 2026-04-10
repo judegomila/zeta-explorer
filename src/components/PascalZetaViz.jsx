@@ -168,6 +168,9 @@ function TriangleTab() {
         </p>
         <BlockMath tex={"\\pi = \\lim_{n\\to\\infty} \\frac{4^{2n}}{n\\,C(2n,n)^2}"} />
         <p style={{ color: '#94a3b8', margin: 0 }}>
+          Stirling's approximation gives <InlineMath tex={"C(2n,n) \\sim 4^{n}/\\sqrt{\\pi n}"} />,
+          so <InlineMath tex={"4^{2n}/(n\\,C(2n,n)^2) \\to \\pi"} /> as <InlineMath tex={"n\\to\\infty"} />.
+          The convergence is slow (<InlineMath tex={"O(1/n)"} />), so even <InlineMath tex={"n=100"} /> only gives <InlineMath tex={"\\pi"} /> to about 3 decimals.
         </p>
       </div>
     </div>

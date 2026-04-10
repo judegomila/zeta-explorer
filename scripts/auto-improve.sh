@@ -91,6 +91,12 @@ do_start() {
   # Run in background
   (
     run_count=0
+    # Exponential backoff state — doubles on each rate-limit hit, resets on
+    # a clean run. Bounded by BACKOFF_MAX_S so we don't sleep forever.
+    backoff_s=0
+    BACKOFF_MAX_S=1800  # 30 minutes
+    BACKOFF_STATE_FILE="$SCRIPT_DIR/.rate-limit-backoff-state"
+    rm -f "$BACKOFF_STATE_FILE"
 
     while [ "$run_count" -lt "$MAX_RUNS" ]; do
       run_count=$((run_count + 1))
@@ -114,9 +120,50 @@ do_start() {
       echo "=== Run #$run_count complete ===" >> "$log_file"
       echo "Run #$run_count complete. Log: $log_file"
 
-      # Wait for next interval (unless max reached)
+      # ── Rate-limit detection + exponential backoff ──────────────────────
+      # Scan this run's log for any of the known rate-limit / API error
+      # patterns. On detection: double the backoff sleep, write a sentinel
+      # file with the current state (so the monitor cron and a human
+      # operator can see the engine is backing off), and record that the
+      # current ticket remains pending (the engine's prompt only flips
+      # pending → completed after a successful commit, so mid-run failures
+      # naturally leave the ticket in the queue — the sentinel just makes
+      # that state explicit and visible).
+      if grep -qiE "rate.?limit|429|quota.?exceed|ConnectionRefused|API Error|too many requests" "$log_file"; then
+        if [ "$backoff_s" -eq 0 ]; then
+          backoff_s=60
+        else
+          backoff_s=$((backoff_s * 2))
+        fi
+        if [ "$backoff_s" -gt "$BACKOFF_MAX_S" ]; then
+          backoff_s=$BACKOFF_MAX_S
+        fi
+        error_line=$(grep -iE "rate.?limit|429|quota.?exceed|ConnectionRefused|API Error|too many requests" "$log_file" | head -1)
+        cat > "$BACKOFF_STATE_FILE" << EOF
+{
+  "detected_at": "$timestamp",
+  "run_number": $run_count,
+  "log_file": "$log_file",
+  "error_line": $(echo "$error_line" | python3 -c "import sys, json; print(json.dumps(sys.stdin.read().strip()))"),
+  "current_backoff_seconds": $backoff_s,
+  "note": "Any ticket started by this run remains status:pending in improvement-queue.js — the prompt only flips status after a successful commit, so mid-run failures naturally queue the in-flight work for the next clean run.",
+  "resume_strategy": "Sleep backoff_s seconds then retry. If the next run also hits the pattern, backoff doubles. A clean run resets backoff to 0."
+}
+EOF
+        echo "RATE LIMIT DETECTED on run #$run_count. Backing off ${backoff_s}s (sentinel: $BACKOFF_STATE_FILE)" | tee -a "$log_file"
+      else
+        # Clean run — reset backoff and clear sentinel.
+        if [ -f "$BACKOFF_STATE_FILE" ]; then
+          rm -f "$BACKOFF_STATE_FILE"
+          echo "Clean run — rate-limit sentinel cleared, backoff reset." | tee -a "$log_file"
+        fi
+        backoff_s=0
+      fi
+
+      # Wait for next interval, plus the exponential backoff if any.
       if [ "$run_count" -lt "$MAX_RUNS" ]; then
-        sleep "$INTERVAL"
+        sleep_total=$((INTERVAL + backoff_s))
+        sleep "$sleep_total"
       fi
     done
 

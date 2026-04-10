@@ -1008,6 +1008,9 @@ export default function HomePage() {
         <Link to="/research-journal" style={{ textDecoration: 'none' }}>
           <div className="card"><h3 style={{ color: '#a855f7' }}>Research Journal</h3><p>Coarse-grained session narratives of the RH Λ attack — built for cheap session handoff.</p></div>
         </Link>
+        <Link to="/meta-acceleration" style={{ textDecoration: 'none' }}>
+          <div className="card"><h3 style={{ color: '#facc15' }}>Meta Acceleration</h3><p>Engine status dashboard + Λ attack progress snapshot — phases, open gaps, three-route closure.</p></div>
+        </Link>
       </div>
     </div>
   );

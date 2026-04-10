@@ -102,7 +102,7 @@
  * (C) imp-337/342/343 density squeeze: close G3_density (Weyl-law
  *     derivation of c(N) > 2 in S_k* ≥ c(N)/B²). imp-343 already closed
  *     the related G4_argmin_drift. With G3 closed, the boundary identity
- *     dg_k*/dt = 4/B − 2B·S_k* gives dg_k*/dt ≤ 0 strictly, integrating
+ *     dg_{k*}/dt = 4/B − 2B·S_k* gives dg_{k*}/dt ≤ 0 strictly, integrating
  *     to a per-N bound on τ_c without any limit or conjecture.
  *
  * Any of (A), (B), (C) alone is enough to produce a rigorous per-N
@@ -242,7 +242,7 @@ const ROUTE_C_DENSITY = {
   claim:
     'If S_k* ≥ c(N)/B² with c(N) > 2 derived rigorously from the Weyl ' +
     'density (G3_density closed) and the argmin drift is controlled ' +
-    '(G4_argmin_drift closed), then dg_k*/dt < 0 strictly under the ' +
+    '(G4_argmin_drift closed), then dg_{k*}/dt < 0 strictly under the ' +
     'boundary identity, giving a per-N upper bound on τ_c by direct ' +
     'integration.',
   empiricalStatus: {

@@ -49,6 +49,7 @@ const BlogPage = lazy(() => import('./pages/BlogPage.jsx'));
 const WikiPage = lazy(() => import('./pages/WikiPage.jsx'));
 const ProjectIndexPage = lazy(() => import('./pages/ProjectIndexPage.jsx'));
 const ResearchJournalPage = lazy(() => import('./pages/ResearchJournalPage.jsx'));
+const MetaAccelerationPage = lazy(() => import('./pages/MetaAccelerationPage.jsx'));
 
 function PageLoader() {
   return (
@@ -384,6 +385,7 @@ function AppShell() {
           <Route path="/index" element={<ProjectIndexPage />} />
           <Route path="/break-it" element={<BreakItPage />} />
           <Route path="/research-journal" element={<ResearchJournalPage />} />
+          <Route path="/meta-acceleration" element={<MetaAccelerationPage />} />
         </Routes>
         </Suspense>
       </div>

@@ -60,13 +60,13 @@
  * -------------------------------------------
  *
  * (i) imp-322 monotonicity + imp-325 repulsion squeeze
- *     The boundary identity dg_k*/dt = 4/B − 2 B · S_k* with S_k* ≤ 2/B²
- *     (imp-322) gives dg_k*/dt ≥ 0 forward — i.e. min-gap monotone in
+ *     The boundary identity dg_{k*}/dt = 4/B − 2 B · S_k* with S_k* ≤ 2/B²
+ *     (imp-322) gives dg_{k*}/dt ≥ 0 forward — i.e. min-gap monotone in
  *     forward time — and the Grönwall consequence τ_c(N) ≥ B(0,N)²/8
  *     (imp-325). To close B2(b) one needs a matching LOWER bound on
  *     S_k* that would invert the direction: an estimate of the form
  *     S_k*(t) ≥ c(N)/B(t)² with c(N) → 2 fast enough as N → ∞ would
- *     collapse the boundary identity to dg_k*/dt ≤ 0 strictly, and
+ *     collapse the boundary identity to dg_{k*}/dt ≤ 0 strictly, and
  *     integrating would give an UPPER bound on τ_c whose limit is 0.
  *     The obstruction: the only S_k* lower bound presently in reach is
  *     pointwise (c = 0) because nothing prevents the configuration
@@ -110,7 +110,7 @@
  * Heuristic: adding an extra zero γ_{N+1} contributes a positive
  * term to S_k*(t) for every k adjacent to the new particle and
  * zero contribution elsewhere, so S_k*(t) (weakly) increases
- * pointwise, and by the boundary identity dg_k*/dτ (backward time)
+ * pointwise, and by the boundary identity dg_{k*}/dτ (backward time)
  * is pushed more negative, bringing the collision forward. The
  * same heuristic underpins the numerical observation
  * b = 4.91 > 0 in the |t_c(N)| ≈ a + b/N fit.
@@ -173,7 +173,7 @@ export const LAMBDA_INTERCEPT_ANALYTIC = {
     'established without relying on the imp-323 statistical fit.',
   status: 'interim (conditional upper bound only)',
   consumes: [
-    DYSON_MONOTONICITY_THEOREM.id + ' — boundary identity dg_k*/dt = 4/B − 2 B S_k*',
+    DYSON_MONOTONICITY_THEOREM.id + ' — boundary identity dg_{k*}/dt = 4/B − 2 B S_k*',
     DYSON_COLLISION_LOWER_BOUND_THEOREM.id + ' — lower bound τ_c ≥ B(0)²/8',
     'imp-323 LAMBDA_INTERCEPT_CONFIDENCE.fit — OLS central â for cross-check',
   ],
@@ -181,9 +181,9 @@ export const LAMBDA_INTERCEPT_ANALYTIC = {
     {
       label: '(i) imp-322 + imp-325 squeeze',
       idea:
-        'Use the boundary identity dg_k*/dt = 4/B − 2 B S_k* and a matching ' +
+        'Use the boundary identity dg_{k*}/dt = 4/B − 2 B S_k* and a matching ' +
         'LOWER bound on S_k* of the form S_k* ≥ c(N)/B² with c(N) → 2 to ' +
-        'get dg_k*/dt ≤ 0 strictly, then integrate for an upper bound on τ_c.',
+        'get dg_{k*}/dt ≤ 0 strictly, then integrate for an upper bound on τ_c.',
       obstruction:
         'The only unconditional S_k* lower bound presently in reach is c = 0: ' +
         'nothing prevents the min-gap neighborhood from being locally thin on ' +

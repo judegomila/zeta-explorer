@@ -48,6 +48,7 @@ const ProofExplorerPage = lazy(() => import('./pages/ProofExplorerPage.jsx'));
 const BlogPage = lazy(() => import('./pages/BlogPage.jsx'));
 const WikiPage = lazy(() => import('./pages/WikiPage.jsx'));
 const ProjectIndexPage = lazy(() => import('./pages/ProjectIndexPage.jsx'));
+const ResearchJournalPage = lazy(() => import('./pages/ResearchJournalPage.jsx'));
 
 function PageLoader() {
   return (
@@ -382,6 +383,7 @@ function AppShell() {
           <Route path="/wiki" element={<WikiPage />} />
           <Route path="/index" element={<ProjectIndexPage />} />
           <Route path="/break-it" element={<BreakItPage />} />
+          <Route path="/research-journal" element={<ResearchJournalPage />} />
         </Routes>
         </Suspense>
       </div>

@@ -4312,11 +4312,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Research Journal in-app page — render SESSIONS.md entries with cross-links to queue and files',
     category: 'feature',
     priority: 'critical',
-    status: 'pending',
-    description: 'Build src/pages/ResearchJournalPage.jsx reading from a new src/data/sessions.js (coarse-grained session narratives — one entry per working session, matching the SESSIONS.md file at repo root). Each entry carries: date, session title, engine state delta, headline Λ value + provenance, seeded tickets (with links to ImprovementQueuePage), shipped files, key finding, current main-line blocker, open questions. Mirrors the improvements.js → ImprovementsPage pattern but at session granularity. Add a route in App.jsx and a link from HomePage. Future sessions read a single file to pick up context instead of re-deriving "B2 is the load-bearing blocker" from first principles.',
+    status: 'completed',
+    description: 'Build src/pages/ResearchJournalPage.jsx reading from a new src/data/sessions.js (coarse-grained session narratives — one entry per working session, matching the SESSIONS.md file at repo root). Each entry carries: date, session title, engine state delta, headline Λ value + provenance, seeded tickets (with links to ImprovementQueuePage), shipped files, key finding, current main-line blocker, open questions. Mirrors the improvements.js → ImprovementsPage pattern but at session granularity. Add a route in App.jsx and a link from HomePage. Future sessions read a single file to pick up context instead of re-deriving "B2 is the load-bearing blocker" from first principles. DELIVERED: src/data/sessions.js ships SESSIONS as a structured mirror of SESSIONS.md (one entry for the 2026-04-10 engine-rewiring + B2(a) closure session, carrying engineStateStart/End, lambdaHeadline with provenance, seededTickets grouped by phase with ticket-id cross-links, shippedFiles with ticket attribution, keyFinding, mainLineBlocker (B2(b) / imp-328), openQuestions, metaObservations). src/pages/ResearchJournalPage.jsx renders the sessions in reverse-chronological order with Link cross-references to /improvement-queue and /improvements. Wired at route /research-journal in App.jsx and linked from HomePage.jsx Reference & Documentation card grid. SESSIONS.md at the repo root remains the write-through; this page is the read interface.',
     rationale: 'Session continuity is currently zero — each new Claude session rediscovers the main-line blocker by reading IMPROVEMENTS.md and improvement-queue.js. A dedicated Research Journal makes the narrative arc of the Λ attack browsable and makes session handoff cheap. SESSIONS.md (repo root) is the write-through; this page is the read interface.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-10',
   },
 
   // ══════════════════════════════════════════════════════════════

@@ -1005,6 +1005,9 @@ export default function HomePage() {
         <Link to="/paper" style={{ textDecoration: 'none' }}>
           <div className="card"><h3 style={{ color: '#8b5cf6' }}>Paper</h3><p>The formal write-up of the ZPO framework as a research paper.</p></div>
         </Link>
+        <Link to="/research-journal" style={{ textDecoration: 'none' }}>
+          <div className="card"><h3 style={{ color: '#a855f7' }}>Research Journal</h3><p>Coarse-grained session narratives of the RH Λ attack — built for cheap session handoff.</p></div>
+        </Link>
       </div>
     </div>
   );

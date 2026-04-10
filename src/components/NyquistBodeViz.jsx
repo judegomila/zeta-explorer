@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import * as d3 from 'd3';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { losslessBridge } from '../math/oscillators.js';
-import { cMul, cDiv, cAdd, cSub, cAbs, cExp, cPow, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
+import { cMul, cDiv, cAbs, zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
 import ThermoBar from './ThermoBar.jsx';
 
 /**

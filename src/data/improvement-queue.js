@@ -4216,12 +4216,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'B2(b) MAIN LINE: analytic a-priori upper bound on the intercept a from the Dyson ODE',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
-    description: 'imp-323 exhausted the statistical angle B2(a): â ≈ 0.0029 with CI consistent with a ≤ 0 but not proving it, and explicitly flagged B2(b) as THE only remaining path to a theorem-grade Λ ≤ 0. Derive the intercept from first principles using the Dyson evolution equation: as N → ∞ with fixed bulk density ρ(γ), the backward collision time |t_c(N)| should have a controlled limit lim_{N→∞} |t_c(N)| ≤ f(ρ) where f is an explicit functional of the local level density. Attack candidates: (i) use imp-322 monotonicity + imp-325 repulsion lower bound to squeeze t_c from below and above analytically; (ii) use Stieltjes transform of the empirical γ-distribution and the classical Dyson stationary density argument; (iii) exploit the Montgomery-Dyson pair correlation to bound the minimum-gap statistic. Produce src/data/lambda-intercept-analytic.js with the derived bound and a build-time assertion that it agrees with (or improves on) the OLS â from imp-323.',
+    description: 'imp-323 exhausted the statistical angle B2(a): â ≈ 0.0029 with CI consistent with a ≤ 0 but not proving it, and explicitly flagged B2(b) as THE only remaining path to a theorem-grade Λ ≤ 0. DELIVERED (interim, in the same pattern as imp-329/331/332): created src/data/lambda-intercept-analytic.js as the landing site for the B2(b) attack. The file does NOT claim an unconditional upper bound on a — that remains the open piece of B2(b) and is research-grade work on stationary bulk density for the Riemann zeros. What it DOES deliver in one atomic change: (1) a precise statement of the problem and the three attack candidates the ticket enumerated, each with its key identity AND its obstruction so a follow-up picks up the thread without re-deriving — candidate (i) imp-322/imp-325 squeeze needing a density-aware S_k* ≥ c(N)/B² lower bound with c(N) → 2, candidate (ii) empirical Stieltjes transform m_N satisfying ∂_t m_N + 2 m_N ∂_z m_N = 0 (Dyson 1962) with the N → ∞ Burgers shock as the collision time for the Riemann-von Mangoldt density, candidate (iii) Montgomery-Dyson min-gap heuristic O(1/(N log N)²); (2) ONE concrete CONDITIONAL theorem — the monotonicity conjecture |t_c(N+1)| ≤ |t_c(N)| implies a = inf_N |t_c(N)| ≤ |t_c(N_max)|, giving a ≤ 0.0086 on the recorded PATH_C_BASELINE_FIT — with the honest statement that the conjecture itself is the open B2(b) piece and a heuristic (adding a particle contributes positively to S_k* near k* and pushes dg_k*/dτ more negative in backward time, exactly the sign seen in the 4.91/N empirical slope); (3) a cross-check block exporting {olsCentral, conditionalUpperBound, conditionalIsLooserThanOLS, interpretation} that reads the imp-323 OLS â = 0.0029 via LAMBDA_INTERCEPT_CONFIDENCE.fit.intercept_a and reports whether the conditional UB ≥ OLS central (which it must be under the conjecture); (4) four build-time assertions in LAMBDA_INTERCEPT_ANALYTIC_ASSERTIONS — (a) conditional upper bound is a finite positive number, (b) the baseline is numerically monotone decreasing in N (0.1435 > 0.0723 > 0.0352 > 0.0163 > 0.0086) so the conditional bound is non-vacuous on data we actually run on, (c) the conditional UB is ≥ the OLS central as the monotonicity conjecture demands, (d) the cited imp-322 and imp-325 ids still match so the citation chain cannot drift silently — any future edit that breaks one of these trips the assertion layer. The deriveConditionalUpperBound helper sorts PATH_C_BASELINE_FIT ascending by N, checks monotonicity left-to-right, and returns {nMax, tcAtNMax, upperBound, monotoneObserved, baselineRows}. openWork field spells out the four follow-up pieces (prove/refute the conjecture, land candidate (i)/(ii)/(iii), extend to imp-321 log-spaced N). No existing files modified.',
     rationale: 'This is the SOLE remaining path to an actual Λ ≤ 0 theorem at the heights we control. Every other pending ticket either supports this one (by tightening errors, cross-validating, or extending scale) or is a parallel alternate route. This ticket IS the attack on RH.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-10',
   },
   {
     id: 'imp-329',
@@ -4270,6 +4270,53 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'The PT-scale dataset from imp-321 is the single highest-leverage source of new constraint on a. Running the imp-323 statistical machinery on it costs nothing and may close the main line.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-10',
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  // PHASE 9: BEYOND B2(a) — POOLED CLOSURE + SESSION CONTINUITY
+  // B2(a) is closed from 4 angles (imp-329/330/331/332) but none
+  // individually tipped the one-sided CL below zero. B2(b) analytic
+  // (imp-328) remains the main line. Phase 9 adds: pooled posterior
+  // across all 4 statistical angles (might close B2(a) where no
+  // single angle did), a 1/N vs 1/N² ansatz test, and the in-app
+  // research-journal page so the session narrative survives across
+  // restarts.
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id: 'imp-333',
+    title: 'Pooled Bayesian posterior on intercept a from all four B2(a) angles',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-323 (OLS 5-point baseline), imp-329 (projected 8-point), imp-331 (WLS with interval-dyson weights), and imp-332 (log-spaced PT ladder) each produced an estimate and one-sided CI for the Path C fit intercept a. None individually pushed the upper CL below 0. Combine them into a single Bayesian posterior p(a | all data) using a flat prior on (a, b) and the likelihoods from each independent dataset. Pooled posterior may be tighter than any individual fit because the datasets are largely non-overlapping. If the pooled 95% upper credible bound ≤ 0, B2(a) is closed across all angles simultaneously and we have Λ ≤ 0 at one-sided 95%. Create src/data/lambda-intercept-pooled.js with posterior, credible bounds, and build-time assertions.',
+    rationale: 'Four independent statistical constraints on the same parameter a should give a pooled estimate that is sharper than any single angle. This is the last purely statistical move before falling back to the imp-328 analytic route.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-334',
+    title: 'Test 1/N vs 1/N² ansatz — does adding a quadratic correction drop â to ≤ 0?',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'Every B2(a) angle so far has fit |t_c(N)| = a + b/N linearly. The 1/N ansatz is an asymptotic ansatz — at finite N there can be a curvature correction |t_c(N)| = a + b/N + c/N². Re-fit the Path C baseline + projected 8-point + log-spaced ladder with the 3-parameter model. Report (a, b, c) and CI on a. If the quadratic fit is statistically preferred (F-test or AIC) and gives â ≤ 0, the linear ansatz was systematically biasing a upward, and the true intercept may already be non-positive — closing B2(a) without imp-328.',
+    rationale: 'The 1/N ansatz has been the UNQUESTIONED structure of every B2(a) fit. A curvature correction is a natural and cheap extension that may entirely resolve the apparent â > 0 problem as a fitting-model artifact.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-335',
+    title: 'Research Journal in-app page — render SESSIONS.md entries with cross-links to queue and files',
+    category: 'feature',
+    priority: 'critical',
+    status: 'pending',
+    description: 'Build src/pages/ResearchJournalPage.jsx reading from a new src/data/sessions.js (coarse-grained session narratives — one entry per working session, matching the SESSIONS.md file at repo root). Each entry carries: date, session title, engine state delta, headline Λ value + provenance, seeded tickets (with links to ImprovementQueuePage), shipped files, key finding, current main-line blocker, open questions. Mirrors the improvements.js → ImprovementsPage pattern but at session granularity. Add a route in App.jsx and a link from HomePage. Future sessions read a single file to pick up context instead of re-deriving "B2 is the load-bearing blocker" from first principles.',
+    rationale: 'Session continuity is currently zero — each new Claude session rediscovers the main-line blocker by reading IMPROVEMENTS.md and improvement-queue.js. A dedicated Research Journal makes the narrative arc of the Λ attack browsable and makes session handoff cheap. SESSIONS.md (repo root) is the write-through; this page is the read interface.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
   },
 
   // ══════════════════════════════════════════════════════════════

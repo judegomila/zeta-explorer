@@ -71,7 +71,7 @@ const filterBtnStyle = (active) => ({
 function ProgressSummary({ items }) {
   const pending = items.filter(i => i.status === 'pending').length;
   const inProgress = items.filter(i => i.status === 'in-progress').length;
-  const completed = items.filter(i => i.status === 'completed').length;
+  const completed = items.filter(i => i.status === 'completed' || i.status === 'done').length;
   const blocked = items.filter(i => i.status === 'blocked').length;
   const total = items.length;
   const pct = total > 0 ? Math.round((completed / total) * 100) : 0;

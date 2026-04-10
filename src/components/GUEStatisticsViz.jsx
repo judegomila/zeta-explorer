@@ -385,11 +385,19 @@ export default function GUEStatisticsViz() {
       )}
       {mode === 'pair-correlation' && (
         <div className="tab-explainer accent-purple">
-          The pair correlation <InlineMath tex={"R_2(x) = 1 - (\\sin\\pi x / \\pi x)^2"} /> (Montgomery 1973)
-          measures the density of pairs of zeros at separation <InlineMath tex="x" />. The dip at <InlineMath tex="x = 0" /> confirms
-          level repulsion; the oscillations reflect the determinantal structure of GUE eigenvalues.
-          This is the "two-point function" of the zero process.
-          <strong> Look for:</strong> the measured correlation matching the GUE sine-kernel curve.
+          <p style={{ margin: '0 0 8px' }}>
+            The pair correlation <InlineMath tex={"R_2(x) = 1 - \\left(\\frac{\\sin\\pi x}{\\pi x}\\right)^2"} /> (Montgomery 1973)
+            measures the density of pairs of zeros at separation <InlineMath tex="x" />, where <InlineMath tex="x" /> is
+            in units of the <strong>mean spacing</strong> (same Weyl-law unfolding used for the spacing histogram).
+            The dip at <InlineMath tex="x = 0" /> confirms level repulsion; the oscillations with period 1 reflect
+            the determinantal sine-kernel structure of GUE eigenvalues. This is the &ldquo;two-point function&rdquo; of
+            the zero process, and the match with GUE is the content of the famous 1972 Montgomery&ndash;Dyson
+            chance encounter that first connected zeta zeros to random matrix theory.
+          </p>
+          <p style={{ margin: '4px 0 0' }}>
+            <strong>Look for:</strong> the measured correlation matching the GUE sine-kernel curve (red), dipping to 0
+            at <InlineMath tex="x = 0" /> and oscillating around the Poisson baseline <InlineMath tex={"R_2 = 1"} /> at integer <InlineMath tex="x" />.
+          </p>
         </div>
       )}
       {mode === 'number-variance' && (

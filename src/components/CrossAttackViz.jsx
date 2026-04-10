@@ -256,19 +256,21 @@ function EfficiencyMatrixTab({ t, numPrimes }) {
       }
     }
 
-    // Legend
+    // Legend — must use the same piecewise interpolation as the cells above,
+    // otherwise the gradient bar lies about how |corr| values are colored.
     const legY = h - 14;
     const legX = margin.left;
     const legW = 200;
     for (let i = 0; i < legW; i++) {
-      const t2 = i / legW;
+      const absVal = i / legW;
       let r2, g2, b2;
-      if (t2 > 0.7) {
-        r2 = 220; g2 = 80; b2 = 50;
-      } else if (t2 > 0.3) {
-        r2 = 200; g2 = 160; b2 = 50;
+      if (absVal > 0.7) {
+        r2 = 220; g2 = 50 + (1 - absVal) * 100; b2 = 50;
+      } else if (absVal > 0.3) {
+        const t2 = (absVal - 0.3) / 0.4;
+        r2 = 100 + t2 * 120; g2 = 180 - t2 * 50; b2 = 50;
       } else {
-        r2 = 30; g2 = 200; b2 = 80;
+        r2 = 30; g2 = 140 + (0.3 - absVal) * 200; b2 = 80;
       }
       ctx.fillStyle = `rgb(${r2}, ${g2}, ${b2})`;
       ctx.fillRect(legX + i, legY, 1, 10);

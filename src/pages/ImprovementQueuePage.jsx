@@ -25,6 +25,8 @@ const STATUS_CONFIG = {
   'in-progress':{ label: 'In Progress', color: '#f59e0b', dot: '#f59e0b' },
   completed:    { label: 'Completed',   color: '#10b981', dot: '#10b981' },
   blocked:      { label: 'Blocked',     color: '#ef4444', dot: '#ef4444' },
+  superseded:   { label: 'Superseded',  color: '#a78bfa', dot: '#a78bfa' },
+  done:         { label: 'Done',         color: '#10b981', dot: '#10b981' },
 };
 
 /* ─── Shared style helpers ─── */

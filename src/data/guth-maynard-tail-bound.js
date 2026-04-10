@@ -82,6 +82,11 @@ function gmExponent(sigma) {
   return (30 * (1 - sigma)) / 13;
 }
 
+// Ingham 1940 exponent — the comparator for the barrier mean-field correction.
+function inghamExponent(sigma) {
+  return (3 * (1 - sigma)) / (2 - sigma);
+}
+
 // Upper bound on #{ off-line zeros in [T_0, T_1] with Re(s) ≥ σ }
 // using GM unconditionally above T_0 and verified-on-line below T_0.
 function tailCountBound(sigma, T1) {
@@ -145,6 +150,41 @@ export const GUTH_MAYNARD_TAIL_BOUND = {
 
   // Per-strip table — cited by UI / tests.
   tailTable: buildTailTable(),
+
+  // imp-302: does Guth-Maynard tighten the BARRIER mean-field correction
+  // (not the certification)? The barrier method needs N(σ,T) in a thin strip
+  // σ = 1/2 + δ. GM beats Ingham only for σ > 0.7 (crossover proven in
+  // src/math/guth-maynard-zero-density.js, lines 65-73). At the barrier-
+  // relevant strips σ → 1/2, Ingham 1940 is still the SMALLER (better)
+  // exponent, so the honest answer to imp-302 is: plugging GM into the
+  // barrier mean-field correction does NOT improve the Λ bound in the
+  // strip where the Dyson collision actually happens. GM is the right
+  // tool for the TAIL CERTIFICATION (imp-317 above), not for the barrier.
+  barrierImprovementVsIngham: (() => {
+    const strips = [0.51, 0.55, 0.6, 0.7, 0.75];
+    const rows = strips.map((sigma) => {
+      const ingham = inghamExponent(sigma);
+      const gm = gmExponent(sigma);
+      return {
+        sigma,
+        ingham_exponent: +ingham.toFixed(4),
+        gm_exponent: +gm.toFixed(4),
+        gm_minus_ingham: +(gm - ingham).toFixed(4),
+        winner: gm < ingham ? 'GM' : 'Ingham',
+      };
+    });
+    return {
+      crossoverSigma: 0.7,
+      perStrip: rows,
+      verdictForBarrier:
+        'For the barrier-relevant thin strip σ → 1/2, Ingham 1940 is the ' +
+        'binding bound (smaller exponent). Guth-Maynard 2024 only improves ' +
+        'on Ingham for σ > 0.7, which is OUTSIDE the strip the mean-field ' +
+        'correction in Path C uses. Conclusion: GM does NOT tighten the Λ ' +
+        'bound through the barrier mean-field route — its leverage on Path ' +
+        'C is exclusively the unconditional tail certification above T_0.',
+    };
+  })(),
 
   // What the bridge file gets to upgrade because of this certificate.
   bridgeUpgrade:

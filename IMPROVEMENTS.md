@@ -959,3 +959,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1072 | 2026-04-09T14:00:00Z | **Dyson 1/N scaling extended to N=5000** — quadratic curvature check on Path C fit (imp-315) | dyson-scaling-N5000.js, improvement-queue.js |
 | 1073 | 2026-04-09T15:00:00Z | **Guth-Maynard tail bound** for Path C barrier — certified off-line zero count above T_0=3000 (imp-317, resolves imp-308) | guth-maynard-tail-bound.js, improvement-queue.js |
 | 1074 | 2026-04-09T16:00:00Z | **P15-6: CSV (Csordas-Norfolk-Varga) lower bound on Λ** wired into the data layer (imp-300) | csv-lambda-lower-bound.js, improvement-queue.js |
+| 1075 | 2026-04-09T17:00:00Z | **imp-302: GM-vs-Ingham at the barrier strip** — negative result, GM does NOT tighten Path C mean-field (only the tail) | guth-maynard-tail-bound.js, improvement-queue.js |

@@ -449,10 +449,15 @@ export default function NyquistBodeViz() {
           >{sigmaDeviation < 0.02 ? 'critical line' : sigmaDeviation < 0.15 ? 'near critical' : 'off-axis'}</span>
         </div>
         <div className="control-group">
-          <label>t max</label>
+          {/* imp-1165: the σ control has rich on-hover context (critical line / near / off-axis)
+              but 't max' was a bare label — users landing on this tab had no way to learn that
+              t is the imaginary part of s (i.e. the frequency ω along the Nyquist contour) and
+              that raising it extends the sweep to capture more non-trivial zeros γₙ. The title
+              tooltip now explains this in one sentence. */}
+          <label title="t = Im(s): the imaginary-axis frequency along the Nyquist contour s = σ + it. This slider sets the upper bound t_max of the sweep — raise it to include more non-trivial zeta zeros γₙ in the trace. The counter on the right shows how many γₙ currently fall inside [t_min, t_max].">t max</label>
           <input type="range" min="10" max="100" step="1" value={tRange[1]}
             onChange={e => setTRange([tRange[0], +e.target.value])} />
-          <span className="control-value">{tRange[1]} ({ZETA_ZEROS.filter(g => g >= tRange[0] && g <= tRange[1]).length} zeros in range)</span>
+          <span className="control-value" title={`${ZETA_ZEROS.filter(g => g >= tRange[0] && g <= tRange[1]).length} non-trivial zeta zeros γₙ fall inside the current sweep window [${tRange[0]}, ${tRange[1]}]`}>{tRange[1]} ({ZETA_ZEROS.filter(g => g >= tRange[0] && g <= tRange[1]).length} zeros in range)</span>
         </div>
       </div>
       <ThermoBar sigma={sigma} t={tRange[0]} numPrimes={10} />

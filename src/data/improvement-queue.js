@@ -4057,12 +4057,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Guth-Maynard tail bound — certify no off-line zeros beyond T_0 = 3000 (resolve imp-308)',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
-    description: 'Port of imp-308 upgraded to critical. Use Guth-Maynard 2024 N(σ,T) ≤ T^{30(1-σ)/13} to bound zeros with Re(s) > σ at height > T_0. Combine with our verified-on-line zeros up to T_0 = 3000 to produce the first tail-certified barrier. Without this, the Path C bound is conditional on "no surprises above our zero list".',
+    description: 'Port of imp-308 upgraded to critical. Use Guth-Maynard 2024 N(σ,T) ≤ T^{30(1-σ)/13} to bound zeros with Re(s) > σ at height > T_0. Combine with our verified-on-line zeros up to T_0 = 3000 to produce the first tail-certified barrier. DELIVERED in src/data/guth-maynard-tail-bound.js: GUTH_MAYNARD_TAIL_BOUND exports per-strip tail table for σ ∈ {0.51,0.55,0.6,0.7,0.75} at probe heights {2T_0,5T_0,10T_0,1e5,1e6}, plus a worked thin-strip example at σ = 1/2 + 1/log T_0 (≈0.625) giving ~1.4·10³ tail budget up to 10·T_0. Three TAIL_BOUND_ASSERTIONS guard the construction. Bridge file point (c) upgraded from "no surprises" to "subtract this tabulated tail count". Also resolves imp-308.',
     rationale: 'Guth-Maynard 2024 is the first zero-density improvement in 80 years (commit 7d36438). Using it in the tail is the highest-leverage free tightening of the certified Λ bound.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-09',
   },
 
   // ══════════════════════════════════════════════════════════════

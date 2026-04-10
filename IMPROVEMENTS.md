@@ -957,3 +957,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1070 | 2026-04-09T12:00:00Z | **Bridge theorem Λ→RH: explicit chain + unit-testable assertions** (imp-316) | bridge-lambda-rh.js, improvement-queue.js |
 | 1071 | 2026-04-09T13:00:00Z | **Λ error-budget audit**: ±0.01 itemised → fit-intercept SE binding (imp-314) | lambda-error-budget.js, improvement-queue.js |
 | 1072 | 2026-04-09T14:00:00Z | **Dyson 1/N scaling extended to N=5000** — quadratic curvature check on Path C fit (imp-315) | dyson-scaling-N5000.js, improvement-queue.js |
+| 1073 | 2026-04-09T15:00:00Z | **Guth-Maynard tail bound** for Path C barrier — certified off-line zero count above T_0=3000 (imp-317, resolves imp-308) | guth-maynard-tail-bound.js, improvement-queue.js |

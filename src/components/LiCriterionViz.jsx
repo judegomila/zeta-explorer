@@ -181,11 +181,11 @@ export default function LiCriterionViz() {
         .selectAll('text').attr('fill', '#64748b').attr('font-size', 10);
       g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
-      // Reference curve: (1/2)(log(n/(2π)) + 1 + γ) (Keiper-Li asymptotic, Bombieri-Lagarias 1999 / Coffey 2005)
+      // Reference curve: (1/2)(log(n/(2π)) + γ − 1) (Keiper-Li asymptotic, Bombieri-Lagarias 1999 Thm 2 / Coffey 2005)
       const EULER_GAMMA = 0.5772156649015329;
       const refCurve = [];
       for (let n = 1; n <= maxN; n += 0.5) {
-        refCurve.push({ n, y: 0.5 * (Math.log(n / (2 * Math.PI)) + 1 + EULER_GAMMA) });
+        refCurve.push({ n, y: 0.5 * (Math.log(n / (2 * Math.PI)) + EULER_GAMMA - 1) });
       }
       g.append('path').datum(refCurve)
         .attr('d', d3.line().x(d => x(d.n)).y(d => y(d.y)).curve(d3.curveBasis))
@@ -205,7 +205,7 @@ export default function LiCriterionViz() {
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
-        .text('Keiper-Li: λₙ/n vs n (should approach ½(log(n/2π) + 1 + γ))');
+        .text('Keiper-Li: λₙ/n vs n (should approach ½(log(n/2π) + γ − 1))');
 
       const legend = g.append('g').attr('transform', `translate(${w - 200}, ${h - 50})`);
       legend.append('rect')
@@ -220,7 +220,7 @@ export default function LiCriterionViz() {
       legend.append('line').attr('x1', 0).attr('y1', 20).attr('x2', 22).attr('y2', 20)
         .attr('stroke', '#64748b').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,4');
       legend.append('text').attr('x', 28).attr('y', 24).attr('fill', '#94a3b8').attr('font-size', 11)
-        .text('½(log(n/2π) + 1 + γ)');
+        .text('½(log(n/2π) + γ − 1)');
 
       svg.append('text').attr('x', width / 2).attr('y', height - 6)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
@@ -336,7 +336,7 @@ export default function LiCriterionViz() {
           <p style={{ margin: '0 0 8px' }}>
             The normalized ratio <InlineMath tex={"\\lambda_n/n"} /> should approach the Keiper-Li asymptotic:
           </p>
-          <BlockMath tex={"\\frac{\\lambda_n}{n} \\to \\frac{1}{2}\\bigl(\\log(n/2\\pi) + 1 + \\gamma\\bigr)"} />
+          <BlockMath tex={"\\frac{\\lambda_n}{n} \\to \\frac{1}{2}\\bigl(\\log(n/2\\pi) + \\gamma - 1\\bigr)"} />
           <p style={{ margin: '8px 0' }}>
             where <InlineMath tex={"\\gamma \\approx 0.577"} /> is the Euler-Mascheroni constant.
             This logarithmic growth matches the zero

@@ -90,7 +90,7 @@ export default function PrimeGapCouplingViz() {
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
-        .text('Inter-Stage Coupling Strength Y_{n,n+1} = 1/(log p_{n+1} − log p_n)');
+        .text('Inter-Stage Coupling Strength Yₙ,ₙ₊₁ = 1/(log pₙ₊₁ − log pₙ)');
 
       // Y-axis label
       svg.append('text')
@@ -157,7 +157,7 @@ export default function PrimeGapCouplingViz() {
 
       svg.append('text').attr('x', margin.left + 4).attr('y', 16)
         .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
-        .text('Prime Gaps (p_{n+1} − p_n)');
+        .text('Prime Gaps (pₙ₊₁ − pₙ)');
 
       // Y-axis label
       svg.append('text')

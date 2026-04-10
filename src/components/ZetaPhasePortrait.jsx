@@ -27,15 +27,23 @@ export default function ZetaPhasePortrait() {
 
     const sigMin = sigmaRange[0], sigMax = sigmaRange[1];
     const tMin = tCenter - tSpan / 2, tMax = tCenter + tSpan / 2;
-    const step = resolution;
+    // putImageData ignores ctx transforms — it writes raw backing-store pixels.
+    // Previously this loop and createImageData used CSS pixel dimensions (w, h),
+    // so on retina (dpr=2) only the top-left w×h quadrant of the dpr*w × dpr*h
+    // backing store got the phase portrait while overlays (which DO see the
+    // ctx.scale(dpr,dpr) transform) covered the full canvas. Now we iterate
+    // over the actual backing-store dimensions and scale step by dpr so the
+    // user-facing block size is unchanged.
+    const bw = canvas.width, bh = canvas.height;
+    const step = resolution * dpr;
 
-    const imgData = ctx.createImageData(w, h);
+    const imgData = ctx.createImageData(bw, bh);
     const data = imgData.data;
 
-    for (let px = 0; px < w; px += step) {
-      for (let py = 0; py < h; py += step) {
-        const sigma = sigMin + (px / w) * (sigMax - sigMin);
-        const t = tMax - (py / h) * (tMax - tMin); // y-axis inverted
+    for (let px = 0; px < bw; px += step) {
+      for (let py = 0; py < bh; py += step) {
+        const sigma = sigMin + (px / bw) * (sigMax - sigMin);
+        const t = tMax - (py / bh) * (tMax - tMin); // y-axis inverted
 
         const z = zetaCriticalStrip([sigma, t]);
         const mag = Math.sqrt(z[0] * z[0] + z[1] * z[1]);
@@ -50,9 +58,9 @@ export default function ZetaPhasePortrait() {
         const [r, g, b] = hslToRgb(hue, saturation, brightness * 0.5);
 
         // Fill the step×step block
-        for (let dx = 0; dx < step && px + dx < w; dx++) {
-          for (let dy = 0; dy < step && py + dy < h; dy++) {
-            const idx = ((py + dy) * w + (px + dx)) * 4;
+        for (let dx = 0; dx < step && px + dx < bw; dx++) {
+          for (let dy = 0; dy < step && py + dy < bh; dy++) {
+            const idx = ((py + dy) * bw + (px + dx)) * 4;
             data[idx] = r;
             data[idx + 1] = g;
             data[idx + 2] = b;

@@ -408,12 +408,19 @@ function AperyTab() {
       }
 
       // Reference: geometric convergence rate ~(1+sqrt(2))^{-4n}
+      // Anchor the dashed line to the first plotted error so the actual and
+      // theoretical curves start at the same point — makes the shared slope
+      // (the whole reason both are drawn) visually obvious instead of leaving
+      // a constant offset between them.
       const C = Math.pow(1 + Math.sqrt(2), 4); // ~33.97
+      const logC = Math.log10(C);
+      const anchorN = errors[0].n;
+      const anchorLogE = Math.log10(errors[0].error);
       ctx.beginPath();
       ctx.setLineDash([3, 3]);
       errors.forEach((pt, i) => {
         const x = margin.left + (pt.n / maxTerms) * plotW;
-        const theoretical = -pt.n * Math.log10(C);
+        const theoretical = anchorLogE - (pt.n - anchorN) * logC;
         const y = g2Top + g2H - ((theoretical - minLogE) / logRange) * g2H * 0.85 - g2H * 0.05;
         const clampedY = Math.max(g2Top, Math.min(g2Top + g2H, y));
         if (i === 0) ctx.moveTo(x, clampedY); else ctx.lineTo(x, clampedY);

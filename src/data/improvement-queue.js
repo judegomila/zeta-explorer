@@ -4194,12 +4194,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Explicit Λ ≤ 0 ⟺ RH at finite height: exact theorem citation + height mapping',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
-    description: 'bridge-lambda-rh.js gives the chain informally. Turn it into an exactly-cited theorem: state de Bruijn"s theorem on H_t and zeros, state Rodgers-Tao Λ ≥ 0, state the equivalence RH ⟺ Λ ≤ 0 with exact height control: "if Λ ≤ 0 is shown at effective height T*, then all zeros γ < T* lie on the critical line". Produce a precise map from our working N to the height T* we control. This is what imp-321 (push to PT scale) will plug into.',
+    description: 'bridge-lambda-rh.js gives the chain informally. Turn it into an exactly-cited theorem: state de Bruijn"s theorem on H_t and zeros, state Rodgers-Tao Λ ≥ 0, state the equivalence RH ⟺ Λ ≤ 0 with exact height control: "if Λ ≤ 0 is shown at effective height T*, then all zeros γ < T* lie on the critical line". Produce a precise map from our working N to the height T* we control. This is what imp-321 (push to PT scale) will plug into. DELIVERED in src/data/lambda-rh-height-mapping.js: LAMBDA_RH_THEOREMS ledger pins de Bruijn 1950 (Duke 17, Thm 13–14), Newman 1976 (Proc. AMS 61), Rodgers-Tao 2020 (Acta 225, Thm 1.1), and Platt-Trudgian 2021 (Bull. LMS 53) with exact citations and the explicit RH ⟺ Λ = 0 corollary. FINITE_HEIGHT_RH_STATEMENT writes out the two-part conditional (Path C collision ≤ 0 AND Guth-Maynard tail certified) and names what is still missing by pointing at lambda-zero-attack.js B2/B4. N ↔ T* map is the Riemann–von Mangoldt inverse N(T) ≈ (T/2π)(log(T/2π)−1): effectiveHeightForN Newton-inverts it, zeroCountAtHeight is the forward check, and N_TO_T_STAR_TABLE pre-tabulates rows for N ∈ {2458, 5000, 10^4, 10^5, 10^6, 10^7, 10^8} so imp-321 can read T*(N) without re-deriving. Five LAMBDA_RH_HEIGHT_ASSERTIONS guard (i) inverse/forward round-trip < 1e-4 per-row, (ii) T*(N) monotone in N, (iii) current N row agrees with bridge T_0 within a factor of 2, (iv) current T* still far below PT 3·10^12, (v) the equivalence cites BOTH de Bruijn and Rodgers-Tao (no implicit "Λ < 0" shortcut).',
     rationale: 'Without the exact height-mapping theorem, we do not know WHAT RH statement our N=2458 computation is actually establishing. This makes the Λ-to-RH connection tight instead of handwavy.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-10',
   },
 
   // ══════════════════════════════════════════════════════════════

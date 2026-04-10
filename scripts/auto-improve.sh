@@ -2,7 +2,7 @@
 # Auto-Improvement Engine for ZPO Explorer
 # Usage: ./scripts/auto-improve.sh [start|stop|status]
 #
-# Invokes Claude Code CLI every 10 minutes to find and fix one issue.
+# Invokes Claude Code CLI every 60 seconds to find and fix one issue.
 # Each run makes exactly one atomic improvement, verifies the build, and commits.
 
 set -uo pipefail
@@ -13,18 +13,21 @@ PID_FILE="$SCRIPT_DIR/.auto-improve.pid"
 LOG_DIR="$SCRIPT_DIR/logs"
 IMPROVEMENTS_FILE="$PROJECT_DIR/IMPROVEMENTS.md"
 INTERVAL=60   # 1 minute
-MAX_RUNS=100
+MAX_RUNS=1000
 
 # The prompt given to Claude Code on each iteration
 IMPROVE_PROMPT='You are improving the ZPO Explorer math visualization app. Your task:
 
-1. Pick ONE improvement from these categories (rotate through them):
-   - Bug fix: find and fix a genuine bug (wrong calculation, broken interaction, display error)
-   - Accuracy: improve mathematical rigor or correctness (wrong formula, missing disclaimer)
-   - UX: improve user experience (better labels, clearer controls, missing tooltips)
-   - Visual: improve a visualization (better colors, scaling, axis labels, legends)
-   - Performance: optimize a slow computation or rendering path
-   - Content: add or improve explanatory text, math explainers, or exploration entries
+1. FIRST: open src/data/improvement-queue.js and scan for items with status: "pending".
+   - If one or more exist, pick the highest-priority pending item (critical > high > medium > low).
+   - Read the files it implicates, implement the change, and flip its status from "pending" to "completed" and set completedAt to the current UTC date "YYYY-MM-DD". Do NOT delete the entry.
+   - If NO pending items remain, pick ONE improvement from these categories (rotate through them):
+     - Bug fix: find and fix a genuine bug (wrong calculation, broken interaction, display error)
+     - Accuracy: improve mathematical rigor or correctness (wrong formula, missing disclaimer)
+     - UX: improve user experience (better labels, clearer controls, missing tooltips)
+     - Visual: improve a visualization (better colors, scaling, axis labels, legends)
+     - Performance: optimize a slow computation or rendering path
+     - Content: add or improve explanatory text, math explainers, or exploration entries
 
 2. Read the relevant source files to understand the current code before changing anything.
 
@@ -187,7 +190,7 @@ case "${1:-}" in
   *)
     echo "Usage: $0 {start|stop|status}"
     echo ""
-    echo "  start   - Start the auto-improvement loop (runs every 1 min)"
+    echo "  start   - Start the auto-improvement loop (runs every 60 sec)"
     echo "  stop    - Stop the running loop"
     echo "  status  - Check if running and show stats"
     exit 1

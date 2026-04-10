@@ -84,7 +84,9 @@ function TriangleTab() {
             .attr('y', y + 1)
             .attr('text-anchor', 'middle')
             .attr('dominant-baseline', 'middle')
-            .attr('fill', val > maxVal * 0.3 ? '#0f172a' : '#e2e8f0')
+            // Match the colorScale's log domain — a linear threshold against maxVal
+            // leaves yellow-green cells (mid-to-upper viridis) with light text on light fill.
+            .attr('fill', Math.log(val + 1) > Math.log(maxVal + 1) * 0.55 ? '#0f172a' : '#e2e8f0')
             .attr('font-size', Math.min(11, cellSize * 0.35))
             .attr('font-family', 'var(--font-mono)')
             .text(val > 99999 ? val.toExponential(0) : val);

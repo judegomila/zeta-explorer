@@ -171,10 +171,13 @@ export default function NyquistBodeViz() {
     // Positive frequency contour (blue → cyan gradient)
     const posLine = d3.line().x(d => x(d.re)).y(d => y(d.im)).curve(d3.curveBasis);
 
-    // Draw segments with color gradient based on t
+    // Draw segments with color gradient based on t.
+    // Hue 217 → 189 matches the #3b82f6 (blue-500) start marker and #06b6d4 (cyan-500)
+    // end marker drawn below — the previous `210 + frac*60` ran 210→270 which is
+    // blue→purple, contradicting both the comment and the start/end marker colors.
     for (let i = 1; i < points.length; i++) {
       const frac = i / (points.length - 1);
-      const hue = 210 + frac * 60; // blue to cyan
+      const hue = 217 - frac * 28; // blue to cyan
       g.append('line')
         .attr('x1', x(points[i-1].re)).attr('y1', y(points[i-1].im))
         .attr('x2', x(points[i].re)).attr('y2', y(points[i].im))
@@ -223,7 +226,7 @@ export default function NyquistBodeViz() {
           .attr('stroke', '#0a0e1a').attr('stroke-width', 0.5);
       }
     };
-    drawArrows(points, d => x(d.re), d => y(d.im), 210, 60, 6);
+    drawArrows(points, d => x(d.re), d => y(d.im), 217, -28, 6);
     drawArrows(negPoints, d => x(d.re), d => y(d.im), 25, 20, 5);
 
     // Start/end markers

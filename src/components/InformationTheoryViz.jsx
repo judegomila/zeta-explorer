@@ -267,7 +267,7 @@ function MutualInfoTab({ sigma, t, numPrimes }) {
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
         Mutual information <InlineMath tex={"I(\\text{Direct};\\text{Dual})"} /> measures the coupling between
         the direct and dual ladders. At <strong style={{ color: '#8b5cf6' }}>σ = ½</strong>, the bridge
-        is unitary (<InlineMath tex={"|\chi|=1"} />) and the ladders are maximally coupled.
+        is unitary (<InlineMath tex={"|\\chi|=1"} />) and the ladders are maximally coupled.
         The functional equation <em>is</em> the channel that carries information between them.
       </div>
     </div>
@@ -487,7 +487,7 @@ function KLDivergenceTab({ sigma, t, numPrimes }) {
         ))}
       </div>
       <div style={{ marginTop: 12, padding: '10px 14px', background: '#0f1225', borderRadius: 6, fontSize: 11, color: '#94a3b8' }}>
-        KL divergence <InlineMath tex={"D_{KL}(P_{\sigma} \| P_{1/2})"} /> measures how many extra bits
+        KL divergence <InlineMath tex={"D_{KL}(P_{\\sigma} \\| P_{1/2})"} /> measures how many extra bits
         are needed to describe the system at σ compared to equilibrium at σ = ½.
         At <strong style={{ color: '#10b981' }}>σ = ½</strong>: D<sub>KL</sub> = 0 (no extra cost — system is at equilibrium).
         This connects to the thermodynamic interpretation: D<sub>KL</sub> is proportional to the free energy
@@ -565,11 +565,11 @@ export default function InformationTheoryViz() {
       {tab === 0 && (
         <>
           <div className="tab-explainer accent-green">
-            Shannon entropy <InlineMath tex={"H(\sigma) = -\sum_k p_k \log_2 p_k"} /> of the Euler factor weight
-            distribution measures how evenly energy is spread across primes. At <InlineMath tex={"\sigma = \tfrac{1}{2}"} />,
+            Shannon entropy <InlineMath tex={"H(\\sigma) = -\\sum_k p_k \\log_2 p_k"} /> of the Euler factor weight
+            distribution measures how evenly energy is spread across primes. At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />,
             the functional equation makes direct and dual weight distributions coincide, giving the most balanced
             (though not uniform) weighting.
-            <strong> Look for:</strong> entropy peaking near <InlineMath tex={"\sigma = 0.5"} /> and dropping symmetrically on both sides.
+            <strong> Look for:</strong> entropy peaking near <InlineMath tex={"\\sigma = 0.5"} /> and dropping symmetrically on both sides.
           </div>
           <EntropyTab sigma={sigma} t={t} numPrimes={numPrimes} />
         </>
@@ -577,10 +577,10 @@ export default function InformationTheoryViz() {
       {tab === 1 && (
         <>
           <div className="tab-explainer accent-blue">
-            Channel capacity <InlineMath tex={"C(\sigma) = \tfrac{1}{2}\log_2(1 + \text{SNR})"} /> measures the maximum rate at which
-            the oscillator chain can transmit information (Shannon-Hartley). The critical line <InlineMath tex={"\sigma = \tfrac{1}{2}"} /> maximizes
+            Channel capacity <InlineMath tex={"C(\\sigma) = \\tfrac{1}{2}\\log_2(1 + \\text{SNR})"} /> measures the maximum rate at which
+            the oscillator chain can transmit information (Shannon-Hartley). The critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> maximizes
             capacity because the conjugate-matched direct/dual ladders minimize (but do not eliminate) impedance mismatch noise, maximizing SNR.
-            <strong> Look for:</strong> capacity peaking sharply at <InlineMath tex={"\sigma = 0.5"} />, especially near zeta zeros where SNR diverges.
+            <strong> Look for:</strong> capacity peaking sharply at <InlineMath tex={"\\sigma = 0.5"} />, especially near zeta zeros where SNR diverges.
           </div>
           <CapacityTab sigma={sigma} t={t} numPrimes={numPrimes} />
         </>
@@ -588,8 +588,8 @@ export default function InformationTheoryViz() {
       {tab === 2 && (
         <>
           <div className="tab-explainer accent-purple">
-            Mutual information <InlineMath tex={"I(\sigma) = H_{\text{dir}} + H_{\text{dual}} - H_{\text{joint}}"} /> quantifies
-            how much the direct ladder tells you about the dual ladder. At <InlineMath tex={"\sigma = \tfrac{1}{2}"} />, the
+            Mutual information <InlineMath tex={"I(\\sigma) = H_{\\text{dir}} + H_{\\text{dual}} - H_{\\text{joint}}"} /> quantifies
+            how much the direct ladder tells you about the dual ladder. At <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, the
             functional equation symmetry maximizes this coupling.
             <strong> Look for:</strong> mutual information peaking at the critical line, confirming maximum direct-dual correlation.
           </div>
@@ -599,10 +599,10 @@ export default function InformationTheoryViz() {
       {tab === 3 && (
         <>
           <div className="tab-explainer accent-orange">
-            Fisher information <InlineMath tex={"I_F(\sigma) = \sum_k (\partial_{\sigma} \log |H_k|)^2"} /> measures
-            sensitivity of the prime weight distribution to <InlineMath tex={"\sigma"} /> perturbations. It diverges at
+            Fisher information <InlineMath tex={"I_F(\\sigma) = \\sum_k (\\partial_{\\sigma} \\log |H_k|)^2"} /> measures
+            sensitivity of the prime weight distribution to <InlineMath tex={"\\sigma"} /> perturbations. It diverges at
             zeta zeros, creating information-theoretic &ldquo;walls&rdquo; that confine zeros to a sharp locus.
-            <strong> Look for:</strong> sharp spikes near zeta zeros and a characteristic saddle shape around <InlineMath tex={"\sigma = 0.5"} />.
+            <strong> Look for:</strong> sharp spikes near zeta zeros and a characteristic saddle shape around <InlineMath tex={"\\sigma = 0.5"} />.
           </div>
           <FisherTab sigma={sigma} t={t} numPrimes={numPrimes} />
         </>

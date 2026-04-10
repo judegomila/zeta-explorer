@@ -132,10 +132,11 @@ export default function PrimeGapCouplingViz() {
       const maxGap = d3.max(data, d => d.gap) || 2;
       const barW = Math.max(2, w / data.length - 1);
       data.forEach((d, i) => {
+        const gapGradT = Math.min((d.gap - 8) / Math.max(maxGap - 8, 1), 1);
         const color = d.gap === 2 ? '#ef4444' :
                       d.gap === 4 ? '#f59e0b' :
                       d.gap === 6 ? '#3b82f6' :
-                      `hsl(${270 - Math.min((d.gap - 8) / (maxGap - 8), 1) * 30}, 60%, ${55 - Math.min((d.gap - 8) / (maxGap - 8), 1) * 15}%)`;
+                      `hsl(${270 - gapGradT * 30}, 60%, ${55 - gapGradT * 15}%)`;
         g.append('rect')
           .attr('x', x(i) - barW / 2).attr('y', y(d.gap))
           .attr('width', barW).attr('height', h - y(d.gap))

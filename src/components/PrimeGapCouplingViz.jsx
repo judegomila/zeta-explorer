@@ -143,7 +143,7 @@ export default function PrimeGapCouplingViz() {
           .attr('rx', 1)
           .attr('fill', color).attr('opacity', 0.7)
           .style('cursor', 'crosshair')
-          .append('title').text(`p=${d.p1}→${d.p2} | gap=${d.gap}${d.isTwin ? ' (twin)' : ''}`);
+          .append('title').text(`p=${d.p1}→${d.p2} | gap=${d.gap}${d.isTwin ? ' (twin)' : ''} | PNT-expected ~log(p)=${Math.log(d.p1).toFixed(2)}`);
       });
 
       // PNT expected average gap: log(p) trend line

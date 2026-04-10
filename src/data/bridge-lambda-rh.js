@@ -94,6 +94,8 @@
  * without a corresponding source update.
  */
 
+import { GUTH_MAYNARD_TAIL_BOUND } from './guth-maynard-tail-bound.js';
+
 export const LAMBDA_RH_BRIDGE = {
   // Anchor theorems
   theorems: [
@@ -159,14 +161,25 @@ export const LAMBDA_RH_BRIDGE = {
     {
       step: 3,
       name: 'Tail bound: no off-line zeros above T_0',
-      status: 'open',
-      detail: 'Tracked in imp-308 / imp-317. Use Guth-Maynard 2024 N(σ,T) ≤ T^{30(1-σ)/13}.',
+      status: 'have-bound',
+      detail:
+        'imp-317 wired Guth-Maynard 2024 N(σ,T) ≤ T^{30(1-σ)/13} into ' +
+        'GUTH_MAYNARD_TAIL_BOUND.tailTable as a per-strip tail budget above ' +
+        'T_0 = 3000. Bound is unconditional but non-trivial: the worked thin ' +
+        'strip σ ≈ 0.625 gives ≈ ' +
+        GUTH_MAYNARD_TAIL_BOUND.thinStripExample.bound_on_offline_zero_count +
+        ' off-line zeros up to 10·T_0 — the explicit budget the barrier ' +
+        'method must subtract in Step 4.',
     },
     {
       step: 4,
       name: 'Assemble certified global Λ ≤ U',
       status: 'open',
-      detail: 'Requires Step 3. Output is conditional on tail estimate.',
+      detail:
+        'Step 3 budget is now tabulated; the open work is folding it into ' +
+        'the barrier method as a subtracted tail count rather than a ' +
+        '"no surprises" assumption. Output remains conditional on the ' +
+        'tail estimate, but the conditional is now quantitative.',
     },
     {
       step: 5,

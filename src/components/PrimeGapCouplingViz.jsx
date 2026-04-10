@@ -229,8 +229,14 @@ export default function PrimeGapCouplingViz() {
       g.append('path').datum(primes).attr('d', line)
         .attr('fill', 'none').attr('stroke', '#3b82f6').attr('stroke-width', 1.5).attr('opacity', 0.6);
 
-      // log(x) reference curve
-      const refCurve = d3.range(0, primes.length).map(i => ({ i, y: Math.log(2 + i * (primes[primes.length-1] - 2) / primes.length) }));
+      // PNT asymptotic reference: p_n ~ n log n, so log(p_n) ~ log(n) + log(log(n)).
+      // Clamp n to >=3 so log(log(n)) is well-defined at the first couple of indices;
+      // the previous form log(2 + i*(pmax-2)/N) was log of a linearly-spaced variable
+      // (not PNT) and only coincided with the data at the endpoints.
+      const refCurve = d3.range(0, primes.length).map(i => {
+        const n = Math.max(i + 1, 3);
+        return { i, y: Math.log(n) + Math.log(Math.log(n)) };
+      });
       g.append('path').datum(refCurve)
         .attr('d', d3.line().x(d => x(d.i)).y(d => y(d.y)).curve(d3.curveBasis))
         .attr('fill', 'none').attr('stroke', '#64748b').attr('stroke-dasharray', '4,4').attr('stroke-width', 1);
@@ -257,7 +263,7 @@ export default function PrimeGapCouplingViz() {
       legend.append('line').attr('x1', 0).attr('y1', 18).attr('x2', 12).attr('y2', 18)
         .attr('stroke', '#64748b').attr('stroke-width', 1).attr('stroke-dasharray', '4,4');
       legend.append('text').attr('x', 18).attr('y', 22).attr('fill', '#94a3b8').attr('font-size', 10)
-        .text('log(x) reference');
+        .text('log(n log n) (PNT)');
     }
 
     svg.append('text').attr('x', width / 2).attr('y', height - 6)

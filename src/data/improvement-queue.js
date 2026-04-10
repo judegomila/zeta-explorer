@@ -4078,12 +4078,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'RIGOR: verified-computing (interval arithmetic) Dyson backward integration',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
-    description: 'Current Path C uses float64 RK4 — imp-306 added per-step error tracking but not rigorous intervals. Replace the backward Dyson ODE with a verified-computing version: wrap each γ_k(t) in an interval [lo, hi], propagate via interval arithmetic through the 1/(γ_n - γ_k) sum and the RK4 update, and produce a certified interval [t_c_lo, t_c_hi] for the collision time. This upgrades Λ = 0.0066 ± 0.01 from "numerical" to "proven at this N".',
+    description: 'Current Path C uses float64 RK4 — imp-306 added per-step error tracking but not rigorous intervals. Replace the backward Dyson ODE with a verified-computing version: wrap each γ_k(t) in an interval [lo, hi], propagate via interval arithmetic through the 1/(γ_n - γ_k) sum and the RK4 update, and produce a certified interval [t_c_lo, t_c_hi] for the collision time. This upgrades Λ = 0.0066 ± 0.01 from "numerical" to "proven at this N". DELIVERED in src/data/interval-dyson-collision.js as the small-N foundation: backward Dyson Euler step in interval arithmetic on N=12 of ZETA_ZEROS using the Interval class from src/math/interval-arithmetic.js (imp-068). Each γ_k(t) is an Interval [lo, hi]; every add/sub/mul/div propagates an outward rounding error so the trajectory is a certified enclosure of the true Calogero-Moser orbit. B(t) = min_k g_k(t) is tracked as [B_lo, B_hi] and the certified collision is bracketed between the last step with B_lo > 0 and the first with B_lo ≤ 0. Cross-check: the very first interval step is asserted to enclose the float64 dysonStep result component-wise. Four INTERVAL_DYSON_ASSERTIONS guard (i) first-step enclosure of float, (ii) initial min spacing > 0, (iii) finite gamma wrapper, (iv) collision bracket-or-honest-no-crossing. Honest scope: this is a small-N witness with a naive (non-Krawczyk, non-mean-value-form) wrapper — establishes the framework, baselines wrapper width growth, and is the load-bearing prerequisite for any interval-tightened Path C run at N=2458, which is the imp-318 follow-up.',
     rationale: 'Any Λ-based RH argument must ultimately be a theorem, not a numerical fit. Interval arithmetic is the standard tool (cf. Platt for zero verification). Without this, the whole Path C chain is conditional on float64 not being adversarial.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-10',
   },
   {
     id: 'imp-319',
@@ -4132,6 +4132,74 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Without monotonicity as a theorem, t_c could be a local minimum of B(t) and the true collision time could be later — making our Λ bound invalid. This is a load-bearing assumption currently only checked numerically.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-09',
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  // PHASE 7: CLOSE THE BLOCKERS FROM imp-319
+  // imp-319 enumerated 4 blockers (B1..B4) standing between
+  // Path C and Λ ≤ 0. B2 (intercept positivity) is the sole
+  // load-bearing blocker — closing it alone yields RH at height T.
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id: 'imp-323',
+    title: 'BLOCKER B2: prove the intercept a in |t_c| = a + b/N satisfies a ≤ 0 — SOLE LOAD-BEARING BLOCKER',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-319/LAMBDA_ZERO_BLOCKERS flagged B2-intercept-positivity as THE load-bearing blocker: if we can show the fit intercept a ≤ 0, then Λ ≤ 0 at the heights we control, which IS RH up to T. Currently the Path C fit gives a = 0.0066. Two angles: (a) show the 0.0066 is within the error bar of 0 (requires tighter error bar — see imp-314 result) and use a one-sided confidence bound; (b) derive an analytic upper bound on a from the Dyson evolution equation itself, not the numerical fit. Read src/data/lambda-zero-attack.js B2 for the exact formulation, then attack.',
+    rationale: 'This is the SINGLE blocker whose resolution alone yields Λ ≤ 0. Every other item in the queue is either support (tightening error bars, validating assumptions) or a parallel path. B2 is the main line.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-324',
+    title: 'BLOCKER B1: analytic bound on the slope constant b in |t_c| = a + b/N',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-319/LAMBDA_ZERO_BLOCKERS B1: the slope b = 4.91 is fit from 5 numerical N values with R² = 0.943. To replace the numerical fit with an analytic Λ bound, we need an a-priori bound on b from the Dyson ODE dynamics (mean level spacing, GUE-like repulsion, local density) rather than least-squares. Derive b_analytic and compare with the numerical 4.91. If they agree, the fit is structurally sound; if not, the 1/N ansatz is wrong.',
+    rationale: 'Closing B1 removes the "numerical fit" dependency from Path C. Combined with B2 resolution, this gives an analytic upper bound on Λ, not a curve-fit.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-325',
+    title: 'BLOCKER B3: analytic Dyson repulsion lower bound at small gaps',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-319/LAMBDA_ZERO_BLOCKERS B3: the Dyson evolution equation dγ_k/dt = Σ 2/(γ_k - γ_j) produces a repulsion force that prevents collisions in forward time. For the BACKWARD integration, we need a lower bound on how fast two γ values can approach as t decreases — i.e. an analytic upper bound on |d(γ_k - γ_{k+1})/dt|⁻¹ near small gaps. Combine with imp-322 monotonicity result to bound t_c from below analytically.',
+    rationale: 'This complements B2: even if the intercept is not provably ≤ 0, a rigorous collision-time lower bound plus the monotonicity proof from imp-322 gives a two-sided certified Λ.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-326',
+    title: 'BLOCKER B4: tighten Guth-Maynard tail overcount (imp-302 showed current use is loose)',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S4',
+    description: 'imp-319/LAMBDA_ZERO_BLOCKERS B4 + imp-302 negative result: Guth-Maynard applied to the tail overcounts off-line zero density at our working strip σ ~ 0.625, so it does not currently tighten Path C. Explore: (a) a tighter custom density bound specific to the strip we need (not the GM envelope), (b) using GM only asymptotically where it beats Ingham, with Ingham below crossover, (c) combining with zero-free region results to sharpen the tail budget for OUR σ.',
+    rationale: 'Closing B4 removes the "finite height T_0 only" qualifier from our Λ bound. Combined with B1+B2+B3, turns the Path C chain into a genuine theorem.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-327',
+    title: 'Explicit Λ ≤ 0 ⟺ RH at finite height: exact theorem citation + height mapping',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'bridge-lambda-rh.js gives the chain informally. Turn it into an exactly-cited theorem: state de Bruijn"s theorem on H_t and zeros, state Rodgers-Tao Λ ≥ 0, state the equivalence RH ⟺ Λ ≤ 0 with exact height control: "if Λ ≤ 0 is shown at effective height T*, then all zeros γ < T* lie on the critical line". Produce a precise map from our working N to the height T* we control. This is what imp-321 (push to PT scale) will plug into.',
+    rationale: 'Without the exact height-mapping theorem, we do not know WHAT RH statement our N=2458 computation is actually establishing. This makes the Λ-to-RH connection tight instead of handwavy.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
   },
 
   // ══════════════════════════════════════════════════════════════

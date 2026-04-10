@@ -42,8 +42,8 @@ export default function ProofCheckerPage() {
             'f(s) = \\frac{1-i\\kappa}{2} L(s, \\chi_1) + \\frac{1+i\\kappa}{2} L(s, \\bar{\\chi}_1)'
           } />
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
-            where <InlineMath tex={"\chi_1"} /> is primitive mod 5 with <InlineMath tex={"\chi_1(2) = i"} />,
-            and <InlineMath tex={"\kappa = (\sqrt{10-2\sqrt{5}}-2)/(\sqrt{5}-1)"} />.
+            where <InlineMath tex={"\\chi_1"} /> is primitive mod 5 with <InlineMath tex={"\\chi_1(2) = i"} />,
+            and <InlineMath tex={"\\kappa = (\\sqrt{10-2\\sqrt{5}}-2)/(\\sqrt{5}-1)"} />.
             This function has a functional equation but zeros off <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
           </p>
         </div>

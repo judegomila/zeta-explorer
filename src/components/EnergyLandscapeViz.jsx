@@ -150,18 +150,21 @@ export default function EnergyLandscapeViz() {
     ctx.font = '11px sans-serif';
     ctx.fillText('Dashed line: σ = ½  |  Circles: zeta zeros', 10, 36);
 
-    // σ tick labels along bottom edge
+    // σ tick labels along bottom edge.
+    // Anchored to dh-30..dh-17 (not dh-17..dh-4) so the σ axis title at dh-4
+    // has its own clear vertical strip; the previous layout drew the title
+    // directly on top of the tick label backgrounds and digits.
     ctx.font = '10px monospace';
     ctx.textAlign = 'center';
     for (const s of [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) {
       const tx = ((s - sigmaRange[0]) / (sigmaRange[1] - sigmaRange[0])) * dw;
       ctx.strokeStyle = 'rgba(255,255,255,0.3)';
       ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(tx, dh); ctx.lineTo(tx, dh - 4); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(tx, dh - 17); ctx.lineTo(tx, dh - 13); ctx.stroke();
       ctx.fillStyle = 'rgba(17,24,39,0.75)';
-      ctx.fillRect(tx - 12, dh - 17, 24, 13);
+      ctx.fillRect(tx - 12, dh - 30, 24, 13);
       ctx.fillStyle = '#cbd5e1';
-      ctx.fillText(s.toFixed(1), tx, dh - 6);
+      ctx.fillText(s.toFixed(1), tx, dh - 19);
     }
 
     // t tick labels along left edge

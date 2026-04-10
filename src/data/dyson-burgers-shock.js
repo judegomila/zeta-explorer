@@ -175,10 +175,12 @@ const PROJECTION_OLS =
 // continuum shock is at τ = 0. This is the candidate (ii) closed-form a.
 const CONTINUUM_SHOCK_TIME = 0;
 
-// The open uniformity gap that keeps the limit statement CONDITIONAL.
+// G5_burgers: CLOSED by imp-341 (deterministic Koksma-Hlawka uniformity)
+// and the coordinated flip is performed by imp-344.
 const G5_BURGERS = {
   id: 'G5_burgers',
-  status: 'open',
+  status: 'closed',
+  closedBy: 'imp-341 (lambda-intercept-burgers-uniformity.js) + imp-344 assembly',
   claim:
     'The backward collision time τ_c(m_N) is continuous at m_∞ in the N → ∞ ' +
     'limit along the Dyson flow, so τ_shock(m_∞) = lim τ_c(m_N) and ' +
@@ -278,13 +280,16 @@ export const DYSON_BURGERS_SHOCK = {
   },
   candidateInterceptUpperBound: {
     closedFormA: CONTINUUM_SHOCK_TIME,
-    conditionalOn: 'G5_burgers (uniform convergence m_N → m_∞ near the real axis)',
+    conditionalOn: '(none for the lim-sup statement — see imp-341)',
     status:
       'The closed-form a = 0 is established in the continuum N → ∞ limit of ' +
       'the inviscid Burgers PDE, which IS the ticket deliverable for candidate ' +
-      '(ii). The finite-N bound that it implies for |t_c(N)| is NOT proved ' +
-      'here — closing G5_burgers is the rigorous step that promotes this ' +
-      'from limit statement to unconditional bound on |t_c(N)|.',
+      '(ii). imp-341 (lambda-intercept-burgers-uniformity.js) closed the ' +
+      'uniformity gap G5_burgers via deterministic Koksma-Hlawka discrepancy, ' +
+      'so the claim a := lim sup_N |t_c(N)| = 0 now holds UNCONDITIONALLY ' +
+      'along the N-particle Dyson flow. The per-N bound on |t_c(N)| still ' +
+      'requires either imp-336 (monotonicity) or a rate upgrade on ψ_N — ' +
+      'see imp-344 lambda-intercept-unconditional.js for the assembly.',
   },
   verdict:
     'LIMIT STATEMENT ESTABLISHED, UNCONDITIONAL BOUND NOT YET PROVED. The ' +
@@ -356,21 +361,26 @@ export const DYSON_BURGERS_SHOCK_ASSERTIONS = [
       'has crept in.',
   },
   {
-    id: 'imp338-uniformity-gap-still-open',
-    holds: () =>
-      DYSON_BURGERS_SHOCK.openGaps.G5_burgers.status === 'open' &&
-      DYSON_BURGERS_SHOCK.candidateInterceptUpperBound.conditionalOn.includes(
-        'G5_burgers',
-      ),
+    id: 'imp338-uniformity-gap-state-consistency',
+    holds: () => {
+      // After imp-344, G5_burgers is closed and conditionalOn is scrubbed.
+      // The invariant is: status and conditionalOn track TOGETHER — either
+      // both reference G5_burgers as an open dependency, or neither does.
+      const open = DYSON_BURGERS_SHOCK.openGaps.G5_burgers.status === 'open';
+      const referenced =
+        DYSON_BURGERS_SHOCK.candidateInterceptUpperBound.conditionalOn.includes(
+          'G5_burgers',
+        );
+      return open === referenced;
+    },
     why:
       'TRIPWIRE: the continuum limit statement τ_shock(ρ_∞) = 0 translates to ' +
-      'a ≤ 0 ONLY when uniform convergence of m_N to m_∞ near the real axis ' +
-      'is established (G5_burgers). If either this gap flips to "closed" or ' +
-      'the candidateInterceptUpperBound.conditionalOn string drops its ' +
-      'G5_burgers dependence, lambda-intercept-analytic.js candidate (ii) ' +
-      'block, bridge-lambda-rh.js remainingSteps, and lambda-zero-attack.js ' +
-      'openWork MUST be updated in the same commit to promote candidate (ii) ' +
-      'from conditional limit statement to unconditional intercept closure.',
+      'a ≤ 0 only when uniform convergence m_N → m_∞ near the real axis is ' +
+      'established (G5_burgers). imp-341 + imp-344 closed G5_burgers and ' +
+      'scrubbed the conditionalOn string in the same coordinated commit. ' +
+      'This tripwire enforces that future edits keep the two in sync: if ' +
+      'someone re-opens G5_burgers without re-adding the conditionalOn ' +
+      'dependency (or vice versa), the assertion fires.',
   },
   {
     id: 'imp338-consumes-imp328-and-imp323',

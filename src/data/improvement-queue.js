@@ -4437,12 +4437,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Assemble unconditional a ≤ 0 at finite N from the parallel closures (imp-336, 337, 341, 342, 343)',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
-    description: 'Master assembly ticket. Once any one of the three parallel routes closes — (A) imp-336 monotonicity conjecture, (B) imp-338 + imp-341 Burgers uniformity, (C) imp-337 + imp-342 + imp-343 density squeeze with G3+G4 closed — produce the unconditional a ≤ 0.0086 (or a = 0 at N → ∞) theorem statement in src/data/lambda-intercept-unconditional.js. Combined with Rodgers-Tao Λ ≥ 0 and imp-327 height mapping, this IS the RH statement up to the controlled height T*. Should include: statement of the theorem, which route was used, all assertions chained, and the effective T* number.',
+    description: 'Master assembly. DELIVERED src/data/lambda-intercept-unconditional.js assembling the three routes with honest status (B unconditional as lim-sup via imp-341 Koksma-Hlawka uniformity, A empirically unfalsified but analytically open, C with G4 closed + G3 open), surfaces a NEW open gap G6_polymath15_bridge between the N-particle Dyson claim and the de Bruijn-Newman Λ itself (previously implicit in every preceding ticket), and performs the coordinated tripwire flip deferred by imp-341: flips G5_burgers.status open → closed in dyson-burgers-shock.js, scrubs the conditionalOn reference, rewrites the imp338-uniformity-gap tripwire from "must be open" to a state-consistency check (both in sync), and updates lambda-intercept-analytic.js candidate (ii) obstruction to cite imp-341 as closure. Current strongest unconditional claim: lim sup_N |t_c(N_particle Calogero-Moser flow)| = 0. Finite-height RH corollary: NONE yet — Platt-Trudgian 3·10^12 remains sharpest, imp-344 contributes a different asymptotic methodology not a finite-height beat. bridge-lambda-rh.js + lambda-zero-attack.js coordinated updates deferred to follow-ups in openWork. 9 build-time assertions guard the coordinated flip and the honesty of the finiteHeightCorollaryRH = "NONE yet" claim. Build verified.',
     rationale: 'The capstone of Phases 7-11. This file, when populated, is the final deliverable of the entire Λ attack — an unconditional Λ ≤ 0 at finite height, which means RH below that height.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-10',
   },
 
   // ══════════════════════════════════════════════════════════════

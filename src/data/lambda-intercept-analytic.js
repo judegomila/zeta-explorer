@@ -196,9 +196,15 @@ export const LAMBDA_INTERCEPT_ANALYTIC = {
         '(Dyson 1962). The N → ∞ limit of the collision time is the Burgers shock ' +
         'time of the Riemann-von Mangoldt density ρ(γ) = log(γ/2π)/(2π).',
       obstruction:
-        'Pair correlation of the Riemann zeros is only conjectural (Montgomery 1973) ' +
-        'and even the conjectural form is not strong enough to pass collision times ' +
-        'through the N → ∞ limit.',
+        'SUPERSEDED: imp-338 shipped the continuum shock time τ_shock(ρ_∞) = 0, ' +
+        'and imp-341 closed the G5_burgers uniformity gap via a deterministic ' +
+        'Koksma-Hlawka discrepancy bound using ONLY the Selberg |S(T)| = ' +
+        'O(log T / log log T) estimate — no pair correlation input is required. ' +
+        'The limit claim a := lim sup_N |t_c(N)| = 0 now holds UNCONDITIONALLY ' +
+        'along the N-particle Dyson flow. Translating to a per-N bound still ' +
+        'needs either imp-336 monotonicity or an upgraded ψ_N rate — see ' +
+        'imp-344 lambda-intercept-unconditional.js for the assembly + the new ' +
+        'G6_polymath15_bridge open gap between the N-particle claim and Λ.',
     },
     {
       label: '(iii) Montgomery-Dyson min-gap heuristic',

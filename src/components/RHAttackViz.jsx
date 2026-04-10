@@ -580,12 +580,12 @@ function SMatrixTab() {
   return (
     <div>
       <div className="tab-explainer accent-cyan">
-        The S-matrix / Darlington synthesis models <InlineMath tex={"\zeta(s)"} /> as the transmission coefficient of
-        a lossless scattering network. At known zeros (red bars), <InlineMath tex={"|\zeta(\tfrac{1}{2}+it)| \to 0"} /> (no
-        transmission), while the bridge function <InlineMath tex={"|\chi| = 1"} /> (fully unitary). At non-zero
+        The S-matrix / Darlington synthesis models <InlineMath tex={"\\zeta(s)"} /> as the transmission coefficient of
+        a lossless scattering network. At known zeros (red bars), <InlineMath tex={"|\\zeta(\\tfrac{1}{2}+it)| \\to 0"} /> (no
+        transmission), while the bridge function <InlineMath tex={"|\\chi| = 1"} /> (fully unitary). At non-zero
         frequencies (blue bars), transmission is nonzero. The zero deviation table below cross-checks each
-        known <InlineMath tex={"\gamma_n"} /> against the Riemann&ndash;Siegel formula.
-        <strong> Look for:</strong> red "ZERO" labels only at known <InlineMath tex={"\gamma_n"} />;
+        known <InlineMath tex={"\\gamma_n"} /> against the Riemann&ndash;Siegel formula.
+        <strong> Look for:</strong> red "ZERO" labels only at known <InlineMath tex={"\\gamma_n"} />;
         green bridge bars reaching full height (unitarity).
       </div>
       <canvas
@@ -827,14 +827,14 @@ function HeatFlowTab() {
   return (
     <div>
       <div className="tab-explainer accent-yellow">
-        The de Bruijn&ndash;Newman constant <InlineMath tex={"\Lambda"} /> controls how the <InlineMath tex={"\Xi"} /> function
-        behaves under heat flow: <InlineMath tex={"H_\tau(t)"} /> has only real zeros for{' '}
-        <InlineMath tex={"\tau \geq \Lambda"} />. Rodgers&ndash;Tao (2020) proved <InlineMath tex={"\Lambda \geq 0"} />;
-        RH is equivalent to <InlineMath tex={"\Lambda \leq 0"} />, hence <InlineMath tex={"\Lambda = 0"} />. Each curve
-        shows <InlineMath tex={"H_\tau(t)"} /> for a different heat time <InlineMath tex={"\tau"} />. Red dots mark
-        known zeta zeros on the <InlineMath tex={"\tau = 0"} /> curve.
-        <strong> Look for:</strong> zero crossings aligning with known zeros at <InlineMath tex={"\tau = 0"} />;
-        zeros coalescing as <InlineMath tex={"\tau"} /> increases.
+        The de Bruijn&ndash;Newman constant <InlineMath tex={"\\Lambda"} /> controls how the <InlineMath tex={"\\Xi"} /> function
+        behaves under heat flow: <InlineMath tex={"H_\\tau(t)"} /> has only real zeros for{' '}
+        <InlineMath tex={"\\tau \\geq \\Lambda"} />. Rodgers&ndash;Tao (2020) proved <InlineMath tex={"\\Lambda \\geq 0"} />;
+        RH is equivalent to <InlineMath tex={"\\Lambda \\leq 0"} />, hence <InlineMath tex={"\\Lambda = 0"} />. Each curve
+        shows <InlineMath tex={"H_\\tau(t)"} /> for a different heat time <InlineMath tex={"\\tau"} />. Red dots mark
+        known zeta zeros on the <InlineMath tex={"\\tau = 0"} /> curve.
+        <strong> Look for:</strong> zero crossings aligning with known zeros at <InlineMath tex={"\\tau = 0"} />;
+        zeros coalescing as <InlineMath tex={"\\tau"} /> increases.
       </div>
       <div style={{ display: 'flex', gap: 6, marginBottom: 12 }}>
         {tauValues.map((tau, i) => (

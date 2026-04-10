@@ -962,3 +962,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1075 | 2026-04-09T17:00:00Z | **imp-302: GM-vs-Ingham at the barrier strip** — negative result, GM does NOT tighten Path C mean-field (only the tail) | guth-maynard-tail-bound.js, improvement-queue.js |
 | 1076 | 2026-04-09T18:00:00Z | **Bridge file Step 3 wired to Guth-Maynard tail bound** — flips Step 3 from 'open' to 'have-bound', cites the explicit thin-strip tail count | bridge-lambda-rh.js |
 | 1077 | 2026-04-09T19:00:00Z | **imp-320: Λ cross-validation table with build-time consistency assertions** — six estimates, same-scope interval checks, flags any pipeline disagreement | lambda-cross-validation.js, improvement-queue.js |
+| 1078 | 2026-04-09T20:00:00Z | **imp-322: analytic monotonicity theorem for B(t) under backward Dyson flow** — closed form dg_k/dt = 4/g_k − 2 g_k S_k, telescoping bound S_k* ≤ 2/B², boundary derivative ≥ 0 | dyson-monotonicity-proof.js, improvement-queue.js |

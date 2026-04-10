@@ -4126,12 +4126,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'PROVE: Dyson gap monotonicity B(t) analytically (not just numerically)',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
-    description: 'The backward collision argument assumes B(t) = min_n |γ_{n+1}(t) - γ_n(t)| decreases monotonically as t decreases from 0. imp-299 validated this numerically. But the extrapolation from "B hits 0 at t_c" to "Λ ≥ -t_c" relies on monotonicity being a THEOREM, not a plot. Write the analytic monotonicity argument using the Dyson repulsion equation dγ_k/dt = Σ 2/(γ_k - γ_j), showing that the minimum gap must contract under backward flow. Cite or supply the proof.',
+    description: 'The backward collision argument assumes B(t) = min_n |γ_{n+1}(t) - γ_n(t)| decreases monotonically as t decreases from 0. imp-299 validated this numerically. But the extrapolation from "B hits 0 at t_c" to "Λ ≥ -t_c" relies on monotonicity being a THEOREM, not a plot. Write the analytic monotonicity argument using the Dyson repulsion equation dγ_k/dt = Σ 2/(γ_k - γ_j), showing that the minimum gap must contract under backward flow. Cite or supply the proof. DELIVERED in src/data/dyson-monotonicity-proof.js: closed form dg_k/dt = 4/g_k − 2 g_k S_k(t) with S_k(t) = Σ_{j∉{k,k+1}} 1/[(γ_{k+1}−γ_j)(γ_k−γ_j)]. At any minimum-gap index k*, the per-side bound |γ_k* − γ_j| ≥ |k*−j|·B gives S_k* ≤ 2/B² via the telescoping identity Σ 1/[i(i+1)] = 1; substituting back yields dg_k*/dt ≥ 4/B − 4/B = 0. So under forward Calogero-Moser flow B(t) is non-decreasing, equivalently under backward flow B is non-increasing — the first backward zero of B IS the collision time t_c, not a local dip. The bound is sharp: equality holds iff every consecutive gap on both sides of k* equals B, which is exactly the symmetric configuration in which all gaps simultaneously collapse. Three build-time assertions enforce (i) the telescoping identity numerically, (ii) the boundary calculation 4 − 2·2 = 0 algebraically, and (iii) S_k* ≤ 2/B² on the actual ZETA_ZEROS list at t = 0 as a non-vacuous numerical witness. Scope is explicitly limited to the deterministic flow on a finite truncation; tail handled by guth-maynard-tail-bound.js, fit error by lambda-error-budget.js.',
     rationale: 'Without monotonicity as a theorem, t_c could be a local minimum of B(t) and the true collision time could be later — making our Λ bound invalid. This is a load-bearing assumption currently only checked numerically.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-09',
   },
 
   // ══════════════════════════════════════════════════════════════

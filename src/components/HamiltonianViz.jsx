@@ -156,12 +156,17 @@ export default function HamiltonianViz() {
       .attr('r', 3).attr('fill', '#8b5cf6').attr('stroke', '#0a0e1a').attr('stroke-width', 1.5)
       .attr('opacity', 0);
 
+    // points are produced by hamiltonianSigmaScan as a uniform grid over [0.05, 0.95],
+    // so we can hit-test in O(1) by computing the index directly instead of doing the
+    // O(n) reduce + 2N Math.abs that fired on every mousemove.
+    const sigmaMin = 0.05;
+    const sigmaSpan = 0.9;
     overlay.on('mousemove', (event) => {
       const [mx] = d3.pointer(event);
       const sigma = x.invert(mx);
-      const closest = points.reduce((best, p) =>
-        Math.abs(p.sigma - sigma) < Math.abs(best.sigma - sigma) ? p : best
-      , points[0]);
+      const lastIdx = points.length - 1;
+      const idx = Math.max(0, Math.min(lastIdx, Math.round(((sigma - sigmaMin) / sigmaSpan) * lastIdx)));
+      const closest = points[idx];
 
       const cx = x(closest.sigma);
       hoverLine.attr('x1', cx).attr('x2', cx).attr('opacity', 0.3);

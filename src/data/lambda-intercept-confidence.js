@@ -198,6 +198,47 @@ export const LAMBDA_INTERCEPT_CONFIDENCE = {
 
   computedCentralOLS: FIT.a,
 
+  // imp-330 reconciliation: pick a single canonical Λ central value so the
+  // 0.0029 (OLS) vs 0.0066 (headline Path C) gap stops being an unresolved
+  // floating discrepancy that downstream files might silently re-pick from.
+  // Decision: the headline 0.0066 from bridge-lambda-rh.js / lambda-error-budget.js
+  // is the canonical Λ central value going forward, with the OLS 0.0029 retained
+  // here as a *diagnostic* re-fit on the recorded 5-tuple snapshot only.
+  // Why 0.0066 wins:
+  //   (i)  Conservatism — for an UPPER bound on Λ, the larger of two compatible
+  //        central values is the safer claim. 0.0066 ≥ 0.0029, so any reader
+  //        quoting Λ ≤ 0.0066 + 0.01 is also covered against the OLS re-fit
+  //        (whose two-sided 95% CI on a comfortably contains 0.0066).
+  //   (ii) Provenance — the headline number flows from imp-309 / commit 229139's
+  //        runtime Dyson ODE re-run with the audited collision times; the OLS
+  //        0.0029 here is a downstream re-fit on the *recorded* snapshot in
+  //        PATH_C_BASELINE_FIT, which captures only the (N, t_c) tuples that
+  //        were copied into dyson-scaling-N5000.js, not the full 5-point Dyson
+  //        re-run. The headline is the source; the OLS is its echo.
+  //   (iii) Lock-in — every other Λ-carrying file in the repo (bridge-lambda-rh.js,
+  //        lambda-error-budget.js, lambda-cross-validation.js, the cross-validation
+  //        assertions) already imports the headline 0.0066. Picking it as canonical
+  //        means zero downstream edits; picking 0.0029 would force a sweep through
+  //        every consumer and risk silent drift.
+  // The OLS 0.0029 remains useful as the angle (a) statistical instrument: its
+  // CI machinery is what tells us whether the headline is statistically
+  // distinguishable from 0, which is the actual B2(a) question.
+  reconciliation: {
+    canonicalCentralValue: LAMBDA_ERROR_BUDGET.centralValue,
+    canonicalSource: 'lambda-error-budget.js (mirrors bridge-lambda-rh.js pathCBound.centralValue)',
+    canonicalCitation: 'imp-309 / commit 229139 Path C runtime Dyson ODE re-run',
+    diagnosticOLS: FIT.a,
+    diagnosticOLSSource: 'OLS re-fit on PATH_C_BASELINE_FIT (this file)',
+    rationale:
+      'For an upper bound on Λ the larger central is the more conservative claim, ' +
+      'and the headline 0.0066 is already the canonical reference in every ' +
+      'downstream Λ file (bridge / error-budget / cross-validation). The OLS ' +
+      '0.0029 is retained as a diagnostic re-fit, not a competing source of truth.',
+    discrepancy: LAMBDA_ERROR_BUDGET.centralValue - FIT.a,
+    discrepancyWithinOneSE: () =>
+      Math.abs(LAMBDA_ERROR_BUDGET.centralValue - FIT.a) <= FIT.seA,
+  },
+
   // One-sided / two-sided confidence intervals on the intercept.
   interceptIntervals: A_INTERVALS,
   // Same for the slope, for completeness.

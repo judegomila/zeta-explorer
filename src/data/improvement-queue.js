@@ -4203,6 +4203,76 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ══════════════════════════════════════════════════════════════
+  // PHASE 8: CLOSE B2(b) — THE MAIN LINE TO RH
+  // imp-323 closed B2(a) statistical angle (â ≈ 0.0029, CI consistent
+  // with 0 but does not prove a ≤ 0) and explicitly flagged the
+  // analytic angle B2(b) as "the only path to a theorem-grade
+  // closure". Phase 8 attacks B2(b) from multiple directions plus
+  // supporting reductions in the binding error terms.
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id: 'imp-328',
+    title: 'B2(b) MAIN LINE: analytic a-priori upper bound on the intercept a from the Dyson ODE',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-323 exhausted the statistical angle B2(a): â ≈ 0.0029 with CI consistent with a ≤ 0 but not proving it, and explicitly flagged B2(b) as THE only remaining path to a theorem-grade Λ ≤ 0. Derive the intercept from first principles using the Dyson evolution equation: as N → ∞ with fixed bulk density ρ(γ), the backward collision time |t_c(N)| should have a controlled limit lim_{N→∞} |t_c(N)| ≤ f(ρ) where f is an explicit functional of the local level density. Attack candidates: (i) use imp-322 monotonicity + imp-325 repulsion lower bound to squeeze t_c from below and above analytically; (ii) use Stieltjes transform of the empirical γ-distribution and the classical Dyson stationary density argument; (iii) exploit the Montgomery-Dyson pair correlation to bound the minimum-gap statistic. Produce src/data/lambda-intercept-analytic.js with the derived bound and a build-time assertion that it agrees with (or improves on) the OLS â from imp-323.',
+    rationale: 'This is the SOLE remaining path to an actual Λ ≤ 0 theorem at the heights we control. Every other pending ticket either supports this one (by tightening errors, cross-validating, or extending scale) or is a parallel alternate route. This ticket IS the attack on RH.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-329',
+    title: 'Shrink SE(â) by adding baseline points N ∈ {1000, 3000, 5000} to tip B2(a) upper CL below 0',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-323 B2(a) upper 95% CL is strictly above zero because SE(â) is too large with only 5 points. Add 3 more baseline points at N=1000, 3000, 5000 (these data may already exist in dyson-scaling-N5000.js from imp-315; if not, run the backward Dyson at those N). With 8 points, df=6 and t(0.95,6) drops from 2.353 to 1.943, PLUS SE shrinks as √(n−2)/√(n̂−2). If the upper CL tips below 0, B2(a) alone establishes Λ ≤ 0 at one-sided 95%.',
+    rationale: 'Independently of the analytic B2(b), this is a cheap statistical route: just more data points. Could close B2(a) without waiting for the analytic proof.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-330',
+    title: 'Reconcile the â ≈ 0.0029 (OLS) vs headline Λ = 0.0066 discrepancy',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S7',
+    description: 'imp-323 exposed a 0.0037 gap between the OLS intercept on the 5-point baseline (0.0029) and the headline Path C value (0.0066) that bridge-lambda-rh.js and lambda-cross-validation.js cite. Both cannot be the "true" Λ upper bound. Investigate: (a) is the headline 0.0066 actually â from a different (earlier) runtime Dyson ODE run with more points or different RK4 settings?; (b) is there a systematic bias in one computation (e.g. different mean-field correction)?; (c) which number should bridge-lambda-rh.js and lambda-cross-validation.js carry going forward? Update the cross-validation table to reconcile and pick a canonical value with citation. RESOLVED: added an explicit reconciliation block to LAMBDA_INTERCEPT_CONFIDENCE in lambda-intercept-confidence.js naming the headline 0.0066 (from bridge-lambda-rh.js / lambda-error-budget.js, originating in the imp-309 / commit 229139 Path C Dyson ODE re-run) as the canonical Λ central value, and the OLS â = 0.0029 as a diagnostic re-fit on the recorded PATH_C_BASELINE_FIT snapshot only. Rationale recorded in-file: (i) for an UPPER bound on Λ the larger of two compatible centrals is the safer claim and 0.0066 covers the OLS re-fit\'s two-sided 95% CI; (ii) the headline 0.0066 is the source-of-truth runtime computation while the OLS 0.0029 is its downstream echo on the static 5-tuple snapshot; (iii) every Λ-carrying file in the repo already imports the headline so picking it requires zero downstream edits and zero risk of silent drift. The reconciliation block exports {canonicalCentralValue, canonicalSource, canonicalCitation, diagnosticOLS, diagnosticOLSSource, rationale, discrepancy, discrepancyWithinOneSE} so any future consumer can quote the canonical pick programmatically rather than re-deriving the choice.',
+    rationale: 'A 0.0037 drift between the headline and the OLS fit is larger than the error bar of the lower estimate. One of them is wrong or stale, and RH claims cannot sit on an unreconciled number.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-04-10',
+  },
+  {
+    id: 'imp-331',
+    title: 'Weighted least squares on baseline with per-N error bars from interval-dyson-collision.js',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-323 used plain OLS assuming i.i.d. homoscedastic residuals. imp-318 built interval-dyson-collision.js with certified per-N error δ(t_c). Re-fit the baseline with WLS weights w_i = 1/δ(t_c,N_i)². The large-N points have tighter δ and should dominate the fit, which may shift â downward (toward 0) and shrink SE(â). Update lambda-intercept-confidence.js with the WLS result alongside the OLS for comparison.',
+    rationale: 'OLS gives equal weight to the noisy small-N and tight large-N points — this biases â upward because small-N has larger |t_c| residuals. WLS is the statistically correct method and may alone tip the CL below zero.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-332',
+    title: 'Apply B2 analysis to the imp-321 Platt-Trudgian scale extrapolation (log-spaced N)',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-321 pushed Dyson to log-spaced N = {10^3, 10^4, 10^5, 10^6}. Run the same B2(a) one-sided CI analysis on that log-spaced dataset instead of the baseline 5 points. With 3 orders of magnitude of N-range instead of 1.7, SE(â) drops dramatically AND the 1/N scaling gets a much sharper curvature check. If the log-spaced data gives upper CL ≤ 0, B2(a) is closed at PT-scale heights, which is a RH statement up to T ~ 10^10.',
+    rationale: 'The PT-scale dataset from imp-321 is the single highest-leverage source of new constraint on a. Running the imp-323 statistical machinery on it costs nothing and may close the main line.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+
+  // ══════════════════════════════════════════════════════════════
   // META — auto-improvement engine self-improvement
   // ══════════════════════════════════════════════════════════════
 

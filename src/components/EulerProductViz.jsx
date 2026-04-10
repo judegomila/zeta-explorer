@@ -283,8 +283,8 @@ export default function EulerProductViz() {
                   color: bestDist < 0.3 ? '#10b981' : '#64748b',
                   cursor: 'pointer', borderBottom: '1px dashed currentColor',
                 }}
-                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(3)}`}
-                onClick={() => setT(+ZETA_ZEROS[bestIdx].toFixed(1))}
+                title={`Click to snap t to γ${bestIdx + 1} = ${ZETA_ZEROS[bestIdx].toFixed(6)}`}
+                onClick={() => setT(ZETA_ZEROS[bestIdx])}
               >
                 {'\u2248 \u03B3'}{String(bestIdx + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={ZETA_ZEROS[bestIdx].toFixed(1)}
               </span>

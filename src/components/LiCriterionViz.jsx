@@ -354,12 +354,24 @@ export default function LiCriterionViz() {
       )}
       {mode === 'debruijn' && (
         <div className="tab-explainer accent-purple">
-          Under the heat equation with parameter <InlineMath tex={"\\tau"} />, zeros of the Xi function
-          evolve continuously. At <InlineMath tex={"\\tau = 0"} />, they sit on the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (assuming RH). Heating
-          (<InlineMath tex={"\\tau > 0"} />) keeps them on the line; inverse diffusion (<InlineMath tex={"\\tau < 0"} />) scatters them off.
-          The de Bruijn-Newman constant <InlineMath tex={"\\Lambda \\geq 0"} /> (proved by Rodgers-Tao) is the critical
-          temperature: the system is already at the coldest point compatible with real zeros.
-          <strong> Look for:</strong> zeros staying on <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> for <InlineMath tex={"\\tau \\geq 0"} /> and scattering off for <InlineMath tex={"\\tau < 0"} /> (backward heat).
+          <p style={{ margin: '0 0 8px' }}>
+            Under the heat equation with parameter <InlineMath tex={"\\tau"} />, zeros of the Xi function
+            evolve continuously. At <InlineMath tex={"\\tau = 0"} />, they sit on the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (assuming RH). Heating
+            (<InlineMath tex={"\\tau > 0"} />) keeps them on the line; inverse diffusion (<InlineMath tex={"\\tau < 0"} />) scatters them off.
+            The de Bruijn-Newman constant <InlineMath tex={"\\Lambda \\geq 0"} /> (proved by Rodgers-Tao) is the critical
+            temperature: the system is already at the coldest point compatible with real zeros.
+          </p>
+          <p style={{ margin: '8px 0 0', fontSize: 11, color: '#f59e0b' }}>
+            <strong>Note:</strong> the scatter below is a <em>schematic illustration</em>, not a true
+            solution of the backward heat equation. For <InlineMath tex={"\\tau < 0"} /> the displacement
+            uses a deterministic <InlineMath tex={"\\sin"} />-based pattern
+            <InlineMath tex={"\\,\\tau \\sin(3.7\\gamma + 1.3 j)/(1 + 0.05\\gamma)"} /> purely to convey
+            that negative <InlineMath tex={"\\tau"} /> creates non-real zeros &mdash; the magnitudes,
+            signs, and ordering are not physically accurate.
+          </p>
+          <p style={{ margin: '8px 0 0' }}>
+            <strong>Look for:</strong> zeros staying on <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> for <InlineMath tex={"\\tau \\geq 0"} /> and scattering off for <InlineMath tex={"\\tau < 0"} /> (backward heat).
+          </p>
         </div>
       )}
       <div className="controls">

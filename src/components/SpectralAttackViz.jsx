@@ -128,7 +128,8 @@ function FisherTwistorTab({ t, numPrimes }) {
     ctx.fillStyle = '#64748b';
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';
-    for (let s = 0.2; s <= 0.8; s += 0.2) {
+    // Step 0.2 from 0.1 so 0.5 (the critical-line tick) is included alongside 0.3, 0.7, etc.
+    for (let s = 0.1; s <= 0.9; s += 0.2) {
       const x = margin.left + ((s - minS) / (maxS - minS)) * plotW;
       ctx.fillText(s.toFixed(1), x, h - margin.bottom + 14);
     }
@@ -374,7 +375,7 @@ function LyapunovTab({ t, numPrimes }) {
     ctx.fillStyle = '#64748b';
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';
-    for (let s = 0.2; s <= 0.8; s += 0.2) {
+    for (let s = 0.1; s <= 0.9; s += 0.2) {
       const x = margin.left + ((s - minS) / (maxS - minS)) * plotW;
       ctx.fillText(s.toFixed(1), x, h - margin.bottom + 14);
     }
@@ -605,7 +606,7 @@ function PhaseBarriersTab({ t, numPrimes }) {
     ctx.fillStyle = '#64748b';
     ctx.font = '10px var(--font-mono)';
     ctx.textAlign = 'center';
-    for (let s = 0.2; s <= 0.8; s += 0.2) {
+    for (let s = 0.1; s <= 0.9; s += 0.2) {
       const x = margin.left + ((s - minS) / (maxS - minS)) * plotW;
       ctx.fillText(s.toFixed(1), x, h - margin.bottom + 14);
     }

@@ -250,10 +250,10 @@ export default function NyquistBodeViz() {
       .text('Nyquist Plot of Loop Transfer Function L(s) = χ(s)·ζ(1−s)/ζ(s)');
 
     svg.append('text').attr('x', margin.left + 4).attr('y', margin.top + 30)
-      .attr('fill', sigma === 0.5 ? '#10b981' : '#ef4444').attr('font-size', 11)
-      .text(`σ = ${sigma.toFixed(2)} — ${sigma === 0.5 ? 'Critical line: expect 0 encirclements' : 'Off critical line'}`);
+      .attr('fill', sigmaColor).attr('font-size', 11)
+      .text(`σ = ${sigma.toFixed(2)} — ${sigmaDeviation < 0.02 ? 'Critical line: expect 0 encirclements' : sigmaDeviation < 0.15 ? 'Near critical line' : 'Off critical line'}`);
 
-  }, [sigma, nyquistData]);
+  }, [sigma, sigmaColor, sigmaDeviation, nyquistData]);
 
   const drawBode = useCallback(() => {
     const svg = d3.select(bodeRef.current);

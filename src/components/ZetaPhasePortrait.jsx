@@ -142,6 +142,18 @@ export default function ZetaPhasePortrait() {
           <span className="control-value">{tSpan}</span>
         </div>
         <div className="control-group">
+          <label>σ window</label>
+          <input
+            type="range" min="-2" max="1" step="0.1"
+            value={sigmaRange[0]}
+            title="Pan the σ (real-axis) window while keeping its width fixed at 1.0 — use this to zoom out of the critical strip and see the trivial-zeros region (σ < 0) or the convergent region (σ > 1)."
+            onChange={e => { const lo = +e.target.value; setSigmaRange([lo, lo + 1]); }}
+          />
+          <span className="control-value" style={{ fontFamily: 'var(--font-mono)' }}>
+            [{sigmaRange[0].toFixed(1)}, {sigmaRange[1].toFixed(1)}]
+          </span>
+        </div>
+        <div className="control-group">
           <label>Resolution</label>
           <input type="range" min="1" max="4" step="1" value={resolution}
             onChange={e => setResolution(+e.target.value)} />

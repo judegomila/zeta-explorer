@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { IMPROVEMENT_QUEUE } from '../data/improvement-queue.js';
+import { IMPROVEMENT_QUEUE_ALL as IMPROVEMENT_QUEUE } from '../data/improvement-queue-archive.js';
 
 /* ─── Config ─── */
 

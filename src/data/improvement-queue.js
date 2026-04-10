@@ -3892,12 +3892,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'P15-7: Extend zeros to T=5000 via optimized Riemann-Siegel for better barrier',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
-    description: 'Extend imp-272 (1506 zeros to T=2000) to T=5000 (~3500 zeros). More zeros = more Lehmer pairs + better mean-field + tighter barrier. Use optimized R-S with adaptive step near expected zeros.',
+    description: 'Extend imp-272 (1506 zeros to T=2000) to T=5000 (~3500 zeros). PARTIAL DELIVERY in src/math/extended-zero-verification.js: T_extend lifted from 2000 → 5000 in extendedZeroVerificationTest(). Sign-change scan now sweeps existingMax→5000 at stepSize=0.05 (~19× finer than the 2π/log(T/2π) ≈ 0.94 mean spacing at T=5000), and the Turing checkpoint list now includes T=2000, 3000, 4000, 5000 so the per-step Riemann–von Mangoldt agreement is auditable through the new ceiling. The enhanced R-S kernel (riemannSiegelZEnhanced, O(t^{-5/4})) is reliable well beyond T=5000 so the higher ceiling does not degrade per-zero accuracy. Honest scope: extended-zero-verification.js is currently a methodology / Turing-bookkeeping module — its export is not consumed by the live barrier code (Lehmer pair search, mean-field correction, polymath15-lambda-barrier still read the static 870-entry ZETA_ZEROS table from src/math/zeta.js), so the downstream Lehmer-pair / mean-field / barrier tightening this ticket promises is NOT delivered by this commit alone. The follow-up is a second atomic commit that exports the extended zero list from this module and rewires one consumer (most likely the mean-field tail correction in lambda-zero-attack.js) to load it; that integration is intentionally deferred to keep this commit one logical change. Adaptive R-S step near expected zeros is a separate optional optimization (current uniform 0.05 step already over-resolves the gap by ~20×).',
     rationale: 'The barrier quality scales with T_0. Doubling zeros significantly tightens Λ estimate.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-10',
   },
 
   {

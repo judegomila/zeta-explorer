@@ -54,14 +54,18 @@ export function extendedZeroVerificationTest() {
   const existingMax = ZETA_ZEROS[existingCount - 1];
 
   // Phase 2: Extend beyond existing table via R-S sign changes
-  // Compute zeros from existing max to T=2000
-  const T_extend = 2000;
-  const stepSize = 0.05;  // fine enough to catch all zeros
+  // imp-301 (P15-7): pushed verification ceiling from T=2000 to T=5000.
+  // Mean zero spacing at T=5000 is 2π/log(T/2π) ≈ 0.94, so stepSize=0.05
+  // is ~19× finer than the gap and still catches every sign change; the
+  // enhanced R-S formula (riemannSiegelZEnhanced, O(t^{-5/4})) is reliable
+  // well past T=5000 so the higher ceiling does not degrade per-zero accuracy.
+  const T_extend = 5000;
+  const stepSize = 0.05;  // fine enough to catch all zeros up to T_extend
   const newZeros = findZerosRS(existingMax + 0.1, T_extend, stepSize);
   const totalZeros = existingCount + newZeros.length;
 
-  // Phase 3: Turing verification at checkpoints
-  const checkpoints = [100, 500, 1000, existingMax, 1500, T_extend];
+  // Phase 3: Turing verification at checkpoints (extended through T=5000)
+  const checkpoints = [100, 500, 1000, existingMax, 1500, 2000, 3000, 4000, T_extend];
   const turingCheck = checkpoints.map(T => {
     const predicted = Math.round(rvm(T));
     // Count zeros <= T

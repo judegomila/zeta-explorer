@@ -9,6 +9,7 @@ const categoryConfig = {
   performance: { label: 'Performance', color: '#10b981', cls: 'tag-green' },
   content:     { label: 'Content',     color: '#06b6d4', cls: 'tag-cyan' },
   architecture:{ label: 'Architecture', color: '#ec4899', cls: 'tag-pink' },
+  proof:       { label: 'Proof',       color: '#a855f7', cls: 'tag-purple' },
 };
 
 const PAGE_SIZE = 20;

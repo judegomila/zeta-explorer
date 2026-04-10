@@ -151,7 +151,7 @@ function QueueCard({ item }) {
 
 function NextSteps({ items }) {
   const top5 = items
-    .filter(i => i.status === 'queued')
+    .filter(i => i.status === 'pending')
     .sort((a, b) => {
       const order = { critical: 0, high: 1, medium: 2, low: 3 };
       return (order[a.priority] ?? 9) - (order[b.priority] ?? 9);

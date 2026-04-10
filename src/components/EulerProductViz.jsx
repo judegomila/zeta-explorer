@@ -244,8 +244,8 @@ export default function EulerProductViz() {
           Each factor has magnitude <InlineMath tex={"|1-p^{-s}|^{-1}"} /> and
           phase <InlineMath tex={"-\\arg(1-p^{-s})"} />.
           For <InlineMath tex={"\\sigma > 1"} />, the product converges to <InlineMath tex={"\\zeta(s)"} />.
-          In the critical strip (<InlineMath tex={"0 < \\sigma \\leq 1"} />), it <strong>diverges</strong> &mdash;
-          partial products oscillate without settling. The green reference shows the
+          In the critical strip (<InlineMath tex={"0 < \\sigma < 1"} />), it <strong>diverges</strong> &mdash;
+          partial products oscillate without settling. (At <InlineMath tex={"\\sigma = 1"} /> the product also diverges, by Mertens' theorem on <InlineMath tex={"\\sum 1/p"} />.) The green reference shows the
           true <InlineMath tex={"|\\zeta(s)|"} /> via analytic continuation.
         </p>
         <p style={{ margin: '4px 0 0' }}>

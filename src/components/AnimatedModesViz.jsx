@@ -51,6 +51,28 @@ export default function AnimatedModesViz() {
     });
   }, [numPrimes, zeroIndex]);
 
+  // Precompute cos(γ·log x[i]) and sin(γ·log x[i]) once per γ (zeroIndex), not
+  // per-frame. The inner waveform loop computes cos(γ·log x[i] − ω·t) for every
+  // (prime, x) pair; using cos(a−b) = cos a·cos b + sin a·sin b lets us factor
+  // out the γ·log x part (constant in time) and reduces the per-frame trig cost
+  // from numPrimes·xSteps cosine evaluations (up to 50·200 = 10,000 at 60 fps
+  // → 600k/s) to just 2·numPrimes cos/sin evaluations for the cos(ω·t)/sin(ω·t)
+  // factors. The γ·log x tables themselves are recomputed only when zeroIndex
+  // changes (rare user interaction), pre-multiplied by ANIM_ENVELOPE[i] so the
+  // envelope fold is also free in the hot loop.
+  const gammaWaveTables = useMemo(() => {
+    const gamma = ZETA_ZEROS[zeroIndex];
+    const cosTable = new Float64Array(ANIM_X_STEPS);
+    const sinTable = new Float64Array(ANIM_X_STEPS);
+    for (let i = 0; i < ANIM_X_STEPS; i++) {
+      const theta = gamma * ANIM_LOG_X[i];
+      const env = ANIM_ENVELOPE[i];
+      cosTable[i] = Math.cos(theta) * env;
+      sinTable[i] = Math.sin(theta) * env;
+    }
+    return { cosTable, sinTable };
+  }, [zeroIndex]);
+
   // Scale canvas height so each prime row stays readable (min 24px per row)
   const canvasHeight = Math.max(500, 100 + numPrimes * 28);
 
@@ -102,6 +124,7 @@ export default function AnimatedModesViz() {
       lastWaveWRef.current = waveW;
     }
 
+    const { cosTable, sinTable } = gammaWaveTables;
     primeData.forEach((pd, idx) => {
       const { p, omega, amplitude, hue } = pd;
       const yCenter = 60 + idx * rowH;
@@ -114,12 +137,17 @@ export default function AnimatedModesViz() {
       ctx.font = '9px monospace';
       ctx.fillText(`ω=${omega.toFixed(2)}`, 6, yCenter + 16);
 
-      // Draw waveform: cos(gamma * ln(x) - omega * t)
+      // Draw waveform: amplitude · cos(γ·ln x − ω·t) · envelope(x)
+      // Expand via cos(a−b) = cos a·cos b + sin a·sin b, where cosTable/sinTable
+      // already carry cos(γ·ln x[i])·envelope(i) and sin(γ·ln x[i])·envelope(i),
+      // so the only per-(prime,frame) trig is one cos(ω·t) + one sin(ω·t).
       const halfRow = rowH * 0.38;
       const phaseOffset = omega * t;
+      const cosPhase = Math.cos(phaseOffset);
+      const sinPhase = Math.sin(phaseOffset);
       ctx.beginPath();
       for (let i = 0; i < xSteps; i++) {
-        const val = amplitude * Math.cos(gamma * ANIM_LOG_X[i] - phaseOffset) * ANIM_ENVELOPE[i];
+        const val = amplitude * (cosTable[i] * cosPhase + sinTable[i] * sinPhase);
         const y = yCenter - val * halfRow;
 
         superposition[i] += val;
@@ -314,7 +342,7 @@ export default function AnimatedModesViz() {
       ctx.fillText(`… + ${primeData.length - 5} more primes`, legendX + 26, superLegY + 16);
     }
 
-  }, [primeData, zeroIndex, speed, canvasHeight]);
+  }, [primeData, gammaWaveTables, zeroIndex, speed, canvasHeight]);
 
   // Spacebar keyboard shortcut for play/pause
   useEffect(() => {

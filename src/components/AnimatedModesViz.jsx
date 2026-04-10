@@ -227,11 +227,15 @@ export default function AnimatedModesViz() {
     ctx.lineTo(xPad, axisY);
     ctx.stroke();
 
-    // Y-axis tick marks at ±half amplitude and center
+    // Y-axis tick marks at ±maxSuper (the dynamic peak amplitude of the
+    // superposition this frame) and zero. The top/bottom ticks land at 10%/90%
+    // of the panel height because scale = 0.4·superH/maxSuper, so val=maxSuper
+    // maps to a 0.4·superH pixel offset from the centerline.
+    const peakLabel = maxSuper.toFixed(maxSuper >= 10 ? 1 : 2);
     const yTicks = [
       { y: superMid, label: '0' },
-      { y: superY + superH * 0.1, label: '+' },
-      { y: superY + superH * 0.9, label: '\u2212' },
+      { y: superY + superH * 0.1, label: `+${peakLabel}` },
+      { y: superY + superH * 0.9, label: `\u2212${peakLabel}` },
     ];
     ctx.font = '9px monospace';
     ctx.textAlign = 'right';

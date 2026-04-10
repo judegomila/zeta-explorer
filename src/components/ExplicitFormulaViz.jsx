@@ -213,7 +213,14 @@ export default function ExplicitFormulaViz() {
           Von Mangoldt's explicit formula decomposes the Chebyshev function
           <InlineMath tex={"\\psi(x) = \\sum_{n \\le x} \\Lambda(n)"} /> into zeta-zero oscillations:
         </p>
-        <BlockMath tex={"\\psi(x) = x - \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho} - \\log 2\\pi - \\tfrac{1}{2}\\log(1 - x^{-2})"} />
+        <BlockMath tex={"\\psi_0(x) = x - \\sum_{\\rho} \\frac{x^{\\rho}}{\\rho} - \\log 2\\pi - \\tfrac{1}{2}\\log(1 - x^{-2})"} />
+        <p style={{ margin: '8px 0 6px', fontSize: 11, color: '#94a3b8' }}>
+          The identity holds for the symmetrized <InlineMath tex={"\\psi_0(x) = \\tfrac{1}{2}[\\psi(x^-)+\\psi(x^+)]"} />,
+          which equals <InlineMath tex={"\\psi(x)"} /> everywhere except at prime-power points <InlineMath tex={"x = p^k"} />,
+          where it drops by <InlineMath tex={"\\tfrac{1}{2}\\Lambda(x)"} /> to take the midpoint of the jump.
+          The blue staircase plotted below is <InlineMath tex={"\\psi(\\lfloor x \\rfloor)"} />, so the small visible offset
+          at integer x is this <InlineMath tex={"\\tfrac{1}{2}\\Lambda(x)"} /> discrepancy, not truncation error from the zero sum.
+        </p>
         <p style={{ margin: '8px 0' }}>
           Each zero pair <InlineMath tex={"\\rho, \\bar{\\rho}"} /> with <InlineMath tex={"\\rho = \\tfrac{1}{2}+i\\gamma"} /> contributes
           an oscillation that, for large <InlineMath tex={"\\gamma"} />, simplifies to:

@@ -84,7 +84,11 @@ function drawScanPlot(ctx, w, h, scan, yKey, color, label, sigmaRef, yLabel, log
   ctx.fillStyle = '#64748b';
   ctx.font = '10px var(--font-mono)';
   ctx.textAlign = 'center';
-  for (let s = Math.ceil(minS * 5) / 5; s <= maxS; s += 0.2) {
+  // Anchor ticks to the odd-tenths grid {0.1, 0.3, 0.5, 0.7, ...} so σ=½
+  // — already drawn as the dashed reference line above — sits beneath its
+  // own labeled tick instead of being skipped between 0.4 and 0.6.
+  const tickStart = 0.1 + Math.max(0, Math.ceil((minS - 0.1) / 0.2)) * 0.2;
+  for (let s = tickStart; s <= maxS + 1e-9; s += 0.2) {
     const x = margin.left + ((s - minS) / (maxS - minS)) * plotW;
     ctx.fillText(s.toFixed(1), x, h - margin.bottom + 14);
   }

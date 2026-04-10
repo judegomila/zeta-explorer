@@ -61,8 +61,12 @@ export default function LiCriterionViz() {
       }
       return { zeros, lambdas };
     } else {
-      const taus = [-0.5, -0.2, -0.1, 0, 0.05, 0.1, 0.2, 0.5];
-      const colors = ['#3b82f6', '#06b6d4', '#10b981', '#e2e8f0', '#f59e0b', '#ef4444', '#ec4899', '#8b5cf6'];
+      // Only one non-negative τ entry (τ=0, the Rodgers-Tao boundary). Earlier the list
+      // also held τ ∈ {0.05, 0.1, 0.2, 0.5}, all of which produce zero perturbation below
+      // and therefore overdraw at exactly σ=½ — only the last-drawn color (purple) was
+      // ever visible, while the other 4 legend entries silently rendered nothing.
+      const taus = [-0.5, -0.2, -0.1, 0];
+      const colors = ['#3b82f6', '#06b6d4', '#10b981', '#e2e8f0'];
       const scatterPoints = taus.map((tau, ti) =>
         zeros.map((gamma, zi) => {
           const perturbation = tau < 0

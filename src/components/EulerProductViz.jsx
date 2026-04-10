@@ -149,11 +149,14 @@ export default function EulerProductViz() {
         if (Math.abs(v - Math.PI / 2) < 0.01) return 'π/2';
         return '−π/2';
       });
-    g.append('g')
+    // Hold a direct reference to the phase-axis g; the previous `g.select('g:last-child')`
+    // pattern actually resolved (via querySelector preorder) to the last `<g.tick>` of the
+    // X-axis, so the purple stroke styling never reached the phase axis it was meant for.
+    const phaseAxisG = g.append('g')
       .attr('transform', `translate(${w},0)`)
-      .call(phaseAxis)
-      .selectAll('text').attr('fill', '#8b5cf6').attr('font-size', 10);
-    g.select('g:last-child').selectAll('.domain, .tick line').attr('stroke', '#8b5cf640');
+      .call(phaseAxis);
+    phaseAxisG.selectAll('text').attr('fill', '#8b5cf6').attr('font-size', 10);
+    phaseAxisG.selectAll('.domain, .tick line').attr('stroke', '#8b5cf640');
 
     // Labels
     svg.append('text')

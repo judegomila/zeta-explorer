@@ -338,7 +338,7 @@ function AperyTab() {
 
     // X-axis labels
     ctx.textAlign = 'center';
-    for (let i = 0; i <= Math.min(maxTerms, 10); i += Math.max(1, Math.floor(maxTerms / 8))) {
+    for (let i = 0; i <= maxTerms; i += Math.max(1, Math.floor(maxTerms / 8))) {
       const x = margin.left + (i / maxTerms) * plotW;
       ctx.fillText(`${i}`, x, margin.top + halfH + 14);
     }

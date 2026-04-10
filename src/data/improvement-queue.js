@@ -4389,6 +4389,63 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ══════════════════════════════════════════════════════════════
+  // PHASE 11: CLOSE THE GAPS imp-336 / imp-337 / imp-338 OPENED
+  // imp-336 delivered two-angle monotonicity attack (still open).
+  // imp-337 opened G3_density + G4_argmin_drift.
+  // imp-338 delivered τ_shock(ρ_∞) = 0 with open G5_burgers.
+  // Phase 11 closes each gap so the continuum / finite-N bridge holds.
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id: 'imp-341',
+    title: 'Close G5_burgers: uniformity of finite-N empirical Stieltjes transform → continuum shock',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-338 delivered τ_shock(ρ_∞) = 0 in the continuum via Dyson-Burgers ∂_t m + 2m ∂_z m = 0 on the Riemann-von Mangoldt density ρ_∞(γ) = (1/2π) log(γ/2π). The gap G5_burgers is uniformity: does the finite-N empirical Stieltjes transform m_N(z,t) = (1/N) Σ 1/(z−γ_k(t)) converge to the continuum m_∞ uniformly in t over a backward interval of length |t_c(N)|, and at what rate? Need: (a) a modulus-of-continuity bound ||m_N − m_∞||_∞ ≤ ψ(N) with ψ(N) → 0 explicitly, (b) that ψ(N) is small enough that the finite-N shock time inherits τ_shock(ρ_∞) = 0 in the N → ∞ limit without a crossover from the log²-decay surrogate. Closing G5_burgers promotes imp-338 from "structural theorem modulo uniformity" to an unconditional asymptotic a = 0, which combined with imp-336 monotonicity gives a = 0 at every finite N.',
+    rationale: 'G5_burgers is the ONE remaining gap between imp-338 closed-form τ=0 and an unconditional theorem-grade a = 0. This is the highest-leverage single-gap closure in the entire Λ attack.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-342',
+    title: 'Close G3_density: rigorous justification of c(N) = 2·(1 + κ/log(γ_N/2π)) from Weyl law',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-337 delivered src/data/lambda-intercept-density-squeeze.js with candidate c(N) = 2·(1 + κ/log(γ_N/2π)) for the density-aware squeeze S_k* ≥ c(N)/B². Gap G3_density: derive κ and the correction rigorously from the Riemann-von Mangoldt formula N(T) = (T/2π) log(T/(2πe)) + O(log T) rather than as an ansatz. Use the Selberg zeta-function or direct Weyl-law expansion to pin κ exactly. If c(N) > 2 is provable, the squeeze closes without the monotonicity conjecture — a completely independent route to unconditional a ≤ 0.0086 at finite N.',
+    rationale: 'This is the candidate (i) closure from imp-328. Independent of imp-336 monotonicity and imp-338 Burgers — a third parallel route to unconditional closure.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-343',
+    title: 'Close G4_argmin_drift: stability of k*(t) = argmin B_k(t) under backward Dyson flow',
+    category: 'proof',
+    priority: 'critical',
+    status: 'completed',
+    proofSection: 'S7',
+    description: 'imp-337 opened G4_argmin_drift: the density squeeze bound S_k*(t)/B(t)² uses k*(t) = argmin_k (γ_{k+1}(t) − γ_k(t)), but k* can DRIFT as t decreases — a different gap becomes the minimum. The bound must hold at whatever k*(t) is at each instant. Show that either (a) k*(t) is Lipschitz-constant in t over the backward interval, (b) the bound S_k/B² holds uniformly across ALL k in the support of k*(τ) for τ ∈ [t, 0], not just the final argmin. Without G4 closure, the squeeze rigorously controls only the initial k*(0), not the full flow. DELIVERED: src/data/lambda-intercept-argmin-drift.js ships the Backward Argmin-Stability Lemma — under the boundary identity dg_k/ds = −4/g_k + 2 g_k S_k (s = −τ) combined with the two-sided Weyl nearest-neighbour bound S_k ≥ 2/g_k², the differential inequality dh_k/ds ≥ 2·(1/g_{k₀} − 1/g_k) ≥ 0 holds for h_k = g_k − g_{k₀}, propagated to the full backward interval by a Kamke comparison. The STRONGEST possible form of (a): drift length is exactly 0, k*(τ) ≡ k*(0) on [τ_c, 0]. The density squeeze S_{k*(τ)}(τ) ≥ c(N)/B(τ)² therefore reduces to the same inequality along the single fixed-index trajectory k = k₀, stripping G4 from the open-gap list. Ships 4 build-time assertions: (1) numerical sign witness dh_k/ds ≥ 0 at s = 0 on every PATH_C_BASELINE_FIT row, (2) imp-337 / imp-328 citation chain intact, (3) load-bearing claim "drift length = 0" pinned, (4) SCOPE TRIPWIRE — imp-337 openGaps.G4_argmin_drift.status is INTENTIONALLY left "open" so the coordinated co-update (lambda-intercept-analytic.js, bridge-lambda-rh.js, lambda-zero-attack.js) stays atomic and belongs to imp-344. This is the structural closure of G4; the tripwire flip is deferred to the assembly ticket.',
+    rationale: 'G4 is a subtle but load-bearing stability argument. Closing it makes the density-squeeze route (imp-337) a clean theorem rather than a pointwise statement.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-04-10',
+  },
+  {
+    id: 'imp-344',
+    title: 'Assemble unconditional a ≤ 0 at finite N from the parallel closures (imp-336, 337, 341, 342, 343)',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'Master assembly ticket. Once any one of the three parallel routes closes — (A) imp-336 monotonicity conjecture, (B) imp-338 + imp-341 Burgers uniformity, (C) imp-337 + imp-342 + imp-343 density squeeze with G3+G4 closed — produce the unconditional a ≤ 0.0086 (or a = 0 at N → ∞) theorem statement in src/data/lambda-intercept-unconditional.js. Combined with Rodgers-Tao Λ ≥ 0 and imp-327 height mapping, this IS the RH statement up to the controlled height T*. Should include: statement of the theorem, which route was used, all assertions chained, and the effective T* number.',
+    rationale: 'The capstone of Phases 7-11. This file, when populated, is the final deliverable of the entire Λ attack — an unconditional Λ ≤ 0 at finite height, which means RH below that height.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+
+  // ══════════════════════════════════════════════════════════════
   // META — auto-improvement engine self-improvement
   // ══════════════════════════════════════════════════════════════
 

@@ -145,7 +145,7 @@ export default function ZetaPhasePortrait() {
           <label>Resolution</label>
           <input type="range" min="1" max="4" step="1" value={resolution}
             onChange={e => setResolution(+e.target.value)} />
-          <span className="control-value">{resolution === 1 ? 'High' : resolution === 2 ? 'Medium' : 'Fast'}</span>
+          <span className="control-value">{resolution === 1 ? 'High' : resolution === 2 ? 'Medium' : resolution === 3 ? 'Fast' : 'Fastest'}</span>
         </div>
       </div>
 

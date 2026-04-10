@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useEffect } from 'react';
 
 /**
  * Shareable proof status card — generates a canvas image
@@ -116,6 +116,11 @@ export default function ProofStatusCard() {
     ctx.textAlign = 'center';
     ctx.fillText('ZPO Explorer by Jude Gomila • localhost:3002', w / 2, h - 8);
   }, []);
+
+  // Draw once on mount so the card is visible without requiring a user click —
+  // before this effect, the canvas had default 300×150 dimensions and rendered blank
+  // until the user happened to click it or hit Refresh.
+  useEffect(() => { draw(); }, [draw]);
 
   const handleSave = () => {
     draw();

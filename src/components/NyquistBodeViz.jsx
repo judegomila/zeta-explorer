@@ -146,8 +146,13 @@ export default function NyquistBodeViz() {
     const legendBg = legend.append('rect')
       .attr('x', -8).attr('y', -6).attr('width', 156).attr('height', 72).attr('rx', 4)
       .attr('fill', '#0f1729').attr('fill-opacity', 0.85).attr('stroke', '#2a3050');
+    // Legend swatches must use the MIDPOINT of each contour's hue gradient.
+    // Positive freq below runs hue 217→189 (blue→cyan), so swatch = 203.
+    // The previous value 240 (blue-purple) didn't appear anywhere in the
+    // actual plot — users saw a purple legend chip next to a blue/cyan curve.
+    // Negative freq below runs hue 25→45 (orange), midpoint 35 — already correct.
     const items = [
-      { color: 'hsl(240, 80%, 55%)', label: 'Positive freq (ω > 0)', dash: null },
+      { color: 'hsl(203, 80%, 55%)', label: 'Positive freq (ω > 0)', dash: null },
       { color: 'hsl(35, 80%, 55%)', label: 'Negative freq (ω < 0)', dash: null },
       { color: '#64748b', label: 'Unit circle |L|=1', dash: '4,3' },
       { color: '#ef4444', label: 'Critical point −1', dash: null },

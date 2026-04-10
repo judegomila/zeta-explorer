@@ -34,20 +34,20 @@ export default function RHAttackPage() {
           <ol style={{ marginLeft: 16, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 2 }}>
             <li>
               <strong style={{ color: '#10b981' }}>Li Coefficients</strong> — Compute{' '}
-              <InlineMath tex={"\lambda_n"} /> from known zeros. <InlineMath tex={"\\lambda_n > 0 \\;\\forall n \\iff \\text{RH}"} />.
+              <InlineMath tex={"\\lambda_n"} /> from known zeros. <InlineMath tex={"\\lambda_n > 0 \\;\\forall n \\iff \\text{RH}"} />.
             </li>
             <li>
               <strong style={{ color: '#3b82f6' }}>Hamiltonian Convexity</strong> — Test{' '}
-              <InlineMath tex={"\partial^2 H / \partial\sigma^2 > 0"} /> at{' '}
+              <InlineMath tex={"\\partial^2 H / \\partial\\sigma^2 > 0"} /> at{' '}
               <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (ZPO energy minimum).
             </li>
             <li>
               <strong style={{ color: '#8b5cf6' }}>S-Matrix Confinement</strong> — Darlington synthesis:
-              transmission zeros of lossless networks lie on the <InlineMath tex={"j\omega"} /> axis.
+              transmission zeros of lossless networks lie on the <InlineMath tex={"j\\omega"} /> axis.
             </li>
             <li>
               <strong style={{ color: '#f59e0b' }}>de Bruijn–Newman</strong> — Heat flow parameter{' '}
-              <InlineMath tex={"\Lambda \geq 0"} /> (proved by Rodgers–Tao, 2020); RH <InlineMath tex={"\Leftrightarrow \Lambda \leq 0"} />.
+              <InlineMath tex={"\\Lambda \\geq 0"} /> (proved by Rodgers–Tao, 2020); RH <InlineMath tex={"\\Leftrightarrow \\Lambda \\leq 0"} />.
             </li>
             <li>
               <strong style={{ color: '#ef4444' }}>Proof Map</strong> — Explicit gap analysis:
@@ -61,7 +61,7 @@ export default function RHAttackPage() {
             The ZPO model shows that at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />:
           </p>
           <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-            <li>The bridge <InlineMath tex={"\chi(s)"} /> is unitary (<InlineMath tex={"|\chi| = 1"} />)</li>
+            <li>The bridge <InlineMath tex={"\\chi(s)"} /> is unitary (<InlineMath tex={"|\\chi| = 1"} />)</li>
             <li>Direct and dual ladders are conjugate impedance-matched</li>
             <li>The Hamiltonian is minimized</li>
             <li>The S-matrix is on the unitarity boundary</li>
@@ -70,8 +70,8 @@ export default function RHAttackPage() {
             But this only shows the model is <em>consistent</em> with zeros at{' '}
             <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />. It does not prove zeros{' '}
             <em>must</em> be there. The missing link: a rigorous proof that zeros of{' '}
-            <InlineMath tex={"\zeta(s)"} /> correspond to resonances of the Hamiltonian{' '}
-            <InlineMath tex={"\mathcal{H}"} />.
+            <InlineMath tex={"\\zeta(s)"} /> correspond to resonances of the Hamiltonian{' '}
+            <InlineMath tex={"\\mathcal{H}"} />.
           </p>
         </div>
       </div>
@@ -89,8 +89,8 @@ export default function RHAttackPage() {
         <BlockMath tex={"\\text{Darlington (1939): For a lossless reciprocal 2-port, zeros of } S_{21} \\text{ lie on the } j\\omega \\text{ axis.}"} />
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginTop: 12 }}>
           In the ZPO mapping: <InlineMath tex="S_{21}" /> is the transmission through the twin-ladder
-          (proportional to <InlineMath tex={"\zeta(s)"} />), and the{' '}
-          <InlineMath tex={"j\omega"} /> axis is the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
+          (proportional to <InlineMath tex={"\\zeta(s)"} />), and the{' '}
+          <InlineMath tex={"j\\omega"} /> axis is the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
           If the ZPO network satisfies Darlington's conditions <em>exactly</em>, then RH follows.
         </p>
         <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(239,68,68,0.08)', borderRadius: 8, border: '1px solid #ef444440' }}>
@@ -98,12 +98,12 @@ export default function RHAttackPage() {
           <ol style={{ marginLeft: 16, color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
             <li>
               <strong>Convergence:</strong> The Euler product (= cascade) only converges for{' '}
-              <InlineMath tex={"\sigma > 1"} />. In the critical strip where zeros live, the
+              <InlineMath tex={"\\sigma > 1"} />. In the critical strip where zeros live, the
               "cascade" is defined by analytic continuation, not direct circuit computation.
             </li>
             <li>
               <strong>Exactness:</strong> Darlington requires <em>exact</em> losslessness, not
-              approximate. The bridge satisfies <InlineMath tex={"|\chi| = 1"} /> exactly at{' '}
+              approximate. The bridge satisfies <InlineMath tex={"|\\chi| = 1"} /> exactly at{' '}
               <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />, but one must show the full network
               (not just the bridge) is lossless.
             </li>

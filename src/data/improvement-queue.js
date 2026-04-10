@@ -4380,12 +4380,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Apply imp-328 conditional framework to imp-321 log-spaced PT-scale ladder',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
-    description: 'imp-328 conditional a ≤ 0.0086 used PATH_C_BASELINE_FIT (N_max = 2458). Re-apply the same framework (monotonicity check + inf_N |t_c(N)| upper bound) to imp-321 log-spaced ladder N ∈ {10^3, 10^4, 10^5, 10^6}. With N_max = 10^6 instead of 2458, the conditional UB drops by ~400× — possibly a ≤ 2·10^{-5} or tighter, putting Λ in a vanishingly thin window above the Rodgers-Tao 0 lower bound, at PT-scale heights.',
+    description: 'imp-328 conditional a ≤ 0.0086 used PATH_C_BASELINE_FIT (N_max = 2458). Re-apply the same framework (monotonicity check + inf_N |t_c(N)| upper bound) to imp-321 log-spaced ladder N ∈ {2458, 5000, 10^4, 10^5, 10^6, 10^7, 10^8}. DELIVERED: src/data/lambda-intercept-conditional-ladder.js ships LAMBDA_INTERCEPT_CONDITIONAL_LADDER, consuming PT_SCALE_EXTRAPOLATION.ladder (imp-321) and the imp-328 CONDITIONAL_UPPER_BOUND baseline, and produces a re-evaluated conditional upper bound on a under the imp-328 monotonicity hypothesis. The conditional UB drops from 0.0086 (baseline N_max = 2458) to ≈ OLS_A + OLS_B/10^8 ≈ 0.00290005 (ladder N_max = 10^8), a ~3× tightening. The verdict block spells out the HONEST CAVEAT: because the imp-321 ladder rows are the arithmetic round-trip projected_tc = OLS_A + OLS_B/N of the imp-323 OLS fit, the tightening IS the asymptotic collapse of OLS_B/N_max as N_max grows and converges to OLS_A ≈ 0.0029 — NOT a new piece of measured information, and NOT enough to drive â ≤ 0. The ticket hoped for ~400× to 2e-5; the honest result is ~3× to OLS_A, because the ladder asymptote IS the OLS central value. The application becomes a genuine statistical improvement the moment imp-321 follow-up replaces projected_tc with measured sampled-zero Dyson collision times at each N; at that point the file re-evaluates automatically with no structural change. Ships 5 build-time assertions: (1) ladder is monotone-observed (guards the imp-328 hypothesis), (2) LADDER_UB matches the analytic inf OLS_A + OLS_B/N_max to 1e-12 (guards round-trip corruption), (3) LADDER_UB strictly less than baseline UB (guards N_max shortening), (4) TRIPWIRE — ladder UB still strictly positive AND onesidedClosureAtZero false, forcing any future flip to B2(a)-closed to also update lambda-zero-attack.js / bridge-lambda-rh.js / lambda-intercept-analytic.js / lambda-intercept-confidence.js / lambda-intercept-pooled.js in the same commit, (5) imp-328 id citation still resolves. Build verified.',
     rationale: 'Highest-leverage reuse: existing imp-328 framework + existing imp-321 data → dramatically tighter conditional bound at PT-scale for zero new research work.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-10',
   },
 
   // ══════════════════════════════════════════════════════════════

@@ -89,11 +89,27 @@ function inghamExponent(sigma) {
   return (3 * (1 - sigma)) / (2 - sigma);
 }
 
+// imp-326 (option b): take whichever of GM 2024 and Ingham 1940 is smaller at
+// each strip. Both are unconditional zero-density theorems, so the pointwise
+// minimum is also an unconditional upper bound on N(σ,T) and is never looser
+// than either input. At the Path C thin strip σ ≈ 0.625 the binding density
+// is Ingham (≈0.818), strictly tighter than GM (≈0.865); GM only takes over
+// for σ > 0.7. Calling this "hybrid" rather than substituting GM resolves the
+// imp-302 negative result by routing the tail budget through the ACTUAL
+// binding density at every strip instead of always paying the GM exponent.
+function hybridExponent(sigma) {
+  return Math.min(gmExponent(sigma), inghamExponent(sigma));
+}
+function bindingDensityName(sigma) {
+  return gmExponent(sigma) < inghamExponent(sigma) ? 'GM' : 'Ingham';
+}
+
 // Upper bound on #{ off-line zeros in [T_0, T_1] with Re(s) ≥ σ }
-// using GM unconditionally above T_0 and verified-on-line below T_0.
+// using the hybrid (binding) density unconditionally above T_0 and
+// verified-on-line below T_0.
 function tailCountBound(sigma, T1) {
   if (T1 <= T0) return 0; // verified on-line up to T_0
-  return Math.pow(T1, gmExponent(sigma));
+  return Math.pow(T1, hybridExponent(sigma));
 }
 
 // Build the small reference table the engine and UI cite.
@@ -111,6 +127,9 @@ function buildTailTable() {
     strip: strip.name,
     sigma: strip.sigma,
     gm_exponent: +gmExponent(strip.sigma).toFixed(4),
+    ingham_exponent: +inghamExponent(strip.sigma).toFixed(4),
+    binding_exponent: +hybridExponent(strip.sigma).toFixed(4),
+    binding_density: bindingDensityName(strip.sigma),
     bounds: probeHeights.map((T1) => ({
       T1,
       bound: +tailCountBound(strip.sigma, T1).toExponential(3),
@@ -142,23 +161,33 @@ export const GUTH_MAYNARD_TAIL_BOUND = {
     const c = 1;
     const delta = c / LOG_T0;
     const sigma = 0.5 + delta;
-    const e = gmExponent(sigma); // = 30 (1 − σ) / 13 = 30 (1/2 − δ) / 13
+    const eGm = gmExponent(sigma);
+    const eIngham = inghamExponent(sigma);
+    const eBinding = hybridExponent(sigma);
     const T1 = 10 * T0;
-    const bound = Math.pow(T1, e);
+    const boundGm = Math.pow(T1, eGm);
+    const bound = Math.pow(T1, eBinding); // hybrid (imp-326)
     return {
       c,
       delta: +delta.toFixed(6),
       sigma: +sigma.toFixed(6),
-      gm_exponent_at_strip: +e.toFixed(6),
+      gm_exponent_at_strip: +eGm.toFixed(6),
+      ingham_exponent_at_strip: +eIngham.toFixed(6),
+      binding_exponent_at_strip: +eBinding.toFixed(6),
+      binding_density: bindingDensityName(sigma),
       probe_height_T1: T1,
       bound_on_offline_zero_count: +bound.toFixed(0),
+      bound_on_offline_zero_count_pure_gm: +boundGm.toFixed(0),
       reading:
-        'At the strip σ = 1/2 + 1/log T_0 ≈ 0.625 the GM exponent is ' +
-        '30(1−σ)/13 ≈ 0.865 and the tail count up to 10·T_0 = 30000 is ' +
-        'bounded by 30000^0.865 ≈ 7.5·10³ off-line zeros. This is the ' +
-        'explicit unconditional budget the Path C barrier must absorb in ' +
-        'any extension above T_0 — looser than the previously published ' +
-        '≈ 1.4·10³ figure, which was a formula transcription error.',
+        'At the strip σ = 1/2 + 1/log T_0 ≈ 0.625 the binding zero-density ' +
+        'is Ingham 1940 with exponent 3(1−σ)/(2−σ) ≈ 0.818 — strictly ' +
+        'tighter than the GM 2024 exponent 30(1−σ)/13 ≈ 0.865 at this ' +
+        'strip. The hybrid tail count up to 10·T_0 = 30000 is bounded by ' +
+        '30000^0.818 ≈ 4.6·10³ off-line zeros, ~38% smaller than the pure ' +
+        'GM budget of ≈ 7.5·10³. This is imp-326 option (b): use whichever ' +
+        'unconditional density binds at each strip rather than always ' +
+        'paying the GM exponent. Both bounds are unconditional, so the min ' +
+        'is also unconditional.',
     };
   })(),
 
@@ -229,5 +258,17 @@ export const TAIL_BOUND_ASSERTIONS = [
     id: 'gm-beats-trivial-near-3-4',
     holds: () => gmExponent(0.75) < 3 * (1 - 0.75) / (2 - 0.75) + 1e-9,
     why: 'GM must beat Ingham 1940 at σ = 3/4 (0.577 vs 0.600) — sanity check on the formula.',
+  },
+  {
+    id: 'hybrid-never-looser-than-gm',
+    holds: () => [0.51, 0.55, 0.6, 0.625, 0.7, 0.75].every(
+      (s) => hybridExponent(s) <= gmExponent(s) + 1e-12
+    ),
+    why: 'imp-326 hybrid bound is min(GM, Ingham); must be ≤ GM at every strip.',
+  },
+  {
+    id: 'hybrid-strict-at-thin-strip',
+    holds: () => hybridExponent(0.625) < gmExponent(0.625) - 1e-6,
+    why: 'At the Path C thin strip σ ≈ 0.625, Ingham binds strictly — the hybrid must be strictly tighter than pure GM, otherwise imp-326 is a no-op.',
   },
 ];

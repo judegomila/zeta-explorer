@@ -452,6 +452,7 @@ function PrimeContributions({ sigma, t, numPrimes }) {
           At <strong style={{ color: sigmaStatusColor(sigma) }}><InlineMath tex={"\\sigma"} /> = {sigma.toFixed(2)}</strong>,
           the KL divergence between direct and dual distributions is nonzero, reducing channel efficiency.</>
         )}
+        {' '}<span style={{ color: '#64748b' }}>Weight uniformity index: <strong style={{ color: uniformity > 0.85 ? '#10b981' : uniformity > 0.6 ? '#f59e0b' : '#ef4444', fontFamily: 'var(--font-mono)' }}>{(uniformity * 100).toFixed(1)}%</strong> (1 − max + min over per-prime weights; 100% = perfectly flat).</span>
       </div>
     </div>
   );

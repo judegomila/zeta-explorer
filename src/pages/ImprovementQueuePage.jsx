@@ -21,7 +21,7 @@ const PRIORITY_CONFIG = {
 };
 
 const STATUS_CONFIG = {
-  queued:       { label: 'Queued',       color: '#64748b', dot: '#64748b' },
+  pending:      { label: 'Pending',      color: '#64748b', dot: '#64748b' },
   'in-progress':{ label: 'In Progress', color: '#f59e0b', dot: '#f59e0b' },
   completed:    { label: 'Completed',   color: '#10b981', dot: '#10b981' },
   blocked:      { label: 'Blocked',     color: '#ef4444', dot: '#ef4444' },
@@ -65,7 +65,7 @@ const filterBtnStyle = (active) => ({
 /* ─── Sub-components ─── */
 
 function ProgressSummary({ items }) {
-  const queued = items.filter(i => i.status === 'queued').length;
+  const pending = items.filter(i => i.status === 'pending').length;
   const inProgress = items.filter(i => i.status === 'in-progress').length;
   const completed = items.filter(i => i.status === 'completed').length;
   const blocked = items.filter(i => i.status === 'blocked').length;
@@ -85,7 +85,7 @@ function ProgressSummary({ items }) {
         </div>
         <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
           {[
-            { label: 'Queued', value: queued, color: '#64748b' },
+            { label: 'Pending', value: pending, color: '#64748b' },
             { label: 'In Progress', value: inProgress, color: '#f59e0b' },
             { label: 'Completed', value: completed, color: '#10b981' },
             { label: 'Blocked', value: blocked, color: '#ef4444' },
@@ -342,7 +342,7 @@ function AcceleratingSection() {
 const TAB_ALL = 'all';
 const CATEGORY_TABS = ['all', 'proof-gap', 'visualization', 'accuracy', 'ux', 'performance', 'content', 'meta'];
 const PRIORITY_FILTERS = ['all', 'critical', 'high', 'medium', 'low'];
-const STATUS_FILTERS = ['all', 'queued', 'in-progress', 'completed', 'blocked'];
+const STATUS_FILTERS = ['all', 'pending', 'in-progress', 'completed', 'blocked'];
 
 const VIEW_TABS = ['queue', 'accelerating'];
 

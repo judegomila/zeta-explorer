@@ -91,6 +91,7 @@ const NAV_GROUPS = [
   {
     label: 'Attack',
     items: [
+      { to: '/lambda-bounds', label: 'Λ Bounds & RH Roadmap' },
       { to: '/rh-attack', label: 'RH Attack' },
       { to: '/spectral-attack', label: 'Spectral' },
       { to: '/gap-closing', label: 'Gap Closing' },
@@ -108,6 +109,16 @@ const NAV_GROUPS = [
     ],
   },
   {
+    label: 'Progress',
+    items: [
+      { to: '/meta-acceleration', label: 'Meta Acceleration' },
+      { to: '/research-journal', label: 'Research Journal' },
+      { to: '/improvement-queue', label: 'Improvement Queue' },
+      { to: '/improvements', label: 'Improvements Log' },
+      { to: '/dashboard', label: 'Dashboard' },
+    ],
+  },
+  {
     label: 'Reference',
     items: [
       { to: '/concepts', label: 'Concepts' },
@@ -121,9 +132,6 @@ const NAV_GROUPS = [
       { to: '/wiki', label: 'Wiki' },
       { to: '/index', label: 'Index' },
       { to: '/docs', label: 'Docs' },
-      { to: '/improvements', label: 'Improvements' },
-      { to: '/improvement-queue', label: 'Queue' },
-      { to: '/dashboard', label: 'Dashboard' },
     ],
   },
 ];

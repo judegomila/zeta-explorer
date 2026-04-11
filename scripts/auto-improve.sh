@@ -16,27 +16,32 @@ INTERVAL=60   # 1 minute
 MAX_RUNS=1000
 
 # The prompt given to Claude Code on each iteration
-IMPROVE_PROMPT='You are improving the ZPO Explorer math visualization app. Your task:
+IMPROVE_PROMPT='You are improving the ZPO Explorer / RH-attack project. Your task:
 
-1. FIRST: open src/data/improvement-queue.js and scan for items with status: "pending".
-   - If one or more exist, pick the highest-priority pending item (critical > high > medium > low).
-   - Read the files it implicates, implement the change, and flip its status from "pending" to "completed" and set completedAt to the current UTC date "YYYY-MM-DD". Do NOT delete the entry.
-   - If NO pending items remain, pick ONE improvement from these categories (rotate through them):
-     - Bug fix: find and fix a genuine bug (wrong calculation, broken interaction, display error)
-     - Accuracy: improve mathematical rigor or correctness (wrong formula, missing disclaimer)
-     - UX: improve user experience (better labels, clearer controls, missing tooltips)
-     - Visual: improve a visualization (better colors, scaling, axis labels, legends)
-     - Performance: optimize a slow computation or rendering path
-     - Content: add or improve explanatory text, math explainers, or exploration entries
+1. MANDATORY FIRST STEP: read src/data/improvement-queue.js and extract ALL items with status: "pending". Use a balanced-brace parser, not naive regex (descriptions contain braces).
 
-2. Read the relevant source files to understand the current code before changing anything.
+2. PRIORITY ORDER IS ABSOLUTE. Among pending items, pick in strict priority order: critical > high > medium > low. Within the same priority, pick the lowest imp-NNN id (oldest first).
 
-3. Make exactly ONE small, atomic change. Do not refactor or restructure.
+3. IF ANY PENDING TICKETS EXIST: you MUST work a queue ticket. Falling back to category rotation is FORBIDDEN as long as one pending ticket remains. If the highest-priority ticket is research-grade and you cannot fully close it, deliver an HONEST PARTIAL closure with a clearly-named sub-gap — this is valuable work. NEVER silently switch to random UX/bug tickets when critical proof tickets are pending.
 
-4. After your change, run: npm run build
+4. ONLY IF NO pending tickets remain AT ALL: you may pick ONE improvement from these categories (rotate through them). Otherwise this clause is DEAD.
+   - Bug fix: find and fix a genuine bug (wrong calculation, broken interaction, display error)
+   - Accuracy: improve mathematical rigor or correctness (wrong formula, missing disclaimer)
+   - UX: improve user experience (better labels, clearer controls, missing tooltips)
+   - Visual: improve a visualization (better colors, scaling, axis labels, legends)
+   - Performance: optimize a slow computation or rendering path
+   - Content: add or improve explanatory text, math explainers, or exploration entries
+
+5. At the start of your response, state the path you are taking: "QUEUE: imp-NNN (priority X)" or "CATEGORY: <category>" — explicit commitment so the bug reappears visibly if you drift.
+
+6. Read the relevant source files to understand the current code before changing anything.
+
+7. Make exactly ONE small, atomic change. Do not refactor or restructure.
+
+8. After your change, run: npm run build
    If the build fails, fix the issue before finishing.
 
-5. Log the improvement in TWO places:
+9. Log the improvement in TWO places:
 
    a) Append a row to IMPROVEMENTS.md with this format:
       | # | TIMESTAMP | one-line summary | files changed |
@@ -44,11 +49,16 @@ IMPROVE_PROMPT='You are improving the ZPO Explorer math visualization app. Your 
 
    b) Add an entry to src/data/improvements.js by appending to the array before the closing ];
       Format:
-      { id: NEXT_NUMBER, timestamp: "UTC_TIMESTAMP", category: "bug|accuracy|ux|visual|performance|content", summary: "one-line summary", files: ["file1.jsx", "file2.js"], detail: "2-3 sentence description of what was changed and why" },
+      { id: NEXT_NUMBER, timestamp: "UTC_TIMESTAMP", category: "bug|accuracy|ux|visual|performance|content|proof", summary: "one-line summary", files: ["file1.jsx", "file2.js"], detail: "2-3 sentence description of what was changed and why" },
 
       IMPORTANT: Read src/data/improvements.js first to see the current entries and determine the next ID number. Insert the new entry just before the final "];" line. Keep the file valid JavaScript.
 
-6. Create a git commit with a descriptive message.
+10. Create a git commit with a descriptive message.
+
+SYNTAX GOTCHAS (mandatory, learned from previous failures):
+- DO NOT write "dg_k*/dt" or "dg_k*/dtau" inside JSDoc comments — the "*/" prematurely closes the comment. Use "dg_{k*}/dt" in comments. In JS string literals it is fine.
+- DO NOT use apostrophes inside single-quoted JS strings — they close the string. Either use double-quoted strings or rewrite (e.g. "the engine\\u2019s" -> "the engine").
+- The "*/" sequence anywhere inside a JSDoc comment ends the comment.
 
 RULES:
 - Never install new packages or dependencies

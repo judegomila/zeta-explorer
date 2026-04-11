@@ -130,7 +130,7 @@ export default function ScatteringMatrixViz() {
         .text(`Bridge Transfer Magnitude |χ(σ + ${tValue.toFixed(1)}i)|`);
 
       svg.append('text')
-        .attr('transform', `translate(14, ${height / 2}) rotate(-90)`)
+        .attr('transform', `translate(14, ${margin.top + h / 2}) rotate(-90)`)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
         .text('|χ(s)|');
 
@@ -212,7 +212,7 @@ export default function ScatteringMatrixViz() {
         .text(`Bridge Reflection Coefficient Γ(σ + ${tValue.toFixed(1)}i) — zero at σ = ½`);
 
       svg.append('text')
-        .attr('transform', `translate(14, ${height / 2}) rotate(-90)`)
+        .attr('transform', `translate(14, ${margin.top + h / 2}) rotate(-90)`)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
         .text('Γ');
 
@@ -294,7 +294,7 @@ export default function ScatteringMatrixViz() {
         .text(`Bridge Phase arg(χ(σ + ${tValue.toFixed(1)}i))`);
 
       svg.append('text')
-        .attr('transform', `translate(14, ${height / 2}) rotate(-90)`)
+        .attr('transform', `translate(14, ${margin.top + h / 2}) rotate(-90)`)
         .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
         .text('arg(χ) (degrees)');
     }

@@ -5532,6 +5532,61 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
   },
 
+  // ── Phase 30: third-review findings + ticket-id collision cleanup ──
+  // imp-437 third adversarial review found 2 NAMED + 3 SOFT new gaps
+  // and opened "imp-439"/"imp-440" placeholders for them — but imp-439
+  // and imp-440 were already my Phase 29 seeds for Lean sorries and
+  // finite-height beat. Phase 30 disambiguates by creating fresh ids
+  // for the review 3 findings.
+
+  {
+    id: 'imp-443',
+    title: 'Close skp3-001 NAMED: fix Paths G and H orphaned from Section 7 implication graph',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S10',
+    description: 'imp-437 third adversarial review skp3-001 NAMED: proof-paper.js Section 7 Proposition "any 2 of the five paths (E-I) implies all 5" is not supported by the listed implication arrows. The 5 arrows as written connect {E, F, I} and Marchenko(B) but Paths G (Cauchy/Frobenius) and H (Szego) are NOT reached by any arrow source or target. Fix: either (a) add the missing implication arrows with citations — e.g. trace-class Cauchy convergence (strengthened G) implies Weyl law E via Lidskii, and Szego strong limit H implies de Branges space I — with proper citations, OR (b) weaken Section 7 Proposition to apply only to the connected subgraph {B, E, F, I}. Deliverable: surgical edit to src/math/proof-paper.js Section 7 + a citation table if option (a).',
+    rationale: 'Structural gap in Section 7 that a reviewer will spot immediately. Must be closed honestly — either new arrows with citations, or weaken the proposition to match what is actually proved.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-444',
+    title: 'Close skp3-002 NAMED: pin explicit formula for C_F in the E(N) = O((log N / N)^{1/2}) bridge error',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S10',
+    description: 'imp-437 third review skp3-002 NAMED: proof-paper.js Theorem 10.2 states E(N) = E_trunc + E_flow + E_coll with the overall rate O((log N / N)^{1/2}). The C_F flow constant pinned by imp-398 was a numerical value for the E_flow term but the FORMULA relating C_F to the other constants in the composite E(N) sum is not pinned — the paper cites imp-398 for the value but does not show the algebraic combination. Derive the explicit combination formula C_total = f(C_T, C_F, C_C) for the leading constant in E(N) = C_total * (log N / N)^{1/2}, verify numerically against the 4 pinned constants (imp-397/398/399/395), and update proof-paper.js Theorem 10.2 to state C_total explicitly. Deliverable: src/data/e-n-combined-constant.js + Theorem 10.2 update.',
+    rationale: 'Hostile reviewers demand the overall leading constant, not just the individual components. Without C_total pinned, Theorem 10.2 E(N) rate is symbolic.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-445',
+    title: 'Cleanup 3 SOFT gaps from imp-437 third adversarial review (skp3-003/004/005)',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S10',
+    description: 'imp-437 third review also found 3 SOFT gaps (skp3-003, skp3-004, skp3-005) — presentation-level metadata issues in proof-paper.js. Read src/math/paper-skeptic-review-3.js for the specific items and apply each fix. These are soft so none are math changes; a single cleanup pass is enough. Deliverable: targeted edits to proof-paper.js + an update to src/data/soft-gaps-cleanup-log.js (from imp-435) extending it with the 3 new skp3 SOFT ids and the fixes applied.',
+    rationale: 'Bundled cleanup for the remaining 3 SOFT gaps from review 3. Keeping the cleanup log current is valuable for the submission checklist.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+  {
+    id: 'imp-446',
+    title: 'META: Ticket-id collision recovery — imp-437 review reused imp-439/imp-440 ids',
+    category: 'meta',
+    priority: 'high',
+    status: 'pending',
+    description: 'Observed bug: imp-437 third adversarial review ran concurrently with my monitor-seeded Phase 29 tickets imp-439/440/441. When imp-437 surfaced skp3-001 and skp3-002 NAMED findings, it recorded them as "opensNewTicket: imp-439" and "opensNewTicket: imp-440" — CONFLICTING with my already-seeded imp-439 (Lean sorries) and imp-440 (finite-height beat). The engine has no dedup against this: two agents writing to the same id range concurrently produces silent overlap. Fix: add a "claim ticket id" protocol where any agent that wants to open a new ticket must first append to a scripts/.ticket-id-claim.log file with its proposed imp-NNN + a fresh timestamp, then check the file for prior claims at the same id. If there is a prior claim within N seconds, increment. Low-tech optimistic concurrency control. Deliverable: scripts/claim-ticket-id.mjs + update to auto-improve.sh IMPROVE_PROMPT instructing the engine to use it.',
+    rationale: 'Silent ticket-id overlap means two different pieces of work land under the same id, making audit logs lie. Bounded-collision avoidance via a claim log is a 10-line fix.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
   {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

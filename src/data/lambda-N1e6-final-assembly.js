@@ -128,7 +128,8 @@ const CONDITIONS = [
   {
     id:     'NoSwap',
     label:  'Argmin index k_star constant under backward CM flow',
-    status: NOSWAP_CLOSURE.status === 'numerically-closed' ? 'established' : 'conditional-closed',
+    status: (NOSWAP_CLOSURE.status === 'analytically-closed' ||
+             NOSWAP_CLOSURE.status === 'numerically-closed') ? 'established' : 'conditional-closed',
     ticket: 'imp-464',
     note:
       'Closed by imp-464 (noswap-closure.js): repulsive-crossing argument shows ' +

@@ -1096,3 +1096,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1214 | 2026-04-10T16:00:00Z | bug: Fix RHRigorViz y-axis labels 5px below center in all three test modes: `h/2` → `margin.top + ph/2` | RHRigorViz.jsx |
 | 1215 | 2026-04-10T17:00:00Z | bug: Fix InfoTheoryExperimentsViz y-axis labels off-center in LandscapeScan and ConvergenceScaling tabs: `h/2` → `margin.top + plotH/2` | InfoTheoryExperimentsViz.jsx |
 | 1216 | 2026-04-10T18:00:00Z | visual: Add missing x-axis label 'n' to Charts 1 and 2 in PascalZetaViz ConstantsTab, matching Chart 3 which already had it | PascalZetaViz.jsx |
+| 1217 | 2026-04-10T19:00:00Z | bug: Fix RHAttackViz y-axis labels off-center in all 5 tabs: `h/2` → `margin.top + plotH/2` | RHAttackViz.jsx |

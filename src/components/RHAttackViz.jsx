@@ -114,7 +114,7 @@ function LiCoefficientsTab() {
     ctx.textAlign = 'center';
     ctx.fillText('n', w / 2, h - 4);
     ctx.save();
-    ctx.translate(12, h / 2);
+    ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillText('log₁₀(λ_n)', 0, 0);
     ctx.restore();
@@ -325,7 +325,7 @@ function HamiltonianTab() {
     ctx.textAlign = 'center';
     ctx.fillText('t', w / 2, h - 4);
     ctx.save();
-    ctx.translate(12, h / 2);
+    ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillStyle = '#94a3b8';
     ctx.font = '10px sans-serif';
@@ -550,7 +550,7 @@ function SMatrixTab() {
     ctx.textAlign = 'center';
     ctx.fillText('t (imaginary part)', w / 2, h - 4);
     ctx.save();
-    ctx.translate(12, h / 2);
+    ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillText('Magnitude', 0, 0);
     ctx.restore();
@@ -783,7 +783,7 @@ function HeatFlowTab() {
 
     // Y-axis label
     ctx.save();
-    ctx.translate(12, h / 2);
+    ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillStyle = '#94a3b8';
     ctx.font = '10px sans-serif';
@@ -969,7 +969,7 @@ function BerryKeatingTab() {
     ctx.textAlign = 'center';
     ctx.fillText('ζ zeros (actual)', w / 2, h - 6);
     ctx.save();
-    ctx.translate(14, h / 2);
+    ctx.translate(14, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillText('BK eigenvalues (rescaled)', 0, 0);
     ctx.restore();

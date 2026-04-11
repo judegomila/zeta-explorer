@@ -78,7 +78,7 @@ import {
   PATH_C_EMPIRICAL_SLOPE,
 } from './dyson-slope-analytic-bound.js';
 
-import { D_MONOTONE_WITNESS_RECORD } from './d-monotone-numerical-witness.js';
+import { D_MONOTONE_WITNESS_RECORD, D_MONOTONE_N100_WITNESS } from './d-monotone-numerical-witness.js';
 
 // ── Certified conditional ceiling ────────────────────────────────────────────
 
@@ -148,7 +148,7 @@ export const B1_CONDITIONAL_BOUND = {
       'Sole remaining sub-gap in the conditional B1 closure. Strictly weaker ' +
       'than the original imp-363 / imp-370 GUE approach and lives entirely ' +
       'within the deterministic CM framework without random-matrix input. ' +
-      'Numerically witnessed at N=50 by d-monotone-numerical-witness.js (imp-457).',
+      'Numerically witnessed at N=50 and N=100 by d-monotone-numerical-witness.js (imp-457).',
     numericalWitness: D_MONOTONE_WITNESS_RECORD,
   },
 
@@ -211,8 +211,17 @@ export const B1_BOUND_ASSERTIONS = [
     holds: () =>
       D_MONOTONE_WITNESS_RECORD.status === 'numerical-witness-passes',
     why:
-      'The D-monotone numerical witness at N=50 must pass (D non-decreasing, ' +
-      'NoSwap holds). A failure means the backward CM simulation found a ' +
-      'violation, which would undermine the conditional B1 closure chain.',
+      'The D-monotone numerical witness at both N=50 and N=100 must pass ' +
+      '(D non-decreasing, NoSwap holds at each). A failure means the backward ' +
+      'CM simulation found a violation, undermining the conditional B1 closure.',
+  },
+  {
+    id: 'imp457-d-monotone-n100-independent-confirmation',
+    holds: () =>
+      D_MONOTONE_N100_WITNESS.dMonotoneHolds && D_MONOTONE_N100_WITNESS.noSwapHolds,
+    why:
+      'The N=100 witness must independently confirm D-monotone and NoSwap. ' +
+      'This is the second N value checked, providing evidence that the ' +
+      'conditional B1 closure chain holds beyond the single N=50 case.',
   },
 ];

@@ -106,8 +106,8 @@ function cmBackwardStep(gammas, dtau) {
 
 // ── Main witness computation ──────────────────────────────────────────────────
 
-function runDMonotoneWitness() {
-  let gammas = Float64Array.from(ZETA_ZEROS.slice(0, WITNESS_N));
+function runDMonotoneWitness(witnessN) {
+  let gammas = Float64Array.from(ZETA_ZEROS.slice(0, witnessN));
 
   // Initial quantities at tau = 0
   const { kStar: k0, B: B0 } = findMinGap(gammas);
@@ -167,7 +167,7 @@ function runDMonotoneWitness() {
   const BratioCovered = +(1 - Bfinal / B0).toFixed(4);
 
   return {
-    N:              WITNESS_N,
+    N:              witnessN,
     dtau:           DTAU,
     stepsRun,
     tauCovered,
@@ -184,7 +184,10 @@ function runDMonotoneWitness() {
   };
 }
 
-export const D_MONOTONE_N50_WITNESS = runDMonotoneWitness();
+export const D_MONOTONE_N50_WITNESS  = runDMonotoneWitness(WITNESS_N);
+
+// ── N = 100 witness (second independent N value for stronger evidence) ────────
+export const D_MONOTONE_N100_WITNESS = runDMonotoneWitness(100);
 
 // ── Structured record ─────────────────────────────────────────────────────────
 
@@ -192,15 +195,16 @@ export const D_MONOTONE_WITNESS_RECORD = {
   id:     'skp-imp457-D-monotone-witness',
   ticket: 'imp-457',
   subGap: 'skp-imp457-D-monotone',
-  title:  'Numerical witness: D(tau) >= D(0) on backward CM trajectory at N = 50',
+  title:  'Numerical witness: D(tau) >= D(0) on backward CM trajectory at N = 50 and N = 100',
 
   status:
-    D_MONOTONE_N50_WITNESS.dMonotoneHolds && D_MONOTONE_N50_WITNESS.noSwapHolds
+    D_MONOTONE_N50_WITNESS.dMonotoneHolds  && D_MONOTONE_N50_WITNESS.noSwapHolds &&
+    D_MONOTONE_N100_WITNESS.dMonotoneHolds && D_MONOTONE_N100_WITNESS.noSwapHolds
       ? 'numerical-witness-passes'
       : 'numerical-witness-fails',
 
   method: {
-    N:            WITNESS_N,
+    Ns:           [WITNESS_N, 100],
     dtau:         DTAU,
     maxSteps:     MAX_STEPS,
     stopFraction: STOP_FRACTION,
@@ -208,36 +212,52 @@ export const D_MONOTONE_WITNESS_RECORD = {
       'Backward CM flow d(gamma_k)/d(tau) = -2 Sum 1/(gamma_k - gamma_j), ' +
       'explicit Euler integration. At each step: find k* = argmin gap, ' +
       'compute S_{k*}, compute D = 8 - 4*B^2*S_{k*}. ' +
-      'Check D >= D(0) and k* constant (NoSwap).',
+      'Check D >= D(0) and k* constant (NoSwap). Run independently at N=50 and N=100.',
   },
 
   result: {
-    dMonotoneHolds:  D_MONOTONE_N50_WITNESS.dMonotoneHolds,
-    noSwapHolds:     D_MONOTONE_N50_WITNESS.noSwapHolds,
-    D0:              D_MONOTONE_N50_WITNESS.D0,
-    minDObserved:    D_MONOTONE_N50_WITNESS.minDObserved,
-    DfinalAtStop:    D_MONOTONE_N50_WITNESS.Dfinal,
-    BratioCovered:   D_MONOTONE_N50_WITNESS.BratioCovered,
-    tauCovered:      D_MONOTONE_N50_WITNESS.tauCovered,
-    samplePoints:    D_MONOTONE_N50_WITNESS.samplePoints,
+    N50: {
+      dMonotoneHolds: D_MONOTONE_N50_WITNESS.dMonotoneHolds,
+      noSwapHolds:    D_MONOTONE_N50_WITNESS.noSwapHolds,
+      D0:             D_MONOTONE_N50_WITNESS.D0,
+      minDObserved:   D_MONOTONE_N50_WITNESS.minDObserved,
+      DfinalAtStop:   D_MONOTONE_N50_WITNESS.Dfinal,
+      BratioCovered:  D_MONOTONE_N50_WITNESS.BratioCovered,
+      tauCovered:     D_MONOTONE_N50_WITNESS.tauCovered,
+      samplePoints:   D_MONOTONE_N50_WITNESS.samplePoints,
+    },
+    N100: {
+      dMonotoneHolds: D_MONOTONE_N100_WITNESS.dMonotoneHolds,
+      noSwapHolds:    D_MONOTONE_N100_WITNESS.noSwapHolds,
+      D0:             D_MONOTONE_N100_WITNESS.D0,
+      minDObserved:   D_MONOTONE_N100_WITNESS.minDObserved,
+      DfinalAtStop:   D_MONOTONE_N100_WITNESS.Dfinal,
+      BratioCovered:  D_MONOTONE_N100_WITNESS.BratioCovered,
+      tauCovered:     D_MONOTONE_N100_WITNESS.tauCovered,
+    },
+    bothPass:
+      D_MONOTONE_N50_WITNESS.dMonotoneHolds  && D_MONOTONE_N50_WITNESS.noSwapHolds &&
+      D_MONOTONE_N100_WITNESS.dMonotoneHolds && D_MONOTONE_N100_WITNESS.noSwapHolds,
   },
 
   interpretation:
-    D_MONOTONE_N50_WITNESS.dMonotoneHolds
-      ? 'D(tau) never fell below D(0) on the observed N=50 trajectory. ' +
-        'D increased monotonically from D(0) to ' +
-        D_MONOTONE_N50_WITNESS.Dfinal + ' as B decreased from B(0) to ' +
-        D_MONOTONE_N50_WITNESS.Bfinal + ' (' +
-        (D_MONOTONE_N50_WITNESS.BratioCovered * 100).toFixed(1) + '% toward collision). ' +
-        'This is numerical evidence supporting the D-monotone assumption in ' +
+    D_MONOTONE_N50_WITNESS.dMonotoneHolds && D_MONOTONE_N100_WITNESS.dMonotoneHolds
+      ? 'D(tau) never fell below D(0) on either the N=50 or N=100 trajectory. ' +
+        'At N=50: D increased from D(0)=' + D_MONOTONE_N50_WITNESS.D0 +
+        ' to ' + D_MONOTONE_N50_WITNESS.Dfinal +
+        ' (' + (D_MONOTONE_N50_WITNESS.BratioCovered * 100).toFixed(1) + '% toward collision). ' +
+        'At N=100: D increased from D(0)=' + D_MONOTONE_N100_WITNESS.D0 +
+        ' to ' + D_MONOTONE_N100_WITNESS.Dfinal +
+        ' (' + (D_MONOTONE_N100_WITNESS.BratioCovered * 100).toFixed(1) + '% toward collision). ' +
+        'Two independent N values support the D-monotone assumption in ' +
         'b1-slope-conditional-upper-bound.js Step 3.'
-      : 'WARNING: D-monotone VIOLATED numerically at N=50. ' +
+      : 'WARNING: D-monotone VIOLATED at one or both of N=50, N=100. ' +
         'The conditional B1 closure chain may not hold for these initial conditions.',
 
   limitation:
-    'Numerical witness only. Covers N=50 with one specific initial configuration ' +
-    '(first 50 Riemann zeros). Does not prove the claim for all N or all initial ' +
-    'data. The analytic sub-gap skp-imp457-D-monotone remains open. ' +
+    'Numerical witness only. Covers N=50 and N=100 with specific initial ' +
+    'configurations (first N Riemann zeros). Does not prove the claim for all N ' +
+    'or all initial data. The analytic sub-gap skp-imp457-D-monotone remains open. ' +
     'An analytic proof would require controlling dS_{k*}/d(tau) via the full CM ' +
     'equations, using g_j(tau) >= B(tau) under NoSwap.',
 };
@@ -291,5 +311,30 @@ export const D_MONOTONE_ASSERTIONS = [
       'D(tau_c) -> 8 since F = B^2*S -> 0 near collision. ' +
       'A failure means the trajectory stopped before D had a chance to increase, ' +
       'which indicates the stopping criterion fired too early.',
+  },
+  {
+    id: 'imp457-d-monotone-witness-holds-n100',
+    holds: () => D_MONOTONE_N100_WITNESS.dMonotoneHolds,
+    why:
+      'D(tau) must be >= D(0) throughout the N=100 backward CM trajectory. ' +
+      'Extends the N=50 check to a second, larger N value. A violation here ' +
+      'would indicate the D-monotone property breaks down for the first 100 ' +
+      'Riemann zeros, undermining the conditional B1 closure at scale N=100.',
+  },
+  {
+    id: 'imp457-noswap-witness-holds-n100',
+    holds: () => D_MONOTONE_N100_WITNESS.noSwapHolds,
+    why:
+      'The NoSwap hypothesis must hold at N=100: k* must not shift during the ' +
+      'backward CM simulation at this larger N. Extends the N=50 NoSwap check ' +
+      'to confirm the argmin index remains stable for 100 zeros.',
+  },
+  {
+    id: 'imp457-witness-D0-positive-n100',
+    holds: () => D_MONOTONE_N100_WITNESS.D0 > 0,
+    why:
+      'D(0) = 8 - 4*F(0) must be strictly positive at N=100. Required for the ' +
+      'comparison bound tau_c <= B0^2/D0 to be meaningful. Confirms the N=100 ' +
+      'initial configuration is in generic position (no accidental degeneracy).',
   },
 ];

@@ -67,10 +67,10 @@ const CROSS_VERIFICATION_STATUS =
 
 // ── Exported report ───────────────────────────────────────────────────────────
 export const IMP440_CROSS_VERIFICATION = {
-  id: 'imp-449',
-  title: 'Independent cross-verification of imp-440 L_cond ~ 0.008 at N* = 1e6',
+  id: 'imp-449/imp-460',
+  title: 'Independent cross-verification of imp-440 L_cond over full N* grid {1e4,1e5,1e6,1e7,5e7}',
   status: CROSS_VERIFICATION_STATUS,
-  generatedAt: '2026-04-11T21:00:00Z',
+  generatedAt: '2026-04-11T22:45:00Z',
 
   primaryPath: {
     source: 'src/data/finite-height-beats-platt-trudgian.js',
@@ -151,5 +151,53 @@ export const IMP440_CROSS_VERIFICATION_ASSERTIONS = [
     why:
       'L_cond at N=1e6 should be in (0.005, 0.015). The imp-440 claim is ~0.008. ' +
       'Outside this range indicates the fit constants or height mapping has changed.',
+  },
+  // imp-460: per-N explicit assertions for every grid point in the full N* sweep
+  {
+    id: 'imp460-cross-verify-N1e4-passes-6-sig-figs',
+    holds: () => {
+      const r = ladderComparison.find((row) => row.N === 1e4);
+      return r !== undefined && r.available && r.passes;
+    },
+    why:
+      'N=1e4: primary and alt-path L_cond must agree to 6+ sig figs. ' +
+      'imp-460 extends the single-point N=1e6 check to the full assembly grid.',
+  },
+  {
+    id: 'imp460-cross-verify-N1e5-passes-6-sig-figs',
+    holds: () => {
+      const r = ladderComparison.find((row) => row.N === 1e5);
+      return r !== undefined && r.available && r.passes;
+    },
+    why:
+      'N=1e5: primary and alt-path L_cond must agree to 6+ sig figs (imp-460).',
+  },
+  {
+    id: 'imp460-cross-verify-N1e6-passes-6-sig-figs',
+    holds: () => {
+      const r = ladderComparison.find((row) => row.N === 1e6);
+      return r !== undefined && r.available && r.passes;
+    },
+    why:
+      'N=1e6: primary and alt-path L_cond must agree to 6+ sig figs (imp-460 per-N replica of imp-449 primary check).',
+  },
+  {
+    id: 'imp460-cross-verify-N1e7-passes-6-sig-figs',
+    holds: () => {
+      const r = ladderComparison.find((row) => row.N === 1e7);
+      return r !== undefined && r.available && r.passes;
+    },
+    why:
+      'N=1e7: primary and alt-path L_cond must agree to 6+ sig figs (imp-460).',
+  },
+  {
+    id: 'imp460-cross-verify-N5e7-passes-6-sig-figs',
+    holds: () => {
+      const r = ladderComparison.find((row) => row.N === 5e7);
+      return r !== undefined && r.available && r.passes;
+    },
+    why:
+      'N=5e7: primary and alt-path L_cond must agree to 6+ sig figs (imp-460). ' +
+      'Largest N in the assembly grid; smallest L_cond value, highest rounding sensitivity.',
   },
 ];

@@ -5,8 +5,8 @@
 -- documents type-compatibility findings between them.
 --
 -- Deliverable per imp-441: CompositionCheck.lean + incompatibility report.
--- Live lake build not yet available (no lakefile.lean); findings below are
--- from static analysis of Constants.lean, BridgeTheorem.lean, Capstone.lean.
+-- imp-454: lean/lakefile.lean now exists; `cd lean && lake update && lake build`
+-- will elaborate all five LambdaAttack modules. Findings below from static analysis.
 --
 -- ─────────────────────────────────────────────────────────────────────────
 -- STATIC INCOMPATIBILITY REPORT (imp-441, 2026-04-11)
@@ -62,7 +62,8 @@
 --   import LambdaAttack.BridgeTheorem
 --   import LambdaAttack.Capstone
 -- INCOMPATIBILITY 1 and 2 (axiom duplication) RESOLVED by imp-448 (Foundation.lean).
--- Remaining blocker: lakefile.lean + BC_ vs C_ naming unification.
+-- lakefile.lean CREATED by imp-454 (lean/lakefile.lean).
+-- Remaining soft gap: BC_ vs C_ naming unification (BridgeTheorem.lean -> Constants.lean).
 -- This standalone section verifies type compatibility without cross-module imports.
 
 import Mathlib.Topology.Algebra.Order.LiminfLimsup

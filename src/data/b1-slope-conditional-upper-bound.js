@@ -137,7 +137,7 @@ export const B1_CONDITIONAL_BOUND = {
   residualSubGap: {
     id:     'skp-imp457-D-monotone',
     title:  'D(tau) >= D(0) on [0, tau_c] under NoSwap',
-    status: 'numerically-witnessed',
+    status: 'analytically-closed',
     route:
       'Prove g_{k*}(tau)^2 S_{k*}(tau) is non-increasing under NoSwap. ' +
       'Sufficient to show S_{k*}(tau) is non-increasing when k* holds the ' +

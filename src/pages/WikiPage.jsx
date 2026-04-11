@@ -89,6 +89,17 @@ export default function WikiPage() {
         ))}
       </div>
 
+      {/* Filtered count — lets users see at a glance how many entries their query/category matches. */}
+      <div style={{
+        fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)',
+        marginBottom: 10, letterSpacing: 0.5,
+      }}>
+        Showing <span style={{ color: '#e2e8f0', fontWeight: 600 }}>{filtered.length}</span>
+        {' '}of {stats.totalEntries} entries
+        {selectedCategory !== 'all' && <> in <span style={{ color: categoryColors[selectedCategory] || '#94a3b8' }}>{selectedCategory}</span></>}
+        {query && <> matching "<span style={{ color: '#e2e8f0' }}>{query}</span>"</>}
+      </div>
+
       {/* Entries */}
       <div>
         {filtered.length === 0 ? (

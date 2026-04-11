@@ -5019,12 +5019,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Update lambda-cross-validation.js consolidated table with all post-imp-387 numbers',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'imp-374 shipped the 10-row cross-validation table, but that was BEFORE imp-387 closed G6 and before imp-395/397/398/399 pinned the constants. Update lambda-cross-validation.js LAMBDA_CROSS_VALIDATION_TABLE with: the new imp-341 + imp-387 rigorous asymptotic Lambda = 0 entry, the new imp-400 refit central value, the pinned constants from imp-395/397/398/399, the imp-404 barrier cross-verification number (once it lands). Preserve the imp-374 D1 disagreement record. Verify all assertions still pass.',
     rationale: 'The cross-validation table is the single source of truth for "do all the methods agree on Lambda". It must reflect the post-imp-401 state for the SOTA claim to be auditable.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-11T14:30:00Z',
   },
 
   // ── Phase 21: remaining research angles + external verification ──

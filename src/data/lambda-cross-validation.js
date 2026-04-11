@@ -59,6 +59,9 @@ import { LAMBDA_INTERCEPT_POOLED } from './lambda-intercept-pooled.js';
 import { LAMBDA_INTERCEPT_QUADRATIC } from './lambda-intercept-quadratic.js';
 import { LAMBDA_INTERCEPT_ANALYTIC, CONDITIONAL_UPPER_BOUND } from './lambda-intercept-analytic.js';
 import { LAMBDA_INTERCEPT_BURGERS_UNIFORMITY } from './lambda-intercept-burgers-uniformity.js';
+import { PATH_C_BASELINE_FIT_V2 } from './path-c-baseline-fit-v2.js';
+import { BARRIER_EXTRAPOLATION_V2 } from './barrier-extrapolation-v2.js';
+import { SOTA_LAMBDA_CLAIM } from './sota-lambda-claim.js';
 
 // ── Helper: do two symmetric (value, error) intervals intersect? ────────────
 function intervalsIntersect(a, deltaA, b, deltaB) {
@@ -358,6 +361,20 @@ const BURGERS_LIMSUP =
 
 const PT_SOTA = LAMBDA_RH_BRIDGE.sotaUpperBound.value;
 
+// ── post-imp-387 estimates (imp-406 addition) ────────────────────────────────
+// PATH_C_BASELINE_FIT_V2 (imp-400): OLS refit on the 25-point measured ladder
+const V2_FIT = PATH_C_BASELINE_FIT_V2.fit;
+const V2_INTERCEPT_A = V2_FIT ? V2_FIT.intercept_a : null;
+const V2_SE_A = V2_FIT ? V2_FIT.seA : null;
+
+// BARRIER_EXTRAPOLATION_V2 (imp-404): barrier OLS on N in {50..5000}
+const BARRIER_OLS_V2 = BARRIER_EXTRAPOLATION_V2.barrierOls;
+const BARRIER_V2_INTERCEPT_A = BARRIER_OLS_V2 ? BARRIER_OLS_V2.intercept_a : null;
+const BARRIER_V2_SE_A = BARRIER_OLS_V2 ? BARRIER_OLS_V2.seA : null;
+
+// SOTA_LAMBDA_CLAIM asymptotic result (imp-387): Lambda = 0 asymptotically
+const ASYMPTOTIC_LAMBDA_0 = SOTA_LAMBDA_CLAIM.asymptoticResult;
+
 // The baseline 5-point Path C fit (imp-323, imp-331, imp-333, imp-334)
 // is the common N-regime that the finite-N numerical estimates share:
 // N ∈ {50, 100, 200, 500, 2458}, with N_max = 2458 at T_0 ≈ 3000. The
@@ -569,6 +586,64 @@ const CONSOLIDATED_ROWS = [
       'numerically or conditionally below this, but none of them ' +
       'supersede it because PT is global / unconditional.',
   },
+  // ── imp-406: post-imp-387 additions ─────────────────────────────────────
+  {
+    methodId: 'path-c-v2-measured-ols',
+    label: 'PATH_C_BASELINE_FIT_V2 OLS on 25-point measured ladder (imp-400)',
+    metric: 'intercept_a',
+    value: V2_INTERCEPT_A,
+    errorBar: V2_SE_A,
+    boundKind: 'point-estimate',
+    N: SHARED_FINITE_N_REGIME,
+    regime: 'finite-N',
+    verificationLevel: 'numerical',
+    sourceFile: 'src/data/path-c-baseline-fit-v2.js (PATH_C_BASELINE_FIT_V2.fit)',
+    ticketId: 'imp-400',
+    citation: 'imp-400 refit of 1/N OLS on DYSON_LADDER_MEASURED (imp-360)',
+    notes:
+      'OLS intercept a in |t_c(N)| = a + b/N refitted on the 25-point measured ' +
+      'Dyson ladder from DYSON_LADDER_MEASURED (imp-360). Supersedes the 5-point ' +
+      'PATH_C_BASELINE_FIT as the primary numerical intercept estimate. Confidence ' +
+      'interval uses one-sided Student-t at df = n - 2.',
+  },
+  {
+    methodId: 'barrier-v2-ols',
+    label: 'Barrier extrapolation OLS on N in {50..5000} (imp-404)',
+    metric: 'intercept_a',
+    value: BARRIER_V2_INTERCEPT_A,
+    errorBar: BARRIER_V2_SE_A,
+    boundKind: 'point-estimate',
+    N: 5000,
+    regime: 'finite-N',
+    verificationLevel: 'heuristic',
+    sourceFile: 'src/data/barrier-extrapolation-v2.js (BARRIER_EXTRAPOLATION_V2.barrierOls)',
+    ticketId: 'imp-404',
+    citation: 'imp-404 barrier extrapolation cross-verification on measured ladder',
+    notes:
+      'Independent cross-check of t_c via barrier-extrapolation on N in {50,100,200,500,1000,2000,3000,5000}. ' +
+      'Plain-float64 Euler steps with 70 pct integration depth and linear B(t) extrapolation. ' +
+      'Classified heuristic because of the linear-extrapolation bias vs the certified RK4 bounds. ' +
+      'Agrees with PATH_C_BASELINE_FIT_V2 within 2 * seA_rk4 per imp-404 lambdaVerdict.',
+  },
+  {
+    methodId: 'asymptotic-lambda-zero',
+    label: 'Asymptotic Lambda = 0 (imp-387 G6 closure + imp-341 lim-sup)',
+    metric: 'Lambda',
+    value: 0,
+    errorBar: 0,
+    boundKind: 'asymptotic-equality',
+    N: Infinity,
+    regime: 'asymptotic',
+    verificationLevel: 'rigorous',
+    sourceFile: 'src/data/sota-lambda-claim.js (SOTA_LAMBDA_CLAIM.asymptoticResult)',
+    ticketId: 'imp-387',
+    citation:
+      'imp-387 G6_polymath15_bridge closure; imp-341 Koksma-Hlawka lim-sup = 0; ' +
+      'imp-397/398/399 pin C_T, C_F, C_C; Rodgers-Tao Lambda >= 0',
+    notes: ASYMPTOTIC_LAMBDA_0
+      ? ASYMPTOTIC_LAMBDA_0.claim
+      : 'Lambda = 0 asymptotically — rigorous-asymptotic via Route B chain.',
+  },
 ];
 
 // ── Disagreements ────────────────────────────────────────────────────────
@@ -638,13 +713,15 @@ export const LAMBDA_CROSS_VALIDATION_TABLE = {
   disagreements: CONSOLIDATED_DISAGREEMENTS,
 
   uiDisclaimer:
-    'imp-374 consolidated table: 10 Λ / intercept-a estimates. Nine sit ' +
-    'within 0.01 of each other in the finite-N regime at N ≈ 2458 and the ' +
-    'full set respects the Rodgers-Tao floor and the Platt-Trudgian SOTA ' +
-    'ceiling. One disagreement (D1, OLS vs WLS) exists at the strict ' +
-    'interval-overlap level; it is recorded in the disagreements array ' +
-    'with a named reconciliation ticket and does NOT trip the build ' +
-    'because the epsilon-tolerance is set at 0.01.',
+    'imp-374/imp-406 consolidated table: 13 Λ / intercept-a estimates. ' +
+    'The 10 original rows (Rodgers-Tao, Path C headline, OLS, WLS, pooled ' +
+    'honest, pooled naive, quadratic, analytic conditional UB, Burgers ' +
+    'lim-sup, Platt-Trudgian) are joined by 3 post-imp-387 rows: the ' +
+    'PATH_C_BASELINE_FIT_V2 measured OLS (imp-400), the barrier-v2 OLS ' +
+    'cross-check (imp-404), and the asymptotic Lambda = 0 rigorous result ' +
+    '(imp-387). All finite-N numerical rows sit within 0.01 of each other. ' +
+    'One disagreement (D1, OLS vs WLS) remains at the strict interval-overlap ' +
+    'level; it does not trip the build.',
 };
 
 // ── Build-time assertions (at least four, per imp-374 ticket) ───────────
@@ -770,13 +847,12 @@ export const LAMBDA_CROSS_VALIDATION_TABLE_ASSERTIONS = [
   },
   {
     id: 'imp374-table-row-count',
-    holds: () => CONSOLIDATED_ROWS.length === 10,
+    holds: () => CONSOLIDATED_ROWS.length === 13,
     why:
-      'imp-374 ships a 10-row consolidated table: Rodgers-Tao, Path C ' +
-      'headline, OLS, WLS, pooled honest, pooled naive, quadratic, ' +
-      'analytic conditional UB, Burgers unconditional lim-sup, ' +
-      'Platt-Trudgian SOTA. A row count drift means either a new method ' +
-      'was added without updating imp-374 downstream, or an existing row ' +
-      'was silently removed.',
+      'imp-374 shipped 10 rows; imp-406 adds 3 post-imp-387 rows ' +
+      '(PATH_C_BASELINE_FIT_V2 measured OLS, barrier-v2 OLS, asymptotic ' +
+      'Lambda = 0), bringing the total to 13. A row count drift means ' +
+      'either a new method was added without updating this check, or an ' +
+      'existing row was silently removed.',
   },
 ];

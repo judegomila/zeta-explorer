@@ -489,6 +489,14 @@ export default function ZetaLandscapeViz() {
 
   return (
     <div>
+      <div className="filter-bar">
+        <button className={`filter-btn ${mode === 'critical-line' ? 'active' : ''}`}
+          onClick={() => setMode('critical-line')}
+          title="Riemann-Siegel Z function along σ=½ — zeros match nontrivial zeros of ζ">Critical Line Z(t)</button>
+        <button className={`filter-btn ${mode === 'heatmap' ? 'active' : ''}`}
+          onClick={() => setMode('heatmap')}
+          title="Full |ζ(σ+it)| heatmap across the critical strip 0<σ<1">|ζ(s)| Heatmap</button>
+      </div>
       {mode === 'critical-line' && (
         <div className="tab-explainer">
           <p style={{ margin: '0 0 8px' }}>
@@ -515,14 +523,6 @@ export default function ZetaLandscapeViz() {
         </div>
       )}
       <div className="controls">
-        <div className="control-group">
-          <label title="Switch between the critical-line Z(t) plot and the full |ζ(σ+it)| heatmap in the critical strip">View Mode</label>
-          <select value={mode} onChange={e => setMode(e.target.value)}
-            title="Critical Line Z(t) shows the Riemann-Siegel Z function along σ=½; Heatmap shows |ζ(s)| across the critical strip 0<σ<1">
-            <option value="critical-line">Critical Line Z(t)</option>
-            <option value="heatmap">|ζ(s)| Heatmap</option>
-          </select>
-        </div>
         <div className="control-group">
           <label title="Lower bound of the imaginary part t — controls where the visible window starts on the critical line">t range start</label>
           <input type="range" min="0" max="100" step="1" value={tRange[0]}

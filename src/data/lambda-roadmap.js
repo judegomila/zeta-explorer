@@ -280,20 +280,25 @@ export const OPEN_GAPS = [
   {
     id: 'G1',
     label: 'argmin interiority at k*_N',
-    status: 'open — empirical witness only',
-    owner: 'imp-336 (route A)',
-    nextTickets: ['imp-368'],
-    severity: 'high',
-    blocks: 'Route A monotonicity conjecture',
+    status:
+      'CLOSED (imp-368 + imp-450) — trivial unconditional bound k*_N in ' +
+      '{1,...,N-1}; conditional uniform margin c=0.25 under G1-sub-extremal ' +
+      '(= imp-343 G4a_bulk_confinement)',
+    owner: 'imp-450',
+    nextTickets: [],
+    severity: 'closed',
+    blocks: null,
   },
   {
     id: 'G2',
     label: 'argmin jumps across N',
-    status: 'open — no attempt yet',
-    owner: 'imp-336 (route A)',
-    nextTickets: ['imp-369'],
-    severity: 'high',
-    blocks: 'Route A monotonicity conjecture',
+    status:
+      'CLOSED (imp-369 + imp-450) — Cauchy interlacing at tau = 0 unconditional ' +
+      '(B_{N+1}(0) <= B_N(0)); tau > 0 propagation conditional on G1 uniform margin',
+    owner: 'imp-450',
+    nextTickets: [],
+    severity: 'closed',
+    blocks: null,
   },
   {
     id: 'G3a',

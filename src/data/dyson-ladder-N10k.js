@@ -52,10 +52,17 @@ import { PT_SCALE_EXTRAPOLATION } from './lambda-pt-scale-extrapolation.js';
 import { LAMBDA_INTERCEPT_CONFIDENCE } from './lambda-intercept-confidence.js';
 import { CONDITIONAL_UPPER_BOUND } from './lambda-intercept-analytic.js';
 import { PATH_C_BASELINE_FIT, quadFit } from '../math/dyson-scaling-N5000.js';
+import { DYSON_LADDER_MEASURED } from './dyson-ladder-measured.js';
 
 // ── Target N values for the imp-353 extension ───────────────────────────────
 
-const TARGET_NS = [1e4, 1e5];
+// N = 10^4 is now in the measured block of dyson-ladder-measured.js (imp-353 partial progress).
+// imp-359 ZEROS_EXTENDED is complete (100 000 verified Odlyzko ordinates, 2026-04-11).
+// Remaining unmeasured target: N = 10^5.
+const TARGET_NS = [1e5];
+
+// Pull the N = 10^4 measured row from the dyson-ladder-measured block to document progress.
+const MEASURED_ROW_N1E4 = DYSON_LADDER_MEASURED.rows.find(r => r.N === 10000) ?? null;
 
 // ── Extract projected rows at the target N values from the imp-321 ladder ───
 // These are arithmetic projections |t_c|(N) = OLS_A + OLS_B / N, NOT
@@ -131,9 +138,11 @@ export const DYSON_LADDER_N10K = {
   title: 'Tighten Λ central value: extend Path C Dyson ladder to N ∈ {10^4, 10^5}',
   status: 'partial',
   partialReason:
-    'Blocked on imp-359 (LMFDB zeros) and imp-360 (measured ODE runs). ' +
-    'This file is the structural contract: projected targets are documented; ' +
-    'measured values will be inserted into PATH_C_BASELINE_FIT by imp-360.',
+    'N = 10^4 rung measured (dyson-ladder-measured.js, imp-353 incremental work). ' +
+    'imp-359 ZEROS_EXTENDED table complete (100 000 Odlyzko ordinates, 2026-04-11). ' +
+    'Remaining: measured backward Dyson ODE at N = 10^5 (O(N^2) = 10^10 ops/step, ' +
+    'requires precompute harness with compiled backend), then append tc to ' +
+    'PATH_C_BASELINE_FIT to auto-tighten CONDITIONAL_UPPER_BOUND.',
   olsFit: {
     intercept_a: OLS_A,
     slope_b: OLS_B,
@@ -145,16 +154,32 @@ export const DYSON_LADDER_N10K = {
     source: 'lambda-intercept-analytic.js CONDITIONAL_UPPER_BOUND (imp-328)',
     baselineRows: PATH_C_BASELINE_FIT.length,
   },
-  targetExtension: TARGET_NS.map((N) => {
-    const row = findProjectedRow(N);
-    return {
-      N,
-      status: 'missing_measurement',
-      projectedTc: row ? row.projected_tc : OLS_A + OLS_B / N,
+  targetExtension: [
+    {
+      N: 10000,
+      status: MEASURED_ROW_N1E4 ? 'measured' : 'missing_measurement',
+      measuredTcLo: MEASURED_ROW_N1E4 ? MEASURED_ROW_N1E4.t_c_lo : null,
+      measuredTcHi: MEASURED_ROW_N1E4 ? MEASURED_ROW_N1E4.t_c_hi : null,
+      measuredWidth: MEASURED_ROW_N1E4 ? MEASURED_ROW_N1E4.width : null,
+      measuredReason: MEASURED_ROW_N1E4 ? MEASURED_ROW_N1E4.reason : null,
+      projectedTc: PROJECTED_ROW_N1E4 ? PROJECTED_ROW_N1E4.projected_tc : OLS_A + OLS_B / 1e4,
       projectedSource: 'OLS formula a + b/N from imp-323 fit',
-      blockedBy: N <= 1e4 ? ['imp-359', 'imp-360'] : ['imp-359', 'imp-360'],
-    };
-  }),
+      blockedBy: [],
+      note: 'Added to MEASURED_NS in dyson-ladder-measured.js by imp-353 incremental work. ' +
+        'Interval arithmetic backward Dyson ODE on first 10 000 ZEROS_EXTENDED entries, ' +
+        'dt = 0.0001, nSteps = 120. Zeros sourced from ZEROS_EXTENDED (imp-359 complete).',
+    },
+    {
+      N: 1e5,
+      status: 'missing_measurement',
+      projectedTc: PROJECTED_ROW_N1E5 ? PROJECTED_ROW_N1E5.projected_tc : OLS_A + OLS_B / 1e5,
+      projectedSource: 'OLS formula a + b/N from imp-323 fit',
+      blockedBy: ['imp-360-compute-N1e5'],
+      note: 'Requires measured backward Dyson ODE at N = 10^5. O(N^2) = 10^10 ops/step ' +
+        'too slow for browser render; needs precompute harness with compiled backend. ' +
+        'Zeros are available (imp-359 complete, ZEROS_EXTENDED carries 100 000 entries).',
+    },
+  ],
   tighteningIfMeasured: {
     atN1e4: TIGHTENING_N1E4,
     atN1e5: TIGHTENING_N1E5,
@@ -194,25 +219,25 @@ export const DYSON_LADDER_N10K = {
     {
       id: 'imp353a_zeros_blocked_on_imp359',
       description:
-        'LMFDB Odlyzko verified Riemann zero ordinates to N = 10^6 are required ' +
-        'as input to the backward Dyson ODE at all target N values. The existing ' +
-        'ZETA_ZEROS table (870 verified zeros in src/math/zeta.js) is far too ' +
-        'small. imp-359 must deliver src/data/zeros-to-1e6.js before any ODE ' +
-        'computation can start.',
+        'RESOLVED: imp-359 delivered src/data/zeros-to-1e6.js with 100 000 verified ' +
+        'Odlyzko zero ordinates (auto-generated 2026-04-11 by scripts/fetch-odlyzko-zeros.mjs). ' +
+        'ZEROS_EXTENDED now provides all zeros needed for the backward Dyson ODE at N up to ' +
+        '100 000. This sub-gap is closed.',
       blockedBy: 'imp-359',
-      status: 'pending',
+      status: 'resolved',
     },
     {
       id: 'imp353b_ode_blocked_on_imp360',
       description:
-        'The backward Dyson ODE at N = 10^4 is O(N^2) = 10^8 ops/step. At ' +
-        '~11 steps to collision (tc ~ 0.0034, dt = 0.0003), the total is ~10^9 ' +
-        'floating-point ops — feasible as a precompute harness but not in a ' +
-        'browser render. At N = 10^5 (~10^10 ops/step) a precompute harness ' +
-        'with a compiled backend is required. imp-360 is the ticket that runs ' +
-        'these ODE jobs and appends the measured rows to PATH_C_BASELINE_FIT.',
-      blockedBy: 'imp-360',
-      status: 'pending',
+        'PARTIAL: N = 10^4 is now measured — backwardCollisionInterval on the first ' +
+        '10 000 ZEROS_EXTENDED entries runs at evaluation time in dyson-ladder-measured.js ' +
+        '(dt = 0.0001, nSteps = 120, ~1.2e10 interval ops). ' +
+        'Remaining: N = 10^5 (O(N^2) = 10^10 plain float ops/step, too slow for ' +
+        'browser render; requires precompute harness with compiled backend). ' +
+        'Once N = 10^5 is measured, append its tc to PATH_C_BASELINE_FIT in ' +
+        'dyson-scaling-N5000.js to auto-tighten CONDITIONAL_UPPER_BOUND.',
+      blockedBy: 'imp-360-compute-N1e5',
+      status: 'partial',
     },
     {
       id: 'imp353c_baseline_dt_overshoot',

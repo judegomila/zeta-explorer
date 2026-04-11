@@ -305,3 +305,128 @@ export function dysonOdeWithErrorBounds({
       : `PARTIAL: no collision in range; accumulated error ${accumulatedError.toExponential(2)} (N=${N}).`,
   };
 }
+
+// ────────────────────────────────────────────────────────────────────
+// imp-357: Cross-verification — Dormand-Prince RK45 second integrator
+// ────────────────────────────────────────────────────────────────────
+//
+// Implements the 6-stage Dormand-Prince RK4/5 method (Butcher tableau,
+// Dormand & Prince 1980) as an independent second integrator for the
+// backward Dyson ODE. Uses the 5th-order output weights with the same
+// Kahan-compensated derivative already validated by imp-306.
+//
+// For N ∈ {50, 100, 200} (all within the 870-zero ZETA_ZEROS table),
+// both RK4+Kahan and DP45+Kahan are run at the same fixed step size.
+// Agreement within |Δt_c| ≤ max(5·dt, 1e-3) validates that the Path C
+// collision times are integrator-independent — the SOTA requirement for
+// cross-verification stated in imp-357.
+//
+// Reference: Dormand & Prince, J. Comp. Appl. Math. 6 (1980) 19-26.
+
+// Dormand-Prince RK45 Butcher tableau — 6 stages, 5th-order output.
+const DP45_A = [
+  [],
+  [1 / 5],
+  [3 / 40, 9 / 40],
+  [44 / 45, -56 / 15, 32 / 9],
+  [19372 / 6561, -25360 / 2187, 64448 / 6561, -212 / 729],
+  [9017 / 3168, -355 / 33, 46732 / 5247, 49 / 176, -5103 / 18656],
+];
+// 5th-order output weights b* (b*_2 = 0, b*_7 = 0 are omitted in the sum)
+const DP45_B5 = [35 / 384, 0, 500 / 1113, 125 / 192, -2187 / 6784, 11 / 84];
+
+function dp45StepKahan(gammas, dt, direction) {
+  const N = gammas.length;
+
+  const k1 = dysonDerivativesKahan(gammas, direction);
+
+  const y2 = new Float64Array(N);
+  for (let i = 0; i < N; i++) y2[i] = gammas[i] + dt * DP45_A[1][0] * k1[i];
+  const k2 = dysonDerivativesKahan(y2, direction);
+
+  const y3 = new Float64Array(N);
+  for (let i = 0; i < N; i++)
+    y3[i] = gammas[i] + dt * (DP45_A[2][0] * k1[i] + DP45_A[2][1] * k2[i]);
+  const k3 = dysonDerivativesKahan(y3, direction);
+
+  const y4 = new Float64Array(N);
+  for (let i = 0; i < N; i++)
+    y4[i] = gammas[i] + dt * (DP45_A[3][0] * k1[i] + DP45_A[3][1] * k2[i] + DP45_A[3][2] * k3[i]);
+  const k4 = dysonDerivativesKahan(y4, direction);
+
+  const y5 = new Float64Array(N);
+  for (let i = 0; i < N; i++)
+    y5[i] = gammas[i] + dt * (DP45_A[4][0] * k1[i] + DP45_A[4][1] * k2[i] + DP45_A[4][2] * k3[i] + DP45_A[4][3] * k4[i]);
+  const k5 = dysonDerivativesKahan(y5, direction);
+
+  const y6 = new Float64Array(N);
+  for (let i = 0; i < N; i++)
+    y6[i] = gammas[i] + dt * (DP45_A[5][0] * k1[i] + DP45_A[5][1] * k2[i] + DP45_A[5][2] * k3[i] + DP45_A[5][3] * k4[i] + DP45_A[5][4] * k5[i]);
+  const k6 = dysonDerivativesKahan(y6, direction);
+
+  const result = new Float64Array(N);
+  for (let i = 0; i < N; i++) {
+    result[i] = gammas[i] + dt * (
+      DP45_B5[0] * k1[i] +
+      DP45_B5[2] * k3[i] +
+      DP45_B5[3] * k4[i] +
+      DP45_B5[4] * k5[i] +
+      DP45_B5[5] * k6[i]
+    );
+  }
+  return result;
+}
+
+// Run backward collision with a given step function; returns collision time or null.
+function runBackwardCollision(initial, dt, maxSteps, stepFn) {
+  let gammas = Float64Array.from(initial);
+  for (let step = 0; step < maxSteps; step++) {
+    const { spacing, index } = minSpacingInfo(gammas);
+    if (spacing < 1e-4) return { t_c: +(step * dt).toFixed(6), pair_index: index };
+    gammas = stepFn(gammas, dt, -1);
+  }
+  return { t_c: null };
+}
+
+export function dysonOdeCrossVerify({ Ns = [50, 100, 200], dt = 0.0005, maxSteps = 800 } = {}) {
+  const tolerance = Math.max(5 * dt, 1e-3);
+
+  const comparisons = Ns.map(N => {
+    const initial = ZETA_ZEROS.slice(0, N);
+    const rk4  = runBackwardCollision(initial, dt, maxSteps, rk4StepKahan);
+    const dp45 = runBackwardCollision(initial, dt, maxSteps, dp45StepKahan);
+
+    const delta = (rk4.t_c !== null && dp45.t_c !== null)
+      ? +Math.abs(rk4.t_c - dp45.t_c).toExponential(3)
+      : null;
+
+    const agree =
+      rk4.t_c !== null &&
+      dp45.t_c !== null &&
+      Math.abs(rk4.t_c - dp45.t_c) <= tolerance;
+
+    return { N, rk4_tc: rk4.t_c, dp45_tc: dp45.t_c, delta_tc: delta, agree };
+  });
+
+  const allAgree = comparisons.every(c => c.agree);
+
+  return {
+    purpose: 'imp-357: Cross-verify backward Dyson ODE collision time via independent second integrator',
+    method: {
+      primary:   'RK4 + Kahan-compensated derivative (imp-306 validated)',
+      secondary: 'Dormand-Prince RK45 5th-order + Kahan (imp-357)',
+      reference: 'Dormand & Prince, J. Comp. Appl. Math. 6 (1980) 19-26',
+    },
+    config: { dt, maxSteps, tolerancePerN: +tolerance.toExponential(2) },
+    comparisons,
+    allAgree,
+    keyFindings: comparisons.map(c =>
+      c.agree
+        ? `N=${c.N}: RK4 t_c=${c.rk4_tc}, DP45 t_c=${c.dp45_tc}, |Δ|=${c.delta_tc} ≤ ${tolerance.toExponential(2)} ✓`
+        : `N=${c.N}: MISMATCH — RK4 t_c=${c.rk4_tc}, DP45 t_c=${c.dp45_tc}, |Δ|=${c.delta_tc}`
+    ),
+    verdict: allAgree
+      ? `CROSS-VERIFIED: RK4 and DP45 agree at all ${comparisons.length}/${Ns.length} tested N-values (|Δt_c| ≤ ${tolerance.toExponential(2)}). Path C collision times are integrator-independent.`
+      : `DISCREPANCY DETECTED: integrators disagree at one or more N-values. Reconcile before citing as SOTA.`,
+  };
+}

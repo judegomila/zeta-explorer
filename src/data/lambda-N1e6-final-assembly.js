@@ -109,7 +109,10 @@ const CONDITIONS = [
       ' under monotonicity M (|t_c(N+1)| <= |t_c(N)|, imp-336). ' +
       'Bound from Koksma-Hlawka uniformity (imp-341) with C_Selberg = 3.0. ' +
       'Comfortably below the 0.02 assembly ceiling. ' +
-      'Unconditional closure requires imp-336 (M) or a per-N ODE bound.',
+      'imp-462 bridge (m-raw-from-umon-bridge.js): M_raw <==> M_uf exactly via ' +
+      'the positive RvM Jacobian; UMon (imp-456) + rho non-decreasing gives M_uf ' +
+      'at leading order (empirically verified N in {2,...,870}). ' +
+      'Unconditional exact M requires closing the many-body correction gap (imp-462-many-body-correction).',
   },
   {
     id:     'C3-pt',

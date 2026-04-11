@@ -1090,3 +1090,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1208 | 2026-04-10T03:00:00Z | bug: Fix TwinOscillatorSimViz y-axis labels 10px below center in PerPrime and MultiZero tabs: `height/2` → `margin.top + h/2` | TwinOscillatorSimViz.jsx |
 | 1209 | 2026-04-10T04:00:00Z | bug: Fix WaveSimViz Group Delay chart y-axis labels off-center: `height / 2` → `margin.top + chartH / 2` for both left and right axis labels | WaveSimViz.jsx |
 | 1210 | 2026-04-10T05:00:00Z | bug: Fix GapClosingViz y-axis label centers in Spectral Convergence panel: `topH/2` → `margin.top + plotTopH/2` and `topH + botH/2` → `topH + marginBot.top + plotBotH/2` | GapClosingViz.jsx |
+| 1211 | 2026-04-10T06:00:00Z | bug: Fix InformationTheoryViz y-axis labels 5px below center in drawScanPlot and Rate-Distortion tab: `h/2` → `margin.top + plotH/2` | InformationTheoryViz.jsx |

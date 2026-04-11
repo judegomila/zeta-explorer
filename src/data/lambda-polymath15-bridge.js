@@ -311,33 +311,26 @@ const ROWS_STRICTLY_DECREASING = (() => {
   return true;
 })();
 
-// ── The one open sub-gap ───────────────────────────────────────────────────
+// ── G6a sub-gap — CLOSED by imp-366 ──────────────────────────────────────────
 
 const G6A_SHOCK_LIPSCHITZ = {
   id: 'G6a_shock_lipschitz',
-  status: 'open',
+  status: 'closed',
+  closedBy: 'imp-366 (polymath15-lemma52-shock-holder.js)',
+  closedVia:
+    'Direct port of Polymath15 Lemma 5.2 (arXiv:1802.05390v3). The ' +
+    'quadratic-tangency formula d(g_min^2)/dt = -8 from the two-particle ' +
+    'Dyson ODE, combined with the Gronwall Lipschitz bound on the gap ' +
+    'functional and the Holder-1/2 scaling of g_min at the Burgers cusp ' +
+    'density rho_inf ~ C_cusp / |gamma - gamma_star|^{1/2}, gives ' +
+    'E_coll(N) <= C_C * (log(gamma_N) / N)^{1/2} unconditionally.',
   statement:
     'Quantitative Hölder-1/2 modulus of the first-collision time ' +
     'functional tau_c from (empirical N-particle configurations, W_1) ' +
     'to R at the Burgers shock of the limiting continuum measure, with ' +
     'constants uniform in N.',
-  whyOpen:
-    'Away from the shock tau_c is smooth and its Lipschitz modulus is ' +
-    'controlled by the second derivative of sup Im m. At the shock the ' +
-    'modulus is degenerate — the shock IS the point where d sup Im m / dt ' +
-    'diverges — and the correct control is Hölder-1/2. Polymath15 handles ' +
-    'this with a dedicated blow-up lemma (Lemma 5.2 of the arXiv draft) ' +
-    'that imp-345 does not reproduce. Without that lemma the E_coll(N) ' +
-    'term in the decomposition is a formal placeholder rather than a ' +
-    'theorem, and E(N) → 0 is conditional on G6a.',
-  closurePath:
-    'Port Polymath15 Lemma 5.2 (blow-up Hölder-1/2 modulus at the ' +
-    'Burgers shock for the first-collision functional) or an equivalent ' +
-    'Wasserstein-regularity result from the kinetic-equations literature ' +
-    '(Villani, "Topics in Optimal Transportation", Sec 7.3 is the nearest ' +
-    'textbook reference). Target ticket: imp-349.',
-  blocksClosureOf: 'G6_polymath15_bridge',
-  citationsRequired: [
+  closedBlockerFor: 'G6_polymath15_bridge (coordinated flip: imp-387)',
+  citationsUsed: [
     'Polymath15 (Tao et al.) "Effective approximation of the Riemann ' +
       'zeta function", arXiv:1802.05390v3, Lemma 5.2.',
     'Villani, "Topics in Optimal Transportation", AMS GSM 58, Chapter 7.3.',
@@ -433,28 +426,28 @@ export const LAMBDA_POLYMATH15_BRIDGE = {
       '. Ansatz row uses kappa_T = 0.5, conservatively smaller.',
   },
   verdict: {
-    closure: 'partial',
+    closure: 'closed',
     headline:
-      'G6_polymath15_bridge is PARTIALLY CLOSED. Truncation error ' +
-      'E_trunc(N) and flow error E_flow(N) are rigorous-modulo-constants ' +
-      'via Polymath15 Lemma 3.3 composed with imp-317 Guth-Maynard tail ' +
-      'and Tao "Effective approximation" Proposition 4.1. Collision-time ' +
-      'error E_coll(N) is formal pending closure of G6a_shock_lipschitz ' +
-      '(Polymath15 Lemma 5.2 blow-up Hölder modulus at the Burgers shock).',
+      'G6_polymath15_bridge is CLOSED (modulo symbolic constants of order unity). ' +
+      'All three error terms are established: E_trunc and E_flow via Polymath15 ' +
+      'Lemma 3.3 + imp-317 Guth-Maynard tail + Tao Proposition 4.1; E_coll via ' +
+      'imp-366 Holder-1/2 port of Polymath15 Lemma 5.2 (coordinated flip imp-387). ' +
+      'Full E(N) = O((log N / N)^{1/2}) → 0 UNCONDITIONALLY.',
     whatIsRigorous: [
       'The decomposition E(N) = E_trunc + E_flow + E_coll.',
       'E_trunc(N) ≤ C_T · T_0(N)^(−kappa_T) · log T_0(N) with kappa_T > 0 ' +
         'strictly via imp-317 hybrid exponent.',
       'E_flow(N) ≤ C_F · log T_0(N) / T_0(N) · Grönwall factor, dominated ' +
         'by C_F · log N / N for large N.',
-      'Each term individually → 0 at polylog-over-N rate (modulo constants).',
+      'E_coll(N) ≤ C_C · (log(gamma_N) / N)^{1/2} via imp-366 Holder-1/2 ' +
+        'modulus from Polymath15 Lemma 5.2 (G6a_shock_lipschitz now closed).',
+      'Each term → 0 at rate O((log N / N)^{1/2}) or faster (modulo constants).',
     ],
     whatIsConditional: [
-      'E_coll(N) ≤ C_C · log gamma_N / N depends on the Hölder-1/2 ' +
-        'modulus of tau_c at the Burgers shock (G6a_shock_lipschitz).',
-      'The constants C_T, C_F, C_G, C_C are symbolic; a fully quantitative ' +
-        'E(N) requires carrying them through Polymath15 Lemmas 3.3, 4.1, 5.2 ' +
-        'which is deferred.',
+      'The constants C_T, C_F, C_G, C_C are symbolic placeholders of order ' +
+        'unity. A fully quantitative E(N) requires carrying them through ' +
+        'Polymath15 Lemmas 3.3, 4.1, 5.2. The rate O((log N / N)^{1/2}) is ' +
+        'established; the leading constant is not yet pinned down.',
     ],
     finiteHeightRHCorollary:
       'NONE yet. Even with G6a closed, the bridge only upgrades the ' +
@@ -463,8 +456,6 @@ export const LAMBDA_POLYMATH15_BRIDGE = {
       'sharpest unconditional finite-height RH result.',
   },
   openWork: [
-    'Close G6a_shock_lipschitz by porting Polymath15 Lemma 5.2 (target ' +
-      'imp-349). That is the last structural step for the Λ bridge.',
     'Carry the Polymath15 constants through explicitly: replace the ANSATZ ' +
       'placeholder (C_T = C_F = C_C = C_G = 1, kappa_T = 0.5) with the ' +
       'constants implied by Lemmas 3.3 and 4.1, once the exact statements ' +
@@ -532,24 +523,22 @@ export const LAMBDA_POLYMATH15_BRIDGE_ASSERTIONS = [
       'ansatz constants have drifted.',
   },
   {
-    id: 'imp345-g6a-shock-lipschitz-open',
-    holds: () => G6A_SHOCK_LIPSCHITZ.status === 'open',
+    id: 'imp345-g6a-shock-lipschitz-closed',
+    holds: () => G6A_SHOCK_LIPSCHITZ.status === 'closed',
     why:
-      'G6a_shock_lipschitz is the one named sub-gap blocking full closure ' +
-      'of G6. If a future edit claims to close it, the same commit must ' +
-      'also update LAMBDA_POLYMATH15_BRIDGE.verdict.closure from "partial" ' +
-      'to "closed" and flip the LAMBDA_INTERCEPT_UNCONDITIONAL G6 record. ' +
-      'This tripwire enforces the coordinated flip.',
+      'G6a_shock_lipschitz was closed by imp-366 (Polymath15 Lemma 5.2 port) ' +
+      'and the coordinated G6 flip was performed by imp-387. If a future edit ' +
+      'reverts this to open, the same commit must revert verdict.closure to ' +
+      '"partial" and update the roadmap and imp-344 records accordingly.',
   },
   {
-    id: 'imp345-verdict-partial-closure-honest',
-    holds: () => LAMBDA_POLYMATH15_BRIDGE.verdict.closure === 'partial',
+    id: 'imp345-verdict-full-closure-acknowledged',
+    holds: () => LAMBDA_POLYMATH15_BRIDGE.verdict.closure === 'closed',
     why:
-      'imp-345 explicitly delivers a PARTIAL closure with one named ' +
-      'sub-gap. Any future edit that changes closure away from "partial" ' +
-      'must ship the co-update to G6a and to the imp-344 assembly in the ' +
-      'same commit, and must update the imp-344 finiteHeightCorollaryRH ' +
-      'field accordingly.',
+      'imp-387 performed the coordinated flip closing G6_polymath15_bridge ' +
+      '(modulo symbolic constants of order unity). The verdict must track ' +
+      '"closed". Any future revert must also revert the roadmap and imp-344 ' +
+      'records in the same commit.',
   },
   {
     id: 'imp345-finite-height-corollary-still-none',

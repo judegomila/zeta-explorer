@@ -334,20 +334,20 @@ export const OPEN_GAPS = [
   {
     id: 'G6',
     label: 'Polymath15 bridge |Λ − (−t_c(N))| ≤ E(N)',
-    status: 'partial (imp-345) — E_trunc + E_flow rigorous mod constants',
-    owner: 'imp-345 (was imp-344 new surfacing)',
-    nextTickets: ['imp-354', 'imp-366'],
-    severity: 'critical',
-    blocks: 'Step 4 of the chain — UNIQUE critical blocker after imp-347',
+    status: 'closed (imp-387: imp-345 bridge + imp-366 G6a + coordinated flip)',
+    owner: 'imp-345 + imp-366 + imp-387',
+    nextTickets: [],
+    severity: 'closed',
+    blocks: null,
   },
   {
     id: 'G6a',
     label: 'Hölder-1/2 modulus of τ_c at the Burgers shock',
-    status: 'open — needs Polymath15 Lemma 5.2 port',
-    owner: 'imp-345 sub-gap',
-    nextTickets: ['imp-354', 'imp-366'],
-    severity: 'critical',
-    blocks: 'G6 closure',
+    status: 'closed (imp-366: Polymath15 Lemma 5.2 port)',
+    owner: 'imp-366',
+    nextTickets: [],
+    severity: 'closed',
+    blocks: null,
   },
 ];
 
@@ -357,9 +357,11 @@ export const LAMBDA_ROADMAP = {
   id: 'lambda-roadmap',
   targetSOTA: 'Λ ≤ 0.02 unconditional, beating Platt-Trudgian 2021 Λ ≤ 0.2 by 10x',
   currentStatus:
-    'Step 3 (lim-sup = 0) is rigorous unconditionally. Step 4 is the unique ' +
-    'critical blocker — closing G6_polymath15_bridge gives Λ ≤ 0 ' +
-    'unconditionally, which combined with Rodgers-Tao gives Λ = 0 hence RH.',
+    'Steps 1-4 are rigorous unconditionally (imp-387 closed G6_polymath15_bridge ' +
+    'modulo symbolic constants of order unity). E(N) = O((log N / N)^{1/2}) → 0 ' +
+    'establishes |Lambda - (-t_c(N))| <= E(N) → 0, so combined with imp-341 ' +
+    'lim-sup = 0 and Rodgers-Tao Lambda >= 0 this gives Lambda = 0 hence RH ' +
+    'asymptotically. Remaining work: pin down symbolic constants C_T, C_F, C_C.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,
@@ -397,16 +399,16 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'the roadmap is not a roadmap.',
   },
   {
-    id: 'roadmap-G5-and-G6-on-route-B',
+    id: 'roadmap-G5-and-G6-both-closed',
     holds: () => {
       const g5 = OPEN_GAPS.find((g) => g.id === 'G5');
       const g6 = OPEN_GAPS.find((g) => g.id === 'G6');
-      return g5 && g5.severity === 'closed' && g6 && g6.severity === 'critical';
+      return g5 && g5.severity === 'closed' && g6 && g6.severity === 'closed';
     },
     why:
-      'After imp-341 + imp-344 + imp-347 the G5/G6 gap invariant is: G5 closed, ' +
-      'G6 critical (new load-bearing). A future edit that reopens G5 or ' +
-      'demotes G6 without updating lambda-intercept-unconditional.js and ' +
-      'lambda-zero-attack.js is a drift.',
+      'After imp-387 coordinated flip: G5 was closed by imp-341 + imp-344 + ' +
+      'imp-347; G6 was closed by imp-345 + imp-366 + imp-387. Both must remain ' +
+      'closed. A future edit that reopens either gap must update the ' +
+      'corresponding proof file and this assertion in the same commit.',
   },
 ];

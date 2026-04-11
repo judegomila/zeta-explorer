@@ -45,6 +45,7 @@
 
 import { FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN } from './finite-height-beats-platt-trudgian.js';
 import { ALT_PATH_N1E6 }                      from '../math/verify-imp440-altpath.js';
+import { B1_CONDITIONAL_BOUND }               from './b1-slope-conditional-upper-bound.js';
 
 // ── Primary target data at N* = 1e6 ─────────────────────────────────────────
 const PRIMARY = FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN.primaryTarget;
@@ -85,11 +86,15 @@ const CONDITIONS = [
   {
     id:     'B1',
     label:  'Slope b analytically bounded',
-    status: 'open',
-    ticket: 'imp-363 / imp-370',
+    status: 'conditional-closed',
+    ticket: 'imp-457',
+    bound:  B1_CONDITIONAL_BOUND.bound.value,
     note:
-      'A theorem proving b <= 2*pi / log(T_0 / (2*pi)) from GUE mean-gap scaling ' +
-      'would close B1 and upgrade the OLS projection to a certified inequality.',
+      'Conditionally closed by imp-457: b(N) <= b_lin(N) <= ' +
+      B1_CONDITIONAL_BOUND.bound.value +
+      ' under NoSwap + D-monotone (b1-slope-conditional-upper-bound.js). ' +
+      'Residual sub-gap skp-imp457-D-monotone remains open. ' +
+      'Unconditional closure via imp-363/imp-370 GUE local-law approach.',
   },
   {
     id:     'B2',
@@ -167,8 +172,9 @@ export const LAMBDA_N1E6_FINAL_ASSEMBLY = {
 
   conditions: CONDITIONS,
 
-  openConditions: CONDITIONS.filter((c) => c.status === 'open').map((c) => c.id),
-  closedConditions: CONDITIONS.filter((c) => c.status === 'established').map((c) => c.id),
+  openConditions:        CONDITIONS.filter((c) => c.status === 'open').map((c) => c.id),
+  conditionalConditions: CONDITIONS.filter((c) => c.status === 'conditional-closed').map((c) => c.id),
+  closedConditions:      CONDITIONS.filter((c) => c.status === 'established').map((c) => c.id),
 
   progressSummary: {
     versus_imp416:
@@ -180,9 +186,9 @@ export const LAMBDA_N1E6_FINAL_ASSEMBLY = {
       'best current bound L_pt ~ 0.121 conditional on B1+B2. The margin factor ' +
       'is ~1.65x under the full (L_pt) bound and ~25x under the conditional (L_cond) bound.',
     remainingWork:
-      'Close B1 (analytic slope bound) and B2 (analytic intercept bound) to ' +
-      'convert the OLS projection into a theorem-grade Lambda bound. These ' +
-      'are the sole remaining blockers on the finite-height RH beat.',
+      'B1 is conditionally closed by imp-457 (NoSwap + D-monotone sub-gap). ' +
+      'Close B2 (analytic intercept bound) to convert the OLS projection into ' +
+      'a theorem-grade Lambda bound. Unconditional B1 closure via imp-363/imp-370.',
   },
 
   sources: [
@@ -246,14 +252,16 @@ export const LAMBDA_N1E6_ASSEMBLY_ASSERTIONS = [
       'diverge beyond floating-point rounding -- a sign of a formula error.',
   },
   {
-    id: 'imp452-two-conditions-remain-open',
+    id: 'imp452-condition-counts',
     holds: () =>
-      LAMBDA_N1E6_FINAL_ASSEMBLY.openConditions.length === 2 &&
-      LAMBDA_N1E6_FINAL_ASSEMBLY.closedConditions.length === 1,
+      LAMBDA_N1E6_FINAL_ASSEMBLY.openConditions.length        === 1 &&
+      LAMBDA_N1E6_FINAL_ASSEMBLY.conditionalConditions.length === 1 &&
+      LAMBDA_N1E6_FINAL_ASSEMBLY.closedConditions.length      === 1,
     why:
-      'Exactly two conditions (B1, B2) remain open and one (C3-pt) is established. ' +
+      'Exactly one condition (B2) remains fully open, one (B1) is conditional-closed ' +
+      'by imp-457, and one (C3-pt) is established. ' +
       'A change in this count means either a new condition was added without ' +
-      'updating this assembly, or a premature closure was recorded.',
+      'updating this assembly, or a premature or erroneous closure was recorded.',
   },
   {
     id: 'imp452-alt-path-T0-valid',

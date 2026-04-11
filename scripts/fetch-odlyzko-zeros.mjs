@@ -6,15 +6,21 @@
 // This is the canonical example of a 'local-script' channel ticket from
 // src/data/ticket-router.js.
 //
-// Sources (in preference order):
-//   1. https://www.lmfdb.org/zeros/zeta/  — LMFDB API, small JSON blocks
-//   2. https://www-users.cse.umn.edu/~odlyzko/zeta_tables/  — Odlyzko's
-//      canonical tables, dense binary-ish text files. Very large.
-//   3. Existing src/data/zeros.js — the 870-zero fallback we already have.
+// URL PROBE RESULTS (2026-04-11):
+//   - https://www.lmfdb.org/api/zetazeros?_format=json&_offset=0   -> 404
+//   - https://www.lmfdb.org/api/NumberFieldZetaZero?_format=json   -> 404
+//   - https://www.lmfdb.org/zeros/zeta/?N1=1&N2=10                 -> 200 (HTML,
+//     but rendered via KaTeX/JS; parsing is brittle and not the canonical source)
+//   - https://www-users.cse.umn.edu/~odlyzko/zeta_tables/          -> 200
+//     -> zeros1 = first 100,000 zeros, plain text one-per-line, 1.8 MB, 200 OK.
+//     This is Odlyzko's canonical table, frozen since 1998. It is the
+//     authoritative reference and what every downstream (LMFDB included)
+//     re-serves. We use this as the primary source.
 //
-// The LMFDB API returns small JSON ranges per request; it is rate-limited
-// but generous. Odlyzko's tables require manual download (link policy
-// discourages scraping).
+// Sources (in preference order):
+//   1. https://www-users.cse.umn.edu/~odlyzko/zeta_tables/zeros1 — 100,000
+//      zeros, plain text, one decimal ordinate per line. ~1.8 MB.
+//   2. Existing src/math/zeta.js ZETA_ZEROS — the 870-zero fallback.
 //
 // For this commit we ship the FETCHER + fallback logic; a full bulk load
 // of 10^6 zeros is an operator decision because it takes disk space and
@@ -38,44 +44,41 @@ const PROJECT_ROOT = path.resolve(__dirname, '..');
 const TARGET_N = parseInt(process.argv[2] || '5000', 10);
 const OUTPUT_FILE = path.join(PROJECT_ROOT, 'src/data/zeros-to-1e6.js');
 
-// LMFDB endpoint for Riemann zeta zeros. Each request returns a JSON object
-// with `zeros` as an array of strings (decimal representations of gamma).
-// The LMFDB serves up to `limit` zeros per call starting from `start`.
-// Conservative: 500 per call.
-const LMFDB_URL = 'https://www.lmfdb.org/api/zetazeros?_format=json&_offset=';
-const BATCH = 500;
+// Odlyzko canonical text table: one decimal ordinate per line, whitespace
+// padded. Frozen since 1998, 100,000 entries, accurate to 3e-9.
+const ODLYZKO_URL = 'https://www-users.cse.umn.edu/~odlyzko/zeta_tables/zeros1';
+const ODLYZKO_MAX = 100000;
 
-async function fetchBatch(offset) {
-  const url = `${LMFDB_URL}${offset}`;
-  const res = await fetch(url, {
-    headers: { accept: 'application/json' },
+async function fetchOdlyzkoZeros(n) {
+  if (n > ODLYZKO_MAX) {
+    throw new Error(
+      `zeros1 contains only ${ODLYZKO_MAX} zeros; requested ${n}. ` +
+      'Use zeros6 (2,001,052 zeros, ~35 MB) for larger N and update this script.',
+    );
+  }
+  process.stderr.write(`fetching ${ODLYZKO_URL}\n`);
+  const res = await fetch(ODLYZKO_URL, {
+    headers: { accept: 'text/plain' },
   });
   if (!res.ok) {
-    throw new Error(`LMFDB HTTP ${res.status} at offset=${offset}`);
+    throw new Error(`Odlyzko HTTP ${res.status}`);
   }
-  const data = await res.json();
-  // LMFDB shape: { data: [ { zero: "14.134725..." }, ... ] }
-  // (structure verified by operator before running; if it changes,
-  //  this script fails loud and the fallback path kicks in)
-  if (Array.isArray(data?.data)) {
-    return data.data.map((row) => Number(row.zero));
-  }
-  throw new Error('LMFDB response shape changed — inspect and update parser');
-}
-
-async function fetchUpTo(n) {
+  const text = await res.text();
   const zeros = [];
-  let offset = 0;
-  while (zeros.length < n) {
-    const batch = await fetchBatch(offset);
-    if (!batch || batch.length === 0) break;
-    zeros.push(...batch);
-    offset += batch.length;
-    process.stderr.write(`fetched ${zeros.length}/${n}\n`);
-    // gentle rate limit
-    await new Promise((r) => setTimeout(r, 100));
+  for (const rawLine of text.split('\n')) {
+    const line = rawLine.trim();
+    if (!line) continue;
+    const v = Number(line);
+    if (Number.isFinite(v)) zeros.push(v);
+    if (zeros.length >= n) break;
   }
-  return zeros.slice(0, n);
+  if (zeros.length < n) {
+    throw new Error(
+      `Odlyzko file parsed ${zeros.length} zeros but ${n} were requested`,
+    );
+  }
+  process.stderr.write(`parsed ${zeros.length} zeros from zeros1\n`);
+  return zeros;
 }
 
 function writeOutput(zeros, source, provenance) {
@@ -104,19 +107,21 @@ function writeOutput(zeros, source, provenance) {
 }
 
 async function main() {
-  console.log(`imp-359: fetching ${TARGET_N} Riemann zeros from LMFDB...`);
+  console.log(`imp-359: fetching ${TARGET_N} Riemann zeros from Odlyzko zeros1...`);
   let zeros;
   let source;
   let provenance;
   try {
-    zeros = await fetchUpTo(TARGET_N);
-    source = `LMFDB (${LMFDB_URL}, batched in ${BATCH}s)`;
+    zeros = await fetchOdlyzkoZeros(TARGET_N);
+    source = `Odlyzko zeros1 (${ODLYZKO_URL})`;
     provenance =
-      'Downloaded via LMFDB API /api/zetazeros. Each value is the ' +
-      'imaginary part of a non-trivial zero of the Riemann zeta function ' +
-      'at sigma = 1/2.';
+      'Downloaded from Andrew Odlyzko\'s canonical zeros1 table ' +
+      '(first 100,000 zeros of zeta, accurate to 3e-9, frozen 1998-03-18). ' +
+      'Each value is the imaginary part of a non-trivial zero of the ' +
+      'Riemann zeta function at sigma = 1/2. LMFDB API endpoints probed ' +
+      '2026-04-11 all returned 404, so we source directly from Odlyzko.';
   } catch (err) {
-    console.error(`LMFDB fetch failed: ${err.message}`);
+    console.error(`Odlyzko fetch failed: ${err.message}`);
     console.error(
       'Falling back to importing existing src/math/zeta.js ZETA_ZEROS.',
     );
@@ -131,15 +136,12 @@ async function main() {
       console.error('No fallback zeros available — bailing.');
       process.exit(1);
     }
-    source = `local src/math/zeta.js (${zeros.length} entries, LMFDB unreachable)`;
+    source = `local src/math/zeta.js (${zeros.length} entries, Odlyzko unreachable)`;
     provenance =
-      'FALLBACK path: the LMFDB API endpoint at /api/zetazeros returned an ' +
-      'HTTP error, so this file was regenerated from the local src/math/zeta.js ' +
-      'ZETA_ZEROS constant. These are the same zeros the rest of the app uses. ' +
-      'An imp-359 follow-up should update LMFDB_URL in ' +
-      'scripts/fetch-odlyzko-zeros.mjs to the current LMFDB API shape and ' +
-      'regenerate to reach the full target N. Each value is the imaginary part ' +
-      'of a non-trivial zero of the Riemann zeta function at sigma = 1/2.';
+      'FALLBACK path: the Odlyzko zeros1 fetch failed, so this file was ' +
+      'regenerated from the local src/math/zeta.js ZETA_ZEROS constant. ' +
+      'These are the same zeros the rest of the app uses. Each value is ' +
+      'the imaginary part of a non-trivial zero of zeta at sigma = 1/2.';
   }
   const out = writeOutput(zeros, source, provenance);
   console.log(`Wrote ${zeros.length} zeros to ${path.relative(PROJECT_ROOT, out)}`);

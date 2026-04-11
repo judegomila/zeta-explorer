@@ -5188,12 +5188,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Downstream consequence: zero-free region tightening from the new Lambda bound',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S4',
     description: 'Under standard analytic number theory, a bound Lambda <= L translates into a zero-free region of the form Re(s) < 1 - c/log|Im(s)|^alpha for constants (c, alpha) depending on L. With our asymptotic Lambda = 0 (imp-401) and the imp-416 finite-height refinement, compute the induced zero-free region constants (c, alpha) and compare to the current best unconditional result (Mossinghoff-Trudgian 2015 explicit Vinogradov-Korobov-style). Deliverable: src/data/zero-free-region-from-lambda.js with the (c, alpha) values, the comparison table, and the assertion that the new region is at least as strong as Mossinghoff-Trudgian in the region where our bound applies.',
     rationale: 'A Lambda bound is not a curiosity — it directly tightens zero-free regions, which are the workhorse tool for prime number theorem error bounds, primes in short intervals, and explicit formulas. Tracing the downstream gives the result its practical value.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-11T23:00:00Z',
   },
 
   // ── Phase 24: Lean capstone + extreme-precision + ladder to N=10^6 ──
@@ -5251,6 +5251,61 @@ export const IMPROVEMENT_QUEUE = [
     proofSection: 'S10',
     description: 'Surfaced by imp-417 adversarial review (skp-001 FATAL). The proof-paper.js Theorem 10.1 states: "the backward Dyson collision time satisfies limsup_{N->inf} |t_c(N)| = 0 unconditionally" and attributes this to the Koksma-Hlawka Stieltjes transform bound ||m_N - m_inf||_{L^inf} <= C_1 log(gamma_N) / (Ny). The "in particular" step from the Stieltjes transform convergence to |t_c(N)| -> 0 is not self-contained in the paper. The collision time t_c(N) is defined as a parameter of the backward Dyson ODE, not directly as a function of m_N. Closing this gap requires one of: (a) citing the exact Polymath15 result (Lemma or Theorem number in arXiv:1801.05988 or arXiv:1904.12438) that makes this implication rigorous, (b) a short functional-analytic proof that the collision functional F: (m_N, m_inf) |-> t_c(N) is Holder-continuous in ||m_N - m_inf||_{L^inf}, or (c) a reformulation of the theorem that correctly states what Koksma-Hlawka does and does not give. Deliverable: src/math/koksma-collision-bridge.js with the explicit argument and a comment linking to the Polymath15 source.',
     rationale: 'This is the unnamed fourth gap identified by the adversarial review. Without it, Theorem 10.1 has an uncited step that a hostile referee would immediately flag. It is the most vulnerable point in the Lambda = 0 claim chain.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+
+  // ── Phase 25: close the remaining imp-417 adversarial review gaps ──
+  // imp-417 paper-skeptic-review.js identified 2 FATAL and 2 NAMED gaps.
+  // The engine auto-generated imp-424 for skp-001 only. Phase 25 seeds
+  // the other three and a SOTA downgrade audit ticket to honestly re-
+  // grade imp-401 given the new information.
+
+  {
+    id: 'imp-425',
+    title: 'Close skp-006 (FATAL): Path C density squeeze is circular — assumes |S|=1 to prove it exists',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S10',
+    description: 'imp-417 adversarial review skp-006 FATAL: the Path C density squeeze closure path assumes the Darlington limit |S| = 1 EXACTLY in order to prove that such a limit exists. This is a logical circularity in the nine-path closure argument. Resolve by EITHER (a) removing Path C from the closure paths list in proof-paper.js and relying on the other 8 paths, (b) replacing the Path C argument with one that does NOT assume |S|=1 as a premise, or (c) proving that |S|=1 follows from a weaker premise that Path C can legitimately assume. Deliverable: src/math/path-c-circularity-resolution.js with the chosen resolution + a citation to the source that establishes the non-circular version.',
+    rationale: 'Fatal logical gap in the imp-402/imp-414 paper chain. Either it gets fixed or Path C is removed from the closure list. Either way a hostile referee would reject the paper as-is.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-426',
+    title: 'Close skp-002 (NAMED): pin C_1 constant in the Koksma-Hlawka Stieltjes bound',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S10',
+    description: 'imp-417 skp-002 NAMED: the Koksma-Hlawka Stieltjes bound ||m_N - m_inf||_{L^inf} <= C_1 log(gamma_N) / (Ny) used in Theorem 10.1 has an unpinned constant C_1. This is a different constant from C_H/C_T/C_F/C_C (which are Polymath15 bridge constants). C_1 comes from the Koksma-Hlawka discrepancy bound itself and depends on the total variation of the test functions and the Selberg |S(T)| constant. Derive C_1 from the Selberg |S(T)| <= C_S log T / log log T unconditional bound and the test-function total variation, produce an explicit numerical value. Deliverable: src/data/koksma-hlawka-C1-pinned.js with the derivation + numerical value + assertion that it matches the usage in imp-341.',
+    rationale: 'Fifth unpinned constant in the chain. For a publishable claim every leading constant must be numerical.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-427',
+    title: 'Close skp-007 (NAMED): rigorize Path G beyond numerical verification',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S10',
+    description: 'imp-417 skp-007 NAMED: Path G of the nine closure paths in proof-paper.js is currently supported by numerical verification only — no rigorous proof. Identify Path G in the proof-paper.js PATHS array, state explicitly what the current rigor level is (heuristic / numerical / rigorous modulo X), and either (a) produce a rigorous argument, (b) reclassify Path G as numerical-only in the paper, or (c) remove Path G from the closure list. Deliverable: src/math/path-g-rigor-audit.js with the audit + resolution + update to the paper PATHS array if needed.',
+    rationale: 'Numerical-only arguments are acceptable as CORROBORATING evidence but cannot carry a closure-path label in a rigorous proof. Either Path G becomes rigorous, is reclassified, or is removed.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-428',
+    title: 'SOTA downgrade audit: re-grade imp-401 Lambda = 0 headline given imp-417 FATAL gaps',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-417 adversarial review surfaced 2 FATAL gaps (skp-001, skp-006) in the Lambda = 0 claim chain. imp-401 currently reports the headline as "asymptotic Lambda = 0 rigorous modulo pinned constants". With the FATAL gaps identified, that rigor level is NOT accurate — the claim is currently CONDITIONAL on imp-424 (skp-001 closure) AND imp-425 (skp-006 circularity resolution) AND imp-426 (C_1 pinned) AND imp-427 (Path G rigorized). Update src/data/sota-lambda-claim.js to: (a) downgrade the rigor label from "rigorous asymptotic" to "rigorous asymptotic CONDITIONAL on imp-424/425/426/427", (b) add a prominent caveat listing the 4 open gaps, (c) preserve the imp-411 Platt-Trudgian PASS cross-check as a separate row that does NOT depend on the FATAL gaps (the PT consistency check is independent). Update the paper imp-414 abstract correspondingly.',
+    rationale: 'The adversarial review found real gaps. Honest reporting means the SOTA headline must reflect the new information. Leaving the claim at "rigorous" while 2 FATAL gaps are open is exactly the kind of overclaim an outside reviewer would catch. Better to downgrade now and upgrade back when the gaps close.',
     estimatedComplexity: 'medium',
     completedAt: null,
   },

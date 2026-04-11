@@ -696,11 +696,25 @@ export const SOTA_LAMBDA_CLAIM = {
         'E_trunc optimised via PT+Ingham split: Platt-Trudgian 2021 certifies ' +
         'zero off-line zeros up to T_PT=3e12, so Ingham 1940 density applies only ' +
         'above T_PT. With sigma_N=0.61 (delta=0.11): E_trunc_pt~0.113, ' +
-        'L_cond~0.121 < 0.2 = Platt-Trudgian bound. OVERALL_VERDICT=PT-IMPROVED.',
+        'L_cond~0.121 < 0.2 = Platt-Trudgian bound. OVERALL_VERDICT=PT-IMPROVED. ' +
+        'sigma_opt subsequently upgraded to 0.75 by imp-459 (margin factor ~24.9x).',
       file: 'src/data/finite-height-beats-platt-trudgian.js',
       impactOnSota:
         'Closes the sole blocker on the finite-height Lambda < 0.2 beat (imp-440). ' +
         'The Route B conditional bound now beats PT at N*=1e6.',
+    },
+    {
+      ticket: 'imp-459',
+      gap: 'skp-imp440-etrunc',
+      summary:
+        'Variational sigma_opt re-optimisation: sigma_opt raised from 0.61 to 0.75 ' +
+        '(Ingham valid range, sigma=3/4 classical boundary). E_trunc_PT falls from ' +
+        '~0.113 to ~3.1e-5; L_pt margin factor improves from ~1.65x to ~24.9x over ' +
+        'Platt-Trudgian 0.2 ceiling.',
+      file: 'src/data/lambda-N1e6-final-assembly.js',
+      impactOnSota:
+        'Hardens the headline finite-height beat: L_pt margin now 24.9x, making ' +
+        'the PT-improved claim robust to single-constant perturbations.',
     },
     {
       ticket: 'imp-448',
@@ -746,6 +760,7 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-447 src/data/finite-height-beats-platt-trudgian.js — E_trunc PT+Ingham optimised bound',
     'imp-448 lean/LambdaAttack/Foundation.lean — Lean axiom deduplication',
     'imp-450 src/data/g1-g2-closure.js — G1+G2 joint partial closure assembly',
+    'imp-459 src/data/lambda-N1e6-final-assembly.js — sigma_opt 0.61->0.75 variational re-optimisation',
   ],
 
   dependsOnCitedTicketIds: [
@@ -764,6 +779,7 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-447',
     'imp-448',
     'imp-450',
+    'imp-459',
   ],
 };
 

@@ -202,7 +202,10 @@ function runMeasured(N) {
 const MEASURED_ROWS = MEASURED_NS.map(runMeasured);
 
 // ── Projected block (imp-321 PT_SCALE_EXTRAPOLATION.ladder passthrough) ─────
-const PROJECTED_NS = [1e4, 1e5, 1e6];
+// N = 1e4 is now in the MEASURED block (added in imp-353 partial closure), so
+// the projected block starts at 1e5.  Keeping 1e4 here would produce a
+// duplicate row at N = 10000 in ROWS, failing the strictly-sorted assertion.
+const PROJECTED_NS = [1e5, 1e6];
 
 function findProjectedRow(N) {
   return PT_SCALE_EXTRAPOLATION.ladder.find((row) => row.N === N) ?? null;

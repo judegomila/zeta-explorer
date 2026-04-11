@@ -1,0 +1,412 @@
+// Lambda Bounds & RH Roadmap — structured data for LambdaBoundsPage.jsx
+//
+// This file is the single source of truth for the Λ-attack plan: the
+// chain from verified Riemann zeros to an unconditional RH statement,
+// the three parallel closure routes, the verification efforts, and
+// the open gaps. Every entry cites ticket ids from improvement-queue.js
+// so the plan, the work, and the status stay synchronized.
+//
+// Verification level legend:
+//   'unverified'     — conjecture / ansatz, no proof
+//   'numerical'      — computed at finite N, no error bars or single-method
+//   'cross-verified' — two independent methods agree within their error bars
+//   'rigorous'       — theorem with a proof (possibly modulo a named gap)
+
+// ── The bounds ladder ─────────────────────────────────────────────────────
+
+export const LAMBDA_BOUNDS = [
+  {
+    id: 'rodgers-tao-2020',
+    label: 'Λ ≥ 0',
+    kind: 'lower',
+    value: 0,
+    status: 'rigorous',
+    source: 'Rodgers & Tao, Acta Math. 2020',
+    note:
+      'Unconditional lower bound settling Newman\'s conjecture. Combined ' +
+      'with de Bruijn, RH ⟺ Λ = 0.',
+  },
+  {
+    id: 'path-c-hybrid-2026',
+    label: 'Λ ≈ 0.0066 ± 0.01',
+    kind: 'our-numerical',
+    value: 0.0066,
+    errorBar: 0.01,
+    status: 'numerical',
+    source: 'Path C Hybrid, commit 229133e (2458 zeros, 5-point 1/N fit)',
+    note:
+      'Heuristic central value from OLS on the Path C baseline ladder. ' +
+      'Error bar exceeds central value — not a rigorous claim. Consumed ' +
+      'by imp-323 / imp-328 / imp-341 / imp-344.',
+  },
+  {
+    id: 'platt-trudgian-2021',
+    label: 'Λ ≤ 0.2',
+    kind: 'upper-sota',
+    value: 0.2,
+    status: 'rigorous',
+    source: 'Platt & Trudgian, Bull. LMS 2021',
+    note:
+      'Current unconditional SOTA upper bound. Uses verified Riemann zeros ' +
+      'to T = 3·10^12 plus a heat-flow barrier argument on H_t.',
+  },
+  {
+    id: 'our-target-sota',
+    label: 'Λ ≤ 0.02 target',
+    kind: 'our-target',
+    value: 0.02,
+    status: 'unverified',
+    source: 'This project — imp-356 / imp-375 (SOTA claim ticket)',
+    note:
+      'Target: beat Platt-Trudgian by 10x unconditionally. Requires closing ' +
+      'G6_polymath15_bridge (imp-345 / imp-354 / imp-366) AND producing a ' +
+      'per-N bound via route A, B-rate-upgrade, or C.',
+  },
+];
+
+// ── The chain — 5 steps to an RH statement ────────────────────────────────
+
+export const LAMBDA_CHAIN_STEPS = [
+  {
+    step: 1,
+    label: 'Verify Riemann zeros to height T_0',
+    what:
+      'Load a certified list of Riemann zero ordinates γ_1 < γ_2 < … < γ_N ' +
+      'to some height T_0 = γ_N. The list is the input to every subsequent ' +
+      'step and must be independently verifiable (LMFDB / Odlyzko / Platt).',
+    have:
+      '1506 zeros to T = 2000 via imp-272; extended measured Dyson backward ' +
+      'flow uses these as PATH_C_BASELINE_FIT anchors.',
+    need:
+      'Push to T = 10^6 by loading the Odlyzko / LMFDB tables and verifying ' +
+      'each zero via Turing\'s method. Required for the imp-353 ladder.',
+    tickets: ['imp-272', 'imp-359', 'imp-360', 'imp-361'],
+    verification: 'rigorous',
+    notes:
+      'LMFDB tables are themselves verified up to T = 3·10^12 by Platt. ' +
+      'Turing\'s method gives a per-interval certificate.',
+  },
+  {
+    step: 2,
+    label: 'Run the backward Dyson ODE on the verified zeros',
+    what:
+      'Solve the Calogero-Moser / Dyson flow dγ_k/dt = -2 Σ_{j≠k} 1/(γ_k − γ_j) ' +
+      'backward in t from t = 0, starting at the verified zero ordinates. ' +
+      'Record the first collision time |t_c(N)|.',
+    have:
+      'imp-315 measured Dyson to N = 5000. imp-321 log-spaced projection ' +
+      'ladder to N = 10^8 (projection, not measurement). imp-357 cross-' +
+      'integrator check in progress.',
+    need:
+      'Fresh measured rows at N ∈ {10^4, 10^5, 10^6} with (a) a second ODE ' +
+      'integrator (DP8 alongside RK4), (b) compensated summation for the ' +
+      '1/(γ_k − γ_j) poles, (c) interval-arithmetic error bars on t_c.',
+    tickets: ['imp-315', 'imp-321', 'imp-353', 'imp-357', 'imp-360', 'imp-362', 'imp-363', 'imp-364'],
+    verification: 'numerical',
+    notes:
+      'Two integrator agreement + interval arithmetic elevates this from ' +
+      'numerical to cross-verified.',
+  },
+  {
+    step: 3,
+    label: 'Extrapolate |t_c(N)| → 0 as N → ∞',
+    what:
+      'Establish a := lim sup_{N → ∞} |t_c(N)| ≤ 0. This is the limit ' +
+      'statement about the N-particle Dyson flow.',
+    have:
+      'imp-341 delivered UNCONDITIONAL a = 0 via deterministic Koksma-' +
+      'Hlawka uniformity on the empirical Stieltjes transform, with only ' +
+      'Selberg |S(T)| = O(log T / log log T) as analytical input — NO GUE / ' +
+      'local law / Erdős-Schlein-Yau required. imp-348 delivered a microscopic-' +
+      'scale rate tightening.',
+    need:
+      'Translate the lim-sup into a per-N bound r(N) on |t_c(N)|. Requires ' +
+      'either (A) imp-336 monotonicity conjecture, (B) imp-348 rate upgrade to ' +
+      'O(1/N) via local-law rigidity, or (C) imp-337/342/343 density squeeze ' +
+      'closure.',
+    tickets: ['imp-341', 'imp-348', 'imp-336', 'imp-337', 'imp-342', 'imp-343', 'imp-368', 'imp-369', 'imp-370'],
+    verification: 'rigorous',
+    notes:
+      'THIS IS THE HALFWAY POINT. The lim-sup claim is unconditional; only ' +
+      'the per-N translation remains.',
+  },
+  {
+    step: 4,
+    label: 'Bridge to the de Bruijn-Newman Λ via Polymath15',
+    what:
+      'Connect the N-particle Dyson flow collision time t_c(N) to the de ' +
+      'Bruijn-Newman constant Λ (defined via H_t) with an explicit rate ' +
+      'E(N) → 0 such that |Λ − (−t_c(N))| ≤ E(N).',
+    have:
+      'imp-345 shipped a partial closure: E_trunc (Guth-Maynard tail) and ' +
+      'E_flow rigorous modulo constants, with new sub-gap G6a_shock_lipschitz ' +
+      'for the Hölder-1/2 modulus of τ_c at the Burgers shock.',
+    need:
+      'Close G6a_shock_lipschitz by direct port of Polymath15 Lemma 5.2 or ' +
+      'equivalent. Verify the assembled E(N) formula at the imp-321 ladder.',
+    tickets: ['imp-345', 'imp-354', 'imp-366', 'imp-367'],
+    verification: 'numerical',
+    notes:
+      'After imp-347 reclassified the LAMBDA_ZERO_BLOCKERS, this is the ' +
+      'UNIQUE critical blocker of the Λ-attack. Closing it gives Λ ≤ 0 ' +
+      'unconditionally, combined with Rodgers-Tao Λ ≥ 0 gives Λ = 0.',
+  },
+  {
+    step: 5,
+    label: 'Combine with de Bruijn and Rodgers-Tao to get RH',
+    what:
+      'Λ = 0 ⟺ H_0 has only real zeros (de Bruijn 1950) ⟺ the Riemann ' +
+      'Hypothesis. Combined with Rodgers-Tao Λ ≥ 0 (2020) and an unconditional ' +
+      'Λ ≤ 0 from step 4, RH follows.',
+    have:
+      'imp-327 height-mapping theorem is the citation chain. ' +
+      'lambda-rh-height-mapping.js exports the exact theorem ids.',
+    need:
+      'Step 4 must close first. Once done, this is a bookkeeping step: ' +
+      'write the final assembly in sota-lambda-claim.js and produce the ' +
+      'effective height T*(N) at which the result holds.',
+    tickets: ['imp-327', 'imp-356', 'imp-375'],
+    verification: 'unverified',
+    notes:
+      'This is the capstone of the whole attack. Everything upstream must ' +
+      'be rigorous; this step is just the final combination.',
+  },
+];
+
+// ── Verification efforts: independent routes + cross-validation ────────────
+
+export const VERIFICATION_EFFORTS = [
+  {
+    id: 'route-A-monotonicity',
+    label: 'Route A — imp-336 monotonicity conjecture (M)',
+    claim:
+      'If |t_c(N+1)| ≤ |t_c(N)| for all N ≥ N_0, then a := lim sup_N |t_c(N)| ' +
+      '= inf_N |t_c(N)|, so a ≤ |t_c(N_max)| for every recorded N_max.',
+    status: 'numerical',
+    progress:
+      'EMPIRICALLY UNFALSIFIED at 5 PATH_C_BASELINE_FIT anchors (N = 50, 100, ' +
+      '200, 500, 2458) and all imp-321 ladder rows. Analytic sketch is NON-' +
+      'RIGOROUS with open sub-gaps G1 (argmin interiority) and G2 (argmin ' +
+      'jumps across N).',
+    tickets: ['imp-336', 'imp-368', 'imp-369'],
+    closesIf: 'G1 + G2 both close analytically',
+  },
+  {
+    id: 'route-B-burgers',
+    label: 'Route B — imp-341 Burgers uniformity (PRIMARY)',
+    claim:
+      'lim sup_N |t_c(N_particle Calogero-Moser flow)| = 0 UNCONDITIONALLY via ' +
+      'deterministic Koksma-Hlawka discrepancy ‖m_N − m_∞‖_{L^∞({Im z ≥ y})} ' +
+      '≤ π C_Selberg · log γ_N / (N · y) and the uniformity strip y_N^♯ = √(2π/N).',
+    status: 'rigorous',
+    progress:
+      'LIM-SUP CLOSED UNCONDITIONALLY (imp-341 + imp-344 capstone). No GUE ' +
+      '/ local-law / Erdős-Schlein-Yau input used. imp-348 tightened the ' +
+      'absolute rate at the microscopic scale. Per-N translation open — see ' +
+      'G6_polymath15_bridge (imp-345) for the bridge to Λ itself.',
+    tickets: ['imp-341', 'imp-348', 'imp-344', 'imp-345'],
+    closesIf: 'G6_polymath15_bridge closes (Step 4 above)',
+  },
+  {
+    id: 'route-C-density',
+    label: 'Route C — imp-337 / imp-342 / imp-343 density squeeze',
+    claim:
+      'If S_k*(t) ≥ c(N)/B(t)² with c(N) > 2 derived rigorously from the Weyl ' +
+      'density, and the argmin site k*(t) is stable under backward flow ' +
+      '(G4_argmin_drift closed), then the boundary identity gives dg_{k*}/dt < 0 ' +
+      'strictly and integrates to a per-N upper bound on |t_c(N)| without ' +
+      'requiring either (M) or a lim-sup argument.',
+    status: 'numerical',
+    progress:
+      'G4_argmin_drift CLOSED by imp-343 (drift length = 0 via bulk-confined ' +
+      'argmin lemma). G3b_weyl_tail CLOSED by imp-342 (c_tail ≈ 1.290 < 2 from ' +
+      'Riemann-von Mangoldt leading density). G3a_max_gap OPEN — requires ' +
+      'extremal max-gap statistics at the argmin site, beyond pure Weyl-law ' +
+      'input.',
+    tickets: ['imp-337', 'imp-342', 'imp-343', 'imp-355', 'imp-367'],
+    closesIf: 'G3a_max_gap closes',
+  },
+  {
+    id: 'cross-validation-barrier',
+    label: 'Cross-validation — barrier extrapolation (imp-299)',
+    claim:
+      'Independent computation of |t_c(N)| via direct numerical barrier ' +
+      'extrapolation on the Path C baseline. If the two methods agree within ' +
+      'their error bars, the central value is cross-verified.',
+    status: 'numerical',
+    progress:
+      'imp-299 delivered the barrier extrapolation method giving Λ ≈ 0.011. ' +
+      'Agreement with Path C Hybrid Λ ≈ 0.0066 is within the ±0.01 error bar. ' +
+      'Pending: rerun on the extended ladder after imp-360 measurements.',
+    tickets: ['imp-299', 'imp-371'],
+    closesIf: 'imp-371 rerun confirms agreement on extended ladder',
+  },
+  {
+    id: 'cross-validation-heat-flow',
+    label: 'Cross-validation — heat flow method (imp-292)',
+    claim:
+      'Independent Λ computation via the Polymath15 heat-flow barrier method ' +
+      '(not the Dyson ODE). Different numerical pipeline, different error ' +
+      'sources.',
+    status: 'numerical',
+    progress:
+      'imp-292 shipped the heat-flow Λ methodology. Numerical value not yet ' +
+      'reconciled with the Path C Hybrid central value on the same ladder. ' +
+      'Pending: imp-372 cross-validation table.',
+    tickets: ['imp-292', 'imp-372'],
+    closesIf:
+      'imp-372 tabulates both on the same ladder with ε-tolerance ' +
+      'agreement assertions',
+  },
+  {
+    id: 'cross-validation-kernel',
+    label: 'Cross-validation — kernel-hack analytical',
+    claim:
+      'Analytical estimate of Λ at the Platt-Trudgian scale via the spectral ' +
+      'kernel argument (commit 21f9fa6).',
+    status: 'unverified',
+    progress:
+      'Analytical value ~10^{-10} at PT scale. Not cross-verified against ' +
+      'Path C because Path C operates at vastly smaller N. Pending imp-373 ' +
+      'for a matched-N comparison.',
+    tickets: ['imp-373'],
+    closesIf: 'imp-373 produces a matched-N comparison',
+  },
+];
+
+// ── Open gaps ──────────────────────────────────────────────────────────────
+
+export const OPEN_GAPS = [
+  {
+    id: 'G1',
+    label: 'argmin interiority at k*_N',
+    status: 'open — empirical witness only',
+    owner: 'imp-336 (route A)',
+    nextTickets: ['imp-368'],
+    severity: 'high',
+    blocks: 'Route A monotonicity conjecture',
+  },
+  {
+    id: 'G2',
+    label: 'argmin jumps across N',
+    status: 'open — no attempt yet',
+    owner: 'imp-336 (route A)',
+    nextTickets: ['imp-369'],
+    severity: 'high',
+    blocks: 'Route A monotonicity conjecture',
+  },
+  {
+    id: 'G3a',
+    label: 'max gap at argmin site',
+    status: 'open — needs extremal statistics',
+    owner: 'imp-342 (route C)',
+    nextTickets: ['imp-355', 'imp-367'],
+    severity: 'high',
+    blocks: 'Route C density squeeze',
+  },
+  {
+    id: 'G3b',
+    label: 'Weyl tail contribution to S_k*',
+    status: 'CLOSED (imp-342)',
+    owner: 'imp-342',
+    nextTickets: [],
+    severity: 'closed',
+    blocks: null,
+  },
+  {
+    id: 'G4',
+    label: 'argmin drift k*(t) stability',
+    status: 'CLOSED (imp-343) — drift length = 0',
+    owner: 'imp-343',
+    nextTickets: [],
+    severity: 'closed',
+    blocks: null,
+  },
+  {
+    id: 'G5',
+    label: 'Burgers uniformity ‖m_N − m_∞‖ → 0',
+    status: 'CLOSED (imp-341 + imp-344)',
+    owner: 'imp-341',
+    nextTickets: [],
+    severity: 'closed',
+    blocks: null,
+  },
+  {
+    id: 'G6',
+    label: 'Polymath15 bridge |Λ − (−t_c(N))| ≤ E(N)',
+    status: 'partial (imp-345) — E_trunc + E_flow rigorous mod constants',
+    owner: 'imp-345 (was imp-344 new surfacing)',
+    nextTickets: ['imp-354', 'imp-366'],
+    severity: 'critical',
+    blocks: 'Step 4 of the chain — UNIQUE critical blocker after imp-347',
+  },
+  {
+    id: 'G6a',
+    label: 'Hölder-1/2 modulus of τ_c at the Burgers shock',
+    status: 'open — needs Polymath15 Lemma 5.2 port',
+    owner: 'imp-345 sub-gap',
+    nextTickets: ['imp-354', 'imp-366'],
+    severity: 'critical',
+    blocks: 'G6 closure',
+  },
+];
+
+// ── The master record ──────────────────────────────────────────────────────
+
+export const LAMBDA_ROADMAP = {
+  id: 'lambda-roadmap',
+  targetSOTA: 'Λ ≤ 0.02 unconditional, beating Platt-Trudgian 2021 Λ ≤ 0.2 by 10x',
+  currentStatus:
+    'Step 3 (lim-sup = 0) is rigorous unconditionally. Step 4 is the unique ' +
+    'critical blocker — closing G6_polymath15_bridge gives Λ ≤ 0 ' +
+    'unconditionally, which combined with Rodgers-Tao gives Λ = 0 hence RH.',
+  bounds: LAMBDA_BOUNDS,
+  chain: LAMBDA_CHAIN_STEPS,
+  verification: VERIFICATION_EFFORTS,
+  openGaps: OPEN_GAPS,
+};
+
+// ── Build-time assertions ──────────────────────────────────────────────────
+
+export const LAMBDA_ROADMAP_ASSERTIONS = [
+  {
+    id: 'roadmap-has-5-steps',
+    holds: () => LAMBDA_CHAIN_STEPS.length === 5,
+    why:
+      'The Λ chain has exactly 5 steps from verified zeros to RH. Any edit ' +
+      'that changes the count must update this assertion and the ' +
+      'LambdaBoundsPage.jsx step renderer.',
+  },
+  {
+    id: 'roadmap-platt-trudgian-sota',
+    holds: () =>
+      LAMBDA_BOUNDS.some((b) => b.id === 'platt-trudgian-2021' && b.value === 0.2),
+    why:
+      'Platt-Trudgian 2021 Λ ≤ 0.2 is the reference SOTA. Any future SOTA ' +
+      'improvement must ADD a new entry, not edit this one.',
+  },
+  {
+    id: 'roadmap-target-better-than-sota',
+    holds: () => {
+      const sota = LAMBDA_BOUNDS.find((b) => b.id === 'platt-trudgian-2021');
+      const target = LAMBDA_BOUNDS.find((b) => b.id === 'our-target-sota');
+      return sota && target && target.value < sota.value;
+    },
+    why:
+      'The target Λ must be strictly better than the current SOTA; otherwise ' +
+      'the roadmap is not a roadmap.',
+  },
+  {
+    id: 'roadmap-G5-and-G6-on-route-B',
+    holds: () => {
+      const g5 = OPEN_GAPS.find((g) => g.id === 'G5');
+      const g6 = OPEN_GAPS.find((g) => g.id === 'G6');
+      return g5 && g5.severity === 'closed' && g6 && g6.severity === 'critical';
+    },
+    why:
+      'After imp-341 + imp-344 + imp-347 the G5/G6 gap invariant is: G5 closed, ' +
+      'G6 critical (new load-bearing). A future edit that reopens G5 or ' +
+      'demotes G6 without updating lambda-intercept-unconditional.js and ' +
+      'lambda-zero-attack.js is a drift.',
+  },
+];

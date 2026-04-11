@@ -1011,6 +1011,9 @@ export default function HomePage() {
         <Link to="/meta-acceleration" style={{ textDecoration: 'none' }}>
           <div className="card"><h3 style={{ color: '#facc15' }}>Meta Acceleration</h3><p>Engine status dashboard + Λ attack progress snapshot — phases, open gaps, three-route closure.</p></div>
         </Link>
+        <Link to="/lambda-bounds" style={{ textDecoration: 'none' }}>
+          <div className="card"><h3 style={{ color: '#ef4444' }}>Λ Bounds & RH Roadmap</h3><p>The 5-step chain from verified Riemann zeros to RH — current bounds, verification efforts, open gaps, and the path to beating Platt-Trudgian Λ ≤ 0.2.</p></div>
+        </Link>
       </div>
     </div>
   );

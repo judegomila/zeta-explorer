@@ -105,12 +105,24 @@ do_start() {
 
       echo "=== Run #$run_count at $timestamp ===" | tee "$log_file"
 
-      # Invoke Claude Code CLI (unset CLAUDECODE to avoid nested-session detection)
+      # Invoke Claude Code CLI (unset CLAUDECODE to avoid nested-session detection).
+      # If scripts/.env exists, source it for this subshell only so
+      # ANTHROPIC_API_KEY (or ANTHROPIC_AUTH_TOKEN) can be set without
+      # polluting the parent shell. This lets the engine run on API billing
+      # while the interactive Claude Code session keeps using the Max OAuth
+      # subscription. scripts/.env is gitignored.
       if command -v claude &>/dev/null; then
         cd "$PROJECT_DIR"
         unset CLAUDECODE
-        claude --print --dangerously-skip-permissions "$IMPROVE_PROMPT" \
-          >> "$log_file" 2>&1 || true
+        (
+          if [ -f "$SCRIPT_DIR/.env" ]; then
+            set -a
+            . "$SCRIPT_DIR/.env"
+            set +a
+          fi
+          claude --print --dangerously-skip-permissions "$IMPROVE_PROMPT" \
+            >> "$log_file" 2>&1
+        ) || true
       else
         echo "ERROR: 'claude' CLI not found in PATH" >> "$log_file"
         echo "Claude CLI not found. Install it or add to PATH."

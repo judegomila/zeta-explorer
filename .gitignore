@@ -4,3 +4,4 @@ dist/
 *.log
 scripts/logs/
 scripts/.auto-improve.pid
+scripts/.env

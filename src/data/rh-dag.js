@@ -239,7 +239,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-359',
     title: 'Load LMFDB Odlyzko zeros to N = 10^6',
-    status: 'pending',
+    status: 'completed',
     complexity: 'medium',
     category: 'proof',
     dependsOn: [],
@@ -249,7 +249,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-360',
     title: 'Measured Dyson backward ODE at N ∈ {10^4..10^6}',
-    status: 'pending',
+    status: 'partial',
     complexity: 'high',
     category: 'proof',
     dependsOn: ['imp-359', 'imp-362'],
@@ -270,7 +270,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-362',
     title: 'Interval-arithmetic Dyson integrator',
-    status: 'pending',
+    status: 'completed',
     complexity: 'high',
     category: 'proof',
     dependsOn: [],
@@ -288,7 +288,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-353',
     title: 'Extend Path C ladder N ∈ {10^4, 10^5} (measured)',
-    status: 'pending',
+    status: 'partial',
     complexity: 'high',
     category: 'proof',
     dependsOn: ['imp-360'],
@@ -389,7 +389,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-375',
     title: 'SOTA Λ statement file (capstone)',
-    status: 'pending',
+    status: 'completed',
     complexity: 'medium',
     category: 'proof',
     dependsOn: [
@@ -408,7 +408,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-356',
     title: 'SOTA assembly + independent cross-check',
-    status: 'pending',
+    status: 'completed',
     complexity: 'high',
     category: 'proof',
     dependsOn: ['imp-375', 'imp-371', 'imp-372'],
@@ -448,7 +448,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-355',
     title: 'Close G3a_max_gap (extremal max-gap statistics)',
-    status: 'pending',
+    status: 'partial',
     complexity: 'research',
     category: 'proof',
     dependsOn: ['imp-342'],
@@ -458,7 +458,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-366',
     title: 'Polymath15 Lemma 5.2 direct port (closes G6a)',
-    status: 'pending',
+    status: 'partial',
     complexity: 'research',
     category: 'proof',
     dependsOn: ['imp-354', 'imp-345'],

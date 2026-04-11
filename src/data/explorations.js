@@ -2134,6 +2134,7 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
   },
   {
     id: 'exp-050',
+    depth: 5,
     date: '2026-03-05',
     title: 'Information-Theoretic Optimality of the Critical Line',
     category: 'information',
@@ -2155,6 +2156,7 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
   },
   {
     id: 'exp-051',
+    depth: 5,
     date: '2026-03-05',
     title: 'Formal Proof Structure for RH via ZPO Framework',
     category: 'proof-theory',
@@ -2177,6 +2179,7 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
   },
   {
     id: 'exp-052',
+    depth: 5,
     date: '2026-03-05',
     title: 'Gap Closing: Regularized Cascade & Darlington Synthesis',
     category: 'proof-theory',
@@ -2199,6 +2202,7 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
   },
   {
     id: 'exp-053',
+    depth: 5,
     date: '2026-03-05',
     title: 'Spectral Attack: Multi-Pronged Confinement via Independent Measures',
     category: 'proof-theory',
@@ -2221,6 +2225,7 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
   },
   {
     id: 'exp-054',
+    depth: 5,
     date: '2026-03-05',
     title: 'Proof Checker: Adversarial Testing & Davenport-Heilbronn Discriminator',
     category: 'proof-theory',

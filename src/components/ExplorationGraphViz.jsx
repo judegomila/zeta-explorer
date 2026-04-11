@@ -38,7 +38,7 @@ export default function ExplorationGraphViz() {
       .force('charge', d3.forceManyBody().strength(-300))
       .force('center', d3.forceCenter(width / 2, height / 2))
       .force('collision', d3.forceCollide(40))
-      .force('y', d3.forceY().y(d => 60 + d.depth * 80).strength(0.3));
+      .force('y', d3.forceY().y(d => 60 + (Number.isFinite(d?.depth) ? d.depth : 0) * 80).strength(0.3));
 
     // Defs for arrow markers
     svg.append('defs').append('marker')
@@ -78,9 +78,14 @@ export default function ExplorationGraphViz() {
         }))
       .on('click', (event, d) => setSelectedNode(d));
 
-    // Node circles
+    // Node circles. NOTE: d.depth can be undefined if a recently-added
+    // exploration entry in src/data/explorations.js forgot to set the field
+    // — that produced 17,821 SVG `<circle> r: "NaN"` console errors per
+    // page load (imp-382 health check finding). Coerce to 0 here as a
+    // belt-and-braces defense AND backfill the source data separately.
+    const safeDepth = (d) => (Number.isFinite(d?.depth) ? d.depth : 0);
     node.append('circle')
-      .attr('r', d => 14 + d.depth * 2)
+      .attr('r', d => 14 + safeDepth(d) * 2)
       .attr('fill', d => {
         const color = categoryColors[d.category] || '#3b82f6';
         return color + '30'; // with alpha
@@ -91,13 +96,13 @@ export default function ExplorationGraphViz() {
     // Status indicator
     node.append('circle')
       .attr('r', 4)
-      .attr('cx', d => 10 + d.depth * 2)
-      .attr('cy', d => -(10 + d.depth * 2))
+      .attr('cx', d => 10 + safeDepth(d) * 2)
+      .attr('cy', d => -(10 + safeDepth(d) * 2))
       .attr('fill', d => d.status === 'complete' ? '#10b981' : d.status === 'in-progress' ? '#f59e0b' : '#64748b');
 
     // Node labels
     node.append('text')
-      .attr('y', d => 24 + d.depth * 2)
+      .attr('y', d => 24 + safeDepth(d) * 2)
       .attr('text-anchor', 'middle')
       .attr('fill', '#94a3b8')
       .attr('font-size', 9)

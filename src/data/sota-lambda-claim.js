@@ -868,6 +868,12 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-448 lean/LambdaAttack/Foundation.lean — Lean axiom deduplication',
     'imp-450 src/data/g1-g2-closure.js — G1+G2 joint partial closure assembly',
     'imp-459 src/data/lambda-N1e6-final-assembly.js — sigma_opt 0.61->0.75 variational re-optimisation',
+    'imp-451 src/data/g3a-extremal-closure.js — G3a extremal-statistics closure assembly',
+    'imp-452 src/data/lambda-N1e6-final-assembly.js — full finite-height Lambda bound assembly at N*=1e6',
+    'imp-455 src/math/g1-sub-extremal-closure.js — G1-sub-extremal partial closure via Bourgade extremal-gap',
+    'imp-456 src/math/route-a-unfolded-reformulation.js — Route A reformulation: Theorem UMon unconditional in unfolded coords',
+    'imp-457 src/data/b1-slope-conditional-upper-bound.js — B1 conditional slope bound under NoSwap + D-monotone',
+    'imp-458 src/data/b2-intercept-analytic-bound.js — B2 partial closure: Koksma-Hlawka analytic intercept bound',
   ],
 
   dependsOnCitedTicketIds: [
@@ -887,6 +893,12 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-448',
     'imp-450',
     'imp-459',
+    'imp-451',
+    'imp-452',
+    'imp-455',
+    'imp-456',
+    'imp-457',
+    'imp-458',
   ],
 };
 

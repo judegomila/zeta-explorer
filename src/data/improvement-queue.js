@@ -5751,12 +5751,19 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close B2: analytic intercept bound a <= 0.02 (lambda-zero-attack.js B2)',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'conditional-closed',
     proofSection: 'S10-B2',
     description: 'imp-452 lambda-N1e6-final-assembly.js flags B2 as the second open condition — analytic bound a <= 0.02 on the OLS intercept, pointed at src/math/lambda-zero-attack.js B2. Close it: use the now-closed G1 interiority + the explicit C_T, C_F, C_C constants from imp-395/397/398/399 to derive a closed-form bound on the intercept a_N for the projection line. Method: write a_N = m_N(k*_N) - b_N * k*_N, plug in the imp-450 extremal interior bound on k*_N and the imp-457 slope bound (or a weaker fallback), and show a_N <= 0.02 asymptotically with explicit constants. Deliverable: update src/math/lambda-zero-attack.js B2 block to "closed" + src/math/b2-intercept-analytic-bound.js + lambda-N1e6-final-assembly.js conditionSet B2 flip to closed. With imp-457 this reduces the open set to {} and the L_pt ~ 0.121 beat becomes UNCONDITIONAL.',
     rationale: 'B2 is the OTHER remaining open condition. Closing imp-457 + imp-458 together upgrades the full finite-height beat from conditional to unconditional — this is the highest-leverage pair in the queue right now.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-11T22:20:00Z',
+    closureNote:
+      'B2 conditionally closed by imp-458: b2-intercept-analytic-bound.js derives ' +
+      'a <= tau_c_upper_bound(N_max=2458) ~ 0.0094 < 0.02 via the Koksma-Hlawka ' +
+      'uniformity bound from imp-341 (C_Selberg=3.0 conservative, no GUE input). ' +
+      'Conditional on monotonicity M (|t_c(N+1)| <= |t_c(N)|, imp-336 open). ' +
+      'lambda-N1e6-final-assembly.js B2 flipped from open to conditional-closed; ' +
+      'condition counts now 0-open + 2-conditional + 1-established.',
   },
   {
     id: 'imp-459',

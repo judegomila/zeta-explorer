@@ -46,6 +46,7 @@
 import { FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN } from './finite-height-beats-platt-trudgian.js';
 import { ALT_PATH_N1E6 }                      from '../math/verify-imp440-altpath.js';
 import { B1_CONDITIONAL_BOUND }               from './b1-slope-conditional-upper-bound.js';
+import { B2_INTERCEPT_BOUND }                 from './b2-intercept-analytic-bound.js';
 
 // ── Primary target data at N* = 1e6 ─────────────────────────────────────────
 const PRIMARY = FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN.primaryTarget;
@@ -99,11 +100,16 @@ const CONDITIONS = [
   {
     id:     'B2',
     label:  'Intercept a rigorously bounded',
-    status: 'open',
-    ticket: 'lambda-zero-attack.js B2',
+    status: 'conditional-closed',
+    ticket: 'imp-458',
+    bound:  B2_INTERCEPT_BOUND.bound.value,
     note:
-      'Proving a < 0.015 rigorously (e.g. via the Koksma-Hlawka / Poisson bridge ' +
-      'in imp-424 extended to the intercept) is the central remaining research item.',
+      'Conditionally closed by imp-458: a <= tau_c_upper_bound(N_max) = ' +
+      B2_INTERCEPT_BOUND.bound.value +
+      ' under monotonicity M (|t_c(N+1)| <= |t_c(N)|, imp-336). ' +
+      'Bound from Koksma-Hlawka uniformity (imp-341) with C_Selberg = 3.0. ' +
+      'Comfortably below the 0.02 assembly ceiling. ' +
+      'Unconditional closure requires imp-336 (M) or a per-N ODE bound.',
   },
   {
     id:     'C3-pt',
@@ -186,9 +192,10 @@ export const LAMBDA_N1E6_FINAL_ASSEMBLY = {
       'best current bound L_pt ~ 0.121 conditional on B1+B2. The margin factor ' +
       'is ~1.65x under the full (L_pt) bound and ~25x under the conditional (L_cond) bound.',
     remainingWork:
-      'B1 is conditionally closed by imp-457 (NoSwap + D-monotone sub-gap). ' +
-      'Close B2 (analytic intercept bound) to convert the OLS projection into ' +
-      'a theorem-grade Lambda bound. Unconditional B1 closure via imp-363/imp-370.',
+      'B1 conditionally closed by imp-457 (NoSwap + D-monotone). ' +
+      'B2 conditionally closed by imp-458 (monotonicity M, Koksma-Hlawka bound). ' +
+      'Both closures become unconditional when M + D-monotone are proved (imp-336 / imp-363 / imp-370). ' +
+      'Full unconditional Lambda <= 0.121 beat requires closing both residual sub-gaps.',
   },
 
   sources: [
@@ -254,12 +261,13 @@ export const LAMBDA_N1E6_ASSEMBLY_ASSERTIONS = [
   {
     id: 'imp452-condition-counts',
     holds: () =>
-      LAMBDA_N1E6_FINAL_ASSEMBLY.openConditions.length        === 1 &&
-      LAMBDA_N1E6_FINAL_ASSEMBLY.conditionalConditions.length === 1 &&
+      LAMBDA_N1E6_FINAL_ASSEMBLY.openConditions.length        === 0 &&
+      LAMBDA_N1E6_FINAL_ASSEMBLY.conditionalConditions.length === 2 &&
       LAMBDA_N1E6_FINAL_ASSEMBLY.closedConditions.length      === 1,
     why:
-      'Exactly one condition (B2) remains fully open, one (B1) is conditional-closed ' +
-      'by imp-457, and one (C3-pt) is established. ' +
+      'After imp-458: zero conditions remain fully open. Two are conditional-closed ' +
+      '(B1 by imp-457 under NoSwap + D-monotone; B2 by imp-458 under monotonicity M). ' +
+      'One (C3-pt) is established. ' +
       'A change in this count means either a new condition was added without ' +
       'updating this assembly, or a premature or erroneous closure was recorded.',
   },

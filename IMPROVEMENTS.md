@@ -1078,3 +1078,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1195 | 2026-04-10T09:00:00Z | bug: Fix FourierDomainViz y-axis labels off-center in all four tabs: `height/2` → `margin.top + h/2` | FourierDomainViz.jsx |
 | 1196 | 2026-04-10T10:00:00Z | bug: Fix NyquistBodeViz Nyquist tab y-axis label 10px below center: `height/2` → `margin.top + h/2` | NyquistBodeViz.jsx |
 | 1197 | 2026-04-10T11:00:00Z | imp-357 (proof, critical): add Dormand-Prince RK45 second integrator + dysonOdeCrossVerify() for independent cross-verification of Path C backward Dyson collision times | dyson-ode-integrator.js, improvement-queue.js |
+| 1198 | 2026-04-10T12:00:00Z | bug: Fix ZetaPhasePortrait missing window resize listener causing stale canvas after resize | ZetaPhasePortrait.jsx |

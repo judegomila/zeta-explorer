@@ -114,6 +114,8 @@ export default function ZetaPhasePortrait() {
 
   useEffect(() => {
     draw();
+    window.addEventListener('resize', draw);
+    return () => window.removeEventListener('resize', draw);
   }, [draw]);
 
   return (

@@ -15,12 +15,10 @@
 --                   Constants      <-/
 --   Foundation  <-- Capstone       <-- CompositionCheck
 --
--- Remaining follow-up (imp-454 sub-gap):
---   BC_ vs C_ constant naming unification in BridgeTheorem.lean.
---   BridgeTheorem.lean still defines BC_H/BC_KH/BC_C/BC_T/BC_F locally;
---   the follow-on will add `import LambdaAttack.Constants` and rename to
---   C_H/C_KH/C_C/C_T/C_F so that a simultaneous import of both files
---   does not produce INCOMPATIBILITY 3 from the imp-441 static report.
+-- imp-461 APPLIED: BC_ vs C_ constant naming unification complete.
+--   BridgeTheorem.lean now imports LambdaAttack.Constants and uses
+--   C_H/C_KH/C_C/C_T/C_F. INCOMPATIBILITY 3 from the imp-441 static report
+--   is RESOLVED. All three static incompatibilities are now closed.
 
 import Lake
 open Lake DSL
@@ -37,6 +35,6 @@ lean_lib «LambdaAttack» where
   -- `lake build` elaborates all five modules:
   --   LambdaAttack.Foundation       (imp-448, canonical axioms)
   --   LambdaAttack.Constants        (imp-410, bridge constants C_H/C_T/C_F/C_C)
-  --   LambdaAttack.BridgeTheorem    (imp-412, G6 bridge; BC_ naming pending)
+  --   LambdaAttack.BridgeTheorem    (imp-412, G6 bridge; imp-461: C_ naming unified)
   --   LambdaAttack.Capstone         (imp-421, asymptotic_lambda_eq_zero)
   --   LambdaAttack.CompositionCheck (imp-441, type-compatibility driver)

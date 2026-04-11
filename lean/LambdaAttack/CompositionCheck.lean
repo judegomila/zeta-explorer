@@ -23,12 +23,11 @@
 --     axiom dysonCollTime (N : ℕ) : ℝ
 --   Now: single canonical declaration in Foundation.lean (same fix as above).
 --
--- INCOMPATIBILITY 3 (SOFT) — constant naming mismatch
---   Constants.lean  : C_H, C_KH, C_C, C_T, C_F
---   BridgeTheorem.lean: BC_H, BC_KH, BC_C, BC_T, BC_F
---   These define identical numeric values under different names.
---   A composition that imports both files cannot unify BC_C with C_C
---   without an explicit alias or refactor.
+-- INCOMPATIBILITY 3 (RESOLVED by imp-461) — constant naming mismatch
+--   FIXED: BridgeTheorem.lean formerly defined BC_H, BC_KH, BC_C, BC_T, BC_F
+--   locally (identical numeric values to Constants.lean C_H, C_KH, C_C, C_T, C_F).
+--   Now: BridgeTheorem.lean imports LambdaAttack.Constants; local BC_ defs removed.
+--   Constants.lean remains the single canonical source for all C_* bridge constants.
 --
 -- INCOMPATIBILITY 4 (RESOLVED by imp-448 SOFT fix) — bridge theorem name mismatch
 --   FIXED: Capstone.lean previously had axiom G6BridgeTheorem; now references
@@ -51,8 +50,8 @@
 --       gets Foundation); duplicate axioms removed from Capstone.lean.
 --   (d) DONE: G6BridgeTheorem axiom in Capstone.lean replaced with reference to
 --       G6_bridge_closed imported from BridgeTheorem.lean.
---   (e) PENDING: BC_ vs C_ constant naming unification (follow-up ticket).
---       BridgeTheorem.lean still uses BC_ prefix; Constants.lean uses C_ prefix.
+--   (e) DONE (imp-461): BC_ vs C_ constant naming unification complete.
+--       BridgeTheorem.lean now imports LambdaAttack.Constants; BC_ defs removed.
 --   (f) PENDING: lean/lakefile.lean declaring Mathlib dependency.
 -- ─────────────────────────────────────────────────────────────────────────
 
@@ -63,7 +62,7 @@
 --   import LambdaAttack.Capstone
 -- INCOMPATIBILITY 1 and 2 (axiom duplication) RESOLVED by imp-448 (Foundation.lean).
 -- lakefile.lean CREATED by imp-454 (lean/lakefile.lean).
--- Remaining soft gap: BC_ vs C_ naming unification (BridgeTheorem.lean -> Constants.lean).
+-- INCOMPATIBILITY 3 (BC_ vs C_ naming): RESOLVED by imp-461.
 -- This standalone section verifies type compatibility without cross-module imports.
 
 import Mathlib.Topology.Algebra.Order.LiminfLimsup
@@ -97,8 +96,8 @@ theorem composition_type_check (f : ℕ -> ℝ) (a b : ℝ)
   tendsto_nhds_unique hf1 hf2
 
 /-- CONSTANTS TYPE CHECK: the Holder-Koksma collision constant composition
-    is well-typed.  BC_C = (1/8) * sqrt(3 * pi) (BridgeTheorem.lean style)
-    and C_C = C_H * sqrt(C_KH) (Constants.lean style) are both positive reals.
+    is well-typed.  C_C = C_H * sqrt(C_KH) = (1/8) * sqrt(3 * pi) (Constants.lean,
+    unified by imp-461; the former BridgeTheorem.lean local BC_C has been removed).
     Verified here for a generic c satisfying c > 0. -/
 theorem constants_type_check (c : ℝ) (hc : 0 < c) :
     0 < c * Real.sqrt c := by
@@ -118,7 +117,8 @@ end
 /-! ## imp-441 + imp-448 closure note
 
     STATUS: imp-441 PARTIAL (static analysis + type check complete; lake build pending)
-            imp-448 APPLIED (skp-imp441-axiom-dup resolved; BC_ naming pending)
+            imp-448 APPLIED (skp-imp441-axiom-dup resolved)
+            imp-461 APPLIED (BC_ vs C_ naming unified; INCOMPATIBILITY 3 RESOLVED)
 
     TYPE COMPATIBILITY: CONFIRMED
       The three composition steps in Capstone.lean are well-typed:
@@ -135,6 +135,6 @@ end
       axiom in Capstone replaced with G6_bridge_closed from BridgeTheorem.
 
     REMAINING WORK (lake build):
-      (a) Unify BC_ vs C_ constant naming (BridgeTheorem.lean -> Constants.lean).
-      (b) Create lean/lakefile.lean declaring Mathlib dependency.
+      (a) DONE (imp-461): BC_ vs C_ naming unified; Constants.lean is canonical source.
+      (b) DONE (imp-454): lean/lakefile.lean created declaring Mathlib dependency.
       (c) Run `lake build LambdaAttack.CompositionCheck` to confirm zero errors.     -/

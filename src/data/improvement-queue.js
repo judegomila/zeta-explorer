@@ -5795,12 +5795,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close INCOMPATIBILITY 3: BC_ vs C_ constant naming unification in BridgeTheorem.lean',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S11-lean',
-    description: 'imp-454 lakefile.lean commit body explicitly defers: "BC_ vs C_ constant naming unification in BridgeTheorem.lean (INCOMPATIBILITY 3 from imp-441 static report) deferred as follow-on". This is the ONLY remaining Lean-side issue flagged by the imp-441 static analyzer. Fix: decide the canonical prefix (C_ matches proof-paper.js, so go with that), write a migration that renames every BC_* → C_* in lean/LambdaAttack/BridgeTheorem.lean and any dependents in Capstone.lean / Foundation.lean / Constants.lean / CompositionCheck.lean; re-run `lake build` (or stub-with-warning if lake is not installed locally) and record PASS in src/data/lean-build-status.js. Update CompositionCheck.lean to mark INCOMPATIBILITY 3 RESOLVED. Deliverable: the renamed Lean files + CompositionCheck.lean update + lean-build-status.js PASS marker.',
-    rationale: 'With INCOMPATIBILITY 3 closed, the Lean artifact has ZERO outstanding static-analysis issues from imp-441 — BLOCKING 1+2 (imp-448) and INCOMPATIBILITY 3 all resolved. That is a hard-to-ignore milestone for the Lean layer of the submission.',
+    description: 'imp-454 lakefile.lean commit body explicitly defers: "BC_ vs C_ constant naming unification in BridgeTheorem.lean (INCOMPATIBILITY 3 from imp-441 static report) deferred as follow-on". This is the ONLY remaining Lean-side issue flagged by the imp-441 static analyzer. Fix: decide the canonical prefix (C_ matches proof-paper.js, so go with that), write a migration that renames every BC_* -> C_* in lean/LambdaAttack/BridgeTheorem.lean and any dependents in Capstone.lean / Foundation.lean / Constants.lean / CompositionCheck.lean; re-run `lake build` (or stub-with-warning if lake is not installed locally) and record PASS in src/data/lean-build-status.js. Update CompositionCheck.lean to mark INCOMPATIBILITY 3 RESOLVED. Deliverable: the renamed Lean files + CompositionCheck.lean update + lean-build-status.js PASS marker.',
+    rationale: 'With INCOMPATIBILITY 3 closed, the Lean artifact has ZERO outstanding static-analysis issues from imp-441 -- BLOCKING 1+2 (imp-448) and INCOMPATIBILITY 3 all resolved. That is a hard-to-ignore milestone for the Lean layer of the submission.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-11T23:10:00.000Z',
   },
 
   // Phase 34 — unconditionalise B1/B2 by closing the new condition set surfaced

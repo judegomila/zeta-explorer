@@ -3,6 +3,8 @@
 -- imp-448: Deduplication fix — axioms deBruijnNewmann, dysonCollTime, gammaOrdinate,
 --          BRIDGE_kappa_T, BRIDGE_C_G now imported from Foundation.lean rather than
 --          redeclared here, resolving skp-imp441-axiom-dup.
+-- imp-461: Naming unification — local BC_ constants (BC_H, BC_KH, BC_C, BC_T, BC_F)
+--          replaced by C_ imports from Constants.lean, resolving INCOMPATIBILITY 3.
 --
 -- Main result (bridge_theorem):
 --   |Lambda - (-t_c(N))| <= E(N)
@@ -19,7 +21,7 @@
 -- Combined with imp-341 limsup |t_c(N)| = 0, this gives Lambda = 0 (RH).
 --
 -- Status:
---   Constant definitions  : formal (BC_ defs local; C_ defs in Constants.lean)
+--   Constant definitions  : formal (C_ defs from Constants.lean; imp-461 unified)
 --   Core axioms           : imported from Foundation.lean (imp-448 fix)
 --   Error term definitions: formal
 --   errorColl_nonneg      : fully formal (positivity)
@@ -29,9 +31,7 @@
 --
 -- In a Lake project: `import LambdaAttack.Foundation` (already present below)
 --   provides deBruijnNewmann, dysonCollTime, gammaOrdinate, BRIDGE_kappa_T, BRIDGE_C_G.
---   `import LambdaAttack.Constants` provides C_H, C_KH, C_C, C_T, C_F.
---   The local BC_ definitions below duplicate Constants.lean; a follow-up ticket
---   will unify the naming convention (BC_ -> C_).
+--   `import LambdaAttack.Constants` provides C_H, C_KH, C_C, C_T, C_F (imp-461).
 --
 -- Companion: lean/LambdaAttack/Foundation.lean    (imp-448, canonical axioms)
 -- Companion: lean/LambdaAttack/Constants.lean     (imp-410, bridge constants)
@@ -47,48 +47,18 @@ import Mathlib.Topology.Algebra.Order.LiminfLimsup
 import Mathlib.Tactic
 -- imp-448: import canonical axioms from Foundation (resolves skp-imp441-axiom-dup)
 import LambdaAttack.Foundation
+-- imp-461: import bridge constants from Constants (resolves INCOMPATIBILITY 3)
+import LambdaAttack.Constants
 
 open Real Filter Topology
 
 noncomputable section
 
-/-! ## Bridge constants (duplicated from Constants.lean, imp-410)
-    In a Lake project with `import LambdaAttack.Constants`, the definitions
-    C_H, C_KH, C_C, C_T, C_F replace BC_H, BC_KH, BC_C, BC_T, BC_F below. -/
-
-/-- BC_H = 1/8: Holder modulus at the Dyson quadratic-tangency boundary shock.
-    Derived from the two-particle ODE: d(g_min^2)/dt = -8, giving
-    |tau_c| <= g_min(0)^2 / 8 and hence C_H = 1/8 as N -> infinity (imp-395). -/
-def BC_H : ℝ := 1 / 8
-
-/-- BC_KH = 3 * pi: Koksma-Hlawka W_1 discrepancy constant (imp-341).
-    Appears in psi_N(y) <= BC_KH * log(gamma_N) / (N * y). -/
-noncomputable def BC_KH : ℝ := Real.pi * 3
-
-/-- BC_C = (1/8) * sqrt(3 * pi) ~= 0.3837: the N-independent collision constant
-    from imp-399. Controls E_coll(N) = BC_C * sqrt(log(gamma_N) / N). -/
-noncomputable def BC_C : ℝ := BC_H * Real.sqrt BC_KH
-
-lemma BC_H_pos : (0 : ℝ) < BC_H := by norm_num [BC_H]
-lemma BC_KH_pos : (0 : ℝ) < BC_KH := by unfold BC_KH; positivity
-lemma BC_C_nonneg : (0 : ℝ) ≤ BC_C := by unfold BC_C; positivity
-
-/-- BC_T(T0) = (3 * log T0 - 6) / (2 * log T0): Ingham thin-strip truncation constant
-    (imp-397). Satisfies 0 < BC_T(T0) < 3/2 for all T0 > exp(2). -/
-noncomputable def BC_T (T0 : ℝ) : ℝ :=
-  (3 * Real.log T0 - 6) / (2 * Real.log T0)
-
-/-- BC_T(T0) > 0 when T0 >= exp(2). All Polymath15 ladder entries satisfy this. -/
-lemma BC_T_pos {T0 : ℝ} (hT0 : Real.exp 2 ≤ T0) : 0 < BC_T T0 := by
-  have hlog : 2 ≤ Real.log T0 :=
-    (Real.log_exp 2) ▸ Real.log_le_log (Real.exp_pos 2) hT0
-  have hlog_pos : 0 < Real.log T0 := by linarith
-  unfold BC_T; apply div_pos <;> linarith
-
-/-- BC_F(T0) = (log(T0 / (2*pi)) + 1) / (2*pi): Riemann-von Mangoldt off-ladder
-    flow constant (imp-398). Grows as log(T0) / (2*pi) for large T0. -/
-noncomputable def BC_F (T0 : ℝ) : ℝ :=
-  (Real.log (T0 / (2 * Real.pi)) + 1) / (2 * Real.pi)
+/-! ## Bridge constants (imp-461: unified with Constants.lean, imp-410)
+    C_H, C_KH, C_C, C_T, C_F imported from LambdaAttack.Constants.
+    The former local BC_H, BC_KH, BC_C, BC_T, BC_F definitions (identical numeric
+    values under different names) have been removed. INCOMPATIBILITY 3 from the
+    imp-441 static analysis report is now RESOLVED. -/
 
 -- imp-448: deBruijnNewmann, dysonCollTime, gammaOrdinate, BRIDGE_kappa_T, BRIDGE_C_G
 -- are now imported from LambdaAttack.Foundation (canonical, non-duplicated).
@@ -100,7 +70,7 @@ noncomputable def BC_F (T0 : ℝ) : ℝ :=
     Bound via Polymath15 Lemma 3.3 + imp-317 Guth-Maynard tail density:
       E_trunc(N) = C_T(gamma_N) * gamma_N^(-kappa_T) * log(gamma_N). -/
 noncomputable def errorTrunc (N : ℕ) : ℝ :=
-  BC_T (gammaOrdinate N) *
+  C_T (gammaOrdinate N) *
     Real.rpow (gammaOrdinate N) (-BRIDGE_kappa_T) *
     Real.log (gammaOrdinate N)
 
@@ -108,7 +78,7 @@ noncomputable def errorTrunc (N : ℕ) : ℝ :=
     Bound via RvM density + Gronwall propagation (Tao Proposition 4.1):
       E_flow(N) = C_F(gamma_N) * (log(gamma_N) / gamma_N) * exp(C_G * |t_c(N)|). -/
 noncomputable def errorFlow (N : ℕ) : ℝ :=
-  BC_F (gammaOrdinate N) *
+  C_F (gammaOrdinate N) *
     (Real.log (gammaOrdinate N) / gammaOrdinate N) *
     Real.exp (BRIDGE_C_G * abs (dysonCollTime N))
 
@@ -117,7 +87,7 @@ noncomputable def errorFlow (N : ℕ) : ℝ :=
     (G6a closed by imp-366, port of Polymath15 Lemma 5.2):
       E_coll(N) = C_C * sqrt(log(gamma_N) / N). -/
 noncomputable def errorColl (N : ℕ) : ℝ :=
-  BC_C * Real.sqrt (Real.log (gammaOrdinate N) / (N : ℝ))
+  C_C * Real.sqrt (Real.log (gammaOrdinate N) / (N : ℝ))
 
 /-- E(N) = E_trunc(N) + E_flow(N) + E_coll(N): total Polymath15 bridge error. -/
 noncomputable def errorTotal (N : ℕ) : ℝ :=
@@ -126,16 +96,16 @@ noncomputable def errorTotal (N : ℕ) : ℝ :=
 /-! ## Structural lemmas -/
 
 /-- The collision error is nonneg for all N.
-    BC_C >= 0 (product of nonneg factors) and sqrt is nonneg. -/
+    C_C >= 0 (product of nonneg factors) and sqrt is nonneg. -/
 lemma errorColl_nonneg (N : ℕ) : 0 ≤ errorColl N := by
   unfold errorColl; positivity
 
-/-- E_trunc(N) >= 0 for all N >= 1 (gamma_N >= exp(2) ensures BC_T > 0). -/
+/-- E_trunc(N) >= 0 for all N >= 1 (gamma_N >= exp(2) ensures C_T > 0). -/
 lemma errorTrunc_nonneg (N : ℕ) (hN : 1 ≤ N) : 0 ≤ errorTrunc N := by
   unfold errorTrunc
   apply mul_nonneg
   · apply mul_nonneg
-    · exact le_of_lt (BC_T_pos (gammaOrdinate_ge_exp2 N hN))
+    · exact le_of_lt (C_T_pos (gammaOrdinate_ge_exp2 N hN))
     · exact Real.rpow_nonneg (le_of_lt (gammaOrdinate_pos N)) _
   · apply Real.log_nonneg
     calc (1 : ℝ) ≤ Real.exp 2 := by positivity
@@ -170,21 +140,21 @@ theorem bridge_theorem (N : ℕ) (hN : 2 ≤ N) :
   -- 3. Triangle inequality: |Lambda - (-t_c(N))| <= (1) + (2) = errorTotal N.
 
 /-- E(N) -> 0 as N -> infinity at rate O((log N / N)^{1/2}).
-    Dominant term: E_coll(N) = BC_C * sqrt(log(gamma_N) / N).
+    Dominant term: E_coll(N) = C_C * sqrt(log(gamma_N) / N).
     Using gamma_N ~ 2*pi*N / log N: log(gamma_N) ~ log N, so
-    E_coll ~ BC_C * sqrt(log N / N) -> 0 (standard real analysis).
+    E_coll ~ C_C * sqrt(log N / N) -> 0 (standard real analysis).
     E_trunc decays faster as gamma_N^(-kappa_T); E_flow as log(N) / N.
     Status: SORRY -- requires RvM growth gamma_N ~ 2*pi*N / log N in Lean. -/
 theorem rate_tendsto_zero :
     Tendsto (fun N : ℕ => errorTotal N) atTop (nhds 0) := by
   sorry
   -- Proof sketch:
-  -- 1. E_coll(N) = BC_C * sqrt(log(gamma_N) / N) <= BC_C * sqrt(C * log N / N)
+  -- 1. E_coll(N) = C_C * sqrt(log(gamma_N) / N) <= C_C * sqrt(C * log N / N)
   --    using RvM: gamma_N <= C * N for large N (so log gamma_N <= log C + log N).
   -- 2. sqrt(log N / N) -> 0: standard (poly-log / poly beats any power).
-  -- 3. E_trunc(N) = BC_T * gamma_N^(-kappa_T) * log(gamma_N) -> 0 since
+  -- 3. E_trunc(N) = C_T * gamma_N^(-kappa_T) * log(gamma_N) -> 0 since
   --    gamma_N >= 2*pi*N / (log N + C), so gamma_N^kappa_T >> log(gamma_N).
-  -- 4. E_flow(N) = BC_F * log(gamma_N) / gamma_N * exp(C_G * |t_c(N)|) -> 0
+  -- 4. E_flow(N) = C_F * log(gamma_N) / gamma_N * exp(C_G * |t_c(N)|) -> 0
   --    since log(x)/x -> 0 and exp(C_G * |t_c(N)|) -> 1 (|t_c| -> 0 by imp-341).
   -- 5. Tendsto.add three terms.
 
@@ -228,4 +198,10 @@ end
        That file formalizes imp-341: limsup_{N->inf} |t_c(N)| = 0.
        Together with G6_bridge_closed (sorry 3), we obtain Lambda = 0, i.e., RH.
        The remaining gap is imp-403-sorry-1 (Selberg S(T) in Mathlib) and
-       imp-403-sorry-3 (Whitham fold Holder-1/2 modulus). -/
+       imp-403-sorry-3 (Whitham fold Holder-1/2 modulus).
+
+    imp-461 note (INCOMPATIBILITY 3 RESOLVED):
+       The former local BC_H / BC_KH / BC_C / BC_T / BC_F definitions have been
+       removed. This file now imports C_H, C_KH, C_C, C_T, C_F from Constants.lean.
+       All three Lean-side incompatibilities from the imp-441 static report are
+       now resolved: INCOMPAT 1+2 by imp-448, INCOMPAT 3 by imp-461. -/

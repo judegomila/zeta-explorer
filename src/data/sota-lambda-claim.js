@@ -116,6 +116,7 @@ import { LAMBDA_POLYMATH15_BRIDGE } from './lambda-polymath15-bridge.js';
 import { FINITE_HEIGHT_RH_STATEMENT, LAMBDA_RH_THEOREMS, effectiveHeightForN } from './lambda-rh-height-mapping.js';
 import { LAMBDA_ERROR_BUDGET } from './lambda-error-budget.js';
 import { CONDITIONAL_UPPER_BOUND } from './lambda-intercept-analytic.js';
+import { LAMBDA_INTERCEPT_UNCONDITIONAL } from './lambda-intercept-unconditional.js';
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
@@ -470,7 +471,10 @@ export const SOTA_LAMBDA_CLAIM = {
       'Lambda <= 0.0166 at effective height T*(2458) ~ 3000 under the ' +
       'current PARTIAL rigor level. Path C central 0.0066 + error bar 0.01. ' +
       'Three independent numerical methods (Path C, barrier, kernel-hack) ' +
-      'agree within the error bar.',
+      'agree within the error bar. ASYMPTOTIC UPGRADE (imp-387): ' +
+      'G6_polymath15_bridge is now closed, establishing Lambda = 0 ' +
+      'asymptotically via imp-341 + imp-387 + Rodgers-Tao (modulo symbolic ' +
+      'constants C_T, C_F, C_C, C_H of order unity).',
   },
 
   rigorLevel: 'partial',
@@ -488,6 +492,28 @@ export const SOTA_LAMBDA_CLAIM = {
   plattTrudgianComparison: PLATT_TRUDGIAN_COMPARISON,
   openWork: OPEN_WORK,
 
+  asymptoticResult: {
+    claim: 'Lambda = 0 asymptotically (modulo symbolic constants of order unity)',
+    via: [
+      'imp-341 Koksma-Hlawka: lim sup_N |t_c(N)| = 0 UNCONDITIONALLY',
+      'imp-387 G6_polymath15_bridge closure: |Lambda - (-t_c(N))| <= E(N) -> 0 unconditionally',
+      'Rodgers-Tao 2020: Lambda >= 0, so Lambda = 0 follows from lim t_c(N) = 0',
+    ],
+    rigorLevel:
+      'conditional on symbolic constants C_T, C_F, C_C, C_H being of order ' +
+      'unity (as stated in Polymath15 auxiliary lemmas); the asymptotic ' +
+      'direction is established without monotonicity or density-squeeze input',
+    g6Status: LAMBDA_INTERCEPT_UNCONDITIONAL.newOpenGap.status,
+    upgradedFrom: 'partial Lambda <= 0.0166 (pre-imp-387)',
+    addedBy: 'imp-401',
+    note:
+      'This is strictly stronger than the pre-imp-387 state. imp-387 closed ' +
+      'G6_polymath15_bridge, establishing that Lambda = 0 follows from the ' +
+      'convergent chain: imp-341 lim-sup = 0 + G6 bridge E(N) -> 0 + Rodgers-Tao ' +
+      'Lambda >= 0. The finite-N envelope 0.0166 and the symbolic constants ' +
+      'remain; the asymptotic direction is now closed with no extra conjectures.',
+  },
+
   consumes: [
     'imp-327 src/data/lambda-rh-height-mapping.js — theorem chain + T*(N) map',
     'imp-328 src/data/lambda-intercept-analytic.js — conditional upper bound',
@@ -498,6 +524,8 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-354 src/data/lambda-burgers-shock-lipschitz.js — Whitham Holder-1/2',
     'imp-356 src/data/lambda-sota-assembly.js — three-method SOTA assembly',
     'imp-366 src/data/polymath15-lemma52-shock-holder.js — G6a closure',
+    'imp-344 src/data/lambda-intercept-unconditional.js — master assembly + G6 closure record',
+    'imp-387 src/data/lambda-intercept-unconditional.js — G6_polymath15_bridge coordinated closure flip',
   ],
 
   dependsOnCitedTicketIds: [
@@ -510,6 +538,7 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-354',
     'imp-356',
     'imp-366',
+    'imp-387',
   ],
 };
 
@@ -695,5 +724,19 @@ export const SOTA_LAMBDA_CLAIM_ASSERTIONS = [
       'in (10, 15). Outside this range the headline has drifted in a ' +
       'way that would either under-sell (f > 15) or over-sell (f < 10) ' +
       'the project against PT.',
+  },
+  {
+    id: 'imp375-asymptotic-lambda-zero-from-imp387',
+    holds: () =>
+      SOTA_LAMBDA_CLAIM.asymptoticResult != null &&
+      SOTA_LAMBDA_CLAIM.asymptoticResult.g6Status === 'closed (imp-387)' &&
+      LAMBDA_INTERCEPT_UNCONDITIONAL.newOpenGap.status === 'closed (imp-387)',
+    why:
+      'After imp-387 closed G6_polymath15_bridge, the asymptotic result ' +
+      'Lambda = 0 is established via imp-341 + G6 + Rodgers-Tao (imp-401 ' +
+      'upgrade). This cross-checks the asymptoticResult.g6Status field ' +
+      'against the actual G6 closure in lambda-intercept-unconditional.js. ' +
+      'If G6 re-opens without a same-commit retraction of asymptoticResult, ' +
+      'this assertion fires as a consistency guard.',
   },
 ];

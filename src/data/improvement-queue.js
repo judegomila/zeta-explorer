@@ -4836,12 +4836,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close G6a — Hölder-1/2 modulus of τ_c at the Burgers shock',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Autofill-generated. Gap G6a (Hölder-1/2 modulus of τ_c at the Burgers shock) is open per src/data/lambda-roadmap.js OPEN_GAPS. Status: open — needs Polymath15 Lemma 5.2 port. Blocks: G6 closure. Owner: imp-345 sub-gap. This ticket is a placeholder for the math work needed to close this gap. An agent picking it up should read the owner ticket and the gap definition, then attempt a partial or full closure.',
     rationale: 'Queue was below the 3-critical threshold with this gap still open, so the autofill routine created a ticket to keep the engine moving on the highest-leverage math work.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-11T10:30:00Z',
+    completionNote: 'G6a already discharged by imp-366 (polymath15-lemma52-shock-holder.js): Polymath15 Lemma 5.2 port establishing Holder-1/2 modulus |tau_c(mu_1)-tau_c(mu_2)| <= C_H*W_1^{1/2}, giving E_coll(N)=O((log N/N)^{1/2}) unconditionally. Roadmap G6a status: closed. Parent G6 also closed (imp-387). Remaining open sub-sub-gaps: imp-394 (Whitham fold-catastrophe adaptation) and imp-395 (numerical C_H constant), tracked separately.',
   },
 
   // ── Phase 18: deep math on the hardest sub-sub-gaps (beyond catalog) ──

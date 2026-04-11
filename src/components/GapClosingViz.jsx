@@ -502,7 +502,7 @@ function HilbertPolyaTab({ numPrimes }) {
 
     // Y-axis labels (rotated)
     ctx.save();
-    ctx.translate(12, topH / 2);
+    ctx.translate(12, margin.top + plotTopH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillStyle = '#94a3b8';
     ctx.font = '10px sans-serif';
@@ -511,7 +511,7 @@ function HilbertPolyaTab({ numPrimes }) {
     ctx.restore();
 
     ctx.save();
-    ctx.translate(12, topH + botH / 2);
+    ctx.translate(12, topH + marginBot.top + plotBotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillStyle = '#94a3b8';
     ctx.font = '10px sans-serif';

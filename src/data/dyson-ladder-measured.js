@@ -183,11 +183,16 @@ function budgetForN(N) {
   // so the collision window is covered. Per-step cost is O(N^2) = 361e6
   // interval ops; 120 steps = 43.32e9 interval ops — ~1.11x more expensive
   // than N = 18000, still feasible at build time.
+  // N = 20000: expected |t_c| ~ 0.00685 (OLS: 0.0066 + 4.91/20000 = 0.00685). With
+  // dt = 0.0001 and 120 steps the total integration time is 0.012 > 0.00685,
+  // so the collision window is covered. Per-step cost is O(N^2) = 400e6
+  // interval ops; 120 steps = 48e9 interval ops — ~1.11x more expensive
+  // than N = 19000, still feasible at build time.
   return { dt: 0.0001, nSteps: 120 };
 }
 
 // ── Measured block ──────────────────────────────────────────────────────────
-const MEASURED_NS = [50, 100, 200, 500, 870, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000, 19000];
+const MEASURED_NS = [50, 100, 200, 500, 870, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000, 19000, 20000];
 
 function runMeasured(N) {
   if (ZEROS_EXTENDED.length < N) {

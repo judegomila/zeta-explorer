@@ -138,7 +138,7 @@ export const DYSON_LADDER_N10K = {
   title: 'Tighten Λ central value: extend Path C Dyson ladder to N ∈ {10^4, 10^5}',
   status: 'partial',
   partialReason:
-    'N = 10^4 rung measured (dyson-ladder-measured.js, imp-353 incremental work). ' +
+    'N = 10^4 and N = 11000 rungs measured (dyson-ladder-measured.js, imp-353 incremental work). ' +
     'imp-359 ZEROS_EXTENDED table complete (100 000 Odlyzko ordinates, 2026-04-11). ' +
     'Remaining: measured backward Dyson ODE at N = 10^5 (O(N^2) = 10^10 ops/step, ' +
     'requires precompute harness with compiled backend), then append tc to ' +

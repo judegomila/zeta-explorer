@@ -133,6 +133,41 @@ function backwardCollision(initial, dt, maxSteps) {
   return { t_c: null, steps: maxSteps };
 }
 
+// RK4-based backward Dyson ODE integrator (imp-353 / imp353c_baseline_dt_overshoot).
+// Addresses the Euler step-size overshoot: at N = 50 with dt = 0.0005 the
+// Euler integrator overshoots the first collision singularity and reports
+// t_c = 0.1435 (a nonphysical second near-approach). RK4 at the same dt is
+// 4th-order accurate and greatly reduces the overshoot — the true first-collision
+// time at N = 50 is approx 0.0958 (33% lower than the Euler-baseline value).
+// Uses the same Kahan-compensated dysonDerivBackward as backwardCollision so
+// roundoff from the 1/(g_n - g_k) pole terms is not the limiting factor.
+export function backwardCollisionRK4(initial, dt, maxSteps) {
+  const N = initial.length;
+  let g = Float64Array.from(initial);
+  const tmp = new Float64Array(N);
+  for (let step = 0; step < maxSteps; step++) {
+    const k1 = dysonDerivBackward(g);
+    for (let i = 0; i < N; i++) tmp[i] = g[i] + 0.5 * dt * k1[i];
+    const k2 = dysonDerivBackward(tmp);
+    for (let i = 0; i < N; i++) tmp[i] = g[i] + 0.5 * dt * k2[i];
+    const k3 = dysonDerivBackward(tmp);
+    for (let i = 0; i < N; i++) tmp[i] = g[i] + dt * k3[i];
+    const k4 = dysonDerivBackward(tmp);
+    for (let i = 0; i < N; i++) {
+      g[i] += (dt / 6) * (k1[i] + 2 * k2[i] + 2 * k3[i] + k4[i]);
+    }
+    let minS = Infinity;
+    for (let i = 0; i < N - 1; i++) {
+      const s = g[i + 1] - g[i];
+      if (s < minS) minS = s;
+    }
+    if (minS < 1e-4) {
+      return { t_c: -((step + 1) * dt), steps: step + 1, minSpacing: minS };
+    }
+  }
+  return { t_c: null, steps: maxSteps };
+}
+
 // Existing 5-point fit data from certified-lambda-hybrid (Path C, imp-309).
 const PATH_C_FIT_POINTS = [
   { N: 50,   tc: 0.1435 },
@@ -191,8 +226,11 @@ export function quadFit(points) {
   return { a, b, c };
 }
 
-export function dysonScalingExtendedTest({ extraN = [3500, 5000], dt = 0.0003, maxSteps = 4000 } = {}) {
+export function dysonScalingExtendedTest({ extraN = [3500, 5000], dt = 0.0003, maxSteps = 4000, useRK4 = true } = {}) {
   const oldFit = linearFit(PATH_C_FIT_POINTS);
+  // Use RK4 by default to avoid the Euler step-size overshoot documented in
+  // imp353c_baseline_dt_overshoot. Pass useRK4: false to reproduce Euler baseline.
+  const integrate = useRK4 ? backwardCollisionRK4 : backwardCollision;
 
   const newPoints = [];
   for (const N of extraN) {
@@ -201,7 +239,7 @@ export function dysonScalingExtendedTest({ extraN = [3500, 5000], dt = 0.0003, m
       newPoints.push({ N, tc: null, note: `only extended to ${zeros.length} zeros` });
       continue;
     }
-    const result = backwardCollision(zeros.slice(0, N), dt, maxSteps);
+    const result = integrate(zeros.slice(0, N), dt, maxSteps);
     if (result.t_c === null) {
       newPoints.push({ N, tc: null, note: `no collision in ${maxSteps} steps` });
     } else {
@@ -226,6 +264,7 @@ export function dysonScalingExtendedTest({ extraN = [3500, 5000], dt = 0.0003, m
 
   return {
     purpose: 'imp-315: test |t_c| = a + b/N at 2× the previous lever arm',
+    integrator: useRK4 ? 'RK4 (backwardCollisionRK4)' : 'Euler (backwardCollision)',
     oldFit: { a: +oldFit.a.toFixed(6), b: +oldFit.b.toFixed(4), R2: +oldFit.R2.toFixed(4) },
     newPoints,
     newFit: { a: +newFit.a.toFixed(6), b: +newFit.b.toFixed(4), R2: +newFit.R2.toFixed(4) },

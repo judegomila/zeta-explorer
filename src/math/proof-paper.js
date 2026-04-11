@@ -91,13 +91,15 @@ where $\\gamma_1 = 14.1347\\ldots$ is the first zeta zero and $M_3 \\leq 2.51012
         content: `We map rigorous implications between the five analytic closure paths (E through I):
 
 \\begin{itemize}
-  \\item Weyl law convergence $\\Rightarrow$ norm resolvent convergence (Reed-Simon Vol.\\ IV, Thm.\\ XIII.85)
-  \\item Marchenko solvability $\\Rightarrow$ de Branges space (Gelfand-Levitan + de Branges 1968)
-  \\item Trace class convergence $\\Rightarrow$ Weyl law (Lidskii trace formula)
-  \\item Marchenko $\\Rightarrow$ Kato-Rellich (Deift-Trubowitz 1979)
+  \\item Path E (Weyl law) $\\Rightarrow$ Path F (Kato-Rellich) (Reed-Simon Vol.\\ IV, Thm.\\ XIII.85)
+  \\item Marchenko (Path B) $\\Rightarrow$ Path I (de Branges) (Gelfand-Levitan + de Branges 1968)
+  \\item Path G (Frobenius Cauchy, $\\equiv$ trace class for $2\\times 2$) $\\Rightarrow$ Path E (Lidskii trace formula)
+  \\item Path H (Szeg\\H{o}: $\\det S_N = 1$) $\\Rightarrow$ Path I (de Branges Hermite-Biehler, Ch.\\ 4)
+  \\item Marchenko $\\Rightarrow$ Path F (Kato-Rellich) (Deift-Trubowitz 1979)
+  \\item Path F (Kato-Rellich) $\\Rightarrow$ Path I (de Branges 1968, Ch.\\ 4)
 \\end{itemize}
 
-Transitive closure analysis shows that rigorously proving \\textbf{any two} of the five paths implies all five. Convergence rate comparison (power law fits $\\text{metric} \\sim C \\cdot N^{-\\alpha}$) identifies the fastest-converging path for focused verification effort.`,
+The chain $G \\Rightarrow E \\Rightarrow F \\Rightarrow I$ and $H \\Rightarrow I$ links all five paths E--I; rigorously closing Paths G and H closes all five paths (skp3-001 CLOSED). Convergence rate comparison (power law fits $\\text{metric} \\sim C \\cdot N^{-\\alpha}$) identifies the fastest-converging path for focused verification effort.`,
       },
       {
         number: 8,
@@ -218,6 +220,18 @@ for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, 
         { id: 'skp2-007', description: 'Test point x = gamma_N/2 made explicit; noted bound holds for any interior x', closedBy: 'imp-435', file: 'src/math/proof-paper.js' },
         { id: 'skp2-008', description: 'secondReview.findings.soft corrected from 0 to 5', closedBy: 'imp-435', file: 'src/math/proof-paper.js' },
       ],
+      thirdReview: {
+        ticket: 'imp-437',
+        date: '2026-04-12',
+        findings: { fatal: 0, named: 2, soft: 3 },
+        verdict: 'PASSED: zero FATAL. Two NAMED gaps: skp3-001 (Paths G/H orphaned from implication graph), skp3-002 (C_F formula combination not pinned in Theorem 10.2). Three SOFT gaps: skp3-003/004/005 (presentation). skp3-001 CLOSED by imp-443.',
+      },
+      namedClosed3: [
+        { id: 'skp3-001', description: 'Paths G and H orphaned from Section 7 implication graph — explicit G=>E and H=>I arrows added', closedBy: 'imp-443', file: 'src/math/proof-paper.js' },
+      ],
+      namedRemaining3: [
+        { id: 'skp3-002', description: 'C_F formula combination not pinned explicitly in Theorem 10.2 E(N) = O((log N / N)^{1/2})', pendingTicket: 'imp-444' },
+      ],
     },
 
     keyResults: [
@@ -232,7 +246,7 @@ for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, 
       'Path C V2 refit on measured 25-point ladder: intercept consistent with Lambda = 0 (imp-400)',
       'S-matrix unitarity deficit delta(P) = O(1/log P) — rigorous with interval arithmetic',
       'Nine independent closure paths for the ZPO Darlington axiom (S7)',
-      'Cross-validation: proving any 2 of 5 analytic paths implies all 5',
+      'Cross-validation: chain G => E => F => I and H => I closes all 5 paths E--I (skp3-001 CLOSED, imp-443)',
       'Turing-certified zero counting: ALL zeros up to T=2000 on critical line',
       'Adversarial D-H testing confirms RH-specificity of closure paths',
       'Lean4/Mathlib proof skeleton for SL(2,R) algebraic closure',
@@ -423,16 +437,17 @@ The Hermite-Biehler condition implies all zeros of $E$ are real.
 
 Rigorous implications between paths E--I are mapped via known theorems:
 \\begin{itemize}
-  \\item Weyl law $\\Rightarrow$ Kato-Rellich (Reed-Simon Vol.\\ IV, Thm.\\ XIII.85)
-  \\item Marchenko $\\Rightarrow$ de Branges (Gelfand-Levitan 1951 + de Branges 1968)
-  \\item Trace class $\\Rightarrow$ Weyl law (Lidskii trace formula)
-  \\item Marchenko $\\Rightarrow$ Kato-Rellich (Deift-Trubowitz 1979)
-  \\item Kato-Rellich $\\Rightarrow$ de Branges (de Branges 1968, Chapter 4)
+  \\item Path E (Weyl law) $\\Rightarrow$ Path F (Kato-Rellich) (Reed-Simon Vol.\\ IV, Thm.\\ XIII.85)
+  \\item Marchenko (Path B) $\\Rightarrow$ Path I (de Branges) (Gelfand-Levitan 1951 + de Branges 1968)
+  \\item Path G (Frobenius Cauchy, $\\equiv$ trace class for $2\\times 2$) $\\Rightarrow$ Path E (Lidskii trace formula)
+  \\item Path H (Szeg\\H{o}: $\\det S_N = 1$) $\\Rightarrow$ Path I (de Branges Hermite-Biehler, Ch.\\ 4)
+  \\item Marchenko $\\Rightarrow$ Path F (Kato-Rellich) (Deift-Trubowitz 1979)
+  \\item Path F (Kato-Rellich) $\\Rightarrow$ Path I (de Branges 1968, Chapter 4)
 \\end{itemize}
 
-\\begin{proposition}
-Rigorously proving any two of paths E--I implies all five via the transitive closure
-of the above implication graph.
+\\begin{proposition}[skp3-001 CLOSED]
+The chain $G \\Rightarrow E \\Rightarrow F \\Rightarrow I$ and $H \\Rightarrow I$ links all five paths E--I.
+Rigorously closing Paths G and H closes all five paths.
 \\end{proposition}
 
 Convergence rates (power law fits $\\text{metric} \\sim C \\cdot N^{-\\alpha}$) are

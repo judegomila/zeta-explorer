@@ -154,7 +154,7 @@ function PerPrimeTab() {
     // Axis labels
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('σ = Re(s)');
-    svg.append('text').attr('transform', `translate(16, ${height / 2}) rotate(-90)`)
+    svg.append('text').attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('E_p(σ)');
 
   }, [curves, minima]);
@@ -1199,7 +1199,7 @@ function MultiZeroTab() {
     // Axis labels
     svg.append('text').attr('x', width / 2).attr('y', height - 4)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('Zero index');
-    svg.append('text').attr('transform', `translate(16, ${height / 2}) rotate(-90)`)
+    svg.append('text').attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11).text('σ_min');
 
   }, [results]);

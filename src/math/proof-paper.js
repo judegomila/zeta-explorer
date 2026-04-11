@@ -184,6 +184,12 @@ for an absolute constant $C_1$ from the Selberg bound $|S(T)| = O(\\log T / \\lo
     gapDifficulty: 'Rate upgrade: high complexity local-law rigidity (imp-370). Machine verification: research-grade Lean 4 (imp-403). N-ladder extension: measured data collection (imp-405). All three have active critical tickets.',
 
     latex: generateLaTeX(),
+    bibtex: generateBibTeX(),
+    arxiv: {
+      subject: 'math.NT',
+      mscCodes: ['11M26', '34L40', '81U20', '47A40'],
+      keywords: ['Riemann Hypothesis', 'de Bruijn-Newman constant', 'Dyson flow', 'Polymath15', 'scattering theory', 'Lambda = 0'],
+    },
   };
 }
 
@@ -437,4 +443,149 @@ The framework extends to GRH.
 \\end{thebibliography}
 
 \\end{document}`;
+}
+
+/**
+ * Generate BibTeX source for all references cited in the proof paper.
+ * For arXiv submission: save output as refs.bib alongside the .tex file.
+ * Includes three critical references absent from the inline bibliography:
+ * de Bruijn (1950) for Lambda=0 implies RH, Rodgers-Tao (2020) for Lambda >= 0,
+ * and Polymath15 (2019) for the G6 bridge and upper bound history.
+ */
+export function generateBibTeX() {
+  return `@article{turing53,
+  author  = {Turing, A. M.},
+  title   = {Some calculations of the {R}iemann zeta-function},
+  journal = {Proc. London Math. Soc.},
+  volume  = {3},
+  year    = {1953},
+  pages   = {99--117},
+}
+
+@phdthesis{gabcke79,
+  author = {Gabcke, W.},
+  title  = {Neue Herleitung und explizite Restabschaetzung der Riemann-Siegel-Formel},
+  school = {Georg-August-Universitaet Goettingen},
+  year   = {1979},
+}
+
+@article{backlund18,
+  author  = {Backlund, R. J.},
+  title   = {Ueber die Nullstellen der Riemannschen Zetafunktion},
+  journal = {Acta Math.},
+  volume  = {41},
+  year    = {1918},
+  pages   = {345--375},
+}
+
+@book{reed-simon78,
+  author    = {Reed, M. and Simon, B.},
+  title     = {Methods of Modern Mathematical Physics {IV}: Analysis of Operators},
+  publisher = {Academic Press},
+  year      = {1978},
+}
+
+@book{debranges68,
+  author    = {de Branges, L.},
+  title     = {Hilbert Spaces of Entire Functions},
+  publisher = {Prentice-Hall},
+  year      = {1968},
+}
+
+@article{gelfand-levitan51,
+  author  = {Gelfand, I. M. and Levitan, B. M.},
+  title   = {On the determination of a differential equation from its spectral function},
+  journal = {Izv. Akad. Nauk SSSR Ser. Mat.},
+  volume  = {15},
+  year    = {1951},
+  pages   = {309--360},
+}
+
+@book{kato66,
+  author    = {Kato, T.},
+  title     = {Perturbation Theory for Linear Operators},
+  publisher = {Springer},
+  year      = {1966},
+}
+
+@book{simon05,
+  author    = {Simon, B.},
+  title     = {Orthogonal Polynomials on the Unit Circle},
+  publisher = {American Mathematical Society},
+  year      = {2005},
+}
+
+@article{deift-trubowitz79,
+  author  = {Deift, P. and Trubowitz, E.},
+  title   = {Inverse scattering on the line},
+  journal = {Comm. Pure Appl. Math.},
+  volume  = {32},
+  year    = {1979},
+  pages   = {121--251},
+}
+
+@article{potapov60,
+  author  = {Potapov, V. P.},
+  title   = {The multiplicative structure of {J}-contractive matrix functions},
+  journal = {Amer. Math. Soc. Transl.},
+  volume  = {15},
+  year    = {1960},
+  pages   = {131--243},
+}
+
+@book{lax-phillips67,
+  author    = {Lax, P. D. and Phillips, R. S.},
+  title     = {Scattering Theory},
+  publisher = {Academic Press},
+  year      = {1967},
+}
+
+@article{rosser-schoenfeld62,
+  author  = {Rosser, J. B. and Schoenfeld, L.},
+  title   = {Approximate formulas for some functions of prime numbers},
+  journal = {Illinois J. Math.},
+  volume  = {6},
+  year    = {1962},
+  pages   = {64--94},
+}
+
+@article{debruijn50,
+  author  = {de Bruijn, N. G.},
+  title   = {The roots of trigonometric integrals},
+  journal = {Duke Math. J.},
+  volume  = {17},
+  year    = {1950},
+  pages   = {197--226},
+}
+
+@article{rodgers-tao20,
+  author  = {Rodgers, B. and Tao, T.},
+  title   = {The de {B}ruijn-{N}ewman constant is non-negative},
+  journal = {Forum Math. Pi},
+  volume  = {8},
+  year    = {2020},
+  eid     = {e6},
+  note    = {arXiv:1801.05914},
+}
+
+@article{polymath15,
+  author  = {{Polymath Project}},
+  title   = {Effective approximation of heat flow evolution of the {R}iemann $\\xi$ function, and a new upper bound for the de {B}ruijn-{N}ewman constant},
+  journal = {Res. Math. Sci.},
+  volume  = {6},
+  number  = {3},
+  year    = {2019},
+  pages   = {1--67},
+  note    = {arXiv:1904.12438},
+}
+
+@article{platt-trudgian21,
+  author  = {Platt, D. and Trudgian, T.},
+  title   = {The {R}iemann hypothesis is true up to $3 \\cdot 10^{12}$},
+  journal = {Bull. London Math. Soc.},
+  volume  = {53},
+  year    = {2021},
+  pages   = {792--797},
+  note    = {arXiv:2004.09765},
+}`;
 }

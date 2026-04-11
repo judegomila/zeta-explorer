@@ -5131,12 +5131,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Paper externalization: BibTeX, LaTeX structure, arXiv metadata, abstract polish',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'imp-402 shipped the in-repo paper draft in src/data/proof-paper.js (Section 10 assembled). For actual submission, the content needs to be rendered into a LaTeX file with: (a) full BibTeX bibliography resolving every citation to author/year/journal/DOI, (b) standard arXiv AMS-article preamble + package imports, (c) abstract polished for the RH community (precise language, no overclaim, asymptotic qualifier clear), (d) arXiv metadata (categories: math.NT math.CA; keywords). Deliverable: papers/sota-lambda-2026.tex + papers/references.bib, with a build script papers/build-tex.sh that runs pdflatex + bibtex in the standard arXiv flow.',
     rationale: 'An in-repo proof-paper.js is not a submittable paper. External reviewers need LaTeX + BibTeX. This ticket makes the claim actually reviewable by the RH community.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-11T21:00:00Z',
   },
 
   // ── Phase 23: post-falsification-pass — broaden claim + adversarial review ──

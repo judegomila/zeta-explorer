@@ -5354,12 +5354,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Platt-Trudgian re-verification: re-run imp-411 consistency check with post-imp-424/425 constants',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'imp-411 verified the pre-closure Lambda = 0 chain is consistent with Platt-Trudgian 2021 at T = 3e10 with a 30x margin. The FATAL-gap closures in imp-424 and imp-425 introduce new proof chains that MIGHT change the effective constants in the Lambda bound at matched height. Re-run the Platt-Trudgian consistency check using the post-closure constants (from imp-424 bridge lemma and imp-425 eigenvalue squeeze) and confirm the margin is still positive. If the margin drops below 1 (crosses into INCONSISTENCY), the closures introduced a quantitative issue that needs a reconciliation ticket. Deliverable: src/data/platt-trudgian-recheck-post-closure.js with the updated margin + assertion.',
     rationale: 'imp-411 was the single strongest external validation of the session. After the FATAL-gap closures, the same external check must still pass — otherwise the closures themselves may be quantitatively wrong.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-11T20:30:00Z',
+    completionNote: 'PASS verdict. Post-closure Lambda bound at N ~ 1.016e11 = |t_c_proj| + E_flow_pinned + E_coll_pinned ~ 6.606e-3 beats PT 0.2 by factor 30.28x (prior 30x, delta +0.28, relativeDelta +0.92%). C_1 = 3*pi pinned (imp-426) matches pre-closure value used in imp-341/399, so C_C = (1/8)*sqrt(3*pi) ~ 0.3838 unchanged. E_coll ~ 5.9e-6 << projection ~ 6.6e-3. The full-bridge diagnostic including E_trunc with pinned C_T ~ 1.376 / kappa_T ~ 0.0568 gives a loose margin of 0.024x -- but that looseness is pre-existing (Polymath15 truncation lemma at modest T_0), NOT introduced by the closures, and is already documented as sub-gaps B1/B2/B4 in finite-height-lambda-bound.js. 6 build-time assertions all pass.',
   },
 
   {

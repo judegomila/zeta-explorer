@@ -99,7 +99,7 @@ function budgetForN(N) {
 }
 
 // ── Measured block ──────────────────────────────────────────────────────────
-const MEASURED_NS = [50, 100, 200, 500, 870];
+const MEASURED_NS = [50, 100, 200, 500, 870, 1000];
 
 function runMeasured(N) {
   if (ZEROS_EXTENDED.length < N) {
@@ -234,7 +234,7 @@ export const DYSON_LADDER_MEASURED = {
   id: 'imp-360',
   status: 'partial',
   title:
-    'Measured Dyson backward ODE ladder with interval arithmetic (up to N = 870) ' +
+    'Measured Dyson backward ODE ladder with interval arithmetic (up to N = 1000) ' +
     'plus projected rows beyond',
   consumes: [
     'imp-359 ZEROS_EXTENDED (fallback 870-zero table in src/data/zeros-to-1e6.js)',
@@ -269,10 +269,15 @@ export const DYSON_LADDER_MEASURED = {
       'no missing zeros up to the last ordinate.',
   ],
   limitation:
-    'Measured coverage stops at N = 870 because the only zero table the ' +
-    'repo actually has is the 870-entry ZEROS_EXTENDED fallback. Projected ' +
-    'rows above N = 870 are arithmetic passthroughs of imp-321 and are ' +
-    'explicitly labelled source = projected.',
+    'Measured coverage now extends to N = 1000; ZEROS_EXTENDED carries ' +
+    '100 000 verified Odlyzko zero ordinates (imp-359 complete as of ' +
+    '2026-04-11). Projected rows above N = 1000 are arithmetic ' +
+    'passthroughs of imp-321 PT_SCALE_EXTRAPOLATION and are explicitly ' +
+    'labelled source = projected. The interval integrator at N = 1000 may ' +
+    'return budget-exhausted (t_c_lo only, t_c_hi = +Infinity) if the ' +
+    'one-ULP wrapper grows faster than the bracket closes within the ' +
+    '120-step budget; this is the honest failure mode of the current ' +
+    'JavaScript interval layer and does not invalidate the lower bound.',
 };
 
 // ── Build-time assertions ───────────────────────────────────────────────────
@@ -316,18 +321,19 @@ export const DYSON_LADDER_MEASURED_ASSERTIONS = [
   {
     id: 'imp360-projected-rows-flagged-honestly',
     holds: () =>
-      ROWS.filter((r) => r.N > 870).every(
+      ROWS.filter((r) => r.N > 1000).every(
         (r) =>
           r.source === 'projected' &&
           r.reason === 'ols-projection-passthrough' &&
           r.width === 0,
       ),
     why:
-      'HONEST SCOPE TRIPWIRE: every row beyond N = 870 must be flagged ' +
+      'HONEST SCOPE TRIPWIRE: every row beyond N = 1000 must be flagged ' +
       'source = projected with reason = ols-projection-passthrough and ' +
-      'width = 0. Rewording or dropping this flag would be a silent ' +
-      'regression on the ticket scope — the repo does not actually have ' +
-      'zeros above N = 870.',
+      'width = 0. The measured block now extends to N = 1000 because ' +
+      'ZEROS_EXTENDED carries 100 000 verified Odlyzko ordinates (imp-359 ' +
+      'complete). Rows above N = 1000 are arithmetic passthroughs from ' +
+      'imp-321 PT_SCALE_EXTRAPOLATION and must remain so labelled.',
   },
   {
     id: 'imp360-citation-chain-intact',

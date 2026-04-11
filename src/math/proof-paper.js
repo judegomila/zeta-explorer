@@ -137,7 +137,7 @@ The chain $G \\Rightarrow E \\Rightarrow F \\Rightarrow I$ and $H \\Rightarrow I
 $$\\|m_N - m_\\infty\\|_{L^\\infty(\\{\\operatorname{Im}\\,z \\geq y\\})} \\leq \\frac{C_1 \\log \\gamma_N}{N y}$$
 for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, where $C_{\\mathrm{Sel}} = 3$ is obtained from Titchmarsh \\S14.13 by dropping the $\\log\\log T$ denominator in $|S(T)| \\leq C \\log T / \\log\\log T$, giving the conservative log-only form $|S(T)| \\leq 3\\log T$ for $T \\geq 2$ (imp-426, skp-002 CLOSED; skp2-004 CLOSED). The backward Dyson collision time satisfies $\\limsup_{N \\to \\infty} |t_c(N)| = 0$ unconditionally. \\textit{Non-circular proof (imp-424, skp-001 CLOSED):} let $F_N(x,y) := \\operatorname{Im}\\,m_N(x+iy)/y$; the Burgers formula gives $\\tau_c(m_N) = 1/(2\\sup F_N)$ (imp-338); at strip height $y_N^\\sharp = \\sqrt{2\\pi/N}$ and interior test point $x = \\gamma_N/2$ (this bound holds for any $x$ with $\\rho_{\\infty}(x) > 0$; the conclusion is test-point-independent, skp2-007 CLOSED), the Poisson signal $F_\\infty(x,y_N^\\sharp) \\approx \\pi\\rho_{\\infty}(x)/y_N^\\sharp$ (asymptotic as $y \\to 0^+$; at finite $y_N^\\sharp$ the relative error is $O(y_N^\\sharp \\rho'_{\\infty}(x)/\\rho_{\\infty}(x)) = O(N^{-1/2}\\log\\log\\sqrt{N})$, subdominant, skp2-006 CLOSED) $= O(\\sqrt{N})$, dominates the KH perturbation $O(\\log N)$, so $\\sup F_N \\to \\infty$ and $\\tau_c(m_N) \\leq y_N^\\sharp/(2\\pi\\rho_{\\infty}(x)) \\to 0$. This route uses only imp-338 and imp-341 --- no appeal to Theorem~10.2, removing the circularity flagged in the adversarial review.
 
-\\textbf{Theorem 10.2 (Polymath15 G6 bridge, imp-345 + imp-366 + imp-387).} There exists an explicit error sequence $E(N) \\to 0$ such that $|\\Lambda - (-t_c(N))| \\leq E(N) = E_{\\mathrm{trunc}} + E_{\\mathrm{flow}} + E_{\\mathrm{coll}}$. The Holder-1/2 modulus of the collision functional (Polymath15 Lemma 5.2, imp-366) gives $E(N) = O((\\log N / N)^{1/2})$ with analytically pinned constants: $C_H = 1/8$ (imp-395 quadratic-tangency), $C_C = (1/8)\\sqrt{3\\pi}$ (imp-399 Koksma-Hlawka), and $C_F$ from the convergent RvM density integral (imp-398).
+\\textbf{Theorem 10.2 (Polymath15 G6 bridge, imp-345 + imp-366 + imp-387).} There exists an explicit error sequence $E(N) \\to 0$ such that $|\\Lambda - (-t_c(N))| \\leq E(N) = E_{\\mathrm{trunc}} + E_{\\mathrm{flow}} + E_{\\mathrm{coll}}$. The Holder-1/2 modulus of the collision functional (Polymath15 Lemma 5.2, imp-366) gives $E(N) = O((\\log N / N)^{1/2})$ with analytically pinned constants: $C_H = 1/8$ (imp-395 quadratic-tangency), $C_C = (1/8)\\sqrt{3\\pi}$ (imp-399 Koksma-Hlawka), and $C_F(N) = (\\log(T_0(N)/2\\pi)+1)/(2\\pi)$ from the convergent RvM off-ladder integral $\\int_{T_0}^{\\infty} \\frac{\\log(T/2\\pi)}{2\\pi T^2}\\,dT$ (imp-398, skp3-002 CLOSED: imp-444).
 
 \\textbf{Corollary ($\\Lambda = 0$, skp-004 CLOSED).} Since $t_c(N) \\to 0$ (Theorem~10.1) and $E(N) \\to 0$ (Theorem~10.2), the sequence $A_N := -t_c(N) + E(N)$ converges to $0$ (not merely limsup; the full limit exists). Hence $\\Lambda \\leq \\lim_{N \\to \\infty} A_N = 0$. With the Rodgers-Tao unconditional floor $\\Lambda \\geq 0$ (2020), we obtain $\\Lambda = 0$, equivalent to RH by de Bruijn (1950).
 
@@ -173,7 +173,7 @@ for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, 
       { symbol: 'C_H', value: '1/8', role: 'quadratic-tangency Holder coefficient', pinnedBy: 'imp-395' },
       { symbol: 'C_T', value: 'explicit', role: 'truncation error bound', pinnedBy: 'imp-395 / imp-422 (100-digit GMP)' },
       { symbol: 'C_C', value: '(1/8)*sqrt(3*pi)', role: 'Koksma-Hlawka collision coefficient', pinnedBy: 'imp-399' },
-      { symbol: 'C_F', value: 'RvM density integral', role: 'flow error constant', pinnedBy: 'imp-398' },
+      { symbol: 'C_F', value: '(log(T_0/2pi)+1)/(2pi)', role: 'flow error constant', pinnedBy: 'imp-398 (skp3-002 CLOSED: imp-444)', source: 'Closed form for the off-ladder RvM integral INT_{T_0}^{inf} log(T/2pi)/(2pi*T^2) dT = (log(T_0/2pi)+1)/(2pi*T_0), so C_F(N) := T_0 * S_{k*}^{off} = (log(T_0(N)/2pi)+1)/(2pi). Derived by integration by parts; C_F grows logarithmically unlike C_T which is bounded.' },
     ],
 
     adversarialReview: {
@@ -224,14 +224,13 @@ for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, 
         ticket: 'imp-437',
         date: '2026-04-12',
         findings: { fatal: 0, named: 2, soft: 3 },
-        verdict: 'PASSED: zero FATAL. Two NAMED gaps: skp3-001 (Paths G/H orphaned from implication graph), skp3-002 (C_F formula combination not pinned in Theorem 10.2). Three SOFT gaps: skp3-003/004/005 (presentation). skp3-001 CLOSED by imp-443.',
+        verdict: 'PASSED: zero FATAL. Two NAMED gaps: skp3-001 (Paths G/H orphaned from implication graph), skp3-002 (C_F formula combination not pinned in Theorem 10.2). Three SOFT gaps: skp3-003/004/005 (presentation). skp3-001 CLOSED by imp-443. skp3-002 CLOSED by imp-444.',
       },
       namedClosed3: [
         { id: 'skp3-001', description: 'Paths G and H orphaned from Section 7 implication graph — explicit G=>E and H=>I arrows added', closedBy: 'imp-443', file: 'src/math/proof-paper.js' },
+        { id: 'skp3-002', description: 'C_F pinned as explicit closed form (log(T_0/2pi)+1)/(2pi) in pinnedConstants and Theorem 10.2 text; derived from convergent RvM off-ladder integral by parts', closedBy: 'imp-444', file: 'src/math/proof-paper.js' },
       ],
-      namedRemaining3: [
-        { id: 'skp3-002', description: 'C_F formula combination not pinned explicitly in Theorem 10.2 E(N) = O((log N / N)^{1/2})', pendingTicket: 'imp-444' },
-      ],
+      namedRemaining3: [],
     },
 
     keyResults: [

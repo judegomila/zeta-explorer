@@ -769,8 +769,8 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
     g.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
     // Y-axis label
-    svg.append('text').attr('x', 14).attr('y', height / 2)
-      .attr('text-anchor', 'middle').attr('transform', `rotate(-90,14,${height / 2})`)
+    svg.append('text').attr('x', 14).attr('y', margin.top + chartH / 2)
+      .attr('text-anchor', 'middle').attr('transform', `rotate(-90,14,${margin.top + chartH / 2})`)
       .attr('fill', '#64748b').attr('font-size', 10)
       .text('Group Delay τ_g = −dφ/dt');
 
@@ -833,8 +833,8 @@ function PhaseDelayTab({ sigma, t, numPrimes }) {
     rightAxis.selectAll('text').attr('fill', '#94a3b8').attr('font-size', 9);
     rightAxis.selectAll('.domain, .tick line').attr('stroke', '#2a3050');
 
-    svg.append('text').attr('x', width - 10).attr('y', height / 2)
-      .attr('text-anchor', 'middle').attr('transform', `rotate(90,${width - 10},${height / 2})`)
+    svg.append('text').attr('x', width - 10).attr('y', margin.top + chartH / 2)
+      .attr('text-anchor', 'middle').attr('transform', `rotate(90,${width - 10},${margin.top + chartH / 2})`)
       .attr('fill', '#94a3b8').attr('font-size', 10)
       .text('Cumulative Delay (dashed)');
 

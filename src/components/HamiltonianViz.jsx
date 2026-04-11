@@ -128,7 +128,7 @@ export default function HamiltonianViz() {
       .text('σ = Re(s)');
 
     svg.append('text')
-      .attr('transform', `translate(16, ${height / 2}) rotate(-90)`)
+      .attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('Energy');
 

@@ -70,6 +70,7 @@
 import { LAMBDA_ARGMIN_INTERIORITY } from './lambda-argmin-interiority.js';
 import { LAMBDA_ARGMIN_JUMPS } from './lambda-argmin-jumps.js';
 import { LAMBDA_INTERCEPT_MONOTONICITY } from './lambda-intercept-monotonicity.js';
+import { G1_SUB_EXTREMAL_CLOSURE } from '../math/g1-sub-extremal-closure.js';
 
 // ── G1 status record ─────────────────────────────────────────────────────────
 
@@ -96,11 +97,16 @@ const G1_CLOSURE_STATUS = {
   deliveredBy: 'imp-368 (lambda-argmin-interiority.js)',
   openSubGap: {
     id: 'G1-sub-extremal',
-    status: 'open',
+    status:
+      'partial-closed (imp-455): Bourgade GUE port delivered; density-gradient ' +
+      'sub-gap G1-sub-extremal-raw-vs-unfolded remains; imp-336 ANALYTIC_SKETCH ' +
+      'tripwires NOT yet flipped (deferred to Route A monotonicity, imp-456)',
     closesVia:
       'Ben Arous-Bourgade 2013 extremal-gap concentration ported from GUE ' +
       'to Riemann zeros, or a direct bulk-confinement bound from Selberg CLT ' +
       'plus RvM discrepancy',
+    closedViaImpId: G1_SUB_EXTREMAL_CLOSURE.id,
+    remainingSubGap: G1_SUB_EXTREMAL_CLOSURE.remainingSubGap.id,
   },
 };
 
@@ -231,12 +237,18 @@ export const G1_G2_CLOSURE_ASSERTIONS = [
       'this assertion must be removed in the SAME commit.',
   },
   {
-    id: 'imp450-g1-sub-extremal-still-open',
-    holds: () => G1_CLOSURE_STATUS.openSubGap.status === 'open',
+    id: 'imp450-g1-sub-extremal-partial-closed-by-imp455',
+    holds: () =>
+      G1_CLOSURE_STATUS.openSubGap.status.startsWith('partial-closed') &&
+      G1_CLOSURE_STATUS.openSubGap.closedViaImpId === 'imp-455' &&
+      G1_SUB_EXTREMAL_CLOSURE.closureLevel === 'partial-conditional',
     why:
-      'G1-sub-extremal is the genuine remaining research content of G1. Until it ' +
-      'closes, Route A monotonicity is conditional. This assertion fires if a future ' +
-      'edit marks G1-sub-extremal as closed without coordinating the broader update ' +
-      'to imp-336, lambda-intercept-analytic.js, bridge-lambda-rh.js.',
+      'imp-455 delivered a PARTIAL closure of G1-sub-extremal (Bourgade GUE port ' +
+      'with density-gradient sub-gap remaining). This assertion confirms that ' +
+      '(a) the status is partial-closed, (b) it is attributed to imp-455, and ' +
+      '(c) the imp-455 closure record itself remains partial-conditional. If a ' +
+      'future edit upgrades to full closure, it MUST also flip the imp-336 ' +
+      'ANALYTIC_SKETCH G1/G2 status and coordinate lambda-intercept-analytic.js, ' +
+      'bridge-lambda-rh.js, and lambda-zero-attack.js in the same commit.',
   },
 ];

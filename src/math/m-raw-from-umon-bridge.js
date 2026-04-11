@@ -194,6 +194,16 @@ const TAU_EST_NONINCREASING = tauIncreaseViolation === null;
 
 const RHO_MIN_ZETA = rvmDensity(ZETA_ZEROS[0]); // smallest gamma => smallest rho
 
+// ── Analytic lower bound on rho_min (imp-469) ─────────────────────────────────
+// rho(T) = (1/(2*pi)) * log(T/(2*pi)) > 0  iff  T > 2*pi.
+// gamma_1 > 14 is a rigorously-established fact (first zero ~ 14.1347).
+// Therefore rho_min >= rho(14) = (1/(2*pi)) * log(14/(2*pi)) > 0.
+// This bound is ANALYTIC: it uses only the closed-form RvM density and
+// the proven inequality gamma_1 > 14, NOT the numerical ZETA_ZEROS array.
+const GAMMA1_LOWER_BOUND    = 14;  // proven: gamma_1 > 14 (first zero ~ 14.1347)
+const RHO_MIN_ANALYTIC_LB   = Math.log(GAMMA1_LOWER_BOUND / (2 * Math.PI)) / (2 * Math.PI);
+// Numerically: RHO_MIN_ANALYTIC_LB ~ 0.1279 > 0  (analytic, not from zero table)
+
 // ── Closure record ────────────────────────────────────────────────────────────
 
 export const M_RAW_FROM_UMON_BRIDGE = {
@@ -212,6 +222,14 @@ export const M_RAW_FROM_UMON_BRIDGE = {
       'for every k, so the collision time is the same in both coordinate systems.',
     jacobianLowerBound: +RHO_MIN_ZETA.toFixed(6),
     jacobianPositive:   RHO_MIN_ZETA > 0,
+    jacobianAnalyticLowerBound: +RHO_MIN_ANALYTIC_LB.toFixed(6),
+    jacobianAnalyticProof:
+      'rho(T) = (1/(2*pi)) * log(T/(2*pi)) > 0 iff T > 2*pi ~ 6.283. ' +
+      'gamma_1 > 14 is rigorously established (first zero ~ 14.1347). ' +
+      'Therefore rho_min >= rho(14) = (1/(2*pi)) * log(14/(2*pi)) ~ 0.1279 > 0. ' +
+      'This is an ANALYTIC bound independent of the ZETA_ZEROS numerical array: ' +
+      'it uses only the proven inequality gamma_1 > 14 and the closed-form RvM density.',
+    closedByImp469: true,
     exactBridge:        true,
     source:
       'route-a-cm-extension.js: ROUTE_A_CM_EXTENSION.bijectionArgument',
@@ -311,6 +329,15 @@ export const M_RAW_FROM_UMON_BRIDGE_ASSERTIONS = [
       'The leading-order tau_c estimate H_N^2/(8*rho^2) must be non-increasing ' +
       'over N in {2,...,870}.  This validates the leading-order Bridge M argument: ' +
       'UMon gives H non-increasing, rho non-decreasing ensures the ratio is non-increasing.',
+  },
+  {
+    id: 'imp469-rho-min-analytic-lb',
+    holds: () => RHO_MIN_ANALYTIC_LB > 0,
+    why:
+      'imp-469: analytic lower bound rho_min >= (1/(2*pi))*log(14/(2*pi)) must be > 0. ' +
+      'Proof: 14 > 2*pi ~ 6.283, so log(14/(2*pi)) > 0, and 1/(2*pi) > 0. ' +
+      'This is purely analytic and does not depend on the numerical ZETA_ZEROS array. ' +
+      'It upgrades the imp-462 bridge from numerically-sound to fully analytic.',
   },
 ];
 

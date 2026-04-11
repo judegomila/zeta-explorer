@@ -360,6 +360,14 @@ export default function GUEStatisticsViz() {
 
   return (
     <div>
+      <div className="filter-bar">
+        <button className={`filter-btn ${mode === 'spacing' ? 'active' : ''}`}
+          onClick={() => setMode('spacing')}>Spacing Distribution</button>
+        <button className={`filter-btn ${mode === 'pair-correlation' ? 'active' : ''}`}
+          onClick={() => setMode('pair-correlation')}>Pair Correlation R₂</button>
+        <button className={`filter-btn ${mode === 'number-variance' ? 'active' : ''}`}
+          onClick={() => setMode('number-variance')}>Number Variance Σ²</button>
+      </div>
       {mode === 'spacing' && (
         <div className="tab-explainer accent-red">
           <p style={{ margin: '0 0 8px' }}>
@@ -417,14 +425,6 @@ export default function GUEStatisticsViz() {
         </div>
       )}
       <div className="controls">
-        <div className="control-group">
-          <label>Statistic</label>
-          <select value={mode} onChange={e => setMode(e.target.value)}>
-            <option value="spacing">Nearest-Neighbor Spacing</option>
-            <option value="pair-correlation">Pair Correlation R₂</option>
-            <option value="number-variance">Number Variance Σ²</option>
-          </select>
-        </div>
         <div className="control-group">
           <label>Zeros used</label>
           <input type="range" min="10" max="300" step="1" value={numZeros}

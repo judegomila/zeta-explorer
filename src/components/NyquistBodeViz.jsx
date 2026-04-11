@@ -409,6 +409,14 @@ export default function NyquistBodeViz() {
 
   return (
     <div>
+      <div className="filter-bar">
+        <button className={`filter-btn ${mode === 'nyquist' ? 'active' : ''}`}
+          onClick={() => setMode('nyquist')}
+          title="Nyquist plot — traces L(s) = χ(s)·ζ(1−s)/ζ(s) in the complex plane; RH requires zero encirclements of −1 at σ = ½">Nyquist Plot</button>
+        <button className={`filter-btn ${mode === 'bode' ? 'active' : ''}`}
+          onClick={() => setMode('bode')}
+          title="Bode diagram — gain |L(jω)| in dB and phase ∠L(jω) in degrees vs. frequency; gain margin is infinite on the critical line">Bode Diagram</button>
+      </div>
       {mode === 'nyquist' && (
         <div className="tab-explainer accent-blue">
           <p style={{ margin: '0 0 8px' }}>
@@ -435,13 +443,6 @@ export default function NyquistBodeViz() {
         </div>
       )}
       <div className="controls">
-        <div className="control-group">
-          <label>View</label>
-          <select value={mode} onChange={e => setMode(e.target.value)}>
-            <option value="nyquist">Nyquist Plot</option>
-            <option value="bode">Bode Diagram</option>
-          </select>
-        </div>
         <div className="control-group">
           <label style={{ color: sigmaColor, fontWeight: 600 }}><InlineMath tex={"\\sigma = \\operatorname{Re}(s)"} /></label>
           <input type="range" min="0.1" max="0.9" step="0.01" value={sigma}

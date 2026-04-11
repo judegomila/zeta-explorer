@@ -1081,3 +1081,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1198 | 2026-04-10T12:00:00Z | bug: Fix ZetaPhasePortrait missing window resize listener causing stale canvas after resize | ZetaPhasePortrait.jsx |
 | 1199 | 2026-04-10T00:30:00Z | ux: replace ZetaLandscapeViz mode `<select>` with `filter-bar` tab buttons, consistent with GUEStatisticsViz, LiCriterionViz, PrimeGapCouplingViz, and ScatteringMatrixViz | ZetaLandscapeViz.jsx |
 | 1200 | 2026-04-10T14:00:00Z | bug: Fix HamiltonianViz y-axis label 10px below center: `height/2` → `margin.top + h/2` | HamiltonianViz.jsx |
+| 1201 | 2026-04-10T15:00:00Z | ux: replace NyquistBodeViz mode `<select>` with `filter-bar` tab buttons, consistent with ZetaLandscapeViz, GUEStatisticsViz, LiCriterionViz, PrimeGapCouplingViz, and ScatteringMatrixViz | NyquistBodeViz.jsx |

@@ -4995,12 +4995,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Independent cross-verification: rerun barrier extrapolation on the 25-point measured ladder',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'imp-299 delivered the barrier-extrapolation Lambda method giving Lambda ~ 0.011 on the original 5-point baseline. Rerun on the new 25-point measured ladder from imp-353 (N = 1000, 2000, ..., 25000). If the barrier method and the Path C RK4 + interval integrator agree within their error bars at N = 25000, we have independent cross-verification of the central value. If they disagree, surface the delta and root-cause. Deliverable: src/data/barrier-extrapolation-v2.js with the updated curve + comparison table vs dyson-ladder-measured.js rows.',
     rationale: 'Single-method results are suspect. Two independent methods agreeing on the 25-point ladder = strong evidence for the SOTA claim. This is the first of the "after imp-401" independent verification tickets.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-11T13:30:00Z',
   },
   {
     id: 'imp-405',
@@ -5024,6 +5024,63 @@ export const IMPROVEMENT_QUEUE = [
     description: 'imp-374 shipped the 10-row cross-validation table, but that was BEFORE imp-387 closed G6 and before imp-395/397/398/399 pinned the constants. Update lambda-cross-validation.js LAMBDA_CROSS_VALIDATION_TABLE with: the new imp-341 + imp-387 rigorous asymptotic Lambda = 0 entry, the new imp-400 refit central value, the pinned constants from imp-395/397/398/399, the imp-404 barrier cross-verification number (once it lands). Preserve the imp-374 D1 disagreement record. Verify all assertions still pass.',
     rationale: 'The cross-validation table is the single source of truth for "do all the methods agree on Lambda". It must reflect the post-imp-401 state for the SOTA claim to be auditable.',
     estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+
+  // ── Phase 21: remaining research angles + external verification ──
+  // The SOTA capstone (imp-375/401) is asymptotic Lambda = 0 modulo
+  // pinned constants. Phase 21 attacks (a) the independent research
+  // angle from imp-348 angle-b ESY rigidity, (b) Platt-Trudgian
+  // consistency at matched heights as a sanity check, (c) Route A
+  // monotonicity closure with the new 25-point ladder as evidence,
+  // (d) Lean 4 formalization of the 4 pinned constants.
+
+  {
+    id: 'imp-407',
+    title: 'Close imp-348 angle (b): port Erdos-Schlein-Yau local semicircle rigidity to Dyson beta=2 on Riemann zeros',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-348 shipped angle (a) microscopic strip tightening but flagged angle (b) as research-grade open: port the ESY 2011 / Erdos-Yau 2017 local semicircle rigidity estimate from Wigner matrix ensembles to the Dyson beta=2 flow on Riemann zero initial data. This would give psi_N = O(1/N) unconditional instead of the current O(log gamma_N / sqrt(N)), elevating the imp-341 lim-sup bound rate to match the conjectural GUE scale. Deliverable: src/data/esy-rigidity-port.js with the derivation, the constants, and a numerical witness on the 25-point measured ladder showing the improved rate does NOT contradict the observed t_c(N).',
+    rationale: 'This is the second of the two Route B rate-upgrade angles. Closing it gives a stronger lim-sup rate which tightens the E(N) prefactor in the Polymath15 bridge and shrinks the asymptotic error by roughly log N / sqrt(N).',
+    estimatedComplexity: 'research',
+    completedAt: null,
+  },
+  {
+    id: 'imp-408',
+    title: 'Platt-Trudgian 2021 consistency check: does our asymptotic Lambda = 0 recover Lambda <= 0.2 at T = 3e10?',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'Platt-Trudgian 2021 gives the unconditional finite-height bound Lambda <= 0.2 for RH verified up to T = 3e10. Our asymptotic Lambda = 0 claim (imp-401) is in the N -> infinity limit. Sanity check: at the matched height T = 3e10, corresponding to some finite N via imp-327 effectiveHeightForN, does our finite-N bound on |t_c(N)| reproduce (or beat) Platt-Trudgian 0.2? Produce src/data/platt-trudgian-matched-check.js with: (a) compute N corresponding to T = 3e10 via imp-327, (b) project |t_c(N)| at that N using the imp-400 refitted PATH_C_BASELINE_FIT_V2 ansatz, (c) compare to 0.2, (d) report whether the check passes. If the check FAILS, something is wrong with our constants or our claim.',
+    rationale: 'Independent finite-height sanity check. A false positive here would invalidate the whole chain. Required before any external publication.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-409',
+    title: 'Route A closure attempt: re-run imp-336 monotonicity with 25-point measured ladder as empirical evidence',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-336 monotonicity conjecture (|t_c(N+1)| <= |t_c(N)| for all N) was left empirically-unfalsified but analytically open with sub-gaps G1 (imp-368 partial) and G2 (imp-369 tau=0 closure). With the new 25-point measured ladder from imp-353, we have 25 consecutive data points where monotonicity can be empirically verified. Re-run imp-336 with this strengthened empirical base: verify the conjecture holds on every consecutive pair in the new ladder, report the confidence interval, and combine with the imp-368/369 analytical results to either close (M) fully or identify the SINGLE analytical step that remains. Deliverable: src/data/imp-336-post-ladder-update.js.',
+    rationale: 'Route A is an INDEPENDENT closure path for the asymptotic Lambda = 0 result. Having two independent routes (Route A monotonicity + Route B Burgers+bridge) makes the final claim more robust against any single-route flaw.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-410',
+    title: 'Lean 4 formalization of the four pinned Polymath15 constants (C_H, C_T, C_F, C_C)',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-403 shipped a Lean 4 skeleton for the imp-341 Koksma-Hlawka theorem. Extend that skeleton with formal definitions of the four Polymath15 bridge constants pinned in imp-395/397/398/399: C_H = 1/8 (Holder modulus regularization), C_T (truncation), C_F (flow), C_C (collision). Each constant is a real number; each has a derivation that cites a specific prior theorem. Produce lean/LambdaAttack/Constants.lean with the constant definitions and the proofs that they are finite positive real numbers (at minimum). Full derivation is out of scope for this ticket (mathlib would need additions); the goal is the formal interface.',
+    rationale: 'Lean formalization is the gold-standard external verification for a mathematical claim. Constants are the simplest starting point — numerical values with types. This is the natural follow-up to imp-403.',
+    estimatedComplexity: 'research',
     completedAt: null,
   },
 

@@ -198,11 +198,16 @@ function budgetForN(N) {
   // so the collision window is covered. Per-step cost is O(N^2) = 484e6
   // interval ops; 120 steps = 58.08e9 interval ops — ~1.10x more expensive
   // than N = 21000, still feasible at build time.
+  // N = 23000: expected |t_c| ~ 0.00681 (OLS: 0.0066 + 4.91/23000 = 0.00681). With
+  // dt = 0.0001 and 120 steps the total integration time is 0.012 > 0.00681,
+  // so the collision window is covered. Per-step cost is O(N^2) = 529e6
+  // interval ops; 120 steps = 63.48e9 interval ops — ~1.09x more expensive
+  // than N = 22000, still feasible at build time.
   return { dt: 0.0001, nSteps: 120 };
 }
 
 // ── Measured block ──────────────────────────────────────────────────────────
-const MEASURED_NS = [50, 100, 200, 500, 870, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000, 19000, 20000, 21000, 22000];
+const MEASURED_NS = [50, 100, 200, 500, 870, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000, 19000, 20000, 21000, 22000, 23000];
 
 function runMeasured(N) {
   if (ZEROS_EXTENDED.length < N) {
@@ -340,7 +345,7 @@ export const DYSON_LADDER_MEASURED = {
   id: 'imp-360',
   status: 'partial',
   title:
-    'Measured Dyson backward ODE ladder with interval arithmetic (up to N = 22000) ' +
+    'Measured Dyson backward ODE ladder with interval arithmetic (up to N = 23000) ' +
     'plus projected rows beyond',
   consumes: [
     'imp-359 ZEROS_EXTENDED (fallback 870-zero table in src/data/zeros-to-1e6.js)',

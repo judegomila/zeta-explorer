@@ -578,7 +578,7 @@ function LandscapeScan({ sigma, t, numPrimes }) {
 
     // Y-axis label
     ctx.save();
-    ctx.translate(12, h / 2);
+    ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillStyle = '#64748b';
     ctx.font = '10px sans-serif';
@@ -754,7 +754,7 @@ function CompressionExperiment({ sigma, t }) {
 
     // Y-axis labels
     ctx.save();
-    ctx.translate(12, h / 2);
+    ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillStyle = '#64748b';
     ctx.font = '10px sans-serif';

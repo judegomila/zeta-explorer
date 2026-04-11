@@ -4843,6 +4843,49 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
   },
 
+  // ── Phase 18: deep math on the hardest sub-sub-gaps (beyond catalog) ──
+  // Autofill exhausted the catalogued OPEN_GAPS so we descend to the
+  // named sub-sub-gaps enumerated by imp-354 / imp-366 / imp-342 in
+  // their honest-scope blocks. Each of these is the next layer of
+  // mathematical work needed to upgrade a partial closure to full.
+
+  {
+    id: 'imp-394',
+    title: 'Close G6a-sub-hyperbolic: adapt Whitham fold-catastrophe from real Burgers to complex Stieltjes',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-354 / imp-366 left this sub-sub-gap open: the Whitham 1974 Section 2.7 Holder-1/2 shock lemma is stated for real-valued Burgers u: R to R, but the imp-341 Koksma-Hlawka machinery gives the complex Stieltjes transform m_N: C+ to C+ and the shock is a simple critical point of a complex-analytic functional. The adaptation needs a Riemann-Hilbert fold-catastrophe argument that handles the imaginary part of the shock. Required reading: Whitham 1974 Section 2.7, the Tao-Rodgers 2020 Section 3 Riemann-Hilbert adaptation. Concrete deliverable: produce a write-up in src/data/g6a-sub-hyperbolic-closure.js stating whether the Whitham argument carries through verbatim (probably NO), and if not, exactly which step needs a new Lemma. Either ships the full Holder-1/2 for the complex case or narrows the gap to a single named analytic step.',
+    rationale: 'This is the FIRST of the two sub-sub-gaps imp-354 explicitly flagged. Closure upgrades imp-366 from partial to full, which combined with imp-341 lim-sup = 0 gives unconditional E(N) -> 0 hence Lambda = 0 at the Dyson-flow level.',
+    estimatedComplexity: 'research',
+    completedAt: null,
+  },
+  {
+    id: 'imp-395',
+    title: 'Close G6a-sub-constant: pin down numerical value of C_H in the Holder-1/2 modulus',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-354 leading Holder constant C_W = sqrt(2 / |u_0 second-derivative at z_0 star|) is currently symbolic. For the SOTA claim to cite a numerical rate, C_H must be a specific finite number. The missing step: identify z_0 star at the boundary shock y to 0+ for the Riemann-von Mangoldt density rho_infty(gamma) = log(gamma / (2 pi)) / (2 pi), compute u_0 second-derivative at that point, take 2 divided by its absolute value, square root. The subtlety is that the shock forms at y = 0 where the second derivative classically diverges — so the right formulation needs a regularization or a limit statement. Deliverable: src/data/g6a-sub-constant-value.js with either the pinned C_H numerical value OR a proof that the classical fold-catastrophe normalization fails at the boundary shock and a replacement regularization constant.',
+    rationale: 'This is the SECOND of the two sub-sub-gaps imp-354 flagged. Without a numerical C_H, the SOTA Lambda bound inherits a symbolic order-unity factor and cannot quote a definite number.',
+    estimatedComplexity: 'research',
+    completedAt: null,
+  },
+  {
+    id: 'imp-396',
+    title: 'Soundararajan-Bui consecutive-gap bound port for G3a closure',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-342 / imp-355 closed G3b (Weyl tail c_tail ~ 1.290) but left G3a (max gap at the argmin site) open as a numerical envelope. The rigorous route forward cited in imp-355 openWork is the Soundararajan-Bui consecutive-gap bound: for almost every Riemann zero gap, consecutive gaps satisfy gap_k / gap_{k+1} <= C_SB for an explicit C_SB. Deliverable: src/data/soundararajan-bui-gap-bound.js transcribing the Soundararajan-Bui 2011 / Bui-Milinovich-Pratt 2020 bound with the explicit constant, composed with the imp-342 Weyl-tail density-squeeze framework to give a rigorous c(N) > 2 threshold (or honestly state the sub-sub-gap remains if the constant does not reach 2).',
+    rationale: 'Route C (density squeeze) is the only Lambda-attack route that does not need imp-336 monotonicity OR the imp-348 rate upgrade. Closing G3a via Soundararajan-Bui gives a fully independent path to unconditional per-N bound on t_c(N), which combined with the imp-360 measured ladder gives a second route to the SOTA claim.',
+    estimatedComplexity: 'research',
+    completedAt: null,
+  },
+
   // META — auto-improvement engine self-improvement
   // ══════════════════════════════════════════════════════════════
 

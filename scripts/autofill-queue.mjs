@@ -82,12 +82,27 @@ async function loadDagNodes() {
  */
 function candidatesFromGaps(gaps, liveIndex) {
   const livePendingIds = new Set(liveIndex.allPendingIds || []);
+  // Build a set of live pending ticket TITLES so we can dedup against prior
+  // autofill runs that generated tickets with these same titles but fresh
+  // imp-NNN ids. Without this, every subsequent autofill run creates a new
+  // copy of the same gap-closure tickets.
+  const livePendingTitles = new Set();
+  for (const bucket of ['criticalPending', 'highPending', 'mediumPending', 'lowPending', 'metaPending']) {
+    for (const row of liveIndex[bucket] || []) {
+      if (row.title) livePendingTitles.add(row.title);
+    }
+  }
   const out = [];
   for (const g of gaps) {
     if (g.severity === 'closed') continue;
     const nextTickets = g.nextTickets || [];
     // If any nextTicket is already pending, skip.
     if (nextTickets.some((t) => livePendingIds.has(t))) continue;
+    // Check title dedup: a prior autofill run may have already created a
+    // ticket for this gap with the canonical `Close {gap.id} — {gap.label}`
+    // title — do not create a second copy.
+    const canonicalTitle = `Close ${g.id} — ${g.label}`;
+    if (livePendingTitles.has(canonicalTitle)) continue;
     // Otherwise, emit a fresh ticket targeting the gap.
     out.push({
       reason: `open gap ${g.id} (${g.severity})`,
@@ -128,6 +143,13 @@ function candidatesFromDag(dagNodes, liveIndex) {
       .map((n) => n.id),
   );
   const livePendingIds = new Set(liveIndex.allPendingIds || []);
+  // Title dedup against live pending (see candidatesFromGaps).
+  const livePendingTitles = new Set();
+  for (const bucket of ['criticalPending', 'highPending', 'mediumPending', 'lowPending', 'metaPending']) {
+    for (const row of liveIndex[bucket] || []) {
+      if (row.title) livePendingTitles.add(row.title);
+    }
+  }
 
   const frontier = dagNodes.filter((n) => {
     if (n.status !== 'pending') return false;
@@ -136,7 +158,8 @@ function candidatesFromDag(dagNodes, liveIndex) {
 
   const out = [];
   for (const n of frontier) {
-    if (livePendingIds.has(n.id)) continue; // already live
+    if (livePendingIds.has(n.id)) continue; // already live by id
+    if (n.title && livePendingTitles.has(n.title)) continue; // already live by title
     out.push({
       reason: `DAG frontier node (${n.complexity || 'unknown complexity'})`,
       source: `rh-dag.js RH_DAG_NODES[${n.id}]`,

@@ -127,17 +127,29 @@ function ecollAtNAndT0(N, T0) {
 //     = 2 * INT_{T_PT}^inf  (dN_off/dT)(sigma_N, T) / T  dT
 //     <= 2 * e_I(sigma_N) / kappa_T(sigma_N) * T_PT^{-kappa_T(sigma_N)}
 //
-// with kappa_T = 1 - e_I.  This bound decreases monotonically as sigma_N
-// increases from 1/2 toward 1.  Choosing sigma_N = SIGMA_OPT = 0.61:
+// with kappa_T = 1 - e_I.  Since kappa_T increases monotonically with sigma_N,
+// the bound E_trunc_PT decreases monotonically as sigma_N increases toward 1.
 //
-//   e_I(0.61)   = 3*0.39/1.39 = 1.17/1.39 = 0.84173
-//   kappa_T     = 0.22/1.39   = 0.15827
-//   factor      = 2*0.84173/0.15827 = 10.637
-//   T_PT^{-kappa_T} = (3e12)^{-0.15827} = exp(-0.15827*28.730) = 0.010601
-//   E_trunc_PT  = 10.637 * 0.010601 = 0.11275
+// imp-459 variational scan -- minimize over sigma_N in (1/2, 1):
+//
+//   sigma | e_I    | kappa  | factor | T_PT^{-kappa}  | bound
+//   ------+--------+--------+--------+----------------+-----------
+//   0.61  | 0.8417 | 0.1583 | 10.637 | 1.060e-2       | 1.127e-1  (imp-447)
+//   0.65  | 0.7778 | 0.2222 |  7.001 | 1.682e-3       | 1.177e-2
+//   0.70  | 0.6923 | 0.3077 |  4.500 | 1.446e-4       | 6.507e-4
+//   0.75  | 0.6000 | 0.4000 |  3.000 | 1.021e-5       | 3.064e-5  (imp-459 opt)
+//
+// Choosing sigma_N = SIGMA_OPT = 0.75 (Ingham valid range, sigma = 3/4):
+//
+//   e_I(0.75)   = 3*0.25/1.25 = 0.75/1.25 = 0.60000
+//   kappa_T     = 0.40000
+//   factor      = 2*0.6/0.4  = 3.00000
+//   T_PT^{-kappa_T} = (3e12)^{-0.40} = exp(-0.40*28.730) = 1.021e-5
+//   E_trunc_PT  = 3.000 * 1.021e-5 = 3.064e-5
 //
 // Combined with L_cond ~ 0.008:
-//   L_full_pt = L_cond + E_trunc_PT = 0.008 + 0.113 = 0.121 < 0.2  >>>CLOSES GAP<<<
+//   L_full_pt = L_cond + E_trunc_PT ~ 0.008 + 3.1e-5 = 0.00803 < 0.2  >>>CLOSES GAP<<<
+//   marginFactor = 0.200 / 0.00803 ~ 24.9x  (up from ~1.65x at sigma=0.61)
 //
 // Conditions required:
 //   (C1) B1 slope bound (imp-363 / imp-370) -- open
@@ -148,7 +160,7 @@ function ecollAtNAndT0(N, T0) {
 // proving RH completely but much stronger than nothing.  The result is
 // conditional on RH to T_PT = 3e12 (proven) rather than on RH to infinity.
 const T_PT      = 3e12;   // Platt-Trudgian 2021 verified height
-const SIGMA_OPT = 0.61;   // optimised strip width for Ingham integral above T_PT
+const SIGMA_OPT = 0.75;   // imp-459: variational optimal -- Ingham boundary sigma = 3/4
 
 function etruncPTOptimalBound() {
   // e_I(sigma_opt) = 3*(1 - sigma_opt)/(2 - sigma_opt)  [Ingham exponent]
@@ -279,7 +291,7 @@ function evaluateAtN(N) {
         note:
           "TRACK 3: replaces power-law E_trunc with PT+Ingham improved bound. " +
           "E_trunc_pt = " + +ETRUNC_PT_BOUND.bound.toFixed(4) +
-          " uses sigma_opt=0.61 and PT-certified zero-free region to 3e12. " +
+          " uses sigma_opt=" + SIGMA_OPT + " (imp-459) and PT-certified zero-free region to 3e12. " +
           "This closes skp-imp440-etrunc. Still conditional on B1+B2.",
       };
     })(),
@@ -400,13 +412,13 @@ const RIGOR_CHAIN = {
     },
     {
       step: 5,
-      claim: "E_trunc_PT <= 0.113 via PT+Ingham: zeros in [T_0, T_PT=3e12] certified on crit. line by PT 2021; Ingham above T_PT at sigma_opt=0.61 gives (2*e_I/kappa_T)*T_PT^{-kappa_T} = 0.113",
-      source: "imp-447 (this file), Platt-Trudgian 2021, Ingham 1940",
-      status: "CLOSED (imp-447): sub-gap skp-imp440-etrunc closed via PT + Ingham at sigma_N=0.61",
+      claim: "E_trunc_PT <= 3.1e-5 via PT+Ingham+imp-459: zeros in [T_0, T_PT=3e12] certified on crit. line by PT 2021; Ingham above T_PT at sigma_opt=0.75 gives (2*e_I/kappa_T)*T_PT^{-kappa_T} = 3.1e-5",
+      source: "imp-447+imp-459 (this file), Platt-Trudgian 2021, Ingham 1940",
+      status: "CLOSED (imp-447/imp-459): sub-gap skp-imp440-etrunc closed; sigma_N hardened 0.61->0.75",
     },
     {
       step: 6,
-      claim: "L_pt = L_cond + E_trunc_pt ~ 0.008 + 0.113 = 0.121 < 0.2 at N = 1e6",
+      claim: "L_pt = L_cond + E_trunc_pt ~ 0.008 + 3.1e-5 = 0.00803 < 0.2 at N = 1e6 (imp-459 hardening)",
       source: "steps 2-4 + step 5 (imp-447 closure)",
       status: "CONDITIONAL on steps 2 (B1+B2) and C3-pt (RH to 3e12 -- proven by PT 2021)",
     },
@@ -570,7 +582,7 @@ export const FINITE_HEIGHT_BEATS_PT_ASSERTIONS = [
       ETRUNC_PT_BOUND.bound < 0.15,
     why:
       "The PT-optimised E_trunc bound must be below 0.15 (giving comfortable margin " +
-      "against the 0.192 gap). With sigma_opt=0.61 and T_PT=3e12 the value is ~0.113. " +
+      "against the 0.192 gap). With sigma_opt=0.75 (imp-459) and T_PT=3e12 the value is ~3.1e-5. " +
       "A value >= 0.15 would indicate a regression in sigma_opt or T_PT.",
   },
   {

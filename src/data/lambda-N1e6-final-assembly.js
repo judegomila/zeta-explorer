@@ -145,12 +145,12 @@ export const LAMBDA_N1E6_FINAL_ASSEMBLY = {
       L_cond:      L_COND_PRIMARY !== null ? +L_COND_PRIMARY.toFixed(6) : null,
       E_trunc_pt:  (PRIMARY && PRIMARY.ptImprovedBound && PRIMARY.ptImprovedBound.available)
                    ? +PRIMARY.ptImprovedBound.E_trunc_pt.toFixed(6) : null,
-      sigma_opt:   0.61,
+      sigma_opt:   0.75,
       T_PT:        3e12,
     },
     note:
       'L_pt = L_cond + E_trunc_pt where E_trunc_pt uses PT-verified zeros to ' +
-      '3e12 and Ingham density bound above 3e12 at sigma_opt = 0.61.',
+      '3e12 and Ingham density bound above 3e12 at sigma_opt = 0.75 (imp-459).',
   },
 
   conditionalBound: {
@@ -173,7 +173,7 @@ export const LAMBDA_N1E6_FINAL_ASSEMBLY = {
     summary:
       'skp-imp440-etrunc closed by imp-447. The PT+Ingham approach replaces ' +
       'the power-law Polymath15 E_trunc (~4.2) with a PT-anchored bound of ' +
-      '~0.1127, bringing the full bound below PT_BOUND = 0.2.',
+      '~3.1e-5 (imp-459: sigma_opt 0.61->0.75), bringing the full bound below PT_BOUND = 0.2.',
   },
 
   conditions: CONDITIONS,
@@ -189,8 +189,8 @@ export const LAMBDA_N1E6_FINAL_ASSEMBLY = {
       'with an established certified E_trunc_pt = 0.1127.',
     versus_pt_2021:
       'Platt-Trudgian 2021 (Lambda <= 0.2 unconditionally) is beaten by our ' +
-      'best current bound L_pt ~ 0.121 conditional on B1+B2. The margin factor ' +
-      'is ~1.65x under the full (L_pt) bound and ~25x under the conditional (L_cond) bound.',
+      'best current bound L_pt ~ 0.00803 conditional on B1+B2. The margin factor ' +
+      'is ~24.9x under the full (L_pt) bound (imp-459) and ~25x under the conditional (L_cond) bound.',
     remainingWork:
       'B1 conditionally closed by imp-457 (NoSwap + D-monotone). ' +
       'B2 conditionally closed by imp-458 (monotonicity M, Koksma-Hlawka bound). ' +

@@ -1073,3 +1073,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1190 | 2026-04-10T23:45:00Z | ux: replace GUEStatisticsViz mode `<select>` with `filter-bar` tab buttons, consistent with FourierDomainViz and TwinOscillatorSimViz | GUEStatisticsViz.jsx |
 | 1191 | 2026-04-10T23:59:00Z | ux: replace LiCriterionViz mode `<select>` with `filter-bar` tab buttons, consistent with GUEStatisticsViz (imp-1190), FourierDomainViz, and TwinOscillatorSimViz | LiCriterionViz.jsx |
 | 1192 | 2026-04-10T00:15:00Z | ux: replace PrimeGapCouplingViz mode `<select>` with `filter-bar` tab buttons, consistent with GUEStatisticsViz (imp-1190) and LiCriterionViz (imp-1191) | PrimeGapCouplingViz.jsx |
+| 1193 | 2026-04-10T00:45:00Z | bug: Fix ExplicitFormulaViz y-axis label 10px below center: `height/2` → `margin.top + h/2` | ExplicitFormulaViz.jsx |

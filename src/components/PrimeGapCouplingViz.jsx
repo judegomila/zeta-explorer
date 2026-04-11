@@ -281,6 +281,14 @@ export default function PrimeGapCouplingViz() {
 
   return (
     <div>
+      <div className="filter-bar">
+        <button className={`filter-btn ${mode === 'coupling' ? 'active' : ''}`}
+          onClick={() => setMode('coupling')}>Coupling Strength</button>
+        <button className={`filter-btn ${mode === 'gap' ? 'active' : ''}`}
+          onClick={() => setMode('gap')}>Prime Gaps</button>
+        <button className={`filter-btn ${mode === 'frequency' ? 'active' : ''}`}
+          onClick={() => setMode('frequency')}>Phase Rates</button>
+      </div>
       {mode === 'coupling' && (
         <div className="tab-explainer accent-red">
           <p style={{ margin: '0 0 8px' }}>
@@ -316,14 +324,6 @@ export default function PrimeGapCouplingViz() {
         </div>
       )}
       <div className="controls">
-        <div className="control-group">
-          <label>View</label>
-          <select value={mode} onChange={e => setMode(e.target.value)}>
-            <option value="coupling">Coupling Strength</option>
-            <option value="gap">Prime Gaps</option>
-            <option value="frequency">Phase Rates</option>
-          </select>
-        </div>
         <div className="control-group">
           <label>Number of primes</label>
           <input type="range" min="10" max="200" step="1" value={numPrimes}

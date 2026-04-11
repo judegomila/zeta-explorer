@@ -137,7 +137,7 @@ function FisherTwistorTab({ t, numPrimes }) {
 
     // Left Y-axis label (Fisher)
     ctx.save();
-    ctx.translate(12, h / 2);
+    ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillStyle = '#3b82f6';
     ctx.font = '10px sans-serif';
@@ -147,7 +147,7 @@ function FisherTwistorTab({ t, numPrimes }) {
 
     // Right Y-axis label (Twistor)
     ctx.save();
-    ctx.translate(w - 8, h / 2);
+    ctx.translate(w - 8, margin.top + plotH / 2);
     ctx.rotate(Math.PI / 2);
     ctx.fillStyle = '#eab308';
     ctx.font = '10px sans-serif';
@@ -614,7 +614,7 @@ function PhaseBarriersTab({ t, numPrimes }) {
 
     // Left Y-axis label
     ctx.save();
-    ctx.translate(12, h / 2);
+    ctx.translate(12, margin.top + plotH / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillStyle = '#f59e0b';
     ctx.font = '10px sans-serif';
@@ -624,7 +624,7 @@ function PhaseBarriersTab({ t, numPrimes }) {
 
     // Right Y-axis label
     ctx.save();
-    ctx.translate(w - 8, h / 2);
+    ctx.translate(w - 8, margin.top + plotH / 2);
     ctx.rotate(Math.PI / 2);
     ctx.fillStyle = '#ef4444';
     ctx.font = '10px sans-serif';

@@ -4882,12 +4882,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Soundararajan-Bui consecutive-gap bound port for G3a closure',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'imp-342 / imp-355 closed G3b (Weyl tail c_tail ~ 1.290) but left G3a (max gap at the argmin site) open as a numerical envelope. The rigorous route forward cited in imp-355 openWork is the Soundararajan-Bui consecutive-gap bound: for almost every Riemann zero gap, consecutive gaps satisfy gap_k / gap_{k+1} <= C_SB for an explicit C_SB. Deliverable: src/data/soundararajan-bui-gap-bound.js transcribing the Soundararajan-Bui 2011 / Bui-Milinovich-Pratt 2020 bound with the explicit constant, composed with the imp-342 Weyl-tail density-squeeze framework to give a rigorous c(N) > 2 threshold (or honestly state the sub-sub-gap remains if the constant does not reach 2).',
     rationale: 'Route C (density squeeze) is the only Lambda-attack route that does not need imp-336 monotonicity OR the imp-348 rate upgrade. Closing G3a via Soundararajan-Bui gives a fully independent path to unconditional per-N bound on t_c(N), which combined with the imp-360 measured ladder gives a second route to the SOTA claim.',
     estimatedComplexity: 'research',
-    completedAt: null,
+    completedAt: '2026-04-11T11:30:00Z',
+    completionNote: 'PARTIAL CLOSURE of G3a_sub_sound. Delivered src/data/soundararajan-bui-gap-bound.js porting the Bui-Soundararajan (2011) / Bui-Milinovich-Pratt (2020) consecutive-gap ratio bound. Threshold analysis: c_total > 2 requires C_SB <= 1.251; known bounds give C_SB_RH ≈ 2.51 (under RH) and C_SB_UNCO ≈ 4.0 (unconditional), both above threshold. G3a not closed. Two new sub-sub-gaps named: G3a_sub_ratio_unconditional (need C_SB <= 1.251) and G3a_sub_argmin_exceptional (argmin sites are density-0 exceptional events for the density-1 S-B bound). Framework and tripwire assertions in place.',
   },
 
   // ── Phase 19: pin the Polymath15 bridge symbolic constants ──

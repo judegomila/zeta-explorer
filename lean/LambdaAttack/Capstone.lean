@@ -1,10 +1,14 @@
 -- lean/LambdaAttack/Capstone.lean
 -- imp-421: Lean 4 CAPSTONE theorem -- deBruijnNewmann = 0
+-- imp-448: Deduplication fix — axioms deBruijnNewmann and dysonCollTime now
+--          imported from BridgeTheorem (which imports Foundation.lean) rather than
+--          redeclared here, resolving skp-imp441-axiom-dup. Also replaces the local
+--          G6BridgeTheorem axiom with the imported G6_bridge_closed theorem.
 --
 -- Composes three independently-established results:
 --   (1) Rodgers-Tao 2020:  Lambda >= 0                 [axiom, arXiv:1801.05778]
 --   (2) imp-341 / imp-403: |t_c(N)| -> 0               [KoksmaHlawkaLimSup, sorry]
---   (3) imp-387 / imp-412: -t_c(N) -> deBruijnNewmann   [G6BridgeTheorem, sorry]
+--   (3) imp-387 / imp-412: -t_c(N) -> deBruijnNewmann   [G6_bridge_closed, sorry]
 --
 -- Composition (fully formal):
 --   From (2): -t_c(N) -> 0  (squeeze_zero_norm + Tendsto.neg)
@@ -16,17 +20,19 @@
 --   KoksmaHlawkaLimSup        : axiom, sorry in src/math/lean4-koksma-hlawka.js
 --                               (imp-403-sorry-1: Selberg S(T) in Lean;
 --                                imp-403-sorry-3: Whitham fold Holder-1/2 modulus)
---   G6BridgeTheorem           : axiom, sorry in lean/LambdaAttack/BridgeTheorem.lean
+--   G6_bridge_closed          : sorry in lean/LambdaAttack/BridgeTheorem.lean
+--                               (replaces G6BridgeTheorem axiom; imp-448 SOFT fix)
 --                               (imp-412-sorry-1: Polymath15 Lemmas 3.3 + 4.1;
 --                                imp-412-sorry-2: RvM gamma_N asymptotics in Lean;
 --                                imp-412-sorry-3: G6_bridge_closed assembly)
 --   neg_collTime_tendsto_zero : sorry (elaboration pending; proof sketch below)
 --   asymptotic_lambda_eq_zero : FORMAL via tendsto_nhds_unique composition
 --
--- In a Lake project replace the axiom block below with:
---   import LambdaAttack.BridgeTheorem
+-- Lake project imports (imp-448 fix, replaces inline axiom block):
+import LambdaAttack.BridgeTheorem
 -- Companion files:
---   src/math/lean4-koksma-hlawka.js   (imp-403: KH lim-sup skeleton)
+--   lean/LambdaAttack/Foundation.lean    (imp-448: canonical axioms)
+--   src/math/lean4-koksma-hlawka.js      (imp-403: KH lim-sup skeleton)
 --   lean/LambdaAttack/BridgeTheorem.lean (imp-412: G6 bridge theorem)
 --   lean/LambdaAttack/Constants.lean     (imp-410: bridge constants)
 -- Requires: Mathlib 4.9+
@@ -40,23 +46,10 @@ open Real Filter Topology
 
 noncomputable section
 
-/-! ## Core objects (inlined for standalone use)
-
-    In a Lake project with `import LambdaAttack.BridgeTheorem`, the axioms
-    deBruijnNewmann and dysonCollTime are imported from that file. -/
-
-/-- The de Bruijn-Newman constant Lambda in [0, 0.2].
-    Defined as inf { t : all zeros of H_t lie on the real axis }.
-    Equivalent to RH: Lambda = 0 iff all non-trivial zeros of zeta
-    lie on the critical line Re(s) = 1/2. -/
-axiom deBruijnNewmann : ℝ
-
-/-- The N-particle Dyson backward collision time t_c(N) <= 0.
-    First negative time at which the Calogero-Moser flow on
-    {gamma_1, ..., gamma_N} has min-gap g_min(t) -> 0 (particle collision).
-    Equal to Lambda(H_t^{(N)}), the de Bruijn-Newman constant of the
-    finite truncation. Key result from imp-341: |t_c(N)| -> 0. -/
-axiom dysonCollTime (N : ℕ) : ℝ
+-- imp-448: deBruijnNewmann and dysonCollTime are now imported from
+-- LambdaAttack.Foundation (via LambdaAttack.BridgeTheorem above).
+-- The inline axiom declarations that previously appeared here have been
+-- removed to resolve skp-imp441-axiom-dup.
 
 /-! ## The three composition inputs -/
 
@@ -79,7 +72,7 @@ axiom rodgers_tao_nonneg : (0 : ℝ) <= deBruijnNewmann
 axiom KoksmaHlawkaLimSup :
     Tendsto (fun N : ℕ => |dysonCollTime N|) atTop (nhds 0)
 
-/-- (3) imp-387 / imp-412 G6BridgeTheorem: -t_c(N) -> deBruijnNewmann.
+/-- (3) imp-387 / imp-412 G6_bridge_closed: -t_c(N) -> deBruijnNewmann.
     The Polymath15 G6 bridge: the negated collision time converges to Lambda.
     Assembled from:
       bridge_theorem (imp-412): |Lambda - (-t_c(N))| <= E(N)  [E(N) three-term bound]
@@ -89,12 +82,14 @@ axiom KoksmaHlawkaLimSup :
       E_trunc(N) = C_T(gamma_N) * gamma_N^(-kappa_T) * log(gamma_N)
       E_flow(N)  = C_F(gamma_N) * log(gamma_N)/gamma_N * exp(C_G * |t_c(N)|)
       E_coll(N)  = C_C * sqrt(log(gamma_N) / N)  [dominant at rate O((log N/N)^{1/2})]
+    imp-448 SOFT fix: previously declared here as axiom G6BridgeTheorem; now
+    imported as the (sorry'd) theorem G6_bridge_closed from BridgeTheorem.lean.
     Status: SORRY in lean/LambdaAttack/BridgeTheorem.lean --
       imp-412-sorry-1: Polymath15 Lemmas 3.3 and 4.1 composition;
       imp-412-sorry-2: RvM asymptotics gamma_N ~ 2*pi*N / log N not yet in Lean;
       imp-412-sorry-3: G6_bridge_closed assembly from sorry-1 and sorry-2. -/
-axiom G6BridgeTheorem :
-    Tendsto (fun N : ℕ => -dysonCollTime N) atTop (nhds deBruijnNewmann)
+-- G6_bridge_closed is imported from LambdaAttack.BridgeTheorem (imp-448 fix).
+-- Type: Tendsto (fun N : ℕ => -dysonCollTime N) atTop (nhds deBruijnNewmann)
 
 /-! ## Intermediate: -t_c(N) -> 0 from KoksmaHlawkaLimSup -/
 
@@ -132,7 +127,7 @@ lemma neg_collTime_tendsto_zero :
     Note: rodgers_tao_nonneg (Lambda >= 0) confirms this conclusion is non-trivial
     (it rules out Lambda < 0); the main proof path uses only the two Tendsto facts. -/
 theorem asymptotic_lambda_eq_zero : deBruijnNewmann = 0 :=
-  tendsto_nhds_unique G6BridgeTheorem neg_collTime_tendsto_zero
+  tendsto_nhds_unique G6_bridge_closed neg_collTime_tendsto_zero
 
 end
 
@@ -153,8 +148,10 @@ end
                   imp-403-sorry-3 (Whitham fold Holder-1/2 modulus)
        Companion: src/math/lean4-koksma-hlawka.js
 
-    3. G6BridgeTheorem (imp-421-axiom-3, from imp-412)
+    3. G6_bridge_closed (imp-421-axiom-3, from imp-412; imp-448 SOFT fix)
        Statement: Tendsto (-t_c(N)) atTop (nhds deBruijnNewmann)
+       Previously: axiom G6BridgeTheorem in this file.
+       Now: imported sorry'd theorem from lean/LambdaAttack/BridgeTheorem.lean.
        Relies on: imp-412-sorry-1 (Polymath15 Lemmas 3.3 + 4.1)
                   imp-412-sorry-2 (RvM gamma_N asymptotics in Lean)
                   imp-412-sorry-3 (G6_bridge_closed assembly)

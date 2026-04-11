@@ -12,17 +12,16 @@
 -- STATIC INCOMPATIBILITY REPORT (imp-441, 2026-04-11)
 -- ─────────────────────────────────────────────────────────────────────────
 --
--- INCOMPATIBILITY 1 (BLOCKING) — duplicate axiom deBruijnNewmann
---   Both BridgeTheorem.lean and Capstone.lean declare:
+-- INCOMPATIBILITY 1 (RESOLVED by imp-448) — duplicate axiom deBruijnNewmann
+--   FIXED: Both BridgeTheorem.lean and Capstone.lean previously declared:
 --     axiom deBruijnNewmann : ℝ
---   A simultaneous `import LambdaAttack.BridgeTheorem` +
---   `import LambdaAttack.Capstone` would produce a duplicate-declaration
---   elaboration error in Lake.
+--   Now: single canonical declaration in Foundation.lean; both modules import it.
+--   BridgeTheorem imports Foundation directly; Capstone imports BridgeTheorem.
 --
--- INCOMPATIBILITY 2 (BLOCKING) — duplicate axiom dysonCollTime
---   Both BridgeTheorem.lean and Capstone.lean declare:
+-- INCOMPATIBILITY 2 (RESOLVED by imp-448) — duplicate axiom dysonCollTime
+--   FIXED: Both BridgeTheorem.lean and Capstone.lean previously declared:
 --     axiom dysonCollTime (N : ℕ) : ℝ
---   Same duplicate-declaration failure as INCOMPATIBILITY 1.
+--   Now: single canonical declaration in Foundation.lean (same fix as above).
 --
 -- INCOMPATIBILITY 3 (SOFT) — constant naming mismatch
 --   Constants.lean  : C_H, C_KH, C_C, C_T, C_F
@@ -31,11 +30,10 @@
 --   A composition that imports both files cannot unify BC_C with C_C
 --   without an explicit alias or refactor.
 --
--- INCOMPATIBILITY 4 (SOFT) — bridge theorem name mismatch
---   Capstone.lean axiom : G6BridgeTheorem (type: Tendsto (-t_c N) atTop (nhds Lambda))
---   BridgeTheorem.lean  : G6_bridge_closed (same type, but sorry'd theorem)
---   Capstone.lean should reference G6_bridge_closed directly once imported,
---   replacing the axiom with the (sorry'd) imported theorem.
+-- INCOMPATIBILITY 4 (RESOLVED by imp-448 SOFT fix) — bridge theorem name mismatch
+--   FIXED: Capstone.lean previously had axiom G6BridgeTheorem; now references
+--   G6_bridge_closed (the sorry'd theorem from BridgeTheorem.lean) directly.
+--   asymptotic_lambda_eq_zero now calls tendsto_nhds_unique G6_bridge_closed ...
 --
 -- TYPE-COMPATIBILITY CHECK: PASS (see proof below)
 --   The core composition in asymptotic_lambda_eq_zero is well-typed:
@@ -44,24 +42,28 @@
 --   Both are Tendsto over the same f = (fun N => -dysonCollTime N) and
 --   the same filter atTop. tendsto_nhds_unique applies in T2 space ℝ.
 --
--- FIX PLAN (sub-gap: skp-imp441-axiom-dup)
---   (a) Move axioms deBruijnNewmann and dysonCollTime to Constants.lean.
---   (b) Have BridgeTheorem.lean use `import LambdaAttack.Constants`.
---   (c) Have Capstone.lean use `import LambdaAttack.BridgeTheorem`
---       (which re-exports Constants transitively).
---   (d) Replace axiom G6BridgeTheorem in Capstone.lean with the imported
---       G6_bridge_closed from BridgeTheorem.lean.
---   (e) Unify constant naming: deprecate BC_ prefix in BridgeTheorem.lean,
---       import C_ constants from Constants.lean instead.
---   (f) Add lean/lakefile.lean declaring Mathlib dependency.
+-- FIX PLAN (sub-gap: skp-imp441-axiom-dup) — STATUS: APPLIED (imp-448)
+--   (a) DONE: Created Foundation.lean with canonical deBruijnNewmann, dysonCollTime,
+--       gammaOrdinate, BRIDGE_kappa_T, BRIDGE_C_G axioms.
+--   (b) DONE: BridgeTheorem.lean now imports LambdaAttack.Foundation; duplicate
+--       axioms removed from BridgeTheorem.lean.
+--   (c) DONE: Capstone.lean now imports LambdaAttack.BridgeTheorem (transitively
+--       gets Foundation); duplicate axioms removed from Capstone.lean.
+--   (d) DONE: G6BridgeTheorem axiom in Capstone.lean replaced with reference to
+--       G6_bridge_closed imported from BridgeTheorem.lean.
+--   (e) PENDING: BC_ vs C_ constant naming unification (follow-up ticket).
+--       BridgeTheorem.lean still uses BC_ prefix; Constants.lean uses C_ prefix.
+--   (f) PENDING: lean/lakefile.lean declaring Mathlib dependency.
 -- ─────────────────────────────────────────────────────────────────────────
 
--- In a corrected Lake project the imports would be:
+-- In a Lake project the imports would be:
+--   import LambdaAttack.Foundation
 --   import LambdaAttack.Constants
 --   import LambdaAttack.BridgeTheorem
 --   import LambdaAttack.Capstone
--- Currently blocked by INCOMPATIBILITY 1 and 2 (axiom duplication).
--- This standalone section verifies type compatibility without imports.
+-- INCOMPATIBILITY 1 and 2 (axiom duplication) RESOLVED by imp-448 (Foundation.lean).
+-- Remaining blocker: lakefile.lean + BC_ vs C_ naming unification.
+-- This standalone section verifies type compatibility without cross-module imports.
 
 import Mathlib.Topology.Algebra.Order.LiminfLimsup
 import Mathlib.Tactic
@@ -112,9 +114,10 @@ theorem squeeze_type_check (f g : ℕ -> ℝ)
 
 end
 
-/-! ## imp-441 closure note
+/-! ## imp-441 + imp-448 closure note
 
-    STATUS: PARTIAL CLOSURE (static analysis complete; lake build pending)
+    STATUS: imp-441 PARTIAL (static analysis + type check complete; lake build pending)
+            imp-448 APPLIED (skp-imp441-axiom-dup resolved; BC_ naming pending)
 
     TYPE COMPATIBILITY: CONFIRMED
       The three composition steps in Capstone.lean are well-typed:
@@ -124,13 +127,13 @@ end
       All three are verified as composition_type_check, squeeze_type_check,
       and the neg step in this file.
 
-    NAMED SUB-GAP: skp-imp441-axiom-dup
-      Both BridgeTheorem.lean and Capstone.lean declare deBruijnNewmann and
-      dysonCollTime as independent axioms. A simultaneous Lake import fails
-      with a duplicate-declaration elaboration error.
-      Fix: move shared axioms to Constants.lean and import from there (see FIX PLAN).
+    NAMED SUB-GAP RESOLVED: skp-imp441-axiom-dup (closed by imp-448)
+      Foundation.lean is now the canonical source for deBruijnNewmann, dysonCollTime,
+      gammaOrdinate, BRIDGE_kappa_T, and BRIDGE_C_G. BridgeTheorem.lean and
+      Capstone.lean import these rather than redeclaring them. G6BridgeTheorem
+      axiom in Capstone replaced with G6_bridge_closed from BridgeTheorem.
 
-    REMAINING WORK:
-      (a) Apply FIX PLAN steps (a)-(f) above to resolve axiom duplication.
+    REMAINING WORK (lake build):
+      (a) Unify BC_ vs C_ constant naming (BridgeTheorem.lean -> Constants.lean).
       (b) Create lean/lakefile.lean declaring Mathlib dependency.
       (c) Run `lake build LambdaAttack.CompositionCheck` to confirm zero errors.     -/

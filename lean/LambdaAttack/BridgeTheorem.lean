@@ -1,5 +1,8 @@
 -- lean/LambdaAttack/BridgeTheorem.lean
 -- imp-412: Lean 4 formalization of the G6 Polymath15 bridge theorem (imp-387).
+-- imp-448: Deduplication fix — axioms deBruijnNewmann, dysonCollTime, gammaOrdinate,
+--          BRIDGE_kappa_T, BRIDGE_C_G now imported from Foundation.lean rather than
+--          redeclared here, resolving skp-imp441-axiom-dup.
 --
 -- Main result (bridge_theorem):
 --   |Lambda - (-t_c(N))| <= E(N)
@@ -16,16 +19,21 @@
 -- Combined with imp-341 limsup |t_c(N)| = 0, this gives Lambda = 0 (RH).
 --
 -- Status:
---   Constant definitions  : formal (duplicated from Constants.lean, imp-410)
+--   Constant definitions  : formal (BC_ defs local; C_ defs in Constants.lean)
+--   Core axioms           : imported from Foundation.lean (imp-448 fix)
 --   Error term definitions: formal
 --   errorColl_nonneg      : fully formal (positivity)
 --   bridge_theorem        : sorry (requires Polymath15 Lemmas 3.3 + 4.1)
 --   rate_tendsto_zero     : sorry (requires RvM growth gamma_N ~ 2*pi*N/log N)
 --   G6_bridge_closed      : sorry (assembles bridge_theorem + rate_tendsto_zero)
 --
--- In a Lake project: `import LambdaAttack.Constants` replaces the constant
--- definitions below. Here they are duplicated for standalone use.
+-- In a Lake project: `import LambdaAttack.Foundation` (already present below)
+--   provides deBruijnNewmann, dysonCollTime, gammaOrdinate, BRIDGE_kappa_T, BRIDGE_C_G.
+--   `import LambdaAttack.Constants` provides C_H, C_KH, C_C, C_T, C_F.
+--   The local BC_ definitions below duplicate Constants.lean; a follow-up ticket
+--   will unify the naming convention (BC_ -> C_).
 --
+-- Companion: lean/LambdaAttack/Foundation.lean    (imp-448, canonical axioms)
 -- Companion: lean/LambdaAttack/Constants.lean     (imp-410, bridge constants)
 -- Companion: src/data/lambda-polymath15-bridge.js (imp-345, E(N) scaffold)
 -- Companion: src/math/lean4-koksma-hlawka.js      (imp-403, KH limsup skeleton)
@@ -37,6 +45,8 @@ import Mathlib.Analysis.SpecialFunctions.Sqrt
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Topology.Algebra.Order.LiminfLimsup
 import Mathlib.Tactic
+-- imp-448: import canonical axioms from Foundation (resolves skp-imp441-axiom-dup)
+import LambdaAttack.Foundation
 
 open Real Filter Topology
 
@@ -80,44 +90,9 @@ lemma BC_T_pos {T0 : ℝ} (hT0 : Real.exp 2 ≤ T0) : 0 < BC_T T0 := by
 noncomputable def BC_F (T0 : ℝ) : ℝ :=
   (Real.log (T0 / (2 * Real.pi)) + 1) / (2 * Real.pi)
 
-/-! ## Guth-Maynard/Ingham exponent and Gronwall constant (axiomatized) -/
-
-/-- kappa_T > 0: hybrid Guth-Maynard/Ingham decay exponent for E_trunc (imp-317).
-    Equals 1 minus the binding zero-density exponent at the thin strip
-    sigma = 1/2 + 1/log T0. At the Polymath15 baseline the Ingham exponent
-    is approximately 0.818, giving kappa_T ~= 0.182 > 0. -/
-axiom BRIDGE_kappa_T : ℝ
-axiom BRIDGE_kappa_T_pos : (0 : ℝ) < BRIDGE_kappa_T
-
-/-- C_G > 0: Gronwall rate constant for the Calogero-Moser drift tail bound.
-    Controls the amplification factor exp(C_G * |t_c(N)|) in E_flow (imp-345). -/
-axiom BRIDGE_C_G : ℝ
-axiom BRIDGE_C_G_pos : (0 : ℝ) < BRIDGE_C_G
-
-/-! ## Core mathematical objects (axiomatized) -/
-
-/-- The de Bruijn-Newman constant Lambda in [0, 1/2].
-    Rodgers-Tao 2019: 0 <= Lambda.  Platt-Trudgian 2021: Lambda <= 0.2.
-    Equivalent to RH: Lambda = 0 if and only if RH holds.
-    Defined as inf { t in R : all zeros of H_t lie on the real axis }. -/
-axiom deBruijnNewmann : ℝ
-
-/-- The N-th Riemann zero ordinate gamma_N > 0.
-    Ordered: 0 < gamma_1 < gamma_2 < ... (verified unconditionally up to
-    height T_0 = 3 * 10^12 by Platt-Trudgian 2021).
-    Riemann-von Mangoldt asymptotics: gamma_N ~ 2*pi*N / log N. -/
-axiom gammaOrdinate (N : ℕ) : ℝ
-axiom gammaOrdinate_pos (N : ℕ) : (0 : ℝ) < gammaOrdinate N
-
-/-- gamma_N >= exp(2) for all N >= 1. Ensures BC_T(gamma_N) > 0. -/
-axiom gammaOrdinate_ge_exp2 (N : ℕ) (hN : 1 ≤ N) : Real.exp 2 ≤ gammaOrdinate N
-
-/-- The N-particle Dyson backward collision time t_c(N) <= 0.
-    First negative time at which the Calogero-Moser flow on {gamma_1,...,gamma_N}
-    has a collision (min gap g_min -> 0). Equals Lambda(H_t^{(N)}).
-    Key result from imp-341: limsup_{N to inf} |t_c(N)| = 0 unconditionally. -/
-axiom dysonCollTime (N : ℕ) : ℝ
-axiom dysonCollTime_nonpos (N : ℕ) : dysonCollTime N ≤ 0
+-- imp-448: deBruijnNewmann, dysonCollTime, gammaOrdinate, BRIDGE_kappa_T, BRIDGE_C_G
+-- are now imported from LambdaAttack.Foundation (canonical, non-duplicated).
+-- Previously redeclared here as axioms; removed to resolve skp-imp441-axiom-dup.
 
 /-! ## Three-term error decomposition (imp-345) -/
 

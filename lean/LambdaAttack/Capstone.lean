@@ -108,11 +108,14 @@ axiom G6BridgeTheorem :
       Step 3. neg_zero: (-0 : R) = 0, so the limit is 0. -/
 lemma neg_collTime_tendsto_zero :
     Tendsto (fun N : ℕ => -dysonCollTime N) atTop (nhds 0) := by
-  sorry
-  -- Lean 4 skeleton (pending elaboration):
-  --   have h : Tendsto (fun N : ℕ => dysonCollTime N) atTop (nhds 0) :=
-  --     squeeze_zero_norm (fun N => le_refl _) KoksmaHlawkaLimSup
-  --   simpa [neg_zero] using h.neg
+  -- Step 1: |t_c(N)| -> 0 implies t_c(N) -> 0 via squeeze_zero_norm.
+  -- KoksmaHlawkaLimSup : Tendsto (fun N => |dysonCollTime N|) atTop (nhds 0).
+  -- squeeze_zero_norm : (forall n, norm(f n) <= g n) -> Tendsto g l (nhds 0) -> Tendsto f l (nhds 0).
+  -- Real.norm_eq_abs : norm x = |x| for x : R, so norm(dysonCollTime N) = |dysonCollTime N|.
+  have h : Tendsto (fun N : ℕ => dysonCollTime N) atTop (nhds 0) :=
+    squeeze_zero_norm (fun N => (Real.norm_eq_abs _).le) KoksmaHlawkaLimSup
+  -- Step 2: t_c(N) -> 0 implies -t_c(N) -> -0 = 0 by Tendsto.neg + neg_zero.
+  simpa [neg_zero] using h.neg
 
 /-! ## CAPSTONE theorem -/
 

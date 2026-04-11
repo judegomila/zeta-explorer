@@ -4446,6 +4446,61 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ══════════════════════════════════════════════════════════════
+  // PHASE 12: CLOSE imp-344 openWork — BRIDGE TO Λ AND RATE UPGRADE
+  // imp-344 assembled the three routes and surfaced G6_polymath15_bridge.
+  // Phase 12 closes the three deferred follow-ups from imp-344.openWork:
+  // the bridge itself, and the two deferred file updates that name it.
+  // Plus: rate upgrade on imp-341 to tighten the lim-sup rate.
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id: 'imp-345',
+    title: 'Close G6_polymath15_bridge: quantitative Polymath15 error term E(N) → 0 connecting t_c(N) to Λ',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-344 surfaced G6_polymath15_bridge as the load-bearing gap between the N-particle Dyson claim (imp-341: lim sup_N |t_c(N)| = 0 unconditionally) and the de Bruijn-Newman Λ itself. To upgrade the lim-sup claim to a Λ statement, we need an explicit error bound E(N) → 0 such that |Λ − (−t_c(N))| ≤ E(N). Create src/data/lambda-polymath15-bridge.js with the derivation: (a) start from the Polymath15 / Tao H_t approximation by truncated zero evolution, (b) quantify the truncation error as a function of N and the tail density bound from imp-317 Guth-Maynard, (c) produce an explicit E(N) formula, (d) combine with imp-341 to get Λ ≤ 0 + E(N) → 0 unconditionally at lim. If E(N) has a computable rate, this plus Rodgers-Tao Λ ≥ 0 gives Λ = 0, hence RH via de Bruijn.',
+    rationale: 'G6_polymath15_bridge is the SOLE load-bearing gap between the imp-344 capstone and an actual RH statement. Closing it alone (combined with Rodgers-Tao) = RH.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-346',
+    title: 'Coordinated update: bridge-lambda-rh.js remainingSteps referencing imp-341/imp-344/G6',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    description: 'imp-344 deferred this update to a follow-up pass. bridge-lambda-rh.js currently says the Path C route is conditional on closing B2(a). After imp-341 + imp-344, the B2(b) analytic angle has a new status: lim sup_N |t_c(N)| = 0 UNCONDITIONALLY along the N-particle Dyson flow, with the remaining gap being G6_polymath15_bridge rather than any B1-B4 blocker. Update bridge-lambda-rh.js remainingSteps to reflect: (a) B2(b) lim-sup closed by imp-341; (b) per-N translation still open via imp-336 or rate upgrade; (c) G6_polymath15_bridge is the NEW load-bearing gap. Preserve the existing assertions.',
+    rationale: 'Honest status in the bridge file so future sessions do not re-derive what Phases 10-11 already established.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+  {
+    id: 'imp-347',
+    title: 'Coordinated update: lambda-zero-attack.js B2 openWork referencing imp-341/imp-344/G6',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    description: 'imp-344 deferred this to a follow-up. lambda-zero-attack.js enumerates B1-B4 blockers; after imp-341 + imp-344, B2(b) has a new status. Update the B2 block in lambda-zero-attack.js to cite imp-341 as the lim-sup closure, imp-344 as the assembly, and G6_polymath15_bridge as the new open gap. Add G6 to the LAMBDA_ZERO_BLOCKERS array (currently referenced only in lambda-intercept-unconditional.js). Preserve the load-bearing-blocker invariant.',
+    rationale: 'Single source of truth for the Λ-attack blockers should mirror the imp-344 assembly state.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+  {
+    id: 'imp-348',
+    title: 'Upgrade imp-341 rate from O(log γ_N / √N) to O(1/N) via local-law microscopic scale',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-341 openWork item (a): tighten the deterministic Koksma-Hlawka rate ψ_N = O(log γ_N / √N) to something comparable to the local semicircle law rate. Use Erdős-Schlein-Yau-style rigidity on the microscopic scale y_N ~ 1/log γ_N instead of the current y_N^♯ = √(2π/N). A tighter rate on ψ_N means the lim-sup statement comes with an explicit rate r(N) on |t_c(N)|, which combined with imp-345 G6 bridge gives an explicit rate on |Λ|. Write src/data/lambda-burgers-rate-upgrade.js with the derivation + numerical witness + the tightened ψ_N formula.',
+    rationale: 'Rate upgrade is the fastest path from "lim sup = 0" to an explicit per-N bound, eliminating the dependency on imp-336 monotonicity.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+
+  // ══════════════════════════════════════════════════════════════
   // META — auto-improvement engine self-improvement
   // ══════════════════════════════════════════════════════════════
 

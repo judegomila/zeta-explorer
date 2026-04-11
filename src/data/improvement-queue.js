@@ -5422,12 +5422,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close skp2-005 NAMED: revise proof-paper.js Path G to reflect imp-427 partial closure for sigma > 1',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10',
     description: 'imp-430 skp2-005 NAMED: imp-427 rigorously established the Path G analytic upper bound ONLY for sigma > 1 (where Sum 1/p converges absolutely by Cauchy). At the critical line sigma = 1/2 the sum diverges by Mertens, so imp-427 does NOT rigorously establish Path G there. imp-429 updated proof-paper.js Section 6 Path G entry but the update is imprecise about this sigma > 1 restriction. Fix: update src/math/proof-paper.js Path G body to explicitly state the rigor only holds for sigma > 1 + state the named residual sub-gaps G-1 and G-2 from imp-427 + reclassify Path G in the PATHS array as "conditional-rigorous (sigma > 1 only)". Deliverable: surgical edit to proof-paper.js + corresponding update to imp-429 references.',
     rationale: 'Honest reporting of Path G rigor state. A paper that claims Path G is rigorous at sigma = 1/2 would be factually wrong.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-11T20:00:00.000Z',
   },
 
   // ── Phase 28: SOFT gap cleanup + external submission readiness ──

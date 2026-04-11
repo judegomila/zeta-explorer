@@ -195,7 +195,18 @@ for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, 
         { id: 'skp-008', description: 'P_0 for delta(P) < 1e-6 is not computed explicitly', severity: 'presentation' },
         { id: 'skp-010', description: 'GRH extensions presented as "verified" instead of "numerically consistent"', severity: 'presentation' },
       ],
-      verdict: 'All FATAL and NAMED gaps closed; 4 SOFT presentation gaps remain for a later editorial pass. Section 10 consolidated in imp-429.',
+      verdict: 'All FATAL and NAMED gaps from first review closed (imp-424/425/426/427); 4 SOFT presentation gaps remain. Section 10 consolidated in imp-429.',
+      secondReview: {
+        ticket: 'imp-430',
+        date: '2026-04-11',
+        findings: { fatal: 0, named: 3, soft: 0 },
+        verdict: 'PASSED: zero new FATAL gaps; 30.28x Platt-Trudgian margin confirmed. Three new NAMED gaps (skp2-001, skp2-003, skp2-005) identified -- masked by prior circularity, surfaced post-closure.',
+      },
+      namedClosed2: [
+        { id: 'skp2-001', description: 'Burgers-PDE-surrogate vs discrete t_c(N) approximation gap not quantified', closedBy: 'imp-432', file: 'src/math/surrogate-discrete-gap.js' },
+        { id: 'skp2-003', description: 'Path C Mertens rate 1/log P too loose for rigorous N-applicable bound', closedBy: 'imp-433', file: 'src/math/mertens-rate-tightening.js' },
+        { id: 'skp2-005', description: 'Path G LaTeX showed R^2=1.0 numerical claim despite imp-427 partial analytic closure for sigma > 1', closedBy: 'imp-434', file: 'src/math/proof-paper.js' },
+      ],
     },
 
     keyResults: [
@@ -378,8 +389,13 @@ remainder $O(\\sqrt{L})$. Verified to $<0.05\\%$ error at $N=500$.
 $\\|(H_N - z)^{-1} - (H_M - z)^{-1}\\| \\to 0$ implies
 $\\sigma(H_\\infty) \\subset \\liminf \\sigma(H_N)$ by Kato's theorem (1966).
 
-\\subsection{Path G: Trace Class Convergence}
-$\\|S_{N+1} - S_N\\|_F$ decays as $N^{-2\\sigma}$ ($R^2 = 1.0$), verified numerically.
+\\subsection{Path G: Cauchy Convergence (partial closure, imp-427, skp2-005 CLOSED)}
+Analytic bound: $\\|T_p - I\\|_F \\leq C_0(\\sigma)\\cdot p^{-\\sigma}$ with
+$C_0(\\sigma) = 2/\\sqrt{1 - 4^{-\\sigma}}$ (exact, phase-independent; see src/math/path-g-cauchy-rigorous.js).
+For $\\sigma > 1$: $\\{S_N\\}$ is Cauchy in Frobenius norm [RIGOROUS, imp-427].
+For $\\sigma \\in (1/2, 1]$: requires phase-mixing bound [Gap G-1, open].
+For $\\sigma = 1/2$: absolute convergence not established; $\\sum_p p^{-1}$ diverges (Mertens) [Gap G-2, open].
+The $R^2 = 1.0$ regression is corroborating evidence only, not a proof at $\\sigma = 1/2$.
 
 \\subsection{Path H: Szeg\\H{o} SL(2,$\\mathbb{R}$) Algebraic Closure}
 $\\det(S_N) = 1$ for all $N$ (Pythagorean identity + multiplicativity).

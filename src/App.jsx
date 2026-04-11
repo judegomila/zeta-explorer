@@ -51,6 +51,7 @@ const ProjectIndexPage = lazy(() => import('./pages/ProjectIndexPage.jsx'));
 const ResearchJournalPage = lazy(() => import('./pages/ResearchJournalPage.jsx'));
 const MetaAccelerationPage = lazy(() => import('./pages/MetaAccelerationPage.jsx'));
 const LambdaBoundsPage = lazy(() => import('./pages/LambdaBoundsPage.jsx'));
+const RhDagPage = lazy(() => import('./pages/RhDagPage.jsx'));
 
 function PageLoader() {
   return (
@@ -92,6 +93,7 @@ const NAV_GROUPS = [
     label: 'Attack',
     items: [
       { to: '/lambda-bounds', label: 'Λ Bounds & RH Roadmap' },
+      { to: '/rh-dag', label: 'RH Dependency DAG' },
       { to: '/rh-attack', label: 'RH Attack' },
       { to: '/spectral-attack', label: 'Spectral' },
       { to: '/gap-closing', label: 'Gap Closing' },
@@ -396,6 +398,7 @@ function AppShell() {
           <Route path="/research-journal" element={<ResearchJournalPage />} />
           <Route path="/meta-acceleration" element={<MetaAccelerationPage />} />
           <Route path="/lambda-bounds" element={<LambdaBoundsPage />} />
+          <Route path="/rh-dag" element={<RhDagPage />} />
         </Routes>
         </Suspense>
       </div>

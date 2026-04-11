@@ -76,6 +76,51 @@
  *           STATUS: this is the unsolved part. No finite-N computation
  *           reaches U = 0; only an analytic argument can.
  *
+ * Route B (Phases 10-11): imp-341 / imp-344 / G6_polymath15_bridge
+ * ----------------------------------------------------------------
+ * Independent of the five-step Path C tail programme above, Phases 10-11
+ * opened a second route that targets the B2(b) analytic angle of the
+ * Λ attack rather than the B2(a) statistical fit:
+ *
+ *   Step B1. imp-341 (Koksma-Hlawka Burgers uniformity).
+ *            The deterministic bound
+ *                ‖m_N − m_∞‖_{L^∞({Im z ≥ y_N^♯})}
+ *                    ≤ π C_Selberg · log γ_N / (N · y_N^♯)
+ *            with y_N^♯ = √(2π/N) forces τ_c(m_N) → 0, hence
+ *                a := lim sup_{N → ∞} |t_c(N)|  =  0
+ *            UNCONDITIONALLY along the N-particle Calogero-Moser /
+ *            Dyson flow. This closes the B2(b) LIM-SUP statement and
+ *            retires G5_burgers as an open gap. Uses only Selberg
+ *            |S(T)| = O(log T / log log T); NO GUE / local-law input.
+ *
+ *   Step B2. Per-N translation — OPEN. imp-341 is a lim-sup statement,
+ *            not a per-N bound. Closing this needs either imp-336
+ *            monotonicity (|t_c(N+1)| ≤ |t_c(N)|, empirically unfalsified
+ *            but analytically open) OR the imp-348 rate upgrade that
+ *            replaces ψ_N = O(log γ_N / √N) with ψ_N = O(1/N) on the
+ *            microscopic scale y_N ~ 1/log N.
+ *
+ *   Step B3. imp-345 G6_polymath15_bridge — the NEW load-bearing gap.
+ *            imp-344 surfaced it: the de Bruijn-Newman Λ is defined via
+ *            H_t, not via the N-particle Dyson flow. The Polymath15
+ *            approximation connects them via H_t ≈ (truncated zero
+ *            evolution) with an error term E(N). A rigorous form would
+ *            give |Λ − (− lim t_c(N))| ≤ E(N) → 0 explicitly. Previously
+ *            implicit in every preceding Λ ticket, surfaced honestly by
+ *            imp-344 as the sole gap between the Route B lim-sup claim
+ *            and an actual Λ statement.
+ *
+ *   The Route B chain that WOULD imply RH:
+ *     imp-341  (lim sup_N |t_c(N)| = 0 in N-particle Dyson flow)
+ *       →  imp-345 G6 closure  (Λ = − lim t_c(N) with explicit rate)
+ *       →  Λ ≤ 0
+ *       →  combined with Rodgers-Tao Λ ≥ 0  ⟹  Λ = 0
+ *       →  de Bruijn (T1)  ⟹  RH.
+ *   Current status: the first link is closed as a LIM-SUP statement;
+ *   the second link (G6) is the sole open step; the per-N translation
+ *   is a parallel route refinement (imp-336 or imp-348) that sharpens
+ *   the first link but is not required to reach RH via this chain.
+ *
  * The height our current bound actually controls
  * ----------------------------------------------
  * The Path C number is derived from zeros γ_n with γ_n ≤ T_0 ≈ 3000.
@@ -186,6 +231,52 @@ export const LAMBDA_RH_BRIDGE = {
       name: 'Drive U → 0 (the actual unsolved part of RH)',
       status: 'open',
       detail: 'No finite-N computation reaches U = 0; needs analytic input.',
+    },
+    // ── Route B (Phases 10-11): B2(b) analytic angle ────────────────────
+    // Added by imp-346 (coordinated follow-up pass from imp-344). These
+    // steps do not replace Steps 1-5; they enumerate an INDEPENDENT route
+    // that targets a = lim sup_N |t_c(N)| directly rather than via the
+    // verified-zeros + tail-bound + barrier assembly.
+    {
+      step: 'B1',
+      name: 'B2(b) lim-sup closure: a = 0 in the N-particle Dyson flow',
+      status: 'have',
+      detail:
+        'imp-341 (lambda-intercept-burgers-uniformity.js) delivers a ' +
+        'DETERMINISTIC Koksma-Hlawka bound ' +
+        'norm(m_N − m_∞) ≤ π C_Selberg · log γ_N / (N · y_N^♯) with ' +
+        'y_N^♯ = √(2π/N), using only Selberg |S(T)| = O(log T / log log T). ' +
+        'This forces τ_c(m_N) → 0, hence lim sup_N |t_c(N)| = 0 ' +
+        'UNCONDITIONALLY along the N-particle Calogero-Moser flow. No ' +
+        'GUE / local-law / Erdős-Schlein-Yau input used. G5_burgers retired.',
+    },
+    {
+      step: 'B2',
+      name: 'Per-N translation of the lim-sup statement',
+      status: 'open',
+      detail:
+        'imp-341 is a lim-sup statement, not a per-N bound. Translating ' +
+        'to a concrete bound |t_c(N)| ≤ r(N) at finite N needs EITHER ' +
+        'imp-336 monotonicity (|t_c(N+1)| ≤ |t_c(N)|, currently empirically ' +
+        'unfalsified but analytically open on G1/G2) OR the imp-348 rate ' +
+        'upgrade replacing ψ_N = O(log γ_N / √N) with ψ_N = O(1/N) on the ' +
+        'microscopic scale y_N ~ 1/log N. Either alone suffices.',
+    },
+    {
+      step: 'B3',
+      name: 'G6_polymath15_bridge: connect lim t_c(N) to the Λ definition',
+      status: 'open',
+      detail:
+        'NEW load-bearing gap, surfaced by imp-344 (previously implicit ' +
+        'in every Λ ticket). The de Bruijn-Newman Λ is defined via H_t, ' +
+        'NOT via the N-particle Dyson flow. Polymath15 approximates H_t ' +
+        'by a truncated zero evolution with an error E(N); a rigorous ' +
+        'form would give |Λ − (− lim t_c(N))| ≤ E(N) with E(N) → 0 ' +
+        'explicitly. imp-345 is the queued attempt to close G6. With G6 ' +
+        'closed, the Route B chain becomes: imp-341 lim sup = 0 → G6 ' +
+        'bridge → Λ ≤ 0 → combined with Rodgers-Tao Λ ≥ 0 → Λ = 0 → RH ' +
+        'via de Bruijn. G6 is currently the SOLE load-bearing gap ' +
+        'between imp-344 and an RH statement via this route.',
     },
   ],
 

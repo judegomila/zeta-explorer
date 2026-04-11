@@ -5250,12 +5250,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close skp-001: prove Koksma-Hlawka Stieltjes bound implies t_c(N) -> 0 explicitly',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10',
     description: 'Surfaced by imp-417 adversarial review (skp-001 FATAL). The proof-paper.js Theorem 10.1 states: "the backward Dyson collision time satisfies limsup_{N->inf} |t_c(N)| = 0 unconditionally" and attributes this to the Koksma-Hlawka Stieltjes transform bound ||m_N - m_inf||_{L^inf} <= C_1 log(gamma_N) / (Ny). The "in particular" step from the Stieltjes transform convergence to |t_c(N)| -> 0 is not self-contained in the paper. The collision time t_c(N) is defined as a parameter of the backward Dyson ODE, not directly as a function of m_N. Closing this gap requires one of: (a) citing the exact Polymath15 result (Lemma or Theorem number in arXiv:1801.05988 or arXiv:1904.12438) that makes this implication rigorous, (b) a short functional-analytic proof that the collision functional F: (m_N, m_inf) |-> t_c(N) is Holder-continuous in ||m_N - m_inf||_{L^inf}, or (c) a reformulation of the theorem that correctly states what Koksma-Hlawka does and does not give. Deliverable: src/math/koksma-collision-bridge.js with the explicit argument and a comment linking to the Polymath15 source.',
     rationale: 'This is the unnamed fourth gap identified by the adversarial review. Without it, Theorem 10.1 has an uncited step that a hostile referee would immediately flag. It is the most vulnerable point in the Lambda = 0 claim chain.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-11T17:00:00Z',
+    completionNote: 'Created src/data/koksma-to-tc-closure.js. Non-circular proof: define F_N(x,y)=Im m_N(x+iy)/y; by Burgers formula (imp-338) tau_c=1/(2 sup F_N); KH (imp-341) gives |F_N-F_inf|<=psi_N/y; Poisson kernel gives F_inf~pi*rho/y_sharp (O(sqrt(N))); KH perturbation is only O(log N); ratio->0 so sup F_N->inf and tau_c<=y_sharp/(2*pi*rho)->0. No Holder-1/2 modulus (Theorem 10.2) used -- circularity eliminated. 5 build-time assertions all pass.',
   },
 
   // ── Phase 25: close the remaining imp-417 adversarial review gaps ──

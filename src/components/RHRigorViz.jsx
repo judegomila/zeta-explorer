@@ -207,21 +207,21 @@ export default function RHRigorViz() {
     if (activeTest === 'hamiltonian') {
       ctx.fillText(`t (imaginary part), range [${tRange[0]}, ${tRange[1]}]`, w / 2, h - 8);
       ctx.save();
-      ctx.translate(14, h / 2);
+      ctx.translate(14, margin.top + ph / 2);
       ctx.rotate(-Math.PI / 2);
       ctx.fillText('σ at H minimum', 0, 0);
       ctx.restore();
     } else if (activeTest === 'bridge') {
       ctx.fillText('σ (real part)', w / 2, h - 8);
       ctx.save();
-      ctx.translate(14, h / 2);
+      ctx.translate(14, margin.top + ph / 2);
       ctx.rotate(-Math.PI / 2);
       ctx.fillText('t (imaginary part)', 0, 0);
       ctx.restore();
     } else if (activeTest === 'mismatch') {
       ctx.fillText(`t (imaginary part), range [${tRange[0]}, ${tRange[1]}]`, w / 2, h - 8);
       ctx.save();
-      ctx.translate(14, h / 2);
+      ctx.translate(14, margin.top + ph / 2);
       ctx.rotate(-Math.PI / 2);
       ctx.fillText('Normalized magnitude', 0, 0);
       ctx.restore();

@@ -5532,6 +5532,18 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
   },
 
+  {
+    id: 'imp-442',
+    title: 'META: Auto-push every N engine runs so local commits do not strand',
+    category: 'meta',
+    priority: 'high',
+    status: 'pending',
+    description: 'Observed bug: the auto-improve engine commits locally after every successful run but never runs git push. The monitor operator is supposed to push manually but forgets. Session ended a tick with 7-8 commits ahead of origin/main including a major milestone (imp-437 third adversarial review PASSED) that had not yet been reported because I had not refreshed. Shipped .claude/commands/push.md as a slash-command discipline, but that only covers the monitor side. The engine itself should also push on a cadence so commits never strand. Fix: add a PUSH_EVERY_N_RUNS counter to scripts/auto-improve.sh (default 5). After every Nth successful run, run git push origin main with stderr to the log. On failure (non-fast-forward, auth error, network error), log the failure but do NOT abort the loop — the next regular run will re-try. Keep the cadence low enough that the local-only window is at most ~5 runs = ~5-10 minutes of work.',
+    rationale: 'Currently a network partition or laptop crash could lose 30+ local commits. Periodic auto-push makes the local-only window bounded and predictable.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
   // META — auto-improvement engine self-improvement
   // ══════════════════════════════════════════════════════════════
 

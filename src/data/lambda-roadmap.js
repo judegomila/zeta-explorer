@@ -303,11 +303,14 @@ export const OPEN_GAPS = [
   {
     id: 'G3a',
     label: 'max gap at argmin site',
-    status: 'open — needs extremal statistics',
-    owner: 'imp-342 (route C)',
-    nextTickets: ['imp-355', 'imp-367'],
-    severity: 'high',
-    blocks: 'Route C density squeeze',
+    status:
+      'DIAGNOSTIC CLOSED (imp-355 + imp-396 + imp-451) — R_critical ≈ 1.251 identified; ' +
+      'Ben Arous-Bourgade GUE scaling shows R_N ~ N^{4/3}, c_near -> 0 for large N; ' +
+      'near+tail decomposition is definitively insufficient; G3a_sub_fullsum open',
+    owner: 'imp-451',
+    nextTickets: [],
+    severity: 'closed',
+    blocks: null,
   },
   {
     id: 'G3b',

@@ -214,6 +214,27 @@ export const DYSON_LADDER_N10K = {
       blockedBy: 'imp-360',
       status: 'pending',
     },
+    {
+      id: 'imp353c_baseline_dt_overshoot',
+      description:
+        'Measured step-size overshoot in PATH_C_BASELINE_FIT: the 5-point ' +
+        'baseline was computed with fixed dt = 0.0005 (RK4), too coarse to ' +
+        'resolve the Dyson ODE singularity near collision. At N = 50, the ' +
+        'fixed-step simulation overshoots the true first collision (spacing ' +
+        'drops to 0.077 at t = 0.095, then the step overshoots the singularity ' +
+        'and the spacing bounces to 0.579 — a nonphysical artifact), then ' +
+        'detects a second near-approach and reports t_c = 0.1435. A finer ' +
+        'integration at dt = 0.00001 gives the true first-collision time ' +
+        't_c approx 0.0958, a 33% reduction from the baseline value. At ' +
+        'N = 100 and N = 200 the discrepancy is smaller (1.5% and 7%). ' +
+        'The imp-360 ODE runs must use adaptive step-size control ' +
+        '(Dormand-Prince or bisection at the spacing threshold) to avoid ' +
+        'this systematic overshoot; the current PATH_C_BASELINE_FIT should ' +
+        'be treated as an upper bound on the true collision time, with ' +
+        'additional step-size uncertainty beyond the stated error bar.',
+      blockedBy: 'imp-360',
+      status: 'pending',
+    },
   ],
   contract:
     'When imp-360 lands measured |t_c(N)| rows in PATH_C_BASELINE_FIT, the ' +

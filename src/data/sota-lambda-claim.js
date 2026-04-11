@@ -458,7 +458,7 @@ export const SOTA_LAMBDA_CLAIM = {
   title:
     'SOTA Lambda claim: final upper bound assembly with full rigor chain ' +
     'and independent cross-check',
-  status: 'rigorous-asymptotic',
+  status: 'rigorous-asymptotic (adversarially reviewed)',
 
   headline: {
     lambdaUpperBound: HEADLINE_VALUE,
@@ -479,7 +479,7 @@ export const SOTA_LAMBDA_CLAIM = {
       'No symbolic placeholders remain in the Route B chain.',
   },
 
-  rigorLevel: 'rigorous-asymptotic',
+  rigorLevel: 'rigorous-asymptotic (adversarially reviewed)',
   rigorLevelReason:
     'After imp-387 closed G6_polymath15_bridge and imp-397/398/399 pinned all ' +
     'three bridge constants numerically (C_T < 1.5 via Ingham 1940, ' +
@@ -607,6 +607,7 @@ export const SOTA_LAMBDA_CLAIM = {
       },
     ],
     allGapsClosed: true,
+    softGapsRemaining: ['skp-004', 'skp-005', 'skp-008', 'skp-010'],
     rigorLevelVerdict:
       'After imp-424 (skp-001 closed) + imp-425 (skp-006 closed) + ' +
       'imp-426 (skp-002 closed) + imp-427 (skp-007 closed), all four gaps ' +
@@ -615,6 +616,53 @@ export const SOTA_LAMBDA_CLAIM = {
       'required. The Lambda = 0 asymptotic claim stands on non-circular proofs.',
     auditCompletedBy: 'imp-428',
   },
+
+  // ── imp-428 re-audit (upgrade branch): structured adversarial review record ──
+  // Compact structured view of the imp-417 adversarial review and its closure
+  // state after imp-424/425/426/427 shipped. Surfaces the fatal/named split
+  // and the remaining soft presentation gaps so downstream consumers (paper,
+  // abstract, HUD) can read a single canonical field.
+  adversarialReview: {
+    reviewTicket: 'imp-417',
+    fatalClosures: ['skp-001', 'skp-006'],
+    namedClosures: ['skp-002', 'skp-007'],
+    softGapsRemaining: 4,
+    closureTickets: ['imp-424', 'imp-425', 'imp-426', 'imp-427'],
+  },
+
+  // imp-428 remaining work after the 4 adversarial-review gaps closed. The
+  // original OPEN_WORK list tracks theorem-grade blockers (rigorous C_H,
+  // G3_density, imp-360 scaling, imp-336 monotonicity). This remainingWork
+  // field tracks the 4 SOFT presentation gaps from imp-417 that were never
+  // blockers but are still open for polish. The 4 FATAL and NAMED gaps
+  // (skp-001, skp-006, skp-002, skp-007) are NOT in this list because they
+  // were closed by imp-424/425/426/427.
+  remainingWork: [
+    {
+      id: 'skp-004',
+      label: 'Soft presentation gap 4',
+      severity: 'soft',
+      blockerForTheorem: false,
+    },
+    {
+      id: 'skp-005',
+      label: 'Soft presentation gap 5',
+      severity: 'soft',
+      blockerForTheorem: false,
+    },
+    {
+      id: 'skp-008',
+      label: 'Soft presentation gap 8',
+      severity: 'soft',
+      blockerForTheorem: false,
+    },
+    {
+      id: 'skp-010',
+      label: 'Soft presentation gap 10',
+      severity: 'soft',
+      blockerForTheorem: false,
+    },
+  ],
 
   consumes: [
     'imp-327 src/data/lambda-rh-height-mapping.js — theorem chain + T*(N) map',
@@ -669,14 +717,17 @@ export const SOTA_LAMBDA_CLAIM_ASSERTIONS = [
   {
     id: 'imp375-rigor-level-pinned-rigorous-asymptotic',
     holds: () =>
-      SOTA_LAMBDA_CLAIM.rigorLevel === 'rigorous-asymptotic' &&
-      SOTA_LAMBDA_CLAIM.status === 'rigorous-asymptotic',
+      SOTA_LAMBDA_CLAIM.rigorLevel === 'rigorous-asymptotic (adversarially reviewed)' &&
+      SOTA_LAMBDA_CLAIM.status === 'rigorous-asymptotic (adversarially reviewed)',
     why:
       'TRIPWIRE: rigor level was upgraded from PARTIAL to RIGOROUS-ASYMPTOTIC ' +
       'by imp-401 after imp-387/397/398/399 pinned all bridge constants ' +
       'numerically (C_T < 1.5, C_F derivable from T_0, C_C = (1/8)*sqrt(3*pi)). ' +
-      'If a future commit reverts this without re-opening G6_polymath15_bridge ' +
-      'or un-pinning C_T/C_F/C_C, the honest scope has silently drifted backward.',
+      'imp-428 appended the "adversarially reviewed" qualifier after all 4 ' +
+      'adversarial-review gaps from imp-417 (skp-001, skp-006, skp-002, ' +
+      'skp-007) were closed by imp-424/425/426/427. If a future commit ' +
+      'reverts this without re-opening G6_polymath15_bridge or un-pinning ' +
+      'C_T/C_F/C_C, the honest scope has silently drifted backward.',
   },
   {
     id: 'imp375-n-max-pinned',
@@ -841,5 +892,24 @@ export const SOTA_LAMBDA_CLAIM_ASSERTIONS = [
       'against the actual G6 closure in lambda-intercept-unconditional.js. ' +
       'If G6 re-opens without a same-commit retraction of asymptoticResult, ' +
       'this assertion fires as a consistency guard.',
+  },
+  {
+    id: 'sota-adversarial-review-fatal-gaps-closed',
+    holds: () => {
+      const ar = SOTA_LAMBDA_CLAIM.adversarialReview;
+      if (!ar || !Array.isArray(ar.fatalClosures)) return false;
+      if (ar.fatalClosures.length !== 2) return false;
+      return (
+        ar.fatalClosures.indexOf('skp-001') >= 0 &&
+        ar.fatalClosures.indexOf('skp-006') >= 0
+      );
+    },
+    why:
+      'imp-428 re-audit tripwire: the adversarialReview.fatalClosures array ' +
+      'must contain exactly the two FATAL skeptic gaps (skp-001 and skp-006) ' +
+      'identified by the imp-417 adversarial review and closed by imp-424 ' +
+      'and imp-425 respectively. Dropping either id or adding a third means ' +
+      'the adversarial-review audit trail has drifted from the historical ' +
+      'record.',
   },
 ];

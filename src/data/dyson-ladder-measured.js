@@ -96,16 +96,18 @@ function budgetForN(N) {
   if (N <= 240) return { dt: 0.0005, nSteps: 120 };
   if (N <= 600) return { dt: 0.0003, nSteps: 120 };
   if (N <= 1100) return { dt: 0.00015, nSteps: 120 };
-  // N = 2000: expected |t_c| ~ 0.009 (OLS: 0.0066 + 4.91/2000). With
-  // dt = 0.0001 and 120 steps the total integration time is 0.012 > 0.009,
-  // so the collision window is covered. Per-step cost is O(N^2) = 4e6
-  // interval ops; 120 steps = 4.8e8 interval ops — feasible at build time
-  // given ZEROS_EXTENDED now carries 100 000 Odlyzko ordinates (imp-359).
+  if (N <= 2200) return { dt: 0.0001, nSteps: 120 };
+  // N = 3000: expected |t_c| ~ 0.0082 (OLS: 0.0066 + 4.91/3000). With
+  // dt = 0.0001 and 120 steps the total integration time is 0.012 > 0.0082,
+  // so the collision window is covered. Per-step cost is O(N^2) = 9e6
+  // interval ops; 120 steps = 1.08e9 interval ops — ~2.25x more expensive
+  // than N = 2000 but still feasible at build time given that ZEROS_EXTENDED
+  // carries 100 000 Odlyzko ordinates (imp-359 complete).
   return { dt: 0.0001, nSteps: 120 };
 }
 
 // ── Measured block ──────────────────────────────────────────────────────────
-const MEASURED_NS = [50, 100, 200, 500, 870, 1000, 2000];
+const MEASURED_NS = [50, 100, 200, 500, 870, 1000, 2000, 3000];
 
 function runMeasured(N) {
   if (ZEROS_EXTENDED.length < N) {
@@ -240,7 +242,7 @@ export const DYSON_LADDER_MEASURED = {
   id: 'imp-360',
   status: 'partial',
   title:
-    'Measured Dyson backward ODE ladder with interval arithmetic (up to N = 2000) ' +
+    'Measured Dyson backward ODE ladder with interval arithmetic (up to N = 3000) ' +
     'plus projected rows beyond',
   consumes: [
     'imp-359 ZEROS_EXTENDED (fallback 870-zero table in src/data/zeros-to-1e6.js)',
@@ -275,12 +277,12 @@ export const DYSON_LADDER_MEASURED = {
       'no missing zeros up to the last ordinate.',
   ],
   limitation:
-    'Measured coverage now extends to N = 2000; ZEROS_EXTENDED carries ' +
+    'Measured coverage now extends to N = 3000; ZEROS_EXTENDED carries ' +
     '100 000 verified Odlyzko zero ordinates (imp-359 complete as of ' +
-    '2026-04-11). Projected rows above N = 2000 are arithmetic ' +
+    '2026-04-11). Projected rows above N = 3000 are arithmetic ' +
     'passthroughs of imp-321 PT_SCALE_EXTRAPOLATION and are explicitly ' +
-    'labelled source = projected. The interval integrator at N = 2000 ' +
-    '(expected |t_c| ~ 0.009, budget dt=0.0001 x 120 steps) may return ' +
+    'labelled source = projected. The interval integrator at N = 3000 ' +
+    '(expected |t_c| ~ 0.0082, budget dt=0.0001 x 120 steps) may return ' +
     'budget-exhausted (t_c_lo only, t_c_hi = +Infinity) if the one-ULP ' +
     'wrapper grows faster than the bracket closes; this is the honest ' +
     'failure mode of the current JavaScript interval layer and does not ' +
@@ -328,18 +330,18 @@ export const DYSON_LADDER_MEASURED_ASSERTIONS = [
   {
     id: 'imp360-projected-rows-flagged-honestly',
     holds: () =>
-      ROWS.filter((r) => r.N > 2000).every(
+      ROWS.filter((r) => r.N > 3000).every(
         (r) =>
           r.source === 'projected' &&
           r.reason === 'ols-projection-passthrough' &&
           r.width === 0,
       ),
     why:
-      'HONEST SCOPE TRIPWIRE: every row beyond N = 2000 must be flagged ' +
+      'HONEST SCOPE TRIPWIRE: every row beyond N = 3000 must be flagged ' +
       'source = projected with reason = ols-projection-passthrough and ' +
-      'width = 0. The measured block now extends to N = 2000 because ' +
+      'width = 0. The measured block now extends to N = 3000 because ' +
       'ZEROS_EXTENDED carries 100 000 verified Odlyzko ordinates (imp-359 ' +
-      'complete). Rows above N = 2000 are arithmetic passthroughs from ' +
+      'complete). Rows above N = 3000 are arithmetic passthroughs from ' +
       'imp-321 PT_SCALE_EXTRAPOLATION and must remain so labelled.',
   },
   {

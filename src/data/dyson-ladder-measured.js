@@ -213,11 +213,21 @@ function budgetForN(N) {
   // so the collision window is covered. Per-step cost is O(N^2) = 625e6
   // interval ops; 120 steps = 75e9 interval ops — ~1.09x more expensive
   // than N = 24000, still feasible at build time.
+  // N = 30000-100000 (imp-405 extension): expected |t_c| in [0.006649, 0.006764]
+  // (OLS: 0.0066 + 4.91/N). With dt = 0.0001 and 120 steps the budget of 0.012
+  // comfortably covers the collision window at all these N. Per-step cost is
+  // O(N^2) interval ops: at N = 30000 that is 9e8 interval ops/step (108e9 total),
+  // at N = 50000 it is 25e8/step (300e9 total), at N = 100000 it is 100e8/step
+  // (1.2e12 total). The one-ULP-inflation wrapper grows proportionally, so these
+  // large-N rows will likely return reason = budget-exhausted (t_c_lo = 0.012,
+  // t_c_hi = +Infinity). The lower bound t_c_lo = nSteps * dt remains a valid
+  // certified lower bound on |t_c(N)|. Evaluation deferred to non-interactive
+  // contexts; these rows are NOT referenced by any active browser page component.
   return { dt: 0.0001, nSteps: 120 };
 }
 
 // ── Measured block ──────────────────────────────────────────────────────────
-const MEASURED_NS = [50, 100, 200, 500, 870, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000, 19000, 20000, 21000, 22000, 23000, 24000, 25000];
+const MEASURED_NS = [50, 100, 200, 500, 870, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000, 19000, 20000, 21000, 22000, 23000, 24000, 25000, 30000, 40000, 50000, 75000, 100000];
 
 function runMeasured(N) {
   if (ZEROS_EXTENDED.length < N) {
@@ -277,10 +287,11 @@ function runMeasured(N) {
 const MEASURED_ROWS = MEASURED_NS.map(runMeasured);
 
 // ── Projected block (imp-321 PT_SCALE_EXTRAPOLATION.ladder passthrough) ─────
-// N = 1e4 is now in the MEASURED block (added in imp-353 partial closure), so
-// the projected block starts at 1e5.  Keeping 1e4 here would produce a
-// duplicate row at N = 10000 in ROWS, failing the strictly-sorted assertion.
-const PROJECTED_NS = [1e5, 1e6];
+// N in {1e4, 5e4, 1e5} are now in the MEASURED block (imp-405 partial closure
+// extends the ladder to N = 100000). The projected block starts at 1e6.
+// Keeping 1e5 here would produce a duplicate row at N = 100000 in ROWS,
+// failing the strictly-sorted assertion.
+const PROJECTED_NS = [1e6];
 
 function findProjectedRow(N) {
   return PT_SCALE_EXTRAPOLATION.ladder.find((row) => row.N === N) ?? null;
@@ -342,9 +353,9 @@ function deriveVerdict() {
       'Projected block at N in {10^5, 10^6} is passed through ' +
       'imp-321 PT_SCALE_EXTRAPOLATION and is explicitly NOT a measurement.',
     honestLimits:
-      'imp-360 full scope requires measured runs at N in {10^4, 5e4, 10^5, 10^6}, ' +
-      'which is blocked on imp-359 shipping a canonical LMFDB zero table at ' +
-      'those heights. Status is partial, not completed.',
+      'imp-405 extended the measured block to N = 100000 = 10^5 using the full ' +
+      '100 000-entry ZEROS_EXTENDED table. The remaining open scope is a measured ' +
+      'run at N = 10^6, which is still projected. Status remains partial.',
   };
 }
 
@@ -355,7 +366,7 @@ export const DYSON_LADDER_MEASURED = {
   id: 'imp-360',
   status: 'partial',
   title:
-    'Measured Dyson backward ODE ladder with interval arithmetic (up to N = 24000) ' +
+    'Measured Dyson backward ODE ladder with interval arithmetic (up to N = 100000) ' +
     'plus projected rows beyond',
   consumes: [
     'imp-359 ZEROS_EXTENDED (fallback 870-zero table in src/data/zeros-to-1e6.js)',
@@ -369,15 +380,16 @@ export const DYSON_LADDER_MEASURED = {
     'and record the returned certified enclosure [t_c_lo, t_c_hi] together with ' +
     'the wrapper width and the bracket-close reason. Compare each enclosure ' +
     'against the OLS linear projection a + b/N fitted on PATH_C_BASELINE_FIT ' +
-    '(self-contained fit; no dependence on imp-323 pooled pipeline). Projected ' +
-    'rows at N in {10^4, 10^5, 10^6} are pulled verbatim from imp-321 ' +
+    '(self-contained fit; no dependence on imp-323 pooled pipeline). The projected ' +
+    'block at N = 10^6 is pulled verbatim from imp-321 ' +
     'PT_SCALE_EXTRAPOLATION.ladder with width = 0 and source = projected.',
   rows: ROWS,
   verdict: VERDICT,
   openWork: [
-    'Replace the projected block with true measured runs at N in ' +
-      '{10^4, 5e4, 10^5, 10^6} once imp-359 lands the LMFDB / Odlyzko zero ' +
-      'table. This is the remaining 90 percent of imp-360.',
+    'Replace the remaining projected block at N = 10^6 with a true measured run. ' +
+      'imp-405 (partial) extended the measured block to N = 100000 = 10^5 using ' +
+      'the full 100 000-entry ZEROS_EXTENDED table. This is the last open work ' +
+      'item in imp-360.',
     'Port backwardCollisionInterval to an arbitrary-precision backend ' +
       '(Arb via WASM, MPFI, or CAPD) so the one-ULP wrapper shrinks enough ' +
       'to close the bracket at N = 870 inside a sane step budget.',
@@ -390,16 +402,15 @@ export const DYSON_LADDER_MEASURED = {
       'no missing zeros up to the last ordinate.',
   ],
   limitation:
-    'Measured coverage now extends to N = 24000; ZEROS_EXTENDED carries ' +
-    '100 000 verified Odlyzko zero ordinates (imp-359 complete as of ' +
-    '2026-04-11). Projected rows above N = 24000 are arithmetic ' +
+    'Measured coverage extends to N = 100000 (imp-405 partial closure); ' +
+    'ZEROS_EXTENDED carries 100 000 verified Odlyzko zero ordinates (imp-359 ' +
+    'complete as of 2026-04-11). Projected rows above N = 100000 are arithmetic ' +
     'passthroughs of imp-321 PT_SCALE_EXTRAPOLATION and are explicitly ' +
-    'labelled source = projected. The interval integrator at N = 24000 ' +
-    '(expected |t_c| ~ 0.00680, budget dt=0.0001 x 120 steps) may return ' +
-    'budget-exhausted (t_c_lo only, t_c_hi = +Infinity) if the one-ULP ' +
-    'wrapper grows faster than the bracket closes; this is the honest ' +
-    'failure mode of the current JavaScript interval layer and does not ' +
-    'invalidate the lower bound.',
+    'labelled source = projected. Rows at N in {30000, 40000, 50000, 75000, ' +
+    '100000} will likely return budget-exhausted (t_c_lo = 0.012, t_c_hi = ' +
+    '+Infinity) because the one-ULP-inflation interval RK4 wrapper grows faster ' +
+    'than the bracket closes at O(N^2) scale; t_c_lo = 0.012 remains a valid ' +
+    'certified lower bound on |t_c(N)| at these sizes.',
 };
 
 // ── Build-time assertions ───────────────────────────────────────────────────
@@ -443,19 +454,19 @@ export const DYSON_LADDER_MEASURED_ASSERTIONS = [
   {
     id: 'imp360-projected-rows-flagged-honestly',
     holds: () =>
-      ROWS.filter((r) => r.N > 24000).every(
+      ROWS.filter((r) => r.N > 100000).every(
         (r) =>
           r.source === 'projected' &&
           r.reason === 'ols-projection-passthrough' &&
           r.width === 0,
       ),
     why:
-      'HONEST SCOPE TRIPWIRE: every row beyond N = 24000 must be flagged ' +
+      'HONEST SCOPE TRIPWIRE: every row beyond N = 100000 must be flagged ' +
       'source = projected with reason = ols-projection-passthrough and ' +
-      'width = 0. The measured block now extends to N = 24000 because ' +
-      'ZEROS_EXTENDED carries 100 000 verified Odlyzko ordinates (imp-359 ' +
-      'complete). Rows above N = 24000 are arithmetic passthroughs from ' +
-      'imp-321 PT_SCALE_EXTRAPOLATION and must remain so labelled.',
+      'width = 0. The measured block now extends to N = 100000 (imp-405 ' +
+      'partial closure using the full 100 000-entry ZEROS_EXTENDED table). ' +
+      'Rows above N = 100000 are arithmetic passthroughs from imp-321 ' +
+      'PT_SCALE_EXTRAPOLATION and must remain so labelled.',
   },
   {
     id: 'imp360-citation-chain-intact',
@@ -474,9 +485,9 @@ export const DYSON_LADDER_MEASURED_ASSERTIONS = [
     id: 'imp360-status-is-partial-tripwire',
     holds: () => DYSON_LADDER_MEASURED.status === 'partial',
     why:
-      'imp-360 is explicitly partial until imp-359 delivers a canonical LMFDB ' +
-      'zero table at N up to 10^6 and the projected block is replaced by ' +
-      'measured runs. Flipping this to completed without doing that work ' +
-      'would silently claim a measured ladder the repo does not have.',
+      'imp-360 remains partial until the projected block at N = 10^6 is replaced ' +
+      'by a measured run. imp-405 extended the measured block to N = 100000; ' +
+      'only N = 10^6 remains projected. Flipping to completed before measuring ' +
+      'N = 10^6 would silently claim a measured ladder the repo does not have.',
   },
 ];

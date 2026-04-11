@@ -182,14 +182,19 @@ export const VERIFICATION_EFFORTS = [
     claim:
       'If |t_c(N+1)| ≤ |t_c(N)| for all N ≥ N_0, then a := lim sup_N |t_c(N)| ' +
       '= inf_N |t_c(N)|, so a ≤ |t_c(N_max)| for every recorded N_max.',
-    status: 'numerical',
+    status: 'partial',
     progress:
-      'EMPIRICALLY UNFALSIFIED at 5 PATH_C_BASELINE_FIT anchors (N = 50, 100, ' +
-      '200, 500, 2458) and all imp-321 ladder rows. Analytic sketch is NON-' +
-      'RIGOROUS with open sub-gaps G1 (argmin interiority) and G2 (argmin ' +
-      'jumps across N).',
-    tickets: ['imp-336', 'imp-368', 'imp-369'],
-    closesIf: 'G1 + G2 both close analytically',
+      'PARTIAL BRIDGE ESTABLISHED: imp-456 proved UMon unconditionally in ' +
+      'unfolded coordinates (H_{N+1} <= H_N). imp-462 bridged M_raw <==> M_uf ' +
+      'at leading order via the positive RvM Jacobian (rho_min ~ 0.209, ' +
+      'empirically verified N in {2,...,870}). The many-body correction gap ' +
+      '(imp-462-many-body-correction) is the remaining sub-gap between leading-' +
+      'order and exact M_raw. G1 (argmin interiority) and G2 (argmin jumps ' +
+      'across N) still open (imp-384, imp-385).',
+    tickets: ['imp-336', 'imp-368', 'imp-369', 'imp-456', 'imp-462'],
+    closesIf:
+      'G1 + G2 both close analytically AND many-body correction gap closes ' +
+      '(upgrading leading-order Bridge M to exact M_raw)',
   },
   {
     id: 'route-B-burgers',

@@ -88,31 +88,53 @@ export const LAMBDA_ZERO_BLOCKERS = [
   },
   {
     id: 'B2-intercept-positivity',
-    title: 'The intercept a = 0.0066 is positive, not provably zero',
+    title: 'The intercept a = 0.0066 — lim-sup closed, per-N translation open',
     numericalForm:
       'The least-squares intercept of |t_c(N)| against 1/N at five Ns is a ' +
-      '= 0.0066 ± ~0.007. The Path C upper bound on Λ is a + (error bar), ' +
-      'so the entire question of whether Λ ≤ 0 reduces to: is a actually 0?',
+      '= 0.0066 ± ~0.007. The Path C upper bound on Λ is a + (error bar).',
     analyticGoal:
-      'Show a = lim_{N→∞} |t_c(N)| = 0. Equivalently: prove that the ' +
-      'Calogero-Moser collision time on the first N zeros tends to 0 as ' +
-      'N → ∞, and identify the rate. If the rate is 1/N (linear in 1/N) ' +
-      'the intercept is 0 by definition; if the rate is sub-linear (e.g. ' +
-      '1/log N) the intercept is also 0 but the current fit is biased.',
+      'Show a := lim sup_{N→∞} |t_c(N)| = 0 as the LIMIT statement, then ' +
+      'translate that limit into a per-N bound usable at the heights the ' +
+      'verified zero list controls.',
+    status:
+      'LIM-SUP CLOSED UNCONDITIONALLY. imp-341 (lambda-intercept-burgers- ' +
+      'uniformity.js) discharged G5_burgers via a deterministic Koksma- ' +
+      'Hlawka discrepancy bound on ψ_N(y) := ||m_N − m_∞||_{L^∞({Im z ≥ y})} ' +
+      ', forcing τ_c(m_N) → τ_shock(m_∞) = 0 and hence a = lim sup_N ' +
+      '|t_c(N)| = 0 along the N-particle Dyson flow with NO GUE / local- ' +
+      'law / Erdős-Schlein-Yau input. imp-344 (lambda-intercept- ' +
+      'unconditional.js) assembles the three routes (A monotonicity, ' +
+      'B Burgers-uniformity, C density squeeze) and names the honest ' +
+      'current claim. What remains on B2 is the per-N translation: ' +
+      'imp-336 (monotonicity M) or imp-348 (rate upgrade of imp-341 from ' +
+      'O(log γ_N / √N) to O(1/N)) would turn the lim-sup into an explicit ' +
+      'per-N upper bound r(N) on |t_c(N)|. Neither is closed yet.',
+    obstruction:
+      'The per-N translation is the remaining B2 open piece. More ' +
+      'importantly, B2 is NO LONGER the load-bearing gap of the Λ attack: ' +
+      'even with a proven per-N bound on |t_c(N)|, the jump from ' +
+      '"lim t_c(N) = 0 along the N-particle Calogero-Moser flow" to ' +
+      '"Λ ≤ 0 with Λ the de Bruijn-Newman constant defined via H_t" ' +
+      'requires the Polymath15 approximation (H_t ≈ truncated zero ' +
+      'evolution with an explicit error E(N) → 0). That is the NEW load- ' +
+      'bearing gap G6_polymath15_bridge surfaced by imp-344, which B2 ' +
+      'was implicitly relying on from the start.',
     sufficiency:
-      'A proven intercept a = 0 reduces Path C to Λ ≤ 0 + (slope·0) = 0, ' +
-      'which is RH at the heights controlled by Steps 1-3 of the bridge. ' +
-      'This is the load-bearing inequality of the whole approach.',
+      'A proven a = 0 plus a closed G6_polymath15_bridge reduces Path C ' +
+      'to Λ ≤ 0 at the heights controlled by Steps 1-3 of the bridge. ' +
+      'After imp-341 + imp-344, B2 alone is NO LONGER sufficient to ' +
+      'conclude Λ ≤ 0 — G6 is now the load-bearing step.',
     gapClosed:
       PATH_C_UPPER.toFixed(4) +
-      ' — the entire current upper bound. This is the only blocker whose ' +
-      'resolution alone would yield Λ ≤ 0. All other blockers tighten the ' +
-      'error bar around a, but only B2 makes a vanish.',
+      ' in the LIMIT sense for |t_c(N)| (imp-341). Per-N translation ' +
+      'and the G6 bridge to Λ itself are separate pieces; see G6- ' +
+      'polymath15-bridge below.',
     nextSubTicket:
-      'New ticket: prove (or disprove) lim_{N→∞} |t_c(N)| = 0 from the ' +
-      'GUE limit of the Polymath15 flow on the first N Riemann zeros. ' +
-      'Likely needs Erdős-Kac / Cipolla / Tao moment methods.',
-    severity: 'critical',
+      'imp-336 (monotonicity M: |t_c(N+1)| ≤ |t_c(N)|) OR imp-348 ' +
+      '(upgrade imp-341 rate from O(log γ_N / √N) to O(1/N) via a local- ' +
+      'law microscopic scale) turn the lim-sup into a per-N bound. ' +
+      'Neither produces Λ itself — that is G6_polymath15_bridge.',
+    severity: 'high',
   },
   {
     id: 'B3-dyson-repulsion-lower-bound',
@@ -173,6 +195,62 @@ export const LAMBDA_ZERO_BLOCKERS = [
       'thin strip relevant to the barrier.',
     severity: 'low',
   },
+  {
+    id: 'G6-polymath15-bridge',
+    title:
+      'Polymath15 bridge from lim t_c(N) to Λ — the new load-bearing gap',
+    numericalForm:
+      'The de Bruijn-Newman constant Λ is defined via H_t, not via the ' +
+      'N-particle Calogero-Moser ODE. Every preceding blocker (B1-B4) and ' +
+      'every Path C inequality implicitly assumes Λ = − lim_{N → ∞} t_c(N) ' +
+      'with the limit in the N-particle Dyson flow. That identification is ' +
+      'Polymath15 folklore; the codebase does not carry an explicit ' +
+      'error term E(N) with |Λ − (−t_c(N))| ≤ E(N) → 0.',
+    analyticGoal:
+      'Produce a rigorous inequality of the shape |Λ − (−t_c(N))| ≤ E(N) ' +
+      'with an explicit E(N) → 0, via the Polymath15 approximation of H_t ' +
+      'by the truncated zero evolution. Equivalently: reformulate imp-341 ' +
+      'directly in terms of H_t rather than the finite-N empirical ' +
+      'Stieltjes transform, skipping the bridge.',
+    status:
+      'OPEN. First surfaced in imp-344 (lambda-intercept-unconditional.js, ' +
+      'G6_POLYMATH15_BRIDGE). Previously implicit in imp-319 B2 framing, ' +
+      'imp-328 conditional theorem, imp-338 continuum limit, and imp-341 ' +
+      'lim-sup statement.',
+    obstruction:
+      'The lim-sup closure from imp-341 lives strictly inside the ' +
+      'N-particle Dyson / Burgers framework. Without an explicit E(N), ' +
+      'even a proven per-N bound on |t_c(N)| does not produce a number ' +
+      'for Λ. After imp-341 closed G5_burgers and imp-344 assembled the ' +
+      'three routes, G6 is the unique remaining CRITICAL blocker of the ' +
+      'Λ-attack: B1/B3/B4 tighten the error bar at finite N, B2 handles ' +
+      'the N-particle limit, and only G6 connects that limit to Λ itself.',
+    sufficiency:
+      'A closed G6 plus any per-N route (imp-336 M, imp-348 rate upgrade, ' +
+      'or imp-342 G3_density) yields Λ ≤ 0 at the heights controlled by ' +
+      'Steps 1-3 of the bridge; combined with Rodgers-Tao Λ ≥ 0 this ' +
+      'gives Λ = 0 via Polymath15 scope, which is RH at those heights ' +
+      'via de Bruijn.',
+    gapClosed:
+      'Load-bearing. Without G6 closed, the entire Path C chain is a ' +
+      'statement about t_c(N), not about Λ.',
+    closurePaths: [
+      'Port the quantitative Polymath15 approximation lemmas verbatim, ' +
+        'producing an explicit E(N) that vanishes with N.',
+      'Reformulate imp-341 directly in terms of H_t rather than the ' +
+        'finite-N empirical Stieltjes transform, skipping the bridge.',
+      'Use Rodgers-Tao unconditional Λ ≥ 0 together with a per-N bound ' +
+        'from (A), (B), or (C) at a specific finite N where |t_c(N)| ' +
+        'can be certified ≤ ε small enough that the Polymath15 error ' +
+        'term is the dominant obstacle, then quantify the error only at ' +
+        'that specific N rather than in the limit.',
+    ],
+    nextSubTicket:
+      'New ticket: quantitative Polymath15 bridge. Likely needs direct ' +
+      'transcription of the Polymath15 / Tao notes approximation chain ' +
+      'with an explicit residual bound.',
+    severity: 'critical',
+  },
 ];
 
 // ── The closure logic ──────────────────────────────────────────────────────
@@ -182,14 +260,43 @@ export const LAMBDA_ZERO_CLOSURE = {
   currentUpperBound: PATH_C_UPPER,
   targetUpperBound: 0,
   gapToClose: PATH_C_UPPER - 0,
-  loadBearingBlocker: 'B2-intercept-positivity',
+  loadBearingBlocker: 'G6-polymath15-bridge',
   why:
-    'B2 is the ONLY blocker whose resolution alone yields Λ ≤ 0. B1, B3, ' +
-    'B4 each tighten the error bar or the conditional, but only B2 reduces ' +
-    'the central value. Any attack roadmap that does not place B2 at the ' +
-    'top is mis-prioritised.',
-  necessaryButNotSufficient: ['B1-slope-constant', 'B3-dyson-repulsion-lower-bound'],
+    'After imp-341 closed the lim-sup statement a = lim sup_N |t_c(N)| = 0 ' +
+    'unconditionally (via Koksma-Hlawka, discharging G5_burgers) and ' +
+    'imp-344 assembled the three parallel routes (A) monotonicity, (B) ' +
+    'Burgers-uniformity, (C) density squeeze, the load-bearing gap of the ' +
+    'Λ attack MOVED. B2 is no longer sufficient on its own: the jump from ' +
+    '"lim t_c(N) = 0 in the N-particle Dyson flow" to "Λ ≤ 0 with Λ the ' +
+    'de Bruijn-Newman constant defined via H_t" needs the Polymath15 ' +
+    'approximation with an explicit error term E(N) → 0. That is ' +
+    'G6_polymath15_bridge, first surfaced in imp-344. G6 is now the ' +
+    'unique CRITICAL blocker; B2 is reclassified as high because its ' +
+    'lim-sup half is closed and its per-N translation lives in imp-336 / ' +
+    'imp-348 rather than here.',
+  necessaryButNotSufficient: [
+    'B1-slope-constant',
+    'B2-intercept-positivity',
+    'B3-dyson-repulsion-lower-bound',
+  ],
   needed: 'B4-gm-tail-overcount',
+  perNTranslationOpenWork: [
+    'imp-336 — monotonicity (M): |t_c(N+1)| ≤ |t_c(N)| turns lim sup ' +
+      'into an infimum, hence a per-N bound on the baseline.',
+    'imp-348 — rate upgrade of imp-341 from O(log γ_N / √N) to O(1/N) ' +
+      'via a local-law microscopic scale, producing an explicit r(N) ' +
+      'with |t_c(N)| ≤ r(N) and r(N) → 0 without requiring (M).',
+  ],
+  limSupClosure: {
+    closedBy: 'imp-341',
+    closedIn: 'src/data/lambda-intercept-burgers-uniformity.js',
+    assembledBy: 'imp-344',
+    assembledIn: 'src/data/lambda-intercept-unconditional.js',
+    statement:
+      'a := lim sup_{N → ∞} |t_c(N)| = 0 unconditionally along the ' +
+      'N-particle Calogero-Moser flow on the first N Riemann zero ' +
+      'ordinates, via a deterministic Koksma-Hlawka discrepancy bound.',
+  },
   scopeNote:
     'Even if all four blockers fall, the conclusion is Λ ≤ 0 at the heights ' +
     'controlled by the verified zero list (T ≤ T_0). RH at those heights is ' +
@@ -233,8 +340,14 @@ export const LAMBDA_ZERO_ATTACK_ASSERTIONS = [
     holds: () =>
       LAMBDA_ZERO_BLOCKERS.filter((b) => b.severity === 'critical').length === 1,
     why:
-      'imp-319 asserts that B2 (intercept positivity) is the unique closure ' +
-      'step. If a future edit promotes a second blocker to critical without ' +
-      'demoting B2, the prioritisation has been quietly broken.',
+      'After imp-341 + imp-344 + imp-347 the unique critical closure step ' +
+      'is G6_polymath15_bridge, not B2. B2 was reclassified to high because ' +
+      'its lim-sup half was closed unconditionally by imp-341 and the ' +
+      'remaining per-N translation lives in imp-336 / imp-348. Exactly ONE ' +
+      'critical blocker must remain in LAMBDA_ZERO_BLOCKERS and it must be ' +
+      'the same blocker named in LAMBDA_ZERO_CLOSURE.loadBearingBlocker. ' +
+      'If a future edit promotes a second blocker to critical without ' +
+      'demoting another, or demotes G6 without moving the load-bearing ' +
+      'pointer, the prioritisation has been quietly broken.',
   },
 ];

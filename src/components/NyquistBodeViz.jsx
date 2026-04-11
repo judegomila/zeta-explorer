@@ -255,7 +255,7 @@ export default function NyquistBodeViz() {
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('Re[L(s)]');
     svg.append('text')
-      .attr('transform', `translate(14, ${height / 2}) rotate(-90)`)
+      .attr('transform', `translate(14, ${margin.top + h / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('Im[L(s)]');
 

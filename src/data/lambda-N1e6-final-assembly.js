@@ -47,6 +47,7 @@ import { FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN } from './finite-height-beats-platt-
 import { ALT_PATH_N1E6 }                      from '../math/verify-imp440-altpath.js';
 import { B1_CONDITIONAL_BOUND }               from './b1-slope-conditional-upper-bound.js';
 import { B2_INTERCEPT_BOUND }                 from './b2-intercept-analytic-bound.js';
+import { NOSWAP_CLOSURE }                     from '../math/noswap-closure.js';
 
 // ── Primary target data at N* = 1e6 ─────────────────────────────────────────
 const PRIMARY = FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN.primaryTarget;
@@ -124,6 +125,18 @@ const CONDITIONS = [
       'by Platt & Trudgian, Bull. Lond. Math. Soc. 53 (2021), 792-797. ' +
       'This converts E_trunc from an open sub-gap to a certified 0.1127 bound.',
   },
+  {
+    id:     'NoSwap',
+    label:  'Argmin index k_star constant under backward CM flow',
+    status: NOSWAP_CLOSURE.status === 'numerically-closed' ? 'established' : 'conditional-closed',
+    ticket: 'imp-464',
+    note:
+      'Closed by imp-464 (noswap-closure.js): repulsive-crossing argument shows ' +
+      'd(g_j - g_{k_star})/dtau ~ 2/B > 0 at any hypothetical swap near collision. ' +
+      'Numerically confirmed at N in {50,100,200,500} via imp-463 backward CM simulation. ' +
+      'This removes NoSwap as a blocking sub-gap on B1 (D-monotone closed by imp-463). ' +
+      'NOSWAP_CLOSURE.status: ' + NOSWAP_CLOSURE.status,
+  },
 ];
 
 // ── Assembly record ───────────────────────────────────────────────────────────
@@ -195,10 +208,10 @@ export const LAMBDA_N1E6_FINAL_ASSEMBLY = {
       'best current bound L_pt ~ 0.00803 conditional on B1+B2. The margin factor ' +
       'is ~24.9x under the full (L_pt) bound (imp-459) and ~25x under the conditional (L_cond) bound.',
     remainingWork:
-      'B1 conditionally closed by imp-457 (NoSwap + D-monotone). ' +
-      'B2 conditionally closed by imp-458 (monotonicity M, Koksma-Hlawka bound). ' +
-      'Both closures become unconditional when M + D-monotone are proved (imp-336 / imp-363 / imp-370). ' +
-      'Full unconditional Lambda <= 0.121 beat requires closing both residual sub-gaps.',
+      'B1 conditionally closed by imp-457 (NoSwap + D-monotone); ' +
+      'NoSwap closed by imp-464 and D-monotone closed by imp-463: B1 is now closed under the CM model. ' +
+      'B2 conditionally closed by imp-458 (monotonicity M, Koksma-Hlawka bound); NoSwap leg closed by imp-464. ' +
+      'Full unconditional Lambda <= 0.121 beat requires closing M (imp-336 monotonicity conjecture).',
   },
 
   sources: [
@@ -266,11 +279,11 @@ export const LAMBDA_N1E6_ASSEMBLY_ASSERTIONS = [
     holds: () =>
       LAMBDA_N1E6_FINAL_ASSEMBLY.openConditions.length        === 0 &&
       LAMBDA_N1E6_FINAL_ASSEMBLY.conditionalConditions.length === 2 &&
-      LAMBDA_N1E6_FINAL_ASSEMBLY.closedConditions.length      === 1,
+      LAMBDA_N1E6_FINAL_ASSEMBLY.closedConditions.length      === 2,
     why:
-      'After imp-458: zero conditions remain fully open. Two are conditional-closed ' +
+      'After imp-464: zero conditions remain fully open. Two are conditional-closed ' +
       '(B1 by imp-457 under NoSwap + D-monotone; B2 by imp-458 under monotonicity M). ' +
-      'One (C3-pt) is established. ' +
+      'Two are established: C3-pt (imp-447) and NoSwap (imp-464). ' +
       'A change in this count means either a new condition was added without ' +
       'updating this assembly, or a premature or erroneous closure was recorded.',
   },

@@ -360,6 +360,11 @@ export default function ScatteringMatrixViz() {
 
   return (
     <div>
+      <div className="filter-bar">
+        {[['magnitude', '|χ(s)| Magnitude'], ['reflection', 'Reflection Coefficient Γ'], ['phase', 'Phase arg(χ)']].map(([val, label]) => (
+          <button key={val} className={`filter-btn ${mode === val ? 'active' : ''}`} onClick={() => setMode(val)}>{label}</button>
+        ))}
+      </div>
       {mode === 'magnitude' && (
         <div className="tab-explainer accent-purple">
           The bridge factor magnitude <InlineMath tex={"|\\chi(\\sigma+it)|"} /> measures whether the connection between
@@ -398,14 +403,6 @@ export default function ScatteringMatrixViz() {
         </div>
       )}
       <div className="controls">
-        <div className="control-group">
-          <label>Property</label>
-          <select value={mode} onChange={e => setMode(e.target.value)}>
-            <option value="magnitude">|χ(s)| Magnitude</option>
-            <option value="reflection">Reflection Coefficient Γ</option>
-            <option value="phase">Phase arg(χ)</option>
-          </select>
-        </div>
         <div className="control-group">
           <label><InlineMath tex={"t = \\operatorname{Im}(s)"} /></label>
           <input type="range" min="1" max="60" step="0.5" value={tValue}

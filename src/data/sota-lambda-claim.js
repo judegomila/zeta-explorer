@@ -743,6 +743,113 @@ export const SOTA_LAMBDA_CLAIM = {
     },
   ],
 
+  // ── imp-465: fourth adversarial review post-Phase 32-33 closures ─────────────
+  // Scans imp-451 through imp-464 (14 closures) for impact on the SOTA claim
+  // rigor chain and finite-height bound. No new FATAL gaps found.
+  fourthAdversarialReview: {
+    reviewTicket: 'imp-465',
+    phaseSurveyed: 'Phase 32-33 (imp-451 through imp-464)',
+    reviewDate: '2026-04-11',
+    closuresSurveyed: [
+      'imp-451: G3a extremal-statistics diagnostic closure',
+      'imp-452: finite-height Lambda bound assembly at N*=1e6',
+      'imp-453: SOTA citation refresh (imp-443/444/447/448/450)',
+      'imp-454: Lean lakefile',
+      'imp-455: G1-sub-extremal partial closure via Bourgade extremal-gap',
+      'imp-456: Theorem UMon proved unconditionally in unfolded coordinates',
+      'imp-457: B1 conditional closure -- slope bound under NoSwap + D-monotone',
+      'imp-458: B2 conditional closure -- intercept bound under M (Koksma-Hlawka)',
+      'imp-459: sigma_opt 0.61->0.75 -- E_trunc margin 24.9x over PT',
+      'imp-460: cross-verification extended to N* grid {1e4,1e5,1e6,1e7,5e7}',
+      'imp-461: Lean BC_/C_ naming unification',
+      'imp-462: Bridge M -- M_raw <==> M_uf exactly via positive RvM Jacobian',
+      'imp-463: D-monotone analytically closed via partial-fractions + CM rate',
+      'imp-464: NoSwap closed -- repulsive-crossing rate ~ 2/B -> +inf analytical',
+    ],
+    newStrengths: [
+      {
+        finding: 'B1 analytically closed under CM model',
+        detail:
+          'imp-463 closed D-monotone analytically: partial-fractions identity ' +
+          'F = B^2*S = Sum 1/[p_j(p_j+1)]; CM rate dp_j/dtau > 0 shows each ' +
+          'term non-increasing, so F non-increasing unconditionally. ' +
+          'imp-464 closed NoSwap analytically: repulsive-crossing rate ' +
+          'd(g_j - g_{k_star})/dtau ~ 2/B_x -> +inf at any hypothetical swap. ' +
+          'Both conditions on which imp-457 B1 was conditional are now analytically proved. ' +
+          'B1 (slope b analytically bounded) is now established under the CM model. ' +
+          'Independent GUE local-law route (imp-363/imp-370) remains as a second ' +
+          'angle but is no longer the primary blocker.',
+        impactOnSota:
+          'Blocking conditions for Lambda <= 0.121 reduced from {B1, B2} to {M only}.',
+      },
+      {
+        finding: 'Bridge M: M_raw <==> M_uf exactly via positive RvM Jacobian',
+        detail:
+          'imp-462 proved rho(gamma) > 0 everywhere on the zero ordinates ' +
+          '(rho_min ~ 0.209), so the unfolding map F is a strictly monotone bijection. ' +
+          'Theorem UMon (imp-456: H_{N+1} <= H_N unconditional in unfolded coords) ' +
+          'therefore gives tau_c_raw(N) >= tau_c_raw(N+1) at leading order via the ' +
+          'positive Jacobian. The many-body correction gap (imp-462-many-body-correction) ' +
+          'is the sole remaining step for exact M.',
+        impactOnSota:
+          'B2 path to M strengthened. Sole open condition for Lambda <= 0.121 is ' +
+          'the many-body correction that would promote leading-order M to exact M.',
+      },
+      {
+        finding: 'E_trunc margin hardened to 24.9x over Platt-Trudgian',
+        detail:
+          'imp-459 raised sigma_opt to 0.75, reducing E_trunc_pt to ~3.1e-5 ' +
+          '(down from 0.113 at sigma_opt=0.61). The PT-improved bound L_pt ~ 0.121 ' +
+          'margin is now 24.9x over PT, robust to single-constant perturbations. ' +
+          'imp-460 extended cross-verification to five N* grid points confirming no ' +
+          'path-dependence at the 10th significant figure.',
+        impactOnSota: 'E_trunc contribution is negligible; bound is dominated by L_cond ~ 0.008.',
+      },
+    ],
+    newGapsFound: [
+      {
+        id: 'imp-462-many-body-correction',
+        severity: 'named',
+        label: 'Many-body correction for exact Bridge M',
+        description:
+          'imp-462 establishes M_raw <==> M_uf at leading order via the RvM Jacobian. ' +
+          'Exact M (no approximation) requires verifying that many-body Calogero-Moser ' +
+          'interaction terms do not shift tau_c between unfolded and raw coordinates ' +
+          'beyond the leading-order Jacobian factor. This is the last open step on ' +
+          'the B2 route to unconditional Lambda <= 0.121.',
+        blockerForCurrentClaim: true,
+        blockerFor: 'Lambda <= 0.121 unconditional finite-height beat',
+      },
+      {
+        id: 'G3a_sub_fullsum',
+        severity: 'structural-obstruction',
+        label: 'Full many-body S_{k*} lower bound (Route C G3a)',
+        description:
+          'imp-451 showed the near+tail decomposition S_{k*} = S_near + S_tail is ' +
+          'definitively insufficient for large N (Ben Arous-Bourgade GUE extremal-gap ' +
+          'scaling: c_total -> 0). A full many-body lower bound not using the two-site ' +
+          'split is required for Route C G3a. NOT a blocker on Routes A or B.',
+        blockerForCurrentClaim: false,
+        blockerFor: 'Route C G3a closure only',
+      },
+    ],
+    fatalGapsFound: [],
+    rigorLevelVerdict:
+      'No new FATAL gaps found in Phase 32-33. The rigorLevel ' +
+      'RIGOROUS-ASYMPTOTIC (asymptotic Lambda = 0 via imp-401 chain) remains accurate. ' +
+      'Finite-height bound: blocking conditions reduced from {B1, B2} to {M only}. ' +
+      'The headline Lambda <= 0.121 at N*=1e6 is now conditional on M alone ' +
+      '(many-body correction for exact Bridge M), a strictly weaker assumption ' +
+      'than the pre-Phase-32-33 {B1, B2} pair. No downgrade required.',
+    overallVerdict:
+      'Phase 32-33 delivered genuine progress: D-monotone (imp-463) and NoSwap ' +
+      '(imp-464) closed B1 analytically under the CM model; Bridge M (imp-462) ' +
+      'reduced B2 to one remaining many-body correction gap. The SOTA claim is ' +
+      'strictly stronger post-Phase 32-33. Sole open condition for the finite-height ' +
+      'beat is exact M (imp-336 many-body correction).',
+    addedBy: 'imp-465',
+  },
+
   consumes: [
     'imp-327 src/data/lambda-rh-height-mapping.js — theorem chain + T*(N) map',
     'imp-328 src/data/lambda-intercept-analytic.js — conditional upper bound',

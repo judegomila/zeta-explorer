@@ -590,9 +590,25 @@ git log --oneline -10                    # engine commits`}
               </div>
             )}
             {latestSession.mainLineBlocker && (
+              // Bug fix: sessions.js stores mainLineBlocker as an object
+              // { label, description, ticket }, not a plain string. Rendering
+              // the raw object crashed React with "Objects are not valid as
+              // a React child", which took out the whole MetaAcceleration
+              // tab. Normalize to a string (with a string fallback) before
+              // interpolating into JSX.
               <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 8 }}>
                 <strong>Main-line blocker at session end:</strong>{' '}
-                {latestSession.mainLineBlocker}
+                {typeof latestSession.mainLineBlocker === 'string'
+                  ? latestSession.mainLineBlocker
+                  : `${latestSession.mainLineBlocker.label || ''}${
+                      latestSession.mainLineBlocker.ticket
+                        ? ` (${latestSession.mainLineBlocker.ticket})`
+                        : ''
+                    }${
+                      latestSession.mainLineBlocker.description
+                        ? ` — ${latestSession.mainLineBlocker.description}`
+                        : ''
+                    }`}
               </div>
             )}
             <div style={{ marginTop: 10 }}>

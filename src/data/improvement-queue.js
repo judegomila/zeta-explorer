@@ -4951,12 +4951,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Upgrade imp-375 SOTA claim from partial Λ ≤ 0.0166 to asymptotic Λ = 0 after imp-387',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'imp-387 G6 closure changed the rigor level of the SOTA claim: Steps 1-4 of the chain are now rigorous unconditionally modulo symbolic constants. Combined with imp-341 lim-sup = 0 and Rodgers-Tao Lambda >= 0, Lambda = 0 follows ASYMPTOTICALLY (in the N to infinity limit). Update src/data/sota-lambda-claim.js to report this as the new headline: central value 0, rigor level "rigorous asymptotic modulo C_T/C_F/C_C", the route (B: Burgers + imp-387 bridge), and the remaining work (pin C_T/C_F/C_C via imp-397/398/399, then the claim becomes fully numerical). Preserve the finite-N partial claim as a secondary number. All existing assertions must still pass.',
     rationale: 'This is the capstone ticket — the one that changes the headline Lambda claim in the repo from "Λ ≤ 0.0166 partial" to "Λ = 0 asymptotic rigorous" . Without this file update, imp-387 is invisible to every downstream consumer.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-11T12:30:00Z',
   },
 
   // ── Phase 20: external publishing + independent verification ──

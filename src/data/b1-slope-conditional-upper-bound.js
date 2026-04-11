@@ -78,6 +78,8 @@ import {
   PATH_C_EMPIRICAL_SLOPE,
 } from './dyson-slope-analytic-bound.js';
 
+import { D_MONOTONE_WITNESS_RECORD } from './d-monotone-numerical-witness.js';
+
 // ── Certified conditional ceiling ────────────────────────────────────────────
 
 // b_cert = max(b_lin(N)) over the fit Ns, rounded UP to 3 significant figures.
@@ -135,7 +137,7 @@ export const B1_CONDITIONAL_BOUND = {
   residualSubGap: {
     id:     'skp-imp457-D-monotone',
     title:  'D(tau) >= D(0) on [0, tau_c] under NoSwap',
-    status: 'open',
+    status: 'numerically-witnessed',
     route:
       'Prove g_{k*}(tau)^2 S_{k*}(tau) is non-increasing under NoSwap. ' +
       'Sufficient to show S_{k*}(tau) is non-increasing when k* holds the ' +
@@ -145,7 +147,9 @@ export const B1_CONDITIONAL_BOUND = {
     note:
       'Sole remaining sub-gap in the conditional B1 closure. Strictly weaker ' +
       'than the original imp-363 / imp-370 GUE approach and lives entirely ' +
-      'within the deterministic CM framework without random-matrix input.',
+      'within the deterministic CM framework without random-matrix input. ' +
+      'Numerically witnessed at N=50 by d-monotone-numerical-witness.js (imp-457).',
+    numericalWitness: D_MONOTONE_WITNESS_RECORD,
   },
 
   sources: [
@@ -196,9 +200,19 @@ export const B1_BOUND_ASSERTIONS = [
     id: 'imp457-residual-subgap-named',
     holds: () =>
       B1_CONDITIONAL_BOUND.residualSubGap.id === 'skp-imp457-D-monotone' &&
-      B1_CONDITIONAL_BOUND.residualSubGap.status === 'open',
+      B1_CONDITIONAL_BOUND.residualSubGap.status !== 'proved',
     why:
-      'The residual sub-gap must be named and open. Fires if the sub-gap was ' +
-      'accidentally marked closed without a proof or the record was mutated.',
+      'The residual sub-gap must be named and not yet analytically proved. ' +
+      'Fires if the sub-gap is accidentally marked proved without a full ' +
+      'analytic proof being supplied in the codebase.',
+  },
+  {
+    id: 'imp457-d-monotone-witness-passes',
+    holds: () =>
+      D_MONOTONE_WITNESS_RECORD.status === 'numerical-witness-passes',
+    why:
+      'The D-monotone numerical witness at N=50 must pass (D non-decreasing, ' +
+      'NoSwap holds). A failure means the backward CM simulation found a ' +
+      'violation, which would undermine the conditional B1 closure chain.',
   },
 ];

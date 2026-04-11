@@ -664,6 +664,71 @@ export const SOTA_LAMBDA_CLAIM = {
     },
   ],
 
+  // ── imp-453: latest closure citations ────────────────────────────────────────
+  // Records the five proof closures shipped after imp-428 that directly affect
+  // the SOTA claim chain. Added by imp-453 to keep the citation registry current.
+  latestClosures: [
+    {
+      ticket: 'imp-443',
+      gap: 'skp3-001',
+      summary:
+        'Paths G and H re-connected in the Section 7 implication graph of ' +
+        'proof-paper.js. Added G=>E (Frobenius-Cauchy trace-class for 2x2, ' +
+        'Lidskii trace) and H=>I (Szego det->de Branges Hermite-Biehler) arrows. ' +
+        'Corrects the adversarial-review finding that G and H were orphaned.',
+      file: 'src/math/proof-paper.js',
+      impactOnSota: 'structural — implication graph completeness, no numeric change',
+    },
+    {
+      ticket: 'imp-444',
+      gap: 'skp3-002',
+      summary:
+        'C_F(N) = (log(T_0/2pi)+1)/(2pi) is now pinned as an explicit closed ' +
+        'form (derived in imp-398 by integration by parts) rather than the opaque ' +
+        'label "RvM density integral". pinnedConstants and Theorem 10.2 updated.',
+      file: 'src/math/proof-paper.js',
+      impactOnSota: 'strengthens the C_F citation already in asymptoticResult.pinnedConstants',
+    },
+    {
+      ticket: 'imp-447',
+      gap: 'skp-imp440-etrunc',
+      summary:
+        'E_trunc optimised via PT+Ingham split: Platt-Trudgian 2021 certifies ' +
+        'zero off-line zeros up to T_PT=3e12, so Ingham 1940 density applies only ' +
+        'above T_PT. With sigma_N=0.61 (delta=0.11): E_trunc_pt~0.113, ' +
+        'L_cond~0.121 < 0.2 = Platt-Trudgian bound. OVERALL_VERDICT=PT-IMPROVED.',
+      file: 'src/data/finite-height-beats-platt-trudgian.js',
+      impactOnSota:
+        'Closes the sole blocker on the finite-height Lambda < 0.2 beat (imp-440). ' +
+        'The Route B conditional bound now beats PT at N*=1e6.',
+    },
+    {
+      ticket: 'imp-448',
+      gap: 'skp-imp441-axiom-dup',
+      summary:
+        'Lean 4 axiom deduplication: canonical Foundation.lean now holds all ' +
+        'shared axioms (deBruijnNewmann, dysonCollTime, gammaOrdinate, BRIDGE_kappa_T, ' +
+        'BRIDGE_C_G). BridgeTheorem.lean and Capstone.lean import Foundation and ' +
+        'no longer redeclare axioms, eliminating the duplicate-declaration error.',
+      file: 'lean/LambdaAttack/Foundation.lean',
+      impactOnSota: 'formal proof infrastructure — no numeric change to Lambda bound',
+    },
+    {
+      ticket: 'imp-450',
+      gap: 'G1_argmin_interiority + G2_argmin_jumps',
+      summary:
+        'G1 + G2 joint closure assembly (src/data/g1-g2-closure.js). ' +
+        'G2 closed unconditionally at tau=0 via Cauchy interlacing: ' +
+        'B_{N+1}(0) <= B_N(0) for all N >= 2. G1 partial: k*_N in {1,...,N-1} ' +
+        'unconditional (boundary pathology removed); uniform margin c=alpha still ' +
+        'conditional on G1-sub-extremal. Route A (M) monotonicity NOT yet proved.',
+      file: 'src/data/g1-g2-closure.js',
+      impactOnSota:
+        'Reduces the Route A-prime conditional scope: boundary degenerate case ' +
+        'is unconditionally eliminated; only the uniform-margin step remains open.',
+    },
+  ],
+
   consumes: [
     'imp-327 src/data/lambda-rh-height-mapping.js — theorem chain + T*(N) map',
     'imp-328 src/data/lambda-intercept-analytic.js — conditional upper bound',
@@ -676,6 +741,11 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-366 src/data/polymath15-lemma52-shock-holder.js — G6a closure',
     'imp-344 src/data/lambda-intercept-unconditional.js — master assembly + G6 closure record',
     'imp-387 src/data/lambda-intercept-unconditional.js — G6_polymath15_bridge coordinated closure flip',
+    'imp-443 src/math/proof-paper.js — skp3-001 Paths G/H implication graph closure',
+    'imp-444 src/math/proof-paper.js — skp3-002 C_F closed-form pin',
+    'imp-447 src/data/finite-height-beats-platt-trudgian.js — E_trunc PT+Ingham optimised bound',
+    'imp-448 lean/LambdaAttack/Foundation.lean — Lean axiom deduplication',
+    'imp-450 src/data/g1-g2-closure.js — G1+G2 joint partial closure assembly',
   ],
 
   dependsOnCitedTicketIds: [
@@ -689,6 +759,11 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-356',
     'imp-366',
     'imp-387',
+    'imp-443',
+    'imp-444',
+    'imp-447',
+    'imp-448',
+    'imp-450',
   ],
 };
 

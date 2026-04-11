@@ -273,6 +273,20 @@ export default function EnergyLandscapeViz() {
 
   return (
     <div>
+      <div className="filter-bar">
+        <button className={`filter-btn ${metric === 'energy' ? 'active' : ''}`}
+          onClick={() => setMetric('energy')}
+          title="Total Hamiltonian energy H(σ+it) — shows dark valley along σ=½ where the system is in equilibrium">System Energy</button>
+        <button className={`filter-btn ${metric === 'mismatch' ? 'active' : ''}`}
+          onClick={() => setMetric('mismatch')}
+          title="Impedance mismatch |Z_dir − Z_dual| — minimized on σ=½ where the functional equation forces Z_dual = conj(Z_dir)">Impedance Mismatch</button>
+        <button className={`filter-btn ${metric === 'directMag' ? 'active' : ''}`}
+          onClick={() => setMetric('directMag')}
+          title="|ζ(s)| direct magnitude — shows zeros of the zeta function as dark points">|ζ(s)| Direct</button>
+        <button className={`filter-btn ${metric === 'dualMag' ? 'active' : ''}`}
+          onClick={() => setMetric('dualMag')}
+          title="|ζ(1−s)| dual magnitude — mirror image under the functional equation symmetry s ↔ 1−s">|ζ(1−s)| Dual</button>
+      </div>
       <div className="tab-explainer accent-purple">
         The 2D heatmap shows the selected quantity over the <InlineMath tex={"(\\sigma, t)"} /> plane.
         <strong>System Energy</strong> shows <InlineMath tex={"\\mathcal{H}(\\sigma+it)"} /> with its valley along <InlineMath tex={"\\sigma = 0.5"} />.
@@ -282,16 +296,6 @@ export default function EnergyLandscapeViz() {
         <strong> Look for:</strong> the dark valley along <InlineMath tex={"\\sigma = 0.5"} /> and zeros sitting at valley floor.
       </div>
       <div className="controls">
-        <div className="control-group">
-          <label>Metric</label>
-          <select value={metric} onChange={e => setMetric(e.target.value)}
-            title="Choose which quantity to display on the heatmap: total Hamiltonian energy, impedance mismatch between direct/dual ladders, or raw zeta magnitude.">
-            <option value="energy">System Energy</option>
-            <option value="mismatch">Impedance Mismatch</option>
-            <option value="directMag">|ζ(s)| Direct</option>
-            <option value="dualMag">|ζ(1-s)| Dual</option>
-          </select>
-        </div>
         <div className="control-group">
           <label>t max</label>
           <input type="range" min="10" max="80" step="5" value={tMax}

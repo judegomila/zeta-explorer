@@ -4722,12 +4722,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Cross-validation table: assemble all Λ estimates with ε-tolerance assertions',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'Extend src/data/lambda-cross-validation.js (imp-320) with rows for: Path C Hybrid (imp-309), barrier extrapolation (imp-371), heat flow (imp-372), kernel-hack analytical (imp-373), OLS on baseline (imp-323), pooled Bayesian posterior (imp-333), imp-348 rate-upgrade projection, imp-360 extended ladder. Build-time assertions: (a) all finite-N rows agree within their error bars on a common N, (b) no method disagrees with the consensus by more than 5·max error bar.',
     rationale: 'Single source of truth for "do all the methods agree". Required for the SOTA claim to be credible.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-11',
   },
 
   // ─── Final assembly + documentation ───

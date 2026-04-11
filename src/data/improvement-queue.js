@@ -5732,12 +5732,19 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close B1: analytic slope bound for the OLS projection in lambda-N1e6-final-assembly',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'conditional-closed',
     proofSection: 'S10-B1',
-    description: 'imp-452 lambda-N1e6-final-assembly.js shows the full L_pt ~ 0.121 < 0.2 bound is conditional on exactly two open conditions, B1 and B2. B1 is the analytic slope bound for the OLS projection — the assembly cites imp-363 / imp-370 as the two earlier attempts but marks it as open. Close it: derive a rigorous slope bound for the regression b_N = Cov(k, m_N(k)) / Var(k) on the argmin window from imp-450 G1+G2, using the now-available analytic control of the argmin location. Key inputs: (1) the Burgers envelope m_∞(k) from imp-341, (2) the interiority + non-jump bounds from g1-g2-closure.js, (3) the covariance bound from the Cauchy-interlacing lemma in imp-369. Deliverable: src/math/b1-slope-analytic-bound.js with the explicit bound |b| ≤ β_B1(N) + numerical verification against Odlyzko 2458 zeros + update of lambda-N1e6-final-assembly.js conditionSet to flip B1 from "open" to "closed" and exclude it from the conditional set.',
+    description: 'imp-452 lambda-N1e6-final-assembly.js shows the full L_pt ~ 0.121 < 0.2 bound is conditional on exactly two open conditions, B1 and B2. B1 is the analytic slope bound for the OLS projection — the assembly cites imp-363 / imp-370 as the two earlier attempts but marks it as open. Close it: derive a rigorous slope bound for the regression b_N = Cov(k, m_N(k)) / Var(k) on the argmin window from imp-450 G1+G2, using the now-available analytic control of the argmin location. Key inputs: (1) the Burgers envelope m_∞(k) from imp-341, (2) the interiority + non-jump bounds from g1-g2-closure.js, (3) the covariance bound from the Cauchy-interlacing lemma in imp-369. Deliverable: src/math/b1-slope-analytic-bound.js with the explicit bound |b| <= beta_B1(N) + numerical verification against Odlyzko 2458 zeros + update of lambda-N1e6-final-assembly.js conditionSet to flip B1 from "open" to "closed" and exclude it from the conditional set.',
     rationale: 'B1 is one of only TWO remaining open conditions on the L_pt < 0.2 finite-height beat. Closing B1 cuts the open set in half and brings the finite-height claim half the way to unconditional. With the imp-450 G1+G2 closure the analytic inputs needed for B1 are all available in-repo.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-11T22:05:00.000Z',
+    closureNote:
+      'B1 conditionally closed by imp-457 work chain: (1) b1-slope-conditional-upper-bound.js ' +
+      'derives b(N) <= b_lin(N) <= B1_SLOPE_CEILING under NoSwap + D-monotone; (2) ' +
+      'd-monotone-numerical-witness.js witnesses D(tau) >= D(0) and NoSwap at N=50 and N=100; ' +
+      '(3) lambda-N1e6-final-assembly.js B1 condition flipped from open to conditional-closed. ' +
+      'Residual sub-gap skp-imp457-D-monotone (analytic proof of D-monotone) remains open; ' +
+      'unconditional B1 closure requires that or the imp-363/imp-370 GUE local-law route.',
   },
   {
     id: 'imp-458',

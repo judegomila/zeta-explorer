@@ -88,15 +88,18 @@ const CONDITIONS = [
   {
     id:     'B1',
     label:  'Slope b analytically bounded',
-    status: 'conditional-closed',
-    ticket: 'imp-457',
+    status: 'established',
+    ticket: 'imp-457 + imp-463 + imp-468',
     bound:  B1_CONDITIONAL_BOUND.bound.value,
     note:
-      'Conditionally closed by imp-457: b(N) <= b_lin(N) <= ' +
+      'FULLY CLOSED by imp-470: b(N) <= b_lin(N) <= ' +
       B1_CONDITIONAL_BOUND.bound.value +
-      ' under NoSwap + D-monotone (b1-slope-conditional-upper-bound.js). ' +
-      'Residual sub-gap skp-imp457-D-monotone remains open. ' +
-      'Unconditional closure via imp-363/imp-370 GUE local-law approach.',
+      ' (b1-slope-conditional-upper-bound.js). ' +
+      'Both conditions on which imp-457 was conditional are now analytically proved: ' +
+      'NoSwap closed analytically at all N by imp-468 (NOSWAP_CLOSURE.status = analytically-closed); ' +
+      'D-monotone (skp-imp457-D-monotone) closed analytically by imp-463 ' +
+      '(b1-slope-conditional-upper-bound.js skp-imp457-D-monotone.status = analytically-closed). ' +
+      'B1 is now unconditionally established under the deterministic CM model.',
   },
   {
     id:     'B2',
@@ -145,8 +148,10 @@ export const LAMBDA_N1E6_FINAL_ASSEMBLY = {
   id:    'imp-452',
   title: 'Full finite-height Lambda bound assembly at N* = 1e6',
   status:
-    'assembled -- best current bound L_pt ~ 0.121 conditional on B1+B2; ' +
-    'E_trunc closed via imp-447 (C3-pt established); B1+B2 open',
+    'assembled -- best current bound L_pt ~ 0.121 conditional on M only (B2); ' +
+    'E_trunc closed via imp-447 (C3-pt established); ' +
+    'B1 fully established by imp-470 (NoSwap+D-monotone both analytically proved); ' +
+    'sole remaining blocking condition is exact M (many-body correction, imp-462-many-body-correction)',
 
   nStar:   1e6,
   ptBound: PT_BOUND,
@@ -209,10 +214,12 @@ export const LAMBDA_N1E6_FINAL_ASSEMBLY = {
       'best current bound L_pt ~ 0.00803 conditional on B1+B2. The margin factor ' +
       'is ~24.9x under the full (L_pt) bound (imp-459) and ~25x under the conditional (L_cond) bound.',
     remainingWork:
-      'B1 conditionally closed by imp-457 (NoSwap + D-monotone); ' +
-      'NoSwap closed by imp-464 and D-monotone closed by imp-463: B1 is now closed under the CM model. ' +
-      'B2 conditionally closed by imp-458 (monotonicity M, Koksma-Hlawka bound); NoSwap leg closed by imp-464. ' +
-      'Full unconditional Lambda <= 0.121 beat requires closing M (imp-336 monotonicity conjecture).',
+      'B1 now ESTABLISHED (imp-470): NoSwap analytically closed at all N (imp-468) and ' +
+      'D-monotone analytically closed (imp-463); both conditions on B1 proved under CM model. ' +
+      'B2 conditionally closed by imp-458 (monotonicity M, Koksma-Hlawka bound); ' +
+      'imp-462 bridge closed M_raw <==> M_uf exactly; imp-469 closed analytic rho_min > 0 lower bound. ' +
+      'Sole remaining blocking condition: exact M via many-body correction (imp-462-many-body-correction). ' +
+      'Full unconditional Lambda <= 0.121 beat requires closing the many-body CM correction gap.',
   },
 
   sources: [
@@ -279,12 +286,13 @@ export const LAMBDA_N1E6_ASSEMBLY_ASSERTIONS = [
     id: 'imp452-condition-counts',
     holds: () =>
       LAMBDA_N1E6_FINAL_ASSEMBLY.openConditions.length        === 0 &&
-      LAMBDA_N1E6_FINAL_ASSEMBLY.conditionalConditions.length === 2 &&
-      LAMBDA_N1E6_FINAL_ASSEMBLY.closedConditions.length      === 2,
+      LAMBDA_N1E6_FINAL_ASSEMBLY.conditionalConditions.length === 1 &&
+      LAMBDA_N1E6_FINAL_ASSEMBLY.closedConditions.length      === 3,
     why:
-      'After imp-464: zero conditions remain fully open. Two are conditional-closed ' +
-      '(B1 by imp-457 under NoSwap + D-monotone; B2 by imp-458 under monotonicity M). ' +
-      'Two are established: C3-pt (imp-447) and NoSwap (imp-464). ' +
+      'After imp-470: zero conditions remain fully open. One is conditional-closed ' +
+      '(B2 by imp-458 under monotonicity M -- many-body correction still open). ' +
+      'Three are established: B1 (imp-470 -- NoSwap+D-monotone both analytically proved), ' +
+      'C3-pt (imp-447), and NoSwap (imp-464/468). ' +
       'A change in this count means either a new condition was added without ' +
       'updating this assembly, or a premature or erroneous closure was recorded.',
   },

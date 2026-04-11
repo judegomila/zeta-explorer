@@ -4848,6 +4848,17 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-04-10',
   },
   {
+    id: 'imp-381',
+    title: 'META: Project-local slash commands for acceleration patterns (/fanout, /lambda-status, /seed-from-gaps, /verify)',
+    category: 'meta',
+    priority: 'high',
+    status: 'completed',
+    description: 'Created four project-local slash commands in .claude/commands/ capturing the acceleration patterns we have been running ad-hoc all session: (1) /lambda-status — one-invocation dashboard print of engine state, sentinel, recent commits, critical pending queue, Λ bounds snapshot, fresh 429 scan; (2) /fanout [N] — reads top N critical pending tickets and launches N general-purpose Agent instances in parallel with self-contained context + the atomic-commit workflow + the two syntax gotchas (no dg_k*/dt in JSDoc, no apostrophes in single-quoted strings), replacing the 200-line agent prompts I have been writing by hand every round; (3) /seed-from-gaps — reads lambda-roadmap.js OPEN_GAPS and LAMBDA_CHAIN_STEPS, cross-references against pending queue ids, drafts new tickets for every uncovered gap, inserts, builds, commits; (4) /verify — parallel build + git status + engine + dev-server health check. Committed to the repo so they are available in every future Claude Code session AND in any agent the auto-improve engine spawns. The fanout template encodes the Phase 12 learnings (commit interleaving, rate-limit recovery pattern) so future fanouts inherit them.',
+    rationale: 'User ask: "what skills are being added to help us go faster". The ad-hoc patterns I have been running (hand-written agent prompts, manual status checks, queue surgery) are exactly what slash commands are for. Locking them into the repo is the single highest-leverage permanent speedup — every future session starts with the patterns already available.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-04-11',
+  },
+  {
     id: 'imp-358',
     title: 'META: Show Meta Improvements section on MetaAccelerationPage with completion status',
     category: 'meta',

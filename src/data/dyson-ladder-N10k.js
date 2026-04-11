@@ -51,7 +51,7 @@
 import { PT_SCALE_EXTRAPOLATION } from './lambda-pt-scale-extrapolation.js';
 import { LAMBDA_INTERCEPT_CONFIDENCE } from './lambda-intercept-confidence.js';
 import { CONDITIONAL_UPPER_BOUND } from './lambda-intercept-analytic.js';
-import { PATH_C_BASELINE_FIT } from '../math/dyson-scaling-N5000.js';
+import { PATH_C_BASELINE_FIT, quadFit } from '../math/dyson-scaling-N5000.js';
 
 // ── Target N values for the imp-353 extension ───────────────────────────────
 
@@ -104,6 +104,26 @@ const TIGHTENING_N1E5 = conditionalTightening(PROJECTED_ROW_N1E5);
 const OLS_A = LAMBDA_INTERCEPT_CONFIDENCE.fit.intercept_a;
 const OLS_B = LAMBDA_INTERCEPT_CONFIDENCE.fit.slope_b;
 
+// ── Quadratic curvature correction on the 5-point baseline ──────────────────
+// A second-order fit |t_c| = a_q + b_q/N + c_q/N^2 on PATH_C_BASELINE_FIT
+// characterises curvature. Sign of c_q matters for imp-360 confidence:
+//   c_q > 0 (concave-up): the OLS linear projection at N=10^4 is OPTIMISTIC;
+//                          the actual measured tc from imp-360 may be HIGHER
+//                          than the linear estimate, giving a looser bound.
+//   c_q < 0 (concave-down): OLS projection is PESSIMISTIC; the actual measured
+//                            tc may be LOWER, meaning the Λ bound from imp-360
+//                            may be TIGHTER than the OLS target.
+const QUAD_COEFF = quadFit(PATH_C_BASELINE_FIT);
+
+function quadProjection(N) {
+  if (!QUAD_COEFF) return null;
+  const x = 1 / N;
+  return QUAD_COEFF.a + QUAD_COEFF.b * x + QUAD_COEFF.c * x * x;
+}
+
+const QUAD_TC_N1E4 = quadProjection(1e4);
+const QUAD_TC_N1E5 = quadProjection(1e5);
+
 // ── The imp-353 partial record ───────────────────────────────────────────────
 
 export const DYSON_LADDER_N10K = {
@@ -145,6 +165,31 @@ export const DYSON_LADDER_N10K = {
       'N_max. At N = 10^5, the projected_tc ~ 0.003, a ~3x tightening relative ' +
       'to baseline — bringing the central Λ value well below Platt-Trudgian 0.2.',
   },
+  quadraticCurvature: QUAD_COEFF
+    ? {
+        fit: {
+          a: QUAD_COEFF.a,
+          b: QUAD_COEFF.b,
+          c: QUAD_COEFF.c,
+          model: '|t_c|(N) = a + b/N + c/N^2 — OLS on 5-point PATH_C_BASELINE_FIT',
+        },
+        projectionN1e4: QUAD_TC_N1E4,
+        projectionN1e5: QUAD_TC_N1E5,
+        curvatureSign:
+          QUAD_COEFF.c > 0
+            ? 'positive — baseline is concave-up; the linear OLS projection at N = 10^4 is OPTIMISTIC'
+            : 'negative — baseline is concave-down; the linear OLS projection at N = 10^4 is PESSIMISTIC; measured tc may be LOWER',
+        implicationForImp360:
+          QUAD_TC_N1E4 !== null
+            ? 'Quadratic second-order estimate at N = 10^4: ' +
+              QUAD_TC_N1E4.toFixed(6) +
+              '. Linear OLS estimate: ' +
+              (OLS_A + OLS_B / 1e4).toFixed(6) +
+              '. The difference calibrates the second-order uncertainty ' +
+              'in the imp-353 projection before imp-360 measures the actual value.'
+            : 'Cannot compute (quadFit returned null)',
+      }
+    : null,
   subGaps: [
     {
       id: 'imp353a_zeros_blocked_on_imp359',

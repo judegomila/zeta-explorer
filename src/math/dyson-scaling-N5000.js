@@ -158,8 +158,8 @@ function linearFit(points) {
   return { a, b, R2: 1 - ssRes / ssTot };
 }
 
-// Quadratic refit |t_c| = a + b/N + c/N² to detect curvature.
-function quadFit(points) {
+// Quadratic refit |t_c| = a + b/N + c/N^2 to detect curvature.
+export function quadFit(points) {
   const n = points.length;
   if (n < 4) return null;
   // Normal equations for [1, x, x²] basis where x = 1/N.

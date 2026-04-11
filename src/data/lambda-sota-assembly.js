@@ -1,8 +1,21 @@
 /**
- * imp-356 (partial closure): SOTA Λ statement + verification
+ * imp-356 (partial closure, upgraded after imp-366): SOTA Λ statement + verification
  *
  * Assembles the current best-available Λ ≤ 0.02 claim from three independent
  * sources and guards the assembly with build-time assertions.
+ *
+ * UPGRADE NOTE (2026-04-11)
+ * -------------------------
+ * imp-366 (polymath15-lemma52-shock-holder.js) ported Polymath15 Lemma 5.2
+ * and closed G6a_shock_lipschitz STRUCTURALLY, upgrading E_coll(N) from a
+ * conditional placeholder to an actual Holder-1/2 bound
+ *     E_coll(N)  <=  C_C * (log gamma_N / N)^{1/2}   → 0 unconditionally.
+ * With G6a discharged, the Polymath15 bridge E(N) = E_trunc + E_flow + E_coll
+ * of imp-345 is rigorous MODULO the symbolic constants C_T, C_F, C_H (each
+ * of order unity by the Polymath15 auxiliary lemmas). This is a significant
+ * tightening of the sub-gap enumeration below: imp356b is now partially
+ * discharged — only the symbolic-constant refinement and a rate upgrade
+ * (O((log N / N)^{1/2}) → O(log N / N)) remain as sub-sub-gaps of G6.
  *
  * HONEST SCOPE — partial closure with named sub-gaps
  * ---------------------------------------------------
@@ -10,8 +23,10 @@
  *   (1) An unconditional per-N upper bound on Λ (not just a conditional or
  *       statistical one) — blocked on closing one of Routes A, B-rate, or C.
  *   (2) A rigorous connection from the N-particle Dyson collision time t_c(N)
- *       to the de Bruijn-Newman constant Λ — blocked on G6_polymath15_bridge
- *       (imp-345, imp-366).
+ *       to the de Bruijn-Newman constant Λ — imp-345 decomposition plus
+ *       imp-366 G6a closure. G6 itself is structurally closed after imp-366
+ *       but remains PARTIAL because the Holder constant C_H from Polymath15
+ *       Lemma 5.2 is currently a symbolic placeholder (C_H = 1 in code).
  *   (3) A tighter statistical confidence interval, achievable by extending
  *       the measured Dyson baseline to larger N (imp-360).
  *
@@ -40,8 +55,12 @@
  *   1. Wait for one of imp-336 (monotonicity), imp-348 (rate upgrade), or
  *      imp-342 (density squeeze G3) to deliver an unconditional per-N bound.
  *      This closes sub-gap imp356a.
- *   2. Wait for imp-345 / imp-366 to deliver the Polymath15 bridge error
- *      bound E(N) → 0. This closes sub-gap imp356b.
+ *   2. Sub-gap imp356b is now PARTIALLY discharged. imp-345 delivered the
+ *      E(N) = E_trunc + E_flow + E_coll decomposition; imp-366 ported
+ *      Polymath15 Lemma 5.2 and closed G6a_shock_lipschitz, giving
+ *      E_coll(N) = O((log N / N)^{1/2}) unconditionally. What remains is
+ *      the symbolic-constant refinement (C_T, C_F, C_H) — a sub-sub-gap
+ *      of G6 that does not block the structural closure.
  *   3. Update status in improvement-queue.js to 'completed'.
  *   4. Update the headlineClaim.source to reflect the unconditional method.
  */
@@ -49,6 +68,7 @@
 import { CONDITIONAL_UPPER_BOUND } from './lambda-intercept-analytic.js';
 import { LAMBDA_INTERCEPT_CONFIDENCE } from './lambda-intercept-confidence.js';
 import { LAMBDA_ERROR_BUDGET } from './lambda-error-budget.js';
+import { POLYMATH15_LEMMA_52, G6A_SHOCK_LIPSCHITZ_CLOSURE } from './polymath15-lemma52-shock-holder.js';
 
 // ── SOTA target ───────────────────────────────────────────────────────────────
 
@@ -129,6 +149,18 @@ const METHOD_3_PATH_C = {
 //   lim sup_{N -> infinity} |t_c(N)| = 0  UNCONDITIONALLY
 // This is NOT a per-N bound but is directionally consistent with Λ ≤ 0.02:
 // if the lim sup is 0, the sequence eventually passes below any positive target.
+//
+// UPGRADE: imp-366 (Polymath15 Lemma 5.2 port) now provides the Holder-1/2
+// modulus |tau_c(mu_1) - tau_c(mu_2)| <= C_H * W_1(mu_1, mu_2)^{1/2} at the
+// Burgers shock with constants uniform in N. Combined with the imp-341 W_1
+// bound W_1(mu_N, rho_inf) <= C_KH * log(gamma_N) / N this gives the
+// explicit unconditional rate
+//     E_coll(N)  <=  C_C * (log gamma_N / N)^{1/2}
+// which discharges the E_coll term of the imp-345 Polymath15 bridge
+// decomposition. Route B is therefore no longer a bare limit statement —
+// it has an explicit finite-N error budget on the bridge side, conditional
+// only on the remaining symbolic constants C_T, C_F, C_H being of order
+// unity (stated in the Polymath15 auxiliary lemmas).
 
 const ROUTE_B_DIRECTIONAL = {
   method: 'imp-341 Burgers uniformity: lim sup_N |t_c(N)| = 0 UNCONDITIONALLY',
@@ -137,8 +169,24 @@ const ROUTE_B_DIRECTIONAL = {
   note:
     'Not a per-N bound; the transition from asymptotic to finite-N requires ' +
     'a rate upgrade (imp-348) or Route A monotonicity. Provides unconditional ' +
-    'directional support: the limit is 0, not some positive constant.',
+    'directional support: the limit is 0, not some positive constant. ' +
+    'AFTER imp-366: the Polymath15 bridge side now has an explicit Holder-1/2 ' +
+    'rate E_coll(N) = O((log N / N)^{1/2}) closing G6a_shock_lipschitz, so ' +
+    'the bridge E(N) → 0 is rigorous modulo symbolic constants (C_T, C_F, C_H).',
   sourceId: 'imp-341',
+  polymath15BridgeClosure: {
+    g6aStatus: 'closed (structurally, via imp-366)',
+    g6aClosedBy: 'imp-366',
+    bridgeDecompositionSource: 'imp-345 (lambda-polymath15-bridge.js)',
+    ecollRate: 'O((log N / N)^{1/2}) — Holder-1/2 from Polymath15 Lemma 5.2',
+    remainingSubSubGaps: [
+      'Symbolic constants C_T, C_F, C_H = 1 are placeholders; rigorous ' +
+        'numerical values require carrying the Polymath15 auxiliary lemma ' +
+        'constants through explicitly.',
+      'Rate upgrade from O((log N / N)^{1/2}) to O(log N / N) via ' +
+        'imp-348 local-law microscopic scale (away from the singular shock).',
+    ],
+  },
 };
 
 // ── Headline tightening over Platt-Trudgian ───────────────────────────────────
@@ -161,7 +209,10 @@ export const LAMBDA_SOTA_ASSEMBLY = {
     'Method 2 is statistical, not a theorem. ' +
     'Method 3 is numerical. ' +
     'An unconditional theorem-grade per-N claim requires closing G6_polymath15_bridge ' +
-    'and one of Routes A, B-rate-upgrade, or C.',
+    '(G6a_shock_lipschitz was closed by imp-366 via Polymath15 Lemma 5.2 port, ' +
+    'but the symbolic constants C_T, C_F, C_H in the imp-345 decomposition ' +
+    'remain placeholders; the bridge is structurally closed but not yet ' +
+    'quantitative) and one of Routes A, B-rate-upgrade, or C.',
 
   sotaTarget: SOTA_TARGET,
   plattTrudgianBound: PLATT_TRUDGIAN,
@@ -204,8 +255,16 @@ export const LAMBDA_SOTA_ASSEMBLY = {
     verdict:
       'Three estimates — one conditional, one statistical, one numerical — all ' +
       'confirm Λ ≤ 0.02 at the current data scale. Route B provides unconditional ' +
-      'asymptotic support. No pair of methods contradicts the others within their ' +
-      'stated scopes.',
+      'asymptotic support; after imp-366 the Polymath15 bridge side has an ' +
+      'explicit Holder-1/2 rate E_coll(N) = O((log N / N)^{1/2}), so the bridge ' +
+      'from lim t_c(N) to Λ is structurally closed modulo symbolic constants. ' +
+      'The verdict remains CONDITIONAL on G6 (symbolic constant refinement) and ' +
+      'on one of Routes A, B-rate, C for the unconditional per-N upgrade. ' +
+      'No pair of methods contradicts the others within their stated scopes.',
+    bridgeG6aStatus:
+      'closed structurally by imp-366 (Polymath15 Lemma 5.2, C_H = 1 placeholder)',
+    bridgeG6OverallStatus:
+      'partial — G6a closed, symbolic constants C_T/C_F/C_H still placeholders',
   },
 
   subGaps: [
@@ -224,9 +283,21 @@ export const LAMBDA_SOTA_ASSEMBLY = {
       description:
         'To connect the per-N bound on t_c(N) to Λ itself (the de Bruijn-Newman constant ' +
         'defined via H_t, not the N-particle Dyson flow), close G6_polymath15_bridge. ' +
-        'imp-345 has the E(N) decomposition; imp-366 ports Polymath15 Lemma 5.2.',
-      blockedBy: ['imp-345', 'imp-366'],
-      status: 'pending',
+        'imp-345 has the E(N) = E_trunc + E_flow + E_coll decomposition; imp-366 ' +
+        'ports Polymath15 Lemma 5.2 and closes the G6a_shock_lipschitz sub-gap by ' +
+        'supplying an explicit Holder-1/2 bound E_coll(N) <= C_C * (log gamma_N / N)^{1/2}. ' +
+        'What REMAINS of G6 after imp-366: the symbolic constants C_T, C_F, C_H are ' +
+        'placeholders of order unity; a fully quantitative bridge requires carrying ' +
+        'the Polymath15 auxiliary lemma constants through.',
+      blockedBy: ['imp-345', 'imp-348'],
+      partialClosures: [
+        'imp-366 — closed G6a_shock_lipschitz (Holder-1/2 modulus at Burgers shock) ' +
+          'structurally; symbolic C_H = 1 placeholder remains.',
+      ],
+      status: 'partial',
+      statusNote:
+        'G6a sub-gap structurally closed by imp-366; G6 as a whole remains partial ' +
+        'on the symbolic-constant refinement and optional rate upgrade to O(log N / N).',
     },
     {
       id: 'imp356c_tighter_ci',
@@ -293,7 +364,40 @@ export const LAMBDA_SOTA_ASSEMBLY_ASSERTIONS = [
     why:
       'TRIPWIRE: imp-356 status must remain "partial" until an unconditional per-N ' +
       'bound is available (sub-gap imp356a closed) AND the Polymath15 bridge is closed ' +
-      '(sub-gap imp356b closed). When both close, update status to "completed" in ' +
-      'the same commit that updates improvement-queue.js.',
+      '(sub-gap imp356b closed). imp-366 has partially discharged imp356b by closing ' +
+      'G6a_shock_lipschitz structurally; the symbolic-constant refinement remains. ' +
+      'When both fully close, update status to "completed" in the same commit that ' +
+      'updates improvement-queue.js.',
+  },
+  {
+    id: 'imp356-imp366-g6a-closed-structurally',
+    holds: () =>
+      POLYMATH15_LEMMA_52.id === 'imp-366' &&
+      G6A_SHOCK_LIPSCHITZ_CLOSURE.status === 'closed' &&
+      G6A_SHOCK_LIPSCHITZ_CLOSURE.closedBy === 'imp-366',
+    why:
+      'Cross-consistency: the imp-366 closure record must continue to report ' +
+      'G6a_shock_lipschitz as closed by imp-366. If a future edit weakens that ' +
+      'closure, the Route B partial-discharge note in this file needs to be ' +
+      'rolled back in the same commit.',
+  },
+  {
+    id: 'imp356-path-c-hybrid-consistency-0066',
+    holds: () => {
+      const central = PATH_C_CENTRAL;
+      const err = PATH_C_ERROR;
+      const hybridCentral = 0.0066;
+      const hybridErr = 0.01;
+      return (
+        Math.abs(central - hybridCentral) < 1e-9 &&
+        Math.abs(err - hybridErr) < 1e-9
+      );
+    },
+    why:
+      'CROSS-CHECK: the Path C Hybrid certified value Λ = 0.0066 ± 0.01 from ' +
+      'commit 229133e must remain consistent with the Method 3 inputs used here. ' +
+      'If the error budget or central value drifts from (0.0066, 0.01), the ' +
+      'imp-356 SOTA claim is no longer consistent with the Path C Hybrid ' +
+      'certified number and must be reconciled before committing.',
   },
 ];

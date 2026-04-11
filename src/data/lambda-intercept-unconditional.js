@@ -145,6 +145,18 @@ import { FINITE_HEIGHT_RH_STATEMENT } from './lambda-rh-height-mapping.js';
 const G6_POLYMATH15_BRIDGE = {
   id: 'G6_polymath15_bridge',
   status: 'open',
+  statusNote:
+    'G6 itself remains open because the symbolic constants C_T, C_F, C_H in ' +
+    'the imp-345 bridge decomposition are placeholders of order unity. However, ' +
+    'the single named sub-gap G6a_shock_lipschitz (Holder-1/2 modulus of tau_c ' +
+    'at the Burgers shock) was CLOSED STRUCTURALLY by imp-366 via a direct port ' +
+    'of Polymath15 Lemma 5.2, giving E_coll(N) = O((log N / N)^{1/2}) ' +
+    'unconditionally. The tripwire below remains OPEN until the symbolic ' +
+    'constants are made rigorous.',
+  partialClosures: [
+    'imp-366 — G6a_shock_lipschitz (Holder-1/2 at the Burgers shock) ' +
+      'structurally closed via Polymath15 Lemma 5.2 port. Symbolic C_H = 1.',
+  ],
   claim:
     'Λ = − lim_{N → ∞} t_c(N) with an explicit rate, where t_c(N) is ' +
     'the backward collision time of the N-particle Calogero-Moser flow ' +

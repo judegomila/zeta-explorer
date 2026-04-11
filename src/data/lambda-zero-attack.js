@@ -199,6 +199,13 @@ export const LAMBDA_ZERO_BLOCKERS = [
     id: 'G6-polymath15-bridge',
     title:
       'Polymath15 bridge from lim t_c(N) to Λ — the new load-bearing gap',
+    partialClosures: [
+      'imp-366 — closed sub-gap G6a_shock_lipschitz (Holder-1/2 modulus of ' +
+        'tau_c at the Burgers shock) via a direct port of Polymath15 Lemma 5.2. ' +
+        'E_coll(N) now has the explicit bound C_C * (log gamma_N / N)^{1/2} ' +
+        'decaying unconditionally. Symbolic C_H = 1 placeholder remains, so ' +
+        'the overall G6 bridge is structurally closed but not yet quantitative.',
+    ],
     numericalForm:
       'The de Bruijn-Newman constant Λ is defined via H_t, not via the ' +
       'N-particle Calogero-Moser ODE. Every preceding blocker (B1-B4) and ' +

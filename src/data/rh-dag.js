@@ -466,6 +466,77 @@ export const RH_DAG_NODES = [
   },
 ];
 
+// ── PERT triangular distributions (/btw stochastic upgrade recommendation) ─
+//
+// The DAG's critical path assumes every pending ticket closes on first
+// attempt in unit time. Reality — as Phases 10/11/15 consistently showed —
+// is that research-grade tickets come back as PARTIAL with a new sub-gap,
+// so the ACTUAL number of fanout rounds to close them is stochastic.
+//
+// PERT triangular distributions give a cheap honest upgrade: each node has
+// (optimistic, likely, pessimistic) durations in units of "fanout rounds"
+// (~10 minutes of engine/agent time). Monte Carlo sampling over the DAG
+// yields an expected-path-length with confidence intervals — the gap
+// between the optimistic critical path and the expected path is the
+// "sub-gap inflation tax".
+//
+// Defaults by complexity (operator-tunable via explicit `pert` on a node):
+
+const PERT_DEFAULTS = {
+  trivial: { optimistic: 0.2, likely: 0.4, pessimistic: 0.6 },
+  small: { optimistic: 0.3, likely: 0.7, pessimistic: 1.2 },
+  medium: { optimistic: 0.5, likely: 1.5, pessimistic: 3.0 },
+  high: { optimistic: 1.0, likely: 3.0, pessimistic: 6.0 },
+  research: { optimistic: 1.5, likely: 4.0, pessimistic: 10.0 },
+};
+
+/** Populate the `pert` field on every node, derived from complexity if
+ *  not explicitly set. Runs once at module load. */
+for (const node of RH_DAG_NODES) {
+  if (node.pert) continue;
+  const base = PERT_DEFAULTS[node.complexity] || PERT_DEFAULTS.medium;
+  // completed / partial nodes cost 0 rounds going forward (we only pay the
+  // cost of pending work ahead of us).
+  if (node.status === 'completed' || node.status === 'partial') {
+    node.pert = { optimistic: 0, likely: 0, pessimistic: 0, effective: 0 };
+  } else {
+    node.pert = { ...base, effective: (base.optimistic + 4 * base.likely + base.pessimistic) / 6 };
+  }
+}
+
+/** Classic PERT expected value: (o + 4·l + p) / 6. */
+export function pertExpected(node) {
+  if (!node || !node.pert) return 0;
+  return node.pert.effective ?? (node.pert.optimistic + 4 * node.pert.likely + node.pert.pessimistic) / 6;
+}
+
+/** PERT variance: ((p − o) / 6)². Used for CI on path sums. */
+export function pertVariance(node) {
+  if (!node || !node.pert) return 0;
+  const o = node.pert.optimistic ?? 0;
+  const p = node.pert.pessimistic ?? 0;
+  const w = (p - o) / 6;
+  return w * w;
+}
+
+/** Sample one draw from the triangular distribution of a node. */
+function sampleTriangular(node) {
+  if (!node || !node.pert) return 0;
+  const { optimistic: a, likely: m, pessimistic: b } = node.pert;
+  if (b <= a) return a;
+  const u = Math.random();
+  const F_m = (m - a) / (b - a);
+  if (u <= F_m) return a + Math.sqrt(u * (b - a) * (m - a));
+  return b - Math.sqrt((1 - u) * (b - a) * (b - m));
+}
+
+/** Sort helper for confidence-interval extraction. */
+function percentile(sorted, p) {
+  if (!sorted.length) return null;
+  const idx = Math.max(0, Math.min(sorted.length - 1, Math.floor(p * sorted.length)));
+  return sorted[idx];
+}
+
 // ── Auto-derive inverse edges (`unlocks`) ─────────────────────────────────
 
 const NODE_BY_ID = Object.fromEntries(RH_DAG_NODES.map((n) => [n.id, n]));
@@ -609,6 +680,176 @@ export function frontierSchedule(targetId = 'imp-356', maxRounds = 8) {
   return rounds;
 }
 
+// ── PERT / Monte Carlo: expected path length to target ────────────────────
+
+/**
+ * Proper PERT critical path — the LONGEST path through the ancestor subtree
+ * of targetId, where edge weights are pertExpected(predecessor). Unlike
+ * criticalPathTo() (a greedy sequential walker that over-counts parallel
+ * branches), this returns the true CPM critical-path answer: the longest
+ * chain of dependencies whose total expected duration dominates all
+ * alternatives. Sibling branches run in parallel and the max wins.
+ */
+export function longestPathExpectedRounds(targetId = 'imp-356') {
+  const target = NODE_BY_ID[targetId];
+  if (!target) return { path: [], sumExpected: 0 };
+
+  // Build ancestor subtree.
+  const ancestors = new Set();
+  const stack = [target.id];
+  while (stack.length) {
+    const cur = stack.pop();
+    if (ancestors.has(cur)) continue;
+    ancestors.add(cur);
+    const node = NODE_BY_ID[cur];
+    if (!node) continue;
+    for (const dep of node.dependsOn || []) stack.push(dep);
+  }
+
+  // Topological order (Kahn).
+  const topoOrder = [];
+  const inDeg = {};
+  const subAncestors = [...ancestors].map((id) => NODE_BY_ID[id]).filter(Boolean);
+  for (const n of subAncestors) {
+    inDeg[n.id] = (n.dependsOn || []).filter((d) => ancestors.has(d)).length;
+  }
+  const queue = subAncestors.filter((n) => inDeg[n.id] === 0).map((n) => n.id);
+  while (queue.length) {
+    const cur = queue.shift();
+    topoOrder.push(cur);
+    const node = NODE_BY_ID[cur];
+    for (const u of node.unlocks || []) {
+      if (!ancestors.has(u)) continue;
+      inDeg[u]--;
+      if (inDeg[u] === 0) queue.push(u);
+    }
+  }
+
+  // Longest-path DP + predecessor-tracking for the path reconstruction.
+  const longest = {};
+  const predOf = {};
+  for (const id of topoOrder) {
+    const node = NODE_BY_ID[id];
+    const deps = (node.dependsOn || []).filter((d) => ancestors.has(d));
+    let bestPred = null;
+    let bestVal = 0;
+    for (const d of deps) {
+      const v = longest[d] || 0;
+      if (v > bestVal) { bestVal = v; bestPred = d; }
+    }
+    longest[id] = bestVal + pertExpected(node);
+    predOf[id] = bestPred;
+  }
+
+  // Reconstruct path.
+  const path = [];
+  let cur = targetId;
+  while (cur) { path.unshift(cur); cur = predOf[cur]; }
+
+  return { path, sumExpected: longest[targetId] || 0 };
+}
+
+/**
+ * @deprecated — use longestPathExpectedRounds. criticalPathTo is kept for
+ * the sequential "work next" listing; it over-counts for ETA purposes.
+ */
+export function criticalPathExpectedRounds(targetId = 'imp-356') {
+  const path = criticalPathTo(targetId);
+  let sum = 0;
+  for (const id of path) {
+    const node = NODE_BY_ID[id];
+    if (node) sum += pertExpected(node);
+  }
+  return { path, sumExpected: sum };
+}
+
+/**
+ * Monte Carlo walk over the DAG: sample each pending ancestor of target
+ * from its triangular distribution, compute the longest path through the
+ * ancestor subtree, repeat `samples` times, return the distribution.
+ *
+ * This is the HONEST planning number because it propagates uncertainty
+ * from partial-closure inflation through the whole dependency chain.
+ *
+ * Returns { mean, min, max, p05, p10, p50, p90, p95, samples,
+ *           criticalPathRounds, inflationTax }.
+ * inflationTax = mean - criticalPathRounds. If large, sub-gap inflation
+ * is the dominant cost and the project needs to either reduce research-
+ * grade ticket counts or increase parallelism.
+ */
+export function expectedPathLength(targetId = 'imp-356', samples = 1000) {
+  const target = NODE_BY_ID[targetId];
+  if (!target) return null;
+
+  // Build the ancestor subtree (pending or closed).
+  const ancestors = new Set();
+  const stack = [target.id];
+  while (stack.length) {
+    const cur = stack.pop();
+    if (ancestors.has(cur)) continue;
+    ancestors.add(cur);
+    const node = NODE_BY_ID[cur];
+    if (!node) continue;
+    for (const dep of node.dependsOn || []) stack.push(dep);
+  }
+
+  // Topological order over the ancestor subtree.
+  const topoOrder = [];
+  {
+    const inDeg = {};
+    const subAncestors = [...ancestors]
+      .map((id) => NODE_BY_ID[id])
+      .filter(Boolean);
+    for (const n of subAncestors) {
+      inDeg[n.id] = (n.dependsOn || []).filter((d) => ancestors.has(d)).length;
+    }
+    const queue = subAncestors.filter((n) => inDeg[n.id] === 0).map((n) => n.id);
+    while (queue.length) {
+      const cur = queue.shift();
+      topoOrder.push(cur);
+      const node = NODE_BY_ID[cur];
+      for (const u of node.unlocks || []) {
+        if (!ancestors.has(u)) continue;
+        inDeg[u]--;
+        if (inDeg[u] === 0) queue.push(u);
+      }
+    }
+  }
+
+  const draws = [];
+  for (let s = 0; s < samples; s++) {
+    // longest path to each node = max over predecessors + own sampled duration
+    const earliest = {};
+    for (const id of topoOrder) {
+      const node = NODE_BY_ID[id];
+      const predMax = (node.dependsOn || [])
+        .filter((d) => ancestors.has(d))
+        .reduce((m, d) => Math.max(m, earliest[d] || 0), 0);
+      const own = sampleTriangular(node);
+      earliest[id] = predMax + own;
+    }
+    draws.push(earliest[targetId] || 0);
+  }
+  draws.sort((a, b) => a - b);
+
+  const sum = draws.reduce((s, x) => s + x, 0);
+  const mean = sum / draws.length;
+  const crit = criticalPathExpectedRounds(targetId);
+  return {
+    mean,
+    min: draws[0],
+    max: draws[draws.length - 1],
+    p05: percentile(draws, 0.05),
+    p10: percentile(draws, 0.1),
+    p50: percentile(draws, 0.5),
+    p90: percentile(draws, 0.9),
+    p95: percentile(draws, 0.95),
+    samples: draws.length,
+    criticalPathRounds: crit.sumExpected,
+    inflationTax: mean - crit.sumExpected,
+  };
+}
+
 // ── The exported record ───────────────────────────────────────────────────
 
 export const RH_DAG = {
@@ -620,7 +861,11 @@ export const RH_DAG = {
   pendingCount: RH_DAG_NODES.filter((n) => n.status === 'pending').length,
   unblockedFrontier,
   criticalPathTo,
+  criticalPathExpectedRounds,
   frontierSchedule,
+  expectedPathLength,
+  pertExpected,
+  pertVariance,
 };
 
 // ── Build-time assertions ─────────────────────────────────────────────────

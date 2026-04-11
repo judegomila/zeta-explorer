@@ -5,3 +5,4 @@ dist/
 scripts/logs/
 scripts/.auto-improve.pid
 scripts/.env
+scripts/queue-index.json

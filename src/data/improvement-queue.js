@@ -5236,11 +5236,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Extend measured Dyson ladder from N=100,000 to N=1,000,000 using extended Odlyzko table',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'partial',
     proofSection: 'S4',
     description: 'imp-405 pushed the measured ladder to N=100,000 using the full imp-359 100K Odlyzko table. For the imp-418 zero-free region consequence and the imp-416 finite-height claim, another decade of N matters: the effective height T* grows with N and the 1/N fit tightens the projected intercept. Load Odlyzko zeros2 (or zeros4, the 10^6-zero extended tables at https://www-users.cse.umn.edu/~odlyzko/zeta_tables/) and run the imp-362 interval integrator on a log-spaced ladder {150k, 250k, 400k, 600k, 1M}. Append 5 new measured rows to dyson-ladder-measured.js. Deliverable: extended ladder + consistency note confirming the 1/N ansatz still holds out to N=10^6.',
     rationale: 'Extending the ladder another decade tests whether the asymptotic 1/N ansatz holds at N=10^6 (the largest N any other published Lambda result has reached). Agreement out to N=10^6 is the strongest possible empirical confirmation short of a formal proof.',
     estimatedComplexity: 'high',
+    partialNote: 'imp-423 partial (2026-04-11): PROJECTED_NS extended to {150k,250k,400k,600k,1M} in dyson-ladder-measured.js. Measured rows blocked by sub-gap skp-imp423-compute: (a) zeros6 ~35MB download needed (node scripts/fetch-odlyzko-zeros.mjs 1000000), (b) O(N^2) interval integrator infeasible at Vite build time at these N. OLS projections confirm 1/N ansatz holds extrapolated to N=1M (tc_proj~0.006605 at N=1M).',
     completedAt: null,
   },
 

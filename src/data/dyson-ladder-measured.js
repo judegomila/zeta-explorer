@@ -291,7 +291,16 @@ const MEASURED_ROWS = MEASURED_NS.map(runMeasured);
 // extends the ladder to N = 100000). The projected block starts at 1e6.
 // Keeping 1e5 here would produce a duplicate row at N = 100000 in ROWS,
 // failing the strictly-sorted assertion.
-const PROJECTED_NS = [1e6];
+// imp-423 (partial): extend projected coverage to N in {150k, 250k, 400k, 600k, 1M}.
+// Measured runs at these N are blocked on two sub-problems (sub-gap: skp-imp423-compute):
+//   (a) zeros6 download (~35 MB, 2 000 000 Odlyzko ordinates) via
+//       node scripts/fetch-odlyzko-zeros.mjs 1000000 — current ZEROS_EXTENDED
+//       has 100 000 entries; any N > 100000 would return zero-list-insufficient.
+//   (b) offline O(N^2) compute: at N = 150000 one RK4 step costs ~2.25e10
+//       interval ops; 120 steps = 2.7e12 ops, infeasible at Vite build time.
+// Until both blockers are resolved these rows carry source = projected and
+// reason = ols-projection-passthrough, which is the honest honest-scope label.
+const PROJECTED_NS = [150000, 250000, 400000, 600000, 1e6];
 
 function findProjectedRow(N) {
   return PT_SCALE_EXTRAPOLATION.ladder.find((row) => row.N === N) ?? null;
@@ -350,12 +359,17 @@ function deriveVerdict() {
       ' exhausted the per-N step budget and report [t_c_lo, +Infinity]; ' +
       disagree.length +
       ' disagree with the OLS linear projection from PATH_C_BASELINE_FIT. ' +
-      'Projected block at N in {10^5, 10^6} is passed through ' +
-      'imp-321 PT_SCALE_EXTRAPOLATION and is explicitly NOT a measurement.',
+      'Projected block at N in {150k, 250k, 400k, 600k, 1M} is passed through ' +
+      'imp-321 PT_SCALE_EXTRAPOLATION (or OLS fallback) and is explicitly NOT a ' +
+      'measurement. imp-423 (partial): measured runs blocked on zeros6 download ' +
+      'and offline O(N^2) compute (sub-gap: skp-imp423-compute).',
     honestLimits:
       'imp-405 extended the measured block to N = 100000 = 10^5 using the full ' +
-      '100 000-entry ZEROS_EXTENDED table. The remaining open scope is a measured ' +
-      'run at N = 10^6, which is still projected. Status remains partial.',
+      '100 000-entry ZEROS_EXTENDED table. imp-423 (partial) extends the projected ' +
+      'block to N in {150k, 250k, 400k, 600k, 1M} using OLS extrapolation. ' +
+      'Measured runs at N > 100000 are blocked on (a) zeros6 download (~35 MB, ' +
+      '2M Odlyzko ordinates) and (b) offline O(N^2) compute infeasible at Vite ' +
+      'build time. Sub-gap: skp-imp423-compute. Status remains partial.',
   };
 }
 
@@ -367,7 +381,7 @@ export const DYSON_LADDER_MEASURED = {
   status: 'partial',
   title:
     'Measured Dyson backward ODE ladder with interval arithmetic (up to N = 100000) ' +
-    'plus projected rows beyond',
+    'plus OLS-projected rows at N in {150k, 250k, 400k, 600k, 1M} (imp-423 partial)',
   consumes: [
     'imp-359 ZEROS_EXTENDED (fallback 870-zero table in src/data/zeros-to-1e6.js)',
     'imp-362 backwardCollisionInterval (src/math/interval-dyson-integrator.mjs)',
@@ -386,10 +400,11 @@ export const DYSON_LADDER_MEASURED = {
   rows: ROWS,
   verdict: VERDICT,
   openWork: [
-    'Replace the remaining projected block at N = 10^6 with a true measured run. ' +
-      'imp-405 (partial) extended the measured block to N = 100000 = 10^5 using ' +
-      'the full 100 000-entry ZEROS_EXTENDED table. This is the last open work ' +
-      'item in imp-360.',
+    'Replace the projected block at N in {150k, 250k, 400k, 600k, 1M} with true ' +
+      'measured runs (imp-423 target). Requires: (a) node scripts/fetch-odlyzko-zeros.mjs ' +
+      '1000000 to populate zeros6 (currently zeros-to-1e6.js has 100 000 entries, ' +
+      'insufficient for N > 100000), (b) an offline O(N^2) compute engine bypassing ' +
+      'the Vite build budget. Sub-gap: skp-imp423-compute.',
     'Port backwardCollisionInterval to an arbitrary-precision backend ' +
       '(Arb via WASM, MPFI, or CAPD) so the one-ULP wrapper shrinks enough ' +
       'to close the bracket at N = 870 inside a sane step budget.',
@@ -404,13 +419,13 @@ export const DYSON_LADDER_MEASURED = {
   limitation:
     'Measured coverage extends to N = 100000 (imp-405 partial closure); ' +
     'ZEROS_EXTENDED carries 100 000 verified Odlyzko zero ordinates (imp-359 ' +
-    'complete as of 2026-04-11). Projected rows above N = 100000 are arithmetic ' +
-    'passthroughs of imp-321 PT_SCALE_EXTRAPOLATION and are explicitly ' +
-    'labelled source = projected. Rows at N in {30000, 40000, 50000, 75000, ' +
-    '100000} will likely return budget-exhausted (t_c_lo = 0.012, t_c_hi = ' +
-    '+Infinity) because the one-ULP-inflation interval RK4 wrapper grows faster ' +
-    'than the bracket closes at O(N^2) scale; t_c_lo = 0.012 remains a valid ' +
-    'certified lower bound on |t_c(N)| at these sizes.',
+    'complete as of 2026-04-11). imp-423 (partial) extends projected coverage ' +
+    'to N in {150k, 250k, 400k, 600k, 1M} using OLS extrapolation. Measured ' +
+    'runs at N > 100000 require zeros6 (~35 MB, 2M Odlyzko zeros) plus an ' +
+    'offline O(N^2) compute engine (sub-gap: skp-imp423-compute; both infeasible ' +
+    'at Vite build time). Rows at N in {30000, 40000, 50000, 75000, 100000} will ' +
+    'likely return budget-exhausted (t_c_lo = 0.012, t_c_hi = +Infinity); ' +
+    't_c_lo = 0.012 remains a valid certified lower bound at these sizes.',
 };
 
 // ── Build-time assertions ───────────────────────────────────────────────────
@@ -464,9 +479,9 @@ export const DYSON_LADDER_MEASURED_ASSERTIONS = [
       'HONEST SCOPE TRIPWIRE: every row beyond N = 100000 must be flagged ' +
       'source = projected with reason = ols-projection-passthrough and ' +
       'width = 0. The measured block now extends to N = 100000 (imp-405 ' +
-      'partial closure using the full 100 000-entry ZEROS_EXTENDED table). ' +
-      'Rows above N = 100000 are arithmetic passthroughs from imp-321 ' +
-      'PT_SCALE_EXTRAPOLATION and must remain so labelled.',
+      'partial closure). imp-423 (partial) adds projected rows at N in ' +
+      '{150k, 250k, 400k, 600k, 1M} using OLS fallback; all must carry ' +
+      'source = projected. Rows above N = 100000 are NOT measurements.',
   },
   {
     id: 'imp360-citation-chain-intact',
@@ -485,9 +500,10 @@ export const DYSON_LADDER_MEASURED_ASSERTIONS = [
     id: 'imp360-status-is-partial-tripwire',
     holds: () => DYSON_LADDER_MEASURED.status === 'partial',
     why:
-      'imp-360 remains partial until the projected block at N = 10^6 is replaced ' +
-      'by a measured run. imp-405 extended the measured block to N = 100000; ' +
-      'only N = 10^6 remains projected. Flipping to completed before measuring ' +
-      'N = 10^6 would silently claim a measured ladder the repo does not have.',
+      'imp-360 remains partial until projected rows at N in {150k, 250k, 400k, ' +
+      '600k, 1M} are replaced by measured runs (imp-423 target). imp-405 extended ' +
+      'measured coverage to N = 100000; imp-423 (partial) extends projected ' +
+      'coverage to N = 1M. Flipping to completed before all projected rows are ' +
+      'measured would silently claim a measured ladder the repo does not have.',
   },
 ];

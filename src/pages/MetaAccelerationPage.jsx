@@ -43,6 +43,18 @@ function recentProofImprovements(improvements, limit = 10) {
     .slice(0, limit);
 }
 
+function metaTickets(queue) {
+  // Return all meta-category tickets, reverse-chronological (newest id first),
+  // completed → pending → superseded for each bucket.
+  const metas = queue.filter((it) => it.category === 'meta');
+  const parseId = (id) => {
+    const m = /imp-(\d+)/.exec(id || '');
+    return m ? parseInt(m[1], 10) : 0;
+  };
+  metas.sort((a, b) => parseId(b.id) - parseId(a.id));
+  return metas;
+}
+
 // ── Static config: phase narrative of the Λ attack ─────────────────────────
 
 const PHASES = [
@@ -172,6 +184,7 @@ const newChip = statusChip('rgba(234,179,8,0.12)', '#facc15', 'rgba(234,179,8,0.
 export default function MetaAccelerationPage() {
   const qSummary = summarizeQueue(IMPROVEMENT_QUEUE);
   const recentProof = recentProofImprovements(improvements, 8);
+  const metas = metaTickets(IMPROVEMENT_QUEUE);
   const latestSession = SESSIONS[SESSIONS.length - 1];
   const routes = LAMBDA_INTERCEPT_UNCONDITIONAL.routes;
   const strongestClaim = LAMBDA_INTERCEPT_UNCONDITIONAL.currentStrongestUnconditional;
@@ -437,6 +450,90 @@ git log --oneline -10                    # engine commits`}
         ))}
       </div>
 
+      {/* ── Meta improvements ─────────────────────────────────────── */}
+      <h2 style={{ marginTop: 24, marginBottom: 12 }}>
+        Meta improvements
+        <span style={{ fontSize: 11, color: 'var(--text-muted)', marginLeft: 12, fontWeight: 400 }}>
+          {metas.filter((m) => m.status === 'completed').length} shipped,{' '}
+          {metas.filter((m) => m.status === 'pending').length} pending
+        </span>
+      </h2>
+      <div className="card" style={{ marginBottom: 24 }}>
+        <div
+          style={{
+            fontSize: 11,
+            color: 'var(--text-muted)',
+            marginBottom: 10,
+            padding: '8px 12px',
+            background: 'var(--bg-primary)',
+            borderRadius: 6,
+            border: '1px solid var(--border)',
+          }}
+        >
+          Meta improvements are engine- or workflow-level changes that make the
+          proof work sustainable — not proof steps themselves. The engine ships
+          proof work; meta work ships the ability of the engine to ship proof
+          work. Ordered newest id first.
+        </div>
+        <div style={{ display: 'grid', gap: 8 }}>
+          {metas.map((m) => (
+            <div
+              key={m.id}
+              style={{
+                padding: '10px 14px',
+                background: 'var(--bg-primary)',
+                borderRadius: 6,
+                border: '1px solid var(--border)',
+                borderLeft: `3px solid ${metaStatusColor(m.status)}`,
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  gap: 8,
+                }}
+              >
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 700 }}>
+                  {m.id}
+                </div>
+                <span style={metaStatusChip(m.status)}>{m.status}</span>
+              </div>
+              <div style={{ fontSize: 12, marginTop: 6, color: 'var(--text-primary)' }}>
+                {m.title.replace(/^META:\s*/, '')}
+              </div>
+              {m.completedAt && (
+                <div
+                  style={{
+                    fontSize: 10,
+                    color: 'var(--text-muted)',
+                    marginTop: 4,
+                    fontFamily: 'var(--font-mono)',
+                  }}
+                >
+                  completed {m.completedAt}
+                </div>
+              )}
+              {m.description && (
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: 'var(--text-secondary)',
+                    marginTop: 6,
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {m.description.length > 260
+                    ? m.description.slice(0, 260) + '…'
+                    : m.description}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* ── Recent proof improvements ─────────────────────────────── */}
       <h2 style={{ marginTop: 24, marginBottom: 12 }}>Recent proof improvements</h2>
       <div className="card" style={{ marginBottom: 24 }}>
@@ -559,5 +656,19 @@ function routeStatusChip(status) {
   if (/unfalsified|G4 closed/i.test(status)) {
     return newChip;
   }
+  return openChip;
+}
+
+function metaStatusColor(status) {
+  if (status === 'completed') return '#22c55e';
+  if (status === 'pending') return '#facc15';
+  if (status === 'superseded') return '#94a3b8';
+  return '#ef4444';
+}
+
+function metaStatusChip(status) {
+  if (status === 'completed') return closedChip;
+  if (status === 'pending') return newChip;
+  if (status === 'superseded') return statusChip('rgba(148,163,184,0.12)', '#cbd5e1', 'rgba(148,163,184,0.35)');
   return openChip;
 }

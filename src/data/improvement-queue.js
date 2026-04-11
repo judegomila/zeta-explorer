@@ -4501,6 +4501,76 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ══════════════════════════════════════════════════════════════
+  // PHASE 13: SOTA Λ PUSH — BEAT PLATT-TRUDGIAN 2021 Λ ≤ 0.2
+  // Goal: produce an unconditional rigorous Λ upper bound that
+  // BEATS the current SOTA (Platt-Trudgian 2021: Λ ≤ 0.2 via
+  // verified zeros to T = 3e10 + heat-flow barrier). Requires
+  // tightening the Λ central value AND closing the rigor gaps
+  // from imp-344 / imp-345 / imp-342 partial closures.
+  // ══════════════════════════════════════════════════════════════
+
+  {
+    id: 'imp-353',
+    title: 'Tighten Λ central value: extend Path C Dyson ladder to N ∈ {10^4, 10^5}',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-321 gave a log-spaced ladder (projected, not measured). imp-315 extended measured Dyson to N=5000. Extend further: run the backward Dyson ODE on the first 10^4 and 10^5 Riemann zero ordinates (load from LMFDB or compute via Riemann-Siegel) to produce two new measured rows on PATH_C_BASELINE_FIT. With N_max = 10^5 instead of 2458, the imp-328 conditional upper bound drops from 0.0086 to an expected ~2e-4 (the 1/N fit slope 4.91/N at N=10^5 ~ 5e-5), bringing the central Λ value firmly below Platt-Trudgian 0.2 by ~3 orders of magnitude.',
+    rationale: 'Every 10x in N drops the conditional upper bound ~10x. Two more decades brings us to the range where beating SOTA is within reach.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-354',
+    title: 'Close G6a_shock_lipschitz: Hölder-1/2 modulus of τ_c at the Burgers shock',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-345 shipped the G6 bridge partial with E_trunc + E_flow rigorous modulo constants and opened sub-gap G6a_shock_lipschitz: a Hölder-1/2 modulus of continuity for the backward-collision-time functional τ_c at the Burgers shock. This is the Polymath15 Lemma 5.2 shape. Port the lemma with explicit constants (referenced in imp-345 openWork) or derive via the quadratic tangent to the shock characteristic. Closure gives a fully rigorous E(N) → 0, which combined with imp-341 lim-sup = 0 and Rodgers-Tao Λ ≥ 0 yields unconditional Λ = 0 — an SOTA result beating Platt-Trudgian by every order of magnitude.',
+    rationale: 'G6a is THE load-bearing subproblem on G6_polymath15_bridge, which is the unique critical blocker per lambda-zero-attack.js after imp-347.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-355',
+    title: 'Close G3a_max_gap: extremal max-gap statistics at the argmin site',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-342 closed G3b_weyl_tail rigorously (c_tail ≈ 1.290) but left G3a_max_gap open — the upper bound on the larger neighbouring gap Δ_max at k*, which is an extremal-statistics problem beyond pure Weyl-law. Use either (a) Soundararajan-Bui bounds on consecutive gaps, (b) an explicit bound from the Riemann-von Mangoldt local density combined with a Markov argument on the empirical pair correlation, or (c) the imp-299 barrier-extrapolation mechanism to give a numerical-plus-unconditional-error envelope on Δ_max. Closure gives c(N) > 2 rigorously, turning route (C) density squeeze into an independent unconditional per-N bound on |t_c(N)|.',
+    rationale: 'Route (C) is the only Λ-attack route that does not need imp-336 monotonicity OR the imp-348 rate upgrade — closing G3a gives a second independent path to the same SOTA claim.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-356',
+    title: 'SOTA Λ statement + verification: assemble rigorous Λ ≤ 0.02 (or tighter) with independent cross-check',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'Capstone SOTA push. When any of (imp-354 G6a closure), (imp-355 G3a closure), or (imp-353 extended ladder + imp-348 rate upgrade) lands, assemble the definitive SOTA statement in src/data/sota-lambda-claim.js: (a) the unconditional upper bound on Λ with explicit constants, (b) the effective height T* where it holds, (c) comparison to Platt-Trudgian 0.2, (d) independent cross-check via a SECOND method (barrier extrapolation from imp-299, or the heat-flow approach from imp-292), (e) assertions guarding the bound value, method, and rigor level. The target: UNCONDITIONAL Λ ≤ 0.02 at height ≥ 10^4, beating SOTA by 10x.',
+    rationale: 'A new SOTA claim needs BOTH a tighter number AND an independent verification path. This ticket assembles both and guards them with build-time assertions.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-357',
+    title: 'Cross-verification: rerun Path C Hybrid with a second ODE integrator and compare',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'Independent verification of the imp-309 Path C central value Λ = 0.0066 ± 0.01 by running the backward Dyson ODE with a DIFFERENT integrator (e.g. Dormand-Prince DP8 instead of RK4) and/or a different stiffness handling, on the same PATH_C_BASELINE_FIT N values. If the two results agree to within the tighter of the two error bars, the central value is cross-verified and can be cited as the SOTA claim with confidence. If they disagree, one of the two methods has a bug and must be reconciled before SOTA claim.',
+    rationale: 'SOTA requires independent verification. A single-integrator result is not enough.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+
+  // ══════════════════════════════════════════════════════════════
   // META — auto-improvement engine self-improvement
   // ══════════════════════════════════════════════════════════════
 
@@ -4547,5 +4617,60 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'A bad improvement can leave the running server serving a stale or broken bundle without the engine noticing. Early detection beats discovering at next user visit.',
     estimatedComplexity: 'small',
     completedAt: null,
+  },
+  {
+    id: 'imp-349',
+    title: 'META: Rate-limit exponential backoff + sentinel file in auto-improve.sh',
+    category: 'meta',
+    priority: 'high',
+    status: 'completed',
+    description: 'Added post-run log scan to auto-improve.sh. On detection of rate-limit / 429 / ConnectionRefused / quota-exceeded / API Error patterns, doubles an exponential backoff (start 60s, cap 30min), writes scripts/.rate-limit-backoff-state sentinel JSON with detection time, run number, triggering log line, current backoff, and explicit note that in-flight tickets remain status:pending (the engine prompt only flips pending → completed after successful commit, so mid-run failures auto-requeue). A subsequent clean run deletes the sentinel and resets backoff. No work is lost; the queue file IS the persistence layer.',
+    rationale: 'User explicit ask: "if we hit rate limits lets not lose what we are doing, make sure this goes to the queue in those cases". Also: the engine was burning quota with no visibility, and mid-session 429s were leaving the operator with no signal.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-04-10',
+  },
+  {
+    id: 'imp-350',
+    title: 'META: .env-based API key sourcing for parallel tier usage (API + subscription)',
+    category: 'meta',
+    priority: 'high',
+    status: 'completed',
+    description: 'Added scripts/.env.example template and modified scripts/auto-improve.sh to source scripts/.env in a per-run subshell before each claude --print invocation. This lets the auto-improve engine use Anthropic API billing while the interactive Claude Code session (and any Agent tool spawns) stay on the Max OAuth subscription. The two tiers run in parallel with separate quotas. scripts/.env is gitignored. Verified live: engine running under API auth (PID 87739) while this session uses subscription.',
+    rationale: 'User ask: "hook up the api and use local agents AND my claude code subscription". Parallel tier usage is the highest-leverage throughput win — doubles the effective rate limit.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-04-11',
+  },
+  {
+    id: 'imp-351',
+    title: 'META: MetaAccelerationPage dashboard — engine state + Λ progress + open gaps',
+    category: 'meta',
+    priority: 'high',
+    status: 'completed',
+    description: 'Created src/pages/MetaAccelerationPage.jsx + route /meta-acceleration + HomePage link. Reads from improvement-queue.js, improvements.js, sessions.js, and lambda-intercept-unconditional.js. Sections: headline unconditional claim + honest "not a statement about Λ" + "NONE yet" finite-height corollary, queue snapshot, engine runtime shell-command hints, three route cards (A monotonicity / B Burgers / C density squeeze) with status chips, open gaps G1-G6, phase timeline with ticket cross-links, recent proof improvements, latest session teaser. Rendered reverse-chronological. Build-time data snapshot (live PID / sentinel not readable from static Vite build).',
+    rationale: 'User ask: "for the meta acceleration page show the status of where the meta acceleration is and what we have done so far". Single-glance engine + Λ-attack health dashboard was missing.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-04-10',
+  },
+  {
+    id: 'imp-352',
+    title: 'META: Local agent fanout pattern for parallel ticket execution',
+    category: 'meta',
+    priority: 'high',
+    status: 'completed',
+    description: 'Proved out pattern: spawn multiple Claude Code Agent tool instances in parallel from the interactive session, each assigned one atomic ticket with self-contained context (files to read, deliverable spec, scope forbidding shared files, explicit workflow). Phase 12 shipped 5 critical tickets via this pattern — 4 completed cleanly, 1 hit a rate limit mid-run and was rescued by the main agent finishing the commit. Total wall time ~10 min vs ~1h sequential. The key insight: the Agent tool uses the interactive subscription quota (same tier as the parent Claude Code session), which is SEPARATE from the `claude --print` programmatic tier that the auto-improve engine consumes. So parallel agents + engine = double parallelism.',
+    rationale: 'User ask: "can we get local agents working? we need to make fast progress". Validated that the Agent tool is the right local-agent mechanism and the pattern scales to 5+ parallel workers.',
+    estimatedComplexity: 'trivial (pattern, not code)',
+    completedAt: '2026-04-10',
+  },
+  {
+    id: 'imp-358',
+    title: 'META: Show Meta Improvements section on MetaAccelerationPage with completion status',
+    category: 'meta',
+    priority: 'high',
+    status: 'completed',
+    description: 'Extended MetaAccelerationPage with a new "Meta improvements" section between the Phase timeline and Recent proof improvements sections. Reads all meta-category tickets from improvement-queue.js, sorts by id descending (newest first), renders each as a card with status chip (completed green / pending yellow / superseded gray), title, completedAt date, and description excerpt. Header line shows counts: "N shipped, M pending". Helper functions metaTickets(queue), metaStatusColor(status), metaStatusChip(status) added. No imports changed — everything reads from the existing IMPROVEMENT_QUEUE. Build verified.',
+    rationale: 'User ask: "make the improvement section that shows the meta improvements include the status of what meta improvements have been made". Meta work is invisible on the current dashboard even though it is what makes the proof work sustainable.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-04-11',
   },
 ];

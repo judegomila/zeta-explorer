@@ -319,6 +319,14 @@ export default function LiCriterionViz() {
 
   return (
     <div>
+      <div className="filter-bar">
+        <button className={`filter-btn ${mode === 'li' ? 'active' : ''}`}
+          onClick={() => setMode('li')}>Li Coefficients λₙ</button>
+        <button className={`filter-btn ${mode === 'keiper-li' ? 'active' : ''}`}
+          onClick={() => setMode('keiper-li')}>Keiper-Li: λₙ/n</button>
+        <button className={`filter-btn ${mode === 'debruijn' ? 'active' : ''}`}
+          onClick={() => setMode('debruijn')}>de Bruijn-Newman Heat Flow</button>
+      </div>
       {mode === 'li' && (
         <div className="tab-explainer accent-green">
           <p style={{ margin: '0 0 8px' }}>
@@ -375,15 +383,6 @@ export default function LiCriterionViz() {
         </div>
       )}
       <div className="controls">
-        <div className="control-group">
-          <label title="Switch between Li coefficients, Keiper-Li asymptotics, and de Bruijn-Newman heat flow visualizations">View</label>
-          <select value={mode} onChange={e => setMode(e.target.value)}
-            title="Select visualization mode">
-            <option value="li">Li Coefficients λₙ</option>
-            <option value="keiper-li">Keiper-Li: λₙ/n</option>
-            <option value="debruijn">de Bruijn-Newman Heat Flow</option>
-          </select>
-        </div>
         {mode !== 'debruijn' && (
           <div className="control-group">
             <label title="Maximum index n for Li coefficient computation — higher values test RH at finer resolution but require more zeros">Max n</label>

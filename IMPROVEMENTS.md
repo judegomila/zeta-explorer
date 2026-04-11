@@ -1075,3 +1075,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1192 | 2026-04-10T00:15:00Z | ux: replace PrimeGapCouplingViz mode `<select>` with `filter-bar` tab buttons, consistent with GUEStatisticsViz (imp-1190) and LiCriterionViz (imp-1191) | PrimeGapCouplingViz.jsx |
 | 1193 | 2026-04-10T00:45:00Z | bug: Fix ExplicitFormulaViz y-axis label 10px below center: `height/2` → `margin.top + h/2` | ExplicitFormulaViz.jsx |
 | 1194 | 2026-04-10T08:00:00Z | ux: replace ScatteringMatrixViz mode `<select>` with `filter-bar` tab buttons, consistent with GUEStatisticsViz, LiCriterionViz, and PrimeGapCouplingViz | ScatteringMatrixViz.jsx |
+| 1195 | 2026-04-10T09:00:00Z | bug: Fix FourierDomainViz y-axis labels off-center in all four tabs: `height/2` → `margin.top + h/2` | FourierDomainViz.jsx |

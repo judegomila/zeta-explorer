@@ -122,7 +122,7 @@ function VonMangoldtSpectrumTab() {
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('Frequency ω');
-    svg.append('text').attr('transform', `translate(16, ${height / 2}) rotate(-90)`)
+    svg.append('text').attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12)
       .text('|F(ω)|');
 
@@ -498,7 +498,7 @@ function SpectralEnergyTab() {
       .call(d3.axisRight(y2).ticks(5).tickFormat(d => d.toFixed(1)));
     rightAxis.selectAll('text').attr('fill', '#ef4444').attr('font-size', 10);
     rightAxis.selectAll('.domain, .tick line').attr('stroke', '#ef4444').attr('opacity', 0.4);
-    svg.append('text').attr('transform', `translate(${width - 12}, ${height / 2}) rotate(90)`)
+    svg.append('text').attr('transform', `translate(${width - 12}, ${margin.top + h / 2}) rotate(90)`)
       .attr('text-anchor', 'middle').attr('fill', '#ef4444').attr('font-size', 11).text('Mismatch |Z_dir \u2212 Z_dual|');
 
     // Legend
@@ -518,7 +518,7 @@ function SpectralEnergyTab() {
 
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('ω');
-    svg.append('text').attr('transform', `translate(16, ${height / 2}) rotate(-90)`)
+    svg.append('text').attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('Energy');
 
   }, [data]);
@@ -656,7 +656,7 @@ function PrimeHarmonicsTab() {
 
     svg.append('text').attr('x', width / 2).attr('y', height - 6)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('Frequency ω = k\u00B7log(p)');
-    svg.append('text').attr('transform', `translate(16, ${height / 2}) rotate(-90)`)
+    svg.append('text').attr('transform', `translate(16, ${margin.top + h / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 12).text('|H_p(σ+iω)|');
 
   }, [harmonics]);

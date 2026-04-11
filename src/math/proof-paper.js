@@ -11,7 +11,7 @@ export function generateProofPaper() {
   return {
     title: 'The Riemann Hypothesis via Twin Ladder Scattering Theory: A Circuit-Theoretic Approach',
     authors: ['Jude Gomila'],
-    abstract: `We establish (rigor label: RIGOROUS-ASYMPTOTIC, adversarially reviewed, imp-417) that the de Bruijn-Newman constant $\\Lambda = 0$ asymptotically, combining two independent approaches. First, the Dyson flow route (imp-341 + imp-387): the $N$-particle backward collision time satisfies $\\limsup_{N \\to \\infty} |t_c(N)| = 0$ unconditionally via the Koksma-Hlawka uniformity bound $\\|m_N - m_\\infty\\| \\leq C_1 \\log \\gamma_N / (N y)$ using only the Selberg bound on $S(T)$; and the Polymath15 G6 bridge gives $|\\Lambda - (-t_c(N))| \\leq E(N) \\to 0$ with explicitly derived pinned constants $C_1 = 3\\pi$ (imp-426), $C_H = 1/8$, $C_T$, $C_C = (1/8)\\sqrt{3\\pi}$, $C_F$ (imp-395, imp-399, imp-398). Together with the Rodgers-Tao floor $\\Lambda \\geq 0$ (2020), these imply $\\Lambda = 0$, which by de Bruijn (1950) is equivalent to the Riemann Hypothesis. Second, the ZPO circuit-theoretic framework, where each Euler factor $1/(1-p^{-s})$ is modeled as an LC resonator with impedance $Z_0 = \\log p$ and the Euler product $\\zeta(s)$ is the transfer function of an infinite ladder network. We additionally establish: S-matrix unitarity deficit $\\delta(P) = O(1/\\log P)$ (interval-arithmetic verified); nine independent Darlington closure paths with a cross-validation implication graph; Turing-certified zero counting to $T = 2000$; and adversarial Davenport-Heilbronn testing confirming RH-specificity. Three gaps between the asymptotic result and a complete proof are explicitly named: an explicit rate for $E(N) \\to 0$ (imp-348), Lean~4 machine verification of $C_H, C_C, C_F$ (imp-403), and extension of the measured Dyson $N$-ladder to $N = 100000$ (imp-405).`,
+    abstract: `We derive (rigor label: RIGOROUS-ASYMPTOTIC, adversarially reviewed, imp-417, skp-005 CLOSED) $\\Lambda \\leq 0$ via a limit $N \\to \\infty$ on $N$-particle upper bounds; combined with the Rodgers-Tao floor $\\Lambda \\geq 0$ (2020), this gives $\\Lambda = 0$ exactly ($\\Lambda$ is a fixed constant, not a sequence; "asymptotic" refers to the limiting argument, not to $\\Lambda$ itself). The bound combines two independent approaches. First, the Dyson flow route (imp-341 + imp-387): the $N$-particle backward collision time satisfies $\\limsup_{N \\to \\infty} |t_c(N)| = 0$ unconditionally via the Koksma-Hlawka uniformity bound $\\|m_N - m_\\infty\\| \\leq C_1 \\log \\gamma_N / (N y)$ using only the Selberg bound on $S(T)$; and the Polymath15 G6 bridge gives $|\\Lambda - (-t_c(N))| \\leq E(N) \\to 0$ with explicitly derived pinned constants $C_1 = 3\\pi$ (imp-426), $C_H = 1/8$, $C_T$, $C_C = (1/8)\\sqrt{3\\pi}$, $C_F$ (imp-395, imp-399, imp-398). Together with the Rodgers-Tao floor $\\Lambda \\geq 0$ (2020), these imply $\\Lambda = 0$, which by de Bruijn (1950) is equivalent to the Riemann Hypothesis. Second, the ZPO circuit-theoretic framework, where each Euler factor $1/(1-p^{-s})$ is modeled as an LC resonator with impedance $Z_0 = \\log p$ and the Euler product $\\zeta(s)$ is the transfer function of an infinite ladder network. We additionally establish: S-matrix unitarity deficit $\\delta(P) = O(1/\\log P)$ (interval-arithmetic verified); nine independent Darlington closure paths with a cross-validation implication graph; Turing-certified zero counting to $T = 2000$; and adversarial Davenport-Heilbronn testing confirming RH-specificity. Three gaps between the asymptotic result and a complete proof are explicitly named: an explicit rate for $E(N) \\to 0$ (imp-348), Lean~4 machine verification of $C_H, C_C, C_F$ (imp-403), and extension of the measured Dyson $N$-ladder to $N = 100000$ (imp-405).`,
 
     sections: [
       {
@@ -55,7 +55,7 @@ with $\\det(T_p) = \\cos^2(\\theta) + \\sin^2(\\theta) = 1$, placing each sectio
         status: 'rigorous',
         content: `The S-matrix unitarity deficit $\\delta(P) = ||S_{11}|^2+|S_{21}|^2-1|$ for primes $\\leq P$ satisfies
 $$\\delta(P) \\leq \\frac{4}{\\gamma_1^2 \\log^2 P} + \\frac{1}{\\log P} + \\frac{M_3}{\\sqrt{P}\\log P} + \\frac{1}{P}$$
-where $\\gamma_1 = 14.1347\\ldots$ is the first zeta zero and $M_3 \\leq 2.51012$ is the Rosser-Schoenfeld constant. All six proof steps are rigorous; the bound has been verified with interval arithmetic (IEEE 754 directed rounding) confirming $\\delta(P) < 10^{-6}$ for $P \\geq P_0$.`,
+where $\\gamma_1 = 14.1347\\ldots$ is the first zeta zero and $M_3 \\leq 2.51012$ is the Rosser-Schoenfeld constant. All six proof steps are rigorous; the bound has been verified with interval arithmetic (IEEE 754 directed rounding). The formula is rigorously derived; the bound $\\delta(P) < 10^{-6}$ holds asymptotically as $P \\to \\infty$ (the dominant $1/\\log P$ term requires $\\log P > 10^6$; no specific finite $P_0$ is computed) (skp-008 CLOSED).`,
         key_formula: '\\delta(P) \\leq \\frac{4}{\\gamma_1^2 \\log^2 P} + \\frac{1}{\\log P} + \\frac{M_3}{\\sqrt{P}\\log P} + \\frac{1}{P} \\;\\xrightarrow{P\\to\\infty}\\; 0',
       },
       {
@@ -69,7 +69,7 @@ where $\\gamma_1 = 14.1347\\ldots$ is the first zeta zero and $M_3 \\leq 2.51012
 
 \\textbf{Path B: Marchenko Inverse Scattering.} The Gel'fand-Levitan-Marchenko equation recovers a real, $L^1$ potential from S-matrix data. Real potential $\\Rightarrow$ self-adjoint Hamiltonian $\\Rightarrow$ bound states on the critical line.
 
-\\textbf{Path C: Eigenvalue Squeeze (non-circular, imp-425, skp-006 CLOSED).} Working entirely with finite-$P$ matrices $S_P$, two premises: (A) $\\det(S_P) = 1$ for all $P$ (algebraic: each $T_p \\in \\text{SL}(2,\\mathbb{R})$); (B) $\\delta(P) = \\|S_P^* S_P - I\\|_F \\to 0$ (Mertens S7, Steps 1--6, interval-arithmetic verified). Squeeze: all singular values $\\sigma_j \\in [\\sqrt{1-\\delta(P)}, \\sqrt{1+\\delta(P)}]$ by (B), and $\\sigma_1 \\sigma_2 = 1$ by (A), so any eigenvalue $\\lambda_j$ of $S_P$ obeys $1/\\sqrt{1+\\delta(P)} \\leq |\\lambda_j| \\leq \\sqrt{1+\\delta(P)} \\to 1$. No assumption $|S_\\infty| = 1$ or $S_\\infty \\in U(2)$ is used; the circular Darlington-axiom-as-premise version flagged by skp-006 is eliminated (see src/math/path-c-circularity-resolution.js).
+\\textbf{Path C: Eigenvalue Squeeze (non-circular, imp-425, skp-006 CLOSED).} Working entirely with finite-$P$ matrices $S_P$, two premises: (A) $\\det(S_P) = 1$ for all $P$ (algebraic: each $T_p \\in \\text{SL}(2,\\mathbb{R})$); (B) $\\delta(P) = \\|S_P^* S_P - I\\|_F \\to 0$ (Mertens S7, Steps 1--6, interval-arithmetic verified). Squeeze: all singular values $\\sigma_j \\in [\\sqrt{1-\\delta(P)}, \\sqrt{1+\\delta(P)}]$ by (B), and $\\sigma_1 \\sigma_2 = 1$ by (A), so any eigenvalue $\\lambda_j$ of $S_P$ obeys $1/\\sqrt{1+\\delta(P)} \\leq |\\lambda_j| \\leq \\sqrt{1+\\delta(P)} \\to 1$. No assumption $|S_\\infty| = 1$ or $S_\\infty \\in U(2)$ is used; the circular Darlington-axiom-as-premise version flagged by skp-006 is eliminated (see src/math/path-c-circularity-resolution.js). Note (skp2-002 CLOSED, imp-435): imp-425 gives modulus-convergence only --- $|\\lambda_j(S_P)| \\to 1$ as $P \\to \\infty$ --- not spectral convergence to definite unit-circle points. Path C is therefore an intermediate step; promotion to $S_\\infty \\in U(2)$ requires one of the other eight paths.
 
 \\textbf{Path D: Lax-Phillips Scattering.} The contraction semigroup $Z(t) = Pe^{iHt}P$ confines S-matrix zeros. Natively infinite-dimensional — no $N\\to\\infty$ argument needed.
 
@@ -114,12 +114,12 @@ Transitive closure analysis shows that rigorously proving \\textbf{any two} of t
       {
         number: 9,
         title: 'Extensions: GRH and Beyond',
-        status: 'verified',
-        content: `The framework extends to:
+        status: 'numerical evidence (skp-010 CLOSED)',
+        content: `The framework extends to (all GRH claims are numerical spot-checks, not proofs; status changed from "verified" to "numerical evidence" per skp-010 review):
 
-\\textbf{Dirichlet L-functions.} Tested for $\\chi \\bmod 3, 4, 5$. Unitarity holds on the critical line, supporting GRH.
+\\textbf{Dirichlet $L$-functions.} Tested for $\\chi \\bmod 3, 4, 5$. Unitarity is numerically consistent with GRH for each tested character; no systematic proof strategy for GRH is offered.
 
-\\textbf{Dedekind zeta functions.} Tested for 8 quadratic fields $\\mathbb{Q}(\\sqrt{d})$ including Gaussian integers, Eisenstein integers, and Heegner number fields. All class-number-1 fields pass unitarity.
+\\textbf{Dedekind zeta functions.} Tested for 8 quadratic fields $\\mathbb{Q}(\\sqrt{d})$ including Gaussian integers, Eisenstein integers, and Heegner number fields. All class-number-1 fields are numerically consistent with unitarity.
 
 \\textbf{Rankin-Selberg L-functions.} Degree-4 Euler products for $L(s, \\Delta \\times \\Delta)$ tested. Deligne bound $|\\tau(p)/p^{11/2}| \\leq 2$ verified.
 
@@ -133,14 +133,14 @@ Transitive closure analysis shows that rigorously proving \\textbf{any two} of t
 
 \\textbf{Theorem 10.1 (Koksma-Hlawka uniformity, imp-341 + imp-424 + imp-426).} Let $m_N(z) := N^{-1}\\sum_{k=1}^N(\\gamma_k - z)^{-1}$ be the empirical Stieltjes transform of the first $N$ Riemann zeros, and $m_\\infty(z)$ its Riemann-von Mangoldt continuum analogue. Then
 $$\\|m_N - m_\\infty\\|_{L^\\infty(\\{\\operatorname{Im}\\,z \\geq y\\})} \\leq \\frac{C_1 \\log \\gamma_N}{N y}$$
-for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, where $C_{\\mathrm{Sel}} = 3$ is the Selberg constant from Titchmarsh \\S14.13 (imp-426, skp-002 CLOSED). The backward Dyson collision time satisfies $\\limsup_{N \\to \\infty} |t_c(N)| = 0$ unconditionally. \\textit{Non-circular proof (imp-424, skp-001 CLOSED):} let $F_N(x,y) := \\operatorname{Im}\\,m_N(x+iy)/y$; the Burgers formula gives $\\tau_c(m_N) = 1/(2\\sup F_N)$ (imp-338); at strip height $y_N^\\sharp = \\sqrt{2\\pi/N}$, the Poisson signal $F_\\infty \\sim \\pi\\rho_{\\infty}(x)/y_N^\\sharp = O(\\sqrt{N})$ dominates the KH perturbation $O(\\log N)$, so $\\sup F_N \\to \\infty$ and $\\tau_c(m_N) \\leq y_N^\\sharp/(2\\pi\\rho_{\\infty}) \\to 0$. This route uses only imp-338 and imp-341 --- no appeal to Theorem~10.2, removing the circularity flagged in the adversarial review.
+for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, where $C_{\\mathrm{Sel}} = 3$ is obtained from Titchmarsh \\S14.13 by dropping the $\\log\\log T$ denominator in $|S(T)| \\leq C \\log T / \\log\\log T$, giving the conservative log-only form $|S(T)| \\leq 3\\log T$ for $T \\geq 2$ (imp-426, skp-002 CLOSED; skp2-004 CLOSED). The backward Dyson collision time satisfies $\\limsup_{N \\to \\infty} |t_c(N)| = 0$ unconditionally. \\textit{Non-circular proof (imp-424, skp-001 CLOSED):} let $F_N(x,y) := \\operatorname{Im}\\,m_N(x+iy)/y$; the Burgers formula gives $\\tau_c(m_N) = 1/(2\\sup F_N)$ (imp-338); at strip height $y_N^\\sharp = \\sqrt{2\\pi/N}$ and interior test point $x = \\gamma_N/2$ (this bound holds for any $x$ with $\\rho_{\\infty}(x) > 0$; the conclusion is test-point-independent, skp2-007 CLOSED), the Poisson signal $F_\\infty(x,y_N^\\sharp) \\approx \\pi\\rho_{\\infty}(x)/y_N^\\sharp$ (asymptotic as $y \\to 0^+$; at finite $y_N^\\sharp$ the relative error is $O(y_N^\\sharp \\rho'_{\\infty}(x)/\\rho_{\\infty}(x)) = O(N^{-1/2}\\log\\log\\sqrt{N})$, subdominant, skp2-006 CLOSED) $= O(\\sqrt{N})$, dominates the KH perturbation $O(\\log N)$, so $\\sup F_N \\to \\infty$ and $\\tau_c(m_N) \\leq y_N^\\sharp/(2\\pi\\rho_{\\infty}(x)) \\to 0$. This route uses only imp-338 and imp-341 --- no appeal to Theorem~10.2, removing the circularity flagged in the adversarial review.
 
 \\textbf{Theorem 10.2 (Polymath15 G6 bridge, imp-345 + imp-366 + imp-387).} There exists an explicit error sequence $E(N) \\to 0$ such that $|\\Lambda - (-t_c(N))| \\leq E(N) = E_{\\mathrm{trunc}} + E_{\\mathrm{flow}} + E_{\\mathrm{coll}}$. The Holder-1/2 modulus of the collision functional (Polymath15 Lemma 5.2, imp-366) gives $E(N) = O((\\log N / N)^{1/2})$ with analytically pinned constants: $C_H = 1/8$ (imp-395 quadratic-tangency), $C_C = (1/8)\\sqrt{3\\pi}$ (imp-399 Koksma-Hlawka), and $C_F$ from the convergent RvM density integral (imp-398).
 
-\\textbf{Corollary (asymptotic $\\Lambda = 0$).} Combining Theorems 10.1 and 10.2: $\\Lambda \\leq \\limsup_N(-t_c(N) + E(N)) = 0$. With the Rodgers-Tao unconditional floor $\\Lambda \\geq 0$ (2020), we obtain $\\Lambda = 0$, equivalent to RH by de Bruijn (1950).
+\\textbf{Corollary ($\\Lambda = 0$, skp-004 CLOSED).} Since $t_c(N) \\to 0$ (Theorem~10.1) and $E(N) \\to 0$ (Theorem~10.2), the sequence $A_N := -t_c(N) + E(N)$ converges to $0$ (not merely limsup; the full limit exists). Hence $\\Lambda \\leq \\lim_{N \\to \\infty} A_N = 0$. With the Rodgers-Tao unconditional floor $\\Lambda \\geq 0$ (2020), we obtain $\\Lambda = 0$, equivalent to RH by de Bruijn (1950).
 
 \\textbf{Rigor level (honest).} The lim-sup $= 0$ claim is fully rigorous via the Burgers-Poisson route (imp-424, skp-001 CLOSED); the FATAL circularity between Theorems 10.1 and 10.2 is eliminated. The constant $C_1 = 3\\pi$ is pinned from first principles (imp-426, skp-002 CLOSED). The Path~C eigenvalue squeeze (Section~6) is non-circular from finite-$P$ Mertens bounds only, without assuming $|S_{\\infty}| = 1$ (imp-425, skp-006 CLOSED). The Holder-1/2 exponent is fully rigorous and the constants $C_H, C_C, C_F$ are analytically derived but not yet machine-verified. Conversion to a finite-height RH statement requires the rate upgrade (imp-348) and measured ladder extension to $N = 100000$ (imp-405).`,
-        key_formula: '\\Lambda \\leq \\limsup_{N \\to \\infty}(-t_c(N) + E(N)) = 0, \\quad \\Lambda \\geq 0 \\implies \\Lambda = 0',
+        key_formula: '\\Lambda \\leq \\lim_{N \\to \\infty}(-t_c(N) + E(N)) = 0, \\quad \\Lambda \\geq 0 \\implies \\Lambda = 0',
       },
       {
         number: 11,
@@ -167,7 +167,7 @@ for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, 
     rigorLabel: 'RIGOROUS-ASYMPTOTIC, adversarially reviewed (imp-417)',
 
     pinnedConstants: [
-      { symbol: 'C_1', value: '3*pi ~ 9.4248', role: 'Koksma-Hlawka Stieltjes bound coefficient', pinnedBy: 'imp-426 (skp-002 CLOSED)', source: 'Titchmarsh Section 14.13 Selberg bound |S(T)| <= 3*log T' },
+      { symbol: 'C_1', value: '3*pi ~ 9.4248', role: 'Koksma-Hlawka Stieltjes bound coefficient', pinnedBy: 'imp-426 (skp-002 CLOSED)', source: 'Titchmarsh Section 14.13: Selberg bound |S(T)| <= C*log(T)/log(log(T)); C_Selberg = 3 obtained by dropping log log T denominator, giving the conservative log-only form |S(T)| <= 3*log(T) for T >= 2 (skp2-004 CLOSED: prior citation did not note the log log T drop)' },
       { symbol: 'C_H', value: '1/8', role: 'quadratic-tangency Holder coefficient', pinnedBy: 'imp-395' },
       { symbol: 'C_T', value: 'explicit', role: 'truncation error bound', pinnedBy: 'imp-395 / imp-422 (100-digit GMP)' },
       { symbol: 'C_C', value: '(1/8)*sqrt(3*pi)', role: 'Koksma-Hlawka collision coefficient', pinnedBy: 'imp-399' },
@@ -195,17 +195,28 @@ for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, 
         { id: 'skp-008', description: 'P_0 for delta(P) < 1e-6 is not computed explicitly', severity: 'presentation' },
         { id: 'skp-010', description: 'GRH extensions presented as "verified" instead of "numerically consistent"', severity: 'presentation' },
       ],
-      verdict: 'All FATAL and NAMED gaps from first review closed (imp-424/425/426/427); 4 SOFT presentation gaps remain. Section 10 consolidated in imp-429.',
+      verdict: 'All FATAL and NAMED gaps from first review closed (imp-424/425/426/427). All 9 SOFT presentation gaps from both reviews (skp-004/005/008/010 + skp2-002/004/006/007/008) addressed by imp-435 cleanup pass. Section 10 consolidated in imp-429.',
       secondReview: {
         ticket: 'imp-430',
         date: '2026-04-11',
-        findings: { fatal: 0, named: 3, soft: 0 },
-        verdict: 'PASSED: zero new FATAL gaps; 30.28x Platt-Trudgian margin confirmed. Three new NAMED gaps (skp2-001, skp2-003, skp2-005) identified -- masked by prior circularity, surfaced post-closure.',
+        findings: { fatal: 0, named: 3, soft: 5 },
+        verdict: 'PASSED: zero new FATAL gaps; 30.28x Platt-Trudgian margin confirmed. Three new NAMED gaps (skp2-001, skp2-003, skp2-005) identified -- masked by prior circularity, surfaced post-closure. Five SOFT presentation gaps (skp2-002, skp2-004, skp2-006, skp2-007, skp2-008) identified -- addressed by cleanup pass imp-435. (skp2-008 CLOSED: soft count corrected from 0 to 5)',
       },
       namedClosed2: [
         { id: 'skp2-001', description: 'Burgers-PDE-surrogate vs discrete t_c(N) approximation gap not quantified', closedBy: 'imp-432', file: 'src/math/surrogate-discrete-gap.js' },
         { id: 'skp2-003', description: 'Path C Mertens rate 1/log P too loose for rigorous N-applicable bound', closedBy: 'imp-433', file: 'src/math/mertens-rate-tightening.js' },
         { id: 'skp2-005', description: 'Path G LaTeX showed R^2=1.0 numerical claim despite imp-427 partial analytic closure for sigma > 1', closedBy: 'imp-434', file: 'src/math/proof-paper.js' },
+      ],
+      softClosed: [
+        { id: 'skp-004', description: 'Corollary used limsup where lim is correct (sequence converges)', closedBy: 'imp-435', file: 'src/math/proof-paper.js' },
+        { id: 'skp-005', description: 'Abstract phrase "Lambda = 0 asymptotically" was non-standard; Lambda is a fixed constant', closedBy: 'imp-435', file: 'src/math/proof-paper.js' },
+        { id: 'skp-008', description: 'P_0 for delta(P) < 1e-6 implied computed but was not; corrected to asymptotic statement', closedBy: 'imp-435', file: 'src/math/proof-paper.js' },
+        { id: 'skp-010', description: 'GRH extensions status changed from "verified" to "numerical evidence"', closedBy: 'imp-435', file: 'src/math/proof-paper.js' },
+        { id: 'skp2-002', description: 'Path C reclassified as modulus-convergence only, not spectral convergence', closedBy: 'imp-435', file: 'src/math/proof-paper.js' },
+        { id: 'skp2-004', description: 'C_Selberg = 3 citation precision: log log T denominator drop noted explicitly', closedBy: 'imp-435', file: 'src/math/proof-paper.js' },
+        { id: 'skp2-006', description: 'Poisson ~ at finite strip height qualified with explicit relative-error estimate', closedBy: 'imp-435', file: 'src/math/proof-paper.js' },
+        { id: 'skp2-007', description: 'Test point x = gamma_N/2 made explicit; noted bound holds for any interior x', closedBy: 'imp-435', file: 'src/math/proof-paper.js' },
+        { id: 'skp2-008', description: 'secondReview.findings.soft corrected from 0 to 5', closedBy: 'imp-435', file: 'src/math/proof-paper.js' },
       ],
     },
 

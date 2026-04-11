@@ -247,7 +247,11 @@ function ConstantsTab() {
       .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
       .text("Brothers' e from Pascal row products");
 
-    // Y-axis label
+    // Axis labels
+    g1.append('text')
+      .attr('x', w / 2).attr('y', chartH + 30)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .text('n');
     g1.append('text')
       .attr('transform', `translate(-42, ${chartH / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
@@ -311,7 +315,11 @@ function ConstantsTab() {
       .attr('fill', '#e2e8f0').attr('font-size', 12).attr('font-weight', 600)
       .text('π from Central Binomial Coefficients');
 
-    // Y-axis label
+    // Axis labels
+    g2.append('text')
+      .attr('x', w / 2).attr('y', chartH + 30)
+      .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)
+      .text('n');
     g2.append('text')
       .attr('transform', `translate(-42, ${chartH / 2}) rotate(-90)`)
       .attr('text-anchor', 'middle').attr('fill', '#94a3b8').attr('font-size', 11)

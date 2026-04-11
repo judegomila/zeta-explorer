@@ -4755,6 +4755,30 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-04-11',
   },
 
+  {
+    id: 'imp-366',
+    title: 'Polymath15 Lemma 5.2 direct port to close G6a_shock_lipschitz fully',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-354 partial closure of G6a left two sub-sub-gaps: G6a-sub-hyperbolic (the Whitham theorem is for real-valued Burgers u: R -> R, needs Riemann-Hilbert adaptation to complex Stieltjes m: C+ -> C+) and G6a-sub-constant (the leading constant C_W = sqrt(2/|u_0 second-derivative at z_0-star|) is symbolic; numerical evaluation at the Riemann-von Mangoldt density needs identifying z_0-star at the boundary shock y -> 0+). This ticket directly transcribes Polymath15 / Tao Lemma 5.2 with explicit constants and ports the real-Burgers argument to the complex Stieltjes setting. Closure gives an unconditional Holder-1/2 modulus of tau_c at the Burgers shock, which combined with imp-341 Koksma-Hlawka gives an unconditional rate |tau_c(m_N) - tau_c(m_inf)| <= C sqrt(log gamma_N / N^(1/4)), promoting the imp-345 partial closure to a full closure of G6 and hence a rigorous bridge from the N-particle Dyson lim-sup to the de Bruijn-Newman Lambda.',
+    rationale: 'G6a_shock_lipschitz is the unique remaining critical sub-gap of G6_polymath15_bridge per lambda-zero-attack.js after imp-347. Closing it alone yields an unconditional Lambda <= 0 at finite height, which via Rodgers-Tao + de Bruijn is RH at that height.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+  },
+  {
+    id: 'imp-382',
+    title: 'META: Page health check — every app route loads without runtime errors',
+    category: 'meta',
+    priority: 'high',
+    status: 'pending',
+    description: 'Walk every route in src/App.jsx (/home, /lambda-bounds, /rh-dag, /meta-acceleration, /research-journal, /improvement-queue, /improvements, /dashboard, /rh-attack, /formal-proof, /proof-checker, etc.), load each in a headless browser, capture any console errors or pageerror events, and produce a report. For any page that errors: either fix it in the same commit if the fix is trivial (missing import, typo, undefined reference) OR create a new imp-NNN proof/feature ticket with the specific error and the file that needs editing. Meta-acceleration page specifically reported by user as not loading; diagnose that first. Ship as scripts/check-page-health.mjs using node + playwright if available, otherwise a lighter fetch-based check that catches server errors. Run once, produce a markdown report at scripts/logs/page-health-<timestamp>.md, commit the report.',
+    rationale: 'Silent runtime errors on pages we never open make the whole reference layer unreliable. The user saw the meta-acceleration tab fail to load and explicitly asked for this check.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+
   // ══════════════════════════════════════════════════════════════
   // META — auto-improvement engine self-improvement
   // ══════════════════════════════════════════════════════════════

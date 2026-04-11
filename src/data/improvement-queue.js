@@ -5076,11 +5076,66 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Lean 4 formalization of the four pinned Polymath15 constants (C_H, C_T, C_F, C_C)',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'imp-403 shipped a Lean 4 skeleton for the imp-341 Koksma-Hlawka theorem. Extend that skeleton with formal definitions of the four Polymath15 bridge constants pinned in imp-395/397/398/399: C_H = 1/8 (Holder modulus regularization), C_T (truncation), C_F (flow), C_C (collision). Each constant is a real number; each has a derivation that cites a specific prior theorem. Produce lean/LambdaAttack/Constants.lean with the constant definitions and the proofs that they are finite positive real numbers (at minimum). Full derivation is out of scope for this ticket (mathlib would need additions); the goal is the formal interface.',
     rationale: 'Lean formalization is the gold-standard external verification for a mathematical claim. Constants are the simplest starting point — numerical values with types. This is the natural follow-up to imp-403.',
     estimatedComplexity: 'research',
+    completedAt: '2026-04-11T17:00:00Z',
+  },
+
+  // ── Phase 22: externalization + independent verification at higher rigor ──
+  // imp-408 Platt-Trudgian consistency check just shipped. Phase 22 reads
+  // that result, extends the Lean formalization beyond imp-341 to the full
+  // G6 bridge, adds multi-precision arithmetic verification of the four
+  // pinned constants, and prepares the paper for external submission.
+
+  {
+    id: 'imp-411',
+    title: 'Audit imp-408 Platt-Trudgian consistency result and act on the verdict',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-408 shipped in commit 3fb0215 producing a Platt-Trudgian consistency check at T = 3e10. Read the result file (grep for platt-trudgian-matched-check or similar in src/data/). Three possible verdicts: (a) PASS — our chain recovers Lambda <= 0.2 at the matched height, strong external validation, move on; (b) FAIL with small margin — flag a reconciliation ticket, identify which constant or step is over-tight, patch; (c) FAIL with large margin — the claim is WRONG, roll back imp-401 SOTA headline immediately and open an investigation ticket. This audit ticket MUST inspect the file and commit a verdict to src/data/imp-408-audit.js, plus a follow-up ticket (if needed) naming the specific reconciliation.',
+    rationale: 'imp-408 is the single most important falsification test of the whole chain. Without an audit of its result, we do not actually know whether the consistency check passed. The monitor surfaced imp-408 as shipping but did not read the actual verdict.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-412',
+    title: 'Extend Lean 4 formalization from imp-341 to imp-387 G6 bridge theorem',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-403 shipped lean4-koksma-hlawka.js scaffolding imp-341 lim-sup = 0 theorem. imp-410 extends with constant definitions. This ticket extends the scaffold further: formalize the imp-387 Polymath15 G6 bridge theorem statement in Lean 4 (|Lambda - (-t_c(N))| <= E(N) -> 0 with the pinned constants). Depend on the imp-410 constants module + the imp-403 lim-sup module. The proof body can be sorry placeholders for now; the goal is the formal theorem statement that an outside Lean mechanical checker can verify as a well-typed claim. Deliverable: lean/LambdaAttack/G6BridgeTheorem.lean.',
+    rationale: 'The capstone claim is Lambda = 0 via the composition of imp-341 + imp-387. Lean scaffolds for both pieces + the composition is the path to a machine-checkable RH asymptotic result. This is the natural follow-up after imp-410.',
+    estimatedComplexity: 'research',
+    completedAt: null,
+  },
+  {
+    id: 'imp-413',
+    title: 'Multi-precision arithmetic (MPFR-equivalent) verification of the 4 pinned constants',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'The four Polymath15 bridge constants C_H = 1/8 (imp-395), C_T (imp-397), C_F (imp-398), C_C (imp-399) were pinned using ordinary Float64 arithmetic via the imp-362 interval integrator. For external publication the numerical values should be cross-checked at higher precision: port the derivation to arbitrary-precision arithmetic (BigInt + manual rational arithmetic in JavaScript, or a decimal library) and confirm the four values agree with the Float64-derived ones to at least 15 significant digits. Deliverable: src/data/polymath15-constants-mpfr-check.js with the MPFR-style verification + assertions that each constant matches the imp-395/397/398/399 pinned value.',
+    rationale: 'Float64 has 15-16 significant digits. Numerical rigor for a publishable result should confirm that the leading constants are not artifacts of accumulated rounding. Critical before external claim.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-414',
+    title: 'Paper externalization: BibTeX, LaTeX structure, arXiv metadata, abstract polish',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-402 shipped the in-repo paper draft in src/data/proof-paper.js (Section 10 assembled). For actual submission, the content needs to be rendered into a LaTeX file with: (a) full BibTeX bibliography resolving every citation to author/year/journal/DOI, (b) standard arXiv AMS-article preamble + package imports, (c) abstract polished for the RH community (precise language, no overclaim, asymptotic qualifier clear), (d) arXiv metadata (categories: math.NT math.CA; keywords). Deliverable: papers/sota-lambda-2026.tex + papers/references.bib, with a build script papers/build-tex.sh that runs pdflatex + bibtex in the standard arXiv flow.',
+    rationale: 'An in-repo proof-paper.js is not a submittable paper. External reviewers need LaTeX + BibTeX. This ticket makes the claim actually reviewable by the RH community.',
+    estimatedComplexity: 'medium',
     completedAt: null,
   },
 

@@ -5309,12 +5309,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'SOTA downgrade audit: re-grade imp-401 Lambda = 0 headline given imp-417 FATAL gaps',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'imp-417 adversarial review surfaced 2 FATAL gaps (skp-001, skp-006) in the Lambda = 0 claim chain. imp-401 currently reports the headline as "asymptotic Lambda = 0 rigorous modulo pinned constants". With the FATAL gaps identified, that rigor level is NOT accurate — the claim is currently CONDITIONAL on imp-424 (skp-001 closure) AND imp-425 (skp-006 circularity resolution) AND imp-426 (C_1 pinned) AND imp-427 (Path G rigorized). Update src/data/sota-lambda-claim.js to: (a) downgrade the rigor label from "rigorous asymptotic" to "rigorous asymptotic CONDITIONAL on imp-424/425/426/427", (b) add a prominent caveat listing the 4 open gaps, (c) preserve the imp-411 Platt-Trudgian PASS cross-check as a separate row that does NOT depend on the FATAL gaps (the PT consistency check is independent). Update the paper imp-414 abstract correspondingly.',
     rationale: 'The adversarial review found real gaps. Honest reporting means the SOTA headline must reflect the new information. Leaving the claim at "rigorous" while 2 FATAL gaps are open is exactly the kind of overclaim an outside reviewer would catch. Better to downgrade now and upgrade back when the gaps close.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-11T19:30:00Z',
+    completionNote: 'Audit performed. All 4 gaps (skp-001, skp-006, skp-002, skp-007) were already closed by imp-424/425/426/427 before this ticket executed. Added adversarialReviewRecord field to SOTA_LAMBDA_CLAIM in sota-lambda-claim.js documenting each gap with its description, closure ticket, and closure note. rigorLevel RIGOROUS-ASYMPTOTIC confirmed accurate — no downgrade required. The adversarial review audit trail is now permanently embedded in the SOTA record.',
   },
 
   // ── Phase 26: post-fatal-gap-closure consolidation + re-review ──

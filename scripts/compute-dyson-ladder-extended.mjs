@@ -382,8 +382,30 @@ async function main() {
     }
 
     const zeros = allZeros.slice(0, N);
+
+    // imp514d fix: seed dt from the initial minimum gap so that the first RK4 step
+    // cannot overshoot the nearest-pair collision.  For two particles with gap d,
+    // the Dyson pairwise collapse time is t_c_pair ~ d^2/8.  If DT > d^2/8 the
+    // very first step overshoots and reports a spurious t_c ~ DT.
+    // Fix: use dtEff = min(DT, d_min^2/80) so that dtEff < t_c_pair/10.
+    // stepsEff is raised to cover the expected integration range (30x safety on
+    // t_c_pair; many-body corrections may increase t_c above the pairwise estimate).
+    const initialMinGap  = minGap(zeros, zeros.length);
+    const dtGapSafe      = (initialMinGap * initialMinGap) / 80;
+    const dtEff          = Math.min(DT, dtGapSafe);
+    const tCpairwise     = (initialMinGap * initialMinGap) / 8;
+    const stepsEff       = Math.max(STEPS, Math.ceil(tCpairwise / dtEff * 30));
+    if (dtEff < DT) {
+      console.log(
+        `  [imp514d-fix] initialMinGap=${initialMinGap.toExponential(4)} ` +
+        `at N=${N.toLocaleString()}; t_c_pair~${tCpairwise.toExponential(3)}, ` +
+        `dtEff=${dtEff.toExponential(3)} (was DT=${DT}), stepsEff=${stepsEff}. ` +
+        `Est compute: ~${(stepsEff * estimatedStepSec(N) / 60).toFixed(0)} min.`,
+      );
+    }
+
     const t0    = Date.now();
-    const result = backwardCollisionRK4Float64(zeros, DT, STEPS);
+    const result = backwardCollisionRK4Float64(zeros, dtEff, stepsEff);
     const wallMs = Date.now() - t0;
 
     console.log(`  -> t_c=${result.t_c?.toFixed(8)}, reason=${result.reason}, wall=${(wallMs / 1000).toFixed(1)}s`);
@@ -394,25 +416,22 @@ async function main() {
     const olsProjection = OLS_A + OLS_B / N;
 
     // Detect step-size overshoot artifact (sub-gap imp514d).
-    // At large N the initial minimum gap between adjacent zero ordinates can be
-    // smaller than 2*sqrt(dt). The Dyson nearest-pair collapse time is T ~ gap^2/4.
-    // When gap^2/4 < dt the first RK4 step overshoots the collision, yielding a
-    // spurious t_c ~ dt rather than the true collision time.
-    // Detection heuristic: t_c <= 1.5*dt  AND  olsProjection > 5 * t_c.
-    // Flagged rows use source='suspect-overshoot-artifact' so overrideWithCache()
-    // in dyson-ladder-measured.js does NOT replace the OLS-projected entry.
+    // With gap-seeded dtEff, genuine close-pair collisions produce t_c ~ dtEff * 10 which is
+    // << OLS projection. These are VALID measurements (not artifacts) and should NOT be flagged.
+    // After the imp514d fix, overshoot can only occur if dtEff itself was mis-seeded (e.g. a
+    // zero-length gap in the input, or a bug).  Guard: t_c <= dtEff * 1.5 (was DT * 1.5).
     const OLS_OVERSHOOT_RATIO = 5;
     const isOvershoot = result.reason === 'gap-nonpositive'
       && result.t_c !== null
-      && result.t_c <= DT * 1.5
+      && result.t_c <= dtEff * 1.5
       && olsProjection > OLS_OVERSHOOT_RATIO * result.t_c;
     const rowSource = isOvershoot ? 'suspect-overshoot-artifact' : 'measured-float64-rk4';
     if (isOvershoot) {
       console.warn(
         `  [OVERSHOOT] t_c=${result.t_c.toFixed(8)} is ` +
         `${(olsProjection / result.t_c).toFixed(0)}x smaller than OLS=${olsProjection.toFixed(8)}. ` +
-        `dt=${DT} likely exceeds gap^2/4 for the nearest zero pair. ` +
-        `Row marked source='suspect-overshoot-artifact'. Sub-gap imp514d.`,
+        `dtEff=${dtEff.toExponential(3)} (gap-seeded). Unexpected after imp514d fix — ` +
+        `check for degenerate zero pairs or a seeding bug. Sub-gap imp514d.`,
       );
     }
 
@@ -421,17 +440,19 @@ async function main() {
       source: rowSource,
       t_c: result.t_c !== null ? +result.t_c.toFixed(8) : null,
       reason: result.reason,
-      dt: DT,
-      nSteps: STEPS,
+      dt: dtEff,
+      nSteps: stepsEff,
       stepsRun: result.step,
       wallTimeMs: wallMs,
       olsProjection: +olsProjection.toFixed(8),
-      note: `Float64 RK4 (NOT certified interval arithmetic). Step-size adaptive near collision. ` +
+      initialMinGap: +initialMinGap.toFixed(8),
+      note: `Float64 RK4 (NOT certified). dt gap-seeded: initialMinGap=${initialMinGap.toExponential(3)}, ` +
+            `dtEff=${dtEff.toExponential(3)} (imp514d fix). ` +
             `Estimated ~${stepSec.toFixed(0)}s/step. ` +
             (isOvershoot
-              ? `SUSPECT: t_c=${result.t_c.toFixed(8)} is only ${(olsProjection / result.t_c).toFixed(0)}x smaller than OLS=${olsProjection.toFixed(8)}; likely step-size overshoot (sub-gap imp514d). Row not used as override.`
+              ? `SUSPECT: t_c=${result.t_c.toFixed(8)} is only ${(olsProjection / result.t_c).toFixed(0)}x smaller than OLS=${olsProjection.toFixed(8)}; unexpected with gap-seeded dt (sub-gap imp514d).`
               : result.reason === 'budget-exhausted'
-                ? `Budget exhausted at t=${result.t_c?.toFixed(6)}; increase --steps to push further.`
+                ? `Budget exhausted at t=${result.t_c?.toFixed(6)}; close-pair t_c_pair~${tCpairwise.toExponential(2)}, increase --steps to push further.`
                 : `Collision detected at t_c ~ ${result.t_c?.toFixed(6)}.`),
     });
   }
@@ -441,8 +462,9 @@ async function main() {
     source:           'imp-514 offline compute harness (scripts/compute-dyson-ladder-extended.mjs)',
     zerosProvenance:  'Odlyzko zeta tables (https://www-users.cse.umn.edu/~odlyzko/zeta_tables/)',
     zerosLoaded:      allZeros.length,
-    dt:               DT,
-    maxSteps:         STEPS,
+    dtParam:          DT,
+    maxStepsParam:    STEPS,
+    dtNote:           'Effective dt per N is gap-seeded: dtEff = min(DT, d_min^2/80). See row.dt for actual dt used (imp514d fix).',
     rows,
     subGaps: [
       {
@@ -469,16 +491,17 @@ async function main() {
       },
       {
         id:          'imp514d',
-        description: 'step-size overshoot at large N: for N >= 150K the initial minimum gap ' +
-                     'between adjacent Riemann zeros is O(pi/log(gamma_N)) which can be smaller ' +
-                     'than 2*sqrt(dt). The Dyson nearest-pair collapse time T ~ gap^2/4 is then ' +
-                     'less than dt, so the first RK4 step overshoots the collision and reports a ' +
-                     'spurious t_c ~ dt. Rows where t_c <= 1.5*dt AND olsProjection > 5*t_c are ' +
-                     'flagged source=suspect-overshoot-artifact and excluded from cache overrides. ' +
-                     'Resolution: seed dt from initial minimum gap (dt_safe = gap^2/80), but this ' +
-                     'requires O(N) extra zero-load time and makes per-step cost impractical for ' +
-                     'N >= 150K without a native C/Rust backend.',
-        status:      'open',
+        description: 'step-size overshoot at large N: FIXED in this script run (imp-514 partial). ' +
+                     'For N >= 150K the initial minimum gap between adjacent Riemann zeros can be ' +
+                     'smaller than 2*sqrt(dt). The Dyson nearest-pair collapse time T ~ gap^2/8 is ' +
+                     'then less than dt, so the first RK4 step overshoots the collision and reports ' +
+                     'a spurious t_c ~ dt. FIX: dtEff = min(DT, d_min^2/80) is now seeded from the ' +
+                     'initial minimum gap d_min before each N run. stepsEff is raised proportionally ' +
+                     'to cover t_c_pair = d_min^2/8 with 30x safety margin. At N=150K: d_min=0.01470 ' +
+                     '(zeros[95247] near height 71733), t_c_pair=2.70e-5, dtEff=2.70e-6, stepsEff=300. ' +
+                     'Remaining blocker: 300 steps at N=150K takes ~18 hr in JS (O(N^2) per step). ' +
+                     'Full closure requires native C/Rust backend (imp514b) for feasible wall time.',
+        status:      'partial',
       },
     ],
     usageNote: 'Import these rows into dyson-ladder-measured.js to replace PROJECTED_ROWS at matching N. ' +

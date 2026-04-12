@@ -17,6 +17,7 @@ import { losslessBridge, systemHamiltonian, directLadder, dualLadder,
          hamiltonianSigmaScan } from './oscillators.js';
 import { getPrimes } from './primes.js';
 import { memoize } from './memo.js';
+import '../data/assertion-sweep-2026-04-12.js'; // imp-501: activates all 17 build-time assertions
 
 // ─── Strategy 1: Li Coefficients ─────────────────────────────────────────────
 /**
@@ -4338,8 +4339,10 @@ export function assembleCompleteProof(numPrimes = 50, numZeros = 100) {
   };
 
   // ── Section S6: Hamiltonian Energy Minimum ────────────────────────────────
+  // Note: liCoefficients() returns { lambdas: [...] }, not { coefficients: [...] }.
+  // Field-name drift bug fixed (dashboard surfaced this via the /dashboard crash).
   const allConvex = hamiltonian.results.every(r => r.isConvex);
-  const allLiPositive = li.coefficients.every(c => c.lambda > 0);
+  const allLiPositive = li.lambdas.every(c => c.lambda > 0);
 
   const S6 = {
     id: 'S6',
@@ -4368,8 +4371,8 @@ export function assembleCompleteProof(numPrimes = 50, numZeros = 100) {
       },
       liCoefficients: {
         allPositive: allLiPositive,
-        count: li.coefficients.length,
-        growth: li.coefficients.length > 0 ? li.coefficients[li.coefficients.length - 1].lambda : null,
+        count: li.lambdas.length,
+        growth: li.lambdas.length > 0 ? li.lambdas[li.lambdas.length - 1].lambda : null,
       },
       weilPositivity: {
         allPositive: weil.allPositive,
@@ -4537,7 +4540,7 @@ export function assembleCompleteProof(numPrimes = 50, numZeros = 100) {
       potapov: { verdict: potapov.verdict },
       marchenko: { verdict: marchenko.verdict },
       symplectic: { verdict: symplectic.verdict },
-      liCoefficients: { allPositive: allLiPositive, count: li.coefficients.length },
+      liCoefficients: { allPositive: allLiPositive, count: li.lambdas.length },
       hamiltonianConvexity: { allConvex, count: hamiltonian.results.length },
       weilPositivity: { allPositive: weil.allPositive },
       montgomeryOdlyzko: { gueCorrelation: montOdly.gueCorrelation },

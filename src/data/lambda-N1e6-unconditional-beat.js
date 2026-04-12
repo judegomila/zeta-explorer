@@ -24,7 +24,7 @@
  *            imp-463: D-monotone proved analytically (partial-fractions + CM ODE)
  *            imp-464: NoSwap repulsive-crossing argument
  *            imp-468: S_{k*}(0) > S_j(0) at initial config, direct arithmetic
- *            imp-469: rho_min >= 0.1279 analytic lower bound (rho(gamma_1) > 0)
+ *            imp-469: rho_min >= 0.12751 analytic lower bound (imp-473 corrected; rho(gamma_1) > 0)
  *   B2     CONDITIONAL-CLOSED by imp-458 under M only
  *            imp-462: exact bridge M_raw <==> M_uf via RvM Jacobian bijection
  *
@@ -96,12 +96,12 @@ const CLOSURES = [
   {
     id:       'rho-min',
     ticket:   'imp-469',
-    title:    'rho_min >= 0.1279 analytic lower bound (rvm-jacobian-lower-bound.js)',
+    title:    'rho_min >= 0.12751 analytic lower bound (rvm-jacobian-lower-bound.js; imp-473 corrected)',
     status:   'established',
     summary:
       'rho(T) = (1/(2*pi)) * log(T/(2*pi)) is minimised over gamma_k at gamma_1 ~ 14.13. ' +
-      'rho(14) > 0.1279 proved by direct inequality: log(14/(2*pi)) > 0.803 > 0 ' +
-      'so rho(14) = 0.803 / (2*pi) ~ 0.1279. This makes the RvM Jacobian bridge exact ' +
+      'rho(14) > 0.12751 proved by direct inequality: log(14/(2*pi)) > 0.801 > 0 ' +
+      'so rho(14) = 0.8012 / (2*pi) ~ 0.12751. This makes the RvM Jacobian bridge exact ' +
       'with a quantitative lower bound: M_raw <==> M_uf with no error (imp-462).',
   },
   {
@@ -195,7 +195,7 @@ export const LAMBDA_N1E6_UNCONDITIONAL_BEAT = {
     'imp-462 M_raw <==> M_uf bridge (m-raw-from-umon-bridge.js)',
     'imp-463 D-monotone analytic proof',
     'imp-464 + imp-468 NoSwap closure (noswap-closure.js)',
-    'imp-469 rho_min >= 0.1279 analytic bound (rvm-jacobian-lower-bound.js)',
+    'imp-469 rho_min >= 0.12751 analytic bound (rvm-jacobian-lower-bound.js; imp-473 corrected)',
     'lambda-N1e6-final-assembly.js (imp-452)',
     'Platt & Trudgian 2021, Bull. Lond. Math. Soc. 53 (2021), 792-797',
   ],

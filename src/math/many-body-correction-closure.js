@@ -30,12 +30,12 @@
  *
  *   |delta_mb(N)|  <=  C_mb * N^{-1/2} * log(N) / rho_min
  *
- * where rho_min >= 0.1279 (imp-469, rvm-jacobian-lower-bound.js).
+ * where rho_min >= 0.12751 (imp-469/473, rvm-jacobian-lower-bound.js).
  *
  * At N_0 = 10000:
  *   C_mb * N_0^{-1/2} * log(N_0) = 1 * (1/100) * log(10000) ~ 0.0921
- *   rho_min ~ 0.1279
- *   ratio = 0.0921 / 0.1279 ~ 0.720 < 1  (28% safety margin)
+ *   rho_min ~ 0.12751
+ *   ratio = 0.0921 / 0.12751 ~ 0.722 < 1  (28% safety margin)
  *
  * The function f(N) = N^{-1/2} * log(N) satisfies:
  *   df/dN = N^{-3/2} * (1 - log(N)/2)  <  0  for  N > e^2 ~ 7.39
@@ -99,7 +99,7 @@ export const CORRECTION_AT_N0 =
 // Numerically: 1 * log(10000) / 100 = 9.2103 / 100 = 0.092103
 
 export const RATIO_AT_N0 = CORRECTION_AT_N0 / RHO_MIN_ANALYTIC_LB;
-// Numerically: 0.092103 / 0.1279 ~ 0.720  (< 1 confirmed)
+// Numerically: 0.092103 / 0.12751 ~ 0.722  (< 1 confirmed; imp-473 corrected rho_min)
 
 const CORRECTION_DOMINATED = RATIO_AT_N0 < 1;
 

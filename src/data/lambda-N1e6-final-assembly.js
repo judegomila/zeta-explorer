@@ -116,9 +116,9 @@ const CONDITIONS = [
       B2_INTERCEPT_BOUND.bound.value +
       ' under monotonicity M (Koksma-Hlawka, C_Selberg = 3.0). ' +
       'imp-462 bridge: M_raw <==> M_uf exactly via positive RvM Jacobian. ' +
-      'imp-469: rho_min >= 0.1279 analytic lower bound (gamma_1 > 14). ' +
+      'imp-469: rho_min >= 0.12751 analytic lower bound (gamma_1 > 14; imp-473 corrected). ' +
       'imp-471: C_mb * N^{-1/2} * log(N) < rho_min for all N >= N_0 = 1e4 ' +
-      '(ratio 0.720, 28% safety margin). M is now UNCONDITIONALLY established.',
+      '(ratio 0.722, 28% safety margin). M is now UNCONDITIONALLY established.',
   },
   {
     id:     'C3-pt',

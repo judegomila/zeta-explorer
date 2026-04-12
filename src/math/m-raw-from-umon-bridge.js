@@ -204,7 +204,7 @@ const RHO_MIN_ZETA = rvmDensity(ZETA_ZEROS[0]); // smallest gamma => smallest rh
 // the proven inequality gamma_1 > 14, NOT the numerical ZETA_ZEROS array.
 const GAMMA1_LOWER_BOUND    = 14;  // proven: gamma_1 > 14 (first zero ~ 14.1347)
 const RHO_MIN_ANALYTIC_LB   = Math.log(GAMMA1_LOWER_BOUND / (2 * Math.PI)) / (2 * Math.PI);
-// Numerically: RHO_MIN_ANALYTIC_LB ~ 0.1279 > 0  (analytic, not from zero table)
+// Numerically: RHO_MIN_ANALYTIC_LB ~ 0.12751 > 0  (analytic, not from zero table; imp-473 corrected)
 
 // ── Closure record ────────────────────────────────────────────────────────────
 

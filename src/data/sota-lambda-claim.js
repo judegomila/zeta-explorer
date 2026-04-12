@@ -820,7 +820,7 @@ export const SOTA_LAMBDA_CLAIM = {
         'Phase 33-35 payoff record assembled: Lambda <= L_pt ~ 0.121 < 0.2 (Platt-Trudgian 2021) ' +
         'established ONE CONDITION FROM UNCONDITIONAL. Condition set shrinks from {B1, B2, C3} to {M}: ' +
         'B1 ESTABLISHED (imp-463 D-monotone analytic + imp-468 NoSwap analytic at all N), ' +
-        'C3-pt ESTABLISHED (imp-447), M_raw bridge ESTABLISHED (imp-462 + imp-469 rho_min >= 0.1279). ' +
+        'C3-pt ESTABLISHED (imp-447), M_raw bridge ESTABLISHED (imp-462 + imp-469 rho_min >= 0.12751; imp-473 corrected). ' +
         'Sole remaining blocker: skp-imp462-many-body-correction (imp-471).',
       file: 'src/data/lambda-N1e6-unconditional-beat.js',
       impactOnSota:

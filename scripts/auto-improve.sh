@@ -76,7 +76,8 @@ RULES:
 - Never make more than one logical change per run
 - Never delete features or pages
 - Always verify the build passes before committing
-- Focus on the src/ directory only'
+- Focus on the src/ directory only
+- TICKET-ID CLAIM PROTOCOL: if you ever open a new ticket in improvement-queue.js, first run `node scripts/claim-ticket-id.mjs <proposed-id>` and use the printed id instead of your proposed id. This prevents concurrent Opus/Haiku agents from creating silent id collisions (see imp-446).'
 
 mkdir -p "$LOG_DIR"
 

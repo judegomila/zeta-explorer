@@ -5592,11 +5592,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'META: Ticket-id collision recovery — imp-437 review reused imp-439/imp-440 ids',
     category: 'meta',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     description: 'Observed bug: imp-437 third adversarial review ran concurrently with my monitor-seeded Phase 29 tickets imp-439/440/441. When imp-437 surfaced skp3-001 and skp3-002 NAMED findings, it recorded them as "opensNewTicket: imp-439" and "opensNewTicket: imp-440" — CONFLICTING with my already-seeded imp-439 (Lean sorries) and imp-440 (finite-height beat). The engine has no dedup against this: two agents writing to the same id range concurrently produces silent overlap. Fix: add a "claim ticket id" protocol where any agent that wants to open a new ticket must first append to a scripts/.ticket-id-claim.log file with its proposed imp-NNN + a fresh timestamp, then check the file for prior claims at the same id. If there is a prior claim within N seconds, increment. Low-tech optimistic concurrency control. Deliverable: scripts/claim-ticket-id.mjs + update to auto-improve.sh IMPROVE_PROMPT instructing the engine to use it.',
     rationale: 'Silent ticket-id overlap means two different pieces of work land under the same id, making audit logs lie. Bounded-collision avoidance via a claim log is a 10-line fix.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-12T09:45:00Z',
+    closureNote: 'scripts/claim-ticket-id.mjs created (5-min collision window, MAX_BUMP=20); TICKET-ID CLAIM PROTOCOL rule added to IMPROVE_PROMPT in auto-improve.sh.',
   },
 
   // Phase 31 — post-imp-441 blocker closures (seeded 2026-04-11 by monitor)

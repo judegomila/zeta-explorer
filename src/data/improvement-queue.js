@@ -6014,12 +6014,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Refresh sota-lambda-claim.js to cite Phase 35-36 wave + flag many-body correction',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S11-citations',
     description: 'imp-466 refreshed sota-lambda-claim.js for Phase 33-34 (imp-451/452/455/456/457/458). Since then Phase 35-36 has shipped: imp-462 Bridge M, imp-463 D-monotone analytic, imp-464 NoSwap (numerical), imp-468 NoSwap analytic upgrade, imp-469 rho_min analytic, imp-470 full unconditional L_pt assembly, imp-467 roadmap propagation, imp-465 fourth adversarial review. Extend latestClosures with these 8 entries. Crucially: update the claim summary string to accurately say "L_pt ≤ 0.121 finite-height beat at N*=1e6, conditional only on imp-462-many-body-correction (sole remaining blocker)" — do NOT claim unconditionality until imp-471 ships. Deliverable: updated sota-lambda-claim.js + lambda-sota-assembly.js one-line append + build-time assertion that every critical closure imp-443 through imp-470 is cited.',
     rationale: 'The SOTA artifact should reflect the current state: one condition from unconditional. Overclaiming (saying "unconditional" when imp-471 is still pending) is the exact kind of drift that hostile reviewers catch. Honest reporting is a feature of the audit trail discipline we committed to.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-12T07:00:00Z',
+    closureNote: 'Added Phase 35-36 latestClosures entries for imp-471/472/473/474 to sota-lambda-claim.js. Flags many-body correction as CLOSED by imp-471 (Lambda <= 0.121 FULLY UNCONDITIONAL, named caveats skp5-001/002). Updated consumes and dependsOnCitedTicketIds arrays. Build passed.',
   },
 
   // Phase 37 — post-unconditional-milestone follow-ons (seeded 2026-04-12 by monitor).

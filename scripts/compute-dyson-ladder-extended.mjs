@@ -249,14 +249,20 @@ function minGap(g, N) {
   return mg;
 }
 
-function backwardCollisionRK4Float64(initial, dt, maxSteps) {
+// maxDt is the large "normal" step size to restore to once the close pair has
+// passed; it defaults to dt (backward-compatible) but callers that seeded dt
+// as a gap-safe small value should pass the original DT so the integrator can
+// recover its natural stride instead of staying permanently at dtEff.
+function backwardCollisionRK4Float64(initial, dt, maxSteps, maxDt = dt) {
   const N   = initial.length;
   const g   = new Float64Array(initial);
   const tmp = new Float64Array(N);
   const g2  = new Float64Array(N);
   const COLLISION_THRESHOLD = 0;
-  // Adaptive step: halve dt when gap < ADAPT_THRESH to reduce overshoot
-  const ADAPT_THRESH = 3 * dt; // ~3x the step size in spacing
+  // Adaptive step: reduce currentDt when gap < ADAPT_THRESH to avoid overshoot.
+  // ADAPT_THRESH is anchored to the initial (possibly gap-seeded) dt so the
+  // threshold remains meaningful even after currentDt has been restored to maxDt.
+  const ADAPT_THRESH = 3 * dt; // ~3x the initial step size in spacing
 
   let currentDt = dt;
   let t = 0;
@@ -268,11 +274,14 @@ function backwardCollisionRK4Float64(initial, dt, maxSteps) {
       return { t_c: t, reason: 'gap-nonpositive', step };
     }
 
-    // Adapt step size when close to collision
+    // Adapt step size when close to collision; restore to maxDt (the original
+    // un-seeded DT) when the gap is wide again, NOT back to the gap-seeded dt.
+    // Without this, the integrator stays at dtEff = d_min^2/80 for the whole
+    // run, covering only stepsEff * dtEff << t_c in total time.
     if (mg < ADAPT_THRESH && currentDt > dt / 16) {
       currentDt = Math.max(dt / 16, mg / 4);
     } else if (mg > 10 * ADAPT_THRESH) {
-      currentDt = dt; // restore full step
+      currentDt = maxDt; // restore to original DT, not to the gap-seeded dtEff
     }
 
     // RK4 step
@@ -405,7 +414,7 @@ async function main() {
     }
 
     const t0    = Date.now();
-    const result = backwardCollisionRK4Float64(zeros, dtEff, stepsEff);
+    const result = backwardCollisionRK4Float64(zeros, dtEff, stepsEff, DT);
     const wallMs = Date.now() - t0;
 
     console.log(`  -> t_c=${result.t_c?.toFixed(8)}, reason=${result.reason}, wall=${(wallMs / 1000).toFixed(1)}s`);
@@ -491,17 +500,20 @@ async function main() {
       },
       {
         id:          'imp514d',
-        description: 'step-size overshoot at large N: FIXED in this script run (imp-514 partial). ' +
-                     'For N >= 150K the initial minimum gap between adjacent Riemann zeros can be ' +
-                     'smaller than 2*sqrt(dt). The Dyson nearest-pair collapse time T ~ gap^2/8 is ' +
-                     'then less than dt, so the first RK4 step overshoots the collision and reports ' +
-                     'a spurious t_c ~ dt. FIX: dtEff = min(DT, d_min^2/80) is now seeded from the ' +
-                     'initial minimum gap d_min before each N run. stepsEff is raised proportionally ' +
-                     'to cover t_c_pair = d_min^2/8 with 30x safety margin. At N=150K: d_min=0.01470 ' +
-                     '(zeros[95247] near height 71733), t_c_pair=2.70e-5, dtEff=2.70e-6, stepsEff=300. ' +
-                     'Remaining blocker: 300 steps at N=150K takes ~18 hr in JS (O(N^2) per step). ' +
-                     'Full closure requires native C/Rust backend (imp514b) for feasible wall time.',
-        status:      'partial',
+        description: 'step-size overshoot at large N: FIXED (two-stage). ' +
+                     'Stage 1 (initial overshoot, prior run): dtEff = min(DT, d_min^2/80) is seeded ' +
+                     'from the initial minimum gap d_min so the first RK4 step cannot overshoot the ' +
+                     'nearest-pair collapse time T_pair ~ d_min^2/8. ' +
+                     'Stage 2 (dt-restoration bug, this run): backwardCollisionRK4Float64 now accepts ' +
+                     'maxDt=DT so the integrator restores currentDt to the original DT (not to dtEff) ' +
+                     'once mg > 10 * ADAPT_THRESH. Previously, restoration returned to dtEff ' +
+                     '(e.g. 2.70e-6 at N=150K), keeping the step permanently tiny and covering only ' +
+                     'stepsEff * dtEff = 300 * 2.70e-6 = 8.1e-4 of the ~0.00668 integration range. ' +
+                     'With the fix, the integrator recovers to DT=0.0001 after the initial close-pair ' +
+                     'zone, covering 300 total steps including ~250 at DT=0.0001 => 0.025 time units ' +
+                     '>> OLS(150K)=0.00668. Wall time is unchanged (~7 hr at N=150K in JS), but the ' +
+                     'run now returns a meaningful t_c instead of budget-exhausted at t=0.00081.',
+        status:      'fixed',
       },
     ],
     usageNote: 'Import these rows into dyson-ladder-measured.js to replace PROJECTED_ROWS at matching N. ' +

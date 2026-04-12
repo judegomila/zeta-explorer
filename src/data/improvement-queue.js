@@ -6198,12 +6198,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Final SOTA snapshot: single-page proof-chain summary for external readers',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S11-snapshot',
     description: 'Create src/data/proof-chain-snapshot-2026-04-12.js as a self-contained summary. Structure: (1) HEADLINE: Lambda<=0.121<0.2 at N*=1e6, 1.65x over PT 2021, GUE-conditional; (2) CHAIN: 12-step outline from imp-341 through imp-471; (3) ROUTES: A/B/C closure status; (4) CONDITIONS: B1 established, B2 established|GUE, C3-pt PT2021, M/D-monotone/NoSwap/many-body established, GUE universality open; (5) LEAN: axiom+sorry count; (6) ADVERSARIAL: reviews 1-5 finding counts. Export as PROOF_CHAIN_SNAPSHOT. This is what turns 50+ tickets into a 10-minute read for a collaborator.',
     rationale: 'No external reader can currently evaluate the SOTA claim without tracing 50+ tickets. A snapshot is the submission-readiness capstone.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-12T04:10:00.000Z',
   },
 
   {

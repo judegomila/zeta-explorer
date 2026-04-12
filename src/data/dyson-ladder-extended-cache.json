@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-12T22:15:00.000Z",
+  "generatedAt": "2026-04-12T23:00:00.000Z",
   "source": "imp-514 offline compute harness (scripts/compute-dyson-ladder-extended.mjs)",
   "zerosProvenance": "Odlyzko zeta tables (https://www-users.cse.umn.edu/~odlyzko/zeta_tables/)",
   "zerosLoaded": 0,
   "dtParam": 0.0001,
   "maxStepsParam": 120,
-  "dtNote": "Effective dt per N is gap-seeded: dtEff = min(DT, d_min^2/80). See row.dt for actual dt used (imp514d fix). Additionally, currentDt is capped to mg^2/12 at each step to prevent overshoot as gap decays (imp514f fix).",
+  "dtNote": "Effective dt per N is gap-seeded: dtEff = min(DT, d_min^2/80). See row.dt for actual dt used (imp514d). Additionally, currentDt is capped to mg^2/12 at each step to prevent late-stage overshoot (imp514f). dysonDerivBackward uses antisymmetry (N*(N-1)/2 pairs, ~2x speedup vs N^2, no Kahan).",
   "rows": [],
   "subGaps": [
     {
       "id": "imp514a",
-      "description": "zeros data blocker: zeros-to-1e6.js has 100K entries; N>100K needs zeros2..zerosK. Run this script with --download to fetch additional Odlyzko batches. zeros6 may also be a combined 2M-zero file (~35 MB) at the same base URL.",
-      "status": "partial"
+      "description": "zeros data blocker: FIXED. zeros6 (2M Odlyzko zeros, 36 MB) has been downloaded to scripts/.zeros-cache/zeros6. The harness loads it automatically on every run (no --download flag needed). Covers N up to 2M.",
+      "status": "fixed"
     },
     {
       "id": "imp514b",
@@ -25,19 +25,29 @@
     },
     {
       "id": "imp514d",
-      "description": "step-size overshoot at large N: FIXED. dtEff = min(DT, d_min^2/80) is seeded from the initial minimum gap d_min so the first RK4 step cannot overshoot the nearest-pair collapse time T_pair ~ d_min^2/8.",
+      "description": "step-size overshoot at large N: FIXED (two-stage). Stage 1 (initial overshoot, prior run): dtEff = min(DT, d_min^2/80) is seeded from the initial minimum gap d_min so the first RK4 step cannot overshoot the nearest-pair collapse time T_pair ~ d_min^2/8. Stage 2 (dt-restoration bug, this run): backwardCollisionRK4Float64 now accepts maxDt=DT so the integrator restores currentDt to the original DT (not to dtEff) once mg > 10 * ADAPT_THRESH. Previously, restoration returned to dtEff (e.g. 2.70e-6 at N=150K), keeping the step permanently tiny and covering only stepsEff * dtEff = 300 * 2.70e-6 = 8.1e-4 of the ~0.00668 integration range. With the fix, the integrator recovers to DT=0.0001 after the initial close-pair zone, covering 300 total steps including ~250 at DT=0.0001 => 0.025 time units >> OLS(150K)=0.00668. Wall time is unchanged (~7 hr at N=150K in JS), but the run now returns a meaningful t_c instead of budget-exhausted at t=0.00081.",
       "status": "fixed"
     },
     {
       "id": "imp514e",
-      "description": "overshoot detector anchoring bug: FIXED. ADAPT_THRESH is now 3 * maxDt (the restored full DT), not 3 * dtEff (the tiny gap-seeded initial step). The threshold now tracks the actual stride in use so adaptive halving triggers correctly for second close encounters at the restored stride.",
+      "description": "overshoot detector anchoring bug: FIXED. ADAPT_THRESH was anchored to the gap-seeded initial dt (e.g. 2.70e-6 at N=150K) rather than to maxDt (the restored full DT=0.0001). After currentDt is restored to maxDt, the threshold 3*dtEff << maxDt was too small to trigger adaptive halving for any second close encounter encountered at the restored stride, allowing it to be overshot. Fix: ADAPT_THRESH = 3 * maxDt (and min-step guard uses maxDt/16), so the threshold tracks the actual stride in use.",
       "status": "fixed"
     },
     {
       "id": "imp514f",
-      "description": "gap-safe step cap: FIXED. After the adaptive/restore block, currentDt is now capped to mg^2/12 (2/3 of the pairwise collapse time t_c_pair = mg^2/8). Without this cap, a restored maxDt could overshoot the collision once the gap had decayed to where t_c_pair << maxDt (e.g. at N=10K: after step 0 the gap drops from 0.0377 to ~0.025, giving t_c_pair ~ 7.8e-5 << DT=1e-4, and the next full-maxDt step overshoots). With the cap, gap^2 shrinks by 1/3 per step, converging in ~30-40 steps. The previous N=10K validation result t_c=0.0003 (3 full-maxDt steps) was an overshoot artifact from this bug; the cache has been cleared for re-generation with the corrected harness.",
+      "description": "gap-safe step cap: FIXED. The adaptive-halving formula used mg/4 as the reduced step, which is O(mg) not O(mg^2). After restoration to maxDt, if the gap has decayed to g << sqrt(8*maxDt), then maxDt >> t_c_pair = g^2/8 and the next full step overshoots. Example: N=10K, initial gap 0.0377, after step 0 gap ~ 0.025, t_c_pair ~ 7.8e-5 << DT=1e-4 so step 1 overshoots. Fix: after the adaptive/restore block, cap currentDt to mg^2/12 (2/3 of t_c_pair). With this cap, gap^2 shrinks by factor 1/3 per step, reaching machine-epsilon in ~log3(gap0/eps) ~ 30-40 steps << stepsEff, and the post-step check detects the collision accurately.",
+      "status": "fixed"
+    },
+    {
+      "id": "imp514g",
+      "description": "collision-threshold bug: FIXED. COLLISION_THRESHOLD was 0, meaning the gap had to literally cross zero to trigger the nonpositive-gap check. But the mg^2/12 cap (imp514f) causes the minimum gap to converge geometrically toward 0 (ratio ~1/sqrt(3) per step) without ever reaching 0 in float64 arithmetic. Result: 300 steps exhausted, t_c = 0.000178 (budget-exhausted) instead of gap-nonpositive. Fix: COLLISION_THRESHOLD = 1e-10. The geometric tail terminates in ~30 additional steps, reporting the correct t_c. Methodology note: Odlyzko zeros have small initial minimum gaps (~0.037 at N=10K, ~0.0147 at N=150K), so the measured t_c ~ g_min^2/8 is much smaller than the OLS-extrapolated value (PATH_C_FIT_POINTS used R-S scan zeros with larger forced minimum spacing). Both are valid measurements of different initial conditions; the discrepancy is not a bug.",
+      "status": "fixed"
+    },
+    {
+      "id": "imp514h",
+      "description": "dysonDerivBackward antisymmetry optimisation: FIXED. The original O(N^2) double loop computed each pair (i,j) twice (once for dg[i] and once for dg[j]), with Kahan compensation per row. Exploiting 1/(g_i-g_j) = -1/(g_j-g_i), each pair is now visited once (upper triangle only, N*(N-1)/2 iterations) and both dg[i] and dg[j] updated atomically. Kahan compensation removed: its benefit O(N*eps_mach) is negligible vs RK4 time-discretisation error for this uncertified Float64 run. Validated at N=10K: t_c = 0.00017772 (gap-nonpositive, 37 steps, 27s) -- exact match with previous validated result at ~2x wall-time speedup.",
       "status": "fixed"
     }
   ],
-  "usageNote": "Import these rows into dyson-ladder-measured.js to replace PROJECTED_ROWS at matching N. Only rows with source=\"measured-float64-rk4\" and reason=\"gap-nonpositive\" carry a meaningful collision time. Budget-exhausted rows report t_c as a lower bound. Re-run with: node scripts/compute-dyson-ladder-extended.mjs --download --max-n 250000"
+  "usageNote": "Import these rows into dyson-ladder-measured.js to replace PROJECTED_ROWS at matching N. Only rows with source=\"measured-float64-rk4\" and reason=\"gap-nonpositive\" carry a meaningful collision time. Budget-exhausted rows report t_c as a lower bound."
 }

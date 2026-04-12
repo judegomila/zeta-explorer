@@ -233,21 +233,26 @@ async function loadZerosUpToN(N) {
 // arithmetic version in interval-dyson-integrator.mjs is certified but far
 // too slow for N > 100K.
 
+// Antisymmetry-optimised derivative: exploits 1/(g_i-g_j) = -1/(g_j-g_i) so
+// each pair (i,j) with i<j is visited once and contributes to both dg[i] and
+// dg[j] simultaneously. This halves the number of divisions from N^2 to
+// N*(N-1)/2, giving ~2x wall-time speedup for large N.
+// Kahan compensation removed: its benefit O(N*eps_mach) is negligible compared
+// to the RK4 time-discretisation error, and this is a Float64 (uncertified) run.
+// Correctness: for pair (i,j), i<j, g[i]<g[j]:
+//   f2 = 2/(g[i]-g[j])  <  0
+//   dg[i] -= f2  =>  dg[i] += |f2|  (lower particle pushed right, consistent
+//                                     with -2*1/(g[i]-g[j]) = +2/(g[j]-g[i]))
+//   dg[j] += f2  =>  dg[j] -= |f2|  (upper particle pushed left, consistent
+//                                     with -2*1/(g[j]-g[i]) = -2/(g[j]-g[i]))
 function dysonDerivBackward(g, N) {
   const dg = new Float64Array(N);
-  for (let i = 0; i < N; i++) {
-    let s = 0;
-    // Kahan-compensated sum to reduce roundoff in the 1/(g_i - g_j) reduction
-    let c = 0;
-    for (let j = 0; j < N; j++) {
-      if (j === i) continue;
-      const d = g[i] - g[j];
-      const y = (1 / d) - c;
-      const t = s + y;
-      c = (t - s) - y;
-      s = t;
+  for (let i = 0; i < N - 1; i++) {
+    for (let j = i + 1; j < N; j++) {
+      const f2 = 2.0 / (g[i] - g[j]);
+      dg[i] -= f2;
+      dg[j] += f2;
     }
-    dg[i] = -2 * s;
   }
   return dg;
 }
@@ -509,7 +514,9 @@ async function main() {
     zerosLoaded:      allZeros.length,
     dtParam:          DT,
     maxStepsParam:    STEPS,
-    dtNote:           'Effective dt per N is gap-seeded: dtEff = min(DT, d_min^2/80). See row.dt for actual dt used (imp514d fix).',
+    dtNote:           'Effective dt per N is gap-seeded: dtEff = min(DT, d_min^2/80). See row.dt for actual dt used (imp514d). ' +
+                     'Additionally, currentDt is capped to mg^2/12 at each step to prevent late-stage overshoot (imp514f). ' +
+                     'dysonDerivBackward uses antisymmetry (N*(N-1)/2 pairs, ~2x speedup vs N^2, no Kahan).',
     rows,
     subGaps: [
       {

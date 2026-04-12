@@ -1,6 +1,45 @@
 {
-  "generatedAt": null,
-  "source": "stub — run: node scripts/compute-dyson-ladder-extended.mjs --download --max-n 250000",
-  "note": "Populate by running the imp-514 offline compute harness. When rows are present, dyson-ladder-measured.js will use them in place of OLS-projected entries at matching N.",
-  "rows": []
+  "generatedAt": "2026-04-12T20:59:18.517Z",
+  "source": "imp-514 offline compute harness (scripts/compute-dyson-ladder-extended.mjs)",
+  "zerosProvenance": "Odlyzko zeta tables (https://www-users.cse.umn.edu/~odlyzko/zeta_tables/)",
+  "zerosLoaded": 150000,
+  "dt": 0.0001,
+  "maxSteps": 5,
+  "rows": [
+    {
+      "N": 150000,
+      "source": "suspect-overshoot-artifact",
+      "t_c": 0.0001,
+      "reason": "gap-nonpositive",
+      "dt": 0.0001,
+      "nSteps": 5,
+      "stepsRun": 1,
+      "wallTimeMs": 350861,
+      "olsProjection": 0.00668173,
+      "note": "SUSPECT: t_c=0.00010000 is 67x smaller than OLS=0.00668173; likely step-size overshoot (sub-gap imp514d). Row not used as override. Float64 RK4 (NOT certified interval arithmetic). Step-size adaptive near collision. Estimated ~23s/step. At N=150K the initial minimum gap between adjacent zeros can be smaller than 2*sqrt(dt)=0.02; the Dyson collapse time T~gap^2/4 is then < dt, and the first RK4 step overshoots the collision."
+    }
+  ],
+  "subGaps": [
+    {
+      "id": "imp514a",
+      "description": "zeros data blocker: resolved — zeros6 combined file (2M zeros, ~35 MB) downloaded to scripts/.zeros-cache/zeros6 on 2026-04-12. ZEROS_EXTENDED in zeros-to-1e6.js still has 100K entries; updating it to 1M+ is deferred pending imp514b/d resolution.",
+      "status": "resolved"
+    },
+    {
+      "id": "imp514b",
+      "description": "compute feasibility: Float64 RK4 in Node.js handles N up to ~250K-400K (minutes to hours). N=600K-1M requires C/Rust backend (Arb, CAPD, or custom). This script cannot fully close imp-514 for N=1M without native code.",
+      "status": "open"
+    },
+    {
+      "id": "imp514c",
+      "description": "certification: Float64 RK4 gives t_c central value without error bars. Interval arithmetic (interval-dyson-integrator.mjs) is certified but returns budget-exhausted for N>100K. Closing imp-514 with certified bounds at N=1M requires a native Arb/CAPD backend.",
+      "status": "open"
+    },
+    {
+      "id": "imp514d",
+      "description": "step-size overshoot at large N: for N >= 150K the initial minimum gap between adjacent Riemann zeros can be smaller than 2*sqrt(dt). The Dyson nearest-pair collapse time T~gap^2/4 is then less than dt, so the first RK4 step overshoots the collision and reports a spurious t_c~dt. N=150K run produced t_c=0.0001 vs OLS=0.00668 (67x discrepancy). Row flagged source=suspect-overshoot-artifact and excluded from cache overrides. Resolution: seed dt from initial minimum gap or use native C/Rust backend.",
+      "status": "open"
+    }
+  ],
+  "usageNote": "Import these rows into dyson-ladder-measured.js to replace PROJECTED_ROWS at matching N. Only rows with source=\"measured-float64-rk4\" and reason=\"gap-nonpositive\" carry a meaningful collision time. Rows with source=\"suspect-overshoot-artifact\" are excluded from overrides. Budget-exhausted rows report t_c as a lower bound."
 }

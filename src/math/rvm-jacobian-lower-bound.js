@@ -29,7 +29,9 @@
  *   Explicit lower bound:
  *     rho_min  >=  rho(14)
  *              =   (1/(2*pi)) * log(14/(2*pi))
- *              ~   0.12794...  > 0.
+ *              ~   0.12751...  > 0.
+ *              (imp-473 mpmath 50-digit: exact = 0.12751179919688685; earlier
+ *               cite of ~0.1279 used log ~ 0.8036 instead of exact 0.8012)
  *
  * This is a FULLY ANALYTIC bound: it uses only the closed-form RvM density and
  * the classical inequality gamma_1 > 14, NOT the numerical ZETA_ZEROS array.
@@ -50,12 +52,14 @@ export const TWO_PI = 2 * Math.PI;     // ~ 6.2832
 /**
  * Analytic lower bound on rho_min.
  *   rho_min >= rho(GAMMA1_LOWER_BOUND) = (1/(2*pi)) * log(14/(2*pi))
- * Numerically ~ 0.12794, but the bound is analytic -- derived from
- * the closed-form formula, not from sampling the zero table.
+ * Numerically ~ 0.12751 (imp-473 mpmath cross-verify: 0.12751179919688685),
+ * but the bound is analytic -- derived from the closed-form formula, not from
+ * sampling the zero table.  Earlier approximation ~0.1279 used log ~ 0.8036;
+ * the exact value is log(14/(2*pi)) ~ 0.8012, giving 0.8012/(2*pi) ~ 0.12751.
  */
 export const RHO_MIN_ANALYTIC_LB =
   Math.log(GAMMA1_LOWER_BOUND / TWO_PI) / TWO_PI;
-// ~ 0.12794  (confirmed: 14/TWO_PI ~ 2.228, log ~ 0.8036, /TWO_PI ~ 0.1279)
+// ~ 0.12751  (imp-473 mpmath: 0.12751179919688685; log(14/(2*pi)) ~ 0.8012)
 
 // ── Proof record ─────────────────────────────────────────────────────────────
 
@@ -66,7 +70,7 @@ export const RVM_JACOBIAN_LOWER_BOUND = {
   theorem: {
     statement:
       'rho(gamma_n) >= rho_min > 0 for every Riemann zero imaginary part gamma_n >= gamma_1. ' +
-      'Explicit: rho_min >= (1/(2*pi))*log(14/(2*pi)) ~ 0.1279.',
+      'Explicit: rho_min >= (1/(2*pi))*log(14/(2*pi)) ~ 0.12751 (imp-473 corrected; was ~0.1279).',
     proofSteps: [
       'Step 1: rho(T) = (1/(2*pi))*log(T/(2*pi)) is strictly increasing on (2*pi, inf).',
       'Step 2: rho(T) > 0 iff T > 2*pi ~ 6.2832.',
@@ -74,7 +78,7 @@ export const RVM_JACOBIAN_LOWER_BOUND = {
                'all known computations confirm gamma_1 ~ 14.1347).',
       'Step 4: 14 > 2*pi, so rho(14) = (1/(2*pi))*log(14/(2*pi)) > 0.',
       'Step 5: rho increasing => rho(gamma_n) >= rho(gamma_1) >= rho(14) for all n >= 1.',
-      'Step 6: Therefore rho_min >= rho(14) ~ 0.1279 > 0. QED.',
+      'Step 6: Therefore rho_min >= rho(14) ~ 0.12751 > 0. QED. (imp-473 corrected from ~0.1279)',
     ],
     analytic: true,
     independentOfZetaZerosArray: true,
@@ -112,7 +116,9 @@ export const RVM_JACOBIAN_LOWER_BOUND = {
   status: 'closed',
   closedBy: 'imp-469 (this file)',
   closureNote:
-    'Analytic lower bound rho_min >= (1/(2*pi))*log(14/(2*pi)) ~ 0.1279 > 0 established. ' +
+    'Analytic lower bound rho_min >= (1/(2*pi))*log(14/(2*pi)) ~ 0.12751 > 0 established. ' +
+    '(imp-473 mpmath 50-digit cross-verify corrected earlier cite of ~0.1279: ' +
+    'exact log(14/(2*pi)) = 0.8012, not 0.8036, so rho(14) = 0.12751, not 0.1279.) ' +
     'Uses only the classical fact gamma_1 > 14 and the closed-form RvM density formula. ' +
     'Fully independent of ZETA_ZEROS numerical array. imp-462 bridge is now analytically sound.',
 };
@@ -132,14 +138,14 @@ export const RVM_JACOBIAN_LOWER_BOUND_ASSERTIONS = [
     holds: () => RHO_MIN_ANALYTIC_LB > 0,
     why:
       'Analytic rho_min lower bound must be positive. ' +
-      'Computed as (1/(2*pi))*log(14/(2*pi)) ~ 0.1279. ' +
+      'Computed as (1/(2*pi))*log(14/(2*pi)) ~ 0.12751 (imp-473 corrected; was cited as ~0.1279). ' +
       'Follows from GAMMA1_LOWER_BOUND = 14 > 2*pi.',
   },
   {
     id: 'imp469-rho-min-magnitude',
     holds: () => RHO_MIN_ANALYTIC_LB > 0.12,
     why:
-      'Sanity check: analytic rho_min should exceed 0.12 (numerical value ~ 0.1279). ' +
+      'Sanity check: analytic rho_min should exceed 0.12 (numerical value ~ 0.12751 per imp-473). ' +
       'Guards against accidental regression to a near-zero value.',
   },
 ];

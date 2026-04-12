@@ -5,17 +5,20 @@
 -- causing a duplicate-declaration elaboration error in any simultaneous Lake import.
 -- Fix: canonical declarations live here; BridgeTheorem + Capstone import this module.
 --
--- Exports (axioms):
---   deBruijnNewmann        : ℝ           (de Bruijn-Newman constant Lambda)
---   gammaOrdinate          : ℕ → ℝ       (N-th Riemann zero ordinate)
---   gammaOrdinate_pos      : 0 < gammaOrdinate N
---   gammaOrdinate_ge_exp2  : exp(2) ≤ gammaOrdinate N  (for N ≥ 1)
---   dysonCollTime          : ℕ → ℝ       (N-particle Dyson collision time t_c(N))
---   dysonCollTime_nonpos   : dysonCollTime N ≤ 0
---   BRIDGE_kappa_T         : ℝ           (Guth-Maynard/Ingham zero-density exponent)
---   BRIDGE_kappa_T_pos     : 0 < BRIDGE_kappa_T
---   BRIDGE_C_G             : ℝ           (Gronwall rate constant)
---   BRIDGE_C_G_pos         : 0 < BRIDGE_C_G
+-- Exports:
+--   Axioms (6):
+--     deBruijnNewmann        : ℝ           (de Bruijn-Newman constant Lambda)
+--     gammaOrdinate          : ℕ → ℝ       (N-th Riemann zero ordinate)
+--     gammaOrdinate_pos      : 0 < gammaOrdinate N
+--     gammaOrdinate_ge_exp2  : exp(2) ≤ gammaOrdinate N  (for N ≥ 1)
+--     dysonCollTime          : ℕ → ℝ       (N-particle Dyson collision time t_c(N))
+--     dysonCollTime_nonpos   : dysonCollTime N ≤ 0
+--   Noncomputable defs (2, proved from norm_num — not axioms; imp-489):
+--     BRIDGE_kappa_T         : ℝ := 91/500   (Guth-Maynard/Ingham zero-density exponent)
+--     BRIDGE_C_G             : ℝ := 1        (Gronwall rate constant)
+--   Proved lemmas (2, no sorry — proved by norm_num; imp-489):
+--     BRIDGE_kappa_T_pos     : 0 < BRIDGE_kappa_T
+--     BRIDGE_C_G_pos         : 0 < BRIDGE_C_G
 --
 -- Module graph (Lake project):
 --   Foundation  <-- BridgeTheorem  <-- CompositionCheck

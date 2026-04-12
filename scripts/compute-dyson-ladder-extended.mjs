@@ -352,6 +352,38 @@ function backwardCollisionRK4Float64(initial, dt, maxSteps, maxDt = dt) {
   return { t_c: t, reason: 'budget-exhausted', step: maxSteps };
 }
 
+// ── Resume-from-cache ─────────────────────────────────────────────────────────
+// Loads previously computed rows from the existing cache at OUT_PATH.
+// Only rows with source='measured-float64-rk4' and reason='gap-nonpositive'
+// (confirmed collisions) are reused. Budget-exhausted rows are NOT reused
+// because a longer --steps run may terminate them properly.
+function loadExistingCachedRows() {
+  if (!fs.existsSync(OUT_PATH)) return new Map();
+  try {
+    const text  = fs.readFileSync(OUT_PATH, 'utf8');
+    const cache = JSON.parse(text);
+    const map   = new Map();
+    for (const row of (cache.rows ?? [])) {
+      if (
+        row.source === 'measured-float64-rk4' &&
+        row.reason === 'gap-nonpositive' &&
+        typeof row.N === 'number' &&
+        row.t_c !== null
+      ) {
+        map.set(row.N, row);
+      }
+    }
+    if (map.size > 0) {
+      process.stderr.write(
+        `resume: found ${map.size} cached gap-nonpositive row(s): N in {${[...map.keys()].join(', ')}}\n`,
+      );
+    }
+    return map;
+  } catch {
+    return new Map();
+  }
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 async function main() {
   console.log('imp-514 offline Dyson ladder extension harness');
@@ -406,7 +438,22 @@ async function main() {
 
   const rows = [];
 
+  // Resume-from-cache: reuse gap-nonpositive rows from a prior run so that
+  // multi-session long-running jobs accumulate progress instead of restarting.
+  const cachedRows = loadExistingCachedRows();
+
   for (const N of TARGET_NS) {
+    if (cachedRows.has(N)) {
+      const cached = cachedRows.get(N);
+      console.log(
+        `\nN=${N.toLocaleString()}: reusing cached result` +
+        ` (t_c=${cached.t_c}, reason=${cached.reason},` +
+        ` wallTimeMs=${cached.wallTimeMs}) — skipping`,
+      );
+      rows.push(cached);
+      continue;
+    }
+
     if (allZeros.length < N) {
       console.log(`\nN=${N.toLocaleString()}: insufficient zeros (have ${allZeros.length}) — skipping`);
       rows.push({

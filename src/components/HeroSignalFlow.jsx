@@ -10,8 +10,12 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
  * away from ½, energy is partially reflected back.
  */
 
-const PRIMES = [2, 3, 5, 7, 11, 13];
-const PRIME_COLORS = ['#3b82f6', '#6366f1', '#8b5cf6', '#a855f7', '#c084fc', '#d8b4fe'];
+const PRIMES = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47];
+const PRIME_COLORS = [
+  '#3b82f6', '#6366f1', '#8b5cf6', '#a855f7', '#c084fc',
+  '#d8b4fe', '#ec4899', '#f472b6', '#fb7185', '#f59e0b',
+  '#fbbf24', '#10b981', '#34d399', '#06b6d4', '#22d3ee',
+];
 
 // Reusable gain buffer — avoids allocating a new array every drawLadderSignals call
 const _gainBuf = new Array(PRIMES.length);
@@ -30,17 +34,22 @@ export default function HeroSignalFlow() {
   const canvasRef = useRef();
   const animRef = useRef();
   const [sigma, setSigma] = useState(0.5);
-  const [numPrimes, setNumPrimes] = useState(4);
-  const [speed, setSpeed] = useState(1);
+  // Thermodynamic-analog controls:
+  //   T (temperature) — drives animation speed AND particle agitation amplitude
+  //                     (higher T → hotter, faster, more wobble)
+  //   P (pressure)    — drives bridge coupling intensity and bus density
+  //                     (higher P → tighter coupling visible in the bridge glow)
+  const [temperature, setTemperature] = useState(1.0);
+  const [pressure, setPressure] = useState(1.0);
   const sigmaDeviation = Math.abs(sigma - 0.5);
   const sigmaColor = sigmaDeviation < 0.02 ? '#10b981' : sigmaDeviation < 0.15 ? '#f59e0b' : '#ef4444';
 
   // Store frequently-changing values in refs so the draw callback stays stable
   // and the rAF loop isn't cancelled/restarted on every slider tick.
-  const stateRef = useRef({ sigma: 0.5, numPrimes: 4, speed: 1 });
+  const stateRef = useRef({ sigma: 0.5, temperature: 1.0, pressure: 1.0 });
   stateRef.current.sigma = sigma;
-  stateRef.current.numPrimes = numPrimes;
-  stateRef.current.speed = speed;
+  stateRef.current.temperature = temperature;
+  stateRef.current.pressure = pressure;
 
   // Accumulated animation time — caps per-frame delta to prevent jumps on tab switch
   const timeRef = useRef({ lastRAF: 0, accumulated: 0 });
@@ -49,14 +58,15 @@ export default function HeroSignalFlow() {
   const draw = useCallback((time) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const { sigma: sig, numPrimes: np, speed: spd } = stateRef.current;
+    const { sigma: sig, temperature: temp, pressure: pres } = stateRef.current;
 
     // Compute capped delta to avoid teleporting after tab switch
     const tr = timeRef.current;
     const rawDelta = tr.lastRAF === 0 ? 16 : time - tr.lastRAF;
     const cappedDelta = Math.min(rawDelta, 100); // max ~100ms = 6 frames
     tr.lastRAF = time;
-    tr.accumulated += cappedDelta * 0.001 * spd;
+    // Higher temperature → faster evolution (thermal-kinetic analogue)
+    tr.accumulated += cappedDelta * 0.001 * temp;
     const t = tr.accumulated;
 
     const dpr = window.devicePixelRatio || 1;
@@ -81,17 +91,21 @@ export default function HeroSignalFlow() {
     ctx.fillRect(0, 0, w, h);
 
     // Layout: two horizontal ladders with bridge coupling between them at each prime
-    const margin = 20;
-    const dirY = 52;           // direct ladder y-center
-    const dualY = h - 52;      // dual ladder y-center
+    const margin = 16;
+    const dirY = 58;           // direct ladder y-center
+    const dualY = h - 58;      // dual ladder y-center
     const midY = h / 2;        // bridge coupling zone
-    const ladderStartX = margin + 50;
-    const ladderEndX = w - margin - 30;
+    const ladderStartX = margin + 44;
+    const ladderEndX = w - margin - 16;
     const sigma = sig;
-    const numPrimes = np;
+    // Prime count is now fixed at the full set — the prime-count slider was
+    // removed in favour of thermodynamic controls (T, P).
+    const numPrimes = PRIMES.length;
     const sigmaDeviation = Math.abs(sigma - 0.5);
-    const stageW = Math.min(70, (ladderEndX - ladderStartX) / numPrimes - 12);
-    const totalLadderW = numPrimes * stageW + (numPrimes - 1) * 12;
+    // Dynamic gap — tight packing when many primes so labels don't crush.
+    const gap = numPrimes > 10 ? 5 : numPrimes > 6 ? 8 : 12;
+    const stageW = Math.min(70, (ladderEndX - ladderStartX) / numPrimes - gap);
+    const totalLadderW = numPrimes * stageW + (numPrimes - 1) * gap;
     const offsetX = ladderStartX + ((ladderEndX - ladderStartX) - totalLadderW) / 2;
 
     // Unitarity at current sigma
@@ -186,7 +200,7 @@ export default function HeroSignalFlow() {
     ctx.lineDashOffset = dashOffset;
     ctx.beginPath();
     for (let i = 0; i < numPrimes; i++) {
-      const cx = offsetX + i * (stageW + 12) + stageW / 2;
+      const cx = offsetX + i * (stageW + gap) + stageW / 2;
       ctx.moveTo(cx, dirY + 20);
       ctx.lineTo(cx, midY - bridgeR - 2);
       ctx.moveTo(cx, midY + bridgeR + 2);
@@ -199,7 +213,7 @@ export default function HeroSignalFlow() {
     // ─── Draw each prime stage + bridge coupling ───
     for (let i = 0; i < numPrimes; i++) {
       const p = PRIMES[i];
-      const x = offsetX + i * (stageW + 12);
+      const x = offsetX + i * (stageW + gap);
       const cx = x + stageW / 2;
       const col = PRIME_COLORS[i];
       const logP = PRIME_LOG[i];
@@ -210,11 +224,17 @@ export default function HeroSignalFlow() {
       // === Dual stage (bottom) ===
       drawLCStage(ctx, x, dualY, stageW, p, col, 'dual', t, sigma, logP);
 
+      // === Dirichlet energy packets (k = 1..4) for this prime ===
+      // Physically-accurate: the k-th excitation carries weight p^{-k·σ}.
+      // Moving the σ dial directly alters each packet's size/brightness.
+      drawEnergyPackets(ctx, cx, dirY, dualY, stageW, t, p, logP, col, sigma, i, pres, temp);
+
       // === Bridge coupling node χ_p (center) ===
       // Bridge node circle — smooth glow and breathing that scale with unitarity
       const breathe = Math.sin(t * 2.5 + i * 1.2);  // subtle oscillation per prime
       const breatheR = bridgeR + 1.5 * unitarity * breathe; // ±1.5px at full unitarity
-      const glowPulse = 0.03 + unitarity * (0.12 + 0.08 * breathe); // smooth 0.03→0.23
+      // Pressure scales the bridge glow intensity (higher P → tighter, brighter coupling)
+      const glowPulse = Math.min(0.55, (0.03 + unitarity * (0.12 + 0.08 * breathe)) * pres);
       ctx.fillStyle = `rgba(16, 185, 129, ${glowPulse})`;
       ctx.beginPath();
       ctx.arc(cx, midY, breatheR + 4, 0, Math.PI * 2);
@@ -228,14 +248,19 @@ export default function HeroSignalFlow() {
       ctx.fill();
       ctx.stroke();
 
-      // χ_p label
+      // χ_p label — scale font down and offset alternating rows when many primes
+      // so the subscripted labels don't run into each other.
+      const bridgeFontPx = numPrimes > 10 ? 8 : numPrimes > 6 ? 9 : 10;
       ctx.fillStyle = bridgeStroke; // same color as bridge outline
-      ctx.font = '10px "JetBrains Mono", monospace';
+      ctx.font = `${bridgeFontPx}px "JetBrains Mono", monospace`;
       ctx.textAlign = 'center';
-      ctx.fillText(BRIDGE_LABELS[i], cx, midY + 4);
+      const bridgeLabelY = numPrimes > 10 && (i % 2 === 1)
+        ? midY + 15  // offset odd-indexed labels below to avoid horizontal collision
+        : midY + 4;
+      ctx.fillText(BRIDGE_LABELS[i], cx, bridgeLabelY);
 
       // === Energy particles flowing through bridge ===
-      drawBridgeEnergy(ctx, cx, dirY + 20, dualY - 20, midY, t, i, p, sigma, unitarity, logP);
+      drawBridgeEnergy(ctx, cx, dirY + 20, dualY - 20, midY, t, i, p, sigma, unitarity, logP, pres);
     }
 
     // ─── Horizontal coupling bus (connecting all χ_p) ───
@@ -243,9 +268,10 @@ export default function HeroSignalFlow() {
     // at equilibrium the coupling is fully active; off-critical it weakens.
     if (numPrimes > 1) {
       const busX1 = offsetX + stageW / 2;
-      const busX2 = offsetX + (numPrimes - 1) * (stageW + 12) + stageW / 2;
-      ctx.strokeStyle = `rgba(16, 185, 129, ${0.12 + 0.15 * unitarity})`;
-      ctx.lineWidth = 0.8 + 0.6 * unitarity;
+      const busX2 = offsetX + (numPrimes - 1) * (stageW + gap) + stageW / 2;
+      // Pressure scales the horizontal coupling bus brightness/thickness.
+      ctx.strokeStyle = `rgba(16, 185, 129, ${Math.min(0.85, (0.12 + 0.15 * unitarity) * pres)})`;
+      ctx.lineWidth = (0.8 + 0.6 * unitarity) * Math.sqrt(pres);
       ctx.setLineDash([4, 3]);
       ctx.lineDashOffset = -(t * 20 * unitarity) % 7;
       ctx.beginPath();
@@ -304,8 +330,8 @@ export default function HeroSignalFlow() {
     ctx.fillText(`|χ| = ${unitarity.toFixed(2)}   σ = ${sigma.toFixed(2)}`, w / 2, eqBoxY + 34);
 
     // ─── Signal particles along ladders (horizontal propagation) ───
-    drawLadderSignals(ctx, offsetX, totalLadderW, dirY, t, numPrimes, sigma, '#3b82f6', 'direct');
-    drawLadderSignals(ctx, offsetX, totalLadderW, dualY, t, numPrimes, sigma, '#f59e0b', 'dual');
+    drawLadderSignals(ctx, offsetX, totalLadderW, dirY, t, numPrimes, sigma, '#3b82f6', 'direct', temp);
+    drawLadderSignals(ctx, offsetX, totalLadderW, dualY, t, numPrimes, sigma, '#f59e0b', 'dual', temp);
 
     if (runningRef.current) {
       animRef.current = requestAnimationFrame(draw);
@@ -326,12 +352,12 @@ export default function HeroSignalFlow() {
       <canvas
         ref={canvasRef}
         role="img"
-        aria-label={`Twin ladder signal flow animation: ${numPrimes} prime oscillators coupled through bridge nodes. σ = ${sigma.toFixed(2)}, |χ| = ${(Math.max(0, 1 - 2 * Math.abs(sigma - 0.5))).toFixed(2)}. Double-click to reset to equilibrium.`}
+        aria-label={`Twin ladder signal flow animation: ${PRIMES.length} prime oscillators coupled through bridge nodes. σ = ${sigma.toFixed(2)}, |χ| = ${(Math.max(0, 1 - 2 * Math.abs(sigma - 0.5))).toFixed(2)}, T = ${temperature.toFixed(2)}, P = ${pressure.toFixed(2)}. Double-click to reset σ to equilibrium.`}
         onDoubleClick={() => setSigma(0.5)}
         title="Double-click to reset σ to ½"
         style={{
           width: '100%',
-          height: 280,
+          height: 340,
           borderRadius: 12,
           border: '1px solid #1e293b',
           cursor: 'pointer',
@@ -353,17 +379,17 @@ export default function HeroSignalFlow() {
           </datalist>
           <span className="control-value" style={{ minWidth: 32, color: sigmaColor, fontWeight: 700 }}>{sigma.toFixed(2)}</span>
         </div>
-        <div className="control-group" style={{ flex: '1 1 100px' }}>
-          <label>Primes</label>
-          <input type="range" min="2" max="6" step="1" value={numPrimes}
-            onChange={e => setNumPrimes(+e.target.value)} />
-          <span className="control-value" style={{ minWidth: 16 }}>{numPrimes}</span>
+        <div className="control-group" style={{ flex: '1 1 120px' }}>
+          <label title="Thermodynamic analogue: drives animation kinetics + particle agitation">T (temperature)</label>
+          <input type="range" min="0.2" max="2.5" step="0.05" value={temperature}
+            onChange={e => setTemperature(+e.target.value)} />
+          <span className="control-value" style={{ minWidth: 32 }}>{temperature.toFixed(2)}</span>
         </div>
-        <div className="control-group" style={{ flex: '1 1 100px' }}>
-          <label>Speed</label>
-          <input type="range" min="0.2" max="3" step="0.1" value={speed}
-            onChange={e => setSpeed(+e.target.value)} />
-          <span className="control-value" style={{ minWidth: 24 }}>{speed.toFixed(1)}×</span>
+        <div className="control-group" style={{ flex: '1 1 120px' }}>
+          <label title="Thermodynamic analogue: drives bridge coupling density and packet flux">P (pressure)</label>
+          <input type="range" min="0.2" max="3" step="0.05" value={pressure}
+            onChange={e => setPressure(+e.target.value)} />
+          <span className="control-value" style={{ minWidth: 32 }}>{pressure.toFixed(2)}</span>
         </div>
       </div>
     </div>
@@ -442,9 +468,10 @@ function drawLCStage(ctx, x, y, w, prime, color, type, t, sigma, logP) {
   ctx.lineTo(capX + 4, y + 3);
   ctx.stroke();
 
-  // Prime label
+  // Prime label — font shrinks when stages are narrow so adjacent labels don't touch
+  const narrow = w < 45;
   ctx.fillStyle = color;
-  ctx.font = 'bold 11px "JetBrains Mono", monospace';
+  ctx.font = `bold ${narrow ? 9 : 11}px "JetBrains Mono", monospace`;
   ctx.textAlign = 'center';
   const labelY = type === 'direct' ? y + h / 2 + 13 : y - h / 2 - 5;
   ctx.fillText(prime.toString(), x + w / 2, labelY);
@@ -461,7 +488,7 @@ function drawLCStage(ctx, x, y, w, prime, color, type, t, sigma, logP) {
 
 // ─── Bridge energy particles (vertical flow between ladders) ─────────────────
 
-function drawBridgeEnergy(ctx, cx, topY, botY, midY, t, stageIdx, prime, sigma, unitarity, logP) {
+function drawBridgeEnergy(ctx, cx, topY, botY, midY, t, stageIdx, prime, sigma, unitarity, logP, pressure = 1) {
   // At σ=½, energy flows freely BOTH ways (lossless bidirectional coupling).
   // Away from ½, partial reflection at the bridge node.
   const transmission = unitarity;
@@ -478,13 +505,14 @@ function drawBridgeEnergy(ctx, cx, topY, botY, midY, t, stageIdx, prime, sigma, 
   const wavePoints = 28;
   const span = botY - topY;
   if (transmission > 0.3) {
-    ctx.strokeStyle = `rgba(16, 185, 129, ${0.08 + 0.12 * transmission})`;
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = `rgba(16, 185, 129, ${Math.min(0.75, (0.08 + 0.12 * transmission) * pressure)})`;
+    ctx.lineWidth = 1 * Math.sqrt(pressure);
     ctx.beginPath();
     const omega = 2 * Math.PI / logP; // natural frequency — unique per prime
     const spatialK = 1 + logP * 0.6;  // wavenumber — more nodes for larger primes
     const temporal = Math.cos(t * omega + primePhase); // loop-invariant
-    const waveScale = temporal * 5 * transmission;
+    // Higher pressure → stronger standing-wave antinode displacement
+    const waveScale = temporal * 5 * transmission * pressure;
     const bridgeGap = 16; // half-width of gap around bridge node
     for (let j = 0; j <= wavePoints; j++) {
       const frac = j / wavePoints;
@@ -616,7 +644,7 @@ function drawEnergyDot(ctx, cx, py, midY, transmission, phase, direction, halfSp
 
 // ─── Ladder signal particles (horizontal) ────────────────────────────────────
 
-function drawLadderSignals(ctx, startX, totalW, y, t, numPrimes, sigma, color, type) {
+function drawLadderSignals(ctx, startX, totalW, y, t, numPrimes, sigma, color, type, temperature = 1) {
   // Particles propagate along the ladder, attenuated by each prime
   const numParticles = 6;
   const sig = type === 'direct' ? sigma : 1 - sigma;
@@ -640,7 +668,8 @@ function drawLadderSignals(ctx, startX, totalW, y, t, numPrimes, sigma, color, t
     const frac = j / tracePoints;
     const px = startX + frac * totalW;
     const sIdx = Math.min(Math.floor(frac * numPrimes), numPrimes - 1);
-    const amp = 4 * cumulativeGain[sIdx];
+    // Temperature scales the wave amplitude (hotter → more vertical agitation)
+    const amp = 4 * cumulativeGain[sIdx] * temperature;
     const py = y + amp * Math.sin(t * PRIME_FREQ[sIdx] + frac * 12);
     j === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
   }
@@ -655,8 +684,9 @@ function drawLadderSignals(ctx, startX, totalW, y, t, numPrimes, sigma, color, t
     const attenuation = cumulativeGain[stageIdx];
 
     // AC waveform: vertical displacement at the local prime's resonant frequency
-    // ω_p = 2π/log(p); amplitude decays with attenuation (signal weakens through ladder)
-    const waveAmp = 4 * attenuation;
+    // ω_p = 2π/log(p); amplitude decays with attenuation (signal weakens through ladder).
+    // Temperature multiplies the wobble amplitude (thermal agitation).
+    const waveAmp = 4 * attenuation * temperature;
     const waveFreq = PRIME_FREQ[stageIdx];
     const yOsc = y + waveAmp * Math.sin(t * waveFreq + phase * 12);
 
@@ -680,5 +710,142 @@ function drawLadderSignals(ctx, startX, totalW, y, t, numPrimes, sigma, color, t
     ctx.arc(x, yOsc, radius, 0, Math.PI * 2);
     ctx.fill();
     ctx.globalAlpha = 1;
+  }
+}
+
+
+// ─── Dirichlet energy packets (per-prime k-excitations) ─────────────────────
+//
+// Each prime oscillator p has Dirichlet-series energy levels indexed by
+// k = 0, 1, 2, ... with term weight p^{-kσ}. Moving the σ dial is the
+// physical act of reweighting these packets:
+//
+//    σ = ½  → clean geometric decay with ratio p^{-½}, every term contributes
+//    σ > ½  → higher-k packets shrink faster; energy concentrates in k=1
+//    σ < ½  → higher-k packets GROW, risk of divergence (ζ pole at σ→1⁻ for direct,
+//             at σ→0⁺ for dual side); we flag this visually with an instability tint
+//
+// The packets orbit the stage center at the prime's natural frequency
+// ω = 2π/log(p) so each prime has its own rhythm. Pressure slightly
+// boosts the glow; temperature modulates orbit amplitude (thermal agitation).
+//
+// Critical invariant — the drawn radius/alpha must be an exact monotone
+// function of p^{-kσ}, so adjusting the σ slider visibly alters each packet
+// in real time rather than just changing a meta-label.
+function drawEnergyPackets(ctx, cx, dirY, dualY, stageW, t, prime, logP, color, sigma, stageIdx, pressure, temperature) {
+  const K_MAX = 4; // k = 1..4 (k = 0 is the identity "1" term, not worth drawing)
+  const omega = 2 * Math.PI / logP;
+  const primePhase = stageIdx * 0.618; // golden-ratio phase offset so primes desync
+
+  // Instability tint — when σ is far from ½, the geometric sum ratio p^{-σ}
+  // drifts away from p^{-½} and packets either collapse (σ>½) or blow up (σ<½).
+  // We don't let radii actually diverge; we clamp and redshift the tint instead.
+  const sigmaDev = sigma - 0.5;
+  const instability = Math.min(1, Math.abs(sigmaDev) * 2.2); // 0 at ½, 1 at σ≈0.05 or 0.95
+  // For σ<½ the sum diverges toward the ζ pole — paint those packets red-shifted.
+  // For σ>½ the sum converges cleanly — packets just fade, keep the prime color.
+  const divergent = sigmaDev < 0;
+
+  // Orbit envelope: packets travel around the stage box along an elliptical
+  // trajectory — x wobble is bounded by stage width; y is stacked by k above
+  // the direct ladder so higher-k packets appear further from the wire.
+  const orbitRx = Math.max(6, stageW * 0.28);
+
+  // Draw direct-side packets (σ), then dual-side packets (1-σ)
+  for (let side = 0; side < 2; side++) {
+    const isDirect = side === 0;
+    const localSigma = isDirect ? sigma : 1 - sigma;
+    const yAnchor = isDirect ? dirY - 28 : dualY + 28; // above direct, below dual
+    const yStep = isDirect ? -6 : 6;                    // stack direction
+
+    // Running cumulative sum used only for an optional on-stage amplitude bar
+    let cumulative = 0;
+
+    for (let k = 1; k <= K_MAX; k++) {
+      // PHYSICAL AMPLITUDE of the k-th packet — this is THE quantity that
+      // responds to the σ dial.
+      const weight = Math.pow(prime, -k * localSigma);
+      cumulative += weight;
+
+      // Radius: visible band [1.2 .. 6.5 px], monotone in weight.
+      // We squash through sqrt so the decay is visible without tiny packets
+      // disappearing below a pixel.
+      const radius = Math.max(0.8, Math.min(6.5, 1.2 + 5.3 * Math.sqrt(weight)));
+      // Alpha: linear in weight, with a small floor so k=4 packets are still
+      // faintly visible at σ=0.9 (where p^{-4·0.9} ≈ 0.0087 for p=2).
+      const alpha = Math.max(0.08, Math.min(0.95, 0.10 + 0.85 * weight));
+
+      // Orbit position — each k has a different phase so they don't overlap.
+      // Temperature scales the orbit amplitude (thermal kinetic expansion).
+      const theta = t * omega * (1 + 0.15 * k) + primePhase + k * 0.9;
+      const orbitAmpX = orbitRx * (0.55 + 0.25 * temperature);
+      const px = cx + Math.cos(theta) * orbitAmpX;
+      const py = yAnchor + (k - 1) * yStep
+                 + Math.sin(theta * 1.3) * 2.2 * temperature;
+
+      // Color: prime color at equilibrium, red-shift toward instability if σ<½
+      // so a user dragging σ downward SEES the divergent regime as a warning.
+      let r, g, b;
+      if (divergent && instability > 0.05) {
+        // Blend prime color → red (239,68,68) by instability magnitude
+        const hex = color.replace('#', '');
+        const pr = parseInt(hex.slice(0, 2), 16);
+        const pg = parseInt(hex.slice(2, 4), 16);
+        const pb = parseInt(hex.slice(4, 6), 16);
+        const mix = instability;
+        r = Math.round(pr * (1 - mix) + 239 * mix);
+        g = Math.round(pg * (1 - mix) + 68 * mix);
+        b = Math.round(pb * (1 - mix) + 68 * mix);
+      } else {
+        const hex = color.replace('#', '');
+        r = parseInt(hex.slice(0, 2), 16);
+        g = parseInt(hex.slice(2, 4), 16);
+        b = parseInt(hex.slice(4, 6), 16);
+      }
+
+      // Outer glow — scaled by pressure so P dial affects packet luminosity.
+      const glowAlpha = Math.min(0.55, alpha * 0.35 * pressure);
+      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${glowAlpha})`;
+      ctx.beginPath();
+      ctx.arc(px, py, radius * 2.0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Core packet dot
+      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+      ctx.beginPath();
+      ctx.arc(px, py, radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      // k-index tick — a tiny subscript only when packet is large enough to
+      // read. Keeps the layer uncluttered at the σ=0.9 regime where all
+      // k≥2 packets are invisible anyway.
+      if (radius > 3 && stageW > 36) {
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${Math.min(1, alpha + 0.15)})`;
+        ctx.font = '7px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('k' + k, px, py + (isDirect ? -radius - 2 : radius + 7));
+      }
+    }
+
+    // On-stage ζ-partial-sum meter: a thin horizontal bar whose length is
+    // Σ_{k=1}^{K_MAX} p^{-kσ} — the geometric partial sum that σ rescales.
+    // Rendered as an amber tick so the user can literally see the sum shrink
+    // or grow as they drag σ.
+    if (stageW > 30) {
+      const maxSum = 1 / Math.max(0.05, 1 - 1 / Math.sqrt(prime)); // σ=½ full sum
+      const sumFrac = Math.min(1.2, cumulative / maxSum);
+      const meterY = isDirect ? dirY - 42 : dualY + 42;
+      const meterW = Math.max(12, stageW * 0.6);
+      const meterX = cx - meterW / 2;
+      // Track
+      ctx.fillStyle = 'rgba(148, 163, 184, 0.18)';
+      ctx.fillRect(meterX, meterY, meterW, 2);
+      // Fill — amber when converging, red when > 1 (divergent regime indicator)
+      const overflow = sumFrac > 1;
+      ctx.fillStyle = overflow
+        ? `rgba(239, 68, 68, ${0.5 + 0.4 * Math.min(1, (sumFrac - 1) * 2)})`
+        : `rgba(251, 191, 36, ${0.35 + 0.35 * sumFrac})`;
+      ctx.fillRect(meterX, meterY, Math.min(meterW, meterW * sumFrac), 2);
+    }
   }
 }

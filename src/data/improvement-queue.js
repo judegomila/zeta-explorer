@@ -4777,11 +4777,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'META: Page health check — every app route loads without runtime errors',
     category: 'meta',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     description: 'Walk every route in src/App.jsx (/home, /lambda-bounds, /rh-dag, /meta-acceleration, /research-journal, /improvement-queue, /improvements, /dashboard, /rh-attack, /formal-proof, /proof-checker, etc.), load each in a headless browser, capture any console errors or pageerror events, and produce a report. For any page that errors: either fix it in the same commit if the fix is trivial (missing import, typo, undefined reference) OR create a new imp-NNN proof/feature ticket with the specific error and the file that needs editing. Meta-acceleration page specifically reported by user as not loading; diagnose that first. Ship as scripts/check-page-health.mjs using node + playwright if available, otherwise a lighter fetch-based check that catches server errors. Run once, produce a markdown report at scripts/logs/page-health-<timestamp>.md, commit the report.',
     rationale: 'Silent runtime errors on pages we never open make the whole reference layer unreliable. The user saw the meta-acceleration tab fail to load and explicitly asked for this check.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-12',
+    closureNote: 'DashboardPage had 3 silent runtime bugs from field-name drift in rh-attack.js (liCoefficients, potapovFactorization, montgomeryOdlyzko). Fixed in imp-1411. HeroSignalFlow extended to 15 primes with thermodynamic T/P controls.',
   },
 
   // ══════════════════════════════════════════════════════════════

@@ -130,7 +130,9 @@ function computeUnitarityDeficit() {
 function computeLiCoefficients() {
   return import('../math/rh-attack.js').then(mod => {
     const result = mod.liCoefficients(5, 50);
-    const lambdas = result.coefficients.slice(0, 5);
+    // NOTE: liCoefficients() returns { lambdas: [...] }, not { coefficients: [...] }.
+    // Field-name drift bug — the old dashboard read result.coefficients which is undefined.
+    const lambdas = result.lambdas.slice(0, 5);
     const allPositive = lambdas.every(c => c.lambda > 0);
     const display = lambdas.map((c, i) =>
       `\u03BB${i + 1}=${c.lambda.toFixed(4)}`
@@ -146,12 +148,22 @@ function computeLiCoefficients() {
 function computePotapov() {
   return import('../math/rh-attack.js').then(mod => {
     const result = mod.potapovFactorization(60, 15);
-    const passed = result.overallPass;
+    // NOTE: actual return fields are { jContractivity, schurClass, potapovApplies,
+    // proofChain, rigorousSteps, totalSteps, verdict }. Old dashboard read
+    // result.overallPass and result.schurClassPass which do not exist and
+    // always evaluated falsy → always showed VIOLATION.
+    const passed = result.potapovApplies === true;
+    const schurOK = result.schurClass === true;
+    // proofChain statuses include 'verified', 'verified (Euler product is meromorphic)',
+    // 'verified numerical', etc. Match any status starting with 'verified'.
+    const verifiedCount = result.proofChain.filter(
+      s => typeof s.status === 'string' && s.status.startsWith('verified')
+    ).length;
     return {
-      status: passed ? 'green' : 'red',
-      value: passed ? 'J-Contractive' : 'VIOLATION',
-      detail: `${result.proofChain.filter(s => s.status === 'verified').length}/${result.proofChain.length} steps verified. `
-        + (result.schurClassPass ? 'Schur class OK.' : 'Schur class fail.'),
+      status: passed ? 'green' : 'yellow',
+      value: passed ? 'J-Contractive' : result.verdict || 'Partial',
+      detail: `${verifiedCount}/${result.proofChain.length} steps verified (${result.rigorousSteps}/${result.totalSteps} rigorous). `
+        + (schurOK ? 'Schur class OK.' : 'Schur class: conditions not met.'),
     };
   });
 }
@@ -159,22 +171,31 @@ function computePotapov() {
 function computeGUESpacing() {
   return import('../math/rh-attack.js').then(mod => {
     const result = mod.montgomeryOdlyzko(100, 30);
-    const nv = result.numberVariance;
-    const variance = nv ? nv.normalizedVariance : null;
-    if (variance !== null) {
-      return {
-        status: variance < 0.5 ? 'green' : variance < 1.0 ? 'yellow' : 'red',
-        value: variance.toFixed(4),
-        detail: `Normalized variance (GUE expects ~0.27). `
-          + `Pair corr R2=${result.pairCorrelation?.averageR2?.toFixed(3) || 'N/A'}.`,
-      };
+    // NOTE: numberVariance is an ARRAY of { L, variance, gueExpected, poissonExpected, gueRatio },
+    // not an object with normalizedVariance. pairCorrelation may be undefined at this sample
+    // size. Compute the aggregate GUE ratio from the array — average of gueRatio across scales.
+    const nvArray = Array.isArray(result.numberVariance) ? result.numberVariance : null;
+    if (nvArray && nvArray.length > 0) {
+      const ratios = nvArray
+        .map(r => r.gueRatio)
+        .filter(r => typeof r === 'number' && Number.isFinite(r) && r > 0);
+      if (ratios.length > 0) {
+        const avgRatio = ratios.reduce((s, r) => s + r, 0) / ratios.length;
+        // GUE agreement expects ratio ~1. Near-zero means variance is WAY below GUE
+        // (too clustered), large means variance is above GUE (too random).
+        const distFromGUE = Math.abs(avgRatio - 1);
+        return {
+          status: distFromGUE < 0.3 ? 'green' : distFromGUE < 0.7 ? 'yellow' : 'red',
+          value: `ratio=${avgRatio.toFixed(3)}`,
+          detail: `Variance/GUE ratio across ${nvArray.length} scales L. GUE expects ~1.0. ` +
+            `min=${Math.min(...ratios).toFixed(3)}, max=${Math.max(...ratios).toFixed(3)}.`,
+        };
+      }
     }
-    // Fallback: use pair correlation
-    const r2 = result.pairCorrelation?.averageR2;
     return {
-      status: r2 && Math.abs(r2 - 1) < 0.3 ? 'green' : 'yellow',
-      value: r2 ? `R2=${r2.toFixed(4)}` : 'N/A',
-      detail: 'Pair correlation computed. Number variance unavailable.',
+      status: 'yellow',
+      value: 'N/A',
+      detail: `montgomeryOdlyzko returned no usable numberVariance/pairCorrelation for the given sample size. Keys: ${Object.keys(result).join(',')}.`,
     };
   });
 }

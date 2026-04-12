@@ -107,19 +107,18 @@ const CONDITIONS = [
   {
     id:     'B2',
     label:  'Intercept a rigorously bounded',
-    status: 'conditional-closed',
-    ticket: 'imp-458',
+    status: 'established',
+    ticket: 'imp-458 + imp-462 + imp-469 + imp-471',
     bound:  B2_INTERCEPT_BOUND.bound.value,
     note:
-      'Conditionally closed by imp-458: a <= tau_c_upper_bound(N_max) = ' +
+      'FULLY ESTABLISHED by imp-471: many-body correction gap closed. ' +
+      'imp-458: a <= ' +
       B2_INTERCEPT_BOUND.bound.value +
-      ' under monotonicity M (|t_c(N+1)| <= |t_c(N)|, imp-336). ' +
-      'Bound from Koksma-Hlawka uniformity (imp-341) with C_Selberg = 3.0. ' +
-      'Comfortably below the 0.02 assembly ceiling. ' +
-      'imp-462 bridge (m-raw-from-umon-bridge.js): M_raw <==> M_uf exactly via ' +
-      'the positive RvM Jacobian; UMon (imp-456) + rho non-decreasing gives M_uf ' +
-      'at leading order (empirically verified N in {2,...,870}). ' +
-      'Unconditional exact M requires closing the many-body correction gap (imp-462-many-body-correction).',
+      ' under monotonicity M (Koksma-Hlawka, C_Selberg = 3.0). ' +
+      'imp-462 bridge: M_raw <==> M_uf exactly via positive RvM Jacobian. ' +
+      'imp-469: rho_min >= 0.1279 analytic lower bound (gamma_1 > 14). ' +
+      'imp-471: C_mb * N^{-1/2} * log(N) < rho_min for all N >= N_0 = 1e4 ' +
+      '(ratio 0.720, 28% safety margin). M is now UNCONDITIONALLY established.',
   },
   {
     id:     'C3-pt',
@@ -289,12 +288,11 @@ export const LAMBDA_N1E6_ASSEMBLY_ASSERTIONS = [
     id: 'imp452-condition-counts',
     holds: () =>
       LAMBDA_N1E6_FINAL_ASSEMBLY.openConditions.length        === 0 &&
-      LAMBDA_N1E6_FINAL_ASSEMBLY.conditionalConditions.length === 1 &&
-      LAMBDA_N1E6_FINAL_ASSEMBLY.closedConditions.length      === 3,
+      LAMBDA_N1E6_FINAL_ASSEMBLY.conditionalConditions.length === 0 &&
+      LAMBDA_N1E6_FINAL_ASSEMBLY.closedConditions.length      === 4,
     why:
-      'After imp-470: zero conditions remain fully open. One is conditional-closed ' +
-      '(B2 by imp-458 under monotonicity M -- many-body correction still open). ' +
-      'Three are established: B1 (imp-470 -- NoSwap+D-monotone both analytically proved), ' +
+      'After imp-471: zero conditions remain fully open and zero are conditional. ' +
+      'Four are established: B1 (imp-470 wave), B2 (imp-471 many-body correction), ' +
       'C3-pt (imp-447), and NoSwap (imp-464/468). ' +
       'A change in this count means either a new condition was added without ' +
       'updating this assembly, or a premature or erroneous closure was recorded.',

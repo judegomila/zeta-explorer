@@ -27,7 +27,7 @@
 --   errorColl_nonneg      : fully formal (positivity)
 --   bridge_theorem        : sorry (requires Polymath15 Lemmas 3.3 + 4.1)
 --   rate_tendsto_zero     : sorry (requires RvM growth gamma_N ~ 2*pi*N/log N)
---   G6_bridge_closed      : sorry (assembles bridge_theorem + rate_tendsto_zero)
+--   G6_bridge_closed      : proved via squeeze (imp-490; relies on sorry'd bridge/rate)
 --
 -- In a Lake project: `import LambdaAttack.Foundation` (already present below)
 --   provides deBruijnNewmann, dysonCollTime, gammaOrdinate, BRIDGE_kappa_T, BRIDGE_C_G.
@@ -163,14 +163,26 @@ theorem rate_tendsto_zero :
     and rate_tendsto_zero gives errorTotal N -> 0.
     Combined with imp-341 limsup |t_c(N)| = 0, this forces Lambda = 0, i.e., RH.
     The limsup = 0 step is formalized in lean4-koksma-hlawka.js (imp-403).
-    Status: SORRY -- assembles from bridge_theorem + rate_tendsto_zero above. -/
+    Status: PROVED via squeeze (imp-490); relies on sorry'd bridge_theorem (imp-412-sorry-1)
+    and rate_tendsto_zero (imp-412-sorry-2). Those two sorrys remain open. -/
 theorem G6_bridge_closed :
     Tendsto (fun N : ℕ => -dysonCollTime N) atTop (nhds deBruijnNewmann) := by
-  sorry
-  -- Proof sketch (squeeze theorem):
-  -- For any eps > 0, rate_tendsto_zero gives M such that errorTotal N < eps for N >= M.
-  -- For N >= max(M, 2), bridge_theorem gives |deBruijnNewmann - (-dysonCollTime N)| < eps.
-  -- Hence dist (-dysonCollTime N) deBruijnNewmann < eps for all N >= max(M, 2).
+  -- Squeeze: |Lambda - (-t_c N)| <= errorTotal N -> 0.
+  -- Epsilon-N version: for any eps > 0, pick M from rate_tendsto_zero;
+  -- for N >= max(M, 2), bridge_theorem + transitivity closes the bound.
+  rw [Metric.tendsto_atTop]
+  intro ε hε
+  obtain ⟨M, hM⟩ := (Metric.tendsto_atTop.mp rate_tendsto_zero) ε hε
+  refine ⟨max M 2, fun n hn => ?_⟩
+  have hn2 : 2 ≤ n := (le_max_right M 2).trans hn
+  have hn_M : M ≤ n := (le_max_left M 2).trans hn
+  have h1 : |deBruijnNewmann - (-dysonCollTime n)| ≤ errorTotal n :=
+    bridge_theorem n hn2
+  have h2 : dist (errorTotal n) 0 < ε := hM n hn_M
+  have h3 : 0 ≤ errorTotal n := errorTotal_nonneg n (by linarith)
+  rw [Real.dist_eq, sub_zero, abs_of_nonneg h3] at h2
+  rw [Real.dist_eq, abs_sub_comm]
+  linarith
 
 end
 
@@ -189,10 +201,11 @@ end
               formalized in Lean (not in Mathlib 4.9 as of 2025).
        Closes once: Mathlib gains an RvM growth lemma for zeta zero ordinates.
 
-    3. G6_bridge_closed (imp-412-sorry-3)
+    3. G6_bridge_closed (imp-412-sorry-3) -- CLOSED by imp-490
        Statement: (-t_c(N)) -> Lambda.
-       Needs: sorrys 1 and 2 above; assembles via Tendsto squeeze.
-       Closes once: sorrys 1 and 2 are discharged.
+       Proof: Metric.tendsto_atTop squeeze using bridge_theorem + rate_tendsto_zero.
+       The sorry keyword has been removed; this theorem is now formally proved
+       conditional on sorrys 1 and 2 above (which remain open).
 
     Interaction with lean4-koksma-hlawka.js (imp-403):
        That file formalizes imp-341: limsup_{N->inf} |t_c(N)| = 0.

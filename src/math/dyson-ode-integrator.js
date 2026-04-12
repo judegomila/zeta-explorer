@@ -166,9 +166,11 @@ export function dysonOdeIntegratorTest() {
 // ────────────────────────────────────────────────────────────────────
 //
 // Two precision upgrades over the float64 RK4 above:
-//   1. Kahan-compensated summation in the 1/(γ_n-γ_k) reduction —
+//   1. Kahan-Neumaier compensated summation in the 1/(γ_n-γ_k) reduction —
 //      kills the O(N·ε_mach) roundoff that dominates near collision
-//      where individual terms blow up in opposite signs.
+//      where individual terms blow up in opposite signs. Unlike standard
+//      Kahan, Neumaier's algorithm captures round-off for BOTH cases
+//      (|sum| >= |term| and |term| > |sum|) and returns sum+c at the end.
 //   2. Step doubling for a posteriori local error: at each step we
 //      compare a single dt step to two dt/2 steps. For RK4 the
 //      leading-order error in y_full - y_half is ~16·ε_local, so
@@ -183,18 +185,19 @@ function dysonDerivativesKahan(gammas, direction) {
   const N = gammas.length;
   const dg = new Float64Array(N);
   for (let n = 0; n < N; n++) {
+    // imp-363: Kahan-Neumaier compensated summation
+    // Captures round-off for both |sum|>=|term| and |term|>|sum| orderings.
     let sum = 0, c = 0;
     for (let k = 0; k < N; k++) {
       if (k === n) continue;
       const diff = gammas[n] - gammas[k];
       if (Math.abs(diff) < 1e-15) continue;
       const term = 1 / diff;
-      const y = term - c;
-      const t = sum + y;
-      c = (t - sum) - y;
+      const t = sum + term;
+      c += Math.abs(sum) >= Math.abs(term) ? (sum - t) + term : (term - t) + sum;
       sum = t;
     }
-    dg[n] = direction * 2 * sum;
+    dg[n] = direction * 2 * (sum + c);
   }
   return dg;
 }
@@ -293,7 +296,7 @@ export function dysonOdeWithErrorBounds({
       : null,
     trajectory_samples: trajectory.slice(0, 25),
     keyFindings: [
-      `Kahan-compensated 1/(γ_n−γ_k) sum: kills O(N·ε_mach) roundoff.`,
+      `Kahan-Neumaier 1/(γ_n−γ_k) sum (imp-363): kills O(N·ε_mach) roundoff for all term orderings.`,
       `Step doubling: ε_local ≈ ‖y_dt − y_{dt/2,dt/2}‖ / 15 (RK4 Richardson).`,
       `Final accumulated error after ${nSteps} steps: ${accumulatedError.toExponential(3)}.`,
       collision

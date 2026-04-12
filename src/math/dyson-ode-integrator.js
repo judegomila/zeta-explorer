@@ -17,18 +17,23 @@
 import { ZETA_ZEROS } from './zeta.js';
 
 // Compute derivatives: dγ_n/dt = direction * 2 * Σ_{k≠n} 1/(γ_n - γ_k)
+// imp-363: Kahan-Neumaier compensated summation kills O(N·ε_mach) roundoff
+// from opposite-sign 1/(γ_n-γ_k) terms that nearly cancel near collision.
 function dysonDerivatives(gammas, direction) {
   const N = gammas.length;
   const dg = new Float64Array(N);
   for (let n = 0; n < N; n++) {
-    let sum = 0;
+    let sum = 0, c = 0;
     for (let k = 0; k < N; k++) {
       if (k === n) continue;
       const diff = gammas[n] - gammas[k];
       if (Math.abs(diff) < 1e-15) continue;  // avoid division by zero
-      sum += 1 / diff;
+      const term = 1 / diff;
+      const t = sum + term;
+      c += Math.abs(sum) >= Math.abs(term) ? (sum - t) + term : (term - t) + sum;
+      sum = t;
     }
-    dg[n] = direction * 2 * sum;
+    dg[n] = direction * 2 * (sum + c);
   }
   return dg;
 }

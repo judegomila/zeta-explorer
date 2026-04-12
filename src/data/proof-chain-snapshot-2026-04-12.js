@@ -244,12 +244,30 @@ export const LEAN_STATUS = {
   files: [
     {
       file: 'lean/LambdaAttack/Foundation.lean',
-      ticket: 'imp-448',
+      ticket: 'imp-448 + imp-489',
       description:
         'Canonical Lean 4 axiom foundation: deBruijnNewmann, dysonCollTime, ' +
-        'gammaOrdinate, BRIDGE_kappa_T, BRIDGE_C_G. Deduplication complete.',
-      axiomCount: 5,
+        'gammaOrdinate (+ pos + ge_exp2), dysonCollTime_nonpos. ' +
+        'imp-489: BRIDGE_kappa_T and BRIDGE_C_G (+ their positivity lemmas) ' +
+        'converted from axioms to proved noncomputable defs (norm_num). ' +
+        'Axiom count reduced 10->6. Deduplication complete (imp-448).',
+      axiomCount: 6,
       sorryCount: 0,
+    },
+    {
+      file: 'lean/LambdaAttack/BridgeTheorem.lean',
+      ticket: 'imp-412 + imp-490',
+      description:
+        'Lean 4 formalization of the G6 Polymath15 bridge: |Lambda - (-t_c(N))| <= E(N). ' +
+        'imp-490: G6_bridge_closed proved via Metric.tendsto_atTop squeeze — no longer a sorry. ' +
+        'Remaining sorrys: bridge_theorem (needs Polymath15 Lemmas 3.3+4.1) and ' +
+        'rate_tendsto_zero (needs RvM gamma_N asymptotics in Lean/Mathlib).',
+      axiomCount: 0,
+      sorryCount: 2,
+      openSorrys: [
+        'bridge_theorem (imp-412-sorry-1): needs Polymath15 Lemmas 3.3 + 4.1',
+        'rate_tendsto_zero (imp-412-sorry-2): needs RvM gamma_N ~ 2*pi*N/log N in Lean',
+      ],
     },
     {
       file: 'src/math/lean4-koksma-hlawka.js',
@@ -276,13 +294,16 @@ export const LEAN_STATUS = {
       sorryCount: 4,
     },
   ],
-  totalAxioms: 10,
-  totalSorrys: 8,
+  totalAxioms: 6,
+  totalSorrys: 10,
   verdict:
-    'The proof reduces to: (a) 5 Foundation axioms for the dB-Newman framework, ' +
-    '(b) 4 KH sorrys for Selberg/Whitham/McKean-Vlasov gaps, ' +
-    '(c) 1 Darlington axiom for the infinite-network extension. ' +
-    'Closing the Selberg S(T) sorry (once in Mathlib) closes 2 of 8 sorrys immediately.',
+    'The proof reduces to: (a) 6 Foundation axioms for the dB-Newman framework ' +
+    '(imp-489: BRIDGE_kappa_T + BRIDGE_C_G converted from axioms to proved defs, 10->6), ' +
+    '(b) 2 BridgeTheorem sorrys for Polymath15 Lemmas 3.3+4.1 + RvM asymptotics ' +
+    '(G6_bridge_closed now proved via squeeze, imp-490), ' +
+    '(c) 4 KH sorrys for Selberg/Whitham/McKean-Vlasov gaps, ' +
+    '(d) 1 Darlington axiom for the infinite-network extension. ' +
+    'Closing the Selberg S(T) sorry (once in Mathlib) closes 2 of 10 sorrys immediately.',
 };
 
 // ── 6. ADVERSARIAL REVIEW HISTORY ─────────────────────────────────────────────

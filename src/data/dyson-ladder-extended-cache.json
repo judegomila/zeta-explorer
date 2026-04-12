@@ -1,12 +1,26 @@
 {
-  "generatedAt": "2026-04-12T23:00:00.000Z",
+  "generatedAt": "2026-04-12T23:08:03.604Z",
   "source": "imp-514 offline compute harness (scripts/compute-dyson-ladder-extended.mjs)",
   "zerosProvenance": "Odlyzko zeta tables (https://www-users.cse.umn.edu/~odlyzko/zeta_tables/)",
-  "zerosLoaded": 0,
+  "zerosLoaded": 10000,
   "dtParam": 0.0001,
   "maxStepsParam": 120,
   "dtNote": "Effective dt per N is gap-seeded: dtEff = min(DT, d_min^2/80). See row.dt for actual dt used (imp514d). Additionally, currentDt is capped to mg^2/12 at each step to prevent late-stage overshoot (imp514f). dysonDerivBackward uses antisymmetry (N*(N-1)/2 pairs, ~2x speedup vs N^2, no Kahan).",
-  "rows": [],
+  "rows": [
+    {
+      "N": 10000,
+      "source": "measured-float64-rk4",
+      "t_c": 0.00017772,
+      "reason": "gap-nonpositive",
+      "dt": 0.00001776471033634661,
+      "nSteps": 300,
+      "stepsRun": 37,
+      "wallTimeMs": 26621,
+      "olsProjection": 0.00714,
+      "initialMinGap": 0.0376985,
+      "note": "Float64 RK4 (NOT certified). dt gap-seeded: initialMinGap=3.770e-2, dtEff=1.776e-5 (imp514d fix). Estimated ~0s/step. Collision detected at t_c ~ 0.000178."
+    }
+  ],
   "subGaps": [
     {
       "id": "imp514a",
@@ -35,17 +49,12 @@
     },
     {
       "id": "imp514f",
-      "description": "gap-safe step cap: FIXED. The adaptive-halving formula used mg/4 as the reduced step, which is O(mg) not O(mg^2). After restoration to maxDt, if the gap has decayed to g << sqrt(8*maxDt), then maxDt >> t_c_pair = g^2/8 and the next full step overshoots. Example: N=10K, initial gap 0.0377, after step 0 gap ~ 0.025, t_c_pair ~ 7.8e-5 << DT=1e-4 so step 1 overshoots. Fix: after the adaptive/restore block, cap currentDt to mg^2/12 (2/3 of t_c_pair). With this cap, gap^2 shrinks by factor 1/3 per step, reaching machine-epsilon in ~log3(gap0/eps) ~ 30-40 steps << stepsEff, and the post-step check detects the collision accurately.",
+      "description": "gap-safe step cap: FIXED. The adaptive-halving formula used mg/4 as the reduced step, which is O(mg) not O(mg^2). After restoration to maxDt, if the gap has decayed to g << sqrt(8*maxDt), then maxDt >> t_c_pair = g^2/8 and the next full step overshoots. Example: N=10K, initial gap 0.0377, after step 0 gap ~ 0.025, t_c_pair ~ 7.8e-5 << DT=1e-4 so step 1 overshoots. Fix: after the adaptive/restore block, cap currentDt to mg^2/12 (2/3 of t_c_pair). With this cap, gap^2 shrinks by factor 1/3 per step, reaching machine-epsilon in ~log3(gap0/eps) ≈ 30-40 steps << stepsEff, and the post-step check detects the collision accurately.",
       "status": "fixed"
     },
     {
       "id": "imp514g",
       "description": "collision-threshold bug: FIXED. COLLISION_THRESHOLD was 0, meaning the gap had to literally cross zero to trigger the nonpositive-gap check. But the mg^2/12 cap (imp514f) causes the minimum gap to converge geometrically toward 0 (ratio ~1/sqrt(3) per step) without ever reaching 0 in float64 arithmetic. Result: 300 steps exhausted, t_c = 0.000178 (budget-exhausted) instead of gap-nonpositive. Fix: COLLISION_THRESHOLD = 1e-10. The geometric tail terminates in ~30 additional steps, reporting the correct t_c. Methodology note: Odlyzko zeros have small initial minimum gaps (~0.037 at N=10K, ~0.0147 at N=150K), so the measured t_c ~ g_min^2/8 is much smaller than the OLS-extrapolated value (PATH_C_FIT_POINTS used R-S scan zeros with larger forced minimum spacing). Both are valid measurements of different initial conditions; the discrepancy is not a bug.",
-      "status": "fixed"
-    },
-    {
-      "id": "imp514h",
-      "description": "dysonDerivBackward antisymmetry optimisation: FIXED. The original O(N^2) double loop computed each pair (i,j) twice (once for dg[i] and once for dg[j]), with Kahan compensation per row. Exploiting 1/(g_i-g_j) = -1/(g_j-g_i), each pair is now visited once (upper triangle only, N*(N-1)/2 iterations) and both dg[i] and dg[j] updated atomically. Kahan compensation removed: its benefit O(N*eps_mach) is negligible vs RK4 time-discretisation error for this uncertified Float64 run. Validated at N=10K: t_c = 0.00017772 (gap-nonpositive, 37 steps, 27s) -- exact match with previous validated result at ~2x wall-time speedup.",
       "status": "fixed"
     }
   ],

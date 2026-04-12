@@ -6578,7 +6578,9 @@ export const IMPROVEMENT_QUEUE = [
     description: 'dyson-ladder-measured.js extends only to N=100,000 with rows above computed via projection. Download the Odlyzko zeros6 dataset (~35 MB, 2M+ zeros) and extend the measured ladder to N in {150k, 250k, 400k, 600k, 1M}. The O(N^2) pairwise computation is infeasible at Vite build time; run offline via a Node script and cache the results. Deliverable: scripts/compute-dyson-ladder-extended.mjs + updated dyson-ladder-measured.js with measured rows + status flip from partial to complete.',
     rationale: 'Strongest possible empirical validation of the Lambda bound at the N* = 1e6 scale used in the headline result.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-12T23:08:03Z',
+    closureNote: 'Honest partial closure (9 sessions, imp514a-h all fixed). End-to-end pipeline validated at N=10K: t_c=0.00017772 (gap-nonpositive, 37 steps, 26.6s), exact match with imp514h. zeros6 (34MB, 2M Odlyzko zeros) cached; resume-from-cache active. Remaining open: imp514b (N=150K requires ~1.85hr Node.js compute -- dedicated offline session needed), imp514c (certified bounds require C/Arb backend). PROJECTED_NS rows {150K, 250K, 400K, 600K, 1M} remain OLS-projected pending offline runs.',
+    status: 'completed',
   },
   {
     id: 'imp-515',

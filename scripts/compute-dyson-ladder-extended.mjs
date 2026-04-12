@@ -298,6 +298,15 @@ function backwardCollisionRK4Float64(initial, dt, maxSteps, maxDt = dt) {
     } else if (mg > 10 * ADAPT_THRESH) {
       currentDt = maxDt; // restore to original DT, not to the gap-seeded dtEff
     }
+    // Gap-safe upper bound: pairwise collapse time t_c_pair = mg^2/8. Cap
+    // currentDt to mg^2/12 so each step covers at most 2/3 of the remaining
+    // pairwise collapse time. Without this cap a restored maxDt can overshoot
+    // the collision once the gap has decayed to where t_c_pair << maxDt (e.g.
+    // after step 0 at N=10K the gap drops from 0.0377 to ~0.025, giving
+    // t_c_pair ~ 7.8e-5 << DT=1e-4, and the next full maxDt step overshoots).
+    // With the cap, gap^2 shrinks by factor 1/3 per step, converging in
+    // ~log3(gap0/eps) steps << stepsEff. Sub-gap imp514f.
+    currentDt = Math.min(currentDt, (mg * mg) / 12);
 
     // RK4 step
     const k1 = dysonDerivBackward(g, N);
@@ -539,6 +548,19 @@ async function main() {
                      'any second close encounter encountered at the restored stride, allowing it ' +
                      'to be overshot. Fix: ADAPT_THRESH = 3 * maxDt (and min-step guard uses ' +
                      'maxDt/16), so the threshold tracks the actual stride in use.',
+        status:      'fixed',
+      },
+      {
+        id:          'imp514f',
+        description: 'gap-safe step cap: FIXED. The adaptive-halving formula used mg/4 as the ' +
+                     'reduced step, which is O(mg) not O(mg^2). After restoration to maxDt, if ' +
+                     'the gap has decayed to g << sqrt(8*maxDt), then maxDt >> t_c_pair = g^2/8 ' +
+                     'and the next full step overshoots. Example: N=10K, initial gap 0.0377, ' +
+                     'after step 0 gap ~ 0.025, t_c_pair ~ 7.8e-5 << DT=1e-4 so step 1 overshoots. ' +
+                     'Fix: after the adaptive/restore block, cap currentDt to mg^2/12 (2/3 of ' +
+                     't_c_pair). With this cap, gap^2 shrinks by factor 1/3 per step, reaching ' +
+                     'machine-epsilon in ~log3(gap0/eps) ≈ 30-40 steps << stepsEff, and the ' +
+                     'post-step check detects the collision accurately.',
         status:      'fixed',
       },
     ],

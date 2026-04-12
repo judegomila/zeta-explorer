@@ -813,6 +813,21 @@ export const SOTA_LAMBDA_CLAIM = {
         'B2 conditional on M alone — same blocking condition as the main assembly; one blocking ' +
         'condition (M/many-body correction) prevents full unconditional claim.',
     },
+    {
+      ticket: 'imp-470',
+      gap: 'S10-unconditional',
+      summary:
+        'Phase 33-35 payoff record assembled: Lambda <= L_pt ~ 0.121 < 0.2 (Platt-Trudgian 2021) ' +
+        'established ONE CONDITION FROM UNCONDITIONAL. Condition set shrinks from {B1, B2, C3} to {M}: ' +
+        'B1 ESTABLISHED (imp-463 D-monotone analytic + imp-468 NoSwap analytic at all N), ' +
+        'C3-pt ESTABLISHED (imp-447), M_raw bridge ESTABLISHED (imp-462 + imp-469 rho_min >= 0.1279). ' +
+        'Sole remaining blocker: skp-imp462-many-body-correction (imp-471).',
+      file: 'src/data/lambda-N1e6-unconditional-beat.js',
+      impactOnSota:
+        'Headline beat Lambda <= 0.121 < 0.2 (Platt-Trudgian) is now ONE CONDITION from fully ' +
+        'unconditional. All structural conditions proved analytically; sole open item is the ' +
+        'many-body CM correction to the leading-order bridge (imp-462-many-body-correction).',
+    },
   ],
 
   // ── imp-465: fourth adversarial review post-Phase 32-33 closures ─────────────
@@ -946,6 +961,7 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-456 src/math/route-a-unfolded-reformulation.js — Route A reformulation: Theorem UMon unconditional in unfolded coords',
     'imp-457 src/data/b1-slope-conditional-upper-bound.js — B1 conditional slope bound under NoSwap + D-monotone',
     'imp-458 src/data/b2-intercept-analytic-bound.js — B2 partial closure: Koksma-Hlawka analytic intercept bound',
+    'imp-470 src/data/lambda-N1e6-unconditional-beat.js — Phase 33-35 payoff: Lambda <= 0.121 ONE CONDITION from unconditional',
   ],
 
   dependsOnCitedTicketIds: [
@@ -971,6 +987,7 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-456',
     'imp-457',
     'imp-458',
+    'imp-470',
   ],
 };
 

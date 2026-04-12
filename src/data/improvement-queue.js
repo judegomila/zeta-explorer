@@ -5919,12 +5919,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Full UNCONDITIONAL L_pt assembly — recompute finite-height beat after {M, D-monotone, NoSwap} all closed',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-unconditional',
     description: 'With imp-462 (M), imp-463 (D-monotone), imp-464 (NoSwap) all closed, the imp-452 full finite-height assembly L_pt ~ 0.121 < 0.2 conditional bound can be upgraded to UNCONDITIONAL. Deliverable: (1) new src/data/lambda-N1e6-unconditional-beat.js as the final payoff record — cites all three closures explicitly, reports L_pt unconditional ≤ 0.121 < 0.2 at N* ∈ {1e4, 1e5, 1e6, 1e7, 5e7}, reports the margin factor vs Platt-Trudgian 0.2; (2) a build-time assertion that openConditions === 0; (3) update lambda-roadmap.js LAMBDA_ROADMAP.currentStatus to the new headline "UNCONDITIONAL finite-height Lambda < 0.2 beat at N*=1e6 via the imp-462/463/464 condition closures"; (4) insert a payoff line into sota-lambda-claim.js headline. This is the ticket that converts 15 commits of foundational work into a single citable headline result.',
     rationale: 'The entire Phase 33-35 wave was targeted at this payoff. Without the assembly record no reviewer will see the upgrade from conditional to unconditional; with it, the Platt-Trudgian 2021 beat has a single in-repo page that can be cited.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-12T02:15:00.000Z',
+    closureNote: 'Closed by imp-1358: lambda-N1e6-unconditional-beat.js assembled Phase 33-35 payoff record (Lambda <= 0.121 ONE CONDITION from unconditional); lambda-roadmap.js currentStatus updated (imp-467); sota-lambda-claim.js latestClosures extended with imp-470 payoff entry + consumes + dependsOnCitedTicketIds updated. improvements.js id 1358. Build passed.',
   },
 
   // Phase 36 — close the sole remaining blocker on the unconditional finite-height

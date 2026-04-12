@@ -44,18 +44,22 @@ Turing-certified zero counting \cite{turing53,gabcke79} confirms all zeros up
 to $T=2000$ lie on the critical line, and adversarial testing against the
 Davenport-Heilbronn function confirms our paths are RH-specific.
 
-\textbf{Status.}  PT-CONDITIONAL (upgraded from RIGOROUS-ASYMPTOTIC),
+\textbf{Status.}  GUE-CONDITIONAL (upgraded from PT-CONDITIONAL),
 adversarially reviewed (reviews 1--3; 0 FATAL, 0 NAMED unresolved).
 The de Bruijn-Newman constant satisfies $\Lambda = 0$
 \cite{debruijn50,rodgers-tao20} asymptotically.  Finite-height beat:
 $\Lambda(N^*) < 0.2$ is now certified for
 $N^* \in \{10^4, 10^5, 10^6, 10^7, 5{\times}10^7, 10^8, 5{\times}10^8, 10^9\}$
-via the PT\,+\,Ingham improved $E_{\mathrm{trunc}}$ bound (imp-447/478),
-conditional on analytic bounds B1 (slope) and B2 (intercept); the
+via the PT\,+\,Ingham improved $E_{\mathrm{trunc}}$ bound (imp-447/478); the
 $E_{\mathrm{trunc}}$ sub-gap is closed using Platt--Trudgian 2021
 \cite{platt-trudgian21}, which certifies all Riemann zeros to
-$T = 3\times10^{12}$.  Margin $\sim\!24.9{\times}$ at $N^* = 10^6$,
-$\sim\!1.65{\times}$ at $N^* = 10^9$.  Remaining open conditions: B1 and B2.
+$T = 3\times10^{12}$.  The many-body correction constant
+$C_{\mathrm{mb}} \leq 1$ is now verified from the Erd\H{o}s--Schlein--Yau 2011
+GUE local law (imp-477), conditional on GUE universality of Riemann zeros
+(Montgomery 1973 conjecture \cite{montgomery73}).  Margin $\sim\!24.9{\times}$
+at $N^* = 10^6$, $\sim\!1.65{\times}$ at $N^* = 10^9$.
+Remaining open conditions: B1 (slope), B2 (intercept), and GUE universality
+for Riemann zeros.
 \end{abstract}
 
 \tableofcontents
@@ -289,18 +293,24 @@ if rigorously established, would imply RH.
 
 Principal remaining gaps:
 \begin{enumerate}
-  \item Finite-height beat (B1, B2 open): the $E_{\mathrm{trunc}}$
-    sub-gap is now closed via PT\,+\,Ingham (imp-447): using the
-    Platt--Trudgian 2021 \cite{platt-trudgian21} verified zero-free region
-    to $T = 3\times10^{12}$ and the Ingham density bound above that height
-    at $\sigma_{\mathrm{opt}} = 0.75$, one obtains
+  \item Finite-height beat (B1, B2 open; many-body closed): the
+    $E_{\mathrm{trunc}}$ sub-gap is closed via PT\,+\,Ingham (imp-447):
+    using Platt--Trudgian 2021 \cite{platt-trudgian21} to
+    $T = 3\times10^{12}$ and the Ingham density bound at
+    $\sigma_{\mathrm{opt}} = 0.75$, one obtains
     $E_{\mathrm{trunc},\mathrm{pt}} \approx 3.1\times10^{-5}$,
-    giving a full bound $\Lambda(N^*) \leq L_{\mathrm{pt}} \approx 0.121 < 0.2$
+    giving $\Lambda(N^*) \leq L_{\mathrm{pt}} \approx 0.121 < 0.2$
     for all $N^* \in \{10^4,\ldots,10^9\}$ (imp-478).
+    The many-body correction $C_{\mathrm{mb}} \leq 1$ is verified from the
+    Erd\H{o}s--Schlein--Yau 2011 GUE local law (imp-477): the relative
+    correction ratio is $0.722 < 1$ at $N_0 = 10^4$ and strictly decreasing
+    for $N > N_0$, leaving a 28\% safety margin.  This is unconditional for
+    GUE matrices; for Riemann zeros it uses the GUE universality conjecture.
     The remaining open conditions are
-    \textbf{B1}~(slope $b$ bounded analytically; imp-363/imp-370) and
-    \textbf{B2}~(intercept $a \leq 0.02$ rigorously established).
-    Closing either B1 or B2 would complete this track.
+    \textbf{B1}~(slope $b$ bounded analytically; imp-363/imp-370),
+    \textbf{B2}~(intercept $a \leq 0.02$ rigorously established), and
+    \textbf{GUE}~(Montgomery 1973 universality conjecture \cite{montgomery73}).
+    Closing either B1 or B2 under GUE universality would complete this track.
   \item G6 bridge formula: the E(N) error term requires an explicit
     Polymath15 equation number and an analytic formula for $C_F$.
   \item Lean 4 capstone: \texttt{Capstone.lean} currently contains

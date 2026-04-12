@@ -16,6 +16,7 @@ HEARTBEAT_FILE="$SCRIPT_DIR/.heartbeat"   # epoch-seconds written after each run
 INTERVAL=60   # 1 minute
 MAX_RUNS=1000
 PUSH_EVERY=5  # push to remote after every N clean runs (imp-442)
+IDLE_THRESHOLD=10  # auto-stop after N consecutive empty-queue exits (imp-518)
 
 # The prompt given to Claude Code on each iteration
 IMPROVE_PROMPT='You are improving the ZPO Explorer / RH-attack project. Your task:
@@ -111,6 +112,7 @@ do_start() {
   # Run in background
   (
     run_count=0
+    idle_count=0  # consecutive runs with "no eligible tickets" (imp-518)
     # Exponential backoff state — doubles on each rate-limit hit, resets on
     # a clean run. Bounded by BACKOFF_MAX_S so we don't sleep forever.
     backoff_s=0
@@ -238,6 +240,25 @@ EOF
           echo "Clean run — rate-limit sentinel cleared, backoff reset." | tee -a "$log_file"
         fi
         backoff_s=0
+      fi
+
+      # ── Idle detection (imp-518) ─────────────────────────────────────────
+      # If Claude reports "no eligible tickets" for IDLE_THRESHOLD consecutive
+      # runs, auto-stop to avoid burning API credits on an empty queue.
+      if grep -q "OPUS: no eligible tickets" "$log_file"; then
+        idle_count=$((idle_count + 1))
+        echo "IDLE TICK $idle_count/$IDLE_THRESHOLD: no eligible tickets this run" | tee -a "$log_file"
+        if [ "$idle_count" -ge "$IDLE_THRESHOLD" ]; then
+          echo "IDLE THRESHOLD REACHED: $idle_count consecutive empty-queue runs -- auto-stopping engine." | tee -a "$log_file"
+          echo "$(date -u +"%Y-%m-%dT%H:%M:%SZ") AUTO-STOPPED: $idle_count consecutive empty-queue exits" >> "$SCRIPT_DIR/auto-stop.log"
+          rm -f "$PID_FILE"
+          break
+        fi
+      else
+        if [ "$idle_count" -gt 0 ]; then
+          echo "IDLE COUNTER RESET: work found after $idle_count idle run(s)" | tee -a "$log_file"
+          idle_count=0
+        fi
       fi
 
       # ── Auto-push every N runs ────────────────────────────────────────

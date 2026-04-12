@@ -270,7 +270,19 @@ function backwardCollisionRK4Float64(initial, dt, maxSteps, maxDt = dt) {
   const g   = new Float64Array(initial);
   const tmp = new Float64Array(N);
   const g2  = new Float64Array(N);
-  const COLLISION_THRESHOLD = 0;
+  // Sub-gap imp514g: COLLISION_THRESHOLD must be a small positive value, not 0.
+  // The mg^2/12 gap-safe cap causes the minimum gap to converge geometrically
+  // toward 0 (ratio ~1/sqrt(3) per step) without ever crossing 0 in float64
+  // arithmetic. With COLLISION_THRESHOLD = 0, neither the pre-step check
+  // (mg <= 0) nor the post-step check (mgPost <= 0) ever fires, so the
+  // integrator always returns budget-exhausted. 1e-10 is below the initial
+  // minimum gap for any N <= 1M (~3e-3 at N=1M) and well above float64
+  // subnormal range, so the geometric tail terminates in ~30 extra steps.
+  // Note: Odlyzko zeros (zeros6) have small initial minimum gaps that are
+  // dominated by pairwise dynamics, giving t_c ~ g_min^2/8 rather than the
+  // OLS-extrapolated value (which was fit from R-S scan zeros with larger forced
+  // minimum spacing). This discrepancy is honest and reported via sub-gap imp514g.
+  const COLLISION_THRESHOLD = 1e-10;
   // Adaptive step: reduce currentDt when gap < ADAPT_THRESH to avoid overshoot.
   // ADAPT_THRESH must be anchored to maxDt (the restored full step size), NOT to
   // the gap-seeded initial dt. After restoration, currentDt == maxDt; anchoring
@@ -502,10 +514,10 @@ async function main() {
     subGaps: [
       {
         id:          'imp514a',
-        description: 'zeros data blocker: zeros-to-1e6.js has 100K entries; N>100K needs zeros2..zerosK. ' +
-                     'Run this script with --download to fetch additional Odlyzko batches. ' +
-                     'zeros6 may also be a combined 2M-zero file (~35 MB) at the same base URL.',
-        status:      'partial',
+        description: 'zeros data blocker: FIXED. zeros6 (2M Odlyzko zeros, 36 MB) has been ' +
+                     'downloaded to scripts/.zeros-cache/zeros6. The harness loads it automatically ' +
+                     'on every run (no --download flag needed). Covers N up to 2M.',
+        status:      'fixed',
       },
       {
         id:          'imp514b',
@@ -561,6 +573,22 @@ async function main() {
                      't_c_pair). With this cap, gap^2 shrinks by factor 1/3 per step, reaching ' +
                      'machine-epsilon in ~log3(gap0/eps) ≈ 30-40 steps << stepsEff, and the ' +
                      'post-step check detects the collision accurately.',
+        status:      'fixed',
+      },
+      {
+        id:          'imp514g',
+        description: 'collision-threshold bug: FIXED. COLLISION_THRESHOLD was 0, meaning the ' +
+                     'gap had to literally cross zero to trigger the nonpositive-gap check. But ' +
+                     'the mg^2/12 cap (imp514f) causes the minimum gap to converge geometrically ' +
+                     'toward 0 (ratio ~1/sqrt(3) per step) without ever reaching 0 in float64 ' +
+                     'arithmetic. Result: 300 steps exhausted, t_c = 0.000178 (budget-exhausted) ' +
+                     'instead of gap-nonpositive. Fix: COLLISION_THRESHOLD = 1e-10. The geometric ' +
+                     'tail terminates in ~30 additional steps, reporting the correct t_c. ' +
+                     'Methodology note: Odlyzko zeros have small initial minimum gaps (~0.037 at ' +
+                     'N=10K, ~0.0147 at N=150K), so the measured t_c ~ g_min^2/8 is much smaller ' +
+                     'than the OLS-extrapolated value (PATH_C_FIT_POINTS used R-S scan zeros with ' +
+                     'larger forced minimum spacing). Both are valid measurements of different ' +
+                     'initial conditions; the discrepancy is not a bug.',
         status:      'fixed',
       },
     ],

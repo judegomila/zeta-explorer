@@ -6274,7 +6274,9 @@ export const IMPROVEMENT_QUEUE = [
     description: 'Reviews 1-5 were all conducted mid-chain (review 5 was pre-imp-486 irreducibility, pre-imp-489 axiom reduction, pre-snapshot). A sixth review against the TERMINAL state is needed: the reviewer should read proof-chain-snapshot-2026-04-12.js as the entry point, then drill into the 12-step chain, the Lean layer (now 6 axioms, imp-490 sorry count pending), the GUE irreducibility proof (imp-486), and the paper (imp-492). Produce src/math/paper-skeptic-review-6.js with FATAL / NAMED / SOFT findings. This is the final pre-submission credibility gate. Deliverable: review-6 artifact + ticket seeds for any FATAL/NAMED findings.',
     rationale: 'The first 5 reviews drove the FATAL count from 2 to 0. A review-6 against the terminal state either confirms 0 (submission-ready) or catches late regressions from the Phase 39-40 hardening wave. Either outcome is valuable.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-12T07:00:00.000Z',
+    closureNote: 'Created src/math/paper-skeptic-review-6.js. Full-chain post-terminal-state audit. 0 FATAL, 2 NAMED (skp6-001: BridgeTheorem.lean sorrys untracked in snapshot totalSorrys; skp6-002: proof-paper.js abstract gap list stale post imp-405 supersession), 2 SOFT (skp6-s1: snapshot review count; skp6-s2: G6_bridge_closed header comment ambiguity). Terminal-state confirmed: FATAL count trajectory 2,0,0,0,0,0. Both NAMED gaps fixable in pending imp-494. Build passed. improvements.js id 1389.',
+    status: 'completed',
   },
   {
     id: 'imp-494',

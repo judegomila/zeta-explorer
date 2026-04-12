@@ -328,6 +328,14 @@ export const ADVERSARIAL_REVIEWS = [
     verdict: 'PASSED (0 FATAL)',
     closedBy: ['imp-476 (skp5-001: N-coverage gap)', 'imp-477 (skp5-002: GUE conditionality note)', 'imp-483 (2 SOFT in JSDoc + naming)'],
   },
+  {
+    id: 'imp-493',
+    label: 'Review 6 — first post-terminal-state full-chain audit',
+    date: '2026-04-12',
+    findings: { fatal: 0, named: 2, soft: 2, total: 4 },
+    verdict: 'PASSED (0 FATAL) — terminal-state confirmed',
+    closedBy: ['imp-494 (skp6-001: BridgeTheorem.lean sorrys untracked in LEAN_STATUS)', 'imp-494 (skp6-002: proof-paper.js abstract gap list stale)'],
+  },
 ];
 
 // ── MASTER SNAPSHOT ────────────────────────────────────────────────────────────
@@ -348,7 +356,7 @@ export const PROOF_CHAIN_SNAPSHOT = {
     'Finite-height beat imp-452 gives L_pt ~ 0.121 unconditionally. ' +
     'SOLE OPEN PREMISE: GUE universality (Erdos-Schlein-Yau local law) for the many-body ' +
     'Calogero-Moser correction C_mb; confirmed irreducible by imp-486. ' +
-    'Five adversarial reviews completed; FATAL count trajectory: 2, 0, 0, 0, 0. ' +
+    'Six adversarial reviews completed; FATAL count trajectory: 2, 0, 0, 0, 0, 0. ' +
     'RH follows from Lambda = 0 (Route B asymptotic + Rodgers-Tao floor) ' +
     'unconditionally for the asymptotic claim; finite-height unconditional via Route B + B1.',
 

@@ -17,16 +17,20 @@
 //     authoritative reference and what every downstream (LMFDB included)
 //     re-serves. We use this as the primary source.
 //
-// Sources (in preference order):
-//   1. https://www-users.cse.umn.edu/~odlyzko/zeta_tables/zeros1 — 100,000
-//      zeros, plain text, one decimal ordinate per line. ~1.8 MB.
-//   2. Existing src/math/zeta.js ZETA_ZEROS — the 870-zero fallback.
+// imp-514 EXTENSION: Support N > 100,000 by fetching additional Odlyzko batch
+// files sequentially. Batch files are named zeros1, zeros2, ..., zerosK where
+// each covers the next 100,000 zeros in ascending order:
+//   zeros1 = zeros 1..100,000       (~1.8 MB)
+//   zeros2 = zeros 100,001..200,000 (~1.8 MB)
+//   zeros3 = zeros 200,001..300,000 (~1.8 MB)
+//   ...
+// A "zeros6" combined file (2,001,052 zeros, ~35 MB) may also be available at
+// the same base URL; this script probes for it first if N > 100,000.
 //
-// For this commit we ship the FETCHER + fallback logic; a full bulk load
-// of 10^6 zeros is an operator decision because it takes disk space and
-// time. The default target in this script is the first 5000 zeros, which
-// is ~100x more than the existing ZETA_ZEROS and enough to close the N=2458
-// sizing gap the imp-362 interval integrator is blocked on.
+// Sources (in preference order):
+//   1. zeros6 combined file (if N > 100,000 and probed successfully)
+//   2. Sequential zeros1..zerosK batches from the Odlyzko table
+//   3. Existing src/math/zeta.js ZETA_ZEROS -- the 870-zero fallback (N <= 100K only)
 //
 // Usage:
 //   node scripts/fetch-odlyzko-zeros.mjs [N]
@@ -44,48 +48,124 @@ const PROJECT_ROOT = path.resolve(__dirname, '..');
 const TARGET_N = parseInt(process.argv[2] || '5000', 10);
 const OUTPUT_FILE = path.join(PROJECT_ROOT, 'src/data/zeros-to-1e6.js');
 
-// Odlyzko canonical text table: one decimal ordinate per line, whitespace
-// padded. Frozen since 1998, 100,000 entries, accurate to 3e-9.
-const ODLYZKO_URL = 'https://www-users.cse.umn.edu/~odlyzko/zeta_tables/zeros1';
-const ODLYZKO_MAX = 100000;
+const ODLYZKO_BASE = 'https://www-users.cse.umn.edu/~odlyzko/zeta_tables/';
+const ODLYZKO_BATCH_SIZE = 100000;
+const MAX_BATCHES = 10; // zeros1..zeros10 = up to 1,000,000 zeros
 
-async function fetchOdlyzkoZeros(n) {
-  if (n > ODLYZKO_MAX) {
-    throw new Error(
-      `zeros1 contains only ${ODLYZKO_MAX} zeros; requested ${n}. ` +
-      'Use zeros6 (2,001,052 zeros, ~35 MB) for larger N and update this script.',
-    );
-  }
-  process.stderr.write(`fetching ${ODLYZKO_URL}\n`);
-  const res = await fetch(ODLYZKO_URL, {
-    headers: { accept: 'text/plain' },
-  });
-  if (!res.ok) {
-    throw new Error(`Odlyzko HTTP ${res.status}`);
-  }
+async function fetchText(url) {
+  process.stderr.write(`fetching ${url}\n`);
+  const res = await fetch(url, { headers: { accept: 'text/plain' } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
   const text = await res.text();
+  process.stderr.write(`  -> ${(text.length / 1024).toFixed(0)} KB received\n`);
+  return text;
+}
+
+function parseBatchText(text) {
   const zeros = [];
   for (const rawLine of text.split('\n')) {
     const line = rawLine.trim();
     if (!line) continue;
     const v = Number(line);
-    if (Number.isFinite(v)) zeros.push(v);
-    if (zeros.length >= n) break;
+    if (Number.isFinite(v) && v > 0) zeros.push(v);
   }
-  if (zeros.length < n) {
+  return zeros;
+}
+
+// Probe and parse the zeros6 combined file (2M zeros). Returns array of zeros
+// or null if the probe fails or the file does not start from the first zero.
+async function probeZeros6(n) {
+  const url = `${ODLYZKO_BASE}zeros6`;
+  try {
+    const text = await fetchText(url);
+    const zeros = parseBatchText(text);
+    if (zeros.length >= n && zeros[0] < 20) {
+      // sanity: first zero of zeta is near 14.1347...
+      process.stderr.write(`zeros6: parsed ${zeros.length} zeros starting at ${zeros[0]}\n`);
+      return zeros;
+    }
+    process.stderr.write(
+      `zeros6 parsed ${zeros.length} zeros (first: ${zeros[0]}); ` +
+      'not usable as combined table starting from gamma_1\n'
+    );
+    return null;
+  } catch (err) {
+    process.stderr.write(`zeros6 probe failed: ${err.message}\n`);
+    return null;
+  }
+}
+
+// Fetch sequential batch files zeros1, zeros2, ..., zerosK until we have
+// at least n zeros. Returns the full array (may exceed n; caller slices).
+async function fetchOdlyzkoZerosBatched(n) {
+  const allZeros = [];
+  for (let batch = 1; batch <= MAX_BATCHES && allZeros.length < n; batch++) {
+    const batchName = `zeros${batch}`;
+    const url = `${ODLYZKO_BASE}${batchName}`;
+    let text;
+    try {
+      text = await fetchText(url);
+    } catch (err) {
+      throw new Error(
+        `Failed to fetch ${url}: ${err.message}. ` +
+        `Have ${allZeros.length} zeros so far; ${n} needed.`
+      );
+    }
+    const parsed = parseBatchText(text);
+    if (parsed.length === 0) {
+      throw new Error(`${batchName} parsed 0 zeros — aborting`);
+    }
+    // Verify sequential ordering: first zero of each batch must exceed last loaded
+    if (allZeros.length > 0 && parsed[0] <= allZeros[allZeros.length - 1]) {
+      throw new Error(
+        `${batchName} first zero ${parsed[0]} <= last loaded ${allZeros[allZeros.length - 1]}; ` +
+        'batches are not sequentially ordered'
+      );
+    }
+    allZeros.push(...parsed);
+    process.stderr.write(`${batchName}: loaded ${parsed.length} zeros (total: ${allZeros.length})\n`);
+  }
+  if (allZeros.length < n) {
     throw new Error(
-      `Odlyzko file parsed ${zeros.length} zeros but ${n} were requested`,
+      `Only ${allZeros.length} zeros available after ${MAX_BATCHES} batches; ${n} needed. ` +
+      'Increase MAX_BATCHES in fetch-odlyzko-zeros.mjs if more Odlyzko batches are available.'
     );
   }
-  process.stderr.write(`parsed ${zeros.length} zeros from zeros1\n`);
-  return zeros;
+  return allZeros;
+}
+
+async function fetchOdlyzkoZeros(n) {
+  if (n > ODLYZKO_BATCH_SIZE) {
+    // For N > 100K, try the zeros6 combined file first, then fall back to
+    // sequential batches. zeros6 is ~35 MB and covers 2M zeros but may not
+    // be available; fetching it avoids multiple round-trips for large N.
+    process.stderr.write(
+      `N=${n} > ${ODLYZKO_BATCH_SIZE}; probing zeros6 combined file...\n`
+    );
+    const combined = await probeZeros6(n);
+    if (combined) return combined.slice(0, n);
+    process.stderr.write('Falling back to sequential batch downloads...\n');
+    const batched = await fetchOdlyzkoZerosBatched(n);
+    return batched.slice(0, n);
+  }
+  // N <= 100K: use zeros1 only (fast, 1.8 MB)
+  const url = `${ODLYZKO_BASE}zeros1`;
+  const text = await fetchText(url);
+  const zeros = parseBatchText(text);
+  if (zeros.length < n) {
+    throw new Error(
+      `Odlyzko zeros1 parsed ${zeros.length} zeros but ${n} were requested`
+    );
+  }
+  process.stderr.write(`zeros1: parsed ${zeros.length} zeros\n`);
+  return zeros.slice(0, n);
 }
 
 function writeOutput(zeros, source, provenance) {
   const header = `// Auto-generated by scripts/fetch-odlyzko-zeros.mjs (imp-359)
 //
 // Verified Riemann zero ordinates for Phase 13+ Dyson backward ODE work.
-// DO NOT EDIT BY HAND — regenerate via:
+// DO NOT EDIT BY HAND -- regenerate via:
 //   node scripts/fetch-odlyzko-zeros.mjs [N]
 //
 // Source: ${source}
@@ -99,7 +179,7 @@ function writeOutput(zeros, source, provenance) {
       source,
       count: zeros.length,
       generatedAt: new Date().toISOString(),
-      scriptVersion: 'imp-359-v1',
+      scriptVersion: 'imp-514-v2',
       provenance,
     }, null, 2)});\n`;
   fs.writeFileSync(OUTPUT_FILE, header + body);
@@ -107,21 +187,40 @@ function writeOutput(zeros, source, provenance) {
 }
 
 async function main() {
-  console.log(`imp-359: fetching ${TARGET_N} Riemann zeros from Odlyzko zeros1...`);
+  console.log(`imp-359/imp-514: fetching ${TARGET_N} Riemann zeros from Odlyzko...`);
+  if (TARGET_N > ODLYZKO_BATCH_SIZE) {
+    const batchCount = Math.ceil(TARGET_N / ODLYZKO_BATCH_SIZE);
+    console.log(
+      `  N=${TARGET_N} requires up to ${batchCount} batch files ` +
+      `(zeros1..zeros${batchCount}), ~${(batchCount * 1.8).toFixed(0)} MB total download.`
+    );
+  }
   let zeros;
   let source;
   let provenance;
   try {
     zeros = await fetchOdlyzkoZeros(TARGET_N);
-    source = `Odlyzko zeros1 (${ODLYZKO_URL})`;
+    const batchCount = Math.ceil(TARGET_N / ODLYZKO_BATCH_SIZE);
+    source = TARGET_N <= ODLYZKO_BATCH_SIZE
+      ? `Odlyzko zeros1 (${ODLYZKO_BASE}zeros1)`
+      : `Odlyzko zeros1..zeros${batchCount} (${ODLYZKO_BASE})`;
     provenance =
-      'Downloaded from Andrew Odlyzko\'s canonical zeros1 table ' +
-      '(first 100,000 zeros of zeta, accurate to 3e-9, frozen 1998-03-18). ' +
+      'Downloaded from Andrew Odlyzko\'s canonical zero tables ' +
+      '(https://www-users.cse.umn.edu/~odlyzko/zeta_tables/). ' +
       'Each value is the imaginary part of a non-trivial zero of the ' +
-      'Riemann zeta function at sigma = 1/2. LMFDB API endpoints probed ' +
-      '2026-04-11 all returned 404, so we source directly from Odlyzko.';
+      'Riemann zeta function at sigma = 1/2. ' +
+      'zeros1 covers zeros 1..100,000 (accurate to 3e-9, frozen 1998). ' +
+      'imp-514: batch support added for zeros2..zeros10 to reach N=1,000,000.';
   } catch (err) {
     console.error(`Odlyzko fetch failed: ${err.message}`);
+    if (TARGET_N > ODLYZKO_BATCH_SIZE) {
+      console.error(
+        `Cannot fall back to local ZETA_ZEROS for N=${TARGET_N} > ${ODLYZKO_BATCH_SIZE}. ` +
+        'Ensure network access and re-run, or run compute-dyson-ladder-extended.mjs ' +
+        'with --download to cache zeros in scripts/.zeros-cache/.'
+      );
+      process.exit(1);
+    }
     console.error(
       'Falling back to importing existing src/math/zeta.js ZETA_ZEROS.',
     );
@@ -133,7 +232,7 @@ async function main() {
       TARGET_N,
     );
     if (!zeros.length) {
-      console.error('No fallback zeros available — bailing.');
+      console.error('No fallback zeros available -- bailing.');
       process.exit(1);
     }
     source = `local src/math/zeta.js (${zeros.length} entries, Odlyzko unreachable)`;

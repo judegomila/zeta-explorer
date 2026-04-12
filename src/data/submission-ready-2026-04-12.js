@@ -16,10 +16,7 @@
  * BUILD-TIME ASSERTIONS
  * ----------------------
  * fatalCount === 0  PASSES (all open FATALs from review 1 addressed; reviews 2-6 all 0)
- * criticalPending   is 1 (imp-501 assertion sweep remains) -- see NOTE below
- *
- * NOTE: criticalPending will be 0 after imp-501 (full assertion sweep) completes.
- * The hard assertion SUBMISSION_READY_MARKER.criticalPending === 0 is deferred to imp-501.
+ * criticalPending === 0  PASSES (imp-501 assertion sweep completed; hard assertion activated by imp-503)
  *
  * SYNTAX NOTE: avoid star-slash inside JSDoc block text.
  */
@@ -36,7 +33,7 @@ export const SUBMISSION_READY_MARKER = {
   // ── Improvement engine state ───────────────────────────────────────────────
   totalImprovements:  1400,   // nextImprovementId from queue-index.json
   totalCompleted:      464,   // completed entries at milestone time
-  criticalPending:       1,   // imp-501 (assertion sweep) remains; 0 after imp-501
+  criticalPending:       0,   // imp-501 (assertion sweep) completed; hard assertion activated by imp-503
   fatalCount:            0,   // FATAL findings across all 6 adversarial reviews (resolved)
 
   // ── Lean formalization state ───────────────────────────────────────────────
@@ -56,10 +53,10 @@ export const SUBMISSION_READY_MARKER = {
   // ── Adversarial review FATAL trajectory ───────────────────────────────────
   fatalTrajectory: [2, 0, 0, 0, 0, 0],  // Reviews 1-6; review 1 FATALs addressed by imp-424/425
 
-  // ── Deferred assertion ─────────────────────────────────────────────────────
-  deferredAssertion:
-    'SUBMISSION_READY_MARKER.criticalPending === 0 is deferred to imp-501 (assertion sweep). ' +
-    'After imp-501 this field will read 0 and the full hard assertion can be enabled.',
+  // ── Assertion upgrade log ──────────────────────────────────────────────────
+  assertionUpgrade:
+    'imp-503: criticalPending field updated 1->0 (imp-501 completed). ' +
+    'Hard assertion criticalPending !== 0 activated. Soft guard > 1 retired.',
 };
 
 // ── BUILD-TIME ASSERTIONS ──────────────────────────────────────────────────────
@@ -73,13 +70,12 @@ if (SUBMISSION_READY_MARKER.fatalCount !== 0) {
   );
 }
 
-// ASSERTION 2: criticalPending must be <= 1 at milestone time (imp-501 is the only remaining)
-// Upgraded to === 0 once imp-501 closes.
-if (SUBMISSION_READY_MARKER.criticalPending > 1) {
+// ASSERTION 2: criticalPending must be 0 — hard assertion activated by imp-503 (imp-501 completed)
+if (SUBMISSION_READY_MARKER.criticalPending !== 0) {
   throw new Error(
-    '[imp-500] SUBMISSION BLOCKED: criticalPending = ' +
+    '[imp-503] SUBMISSION BLOCKED: criticalPending = ' +
     SUBMISSION_READY_MARKER.criticalPending +
-    '. Only imp-501 (assertion sweep) is permitted as the sole remaining critical ticket.'
+    '. All critical tickets at milestone time must be resolved. Expected 0.'
   );
 }
 

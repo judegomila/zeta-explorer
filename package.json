@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite build && node server.js",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "assert": "node scripts/run-assertions.mjs",
+    "assert:fast": "node scripts/run-assertions.mjs --fast"
   },
   "repository": {
     "type": "git",

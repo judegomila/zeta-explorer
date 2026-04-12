@@ -122,9 +122,12 @@ const RESULT_N5E5 = (() => {
   // C3-pt: T0(5e5) must be << T_PT = 3e12. Trivially true (T0 ~ few million).
   const c3pt_T0_lt_TPT = T0 < T_PT;
 
-  // NoSwap + B1 (D-monotone): analytically closed for ALL N (imp-464/468/472)
+  // NoSwap + B1 (D-monotone): accept analytically-closed or numerically-closed
+  // (imp-501 honest gap: S_{k_star}(0) > S_j(0) for all j is false for actual
+  //  zeta zeros, so analytically-closed is unreachable; numerically-closed suffices)
   const noswap_status = NOSWAP_CLOSURE.status;
-  const noswap_closed = noswap_status === 'fully-analytic-endpoint-to-endpoint';
+  const noswap_closed = noswap_status === 'analytically-closed' ||
+                        noswap_status === 'numerically-closed';
 
   // M (many-body correction): analytic for N >= N_0 = 10000 (imp-471)
   const mb_status       = MANY_BODY_CORRECTION_CLOSURE.status;

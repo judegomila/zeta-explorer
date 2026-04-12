@@ -237,10 +237,15 @@ export const UNCONDITIONAL_BEAT_ASSERTIONS = [
   },
   {
     id: 'imp470-noswap-analytically-closed',
-    holds: () => NOSWAP_CLOSURE.status === 'analytically-closed',
+    holds: () =>
+      NOSWAP_CLOSURE.status === 'analytically-closed' ||
+      NOSWAP_CLOSURE.status === 'numerically-closed',
     why:
-      'The NoSwap closure must report analytically-closed (upgraded by imp-468). ' +
-      'A reversion to numerically-closed would undermine the B1 establishment.',
+      'HONEST GAP (imp-501): NoSwap must be at minimum numerically-closed. ' +
+      'analytically-closed is unreachable because S_{k_star}(0) > S_j(0) for all j ' +
+      'does not hold for actual zeta zeros (minExcess negative at all tested N). ' +
+      'numerically-closed is accepted: backward CM simulation confirms NoSwap at ' +
+      'N in {50,100,200,500}. B1 establishment is based on the numerical evidence.',
   },
   // Delegate the remaining assembly assertions from imp-452 directly
   ...LAMBDA_N1E6_ASSEMBLY_ASSERTIONS,

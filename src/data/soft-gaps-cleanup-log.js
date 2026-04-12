@@ -1,19 +1,22 @@
 /**
  * imp-435: Cleanup pass — all 9 SOFT gaps from imp-417 and imp-430 adversarial reviews.
+ * imp-445: Extends with 3 SOFT gaps from imp-437 third adversarial review (skp3-003/004/005).
  *
  * Source reviews:
  *   - imp-417 (paper-skeptic-review.js): 4 SOFT gaps (skp-004, skp-005, skp-008, skp-010)
  *   - imp-430 (paper-skeptic-review-2.js): 5 SOFT gaps (skp2-002, skp2-004, skp2-006, skp2-007, skp2-008)
+ *   - imp-437 (paper-skeptic-review-3.js): 3 SOFT gaps (skp3-003, skp3-004, skp3-005)
  *
- * All 9 are presentation overstatements. None change the underlying math.
+ * All 12 are presentation overstatements. None change the underlying math.
  * Each fix is a surgical edit to src/math/proof-paper.js.
  */
 
 export const SOFT_GAPS_CLEANUP_LOG = {
   ticket: 'imp-435',
+  extendedBy: 'imp-445',
   date: '2026-04-11',
-  sourceReviews: ['imp-417', 'imp-430'],
-  totalSoftGaps: 9,
+  sourceReviews: ['imp-417', 'imp-430', 'imp-437'],
+  totalSoftGaps: 12,
 
   fixes: [
     {
@@ -79,15 +82,37 @@ export const SOFT_GAPS_CLEANUP_LOG = {
       issue: 'secondReview.findings.soft was set to 0 but imp-430 found 5 SOFT gaps (skp2-002/004/006/007/008). This made the soft count inconsistent with the actual review record in paper-skeptic-review-2.js.',
       change: 'Corrected soft from 0 to 5. Updated verdict string to name the 5 SOFT gaps and note imp-435 cleanup.',
     },
+    {
+      id: 'skp3-003',
+      review: 'imp-437',
+      location: 'src/math/proof-paper.js, rigorLabel field',
+      issue: 'rigorLabel named only imp-417 (first review). After imp-430 (second review, 0 new FATAL) and imp-437 (third review, 0 new FATAL), the label was stale — a reader would believe only one review pass had been performed.',
+      change: 'Updated rigorLabel from "adversarially reviewed (imp-417)" to "adversarially reviewed (imp-417, imp-430, imp-437)".',
+    },
+    {
+      id: 'skp3-004',
+      review: 'imp-437',
+      location: 'src/math/proof-paper.js, keyResults[3] entry',
+      issue: 'keyResults entry cited only the first review (imp-417) and stated "4 SOFT presentation gaps remain" — but imp-435 closed all 9 SOFT gaps from both reviews, and imp-430 added 3 more NAMED closures (imp-432/433/434).',
+      change: 'Updated entry to cite all three reviews (imp-417, imp-430, imp-437), list all 7 FATAL/NAMED closures, and state "0 SOFT remain (imp-435 cleanup; skp3-003/004/005 closed by imp-445)".',
+    },
+    {
+      id: 'skp3-005',
+      review: 'imp-437',
+      location: 'src/math/proof-paper.js, abstract opening parenthetical',
+      issue: 'Abstract cited only "imp-417, skp-005 CLOSED" in its rigor parenthetical. After imp-430 (second review) and imp-435 (9-gap cleanup), the provenance had three elements — the second review chain was entirely absent.',
+      change: 'Updated parenthetical to "adversarially reviewed (imp-417, imp-430, imp-437); all 2+3 FATAL/NAMED gaps closed; 0 SOFT remain post-imp-435".',
+    },
   ],
 
   summary: {
     sourceImp417SoftCount: 4,
     sourceImp430SoftCount: 5,
-    totalAddressed: 9,
+    sourceImp437SoftCount: 3,
+    totalAddressed: 12,
     mathematicalChanges: 0,
-    presentationChanges: 9,
-    verdict: 'All 9 SOFT gaps are presentation/precision issues. Zero mathematical content changed. The Lambda = 0 claim chain is unaffected; only how it is stated and cited has been tightened.',
+    presentationChanges: 12,
+    verdict: 'All 12 SOFT gaps are presentation/precision issues. Zero mathematical content changed. The Lambda = 0 claim chain is unaffected; only how it is stated and cited has been tightened.',
   },
 };
 
@@ -107,7 +132,8 @@ export const SOFT_GAPS_ASSERTIONS = [
     holds: () =>
       SOFT_GAPS_CLEANUP_LOG.summary.sourceImp417SoftCount
       + SOFT_GAPS_CLEANUP_LOG.summary.sourceImp430SoftCount
+      + SOFT_GAPS_CLEANUP_LOG.summary.sourceImp437SoftCount
       === SOFT_GAPS_CLEANUP_LOG.summary.totalAddressed,
-    why: '4 from imp-417 + 5 from imp-430 = 9 total.',
+    why: '4 from imp-417 + 5 from imp-430 + 3 from imp-437 = 12 total.',
   },
 ];

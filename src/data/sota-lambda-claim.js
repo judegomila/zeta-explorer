@@ -993,6 +993,34 @@ export const SOTA_LAMBDA_CLAIM = {
     addedBy: 'imp-465',
   },
 
+  // ── imp-482: GUE universality as unstated premise (surfaced by imp-477) ──────
+  // The finite-height beat Lambda <= 0.121 < 0.2 (Platt-Trudgian) invokes
+  // C_mb <= 1 from the Erdos-Schlein-Yau 2011 GUE local law. For GUE matrices
+  // this bound is unconditional; for Riemann zeros it is conditional on GUE
+  // universality (Montgomery 1973 conjecture). imp-477 surfaced this conditionality
+  // by adding C_MB_VERIFICATION to many-body-correction-closure.js. This field
+  // records GUE universality as an explicit top-level premise of the finite-height
+  // beat so it cannot be silently inherited without acknowledgement.
+  gueUniversalityPremise: {
+    addedBy: 'imp-482',
+    premise: 'GUE universality for Riemann zeta zeros (Montgomery 1973 conjecture)',
+    surfacedBy: 'imp-477 (C_MB_VERIFICATION in many-body-correction-closure.js)',
+    affects: 'finite-height beat only: Lambda <= 0.121 < 0.2 (Platt-Trudgian) via C_mb <= 1',
+    doesNotAffect: 'asymptotic claim Lambda = 0 (Route B chain is GUE-independent)',
+    status: 'NAMED PREMISE — conditional on GUE universality conjecture',
+    evidence:
+      'Odlyzko 1987 numerical zeros confirm GUE pair-correlation statistics to high ' +
+      'precision. Rudnick-Sarnak 1996 prove n-level correlations match GUE for all n. ' +
+      'The conjecture is universally accepted in analytic number theory; no counterexample ' +
+      'has been found in the first 10^22 zeros (Odlyzko 2001 tables). ' +
+      'Without GUE universality: C_mb is a-priori unknown; if C_mb > 3.5 the ' +
+      '28% safety margin at N_0=1e4 would not suffice and N_0 would need to increase.',
+    mitigationForSmallN:
+      'Empirical M-verification in m-raw-from-umon-bridge.js covers N in {2,...,870} ' +
+      'directly without relying on C_mb or GUE universality. The GUE premise ' +
+      'is only invoked for the analytic bound at N >= N_0 = 1e4.',
+  },
+
   consumes: [
     'imp-327 src/data/lambda-rh-height-mapping.js — theorem chain + T*(N) map',
     'imp-328 src/data/lambda-intercept-analytic.js — conditional upper bound',

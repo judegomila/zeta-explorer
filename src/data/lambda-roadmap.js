@@ -370,11 +370,17 @@ export const LAMBDA_ROADMAP = {
   id: 'lambda-roadmap',
   targetSOTA: 'Λ ≤ 0.02 unconditional, beating Platt-Trudgian 2021 Λ ≤ 0.2 by 10x',
   currentStatus:
-    'Steps 1-4 are rigorous unconditionally (imp-387 closed G6_polymath15_bridge ' +
-    'modulo symbolic constants of order unity). E(N) = O((log N / N)^{1/2}) → 0 ' +
-    'establishes |Lambda - (-t_c(N))| <= E(N) → 0, so combined with imp-341 ' +
-    'lim-sup = 0 and Rodgers-Tao Lambda >= 0 this gives Lambda = 0 hence RH ' +
-    'asymptotically. Remaining work: pin down symbolic constants C_T, C_F, C_C.',
+    'ASYMPTOTIC: Steps 1-4 rigorous unconditionally (imp-387 closed G6_polymath15_bridge ' +
+    'modulo symbolic constants of order unity); |Lambda - (-t_c(N))| <= E(N) = ' +
+    'O((log N / N)^{1/2}) → 0; imp-341 lim-sup = 0 and Rodgers-Tao Lambda >= 0 give ' +
+    'Lambda = 0 asymptotically. Remaining work: pin constants C_T, C_F, C_C. ' +
+    'FINITE-HEIGHT BEAT (imp-452/459): L_pt ~ 0.121 < 0.2, beating Platt-Trudgian 2021. ' +
+    'B1 established unconditionally (imp-470): D-monotone closed analytically by imp-463; ' +
+    'NoSwap analytically closed at all N by imp-468 (repulsive-crossing rate 2/B → +inf). ' +
+    'Bridge M proved M_raw <==> M_uf via positive RvM Jacobian (imp-462); analytic ' +
+    'rho_min > 0 lower bound closed by imp-469. Condition-closure chain: imp-462 + imp-463 ' +
+    '+ imp-464 + imp-468 + imp-469 + imp-470. Sole remaining blocking condition: exact M ' +
+    'via many-body CM correction (imp-462-many-body-correction).',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

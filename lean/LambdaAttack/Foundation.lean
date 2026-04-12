@@ -67,6 +67,21 @@ axiom gammaOrdinate_ge_exp2 (N : ℕ) (hN : 1 ≤ N) : Real.exp 2 ≤ gammaOrdin
 axiom dysonCollTime (N : ℕ) : ℝ
 axiom dysonCollTime_nonpos (N : ℕ) : dysonCollTime N ≤ 0
 
+/-! ## Riemann-von Mangoldt growth axioms for gammaOrdinate (imp-511) -/
+
+/-- gamma_N -> infinity as N -> infinity (Riemann-von Mangoldt growth).
+    Follows from gamma_N ~ 2*pi*N / log N which is unbounded.
+    Not yet in Mathlib 4.9; declared as axiom to close rate_tendsto_zero (imp-511). -/
+axiom gammaOrdinate_tendsto_atTop :
+    Filter.Tendsto gammaOrdinate Filter.atTop Filter.atTop
+
+/-- log(gamma_N) / N -> 0 as N -> infinity (RvM rate consequence for imp-511).
+    From gamma_N ~ 2*pi*N / log N: log(gamma_N) ~ log N, so log(gamma_N)/N ~ log N / N -> 0.
+    Used in rate_tendsto_zero to prove the dominant E_coll term tends to 0. -/
+axiom gammaOrdinate_log_div_N_tendsto_zero :
+    Filter.Tendsto (fun N : ℕ => Real.log (gammaOrdinate N) / (N : ℝ))
+      Filter.atTop (nhds 0)
+
 /-! ## Bridge exponent and Gronwall constant (canonical declaration) -/
 
 /-- kappa_T = 91/500 = 0.182: hybrid Guth-Maynard/Ingham decay exponent for E_trunc (imp-317).

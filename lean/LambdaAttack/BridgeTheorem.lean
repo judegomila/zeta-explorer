@@ -26,7 +26,7 @@
 --   Error term definitions: formal
 --   errorColl_nonneg      : fully formal (positivity)
 --   bridge_theorem        : PROVED via triangle inequality (polymath15_lem33_prop41 + polymath15_lem52_holder; imp-510)
---   rate_tendsto_zero     : sorry (requires RvM growth gamma_N ~ 2*pi*N/log N)
+--   rate_tendsto_zero     : PARTIAL (E_coll proved; rtz-001/rtz-002 sub-gaps remain; imp-511)
 --   G6_bridge_closed      : CONDITIONALLY PROVED via squeeze (imp-490; relies on sorry'd bridge/rate)
 --
 -- In a Lake project: `import LambdaAttack.Foundation` (already present below)
@@ -184,16 +184,35 @@ theorem bridge_theorem (N : ℕ) (hN : 2 ≤ N) :
     Status: SORRY -- requires RvM growth gamma_N ~ 2*pi*N / log N in Lean. -/
 theorem rate_tendsto_zero :
     Tendsto (fun N : ℕ => errorTotal N) atTop (nhds 0) := by
-  sorry
-  -- Proof sketch:
-  -- 1. E_coll(N) = C_C * sqrt(log(gamma_N) / N) <= C_C * sqrt(C * log N / N)
-  --    using RvM: gamma_N <= C * N for large N (so log gamma_N <= log C + log N).
-  -- 2. sqrt(log N / N) -> 0: standard (poly-log / poly beats any power).
-  -- 3. E_trunc(N) = C_T * gamma_N^(-kappa_T) * log(gamma_N) -> 0 since
-  --    gamma_N >= 2*pi*N / (log N + C), so gamma_N^kappa_T >> log(gamma_N).
-  -- 4. E_flow(N) = C_F * log(gamma_N) / gamma_N * exp(C_G * |t_c(N)|) -> 0
-  --    since log(x)/x -> 0 and exp(C_G * |t_c(N)|) -> 1 (|t_c| -> 0 by imp-341).
-  -- 5. Tendsto.add three terms.
+  -- Proof via RvM axioms in Foundation.lean (imp-511).
+  -- Split errorTotal = errorTrunc + errorFlow + errorColl and show each -> 0.
+  -- E_coll (dominant O((log N/N)^{1/2})): CLOSED via gammaOrdinate_log_div_N_tendsto_zero.
+  -- E_trunc (sub-gap rtz-001): needs x^{-kappa_T}*log x->0 + gammaOrdinate_tendsto_atTop.
+  -- E_flow  (sub-gap rtz-002): needs log^2(x)/x->0 + KoksmaHlawkaLimSup (move to Foundation).
+  have hcoll : Tendsto (fun N : ℕ => errorColl N) atTop (nhds 0) := by
+    unfold errorColl
+    -- C_C * sqrt(log(gamma_N)/N) -> C_C * sqrt(0) = 0
+    -- via continuity of (C_C * sqrt) composed with gammaOrdinate_log_div_N_tendsto_zero
+    have hf : Continuous (fun x : ℝ => C_C * Real.sqrt x) :=
+      continuous_const.mul Real.continuous_sqrt
+    have h := (hf.tendsto 0).comp gammaOrdinate_log_div_N_tendsto_zero
+    simp only [Real.sqrt_zero, mul_zero] at h
+    exact h
+  have htrunc : Tendsto (fun N : ℕ => errorTrunc N) atTop (nhds 0) := by
+    sorry -- sub-gap rtz-001: C_T(gamma_N)*gamma_N^{-kappa_T}*log(gamma_N)->0
+          -- C_T bounded above by 3/2 (C_T_lt_three_halves); gammaOrdinate_tendsto_atTop
+          -- and Real.tendsto_log_div_rpow_atTop BRIDGE_kappa_T_pos close the product
+  have hflow : Tendsto (fun N : ℕ => errorFlow N) atTop (nhds 0) := by
+    sorry -- sub-gap rtz-002: C_F(gamma_N)*log(gamma_N)/gamma_N*exp(C_G*|t_c|)->0
+          -- log^2(x)/x->0 (Mathlib); exp factor->1 needs KoksmaHlawkaLimSup from Capstone
+          -- (circular import); fix: move KoksmaHlawkaLimSup axiom to Foundation.lean
+  have heq : (fun N : ℕ => errorTotal N) =
+      (fun N => errorTrunc N + errorFlow N + errorColl N) := by
+    ext N; unfold errorTotal; ring
+  rw [heq]
+  have key := (htrunc.add hflow).add hcoll
+  simp only [add_zero] at key
+  exact key
 
 /-- G6_polymath15_bridge assembled: (-t_c(N)) converges to Lambda.
     Proof via squeeze: bridge_theorem gives |(-t_c N) - Lambda| <= errorTotal N,
@@ -240,11 +259,13 @@ end
        The sorry keyword has been removed; this theorem is now formally proved
        conditional on the two new axioms above (which encapsulate the hard math).
 
-    2. rate_tendsto_zero (imp-412-sorry-2)
+    2. rate_tendsto_zero (imp-412-sorry-2) -- PARTIAL CLOSURE by imp-511
        Statement: errorTotal N -> 0 as N -> infinity.
-       Needs: Riemann-von Mangoldt asymptotics gamma_N ~ 2*pi*N / log N
-              formalized in Lean (not in Mathlib 4.9 as of 2025).
-       Closes once: Mathlib gains an RvM growth lemma for zeta zero ordinates.
+       Status: E_coll term PROVED via gammaOrdinate_log_div_N_tendsto_zero (Foundation.lean).
+       Sub-gap rtz-001: E_trunc term (C_T*gamma_N^{-kappa_T}*log gamma_N -> 0)
+         -- Needs: gammaOrdinate_tendsto_atTop + Real.tendsto_log_div_rpow_atTop
+       Sub-gap rtz-002: E_flow term (C_F*log(gamma_N)/gamma_N*exp(C_G*|t_c|) -> 0)
+         -- Needs: log^2(x)/x->0 + KoksmaHlawkaLimSup moved to Foundation.lean
 
     3. G6_bridge_closed (imp-412-sorry-3) -- CLOSED by imp-490
        Statement: (-t_c(N)) -> Lambda.

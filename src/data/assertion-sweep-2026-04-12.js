@@ -34,7 +34,7 @@
 
 import './polymath15-constants-mpfr-check.js';   // imp-413: 4 assertions (C_H/C_C/C_T/C_F ulp < 5)
 import './polymath15-constants-gmp-check.js';    // imp-422: 4 assertions (C_H/C_C/C_T/C_F relErr < 1e-14)
-import './submission-ready-2026-04-12.js';       // imp-500: 2 assertions (fatalCount===0, criticalPending<=1)
+import './submission-ready-2026-04-12.js';       // imp-500: 2 assertions (fatalCount===0, criticalPending===0)
 import '../math/c-mb-unconditional-bound.js';    // imp-486: 2 assertions (searchComplete, approachesExamined>=3)
 
 // NOTE: imp469-cross-verification.js is already live via m-raw-from-umon-bridge.js (imp-473: 5 assertions).
@@ -94,11 +94,11 @@ export const ASSERTION_SWEEP_2026_04_12 = {
       file:    'src/data/submission-ready-2026-04-12.js',
       ticket:  'imp-500',
       count:   2,
-      checks:  ['fatalCount === 0', 'criticalPending <= 1'],
+      checks:  ['fatalCount === 0', 'criticalPending === 0'],
       wasLive: false,
       nowLive: true,
       pass:    true,
-      note:    'fatalCount=0 (hard assertion, passes); criticalPending=1 (soft guard, imp-501 was sole remaining)',
+      note:    'fatalCount=0 (hard assertion, passes); criticalPending=0 (hard assertion activated by imp-503, throws if nonzero)',
     },
     {
       file:    'src/math/c-mb-unconditional-bound.js',

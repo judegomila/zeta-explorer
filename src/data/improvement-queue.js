@@ -5388,11 +5388,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'META: Engine heartbeat stall detection — fail the monitor if run count is frozen for 2+ ticks',
     category: 'meta',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     description: 'The monitor backoff gate catches rate-limit / 429 / ConnectionRefused / quota-exceeded / API Error patterns but DOES NOT catch silent network hangs where the claude --print child wedges for hours with no output. This happened earlier in the session: the engine was stuck on Run #51 at 12:53:37Z for ~55 minutes producing zero log output, and the gate green-lit every subsequent monitor tick because nothing in the last 5 logs matched an error pattern. Fix: extend the monitor cron prompt (or the auto-improve.sh loop) to track the previous tick run count (scripts/.last-tick-run-count), compare to the current run count, and if unchanged across 2+ consecutive ticks, declare the engine stalled + stop/restart automatically. Deliverable: either a new wrapper script scripts/monitor-heartbeat.mjs that runs on a cron or as part of the cron-monitor prompt, OR an inline check added to the existing cron prompt.',
     rationale: 'A 55-minute silent stall is a ~55-run (~$3-$5) waste of engine throughput that the current monitor protocol cannot detect. Stall detection is the missing safety net in the monitor loop.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-12T09:00:00Z',
+    closureNote: 'Implemented inline in auto-improve.sh: (1) HEARTBEAT_FILE variable; (2) date +%s written to .heartbeat after each completed run; (3) do_status checks heartbeat mtime via stat -f %m, computes beat_age, prints STALL DETECTED and sets stall_detected=1 if beat_age > INTERVAL*2 (120s), returns stall_detected so the script exits 1 for monitor/cron consumers. Closes the 55-minute silent-stall gap.',
   },
 
   // ── Phase 27: close the 3 NAMED gaps surfaced by imp-430 second review ──

@@ -12,6 +12,7 @@ PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 PID_FILE="$SCRIPT_DIR/.auto-improve.pid"
 LOG_DIR="$SCRIPT_DIR/logs"
 IMPROVEMENTS_FILE="$PROJECT_DIR/IMPROVEMENTS.md"
+HEARTBEAT_FILE="$SCRIPT_DIR/.heartbeat"   # epoch-seconds written after each run; stale = stall
 INTERVAL=60   # 1 minute
 MAX_RUNS=1000
 
@@ -156,6 +157,8 @@ do_start() {
 
       echo "=== Run #$run_count complete ===" >> "$log_file"
       echo "Run #$run_count complete. Log: $log_file"
+      # Update heartbeat so stall detection can verify the loop is still alive.
+      date +%s > "$HEARTBEAT_FILE"
 
       # ── Post-commit status-flip verification ──────────────────────────────
       # Parse the last commit message for an imp-NNN id and confirm that
@@ -259,9 +262,24 @@ do_stop() {
 }
 
 do_status() {
+  stall_detected=0
   if [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
     pid=$(cat "$PID_FILE")
     echo "Auto-improve is RUNNING (PID $pid)"
+    # Heartbeat stall detection: fail (exit 1) if no new run within 2 intervals.
+    if [ -f "$HEARTBEAT_FILE" ]; then
+      last_beat=$(stat -f %m "$HEARTBEAT_FILE" 2>/dev/null || echo 0)
+      beat_age=$(( $(date +%s) - last_beat ))
+      stall_threshold=$(( INTERVAL * 2 ))
+      if [ "$beat_age" -gt "$stall_threshold" ]; then
+        echo "  STALL DETECTED: heartbeat ${beat_age}s stale (threshold ${stall_threshold}s = 2 ticks)"
+        stall_detected=1
+      else
+        echo "  Heartbeat OK: ${beat_age}s ago"
+      fi
+    else
+      echo "  Heartbeat: no heartbeat yet (engine may still be starting up)"
+    fi
     # Count completed runs
     run_count=$(ls "$LOG_DIR"/run_*.log 2>/dev/null | wc -l | tr -d ' ')
     echo "  Completed runs: $run_count"
@@ -289,6 +307,7 @@ do_status() {
     [ "$imp_count" -lt 0 ] && imp_count=0
     echo "  Improvements logged: $imp_count"
   fi
+  return "$stall_detected"
 }
 
 case "${1:-}" in

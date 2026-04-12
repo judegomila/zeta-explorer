@@ -6573,7 +6573,6 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Extend measured Dyson ladder to N=1M via Odlyzko zeros6 download',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
     proofSection: 'S10-numerical',
     description: 'dyson-ladder-measured.js extends only to N=100,000 with rows above computed via projection. Download the Odlyzko zeros6 dataset (~35 MB, 2M+ zeros) and extend the measured ladder to N in {150k, 250k, 400k, 600k, 1M}. The O(N^2) pairwise computation is infeasible at Vite build time; run offline via a Node script and cache the results. Deliverable: scripts/compute-dyson-ladder-extended.mjs + updated dyson-ladder-measured.js with measured rows + status flip from partial to complete.',
     rationale: 'Strongest possible empirical validation of the Lambda bound at the N* = 1e6 scale used in the headline result.',

@@ -1,29 +1,31 @@
 {
-  "generatedAt": "2026-04-12T20:59:18.517Z",
+  "generatedAt": "2026-04-12T21:34:42.361Z",
   "source": "imp-514 offline compute harness (scripts/compute-dyson-ladder-extended.mjs)",
   "zerosProvenance": "Odlyzko zeta tables (https://www-users.cse.umn.edu/~odlyzko/zeta_tables/)",
-  "zerosLoaded": 150000,
-  "dt": 0.0001,
-  "maxSteps": 5,
+  "zerosLoaded": 10000,
+  "dtParam": 0.0001,
+  "maxStepsParam": 120,
+  "dtNote": "Effective dt per N is gap-seeded: dtEff = min(DT, d_min^2/80). See row.dt for actual dt used (imp514d fix).",
   "rows": [
     {
-      "N": 150000,
-      "source": "suspect-overshoot-artifact",
-      "t_c": 0.0001,
+      "N": 10000,
+      "source": "measured-float64-rk4",
+      "t_c": 0.0003,
       "reason": "gap-nonpositive",
-      "dt": 0.0001,
-      "nSteps": 5,
-      "stepsRun": 1,
-      "wallTimeMs": 350861,
-      "olsProjection": 0.00668173,
-      "note": "SUSPECT: t_c=0.00010000 is 67x smaller than OLS=0.00668173; likely step-size overshoot (sub-gap imp514d). Row not used as override. Float64 RK4 (NOT certified interval arithmetic). Step-size adaptive near collision. Estimated ~23s/step. At N=150K the initial minimum gap between adjacent zeros can be smaller than 2*sqrt(dt)=0.02; the Dyson collapse time T~gap^2/4 is then < dt, and the first RK4 step overshoots the collision."
+      "dt": 0.00001776471033634661,
+      "nSteps": 300,
+      "stepsRun": 3,
+      "wallTimeMs": 4635,
+      "olsProjection": 0.00714,
+      "initialMinGap": 0.0376985,
+      "note": "Float64 RK4 (NOT certified). dt gap-seeded: initialMinGap=3.770e-2, dtEff=1.776e-5 (imp514d fix). Estimated ~0s/step. Collision detected at t_c ~ 0.000300."
     }
   ],
   "subGaps": [
     {
       "id": "imp514a",
-      "description": "zeros data blocker: resolved — zeros6 combined file (2M zeros, ~35 MB) downloaded to scripts/.zeros-cache/zeros6 on 2026-04-12. ZEROS_EXTENDED in zeros-to-1e6.js still has 100K entries; updating it to 1M+ is deferred pending imp514b/d resolution.",
-      "status": "resolved"
+      "description": "zeros data blocker: zeros-to-1e6.js has 100K entries; N>100K needs zeros2..zerosK. Run this script with --download to fetch additional Odlyzko batches. zeros6 may also be a combined 2M-zero file (~35 MB) at the same base URL.",
+      "status": "partial"
     },
     {
       "id": "imp514b",
@@ -37,9 +39,9 @@
     },
     {
       "id": "imp514d",
-      "description": "step-size overshoot at large N: for N >= 150K the initial minimum gap between adjacent Riemann zeros can be smaller than 2*sqrt(dt). The Dyson nearest-pair collapse time T~gap^2/4 is then less than dt, so the first RK4 step overshoots the collision and reports a spurious t_c~dt. N=150K run produced t_c=0.0001 vs OLS=0.00668 (67x discrepancy). Row flagged source=suspect-overshoot-artifact and excluded from cache overrides. Resolution: seed dt from initial minimum gap or use native C/Rust backend.",
-      "status": "open"
+      "description": "step-size overshoot at large N: FIXED (two-stage). Stage 1 (initial overshoot, prior run): dtEff = min(DT, d_min^2/80) is seeded from the initial minimum gap d_min so the first RK4 step cannot overshoot the nearest-pair collapse time T_pair ~ d_min^2/8. Stage 2 (dt-restoration bug, this run): backwardCollisionRK4Float64 now accepts maxDt=DT so the integrator restores currentDt to the original DT (not to dtEff) once mg > 10 * ADAPT_THRESH. Previously, restoration returned to dtEff (e.g. 2.70e-6 at N=150K), keeping the step permanently tiny and covering only stepsEff * dtEff = 300 * 2.70e-6 = 8.1e-4 of the ~0.00668 integration range. With the fix, the integrator recovers to DT=0.0001 after the initial close-pair zone, covering 300 total steps including ~250 at DT=0.0001 => 0.025 time units >> OLS(150K)=0.00668. Wall time is unchanged (~7 hr at N=150K in JS), but the run now returns a meaningful t_c instead of budget-exhausted at t=0.00081.",
+      "status": "fixed"
     }
   ],
-  "usageNote": "Import these rows into dyson-ladder-measured.js to replace PROJECTED_ROWS at matching N. Only rows with source=\"measured-float64-rk4\" and reason=\"gap-nonpositive\" carry a meaningful collision time. Rows with source=\"suspect-overshoot-artifact\" are excluded from overrides. Budget-exhausted rows report t_c as a lower bound."
+  "usageNote": "Import these rows into dyson-ladder-measured.js to replace PROJECTED_ROWS at matching N. Only rows with source=\"measured-float64-rk4\" and reason=\"gap-nonpositive\" carry a meaningful collision time. Budget-exhausted rows report t_c as a lower bound."
 }

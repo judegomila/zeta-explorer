@@ -93,12 +93,24 @@ const STEPS    = parseInt(param('--steps',    '120'), 10);
 const DRY_RUN  = flag('--dry-run');
 const DOWNLOAD = flag('--download');
 const OUT_PATH = param('--out', path.join(ROOT, 'src/data/dyson-ladder-extended-cache.json'));
+// --custom-targets N1,N2,...  Override the default TARGET_NS with a
+// comma-separated list of N values. Values larger than MAX_N are still filtered
+// out. Useful for quick validation runs at small N to confirm the gap-seeded
+// dt fix (imp514d) without waiting hours for a N=150K production run.
+//   node scripts/compute-dyson-ladder-extended.mjs --custom-targets 10000,25000
+const CUSTOM_TARGETS_RAW = param('--custom-targets', '');
+const CUSTOM_TARGETS = CUSTOM_TARGETS_RAW
+  ? CUSTOM_TARGETS_RAW.split(',').map(s => parseInt(s.trim(), 10)).filter(n => n > 0 && n <= MAX_N)
+  : null;
 
 const CACHE_DIR = path.join(__dirname, '.zeros-cache');
 const ODLYZKO_BASE = 'https://www-users.cse.umn.edu/~odlyzko/zeta_tables/';
 
 // Target N values for the extended ladder (from imp-514 ticket and dyson-ladder-measured.js)
-const TARGET_NS = [150000, 250000, 400000, 600000, 1000000].filter(n => n <= MAX_N);
+// Overridden by --custom-targets if provided (e.g. for small-N validation of imp514d fix).
+const TARGET_NS = CUSTOM_TARGETS != null
+  ? CUSTOM_TARGETS
+  : [150000, 250000, 400000, 600000, 1000000].filter(n => n <= MAX_N);
 
 // ── Feasibility estimates ─────────────────────────────────────────────────────
 // At ~1e9 float ops/s in Node.js, O(N^2) per-step estimate:

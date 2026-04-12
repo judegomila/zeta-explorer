@@ -6636,11 +6636,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add queue-index staleness check: rebuild if improvement-queue.js is newer than cache',
     category: 'meta',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     description: 'The monitor seeds tickets by editing improvement-queue.js directly, but the engine reads scripts/queue-index.json (a cached subset). If the monitor seeds between engine runs, the cache may be stale and the engine picks up old state. Add a timestamp check to auto-improve.sh: if improvement-queue.js mtime > queue-index.json mtime, rebuild the cache before the run. Deliverable: updated auto-improve.sh + build-queue-index.mjs timestamp guard.',
     rationale: 'Prevents the engine from missing freshly-seeded tickets for one cycle.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-12T23:55:00Z',
+    closureNote: 'Added staleness check at the top of main() in build-queue-index.mjs: compares mtime of queue-index.json vs improvement-queue.js; skips rebuild if cache is newer. try/catch handles missing cache file. Build passed.',
   },
 
   // ─── APP / DASHBOARD IMPROVEMENTS ─────────────────────────────────────

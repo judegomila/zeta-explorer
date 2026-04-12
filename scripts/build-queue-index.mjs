@@ -115,6 +115,19 @@ function tokenEstimate(filePath) {
 // ── Main ──────────────────────────────────────────────────────────────────
 
 function main() {
+  // Staleness check: if queue-index.json is newer than improvement-queue.js,
+  // the cache is still valid — skip the expensive rebuild.
+  try {
+    const indexMtime = fs.statSync(OUTPUT_FILE).mtimeMs;
+    const queueMtime = fs.statSync(QUEUE_FILE).mtimeMs;
+    if (indexMtime > queueMtime) {
+      console.log('queue-index.json is up to date (improvement-queue.js unchanged) — skipping rebuild.');
+      return;
+    }
+  } catch {
+    // OUTPUT_FILE does not exist yet — proceed with full build.
+  }
+
   const queueText = fs.readFileSync(QUEUE_FILE, 'utf8');
   const improvementsText = fs.readFileSync(IMPROVEMENTS_FILE, 'utf8');
 

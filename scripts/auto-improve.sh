@@ -15,6 +15,7 @@ IMPROVEMENTS_FILE="$PROJECT_DIR/IMPROVEMENTS.md"
 HEARTBEAT_FILE="$SCRIPT_DIR/.heartbeat"   # epoch-seconds written after each run; stale = stall
 INTERVAL=60   # 1 minute
 MAX_RUNS=1000
+PUSH_EVERY=5  # push to remote after every N clean runs (imp-442)
 
 # The prompt given to Claude Code on each iteration
 IMPROVE_PROMPT='You are improving the ZPO Explorer / RH-attack project. Your task:
@@ -222,6 +223,22 @@ EOF
           echo "Clean run — rate-limit sentinel cleared, backoff reset." | tee -a "$log_file"
         fi
         backoff_s=0
+      fi
+
+      # ── Auto-push every N runs ────────────────────────────────────────
+      # Bound the local-only commit window so a laptop crash or network
+      # partition cannot strand more than PUSH_EVERY runs of commits.
+      # Only push when there are unpushed commits to avoid noisy log lines.
+      if [ "$((run_count % PUSH_EVERY))" -eq 0 ]; then
+        unpushed=$(git -C "$PROJECT_DIR" log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')
+        if [ "${unpushed:-0}" -gt 0 ]; then
+          echo "AUTO-PUSH: $unpushed unpushed commit(s) — pushing (run #$run_count, every ${PUSH_EVERY} runs)..." | tee -a "$log_file"
+          git -C "$PROJECT_DIR" push >> "$log_file" 2>&1 \
+            && echo "AUTO-PUSH: success" | tee -a "$log_file" \
+            || echo "AUTO-PUSH: push failed (non-fatal; will retry at next multiple of $PUSH_EVERY)" | tee -a "$log_file"
+        else
+          echo "AUTO-PUSH: nothing new to push at run #$run_count" | tee -a "$log_file"
+        fi
       fi
 
       # Wait for next interval, plus the exponential backoff if any.

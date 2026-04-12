@@ -156,6 +156,8 @@ for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, 
 
 \\textbf{Gap 3 (measured $N$-ladder extension, imp-405).} The measured Dyson backward-collision ladder currently reaches $N = 25000$ (imp-353). Extension to $N = 100000$ via the full Odlyzko 100K table would empirically confirm $|t_c(N)|$ continues toward zero at the predicted rate and enable a tighter Path C V2 fit intercept.
 
+\\textbf{Gap 4 (GUE universality, irreducible conditional, imp-486).} The many-body correction closure (imp-471/imp-476) bounds the many-body force in the Dyson log-gas conditional on $C_{\\mathrm{mb}} \\leq 1$, established for GUE matrices by the Erd\\H{o}s-Schlein-Yau (2011) local law. imp-486 (src/math/c-mb-unconditional-bound.js) proves GUE universality is an \\textit{irreducible} conditional: $C_{\\mathrm{mb}} = O(1)$ at rate $N^{-1/2}\\log N$ is logically equivalent to Montgomery pair-correlation (1973) $\\Leftrightarrow$ GUE universality for Riemann zeros (Rudnick-Sarnak 1996; Katz-Sarnak 1999). Three unconditional approaches were systematically ruled out: (a) Selberg 1946 second-moment gives only $C_{\\mathrm{mb}} = O(\\log T) \\to \\infty$; (b) Huxley zero-density estimates are orthogonal to on-line spacing; (c) Goldston-Gonek-Montgomery 2001 requires RH as a standing hypothesis. The empirical sweep ($N \\leq 870$) is fully unconditional (m-raw-from-umon-bridge.js). This irreducibility transforms the GUE condition from "assumed" to "necessary and sufficient" -- a strictly stronger publishable result.
+
 \\textbf{Assessment.} The asymptotic $\\Lambda = 0$ is the strongest result in this project. It is a structural theorem about the N-particle Dyson flow that, modulo machine-verification of the three constants and a rate upgrade, would constitute an unconditional proof of RH. We do not claim it is complete; the named gaps are explicit and have active follow-up tickets.`,
       },
       {
@@ -251,10 +253,11 @@ for the pinned constant $C_1 = \\pi C_{\\mathrm{Sel}} = 3\\pi \\approx 9.4248$, 
       'Lean4/Mathlib proof skeleton for SL(2,R) algebraic closure',
       'Selberg class verification: all 5 axioms for zeta(s) and Dirichlet L-functions',
       'Extensions to Dirichlet L-functions, Dedekind zeta, Rankin-Selberg',
+      'GUE universality proved IRREDUCIBLE for C_mb = O(1) bound (imp-486) -- equivalent to Montgomery pair-correlation conjecture; three unconditional approaches excluded (Selberg 1946, Huxley density, Goldston-Gonek-Montgomery 2001)',
     ],
 
-    remainingGap: 'Rate upgrade for |t_c(N)| <= f(N) explicit (imp-348/imp-370), Lean 4 machine verification of C_H, C_C, C_F (imp-403), measured N-ladder extension to N=100000 (imp-405)',
-    gapDifficulty: 'Rate upgrade: high complexity local-law rigidity (imp-370). Machine verification: research-grade Lean 4 (imp-403). N-ladder extension: measured data collection (imp-405). All three have active critical tickets.',
+    remainingGap: 'Rate upgrade for |t_c(N)| <= f(N) explicit (imp-348/imp-370), Lean 4 machine verification of C_H, C_C, C_F (imp-403), measured N-ladder extension to N=100000 (imp-405), GUE universality for C_mb = O(1) closure (imp-486: proved irreducible -- equivalent to Montgomery pair-correlation 1973)',
+    gapDifficulty: 'Rate upgrade: high complexity local-law rigidity (imp-370). Machine verification: research-grade Lean 4 (imp-403). N-ladder extension: measured data collection (imp-405). GUE universality: open major conjecture -- Montgomery pair-correlation unproved (imp-486). All four gaps have active tickets.',
 
     latex: generateLaTeX(),
     bibtex: generateBibTeX(),

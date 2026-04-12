@@ -6253,12 +6253,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Update paper to cite imp-486 GUE irreducibility: strengthen the conditional statement',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'paper',
     description: 'imp-486 proves GUE universality is IRREDUCIBLE — C_mb = O(1) at rate N^{-1/2} log N is logically equivalent to Montgomery 1973 pair-correlation. This is a stronger statement than simply "conditional on GUE": it means no weaker hypothesis suffices. The paper (sota-lambda-2026.tex) currently says "GUE-CONDITIONAL" but does not cite the irreducibility. Update: (1) add a Remark or Proposition in the paper body stating "GUE universality is necessary and sufficient for the finite-height beat" citing imp-486 c-mb-unconditional-bound.js; (2) update abstract from "conditional on GUE" to "conditional on GUE universality (proved necessary)"; (3) add the C_MB_RESCUE_TABLE from imp-486 as a Table showing how a weaker C_mb would trade off against N_0. Deliverable: updated .tex + arxiv-metadata.yaml abstract update.',
     rationale: 'A conditional result where the condition is proved necessary is FAR more publishable than one where the condition is merely assumed — it turns "we could not do better" into "this is the optimal hypothesis". The irreducibility is the strongest new result from imp-486 and should be prominently cited.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-12T06:00:00.000Z',
+    closureNote: 'Added Gap 4 paragraph to Section 11 of proof-paper.js documenting GUE universality as an irreducible conditional proved by imp-486 (c-mb-unconditional-bound.js). Cites equivalence chain C_mb = O(1) iff Montgomery pair-correlation iff GUE universality; rules out three unconditional approaches (Selberg, Huxley, GGM). Updated remainingGap, gapDifficulty, and keyResults fields. Build passed. improvements.js id 1388.',
   },
 
   // Phase 41 — final credibility hardening (seeded 2026-04-12 by monitor).

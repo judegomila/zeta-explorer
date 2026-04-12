@@ -162,6 +162,20 @@ do_start() {
       # Update heartbeat so stall detection can verify the loop is still alive.
       date +%s > "$HEARTBEAT_FILE"
 
+      # ── Dev-server liveness check (imp-313) ──────────────────────────────
+      # After each run, confirm the dev server on :3002 still responds HTTP 200.
+      # A bad improvement can break the server silently; catching it here stops
+      # the engine from compounding the damage.
+      DEV_SERVER_URL="http://localhost:3002"
+      http_status=$(curl -sfo /dev/null -w "%{http_code}" --connect-timeout 5 "$DEV_SERVER_URL" 2>/dev/null || echo "000")
+      if [ "$http_status" = "200" ]; then
+        echo "DEV-SERVER OK: $DEV_SERVER_URL returned 200" | tee -a "$log_file"
+      else
+        echo "DEV-SERVER FAIL: $DEV_SERVER_URL returned $http_status -- halting engine to prevent cascading damage" | tee -a "$log_file"
+        echo "RUN #$run_count ($timestamp): dev-server returned $http_status -- engine halted" >> "$SCRIPT_DIR/dev-server-failures.log"
+        break
+      fi
+
       # ── Post-commit status-flip verification ──────────────────────────────
       # Parse the last commit message for an imp-NNN id and confirm that
       # ticket is now marked completed in the queue. Any drift is appended

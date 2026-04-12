@@ -884,6 +884,56 @@ export const SOTA_LAMBDA_CLAIM = {
         'Finite-height beat strongest stated as "under GUE universality for C_mb". ' +
         'Named gaps seeded as imp-476 (N-coverage) and imp-477 (GUE-universality note).',
     },
+    // ── Phase 37 wave (imp-476 through imp-479) ───────────────────────────────
+    {
+      ticket: 'imp-476',
+      gap: 'skp5-s2 / rho_min citation corrected',
+      summary:
+        'Propagated corrected rho_min = 0.12751 (imp-473 mpmath 50-digit value) across ' +
+        '5 stale-cite files: many-body-correction-closure.js, lambda-N1e6-unconditional-beat.js, ' +
+        'lambda-N1e6-final-assembly.js, m-raw-from-umon-bridge.js, sota-lambda-claim.js. ' +
+        'Corrected ratio 0.720 -> 0.722 in safety margin computation.',
+      file: 'src/math/many-body-correction-closure.js',
+      impactOnSota:
+        'Corrects the rho_min citation from ~0.1279 to 0.12751 across all bridge files. ' +
+        'No numeric change to the Lambda bound; theorem chain valid throughout.',
+    },
+    {
+      ticket: 'imp-477',
+      gap: 'skp5-002',
+      summary:
+        'Added C_MB_VERIFICATION export to many-body-correction-closure.js with explicit ' +
+        'ESY 2011 citations (Thm 2.2 local semicircle law + Thm 2.3 DBM universality). ' +
+        'C_mb <= 1 proved UNCONDITIONALLY for GUE matrices; CONDITIONAL for Riemann zeros ' +
+        '(requires GUE universality, Montgomery 1973). Closes skp5-002.',
+      file: 'src/math/many-body-correction-closure.js',
+      impactOnSota:
+        'Closes skp5-002 named gap from fifth adversarial review (imp-474). ' +
+        'Surfaces GUE universality as explicit premise in the C_mb bound; ' +
+        'finite-height beat Lambda <= 0.121 is GUE-CONDITIONAL rather than unconditional.',
+    },
+    {
+      ticket: 'imp-478',
+      summary:
+        'Extended unconditional finite-height beat grid from N*=5e7 to N*=1e9 by adding ' +
+        '{1e8, 5e8, 1e9} to TARGET_NS in finite-height-beats-platt-trudgian.js. ' +
+        'Sweep expanded from 5 rows to 8 rows; L_cond and L_pt beat PT at all 8 grid points by ~25-28x.',
+      file: 'src/data/finite-height-beats-platt-trudgian.js',
+      impactOnSota:
+        'Hardens finite-height beat coverage: confirmed at N* in {1e4,...,1e9}. ' +
+        'No numeric change to Lambda bound; 24.9x margin confirmed at larger N.',
+    },
+    {
+      ticket: 'imp-479',
+      summary:
+        'Honest partial closure: upgraded paper status in sota-lambda-2026.tex from ' +
+        'PT-CONDITIONAL to GUE-CONDITIONAL. Added C_mb <= 1 note citing ESY 2011; ' +
+        'open conditions updated to {B1, B2, GUE universality} (tracked in imp-363/imp-370).',
+      file: 'papers/sota-lambda-2026.tex',
+      impactOnSota:
+        'Aligns paper with the honest claim state: Lambda <= 0.121 < 0.2 is ' +
+        'GUE-CONDITIONAL. Paper and JS assembly now agree on conditionality.',
+    },
   ],
 
   // ── imp-465: fourth adversarial review post-Phase 32-33 closures ─────────────
@@ -1050,6 +1100,10 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-472 src/math/noswap-closure.js — mid-trajectory NoSwap lemma; full-trajectory S-dominance analytically proved',
     'imp-473 src/data/imp469-cross-verification.js — rho_min cross-verify; corrected rho(14)=0.12751 (was ~0.1279)',
     'imp-474 src/math/paper-skeptic-review-5.js — fifth adversarial review bridge layer; no FATAL gaps; seeded imp-476/477',
+    'imp-476 src/math/many-body-correction-closure.js — corrected rho_min = 0.12751 propagated across stale-cite files',
+    'imp-477 src/math/many-body-correction-closure.js — C_MB_VERIFICATION: C_mb <= 1 from ESY 2011, GUE-conditional for Riemann zeros',
+    'imp-478 src/data/finite-height-beats-platt-trudgian.js — finite-height beat grid extended to N*=1e9 (8 rows)',
+    'imp-479 papers/sota-lambda-2026.tex — paper status upgraded to GUE-CONDITIONAL; open conditions {B1, B2, GUE universality}',
   ],
 
   dependsOnCitedTicketIds: [
@@ -1080,6 +1134,10 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-472',
     'imp-473',
     'imp-474',
+    'imp-476',
+    'imp-477',
+    'imp-478',
+    'imp-479',
   ],
 };
 

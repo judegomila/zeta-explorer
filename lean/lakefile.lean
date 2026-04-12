@@ -14,6 +14,7 @@
 --   Foundation  <-- BridgeTheorem  <-- CompositionCheck
 --                   Constants      <-/
 --   Foundation  <-- Capstone       <-- CompositionCheck
+--   (standalone) ManyBody          (imp-480, many-body correction closure)
 --
 -- imp-461 APPLIED: BC_ vs C_ constant naming unification complete.
 --   BridgeTheorem.lean now imports LambdaAttack.Constants and uses
@@ -32,9 +33,10 @@ require mathlib from git
 @[default_target]
 lean_lib «LambdaAttack» where
   -- Lean modules live under lean/LambdaAttack/*.lean (package root = lean/).
-  -- `lake build` elaborates all five modules:
+  -- `lake build` elaborates all six modules:
   --   LambdaAttack.Foundation       (imp-448, canonical axioms)
   --   LambdaAttack.Constants        (imp-410, bridge constants C_H/C_T/C_F/C_C)
   --   LambdaAttack.BridgeTheorem    (imp-412, G6 bridge; imp-461: C_ naming unified)
   --   LambdaAttack.Capstone         (imp-421, asymptotic_lambda_eq_zero)
   --   LambdaAttack.CompositionCheck (imp-441, type-compatibility driver)
+  --   LambdaAttack.ManyBody         (imp-480, many-body correction closure port)

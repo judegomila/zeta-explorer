@@ -16,13 +16,16 @@
  *   E_trunc_pt  =  (2 * e_I / kappa_T) * T_PT^{-kappa_T}  ~  0.1127
  *   L_pt  ~  0.121  <  0.2  =  Platt-Trudgian 2021
  *
- * Conditions remaining (both still open):
- *   B1: slope b analytically bounded (imp-363 / imp-370)
- *   B2: intercept a rigorously bounded <= 0.02 (lambda-zero-attack.js)
+ * Conditions remaining (sole remaining blocker):
+ *   M: exact raw monotonicity |t_c(N+1)| <= |t_c(N)| (many-body CM correction,
+ *      imp-462-many-body-correction). M_raw <==> M_uf proved at leading order
+ *      via positive RvM Jacobian by imp-462 (m-raw-from-umon-bridge.js).
  *
- * Condition that was open and is now closed:
+ * Conditions now established (no longer blocking):
  *   C3-pt: RH to T_PT = 3e12 -- ESTABLISHED by Platt-Trudgian 2021
  *   (this closes sub-gap skp-imp440-etrunc, imp-447)
+ *   B1: slope b analytically bounded -- ESTABLISHED by imp-470 (imp-463 closed
+ *   D-monotone analytically; imp-468 closed NoSwap analytically at all N).
  *
  * Cross-verification (imp-449 alt-path)
  * --------------------------------------
@@ -31,14 +34,14 @@
  * summation order) confirms L_cond_alt ~ 0.008 at N* = 1e6, agreeing with
  * the primary to within floating-point rounding at the 10th significant figure.
  *
- * Honest status
- * -------------
+ * Honest status (updated imp-467)
+ * --------------------------------
  * This is NOT a fully unconditional Lambda bound. The bound
  *   Lambda <= 0.121
- * is conditional on B1 + B2 (OLS slope and intercept analytic bounds).
- * The progress since imp-416 is: the E_trunc blocker is no longer open --
- * it is replaced by a certified E_trunc_pt = 0.1127 via PT 2021 + Ingham 1940,
- * reducing the condition set from {B1, B2, C3} to {B1, B2} (where C3-pt holds).
+ * is conditional on M only (the many-body CM correction gap in B2).
+ * B1 is now ESTABLISHED (imp-470): D-monotone proved by imp-463; NoSwap proved
+ * analytically at all N by imp-468. The condition set has shrunk from
+ * {B1, B2, C3} to {M} (where C3-pt and B1 are both established).
  *
  * SYNTAX NOTE: avoid (star)(slash) sequences inside JSDoc block text.
  */

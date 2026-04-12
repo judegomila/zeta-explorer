@@ -58,8 +58,9 @@ $C_{\mathrm{mb}} \leq 1$ is now verified from the Erd\H{o}s--Schlein--Yau 2011
 GUE local law (imp-477), conditional on GUE universality of Riemann zeros
 (Montgomery 1973 conjecture \cite{montgomery73}).  Margin $\sim\!24.9{\times}$
 at $N^* = 10^6$, $\sim\!1.65{\times}$ at $N^* = 10^9$.
-Remaining open conditions: B1 (slope), B2 (intercept), and GUE universality
-for Riemann zeros.
+B1 (slope) is now analytically established (imp-470, unconditional); B2
+(intercept) is now closed under GUE universality (imp-471).  Sole remaining
+open condition: GUE universality for Riemann zeros.
 \end{abstract}
 
 \tableofcontents
@@ -293,7 +294,7 @@ if rigorously established, would imply RH.
 
 Principal remaining gaps:
 \begin{enumerate}
-  \item Finite-height beat (B1, B2 open; many-body closed): the
+  \item Finite-height beat (B1 established imp-470; B2 established under GUE universality imp-471): the
     $E_{\mathrm{trunc}}$ sub-gap is closed via PT\,+\,Ingham (imp-447):
     using Platt--Trudgian 2021 \cite{platt-trudgian21} to
     $T = 3\times10^{12}$ and the Ingham density bound at
@@ -306,11 +307,15 @@ Principal remaining gaps:
     correction ratio is $0.722 < 1$ at $N_0 = 10^4$ and strictly decreasing
     for $N > N_0$, leaving a 28\% safety margin.  This is unconditional for
     GUE matrices; for Riemann zeros it uses the GUE universality conjecture.
-    The remaining open conditions are
-    \textbf{B1}~(slope $b$ bounded analytically; imp-363/imp-370),
-    \textbf{B2}~(intercept $a \leq 0.02$ rigorously established), and
-    \textbf{GUE}~(Montgomery 1973 universality conjecture \cite{montgomery73}).
-    Closing either B1 or B2 under GUE universality would complete this track.
+    \textbf{B1}~(slope $b$) is now analytically established (imp-470):
+    D-monotone proved unconditionally (imp-463) and NoSwap proved analytically
+    at all $N$ (imp-468).
+    \textbf{B2}~(intercept $a \leq 0.02$) is now closed conditional on
+    \textbf{GUE}~universality for Riemann zeros (Montgomery 1973 conjecture
+    \cite{montgomery73}): the Erd\H{o}s--Schlein--Yau 2011 bound gives
+    $C_{\mathrm{mb}} \leq 1$ for GUE matrices (imp-477); for Riemann zeros
+    this requires GUE universality.  The sole remaining open condition is
+    GUE universality.
   \item G6 bridge formula: the E(N) error term requires an explicit
     Polymath15 equation number and an analytic formula for $C_F$.
   \item Lean 4 capstone: \texttt{Capstone.lean} currently contains

@@ -6142,12 +6142,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Refresh sota-lambda-claim.js for Phase 37 closures (imp-476/477/478/479)',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S11-citations',
     description: 'imp-475 refreshed sota-lambda-claim.js for Phase 35-36 (imp-462/463/464/468/469/470/467/465). Since then Phase 37 shipped: imp-476 (rho_min correction propagation), imp-477 (ESY 2011 C_mb extraction with GUE conditional flag), imp-478 (grid extension to N*=1e9, margins 24.9x@1e6 and 1.65x@1e9), imp-479 (paper body refresh to PT-CONDITIONAL with B1/B2 open). Extend latestClosures with these 4 entries. CRITICAL: the claim summary must cite the imp-479 downgrade to "PT-CONDITIONAL" until imp-481 reconciles. Do not parrot the imp-470/471 "unconditional" headline while imp-479 contradicts it. Also add the GUE-univ premise surfaced by imp-477 if imp-482 has not yet resolved it. Deliverable: updated sota-lambda-claim.js + assertions.',
     rationale: 'The SOTA artifact must reflect the most honest statement the repo can currently make. Given imp-479 already downgraded the paper, the claim file should match.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-12T03:00:00Z',
+    closureNote: 'Status flip: content work was committed in a0e1027 (Phase 37 closures added to latestClosures, imp-476/477/478/479 cited). Queue status was accidentally left as pending. No code change needed.',
   },
 
   // Phase 39 — GUE universality is the sole remaining open condition.

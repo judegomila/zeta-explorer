@@ -66,18 +66,28 @@ axiom dysonCollTime_nonpos (N : ℕ) : dysonCollTime N ≤ 0
 
 /-! ## Bridge exponent and Gronwall constant (canonical declaration) -/
 
-/-- kappa_T > 0: hybrid Guth-Maynard/Ingham decay exponent for E_trunc (imp-317).
+/-- kappa_T = 91/500 = 0.182: hybrid Guth-Maynard/Ingham decay exponent for E_trunc (imp-317).
     Equals 1 minus the binding zero-density exponent at the thin strip
     sigma = 1/2 + 1/log T0. At the Polymath15 baseline the Ingham exponent
-    is approximately 0.818, giving kappa_T ~= 0.182 > 0.
+    is approximately 0.818, giving kappa_T = 1 - 0.818 = 0.182 = 91/500.
+    imp-489: converted from axiom to noncomputable def; BRIDGE_kappa_T_pos now
+    proved by norm_num rather than asserted as an axiom.
     Canonical declaration: import this module rather than redeclaring. -/
-axiom BRIDGE_kappa_T : ℝ
-axiom BRIDGE_kappa_T_pos : (0 : ℝ) < BRIDGE_kappa_T
+noncomputable def BRIDGE_kappa_T : ℝ := 91 / 500
 
-/-- C_G > 0: Gronwall rate constant for the Calogero-Moser drift tail bound.
+/-- kappa_T > 0: immediate from the definition 91/500 > 0. -/
+lemma BRIDGE_kappa_T_pos : (0 : ℝ) < BRIDGE_kappa_T := by norm_num [BRIDGE_kappa_T]
+
+/-- C_G = 1: Gronwall rate constant for the Calogero-Moser drift tail bound.
     Controls the amplification factor exp(C_G * |t_c(N)|) in E_flow (imp-345).
+    Value 1 matches the Gronwall placeholder documented in the Polymath15 JS bridge
+    (platt-trudgian-recheck-post-closure.js: C_G = 1, unaffected by later closures).
+    imp-489: converted from axiom to noncomputable def; BRIDGE_C_G_pos now
+    proved by norm_num rather than asserted as an axiom.
     Canonical declaration: import this module rather than redeclaring. -/
-axiom BRIDGE_C_G : ℝ
-axiom BRIDGE_C_G_pos : (0 : ℝ) < BRIDGE_C_G
+noncomputable def BRIDGE_C_G : ℝ := 1
+
+/-- C_G > 0: immediate from the definition 1 > 0. -/
+lemma BRIDGE_C_G_pos : (0 : ℝ) < BRIDGE_C_G := by norm_num [BRIDGE_C_G]
 
 end

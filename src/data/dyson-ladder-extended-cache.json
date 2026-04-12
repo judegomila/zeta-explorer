@@ -1,0 +1,6 @@
+{
+  "generatedAt": null,
+  "source": "stub — run: node scripts/compute-dyson-ladder-extended.mjs --download --max-n 250000",
+  "note": "Populate by running the imp-514 offline compute harness. When rows are present, dyson-ladder-measured.js will use them in place of OLS-projected entries at matching N.",
+  "rows": []
+}

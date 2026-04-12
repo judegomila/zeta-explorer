@@ -61,6 +61,7 @@ import { ZEROS_EXTENDED } from './zeros-to-1e6.js';
 import { backwardCollisionInterval } from '../math/interval-dyson-integrator.mjs';
 import { PATH_C_BASELINE_FIT } from '../math/dyson-scaling-N5000.js';
 import { PT_SCALE_EXTRAPOLATION } from './lambda-pt-scale-extrapolation.js';
+import EXTENDED_CACHE from './dyson-ladder-extended-cache.json';
 
 // ── OLS fit on PATH_C_BASELINE_FIT (used for the consistency-check column) ──
 // Kept self-contained so this file has zero coupling to the imp-323 pooled
@@ -323,7 +324,34 @@ function runProjected(N) {
   };
 }
 
-const PROJECTED_ROWS = PROJECTED_NS.map(runProjected);
+// ── Extended cache override (imp-514 offline compute harness) ───────────────
+// If src/data/dyson-ladder-extended-cache.json has been populated by running
+//   node scripts/compute-dyson-ladder-extended.mjs --download --max-n 250000
+// its Float64-RK4 rows replace the OLS-projected rows at matching N. The cache
+// is seeded empty, so with no rows this is a no-op and all PROJECTED_NS rows
+// remain projected (no change to existing behaviour).
+function overrideWithCache(N) {
+  const row = (EXTENDED_CACHE.rows ?? []).find(
+    (r) => r.N === N && r.source === 'measured-float64-rk4' && r.t_c !== null,
+  );
+  if (!row) return runProjected(N);
+  return {
+    N,
+    source: 'measured-float64-rk4',
+    dt: row.dt,
+    nSteps: row.nSteps,
+    t_c_lo: row.t_c,
+    t_c_hi: row.t_c,
+    width: 0,
+    reason: row.reason,
+    wallTimeMs: row.wallTimeMs,
+    projectedFromOls: +olsProjection(N).toFixed(8),
+    consistency: 'float64-rk4-uncertified',
+    note: row.note ?? '',
+  };
+}
+
+const PROJECTED_ROWS = PROJECTED_NS.map(overrideWithCache);
 
 // ── Assembled ladder ────────────────────────────────────────────────────────
 const ROWS = [...MEASURED_ROWS, ...PROJECTED_ROWS];
@@ -471,17 +499,20 @@ export const DYSON_LADDER_MEASURED_ASSERTIONS = [
     holds: () =>
       ROWS.filter((r) => r.N > 100000).every(
         (r) =>
-          r.source === 'projected' &&
-          r.reason === 'ols-projection-passthrough' &&
-          r.width === 0,
+          (r.source === 'projected' &&
+            r.reason === 'ols-projection-passthrough' &&
+            r.width === 0) ||
+          r.source === 'measured-float64-rk4',
       ),
     why:
-      'HONEST SCOPE TRIPWIRE: every row beyond N = 100000 must be flagged ' +
-      'source = projected with reason = ols-projection-passthrough and ' +
-      'width = 0. The measured block now extends to N = 100000 (imp-405 ' +
-      'partial closure). imp-423 (partial) adds projected rows at N in ' +
-      '{150k, 250k, 400k, 600k, 1M} using OLS fallback; all must carry ' +
-      'source = projected. Rows above N = 100000 are NOT measurements.',
+      'HONEST SCOPE TRIPWIRE: every row beyond N = 100000 must be either ' +
+      '(a) source = projected with reason = ols-projection-passthrough and ' +
+      'width = 0 (OLS passthrough, the default), or (b) source = ' +
+      'measured-float64-rk4 (Float64 RK4 from the imp-514 offline compute ' +
+      'cache in dyson-ladder-extended-cache.json). The measured block now ' +
+      'extends to N = 100000 (imp-405). imp-423 adds projected rows at N in ' +
+      '{150k, 250k, 400k, 600k, 1M}; imp-514 offline cache can override them ' +
+      'with Float64-measured values once the harness is run.',
   },
   {
     id: 'imp360-citation-chain-intact',

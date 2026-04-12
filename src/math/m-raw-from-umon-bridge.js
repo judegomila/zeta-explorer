@@ -100,6 +100,7 @@ import { ROUTE_A_CM_EXTENSION }        from './route-a-cm-extension.js';
 import { ROUTE_A_UNFOLDED }            from './route-a-unfolded-reformulation.js';
 import { ZETA_ZEROS }                  from './zeta.js';
 import { MANY_BODY_CORRECTION_CLOSURE } from './many-body-correction-closure.js';
+import '../data/imp469-cross-verification.js'; // imp-473: triggers cross-verify assertions
 
 // ── RvM helpers (inlined to avoid re-running expensive sweeps) ────────────────
 

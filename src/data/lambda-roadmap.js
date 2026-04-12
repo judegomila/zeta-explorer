@@ -313,9 +313,12 @@ export const OPEN_GAPS = [
     status:
       'DIAGNOSTIC CLOSED (imp-355 + imp-396 + imp-451) — R_critical ≈ 1.251 identified; ' +
       'Ben Arous-Bourgade GUE scaling shows R_N ~ N^{4/3}, c_near -> 0 for large N; ' +
-      'near+tail decomposition is definitively insufficient; G3a_sub_fullsum open',
+      'near+tail decomposition is definitively insufficient; G3a_sub_fullsum analysis: ' +
+      'imp-507 (g3a-fullsum-closure.js) — equidistant ceiling S_{k_star}*B^2 < 2 always ' +
+      '(unconditional), GGM+Huxley fail same as C_mb (imp-486); ' +
+      'named residual: G3a_sub_fullsum_dynamical (Dyson ODE required)',
     owner: 'imp-451',
-    nextTickets: [],
+    nextTickets: ['imp-507'],
     severity: 'closed',
     blocks: null,
   },

@@ -390,13 +390,22 @@ const OPEN_SUB_GAPS = [
     label: 'Unconditional discrepancy at O((log N)^C / N) rate for Riemann zeros',
     description:
       'Obstacle O1: prove D_N^*(mu_N^{zeros}, mu_RvM) <= C * (log N)^C / N ' +
-      'deterministically, without assuming GUE pair correlation. This is the ' +
-      'core open problem and likely requires advances beyond current methods.',
-    difficulty: 'research-grade / open',
+      'deterministically, without assuming GUE pair correlation. ' +
+      'PARTIAL CLOSURE (imp-508): The C_poly = 1 (Selberg) rate is now the ' +
+      'UNCONDITIONAL BASELINE via (A) imp-341 Koksma-Hlawka bound and (B) imp-369 ' +
+      'Cauchy interlacing (deterministic level-repulsion analogue of ESY-Step-2). ' +
+      'Residual sub-gap: O1-remaining-concentration (C_poly < 1 requires sub-Selberg ' +
+      'discrepancy, i.e. sub-Gaussian concentration for the deterministic zero sequence).',
+    difficulty: 'partial -- C_poly = 1 baseline closed unconditionally (imp-508); ' +
+      'C_poly < 1 is research-grade / open (O1-remaining-concentration)',
     partialProgress:
-      'Selberg star-discrepancy (unconditional, rate log N / N) is already ' +
-      'in place. The gap to ESY-grade O((log N)^C / N) is a factor of ' +
-      'O((log N)^{C-1}), roughly a polynomial-log improvement.',
+      'imp-508: (A) Selberg/KH bound (imp-341) = unconditional global discrepancy ' +
+      'input at rate C_poly = 1. (B) Cauchy interlacing (imp-369) = unconditional ' +
+      'deterministic level-repulsion (B_{N+1}(0) <= B_N(0)). Together: full ' +
+      'unconditional instantiation of ESY conservative (C_poly = 1) scenario. ' +
+      'Remaining: sub-Selberg discrepancy (C_poly < 1) requires pair-correlation ' +
+      'or new deterministic exponential-sum estimate; see esy-o1-closure.js.',
+    closedBy: 'imp-508 (partial)',
   },
   {
     id: 'esy-port-O2-backward-flow-coupling',

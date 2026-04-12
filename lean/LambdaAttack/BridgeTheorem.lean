@@ -181,13 +181,13 @@ theorem bridge_theorem (N : ℕ) (hN : 2 ≤ N) :
     Using gamma_N ~ 2*pi*N / log N: log(gamma_N) ~ log N, so
     E_coll ~ C_C * sqrt(log N / N) -> 0 (standard real analysis).
     E_trunc decays faster as gamma_N^(-kappa_T); E_flow as log(N) / N.
-    Status: SORRY -- requires RvM growth gamma_N ~ 2*pi*N / log N in Lean. -/
+    Status: PARTIAL (imp-513): E_coll PROVED; E_trunc PROVED (rtz-001 closed); rtz-002 (E_flow) open. -/
 theorem rate_tendsto_zero :
     Tendsto (fun N : ℕ => errorTotal N) atTop (nhds 0) := by
   -- Proof via RvM axioms in Foundation.lean (imp-511).
   -- Split errorTotal = errorTrunc + errorFlow + errorColl and show each -> 0.
   -- E_coll (dominant O((log N/N)^{1/2})): CLOSED via gammaOrdinate_log_div_N_tendsto_zero.
-  -- E_trunc (sub-gap rtz-001): needs x^{-kappa_T}*log x->0 + gammaOrdinate_tendsto_atTop.
+  -- E_trunc (rtz-001 CLOSED imp-513): squeeze via C_T<3/2 + Real.tendsto_log_div_rpow_atTop.
   -- E_flow  (sub-gap rtz-002): needs log^2(x)/x->0 + KoksmaHlawkaLimSup (move to Foundation).
   have hcoll : Tendsto (fun N : ℕ => errorColl N) atTop (nhds 0) := by
     unfold errorColl
@@ -199,9 +199,45 @@ theorem rate_tendsto_zero :
     simp only [Real.sqrt_zero, mul_zero] at h
     exact h
   have htrunc : Tendsto (fun N : ℕ => errorTrunc N) atTop (nhds 0) := by
-    sorry -- sub-gap rtz-001: C_T(gamma_N)*gamma_N^{-kappa_T}*log(gamma_N)->0
-          -- C_T bounded above by 3/2 (C_T_lt_three_halves); gammaOrdinate_tendsto_atTop
-          -- and Real.tendsto_log_div_rpow_atTop BRIDGE_kappa_T_pos close the product
+    -- rtz-001 CLOSED (imp-513): C_T(gamma_N) * gamma_N^{-kappa_T} * log(gamma_N) -> 0.
+    -- Squeeze from above by (3/2) * log(gamma_N) / gamma_N^{kappa_T} -> 0.
+    -- (a) C_T(gamma_N) < 3/2 via C_T_lt_three_halves (gamma_N > 1, from ge_exp2 for N >= 1).
+    -- (b) log x / x^{kappa_T} -> 0 as x -> inf: Real.tendsto_log_div_rpow_atTop.
+    -- (c) Compose (b) with gammaOrdinate_tendsto_atTop for the N -> inf version.
+    -- (d) squeeze_zero_norm' closes the gap with eventual bounds (N >= 1).
+    have hg_tendsto : Tendsto
+        (fun N : ℕ => (3 / 2 : ℝ) *
+          (Real.log (gammaOrdinate N) / gammaOrdinate N ^ BRIDGE_kappa_T))
+        atTop (nhds 0) := by
+      have hbase := (Real.tendsto_log_div_rpow_atTop BRIDGE_kappa_T_pos).comp
+        gammaOrdinate_tendsto_atTop
+      have hscaled := hbase.const_mul (3 / 2 : ℝ)
+      simpa using hscaled
+    apply squeeze_zero_norm' _ hg_tendsto
+    filter_upwards [Filter.eventually_ge_atTop 1] with N hN
+    have hgpos : 0 < gammaOrdinate N := gammaOrdinate_pos N
+    have hg_ge_exp2 : Real.exp 2 ≤ gammaOrdinate N := gammaOrdinate_ge_exp2 N hN
+    have hg1 : 1 < gammaOrdinate N :=
+      calc (1 : ℝ) = Real.exp 0 := (Real.exp_zero).symm
+        _ < Real.exp 2 := Real.exp_lt_exp.mpr (by norm_num)
+        _ ≤ gammaOrdinate N := hg_ge_exp2
+    have hlog : 0 ≤ Real.log (gammaOrdinate N) := Real.log_nonneg (le_of_lt hg1)
+    have hrpow : 0 ≤ gammaOrdinate N ^ BRIDGE_kappa_T :=
+      Real.rpow_nonneg (le_of_lt hgpos) _
+    have hnn : 0 ≤ errorTrunc N := errorTrunc_nonneg N hN
+    rw [Real.norm_eq_abs, abs_of_nonneg hnn]
+    unfold errorTrunc
+    have hrpow_neg : gammaOrdinate N ^ (-BRIDGE_kappa_T) =
+        1 / gammaOrdinate N ^ BRIDGE_kappa_T :=
+      (Real.rpow_neg (le_of_lt hgpos) BRIDGE_kappa_T).trans (inv_eq_one_div _)
+    rw [hrpow_neg]
+    calc C_T (gammaOrdinate N) * (1 / gammaOrdinate N ^ BRIDGE_kappa_T) *
+          Real.log (gammaOrdinate N)
+        = C_T (gammaOrdinate N) *
+            (Real.log (gammaOrdinate N) / gammaOrdinate N ^ BRIDGE_kappa_T) := by ring
+      _ ≤ 3 / 2 * (Real.log (gammaOrdinate N) / gammaOrdinate N ^ BRIDGE_kappa_T) :=
+          mul_le_mul_of_nonneg_right (le_of_lt (C_T_lt_three_halves hg1))
+            (div_nonneg hlog hrpow)
   have hflow : Tendsto (fun N : ℕ => errorFlow N) atTop (nhds 0) := by
     sorry -- sub-gap rtz-002: C_F(gamma_N)*log(gamma_N)/gamma_N*exp(C_G*|t_c|)->0
           -- log^2(x)/x->0 (Mathlib); exp factor->1 needs KoksmaHlawkaLimSup from Capstone
@@ -259,11 +295,14 @@ end
        The sorry keyword has been removed; this theorem is now formally proved
        conditional on the two new axioms above (which encapsulate the hard math).
 
-    2. rate_tendsto_zero (imp-412-sorry-2) -- PARTIAL CLOSURE by imp-511
+    2. rate_tendsto_zero (imp-412-sorry-2) -- PARTIAL CLOSURE by imp-511 + imp-513
        Statement: errorTotal N -> 0 as N -> infinity.
-       Status: E_coll term PROVED via gammaOrdinate_log_div_N_tendsto_zero (Foundation.lean).
-       Sub-gap rtz-001: E_trunc term (C_T*gamma_N^{-kappa_T}*log gamma_N -> 0)
-         -- Needs: gammaOrdinate_tendsto_atTop + Real.tendsto_log_div_rpow_atTop
+       Status: E_coll PROVED (imp-511); E_trunc PROVED (imp-513 rtz-001); E_flow open (rtz-002).
+       rtz-001 CLOSED (imp-513): htrunc proof via squeeze_zero_norm':
+         -- bound: C_T(gamma_N) * gamma_N^{-kappa_T} * log(gamma_N)
+         --      <= (3/2) * log(gamma_N) / gamma_N^{kappa_T}  [C_T < 3/2 for gamma_N > 1]
+         -- limit: (3/2) * log(x) / x^{kappa_T} -> 0 [Real.tendsto_log_div_rpow_atTop]
+         -- composition with gammaOrdinate_tendsto_atTop for the N -> inf version.
        Sub-gap rtz-002: E_flow term (C_F*log(gamma_N)/gamma_N*exp(C_G*|t_c|) -> 0)
          -- Needs: log^2(x)/x->0 + KoksmaHlawkaLimSup moved to Foundation.lean
 

@@ -5377,11 +5377,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'META: Post-commit status-flip verification step in auto-improve.sh',
     category: 'meta',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     description: 'Observed engine bug: several critical tickets (imp-401, imp-402, imp-415) shipped the deliverable file + log row but silently failed to flip the queue status from pending to completed. The engine self-corrects on the next run (picks the ticket up, sees the work is done, flips the status) but that wastes a whole run of API budget. Fix: add a post-commit verification step to scripts/auto-improve.sh that parses the commit message for the imp-NNN id, opens src/data/improvement-queue.js, checks whether that imp-NNN is marked completed with completedAt set, and if not writes a warning to the log plus an entry to a new scripts/status-flip-drift.log. Optional phase 2: have the wrapper auto-fix the flip by editing the queue file in place (risky — prefer detection over auto-correction for now). Deliverable: scripts/auto-improve.sh modified with a verify-status-flip function that runs after each claude --print returns, plus a short test in scripts/test-status-flip-verify.mjs.',
     rationale: 'Each missed flip wastes one full engine run (~60-300s of API budget). Across the ~400 tickets shipped this session at an observed ~5% miss rate, that is ~20 wasted runs. Detection-level fix is simple and catches the pattern quickly.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-12T08:20:00Z',
   },
   {
     id: 'imp-420',

@@ -298,9 +298,10 @@ function evaluateAtN(N) {
   };
 }
 
-// ── Sweep over N* values < 10^8 ─────────────────────────────────────────────
-// Target range: {1e4, 1e5, 1e6, 1e7, 5e7} -- all < 10^8 as specified.
-const TARGET_NS = [1e4, 1e5, 1e6, 1e7, 5e7];
+// ── Sweep over N* values up to 1e9 ──────────────────────────────────────────
+// imp-478: extended grid from N*=5e7 up to N*=1e9.
+// Target range: {1e4, 1e5, 1e6, 1e7, 5e7, 1e8, 5e8, 1e9}.
+const TARGET_NS = [1e4, 1e5, 1e6, 1e7, 5e7, 1e8, 5e8, 1e9];
 const LADDER = TARGET_NS.map(evaluateAtN);
 
 // Primary target: N* = 1e6 (within imp-423 extended projection range)
@@ -433,7 +434,7 @@ const RIGOR_CHAIN = {
 // ── Exported record ───────────────────────────────────────────────────────────
 export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
   id: "imp-440",
-  title: "Finite-height RH beat: Lambda < 0.2 rigorously at a specific N < 10^8",
+  title: "Finite-height RH beat: Lambda < 0.2 rigorously at a specific N <= 10^9",
   status: "partial (skp-imp440-etrunc closed by imp-447; remaining: B1 + B2)",
 
   plattTrudgianBound: {
@@ -470,13 +471,13 @@ export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
 
   honestSummary:
     "The conditional Lambda bound L_cond = |t_c_proj| + E_flow + E_coll beats the " +
-    "Platt-Trudgian 0.2 at all N* in {1e4,...,5e7} by ~25-28x. The full Polymath15 bound " +
-    "(including E_trunc) fails at all these N because E_trunc ~ 4 >> 0.2. The finite-height " +
-    "beat is therefore CONDITIONAL on three open items: B1 (slope bound), B2 (intercept bound), " +
-    "and skp-imp440-etrunc (E_trunc certification). The most tractable near-term route is " +
-    "the conditional-RH route (b) in sub-gap skp-imp440-etrunc, which immediately gives " +
-    "Lambda < 0.0080 < 0.2 under finite-height RH. An unconditional finite-height beat " +
-    "requires a new zero-density result or alternate bridge (routes (a) or (c)).",
+    "Platt-Trudgian 0.2 at all N* in {1e4,...,1e9} by ~25-28x (imp-478 extended grid). " +
+    "The full Polymath15 bound (including E_trunc) fails at all these N because E_trunc ~ 4 >> 0.2. " +
+    "The finite-height beat is therefore CONDITIONAL on three open items: B1 (slope bound), " +
+    "B2 (intercept bound), and skp-imp440-etrunc (E_trunc certification). The most tractable " +
+    "near-term route is the conditional-RH route (b) in sub-gap skp-imp440-etrunc, which " +
+    "immediately gives Lambda < 0.0080 < 0.2 under finite-height RH. An unconditional " +
+    "finite-height beat requires a new zero-density result or alternate bridge (routes (a) or (c)).",
 
   fitConstants: {
     source: "PATH_C_BASELINE_FIT_V2 (imp-400)",
@@ -533,7 +534,7 @@ export const FINITE_HEIGHT_BEATS_PT_ASSERTIONS = [
     id: "imp440-all-cond-beat-pt",
     holds: () => LADDER.every((r) => r.available && r.conditionalBound.beatsPT),
     why:
-      "The conditional bound must beat PT at all N* in the sweep {1e4,...,5e7}. " +
+      "The conditional bound must beat PT at all N* in the sweep {1e4,...,1e9} (imp-478). " +
       "This follows from the 28x margin at N = 1e6 and the fact that the margin " +
       "is even larger at smaller N (where the slope contribution b/N is bigger " +
       "but still dominated by the intercept at N >= 1e4).",
@@ -587,8 +588,9 @@ export const FINITE_HEIGHT_BEATS_PT_ASSERTIONS = [
   },
   {
     id: "imp440-ladder-has-five-rows",
-    holds: () => LADDER.length === 5 && LADDER.every((r) => r.available),
+    holds: () => LADDER.length === 8 && LADDER.every((r) => r.available),
     why:
-      "The sweep must have exactly 5 rows (N in {1e4,1e5,1e6,1e7,5e7}) all available.",
+      "The sweep must have exactly 8 rows (N in {1e4,1e5,1e6,1e7,5e7,1e8,5e8,1e9}) all available. " +
+      "Extended from 5 to 8 rows by imp-478.",
   },
 ];

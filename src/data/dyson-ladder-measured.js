@@ -334,7 +334,26 @@ function overrideWithCache(N) {
   const row = (EXTENDED_CACHE.rows ?? []).find(
     (r) => r.N === N && r.source === 'measured-float64-rk4' && r.t_c !== null,
   );
-  if (!row) return runProjected(N);
+  if (!row) {
+    // Surface overshoot-artifact attempts so projected rows carry an honest
+    // record that computation was tried but failed (imp514d). The projected
+    // t_c values are unchanged; we only add informational fields.
+    const overshoot = (EXTENDED_CACHE.rows ?? []).find(
+      (r) => r.N === N && r.source === 'suspect-overshoot-artifact',
+    );
+    const projected = runProjected(N);
+    if (overshoot) {
+      projected.computeAttempted = true;
+      projected.computeNote =
+        'imp514d: Float64 RK4 step-size overshoot at N=' + N +
+        ', dt=' + overshoot.dt +
+        '. Reported t_c=' + overshoot.t_c +
+        ' is ' + Math.round(overshoot.olsProjection / overshoot.t_c) + 'x smaller than OLS projection ' +
+        overshoot.olsProjection +
+        '. Resolution requires gap-seeded dt or native C/Rust backend.';
+    }
+    return projected;
+  }
   return {
     N,
     source: 'measured-float64-rk4',

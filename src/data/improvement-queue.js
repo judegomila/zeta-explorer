@@ -6419,12 +6419,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Cross-reference integrity check: every imp-NNN cited in any file exists and is completed',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S11-verify',
     description: 'The repo cites imp-NNN ids in 50+ files across src/data, src/math, papers, and lean directories. A phantom reference (citing a ticket that does not exist or is still pending) would break the audit trail. Sweep: (1) extract every imp-NNN reference from all .js/.lean/.tex/.md files; (2) cross-check each against improvement-queue.js to verify (a) the id exists and (b) the status is completed; (3) flag any mismatches — pending tickets cited as if completed, or non-existent ids. Deliverable: src/data/cross-reference-integrity-2026-04-12.js with the full matrix + any corrective edits.',
     rationale: 'The engine has shipped 500+ tickets across 1180+ runs. A single phantom reference in a submission-facing file (paper, snapshot, SOTA claim) could be caught by a reviewer and undermine the entire audit-trail discipline.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-12T18:00:00Z',
+    closureNote: 'Swept 536 unique imp-NNN citations across src/, papers/, lean/, IMPROVEMENTS.md. Found 2 phantom IDs: imp-364 and imp-367 (cited in lambda-roadmap.js tickets arrays but never created in queue; queue skips 363->366 and 366->368). Removed both phantoms from lambda-roadmap.js. No pending tickets cited as completed in any submission-facing file. Created src/data/cross-reference-integrity-2026-04-12.js with full matrix. Build passed.',
   },
 
   {

@@ -101,7 +101,7 @@ export const LAMBDA_CHAIN_STEPS = [
       'Fresh measured rows at N ∈ {10^4, 10^5, 10^6} with (a) a second ODE ' +
       'integrator (DP8 alongside RK4), (b) compensated summation for the ' +
       '1/(γ_k − γ_j) poles, (c) interval-arithmetic error bars on t_c.',
-    tickets: ['imp-315', 'imp-321', 'imp-353', 'imp-357', 'imp-360', 'imp-362', 'imp-363', 'imp-364'],
+    tickets: ['imp-315', 'imp-321', 'imp-353', 'imp-357', 'imp-360', 'imp-362', 'imp-363'],
     verification: 'numerical',
     notes:
       'Two integrator agreement + interval arithmetic elevates this from ' +
@@ -144,7 +144,7 @@ export const LAMBDA_CHAIN_STEPS = [
     need:
       'Close G6a_shock_lipschitz by direct port of Polymath15 Lemma 5.2 or ' +
       'equivalent. Verify the assembled E(N) formula at the imp-321 ladder.',
-    tickets: ['imp-345', 'imp-354', 'imp-366', 'imp-367'],
+    tickets: ['imp-345', 'imp-354', 'imp-366'],
     verification: 'numerical',
     notes:
       'After imp-347 reclassified the LAMBDA_ZERO_BLOCKERS, this is the ' +
@@ -230,7 +230,7 @@ export const VERIFICATION_EFFORTS = [
       'Riemann-von Mangoldt leading density). G3a_max_gap OPEN — requires ' +
       'extremal max-gap statistics at the argmin site, beyond pure Weyl-law ' +
       'input.',
-    tickets: ['imp-337', 'imp-342', 'imp-343', 'imp-355', 'imp-367'],
+    tickets: ['imp-337', 'imp-342', 'imp-343', 'imp-355'],
     closesIf: 'G3a_max_gap closes',
   },
   {

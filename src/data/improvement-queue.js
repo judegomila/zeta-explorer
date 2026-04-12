@@ -6672,11 +6672,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Rebuild and restart the local dev server for dashboard testing',
     category: 'meta',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     description: 'The local dev server (port 3002) may not be running after all the engine work. Run npm run build && node server.js to restart it, then verify the dashboard page loads with all 6 metric cards showing green/data (not error). Deliverable: server running + health check passing.',
     rationale: 'The user originally asked to fix dashboard errors. Cannot verify fixes without the server running.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-12T23:30:00Z',
   },
 
   {

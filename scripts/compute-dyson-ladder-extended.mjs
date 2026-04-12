@@ -272,9 +272,12 @@ function backwardCollisionRK4Float64(initial, dt, maxSteps, maxDt = dt) {
   const g2  = new Float64Array(N);
   const COLLISION_THRESHOLD = 0;
   // Adaptive step: reduce currentDt when gap < ADAPT_THRESH to avoid overshoot.
-  // ADAPT_THRESH is anchored to the initial (possibly gap-seeded) dt so the
-  // threshold remains meaningful even after currentDt has been restored to maxDt.
-  const ADAPT_THRESH = 3 * dt; // ~3x the initial step size in spacing
+  // ADAPT_THRESH must be anchored to maxDt (the restored full step size), NOT to
+  // the gap-seeded initial dt. After restoration, currentDt == maxDt; anchoring
+  // the threshold to the tiny gap-seeded dt would leave ADAPT_THRESH << maxDt,
+  // so a second close encounter encountered at the restored stride would not
+  // trigger adaptive halving and would be overshot. Fix: sub-gap imp514e.
+  const ADAPT_THRESH = 3 * maxDt; // ~3x the normal (restored) step size
 
   let currentDt = dt;
   let t = 0;
@@ -290,8 +293,8 @@ function backwardCollisionRK4Float64(initial, dt, maxSteps, maxDt = dt) {
     // un-seeded DT) when the gap is wide again, NOT back to the gap-seeded dt.
     // Without this, the integrator stays at dtEff = d_min^2/80 for the whole
     // run, covering only stepsEff * dtEff << t_c in total time.
-    if (mg < ADAPT_THRESH && currentDt > dt / 16) {
-      currentDt = Math.max(dt / 16, mg / 4);
+    if (mg < ADAPT_THRESH && currentDt > maxDt / 16) {
+      currentDt = Math.max(maxDt / 16, mg / 4);
     } else if (mg > 10 * ADAPT_THRESH) {
       currentDt = maxDt; // restore to original DT, not to the gap-seeded dtEff
     }
@@ -525,6 +528,17 @@ async function main() {
                      'zone, covering 300 total steps including ~250 at DT=0.0001 => 0.025 time units ' +
                      '>> OLS(150K)=0.00668. Wall time is unchanged (~7 hr at N=150K in JS), but the ' +
                      'run now returns a meaningful t_c instead of budget-exhausted at t=0.00081.',
+        status:      'fixed',
+      },
+      {
+        id:          'imp514e',
+        description: 'overshoot detector anchoring bug: FIXED. ADAPT_THRESH was anchored to ' +
+                     'the gap-seeded initial dt (e.g. 2.70e-6 at N=150K) rather than to maxDt ' +
+                     '(the restored full DT=0.0001). After currentDt is restored to maxDt, the ' +
+                     'threshold 3*dtEff << maxDt was too small to trigger adaptive halving for ' +
+                     'any second close encounter encountered at the restored stride, allowing it ' +
+                     'to be overshot. Fix: ADAPT_THRESH = 3 * maxDt (and min-step guard uses ' +
+                     'maxDt/16), so the threshold tracks the actual stride in use.',
         status:      'fixed',
       },
     ],

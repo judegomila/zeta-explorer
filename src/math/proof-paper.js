@@ -416,13 +416,15 @@ remainder $O(\\sqrt{L})$. Verified to $<0.05\\%$ error at $N=500$.
 $\\|(H_N - z)^{-1} - (H_M - z)^{-1}\\| \\to 0$ implies
 $\\sigma(H_\\infty) \\subset \\liminf \\sigma(H_N)$ by Kato's theorem (1966).
 
-\\subsection{Path G: Cauchy Convergence (partial closure, imp-427, skp2-005 CLOSED)}
+\\subsection{Path G: Cauchy Convergence (partial closure, imp-427+imp-509, skp2-005 CLOSED)}
 Analytic bound: $\\|T_p - I\\|_F \\leq C_0(\\sigma)\\cdot p^{-\\sigma}$ with
 $C_0(\\sigma) = 2/\\sqrt{1 - 4^{-\\sigma}}$ (exact, phase-independent; see src/math/path-g-cauchy-rigorous.js).
-For $\\sigma > 1$: $\\{S_N\\}$ is Cauchy in Frobenius norm [RIGOROUS, imp-427].
+For $\\sigma > 1$: $\\{S_N\\}$ Cauchy in Frobenius norm and
+$\\|S_{N+1}-S_N\\|_F^2 \\leq K(\\sigma)^2((N+1)\\log(N+1))^{-2\\sigma}$ analytically [imp-427+imp-509,
+src/math/path-g-analytic-rate.js]. The $R^2=1.0$ fit was $\\log\\|D_N\\|_F^2 \\sim {-2\\sigma}\\log N$;
+the analytic rate (with rigorous $\\log N$ correction) confirms slope $-2\\sigma$ for sigma $> 1$.
 For $\\sigma \\in (1/2, 1]$: requires phase-mixing bound [Gap G-1, open].
 For $\\sigma = 1/2$: absolute convergence not established; $\\sum_p p^{-1}$ diverges (Mertens) [Gap G-2, open].
-The $R^2 = 1.0$ regression is corroborating evidence only, not a proof at $\\sigma = 1/2$.
 
 \\subsection{Path H: Szeg\\H{o} SL(2,$\\mathbb{R}$) Algebraic Closure}
 $\\det(S_N) = 1$ for all $N$ (Pythagorean identity + multiplicativity).

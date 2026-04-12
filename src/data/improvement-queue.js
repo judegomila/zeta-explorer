@@ -6505,12 +6505,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close skp-007 Path G numerical-fit gap: R^2=1.0 is fit coefficient not proof',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'imp-427 review named skp-007: Path G claims ||S_{N+1} - S_N||_F ~ N^{-2sigma} with R^2=1.0 but R^2 is a numerical-fit coefficient on finite data, not a mathematical proof. Upgrade: derive the rate analytically from the Dyson ODE structure + the imp-341 Burgers envelope. The N^{-2sigma} scaling follows from the spectral gap of the Dyson Hamiltonian. Deliverable: src/math/path-g-analytic-rate.js + proof-paper.js Section 7 update.',
     rationale: 'Named gap from adversarial review. An R^2=1.0 claim in a mathematical proof paper will be immediately flagged by any competent reviewer.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-13T00:30:00Z',
+    closureNote: 'Created src/math/path-g-analytic-rate.js: rigorous derivation of ||S_{N+1}-S_N||_F^2 <= K(sigma)^2*((N+1)*log(N+1))^{-2sigma} for sigma>1 via Dyson ODE decomposition + imp-427 + Rosser PNT. R^2=1.0 regression disambiguated: fit was squared norm (slope -2sigma), confirmed analytically. Dyson spectral gap connection explicit: L_inf < inf iff g_min > 0 (imp-087). proof-paper.js Path G subsection updated to cite imp-509 and new file. Gaps G-1 (sigma in (1/2,1]) and G-2 (sigma=1/2) remain open. 4 build-time assertions. Build passed.',
   },
 
   // ─── LEAN HARDENING ────────────────────────────────────────────────────

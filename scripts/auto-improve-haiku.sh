@@ -132,6 +132,8 @@ do_start() {
       # does this; running it here is idempotent and keeps this instance
       # self-contained in case the two engines are started independently.
       node "$SCRIPT_DIR/build-queue-index.mjs" >> "$log_file" 2>&1 || true
+      # Snapshot commit hash before run to detect if Claude makes a new commit
+      pre_run_sha=$(git -C "$PROJECT_DIR" rev-parse HEAD 2>/dev/null || echo "")
 
       if command -v claude &>/dev/null; then
         cd "$PROJECT_DIR"
@@ -153,6 +155,29 @@ do_start() {
 
       echo "=== Haiku Run #$run_count complete ===" >> "$log_file"
       echo "Haiku Run #$run_count complete. Log: $log_file"
+
+      # ── Post-commit status-flip verification ──────────────────────────────
+      # The Haiku prompt (step 8c) instructs the model to flip the ticket
+      # status to "completed". Verify it happened here; log drift if not.
+      post_run_sha=$(git -C "$PROJECT_DIR" rev-parse HEAD 2>/dev/null || echo "")
+      if [ -n "$pre_run_sha" ] && [ "$post_run_sha" != "$pre_run_sha" ]; then
+        last_commit_msg=$(git -C "$PROJECT_DIR" log -1 --pretty=%s 2>/dev/null || echo "")
+        commit_imp=$(echo "$last_commit_msg" | grep -oE 'imp-[0-9]+' | head -1)
+        if [ -n "$commit_imp" ]; then
+          flip_status=$(python3 -c "
+import re
+text = open('$PROJECT_DIR/src/data/improvement-queue.js').read()
+m = re.search(r\"id: '\" + '$commit_imp' + r\"'.*?status: '(\\w+)'\", text, re.DOTALL)
+print(m.group(1) if m else 'not-found')" 2>/dev/null || echo "error")
+          if [ "$flip_status" = "completed" ]; then
+            echo "STATUS-FLIP VERIFIED: $commit_imp -> completed" | tee -a "$log_file"
+          else
+            drift_msg="HAIKU RUN #$run_count ($timestamp): $commit_imp committed (queue-status=$flip_status) but NOT flipped to completed. Commit: $last_commit_msg"
+            echo "STATUS-FLIP WARN: $drift_msg" | tee -a "$log_file"
+            echo "$drift_msg" >> "$SCRIPT_DIR/status-flip-drift.log"
+          fi
+        fi
+      fi
 
       # ── Rate-limit detection + exponential backoff ──────────────────────
       if grep -qiE "rate.?limit|429|quota.?exceed|ConnectionRefused|API Error|too many requests" "$log_file"; then

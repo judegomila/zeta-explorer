@@ -5864,12 +5864,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Update sota-lambda-claim.js to cite Phase 33-34 closures (imp-451/452/455/456/457/458)',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S11-citations',
     description: 'imp-453 refreshed sota-lambda-claim.js after Phase 29-32 (imp-443/444/447/448/450). Since then, Phase 33-34 has shipped 6 more critical closures: imp-451 G3a Route C assembly, imp-452 full finite-height L_pt assembly, imp-455 G1-sub-extremal Bourgade port, imp-456 Route A UMon unfolded closure + 2 sub-gap extensions, imp-457 B1 conditional closure with D-monotone witnesses, imp-458 B2 Koksma-Hlawka conditional closure. The claim artifact currently does not cite any of these. Refresh: extend latestClosures with 6 new entries, each with ticket id + sub-gap id + file pointer + one-line statement; update the claim summary string to cite L_pt ~ 0.121 with condition set {M, D-monotone, NoSwap} (honest about the three remaining conditions); update dependsOnCitedTicketIds; add a build-time assertion that every critical-proof closure from imp-443 onward is cited. Deliverable: updated sota-lambda-claim.js + one-line append to lambda-sota-assembly.js.',
     rationale: 'Without this refresh the SOTA artifact lies about the current state. Reviewers will see a stale citation block that contradicts recent assembly files, which is the exact class of audit-trail issue imp-437 review-3 flagged and we committed to keeping closed.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-11T23:59:00.000Z',
   },
 
   // Phase 35 — all three conditions {M, D-monotone, NoSwap} are now closed

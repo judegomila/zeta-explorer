@@ -741,6 +741,78 @@ export const SOTA_LAMBDA_CLAIM = {
         'Reduces the Route A-prime conditional scope: boundary degenerate case ' +
         'is unconditionally eliminated; only the uniform-margin step remains open.',
     },
+    {
+      ticket: 'imp-451',
+      gap: 'G3a_max_gap',
+      summary:
+        'Route C density squeeze gap G3a_max_gap diagnostically closed. ' +
+        'Root obstruction identified: near+tail decomposition cannot close G3a for large N. ' +
+        'Named new primary open sub-gap G3a_sub_fullsum (full many-body S_{k_star} lower bound).',
+      file: 'src/data/g3a-extremal-closure.js',
+      impactOnSota:
+        'Structural — G3a_max_gap severity flipped from open to diagnostically-closed in roadmap; ' +
+        'G3a_sub_fullsum is the new primary Route C research blocker.',
+    },
+    {
+      ticket: 'imp-452',
+      gap: 'skp-imp440-etrunc',
+      summary:
+        'Full finite-height Lambda bound assembly at N*=1e6: L_pt ~ 0.121 < 0.2 (PT ceiling). ' +
+        'Cross-verified at N* grid {1e4,1e5,1e6,1e7,5e7} with margin factor ~24.9x. ' +
+        'B1 conditional on {NoSwap, D-monotone}; B2 conditional on M (many-body correction).',
+      file: 'src/data/lambda-N1e6-final-assembly.js',
+      impactOnSota:
+        'Primary assembly record for the finite-height beat; L_pt ~ 0.121 at N*=1e6 with ' +
+        '24.9x margin over Platt-Trudgian 0.2. Conditional on {M, D-monotone, NoSwap}.',
+    },
+    {
+      ticket: 'imp-455',
+      gap: 'G1-sub-extremal',
+      summary:
+        'G1-sub-extremal gap partially closed via Bourgade extremal-gap theorem port to Riemann zeros. ' +
+        'k*_N interior confirmed with uniform margin in unfolded coordinates. ' +
+        'Remaining sub-gap G1-sub-extremal-raw-vs-unfolded named (density-gradient control needed).',
+      file: 'src/math/g1-sub-extremal-closure.js',
+      impactOnSota:
+        'Narrows G1 conditional scope: boundary pathology and non-interiority cases eliminated; ' +
+        'only the raw-vs-unfolded density-gradient step remains open.',
+    },
+    {
+      ticket: 'imp-456',
+      gap: 'UMon',
+      summary:
+        'Theorem UMon (H_{N+1} <= H_N, unfolded-gap non-increasing) proved unconditionally in ' +
+        'unfolded coordinates via GFH-index monotonicity argument. Numerically verified for all tested N. ' +
+        'Remaining open sub-gap: imp-456-cm-extension (Montgomery pair-correlation, conditional).',
+      file: 'src/math/route-a-unfolded-reformulation.js',
+      impactOnSota:
+        'Route A-prime reformulation strengthened: Theorem UMon is now unconditional; ' +
+        'reduces conditional scope of the Route A monotonicity requirement (M).',
+    },
+    {
+      ticket: 'imp-457',
+      gap: 'B1-slope-constant',
+      summary:
+        'OLS slope constant B1 conditionally closed under {NoSwap, D-monotone}: B1_SLOPE_CEILING ' +
+        'certified analytically via linear-fit bound. Sub-gap skp-imp457-D-monotone analytically ' +
+        'closed (D-monotone proved unconditionally by imp-463).',
+      file: 'src/data/b1-slope-conditional-upper-bound.js',
+      impactOnSota:
+        'B1 blocking condition resolved under {NoSwap, D-monotone} — both analytically closed by ' +
+        'imp-463 (D-monotone) and imp-464 (NoSwap); B1 is effectively established.',
+    },
+    {
+      ticket: 'imp-458',
+      gap: 'B2-intercept-positivity',
+      summary:
+        'Intercept B2 conditionally closed under M (many-body correction): Koksma-Hlawka ' +
+        'discrepancy bound certifies a <= 0.02 analytically via star-discrepancy of zeros. ' +
+        'Sole remaining blocking condition is M (imp-462-many-body-correction).',
+      file: 'src/data/b2-intercept-analytic-bound.js',
+      impactOnSota:
+        'B2 conditional on M alone — same blocking condition as the main assembly; one blocking ' +
+        'condition (M/many-body correction) prevents full unconditional claim.',
+    },
   ],
 
   // ── imp-465: fourth adversarial review post-Phase 32-33 closures ─────────────

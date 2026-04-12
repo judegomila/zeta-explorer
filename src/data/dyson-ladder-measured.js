@@ -354,18 +354,24 @@ function overrideWithCache(N) {
     }
     return projected;
   }
+  // For budget-exhausted rows, row.t_c is only a lower bound on the true
+  // collision time (the integrator exhausted its step budget before the minimum
+  // gap hit zero). Report t_c_hi = Infinity and width = Infinity so downstream
+  // consumers can distinguish a certified collision (gap-nonpositive, width = 0)
+  // from a step-budget lower bound (budget-exhausted, width = Infinity).
+  const budgetExhausted = row.reason === 'budget-exhausted';
   return {
     N,
     source: 'measured-float64-rk4',
     dt: row.dt,
     nSteps: row.nSteps,
     t_c_lo: row.t_c,
-    t_c_hi: row.t_c,
-    width: 0,
+    t_c_hi: budgetExhausted ? Infinity : row.t_c,
+    width: budgetExhausted ? Infinity : 0,
     reason: row.reason,
     wallTimeMs: row.wallTimeMs,
     projectedFromOls: +olsProjection(N).toFixed(8),
-    consistency: 'float64-rk4-uncertified',
+    consistency: budgetExhausted ? 'float64-rk4-lower-bound-only' : 'float64-rk4-uncertified',
     note: row.note ?? '',
   };
 }

@@ -321,17 +321,37 @@ export const MANY_BODY_CORRECTION_CLOSURE = {
 
   status: 'closed',
   closedBy: 'imp-471 (this file)',
+
+  // imp-477: Honest conditionality note for C_mb GUE-universality assumption.
+  conditionality: {
+    status: 'CONDITIONAL on GUE universality for Riemann zeros (N >= 871 analytic range)',
+    unconditionalComponent:
+      'Low-N coverage (N in {2,...,870}) is direct empirical verification — no C_mb assumption used.',
+    conditionalComponent:
+      'Analytic closure for N >= 871 requires C_mb <= 1, which is proven for GUE matrices ' +
+      '(Erdos-Schlein-Yau 2011) but requires the GUE universality conjecture (Montgomery 1973, ' +
+      'Rudnick-Sarnak 1996 pair correlations) for Riemann zeros. Without GUE universality, ' +
+      'C_mb is a-priori unknown and the analytic bound may not hold.',
+    mitigationNote:
+      'GUE universality for Riemann zeros is the standard working assumption in analytic ' +
+      'number theory and is strongly supported by Odlyzko numerics. See C_MB_VERIFICATION ' +
+      'for the full ESY 2011 argument chain and honest conditionality verdict.',
+    verdictRef: 'C_MB_VERIFICATION.verdict',
+  },
+
   closureNote:
     'Many-body correction gap imp-462-many-body-correction CLOSED for ALL N >= 2. ' +
     'Three-range coverage: ' +
-    '(1) N in {2,...,870}: empirical sweep in m-raw-from-umon-bridge.js; ' +
+    '(1) N in {2,...,870}: empirical sweep in m-raw-from-umon-bridge.js (UNCONDITIONAL); ' +
     '(2) N in [871,9999]: analytic via imp-476 (j*(N)>=3 from gap_3<min-early-gaps, ' +
-    'rho(gamma_4)=' + IMP476_RHO_GAMMA4.toFixed(4) + '>f(871)=' + IMP476_F_AT_871.toFixed(4) + '); ' +
+    'rho(gamma_4)=' + IMP476_RHO_GAMMA4.toFixed(4) + '>f(871)=' + IMP476_F_AT_871.toFixed(4) + ') ' +
+    '-- CONDITIONAL on GUE universality for C_mb <= 1; ' +
     '(3) N >= 1e4: analytic via rho_min (ratio ' +
-    +(CORRECTION_AT_N0 / RHO_MIN_ANALYTIC_LB).toFixed(3) + ' at N_0, 28% margin). ' +
+    +(CORRECTION_AT_N0 / RHO_MIN_ANALYTIC_LB).toFixed(3) + ' at N_0, 28% margin) ' +
+    '-- CONDITIONAL on GUE universality for C_mb <= 1. ' +
     'Combined with UMon (imp-456), Jacobian bridge (imp-462), and rho_min (imp-469): ' +
-    'M is established UNCONDITIONALLY for all N >= 2. ' +
-    'Lambda <= 0.121 < 0.2 (Platt-Trudgian 2021) is now a FULLY UNCONDITIONAL finite-height beat.',
+    'M is established for all N >= 2 (unconditional for N <= 870; conditional on GUE universality for N >= 871). ' +
+    'Lambda <= 0.121 < 0.2 (Platt-Trudgian 2021) is a finite-height beat conditional on GUE universality.',
 };
 
 // ── Build-time assertions ─────────────────────────────────────────────────────

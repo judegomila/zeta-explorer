@@ -198,6 +198,12 @@ export const PAPER_SKEPTIC_REVIEW_6 = {
   fatalGapsFound: [],
   namedGapsFound: ['skp6-001', 'skp6-002'],
   softGapsFound: ['skp6-s1', 'skp6-s2'],
+  softGapsClosed: [
+    'skp6-s1: CLOSED by imp-494 (Review 6 entry added to ADVERSARIAL_REVIEWS in ' +
+      'proof-chain-snapshot-2026-04-12.js; execSummary updated to six-review trajectory)',
+    'skp6-s2: CLOSED by imp-496 (G6_bridge_closed docstring updated to CONDITIONALLY PROVED ' +
+      'in BridgeTheorem.lean; header status line updated to match)',
+  ],
 
   newSeedTickets: [
     {

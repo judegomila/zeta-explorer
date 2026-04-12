@@ -13,7 +13,8 @@
 --   C_T positivity (T0 >= exp 2)   : fully formal (log lemmas)
 --   C_F positivity (T0 > 2pi/e)    : fully formal (log lemmas)
 --   C_T, C_F upper/lower bounds    : fully formal (nlinarith / linarith)
---   C_F_integral_identity          : sorry (requires Mathlib improper integral API)
+--   C_F_integral_identity          : partial (imp-512: main thm proved via C_F_ibp_value)
+--   C_F_ibp_value (skp-512a)       : sorry (IBP + improper integral FTC + boundary limit)
 --   C_C_lt_one                     : fully formal (sqrt monotonicity + pi bound)
 --
 -- Companion JS file: src/math/lean4-koksma-hlawka.js (imp-403 skeleton).
@@ -116,13 +117,25 @@ lemma C_F_pos {T0 : ℝ} (hT0 : 2 * Real.pi * Real.exp (-1) < T0) : 0 < C_F T0 :
     (Real.log_exp (-1)) ▸ Real.log_lt_log (Real.exp_pos _) hfrac_gt
   linarith
 
+/-- Sub-gap skp-512a: IBP evaluation of the RvM flow integral on [T0, inf).
+    Antiderivative: F(T) = -(log(T/(2*pi)) + 1)/(2*pi*T).
+    Derivative check: F'(T) = log(T/(2*pi))/(2*pi*T^2) for T > 0.
+    Boundary: F(T) -> 0 as T -> inf (log grows slower than T).
+    Conclusion: integral = 0 - F(T0) = (log(T0/(2*pi)) + 1)/(2*pi*T0). -/
+private lemma C_F_ibp_value {T0 : ℝ} (hT0 : 0 < T0) :
+    ∫ T in Set.Ici T0, Real.log (T / (2 * Real.pi)) / (2 * Real.pi * T ^ 2) =
+    (Real.log (T0 / (2 * Real.pi)) + 1) / (2 * Real.pi * T0) := by
+  sorry -- skp-512a: use intervalIntegral FTC + tendsto boundary vanishing; integrability via log/T^2 decay
+
 /-- The RvM integral identity underlying C_F (imp-398, integration by parts).
     INT_{T0}^{inf} log(T/2pi) / (2pi * T^2) dT = C_F(T0) / T0.
-    Sorry: requires Mathlib improper integral API for the log(T)/T^2 kernel. -/
+    Partial closure (imp-512): sorry reduced to C_F_ibp_value (skp-512a) + div_div algebra. -/
 theorem C_F_integral_identity {T0 : ℝ} (hT0 : 0 < T0) :
     ∫ T in Set.Ici T0, Real.log (T / (2 * Real.pi)) / (2 * Real.pi * T ^ 2)
     = C_F T0 / T0 := by
-  sorry -- integration by parts: u = log(T/2pi), dv = T^{-2} dT
+  rw [C_F_ibp_value hT0]
+  unfold C_F
+  rw [div_div]
 
 /-! ## C_C = (1/8)*sqrt(3*pi): Collision constant (imp-399) -/
 

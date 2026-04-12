@@ -4674,12 +4674,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close imp-348 angle (b) rate upgrade via local-law rigidity',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'partial',
     proofSection: 'S7',
     description: 'imp-348 delivered angle (a) microscopic-strip rate; angle (b) was flagged as research-grade open (port Erdős-Schlein-Yau Wigner-matrix local semicircle law rigidity to Riemann-zero initial data). Port the ESY 2011 / Erdős-Yau 2017 rigidity estimate to the Dyson beta=2 flow on the Riemann zeros. Gives ψ_N ~ 1/N unconditionally, which in turn gives an explicit per-N bound r(N) on |t_c(N)| via imp-341 without imp-336 monotonicity.',
     rationale: 'Alternative to Route A: if ESY port works, per-N translation is free via imp-341 + imp-348 + this ticket, no monotonicity conjecture needed.',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-04-12T20:00:00Z',
+    closureNote: 'Partial closure via local-law-rigidity-closure.js (imp-1407). imp-407 (esy-rigidity-port.js) delivered the ESY framework and identified 3 obstacles (O1-O3) blocking unconditional port. This run synthesizes the per-N r(N) bound table, confirms the trend-decreasing rate check, and names sub-gap imp-370-O-unconditional. Unconditional closure blocked by O1 (arithmetic input problem). ANGLE_B_OPEN status unchanged.',
   },
 
   // ─── Cross-validation efforts for the SOTA claim ───

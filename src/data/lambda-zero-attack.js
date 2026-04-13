@@ -85,6 +85,28 @@ export const LAMBDA_ZERO_BLOCKERS = [
       'and refits, but does NOT prove a bound. A genuine analytic slope ' +
       'theorem is still open.',
     severity: 'medium',
+    status: 'conditional-closed',
+    conditionalClosure: {
+      closedBy: 'imp-457',
+      closedIn: 'src/data/b1-slope-conditional-upper-bound.js',
+      conditions: [
+        'NoSwap(N): argmin index k* of g_k(tau) is constant on [0, tau_c(N)] ' +
+          'under the backward Calogero-Moser flow.',
+        'D-monotone (sub-gap skp-imp457-D-monotone): D(tau) = 8 - 4 g_{k*}^2 S_{k*} ' +
+          'satisfies D(tau) >= D(0) on [0, tau_c]; numerically witnessed at N=50 and N=100.',
+      ],
+      boundValue: 'B1_SLOPE_CEILING from b1-slope-conditional-upper-bound.js ' +
+        '(= ceil_3sf(max_N b_lin(N)) over fit Ns {50,100,200,500,870})',
+      residualSubGap: 'skp-imp457-D-monotone — analytic proof that ' +
+        'g_{k*}(tau)^2 S_{k*}(tau) is non-increasing under NoSwap; ' +
+        'numerically witnessed but not yet proved unconditionally.',
+      note:
+        'Under NoSwap + D-monotone, imp-322 boundary ODE gives ' +
+        'tau_c(N) <= B(0)^2/D(0) = tau_lin(N), hence b(N) = N*tau_c(N) <= b_lin(N). ' +
+        'Drift ratio < 2 across fit Ns confirms the 1/N ansatz is structurally valid. ' +
+        'Unconditional closure requires either proving skp-imp457-D-monotone or a ' +
+        'direct GUE/ESY local-law bound on b(N) (the original imp-363/imp-370 route).',
+    },
   },
   {
     id: 'B2-intercept-positivity',

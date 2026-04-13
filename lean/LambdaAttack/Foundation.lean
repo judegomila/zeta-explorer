@@ -108,4 +108,17 @@ noncomputable def BRIDGE_C_G : ℝ := 1
 /-- C_G > 0: immediate from the definition 1 > 0. -/
 lemma BRIDGE_C_G_pos : (0 : ℝ) < BRIDGE_C_G := by norm_num [BRIDGE_C_G]
 
+/-! ## Koksma-Hlawka collision-time limsup (imp-525: moved from Capstone.lean) -/
+
+/-- imp-341 / imp-403 KoksmaHlawkaLimSup: |t_c(N)| -> 0 as N -> infinity.
+    Moved here from Capstone.lean (imp-525) to break the BridgeTheorem <-> Capstone
+    circular import: BridgeTheorem.lean needs this axiom to close rtz-002 (the hflow
+    sub-proof in rate_tendsto_zero), but BridgeTheorem imports Foundation (not Capstone),
+    and Capstone imports BridgeTheorem -- so the axiom must live in Foundation.
+    Status: AXIOM (formal proof deferred to src/math/lean4-koksma-hlawka.js, imp-403).
+      imp-403-sorry-1: Selberg S(T) bound not yet in Mathlib 4.9.
+      imp-403-sorry-3: Whitham fold Holder-1/2 modulus at Burgers shock. -/
+axiom KoksmaHlawkaLimSup :
+    Filter.Tendsto (fun N : ℕ => |dysonCollTime N|) Filter.atTop (nhds 0)
+
 end

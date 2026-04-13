@@ -239,9 +239,29 @@ theorem rate_tendsto_zero :
           mul_le_mul_of_nonneg_right (le_of_lt (C_T_lt_three_halves hg1))
             (div_nonneg hlog hrpow)
   have hflow : Tendsto (fun N : ℕ => errorFlow N) atTop (nhds 0) := by
-    sorry -- sub-gap rtz-002: C_F(gamma_N)*log(gamma_N)/gamma_N*exp(C_G*|t_c|)->0
-          -- log^2(x)/x->0 (Mathlib); exp factor->1 needs KoksmaHlawkaLimSup from Capstone
-          -- (circular import); fix: move KoksmaHlawkaLimSup axiom to Foundation.lean
+    -- rtz-002 PARTIAL CLOSURE (imp-525): errorFlow = (C_F*log/gamma) * exp(C_G*|t_c|) -> 0.
+    -- exp factor -> 1 (CLOSED): KoksmaHlawkaLimSup (moved to Foundation.lean) gives
+    --   |t_c(N)| -> 0; continuity of exp at 0 then gives exp(C_G*|t_c|) -> exp(0) = 1.
+    -- log-div factor -> 0 (rtz-002a, open): C_F(T)*log(T)/T ~ log^2(T)/(2*pi*T) -> 0.
+    have harg : Tendsto (fun N : ℕ => BRIDGE_C_G * |dysonCollTime N|) atTop (nhds 0) := by
+      have h : Tendsto (fun N : ℕ => BRIDGE_C_G * |dysonCollTime N|) atTop
+          (nhds (BRIDGE_C_G * 0)) :=
+        tendsto_const_nhds.mul KoksmaHlawkaLimSup
+      simpa [mul_zero] using h
+    have hexp : Tendsto (fun N : ℕ => Real.exp (BRIDGE_C_G * |dysonCollTime N|))
+        atTop (nhds 1) := by
+      have h := (Real.continuous_exp.tendsto 0).comp harg
+      simp only [Function.comp, Real.exp_zero] at h
+      exact h
+    have hlog_div : Tendsto
+        (fun N : ℕ => C_F (gammaOrdinate N) * (Real.log (gammaOrdinate N) / gammaOrdinate N))
+        atTop (nhds 0) := by
+      sorry -- rtz-002a: C_F(T) ~ log(T)/(2*pi); product C_F(T)*log(T)/T ~ log^2(T)/(2*pi*T) -> 0
+            -- Proof: squeeze between 0 and (log T + 1)*log T / (2*pi*T); use
+            --   Real.tendsto_log_div_rpow_atTop (kappa=1/2) + gammaOrdinate_tendsto_atTop.
+    have key : Tendsto (fun N : ℕ => errorFlow N) atTop (nhds (0 * 1)) := by
+      unfold errorFlow; exact hlog_div.mul hexp
+    simpa using key
   have heq : (fun N : ℕ => errorTotal N) =
       (fun N => errorTrunc N + errorFlow N + errorColl N) := by
     ext N; unfold errorTotal; ring
@@ -295,16 +315,19 @@ end
        The sorry keyword has been removed; this theorem is now formally proved
        conditional on the two new axioms above (which encapsulate the hard math).
 
-    2. rate_tendsto_zero (imp-412-sorry-2) -- PARTIAL CLOSURE by imp-511 + imp-513
+    2. rate_tendsto_zero (imp-412-sorry-2) -- PARTIAL CLOSURE by imp-511 + imp-513 + imp-525
        Statement: errorTotal N -> 0 as N -> infinity.
-       Status: E_coll PROVED (imp-511); E_trunc PROVED (imp-513 rtz-001); E_flow open (rtz-002).
+       Status: E_coll PROVED (imp-511); E_trunc PROVED (imp-513 rtz-001); E_flow PARTIAL (rtz-002).
        rtz-001 CLOSED (imp-513): htrunc proof via squeeze_zero_norm':
          -- bound: C_T(gamma_N) * gamma_N^{-kappa_T} * log(gamma_N)
          --      <= (3/2) * log(gamma_N) / gamma_N^{kappa_T}  [C_T < 3/2 for gamma_N > 1]
          -- limit: (3/2) * log(x) / x^{kappa_T} -> 0 [Real.tendsto_log_div_rpow_atTop]
          -- composition with gammaOrdinate_tendsto_atTop for the N -> inf version.
-       Sub-gap rtz-002: E_flow term (C_F*log(gamma_N)/gamma_N*exp(C_G*|t_c|) -> 0)
-         -- Needs: log^2(x)/x->0 + KoksmaHlawkaLimSup moved to Foundation.lean
+       rtz-002 PARTIAL (imp-525): E_flow proof structured; exp factor CLOSED.
+         -- exp factor: KoksmaHlawkaLimSup (moved to Foundation.lean) + exp continuous at 0
+         --   gives exp(C_G*|t_c(N)|) -> exp(0) = 1.  (CLOSED)
+         -- log-div factor: rtz-002a (open): C_F(T)*log(T)/T ~ log^2(T)/(2*pi*T) -> 0.
+         --   Use Real.tendsto_log_div_rpow_atTop (kappa=1/2) + gammaOrdinate_tendsto_atTop.
 
     3. G6_bridge_closed (imp-412-sorry-3) -- CLOSED by imp-490
        Statement: (-t_c(N)) -> Lambda.

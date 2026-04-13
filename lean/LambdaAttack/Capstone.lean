@@ -60,17 +60,11 @@ noncomputable section
     than contradictory (i.e., we cannot have Lambda < 0). -/
 axiom rodgers_tao_nonneg : (0 : ℝ) <= deBruijnNewmann
 
-/-- (2) imp-341 / imp-403 KoksmaHlawkaLimSup: |t_c(N)| -> 0 unconditionally.
-    The N-particle Dyson collision time vanishes as N -> infinity, via the
-    Koksma-Hlawka total-variation discrepancy bound on the empirical
-    Stieltjes transform m_N(z). The continuum collision time tau_c(m_inf) = 0
-    at the Wigner semicircle / RvM density fixed point of the Dyson flow.
-    Pinned constants from imp-341: C_KH = 3*pi, C_H = 1/8, C_C = (1/8)*sqrt(3*pi).
-    Status: SORRY in src/math/lean4-koksma-hlawka.js --
-      imp-403-sorry-1: Selberg S(T) bound not yet in Mathlib 4.9;
-      imp-403-sorry-3: Whitham fold Holder-1/2 modulus at Burgers shock. -/
-axiom KoksmaHlawkaLimSup :
-    Tendsto (fun N : ℕ => |dysonCollTime N|) atTop (nhds 0)
+-- (2) imp-341 / imp-403 KoksmaHlawkaLimSup: |t_c(N)| -> 0 unconditionally.
+--     imp-525: axiom declaration moved to Foundation.lean to break the circular import
+--     (BridgeTheorem imports Foundation, not Capstone; Capstone imports BridgeTheorem).
+--     KoksmaHlawkaLimSup is available here via the LambdaAttack.BridgeTheorem import chain.
+--     Status: AXIOM in Foundation.lean; formal proof deferred (imp-403-sorry-1, imp-403-sorry-3).
 
 /-- (3) imp-387 / imp-412 G6_bridge_closed: -t_c(N) -> deBruijnNewmann.
     The Polymath15 G6 bridge: the negated collision time converges to Lambda.

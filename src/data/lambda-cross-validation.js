@@ -91,7 +91,7 @@ const CAPSTONE_ERROR = 0.005;
 //    recorded here for completeness and appears only in scope-matched
 //    assertions (same-regime estimates only).
 const KERNEL_HACK_CENTRAL = 1.3e-10;
-const KERNEL_HACK_ERROR = 1.3e-10; // order-of-magnitude, treat as Fermi-style
+const KERNEL_HACK_ERROR = 1.3e-10; // Fermi-style; rigorous Bauer-Fike + GUE bound in src/math/kernel-hack-rigorous-error.js (imp-516)
 
 export const LAMBDA_CROSS_VALIDATION = {
   compatibilityRule:

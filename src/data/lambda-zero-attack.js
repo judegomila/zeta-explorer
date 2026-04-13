@@ -156,6 +156,24 @@ export const LAMBDA_ZERO_BLOCKERS = [
       '(upgrade imp-341 rate from O(log γ_N / √N) to O(1/N) via a local- ' +
       'law microscopic scale) turn the lim-sup into a per-N bound. ' +
       'Neither produces Λ itself — that is G6_polymath15_bridge.',
+    conditionalClosure: {
+      closedBy: 'imp-458',
+      closedIn: 'src/data/b2-intercept-analytic-bound.js',
+      conditions: [
+        'M: |t_c(N+1)| <= |t_c(N)| for all N >= 2 (monotonicity of Calogero-Moser collision time).',
+      ],
+      boundValue:
+        'A_UPPER_BOUND from b2-intercept-analytic-bound.js ' +
+        '(Koksma-Hlawka tau_c_upper_bound at N_max; numerically ~0.0094 < 0.02 ceiling).',
+      residualSubGap:
+        'imp-336 -- analytic proof that |t_c(N+1)| <= |t_c(N)|; ' +
+        'empirically unfalsified on the full PATH_C_BASELINE_FIT but not yet proved.',
+      note:
+        'Under M, a = inf_N |t_c(N)| <= |t_c(N_max)| <= 1/(2*(sup_Im_m_inf(N_max) - psi(N_max))). ' +
+        'The Koksma-Hlawka bound at N_max gives a_UB ~ 0.0094 < 0.02 ceiling, ' +
+        'satisfying the assembly condition. Unconditional closure needs M (imp-336) ' +
+        'or a rate upgrade of imp-341 (imp-348).',
+    },
     severity: 'high',
   },
   {

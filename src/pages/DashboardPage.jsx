@@ -203,9 +203,9 @@ function computeGUESpacing() {
 function computeWeilPositivity() {
   return import('../math/rh-attack.js').then(mod => {
     const result = mod.weilPositivityTest([0.5, 1, 2, 5, 10], 80, 50);
-    const tests = result.tests;
-    const allPositive = tests.every(t => t.sum >= -1e-10);
-    const minSum = Math.min(...tests.map(t => t.sum));
+    const tests = result.results;
+    const allPositive = tests.every(t => t.balance >= -1e-10);
+    const minSum = Math.min(...tests.map(t => t.balance));
     return {
       status: allPositive ? 'green' : 'red',
       value: allPositive ? 'Non-Negative' : `Min = ${minSum.toExponential(3)}`,

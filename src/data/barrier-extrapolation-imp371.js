@@ -220,6 +220,18 @@ export const BARRIER_EXTRAPOLATION_IMP371 = {
       'full cross-verification standard for the SOTA claim.',
   ],
 
+  upgradeBlockerNote:
+    'imp-527 investigation (2026-04-13): checked whether imp-462 (M-raw bridge), ' +
+    'imp-463 (D-monotone analytic closure), imp-464 (NoSwap condition), and ' +
+    'imp-471 (many-body correction, sole blocker on unconditional Lambda <= 0.121 beat) ' +
+    'enable upgrading this partial to full. They do not. Those four closures address ' +
+    'the B1/B2 monotonicity and NoSwap conditions inside the Lambda attack route, ' +
+    'which is orthogonal to the barrier extrapolation cross-validation. ' +
+    'The remaining blocker is purely computational: actual barrier integration at ' +
+    'N > 5000 requires an offline compute engine (est. 4 s at N = 10000, ' +
+    '>400 s at N = 100000) that cannot run in the Vite build pipeline. ' +
+    'Status remains partial until sub-gap imp-371-barrier-compute is closed.',
+
   sources: [
     'imp-404 BARRIER_EXTRAPOLATION_V2 (src/data/barrier-extrapolation-v2.js)',
     'imp-360 DYSON_LADDER_MEASURED (src/data/dyson-ladder-measured.js)',

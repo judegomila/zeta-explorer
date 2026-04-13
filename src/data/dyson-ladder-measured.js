@@ -479,6 +479,20 @@ export const DYSON_LADDER_MEASURED = {
     'at Vite build time). Rows at N in {30000, 40000, 50000, 75000, 100000} will ' +
     'likely return budget-exhausted (t_c_lo = 0.012, t_c_hi = +Infinity); ' +
     't_c_lo = 0.012 remains a valid certified lower bound at these sizes.',
+
+  upgradeBlockerNote:
+    'imp-528 investigation (2026-04-13): checked whether imp-462 (M-raw/M-uf ' +
+    'bridge via RvM Jacobian), imp-463 (D-monotone analytic closure), ' +
+    'imp-464 (NoSwap condition), and imp-471 (B2 many-body correction, ' +
+    'established conditional on GUE universality) enable upgrading this ' +
+    'partial to full. They do not. Those four closures address the ' +
+    'monotonicity + NoSwap + B1/B2 conditions inside the Lambda attack ' +
+    'route — orthogonal to the measured-ladder data-coverage gap. ' +
+    'The two remaining blockers are: (1) zeros6 data file not downloaded ' +
+    '(~35 MB, 2M Odlyzko ordinates required for N > 100000 measured runs; ' +
+    'sub-gap: skp-imp423-compute), and (2) offline O(N^2) compute engine ' +
+    'infeasible at Vite build time. Status remains partial until both ' +
+    'blockers are resolved.',
 };
 
 // ── Build-time assertions ───────────────────────────────────────────────────

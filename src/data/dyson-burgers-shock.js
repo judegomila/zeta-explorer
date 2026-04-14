@@ -293,20 +293,21 @@ export const DYSON_BURGERS_SHOCK = {
       'see imp-344 lambda-intercept-unconditional.js for the assembly.',
   },
   verdict:
-    'LIMIT STATEMENT ESTABLISHED, UNCONDITIONAL BOUND NOT YET PROVED. The ' +
-    'Burgers shock time for the Riemann-von Mangoldt continuum density is ' +
-    'exactly 0, which IS candidate (ii)\'s closed-form a. But the step from ' +
-    '"τ_shock(ρ_∞) = 0" to "a := lim sup_N |t_c(N)| = 0" needs uniform ' +
-    'convergence of m_N to m_∞ near the real axis (gap G5_burgers), which is ' +
-    'open. imp-328\'s conditional bound a ≤ 0.0086 therefore stays in force. ' +
-    'Candidate (ii) is now a STRUCTURAL THEOREM modulo G5_burgers, alongside ' +
-    'imp-337 candidate (i) which is modulo G3_density / G4_argmin_drift.',
+    'UNCONDITIONAL LIMIT STATEMENT ESTABLISHED. The Burgers shock time for ' +
+    'the Riemann-von Mangoldt continuum density is exactly 0, which IS ' +
+    'candidate (ii)\'s closed-form a. The uniformity gap G5_burgers was CLOSED ' +
+    'by imp-341 (deterministic Koksma-Hlawka discrepancy bound on m_N → m_∞) ' +
+    'and imp-344 (assembly), so a := lim sup_N |t_c(N)| = 0 now holds ' +
+    'UNCONDITIONALLY along the N-particle Dyson flow. Remaining open work: a ' +
+    'per-N explicit bound |t_c(N)| ≤ ε(N) still requires imp-336 monotonicity ' +
+    '(or a rate upgrade on ψ_N) — see imp-344 lambda-intercept-unconditional.js ' +
+    'for the assembly. Candidate (i) (imp-337) remains modulo G3_density / ' +
+    'G4_argmin_drift.',
   openWork: [
-    'Close G5_burgers by adapting local-law uniformity (Erdős-Schlein-Yau ' +
-      'style) to Dyson backward flow at Riemann-zero initial data.',
-    'Or, replace the continuum argument with a direct finite-N rigorous ' +
-      'upper bound on |t_c(N)| that mirrors the Burgers characteristic ' +
-      'calculation on the discrete m_N, eliminating the uniformity question.',
+    'Obtain a tight per-N explicit upper bound on |t_c(N)|: the 2π / log²(γ_N / 2π) ' +
+      'surrogate is a loose envelope; closing this requires imp-336 drift-sign ' +
+      'monotonicity or a quantitative rate upgrade on the ψ_N convergence ' +
+      'established in imp-344.',
     'Tighten the finite-N surrogate: the 2π / log²(γ_N / 2π) envelope is ' +
       'loose because it uses the global-max density; using a local minimum ' +
       'gap argument at the argmin site k* would give a ρ-weighted surrogate ' +

@@ -156,8 +156,16 @@ export const LAMBDA_ZERO_BLOCKERS = [
     conditionalClosure: {
       closedBy: 'imp-458',
       closedIn: 'src/data/b2-intercept-analytic-bound.js',
+      closedConditions: [
+        'G5_burgers (lim-sup half): a := lim sup_{N->inf} |t_c(N)| = 0 UNCONDITIONALLY CLOSED ' +
+          'by imp-341 (lambda-intercept-burgers-uniformity.js) via Koksma-Hlawka discrepancy bound ' +
+          '(C_Selberg = 3.0, Selberg unconditional |S(T)| <= C_Selberg * log T). ' +
+          'No GUE or local-law input needed; this half of B2 is fully analytic (imp-597).',
+      ],
       conditions: [
-        'M: |t_c(N+1)| <= |t_c(N)| for all N >= 2 (monotonicity of Calogero-Moser collision time).',
+        'M: |t_c(N+1)| <= |t_c(N)| for all N >= 2 (monotonicity of Calogero-Moser collision time). ' +
+          'Empirically unfalsified on the full PATH_C_BASELINE_FIT (imp-409, 35-point ladder); ' +
+          'analytic proof open (imp-336). Needed to translate the lim-sup into a per-N bound.',
       ],
       boundValue:
         'A_UPPER_BOUND from b2-intercept-analytic-bound.js ' +

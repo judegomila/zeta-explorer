@@ -7919,12 +7919,13 @@ export const IMPROVEMENT_QUEUE = [
     title: "Fix improvement-queue.js:6773 — description: \"Found TODO/FIXME at src/data/improvement-queue",
     category: 'meta',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'meta',
     description: "Found TODO/FIXME at src/data/improvement-queue.js:6773: \"description: \"Found TODO/FIXME at src/data/improvement-queue.js:6599: \\\"title: 'Upgrade KERNEL_HACK error estimate from \". Investigate and resolve or remove the marker if already done.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-14T08:30:00.000Z',
+    closureNote: 'FALSE POSITIVE (fourth-generation): Line 6773 of improvement-queue.js is the description field of the already-completed ticket imp-529 (completedAt 2026-04-13T16:30:00Z). imp-529 itself was a false-positive about imp-516 (KERNEL_HACK Bauer-Fike bound, closed 2026-04-13). The description string of imp-529 reads "Found TODO/FIXME at src/data/improvement-queue.js:6599: ..." -- the text "TODO/FIXME" appears inside this string as a description of what the auto-seeder found at the time, not as an actionable marker. The auto-seeder scanned completed queue entries and matched the literal phrase "TODO/FIXME" embedded within a string field of a prior false-positive ticket. This is a fourth-generation false positive in the chain: imp-516 (real, closed) -> imp-529 (FP about 516, closed) -> imp-614 (FP about 529 title, closed) -> imp-615 (FP about 529 description, closed now). No code change needed.',
   },
 
     {

@@ -217,6 +217,7 @@ const G6_PER_N_BOUND = {
   id: 'G6_per_N_bound',
   status: 'open',
   namedBy: 'imp-661',
+  investigatedBy: 'imp-668',
   claim:
     'There exists an explicit decreasing sequence ε(N) → 0 such that ' +
     '|t_c(N)| ≤ ε(N) holds for all N in the baseline — a tight per-N upper ' +
@@ -229,6 +230,27 @@ const G6_PER_N_BOUND = {
     'sequence is non-increasing and the continuum limit a = 0 then forces it ' +
     'below any positive ε, or (b) a quantitative rate estimate on the ' +
     'ψ_N convergence from imp-344 that explicitly bounds |τ_c(m_N) − τ_c(m_∞)|.',
+  investigationStatus:
+    'imp-668 audited both routes. Route A (monotonicity, imp-336): the imp-336 ' +
+    'sketch is complete but retains G1-sub-extremal — bulk confinement of k*_N ' +
+    'under the backward Dyson flow for Riemann zeros is conjectural via ' +
+    'Montgomery 1973 and not a theorem (same gap as imp-343 residualSubGap ' +
+    'G4a_bulk_confinement). Route B (quantitative rate, imp-348): the ' +
+    'microscopic-strip rate upgrade bounds ||m_N - m_inf|| at rate ' +
+    'Theta((log γ_N)^2 / N), but converting this modulus bound into a bound on ' +
+    '|τ_c(m_N) − τ_c(m_∞)| requires quantitative Lipschitz continuity of the ' +
+    'shock-time functional τ_c at the singularity τ_c(m_∞) = 0; no such ' +
+    'estimate is available in the current proof chain. G6_per_N_bound ' +
+    'remains open; the two blocking conditions are named below.',
+  blockingConditions: [
+    'G1-sub-extremal: bulk confinement of k*_N under the backward Dyson flow ' +
+      'for Riemann zeros — conjectural via Montgomery 1973, not a theorem. ' +
+      'Blocks Route A. Shared with imp-343 residualSubGap.G4a_bulk_confinement.',
+    'G6b_shock_continuity: quantitative Lipschitz bound on ' +
+      '|τ_c(m_N) − τ_c(m_∞)| in terms of ||m_N − m_∞||, converting the ' +
+      'imp-348 microscopic-strip modulus rate into an explicit per-N bound on ' +
+      '|t_c(N)|. Blocks Route B. Currently open research.',
+  ],
   closurePaths: [
     'Prove imp-336 drift-sign monotonicity: show that |t_c(N)| is non-increasing ' +
       'along the Dyson flow. Together with the unconditional a = 0 limit, this ' +
@@ -248,7 +270,9 @@ export const DYSON_BURGERS_SHOCK = {
     'continuum limit τ_shock(ρ_∞) = 0 established; finite-N surrogate is a ' +
     'loose upper envelope; uniformity gap G5_burgers CLOSED (imp-341 ' +
     'Koksma-Hlawka + imp-344 assembly) ⇒ candidate (ii) lim-sup a = 0 is ' +
-    'UNCONDITIONAL; per-N bound still needs imp-336 monotonicity (M)',
+    'UNCONDITIONAL; per-N bound remains open as G6_per_N_bound — both ' +
+    'closure routes investigated by imp-668, blocked by G1-sub-extremal ' +
+    '(Route A) and G6b_shock_continuity (Route B)',
   consumes: [
     'PATH_C_BASELINE_FIT (src/math/dyson-scaling-N5000.js)',
     'imp-323 LAMBDA_INTERCEPT_CONFIDENCE.fit — OLS (a, b) for cross-projection',

@@ -245,6 +245,28 @@ export default function HamiltonianViz() {
             onChange={e => setNumPrimes(+e.target.value)} />
           <span className="control-value">{numPrimes} <span style={{ color: '#64748b', fontSize: 11 }}>(up to p={getPrimes(numPrimes)[numPrimes - 1]})</span></span>
         </div>
+        <div className="control-group" style={{ flexWrap: 'wrap', gap: 4 }}>
+          <label style={{ marginRight: 4 }}>Jump to zero:</label>
+          {ZETA_ZEROS.slice(0, 5).map((z, i) => (
+            <button
+              key={i}
+              onClick={() => setTValue(z)}
+              title={`Set t = γ${i + 1} = ${z.toFixed(6)}`}
+              style={{
+                padding: '2px 8px',
+                fontSize: 11,
+                fontFamily: 'var(--font-mono)',
+                background: Math.abs(tValue - z) < 0.01 ? '#10b981' : 'rgba(16,185,129,0.12)',
+                color: Math.abs(tValue - z) < 0.01 ? '#0a0e1a' : '#10b981',
+                border: '1px solid #10b981',
+                borderRadius: 4,
+                cursor: 'pointer',
+              }}
+            >
+              {'\u03B3'}{String(i + 1).split('').map(c => String.fromCharCode(0x2080 + +c)).join('')}={z.toFixed(1)}
+            </button>
+          ))}
+        </div>
         {hoverPoint ? (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
             <InlineMath tex={"\\sigma"} />={hoverPoint.sigma.toFixed(3)} | <InlineMath tex={"\\mathcal{H}"} />={hoverPoint.total.toFixed(3)} | <InlineMath tex="T" />={hoverPoint.kinetic.toFixed(3)} | <InlineMath tex="V" />={hoverPoint.potential.toFixed(3)} | <span style={{ color: '#8b5cf6' }}><InlineMath tex="V_b" />={hoverPoint.bridgeCoupling.toFixed(3)}</span>

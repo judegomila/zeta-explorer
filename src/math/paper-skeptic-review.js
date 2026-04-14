@@ -122,7 +122,9 @@ export const paperSkepticReview = {
   ],
 
   summary: {
-    fatalGaps: 2,
+    // imp-725 verification: counted 3 FATAL claims (skp-001, skp-006, skp-009), not 2.
+    // getFatalGaps() filters correctly; this hardcoded count was off by one.
+    fatalGaps: 3,
     namedGaps: 2,
     softIssues: 5,
     closedItems: 0,

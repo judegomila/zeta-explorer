@@ -1506,3 +1506,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1623 | 2026-04-14T23:20:00.000Z | imp-720 (feature, low): add ARIA tab roles to PaperUploadPage -- tablist/tab/tabpanel roles with aria-selected and aria-controls for screen-reader accessibility | src/pages/PaperUploadPage.jsx |
 | 1624 | 2026-04-14T23:35:00.000Z | imp-723 (content, low): add @module/@fileoverview JSDoc with exports list, proof chain step, and ticket history to lambda-rh-height-mapping.js | src/data/lambda-rh-height-mapping.js |
 | 1625 | 2026-04-15T00:00:00.000Z | imp-724 (feature, medium): add zeta zero quick-jump buttons (gamma1 through gamma5) to HamiltonianViz controls so users can navigate directly to known zeros | src/components/HamiltonianViz.jsx |
+| 1626 | 2026-04-14T23:30:00.000Z | imp-725 (proof, medium): fix fatalGaps count in paper-skeptic-review.js -- was 2, should be 3 (skp-001, skp-006, skp-009 all have severity FATAL) | src/math/paper-skeptic-review.js |

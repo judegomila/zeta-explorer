@@ -225,8 +225,8 @@ export function gueVerificationTest() {
     numberVariance: numVar,
     summary: {
       normalizedVariance: +normalizedVariance.toFixed(4),
-      gueExpectedVariance: 0.4228, // GUE normalized variance
-      ratio: +(normalizedVariance / 0.4228).toFixed(3),
+      gueExpectedVariance: 0.1781, // GUE Wigner-surmise spacing variance: 3*pi/8 - 1 ≈ 0.1781 (not the std dev 0.422)
+      ratio: +(normalizedVariance / 0.1781).toFixed(3),
     },
     proofChain: [
       { step: 1, claim: `${N} zeros available for statistical analysis`, status: 'done' },
@@ -239,7 +239,7 @@ export function gueVerificationTest() {
       `GUE statistics with ${N} zeros: pair correlation L² error = ${pairCorr.l2Error.toFixed(4)}, ` +
       `spacing L² error = ${spacingDist.l2Error.toFixed(4)}. ` +
       `Level repulsion: ${spacingDist.levelRepulsion ? 'CONFIRMED' : 'VIOLATED'}. ` +
-      `Normalized variance: ${normalizedVariance.toFixed(4)} (GUE: 0.4228, ratio: ${(normalizedVariance / 0.4228).toFixed(3)}). ` +
+      `Normalized variance: ${normalizedVariance.toFixed(4)} (GUE: 0.1781, ratio: ${(normalizedVariance / 0.1781).toFixed(3)}). ` +
       (pairCorr.l2Error < 0.5 && spacingDist.levelRepulsion
         ? 'GUE STATISTICS CONFIRMED: zeros of ζ(s) exhibit random matrix universality, ' +
           'consistent with a self-adjoint operator having GUE-distributed eigenvalues.'

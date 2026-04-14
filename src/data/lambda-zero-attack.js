@@ -49,6 +49,7 @@
 
 import { LAMBDA_RH_BRIDGE } from './bridge-lambda-rh.js';
 import { LAMBDA_ERROR_BUDGET } from './lambda-error-budget.js';
+import { B1_CONDITIONAL_BOUND } from './b1-slope-conditional-upper-bound.js';
 
 const PATH_C_CENTRAL = LAMBDA_RH_BRIDGE.pathCBound.centralValue; // 0.0066
 const PATH_C_ERROR = LAMBDA_RH_BRIDGE.pathCBound.errorBar;       // 0.01
@@ -85,7 +86,7 @@ export const LAMBDA_ZERO_BLOCKERS = [
       'and refits, but does NOT prove a bound. A genuine analytic slope ' +
       'theorem is still open.',
     severity: 'medium',
-    status: 'conditional-closed',
+    status: B1_CONDITIONAL_BOUND.status,
     conditionalClosure: {
       closedBy: 'imp-457',
       closedIn: 'src/data/b1-slope-conditional-upper-bound.js',

@@ -74,8 +74,13 @@ export class Interval {
     return new Interval(lo, hi);
   }
   log() {
-    const lo = this.lo > 0 ? Math.log(this.lo) * (1 - EPS * Math.abs(Math.log(this.lo))) : -Infinity;
-    const hi = this.hi > 0 ? Math.log(this.hi) * (1 + EPS * Math.abs(Math.log(this.hi))) : -Infinity;
+    // imp-722 verify: outward rounding must ADD/SUBTRACT |log(x)|*eps from the
+    // float result. The multiplicative form (log(x)*(1+eps*|log(x)|)) fails when
+    // log(x)<0 (i.e. 0<x<1): a negative number times (1+eps) grows more negative,
+    // producing a lower bound instead of the required upper bound. Additive form
+    // is correct in both cases: lo rounds down, hi rounds up.
+    const lo = this.lo > 0 ? Math.log(this.lo) - Math.abs(Math.log(this.lo)) * EPS : -Infinity;
+    const hi = this.hi > 0 ? Math.log(this.hi) + Math.abs(Math.log(this.hi)) * EPS : -Infinity;
     return new Interval(Math.min(lo, hi), Math.max(lo, hi));
   }
   cos() {

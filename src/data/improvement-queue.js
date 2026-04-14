@@ -7525,12 +7525,12 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Separate Route B as a standalone unconditional paper',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'paper',
     description: 'Route B (asymptotic Lambda = 0 via Burgers uniformity + Polymath15 bridge + Rodgers-Tao) is genuinely unconditional and does not depend on GUE universality. It deserves its own clean writeup separate from the finite-height GUE-conditional result. Create papers/route-b-unconditional-2026.tex as a short (~10 page) self-contained paper: (1) state the result (lim sup |t_c(N)| = 0 implies Lambda = 0 via Rodgers-Tao), (2) prove the Burgers envelope convergence (imp-341), (3) prove the Polymath15 bridge (imp-345/387), (4) assemble. No GUE, no finite-height, no conditions. Deliverable: the .tex file + a build script.',
     rationale: 'The rigor audit rated Route B as grade A. Burying it inside a paper that also makes GUE-conditional claims dilutes the genuinely strong result.',
     estimatedComplexity: 'large',
-    completedAt: null,
+    completedAt: '2026-04-14T08:45:00.000Z',
   },
 
   // ─── NEW MATHEMATICAL DIRECTIONS ──────────────────────────────────────

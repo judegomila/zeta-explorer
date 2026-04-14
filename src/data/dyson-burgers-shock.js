@@ -218,7 +218,7 @@ const G6_PER_N_BOUND = {
   status: 'partial',
   namedBy: 'imp-661',
   investigatedBy: 'imp-668',
-  closureAttemptedBy: 'imp-673; imp-676; imp-679',
+  closureAttemptedBy: 'imp-673; imp-676; imp-679; imp-680',
   closureOutcome:
     'imp-673 re-confirmed Route A blocked by G1-sub-extremal. imp-676 ' +
     'audit finds Route B PARTIALLY RESOLVED: imp-354 ' +
@@ -234,7 +234,15 @@ const G6_PER_N_BOUND = {
     'axis (y → 0+), so C_W = sqrt(2/|u_0_double_prime(z_0*)|) is ill-defined. ' +
     'Polymath15 path (imp-366) is viable: coefficient C_QUADRATIC_TANGENCY = 8 ' +
     'is RIGOROUS (from two-particle Dyson ODE); remaining symbolic C_shock and ' +
-    'C_Lip are finite and order-unity. Route A still blocked by G1-sub-extremal.',
+    'C_Lip are finite and order-unity. Route A still blocked by G1-sub-extremal. ' +
+    'imp-680 upgrade investigation: checked whether imp-462 (M-raw/M-uf bridge ' +
+    'via RvM Jacobian), imp-463 (D-monotone analytic closure), imp-464 (NoSwap ' +
+    'condition), and imp-471 (B2 many-body correction) enable upgrading to full. ' +
+    'They do not — those four closures address Lambda-attack conditions ' +
+    '(monotonicity, D-monotone, NoSwap, B2) inside the argmin-drift proof branch, ' +
+    'which is orthogonal to G6_per_N_bound. Status remains partial: Route B ' +
+    'upgrade blocked by G6a-sub-constant (explicit Polymath15 Lemma 5.2 constant ' +
+    'C_H not yet carried through); Route A blocked by G1-sub-extremal.',
   claim:
     'There exists an explicit decreasing sequence ε(N) → 0 such that ' +
     '|t_c(N)| ≤ ε(N) holds for all N in the baseline — a tight per-N upper ' +

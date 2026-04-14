@@ -149,6 +149,8 @@ const G2_CLOSURE_STATUS = {
       '(2) imp-336 drift-sign propagation through the Calogero-Moser backward flow ' +
       '(still conditional on G1 uniform margin). Neither blocking dependency is ' +
       'addressed by the ZPO B1/B2 route. Status must remain conditional.',
+    confirmedBy: 'imp-665',
+    confirmedAt: '2026-04-14T12:00:00Z',
   },
 };
 

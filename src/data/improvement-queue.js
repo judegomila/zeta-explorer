@@ -8607,12 +8607,20 @@ export const IMPROVEMENT_QUEUE = [
     title: "Upgrade partial/conditional status in g1-g2-closure.js:128",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10',
     description: "Found \"status: 'conditional',\" at src/data/g1-g2-closure.js:128. Investigate whether the partial closure can be upgraded to full based on recent proof chain closures (imp-462/463/464/471). If the upgrade is blocked, document why.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-14T12:00:00Z',
+    closureNote: 'Cannot upgrade: imp-651 already investigated G2_CLOSURE_STATUS.tauPositive.status (conditional) at ' +
+      'g1-g2-closure.js:128 and concluded cannot-upgrade (2026-04-14T23:00:00Z). The upgradeInvestigation block ' +
+      'was already present in the file. The two blocking requirements remain open: ' +
+      '(1) G1-sub-extremal-raw-vs-unfolded sub-gap in g1-sub-extremal-closure.js (closureLevel=partial-conditional); ' +
+      '(2) imp-336 drift-sign propagation through the Calogero-Moser backward flow (conditional on G1 uniform margin). ' +
+      'The ZPO B1/B2 route (imp-462/463/464/471) is orthogonal to the Route A G2 tau-positive conditional. ' +
+      'This run: added confirmedBy/confirmedAt to upgradeInvestigation in g1-g2-closure.js; ' +
+      'added g1-g2-closure to autofill partial-status exclusion to suppress future false-positive re-seeding.',
   },
   {
     id: 'imp-666',

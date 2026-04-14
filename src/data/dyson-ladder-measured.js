@@ -515,7 +515,14 @@ export const DYSON_LADDER_MEASURED = {
     'partial-status confirmation) are all orthogonal to the measured-ladder ' +
     'data-coverage gap. The two blockers remain unresolved: (1) zeros6 data ' +
     'file not downloaded (sub-gap: skp-imp423-compute), (2) offline O(N^2) ' +
-    'compute engine infeasible at Vite build time. Status remains partial.',
+    'compute engine infeasible at Vite build time. Status remains partial. ' +
+    'imp-631 re-check (2026-04-14): post-imp-621..630 closures (meta false-positive ' +
+    'resolutions for seeder self-matches imp-621..625, B1/B2 sub-gap surfacing ' +
+    'imp-626/627, barrier-extrapolation residualSubGap imp-628, BridgeTheorem.lean ' +
+    'sorry false-positive imp-629, barrier-extrapolation third-confirmation imp-630) ' +
+    'are all orthogonal to the measured-ladder data-coverage gap. The two blockers ' +
+    'remain unresolved: (1) zeros6 data file not downloaded (sub-gap: skp-imp423-compute), ' +
+    '(2) offline O(N^2) compute engine infeasible at Vite build time. Status remains partial.',
 };
 
 // ── Build-time assertions ───────────────────────────────────────────────────

@@ -408,7 +408,7 @@ const G1_SUB_EXTREMAL = {
 
 export const DYSON_BURGERS_SHOCK = {
   id: 'imp-338',
-  blocker: 'B2(a)-statistical-intercept (imp-328 candidate (ii), Burgers shock)',
+  blocker: 'B2(a)-statistical-intercept (imp-328 candidate (ii), Burgers shock)', // CLOSED: lim-sup a=0 unconditional (imp-341/imp-344); per-N bound closed Route B (imp-395/imp-683)
   status:
     'continuum limit τ_shock(ρ_∞) = 0 established; finite-N surrogate is a ' +
     'loose upper envelope; uniformity gap G5_burgers CLOSED (imp-341 ' +

@@ -492,7 +492,10 @@ export const DYSON_LADDER_MEASURED = {
     '(~35 MB, 2M Odlyzko ordinates required for N > 100000 measured runs; ' +
     'sub-gap: skp-imp423-compute), and (2) offline O(N^2) compute engine ' +
     'infeasible at Vite build time. Status remains partial until both ' +
-    'blockers are resolved.',
+    'blockers are resolved. imp-537 re-check (2026-04-14): post-imp-592 ' +
+    'adversarial review and post-imp-583/584/585/590 closures confirm no ' +
+    'new proof chain developments address the zeros6 or O(N^2) compute ' +
+    'blockers. Status remains partial.',
 };
 
 // ── Build-time assertions ───────────────────────────────────────────────────

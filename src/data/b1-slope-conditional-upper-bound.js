@@ -209,12 +209,15 @@ export const B1_BOUND_ASSERTIONS = [
     id: 'imp457-residual-subgap-named',
     holds: () =>
       B1_CONDITIONAL_BOUND.residualSubGap.id === 'imp-584' &&
-      B1_CONDITIONAL_BOUND.residualSubGap.status === 'open',
+      (B1_CONDITIONAL_BOUND.residualSubGap.status === 'open' ||
+       B1_CONDITIONAL_BOUND.residualSubGap.status === 'approach-refuted'),
     why:
       'After D-monotone was analytically closed by imp-463, the sole remaining sub-gap ' +
       'for full analytic B1 closure is imp-584 (NoSwap initial-config S-dominance). ' +
       'Checks that residualSubGap points to imp-584 as the actual open gap, not the ' +
-      'now-closed skp-imp457-D-monotone.',
+      'now-closed skp-imp457-D-monotone. Accepts "approach-refuted" because the ' +
+      'S-dominance approach was refuted (minExcess < 0) but the NoSwap analytic gap ' +
+      'itself is still open -- approach-refuted is not the same as gap-closed.',
   },
   {
     id: 'imp457-d-monotone-witness-passes',

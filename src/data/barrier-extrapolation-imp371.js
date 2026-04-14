@@ -239,7 +239,12 @@ export const BARRIER_EXTRAPOLATION_IMP371 = {
     'imp-638 re-investigation (2026-04-14): fourth confirmation; auto-seeder matched ' +
     'this upgradeBlockerNote string at line 226 as an open sub-gap, but imp-471 is ' +
     'completed and its closure is orthogonal to imp-371-barrier-compute; ' +
-    'status remains partial.',
+    'status remains partial. ' +
+    'imp-640 re-investigation (2026-04-14): fifth confirmation; imp-639 (Lean sorry ' +
+    'closure at BridgeTheorem.lean:311, S11-lean section) is the only new chain ' +
+    'closure since imp-638; it is orthogonal to barrier computation; ' +
+    'sub-gap imp-371-barrier-compute (offline Euler integration at N > 5000) ' +
+    'remains the sole blocker; status remains partial.',
 
   residualSubGap: {
     id:     'imp-371-barrier-compute',
@@ -254,10 +259,11 @@ export const BARRIER_EXTRAPOLATION_IMP371 = {
       'is the full cross-verification standard for the SOTA claim.',
     blocker: true,
     note:
-      'imp-527 (2026-04-13) and imp-619 (2026-04-14) both confirmed this is the sole ' +
-      'computational blocker. The B1/B2 monotonicity and NoSwap closures ' +
-      '(imp-462/463/464/471) are orthogonal to this barrier cross-validation; ' +
-      'they address the Lambda attack route, not the barrier OLS extrapolation. ' +
+      'imp-527 (2026-04-13) and imp-619/630/638/640 (2026-04-14) all confirmed this ' +
+      'is the sole computational blocker. The B1/B2 monotonicity and NoSwap closures ' +
+      '(imp-462/463/464/471) and the Lean sorry closure (imp-639, S11-lean) are ' +
+      'orthogonal to this barrier cross-validation; they address the Lambda attack ' +
+      'route and formal proofs, not the barrier OLS extrapolation. ' +
       'Estimated compute: ~4 s at N=10000, >400 s at N=100000 (plain-float64 Euler). ' +
       'Cannot run in the Vite build pipeline; requires a dedicated offline script.',
   },

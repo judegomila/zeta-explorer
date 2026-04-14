@@ -233,7 +233,9 @@ export const BARRIER_EXTRAPOLATION_IMP371 = {
     'Status remains partial until sub-gap imp-371-barrier-compute is closed. ' +
     'imp-619 re-investigation (2026-04-14): confirmed same finding; no new proof ' +
     'chain closures since imp-527 change the blocker. Sub-gap imp-371-barrier-compute ' +
-    'remains the sole open item gating full closure.',
+    'remains the sole open item gating full closure. ' +
+    'imp-630 re-investigation (2026-04-14): third confirmation; no additional ' +
+    'proof chain closures affect the barrier computation sub-gap; status remains partial.',
 
   residualSubGap: {
     id:     'imp-371-barrier-compute',

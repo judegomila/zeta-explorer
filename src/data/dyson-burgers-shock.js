@@ -218,7 +218,7 @@ const G6_PER_N_BOUND = {
   status: 'partial',
   namedBy: 'imp-661',
   investigatedBy: 'imp-668',
-  closureAttemptedBy: 'imp-673; imp-676',
+  closureAttemptedBy: 'imp-673; imp-676; imp-679',
   closureOutcome:
     'imp-673 re-confirmed Route A blocked by G1-sub-extremal. imp-676 ' +
     'audit finds Route B PARTIALLY RESOLVED: imp-354 ' +
@@ -227,10 +227,14 @@ const G6_PER_N_BOUND = {
     'Whitham fold catastrophe; imp-366 (polymath15-lemma52-shock-holder.js) ' +
     'ports Polymath15 Lemma 5.2 directly. Since τ_c(m_∞) = 0 this gives an ' +
     'explicit per-N bound |t_c(N)| ≤ ε(N) → 0 with symbolic-positive ' +
-    'constant C_prime. Remaining sub-gap on Route B: G6a-sub-constant ' +
-    '(numerical evaluation of C_W at the RvM boundary shock). Route A still ' +
-    'blocked by G1-sub-extremal. Honest partial closure: Route B bound form ' +
-    'established; full numerical constant deferred to imp-349-successor.',
+    'constant C_prime. imp-679 audit: G6a-sub-hyperbolic CLOSED by imp-394 ' +
+    '(Real-Boundary Fold via Privalov-Sokhotski; Whitham fold applies verbatim ' +
+    'to real Dyson ODE; complex fold irrelevant for tau_c). G6a-sub-constant ' +
+    'Whitham path OBSTRUCTED — u_0 = 2 m_infinity is singular at the real ' +
+    'axis (y → 0+), so C_W = sqrt(2/|u_0_double_prime(z_0*)|) is ill-defined. ' +
+    'Polymath15 path (imp-366) is viable: coefficient C_QUADRATIC_TANGENCY = 8 ' +
+    'is RIGOROUS (from two-particle Dyson ODE); remaining symbolic C_shock and ' +
+    'C_Lip are finite and order-unity. Route A still blocked by G1-sub-extremal.',
   claim:
     'There exists an explicit decreasing sequence ε(N) → 0 such that ' +
     '|t_c(N)| ≤ ε(N) holds for all N in the baseline — a tight per-N upper ' +
@@ -254,17 +258,28 @@ const G6_PER_N_BOUND = {
     '|τ_c(m_N) − τ_c(m_∞)| now has a partial answer via imp-354 and imp-366: ' +
     'a Holder-1/2 modulus gives |t_c(N)| ≤ C_prime · sqrt(log γ_N) / N^{1/4} ' +
     'with C_prime symbolic-positive (G6a-sub-constant open). Route B is ' +
-    'therefore partially resolved; the sole remaining blocker on Route B is ' +
-    'G6a-sub-constant. Route A still blocked by G1-sub-extremal.',
+    'therefore partially resolved; sole remaining Route B blocker is ' +
+    'G6a-sub-constant (imp-679 audit: G6a-sub-hyperbolic CLOSED by imp-394 ' +
+    'via Privalov-Sokhotski; Whitham C_W path obstructed by singularity of ' +
+    'm_infinity at y → 0+; Polymath15 path via imp-366 viable with rigorous ' +
+    'coefficient 8 from two-particle Dyson ODE). Route A still blocked by ' +
+    'G1-sub-extremal.',
   blockingConditions: [
     'G1-sub-extremal: bulk confinement of k*_N under the backward Dyson flow ' +
       'for Riemann zeros — conjectural via Montgomery 1973, not a theorem. ' +
       'Blocks Route A. Shared with imp-343 residualSubGap.G4a_bulk_confinement.',
-    'G6b_shock_continuity: PARTIALLY RESOLVED by imp-354 and imp-366. ' +
+    'G6b_shock_continuity: PARTIALLY RESOLVED by imp-354, imp-366, imp-394. ' +
       'Holder-1/2 modulus established: |τ_c(m_N) − τ_c(m_∞)| ≤ C_prime · ' +
-      'sqrt(log γ_N) / N^{1/4} → 0 (symbolic-positive C_prime). Remaining ' +
-      'sub-gap: G6a-sub-constant — numerical evaluation of the Whitham C_W ' +
-      'constant at the RvM boundary shock, deferred to imp-349-successor.',
+      'sqrt(log γ_N) / N^{1/4} → 0 (symbolic-positive C_prime). ' +
+      'G6a-sub-hyperbolic CLOSED by imp-394: Whitham fold applies verbatim ' +
+      'to real Dyson ODE; tau_c is a real functional on real eigenvalue ' +
+      'configurations; complex fold irrelevant; closure via Stieltjes inversion ' +
+      '+ Privalov-Sokhotski. G6a-sub-constant (sole remaining Route B blocker, ' +
+      'imp-679 audit): Whitham path OBSTRUCTED — u_0 = 2 m_infinity singular ' +
+      'at real axis (y → 0+), C_W = sqrt(2/|u_0_double_prime(z_0*)|) ill-defined. ' +
+      'Polymath15 path (imp-366) viable: discrete quadratic tangency ' +
+      'd(g_min^2)/dt = −8 + O(g_min); coefficient 8 RIGOROUS (two-particle ' +
+      'Dyson ODE); remaining symbolic C_shock and C_Lip both finite, order-unity.',
   ],
   closurePaths: [
     'Prove imp-336 drift-sign monotonicity: show that |t_c(N)| is non-increasing ' +

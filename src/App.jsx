@@ -54,6 +54,7 @@ const LambdaBoundsPage = lazy(() => import('./pages/LambdaBoundsPage.jsx'));
 const RhDagPage = lazy(() => import('./pages/RhDagPage.jsx'));
 const RigorDashboardPage = lazy(() => import('./pages/RigorDashboardPage.jsx'));
 const DysonVerifierPage = lazy(() => import('./pages/DysonVerifierPage.jsx'));
+const HealthPage = lazy(() => import('./pages/HealthPage.jsx'));
 
 function PageLoader() {
   return (
@@ -405,6 +406,7 @@ function AppShell() {
           <Route path="/rh-dag" element={<RhDagPage />} />
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />
           <Route path="/dyson-verifier" element={<DysonVerifierPage />} />
+          <Route path="/health" element={<HealthPage />} />
         </Routes>
         </Suspense>
       </div>

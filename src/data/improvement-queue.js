@@ -6941,12 +6941,13 @@ export const IMPROVEMENT_QUEUE = [
     title: "Fix improvement-queue.js:6773 — description: \"Found TODO/FIXME at src/data/improvement-queue",
     category: 'meta',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'meta',
     description: "Found TODO/FIXME at src/data/improvement-queue.js:6773: \"description: \"Found TODO/FIXME at src/data/improvement-queue.js:6599: \\\"title: 'Upgrade KERNEL_HACK error estimate from \". Investigate and resolve or remove the marker if already done.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-14T05:20:00Z',
+    closureNote: 'False positive. The scanner flagged line 6773 of improvement-queue.js, but that line is the description field of the already-completed ticket imp-529 (closed 2026-04-13T16:30:00Z as a false positive). The scanner found the substring "TODO/FIXME" inside that description text and re-flagged it as a new issue. No action needed.',
   },
 
   

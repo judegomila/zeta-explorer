@@ -1,4 +1,15 @@
 /**
+ * @module dyson-ladder-measured
+ * @fileoverview Measured backward Dyson ODE collision-time ladder with interval arithmetic.
+ *
+ * Proof-chain step: S9 (Path-C backward collision, interval-certified enclosure).
+ * Created by imp-360; extended by imp-321 (projected rows), imp-362 (interval integrator).
+ *
+ * Key exports:
+ *   - DYSON_LADDER_MEASURED       — object with .measured and .projected row arrays;
+ *                                   each row: { N, t_c_lo, t_c_hi, width, reason, ... }
+ *   - DYSON_LADDER_MEASURED_ASSERTIONS — build-time self-consistency checks on the ladder
+ *
  * imp-360 (partial): Measured backward Dyson ODE ladder with interval arithmetic
  *
  * HONEST SCOPE

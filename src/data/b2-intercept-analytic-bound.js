@@ -65,6 +65,7 @@
  */
 
 import { LAMBDA_INTERCEPT_BURGERS_UNIFORMITY } from './lambda-intercept-burgers-uniformity.js';
+import { IMP336_POST_LADDER_UPDATE } from './imp-336-post-ladder-update.js';
 
 const WITNESS_ROWS = LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.numericalWitness.rows;
 
@@ -124,7 +125,7 @@ export const B2_INTERCEPT_BOUND = {
   residualSubGap: {
     id:     'imp-336',
     title:  '|t_c(N+1)| <= |t_c(N)| for all N >= 2 (monotonicity conjecture M)',
-    status: 'empirically-unfalsified',
+    status: IMP336_POST_LADDER_UPDATE.status,
     route:
       'Prove that adding gamma_{N+1} to the Calogero-Moser system does not increase tau_c. ' +
       'Heuristic: the extra zero adds a positive term to S_{k*}(t), making ' +

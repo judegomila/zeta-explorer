@@ -99,6 +99,11 @@ export const B2_INTERCEPT_BOUND = {
   conditions: [
     'M: |t_c(N+1)| <= |t_c(N)| for all N >= 2 (monotonicity of Calogero-Moser collision time)',
   ],
+  closedConditions: [
+    'G5_burgers (lim-sup part, closed unconditionally by imp-341): ' +
+    'a := lim sup_{N->inf} |t_c(N)| = 0 via Koksma-Hlawka discrepancy ' +
+    'bound on psi_N(y) -- no GUE or local-law input required.',
+  ],
 
   bound: {
     value:        A_UPPER_BOUND,

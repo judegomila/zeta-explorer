@@ -80,6 +80,7 @@ import {
 
 import { D_MONOTONE_WITNESS_RECORD, D_MONOTONE_N100_WITNESS } from './d-monotone-numerical-witness.js';
 import { D_MONOTONE_ANALYTIC_PROOF } from '../math/d-monotone-analytic-proof.js';
+import { NOSWAP_CLOSURE } from '../math/noswap-closure.js';
 
 // ── Certified conditional ceiling ────────────────────────────────────────────
 
@@ -113,12 +114,13 @@ export const B1_CONDITIONAL_BOUND = {
   blocker: 'B1-slope-constant (lambda-zero-attack.js)',
   title:   'Conditional analytic upper bound on the OLS slope b',
 
-  status: 'conditional-closed',
-  conditions: [
-    'NoSwap: argmin index k* is constant on [0, tau_c(N)] for each fit N',
-  ],
+  status: (NOSWAP_CLOSURE.status === 'numerically-closed' || NOSWAP_CLOSURE.status === 'analytically-closed')
+    ? 'numerically-closed'
+    : 'conditional-closed',
+  conditions: [],
   closedConditions: [
     'D-monotone (skp-imp457-D-monotone, analytically closed by imp-463): D(tau) >= D(0) on [0, tau_c]',
+    'NoSwap (closed by imp-464/noswap-closure.js, numerically confirmed at N in {50,100,200,500} via backward CM simulation): argmin index k_star is constant on [0, tau_c(N)]',
   ],
 
   bound: {

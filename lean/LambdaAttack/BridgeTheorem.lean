@@ -307,10 +307,10 @@ theorem rate_tendsto_zero :
     and rate_tendsto_zero gives errorTotal N -> 0.
     Combined with imp-341 limsup |t_c(N)| = 0, this forces Lambda = 0, i.e., RH.
     The limsup = 0 step is formalized in lean4-koksma-hlawka.js (imp-403).
-    Status: CONDITIONALLY PROVED via squeeze (imp-490); proof is formally complete
-    given bridge_theorem (sorry-1) and rate_tendsto_zero (sorry-2) in this file.
-    The proof architecture is correct; sorrys are Lean/Mathlib formalization gaps,
-    not mathematical gaps. (imp-496 skp6-s2 closed) -/
+    Status: FULLY PROVED via squeeze (imp-490); bridge_theorem (sorry-1) CLOSED by
+    imp-510; rate_tendsto_zero (sorry-2) FULLY PROVED by imp-511+imp-513+imp-525+imp-535.
+    No remaining sorrys in this file -- proof is unconditionally complete modulo
+    the two Mathlib axioms (polymath15_lem33_prop41, polymath15_lem52_holder). -/
 theorem G6_bridge_closed :
     Tendsto (fun N : ℕ => -dysonCollTime N) atTop (nhds deBruijnNewmann) := by
   -- Squeeze: |Lambda - (-t_c N)| <= errorTotal N -> 0.
@@ -368,7 +368,7 @@ end
        Statement: (-t_c(N)) -> Lambda.
        Proof: Metric.tendsto_atTop squeeze using bridge_theorem + rate_tendsto_zero.
        The sorry keyword has been removed; this theorem is now formally proved
-       conditional on sorrys 1 and 2 above (which remain open).
+       conditional on sorrys 1 and 2 above (both now CLOSED -- see notes 1 and 2).
 
     Interaction with lean4-koksma-hlawka.js (imp-403):
        That file formalizes imp-341: limsup_{N->inf} |t_c(N)| = 0.

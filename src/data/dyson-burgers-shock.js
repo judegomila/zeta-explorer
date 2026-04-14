@@ -301,6 +301,18 @@ const G1_SUB_EXTREMAL = {
     'Dyson two-particle ODE (imp-395) + Holder-1/2 modulus (imp-354/imp-366). ' +
     'Explicit per-N bound |t_c(N)| <= (1/8)*sqrt(3*pi)*sqrt(log gamma_N / N) ' +
     'requires no bulk-confinement input. G1-sub-extremal blocks only Route A.',
+  blockingDependency: 'Montgomery 1973 pair-correlation conjecture (unproved)',
+  closurePaths: [
+    'Prove GUE universality for pair correlations of Riemann zeros (Montgomery ' +
+      '1973 conjecture as a theorem): this would port Ben Arous-Bourgade (2011) ' +
+      'bulk-confinement directly to Riemann-zero initial data under the backward ' +
+      'Dyson flow.',
+    'Find a purely analytic bulk-confinement argument using only the ' +
+      'Riemann-von Mangoldt density rho_inf(gamma) = (1/2pi)*log(gamma/2pi): ' +
+      'avoid GUE universality by exploiting the specific analytic form of the ' +
+      'smoothed zero density to confine k*_N to the bulk without pair-correlation ' +
+      'input.',
+  ],
 };
 
 // ── The record ──────────────────────────────────────────────────────────────

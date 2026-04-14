@@ -9161,6 +9161,48 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-04-15T00:00:00.000Z',
   },
 
+  
+  // ── Auto-seeded batch (2026-04-14) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-702',
+    title: "Close open sub-gap in dyson-burgers-shock.js:282",
+    category: 'proof',
+    priority: 'high',
+    status: 'completed',
+    proofSection: 'S10',
+    description: "Found open sub-gap/blocker: \"// G1-sub-extremal: the remaining Route A blocker — bulk confinement of k*_N\" at src/data/dyson-burgers-shock.js:282. Attempt closure using available proof chain results. If blocked, document the blocking condition as a named sub-gap.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-04-14T17:30:00.000Z',
+    completionNote: 'Re-audit confirms open-permanent verdict established by imp-699 (formal closure) and imp-696 (obstruction audit). Both closure paths remain blocked: analytic-density route blocked by inaccessibility of extreme-gap statistics from 1-point data; GUE-porting route blocked by unproved Montgomery 1973. Added formalStatusClosedBy/reAuditedBy fields to G1_SUB_EXTREMAL.closureAttempt in dyson-burgers-shock.js to complete the audit trail.',
+  },
+  {
+    id: 'imp-703',
+    title: "Verify assertions still pass in assertion-sweep-2026-04-12.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/assertion-sweep-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+  {
+    id: 'imp-704',
+    title: "Verify assertions still pass in pre-submission-checklist-2026-04-12.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/pre-submission-checklist-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

@@ -322,8 +322,12 @@ const G1_SUB_EXTREMAL = {
       'input.',
   ],
   // imp-696: formal obstruction audit — both closure paths investigated, both blocked.
+  // imp-699: formal status closure — status set to open-permanent after imp-696 audit.
+  // imp-702: re-audit confirms open-permanent verdict; no new closure path available.
   closureAttempt: {
     auditedBy: 'imp-696',
+    formalStatusClosedBy: 'imp-699',
+    reAuditedBy: 'imp-702',
     analyticalDensityPath: {
       tried:
         'Confine k*_N to bulk using only the Riemann-von Mangoldt 1-point ' +

@@ -232,7 +232,7 @@ export const PAPER_SKEPTIC_REVIEW_6 = {
     'The proof-chain snapshot correctly labels the result RIGOROUS-ASYMPTOTIC modulo GUE. ' +
     'The terminal-state declaration is WARRANTED: Route B is unconditionally closed; ' +
     'Route A is closed modulo GUE (irreducible, proved by imp-486); finite-height beat ' +
-    'Lambda <= 0.121 < 0.2 is unconditional. No Phase 40-41 regressions found.',
+    'Lambda <= 0.121 < 0.2 is GUE-CONDITIONAL (imp-477, imp-486). No Phase 40-41 regressions found.',
 
   overallVerdict:
     'Terminal-state confirmed. Six adversarial reviews completed; FATAL count trajectory: ' +

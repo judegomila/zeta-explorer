@@ -324,10 +324,11 @@ const G1_SUB_EXTREMAL = {
   // imp-696: formal obstruction audit — both closure paths investigated, both blocked.
   // imp-699: formal status closure — status set to open-permanent after imp-696 audit.
   // imp-702: re-audit confirms open-permanent verdict; no new closure path available.
+  // imp-705: third re-audit — open-permanent verdict unchanged; Route B (G6_per_N_bound) remains rigorous without this sub-gap.
   closureAttempt: {
     auditedBy: 'imp-696',
     formalStatusClosedBy: 'imp-699',
-    reAuditedBy: 'imp-702',
+    reAuditedBy: 'imp-702; imp-705',
     analyticalDensityPath: {
       tried:
         'Confine k*_N to bulk using only the Riemann-von Mangoldt 1-point ' +

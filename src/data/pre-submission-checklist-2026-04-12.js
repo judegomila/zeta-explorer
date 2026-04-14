@@ -59,8 +59,8 @@ export const ASSERTION_CHECKS = [
     assertion: 'Foundation.lean axiomCount matches snapshot value',
     snapshotValue: 5,
     actualValue: 6,
-    status: 'DEFERRED',
-    note: 'imp-489 added gammaOrdinate_ge_exp2 and converted BRIDGE_kappa_T/C_G from axioms to noncomputable defs. Foundation.lean header now correctly states "Axioms (6)". Snapshot update deferred to imp-494 (axiom reduction 10->6 refresh).',
+    status: 'RESOLVED',
+    note: 'imp-489 reduced axioms 10->6. Snapshot refreshed by imp-494 (completed). Foundation.lean header correctly states "Axioms (6)".',
     ticket: 'imp-494',
   },
   {
@@ -77,8 +77,8 @@ export const ASSERTION_CHECKS = [
     assertion: 'G6_bridge_closed sorry count in BridgeTheorem.lean',
     snapshotValue: 'G6_bridge_closed counted in sorry total',
     actualValue: 'G6_bridge_closed is now PROVED via squeeze (imp-490). Two sorrys remain: bridge_theorem + rate_tendsto_zero.',
-    status: 'DEFERRED',
-    note: 'Sorry count update (8 -> 7) deferred to imp-494 snapshot refresh.',
+    status: 'RESOLVED',
+    note: 'Sorry count update (8 -> 7) applied by imp-494 snapshot refresh (completed).',
     ticket: 'imp-494',
   },
   {
@@ -161,20 +161,21 @@ export const CHECKLIST_SUMMARY = {
 
   totals: {
     fileChecks:   { total: FILE_CHECKS.length,      pass: 18, warn: 1, fail: 0 },
-    assertions:   { total: ASSERTION_CHECKS.length, pass: 4,  warn: 0, deferred: 3, fixed: 1, fail: 0 },
+    assertions:   { total: ASSERTION_CHECKS.length, pass: 4,  warn: 0, resolved: 2, fixed: 1, deferred: 0, fail: 0 },
     crossRefs:    { total: CROSSREF_CHECKS.length,  pass: 3,  warn: 0, fail: 0 },
   },
 
   blockers: [],
 
-  deferredToImp494: [
-    'Foundation.lean axiomCount in snapshot: 5 -> 6 (A1)',
-    'BridgeTheorem.lean G6_bridge_closed sorry closed by imp-490: total sorrys 8 -> 7 (A3)',
+  resolvedByImp494: [
+    'Foundation.lean axiomCount in snapshot: 5 -> 6 (A1) — imp-494 completed',
+    'BridgeTheorem.lean G6_bridge_closed sorry closed by imp-490: total sorrys 8 -> 7 (A3) — imp-494 completed',
   ],
 
   fixedByThisTicket: [
     'Foundation.lean header corrected to list 6 axioms with correct names (A2, commit 3f2a032)',
   ],
 
-  verdict: 'PASS — no submission blockers. Two stale Lean counts deferred to imp-494. One WARN for missing review-4 artifact (not a blocker).',
+  verdict: 'PASS — no submission blockers. Previously deferred Lean counts (A1, A3) resolved by imp-494. One WARN for missing review-4 artifact (not a blocker).',
+  verifiedAt: '2026-04-14T00:00:00.000Z',
 };

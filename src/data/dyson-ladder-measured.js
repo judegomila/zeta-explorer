@@ -495,7 +495,15 @@ export const DYSON_LADDER_MEASURED = {
     'blockers are resolved. imp-537 re-check (2026-04-14): post-imp-592 ' +
     'adversarial review and post-imp-583/584/585/590 closures confirm no ' +
     'new proof chain developments address the zeros6 or O(N^2) compute ' +
-    'blockers. Status remains partial.',
+    'blockers. Status remains partial. ' +
+    'imp-600 re-check (2026-04-14): post-imp-596 (B1 D-monotone analytic ' +
+    'closure), imp-597 (B2 intercept positivity conditionalClosure update), ' +
+    'imp-598 (BridgeTheorem.lean stale header fix), and imp-599 (barrier-' +
+    'extrapolation duplicate investigation closure) all confirmed orthogonal ' +
+    'to the measured-ladder data-coverage gap. The two blockers remain ' +
+    'unresolved: (1) zeros6 data file not downloaded (sub-gap: ' +
+    'skp-imp423-compute), (2) offline O(N^2) compute engine infeasible at ' +
+    'Vite build time. Status remains partial.',
 };
 
 // ── Build-time assertions ───────────────────────────────────────────────────

@@ -92,7 +92,7 @@ const A_UB_CEILING = 0.02;
 
 export const B2_INTERCEPT_BOUND = {
   id:      'imp-458',
-  blocker: 'B2-intercept-positivity (lambda-zero-attack.js)',
+  closesGap: 'B2-intercept-positivity (lambda-zero-attack.js)',
   title:   'Conditional analytic upper bound on the Path C intercept a',
 
   // Dynamic: flip to 'conditional-open' if the measured Dyson ladder yields a

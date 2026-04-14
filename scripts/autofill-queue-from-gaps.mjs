@@ -19,7 +19,36 @@ import { join } from 'path';
 const DRY_RUN = process.argv.includes('--dry-run');
 const ROOT = process.cwd();
 const QUEUE_PATH = join(ROOT, 'src/data/improvement-queue.js');
+const HISTORY_PATH = join(ROOT, 'scripts/.autofill-history.json');
 const CATEGORIES = ['proof', 'meta', 'feature', 'content']; // Opus-eligible only
+
+// ── Repetition detection ──────────────────────────────────────────────────
+// Track titles of recently-seeded tickets. If a candidate's title (first 50
+// chars) matches a recently-seeded or recently-completed ticket, skip it.
+// This breaks the infinite re-seed loop where the scanner finds the same
+// gap, seeds a ticket, the engine closes it as "cannot-upgrade" or
+// "already-investigated", and the scanner finds it again next cycle.
+
+function loadHistory() {
+  try {
+    return JSON.parse(readFileSync(HISTORY_PATH, 'utf-8'));
+  } catch {
+    return { seededTitles: [], lastPurge: new Date().toISOString() };
+  }
+}
+
+function saveHistory(history) {
+  // Keep only last 200 entries to prevent unbounded growth
+  if (history.seededTitles.length > 200) {
+    history.seededTitles = history.seededTitles.slice(-200);
+  }
+  history.lastPurge = new Date().toISOString();
+  writeFileSync(HISTORY_PATH, JSON.stringify(history, null, 2));
+}
+
+function titleKey(title) {
+  return title.slice(0, 50).toLowerCase().replace(/[^a-z0-9]/g, '');
+}
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -165,7 +194,13 @@ function scanOpenSubGaps() {
     !h.includes('upgradeBlockerNote') &&
     !h.includes('improvement-queue') &&
     !h.includes('barrier-extrapolation') &&
-    !h.includes('dyson-ladder-measured')
+    !h.includes('dyson-ladder-measured') &&
+    !h.includes('open-permanent') && // formally closed as permanently open
+    !h.includes('openPermanent') &&
+    !h.includes('G1_SUB_EXTREMAL') && // confirmed open-permanent by imp-699
+    !h.includes('G6_PER_N_BOUND') && // investigated and documented by imp-661..684
+    !h.includes('reAuditedBy') && // already re-audited
+    !h.includes('closureAttemptedBy') // closure already attempted
   );
   return relevant.slice(0, 4).map(h => {
     const [file, ...rest] = h.split(':');
@@ -201,13 +236,27 @@ function scanDashboardBugs() {
 }
 
 function scanStaleAssertions() {
-  // Look for assertion files that might be outdated
+  // Assertion files get re-verified every autofill cycle which creates
+  // an infinite loop. Only seed if the file has NOT been verified in the
+  // last 24 hours (check verifiedAt field inside the file).
   const assertFiles = grepFiles('ASSERTION\\|assert', 'src/data/*-2026-*.js');
-  return assertFiles.slice(0, 2).map(file => ({
+  const now = Date.now();
+  const ONE_DAY = 24 * 60 * 60 * 1000;
+  return assertFiles.filter(file => {
+    try {
+      const content = readFileSync(file, 'utf-8');
+      const m = content.match(/verifiedAt:\s*['"]([^'"]+)['"]/);
+      if (m) {
+        const verifiedAt = new Date(m[1]).getTime();
+        if (now - verifiedAt < ONE_DAY) return false; // recently verified, skip
+      }
+      return true;
+    } catch { return true; }
+  }).slice(0, 2).map(file => ({
     category: 'proof',
     priority: 'low',
     title: `Verify assertions still pass in ${file.split('/').pop()}`,
-    description: `Dated assertion file ${file} may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.`,
+    description: `Dated assertion file ${file} may be stale (not verified in 24h). Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.`,
     proofSection: 'S11-verify',
     complexity: 'small',
   }));
@@ -252,10 +301,15 @@ function main() {
     ...scanStaleAssertions(),
   ];
 
-  // Deduplicate by title similarity (first 40 chars)
+  // Deduplicate by title similarity (first 50 chars) AND against history
+  const history = loadHistory();
+  const historySet = new Set(history.seededTitles.map(t => titleKey(t)));
   const seen = new Set();
   const unique = candidates.filter(c => {
-    const key = c.title.slice(0, 40);
+    const key = titleKey(c.title);
+    // Skip if we already seeded this exact title in a previous cycle
+    if (historySet.has(key)) return false;
+    // Skip intra-batch duplicates
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -267,8 +321,10 @@ function main() {
   const batch = unique.slice(0, 10);
 
   if (batch.length === 0) {
-    console.log('No new work found. Codebase is clean.');
-    process.exit(0);
+    console.log('No new work found after dedup against history. Codebase is clean or all gaps are known.');
+    console.log(`History has ${history.seededTitles.length} previously-seeded titles suppressed.`);
+    // Exit with code 1 so auto-improve.sh treats this as "no work found" and auto-stops
+    process.exit(1);
   }
 
   console.log(`Found ${batch.length} new tickets to seed:`);
@@ -315,6 +371,11 @@ function main() {
 
   writeFileSync(QUEUE_PATH, updated);
   console.log(`\nSeeded ${batch.length} tickets (imp-${nextId - batch.length} through imp-${nextId - 1}).`);
+
+  // Record seeded titles in history to prevent re-seeding in future cycles
+  batch.forEach(t => history.seededTitles.push(t.title));
+  saveHistory(history);
+  console.log(`History updated: ${history.seededTitles.length} total seeded titles tracked.`);
 
   // Rebuild queue index
   try {

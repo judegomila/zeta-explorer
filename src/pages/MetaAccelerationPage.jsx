@@ -534,6 +534,135 @@ git log --oneline -10                    # engine commits`}
         </div>
       </div>
 
+      {/* ── Harness & Meta-Harness Pipeline ───────────────────────── */}
+      <h2 style={{ marginTop: 32, marginBottom: 12 }}>Accelerating with Claude — Harness Pipeline</h2>
+      <div className="card" style={{ marginBottom: 24 }}>
+        <p style={{ fontSize: 12, color: 'var(--text-secondary)', marginBottom: 16 }}>
+          The auto-improvement engine is a self-improving pipeline. Each layer improves the layer below it.
+          The meta-harness improves the harness, which improves the proof work.
+        </p>
+
+        {/* Pipeline visualization */}
+        <div style={{ display: 'grid', gap: 12, marginBottom: 16 }}>
+          {[
+            {
+              layer: 'L0 — Proof Engine',
+              color: '#3b82f6',
+              desc: 'Opus-tier auto-improve.sh runs claude --print on each ticket. Makes one atomic change per run, commits, pushes.',
+              features: [
+                { name: 'Priority queue', status: 'active', detail: 'critical > high > medium > low' },
+                { name: 'Category routing', status: 'active', detail: 'Opus: proof/feature/content/meta; Haiku: bug/ux/visual' },
+                { name: 'Token budget discipline', status: 'active', detail: 'queue-index.json cache (4KB) avoids 280KB improvements.js reads' },
+                { name: 'Build verification', status: 'active', detail: 'npm run build after every change; rollback on failure' },
+                { name: 'Git commit + auto-push', status: 'active', detail: 'Every 5 runs pushes to origin/main (imp-442)' },
+              ],
+            },
+            {
+              layer: 'L1 — Self-Monitoring',
+              color: '#a855f7',
+              desc: 'The engine monitors its own health and detects failures without human intervention.',
+              features: [
+                { name: 'Heartbeat stall detection', status: 'active', detail: 'Kills wedged claude --print after 120s (imp-420)' },
+                { name: 'Status-flip verification', status: 'active', detail: 'Post-commit check that queue status was actually flipped (imp-419)' },
+                { name: 'Rate-limit backoff', status: 'active', detail: 'Sentinel file + exponential backoff on 429 errors' },
+                { name: 'Dev server health check', status: 'active', detail: 'HTTP 200 check on localhost:3002 each run (imp-313)' },
+                { name: 'Idle detection', status: 'active', detail: 'Auto-stop after 10 consecutive empty-queue runs (imp-518)' },
+              ],
+            },
+            {
+              layer: 'L2 — Self-Seeding',
+              color: '#f59e0b',
+              desc: 'When the queue drains, the engine scans the codebase for new work and seeds tickets automatically.',
+              features: [
+                { name: 'Gap scanner', status: 'active', detail: 'Scans for TODO, sorry, partial statuses, open sub-gaps' },
+                { name: 'Repetition detection', status: 'active', detail: 'History-based dedup prevents re-seeding closed investigations' },
+                { name: 'False-positive suppression', status: 'active', detail: 'Exclusion filters for known-blocked files (imp-662..665)' },
+                { name: 'Assertion cooldown', status: 'active', detail: '24h cooldown on assertion re-verification tickets' },
+                { name: 'Queue-index staleness check', status: 'active', detail: 'Rebuilds cache when improvement-queue.js is newer (imp-519)' },
+              ],
+            },
+            {
+              layer: 'L3 — Self-Improvement',
+              color: '#10b981',
+              desc: 'The engine improves its own infrastructure — scanner filters, parser bugs, prompt engineering.',
+              features: [
+                { name: 'Scanner self-patching', status: 'active', detail: 'Engine adds exclusion filters to autofill scanner (imp-663..669)' },
+                { name: 'Parser bug fixes', status: 'shipped', detail: 'Fixed balanced-brace parser for string literals (66 hidden tickets recovered)' },
+                { name: 'Prompt refinement', status: 'active', detail: 'Token budget discipline, syntax gotchas, category routing rules' },
+                { name: 'Ticket-id collision prevention', status: 'shipped', detail: 'Claim protocol for concurrent agents (imp-446)' },
+                { name: 'Adversarial review loop', status: 'shipped', detail: '7 reviews, FATAL trajectory 2->0->0->0->0->0->TBD' },
+              ],
+            },
+            {
+              layer: 'L4 — Rigor Audit',
+              color: '#ef4444',
+              desc: 'External audit loop catches overclaiming and forces honest reframing of results.',
+              features: [
+                { name: 'Honesty pass', status: 'shipped', detail: 'Replaced false UNCONDITIONAL labels with GUE-CONDITIONAL (imp-583)' },
+                { name: 'NoSwap gap acknowledged', status: 'shipped', detail: 'Honest partial closure — initial superiority fails (imp-584)' },
+                { name: 'Route B separation', status: 'shipped', detail: 'Standalone unconditional paper for genuinely proved result (imp-585)' },
+                { name: 'Paper reframing', status: 'shipped', detail: 'Conditional computational verification framing (imp-590)' },
+                { name: 'Selberg rescue path', status: 'shipped', detail: 'Unconditional C_mb = O(log T) closes at finite N_0* (imp-586)' },
+              ],
+            },
+          ].map((layer) => (
+            <div
+              key={layer.layer}
+              style={{
+                padding: '12px 16px',
+                background: 'var(--bg-primary)',
+                borderRadius: 8,
+                borderLeft: `3px solid ${layer.color}`,
+              }}
+            >
+              <div style={{ fontWeight: 700, fontSize: 13, color: layer.color, marginBottom: 4 }}>
+                {layer.layer}
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginBottom: 8 }}>
+                {layer.desc}
+              </div>
+              <div style={{ display: 'grid', gap: 4 }}>
+                {layer.features.map((f) => (
+                  <div
+                    key={f.name}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      fontSize: 11,
+                      fontFamily: 'var(--font-mono)',
+                    }}
+                  >
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        width: 8,
+                        height: 8,
+                        borderRadius: '50%',
+                        background: f.status === 'active' ? '#22c55e' : f.status === 'shipped' ? '#3b82f6' : '#f59e0b',
+                        flexShrink: 0,
+                      }}
+                    />
+                    <span style={{ color: 'var(--text-primary)', fontWeight: 600, minWidth: 160 }}>
+                      {f.name}
+                    </span>
+                    <span style={{ color: 'var(--text-muted)' }}>{f.detail}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Pipeline ideas — things that could be built */}
+        <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 12 }}>
+          <strong>Future pipeline stages:</strong> L5 (cross-project learning — transfer proof strategies to other conjectures),
+          L6 (collaborative multi-agent with role specialization — prover, reviewer, documenter),
+          L7 (formal verification integration — auto-generated Lean proofs from JS closures),
+          L8 (publication automation — auto-compile LaTeX, submit to arXiv, respond to referee reports).
+        </div>
+      </div>
+
       {/* ── Recent proof improvements ─────────────────────────────── */}
       <h2 style={{ marginTop: 24, marginBottom: 12 }}>Recent proof improvements</h2>
       <div className="card" style={{ marginBottom: 24 }}>

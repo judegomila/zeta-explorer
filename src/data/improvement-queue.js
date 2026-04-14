@@ -8877,12 +8877,13 @@ export const IMPROVEMENT_QUEUE = [
     title: "Verify assertions still pass in pre-submission-checklist-2026-04-12.js",
     category: 'proof',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S11-verify',
     description: "Dated assertion file src/data/pre-submission-checklist-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-14T14:05:00.000Z',
+    closureNote: 'Found and fixed arithmetic error in CHECKLIST_SUMMARY: fileChecks pass count was 19 but FILE_CHECKS has 18 PASS + 1 WARN = 19 total; corrected to pass:18. Updated verifiedAt. Build clean. All other totals correct: assertions 4+2+1=7, crossRefs 3. No submission blockers.',
   },
 
     {

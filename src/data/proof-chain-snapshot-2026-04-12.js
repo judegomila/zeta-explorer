@@ -164,8 +164,8 @@ export const ROUTE_STATUS = {
     status: 'CLOSED UNCONDITIONALLY (asymptotic)',
     summary:
       'imp-341 + imp-344: lim sup_{N to inf} |t_c(N)| = 0, no GUE input. ' +
-      'imp-387: G6 Polymath15 bridge closed. Finite-height beat imp-452: L_pt ~ 0.121. ' +
-      'Per-N unconditional theorem follows from Route B asymptotic + Rodgers-Tao floor.',
+      'imp-387: G6 Polymath15 bridge closed. Finite-height beat imp-452: L_pt ~ 0.121 (GUE-CONDITIONAL). ' +
+      'Asymptotic lim-sup closed unconditionally; per-N finite-height beat is GUE-CONDITIONAL (C_mb <= 1 requires ESY 2011 universality; see closesIf and imp-583).',
     closesIf: 'Already closed for the asymptotic claim. ' +
       'Finite-height beat GUE-CONDITIONAL (C_mb <= 1 requires ESY 2011 universality; confirmed irreducible by imp-486). Asymptotic lim-sup is closed unconditionally.',
   },

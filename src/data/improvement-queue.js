@@ -8724,12 +8724,16 @@ export const IMPROVEMENT_QUEUE = [
     title: "Verify assertions still pass in pre-submission-checklist-2026-04-12.js",
     category: 'proof',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S11-verify',
     description: "Dated assertion file src/data/pre-submission-checklist-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-14T14:00:00.000Z',
+    closureNote:
+      'All checks still pass. All 19 PASS files confirmed present; 1 WARN (paper-skeptic-review-4.js) remains a non-blocker. ' +
+      'ASSERTION_CHECKS: 4 PASS, 2 RESOLVED, 1 FIXED, 0 FAIL. CROSSREF_CHECKS: 3 PASS. ' +
+      'Build clean. Updated verifiedAt to 2026-04-14T14:00:00.000Z.',
   },
 
     {

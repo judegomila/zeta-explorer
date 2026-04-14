@@ -8736,6 +8736,56 @@ export const IMPROVEMENT_QUEUE = [
       'Build clean. Updated verifiedAt to 2026-04-14T14:00:00.000Z.',
   },
 
+  
+  // ── Auto-seeded batch (2026-04-14) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-673',
+    title: "Close open sub-gap in dyson-burgers-shock.js:268",
+    category: 'proof',
+    priority: 'high',
+    status: 'completed',
+    proofSection: 'S10',
+    description: "Found open sub-gap/blocker: \"blocker: 'B2(a)-statistical-intercept (imp-328 candidate (ii), Burgers shock)',\" at src/data/dyson-burgers-shock.js:268. Attempt closure using available proof chain results. If blocked, document the blocking condition as a named sub-gap.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-04-14T16:00:00.000Z',
+    closureNote:
+      'Honest partial closure. Both G6_per_N_bound closure routes confirmed blocked: ' +
+      'Route A (imp-336 monotonicity) blocked by G1-sub-extremal (Montgomery 1973 ' +
+      'conjecture, not a theorem); Route B (imp-348 quantitative rate) blocked by ' +
+      'G6b_shock_continuity (no Lipschitz estimate on τ_c at its singularity available). ' +
+      'Added closureAttemptedBy/closureOutcome to G6_PER_N_BOUND in dyson-burgers-shock.js. ' +
+      'Named sub-gaps G1-sub-extremal and G6b_shock_continuity stand as blockers. ' +
+      'The unconditional lim-sup a = 0 statement remains established (G5_burgers closed). ' +
+      'Build clean.',
+  },
+  {
+    id: 'imp-674',
+    title: "Verify assertions still pass in assertion-sweep-2026-04-12.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/assertion-sweep-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+  {
+    id: 'imp-675',
+    title: "Verify assertions still pass in pre-submission-checklist-2026-04-12.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/pre-submission-checklist-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

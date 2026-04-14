@@ -218,6 +218,17 @@ const G6_PER_N_BOUND = {
   status: 'open',
   namedBy: 'imp-661',
   investigatedBy: 'imp-668',
+  closureAttemptedBy: 'imp-673',
+  closureOutcome:
+    'imp-673 re-confirmed both closure routes blocked. Route A (imp-336 ' +
+    'drift-sign monotonicity) requires G1-sub-extremal bulk confinement of ' +
+    'k*_N, which is conjectural via Montgomery 1973 and not a theorem. ' +
+    'Route B (quantitative ψ_N rate from imp-348) requires a Lipschitz bound ' +
+    'on the shock-time functional τ_c at its singularity τ_c(m_∞) = 0, ' +
+    'unavailable in the current proof chain. Both blocking conditions ' +
+    '(G1-sub-extremal, G6b_shock_continuity) stand as named open sub-gaps. ' +
+    'Honest partial closure: G6_per_N_bound remains open pending either ' +
+    'imp-336 monotonicity or a new τ_c Lipschitz estimate.',
   claim:
     'There exists an explicit decreasing sequence ε(N) → 0 such that ' +
     '|t_c(N)| ≤ ε(N) holds for all N in the baseline — a tight per-N upper ' +

@@ -9110,12 +9110,13 @@ export const IMPROVEMENT_QUEUE = [
     title: "Verify assertions still pass in pre-submission-checklist-2026-04-12.js",
     category: 'proof',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S11-verify',
     description: "Dated assertion file src/data/pre-submission-checklist-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-14T22:00:00.000Z',
+    closureNote: 'Re-verified all checks still pass after imp-696/imp-697. None of the referenced files in FILE_CHECKS, ASSERTION_CHECKS, or CROSSREF_CHECKS were modified by imp-696 or imp-697. Updated verifiedAt in pre-submission-checklist-2026-04-12.js. Build clean.',
   },
 
     {

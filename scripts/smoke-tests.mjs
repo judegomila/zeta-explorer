@@ -130,6 +130,69 @@ async function main() {
   });
 
   console.log('');
+
+  // ── src/math/interval-arithmetic.js ──────────────────────────────────────────
+  console.log('## interval-arithmetic.js');
+  const { Interval } = await server.ssrLoadModule('/src/math/interval-arithmetic.js');
+
+  ok('Interval.exact(3) has lo=hi=3 and contains 3', () => {
+    const iv = Interval.exact(3);
+    assert.strictEqual(iv.lo, 3);
+    assert.strictEqual(iv.hi, 3);
+    assert.ok(iv.contains(3));
+  });
+
+  ok('Interval add: [1,2] + [3,4] contains 4 and 6', () => {
+    const r = new Interval(1, 2).add(new Interval(3, 4));
+    assert.ok(r.lo <= 4 && r.hi >= 6, 'sum interval must contain [4,6]');
+  });
+
+  ok('Interval mul: [2,3] * [4,5] contains 8 and 15', () => {
+    const r = new Interval(2, 3).mul(new Interval(4, 5));
+    assert.ok(r.lo <= 8 && r.hi >= 15, 'product interval must contain [8,15]');
+  });
+
+  console.log('');
+
+  // ── src/math/odd-zeta.js ──────────────────────────────────────────────────────
+  console.log('## odd-zeta.js');
+  const oddZeta = await server.ssrLoadModule('/src/math/odd-zeta.js');
+
+  ok('oddZetaValue(3) reference value near 1.20206', () => {
+    const res = oddZeta.oddZetaValue(3, 100);
+    assert.ok(Math.abs(res.value - 1.2020569031595942) < 1e-10, 'zeta(3) reference value');
+    assert.ok(res.relativeError < 0.01, 'Euler product error < 1%');
+  });
+
+  ok('oddZetaValue(5) reference value near 1.03693', () => {
+    const res = oddZeta.oddZetaValue(5, 100);
+    assert.ok(Math.abs(res.value - 1.0369277551433699) < 1e-10, 'zeta(5) reference value');
+  });
+
+  ok('oddZetaValue(4) returns NaN (even input rejected)', () => {
+    const res = oddZeta.oddZetaValue(4, 10);
+    assert.ok(Number.isNaN(res.value), 'even n must yield NaN');
+  });
+
+  console.log('');
+
+  // ── src/math/pascal.js ────────────────────────────────────────────────────────
+  console.log('## pascal.js');
+  const pascal = await server.ssrLoadModule('/src/math/pascal.js');
+
+  ok('binomial(5,2) = 10', () => {
+    assert.strictEqual(pascal.binomial(5, 2), 10);
+  });
+
+  ok('binomial(0,0) = 1', () => {
+    assert.strictEqual(pascal.binomial(0, 0), 1);
+  });
+
+  ok('pascalRow(4) = [1,4,6,4,1]', () => {
+    assert.deepEqual(pascal.pascalRow(4), [1, 4, 6, 4, 1]);
+  });
+
+  console.log('');
   console.log('---');
   console.log('Passed : ' + passed);
   console.log('Failed : ' + failed);

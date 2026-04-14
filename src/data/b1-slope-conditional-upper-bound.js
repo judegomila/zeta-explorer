@@ -111,8 +111,8 @@ export const B1_EVIDENCE_TABLE = ANALYTIC_SLOPE_TABLE.map((row) => ({
 
 export const B1_CONDITIONAL_BOUND = {
   id:      'imp-457',
-  blocker: 'B1-slope-constant (lambda-zero-attack.js)',
-  title:   'Conditional analytic upper bound on the OLS slope b',
+  closesGap: 'B1-slope-constant (lambda-zero-attack.js)',
+  title:     'Conditional analytic upper bound on the OLS slope b',
 
   status: (NOSWAP_CLOSURE.status === 'analytically-closed' && D_MONOTONE_ANALYTIC_PROOF.status === 'analytically-closed')
     ? 'analytically-closed'

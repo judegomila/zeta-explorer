@@ -344,7 +344,7 @@ function AcceleratingSection() {
 /* ─── Main Page ─── */
 
 const TAB_ALL = 'all';
-const CATEGORY_TABS = ['all', 'proof-gap', 'visualization', 'accuracy', 'ux', 'performance', 'content', 'meta'];
+const CATEGORY_TABS = ['all', 'proof', 'proof-gap', 'verification', 'visualization', 'accuracy', 'ux', 'performance', 'content', 'meta'];
 const PRIORITY_FILTERS = ['all', 'critical', 'high', 'medium', 'low'];
 const STATUS_FILTERS = ['all', 'pending', 'in-progress', 'completed', 'blocked', 'superseded', 'done'];
 

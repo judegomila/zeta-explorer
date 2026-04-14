@@ -47,7 +47,7 @@ export const ASSERTION_SWEEP_2026_04_12 = {
   timestamp: '2026-04-12T07:00:00.000Z',
 
   buildPassed:      true,
-  verifiedAt:       '2026-04-14T15:28:47.000Z',  // imp-694: re-verified all 17 assertions still pass after imp-693; build clean
+  verifiedAt:       '2026-04-14T16:05:00.000Z',  // imp-697: re-verified all 17 assertions still pass after imp-696; build clean
   totalAssertions:    17,
   deadBeforeSweep:    12,  // polymath15-mpfr(4)+polymath15-gmp(4)+submission-ready(2)+c-mb(2)
   liveBeforeSweep:     5,  // imp469-cross-verification via m-raw-from-umon-bridge.js

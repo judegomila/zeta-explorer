@@ -57,6 +57,9 @@ export const SUBMISSION_READY_MARKER = {
   assertionUpgrade:
     'imp-503: criticalPending field updated 1->0 (imp-501 completed). ' +
     'Hard assertion criticalPending !== 0 activated. Soft guard > 1 retired.',
+
+  // ── Verification log ───────────────────────────────────────────────────────
+  verifiedAt: '2026-04-14T00:00:00.000Z',   // imp-718: re-verified; build clean, all assertions pass
 };
 
 // ── BUILD-TIME ASSERTIONS ──────────────────────────────────────────────────────

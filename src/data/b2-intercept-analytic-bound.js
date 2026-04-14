@@ -153,9 +153,13 @@ export const B2_INTERCEPT_BOUND = {
       'The same heuristic underpins the empirical fit b > 0 in |t_c| ~ a + b/N.',
     blocker: false,
     note:
-      'M is empirically observed on the entire PATH_C_BASELINE_FIT: ' +
-      '0.1435 > 0.0723 > 0.0352 > 0.0163 > 0.0086. ' +
-      'The analytic proof is the subject of the open imp-336 ticket.',
+      'M is empirically unfalsified on the full ' +
+      IMP336_POST_LADDER_UPDATE.measuredLadder.nPoints +
+      '-point measured Dyson ladder (imp-409): no certified violation ' +
+      't_c_lo(N+1) > t_c_hi(N) found on any consecutive pair. The single ' +
+      'remaining analytical step within imp-336 is G1-sub-extremal ' +
+      '(bulk-confinement of the argmin site k*_N; equivalent to ' +
+      'imp-343 G4a_bulk_confinement; see imp-409 singleRemainingStep).',
   },
 
   witnessRows: WITNESS_ROWS,

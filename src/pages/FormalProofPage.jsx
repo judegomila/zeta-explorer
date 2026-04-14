@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import FormalProofViz from '../components/FormalProofViz.jsx';
@@ -20,6 +20,7 @@ const STATUS_LABELS = {
 
 export default function FormalProofPage() {
   const status = overallProofStatus();
+  const [selectedSection, setSelectedSection] = useState(null);
 
   return (
     <div className="page">
@@ -60,36 +61,61 @@ export default function FormalProofPage() {
       <div className="two-col" style={{ marginTop: 24, marginBottom: 24 }}>
         {/* Left Column: Proof Structure */}
         <div className="card">
-          <h3 style={{ color: '#3b82f6', fontSize: 14, marginBottom: 12 }}>Proof Structure</h3>
+          <h3 style={{ color: '#3b82f6', fontSize: 14, marginBottom: 4 }}>Proof Structure</h3>
+          <p style={{ color: '#475569', fontSize: 11, marginBottom: 10 }}>Click a section to view its statement and gap analysis.</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
             {PROOF_SECTIONS.map(section => {
               const color = STATUS_COLORS[section.status];
+              const isOpen = selectedSection?.id === section.id;
               return (
-                <div
-                  key={section.id}
-                  style={{
-                    display: 'flex', alignItems: 'center', gap: 8,
-                    padding: '6px 10px', borderRadius: 6,
-                    background: color + '08',
-                    borderLeft: `3px solid ${color}`,
-                  }}
-                >
-                  <span style={{
-                    fontFamily: 'var(--font-mono)', fontWeight: 700,
-                    fontSize: 11, color, minWidth: 24,
-                  }}>
-                    {section.id}
-                  </span>
-                  <span style={{ fontSize: 12, color: '#e2e8f0', flex: 1 }}>
-                    {section.title}
-                  </span>
-                  <span style={{
-                    fontSize: 9, fontWeight: 700, padding: '2px 6px', borderRadius: 3,
-                    background: color + '20', color,
-                    textTransform: 'uppercase', whiteSpace: 'nowrap',
-                  }}>
-                    {STATUS_LABELS[section.status]}
-                  </span>
+                <div key={section.id}>
+                  <div
+                    onClick={() => setSelectedSection(isOpen ? null : section)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: 8,
+                      padding: '6px 10px', borderRadius: isOpen ? '6px 6px 0 0' : 6,
+                      background: isOpen ? color + '14' : color + '08',
+                      borderLeft: `3px solid ${color}`,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <span style={{
+                      fontFamily: 'var(--font-mono)', fontWeight: 700,
+                      fontSize: 11, color, minWidth: 24,
+                    }}>
+                      {section.id}
+                    </span>
+                    <span style={{ fontSize: 12, color: '#e2e8f0', flex: 1 }}>
+                      {section.title}
+                    </span>
+                    <span style={{
+                      fontSize: 9, fontWeight: 700, padding: '2px 6px', borderRadius: 3,
+                      background: color + '20', color,
+                      textTransform: 'uppercase', whiteSpace: 'nowrap',
+                    }}>
+                      {STATUS_LABELS[section.status]}
+                    </span>
+                    <span style={{ fontSize: 10, color: '#475569', marginLeft: 2 }}>{isOpen ? '▲' : '▼'}</span>
+                  </div>
+                  {isOpen && (
+                    <div style={{
+                      padding: '10px 12px', borderRadius: '0 0 6px 6px',
+                      background: color + '06',
+                      borderLeft: `3px solid ${color}`,
+                      borderTop: `1px solid ${color}20`,
+                    }}>
+                      <div style={{ marginBottom: 8 }}>
+                        <span style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Statement</span>
+                        <div style={{ marginTop: 4, fontSize: 11, color: '#cbd5e1', overflowX: 'auto' }}>
+                          <BlockMath tex={section.statement} />
+                        </div>
+                      </div>
+                      <div>
+                        <span style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Gap Analysis</span>
+                        <p style={{ marginTop: 4, fontSize: 11, color: '#94a3b8', lineHeight: 1.6 }}>{section.gapAnalysis}</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
             })}

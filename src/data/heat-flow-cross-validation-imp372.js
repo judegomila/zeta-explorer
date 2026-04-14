@@ -339,6 +339,32 @@ export const HEAT_FLOW_CROSS_VALIDATION_IMP372 = {
     'imp-400: PATH_C_BASELINE_FIT_V2 path-c-baseline-fit-v2.js',
     'imp-359: ZEROS_EXTENDED zeros-to-1e6.js',
   ],
+
+  upgradeInvestigation: {
+    investigatedAt: '2026-04-14T12:30:00Z',
+    investigatedBy: 'imp-670',
+    verdict: 'cannot-upgrade',
+    reason:
+      'The three sub-gaps blocking a full closure are orthogonal to imp-462/463/464/471. ' +
+      'Those tickets closed the ZPO B1/B2 route-A unconditional beat (M-raw bridge, ' +
+      'D-monotone analytic proof, NoSwap repulsive-crossing argument, many-body correction). ' +
+      'None of them address the heat-flow cross-validation open work.',
+    blockingSubGaps: [
+      'imp372-Ht-full: run full H_t zero tracking at N in {50, 100, 200} -- requires ' +
+        '~1 billion arithmetic operations per N at Vite build time; must be an offline script',
+      'imp372-three-way: barrier + RK4 + heat-flow three-way agreement check is the gold ' +
+        'standard for the SOTA Lambda claim; blocked by imp372-Ht-full',
+      'imp372-ode-norm: explicit reconciliation of factor-1 vs factor-2 ODE normalization ' +
+        'conventions against the original Polymath15 paper definition of de Bruijn-Newman constant',
+    ],
+    note:
+      'imp-462/463/464/471 established the unconditional Lambda <= 0.121 finite-height beat ' +
+      'via the ZPO Calogero-Moser route (B1/B2). The heat-flow cross-validation (imp-372) is ' +
+      'a separate numerical methodology. The partial closure stands: the analytical ' +
+      'initial-slope heat-flow estimate is consistent with the RK4 Lambda bound ' +
+      '(lower-bound-consistent for majority of N values in the measured ladder), but the ' +
+      'conclusive three-way comparison requires the full H_t trajectory computation.',
+  },
 };
 
 // ── Build-time assertions ─────────────────────────────────────────────────────

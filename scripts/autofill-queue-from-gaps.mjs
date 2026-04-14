@@ -130,12 +130,14 @@ function scanPartialStatuses() {
   // (dyson-ladder-N10k — confirmed cannot-upgrade by imp-649/imp-663; blocked on imp-360-compute-N1e5)
   // (g1-g2-closure — G2 tau-positive confirmed cannot-upgrade by imp-651/imp-665; blocked on G1-sub-extremal + imp-336 drift-sign)
   // (esy-rigidity-port — ESY rigidity port cannot-upgrade confirmed by imp-650/imp-664/imp-669; blocked on O1/O2/O3 sub-gaps)
+  // (heat-flow-cross-validation-imp372 — cannot-upgrade confirmed by imp-670; blocked on imp372-Ht-full/imp372-three-way/imp372-ode-norm)
   const filtered = hits.filter(h =>
     !h.includes('barrier-extrapolation') &&
     !h.includes('dyson-ladder-measured') &&
     !h.includes('dyson-ladder-N10k') &&
     !h.includes('g1-g2-closure') &&
     !h.includes('esy-rigidity-port') &&
+    !h.includes('heat-flow-cross-validation-imp372') &&
     !h.includes('improvement-queue')
   );
   return filtered.slice(0, 4).map(h => {

@@ -8692,12 +8692,19 @@ export const IMPROVEMENT_QUEUE = [
     title: "Upgrade partial/conditional status in heat-flow-cross-validation-imp372.js:265",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10',
     description: "Found \"status: 'partial',\" at src/data/heat-flow-cross-validation-imp372.js:265. Investigate whether the partial closure can be upgraded to full based on recent proof chain closures (imp-462/463/464/471). If the upgrade is blocked, document why.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-14T12:30:00Z',
+    closureNote:
+      'Cannot upgrade. The three sub-gaps blocking a full closure (imp372-Ht-full, ' +
+      'imp372-three-way, imp372-ode-norm) are orthogonal to imp-462/463/464/471. ' +
+      'Those tickets closed the ZPO B1/B2 route-A unconditional beat; they do not ' +
+      'provide full H_t zero trajectories, three-way agreement data, or ODE normalization ' +
+      'reconciliation. Added upgradeInvestigation record to heat-flow-cross-validation-imp372.js ' +
+      'and added file to autofill-queue-from-gaps.mjs exclusion list.',
   },
   {
     id: 'imp-671',

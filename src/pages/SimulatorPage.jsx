@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TwinOscillatorSimViz from '../components/TwinOscillatorSimViz.jsx';
+import ErrorBoundary from '../components/ErrorBoundary.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
 export default function SimulatorPage() {
@@ -23,7 +24,12 @@ export default function SimulatorPage() {
       </div>
 
       <div style={{ marginTop: 32 }}>
-        <TwinOscillatorSimViz />
+        <ErrorBoundary
+          title="Simulator Error"
+          message="The Twin Oscillator Simulator encountered an error. This can happen with certain parameter combinations. Try reloading or adjusting the inputs."
+        >
+          <TwinOscillatorSimViz />
+        </ErrorBoundary>
       </div>
 
       <div className="card" style={{ marginTop: 32, borderColor: '#10b981' }}>

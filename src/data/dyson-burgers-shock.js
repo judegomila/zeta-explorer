@@ -279,6 +279,30 @@ const G6_PER_N_BOUND = {
   ],
 };
 
+// G1-sub-extremal: the remaining Route A blocker — bulk confinement of k*_N
+// under the backward Dyson flow, conjectural via Montgomery 1973.
+// Route B (G6_per_N_bound) was CLOSED by imp-683 without needing this.
+const G1_SUB_EXTREMAL = {
+  id: 'G1-sub-extremal',
+  status: 'open',
+  equivalentTo: 'imp-343 residualSubGap.G4a_bulk_confinement',
+  namedBy: 'imp-336-post-ladder-update.js openSubGap; imp-687 formal registration',
+  blocks: 'Route A of G6_per_N_bound (imp-336 drift-sign monotonicity)',
+  claim:
+    'The minimum-gap site k*_N of the first N Riemann zeros concentrates ' +
+    'in the bulk W(alpha, N) = { k : alpha*N <= k*_N <= (1-alpha)*N } for ' +
+    'some fixed alpha in (0, 1/2). Required only for Route A.',
+  why:
+    'Ben Arous-Bourgade (2011) prove bulk confinement for GUE; porting to ' +
+    'Riemann zeros requires GUE universality (Montgomery 1973 pair-correlation ' +
+    'conjecture), which is not yet a theorem.',
+  routeAvoided:
+    'Route B of G6_per_N_bound is CLOSED (imp-683): C_H = 1/8 rigorous via ' +
+    'Dyson two-particle ODE (imp-395) + Holder-1/2 modulus (imp-354/imp-366). ' +
+    'Explicit per-N bound |t_c(N)| <= (1/8)*sqrt(3*pi)*sqrt(log gamma_N / N) ' +
+    'requires no bulk-confinement input. G1-sub-extremal blocks only Route A.',
+};
+
 // ── The record ──────────────────────────────────────────────────────────────
 
 export const DYSON_BURGERS_SHOCK = {
@@ -350,6 +374,7 @@ export const DYSON_BURGERS_SHOCK = {
   openGaps: {
     G5_burgers: G5_BURGERS,
     G6_per_N_bound: G6_PER_N_BOUND,
+    G1_sub_extremal: G1_SUB_EXTREMAL,
   },
   candidateInterceptUpperBound: {
     closedFormA: CONTINUUM_SHOCK_TIME,

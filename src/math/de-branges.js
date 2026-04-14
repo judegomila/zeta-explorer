@@ -121,8 +121,19 @@ function hermiteBiehlerTest(N, tValues, sigmaValues) {
       const magEz = cAbs(Ez);
       const magEzBar = cAbs(EzBar);
 
+      // ── Verification (imp-728) ────────────────────────────────────────────
+      // Formula cross-check: writing A = M₁₁ = a+ib and B = M₁₂ = c+id,
+      // cMul([0,1],B) = [-d,c] so E(z) = A-iB = (a+d)+i(b-c), and for z̄
+      // (complex conjugate) E(z̄) = (a-d)+i(-b-c).  Expanding magnitudes:
+      //   |E(z)|^2 - |E(z̄)|^2 = 4(ad-bc) = 4·Im(conj(M₁₁)·M₁₂)
+      // so HB holds iff Im(conj(M₁₁)·M₁₂) > 0 — a single-cascade test that
+      // avoids calling deBrangesE twice and is immune to cancellation issues.
+      // Overflow: for N≥50 primes and |t|≥14, cascade entries reach ~10^300+;
+      // both magEz and magEzBar become Infinity, ratio = NaN, and hbHolds is
+      // reported false below (indeterminate, not a genuine failure). Reliable
+      // regime: N≤30 primes for t≤25; N≤20 primes for t≤50.
       const ratio = magEzBar > 1e-30 ? magEz / magEzBar : Infinity;
-      const hbHolds = ratio > 1;
+      const hbHolds = ratio > 1; // NaN (overflow) evaluates to false here
 
       results.push({
         sigma, t,

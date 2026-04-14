@@ -325,10 +325,11 @@ const G1_SUB_EXTREMAL = {
   // imp-699: formal status closure — status set to open-permanent after imp-696 audit.
   // imp-702: re-audit confirms open-permanent verdict; no new closure path available.
   // imp-705: third re-audit — open-permanent verdict unchanged; Route B (G6_per_N_bound) remains rigorous without this sub-gap.
+  // imp-708: fourth re-audit — restricted unconditional pair-correlation (Goldston-Yildirim 2001) investigated as third path; blocked (global average, not local edge); open-permanent confirmed; three paths now exhausted.
   closureAttempt: {
     auditedBy: 'imp-696',
     formalStatusClosedBy: 'imp-699',
-    reAuditedBy: 'imp-702; imp-705',
+    reAuditedBy: 'imp-702; imp-705; imp-708',
     analyticalDensityPath: {
       tried:
         'Confine k*_N to bulk using only the Riemann-von Mangoldt 1-point ' +
@@ -366,14 +367,39 @@ const G1_SUB_EXTREMAL = {
         'Ben Arous-Bourgade compactness argument is not currently available ' +
         'in the literature.',
     },
+    goldstonyildirimPath: {
+      tried:
+        'Attempt bulk confinement of k*_N using the Goldston-Yildirim (2001) ' +
+        'unconditional restricted pair-correlation result: the pair-correlation ' +
+        'sum for Riemann zeros with Fourier test functions of support contained ' +
+        'in (-2, 2) matches the GUE sine-kernel formula asymptotically without ' +
+        'assuming Montgomery 1973. The avenue was to leverage this unconditional ' +
+        'global 2-point control to bound P(k*_N outside W(alpha, N)) without ' +
+        'invoking the full pair-correlation conjecture.',
+      outcome:
+        'BLOCKED. Goldston-Yildirim is a GLOBAL average over all pairs (m, n) ' +
+        'with gamma_m, gamma_n <= T; it gives the same asymptotic pair density ' +
+        'everywhere and does not distinguish bulk from edge positions. Bulk ' +
+        'confinement of k*_N requires LOCAL pair statistics: whether close-zero ' +
+        'pairs occur more or less often near the boundary (k near 1 or k near N) ' +
+        'than in the bulk (alpha*N <= k <= (1-alpha)*N). Extracting local edge ' +
+        'statistics from the global restricted-support formula requires precisely ' +
+        'the full Montgomery 1973 universality that makes the global formula ' +
+        'translation-invariant at local scales — which is the unproved input ' +
+        'this path was designed to avoid. Third path blocked for the same ' +
+        'fundamental reason as the first two.',
+    },
     verdict:
       'G1-sub-extremal has no unconditional closure path in the current proof ' +
-      'chain. Both routes are formally blocked: the analytic-density route by ' +
-      'the inaccessibility of extreme gap statistics from 1-point data, and ' +
-      'the GUE-porting route by the unproved status of Montgomery 1973. The ' +
-      'sub-gap is formally registered as a named open obstruction of Route A ' +
-      'only. The main result G6_per_N_bound is fully rigorous via Route B ' +
-      '(imp-683) without any input from G1-sub-extremal.',
+      'chain. All three routes are formally blocked: the analytic-density route ' +
+      'by the inaccessibility of extreme gap statistics from 1-point data; the ' +
+      'GUE-porting route by the unproved status of Montgomery 1973; and the ' +
+      'restricted-unconditional-pair-correlation route (Goldston-Yildirim 2001) ' +
+      'by the global/local gap — the restricted result controls global averages ' +
+      'but not local edge statistics. The sub-gap is formally registered as a ' +
+      'named open obstruction of Route A only. The main result G6_per_N_bound ' +
+      'is fully rigorous via Route B (imp-683) without any input from ' +
+      'G1-sub-extremal.',
   },
 };
 

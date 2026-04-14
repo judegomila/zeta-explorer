@@ -230,7 +230,10 @@ export const BARRIER_EXTRAPOLATION_IMP371 = {
     'The remaining blocker is purely computational: actual barrier integration at ' +
     'N > 5000 requires an offline compute engine (est. 4 s at N = 10000, ' +
     '>400 s at N = 100000) that cannot run in the Vite build pipeline. ' +
-    'Status remains partial until sub-gap imp-371-barrier-compute is closed.',
+    'Status remains partial until sub-gap imp-371-barrier-compute is closed. ' +
+    'imp-619 re-investigation (2026-04-14): confirmed same finding; no new proof ' +
+    'chain closures since imp-527 change the blocker. Sub-gap imp-371-barrier-compute ' +
+    'remains the sole open item gating full closure.',
 
   sources: [
     'imp-404 BARRIER_EXTRAPOLATION_V2 (src/data/barrier-extrapolation-v2.js)',

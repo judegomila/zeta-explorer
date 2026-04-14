@@ -522,7 +522,14 @@ export const DYSON_LADDER_MEASURED = {
     'sorry false-positive imp-629, barrier-extrapolation third-confirmation imp-630) ' +
     'are all orthogonal to the measured-ladder data-coverage gap. The two blockers ' +
     'remain unresolved: (1) zeros6 data file not downloaded (sub-gap: skp-imp423-compute), ' +
-    '(2) offline O(N^2) compute engine infeasible at Vite build time. Status remains partial.',
+    '(2) offline O(N^2) compute engine infeasible at Vite build time. Status remains partial. ' +
+    'imp-641 re-check (2026-04-14): post-imp-632..640 closures (4 meta false-positive ' +
+    'resolutions imp-632..635, stale assertion fix in b1-slope-conditional-upper-bound.js ' +
+    'imp-636, false-positive auto-seed closures imp-637..639, fifth barrier-extrapolation ' +
+    'partial confirmation imp-640) are all orthogonal to the measured-ladder data-coverage ' +
+    'gap. The two blockers remain unresolved: (1) zeros6 data file not downloaded ' +
+    '(sub-gap: skp-imp423-compute), (2) offline O(N^2) compute engine infeasible at ' +
+    'Vite build time. Status remains partial.',
 };
 
 // ── Build-time assertions ───────────────────────────────────────────────────

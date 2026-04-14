@@ -210,6 +210,35 @@ const G5_BURGERS = {
   ],
 };
 
+// G6_per_N_bound: OPEN — tight per-N explicit bound on |t_c(N)| requires
+// imp-336 drift-sign monotonicity or a quantitative ψ_N rate upgrade.
+// Named by imp-661; formal name allows future tickets to reference this gap.
+const G6_PER_N_BOUND = {
+  id: 'G6_per_N_bound',
+  status: 'open',
+  namedBy: 'imp-661',
+  claim:
+    'There exists an explicit decreasing sequence ε(N) → 0 such that ' +
+    '|t_c(N)| ≤ ε(N) holds for all N in the baseline — a tight per-N upper ' +
+    'bound, stronger than the unconditional lim-sup a = 0 statement.',
+  whyOpen:
+    'The Burgers surrogate 2π / log²(γ_N / 2π) is a LOOSE upper envelope: it ' +
+    'overpredicts the observed |t_c(N)| on PATH_C_BASELINE_FIT by one to two ' +
+    'orders of magnitude at every anchor. Converting it to a rigorous per-N ' +
+    'bound requires either (a) imp-336 drift-sign monotonicity to show the ' +
+    'sequence is non-increasing and the continuum limit a = 0 then forces it ' +
+    'below any positive ε, or (b) a quantitative rate estimate on the ' +
+    'ψ_N convergence from imp-344 that explicitly bounds |τ_c(m_N) − τ_c(m_∞)|.',
+  closurePaths: [
+    'Prove imp-336 drift-sign monotonicity: show that |t_c(N)| is non-increasing ' +
+      'along the Dyson flow. Together with the unconditional a = 0 limit, this ' +
+      'establishes the surrogate 2π / log²(γ_N / 2π) as a valid (loose) per-N bound.',
+    'Obtain a quantitative ψ_N rate upgrade (extending imp-344) that bounds ' +
+      '|τ_c(m_N) − τ_c(m_∞)| ≤ δ(N) explicitly, with δ(N) → 0 as N → ∞, ' +
+      'bypassing the monotonicity requirement entirely.',
+  ],
+};
+
 // ── The record ──────────────────────────────────────────────────────────────
 
 export const DYSON_BURGERS_SHOCK = {
@@ -278,6 +307,7 @@ export const DYSON_BURGERS_SHOCK = {
   },
   openGaps: {
     G5_burgers: G5_BURGERS,
+    G6_per_N_bound: G6_PER_N_BOUND,
   },
   candidateInterceptUpperBound: {
     closedFormA: CONTINUUM_SHOCK_TIME,

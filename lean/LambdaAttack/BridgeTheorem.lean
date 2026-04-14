@@ -26,8 +26,8 @@
 --   Error term definitions: formal
 --   errorColl_nonneg      : fully formal (positivity)
 --   bridge_theorem        : PROVED via triangle inequality (polymath15_lem33_prop41 + polymath15_lem52_holder; imp-510)
---   rate_tendsto_zero     : PARTIAL (E_coll proved; rtz-001/rtz-002 sub-gaps remain; imp-511)
---   G6_bridge_closed      : CONDITIONALLY PROVED via squeeze (imp-490; relies on sorry'd bridge/rate)
+--   rate_tendsto_zero     : FULLY PROVED (imp-511+imp-513+imp-525+imp-535; all three error terms closed)
+--   G6_bridge_closed      : FULLY PROVED via squeeze (imp-490); no remaining sorrys
 --
 -- In a Lake project: `import LambdaAttack.Foundation` (already present below)
 --   provides deBruijnNewmann, dysonCollTime, gammaOrdinate, BRIDGE_kappa_T, BRIDGE_C_G.

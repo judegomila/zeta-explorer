@@ -166,7 +166,7 @@ export const ROUTE_STATUS = {
       'imp-387: G6 Polymath15 bridge closed. Finite-height beat imp-452: L_pt ~ 0.121. ' +
       'Per-N unconditional theorem follows from Route B asymptotic + Rodgers-Tao floor.',
     closesIf: 'Already closed for the asymptotic claim. ' +
-      'Finite-height beat unconditional via Route B + imp-470 B1.',
+      'Finite-height beat GUE-CONDITIONAL (C_mb <= 1 requires ESY 2011 universality; confirmed irreducible by imp-486). Asymptotic lim-sup is closed unconditionally.',
   },
   routeC: {
     name: 'Route C — density squeeze',

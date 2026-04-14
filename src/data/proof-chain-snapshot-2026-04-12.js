@@ -382,6 +382,7 @@ export const ADVERSARIAL_REVIEWS = [
 export const PROOF_CHAIN_SNAPSHOT = {
   id: 'proof-chain-snapshot-2026-04-12',
   generatedAt: '2026-04-12T04:05:00.000Z',
+  verifiedAt:  '2026-04-14T22:45:00.000Z',  // imp-717: re-verified build clean; all chain references, sorry/axiom counts, and route statuses confirmed accurate after imp-716 (Lambda bound grid extension)
   headline: HEADLINE,
   chain: PROOF_CHAIN,
   routes: ROUTE_STATUS,
@@ -400,7 +401,8 @@ export const PROOF_CHAIN_SNAPSHOT = {
     'unconditionally for the asymptotic claim; finite-height claim is GUE-CONDITIONAL via Route B + B1. ' +
     'imp-499: Lean sorry count 8->10 confirmed CORRECT (Capstone.lean has 0 sorrys, PROVED). ' +
     'imp-500: submission-ready-2026-04-12.js milestone marker created (terminal-state). ' +
-    'imp-501: assertion-sweep-2026-04-12.js wires 12 previously dead build-time assertions.',
+    'imp-501: assertion-sweep-2026-04-12.js wires 12 previously dead build-time assertions. ' +
+    'imp-717: re-verified 2026-04-14; build clean, all chain references and sorry/axiom counts confirmed accurate after imp-716.',
 
   howToVerify: [
     'Route B asymptotic: read imp-341 (koksma-hlawka-C1-pinned.js + lambda-intercept-unconditional.js)',

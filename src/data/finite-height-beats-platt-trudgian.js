@@ -301,7 +301,8 @@ function evaluateAtN(N) {
 // ── Sweep over N* values up to 1e9 ──────────────────────────────────────────
 // imp-478: extended grid from N*=5e7 up to N*=1e9.
 // Target range: {1e4, 1e5, 1e6, 1e7, 5e7, 1e8, 5e8, 1e9}.
-const TARGET_NS = [1e4, 1e5, 1e6, 1e7, 5e7, 1e8, 5e8, 1e9];
+// imp-716: extended with intermediate points 2e5,5e5,2e6,5e6,2e7 to fill grid gaps.
+const TARGET_NS = [1e4, 1e5, 2e5, 5e5, 1e6, 2e6, 5e6, 1e7, 2e7, 5e7, 1e8, 5e8, 1e9];
 const LADDER = TARGET_NS.map(evaluateAtN);
 
 // Primary target: N* = 1e6 (within imp-423 extended projection range)
@@ -588,9 +589,9 @@ export const FINITE_HEIGHT_BEATS_PT_ASSERTIONS = [
   },
   {
     id: "imp440-ladder-has-five-rows",
-    holds: () => LADDER.length === 8 && LADDER.every((r) => r.available),
+    holds: () => LADDER.length === 13 && LADDER.every((r) => r.available),
     why:
-      "The sweep must have exactly 8 rows (N in {1e4,1e5,1e6,1e7,5e7,1e8,5e8,1e9}) all available. " +
-      "Extended from 5 to 8 rows by imp-478.",
+      "The sweep must have exactly 13 rows (N in {1e4,1e5,2e5,5e5,1e6,2e6,5e6,1e7,2e7,5e7,1e8,5e8,1e9}) all available. " +
+      "Extended from 8 to 13 rows by imp-716 (added intermediate points 2e5,5e5,2e6,5e6,2e7).",
   },
 ];

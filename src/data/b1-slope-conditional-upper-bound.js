@@ -116,7 +116,9 @@ export const B1_CONDITIONAL_BOUND = {
   status: 'conditional-closed',
   conditions: [
     'NoSwap: argmin index k* is constant on [0, tau_c(N)] for each fit N',
-    'D-monotone (sub-gap skp-imp457-D-monotone): D(tau) >= D(0) on [0, tau_c]',
+  ],
+  closedConditions: [
+    'D-monotone (skp-imp457-D-monotone, analytically closed by imp-463): D(tau) >= D(0) on [0, tau_c]',
   ],
 
   bound: {

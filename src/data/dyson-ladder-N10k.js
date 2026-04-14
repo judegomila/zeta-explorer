@@ -261,6 +261,19 @@ export const DYSON_LADDER_N10K = {
       status: 'pending',
     },
   ],
+  upgradeInvestigation: {
+    investigatedAt: '2026-04-14T10:00:00Z',
+    ticket: 'imp-649',
+    conclusion: 'cannot-upgrade',
+    reason:
+      'The imp-462/463/464/471 chain (M-raw bridge, D-monotone, NoSwap, many-body-correction) ' +
+      'closed the UNCONDITIONAL Lambda <= 0.121 beat via the ZPO B1/B2 route — orthogonal ' +
+      'to this Dyson-ladder ODE computation. Sub-gaps imp353b and imp353c still require ' +
+      'imp-360-compute-N1e5: a compiled-backend precompute harness for the O(N^2) backward ' +
+      'Dyson ODE at N = 10^5. No proof-chain closure since imp-353 touches that specific ' +
+      'compute blocker. Status remains partial until imp-360 appends measured N = 10^5 data ' +
+      'to PATH_C_BASELINE_FIT (tripwire: DYSON_LADDER_N10K_ASSERTIONS[4]).',
+  },
   contract:
     'When imp-360 lands measured |t_c(N)| rows in PATH_C_BASELINE_FIT, the ' +
     'following downstream files auto-update without structural changes: ' +

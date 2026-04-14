@@ -98,8 +98,15 @@ export const B2_INTERCEPT_BOUND = {
   // Dynamic: flip to 'conditional-open' if the measured Dyson ladder yields a
   // certified violation t_c_lo(N+1) > t_c_hi(N) (both finite), which would
   // falsify M. Currently no certified violation found on the 35-point ladder.
+  // Also flip to 'conditional-open-ceiling-not-met' if the Koksma-Hlawka bound
+  // at N_max does not beat the 0.02 assembly ceiling (A_UPPER_BOUND >= A_UB_CEILING),
+  // or to 'conditional-open-no-nmax' if no N_max row is available.
   status: IMP336_POST_LADDER_UPDATE.verdict.empiricalMonotonicity.anyCertifiedViolation
     ? 'conditional-open'
+    : A_UPPER_BOUND === null
+    ? 'conditional-open-no-nmax'
+    : A_UPPER_BOUND >= A_UB_CEILING
+    ? 'conditional-open-ceiling-not-met'
     : 'conditional-closed',
   conditions: [
     'M: |t_c(N+1)| <= |t_c(N)| for all N >= 2 (monotonicity of Calogero-Moser collision time)' +

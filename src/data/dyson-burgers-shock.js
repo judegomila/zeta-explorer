@@ -365,16 +365,17 @@ export const DYSON_BURGERS_SHOCK = {
       'see imp-344 lambda-intercept-unconditional.js for the assembly.',
   },
   verdict:
-    'UNCONDITIONAL LIMIT STATEMENT ESTABLISHED. The Burgers shock time for ' +
-    'the Riemann-von Mangoldt continuum density is exactly 0, which IS ' +
-    'candidate (ii)\'s closed-form a. The uniformity gap G5_burgers was CLOSED ' +
-    'by imp-341 (deterministic Koksma-Hlawka discrepancy bound on m_N → m_∞) ' +
-    'and imp-344 (assembly), so a := lim sup_N |t_c(N)| = 0 now holds ' +
-    'UNCONDITIONALLY along the N-particle Dyson flow. Remaining open work: a ' +
-    'per-N explicit bound |t_c(N)| ≤ ε(N) still requires imp-336 monotonicity ' +
-    '(or a rate upgrade on ψ_N) — see imp-344 lambda-intercept-unconditional.js ' +
-    'for the assembly. Candidate (i) (imp-337) remains modulo G3_density / ' +
-    'G4_argmin_drift.',
+    'UNCONDITIONAL LIMIT STATEMENT ESTABLISHED + PER-N BOUND CLOSED. The ' +
+    'Burgers shock time for the Riemann-von Mangoldt continuum density is ' +
+    'exactly 0, which IS candidate (ii)\'s closed-form a. The uniformity gap ' +
+    'G5_burgers was CLOSED by imp-341 (Koksma-Hlawka discrepancy bound) and ' +
+    'imp-344 (assembly), so a := lim sup_N |t_c(N)| = 0 holds UNCONDITIONALLY. ' +
+    'The explicit per-N bound G6_per_N_bound is CLOSED via Route B (imp-683): ' +
+    '|t_c(N)| ≤ (1/8)·sqrt(3π)·sqrt(log γ_N / N) ≈ 0.384·sqrt(log γ_N / N), ' +
+    'with C_H = 1/8 rigorous via Dyson two-particle ODE (imp-395) and ' +
+    'Hölder-1/2 modulus (imp-354/imp-366). Route A (imp-336 monotonicity) ' +
+    'remains blocked by G1-sub-extremal. Candidate (i) (imp-337) remains ' +
+    'modulo G3_density / G4_argmin_drift.',
   openWork: [
     'Obtain a tight per-N explicit upper bound on |t_c(N)|: the 2π / log²(γ_N / 2π) ' +
       'surrogate is a loose envelope; closing this requires imp-336 drift-sign ' +

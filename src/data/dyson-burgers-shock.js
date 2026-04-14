@@ -217,8 +217,9 @@ export const DYSON_BURGERS_SHOCK = {
   blocker: 'B2(a)-statistical-intercept (imp-328 candidate (ii), Burgers shock)',
   status:
     'continuum limit τ_shock(ρ_∞) = 0 established; finite-N surrogate is a ' +
-    'loose upper envelope; uniformity gap G5_burgers open ⇒ candidate (ii) ' +
-    'remains CONDITIONAL on G5_burgers',
+    'loose upper envelope; uniformity gap G5_burgers CLOSED (imp-341 ' +
+    'Koksma-Hlawka + imp-344 assembly) ⇒ candidate (ii) lim-sup a = 0 is ' +
+    'UNCONDITIONAL; per-N bound still needs imp-336 monotonicity (M)',
   consumes: [
     'PATH_C_BASELINE_FIT (src/math/dyson-scaling-N5000.js)',
     'imp-323 LAMBDA_INTERCEPT_CONFIDENCE.fit — OLS (a, b) for cross-projection',

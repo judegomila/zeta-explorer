@@ -1,5 +1,18 @@
 /**
- * Λ ≤ 0 ⟺ RH at finite height — exact theorem citation + N ↔ T* map (imp-327)
+ * @module lambda-rh-height-mapping
+ * @fileoverview Λ ≤ 0 ⟺ RH at finite height — exact theorem citation + N ↔ T* map.
+ *
+ * Proof-chain step: S6 (Lambda-bound ↔ RH equivalence, finite-height version).
+ * Created by imp-327; modified by imp-321 (N-scaling roadmap).
+ *
+ * Key exports:
+ *   - LAMBDA_RH_THEOREMS           — ledger of de Bruijn / Newman / Rodgers–Tao /
+ *                                    Platt–Trudgian theorem objects
+ *   - effectiveHeightForN(N)       — N ↔ T*(N) via Riemann–von Mangoldt inverse
+ *   - zeroCountAtHeight(T)         — forward N(T) for cross-checking the inverse
+ *   - N_TO_T_STAR_TABLE            — precomputed table for the N ladder
+ *   - FINITE_HEIGHT_RH_STATEMENT   — the load-bearing conditional RH claim
+ *   - LAMBDA_RH_HEIGHT_ASSERTIONS  — build-time self-consistency checks
  *
  * bridge-lambda-rh.js states the Λ ↔ RH chain prose-first. imp-327 asks for
  * the same chain tightened to an EXACTLY-CITED theorem sequence with a

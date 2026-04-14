@@ -344,7 +344,7 @@ end
            (Polymath15 arXiv:1802.05390v3, Lemmas 3.3 + 4.1; needs Mathlib ODE/flow)
          polymath15_lem52_holder: |Lambda_N - (-t_c)| <= E_coll
            (Polymath15 Lemma 5.2 / G6a; needs Wasserstein L1 in Mathlib)
-       The sorry keyword has been removed; this theorem is now formally proved
+       The sorry keyword has been removed (CLOSED by imp-510); this theorem is now formally proved
        conditional on the two new axioms above (which encapsulate the hard math).
 
     2. rate_tendsto_zero (imp-412-sorry-2) -- PARTIAL CLOSURE by imp-511 + imp-513 + imp-525
@@ -367,7 +367,7 @@ end
     3. G6_bridge_closed (imp-412-sorry-3) -- CLOSED by imp-490
        Statement: (-t_c(N)) -> Lambda.
        Proof: Metric.tendsto_atTop squeeze using bridge_theorem + rate_tendsto_zero.
-       The sorry keyword has been removed; this theorem is now formally proved
+       The sorry keyword has been removed (CLOSED by imp-490); this theorem is now formally proved
        conditional on sorrys 1 and 2 above (both now CLOSED -- see notes 1 and 2).
 
     Interaction with lean4-koksma-hlawka.js (imp-403):

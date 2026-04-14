@@ -79,6 +79,7 @@ import {
 } from './dyson-slope-analytic-bound.js';
 
 import { D_MONOTONE_WITNESS_RECORD, D_MONOTONE_N100_WITNESS } from './d-monotone-numerical-witness.js';
+import { D_MONOTONE_ANALYTIC_PROOF } from '../math/d-monotone-analytic-proof.js';
 
 // ── Certified conditional ceiling ────────────────────────────────────────────
 
@@ -137,7 +138,7 @@ export const B1_CONDITIONAL_BOUND = {
   residualSubGap: {
     id:     'skp-imp457-D-monotone',
     title:  'D(tau) >= D(0) on [0, tau_c] under NoSwap',
-    status: 'analytically-closed',
+    status: D_MONOTONE_ANALYTIC_PROOF.status,
     route:
       'Prove g_{k*}(tau)^2 S_{k*}(tau) is non-increasing under NoSwap. ' +
       'Sufficient to show S_{k*}(tau) is non-increasing when k* holds the ' +

@@ -8573,12 +8573,16 @@ export const IMPROVEMENT_QUEUE = [
     title: "Upgrade partial/conditional status in dyson-ladder-N10k.js:139",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10',
     description: "Found \"status: 'partial',\" at src/data/dyson-ladder-N10k.js:139. Investigate whether the partial closure can be upgraded to full based on recent proof chain closures (imp-462/463/464/471). If the upgrade is blocked, document why.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-14T11:17:23Z',
+    closureNote: 'Cannot upgrade: imp-649 already concluded cannot-upgrade (2026-04-14T10:00:00Z). ' +
+      'Sub-gaps imp353b (N=10^5 ODE measurement) and imp353c (step-size overshoot) both blocked on ' +
+      'imp-360-compute-N1e5. Confirmation recorded in DYSON_LADDER_N10K.upgradeInvestigation.confirmedBy. ' +
+      'Added dyson-ladder-N10k to autofill partial-status exclusion to suppress future false-positive re-seeding.',
   },
   {
     id: 'imp-664',

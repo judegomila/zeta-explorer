@@ -273,6 +273,13 @@ export const DYSON_LADDER_N10K = {
       'Dyson ODE at N = 10^5. No proof-chain closure since imp-353 touches that specific ' +
       'compute blocker. Status remains partial until imp-360 appends measured N = 10^5 data ' +
       'to PATH_C_BASELINE_FIT (tripwire: DYSON_LADDER_N10K_ASSERTIONS[4]).',
+    confirmedBy: 'imp-663',
+    confirmedAt: '2026-04-14T11:17:23Z',
+    confirmationNote:
+      'imp-663 re-investigated: conclusion unchanged. The partial status at line 139 ' +
+      'is correctly blocked on imp-360-compute-N1e5 (compiled-backend precompute harness). ' +
+      'No new proof-chain closures since imp-649 affect this ODE computation path. ' +
+      'Suppressed from auto-seeder via dyson-ladder-N10k exclusion added to autofill-queue-from-gaps.mjs.',
   },
   contract:
     'When imp-360 lands measured |t_c(N)| rows in PATH_C_BASELINE_FIT, the ' +

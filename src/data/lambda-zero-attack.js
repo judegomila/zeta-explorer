@@ -91,23 +91,30 @@ export const LAMBDA_ZERO_BLOCKERS = [
     conditionalClosure: {
       closedBy: 'imp-457',
       closedIn: 'src/data/b1-slope-conditional-upper-bound.js',
-      conditions: [
-        'NoSwap(N): argmin index k* of g_k(tau) is constant on [0, tau_c(N)] ' +
-          'under the backward Calogero-Moser flow.',
-        'D-monotone (sub-gap skp-imp457-D-monotone): D(tau) = 8 - 4 g_{k*}^2 S_{k*} ' +
-          'satisfies D(tau) >= D(0) on [0, tau_c]; numerically witnessed at N=50 and N=100.',
+      closedConditions: [
+        'D-monotone (skp-imp457-D-monotone): ANALYTICALLY CLOSED by imp-463 ' +
+          '(normalized-distance decomposition F = B^2 S_{k_star} is non-increasing ' +
+          'under NoSwap; leading-order p_j-monotonicity argument; numerically ' +
+          'confirmed at N in {50,100,200,500}). No longer an open sub-gap.',
+        'NoSwap(N): NUMERICALLY CONFIRMED at N in {50,100,200,500} via backward ' +
+          'CM simulation (imp-464). Partial analytic argument via repulsive-crossing ' +
+          '(imp-464/imp-472); remaining analytical gap: imp-584.',
       ],
+      conditions: [],
       boundValue: 'B1_SLOPE_CEILING from b1-slope-conditional-upper-bound.js ' +
         '(= ceil_3sf(max_N b_lin(N)) over fit Ns {50,100,200,500,870})',
-      residualSubGap: 'skp-imp457-D-monotone — analytic proof that ' +
-        'g_{k*}(tau)^2 S_{k*}(tau) is non-increasing under NoSwap; ' +
-        'numerically witnessed but not yet proved unconditionally.',
+      residualSubGap: 'imp-584 — S_{k_star}(0) > S_j(0) for all j at the initial ' +
+        'zeta-zeros configuration FAILS (minExcess < 0 at all tested N; e.g. -0.29 ' +
+        'at N=50). This blocks full analytic closure of the NoSwap mid-trajectory ' +
+        'lemma (imp-472 step-a). D-monotone (skp-imp457-D-monotone) is CLOSED (imp-463). ' +
+        'Unconditional analytic closure requires resolving imp-584 or a direct ' +
+        'GUE/ESY local-law bound on b(N) (the original imp-363/imp-370 route).',
       note:
         'Under NoSwap + D-monotone, imp-322 boundary ODE gives ' +
         'tau_c(N) <= B(0)^2/D(0) = tau_lin(N), hence b(N) = N*tau_c(N) <= b_lin(N). ' +
         'Drift ratio < 2 across fit Ns confirms the 1/N ansatz is structurally valid. ' +
-        'Unconditional closure requires either proving skp-imp457-D-monotone or a ' +
-        'direct GUE/ESY local-law bound on b(N) (the original imp-363/imp-370 route).',
+        'D-monotone ANALYTICALLY CLOSED (imp-463). NoSwap NUMERICALLY CONFIRMED (imp-464). ' +
+        'B1 is numerically-closed. Remaining gap: imp-584 (NoSwap initial-config S-dominance).',
     },
   },
   {

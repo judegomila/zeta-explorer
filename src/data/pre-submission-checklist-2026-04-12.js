@@ -160,7 +160,7 @@ export const CHECKLIST_SUMMARY = {
   ticket: 'imp-491',
 
   totals: {
-    fileChecks:   { total: FILE_CHECKS.length,      pass: 18, warn: 1, fail: 0 },
+    fileChecks:   { total: FILE_CHECKS.length,      pass: 19, warn: 1, fail: 0 },
     assertions:   { total: ASSERTION_CHECKS.length, pass: 4,  warn: 0, resolved: 2, fixed: 1, deferred: 0, fail: 0 },
     crossRefs:    { total: CROSSREF_CHECKS.length,  pass: 3,  warn: 0, fail: 0 },
   },
@@ -177,5 +177,5 @@ export const CHECKLIST_SUMMARY = {
   ],
 
   verdict: 'PASS — no submission blockers. Previously deferred Lean counts (A1, A3) resolved by imp-494. One WARN for missing review-4 artifact (not a blocker).',
-  verifiedAt: '2026-04-14T00:00:00.000Z',
+  verifiedAt: '2026-04-14T11:00:00.000Z',
 };

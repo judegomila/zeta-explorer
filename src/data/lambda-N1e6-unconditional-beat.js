@@ -36,7 +36,7 @@
  * -----------------------
  *   Before Phase 33: {B1, B2, C3}  -- three open conditions
  *   After  Phase 33: {B2}           -- one conditional condition (sole blocker: M)
- *   After  imp-471: {}              -- UNCONDITIONAL (pending imp-471)
+ *   After  imp-471: {}              -- GUE-CONDITIONAL (C_mb <= 1 proved for GUE matrices by ESY 2011; conditional on GUE universality for Riemann zeros; see imp-477, imp-583)
  *
  * SYNTAX NOTE: avoid (star)(slash) sequences inside JSDoc block text.
  */
@@ -129,8 +129,8 @@ const SOLE_BLOCKER = {
     'The imp-462 leading-order bridge gap is fully resolved: ' +
     'C_mb * N^{-1/2} * log(N) < rho_min for all N >= N_0 = 1e4 (ratio 0.720, 28% margin). ' +
     'For N < N_0, empirical sweep in m-raw-from-umon-bridge.js confirms M directly. ' +
-    'M is now UNCONDITIONALLY established. The finite-height beat Lambda <= 0.121 < 0.2 ' +
-    '(Platt-Trudgian 2021) is FULLY UNCONDITIONAL.',
+    'M is now established (GUE-CONDITIONAL for Riemann zeros: C_mb <= 1 is proved for GUE matrices by ESY 2011 but requires GUE universality for Riemann zeros; see imp-477). ' +
+    'The finite-height beat Lambda <= 0.121 < 0.2 (Platt-Trudgian 2021) is GUE-CONDITIONAL.',
   closureNote:
     'imp-471: C_mb * N^{-1/2} * log(N) < rho_min for all N >= 1e4; ' +
     'empirical check covers N in {2,...,870}. M established unconditionally.',
@@ -143,12 +143,13 @@ export const LAMBDA_N1E6_UNCONDITIONAL_BEAT = {
   title: 'Near-unconditional L_pt beat payoff — Phase 33-35 assembly',
 
   rigorStatus:
-    'UNCONDITIONAL. ' +
+    'GUE-CONDITIONAL (imp-583). ' +
     'Lambda <= ' + (L_PT !== null ? L_PT.toFixed(4) : 'N/A') +
     ' < 0.2 (Platt-Trudgian 2021). ' +
-    'All conditions established: B1 (imp-470 wave), B2/M (imp-471 many-body correction), ' +
-    'C3-pt (imp-447), NoSwap (imp-464+468). ' +
-    'The finite-height beat is FULLY UNCONDITIONAL as of imp-471.',
+    'All structural conditions established (B1, B2/M, C3-pt, NoSwap) except: ' +
+    'C_mb <= 1 in the many-body correction is proved for GUE matrices (ESY 2011) ' +
+    'but is conditional on GUE universality for Riemann zeros. ' +
+    'The finite-height beat is GUE-CONDITIONAL.',
 
   headline: {
     Lambda_upper:    L_PT !== null ? +L_PT.toFixed(4) : null,
@@ -180,11 +181,12 @@ export const LAMBDA_N1E6_UNCONDITIONAL_BEAT = {
   soleBlocker:       SOLE_BLOCKER,
 
   honestNote:
-    'This is a FULLY UNCONDITIONAL bound as of imp-471. The bound Lambda <= 0.121 < 0.2 ' +
-    'is established without structural assumptions: B1 analytically proved (imp-463, imp-468), ' +
-    'C3-pt established (imp-447), M_raw bridge exact (imp-462, imp-469), ' +
-    'many-body correction closed (imp-471: C_mb * N^{-1/2} * log(N) < rho_min for N >= 1e4). ' +
-    'The Phase 33-35 + Phase 36 (imp-471) wave delivers the unconditional finite-height beat.',
+    'GUE-CONDITIONAL (imp-583): the finite-height beat Lambda <= 0.121 < 0.2 requires GUE universality ' +
+    'for Riemann zeros (needed for C_mb <= 1 in the many-body correction; see imp-477). ' +
+    'All other structural conditions are analytically established: B1 (imp-463, imp-468), ' +
+    'C3-pt (imp-447), M_raw bridge exact (imp-462, imp-469), ' +
+    'many-body correction analytic bound for N >= 1e4 (imp-471). ' +
+    'The asymptotic Route B claim (lim sup |t_c(N)| = 0) remains genuinely UNCONDITIONAL (no GUE input).',
 
   bridgeStatus: M_RAW_FROM_UMON_BRIDGE ? M_RAW_FROM_UMON_BRIDGE.honestStatus : 'see m-raw-from-umon-bridge.js',
 

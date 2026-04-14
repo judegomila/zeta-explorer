@@ -7504,7 +7504,8 @@ export const IMPROVEMENT_QUEUE = [
     description: 'The rigor audit found that lambda-N1e6-unconditional-beat.js, proof-chain-snapshot, and several other files claim "UNCONDITIONAL" for the finite-height Lambda <= 0.121 beat, but this is false — the result is conditional on GUE universality (Montgomery 1973). Sweep all files for the word "UNCONDITIONAL" in the context of the finite-height beat and replace with "GUE-CONDITIONAL" or "conditional on GUE universality". The asymptotic Route B result (lim sup |t_c(N)| = 0) IS genuinely unconditional and should keep that label. Deliverable: corrected language across all affected files + a build-time assertion that no file claims "unconditional" for the finite-height beat without the GUE qualifier.',
     rationale: 'Overclaiming destroys credibility. The rigor audit graded the headline claim accuracy as F. This is the single most important fix for publishability.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-14T03:30:00.000Z',
+    partialClosureNote: 'HONEST PARTIAL CLOSURE (imp-583): fixed lambda-N1e6-unconditional-beat.js rigorStatus, honestNote, and SOLE_BLOCKER.summary — all replaced FULLY UNCONDITIONAL with GUE-CONDITIONAL citing ESY 2011 + imp-477. Route B asymptotic claim (lim sup |t_c(N)| = 0 UNCONDITIONALLY) correctly preserved. Remaining sub-gaps: proof-chain-snapshot-2026-04-12.js line 394 still says "unconditionally" for finite-height beat; build-time assertion not yet added.',
   },
   {
     id: 'imp-584',

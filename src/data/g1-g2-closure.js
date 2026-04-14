@@ -135,6 +135,21 @@ const G2_CLOSURE_STATUS = {
       '[0, tau_c(N)] is the imp-336 sketch content, which remains conditional ' +
       'on G1 uniform margin.',
   },
+  upgradeInvestigation: {
+    investigatedBy: 'imp-651',
+    investigatedAt: '2026-04-14T23:00:00Z',
+    conclusion: 'cannot-upgrade',
+    reason:
+      'The imp-462/463/464/471 chain (M-raw bridge, D-monotone, NoSwap, ' +
+      'many-body-correction) closed the UNCONDITIONAL Lambda <= 0.121 beat ' +
+      'via the ZPO B1/B2 route -- orthogonal to the G2 tau-positive conditional. ' +
+      'The two blocking requirements for G2 tauPositive remain open: ' +
+      '(1) G1-sub-extremal closure (G1-sub-extremal-raw-vs-unfolded sub-gap ' +
+      'still open in g1-sub-extremal-closure.js, closureLevel=partial-conditional); ' +
+      '(2) imp-336 drift-sign propagation through the Calogero-Moser backward flow ' +
+      '(still conditional on G1 uniform margin). Neither blocking dependency is ' +
+      'addressed by the ZPO B1/B2 route. Status must remain conditional.',
+  },
 };
 
 // ── Joint closure assembly record ────────────────────────────────────────────

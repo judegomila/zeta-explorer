@@ -321,6 +321,55 @@ const G1_SUB_EXTREMAL = {
       'smoothed zero density to confine k*_N to the bulk without pair-correlation ' +
       'input.',
   ],
+  // imp-696: formal obstruction audit — both closure paths investigated, both blocked.
+  closureAttempt: {
+    auditedBy: 'imp-696',
+    analyticalDensityPath: {
+      tried:
+        'Confine k*_N to bulk using only the Riemann-von Mangoldt 1-point ' +
+        'density rho_inf(gamma) = (1/2pi)*log(gamma/2pi), without pair-' +
+        'correlation input. The density gives the average spacing scale ' +
+        '2pi/log(gamma/2pi), and one might hope the argmin k*_N is ' +
+        'concentrated away from the edges because the density is nearly ' +
+        'flat on any compact sub-interval of (0,1) in relative position.',
+      outcome:
+        'BLOCKED. The argmin k*_N is an extreme order statistic of the ' +
+        'consecutive spacings {gamma_{k+1} - gamma_k}. For strongly ' +
+        'correlated sequences (Riemann zeros exhibit level repulsion, so ' +
+        'spacings are NOT iid), extreme gap statistics depend on the 2-point ' +
+        'correlation function, not just the marginal density. The 1-point ' +
+        'density alone cannot bound P(k*_N outside W(alpha, N)) for any ' +
+        'fixed alpha > 0 without a separate input on the joint distribution ' +
+        'of gaps — which is precisely the pair-correlation information that ' +
+        'Montgomery 1973 conjectures.',
+    },
+    guePortingPath: {
+      tried:
+        'Port the Ben Arous-Bourgade (2011) bulk-confinement theorem for GUE ' +
+        'eigenvalues to Riemann zeros by invoking Montgomery 1973 pair ' +
+        'correlation as a universality bridge. Under Montgomery 1973 the ' +
+        '2-point correlation of rescaled zeros agrees with the GUE sine-kernel ' +
+        'pair density, which is the key input for the Ben Arous-Bourgade ' +
+        'argument.',
+      outcome:
+        'CONDITIONAL on Montgomery 1973 (unproved). The porting is formally ' +
+        'valid if Montgomery 1973 holds: Goldston-Montgomery 1987 establishes ' +
+        'equivalences between the pair-correlation conjecture and prime-gap ' +
+        'distribution estimates; Rudnick-Sarnak 1996 extends to k-point ' +
+        'correlations under GRH. However, unconditional verification of the ' +
+        'pair-correlation conjecture at the regularity level required by the ' +
+        'Ben Arous-Bourgade compactness argument is not currently available ' +
+        'in the literature.',
+    },
+    verdict:
+      'G1-sub-extremal has no unconditional closure path in the current proof ' +
+      'chain. Both routes are formally blocked: the analytic-density route by ' +
+      'the inaccessibility of extreme gap statistics from 1-point data, and ' +
+      'the GUE-porting route by the unproved status of Montgomery 1973. The ' +
+      'sub-gap is formally registered as a named open obstruction of Route A ' +
+      'only. The main result G6_per_N_bound is fully rigorous via Route B ' +
+      '(imp-683) without any input from G1-sub-extremal.',
+  },
 };
 
 // ── The record ──────────────────────────────────────────────────────────────

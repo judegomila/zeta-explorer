@@ -133,7 +133,7 @@ const SOLE_BLOCKER = {
     'The finite-height beat Lambda <= 0.121 < 0.2 (Platt-Trudgian 2021) is GUE-CONDITIONAL.',
   closureNote:
     'imp-471: C_mb * N^{-1/2} * log(N) < rho_min for all N >= 1e4; ' +
-    'empirical check covers N in {2,...,870}. M established unconditionally.',
+    'empirical check covers N in {2,...,870}. M established GUE-CONDITIONALLY (C_mb <= 1 requires GUE universality for Riemann zeros; see imp-477).',
 };
 
 // ── Payoff record ─────────────────────────────────────────────────────────────

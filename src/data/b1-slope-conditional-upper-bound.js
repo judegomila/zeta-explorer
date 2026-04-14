@@ -114,9 +114,11 @@ export const B1_CONDITIONAL_BOUND = {
   blocker: 'B1-slope-constant (lambda-zero-attack.js)',
   title:   'Conditional analytic upper bound on the OLS slope b',
 
-  status: (NOSWAP_CLOSURE.status === 'numerically-closed' || NOSWAP_CLOSURE.status === 'analytically-closed')
-    ? 'numerically-closed'
-    : 'conditional-closed',
+  status: (NOSWAP_CLOSURE.status === 'analytically-closed' && D_MONOTONE_ANALYTIC_PROOF.status === 'analytically-closed')
+    ? 'analytically-closed'
+    : (NOSWAP_CLOSURE.status === 'numerically-closed' || NOSWAP_CLOSURE.status === 'analytically-closed')
+      ? 'numerically-closed'
+      : 'conditional-closed',
   conditions: [],
   closedConditions: [
     'D-monotone (skp-imp457-D-monotone, analytically closed by imp-463): D(tau) >= D(0) on [0, tau_c]',

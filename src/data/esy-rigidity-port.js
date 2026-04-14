@@ -493,6 +493,25 @@ export const ESY_RIGIDITY_PORT = {
 
   openSubGaps: OPEN_SUB_GAPS,
 
+  upgradeInvestigation: {
+    investigatedBy: 'imp-650',
+    investigatedAt: '2026-04-14T22:00:00Z',
+    conclusion: 'cannot-upgrade',
+    reason:
+      'imp-462/463/464/471 chain (M-raw bridge, D-monotone, NoSwap, ' +
+      'many-body-correction) closed the UNCONDITIONAL Lambda <= 0.121 beat ' +
+      'via the ZPO B1/B2 route. This is orthogonal to the ESY rigidity port. ' +
+      'The three blocking sub-gaps remain open: ' +
+      '(O1) sub-Selberg discrepancy (C_poly < 1) for the deterministic zero ' +
+      'sequence is not addressed by ZPO B1/B2 closures; ' +
+      '(O2) coupling the backward de Bruijn flow to the ESY Dyson Brownian ' +
+      'motion is still research-grade; ' +
+      '(O3) derandomization from high-probability Wigner bound to deterministic ' +
+      'bound for {gamma_k} remains unresolved. ' +
+      'Status must remain partial.',
+    tripwireRef: 'imp407-open-sub-gaps-named (OPEN_SUB_GAPS.length >= 3)',
+  },
+
   verdict:
     'PARTIAL CLOSURE: The ESY 2011 framework is fully stated and the three ' +
     'obstacles (O1 unconditional input, O2 flow coupling, O3 derandomization) ' +

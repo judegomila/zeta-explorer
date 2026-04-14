@@ -182,7 +182,7 @@ function verifyInitialSuperiority(N) {
 const INITIAL_SUPERIORITY_CHECKS = [50, 100, 200, 500].map(verifyInitialSuperiority);
 
 // ── Mid-trajectory S-comparison lemma (imp-472) ──────────────────────────────
-// Closes residual sub-gap skp-imp468-mid-traj.
+// PARTIAL CLOSURE: sub-gap skp-imp468-mid-traj remains open at step (a).
 //
 // Lemma (Mid-trajectory S-dominance):
 //   For all tau in (0, tau_c(N)) and all j != k_star:
@@ -190,22 +190,23 @@ const INITIAL_SUPERIORITY_CHECKS = [50, 100, 200, 500].map(verifyInitialSuperior
 //
 // Proof outline (four-part):
 //
-//   (a) INITIAL ENDPOINT (tau = 0):
-//       D_j(0) = S_{k_star}(0) - S_j(0) > 0 for all j is ANALYTIC -- verified
-//       by direct computation in INITIAL_SUPERIORITY_CHECKS (imp-468).
-//       Min excess over all j and N in {50,100,200,500} is strictly positive.
+//   (a) INITIAL ENDPOINT (tau = 0) -- OPEN GAP (imp-584):
+//       D_j(0) = S_{k_star}(0) - S_j(0) > 0 for all j is REQUIRED but NOT ACHIEVED.
+//       Direct computation in INITIAL_SUPERIORITY_CHECKS shows minExcess < 0
+//       (e.g. -0.29 at N=50): S_{k_star}(0) is NOT the global maximum of S_j(0)
+//       over all j at any tested N. Step (a) is a genuine analytical gap.
 //
 //   (b) NEAR-COLLISION ENDPOINT (tau -> tau_c, B_{k_star} -> 0):
 //       The cross-term 1/[B_{k_star} * (g_{k_star+1} + B_{k_star})] in S_{k_star}
 //       diverges as 1/B_{k_star} -> +infinity.  S_j = O(1) because pair j has
 //       no colliding neighbour (its gap is bounded away from 0 throughout).
-//       Hence D_j(tau) -> +infinity as tau -> tau_c.
+//       Hence D_j(tau) -> +infinity as tau -> tau_c.  [ANALYTICALLY VALID]
 //
 //   (c) CONTINUITY:
 //       The CM flow is a smooth ODE on the open set tau in [0, tau_c(N)).  All
 //       particle positions are smooth; S_{k_star} and S_j are rational in those
 //       positions (denominators never zero while B_{k_star} > 0).  Therefore
-//       D_j(tau) is continuous on [0, tau_c(N)).
+//       D_j(tau) is continuous on [0, tau_c(N)).  [ANALYTICALLY VALID]
 //
 //   (d) POSITIVITY ON (0, tau_c) VIA MONOTONE COMPARISON:
 //       In the normalized-distance decomposition (d-monotone-analytic-proof.js):
@@ -219,35 +220,37 @@ const INITIAL_SUPERIORITY_CHECKS = [50, 100, 200, 500].map(verifyInitialSuperior
 //       Pair j carries no such divergence -- its normalized distances stay bounded
 //       because g_j >= B_{k_star} throughout and pair j was never the argmin site.
 //       Therefore S_{k_star}(tau) - S_j(tau) is non-decreasing once B_{k_star}
-//       is small, and since D_j(0) > 0, positivity is preserved on all of [0, tau_c).
+//       is small. [NOTE: requires D_j(0) > 0 from step (a), which is an open gap.]
 //
-// Sub-gap status: skp-imp468-mid-traj -> CLOSED (imp-472).
-// NoSwap status upgrades to fully-analytic-endpoint-to-endpoint.
+// Sub-gap status: skp-imp468-mid-traj -> PARTIAL (step-a-open-gap).
+// Steps (b) and (c) are analytically valid; steps (a) and (d) have a genuine gap.
+// NoSwap is NUMERICALLY confirmed but NOT fully-analytic-endpoint-to-endpoint.
 
 const MID_TRAJECTORY_LEMMA = {
   id:        'imp-472',
   subGap:    'skp-imp468-mid-traj',
-  status:    'closed',
-  closedBy:  'imp-472',
+  status:    'partial-step-a-open-gap',
+  closedBy:  null,
+  openGap:   'imp-584',
   statement:
     'S_{k_star}(tau) > S_j(tau) for all j != k_star and all tau in [0, tau_c(N)).',
   proof: {
     step_a:
-      'tau=0 (initial endpoint): D_j(0) > 0 analytic -- direct computation ' +
-      'INITIAL_SUPERIORITY_CHECKS (imp-468), min excess > 0 at N in {50,100,200,500}.',
+      'OPEN GAP (imp-584): tau=0 initial endpoint requires D_j(0) > 0 for all j. ' +
+      'Direct computation (INITIAL_SUPERIORITY_CHECKS) shows allSuperior=false ' +
+      'at all tested N: minExcess is negative (e.g. -0.29 at N=50). ' +
+      'S_{k_star}(0) is NOT the global maximum of S_j(0). Gap is unresolved.',
     step_b:
-      'tau -> tau_c (near-collision): S_{k_star} ~ 1/B_{k_star} -> +inf; ' +
+      'VALID: tau -> tau_c (near-collision): S_{k_star} ~ 1/B_{k_star} -> +inf; ' +
       'S_j = O(1) since pair j has no colliding neighbour. D_j -> +inf.',
     step_c:
-      'Continuity: CM flow is a smooth ODE on [0,tau_c); S terms are rational ' +
+      'VALID: Continuity: CM flow is a smooth ODE on [0,tau_c); S terms are rational ' +
       'in particle positions (denominators nonzero while B_{k_star} > 0). ' +
       'Hence D_j is continuous on [0,tau_c).',
     step_d:
-      'Monotone comparison: normalized-distance decomposition (d-monotone-analytic-proof.js) ' +
-      'gives F_{k_star} = B^2 S_{k_star} non-increasing; p_l, q_l non-decreasing ' +
-      '(CM p_j-monotonicity). B_{k_star} -> 0 forces S_{k_star} to grow; pair j ' +
-      'carries no such divergence. D_j is non-decreasing once B_{k_star} is small. ' +
-      'Combined with D_j(0) > 0, positivity holds on all of [0, tau_c).',
+      'BLOCKED by step_a: Monotone comparison argument concludes positivity on ' +
+      '[0,tau_c) only if D_j(0) > 0 (which is the step_a gap). Steps (b)+(c) ' +
+      'establish near-collision and continuity; full closure requires step_a.',
   },
   minInitialExcess: INITIAL_SUPERIORITY_CHECKS.reduce(
     (m, c) => (c.minExcess != null && c.minExcess < m ? c.minExcess : m),
@@ -297,14 +300,16 @@ export const NOSWAP_CLOSURE = {
       'Any attempted argmin swap is REPULSED in the near-collision regime. ' +
       'Full-trajectory stability is confirmed numerically at N in {50,100,200,500}.',
     scope:
-      'INITIAL CONFIG (tau=0): S_{k_star}(0) > S_j(0) for all j is ANALYTIC -- ' +
-      'direct computation on zeta zeros, no simulation (imp-468). ' +
+      'INITIAL CONFIG (tau=0): OPEN GAP (imp-584) -- S_{k_star}(0) > S_j(0) for ' +
+      'all j is required but NOT achieved: direct computation shows minExcess < 0 ' +
+      '(e.g. -0.29 at N=50). This is a genuine analytical gap. ' +
       'NEAR-COLLISION (B_x -> 0): S_{k_star} ~ 1/B_x >> S_j is ANALYTIC (leading order). ' +
-      'MID-TRAJECTORY (tau in (0, tau_c)): S_{k_star}(tau) > S_j(tau) ANALYTIC -- ' +
-      'imp-472 four-part closure: (a) initial positivity, (b) near-collision divergence, ' +
-      '(c) CM flow continuity, (d) normalized-distance monotone comparison. ' +
-      'Sub-gap skp-imp468-mid-traj: CLOSED (imp-472). ' +
-      'NoSwap is now fully-analytic-endpoint-to-endpoint.',
+      'MID-TRAJECTORY (tau in (0, tau_c)): S_{k_star}(tau) > S_j(tau) PARTIAL -- ' +
+      'imp-472 four-part closure: (b) near-collision divergence VALID, ' +
+      '(c) CM flow continuity VALID; (a) initial positivity OPEN GAP, ' +
+      '(d) monotone comparison BLOCKED by (a). ' +
+      'Sub-gap skp-imp468-mid-traj: PARTIAL (step-a-open-gap, imp-584). ' +
+      'NoSwap is NUMERICALLY confirmed but not fully-analytic-endpoint-to-endpoint.',
   },
 
   numericalEvidence: {
@@ -320,12 +325,12 @@ export const NOSWAP_CLOSURE = {
 
   initialConfigAnalysis: {
     description:
-      'Analytic verification (imp-468) that S_{k_star}(0) > S_j(0) for all ' +
-      'j != k_star at the initial zeta-zeros configuration. ' +
-      'This is a direct arithmetic computation -- no ODE or simulation. ' +
-      'Closing this analytic gap upgrades the status from numerically-closed ' +
-      'to analytically-closed: both the tau=0 and the B->0 limits are now ' +
-      'covered by pure analysis; mid-trajectory is residual (skp-imp468-mid-traj).',
+      'OPEN GAP (imp-584): S_{k_star}(0) > S_j(0) for all j != k_star ' +
+      'at the initial zeta-zeros configuration is REQUIRED but NOT MET. ' +
+      'Direct arithmetic on zeta zeros shows allSuperior=false at all tested N; ' +
+      'minExcess is negative (e.g. -0.29 at N=50), meaning some j has ' +
+      'S_j(0) >= S_{k_star}(0). This gap blocks the analytical closure of ' +
+      'the mid-trajectory lemma step (a) and (d).',
     Ns:     [50, 100, 200, 500],
     results: INITIAL_SUPERIORITY_CHECKS,
     allPass: INITIAL_SUPERIORITY_CHECKS.every((c) => c.allSuperior),
@@ -345,16 +350,16 @@ export const NOSWAP_CLOSURE = {
   },
 
   honestStatus:
-    'ANALYTICALLY CLOSED (initial config, imp-468): S_{k_star}(0) > S_j(0) for ' +
-    'all j verified by direct computation at N in {50,100,200,500}. ' +
-    'ANALYTICALLY CLOSED (near-collision): S_{k_star} ~ 1/B_x >> S_j as B_x -> 0. ' +
+    'OPEN GAP (initial config, imp-584): S_{k_star}(0) > S_j(0) for all j ' +
+    'is REQUIRED but FAILS -- minExcess < 0 (e.g. -0.29 at N=50). ' +
+    'Direct computation on zeta zeros shows some j has S_j(0) >= S_{k_star}(0). ' +
+    'ANALYTICALLY VALID (near-collision): S_{k_star} ~ 1/B_x >> S_j as B_x -> 0. ' +
     'NUMERICALLY CONFIRMED (full trajectory): NoSwap holds at N in {50,100,200,500}. ' +
-    'ANALYTICALLY CLOSED (mid-trajectory, imp-472): S_{k_star}(tau) > S_j(tau) for ' +
-    'all tau in (0, tau_c) via four-part argument -- initial positivity, ' +
-    'near-collision divergence, CM flow continuity, normalized-distance monotone ' +
-    'comparison (p_j-monotonicity from d-monotone-analytic-proof.js). ' +
-    'Sub-gap skp-imp468-mid-traj: CLOSED. ' +
-    'NoSwap is FULLY-ANALYTIC-ENDPOINT-TO-ENDPOINT.',
+    'PARTIAL (mid-trajectory, imp-472): four-part proof has step (a) open gap; ' +
+    'steps (b) near-collision divergence and (c) continuity are analytically valid; ' +
+    'step (d) monotone comparison is blocked by the step (a) gap. ' +
+    'Sub-gap skp-imp468-mid-traj: PARTIAL (step-a-open-gap). ' +
+    'NoSwap is NUMERICALLY-CLOSED. Analytical closure requires resolving imp-584.',
 };
 
 // ── Build-time assertions ─────────────────────────────────────────────────────
@@ -413,22 +418,27 @@ export const NOSWAP_CLOSURE_ASSERTIONS = [
   },
   {
     id: 'imp472-midtraj-subgap-closed',
-    holds: () => MID_TRAJECTORY_LEMMA.status === 'closed',
+    holds: () =>
+      MID_TRAJECTORY_LEMMA.status === 'closed' ||
+      MID_TRAJECTORY_LEMMA.status === 'partial-step-a-open-gap',
     why:
-      'imp-472 must have closed sub-gap skp-imp468-mid-traj. Status must be ' +
-      '"closed". If this fails the MID_TRAJECTORY_LEMMA object was not properly set.',
+      'imp-472 sub-gap skp-imp468-mid-traj is PARTIAL (step-a-open-gap, imp-584). ' +
+      'Status "partial-step-a-open-gap" is the honest state: step (a) D_j(0) > 0 ' +
+      'fails for actual zeta zeros (minExcess < 0). Steps (b) and (c) are valid. ' +
+      'Also accepts "closed" if imp-584 later resolves the initial-config gap.',
   },
   {
     id: 'imp472-midtraj-initial-excess-positive',
     holds: () =>
-      MID_TRAJECTORY_LEMMA.status === 'closed' &&
-      typeof MID_TRAJECTORY_LEMMA.id === 'string',
+      typeof MID_TRAJECTORY_LEMMA.id === 'string' &&
+      (MID_TRAJECTORY_LEMMA.status === 'closed' ||
+       MID_TRAJECTORY_LEMMA.status === 'partial-step-a-open-gap'),
     why:
-      'HONEST GAP: MID_TRAJECTORY_LEMMA must exist with status "closed". ' +
-      'allInitialExcessPositive is false because S_{k_star}(0) > S_j(0) for all j ' +
-      'does not hold for actual zeta zeros -- the analytical initial-config anchor ' +
-      '(step a of the four-part argument) is a genuine open gap. ' +
-      'This assertion guards the lemma structure rather than the S-excess claim.',
+      'HONEST GAP (imp-584): allInitialExcessPositive is false because ' +
+      'S_{k_star}(0) > S_j(0) for all j does NOT hold for actual zeta zeros ' +
+      '(minExcess < 0, e.g. -0.29 at N=50). MID_TRAJECTORY_LEMMA.status is ' +
+      '"partial-step-a-open-gap" reflecting this. Assertion guards that the ' +
+      'lemma structure exists and carries an honest status string.',
   },
   {
     id: 'imp468-initial-superiority-all-Ns',

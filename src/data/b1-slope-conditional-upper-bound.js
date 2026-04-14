@@ -142,20 +142,22 @@ export const B1_CONDITIONAL_BOUND = {
   },
 
   residualSubGap: {
-    id:     'skp-imp457-D-monotone',
-    title:  'D(tau) >= D(0) on [0, tau_c] under NoSwap',
-    status: D_MONOTONE_ANALYTIC_PROOF.status,
+    id:     'imp-584',
+    title:  'S_{k_star}(0) > S_j(0) for all j at initial zeta-zero configuration (NoSwap initial-config dominance)',
+    status: 'open',
     route:
-      'Prove g_{k*}(tau)^2 S_{k*}(tau) is non-increasing under NoSwap. ' +
-      'Sufficient to show S_{k*}(tau) is non-increasing when k* holds the ' +
-      'global minimum. Possible approach: bound dS_{k*}/dtau via the CM ' +
-      'equations for the other gaps, using g_j(tau) >= g_{k*}(tau) under NoSwap.',
+      'Prove S_{k_star}(0) > S_j(0) for all j != k_star at the actual zeta-zeros ' +
+      'initial configuration, enabling the NoSwap mid-trajectory lemma (imp-472 step-a). ' +
+      'Numerical check: minExcess < 0 at all tested N (e.g. -0.29 at N=50), so this ' +
+      'approach likely needs reformulation or an alternative analytic route.',
     blocker: false,
     note:
-      'Sole remaining sub-gap in the conditional B1 closure. Strictly weaker ' +
-      'than the original imp-363 / imp-370 GUE approach and lives entirely ' +
-      'within the deterministic CM framework without random-matrix input. ' +
-      'Numerically witnessed at N=50 and N=100 by d-monotone-numerical-witness.js (imp-457).',
+      'D-monotone (skp-imp457-D-monotone) was ANALYTICALLY CLOSED by imp-463 ' +
+      '(normalized-distance decomposition F=B^2*S non-increasing under NoSwap). ' +
+      'NoSwap is NUMERICALLY CONFIRMED (imp-464) but analytically partial: ' +
+      'the initial-config S-dominance step (imp-584) fails for actual zeta zeros ' +
+      '(minExcess < 0). Unconditional analytic closure of B1 requires resolving ' +
+      'imp-584 or a direct GUE/ESY local-law bound on b(N) (imp-363/imp-370).',
     numericalWitness: D_MONOTONE_WITNESS_RECORD,
   },
 
@@ -206,12 +208,13 @@ export const B1_BOUND_ASSERTIONS = [
   {
     id: 'imp457-residual-subgap-named',
     holds: () =>
-      B1_CONDITIONAL_BOUND.residualSubGap.id === 'skp-imp457-D-monotone' &&
-      B1_CONDITIONAL_BOUND.residualSubGap.status !== 'proved',
+      B1_CONDITIONAL_BOUND.residualSubGap.id === 'imp-584' &&
+      B1_CONDITIONAL_BOUND.residualSubGap.status === 'open',
     why:
-      'The residual sub-gap must be named and not yet analytically proved. ' +
-      'Fires if the sub-gap is accidentally marked proved without a full ' +
-      'analytic proof being supplied in the codebase.',
+      'After D-monotone was analytically closed by imp-463, the sole remaining sub-gap ' +
+      'for full analytic B1 closure is imp-584 (NoSwap initial-config S-dominance). ' +
+      'Checks that residualSubGap points to imp-584 as the actual open gap, not the ' +
+      'now-closed skp-imp457-D-monotone.',
   },
   {
     id: 'imp457-d-monotone-witness-passes',

@@ -59,7 +59,7 @@ export const SUBMISSION_READY_MARKER = {
     'Hard assertion criticalPending !== 0 activated. Soft guard > 1 retired.',
 
   // ── Verification log ───────────────────────────────────────────────────────
-  verifiedAt: '2026-04-14T00:00:00.000Z',   // imp-718: re-verified; build clean, all assertions pass
+  verifiedAt: '2026-04-14T23:00:00.000Z',   // imp-718: re-verified 2026-04-14; build clean, both assertions pass
 };
 
 // ── BUILD-TIME ASSERTIONS ──────────────────────────────────────────────────────

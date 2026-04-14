@@ -256,9 +256,41 @@ theorem rate_tendsto_zero :
     have hlog_div : Tendsto
         (fun N : ℕ => C_F (gammaOrdinate N) * (Real.log (gammaOrdinate N) / gammaOrdinate N))
         atTop (nhds 0) := by
-      sorry -- rtz-002a: C_F(T) ~ log(T)/(2*pi); product C_F(T)*log(T)/T ~ log^2(T)/(2*pi*T) -> 0
-            -- Proof: squeeze between 0 and (log T + 1)*log T / (2*pi*T); use
-            --   Real.tendsto_log_div_rpow_atTop (kappa=1/2) + gammaOrdinate_tendsto_atTop.
+      -- rtz-002a CLOSED (imp-535): C_F(T)*log(T)/T = (logT - log(2pi) + 1)*logT/(2pi*T).
+      -- Factor: (1/(2pi)) * log^2(T)/T  +  ((1 - log(2pi))/(2pi)) * logT/T^1.
+      -- Both terms tend to 0: log^2(T)/T via (logT/T^{1/2})^2 -> 0 (kappa=1/2);
+      -- logT/T^1 directly (kappa=1). Combined via Tendsto.add.
+      have h2pi_pos : (0:ℝ) < 2 * Real.pi := by positivity
+      have hh1 := (Real.tendsto_log_div_rpow_atTop one_pos).comp gammaOrdinate_tendsto_atTop
+      have hh12 := (Real.tendsto_log_div_rpow_atTop
+          (show (0:ℝ) < 1/2 from by norm_num)).comp gammaOrdinate_tendsto_atTop
+      have hsq : Tendsto (fun N : ℕ => Real.log (gammaOrdinate N) ^ 2 / gammaOrdinate N)
+          atTop (nhds 0) := by
+        have hmul := hh12.mul hh12
+        simp only [mul_zero] at hmul
+        refine hmul.congr' (Filter.eventually_of_forall fun N => ?_)
+        have hp := gammaOrdinate_pos N
+        rw [div_mul_div_comm, ← Real.rpow_add hp,
+            show (1/2 : ℝ) + 1/2 = 1 from by norm_num, Real.rpow_one]
+        ring
+      have hf_eq : ∀ N : ℕ,
+          C_F (gammaOrdinate N) * (Real.log (gammaOrdinate N) / gammaOrdinate N) =
+          (1 / (2 * Real.pi)) * (Real.log (gammaOrdinate N) ^ 2 / gammaOrdinate N) +
+          ((1 - Real.log (2 * Real.pi)) / (2 * Real.pi)) *
+          (Real.log (gammaOrdinate N) / gammaOrdinate N ^ (1:ℝ)) := by
+        intro N; unfold C_F
+        rw [Real.log_div (ne_of_gt (gammaOrdinate_pos N)) (ne_of_gt h2pi_pos), Real.rpow_one]
+        ring
+      simp_rw [hf_eq]
+      have hterm1 : Tendsto (fun N : ℕ =>
+          (1 / (2 * Real.pi)) * (Real.log (gammaOrdinate N) ^ 2 / gammaOrdinate N))
+          atTop (nhds 0) := by simpa using hsq.const_mul (1 / (2 * Real.pi))
+      have hterm2 : Tendsto (fun N : ℕ =>
+          ((1 - Real.log (2 * Real.pi)) / (2 * Real.pi)) *
+          (Real.log (gammaOrdinate N) / gammaOrdinate N ^ (1:ℝ)))
+          atTop (nhds 0) := by
+        simpa using hh1.const_mul ((1 - Real.log (2 * Real.pi)) / (2 * Real.pi))
+      simpa using hterm1.add hterm2
     have key : Tendsto (fun N : ℕ => errorFlow N) atTop (nhds (0 * 1)) := by
       unfold errorFlow; exact hlog_div.mul hexp
     simpa using key
@@ -323,11 +355,14 @@ end
          --      <= (3/2) * log(gamma_N) / gamma_N^{kappa_T}  [C_T < 3/2 for gamma_N > 1]
          -- limit: (3/2) * log(x) / x^{kappa_T} -> 0 [Real.tendsto_log_div_rpow_atTop]
          -- composition with gammaOrdinate_tendsto_atTop for the N -> inf version.
-       rtz-002 PARTIAL (imp-525): E_flow proof structured; exp factor CLOSED.
+       rtz-002 CLOSED (imp-525 + imp-535): E_flow proof complete.
          -- exp factor: KoksmaHlawkaLimSup (moved to Foundation.lean) + exp continuous at 0
-         --   gives exp(C_G*|t_c(N)|) -> exp(0) = 1.  (CLOSED)
-         -- log-div factor: rtz-002a (open): C_F(T)*log(T)/T ~ log^2(T)/(2*pi*T) -> 0.
-         --   Use Real.tendsto_log_div_rpow_atTop (kappa=1/2) + gammaOrdinate_tendsto_atTop.
+         --   gives exp(C_G*|t_c(N)|) -> exp(0) = 1.  (CLOSED by imp-525)
+         -- log-div factor: rtz-002a CLOSED (imp-535):
+         --   C_F(T)*log(T)/T = (1/(2pi))*log^2(T)/T + ((1-log(2pi))/(2pi))*log(T)/T.
+         --   log^2(T)/T = (log(T)/T^{1/2})^2 -> 0 (Real.tendsto_log_div_rpow_atTop kappa=1/2).
+         --   log(T)/T -> 0 (kappa=1). Combined by Tendsto.add. No sorry remains in E_flow.
+       Status: rate_tendsto_zero is now FULLY PROVED (all three terms closed).
 
     3. G6_bridge_closed (imp-412-sorry-3) -- CLOSED by imp-490
        Statement: (-t_c(N)) -> Lambda.

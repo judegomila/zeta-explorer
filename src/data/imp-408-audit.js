@@ -1,4 +1,18 @@
 /**
+ * @module imp-408-audit
+ * @fileoverview Audit record for the imp-408 Platt-Trudgian consistency check (imp-411).
+ * Exports {@link IMP408_AUDIT} (verdict, supporting evidence, open gaps) and
+ * {@link IMP408_AUDIT_ASSERTIONS} (build-time guards). Belongs to the PATH C hybrid
+ * proof chain at the finite-height literature validation step. Key assertions: the
+ * OLS intercept a ≈ 0.0066 satisfies the Platt-Trudgian 2021 bound Λ ≤ 0.2 by
+ * ~30×; slope contribution is negligible at N ~ 1e11; no roll-back ticket required.
+ * Created by imp-411; references imp-408 (platt-trudgian-matched-check.js).
+ * @see src/data/platt-trudgian-matched-check.js
+ * @see imp-408
+ * @see imp-411
+ */
+
+/**
  * imp-411: Audit of the imp-408 Platt-Trudgian consistency check verdict
  *
  * Context

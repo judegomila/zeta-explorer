@@ -284,7 +284,15 @@ const G6_PER_N_BOUND = {
 // Route B (G6_per_N_bound) was CLOSED by imp-683 without needing this.
 const G1_SUB_EXTREMAL = {
   id: 'G1-sub-extremal',
-  status: 'open',
+  status: 'open; Route-A-only; main result G6_per_N_bound CLOSED via Route B (imp-683)',
+  impactScope:
+    'Non-blocking for the established result: G6_per_N_bound is CLOSED via ' +
+    'Route B (imp-683) independently of bulk confinement. G1-sub-extremal ' +
+    'remains open and continues to block Route A (imp-336 drift-sign ' +
+    'monotonicity), but the per-N bound |t_c(N)| <= (1/8)*sqrt(3*pi)* ' +
+    'sqrt(log gamma_N / N) is rigorous without it. Closure of this sub-gap ' +
+    'would enable Route A as an independent proof path; it does not affect ' +
+    'the Route B proof or the unconditional lim-sup a = 0 statement.',
   equivalentTo: 'imp-343 residualSubGap.G4a_bulk_confinement',
   namedBy: 'imp-336-post-ladder-update.js openSubGap; imp-687 formal registration',
   blocks: 'Route A of G6_per_N_bound (imp-336 drift-sign monotonicity)',

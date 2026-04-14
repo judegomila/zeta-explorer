@@ -144,7 +144,7 @@ export const B1_CONDITIONAL_BOUND = {
   residualSubGap: {
     id:     'imp-584',
     title:  'S_{k_star}(0) > S_j(0) for all j at initial zeta-zero configuration (NoSwap initial-config dominance)',
-    status: 'open',
+    status: 'approach-refuted',
     route:
       'Prove S_{k_star}(0) > S_j(0) for all j != k_star at the actual zeta-zeros ' +
       'initial configuration, enabling the NoSwap mid-trajectory lemma (imp-472 step-a). ' +

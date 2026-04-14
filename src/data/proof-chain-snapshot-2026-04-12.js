@@ -127,7 +127,8 @@ export const PROOF_CHAIN = [
     ticket: 'imp-470',
     claim:
       'B1 (slope condition) CLOSED unconditionally. Phase 33-35 payoff: ' +
-      'lambda-N1e6-unconditional-beat.js confirms L_pt < 0.2 holds unconditionally. ' +
+      'lambda-N1e6-unconditional-beat.js records L_pt < 0.2 GUE-CONDITIONALLY ' +
+      '(full beat requires B2/C_mb which is GUE-conditional; see step 12). ' +
       'D-monotone (imp-463) + NoSwap (imp-468, analytically closed, full-trajectory ' +
       'MID_TRAJECTORY_LEMMA at imp-472) both closed unconditionally.',
     status: 'CLOSED unconditionally',

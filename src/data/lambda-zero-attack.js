@@ -50,6 +50,7 @@
 import { LAMBDA_RH_BRIDGE } from './bridge-lambda-rh.js';
 import { LAMBDA_ERROR_BUDGET } from './lambda-error-budget.js';
 import { B1_CONDITIONAL_BOUND } from './b1-slope-conditional-upper-bound.js';
+import { B2_INTERCEPT_BOUND } from './b2-intercept-analytic-bound.js';
 
 const PATH_C_CENTRAL = LAMBDA_RH_BRIDGE.pathCBound.centralValue; // 0.0066
 const PATH_C_ERROR = LAMBDA_RH_BRIDGE.pathCBound.errorBar;       // 0.01
@@ -119,19 +120,7 @@ export const LAMBDA_ZERO_BLOCKERS = [
       'Show a := lim sup_{N→∞} |t_c(N)| = 0 as the LIMIT statement, then ' +
       'translate that limit into a per-N bound usable at the heights the ' +
       'verified zero list controls.',
-    status:
-      'LIM-SUP CLOSED UNCONDITIONALLY. imp-341 (lambda-intercept-burgers- ' +
-      'uniformity.js) discharged G5_burgers via a deterministic Koksma- ' +
-      'Hlawka discrepancy bound on ψ_N(y) := ||m_N − m_∞||_{L^∞({Im z ≥ y})} ' +
-      ', forcing τ_c(m_N) → τ_shock(m_∞) = 0 and hence a = lim sup_N ' +
-      '|t_c(N)| = 0 along the N-particle Dyson flow with NO GUE / local- ' +
-      'law / Erdős-Schlein-Yau input. imp-344 (lambda-intercept- ' +
-      'unconditional.js) assembles the three routes (A monotonicity, ' +
-      'B Burgers-uniformity, C density squeeze) and names the honest ' +
-      'current claim. What remains on B2 is the per-N translation: ' +
-      'imp-336 (monotonicity M) or imp-348 (rate upgrade of imp-341 from ' +
-      'O(log γ_N / √N) to O(1/N)) would turn the lim-sup into an explicit ' +
-      'per-N upper bound r(N) on |t_c(N)|. Neither is closed yet.',
+    status: B2_INTERCEPT_BOUND.status,
     obstruction:
       'The per-N translation is the remaining B2 open piece. More ' +
       'importantly, B2 is NO LONGER the load-bearing gap of the Λ attack: ' +

@@ -1,4 +1,16 @@
 /**
+ * @module b2-intercept-analytic-bound
+ * @fileoverview Conditional analytic upper bound on the Path C intercept a (B2 partial closure).
+ *
+ * Proof-chain step: B2 (intercept-positivity sub-gap of the finite-height beat assembly).
+ * Created by imp-458.
+ *
+ * Key exports:
+ *   - B2_INTERCEPT_BOUND        — structured record: status, analytic bound value, conditions,
+ *                                  residual sub-gap pointer (imp-336), and formula derivation
+ *   - B2_BOUND_ASSERTIONS       — build-time self-consistency checks (bound < ceiling, bound > 0,
+ *                                  all sup Im m_N lower bounds positive, N_max is largest row)
+ *
  * imp-458: Conditional analytic upper bound on the Path C intercept a (B2 partial closure)
  *
  * Target gap

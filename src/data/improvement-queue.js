@@ -8627,12 +8627,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Verify assertions still pass in assertion-sweep-2026-04-12.js",
     category: 'proof',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S11-verify',
     description: "Dated assertion file src/data/assertion-sweep-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-14T13:00:00Z',
+    closureNote: 'Ran npm run build; build passed cleanly. All 17 assertions in the sweep remain valid: ' +
+      'polymath15-mpfr(4), polymath15-gmp(4), imp469-cross-verification(5), submission-ready(2), c-mb-unconditional-bound(2). ' +
+      'fatalCount=0 and criticalPending=0 still hold. Updated verifiedAt timestamp in assertion-sweep-2026-04-12.js to 2026-04-14T13:00:00Z.',
   },
   {
     id: 'imp-667',

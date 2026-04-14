@@ -235,6 +235,27 @@ export const BARRIER_EXTRAPOLATION_IMP371 = {
     'chain closures since imp-527 change the blocker. Sub-gap imp-371-barrier-compute ' +
     'remains the sole open item gating full closure.',
 
+  residualSubGap: {
+    id:     'imp-371-barrier-compute',
+    title:  'Run offline barrier integration at N in {6000..100000} to extend the OLS fit',
+    status: 'open',
+    route:
+      'Execute an offline Node.js compute script running plain-float64 Euler ' +
+      'integration at N in {6000, 7000, 8000, 9000, 10000, 15000, 20000, 25000, ' +
+      '50000, 100000}. Refit the barrier OLS on the full ladder and compare ' +
+      'the updated a_barrier against the RK4 OLS to complete the cross-verification ' +
+      'required by imp-371. Three-way agreement (barrier + RK4 + heat-flow from imp-372) ' +
+      'is the full cross-verification standard for the SOTA claim.',
+    blocker: true,
+    note:
+      'imp-527 (2026-04-13) and imp-619 (2026-04-14) both confirmed this is the sole ' +
+      'computational blocker. The B1/B2 monotonicity and NoSwap closures ' +
+      '(imp-462/463/464/471) are orthogonal to this barrier cross-validation; ' +
+      'they address the Lambda attack route, not the barrier OLS extrapolation. ' +
+      'Estimated compute: ~4 s at N=10000, >400 s at N=100000 (plain-float64 Euler). ' +
+      'Cannot run in the Vite build pipeline; requires a dedicated offline script.',
+  },
+
   sources: [
     'imp-404 BARRIER_EXTRAPOLATION_V2 (src/data/barrier-extrapolation-v2.js)',
     'imp-360 DYSON_LADDER_MEASURED (src/data/dyson-ladder-measured.js)',

@@ -7588,11 +7588,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Implement interactive rigor dashboard: show proof chain with honest status colors',
     category: 'feature',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     description: 'Create a new page /rigor-dashboard that visualizes the entire proof chain with color-coded rigor levels: GREEN = unconditional analytical proof, YELLOW = analytical proof conditional on stated hypothesis, ORANGE = leading-order analytical + numerical verification, RED = numerical only. Each node shows the condition it depends on, the files involved, and links to the adversarial review findings. This makes the honest rigor state visible to any visitor without reading 50+ tickets. Deliverable: src/pages/RigorDashboardPage.jsx + route in App.jsx.',
     rationale: 'Transparency about what is proved vs computed vs conjectured is the core credibility differentiator for this project.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-14T06:00:00.000Z',
   },
   {
     id: 'imp-588',

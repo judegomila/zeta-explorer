@@ -208,6 +208,19 @@ export const LAMBDA_ZERO_BLOCKERS = [
       'New ticket: extend dyson-monotonicity-proof.js with a STRICT ' +
       'repulsion bound at the minimum-gap index. imp-322 gives ≥ 0; the ' +
       'open task is ≥ c/B^α with explicit c, α.',
+    resolution: {
+      status: 'analytically closed (unconditional)',
+      closedBy: 'imp-325',
+      closedIn: 'src/data/dyson-collision-lower-bound.js',
+      bound:
+        'In backward time tau = -t: dg_{k*}/dtau >= -4/g_{k*}, equivalently ' +
+        'c = 4, alpha = 1 in the requested dg_{k*}/dt >= c * g_{k*}^{-alpha} form. ' +
+        'Integrated via Gronwall: |t_c(N)| >= B(0)^2 / 8. Sharp for N = 2 ' +
+        '(equality in the isolated two-particle Calogero-Moser flow).',
+      note:
+        'Closes the B3 analytic-rate goal from this file. The floor feeds B2 ' +
+        'as described in the sufficiency field above. No remaining open sub-gap.',
+    },
     severity: 'medium',
   },
   {

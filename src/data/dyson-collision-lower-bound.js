@@ -126,7 +126,7 @@ export const COLLISION_LOWER_BOUND_NUMERICAL = computeMinGapAndLowerBound();
 
 export const DYSON_COLLISION_LOWER_BOUND_THEOREM = {
   id: 'imp-325',
-  blocker: 'B3-dyson-repulsion-lower-bound (lambda-zero-attack.js)',
+  closedBlocker: 'B3-dyson-repulsion-lower-bound (lambda-zero-attack.js)',
   name: 'Calogero-Moser collision-time lower bound',
   statement:
     '|t_c(N)| ≥ B(0)² / 8, where B(0) = min_k (γ_{k+1}(0) − γ_k(0)) is the ' +

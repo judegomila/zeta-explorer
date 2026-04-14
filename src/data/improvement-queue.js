@@ -8675,12 +8675,17 @@ export const IMPROVEMENT_QUEUE = [
     title: "Upgrade partial/conditional status in esy-rigidity-port.js:447",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10',
     description: "Found \"status: 'partial',\" at src/data/esy-rigidity-port.js:447. Investigate whether the partial closure can be upgraded to full based on recent proof chain closures (imp-462/463/464/471). If the upgrade is blocked, document why.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-14T12:10:00Z',
+    closureNote: 'Duplicate of imp-664 (already completed). ESY_RIGIDITY_PORT.upgradeInvestigation (recorded by imp-650, ' +
+      '2026-04-14T22:00:00Z) already concluded cannot-upgrade; the same conclusion was confirmed and closed by imp-664. ' +
+      'The three blocking sub-gaps (O1 sub-Selberg discrepancy, O2 backward de Bruijn flow coupling, ' +
+      'O3 derandomization for {gamma_k}) remain open and are orthogonal to imp-462/463/464/471 ZPO B1/B2 closures. ' +
+      'Added esy-rigidity-port to autofill-queue-from-gaps.mjs exclusion list to suppress future re-seeding.',
   },
   {
     id: 'imp-670',

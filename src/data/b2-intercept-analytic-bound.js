@@ -160,6 +160,7 @@ export const B2_INTERCEPT_BOUND = {
       'remaining analytical step within imp-336 is G1-sub-extremal ' +
       '(bulk-confinement of the argmin site k*_N; equivalent to ' +
       'imp-343 G4a_bulk_confinement; see imp-409 singleRemainingStep).',
+    singleRemainingStep: IMP336_POST_LADDER_UPDATE.verdict.singleRemainingStep,
   },
 
   witnessRows: WITNESS_ROWS,

@@ -7505,7 +7505,7 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Overclaiming destroys credibility. The rigor audit graded the headline claim accuracy as F. This is the single most important fix for publishability.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-14T03:30:00.000Z',
-    partialClosureNote: 'HONEST PARTIAL CLOSURE (imp-583): fixed lambda-N1e6-unconditional-beat.js rigorStatus, honestNote, and SOLE_BLOCKER.summary — all replaced FULLY UNCONDITIONAL with GUE-CONDITIONAL citing ESY 2011 + imp-477. Route B asymptotic claim (lim sup |t_c(N)| = 0 UNCONDITIONALLY) correctly preserved. Remaining sub-gaps: proof-chain-snapshot-2026-04-12.js line 394 still says "unconditionally" for finite-height beat; build-time assertion not yet added.',
+    partialClosureNote: 'HONEST PARTIAL CLOSURE (imp-583): fixed lambda-N1e6-unconditional-beat.js rigorStatus, honestNote, and SOLE_BLOCKER.summary — all replaced FULLY UNCONDITIONAL with GUE-CONDITIONAL citing ESY 2011 + imp-477. Route B asymptotic claim (lim sup |t_c(N)| = 0 UNCONDITIONALLY) correctly preserved. Sub-gap 1 CLOSED (imp-1481): proof-chain-snapshot-2026-04-12.js execSummary lines 394+399 corrected from "unconditionally" to "GUE-CONDITIONAL". Remaining sub-gap: build-time assertion not yet added.',
   },
   {
     id: 'imp-584',

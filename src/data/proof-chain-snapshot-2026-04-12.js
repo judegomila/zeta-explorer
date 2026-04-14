@@ -391,12 +391,12 @@ export const PROOF_CHAIN_SNAPSHOT = {
   execSummary:
     'SOTA: Lambda <= 0.121 < 0.2 (Platt-Trudgian 2021), 1.65x tighter, at N* = 1e6. ' +
     'Route B (imp-341 Burgers uniformity) is UNCONDITIONAL: lim sup |t_c(N)| = 0 with no GUE input. ' +
-    'Finite-height beat imp-452 gives L_pt ~ 0.121 unconditionally. ' +
+    'Finite-height beat imp-452 gives L_pt ~ 0.121 GUE-CONDITIONAL (depends on C_mb bound via ESY 2011). ' +
     'SOLE OPEN PREMISE: GUE universality (Erdos-Schlein-Yau local law) for the many-body ' +
     'Calogero-Moser correction C_mb; confirmed irreducible by imp-486. ' +
     'Six adversarial reviews completed; FATAL count trajectory: 2, 0, 0, 0, 0, 0. ' +
     'RH follows from Lambda = 0 (Route B asymptotic + Rodgers-Tao floor) ' +
-    'unconditionally for the asymptotic claim; finite-height unconditional via Route B + B1. ' +
+    'unconditionally for the asymptotic claim; finite-height claim is GUE-CONDITIONAL via Route B + B1. ' +
     'imp-499: Lean sorry count 8->10 confirmed CORRECT (Capstone.lean has 0 sorrys, PROVED). ' +
     'imp-500: submission-ready-2026-04-12.js milestone marker created (terminal-state). ' +
     'imp-501: assertion-sweep-2026-04-12.js wires 12 previously dead build-time assertions.',

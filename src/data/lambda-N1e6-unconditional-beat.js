@@ -249,6 +249,17 @@ export const UNCONDITIONAL_BEAT_ASSERTIONS = [
       'numerically-closed is accepted: backward CM simulation confirms NoSwap at ' +
       'N in {50,100,200,500}. B1 establishment is based on the numerical evidence.',
   },
+  {
+    id: 'imp583-rigorstatus-gue-conditional',
+    holds: () =>
+      typeof LAMBDA_N1E6_UNCONDITIONAL_BEAT.rigorStatus === 'string' &&
+      LAMBDA_N1E6_UNCONDITIONAL_BEAT.rigorStatus.startsWith('GUE-CONDITIONAL') &&
+      !LAMBDA_N1E6_UNCONDITIONAL_BEAT.rigorStatus.includes('FULLY UNCONDITIONAL'),
+    why:
+      'imp-583: the finite-height beat rigorStatus must lead with GUE-CONDITIONAL ' +
+      'and must not claim FULLY UNCONDITIONAL. ' +
+      'Guards against regression to the pre-audit overclaiming language.',
+  },
   // Delegate the remaining assembly assertions from imp-452 directly
   ...LAMBDA_N1E6_ASSEMBLY_ASSERTIONS,
 ];

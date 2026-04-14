@@ -53,6 +53,7 @@ const MetaAccelerationPage = lazy(() => import('./pages/MetaAccelerationPage.jsx
 const LambdaBoundsPage = lazy(() => import('./pages/LambdaBoundsPage.jsx'));
 const RhDagPage = lazy(() => import('./pages/RhDagPage.jsx'));
 const RigorDashboardPage = lazy(() => import('./pages/RigorDashboardPage.jsx'));
+const DysonVerifierPage = lazy(() => import('./pages/DysonVerifierPage.jsx'));
 
 function PageLoader() {
   return (
@@ -105,6 +106,7 @@ const NAV_GROUPS = [
       { to: '/reasoning', label: 'Reasoning' },
       { to: '/rigor', label: 'Rigor' },
       { to: '/rigor-dashboard', label: 'Rigor Dashboard' },
+      { to: '/dyson-verifier', label: 'Dyson Verifier' },
       { to: '/cross-attack', label: 'Cross-Attack' },
       { to: '/proof-planner', label: 'Proof Planner' },
       { to: '/proof-overview', label: 'Proof Overview' },
@@ -402,6 +404,7 @@ function AppShell() {
           <Route path="/lambda-bounds" element={<LambdaBoundsPage />} />
           <Route path="/rh-dag" element={<RhDagPage />} />
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />
+          <Route path="/dyson-verifier" element={<DysonVerifierPage />} />
         </Routes>
         </Suspense>
       </div>

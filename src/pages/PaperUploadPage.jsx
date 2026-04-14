@@ -309,18 +309,32 @@ export default function PaperUploadPage() {
       </div>
 
       {/* Tab switcher */}
-      <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
-        <button style={tabBtnStyle(activeTab === 'pdf')} onClick={() => setActiveTab('pdf')}>
+      <div role="tablist" aria-label="Upload method" style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
+        <button
+          role="tab"
+          aria-selected={activeTab === 'pdf'}
+          aria-controls="panel-pdf"
+          id="tab-pdf"
+          style={tabBtnStyle(activeTab === 'pdf')}
+          onClick={() => setActiveTab('pdf')}
+        >
           PDF Upload
         </button>
-        <button style={tabBtnStyle(activeTab === 'latex')} onClick={() => setActiveTab('latex')}>
+        <button
+          role="tab"
+          aria-selected={activeTab === 'latex'}
+          aria-controls="panel-latex"
+          id="tab-latex"
+          style={tabBtnStyle(activeTab === 'latex')}
+          onClick={() => setActiveTab('latex')}
+        >
           LaTeX Input
         </button>
       </div>
 
       {/* ═══════════ PDF Tab ═══════════ */}
       {activeTab === 'pdf' && (
-        <div>
+        <div id="panel-pdf" role="tabpanel" aria-labelledby="tab-pdf">
           {/* Drop zone */}
           <div
             onDrop={handleDrop}
@@ -534,7 +548,7 @@ export default function PaperUploadPage() {
 
       {/* ═══════════ LaTeX Tab ═══════════ */}
       {activeTab === 'latex' && (
-        <div>
+        <div id="panel-latex" role="tabpanel" aria-labelledby="tab-latex">
           {/* Metadata bar */}
           {parsed.metadata && parsed.metadata.title && (
             <div style={{

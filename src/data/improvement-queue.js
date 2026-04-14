@@ -9417,12 +9417,13 @@ export const IMPROVEMENT_QUEUE = [
     title: "UX improvement: add loading states, error boundaries, or accessibility to a page",
     category: 'feature',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'app',
     description: "Pick any page in src/pages/ that lacks: (1) a loading spinner for lazy-loaded data, (2) an error boundary with a user-friendly fallback, (3) proper aria-labels on interactive elements, or (4) keyboard navigation support. Add the missing UX feature. Small scope — one page, one improvement.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-14T23:20:00.000Z',
+    resolution: 'Added ARIA tab semantics to PaperUploadPage.jsx: role="tablist" and aria-label on the container, role="tab"/aria-selected/aria-controls/id on each button, and role="tabpanel"/aria-labelledby/id on each panel. Screen readers can now identify the active tab and navigate the tab widget correctly.',
   },
 
   

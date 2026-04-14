@@ -95,9 +95,17 @@ export const B2_INTERCEPT_BOUND = {
   blocker: 'B2-intercept-positivity (lambda-zero-attack.js)',
   title:   'Conditional analytic upper bound on the Path C intercept a',
 
-  status: 'conditional-closed',
+  // Dynamic: flip to 'conditional-open' if the measured Dyson ladder yields a
+  // certified violation t_c_lo(N+1) > t_c_hi(N) (both finite), which would
+  // falsify M. Currently no certified violation found on the 35-point ladder.
+  status: IMP336_POST_LADDER_UPDATE.verdict.empiricalMonotonicity.anyCertifiedViolation
+    ? 'conditional-open'
+    : 'conditional-closed',
   conditions: [
-    'M: |t_c(N+1)| <= |t_c(N)| for all N >= 2 (monotonicity of Calogero-Moser collision time)',
+    'M: |t_c(N+1)| <= |t_c(N)| for all N >= 2 (monotonicity of Calogero-Moser collision time)' +
+    ' -- empirically unfalsified on ' +
+    IMP336_POST_LADDER_UPDATE.measuredLadder.nPoints +
+    '-point measured Dyson ladder (imp-409); analytic proof open (G1-sub-extremal)',
   ],
   closedConditions: [
     'G5_burgers (lim-sup part, closed unconditionally by imp-341): ' +

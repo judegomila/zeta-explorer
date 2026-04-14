@@ -177,5 +177,5 @@ export const CHECKLIST_SUMMARY = {
   ],
 
   verdict: 'PASS — no submission blockers. Previously deferred Lean counts (A1, A3) resolved by imp-494. One WARN for missing review-4 artifact (not a blocker).',
-  verifiedAt: '2026-04-15T00:00:00.000Z',
+  verifiedAt: '2026-04-14T18:30:00.000Z',
 };

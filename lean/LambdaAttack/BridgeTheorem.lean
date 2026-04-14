@@ -332,7 +332,7 @@ theorem G6_bridge_closed :
 
 end
 
-/-! ## Sorry closure history (all three sorrys CLOSED -- no open sorrys remain)
+/-! ## Closed-Sorry History (all three sorrys CLOSED -- no open sorrys remain)
 
     1. bridge_theorem (imp-412-sorry-1) -- CLOSED by imp-510
        Statement: |Lambda - (-t_c(N))| <= errorTotal N for N >= 2.

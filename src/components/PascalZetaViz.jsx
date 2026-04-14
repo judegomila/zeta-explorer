@@ -36,6 +36,7 @@ const TABS = [
   { id: 'constants', label: 'e, π, i from Pascal' },
   { id: 'hasse', label: 'Hasse–Sondow ζ(s)' },
   { id: 'decorated', label: 'Decorated Zeta' },
+  { id: 'modp', label: 'Pascal mod p' },
 ];
 
 // ─── Tab 1: Pascal's Triangle Visual ─────────────────────────────────────────
@@ -821,6 +822,128 @@ function DecoratedTab() {
   );
 }
 
+// ─── Tab 5: Pascal mod p Fractal ─────────────────────────────────────────────
+
+const MOD_PRIMES = [2, 3, 5, 7, 11, 13];
+
+function ModPTab() {
+  const [numRows, setNumRows] = useState(32);
+  const [modP, setModP] = useState(2);
+  const canvasRef = useRef();
+
+  // Palette: 0 = dark (silent), 1..p-1 use rainbow
+  const palette = useMemo(() => (
+    Array.from({ length: modP }, (_, i) =>
+      i === 0 ? '#0f172a' : d3.interpolateRainbow(i / modP)
+    )
+  ), [modP]);
+
+  // Pascal mod p via additive recurrence — no overflow
+  const rows = useMemo(() => {
+    const result = [[1 % modP]];
+    for (let n = 1; n < numRows; n++) {
+      const row = new Array(n + 1).fill(0);
+      row[0] = 1 % modP;
+      row[n] = 1 % modP;
+      for (let k = 1; k < n; k++) {
+        row[k] = (result[n - 1][k - 1] + result[n - 1][k]) % modP;
+      }
+      result.push(row);
+    }
+    return result;
+  }, [numRows, modP]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const containerWidth = canvas.parentElement?.clientWidth || 700;
+    const cellSize = Math.max(3, Math.floor((containerWidth - 20) / numRows));
+    const cw = cellSize * numRows + 10;
+    const ch = cellSize * numRows + 10;
+    canvas.width = cw;
+    canvas.height = ch;
+
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#0f172a';
+    ctx.fillRect(0, 0, cw, ch);
+
+    rows.forEach((row, n) => {
+      const y = n * cellSize + 5;
+      const offset = ((numRows - 1 - n) / 2) * cellSize + 5;
+      row.forEach((val, k) => {
+        ctx.fillStyle = palette[val];
+        ctx.fillRect(
+          Math.round(offset + k * cellSize),
+          Math.round(y),
+          cellSize - 1,
+          cellSize - 1
+        );
+      });
+    });
+  }, [rows, palette, numRows]);
+
+  const fractalDim = (Math.log(modP * (modP + 1) / 2) / Math.log(modP)).toFixed(3);
+  const nonzeroCount = Math.round(modP * (modP + 1) / 2);
+
+  return (
+    <div>
+      <div className="tab-explainer accent-pink">
+        Reducing Pascal's triangle modulo prime <InlineMath tex={"p"} /> reveals a{' '}
+        <strong>generalized Sierpinski fractal</strong> with self-similarity ratio{' '}
+        <InlineMath tex={"p"} />. Dark cells are positions where{' '}
+        <InlineMath tex={"p \\mid \\binom{n}{k}"} /> — the prime oscillator is "silent" in
+        the Hasse–Sondow formula at that entry.{' '}
+        <strong>Try p = 2</strong> for the classic Sierpinski triangle; higher primes
+        give richer multi-color patterns with more fractal sub-structure.
+      </div>
+      <div className="controls">
+        <div className="control-group">
+          <label>Modulus p</label>
+          {MOD_PRIMES.map(p => (
+            <button
+              key={p}
+              className={`filter-btn ${modP === p ? 'active' : ''}`}
+              style={{ padding: '3px 10px', fontSize: 12, marginLeft: 4 }}
+              onClick={() => setModP(p)}
+            >
+              {p}
+            </button>
+          ))}
+        </div>
+        <div className="control-group">
+          <label>Rows</label>
+          <input type="range" min="8" max="128" step="1" value={numRows}
+            onChange={e => setNumRows(+e.target.value)} />
+          <span className="control-value">{numRows}</span>
+        </div>
+      </div>
+      <div className="viz-container" style={{ textAlign: 'center' }}>
+        <canvas
+          ref={canvasRef}
+          style={{ imageRendering: 'pixelated', maxWidth: '100%', display: 'block', margin: '0 auto' }}
+        />
+      </div>
+      <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13 }}>
+        <p style={{ color: '#94a3b8', marginBottom: 8 }}>
+          <strong style={{ color: '#ec4899' }}>Lucas' theorem:</strong>{' '}
+          <InlineMath tex={"\\binom{n}{k} \\equiv \\prod_i \\binom{n_i}{k_i} \\pmod{p}"} />{' '}
+          where <InlineMath tex={"n = \\sum n_i p^i"} /> is the base-<InlineMath tex={"p"} /> expansion.
+          An entry is 0 (dark) iff some base-<InlineMath tex={"p"} /> digit of{' '}
+          <InlineMath tex={"k"} /> exceeds the corresponding digit of <InlineMath tex={"n"} />.
+          The nonzero entries in a <InlineMath tex={"p \\times p"} /> block number{' '}
+          <InlineMath tex={`\\binom{${modP}+1}{2} = ${nonzeroCount}`} />, giving Hausdorff dimension:
+        </p>
+        <BlockMath tex={`d_H(${modP}) = \\frac{\\log ${nonzeroCount}}{\\log ${modP}} \\approx ${fractalDim}`} />
+        <p style={{ color: '#94a3b8', margin: 0 }}>
+          For p = 2 this is <InlineMath tex={"\\log 3 / \\log 2 \\approx 1.585"} />, the classical
+          Sierpinski dimension. In the ZPO model, <InlineMath tex={"d_H(p)"} /> encodes the
+          "harmonic complexity" of the p-oscillator's contribution to the Hasse–Sondow representation.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 // ─── Main Component ──────────────────────────────────────────────────────────
 
 export default function PascalZetaViz() {
@@ -842,6 +965,7 @@ export default function PascalZetaViz() {
         {activeTab === 'constants' && <ConstantsTab />}
         {activeTab === 'hasse' && <HasseTab />}
         {activeTab === 'decorated' && <DecoratedTab />}
+        {activeTab === 'modp' && <ModPTab />}
       </div>
     </div>
   );

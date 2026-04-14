@@ -210,25 +210,27 @@ const G5_BURGERS = {
   ],
 };
 
-// G6_per_N_bound: OPEN — tight per-N explicit bound on |t_c(N)| requires
-// imp-336 drift-sign monotonicity or a quantitative ψ_N rate upgrade.
-// Named by imp-661; formal name allows future tickets to reference this gap.
+// G6_per_N_bound: PARTIAL — Route B partially resolved by imp-354/imp-366
+// (Holder-1/2 modulus established; G6a-sub-constant symbolic C_W remaining).
+// Route A still blocked by G1-sub-extremal. Named by imp-661.
 const G6_PER_N_BOUND = {
   id: 'G6_per_N_bound',
-  status: 'open',
+  status: 'partial',
   namedBy: 'imp-661',
   investigatedBy: 'imp-668',
-  closureAttemptedBy: 'imp-673',
+  closureAttemptedBy: 'imp-673; imp-676',
   closureOutcome:
-    'imp-673 re-confirmed both closure routes blocked. Route A (imp-336 ' +
-    'drift-sign monotonicity) requires G1-sub-extremal bulk confinement of ' +
-    'k*_N, which is conjectural via Montgomery 1973 and not a theorem. ' +
-    'Route B (quantitative ψ_N rate from imp-348) requires a Lipschitz bound ' +
-    'on the shock-time functional τ_c at its singularity τ_c(m_∞) = 0, ' +
-    'unavailable in the current proof chain. Both blocking conditions ' +
-    '(G1-sub-extremal, G6b_shock_continuity) stand as named open sub-gaps. ' +
-    'Honest partial closure: G6_per_N_bound remains open pending either ' +
-    'imp-336 monotonicity or a new τ_c Lipschitz estimate.',
+    'imp-673 re-confirmed Route A blocked by G1-sub-extremal. imp-676 ' +
+    'audit finds Route B PARTIALLY RESOLVED: imp-354 ' +
+    '(lambda-burgers-shock-lipschitz.js) established a Holder-1/2 modulus ' +
+    '|τ_c(m_N) − τ_c(m_∞)| ≤ C_prime · sqrt(log γ_N) / N^{1/4} via the ' +
+    'Whitham fold catastrophe; imp-366 (polymath15-lemma52-shock-holder.js) ' +
+    'ports Polymath15 Lemma 5.2 directly. Since τ_c(m_∞) = 0 this gives an ' +
+    'explicit per-N bound |t_c(N)| ≤ ε(N) → 0 with symbolic-positive ' +
+    'constant C_prime. Remaining sub-gap on Route B: G6a-sub-constant ' +
+    '(numerical evaluation of C_W at the RvM boundary shock). Route A still ' +
+    'blocked by G1-sub-extremal. Honest partial closure: Route B bound form ' +
+    'established; full numerical constant deferred to imp-349-successor.',
   claim:
     'There exists an explicit decreasing sequence ε(N) → 0 such that ' +
     '|t_c(N)| ≤ ε(N) holds for all N in the baseline — a tight per-N upper ' +
@@ -248,19 +250,21 @@ const G6_PER_N_BOUND = {
     'Montgomery 1973 and not a theorem (same gap as imp-343 residualSubGap ' +
     'G4a_bulk_confinement). Route B (quantitative rate, imp-348): the ' +
     'microscopic-strip rate upgrade bounds ||m_N - m_inf|| at rate ' +
-    'Theta((log γ_N)^2 / N), but converting this modulus bound into a bound on ' +
-    '|τ_c(m_N) − τ_c(m_∞)| requires quantitative Lipschitz continuity of the ' +
-    'shock-time functional τ_c at the singularity τ_c(m_∞) = 0; no such ' +
-    'estimate is available in the current proof chain. G6_per_N_bound ' +
-    'remains open; the two blocking conditions are named below.',
+    'Theta((log γ_N)^2 / N). Converting this into a per-N bound on ' +
+    '|τ_c(m_N) − τ_c(m_∞)| now has a partial answer via imp-354 and imp-366: ' +
+    'a Holder-1/2 modulus gives |t_c(N)| ≤ C_prime · sqrt(log γ_N) / N^{1/4} ' +
+    'with C_prime symbolic-positive (G6a-sub-constant open). Route B is ' +
+    'therefore partially resolved; the sole remaining blocker on Route B is ' +
+    'G6a-sub-constant. Route A still blocked by G1-sub-extremal.',
   blockingConditions: [
     'G1-sub-extremal: bulk confinement of k*_N under the backward Dyson flow ' +
       'for Riemann zeros — conjectural via Montgomery 1973, not a theorem. ' +
       'Blocks Route A. Shared with imp-343 residualSubGap.G4a_bulk_confinement.',
-    'G6b_shock_continuity: quantitative Lipschitz bound on ' +
-      '|τ_c(m_N) − τ_c(m_∞)| in terms of ||m_N − m_∞||, converting the ' +
-      'imp-348 microscopic-strip modulus rate into an explicit per-N bound on ' +
-      '|t_c(N)|. Blocks Route B. Currently open research.',
+    'G6b_shock_continuity: PARTIALLY RESOLVED by imp-354 and imp-366. ' +
+      'Holder-1/2 modulus established: |τ_c(m_N) − τ_c(m_∞)| ≤ C_prime · ' +
+      'sqrt(log γ_N) / N^{1/4} → 0 (symbolic-positive C_prime). Remaining ' +
+      'sub-gap: G6a-sub-constant — numerical evaluation of the Whitham C_W ' +
+      'constant at the RvM boundary shock, deferred to imp-349-successor.',
   ],
   closurePaths: [
     'Prove imp-336 drift-sign monotonicity: show that |t_c(N)| is non-increasing ' +

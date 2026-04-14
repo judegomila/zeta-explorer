@@ -8788,6 +8788,48 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Build clean; all 19 PASS + 1 WARN file checks confirmed; all 7 assertion checks (4 PASS, 2 RESOLVED, 1 FIXED) and 3 cross-ref checks still accurate; no new blockers. Updated verifiedAt timestamp in pre-submission-checklist-2026-04-12.js.',
   },
 
+  
+  // ── Auto-seeded batch (2026-04-14) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-676',
+    title: "Close open sub-gap in dyson-burgers-shock.js:279",
+    category: 'proof',
+    priority: 'high',
+    status: 'completed',
+    proofSection: 'S10',
+    description: "Found open sub-gap/blocker: \"blocker: 'B2(a)-statistical-intercept (imp-328 candidate (ii), Burgers shock)',\" at src/data/dyson-burgers-shock.js:279. Attempt closure using available proof chain results. If blocked, document the blocking condition as a named sub-gap.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-04-14T19:00:00.000Z',
+    closureNote: 'Honest partial closure on Route B: G6b_shock_continuity updated from open-research to partially-resolved. imp-354 (Whitham Holder-1/2 fold catastrophe) and imp-366 (Polymath15 Lemma 5.2 port) establish |tau_c(m_N) - tau_c(m_inf)| <= C_prime * sqrt(log gamma_N) / N^{1/4}; since tau_c(m_inf)=0 this gives |t_c(N)| <= epsilon(N) -> 0 explicitly (symbolic-positive C_prime). G6_PER_N_BOUND status updated to partial; investigationStatus and closureOutcome updated to remove stale no-estimate claim. Remaining sub-gap on Route B: G6a-sub-constant (numerical C_W). Route A still blocked by G1-sub-extremal. Build clean.',
+  },
+  {
+    id: 'imp-677',
+    title: "Verify assertions still pass in assertion-sweep-2026-04-12.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/assertion-sweep-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+  {
+    id: 'imp-678',
+    title: "Verify assertions still pass in pre-submission-checklist-2026-04-12.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/pre-submission-checklist-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

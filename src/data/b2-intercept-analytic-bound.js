@@ -151,7 +151,7 @@ export const B2_INTERCEPT_BOUND = {
       'Heuristic: the extra zero adds a positive term to S_{k*}(t), making ' +
       'dg_{k*}/dtau more negative and bringing the collision forward. ' +
       'The same heuristic underpins the empirical fit b > 0 in |t_c| ~ a + b/N.',
-    blocker: false,
+    blocker: false,  // non-blocking: B2 partial closure is conditional-closed under M; imp-336 is the residual analytical proof gap, not a missing computation
     note:
       'M is empirically unfalsified on the full ' +
       IMP336_POST_LADDER_UPDATE.measuredLadder.nPoints +

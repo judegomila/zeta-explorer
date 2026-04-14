@@ -9119,6 +9119,48 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Re-verified all checks still pass after imp-696/imp-697. None of the referenced files in FILE_CHECKS, ASSERTION_CHECKS, or CROSSREF_CHECKS were modified by imp-696 or imp-697. Updated verifiedAt in pre-submission-checklist-2026-04-12.js. Build clean.',
   },
 
+  
+  // ── Auto-seeded batch (2026-04-14) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-699',
+    title: "Close open sub-gap in dyson-burgers-shock.js:282",
+    category: 'proof',
+    priority: 'high',
+    status: 'completed',
+    proofSection: 'S10',
+    description: "Found open sub-gap/blocker: \"// G1-sub-extremal: the remaining Route A blocker — bulk confinement of k*_N\" at src/data/dyson-burgers-shock.js:282. Attempt closure using available proof chain results. If blocked, document the blocking condition as a named sub-gap.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-04-14T23:00:00.000Z',
+    closureNote: 'Both closure paths for G1-sub-extremal formally blocked by imp-696 obstruction audit: (1) analytic-density path blocked (extreme gap statistics require 2-point correlation, not just 1-point density); (2) GUE-porting path conditional on unproved Montgomery 1973. Updated G1_SUB_EXTREMAL.status to open-permanent reflecting the permanent-open verdict. Route B of G6_per_N_bound is rigorous without this sub-gap (imp-683). Honest partial closure: sub-gap formally registered as permanently open pending Montgomery 1973 proof.',
+  },
+  {
+    id: 'imp-700',
+    title: "Verify assertions still pass in assertion-sweep-2026-04-12.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/assertion-sweep-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+  {
+    id: 'imp-701',
+    title: "Verify assertions still pass in pre-submission-checklist-2026-04-12.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/pre-submission-checklist-2026-04-12.js may be stale. Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

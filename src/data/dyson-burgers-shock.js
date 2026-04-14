@@ -284,7 +284,7 @@ const G6_PER_N_BOUND = {
 // Route B (G6_per_N_bound) was CLOSED by imp-683 without needing this.
 const G1_SUB_EXTREMAL = {
   id: 'G1-sub-extremal',
-  status: 'open; Route-A-only; main result G6_per_N_bound CLOSED via Route B (imp-683)',
+  status: 'open-permanent; Route-A-only; both closure paths formally blocked (imp-696 obstruction audit); pending Montgomery 1973; main result G6_per_N_bound CLOSED via Route B (imp-683)',
   impactScope:
     'Non-blocking for the established result: G6_per_N_bound is CLOSED via ' +
     'Route B (imp-683) independently of bulk confinement. G1-sub-extremal ' +

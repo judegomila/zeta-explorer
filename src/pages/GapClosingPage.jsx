@@ -423,6 +423,30 @@ export default function GapClosingPage() {
             <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>Critical / Open (S5)</div>
           </div>
         </div>
+
+        {/* Composite Proof Progress */}
+        <div style={{ marginBottom: 16 }}>
+          <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 8, fontWeight: 600 }}>
+            Composite Proof Progress
+          </div>
+          {[
+            { label: 'S4: Analytic Continuation', pct: 90, color: '#10b981', note: 'Largely closed via eta regularization' },
+            { label: 'S7: Darlington Synthesis', pct: 60, color: '#f97316', note: 'Numerically compelling; infinite-product limit open' },
+            { label: 'S5: Hilbert-Polya Operator', pct: 15, color: '#ef4444', note: 'Deep open problem; no rigorous spectral proof' },
+          ].map(({ label, pct, color, note }) => (
+            <div key={label} style={{ marginBottom: 10 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 3 }}>
+                <span style={{ color: '#e2e8f0' }}>{label}</span>
+                <span style={{ color, fontWeight: 700 }}>{pct}%</span>
+              </div>
+              <div style={{ height: 6, background: '#1e293b', borderRadius: 3, overflow: 'hidden', marginBottom: 2 }}>
+                <div style={{ height: '100%', width: `${pct}%`, background: color, borderRadius: 3, transition: 'width 0.4s' }} />
+              </div>
+              <div style={{ fontSize: 10, color: '#64748b' }}>{note}</div>
+            </div>
+          ))}
+        </div>
+
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
           <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.3)' }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: '#10b981' }}>S4: Analytic Continuation</div>

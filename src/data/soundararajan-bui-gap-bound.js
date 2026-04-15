@@ -1,4 +1,31 @@
 /**
+ * @fileoverview Soundararajan-Bui consecutive-gap ratio bound for G3a closure.
+ * Ports the Bui-Soundararajan (2011) and Bui-Milinovich-Pratt (2020) consecutive
+ * zero-gap ratio literature into the ZPO density-squeeze framework, derives the
+ * critical threshold C_SB_THRESHOLD approx 1.251, and explains why all known
+ * analytic bounds (C_SB_RH approx 2.51, C_SB_UNCO approx 4.0) fall short of
+ * pushing c_total above 2 and closing G3a.
+ *
+ * @module soundararajan-bui-gap-bound
+ *
+ * ## Exports
+ *
+ *   - SOUNDARARAJAN_BUI_GAP_BOUND  — main result object: bound statement, threshold
+ *       analysis, derived c-bounds for RH / unconditional / numerical cases, verdict
+ *       (closesG3a: false), open sub-sub-gaps, honest scope, and open work items.
+ *   - SOUNDARARAJAN_BUI_ASSERTIONS — five build-time assertion objects verifying
+ *       the threshold formula exactness, tripwire that G3a stays open, c_tail
+ *       match with imp-342, G3a status tripwire, and citation chain to imp-355
+ *       and imp-342.
+ *
+ * ## Proof chain position
+ *
+ *   Created by:  imp-396
+ *   Depends on:  imp-355 (LAMBDA_MAX_GAP_EXTREMAL — numerical R envelope + c_near formula)
+ *                imp-342 (LAMBDA_INTERCEPT_DENSITY_WEYL — Weyl-tail c_tail constant)
+ *   Closes:      G3a_sub_sound (S-B framework ported; two sub-sub-gaps named below)
+ *   NOT closed:  G3a, G3a_sub_ratio_unconditional, G3a_sub_argmin_exceptional
+ *
  * imp-396: Soundararajan-Bui consecutive-gap bound port for G3a closure
  *
  * Problem

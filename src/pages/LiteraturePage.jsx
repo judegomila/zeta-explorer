@@ -22,6 +22,7 @@ export default function LiteraturePage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [expandedId, setExpandedId] = useState(null);
+  const [sortOrder, setSortOrder] = useState('year-desc');
 
   const allRefs = getAllReferences();
   const categories = getCategories();
@@ -31,8 +32,14 @@ export default function LiteraturePage() {
     if (selectedCategory !== 'all') {
       refs = refs.filter(r => r.category === selectedCategory);
     }
-    return refs;
-  }, [searchQuery, selectedCategory, allRefs]);
+    const sorted = [...refs];
+    if (sortOrder === 'year-asc') {
+      sorted.sort((a, b) => a.year - b.year);
+    } else {
+      sorted.sort((a, b) => b.year - a.year);
+    }
+    return sorted;
+  }, [searchQuery, selectedCategory, sortOrder, allRefs]);
 
   return (
     <div className="page">
@@ -45,12 +52,31 @@ export default function LiteraturePage() {
         </p>
       </div>
 
-      <div style={{ display: 'flex', gap: 12, marginBottom: 16, color: '#64748b', fontSize: 13 }}>
+      <div style={{ display: 'flex', gap: 12, marginBottom: 16, color: '#64748b', fontSize: 13, alignItems: 'center', flexWrap: 'wrap' }}>
         <span>{allRefs.length} references</span>
         <span>|</span>
         <span>{categories.length} categories</span>
         <span>|</span>
         <span>Showing {filteredRefs.length}</span>
+        <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span style={{ color: '#475569' }}>Sort:</span>
+          <select
+            value={sortOrder}
+            onChange={e => setSortOrder(e.target.value)}
+            style={{
+              background: 'rgba(30,41,59,0.8)',
+              border: '1px solid rgba(100,116,139,0.4)',
+              borderRadius: 6,
+              color: '#94a3b8',
+              fontSize: 12,
+              padding: '3px 8px',
+              cursor: 'pointer',
+            }}
+          >
+            <option value="year-desc">Year (newest first)</option>
+            <option value="year-asc">Year (oldest first)</option>
+          </select>
+        </span>
       </div>
 
       <input

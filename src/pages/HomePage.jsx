@@ -617,6 +617,25 @@ export default function HomePage() {
 
       <HeroSignalFlow />
 
+      {/* ── Quick Stats ── */}
+      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', margin: '32px 0 8px' }}>
+        {[
+          { value: explorations.length, label: 'Explorations', color: '#3b82f6' },
+          { value: `${references.length}+`, label: 'References', color: '#10b981' },
+          { value: 15, label: 'Interactive Pages', color: '#8b5cf6' },
+          { value: 3, label: 'Open Critical Gaps', color: '#ef4444' },
+        ].map(({ value, label, color }) => (
+          <div key={label} style={{
+            flex: '1 1 110px', padding: '16px 18px',
+            background: 'rgba(255,255,255,0.02)', border: `1px solid ${color}30`,
+            borderRadius: 10, textAlign: 'center',
+          }}>
+            <div style={{ fontSize: 28, fontWeight: 800, color, fontFamily: 'var(--font-mono)', lineHeight: 1 }}>{value}</div>
+            <div style={{ fontSize: 10, color: '#64748b', marginTop: 6, fontFamily: 'var(--font-mono)', letterSpacing: '0.06em' }}>{label.toUpperCase()}</div>
+          </div>
+        ))}
+      </div>
+
       {/* ══════════════ BUILDING THE MODEL ══════════════ */}
       <h2 style={{ fontSize: 22, fontWeight: 700, marginTop: 48, marginBottom: 8 }}>
         Building the Twin Ladder Model

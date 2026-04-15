@@ -35,6 +35,40 @@
 
 import { riemannSiegelZEnhanced, ZETA_ZEROS } from './zeta.js';
 
+// CROSS-VERIFY (imp-734): independent checks performed on this module.
+//
+// 1. Riemann-von Mangoldt formula correctness:
+//    N(T) = (T/2pi) * log(T/(2pi*e)) + 7/8  is the standard Backlund form.
+//    Reference check at T=100:
+//      (100/2pi) * log(100 / (2pi*e)) + 7/8
+//      = 15.9155 * log(5.8549) + 0.875
+//      = 15.9155 * 1.7672 + 0.875
+//      = 28.12 + 0.875 = 28.99  ~= 29
+//    Actual zeros with Im(rho) <= 100: exactly 29 (confirmed from ZETA_ZEROS).
+//    Formula is CORRECT. The O(log T) discrepancy is the oscillatory S(T) term.
+//
+// 2. Edge case T < 2*pi*e (~17.08):
+//    log(T/(2pi*e)) < 0, so formula returns N(T) < 0. Safe in practice:
+//    T_values starts at 50 and the first zero is gamma_1 ~ 14.134, so
+//    the formula is never evaluated in this invalid range.
+//
+// 3. Step size safety (dt=0.02 in countSignChanges):
+//    Mean zero spacing at T=1000: 2pi / log(1000/2pi) ~ 1.24.
+//    At T=100: ~ 2.27. Minimum observed gap in ZETA_ZEROS: > 0.5.
+//    dt=0.02 << minimum gap -- no zeros skipped. SAFE.
+//
+// 4. Start point (a=10 in countSignChanges):
+//    First zero gamma_1 ~ 14.134 > 10 -- no zeros missed by starting at 10.
+//
+// 5. allSignChanges uses ZETA_ZEROS.slice(0, 8) with +/-0.1 window.
+//    The +/-0.1 check can produce false negatives if two zeros are within
+//    0.2 of each other; verified from ZETA_ZEROS that all pairs in the
+//    full array are separated by > 0.5, so extending to all zeros would
+//    also be reliable. Limitation is in coverage only, not correctness.
+//
+// VERDICT: formulas are correct, no NaN/Infinity edge cases in operational
+// range, and the numerical output N(100)~=29 matches the known reference.
+
 // Riemann-von Mangoldt: N(T) = number of zeros with 0 < Im(rho) < T
 function riemannVonMangoldt(T) {
   if (T <= 0) return 0;

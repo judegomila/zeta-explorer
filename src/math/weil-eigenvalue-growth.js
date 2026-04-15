@@ -61,6 +61,35 @@ function jacobiEigenvalues(A) {
   return Array.from({length:n},(_,i)=>M[i][i]).sort((a,b)=>a-b);
 }
 
+/**
+ * CROSS-VERIFICATION (imp-743, 2026-04-15):
+ *
+ * 1. theta(gamma) formula: atan2(gamma, gamma^2 - 0.25) equals arg(1 - 1/rho)
+ *    where rho = 1/2 + i*gamma. Derivation:
+ *      1 - 1/rho = (gamma^2 - 1/4 + i*gamma) / (gamma^2 + 1/4)
+ *    The denominator is real and positive so the argument equals
+ *    atan2(gamma, gamma^2 - 1/4). CONFIRMED CORRECT.
+ *
+ * 2. PSD is unconditional by construction: M_N = sum_gamma v_gamma * v_gamma^T
+ *    is a sum of rank-1 outer products of real vectors, hence always PSD. The
+ *    header comment "OFF RH: PSD breaks for large enough N" would require
+ *    including hypothetical off-axis zeros with Re(rho) != 1/2 — those
+ *    contribute complex vector entries whose sum can be indefinite. Using only
+ *    the known on-line zeros from ZETA_ZEROS, all_psd = true is structurally
+ *    guaranteed by the matrix definition, not an empirical signal about RH.
+ *
+ * 3. Edge-case safety: all Riemann zeros satisfy gamma >= 14.13, so
+ *    gamma^2 - 0.25 is always positive and theta is in (0, pi/2). No NaN or
+ *    Infinity arises in theta(). In jacobiEigenvalues() the pivot M[p][q]
+ *    satisfies |M[p][q]| >= mx > 1e-12 when the outer loop continues, so no
+ *    division-by-zero occurs in the t computation. CONFIRMED SAFE for all
+ *    inputs drawn from ZETA_ZEROS.
+ *
+ * 4. Asymptotic reference: the Voros estimate trace(M_N)/N ~ (1/2)*log(N/(2*pi))
+ *    (cited in code comments) predicts ~1.384 at N=100. Reported trace/N values
+ *    for large N converging toward this limit confirm the computation is in the
+ *    expected asymptotic regime and serves as a numerical sanity check.
+ */
 export function weilEigenvalueGrowthTest() {
   const zeros = ZETA_ZEROS;
   const N_values = [3, 5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100];

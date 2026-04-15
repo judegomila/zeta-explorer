@@ -9910,12 +9910,13 @@ export const IMPROVEMENT_QUEUE = [
     title: "Add JSDoc module documentation to finite-height-lambda-bound.js",
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'docs',
     description: "src/data/finite-height-lambda-bound.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-15T07:00:00.000Z',
+    resolution: 'Added a structured @module/@fileoverview JSDoc block before the existing 60-line mathematical explanation comment. The new block documents: @module finite-height-lambda-bound, @fileoverview one-liner, proof-chain step (PATH C finite-height Lambda evaluation between S9 and final Lambda bound), both named exports (FINITE_HEIGHT_LAMBDA_BOUND and FINITE_HEIGHT_LAMBDA_BOUND_ASSERTIONS), the six assertion ids by name, and full ticket history (imp-416 created, imp-756 added JSDoc). Build passes.',
   },
 
     {

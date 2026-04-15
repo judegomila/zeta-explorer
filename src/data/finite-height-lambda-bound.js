@@ -1,4 +1,40 @@
 /**
+ * @module finite-height-lambda-bound
+ * @fileoverview Finite-height Lambda upper bound evaluated at N in {10^4, 10^5, 10^6}.
+ *
+ * Evaluates the Calogero-Moser / Dyson backward-flow bound
+ *     Lambda  <=  |t_c(N)|  +  E_tail(N)
+ * in an OLS-projection sense (A) and a one-sided 95% CI sense (B) at the
+ * three concrete heights. No rigorous certified Lambda bound tighter than the
+ * Platt-Trudgian 0.2 is established here; the ~28x projection margin means
+ * the rigorous version will comfortably beat PT once blockers B1, B2, B4 are
+ * closed and the measured Dyson ladder reaches N = 10^4.
+ *
+ * Proof chain step: PATH C finite-height Lambda evaluation (between S9 Dyson
+ * collision ladder and the final Lambda bound assertion).
+ *
+ * Exports:
+ *   FINITE_HEIGHT_LAMBDA_BOUND — main record containing fit constants, the
+ *     per-N ladder (projection + statistical CI + rigorous verdict), overall
+ *     verdict string, honest summary, and open items (B1, B2, B4,
+ *     measured-ladder extension to N = 10^4).
+ *   FINITE_HEIGHT_LAMBDA_BOUND_ASSERTIONS — six build-time assertions:
+ *     fit availability, all-N projection beats PT, no-rigorous claim,
+ *     margin factor > 20, ladder row count = 3, T*(N) monotonicity.
+ *
+ * Key assertions:
+ *   imp416-all-three-N-projection-beat-pt: OLS projection beats PT_BOUND = 0.2
+ *     at all three N (expected factor ~28x at N = 10^4).
+ *   imp416-no-rigorous-beats-pt: rigorous bound stays false until B1+B2+B4
+ *     are closed and the measured ladder reaches N = 10^4.
+ *
+ * Ticket history:
+ *   imp-416 — created this file; derived the finite-height Lambda bound ladder
+ *             and six build-time assertions.
+ *   imp-756 — added this @module/@fileoverview JSDoc.
+ */
+
+/**
  * imp-416: Finite-height Lambda upper bound at N in {10^4, 10^5, 10^6}
  *
  * Central question

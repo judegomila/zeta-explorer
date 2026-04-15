@@ -272,6 +272,48 @@ export const ROUTE_A_SHIFT_WITNESS = {
   },
 };
 
+// ── Cross-verification record (imp-764) ─────────────────────────────────────
+//
+// Independently verified 2026-04-15 against ZETA_ZEROS (870 zeros).
+//
+// (1) FORMULA CORRECTNESS
+//     rvmDensity(T) = log(T/(2*pi))/(2*pi)  -- correct, derivative of N(T).
+//     rvmCdf(T) = (T/(2*pi))*(log(T/(2*pi)) - 1) -- correct leading term of N(T).
+//     C_alpha formula: rho(gamma_{kHi}) / rho(gamma_{kLo}) -- correct per docstring.
+//     Weyl prediction: log(k) - log(log(k)) for each endpoint -- correct per Weyl law.
+//
+// (2) EDGE CASE: rvmCdf(gamma_0) < 0
+//     gamma_0 ~= 14.1347 < 2*pi*e ~= 17.0795, so rvmCdf(gamma_0) ~= -0.4257.
+//     Only 1 of 870 zeros is below the threshold; all others give positive rvmCdf.
+//     Effect on unfoldedArgmin: the k=0 gap is h_0 = (rvmCdf(gamma_1) - rvmCdf(gamma_0))
+//     / denom * N, which includes the absolute value |rvmCdf(gamma_0)| as a bonus.
+//     This inflates h_0 by ~0.44 normalized units vs the true N(T) count, making k=0
+//     unlikely to be the unfolded argmin. In practice jStar is never 1 in the sample,
+//     so this asymptotic-formula limitation does NOT corrupt the structural diagnosis.
+//     It is a known side-effect of using the leading-term approximation for N(T).
+//
+// (3) NUMERICAL WITNESS VERIFICATION
+//     N=50:  kStar=34, jStar=34, shift=0  (shift/N=0.00) -- small-N coincidence.
+//     N=100: kStar=91, jStar=34, shift=57 (shift/N=0.57) -- LARGE shift confirmed.
+//     N=200: kStar=186, jStar=186, shift=0.
+//     N=400: kStar=363, jStar=363, shift=0.
+//     N=870: kStar=453, jStar=453, shift=0.
+//     LARGE_SHIFT_COUNT = 1; the conclusion string correctly reports "1 of 5 sampled N".
+//     The N=100 case (57% normalized shift) is the key witness for the O(N) claim.
+//
+// (4) NaN / INFINITY SCAN
+//     No NaN or Infinity produced for any SAMPLE_N in [50, 870].
+//     rhoLo is never 0 because gamma_kLo >= gamma_4 >> 2*pi, so log(gamma/(2*pi)) > 0.
+//     weylCAlphaPrediction: kLo = floor(0.1 * 50) = 5, log(log(5)) ~= 0.476 -- safe.
+//
+// (5) RATE BOUND
+//     ALL_RATE_BOUNDS_HOLD = true for all 20 (N, alpha) combinations tested.
+//     The 2x constant in the bound is empirically comfortable; C_alpha - 1 < bound
+//     with headroom of ~28% at the tightest case (N=50, alpha=0.1).
+//
+// VERDICT: computations correct; the rvmCdf(gamma_0) < 0 issue is a known asymptotic
+// limitation that does not affect the structural diagnosis; no actionable bugs found.
+
 // ── Build-time assertions ────────────────────────────────────────────────────
 
 export const ROUTE_A_SHIFT_WITNESS_ASSERTIONS = [

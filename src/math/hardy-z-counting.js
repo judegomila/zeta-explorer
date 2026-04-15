@@ -155,7 +155,7 @@ export function hardyZCountingTest() {
     verification,
 
     keyFindings: [
-      `Tested ${totalRanges} ranges from t=0 to t=1100.`,
+      `Tested ${totalRanges} ranges from t=${ranges[0].T1} to t=${ranges[ranges.length - 1].T2}.`,
       `Sign-change counts match main-term predictions in ${totalMatching}/${totalRanges} ranges.`,
       `First 5 zeros found: ${verification.firstFive.join(', ')}`,
       `Match with known zeros: max diff ${verification.maxDiff.toExponential(2)}.`,
@@ -181,7 +181,7 @@ export function hardyZCountingTest() {
       'Identify Lehmer-type close pairs that narrowly pass the count.',
 
     verdict:
-      `HARDY Z SIGN-CHANGE COUNTING verified zeros in ${totalRanges} ranges up to t=1100. ` +
+      `HARDY Z SIGN-CHANGE COUNTING verified zeros in ${totalRanges} ranges up to t=${ranges[ranges.length - 1].T2}. ` +
       `${totalMatching}/${totalRanges} ranges match main-term predictions exactly. ` +
       `First 5 zeros located at ${verification.firstFive.slice(0,3).join(', ')} (max error from known ${verification.maxDiff.toExponential(2)}). ` +
       'Classical RH verification method successfully reimplemented on ζ-zero infrastructure.',

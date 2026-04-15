@@ -836,7 +836,12 @@ function ResultExplainer({ title, author, color, tldr, math, explanation, whyItM
 
 export default function HistoryPage() {
   const [selectedEra, setSelectedEra] = useState('all');
-  const filtered = selectedEra === 'all' ? TIMELINE : TIMELINE.filter(e => e.era === selectedEra);
+  const milestones = TIMELINE.filter(e => e.highlight);
+  const filtered = selectedEra === 'all'
+    ? TIMELINE
+    : selectedEra === 'milestones'
+      ? milestones
+      : TIMELINE.filter(e => e.era === selectedEra);
 
   return (
     <div className="page">
@@ -855,6 +860,13 @@ export default function HistoryPage() {
           onClick={() => setSelectedEra('all')}
         >
           All ({TIMELINE.length})
+        </button>
+        <button
+          className={`filter-btn ${selectedEra === 'milestones' ? 'active' : ''}`}
+          onClick={() => setSelectedEra('milestones')}
+          style={selectedEra === 'milestones' ? { borderColor: '#f59e0b', color: '#f59e0b' } : {}}
+        >
+          Milestones ({milestones.length})
         </button>
         {ERAS.map(era => {
           const count = TIMELINE.filter(e => e.era === era.id).length;

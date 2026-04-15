@@ -1,4 +1,11 @@
 /**
+ * @module kernel-hack-at-imp360
+ * @fileoverview Kernel-hack analytical Lambda at matched N for direct comparison.
+ *
+ * Exports: KERNEL_HACK_AT_IMP360 (rows + summary table), KERNEL_HACK_AT_IMP360_ASSERTIONS (4 build-time checks).
+ * Proof chain: GUE-spacing cross-check for the imp-360 N values (S8-collision-time step).
+ * Tickets: created by imp-373; data drawn from imp-360 (OLS N values) and imp-400 (PATH_C_BASELINE_FIT_V2).
+ *
  * imp-373: Kernel-hack analytical Lambda at matched N for direct comparison
  *
  * PURPOSE

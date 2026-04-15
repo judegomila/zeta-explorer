@@ -1,4 +1,15 @@
 /**
+ * @module lambda-max-gap-extremal
+ * @fileoverview Extremal max-gap statistics at the argmin site for the G3a_max_gap sub-gap.
+ *
+ * Exports: LAMBDA_MAX_GAP_EXTREMAL (gap-ratio envelope, derived c-bound, verdict) and
+ * LAMBDA_MAX_GAP_EXTREMAL_ASSERTIONS (5 build-time sanity checks).
+ * Proof-chain step: G3a_max_gap — partial numerical closure via ratio R = Delta_max/Delta_min
+ * at the top-K smallest-gap sites of the first ~870 Riemann zeros.
+ * Key assertions: envelope-finite-and-positive, topK-envelope-is-order-unity,
+ *   c-total-formula-sane, verdict-is-numerical-not-theorem, cites-imp342/imp322/imp327.
+ * Ticket history: imp-355 (created this file); imp-794 (added @module/@fileoverview JSDoc).
+ *
  * imp-355: Close G3a_max_gap — extremal max-gap statistics at the argmin site
  *
  * Problem

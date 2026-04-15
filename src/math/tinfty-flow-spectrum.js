@@ -177,7 +177,13 @@ export function tInftyFlowSpectrumTest() {
       definition: '∂ = d/dt = Σ_k ∂/∂ω_k on L²(T^∞)',
       fourierBasis: 'Tensor product of circles S¹_{log p_k}',
       eigenvalues: 'ω(n) = 2π·Σ n_k/log(p_k) for n ∈ ℤ^∞',
-      selfAdjoint: true,
+      // Cross-verification (imp-784): ∂ is SKEW-ADJOINT, not self-adjoint.
+      // Integration by parts on the compact torus gives ∂† = −∂.
+      // Eigenvalues of ∂ are iω(n) — purely imaginary.
+      // The SELF-ADJOINT version is H = −i∂, with real eigenvalues ω(n) ∈ ℝ.
+      selfAdjoint: false,
+      skewAdjoint: true,
+      selfAdjointVersion: 'H = −i∂ = −i·Σ_k ∂/∂ω_k has real eigenvalues ω(n)',
       discrete: true,
       denseInR: true, // by Kronecker-Weyl
     },

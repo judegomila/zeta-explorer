@@ -1,4 +1,12 @@
 /**
+ * @module finite-height-beats-platt-trudgian
+ * @fileoverview Assembles the full Lambda(N) <= |t_c(N)| + E(N) bound at N* = 1e6 and
+ *   reports a two-track verdict against the Platt-Trudgian (2021) Lambda <= 0.2 bound.
+ *   Exports: FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN (sweep result object) and
+ *   FINITE_HEIGHT_BEATS_PT_ASSERTIONS (assertion array for the dashboard).
+ *   Proof chain: imp-440 (created); key deps: imp-397, imp-398, imp-399, imp-400,
+ *   imp-424, imp-447; JSDoc added by imp-771.
+ *
  * imp-440: Finite-height RH beat -- prove Lambda < 0.2 rigorously at a
  * specific N < 10^8.
  *

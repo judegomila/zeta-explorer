@@ -10121,12 +10121,12 @@ export const IMPROVEMENT_QUEUE = [
     title: "Add JSDoc module documentation to finite-height-beats-platt-trudgian.js",
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'docs',
     description: "src/data/finite-height-beats-platt-trudgian.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-15T16:15:00.000Z',
   },
 
     {

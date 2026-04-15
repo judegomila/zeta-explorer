@@ -240,7 +240,8 @@ export function rhMasterDashboardTest() {
       `3 PROVEN RH analogs: Selberg zeta, Deligne-Weil, Ihara-Ramanujan.`,
       `869 known zeta-zeros ALL at sigma=1/2.`,
       `Li criterion: all 50 lambda_n > 0.`,
-      `Schoenfeld: |pi(10^6)-Li(10^6)| = 429 < 550 bound.`,
+      // imp-793 cross-verify: Schoenfeld result is now dynamic (was stale hardcoded 429; pi(10^6)=78498, Li(10^6)~78627, actual |err|~129)
+      `Schoenfeld: ${tests[5].detail}.`,
       `GUE spacing mean = ${tests[8].detail.match(/[\d.]+/)?.[0] || '1.0'} (predicted 1.0).`,
       `Rodgers-Tao 2020: Lambda >= 0 (PROVEN). RH <=> Lambda = 0.`,
       `Mertens: max|M(n)|/sqrt(n) bounded.`,

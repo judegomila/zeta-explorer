@@ -1,5 +1,6 @@
 /**
- * Analytic lower bound on the Dyson collision time |t_c| (imp-325, BLOCKER B3)
+ * @module dyson-collision-lower-bound
+ * @fileoverview Analytic lower bound on the Dyson collision time |t_c| (imp-325, BLOCKER B3).
  *
  * The Path C chain bounds Λ ≤ -t_c, where t_c is the smallest backward time
  * at which B(t) = min_k g_k(t) vanishes under the Calogero-Moser flow on the
@@ -88,6 +89,21 @@
  * forces a non-zero |t_c| at each finite N but says nothing about the
  * limit, which is exactly the open question of B2 (lambda-zero-attack.js).
  * This file is the B3 ingredient, not the B2 closure.
+ *
+ * **Exports**
+ * - `COLLISION_RATE_BOUND` — constant 8; the coefficient in d(g_k^2)/dτ ≥ −8
+ * - `COLLISION_TIME_DIVISOR` — alias for COLLISION_RATE_BOUND used in the floor formula
+ * - `COLLISION_LOWER_BOUND_NUMERICAL` — {N, kStar, B, tCollisionLowerBound} on first 200 zeros
+ * - `DYSON_COLLISION_LOWER_BOUND_THEOREM` — structured theorem record (id, statement, proofKey…)
+ * - `COLLISION_LOWER_BOUND_ASSERTIONS` — 4 build-time assertion objects
+ *
+ * **Proof chain step**: B3 (Path C collision floor).
+ * Consumes: dyson-monotonicity-proof.js (imp-322 boundary identity).
+ * Feeds: lambda-zero-attack.js B3 — collision-time floor for the Λ upper bound.
+ *
+ * **Ticket history**
+ * - imp-325: created this file; derived the Grönwall/Calogero-Moser collision-time bound
+ * - imp-779: added @module/@fileoverview JSDoc (this comment)
  */
 
 import { ZETA_ZEROS } from '../math/zeta.js';

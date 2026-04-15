@@ -1,6 +1,34 @@
 /**
- * Literature database: references connecting circuit theory, control theory,
- * and the Riemann zeta function.
+ * @module literature
+ * @fileoverview Literature database: ~145 references spanning 15 categories that
+ * connect circuit theory, control theory, and the Riemann zeta function.
+ *
+ * Proof-chain role: cross-cutting reference layer. Entries are cited throughout
+ * S1-S10 steps and provide canonical justification for key claims (Hilbert-Polya,
+ * Berry-Keating, Connes trace formula, Weil explicit formula, random-matrix
+ * statistics, circuit/control analogues).
+ *
+ * Categories: analytic, circuit-theory, computational, control-theory,
+ * dynamical-systems, explicit-formula, foundations, function-field, hamiltonian,
+ * physics, random-matrix, signal-processing, spectral, trace-formula, twistor.
+ *
+ * Key exports:
+ *   - `literature` (default) — full array of reference objects; each entry has
+ *     { id, title, authors, year, journal, doi, url, category, tags, summary,
+ *       keyInsight, relevanceToModel }
+ *   - `getAllReferences()` — returns the full literature array
+ *   - `getByCategory(category)` — filters by one of the 15 category strings
+ *   - `getCategories()` — returns the deduplicated list of category strings
+ *   - `searchReferences(query)` — case-insensitive search across title, summary,
+ *     tags, authors, and keyInsight fields
+ *   - `getById(id)` — looks up a single reference by its string id
+ *
+ * Key assertions:
+ *   - Every entry has a DOI or URL pointing to the primary source.
+ *   - The `relevanceToModel` field ties each reference to the ZPO / ladder-network
+ *     interpretation used throughout the proof chain.
+ *
+ * Tickets: created in early bootstrap commits; imp-776 added this @module doc.
  */
 
 const literature = [

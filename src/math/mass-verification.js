@@ -60,7 +60,17 @@ export function massVerification(tMax = 5000, batchSize = 500, numPrimesForTests
     });
   }
 
-  // Spacing statistics across ALL found zeros
+  // Cross-verification notes (imp-758):
+  // (1) Hamiltonian formula: H(σ,γ) = Σ_p log(p)/|1-p^{-σ-iγ}|² (partial truncated sum over primes).
+  //     dH = 1 - 2p^{-σ}cos(γ logP) + p^{-2σ}, with minimum (1-p^{-σ})² ≥ (1-2^{-1/2})² ≈ 0.086
+  //     for σ=1/2, p≥2. The Math.max(dH,1e-15) guard is therefore redundant but harmless.
+  // (2) Density formula log(T/(2π))/(2π) correctly implements the standard asymptotic dN/dT
+  //     for Riemann zeros, confirming the GUE unfolding (spacing normalization) is correct.
+  // (3) No NaN or Infinity edge-cases: all denominators are strictly positive.
+  // (4) Spacing statistics below are capped at t≤2000 (performance safeguard), even when
+  //     tMax>2000. The spacing.count reflects only t=[100,2000], not the full verified range.
+
+  // Spacing statistics over zeros in t=[100, min(tMax,2000)]
   const allZeros = [];
   for (let tStart = 100; tStart < Math.min(tMax, 2000); tStart += batchSize) {
     allZeros.push(...findZerosRS(tStart, Math.min(tStart + batchSize, tMax), 0.5));

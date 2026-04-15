@@ -1,24 +1,58 @@
 /**
- * imp-362: data-layer manifest for the interval-arithmetic Dyson integrator.
+ * @module lambda-interval-dyson
+ * @fileoverview Data-layer manifest for the interval-arithmetic Dyson
+ * integrator (imp-362).
  *
- * The actual numerical work (interval primitives, dysonDriftInterval,
- * rk4IntervalStep, backwardCollisionInterval, and the PATH_C_BASELINE_FIT
- * witness table) lives in src/math/interval-dyson-integrator.mjs. That file
- * uses the .mjs extension so it can be run directly as a Node script
- * (node src/math/interval-dyson-integrator.mjs) during integrator
- * development. This file is the thin data-layer wrapper that re-exports
- * the LAMBDA_INTERVAL_DYSON record so the Vite build picks it up and the
+ * **What this file exports**
+ * - `LAMBDA_INTERVAL_DYSON` — re-exported from
+ *   `src/math/interval-dyson-integrator.mjs`; contains the witness table,
+ *   verdict record, and honest-limitation field for the Path C interval
+ *   integrator.
+ * - `LAMBDA_INTERVAL_DYSON_ASSERTIONS` — array of assertion objects wired
+ *   into the global assertion registry. See "Key assertions" below.
+ *
+ * **Proof-chain role (Step S8 — interval certification)**
+ * This module is the data-layer bridge for the S8 interval-collision
+ * certification step. It supplies evidence that the Dyson ODE collision
+ * time on Path C can be enclosed in a bracket whose width is strictly
+ * smaller than the 0.01 heuristic pm already absorbed into the Lambda
+ * bound, thereby converting a heuristic estimate into a certified interval.
+ *
+ * **Key assertions**
+ * 1. `imp362-at-least-one-closed-bracket` — at least one PATH_C_BASELINE_FIT
+ *    row must close its bracket (reason = gap-lower-bound-nonpositive).
+ * 2. `imp362-closed-brackets-have-positive-lower-bound` — every closed
+ *    bracket has t_c_lo > 0 (rules out degenerate collision-at-zero).
+ * 3. `imp362-at-least-one-row-narrower-than-heuristic` — at least one closed
+ *    bracket has width < 0.01 (quantitative improvement over the heuristic).
+ * 4. `imp362-verdict-status-pinned` — verdict must remain
+ *    "certified-interval-narrower-than-heuristic".
+ * 5. `imp362-limitation-documented` — the one-ULP / directed-rounding
+ *    honest-scope disclosure must remain on the exported record.
+ *
+ * **Architecture note**
+ * The numerical work (interval primitives, dysonDriftInterval,
+ * rk4IntervalStep, backwardCollisionInterval, PATH_C_BASELINE_FIT witness
+ * table) lives in `src/math/interval-dyson-integrator.mjs`. That file uses
+ * the `.mjs` extension so it can be run directly as a Node script during
+ * integrator development. This file is the thin data-layer wrapper that
+ * re-exports LAMBDA_INTERVAL_DYSON so the Vite build picks it up and the
  * assertion registry can import it like any other data module.
  *
- * Scope and honest limitation: JavaScript does not expose IEEE 754
- * directed-rounding modes, so the integrator emulates directed rounding
- * with one-ULP outward inflation on every Float64 operation. This is
- * strictly weaker than true Arb / MPFI / CAPD interval arithmetic.
- * Witness table shows 4 of 5 PATH_C_BASELINE_FIT rows yield a closed
- * bracket with width strictly smaller than the 0.01 heuristic; the N =
- * 2458 row is out of scope because ZETA_ZEROS bundles only 870 zeros.
- * Full scope tripwires and open-work items are recorded on the
- * LAMBDA_INTERVAL_DYSON record itself.
+ * **Scope limitation**
+ * JavaScript does not expose IEEE 754 directed-rounding modes, so the
+ * integrator emulates directed rounding with one-ULP outward inflation on
+ * every Float64 operation. This is strictly weaker than true Arb / MPFI /
+ * CAPD interval arithmetic. Witness table shows 4 of 5 PATH_C_BASELINE_FIT
+ * rows yield a closed bracket with width strictly smaller than the 0.01
+ * heuristic; the N = 2458 row is out of scope because ZETA_ZEROS bundles
+ * only 870 zeros. Full scope tripwires and open-work items are recorded on
+ * the LAMBDA_INTERVAL_DYSON record itself.
+ *
+ * **Ticket history**
+ * - imp-362: created this file and the interval-dyson-integrator.mjs math
+ *   module; established S8 witness table and all five assertions.
+ * - imp-735: added @module/@fileoverview JSDoc (this comment).
  */
 
 import { LAMBDA_INTERVAL_DYSON } from '../math/interval-dyson-integrator.mjs';

@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import RHAttackViz from '../components/RHAttackViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
 export default function RHAttackPage() {
+  const [selectedPath, setSelectedPath] = useState(null);
+
+  // Which gaps block each proof path
+  const pathGaps = { A: ['S5'], B: ['S4', 'S7'], C: ['S4'], D: [], E: [] };
+  const gapActive = (gapId) =>
+    selectedPath !== null && (pathGaps[selectedPath] || []).includes(gapId);
+  const togglePath = (pathId) =>
+    setSelectedPath(prev => (prev === pathId ? null : pathId));
+
   return (
     <div className="page">
       <div className="page-header">
@@ -116,17 +125,37 @@ export default function RHAttackPage() {
         </div>
       </div>
 
-      {/* The Five Proof Paths */}
+      {/* The Five Proof Paths — interactive path selector */}
       <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #3b82f6' }}>
         <h3 style={{ color: '#3b82f6' }}>The Five Proof Paths</h3>
-        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 16 }}>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 8 }}>
           Five fundamentally different strategies for proving RH, each translating the hypothesis
           into a different mathematical framework.
         </p>
+        <p style={{ color: '#64748b', fontSize: 11, marginBottom: 16, fontStyle: 'italic' }}>
+          Click a path to highlight which proof gaps block it in the matrix below.
+        </p>
 
         {/* Path A */}
-        <div style={{ marginBottom: 16, padding: '12px 16px', background: 'rgba(139,92,246,0.06)', borderRadius: 8, border: '1px solid #8b5cf620' }}>
-          <h4 style={{ color: '#8b5cf6', fontSize: 13, marginBottom: 6 }}>Path A: Hilbert-P&oacute;lya</h4>
+        <div
+          onClick={() => togglePath('A')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => e.key === 'Enter' && togglePath('A')}
+          style={{
+            marginBottom: 16,
+            padding: '12px 16px',
+            background: selectedPath === 'A' ? 'rgba(139,92,246,0.14)' : 'rgba(139,92,246,0.06)',
+            borderRadius: 8,
+            border: selectedPath === 'A' ? '2px solid #8b5cf6' : '1px solid #8b5cf620',
+            cursor: 'pointer',
+            transition: 'border 0.15s, background 0.15s',
+          }}
+        >
+          <h4 style={{ color: '#8b5cf6', fontSize: 13, marginBottom: 6, display: 'flex', justifyContent: 'space-between' }}>
+            <span>Path A: Hilbert-P&oacute;lya</span>
+            {selectedPath === 'A' && <span style={{ fontSize: 10, background: '#8b5cf630', padding: '2px 8px', borderRadius: 4 }}>selected — blocks: S5</span>}
+          </h4>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
             Construct a self-adjoint operator <InlineMath tex={"\\mathcal{H}"} /> whose spectrum
             coincides with the nontrivial zeros of <InlineMath tex={"\\zeta(s)"} />.
@@ -141,8 +170,25 @@ export default function RHAttackPage() {
         </div>
 
         {/* Path B */}
-        <div style={{ marginBottom: 16, padding: '12px 16px', background: 'rgba(16,185,129,0.06)', borderRadius: 8, border: '1px solid #10b98120' }}>
-          <h4 style={{ color: '#10b981', fontSize: 13, marginBottom: 6 }}>Path B: Darlington</h4>
+        <div
+          onClick={() => togglePath('B')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => e.key === 'Enter' && togglePath('B')}
+          style={{
+            marginBottom: 16,
+            padding: '12px 16px',
+            background: selectedPath === 'B' ? 'rgba(16,185,129,0.12)' : 'rgba(16,185,129,0.06)',
+            borderRadius: 8,
+            border: selectedPath === 'B' ? '2px solid #10b981' : '1px solid #10b98120',
+            cursor: 'pointer',
+            transition: 'border 0.15s, background 0.15s',
+          }}
+        >
+          <h4 style={{ color: '#10b981', fontSize: 13, marginBottom: 6, display: 'flex', justifyContent: 'space-between' }}>
+            <span>Path B: Darlington</span>
+            {selectedPath === 'B' && <span style={{ fontSize: 10, background: '#10b98130', padding: '2px 8px', borderRadius: 4 }}>selected — blocks: S4, S7</span>}
+          </h4>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
             Prove the ZPO twin ladder satisfies exact losslessness. Transmission zeros of a lossless
             network lie on the <InlineMath tex={"j\\omega"} /> axis, which maps to{' '}
@@ -155,8 +201,25 @@ export default function RHAttackPage() {
         </div>
 
         {/* Path C */}
-        <div style={{ marginBottom: 16, padding: '12px 16px', background: 'rgba(6,182,212,0.06)', borderRadius: 8, border: '1px solid #06b6d420' }}>
-          <h4 style={{ color: '#06b6d4', fontSize: 13, marginBottom: 6 }}>Path C: Weil Positivity</h4>
+        <div
+          onClick={() => togglePath('C')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => e.key === 'Enter' && togglePath('C')}
+          style={{
+            marginBottom: 16,
+            padding: '12px 16px',
+            background: selectedPath === 'C' ? 'rgba(6,182,212,0.12)' : 'rgba(6,182,212,0.06)',
+            borderRadius: 8,
+            border: selectedPath === 'C' ? '2px solid #06b6d4' : '1px solid #06b6d420',
+            cursor: 'pointer',
+            transition: 'border 0.15s, background 0.15s',
+          }}
+        >
+          <h4 style={{ color: '#06b6d4', fontSize: 13, marginBottom: 6, display: 'flex', justifyContent: 'space-between' }}>
+            <span>Path C: Weil Positivity</span>
+            {selectedPath === 'C' && <span style={{ fontSize: 10, background: '#06b6d430', padding: '2px 8px', borderRadius: 4 }}>selected — blocks: S4</span>}
+          </h4>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
             Prove <InlineMath tex={"W(g * \\tilde{g}) \\geq 0"} /> for all test functions{' '}
             <InlineMath tex={"g"} />. Connes (2026) shows this is equivalent to RH.
@@ -168,8 +231,25 @@ export default function RHAttackPage() {
         </div>
 
         {/* Path D */}
-        <div style={{ marginBottom: 16, padding: '12px 16px', background: 'rgba(245,158,11,0.06)', borderRadius: 8, border: '1px solid #f59e0b20' }}>
-          <h4 style={{ color: '#f59e0b', fontSize: 13, marginBottom: 6 }}>Path D: Nyman-Beurling</h4>
+        <div
+          onClick={() => togglePath('D')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => e.key === 'Enter' && togglePath('D')}
+          style={{
+            marginBottom: 16,
+            padding: '12px 16px',
+            background: selectedPath === 'D' ? 'rgba(245,158,11,0.12)' : 'rgba(245,158,11,0.06)',
+            borderRadius: 8,
+            border: selectedPath === 'D' ? '2px solid #f59e0b' : '1px solid #f59e0b20',
+            cursor: 'pointer',
+            transition: 'border 0.15s, background 0.15s',
+          }}
+        >
+          <h4 style={{ color: '#f59e0b', fontSize: 13, marginBottom: 6, display: 'flex', justifyContent: 'space-between' }}>
+            <span>Path D: Nyman-Beurling</span>
+            {selectedPath === 'D' && <span style={{ fontSize: 10, background: '#f59e0b30', padding: '2px 8px', borderRadius: 4 }}>selected — no blocking gaps</span>}
+          </h4>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
             Show that fractional parts <InlineMath tex={"\\{\\theta / x\\}"} /> are{' '}
             <InlineMath tex={"L^2"} />-dense. Density implies no zero at{' '}
@@ -183,8 +263,24 @@ export default function RHAttackPage() {
         </div>
 
         {/* Path E */}
-        <div style={{ padding: '12px 16px', background: 'rgba(59,130,246,0.06)', borderRadius: 8, border: '1px solid #3b82f620' }}>
-          <h4 style={{ color: '#3b82f6', fontSize: 13, marginBottom: 6 }}>Path E: Li Criterion</h4>
+        <div
+          onClick={() => togglePath('E')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => e.key === 'Enter' && togglePath('E')}
+          style={{
+            padding: '12px 16px',
+            background: selectedPath === 'E' ? 'rgba(59,130,246,0.12)' : 'rgba(59,130,246,0.06)',
+            borderRadius: 8,
+            border: selectedPath === 'E' ? '2px solid #3b82f6' : '1px solid #3b82f620',
+            cursor: 'pointer',
+            transition: 'border 0.15s, background 0.15s',
+          }}
+        >
+          <h4 style={{ color: '#3b82f6', fontSize: 13, marginBottom: 6, display: 'flex', justifyContent: 'space-between' }}>
+            <span>Path E: Li Criterion</span>
+            {selectedPath === 'E' && <span style={{ fontSize: 10, background: '#3b82f630', padding: '2px 8px', borderRadius: 4 }}>selected — no blocking gaps</span>}
+          </h4>
           <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8 }}>
             Prove <InlineMath tex={"\\lambda_n \\geq 0"} /> for all <InlineMath tex={"n \\geq 1"} />,
             where <InlineMath tex={"\\lambda_n"} /> are the Li coefficients derived from the zeros.
@@ -202,11 +298,23 @@ export default function RHAttackPage() {
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 16 }}>
           Three critical gaps stand between current knowledge and a complete proof. Each gap
           blocks one or more of the five proof paths above.
+          {selectedPath && (
+            <span style={{ color: '#64748b', fontSize: 12, marginLeft: 8 }}>
+              (Gaps blocked by Path {selectedPath} are highlighted)
+            </span>
+          )}
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
           {/* S4 */}
-          <div style={{ padding: '14px', borderRadius: 8, background: 'rgba(245,158,11,0.08)', border: '1px solid #f59e0b40' }}>
+          <div style={{
+            padding: '14px',
+            borderRadius: 8,
+            background: gapActive('S4') ? 'rgba(245,158,11,0.16)' : 'rgba(245,158,11,0.08)',
+            border: gapActive('S4') ? '2px solid #f59e0b' : '1px solid #f59e0b40',
+            boxShadow: gapActive('S4') ? '0 0 14px rgba(245,158,11,0.25)' : 'none',
+            transition: 'border 0.2s, box-shadow 0.2s, background 0.2s',
+          }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
               <span style={{ color: '#f59e0b', fontWeight: 700, fontSize: 14 }}>S4</span>
               <span style={{ background: '#f59e0b30', color: '#f59e0b', fontSize: 10, padding: '2px 8px', borderRadius: 4, fontWeight: 600 }}>AMBER</span>
@@ -228,7 +336,14 @@ export default function RHAttackPage() {
           </div>
 
           {/* S5 */}
-          <div style={{ padding: '14px', borderRadius: 8, background: 'rgba(239,68,68,0.08)', border: '1px solid #ef444440' }}>
+          <div style={{
+            padding: '14px',
+            borderRadius: 8,
+            background: gapActive('S5') ? 'rgba(239,68,68,0.16)' : 'rgba(239,68,68,0.08)',
+            border: gapActive('S5') ? '2px solid #ef4444' : '1px solid #ef444440',
+            boxShadow: gapActive('S5') ? '0 0 14px rgba(239,68,68,0.25)' : 'none',
+            transition: 'border 0.2s, box-shadow 0.2s, background 0.2s',
+          }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
               <span style={{ color: '#ef4444', fontWeight: 700, fontSize: 14 }}>S5</span>
               <span style={{ background: '#ef444430', color: '#ef4444', fontSize: 10, padding: '2px 8px', borderRadius: 4, fontWeight: 600 }}>RED</span>
@@ -249,7 +364,14 @@ export default function RHAttackPage() {
           </div>
 
           {/* S7 */}
-          <div style={{ padding: '14px', borderRadius: 8, background: 'rgba(239,68,68,0.08)', border: '1px solid #ef444440' }}>
+          <div style={{
+            padding: '14px',
+            borderRadius: 8,
+            background: gapActive('S7') ? 'rgba(239,68,68,0.16)' : 'rgba(239,68,68,0.08)',
+            border: gapActive('S7') ? '2px solid #ef4444' : '1px solid #ef444440',
+            boxShadow: gapActive('S7') ? '0 0 14px rgba(239,68,68,0.25)' : 'none',
+            transition: 'border 0.2s, box-shadow 0.2s, background 0.2s',
+          }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
               <span style={{ color: '#ef4444', fontWeight: 700, fontSize: 14 }}>S7</span>
               <span style={{ background: '#ef444430', color: '#ef4444', fontSize: 10, padding: '2px 8px', borderRadius: 4, fontWeight: 600 }}>RED</span>

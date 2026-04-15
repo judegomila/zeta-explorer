@@ -222,10 +222,17 @@ export default function ProofPlannerPage() {
         {TRACTABILITY_RANKING.map((item, i) => {
           const sec = PROOF_SECTIONS.find(s => s.id === item.id);
           return (
-            <div key={item.id} style={{
-              display: 'flex', gap: 12, alignItems: 'flex-start',
-              padding: '12px 0', borderBottom: i < TRACTABILITY_RANKING.length - 1 ? '1px solid #1e293b' : 'none',
-            }}>
+            <div key={item.id}
+              onClick={() => handleNodeClick(item.id)}
+              title={`Go to ${item.id} in the formal proof`}
+              style={{
+                display: 'flex', gap: 12, alignItems: 'flex-start',
+                padding: '12px 0', borderBottom: i < TRACTABILITY_RANKING.length - 1 ? '1px solid #1e293b' : 'none',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={e => e.currentTarget.style.background = '#1e293b'}
+              onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+            >
               <div style={{
                 minWidth: 44, textAlign: 'center', fontFamily: 'var(--font-mono)',
                 fontWeight: 700, fontSize: 18, color: STATUS_COLORS[sec.status],

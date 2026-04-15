@@ -416,11 +416,16 @@ const statusConfig = {
 
 export default function HistoricalReasoningPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedGap, setSelectedGap] = useState('all');
   const [expandedId, setExpandedId] = useState(null);
 
-  const filtered = selectedCategory === 'all'
-    ? reasoningEntries
-    : reasoningEntries.filter(e => e.category === selectedCategory);
+  const allGaps = [...new Set(reasoningEntries.flatMap(e => e.relatedGaps || []))].sort();
+
+  const filtered = reasoningEntries.filter(e => {
+    const catMatch = selectedCategory === 'all' || e.category === selectedCategory;
+    const gapMatch = selectedGap === 'all' || (e.relatedGaps || []).includes(selectedGap);
+    return catMatch && gapMatch;
+  });
 
   const counts = {};
   reasoningEntries.forEach(e => {
@@ -575,6 +580,35 @@ export default function HistoricalReasoningPage() {
               {cfg.label} ({counts[key]})
             </button>
           ) : null
+        ))}
+      </div>
+
+      {/* Gap filter bar */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, flexWrap: 'wrap' }}>
+        <span style={{ fontSize: 10, fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+          Gap:
+        </span>
+        <button
+          className={`filter-btn ${selectedGap === 'all' ? 'active' : ''}`}
+          onClick={() => setSelectedGap('all')}
+          style={{ fontSize: 11 }}
+        >
+          All Gaps
+        </button>
+        {allGaps.map(gap => (
+          <button
+            key={gap}
+            className={`filter-btn ${selectedGap === gap ? 'active' : ''}`}
+            onClick={() => setSelectedGap(gap)}
+            style={{
+              fontSize: 11,
+              color: selectedGap === gap ? undefined : '#f97316',
+              borderColor: selectedGap === gap ? undefined : 'rgba(249,115,22,0.3)',
+              background: selectedGap === gap ? undefined : 'rgba(249,115,22,0.08)',
+            }}
+          >
+            GAP {gap} ({reasoningEntries.filter(e => (e.relatedGaps || []).includes(gap)).length})
+          </button>
         ))}
       </div>
 

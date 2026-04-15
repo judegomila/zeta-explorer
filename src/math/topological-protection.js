@@ -127,8 +127,9 @@ export function berryPhaseAnalysis(numPrimes = 30) {
         const logP = Math.log(p);
         const pSig = Math.pow(p, -sigma);
         const phaseP = t * logP;
-        // arg(1/(1-p^{-s})) = -arg(1-p^{-s}) = -atan2(-p^{-σ}sin(t·log p), 1-p^{-σ}cos(t·log p))
-        totalPhase += Math.atan2(pSig * Math.sin(phaseP), 1 - pSig * Math.cos(phaseP));
+        // arg(1/(1-p^{-s})) = -arg(1-p^{-s}) = -atan2(p^{-σ}sin(t·log p), 1-p^{-σ}cos(t·log p))
+        // imp-805 verification: must subtract arg(1-p^{-s}); prior += accumulated +arg(1-p^{-s}) and negated all winding numbers
+        totalPhase -= Math.atan2(pSig * Math.sin(phaseP), 1 - pSig * Math.cos(phaseP));
       }
       phases.push(totalPhase);
     }

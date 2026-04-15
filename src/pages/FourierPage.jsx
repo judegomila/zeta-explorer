@@ -1,7 +1,139 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import FourierDomainViz from '../components/FourierDomainViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import { ZETA_ZEROS } from '../math/zeta.js';
+
+// Returns the von Mangoldt function value for integer n >= 2.
+// Lambda(n) = log(p) if n = p^k for some prime p, else 0.
+function vonMangoldtDirect(n) {
+  if (n < 2) return 0;
+  for (let p = 2; p * p <= n; p++) {
+    if (n % p === 0) {
+      let m = n;
+      while (m % p === 0) m = Math.floor(m / p);
+      return m === 1 ? Math.log(p) : 0;
+    }
+  }
+  return Math.log(n); // n is prime
+}
+
+// Interactive explicit formula calculator: shows how summing N zero contributions
+// approximates psi(x) = x - sum_{rho} x^rho/rho - log(2pi) - ...
+function ExplicitFormulaCalculator() {
+  const [xVal, setXVal] = useState(50);
+  const [numZeros, setNumZeros] = useState(10);
+
+  const psiTrue = useMemo(() => {
+    let sum = 0;
+    const xFloor = Math.floor(xVal);
+    for (let n = 2; n <= xFloor; n++) sum += vonMangoldtDirect(n);
+    return sum;
+  }, [xVal]);
+
+  const { approx, contributions } = useMemo(() => {
+    const lx = Math.log(xVal);
+    const sqx = Math.sqrt(xVal);
+    // Main term x minus the two trivial corrections (constant and log terms)
+    let running = xVal - Math.log(2 * Math.PI) - 0.5 * Math.log(1 - 1 / (xVal * xVal));
+    const contributions = [];
+    for (let k = 0; k < numZeros && k < ZETA_ZEROS.length; k++) {
+      const gamma = ZETA_ZEROS[k];
+      const rho2 = 0.25 + gamma * gamma; // |rho|^2 = (1/2)^2 + gamma^2
+      // Conjugate pair contribution: x^rho/rho + x^{rho-bar}/rho-bar
+      //   = 2 * sqrt(x) * (cos(gamma*lx)/2 + gamma*sin(gamma*lx)) / |rho|^2
+      // The explicit formula subtracts this sum, so term is negative on average
+      const term = -sqx * (Math.cos(gamma * lx) + 2 * gamma * Math.sin(gamma * lx)) / rho2;
+      running += term;
+      contributions.push({ gamma, term, running });
+    }
+    return { approx: running, contributions };
+  }, [xVal, numZeros]);
+
+  const error = approx - psiTrue;
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #22d3ee' }}>
+      <h3 style={{ color: '#22d3ee' }}>Interactive: Explicit Formula Reconstruction</h3>
+      <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.8 }}>
+        Drag the sliders to see how <InlineMath tex={"\\psi_N(x) = x - \\log(2\\pi) - \\sum_{n=1}^{N} \\frac{x^{1/2}(\\cos \\gamma_n \\log x + 2\\gamma_n \\sin \\gamma_n \\log x)}{\\tfrac{1}{4}+\\gamma_n^2}"} /> converges to the exact{' '}
+        <InlineMath tex={"\\psi(x) = \\sum_{n \\leq x} \\Lambda(n)"} /> as more zeros are included.
+        Each row in the table shows one conjugate-pair contribution.
+      </p>
+      <div className="controls" style={{ marginTop: 12 }}>
+        <div className="control-group">
+          <label>x</label>
+          <input type="range" min="5" max="100" step="1" value={xVal}
+            onChange={e => setXVal(+e.target.value)} />
+          <span className="control-value">{xVal}</span>
+        </div>
+        <div className="control-group">
+          <label>Zeros N</label>
+          <input type="range" min="1" max="30" step="1" value={numZeros}
+            onChange={e => setNumZeros(+e.target.value)} />
+          <span className="control-value">{numZeros}</span>
+        </div>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, marginTop: 12 }}>
+        <div style={{ padding: 12, background: '#0a0e1a', borderRadius: 6, textAlign: 'center' }}>
+          <div style={{ color: '#64748b', fontSize: 11, marginBottom: 4 }}>
+            <InlineMath tex={"\\psi_{\\text{true}}(x)"} />
+          </div>
+          <div style={{ color: '#22d3ee', fontFamily: 'var(--font-mono)', fontSize: 15 }}>
+            {psiTrue.toFixed(4)}
+          </div>
+        </div>
+        <div style={{ padding: 12, background: '#0a0e1a', borderRadius: 6, textAlign: 'center' }}>
+          <div style={{ color: '#64748b', fontSize: 11, marginBottom: 4 }}>
+            <InlineMath tex={"\\psi_N(x)"} /> ({numZeros} zero{numZeros !== 1 ? 's' : ''})
+          </div>
+          <div style={{ color: '#10b981', fontFamily: 'var(--font-mono)', fontSize: 15 }}>
+            {approx.toFixed(4)}
+          </div>
+        </div>
+        <div style={{ padding: 12, background: '#0a0e1a', borderRadius: 6, textAlign: 'center' }}>
+          <div style={{ color: '#64748b', fontSize: 11, marginBottom: 4 }}>Error</div>
+          <div style={{ color: Math.abs(error) < 1 ? '#10b981' : '#ef4444', fontFamily: 'var(--font-mono)', fontSize: 15 }}>
+            {error > 0 ? '+' : ''}{error.toFixed(4)}
+          </div>
+        </div>
+      </div>
+      <div style={{ marginTop: 12, maxHeight: 200, overflowY: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
+          <thead>
+            <tr style={{ color: '#475569', borderBottom: '1px solid #1e293b' }}>
+              <th style={{ textAlign: 'left', padding: '4px 8px' }}>n</th>
+              <th style={{ textAlign: 'left', padding: '4px 8px' }}>
+                <InlineMath tex={"\\gamma_n"} />
+              </th>
+              <th style={{ textAlign: 'right', padding: '4px 8px' }}>Contribution</th>
+              <th style={{ textAlign: 'right', padding: '4px 8px' }}>Running sum</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contributions.map((c, i) => (
+              <tr key={i} style={{ borderBottom: '1px solid #0f172a' }}>
+                <td style={{ padding: '3px 8px', color: '#64748b' }}>{i + 1}</td>
+                <td style={{ padding: '3px 8px', color: '#94a3b8' }}>{c.gamma.toFixed(4)}</td>
+                <td style={{ textAlign: 'right', padding: '3px 8px', color: c.term < 0 ? '#f87171' : '#4ade80' }}>
+                  {c.term > 0 ? '+' : ''}{c.term.toFixed(4)}
+                </td>
+                <td style={{ textAlign: 'right', padding: '3px 8px', color: '#94a3b8' }}>
+                  {c.running.toFixed(4)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p style={{ marginTop: 8, color: '#475569', fontSize: 11, lineHeight: 1.6 }}>
+        The explicit formula converges conditionally (in symmetric pairs). With 30 zeros the error
+        is typically <InlineMath tex={"O(x^{1/2})"} /> — adding more zeros narrows it. The alternating
+        signs of the contributions reflect the oscillatory nature of the spectral decomposition.
+      </p>
+    </div>
+  );
+}
 
 export default function FourierPage() {
   return (
@@ -328,6 +460,8 @@ export default function FourierPage() {
           </div>
         </div>
       </div>
+
+      <ExplicitFormulaCalculator />
 
       <div className="card" style={{ marginTop: 32, borderColor: '#64748b' }}>
         <h3 style={{ color: '#94a3b8' }}>Related Pages</h3>

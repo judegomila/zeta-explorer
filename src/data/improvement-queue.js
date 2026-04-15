@@ -9919,6 +9919,47 @@ export const IMPROVEMENT_QUEUE = [
     resolution: 'Added a structured @module/@fileoverview JSDoc block before the existing 60-line mathematical explanation comment. The new block documents: @module finite-height-lambda-bound, @fileoverview one-liner, proof-chain step (PATH C finite-height Lambda evaluation between S9 and final Lambda bound), both named exports (FINITE_HEIGHT_LAMBDA_BOUND and FINITE_HEIGHT_LAMBDA_BOUND_ASSERTIONS), the six assertion ids by name, and full ticket history (imp-416 created, imp-756 added JSDoc). Build passes.',
   },
 
+  
+  // ── Auto-seeded batch (2026-04-15) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-757',
+    title: "Improve DysonVerifierPage.jsx: add interactivity, better explanations, or new visualizations",
+    category: 'feature',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'app',
+    description: "Read src/pages/DysonVerifierPage.jsx and make one meaningful improvement: add an interactive control, improve the mathematical explanations, add a new visualization, fix layout issues, or add educational annotations. Focus on making the page more useful for someone learning about the Riemann Hypothesis.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-04-15T07:15:00.000Z',
+  },
+  {
+    id: 'imp-758',
+    title: "Cross-verify mass-verification.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S10-verify',
+    description: "Read src/math/mass-verification.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-759',
+    title: "Add JSDoc module documentation to lambda-cross-validation.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/lambda-cross-validation.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

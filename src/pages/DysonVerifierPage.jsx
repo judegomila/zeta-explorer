@@ -72,6 +72,17 @@ async function runBackwardCollision({ N, dt, maxSteps, onProgress }) {
   let gammas = Float64Array.from(ZETA_ZEROS.slice(0, N));
   const { spacing: initSpacing, index: initIdx } = minSpacing(gammas, N);
 
+  // Report initial state immediately so UI shows real spacing before first chunk
+  onProgress({
+    step: 0,
+    t: 0,
+    spacing: +initSpacing.toFixed(6),
+    pair_index: initIdx,
+    done: false,
+    collision: null,
+    initSpacing: +initSpacing.toFixed(6),
+  });
+
   let step = 0;
   let collision = null;
 
@@ -102,6 +113,7 @@ async function runBackwardCollision({ N, dt, maxSteps, onProgress }) {
       pair_index: curIdx,
       done: !!collision || step >= maxSteps,
       collision,
+      initSpacing: +initSpacing.toFixed(6),
     });
 
     if (!collision && step < maxSteps) {
@@ -352,6 +364,12 @@ export default function DysonVerifierPage() {
                 fontWeight: 600,
               }}>{progress.spacing}</span>
               {' '}&nbsp;(pair index {progress.pair_index})
+              {progress.initSpacing != null && progress.initSpacing > 0 && (
+                <span style={{ color: '#a78bfa', marginLeft: 10 }}>
+                  — {Math.max(0, (1 - progress.spacing / progress.initSpacing) * 100).toFixed(1)}% closed
+                  <span style={{ color: '#475569' }}> (init: {progress.initSpacing})</span>
+                </span>
+              )}
               </div>
             )}
             {running && (

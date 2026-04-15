@@ -284,7 +284,7 @@ const G6_PER_N_BOUND = {
 // Route B (G6_per_N_bound) was CLOSED by imp-683 without needing this.
 const G1_SUB_EXTREMAL = {
   id: 'G1-sub-extremal',
-  status: 'open-permanent; Route-A-only; three closure paths formally blocked (imp-696/imp-708/imp-711 audits); pending Montgomery 1973; main result G6_per_N_bound CLOSED via Route B (imp-683)',
+  status: 'open-permanent; Route-A-only; three closure paths formally blocked (imp-696/imp-708/imp-711/imp-808 audits); pending Montgomery 1973; main result G6_per_N_bound CLOSED via Route B (imp-683)',
   impactScope:
     'Non-blocking for the established result: G6_per_N_bound is CLOSED via ' +
     'Route B (imp-683) independently of bulk confinement. G1-sub-extremal ' +
@@ -327,10 +327,11 @@ const G1_SUB_EXTREMAL = {
   // imp-705: third re-audit — open-permanent verdict unchanged; Route B (G6_per_N_bound) remains rigorous without this sub-gap.
   // imp-708: fourth re-audit — restricted unconditional pair-correlation (Goldston-Yildirim 2001) investigated as third path; blocked (global average, not local edge); open-permanent confirmed; three paths now exhausted.
   // imp-711: fifth re-audit — autofill re-detected comment at line 282; all three paths remain blocked; stale "both" count corrected to three; open-permanent verdict unchanged.
+  // imp-808: sixth re-audit — autofill re-detected comment at line 282; all three paths remain blocked (analytic-density, GUE-porting, Goldston-Yildirim 2001); open-permanent verdict unchanged; Route B result G6_per_N_bound remains fully rigorous without this sub-gap.
   closureAttempt: {
     auditedBy: 'imp-696',
     formalStatusClosedBy: 'imp-699',
-    reAuditedBy: 'imp-702; imp-705; imp-708; imp-711',
+    reAuditedBy: 'imp-702; imp-705; imp-708; imp-711; imp-808',
     analyticalDensityPath: {
       tried:
         'Confine k*_N to bulk using only the Riemann-von Mangoldt 1-point ' +

@@ -262,6 +262,132 @@ function scanStaleAssertions() {
   }));
 }
 
+// ── Forward-looking work generator ────────────────────────────────────────
+// Unlike the gap scanners above (which find existing problems), this
+// generator proposes NEW work that would improve the project even when
+// the codebase has zero bugs. It rotates through categories so the engine
+// always has something productive to do.
+
+function generateForwardWork() {
+  const ideas = [];
+  const pages = readdirSync(join(ROOT, 'src/pages')).filter(f => f.endsWith('.jsx'));
+  const dataFiles = readdirSync(join(ROOT, 'src/data')).filter(f => f.endsWith('.js'));
+  const mathFiles = existsSync(join(ROOT, 'src/math'))
+    ? readdirSync(join(ROOT, 'src/math')).filter(f => f.endsWith('.js'))
+    : [];
+
+  // Category 1: Page improvements — pick a random page and improve it
+  const targetPage = pages[Math.floor(Math.random() * pages.length)];
+  ideas.push({
+    category: 'feature',
+    priority: 'medium',
+    title: `Improve ${targetPage}: add interactivity, better explanations, or new visualizations`,
+    description: `Read src/pages/${targetPage} and make one meaningful improvement: add an interactive control, improve the mathematical explanations, add a new visualization, fix layout issues, or add educational annotations. Focus on making the page more useful for someone learning about the Riemann Hypothesis.`,
+    proofSection: 'app',
+    complexity: 'medium',
+  });
+
+  // Category 2: Cross-verification — PRIORITIZE critical-chain modules
+  // The queue controller found 10 critical-chain modules unverified.
+  // These should be verified before random modules.
+  const criticalChain = [
+    'rh-attack.js', 'noswap-closure.js', 'many-body-correction-closure.js',
+    'm-raw-from-umon-bridge.js', 'verify-imp440-altpath.js',
+    'd-monotone-analytic-closure.js', 'b1-slope-analytic-bound.js',
+    'b2-intercept-analytic-bound.js', 'rvm-jacobian-lower-bound.js',
+    'c-mb-unconditional-bound.js', 'route-a-monotonicity-closure.js',
+    'g3a-max-gap-closure.js', 'chain-crossverify-N5e5.js',
+    'spectral-lambda-kernel.js', 'path-g-cauchy-rigorous.js',
+  ];
+  const verifiedSet = new Set();
+  try {
+    const vlog = execSync('git log --oneline -500', { encoding: 'utf-8' });
+    for (const line of vlog.split('\n')) {
+      const vm = line.match(/cross-verify (\S+\.js)/);
+      if (vm) verifiedSet.add(vm[1]);
+    }
+  } catch {}
+
+  const criticalUnverified = criticalChain.filter(f =>
+    !verifiedSet.has(f) && existsSync(join(ROOT, 'src/math', f))
+  );
+
+  if (criticalUnverified.length > 0) {
+    // Pick the first unverified critical-chain module — HIGH priority
+    const target = criticalUnverified[0];
+    ideas.push({
+      category: 'proof',
+      priority: 'high',
+      title: `CRITICAL CHAIN: cross-verify ${target}`,
+      description: `${target} is in the critical proof chain but has NOT been independently cross-verified. Given the bug discovery rate in verified modules, this is high priority. Read src/math/${target}, verify all formulas vs cited references, check edge cases, confirm reference values.`,
+      proofSection: 'S10-verify',
+      complexity: 'medium',
+    });
+  } else if (mathFiles.length > 0) {
+    // All critical-chain verified — pick a random non-critical module
+    const targetMath = mathFiles[Math.floor(Math.random() * mathFiles.length)];
+    ideas.push({
+      category: 'proof',
+      priority: 'medium',
+      title: `Cross-verify ${targetMath}: independent check of key computations`,
+      description: `Read src/math/${targetMath} and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.`,
+      proofSection: 'S10-verify',
+      complexity: 'medium',
+    });
+  }
+
+  // Category 3: Documentation — pick a data module and add JSDoc
+  const undocumented = dataFiles.filter(f => {
+    try {
+      const content = readFileSync(join(ROOT, 'src/data', f), 'utf-8');
+      return !content.includes('@module') && !content.includes('@fileoverview') && content.length > 1000;
+    } catch { return false; }
+  });
+  if (undocumented.length > 0) {
+    const target = undocumented[Math.floor(Math.random() * undocumented.length)];
+    ideas.push({
+      category: 'content',
+      priority: 'low',
+      title: `Add JSDoc module documentation to ${target}`,
+      description: `src/data/${target} is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.`,
+      proofSection: 'docs',
+      complexity: 'small',
+    });
+  }
+
+  // Category 4: Test coverage — add a smoke test for an untested module
+  ideas.push({
+    category: 'meta',
+    priority: 'medium',
+    title: `Add smoke test for a math or data module in scripts/smoke-tests.mjs`,
+    description: `Extend scripts/smoke-tests.mjs with 2-3 new smoke tests for modules that are not yet covered. Pick from src/math/*.js or src/data/*.js. Each test should: (1) import the module, (2) call its main export, (3) assert the return shape is correct, (4) assert key values are in expected ranges. Run with npm test to verify.`,
+    proofSection: 'meta',
+    complexity: 'small',
+  });
+
+  // Category 5: Numerical exploration — push a bound tighter
+  ideas.push({
+    category: 'proof',
+    priority: 'medium',
+    title: `Numerical exploration: compute Lambda bound at a new N* value not yet in the grid`,
+    description: `The finite-height Lambda bound grid covers N* in {1e4, 1e5, 1e6, 1e7, 5e7, 1e8, 5e8, 1e9}. Pick an intermediate value (e.g. 2e5, 5e5, 2e6, 5e6, 2e7) and compute L_pt at that point using the existing formula chain. Add the result to src/data/finite-height-beats-platt-trudgian.js. This fills in the grid and may reveal interesting structure in the L_pt(N*) curve.`,
+    proofSection: 'S10-numerical',
+    complexity: 'small',
+  });
+
+  // Category 6: App UX — always room to improve
+  ideas.push({
+    category: 'feature',
+    priority: 'low',
+    title: `UX improvement: add loading states, error boundaries, or accessibility to a page`,
+    description: `Pick any page in src/pages/ that lacks: (1) a loading spinner for lazy-loaded data, (2) an error boundary with a user-friendly fallback, (3) proper aria-labels on interactive elements, or (4) keyboard navigation support. Add the missing UX feature. Small scope — one page, one improvement.`,
+    proofSection: 'app',
+    complexity: 'small',
+  });
+
+  return ideas;
+}
+
 function scanHarnessImprovements() {
   const gaps = [];
   // Check if idle detection threshold is working
@@ -290,8 +416,8 @@ function main() {
 
   console.log('Scanning codebase for new work...');
 
-  // Collect candidates from all scanners
-  const candidates = [
+  // Collect candidates from all scanners (gap-finding)
+  const gapCandidates = [
     ...scanOpenSubGaps(),
     ...scanLeanSorrys(),
     ...scanDashboardBugs(),
@@ -300,6 +426,14 @@ function main() {
     ...scanTodos(),
     ...scanStaleAssertions(),
   ];
+
+  // ALWAYS generate forward-looking work — this prevents the engine from
+  // ever fully draining. Even if all bugs are fixed, there's always a page
+  // to improve, a module to verify, or a bound to tighten.
+  const forwardCandidates = generateForwardWork();
+
+  // Combine: gap-finding work takes priority, forward work fills the rest
+  const candidates = [...gapCandidates, ...forwardCandidates];
 
   // Deduplicate by title similarity (first 50 chars) AND against history
   const history = loadHistory();

@@ -1,9 +1,35 @@
 /**
- * AI Exploration Journal: continuous investigation of the zeta function
- * through the prime oscillator / ladder network lens.
+ * @module explorations
+ * @fileoverview AI Exploration Journal: continuous investigation of the zeta
+ * function through the Zeta Prime Oscillator (ZPO) / ladder network lens.
  *
- * Each entry represents one exploration step, with mathematical content,
- * LaTeX formulas, insights, and connections to the literature.
+ * Proof-chain coverage: S0 (framing) through S10 (verification). Each entry
+ * traces one step of the ZPO framework — Euler product as a cascade circuit,
+ * functional equation as impedance matching, zeros as resonances — leading to
+ * the Riemann Hypothesis equivalence.
+ * Created across the Phase 17 refactor; @module JSDoc added by imp-804.
+ *
+ * Key exports:
+ *  - `explorations` (default): array of 86 entries (exp-001 .. exp-086)
+ *    spanning categories: foundation, oscillator-model, duality, hamiltonian,
+ *    control-theory, signal-processing, statistical, physics, geometry,
+ *    circuit-theory, trace-formula, spectral, Thermodynamic, categorical.
+ *  - `getAllExplorations()`: full exploration array.
+ *  - `getExplorationById(id)`: lookup by 'exp-NNN' id string.
+ *  - `getExplorationsByCategory(category)`: filtered subset.
+ *  - `getExplorationCategories()`: [{name, count}] category summaries.
+ *  - `getExplorationGraph()`: {nodes, edges} DAG built from nextSteps links,
+ *    consumed by the DAG visualisation page.
+ *
+ * Key assertions captured in entries:
+ *  - At sigma = 1/2 the quality factor Q = 1/(2*sigma) = 1 for every prime
+ *    oscillator stage — a universal, prime-independent condition (exp-002).
+ *  - The functional equation xi(s) = xi(1-s) corresponds to impedance matching
+ *    in the ladder network (exp-003).
+ *  - Zeros of zeta are resonances of the ZPO network; RH asserts all resonances
+ *    lie on the critical line (exp-004).
+ *  - Montgomery-Dyson GUE universality connects ZPO eigenvalue spacing to
+ *    random matrix theory (exp-054).
  */
 
 const explorations = [

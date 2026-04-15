@@ -1,4 +1,16 @@
 /**
+ * @module barrier-extrapolation-v2
+ * @fileoverview Independent cross-verification of t_c via barrier extrapolation
+ * on the N <= 5000 portion of the Dyson ladder (partial closure, imp-404).
+ * Belongs to proof chain step S9 / Lambda-cross-verify. Exports
+ * {@link BARRIER_EXTRAPOLATION_V2} (per-N barrier rows, OLS fit, Lambda
+ * verdict, and comparison table vs interval-arithmetic RK4) and
+ * {@link BARRIER_EXTRAPOLATION_V2_ASSERTIONS} (five runtime assertion objects
+ * guarding the barrier integration and OLS fit). Key assertions: tc positive
+ * for all N, OLS n >= 5, Lambda_barrier non-negative, comparison table
+ * complete, and RK4 Lambda reference present. Created by imp-404; JSDoc
+ * module header added by imp-788.
+ *
  * imp-404: Independent cross-verification of t_c via barrier extrapolation
  * on the 25-point measured Dyson ladder (partial closure)
  *

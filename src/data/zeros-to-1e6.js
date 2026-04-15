@@ -8,6 +8,26 @@
 // Generated: 2026-04-11T07:54:45.321Z
 // Count: 100000
 
+/**
+ * @fileoverview Riemann zeta function non-trivial zero ordinates (imaginary parts) sourced from
+ * Odlyzko's published table of the first 100,000 verified zeros on the critical line Re(s) = 1/2.
+ * Used in Phase 13+ Dyson backward ODE verification and ZPO Explorer proof-chain steps
+ * that require concrete zero locations (zero-gap statistics, explicit formula reconstruction,
+ * Chebyshev bias, and GUE nearest-neighbor spacing distribution).
+ *
+ * @module zeros-to-1e6
+ *
+ * Exports:
+ *   - ZEROS_EXTENDED {ReadonlyArray<number>} Frozen array of 100,000 zero ordinates gamma_n,
+ *     sorted ascending. The first zero is gamma_1 ~ 14.1347; the last is gamma_100000 ~ 74920.
+ *
+ * Proof-chain step: S10-verify (cross-verify zero locations against independent source).
+ * Key assertion: all values satisfy 0 < gamma_n and are correct to at least 9 decimal places
+ * per Odlyzko's high-precision computations. The array is frozen to prevent accidental mutation.
+ *
+ * DO NOT EDIT BY HAND -- regenerate via: node scripts/fetch-odlyzko-zeros.mjs [N]
+ * Tickets: imp-359 (generated file), imp-753 (added JSDoc).
+ */
 export const ZEROS_EXTENDED = Object.freeze([
   14.1347251420,
   21.0220396390,

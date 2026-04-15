@@ -72,12 +72,22 @@ function cascadeDet(omega, N) {
 /**
  * Szegő geometric mean G(f) for the cascade symbol.
  *
- * The "symbol" of the cascade is the function f(θ) = det(S_N(θ/2π)).
- * Since det(T_p) = 1 for all p, G(f) = 1.
+ * CROSS-VERIFIED (imp-755): This function computes an empirical geometric mean
+ * of |tr(S_N(ω))| sampled over ω ∈ [0.1, 50] (step ≈ 50/numPoints per sample).
+ * Two important caveats confirmed by code inspection:
  *
- * More interestingly, consider the trace: tr(S_N(ω)) = S₁₁ + S₂₂.
+ * (a) Sampling domain mismatch: the classical strong Szegő theorem integrates
+ *     over the spectral circle θ ∈ [0, 2π], but this function samples ω ∈ [0.1, 50].
+ *     The returned geometricMean is therefore an empirical Lyapunov-type average
+ *     over a non-standard range, NOT the classical G(f).
+ *
+ * (b) Symbol correction: the original note "f(θ) = det(S_N(θ/2π))" is misleading.
+ *     Since det(T_p) = cos²(ω·log p) + sin²(ω·log p) = 1 for all p (trig identity),
+ *     det(S_N) = 1 algebraically and log|det| = 0 trivially. The code correctly uses
+ *     the TRACE |tr(S_N(ω))| as the non-trivial quantity to average.
+ *
  * The Szegő theorem for the trace gives:
- *   (1/N)·log|tr(S_N(ω))| → (1/2π)∫ log|tr(T_∞(θ))| dθ
+ *   (1/N)·log|tr(S_N(ω))| → (1/2π) ∫ log|tr(T_{inf}(θ))| dθ
  */
 function szegoGeometricMean(N, numPoints = 200) {
   const primes = getPrimes(N);

@@ -587,7 +587,13 @@ function ThermodynamicsTab() {
             <span style={{ color: '#10b981' }}>S={isFinite(hoverPoint.entropy) ? hoverPoint.entropy.toFixed(2) : '∞'}</span>
             <span style={{ color: '#f59e0b' }}>P={isFinite(hoverPoint.pressure) ? hoverPoint.pressure.toFixed(3) : '∞'}</span>
             <span style={{ color: '#ef4444' }}>C={isFinite(hoverPoint.specificHeat) ? hoverPoint.specificHeat.toFixed(2) : '∞'}</span>
-            <span style={{ color: '#64748b' }}>[{hoverPoint.phase}]</span>
+            <span style={{
+              color: hoverPoint.phase === 'critical-line' ? '#ef4444'
+                : hoverPoint.phase === 'supercritical' ? '#10b981'
+                : hoverPoint.phase === 'sub-zero' ? '#3b82f6'
+                : '#8b5cf6',
+              fontWeight: 600,
+            }}>[{hoverPoint.phase}]</span>
           </div>
         ) : (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#475569', fontStyle: 'italic' }}>

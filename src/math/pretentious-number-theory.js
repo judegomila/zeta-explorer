@@ -88,6 +88,34 @@ function D_mu_chi_squared(primes, x, chi) {
 
 const MERTENS_CONST = 0.2614972128;  // Meissel-Mertens constant
 
+/**
+ * CROSS-VERIFICATION (imp-761):
+ *
+ * 1. D(mu,1;x)^2 = Sum 2/p: confirmed. mu(p)=-1 for every prime p (odd
+ *    number of prime factors), so (1-mu(p))/p = 2/p. Independent check:
+ *    Sum_{p<=100} 2/p ~= 3.606, matching 2*(log log 100 + M) ~= 3.577
+ *    (ratio ~1.008; ratio converges to 1 as x grows, per Mertens).
+ *
+ * 2. D(n^{it},1;x)^2 = Sum (1-cos(t*log p))/p: correct by definition. At
+ *    t=0 the sum is 0 (n^0 = 1, distance to itself is 0); cos(0)=1. OK.
+ *
+ * 3. D(mu,n^{it};x)^2 = Sum (1+cos(t*log p))/p: correct. mu(p)=-1 gives
+ *    Re(mu(p)*conj(p^{it})) = Re(-p^{-it}) = -cos(t*log p), so
+ *    (1 - (-cos(t*log p)))/p = (1+cos(t*log p))/p.
+ *
+ * 4. Mertens constant 0.2614972128: correct (M ~= 0.26149721284763...).
+ *
+ * 5. D_mu_chi_squared assumes a REAL character (uses c directly rather than
+ *    Re(c)); this is correct for quadratic characters chi_3, chi_4 as called.
+ *
+ * 6. Zeta-zero note: The keyFindings claim "D(n^{it},1) SMALLER at zeta-zeros
+ *    t=14.13" is a finite-x numerical observation; it does NOT mean that D is
+ *    asymptotically small at those t. Pretentious theory states: D(n^{it},1;x)
+ *    -> infinity for ALL real t, because the zero-free region guarantees
+ *    zeta(1+it) != 0 for all real t. A zero of zeta at s=1+it_0 (which does
+ *    not exist) would make D bounded; critical-line zeros at 1/2+i*gamma do
+ *    not directly control D(n^{it},1;x) on the 1-line.
+ */
 export function pretentiousNumberTheoryTest() {
   const N = 100000;
   const primes = sievePrimes(N);

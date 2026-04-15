@@ -1,4 +1,15 @@
 /**
+ * @module imp-336-post-ladder-update
+ * @fileoverview Route A closure attempt: monotonicity conjecture (M) re-evaluated on
+ * the measured Dyson ladder (imp-360/imp-405). Exports IMP336_POST_LADDER_UPDATE
+ * (full verdict record including consecutive-pair checks, OLS drop stats, and Route A
+ * sub-gap status) and IMP336_POST_LADDER_UPDATE_ASSERTIONS (4 build-time assertions
+ * covering ladder size, OLS monotonicity, no certified violation of (M), and citation
+ * integrity). Belongs to the Route A proof chain: imp-322 + G1-sub-extremal + imp-369
+ * G2 + imp-336 drift-sign => (M) proved => imp-328 conditional upgrades to unconditional.
+ * Created by imp-409; data from imp-360/imp-405 (DYSON_LADDER_MEASURED); analytical
+ * sub-gap inputs from imp-368 (G1 partial), imp-369 (G2 closure at tau=0), imp-336 (parent).
+ *
  * imp-409: Route A closure attempt — monotonicity (M) re-evaluated on
  * the 35-point measured Dyson ladder (imp-360 / imp-405)
  *

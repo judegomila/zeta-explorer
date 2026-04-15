@@ -172,6 +172,155 @@ export default function LambdaBoundsPage() {
         </div>
       </div>
 
+      {/* ── Proof progress snapshot ──────────────────────────────────── */}
+      <div className="card" style={{ ...cardBaseLeft('#a855f7'), marginBottom: 24 }}>
+        <div style={cardLabel}>Proof progress snapshot</div>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: 20,
+            marginTop: 10,
+          }}
+        >
+          {/* 5-step chain breakdown */}
+          <div>
+            <div
+              style={{
+                fontSize: 11,
+                color: 'var(--text-secondary)',
+                fontWeight: 600,
+                marginBottom: 8,
+              }}
+            >
+              5-step chain
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                height: 10,
+                borderRadius: 5,
+                overflow: 'hidden',
+                gap: 2,
+                marginBottom: 10,
+              }}
+            >
+              {LAMBDA_CHAIN_STEPS.map((s) => (
+                <div
+                  key={s.step}
+                  style={{ flex: 1, background: stepColor(s.verification), opacity: 0.85 }}
+                  title={`Step ${s.step}: ${s.verification}`}
+                />
+              ))}
+            </div>
+            {['rigorous', 'numerical', 'unverified'].map((v) => {
+              const count = LAMBDA_CHAIN_STEPS.filter((s) => s.verification === v).length;
+              return (
+                <div
+                  key={v}
+                  style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}
+                >
+                  <div
+                    style={{
+                      width: 8,
+                      height: 8,
+                      borderRadius: 2,
+                      background: stepColor(v),
+                      flexShrink: 0,
+                    }}
+                  />
+                  <span style={{ fontSize: 10, color: 'var(--text-muted)', flex: 1 }}>{v}</span>
+                  <span
+                    style={{
+                      fontSize: 10,
+                      fontFamily: 'var(--font-mono)',
+                      color: 'var(--text-secondary)',
+                    }}
+                  >
+                    {count}/5
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Closure routes A/B/C */}
+          <div>
+            <div
+              style={{
+                fontSize: 11,
+                color: 'var(--text-secondary)',
+                fontWeight: 600,
+                marginBottom: 8,
+              }}
+            >
+              Closure routes A / B / C
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                height: 10,
+                borderRadius: 5,
+                overflow: 'hidden',
+                gap: 2,
+                marginBottom: 10,
+              }}
+            >
+              {VERIFICATION_EFFORTS.filter((v) => v.id.startsWith('route-')).map((v) => (
+                <div
+                  key={v.id}
+                  style={{ flex: 1, background: stepColor(v.status), opacity: 0.85 }}
+                  title={`${v.label}: ${v.status}`}
+                />
+              ))}
+            </div>
+            {['rigorous', 'numerical', 'unverified'].map((v) => {
+              const routes = VERIFICATION_EFFORTS.filter((ve) => ve.id.startsWith('route-'));
+              const count = routes.filter((r) => r.status === v).length;
+              return (
+                <div
+                  key={v}
+                  style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}
+                >
+                  <div
+                    style={{
+                      width: 8,
+                      height: 8,
+                      borderRadius: 2,
+                      background: stepColor(v),
+                      flexShrink: 0,
+                    }}
+                  />
+                  <span style={{ fontSize: 10, color: 'var(--text-muted)', flex: 1 }}>{v}</span>
+                  <span
+                    style={{
+                      fontSize: 10,
+                      fontFamily: 'var(--font-mono)',
+                      color: 'var(--text-secondary)',
+                    }}
+                  >
+                    {count}/3
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div
+          style={{
+            marginTop: 12,
+            paddingTop: 8,
+            borderTop: '1px solid var(--border)',
+            fontSize: 10,
+            color: 'var(--text-muted)',
+            fontStyle: 'italic',
+          }}
+        >
+          Any ONE closed route + G6_polymath15_bridge proves Λ ≤ 0, which with
+          Rodgers-Tao (Λ ≥ 0) gives RH.
+        </div>
+      </div>
+
       {/* ── The 5-step chain ─────────────────────────────────────────── */}
       <h2 style={{ marginTop: 24, marginBottom: 12 }}>The 5-step chain to RH</h2>
       <div style={{ display: 'grid', gap: 14, marginBottom: 24 }}>

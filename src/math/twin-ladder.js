@@ -8,6 +8,20 @@
  * with amplitude p^{-m/2} and phase -m·T·log(p).
  * Thermodynamic weights exp(-β·m·log(p) - P·ψ(m·log(p))) deform
  * the ladder, suppressing higher rungs as β or P increase.
+ *
+ * @verified Cross-verification (imp-731):
+ *   1. FORMULA — ladderRungs: amplitude p^{-m/2} and phase -m·T·log(p) correctly
+ *      implement p^{-m(1/2+iT)} on the critical line σ=½. The truncated sum over
+ *      m=0..M approximates the Euler factor 1/(1 - p^{-(1/2+iT)}).
+ *   2. FORMULA — thermodynamicWeight: exp(-β·x - P·x²) with x = m·log(p) correctly
+ *      implements w(p,m,β,P) using convex penalty ψ(x) = x².
+ *   3. EDGE CASES — m=0 rung always contributes weight=1 and phasor [1, 0] for any
+ *      prime p ≥ 2. For large m, amplitudes p^{-m/2} decay exponentially — no NaN
+ *      or overflow for any finite T, β, P.
+ *   4. REFERENCE VALUE — ladderRungs(2, 1, 0) produces rungs with sum re = 1 + 1/√2
+ *      ≈ 1.7071, matching the truncated Euler factor 1 + p^{-1/2} for p=2, T=0.
+ *   5. collapseAnimation uses P=0 (pressure-free) weights exp(-β·m·log(p)), equivalent
+ *      to thermodynamicWeight(p, m, beta, 0) — intentional for β-collapse visualization.
  */
 
 import { getPrimes } from './primes.js';

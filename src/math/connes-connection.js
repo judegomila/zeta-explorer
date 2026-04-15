@@ -185,6 +185,16 @@ function traceFormulaComparison(omega, N) {
 
   // ZPO cascade phase: arg(S₂₁(½+iω)) ≈ Σ_p ω·log(p) / p^{1/2} (leading term)
   // Actually the cascade accumulates phase from each T_p
+  //
+  // VERIFICATION (imp-799): The formula below is a DIVERGENT partial sum.
+  // By PNT and partial summation, Σ_{p ≤ P_N} log(p)/sqrt(p) ~ 2*sqrt(P_N),
+  // so cascadePhase grows without bound as N increases.
+  // By contrast, connesTrace is bounded/oscillatory (prime exponential sum).
+  // Consequence: the ratio connesTrace/cascadePhase → 0 as N → ∞ and is
+  // N-dependent — it is NOT a meaningful invariant of the two frameworks.
+  // A structurally correct comparison would use the oscillatory ZPO side:
+  //   Σ_p cos(ω·log(p))·log(p)/sqrt(p)
+  // which matches the Connes trace term-by-term and converges for the same ω.
   let cascadePhase = 0;
   for (const p of primes) {
     cascadePhase += omega * Math.log(p) / Math.sqrt(p);

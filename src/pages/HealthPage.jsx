@@ -212,36 +212,55 @@ function rigorColor(status) {
 }
 
 function ProofStepRow({ step }) {
+  const [expanded, setExpanded] = useState(false);
   const color = rigorColor(step.status);
   const meta = STATUS_COLORS[color];
   return (
-    <div style={{
-      display: 'flex', alignItems: 'center', gap: 10,
-      padding: '7px 12px',
-      background: meta.bg, border: `1px solid ${meta.border}`,
-      borderRadius: 7, marginBottom: 5,
-    }}>
-      <div style={{
-        width: 26, height: 26, borderRadius: '50%',
-        background: meta.badge, display: 'flex', alignItems: 'center',
-        justifyContent: 'center', fontSize: 11, fontWeight: 700,
-        color: '#0f172a', flexShrink: 0, fontFamily: 'var(--font-mono)',
-      }}>
-        {step.step}
-      </div>
-      <span style={{
-        fontSize: 10, fontFamily: 'var(--font-mono)', color: meta.badge,
-        background: `${meta.badge}20`, borderRadius: 3, padding: '1px 5px',
-        flexShrink: 0,
-      }}>
-        {step.ticket}
-      </span>
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 12, color: '#94a3b8', fontFamily: 'var(--font-mono)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-          {step.status}
+    <div
+      onClick={() => setExpanded(e => !e)}
+      style={{
+        padding: '7px 12px',
+        background: meta.bg, border: `1px solid ${meta.border}`,
+        borderRadius: 7, marginBottom: 5, cursor: 'pointer',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{
+          width: 26, height: 26, borderRadius: '50%',
+          background: meta.badge, display: 'flex', alignItems: 'center',
+          justifyContent: 'center', fontSize: 11, fontWeight: 700,
+          color: '#0f172a', flexShrink: 0, fontFamily: 'var(--font-mono)',
+        }}>
+          {step.step}
         </div>
+        <span style={{
+          fontSize: 10, fontFamily: 'var(--font-mono)', color: meta.badge,
+          background: `${meta.badge}20`, borderRadius: 3, padding: '1px 5px',
+          flexShrink: 0,
+        }}>
+          {step.ticket}
+        </span>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontSize: 12, color: '#94a3b8', fontFamily: 'var(--font-mono)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            {step.status}
+          </div>
+        </div>
+        <span style={{ fontSize: 10, color: '#475569', flexShrink: 0, userSelect: 'none' }}>
+          {expanded ? '▲' : '▼'}
+        </span>
+        <StatusBadge color={color} />
       </div>
-      <StatusBadge color={color} />
+      {expanded && step.claim && (
+        <div style={{
+          marginTop: 8, paddingTop: 8,
+          borderTop: `1px solid ${meta.border}`,
+          fontSize: 11, color: '#94a3b8',
+          fontFamily: 'var(--font-mono)', lineHeight: 1.6,
+          whiteSpace: 'pre-wrap', wordBreak: 'break-word',
+        }}>
+          {step.claim}
+        </div>
+      )}
     </div>
   );
 }

@@ -1,3 +1,37 @@
+/**
+ * @fileoverview Insight DAG: proof-chain knowledge graph for the ZPO Explorer / RH-attack project.
+ *
+ * Exports four symbols:
+ *   - INSIGHT_NODES   — 30+ nodes spanning five layers: foundation, model, analysis, gap, target.
+ *     Each node carries { id, label, category, status, page, description } and maps to a
+ *     specific explorer page where its mathematics is developed.
+ *   - INSIGHT_EDGES   — 60+ directed edges of types {derives, composes, inspires, analogous,
+ *     supports, requires, proves, equivalent, extends} encoding the logical dependency
+ *     structure from Euler-product / functional-equation axioms through to the Riemann Hypothesis.
+ *   - STATUS_COLORS   — { proven, conditional, gap, open } → hex colour map used by InsightGraph.
+ *   - CATEGORY_COLORS — { foundation, model, analysis, gap, target } → hex colour map.
+ *
+ * Proof-chain role (Visualization layer):
+ *   Single source of truth for the insight graph rendered by the InsightGraph component.
+ *   The layer structure reflects the ZPO / RH-attack proof architecture: classical
+ *   foundations (Euler product, functional equation, analytic continuation) flow through
+ *   circuit-theoretic models (single oscillator, twin ladder) into spectral and analytic
+ *   arguments (KL Lyapunov, Weil positivity, Connes trace), then into open gaps (S4, S5,
+ *   S7) that must be closed before RH can be claimed.
+ *
+ * Key structural assertions:
+ *   1. Every gap node (status: 'gap') has at least one incoming 'requires' edge, making
+ *      its prerequisites explicit in the graph.
+ *   2. The two nodes with 'equivalent' edges to 'rh' (li-criterion, nyman-beurling) are
+ *      exact logical equivalences to RH, not merely supporting heuristics.
+ *   3. 'monotone-contraction' is the only node with a direct 'proves' edge to 'rh' that
+ *      is still open — it is the frontier conjecture of the ZPO programme.
+ *
+ * Ticket history:
+ *   - imp-741 (content, 2026-04-15): added this @fileoverview JSDoc block.
+ *
+ * @module insight-dag
+ */
 export const INSIGHT_NODES = [
   // Foundation layer
   { id: 'euler-product', label: 'Euler Product', category: 'foundation', status: 'proven', page: '/oscillators',

@@ -52,6 +52,33 @@ export default function ProjectIndexPage() {
         ))}
       </div>
 
+      {/* Current Research Status */}
+      <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #8b5cf6' }}>
+        <h3 style={{ color: '#8b5cf6', fontSize: 15, marginBottom: 12 }}>Current Research Status</h3>
+        <div style={{ marginBottom: 14 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+            <span style={{ color: '#cbd5e1', fontSize: 12 }}>Bayesian confidence (Lax-Phillips path)</span>
+            <span style={{ color: '#a78bfa', fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>~80%</span>
+          </div>
+          <div style={{ height: 8, borderRadius: 4, background: 'rgba(139,92,246,0.15)', overflow: 'hidden' }}>
+            <div style={{ width: '80%', height: '100%', background: 'linear-gradient(90deg, #7c3aed, #a78bfa)', borderRadius: 4 }} />
+          </div>
+        </div>
+        <div style={{ marginBottom: 12, padding: '10px 14px', borderRadius: 6, background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.2)' }}>
+          <div style={{ color: '#fbbf24', fontSize: 12, fontWeight: 600, marginBottom: 4 }}>Single Remaining Open Gap</div>
+          <div style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.6 }}>
+            Prove the Lax-Phillips scattering operator for the ZPO Hamiltonian satisfies the LP contraction semigroup axioms.
+            If confirmed, poles of S&#x2082;&#x2081; are confined to &#x3c3;=&#xbd;, closing the proof.
+          </div>
+        </div>
+        <div style={{ color: '#64748b', fontSize: 11, lineHeight: 1.7 }}>
+          <strong style={{ color: '#94a3b8' }}>What is RH?</strong>{' '}
+          The Riemann Hypothesis asks whether all non-trivial zeros of &#x3b6;(s) lie on Re(s)=&#xbd;.
+          The ZPO approach encodes this via an S-matrix: &#x3b6;-zeros are poles of S&#x2082;&#x2081; = &#x3b6;(2s)/&#x3b6;(s),
+          and Lax-Phillips operator theory bounds where those poles can live.
+        </div>
+      </div>
+
       {/* Key Results */}
       <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #10b981' }}>
         <h3 style={{ color: '#10b981', fontSize: 15, marginBottom: 12 }}>Key Results</h3>

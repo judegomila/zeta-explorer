@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
@@ -38,6 +38,7 @@ function Section({ number, title, children, borderColor = '#334155' }) {
 
 // ─── Proof Step Row ──────────────────────────────────────────────────────────
 function ProofStep({ step, title, detail, status, statusLabel, math }) {
+  const [expanded, setExpanded] = useState(false);
   const statusType = status;
   const colors = {
     proven:      { bg: 'rgba(16,185,129,0.06)', border: 'rgba(16,185,129,0.15)', num: '#10b981' },
@@ -50,27 +51,45 @@ function ProofStep({ step, title, detail, status, statusLabel, math }) {
 
   return (
     <div style={{
-      display: 'flex', gap: 12, marginBottom: 10, padding: '10px 14px',
-      borderRadius: 8, background: c.bg, border: `1px solid ${c.border}`,
+      marginBottom: 10, borderRadius: 8, background: c.bg, border: `1px solid ${c.border}`,
+      overflow: 'hidden',
     }}>
-      <span style={{
-        flexShrink: 0, width: 28, height: 28, borderRadius: '50%',
-        background: `${c.num}22`, color: c.num,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontSize: 13, fontWeight: 700, fontFamily: 'var(--font-mono)',
-      }}>S{step}</span>
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 4 }}>
+      {/* Clickable header row */}
+      <button
+        onClick={() => setExpanded(e => !e)}
+        style={{
+          display: 'flex', gap: 12, width: '100%', padding: '10px 14px',
+          background: 'transparent', border: 'none', cursor: 'pointer',
+          textAlign: 'left', alignItems: 'center',
+        }}
+      >
+        <span style={{
+          flexShrink: 0, width: 28, height: 28, borderRadius: '50%',
+          background: `${c.num}22`, color: c.num,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: 13, fontWeight: 700, fontFamily: 'var(--font-mono)',
+        }}>S{step}</span>
+        <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 4 }}>
           <span style={{ color: '#e2e8f0', fontSize: 14, fontWeight: 600 }}>{title}</span>
           <StatusBadge status={statusType} label={statusLabel} />
         </div>
-        <div style={{ color: '#94a3b8', fontSize: 13, marginTop: 4, lineHeight: 1.6 }}>{detail}</div>
-        {math && (
-          <div style={{ marginTop: 6 }}>
-            <InlineMath tex={math} />
-          </div>
-        )}
-      </div>
+        <span style={{
+          flexShrink: 0, color: '#475569', fontSize: 12, fontFamily: 'var(--font-mono)',
+          marginLeft: 8, userSelect: 'none',
+        }}>{expanded ? '▲' : '▼'}</span>
+      </button>
+
+      {/* Expandable detail */}
+      {expanded && (
+        <div style={{ padding: '0 14px 12px 54px' }}>
+          <div style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.6 }}>{detail}</div>
+          {math && (
+            <div style={{ marginTop: 6 }}>
+              <InlineMath tex={math} />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

@@ -109,6 +109,40 @@ function L_chi(D, s, nMax = 50000) {
 
 // ── Main test ────────────────────────────────────────────────────────────────
 
+/**
+ * CROSS-VERIFICATION NOTE (imp-768, 2026-04-15):
+ *
+ * Independent mathematical check of all computations in this module.
+ *
+ * 1. FORMULA CORRECTNESS:
+ *    Z(s, Q) = Σ_{(x,y)≠(0,0)} Q(x,y)^{-s} is the standard Epstein zeta.
+ *    For positive definite Q (b^2 - 4ac < 0, a > 0), Q(x,y) > 0 for all
+ *    (x,y) ≠ (0,0). The `if (Q > 0)` guard in epsteinZeta() is always
+ *    satisfied for the three forms tested — it is a correct defensive check.
+ *
+ * 2. DEDEKIND IDENTITIES VERIFIED (all three are textbook-standard):
+ *    a. Q(i):   Z(s, x^2+y^2)/4 = ζ(s)·L(s, χ_{-4})    [Gauss; w=4, h=1]
+ *    b. Q(√-3): Z(s, x^2+xy+y^2)/6 = ζ(s)·L(s, χ_{-3}) [w=6, h=1]
+ *    c. Q(√-2): Z(s, x^2+2y^2)/2 = ζ(s)·L(s, χ_{-8})   [w=2, h=1]
+ *    The divisor w is the number of roots of unity in each imaginary
+ *    quadratic field. All three forms have class number h=1, so there is
+ *    a single SL_2(Z)-class and the identity holds without further sum.
+ *
+ * 3. KRONECKER SYMBOL EDGE CASE:
+ *    kroneckerSymbol(D, 0) should return 1 iff |D|=1, else 0.
+ *    The guard `D === 1` misses D = -1 (returns 0 instead of 1).
+ *    IMPACT: none — L_chi() loops n from 1 to nMax, so n=0 is never
+ *    evaluated. The bug is benign but imprecise.
+ *
+ * 4. TRUNCATION ACCURACY AT s = 2, 3, 4:
+ *    Epstein sum (R=30): the tail beyond the 61×61 square is
+ *    ~π/R^2 ≈ 0.003 for s=2; dividing by w=4 gives ~0.00075 error.
+ *    ζ and L-series (nMax=50000): residual O(nMax^{1-s}) < 0.0001 for s≥2.
+ *    Combined error is well within the `< 0.001` match tolerance used here.
+ *
+ * VERDICT: All three Dedekind-Epstein identities are correctly stated and
+ * computed. The Kronecker n=0 edge case is benign for current usage.
+ */
 export function epsteinZetaTest() {
   // Test 1: Q(x,y) = x² + y² for Q(i), w=4, h=1, D=-4
   // Should give ζ_{Q(i)}(s) = (1/4) · Z(s, x²+y²) = ζ(s) · L(s, χ_{-4})

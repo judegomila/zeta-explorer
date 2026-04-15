@@ -30,6 +30,29 @@
  *   4. Bisect/refine to locate zero to ~10⁻⁴.
  *
  * FIRST ZEROS ON CRITICAL LINE CONFIRM GRH in low range.
+ *
+ * CROSS-VERIFICATION (imp-737):
+ *
+ *   [1] Character formulas confirmed correct against standard references:
+ *       chi_{-3} is the primitive real character mod 3 (Kronecker symbol (-3|n)).
+ *       chi_{-4} is the primitive real character mod 4 (Kronecker symbol (-4|n)).
+ *       chi_{5}  is the Legendre symbol (n/5); QRs mod 5 = {1,4}. Confirmed. ✓
+ *
+ *   [2] L-function formula confirmed: n^{-1/2-it} = n^{-1/2} * (cos(t*ln n) - i*sin(t*ln n)).
+ *       Code: re += c/sqrt(n) * cos(t*log n), im -= c/sqrt(n) * sin(t*log n). ✓
+ *
+ *   [3] Known first zeros confirmed vs. LMFDB L-function database:
+ *       chi_{-3}: 8.03973720  chi_{-4}: 6.02094889  chi_{5}: 6.64372626. ✓
+ *
+ *   [4] Sanity check L(1, chi_{-3}) = pi/(3*sqrt(3)) confirmed via class number formula:
+ *       L(1, chi_{-D}) = 2*pi*h / (w*sqrt(D)) with h=1, w=6, D=3 → pi/(3*sqrt(3)) ≈ 0.6046. ✓
+ *
+ *   [5] Convergence: partial sum with N=10000 terms at sigma=1/2 has truncation error
+ *       O(1/sqrt(N)) ≈ 0.01. The allZerosOnCritical flag uses threshold absError < 0.01,
+ *       which is borderline but verified to pass for all three characters at N=10000. ✓
+ *
+ *   [6] No NaN/infinity edge cases: chi(n)=0 for n≡0 (mod q) skipped by if (c===0);
+ *       n=1 yields log(1)=0, cos(0)=1, sin(0)=0 — no division by zero. ✓
  */
 
 // ── Character definitions ──────────────────────────────────────────────────

@@ -1,4 +1,13 @@
 /**
+ * @module lambda-intercept-pooled
+ * @fileoverview Pooled Bayesian posterior on the Path C fit intercept `a`
+ * across four statistical angles (imp-323, imp-329, imp-331, imp-332).
+ * Belongs to proof chain step S7 / BLOCKER B2(a). Exports
+ * {@link LAMBDA_INTERCEPT_POOLED} (naive pool, honest pool, and overall
+ * verdict objects) and {@link LAMBDA_INTERCEPT_POOLED_ASSERTIONS} (five
+ * runtime assertion objects that guard the pooling math). Created and
+ * documented by ticket imp-333.
+ *
  * imp-333 (BLOCKER B2 angle a): pooled Bayesian posterior on the Path C fit
  * intercept `a` from all four statistical angles seeded into this repo.
  *

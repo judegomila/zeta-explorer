@@ -1,4 +1,45 @@
 /**
+ * @module koksma-to-tc-closure
+ * @fileoverview Closes skp-001 (FATAL adversarial-review gap) by proving that
+ * the Koksma-Hlawka bound directly implies lim sup |t_c(N)| = 0 via the
+ * Burgers backward-collision formula, without invoking Theorem 10.2.
+ *
+ * **What this file exports**
+ * - `KOKSMA_TO_TC_CLOSURE` — proof record (id imp-424) closing skp-001.
+ *   Contains the gap statement, proof steps, no-circularity declaration,
+ *   numerical witness table, and CLOSED verdict.
+ * - `KOKSMA_TO_TC_CLOSURE_ASSERTIONS` — five build-time assertions wired into
+ *   the global assertion registry (see "Key assertions" below).
+ *
+ * **Proof-chain role (Theorem 10.1 non-circular closure)**
+ * Theorem 10.1 of proof-paper.js claimed that the KH bound implies t_c(N)->0
+ * "in particular," but the adversarial skeptic review (imp-417) flagged this
+ * phrase as unjustified (skp-001 FATAL). The fix is a direct argument: the
+ * Burgers formula expresses tau_c as 1/(2 sup F_N), the KH bound controls
+ * |F_N - F_inf|, and the Poisson kernel shows F_inf(x, y_sharp) = O(sqrt(N))
+ * >> O(log N) perturbation, so sup F_N -> inf and tau_c <= y_sharp /
+ * (2 pi rho) -> 0. This uses only imp-338 (Burgers) + imp-341 (KH) with no
+ * appeal to Theorem 10.2 (Holder-1/2), making the two theorems logically
+ * independent and eliminating the circularity the skeptic identified.
+ *
+ * **Key assertions**
+ * 1. `imp424-citation-ids-intact` — imp-338 and imp-341 ids must not drift.
+ * 2. `imp424-all-ratios-below-one` — KH perturbation-to-signal ratio < 1 at
+ *    every PATH_C_BASELINE_FIT anchor.
+ * 3. `imp424-all-tau-c-upper-bounds-positive` — tau_c upper bound > 0 at
+ *    every anchor (confirms the Burgers-formula upper-bound chain is intact).
+ * 4. `imp424-ratio-strictly-decreasing` — ratio decreasing across the
+ *    baseline, confirming the O(log N / sqrt(N)) theoretical rate.
+ * 5. `imp424-skp001-verdict-closed` — verdict field must read "CLOSED",
+ *    guarding against a future edit silently reopening the adversarial finding.
+ *
+ * **Ticket history**
+ * - imp-424: created this file; derived the non-circular proof and wired the
+ *   five numerical assertions.
+ * - imp-738: added this @module/@fileoverview JSDoc.
+ */
+
+/**
  * imp-424: Close skp-001 -- explicit proof that Koksma-Hlawka bound implies
  * t_c(N) -> 0 without invoking Theorem 10.2 (Holder-1/2 modulus).
  *

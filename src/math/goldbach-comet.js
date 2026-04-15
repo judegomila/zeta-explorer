@@ -56,16 +56,21 @@ function goldbachR(n, primes, sieve) {
 function hlPrediction(n) {
   if (n < 4 || n % 2 !== 0) return 0;
   const logn = Math.log(n);
+  const nOrig = n;
   let singularSeries = 1;
-  let m = n / 2;  // odd prime factors of n
+  // Strip all factors of 2 first. The loop below only covers odd primes (p=3,5,...),
+  // so without this step the remaining n after the loop still contains the 2-factor,
+  // causing the final "large prime" check to apply (2q-1)/(2q-2) instead of (q-1)/(q-2).
+  // Verified: n=6 was giving singularSeries=5/4 instead of 2; n=30 gave 9/4 instead of 8/3.
+  while (n % 2 === 0) n /= 2;
   for (let p = 3; p * p <= n; p += 2) {
     if (n % p === 0) {
       singularSeries *= (p - 1) / (p - 2);
       while (n % p === 0) n /= p;
     }
   }
-  if (n > 2) singularSeries *= (n - 1) / (n - 2);
-  return 2 * TWIN_PRIME_CONSTANT * singularSeries * (m * 2) / (logn * logn);
+  if (n > 1) singularSeries *= (n - 1) / (n - 2);
+  return 2 * TWIN_PRIME_CONSTANT * singularSeries * nOrig / (logn * logn);
 }
 
 // Simpler version: r(n) ~ 2·C_2·n/(log n)² (ignoring singular series)

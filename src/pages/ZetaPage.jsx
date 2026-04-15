@@ -7,6 +7,15 @@ import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 
 export default function ZetaPage() {
+  // Normalized spacings for GUE / Montgomery-Odlyzko statistics
+  const rawSpacings = ZETA_ZEROS.slice(0, -1).map((z, i) => ZETA_ZEROS[i + 1] - z);
+  const meanRawSpacing = rawSpacings.reduce((a, b) => a + b, 0) / rawSpacings.length;
+  const normSpacings = rawSpacings.map(s => s / meanRawSpacing);
+  const normMean = normSpacings.reduce((a, b) => a + b, 0) / normSpacings.length;
+  const normStd = Math.sqrt(normSpacings.reduce((a, s) => a + Math.pow(s - normMean, 2), 0) / normSpacings.length);
+  // GUE Wigner surmise (beta=2): std = sqrt(3*pi/8 - 1) ≈ 0.422
+  const guePredStd = Math.sqrt(3 * Math.PI / 8 - 1);
+
   return (
     <div className="page">
       <div className="page-header">
@@ -176,6 +185,57 @@ export default function ZetaPage() {
               oscillator chain. As frequency increases, modes pack more tightly — the density of
               states grows logarithmically, exactly matching a 1D system with logarithmic dispersion.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Montgomery-Odlyzko Law: GUE Zero Spacing Statistics */}
+      <div className="card" style={{ marginTop: 32, borderColor: '#3b82f6' }}>
+        <h3 style={{ color: '#3b82f6' }}>Montgomery-Odlyzko Law: GUE Universality of Zero Spacings</h3>
+        <p style={{ marginTop: 8, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          Montgomery (1973) conjectured, and Odlyzko (1987) verified numerically for millions of zeros,
+          that the normalized spacings <InlineMath tex={"\\delta_n = (\\gamma_{n+1}-\\gamma_n)/\\langle s\\rangle"} /> follow
+          the GUE (Gaussian Unitary Ensemble) eigenvalue spacing distribution — a profound link between
+          the Riemann zeta function and quantum chaos.
+        </p>
+        <BlockMath tex={"p_{\\mathrm{GUE}}(s) = \\frac{32}{\\pi^2}\\,s^2\\,e^{-4s^2/\\pi}, \\qquad \\mathrm{mean}=1,\\; \\mathrm{std} = \\sqrt{\\tfrac{3\\pi}{8}-1}\\approx 0.422"} />
+        <div className="two-col" style={{ marginTop: 16, gap: 16 }}>
+          <div>
+            <p style={{ color: '#64748b', fontSize: 12, marginBottom: 8 }}>First 10 normalized spacings</p>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, lineHeight: 2 }}>
+              {normSpacings.slice(0, 10).map((s, i) => (
+                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '0 4px', borderBottom: '1px solid rgba(42,48,80,0.3)' }}>
+                  <span style={{ color: '#64748b' }}><InlineMath tex={"\\delta_{" + (i + 1) + "}"} /></span>
+                  <span style={{ color: s > 1.6 ? '#f59e0b' : s < 0.4 ? '#ef4444' : '#3b82f6' }}>{s.toFixed(4)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p style={{ color: '#64748b', fontSize: 12, marginBottom: 8 }}>Observed vs GUE ({ZETA_ZEROS.length - 1} spacings)</p>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, lineHeight: 2 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', padding: '2px 4px' }}>
+                <span style={{ color: '#64748b' }}>mean</span>
+                <span>
+                  <span style={{ color: '#3b82f6' }}>{normMean.toFixed(4)}</span>
+                  <span style={{ color: '#334155', fontSize: 11 }}> vs GUE 1.0000</span>
+                </span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', padding: '2px 4px' }}>
+                <span style={{ color: '#64748b' }}>std dev</span>
+                <span>
+                  <span style={{ color: '#3b82f6' }}>{normStd.toFixed(4)}</span>
+                  <span style={{ color: '#334155', fontSize: 11 }}> vs GUE {guePredStd.toFixed(4)}</span>
+                </span>
+              </div>
+            </div>
+            <div style={{ marginTop: 16, padding: 10, background: 'rgba(59,130,246,0.08)', borderRadius: 8 }}>
+              <p style={{ fontSize: 12, color: '#60a5fa' }}>
+                <strong>Level repulsion:</strong> GUE predicts <InlineMath tex={"p(s) \\sim s^2"} /> near <InlineMath tex={"s=0"} /> —
+                zeros strongly repel each other. Lehmer events (two zeros unusually close) are rare
+                because the <InlineMath tex={"s^2"} /> factor strongly suppresses small spacings.
+              </p>
+            </div>
           </div>
         </div>
       </div>

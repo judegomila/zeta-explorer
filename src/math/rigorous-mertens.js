@@ -153,6 +153,39 @@ function verifyMertensProduct(numPrimes) {
 }
 
 /**
+ * CROSS-VERIFICATION (imp-796) — independent check of this module
+ *
+ * (1) Formula correctness vs. Rosser-Schoenfeld 1962:
+ *   The bound δ(P) ≤ T₁+T₂+T₃+T₄ is consistent with R-S explicit forms for
+ *   Mertens product error. T₂=1/logP is the dominant term; at P=1e6, T₂≈0.072
+ *   while T₁≈1.0e-4, T₃≈1.8e-4, T₄≈1.0e-6. The bound converges to 0 as P→∞.
+ *   NOTE: the M₃ constant here (≈2.51012) is NOT the standard Meissel-Mertens
+ *   constant M≈0.2615; it is an explicit R-S 1962 bound on the Σ(log p/p) error.
+ *   NOTE: the δ(P) formula docblock (line 34) shows "|...|²" but the implemented
+ *   bound is a linear sum T₁+T₂+T₃+T₄ — the "²" is a documentation inconsistency.
+ *
+ * (2) Edge-case check:
+ *   • P=1: log(1)=0 → T₁=T₂=Infinity. Interval div() returns [-Inf,Inf]
+ *     (correctly flags as unbounded). Safe in practice: smallest prime is P=2.
+ *   • P=2: bound ≈ 4.55 (finite but large; meaningful only for P ≫ e).
+ *   • P→∞: all four terms → 0, rigorously confirming δ(P)→0.
+ *
+ * (3) Independent reference values (recomputed without this module):
+ *   P=1e3:  T₁≈4.20e-4, T₂≈1.448e-1, T₃≈1.15e-2, T₄≈1.00e-3 → sum≈0.1577
+ *   P=1e6:  T₁≈1.05e-4, T₂≈7.238e-2, T₃≈1.82e-4, T₄≈1.00e-6 → sum≈0.0727
+ *   P=1e12: T₁≈2.62e-5, T₂≈3.619e-2, T₃≈9.08e-8, T₄≈1.00e-12 → sum≈0.0362
+ *   These agree with T₂-dominant 1/logP decay and match module output.
+ *
+ * (4) Dead variable: `negGamma` in verifyMertensProduct() is computed but
+ *   unused — eNegGamma uses the correct hardcoded bound directly.
+ *   Verified: exp(-0.5772156649015329) = 0.56145948356688..., confirming
+ *   eNegGamma = [0.56145948356, 0.56145948357] is tight and correct.
+ *
+ * Verdict: formulas are correct; bound is conservative (T₂ dominates);
+ * no NaN/Inf for P≥2 inputs; `negGamma` dead variable is harmless.
+ */
+
+/**
  * Main test: rigorous Mertens bound with interval arithmetic.
  */
 export function rigorousMertensTest() {

@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import OscillatorChainViz from '../components/OscillatorChainViz.jsx';
 import EulerProductViz from '../components/EulerProductViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
 export default function OscillatorsPage() {
+  const [sliderSigma, setSliderSigma] = useState(0.5);
+  const sliderQ = 1 / (2 * sliderSigma);
+  const sliderRegime =
+    sliderQ > 1.05 ? 'underdamped' : sliderQ < 0.95 ? 'overdamped' : 'critical';
+  const sliderColor =
+    sliderRegime === 'underdamped' ? '#3b82f6'
+    : sliderRegime === 'overdamped' ? '#f59e0b'
+    : '#10b981';
+
   return (
     <div className="page">
       <div className="page-header">
@@ -204,6 +213,38 @@ export default function OscillatorsPage() {
           contributes a different characteristic impedance <InlineMath tex={"Z_0 = \\log p"} />,
           adding distinct spectral detail per prime.
         </p>
+
+        <div style={{ marginTop: 16, padding: '12px 16px', background: 'rgba(15,23,42,0.6)', borderRadius: 8, border: `1px solid ${sliderColor}40` }}>
+          <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 8 }}>
+            Interactive: drag <strong style={{ color: '#e2e8f0' }}>σ</strong> to explore the Q-factor regime
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span style={{ fontSize: 12, color: '#64748b', minWidth: 60 }}>σ = {sliderSigma.toFixed(2)}</span>
+            <input
+              type="range"
+              min="0.05"
+              max="1.5"
+              step="0.01"
+              value={sliderSigma}
+              onChange={e => setSliderSigma(parseFloat(e.target.value))}
+              style={{ flex: 1, accentColor: sliderColor }}
+            />
+            <span style={{ fontSize: 12, color: '#64748b', minWidth: 60, textAlign: 'right' }}>σ = 1.50</span>
+          </div>
+          <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 16 }}>
+            <div style={{ fontSize: 22, fontWeight: 700, color: sliderColor, minWidth: 90 }}>
+              Q = {sliderQ.toFixed(3)}
+            </div>
+            <div style={{ padding: '4px 10px', borderRadius: 4, background: `${sliderColor}22`, color: sliderColor, fontSize: 12, fontWeight: 600 }}>
+              {sliderRegime}
+            </div>
+            {Math.abs(sliderSigma - 0.5) < 0.01 && (
+              <div style={{ fontSize: 12, color: '#10b981', fontStyle: 'italic' }}>
+                ← critical line: Q = 1 exactly
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Related Pages */}

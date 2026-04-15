@@ -1,6 +1,28 @@
 /**
- * Wave Index: Navigable summary of all 148 improvements organized by wave and topic
- * imp-149
+ * @module wave-index
+ * @fileoverview Navigable summary of all improvements in the ZPO / RH-attack project,
+ * organised by thematic wave, key mathematical results, withdrawn claims, and aggregate
+ * project statistics.
+ *
+ * Exports:
+ *   - {@link waves}        - 8 thematic waves (imp-001 through imp-148+), each with
+ *                            improvement range, one-line summary, and key sub-results.
+ *   - {@link keyResults}   - Notable proven/open mathematical results with status labels
+ *                            (PROVEN, OPEN, VERIFIED, UNIFICATION).
+ *   - {@link withdrawn}    - Claims that were retracted, with reasons and the ticket
+ *                            that identified the error.
+ *   - {@link projectStats} - Snapshot counters (total improvements, waves, open gaps).
+ *
+ * Proof-chain role: documentation/navigation layer only; contains no executable math.
+ * This file is consumed by dashboard and overview UI components to display progress.
+ *
+ * Key results catalogued here include:
+ *   - S21 = zeta(2s)/zeta(s) by 4-line induction (imp-121, PROVEN)
+ *   - SL(2,R) topological closure (imp-093, PROVEN)
+ *   - Machine-checked Mertens delta(P) bound (imp-084, PROVEN)
+ *   - Lax-Phillips pole-confinement path (imp-131, OPEN ~80%)
+ *
+ * Created: imp-149. Last substantive update: imp-336.
  */
 
 export const waves = [

@@ -1,4 +1,20 @@
 /**
+ * @module esy-rigidity-port
+ * @fileoverview Port Erdos-Schlein-Yau local semicircle rigidity to Dyson
+ *   beta=2 on Riemann zeros -- partial closure (imp-407).
+ *
+ * Proof chain step: S7
+ * Exports: ESY_RIGIDITY_PORT (partial-closure record for the S7 proof chain),
+ *          ESY_RIGIDITY_PORT_ASSERTIONS (6 build-time tripwires)
+ * Key assertions: imp407-witness-opt-ratios-below-one,
+ *   imp407-witness-cons-ratios-below-one,
+ *   imp407-witness-consistent-with-measured,
+ *   imp407-esy-opt-strictly-better-than-angle-a,
+ *   imp407-consumes-imp348-angle-b-open,
+ *   imp407-open-sub-gaps-named
+ * Tickets: created=imp-407, modified=imp-508 (O1 partial close),
+ *   investigated=imp-650 (upgrade investigation: cannot-upgrade)
+ *
  * imp-407: Port Erdos-Schlein-Yau local semicircle rigidity to Dyson beta=2
  *          on Riemann zeros
  *

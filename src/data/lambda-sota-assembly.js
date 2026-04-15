@@ -1,4 +1,26 @@
 /**
+ * @module lambda-sota-assembly
+ * @fileoverview SOTA Λ ≤ 0.02 claim assembly — three independent methods + build-time assertions.
+ *
+ * **What this file exports**
+ * - `LAMBDA_SOTA_ASSEMBLY` — structured record of the current best Λ upper-bound
+ *   assembly: id, status, methods (conditional/statistical/pathC/routeB),
+ *   headlineClaim, independentCrossCheck, and three named sub-gaps.
+ * - `LAMBDA_SOTA_ASSEMBLY_ASSERTIONS` — array of 7 build-time assertion objects
+ *   that verify Methods 1 and 3 beat the 0.02 target, headline beats
+ *   Platt-Trudgian, tightening factor >= 10x, status remains "partial" until
+ *   unconditional, imp-366 G6a closure is intact, and Path C value is consistent.
+ *
+ * **Proof-chain step**: Final SOTA assembly layer — sits above S6/S8 data files
+ * (lambda-intercept-analytic.js, lambda-intercept-confidence.js,
+ * lambda-error-budget.js, polymath15-lemma52-shock-holder.js).
+ *
+ * **Ticket history**
+ * - imp-356: created this file (SOTA Λ statement + verification, partial closure)
+ * - imp-366: upgraded Route B directional support with Polymath15 Lemma 5.2 port,
+ *   closed G6a_shock_lipschitz structurally
+ * - imp-800: added @module/@fileoverview JSDoc (this comment)
+ *
  * imp-356 (partial closure, upgraded after imp-366): SOTA Λ statement + verification
  *
  * Assembles the current best-available Λ ≤ 0.02 claim from three independent

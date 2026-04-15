@@ -226,6 +226,30 @@ export function weylCountingFunction(logPrimes, lambda) {
 // ---------------------------------------------------------------------------
 
 /**
+ * Cross-verification notes (imp-787):
+ *
+ * 1. Trace reality invariant: T_k has real diagonal (cos theta_k) and pure-imaginary
+ *    off-diagonal (j*Z_k*sin theta_k, j*sin(theta_k)/Z_k). This structure is closed
+ *    under matrix multiplication: real*real + imag*imag = real for diagonal entries,
+ *    real*imag + imag*real = imag for off-diagonal. By induction the product T_1...T_N
+ *    has the same structure, so Tr is always real. traceOfCascade correctly returns ar+dr.
+ *
+ * 2. Reference value N=1, p_1=2 (analytic): Tr(T_1(omega)) = 2*cos(omega*log(2)).
+ *    Tr=+2 eigenfrequencies occur at omega_k = 2*pi*k/log(2); first at omega_1 ~ 9.065.
+ *    For lambdaMax=3: actualCount=0, N_Weyl=log(2)/pi*3 ~ 0.662.
+ *    Large relative error is expected; Weyl law is asymptotic, valid for large lambda.
+ *
+ * 3. Edge case omega=0: each T_k reduces to I (cos=1, sin=0), so the product is I
+ *    and traceOfCascade returns 2. countEigenfrequencies starts scanning from step>0,
+ *    so this boundary is not counted as a zero crossing. Correct behavior.
+ *
+ * 4. No NaN/Infinity risk: logPrimes holds log(p) >= log(2) > 0, so Zk=1/logP and
+ *    invZk=logP are always finite. Empty logPrimes: the loop in traceOfCascade does not
+ *    execute, returning ar+dr=2 (identity trace). countEigenfrequencies: Ltotal=0 gives
+ *    expectedSpacing=Infinity, step=Infinity, the omega loop never executes, returns 0.
+ */
+
+/**
  * Run the Weyl law test for the Darlington cascade.
  *
  * For each cascade size N, we:

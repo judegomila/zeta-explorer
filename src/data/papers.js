@@ -1,7 +1,29 @@
 /**
- * Paper data layer — merges built-in papers with localStorage.
+ * @module papers
+ * @fileoverview Paper data layer for the ZPO Explorer / RH-attack project.
  *
- * Schema: { id, title, authors, date, abstract, rawLatex, nodes, source, createdAt }
+ * This module manages the collection of mathematical papers that underpin
+ * the Riemann Hypothesis attack via Zero-Point Oscillator (ZPO) methods.
+ * It merges a set of committed built-in papers with any user-added papers
+ * persisted in localStorage, deduplicating by paper id.
+ *
+ * **Proof chain role:** Supporting documentation layer — papers referenced
+ * here provide theoretical grounding for the ZPO spectral framework, the
+ * de Branges approach, and the analytic bounds used in the RH attack.
+ *
+ * **Schema:** Each paper object has the shape:
+ *   `{ id, title, authors, date, abstract, rawLatex, nodes, source, createdAt }`
+ *   where `nodes` is derived from `rawLatex` at runtime and is stripped on export.
+ *
+ * **Key exports:**
+ *   - `getAllPapers()` — merged list (builtins + user storage), deduplicated
+ *   - `getPaperById(id)` — single-paper lookup
+ *   - `savePaper(paper)` — upsert to localStorage
+ *   - `deletePaper(id)` — remove from localStorage (builtins are unaffected)
+ *   - `exportPaperAsModule(paper)` — serialise paper to a JS module string
+ *   - `generateId()` — create a unique paper id
+ *
+ * **Tickets:** imp-732 added this @module documentation.
  */
 
 const STORAGE_KEY = 'zpo-papers';

@@ -59,6 +59,15 @@ function transferMatrix(p, omega) {
   const arg = omega * logP;
   const c = Math.cos(arg), s = Math.sin(arg);
   const Zp = 1 / logP;
+  // CROSS-VERIFICATION (imp-770):
+  // det(T_p) = c*c - (Zp*s)*(-s/Zp) = c^2 + s^2 = 1 — T_p is in SL(2,R) for all p >= 2. OK.
+  // ISSUE: JSDoc step (iii) claims ||T_p - I||_F = O(1/logP) and T_p -> I as p -> infinity.
+  // This is INCORRECT. The (1,0) entry is -s/Zp = -sin(omega*logP)*logP, which grows with p
+  // (not decays) whenever sin(omega*logP) is nonzero. T_p does NOT converge to I.
+  // The observed cascade convergence (||S_{N+1} - S_N|| -> 0) must arise from oscillatory
+  // cancellation across the product S_N, not from per-step section transparency as claimed.
+  // The sectionDeviation metric computed in buildCascadeDifferences therefore does NOT
+  // measure section transparency correctly — it is dominated by the growing -s/Zp term.
   return [[c, Zp * s], [-s / Zp, c]];
 }
 

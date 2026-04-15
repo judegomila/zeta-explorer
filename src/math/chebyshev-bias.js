@@ -176,7 +176,12 @@ export function chebyshevBiasTest() {
       expected_first_change_at: 26861,
       diff_before_26861: diff_before,
       diff_at_26861: diff_at_first,
-      verified: diff_before !== 0 && diff_at_first !== 0 && Math.sign(diff_before) !== Math.sign(diff_at_first) || diff_at_first === 0,
+      // Cross-verification (imp-746): independent run confirms diff_before===0 (tied at x=26860)
+      // and diff_at_first===-1 (1-residues overtake at 26861, since 26861≡1 mod 4 is prime).
+      // Old condition required diff_before!==0, which fails here (diff_before===0), producing
+      // verified=false despite the sign change being real. Fixed: verified iff 3-residues were
+      // not already behind at x=26860 (diff_before>=0) AND 1-residues lead at x=26861 (diff<0).
+      verified: diff_at_first < 0 && diff_before >= 0,
       note: diff_at_first >= 0 ? 'Still biased toward 3-residues' : 'Sign change confirmed',
     },
 

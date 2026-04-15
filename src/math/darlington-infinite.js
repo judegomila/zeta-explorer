@@ -212,6 +212,19 @@ function algebraicZeroArgument() {
   const N = 100;
   const primes = getPrimes(N);
 
+  // ── Cross-verification (imp-773): symmetric cascade structure ─────────────
+  // The update rule (nA=A+B*pms, nB=A*pms+B, nC=C+D*pms, nD=C*pms+D) with
+  // initial A=[1,0], B=[0,0], C=[0,0], D=[1,0] preserves A=D and B=C at
+  // every step, provable by induction:
+  //   Base: A=[1,0]=D, B=[0,0]=C.
+  //   Step: nA = A+B*pms, nD = C*pms+D = B*pms+A = nA (using C=B, D=A). Likewise nB=nC.
+  // Therefore num11 = cSub(cAdd(A,B), cAdd(C,D)) = (A+B) - (B+A) = [0,0] for
+  // ALL sigma — S₁₁ = 0 is a structural identity of this symmetric cascade,
+  // not just an approximation at sigma=0.5.
+  // Consequence: imagFraction = |Im(s21)| / |Re(s21)|; "effectivelyReal" checks
+  // whether Im(A+B) is small relative to Re(A+B) at the given (sigma, t).
+  // ──────────────────────────────────────────────────────────────────────────
+
   const results = [0.3, 0.4, 0.5, 0.6, 0.7].map(sigma => {
     // Build complex cascade
     let A = [1,0], B = [0,0], C = [0,0], D = [1,0];

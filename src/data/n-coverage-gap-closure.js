@@ -1,4 +1,26 @@
 /**
+ * @module n-coverage-gap-closure
+ * @fileoverview Formal closure of skp5-001 — N-coverage gap [871, 9999] in the
+ *   many-body correction bound for the RH-attack proof chain.
+ *
+ * Exports:
+ *   - {@link N_COVERAGE_GAP_CLOSURE} — structured record documenting the
+ *     local-density argument that closes the gap for N in [871, 9999], with
+ *     cross-references to upstream objects in many-body-correction-closure.js.
+ *
+ * Proof chain step: S10-verify / skp5-001 closure.
+ *   imp-471 (rho_min analytic bound) -> imp-476 (local-density mid-range argument) ->
+ *   imp-505 (this file: N_COVERAGE_GAP_CLOSURE record + runtime assertions).
+ *
+ * Key assertions checked at module load (throws Error if false at import time):
+ *   1. gap_3 < min(gap_0, gap_1, gap_2) — j-(N) >= 3 for all N >= 5
+ *   2. rho(gamma_4) > C_mb * f(871)     — local density suffices for N in [871, 9999]
+ *   3. MID_RANGE_COVERAGE.gapClosed     — upstream confirms mid-range closure
+ *   4. MANY_BODY_CORRECTION_CLOSURE midRangeCoverage.gapClosed — full record consistent
+ *
+ * Tickets: created by imp-505; gap identified by skp5-001 (fifth adversarial review,
+ *   imp-474); mid-range argument implemented in imp-476; JSDoc header added by imp-774.
+ *
  * imp-505: Formal closure of skp5-001 — N-coverage gap [871, 9999] in many-body bound
  * Date: 2026-04-12
  *

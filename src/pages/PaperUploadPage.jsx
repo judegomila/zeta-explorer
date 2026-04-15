@@ -127,6 +127,7 @@ export default function PaperUploadPage() {
   const [pdfClaims, setPdfClaims] = useState([]);
   const [pdfFileName, setPdfFileName] = useState('');
   const [pdfSaved, setPdfSaved] = useState(false);
+  const [pdfPageCount, setPdfPageCount] = useState(null);
   const [dragOver, setDragOver] = useState(false);
   const [activeTab, setActiveTab] = useState('pdf'); // 'pdf' | 'latex'
 
@@ -216,6 +217,7 @@ export default function PaperUploadPage() {
       const pdfjsLib = await loadPdfJs();
       const arrayBuffer = await file.arrayBuffer();
       const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      setPdfPageCount(pdf.numPages);
       const pageTexts = [];
 
       for (let i = 1; i <= pdf.numPages; i++) {
@@ -278,6 +280,7 @@ export default function PaperUploadPage() {
     setPdfFileName('');
     setPdfError('');
     setPdfSaved(false);
+    setPdfPageCount(null);
   };
 
   // ── Editable metadata fields for PDF ─────────────────────────────────────
@@ -382,6 +385,35 @@ export default function PaperUploadPage() {
 
           {pdfText && (
             <>
+              {/* PDF stats bar */}
+              <div style={{
+                display: 'flex', gap: 24, flexWrap: 'wrap',
+                padding: '10px 18px',
+                background: 'rgba(99,102,241,0.07)',
+                border: '1px solid rgba(99,102,241,0.2)',
+                borderRadius: 8,
+                marginBottom: 16,
+                fontSize: 13,
+                alignItems: 'center',
+              }}>
+                {pdfPageCount != null && (
+                  <span><strong style={{ color: '#a5b4fc' }}>{pdfPageCount}</strong>{' '}
+                    <span style={{ color: '#64748b' }}>page{pdfPageCount !== 1 ? 's' : ''}</span></span>
+                )}
+                <span><strong style={{ color: '#a5b4fc' }}>{pdfText.split(/\s+/).filter(Boolean).length.toLocaleString()}</strong>{' '}
+                  <span style={{ color: '#64748b' }}>words</span></span>
+                <span><strong style={{ color: '#a5b4fc' }}>{pdfText.length.toLocaleString()}</strong>{' '}
+                  <span style={{ color: '#64748b' }}>chars</span></span>
+                {pdfClaims.filter(c => c.label !== 'Equations').length > 0 && (
+                  <span><strong style={{ color: '#fbbf24' }}>{pdfClaims.filter(c => c.label !== 'Equations').length}</strong>{' '}
+                    <span style={{ color: '#64748b' }}>claim{pdfClaims.filter(c => c.label !== 'Equations').length !== 1 ? 's' : ''}</span></span>
+                )}
+                {(() => { const eqCount = (pdfText.match(/\$[^$]+\$/g) || []).length; return eqCount > 0 ? (
+                  <span><strong style={{ color: '#34d399' }}>{eqCount}</strong>{' '}
+                    <span style={{ color: '#64748b' }}>inline equation{eqCount !== 1 ? 's' : ''}</span></span>
+                ) : null; })()}
+              </div>
+
               {/* Detected metadata */}
               {pdfMeta && (
                 <div style={{ ...cardStyle, borderColor: 'rgba(16,185,129,0.3)' }}>

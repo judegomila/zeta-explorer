@@ -146,6 +146,28 @@ function allAttackScores(sigma, t, numPrimes) {
 
 function EfficiencyMatrixTab({ t, numPrimes }) {
   const canvasRef = useRef();
+  const [tooltip, setTooltip] = useState(null);
+
+  const handleMouseMove = useCallback((e) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const n = ATTACK_NAMES.length;
+    const margin = { left: 100, right: 20, top: 80, bottom: 20 };
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+    const cellW = (w - margin.left - margin.right) / n;
+    const cellH = (h - margin.top - margin.bottom) / n;
+    const col = Math.floor((x - margin.left) / cellW);
+    const row = Math.floor((y - margin.top) / cellH);
+    if (col >= 0 && col < n && row >= 0 && row < n) {
+      setTooltip({ x, y, row, col });
+    } else {
+      setTooltip(null);
+    }
+  }, []);
 
   const matrix = useMemo(() => {
     // Get cross-correlation matrix from spectral-attack (8 measures)
@@ -301,7 +323,46 @@ function EfficiencyMatrixTab({ t, numPrimes }) {
 
   return (
     <div>
-      <canvas ref={canvasRef} style={{ width: '100%', height: 420, display: 'block' }} />
+      <div style={{ position: 'relative' }}>
+        <canvas
+          ref={canvasRef}
+          style={{ width: '100%', height: 420, display: 'block', cursor: 'crosshair' }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={() => setTooltip(null)}
+        />
+        {tooltip && (
+          <div style={{
+            position: 'absolute',
+            left: tooltip.x + 14,
+            top: Math.max(tooltip.y - 10, 0),
+            background: '#1e293b',
+            border: '1px solid #334155',
+            borderRadius: 6,
+            padding: '8px 12px',
+            fontSize: 11,
+            pointerEvents: 'none',
+            zIndex: 10,
+            minWidth: 150,
+          }}>
+            <div style={{ color: ATTACK_COLORS[tooltip.col], fontWeight: 600 }}>{ATTACK_NAMES[tooltip.col]}</div>
+            <div style={{ color: ATTACK_COLORS[tooltip.row], fontWeight: 600, marginBottom: 4 }}>{ATTACK_NAMES[tooltip.row]}</div>
+            <div style={{ color: '#94a3b8' }}>
+              r = <strong style={{ color: '#e2e8f0' }}>{matrix[tooltip.row][tooltip.col].toFixed(3)}</strong>
+            </div>
+            {tooltip.row !== tooltip.col && (
+              <div style={{
+                marginTop: 3,
+                fontSize: 10,
+                color: Math.abs(matrix[tooltip.row][tooltip.col]) < 0.3 ? '#10b981' :
+                       Math.abs(matrix[tooltip.row][tooltip.col]) > 0.7 ? '#ef4444' : '#f59e0b',
+              }}>
+                {Math.abs(matrix[tooltip.row][tooltip.col]) < 0.3 ? 'Independent' :
+                 Math.abs(matrix[tooltip.row][tooltip.col]) > 0.7 ? 'Redundant' : 'Moderate'}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
       <div style={{ display: 'flex', gap: 16, marginTop: 12, flexWrap: 'wrap' }}>
         <div style={{ background: '#0f172a', padding: '8px 14px', borderRadius: 8, fontSize: 12 }}>
           <span style={{ color: '#10b981' }}>Independent pairs (|r| &lt; 0.3):</span>{' '}

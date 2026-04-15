@@ -1,4 +1,49 @@
 /**
+ * @fileoverview Dyson-ladder N = 10^4 / 10^5 extension — imp-353 partial closure record.
+ *
+ * @module dyson-ladder-N10k
+ *
+ * EXPORTS
+ * -------
+ * - DYSON_LADDER_N10K           {object}  Partial-closure record for imp-353: OLS-projected
+ *                                         |t_c| values at N = 10^4 (measured) and N = 10^5
+ *                                         (pending imp-360), tightening-factor analysis,
+ *                                         quadratic curvature correction, and named sub-gaps.
+ * - DYSON_LADDER_N10K_ASSERTIONS {Array}  Six build-time assertion objects (id, holds, why).
+ *                                         The fifth entry is a TRIPWIRE: fires when imp-360
+ *                                         appends a 6th row to PATH_C_BASELINE_FIT, signalling
+ *                                         that imp-353 can be fully closed.
+ *
+ * PROOF-CHAIN POSITION
+ * --------------------
+ * Sits in the Dyson-ladder branch of the Lambda upper-bound computation (Path C):
+ *   PT_SCALE_EXTRAPOLATION (imp-321)
+ *     -> dyson-ladder-N10k.js        [this file, imp-353 partial]
+ *       -> PATH_C_BASELINE_FIT       [dyson-scaling-N5000.js]
+ *         -> CONDITIONAL_UPPER_BOUND [lambda-intercept-analytic.js, imp-328]
+ *           -> lambda-intercept-conditional-ladder.js  [conditional verdict]
+ *
+ * KEY ASSERTIONS
+ * --------------
+ * 1. imp353-projected-row-N1e4-exists       — PT_SCALE_EXTRAPOLATION.ladder has N = 10^4 row.
+ * 2. imp353-projected-row-N1e5-exists       — PT_SCALE_EXTRAPOLATION.ladder has N = 10^5 row.
+ * 3. imp353-projected-N1e4-tighter-than-baseline — OLS projection at N = 10^4 is strictly
+ *    below the current conditional UB (0.0086 at N = 2458); validates fit constants.
+ * 4. imp353-projected-N1e5-tighter-than-N1e4 — monotone decrease in OLS projection.
+ * 5. imp353-baseline-still-only-5-points    — TRIPWIRE: PATH_C_BASELINE_FIT has exactly 5
+ *    rows; intentionally fails when imp-360 appends the N = 10^5 measured value.
+ * 6. imp353-status-is-partial               — companion to the tripwire; fails on full closure.
+ *
+ * TICKET HISTORY
+ * --------------
+ * Created by  : imp-353 (Tighten Lambda central value — extend Dyson ladder to N in {10^4,10^5})
+ * Dependencies: imp-321 (PT_SCALE_EXTRAPOLATION), imp-323 (OLS fit constants),
+ *               imp-328 (monotonicity hypothesis), imp-359 (ZEROS_EXTENDED resolved 2026-04-11)
+ * Pending     : imp-360-compute-N1e5 (compiled-backend ODE run at N = 10^5)
+ * Upgrade checks: imp-649 (2026-04-14 cannot-upgrade), imp-663 (2026-04-14 confirmed)
+ */
+
+/**
  * imp-353 (partial closure): Tighten Λ central value — extend Path C Dyson
  * ladder to N ∈ {10^4, 10^5}
  *

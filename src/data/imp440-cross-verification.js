@@ -1,11 +1,42 @@
 /**
- * imp-449: Cross-verification report for imp-440 L_cond at N* = 1e6
+ * @fileoverview Independent cross-verification of the imp-440 L_cond bound.
+ * @module imp440-cross-verification
  *
- * Compares the primary computation (finite-height-beats-platt-trudgian.js)
- * against the independent alt-path (src/math/verify-imp440-altpath.js).
+ * Proof chain step: S10-verify.  Confirms that the primary L_cond computation
+ * (src/data/finite-height-beats-platt-trudgian.js) agrees with an independently
+ * coded alt-path (src/math/verify-imp440-altpath.js) to 6+ significant figures
+ * across the full N* grid {1e4, 1e5, 1e6, 1e7, 5e7}.
  *
- * Agreement criterion: 6 significant figures, i.e. relative error < 5e-6.
- * In practice IEEE 754 double precision gives agreement to ~13-15 sig figs.
+ * The alt-path differs from the primary in five algebraic choices (A1–A5):
+ *   A1  CF uses log(T0) - log(2*pi) + 1 instead of log(T0/(2*pi)) + 1
+ *   A2  E_flow uses log-sum-exp form
+ *   A3  E_coll written as C_C * sqrt(L) / sqrt(N) instead of C_C * sqrt(L/N)
+ *   A4  L_cond assembled in ascending order
+ *   A5  T0 Newton result is forward-validated by the Riemann-von Mangoldt formula
+ * Agreement to 13+ sig figs across all five choices rules out arithmetic bugs.
+ *
+ * Exports:
+ *   IMP440_CROSS_VERIFICATION        — full report object: primary/alt L_cond
+ *       values, relative errors, per-N ladder comparison, and an overall
+ *       PASS / FAIL / PARTIAL / UNAVAILABLE verdict string.
+ *   IMP440_CROSS_VERIFICATION_ASSERTIONS — array of 8 build-time assertions:
+ *       6-sig-fig agreement at N=1e6 (imp-449), full ladder agreement,
+ *       L_cond in expected range (0.005, 0.015), and individual per-N checks
+ *       for every grid rung (imp-460).
+ *
+ * Key assertion IDs:
+ *   imp449-cross-verify-passes-6-sig-figs
+ *   imp449-cross-verify-all-ladder-pass
+ *   imp449-cross-verify-L_cond-within-expected-range
+ *   imp460-cross-verify-N1e4-passes-6-sig-figs
+ *   imp460-cross-verify-N1e5-passes-6-sig-figs
+ *   imp460-cross-verify-N1e6-passes-6-sig-figs
+ *   imp460-cross-verify-N1e7-passes-6-sig-figs
+ *   imp460-cross-verify-N5e7-passes-6-sig-figs
+ *
+ * Tickets: imp-449 (created, primary N=1e6 check);
+ *          imp-460 (extended to full 5-rung ladder);
+ *          imp-797 (@module/@fileoverview documentation added).
  */
 
 import { FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN } from './finite-height-beats-platt-trudgian.js';

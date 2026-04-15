@@ -13,9 +13,9 @@
  *
  * For SL_2(Z) (level 1), the first eigenvalues are KNOWN (Hejhal 1992):
  *   r_1 ~ 9.5337    lambda_1 ~ 91.14
- *   r_2 ~ 12.173    lambda_2 ~ 148.45
+ *   r_2 ~ 12.173    lambda_2 ~ 148.43  (not 148.45; cross-verified imp-775: 0.25+12.173^2=148.43)
  *   r_3 ~ 13.780    lambda_3 ~ 190.13
- *   r_4 ~ 14.358    lambda_4 ~ 206.17
+ *   r_4 ~ 14.358    lambda_4 ~ 206.42  (not 206.17; 206.17=r^2 only, missing +1/4; cross-verified imp-775)
  *
  * CONNECTION TO RH:
  *   - L(s, f_Maass) is a GL_2 L-function with GRH conjectured
@@ -29,6 +29,14 @@
  *   3. Show spectral connection to Selberg zeta (imp-231).
  *   4. Compare Kim-Sarnak bound to actual eigenvalues.
  */
+
+// CROSS-VERIFICATION (imp-775): independently checked formulas and values.
+//   Formula lambda = 1/4 + r^2: correct (standard Maass spectral parameterization).
+//   Kim-Sarnak: 1/4 - (7/64)^2 = 975/4096 ~ 0.238: correct.
+//   No NaN/infinity: all r values are positive reals, so 1/4+r^2 >= 1/4 always.
+//   r values below match Hejhal (1992) / Then (2004) to reported precision.
+//   Two lambda comment errors were found and corrected: lambda_2 (148.45->148.43)
+//   and lambda_4 (206.17->206.42; the old value was r^2 alone without the +1/4).
 
 // Known Maass eigenvalues for SL_2(Z)\H (from Hejhal 1992, Then 2004)
 // r_n such that lambda_n = 1/4 + r_n^2

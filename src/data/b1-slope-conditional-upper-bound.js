@@ -69,6 +69,21 @@
  * ESTIMATE with no bound status. This file upgrades b_lin to a CONDITIONAL
  * UPPER BOUND by making the NoSwap and D-monotone assumptions explicit and
  * showing the comparison inequality chain in Steps 1-4 above.
+ *
+ * @module b1-slope-conditional-upper-bound
+ * @fileoverview Conditional analytic upper bound on the OLS slope b for the B1
+ *   Path-C gap (lambda-zero-attack.js B1-slope-constant). Four named exports:
+ *   B1_SLOPE_CEILING -- certified 3-sf ceiling on b(N) under NoSwap + D-monotone;
+ *   B1_EVIDENCE_TABLE -- per-N array of {N, bLin, bEmpirical, ratio, withinCeiling};
+ *   B1_CONDITIONAL_BOUND -- structured proof record (status, conditions, bound, residualSubGap);
+ *   B1_BOUND_ASSERTIONS -- array of 7 runtime invariant checks (see ids below).
+ *   Key assertions: imp457-ceiling-above-empirical, imp457-all-bLin-within-ceiling,
+ *   imp457-drift-below-3, imp457-ceiling-finite-positive, imp457-residual-subgap-named,
+ *   imp457-d-monotone-witness-passes, imp457-d-monotone-n100-independent-confirmation.
+ *   Ticket history: imp-457 (created this file, conditional bound chain);
+ *   imp-463 (D-monotone sub-gap analytically closed);
+ *   imp-464 (NoSwap numerically confirmed at N in {50,100,200,500});
+ *   imp-584 (residual S-dominance sub-gap, approach-refuted, B1 analytically open).
  */
 
 import {

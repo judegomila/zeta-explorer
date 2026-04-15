@@ -86,6 +86,37 @@ function selbergScale(T) {
   return Math.sqrt(logLogT / (2 * Math.PI * Math.PI));
 }
 
+// ── Cross-verification (imp-740) ─────────────────────────────────────────────
+// Formula N(T) = θ(T)/π + 1 + S(T): exact Riemann-von Mangoldt identity. ✓
+//   Source: Titchmarsh, "Theory of the Riemann Zeta-function" §9.3 (2nd ed.).
+//
+// Backlund 1918 constants (0.137, 0.443, 4.350): consistent with Titchmarsh
+//   §9.4 and Rosser-Schoenfeld refinements. These are unconditional bounds.
+//
+// Trudgian 2014 constants (0.112, 0.278, 3.385): from Trudgian "An improved
+//   upper bound for the argument of the Riemann zeta-function on the critical
+//   line II", J. Number Theory 134 (2014), pp. 280-292. ✓
+//
+// Selberg CLT scale sqrt(log log T / (2*pi^2)): matches Selberg (1946) and
+//   Tsang, "The Distribution of the Values of the Riemann Zeta-function",
+//   PhD thesis, Princeton (1984). ✓
+//
+// Edge case: selbergScale(Math.E) = 0 because log(log(e)) = log(1) = 0.
+//   Caller guards with (scale > 0 ? S/scale : 0). Minimum test height
+//   is T=50, so this branch is never reached in practice.
+//
+// Reference spot-check at T=50:
+//   riemannSiegelTheta(50) = 25*ln(50/2pi) - 25 - pi/8 + ... ≈ 26.47
+//   mainTerm(50) = 26.47/pi + 1 ≈ 9.42
+//   actualN(50) = 10  (zeros at 14.13, 21.02, 25.01, 30.42, 32.94,
+//                       37.59, 40.92, 43.33, 48.01, 49.77)
+//   S(50) = 10 - 9.42 = 0.58
+//   Trudgian bound(50) = 0.112*ln50 + 0.278*ln(ln50) + 3.385 ≈ 4.20
+//   |S(50)| = 0.58 < 4.20 ✓
+//
+// All formulas confirmed correct. No NaN/Infinity paths for T >= 50.
+// ─────────────────────────────────────────────────────────────────────────────
+
 // ── Main test ────────────────────────────────────────────────────────────────
 
 export function backlundZeroCountTest() {

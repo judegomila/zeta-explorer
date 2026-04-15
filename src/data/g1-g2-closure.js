@@ -1,4 +1,29 @@
 /**
+ * @module g1-g2-closure
+ * @fileoverview G1 + G2 joint closure assembly record for Route A (imp-450).
+ *
+ * Exports:
+ *   - G1_G2_CLOSURE_ASSEMBLY: canonical joint-closure record for the two Route A
+ *     sub-gaps (G1 argmin interiority at k_{star}_N, G2 argmin jumps across N)
+ *   - G1_G2_CLOSURE_ASSERTIONS: build-time tripwires verifying the citation chain
+ *     and guarding against silent regression of the partial-closure status
+ *
+ * Proof chain position:
+ *   Sits inside the imp-336 Route A monotonicity analytic sketch. Consumes
+ *   imp-368 (LAMBDA_ARGMIN_INTERIORITY -- G1 partial closure) and imp-369
+ *   (LAMBDA_ARGMIN_JUMPS -- G2 tau=0 Cauchy-interlacing closure). G1-sub-extremal
+ *   is partially closed by imp-455 via src/math/g1-sub-extremal-closure.js.
+ *
+ * Key assertions (build-time tripwires):
+ *   imp450-citation-chain-resolves, imp450-g1-partial-closure-confirmed,
+ *   imp450-g2-tau0-witness-holds, imp450-imp336-analytic-sketch-intentionally-
+ *   untouched, imp450-g1-sub-extremal-partial-closed-by-imp455
+ *
+ * Tickets that created or modified this file:
+ *   imp-450 (created), imp-368 (G1 partial), imp-369 (G2 tau=0),
+ *   imp-455 (G1-sub-extremal partial), imp-651 (G2 upgrade investigation),
+ *   imp-665 (G2 upgrade confirmation), imp-798 (JSDoc added)
+ *
  * imp-450: G1 + G2 joint closure assembly -- Route A argmin interiority and
  * argmin jumps across N
  *

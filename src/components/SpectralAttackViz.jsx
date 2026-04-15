@@ -8,8 +8,18 @@ import {
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
 
-const TABS = ['Fisher-Twistor', 'Lyapunov', 'Phase Barriers', 'Correlation Matrix', 'Strategy Scores'];
-const TAB_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444'];
+const TABS = ['Fisher-Twistor', 'Lyapunov', 'Phase Barriers', 'Correlation Matrix', 'Strategy Scores', 'Confinement \u03A6'];
+const TAB_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444', '#f97316'];
+
+// Colors for the six components of the unified confinement potential
+const COMP_COLORS = {
+  kl: '#10b981',
+  bridge: '#06b6d4',
+  twistor: '#eab308',
+  hamiltonian: '#8b5cf6',
+  capacity: '#f97316',
+  barrier: '#ef4444',
+};
 
 // ─── Tab 1: Fisher-Twistor ──────────────────────────────────────────────────
 
@@ -1065,6 +1075,249 @@ function StrategyScoresTab({ t, numPrimes }) {
   );
 }
 
+// ─── Tab 6: Confinement Potential ─────────────────────────────────────────────
+
+function ConfinementTab({ t, numPrimes }) {
+  const canvasRef = useRef();
+
+  const points = useMemo(() => {
+    const steps = 60;
+    const pts = [];
+    for (let i = 0; i <= steps; i++) {
+      const sigma = 0.1 + (i / steps) * 0.8;
+      pts.push(unifiedConfinementPotential(sigma, t, numPrimes));
+    }
+    return pts;
+  }, [t, numPrimes]);
+
+  const stats = useMemo(() => {
+    if (points.length === 0) return null;
+    const maxPhi = Math.max(...points.map(p => p.potential), 0.01);
+    const minPhi = Math.min(...points.map(p => p.potential));
+    const minPt = points.reduce((a, b) => b.potential < a.potential ? b : a);
+    return { maxPhi, minPhi, minPt };
+  }, [points]);
+
+  const draw = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || !stats) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+
+    const margin = { left: 55, right: 20, top: 30, bottom: 40 };
+    const plotW = w - margin.left - margin.right;
+    const plotH = h - margin.top - margin.bottom;
+
+    const { maxPhi, minPhi, minPt } = stats;
+    const range = maxPhi - minPhi || 1;
+    const minS = 0.1, maxS = 0.9;
+
+    const toX = s => margin.left + ((s - minS) / (maxS - minS)) * plotW;
+    const toY = v => h - margin.bottom - ((v - minPhi) / range) * plotH * 0.9;
+
+    // Axes
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(margin.left, margin.top);
+    ctx.lineTo(margin.left, h - margin.bottom);
+    ctx.lineTo(w - margin.right, h - margin.bottom);
+    ctx.stroke();
+
+    // Gridlines
+    ctx.setLineDash([3, 4]);
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    for (let i = 1; i <= 4; i++) {
+      const y = h - margin.bottom - (i / 4) * plotH * 0.9;
+      ctx.beginPath();
+      ctx.moveTo(margin.left, y);
+      ctx.lineTo(w - margin.right, y);
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+
+    // sigma=0.5 guide
+    const halfX = toX(0.5);
+    ctx.beginPath();
+    ctx.setLineDash([4, 3]);
+    ctx.moveTo(halfX, margin.top);
+    ctx.lineTo(halfX, h - margin.bottom);
+    ctx.strokeStyle = '#10b98180';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#10b981';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'center';
+    ctx.fillText('\u03C3=\u00BD', halfX, margin.top - 6);
+
+    // Six component lines (semi-transparent)
+    const comps = ['kl', 'bridge', 'twistor', 'hamiltonian', 'capacity', 'barrier'];
+    comps.forEach(comp => {
+      ctx.beginPath();
+      points.forEach((p, i) => {
+        const x = toX(p.sigma);
+        const y = toY(p.components[comp]);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = COMP_COLORS[comp] + '88';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+
+    // Total Phi (white, thick)
+    ctx.beginPath();
+    points.forEach((p, i) => {
+      const x = toX(p.sigma);
+      const y = toY(p.potential);
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+    // Fill under total
+    ctx.lineTo(toX(points[points.length - 1].sigma), h - margin.bottom);
+    ctx.lineTo(toX(points[0].sigma), h - margin.bottom);
+    ctx.closePath();
+    ctx.fillStyle = '#e2e8f008';
+    ctx.fill();
+
+    // Minimum marker dot
+    const minX = toX(minPt.sigma);
+    const minY = toY(minPt.potential);
+    ctx.beginPath();
+    ctx.arc(minX, minY, 5, 0, 2 * Math.PI);
+    ctx.fillStyle = '#f97316';
+    ctx.fill();
+    ctx.fillStyle = '#f97316';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'center';
+    ctx.fillText('min \u03C3=' + minPt.sigma.toFixed(2), minX, minY - 12);
+
+    // X-axis labels
+    ctx.fillStyle = '#64748b';
+    ctx.font = '10px var(--font-mono)';
+    ctx.textAlign = 'center';
+    for (let s = 0.1; s <= 0.9; s += 0.2) {
+      ctx.fillText(s.toFixed(1), toX(s), h - margin.bottom + 14);
+    }
+    ctx.fillText('\u03C3', w / 2, h - 4);
+
+    // Y-axis label
+    ctx.save();
+    ctx.translate(12, margin.top + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#e2e8f0';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('\u03A6(\u03C3, t)', 0, 0);
+    ctx.restore();
+
+    // Y-axis ticks
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '9px var(--font-mono)';
+    ctx.textAlign = 'right';
+    for (let i = 0; i <= 4; i++) {
+      const val = minPhi + (i / 4) * range;
+      const y = h - margin.bottom - (i / 4) * plotH * 0.9;
+      ctx.fillText(val.toFixed(2), margin.left - 6, y + 3);
+    }
+
+    // Legend
+    const legItems = [
+      { color: '#e2e8f0', label: '\u03A6 total', lw: 2.5 },
+      ...comps.map(c => ({ color: COMP_COLORS[c] + '88', label: c, lw: 1 })),
+    ];
+    const legX = margin.left + 6;
+    const legY = margin.top + 2;
+    ctx.fillStyle = 'rgba(10,14,26,0.85)';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(legX, legY, 108, legItems.length * 12 + 8, 4);
+    ctx.fill();
+    ctx.stroke();
+    legItems.forEach((item, i) => {
+      const iy = legY + 8 + i * 12;
+      ctx.beginPath();
+      ctx.moveTo(legX + 4, iy);
+      ctx.lineTo(legX + 18, iy);
+      ctx.strokeStyle = item.color;
+      ctx.lineWidth = item.lw;
+      ctx.stroke();
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '8px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(item.label, legX + 22, iy + 3);
+    });
+  }, [points, stats]);
+
+  useEffect(() => { draw(); }, [draw]);
+  useEffect(() => {
+    const onResize = () => draw();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [draw]);
+
+  if (!stats) return null;
+
+  const { minPt, maxPhi, minPhi } = stats;
+  const isAtHalf = Math.abs(minPt.sigma - 0.5) < 0.05;
+
+  return (
+    <div>
+      <div className="tab-explainer accent-orange">
+        The unified confinement potential <InlineMath tex={"\\Phi(\\sigma, t)"} /> sums all six independent
+        measures (KL, bridge, twistor, Hamiltonian, capacity, barrier) with weights normalized so each
+        contributes ~1 at <InlineMath tex={"\\sigma = 0.25"} />. Since every component is non-negative with
+        minimum at the critical line, their sum should form a deep well at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
+        <strong> Look for:</strong> the white total <InlineMath tex="\\Phi" /> reaching its minimum at
+        <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> and the well depth as you vary <em>t</em>.
+      </div>
+      <canvas
+        ref={canvasRef}
+        style={{ width: '100%', height: 300, borderRadius: 8, background: '#0a0e1a', border: '1px solid #1e293b' }}
+      />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 12 }}>
+        {[
+          { label: 'Minimum \u03C3', value: minPt.sigma.toFixed(3), color: '#f97316' },
+          { label: 'Min \u03A6 value', value: minPt.potential.toFixed(4), color: '#e2e8f0' },
+          { label: 'Well depth', value: (maxPhi - minPhi).toFixed(4), color: '#06b6d4' },
+        ].map(m => (
+          <div key={m.label} className="stat-box" style={{ padding: '8px 10px' }}>
+            <div style={{ color: m.color, fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>{m.value}</div>
+            <div style={{ color: '#64748b', fontSize: 10, marginTop: 2 }}>{m.label}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{
+        marginTop: 12, padding: '10px 14px', borderRadius: 6,
+        background: isAtHalf ? 'rgba(16,185,129,0.08)' : 'rgba(239,68,68,0.08)',
+        border: `1px solid ${isAtHalf ? '#10b981' : '#ef4444'}40`,
+        fontSize: 12,
+      }}>
+        <strong style={{ color: isAtHalf ? '#10b981' : '#ef4444' }}>
+          {isAtHalf
+            ? 'Confinement confirmed: \u03A6 minimum at \u03C3 \u2248 ' + minPt.sigma.toFixed(3) + ' (critical line)'
+            : 'Minimum at \u03C3 \u2248 ' + minPt.sigma.toFixed(3) + ' \u2014 off critical line at this t'}
+        </strong>
+        <div style={{ color: '#94a3b8', marginTop: 4, fontSize: 11 }}>
+          A larger well depth means stronger combined confinement evidence. The colored component curves show
+          which of the six measures contributes most to the potential at each <InlineMath tex="\sigma" />.
+          Vary <em>t</em> to see how confinement changes across different zero heights.
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Main Component ──────────────────────────────────────────────────────────
 
 export default function SpectralAttackViz() {
@@ -1118,6 +1371,7 @@ export default function SpectralAttackViz() {
       {tab === 2 && <PhaseBarriersTab t={t} numPrimes={numPrimes} />}
       {tab === 3 && <CorrelationMatrixTab t={t} numPrimes={numPrimes} />}
       {tab === 4 && <StrategyScoresTab t={t} numPrimes={numPrimes} />}
+      {tab === 5 && <ConfinementTab t={t} numPrimes={numPrimes} />}
     </div>
   );
 }

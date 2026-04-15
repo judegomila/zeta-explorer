@@ -1,5 +1,6 @@
 /**
- * Cross-validation of independent Λ estimates (imp-320)
+ * @module lambda-cross-validation
+ * @fileoverview Cross-validation of independent Lambda estimates; mutual consistency check across all independent routes to the de Bruijn-Newman constant (imp-320).
  *
  * The codebase now contains several independent routes to the de Bruijn-
  * Newman constant Λ. Each was built for its own reason and lives in its
@@ -49,6 +50,26 @@
  * The table also cites the file that owns the computation so this
  * cross-validation record never becomes the "source of truth" for any
  * individual number — it is a pure downstream consumer.
+ *
+ * Proof chain step: S10-verify — cross-validation of all independent Lambda
+ * estimates; sits downstream of every individual Lambda-computing module.
+ *
+ * Exports:
+ *   LAMBDA_CROSS_VALIDATION — main record with all estimates, compatibility
+ *     checks, and final verdict.
+ *   CROSS_VALIDATION_ASSERTIONS — build-time assertions checking mutual
+ *     consistency of same-scope estimates.
+ *   LAMBDA_CROSS_VALIDATION_TABLE — tabular form of all estimates with
+ *     provenance, scope class, and error-bar metadata.
+ *   LAMBDA_CROSS_VALIDATION_TABLE_ASSERTIONS — assertions over the table rows.
+ *
+ * Key assertions:
+ *   All same-scope estimates must have overlapping error intervals; a failure
+ *   signals a numerical inconsistency in one of the upstream computations.
+ *
+ * Ticket history:
+ *   imp-320 — created this file; cross-validation framework and all assertions.
+ *   imp-759 — added this @module/@fileoverview JSDoc.
  */
 
 import { LAMBDA_ERROR_BUDGET } from './lambda-error-budget.js';

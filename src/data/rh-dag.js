@@ -1,3 +1,44 @@
+/**
+ * @fileoverview RH Dependency DAG — single source of truth for the proof-ticket
+ * dependency graph that drives the Lambda-attack on the Riemann Hypothesis.
+ *
+ * @module rh-dag
+ *
+ * ## Exports
+ *
+ *   - RH_DAG_NODES — array of DAG nodes (imp-NNN ids, status, dependency edges)
+ *   - RH_DAG — convenience record bundling the node array with analysis utilities:
+ *       unblockedFrontier, criticalPathTo, criticalPathExpectedRounds,
+ *       frontierSchedule, expectedPathLength, pertExpected, pertVariance
+ *   - RH_DAG_ASSERTIONS — four build-time sanity checks (no missing deps,
+ *       no cycles, target exists, frontier non-empty while target pending)
+ *   - Named utility functions exported individually for use in scripts:
+ *       unblockedFrontier, criticalPathTo, frontierSchedule,
+ *       longestPathExpectedRounds, criticalPathExpectedRounds,
+ *       expectedPathLength, pertExpected, pertVariance
+ *
+ * ## Proof chain position
+ *
+ *   Planning layer between improvement-queue.js (ticket metadata store) and
+ *   the execution engine (auto-improve.sh). Encodes which tickets block which,
+ *   exposing the critical path and parallel frontiers consumed by the /fanout
+ *   slash command and the cron-based scheduler.
+ *
+ * ## Key assertions
+ *
+ *   dag-no-missing-deps   — every dependsOn edge resolves to a known node
+ *   dag-no-cycles         — Kahn topo-sort visits all N nodes (acyclicity check)
+ *   dag-target-exists     — imp-356 (SOTA assembly capstone) must be present
+ *   dag-frontier-nonempty-while-target-pending — while imp-356 is open,
+ *       at least one unblocked ticket exists to make progress
+ *
+ * ## Tickets that created / modified this file
+ *
+ *   imp-344 seeded the initial node list (master assembly, Routes A/B/C);
+ *   Phase 12 rescue runs added nodes imp-354, imp-366, imp-368, imp-369;
+ *   PERT / Monte Carlo planning layer (PERT_DEFAULTS, expectedPathLength,
+ *   longestPathExpectedRounds) was added in a subsequent improvement pass.
+ */
 // RH Dependency DAG — planning the Λ-attack by dependency order, not just priority.
 //
 // Until now the improvement queue has been ordered by (priority, imp-id). That

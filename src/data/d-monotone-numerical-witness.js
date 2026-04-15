@@ -1,4 +1,17 @@
 /**
+ * @module d-monotone-numerical-witness
+ * @fileoverview Numerical witness for D(tau) >= D(0) on backward CM trajectory (imp-457, imp-782).
+ *
+ * Exports: D_MONOTONE_N50_WITNESS, D_MONOTONE_N100_WITNESS (computed witness objects),
+ * D_MONOTONE_WITNESS_RECORD (structured record with status/interpretation/limitation),
+ * D_MONOTONE_ASSERTIONS (array of 8 build-time assertions checked by the engine harness).
+ *
+ * Proof chain step: advances sub-gap skp-imp457-D-monotone in
+ * b1-slope-conditional-upper-bound.js from "plausible" to "numerically verified
+ * at N=50 and N=100 on the Riemann zero list". The analytic proof remains open.
+ *
+ * Tickets: imp-457 (created this file), imp-782 (added @module/@fileoverview JSDoc).
+ *
  * imp-457: D-monotone numerical witness at N = 50
  *
  * Sub-gap addressed

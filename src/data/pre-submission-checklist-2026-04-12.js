@@ -1,9 +1,51 @@
 /**
- * imp-491: Pre-submission checklist — PASS/FAIL matrix for every file and
+ * @fileoverview Pre-submission checklist — PASS/FAIL matrix for every file and
  * assertion referenced by proof-chain-snapshot-2026-04-12.js.
  *
- * Run date: 2026-04-12.
- * Checker: auto-improve engine (Opus tier, imp-491).
+ * This module is the final gating artifact before external submission of the
+ * ZPO/RH-attack proof. It records the state of all files, assertions, and
+ * cross-references as of 2026-04-12, with re-verification notes added by
+ * later engine runs.
+ *
+ * @module pre-submission-checklist-2026-04-12
+ *
+ * PROOF CHAIN POSITION
+ * --------------------
+ * Section: docs (submission gate).
+ * Depends on: proof-chain-snapshot-2026-04-12.js (imp-488).
+ * Run date: 2026-04-12. Checker: auto-improve engine (Opus tier, imp-491).
+ *
+ * EXPORTS
+ * -------
+ * FILE_CHECKS        — Array<{file, status, ticket, note?}>
+ *                      19 PASS, 1 WARN. Covers Route B asymptotic files,
+ *                      finite-height beat, G6 Polymath15 bridge, GUE
+ *                      irreducibility, adversarial reviews, and Lean skeletons.
+ *
+ * ASSERTION_CHECKS   — Array<{id, assertion, snapshotValue, actualValue,
+ *                      status, note, ticket?}>
+ *                      7 assertions (A1-A7). Key results: Route B closed
+ *                      unconditionally (A4), finite-height beat L_pt ~ 0.121
+ *                      confirmed (A5), GUE universality named as irreducible
+ *                      conditional (A6), adversarial FATAL count 2-0-0-0-0 (A7).
+ *
+ * CROSSREF_CHECKS    — Array<{id, from, claim, check, status, note}>
+ *                      3 cross-references (XR1-XR3). All PASS.
+ *
+ * BUILD_CHECK        — {command, status, note}
+ *                      Build verified passing as part of imp-491 commit sequence.
+ *
+ * CHECKLIST_SUMMARY  — {id, generatedAt, ticket, totals, blockers, verdict, ...}
+ *                      Verdict: PASS — no submission blockers.
+ *                      Re-verified at imp-707 and imp-710.
+ *
+ * TICKET HISTORY
+ * --------------
+ * imp-491 — created this checklist; fixed Foundation.lean header (A2).
+ * imp-494 — resolved A1 (axiomCount 5->6) and A3 (sorry count 8->7).
+ * imp-707 — re-verified all 19 FILE_CHECKS after imp-701 through imp-706.
+ * imp-710 — re-verified after Lambda grid extension (imp-709 through imp-716).
+ * imp-750 — added @module/@fileoverview JSDoc (this comment).
  *
  * HOW TO USE
  * ----------

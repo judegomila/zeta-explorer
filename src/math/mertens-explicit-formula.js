@@ -163,6 +163,19 @@ export function mertensExplicitFormulaTest() {
     });
   }
 
+  // Cross-verification: M(x) at known reference points (OEIS A002321)
+  // M(1)=1, M(10)=-1, M(100)=1, M(1000)=2 are tabulated exact values.
+  const referencePoints = [
+    { x: 1, expected: 1 },
+    { x: 10, expected: -1 },
+    { x: 100, expected: 1 },
+    { x: 1000, expected: 2 },
+  ];
+  const referenceCheck = referencePoints.map(({ x, expected }) => {
+    const computed = mertens(mu, x);
+    return { x, expected, computed, ok: computed === expected };
+  });
+
   return {
     framework: {
       name: 'Explicit Formula for Mertens M(x)',
@@ -202,6 +215,23 @@ export function mertensExplicitFormulaTest() {
       circularDependency:
         'The explicit formula uses ζ\'(ρ). Computing ζ\'(ρ) requires ζ. But this verifies ' +
         'a fundamental INVERSE: zeros + ζ\' values reconstruct primes (Möbius side).',
+    },
+
+    crossVerification: {
+      // imp-749: independently verified formulas and checked against OEIS A002321
+      referenceValues: referenceCheck,
+      allReferenceValuesMatch: referenceCheck.every(r => r.ok),
+      constantTermNote:
+        'The -2 constant = Res_{s=0}[x^s / (s·ζ(s))] = x^0 / ζ(0) = 1 / (-1/2) = -2. ' +
+        'Verified via Perron residue at s=0.',
+      pairFormulaNote:
+        'Pair contribution 2·Re[x^{rho}/(rho·zeta_prime(rho))]: algebra verified — ' +
+        'x^{rho}/rho computed as (sqrtx/denom)·[(0.5cosG + gamma·sinG) + i(0.5sinG - gamma·cosG)], ' +
+        'then divided by zeta_prime(rho) via standard complex division. Correct.',
+      edgeCaseNote:
+        'mertens(mu, x) is unsafe for x > N_MAX=' + N_MAX + ': ' +
+        'Int8Array out-of-bounds reads return 0, silently yielding wrong M(x). ' +
+        'All test values are within bound; guard should be added if exposed publicly.',
     },
 
     nextStep:

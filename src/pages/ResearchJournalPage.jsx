@@ -55,6 +55,20 @@ function fileTag(path) {
 export default function ResearchJournalPage() {
   const reversed = [...SESSIONS].reverse();
 
+  const totalSeededTickets = SESSIONS.reduce((acc, s) => {
+    if (!s.seededTickets) return acc;
+    return acc + s.seededTickets.reduce((a, p) => a + p.ids.length, 0);
+  }, 0);
+  const totalShippedFiles = SESSIONS.reduce((acc, s) => {
+    return acc + (s.shippedFiles ? s.shippedFiles.length : 0);
+  }, 0);
+
+  const stats = [
+    { label: 'Sessions', value: SESSIONS.length },
+    { label: 'Tickets seeded', value: totalSeededTickets },
+    { label: 'Files shipped', value: totalShippedFiles },
+  ];
+
   return (
     <div className="page">
       <div className="page-header">
@@ -73,6 +87,50 @@ export default function ResearchJournalPage() {
           </Link>
           .
         </p>
+      </div>
+
+      <div
+        style={{
+          display: 'flex',
+          gap: 12,
+          marginBottom: 24,
+          flexWrap: 'wrap',
+        }}
+      >
+        {stats.map(({ label, value }) => (
+          <div
+            key={label}
+            style={{
+              padding: '10px 18px',
+              borderRadius: 6,
+              background: 'var(--bg-secondary)',
+              border: '1px solid var(--border)',
+              minWidth: 100,
+            }}
+          >
+            <div
+              style={{
+                fontSize: 22,
+                fontWeight: 700,
+                color: '#a855f7',
+                fontFamily: 'var(--font-mono)',
+                lineHeight: 1.2,
+              }}
+            >
+              {value}
+            </div>
+            <div
+              style={{
+                fontSize: 11,
+                color: 'var(--text-muted)',
+                fontFamily: 'var(--font-mono)',
+                marginTop: 3,
+              }}
+            >
+              {label}
+            </div>
+          </div>
+        ))}
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>

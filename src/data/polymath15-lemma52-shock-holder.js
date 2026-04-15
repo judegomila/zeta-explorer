@@ -1,4 +1,32 @@
 /**
+ * @module polymath15-lemma52-shock-holder
+ * @fileoverview Polymath15 Lemma 5.2 direct port — Holder-1/2 modulus of the
+ * first-collision time functional at the Burgers shock. Closes G6a_shock_lipschitz
+ * (the Holder-1/2 sub-gap of imp-345), establishing E(N) → 0 unconditionally.
+ *
+ * **Exports:**
+ *  - `G6A_SHOCK_LIPSCHITZ_CLOSURE` — structured proof record for sub-gap G6a:
+ *    status, closure method, statement, proof sketch, constants, and consequence.
+ *  - `POLYMATH15_LEMMA_52` — full proof record: quadratic-tangency derivation,
+ *    Holder-1/2 modulus, E_coll formula, N-ladder table, and open-work list.
+ *  - `POLYMATH15_LEMMA_52_ASSERTIONS` — 7-element build-time assertion array.
+ *
+ * **Proof-chain step:** G6a (sub-gap of S6 / imp-345 E(N) decomposition).
+ * Depends on imp-341 (Koksma-Hlawka W_1 bound) and imp-338 (tau_c(rho_inf) = 0).
+ *
+ * **Key assertions (POLYMATH15_LEMMA_52_ASSERTIONS):**
+ *  - `imp366-g6a-status-closed` — G6A_SHOCK_LIPSCHITZ_CLOSURE.status === "closed"
+ *  - `imp366-quadratic-tangency-constant` — C_QUADRATIC_TANGENCY === 8.0
+ *  - `imp366-ecoll-all-rows-finite-positive` — all ladder rows finite and positive
+ *  - `imp366-ecoll-strictly-decreasing` — E_coll decreases along the N-ladder
+ *  - `imp366-holder-exponent-is-half` — Holder exponent exactly 0.5
+ *  - `imp366-ecoll-rate-at-N1e6` — E_coll(10^6) < 0.1
+ *  - `imp366-status-closed` — POLYMATH15_LEMMA_52.status === "closed"
+ *
+ * **Tickets:** imp-366 created this file; imp-769 added this @module documentation.
+ *
+ * ---
+ *
  * imp-366: Polymath15 Lemma 5.2 direct port — Holder-1/2 modulus of the
  * first-collision time functional at the Burgers shock.
  *

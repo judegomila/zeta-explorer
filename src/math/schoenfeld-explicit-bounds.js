@@ -68,6 +68,12 @@ function computePsi(N) {
   return psi;
 }
 
+// Domain thresholds: Schoenfeld's theorem only guarantees the bounds above these values.
+// Points below the threshold are included for informational comparison but are NOT
+// counted in allPiHold / allPsiHold, which test the theorem's stated domain.
+const SCHOENFELD_PI_THRESHOLD = 2657;   // theorem guarantees pi bound for x >= 2657
+const SCHOENFELD_PSI_THRESHOLD = 73.2;  // theorem guarantees psi bound for x >= 73.2
+
 // Schoenfeld bound for |pi(x) - Li(x)|
 function schoenfeldPiBound(x) {
   return Math.sqrt(x) * Math.log(x) / (8 * Math.PI);
@@ -83,13 +89,17 @@ export function schoenfeldExplicitBoundsTest() {
   const { pi } = sieveAndCount(N);
   const psi = computePsi(N);
 
-  // Test pi(x) - Li(x) at checkpoints
+  // Test pi(x) - Li(x) at checkpoints.
+  // NOTE: x=1000 is below SCHOENFELD_PI_THRESHOLD=2657, so the theorem does not
+  // guarantee the pi bound there. It happens to hold numerically (|err|~8.6, bound~8.7)
+  // but this is not assured. Only checkpoints >= 2657 are counted in allPiHold.
   const checkpoints = [1000, 5000, 10000, 50000, 100000, 500000, 1000000];
   const piResults = checkpoints.map(x => {
     const piX = pi[x];
     const liX = Li(x);
     const error = piX - liX;
     const bound = schoenfeldPiBound(x);
+    const inRange = x >= SCHOENFELD_PI_THRESHOLD;
     return {
       x,
       'pi(x)': piX,
@@ -99,14 +109,17 @@ export function schoenfeldExplicitBoundsTest() {
       'Schoenfeld bound': +bound.toFixed(2),
       'ratio |err|/bound': +(Math.abs(error) / bound).toFixed(4),
       'bound holds': Math.abs(error) < bound,
+      'in theorem range': inRange,
     };
   });
 
-  // Test psi(x) - x at checkpoints
+  // Test psi(x) - x at checkpoints.
+  // All checkpoints >= 1000 > 73.2, so all are in-range for the psi bound.
   const psiResults = checkpoints.map(x => {
     const psiX = psi[x];
     const error = psiX - x;
     const bound = schoenfeldPsiBound(x);
+    const inRange = x >= SCHOENFELD_PSI_THRESHOLD;
     return {
       x,
       'psi(x)': +psiX.toFixed(2),
@@ -115,11 +128,13 @@ export function schoenfeldExplicitBoundsTest() {
       'Schoenfeld bound': +bound.toFixed(2),
       'ratio |err|/bound': +(Math.abs(error) / bound).toFixed(4),
       'bound holds': Math.abs(error) < bound,
+      'in theorem range': inRange,
     };
   });
 
-  const allPiHold = piResults.every(r => r['bound holds']);
-  const allPsiHold = psiResults.every(r => r['bound holds']);
+  // Only evaluate theorem compliance for checkpoints within the stated domain.
+  const allPiHold = piResults.filter(r => r['in theorem range']).every(r => r['bound holds']);
+  const allPsiHold = psiResults.filter(r => r['in theorem range']).every(r => r['bound holds']);
 
   // How tight is the bound? Average ratio
   const avgPiRatio = piResults.reduce((s,r) => s + r['ratio |err|/bound'], 0) / piResults.length;
@@ -162,9 +177,9 @@ export function schoenfeldExplicitBoundsTest() {
     rh_vs_unconditional: unconditionalComparison,
 
     keyFindings: [
-      `Tested Schoenfeld pi(x) bound at ${checkpoints.length} values x in [10^3, 10^6].`,
-      `|pi(x) - Li(x)| < sqrt(x)*log(x)/(8*pi): ALL ${checkpoints.length} hold ✓ (avg ratio ${avgPiRatio.toFixed(3)}).`,
-      `|psi(x) - x| < sqrt(x)*log^2(x)/(8*pi): ALL ${checkpoints.length} hold ✓ (avg ratio ${avgPsiRatio.toFixed(3)}).`,
+      `Tested Schoenfeld pi(x) bound at ${checkpoints.length} values x in [10^3, 10^6]; ${piResults.filter(r => r['in theorem range']).length} are in-range (x >= ${SCHOENFELD_PI_THRESHOLD}).`,
+      `|pi(x) - Li(x)| < sqrt(x)*log(x)/(8*pi): ALL in-range checkpoints hold ✓ (avg ratio ${avgPiRatio.toFixed(3)}). x=1000 is below threshold but also holds numerically.`,
+      `|psi(x) - x| < sqrt(x)*log^2(x)/(8*pi): ALL ${checkpoints.length} hold ✓ (avg ratio ${avgPsiRatio.toFixed(3)}). All checkpoints >= 73.2 threshold.`,
       `At x=10^6: pi(x)=${piResults[piResults.length-1]['pi(x)']}, Li(x)=${piResults[piResults.length-1]['Li(x)']}, error=${piResults[piResults.length-1]['pi(x)-Li(x)']}, bound=${piResults[piResults.length-1]['Schoenfeld bound']}.`,
       `Bound is ${(1/avgPiRatio).toFixed(1)}× looser than actual error on average — room for improvement.`,
       `RH improvement over unconditional: ${unconditionalComparison[unconditionalComparison.length-1]['RH improvement']}× at x=10^6.`,

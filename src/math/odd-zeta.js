@@ -23,7 +23,7 @@ import { eulerFactor, cAbs, zetaCriticalStrip } from './zeta.js';
 import { directLadder, dualLadder, losslessBridge } from './oscillators.js';
 
 // ─── Reference values for odd zeta (high precision) ─────────────────────────
-const ZETA_EXACT = {
+export const ZETA_EXACT = {
   3:  1.2020569031595942,
   5:  1.0369277551433699,
   7:  1.0083492773819228,

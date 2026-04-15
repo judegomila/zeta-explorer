@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import OddZetaViz from '../components/OddZetaViz.jsx';
-import { IRRATIONALITY_RESULTS } from '../math/odd-zeta.js';
+import { IRRATIONALITY_RESULTS, ZETA_EXACT } from '../math/odd-zeta.js';
 
 export default function OddZetaPage() {
   return (
@@ -197,6 +197,61 @@ export default function OddZetaPage() {
             </ul>
           </div>
         </div>
+      </div>
+
+      {/* ─── Numerical Reference Table ─── */}
+      <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #10b981' }}>
+        <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: '#10b981' }}>
+          Numerical Reference Values
+        </h2>
+        <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 16 }}>
+          High-precision values of odd zeta computed via the Euler product.
+          As <InlineMath tex={"n"} /> grows, <InlineMath tex={"\\zeta(n) \\to 1"} /> rapidly:
+          the oscillator chain becomes nearly transparent and the prime-2 factor dominates.
+        </p>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid #1e293b' }}>
+                <th style={{ color: '#64748b', textAlign: 'left', padding: '6px 12px', fontWeight: 600 }}>n</th>
+                <th style={{ color: '#64748b', textAlign: 'right', padding: '6px 12px', fontWeight: 600 }}>&zeta;(n)</th>
+                <th style={{ color: '#64748b', textAlign: 'right', padding: '6px 12px', fontWeight: 600 }}>&zeta;(n) &minus; 1</th>
+                <th style={{ color: '#64748b', textAlign: 'left', padding: '6px 12px', fontWeight: 600 }}>Known status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(ZETA_EXACT).map(([n, val]) => {
+                const isKnownIrrational = n === '3';
+                const isZudilinGroup = ['5', '7', '9', '11'].includes(n);
+                return (
+                  <tr key={n} style={{ borderBottom: '1px solid #0f172a' }}>
+                    <td style={{ color: '#e2e8f0', padding: '6px 12px' }}>
+                      <InlineMath tex={`\\zeta(${n})`} />
+                    </td>
+                    <td style={{ color: '#a5f3fc', textAlign: 'right', padding: '6px 12px' }}>
+                      {val.toFixed(10)}
+                    </td>
+                    <td style={{ color: '#64748b', textAlign: 'right', padding: '6px 12px', fontSize: 11 }}>
+                      {(val - 1).toExponential(3)}
+                    </td>
+                    <td style={{ padding: '6px 12px' }}>
+                      {isKnownIrrational ? (
+                        <span style={{ color: '#10b981', fontSize: 11 }}>{'irrational (Apéry 1979)'}</span>
+                      ) : isZudilinGroup ? (
+                        <span style={{ color: '#f59e0b', fontSize: 11 }}>{'≥1 of {5,7,9,11} irrational (Zudilin 2001)'}</span>
+                      ) : (
+                        <span style={{ color: '#64748b', fontSize: 11 }}>{'unknown individually'}</span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ fontSize: 11, color: '#475569', marginTop: 12, fontStyle: 'italic' }}>
+          {'Ball-Rivoal guarantees infinitely many are irrational. As of 2024, only ζ(3) is individually confirmed irrational.'}
+        </p>
       </div>
 
       {/* ─── Open Problems ─── */}

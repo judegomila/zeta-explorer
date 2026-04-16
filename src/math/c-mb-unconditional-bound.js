@@ -244,11 +244,11 @@ export const IMPOSSIBILITY_ARGUMENT = {
 
   bestUnconditionalBound:
     "Unconditionally: C_mb = O(log T) where T ~ gamma_{k*} is the height of the k*-th zero. " +
-    "For N ~ 871 (the empirical sweep range), T ~ 1500, so C_mb ~ O(log 1500) ~ 7.3. " +
+    "For N ~ 871 (the empirical sweep range), T ~ 1270, so C_mb ~ O(log 1270) ~ 7.1. " +
     "At C_mb = 7, the correction ratio at N_0 = 1e4 is 7 * 9.21 / 100 / 0.12751 ~ 5.1 >> 1. " +
     "The analytic closure FAILS unconditionally. Empirical sweep (N <= 870) remains valid.",
 
-  whyEmpiricalSweeepStandsUnconditionall:
+  whyEmpiricalSweepStandsUnconditionally:
     "For N in {2,...,870}, the m-raw-from-umon-bridge.js sweep directly verifies M_uf " +
     "without invoking C_mb at all. The sweep computes tau_c_est(N) numerically and " +
     "checks monotonicity. This is a direct certificate, unconditional and independent " +

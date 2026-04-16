@@ -10983,7 +10983,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'CRITICAL CHAIN: cross-verify c-mb-unconditional-bound.js — unconditional many-body bound',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: 'src/math/c-mb-unconditional-bound.js provides the unconditional many-body bound used in the Lambda certification. Cross-verify the bound derivation, check that "unconditional" claim is honest (no hidden GUE or other assumptions), verify numerical values. Compare with many-body-correction-closure.js (imp-817 found a bug there).',
     rationale: 'This module claims unconditional status — must verify no hidden conditional dependencies. Many-body correction already had a bug.',

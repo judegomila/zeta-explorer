@@ -10914,7 +10914,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'CRITICAL CHAIN: cross-verify m-raw-from-umon-bridge.js — bridge formula validation',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: 'src/math/m-raw-from-umon-bridge.js bridges the U-monitor output to raw M values used in the Lambda bound. Cross-verify the bridge formula, check dimensional analysis, verify that the transformation preserves the correct sign conventions. Test with known input/output pairs if available.',
     rationale: 'Bridge modules are high-risk for sign/convention errors since they translate between different mathematical frameworks.',

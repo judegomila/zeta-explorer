@@ -291,7 +291,7 @@ export const M_RAW_FROM_UMON_BRIDGE = {
     'EMPIRICAL: rho_{J_star(N)} non-decreasing and tau_c_est non-increasing ' +
     'for all N in {2,...,870}. ' +
     'CLOSED (many-body correction): imp-471 bounds C_mb * N^{-1/2} * log(N) < rho_min ' +
-    'for all N >= N_0 = 1e4 (ratio 0.720, 28% safety margin). ' +
+    'for all N >= N_0 = 1e4 (ratio ' + MANY_BODY_CORRECTION_CLOSURE.correctionBound.ratioAtN0 + ', ' + MANY_BODY_CORRECTION_CLOSURE.correctionBound.safetyMarginPct + '% safety margin). ' +
     'UNCONDITIONAL: M is now fully established. ' +
     'BRIDGE DELIVERED: raw-form and unfolded-form bounds are identical numbers; ' +
     'any proof of M_uf is automatically a proof of M_raw (exact bridge, no loss).',

@@ -24,8 +24,8 @@
  *   - The GUE level repulsion gives P(spacing < s) ~ s^2 for small s
  *   - For N zeros up to height T: min spacing ~ 1/(N·density) ~ 1/N·(2π/log T)
  *   - Under backward heat flow: spacing shrinks at rate ~1/s
- *   - Collision time: t_c ~ s_min^2 / 2 (from ds/dt ~ -1/s → s^2 = s_0^2 - 2t)
- *   - So Λ ~ s_min^2 / 2 where s_min is the minimum normalized spacing
+ *   - Collision time: t_c ~ -s_min^2 / 4 (from ds/dt = +2/s → s^2 = s_0^2 + 4t → t_c = -s_0^2/4)
+ *   - So Λ ~ s_min^2 / 4 where s_min is the minimum raw spacing at t=0
  */
 
 import { ZETA_ZEROS } from './zeta.js';

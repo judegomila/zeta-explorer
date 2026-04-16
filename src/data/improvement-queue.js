@@ -10925,7 +10925,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'CRITICAL CHAIN: cross-verify spectral-lambda-kernel.js — kernel computation check',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: 'src/math/spectral-lambda-kernel.js computes the spectral kernel used in the Lambda bound via Path C (Polymath15 bridge). Cross-verify the kernel formula against Rodgers-Tao 2020 and Polymath15 references. Check numerical stability, verify convergence behavior, test at boundary values. This module was recently added for the hybrid Path C certification.',
     rationale: 'Path C is the newest route and spectral-lambda-kernel.js is its computational core. New code has the highest bug probability.',

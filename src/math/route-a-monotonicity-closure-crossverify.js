@@ -133,6 +133,22 @@
  *        on the D-monotone upstream side and closes the last unlocked
  *        status-vocabulary slot in the composition.
  *
+ *   (C13) NoSwap-side "weakest link" guard for B1 analytical closure:
+ *        If B1_CONDITIONAL_BOUND.status === "analytically-closed" then
+ *        NOSWAP_CLOSURE.status must also === "analytically-closed". C5
+ *        only catches the D-monotone-side regression (B1 analytical but
+ *        D-monotone not). The B1 status ternary in
+ *        b1-slope-conditional-upper-bound.js lines 137-141 requires BOTH
+ *        NoSwap and D-monotone to be analytically-closed for B1 to
+ *        upgrade to analytically-closed. If a future edit unpins B1 from
+ *        the NoSwap half of that conjunction (e.g. relaxes to
+ *        NoSwap === "numerically-closed" but still labels B1
+ *        analytically-closed), C5 stays green because D-monotone is
+ *        unchanged, while the composition silently claims more than its
+ *        NoSwap leg supports. C13 is structurally symmetric to C5 on the
+ *        NoSwap side and closes the last unlocked weakest-link slot in
+ *        the composition.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -391,6 +407,26 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'and C3/C11 only lock the B1 and NoSwap status vocabularies. C12 is ' +
       'structurally symmetric to C3 and C11 on the D-monotone upstream side ' +
       'and closes the last unlocked status-vocabulary slot.',
+  },
+  {
+    id: 'imp826-C13-noswap-weakest-link-guard',
+    holds: () => {
+      if (B1_CONDITIONAL_BOUND.status === 'analytically-closed' &&
+          NOSWAP_CLOSURE.status       !== 'analytically-closed') {
+        return false;
+      }
+      return true;
+    },
+    why:
+      'C13: the NoSwap-side "weakest link" guard. If B1 claims analytically-' +
+      'closed, NoSwap must also be analytically-closed. The B1 status ternary ' +
+      '(b1-slope-conditional-upper-bound.js lines 137-141) requires BOTH NoSwap ' +
+      'and D-monotone to be analytically-closed for B1 to upgrade. C5 only ' +
+      'catches D-monotone regressions; if a future edit unpins B1 from the ' +
+      'NoSwap half of that conjunction, C5 stays green while the composition ' +
+      'silently claims more than its NoSwap leg supports. C13 is structurally ' +
+      'symmetric to C5 on the NoSwap side and closes the last unlocked ' +
+      'weakest-link slot.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

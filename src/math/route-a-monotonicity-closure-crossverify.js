@@ -53,6 +53,16 @@
  *        analytically-closed either. Guards against a future edit that
  *        unpins B1.status from D_MONOTONE_ANALYTIC_PROOF.status.
  *
+ *   (C6) B2 beats the assembly ceiling at the composition level:
+ *        B2_INTERCEPT_BOUND.bound.beatsCeiling must be literally true and
+ *        B2_INTERCEPT_BOUND.status must be "conditional-closed". C4 only
+ *        checks value > 0; C6 catches the substantive regression where
+ *        the Koksma-Hlawka bound at N_max drifts above the 0.02 ceiling
+ *        (status flips to conditional-open-ceiling-not-met) or N_max is
+ *        removed (status flips to conditional-open-no-nmax). Without C6,
+ *        a still-positive but ceiling-failing bound would silently let
+ *        Route A's intercept leg claim closure it does not have.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -199,6 +209,21 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
     why:
       'C5: the composition must never claim strength beyond its weakest ' +
       'link. If D-monotone regresses, B1 must not retain analytically-closed.',
+  },
+  {
+    id: 'imp826-C6-b2-beats-ceiling-at-composition-level',
+    holds: () =>
+      B2_INTERCEPT_BOUND.bound &&
+      B2_INTERCEPT_BOUND.bound.beatsCeiling === true &&
+      B2_INTERCEPT_BOUND.status === 'conditional-closed',
+    why:
+      'C6: B2 must literally satisfy beatsCeiling === true AND status === ' +
+      '"conditional-closed". C4 only checks value > 0; C6 catches the real ' +
+      'composition-level regression where the Koksma-Hlawka bound at N_max ' +
+      'drifts above the 0.02 ceiling (status flips to ' +
+      'conditional-open-ceiling-not-met) or N_max is removed (flips to ' +
+      'conditional-open-no-nmax). A positive but ceiling-failing bound ' +
+      'would otherwise silently let Route A claim intercept closure.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

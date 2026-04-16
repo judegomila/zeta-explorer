@@ -178,6 +178,21 @@
  *        record side and closes the last unpinned id field in the whole
  *        composition.
  *
+ *   (C16) residualSubGap.id is frozen to its named handle:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.id must literally
+ *        equal "ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING". C14 locks
+ *        the blocker flag, and the scope-tripwire locks status and
+ *        monolithicFilePresent -- but the sub-gap's OWN id field (the
+ *        named handle aggregators filter by) is unpinned. If a future
+ *        edit renames the sub-gap id (e.g. shortens it or reformats it),
+ *        any downstream aggregator that filters sub-gap records by
+ *        literal id === "ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING"
+ *        silently loses its pointer to this sub-gap while C14 and the
+ *        scope-tripwire both stay green (blocker is still false, status
+ *        is still "open", monolithicFilePresent is still false). C16 is
+ *        structurally symmetric to C15 on the sub-gap-record side and
+ *        closes the last unpinned id field on residualSubGap.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -487,6 +502,23 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'other C1..C14 assertion continues to pass. C15 is structurally ' +
       'symmetric to C1 on the crossverify-record side and closes the last ' +
       'unpinned id field in the whole composition.',
+  },
+  {
+    id: 'imp826-C16-residual-subgap-id-frozen',
+    holds: () =>
+      ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.id ===
+      'ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING',
+    why:
+      'C16: ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.id must ' +
+      'literally equal "ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING". ' +
+      'C14 locks the blocker flag and the scope-tripwire locks status and ' +
+      'monolithicFilePresent, but the sub-gap own id (the named handle ' +
+      'aggregators filter by) is unpinned. If a future edit renames or ' +
+      'reformats the sub-gap id, downstream aggregators filtering sub-gap ' +
+      'records by literal id === "ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING" ' +
+      'silently lose their pointer while C14 and the scope-tripwire both ' +
+      'stay green. C16 is structurally symmetric to C15 on the sub-gap-' +
+      'record side and closes the last unpinned id field on residualSubGap.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

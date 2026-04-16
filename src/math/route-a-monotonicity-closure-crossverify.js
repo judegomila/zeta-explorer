@@ -83,6 +83,17 @@
  *        assembly target is silently weakened. C8 locks the ceiling value
  *        itself so the composition promise matches the assembly contract.
  *
+ *   (C9) NoSwap side of the B1 citation handshake:
+ *        B1_CONDITIONAL_BOUND.closedConditions must literally contain both
+ *        "NoSwap" and "imp-464" so that the second half of the B1 conditional
+ *        chain (NoSwap numerically closed by imp-464/noswap-closure.js) keeps
+ *        its provenance. C2 only checks the D-monotone SIDE of B1 citations
+ *        (skp-imp457-D-monotone + imp-463). If a future edit rewrites the
+ *        NoSwap citation string (e.g. drops "imp-464" or renames "NoSwap"),
+ *        C2 stays green while B1's NoSwap leg silently loses its pointer to
+ *        its closure ticket. C9 is structurally symmetric to C2 and locks the
+ *        NoSwap half of the handshake.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -272,6 +283,22 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'silently raised (e.g. 0.02 -> 0.03) to mask a Koksma-Hlawka regression. ' +
       'C8 locks the ceiling value itself so the composition promise matches ' +
       'the downstream assembly target.',
+  },
+  {
+    id: 'imp826-C9-noswap-citation-handshake',
+    holds: () => {
+      const hay = (B1_CONDITIONAL_BOUND.closedConditions || []).join(' | ');
+      return hay.indexOf('NoSwap')  !== -1 &&
+             hay.indexOf('imp-464') !== -1;
+    },
+    why:
+      'C9: B1.closedConditions must literally reference "NoSwap" and its ' +
+      'closing ticket "imp-464". C2 only locks the D-monotone SIDE of the ' +
+      'handshake (skp-imp457-D-monotone + imp-463). If a future edit rewrites ' +
+      'the NoSwap citation string (e.g. drops the "imp-464" tag or renames ' +
+      '"NoSwap"), C2 stays green while the B1 NoSwap leg silently loses its ' +
+      'pointer to its closure ticket. C9 is structurally symmetric to C2 and ' +
+      'locks the NoSwap half of the B1 citation handshake.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

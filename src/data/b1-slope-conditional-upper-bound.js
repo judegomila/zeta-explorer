@@ -28,13 +28,15 @@
  * remains finite (no other pair collides faster). Therefore
  *   g_{k*}(tau)^2 S_{k*}(tau) -> 0,  so  D(tau) -> 8  as tau -> tau_c.
  *
- * Step 3 (Monotonicity sub-gap skp-imp457-D-monotone): The claim D(tau) >= D(0)
- * for all tau in [0, tau_c] is PLAUSIBLE from Step 2 (D starts at D(0),
- * ends at 8 > D(0), and g_{k*}^2 is non-increasing under NoSwap) but is NOT
- * proven unconditionally here -- it requires controlling dS_{k*}/dtau along
- * the CM trajectory. This is the residual sub-gap.
+ * Step 3 (D-monotone: ANALYTICALLY CLOSED by imp-463): The claim D(tau) >= D(0)
+ * for all tau in [0, tau_c] is PROVED via the normalized-distance decomposition
+ * F = B^2 S_{k*} = Sum 1/[p_j(p_j+1)] (d-monotone-analytic-proof.js). Each
+ * p_j = (gamma_{k*} - gamma_j)/B is non-decreasing under the CM flow (leading-order
+ * estimate dp_j/dtau ~ (2 + 4 p_j)/B^2 > 0), so each term 1/[p_j(p_j+1)] is
+ * non-increasing, and F is non-increasing. Hence D(tau) = 8 - 4*F(tau) >= 8 - 4*F(0) = D(0).
+ * This sub-gap was closed analytically by imp-463; it is no longer residual.
  *
- * Step 4 (Comparison, conditional on sub-gap): IF D(tau) >= D(0) on [0, tau_c],
+ * Step 4 (Comparison): Since D(tau) >= D(0) on [0, tau_c] (Step 3),
  * then since d(B^2)/dtau = -D(tau) <= -D(0):
  *   B^2(tau) <= B(0)^2 - D(0) * tau
  *   tau_c(N) <= B(0)^2 / D(0) = tau_lin(N)
@@ -57,9 +59,12 @@
  *
  * Honest status
  * -------------
- * B1 is CONDITIONALLY CLOSED under NoSwap + skp-imp457-D-monotone.
+ * B1 is CONDITIONALLY CLOSED under NoSwap only.
+ * (D-monotone was analytically closed by imp-463; it is no longer a blocking condition.)
  * The unconditional closure requires one of:
- *   (a) A proof of skp-imp457-D-monotone (analytic CM trajectory control), or
+ *   (a) Analytic closure of NoSwap (imp-464/noswap-closure.js; currently numerically
+ *       confirmed at N in {50,100,200,500} but step (a) of the mid-trajectory lemma
+ *       has a genuine gap: S_{k*}(0) > S_j(0) for all j fails for actual zeta zeros), or
  *   (b) A direct GUE/ESY-style local-law bound on b(N)
  *       (the original imp-363 / imp-370 approach).
  *

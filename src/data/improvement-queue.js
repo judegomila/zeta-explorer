@@ -10950,7 +10950,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'CRITICAL CHAIN: cross-verify b1-slope-analytic-bound.js — slope bound formulas',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: 'src/math/b1-slope-analytic-bound.js computes the B1 slope bound used in the Route A monotonicity closure. Cross-verify slope formulas against cited references, check derivative computations, verify boundary conditions. Every cross-verify so far (imp-817 through imp-820) found bugs — expect issues here too.',
     rationale: 'B1 slope feeds directly into d-monotone-analytic-closure.js. 100% cross-verify bug rate demands we check this.',

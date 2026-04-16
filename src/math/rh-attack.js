@@ -4383,15 +4383,13 @@ export function assembleCompleteProof(numPrimes = 50, numZeros = 100) {
   };
 
   // ── Section S7: Darlington Synthesis -- Three Closure Paths ────────────────
-  const potapovComplete = potapov.proofChain &&
-    potapov.proofChain.filter(s => s.status === 'VERIFIED' || s.status === 'COMPLETE').length ===
-    potapov.proofChain.length;
-  const marchenkoComplete = marchenko.proofChain &&
-    marchenko.proofChain.filter(s => s.status === 'VERIFIED' || s.status === 'COMPLETE').length ===
-    marchenko.proofChain.length;
-  const symplecticComplete = symplectic.proofChain &&
-    symplectic.proofChain.filter(s => s.status === 'VERIFIED' || s.status === 'COMPLETE').length ===
-    symplectic.proofChain.length;
+  // Use each function's own summary boolean rather than string-matching proof chain step
+  // statuses: the sub-functions use mixed case ('verified', 'FOLLOWS FROM STEPS 1-5',
+  // 'CHAIN COMPLETE', etc.) that never matched the uppercase 'VERIFIED'/'COMPLETE' checks,
+  // so closurePathsComplete was always 0 — causing S7 to always report as 'conditional'.
+  const potapovComplete = potapov.potapovApplies === true;
+  const marchenkoComplete = marchenko.reality != null && marchenko.reality.isReal === true;
+  const symplecticComplete = symplectic.allSymplectic === true && symplectic.allUnitary === true;
   const closurePathsComplete = [potapovComplete, marchenkoComplete, symplecticComplete]
     .filter(Boolean).length;
 

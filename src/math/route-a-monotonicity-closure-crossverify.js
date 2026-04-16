@@ -104,6 +104,19 @@
  *        symmetric to C7 (which locks the D-monotone side): it closes the
  *        NoSwap half of the composition citation network on both ends.
  *
+ *   (C11) NoSwap status stays in the allowed vocabulary:
+ *        NOSWAP_CLOSURE.status must be one of
+ *        {analytically-closed, numerically-closed}. B1.status is computed
+ *        from a ternary that literally tests for these two strings
+ *        (b1-slope-conditional-upper-bound.js lines 137-141). If NoSwap
+ *        silently drifts to any other status value, B1's ternary falls
+ *        through to conditional-closed without any tripwire firing: C3
+ *        only locks B1's RESULTING status vocabulary (not the upstream
+ *        NoSwap input), and C10 only locks NoSwap's id/ticket fields
+ *        (not its status string). C11 is structurally symmetric to C3
+ *        on the NoSwap side and catches the composition-level regression
+ *        where a weakened NoSwap status silently downgrades B1.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -324,6 +337,24 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'silently breaks at the closer end. C10 is structurally symmetric ' +
       'to C7 (which locks the D-monotone side) and locks the NoSwap side ' +
       'so both ends of the NoSwap handshake are verified.',
+  },
+  {
+    id: 'imp826-C11-noswap-status-in-allowed-vocabulary',
+    holds: () => {
+      const s = NOSWAP_CLOSURE.status;
+      return s === 'analytically-closed' || s === 'numerically-closed';
+    },
+    why:
+      'C11: NOSWAP_CLOSURE.status must be one of {analytically-closed, ' +
+      'numerically-closed}. B1.status is computed by a ternary that ' +
+      'literally tests these two strings (b1-slope-conditional-upper-bound.js ' +
+      'lines 137-141). If NoSwap silently drifts to any other status, B1 ' +
+      'falls through to conditional-closed without tripping a wire: C3 only ' +
+      'locks the RESULTING B1 status vocabulary, and C10 only locks the ' +
+      'NoSwap id/ticket fields (not the status string). C11 is structurally ' +
+      'symmetric to C3 on the NoSwap upstream side, catching the regression ' +
+      'where a weakened NoSwap status silently downgrades the B1 leg of the ' +
+      'composition.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

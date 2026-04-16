@@ -94,6 +94,16 @@
  *        its closure ticket. C9 is structurally symmetric to C2 and locks the
  *        NoSwap half of the handshake.
  *
+ *   (C10) NoSwap-module side of the NoSwap citation handshake:
+ *        NOSWAP_CLOSURE.id must literally equal "imp-464" and
+ *        NOSWAP_CLOSURE.ticket must literally equal "imp-464". C9 only checks
+ *        the B1 SIDE of the handshake (that B1.closedConditions cites
+ *        "imp-464"). If the NoSwap module itself renames its id or ticket
+ *        field while B1 freezes its citation text, C9 stays green and the
+ *        chain silently breaks at the closer end. C10 is structurally
+ *        symmetric to C7 (which locks the D-monotone side): it closes the
+ *        NoSwap half of the composition citation network on both ends.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -108,6 +118,7 @@
  */
 
 import { D_MONOTONE_ANALYTIC_PROOF } from './d-monotone-analytic-proof.js';
+import { NOSWAP_CLOSURE }            from './noswap-closure.js';
 import { B1_CONDITIONAL_BOUND }      from '../data/b1-slope-conditional-upper-bound.js';
 import { B2_INTERCEPT_BOUND }        from '../data/b2-intercept-analytic-bound.js';
 
@@ -299,6 +310,20 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       '"NoSwap"), C2 stays green while the B1 NoSwap leg silently loses its ' +
       'pointer to its closure ticket. C9 is structurally symmetric to C2 and ' +
       'locks the NoSwap half of the B1 citation handshake.',
+  },
+  {
+    id: 'imp826-C10-noswap-module-citation-handshake',
+    holds: () =>
+      NOSWAP_CLOSURE.id     === 'imp-464' &&
+      NOSWAP_CLOSURE.ticket === 'imp-464',
+    why:
+      'C10: closes the citation handshake on the NoSwap-module SIDE. C9 ' +
+      'only verifies B1.closedConditions literally cites "imp-464". If the ' +
+      'NoSwap module renames its id or ticket field while B1 freezes its ' +
+      'citation text, C9 stays green and the NoSwap leg of the chain ' +
+      'silently breaks at the closer end. C10 is structurally symmetric ' +
+      'to C7 (which locks the D-monotone side) and locks the NoSwap side ' +
+      'so both ends of the NoSwap handshake are verified.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

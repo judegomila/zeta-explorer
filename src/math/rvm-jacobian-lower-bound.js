@@ -90,7 +90,8 @@ export const RVM_JACOBIAN_LOWER_BOUND = {
     refTicket: 'imp-462',
     upgrades:
       'imp-462 bridge positivity of F prime = rho was previously supported only ' +
-      'by numerical ZETA_ZEROS spot-check (rho_min ~ 0.209 over first 870 zeros). ' +
+      'by numerical ZETA_ZEROS spot-check (rho_min ~ 0.129 over first 870 zeros; ' +
+      'imp-824: imp-462 had erroneous cite 0.209 -- rho(gamma_1)=(1/(2*pi))*log(14.1347/(2*pi))~0.12901). ' +
       'imp-469 replaces that with a fully analytic bound: rho(T) > 0 iff T > 2*pi, ' +
       'and gamma_1 > 14 > 2*pi (classical). The bridge is now unconditionally analytic.',
     implication:

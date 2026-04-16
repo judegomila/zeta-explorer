@@ -10972,7 +10972,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'CRITICAL CHAIN: cross-verify rvm-jacobian-lower-bound.js — Jacobian bound check',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: 'src/math/rvm-jacobian-lower-bound.js provides the RVM Jacobian lower bound used in the proof chain. Cross-verify the Jacobian computation, check matrix operations for correctness, verify the lower bound is actually a valid lower bound (not just an approximation). Test with small matrices where exact computation is feasible.',
     rationale: 'Jacobian bounds are notoriously error-prone (sign conventions, row/column ordering). Independent check is essential.',

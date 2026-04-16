@@ -10961,7 +10961,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'CRITICAL CHAIN: cross-verify b2-intercept-analytic-bound.js — intercept bound formulas',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: 'src/math/b2-intercept-analytic-bound.js computes the B2 intercept bound paired with B1 slope. Cross-verify intercept formulas, check that B1+B2 together give a valid linear bound, verify numerical constants. Test edge cases (small N, large N).',
     rationale: 'B2 intercept is the companion to B1 slope — both feed the Route A closure and both need independent verification.',

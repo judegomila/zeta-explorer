@@ -71,7 +71,8 @@
  * The bound is a_UB = tau_c_upper_bound(N_max) < 0.02, satisfying the assembly
  * condition "a <= 0.02" under M. With both B1 (conditional) and B2 (conditional)
  * closed, the full finite-height beat Lambda < 0.2 becomes conditional on M +
- * D-monotone + NoSwap, rather than on the raw OLS fit.
+ * NoSwap only (D-monotone was analytically closed by imp-463 and is no longer
+ * a blocking condition), rather than on the raw OLS fit.
  *
  * SYNTAX NOTE: avoid star-slash sequences inside JSDoc block text.
  */

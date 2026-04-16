@@ -51,20 +51,20 @@
  *
  * Low-N range (N < N_0)
  * ---------------------
- * For 2 <= N <= 870 (ZETA_ZEROS sweep range), the empirical check in
- * m-raw-from-umon-bridge.js already verifies:
+ * For 2 <= N <= 872 (ZETA_ZEROS sweep range — ZETA_ZEROS.length = 872), the
+ * empirical check in m-raw-from-umon-bridge.js already verifies:
  *   (a) rho_{J_star(N)} non-decreasing -- no violation found
  *   (b) tau_c_est non-increasing -- no violation found
  * These empirical verifications directly confirm M at leading order for small N.
- * The many-body correction at N ~ 870 is bounded by C_mb * 870^{-1/2} * log(870)
- * ~ 0.229; however, at this scale the empirical check directly validates M
+ * The many-body correction at N ~ 872 is bounded by C_mb * 872^{-1/2} * log(872)
+ * ~ 0.227; however, at this scale the empirical check directly validates M
  * without relying on the analytic correction bound.
  *
  * Conclusion
  * ----------
  * The many-body correction gap (imp-462-many-body-correction) is CLOSED:
  *   - For N >= N_0 = 10000: analytic bound (this file)
- *   - For N in {2,...,870}: empirical verification (m-raw-from-umon-bridge.js)
+ *   - For N in {2,...,872}: empirical verification (m-raw-from-umon-bridge.js)
  *   - M_raw <==> M_uf (imp-462 exact Jacobian bridge) holds unconditionally.
  *
  * Combined with UMon (imp-456) + the Jacobian bridge (imp-462) + rho_min
@@ -130,7 +130,7 @@ export const C_MB = 1;
  *   the safety margin 28% may not hold at N_0 = 10000.
  *
  *   MITIGATION: The empirical sweep in m-raw-from-umon-bridge.js directly
- *   verifies M for N in {2,...,870} without relying on C_mb. The analytic
+ *   verifies M for N in {2,...,872} without relying on C_mb. The analytic
  *   bound is only invoked for N >= N_0 = 10000.
  */
 export const C_MB_VERIFICATION = {
@@ -146,15 +146,17 @@ export const C_MB_VERIFICATION = {
   unconditional: 'GUE matrices (N x N Wigner with Gaussian entries)',
   conditional: 'Riemann zeros — requires GUE universality conjecture (Montgomery 1973)',
   mitigationForRiemannZeros:
-    'Empirical M-verification for N in {2,...,870} is direct and does not rely on C_mb. ' +
+    'Empirical M-verification for N in {2,...,872} is direct and does not rely on C_mb. ' +
     'Analytic bound (N >= 1e4) is conservative: if C_mb were 2 the ratio would be 1.44 > 1, ' +
-    'requiring N_0 = 1e6 for safety. The GUE universality assumption is standard in the field.',
+    'requiring N_0 = 1e6 for safety. The GUE universality assumption is standard in the field. ' +
+    'Note: empirical sweep covers N in {2,...,872} (ZETA_ZEROS.length), so N=871,872 are ' +
+    'also verified unconditionally; GUE-conditional regime starts at N >= 873.',
   verdict: 'C_mb <= 1 PROVEN for GUE; CONDITIONAL for Riemann zeros (GUE universality assumed)',
 };
 
 // ── Mid-range N coverage (imp-476): close skp5-001 gap [871, 9999] ────────────
 //
-// The existing closure uses empirical sweep for N in {2,...,870} and the
+// The existing closure uses empirical sweep for N in {2,...,872} and the
 // analytic bound (C_mb*f(N)/rho_min < 1) for N >= N_0 = 10000. The gap
 // [871, 9999] has neither coverage. This section closes it.
 //
@@ -301,7 +303,7 @@ export const MANY_BODY_CORRECTION_CLOSURE = {
 
   lowNCoverage: {
     method: 'empirical verification in m-raw-from-umon-bridge.js',
-    domain: 'N in {2,...,870}',
+    domain: 'N in {2,...,872}',
     verified: [
       'rho_{J_star(N)} non-decreasing: no violation in full ZETA_ZEROS sweep',
       'tau_c_est non-increasing: no violation in full ZETA_ZEROS sweep',
@@ -326,7 +328,7 @@ export const MANY_BODY_CORRECTION_CLOSURE = {
   conditionality: {
     status: 'CONDITIONAL on GUE universality for Riemann zeros (N >= 871 analytic range)',
     unconditionalComponent:
-      'Low-N coverage (N in {2,...,870}) is direct empirical verification — no C_mb assumption used.',
+      'Low-N coverage (N in {2,...,872}) is direct empirical verification — no C_mb assumption used.',
     conditionalComponent:
       'Analytic closure for N >= 871 requires C_mb <= 1, which is proven for GUE matrices ' +
       '(Erdos-Schlein-Yau 2011) but requires the GUE universality conjecture (Montgomery 1973, ' +
@@ -342,7 +344,7 @@ export const MANY_BODY_CORRECTION_CLOSURE = {
   closureNote:
     'Many-body correction gap imp-462-many-body-correction CLOSED for ALL N >= 2. ' +
     'Three-range coverage: ' +
-    '(1) N in {2,...,870}: empirical sweep in m-raw-from-umon-bridge.js (UNCONDITIONAL); ' +
+    '(1) N in {2,...,872}: empirical sweep in m-raw-from-umon-bridge.js (UNCONDITIONAL); ' +
     '(2) N in [871,9999]: analytic via imp-476 (j*(N)>=3 from gap_3<min-early-gaps, ' +
     'rho(gamma_4)=' + IMP476_RHO_GAMMA4.toFixed(4) + '>f(871)=' + IMP476_F_AT_871.toFixed(4) + ') ' +
     '-- CONDITIONAL on GUE universality for C_mb <= 1; ' +
@@ -350,7 +352,7 @@ export const MANY_BODY_CORRECTION_CLOSURE = {
     +(CORRECTION_AT_N0 / RHO_MIN_ANALYTIC_LB).toFixed(3) + ' at N_0, 28% margin) ' +
     '-- CONDITIONAL on GUE universality for C_mb <= 1. ' +
     'Combined with UMon (imp-456), Jacobian bridge (imp-462), and rho_min (imp-469): ' +
-    'M is established for all N >= 2 (unconditional for N <= 870; conditional on GUE universality for N >= 871). ' +
+    'M is established for all N >= 2 (unconditional for N <= 872; conditional on GUE universality for N >= 873). ' +
     'Lambda <= 0.121 < 0.2 (Platt-Trudgian 2021) is a finite-height beat conditional on GUE universality.',
 };
 

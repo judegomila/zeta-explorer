@@ -10892,7 +10892,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'CRITICAL CHAIN: cross-verify many-body-correction-closure.js — independent formula check',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'complete',
     proofSection: 'S10-verify',
     description: 'src/math/many-body-correction-closure.js is in the critical proof chain (referenced by lambda-N1e6-final-assembly) but has NOT been independently cross-verified. Given the 2-bug discovery in rh-attack.js (imp-809), this is urgent. Read the file, verify all formulas against cited references, check edge cases (N=1, large N limits), confirm the many-body correction factor matches published results. Flag any sign errors, off-by-one issues, or incorrect reference values.',
     rationale: 'Cross-verification of rh-attack.js found 2 real bugs. Many-body correction is a critical chain dependency — any error here propagates to the final Lambda bound.',

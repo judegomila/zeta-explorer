@@ -10903,7 +10903,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'CRITICAL CHAIN: cross-verify noswap-closure.js — verify swap barrier logic',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: 'src/math/noswap-closure.js is in the critical proof chain. Known issue: line 439 admits S_{k*}(0) > S_j(0) fails at tested N values (imp-584 partial closure). Cross-verify the swap barrier formulas, check whether the partial closure is honest about its limitations, verify numerical constants against Dyson-Burgers references. Document any additional issues found.',
     rationale: 'This module has a known admitted failure — cross-verification should confirm the failure is correctly documented and check for additional issues.',

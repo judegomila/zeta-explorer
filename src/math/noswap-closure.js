@@ -95,31 +95,51 @@ function getNoSwapHolds(N) {
 }
 
 // ── Crossing-rate spot-check at initial configuration ────────────────────────
-// Verify d(g_j - g_{k_star})/dtau = 2 B (S_{k_star} - S_j) > 0 for j != k_star
-// at N=50 initial config (tau = 0).
+// Directly compute d(g_j - g_{k_star})/dtau = 2 B (S_{k_star} - S_j) for all
+// j != k_star at tau=0 using actual zeta zeros and the CM flow convention
+// d gamma_i/dtau = 2 Sum_{m != i} 1/(gamma_i - gamma_m), which gives
+// dg_k/dtau = 4/g_k - 2*g_k*S_k and crossing rate 2*B*(S_{k_star}-S_j).
 
 function computeCrossingRates(N) {
-  // Access the same ZETA_ZEROS the prior simulation used
-  // We reconstruct from the prior result's kStar and use the raw zero list.
-  // The PRIOR_RESULTS already verified NoSwap numerically; here we spot-check
-  // the analytical repulsive-crossing argument at the initial configuration.
   const r = PRIOR_RESULTS.find((x) => x.N === N);
   if (r == null) return { available: false };
 
-  // Minimal reconstruction: verify the crossing-rate formula analytically
-  // using the S_{k_star} >> S_j asymptotic as the colliding gap shrinks.
-  // We do this by checking that S_{k_star} > S_j for the initial config.
-  // (At tau=0, all gaps are positive; S_{k_star} is the largest because
-  //  k_star has the smallest gap and thus the nearest neighbours contribute
-  //  the most to the inverse-product sum.)
+  // Recompute kStar from initial gammas for self-consistent crossing rate check.
+  const gammas = Array.from(ZETA_ZEROS.slice(0, N));
+  let kStar = 0;
+  let Bmin  = gammas[1] - gammas[0];
+  for (let k = 1; k < N - 1; k++) {
+    const g = gammas[k + 1] - gammas[k];
+    if (g < Bmin) { Bmin = g; kStar = k; }
+  }
+  const SkStar = computeSk(gammas, kStar);
+  let positiveRates = 0;
+  let negativeRates = 0;
+  let minRate = Infinity;
+  for (let j = 0; j < N - 1; j++) {
+    if (j === kStar) continue;
+    const rate = 2 * Bmin * (SkStar - computeSk(gammas, j));
+    if (rate > 0) positiveRates++;
+    else negativeRates++;
+    if (rate < minRate) minRate = rate;
+  }
   return {
-    available:       true,
+    available:           true,
     N,
-    kStarInitial:    r.kStar,
+    kStarInitial:        kStar,
     noSwapHoldsVerified: r.noSwapHolds,
-    note:
-      'NoSwap verified via imp-463 backward CM simulation. ' +
-      'Crossing-rate argument: d(g_j-g_{k_star})/dtau ~ 2/B_x > 0 near collision.',
+    Bmin:                +Bmin.toFixed(8),
+    SkStar:              +SkStar.toFixed(6),
+    positiveRates,
+    negativeRates,
+    minRate:             isFinite(minRate) ? +minRate.toFixed(6) : null,
+    swapBarrierAtTau0:   negativeRates === 0,
+    note: negativeRates > 0
+      ? 'Swap barrier 2*B*(S_{k_star}-S_j) computed directly at tau=0. ' +
+        'negativeRates>0 confirms imp-584 gap: initial-config barrier fails; ' +
+        'near-collision divergence S_{k_star}~1/B_x is the valid no-swap argument.'
+      : 'Swap barrier 2*B*(S_{k_star}-S_j) computed at tau=0: all rates positive. ' +
+        'Full no-swap argument holds at both initial config and near-collision.',
   };
 }
 

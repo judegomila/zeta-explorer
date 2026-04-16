@@ -63,6 +63,15 @@
  *        a still-positive but ceiling-failing bound would silently let
  *        Route A's intercept leg claim closure it does not have.
  *
+ *   (C7) D-monotone side of the citation handshake:
+ *        D_MONOTONE_ANALYTIC_PROOF.subGap must literally equal
+ *        "skp-imp457-D-monotone" and D_MONOTONE_ANALYTIC_PROOF.ticket must
+ *        literally equal "imp-463". C2 only checks the B1 SIDE of the
+ *        handshake (that B1.closedConditions cites these two strings). If
+ *        D-monotone renames its subGap or ticket field while B1 freezes its
+ *        citation text, C2 stays green but the chain silently breaks. C7
+ *        locks the D-monotone side so the handshake is verified on both ends.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -224,6 +233,19 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'conditional-open-ceiling-not-met) or N_max is removed (flips to ' +
       'conditional-open-no-nmax). A positive but ceiling-failing bound ' +
       'would otherwise silently let Route A claim intercept closure.',
+  },
+  {
+    id: 'imp826-C7-d-monotone-citation-handshake',
+    holds: () =>
+      D_MONOTONE_ANALYTIC_PROOF.subGap === 'skp-imp457-D-monotone' &&
+      D_MONOTONE_ANALYTIC_PROOF.ticket === 'imp-463',
+    why:
+      'C7: closes the citation handshake on the D-monotone SIDE. C2 only ' +
+      'verifies B1.closedConditions literally cites "skp-imp457-D-monotone" ' +
+      'and "imp-463". If D-monotone renames its subGap or ticket field while ' +
+      'B1 freezes its citation text, C2 stays green and the chain silently ' +
+      'breaks. C7 locks the D-monotone side so both ends of the handshake ' +
+      'are checked.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

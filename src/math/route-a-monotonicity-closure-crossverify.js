@@ -117,6 +117,22 @@
  *        on the NoSwap side and catches the composition-level regression
  *        where a weakened NoSwap status silently downgrades B1.
  *
+ *   (C12) D-monotone status stays in the allowed vocabulary:
+ *        D_MONOTONE_ANALYTIC_PROOF.status must be one of
+ *        {analytically-closed, analytical-argument-with-numerical-failure}.
+ *        These are the only two values the status ternary in
+ *        d-monotone-analytic-proof.js lines 274-276 can produce (the
+ *        EXTENDED_RESULTS.every(...) predicate is strictly boolean). If a
+ *        future edit replaces that ternary with a wider expression, the
+ *        status string could drift to an unrecognized value while C5 (which
+ *        only tests for equality against "analytically-closed") silently
+ *        stops enforcing the "weakest link" guard at full strength.
+ *        C7 locks subGap and ticket on the D-monotone side but NOT the
+ *        status field; C3 locks B1 status vocabulary and C11 locks NoSwap
+ *        status vocabulary. C12 is structurally symmetric to C3 and C11
+ *        on the D-monotone upstream side and closes the last unlocked
+ *        status-vocabulary slot in the composition.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -355,6 +371,26 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'symmetric to C3 on the NoSwap upstream side, catching the regression ' +
       'where a weakened NoSwap status silently downgrades the B1 leg of the ' +
       'composition.',
+  },
+  {
+    id: 'imp826-C12-d-monotone-status-in-allowed-vocabulary',
+    holds: () => {
+      const s = D_MONOTONE_ANALYTIC_PROOF.status;
+      return s === 'analytically-closed' ||
+             s === 'analytical-argument-with-numerical-failure';
+    },
+    why:
+      'C12: D_MONOTONE_ANALYTIC_PROOF.status must be one of ' +
+      '{analytically-closed, analytical-argument-with-numerical-failure}. ' +
+      'These are the only values the status ternary in ' +
+      'd-monotone-analytic-proof.js lines 274-276 can produce today. If a ' +
+      'future edit widens that ternary and status drifts to an unrecognized ' +
+      'value, C5 (which only tests equality against "analytically-closed") ' +
+      'silently stops enforcing the "weakest link" guard at full strength: ' +
+      'C7 locks subGap and ticket on the D-monotone side but NOT status, ' +
+      'and C3/C11 only lock the B1 and NoSwap status vocabularies. C12 is ' +
+      'structurally symmetric to C3 and C11 on the D-monotone upstream side ' +
+      'and closes the last unlocked status-vocabulary slot.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

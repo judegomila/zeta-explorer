@@ -219,7 +219,8 @@ export const CHECKLIST_SUMMARY = {
   ],
 
   verdict: 'PASS — no submission blockers. Previously deferred Lean counts (A1, A3) resolved by imp-494. One WARN for missing review-4 artifact (not a blocker).',
-  verifiedAt: '2026-04-14T22:45:00.000Z',
+  verifiedAt: '2026-04-16T18:15:00.000Z',
   reVerifiedByImp707: 'All 19 FILE_CHECKS files confirmed present; imp469-cross-verification.js confirmed present; build clean. All assertions unchanged after imp-701 through imp-706.',
   reVerifiedByImp710: 'All 19 FILE_CHECKS files confirmed present; build clean (no errors). All assertions unchanged after imp-709 through imp-716 (Lambda grid extension). No new blockers introduced.',
+  reVerifiedByImp813: 'All 20 FILE_CHECKS paths confirmed present (19 originals + src/data/imp469-cross-verification.js used by XR2); npm run build clean (exit 0, 4.26s). A2/A4/A5/A6/A7 unchanged. DRIFT DETECTED (not a blocker): Foundation.lean now has 9 `axiom` declarations, up from the snapshot-time count of 6 — imp-511 added gammaOrdinate_tendsto_atTop and gammaOrdinate_log_div_N_tendsto_zero (RvM growth axioms needed to close rate_tendsto_zero), and imp-525 added KoksmaHlawkaLimSup (moved from Capstone.lean to break the BridgeTheorem<->Capstone circular import). Foundation.lean file header comment still reads "Axioms (6)" and should be refreshed to "Axioms (9)" in a follow-up ticket — this does not invalidate the imp-489 closure of A1, it just records that the canonical axiom set grew in the imp-511/imp-525 window. A3: BridgeTheorem.lean now has 0 open `sorry` keywords (all three closed per the file header "Closed-Sorry History"), an additional improvement beyond the snapshot-time 8->7 delta.',
 };

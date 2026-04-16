@@ -163,6 +163,21 @@
  *        verdict ("non-blocking") and the sub-gap record cannot drift
  *        apart.
  *
+ *   (C15) Crossverify record's own self-id is frozen to "imp-826":
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.id must literally equal
+ *        "imp-826". C1 locks the three UPSTREAM module ids (imp-463,
+ *        imp-457, imp-458), C7 locks the D-monotone handshake endpoint
+ *        ids (subGap, ticket), and C10 locks the NoSwap-module endpoint
+ *        ids (id, ticket) -- but the crossverify record's OWN id field
+ *        is unpinned. If a future edit renames it (e.g. to "imp-826a"
+ *        during a sub-ticket split, or to a hyphenless variant), any
+ *        dashboard or queue index that filters ticket records by literal
+ *        id === "imp-826" silently loses its pointer to the imp-826
+ *        crossverify work while every other C1..C14 assertion continues
+ *        to pass. C15 is structurally symmetric to C1 on the crossverify-
+ *        record side and closes the last unpinned id field in the whole
+ *        composition.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -456,6 +471,22 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'while the scope-tripwire stays green. C14 locks the last unpinned ' +
       'identity field of residualSubGap so the verdict and the sub-gap ' +
       'record cannot drift apart.',
+  },
+  {
+    id: 'imp826-C15-crossverify-record-self-id',
+    holds: () => ROUTE_A_MONOTONICITY_CROSSVERIFY.id === 'imp-826',
+    why:
+      'C15: ROUTE_A_MONOTONICITY_CROSSVERIFY.id must literally equal ' +
+      '"imp-826". C1 locks the three UPSTREAM module ids (imp-463, imp-457, ' +
+      'imp-458), C7 locks the D-monotone handshake endpoint ids, and C10 ' +
+      'locks the NoSwap-module endpoint ids -- but the crossverify record ' +
+      'own id field is unpinned. If a future edit renames it (e.g. "imp-826a" ' +
+      'during a sub-ticket split, or a hyphenless variant), any dashboard or ' +
+      'queue index filtering ticket records by literal id === "imp-826" ' +
+      'silently loses its pointer to the imp-826 crossverify work while every ' +
+      'other C1..C14 assertion continues to pass. C15 is structurally ' +
+      'symmetric to C1 on the crossverify-record side and closes the last ' +
+      'unpinned id field in the whole composition.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

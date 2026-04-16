@@ -58,13 +58,14 @@
  * Leading-order analysis (B << all other gaps g_l >= B):
  *   dB/dtau  ~ -4/B
  *   v_k      ~  2/B            (dominated by the 1/(gamma_k - gamma_{k+1}) = -1/B term)
- *   v_j      ~ O(1)            (no 1/B term; all gaps involving j are >= B)
+ *   v_j      ~ O(1/B) at most  (each gap from j to pair is >= B, so each term <= 1/B;
+ *                                adjacent j = k-1 has pair contribution
+ *                                (2/p_j + 2/(p_j+1))/B + O(1))
  *
- * Substituting into dp_j/dtau:
- *   dp_j/dtau  ~  [ 2/B - O(1) - p_j * (-4/B) ] / B
- *              =  [ 2/B + 4 p_j / B + O(1) ] / B
- *              =  (2 + 4 p_j) / B^2  +  O(1/B)
- *              > 0    for all B > 0.
+ * Substituting into dp_j/dtau (most restrictive case j = k-1, p_j = p >= 1):
+ *   dp_j/dtau  ~  [ 2/B - (2/p + 2/(p+1))/B - p * (-4/B) ] / B
+ *              =  (2 + 4 p - 2/p - 2/(p + 1)) / B^2
+ *              >= 3 / B^2  >  0    (minimum at p = 1: 2 + 4 - 2 - 1 = 3; monotone in p).
  *
  * The leading-order term (2 + 4 p_j) / B^2 is STRICTLY POSITIVE and DOMINATES
  * as B -> 0 (the approach to collision).  An identical argument applies to q_j.
@@ -293,9 +294,10 @@ export const D_MONOTONE_ANALYTIC_PROOF = {
       'dp_j/dtau = [(v_{k_star} - v_j) - p_j * dB/dtau] / B',
     leadingOrderBound:
       'v_{k_star} ~ 2/B  (dominated by the -1/B term from the pair gap). ' +
-      'v_j = O(1) for j != k_star, k_star+1  (all gaps involving j are >= B). ' +
+      'v_j = O(1/B) at most (each gap from j to pair >= B; adjacent j = k_star-1 ' +
+      'contributes pair terms (2/p_j + 2/(p_j+1))/B to v_j). ' +
       'dB/dtau ~ -4/B  (near collision: 2BS -> 0 as F -> 0). ' +
-      'Therefore dp_j/dtau ~ (2 + 4 p_j) / B^2 > 0.',
+      'Combined: dp_j/dtau ~ (2 + 4 p_j - 2/p_j - 2/(p_j+1)) / B^2 >= 3/B^2 > 0 for p_j >= 1.',
     correctionBound:
       'Sub-leading corrections to v_{k_star} and dB/dtau are O(1), giving a ' +
       'correction to dp_j/dtau of O(1/B). Since the leading term is O(1/B^2), ' +

@@ -507,10 +507,11 @@ export function hamiltonianAnalyticBound(tValue, numPrimes = 12) {
   // Second derivative (4th-order accurate)
   const H_double_prime = (-hp2 + 16 * hp1 - 30 * h0 + 16 * hm1 - hm2) / (12 * ds * ds);
 
-  // Third derivative (for Taylor remainder estimate)
-  const hp3 = evalH(0.5 + 3 * ds);
-  const hm3 = evalH(0.5 - 3 * ds);
-  const H_triple_prime = (hp3 - 2 * hp2 + 2 * hm1 - 2 * hp1 + 2 * hm2 - hm3) / (2 * ds * ds * ds);
+  // Third derivative (for Taylor remainder estimate).
+  // Standard 4-point central-difference formula f'''(x) = (f(+2h) - 2f(+h) + 2f(-h) - f(-2h)) / (2h³).
+  // The previously used 6-point expression had a sign error that left f'(x) uncancelled,
+  // producing (3/2)·f''' - 3·f'/h² instead of f''' — invalid near any non-zero gradient.
+  const H_triple_prime = (hp2 - 2 * hp1 + 2 * hm1 - hm2) / (2 * ds * ds * ds);
 
   // Taylor bound validity: for |δσ| ≤ bound_width,
   // |R₃| = (1/6)|H'''|·|δσ|³ < 0.1 * (½ H'' δσ²)

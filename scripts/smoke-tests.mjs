@@ -193,6 +193,47 @@ async function main() {
   });
 
   console.log('');
+
+  // ── src/math/memo.js ──────────────────────────────────────────────────────────
+  // imp-811: smoke coverage for memoization utilities (LRU cache, memoize,
+  // clearAllCaches). These are used throughout visualization pages so silent
+  // regressions would corrupt cached computations everywhere.
+  console.log('## memo.js');
+  const memo = await server.ssrLoadModule('/src/math/memo.js');
+
+  ok('memoize: returns cached result on repeat call (call count = 1)', () => {
+    let calls = 0;
+    const f = memo.memoize((a, b) => { calls++; return a + b; });
+    assert.strictEqual(f(2, 3), 5);
+    assert.strictEqual(f(2, 3), 5);
+    assert.strictEqual(f(2, 3), 5);
+    assert.strictEqual(calls, 1, 'underlying fn should be invoked exactly once');
+  });
+
+  ok('memoize: LRU eviction drops oldest entry when maxSize exceeded', () => {
+    let calls = 0;
+    const f = memo.memoize((x) => { calls++; return x * 2; }, undefined, 2);
+    f(1); // cache: [1]
+    f(2); // cache: [1,2]
+    f(3); // cache: [2,3] — evicts 1
+    assert.strictEqual(calls, 3);
+    f(2); // hit — still in cache
+    assert.strictEqual(calls, 3, 'f(2) should be cached');
+    f(1); // miss — was evicted
+    assert.strictEqual(calls, 4, 'f(1) should have been evicted and recomputed');
+  });
+
+  ok('clearAllCaches: wipes every registered memoize cache', () => {
+    let calls = 0;
+    const f = memo.memoize((x) => { calls++; return x + 1; });
+    f(10); f(10);
+    assert.strictEqual(calls, 1);
+    memo.clearAllCaches();
+    f(10);
+    assert.strictEqual(calls, 2, 'cache should have been cleared');
+  });
+
+  console.log('');
   console.log('---');
   console.log('Passed : ' + passed);
   console.log('Failed : ' + failed);

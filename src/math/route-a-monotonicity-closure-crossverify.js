@@ -149,6 +149,20 @@
  *        NoSwap side and closes the last unlocked weakest-link slot in
  *        the composition.
  *
+ *   (C14) Residual monolithic-file sub-gap stays non-blocking:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.blocker must
+ *        literally equal false. The existing scope-tripwire (last
+ *        assertion below) pins both residualSubGap.status === "open" and
+ *        monolithicFilePresent === false, but does NOT pin the blocker
+ *        field. If a future edit flips blocker to true (e.g. reinterprets
+ *        the missing monolithic file as actually blocking the chain),
+ *        the imp-826 partial-closure-non-blocking verdict silently
+ *        downgrades while the scope-tripwire stays green: status still
+ *        reads "open" and monolithicFilePresent still reads false. C14
+ *        locks the last unpinned identity field of residualSubGap so the
+ *        verdict ("non-blocking") and the sub-gap record cannot drift
+ *        apart.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -427,6 +441,21 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'silently claims more than its NoSwap leg supports. C13 is structurally ' +
       'symmetric to C5 on the NoSwap side and closes the last unlocked ' +
       'weakest-link slot.',
+  },
+  {
+    id: 'imp826-C14-monolithic-gap-stays-non-blocking',
+    holds: () =>
+      ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.blocker === false,
+    why:
+      'C14: ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.blocker must ' +
+      'literally equal false. The scope-tripwire below only pins ' +
+      'residualSubGap.status === "open" and monolithicFilePresent === false; ' +
+      'it does NOT pin the blocker field. If a future edit flips blocker to ' +
+      'true (reinterpreting the missing monolithic file as blocking), the ' +
+      'imp-826 partial-closure-non-blocking verdict silently downgrades ' +
+      'while the scope-tripwire stays green. C14 locks the last unpinned ' +
+      'identity field of residualSubGap so the verdict and the sub-gap ' +
+      'record cannot drift apart.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

@@ -35,6 +35,8 @@ export default function LiteraturePage() {
     const sorted = [...refs];
     if (sortOrder === 'year-asc') {
       sorted.sort((a, b) => a.year - b.year);
+    } else if (sortOrder === 'author-asc') {
+      sorted.sort((a, b) => (a.authors[0] || '').localeCompare(b.authors[0] || ''));
     } else {
       sorted.sort((a, b) => b.year - a.year);
     }
@@ -75,6 +77,7 @@ export default function LiteraturePage() {
           >
             <option value="year-desc">Year (newest first)</option>
             <option value="year-asc">Year (oldest first)</option>
+            <option value="author-asc">Author (A–Z)</option>
           </select>
         </span>
       </div>

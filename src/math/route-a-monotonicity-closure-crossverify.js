@@ -72,6 +72,17 @@
  *        citation text, C2 stays green but the chain silently breaks. C7
  *        locks the D-monotone side so the handshake is verified on both ends.
  *
+ *   (C8) B2 ceiling constant equals the finite-height beat assembly target:
+ *        B2_INTERCEPT_BOUND.bound.ceiling must literally equal 0.02. The
+ *        finite-height beat assembly (lambda-N1e6-final-assembly.js) requires
+ *        a <= 0.02 specifically; any other ceiling constant breaks the
+ *        assembly guarantee. C6 only checks beatsCeiling === true, but that
+ *        flag is computed against whatever ceiling B2 happens to store. If
+ *        the ceiling is silently raised (e.g. 0.02 -> 0.03) to mask a
+ *        Koksma-Hlawka regression, C4 and C6 both stay green while the
+ *        assembly target is silently weakened. C8 locks the ceiling value
+ *        itself so the composition promise matches the assembly contract.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -246,6 +257,21 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'B1 freezes its citation text, C2 stays green and the chain silently ' +
       'breaks. C7 locks the D-monotone side so both ends of the handshake ' +
       'are checked.',
+  },
+  {
+    id: 'imp826-C8-b2-ceiling-matches-assembly-target',
+    holds: () =>
+      B2_INTERCEPT_BOUND.bound &&
+      B2_INTERCEPT_BOUND.bound.ceiling === 0.02,
+    why:
+      'C8: the finite-height beat assembly (lambda-N1e6-final-assembly.js) ' +
+      'requires a <= 0.02 specifically. B2_INTERCEPT_BOUND.bound.ceiling must ' +
+      'literally equal 0.02 so that beatsCeiling is computed against the ' +
+      'assembly contract rather than an edited constant. C4 (value > 0) and ' +
+      'C6 (beatsCeiling === true) both remain green even if the ceiling is ' +
+      'silently raised (e.g. 0.02 -> 0.03) to mask a Koksma-Hlawka regression. ' +
+      'C8 locks the ceiling value itself so the composition promise matches ' +
+      'the downstream assembly target.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

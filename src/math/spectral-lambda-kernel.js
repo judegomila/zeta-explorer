@@ -94,10 +94,10 @@ function meanSpacingAtHeight(T) {
 
 // ── The Kernel Hack: spectral bound on collision time ─────────────────
 
-// Under backward heat flow, the tightest pair evolves:
-//   ds/dt ≈ -2/s  (leading-order ODE for pair separation)
-//   Solution: s(t)² = s₀² + 4t  (t < 0 for backward)
-//   Collision at t_c: s(t_c) = 0 → t_c = -s₀²/4
+// Under forward heat flow the tightest pair repels: dx_j/dt = Σ 1/(x_j-x_k).
+// For the closest pair separated by s, the two-body leading-order ODE is:
+//   ds/dt ≈ +2/s  (repulsion: integrate s·ds=2dt → s²=s₀²+4t)
+//   Backward to t<0: s(t)²=s₀²+4t → collision at t_c=-s₀²/4
 //
 // So Λ = |t_c| = s₀²/4 where s₀ = minimum RAW spacing at t=0.
 //

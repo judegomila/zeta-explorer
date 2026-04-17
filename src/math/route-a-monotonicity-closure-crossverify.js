@@ -425,6 +425,26 @@
  *        consumer side and closes the last unpinned filename-duplicate
  *        triple in the verdict prose.
  *
+ *   (C29) verdict prose names the non-blocking disposition:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict must literally contain
+ *        the substring "non-blocking". The verdict prose is the human-
+ *        readable authoritative record of the closure disposition, and
+ *        its "non-blocking sub-gap" phrase is the verdict-side copy of
+ *        the machine-readable residualSubGap.blocker === false field. C14
+ *        locks the record-side blocker flag and C26 locks the note-side
+ *        "purely organizational" disposition anchor, but the verdict
+ *        prose copy is unpinned. If a future edit silently rewrites the
+ *        verdict to drop "non-blocking" (e.g. paraphrases the sub-gap as
+ *        "still open" without its disposition, or upgrades it to
+ *        "blocking" during an over-cautious rewrite), C14 stays green
+ *        (blocker still false), C26 stays green (note-side anchors
+ *        unchanged), and C23/C24/C28 stay green (closure-strength,
+ *        composing imp-ids, and downstream filenames all unchanged) --
+ *        yet any referee reading the verdict sees a disposition claim
+ *        that contradicts or drops the tripwired blocker flag. C29 is
+ *        structurally symmetric to C14 on the verdict-prose side and
+ *        closes the last unpinned disposition slot in the verdict prose.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -1081,6 +1101,26 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'empirical basis of that claim. C28 is structurally symmetric to ' +
       'C24 on the downstream-consumer side and closes the last unpinned ' +
       'filename-duplicate triple in the verdict prose.',
+  },
+  {
+    id: 'imp826-C29-verdict-non-blocking-anchor',
+    holds: () => {
+      const v = ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict;
+      if (typeof v !== 'string') return false;
+      return v.indexOf('non-blocking') !== -1;
+    },
+    why:
+      'C29: ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict must literally contain ' +
+      'the substring "non-blocking". The verdict prose is the human-readable ' +
+      'copy of the residualSubGap.blocker === false disposition. C14 locks ' +
+      'the record-side blocker flag and C26 locks the note-side "purely ' +
+      'organizational" anchor, but the verdict prose copy is unpinned. If a ' +
+      'future edit rewrites the verdict to drop "non-blocking" (paraphrase ' +
+      'without the disposition, or upgrade to "blocking"), C14/C26/C23/C24/C28 ' +
+      'all stay green while any referee reading the verdict sees a disposition ' +
+      'claim that contradicts or drops the tripwired blocker flag. C29 is ' +
+      'structurally symmetric to C14 on the verdict-prose side and closes the ' +
+      'last unpinned disposition slot in the verdict prose.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

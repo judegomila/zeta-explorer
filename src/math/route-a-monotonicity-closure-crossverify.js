@@ -445,6 +445,22 @@
  *        structurally symmetric to C14 on the verdict-prose side and
  *        closes the last unpinned disposition slot in the verdict prose.
  *
+ *   (C30) Record-side distributedComposition pointer is reference-identical
+ *        to the local DISTRIBUTED_COMPOSITION const:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.distributedComposition must
+ *        literally === DISTRIBUTED_COMPOSITION (same object reference).
+ *        C18/C19/C20 lock the impId/file/role triples and C25 locks the
+ *        supplies anchors, but all four assertions read from the local
+ *        const directly, not from the record-side field. If a future edit
+ *        silently replaces "distributedComposition: DISTRIBUTED_COMPOSITION"
+ *        with a shallow copy (e.g. ".slice()" or "[...]"), a map that
+ *        rewrites a field, or a literal array mirroring the const, the
+ *        const stays intact so C18/C19/C20/C25 stay green, yet any
+ *        downstream consumer reading the record-side field sees a diverged
+ *        or frozen-in-time copy. C30 pins reference identity so the record-
+ *        side pointer cannot silently detach from the const the other
+ *        assertions lock.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -1121,6 +1137,30 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'claim that contradicts or drops the tripwired blocker flag. C29 is ' +
       'structurally symmetric to C14 on the verdict-prose side and closes the ' +
       'last unpinned disposition slot in the verdict prose.',
+  },
+  {
+    id: 'imp826-C30-record-distributed-composition-points-to-const',
+    holds: () =>
+      ROUTE_A_MONOTONICITY_CROSSVERIFY.distributedComposition ===
+      DISTRIBUTED_COMPOSITION,
+    why:
+      'C30: ROUTE_A_MONOTONICITY_CROSSVERIFY.distributedComposition must be ' +
+      'reference-identical to the local DISTRIBUTED_COMPOSITION const. ' +
+      'C18/C19/C20 lock the impId/file/role triples on the const itself, and ' +
+      'C25 locks the supplies anchors on the const itself, but all four ' +
+      'assertions read from DISTRIBUTED_COMPOSITION (the module-local const) ' +
+      'not from ROUTE_A_MONOTONICITY_CROSSVERIFY.distributedComposition (the ' +
+      'record-side field). If a future edit silently replaces the record-side ' +
+      'assignment "distributedComposition: DISTRIBUTED_COMPOSITION" with a ' +
+      'shallow copy (e.g. "DISTRIBUTED_COMPOSITION.slice()"), a spread ' +
+      '("[...DISTRIBUTED_COMPOSITION]"), a map that rewrites a field, or a ' +
+      'literal array that happens to mirror the const, C18/C19/C20/C25 stay ' +
+      'green (the const is unchanged) while any downstream consumer reading ' +
+      'from the record field sees a divergent or frozen-in-time copy. C30 ' +
+      'pins reference identity so the record-side pointer cannot silently ' +
+      'detach from the const the other assertions lock, closing the last ' +
+      'unpinned pointer slot between DISTRIBUTED_COMPOSITION and the ' +
+      'crossverify record.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

@@ -205,11 +205,15 @@ function computeWeilPositivity() {
     const result = mod.weilPositivityTest([0.5, 1, 2, 5, 10], 80, 50);
     const tests = result.results;
     const allPositive = tests.every(t => t.balance >= -1e-10);
+    const allConsistent = tests.every(t => t.consistent);
     const minSum = Math.min(...tests.map(t => t.balance));
+    const inconsistentCount = tests.filter(t => !t.consistent).length;
     return {
-      status: allPositive ? 'green' : 'red',
-      value: allPositive ? 'Non-Negative' : `Min = ${minSum.toExponential(3)}`,
-      detail: `Tested ${tests.length} Gaussian widths. Min sum = ${minSum.toExponential(3)}.`,
+      status: (allPositive && allConsistent) ? 'green' : 'red',
+      value: (allPositive && allConsistent) ? 'Non-Negative' : `Min = ${minSum.toExponential(3)}`,
+      detail: inconsistentCount > 0
+        ? `Tested ${tests.length} widths. ${inconsistentCount} inconsistent (balance outside ±0.5·zeroSum). Min = ${minSum.toExponential(3)}.`
+        : `Tested ${tests.length} Gaussian widths. All consistent, min balance = ${minSum.toExponential(3)}.`,
     };
   });
 }

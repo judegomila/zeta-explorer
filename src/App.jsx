@@ -55,6 +55,7 @@ const RhDagPage = lazy(() => import('./pages/RhDagPage.jsx'));
 const RigorDashboardPage = lazy(() => import('./pages/RigorDashboardPage.jsx'));
 const DysonVerifierPage = lazy(() => import('./pages/DysonVerifierPage.jsx'));
 const HealthPage = lazy(() => import('./pages/HealthPage.jsx'));
+const FullStoryPage = lazy(() => import('./pages/FullStoryPage.jsx'));
 
 function PageLoader() {
   return (
@@ -70,6 +71,7 @@ const NAV_GROUPS = [
   {
     label: 'Model',
     items: [
+      { to: '/full-story', label: 'The Full Story' },
       { to: '/oscillators', label: 'Oscillators' },
       { to: '/hamiltonian', label: 'Hamiltonian' },
       { to: '/zeta', label: 'Zeta' },
@@ -123,6 +125,7 @@ const NAV_GROUPS = [
       { to: '/improvement-queue', label: 'Improvement Queue' },
       { to: '/improvements', label: 'Improvements Log' },
       { to: '/dashboard', label: 'Dashboard' },
+      { to: '/health', label: 'Health Check' },
     ],
   },
   {
@@ -407,6 +410,7 @@ function AppShell() {
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />
           <Route path="/dyson-verifier" element={<DysonVerifierPage />} />
           <Route path="/health" element={<HealthPage />} />
+          <Route path="/full-story" element={<FullStoryPage />} />
         </Routes>
         </Suspense>
       </div>

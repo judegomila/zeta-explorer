@@ -150,7 +150,7 @@ do_start() {
             . "$SCRIPT_DIR/.env"
             set +a
           fi
-          claude --print --dangerously-skip-permissions "$IMPROVE_PROMPT" \
+          claude --print --model claude-opus-4-7 --dangerously-skip-permissions "$IMPROVE_PROMPT" \
             >> "$log_file" 2>&1
         ) || true
       else
@@ -249,10 +249,17 @@ EOF
         idle_count=$((idle_count + 1))
         echo "IDLE TICK $idle_count/$IDLE_THRESHOLD: no eligible tickets this run" | tee -a "$log_file"
         if [ "$idle_count" -ge "$IDLE_THRESHOLD" ]; then
-          echo "IDLE THRESHOLD REACHED: $idle_count consecutive empty-queue runs -- auto-stopping engine." | tee -a "$log_file"
-          echo "$(date -u +"%Y-%m-%dT%H:%M:%SZ") AUTO-STOPPED: $idle_count consecutive empty-queue exits" >> "$SCRIPT_DIR/auto-stop.log"
-          rm -f "$PID_FILE"
-          break
+          echo "IDLE THRESHOLD REACHED: $idle_count consecutive empty-queue runs." | tee -a "$log_file"
+          echo "AUTOFILL: scanning codebase for new work..." | tee -a "$log_file"
+          if node "$SCRIPT_DIR/autofill-queue-from-gaps.mjs" >> "$log_file" 2>&1; then
+            echo "AUTOFILL: seeded new tickets — resetting idle counter" | tee -a "$log_file"
+            idle_count=0
+          else
+            echo "AUTOFILL: no new work found or error — auto-stopping engine." | tee -a "$log_file"
+            echo "$(date -u +"%Y-%m-%dT%H:%M:%SZ") AUTO-STOPPED: $idle_count idle exits + autofill found nothing" >> "$SCRIPT_DIR/auto-stop.log"
+            rm -f "$PID_FILE"
+            break
+          fi
         fi
       else
         if [ "$idle_count" -gt 0 ]; then

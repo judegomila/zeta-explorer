@@ -115,10 +115,11 @@ function computeWeilPositivity() {
     const result = mod.weilPositivityTest([0.5, 1, 2, 5, 10], 80, 50);
     const tests = result.results;
     const allPositive = tests.every(t => t.balance >= -1e-10);
+    const allConsistent = tests.every(t => t.consistent);
     const minSum = Math.min(...tests.map(t => t.balance));
     return {
-      status: allPositive ? 'green' : 'red',
-      value: allPositive ? 'Non-Negative' : `min=${minSum.toExponential(2)}`,
+      status: (allPositive && allConsistent) ? 'green' : 'red',
+      value: (allPositive && allConsistent) ? 'Non-Negative' : `min=${minSum.toExponential(2)}`,
       detail: 'Weil Positivity (5 Gaussian widths)',
     };
   });

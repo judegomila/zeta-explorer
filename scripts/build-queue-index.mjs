@@ -54,8 +54,45 @@ function parseQueue(text) {
       const start = i;
       i++;
       while (i < n && depth > 0) {
-        if (text[i] === '{') depth++;
-        else if (text[i] === '}') depth--;
+        const ch = text[i];
+        // Skip over single-quoted strings (which may contain { or })
+        if (ch === "'" && text[i - 1] !== '\\') {
+          i++;
+          while (i < n && !(text[i] === "'" && text[i - 1] !== '\\')) i++;
+          i++; // skip closing quote
+          continue;
+        }
+        // Skip over double-quoted strings
+        if (ch === '"' && text[i - 1] !== '\\') {
+          i++;
+          while (i < n && !(text[i] === '"' && text[i - 1] !== '\\')) i++;
+          i++;
+          continue;
+        }
+        // Skip over template literals
+        if (ch === '`') {
+          i++;
+          while (i < n && text[i] !== '`') {
+            if (text[i] === '\\') i++; // skip escaped chars
+            i++;
+          }
+          i++;
+          continue;
+        }
+        // Skip line comments
+        if (ch === '/' && text[i + 1] === '/') {
+          while (i < n && text[i] !== '\n') i++;
+          continue;
+        }
+        // Skip block comments
+        if (ch === '/' && text[i + 1] === '*') {
+          i += 2;
+          while (i < n - 1 && !(text[i] === '*' && text[i + 1] === '/')) i++;
+          i += 2;
+          continue;
+        }
+        if (ch === '{') depth++;
+        else if (ch === '}') depth--;
         i++;
       }
       const chunk = text.slice(start, i);

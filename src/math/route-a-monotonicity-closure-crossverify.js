@@ -350,6 +350,33 @@
  *        supplies-prose side and closes the last unpinned string-field
  *        triple in DISTRIBUTED_COMPOSITION.
  *
+ *   (C26) residualSubGap.note prose anchors are frozen:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.note must literally
+ *        contain three substring anchors: "three" (the composition
+ *        cardinality claim), "distributedComposition" (the cross-reference
+ *        pointer to the array field on the same record), and "purely
+ *        organizational" (the disposition claim that resolving the sub-gap
+ *        would not change mathematical content). C14 locks blocker, C16
+ *        locks id, C21 locks title, and the scope-tripwire locks status and
+ *        monolithicFilePresent -- but the residualSubGap.note prose is the
+ *        last unpinned string field on residualSubGap. That note is the
+ *        human-readable justification a referee reads to understand why
+ *        the missing monolithic file is safe to leave open. If a future
+ *        edit silently rewrites it to drop the "three" cardinality (e.g.
+ *        paraphrases to "the composition is distributed across modules"
+ *        without the count), drops the "distributedComposition" cross-
+ *        reference (e.g. replaces it with an ambiguous back-pointer), or
+ *        upgrades "purely organizational" to a mathematical claim (e.g.
+ *        rewrites to "would complete the proof"), C14/C16/C21 and the
+ *        scope-tripwire all stay green while a referee reading the note
+ *        silently sees a weakened cardinality claim, a lost pointer, or
+ *        an unsupported strengthening of what the aggregator would deliver.
+ *        C26 pins the distinguishing anchors (not the full prose) so
+ *        paraphrase is allowed but anchor-loss is not. Substring-anchor
+ *        pattern matches C2/C9/C23/C24/C25 for prose-style fields; C26 is
+ *        structurally symmetric to C21 on the residualSubGap prose side
+ *        and closes the last unpinned string slot on residualSubGap.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -911,6 +938,42 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'prose-style fields; structurally symmetric to C18/C19/C20 on the ' +
       'supplies side and closes the last unpinned string-field triple in ' +
       'DISTRIBUTED_COMPOSITION.',
+  },
+  {
+    id: 'imp826-C26-residual-subgap-note-anchors-frozen',
+    holds: () => {
+      const n = ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.note;
+      if (typeof n !== 'string') return false;
+      return n.indexOf('three')                  !== -1 &&
+             n.indexOf('distributedComposition') !== -1 &&
+             n.indexOf('purely organizational')  !== -1;
+    },
+    why:
+      'C26: ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.note must ' +
+      'literally contain three substring anchors: "three" (the composition ' +
+      'cardinality claim), "distributedComposition" (the cross-reference ' +
+      'pointer to the array field on the same record), and "purely ' +
+      'organizational" (the disposition claim that resolving the sub-gap ' +
+      'would not change mathematical content). C14 locks blocker, C16 locks ' +
+      'id, C21 locks title, and the scope-tripwire locks status and ' +
+      'monolithicFilePresent -- but the residualSubGap.note prose is the ' +
+      'last unpinned string field on residualSubGap. That note is the ' +
+      'human-readable justification a referee reads to understand why the ' +
+      'missing monolithic file is safe to leave open. If a future edit ' +
+      'silently rewrites it to drop the "three" cardinality (e.g. ' +
+      'paraphrases to "distributed across modules" without the count), ' +
+      'drops the "distributedComposition" cross-reference (e.g. replaces ' +
+      'it with an ambiguous back-pointer), or upgrades "purely ' +
+      'organizational" to a mathematical claim (e.g. rewrites to "would ' +
+      'complete the proof"), C14/C16/C21 and the scope-tripwire all stay ' +
+      'green while a referee reading the note silently sees a weakened ' +
+      'cardinality claim, a lost pointer, or an unsupported strengthening ' +
+      'of what the aggregator would deliver. C26 pins the distinguishing ' +
+      'anchors (not the full prose) so paraphrase is allowed but anchor-' +
+      'loss is not. Substring-anchor pattern matches C2/C9/C23/C24/C25 for ' +
+      'prose-style fields; structurally symmetric to C21 on the ' +
+      'residualSubGap prose side and closes the last unpinned string slot ' +
+      'on residualSubGap.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

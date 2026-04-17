@@ -193,6 +193,21 @@
  *        structurally symmetric to C15 on the sub-gap-record side and
  *        closes the last unpinned id field on residualSubGap.
  *
+ *   (C18) DISTRIBUTED_COMPOSITION local impId duplicates are frozen:
+ *        DISTRIBUTED_COMPOSITION must have exactly 3 entries whose impId
+ *        fields literally equal "imp-463", "imp-457", "imp-458" in that
+ *        order. C1 locks the UPSTREAM module ids read through imported
+ *        constants, but the DISTRIBUTED_COMPOSITION array here is a LOCAL
+ *        duplicate of those ids embedded in this crossverify record. If a
+ *        future edit rewrites a local impId string (e.g. drifts "imp-463"
+ *        to "imp-821" during a sub-ticket rename) or adds/removes an entry
+ *        from the array, C1 stays green (imports unchanged) while any
+ *        downstream dashboard or aggregator that reads impIds from THIS
+ *        record silently loses or mislinks its pointer to the three
+ *        composing modules. C18 is structurally symmetric to C1 on the
+ *        local-record side and closes the last unpinned id-duplicate slot
+ *        in the distributed composition listing.
+ *
  *   (C17) monolithicFileExpected is frozen to the ticket-named path:
  *        ROUTE_A_MONOTONICITY_CROSSVERIFY.monolithicFileExpected must
  *        literally equal "src/math/route-a-monotonicity-closure.js". This
@@ -557,6 +572,34 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'false -- yet the contract of the sub-gap has been silently reinterpreted. ' +
       'C17 locks the expected path so the sub-gap identity cannot drift under ' +
       'the scope tripwire.',
+  },
+  {
+    id: 'imp826-C18-distributed-composition-local-impids-frozen',
+    holds: () => {
+      if (!Array.isArray(DISTRIBUTED_COMPOSITION) ||
+          DISTRIBUTED_COMPOSITION.length !== 3) {
+        return false;
+      }
+      const ids = DISTRIBUTED_COMPOSITION.map((e) => e && e.impId);
+      return ids[0] === 'imp-463' &&
+             ids[1] === 'imp-457' &&
+             ids[2] === 'imp-458';
+    },
+    why:
+      'C18: DISTRIBUTED_COMPOSITION must have exactly 3 entries whose impId ' +
+      'fields are the literal strings "imp-463", "imp-457", "imp-458" in that ' +
+      'order. C1 only locks the UPSTREAM module ids read through imported ' +
+      'constants (D_MONOTONE_ANALYTIC_PROOF.id, B1_CONDITIONAL_BOUND.id, ' +
+      'B2_INTERCEPT_BOUND.id). The DISTRIBUTED_COMPOSITION array here is a ' +
+      'LOCAL duplicate of those ids embedded in this crossverify record; if ' +
+      'a future edit rewrites the local impId strings (e.g. drifts ' +
+      '"imp-463" to "imp-821" in a sub-ticket renaming) or adds/removes an ' +
+      'entry from the array, C1 stays green (the imports are unchanged) ' +
+      'while any downstream dashboard or aggregator that reads impIds from ' +
+      'THIS record silently loses or mislinks its pointer to the three ' +
+      'composing modules. C18 is structurally symmetric to C1 on the local-' +
+      'record side and closes the last unpinned id-duplicate slot in the ' +
+      'distributed composition listing.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

@@ -431,4 +431,43 @@ export const LAMBDA_MAX_GAP_EXTREMAL_ASSERTIONS = [
       'the truncation. Any id drifting out from under this file strands ' +
       'the citation chain.',
   },
+  {
+    // imp-827 cross-verification C1: crossesCritical flags must equal the
+    // direct arithmetic comparison c_total > C_CRITICAL. This locks the
+    // reported boolean to the formula so no stale cached value can drift.
+    // Critical R_crit (where c_total(R_crit) = 2) satisfies
+    //   R_crit * (R_crit + 1) = 1 / (2 - pi^2/6) ≈ 2.8163,
+    // giving R_crit ≈ 1.2515. The assertion also pins this threshold to
+    // ±5e-4 so a silent change in C_TAIL would trip the assertion here
+    // before the booleans went wrong.
+    id: 'imp827-crosses-critical-flags-match-arithmetic',
+    holds: () => {
+      const flagsMatch =
+        LAMBDA_MAX_GAP_EXTREMAL.witness.derivedCBound.topK.crossesCritical ===
+          (C_TOTAL_TOPK !== null && C_TOTAL_TOPK > C_CRITICAL) &&
+        LAMBDA_MAX_GAP_EXTREMAL.witness.derivedCBound.global.crossesCritical ===
+          (C_TOTAL_GLOBAL !== null && C_TOTAL_GLOBAL > C_CRITICAL) &&
+        LAMBDA_MAX_GAP_EXTREMAL.verdict.crossesCriticalTopK ===
+          CROSSES_CRITICAL_TOPK &&
+        LAMBDA_MAX_GAP_EXTREMAL.verdict.crossesCriticalGlobal ===
+          CROSSES_CRITICAL_GLOBAL;
+      const denom = 2 - (Math.PI * Math.PI) / 6;
+      if (!(denom > 0)) return false;
+      const rProduct = 1 / denom;
+      const rCrit = (-1 + Math.sqrt(1 + 4 * rProduct)) / 2;
+      const rCritInRange = rCrit > 1.251 && rCrit < 1.252;
+      const algebraic = Math.abs(cTotalFromR(rCrit) - C_CRITICAL) < 1e-10;
+      return flagsMatch && rCritInRange && algebraic;
+    },
+    why:
+      'imp-827 cross-verification tripwire. The crossesCritical_topK and ' +
+      'crossesCritical_global booleans in witness.derivedCBound and verdict ' +
+      'must match the direct arithmetic comparison (c_total > 2). Any drift ' +
+      'means a stale cached flag was shipped and downstream consumers ' +
+      '(imp-396, imp-451) would read a boolean inconsistent with the number ' +
+      'next to it. The assertion also pins the critical R threshold ' +
+      'R_crit ≈ 1.2515 so a silent change in C_TAIL = 2*(pi^2/6 - 1) (the ' +
+      'imp-342 rigorous Weyl-tail constant) fails this assertion directly, ' +
+      'rather than surfacing only as an unexplained verdict flip.',
+  },
 ];

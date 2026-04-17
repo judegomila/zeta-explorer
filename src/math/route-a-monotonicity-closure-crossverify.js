@@ -292,6 +292,41 @@
  *        side and closes the last unpinned string slot on the
  *        crossverify record itself.
  *
+ *   (C23) ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict honestly reports
+ *        PARTIAL closure:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict must literally contain
+ *        the substring "PARTIAL closure". The verdict string is the
+ *        authoritative prose record of what imp-826 delivers: a
+ *        distributed cross-verification that does NOT construct the
+ *        missing monolithic file, and therefore only closes the ticket
+ *        PARTIALLY. Every previous lock (C1..C22) covers an id, status,
+ *        path, or title -- none covers the closure-strength claim in the
+ *        verdict prose. If a future edit silently upgrades the verdict
+ *        to "FULL closure" (e.g. during an over-eager rewrite that
+ *        reinterprets the distributed composition as a full aggregator),
+ *        C14 stays green (residualSubGap.blocker unchanged), the scope-
+ *        tripwire stays green (residualSubGap.status still "open",
+ *        monolithicFilePresent still false), C16/C17/C21 stay green (the
+ *        sub-gap record id, monolithic path, and sub-gap title are all
+ *        unchanged) -- yet any referee or downstream dashboard reading
+ *        the verdict silently sees a stronger closure claim than the
+ *        sub-gap record supports. C23 locks the honesty of the verdict
+ *        claim itself so the closure strength cannot drift under the
+ *        existing sub-gap tripwires.
+ *
+ *   (C24) verdict prose names all three composing-module imp-ids:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict must literally contain
+ *        "imp-457", "imp-458", and "imp-463". C18 locks those three ids on
+ *        the DISTRIBUTED_COMPOSITION local array and C1 locks them on the
+ *        imported module records, but the verdict prose is a third copy of
+ *        that provenance list -- the human-readable authoritative record of
+ *        which tickets the partial closure rests on. If a future edit
+ *        silently rewrites the verdict to drop one of the imp-ids (e.g.
+ *        summarises "three composing modules" without naming them, or
+ *        swaps an imp-id for a descriptive label), C18 and C1 stay green
+ *        while dashboards reading the verdict for provenance silently lose
+ *        a pointer. C24 closes the last unpinned ticket-id-duplicate slot.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -768,6 +803,54 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'symmetric to C21 (which locks residualSubGap.title) on the top-' +
       'level record side and closes the last unpinned string slot on the ' +
       'crossverify record itself.',
+  },
+  {
+    id: 'imp826-C23-verdict-partial-closure-honest',
+    holds: () =>
+      typeof ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict === 'string' &&
+      ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict.indexOf('PARTIAL closure') !== -1,
+    why:
+      'C23: ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict must literally contain ' +
+      'the substring "PARTIAL closure". The verdict prose is the authoritative ' +
+      'record of what imp-826 delivers -- a distributed cross-verification that ' +
+      'does NOT construct the missing monolithic file, so the ticket closes ' +
+      'only PARTIALLY. C1..C22 cover ids, statuses, paths, and titles, but none ' +
+      'covers the closure-strength claim in the verdict. If a future edit ' +
+      'silently upgrades the verdict to "FULL closure" (e.g. a rewrite that ' +
+      'reinterprets the distributed composition as a full aggregator), C14 ' +
+      'stays green (blocker unchanged), the scope-tripwire stays green (status ' +
+      '"open", monolithicFilePresent false), and C16/C17/C21 stay green (sub-' +
+      'gap id, monolithic path, sub-gap title unchanged) -- yet any referee or ' +
+      'downstream dashboard reading the verdict sees a stronger closure claim ' +
+      'than the sub-gap record supports. C23 locks the honesty of the verdict ' +
+      'itself so the closure strength cannot drift under the existing tripwires.',
+  },
+  {
+    id: 'imp826-C24-verdict-names-all-three-composing-impids',
+    holds: () => {
+      const v = ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict;
+      if (typeof v !== 'string') return false;
+      return v.indexOf('imp-457') !== -1 &&
+             v.indexOf('imp-458') !== -1 &&
+             v.indexOf('imp-463') !== -1;
+    },
+    why:
+      'C24: ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict must literally contain ' +
+      'all three composing-module ids "imp-457", "imp-458", "imp-463". C18 ' +
+      'locks those three ids on the DISTRIBUTED_COMPOSITION local array, and ' +
+      'C1 locks them on the imported module records, but the verdict prose is ' +
+      'a third copy of that provenance list -- the human-readable authoritative ' +
+      'record of which tickets the partial closure rests on. If a future edit ' +
+      'silently rewrites the verdict to drop one of the imp-ids (e.g. summarises ' +
+      '"three composing modules" without naming them, or renames "imp-463" to ' +
+      '"D-monotone" descriptively), C18 stays green (the local array is ' +
+      'unchanged), C1 stays green (the imports are unchanged), and C23 stays ' +
+      'green (the "PARTIAL closure" substring is unchanged) -- yet any referee ' +
+      'or downstream dashboard reading the verdict for ticket provenance ' +
+      'silently loses the pointer to one of the three composing tickets. C24 ' +
+      'locks the last unpinned ticket-id-duplicate slot (the verdict prose ' +
+      'copy) so the three ticket ids cannot drift out of the verdict under the ' +
+      'existing C1, C18, and C23 tripwires.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

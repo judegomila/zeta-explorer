@@ -377,6 +377,31 @@
  *        structurally symmetric to C21 on the residualSubGap prose side
  *        and closes the last unpinned string slot on residualSubGap.
  *
+ *   (C27) snapshot is a faithful mirror of the upstream status fields:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.snapshot.dMonotoneStatus must
+ *        === D_MONOTONE_ANALYTIC_PROOF.status, .b1Status must ===
+ *        B1_CONDITIONAL_BOUND.status, .b2Status must ===
+ *        B2_INTERCEPT_BOUND.status, and .b2BoundValue must equal
+ *        ((B2_INTERCEPT_BOUND.bound && B2_INTERCEPT_BOUND.bound.value) ||
+ *        null). The snapshot is a LOCAL copy of the three upstream module
+ *        statuses (and the B2 bound value) embedded on the crossverify
+ *        record for dashboards and referees who read one field per leg
+ *        without having to dereference each imported module record. C3
+ *        locks B1.status to an allowed vocabulary, C11 locks NoSwap.status,
+ *        and C12 locks D-monotone.status -- but none of those assertions
+ *        checks that the SNAPSHOT copy still tracks its upstream. If a
+ *        future edit silently hardcodes a snapshot field (e.g. replaces
+ *        "dMonotoneStatus: D_MONOTONE_ANALYTIC_PROOF.status" with the
+ *        literal "dMonotoneStatus: 'analytically-closed'" during a
+ *        copy-paste or a refactor that inlines the import), the upstream
+ *        vocabulary assertions all stay green, yet any downstream reader
+ *        of the snapshot sees a frozen value that no longer tracks the
+ *        live status. C27 is structurally symmetric to C15 (which locks
+ *        the record self-id to the same value the ticket id must equal):
+ *        it locks the snapshot fields to the same values the upstream
+ *        imports must equal, closing the last unpinned identity slot on
+ *        the crossverify record.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -974,6 +999,35 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'prose-style fields; structurally symmetric to C21 on the ' +
       'residualSubGap prose side and closes the last unpinned string slot ' +
       'on residualSubGap.',
+  },
+  {
+    id: 'imp826-C27-snapshot-mirrors-upstream-status',
+    holds: () => {
+      const s = ROUTE_A_MONOTONICITY_CROSSVERIFY.snapshot;
+      if (!s || typeof s !== 'object') return false;
+      const expectedB2Bound =
+        (B2_INTERCEPT_BOUND.bound && B2_INTERCEPT_BOUND.bound.value) || null;
+      return s.dMonotoneStatus === D_MONOTONE_ANALYTIC_PROOF.status &&
+             s.b1Status        === B1_CONDITIONAL_BOUND.status      &&
+             s.b2Status        === B2_INTERCEPT_BOUND.status        &&
+             s.b2BoundValue    === expectedB2Bound;
+    },
+    why:
+      'C27: ROUTE_A_MONOTONICITY_CROSSVERIFY.snapshot must be a faithful ' +
+      'mirror of the upstream module status fields. dMonotoneStatus must ' +
+      'equal D_MONOTONE_ANALYTIC_PROOF.status, b1Status must equal ' +
+      'B1_CONDITIONAL_BOUND.status, b2Status must equal B2_INTERCEPT_BOUND.' +
+      'status, and b2BoundValue must equal the same B2_INTERCEPT_BOUND.bound.' +
+      'value expression the snapshot is built from. C3 locks B1 status ' +
+      'vocabulary, C11 locks NoSwap status vocabulary, and C12 locks ' +
+      'D-monotone status vocabulary, but none of those assertions checks ' +
+      'that the snapshot COPY still tracks its upstream. If a future edit ' +
+      'silently hardcodes a snapshot field (e.g. replaces ' +
+      '"dMonotoneStatus: D_MONOTONE_ANALYTIC_PROOF.status" with a literal ' +
+      'string during a copy-paste refactor that inlines the import), C3, ' +
+      'C11, and C12 all stay green while any downstream reader of the ' +
+      'snapshot sees a frozen value that no longer tracks the live status. ' +
+      'C27 closes the last unpinned identity slot on the crossverify record.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

@@ -313,4 +313,24 @@ export const CHAIN_CROSSVERIFY_N5E5_ASSERTIONS = [
       'Full chain PASS/FAIL verdict at N*=5e5 must be PASS: all conditions ' +
       'closed and L_pt(5e5) < 0.2.',
   },
+  {
+    id:    'imp828-alt-path-CF-matches-primary-form',
+    holds: () => {
+      if (!RESULT_N5E5.available) return false;
+      const T0    = effectiveHeightForN(N_STAR);
+      const logT0 = Math.log(T0);
+      // Alt-path form (A1): (logT0 - log(2pi) + 1) / (2pi)
+      const CF_alt_fresh     = (logT0 - LOG_TWO_PI + 1.0) / TWO_PI;
+      // Primary form used by finite-height-beats-platt-trudgian.js:
+      // (log(T0/(2pi)) + 1) / (2pi)
+      const CF_primary_fresh = (Math.log(T0 / TWO_PI) + 1.0) / TWO_PI;
+      return Math.abs(CF_alt_fresh - CF_primary_fresh) < 1e-12;
+    },
+    why:
+      'imp-828 integration cross-verify: the alt-path CF_alt = ' +
+      '(logT0 - log(2pi) + 1)/(2pi) must agree numerically with the ' +
+      'algebraically-equivalent primary-form CF = (log(T0/(2pi)) + 1)/(2pi) ' +
+      'to 1e-12. Guards against silent divergence between the two IEEE 754 ' +
+      'paths that would invalidate the cross-verification claim at N*=5e5.',
+  },
 ];

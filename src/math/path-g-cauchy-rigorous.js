@@ -303,4 +303,49 @@ export const PATH_G_CAUCHY_ASSERTIONS = [
       + "Verifies the rigorous case (sigma > 1) gives a numerically usable bound. "
       + "The exact value ~ 2.65 from the explicit zeta(2)-1 formula.",
   },
+  {
+    id: "imp829-transferDeviation-matches-direct-matrix-entry-form",
+    holds: () => {
+      // Independent cross-derivation of ||T_p - I||_F from the 2x2 matrix entries.
+      //
+      // T_p - I = [[ 1/tau - 1, -rho_p/tau ], [ -rhoBar_p/tau, 1/tau - 1 ]]
+      // => ||T_p - I||_F^2 = 2*|1/tau - 1|^2 + 2*|rho_p/tau|^2
+      //    = 2*(1/tau - 1)^2 + 2*(|rho|/tau)^2          [tau, |rho| real for p, sigma real]
+      //
+      // The module uses the algebraically-simplified form (derivation step 2):
+      //    ||T_p - I||_F^2 = 4*(1 - tau)/tau^2.
+      //
+      // This assertion recomputes the direct matrix-entry form locally at 10 primes x 3
+      // sigmas and verifies agreement with transferDeviation() to 1e-12 relative precision.
+      // Catches any silent algebraic slip in the step-1 -> step-2 reduction that
+      // feeds the explicit C_0(sigma) = 2/sqrt(1 - 4^{-sigma}) constant in Section 1.
+      const primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29];
+      const sigmas = [0.75, 1.0, 1.5];
+      for (const sigma of sigmas) {
+        for (const p of primes) {
+          const rhoAbs = Math.pow(p, -sigma);
+          const tau    = Math.sqrt(1 - rhoAbs * rhoAbs);
+          if (!(tau > 0) || !Number.isFinite(tau)) return false;
+          // Direct matrix-entry Frobenius form (derivation step 1):
+          const directSq = 2 * (1/tau - 1) * (1/tau - 1)
+                         + 2 * (rhoAbs/tau) * (rhoAbs/tau);
+          const direct   = Math.sqrt(directSq);
+          // Module's simplified form (derivation step 2):
+          const viaModule = transferDeviation(p, sigma);
+          const denom = Math.max(direct, 1e-300);
+          if (Math.abs(direct - viaModule) / denom > 1e-12) return false;
+        }
+      }
+      return true;
+    },
+    why:
+      "imp-829 cross-verify: the transferDeviation() implementation uses the "
+      + "simplified form sqrt(4*(1-tau)/tau^2) (derivation step 2). This assertion "
+      + "independently re-derives the same quantity from the direct matrix-entry "
+      + "Frobenius norm 2*(1/tau-1)^2 + 2*(|rho|/tau)^2 (derivation step 1) at "
+      + "10 primes times 3 sigmas and verifies agreement to 1e-12 relative "
+      + "precision. Guards against a silent algebraic slip in the "
+      + "step1 -> step2 reduction that underpins C_0(sigma) = 2/sqrt(1 - 4^{-sigma}) "
+      + "and the entire Section 1 analytical upper bound.",
+  },
 ];

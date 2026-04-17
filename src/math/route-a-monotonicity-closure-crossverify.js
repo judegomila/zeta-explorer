@@ -276,6 +276,22 @@
  *        to C16 on the title-field side and closes the last unpinned
  *        string slot on residualSubGap.
  *
+ *   (C22) ROUTE_A_MONOTONICITY_CROSSVERIFY.title (the top-level record
+ *        title) is frozen to its literal string:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.title must literally equal
+ *        "Cross-verify the distributed Route A monotonicity-closure
+ *        composition". C15 locks the crossverify record self-id to
+ *        "imp-826" and C21 locks residualSubGap.title, but the crossverify
+ *        record's OWN title field (the human-readable label dashboards
+ *        display alongside id === "imp-826") is unpinned. If a future
+ *        edit silently rewrites this title (e.g. during a sub-ticket
+ *        split the title might be narrowed, or a refactor might rewrite
+ *        the label text), C15 stays green while dashboards reading the
+ *        title silently display different wording than the id implies.
+ *        C22 is structurally symmetric to C21 on the top-level record
+ *        side and closes the last unpinned string slot on the
+ *        crossverify record itself.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -730,6 +746,28 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'different wording than the C16 named handle implies. C21 is ' +
       'structurally symmetric to C16 on the title-field side and closes the ' +
       'last unpinned string slot on residualSubGap.',
+  },
+  {
+    id: 'imp826-C22-crossverify-record-title-frozen',
+    holds: () =>
+      ROUTE_A_MONOTONICITY_CROSSVERIFY.title ===
+      'Cross-verify the distributed Route A monotonicity-closure composition',
+    why:
+      'C22: ROUTE_A_MONOTONICITY_CROSSVERIFY.title must literally equal ' +
+      '"Cross-verify the distributed Route A monotonicity-closure ' +
+      'composition". C15 locks the crossverify record self-id to "imp-826" ' +
+      'and C21 locks the residualSubGap.title, but the crossverify record ' +
+      'OWN title field (the human-readable label dashboards and queue ' +
+      'viewers display alongside id === "imp-826") is unpinned. If a ' +
+      'future edit silently rewrites this title (e.g. during a sub-ticket ' +
+      'split the title might be retouched to narrow or broaden the scope, ' +
+      'or a refactor that renames the ticket concept might rewrite the ' +
+      'label), C15 stays green (id still "imp-826") while any dashboard ' +
+      'reading the title to describe the crossverify work silently ' +
+      'displays different wording than the id implies. C22 is structurally ' +
+      'symmetric to C21 (which locks residualSubGap.title) on the top-' +
+      'level record side and closes the last unpinned string slot on the ' +
+      'crossverify record itself.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

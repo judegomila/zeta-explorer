@@ -402,6 +402,29 @@
  *        imports must equal, closing the last unpinned identity slot on
  *        the crossverify record.
  *
+ *   (C28) verdict prose names all three downstream-consumer file paths:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict must literally contain
+ *        the filenames "route-a-argmin-closure.js",
+ *        "lambda-N1e6-final-assembly.js", and "lambda-zero-attack.js".
+ *        The verdict's final clause claims "no caller is affected" and
+ *        justifies that claim by naming the three downstream modules that
+ *        read directly from the distributed records. C24 locks the
+ *        upstream-provenance triple (three composing imp-ids) inside the
+ *        same verdict string, but the parallel downstream-provenance
+ *        triple (three downstream consumer filenames) is unpinned. If a
+ *        future edit silently rewrites the verdict to drop one of these
+ *        filenames (e.g. paraphrases "three downstream consumers" without
+ *        naming them, or renames one during a refactor that is not
+ *        mirrored here), C23 stays green (PARTIAL-closure substring
+ *        unchanged) and C24 stays green (three composing imp-ids
+ *        unchanged) -- yet any referee or impact-analysis reader checking
+ *        the "no caller is affected" claim silently loses its pointer to
+ *        one of the three downstream modules whose independence from the
+ *        missing monolithic aggregator is the empirical basis of that
+ *        claim. C28 is structurally symmetric to C24 on the downstream-
+ *        consumer side and closes the last unpinned filename-duplicate
+ *        triple in the verdict prose.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -1028,6 +1051,36 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'C11, and C12 all stay green while any downstream reader of the ' +
       'snapshot sees a frozen value that no longer tracks the live status. ' +
       'C27 closes the last unpinned identity slot on the crossverify record.',
+  },
+  {
+    id: 'imp826-C28-verdict-names-all-three-downstream-consumers',
+    holds: () => {
+      const v = ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict;
+      if (typeof v !== 'string') return false;
+      return v.indexOf('route-a-argmin-closure.js')       !== -1 &&
+             v.indexOf('lambda-N1e6-final-assembly.js')   !== -1 &&
+             v.indexOf('lambda-zero-attack.js')           !== -1;
+    },
+    why:
+      'C28: ROUTE_A_MONOTONICITY_CROSSVERIFY.verdict must literally ' +
+      'contain all three downstream consumer filenames ' +
+      '"route-a-argmin-closure.js", "lambda-N1e6-final-assembly.js", ' +
+      '"lambda-zero-attack.js". The verdict final clause justifies its ' +
+      '"no caller is affected" claim by naming those three downstream ' +
+      'modules that read directly from the distributed records. C24 ' +
+      'locks the UPSTREAM provenance triple (three composing imp-ids) ' +
+      'in the same verdict, but the parallel DOWNSTREAM consumer-filename ' +
+      'triple was unpinned. If a future edit silently rewrites the verdict ' +
+      'to drop one downstream filename (e.g. paraphrases "three downstream ' +
+      'consumers" without naming them, or renames one during a refactor ' +
+      'not mirrored here), C23 stays green (PARTIAL-closure unchanged) ' +
+      'and C24 stays green (three composing imp-ids unchanged) -- yet ' +
+      'any referee checking the "no caller is affected" claim silently ' +
+      'loses its pointer to one of the three downstream modules whose ' +
+      'independence from the missing monolithic aggregator is the ' +
+      'empirical basis of that claim. C28 is structurally symmetric to ' +
+      'C24 on the downstream-consumer side and closes the last unpinned ' +
+      'filename-duplicate triple in the verdict prose.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

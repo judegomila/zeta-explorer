@@ -6664,11 +6664,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Verify computeProofCompleteness works after rh-attack.js fix',
     category: 'bug',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     description: 'assembleCompleteProof was crashing at rh-attack.js line 4342 due to li.coefficients.every (should be li.lambdas.every). The rh-attack.js fix was applied but the DashboardPage computeProofCompleteness function was never re-verified. Test it: import and call assembleCompleteProof, verify it returns without error, and check the dashboard metric card renders. Deliverable: verified working or fix applied.',
     rationale: 'Part of the original dashboard bug fix request that was interrupted by context compaction.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-17T22:35:09Z',
   },
   {
     id: 'imp-522',

@@ -193,6 +193,24 @@
  *        structurally symmetric to C15 on the sub-gap-record side and
  *        closes the last unpinned id field on residualSubGap.
  *
+ *   (C17) monolithicFileExpected is frozen to the ticket-named path:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.monolithicFileExpected must
+ *        literally equal "src/math/route-a-monotonicity-closure.js". This
+ *        is the file path the ticket originally named; the sub-gap title
+ *        and the verdict text both reference it, and the whole
+ *        "monolithic file missing" contract is anchored to this exact
+ *        string. C14 locks residualSubGap.blocker, C16 locks
+ *        residualSubGap.id, and the scope-tripwire locks
+ *        monolithicFilePresent === false -- but the EXPECTED path itself
+ *        is unpinned. If a future edit silently retargets the expected
+ *        path (e.g. to a neighbouring module that does happen to exist,
+ *        which would auto-satisfy "file missing" by picking a different
+ *        file), monolithicFilePresent stays false, the status stays
+ *        "open", and the blocker stays false, yet the contract of the
+ *        sub-gap has silently been reinterpreted. C17 locks the expected
+ *        path so the sub-gap identity cannot drift under the scope
+ *        tripwire.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -519,6 +537,26 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'silently lose their pointer while C14 and the scope-tripwire both ' +
       'stay green. C16 is structurally symmetric to C15 on the sub-gap-' +
       'record side and closes the last unpinned id field on residualSubGap.',
+  },
+  {
+    id: 'imp826-C17-monolithic-file-expected-path-frozen',
+    holds: () =>
+      ROUTE_A_MONOTONICITY_CROSSVERIFY.monolithicFileExpected ===
+      'src/math/route-a-monotonicity-closure.js',
+    why:
+      'C17: ROUTE_A_MONOTONICITY_CROSSVERIFY.monolithicFileExpected must ' +
+      'literally equal "src/math/route-a-monotonicity-closure.js", the path ' +
+      'the imp-826 ticket originally named. The sub-gap title and verdict ' +
+      'text both reference this exact string. C14 locks residualSubGap.blocker, ' +
+      'C16 locks residualSubGap.id, and the scope-tripwire locks ' +
+      'monolithicFilePresent === false -- but the EXPECTED path itself is ' +
+      'unpinned. If a future edit silently retargets the expected path to a ' +
+      'different module (e.g. a neighbouring file that does happen to exist, ' +
+      'auto-satisfying "file missing" by picking a different file to look for), ' +
+      'monolithicFilePresent stays false, status stays "open", blocker stays ' +
+      'false -- yet the contract of the sub-gap has been silently reinterpreted. ' +
+      'C17 locks the expected path so the sub-gap identity cannot drift under ' +
+      'the scope tripwire.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

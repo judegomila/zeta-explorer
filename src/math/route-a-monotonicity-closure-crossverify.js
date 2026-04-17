@@ -208,6 +208,38 @@
  *        local-record side and closes the last unpinned id-duplicate slot
  *        in the distributed composition listing.
  *
+ *   (C19) DISTRIBUTED_COMPOSITION local file path strings are frozen:
+ *        DISTRIBUTED_COMPOSITION[i].file must literally equal the expected
+ *        path for each composing module: "src/math/d-monotone-analytic-proof.js"
+ *        for i=0, "src/data/b1-slope-conditional-upper-bound.js" for i=1,
+ *        "src/data/b2-intercept-analytic-bound.js" for i=2. C18 locks the
+ *        LOCAL impId strings in the same array, but the parallel file-path
+ *        pointer strings are unpinned. If a future edit silently retargets
+ *        a file string (e.g. to a neighbouring module that does happen to
+ *        exist, or a renamed but equivalent-content file), the impId still
+ *        points at "imp-463"/"imp-457"/"imp-458" so C18 stays green, while
+ *        any downstream dashboard or aggregator that reads file paths from
+ *        THIS record to locate the composing modules in the repo silently
+ *        follows a broken or reinterpreted pointer. C19 is structurally
+ *        symmetric to C18 on the local-file-path side and closes the last
+ *        unpinned string-field triple in DISTRIBUTED_COMPOSITION.
+ *
+ *   (C20) DISTRIBUTED_COMPOSITION local role labels are frozen:
+ *        DISTRIBUTED_COMPOSITION[i].role must literally equal "D-monotone"
+ *        for i=0, "B1 slope bound" for i=1, "B2 intercept bound" for i=2.
+ *        C18 locks the impId triple and C19 locks the file-path triple in
+ *        this same array, but the parallel role-label triple is unpinned.
+ *        If a future edit silently retargets a role string (e.g. relabels
+ *        "D-monotone" to "D-monotone-closure" during a refactor, or
+ *        permutes the entries so role i=0 becomes "B1 slope bound"), the
+ *        impId/file fields might stay literally correct by pure coincidence
+ *        (if the rewrite only touches the role column) so C18 and C19 stay
+ *        green while any downstream dashboard that labels the composition
+ *        entries by their role string silently mislabels the three modules
+ *        or misorders the legs of Route A. C20 is structurally symmetric
+ *        to C18 and C19 on the role-label side and closes the last unpinned
+ *        string-field triple in DISTRIBUTED_COMPOSITION.
+ *
  *   (C17) monolithicFileExpected is frozen to the ticket-named path:
  *        ROUTE_A_MONOTONICITY_CROSSVERIFY.monolithicFileExpected must
  *        literally equal "src/math/route-a-monotonicity-closure.js". This
@@ -225,6 +257,24 @@
  *        sub-gap has silently been reinterpreted. C17 locks the expected
  *        path so the sub-gap identity cannot drift under the scope
  *        tripwire.
+ *
+ *   (C21) residualSubGap.title is frozen to its full literal string:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.title must
+ *        literally equal "src/math/route-a-monotonicity-closure.js does
+ *        not exist as a single module". C16 locks residualSubGap.id (the
+ *        named handle aggregators filter by) and C17 locks
+ *        monolithicFileExpected (the path substring the title is built
+ *        from), but the title itself -- the human-readable string
+ *        dashboards and queue viewers display -- is only partially pinned:
+ *        its prefix tracks MONOLITHIC_FILE_EXPECTED through concatenation
+ *        (so C17 locks the prefix transitively), but the suffix literal
+ *        " does not exist as a single module" is unpinned. If a future
+ *        edit silently rewrites the suffix, C16, C17, and the scope-
+ *        tripwire all stay green, yet any dashboard reading the title
+ *        string to label the sub-gap silently displays different wording
+ *        than the C16 named handle implies. C21 is structurally symmetric
+ *        to C16 on the title-field side and closes the last unpinned
+ *        string slot on residualSubGap.
  *
  * Residual sub-gap named by imp-826
  * ---------------------------------
@@ -600,6 +650,86 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'composing modules. C18 is structurally symmetric to C1 on the local-' +
       'record side and closes the last unpinned id-duplicate slot in the ' +
       'distributed composition listing.',
+  },
+  {
+    id: 'imp826-C19-distributed-composition-local-files-frozen',
+    holds: () => {
+      if (!Array.isArray(DISTRIBUTED_COMPOSITION) ||
+          DISTRIBUTED_COMPOSITION.length !== 3) {
+        return false;
+      }
+      const files = DISTRIBUTED_COMPOSITION.map((e) => e && e.file);
+      return files[0] === 'src/math/d-monotone-analytic-proof.js' &&
+             files[1] === 'src/data/b1-slope-conditional-upper-bound.js' &&
+             files[2] === 'src/data/b2-intercept-analytic-bound.js';
+    },
+    why:
+      'C19: DISTRIBUTED_COMPOSITION must have exactly 3 entries whose file ' +
+      'fields are the literal strings "src/math/d-monotone-analytic-proof.js", ' +
+      '"src/data/b1-slope-conditional-upper-bound.js", ' +
+      '"src/data/b2-intercept-analytic-bound.js" in that order. C18 locks ' +
+      'the LOCAL impId strings in the same array, but the parallel file-path ' +
+      'pointer strings are unpinned. If a future edit silently retargets a ' +
+      'file string to a different module (e.g. a neighbouring file that ' +
+      'happens to exist, or a renamed equivalent), the impId still points ' +
+      'at "imp-463"/"imp-457"/"imp-458" so C18 stays green, while any ' +
+      'downstream dashboard or aggregator reading file paths from THIS ' +
+      'record to locate the composing modules silently follows a broken or ' +
+      'reinterpreted pointer. C19 is structurally symmetric to C18 on the ' +
+      'local-file-path side and closes the last unpinned string-field triple ' +
+      'in DISTRIBUTED_COMPOSITION.',
+  },
+  {
+    id: 'imp826-C20-distributed-composition-local-roles-frozen',
+    holds: () => {
+      if (!Array.isArray(DISTRIBUTED_COMPOSITION) ||
+          DISTRIBUTED_COMPOSITION.length !== 3) {
+        return false;
+      }
+      const roles = DISTRIBUTED_COMPOSITION.map((e) => e && e.role);
+      return roles[0] === 'D-monotone' &&
+             roles[1] === 'B1 slope bound' &&
+             roles[2] === 'B2 intercept bound';
+    },
+    why:
+      'C20: DISTRIBUTED_COMPOSITION must have exactly 3 entries whose role ' +
+      'fields are the literal strings "D-monotone", "B1 slope bound", ' +
+      '"B2 intercept bound" in that order. C18 locks the impId triple and ' +
+      'C19 locks the file-path triple in the same array, but the parallel ' +
+      'role-label triple is unpinned. If a future edit silently retargets ' +
+      'a role string (e.g. relabels "D-monotone" to "D-monotone-closure" ' +
+      'during a refactor, or permutes the entries so i=0 becomes "B1 slope ' +
+      'bound"), the impId and file columns can still be literally correct ' +
+      'by coincidence if the rewrite only touches the role column, so C18 ' +
+      'and C19 stay green while any downstream dashboard labelling the ' +
+      'composition entries by role silently mislabels the three modules ' +
+      'or misorders the legs of Route A. C20 is structurally symmetric to ' +
+      'C18 and C19 on the role-label side and closes the last unpinned ' +
+      'string-field triple in DISTRIBUTED_COMPOSITION.',
+  },
+  {
+    id: 'imp826-C21-residual-subgap-title-frozen',
+    holds: () =>
+      ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.title ===
+      'src/math/route-a-monotonicity-closure.js does not exist as a single module',
+    why:
+      'C21: ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap.title must ' +
+      'literally equal "src/math/route-a-monotonicity-closure.js does not ' +
+      'exist as a single module". C16 locks residualSubGap.id (the named ' +
+      'handle aggregators filter by) and C17 locks monolithicFileExpected ' +
+      '(the path substring the title is built from), but the title itself -- ' +
+      'the human-readable string dashboards and queue viewers display -- ' +
+      'is only partially pinned: its prefix tracks MONOLITHIC_FILE_EXPECTED ' +
+      'through string concatenation, but its suffix literal ' +
+      '" does not exist as a single module" is unpinned. If a future edit ' +
+      'silently rewrites the suffix (e.g. to " is missing" or " is not yet ' +
+      'assembled"), C16 stays green (id unchanged), C17 stays green (path ' +
+      'unchanged), and the scope-tripwire stays green (status still "open", ' +
+      'monolithicFilePresent still false) -- yet any downstream dashboard ' +
+      'reading the title string to label the sub-gap silently displays ' +
+      'different wording than the C16 named handle implies. C21 is ' +
+      'structurally symmetric to C16 on the title-field side and closes the ' +
+      'last unpinned string slot on residualSubGap.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

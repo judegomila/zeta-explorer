@@ -461,6 +461,20 @@
  *        side pointer cannot silently detach from the const the other
  *        assertions lock.
  *
+ *   (C31) snapshot key-set shape is frozen:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.snapshot must have exactly the
+ *        four own keys {dMonotoneStatus, b1Status, b2Status, b2BoundValue}
+ *        -- no more, no fewer. C27 locks the VALUES of those four keys
+ *        (each must mirror its upstream module status or bound), but C27
+ *        never enforces the snapshot key-set. If a future edit silently
+ *        adds a fifth key (e.g. a noSwapStatus copied from NOSWAP_CLOSURE
+ *        .status, or a cached b1Bound value), C27 stays green while the
+ *        new field lands in the record unchecked -- any downstream
+ *        dashboard reading the snapshot as "the four upstream statuses"
+ *        silently sees a fifth column whose source of truth no crossverify
+ *        assertion enforces. C31 is structurally symmetric to C27 on the
+ *        snapshot-shape side: C27 locks values, C31 locks the key-set.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -1161,6 +1175,33 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'detach from the const the other assertions lock, closing the last ' +
       'unpinned pointer slot between DISTRIBUTED_COMPOSITION and the ' +
       'crossverify record.',
+  },
+  {
+    id: 'imp826-C31-snapshot-keyset-shape-frozen',
+    holds: () => {
+      const s = ROUTE_A_MONOTONICITY_CROSSVERIFY.snapshot;
+      if (!s || typeof s !== 'object' || Array.isArray(s)) return false;
+      const keys = Object.keys(s).sort();
+      return keys.length === 4 &&
+             keys[0] === 'b1Status' &&
+             keys[1] === 'b2BoundValue' &&
+             keys[2] === 'b2Status' &&
+             keys[3] === 'dMonotoneStatus';
+    },
+    why:
+      'C31: ROUTE_A_MONOTONICITY_CROSSVERIFY.snapshot must have exactly the ' +
+      'four own keys {dMonotoneStatus, b1Status, b2Status, b2BoundValue} -- ' +
+      'no more, no fewer. C27 locks the VALUES of those four keys (each must ' +
+      'mirror its upstream module status or bound), but C27 never enforces ' +
+      'the snapshot key-set. If a future edit silently adds a fifth key ' +
+      '(e.g. a noSwapStatus copied from NOSWAP_CLOSURE.status, or a cached ' +
+      'b1Bound value), C27 stays green (the four original keys still mirror ' +
+      'their upstreams) while the new field lands in the record unchecked -- ' +
+      'any downstream dashboard reading the snapshot as "the four upstream ' +
+      'statuses" silently sees a fifth column whose source of truth no ' +
+      'crossverify assertion enforces. C31 is structurally symmetric to C27 ' +
+      'on the snapshot-shape side: C27 locks values, C31 locks the key-set, ' +
+      'closing the last unpinned shape slot on the snapshot record.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

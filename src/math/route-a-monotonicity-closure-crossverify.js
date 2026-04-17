@@ -494,6 +494,40 @@
  *        locks the snapshot key-set, C32 locks the residualSubGap key-set.
  *        This closes the last unpinned shape slot on the crossverify record.
  *
+ *   (C33) Top-level ROUTE_A_MONOTONICITY_CROSSVERIFY key-set shape is frozen:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY must have exactly the eight own
+ *        keys {id, title, monolithicFileExpected, monolithicFilePresent,
+ *        distributedComposition, residualSubGap, verdict, snapshot} -- no
+ *        more, no fewer. C31 locks the snapshot key-set and C32 locks the
+ *        residualSubGap key-set, but the OUTERMOST crossverify record own
+ *        key-set is itself unpinned. C15 locks id, C22 locks title, C17
+ *        locks monolithicFileExpected, the scope-tripwire locks
+ *        monolithicFilePresent === false, C30 locks distributedComposition
+ *        pointer-identity, and C23/C24/C28/C29 lock verdict prose anchors --
+ *        eight separate value-level checks covering each currently-named
+ *        top-level field -- but none enforces the outer key-set itself. If
+ *        a future edit silently adds a ninth key (e.g. a generatedAt
+ *        timestamp, a schemaVersion tag, a cached aggregatorStatus flag
+ *        copied from a refactor, or an owner metadata field), all prior
+ *        assertions stay green (the eight original keys are unchanged and
+ *        still satisfy their value-level locks) while the new field lands
+ *        in the record unchecked -- any downstream dashboard or aggregator
+ *        reading the crossverify record as "the eight canonical top-level
+ *        fields" silently sees a ninth column whose source of truth no
+ *        crossverify assertion enforces. C33 closes that shape gap by
+ *        asserting Object.keys(ROUTE_A_MONOTONICITY_CROSSVERIFY).sort() is
+ *        exactly ["distributedComposition", "id", "monolithicFileExpected",
+ *        "monolithicFilePresent", "residualSubGap", "snapshot", "title",
+ *        "verdict"] (length 8 and each sorted position matches the
+ *        alphabetical order of the eight known top-level keys). This
+ *        catches both directions of drift: a new key added (length 9
+ *        fails), a key removed (length 7 fails and a named key is missing),
+ *        or a key renamed (sorted positions shift). Structurally symmetric
+ *        to C31/C32 on the outer-record side: C31 locks the inner snapshot
+ *        key-set, C32 locks the inner residualSubGap key-set, C33 locks
+ *        the outer crossverify record key-set, closing the LAST unpinned
+ *        shape slot in the entire imp-826 crossverify record tree.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -1256,6 +1290,54 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'C31 on the residualSubGap side: C31 locks the snapshot key-set, C32 ' +
       'locks the residualSubGap key-set, closing the last unpinned shape ' +
       'slot on the crossverify record.',
+  },
+  {
+    id: 'imp826-C33-crossverify-record-keyset-shape-frozen',
+    holds: () => {
+      const r = ROUTE_A_MONOTONICITY_CROSSVERIFY;
+      if (!r || typeof r !== 'object' || Array.isArray(r)) return false;
+      const keys = Object.keys(r).sort();
+      return keys.length === 8 &&
+             keys[0] === 'distributedComposition' &&
+             keys[1] === 'id'                     &&
+             keys[2] === 'monolithicFileExpected' &&
+             keys[3] === 'monolithicFilePresent'  &&
+             keys[4] === 'residualSubGap'         &&
+             keys[5] === 'snapshot'               &&
+             keys[6] === 'title'                  &&
+             keys[7] === 'verdict';
+    },
+    why:
+      'C33: ROUTE_A_MONOTONICITY_CROSSVERIFY must have exactly the eight ' +
+      'own keys {id, title, monolithicFileExpected, monolithicFilePresent, ' +
+      'distributedComposition, residualSubGap, verdict, snapshot} -- no ' +
+      'more, no fewer. C31 locks the snapshot key-set and C32 locks the ' +
+      'residualSubGap key-set, but the OUTERMOST crossverify record own ' +
+      'key-set is itself unpinned. C15 locks id, C22 locks title, C17 ' +
+      'locks monolithicFileExpected, the scope-tripwire locks ' +
+      'monolithicFilePresent === false, C30 locks distributedComposition ' +
+      'pointer-identity, and C23/C24/C28/C29 lock verdict prose anchors -- ' +
+      'eight separate value-level checks covering each currently-named ' +
+      'top-level field -- but none enforces the outer key-set itself. If a ' +
+      'future edit silently adds a ninth key (e.g. a generatedAt timestamp, ' +
+      'a schemaVersion tag, a cached aggregatorStatus flag from a refactor, ' +
+      'or an owner metadata field), all prior assertions stay green (the ' +
+      'eight original keys are unchanged and still satisfy their value-' +
+      'level locks) while the new field lands in the record unchecked -- ' +
+      'any downstream dashboard or aggregator reading the crossverify ' +
+      'record as "the eight canonical top-level fields" silently sees a ' +
+      'ninth column whose source of truth no crossverify assertion ' +
+      'enforces. C33 closes that shape gap by asserting ' +
+      'Object.keys(ROUTE_A_MONOTONICITY_CROSSVERIFY).sort() is exactly ' +
+      '["distributedComposition", "id", "monolithicFileExpected", ' +
+      '"monolithicFilePresent", "residualSubGap", "snapshot", "title", ' +
+      '"verdict"]. This catches both directions of drift: a new key added ' +
+      '(length 9 fails), a key removed (length 7 fails and a named key is ' +
+      'missing), or a key renamed (sorted positions shift). Structurally ' +
+      'symmetric to C31/C32 on the outer-record side: C31 locks the inner ' +
+      'snapshot key-set, C32 locks the inner residualSubGap key-set, C33 ' +
+      'locks the outer crossverify record key-set, closing the LAST ' +
+      'unpinned shape slot in the entire imp-826 crossverify record tree.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

@@ -288,4 +288,22 @@ export const G3A_EXTREMAL_CLOSURE_ASSERTIONS = [
       'and the primary open sub-gap must be G3a_sub_fullsum. If Route C closes in a ' +
       'future commit, both fields must be updated in the same commit that closes it.',
   },
+  {
+    id: 'imp827-r-critical-satisfies-route-c-closure-equation',
+    holds: () => {
+      // R_CRITICAL is defined as the root of c_near(R) + c_tail = 2,
+      // where c_near(R) = 2/(R*(R+1)) and c_tail = 2*(pi^2/6 - 1).
+      // Re-derive c_near at R_CRITICAL and check the sum equals 2 to machine precision.
+      const cNearAtCrit = 2 / (R_CRITICAL * (R_CRITICAL + 1));
+      return Math.abs(cNearAtCrit + C_TAIL_LOCAL - 2) < 1e-12;
+    },
+    why:
+      'imp-827 cross-verification of gap bound formulas: R_CRITICAL is defined via the ' +
+      'closed form (-1 + sqrt(1 + 4*C_thresh))/2 with C_thresh = 2/(2 - c_tail), which is ' +
+      'the positive root of the quadratic R^2 + R - C_thresh = 0, equivalently ' +
+      'c_near(R) + c_tail = 2. This assertion re-derives c_near at R_CRITICAL and checks ' +
+      'the defining equation holds to machine precision. Drift would indicate a ' +
+      'simplification bug in the closed-form root, or a change to C_TAIL_LOCAL that was ' +
+      'not propagated to R_CRITICAL.',
+  },
 ];

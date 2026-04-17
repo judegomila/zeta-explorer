@@ -7494,11 +7494,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Verify improvement-queue-archive.js exports IMPROVEMENT_QUEUE_ALL correctly',
     category: 'bug',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     description: 'ImprovementQueuePage.jsx imports IMPROVEMENT_QUEUE_ALL from improvement-queue-archive.js but the archive file is only 1088 bytes (likely a stub). If the export is missing or malformed, the /improvement-queue page will crash. Verify: (1) the archive file exports IMPROVEMENT_QUEUE_ALL as a valid array, (2) if it is a stub, either populate it by merging improvement-queue.js completed + pending items, or change the import in ImprovementQueuePage.jsx to use IMPROVEMENT_QUEUE directly from improvement-queue.js. Deliverable: working /improvement-queue page.',
     rationale: 'Critical runtime bug — page crash if export is missing.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-17T23:45:00Z',
   },
   {
     id: 'imp-594',

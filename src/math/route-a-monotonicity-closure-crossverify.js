@@ -327,6 +327,29 @@
  *        while dashboards reading the verdict for provenance silently lose
  *        a pointer. C24 closes the last unpinned ticket-id-duplicate slot.
  *
+ *   (C25) DISTRIBUTED_COMPOSITION local supplies-prose anchors are frozen:
+ *        DISTRIBUTED_COMPOSITION[i].supplies must literally contain the
+ *        distinguishing symbolic anchor for each composing leg: "D(tau)"
+ *        for i=0 (the D-monotone inequality claim), "B1_SLOPE_CEILING" for
+ *        i=1 (the B1 slope-bound constant handle), "A_UPPER_BOUND" for i=2
+ *        (the B2 intercept-bound constant handle). C18/C19/C20 lock the
+ *        impId/file/role triples in this same array, but the parallel
+ *        supplies-prose triple -- the prose that tells a referee what each
+ *        leg actually contributes -- is unpinned. If a future edit silently
+ *        rewrites a supplies string (e.g. drops the "D(tau)" inequality or
+ *        the B1_SLOPE_CEILING / A_UPPER_BOUND constant names and leaves
+ *        only descriptive prose), the impId/file/role columns can still be
+ *        literally correct so C18/C19/C20 stay green, while any referee
+ *        reading the supplies column to understand what each module actually
+ *        supplies silently sees a weakened or ambiguous claim. C25 pins
+ *        the distinguishing anchors (not the full prose) so the supplies
+ *        column is robust against paraphrase while still catching the
+ *        substantive regression where the anchor symbol is dropped.
+ *        Substring-anchor pattern matches C2/C9/C23/C24 for prose-style
+ *        fields; C25 is structurally symmetric to C18/C19/C20 on the
+ *        supplies-prose side and closes the last unpinned string-field
+ *        triple in DISTRIBUTED_COMPOSITION.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -851,6 +874,43 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'locks the last unpinned ticket-id-duplicate slot (the verdict prose ' +
       'copy) so the three ticket ids cannot drift out of the verdict under the ' +
       'existing C1, C18, and C23 tripwires.',
+  },
+  {
+    id: 'imp826-C25-distributed-composition-local-supplies-anchors-frozen',
+    holds: () => {
+      if (!Array.isArray(DISTRIBUTED_COMPOSITION) ||
+          DISTRIBUTED_COMPOSITION.length !== 3) {
+        return false;
+      }
+      const supplies = DISTRIBUTED_COMPOSITION.map((e) => e && e.supplies);
+      if (typeof supplies[0] !== 'string' ||
+          typeof supplies[1] !== 'string' ||
+          typeof supplies[2] !== 'string') {
+        return false;
+      }
+      return supplies[0].indexOf('D(tau)')           !== -1 &&
+             supplies[1].indexOf('B1_SLOPE_CEILING') !== -1 &&
+             supplies[2].indexOf('A_UPPER_BOUND')    !== -1;
+    },
+    why:
+      'C25: DISTRIBUTED_COMPOSITION must have exactly 3 entries whose ' +
+      'supplies-prose fields literally contain the distinguishing symbolic ' +
+      'anchor for each composing leg: "D(tau)" for i=0, "B1_SLOPE_CEILING" ' +
+      'for i=1, "A_UPPER_BOUND" for i=2. C18 locks the impId triple, C19 ' +
+      'locks the file triple, and C20 locks the role triple in the same ' +
+      'array, but the parallel supplies-prose triple -- the prose telling a ' +
+      'referee what each leg actually contributes -- is unpinned. If a ' +
+      'future edit silently rewrites a supplies string to drop the anchor ' +
+      '(e.g. paraphrases the D-monotone inequality without "D(tau)", or ' +
+      'replaces the B1_SLOPE_CEILING / A_UPPER_BOUND constant names with ' +
+      'descriptive phrases), C18/C19/C20 stay green (impId/file/role are ' +
+      'unchanged) while any referee reading the supplies column silently ' +
+      'sees a weakened or ambiguous claim. C25 pins the distinguishing ' +
+      'anchor (not the full prose) so paraphrase is allowed but anchor-' +
+      'loss is not. Substring-anchor pattern matches C2/C9/C23/C24 for ' +
+      'prose-style fields; structurally symmetric to C18/C19/C20 on the ' +
+      'supplies side and closes the last unpinned string-field triple in ' +
+      'DISTRIBUTED_COMPOSITION.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

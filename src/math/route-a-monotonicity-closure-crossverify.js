@@ -475,6 +475,25 @@
  *        assertion enforces. C31 is structurally symmetric to C27 on the
  *        snapshot-shape side: C27 locks values, C31 locks the key-set.
  *
+ *   (C32) residualSubGap key-set shape is frozen:
+ *        ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap must have exactly
+ *        the five own keys {id, title, status, blocker, note} -- no more,
+ *        no fewer. C14 locks blocker, C16 locks id, C21 locks title, C26
+ *        locks note prose anchors, and the scope-tripwire locks status --
+ *        five separate value-level checks covering each currently-named
+ *        field -- but none enforces the residualSubGap key-set itself. If
+ *        a future edit silently adds a sixth key (e.g. an owner field
+ *        copied from a ticket metadata refactor, a cachedAt timestamp, or
+ *        a severity tag that parallels blocker), C14/C16/C21/C26 and the
+ *        scope-tripwire all stay green because the five original keys are
+ *        unchanged and still satisfy their value-level locks -- yet any
+ *        downstream dashboard reading residualSubGap as "the five fields
+ *        of the monolithic-file sub-gap" silently sees a sixth column
+ *        whose source of truth no crossverify assertion enforces. C32 is
+ *        structurally symmetric to C31 on the residualSubGap side: C31
+ *        locks the snapshot key-set, C32 locks the residualSubGap key-set.
+ *        This closes the last unpinned shape slot on the crossverify record.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -1202,6 +1221,41 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'crossverify assertion enforces. C31 is structurally symmetric to C27 ' +
       'on the snapshot-shape side: C27 locks values, C31 locks the key-set, ' +
       'closing the last unpinned shape slot on the snapshot record.',
+  },
+  {
+    id: 'imp826-C32-residual-subgap-keyset-shape-frozen',
+    holds: () => {
+      const r = ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap;
+      if (!r || typeof r !== 'object' || Array.isArray(r)) return false;
+      const keys = Object.keys(r).sort();
+      return keys.length === 5 &&
+             keys[0] === 'blocker' &&
+             keys[1] === 'id'      &&
+             keys[2] === 'note'    &&
+             keys[3] === 'status'  &&
+             keys[4] === 'title';
+    },
+    why:
+      'C32: ROUTE_A_MONOTONICITY_CROSSVERIFY.residualSubGap must have exactly ' +
+      'the five own keys {id, title, status, blocker, note} -- no more, no ' +
+      'fewer. C14 locks blocker, C16 locks id, C21 locks title, C26 locks note ' +
+      'prose anchors, and the scope-tripwire locks status -- five value-level ' +
+      'checks covering each currently-named field -- but none enforces the ' +
+      'residualSubGap key-set itself. If a future edit silently adds a sixth ' +
+      'key (e.g. an owner field from a ticket metadata refactor, a cachedAt ' +
+      'timestamp, or a severity tag paralleling blocker), C14/C16/C21/C26 ' +
+      'and the scope-tripwire all stay green (the five original keys are ' +
+      'unchanged and still satisfy their value-level locks) while the new ' +
+      'field lands in the record unchecked. C32 closes that shape gap by ' +
+      'asserting Object.keys(residualSubGap).sort() is exactly ' +
+      '["blocker", "id", "note", "status", "title"] (length 5 and each sorted ' +
+      'position matches the alphabetical order of the five known keys). ' +
+      'This catches both directions of drift: a new key added (length 6 ' +
+      'fails), a key removed (length 4 fails and a named key is missing), ' +
+      'or a key renamed (sorted positions shift). Structurally symmetric to ' +
+      'C31 on the residualSubGap side: C31 locks the snapshot key-set, C32 ' +
+      'locks the residualSubGap key-set, closing the last unpinned shape ' +
+      'slot on the crossverify record.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

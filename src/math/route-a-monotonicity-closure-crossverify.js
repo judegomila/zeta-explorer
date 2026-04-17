@@ -528,6 +528,44 @@
  *        the outer crossverify record key-set, closing the LAST unpinned
  *        shape slot in the entire imp-826 crossverify record tree.
  *
+ *   (C34) DISTRIBUTED_COMPOSITION per-entry key-set shape is frozen:
+ *        Each DISTRIBUTED_COMPOSITION[i] must have exactly the four own
+ *        keys {role, impId, file, supplies} -- no more, no fewer. C18
+ *        locks the impId VALUES, C19 locks the file VALUES, C20 locks
+ *        the role VALUES, and C25 locks the supplies anchor VALUES --
+ *        four separate value-level checks covering each currently-named
+ *        field on each entry -- but none enforces the per-entry key-set
+ *        itself. C31 locks the snapshot Object.keys, C32 locks the
+ *        residualSubGap Object.keys, and C33 locks the outer crossverify
+ *        record Object.keys, but each entry OBJECT inside
+ *        DISTRIBUTED_COMPOSITION has its own key-set that no assertion
+ *        pins (C33's "LAST unpinned shape slot" claim covers the outer
+ *        record shape, not the per-entry shapes nested beneath it). If
+ *        a future edit silently adds a fifth key to one entry (e.g. an
+ *        owner metadata field, a cachedAt timestamp, or a severity tag
+ *        paralleling role) or removes one of the four known keys (e.g.
+ *        inlines supplies into the role column during a refactor),
+ *        C18/C19/C20/C25 all stay green because the four originally-
+ *        named columns are unchanged and still satisfy their value-
+ *        level locks -- yet any downstream dashboard reading a
+ *        DISTRIBUTED_COMPOSITION entry as "the four canonical columns"
+ *        silently sees a fifth column (or loses a named column) whose
+ *        source of truth no crossverify assertion enforces. C34 closes
+ *        that shape gap by asserting, for each i in 0..2, that
+ *        Object.keys(DISTRIBUTED_COMPOSITION[i]).sort() is exactly
+ *        ["file", "impId", "role", "supplies"] (length 4 and each
+ *        sorted position matches the alphabetical order of the four
+ *        known per-entry keys). This catches both directions of drift:
+ *        a new key added (length 5 fails), a key removed (length 3
+ *        fails and a named key is missing), or a key renamed (sorted
+ *        positions shift). Structurally symmetric to C31/C32/C33 on
+ *        the DISTRIBUTED_COMPOSITION entry side: C31 locks the inner
+ *        snapshot key-set, C32 locks the inner residualSubGap key-set,
+ *        C33 locks the outer crossverify record key-set, and C34 locks
+ *        each DISTRIBUTED_COMPOSITION entry key-set, closing the last
+ *        unpinned per-entry shape slot in the distributed composition
+ *        listing.
+ *
  * Residual sub-gap named by imp-826
  * ---------------------------------
  *   ROUTE_A_MONOTONICITY_MONOLITHIC_FILE_MISSING:
@@ -1338,6 +1376,45 @@ export const ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS = [
       'snapshot key-set, C32 locks the inner residualSubGap key-set, C33 ' +
       'locks the outer crossverify record key-set, closing the LAST ' +
       'unpinned shape slot in the entire imp-826 crossverify record tree.',
+  },
+  {
+    id: 'imp826-C34-distributed-composition-entry-keyset-shape-frozen',
+    holds: () => {
+      if (!Array.isArray(DISTRIBUTED_COMPOSITION) ||
+          DISTRIBUTED_COMPOSITION.length !== 3) {
+        return false;
+      }
+      for (let i = 0; i < 3; i++) {
+        const e = DISTRIBUTED_COMPOSITION[i];
+        if (!e || typeof e !== 'object' || Array.isArray(e)) return false;
+        const keys = Object.keys(e).sort();
+        if (keys.length !== 4)        return false;
+        if (keys[0]   !== 'file')     return false;
+        if (keys[1]   !== 'impId')    return false;
+        if (keys[2]   !== 'role')     return false;
+        if (keys[3]   !== 'supplies') return false;
+      }
+      return true;
+    },
+    why:
+      'C34: each DISTRIBUTED_COMPOSITION[i] must have exactly the four own ' +
+      'keys {role, impId, file, supplies} -- no more, no fewer. C18 locks ' +
+      'the impId VALUES, C19 locks the file VALUES, C20 locks the role ' +
+      'VALUES, and C25 locks the supplies anchor VALUES, but none enforces ' +
+      'the per-entry key-set itself. C31/C32/C33 lock the snapshot, ' +
+      'residualSubGap, and outer crossverify record key-sets, but each ' +
+      'entry OBJECT inside DISTRIBUTED_COMPOSITION has its own key-set that ' +
+      'no assertion pins. If a future edit silently adds a fifth key to one ' +
+      'entry (e.g. an owner field, a cachedAt timestamp, or a severity tag) ' +
+      'or removes one of the four known keys, C18/C19/C20/C25 stay green ' +
+      'while the new field lands unchecked. C34 asserts, for each i in 0..2, ' +
+      'that Object.keys(DISTRIBUTED_COMPOSITION[i]).sort() is exactly ' +
+      '["file", "impId", "role", "supplies"]. This catches both directions ' +
+      'of drift: a new key added (length 5 fails), a key removed (length 3 ' +
+      'fails and a named key is missing), or a key renamed (sorted positions ' +
+      'shift). Structurally symmetric to C31/C32/C33 on the ' +
+      'DISTRIBUTED_COMPOSITION entry side, closing the last unpinned ' +
+      'per-entry shape slot in the distributed composition listing.',
   },
   {
     id: 'imp826-monolithic-file-gap-still-named',

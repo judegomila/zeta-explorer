@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { improvements } from '../data/improvements.js';
+import React, { useState, useEffect } from 'react';
 
 const categoryConfig = {
   bug:         { label: 'Bug Fix',     color: '#ef4444', cls: 'tag-red' },
@@ -17,6 +16,25 @@ const PAGE_SIZE = 20;
 export default function ImprovementsPage() {
   const [filter, setFilter] = useState('all');
   const [page, setPage] = useState(1);
+  const [improvements, setImprovements] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    import('../data/improvements.js').then(mod => {
+      setImprovements(mod.improvements);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '40vh', color: '#64748b' }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: 24, marginBottom: 8, fontFamily: 'var(--font-mono)' }}>Loading...</div>
+        </div>
+      </div>
+    );
+  }
 
   const filtered = filter === 'all'
     ? improvements

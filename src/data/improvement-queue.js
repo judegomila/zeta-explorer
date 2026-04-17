@@ -7517,11 +7517,11 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Code-split improvements.js and improvement-queue.js to reduce bundle size',
     category: 'performance',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     description: 'Build warnings show three chunks >500KB: improvements.js (1448KB), improvement-queue.js (560KB), vendor-three.js (1121KB). Code-split the data files: (1) lazy-load improvements.js only on the /improvements page via dynamic import(), (2) lazy-load improvement-queue.js only on the /improvement-queue page, (3) vendor-three is already only loaded by 3D pages. This should reduce the initial bundle from ~3.5MB to ~1.5MB. Deliverable: updated imports in ImprovementsPage.jsx and ImprovementQueuePage.jsx to use React.lazy + Suspense or dynamic import().',
     rationale: 'Faster initial page load. The data files are only needed on their respective pages.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-04-17T22:44:09Z',
   },
 
   // ══════════════════════════════════════════════════════════════════════════

@@ -1641,3 +1641,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1758 | 2026-04-17T22:30:47Z | imp-520 (bug, high): handle consistent field in DashboardPage computeWeilPositivity metric | DashboardPage.jsx, HealthPage.jsx |
 | 1759 | 2026-04-17T22:35:09Z | imp-521 (bug, high): verify computeProofCompleteness works after rh-attack.js li.lambdas fix | src/pages/DashboardPage.jsx |
 | 1760 | 2026-04-17T23:45:00Z | imp-593 (bug, high): verify improvement-queue-archive.js exports IMPROVEMENT_QUEUE_ALL correctly | src/data/improvement-queue-archive.js, src/pages/ImprovementQueuePage.jsx |
+| 1761 | 2026-04-17T22:44:09Z | imp-595 (performance, low): code-split improvements.js and improvement-queue.js via dynamic imports | src/pages/ImprovementsPage.jsx, src/pages/ImprovementQueuePage.jsx |

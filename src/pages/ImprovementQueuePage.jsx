@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { IMPROVEMENT_QUEUE_ALL as IMPROVEMENT_QUEUE } from '../data/improvement-queue-archive.js';
+import React, { useState, useMemo, useEffect } from 'react';
+const initialQueue = [];
 
 /* ─── Config ─── */
 
@@ -355,6 +355,25 @@ export default function ImprovementQueuePage() {
   const [catFilter, setCatFilter] = useState(TAB_ALL);
   const [priFilter, setPriFilter] = useState('all');
   const [staFilter, setStaFilter] = useState('all');
+  const [IMPROVEMENT_QUEUE, setImprovementQueue] = useState(initialQueue);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    import('../data/improvement-queue-archive.js').then(mod => {
+      setImprovementQueue(mod.IMPROVEMENT_QUEUE_ALL);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '40vh', color: '#64748b' }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: 24, marginBottom: 8, fontFamily: 'var(--font-mono)' }}>Loading...</div>
+        </div>
+      </div>
+    );
+  }
 
   const filtered = useMemo(() => {
     return IMPROVEMENT_QUEUE.filter(item => {

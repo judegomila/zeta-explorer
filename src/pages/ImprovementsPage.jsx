@@ -83,6 +83,7 @@ export default function ImprovementsPage() {
         <button
           className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
           onClick={() => { setFilter('all'); setPage(1); }}
+          aria-pressed={filter === 'all'}
         >
           All ({improvements.length})
         </button>
@@ -92,6 +93,7 @@ export default function ImprovementsPage() {
               key={key}
               className={`filter-btn ${filter === key ? 'active' : ''}`}
               onClick={() => { setFilter(key); setPage(1); }}
+              aria-pressed={filter === key}
             >
               {cfg.label} ({counts[key]})
             </button>

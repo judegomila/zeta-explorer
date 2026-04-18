@@ -94,6 +94,7 @@ export default function LiteraturePage() {
         <button
           className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
           onClick={() => setSelectedCategory('all')}
+          aria-pressed={selectedCategory === 'all'}
         >
           All ({allRefs.length})
         </button>
@@ -105,6 +106,7 @@ export default function LiteraturePage() {
               key={cat}
               className={`filter-btn ${selectedCategory === cat ? 'active' : ''}`}
               onClick={() => setSelectedCategory(cat)}
+              aria-pressed={selectedCategory === cat}
             >
               {info.label} ({count})
             </button>

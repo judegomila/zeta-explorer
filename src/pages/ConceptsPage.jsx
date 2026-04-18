@@ -692,6 +692,7 @@ export default function ConceptsPage() {
           <button
             className={`filter-btn ${selectedCat === 'all' ? 'active' : ''}`}
             onClick={() => setSelectedCat('all')}
+            aria-pressed={selectedCat === 'all'}
           >
             All ({CONCEPTS.length})
           </button>
@@ -702,6 +703,7 @@ export default function ConceptsPage() {
                 key={cat.id}
                 className={`filter-btn ${selectedCat === cat.id ? 'active' : ''}`}
                 onClick={() => setSelectedCat(cat.id)}
+                aria-pressed={selectedCat === cat.id}
               >
                 {cat.label} ({count})
               </button>

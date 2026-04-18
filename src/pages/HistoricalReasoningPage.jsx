@@ -567,6 +567,7 @@ export default function HistoricalReasoningPage() {
         <button
           className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
           onClick={() => setSelectedCategory('all')}
+          aria-pressed={selectedCategory === 'all'}
         >
           All ({reasoningEntries.length})
         </button>
@@ -576,6 +577,7 @@ export default function HistoricalReasoningPage() {
               key={key}
               className={`filter-btn ${selectedCategory === key ? 'active' : ''}`}
               onClick={() => setSelectedCategory(key)}
+              aria-pressed={selectedCategory === key}
             >
               {cfg.label} ({counts[key]})
             </button>
@@ -592,6 +594,7 @@ export default function HistoricalReasoningPage() {
           className={`filter-btn ${selectedGap === 'all' ? 'active' : ''}`}
           onClick={() => setSelectedGap('all')}
           style={{ fontSize: 11 }}
+          aria-pressed={selectedGap === 'all'}
         >
           All Gaps
         </button>
@@ -606,6 +609,7 @@ export default function HistoricalReasoningPage() {
               borderColor: selectedGap === gap ? undefined : 'rgba(249,115,22,0.3)',
               background: selectedGap === gap ? undefined : 'rgba(249,115,22,0.08)',
             }}
+            aria-pressed={selectedGap === gap}
           >
             GAP {gap} ({reasoningEntries.filter(e => (e.relatedGaps || []).includes(gap)).length})
           </button>

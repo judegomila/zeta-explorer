@@ -165,6 +165,7 @@ export default function RHRigorPage() {
         <button
           className={`filter-btn ${filterSeverity === 'all' ? 'active' : ''}`}
           onClick={() => setFilterSeverity('all')}
+          aria-pressed={filterSeverity === 'all'}
         >
           All Severities ({allCriticisms.length})
         </button>
@@ -174,6 +175,7 @@ export default function RHRigorPage() {
             className={`filter-btn ${filterSeverity === key ? 'active' : ''}`}
             onClick={() => setFilterSeverity(key)}
             style={{ borderColor: filterSeverity === key ? meta.color : undefined }}
+            aria-pressed={filterSeverity === key}
           >
             {meta.label} ({bySeverity[key]?.length || 0})
           </button>
@@ -183,6 +185,7 @@ export default function RHRigorPage() {
         <button
           className={`filter-btn ${filterCategory === 'all' ? 'active' : ''}`}
           onClick={() => setFilterCategory('all')}
+          aria-pressed={filterCategory === 'all'}
         >
           All Categories
         </button>
@@ -191,6 +194,7 @@ export default function RHRigorPage() {
             key={cat.name}
             className={`filter-btn ${filterCategory === cat.name ? 'active' : ''}`}
             onClick={() => setFilterCategory(cat.name)}
+            aria-pressed={filterCategory === cat.name}
           >
             {CATEGORY_META[cat.name]?.label || cat.name} ({cat.count})
           </button>
@@ -200,6 +204,7 @@ export default function RHRigorPage() {
         <button
           className={`filter-btn ${filterStatus === 'all' ? 'active' : ''}`}
           onClick={() => setFilterStatus('all')}
+          aria-pressed={filterStatus === 'all'}
         >
           All Statuses
         </button>
@@ -211,6 +216,7 @@ export default function RHRigorPage() {
               className={`filter-btn ${filterStatus === key ? 'active' : ''}`}
               onClick={() => setFilterStatus(key)}
               style={{ borderColor: filterStatus === key ? meta.color : undefined }}
+              aria-pressed={filterStatus === key}
             >
               {meta.label} ({count})
             </button>

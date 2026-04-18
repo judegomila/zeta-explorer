@@ -80,6 +80,7 @@ export default function ExplorationsPage() {
         <button
           className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
           onClick={() => setSelectedCategory('all')}
+          aria-pressed={selectedCategory === 'all'}
         >
           All ({allExplorations.length})
         </button>
@@ -88,6 +89,7 @@ export default function ExplorationsPage() {
             key={c.name}
             className={`filter-btn ${selectedCategory === c.name ? 'active' : ''}`}
             onClick={() => setSelectedCategory(c.name)}
+            aria-pressed={selectedCategory === c.name}
           >
             {c.name} ({c.count})
           </button>

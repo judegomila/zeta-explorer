@@ -1647,3 +1647,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1764 | 2026-04-18T21:46:00Z | imp-843 (content, low): replace hardcoded '165 years of RH' with {new Date().getFullYear() - 1859} on HomePage and FullStoryPage | src/pages/HomePage.jsx, src/pages/FullStoryPage.jsx |
 | 1765 | 2026-04-18T21:47:00Z | imp-844 (content, low): update README.md stale counts — 30 pages -> 52, 34 visualizations -> 44, 400+ -> 1700+ improvements | README.md |
 | 1766 | 2026-04-18T22:50:00Z | imp-846 (bug, low): fix scripts/smoke-tests.mjs stderr noise — esbuild scanner race on Vite server close | scripts/smoke-tests.mjs |
+| 1767 | 2026-04-18T23:55:00Z | Add aria-pressed to all tab/filter buttons app-wide — 13 routes have buttons that appear to do nothing when already-active | ImprovementsPage.jsx, ExplorationsPage.jsx, RHRigorPage.jsx, LiteraturePage.jsx, HistoryPage.jsx, HistoricalReasoningPage.jsx, ConceptsPage.jsx |

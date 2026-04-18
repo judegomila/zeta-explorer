@@ -858,6 +858,7 @@ export default function HistoryPage() {
         <button
           className={`filter-btn ${selectedEra === 'all' ? 'active' : ''}`}
           onClick={() => setSelectedEra('all')}
+          aria-pressed={selectedEra === 'all'}
         >
           All ({TIMELINE.length})
         </button>
@@ -865,6 +866,7 @@ export default function HistoryPage() {
           className={`filter-btn ${selectedEra === 'milestones' ? 'active' : ''}`}
           onClick={() => setSelectedEra('milestones')}
           style={selectedEra === 'milestones' ? { borderColor: '#f59e0b', color: '#f59e0b' } : {}}
+          aria-pressed={selectedEra === 'milestones'}
         >
           Milestones ({milestones.length})
         </button>
@@ -876,6 +878,7 @@ export default function HistoryPage() {
               className={`filter-btn ${selectedEra === era.id ? 'active' : ''}`}
               onClick={() => setSelectedEra(era.id)}
               style={selectedEra === era.id ? { borderColor: era.color, color: era.color } : {}}
+              aria-pressed={selectedEra === era.id}
             >
               {era.label} ({count})
             </button>

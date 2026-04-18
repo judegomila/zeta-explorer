@@ -57,14 +57,17 @@ IMPROVE_PROMPT='You are the HAIKU tier of the ZPO Explorer / RH-attack auto-impr
       Use the next sequential number and current UTC timestamp.
 
    b) Add an entry to src/data/improvements.js by appending to the array before the closing ];
-      Format:
-      { id: NEXT_NUMBER, timestamp: "UTC_TIMESTAMP", category: "bug|ux|visual|performance|accuracy", summary: "one-line summary", files: ["file1.jsx", "file2.js"], detail: "2-3 sentence description of what was changed and why" },
+      Format (NOTE the NEW model + channel fields — your runtime is "haiku-4-5" on "subscription"):
+      { id: NEXT_NUMBER, timestamp: "UTC_TIMESTAMP", category: "bug|ux|visual|performance|accuracy", summary: "one-line summary", files: ["file1.jsx", "file2.js"], detail: "2-3 sentence description of what was changed and why", model: "haiku-4-5", channel: "subscription" },
 
       TOKEN BUDGET: do NOT read src/data/improvements.js to find the next id — it is ~280K tokens. Instead:
         - Use scripts/queue-index.json nextImprovementId as the next id
         - Use the tail-append pattern: read only the LAST ~30 lines of improvements.js via offset, verify the last line is `];`, then use Edit with old_string `];` and new_string `  { id: NEXT, ... },\n];`.
 
-   c) Flip the ticket status in src/data/improvement-queue.js from "pending" to "completed" using a targeted Grep + Edit (do NOT read the file in full).
+   c) Flip the ticket status in src/data/improvement-queue.js from "pending" to "completed" using a targeted Grep + Edit (do NOT read the file in full). Also add two new fields on the ticket:
+      completedByModel: "haiku-4-5",
+      completedByChannel: "subscription",
+      The ticket may already have predicted "model" and "channel" fields — LEAVE THOSE ALONE. completedBy* records actuals for routing-accuracy analysis.
 
 9. Create a git commit with a descriptive message.
 

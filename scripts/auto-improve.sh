@@ -56,12 +56,17 @@ IMPROVE_PROMPT='You are improving the ZPO Explorer / RH-attack project. Your tas
       Use the next sequential number and current UTC timestamp.
 
    b) Add an entry to src/data/improvements.js by appending to the array before the closing ];
-      Format:
-      { id: NEXT_NUMBER, timestamp: "UTC_TIMESTAMP", category: "bug|accuracy|ux|visual|performance|content|proof", summary: "one-line summary", files: ["file1.jsx", "file2.js"], detail: "2-3 sentence description of what was changed and why" },
+      Format (NOTE the NEW model + channel fields — your runtime is "opus-4-7" on "subscription" unless told otherwise):
+      { id: NEXT_NUMBER, timestamp: "UTC_TIMESTAMP", category: "bug|accuracy|ux|visual|performance|content|proof|feature|meta", summary: "one-line summary", files: ["file1.jsx", "file2.js"], detail: "2-3 sentence description of what was changed and why", model: "opus-4-7", channel: "subscription" },
 
       TOKEN BUDGET: do NOT read src/data/improvements.js to find the next id — it is ~280K tokens. Instead:
         - Use scripts/queue-index.json nextImprovementId as the next id
         - Use the tail-append pattern: read only the LAST ~30 lines of improvements.js via offset (Read tool supports offset/limit), verify the last line is `];`, then use Edit with old_string `];` and new_string `  { id: NEXT, ... },\n];`. This uses ~1 KB of tokens instead of 280 KB.
+
+9b. SYSTEM OF RECORD — when flipping a ticket from pending to completed in src/data/improvement-queue.js, ALSO add two fields so we track where the work actually got done vs predicted:
+    completedByModel: "opus-4-7",
+    completedByChannel: "subscription",
+    The ticket may already have predicted "model" and "channel" fields — LEAVE THOSE ALONE. The completedByModel/completedByChannel pair records actuals for later routing-accuracy analysis.
 
 10. Create a git commit with a descriptive message.
 

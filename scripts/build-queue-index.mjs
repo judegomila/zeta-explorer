@@ -181,6 +181,15 @@ function main() {
   let totalPending = 0;
   let totalCompleted = 0;
 
+  const byModel = {
+    'haiku-4-5': [],
+    'sonnet-4-6': [],
+    'opus-4-6': [],
+    'opus-4-7': [],
+    untagged: [],
+  };
+  const byChannel = { local: [], subscription: [], api: [], untagged: [] };
+
   for (const chunk of items) {
     const status = field(chunk, 'status');
     if (status === 'completed') {
@@ -195,13 +204,30 @@ function main() {
     const priority = field(chunk, 'priority') || 'medium';
     const category = field(chunk, 'category');
     const complexity = field(chunk, 'estimatedComplexity');
+    const model = field(chunk, 'model');
+    const channel = field(chunk, 'channel');
     const deps = dependsOnField(chunk);
 
-    const row = { id, title, priority, category, complexity, dependsOn: deps };
+    const row = {
+      id,
+      title,
+      priority,
+      category,
+      complexity,
+      model,
+      channel,
+      dependsOn: deps,
+    };
     allPendingIds.push(id);
 
     if (byPriority[priority]) byPriority[priority].push(row);
     if (category === 'meta') metaItems.push(row);
+
+    if (model && byModel[model]) byModel[model].push(row);
+    else byModel.untagged.push(row);
+
+    if (channel && byChannel[channel]) byChannel[channel].push(row);
+    else byChannel.untagged.push(row);
   }
 
   const { total: improvementsTotal, maxId } = parseImprovementsStats(
@@ -219,6 +245,8 @@ function main() {
     mediumPending: byPriority.medium,
     lowPending: byPriority.low,
     metaPending: metaItems,
+    byModel,
+    byChannel,
     allPendingIds,
     hotFiles: {
       'src/data/improvements.js': tokenEstimate(IMPROVEMENTS_FILE),
@@ -230,7 +258,8 @@ function main() {
     note:
       'Use this index instead of re-reading improvement-queue.js and ' +
       'improvements.js on every engine run. Regenerate via: ' +
-      'node scripts/build-queue-index.mjs',
+      'node scripts/build-queue-index.mjs. The byModel / byChannel buckets ' +
+      'let per-tier engines pick only their eligible tickets.',
   };
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(index, null, 2));

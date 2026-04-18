@@ -10720,6 +10720,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "Dated assertion file src/data/proof-chain-snapshot-2026-04-12.js may be stale (not verified in 24h). Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
+    model: 'sonnet-4-6',
+    channel: 'subscription',
     completedAt: null,
   },
   {
@@ -10732,6 +10734,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "src/data/lambda-pt-scale-extrapolation.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
+    model: 'haiku-4-5',
+    channel: 'subscription',
     completedAt: null,
   },
   {
@@ -10744,6 +10748,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "Pick any page in src/pages/ that lacks: (1) a loading spinner for lazy-loaded data, (2) an error boundary with a user-friendly fallback, (3) proper aria-labels on interactive elements, or (4) keyboard navigation support. Add the missing UX feature. Small scope — one page, one improvement.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
+    model: 'sonnet-4-6',
+    channel: 'subscription',
     completedAt: null,
   },
 
@@ -10761,6 +10767,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "verify-imp440-altpath.js is in the critical proof chain but has NOT been independently cross-verified. Given the bug discovery rate in verified modules, this is high priority. Read src/math/verify-imp440-altpath.js, verify all formulas vs cited references, check edge cases, confirm reference values.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
+    model: 'opus-4-6',
+    channel: 'subscription',
     completedAt: null,
   },
   {
@@ -10773,6 +10781,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "Read src/pages/RHAttackPage.jsx and make one meaningful improvement: add an interactive control, improve the mathematical explanations, add a new visualization, fix layout issues, or add educational annotations. Focus on making the page more useful for someone learning about the Riemann Hypothesis.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
+    model: 'opus-4-6',
+    channel: 'subscription',
     completedAt: null,
   },
   {
@@ -10785,6 +10795,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "Dated assertion file src/data/assertion-sweep-2026-04-12.js may be stale (not verified in 24h). Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
+    model: 'sonnet-4-6',
+    channel: 'subscription',
     completedAt: null,
   },
   {
@@ -10797,6 +10809,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "src/data/local-law-rigidity-closure.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
+    model: 'haiku-4-5',
+    channel: 'subscription',
     completedAt: null,
   },
 
@@ -10814,6 +10828,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "Read src/pages/ProjectIndexPage.jsx and make one meaningful improvement: add an interactive control, improve the mathematical explanations, add a new visualization, fix layout issues, or add educational annotations. Focus on making the page more useful for someone learning about the Riemann Hypothesis.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
+    model: 'opus-4-6',
+    channel: 'subscription',
     completedAt: null,
   },
   {
@@ -10826,6 +10842,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "src/data/lambda-intercept-density-weyl.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
+    model: 'haiku-4-5',
+    channel: 'subscription',
     completedAt: null,
   },
 
@@ -10843,6 +10861,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "Read src/pages/ProofPlannerPage.jsx and make one meaningful improvement: add an interactive control, improve the mathematical explanations, add a new visualization, fix layout issues, or add educational annotations. Focus on making the page more useful for someone learning about the Riemann Hypothesis.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
+    model: 'opus-4-6',
+    channel: 'subscription',
     completedAt: null,
   },
   {
@@ -10855,6 +10875,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "src/data/dyson-burgers-shock.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
+    model: 'haiku-4-5',
+    channel: 'subscription',
     completedAt: null,
   },
 
@@ -11006,7 +11028,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'CRITICAL CHAIN: cross-verify many-body-correction-closure.js — independent formula check',
     category: 'proof',
     priority: 'critical',
-    status: 'complete',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: 'src/math/many-body-correction-closure.js is in the critical proof chain (referenced by lambda-N1e6-final-assembly) but has NOT been independently cross-verified. Given the 2-bug discovery in rh-attack.js (imp-809), this is urgent. Read the file, verify all formulas against cited references, check edge cases (N=1, large N limits), confirm the many-body correction factor matches published results. Flag any sign errors, off-by-one issues, or incorrect reference values.',
     rationale: 'Cross-verification of rh-attack.js found 2 real bugs. Many-body correction is a critical chain dependency — any error here propagates to the final Lambda bound.',
@@ -11168,6 +11190,8 @@ export const IMPROVEMENT_QUEUE = [
     description: 'src/math/verify-imp440-altpath.js provides an alternative verification path for imp-440. Cross-verify that the alternative path reaches the same conclusions as the primary path, check for any divergences in intermediate values, verify that all assumptions are explicitly stated.',
     rationale: 'Alternative paths provide independent confirmation but only if they are themselves correct.',
     estimatedComplexity: 'medium',
+    model: 'opus-4-6',
+    channel: 'subscription',
   },
 
   // ── Phase 48: Deep gap-closing work (2026-04-16) ──
@@ -11185,6 +11209,8 @@ export const IMPROVEMENT_QUEUE = [
     description: 'proof-chain-snapshot-2026-04-12.js is stale after multiple changes: (1) imp-584 downgraded NoSwap from "analytically closed" to "numerically-closed" but snapshot still says "ESTABLISHED unconditionally (analytically closed)" — a false claim a referee would catch immediately. (2) imp-489 reduced axiom count from 10 to 6 but snapshot still says totalAxioms=10. (3) Sorry count should be 1 (only Constants.lean:128 skp-512a remains) but snapshot may say 8 or 10. Fix ALL stale fields to match current live file state.',
     rationale: 'skp7-001 from adversarial review 7. The snapshot is the first document a referee reads — any false claim is fatal.',
     estimatedComplexity: 'medium',
+    model: 'opus-4-6',
+    channel: 'subscription',
   },
   {
     id: 'imp-832',
@@ -11196,6 +11222,8 @@ export const IMPROVEMENT_QUEUE = [
     description: 'The ONLY remaining sorry in the entire Lean formalization is at lean/LambdaAttack/Constants.lean:128 — C_F_ibp_value. The sorry note says: "use intervalIntegral FTC + tendsto boundary vanishing; integrability via log/T^2 decay". This is a concrete integration-by-parts calculation. Use Mathlib intervalIntegral.integral_comp_sub_right or FTC2 + integrability lemma. Once closed, the Lean formalization has ZERO sorrys.',
     rationale: 'Going from 1 sorry to 0 sorrys is the most impactful single change for formalization credibility.',
     estimatedComplexity: 'medium',
+    model: 'opus-4-6',
+    channel: 'subscription',
   },
   {
     id: 'imp-833',
@@ -11207,6 +11235,8 @@ export const IMPROVEMENT_QUEUE = [
     description: 'The many-body correction is unconditional for N <= 872 (empirical sweep) and GUE-conditional for N >= 873. Extending the empirical sweep to N=5000 would: (1) widen the unconditional floor by 6x, (2) stress-test the analytic bound in the overlap region [873, 5000], (3) detect any numerical issues before they matter. Use the existing m-raw-from-umon-bridge.js sweep infrastructure. At each N, compute M_raw from the first N Riemann zeros and verify M_raw < threshold. Log results to a new file src/data/empirical-m-sweep-extended.js.',
     rationale: 'Every N verified empirically is one fewer N that depends on GUE. The marginal cost is tiny (seconds per N) and the rigor gain is large.',
     estimatedComplexity: 'medium',
+    model: 'opus-4-6',
+    channel: 'subscription',
   },
   {
     id: 'imp-834',
@@ -11218,6 +11248,8 @@ export const IMPROVEMENT_QUEUE = [
     description: 'imp-507 proved that static full-sum bounds give S_{k*} * B^2 <= 2, making the Route C condition c(N) > 2 impossible via static analysis. But the proof notes suggest a DYNAMICAL approach using the Dyson ODE could work: S_{k*}(t) satisfies a coupled ODE where the driving term involves gap velocities, and the velocity structure at the argmin site may provide the needed amplification. Sub-tasks: (1) Derive the exact ODE for S_{k*}(t) from the Dyson system. (2) Analyze the coupling structure at the argmin site where g_{k*} is minimal. (3) Determine whether velocity correlations at the argmin provide S_{k*} > 2/B^2. (4) If successful, this gives an unconditional Route C closure. If not, document the precise obstruction.',
     rationale: 'Route C dynamical is the most promising path to an unconditional per-N bound without GUE. imp-507 identified this as the only viable approach after static closure failed.',
     estimatedComplexity: 'large',
+    model: 'opus-4-7',
+    channel: 'subscription',
   },
   {
     id: 'imp-835',
@@ -11229,6 +11261,8 @@ export const IMPROVEMENT_QUEUE = [
     description: 'imp-440 is status:partial. The finite-height beat needs a CONCRETE N* with rigorous Lambda(N*) <= L* < 0.2. Read src/data/finite-height-beats-platt-trudgian.js and the imp-440 partial closure. Identify what sub-step blocked completion. The chain needs: (1) pinned constants from imp-395/397/398/399/426, (2) V2 ladder refit from imp-400, (3) extended projection from imp-423, (4) many-body correction from imp-471. Assemble these into a concrete certified bound. If GUE-conditional, state that explicitly. The Route B unconditional finite-height beat (imp-452, L_PT ~ 0.121) exists but imp-440 should document the complete chain.',
     rationale: 'imp-440 is the only critical-priority ticket in status:partial. Completing it closes the finite-height story.',
     estimatedComplexity: 'large',
+    model: 'opus-4-7',
+    channel: 'subscription',
   },
   {
     id: 'imp-836',
@@ -11240,6 +11274,8 @@ export const IMPROVEMENT_QUEUE = [
     description: 'The Lean formalization depends on 2 Mathlib axioms that are not yet formally proved: (1) polymath15_lem33_prop41 — Proposition 4.1 from Polymath15 paper (Lemma 3.3 in their numbering), relating the de Bruijn-Newman constant to zero-free regions. (2) polymath15_lem52_holder — Lemma 5.2 from Polymath15, the Holder-1/2 modulus at the Burgers shock. Both need formal proofs in Lean 4 using Mathlib analysis lemmas. These are the last external dependencies blocking a fully self-contained formalization.',
     rationale: 'Two axioms are the difference between "formalization with external assumptions" and "fully machine-checked proof".',
     estimatedComplexity: 'large',
+    model: 'opus-4-6',
+    channel: 'subscription',
   },
   {
     id: 'imp-837',
@@ -11251,6 +11287,8 @@ export const IMPROVEMENT_QUEUE = [
     description: 'Adversarial review 3 (imp-437) found that the cross-validation Section 7 implication graph claims "any 2 of {E,F,G,H,I} implies all 5" but Paths G and H are orphaned — no arrows E <-> G or H <-> I are listed or cited. Either: (1) add the missing implication arrows with citations, or (2) weaken the proposition to "any 2 of {E,F,I} implies all 3" and note G,H as corroborative-only. The honest approach is (2) since Path G at sigma=1/2 is heuristic (skp2-005).',
     rationale: 'A false graph-theory claim about implication completeness is exactly what a referee attacks.',
     estimatedComplexity: 'small',
+    model: 'sonnet-4-6',
+    channel: 'subscription',
   },
   {
     id: 'imp-838',
@@ -11262,13 +11300,17 @@ export const IMPROVEMENT_QUEUE = [
     description: 'The G6 bridge E(N) formula references C_F as "RvM density integral" without giving the explicit integral formula, and cites Polymath15 generically without a specific equation number for |Lambda - (-t_c(N))| <= E(N). For arXiv submission: (1) Compute C_F explicitly as the RvM integral (should be a definite integral involving the Riemann-von Mangoldt density). (2) Cite the specific equation in Polymath15 (likely in Section 4 or Proposition 4.1). Write results to the G6 bridge files.',
     rationale: 'Constants at "explicitly derived" level are required for publication. Referees demand equation numbers.',
     estimatedComplexity: 'small',
+    model: 'sonnet-4-6',
+    channel: 'subscription',
   },
 
   // ── Phase 49: Opus 4.7 post-review audit (2026-04-18) ──
   // After switching to Opus 4.7, a post-review audit found real code-quality bugs
   // unrelated to the proof content. These target the app infrastructure, not the math.
+  // NOTE: originally seeded as imp-841..846 but those IDs were already in use by
+  // auto-seeded content/proof tickets — renumbered to 847..852 on 2026-04-18.
   {
-    id: 'imp-841',
+    id: 'imp-847',
     title: 'Fix useAsyncMetric stale-closure bug — Recompute button is a no-op on Dashboard + Health pages',
     category: 'bug',
     priority: 'critical',
@@ -11278,20 +11320,26 @@ export const IMPROVEMENT_QUEUE = [
     description: 'Both src/pages/DashboardPage.jsx (line ~19) and src/pages/HealthPage.jsx (line ~34) define a useAsyncMetric hook whose inner useMemo has dependency array [] and suppresses exhaustive-deps. Each call site wraps computeFn with useCallback([recomputeKey]) but the inner useMemo[] never re-runs when computeFn reference changes, so the Recompute/Refresh button does nothing — it flips state but no metric recomputes. Fix: change the inner useMemo to useEffect with [computeFn] as dependency, remove the eslint-disable. Verify by clicking Recompute and watching the "Last verified" timestamp advance AND the status badges flash to loading.',
     rationale: 'This is a user-facing interactive feature that silently does nothing. If the computation depends on a changing input (refresh, prime count slider, etc.), the stale closure means users see stale values without a way to refresh — a trust-destroying bug on two flagship pages.',
     estimatedComplexity: 'small',
+    model: 'sonnet-4-6',
+    channel: 'subscription',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'local',
   },
   {
-    id: 'imp-842',
+    id: 'imp-848',
     title: 'Extract useAsyncMetric to shared hook src/hooks/useAsyncMetric.js',
     category: 'meta',
     priority: 'medium',
     status: 'pending',
-    description: 'After imp-841 fixes the stale-closure bug, the two identical useAsyncMetric implementations in DashboardPage.jsx and HealthPage.jsx should be extracted to src/hooks/useAsyncMetric.js and imported from both places. Create src/hooks/ directory if it does not exist. The signature stays useAsyncMetric(computeFn) returning {loading, value, error}. Keep the fix from imp-841 — the canonical implementation uses useEffect([computeFn]).',
-    rationale: 'Duplicated hook code means every future bug fix or enhancement has to be made twice. imp-841 will land the fix in both places — imp-842 then deduplicates so the next change only touches one file.',
+    description: 'After imp-847 fixes the stale-closure bug, the two identical useAsyncMetric implementations in DashboardPage.jsx and HealthPage.jsx should be extracted to src/hooks/useAsyncMetric.js and imported from both places. Create src/hooks/ directory if it does not exist. The signature stays useAsyncMetric(computeFn) returning {loading, value, error}. Keep the fix from imp-847 — the canonical implementation uses useEffect([computeFn]).',
+    rationale: 'Duplicated hook code means every future bug fix or enhancement has to be made twice. imp-847 will land the fix in both places — imp-848 then deduplicates so the next change only touches one file.',
     estimatedComplexity: 'small',
-    dependsOn: ['imp-841'],
+    model: 'haiku-4-5',
+    channel: 'subscription',
+    dependsOn: ['imp-847'],
   },
   {
-    id: 'imp-843',
+    id: 'imp-849',
     title: 'Fix stale "165 years of RH" text on HomePage — should auto-compute from 1859',
     category: 'content',
     priority: 'low',
@@ -11301,9 +11349,13 @@ export const IMPROVEMENT_QUEUE = [
     description: 'src/pages/HomePage.jsx line ~1007 hardcodes "165 years of RH" in the History reference card. RH was published in 1859, so in 2026 this is 167 years. Replace the hardcoded number with a small inline computation like {new Date().getFullYear() - 1859} so the string auto-updates every year. Same pattern applies to src/pages/FullStoryPage.jsx line ~20 which has "After 165+ years" — fix both consistently.',
     rationale: 'Hardcoded dates quietly rot. A one-line self-updating expression ends this category of bug for the lifetime of the page.',
     estimatedComplexity: 'small',
+    model: 'haiku-4-5',
+    channel: 'subscription',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'local',
   },
   {
-    id: 'imp-844',
+    id: 'imp-850',
     title: 'Update README.md: 30 pages -> 52, 34 visualizations -> 44 (stale counts)',
     category: 'content',
     priority: 'low',
@@ -11313,9 +11365,13 @@ export const IMPROVEMENT_QUEUE = [
     description: 'README.md lines 27-28 claim "30 interactive pages" and "34 visualization components" but ls src/pages/ shows 52 .jsx files and ls src/components/ shows 44. Update the two bullet points. Also the "400+ auto-improvement entries" on line 32 is likely a severe undercount — verify against the current improvements.js entry count and update.',
     rationale: 'README is the first thing a visitor reads. Wildly outdated counts undermine credibility.',
     estimatedComplexity: 'small',
+    model: 'haiku-4-5',
+    channel: 'subscription',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'local',
   },
   {
-    id: 'imp-845',
+    id: 'imp-851',
     title: 'Audit src/math/ for truly-dead modules referenced only by module-index.js',
     category: 'meta',
     priority: 'medium',
@@ -11323,9 +11379,11 @@ export const IMPROVEMENT_QUEUE = [
     description: 'src/math/module-index.js exports moduleIndexTest() which is NEVER imported anywhere (verified by grep). It is a hand-maintained catalog of 245 math modules. Many math modules are only listed here as string names, never actually imported from pages/components. Run a static analysis to identify math modules that: (1) have no direct imports from any .jsx page or component, (2) are not transitively imported from rh-attack.js or other integration modules, (3) are only mentioned in module-index.js strings or improvements.js detail text. Produce a list in src/data/dead-code-audit-2026-04.js marking each as: used / archive-candidate / Lean-only / obsolete. Do NOT delete anything yet — deletion is a separate ticket.',
     rationale: 'The project has grown to ~296 math modules; some are certainly stale prototypes. An audit makes the cleanup safe and reviewable before any delete happens.',
     estimatedComplexity: 'medium',
+    model: 'sonnet-4-6',
+    channel: 'subscription',
   },
   {
-    id: 'imp-846',
+    id: 'imp-852',
     title: 'Fix scripts/smoke-tests.mjs stderr noise: esbuild scanner race on Vite server close',
     category: 'bug',
     priority: 'low',
@@ -11335,5 +11393,9 @@ export const IMPROVEMENT_QUEUE = [
     description: 'Running `node scripts/smoke-tests.mjs` prints 28 PASS results and exits 0, but stderr is polluted with a long "vite:dep-scan" error stack trace because the Vite server is closed while esbuild scanner still has pending onResolve callbacks for lazy imports (FullStoryPage.jsx, HealthPage.jsx). Fix options: (1) add `await server.pluginContainer.close?.()` before `server.close()`; (2) disable optimizeDeps via `optimizeDeps: { disabled: true }` in createServer options; (3) call `await server.warmupRequest(...)` for known-lazy entrypoints so the scanner completes before shutdown. Verify stderr is clean after fix.',
     rationale: 'Clean test output matters for CI triage. Right now any real failure gets buried in 60 lines of shutdown-race noise.',
     estimatedComplexity: 'small',
+    model: 'haiku-4-5',
+    channel: 'subscription',
+    completedByModel: 'haiku-4-5',
+    completedByChannel: 'subscription',
   },
 ];

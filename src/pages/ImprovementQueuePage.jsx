@@ -23,12 +23,15 @@ const PRIORITY_CONFIG = {
 };
 
 const STATUS_CONFIG = {
-  pending:      { label: 'Pending',      color: '#64748b', dot: '#64748b' },
-  'in-progress':{ label: 'In Progress', color: '#f59e0b', dot: '#f59e0b' },
-  completed:    { label: 'Completed',   color: '#10b981', dot: '#10b981' },
-  blocked:      { label: 'Blocked',     color: '#ef4444', dot: '#ef4444' },
-  superseded:   { label: 'Superseded',  color: '#a78bfa', dot: '#a78bfa' },
-  done:         { label: 'Done',         color: '#10b981', dot: '#10b981' },
+  pending:              { label: 'Pending',            color: '#64748b', dot: '#64748b' },
+  'in-progress':        { label: 'In Progress',        color: '#f59e0b', dot: '#f59e0b' },
+  completed:            { label: 'Completed',          color: '#10b981', dot: '#10b981' },
+  partial:              { label: 'Partial',            color: '#f97316', dot: '#f97316' },
+  conditional:          { label: 'Conditional',        color: '#eab308', dot: '#eab308' },
+  'conditional-closed': { label: 'Conditional-closed', color: '#84cc16', dot: '#84cc16' },
+  blocked:              { label: 'Blocked',            color: '#ef4444', dot: '#ef4444' },
+  superseded:           { label: 'Superseded',         color: '#a78bfa', dot: '#a78bfa' },
+  done:                 { label: 'Done',               color: '#10b981', dot: '#10b981' },
 };
 
 /* ─── Shared style helpers ─── */
@@ -346,7 +349,7 @@ function AcceleratingSection() {
 const TAB_ALL = 'all';
 const CATEGORY_TABS = ['all', 'proof', 'proof-gap', 'verification', 'visualization', 'accuracy', 'ux', 'performance', 'content', 'meta'];
 const PRIORITY_FILTERS = ['all', 'critical', 'high', 'medium', 'low'];
-const STATUS_FILTERS = ['all', 'pending', 'in-progress', 'completed', 'blocked', 'superseded', 'done'];
+const STATUS_FILTERS = ['all', 'pending', 'partial', 'conditional', 'conditional-closed', 'completed', 'superseded', 'done', 'in-progress', 'blocked'];
 
 const VIEW_TABS = ['queue', 'accelerating'];
 
@@ -433,37 +436,84 @@ export default function ImprovementQueuePage() {
           <div style={{ marginTop: 20, marginBottom: 8 }}>
             <div style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)', marginBottom: 6, textTransform: 'uppercase' }}>Category</div>
             <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 }}>
-              {CATEGORY_TABS.map(tab => (
-                <button key={tab} onClick={() => setCatFilter(tab)} style={filterBtnStyle(catFilter === tab)}>
-                  {tab === 'all' ? 'All' : (CATEGORY_CONFIG[tab]?.label || tab)}
-                </button>
-              ))}
+              {CATEGORY_TABS.map(tab => {
+                const n = tab === 'all' ? IMPROVEMENT_QUEUE.length : IMPROVEMENT_QUEUE.filter(i => i.category === tab).length;
+                return (
+                  <button key={tab} onClick={() => setCatFilter(tab)} style={filterBtnStyle(catFilter === tab)} aria-pressed={catFilter === tab}>
+                    {tab === 'all' ? 'All' : (CATEGORY_CONFIG[tab]?.label || tab)} <span style={{ opacity: 0.6 }}>({n})</span>
+                  </button>
+                );
+              })}
             </div>
 
             <div style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)', marginBottom: 6, textTransform: 'uppercase' }}>Priority</div>
             <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 }}>
-              {PRIORITY_FILTERS.map(f => (
-                <button key={f} onClick={() => setPriFilter(f)} style={filterBtnStyle(priFilter === f)}>
-                  {f === 'all' ? 'All' : (PRIORITY_CONFIG[f]?.label || f)}
-                </button>
-              ))}
+              {PRIORITY_FILTERS.map(f => {
+                const n = f === 'all' ? IMPROVEMENT_QUEUE.length : IMPROVEMENT_QUEUE.filter(i => i.priority === f).length;
+                return (
+                  <button key={f} onClick={() => setPriFilter(f)} style={filterBtnStyle(priFilter === f)} aria-pressed={priFilter === f}>
+                    {f === 'all' ? 'All' : (PRIORITY_CONFIG[f]?.label || f)} <span style={{ opacity: 0.6 }}>({n})</span>
+                  </button>
+                );
+              })}
             </div>
 
             <div style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)', marginBottom: 6, textTransform: 'uppercase' }}>Status</div>
             <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 20 }}>
-              {STATUS_FILTERS.map(f => (
-                <button key={f} onClick={() => setStaFilter(f)} style={filterBtnStyle(staFilter === f)}>
-                  {f === 'all' ? 'All' : (STATUS_CONFIG[f]?.label || f)}
-                </button>
-              ))}
+              {STATUS_FILTERS.map(f => {
+                const n = f === 'all' ? IMPROVEMENT_QUEUE.length : IMPROVEMENT_QUEUE.filter(i => i.status === f).length;
+                return (
+                  <button key={f} onClick={() => setStaFilter(f)} style={filterBtnStyle(staFilter === f)} aria-pressed={staFilter === f} disabled={n === 0 && f !== 'all'}>
+                    {f === 'all' ? 'All' : (STATUS_CONFIG[f]?.label || f)} <span style={{ opacity: 0.6 }}>({n})</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* Next Steps */}
-          <NextSteps items={IMPROVEMENT_QUEUE} />
+          {/* Active filter indicator — shows clearly when any filter is active */}
+          {(catFilter !== 'all' || priFilter !== 'all' || staFilter !== 'all') && (
+            <div style={{
+              padding: '10px 14px',
+              marginBottom: 20,
+              background: 'rgba(99,102,241,0.08)',
+              border: '1px solid rgba(99,102,241,0.25)',
+              borderRadius: 8,
+              fontSize: 13,
+              color: '#c7d2fe',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12,
+              flexWrap: 'wrap',
+            }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#6366f1', textTransform: 'uppercase' }}>Active filters:</span>
+              {catFilter !== 'all' && <span>category=<b>{CATEGORY_CONFIG[catFilter]?.label || catFilter}</b></span>}
+              {priFilter !== 'all' && <span>priority=<b>{PRIORITY_CONFIG[priFilter]?.label || priFilter}</b></span>}
+              {staFilter !== 'all' && <span>status=<b>{STATUS_CONFIG[staFilter]?.label || staFilter}</b></span>}
+              <button
+                onClick={() => { setCatFilter('all'); setPriFilter('all'); setStaFilter('all'); }}
+                style={{
+                  marginLeft: 'auto',
+                  padding: '3px 10px',
+                  fontSize: 11,
+                  borderRadius: 6,
+                  border: '1px solid rgba(99,102,241,0.4)',
+                  background: 'transparent',
+                  color: '#c7d2fe',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-mono)',
+                }}
+              >
+                clear
+              </button>
+            </div>
+          )}
 
-          {/* Proof Impact */}
-          <ProofImpact items={IMPROVEMENT_QUEUE} />
+          {/* Next Steps — respects filter so status button visibly affects every section */}
+          <NextSteps items={filtered} />
+
+          {/* Proof Impact — respects filter */}
+          <ProofImpact items={filtered} />
 
           {/* Full Queue */}
           <h2 style={{ color: '#e2e8f0', fontSize: 18, marginBottom: 12, borderBottom: '1px solid #1e293b', paddingBottom: 8 }}>

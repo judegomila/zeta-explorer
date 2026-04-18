@@ -24,12 +24,12 @@ The **twin-ladder system** pairs the direct ladder zeta(s) with a dual ladder ze
 
 ## Features
 
-- **30 interactive pages** covering the full ZPO model, from foundations to proof strategies
-- **34 visualization components** with Canvas/SVG/WebGL renderings of zeta zeros, spectral data, scattering matrices, and more
+- **52 interactive pages** covering the full ZPO model, from foundations to proof strategies
+- **44 visualization components** with Canvas/SVG/WebGL renderings of zeta zeros, spectral data, scattering matrices, and more
 - **15 mathematical computation modules** for zeta evaluation, spectral analysis, gap-closing algorithms, and proof checking
 - **80+ exploration journal entries** with full LaTeX rendering, cross-references, and literature citations
 - **33-node insight DAG** mapping the logical dependencies between 90+ mathematical concepts
-- **400+ auto-improvement entries** logged by the Claude Code auto-improvement engine
+- **1,700+ auto-improvement entries** logged by the Claude Code auto-improvement engine
 - **Historical reasoning log** tracking evolving proof strategies and novel connections to cutting-edge research (Connes 2025-2026, Guth-Maynard 2024)
 
 ## Quick Start

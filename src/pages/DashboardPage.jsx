@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useCallback, useEffect, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 
 const ProofStatusCard = lazy(() => import('../components/ProofStatusCard.jsx'));
@@ -16,10 +16,12 @@ const ProofStatusCard = lazy(() => import('../components/ProofStatusCard.jsx'));
 function useAsyncMetric(computeFn) {
   const [state, setState] = useState({ loading: true, value: null, error: null });
 
-  useMemo(() => {
+  // imp-841: depends on computeFn identity so recompute actually re-runs when
+  // the caller passes a fresh useCallback([recomputeKey]). Previously [] here
+  // made the Recompute button a no-op.
+  useEffect(() => {
     let cancelled = false;
     setState({ loading: true, value: null, error: null });
-    // Use a microtask to avoid blocking the initial render
     Promise.resolve().then(async () => {
       try {
         const value = await computeFn();
@@ -29,8 +31,7 @@ function useAsyncMetric(computeFn) {
       }
     });
     return () => { cancelled = true; };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [computeFn]);
 
   return state;
 }

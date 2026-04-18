@@ -17,7 +17,7 @@ const STEPS = [
 
 The Riemann Hypothesis (RH) states that every non-trivial zero has real part exactly 1/2. This would mean primes are distributed as regularly as possible — no unexpected clumping or gaps beyond what the logarithmic integral predicts.
 
-After 165+ years, RH remains unproven. Over 10 trillion zeros have been computed and all lie on the critical line, but no finite computation can prove the statement for all zeros.`,
+After ${new Date().getFullYear() - 1859}+ years, RH remains unproven. Over 10 trillion zeros have been computed and all lie on the critical line, but no finite computation can prove the statement for all zeros.`,
   },
   {
     id: 2,

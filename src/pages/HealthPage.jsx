@@ -31,7 +31,10 @@ const STATUS_COLORS = {
 function useAsyncMetric(computeFn) {
   const [state, setState] = useState({ loading: true, value: null, error: null });
 
-  useMemo(() => {
+  // imp-841: depends on computeFn identity so refresh actually re-runs when
+  // the caller passes a fresh useCallback([refreshKey]). Previously [] here
+  // made the Refresh button a no-op.
+  useEffect(() => {
     let cancelled = false;
     setState({ loading: true, value: null, error: null });
     Promise.resolve().then(async () => {
@@ -43,8 +46,7 @@ function useAsyncMetric(computeFn) {
       }
     });
     return () => { cancelled = true; };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [computeFn]);
 
   return state;
 }

@@ -1004,7 +1004,7 @@ export default function HomePage() {
           <div className="card"><h3 style={{ color: '#3b82f6' }}>Concepts</h3><p>Key mathematical concepts explained from scratch.</p></div>
         </Link>
         <Link to="/history" style={{ textDecoration: 'none' }}>
-          <div className="card"><h3 style={{ color: '#f59e0b' }}>History</h3><p>165 years of RH — from Riemann to Guth-Maynard, with TLDR explainers.</p></div>
+          <div className="card"><h3 style={{ color: '#f59e0b' }}>History</h3><p>{new Date().getFullYear() - 1859} years of RH — from Riemann to Guth-Maynard, with TLDR explainers.</p></div>
         </Link>
         <Link to="/formal-proof" style={{ textDecoration: 'none' }}>
           <div className="card"><h3 style={{ color: '#10b981' }}>Formal Proof</h3><p>Complete proof attempt with 10 sections, gap tracking, and status assessment.</p></div>

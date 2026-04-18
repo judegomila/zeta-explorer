@@ -122,18 +122,37 @@ async function checkRoute(browser, route) {
     navError = e.message;
   }
 
-  // Try to read a visible element to confirm the page rendered body content.
-  let visibleText = null;
+  // Read full rendered text to catch silent failures (pages stuck on "Loading..."
+  // or blank #root without a JS error). Two signals:
+  //   (1) full length — anything under MIN_RENDER_CHARS is suspicious
+  //   (2) stuck-loading — "Loading..." as the only visible content is a fail
+  let fullText = '';
   try {
-    visibleText = await page
+    fullText = await page
       .locator('body')
       .first()
       .innerText({ timeout: 2000 })
       .catch(() => '');
-    if (visibleText) visibleText = visibleText.slice(0, 120).replace(/\n+/g, ' ');
   } catch {
     // no-op
   }
+  const trimmed = (fullText || '').trim();
+  // Two render-failure signals:
+  //   (1) stuck-loading: body is short AND contains "loading" (Suspense fallback
+  //       or a manual loading spinner that never resolves)
+  //   (2) effectively empty: body is very short AND has no nav text (the #root
+  //       tree collapsed, e.g. ErrorBoundary with blank fallback, or component
+  //       returned null on the top level). Normal empty-state pages still have
+  //       the nav menu text (~150 chars), so 50 is a safe floor.
+  const stuckLoading =
+    trimmed.length > 0 && trimmed.length < 80 && /loading/i.test(trimmed);
+  const effectivelyEmpty = trimmed.length < 50;
+  const renderError = stuckLoading
+    ? `page stuck on loading state (${trimmed.length} chars: "${trimmed.slice(0, 80)}")`
+    : effectivelyEmpty
+      ? `rendered body effectively empty (${trimmed.length} chars)`
+      : null;
+  const visibleText = trimmed.slice(0, 120).replace(/\n+/g, ' ');
 
   await context.close();
 
@@ -141,7 +160,8 @@ async function checkRoute(browser, route) {
     !navError &&
     pageErrors.length === 0 &&
     consoleErrors.length === 0 &&
-    failedRequests.length === 0;
+    failedRequests.length === 0 &&
+    !renderError;
 
   return {
     route,
@@ -151,6 +171,7 @@ async function checkRoute(browser, route) {
     pageErrors,
     consoleErrors,
     failedRequests,
+    renderError,
     visibleText,
     ok,
   };
@@ -178,7 +199,8 @@ async function main() {
     const sym = r.ok ? '✓' : '✗';
     const errSummary = r.ok
       ? ''
-      : ` — ${r.pageErrors.length}pe / ${r.consoleErrors.length}ce / ${r.failedRequests.length}fr`;
+      : ` — ${r.pageErrors.length}pe / ${r.consoleErrors.length}ce / ${r.failedRequests.length}fr` +
+        (r.renderError ? ` / ${r.renderError}` : '');
     console.log(`  ${sym} ${route}${errSummary}`);
   }
 
@@ -246,6 +268,7 @@ async function main() {
           md.push(`  - \`${req.url}\` — ${req.failure}`);
         }
       }
+      if (r.renderError) md.push(`- Render check: ${r.renderError}`);
       md.push('');
     }
   }

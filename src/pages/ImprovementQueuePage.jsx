@@ -365,6 +365,18 @@ export default function ImprovementQueuePage() {
     });
   }, []);
 
+  // Hooks must be called unconditionally on every render — keep this above
+  // the loading early-return. Previously useMemo sat after the return, which
+  // crashed the page on second render with "rendered more hooks than expected".
+  const filtered = useMemo(() => {
+    return IMPROVEMENT_QUEUE.filter(item => {
+      if (catFilter !== 'all' && item.category !== catFilter) return false;
+      if (priFilter !== 'all' && item.priority !== priFilter) return false;
+      if (staFilter !== 'all' && item.status !== staFilter) return false;
+      return true;
+    });
+  }, [IMPROVEMENT_QUEUE, catFilter, priFilter, staFilter]);
+
   if (loading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '40vh', color: '#64748b' }}>
@@ -374,15 +386,6 @@ export default function ImprovementQueuePage() {
       </div>
     );
   }
-
-  const filtered = useMemo(() => {
-    return IMPROVEMENT_QUEUE.filter(item => {
-      if (catFilter !== 'all' && item.category !== catFilter) return false;
-      if (priFilter !== 'all' && item.priority !== priFilter) return false;
-      if (staFilter !== 'all' && item.status !== staFilter) return false;
-      return true;
-    });
-  }, [catFilter, priFilter, staFilter]);
 
   return (
     <div className="page">

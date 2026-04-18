@@ -238,7 +238,13 @@ async function main() {
   console.log('Passed : ' + passed);
   console.log('Failed : ' + failed);
 
-  await server.close();
+  const originalStderr = process.stderr.write;
+  process.stderr.write = () => true;
+  try {
+    await server.close();
+  } finally {
+    process.stderr.write = originalStderr;
+  }
   process.exit(failed > 0 ? 1 : 0);
 }
 

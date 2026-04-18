@@ -1646,3 +1646,4 @@ Automated improvements made by the Claude Code auto-improvement engine.
 | 1763 | 2026-04-18T21:45:00Z | imp-841 (bug, critical): fix useAsyncMetric stale-closure — Recompute/Refresh buttons were no-ops on Dashboard and Health pages | src/pages/DashboardPage.jsx, src/pages/HealthPage.jsx |
 | 1764 | 2026-04-18T21:46:00Z | imp-843 (content, low): replace hardcoded '165 years of RH' with {new Date().getFullYear() - 1859} on HomePage and FullStoryPage | src/pages/HomePage.jsx, src/pages/FullStoryPage.jsx |
 | 1765 | 2026-04-18T21:47:00Z | imp-844 (content, low): update README.md stale counts — 30 pages -> 52, 34 visualizations -> 44, 400+ -> 1700+ improvements | README.md |
+| 1766 | 2026-04-18T22:50:00Z | imp-846 (bug, low): fix scripts/smoke-tests.mjs stderr noise — esbuild scanner race on Vite server close | scripts/smoke-tests.mjs |

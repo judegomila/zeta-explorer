@@ -11398,4 +11398,44 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'haiku-4-5',
     completedByChannel: 'subscription',
   },
+
+  // ── Phase 50: button-test sweep findings (2026-04-18) ──
+  // npm test:buttons sweep found 21 button failures across 14 routes.
+  // The majority are already-active filter/tab buttons missing aria-pressed.
+  {
+    id: 'imp-853',
+    title: 'Add aria-pressed to all tab/filter buttons app-wide — 13 routes have buttons that appear to "do nothing" when already-active',
+    category: 'ux',
+    priority: 'medium',
+    status: 'pending',
+    description: 'The new npm test:buttons suite flagged 13 routes where clicking an already-selected tab or filter button produces no observable DOM change (correct behavior — clicking the active tab should be idempotent). The filter buttons on /improvement-queue now carry aria-pressed so the test can tell them apart, but these patterns still lack it: /control tabs, /explorations category filter, /history topic tabs, /rigor severity filter, /statistics viz tabs, /twin-ladder pagination, /twistor/waves/zx-calculus view tabs, /rh-attack section accordions, /proof-checker accordions, /formal-proof section headers. Add aria-pressed={isActive} to every tab/filter button and aria-expanded={isOpen} to every accordion summary. After fix, re-run npm test:buttons — the no-op count should drop to near-zero.',
+    rationale: 'aria-pressed is both an a11y fix (screen readers now announce selected state) AND a test-reliability fix (the button sweep can tell idempotent clicks from broken clicks). Without it, every automated regression run will re-flag the same 21 false positives, burying real bugs.',
+    estimatedComplexity: 'medium',
+    model: 'haiku-4-5',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-854',
+    title: 'Fix nav dropdown buttons: Model/Analysis/Attack/Progress/Reference are hover-only (broken on touch/mobile)',
+    category: 'bug',
+    priority: 'high',
+    status: 'pending',
+    description: 'In src/App.jsx NavDropdown component, the trigger button has no onClick handler. The dropdown menu is shown via CSS :hover only. Touchscreen users cannot open any nav dropdown — all of Model/Analysis/Attack/Progress/Reference are inaccessible on mobile and tablets. Fix: add onClick to toggle a boolean open state per dropdown, show menu when EITHER :hover OR open state is true. Keep hover as the desktop UX. Button should also toggle aria-expanded.',
+    rationale: 'Mobile users have zero access to half the nav tree. The button-test suite caught this class of failure under "button not found" because headless Chromium does not fire hover events during scripted runs — the same failure mode a real touchscreen user hits.',
+    estimatedComplexity: 'small',
+    model: 'sonnet-4-6',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-855',
+    title: 'Document test-buttons false-positive classes and add canvas-change signal to detect canvas-redraw clicks',
+    category: 'meta',
+    priority: 'low',
+    status: 'pending',
+    description: 'scripts/test-buttons.mjs flagged the Dashboard "Refresh" button as a no-op even though it correctly redraws a canvas. The test only hashes body.innerText so canvas mutations are invisible. Add a second signal: capture a hash of canvas toDataURL() (truncated to first 200 chars to keep it cheap) before+after click, and count any change as an observable effect. Also document the known-good false-positive classes in the script header: (1) canvas-redraw buttons, (2) buttons that only trigger file downloads, (3) buttons that only emit telemetry.',
+    rationale: 'Clean test output matters: every false positive lowers the signal-to-noise ratio and invites people to stop reading failure reports. One canvas-hash addition catches the widest class of visual-only changes.',
+    estimatedComplexity: 'small',
+    model: 'haiku-4-5',
+    channel: 'subscription',
+  },
 ];

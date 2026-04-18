@@ -10800,6 +10800,64 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
   },
 
+  
+  // ── Auto-seeded batch (2026-04-18) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-843',
+    title: "Improve ProjectIndexPage.jsx: add interactivity, better explanations, or new visualizations",
+    category: 'feature',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'app',
+    description: "Read src/pages/ProjectIndexPage.jsx and make one meaningful improvement: add an interactive control, improve the mathematical explanations, add a new visualization, fix layout issues, or add educational annotations. Focus on making the page more useful for someone learning about the Riemann Hypothesis.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-844',
+    title: "Add JSDoc module documentation to lambda-intercept-density-weyl.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/lambda-intercept-density-weyl.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
+  
+  // ── Auto-seeded batch (2026-04-18) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-845',
+    title: "Improve ProofPlannerPage.jsx: add interactivity, better explanations, or new visualizations",
+    category: 'feature',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'app',
+    description: "Read src/pages/ProofPlannerPage.jsx and make one meaningful improvement: add an interactive control, improve the mathematical explanations, add a new visualization, fix layout issues, or add educational annotations. Focus on making the page more useful for someone learning about the Riemann Hypothesis.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-846',
+    title: "Add JSDoc module documentation to dyson-burgers-shock.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/dyson-burgers-shock.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

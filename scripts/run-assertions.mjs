@@ -69,6 +69,8 @@ const MATH_MODULES = [
   '/src/math/route-c-cm-hamiltonian.js',
   // imp-864+865+866: alternative-angle scoping (Vinogradov / BBS / Maier).
   '/src/math/c-mb-alternative-angles-eval.js',
+  // imp-871: adversarial review 7b (Phase 51 post-state).
+  '/src/math/paper-skeptic-review-7b-phase51.js',
 ];
 
 const DATA_MODULES = [

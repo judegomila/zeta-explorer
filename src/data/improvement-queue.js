@@ -11054,6 +11054,69 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
   },
 
+  // ── imp-857 phased-forcing sub-branch (dolphin-skin analog) ──
+  // Alt-path (C) to the imp-857-sub-scale-to-N10k sub-gap. Prototype at
+  // N=500 (src/math/imp-857-phase-locked-dyson.mjs) shows wrapper-width
+  // reduction 185-1114× under phase-locked traveling-wave forcing
+  // ε·cos(k₀·g − ω·t) with ω/k₀ = π·ρ_mean. Tickets here take the
+  // prototype through scaling, rigorous bounds, and eventual certification.
+  {
+    id: 'imp-892',
+    title: "imp-857-sub-phased-forcing: prove commutator bound for traveling-wave forcing",
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S10',
+    description: "Prove the commutator bound ‖[H_force(t), H_Dyson]‖_op ≤ C · ε · N · log N uniformly in t over the collision-time interval [0, τ_c], where H_force(t) = -(1/k₀)·Σ_k sin(k₀·g_k − ω·t) and H_Dyson = Σ_{j<k} log|g_j − g_k|. Given this bound, the collision-time shift τ_c^{(ε)} − τ_c^{(0)} = O(ε) follows from Gronwall (sketched in src/math/imp-857-phased-forcing-memo.js §5). This is the key analytic obligation for the phased-forcing path. The pair case (N=2) closes directly via d(g²)/dt = -8 + 2ε·g·cos(...). The many-body case needs a careful bound near collision where min-gap → 0 and the drift Jacobian becomes singular. Deliverable: src/math/imp-857-commutator-bound.js with the formal statement, proof, and build-time assertion linking τ_c^{(ε)} to τ_c^{(0)} with quantitative constant C.",
+    rationale: 'Positive empirical signal at N=500 (see imp-857-phase-locked-dyson.mjs) means the commutator bound is the one remaining analytic barrier before phased forcing can replace the directed-rounding backend entirely.',
+    estimatedComplexity: 'large',
+    completedAt: null,
+    estimatedModel: 'opus-4-7',
+    estimatedChannel: 'subscription',
+  },
+  {
+    id: 'imp-893',
+    title: "imp-857-sub-phased-forcing: scale prototype to N=1000, 2000, 5000, 10000",
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S10',
+    description: "Extend the phased-forcing prototype src/math/imp-857-phase-locked-dyson.mjs from N=500 to the full imp-857 range {1000, 2000, 5000, 10000}. For each N, sweep ε ∈ {0, 0.01, 0.02, 0.05, 0.1} with budget tuned to close the backward collision bracket. Compute: (1) wrapper-width reduction factor vs baseline at each N; (2) collision-time shift |τ_c^{(ε)} - τ_c^{(0)}| / τ_c^{(0)} (should be O(ε) by imp-892); (3) certified upper bound on C_mb_empirical(N) via Richardson extrapolation on {ε₁, ε₂}. Record in src/data/imp-857-phased-forcing-sweep.js. If wrapper reduction holds at all N and ε→0 extrapolation is stable, this is an INTERVAL-CERTIFIED C_mb bound on N ≤ 10⁴ WITHOUT a directed-rounding backend. Reports the max K_certified over the sweep and either elevates imp-833 to fully interval-certified on that range or plugs into imp-486 C_MB_RESCUE_TABLE with the corresponding N_0.",
+    rationale: 'N=500 prototype already shows 185-1114× reduction. If this scales to N=10⁴, phased forcing supersedes the WASM/Arb backend entirely — much cheaper engineering path.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+    estimatedModel: 'opus-4-7',
+    estimatedChannel: 'subscription',
+  },
+  {
+    id: 'imp-894',
+    title: "imp-857-sub-phased-forcing: resonance-tuning sweep for optimal (k₀*, ω*)",
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S10',
+    description: "The N=500 prototype used k₀ = π and ω/k₀ = π·ρ_mean — first-principles dolphin-skin analogy but not tuned. Sweep a 2D grid (k₀, ω/k₀) × a small grid of ε, and identify the resonance point that maximizes wrapper-width reduction at N=500. Predicted neighborhood: k₀ ~ 2π/min-gap (drift-Jacobian eigenmode), ω/k₀ in (π·ρ_min, π·ρ_max) (bulk phase velocity window). Deliverable: src/data/imp-857-resonance-tuning-sweep.js with heatmap data (reduction factor as a function of k₀, ω/k₀) and the recommended (k₀*, ω*) for use in imp-893.",
+    rationale: 'Analogous to the MEMS upstream-traveling-wall literature where there is a narrow resonance window giving maximum drag reduction. Finding our resonance point tightens the empirical signal from 1000× to potentially 10^4-10^5×.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+    estimatedModel: 'opus-4-6',
+    estimatedChannel: 'subscription',
+  },
+  {
+    id: 'imp-895',
+    title: "imp-857-sub-phased-forcing: twin-ladder symmetric-forcing corollary",
+    category: 'proof',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S10',
+    description: "In the supercritical / twin-ladder regime (Re(s) > 1 side of the functional-equation pairing s ↔ 1−s) the Euler product converges and the boundary layer is two-sided. A forcing that is SYMMETRIC under s ↔ 1−s (i.e. cos(k₀·(g − 1/2))·cos(ω·t)) preserves the pairing structure automatically, which MAY LET US SKIP the commutator bound of imp-892 in that regime. Formally state and prove this corollary. Implementation: src/math/imp-857-twin-ladder-symmetric-forcing.js with the statement, proof sketch, and a restricted version of the N=500 prototype that uses only the symmetric forcing. If the skip works, it gives an UNCONDITIONAL-BY-SYMMETRY argument for a subset of the collision-time asymptotic.",
+    rationale: 'Bypass route around the commutator bound in the supercritical regime; exploits the natural symmetry of the twin-ladder structure that the full critical-strip Dyson flow does not have.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+    estimatedModel: 'opus-4-7',
+    estimatedChannel: 'subscription',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

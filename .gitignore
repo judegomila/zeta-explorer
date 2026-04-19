@@ -3,6 +3,7 @@ dist/
 .vite/
 *.log
 scripts/logs/
-scripts/.auto-improve.pid
+scripts/.auto-improve*.pid
+scripts/.rate-limit-backoff-state*
 scripts/.env
 scripts/queue-index.json

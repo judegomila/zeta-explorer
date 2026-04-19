@@ -67,7 +67,7 @@ function EmpiricalFloorCard() {
         Direct sweep on Odlyzko zeros; both predicates verified — no C_mb, no GUE on this range.
         Widening from the original 870-zero floor:{' '}
         <strong style={{ color: '#a5b4fc' }}>{Math.round(N_max / r.previousEmpiricalFloor.N_max)}×</strong>.{' '}
-        <Link to="/full-story#uncond" style={{ color: '#38bdf8' }}>Full story →</Link>
+        <Link to="/full-story#uncond" style={{ color: '#38bdf8' }}>Improving Bounds on Λ →</Link>
       </div>
     </div>
   );

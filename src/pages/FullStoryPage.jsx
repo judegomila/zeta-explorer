@@ -242,7 +242,7 @@ function Hero() {
         color: '#e2e8f0',
         letterSpacing: -0.5,
       }}>
-        The Full Story
+        Improving Bounds on Λ
       </h1>
       <p style={{ color: '#cbd5e1', fontSize: 16, lineHeight: 1.7, margin: 0 }}>
         From the definition of <InlineMath tex="\zeta(s)" /> in 1859 to an unconditional

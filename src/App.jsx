@@ -71,7 +71,7 @@ const NAV_GROUPS = [
   {
     label: 'Model',
     items: [
-      { to: '/full-story', label: 'The Full Story' },
+      { to: '/full-story', label: 'Improving Bounds on Λ' },
       { to: '/oscillators', label: 'Oscillators' },
       { to: '/hamiltonian', label: 'Hamiltonian' },
       { to: '/zeta', label: 'Zeta' },

@@ -236,15 +236,18 @@ function scanDashboardBugs() {
 }
 
 function scanStaleAssertions() {
-  // Assertion files get re-verified every autofill cycle which creates
-  // an infinite loop. Only seed if the file has NOT been verified in the
-  // last 24 hours (check verifiedAt field inside the file).
+  // imp-814 + imp-841 showed this template produces unactionable tickets
+  // when the target file DRIVES the sweep rather than exporting its own
+  // *_ASSERTIONS. Guard: only seed a ticket if the file actually contains
+  // a "_ASSERTIONS" export that would be re-runnable.
   const assertFiles = grepFiles('ASSERTION\\|assert', 'src/data/*-2026-*.js');
   const now = Date.now();
   const ONE_DAY = 24 * 60 * 60 * 1000;
   return assertFiles.filter(file => {
     try {
       const content = readFileSync(file, 'utf-8');
+      // Must actually export an *_ASSERTIONS array to be verifiable.
+      if (!/export\s+const\s+\w+_ASSERTIONS\s*=/.test(content)) return false;
       const m = content.match(/verifiedAt:\s*['"]([^'"]+)['"]/);
       if (m) {
         const verifiedAt = new Date(m[1]).getTime();

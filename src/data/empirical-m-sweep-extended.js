@@ -25,9 +25,11 @@
  * imp-486 proved GUE universality is IRREDUCIBLE for the analytic C_mb ≤ 1
  * bound — so the many-body correction is conditional for N ≥ N_0 unless
  * every N is covered empirically. The previous empirical floor was
- * N_MAX_PREVIOUS = 870 (the extent of ZETA_ZEROS in zeta.js). This file
- * widens it to N_MAX_NOW = 100,000 using the Odlyzko zeros1 table, removing
- * GUE conditioning from every N ≤ 100,000.
+ * N_MAX_PREVIOUS = 870 (the extent of ZETA_ZEROS in zeta.js). imp-833 widened
+ * it to 100,000 using Odlyzko zeros1. imp-858 widened it further to
+ * 1,000,000 using Odlyzko zeros6 (combined file covering zeros 1..2,001,052).
+ * Both predicates (E1, E2) continue to hold with ZERO violations on the
+ * extended range — no C_mb, no GUE, on every N ≤ 10^6.
  *
  * Note: this is a LEADING-ORDER empirical closure — it shows the predicates
  * the dynamical argument (imp-462) uses are satisfied on the swept range.
@@ -38,10 +40,11 @@
  *
  * COST
  * ----
- * Sweep over N in {2, ..., 100000}: O(N_MAX^2) naively, but the running-min
+ * Sweep over N in {2, ..., N_MAX}: O(N_MAX^2) naively, but the running-min
  * reformulation below makes it O(N_MAX) — each new N only needs to compare
  * the new boundary gap against the running minimum. Runtime: ~150 ms at
- * N_MAX = 100,000 on a modern laptop. Evaluated once at module load.
+ * N_MAX = 100,000, ~1.5 s at N_MAX = 1,000,000 on a modern laptop. Evaluated
+ * once at module load.
  */
 
 import { ZEROS_EXTENDED, ZEROS_EXTENDED_METADATA } from './zeros-to-1e6.js';
@@ -78,8 +81,9 @@ for (let i = 0; i < N_MAX; i++) {
 
 const SAMPLES = [];       // Sampled log-spaced records for reporting.
 const SAMPLE_N = new Set([
-  2, 5, 10, 20, 50, 100, 200, 500, 870,         // Old empirical floor.
-  1000, 2000, 5000, 10000, 20000, 50000, 100000, // New extension.
+  2, 5, 10, 20, 50, 100, 200, 500, 870,         // Original empirical floor.
+  1000, 2000, 5000, 10000, 20000, 50000, 100000, // imp-833 extension (zeros1).
+  200000, 500000, 1000000,                      // imp-858 extension (zeros6).
 ]);
 
 let H_running       = Infinity;
@@ -162,8 +166,8 @@ const ANALYTIC_FLOOR_RESPECTED = minRhoObservedSample >= RHO_ANALYTIC_FLOOR - EP
 // ── Closure record ────────────────────────────────────────────────────────
 
 export const EMPIRICAL_M_SWEEP_EXTENDED = {
-  id:    'imp-833',
-  title: 'PATH 1 / UNCOND-Λ: empirical M verification sweep extended from N=870 to N=100000',
+  id:    'imp-833+imp-858',
+  title: 'PATH 1 / UNCOND-Λ: empirical M verification sweep extended from N=870 to N=1,000,000',
 
   predicate: 'M_uf (hence M_raw via imp-462 exact bridge) at leading order',
 
@@ -178,7 +182,8 @@ export const EMPIRICAL_M_SWEEP_EXTENDED = {
   zeroProvenance:   ZEROS_EXTENDED_METADATA.provenance,
 
   previousEmpiricalFloor: { N_max: 870, source: 'ZETA_ZEROS in src/math/zeta.js, imp-462 m-raw-from-umon-bridge.js' },
-  newEmpiricalFloor:      { N_max: N_MAX, source: 'this module' },
+  intermediateFloorImp833: { N_max: 100000, source: 'Odlyzko zeros1; reached 2026-04-19 via imp-833 initial ship' },
+  newEmpiricalFloor:      { N_max: N_MAX, source: 'Odlyzko zeros6 combined file; reached 2026-04-19 via imp-858 extension' },
 
   verifiedRange: { N_min: 2, N_max: N_MAX },
 
@@ -235,9 +240,16 @@ export const EMPIRICAL_M_SWEEP_EXTENDED_ASSERTIONS = [
     id: 'imp833-sweep-covers-100k',
     holds: () => EMPIRICAL_M_SWEEP_EXTENDED.verifiedRange.N_max === N_MAX && N_MAX >= 100000,
     why:
-      'The sweep must cover at least 100,000 zeros to deliver the promised ' +
-      'widening (870 -> 100k). Regression: if ZEROS_EXTENDED shrinks below 100k, ' +
-      'this assertion will catch it at build time.',
+      'The sweep must cover at least 100,000 zeros (imp-833 floor). Regression: ' +
+      'if ZEROS_EXTENDED shrinks below 100k, this assertion will catch it at build time.',
+  },
+  {
+    id: 'imp858-sweep-covers-1M',
+    holds: () => EMPIRICAL_M_SWEEP_EXTENDED.verifiedRange.N_max >= 1000000,
+    why:
+      'The sweep must cover at least 1,000,000 zeros (imp-858 extension from ' +
+      'the Odlyzko zeros6 combined file). Regression below 1M means the PATH 1 ' +
+      'UNCOND-Λ floor was lost.',
   },
   {
     id: 'imp833-rho-nondecreasing-on-swept-range',

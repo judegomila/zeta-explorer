@@ -18,13 +18,14 @@ export const HEADLINE = {
   baseline: 'Platt-Trudgian 2021 Lambda <= 0.2',
   improvement: '0.2 / 0.121 ~ 1.65x tighter than PT 2021',
   scale: 'N* = 1e6 Riemann zeros (effective height T*(1e6))',
-  unconditionalRegime: 'N <= 1e5 UNCONDITIONAL (imp-833: direct empirical sweep on Odlyzko zeros1; no C_mb, no GUE; zero violations across both predicates)',
-  conditionalRegime:   'N > 1e5 GUE-CONDITIONAL (the finite-height beat at N* = 1e6 still requires C_mb <= 1; imp-486 proved this is irreducibly equivalent to GUE universality)',
-  condition: 'GUE-conditional at N > 10^5 only: sole remaining open premise is GUE universality (Erdos-Schlein-Yau local law) for the many-body Calogero-Moser correction constant C_mb. N <= 10^5 is unconditional via imp-833 empirical-m-sweep-extended.js.',
-  rigorLevel: 'UNCONDITIONAL on N <= 10^5; RIGOROUS-ASYMPTOTIC modulo named GUE conditional for N > 10^5',
-  routeUsed: 'Route B (imp-341 unconditional lim-sup) + finite-height assembly (imp-452) + empirical floor widening (imp-833, 2026-04-19)',
-  uncondFloorTicket: 'imp-833',
+  empiricalPredicatesRegime: 'N <= 1e6: leading-order predicates E1 (rho_{J_star} non-decreasing) and E2 (tau_c_est non-increasing) hold UNCONDITIONALLY via direct empirical sweep on Odlyzko zeros6 combined file (imp-833 + imp-858, zero violations). This establishes M_uf at leading order without invoking C_mb.',
+  analyticChainRegime: 'The full analytic chain Lambda <= 0.121 at N* = 1e6 uses C_mb <= 1 as part of the derivation (imp-471), which imp-486 proved is irreducibly equivalent to GUE universality. So the FULL finite-height beat remains GUE-conditional; the EMPIRICAL predicates that the chain relies on at its leading-order step are now unconditionally verified on the entire range up to N*. Closing the gap between these two regimes is the subject of imp-857 (interval-arithmetic certification) and the PATH 2/3 research directions.',
+  condition: 'GUE-conditional for the full analytic chain at any N >= 873 (via C_mb <= 1). Empirical leading-order predicates are UNCONDITIONAL on N <= 10^6 (imp-833 + imp-858). The gap between these regimes is the active research frontier.',
+  rigorLevel: 'Empirical: UNCONDITIONAL on N <= 10^6. Analytic chain: RIGOROUS-ASYMPTOTIC modulo named GUE conditional (C_mb <= 1). Per-N finite-height beat: conditional on C_mb.',
+  routeUsed: 'Route B (imp-341 unconditional lim-sup) + finite-height assembly (imp-452) + empirical floor widening (imp-833 @ 100k, imp-858 @ 1M — both 2026-04-19)',
+  uncondFloorTickets: ['imp-833', 'imp-858'],
   uncondFloorModule: 'src/data/empirical-m-sweep-extended.js',
+  uncondFloorZeroCount: 1000000,
 };
 
 // ── 2. PROOF CHAIN: 12-step outline ──────────────────────────────────────────

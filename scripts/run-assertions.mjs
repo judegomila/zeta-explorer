@@ -60,6 +60,9 @@ const MATH_MODULES = [
   '/src/math/paper-skeptic-review-2.js',
   '/src/math/verify-imp440-altpath.js',
   '/src/math/paper-skeptic-review-3.js',
+  // imp-872: Phase 51 UNCOND-Λ sequence modules (imp-833/834/856).
+  '/src/math/route-c-dynamical-analysis.js',
+  '/src/math/c-mb-weaker-bound-search.js',
 ];
 
 const DATA_MODULES = [
@@ -85,6 +88,8 @@ const DATA_MODULES = [
   '/src/data/lambda-interval-dyson.js',
   '/src/data/guth-maynard-tail-bound.js',
   '/src/data/sota-lambda-claim.js',
+  // imp-872: imp-833 PATH 1 empirical sweep extended to N=100k.
+  '/src/data/empirical-m-sweep-extended.js',
 ];
 
 const ALL_MODULES = FAST_MODE

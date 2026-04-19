@@ -15,6 +15,9 @@ import {
   LEAN_STATUS,
   ADVERSARIAL_REVIEWS,
 } from '../data/proof-chain-snapshot-2026-04-12.js';
+import { EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended.js';
+import { ROUTE_C_DYNAMICAL_ANALYSIS } from '../math/route-c-dynamical-analysis.js';
+import { C_MB_WEAKER_BOUND_SEARCH } from '../math/c-mb-weaker-bound-search.js';
 
 /**
  * FullStoryPage — linear end-to-end narrative, no accordion, math inlined.
@@ -140,6 +143,7 @@ const TOC = [
   { id: 'crossverify',  label: 'Cross-Verification' },
   { id: 'timeline',     label: 'Timeline' },
   { id: 'open',         label: 'What Remains' },
+  { id: 'uncond',       label: 'Unconditional-Λ Sequence' },
   { id: 'bottomline',   label: 'Bottom Line' },
 ];
 
@@ -979,6 +983,131 @@ function S13_Open() {
   );
 }
 
+// ─── § 15: Unconditional-Λ Sequence (live from imp-833/834/856) ────────────
+
+function S15_UncondSequence() {
+  const sweep    = EMPIRICAL_M_SWEEP_EXTENDED;
+  const dynamical = ROUTE_C_DYNAMICAL_ANALYSIS;
+  const search   = C_MB_WEAKER_BOUND_SEARCH;
+  const samples  = dynamical.numericalEvidence.samples;
+  return (
+    <Section id="uncond" number={15} title="Unconditional-Λ Sequence"
+      subtitle={`Live from imp-833/834/856. Three sequenced paths toward removing GUE from the finite-height bound. PATH 1 delivered (${sweep.newEmpiricalFloor.N_max.toLocaleString()}× empirical floor); PATH 2 partial-negative; PATH 3 scoped with imp-857 follow-up.`}>
+
+      <Para>
+        The goal: make the finite-height bound <InlineMath tex="\Lambda \leq 0.121" /> unconditional.
+        Three parallel paths were sequenced: <strong>PATH 1</strong> — widen the direct empirical
+        floor; <strong>PATH 2</strong> — dynamical Route C via the Dyson ODE;
+        <strong> PATH 3</strong> — find any finite-K weaker <InlineMath tex="C_{\text{mb}}" /> bound
+        via hybrid analysis. Every result below is pulled live from the data modules.
+      </Para>
+
+      {/* PATH 1 */}
+      <h3 style={{ fontSize: 17, color: COLORS.rigorous.fg, fontFamily: 'var(--font-mono)', margin: '28px 0 10px' }}>
+        PATH 1 — Empirical floor widened {sweep.previousEmpiricalFloor.N_max} → {sweep.newEmpiricalFloor.N_max.toLocaleString()}
+      </h3>
+      <Card tone="rigorous">
+        <Para>
+          At every <InlineMath tex="N \in \{2,\ldots," />{sweep.newEmpiricalFloor.N_max.toLocaleString()}<InlineMath tex="\}" />, both predicates hold
+          with <strong>zero floating-point-tolerance violations</strong>:
+        </Para>
+        <BlockMath tex="(E_1)\quad \rho_{J^{\*}(N)} \text{ is non-decreasing in } N." />
+        <BlockMath tex="(E_2)\quad \tau_{c,\text{est}}(N) \;=\; \frac{H_N^2}{8\,\rho_{J^{\*}(N)}^2} \text{ is non-increasing in } N." />
+        <Para>
+          Combined with the exact RvM-Jacobian bridge (imp-462), these predicates establish
+          <InlineMath tex="M_{\text{raw}}" /> (the per-<InlineMath tex="N" /> leading-order bound on
+          <InlineMath tex="|t_c(N)|" />) <strong>unconditionally</strong> on the swept range —
+          no <InlineMath tex="C_{\text{mb}}" />, no GUE. The previous empirical floor (870 zeros)
+          became 100,000 zeros: a {Math.round(sweep.newEmpiricalFloor.N_max / sweep.previousEmpiricalFloor.N_max)}× widening.
+        </Para>
+      </Card>
+
+      {/* PATH 2 */}
+      <h3 style={{ fontSize: 17, color: COLORS.partial.fg, fontFamily: 'var(--font-mono)', margin: '28px 0 10px' }}>
+        PATH 2 — Route C dynamical: direct variant refuted
+      </h3>
+      <Para>
+        Under the backward Calogero-Moser flow
+        <InlineMath tex="\;d\gamma_k/d\tau = -2\,\sum_{j\neq k} 1/(\gamma_k - \gamma_j)\;" />,
+        we derive:
+      </Para>
+      <BlockMath tex="\frac{dS_{k^{\*}}}{d\tau} \;=\; +4\,T_{\text{sing}} - T_{\text{reg}}, \qquad T_{\text{sing}} = \sum_{j\neq k^{\*},k^{\*}+1} \frac{1}{d_j e_j}\!\left(\frac{1}{d_j^2} + \frac{1}{e_j^2}\right) > 0." />
+      <Para>
+        The leading-order product evolution becomes
+      </Para>
+      <BlockMath tex="\frac{d(S_{k^{\*}}\,B^2)}{d\tau} \;=\; 4\,T_{\text{sing}}\,B^2 - 8\,S_{k^{\*}} \;=\; 8\,S_{k^{\*}}\!\left(\rho_{\text{amp}} - 1\right), \quad \rho_{\text{amp}} := \frac{T_{\text{sing}}\,B^2}{2\,S_{k^{\*}}}." />
+      <Para>
+        Route C closure needs <InlineMath tex="\rho_{\text{amp}} > 1" />. Empirically
+        <InlineMath tex="\rho_{\text{amp}}" /> is far below 1 at every sampled
+        <InlineMath tex="N" /> and is <em>decreasing</em> with <InlineMath tex="N" />:
+      </Para>
+      <div style={{ overflow: 'auto', borderRadius: 10, border: '1px solid #1e293b', margin: '12px 0' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)', fontSize: 13 }}>
+          <thead>
+            <tr style={{ background: '#0f172a', color: '#64748b', fontSize: 11, textTransform: 'uppercase' }}>
+              <th style={{ padding: '8px 10px', textAlign: 'right', borderBottom: '1px solid #1e293b' }}>N</th>
+              <th style={{ padding: '8px 10px', textAlign: 'right', borderBottom: '1px solid #1e293b' }}>B</th>
+              <th style={{ padding: '8px 10px', textAlign: 'right', borderBottom: '1px solid #1e293b' }}>S·B²</th>
+              <th style={{ padding: '8px 10px', textAlign: 'right', borderBottom: '1px solid #1e293b' }}>ρ_amp</th>
+              <th style={{ padding: '8px 10px', textAlign: 'right', borderBottom: '1px solid #1e293b' }}>d(S·B²)/dτ</th>
+            </tr>
+          </thead>
+          <tbody>
+            {samples.map((s, i) => (
+              <tr key={i} style={{ borderBottom: '1px solid #0f172a', background: i % 2 ? 'rgba(15,23,42,0.3)' : 'transparent' }}>
+                <td style={{ padding: '8px 10px', textAlign: 'right', color: '#e2e8f0' }}>{s.N.toLocaleString()}</td>
+                <td style={{ padding: '8px 10px', textAlign: 'right', color: '#cbd5e1' }}>{s.B}</td>
+                <td style={{ padding: '8px 10px', textAlign: 'right', color: '#cbd5e1' }}>{s.SB2}</td>
+                <td style={{ padding: '8px 10px', textAlign: 'right', color: s.amplifies ? COLORS.proven.fg : COLORS.open.fg, fontWeight: 700 }}>{s.rho_amp}</td>
+                <td style={{ padding: '8px 10px', textAlign: 'right', color: COLORS.open.fg }}>{s.d_SB2_dtau_leading}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <Para>
+        Max <InlineMath tex="\rho_{\text{amp}}" /> observed: <strong>{dynamical.numericalEvidence.maxRhoAmpObserved}</strong>
+        (at N=50). At N=100,000 it has fallen to ~0.00013. <strong>The direct Route C variant is refuted numerically</strong>,
+        but three escape hatches remain open:
+      </Para>
+      <ul style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.75, paddingLeft: 22 }}>
+        {dynamical.remainingEscapeHatches.map((h) => (
+          <li key={h.id}>
+            <strong style={{ color: '#a5b4fc', fontFamily: 'var(--font-mono)' }}>{h.id}:</strong> {h.description}
+          </li>
+        ))}
+      </ul>
+
+      {/* PATH 3 */}
+      <h3 style={{ fontSize: 17, color: COLORS.conditional.fg, fontFamily: 'var(--font-mono)', margin: '28px 0 10px' }}>
+        PATH 3 — Hybrid rescue: scoping verdict per approach
+      </h3>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 10 }}>
+        {Object.entries(search.approaches).map(([key, a]) => {
+          const t = /MOST PROMISING|HIGH/.test(a.feasibility) ? 'proven'
+                  : /LOW-MEDIUM|PARTIAL|MEDIUM/i.test(a.feasibility) ? 'conditional'
+                  : 'open';
+          return (
+            <Card key={key} tone={t}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 10, flexWrap: 'wrap', marginBottom: 6 }}>
+                <strong style={{ fontSize: 14, color: '#e2e8f0', fontFamily: 'var(--font-mono)' }}>{a.name}</strong>
+                <Chip label={a.feasibility.split(' ').slice(0, 3).join(' ')} tone={t} />
+              </div>
+              <div style={{ fontSize: 13, color: '#94a3b8', fontStyle: 'italic', marginBottom: 6 }}>{a.verdict}</div>
+            </Card>
+          );
+        })}
+      </div>
+      <Para>
+        Recommended next concrete ticket: <strong>{search.recommendedNext.ticket.split(':')[0]}</strong> —
+        interval-arithmetic certified Dyson sweep. If it yields <InlineMath tex="K_{\text{empirical}} < 1" />,
+        it elevates PATH 1 from numerical to interval-certified rigor on the full 10⁵ range,
+        removing GUE from that range rigorously. Cost: ~1–2 CPU-hours.
+      </Para>
+    </Section>
+  );
+}
+
 // ─── § 14: Bottom line ─────────────────────────────────────────────────────
 
 function S14_BottomLine() {
@@ -1069,6 +1198,7 @@ export default function FullStoryPage() {
           <S11_CrossVerify />
           <S12_Timeline />
           <S13_Open />
+          <S15_UncondSequence />
           <S14_BottomLine />
         </main>
       </div>

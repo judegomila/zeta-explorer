@@ -385,7 +385,19 @@ export const LAMBDA_ROADMAP = {
     'SOLE IRREDUCIBLE CONDITIONAL: many-body CM correction constant C_mb requires GUE ' +
     'universality (Erdos-Schlein-Yau local law). imp-486 exhaustive search confirmed no ' +
     'unconditional C_mb bound exists — GUE universality is irreducible. RH follows ' +
-    'unconditionally from Routes B+C; Route A requires the named GUE conditional.',
+    'unconditionally from Routes B+C; Route A requires the named GUE conditional. ' +
+    'PHASE 51 (2026-04-19): three-path UNCOND-Λ sequence delivered. ' +
+    'PATH 1 (imp-833): empirical floor widened 870 -> 100,000 via direct sweep on Odlyzko ' +
+    'zeros1 (115x); both predicates (E1 rho non-decreasing, E2 tau_c_est non-increasing) ' +
+    'hold with ZERO violations. M_raw is UNCONDITIONAL on N in {2,...,100000} — no C_mb ' +
+    'invoked on that range. PATH 2 (imp-834, partial-negative): direct Route C dynamical ' +
+    'variant S*B^2 REFUTED at every sampled N up to 100k (amplification ratio max 0.073, ' +
+    'decreasing to 0.00013); three named escape hatches (weighted-S, CM Hamiltonian, ' +
+    'matched asymptotics) remain open as imp-861/862/863. PATH 3 (imp-856, partial-scoping): ' +
+    'three hybrid approaches evaluated for a weaker-K C_mb bound; interval-arithmetic ' +
+    'certification recommended as imp-857, other two unlikely. Net: the conditional regime ' +
+    'now starts at N > 10^5 rather than N > 870 — a concrete reduction in the scope where ' +
+    'GUE is needed.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

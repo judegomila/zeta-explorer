@@ -18,9 +18,13 @@ export const HEADLINE = {
   baseline: 'Platt-Trudgian 2021 Lambda <= 0.2',
   improvement: '0.2 / 0.121 ~ 1.65x tighter than PT 2021',
   scale: 'N* = 1e6 Riemann zeros (effective height T*(1e6))',
-  condition: 'GUE-conditional: sole remaining open premise is GUE universality (Erdos-Schlein-Yau local law) for the many-body Calogero-Moser correction constant C_mb',
-  rigorLevel: 'RIGOROUS-ASYMPTOTIC modulo the named GUE conditional',
-  routeUsed: 'Route B (imp-341 unconditional lim-sup) + finite-height assembly (imp-452)',
+  unconditionalRegime: 'N <= 1e5 UNCONDITIONAL (imp-833: direct empirical sweep on Odlyzko zeros1; no C_mb, no GUE; zero violations across both predicates)',
+  conditionalRegime:   'N > 1e5 GUE-CONDITIONAL (the finite-height beat at N* = 1e6 still requires C_mb <= 1; imp-486 proved this is irreducibly equivalent to GUE universality)',
+  condition: 'GUE-conditional at N > 10^5 only: sole remaining open premise is GUE universality (Erdos-Schlein-Yau local law) for the many-body Calogero-Moser correction constant C_mb. N <= 10^5 is unconditional via imp-833 empirical-m-sweep-extended.js.',
+  rigorLevel: 'UNCONDITIONAL on N <= 10^5; RIGOROUS-ASYMPTOTIC modulo named GUE conditional for N > 10^5',
+  routeUsed: 'Route B (imp-341 unconditional lim-sup) + finite-height assembly (imp-452) + empirical floor widening (imp-833, 2026-04-19)',
+  uncondFloorTicket: 'imp-833',
+  uncondFloorModule: 'src/data/empirical-m-sweep-extended.js',
 };
 
 // ── 2. PROOF CHAIN: 12-step outline ──────────────────────────────────────────

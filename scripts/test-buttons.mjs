@@ -69,6 +69,27 @@ function hashOf(s) {
   return h;
 }
 
+// imp-855: cheap canvas-pixel fingerprint. Captures a 200-char prefix of the
+// first canvas's toDataURL — enough to detect any visible canvas redraw
+// without pulling a full image over the CDP channel. Returns null if no
+// canvas is present (most pages).
+async function canvasHashOf(page) {
+  try {
+    const signature = await page.evaluate(() => {
+      const c = document.querySelector('canvas');
+      if (!c) return null;
+      try {
+        return c.toDataURL().slice(0, 200);
+      } catch {
+        return null;
+      }
+    });
+    return signature ? hashOf(signature) : null;
+  } catch {
+    return null;
+  }
+}
+
 async function navigate(page, url) {
   // Use about:blank between navigations so React fully unmounts and remounts.
   // page.goto(sameUrl) does NOT reset state when URL is unchanged, so a
@@ -137,6 +158,11 @@ async function testOneButton(page, url, id) {
   const urlBefore = page.url();
   const bodyTextBefore = await page.locator('body').innerText().catch(() => '');
   const bodyHashBefore = hashOf(bodyTextBefore);
+  // imp-855: canvas redraws are invisible to innerText, so we also hash the
+  // first canvas element's pixel data (truncated to 200 chars to keep it
+  // cheap). Catches buttons like the Dashboard "Refresh" that correctly
+  // redraw a canvas but would otherwise be flagged as no-ops.
+  const canvasHashBefore = await canvasHashOf(page);
   const ariaPressedBefore = await locator.getAttribute('aria-pressed').catch(() => null);
   const ariaExpandedBefore = await locator.getAttribute('aria-expanded').catch(() => null);
 
@@ -177,6 +203,7 @@ async function testOneButton(page, url, id) {
   const urlAfter = page.url();
   const bodyTextAfter = await page.locator('body').innerText().catch(() => '');
   const bodyHashAfter = hashOf(bodyTextAfter);
+  const canvasHashAfter = await canvasHashOf(page);
   let ariaPressedAfter = null;
   let ariaExpandedAfter = null;
   try {
@@ -187,12 +214,13 @@ async function testOneButton(page, url, id) {
     // intentional
   }
 
-  const urlChanged = urlAfter !== urlBefore;
-  const domChanged = bodyHashAfter !== bodyHashBefore;
-  const ariaChanged =
+  const urlChanged    = urlAfter !== urlBefore;
+  const domChanged    = bodyHashAfter !== bodyHashBefore;
+  const canvasChanged = canvasHashAfter !== canvasHashBefore;
+  const ariaChanged   =
     ariaPressedBefore !== ariaPressedAfter ||
     ariaExpandedBefore !== ariaExpandedAfter;
-  const observable = urlChanged || domChanged || ariaChanged;
+  const observable = urlChanged || domChanged || ariaChanged || canvasChanged;
   const nowBlank = bodyTextAfter.trim().length < 50;
 
   const reasons = [];

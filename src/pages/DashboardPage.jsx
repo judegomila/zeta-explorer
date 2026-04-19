@@ -1,5 +1,6 @@
-import React, { useState, useMemo, useCallback, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useMemo, useCallback, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
+import { useAsyncMetric } from '../hooks/useAsyncMetric.js';
 
 const ProofStatusCard = lazy(() => import('../components/ProofStatusCard.jsx'));
 
@@ -13,28 +14,8 @@ const ProofStatusCard = lazy(() => import('../components/ProofStatusCard.jsx'));
 // Lightweight inline computations to avoid heavy imports at page load.
 // We dynamically import the math modules so the dashboard itself is small.
 
-function useAsyncMetric(computeFn) {
-  const [state, setState] = useState({ loading: true, value: null, error: null });
-
-  // imp-841: depends on computeFn identity so recompute actually re-runs when
-  // the caller passes a fresh useCallback([recomputeKey]). Previously [] here
-  // made the Recompute button a no-op.
-  useEffect(() => {
-    let cancelled = false;
-    setState({ loading: true, value: null, error: null });
-    Promise.resolve().then(async () => {
-      try {
-        const value = await computeFn();
-        if (!cancelled) setState({ loading: false, value, error: null });
-      } catch (err) {
-        if (!cancelled) setState({ loading: false, value: null, error: err.message });
-      }
-    });
-    return () => { cancelled = true; };
-  }, [computeFn]);
-
-  return state;
-}
+// imp-848: useAsyncMetric extracted to src/hooks/useAsyncMetric.js.
+// Previously duplicated between DashboardPage and HealthPage.
 
 function Spinner() {
   return (

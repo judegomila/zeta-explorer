@@ -70,7 +70,28 @@ if [ -f "$SCRIPT_DIR/queue-index.json" ]; then
   echo "$LOG_PREFIX Queue index: rebuilt"
 fi
 
-# ── 6. Git push ─────────────────────────────────────────────────────────
+# ── 6. Empirical-Λ floor guard (imp-877) ───────────────────────────────
+# Load empirical-m-sweep-extended.js and check that both predicates still
+# hold on the claimed range. If a violation appears, emit a sentinel file
+# that downstream code can read.
+EMPIRICAL_CHECK=$(node -e "
+import('$PROJECT_DIR/src/data/empirical-m-sweep-extended.js').then(m => {
+  const r = m.EMPIRICAL_M_SWEEP_EXTENDED;
+  const e1 = r.empiricalPredicates.E1_rhoNonDecreasing.holds;
+  const e2 = r.empiricalPredicates.E2_tauEstNonIncreasing.holds;
+  console.log(JSON.stringify({ N_max: r.verifiedRange.N_max, E1: e1, E2: e2, ok: e1 && e2 }));
+  process.exit((e1 && e2) ? 0 : 1);
+}).catch(e => { console.log(JSON.stringify({ error: e.message, ok: false })); process.exit(2); });
+" 2>/dev/null)
+echo "$LOG_PREFIX Empirical-Λ floor: $EMPIRICAL_CHECK"
+if echo "$EMPIRICAL_CHECK" | grep -q '"ok":true'; then
+  rm -f "$SCRIPT_DIR/.empirical-floor-violation"
+else
+  echo "{\"at\":\"$LOG_PREFIX\",\"check\":$EMPIRICAL_CHECK}" > "$SCRIPT_DIR/.empirical-floor-violation"
+  echo "$LOG_PREFIX WARNING: empirical-Λ floor check FAILED — sentinel written to .empirical-floor-violation"
+fi
+
+# ── 7. Git push ─────────────────────────────────────────────────────────
 UNPUSHED=$(git log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')
 if [ "$UNPUSHED" -gt 0 ]; then
   echo "$LOG_PREFIX Git: $UNPUSHED unpushed commits — pushing..."

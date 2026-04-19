@@ -88,6 +88,52 @@ const ladderComparison = ALT_PATH_LADDER.map((altRow) => {
 
 const allLadderPass = ladderComparison.every((r) => !r.available || r.passes);
 
+// ── imp-830: per-component intermediate-value cross-verification at N* = 1e6 ─
+// Two algebraically equivalent but numerically distinct paths can produce the
+// same summed L_cond while disagreeing on individual terms (cancelling bugs).
+// This block asserts each intermediate (tcProj, CF, E_flow, E_coll) agrees
+// between primary and alt to within 1e-4 relative error, which is limited by
+// the 4-5 sig figs the primary record retains after toFixed/toExponential
+// rounding. Any mismatch here surfaces a scale-dependent formula divergence
+// that the L_cond-only check of imp-449/imp-460 cannot see.
+const primaryAtN1e6 = primaryLadder.find((r) => r.N === 1e6) || null;
+const PER_COMPONENT_THRESHOLD = 1e-4;
+function relErrSafe(p, a) {
+  if (p === null || p === undefined || a === null || a === undefined) return null;
+  if (!isFinite(p) || !isFinite(a)) return null;
+  const denom = Math.abs(p);
+  if (denom === 0) return p === a ? 0 : null;
+  return Math.abs(p - a) / denom;
+}
+const intermediateComparison = (() => {
+  if (!primaryAtN1e6 || !primaryAtN1e6.available || !ALT_PATH_N1E6.available) {
+    return { available: false, reason: 'primary or alt-path not available at N=1e6' };
+  }
+  const pairs = {
+    tcProj: { primary: primaryAtN1e6.tcProjection.value,   alt: ALT_PATH_N1E6.tcProj     },
+    CF:     { primary: primaryAtN1e6.errorTerms.CF,        alt: ALT_PATH_N1E6.CF_alt     },
+    E_flow: { primary: primaryAtN1e6.errorTerms.E_flow,    alt: ALT_PATH_N1E6.E_flow_alt },
+    E_coll: { primary: primaryAtN1e6.errorTerms.E_coll,    alt: ALT_PATH_N1E6.E_coll_alt },
+  };
+  const rows = Object.entries(pairs).map(([name, { primary, alt }]) => {
+    const r = relErrSafe(primary, alt);
+    return {
+      component: name,
+      primary,
+      alt,
+      relErr:    r !== null ? +r.toExponential(3) : null,
+      passes:    r !== null && r < PER_COMPONENT_THRESHOLD,
+      threshold: PER_COMPONENT_THRESHOLD,
+    };
+  });
+  return {
+    available: true,
+    threshold: PER_COMPONENT_THRESHOLD,
+    rows,
+    allPass: rows.every((row) => row.passes),
+  };
+})();
+
 // ── Overall verdict ───────────────────────────────────────────────────────────
 const CROSS_VERIFICATION_STATUS =
   !ALT_PATH_N1E6.available       ? 'UNAVAILABLE: alt-path fit not available' :
@@ -141,6 +187,8 @@ export const IMP440_CROSS_VERIFICATION = {
 
   ladderComparison,
   allLadderPass,
+
+  intermediateComparison,
 
   interpretation:
     'Both paths use the same physical constants (PATH_C_BASELINE_FIT_V2, C_C_PINNED, ' +
@@ -230,5 +278,19 @@ export const IMP440_CROSS_VERIFICATION_ASSERTIONS = [
     why:
       'N=5e7: primary and alt-path L_cond must agree to 6+ sig figs (imp-460). ' +
       'Largest N in the assembly grid; smallest L_cond value, highest rounding sensitivity.',
+  },
+  // imp-830: per-component intermediate cross-check at N=1e6.
+  // L_cond agreement alone can mask cancelling bugs in the summands. This
+  // assertion requires tcProj, CF, E_flow and E_coll to each agree to within
+  // 1e-4 relative error between primary and alt paths.
+  {
+    id: 'imp830-altpath-intermediates-agree-at-N1e6',
+    holds: () => intermediateComparison.available && intermediateComparison.allPass,
+    why:
+      'imp-830: each intermediate (tcProj, CF, E_flow, E_coll) must agree ' +
+      'between primary and alt-path at N=1e6 to within 1e-4 relative error. ' +
+      'This rules out cancelling-error scenarios where two bugs sum to an ' +
+      'apparently-correct L_cond. Primary record rounds to 4-5 sig figs, so ' +
+      '1e-4 is the tightest threshold these rounded values can support.',
   },
 ];

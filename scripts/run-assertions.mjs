@@ -63,6 +63,8 @@ const MATH_MODULES = [
   // imp-872: Phase 51 UNCOND-Λ sequence modules (imp-833/834/856).
   '/src/math/route-c-dynamical-analysis.js',
   '/src/math/c-mb-weaker-bound-search.js',
+  // imp-857: PATH 3 follow-up — interval-arithmetic certified Dyson sweep.
+  '/src/math/c-mb-interval-certified.js',
 ];
 
 const DATA_MODULES = [

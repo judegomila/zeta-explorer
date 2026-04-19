@@ -1,4 +1,7 @@
 /**
+ * @module lambda-pt-scale-extrapolation
+ * @jsdocTag imp-815+842+844+846+884+886
+ *
  * imp-321 (first deliverable): Path C |t_c| = a + b/N projection out to
  * Platt–Trudgian scale (T ≈ 3·10^12), via log-spaced N.
  *

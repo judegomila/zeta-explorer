@@ -65,6 +65,8 @@ const MATH_MODULES = [
   '/src/math/c-mb-weaker-bound-search.js',
   // imp-857: PATH 3 follow-up — interval-arithmetic certified Dyson sweep.
   '/src/math/c-mb-interval-certified.js',
+  // imp-862: PATH 2 escape hatch B2 — CM Hamiltonian rate analysis.
+  '/src/math/route-c-cm-hamiltonian.js',
 ];
 
 const DATA_MODULES = [

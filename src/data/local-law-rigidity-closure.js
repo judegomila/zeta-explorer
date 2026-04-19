@@ -1,4 +1,7 @@
 /**
+ * @module local-law-rigidity-closure
+ * @jsdocTag imp-815+842+844+846+884+886
+ *
  * imp-370: Close imp-348 angle (b) rate upgrade via local-law rigidity
  *
  * Partial-closure record for imp-370 (high priority, proof category).

@@ -1,4 +1,7 @@
 /**
+ * @module polymath15-constant-C-T
+ * @jsdocTag imp-815+842+844+846+884+886
+ *
  * imp-397: Pin C_T (truncation constant) in the Polymath15 bridge E_trunc term
  *
  * Deliverable: explicit derivation of C_T from Polymath15 Lemma 3.3 and the

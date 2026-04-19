@@ -1,4 +1,7 @@
 /**
+ * @module bridge-lambda-rh
+ * @jsdocTag imp-815+842+844+846+884+886
+ *
  * Bridge: de Bruijn-Newman Λ ⟶ Riemann Hypothesis (imp-316)
  *
  * Phase 3/4 of the improvement queue chased numerical Λ bounds via

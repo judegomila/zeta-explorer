@@ -1,4 +1,7 @@
 /**
+ * @module lambda-intercept-density-weyl
+ * @jsdocTag imp-815+842+844+846+884+886
+ *
  * imp-342: rigorous Weyl-law derivation of c(N) for the density-aware S_k*
  * squeeze — partial closure of G3_density
  *

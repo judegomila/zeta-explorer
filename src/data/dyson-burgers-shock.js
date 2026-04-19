@@ -1,4 +1,7 @@
 /**
+ * @module dyson-burgers-shock
+ * @jsdocTag imp-815+842+844+846+884+886
+ *
  * imp-338: Dyson-Burgers shock time for the Riemann-von Mangoldt density
  *
  * imp-328 candidate (ii). Dyson 1962's empirical Stieltjes transform

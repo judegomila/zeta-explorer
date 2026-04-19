@@ -102,6 +102,22 @@
  *                          ≤   C_F  ·  log T_0(N) / (T_0(N) − γ_k)
  *
  *     using the Riemann-von Mangoldt density ρ(T) = log(T/2π)/(2π).
+ *
+ *     EXPLICIT C_F (imp-838, skp3-002 CLOSED). Evaluating the RvM
+ *     density integral in closed form:
+ *
+ *         ∫_{T_0}^∞ log(T/2π) / (2π T²) dT
+ *             = (log(T_0/2π) + 1) / (2π T_0)
+ *
+ *     (integration by parts: anti-derivative is
+ *     -log(T/2π)/(2π T) - 1/(2π T), upper limit vanishes). After the
+ *     drift denominator (T − γ_k) ≥ T_0/2 for k ≤ N/2, we obtain
+ *
+ *         C_F(N) = (log(T_0(N)/2π) + 1) / (2π),
+ *
+ *     a genuinely analytically pinned constant with explicit N-dependence.
+ *     See Polymath15 Proposition 4.1 / Lemma 3.3 for the underlying
+ *     truncation estimate (Tao et al., arXiv:1905.07821, Section 4).
  *     Grönwall-propagating this over the backward interval [t_c(N), 0]
  *     gives a bound
  *

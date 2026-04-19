@@ -172,7 +172,8 @@ html, body, #root {
   background: rgba(59, 130, 246, 0.1);
 }
 
-.nav-dropdown:hover .nav-dropdown-menu {
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.nav-dropdown-open .nav-dropdown-menu {
   display: flex;
 }
 

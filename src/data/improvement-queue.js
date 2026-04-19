@@ -11420,7 +11420,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Fix nav dropdown buttons: Model/Analysis/Attack/Progress/Reference are hover-only (broken on touch/mobile)',
     category: 'bug',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     description: 'In src/App.jsx NavDropdown component, the trigger button has no onClick handler. The dropdown menu is shown via CSS :hover only. Touchscreen users cannot open any nav dropdown — all of Model/Analysis/Attack/Progress/Reference are inaccessible on mobile and tablets. Fix: add onClick to toggle a boolean open state per dropdown, show menu when EITHER :hover OR open state is true. Keep hover as the desktop UX. Button should also toggle aria-expanded.',
     rationale: 'Mobile users have zero access to half the nav tree. The button-test suite caught this class of failure under "button not found" because headless Chromium does not fire hover events during scripted runs — the same failure mode a real touchscreen user hits.',
     estimatedComplexity: 'small',

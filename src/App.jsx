@@ -148,11 +148,26 @@ const NAV_GROUPS = [
 
 function NavDropdown({ label, items }) {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef();
   const hasActive = items.some(item => location.pathname === item.to);
 
+  // Close dropdown on route change
+  useEffect(() => { setIsOpen(false); }, [location.pathname]);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleClick = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) setIsOpen(false);
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [isOpen]);
+
   return (
-    <div className={`nav-dropdown ${hasActive ? 'nav-dropdown-active' : ''}`}>
-      <button className="nav-dropdown-trigger">
+    <div ref={dropdownRef} className={`nav-dropdown ${hasActive ? 'nav-dropdown-active' : ''} ${isOpen ? 'nav-dropdown-open' : ''}`}>
+      <button className="nav-dropdown-trigger" onClick={() => setIsOpen(o => !o)} aria-expanded={isOpen}>
         {label}
         <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" style={{ marginLeft: 4 }}>
           <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />

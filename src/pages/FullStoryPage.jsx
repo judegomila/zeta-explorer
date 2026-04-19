@@ -15,9 +15,13 @@ import {
   LEAN_STATUS,
   ADVERSARIAL_REVIEWS,
 } from '../data/proof-chain-snapshot-2026-04-12.js';
-import { EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended.js';
-import { ROUTE_C_DYNAMICAL_ANALYSIS } from '../math/route-c-dynamical-analysis.js';
-import { C_MB_WEAKER_BOUND_SEARCH } from '../math/c-mb-weaker-bound-search.js';
+// A1 fix: 6 KB / 10 KB summary projections instead of the full sweep
+// modules (each of which imports ZEROS_EXTENDED, the 10^6-zero / 16 MB
+// table). Source modules still serve as the authoritative computation
+// target for run-assertions.mjs and daily-health-check.sh.
+import { EMPIRICAL_M_SWEEP_EXTENDED_SUMMARY as EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended-summary.js';
+import { ROUTE_C_DYNAMICAL_ANALYSIS_SUMMARY as ROUTE_C_DYNAMICAL_ANALYSIS } from '../math/route-c-dynamical-analysis-summary.js';
+import { C_MB_WEAKER_BOUND_SEARCH_SUMMARY as C_MB_WEAKER_BOUND_SEARCH } from '../math/c-mb-weaker-bound-search-summary.js';
 
 /**
  * FullStoryPage — linear end-to-end narrative, no accordion, math inlined.

@@ -1,7 +1,10 @@
 import React, { useState, useMemo, useCallback, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { useAsyncMetric } from '../hooks/useAsyncMetric.js';
-import { EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended.js';
+// A1 fix: use the precomputed ~6 KB summary instead of the full 16 MB sweep
+// module. The full module (which transitively imports 10^6 Odlyzko zeros)
+// is still used by daily-health-check.sh for drift detection.
+import { EMPIRICAL_M_SWEEP_EXTENDED_SUMMARY as EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended-summary.js';
 
 const ProofStatusCard = lazy(() => import('../components/ProofStatusCard.jsx'));
 

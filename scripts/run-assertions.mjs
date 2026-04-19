@@ -67,6 +67,8 @@ const MATH_MODULES = [
   '/src/math/c-mb-interval-certified.js',
   // imp-862: PATH 2 escape hatch B2 — CM Hamiltonian rate analysis.
   '/src/math/route-c-cm-hamiltonian.js',
+  // imp-864+865+866: alternative-angle scoping (Vinogradov / BBS / Maier).
+  '/src/math/c-mb-alternative-angles-eval.js',
 ];
 
 const DATA_MODULES = [

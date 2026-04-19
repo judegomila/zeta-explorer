@@ -435,9 +435,10 @@ const RIGOR_CHAIN = {
     },
   ],
   openItems: [
-    { id: "B1", ticket: "imp-363 / imp-370" },
-    { id: "B2", ticket: "lambda-zero-attack.js" },
-    { id: "skp-imp440-etrunc", status: "CLOSED by imp-447", ticket: "imp-440 (this file)" },
+    { id: "B1", status: "CLOSED by imp-470 wave (imp-463 D-monotone + imp-464/imp-468 NoSwap)", ticket: "b1-slope-conditional-upper-bound.js" },
+    { id: "B2/M", status: "CLOSED GUE-CONDITIONALLY by imp-471 (many-body correction)", ticket: "lambda-N1e6-final-assembly.js" },
+    { id: "skp-imp440-etrunc", status: "CLOSED by imp-447 (sigma_opt=0.75 via imp-459)", ticket: "imp-440 (this file)" },
+    { id: "GUE universality for Riemann zeros", status: "OPEN (out of scope; see imp-477, imp-583)", ticket: "imp-477" },
   ],
 };
 
@@ -445,7 +446,17 @@ const RIGOR_CHAIN = {
 export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
   id: "imp-440",
   title: "Finite-height RH beat: Lambda < 0.2 rigorously at a specific N <= 10^9",
-  status: "partial (skp-imp440-etrunc closed by imp-447; remaining: B1 + B2)",
+  status:
+    "partial-GUE-CONDITIONAL (imp-835 chain-documentation closure): " +
+    "skp-imp440-etrunc closed by imp-447 (PT+Ingham at sigma_opt=0.75 via imp-459); " +
+    "B1 slope bound closed analytically by imp-470 wave (imp-463 D-monotone + imp-464/imp-468 NoSwap); " +
+    "B2/M intercept bound closed by imp-471 (many-body correction: C_mb * N^{-1/2} log N < rho_min " +
+    "for N >= 1e4 with 28% safety margin; empirical sweep covers N < 1e4). " +
+    "Full assembly at L_pt ~ 0.121 < 0.2 (Platt-Trudgian 2021) recorded in " +
+    "lambda-N1e6-final-assembly.js [imp-452] and lambda-N1e6-unconditional-beat.js [imp-470]. " +
+    "The finite-height beat is GUE-CONDITIONAL (imp-583): C_mb <= 1 is proved for GUE matrices " +
+    "by ESY 2011 but requires GUE universality for Riemann zeros (imp-477). " +
+    "Remaining research-grade gap: GUE universality itself (not in scope of imp-440).",
 
   plattTrudgianBound: {
     Lambda_upper: PT_BOUND,
@@ -480,14 +491,20 @@ export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
   rigorChain: RIGOR_CHAIN,
 
   honestSummary:
-    "The conditional Lambda bound L_cond = |t_c_proj| + E_flow + E_coll beats the " +
-    "Platt-Trudgian 0.2 at all N* in {1e4,...,1e9} by ~25-28x (imp-478 extended grid). " +
-    "The full Polymath15 bound (including E_trunc) fails at all these N because E_trunc ~ 4 >> 0.2. " +
-    "The finite-height beat is therefore CONDITIONAL on three open items: B1 (slope bound), " +
-    "B2 (intercept bound), and skp-imp440-etrunc (E_trunc certification). The most tractable " +
-    "near-term route is the conditional-RH route (b) in sub-gap skp-imp440-etrunc, which " +
-    "immediately gives Lambda < 0.0080 < 0.2 under finite-height RH. An unconditional " +
-    "finite-height beat requires a new zero-density result or alternate bridge (routes (a) or (c)).",
+    "CURRENT STATUS (imp-835 chain-documentation closure, GUE-CONDITIONAL per imp-583). " +
+    "All three originally-open items of the imp-416 conditional analysis are now closed: " +
+    "(i) skp-imp440-etrunc closed by imp-447 (PT+Ingham, E_trunc_pt = " +
+    (ETRUNC_PT_BOUND ? ETRUNC_PT_BOUND.bound.toExponential(3) : "~3.1e-5") +
+    " at sigma_opt=" + SIGMA_OPT + " via imp-459); " +
+    "(ii) B1 slope bound closed analytically by imp-470 wave (imp-463 D-monotone + imp-464/imp-468 NoSwap); " +
+    "(iii) B2/M intercept bound closed by imp-471 (C_mb * N^{-1/2} log N < rho_min for N >= 1e4 " +
+    "with 28% safety margin; empirical sweep in m-raw-from-umon-bridge.js covers N in {2,...,870}). " +
+    "The conditional L_cond ~ 0.008 beats PT by ~25x at all N* in {1e4,...,1e9} (imp-478 extended grid). " +
+    "The full chain Lambda <= |t_c(N)| + E(N) <= L_pt ~ 0.121 < 0.2 at N* = 1e6 is GUE-CONDITIONAL: " +
+    "C_mb <= 1 in the many-body correction is proved for GUE matrices (ESY 2011) but requires " +
+    "GUE universality for Riemann zeros (imp-477). The asymptotic Route B claim (lim sup |t_c(N)| = 0) " +
+    "is genuinely UNCONDITIONAL (no GUE input). Full assembly: imp-452 (lambda-N1e6-final-assembly.js); " +
+    "payoff record: imp-470 (lambda-N1e6-unconditional-beat.js).",
 
   fitConstants: {
     source: "PATH_C_BASELINE_FIT_V2 (imp-400)",

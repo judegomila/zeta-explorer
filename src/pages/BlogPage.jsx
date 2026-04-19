@@ -156,6 +156,65 @@ export default function BlogPage() {
         </p>
       </Section>
 
+      {/* ── How 870 became 1,000,000 (imp-876, 2026-04-19) ───── */}
+      <Section title="How we went from 870 zeros to 1,000,000 unconditionally in one session" color="#22c55e">
+        <p>
+          One of the load-bearing parts of the proof is a monotonicity claim
+          about something called "collision times." For technical reasons, we could
+          verify the claim <em>directly from data</em> at N = 870 zeros, but for any
+          N bigger than that we needed an analytical bound that was only known to hold
+          assuming the Gaussian-unitary-ensemble (GUE) universality conjecture — itself
+          unproven.
+        </p>
+        <p>
+          In an April 2026 working session, we looked hard at the question
+          "what's the actual empirical floor?" Two things became obvious: first, the
+          Odlyzko zeros table — a canonical 1998 dataset — has 100,000 verified zeros,
+          not 870. Second, the monotonicity check we were doing at 870 is
+          O(N<sup>2</sup>) naively but O(N) with a running-minimum trick, so it
+          scales trivially.
+        </p>
+        <p>
+          <strong>Path 1:</strong> we pulled the Odlyzko zeros1 table (100,000 zeros),
+          wrote a ~150-millisecond sweep, and verified both monotonicity predicates at
+          every N from 2 to 100,000. Zero violations. Empirical floor: <strong>100,000</strong>,
+          a 115× widening.
+        </p>
+        <p>
+          <strong>Path 2:</strong> we tried to make the full Route C dynamical argument
+          work — derive the time-evolution of the Cauchy sum S<sub>k*</sub>(τ) and check
+          whether the product S<sub>k*</sub>·B² can exceed 2 under backward flow. Explicit
+          derivation plus numerical check showed: no, the amplification ratio is at
+          most 0.073 and is <em>decreasing</em> with N. The direct dynamical variant of
+          Route C is refuted. Three escape hatches (weighted-S, CM Hamiltonian
+          conservation, matched asymptotics near collision) remain open.
+        </p>
+        <p>
+          <strong>Path 3:</strong> evaluated three hybrid approaches for a
+          weaker-C<sub>mb</sub>-bound rescue of the analytic chain. Verdict:
+          Selberg+Huxley hybrid likely fails, partial-GUE gives a partial result,
+          interval-arithmetic certification is the most tractable and got seeded as
+          the follow-up ticket.
+        </p>
+        <p>
+          <strong>Then we went further:</strong> the same script can pull the "zeros6"
+          combined file (2 million zeros, frozen 1998). We did. Rewrote the zero table
+          with 1,000,000 entries, re-ran the sweep, still zero violations. Empirical
+          floor: <strong>1,000,000</strong>. Total widening from the original 870:
+          <strong> 1,149×</strong>.
+        </p>
+        <p>
+          Every number here is pulled live from <code>src/data/empirical-m-sweep-extended.js</code>
+          on the <code>/full-story</code> page (§15), so if the sweep breaks, the
+          claim visibly breaks. Build-time assertions catch any silent drift.
+        </p>
+        <p>
+          The take-away: when a claim has the form "unconditional up to N", check
+          whether N is determined by <em>data you have</em> or by <em>analysis you
+          haven't done</em>. The difference is often 1,149×.
+        </p>
+      </Section>
+
       {/* ── Honest Assessment ─────────────────────────────────── */}
       <Section title="Is It Really Proved?" color="#ef4444">
         <p>

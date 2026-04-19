@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { useAsyncMetric } from '../hooks/useAsyncMetric.js';
+import { EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended.js';
 
 const ProofStatusCard = lazy(() => import('../components/ProofStatusCard.jsx'));
 
@@ -16,6 +17,58 @@ const ProofStatusCard = lazy(() => import('../components/ProofStatusCard.jsx'));
 
 // imp-848: useAsyncMetric extracted to src/hooks/useAsyncMetric.js.
 // Previously duplicated between DashboardPage and HealthPage.
+
+// ─── Empirical-Λ Floor card (imp-878) ────────────────────────────────────
+// Live readout of the UNCOND-Λ empirical sweep — N_max, both predicate
+// statuses, and a link to the full-story narrative. Pulls from
+// src/data/empirical-m-sweep-extended.js so the value auto-updates when
+// the sweep is re-run (e.g. after fetching more Odlyzko zeros).
+
+function EmpiricalFloorCard() {
+  const r = EMPIRICAL_M_SWEEP_EXTENDED;
+  const N_max = r.verifiedRange.N_max;
+  const e1 = r.empiricalPredicates.E1_rhoNonDecreasing.holds;
+  const e2 = r.empiricalPredicates.E2_tauEstNonIncreasing.holds;
+  const ok = e1 && e2;
+  const color = ok ? '#10b981' : '#ef4444';
+
+  return (
+    <div className="card" style={{ marginBottom: 24, borderLeft: `4px solid ${color}` }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 12, marginBottom: 8 }}>
+        <h3 style={{ margin: 0, fontSize: 14, color: '#e2e8f0', fontFamily: 'var(--font-mono)' }}>
+          Empirical-Λ Floor (UNCOND-Λ PATH 1)
+        </h3>
+        <span style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: 18,
+          color,
+          fontWeight: 700,
+        }}>
+          N ≤ {N_max.toLocaleString()}
+        </span>
+      </div>
+      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', fontSize: 12, color: '#94a3b8', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>
+        <span>
+          E1 (ρ non-decreasing):{' '}
+          <strong style={{ color: e1 ? '#10b981' : '#ef4444' }}>{e1 ? '✓' : '✗'}</strong>
+        </span>
+        <span>
+          E2 (τ_c_est non-increasing):{' '}
+          <strong style={{ color: e2 ? '#10b981' : '#ef4444' }}>{e2 ? '✓' : '✗'}</strong>
+        </span>
+        <span>
+          violations: <strong>{r.empiricalPredicates.E1_rhoNonDecreasing.violations + r.empiricalPredicates.E2_tauEstNonIncreasing.violations}</strong>
+        </span>
+      </div>
+      <div style={{ fontSize: 12, color: '#64748b', lineHeight: 1.6 }}>
+        Direct sweep on Odlyzko zeros; both predicates verified — no C_mb, no GUE on this range.
+        Widening from the original 870-zero floor:{' '}
+        <strong style={{ color: '#a5b4fc' }}>{Math.round(N_max / r.previousEmpiricalFloor.N_max)}×</strong>.{' '}
+        <Link to="/full-story#uncond" style={{ color: '#38bdf8' }}>Full story →</Link>
+      </div>
+    </div>
+  );
+}
 
 function Spinner() {
   return (
@@ -344,6 +397,9 @@ export default function DashboardPage() {
           detail={proof.value?.detail}
         />
       </div>
+
+      {/* imp-878: Empirical-Λ Floor card — pulls live from imp-833 + imp-858 sweep. */}
+      <EmpiricalFloorCard />
 
       {/* Proof Status bar */}
       <div className="card" style={{ marginBottom: 24 }}>

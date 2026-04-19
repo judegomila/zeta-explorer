@@ -11225,31 +11225,59 @@ export const IMPROVEMENT_QUEUE = [
     model: 'opus-4-6',
     channel: 'subscription',
   },
+  // ══════════════════════════════════════════════════════════════════════════
+  // UNCONDITIONAL-Λ SEQUENCE — three sequential paths to a fully unconditional
+  // finite-height upper bound on Λ. Path 1 (imp-833) is mechanical and
+  // empirical — running the existing m_raw sweep on more zeros. Path 2 (imp-
+  // 834) is research-grade: prove a dynamical Route C closure via the Dyson
+  // ODE. Path 3 (imp-856) is a speculative fallback: find ANY finite K with
+  // C_mb ≤ K unconditional, then use the imp-486 rescue table. Done in order;
+  // dependsOn chain enforces the sequencing.
+  // ══════════════════════════════════════════════════════════════════════════
   {
     id: 'imp-833',
-    title: 'Extend empirical M verification sweep from N=872 to N=5000',
+    title: 'PATH 1 / UNCOND-Λ: Extend empirical M verification sweep from N=872 to N=5000 (mechanical)',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
+    completedAt: '2026-04-19T01:10:00Z',
+    closureNote: 'SHIPPED BEYOND SPEC: went 870 → 100,000 (not the proposed 5,000) using Odlyzko zeros1 table in data/zeros-to-1e6.js. New file src/data/empirical-m-sweep-extended.js sweeps all N in {2,...,100000} via an O(N) running-min reformulation. Both empirical predicates hold with ZERO violations: (E1) rho_{J*(N)} non-decreasing, (E2) tau_c_est(N) = H_N^2/(8rho^2) non-increasing. Analytic floor rho >= rho(14) ~ 0.12751 respected throughout. 5 build-time assertions added. Updated c-mb-unconditional-bound.js to reflect new 100k empirical floor. M_uf (hence M_raw via imp-462 exact Jacobian bridge) holds UNCONDITIONALLY at leading order on N in {2,...,100000} — a 115x widening of the previous floor. Next in sequence: imp-834 (Route C dynamical).',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'local',
     proofSection: 'S10',
-    description: 'The many-body correction is unconditional for N <= 872 (empirical sweep) and GUE-conditional for N >= 873. Extending the empirical sweep to N=5000 would: (1) widen the unconditional floor by 6x, (2) stress-test the analytic bound in the overlap region [873, 5000], (3) detect any numerical issues before they matter. Use the existing m-raw-from-umon-bridge.js sweep infrastructure. At each N, compute M_raw from the first N Riemann zeros and verify M_raw < threshold. Log results to a new file src/data/empirical-m-sweep-extended.js.',
-    rationale: 'Every N verified empirically is one fewer N that depends on GUE. The marginal cost is tiny (seconds per N) and the rigor gain is large.',
+    description: 'FIRST OF THREE PATHS TO UNCONDITIONAL FINITE-HEIGHT Λ BOUND. The many-body correction is unconditional for N in {2,...,870} via direct empirical sweep (m-raw-from-umon-bridge.js) and GUE-conditional for N >= 871 (needs C_mb <= 1, imp-486 irreducible). This ticket: at each N in {871,...,5000}, use existing sweep infrastructure to compute M_raw directly from Odlyzko/LMFDB zeros and verify monotonicity. No C_mb, no GUE — direct computation. Deliverables: (1) src/data/empirical-m-sweep-extended.js exporting the verified range + maxResidual + method; (2) update c-mb-unconditional-bound.js empiricalFloor field 870 -> 5000; (3) update FullStoryPage §7 pinned constants + §13 remaining; (4) build-time assertion locking the verified range. Runtime: seconds per N for N <= 2000, ~minute beyond. Builds on imp-315 Dyson N=5000 infrastructure.',
+    rationale: 'Every N verified empirically is one fewer N that depends on GUE. 870 -> 5000 widens the unconditional floor 5.7x. First step of the three-path sequence (imp-833 -> imp-834 -> imp-856).',
     estimatedComplexity: 'medium',
     model: 'opus-4-6',
     channel: 'subscription',
   },
   {
     id: 'imp-834',
-    title: 'Route C dynamical approach: formulate Dyson ODE-based S_{k*} lower bound',
+    title: 'PATH 2 / UNCOND-Λ: Route C dynamical — Dyson ODE-based S_{k*} lower bound (research-grade)',
     category: 'proof',
     priority: 'critical',
     status: 'pending',
     proofSection: 'S10',
-    description: 'imp-507 proved that static full-sum bounds give S_{k*} * B^2 <= 2, making the Route C condition c(N) > 2 impossible via static analysis. But the proof notes suggest a DYNAMICAL approach using the Dyson ODE could work: S_{k*}(t) satisfies a coupled ODE where the driving term involves gap velocities, and the velocity structure at the argmin site may provide the needed amplification. Sub-tasks: (1) Derive the exact ODE for S_{k*}(t) from the Dyson system. (2) Analyze the coupling structure at the argmin site where g_{k*} is minimal. (3) Determine whether velocity correlations at the argmin provide S_{k*} > 2/B^2. (4) If successful, this gives an unconditional Route C closure. If not, document the precise obstruction.',
-    rationale: 'Route C dynamical is the most promising path to an unconditional per-N bound without GUE. imp-507 identified this as the only viable approach after static closure failed.',
+    description: 'SECOND OF THREE PATHS. imp-507 proved static full-sum bounds give S_{k*} * B^2 <= 2 — Route C condition c(N) > 2 is impossible via static analysis. The DYNAMICAL approach: S_{k*}(t) satisfies a coupled ODE whose driving term involves gap velocities, and the velocity structure at the argmin site may provide amplification beyond the static ceiling. Sub-tasks: (1) derive exact ODE for S_{k*}(t) from the Dyson system including gap-velocity coupling; (2) analyze argmin-site coupling — show whether dS_{k*}/dt has a definite sign accumulating amplification; (3) determine whether velocity correlations at argmin give rigorous S_{k*} > 2/B^2 with NO GUE input; (4) if successful, this gives an UNCONDITIONAL per-N Λ upper bound. If not, document the obstruction in src/math/route-c-dynamical-obstruction.js. Depends on imp-833 so the empirical floor is already widened when this ships.',
+    rationale: 'Only plausible path to a fully unconditional finite-height beat at arbitrary N. Even a negative result (documented obstruction) is publishable — it sharpens what GUE actually buys.',
     estimatedComplexity: 'large',
     model: 'opus-4-7',
     channel: 'subscription',
+    dependsOn: ['imp-833'],
+  },
+  {
+    id: 'imp-856',
+    title: 'PATH 3 / UNCOND-Λ: Hybrid rescue — find ANY finite K with C_mb <= K unconditional',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S10',
+    description: 'THIRD OF THREE PATHS. imp-486 proved GUE universality irreducible for C_mb = O(1) at rate N^{-1/2} log N — but that leaves open: is there ANY unconditional C_mb <= K for fixed finite K (even K=7), possibly at a slower rate? C_MB_RESCUE_TABLE says: K=2 -> N_0 ~ 10^6 suffices, K=5 -> N_0 ~ 10^8, K=7 -> ~10^9. Any finite K restores the analytic closure at larger N_0. Approaches NOT systematically tried by imp-486: (a) Selberg + Huxley HYBRID — combine second-moment formula (S(T) = O(log T / log log T)) with zero-density estimates to bound Cauchy sum variance; (b) partial GUE — under ONLY Montgomery 1973 pair-correlation (not full GUE), does C_mb <= K fall out?; (c) direct interval-arithmetic certification — bound C_mb_empirical(N) with interval arithmetic over a finite range and extrapolate rigorously. Deliverable: src/math/c-mb-weaker-bound-search.js with verdict per approach. If any approach yields finite K, wire into many-body-correction-closure.js and update imp-486 rescue table. Depends on imp-834.',
+    rationale: 'If path 2 fails, this is the backstop. imp-486 ruled out three obvious approaches independently but did not try hybrids. A weaker K works via the rescue table. Speculative but low-cost-to-check.',
+    estimatedComplexity: 'large',
+    model: 'opus-4-7',
+    channel: 'subscription',
+    dependsOn: ['imp-834'],
   },
   {
     id: 'imp-835',

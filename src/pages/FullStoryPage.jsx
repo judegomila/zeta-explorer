@@ -574,6 +574,7 @@ function S7_Constants() {
     { sym: 'C_mb',           val: '≤ 1 (GUE-conditional)', source: 'imp-471',                                   note: 'Many-body CM correction; irreducible (imp-486)' },
     { sym: 'r̄_flow',         val: 'E_flow / E_trunc',      source: 'imp-345 (G6 partial closure)',              note: 'Ratio of flow-error to truncation-error' },
     { sym: 'Zeros verified', val: '1,506 to T = 2000',    source: 'imp-272 + LMFDB',                           note: 'Independently verifiable via Turing method' },
+    { sym: 'Empirical M floor', val: 'N ≤ 100,000',         source: 'imp-833 (this project, 2026-04)',          note: 'Direct sweep via Odlyzko zeros1; no C_mb / no GUE on this range' },
   ];
   return (
     <Section id="constants" number={7} title="Pinned Constants"

@@ -244,12 +244,13 @@ export const IMPOSSIBILITY_ARGUMENT = {
 
   bestUnconditionalBound:
     "Unconditionally: C_mb = O(log T) where T ~ gamma_{k*} is the height of the k*-th zero. " +
-    "For N ~ 871 (the empirical sweep range), T ~ 1270, so C_mb ~ O(log 1270) ~ 7.1. " +
-    "At C_mb = 7, the correction ratio at N_0 = 1e4 is 7 * 9.21 / 100 / 0.12751 ~ 5.1 >> 1. " +
-    "The analytic closure FAILS unconditionally. Empirical sweep (N <= 870) remains valid.",
+    "For N ~ 100001 (just past the extended empirical floor), T ~ 74920, so C_mb ~ O(log 74920) ~ 11.2. " +
+    "At C_mb = 11, the correction ratio at N_0 = 1e4 is 11 * 9.21 / 100 / 0.12751 ~ 7.9 >> 1. " +
+    "The analytic closure FAILS unconditionally past the empirical floor. " +
+    "Empirical sweep (N <= 100000) remains valid after imp-833 extension.",
 
   whyEmpiricalSweepStandsUnconditionally:
-    "For N in {2,...,870}, the m-raw-from-umon-bridge.js sweep directly verifies M_uf " +
+    "For N in {2,...,100000}, the m-raw-from-umon-bridge.js sweep directly verifies M_uf " +
     "without invoking C_mb at all. The sweep computes tau_c_est(N) numerically and " +
     "checks monotonicity. This is a direct certificate, unconditional and independent " +
     "of any random-matrix assumption.",
@@ -325,7 +326,7 @@ export const C_MB_UNCONDITIONAL_SEARCH = {
     "for the closure argument at any fixed N_0.",
 
   empiricalFloor:
-    "The empirical sweep (m-raw-from-umon-bridge.js) directly verifies M for N in {2,...,870} " +
+    "The empirical sweep (m-raw-from-umon-bridge.js) directly verifies M for N in {2,...,100000} " +
     "WITHOUT invoking C_mb. This floor is fully unconditional and independent of GUE.",
 
   rescuePath:
@@ -344,7 +345,7 @@ export const C_MB_UNCONDITIONAL_SEARCH = {
     "Search complete. GUE universality is irreducible. " +
     "No unconditional C_mb bound exists in the literature for Riemann zeros. " +
     "The many-body correction gap remains GUE-conditional for N >= N_0 = 10000. " +
-    "Empirical coverage (N <= 870) is unconditional. " +
+    "Empirical coverage (N <= 100000) is unconditional. " +
     "Documented in src/math/c-mb-unconditional-bound.js.",
 };
 
@@ -446,7 +447,7 @@ export const SELBERG_LOG_T_RESCUE = {
     "without invoking GUE universality -- a strictly weaker hypothesis than imp-486 required.",
 
   remainingGap:
-    "The empirical sweep (m-raw-from-umon-bridge.js) currently covers N in {2,...,870}. " +
+    "The empirical sweep (m-raw-from-umon-bridge.js) currently covers N in {2,...,100000}. " +
     "To use the unconditional path with K=1: extend the sweep to N in {871,...,3.1e6-1}. " +
     "This requires the Riemann zero table up to T ~ 2*pi*3.1e6/log(3.1e6) ~ 1.3e6. " +
     "The Odlyzko-Rubinstein zeros reach T ~ 1e6; the gap is bridgeable.",

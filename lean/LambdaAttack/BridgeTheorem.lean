@@ -26,6 +26,8 @@
 --   Error term definitions: formal
 --   errorColl_nonneg      : fully formal (positivity)
 --   bridge_theorem        : PROVED via triangle inequality (polymath15_lem33_prop41 + polymath15_lem52_holder; imp-510)
+--   polymath15_lem33_prop41: DECOMPOSED into polymath15_lem33_truncation + polymath15_prop41_flow (imp-836 partial;
+--                            each piece now isolates one Mathlib extension — zero-density vs. ODE/Gronwall)
 --   rate_tendsto_zero     : FULLY PROVED (imp-511+imp-513+imp-525+imp-535; all three error terms closed)
 --   G6_bridge_closed      : FULLY PROVED via squeeze (imp-490); no remaining sorrys
 --
@@ -129,16 +131,59 @@ lemma errorTotal_nonneg (N : ℕ) (hN : 1 ≤ N) : 0 ≤ errorTotal N := by
     formalism not yet in Mathlib 4.9. -/
 axiom lambdaTruncated (N : ℕ) : ℝ
 
-/-- Polymath15 Lemma 3.3 + Tao Proposition 4.1 composition (imp-510):
+/-- Lambda_{N,0} = Lambda(H_0^{(N)}): de Bruijn-Newman constant of the N-particle
+    truncated heat kernel at time t=0, BEFORE Calogero-Moser flow.
+    Intermediate between Lambda (full, pre-truncation) and lambdaTruncated N
+    (= Lambda(H_t^{(N)}), flowed along Calogero dynamics). Introduced by imp-836
+    partial closure to factor polymath15_lem33_prop41 into its two natural
+    source-paper pieces (Polymath15 Lemma 3.3 vs. Proposition 4.1).
+    Declared as axiom: same infinite-product analytic-function gap as lambdaTruncated. -/
+axiom lambdaTruncatedStatic (N : ℕ) : ℝ
+
+/-- Polymath15 Lemma 3.3 (static truncation only, imp-836 sub-gap a):
+    |Lambda - Lambda_{N,0}| <= E_trunc(N).
+    Zeros above gamma_N contribute at most E_trunc(N) to the shift in the
+    de Bruijn-Newman constant, via Guth-Maynard zero density.
+    Source: Polymath15 arXiv:1802.05390v3, Lemma 3.3 (static, no flow).
+    Declared as axiom: formalization requires Mathlib port of Guth-Maynard
+    zero-density bounds (arXiv:2305.03917); independent of ODE/flow theory. -/
+axiom polymath15_lem33_truncation (N : ℕ) (hN : 2 ≤ N) :
+    |deBruijnNewmann - lambdaTruncatedStatic N| ≤ errorTrunc N
+
+/-- Polymath15 Proposition 4.1 (Calogero-Moser Gronwall drift, imp-836 sub-gap b):
+    |Lambda_{N,0} - Lambda_N| <= E_flow(N).
+    The Calogero-Moser flow propagates the static truncated constant
+    Lambda_{N,0} = Lambda(H_0^{(N)}) to Lambda_N = Lambda(H_t^{(N)}) with tail
+    contribution bounded by exponential propagation at rate C_G * |t_c(N)|.
+    Source: Polymath15 arXiv:1802.05390v3, Proposition 4.1 (Gronwall drift).
+    Declared as axiom: formalization requires Mathlib ODE theory + Gronwall
+    inequality applied to Calogero-Moser Hamiltonian flow; independent of
+    zero-density lemmas. -/
+axiom polymath15_prop41_flow (N : ℕ) (hN : 2 ≤ N) :
+    |lambdaTruncatedStatic N - lambdaTruncated N| ≤ errorFlow N
+
+/-- Polymath15 Lemma 3.3 + Tao Proposition 4.1 composition (imp-510, re-proved
+    imp-836 as a theorem rather than an axiom):
     |Lambda - Lambda_N| <= E_trunc(N) + E_flow(N).
-    Lemma 3.3 (truncation): zeros above gamma_N contribute at most E_trunc(N)
-    to the shift in the de Bruijn-Newman constant, via Guth-Maynard zero density.
-    Proposition 4.1 (Gronwall drift): Calogero-Moser tail contributes at most
-    E_flow(N) via exponential propagation with rate C_G * |t_c(N)|.
-    Source: Polymath15 arXiv:1802.05390v3, Lemmas 3.3 and 4.1.
-    Declared as axiom: formalization requires Mathlib ODE / flow theory. -/
-axiom polymath15_lem33_prop41 (N : ℕ) (hN : 2 ≤ N) :
-    |deBruijnNewmann - lambdaTruncated N| ≤ errorTrunc N + errorFlow N
+    Proof: triangle inequality through lambdaTruncatedStatic N = Lambda(H_0^{(N)}):
+      |Lambda - Lambda_N| <= |Lambda - Lambda_{N,0}| + |Lambda_{N,0} - Lambda_N|
+                          <= E_trunc + E_flow.
+    Status: PROVED from polymath15_lem33_truncation + polymath15_prop41_flow
+    (imp-836 partial closure decomposes the former composite axiom into its
+    two independently-closable source-paper pieces). -/
+theorem polymath15_lem33_prop41 (N : ℕ) (hN : 2 ≤ N) :
+    |deBruijnNewmann - lambdaTruncated N| ≤ errorTrunc N + errorFlow N := by
+  have h1 := polymath15_lem33_truncation N hN
+  have h2 := polymath15_prop41_flow N hN
+  have heq : deBruijnNewmann - lambdaTruncated N =
+      (deBruijnNewmann - lambdaTruncatedStatic N) +
+      (lambdaTruncatedStatic N - lambdaTruncated N) := by ring
+  calc |deBruijnNewmann - lambdaTruncated N|
+      = |(deBruijnNewmann - lambdaTruncatedStatic N) +
+         (lambdaTruncatedStatic N - lambdaTruncated N)| := by rw [heq]
+    _ ≤ |deBruijnNewmann - lambdaTruncatedStatic N| +
+        |lambdaTruncatedStatic N - lambdaTruncated N| := abs_add _ _
+    _ ≤ errorTrunc N + errorFlow N := by linarith
 
 /-- Polymath15 Lemma 5.2 / G6a Holder-1/2 bound (imp-366, imp-510):
     |Lambda_N - (-t_c(N))| <= E_coll(N).

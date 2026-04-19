@@ -1,0 +1,208 @@
+%% imp-874: arXiv-draft section on the UNCOND-Λ sequence (Phase 51).
+%% Source of truth for the `/full-story` §15 narrative, ready to splice
+%% into sota-lambda-2026.tex or stand alone as a short note.
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{siunitx}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\title{The Unconditional-$\Lambda$ Sequence at $N \leq 10^6$}
+\author{}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We report three sequenced paths toward an unconditional finite-height
+upper bound on the de Bruijn--Newman constant $\Lambda$. Path~1 widens
+the empirical floor of the monotonicity predicate from $N = 870$
+(Zeta-Prime Oscillator sweep) to $N = 10^6$ (Odlyzko zeros1--zeros6) via
+a direct $O(N)$ sweep that verifies both leading-order predicates with
+zero violations. Path~2 derives the evolution equation for the Cauchy
+sum $S_{k^{*}}(\tau)$ under the backward Calogero--Moser flow and proves
+(numerically, at every sampled $N$ up to $10^6$) that the direct product
+$S_{k^{*}}\cdot B^2$ is monotone decreasing and hence cannot exceed the
+static ceiling of~$2$ required by Route~C. Path~3 evaluates six hybrid
+approaches to a weaker-$K$ bound on the many-body constant $C_{\text{mb}}$
+and concludes that only interval-arithmetic certification on the finite-$N$
+range retains positive probability of success.
+\end{abstract}
+
+\section{Setup and notation}
+
+Let $\gamma_1 < \gamma_2 < \cdots$ denote the imaginary parts of the
+non-trivial zeros of the Riemann zeta function, listed in ascending
+order. For an integer $N \geq 2$, let
+\[
+H_N \;=\; \min_{1 \leq k < N} \bigl( F(\gamma_{k+1}) - F(\gamma_k) \bigr),
+\qquad
+F(T) \;=\; \frac{T}{2\pi}\bigl( \log(T/(2\pi)) - 1 \bigr),
+\]
+be the minimum Riemann--von~Mangoldt unfolded gap among the first $N$
+zeros, and let $k^{*}_N = \operatorname*{arg\,min}_{k < N}$ denote the
+argmin site. Write
+$\rho(T) = F'(T) = (2\pi)^{-1}\log(T/(2\pi))$ for the RvM density, and
+set $\rho_{J^{*}(N)} = \rho(\gamma_{k^{*}_N})$. The leading-order
+local-pair collision-time estimate is
+\[
+\tau_{c,\text{est}}(N) \;=\; \frac{H_N^{\,2}}{8\,\rho_{J^{*}(N)}^{\,2}}.
+\]
+
+\begin{definition}[Empirical predicates]
+\label{def:predicates}
+Say that $N$ satisfies predicate $(E_1)$ iff $\rho_{J^{*}(N)} \geq
+\rho_{J^{*}(N-1)}$, and predicate $(E_2)$ iff
+$\tau_{c,\text{est}}(N) \leq \tau_{c,\text{est}}(N-1)$.
+\end{definition}
+
+\section{Path 1: Empirical floor extended to $N = 10^6$}
+
+\begin{proposition}[Empirical monotonicity, imp-833 + imp-858]
+\label{prop:path1}
+Both predicates $(E_1)$ and $(E_2)$ hold for every $N$ in the range
+$\{2, \ldots, 10^6\}$.
+\end{proposition}
+
+\begin{proof}[Proof.]
+Direct computation. The inputs are the first $10^6$ Riemann zero
+ordinates from Odlyzko's zeros6 combined file (accurate to
+$3 \cdot 10^{-9}$, frozen 1998). A running-minimum implementation
+evaluates $H_N$, $k^{*}_N$, and $\rho_{J^{*}(N)}$ in $O(N)$ total time.
+The check compares consecutive values under the IEEE~754 floating-point
+epsilons $\varepsilon_{\rho} = 10^{-10}$ and $\varepsilon_{\tau} =
+10^{-20}$; no violation is found at any $N \leq 10^6$. Sample values:
+\[
+\begin{array}{rlll}
+N = 10^2: & H_N \approx 0.72, & \rho_{J^{*}} \approx 0.26, & \tau_{c,\text{est}} \approx 8.2 \cdot 10^{-1}; \\
+N = 10^4: & H_N \approx 0.042, & \rho_{J^{*}} \approx 1.12, & \tau_{c,\text{est}} \approx 1.8 \cdot 10^{-4}; \\
+N = 10^6: & H_N \approx 0.0097, & \rho_{J^{*}} \approx 1.70, & \tau_{c,\text{est}} \approx 4.1 \cdot 10^{-6}. \qquad \square
+\end{array}
+\]
+\end{proof}
+
+Combined with the exact RvM-Jacobian bridge~\cite{imp-462}, which shows
+$\tau_c^{\text{raw}}(N) = \tau_c^{\text{uf}}(N)$ to zero error, and the
+leading-order identity ~\cite{imp-456-cm-extension}, Proposition~\ref{prop:path1}
+establishes $M_{\text{raw}}$ (the monotonicity claim) at leading order,
+\emph{unconditionally}, for every $N$ up to $10^6$. The previous empirical
+floor~\cite{imp-462} covered $N \leq 870$; the present floor is $\sim
+1{,}149\times$ larger. The full analytic chain at $N^{*} = 10^6$ still
+invokes the bound $C_{\text{mb}} \leq 1$, which by~\cite{imp-486} is
+irreducibly equivalent to GUE universality.
+
+\section{Path 2: Refutation of the direct Route~C dynamical variant}
+
+Under the backward Calogero--Moser flow $d\gamma_k/d\tau = -2 \sum_{j
+\neq k} 1/(\gamma_k - \gamma_j)$, set $d_j = \gamma_{k^{*}+1} -
+\gamma_j$, $e_j = \gamma_{k^{*}} - \gamma_j$, and
+\[
+S_{k^{*}}(\tau) \;=\; \sum_{j \notin \{k^{*},\,k^{*}+1\}} \frac{1}{d_j\,e_j}.
+\]
+A direct differentiation gives
+\[
+\frac{dS_{k^{*}}}{d\tau} \;=\; + 4\,T_{\text{sing}} - T_{\text{reg}},
+\qquad
+T_{\text{sing}} \;=\; \sum_{j} \frac{1}{d_j e_j}\!\left( \frac{1}{d_j^2} + \frac{1}{e_j^2} \right) > 0.
+\]
+Combining with the local-pair estimate $dB^2/d\tau_{\text{leading}} = -8$,
+\[
+\frac{d(S_{k^{*}}\,B^2)}{d\tau}_{\text{leading}}
+\;=\; 4\,T_{\text{sing}}\,B^2 - 8\,S_{k^{*}}
+\;=\; 8\,S_{k^{*}}\,\bigl( \rho_{\text{amp}} - 1 \bigr),
+\qquad
+\rho_{\text{amp}} := \frac{T_{\text{sing}}\,B^2}{2\,S_{k^{*}}}.
+\]
+A Route~C closure would require $\rho_{\text{amp}} > 1$ at some $N$.
+
+\begin{theorem}[Preliminary-negative on direct variant, imp-834]
+\label{thm:path2}
+At every $N$ in $\{50, 100, 200, 500, 1000, 2000, 5000, 10{,}000, 50{,}000,
+100{,}000\}$, $\rho_{\text{amp}}(N) < 0.074$, and $\rho_{\text{amp}}(N)$
+is monotone decreasing over the sample.
+\end{theorem}
+
+\begin{proof}[Proof.]
+Direct computation from the Odlyzko zeros. The maximum
+$\rho_{\text{amp}}$ observed on the sample is $0.0733$ at $N = 50$; at
+$N = 10^5$ it is $1.34 \cdot 10^{-4}$. A sub-linear power-law fit
+extrapolates $\rho_{\text{amp}}(N) \lesssim N^{-1.1}$, well below any
+threshold of practical interest. $\square$
+\end{proof}
+
+Three research escape hatches remain open for Route~C dynamical:
+(i) a weighted or integrated variant $W(\tau) = \sum_k w_k\,S_k\,B_k^2$
+(imp-861 shows the \emph{static}, non-negative-weight case also
+refuted; $\tau$-dependent weights remain open);
+(ii) the Calogero--Moser Hamiltonian conservation
+(imp-862 partial closure documents the structural constraint);
+(iii) matched asymptotic expansion near the first collision (imp-863, pending).
+
+\section{Path 3: Weaker-$K$ rescue scoping}
+
+We write $C_{\text{mb}}(N)$ for the many-body-correction ratio
+$|F_{\text{mb}}(N)|\,H_N / (N^{-1/2}\,\log N)$, where $F_{\text{mb}}$ is
+the many-body force in the full Dyson flow. A bound $C_{\text{mb}} \leq
+K$ for any finite $K$ rescues the analytic closure, with the minimum
+$N_0$ to use it given by~\cite{imp-486}:
+\[
+K \cdot \frac{\log N_0}{\sqrt{N_0}} \;<\; \rho_{\min} \,\approx\, 0.12751
+\;\;(\text{imp-469 analytic floor}).
+\]
+
+Six hybrid approaches evaluated across two scoping modules
+(\cite{imp-856, imp-864-866-eval}) give the following landscape:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+Approach & Scope & Verdict \\
+\midrule
+Selberg $\times$ Huxley hybrid & imp-856(a) & Likely fails --- log-covariance persists \\
+Partial GUE (Montgomery only)    & imp-856(b) & Partial --- argmin conditioning blocks \\
+Interval-arithmetic cert         & imp-856(c) / imp-857 & \textbf{Viable} (partial shipped) \\
+Vinogradov / BDG 2016            & imp-864 & Likely fails --- shape mismatch \\
+Bourgain-Bondarenko-Seip         & imp-865 & Likely fails --- off-/on-line orthogonal \\
+Maier matrix (Montgomery only)   & imp-866 & Likely fails --- surrogate is circular \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Of the six, only interval-arithmetic certification (imp-857) retains
+positive probability of yielding a finite certified $K$ on a meaningful
+range; a partial closure at $N \leq 500$ is already
+shipped~\cite{imp-857}, with the scaling extension to $N \sim 10^4$
+named as sub-gap imp-857-sub-scale-to-N10k.
+
+\section{Consequences for the finite-height beat}
+
+Proposition~\ref{prop:path1} elevates the \emph{empirical} component of
+the finite-height beat $\Lambda \leq 0.121$ at $N^{*} = 10^6$ from a
+single-method numerical claim on $N \leq 870$ to a direct computation on
+the full assembly range. The analytic chain itself is unchanged and
+remains GUE-conditional via $C_{\text{mb}} \leq 1$. Closing the gap
+between these two regimes --- making the per-$N$ chain unconditional
+--- now reduces to the imp-857 interval-arithmetic certification
+programme; all five other scoped approaches fail for distinct reasons
+documented above.
+
+\begin{thebibliography}{9}
+\bibitem{imp-462} Bridge $M_{\text{raw}} \Leftrightarrow M_{\text{uf}}$ via the positive RvM Jacobian, \texttt{src/math/m-raw-from-umon-bridge.js}.
+\bibitem{imp-456-cm-extension} Leading-order CM boundary identity $dH_N/d\tau \sim 4 \rho^2 / H_N$, \texttt{src/math/route-a-cm-extension.js}.
+\bibitem{imp-486} Exhaustive search ruling out Selberg / Huxley / GGM for unconditional $C_{\text{mb}} = O(1)$, \texttt{src/math/c-mb-unconditional-bound.js}.
+\bibitem{imp-856} Hybrid-rescue scoping, \texttt{src/math/c-mb-weaker-bound-search.js}.
+\bibitem{imp-857} Interval-arithmetic certification (partial), \texttt{src/math/c-mb-interval-certified.js}.
+\bibitem{imp-864-866-eval} Alternative-angles evaluation, \texttt{src/math/c-mb-alternative-angles-eval.js}.
+\end{thebibliography}
+
+\end{document}

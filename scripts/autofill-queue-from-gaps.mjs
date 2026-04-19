@@ -279,16 +279,13 @@ function generateForwardWork() {
     ? readdirSync(join(ROOT, 'src/math')).filter(f => f.endsWith('.js'))
     : [];
 
-  // Category 1: Page improvements — pick a random page and improve it
-  const targetPage = pages[Math.floor(Math.random() * pages.length)];
-  ideas.push({
-    category: 'feature',
-    priority: 'medium',
-    title: `Improve ${targetPage}: add interactivity, better explanations, or new visualizations`,
-    description: `Read src/pages/${targetPage} and make one meaningful improvement: add an interactive control, improve the mathematical explanations, add a new visualization, fix layout issues, or add educational annotations. Focus on making the page more useful for someone learning about the Riemann Hypothesis.`,
-    proofSection: 'app',
-    complexity: 'medium',
-  });
+  // Category 1: Page improvements — DISABLED imp-881 GC audit flagged this
+  // template as producing vague tickets that got auto-superseded (imp-816,
+  // imp-840, imp-843, imp-845, imp-883, imp-885 all closed as vague). The
+  // per-page template can't predict what an actual concrete improvement
+  // would be. Replacement heuristic: nothing — let the queue run thinner
+  // rather than pad with busywork. If a page genuinely needs work, a human
+  // or adversarial-review ticket will seed the concrete one.
 
   // Category 2: Cross-verification — PRIORITIZE critical-chain modules
   // The queue controller found 10 critical-chain modules unverified.

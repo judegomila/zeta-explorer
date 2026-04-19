@@ -42,6 +42,30 @@ else
   echo "$LOG_PREFIX Haiku engine: RESTARTED"
 fi
 
+# ── 2b. Sonnet engine (imp-879 tier-aware dispatch) ─────────────────────
+if [ -f "$SCRIPT_DIR/auto-improve-sonnet.sh" ]; then
+  if [ -f "$SCRIPT_DIR/.auto-improve-sonnet.pid" ] && kill -0 "$(cat "$SCRIPT_DIR/.auto-improve-sonnet.pid")" 2>/dev/null; then
+    echo "$LOG_PREFIX Sonnet engine: RUNNING (PID $(cat "$SCRIPT_DIR/.auto-improve-sonnet.pid"))"
+  else
+    echo "$LOG_PREFIX Sonnet engine: NOT RUNNING — restarting..."
+    rm -f "$SCRIPT_DIR/.rate-limit-backoff-state-sonnet"
+    "$SCRIPT_DIR/auto-improve-sonnet.sh" start
+    echo "$LOG_PREFIX Sonnet engine: RESTARTED"
+  fi
+fi
+
+# ── 2c. Opus-4.6 engine (imp-879 tier-aware dispatch) ───────────────────
+if [ -f "$SCRIPT_DIR/auto-improve-opus46.sh" ]; then
+  if [ -f "$SCRIPT_DIR/.auto-improve-opus46.pid" ] && kill -0 "$(cat "$SCRIPT_DIR/.auto-improve-opus46.pid")" 2>/dev/null; then
+    echo "$LOG_PREFIX Opus-4.6 engine: RUNNING (PID $(cat "$SCRIPT_DIR/.auto-improve-opus46.pid"))"
+  else
+    echo "$LOG_PREFIX Opus-4.6 engine: NOT RUNNING — restarting..."
+    rm -f "$SCRIPT_DIR/.rate-limit-backoff-state-opus46"
+    "$SCRIPT_DIR/auto-improve-opus46.sh" start
+    echo "$LOG_PREFIX Opus-4.6 engine: RESTARTED"
+  fi
+fi
+
 # ── 3. Dev server ───────────────────────────────────────────────────────
 if curl -s --connect-timeout 5 http://localhost:3002 > /dev/null 2>&1; then
   echo "$LOG_PREFIX Dev server: OK (http://localhost:3002)"

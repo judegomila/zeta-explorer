@@ -138,6 +138,16 @@ do_start() {
       # Snapshot commit hash before run to detect if Claude makes a new commit
       pre_run_sha=$(git -C "$PROJECT_DIR" rev-parse HEAD 2>/dev/null || echo "")
 
+      # imp-880 follow-up: consult channel-quota.mjs before invoking claude.
+      if [ -f "$SCRIPT_DIR/engine-channel-hook.sh" ]; then
+        source "$SCRIPT_DIR/engine-channel-hook.sh"
+        engine_channel_preflight "$log_file"
+        if [ "${ENGINE_SKIP:-0}" = "1" ]; then
+          echo "=== Run skipped (channel-quota wait) at $timestamp ===" >> "$log_file"
+          continue
+        fi
+      fi
+
       if command -v claude &>/dev/null; then
         cd "$PROJECT_DIR"
         unset CLAUDECODE
@@ -158,6 +168,11 @@ do_start() {
 
       echo "=== Opus-4.6 Run #$run_count complete ===" >> "$log_file"
       echo "Opus-4.6 Run #$run_count complete. Log: $log_file"
+
+      # imp-880 follow-up: append this run's token usage to the quota window.
+      if [ -f "$SCRIPT_DIR/engine-channel-hook.sh" ]; then
+        engine_channel_log "$log_file"
+      fi
 
       # ── Post-commit status-flip verification ──────────────────────────────
       # The Haiku prompt (step 8c) instructs the model to flip the ticket

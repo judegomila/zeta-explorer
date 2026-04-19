@@ -70,7 +70,12 @@ export default function FormalProofPage() {
               return (
                 <div key={section.id}>
                   <div
+                    role="button"
+                    tabIndex={0}
+                    aria-expanded={isOpen}
+                    aria-controls={`section-panel-${section.id}`}
                     onClick={() => setSelectedSection(isOpen ? null : section)}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedSection(isOpen ? null : section); }}}
                     style={{
                       display: 'flex', alignItems: 'center', gap: 8,
                       padding: '6px 10px', borderRadius: isOpen ? '6px 6px 0 0' : 6,

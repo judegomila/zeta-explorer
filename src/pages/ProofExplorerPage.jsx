@@ -286,7 +286,12 @@ function ProofStepCard({ step }) {
       transition: 'all 0.2s',
     }}>
       {/* Header — always visible */}
-      <div onClick={() => setExpanded(!expanded)} style={{
+      <div
+        role="button"
+        tabIndex={0}
+        aria-expanded={expanded}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpanded(!expanded); }}}
+        onClick={() => setExpanded(!expanded)} style={{
         padding: '12px 16px',
         display: 'flex', alignItems: 'center', gap: 12,
       }}>

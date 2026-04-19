@@ -10,6 +10,10 @@ function Challenge({ number, title, color, claim, test, children }) {
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="card" style={{ borderLeft: `3px solid ${color}`, marginBottom: 16, cursor: 'pointer' }}
+      role="button"
+      tabIndex={0}
+      aria-expanded={expanded}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpanded(!expanded); }}}
       onClick={() => setExpanded(!expanded)}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
         <span style={{ width: 28, height: 28, borderRadius: '50%', background: color + '20', color,

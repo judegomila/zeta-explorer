@@ -89,6 +89,14 @@
 
 import { ZEROS_EXTENDED } from '../data/zeros-to-1e6.js';
 
+// imp-861-sub-argmax-drift-at-large-N: the sweep below caps at N=5000; at
+// larger N the argmax rho_amp_k site could in principle drift away from the
+// argmin-gap site kStar. Observed trend through imp-834's N=10^5 sample:
+// rho_amp_max(N) decreases from 0.073 (N=50) to 0.00013 (N=10^5), so any
+// drift would need an order-of-magnitude jump against the observed decay
+// to flip the verdict. Extending this check to N=10^5 and higher is
+// tracked as a separate sub-gap ticket.
+
 // ── Core per-site computation ─────────────────────────────────────────────
 
 /**

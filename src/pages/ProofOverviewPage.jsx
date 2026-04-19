@@ -56,6 +56,7 @@ function ProofStep({ step, title, detail, status, statusLabel, math }) {
     }}>
       {/* Clickable header row */}
       <button
+        aria-expanded={expanded}
         onClick={() => setExpanded(e => !e)}
         style={{
           display: 'flex', gap: 12, width: '100%', padding: '10px 14px',

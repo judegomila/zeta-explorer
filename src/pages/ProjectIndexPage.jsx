@@ -122,7 +122,12 @@ export default function ProjectIndexPage() {
             background: 'rgba(15,23,42,0.4)',
             border: `1px solid ${w.breakthrough ? 'rgba(16,185,129,0.3)' : w.critical ? 'rgba(245,158,11,0.3)' : 'rgba(148,163,184,0.1)'}`,
             cursor: 'pointer',
-          }} onClick={() => setExpandedWave(expandedWave === w.number ? null : w.number)}>
+          }}
+          role="button"
+          tabIndex={0}
+          aria-expanded={expandedWave === w.number}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpandedWave(expandedWave === w.number ? null : w.number); }}}
+          onClick={() => setExpandedWave(expandedWave === w.number ? null : w.number)}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <span style={{
                 width: 30, height: 30, borderRadius: '50%',

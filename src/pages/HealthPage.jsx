@@ -201,6 +201,10 @@ function ProofStepRow({ step }) {
   const meta = STATUS_COLORS[color];
   return (
     <div
+      role="button"
+      tabIndex={0}
+      aria-expanded={expanded}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpanded(x => !x); }}}
       onClick={() => setExpanded(e => !e)}
       style={{
         padding: '7px 12px',
@@ -418,6 +422,7 @@ export default function HealthPage() {
           Refresh Now
         </button>
         <button
+          aria-pressed={autoRefresh}
           onClick={() => setAutoRefresh(a => !a)}
           style={{
             background: autoRefresh ? 'rgba(16,185,129,0.12)' : '#1e293b',

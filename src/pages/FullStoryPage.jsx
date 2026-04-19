@@ -143,7 +143,7 @@ const TOC = [
   { id: 'crossverify',  label: 'Cross-Verification' },
   { id: 'timeline',     label: 'Timeline' },
   { id: 'open',         label: 'What Remains' },
-  { id: 'uncond',       label: 'Unconditional-Λ Sequence' },
+  { id: 'uncond',       label: 'Toward Unconditional-Λ Floor (3-path sequence)' },
   { id: 'bottomline',   label: 'Bottom Line' },
 ];
 
@@ -991,7 +991,7 @@ function S15_UncondSequence() {
   const search   = C_MB_WEAKER_BOUND_SEARCH;
   const samples  = dynamical.numericalEvidence.samples;
   return (
-    <Section id="uncond" number={15} title="Unconditional-Λ Sequence"
+    <Section id="uncond" number={15} title="Toward an Unconditional Finite-Height Λ Bound — Three-Path Sequence"
       subtitle={`Live from imp-833/834/856. Three sequenced paths toward removing GUE from the finite-height bound. PATH 1 delivered (${sweep.newEmpiricalFloor.N_max.toLocaleString()}× empirical floor); PATH 2 partial-negative; PATH 3 scoped with imp-857 follow-up.`}>
 
       <Para>

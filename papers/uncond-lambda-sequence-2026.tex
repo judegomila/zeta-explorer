@@ -196,13 +196,67 @@ between these two regimes --- making the per-$N$ chain unconditional
 programme; all five other scoped approaches fail for distinct reasons
 documented above.
 
-\begin{thebibliography}{9}
-\bibitem{imp-462} Bridge $M_{\text{raw}} \Leftrightarrow M_{\text{uf}}$ via the positive RvM Jacobian, \texttt{src/math/m-raw-from-umon-bridge.js}.
-\bibitem{imp-456-cm-extension} Leading-order CM boundary identity $dH_N/d\tau \sim 4 \rho^2 / H_N$, \texttt{src/math/route-a-cm-extension.js}.
-\bibitem{imp-486} Exhaustive search ruling out Selberg / Huxley / GGM for unconditional $C_{\text{mb}} = O(1)$, \texttt{src/math/c-mb-unconditional-bound.js}.
-\bibitem{imp-856} Hybrid-rescue scoping, \texttt{src/math/c-mb-weaker-bound-search.js}.
-\bibitem{imp-857} Interval-arithmetic certification (partial), \texttt{src/math/c-mb-interval-certified.js}.
-\bibitem{imp-864-866-eval} Alternative-angles evaluation, \texttt{src/math/c-mb-alternative-angles-eval.js}.
+\begin{thebibliography}{99}
+
+% ── External references ──
+\bibitem{rodgers-tao-2020}
+B.~Rodgers and T.~Tao,
+\textit{The de Bruijn--Newman constant is non-negative},
+Forum of Mathematics, Pi \textbf{8} (2020), e6.
+
+\bibitem{polymath15-2020}
+Polymath15 / T.~Tao et al.,
+\textit{Effective approximation of heat flow evolution of the Riemann $\xi$ function, and a new upper bound for the de Bruijn--Newman constant},
+arXiv:1905.07821 (2019); Research in the Mathematical Sciences \textbf{7} (2020).
+
+\bibitem{platt-trudgian-2021}
+D.~Platt and T.~Trudgian,
+\textit{The Riemann hypothesis is true up to $3\cdot 10^{12}$},
+Bull. London Math. Soc. \textbf{53} (2021), 792--797.
+
+\bibitem{esy-2011}
+L.~Erd\H{o}s, B.~Schlein, and H.-T.~Yau,
+\textit{Universality of random matrices and local relaxation flow},
+Invent. Math. \textbf{185} (2011), 75--119.
+
+\bibitem{montgomery-1973}
+H.~L.~Montgomery,
+\textit{The pair correlation of zeros of the zeta function},
+Proc. Symp. Pure Math. \textbf{24} (1973), 181--193.
+
+\bibitem{guth-maynard-2024}
+L.~Guth and J.~Maynard,
+\textit{New large value estimates for Dirichlet polynomials},
+arXiv:2305.03917 (2023).
+
+\bibitem{bourgain-demeter-guth-2016}
+J.~Bourgain, C.~Demeter, and L.~Guth,
+\textit{Proof of the main conjecture in Vinogradov's mean value theorem for degrees higher than three},
+Annals of Math. \textbf{184} (2016), 633--682.
+
+\bibitem{bondarenko-seip-2013}
+A.~Bondarenko and K.~Seip,
+\textit{Large GCD sums and extreme values of the Riemann zeta function},
+Duke Math. J. \textbf{166} (2017), 1685--1701.
+
+\bibitem{maier-1988}
+H.~Maier,
+\textit{Primes in short intervals},
+Michigan Math. J. \textbf{32} (1985), 221--225.
+
+\bibitem{odlyzko-1998}
+A.~M.~Odlyzko,
+\textit{Tables of zeros of the Riemann zeta function},
+\texttt{https://www-users.cse.umn.edu/\~{}odlyzko/zeta\_tables/}, frozen 1998-03-18.
+
+% ── Internal ticket references (this project) ──
+\bibitem{imp-462} ZPO Explorer, \textit{Bridge $M_{\text{raw}} \Leftrightarrow M_{\text{uf}}$ via the positive RvM Jacobian}, \texttt{src/math/m-raw-from-umon-bridge.js}.
+\bibitem{imp-456-cm-extension} ZPO Explorer, \textit{Leading-order CM boundary identity $dH_N/d\tau \sim 4 \rho^2 / H_N$}, \texttt{src/math/route-a-cm-extension.js}.
+\bibitem{imp-486} ZPO Explorer, \textit{Exhaustive search ruling out Selberg / Huxley / GGM for unconditional $C_{\text{mb}} = O(1)$}, \texttt{src/math/c-mb-unconditional-bound.js}. Uses \cite{esy-2011}, \cite{montgomery-1973}.
+\bibitem{imp-856} ZPO Explorer, \textit{Hybrid-rescue scoping for weaker-$K$ $C_{\text{mb}}$ bound}, \texttt{src/math/c-mb-weaker-bound-search.js}.
+\bibitem{imp-857} ZPO Explorer, \textit{Interval-arithmetic certification (partial closure at $N \leq 500$)}, \texttt{src/math/c-mb-interval-certified.js}.
+\bibitem{imp-864-866-eval} ZPO Explorer, \textit{Alternative-angles evaluation} (Vinogradov / BBS / Maier scopings), \texttt{src/math/c-mb-alternative-angles-eval.js}. Uses \cite{bourgain-demeter-guth-2016}, \cite{bondarenko-seip-2013}, \cite{maier-1988}.
+
 \end{thebibliography}
 
 \end{document}

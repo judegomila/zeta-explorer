@@ -185,6 +185,15 @@ export const C_MB_WEAKER_BOUND_SEARCH = {
     intervalArithmetic:  APPROACH_C_INTERVAL_ARITHMETIC,
   },
 
+  landscapeDisclaimer:
+    'This scoping evaluates three specific hybrid approaches. The verdicts ' +
+    'below are LIKELY-FAILS per approach, not formal impossibility theorems. ' +
+    'Further approaches not considered here (e.g. random-matrix techniques ' +
+    'beyond GUE, modular-form / L-function methods, non-standard log-sum ' +
+    'reformulations) are welcome; the landscape is not exhaustive. See ' +
+    'imp-864/imp-865/imp-866 (c-mb-alternative-angles-eval.js) for three ' +
+    'further angles also evaluated likely-fail by distinct mechanisms.',
+
   verdict: {
     approachA_selbergHuxley:
       'LIKELY TO FAIL — structural obstacle from imp-486 persists in the combination. ' +

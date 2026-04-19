@@ -63,6 +63,21 @@ if [ -n "$unknown_ids" ]; then
   exit 1
 fi
 
+# Check (3): empirical-Λ floor sentinel must not exist (imp-877 / imp-833 guard).
+# If daily-health-check.sh wrote .empirical-floor-violation, the empirical
+# predicates no longer hold on the claimed range — any commit that might
+# re-confirm the stale claim should be blocked. Commits that intend to
+# ACKNOWLEDGE the violation are allowed through with --no-verify.
+SENTINEL="$SCRIPT_DIR/.empirical-floor-violation"
+if [ -f "$SENTINEL" ]; then
+  echo "commit-lint: FAIL — empirical-Λ floor sentinel present at $SENTINEL"
+  echo "             Contents:"
+  head -5 "$SENTINEL" 2>/dev/null | sed 's/^/               /'
+  echo "             The imp-833/imp-858 unconditional-floor claim may be stale."
+  echo "             Fix the underlying drift, or commit with --no-verify to ACK."
+  exit 1
+fi
+
 # All checks passed.
 echo "commit-lint: OK — $(echo "$imp_ids" | tr '\n' ' ')"
 exit 0

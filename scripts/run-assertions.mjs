@@ -73,6 +73,9 @@ const MATH_MODULES = [
   '/src/math/paper-skeptic-review-7b-phase51.js',
   // imp-863: PATH 2 escape hatch B3 — matched asymptotic.
   '/src/math/route-c-matched-asymptotic.js',
+  // imp-857 alt-path: phased-forcing proof-path memo + commutator bound.
+  '/src/math/imp-857-phased-forcing-memo.js',
+  '/src/math/imp-857-commutator-bound.js',
 ];
 
 const DATA_MODULES = [

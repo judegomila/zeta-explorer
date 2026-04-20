@@ -11297,6 +11297,23 @@ export const IMPROVEMENT_QUEUE = [
     estimatedChannel: 'subscription',
   },
 
+  
+  // ── Auto-seeded batch (2026-04-20) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-906',
+    title: "Cross-verify darlington-infinite.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S10-verify',
+    description: "Read src/math/darlington-infinite.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

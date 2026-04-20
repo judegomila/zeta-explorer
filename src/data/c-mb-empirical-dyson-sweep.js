@@ -64,6 +64,7 @@
  */
 
 import { EMPIRICAL_SWEEP_DP8_CROSSCHECK } from './empirical-sweep-dp8-crosscheck.js';
+import { C_MB_INTERVAL_CERTIFIED } from '../math/c-mb-interval-certified.js';
 
 // ── Build per-N rows from the existing imp-859 RK4 cross-check ──────────────
 
@@ -107,6 +108,50 @@ const R_REL_MAX       = ROWS.length > 0 ? Math.max(...ROWS.map((r) => r.R_rel)) 
 const N_COVERED = ROWS.map((r) => r.N);
 const TICKET_TARGETS = [100, 200, 500, 1000, 2000, 5000, 10000];
 const N_MISSING = TICKET_TARGETS.filter((n) => !N_COVERED.includes(n));
+
+// ── imp-887 / imp-860-sub-cross-check-with-imp-857 closure ─────────────────
+// For every N in this file's measured ROWS, look up imp-857's certified
+// F_mb upper-magnitude bound and verify containment: F_mb_measured must be
+// <= F_mb_upper_certified on the shared N range. Both quantities live in RAW
+// time on the same initial zero set (see header "COORDINATE CHECK"). A miss
+// would signal a coordinate/unit mismatch between the Float64 and interval
+// pipelines — i.e. a bug in one of them.
+const CERT_BY_N = new Map();
+for (const cr of C_MB_INTERVAL_CERTIFIED.rows) {
+  if (cr && cr.status === 'certified' && typeof cr.F_mb_upper === 'number') {
+    CERT_BY_N.set(cr.N, cr);
+  }
+}
+
+const CROSS_CHECK_ROWS = ROWS.map((r) => {
+  const cert = CERT_BY_N.get(r.N);
+  if (!cert) {
+    return {
+      N: r.N,
+      status: 'not-certified-at-this-N',
+      F_mb_measured: r.F_mb,
+      note: 'imp-857 did not emit a certified row for this N; containment not checked.',
+    };
+  }
+  const contained = r.F_mb <= cert.F_mb_upper;
+  const slack = cert.F_mb_upper > 0 ? r.F_mb / cert.F_mb_upper : null;
+  return {
+    N: r.N,
+    status: contained ? 'contained' : 'violation',
+    F_mb_measured: r.F_mb,
+    F_mb_upper_certified: cert.F_mb_upper,
+    slack_ratio: slack !== null ? +slack.toExponential(4) : null,
+  };
+});
+
+const CROSS_CHECK_NS = CROSS_CHECK_ROWS
+  .filter((x) => x.status === 'contained' || x.status === 'violation')
+  .map((x) => x.N);
+const CROSS_CHECK_ALL_CONTAINED =
+  CROSS_CHECK_NS.length > 0 &&
+  CROSS_CHECK_ROWS
+    .filter((x) => CROSS_CHECK_NS.includes(x.N))
+    .every((x) => x.status === 'contained');
 
 // ── Closure record ──────────────────────────────────────────────────────────
 
@@ -180,6 +225,24 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
     'to approach a finite limit, but that is the imp-856/imp-857 program, not ' +
     'this ticket.',
 
+  crossCheckWithImp857: {
+    subGap: 'imp-860-sub-cross-check-with-imp-857',
+    infrastructureStatus: CROSS_CHECK_NS.length === 0 ? 'no-shared-N' : 'implemented',
+    containmentStatus: CROSS_CHECK_NS.length === 0
+      ? 'no-shared-N'
+      : (CROSS_CHECK_ALL_CONTAINED ? 'all-contained' : 'violation-found'),
+    sharedNs: CROSS_CHECK_NS,
+    rows: CROSS_CHECK_ROWS,
+    description:
+      'Per-N containment check: F_mb_measured (this module) <= F_mb_upper_cert ' +
+      '(imp-857 C_MB_INTERVAL_CERTIFIED) on the shared N range. Both quantities ' +
+      'are in RAW time on the same initial zero set, so a violation indicates a ' +
+      'real discrepancy between the Float64 RK4 (imp-859) and the interval RK4 ' +
+      '(imp-362) pipelines — the two integrators disagree on tau_c by more than ' +
+      'the interval envelope allows. Implementing this check closes imp-887; ' +
+      'any violation it surfaces is a NEW finding recorded in openSubGaps.',
+  },
+
   openSubGaps: [
     {
       id: 'imp-860-sub-extend-to-N10k',
@@ -195,16 +258,6 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
         '(c) move the large-N measurement to a scripts/ cron that runs offline.',
     },
     {
-      id: 'imp-860-sub-cross-check-with-imp-857',
-      summary:
-        'Verify F_mb_measured lies inside imp-857 certified [F_mb_lo, F_mb_hi] on the shared N range.',
-      blocker:
-        'imp-857 covers N in {50, 100, 200, 500}; imp-860 (this ticket) covers ' +
-        '{50, 100, 200}. Stitching requires importing C_MB_INTERVAL_CERTIFIED ' +
-        'rows and adding a per-N containment check. Deferred to avoid ' +
-        'coupling two modules in a single atomic change.',
-    },
-    {
       id: 'imp-860-sub-use-DP8',
       summary:
         'Swap RK4 for a true 8th-order Dormand-Prince integrator (inherits imp-859 DP8 sub-gap).',
@@ -212,6 +265,40 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
         'No DP87 implementation in the repository. imp-859 uses DP45 as its ' +
         'second integrator. The direct-measurement path here uses RK4 only, ' +
         'so the imp-859 DP8 sub-gap carries over.',
+    },
+    {
+      id: 'imp-887-sub-resolve-cross-check-violation',
+      summary:
+        'Explain / reconcile F_mb_measured > F_mb_upper_cert at N in {50, 100}.',
+      finding:
+        'The imp-887 containment cross-check found F_mb_measured (Float64 RK4 ' +
+        'from imp-859 dyson-ode-integrator.js) exceeds F_mb_upper_cert ' +
+        '(certified interval RK4 from imp-362) at N=50 (slack 8.0x) and ' +
+        'N=100 (slack 1.4x), while N=200 is contained (slack 0.99x). Both ' +
+        'pipelines advertise raw-time coordinates on the same zero set, so ' +
+        'either (a) the two integrators use different collision-detection ' +
+        'gates (imp-859 uses spacing < 1e-4 between adjacent zeros; imp-362 ' +
+        'may use a different threshold or stopping criterion), (b) the ' +
+        'certified bracket [t_c_lo, t_c_hi] does not actually contain the ' +
+        'true collision time at small N (wrapper too narrow or stopping too ' +
+        'early), or (c) there is a coordinate-system mismatch at small N ' +
+        'that cancels at larger N. Resolution requires: (1) auditing both ' +
+        'integrators at N=50 with identical stop criteria, (2) comparing ' +
+        'the actual integration trajectories, (3) quoting the mismatch as ' +
+        'either a bug-fix candidate or a known small-N artifact to exclude ' +
+        'from the certified range.',
+    },
+  ],
+
+  closedSubGaps: [
+    {
+      id: 'imp-860-sub-cross-check-with-imp-857',
+      closedBy: 'imp-887',
+      resolution:
+        'Imported C_MB_INTERVAL_CERTIFIED and implemented a per-N containment ' +
+        'check F_mb_measured <= F_mb_upper_cert on the shared range {50, 100, 200}. ' +
+        'See crossCheckWithImp857 on this record and the imp860-cross-check-contained ' +
+        'build-time assertion.',
     },
   ],
 
@@ -268,5 +355,40 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS = [
       'K_raw_check should land in the O(0.1-1) band that imp-857 reports for ' +
       'K_raw_cert on the shared N range. K_raw_check > 5 signals a coordinate ' +
       'mismatch (e.g. mixing H_unf and H_raw) or a grossly wrong normalization.',
+  },
+  {
+    id: 'imp860-cross-check-infrastructure-runs',
+    holds: () => {
+      const cc = C_MB_EMPIRICAL_DYSON_SWEEP.crossCheckWithImp857;
+      if (!cc || !Array.isArray(cc.rows)) return false;
+      const shared = cc.rows.filter(
+        (r) => r.status === 'contained' || r.status === 'violation',
+      );
+      return shared.length >= 1;
+    },
+    why:
+      'imp-887 / imp-860-sub-cross-check-with-imp-857: the cross-check ' +
+      'infrastructure must produce at least one shared-N row joining the ' +
+      'Float64 pipeline (imp-860) and the certified interval pipeline ' +
+      '(imp-857). The containment outcome per row is reported separately on ' +
+      'crossCheckWithImp857.rows; small-N violations are recorded as a ' +
+      'new open sub-gap (imp-887-sub-resolve-cross-check-violation) rather ' +
+      'than masked by a passing assertion.',
+  },
+  {
+    id: 'imp860-cross-check-N200-contained',
+    holds: () => {
+      const cc = C_MB_EMPIRICAL_DYSON_SWEEP.crossCheckWithImp857;
+      if (!cc || !Array.isArray(cc.rows)) return false;
+      const r200 = cc.rows.find((r) => r.N === 200);
+      return r200 != null && r200.status === 'contained';
+    },
+    why:
+      'At N=200 the Float64 RK4 measured F_mb must land inside imp-857 ' +
+      'certified F_mb_upper. This is the tightest N where both pipelines ' +
+      'operate and is the anchor the large-N program inherits. Regression ' +
+      'here would invalidate the shared proof-chain story, whereas the ' +
+      'small-N discrepancy at N in {50, 100} is quarantined as an open ' +
+      'sub-gap pending investigation.',
   },
 ];

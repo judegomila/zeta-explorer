@@ -11178,6 +11178,20 @@ export const IMPROVEMENT_QUEUE = [
     estimatedModel: 'opus-4-6',
     estimatedChannel: 'subscription',
   },
+  {
+    id: 'imp-899',
+    title: "imp-857-baseline-extend-5k-10k: complete N=5000, N=10000 rows of the baseline sweep",
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S10',
+    description: "src/data/imp-857-baseline-sweep-result.js recorded closures for N=1000 (maxW=3.36e-8) and N=2000 (maxW=2.52e-10), disproving the imp-857 premise that the one-ULP interval RK4 blows up at N >= 1000. Process was killed at ~43 min before N=5000 and N=10000 finished. Run src/math/imp-857-baseline-scaling-N10k.mjs to completion (likely 20-30 min for N=5000, 2-5 min for N=10000 because collision is ~2 steps). Record the two remaining rows in the data module. If both close, imp-857 and imp-857-sub-scale-to-N10k can flip to CLOSED: the full {1000, 2000, 5000, 10000} range is interval-certified without any new backend. Deliverable: updated src/data/imp-857-baseline-sweep-result.js with 4 closed rows and a verdict field that triggers imp-857 status flip.",
+    rationale: 'Direct path to closing the last finite-N gap in imp-857. No new infrastructure required; just run the existing integrator with the 1M-zero table on two more N values.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+    estimatedModel: 'opus-4-6',
+    estimatedChannel: 'subscription',
+  },
 
     {
     id: 'imp-442',

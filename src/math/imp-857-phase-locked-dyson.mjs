@@ -233,8 +233,11 @@ const nSteps = Number(process.env.IMP857_NSTEPS ?? 200);
 const initial = ZEROS_EXTENDED.slice(0, N);
 const meanGap = (initial[N - 1] - initial[0]) / (N - 1);
 const rhoMean = 1 / meanGap;
-const k0 = Math.PI;
-const omega = k0 * Math.PI * rhoMean; // phase velocity ω/k₀ = π·ρ_mean
+// IMP857_K0 and IMP857_PHASEVEL env vars let imp-894 sweep the resonance
+// grid without editing this file; defaults match the N=500 prototype.
+const k0 = Number(process.env.IMP857_K0 ?? Math.PI);
+const phaseVel = Number(process.env.IMP857_PHASEVEL ?? (Math.PI * rhoMean));
+const omega = k0 * phaseVel;
 
 console.log(
   `N=${N}  dt=${dt}  nSteps=${nSteps}  meanGap=${meanGap.toFixed(6)}  ` +

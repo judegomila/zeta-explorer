@@ -78,6 +78,9 @@ const MATH_MODULES = [
   '/src/math/imp-857-commutator-bound.js',
 ];
 
+// ── Data module registrations for imp-857 baseline sweep result. ──
+// (Kept local to the change in case the top-level list becomes stale.)
+
 const DATA_MODULES = [
   '/src/data/lambda-N1e6-final-assembly.js',
   '/src/data/lambda-N1e6-unconditional-beat.js',
@@ -103,6 +106,8 @@ const DATA_MODULES = [
   '/src/data/sota-lambda-claim.js',
   // imp-872: imp-833 PATH 1 empirical sweep extended to N=100k.
   '/src/data/empirical-m-sweep-extended.js',
+  // imp-857-baseline-sweep-partial: disproves "blow-up at N>=1000" premise.
+  '/src/data/imp-857-baseline-sweep-result.js',
 ];
 
 const ALL_MODULES = FAST_MODE

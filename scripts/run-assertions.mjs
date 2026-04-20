@@ -76,6 +76,8 @@ const MATH_MODULES = [
   // imp-857 alt-path: phased-forcing proof-path memo + commutator bound.
   '/src/math/imp-857-phased-forcing-memo.js',
   '/src/math/imp-857-commutator-bound.js',
+  // imp-857 GUE-elimination pathway — merges imp-362 + imp-899 rows.
+  '/src/math/imp-857-gue-elimination.js',
 ];
 
 // ── Data module registrations for imp-857 baseline sweep result. ──

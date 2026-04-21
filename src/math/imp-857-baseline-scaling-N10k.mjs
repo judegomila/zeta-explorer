@@ -130,18 +130,22 @@ const SWEEP = [
   { N: 10000, dt: 1e-5, maxSteps: 50 },
 ];
 
-console.log('imp-857-sub-scale-to-N10k  baseline retest  (pure ε=0 interval RK4)');
-console.log('-----------------------------------------------------------------------');
+function log(msg) {
+  process.stdout.write(msg + '\n');
+}
+
+log('imp-857-sub-scale-to-N10k  baseline retest  (pure ε=0 interval RK4)');
+log('-----------------------------------------------------------------------');
 
 for (const cfg of SWEEP) {
   const mg = minGap(ZEROS_EXTENDED, cfg.N);
   const tcPair = (mg * mg) / 8;
-  console.log(
+  log(
     `N=${cfg.N}  minGap=${mg.toFixed(6)}  t_c_pair=${tcPair.toExponential(3)}  ` +
     `dt=${cfg.dt}  maxSteps=${cfg.maxSteps}`,
   );
   const t0 = Date.now();
   const result = runBaseline(cfg.N, cfg.dt, cfg.maxSteps);
   const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
-  console.log(`  result: ${JSON.stringify(result)}  (${elapsed}s)`);
+  log(`  result: ${JSON.stringify(result)}  (${elapsed}s)`);
 }

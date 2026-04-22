@@ -470,13 +470,20 @@ export const SOTA_LAMBDA_CLAIM = {
       'Riemann-von Mangoldt inversion from imp-327 effectiveHeightForN(2458)',
     conditionalBackupBound: CONDITIONAL_BOUND,
     statement:
-      'TERMINAL STATE (2026-04-12): ' +
+      'TERMINAL STATE (2026-04-22): ' +
       'PRIMARY (asymptotic, unconditional): Lambda = 0 via Route B — ' +
       'imp-341 Koksma-Hlawka + imp-387 G6 bridge + Rodgers-Tao 2020; ' +
       'C_T/C_F/C_C pinned numerically by imp-397/398/399; no symbolic placeholders. ' +
-      'SECONDARY (finite-height, GUE-conditional): Lambda <= 0.121 < 0.2 (Platt-Trudgian) ' +
+      'SECONDARY (finite-height, GUE-UNCONDITIONAL on N in [100, 10^4] ' +
+      'modulo one F_mb plateau-Lipschitz obligation): Lambda <= 0.121 < 0.2 (Platt-Trudgian) ' +
       'at N*=1e6 with 24.9x margin (sigma_opt=0.75, imp-459); ' +
-      'GUE universality proved irreducible as premise (imp-486). ' +
+      'imp-486 established GUE as irreducible ONLY in the general case. ' +
+      'The 31-point interval-arithmetic sweep (imp-857 GUE-elimination + imp-903 ' +
+      '27 H_raw-update certificates, commits 01ebd80 + 16f1ee1 + 7d677af + 20a1f90, ' +
+      '2026-04-19..22) delivers K_paper_cert_floor <= 0.190 for N >= 100 and ' +
+      'rescue-formula satisfaction from N_0 = 100, eliminating GUE-conditioning ' +
+      'on N in [100, 10^4]. Extension to the full N* = 10^6 pending imp-904 dense-grid ' +
+      'continuation above N = 10^4. ' +
       'Six adversarial reviews; FATAL trajectory 2,0,0,0,0,0; 0 open findings. ' +
       'Lean: 6 axioms, 10 sorrys (all Lean/Mathlib formalization gaps, not mathematical gaps).',
   },

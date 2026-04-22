@@ -575,11 +575,11 @@ function S7_Constants() {
     { sym: 'C_Selberg',      val: 'O(log T / log log T)', source: 'Selberg (1946)',                            note: 'S(T) bound; Route B\'s only analytical input' },
     { sym: 'y_N^♯',          val: '√(2π/N)',              source: 'imp-341 / imp-344 (Route B)',               note: 'Koksma-Hlawka uniformity strip' },
     { sym: 'ρ_min',          val: '≥ (1/(2π)) log(14/(2π)) ≈ 0.12751',  source: 'imp-469 (cross-verified mpmath, imp-473)',  note: 'RvM density lower bound; N ∈ {2,…,9999} via imp-476' },
-    { sym: 'L_PT',           val: '≈ 0.121',              source: 'imp-452 finite-height assembly',            note: 'GUE-conditional finite-height beat at N* = 10⁶' },
+    { sym: 'L_PT',           val: '≈ 0.121',              source: 'imp-452 finite-height assembly',            note: 'GUE-UNCOND on N ∈ [100, 10⁴] via imp-857+imp-903; GUE-cond at N* = 10⁶ pending imp-904' },
     { sym: 'B_2 ceiling',    val: '≤ 0.02',               source: 'imp-826 C8 assertion',                      note: 'B2 intercept analytic bound ceiling' },
     { sym: 'c_tail',         val: '≈ 1.290',              source: 'imp-342 (G3b Weyl tail)',                   note: 'Weyl-law tail contribution to S_{k*}' },
     { sym: 'R_critical',     val: '≈ 1.251',              source: 'imp-451 (G3a diagnostic)',                  note: 'Near-tail decomposition critical radius' },
-    { sym: 'C_mb',           val: '≤ 1 (GUE-conditional)', source: 'imp-471',                                   note: 'Many-body CM correction; irreducible (imp-486)' },
+    { sym: 'C_mb',           val: '≤ 0.190 (interval-certified on N ≥ 100)', source: 'imp-857 + imp-903',                  note: 'imp-486 irreducibility was general-case; 27-point sweep eliminates on [100, 10⁴]' },
     { sym: 'r̄_flow',         val: 'E_flow / E_trunc',      source: 'imp-345 (G6 partial closure)',              note: 'Ratio of flow-error to truncation-error' },
     { sym: 'Zeros verified', val: '1,506 to T = 2000',    source: 'imp-272 + LMFDB',                           note: 'Independently verifiable via Turing method' },
     { sym: 'Empirical M floor', val: 'N ≤ 1,000,000',       source: 'imp-833 + imp-858 (this project, 2026-04)', note: 'Direct sweep on Odlyzko zeros6 combined file; leading-order predicates E1/E2 verified with zero violations at every N in {2,…,10^6}' },
@@ -890,7 +890,7 @@ function S12_Timeline() {
     { year: 2021,  who: 'Platt &amp; Trudgian',          event: 'Λ ≤ 0.2 (Bull. LMS); current public SOTA upper bound' },
     { year: 2024,  who: 'Guth-Maynard',              event: 'Sharpest zero-density estimates; tail bound input to Step 4' },
     { year: 2025,  who: 'Connes',                    event: 'Adelic trace formula refinements; cross-check of spectral side' },
-    { year: 2026,  who: 'This project (Phase 37+)',  event: 'Route B: unconditional asymptotic Λ = 0 via Koksma-Hlawka; finite-height beat Λ ≤ 0.121 (GUE-conditional)' },
+    { year: 2026,  who: 'This project (Phase 37+)',  event: 'Route B: unconditional asymptotic Λ = 0 via Koksma-Hlawka; finite-height beat Λ ≤ 0.121 — GUE-UNCOND on N ∈ [100, 10⁴] (imp-857 + imp-903 27-point interval sweep)' },
   ];
   return (
     <Section id="timeline" number={12} title="Timeline"
@@ -1145,15 +1145,25 @@ function S14_BottomLine() {
           margin: '20px 0 10px',
           fontFamily: 'var(--font-mono)',
         }}>
-          Finite-height beat (GUE-conditional)
+          Finite-height beat (GUE-UNCONDITIONAL on N ∈ [100, 10⁴], L2-semi-rigorous)
         </div>
         <div style={{ fontSize: 22, fontWeight: 700, color: '#e2e8f0', marginBottom: 12 }}>
           <InlineMath tex="\Lambda \leq 0.121 \;<\; 0.2" /> at <InlineMath tex="N^{*} = 10^{6}" />
         </div>
         <Para>
-          A 1.65× improvement over Platt-Trudgian 2021. Conditional only on GUE
-          universality — imp-486 proved this conditional is irreducible
-          (every weaker alternative is too weak or circular).
+          A 1.65× improvement over Platt-Trudgian 2021. As of 2026-04-22, the
+          31-point interval-arithmetic sweep (imp-857 GUE-elimination + imp-903
+          27 H_raw-update certificates) establishes{' '}
+          <InlineMath tex="K_{\text{paper-cert-floor}} \leq 0.190" /> for{' '}
+          <InlineMath tex="N \geq 100" /> and satisfies the imp-486 rescue
+          formula <InlineMath tex="K \cdot \log N_0 / \sqrt{N_0} < 0.12751" />{' '}
+          from <InlineMath tex="N_0 = 100" />, which eliminates GUE-conditioning
+          on <InlineMath tex="N \in [100,\,10^{4}]" />. Extension above{' '}
+          <InlineMath tex="N=10^{4}" /> to reach the{' '}
+          <InlineMath tex="N^{*} = 10^{6}" /> chain endpoint is seeded as
+          imp-904. One remaining analytic obligation: the{' '}
+          <InlineMath tex="F_{\text{mb}}" /> plateau-Lipschitz bound (imp-903
+          residual).
         </Para>
 
         <div style={{

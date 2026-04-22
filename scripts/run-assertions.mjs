@@ -78,6 +78,8 @@ const MATH_MODULES = [
   '/src/math/imp-857-commutator-bound.js',
   // imp-857 GUE-elimination pathway — merges imp-362 + imp-899 rows.
   '/src/math/imp-857-gue-elimination.js',
+  // imp-903: uniform-K-bound structural reduction (27 H_raw plateaus).
+  '/src/math/imp-857-uniform-K-bound.js',
 ];
 
 // ── Data module registrations for imp-857 baseline sweep result. ──

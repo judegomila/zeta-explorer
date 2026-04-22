@@ -112,6 +112,8 @@ const DATA_MODULES = [
   '/src/data/empirical-m-sweep-extended.js',
   // imp-857-baseline-sweep-partial: disproves "blow-up at N>=1000" premise.
   '/src/data/imp-857-baseline-sweep-result.js',
+  // imp-903 27-point H_raw-update sweep: rescue satisfied from N_0 = 100.
+  '/src/data/imp-903-uniform-sweep-result.js',
 ];
 
 const ALL_MODULES = FAST_MODE

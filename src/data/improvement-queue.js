@@ -11024,12 +11024,31 @@ export const IMPROVEMENT_QUEUE = [
     title: "Cross-verify information-theory.js: independent check of key computations",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: "Read src/math/information-theory.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-23T22:55:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    resolution:
+      'PARTIAL (honest). Delivered src/data/imp-888-info-theory-verification.js. ' +
+      'Hand-derived closed-form Shannon entropy reference for s=[1, 0], ' +
+      'numPrimes=2: H = 0.942683189255491 bits from p=[0.64, 0.36] — library ' +
+      'agrees at machine precision (< 1e-14 rel err). KL divergence at the ' +
+      'equilibrium s=[0.5, 0] = 0 exactly (both distributions bit-identical). ' +
+      'maxEntropy = log2(n) at n=8 exactly = 3. Edge-case NaN/Inf smoke tests ' +
+      'at sigma in {10, 0.05}, Fisher off-critical (s=[0.7, 14.134]), capacity ' +
+      'at first zero all pass. FINDING (sub-gap imp-888-sub-docstring-' +
+      'efficiency-claim): the file-header claim that sigma=1/2 maximizes ' +
+      'entropy efficiency is numerically FALSE — spot checks at numPrimes=3 ' +
+      'give efficiency(0.5)=0.88 < efficiency(1)=0.93 < efficiency(2)=0.98. ' +
+      'efficiency is monotonically increasing in sigma on [0.1, 2.0] because ' +
+      'every Euler factor tends to 1 at large sigma (distribution -> uniform). ' +
+      'Remaining sub-gap imp-888-sub-remaining-quantities covers full reference ' +
+      'derivations for fisherInformation, channelCapacity, and mutualInformation ' +
+      '(currently smoke-tested only).',
   },
   {
     id: 'imp-889',

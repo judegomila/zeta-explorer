@@ -80,6 +80,8 @@ const MATH_MODULES = [
   '/src/math/imp-857-gue-elimination.js',
   // imp-903: uniform-K-bound structural reduction (27 H_raw plateaus).
   '/src/math/imp-857-uniform-K-bound.js',
+  // imp-911: formal Lipschitz bound on plateau F_mb growth (step 3 upgrade).
+  '/src/math/imp-903-F-mb-plateau-lipschitz-proof.js',
 ];
 
 // ── Data module registrations for imp-857 baseline sweep result. ──

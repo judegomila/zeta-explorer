@@ -63,7 +63,7 @@ export const IMP_857_BASELINE_SWEEP_RESULT = Object.freeze({
       t_c_hi: 0.0034,
       collisionWidth: 1e-4,
       maxIntervalWidth: 3.359e-8,
-      reason: 'gap-lower-bound-nonpositive',
+      why: 'gap-lower-bound-nonpositive',
       runtimeSeconds: 155.1,
       closed: true,
     },
@@ -77,7 +77,7 @@ export const IMP_857_BASELINE_SWEEP_RESULT = Object.freeze({
       t_c_hi: 0.0012,
       collisionWidth: 1e-4,
       maxIntervalWidth: 2.519e-10,
-      reason: 'gap-lower-bound-nonpositive',
+      why: 'gap-lower-bound-nonpositive',
       runtimeSeconds: 218.8,
       closed: true,
     },
@@ -92,7 +92,7 @@ export const IMP_857_BASELINE_SWEEP_RESULT = Object.freeze({
       collisionWidth: 1e-4,
       maxIntervalWidth: 1.664e-10,
       minGapLoAtCollision: -0.01572,
-      reason: 'gap-lower-bound-nonpositive',
+      why: 'gap-lower-bound-nonpositive',
       runtimeSeconds: 330.5,
       closed: true,
     },
@@ -107,7 +107,7 @@ export const IMP_857_BASELINE_SWEEP_RESULT = Object.freeze({
       collisionWidth: 1e-4,
       maxIntervalWidth: 1.276e-9,
       minGapLoAtCollision: -0.01925,
-      reason: 'gap-lower-bound-nonpositive',
+      why: 'gap-lower-bound-nonpositive',
       runtimeSeconds: 1327.1,
       closed: true,
     },
@@ -128,17 +128,17 @@ export const IMP_857_BASELINE_SWEEP_RESULT = Object.freeze({
 export const IMP_857_BASELINE_SWEEP_ASSERTIONS = [
   {
     id: 'imp857-baseline-closes-at-1000',
-    check: () => {
+    holds: () => {
       const row = IMP_857_BASELINE_SWEEP_RESULT.rows.find((r) => r.N === 1000);
       return row && row.closed === true && row.maxIntervalWidth < 1e-7;
     },
-    reason:
+    why:
       'N=1000 baseline must close the bracket with maxIntervalWidth < 1e-7 ' +
       '(disproves the imp-857 "blow-up at N>=1000" premise).',
   },
   {
     id: 'imp857-baseline-shrinks-at-2000',
-    check: () => {
+    holds: () => {
       const r1 = IMP_857_BASELINE_SWEEP_RESULT.rows.find((r) => r.N === 1000);
       const r2 = IMP_857_BASELINE_SWEEP_RESULT.rows.find((r) => r.N === 2000);
       return (
@@ -149,14 +149,14 @@ export const IMP_857_BASELINE_SWEEP_ASSERTIONS = [
         r2.maxIntervalWidth < r1.maxIntervalWidth
       );
     },
-    reason:
+    why:
       'N=2000 wrapper width must be strictly smaller than N=1000 wrapper ' +
       'width — confirms the "wrapper shrinks at larger N because fewer ' +
       'steps reach collision" mechanism.',
   },
   {
     id: 'imp857-baseline-closes-at-5000-and-10000',
-    check: () => {
+    holds: () => {
       const r5 = IMP_857_BASELINE_SWEEP_RESULT.rows.find((r) => r.N === 5000);
       const r10 = IMP_857_BASELINE_SWEEP_RESULT.rows.find((r) => r.N === 10000);
       return (
@@ -168,7 +168,7 @@ export const IMP_857_BASELINE_SWEEP_ASSERTIONS = [
         r10.maxIntervalWidth < 1e-8
       );
     },
-    reason:
+    why:
       'N=5000 and N=10000 baseline brackets must close with ' +
       'maxIntervalWidth < 1e-8. Closing the full {1000, 2000, 5000, 10000} ' +
       'range without a directed-rounding backend retires the imp-857 ' +
@@ -176,24 +176,24 @@ export const IMP_857_BASELINE_SWEEP_ASSERTIONS = [
   },
   {
     id: 'imp857-baseline-widest-under-heuristic',
-    check: () => {
+    holds: () => {
       const widest = Math.max(
         ...IMP_857_BASELINE_SWEEP_RESULT.rows.map((r) => r.maxIntervalWidth),
       );
       return widest < 1e-7;
     },
-    reason:
+    why:
       'Widest wrapper width across the full sweep must stay under 1e-7 ' +
       '(5 orders of magnitude below the 0.01 heuristic).',
   },
   {
     id: 'imp857-baseline-premise-disproved',
-    check: () =>
+    holds: () =>
       IMP_857_BASELINE_SWEEP_RESULT.headlineFindings.imp857OriginalPremiseDisproved ===
         true &&
       IMP_857_BASELINE_SWEEP_RESULT.headlineFindings.imp857SubScaleToN10kFullyClosed ===
         true,
-    reason:
+    why:
       'The sweep must be recorded as disproving the imp-857 ' +
       '"blow-up at N>=1000" premise AND as fully closing the ' +
       'imp-857-sub-scale-to-N10k sub-gap on the {1000..10000} range.',

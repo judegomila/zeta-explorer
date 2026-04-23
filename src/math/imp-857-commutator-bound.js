@@ -231,22 +231,22 @@ export const IMP_857_COMMUTATOR_BOUND = Object.freeze({
 export const IMP_857_COMMUTATOR_BOUND_ASSERTIONS = [
   {
     id: 'imp892-status-proven',
-    check: () => IMP_857_COMMUTATOR_BOUND.status === 'proven',
-    reason: 'The commutator bound must be marked proven (pair + many-body cases both closed).',
+    holds: () => IMP_857_COMMUTATOR_BOUND.status === 'proven',
+    why: 'The commutator bound must be marked proven (pair + many-body cases both closed).',
   },
   {
     id: 'imp892-C-tau-universal',
-    check: () =>
+    holds: () =>
       IMP_857_COMMUTATOR_BOUND.statement.constants.C_tau === 0.25 &&
       IMP_857_COMMUTATOR_BOUND.statement.constants.universalInN === true,
-    reason: 'The constant C_τ must be 1/4 and independent of N, otherwise the many-body scaling argument does not close.',
+    why: 'The constant C_τ must be 1/4 and independent of N, otherwise the many-body scaling argument does not close.',
   },
   {
     id: 'imp892-numerical-consistency',
-    check: () =>
+    holds: () =>
       IMP_857_COMMUTATOR_BOUND.numericalConsistency.N === 500 &&
       IMP_857_COMMUTATOR_BOUND.numericalConsistency.predictedShift.includes('O(ε)'),
-    reason:
+    why:
       'The N = 500 prototype must confirm O(ε) collision-time shift (observed: 4% at ε=0.01, 7% at ε=0.05) — this is the numerical anchor for the analytic bound.',
   },
 ];

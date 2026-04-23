@@ -104,33 +104,33 @@ export const IMP_903_UNIFORM_SWEEP_RESULT = Object.freeze({
 export const IMP_903_UNIFORM_SWEEP_ASSERTIONS = [
   {
     id: 'imp903-sweep-at-least-23-closed',
-    check: () => IMP_903_UNIFORM_SWEEP_RESULT.closedRows >= 23,
-    reason:
+    holds: () => IMP_903_UNIFORM_SWEEP_RESULT.closedRows >= 23,
+    why:
       'At least 23 of 27 H_raw-update N values must close a backward- ' +
       'collision bracket. Fewer means the sweep had a regression.',
   },
   {
     id: 'imp903-rescue-satisfied-from-100',
-    check: () =>
+    holds: () =>
       IMP_903_UNIFORM_SWEEP_RESULT.headline.rescueSatisfiedFromN0 !== null &&
       IMP_903_UNIFORM_SWEEP_RESULT.headline.rescueSatisfiedFromN0 <= 100,
-    reason:
+    why:
       'The imp-486 rescue formula must be satisfied starting from N_0 ≤ ' +
       '100 — the key empirical claim that unblocks L2 uniform bound.',
   },
   {
     id: 'imp903-widest-wrapper-under-heuristic',
-    check: () => IMP_903_UNIFORM_SWEEP_RESULT.widestMaxIntervalWidth < 1e-5,
-    reason:
+    holds: () => IMP_903_UNIFORM_SWEEP_RESULT.widestMaxIntervalWidth < 1e-5,
+    why:
       'Widest wrapper across the sweep must stay under 10⁻⁵ (3 orders of ' +
       'magnitude below the 0.01 heuristic).',
   },
   {
     id: 'imp903-K-above-500-tiny',
-    check: () =>
+    holds: () =>
       IMP_903_UNIFORM_SWEEP_RESULT.headline
         .K_paper_cert_floor_max_above_500 < 0.02,
-    reason:
+    why:
       'K_paper_cert_floor_max for N ≥ 500 must be < 0.02 (gives >6× rescue ' +
       'safety margin at N_0 = 500).',
   },

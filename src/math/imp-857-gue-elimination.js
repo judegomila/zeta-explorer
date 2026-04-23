@@ -278,45 +278,45 @@ export const IMP_857_GUE_ELIMINATION = Object.freeze({
 export const IMP_857_GUE_ELIMINATION_ASSERTIONS = [
   {
     id: 'imp857-gue-elim-at-least-8-certified',
-    check: () => IMP_857_GUE_ELIMINATION.headline.nCertifiedNs >= 8,
-    reason:
+    holds: () => IMP_857_GUE_ELIMINATION.headline.nCertifiedNs >= 8,
+    why:
       'The merged sweep must certify at least 8 N values (4 from imp-362 ' +
       'witness + 4 from imp-899 baseline sweep). Fewer means either imp-362 ' +
       'or imp-899 has regressed.',
   },
   {
     id: 'imp857-gue-elim-K-paper-below-one',
-    check: () => IMP_857_GUE_ELIMINATION.headline.K_paper_max_floor < 1,
-    reason:
+    holds: () => IMP_857_GUE_ELIMINATION.headline.K_paper_max_floor < 1,
+    why:
       'K_paper_max_floor (paper-normalized certified upper bound on C_mb) ' +
       'must be < 1 over the full 8-N range. Above 1 would mean the rescue ' +
       'formula cannot even trivially close.',
   },
   {
     id: 'imp857-gue-elim-point-certification-eliminates-gue',
-    check: () =>
+    holds: () =>
       IMP_857_GUE_ELIMINATION.unconditionalClaim.atSampledN.status ===
       'ELIMINATED',
-    reason:
+    why:
       'At each sampled N the point bound must be marked ELIMINATED (GUE ' +
       'dropped) since the certificate uses no GUE input. This is the L1 ' +
       'headline finding.',
   },
   {
     id: 'imp857-gue-elim-N-range-covers-10k',
-    check: () => IMP_857_GUE_ELIMINATION.headline.N_range.max === 10000,
-    reason:
+    holds: () => IMP_857_GUE_ELIMINATION.headline.N_range.max === 10000,
+    why:
       'The maximum certified N must reach 10000. Falling below 10000 means ' +
       'the imp-899 baseline sweep did not reach its target range.',
   },
   {
     id: 'imp857-gue-elim-uniform-gap-named',
-    check: () =>
+    holds: () =>
       IMP_857_GUE_ELIMINATION.unconditionalClaim.uniformOnRange.status ===
         'OPEN' &&
       IMP_857_GUE_ELIMINATION.unconditionalClaim.uniformOnRange.blocker ===
         'imp-857-sub-uniform-K-bound',
-    reason:
+    why:
       'The uniform bound gap (L1 → L2 promotion blocker) must be named and ' +
       'open. Hiding it would overclaim unconditionality.',
   },

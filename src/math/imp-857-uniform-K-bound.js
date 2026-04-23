@@ -203,26 +203,26 @@ export const IMP_857_UNIFORM_K_BOUND = Object.freeze({
 export const IMP_857_UNIFORM_K_BOUND_ASSERTIONS = [
   {
     id: 'imp903-hraw-updates-equal-27',
-    check: () => IMP_857_UNIFORM_K_BOUND.nHrawUpdates === 27,
-    reason:
+    holds: () => IMP_857_UNIFORM_K_BOUND.nHrawUpdates === 27,
+    why:
       'The H_raw sequence on the first 10⁴ zeros must have exactly 27 ' +
       'decreasing updates. Deviation indicates the zeros table changed or ' +
       'the H_raw scan has a bug.',
   },
   {
     id: 'imp903-plateau-coverage-at-least-8-sampled',
-    check: () =>
+    holds: () =>
       IMP_857_UNIFORM_K_BOUND.l1Coverage.coveredPlateauCount >= 1 &&
       IMP_857_UNIFORM_K_BOUND.l1Coverage.sampledN.length === 8,
-    reason:
+    why:
       'The 8 L1 sample N values must cover at least one of the 27 ' +
       'plateaus for the reduction to provide immediate value. Fewer ' +
       'than 8 samples means the L1 sweep data is missing.',
   },
   {
     id: 'imp903-reduction-rigorous',
-    check: () => IMP_857_UNIFORM_K_BOUND.structuralReduction.rigorous === true,
-    reason:
+    holds: () => IMP_857_UNIFORM_K_BOUND.structuralReduction.rigorous === true,
+    why:
       'The reduction from "uniform K bound" to "27 point certificates + ' +
       'smoothness argument" is the rigorous content of this module. ' +
       'Flipping this to false without documenting a reviewed counterexample ' +
@@ -230,9 +230,9 @@ export const IMP_857_UNIFORM_K_BOUND_ASSERTIONS = [
   },
   {
     id: 'imp903-blocker-named',
-    check: () =>
+    holds: () =>
       IMP_857_UNIFORM_K_BOUND.blocker.id === 'imp-903-sub-sweep-27-updates',
-    reason:
+    why:
       'The remaining work (27 interval-RK4 certificates) must be named as ' +
       'an open sub-gap so a successor ticket can pick it up.',
   },

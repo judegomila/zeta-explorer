@@ -221,11 +221,11 @@ export const IMP_857_PHASED_FORCING_MEMO = Object.freeze({
 export const IMP_857_PHASED_FORCING_MEMO_ASSERTIONS = [
   {
     id: 'imp857-phased-forcing-memo-well-formed',
-    check: () =>
+    holds: () =>
       IMP_857_PHASED_FORCING_MEMO.status === 'proposal' &&
       Array.isArray(IMP_857_PHASED_FORCING_MEMO.openProofObligations) &&
       IMP_857_PHASED_FORCING_MEMO.openProofObligations.length === 3,
-    reason:
+    why:
       'imp-857 phased-forcing memo must declare its three open proof obligations ' +
       '(commutator bound, resonance tuning, twin-ladder symmetry).',
   },

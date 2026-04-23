@@ -82,6 +82,9 @@ const MATH_MODULES = [
   '/src/math/imp-857-uniform-K-bound.js',
   // imp-911: formal Lipschitz bound on plateau F_mb growth (step 3 upgrade).
   '/src/math/imp-903-F-mb-plateau-lipschitz-proof.js',
+  // imp-897: Richardson-extrapolated certified C_mb_empirical interval bound
+  // from the phased-forcing grid, closed against the imp-892 residual.
+  '/src/math/imp-857-phased-forcing-richardson.js',
 ];
 
 // ── Data module registrations for imp-857 baseline sweep result. ──

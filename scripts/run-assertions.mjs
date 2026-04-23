@@ -85,6 +85,9 @@ const MATH_MODULES = [
   // imp-897: Richardson-extrapolated certified C_mb_empirical interval bound
   // from the phased-forcing grid, closed against the imp-892 residual.
   '/src/math/imp-857-phased-forcing-richardson.js',
+  // imp-899 HONEST PARTIAL: bilinear linear-response fit + saddle-point
+  // analysis of the imp-894 2x2 pilot (nSteps=30 regime only).
+  '/src/math/imp-899-linear-response-bilinear-fit.js',
 ];
 
 // ── Data module registrations for imp-857 baseline sweep result. ──

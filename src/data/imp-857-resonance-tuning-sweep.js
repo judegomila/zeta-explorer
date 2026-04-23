@@ -45,7 +45,7 @@
  * At N = 500, nSteps = 30, the predicted drift-Jacobian eigenmode
  *   k0* = 2*pi / min_gap(N=500) ~ 20.24
  * at the prototype phase velocity
- *   omega*/k0* = pi * rho_mean(N=500) ~ 1.97
+ *   omega(star) / k0(star) = pi * rho_mean(N=500) ~ 1.97
  * gives the MINIMUM reduction ratio in the pilot grid (0.955 at eps =
  * 0.01, i.e. 5% wrapper-width reduction in the linearised regime).
  * The prototype corner (k0 = pi, phaseVel = pi*rho_mean) AMPLIFIES

@@ -44,6 +44,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -567,6 +568,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-variance-json') out.batchPlanCostTripleVarianceJson = true;
     else if (a === '--batch-plan-cost-triple-geomean') out.batchPlanCostTripleGeomean = true;
     else if (a === '--batch-plan-cost-triple-geomean-json') out.batchPlanCostTripleGeomeanJson = true;
+    else if (a === '--batch-plan-cost-triple-harmean') out.batchPlanCostTripleHarmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -626,6 +628,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2030,6 +2033,54 @@ if (args.batchPlanCostTripleGeomeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleHarmean) {
+  // Shell data emitter: surface the harmonic mean wall-time across the
+  // known-wallSec rows of BATCH_PLAN as the third Pythagorean-mean sibling
+  // alongside --batch-plan-cost-triple-mean (arithmetic, partial-hhh) and
+  // --batch-plan-cost-triple-geomean (geometric, partial-ttt). The harmonic
+  // mean H = n / sum(1/x_i) is the reciprocal of the arithmetic mean of
+  // reciprocals; it is always bounded above by the geometric mean which is
+  // itself bounded above by the arithmetic mean (the AM-GM-HM inequality),
+  // so reporting all three gives the operator the full Pythagorean-mean
+  // ordering at a glance. The harmonic mean also carries a specific
+  // scheduling meaning distinct from arithmetic and geometric forms: when
+  // averaging rates (here, per-triple 1/wallSec throughputs), the harmonic
+  // mean of wall-times is the wall-time whose reciprocal is the arithmetic
+  // mean throughput, which is the right per-triple budget to use if the
+  // offline-worker schedule is throughput-bound rather than wall-time-bound.
+  // Reuses computeBatchPlanCost() (partial-vv helper) with zero new batch-
+  // plan logic; identical known-row filter (wallSec !== null) and a
+  // non-positive-guard (any known row with wallSec <= 0 would make the
+  // reciprocal sum diverge via 1/0 or produce a negative harmean via a
+  // negative reciprocal) matching the partial-ttt geomean guard. All-unknown
+  // or non-positive-wallSec degenerate case prints a dedicated "unknown"
+  // summary and exits 0 rather than dividing by zero, matching the partial-
+  // hhh / partial-ttt degenerate cadence. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Shell-only this partial; a
+  // --batch-plan-cost-triple-harmean-json analog can follow mirroring the
+  // shell-first / JSON-second cadence established across the whole
+  // cost-emitter family.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0 || known.some((r) => r.wallSec <= 0)) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple harmonic-mean wall-time: unknown (all triples have unknown N or a known triple has non-positive wallSec).',
+    );
+    process.exit(0);
+  }
+  const reciprocalSum = known.reduce((s, r) => s + 1 / r.wallSec, 0);
+  const harmeanSec = known.length / reciprocalSum;
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from harmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple harmonic-mean wall-time: ${harmeanSec.toFixed(0)} s (~${(harmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

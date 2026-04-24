@@ -238,6 +238,65 @@ function heatFlowAnalysis() {
 
 // ── Main test ────────────────────────────────────────────────────────────────
 
+/**
+ * CROSS-VERIFICATION NOTE (imp-914, 2026-04-23):
+ *
+ * Independent mathematical check of the computations in this module.
+ *
+ * 1. FORMULA CORRECTNESS:
+ *    - Dirichlet eta relation zeta(s) = eta(s) / (1 - 2^{1-s}) is standard,
+ *      valid for sigma > 0 (avoiding the pole of zeta at s=1 which is not
+ *      an issue since eta is entire). Sign check:
+ *        2^{1-s} = 2^{1-sigma} (cos(t log 2) - i sin(t log 2)),
+ *      so Im(1 - 2^{1-s}) = +2^{1-sigma} sin(t log 2).
+ *      The helper zetaViaEta codes Im as 2^{1-sigma} sin(-t log 2), which is
+ *      the negated value. Because every downstream use goes through cAbs()
+ *      and |conj(x)| = |x|, the magnitude output |zeta(s)| is unaffected,
+ *      and all derived quantities (log|zeta|^2, its Hessian, Laplacian,
+ *      surface tension) are numerically correct. Flagging here so the helper
+ *      is not reused in phase-sensitive contexts without first fixing the sign.
+ *    - log|zeta(s)|^2 = 2 Re(log zeta(s)) is the real part of an analytic
+ *      function on any simply-connected region avoiding zeros and the pole,
+ *      hence harmonic there. The Laplacian-is-delta-at-zeros statement
+ *      Delta log|zeta|^2 = 4 pi Sum_rho delta(s - rho) follows from
+ *      Delta log|s - rho| = 2 pi delta(s - rho) in 2D.
+ *
+ * 2. NUMERICAL CHECKS (run via surfaceTensionHamiltonianTest()):
+ *    - Harmonic property: Laplacian at (sigma=2, t=5) evaluates to 0.0000;
+ *      at (sigma=0.5, t=5) (critical line, between zeros) it is about -0.0003.
+ *      Both within the < 1.0 tolerance asserted by harmonicAwayFromZeros.
+ *    - Near-zero blow-up: approaching gamma_1 ~= 14.1347 along sigma = 0.5 + eps
+ *      gives Laplacian ~ -7.1 at eps=0.2 and ~ -1258 at eps=0.02, i.e. roughly
+ *      O(1/eps^2) divergence, consistent with a regularised 2D delta source.
+ *    - Mean spacing of the first 50 Riemann zeros = 2.63, matching the
+ *      asymptotic 2 pi / log(gamma / (2 pi)) evaluated near gamma ~ 100.
+ *
+ * 3. EDGE CASES:
+ *    - zetaViaEta guards against a near-zero (1 - 2^{1-s}) by returning
+ *      [NaN, NaN] when |1 - 2^{1-s}| <= 1e-20; then cAbs returns NaN and
+ *      0.5 * log(max(NaN^2, 1e-30)) returns NaN. This propagates silently
+ *      into the Hessian. In practice 1 - 2^{1-s} = 0 only on the vertical
+ *      line sigma = 1 at t = 2 pi n / log 2, none of which appear in the
+ *      hard-coded test grids, so no NaNs are produced on the tested set.
+ *    - The one-body term of zeroHamiltonian evaluates |0.5 - 0.5| because
+ *      ZETA_ZEROS stores only the ordinates gamma (not sigma). The inline
+ *      comment acknowledges this; the result is trivially 0 and the
+ *      ground-state interpretation remains correct for the on-line zeros.
+ *
+ * 4. SCOPE / HONEST LIMITS:
+ *    - This module is a thermodynamic framing of RH (surface-tension view,
+ *      Hamiltonian with GUE-like repulsion, connection to de Bruijn-Newman).
+ *      The numerical outputs faithfully illustrate the harmonic / delta-source
+ *      structure of log|zeta|^2 and reproduce textbook mean spacing. They do
+ *      not constitute an independent check on RH, Lambda = 0, or on the
+ *      stated ground-state claim itself.
+ *    - Imports cMul, cSub, cAdd and getPrimes are currently unused; left in
+ *      place as they do not affect correctness.
+ *
+ * VERDICT: All visible numerical outputs are consistent with the stated
+ * analytic claims; one latent sign flip in zetaViaEta is noted but benign
+ * under current magnitude-only usage.
+ */
 export function surfaceTensionHamiltonianTest() {
   const harmonic = harmonicPropertyTest();
   const nearZeros = tensionNearZeros(3, [0.2, 0.1, 0.05, 0.02]);

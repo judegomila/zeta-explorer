@@ -94,6 +94,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorvigintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinvigintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinvigintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexvigintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -667,6 +668,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-quattuorvigintmean-json') out.batchPlanCostTripleQuattuorvigintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-quinvigintmean') out.batchPlanCostTripleQuinvigintmean = true;
     else if (a === '--batch-plan-cost-triple-quinvigintmean-json') out.batchPlanCostTripleQuinvigintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-sexvigintmean') out.batchPlanCostTripleSexvigintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -776,6 +778,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorvigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinvigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinvigintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexvigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -5252,6 +5255,78 @@ if (args.batchPlanCostTripleQuinvigintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleSexvigintmean) {
+  // partial-ttttt: surface the BATCH_PLAN sexvigintic mean (p=26
+  // Kolmogorov power-mean) of per-triple wall-times as a one-line
+  // diagnostic, extending the Kolmogorov power-mean family from
+  // the already-paired twenty-six-tet {HM (p=-1), GM (p=0), AM (p=1),
+  // QM (p=2), CM (p=3), QUM (p=4), QIM (p=5), SXM (p=6), SPM (p=7),
+  // OCM (p=8), NPM (p=9), DCM (p=10), UDM (p=11), DUM (p=12),
+  // TRM (p=13), QDM (p=14), QIM15 (p=15), SDM (p=16), SPM17 (p=17),
+  // OCDM18 (p=18), NVDM19 (p=19), VGM20 (p=20), UVGM21 (p=21),
+  // DVGM22 (p=22), TVGM23 (p=23), QVGM24 (p=24), QIVGM25 (p=25)}
+  // upward to p=26 as partial-ttttt. Computed as SXVGM26 =
+  // (sum(x_i^26) / n)^(1/26) via Math.pow(s, 1/26); by the
+  // generalized power-mean inequality SXVGM26 dominates every lower-p
+  // sibling so the full monotone chain SXVGM26 >= QIVGM25 >= QVGM24
+  // >= TVGM23 >= DVGM22 >= UVGM21 >= VGM20 >= NVDM19 >= OCDM18
+  // >= SPM17 >= SDM >= QIM15 >= QDM >= TRM >= DUM >= UDM >= DCM
+  // >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >= QM >= AM
+  // >= GM >= HM now holds inline across all twenty-eight shell
+  // emitters. Handler uses the
+  // (((x^2)^2)^2)^2 * ((x^2)^2)^2 * (x^2) factorization
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  sexvigintSum += w16 * w8 * w2;)
+  // to avoid calling Math.pow in the inner reduce loop (26 = 16+8+2),
+  // extending the partial-ppppp quattuorvigintmean w16 * w8 (24 =
+  // 16+8) two-summand even-p decomposition by one trailing w2 factor
+  // to reach the next even exponent. This mirrors the partial-lllll
+  // duovigintmean w16*w4*w2 (22 = 16+4+2) three-summand even-p
+  // pattern at a higher magnitude: where duovigintmean uses the
+  // {16,4,2} partition, sexvigintmean uses the {16,8,2} partition,
+  // and both stay within the cached w2/w4/w8/w16 powers without
+  // re-multiplying wallSec directly. Even p=26 erases sign and
+  // wallSec values are strictly positive by construction so no sign
+  // guard is required (mirroring the partial-yyy / partial-cccc /
+  // partial-gggg / partial-kkkk / partial-oooo / partial-ssss /
+  // partial-wwww / partial-aaaaa / partial-eeeee / partial-iiiii /
+  // partial-mmmmm / partial-qqqqq even-p cadence). All-unknown
+  // degenerate case (known.length === 0) prints a dedicated
+  // "unknown" summary and exits 0 rather than (0/0)^(1/26) = NaN.
+  // Pure data emitter, exit 0 unconditionally (no validation gate),
+  // not wired into --preflight / --preflight-json. Shell-only this
+  // partial; the --batch-plan-cost-triple-sexvigintmean-json analog
+  // will be added in a later partial mirroring the shell-first /
+  // JSON-second cadence established across every other cost-emitter
+  // axis. Reuses computeBatchPlanCost() (partial-vv helper) with
+  // zero new batch-plan logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple sexvigintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const sexvigintSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    return s + w16 * w8 * w2;
+  }, 0);
+  const sexvigintmeanSec = Math.pow(sexvigintSum / known.length, 1 / 26);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from sexvigintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple sexvigintic-mean wall-time: ${sexvigintmeanSec.toFixed(0)} s (~${(sexvigintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

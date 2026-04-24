@@ -123,6 +123,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-nonatrigintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-nonatrigintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadragintmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadragintmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -725,6 +726,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-nonatrigintmean') out.batchPlanCostTripleNonatrigintmean = true;
     else if (a === '--batch-plan-cost-triple-nonatrigintmean-json') out.batchPlanCostTripleNonatrigintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-quadragintmean') out.batchPlanCostTripleQuadragintmean = true;
+    else if (a === '--batch-plan-cost-triple-quadragintmean-json') out.batchPlanCostTripleQuadragintmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -863,6 +865,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-nonatrigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-nonatrigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadragintmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadragintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -7403,6 +7406,85 @@ if (args.batchPlanCostTripleQuadragintmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple quadragintic-mean wall-time: ${quadragintmeanSec.toFixed(0)} s (~${(quadragintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleQuadragintmeanJson) {
+  // partial-wwwwww: structural JSON analog of
+  // --batch-plan-cost-triple-quadragintmean (p=40 Kolmogorov power-mean).
+  // Emits one object {quadragintmeanSec, quadragintmeanHours,
+  // knownCount, unknownCount} with quadragintmeanHours =
+  // quadragintmeanSec / 3600 (null when knownCount===0) so
+  // Python / jq offline-worker drivers can consume the p=40 power-mean
+  // central-tendency signal directly without re-parsing the one-line
+  // shell summary and without redoing the seconds-to-hours conversion,
+  // matching the precomputed-hours cadence established across every
+  // prior JSON cost-emitter. Reuses computeBatchPlanCost() (partial-vv
+  // helper) with zero new math; identical known-row filter
+  // (wallSec !== null) to the partial-vvvvvv shell form so the two
+  // flags cannot drift. Applies the same cached squaring chain
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  const w32 = w16 * w16; quadragintSum += w32 * w8;)
+  // as partial-vvvvvv for numerical-stability parity, avoiding
+  // Math.pow in the inner reduce loop (40 = 32+8, the cleanest
+  // two-summand {32,8}-partition factorization the cache admits at
+  // this even exponent, trimming the partial-uuuuuu nonatrigintmean-json
+  // w32 * w4 * w2 * r.wallSec (39 = 32+4+2+1) four-summand odd-p
+  // decomposition back to a compact two-summand form at the next even
+  // exponent) so the JSON and shell bodies agree bit-for-bit on
+  // IEEE-754 across Node versions, then
+  // quadragintmeanSec = Math.pow(quadragintSum / known.length, 1 / 40).
+  // Even p=40 erases sign and wallSec values are strictly positive by
+  // construction (wall-clock measurements) so no sign guard is
+  // required, mirroring the partial-yyy / partial-cccc / partial-gggg /
+  // partial-kkkk / partial-oooo / partial-ssss / partial-wwww /
+  // partial-aaaaa / partial-eeeee / partial-iiiii / partial-mmmmm /
+  // partial-qqqqq / partial-uuuuu / partial-yyyyy / partial-ccccccc /
+  // partial-eeeeee / partial-jjjjjj / partial-nnnnnn / partial-rrrrrr
+  // even-p JSON cadence.
+  // All-unknown degenerate case (known.length===0) emits
+  // {quadragintmeanSec: null, quadragintmeanHours: null,
+  //  knownCount: 0, unknownCount} and exits 0 without attempting
+  // (0/0)^(1/40) = NaN, matching the JSON degenerate cadence across
+  // every prior JSON power-mean emitter. Completes the {shell, JSON}
+  // pair for partial-vvvvvv and brings the Kolmogorov power-mean family
+  // at p in {-1, 0, 1..40} x {shell, JSON} to full shell/JSON parity at
+  // forty-two exponents (eighty-four emitters in total across the
+  // power-mean axis); the monotone ordering
+  // QGM40 >= NTGM39 >= OTGM38 >= HPTGM37 >= HTGM36 >= PTGM35 >= TTGM34
+  //   >= TRGM33 >= DTGM32 >= UTGM31 >= TGM30 >= NVGM29 >= OVGM28
+  //   >= SPVGM27 >= SXVGM26 >= QIVGM25 >= QVGM24 >= TVGM23 >= DVGM22
+  //   >= UVGM21 >= VGM20 >= NVDM19 >= OCDM18 >= SPM17 >= SDM >= QIM15
+  //   >= QDM >= TRM >= DUM >= UDM >= DCM >= NPM >= OCM >= SPM >= SXM
+  //   >= QIM >= QUM >= CM >= QM >= AM >= GM >= HM
+  // now holds at structural-JSON parity for offline-worker drivers
+  // gating the ~20 CPU-hour batch. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let quadragintmeanSec = null;
+  if (known.length > 0) {
+    const quadragintSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      const w16 = w8 * w8;
+      const w32 = w16 * w16;
+      return s + w32 * w8;
+    }, 0);
+    quadragintmeanSec = Math.pow(quadragintSum / known.length, 1 / 40);
+  }
+  const quadragintmeanHours =
+    quadragintmeanSec === null ? null : quadragintmeanSec / 3600;
+  const body = {
+    quadragintmeanSec,
+    quadragintmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

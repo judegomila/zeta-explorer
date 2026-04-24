@@ -130,6 +130,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquadragintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tresquadragintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tresquadragintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorquadragintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -739,6 +740,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-duoquadragintmean-json') out.batchPlanCostTripleDuoquadragintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-tresquadragintmean') out.batchPlanCostTripleTresquadragintmean = true;
     else if (a === '--batch-plan-cost-triple-tresquadragintmean-json') out.batchPlanCostTripleTresquadragintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-quattuorquadragintmean') out.batchPlanCostTripleQuattuorquadragintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -884,6 +886,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquadragintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tresquadragintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tresquadragintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorquadragintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -7963,6 +7966,78 @@ if (args.batchPlanCostTripleTresquadragintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleQuattuorquadragintmean) {
+  // partial-ddddddd: pure-shell data emitter surfacing the quattuorquadragintic
+  // mean (p=44 Kolmogorov power-mean) of per-triple wall-times across
+  // the known-wallSec rows of BATCH_PLAN as the forty-sixth power-mean
+  // sibling extending partial-bbbbbbb tresquadragintmean (p=43) upward
+  // to p=44 as the fourth quadragint-prefixed exponent
+  // (quattuor-quadraginta = 4 + 40) past the p=40 quadragint milestone
+  // and the next even exponent after p=43. Computed as
+  // QQGM44 = (sum(x_i^44) / n)^(1/44) via Math.pow(s, 1/44); by the
+  // generalized power-mean inequality QQGM44 dominates every lower-p
+  // sibling so the monotone chain
+  // QQGM44 >= TQGM43 >= DQGM42 >= UQGM41 >= QGM40 >= NTGM39 >= OTGM38
+  //   >= HPTGM37 >= HTGM36 >= PTGM35 >= TTGM34 >= TRGM33 >= DTGM32
+  //   >= UTGM31 >= TGM30 >= NVGM29 >= OVGM28 >= SPVGM27 >= SXVGM26
+  //   >= QIVGM25 >= QVGM24 >= TVGM23 >= DVGM22 >= UVGM21 >= VGM20
+  //   >= NVDM19 >= OCDM18 >= SPM17 >= SDM >= QIM15 >= QDM >= TRM
+  //   >= DUM >= UDM >= DCM >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM
+  //   >= CM >= QM >= AM >= GM >= HM
+  // now holds inline across all forty-six shell emitters. Handler uses
+  // the cache pattern
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  const w32 = w16 * w16; return s + w32 * w8 * w4;)
+  // to avoid calling Math.pow in the inner reduce loop (44 = 32+8+4,
+  // the cleanest three-summand {32,8,4}-partition factorization the
+  // cache admits at this even exponent), promoting the partial-vvvvvv
+  // quadragintmean w32 * w8 (40 = 32+8) two-summand even-p decomposition
+  // four lower by appending a trailing w4 factor to reach the next
+  // multiple-of-four exponent, and contrasting partial-bbbbbbb
+  // tresquadragintmean w32 * w8 * w2 * r.wallSec (43 = 32+8+2+1)
+  // four-summand odd-p decomposition one lower which used the
+  // {32,8,2,1} four-summand partition to reach the prior odd exponent.
+  // Even p=44 = 2 * 22 makes the inner summand a perfect square of
+  // w22 = w16 * w4 * w2 so the running sum is non-negative regardless
+  // of wallSec sign; wallSec values are strictly positive by
+  // construction (wall-clock measurements) anyway. All-unknown
+  // degenerate case (known.length === 0) prints a dedicated "unknown"
+  // summary and exits 0 rather than (0/0)^(1/44) = NaN. Pure data
+  // emitter, exit 0 unconditionally (no validation gate), not wired
+  // into --preflight / --preflight-json. Shell-only this partial; the
+  // --batch-plan-cost-triple-quattuorquadragintmean-json analog will
+  // follow in a later partial mirroring the shell-first / JSON-second
+  // cadence established across every other cost-emitter axis. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new
+  // batch-plan logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple quattuorquadragintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const quattuorquadragintSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    const w32 = w16 * w16;
+    return s + w32 * w8 * w4;
+  }, 0);
+  const quattuorquadragintmeanSec = Math.pow(quattuorquadragintSum / known.length, 1 / 44);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from quattuorquadragintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple quattuorquadragintic-mean wall-time: ${quattuorquadragintmeanSec.toFixed(0)} s (~${(quattuorquadragintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

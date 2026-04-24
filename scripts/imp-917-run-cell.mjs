@@ -18,6 +18,7 @@
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
 //   node scripts/imp-917-run-cell.mjs --verify-prototype-json
 //   node scripts/imp-917-run-cell.mjs --verify-output-target
+//   node scripts/imp-917-run-cell.mjs --verify-output-target-json
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
 //   node scripts/imp-917-run-cell.mjs --dry-run-all-json
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
@@ -86,7 +87,20 @@
 // and the ~20 CPU-hour offline run, which would otherwise only surface when
 // the operator tries to transcribe rows back and finds no MEASURED_ROWS block
 // to edit. Exits 0 on success, 1 with a diagnostic on missing / non-regular-file.
-// Shell-only; a --verify-output-target-json analog can follow in a future partial.
+//
+// --verify-output-target-json is the structural JSON analog of
+// --verify-output-target. Emits one object {ok, path, sizeBytes, error} where
+// path is always populated, sizeBytes is the regular-file size on success and
+// null on failure, and error is null on success or a human-readable string on
+// failure (stat error message, or "not a regular file"). Exit status matches
+// --verify-output-target (0 on ok, 1 on failure) so Python / jq offline-worker
+// drivers can gate the ~20 CPU-hour run on the JSON body AND the process exit
+// code, completing the {shell, JSON} output matrix for all five pre-flight
+// checks: --verify-plan / --verify-plan-json, --verify-prototype /
+// --verify-prototype-json, --verify-output-target / --verify-output-target-json.
+// Reuses the checkOutputTarget() helper with --verify-output-target so the two
+// diagnostics cannot drift. Not wired into --preflight / --preflight-json yet
+// (separate future partial).
 //
 // --preflight runs the three existing shell pre-flight checks in sequence —
 // --verify-plan (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype
@@ -180,6 +194,7 @@ function parseArgs(argv) {
     verifyPrototype: false,
     verifyPrototypeJson: false,
     verifyOutputTarget: false,
+    verifyOutputTargetJson: false,
     dryRun: false,
     dryRunJson: false,
     dryRunAll: false,
@@ -201,6 +216,7 @@ function parseArgs(argv) {
     else if (a === '--verify-prototype') out.verifyPrototype = true;
     else if (a === '--verify-prototype-json') out.verifyPrototypeJson = true;
     else if (a === '--verify-output-target') out.verifyOutputTarget = true;
+    else if (a === '--verify-output-target-json') out.verifyOutputTargetJson = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-json') out.dryRunJson = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
@@ -218,6 +234,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-output-target-json\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run|--dry-run-json]\n' +
@@ -426,6 +443,12 @@ if (args.verifyOutputTarget) {
   }
   console.error(`imp-917 --verify-output-target FAILED: ${r.path}: ${r.error}`);
   process.exit(1);
+}
+
+if (args.verifyOutputTargetJson) {
+  const r = checkOutputTarget();
+  console.log(JSON.stringify(r, null, 2));
+  process.exit(r.ok ? 0 : 1);
 }
 
 // Resolve one (N, epsTriple) cell into the full IMP857_* env-var set, using

@@ -29,6 +29,7 @@
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema-json
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema-closer
+//   node scripts/imp-917-run-cell.mjs --verify-output-schema-closer-json
 //   node scripts/imp-917-run-cell.mjs --verify-retuning-coverage
 //   node scripts/imp-917-run-cell.mjs --verify-retuning-coverage-json
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
@@ -278,6 +279,21 @@
 // aggregate-fourth cadence. Exits 0 on success, 1 with a specific diagnostic
 // (opener missing, closer missing, or read error) on failure.
 //
+// --verify-output-schema-closer-json is the structural JSON analog of
+// --verify-output-schema-closer. Emits one object {ok, path, token, error}
+// where path is always populated, token is the literal closer substring sought
+// (newline + `];`), and error is null on success or a human-readable string on
+// failure (opener missing, closer missing, or read error). Exit status matches
+// --verify-output-schema-closer (0 on ok, 1 on failure) so Python / jq
+// offline-worker drivers can gate the ~20 CPU-hour batch on the JSON body AND
+// the process exit code. Reuses the checkOutputSchemaCloser() helper with
+// --verify-output-schema-closer so the two diagnostics cannot drift. Completes
+// the content-level {shell, JSON} pair for the transcription-target closer
+// check, matching the opener-level --verify-output-schema /
+// --verify-output-schema-json pair. Not wired into --preflight / --preflight-json
+// yet (aggregation extension is a separate future partial, matching the
+// partial-y -> partial-z -> partial-aa/bb cadence).
+//
 // --verify-output-target-json is the structural JSON analog of
 // --verify-output-target. Emits one object {ok, path, sizeBytes, error} where
 // path is always populated, sizeBytes is the regular-file size on success and
@@ -486,6 +502,7 @@ function parseArgs(argv) {
     else if (a === '--verify-output-schema') out.verifyOutputSchema = true;
     else if (a === '--verify-output-schema-json') out.verifyOutputSchemaJson = true;
     else if (a === '--verify-output-schema-closer') out.verifyOutputSchemaCloser = true;
+    else if (a === '--verify-output-schema-closer-json') out.verifyOutputSchemaCloserJson = true;
     else if (a === '--verify-retuning-coverage') out.verifyRetuningCoverage = true;
     else if (a === '--verify-retuning-coverage-json') out.verifyRetuningCoverageJson = true;
     else if (a === '--dry-run') out.dryRun = true;
@@ -518,6 +535,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema-closer\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-output-schema-closer-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-retuning-coverage\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-retuning-coverage-json\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
@@ -1063,6 +1081,12 @@ if (args.verifyOutputSchemaCloser) {
     `imp-917 --verify-output-schema-closer FAILED: ${r.path}: ${r.error}`,
   );
   process.exit(1);
+}
+
+if (args.verifyOutputSchemaCloserJson) {
+  const r = checkOutputSchemaCloser();
+  console.log(JSON.stringify(r, null, 2));
+  process.exit(r.ok ? 0 : 1);
 }
 
 // Data-integrity sibling of computePlanCoverage(): assert every N in

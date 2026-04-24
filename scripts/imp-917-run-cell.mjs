@@ -25,6 +25,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -471,6 +472,7 @@ function parseArgs(argv) {
     batchPlanCostMaxTriple: false,
     batchPlanCostMaxTripleJson: false,
     batchPlanCostSummary: false,
+    batchPlanCostSummaryJson: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -515,6 +517,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-max-triple') out.batchPlanCostMaxTriple = true;
     else if (a === '--batch-plan-cost-max-triple-json') out.batchPlanCostMaxTripleJson = true;
     else if (a === '--batch-plan-cost-summary') out.batchPlanCostSummary = true;
+    else if (a === '--batch-plan-cost-summary-json') out.batchPlanCostSummaryJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -555,6 +558,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1001,6 +1005,38 @@ if (args.batchPlanCostSummary) {
   console.log(
     `  (speedup = serial / bound. Inequality chain: max-triple-best <= per-N-best <= 1-worker-serial${unknownNote}.)`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostSummaryJson) {
+  // Structural JSON analog of --batch-plan-cost-summary: emit the consolidated
+  // parallel-schedule bounds as one object {serial, perNBest, maxTripleBest,
+  // unknownCount} where each bound carries wallSec / hours / speedup fields so
+  // Python / jq-based offline-worker drivers can consume the speedup chain
+  // directly without re-parsing the shell table. Reuses computeBatchPlanCost(),
+  // computeBatchPlanCostByN(), and computeBatchPlanCostMaxTriple() with zero
+  // new math so the shell and JSON forms of the summary cannot drift. Pure
+  // data emitter, exit 0 unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json.
+  const { totalSec, unknownCount } = computeBatchPlanCost();
+  const { grouped } = computeBatchPlanCostByN();
+  const { maxRow } = computeBatchPlanCostMaxTriple();
+  const serialSec = totalSec;
+  const perNSec = grouped.reduce(
+    (best, g) => (g.wallSecTotal > best ? g.wallSecTotal : best),
+    0,
+  );
+  const maxTripleSec = maxRow === null ? null : maxRow.wallSec;
+  const speedup = (s) =>
+    s === null || s === 0 || serialSec === 0 ? null : serialSec / s;
+  const hours = (s) => (s === null ? null : s / 3600);
+  const body = {
+    serial: { wallSec: serialSec, hours: hours(serialSec), speedup: speedup(serialSec) },
+    perNBest: { wallSec: perNSec, hours: hours(perNSec), speedup: speedup(perNSec) },
+    maxTripleBest: { wallSec: maxTripleSec, hours: hours(maxTripleSec), speedup: speedup(maxTripleSec) },
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

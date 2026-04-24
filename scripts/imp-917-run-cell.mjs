@@ -55,6 +55,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sextmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sextmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -589,6 +590,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-quintmean') out.batchPlanCostTripleQuintmean = true;
     else if (a === '--batch-plan-cost-triple-quintmean-json') out.batchPlanCostTripleQuintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-sextmean') out.batchPlanCostTripleSextmean = true;
+    else if (a === '--batch-plan-cost-triple-sextmean-json') out.batchPlanCostTripleSextmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -659,6 +661,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sextmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sextmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2624,6 +2627,67 @@ if (args.batchPlanCostTripleSextmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple sextic-mean wall-time: ${sextmeanSec.toFixed(0)} s (~${(sextmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleSextmeanJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-sextmean (partial-ffff):
+  // surface the BATCH_PLAN sextic mean (p=6 Kolmogorov power-mean) of per-
+  // triple wall-times as a single object {sextmeanSec, sextmeanHours,
+  // knownCount, unknownCount} so Python / jq offline-worker drivers can
+  // consume the p=6 power-mean central-tendency signal directly without
+  // re-parsing the one-line shell summary. Reuses computeBatchPlanCost()
+  // (partial-vv helper) with zero new math; identical known-row filter
+  // (wallSec !== null) to the shell form so the two flags cannot drift.
+  // Even-exponent sixth power forces non-negativity so sum(x^6) is always
+  // defined for any real wallSec (mirroring the partial-xxx / partial-bbbb /
+  // partial-dddd observation on even-p), and since all wallSec values are
+  // strictly positive by construction the non-positive-wallSec guard that
+  // harmean needed for 1/x is unnecessary. sextmeanHours precomputed inline
+  // as sextmeanSec / 3600 (null when knownCount === 0) matching the
+  // partial-ww / partial-zz / partial-bbb / partial-eee / partial-ggg /
+  // partial-iii / partial-kkk / partial-mmm / partial-ooo / partial-qqq /
+  // partial-sss / partial-uuu / partial-www / partial-yyy / partial-aaaa /
+  // partial-cccc / partial-eeee precomputed-hours cadence so offline-worker
+  // drivers consuming the p=6 power-mean signal do not need to redo the
+  // seconds-to-hours conversion per run. All-unknown degenerate case emits
+  // {sextmeanSec: null, sextmeanHours: null, knownCount: 0, unknownCount}
+  // and exits 0 without computing (0/0)^(1/6), matching the partial-uuu /
+  // partial-www / partial-yyy / partial-aaaa / partial-cccc / partial-eeee
+  // JSON degenerate cadence. Pure data emitter, exit 0 unconditionally (no
+  // validation gate), not wired into --preflight / --preflight-json.
+  // Completes the {shell, JSON} pair for partial-ffff and brings the
+  // Kolmogorov power-mean octet {harmonic (p=-1, partial-vvv/www), geometric
+  // (p=0, partial-ttt/uuu), arithmetic (p=1, partial-hhh/iii), quadratic
+  // (p=2, partial-xxx/yyy), cubic (p=3, partial-zzz/aaaa), quartic (p=4,
+  // partial-bbbb/cccc), quintic (p=5, partial-dddd/eeee), sextic (p=6,
+  // partial-ffff/THIS)} x {shell, JSON} to full parity, surfacing the
+  // complete monotone power-mean ordering SXM >= QIM >= QUM >= CM >= QM >=
+  // AM >= GM >= HM at structural-JSON parity for offline-worker drivers
+  // gating the ~20 CPU-hour batch. Numerical stability: uses the (x^2)^3
+  // factorization (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  // sextSum += w4 * w2;) to avoid calling Math.pow in the inner reduce loop,
+  // matching the partial-ffff inline-multiply cadence that produces the same
+  // bit-pattern on IEEE-754 across Node versions.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let sextmeanSec = null;
+  if (known.length > 0) {
+    const sextSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      return s + w4 * w2;
+    }, 0);
+    sextmeanSec = Math.pow(sextSum / known.length, 1 / 6);
+  }
+  const sextmeanHours = sextmeanSec === null ? null : sextmeanSec / 3600;
+  const body = {
+    sextmeanSec,
+    sextmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

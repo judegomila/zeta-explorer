@@ -24,6 +24,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -469,6 +470,7 @@ function parseArgs(argv) {
     batchPlanCostByNJson: false,
     batchPlanCostMaxTriple: false,
     batchPlanCostMaxTripleJson: false,
+    batchPlanCostSummary: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -512,6 +514,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-by-N-json') out.batchPlanCostByNJson = true;
     else if (a === '--batch-plan-cost-max-triple') out.batchPlanCostMaxTriple = true;
     else if (a === '--batch-plan-cost-max-triple-json') out.batchPlanCostMaxTripleJson = true;
+    else if (a === '--batch-plan-cost-summary') out.batchPlanCostSummary = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -551,6 +554,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -950,6 +954,53 @@ if (args.batchPlanCostMaxTripleJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostSummary) {
+  // Consolidated summary: emits all three parallel-schedule bounds
+  // (1-worker serial total, per-N best-case, max-triple critical-path) in one
+  // table with speedup ratios relative to the serial total. Reuses
+  // computeBatchPlanCost(), computeBatchPlanCostByN(), and
+  // computeBatchPlanCostMaxTriple() with zero new math so the four diagnostics
+  // (summary + three standalone emitters) cannot drift. Operator convenience:
+  // read the full {1-worker, per-N, max-triple} speedup chain in a single
+  // invocation rather than running three separate emitters and transcribing
+  // the totals before deciding how many workers to provision for the ~20
+  // CPU-hour offline batch. Pure data emitter, exit 0 unconditionally (no
+  // validation gate), not wired into --preflight / --preflight-json.
+  const { totalSec, unknownCount } = computeBatchPlanCost();
+  const { grouped } = computeBatchPlanCostByN();
+  const { maxRow } = computeBatchPlanCostMaxTriple();
+  const serialSec = totalSec;
+  const perNSec = grouped.reduce(
+    (best, g) => (g.wallSecTotal > best ? g.wallSecTotal : best),
+    0,
+  );
+  const maxTripleSec = maxRow === null ? null : maxRow.wallSec;
+  const fmtSec = (s) => (s === null ? 'unknown' : s.toFixed(0));
+  const fmtHours = (s) => (s === null ? 'unknown' : (s / 3600).toFixed(2));
+  const fmtSpeedup = (s) =>
+    s === null || s === 0 || serialSec === 0 ? 'n/a' : (serialSec / s).toFixed(2) + 'x';
+  const headers = ['sharding', 'wallSec', 'hours', 'speedup'];
+  const body = [
+    ['1-worker-serial', fmtSec(serialSec), fmtHours(serialSec), fmtSpeedup(serialSec)],
+    ['per-N-best', fmtSec(perNSec), fmtHours(perNSec), fmtSpeedup(perNSec)],
+    ['max-triple-best', fmtSec(maxTripleSec), fmtHours(maxTripleSec), fmtSpeedup(maxTripleSec)],
+  ];
+  const widths = headers.map((h, i) =>
+    Math.max(h.length, ...body.map((row) => row[i].length)),
+  );
+  const pad = (s, w) => s + ' '.repeat(w - s.length);
+  const render = (row) => row.map((c, i) => pad(c, widths[i])).join('  ');
+  const unknownNote = unknownCount > 0 ? ` (${unknownCount} triple-run(s) with unknown N)` : '';
+  console.log('imp-917 BATCH_PLAN parallel-schedule bounds summary:');
+  console.log('  ' + render(headers));
+  console.log('  ' + '-'.repeat(widths.reduce((a, b) => a + b, 0) + 2 * (widths.length - 1)));
+  for (const r of body) console.log('  ' + render(r));
+  console.log(
+    `  (speedup = serial / bound. Inequality chain: max-triple-best <= per-N-best <= 1-worker-serial${unknownNote}.)`,
+  );
   process.exit(0);
 }
 

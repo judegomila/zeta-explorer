@@ -16,6 +16,7 @@
 //   node scripts/imp-917-run-cell.mjs --missing-cells
 //   node scripts/imp-917-run-cell.mjs --missing-cells-json
 //   node scripts/imp-917-run-cell.mjs --retuning-table
+//   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -77,8 +78,19 @@
 // lookup directly so offline-worker operators can eyeball the retuning
 // inputs without opening src/data/imp-896-retuning-calibration.js or running
 // --dry-run per cell to reconstruct the table row by row. Pure data emitter,
-// exits 0 unconditionally (not a check). Shell-only; a --retuning-table-json
-// analog can follow in a future partial.
+// exits 0 unconditionally (not a check). Pairs with --retuning-table-json for
+// the shell/JSON symmetry established by the other data emitters.
+//
+// --retuning-table-json is the structural JSON analog of --retuning-table.
+// Emits IMP_896_RETUNING_CALIBRATION.retuningTable verbatim via
+// JSON.stringify(..., null, 2) so Python / jq offline-worker drivers can
+// consume the per-N (k0_star, phaseVel_star, omega_star) lookup directly
+// without re-parsing the shell table or reading
+// src/data/imp-896-retuning-calibration.js out-of-band. Completes the
+// {shell, JSON} pair for the retuning-table data emitter, matching the
+// --missing-cells / --missing-cells-json and --plan-json / --list pairings.
+// Pure data emitter, exits 0 unconditionally (not a check). Not wired into
+// --preflight / --preflight-json (pure data emitter, not a pre-flight gate).
 //
 // --verify-plan asserts that the BATCH_PLAN below exactly covers the 14
 // MISSING_CELLS in imp-896-retuning-calibration.js (every missing (N, eps)
@@ -232,6 +244,7 @@ function parseArgs(argv) {
     missingCells: false,
     missingCellsJson: false,
     retuningTable: false,
+    retuningTableJson: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -257,6 +270,7 @@ function parseArgs(argv) {
     else if (a === '--missing-cells') out.missingCells = true;
     else if (a === '--missing-cells-json') out.missingCellsJson = true;
     else if (a === '--retuning-table') out.retuningTable = true;
+    else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -278,6 +292,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --missing-cells\n' +
           '       node scripts/imp-917-run-cell.mjs --missing-cells-json\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
+          '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -401,6 +416,16 @@ if (args.retuningTable) {
   console.log(`  ${fmt(header)}`);
   console.log(`  ${sep}`);
   for (const r of body) console.log(`  ${fmt(r)}`);
+  process.exit(0);
+}
+
+if (args.retuningTableJson) {
+  // Structural JSON analog of --retuning-table: emit the per-N retuning lookup
+  // verbatim so Python / jq runners can consume it directly. Pure data emitter
+  // (no check, exit 0) matching the --missing-cells-json cadence.
+  console.log(
+    JSON.stringify(IMP_896_RETUNING_CALIBRATION.retuningTable, null, 2),
+  );
   process.exit(0);
 }
 

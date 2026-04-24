@@ -83,6 +83,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-novendecmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-novendecmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-vigintmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-vigintmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -645,6 +646,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-novendecmean') out.batchPlanCostTripleNovendecmean = true;
     else if (a === '--batch-plan-cost-triple-novendecmean-json') out.batchPlanCostTripleNovendecmeanJson = true;
     else if (a === '--batch-plan-cost-triple-vigintmean') out.batchPlanCostTripleVigintmean = true;
+    else if (a === '--batch-plan-cost-triple-vigintmean-json') out.batchPlanCostTripleVigintmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -743,6 +745,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-novendecmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-novendecmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-vigintmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-vigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -4475,10 +4478,10 @@ if (args.batchPlanCostTripleVigintmean) {
   // observation). All-unknown degenerate case (known.length === 0) prints a
   // dedicated "unknown" summary and exits 0 rather than (0/0)^(1/20) = NaN.
   // Pure data emitter, exit 0 unconditionally (no validation gate), not
-  // wired into --preflight / --preflight-json. Shell-only this partial; a
-  // --batch-plan-cost-triple-vigintmean-json analog can follow as the next
-  // partial mirroring the shell-first / JSON-second cadence established
-  // across every other cost-emitter axis. Reuses computeBatchPlanCost()
+  // wired into --preflight / --preflight-json. Shell-only this partial; the
+  // --batch-plan-cost-triple-vigintmean-json analog is added in partial-iiiii
+  // below mirroring the shell-first / JSON-second cadence established across
+  // every other cost-emitter axis. Reuses computeBatchPlanCost()
   // (partial-vv helper) with zero new batch-plan logic.
   const { rows, unknownCount } = computeBatchPlanCost();
   const known = rows.filter((r) => r.wallSec !== null);
@@ -4503,6 +4506,73 @@ if (args.batchPlanCostTripleVigintmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple vigintic-mean wall-time: ${vigintmeanSec.toFixed(0)} s (~${(vigintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleVigintmeanJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-vigintmean
+  // (partial-hhhhh): surface the BATCH_PLAN vigintic mean (p=20 Kolmogorov
+  // power-mean) of per-triple wall-times as a single object
+  // {vigintmeanSec, vigintmeanHours, knownCount, unknownCount} so Python /
+  // jq offline-worker drivers can consume the p=20 power-mean central-
+  // tendency signal directly without re-parsing the one-line shell summary
+  // and without redoing the seconds-to-hours conversion, matching the
+  // precomputed-hours cadence already established across every other JSON
+  // cost-emitter. Reuses computeBatchPlanCost() (partial-vv helper) with
+  // zero new math; identical known-row filter (wallSec !== null) to the
+  // partial-hhhhh shell form so the two flags cannot drift. Handler uses
+  // the same (((x^2)^2)^2)^2 * ((x^2)^2) factorization as partial-hhhhh
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  // const w8 = w4 * w4; const w16 = w8 * w8; vigintSum += w16 * w4;) for
+  // numerical-stability parity, avoiding Math.pow in the inner reduce
+  // loop (20 = 16+4) so the JSON and shell bodies agree bit-for-bit on
+  // IEEE-754 across Node versions, then
+  // vigintmeanSec = Math.pow(vigintSum / known.length, 1 / 20).
+  // Since p=20 is even, x_i^20 is strictly non-negative for any real x_i
+  // so no sign-flip or absolute-value guard is required (mirroring the
+  // partial-xxx / partial-bbbb / partial-ffff / partial-jjjj / partial-nnnn
+  // / partial-rrrr / partial-vvvv / partial-zzzz / partial-ddddd even-
+  // exponent observation). All-unknown degenerate case (known.length === 0)
+  // emits {vigintmeanSec: null, vigintmeanHours: null, knownCount: 0,
+  // unknownCount} and exits 0 without attempting (0/0)^(1/20) = NaN,
+  // matching the partial-uuu / partial-www / partial-yyy / partial-aaaa /
+  // partial-cccc / partial-eeee / partial-gggg / partial-iiii /
+  // partial-kkkk / partial-mmmm / partial-oooo / partial-qqqq /
+  // partial-ssss / partial-uuuu / partial-wwww / partial-yyyy /
+  // partial-aaaaa / partial-ccccc / partial-eeeee / partial-ggggg JSON
+  // degenerate cadence. Completes the {shell, JSON} pair for partial-hhhhh
+  // and brings the Kolmogorov power-mean family at p in
+  // {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+  // x {shell, JSON} to full shell/JSON parity at twenty-two exponents,
+  // surfacing the complete monotone ordering
+  // VGM20 >= NVDM19 >= OCDM18 >= SPM17 >= SDM >= QIM15 >= QDM >= TRM >= DUM
+  //   >= UDM >= DCM >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >= QM
+  //   >= AM >= GM >= HM
+  // at structural-JSON parity for offline-worker drivers gating the
+  // ~20 CPU-hour batch. Pure data emitter, exit 0 unconditionally (no
+  // validation gate), not wired into --preflight / --preflight-json.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let vigintmeanSec = null;
+  if (known.length > 0) {
+    const vigintSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      const w16 = w8 * w8;
+      return s + w16 * w4;
+    }, 0);
+    vigintmeanSec = Math.pow(vigintSum / known.length, 1 / 20);
+  }
+  const vigintmeanHours =
+    vigintmeanSec === null ? null : vigintmeanSec / 3600;
+  const body = {
+    vigintmeanSec,
+    vigintmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

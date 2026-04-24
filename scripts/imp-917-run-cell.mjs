@@ -191,10 +191,26 @@
 // to the in-source default k0 = Math.PI and measures the wrong resonance.
 // Reads the file via readFileSync and reports each missing token in the
 // failure diagnostic. Exits 0 on success, 1 with a specific diagnostic
-// naming the missing reader(s) on failure. Shell-only for this partial;
-// --verify-prototype-env-readers-json analog and --preflight / --preflight-json
-// wiring can follow in future partials, matching the shell-first / JSON-second /
-// aggregate-later cadence used for every other discrete pre-flight check.
+// naming the missing reader(s) on failure. Paired with
+// --verify-prototype-env-readers-json for the {shell, JSON} matrix;
+// --preflight / --preflight-json wiring can follow in future partials,
+// matching the shell-first / JSON-second / aggregate-later cadence used for
+// every other discrete pre-flight check.
+//
+// --verify-prototype-env-readers-json is the structural JSON analog of
+// --verify-prototype-env-readers. Reuses the shared checkPrototypeEnvReaders()
+// helper (partial-kk) so the shell and JSON diagnostics cannot drift; both
+// consult the same resolved prototypePath, both check the same six
+// PROTOTYPE_ENV_READER_TOKENS, both classify read-error and missing-reader
+// failures identically. Emits JSON.stringify(r, null, 2) where r carries
+// {ok, path, tokens, missing, error}; exits r.ok ? 0 : 1 to match the shell
+// form exit semantics so Python / jq offline-worker drivers can gate the ~20
+// CPU-hour batch on BOTH the JSON body and the process exit code. Not wired
+// into --preflight / --preflight-json (aggregation is a separate future
+// partial now that both discrete forms exist, matching the partial-p ->
+// partial-q -> partial-r/s, partial-y -> partial-z -> partial-aa/bb,
+// partial-cc -> partial-dd -> partial-ee/ff, and partial-gg -> partial-hh ->
+// partial-ii/jj standalone-first / JSON-second / aggregate-later cadences).
 //
 // --verify-output-target asserts that the transcription target — the JS file
 // src/data/imp-857-phased-forcing-sweep.js where the 14 measured rows must be
@@ -399,6 +415,7 @@ function parseArgs(argv) {
     verifyPrototypeSchema: false,
     verifyPrototypeSchemaJson: false,
     verifyPrototypeEnvReaders: false,
+    verifyPrototypeEnvReadersJson: false,
     verifyOutputTarget: false,
     verifyOutputTargetJson: false,
     verifyOutputSchema: false,
@@ -433,6 +450,7 @@ function parseArgs(argv) {
     else if (a === '--verify-prototype-schema') out.verifyPrototypeSchema = true;
     else if (a === '--verify-prototype-schema-json') out.verifyPrototypeSchemaJson = true;
     else if (a === '--verify-prototype-env-readers') out.verifyPrototypeEnvReaders = true;
+    else if (a === '--verify-prototype-env-readers-json') out.verifyPrototypeEnvReadersJson = true;
     else if (a === '--verify-output-target') out.verifyOutputTarget = true;
     else if (a === '--verify-output-target-json') out.verifyOutputTargetJson = true;
     else if (a === '--verify-output-schema') out.verifyOutputSchema = true;
@@ -463,6 +481,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-schema\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-schema-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-env-readers\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-prototype-env-readers-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema\n' +
@@ -844,6 +863,12 @@ if (args.verifyPrototypeEnvReaders) {
     `imp-917 --verify-prototype-env-readers FAILED: ${r.path}: ${r.error}`,
   );
   process.exit(1);
+}
+
+if (args.verifyPrototypeEnvReadersJson) {
+  const r = checkPrototypeEnvReaders();
+  console.log(JSON.stringify(r, null, 2));
+  process.exit(r.ok ? 0 : 1);
 }
 
 const outputTargetPath = resolve(

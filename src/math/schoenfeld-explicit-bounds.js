@@ -84,6 +84,66 @@ function schoenfeldPsiBound(x) {
   return Math.sqrt(x) * Math.log(x) * Math.log(x) / (8 * Math.PI);
 }
 
+/**
+ * imp-911 (cross-verify audit, 2026-04-23, honest-partial).
+ *
+ * Independent audit of schoenfeldExplicitBoundsTest, following the format
+ * of imp-906/907/909. Verifies formulas, spot-checks reference values,
+ * and examines edge cases.
+ *
+ * (1) FORMULAS match Schoenfeld, Math. Comp. 30 (1976), Thm. 10:
+ *       schoenfeldPiBound(x)  = sqrt(x) * log(x)      / (8*pi)   — matches.
+ *       schoenfeldPsiBound(x) = sqrt(x) * (log x)^2   / (8*pi)   — matches.
+ *     Domain thresholds (x >= 2657 for pi, x >= 73.2 for psi) match the paper.
+ *
+ * (2) Li(x) QUADRATURE BUG — NEW FINDING (open sub-gap).
+ *     The current Li(x) uses uniform-step trapezoidal with only 2000 nodes
+ *     on [2, x]. At x = 1e6 the step size is h = 500, and 1/log(t) drops
+ *     from 1.443 at t=2 to 0.161 at t=502 across the first interval. The
+ *     first trapezoidal segment alone returns h/2 * (1.443 + 0.161) = 400.87,
+ *     while the true integral li(502) - li(2) is approx 101.25 — a single
+ *     segment overshoot of ~300. Empirical error scan (reference Li
+ *     recomputed independently with 400000 trapezoidal nodes):
+ *        x =     1000   code overshoot approx 0.02   (negligible)
+ *        x =    10000   code overshoot approx 1.25
+ *        x =   100000   code overshoot approx 24.7
+ *        x =   500000   code overshoot approx 144.7
+ *        x =  1000000   code overshoot approx 300.4
+ *     At x = 1e6 the Schoenfeld pi-bound is 549.70, so the Li quadrature
+ *     error is ~55 percent of the bound itself. The code reports
+ *     pi(1e6) - Li(1e6) approx -429.3 (ratio 0.78 of bound); the TRUE
+ *     value pi(1e6) - li(1e6) is approx -129.5 (ratio 0.24). The
+ *     "bound holds" verdict remains correct at every tested x, but the
+ *     reported tightness ratios and error magnitudes for x >= 1e5 are
+ *     systematically inflated. Fix options: (a) substitute u = log(t)
+ *     so the integrand becomes exp(u)/u on a bounded log-domain where
+ *     trapezoidal with 2000 nodes converges, or (b) use Simpson or raise
+ *     steps to >= 200000 (error falls below 1 at x = 1e6).
+ *
+ * (3) Li CONVENTION: the code computes the offset variant
+ *         Li(x) = integral_2^x dt/log(t) = li(x) - li(2),
+ *     where li(2) approx 1.045163780117. Schoenfeld uses the principal-value
+ *     li(x). Off by a constant 1.045 — dominated by issue (2) for x >= 1e4
+ *     and irrelevant to bound-holds outcomes.
+ *
+ * (4) REFERENCE spot checks at x = 1e6:
+ *       pi(1e6)              = 78498            (OEIS A006880) — sieve MATCHES.
+ *       li(1e6)              approx 78627.549   (literature) — code Li approx 78927.34 (off ~300, see (2)).
+ *       Schoenfeld pi-bound  = 549.70           — schoenfeldPiBound(1e6) MATCHES.
+ *       Schoenfeld psi-bound approx 7594.41     — schoenfeldPsiBound(1e6) MATCHES.
+ *
+ * (5) EDGE CASES:
+ *     - Li(x <= 2) short-circuits to 0 — no singularity issue.
+ *     - sieveAndCount(N) leaves pi[0]=pi[1]=0 via Int32Array init — correct.
+ *     - computePsi detects prime powers (m = n / p^k reduces to 1) — correct Lambda(n).
+ *     - schoenfeldPiBound(1) = 0 (log 1 = 0) — no NaN.
+ *     - schoenfeldPsiBound(0) = NaN (sqrt(0) * log(0)^2 = 0 * Infinity); callers stay >= 1000.
+ *
+ * OPEN SUB-GAP: imp-911-sub-li-quadrature — fix Li(x) numerical method
+ * to restore correct error/bound ratios at x >= 1e5. Until then,
+ * avg_pi_ratio in the returned result over-reports tightness by ~3x at
+ * x = 1e6. The bound-holds verdict itself is unaffected.
+ */
 export function schoenfeldExplicitBoundsTest() {
   const N = 1000000;
   const { pi } = sieveAndCount(N);

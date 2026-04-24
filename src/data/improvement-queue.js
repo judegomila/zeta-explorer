@@ -11449,12 +11449,16 @@ export const IMPROVEMENT_QUEUE = [
     title: "Cross-verify schoenfeld-explicit-bounds.js: independent check of key computations",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: "Read src/math/schoenfeld-explicit-bounds.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-24T00:40:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Honest-partial. Added a ~60-line JSDoc audit block above schoenfeldExplicitBoundsTest. (1) Formulas sqrt(x)*log(x)/(8*pi) and sqrt(x)*(log x)^2/(8*pi) match Schoenfeld 1976 Thm. 10. (2) NEW FINDING: Li(x) quadrature has a systematic overshoot that grows with x — uniform-step trapezoidal with 2000 nodes gives h=500 at x=1e6, and the first segment alone overshoots the true integral by ~300 because 1/log(t) drops from 1.443 to 0.161 across [2, 502]. Independent scan: overshoot approx 0.02 at x=1e3, 1.25 at 1e4, 24.7 at 1e5, 144.7 at 5e5, 300.4 at 1e6. At x=1e6 the Li error is ~55 percent of the Schoenfeld pi-bound (549.70); code reports ratio 0.78 vs TRUE ratio 0.24. Bound-holds verdict stays correct but tightness is over-reported by ~3x. (3) Li convention is offset li(x)-li(2), off by ~1.045 from Schoenfeld — dominated by (2). (4) pi(1e6)=78498 matches OEIS A006880. (5) Edge cases clean (no NaN in stated domain). Open sub-gap imp-911-sub-li-quadrature named for log-substitution u=log(t) or higher-node Simpson fix.',
+    followUpTicket: 'imp-911-sub-li-quadrature',
   },
 
   

@@ -32,6 +32,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-median
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -485,6 +486,7 @@ function parseArgs(argv) {
     batchPlanCostTripleRangeJson: false,
     batchPlanCostTripleMean: false,
     batchPlanCostTripleMeanJson: false,
+    batchPlanCostTripleMedian: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -536,6 +538,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-range-json') out.batchPlanCostTripleRangeJson = true;
     else if (a === '--batch-plan-cost-triple-mean') out.batchPlanCostTripleMean = true;
     else if (a === '--batch-plan-cost-triple-mean-json') out.batchPlanCostTripleMeanJson = true;
+    else if (a === '--batch-plan-cost-triple-median') out.batchPlanCostTripleMedian = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -583,6 +586,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-median\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1325,6 +1329,51 @@ if (args.batchPlanCostTripleMeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleMedian) {
+  // Shell data emitter: surface the median per-triple wall-time across the
+  // known-wallSec rows of BATCH_PLAN as an outlier-robust complement to the
+  // arithmetic mean (--batch-plan-cost-triple-mean, partial-hhh). Where the
+  // mean is skewed by BATCH_PLAN's single 72000 s N=10000 critical-path
+  // triple (partial-zz max), the median reports the typical per-triple cost
+  // that the bulk of the workload actually follows, which is the natural
+  // statistic for sizing a shared-queue schedule whose tail-latency is
+  // absorbed by overlap rather than by the worst-case per-triple floor.
+  // Reuses computeBatchPlanCost() (partial-vv helper) with zero new math;
+  // unknown-N rows (wallSec === null) are excluded from the sort so null
+  // entries cannot corrupt the ordering, and unknownCount is reported
+  // explicitly in a trailing note. Even-count degenerate case (the current
+  // 6-row BATCH_PLAN after all unknowns resolve) averages the two middle
+  // values; odd-count picks the single middle value; the all-unknown case
+  // prints a dedicated unknown summary and exits 0 without touching the
+  // sort, matching the partial-zz / partial-ddd / partial-hhh degenerate
+  // cadence. Pure data emitter, exit 0 unconditionally (no validation gate),
+  // not wired into --preflight / --preflight-json. Shell-only this partial;
+  // a --batch-plan-cost-triple-median-json analog can follow mirroring the
+  // partial-vv/ww, partial-xx/yy, partial-zz/aaa, partial-ddd/eee, partial-
+  // bbb/ccc, partial-fff/ggg, and partial-hhh/iii shell-first / JSON-second
+  // cadence.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple median wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const sorted = known.map((r) => r.wallSec).sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  const medianSec =
+    sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from median)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple median wall-time: ${medianSec.toFixed(0)} s (~${(medianSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

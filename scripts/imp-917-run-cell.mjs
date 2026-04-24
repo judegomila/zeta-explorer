@@ -50,6 +50,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -579,6 +580,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-quadmean-json') out.batchPlanCostTripleQuadmeanJson = true;
     else if (a === '--batch-plan-cost-triple-cubmean') out.batchPlanCostTripleCubmean = true;
     else if (a === '--batch-plan-cost-triple-cubmean-json') out.batchPlanCostTripleCubmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-quartmean') out.batchPlanCostTripleQuartmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -644,6 +646,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2318,6 +2321,62 @@ if (args.batchPlanCostTripleCubmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleQuartmean) {
+  // Shell data emitter: surface the quartic mean (p=4 power-mean) of per-triple
+  // wall-times across the known-wallSec rows of BATCH_PLAN as the sixth
+  // Kolmogorov power-mean sibling, extending the quintet
+  // --batch-plan-cost-triple-harmean (p=-1, partial-vvv),
+  // --batch-plan-cost-triple-geomean (p=0, partial-ttt),
+  // --batch-plan-cost-triple-mean (p=1 arithmetic, partial-hhh),
+  // --batch-plan-cost-triple-quadmean (p=2, partial-xxx) and
+  // --batch-plan-cost-triple-cubmean (p=3, partial-zzz) to the sextet
+  // {p=-1, p=0, p=1, p=2, p=3, p=4}. The quartic mean
+  // QUM = (sum(x_i^4) / n)^(1/4) is the power-mean with exponent p=4; by the
+  // generalized power-mean inequality it dominates the cubic mean for any
+  // non-constant positive sample, so the full ordering
+  // QUM >= CM >= QM >= AM >= GM >= HM now holds inline across all six
+  // emitters. QUM carries an even stronger long-tail penalty than CM: the
+  // fourth-power sum weights the largest triples 2x harder than squaring in
+  // log-units, so budgeting against QUM makes the L4-cost signature of the
+  // longest triple visible, aligning the central-tendency axis with any
+  // fourth-moment / kurtosis-adjacent dispersion signal an operator might add
+  // later without re-running --batch-plan-cost-triple-max-triple (partial-zz).
+  // Reuses computeBatchPlanCost() (partial-vv helper) with zero new batch-
+  // plan logic; identical known-row filter (wallSec !== null) to the p-power-
+  // mean siblings. Fourth-power preserves non-negativity so the non-positive-
+  // wallSec guard that harmean needed for 1/x is not required here; the only
+  // degenerate case is all-unknown (known.length === 0) which prints a
+  // dedicated "unknown" summary and exits 0 rather than (0/0)^(1/4) = NaN,
+  // matching the partial-hhh / partial-ttt / partial-vvv / partial-xxx /
+  // partial-zzz degenerate cadence. Pure data emitter, exit 0 unconditionally
+  // (no validation gate), not wired into --preflight / --preflight-json.
+  // Shell-only this partial; a --batch-plan-cost-triple-quartmean-json analog
+  // can follow as partial-cccc to close the {shell, JSON} pair on this
+  // fourteenth per-triple statistical view, mirroring the shell-first /
+  // JSON-second cadence established across every other cost-emitter axis.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple quartic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const quartSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    return s + w2 * w2;
+  }, 0);
+  const quartmeanSec = Math.pow(quartSum / known.length, 1 / 4);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from quartmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple quartic-mean wall-time: ${quartmeanSec.toFixed(0)} s (~${(quartmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

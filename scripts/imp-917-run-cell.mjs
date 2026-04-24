@@ -10,11 +10,17 @@
 //
 // Usage:
 //   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 [--nSteps 40] [--dt 1e-4]
+//   node scripts/imp-917-run-cell.mjs --list
 //
 // --eps must be a comma-separated triple; the first entry is conventionally 0
 // (baseline) so ratio rows can be computed against it. Defaults for nSteps/dt
 // are taken from the MISSING_CELLS row of imp-896-retuning-calibration.js
 // matching the requested N (imp-857-phased-forcing-sweep.js schedule).
+//
+// --list prints the full 6-invocation batch plan that packs the 14 missing
+// cells into triple-runs (baseline eps=0 + two eps values per invocation),
+// ready to be piped into GNU parallel / xargs by an offline worker. No
+// --N/--eps required in this mode.
 //
 // On completion the prototype prints a three-row comparison table; copy the
 // final-row maxIntervalWidth values into a new MEASURED_ROWS entry in
@@ -31,16 +37,18 @@ const __dirname = dirname(__filename);
 const REPO_ROOT = resolve(__dirname, '..');
 
 function parseArgs(argv) {
-  const out = { N: null, eps: null, nSteps: null, dt: null };
+  const out = { N: null, eps: null, nSteps: null, dt: null, list: false };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--N') out.N = Number(argv[++i]);
     else if (a === '--eps') out.eps = argv[++i];
     else if (a === '--nSteps') out.nSteps = Number(argv[++i]);
     else if (a === '--dt') out.dt = Number(argv[++i]);
+    else if (a === '--list') out.list = true;
     else if (a === '--help' || a === '-h') {
       console.log(
-        'usage: node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> [--nSteps <k>] [--dt <dt>]',
+        'usage: node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> [--nSteps <k>] [--dt <dt>]\n' +
+          '       node scripts/imp-917-run-cell.mjs --list',
       );
       process.exit(0);
     } else {
@@ -51,7 +59,31 @@ function parseArgs(argv) {
   return out;
 }
 
+// Batch plan: the 14 MISSING_CELLS from imp-896-retuning-calibration.js pack
+// into 6 triple-runs, each re-measuring the eps=0 baseline for internal
+// consistency with the ratio. Emitted by --list as shell one-liners so an
+// offline worker can pipe the list into GNU parallel / xargs without manual
+// transcription. Each line carries a trailing `# <label>` comment for grep.
+const BATCH_PLAN = [
+  { N: 1000,  eps: [0, 0.02, 0.1],  label: 'N1000-eps-0p02-0p1' },
+  { N: 2000,  eps: [0, 0.02, 0.1],  label: 'N2000-eps-0p02-0p1' },
+  { N: 5000,  eps: [0, 0.01, 0.02], label: 'N5000-eps-0p01-0p02' },
+  { N: 5000,  eps: [0, 0.05, 0.1],  label: 'N5000-eps-0p05-0p1' },
+  { N: 10000, eps: [0, 0.01, 0.02], label: 'N10000-eps-0p01-0p02' },
+  { N: 10000, eps: [0, 0.05, 0.1],  label: 'N10000-eps-0p05-0p1' },
+];
+
 const args = parseArgs(process.argv);
+
+if (args.list) {
+  for (const p of BATCH_PLAN) {
+    console.log(
+      `node scripts/imp-917-run-cell.mjs --N ${p.N} --eps ${p.eps.join(',')}  # ${p.label}`,
+    );
+  }
+  process.exit(0);
+}
+
 if (!Number.isFinite(args.N)) {
   console.error('imp-917-run-cell: --N <integer> is required');
   process.exit(2);

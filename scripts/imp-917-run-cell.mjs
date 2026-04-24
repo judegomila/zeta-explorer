@@ -70,6 +70,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duodecmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tredecmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tredecmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuordecmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -619,6 +620,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-duodecmean-json') out.batchPlanCostTripleDuodecmeanJson = true;
     else if (a === '--batch-plan-cost-triple-tredecmean') out.batchPlanCostTripleTredecmean = true;
     else if (a === '--batch-plan-cost-triple-tredecmean-json') out.batchPlanCostTripleTredecmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-quattuordecmean') out.batchPlanCostTripleQuattuordecmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -704,6 +706,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duodecmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tredecmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tredecmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuordecmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -3608,6 +3611,71 @@ if (args.batchPlanCostTripleTredecmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleQuattuordecmean) {
+  // Shell data emitter: surface the quattuordecic mean (p=14 Kolmogorov
+  // power-mean) of per-triple wall-times across the known-wallSec rows of
+  // BATCH_PLAN as the sixteenth power-mean sibling, extending the already-
+  // paired quindectet {harmonic (p=-1, partial-vvv/www), geometric (p=0,
+  // partial-ttt/uuu), arithmetic (p=1, partial-hhh/iii), quadratic (p=2,
+  // partial-xxx/yyy), cubic (p=3, partial-zzz/aaaa), quartic (p=4,
+  // partial-bbbb/cccc), quintic (p=5, partial-dddd/eeee), sextic (p=6,
+  // partial-ffff/gggg), septic (p=7, partial-hhhh/iiii), octic (p=8,
+  // partial-jjjj/kkkk), nonic (p=9, partial-llll/mmmm), decic (p=10,
+  // partial-nnnn/oooo), undecic (p=11, partial-pppp/qqqq), duodecic (p=12,
+  // partial-rrrr/ssss), tredecic (p=13, partial-tttt/uuuu)} upward to p=14.
+  // Computed as QDM = (sum(x_i^14) / n)^(1/14) via Math.pow(s, 1/14); by the
+  // generalized power-mean inequality QDM dominates every lower-p sibling so
+  // the full ordering QDM >= TRM >= DUM >= UDM >= DCM >= NPM >= OCM >= SPM >=
+  // SXM >= QIM >= QUM >= CM >= QM >= AM >= GM >= HM now holds inline across
+  // all sixteen emitters. Handler uses the (((x^2)^2)^2) * ((x^2)^2) * (x^2)
+  // factorization (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  // const w8 = w4 * w4; quattuordecSum += w8 * w4 * w2;) to avoid calling
+  // Math.pow in the inner reduce loop, matching the partial-xxx quadmean (x^2)
+  // cadence, the partial-bbbb quartmean (x^2)^2 cadence, the partial-ffff
+  // sextmean ((x^2)^2) * (x^2) cadence, the partial-jjjj octmean ((x^2)^2)^2
+  // cadence, the partial-nnnn decmean (((x^2)^2)^2) * (x^2) cadence, and the
+  // partial-rrrr duodecmean (((x^2)^2)^2) * ((x^2)^2) cadence that produce the
+  // same bit-pattern on IEEE-754 across Node versions. Even p=14 erases sign
+  // but all wallSec values are strictly positive by construction so no sign
+  // handling is required (mirroring the partial-xxx / partial-bbbb /
+  // partial-ffff / partial-jjjj / partial-nnnn / partial-rrrr even-exponent
+  // observation). The only degenerate case is all-unknown (known.length === 0)
+  // which prints a dedicated "unknown" summary and exits 0 rather than
+  // (0/0)^(1/14) = NaN, matching the partial-hhh / partial-ttt / partial-vvv
+  // / partial-xxx / partial-zzz / partial-bbbb / partial-dddd / partial-ffff
+  // / partial-hhhh / partial-jjjj / partial-llll / partial-nnnn /
+  // partial-pppp / partial-rrrr / partial-tttt degenerate cadence. Pure data
+  // emitter, exit 0 unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json. Shell-only this partial; a
+  // --batch-plan-cost-triple-quattuordecmean-json analog can follow as
+  // partial-wwww mirroring the shell-first / JSON-second cadence established
+  // across every other cost-emitter axis. Reuses computeBatchPlanCost()
+  // (partial-vv helper) with zero new batch-plan logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple quattuordecic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const quattuordecSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    return s + w8 * w4 * w2;
+  }, 0);
+  const quattuordecmeanSec = Math.pow(quattuordecSum / known.length, 1 / 14);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from quattuordecmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple quattuordecic-mean wall-time: ${quattuordecmeanSec.toFixed(0)} s (~${(quattuordecmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

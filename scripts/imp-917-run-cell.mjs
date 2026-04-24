@@ -39,6 +39,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -557,6 +558,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-mad') out.batchPlanCostTripleMad = true;
     else if (a === '--batch-plan-cost-triple-mad-json') out.batchPlanCostTripleMadJson = true;
     else if (a === '--batch-plan-cost-triple-iqr') out.batchPlanCostTripleIqr = true;
+    else if (a === '--batch-plan-cost-triple-iqr-json') out.batchPlanCostTripleIqrJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -611,6 +613,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1750,6 +1753,79 @@ if (args.batchPlanCostTripleIqr) {
   console.log(
     `imp-917 BATCH_PLAN per-triple IQR wall-time: ${iqrSec.toFixed(0)} s (~${(iqrSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s); Q1 ${q1.toFixed(0)} s, Q3 ${q3.toFixed(0)} s, median ${medianSec.toFixed(0)} s, IQR/median = ${ratio === null ? 'n/a' : ratio.toFixed(2)}${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleIqrJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-iqr (partial-ppp):
+  // surface BATCH_PLAN's interquartile range of per-triple wall-times as a
+  // single object {iqrSec, iqrHours, q1Sec, q3Sec, medianSec, ratio,
+  // knownCount, unknownCount} so Python / jq offline-worker drivers can
+  // consume the robust-dispersion signal directly without re-parsing the
+  // one-line shell summary. Pure composition of computeBatchPlanCost()
+  // (partial-vv helper) with zero new math, matching the shell form exactly:
+  // identical known-row filter (wallSec !== null), identical Tukey
+  // exclusive-midpoint half-split (even knownCount splits both halves at
+  // knownCount/2, odd knownCount excludes the middle value from both halves),
+  // identical inner medianOf() used for Q1, Q3, and overall median, identical
+  // ratio = iqrSec / medianSec with null fallback when medianSec is 0.
+  // iqrHours is precomputed inline as iqrSec / 3600 (null when knownCount < 2)
+  // matching the precomputed-hours cadence established across the whole cost-
+  // emitter family (--batch-plan-cost-json, --batch-plan-cost-by-N-json,
+  // --batch-plan-cost-max-triple-json, --batch-plan-cost-min-triple-json,
+  // --batch-plan-cost-triple-range-json, --batch-plan-cost-triple-mean-json,
+  // --batch-plan-cost-triple-median-json, --batch-plan-cost-triple-stddev-json,
+  // --batch-plan-cost-triple-mad-json) so drivers never redo the
+  // seconds-to-hours conversion per run. Degenerate branches (knownCount < 2,
+  // including all-unknown) emit {iqrSec: null, iqrHours: null, q1Sec: null,
+  // q3Sec: null, medianSec: (value or null), ratio: null, knownCount,
+  // unknownCount} and exit 0 without touching the sort, mirroring the
+  // partial-ppp shell graceful-degenerate branch which requires at least 2
+  // known triples to form both halves. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Completes the {shell, JSON} pair for partial-ppp and
+  // rounds out the full per-triple robust-dispersion surface {MAD, IQR} x
+  // {shell, JSON} alongside the parametric {stddev} x {shell, JSON}.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let iqrSec = null;
+  let q1Sec = null;
+  let q3Sec = null;
+  let medianSec = null;
+  let ratio = null;
+  if (known.length >= 2) {
+    const medianOf = (arr) => {
+      const sorted = [...arr].sort((a, b) => a - b);
+      const mid = Math.floor(sorted.length / 2);
+      return sorted.length % 2 === 0
+        ? (sorted[mid - 1] + sorted[mid]) / 2
+        : sorted[mid];
+    };
+    const sortedValues = known.map((r) => r.wallSec).sort((a, b) => a - b);
+    const n = sortedValues.length;
+    const half = Math.floor(n / 2);
+    const lower = sortedValues.slice(0, half);
+    const upper = n % 2 === 0 ? sortedValues.slice(half) : sortedValues.slice(half + 1);
+    q1Sec = medianOf(lower);
+    q3Sec = medianOf(upper);
+    iqrSec = q3Sec - q1Sec;
+    medianSec = medianOf(sortedValues);
+    ratio = medianSec === 0 ? null : iqrSec / medianSec;
+  } else if (known.length === 1) {
+    medianSec = known[0].wallSec;
+  }
+  const iqrHours = iqrSec === null ? null : iqrSec / 3600;
+  const body = {
+    iqrSec,
+    iqrHours,
+    q1Sec,
+    q3Sec,
+    medianSec,
+    ratio,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

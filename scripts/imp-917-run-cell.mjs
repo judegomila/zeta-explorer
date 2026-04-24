@@ -60,6 +60,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-nonmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -599,6 +600,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-septmean-json') out.batchPlanCostTripleSeptmeanJson = true;
     else if (a === '--batch-plan-cost-triple-octmean') out.batchPlanCostTripleOctmean = true;
     else if (a === '--batch-plan-cost-triple-octmean-json') out.batchPlanCostTripleOctmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-nonmean') out.batchPlanCostTripleNonmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -674,6 +676,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-nonmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2966,6 +2969,66 @@ if (args.batchPlanCostTripleOctmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleNonmean) {
+  // Shell data emitter: surface the nonic mean (p=9 Kolmogorov power-mean) of
+  // per-triple wall-times across the known-wallSec rows of BATCH_PLAN as the
+  // eleventh power-mean sibling, extending the already-paired dectet
+  // {harmonic (p=-1, partial-vvv/www), geometric (p=0, partial-ttt/uuu),
+  // arithmetic (p=1, partial-hhh/iii), quadratic (p=2, partial-xxx/yyy),
+  // cubic (p=3, partial-zzz/aaaa), quartic (p=4, partial-bbbb/cccc),
+  // quintic (p=5, partial-dddd/eeee), sextic (p=6, partial-ffff/gggg),
+  // septic (p=7, partial-hhhh/iiii), octic (p=8, partial-jjjj/kkkk)} upward
+  // to p=9. Computed as NPM = (sum(x_i^9) / n)^(1/9) via Math.pow(s, 1/9);
+  // by the generalized power-mean inequality NPM dominates every lower-p
+  // sibling so the full ordering
+  // NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >= QM >= AM >= GM >= HM now
+  // holds inline across all eleven emitters. Handler uses the
+  // (((x^2)^2)^2) * x factorization (const w2 = r.wallSec * r.wallSec;
+  // const w4 = w2 * w2; const w8 = w4 * w4; nonSum += w8 * r.wallSec;) to
+  // avoid calling Math.pow in the inner reduce loop, matching the
+  // partial-jjjj octmean (((x^2)^2)^2) cadence and the partial-hhhh septmean
+  // (x^2)^3 * x odd-exponent cadence that produces the same bit-pattern on
+  // IEEE-754 across Node versions. Odd ninth-power preserves sign, but all
+  // wallSec values are strictly positive by construction (non-null rows
+  // carry measured runtimes > 0) so the non-positive-wallSec guard that
+  // harmean needed for 1/x is not required (mirroring the partial-zzz /
+  // partial-dddd / partial-hhhh odd-exponent observation). The only
+  // degenerate case is all-unknown (known.length === 0) which prints a
+  // dedicated "unknown" summary and exits 0 rather than (0/0)^(1/9) = NaN,
+  // matching the partial-hhh / partial-ttt / partial-vvv / partial-xxx /
+  // partial-zzz / partial-bbbb / partial-dddd / partial-ffff / partial-hhhh
+  // / partial-jjjj degenerate cadence. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Shell-only this partial; a
+  // --batch-plan-cost-triple-nonmean-json analog can follow as partial-mmmm
+  // mirroring the shell-first / JSON-second cadence established across
+  // every other cost-emitter axis. Reuses computeBatchPlanCost()
+  // (partial-vv helper) with zero new batch-plan logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple nonic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const nonSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    return s + w8 * r.wallSec;
+  }, 0);
+  const nonmeanSec = Math.pow(nonSum / known.length, 1 / 9);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from nonmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple nonic-mean wall-time: ${nonmeanSec.toFixed(0)} s (~${(nonmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

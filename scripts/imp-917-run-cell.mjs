@@ -25,6 +25,7 @@
 //   node scripts/imp-917-run-cell.mjs --verify-output-target
 //   node scripts/imp-917-run-cell.mjs --verify-output-target-json
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema
+//   node scripts/imp-917-run-cell.mjs --verify-output-schema-json
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
 //   node scripts/imp-917-run-cell.mjs --dry-run-all-json
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
@@ -162,9 +163,24 @@
 // operator tries to append measured rows and cannot find the MEASURED_ROWS
 // block. Reads the file via readFileSync and checks for the literal substring
 // `const MEASURED_ROWS = [`. Exits 0 on success, 1 with a specific diagnostic
-// on read error or missing identifier. Shell-only; a --verify-output-schema-json
-// analog can follow in a future partial. Not wired into --preflight /
-// --preflight-json yet (separate future partial once the JSON analog lands).
+// on read error or missing identifier. Paired with --verify-output-schema-json
+// for the {shell, JSON} matrix. Not wired into --preflight / --preflight-json
+// yet (separate future partial now that both forms exist).
+//
+// --verify-output-schema-json is the structural JSON analog of
+// --verify-output-schema. Emits one object {ok, path, token, error} where path
+// is always populated, token is the literal substring sought
+// (`const MEASURED_ROWS = [`), and error is null on success or a
+// human-readable string on failure (read error message, or
+// ``identifier `const MEASURED_ROWS = [` not found``). Exit status matches
+// --verify-output-schema (0 on ok, 1 on failure) so Python / jq offline-worker
+// drivers can gate the ~20 CPU-hour batch on the JSON body AND the process
+// exit code. Reuses the checkOutputSchema() helper with --verify-output-schema
+// so the two diagnostics cannot drift. Completes the content-level
+// {shell, JSON} pair for the transcription target, matching the stat-level
+// --verify-output-target / --verify-output-target-json pair. Not wired into
+// --preflight / --preflight-json yet (aggregation extension is a separate
+// future partial).
 //
 // --verify-output-target-json is the structural JSON analog of
 // --verify-output-target. Emits one object {ok, path, sizeBytes, error} where
@@ -282,6 +298,7 @@ function parseArgs(argv) {
     verifyOutputTarget: false,
     verifyOutputTargetJson: false,
     verifyOutputSchema: false,
+    verifyOutputSchemaJson: false,
     dryRun: false,
     dryRunJson: false,
     dryRunAll: false,
@@ -310,6 +327,7 @@ function parseArgs(argv) {
     else if (a === '--verify-output-target') out.verifyOutputTarget = true;
     else if (a === '--verify-output-target-json') out.verifyOutputTargetJson = true;
     else if (a === '--verify-output-schema') out.verifyOutputSchema = true;
+    else if (a === '--verify-output-schema-json') out.verifyOutputSchemaJson = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-json') out.dryRunJson = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
@@ -334,6 +352,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-output-target\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-output-schema-json\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run|--dry-run-json]\n' +
@@ -690,6 +709,12 @@ if (args.verifyOutputSchema) {
   }
   console.error(`imp-917 --verify-output-schema FAILED: ${r.path}: ${r.error}`);
   process.exit(1);
+}
+
+if (args.verifyOutputSchemaJson) {
+  const r = checkOutputSchema();
+  console.log(JSON.stringify(r, null, 2));
+  process.exit(r.ok ? 0 : 1);
 }
 
 // Resolve one (N, epsTriple) cell into the full IMP857_* env-var set, using

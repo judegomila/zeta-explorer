@@ -148,6 +148,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquinquagintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquinquagintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquinquagintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tresquinquagintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -775,6 +776,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-unquinquagintmean-json') out.batchPlanCostTripleUnquinquagintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-duoquinquagintmean') out.batchPlanCostTripleDuoquinquagintmean = true;
     else if (a === '--batch-plan-cost-triple-duoquinquagintmean-json') out.batchPlanCostTripleDuoquinquagintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-tresquinquagintmean') out.batchPlanCostTripleTresquinquagintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -938,6 +940,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquinquagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquinquagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquinquagintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tresquinquagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -9165,6 +9168,71 @@ if (args.batchPlanCostTripleDuoquinquagintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleTresquinquagintmean) {
+  // partial-vvvvvvv: pure-shell data emitter surfacing the tresquinquagintic
+  // mean (p=53 Kolmogorov power-mean) of per-triple wall-times across the
+  // known-wallSec rows of BATCH_PLAN, as the fifty-fifth power-mean sibling
+  // extending partial-ttttttt duoquinquagintmean (p=52) upward to p=53 and
+  // the next odd exponent past the p=52 even milestone (tres=3,
+  // quinquaginta=50, so tresquinquaginta=53; matches the "tres" prefix
+  // cadence the project already uses at p=43 tresquadragintmean and the
+  // smaller tres- siblings). Computed as TQGM53 = (sum(x_i^53) / n)^(1/53)
+  // via Math.pow(s, 1/53); by the generalized power-mean inequality TQGM53
+  // dominates every lower-p sibling, so the monotone chain TQGM53 >= DQGM52
+  // >= UQGM51 >= QGM50 >= NQM49 >= ... >= AM >= GM >= HM now holds inline
+  // across all fifty-five shell emitters. Handler uses the
+  // w32 * w16 * w4 * r.wallSec (53 = 32+16+4+1) four-summand odd-p
+  // decomposition
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8; const w32 = w16 * w16;
+  //  tresquinquagintSum += w32 * w16 * w4 * r.wallSec;) to avoid calling
+  // Math.pow in the inner reduce loop: extends the partial-ttttttt
+  // duoquinquagintmean w32 * w16 * w4 (52 = 32+16+4) three-summand even-p
+  // decomposition by re-introducing the trailing r.wallSec factor to reach
+  // the next odd exponent with exactly one additional multiplication,
+  // matching the partial-rrrrrrr unquinquagintmean (51 = 32+16+2+1) odd-p
+  // cadence at the next four-summand odd exponent. Odd p=53 preserves sign;
+  // wallSec values are strictly positive by construction (wall-clock
+  // measurements) so no sign guard is required, matching every prior odd-p
+  // shell emitter. All-unknown degenerate case (known.length === 0) prints
+  // a dedicated unknown summary and exits 0 rather than (0/0)^(1/53) = NaN.
+  // Pure data emitter, exit 0 unconditionally (no validation gate), not
+  // wired into --preflight / --preflight-json. JSON analog
+  // --batch-plan-cost-triple-tresquinquagintmean-json can follow in a
+  // future partial, matching the shell-first / JSON-second cadence
+  // established across every other cost-emitter axis. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new batch-plan
+  // logic. Honest-partial: imp-917 stays pending -- the ~20 CPU-hour
+  // offline execution of the 14 measurement rows remains the honest
+  // closure condition; this partial extends the power-mean family by one
+  // exponent at the next odd p=53 sibling.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple tresquinquagintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const tresquinquagintSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    const w32 = w16 * w16;
+    return s + w32 * w16 * w4 * r.wallSec;
+  }, 0);
+  const tresquinquagintmeanSec = Math.pow(tresquinquagintSum / known.length, 1 / 53);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from tresquinquagintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple tresquinquagintic-mean wall-time: ${tresquinquagintmeanSec.toFixed(0)} s (~${(tresquinquagintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

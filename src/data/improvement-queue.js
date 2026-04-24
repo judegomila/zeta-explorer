@@ -12667,5 +12667,18 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
     estimatedModel: 'opus-4-7',
     estimatedChannel: 'subscription',
+    partialProgress: [
+      'imp-917-partial-a (commit 1bb750e): parametrized EPSILONS via IMP857_EPSILONS env var so the {0.02, 0.1} cells no longer require a source edit.',
+      'imp-917-partial-b (commit 2ecab5a): added scripts/imp-917-run-cell.mjs offline-worker driver that auto-looks-up (k0_star, phaseVel_star) from RETUNING_CALIBRATION given --N.',
+      'imp-917-partial-c (commit 0153a59): added --list batch-plan emitter that prints the 6-invocation pack covering the 14 cells.',
+      'imp-917-partial-d (this commit): added scripts/imp-917-run-cell.mjs --verify-plan self-consistency check asserting the internal BATCH_PLAN covers MISSING_CELLS exactly, guarding the offline worker against silent drift between the two tables before consuming the ~20 CPU-hour budget.',
+    ],
+    openSubGaps: [
+      {
+        id: 'imp-917-exec',
+        summary: 'Run the 6 batch-plan invocations (~20 CPU-hours total) on an offline worker, transcribe resulting maxIntervalWidth rows into MEASURED_ROWS in src/data/imp-857-phased-forcing-sweep.js.',
+        blocker: 'Wall-time budget only; no design decisions remain. Prereq: run --verify-plan first.',
+      },
+    ],
   },
 ];

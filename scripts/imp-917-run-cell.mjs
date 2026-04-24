@@ -11,6 +11,7 @@
 // Usage:
 //   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 [--nSteps 40] [--dt 1e-4]
 //   node scripts/imp-917-run-cell.mjs --list
+//   node scripts/imp-917-run-cell.mjs --verify-plan
 //
 // --eps must be a comma-separated triple; the first entry is conventionally 0
 // (baseline) so ratio rows can be computed against it. Defaults for nSteps/dt
@@ -21,6 +22,13 @@
 // cells into triple-runs (baseline eps=0 + two eps values per invocation),
 // ready to be piped into GNU parallel / xargs by an offline worker. No
 // --N/--eps required in this mode.
+//
+// --verify-plan asserts that the BATCH_PLAN below exactly covers the 14
+// MISSING_CELLS in imp-896-retuning-calibration.js (every missing (N, eps)
+// pair appears in at least one triple-run; no extraneous pairs). Exits 0 on
+// success, prints a diff and exits 1 on mismatch. Run this before launching
+// an offline worker — a silent BATCH_PLAN/MISSING_CELLS drift would waste the
+// full ~20 CPU-hour budget on the wrong grid.
 //
 // On completion the prototype prints a three-row comparison table; copy the
 // final-row maxIntervalWidth values into a new MEASURED_ROWS entry in
@@ -37,7 +45,14 @@ const __dirname = dirname(__filename);
 const REPO_ROOT = resolve(__dirname, '..');
 
 function parseArgs(argv) {
-  const out = { N: null, eps: null, nSteps: null, dt: null, list: false };
+  const out = {
+    N: null,
+    eps: null,
+    nSteps: null,
+    dt: null,
+    list: false,
+    verifyPlan: false,
+  };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--N') out.N = Number(argv[++i]);
@@ -45,10 +60,12 @@ function parseArgs(argv) {
     else if (a === '--nSteps') out.nSteps = Number(argv[++i]);
     else if (a === '--dt') out.dt = Number(argv[++i]);
     else if (a === '--list') out.list = true;
+    else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--help' || a === '-h') {
       console.log(
         'usage: node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> [--nSteps <k>] [--dt <dt>]\n' +
-          '       node scripts/imp-917-run-cell.mjs --list',
+          '       node scripts/imp-917-run-cell.mjs --list\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-plan',
       );
       process.exit(0);
     } else {
@@ -82,6 +99,56 @@ if (args.list) {
     );
   }
   process.exit(0);
+}
+
+if (args.verifyPlan) {
+  // Flatten BATCH_PLAN into covered (N, eps) pairs. Skip eps=0 baselines when
+  // N is in {1000, 2000}: MISSING_CELLS only lists {0.02, 0.1} for those N
+  // (imp-893 already measured the eps=0 baseline at those N), so the baseline
+  // re-measurement in the triple-run is an internal-consistency probe, not a
+  // missing-cell target. For N in {5000, 10000}, eps=0 IS a missing cell and
+  // must be counted exactly once.
+  const key = (N, eps) => `${N}|${eps}`;
+  const missingSet = new Set(
+    IMP_896_RETUNING_CALIBRATION.missingCells.map((c) => key(c.N, c.eps)),
+  );
+  const coveredSet = new Set();
+  for (const p of BATCH_PLAN) {
+    for (const e of p.eps) {
+      const isSmallN = p.N === 1000 || p.N === 2000;
+      if (isSmallN && e === 0) continue;
+      coveredSet.add(key(p.N, e));
+    }
+  }
+  const missingButUncovered = [...missingSet].filter((k) => !coveredSet.has(k));
+  const coveredButNotMissing = [...coveredSet].filter((k) => !missingSet.has(k));
+  const ok =
+    missingButUncovered.length === 0 &&
+    coveredButNotMissing.length === 0 &&
+    coveredSet.size === missingSet.size;
+  if (ok) {
+    console.log(
+      `imp-917 --verify-plan OK: BATCH_PLAN covers all ${missingSet.size} MISSING_CELLS exactly.`,
+    );
+    process.exit(0);
+  }
+  console.error('imp-917 --verify-plan FAILED:');
+  if (missingButUncovered.length) {
+    console.error(
+      '  cells in MISSING_CELLS not covered by BATCH_PLAN:',
+      missingButUncovered.join(', '),
+    );
+  }
+  if (coveredButNotMissing.length) {
+    console.error(
+      '  cells covered by BATCH_PLAN not in MISSING_CELLS:',
+      coveredButNotMissing.join(', '),
+    );
+  }
+  console.error(
+    `  (MISSING_CELLS size=${missingSet.size}, covered size=${coveredSet.size})`,
+  );
+  process.exit(1);
 }
 
 if (!Number.isFinite(args.N)) {

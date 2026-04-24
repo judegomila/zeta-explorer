@@ -128,6 +128,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquadragintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquadragintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquadragintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tresquadragintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -735,6 +736,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-unquadragintmean-json') out.batchPlanCostTripleUnquadragintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-duoquadragintmean') out.batchPlanCostTripleDuoquadragintmean = true;
     else if (a === '--batch-plan-cost-triple-duoquadragintmean-json') out.batchPlanCostTripleDuoquadragintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-tresquadragintmean') out.batchPlanCostTripleTresquadragintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -878,6 +880,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquadragintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquadragintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquadragintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tresquadragintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -7801,6 +7804,80 @@ if (args.batchPlanCostTripleDuoquadragintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleTresquadragintmean) {
+  // partial-bbbbbbb: pure-shell data emitter surfacing the tresquadragintic
+  // mean (p=43 Kolmogorov power-mean) of per-triple wall-times across
+  // the known-wallSec rows of BATCH_PLAN as the forty-fifth power-mean
+  // sibling extending partial-zzzzzz duoquadragintmean (p=42) upward to
+  // p=43 as the third tresquadragint-prefixed exponent (tres-quadraginta
+  // = 3 + 40) past the p=40 quadragint milestone and the next odd
+  // exponent after p=41. Computed as TQGM43 = (sum(x_i^43) / n)^(1/43)
+  // via Math.pow(s, 1/43); by the generalized power-mean inequality
+  // TQGM43 dominates every lower-p sibling so the monotone chain
+  // TQGM43 >= DQGM42 >= UQGM41 >= QGM40 >= NTGM39 >= OTGM38 >= HPTGM37
+  //   >= HTGM36 >= PTGM35 >= TTGM34 >= TRGM33 >= DTGM32 >= UTGM31
+  //   >= TGM30 >= NVGM29 >= OVGM28 >= SPVGM27 >= SXVGM26 >= QIVGM25
+  //   >= QVGM24 >= TVGM23 >= DVGM22 >= UVGM21 >= VGM20 >= NVDM19
+  //   >= OCDM18 >= SPM17 >= SDM >= QIM15 >= QDM >= TRM >= DUM >= UDM
+  //   >= DCM >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >= QM
+  //   >= AM >= GM >= HM
+  // now holds inline across all forty-five shell emitters. Handler uses
+  // the cache pattern
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  const w32 = w16 * w16; return s + w32 * w8 * w2 * r.wallSec;)
+  // to avoid calling Math.pow in the inner reduce loop (43 = 32+8+2+1,
+  // the cleanest {32,8,2,1}-partition factorization the cache admits at
+  // this odd exponent), promoting the partial-zzzzzz duoquadragintmean
+  // w32 * w8 * w2 (42 = 32+8+2) three-summand even-p decomposition by
+  // appending a trailing r.wallSec factor to reach the next odd
+  // exponent, and contrasting partial-xxxxxx unquadragintmean
+  // w32 * w8 * r.wallSec (41 = 32+8+1) three-summand odd-p decomposition
+  // two lower which used a {32,8,1} three-summand partition without the
+  // w2 middle factor. Odd p=43 preserves sign but wallSec values are
+  // strictly positive by construction (wall-clock measurements) so no
+  // sign guard is required, mirroring the partial-uuu / partial-aaaa /
+  // partial-eeee / partial-iiii / partial-mmmm / partial-qqqq /
+  // partial-uuuu / partial-yyyy / partial-cccccc / partial-gggggg /
+  // partial-kkkkk / partial-sssss / partial-vvvvv / partial-zzzzz /
+  // partial-dddddd / partial-hhhhhh / partial-llllll / partial-pppppp /
+  // partial-tttttt / partial-xxxxxx odd-p cadence.
+  // All-unknown degenerate case (known.length === 0) prints a dedicated
+  // unknown summary and exits 0 rather than (0/0)^(1/43) = NaN. Pure
+  // data emitter, exit 0 unconditionally (no validation gate), not
+  // wired into --preflight / --preflight-json. Shell-only this partial;
+  // the --batch-plan-cost-triple-tresquadragintmean-json analog will
+  // follow in a later partial mirroring the shell-first / JSON-second
+  // cadence established across every other cost-emitter axis. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new batch-plan
+  // logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple tresquadragintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const tresquadragintSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    const w32 = w16 * w16;
+    return s + w32 * w8 * w2 * r.wallSec;
+  }, 0);
+  const tresquadragintmeanSec = Math.pow(tresquadragintSum / known.length, 1 / 43);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from tresquadragintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple tresquadragintic-mean wall-time: ${tresquadragintmeanSec.toFixed(0)} s (~${(tresquadragintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

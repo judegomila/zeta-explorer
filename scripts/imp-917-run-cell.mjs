@@ -18,6 +18,7 @@
 //   node scripts/imp-917-run-cell.mjs --missing-cells-json
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -457,6 +458,7 @@ function parseArgs(argv) {
     missingCellsJson: false,
     retuningTable: false,
     retuningTableJson: false,
+    batchPlanCost: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -494,6 +496,7 @@ function parseArgs(argv) {
     else if (a === '--missing-cells-json') out.missingCellsJson = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
+    else if (a === '--batch-plan-cost') out.batchPlanCost = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -527,6 +530,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --missing-cells-json\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -693,6 +697,59 @@ if (args.retuningTableJson) {
   // (no check, exit 0) matching the --missing-cells-json cadence.
   console.log(
     JSON.stringify(IMP_896_RETUNING_CALIBRATION.retuningTable, null, 2),
+  );
+  process.exit(0);
+}
+
+if (args.batchPlanCost) {
+  // Per-triple BATCH_PLAN wall-time emitter. Each MISSING_CELLS row carries
+  // wallSecondsEstPerTripleRun for the triple that contains it; rows at the
+  // same N share that value (the cost is set by N + nSteps, not by eps). So a
+  // per-triple cost lookup just picks the first MISSING_CELLS row matching
+  // each BATCH_PLAN entry N and sums. Distinct from the
+  // IMP_896_RETUNING_CALIBRATION.totalWallSecondsEstimate reported under
+  // --missing-cells, which divides by 3 (per-cell amortized upper bound);
+  // --batch-plan-cost answers the operator question "how long will the full
+  // 6-triple offline batch take on a single sequential worker" by summing
+  // per-triple costs, not per-cell shares. Pure data emitter, exit 0 always
+  // (no validation). Unknown-N rows are tagged "unknown" and contribute zero.
+  const missingByN = new Map();
+  for (const c of IMP_896_RETUNING_CALIBRATION.missingCells) {
+    if (!missingByN.has(c.N)) missingByN.set(c.N, c);
+  }
+  const header = ['idx', 'N', 'eps', 'label', 'wallSecEst'];
+  const rows = BATCH_PLAN.map((p, i) => {
+    const proto = missingByN.get(p.N);
+    return {
+      index: i + 1,
+      N: p.N,
+      eps: p.eps,
+      label: p.label,
+      wallSec: proto ? proto.wallSecondsEstPerTripleRun : null,
+    };
+  });
+  const body = rows.map((r) => [
+    String(r.index),
+    String(r.N),
+    r.eps.join(','),
+    r.label,
+    r.wallSec === null ? 'unknown' : String(r.wallSec),
+  ]);
+  const widths = header.map((h, col) =>
+    Math.max(h.length, ...body.map((r) => r[col].length)),
+  );
+  const pad = (s, w) => s + ' '.repeat(w - s.length);
+  const fmt = (r) => r.map((v, col) => pad(v, widths[col])).join('  ');
+  const sep = widths.map((w) => '-'.repeat(w)).join('  ');
+  const totalSec = rows.reduce((s, r) => s + (r.wallSec ?? 0), 0);
+  const unknownCount = rows.filter((r) => r.wallSec === null).length;
+  console.log(`imp-917 BATCH_PLAN cost (${rows.length} triple-runs):`);
+  console.log(`  ${fmt(header)}`);
+  console.log(`  ${sep}`);
+  for (const r of body) console.log(`  ${fmt(r)}`);
+  const unknownNote = unknownCount > 0 ? ` (${unknownCount} triple-run(s) with unknown N)` : '';
+  console.log(
+    `  total: ${rows.length} triple-runs, sum ~= ${totalSec.toFixed(0)} s (~${(totalSec / 3600).toFixed(1)} CPU-hours)${unknownNote}.`,
   );
   process.exit(0);
 }

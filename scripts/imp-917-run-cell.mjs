@@ -364,20 +364,22 @@
 //
 // --preflight-json is the structural JSON analog of --preflight. Emits one
 // object {ok, firstFailingStep, steps: [{step, name, ok, ...}]} aggregating
-// the eight checks. Each step object carries the same body that the single-flag
+// the nine checks. Each step object carries the same body that the single-flag
 // JSON analog would emit (plan coverage diff, prototype stat, per-cell resolve
 // summary, output-target stat, output-schema token presence, retuning-table
-// coverage, prototype-schema token presence, prototype env-readers presence).
-// Exit status matches --preflight (0 on all-ok; 1, 2, 3, 4, 5, 6, 7, or 8 on
-// first failing step) so Python / jq offline-worker drivers can gate the batch
-// on a single JSON body and a single exit code, completing the {shell, JSON}
-// pair for every pre-flight check: --verify-plan / --verify-plan-json,
-// --verify-prototype / --verify-prototype-json, --dry-run-all /
-// --dry-run-all-json, --verify-output-target / --verify-output-target-json,
+// coverage, prototype-schema token presence, prototype env-readers presence,
+// output-schema-closer token presence). Exit status matches --preflight (0 on
+// all-ok; 1, 2, 3, 4, 5, 6, 7, 8, or 9 on first failing step) so Python / jq
+// offline-worker drivers can gate the batch on a single JSON body and a single
+// exit code, completing the {shell, JSON} pair for every pre-flight check:
+// --verify-plan / --verify-plan-json, --verify-prototype /
+// --verify-prototype-json, --dry-run-all / --dry-run-all-json,
+// --verify-output-target / --verify-output-target-json,
 // --verify-output-schema / --verify-output-schema-json,
 // --verify-retuning-coverage / --verify-retuning-coverage-json,
 // --verify-prototype-schema / --verify-prototype-schema-json,
-// --verify-prototype-env-readers / --verify-prototype-env-readers-json, and
+// --verify-prototype-env-readers / --verify-prototype-env-readers-json,
+// --verify-output-schema-closer / --verify-output-schema-closer-json, and
 // --preflight / --preflight-json.
 //
 // --dry-run resolves the full IMP857_* env var set for the given --N/--eps
@@ -1425,12 +1427,12 @@ if (args.preflight) {
 }
 
 if (args.preflightJson) {
-  // Structural JSON analog of --preflight: aggregate the eight checks into one
+  // Structural JSON analog of --preflight: aggregate the nine checks into one
   // object. Each step body mirrors the corresponding single-flag JSON analog
   // so parsers can reuse the same schema per step. firstFailingStep is the
   // 1-indexed step number of the first failure (or null on all-ok); the process
   // exit code mirrors that number, matching --preflight
-  // (0 / 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8).
+  // (0 / 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9).
   const planResult = computePlanCoverage();
   const protoResult = checkPrototype();
   const resolveRows = [];
@@ -1451,6 +1453,7 @@ if (args.preflightJson) {
   const retuningCoverageResult = computeRetuningCoverage();
   const prototypeSchemaResult = checkPrototypeSchema();
   const prototypeEnvReadersResult = checkPrototypeEnvReaders();
+  const outputSchemaCloserResult = checkOutputSchemaCloser();
 
   let firstFailingStep = null;
   if (!planResult.ok) firstFailingStep = 1;
@@ -1461,6 +1464,7 @@ if (args.preflightJson) {
   else if (!retuningCoverageResult.ok) firstFailingStep = 6;
   else if (!prototypeSchemaResult.ok) firstFailingStep = 7;
   else if (!prototypeEnvReadersResult.ok) firstFailingStep = 8;
+  else if (!outputSchemaCloserResult.ok) firstFailingStep = 9;
 
   const body = {
     ok: firstFailingStep === null,
@@ -1505,6 +1509,12 @@ if (args.preflightJson) {
         name: '--verify-prototype-env-readers',
         ok: prototypeEnvReadersResult.ok,
         prototypeEnvReaders: prototypeEnvReadersResult,
+      },
+      {
+        step: 9,
+        name: '--verify-output-schema-closer',
+        ok: outputSchemaCloserResult.ok,
+        outputSchemaCloser: outputSchemaCloserResult,
       },
     ],
   };

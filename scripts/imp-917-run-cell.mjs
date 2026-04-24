@@ -37,6 +37,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-stddev
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-stddev-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -495,6 +496,7 @@ function parseArgs(argv) {
     batchPlanCostTripleStddev: false,
     batchPlanCostTripleStddevJson: false,
     batchPlanCostTripleMad: false,
+    batchPlanCostTripleMadJson: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -551,6 +553,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-stddev') out.batchPlanCostTripleStddev = true;
     else if (a === '--batch-plan-cost-triple-stddev-json') out.batchPlanCostTripleStddevJson = true;
     else if (a === '--batch-plan-cost-triple-mad') out.batchPlanCostTripleMad = true;
+    else if (a === '--batch-plan-cost-triple-mad-json') out.batchPlanCostTripleMadJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -603,6 +606,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-stddev\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-stddev-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1608,6 +1612,67 @@ if (args.batchPlanCostTripleMad) {
   console.log(
     `imp-917 BATCH_PLAN per-triple MAD wall-time: ${madSec.toFixed(0)} s (~${(madSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s); median ${medianSec.toFixed(0)} s, MAD/median = ${ratio === null ? 'n/a' : ratio.toFixed(2)}${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleMadJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-mad (partial-nnn):
+  // surface BATCH_PLAN's median absolute deviation of per-triple wall-times as
+  // a single object {madSec, madHours, medianSec, ratio, knownCount,
+  // unknownCount} so Python / jq offline-worker drivers can consume the
+  // outlier-robust dispersion signal directly without re-parsing the one-line
+  // shell summary. Pure composition of computeBatchPlanCost() (partial-vv
+  // helper) with zero new math, matching the shell form exactly: identical
+  // known-row filter (wallSec !== null), identical inner median and
+  // deviation-median (unknown-N rows excluded from both stages so nulls cannot
+  // corrupt either statistic), identical even/odd midpoint selection at both
+  // stages (average of sorted[mid-1] and sorted[mid] when even-count, single
+  // sorted[mid] when odd-count), identical ratio = madSec / medianSec with
+  // null fallback when medianSec is 0. madHours is precomputed inline as
+  // madSec / 3600 (null when knownCount === 0) matching the precomputed-hours
+  // cadence established across the whole cost-emitter family
+  // (--batch-plan-cost-json, --batch-plan-cost-by-N-json,
+  // --batch-plan-cost-max-triple-json, --batch-plan-cost-min-triple-json,
+  // --batch-plan-cost-triple-range-json, --batch-plan-cost-triple-mean-json,
+  // --batch-plan-cost-triple-median-json, --batch-plan-cost-triple-stddev-json)
+  // so drivers never redo the seconds-to-hours conversion per run.
+  // All-unknown degenerate case emits {madSec: null, madHours: null,
+  // medianSec: null, ratio: null, knownCount: 0, unknownCount} and exits 0
+  // without touching the sort, matching the partial-nnn shell
+  // graceful-degenerate branch. Pure data emitter, exit 0 unconditionally (no
+  // validation gate), not wired into --preflight / --preflight-json.
+  // Completes the {shell, JSON} pair for partial-nnn and rounds out the full
+  // per-triple statistical surface {min extremum, max extremum,
+  // range-with-ratio, arithmetic mean, median, stddev, MAD} x {shell, JSON}.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let madSec = null;
+  let medianSec = null;
+  let ratio = null;
+  if (known.length > 0) {
+    const medianOf = (arr) => {
+      const sorted = [...arr].sort((a, b) => a - b);
+      const mid = Math.floor(sorted.length / 2);
+      return sorted.length % 2 === 0
+        ? (sorted[mid - 1] + sorted[mid]) / 2
+        : sorted[mid];
+    };
+    const values = known.map((r) => r.wallSec);
+    medianSec = medianOf(values);
+    const deviations = values.map((v) => Math.abs(v - medianSec));
+    madSec = medianOf(deviations);
+    ratio = medianSec === 0 ? null : madSec / medianSec;
+  }
+  const madHours = madSec === null ? null : madSec / 3600;
+  const body = {
+    madSec,
+    madHours,
+    medianSec,
+    ratio,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

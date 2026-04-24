@@ -22,6 +22,7 @@
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
 //   node scripts/imp-917-run-cell.mjs --cell 3 --dry-run-json
 //   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 --dry-run-json
+//   node scripts/imp-917-run-cell.mjs --preflight
 //
 // --eps must be a comma-separated triple; the first entry is conventionally 0
 // (baseline) so ratio rows can be computed against it. Defaults for nSteps/dt
@@ -73,6 +74,15 @@
 // run on the JSON body AND the process exit code, completing the {shell, JSON}
 // output matrix for all four pre-flight checks: --verify-plan / --verify-plan-json,
 // --verify-prototype / --verify-prototype-json.
+//
+// --preflight runs the three existing shell pre-flight checks in sequence —
+// --verify-plan (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype
+// (prototype script exists), --dry-run-all (every BATCH_PLAN cell resolves its
+// IMP857_* env-var pack) — and aggregates the results. Prints a per-step banner
+// and a final PASS / FAILED summary. Exits 0 only if all three pass; otherwise
+// exits with the step number (1, 2, or 3) of the first failing step, so an
+// offline-worker driver can gate the ~20 CPU-hour batch on a single command
+// rather than orchestrating three separate invocations and three exit codes.
 //
 // --dry-run resolves the full IMP857_* env var set for the given --N/--eps
 // cell (exactly as a real run would) and prints them as copy-pastable shell
@@ -149,6 +159,7 @@ function parseArgs(argv) {
     dryRunJson: false,
     dryRunAll: false,
     dryRunAllJson: false,
+    preflight: false,
     cell: null,
   };
   for (let i = 2; i < argv.length; i++) {
@@ -167,6 +178,7 @@ function parseArgs(argv) {
     else if (a === '--dry-run-json') out.dryRunJson = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
     else if (a === '--dry-run-all-json') out.dryRunAllJson = true;
+    else if (a === '--preflight') out.preflight = true;
     else if (a === '--cell') out.cell = Number(argv[++i]);
     else if (a === '--help' || a === '-h') {
       console.log(
@@ -180,7 +192,8 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run|--dry-run-json]\n' +
-          '       node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> --dry-run-json',
+          '       node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> --dry-run-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --preflight',
       );
       process.exit(0);
     } else {
@@ -485,6 +498,71 @@ if (args.dryRunAllJson) {
   }
   console.log(JSON.stringify(rows, null, 2));
   if (failures > 0) process.exit(1);
+  process.exit(0);
+}
+
+if (args.preflight) {
+  // Sequenced shell pre-flight: verify-plan -> verify-prototype -> dry-run-all.
+  // Each step mirrors the corresponding standalone flag so operator output is
+  // familiar. On failure, exits with the 1-indexed step number so the driver
+  // can tell which step tripped without parsing stdout.
+  console.log('=== imp-917 --preflight step 1/3: --verify-plan ===');
+  const planResult = computePlanCoverage();
+  if (!planResult.ok) {
+    console.error('imp-917 --preflight FAILED at step 1 (--verify-plan):');
+    if (planResult.missingButUncovered.length) {
+      console.error(
+        '  cells in MISSING_CELLS not covered by BATCH_PLAN:',
+        planResult.missingButUncovered.join(', '),
+      );
+    }
+    if (planResult.coveredButNotMissing.length) {
+      console.error(
+        '  cells covered by BATCH_PLAN not in MISSING_CELLS:',
+        planResult.coveredButNotMissing.join(', '),
+      );
+    }
+    process.exit(1);
+  }
+  console.log(
+    `  OK: BATCH_PLAN covers all ${planResult.missingCount} MISSING_CELLS exactly.`,
+  );
+
+  console.log('=== imp-917 --preflight step 2/3: --verify-prototype ===');
+  const protoResult = checkPrototype();
+  if (!protoResult.ok) {
+    console.error(
+      `imp-917 --preflight FAILED at step 2 (--verify-prototype): ${protoResult.path}: ${protoResult.error}`,
+    );
+    process.exit(2);
+  }
+  console.log(
+    `  OK: prototype script present (${protoResult.path}, ${protoResult.sizeBytes} bytes).`,
+  );
+
+  console.log('=== imp-917 --preflight step 3/3: --dry-run-all ===');
+  let resolveFailures = 0;
+  for (let i = 0; i < BATCH_PLAN.length; i++) {
+    const p = BATCH_PLAN[i];
+    const r = resolveCell(p.N, p.eps, null, null);
+    if (r.error) {
+      console.error(`  cell ${i + 1}/${BATCH_PLAN.length} (${p.label}): ERROR: ${r.error}`);
+      resolveFailures++;
+      continue;
+    }
+    console.log(`  cell ${i + 1}/${BATCH_PLAN.length} (${p.label}): OK`);
+  }
+  if (resolveFailures > 0) {
+    console.error(
+      `imp-917 --preflight FAILED at step 3 (--dry-run-all): ${resolveFailures} of ${BATCH_PLAN.length} cells did not resolve.`,
+    );
+    process.exit(3);
+  }
+  console.log(
+    `  OK: all ${BATCH_PLAN.length} BATCH_PLAN cells resolved cleanly.`,
+  );
+
+  console.log('imp-917 --preflight PASS: all 3 steps OK, offline batch ready to launch.');
   process.exit(0);
 }
 

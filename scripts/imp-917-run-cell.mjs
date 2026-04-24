@@ -66,6 +66,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-decmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duodecmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -611,6 +612,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-decmean-json') out.batchPlanCostTripleDecmeanJson = true;
     else if (a === '--batch-plan-cost-triple-undecmean') out.batchPlanCostTripleUndecmean = true;
     else if (a === '--batch-plan-cost-triple-undecmean-json') out.batchPlanCostTripleUndecmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-duodecmean') out.batchPlanCostTripleDuodecmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -692,6 +694,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-decmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duodecmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -3225,6 +3228,71 @@ if (args.batchPlanCostTripleUndecmean) {
       : '';
   console.log(
     `imp-917 BATCH_PLAN per-triple undecic-mean wall-time: ${undecmeanSec.toFixed(0)} s (~${(undecmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleDuodecmean) {
+  // Shell data emitter: surface the duodecic mean (p=12 Kolmogorov power-mean)
+  // of per-triple wall-times across the known-wallSec rows of BATCH_PLAN as
+  // the fourteenth power-mean sibling, extending the already-paired
+  // tredectet {harmonic (p=-1, partial-vvv/www), geometric (p=0,
+  // partial-ttt/uuu), arithmetic (p=1, partial-hhh/iii), quadratic (p=2,
+  // partial-xxx/yyy), cubic (p=3, partial-zzz/aaaa), quartic (p=4,
+  // partial-bbbb/cccc), quintic (p=5, partial-dddd/eeee), sextic (p=6,
+  // partial-ffff/gggg), septic (p=7, partial-hhhh/iiii), octic (p=8,
+  // partial-jjjj/kkkk), nonic (p=9, partial-llll/mmmm), decic (p=10,
+  // partial-nnnn/oooo), undecic (p=11, partial-pppp/qqqq)} upward to p=12.
+  // Computed as DUM = (sum(x_i^12) / n)^(1/12) via Math.pow(s, 1/12); by the
+  // generalized power-mean inequality DUM dominates every lower-p sibling so
+  // the full ordering
+  // DUM >= UDM >= DCM >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >=
+  //   QM >= AM >= GM >= HM
+  // now holds inline across all fourteen emitters. Handler uses the
+  // (((x^2)^2)^2) * ((x^2)^2) factorization (const w2 = r.wallSec *
+  // r.wallSec; const w4 = w2 * w2; const w8 = w4 * w4; duodecSum += w8 * w4;)
+  // to avoid calling Math.pow in the inner reduce loop, matching the
+  // partial-bbbb quartmean (x^2)^2 cadence, the partial-jjjj octmean
+  // (((x^2)^2)^2) cadence, and the partial-nnnn decmean (((x^2)^2)^2) *
+  // (x^2) cadence that produce the same bit-pattern on IEEE-754 across
+  // Node versions. Even-exponent p=12 forces non-negativity (mirroring
+  // partial-xxx quadmean p=2, partial-bbbb quartmean p=4, partial-ffff
+  // sextmean p=6, partial-jjjj octmean p=8, partial-nnnn decmean p=10
+  // even-p observation) and all wallSec values are strictly positive by
+  // construction so no sign handling is required. The only degenerate case
+  // is all-unknown (known.length === 0) which prints a dedicated "unknown"
+  // summary and exits 0 rather than (0/0)^(1/12) = NaN, matching the
+  // partial-hhh / partial-ttt / partial-vvv / partial-xxx / partial-zzz /
+  // partial-bbbb / partial-dddd / partial-ffff / partial-hhhh / partial-jjjj
+  // / partial-llll / partial-nnnn / partial-pppp degenerate cadence. Pure
+  // data emitter, exit 0 unconditionally (no validation gate), not wired
+  // into --preflight / --preflight-json. Shell-only this partial; a
+  // --batch-plan-cost-triple-duodecmean-json analog can follow as
+  // partial-ssss mirroring the shell-first / JSON-second cadence
+  // established across every other cost-emitter axis. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new batch-plan
+  // logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple duodecic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const duodecSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    return s + w8 * w4;
+  }, 0);
+  const duodecmeanSec = Math.pow(duodecSum / known.length, 1 / 12);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from duodecmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple duodecic-mean wall-time: ${duodecmeanSec.toFixed(0)} s (~${(duodecmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
   process.exit(0);
 }

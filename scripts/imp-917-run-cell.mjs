@@ -12,6 +12,7 @@
 //   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 [--nSteps 40] [--dt 1e-4]
 //   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 --dry-run
 //   node scripts/imp-917-run-cell.mjs --list
+//   node scripts/imp-917-run-cell.mjs --plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
@@ -25,6 +26,12 @@
 // cells into triple-runs (baseline eps=0 + two eps values per invocation),
 // ready to be piped into GNU parallel / xargs by an offline worker. No
 // --N/--eps required in this mode.
+//
+// --plan-json emits the BATCH_PLAN as a JSON array (one object per cell,
+// fields: index, N, eps, label) so Python / jq-based offline-worker drivers
+// can consume the plan without re-parsing the --list shell one-liners.
+// Pairs naturally with --verify-plan (assert coverage) -> --plan-json (feed
+// into a custom runner) when GNU parallel is not the preferred launcher.
 //
 // --verify-plan asserts that the BATCH_PLAN below exactly covers the 14
 // MISSING_CELLS in imp-896-retuning-calibration.js (every missing (N, eps)
@@ -77,6 +84,7 @@ function parseArgs(argv) {
     nSteps: null,
     dt: null,
     list: false,
+    planJson: false,
     verifyPlan: false,
     dryRun: false,
     dryRunAll: false,
@@ -89,6 +97,7 @@ function parseArgs(argv) {
     else if (a === '--nSteps') out.nSteps = Number(argv[++i]);
     else if (a === '--dt') out.dt = Number(argv[++i]);
     else if (a === '--list') out.list = true;
+    else if (a === '--plan-json') out.planJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
@@ -97,6 +106,7 @@ function parseArgs(argv) {
       console.log(
         'usage: node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> [--nSteps <k>] [--dt <dt>] [--dry-run]\n' +
           '       node scripts/imp-917-run-cell.mjs --list\n' +
+          '       node scripts/imp-917-run-cell.mjs --plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run]',
@@ -132,6 +142,17 @@ if (args.list) {
       `node scripts/imp-917-run-cell.mjs --N ${p.N} --eps ${p.eps.join(',')}  # ${p.label}`,
     );
   }
+  process.exit(0);
+}
+
+if (args.planJson) {
+  const rows = BATCH_PLAN.map((p, i) => ({
+    index: i + 1,
+    N: p.N,
+    eps: p.eps,
+    label: p.label,
+  }));
+  console.log(JSON.stringify(rows, null, 2));
   process.exit(0);
 }
 

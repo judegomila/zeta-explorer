@@ -24,6 +24,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-min-triple
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
@@ -471,6 +472,7 @@ function parseArgs(argv) {
     batchPlanCostByNJson: false,
     batchPlanCostMaxTriple: false,
     batchPlanCostMaxTripleJson: false,
+    batchPlanCostMinTriple: false,
     batchPlanCostSummary: false,
     batchPlanCostSummaryJson: false,
     verifyPlan: false,
@@ -516,6 +518,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-by-N-json') out.batchPlanCostByNJson = true;
     else if (a === '--batch-plan-cost-max-triple') out.batchPlanCostMaxTriple = true;
     else if (a === '--batch-plan-cost-max-triple-json') out.batchPlanCostMaxTripleJson = true;
+    else if (a === '--batch-plan-cost-min-triple') out.batchPlanCostMinTriple = true;
     else if (a === '--batch-plan-cost-summary') out.batchPlanCostSummary = true;
     else if (a === '--batch-plan-cost-summary-json') out.batchPlanCostSummaryJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
@@ -557,6 +560,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-min-triple\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
@@ -958,6 +962,61 @@ if (args.batchPlanCostMaxTripleJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+// Canary-probe candidate: the single shortest triple-run in BATCH_PLAN.
+// Complements computeBatchPlanCostMaxTriple() (critical-path upper bound for
+// parallel schedules) with the per-triple lower extreme, surfacing the
+// fastest cell an operator can spawn end-to-end to smoke-test the pipeline
+// (retuning lookup, env-var wiring, prototype spawn, maxIntervalWidth row)
+// before committing to the full ~20 CPU-hour batch. Unknown-N rows
+// (wallSec === null) are excluded from the min search so they do not
+// produce a spurious "null vs number" comparison; the unknownCount is
+// reported separately. Returns {minRow, knownCount, unknownCount} where
+// minRow is null only if every triple has unknown N. Shared-shape result
+// matching computeBatchPlanCostMaxTriple() so a future
+// --batch-plan-cost-min-triple-json partial can reuse it without drift.
+function computeBatchPlanCostMinTriple() {
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const knownRows = rows.filter((r) => r.wallSec !== null);
+  const minRow = knownRows.length === 0
+    ? null
+    : knownRows.reduce((best, r) => (r.wallSec < best.wallSec ? r : best), knownRows[0]);
+  return { minRow, knownCount: knownRows.length, unknownCount };
+}
+
+if (args.batchPlanCostMinTriple) {
+  // Shell data emitter: surface the single shortest triple-run in BATCH_PLAN
+  // as the canary-probe candidate. Distinct from --batch-plan-cost-max-triple
+  // (critical-path upper bound; the longest triple no parallel schedule can
+  // beat) and from --batch-plan-cost-summary (consolidated 3-bound summary):
+  // --batch-plan-cost-min-triple answers the operator question "which single
+  // triple should I run first to smoke-test the offline pipeline end-to-end
+  // before committing to the full ~20 CPU-hour batch?" The minimum-cost
+  // triple is the natural choice since it exercises every code path the
+  // larger-N triples will (retuning lookup, env-var wiring, prototype spawn,
+  // maxIntervalWidth extraction, MEASURED_ROWS transcription) at the cheapest
+  // wall-time. Reuses computeBatchPlanCostMinTriple() (which reuses
+  // computeBatchPlanCost()) so the shell output cannot drift from the
+  // upstream per-triple cost table. Pure data emitter, exit 0 unconditionally
+  // (not a check). Not wired into --preflight / --preflight-json (pure data
+  // emitter, not a pre-flight gate).
+  const { minRow, unknownCount } = computeBatchPlanCostMinTriple();
+  if (minRow === null) {
+    console.log('imp-917 BATCH_PLAN canary-probe candidate: unknown (all triples have unknown N).');
+    process.exit(0);
+  }
+  const unknownNote = unknownCount > 0 ? ` (${unknownCount} triple-run(s) with unknown N excluded from min search)` : '';
+  console.log(
+    `imp-917 BATCH_PLAN canary-probe candidate: ${minRow.wallSec.toFixed(0)} s (~${(minRow.wallSec / 3600).toFixed(1)} CPU-hours)${unknownNote}.`,
+  );
+  console.log(
+    `  shortest triple: idx=${minRow.index}, N=${minRow.N}, eps=${minRow.eps.join(',')}, label="${minRow.label}"`,
+  );
+  console.log(
+    '  (run this triple first to smoke-test the offline pipeline end-to-end before launching the full batch.)',
+  );
   process.exit(0);
 }
 

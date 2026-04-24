@@ -42,6 +42,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -563,6 +564,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-iqr-json') out.batchPlanCostTripleIqrJson = true;
     else if (a === '--batch-plan-cost-triple-variance') out.batchPlanCostTripleVariance = true;
     else if (a === '--batch-plan-cost-triple-variance-json') out.batchPlanCostTripleVarianceJson = true;
+    else if (a === '--batch-plan-cost-triple-geomean') out.batchPlanCostTripleGeomean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -620,6 +622,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1931,6 +1934,58 @@ if (args.batchPlanCostTripleVarianceJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleGeomean) {
+  // Shell data emitter: surface the geometric mean of per-triple wall-times
+  // across the known-wallSec rows of BATCH_PLAN as a log-space central-
+  // tendency sibling to the linear-space --batch-plan-cost-triple-mean
+  // (partial-hhh) and the position-based --batch-plan-cost-triple-median
+  // (partial-jjj). Where the arithmetic mean answers "what is the typical
+  // cost if I add them up?" and the median answers "what is the middle cost
+  // sorted by magnitude?", the geometric mean answers "what is the typical
+  // cost on a multiplicative scale?" -- computed as exp(mean(ln(wallSec))),
+  // it compresses the two N=10000 tail triples (72000 s each) relative to
+  // the four smaller triples (<=18000 s) more aggressively than either the
+  // arithmetic mean or the median, giving a different operator-facing
+  // signal when provisioning workers whose cost ratios (not differences)
+  // matter, e.g. deciding whether two triples can share a time-budget
+  // multiplier. Reuses computeBatchPlanCost() (partial-vv helper) with zero
+  // new batch-plan logic; unknown-N rows (wallSec === null) are excluded
+  // from the log-sum so nulls cannot corrupt the statistic, and unknownCount
+  // is reported explicitly in a trailing note. Any wallSec <= 0 row in the
+  // known set would make the geometric mean collapse to 0 or NaN (since
+  // ln(0) = -Infinity and ln(negative) = NaN); the current BATCH_PLAN has
+  // no such triples so this is not a concern today, but defensively the
+  // handler checks for any known row with wallSec <= 0 and emits an unknown
+  // summary to avoid reporting a misleading 0. All-unknown degenerate case
+  // prints the dedicated unknown summary and exits 0 without dividing by
+  // zero or log-of-zero, matching the partial-zz / partial-ddd /
+  // partial-hhh / partial-jjj / partial-lll / partial-nnn / partial-ppp /
+  // partial-rrr degenerate cadence. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Shell-only this partial; a
+  // --batch-plan-cost-triple-geomean-json analog can follow mirroring the
+  // shell-first / JSON-second cadence established across the whole
+  // cost-emitter family.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0 || known.some((r) => r.wallSec <= 0)) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple geomean wall-time: unknown (all triples have unknown N or a known triple has non-positive wallSec).',
+    );
+    process.exit(0);
+  }
+  const lnSum = known.reduce((s, r) => s + Math.log(r.wallSec), 0);
+  const geomeanSec = Math.exp(lnSum / known.length);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from geomean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple geomean wall-time: ${geomeanSec.toFixed(0)} s (~${(geomeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

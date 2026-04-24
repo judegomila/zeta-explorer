@@ -30,6 +30,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -481,6 +482,7 @@ function parseArgs(argv) {
     batchPlanCostSummaryJson: false,
     batchPlanCostTripleRange: false,
     batchPlanCostTripleRangeJson: false,
+    batchPlanCostTripleMean: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -530,6 +532,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-summary-json') out.batchPlanCostSummaryJson = true;
     else if (a === '--batch-plan-cost-triple-range') out.batchPlanCostTripleRange = true;
     else if (a === '--batch-plan-cost-triple-range-json') out.batchPlanCostTripleRangeJson = true;
+    else if (a === '--batch-plan-cost-triple-mean') out.batchPlanCostTripleMean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -575,6 +578,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1239,6 +1243,49 @@ if (args.batchPlanCostTripleRangeJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleMean) {
+  // Shell data emitter: surface the arithmetic mean wall-time across the
+  // known-wallSec rows of BATCH_PLAN as a central-tendency complement to the
+  // existing extrema views (--batch-plan-cost-min-triple canary, partial-ddd;
+  // --batch-plan-cost-max-triple critical-path, partial-zz; --batch-plan-cost-
+  // triple-range both endpoints, partial-fff). The mean answers the separate
+  // operator question "what is the typical per-triple wall-time?" — useful
+  // when budgeting an expected-case N-worker schedule where each worker draws
+  // triples from a shared queue: expected per-worker wall-time is roughly
+  // (mean * knownCount) / N, whereas --batch-plan-cost-by-N bounds the
+  // worst-case pinned-N schedule and --batch-plan-cost-max-triple bounds the
+  // critical-path floor. Reuses computeBatchPlanCost() (partial-vv helper)
+  // with zero new math; unknown-N rows (wallSec === null) are excluded from
+  // both the sum and the count so the mean is computed only across the
+  // known-wallSec rows, and an appended note reports any excluded count.
+  // All-unknown degenerate case prints a dedicated "unknown (all triples
+  // have unknown N)" summary and exits 0 rather than dividing by zero,
+  // matching the partial-zz / partial-ddd degenerate cadence. Pure data
+  // emitter, exit 0 unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json. Shell-only this partial; a
+  // --batch-plan-cost-triple-mean-json analog can follow mirroring the
+  // partial-vv/ww, partial-xx/yy, partial-zz/aaa, partial-ddd/eee, partial-
+  // bbb/ccc, and partial-fff/ggg shell-first / JSON-second cadence.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const sumSec = known.reduce((s, r) => s + r.wallSec, 0);
+  const meanSec = sumSec / known.length;
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from mean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple mean wall-time: ${meanSec.toFixed(0)} s (~${(meanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

@@ -29,6 +29,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -479,6 +480,7 @@ function parseArgs(argv) {
     batchPlanCostSummary: false,
     batchPlanCostSummaryJson: false,
     batchPlanCostTripleRange: false,
+    batchPlanCostTripleRangeJson: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -527,6 +529,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-summary') out.batchPlanCostSummary = true;
     else if (a === '--batch-plan-cost-summary-json') out.batchPlanCostSummaryJson = true;
     else if (a === '--batch-plan-cost-triple-range') out.batchPlanCostTripleRange = true;
+    else if (a === '--batch-plan-cost-triple-range-json') out.batchPlanCostTripleRangeJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -571,6 +574,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1193,6 +1197,48 @@ if (args.batchPlanCostTripleRange) {
   console.log(
     `  (max/min ratio = ${ratio === null ? 'n/a' : ratio.toFixed(2) + 'x'}; compactness indicator across the 6 triples${unknownNote}.)`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleRangeJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-range (partial-fff):
+  // surface BATCH_PLAN's per-triple wall-time range (shortest-triple canary +
+  // longest-triple critical-path) as a single object {min, max, ratio,
+  // unknownCount} so Python / jq offline-worker drivers can consume the
+  // compactness signal directly without re-parsing the two-row shell table.
+  // Pure composition of computeBatchPlanCostMinTriple() (partial-ddd helper)
+  // and computeBatchPlanCostMaxTriple() (partial-zz helper) with zero new
+  // math, matching the shell form exactly: identical min/max rows selected,
+  // identical ratio = max.wallSec / min.wallSec, identical unknown-N handling
+  // (unknown-wallSec triples excluded from extrema search, surfaced in
+  // unknownCount). Both the min and max extrema carry the full {index, N, eps,
+  // wallSec, hours} shape so downstream drivers can key canary / critical-path
+  // spawns by BATCH_PLAN index without re-doing the (row -> hours) conversion.
+  // Pure data emitter, exit 0 unconditionally (no validation gate), not wired
+  // into --preflight / --preflight-json.
+  const { minRow, unknownCount } = computeBatchPlanCostMinTriple();
+  const { maxRow } = computeBatchPlanCostMaxTriple();
+  const toExtreme = (r) =>
+    r === null
+      ? null
+      : {
+          index: r.index,
+          N: r.N,
+          eps: r.eps,
+          wallSec: r.wallSec,
+          hours: r.wallSec === null ? null : r.wallSec / 3600,
+        };
+  const ratio =
+    minRow === null || maxRow === null || minRow.wallSec === 0
+      ? null
+      : maxRow.wallSec / minRow.wallSec;
+  const body = {
+    min: toExtreme(minRow),
+    max: toExtreme(maxRow),
+    ratio,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

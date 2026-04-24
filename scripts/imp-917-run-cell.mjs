@@ -139,6 +139,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septenquadragintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septenquadragintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octoquadragintmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octoquadragintmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -757,6 +758,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-septenquadragintmean') out.batchPlanCostTripleSeptenquadragintmean = true;
     else if (a === '--batch-plan-cost-triple-septenquadragintmean-json') out.batchPlanCostTripleSeptenquadragintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-octoquadragintmean') out.batchPlanCostTripleOctoquadragintmean = true;
+    else if (a === '--batch-plan-cost-triple-octoquadragintmean-json') out.batchPlanCostTripleOctoquadragintmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -911,6 +913,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septenquadragintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septenquadragintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octoquadragintmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octoquadragintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -8571,6 +8574,67 @@ if (args.batchPlanCostTripleOctoquadragintmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple octoquadragintic-mean wall-time: ${octoquadragintmeanSec.toFixed(0)} s (~${(octoquadragintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleOctoquadragintmeanJson) {
+  // partial-mmmmmmm: structural JSON analog of
+  // --batch-plan-cost-triple-octoquadragintmean (p=48 Kolmogorov power-mean),
+  // completing the {shell, JSON} pair for partial-lllllll and bringing the
+  // Kolmogorov power-mean family at p in {-1, 0, 1..48} x {shell, JSON} to
+  // full shell/JSON parity at fifty exponents (one hundred emitters in total
+  // across the power-mean axis). Emits one object
+  // {octoquadragintmeanSec, octoquadragintmeanHours, knownCount, unknownCount}
+  // with octoquadragintmeanHours = octoquadragintmeanSec / 3600 (null when
+  // knownCount===0) so Python / jq offline-worker drivers can consume the
+  // p=48 power-mean central-tendency signal directly without re-parsing the
+  // one-line shell summary and without redoing the seconds-to-hours
+  // conversion, matching the precomputed-hours cadence established across
+  // every prior JSON cost-emitter. Reuses computeBatchPlanCost() (partial-vv
+  // helper) with zero new math; identical known-row filter (wallSec !== null)
+  // to the partial-lllllll shell form so the two flags cannot drift. Applies
+  // the same cached squaring chain (const w2 = r.wallSec * r.wallSec;
+  // const w4 = w2 * w2; const w8 = w4 * w4; const w16 = w8 * w8;
+  // const w32 = w16 * w16; octoquadragintSum += w32 * w16;) as partial-lllllll
+  // for numerical-stability parity, avoiding Math.pow in the inner reduce
+  // loop (48 = 32+16, the cleanest {32,16} two-summand partition the cache
+  // admits at this even exponent), then
+  // octoquadragintmeanSec = Math.pow(octoquadragintSum / known.length, 1 / 48).
+  // Even p=48 erases sign but wallSec values are strictly positive by
+  // construction (wall-clock measurements) so no sign guard is required.
+  // All-unknown degenerate case (known.length===0) emits
+  // {octoquadragintmeanSec: null, octoquadragintmeanHours: null,
+  //  knownCount: 0, unknownCount} and exits 0 without attempting
+  // (0/0)^(1/48) = NaN, matching the JSON degenerate cadence across every
+  // prior JSON power-mean emitter. Pure data emitter, exit 0 unconditionally
+  // (no validation gate), not wired into --preflight / --preflight-json.
+  // Honest-partial: imp-917 stays pending -- the ~20 CPU-hour offline
+  // execution of the 14 measurement rows remains the honest closure
+  // condition; this partial closes the JSON half of the power-mean pair at
+  // p=48.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let octoquadragintmeanSec = null;
+  if (known.length > 0) {
+    const octoquadragintSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      const w16 = w8 * w8;
+      const w32 = w16 * w16;
+      return s + w32 * w16;
+    }, 0);
+    octoquadragintmeanSec = Math.pow(octoquadragintSum / known.length, 1 / 48);
+  }
+  const octoquadragintmeanHours =
+    octoquadragintmeanSec === null ? null : octoquadragintmeanSec / 3600;
+  const body = {
+    octoquadragintmeanSec,
+    octoquadragintmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

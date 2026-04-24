@@ -468,6 +468,7 @@ function parseArgs(argv) {
     verifyOutputSchema: false,
     verifyOutputSchemaJson: false,
     verifyOutputSchemaCloser: false,
+    verifyOutputSchemaCloserJson: false,
     verifyRetuningCoverage: false,
     verifyRetuningCoverageJson: false,
     dryRun: false,

@@ -12,6 +12,7 @@
 //   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 [--nSteps 40] [--dt 1e-4]
 //   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 --dry-run
 //   node scripts/imp-917-run-cell.mjs --list
+//   node scripts/imp-917-run-cell.mjs --plan-table
 //   node scripts/imp-917-run-cell.mjs --plan-json
 //   node scripts/imp-917-run-cell.mjs --missing-cells
 //   node scripts/imp-917-run-cell.mjs --missing-cells-json
@@ -40,6 +41,19 @@
 // cells into triple-runs (baseline eps=0 + two eps values per invocation),
 // ready to be piped into GNU parallel / xargs by an offline worker. No
 // --N/--eps required in this mode.
+//
+// --plan-table prints BATCH_PLAN as a human-readable ASCII table (columns:
+// idx, N, eps, label), matching the --missing-cells and --retuning-table
+// cadence. Shell table analog of --plan-json: both read the same BATCH_PLAN
+// constant so the two diagnostics cannot drift. Orthogonal to --list (which
+// emits shell one-liners for GNU parallel piping, not a padded ASCII table):
+// --plan-table exposes the 6-row triple-run packing in the column-aligned
+// format an operator would eyeball before launching the ~20 CPU-hour batch.
+// Pure data emitter, exits 0 unconditionally (not a check). Completes the
+// BATCH_PLAN shell output pair with --list (piping form) + --plan-table
+// (table form) and mirrors the {shell-table, JSON} pair established by
+// --missing-cells / --missing-cells-json and
+// --retuning-table / --retuning-table-json.
 //
 // --plan-json emits the BATCH_PLAN as a JSON array (one object per cell,
 // fields: index, N, eps, label) so Python / jq-based offline-worker drivers
@@ -240,6 +254,7 @@ function parseArgs(argv) {
     nSteps: null,
     dt: null,
     list: false,
+    planTable: false,
     planJson: false,
     missingCells: false,
     missingCellsJson: false,
@@ -266,6 +281,7 @@ function parseArgs(argv) {
     else if (a === '--nSteps') out.nSteps = Number(argv[++i]);
     else if (a === '--dt') out.dt = Number(argv[++i]);
     else if (a === '--list') out.list = true;
+    else if (a === '--plan-table') out.planTable = true;
     else if (a === '--plan-json') out.planJson = true;
     else if (a === '--missing-cells') out.missingCells = true;
     else if (a === '--missing-cells-json') out.missingCellsJson = true;
@@ -288,6 +304,7 @@ function parseArgs(argv) {
       console.log(
         'usage: node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> [--nSteps <k>] [--dt <dt>] [--dry-run]\n' +
           '       node scripts/imp-917-run-cell.mjs --list\n' +
+          '       node scripts/imp-917-run-cell.mjs --plan-table\n' +
           '       node scripts/imp-917-run-cell.mjs --plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --missing-cells\n' +
           '       node scripts/imp-917-run-cell.mjs --missing-cells-json\n' +
@@ -337,6 +354,30 @@ if (args.list) {
       `node scripts/imp-917-run-cell.mjs --N ${p.N} --eps ${p.eps.join(',')}  # ${p.label}`,
     );
   }
+  process.exit(0);
+}
+
+if (args.planTable) {
+  // Shell table analog of --plan-json: render BATCH_PLAN as a column-aligned
+  // ASCII table. Reads the same BATCH_PLAN constant the JSON form reads so the
+  // two diagnostics cannot drift. Pure data emitter (no check, exit 0).
+  const header = ['idx', 'N', 'eps', 'label'];
+  const body = BATCH_PLAN.map((p, i) => [
+    String(i + 1),
+    String(p.N),
+    p.eps.join(','),
+    p.label,
+  ]);
+  const widths = header.map((h, col) =>
+    Math.max(h.length, ...body.map((row) => row[col].length)),
+  );
+  const pad = (s, w) => s + ' '.repeat(w - s.length);
+  const fmt = (row) => row.map((v, col) => pad(v, widths[col])).join('  ');
+  const sep = widths.map((w) => '-'.repeat(w)).join('  ');
+  console.log(`imp-917 BATCH_PLAN (${BATCH_PLAN.length} triple-runs):`);
+  console.log(`  ${fmt(header)}`);
+  console.log(`  ${sep}`);
+  for (const r of body) console.log(`  ${fmt(r)}`);
   process.exit(0);
 }
 

@@ -23,6 +23,7 @@
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
 //   node scripts/imp-917-run-cell.mjs --verify-prototype-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype-schema
+//   node scripts/imp-917-run-cell.mjs --verify-prototype-schema-json
 //   node scripts/imp-917-run-cell.mjs --verify-output-target
 //   node scripts/imp-917-run-cell.mjs --verify-output-target-json
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema
@@ -156,11 +157,26 @@
 // the prototype file exists but the IMP857_EPSILONS reader was renamed or
 // removed, which would otherwise only surface at actual spawn time as the
 // prototype ignoring the driver's eps triple. Exits 0 on success, 1 with a
-// specific diagnostic on read error or missing identifier. Shell-only for this
-// partial; --verify-prototype-schema-json analog and --preflight / --preflight-json
-// wiring can follow in future partials, matching the partial-y -> partial-z ->
-// partial-aa/bb (--verify-output-schema) standalone-first / JSON-second /
-// aggregate-later cadence.
+// specific diagnostic on read error or missing identifier. Paired with
+// --verify-prototype-schema-json for the {shell, JSON} matrix; --preflight /
+// --preflight-json wiring can follow in a future partial, matching the
+// partial-y -> partial-z -> partial-aa/bb (--verify-output-schema)
+// standalone-first / JSON-second / aggregate-later cadence.
+//
+// --verify-prototype-schema-json is the structural JSON analog of
+// --verify-prototype-schema. Emits one object {ok, path, token, error} where
+// path is always populated, token is the literal substring sought
+// (`process.env.IMP857_EPSILONS`), and error is null on success or a
+// human-readable string on failure (read error message, or
+// ``identifier `process.env.IMP857_EPSILONS` not found``). Exit status matches
+// --verify-prototype-schema (0 on ok, 1 on failure) so Python / jq
+// offline-worker drivers can gate the ~20 CPU-hour batch on the JSON body AND
+// the process exit code. Reuses the checkPrototypeSchema() helper with
+// --verify-prototype-schema so the two diagnostics cannot drift. Completes
+// the input-side content-level {shell, JSON} pair for the phased-forcing
+// prototype, mirroring the output-side --verify-output-schema /
+// --verify-output-schema-json pair. Not wired into --preflight / --preflight-json
+// yet (aggregation extension is a separate future partial).
 //
 // --verify-output-target asserts that the transcription target — the JS file
 // src/data/imp-857-phased-forcing-sweep.js where the 14 measured rows must be
@@ -359,6 +375,7 @@ function parseArgs(argv) {
     verifyPrototype: false,
     verifyPrototypeJson: false,
     verifyPrototypeSchema: false,
+    verifyPrototypeSchemaJson: false,
     verifyOutputTarget: false,
     verifyOutputTargetJson: false,
     verifyOutputSchema: false,
@@ -391,6 +408,7 @@ function parseArgs(argv) {
     else if (a === '--verify-prototype') out.verifyPrototype = true;
     else if (a === '--verify-prototype-json') out.verifyPrototypeJson = true;
     else if (a === '--verify-prototype-schema') out.verifyPrototypeSchema = true;
+    else if (a === '--verify-prototype-schema-json') out.verifyPrototypeSchemaJson = true;
     else if (a === '--verify-output-target') out.verifyOutputTarget = true;
     else if (a === '--verify-output-target-json') out.verifyOutputTargetJson = true;
     else if (a === '--verify-output-schema') out.verifyOutputSchema = true;
@@ -419,6 +437,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-schema\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-prototype-schema-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema\n' +
@@ -734,6 +753,12 @@ if (args.verifyPrototypeSchema) {
   }
   console.error(`imp-917 --verify-prototype-schema FAILED: ${r.path}: ${r.error}`);
   process.exit(1);
+}
+
+if (args.verifyPrototypeSchemaJson) {
+  const r = checkPrototypeSchema();
+  console.log(JSON.stringify(r, null, 2));
+  process.exit(r.ok ? 0 : 1);
 }
 
 const outputTargetPath = resolve(

@@ -54,6 +54,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sextmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -587,6 +588,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-quartmean-json') out.batchPlanCostTripleQuartmeanJson = true;
     else if (a === '--batch-plan-cost-triple-quintmean') out.batchPlanCostTripleQuintmean = true;
     else if (a === '--batch-plan-cost-triple-quintmean-json') out.batchPlanCostTripleQuintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-sextmean') out.batchPlanCostTripleSextmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -656,6 +658,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sextmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2553,6 +2556,74 @@ if (args.batchPlanCostTripleQuintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleSextmean) {
+  // Shell data emitter: surface the sextic mean (p=6 power-mean) of per-triple
+  // wall-times across the known-wallSec rows of BATCH_PLAN as the eighth
+  // Kolmogorov power-mean sibling, extending the septet
+  // --batch-plan-cost-triple-harmean (p=-1, partial-vvv),
+  // --batch-plan-cost-triple-geomean (p=0, partial-ttt),
+  // --batch-plan-cost-triple-mean (p=1 arithmetic, partial-hhh),
+  // --batch-plan-cost-triple-quadmean (p=2, partial-xxx),
+  // --batch-plan-cost-triple-cubmean (p=3, partial-zzz),
+  // --batch-plan-cost-triple-quartmean (p=4, partial-bbbb) and
+  // --batch-plan-cost-triple-quintmean (p=5, partial-dddd) to the octet
+  // {p=-1, p=0, p=1, p=2, p=3, p=4, p=5, p=6}. The sextic mean
+  // SXM = (sum(x_i^6) / n)^(1/6) is the power-mean with exponent p=6; by the
+  // generalized power-mean inequality it dominates the quintic mean for any
+  // non-constant positive sample, so the full ordering
+  // SXM >= QIM >= QUM >= CM >= QM >= AM >= GM >= HM now holds inline across
+  // all eight emitters. SXM carries the strongest long-tail penalty yet: the
+  // sixth-power sum weights the largest triples ~3x harder than fifth-power
+  // in log-units, so budgeting against SXM makes the L6-cost signature of the
+  // longest triple visible, aligning the central-tendency axis with any
+  // sixth-moment / heavy-tail dispersion signal an operator might add later
+  // without re-running --batch-plan-cost-triple-max-triple (partial-zz).
+  // Reuses computeBatchPlanCost() (partial-vv helper) with zero new batch-
+  // plan logic; identical known-row filter (wallSec !== null) to the power-
+  // mean siblings. Even-exponent sixth power forces non-negativity so
+  // sum(x^6) is always defined for any real wallSec (mirroring the
+  // partial-xxx / partial-bbbb observation on even-p), and since all
+  // wallSec values are strictly positive by construction the non-positive-
+  // wallSec guard that harmean needed for 1/x is unnecessary. The only
+  // degenerate case is all-unknown (known.length === 0) which prints a
+  // dedicated "unknown" summary and exits 0 rather than (0/0)^(1/6) = NaN,
+  // matching the partial-hhh / partial-ttt / partial-vvv / partial-xxx /
+  // partial-zzz / partial-bbbb / partial-dddd degenerate cadence. Pure data
+  // emitter, exit 0 unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json. Shell-only this partial; a
+  // --batch-plan-cost-triple-sextmean-json analog can follow to close the
+  // {shell, JSON} pair on this sixteenth per-triple statistical view,
+  // mirroring the shell-first / JSON-second cadence established across every
+  // other cost-emitter axis. Numerical stability: uses the (x^2)^3
+  // factorization (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  // sextSum += w4 * w2;) to avoid calling Math.pow in the inner reduce loop,
+  // matching the partial-xxx / partial-bbbb / partial-dddd inline-multiply
+  // cadence that produces the same bit-pattern on IEEE-754 across Node
+  // versions.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple sextic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const sextSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    return s + w4 * w2;
+  }, 0);
+  const sextmeanSec = Math.pow(sextSum / known.length, 1 / 6);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from sextmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple sextic-mean wall-time: ${sextmeanSec.toFixed(0)} s (~${(sextmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

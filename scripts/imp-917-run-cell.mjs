@@ -265,18 +265,15 @@
 // Searches for a standalone newline-`];` token AFTER the opener position, so
 // unrelated inline `[];` empty-array literals elsewhere in the file do not
 // spuriously satisfy the check. Uses a new checkOutputSchemaCloser() helper
-// shaped like checkOutputSchema() ({ok, path, token, error}) so a future
-// --verify-output-schema-closer-json analog and --preflight / --preflight-json
-// wiring can reuse it without drift. Shell-only for this partial; JSON analog
-// and aggregated-preflight wiring can follow in future partials, matching the
-// partial-l / partial-m / partial-n (--verify-prototype), partial-p / partial-q
-// / partial-r / partial-s (--verify-output-target), partial-y / partial-z /
-// partial-aa / partial-bb (--verify-output-schema), partial-cc / partial-dd /
-// partial-ee / partial-ff (--verify-retuning-coverage), partial-gg / partial-hh
-// / partial-ii / partial-jj (--verify-prototype-schema), and partial-kk /
-// partial-ll / partial-mm / partial-nn (--verify-prototype-env-readers)
-// standalone-shell-first / JSON-second / shell-aggregate-third / JSON-
-// aggregate-fourth cadence. Exits 0 on success, 1 with a specific diagnostic
+// shaped like checkOutputSchema() ({ok, path, token, error}) so the shell,
+// JSON, and aggregated-preflight forms cannot drift. Paired with
+// --verify-output-schema-closer-json (partial-pp) for the {shell, JSON}
+// matrix. Wired into --preflight as the appended step 9 (shell form);
+// --preflight-json JSON-analog wiring is a separate future partial,
+// matching the partial-r / partial-s, partial-aa / partial-bb,
+// partial-ee / partial-ff, partial-ii / partial-jj, and partial-mm /
+// partial-nn shell-first / JSON-second cadence used for every other
+// aggregated-check pair. Exits 0 on success, 1 with a specific diagnostic
 // (opener missing, closer missing, or read error) on failure.
 //
 // --verify-output-schema-closer-json is the structural JSON analog of
@@ -347,21 +344,23 @@
 // completing the aggregation-level {shell, JSON} pair for every pre-flight
 // check.
 //
-// --preflight runs eight shell pre-flight checks in sequence — --verify-plan
+// --preflight runs nine shell pre-flight checks in sequence — --verify-plan
 // (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype (prototype script
 // exists), --dry-run-all (every BATCH_PLAN cell resolves its IMP857_* env-var
 // pack), --verify-output-target (transcription target exists),
 // --verify-output-schema (transcription target still declares MEASURED_ROWS),
 // --verify-retuning-coverage (every N in MISSING_CELLS has a retuningTable
 // row), --verify-prototype-schema (prototype still reads
-// process.env.IMP857_EPSILONS), and --verify-prototype-env-readers (prototype
+// process.env.IMP857_EPSILONS), --verify-prototype-env-readers (prototype
 // reads all six IMP857_* env-var readers: N, DT, NSTEPS, K0, PHASEVEL,
-// EPSILONS) — and aggregates the results. Prints a per-step banner and a
-// final PASS / FAILED summary. Exits 0 only if all eight pass; otherwise
-// exits with the step number (1, 2, 3, 4, 5, 6, 7, or 8) of the first
-// failing step, so an offline-worker driver can gate the ~20 CPU-hour batch
-// on a single command rather than orchestrating eight separate invocations
-// and eight exit codes.
+// EPSILONS), and --verify-output-schema-closer (transcription-target
+// MEASURED_ROWS array closer `];` still present after the opener) — and
+// aggregates the results. Prints a per-step banner and a final PASS /
+// FAILED summary. Exits 0 only if all nine pass; otherwise exits with the
+// step number (1, 2, 3, 4, 5, 6, 7, 8, or 9) of the first failing step, so
+// an offline-worker driver can gate the ~20 CPU-hour batch on a single
+// command rather than orchestrating nine separate invocations and nine
+// exit codes.
 //
 // --preflight-json is the structural JSON analog of --preflight. Emits one
 // object {ok, firstFailingStep, steps: [{step, name, ok, ...}]} aggregating
@@ -1285,11 +1284,12 @@ if (args.dryRunAllJson) {
 if (args.preflight) {
   // Sequenced shell pre-flight: verify-plan -> verify-prototype -> dry-run-all
   // -> verify-output-target -> verify-output-schema -> verify-retuning-coverage
-  // -> verify-prototype-schema -> verify-prototype-env-readers. Each step
-  // mirrors the corresponding standalone flag so operator output is familiar.
-  // On failure, exits with the 1-indexed step number so the driver can tell
-  // which step tripped without parsing stdout.
-  console.log('=== imp-917 --preflight step 1/8: --verify-plan ===');
+  // -> verify-prototype-schema -> verify-prototype-env-readers ->
+  // verify-output-schema-closer. Each step mirrors the corresponding
+  // standalone flag so operator output is familiar. On failure, exits with
+  // the 1-indexed step number so the driver can tell which step tripped
+  // without parsing stdout.
+  console.log('=== imp-917 --preflight step 1/9: --verify-plan ===');
   const planResult = computePlanCoverage();
   if (!planResult.ok) {
     console.error('imp-917 --preflight FAILED at step 1 (--verify-plan):');
@@ -1311,7 +1311,7 @@ if (args.preflight) {
     `  OK: BATCH_PLAN covers all ${planResult.missingCount} MISSING_CELLS exactly.`,
   );
 
-  console.log('=== imp-917 --preflight step 2/8: --verify-prototype ===');
+  console.log('=== imp-917 --preflight step 2/9: --verify-prototype ===');
   const protoResult = checkPrototype();
   if (!protoResult.ok) {
     console.error(
@@ -1323,7 +1323,7 @@ if (args.preflight) {
     `  OK: prototype script present (${protoResult.path}, ${protoResult.sizeBytes} bytes).`,
   );
 
-  console.log('=== imp-917 --preflight step 3/8: --dry-run-all ===');
+  console.log('=== imp-917 --preflight step 3/9: --dry-run-all ===');
   let resolveFailures = 0;
   for (let i = 0; i < BATCH_PLAN.length; i++) {
     const p = BATCH_PLAN[i];
@@ -1345,7 +1345,7 @@ if (args.preflight) {
     `  OK: all ${BATCH_PLAN.length} BATCH_PLAN cells resolved cleanly.`,
   );
 
-  console.log('=== imp-917 --preflight step 4/8: --verify-output-target ===');
+  console.log('=== imp-917 --preflight step 4/9: --verify-output-target ===');
   const outputTargetResult = checkOutputTarget();
   if (!outputTargetResult.ok) {
     console.error(
@@ -1357,7 +1357,7 @@ if (args.preflight) {
     `  OK: transcription target present (${outputTargetResult.path}, ${outputTargetResult.sizeBytes} bytes).`,
   );
 
-  console.log('=== imp-917 --preflight step 5/8: --verify-output-schema ===');
+  console.log('=== imp-917 --preflight step 5/9: --verify-output-schema ===');
   const outputSchemaResult = checkOutputSchema();
   if (!outputSchemaResult.ok) {
     console.error(
@@ -1369,7 +1369,7 @@ if (args.preflight) {
     `  OK: transcription target declares \`${outputSchemaResult.token}\` (${outputSchemaResult.path}).`,
   );
 
-  console.log('=== imp-917 --preflight step 6/8: --verify-retuning-coverage ===');
+  console.log('=== imp-917 --preflight step 6/9: --verify-retuning-coverage ===');
   const retuningCoverageResult = computeRetuningCoverage();
   if (!retuningCoverageResult.ok) {
     console.error(
@@ -1384,7 +1384,7 @@ if (args.preflight) {
     `  OK: every N in MISSING_CELLS (${retuningCoverageResult.missingCellNs.join(', ')}) has a retuningTable row (retuningTable N set: ${retuningCoverageResult.retuningTableNs.join(', ')}).`,
   );
 
-  console.log('=== imp-917 --preflight step 7/8: --verify-prototype-schema ===');
+  console.log('=== imp-917 --preflight step 7/9: --verify-prototype-schema ===');
   const prototypeSchemaResult = checkPrototypeSchema();
   if (!prototypeSchemaResult.ok) {
     console.error(
@@ -1396,7 +1396,7 @@ if (args.preflight) {
     `  OK: prototype script reads \`${prototypeSchemaResult.token}\` (${prototypeSchemaResult.path}).`,
   );
 
-  console.log('=== imp-917 --preflight step 8/8: --verify-prototype-env-readers ===');
+  console.log('=== imp-917 --preflight step 8/9: --verify-prototype-env-readers ===');
   const prototypeEnvReadersResult = checkPrototypeEnvReaders();
   if (!prototypeEnvReadersResult.ok) {
     console.error(
@@ -1408,7 +1408,19 @@ if (args.preflight) {
     `  OK: prototype script reads all ${prototypeEnvReadersResult.tokens.length} IMP857_* env-var readers (${prototypeEnvReadersResult.tokens.join(', ')}).`,
   );
 
-  console.log('imp-917 --preflight PASS: all 8 steps OK, offline batch ready to launch.');
+  console.log('=== imp-917 --preflight step 9/9: --verify-output-schema-closer ===');
+  const outputSchemaCloserResult = checkOutputSchemaCloser();
+  if (!outputSchemaCloserResult.ok) {
+    console.error(
+      `imp-917 --preflight FAILED at step 9 (--verify-output-schema-closer): ${outputSchemaCloserResult.path}: ${outputSchemaCloserResult.error}`,
+    );
+    process.exit(9);
+  }
+  console.log(
+    `  OK: transcription target has a standalone \`];\` closer after the \`${OUTPUT_SCHEMA_TOKEN}\` opener (${outputSchemaCloserResult.path}).`,
+  );
+
+  console.log('imp-917 --preflight PASS: all 9 steps OK, offline batch ready to launch.');
   process.exit(0);
 }
 

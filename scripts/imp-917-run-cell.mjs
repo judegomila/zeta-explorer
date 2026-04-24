@@ -25,6 +25,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-min-triple
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-min-triple-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
@@ -473,6 +474,7 @@ function parseArgs(argv) {
     batchPlanCostMaxTriple: false,
     batchPlanCostMaxTripleJson: false,
     batchPlanCostMinTriple: false,
+    batchPlanCostMinTripleJson: false,
     batchPlanCostSummary: false,
     batchPlanCostSummaryJson: false,
     verifyPlan: false,
@@ -519,6 +521,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-max-triple') out.batchPlanCostMaxTriple = true;
     else if (a === '--batch-plan-cost-max-triple-json') out.batchPlanCostMaxTripleJson = true;
     else if (a === '--batch-plan-cost-min-triple') out.batchPlanCostMinTriple = true;
+    else if (a === '--batch-plan-cost-min-triple-json') out.batchPlanCostMinTripleJson = true;
     else if (a === '--batch-plan-cost-summary') out.batchPlanCostSummary = true;
     else if (a === '--batch-plan-cost-summary-json') out.batchPlanCostSummaryJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
@@ -561,6 +564,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-min-triple\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-min-triple-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
@@ -1017,6 +1021,30 @@ if (args.batchPlanCostMinTriple) {
   console.log(
     '  (run this triple first to smoke-test the offline pipeline end-to-end before launching the full batch.)',
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostMinTripleJson) {
+  // Structural JSON analog of --batch-plan-cost-min-triple: emit the
+  // canary-probe candidate (shortest triple in BATCH_PLAN) as one object
+  // {minRow, minSec, minHours, knownCount, unknownCount} so Python / jq-based
+  // offline-worker drivers can consume the per-triple lower extreme directly
+  // without re-parsing the shell summary lines. minSec / minHours are
+  // precomputed from minRow.wallSec so jq one-liners do not need to redo the
+  // seconds-to-hours conversion, matching the --batch-plan-cost-max-triple-json
+  // cadence. If every triple has unknown N, minRow is null and minSec /
+  // minHours are null. Reuses computeBatchPlanCostMinTriple() with
+  // --batch-plan-cost-min-triple so the two diagnostics cannot drift. Pure
+  // data emitter, exit 0 unconditionally.
+  const { minRow, knownCount, unknownCount } = computeBatchPlanCostMinTriple();
+  const body = {
+    minRow,
+    minSec: minRow === null ? null : minRow.wallSec,
+    minHours: minRow === null ? null : minRow.wallSec / 3600,
+    knownCount,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

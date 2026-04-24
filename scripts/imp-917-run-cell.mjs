@@ -106,6 +106,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-trigintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-untrigintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-untrigintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duotrigintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -691,6 +692,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-trigintmean-json') out.batchPlanCostTripleTrigintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-untrigintmean') out.batchPlanCostTripleUntrigintmean = true;
     else if (a === '--batch-plan-cost-triple-untrigintmean-json') out.batchPlanCostTripleUntrigintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-duotrigintmean') out.batchPlanCostTripleDuotrigintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -812,6 +814,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-trigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-untrigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-untrigintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duotrigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -6142,6 +6145,68 @@ if (args.batchPlanCostTripleUntrigintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleDuotrigintmean) {
+  // partial-ffffff: surface the BATCH_PLAN duotrigintic mean (p=32
+  // Kolmogorov power-mean) of per-triple wall-times as a one-line
+  // diagnostic, extending the already-paired thirty-three-tet at
+  // p in {-1, 0, 1, ..., 31} upward to p=32 as the first
+  // duotrigint-prefixed exponent. Computed as
+  // DTGM32 = (sum(x_i^32) / n)^(1/32) via Math.pow(s, 1/32); by the
+  // generalized power-mean inequality DTGM32 dominates every lower-p
+  // sibling so the monotone chain DTGM32 >= UTGM31 >= TGM30
+  // >= NVGM29 >= ... >= AM >= GM >= HM now holds inline across all
+  // thirty-four shell emitters. Handler uses the cache pattern
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  const w32 = w16 * w16; return s + w32;)
+  // to avoid calling Math.pow in the inner reduce loop (32 = 2^5 so
+  // one extra squaring beyond the cached w16), extending the
+  // partial-bbbbbb trigintmean w16 * w8 * w4 * w2 (30 = 16+8+4+2)
+  // four-summand even-p decomposition by collapsing to a single
+  // w16^2 product at the next power of two -- the cleanest
+  // factorization the cache admits at this exponent. Even p=32
+  // erases sign and wallSec values are strictly positive by
+  // construction so no sign guard is required (mirroring the
+  // partial-yyy / partial-cccc / partial-gggg / partial-kkkk /
+  // partial-oooo / partial-ssss / partial-wwww / partial-aaaaa /
+  // partial-eeeee / partial-iiiii / partial-mmmmm / partial-qqqqq /
+  // partial-ttttt / partial-xxxxx / partial-bbbbbb even-p cadence).
+  // All-unknown degenerate case (known.length === 0) prints a
+  // dedicated "unknown" summary and exits 0 rather than
+  // (0/0)^(1/32) = NaN. Pure data emitter, exit 0 unconditionally
+  // (no validation gate), not wired into --preflight / --preflight-json.
+  // Shell-only this partial; the --batch-plan-cost-triple-duotrigintmean-json
+  // analog will be added in a later partial mirroring the
+  // shell-first / JSON-second cadence established across every other
+  // cost-emitter axis. Reuses computeBatchPlanCost() (partial-vv helper)
+  // with zero new batch-plan logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple duotrigintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const duotrigintSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    const w32 = w16 * w16;
+    return s + w32;
+  }, 0);
+  const duotrigintmeanSec = Math.pow(duotrigintSum / known.length, 1 / 32);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from duotrigintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple duotrigintic-mean wall-time: ${duotrigintmeanSec.toFixed(0)} s (~${(duotrigintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

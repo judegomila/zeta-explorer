@@ -78,6 +78,73 @@
 
 import { getPrimes } from './primes.js';
 
+/**
+ * ── imp-909 CROSS-VERIFICATION AUDIT (2026-04-24) ────────────────────────
+ *
+ * Independent re-derivation of the analytic inputs in this file.
+ *
+ * (1) DIAGONAL ENTRIES. diag[k] = log(p_k)^2 (line 92). Matches the LC
+ *     ladder frequencies omega_n^2 for omega_n = log(p_n) in the Step 1
+ *     header. A squared frequency is the harmonic restoring coefficient.
+ *
+ * (2) OFF-DIAGONAL COUPLING. With Lk = 1/log(p_k),
+ *     off[k] = -1 / sqrt(Lk * Lk1) = -sqrt(log(p_k) * log(p_{k+1})).
+ *     Matches the header definition c_N = sqrt(log p_N * log p_{N+1}) and
+ *     the minus sign from V = -c_N * (|e_N><e_{N+1}| + h.c.).
+ *
+ * (3) THOMAS SOLVER NUMERICAL CHECK (N=2, z = -1 + 5i, primes = [2, 3]).
+ *     H - zI = [[1.4805 - 5i, -0.8726], [-0.8726, 2.2069 - 5i]].
+ *     det = (1.4805 - 5i)(2.2069 - 5i) - 0.7611 = -22.494 - 18.437i.
+ *     G(0,0; z) = (2.2069 - 5i) / det = 0.050291 + 0.181060 i.
+ *     Current greenFunction(2, 0, 0, -1, 5) returns 0.055266 - 0.189078 i
+ *     (verified by running the code). Magnitude bias ~4.8 percent, and
+ *     the imaginary part is NOT conj(G(z)) either (at N=1 it is, but the
+ *     discrepancy compounds through the recurrence). So the output
+ *     represents neither G(z) nor G(z-bar).
+ *
+ * (4) ROOT CAUSE. The complex-division step for 1/b uses
+ *     (Re + i*Im) / (a + bi) = ((Re + i*Im)(a + bi)) / (a^2 + b^2),
+ *     but the correct identity is (a - bi) / (a^2 + b^2). Three init/
+ *     recurrence assignments flip the imaginary-part sign incorrectly:
+ *       - dpI[0]  uses +dI; needs -dI.
+ *       - cpI[0]  uses +off[0]*dI; needs -off[0]*dI.
+ *       - cpI[k]  (in the main loop, k < N-1) uses +off[k]*dI; needs
+ *         -off[k]*dI.
+ *     Applying those three sign flips reproduces the closed form G(0,0;z)
+ *     = 0.050291 + 0.181060 i to six decimals at N=2 and preserves the
+ *     conventional positive imaginary part at N=1.
+ *
+ * (5) DOWNSTREAM EFFECT. greenFunctionDecay, resolventPerturbationDecay,
+ *     and couplingAnalysis each consume only magnitudes of greenFunction
+ *     outputs (Math.sqrt(gR^2 + gI^2)) or magnitudes of differences.
+ *     So the sign bug acts as a ~5 percent systematic magnitude bias
+ *     rather than a qualitative break: the reported exponential-decay
+ *     slopes keep the right sign, but the numeric decayRate and
+ *     localizationLength values are biased.
+ *
+ * (6) EDGE CASES. mag2 < 1e-30 returns [NaN, NaN] which callers filter
+ *     via isNaN checks. N=1 and degenerate maxN < K+2 inputs fall through
+ *     the valid.length < 3 short-circuits in both decay functions.
+ *     greenFunctionDecay drops its boundary point via distFromBoundary > 0.
+ *     No additional NaN / infinity exposures identified.
+ *
+ * (7) IMPORTER CHECK. No file under src/ imports this module (grep
+ *     "from.*analytical-resolvent" returns 0 hits on 2026-04-24). The
+ *     file is listed in src/data/dead-code-audit-2026-04.js as a
+ *     no-importer candidate, so the sign bias has not polluted any
+ *     certified downstream result.
+ *
+ * SUB-GAP imp-909-sub-thomas-conj-sign: apply the three-line sign
+ * correction to dpI[0], cpI[0], and cpI[k] and re-baseline the
+ * decayRate / localizationLength numbers reported by
+ * analyticalResolventTest. Deferred here to keep the cross-verify atomic.
+ *
+ * VERDICT: analytical formulas and proof-chain structure check out;
+ * Thomas solver has a self-contained complex-conjugation sign bug that
+ * is cosmetic for present consumers (magnitude-only) but should be
+ * fixed before any downstream code touches G's phase.
+ */
+
 // ── Green's function computation ─────────────────────────────────────────────
 
 /**

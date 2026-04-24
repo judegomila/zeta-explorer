@@ -18,6 +18,8 @@
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
 //   node scripts/imp-917-run-cell.mjs --dry-run-all-json
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
+//   node scripts/imp-917-run-cell.mjs --cell 3 --dry-run-json
+//   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 --dry-run-json
 //
 // --eps must be a comma-separated triple; the first entry is conventionally 0
 // (baseline) so ratio rows can be computed against it. Defaults for nSteps/dt
@@ -55,6 +57,17 @@
 // as a per-cell pre-flight check after --verify-plan: lets an offline worker
 // sanity-check k0_star / phaseVel_star lookup and nSteps/dt defaults before
 // consuming the ~3 CPU-hour wall-time of a real cell run.
+//
+// --dry-run-json is the structural JSON analog of --dry-run. Resolves the
+// single (N, epsTriple) cell (from --N/--eps or --cell) and emits ONE object
+// with {index, label, N, eps, nSteps, dt, k0_star, phaseVel_star, env} —
+// the same per-cell shape that --dry-run-all-json emits for every row, but
+// for a single cell. Fills the {shell, JSON} x {single, all} output matrix:
+// --dry-run (single, shell), --dry-run-json (single, JSON), --dry-run-all
+// (all, shell), --dry-run-all-json (all, JSON). When invoked via --cell,
+// index and label are populated; in --N/--eps mode they are null since the
+// pair may or may not map to a BATCH_PLAN row. Exits 0 on success, non-zero
+// with {error: ...} body on any resolve failure, matching --dry-run.
 //
 // --dry-run-all iterates the full BATCH_PLAN and emits the resolved env-var
 // exports for every cell in sequence, with a banner per cell. Intended as the
@@ -107,6 +120,7 @@ function parseArgs(argv) {
     verifyPlan: false,
     verifyPlanJson: false,
     dryRun: false,
+    dryRunJson: false,
     dryRunAll: false,
     dryRunAllJson: false,
     cell: null,
@@ -122,6 +136,7 @@ function parseArgs(argv) {
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--dry-run') out.dryRun = true;
+    else if (a === '--dry-run-json') out.dryRunJson = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
     else if (a === '--dry-run-all-json') out.dryRunAllJson = true;
     else if (a === '--cell') out.cell = Number(argv[++i]);
@@ -134,7 +149,8 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
-          '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run]',
+          '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run|--dry-run-json]\n' +
+          '       node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> --dry-run-json',
       );
       process.exit(0);
     } else {
@@ -399,6 +415,8 @@ if (args.dryRunAllJson) {
   process.exit(0);
 }
 
+let cellIndex = null;
+let cellLabel = null;
 if (Number.isFinite(args.cell)) {
   if (Number.isFinite(args.N) || args.eps !== null) {
     console.error(
@@ -416,27 +434,66 @@ if (Number.isFinite(args.cell)) {
   const p = BATCH_PLAN[idx - 1];
   args.N = p.N;
   args.eps = p.eps.join(',');
-  console.log(`imp-917 --cell ${idx}: ${p.label} (N=${p.N}, eps=${args.eps})`);
+  cellIndex = idx;
+  cellLabel = p.label;
+  if (!args.dryRunJson) {
+    console.log(`imp-917 --cell ${idx}: ${p.label} (N=${p.N}, eps=${args.eps})`);
+  }
 }
 
 if (!Number.isFinite(args.N)) {
+  if (args.dryRunJson) {
+    console.log(JSON.stringify({ error: '--N <integer> is required' }, null, 2));
+    process.exit(2);
+  }
   console.error('imp-917-run-cell: --N <integer> is required');
   process.exit(2);
 }
 if (!args.eps || args.eps.split(',').length !== 3) {
-  console.error(
-    'imp-917-run-cell: --eps <e0,e1,e2> is required (exactly 3 comma-separated numbers)',
-  );
+  const msg = '--eps <e0,e1,e2> is required (exactly 3 comma-separated numbers)';
+  if (args.dryRunJson) {
+    console.log(JSON.stringify({ error: msg }, null, 2));
+    process.exit(2);
+  }
+  console.error(`imp-917-run-cell: ${msg}`);
   process.exit(2);
 }
 const epsTriple = args.eps.split(',').map((s) => Number(s.trim()));
 
 const resolved = resolveCell(args.N, epsTriple, args.nSteps, args.dt);
 if (resolved.error) {
+  if (args.dryRunJson) {
+    console.log(
+      JSON.stringify(
+        { index: cellIndex, label: cellLabel, N: args.N, eps: epsTriple, error: resolved.error },
+        null,
+        2,
+      ),
+    );
+    process.exit(2);
+  }
   console.error(`imp-917-run-cell: ${resolved.error}`);
   process.exit(2);
 }
 const { nSteps, dt, retuning, env } = resolved;
+
+if (args.dryRunJson) {
+  const envSubset = {};
+  for (const k of SHELL_KEYS) envSubset[k] = env[k];
+  const row = {
+    index: cellIndex,
+    label: cellLabel,
+    N: args.N,
+    eps: epsTriple,
+    nSteps,
+    dt,
+    k0_star: retuning.k0_star,
+    phaseVel_star: retuning.phaseVel_star,
+    env: envSubset,
+  };
+  console.log(JSON.stringify(row, null, 2));
+  process.exit(0);
+}
 
 printCellBanner(args.N, nSteps, dt, retuning, epsTriple);
 

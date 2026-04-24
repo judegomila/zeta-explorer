@@ -15,6 +15,7 @@
 //   node scripts/imp-917-run-cell.mjs --plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
+//   node scripts/imp-917-run-cell.mjs --verify-prototype
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
 //   node scripts/imp-917-run-cell.mjs --dry-run-all-json
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
@@ -50,6 +51,17 @@
 // side of the coverage diff. Exit status matches --verify-plan (0 on ok, 1 on
 // mismatch) so Python / jq offline-worker drivers can gate on the JSON body
 // AND the exit status without re-parsing the shell-style console output.
+//
+// --verify-prototype asserts that the phased-forcing prototype script itself
+// (src/math/imp-857-phase-locked-dyson.mjs — the target of spawnSync below)
+// exists and is a regular file. Orthogonal to --verify-plan / --verify-plan-json
+// (which check BATCH_PLAN vs MISSING_CELLS coverage) and to --dry-run-all
+// (which only checks retuning-table lookup + env-var wiring, not the prototype
+// binary): guards against the silent failure where the prototype gets moved,
+// renamed, or deleted between infrastructure work and the ~20 CPU-hour offline
+// run, which would otherwise only surface when node cannot resolve the entry
+// point at cell spawn time. Exits 0 on success, 1 with an error message on
+// missing / non-regular-file.
 //
 // --dry-run resolves the full IMP857_* env var set for the given --N/--eps
 // cell (exactly as a real run would) and prints them as copy-pastable shell
@@ -100,6 +112,7 @@
 // src/data/imp-857-phased-forcing-sweep.js.
 
 import { spawnSync } from 'node:child_process';
+import { statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
@@ -119,6 +132,7 @@ function parseArgs(argv) {
     planJson: false,
     verifyPlan: false,
     verifyPlanJson: false,
+    verifyPrototype: false,
     dryRun: false,
     dryRunJson: false,
     dryRunAll: false,
@@ -135,6 +149,7 @@ function parseArgs(argv) {
     else if (a === '--plan-json') out.planJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
+    else if (a === '--verify-prototype') out.verifyPrototype = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-json') out.dryRunJson = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
@@ -147,6 +162,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run|--dry-run-json]\n' +
@@ -269,6 +285,27 @@ const prototypePath = resolve(
   REPO_ROOT,
   'src/math/imp-857-phase-locked-dyson.mjs',
 );
+
+if (args.verifyPrototype) {
+  try {
+    const s = statSync(prototypePath);
+    if (!s.isFile()) {
+      console.error(
+        `imp-917 --verify-prototype FAILED: ${prototypePath} exists but is not a regular file.`,
+      );
+      process.exit(1);
+    }
+    console.log(
+      `imp-917 --verify-prototype OK: prototype script present (${prototypePath}, ${s.size} bytes).`,
+    );
+    process.exit(0);
+  } catch (err) {
+    console.error(
+      `imp-917 --verify-prototype FAILED: cannot stat ${prototypePath}: ${err.message}`,
+    );
+    process.exit(1);
+  }
+}
 
 // Resolve one (N, epsTriple) cell into the full IMP857_* env-var set, using
 // the retuning table and MISSING_CELLS nSteps/dt defaults. Returns

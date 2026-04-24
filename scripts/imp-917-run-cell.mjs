@@ -28,6 +28,7 @@
 //   node scripts/imp-917-run-cell.mjs --verify-output-target-json
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema-json
+//   node scripts/imp-917-run-cell.mjs --verify-output-schema-closer
 //   node scripts/imp-917-run-cell.mjs --verify-retuning-coverage
 //   node scripts/imp-917-run-cell.mjs --verify-retuning-coverage-json
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
@@ -251,6 +252,32 @@
 // the aggregated shell and JSON pre-flights both end with the same
 // output-schema token check.
 //
+// --verify-output-schema-closer is a stronger content-level check on the
+// transcription target than --verify-output-schema. The opener-only check
+// proves `const MEASURED_ROWS = [` is present but does not prove the array
+// closer `];` on its own line is still present after the opener. If the
+// closer was accidentally removed or corrupted between infrastructure work
+// and the ~20 CPU-hour offline run, any automated row-appender that splices
+// rows before `];` (the pattern imp-917 offline workers use to transcribe
+// maxIntervalWidth rows back into MEASURED_ROWS) would fail to locate its
+// insertion anchor — a silent-drift surface --verify-output-schema misses.
+// Searches for a standalone newline-`];` token AFTER the opener position, so
+// unrelated inline `[];` empty-array literals elsewhere in the file do not
+// spuriously satisfy the check. Uses a new checkOutputSchemaCloser() helper
+// shaped like checkOutputSchema() ({ok, path, token, error}) so a future
+// --verify-output-schema-closer-json analog and --preflight / --preflight-json
+// wiring can reuse it without drift. Shell-only for this partial; JSON analog
+// and aggregated-preflight wiring can follow in future partials, matching the
+// partial-l / partial-m / partial-n (--verify-prototype), partial-p / partial-q
+// / partial-r / partial-s (--verify-output-target), partial-y / partial-z /
+// partial-aa / partial-bb (--verify-output-schema), partial-cc / partial-dd /
+// partial-ee / partial-ff (--verify-retuning-coverage), partial-gg / partial-hh
+// / partial-ii / partial-jj (--verify-prototype-schema), and partial-kk /
+// partial-ll / partial-mm / partial-nn (--verify-prototype-env-readers)
+// standalone-shell-first / JSON-second / shell-aggregate-third / JSON-
+// aggregate-fourth cadence. Exits 0 on success, 1 with a specific diagnostic
+// (opener missing, closer missing, or read error) on failure.
+//
 // --verify-output-target-json is the structural JSON analog of
 // --verify-output-target. Emits one object {ok, path, sizeBytes, error} where
 // path is always populated, sizeBytes is the regular-file size on success and
@@ -422,6 +449,7 @@ function parseArgs(argv) {
     verifyOutputTargetJson: false,
     verifyOutputSchema: false,
     verifyOutputSchemaJson: false,
+    verifyOutputSchemaCloser: false,
     verifyRetuningCoverage: false,
     verifyRetuningCoverageJson: false,
     dryRun: false,
@@ -457,6 +485,7 @@ function parseArgs(argv) {
     else if (a === '--verify-output-target-json') out.verifyOutputTargetJson = true;
     else if (a === '--verify-output-schema') out.verifyOutputSchema = true;
     else if (a === '--verify-output-schema-json') out.verifyOutputSchemaJson = true;
+    else if (a === '--verify-output-schema-closer') out.verifyOutputSchemaCloser = true;
     else if (a === '--verify-retuning-coverage') out.verifyRetuningCoverage = true;
     else if (a === '--verify-retuning-coverage-json') out.verifyRetuningCoverageJson = true;
     else if (a === '--dry-run') out.dryRun = true;
@@ -488,6 +517,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-output-target-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-output-schema-closer\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-retuning-coverage\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-retuning-coverage-json\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
@@ -965,6 +995,74 @@ if (args.verifyOutputSchemaJson) {
   const r = checkOutputSchema();
   console.log(JSON.stringify(r, null, 2));
   process.exit(r.ok ? 0 : 1);
+}
+
+// Stronger content-level sibling of checkOutputSchema(): the opener-only check
+// proves `const MEASURED_ROWS = [` is present but does NOT prove the array
+// closer `\n];` on its own line is still present after the opener. If the
+// closer was accidentally removed or corrupted, any automated row-appender
+// that splices rows before `];` (the pattern imp-917 offline workers use to
+// transcribe maxIntervalWidth rows back into MEASURED_ROWS) would fail to
+// locate its insertion anchor — a silent-drift surface --verify-output-schema
+// misses. Searches for a standalone `\n];` token AFTER the opener position so
+// unrelated `[];` inline empty-array literals elsewhere in the file do not
+// spuriously satisfy the check. Shared-shape return ({ok, path, token, error})
+// so a future --verify-output-schema-closer-json partial can reuse it without
+// drift, matching the checkOutputSchema() / checkPrototypeSchema() cadence.
+const OUTPUT_SCHEMA_CLOSER_TOKEN = '\n];';
+
+function checkOutputSchemaCloser() {
+  try {
+    const content = readFileSync(outputTargetPath, 'utf8');
+    const openerPos = content.indexOf(OUTPUT_SCHEMA_TOKEN);
+    if (openerPos === -1) {
+      return {
+        ok: false,
+        path: outputTargetPath,
+        token: OUTPUT_SCHEMA_CLOSER_TOKEN,
+        error: `opener identifier \`${OUTPUT_SCHEMA_TOKEN}\` not found (run --verify-output-schema first)`,
+      };
+    }
+    const closerPos = content.indexOf(
+      OUTPUT_SCHEMA_CLOSER_TOKEN,
+      openerPos + OUTPUT_SCHEMA_TOKEN.length,
+    );
+    if (closerPos === -1) {
+      return {
+        ok: false,
+        path: outputTargetPath,
+        token: OUTPUT_SCHEMA_CLOSER_TOKEN,
+        error: `closer token (newline + \`];\`) not found after opener at position ${openerPos}`,
+      };
+    }
+    return {
+      ok: true,
+      path: outputTargetPath,
+      token: OUTPUT_SCHEMA_CLOSER_TOKEN,
+      error: null,
+    };
+  } catch (err) {
+    return {
+      ok: false,
+      path: outputTargetPath,
+      token: OUTPUT_SCHEMA_CLOSER_TOKEN,
+      error: `cannot read: ${err.message}`,
+    };
+  }
+}
+
+if (args.verifyOutputSchemaCloser) {
+  const r = checkOutputSchemaCloser();
+  if (r.ok) {
+    console.log(
+      `imp-917 --verify-output-schema-closer OK: ${r.path} has a standalone \`];\` closer after the \`${OUTPUT_SCHEMA_TOKEN}\` opener.`,
+    );
+    process.exit(0);
+  }
+  console.error(
+    `imp-917 --verify-output-schema-closer FAILED: ${r.path}: ${r.error}`,
+  );
+  process.exit(1);
 }
 
 // Data-integrity sibling of computePlanCoverage(): assert every N in

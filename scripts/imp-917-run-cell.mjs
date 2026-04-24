@@ -99,8 +99,9 @@
 // checks: --verify-plan / --verify-plan-json, --verify-prototype /
 // --verify-prototype-json, --verify-output-target / --verify-output-target-json.
 // Reuses the checkOutputTarget() helper with --verify-output-target so the two
-// diagnostics cannot drift. Not wired into --preflight / --preflight-json yet
-// (separate future partial).
+// diagnostics cannot drift. Wired into --preflight-json as the appended step 4
+// (matching --preflight's step 4) so the aggregated shell and JSON pre-flights
+// both end with the same output-target stat check.
 //
 // --preflight runs four shell pre-flight checks in sequence — --verify-plan
 // (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype (prototype script
@@ -110,21 +111,19 @@
 // Exits 0 only if all four pass; otherwise exits with the step number
 // (1, 2, 3, or 4) of the first failing step, so an offline-worker driver can
 // gate the ~20 CPU-hour batch on a single command rather than orchestrating
-// four separate invocations and four exit codes. The --preflight-json analog
-// still aggregates three steps in this partial; a matching step-4 extension
-// is a separate future partial (preserves the partial-n / partial-o cadence
-// of landing shell first, JSON second).
+// four separate invocations and four exit codes.
 //
 // --preflight-json is the structural JSON analog of --preflight. Emits one
 // object {ok, firstFailingStep, steps: [{step, name, ok, ...}]} aggregating
-// the three checks. Each step object carries the same body that the single-flag
+// the four checks. Each step object carries the same body that the single-flag
 // JSON analog would emit (plan coverage diff, prototype stat, per-cell resolve
-// summary). Exit status matches --preflight (0 on all-ok; 1, 2, or 3 on first
-// failing step) so Python / jq offline-worker drivers can gate the batch on
-// a single JSON body and a single exit code, completing the {shell, JSON} pair
-// for every pre-flight check: --verify-plan / --verify-plan-json,
-// --verify-prototype / --verify-prototype-json, --dry-run-all / --dry-run-all-json,
-// and --preflight / --preflight-json.
+// summary, output-target stat). Exit status matches --preflight (0 on all-ok;
+// 1, 2, 3, or 4 on first failing step) so Python / jq offline-worker drivers
+// can gate the batch on a single JSON body and a single exit code, completing
+// the {shell, JSON} pair for every pre-flight check: --verify-plan /
+// --verify-plan-json, --verify-prototype / --verify-prototype-json,
+// --dry-run-all / --dry-run-all-json, --verify-output-target /
+// --verify-output-target-json, and --preflight / --preflight-json.
 //
 // --dry-run resolves the full IMP857_* env var set for the given --N/--eps
 // cell (exactly as a real run would) and prints them as copy-pastable shell
@@ -679,11 +678,11 @@ if (args.preflight) {
 }
 
 if (args.preflightJson) {
-  // Structural JSON analog of --preflight: aggregate the three checks into one
+  // Structural JSON analog of --preflight: aggregate the four checks into one
   // object. Each step body mirrors the corresponding single-flag JSON analog
   // so parsers can reuse the same schema per step. firstFailingStep is the
   // 1-indexed step number of the first failure (or null on all-ok); the process
-  // exit code mirrors that number, matching --preflight.
+  // exit code mirrors that number, matching --preflight (0 / 1 / 2 / 3 / 4).
   const planResult = computePlanCoverage();
   const protoResult = checkPrototype();
   const resolveRows = [];
@@ -699,11 +698,13 @@ if (args.preflightJson) {
     }
   }
   const resolveOk = resolveFailures === 0;
+  const outputTargetResult = checkOutputTarget();
 
   let firstFailingStep = null;
   if (!planResult.ok) firstFailingStep = 1;
   else if (!protoResult.ok) firstFailingStep = 2;
   else if (!resolveOk) firstFailingStep = 3;
+  else if (!outputTargetResult.ok) firstFailingStep = 4;
 
   const body = {
     ok: firstFailingStep === null,
@@ -718,6 +719,12 @@ if (args.preflightJson) {
         cellsTotal: BATCH_PLAN.length,
         cellsFailed: resolveFailures,
         cells: resolveRows,
+      },
+      {
+        step: 4,
+        name: '--verify-output-target',
+        ok: outputTargetResult.ok,
+        outputTarget: outputTargetResult,
       },
     ],
   };

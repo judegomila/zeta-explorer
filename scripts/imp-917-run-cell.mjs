@@ -38,6 +38,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-stddev-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -497,6 +498,7 @@ function parseArgs(argv) {
     batchPlanCostTripleStddevJson: false,
     batchPlanCostTripleMad: false,
     batchPlanCostTripleMadJson: false,
+    batchPlanCostTripleIqr: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -554,6 +556,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-stddev-json') out.batchPlanCostTripleStddevJson = true;
     else if (a === '--batch-plan-cost-triple-mad') out.batchPlanCostTripleMad = true;
     else if (a === '--batch-plan-cost-triple-mad-json') out.batchPlanCostTripleMadJson = true;
+    else if (a === '--batch-plan-cost-triple-iqr') out.batchPlanCostTripleIqr = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -607,6 +610,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-stddev-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1673,6 +1677,79 @@ if (args.batchPlanCostTripleMadJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleIqr) {
+  // Shell data emitter: surface the interquartile range (IQR = Q3 - Q1) of
+  // per-triple wall-times across the known-wallSec rows of BATCH_PLAN as a
+  // second outlier-robust dispersion view complementary to MAD
+  // (--batch-plan-cost-triple-mad, partial-nnn). MAD reports the typical
+  // deviation-from-median magnitude; IQR reports the span of the middle 50% of
+  // the distribution directly on the wall-time axis. Both are robust against
+  // the two N=10000 tail triples that inflate the population stddev
+  // (--batch-plan-cost-triple-stddev, partial-lll), but they answer different
+  // operator questions: MAD answers "how far does a typical triple sit from
+  // the center?", IQR answers "what range contains the middle half of the
+  // triples?" -- the latter maps more directly to provisioning a shared-queue
+  // worker whose expected completion window is bounded by [Q1, Q3]. Formula:
+  // Q1 = median of lower half, Q3 = median of upper half, IQR = Q3 - Q1;
+  // halves are split using the exclusive-midpoint rule (Tukey's definition)
+  // so for even knownCount the two halves each contain knownCount/2 values
+  // and for odd knownCount the middle value is excluded from both halves.
+  // Unknown-N rows (wallSec === null) are pre-filtered before splitting so
+  // nulls cannot corrupt either quartile. On the current 6-row known set
+  // [1400, 2800, 18000, 18000, 72000, 72000] the lower half [1400, 2800,
+  // 18000] has Q1 = 2800 s, the upper half [18000, 72000, 72000] has Q3 =
+  // 72000 s, and IQR = 69200 s (~19.22 CPU-hours) -- well above the MAD
+  // (15900 s / 4.42 h, partial-nnn) because IQR spans Q1-to-Q3 while MAD
+  // measures median-symmetric deviation magnitude. Also emits IQR/median as a
+  // unit-free spread ratio (robust analog of CoV in partial-lll, sibling of
+  // MAD/median in partial-nnn), with a null guard when the median is 0. All-
+  // unknown degenerate case prints a dedicated unknown summary and exits 0
+  // without touching the sort; knownCount<2 (too few rows to form both halves)
+  // is treated as degenerate the same way. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Shell-only this partial; a --batch-plan-cost-triple-iqr-json
+  // analog can follow mirroring the shell-first / JSON-second cadence.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length < 2) {
+    if (known.length === 0) {
+      console.log(
+        'imp-917 BATCH_PLAN per-triple IQR wall-time: unknown (all triples have unknown N).',
+      );
+    } else {
+      console.log(
+        `imp-917 BATCH_PLAN per-triple IQR wall-time: unknown (only ${known.length} known triple, need at least 2 to form quartiles).`,
+      );
+    }
+    process.exit(0);
+  }
+  const medianOf = (arr) => {
+    const sorted = [...arr].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 === 0
+      ? (sorted[mid - 1] + sorted[mid]) / 2
+      : sorted[mid];
+  };
+  const sortedValues = known.map((r) => r.wallSec).sort((a, b) => a - b);
+  const n = sortedValues.length;
+  const half = Math.floor(n / 2);
+  const lower = sortedValues.slice(0, half);
+  const upper = n % 2 === 0 ? sortedValues.slice(half) : sortedValues.slice(half + 1);
+  const q1 = medianOf(lower);
+  const q3 = medianOf(upper);
+  const iqrSec = q3 - q1;
+  const medianSec = medianOf(sortedValues);
+  const ratio = medianSec === 0 ? null : iqrSec / medianSec;
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from IQR)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple IQR wall-time: ${iqrSec.toFixed(0)} s (~${(iqrSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s); Q1 ${q1.toFixed(0)} s, Q3 ${q3.toFixed(0)} s, median ${medianSec.toFixed(0)} s, IQR/median = ${ratio === null ? 'n/a' : ratio.toFixed(2)}${unknownNote}.`,
+  );
   process.exit(0);
 }
 

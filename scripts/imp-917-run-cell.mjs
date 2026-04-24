@@ -22,6 +22,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -465,6 +466,7 @@ function parseArgs(argv) {
     batchPlanCostJson: false,
     batchPlanCostByN: false,
     batchPlanCostByNJson: false,
+    batchPlanCostMaxTriple: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -506,6 +508,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-json') out.batchPlanCostJson = true;
     else if (a === '--batch-plan-cost-by-N') out.batchPlanCostByN = true;
     else if (a === '--batch-plan-cost-by-N-json') out.batchPlanCostByNJson = true;
+    else if (a === '--batch-plan-cost-max-triple') out.batchPlanCostMaxTriple = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -543,6 +546,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -872,6 +876,44 @@ if (args.batchPlanCostByNJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostMaxTriple) {
+  // Shell data emitter: surface the single longest triple-run in BATCH_PLAN,
+  // the critical-path lower bound for any parallel offline-worker schedule.
+  // Since each triple is a sequential prototype invocation, no sharding
+  // across workers can finish faster than the longest individual triple
+  // regardless of worker count. Distinct from --batch-plan-cost (per-triple
+  // rows, sequential single-worker total) and --batch-plan-cost-by-N
+  // (per-N aggregation, achievable bound for a worker-per-N schedule):
+  // --batch-plan-cost-max-triple is the theoretical best-case bound,
+  // achievable only if every triple runs on its own dedicated worker
+  // (6 workers). Reuses computeBatchPlanCost() so the max-triple lookup
+  // cannot drift from the per-triple and per-N views. Unknown-N triples
+  // (wallSec === null) are excluded from the max search so they do not
+  // produce a spurious "null vs number" comparison; an unknownNote is
+  // appended to the summary line if any are excluded. Pure data emitter,
+  // exit 0 unconditionally (no validation gate). Shell-only this partial;
+  // a --batch-plan-cost-max-triple-json analog can follow in a future
+  // partial to complete the shell/JSON pair.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const knownRows = rows.filter((r) => r.wallSec !== null);
+  if (knownRows.length === 0) {
+    console.log('imp-917 BATCH_PLAN critical-path lower bound: unknown (all triples have unknown N).');
+    process.exit(0);
+  }
+  const maxRow = knownRows.reduce((best, r) => (r.wallSec > best.wallSec ? r : best), knownRows[0]);
+  const unknownNote = unknownCount > 0 ? ` (${unknownCount} triple-run(s) with unknown N excluded from max search)` : '';
+  console.log(
+    `imp-917 BATCH_PLAN critical-path lower bound: ${maxRow.wallSec.toFixed(0)} s (~${(maxRow.wallSec / 3600).toFixed(1)} CPU-hours)${unknownNote}.`,
+  );
+  console.log(
+    `  longest triple: idx=${maxRow.index}, N=${maxRow.N}, eps=${maxRow.eps.join(',')}, label="${maxRow.label}"`,
+  );
+  console.log(
+    '  (no parallel schedule across BATCH_PLAN can finish faster than this single triple.)',
+  );
   process.exit(0);
 }
 

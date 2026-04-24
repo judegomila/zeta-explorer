@@ -17,6 +17,7 @@
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
 //   node scripts/imp-917-run-cell.mjs --verify-prototype-json
+//   node scripts/imp-917-run-cell.mjs --verify-output-target
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
 //   node scripts/imp-917-run-cell.mjs --dry-run-all-json
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
@@ -75,6 +76,17 @@
 // run on the JSON body AND the process exit code, completing the {shell, JSON}
 // output matrix for all four pre-flight checks: --verify-plan / --verify-plan-json,
 // --verify-prototype / --verify-prototype-json.
+//
+// --verify-output-target asserts that the transcription target — the JS file
+// src/data/imp-857-phased-forcing-sweep.js where the 14 measured rows must be
+// appended to MEASURED_ROWS after the batch completes — exists and is a regular
+// file. Orthogonal to --verify-prototype (which checks the input side: the
+// prototype binary invoked by spawnSync): catches the silent failure where the
+// output file has been moved, renamed, or deleted between infrastructure work
+// and the ~20 CPU-hour offline run, which would otherwise only surface when
+// the operator tries to transcribe rows back and finds no MEASURED_ROWS block
+// to edit. Exits 0 on success, 1 with a diagnostic on missing / non-regular-file.
+// Shell-only; a --verify-output-target-json analog can follow in a future partial.
 //
 // --preflight runs the three existing shell pre-flight checks in sequence —
 // --verify-plan (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype
@@ -167,6 +179,7 @@ function parseArgs(argv) {
     verifyPlanJson: false,
     verifyPrototype: false,
     verifyPrototypeJson: false,
+    verifyOutputTarget: false,
     dryRun: false,
     dryRunJson: false,
     dryRunAll: false,
@@ -187,6 +200,7 @@ function parseArgs(argv) {
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
     else if (a === '--verify-prototype-json') out.verifyPrototypeJson = true;
+    else if (a === '--verify-output-target') out.verifyOutputTarget = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-json') out.dryRunJson = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
@@ -203,6 +217,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-output-target\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run|--dry-run-json]\n' +
@@ -369,6 +384,48 @@ if (args.verifyPrototypeJson) {
   const r = checkPrototype();
   console.log(JSON.stringify(r, null, 2));
   process.exit(r.ok ? 0 : 1);
+}
+
+const outputTargetPath = resolve(
+  REPO_ROOT,
+  'src/data/imp-857-phased-forcing-sweep.js',
+);
+
+// Mirror of checkPrototype() for the output side: assert the transcription
+// target file exists and is a regular file. Shared-shape return so a future
+// --verify-output-target-json partial can reuse it without drift.
+function checkOutputTarget() {
+  try {
+    const s = statSync(outputTargetPath);
+    if (!s.isFile()) {
+      return {
+        ok: false,
+        path: outputTargetPath,
+        sizeBytes: null,
+        error: 'not a regular file',
+      };
+    }
+    return { ok: true, path: outputTargetPath, sizeBytes: s.size, error: null };
+  } catch (err) {
+    return {
+      ok: false,
+      path: outputTargetPath,
+      sizeBytes: null,
+      error: `cannot stat: ${err.message}`,
+    };
+  }
+}
+
+if (args.verifyOutputTarget) {
+  const r = checkOutputTarget();
+  if (r.ok) {
+    console.log(
+      `imp-917 --verify-output-target OK: transcription target present (${r.path}, ${r.sizeBytes} bytes).`,
+    );
+    process.exit(0);
+  }
+  console.error(`imp-917 --verify-output-target FAILED: ${r.path}: ${r.error}`);
+  process.exit(1);
 }
 
 // Resolve one (N, epsTriple) cell into the full IMP857_* env-var set, using

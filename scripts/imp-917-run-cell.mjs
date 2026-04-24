@@ -22,6 +22,7 @@
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
 //   node scripts/imp-917-run-cell.mjs --verify-prototype-json
+//   node scripts/imp-917-run-cell.mjs --verify-prototype-schema
 //   node scripts/imp-917-run-cell.mjs --verify-output-target
 //   node scripts/imp-917-run-cell.mjs --verify-output-target-json
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema
@@ -144,6 +145,22 @@
 // run on the JSON body AND the process exit code, completing the {shell, JSON}
 // output matrix for all four pre-flight checks: --verify-plan / --verify-plan-json,
 // --verify-prototype / --verify-prototype-json.
+//
+// --verify-prototype-schema asserts that the phased-forcing prototype script
+// still reads the IMP857_EPSILONS env var the driver sets per cell — i.e. the
+// env-var contract that glues this driver to src/math/imp-857-phase-locked-dyson.mjs
+// has not silently broken. Input-side mirror of --verify-output-schema: where
+// --verify-prototype only stat()s the file, this check reads it via readFileSync
+// and asserts the literal substring `process.env.IMP857_EPSILONS` is present.
+// Orthogonal to --verify-prototype (stat-level): catches the silent drift where
+// the prototype file exists but the IMP857_EPSILONS reader was renamed or
+// removed, which would otherwise only surface at actual spawn time as the
+// prototype ignoring the driver's eps triple. Exits 0 on success, 1 with a
+// specific diagnostic on read error or missing identifier. Shell-only for this
+// partial; --verify-prototype-schema-json analog and --preflight / --preflight-json
+// wiring can follow in future partials, matching the partial-y -> partial-z ->
+// partial-aa/bb (--verify-output-schema) standalone-first / JSON-second /
+// aggregate-later cadence.
 //
 // --verify-output-target asserts that the transcription target — the JS file
 // src/data/imp-857-phased-forcing-sweep.js where the 14 measured rows must be
@@ -341,6 +358,7 @@ function parseArgs(argv) {
     verifyPlanJson: false,
     verifyPrototype: false,
     verifyPrototypeJson: false,
+    verifyPrototypeSchema: false,
     verifyOutputTarget: false,
     verifyOutputTargetJson: false,
     verifyOutputSchema: false,
@@ -372,6 +390,7 @@ function parseArgs(argv) {
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
     else if (a === '--verify-prototype-json') out.verifyPrototypeJson = true;
+    else if (a === '--verify-prototype-schema') out.verifyPrototypeSchema = true;
     else if (a === '--verify-output-target') out.verifyOutputTarget = true;
     else if (a === '--verify-output-target-json') out.verifyOutputTargetJson = true;
     else if (a === '--verify-output-schema') out.verifyOutputSchema = true;
@@ -399,6 +418,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-prototype-schema\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema\n' +
@@ -673,6 +693,47 @@ if (args.verifyPrototypeJson) {
   const r = checkPrototype();
   console.log(JSON.stringify(r, null, 2));
   process.exit(r.ok ? 0 : 1);
+}
+
+// Schema-level sibling of checkPrototype(): the stat check only proves the file
+// exists, it does not prove the IMP857_EPSILONS env-var reader the driver binds
+// to has survived. Shared-shape return ({ok, path, token, error}) matching
+// checkOutputSchema() so a future --verify-prototype-schema-json partial can
+// reuse it without drift.
+const PROTOTYPE_SCHEMA_TOKEN = 'process.env.IMP857_EPSILONS';
+
+function checkPrototypeSchema() {
+  try {
+    const content = readFileSync(prototypePath, 'utf8');
+    if (!content.includes(PROTOTYPE_SCHEMA_TOKEN)) {
+      return {
+        ok: false,
+        path: prototypePath,
+        token: PROTOTYPE_SCHEMA_TOKEN,
+        error: `identifier \`${PROTOTYPE_SCHEMA_TOKEN}\` not found`,
+      };
+    }
+    return { ok: true, path: prototypePath, token: PROTOTYPE_SCHEMA_TOKEN, error: null };
+  } catch (err) {
+    return {
+      ok: false,
+      path: prototypePath,
+      token: PROTOTYPE_SCHEMA_TOKEN,
+      error: `cannot read: ${err.message}`,
+    };
+  }
+}
+
+if (args.verifyPrototypeSchema) {
+  const r = checkPrototypeSchema();
+  if (r.ok) {
+    console.log(
+      `imp-917 --verify-prototype-schema OK: ${r.path} reads \`${PROTOTYPE_SCHEMA_TOKEN}\`.`,
+    );
+    process.exit(0);
+  }
+  console.error(`imp-917 --verify-prototype-schema FAILED: ${r.path}: ${r.error}`);
+  process.exit(1);
 }
 
 const outputTargetPath = resolve(

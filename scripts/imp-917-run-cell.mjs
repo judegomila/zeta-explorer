@@ -14,6 +14,7 @@
 //   node scripts/imp-917-run-cell.mjs --list
 //   node scripts/imp-917-run-cell.mjs --plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
+//   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
 //   node scripts/imp-917-run-cell.mjs --dry-run-all-json
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
@@ -40,6 +41,13 @@
 // success, prints a diff and exits 1 on mismatch. Run this before launching
 // an offline worker — a silent BATCH_PLAN/MISSING_CELLS drift would waste the
 // full ~20 CPU-hour budget on the wrong grid.
+//
+// --verify-plan-json is the structural JSON analog of --verify-plan. Emits a
+// single JSON object with {ok, missingCount, coveredCount, missingButUncovered,
+// coveredButNotMissing} where the two arrays list the "N|eps" keys on each
+// side of the coverage diff. Exit status matches --verify-plan (0 on ok, 1 on
+// mismatch) so Python / jq offline-worker drivers can gate on the JSON body
+// AND the exit status without re-parsing the shell-style console output.
 //
 // --dry-run resolves the full IMP857_* env var set for the given --N/--eps
 // cell (exactly as a real run would) and prints them as copy-pastable shell
@@ -97,6 +105,7 @@ function parseArgs(argv) {
     list: false,
     planJson: false,
     verifyPlan: false,
+    verifyPlanJson: false,
     dryRun: false,
     dryRunAll: false,
     dryRunAllJson: false,
@@ -111,6 +120,7 @@ function parseArgs(argv) {
     else if (a === '--list') out.list = true;
     else if (a === '--plan-json') out.planJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
+    else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
     else if (a === '--dry-run-all-json') out.dryRunAllJson = true;
@@ -121,6 +131,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --list\n' +
           '       node scripts/imp-917-run-cell.mjs --plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run]',
@@ -170,13 +181,14 @@ if (args.planJson) {
   process.exit(0);
 }
 
-if (args.verifyPlan) {
-  // Flatten BATCH_PLAN into covered (N, eps) pairs. Skip eps=0 baselines when
-  // N is in {1000, 2000}: MISSING_CELLS only lists {0.02, 0.1} for those N
-  // (imp-893 already measured the eps=0 baseline at those N), so the baseline
-  // re-measurement in the triple-run is an internal-consistency probe, not a
-  // missing-cell target. For N in {5000, 10000}, eps=0 IS a missing cell and
-  // must be counted exactly once.
+// Flatten BATCH_PLAN into covered (N, eps) pairs and diff against MISSING_CELLS.
+// Skip eps=0 baselines when N is in {1000, 2000}: MISSING_CELLS only lists
+// {0.02, 0.1} for those N (imp-893 already measured the eps=0 baseline at
+// those N), so the baseline re-measurement in the triple-run is an
+// internal-consistency probe, not a missing-cell target. For N in {5000,
+// 10000}, eps=0 IS a missing cell and must be counted exactly once. Shared by
+// --verify-plan (shell output) and --verify-plan-json (JSON output).
+function computePlanCoverage() {
   const key = (N, eps) => `${N}|${eps}`;
   const missingSet = new Set(
     IMP_896_RETUNING_CALIBRATION.missingCells.map((c) => key(c.N, c.eps)),
@@ -195,29 +207,46 @@ if (args.verifyPlan) {
     missingButUncovered.length === 0 &&
     coveredButNotMissing.length === 0 &&
     coveredSet.size === missingSet.size;
-  if (ok) {
+  return {
+    ok,
+    missingCount: missingSet.size,
+    coveredCount: coveredSet.size,
+    missingButUncovered,
+    coveredButNotMissing,
+  };
+}
+
+if (args.verifyPlan) {
+  const r = computePlanCoverage();
+  if (r.ok) {
     console.log(
-      `imp-917 --verify-plan OK: BATCH_PLAN covers all ${missingSet.size} MISSING_CELLS exactly.`,
+      `imp-917 --verify-plan OK: BATCH_PLAN covers all ${r.missingCount} MISSING_CELLS exactly.`,
     );
     process.exit(0);
   }
   console.error('imp-917 --verify-plan FAILED:');
-  if (missingButUncovered.length) {
+  if (r.missingButUncovered.length) {
     console.error(
       '  cells in MISSING_CELLS not covered by BATCH_PLAN:',
-      missingButUncovered.join(', '),
+      r.missingButUncovered.join(', '),
     );
   }
-  if (coveredButNotMissing.length) {
+  if (r.coveredButNotMissing.length) {
     console.error(
       '  cells covered by BATCH_PLAN not in MISSING_CELLS:',
-      coveredButNotMissing.join(', '),
+      r.coveredButNotMissing.join(', '),
     );
   }
   console.error(
-    `  (MISSING_CELLS size=${missingSet.size}, covered size=${coveredSet.size})`,
+    `  (MISSING_CELLS size=${r.missingCount}, covered size=${r.coveredCount})`,
   );
   process.exit(1);
+}
+
+if (args.verifyPlanJson) {
+  const r = computePlanCoverage();
+  console.log(JSON.stringify(r, null, 2));
+  process.exit(r.ok ? 0 : 1);
 }
 
 const prototypePath = resolve(

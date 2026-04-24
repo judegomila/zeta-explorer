@@ -28,6 +28,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-min-triple-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -477,6 +478,7 @@ function parseArgs(argv) {
     batchPlanCostMinTripleJson: false,
     batchPlanCostSummary: false,
     batchPlanCostSummaryJson: false,
+    batchPlanCostTripleRange: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -524,6 +526,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-min-triple-json') out.batchPlanCostMinTripleJson = true;
     else if (a === '--batch-plan-cost-summary') out.batchPlanCostSummary = true;
     else if (a === '--batch-plan-cost-summary-json') out.batchPlanCostSummaryJson = true;
+    else if (a === '--batch-plan-cost-triple-range') out.batchPlanCostTripleRange = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -567,6 +570,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-min-triple-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-summary-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1124,6 +1128,71 @@ if (args.batchPlanCostSummaryJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleRange) {
+  // Shell data emitter: surface BATCH_PLAN's per-triple wall-time range
+  // (shortest-triple canary + longest-triple critical-path) in a single
+  // two-row ASCII table alongside their seconds / CPU-hour values and the
+  // max/min ratio as a compactness indicator for the offline batch. Pure
+  // composition of computeBatchPlanCostMinTriple() (partial-ddd helper) and
+  // computeBatchPlanCostMaxTriple() (partial-zz helper) with zero new math,
+  // so this emitter cannot drift from its upstream single-extreme siblings
+  // (--batch-plan-cost-min-triple, --batch-plan-cost-max-triple). Answers
+  // the operator question "what is the wall-time span across the 6 triples
+  // before I decide whether to parallelize?" in one invocation rather than
+  // running the two single-extreme emitters separately and eyeballing their
+  // outputs. Pure data emitter, exit 0 unconditionally (not a pre-flight
+  // gate), not wired into --preflight / --preflight-json.
+  const { minRow, unknownCount } = computeBatchPlanCostMinTriple();
+  const { maxRow } = computeBatchPlanCostMaxTriple();
+  const fmtSec = (s) => (s === null ? 'unknown' : s.toFixed(0));
+  const fmtHours = (s) => (s === null ? 'unknown' : (s / 3600).toFixed(2));
+  const fmtIdx = (r) => (r === null ? 'n/a' : String(r.index));
+  const fmtN = (r) => (r === null ? 'n/a' : String(r.N));
+  const fmtEps = (r) => (r === null ? 'n/a' : r.eps.join(','));
+  const headers = ['extreme', 'idx', 'N', 'eps', 'wallSec', 'hours'];
+  const body = [
+    [
+      'min-triple',
+      fmtIdx(minRow),
+      fmtN(minRow),
+      fmtEps(minRow),
+      fmtSec(minRow === null ? null : minRow.wallSec),
+      fmtHours(minRow === null ? null : minRow.wallSec),
+    ],
+    [
+      'max-triple',
+      fmtIdx(maxRow),
+      fmtN(maxRow),
+      fmtEps(maxRow),
+      fmtSec(maxRow === null ? null : maxRow.wallSec),
+      fmtHours(maxRow === null ? null : maxRow.wallSec),
+    ],
+  ];
+  const widths = headers.map((h, i) =>
+    Math.max(h.length, ...body.map((row) => row[i].length)),
+  );
+  const pad = (s, w) => s + ' '.repeat(w - s.length);
+  const render = (row) => row.map((c, i) => pad(c, widths[i])).join('  ');
+  const ratio =
+    minRow === null || maxRow === null || minRow.wallSec === 0
+      ? null
+      : maxRow.wallSec / minRow.wallSec;
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from extrema search)`
+      : '';
+  console.log('imp-917 BATCH_PLAN per-triple wall-time range:');
+  console.log('  ' + render(headers));
+  console.log(
+    '  ' + '-'.repeat(widths.reduce((a, b) => a + b, 0) + 2 * (widths.length - 1)),
+  );
+  for (const r of body) console.log('  ' + render(r));
+  console.log(
+    `  (max/min ratio = ${ratio === null ? 'n/a' : ratio.toFixed(2) + 'x'}; compactness indicator across the 6 triples${unknownNote}.)`,
+  );
   process.exit(0);
 }
 

@@ -23,6 +23,7 @@
 //   node scripts/imp-917-run-cell.mjs --cell 3 --dry-run-json
 //   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 --dry-run-json
 //   node scripts/imp-917-run-cell.mjs --preflight
+//   node scripts/imp-917-run-cell.mjs --preflight-json
 //
 // --eps must be a comma-separated triple; the first entry is conventionally 0
 // (baseline) so ratio rows can be computed against it. Defaults for nSteps/dt
@@ -83,6 +84,17 @@
 // exits with the step number (1, 2, or 3) of the first failing step, so an
 // offline-worker driver can gate the ~20 CPU-hour batch on a single command
 // rather than orchestrating three separate invocations and three exit codes.
+//
+// --preflight-json is the structural JSON analog of --preflight. Emits one
+// object {ok, firstFailingStep, steps: [{step, name, ok, ...}]} aggregating
+// the three checks. Each step object carries the same body that the single-flag
+// JSON analog would emit (plan coverage diff, prototype stat, per-cell resolve
+// summary). Exit status matches --preflight (0 on all-ok; 1, 2, or 3 on first
+// failing step) so Python / jq offline-worker drivers can gate the batch on
+// a single JSON body and a single exit code, completing the {shell, JSON} pair
+// for every pre-flight check: --verify-plan / --verify-plan-json,
+// --verify-prototype / --verify-prototype-json, --dry-run-all / --dry-run-all-json,
+// and --preflight / --preflight-json.
 //
 // --dry-run resolves the full IMP857_* env var set for the given --N/--eps
 // cell (exactly as a real run would) and prints them as copy-pastable shell
@@ -160,6 +172,7 @@ function parseArgs(argv) {
     dryRunAll: false,
     dryRunAllJson: false,
     preflight: false,
+    preflightJson: false,
     cell: null,
   };
   for (let i = 2; i < argv.length; i++) {
@@ -179,6 +192,7 @@ function parseArgs(argv) {
     else if (a === '--dry-run-all') out.dryRunAll = true;
     else if (a === '--dry-run-all-json') out.dryRunAllJson = true;
     else if (a === '--preflight') out.preflight = true;
+    else if (a === '--preflight-json') out.preflightJson = true;
     else if (a === '--cell') out.cell = Number(argv[++i]);
     else if (a === '--help' || a === '-h') {
       console.log(
@@ -193,7 +207,8 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run|--dry-run-json]\n' +
           '       node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> --dry-run-json\n' +
-          '       node scripts/imp-917-run-cell.mjs --preflight',
+          '       node scripts/imp-917-run-cell.mjs --preflight\n' +
+          '       node scripts/imp-917-run-cell.mjs --preflight-json',
       );
       process.exit(0);
     } else {
@@ -564,6 +579,53 @@ if (args.preflight) {
 
   console.log('imp-917 --preflight PASS: all 3 steps OK, offline batch ready to launch.');
   process.exit(0);
+}
+
+if (args.preflightJson) {
+  // Structural JSON analog of --preflight: aggregate the three checks into one
+  // object. Each step body mirrors the corresponding single-flag JSON analog
+  // so parsers can reuse the same schema per step. firstFailingStep is the
+  // 1-indexed step number of the first failure (or null on all-ok); the process
+  // exit code mirrors that number, matching --preflight.
+  const planResult = computePlanCoverage();
+  const protoResult = checkPrototype();
+  const resolveRows = [];
+  let resolveFailures = 0;
+  for (let i = 0; i < BATCH_PLAN.length; i++) {
+    const p = BATCH_PLAN[i];
+    const r = resolveCell(p.N, p.eps, null, null);
+    if (r.error) {
+      resolveRows.push({ index: i + 1, label: p.label, N: p.N, eps: p.eps, ok: false, error: r.error });
+      resolveFailures++;
+    } else {
+      resolveRows.push({ index: i + 1, label: p.label, N: p.N, eps: p.eps, ok: true });
+    }
+  }
+  const resolveOk = resolveFailures === 0;
+
+  let firstFailingStep = null;
+  if (!planResult.ok) firstFailingStep = 1;
+  else if (!protoResult.ok) firstFailingStep = 2;
+  else if (!resolveOk) firstFailingStep = 3;
+
+  const body = {
+    ok: firstFailingStep === null,
+    firstFailingStep,
+    steps: [
+      { step: 1, name: '--verify-plan', ok: planResult.ok, coverage: planResult },
+      { step: 2, name: '--verify-prototype', ok: protoResult.ok, prototype: protoResult },
+      {
+        step: 3,
+        name: '--dry-run-all',
+        ok: resolveOk,
+        cellsTotal: BATCH_PLAN.length,
+        cellsFailed: resolveFailures,
+        cells: resolveRows,
+      },
+    ],
+  };
+  console.log(JSON.stringify(body, null, 2));
+  process.exit(firstFailingStep ?? 0);
 }
 
 let cellIndex = null;

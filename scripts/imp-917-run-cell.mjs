@@ -179,6 +179,23 @@
 // step 7 (shell form) and into --preflight-json as the appended step 7
 // (JSON form).
 //
+// --verify-prototype-env-readers broadens the input-side content-level
+// check: where --verify-prototype-schema asserts only the single
+// `process.env.IMP857_EPSILONS` reader is present, this check asserts
+// every one of the six IMP857_* env-var readers the driver binds to is
+// present in the prototype — IMP857_N, IMP857_DT, IMP857_NSTEPS, IMP857_K0,
+// IMP857_PHASEVEL, and IMP857_EPSILONS. Closes the silent-drift gap
+// partial-gg only partially closed: if e.g. the IMP857_K0 reader is renamed
+// between infrastructure work and the ~20 CPU-hour offline run, the
+// prototype still spawns and still reads EPSILONS, but silently falls back
+// to the in-source default k0 = Math.PI and measures the wrong resonance.
+// Reads the file via readFileSync and reports each missing token in the
+// failure diagnostic. Exits 0 on success, 1 with a specific diagnostic
+// naming the missing reader(s) on failure. Shell-only for this partial;
+// --verify-prototype-env-readers-json analog and --preflight / --preflight-json
+// wiring can follow in future partials, matching the shell-first / JSON-second /
+// aggregate-later cadence used for every other discrete pre-flight check.
+//
 // --verify-output-target asserts that the transcription target — the JS file
 // src/data/imp-857-phased-forcing-sweep.js where the 14 measured rows must be
 // appended to MEASURED_ROWS after the batch completes — exists and is a regular
@@ -381,6 +398,7 @@ function parseArgs(argv) {
     verifyPrototypeJson: false,
     verifyPrototypeSchema: false,
     verifyPrototypeSchemaJson: false,
+    verifyPrototypeEnvReaders: false,
     verifyOutputTarget: false,
     verifyOutputTargetJson: false,
     verifyOutputSchema: false,
@@ -414,6 +432,7 @@ function parseArgs(argv) {
     else if (a === '--verify-prototype-json') out.verifyPrototypeJson = true;
     else if (a === '--verify-prototype-schema') out.verifyPrototypeSchema = true;
     else if (a === '--verify-prototype-schema-json') out.verifyPrototypeSchemaJson = true;
+    else if (a === '--verify-prototype-env-readers') out.verifyPrototypeEnvReaders = true;
     else if (a === '--verify-output-target') out.verifyOutputTarget = true;
     else if (a === '--verify-output-target-json') out.verifyOutputTargetJson = true;
     else if (a === '--verify-output-schema') out.verifyOutputSchema = true;
@@ -443,6 +462,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-schema\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-schema-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-prototype-env-readers\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema\n' +
@@ -764,6 +784,66 @@ if (args.verifyPrototypeSchemaJson) {
   const r = checkPrototypeSchema();
   console.log(JSON.stringify(r, null, 2));
   process.exit(r.ok ? 0 : 1);
+}
+
+// Broader input-side content-level check than checkPrototypeSchema(): asserts
+// every IMP857_* env-var reader the driver binds to per cell is present in
+// the prototype, not just IMP857_EPSILONS. Closes the silent-drift gap where
+// a non-EPSILONS reader (e.g. IMP857_K0) is renamed between infrastructure
+// work and the offline run, causing the prototype to silently fall back to
+// its in-source default and measure the wrong cell.
+const PROTOTYPE_ENV_READER_TOKENS = [
+  'process.env.IMP857_N',
+  'process.env.IMP857_DT',
+  'process.env.IMP857_NSTEPS',
+  'process.env.IMP857_K0',
+  'process.env.IMP857_PHASEVEL',
+  'process.env.IMP857_EPSILONS',
+];
+
+function checkPrototypeEnvReaders() {
+  try {
+    const content = readFileSync(prototypePath, 'utf8');
+    const missing = PROTOTYPE_ENV_READER_TOKENS.filter((t) => !content.includes(t));
+    if (missing.length > 0) {
+      return {
+        ok: false,
+        path: prototypePath,
+        tokens: PROTOTYPE_ENV_READER_TOKENS,
+        missing,
+        error: `missing env-var reader(s): ${missing.join(', ')}`,
+      };
+    }
+    return {
+      ok: true,
+      path: prototypePath,
+      tokens: PROTOTYPE_ENV_READER_TOKENS,
+      missing: [],
+      error: null,
+    };
+  } catch (err) {
+    return {
+      ok: false,
+      path: prototypePath,
+      tokens: PROTOTYPE_ENV_READER_TOKENS,
+      missing: PROTOTYPE_ENV_READER_TOKENS.slice(),
+      error: `cannot read: ${err.message}`,
+    };
+  }
+}
+
+if (args.verifyPrototypeEnvReaders) {
+  const r = checkPrototypeEnvReaders();
+  if (r.ok) {
+    console.log(
+      `imp-917 --verify-prototype-env-readers OK: ${r.path} reads all ${r.tokens.length} IMP857_* env-var readers (${r.tokens.join(', ')}).`,
+    );
+    process.exit(0);
+  }
+  console.error(
+    `imp-917 --verify-prototype-env-readers FAILED: ${r.path}: ${r.error}`,
+  );
+  process.exit(1);
 }
 
 const outputTargetPath = resolve(

@@ -268,12 +268,12 @@
 // shaped like checkOutputSchema() ({ok, path, token, error}) so the shell,
 // JSON, and aggregated-preflight forms cannot drift. Paired with
 // --verify-output-schema-closer-json (partial-pp) for the {shell, JSON}
-// matrix. Wired into --preflight as the appended step 9 (shell form);
-// --preflight-json JSON-analog wiring is a separate future partial,
-// matching the partial-r / partial-s, partial-aa / partial-bb,
-// partial-ee / partial-ff, partial-ii / partial-jj, and partial-mm /
-// partial-nn shell-first / JSON-second cadence used for every other
-// aggregated-check pair. Exits 0 on success, 1 with a specific diagnostic
+// matrix. Wired into --preflight as the appended step 9 (shell form,
+// partial-qq) and into --preflight-json as the appended step 9 (JSON form,
+// partial-rr), completing the aggregation-level {shell, JSON} pair for
+// the output-schema closer check and bringing the imp-917 offline-run
+// pre-flight surface to full shell/JSON symmetry end to end across all
+// nine checks. Exits 0 on success, 1 with a specific diagnostic
 // (opener missing, closer missing, or read error) on failure.
 //
 // --verify-output-schema-closer-json is the structural JSON analog of
@@ -287,9 +287,10 @@
 // --verify-output-schema-closer so the two diagnostics cannot drift. Completes
 // the content-level {shell, JSON} pair for the transcription-target closer
 // check, matching the opener-level --verify-output-schema /
-// --verify-output-schema-json pair. Not wired into --preflight / --preflight-json
-// yet (aggregation extension is a separate future partial, matching the
-// partial-y -> partial-z -> partial-aa/bb cadence).
+// --verify-output-schema-json pair. Wired into --preflight as the appended
+// step 9 (shell form, partial-qq) and into --preflight-json as the appended
+// step 9 (JSON form, partial-rr), completing the aggregation-level
+// {shell, JSON} pair for the transcription-target closer check.
 //
 // --verify-output-target-json is the structural JSON analog of
 // --verify-output-target. Emits one object {ok, path, sizeBytes, error} where

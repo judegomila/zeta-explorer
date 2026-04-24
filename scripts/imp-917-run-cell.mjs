@@ -41,6 +41,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -561,6 +562,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-iqr') out.batchPlanCostTripleIqr = true;
     else if (a === '--batch-plan-cost-triple-iqr-json') out.batchPlanCostTripleIqrJson = true;
     else if (a === '--batch-plan-cost-triple-variance') out.batchPlanCostTripleVariance = true;
+    else if (a === '--batch-plan-cost-triple-variance-json') out.batchPlanCostTripleVarianceJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -617,6 +619,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1876,6 +1879,58 @@ if (args.batchPlanCostTripleVariance) {
   console.log(
     `imp-917 BATCH_PLAN per-triple variance wall-time: ${varianceSec2.toFixed(0)} s^2 (~${(varianceSec2 / 3600 / 3600).toFixed(2)} CPU-hours^2) across ${known.length} known triple(s); mean ${meanSec.toFixed(0)} s, sqrt(variance) ${Math.sqrt(varianceSec2).toFixed(0)} s${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleVarianceJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-variance (partial-rrr):
+  // surface BATCH_PLAN's population variance of per-triple wall-times as a
+  // single object {varianceSec2, varianceHours2, meanSec, stddevSec,
+  // knownCount, unknownCount} so Python / jq offline-worker drivers can
+  // consume the second-central-moment signal directly without re-parsing the
+  // one-line shell summary. Pure composition of computeBatchPlanCost()
+  // (partial-vv helper) with zero new math; identical known-row filter
+  // (wallSec !== null) and identical population divisor (divide by
+  // knownCount, not knownCount-1, since the 6 triple-runs ARE the full
+  // batch) to the shell form, so the two flags cannot drift. stddevSec is
+  // surfaced alongside varianceSec2 as sqrt(varianceSec2) for driver
+  // convenience (variance and stddev carry the same ordering information
+  // but different dimensional semantics -- variance is additive across
+  // independent sequentially-composed batches, stddev is the quantity that
+  // shares units with the wall-time mean), so a single JSON body covers
+  // both consumers without forcing a second emitter call. varianceHours2
+  // is precomputed inline as varianceSec2 / (3600 * 3600) (null when
+  // knownCount === 0) matching the precomputed-hours cadence established
+  // across the whole cost-emitter family. All-unknown degenerate case emits
+  // {varianceSec2: null, varianceHours2: null, meanSec: null, stddevSec:
+  // null, knownCount: 0, unknownCount} and exits 0 without dividing by
+  // zero, matching the partial-zz / partial-ddd / partial-hhh / partial-jjj
+  // / partial-lll / partial-ooo / partial-qqq degenerate cadence. Pure data
+  // emitter, exit 0 unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json. Completes the {shell, JSON} pair for
+  // partial-rrr and rounds out the per-triple dispersion surface
+  // {range, stddev, mad, iqr, variance} x {shell, JSON}.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let varianceSec2 = null;
+  let meanSec = null;
+  let stddevSec = null;
+  if (known.length > 0) {
+    meanSec = known.reduce((s, r) => s + r.wallSec, 0) / known.length;
+    varianceSec2 =
+      known.reduce((s, r) => s + (r.wallSec - meanSec) ** 2, 0) / known.length;
+    stddevSec = Math.sqrt(varianceSec2);
+  }
+  const varianceHours2 = varianceSec2 === null ? null : varianceSec2 / (3600 * 3600);
+  const body = {
+    varianceSec2,
+    varianceHours2,
+    meanSec,
+    stddevSec,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

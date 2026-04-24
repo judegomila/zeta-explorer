@@ -52,6 +52,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -583,6 +584,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-cubmean-json') out.batchPlanCostTripleCubmeanJson = true;
     else if (a === '--batch-plan-cost-triple-quartmean') out.batchPlanCostTripleQuartmean = true;
     else if (a === '--batch-plan-cost-triple-quartmean-json') out.batchPlanCostTripleQuartmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-quintmean') out.batchPlanCostTripleQuintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -650,6 +652,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2431,6 +2434,67 @@ if (args.batchPlanCostTripleQuartmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleQuintmean) {
+  // Shell data emitter: surface the quintic mean (p=5 power-mean) of per-triple
+  // wall-times across the known-wallSec rows of BATCH_PLAN as the seventh
+  // Kolmogorov power-mean sibling, extending the sextet
+  // --batch-plan-cost-triple-harmean (p=-1, partial-vvv),
+  // --batch-plan-cost-triple-geomean (p=0, partial-ttt),
+  // --batch-plan-cost-triple-mean (p=1 arithmetic, partial-hhh),
+  // --batch-plan-cost-triple-quadmean (p=2, partial-xxx),
+  // --batch-plan-cost-triple-cubmean (p=3, partial-zzz) and
+  // --batch-plan-cost-triple-quartmean (p=4, partial-bbbb) to the septet
+  // {p=-1, p=0, p=1, p=2, p=3, p=4, p=5}. The quintic mean
+  // QIM = (sum(x_i^5) / n)^(1/5) is the power-mean with exponent p=5; by the
+  // generalized power-mean inequality it dominates the quartic mean for any
+  // non-constant positive sample, so the full ordering
+  // QIM >= QUM >= CM >= QM >= AM >= GM >= HM now holds inline across all seven
+  // emitters. QIM carries the strongest long-tail penalty yet: the fifth-power
+  // sum weights the largest triples ~2.5x harder than fourth-power in
+  // log-units, so budgeting against QIM makes the L5-cost signature of the
+  // longest triple visible, aligning the central-tendency axis with any
+  // fifth-moment / tail-weighted dispersion signal an operator might add later
+  // without re-running --batch-plan-cost-triple-max-triple (partial-zz).
+  // Reuses computeBatchPlanCost() (partial-vv helper) with zero new batch-
+  // plan logic; identical known-row filter (wallSec !== null) to the p-power-
+  // mean siblings. Odd-exponent fifth power preserves the sign of the input
+  // but since all wallSec values are strictly positive (non-null rows carry
+  // measured runtimes > 0), sign preservation is not a concern here; the
+  // non-positive-wallSec guard that harmean needed for 1/x is not required.
+  // The only degenerate case is all-unknown (known.length === 0) which prints
+  // a dedicated "unknown" summary and exits 0 rather than (0/0)^(1/5) = NaN,
+  // matching the partial-hhh / partial-ttt / partial-vvv / partial-xxx /
+  // partial-zzz / partial-bbbb degenerate cadence. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Shell-only this partial; a
+  // --batch-plan-cost-triple-quintmean-json analog can follow to close the
+  // {shell, JSON} pair on this fifteenth per-triple statistical view,
+  // mirroring the shell-first / JSON-second cadence established across every
+  // other cost-emitter axis.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple quintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const quintSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    return s + w4 * r.wallSec;
+  }, 0);
+  const quintmeanSec = Math.pow(quintSum / known.length, 1 / 5);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from quintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple quintic-mean wall-time: ${quintmeanSec.toFixed(0)} s (~${(quintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

@@ -119,6 +119,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-heptatrigintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-heptatrigintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octotrigintmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octotrigintmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -717,6 +718,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-heptatrigintmean') out.batchPlanCostTripleHeptatrigintmean = true;
     else if (a === '--batch-plan-cost-triple-heptatrigintmean-json') out.batchPlanCostTripleHeptatrigintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-octotrigintmean') out.batchPlanCostTripleOctotrigintmean = true;
+    else if (a === '--batch-plan-cost-triple-octotrigintmean-json') out.batchPlanCostTripleOctotrigintmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -851,6 +853,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-heptatrigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-heptatrigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octotrigintmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octotrigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -7091,6 +7094,85 @@ if (args.batchPlanCostTripleOctotrigintmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple octotrigintic-mean wall-time: ${octotrigintmeanSec.toFixed(0)} s (~${(octotrigintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleOctotrigintmeanJson) {
+  // partial-ssssss: structural JSON analog of partial-rrrrrr
+  // --batch-plan-cost-triple-octotrigintmean (p=38 Kolmogorov power-mean).
+  // Emits one object {octotrigintmeanSec, octotrigintmeanHours,
+  // knownCount, unknownCount} with octotrigintmeanHours =
+  // octotrigintmeanSec / 3600 (null when knownCount===0) so
+  // Python / jq offline-worker drivers can consume the p=38 power-mean
+  // central-tendency signal directly without re-parsing the one-line
+  // shell summary and without redoing the seconds-to-hours conversion,
+  // matching the precomputed-hours cadence established across every
+  // prior JSON cost-emitter. Reuses computeBatchPlanCost() (partial-vv
+  // helper) with zero new math; identical known-row filter
+  // (wallSec !== null) to the partial-rrrrrr shell form so the two
+  // flags cannot drift. Applies the same cached squaring chain
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  const w32 = w16 * w16;
+  //  octotrigintSum += w32 * w4 * w2;)
+  // as partial-rrrrrr for numerical-stability parity, avoiding
+  // Math.pow in the inner reduce loop (38 = 32+4+2, the cleanest
+  // {32,4,2}-partition factorization the cache admits at this even
+  // exponent, promoting the partial-pppppp heptatrigintmean
+  // w32 * w4 * r.wallSec (37=32+4+1) three-summand odd-p tail to the
+  // pre-cached w2 to reach the next even exponent) so the JSON and
+  // shell bodies agree bit-for-bit on IEEE-754 across Node versions,
+  // then octotrigintmeanSec = Math.pow(octotrigintSum / known.length, 1 / 38).
+  // Even p=38 erases sign and wallSec values are strictly positive by
+  // construction (wall-clock measurements) so no sign guard is
+  // required, mirroring the partial-yyy / partial-cccc / partial-gggg
+  // / partial-kkkk / partial-oooo / partial-ssss / partial-wwww /
+  // partial-aaaaa / partial-eeeee / partial-iiiii / partial-mmmmm /
+  // partial-qqqqq / partial-uuuuu / partial-yyyyy / partial-ccccccc /
+  // partial-eeeeee / partial-jjjjjj / partial-nnnnnn even-p JSON cadence.
+  // All-unknown degenerate case (known.length===0) emits
+  // {octotrigintmeanSec: null, octotrigintmeanHours: null,
+  //  knownCount: 0, unknownCount} and exits 0 without attempting
+  // (0/0)^(1/38) = NaN, matching the JSON degenerate cadence across
+  // every prior JSON power-mean emitter. Completes the {shell, JSON}
+  // pair for partial-rrrrrr and brings the Kolmogorov power-mean
+  // family at p in {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+  // 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+  // 29, 30, 31, 32, 33, 34, 35, 36, 37, 38} x {shell, JSON} to full
+  // shell/JSON parity at forty exponents; the monotone ordering
+  // OTGM38 >= HPTGM37 >= HTGM36 >= PTGM35 >= TTGM34 >= TRGM33 >= DTGM32
+  //   >= UTGM31 >= TGM30 >= NVGM29 >= OVGM28 >= SPVGM27 >= SXVGM26
+  //   >= QIVGM25 >= QVGM24 >= TVGM23 >= DVGM22 >= UVGM21 >= VGM20
+  //   >= NVDM19 >= OCDM18 >= SPM17 >= SDM >= QIM15 >= QDM >= TRM
+  //   >= DUM >= UDM >= DCM >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM
+  //   >= CM >= QM >= AM >= GM >= HM
+  // now holds at structural-JSON parity for offline-worker drivers
+  // gating the ~20 CPU-hour batch. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let octotrigintmeanSec = null;
+  if (known.length > 0) {
+    const octotrigintSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      const w16 = w8 * w8;
+      const w32 = w16 * w16;
+      return s + w32 * w4 * w2;
+    }, 0);
+    octotrigintmeanSec = Math.pow(octotrigintSum / known.length, 1 / 38);
+  }
+  const octotrigintmeanHours =
+    octotrigintmeanSec === null ? null : octotrigintmeanSec / 3600;
+  const body = {
+    octotrigintmeanSec,
+    octotrigintmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

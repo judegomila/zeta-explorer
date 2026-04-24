@@ -158,10 +158,11 @@
 // removed, which would otherwise only surface at actual spawn time as the
 // prototype ignoring the driver's eps triple. Exits 0 on success, 1 with a
 // specific diagnostic on read error or missing identifier. Paired with
-// --verify-prototype-schema-json for the {shell, JSON} matrix; --preflight /
-// --preflight-json wiring can follow in a future partial, matching the
-// partial-y -> partial-z -> partial-aa/bb (--verify-output-schema)
-// standalone-first / JSON-second / aggregate-later cadence.
+// --verify-prototype-schema-json for the {shell, JSON} matrix. Wired into
+// --preflight as the appended step 7 (shell form; --preflight-json
+// JSON-analog wiring is a separate future partial, matching the
+// partial-r / partial-s, partial-aa / partial-bb, and partial-ee / partial-ff
+// shell-first / JSON-second cadences used for the other aggregated-check pairs).
 //
 // --verify-prototype-schema-json is the structural JSON analog of
 // --verify-prototype-schema. Emits one object {ok, path, token, error} where
@@ -271,17 +272,19 @@
 // completing the aggregation-level {shell, JSON} pair for every pre-flight
 // check.
 //
-// --preflight runs six shell pre-flight checks in sequence — --verify-plan
+// --preflight runs seven shell pre-flight checks in sequence — --verify-plan
 // (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype (prototype script
 // exists), --dry-run-all (every BATCH_PLAN cell resolves its IMP857_* env-var
 // pack), --verify-output-target (transcription target exists),
 // --verify-output-schema (transcription target still declares MEASURED_ROWS),
-// and --verify-retuning-coverage (every N in MISSING_CELLS has a retuningTable
-// row) — and aggregates the results. Prints a per-step banner and a final
-// PASS / FAILED summary. Exits 0 only if all six pass; otherwise exits with
-// the step number (1, 2, 3, 4, 5, or 6) of the first failing step, so an
-// offline-worker driver can gate the ~20 CPU-hour batch on a single command
-// rather than orchestrating six separate invocations and six exit codes.
+// --verify-retuning-coverage (every N in MISSING_CELLS has a retuningTable
+// row), and --verify-prototype-schema (prototype still reads
+// process.env.IMP857_EPSILONS) — and aggregates the results. Prints a per-step
+// banner and a final PASS / FAILED summary. Exits 0 only if all seven pass;
+// otherwise exits with the step number (1, 2, 3, 4, 5, 6, or 7) of the first
+// failing step, so an offline-worker driver can gate the ~20 CPU-hour batch
+// on a single command rather than orchestrating seven separate invocations
+// and seven exit codes.
 //
 // --preflight-json is the structural JSON analog of --preflight. Emits one
 // object {ok, firstFailingStep, steps: [{step, name, ok, ...}]} aggregating
@@ -1054,7 +1057,7 @@ if (args.preflight) {
   // Each step mirrors the corresponding standalone flag so operator output is
   // familiar. On failure, exits with the 1-indexed step number so the driver
   // can tell which step tripped without parsing stdout.
-  console.log('=== imp-917 --preflight step 1/6: --verify-plan ===');
+  console.log('=== imp-917 --preflight step 1/7: --verify-plan ===');
   const planResult = computePlanCoverage();
   if (!planResult.ok) {
     console.error('imp-917 --preflight FAILED at step 1 (--verify-plan):');
@@ -1076,7 +1079,7 @@ if (args.preflight) {
     `  OK: BATCH_PLAN covers all ${planResult.missingCount} MISSING_CELLS exactly.`,
   );
 
-  console.log('=== imp-917 --preflight step 2/6: --verify-prototype ===');
+  console.log('=== imp-917 --preflight step 2/7: --verify-prototype ===');
   const protoResult = checkPrototype();
   if (!protoResult.ok) {
     console.error(
@@ -1088,7 +1091,7 @@ if (args.preflight) {
     `  OK: prototype script present (${protoResult.path}, ${protoResult.sizeBytes} bytes).`,
   );
 
-  console.log('=== imp-917 --preflight step 3/6: --dry-run-all ===');
+  console.log('=== imp-917 --preflight step 3/7: --dry-run-all ===');
   let resolveFailures = 0;
   for (let i = 0; i < BATCH_PLAN.length; i++) {
     const p = BATCH_PLAN[i];
@@ -1110,7 +1113,7 @@ if (args.preflight) {
     `  OK: all ${BATCH_PLAN.length} BATCH_PLAN cells resolved cleanly.`,
   );
 
-  console.log('=== imp-917 --preflight step 4/6: --verify-output-target ===');
+  console.log('=== imp-917 --preflight step 4/7: --verify-output-target ===');
   const outputTargetResult = checkOutputTarget();
   if (!outputTargetResult.ok) {
     console.error(
@@ -1122,7 +1125,7 @@ if (args.preflight) {
     `  OK: transcription target present (${outputTargetResult.path}, ${outputTargetResult.sizeBytes} bytes).`,
   );
 
-  console.log('=== imp-917 --preflight step 5/6: --verify-output-schema ===');
+  console.log('=== imp-917 --preflight step 5/7: --verify-output-schema ===');
   const outputSchemaResult = checkOutputSchema();
   if (!outputSchemaResult.ok) {
     console.error(
@@ -1134,7 +1137,7 @@ if (args.preflight) {
     `  OK: transcription target declares \`${outputSchemaResult.token}\` (${outputSchemaResult.path}).`,
   );
 
-  console.log('=== imp-917 --preflight step 6/6: --verify-retuning-coverage ===');
+  console.log('=== imp-917 --preflight step 6/7: --verify-retuning-coverage ===');
   const retuningCoverageResult = computeRetuningCoverage();
   if (!retuningCoverageResult.ok) {
     console.error(
@@ -1149,7 +1152,19 @@ if (args.preflight) {
     `  OK: every N in MISSING_CELLS (${retuningCoverageResult.missingCellNs.join(', ')}) has a retuningTable row (retuningTable N set: ${retuningCoverageResult.retuningTableNs.join(', ')}).`,
   );
 
-  console.log('imp-917 --preflight PASS: all 6 steps OK, offline batch ready to launch.');
+  console.log('=== imp-917 --preflight step 7/7: --verify-prototype-schema ===');
+  const prototypeSchemaResult = checkPrototypeSchema();
+  if (!prototypeSchemaResult.ok) {
+    console.error(
+      `imp-917 --preflight FAILED at step 7 (--verify-prototype-schema): ${prototypeSchemaResult.path}: ${prototypeSchemaResult.error}`,
+    );
+    process.exit(7);
+  }
+  console.log(
+    `  OK: prototype script reads \`${prototypeSchemaResult.token}\` (${prototypeSchemaResult.path}).`,
+  );
+
+  console.log('imp-917 --preflight PASS: all 7 steps OK, offline batch ready to launch.');
   process.exit(0);
 }
 

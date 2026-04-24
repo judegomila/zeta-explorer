@@ -43,6 +43,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -565,6 +566,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-variance') out.batchPlanCostTripleVariance = true;
     else if (a === '--batch-plan-cost-triple-variance-json') out.batchPlanCostTripleVarianceJson = true;
     else if (a === '--batch-plan-cost-triple-geomean') out.batchPlanCostTripleGeomean = true;
+    else if (a === '--batch-plan-cost-triple-geomean-json') out.batchPlanCostTripleGeomeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -623,6 +625,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1986,6 +1989,47 @@ if (args.batchPlanCostTripleGeomean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple geomean wall-time: ${geomeanSec.toFixed(0)} s (~${(geomeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleGeomeanJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-geomean (partial-ttt):
+  // surface BATCH_PLAN's log-space geometric mean of per-triple wall-times as
+  // a single object {geomeanSec, geomeanHours, knownCount, unknownCount} so
+  // Python / jq offline-worker drivers can consume the multiplicative-scale
+  // central-tendency signal directly without re-parsing the one-line shell
+  // summary. Pure composition of computeBatchPlanCost() (partial-vv helper)
+  // with zero new batch-plan logic; identical known-row filter (wallSec !==
+  // null) and identical non-positive-guard (any known row with wallSec <= 0
+  // would make the geomean collapse to 0 or NaN via log(0) / log(negative))
+  // to the shell form, so the two flags cannot drift. geomeanHours is
+  // precomputed inline as geomeanSec / 3600 (null when knownCount === 0 or
+  // when the non-positive guard fires) matching the precomputed-hours
+  // cadence established across the whole cost-emitter family. All-unknown
+  // or non-positive-wallSec degenerate case emits {geomeanSec: null,
+  // geomeanHours: null, knownCount, unknownCount} and exits 0 without
+  // computing log(0), matching the partial-zz / partial-ddd / partial-hhh
+  // / partial-jjj / partial-lll / partial-nnn / partial-ppp / partial-rrr
+  // / partial-ttt degenerate cadence. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Completes the {shell, JSON} pair for partial-ttt and
+  // rounds out the per-triple central-tendency surface
+  // {mean, median, geomean} x {shell, JSON}.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let geomeanSec = null;
+  if (known.length > 0 && !known.some((r) => r.wallSec <= 0)) {
+    const lnSum = known.reduce((s, r) => s + Math.log(r.wallSec), 0);
+    geomeanSec = Math.exp(lnSum / known.length);
+  }
+  const geomeanHours = geomeanSec === null ? null : geomeanSec / 3600;
+  const body = {
+    geomeanSec,
+    geomeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

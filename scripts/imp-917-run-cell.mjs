@@ -48,6 +48,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -575,6 +576,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-harmean-json') out.batchPlanCostTripleHarmeanJson = true;
     else if (a === '--batch-plan-cost-triple-quadmean') out.batchPlanCostTripleQuadmean = true;
     else if (a === '--batch-plan-cost-triple-quadmean-json') out.batchPlanCostTripleQuadmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-cubmean') out.batchPlanCostTripleCubmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -638,6 +640,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2220,6 +2223,54 @@ if (args.batchPlanCostTripleQuadmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleCubmean) {
+  // Shell data emitter: surface the cubic mean (p=3 power-mean) of per-triple
+  // wall-times across the known-wallSec rows of BATCH_PLAN as the fifth
+  // Kolmogorov power-mean sibling, extending the quartet
+  // --batch-plan-cost-triple-harmean (p=-1, partial-vvv),
+  // --batch-plan-cost-triple-geomean (p=0, partial-ttt),
+  // --batch-plan-cost-triple-mean (p=1 arithmetic, partial-hhh) and
+  // --batch-plan-cost-triple-quadmean (p=2, partial-xxx) to the quintet
+  // {p=-1, p=0, p=1, p=2, p=3}. The cubic mean CM = (sum(x_i^3) / n)^(1/3)
+  // is the power-mean with exponent p=3; by the power-mean inequality it
+  // dominates the quadratic mean for any non-constant positive sample, so
+  // the full ordering CM >= QM >= AM >= GM >= HM gives the operator the
+  // complete monotone chain through five power exponents at a glance. CM
+  // carries an even stronger long-tail penalty than QM: cubing weights the
+  // largest triples 1.5x harder than squaring in log-units, so budgeting
+  // against CM makes the L3-cost signature of the longest triple visible
+  // without re-running --batch-plan-cost-triple-max-triple (partial-zz).
+  // Reuses computeBatchPlanCost() (partial-vv helper) with zero new batch-
+  // plan logic; identical known-row filter (wallSec !== null) to the
+  // p-power-mean siblings. Cubing preserves the sign so the non-positive-
+  // wallSec guard that harmean needed for 1/x is not required here; the
+  // only degenerate case is all-unknown (known.length === 0) which prints a
+  // dedicated "unknown" summary and exits 0 rather than cbrt(0/0), matching
+  // the partial-hhh / partial-ttt / partial-vvv / partial-xxx degenerate
+  // cadence. Pure data emitter, exit 0 unconditionally (no validation
+  // gate), not wired into --preflight / --preflight-json. JSON analog can
+  // follow as partial-{next-slot} mirroring the shell-first / JSON-second
+  // cadence established across the whole cost-emitter family.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple cubic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const cubeSum = known.reduce((s, r) => s + r.wallSec * r.wallSec * r.wallSec, 0);
+  const cubmeanSec = Math.cbrt(cubeSum / known.length);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from cubmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple cubic-mean wall-time: ${cubmeanSec.toFixed(0)} s (~${(cubmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

@@ -40,6 +40,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -559,6 +560,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-mad-json') out.batchPlanCostTripleMadJson = true;
     else if (a === '--batch-plan-cost-triple-iqr') out.batchPlanCostTripleIqr = true;
     else if (a === '--batch-plan-cost-triple-iqr-json') out.batchPlanCostTripleIqrJson = true;
+    else if (a === '--batch-plan-cost-triple-variance') out.batchPlanCostTripleVariance = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -614,6 +616,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-iqr-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-variance\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1826,6 +1829,53 @@ if (args.batchPlanCostTripleIqrJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleVariance) {
+  // Shell data emitter: surface the population variance of per-triple wall-
+  // times across the known-wallSec rows of BATCH_PLAN as the dimensional
+  // second-central-moment sibling to --batch-plan-cost-triple-stddev
+  // (partial-lll). Variance (s^2) and stddev (s) carry the same ordering
+  // information but different semantics: variance is the quantity that is
+  // additive across independent triples (Var(X+Y) = Var(X) + Var(Y) when X, Y
+  // are independent), so it is the right metric to propagate when reasoning
+  // about the total wall-time of sequentially-composed batches, whereas
+  // stddev is the right metric to report alongside the mean on the wall-time
+  // axis directly. Reuses computeBatchPlanCost() (partial-vv helper) with
+  // zero new batch-plan logic; unknown-N rows (wallSec === null) are excluded
+  // from both the mean and the squared-deviation sum so nulls cannot corrupt
+  // the statistic, and unknownCount is reported explicitly in a trailing note.
+  // Uses the population formula (divide by knownCount, not knownCount-1)
+  // since the 6 triple-runs ARE the full batch -- there is no larger
+  // population being sampled. Matches the partial-lll stddev formula exactly
+  // (variance is stddev squared when both use the population divisor) so the
+  // two flags cannot drift. All-unknown degenerate case prints a dedicated
+  // unknown summary and exits 0 without dividing by zero, matching the
+  // partial-zz / partial-ddd / partial-hhh / partial-jjj / partial-lll
+  // degenerate cadence. Pure data emitter, exit 0 unconditionally (no
+  // validation gate), not wired into --preflight / --preflight-json. Shell-
+  // only this partial; a --batch-plan-cost-triple-variance-json analog can
+  // follow mirroring the shell-first / JSON-second cadence established
+  // across the whole cost-emitter family.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple variance wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const meanSec = known.reduce((s, r) => s + r.wallSec, 0) / known.length;
+  const varianceSec2 =
+    known.reduce((s, r) => s + (r.wallSec - meanSec) ** 2, 0) / known.length;
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from variance)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple variance wall-time: ${varianceSec2.toFixed(0)} s^2 (~${(varianceSec2 / 3600 / 3600).toFixed(2)} CPU-hours^2) across ${known.length} known triple(s); mean ${meanSec.toFixed(0)} s, sqrt(variance) ${Math.sqrt(varianceSec2).toFixed(0)} s${unknownNote}.`,
+  );
   process.exit(0);
 }
 

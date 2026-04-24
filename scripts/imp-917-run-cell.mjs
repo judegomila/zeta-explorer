@@ -31,6 +31,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -483,6 +484,7 @@ function parseArgs(argv) {
     batchPlanCostTripleRange: false,
     batchPlanCostTripleRangeJson: false,
     batchPlanCostTripleMean: false,
+    batchPlanCostTripleMeanJson: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -533,6 +535,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-range') out.batchPlanCostTripleRange = true;
     else if (a === '--batch-plan-cost-triple-range-json') out.batchPlanCostTripleRangeJson = true;
     else if (a === '--batch-plan-cost-triple-mean') out.batchPlanCostTripleMean = true;
+    else if (a === '--batch-plan-cost-triple-mean-json') out.batchPlanCostTripleMeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -579,6 +582,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-range-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1286,6 +1290,41 @@ if (args.batchPlanCostTripleMean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple mean wall-time: ${meanSec.toFixed(0)} s (~${(meanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleMeanJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-mean (partial-hhh):
+  // surface BATCH_PLAN's arithmetic mean per-triple wall-time as a single
+  // object {meanSec, meanHours, knownCount, unknownCount} so Python / jq
+  // offline-worker drivers can consume the central-tendency signal directly
+  // without re-parsing the one-line shell summary. Pure composition of
+  // computeBatchPlanCost() (partial-vv helper) with zero new math, matching
+  // the shell form exactly: identical known-row filter (wallSec !== null),
+  // identical sum / length divide, identical unknown-N handling (excluded
+  // from both the sum and the count, surfaced in unknownCount). All-unknown
+  // degenerate case emits {meanSec: null, meanHours: null, knownCount: 0,
+  // unknownCount} and still exits 0, matching the shell form's graceful
+  // degenerate branch (both avoid divide-by-zero the same way). Pure data
+  // emitter, exit 0 unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json. Completes the {shell, JSON} pair for
+  // partial-hhh and rounds out the full triple-extrema/central-tendency
+  // {shell, JSON} quartet alongside --batch-plan-cost-max-triple (partial-zz)
+  // / --batch-plan-cost-max-triple-json (partial-aaa), --batch-plan-cost-min-
+  // triple (partial-ddd) / --batch-plan-cost-min-triple-json (partial-eee),
+  // --batch-plan-cost-triple-range (partial-fff) / --batch-plan-cost-triple-
+  // range-json (partial-ggg), and --batch-plan-cost-triple-mean (partial-hhh).
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  const meanSec = known.length === 0 ? null : known.reduce((s, r) => s + r.wallSec, 0) / known.length;
+  const meanHours = meanSec === null ? null : meanSec / 3600;
+  const body = {
+    meanSec,
+    meanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

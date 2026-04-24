@@ -245,8 +245,19 @@ console.log(
   `phaseVel=ω/k₀=${(omega / k0).toFixed(4)}`,
 );
 
-const EPSILONS = [0, 0.01, 0.05];
-const labels = ['ε=0 (baseline)', 'ε=0.01', 'ε=0.05'];
+// IMP857_EPSILONS (comma-separated, exactly 3 values) lets an offline worker
+// sweep the (0.02, 0.1) eps pairs needed by imp-917 (the remaining 14-cell
+// phased-forcing grid from imp-896) without editing this source file.
+// Default preserves the N=500 prototype triple [0, 0.01, 0.05].
+const EPSILONS = process.env.IMP857_EPSILONS
+  ? process.env.IMP857_EPSILONS.split(',').map((s) => Number(s.trim()))
+  : [0, 0.01, 0.05];
+if (EPSILONS.length !== 3 || EPSILONS.some((e) => !Number.isFinite(e))) {
+  throw new Error(
+    `IMP857_EPSILONS must be exactly 3 finite comma-separated numbers; got: ${process.env.IMP857_EPSILONS}`,
+  );
+}
+const labels = EPSILONS.map((e) => (e === 0 ? 'ε=0 (baseline)' : `ε=${e}`));
 const traces = EPSILONS.map((eps) =>
   runForcedTrace(initial, dt, nSteps, { k0, omega, eps }),
 );
@@ -277,9 +288,9 @@ const finalRow1 = traces[1][traces[1].length - 1];
 const finalRow2 = traces[2][traces[2].length - 1];
 console.log();
 console.log('Final state:');
-console.log(`  R0 (ε=0)    : step=${finalRow0.step}  maxW=${finalRow0.maxIntervalWidth}  minGap=${finalRow0.minGapLo}`);
-console.log(`  R1 (ε=0.01) : step=${finalRow1.step}  maxW=${finalRow1.maxIntervalWidth}  minGap=${finalRow1.minGapLo}`);
-console.log(`  R2 (ε=0.05) : step=${finalRow2.step}  maxW=${finalRow2.maxIntervalWidth}  minGap=${finalRow2.minGapLo}`);
+console.log(`  R0 (${labels[0]})    : step=${finalRow0.step}  maxW=${finalRow0.maxIntervalWidth}  minGap=${finalRow0.minGapLo}`);
+console.log(`  R1 (${labels[1]}) : step=${finalRow1.step}  maxW=${finalRow1.maxIntervalWidth}  minGap=${finalRow1.minGapLo}`);
+console.log(`  R2 (${labels[2]}) : step=${finalRow2.step}  maxW=${finalRow2.maxIntervalWidth}  minGap=${finalRow2.minGapLo}`);
 
 const ratio1 = finalRow0.maxIntervalWidth > 0
   ? finalRow1.maxIntervalWidth / finalRow0.maxIntervalWidth
@@ -289,7 +300,7 @@ const ratio2 = finalRow0.maxIntervalWidth > 0
   : NaN;
 console.log();
 console.log(
-  `Wrapper-width ratio at final step:  ε=0.01 / baseline = ${ratio1.toFixed(3)}  |  ε=0.05 / baseline = ${ratio2.toFixed(3)}`,
+  `Wrapper-width ratio at final step:  ε=${EPSILONS[1]} / baseline = ${ratio1.toFixed(3)}  |  ε=${EPSILONS[2]} / baseline = ${ratio2.toFixed(3)}`,
 );
 if (ratio1 < 0.9 || ratio2 < 0.9) {
   console.log('VERDICT: phase-locked forcing REDUCES wrapper-width growth — positive signal.');

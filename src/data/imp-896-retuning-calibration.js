@@ -224,13 +224,15 @@ export const IMP_896_RETUNING_CALIBRATION = {
   executionRecipe: {
     summary:
       'Per-cell invocation for an offline scripts/ worker. The prototype reads ' +
-      'IMP857_N, IMP857_NSTEPS, IMP857_DT, IMP857_K0, IMP857_PHASEVEL from env. ' +
-      'The EPSILONS array in the prototype is still hard-coded [0, 0.01, 0.05]; ' +
-      'an offline worker must edit that array to [0, 0.02, 0.1] before running ' +
-      'the {0.02, 0.1} cells.',
+      'IMP857_N, IMP857_NSTEPS, IMP857_DT, IMP857_K0, IMP857_PHASEVEL, and ' +
+      'IMP857_EPSILONS (comma-separated triple, defaults to [0, 0.01, 0.05]) ' +
+      'from env. As of 2026-04-23 the EPSILONS override is env-driven so no ' +
+      'source edit is required to sweep the {0.02, 0.1} cells; set ' +
+      'IMP857_EPSILONS=0,0.02,0.1 for those runs.',
     exampleInvocation:
       'IMP857_N=1000 IMP857_NSTEPS=40 IMP857_DT=1e-4 ' +
       'IMP857_K0=38.90498235326948 IMP857_PHASEVEL=2.2333155953106685 ' +
+      'IMP857_EPSILONS=0,0.02,0.1 ' +
       'node src/math/imp-857-phase-locked-dyson.mjs',
     exampleNote:
       'The K0 and PHASEVEL values above correspond to the imp-894 recommended ' +

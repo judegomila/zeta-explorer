@@ -116,6 +116,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-pentatrigintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-hexatrigintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-hexatrigintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-heptatrigintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -711,6 +712,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-pentatrigintmean-json') out.batchPlanCostTriplePentatrigintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-hexatrigintmean') out.batchPlanCostTripleHexatrigintmean = true;
     else if (a === '--batch-plan-cost-triple-hexatrigintmean-json') out.batchPlanCostTripleHexatrigintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-heptatrigintmean') out.batchPlanCostTripleHeptatrigintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -842,6 +844,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-pentatrigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-hexatrigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-hexatrigintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-heptatrigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -6867,6 +6870,72 @@ if (args.batchPlanCostTripleHexatrigintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleHeptatrigintmean) {
+  // partial-pppppp: surface the BATCH_PLAN heptatrigintic mean (p=37
+  // Kolmogorov power-mean) of per-triple wall-times as a one-line
+  // diagnostic, extending the already-paired thirty-eight-tet at
+  // p in {-1, 0, 1, ..., 36} upward to p=37 as the first odd exponent
+  // past the p=36 even milestone. Computed as
+  // HPTGM37 = (sum(x_i^37) / n)^(1/37) via Math.pow(s, 1/37); by the
+  // generalized power-mean inequality HPTGM37 dominates every lower-p
+  // sibling so the monotone chain HPTGM37 >= HTGM36 >= PTGM35 >= TTGM34
+  // >= TRGM33 >= DTGM32 >= UTGM31 >= TGM30 >= NVGM29 >= ... >= AM >= GM
+  // >= HM now holds inline across all thirty-nine shell emitters.
+  // Handler uses the cache pattern
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  const w32 = w16 * w16; return s + w32 * w4 * r.wallSec;)
+  // to avoid calling Math.pow in the inner reduce loop (37 = 32+4+1 =
+  // 16+16+4+1, the cleanest {32,4,1}-partition factorization the cache
+  // admits at this exponent), extending the partial-nnnnnn
+  // hexatrigintmean w32 * w4 (36 = 32+4) two-summand even-p
+  // decomposition by one trailing r.wallSec factor to reach the next
+  // odd exponent -- contrasting partial-llllll pentatrigintmean
+  // w32 * w2 * r.wallSec (35 = 32+2+1) which used the {32,2,1}
+  // partition two lower.
+  // Odd p=37 preserves sign but wallSec values are strictly positive
+  // by construction (wall clock measurements) so no sign guard is
+  // required (mirroring the partial-uuu / partial-aaaa / partial-eeee
+  // / partial-iiii / partial-mmmm / partial-qqqq / partial-uuuu /
+  // partial-yyyy / partial-cccccc / partial-gggggg / partial-kkkkk /
+  // partial-sssss / partial-vvvvv / partial-zzzzz / partial-dddddd /
+  // partial-hhhhhh / partial-llllll odd-p cadence).
+  // All-unknown degenerate case (known.length === 0) prints a dedicated
+  // "unknown" summary and exits 0 rather than (0/0)^(1/37) = NaN. Pure
+  // data emitter, exit 0 unconditionally (no validation gate), not
+  // wired into --preflight / --preflight-json. Shell-only this partial;
+  // the --batch-plan-cost-triple-heptatrigintmean-json analog will be
+  // added in a later partial mirroring the shell-first / JSON-second
+  // cadence established across every other cost-emitter axis. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new
+  // batch-plan logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple heptatrigintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const heptatrigintSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    const w32 = w16 * w16;
+    return s + w32 * w4 * r.wallSec;
+  }, 0);
+  const heptatrigintmeanSec = Math.pow(heptatrigintSum / known.length, 1 / 37);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from heptatrigintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple heptatrigintic-mean wall-time: ${heptatrigintmeanSec.toFixed(0)} s (~${(heptatrigintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

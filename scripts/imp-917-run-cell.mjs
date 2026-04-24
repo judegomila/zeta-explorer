@@ -74,6 +74,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuordecmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quindecmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quindecmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sedecmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -627,6 +628,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-quattuordecmean-json') out.batchPlanCostTripleQuattuordecmeanJson = true;
     else if (a === '--batch-plan-cost-triple-quindecmean') out.batchPlanCostTripleQuindecmean = true;
     else if (a === '--batch-plan-cost-triple-quindecmean-json') out.batchPlanCostTripleQuindecmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-sedecmean') out.batchPlanCostTripleSedecmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -716,6 +718,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuordecmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quindecmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quindecmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sedecmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -3885,6 +3888,77 @@ if (args.batchPlanCostTripleQuindecmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleSedecmean) {
+  // Shell data emitter: surface the sedecic mean (p=16 Kolmogorov power-mean)
+  // of per-triple wall-times across the known-wallSec rows of BATCH_PLAN as
+  // the eighteenth power-mean sibling, extending the already-paired
+  // septendectet {harmonic (p=-1, partial-vvv/www), geometric (p=0,
+  // partial-ttt/uuu), arithmetic (p=1, partial-hhh/iii), quadratic (p=2,
+  // partial-xxx/yyy), cubic (p=3, partial-zzz/aaaa), quartic (p=4,
+  // partial-bbbb/cccc), quintic (p=5, partial-dddd/eeee), sextic (p=6,
+  // partial-ffff/gggg), septic (p=7, partial-hhhh/iiii), octic (p=8,
+  // partial-jjjj/kkkk), nonic (p=9, partial-llll/mmmm), decic (p=10,
+  // partial-nnnn/oooo), undecic (p=11, partial-pppp/qqqq), duodecic (p=12,
+  // partial-rrrr/ssss), tredecic (p=13, partial-tttt/uuuu), quattuordecic
+  // (p=14, partial-vvvv/wwww), quindecic (p=15, partial-xxxx/yyyy)} upward
+  // to p=16. Computed as SDM = (sum(x_i^16) / n)^(1/16) via Math.pow(s,
+  // 1/16); by the generalized power-mean inequality SDM dominates every
+  // lower-p sibling so the full ordering SDM >= QIM15 >= QDM >= TRM >= DUM
+  // >= UDM >= DCM >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >= QM >=
+  // AM >= GM >= HM now holds inline across all eighteen emitters. Handler
+  // uses the (((x^2)^2)^2)^2 factorization (const w2 = r.wallSec * r.wallSec;
+  // const w4 = w2 * w2; const w8 = w4 * w4; const w16 = w8 * w8;
+  // sedecSum += w16;) to avoid calling Math.pow in the inner reduce loop,
+  // matching the partial-xxx quadmean (x^2) cadence, the partial-bbbb
+  // quartmean (x^2)^2 cadence, the partial-ffff sextmean ((x^2)^2) * (x^2)
+  // cadence, the partial-jjjj octmean ((x^2)^2)^2 cadence, the partial-nnnn
+  // decmean (((x^2)^2)^2) * (x^2) cadence, the partial-rrrr duodecmean
+  // (((x^2)^2)^2) * ((x^2)^2) cadence, and the partial-vvvv quattuordecmean
+  // (((x^2)^2)^2) * ((x^2)^2) * (x^2) cadence that produce the same bit-
+  // pattern on IEEE-754 across Node versions (16 = 2*8 = 2^4). Even p=16
+  // erases sign but all wallSec values are strictly positive by construction
+  // so no sign handling is required (mirroring the partial-xxx / partial-bbbb
+  // / partial-ffff / partial-jjjj / partial-nnnn / partial-rrrr /
+  // partial-vvvv even-exponent observation). The only degenerate case is
+  // all-unknown (known.length === 0) which prints a dedicated "unknown"
+  // summary and exits 0 rather than (0/0)^(1/16) = NaN, matching the
+  // partial-hhh / partial-ttt / partial-vvv / partial-xxx / partial-zzz /
+  // partial-bbbb / partial-dddd / partial-ffff / partial-hhhh /
+  // partial-jjjj / partial-llll / partial-nnnn / partial-pppp /
+  // partial-rrrr / partial-tttt / partial-vvvv / partial-xxxx degenerate
+  // cadence. Pure data emitter, exit 0 unconditionally (no validation
+  // gate), not wired into --preflight / --preflight-json. Shell-only this
+  // partial; a --batch-plan-cost-triple-sedecmean-json analog can follow
+  // as the next partial mirroring the shell-first / JSON-second cadence
+  // established across every other cost-emitter axis. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new batch-plan
+  // logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple sedecic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const sedecSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    return s + w16;
+  }, 0);
+  const sedecmeanSec = Math.pow(sedecSum / known.length, 1 / 16);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from sedecmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple sedecic-mean wall-time: ${sedecmeanSec.toFixed(0)} s (~${(sedecmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

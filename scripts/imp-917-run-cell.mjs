@@ -14,6 +14,7 @@
 //   node scripts/imp-917-run-cell.mjs --list
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
+//   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
 //
 // --eps must be a comma-separated triple; the first entry is conventionally 0
 // (baseline) so ratio rows can be computed against it. Defaults for nSteps/dt
@@ -47,6 +48,14 @@
 // epsTriple parse) in a single command, without the operator having to re-run
 // --dry-run per cell. Exits non-zero if any single cell fails to resolve.
 //
+// --cell <index> picks BATCH_PLAN[index-1] (1-indexed, matching the cell
+// numbers printed by --list) and invokes the single-cell path with that
+// cell N/eps. Exclusive with --N/--eps. Composes with --dry-run so an
+// offline worker can pre-flight a specific cell before spawning. Intended
+// to eliminate the transcription-error surface between the --list output
+// and manual --N/--eps invocation: the verified BATCH_PLAN is the single
+// source of truth for which (N, eps) triple each index resolves to.
+//
 // On completion the prototype prints a three-row comparison table; copy the
 // final-row maxIntervalWidth values into a new MEASURED_ROWS entry in
 // src/data/imp-857-phased-forcing-sweep.js.
@@ -71,6 +80,7 @@ function parseArgs(argv) {
     verifyPlan: false,
     dryRun: false,
     dryRunAll: false,
+    cell: null,
   };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
@@ -82,12 +92,14 @@ function parseArgs(argv) {
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
+    else if (a === '--cell') out.cell = Number(argv[++i]);
     else if (a === '--help' || a === '-h') {
       console.log(
         'usage: node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> [--nSteps <k>] [--dt <dt>] [--dry-run]\n' +
           '       node scripts/imp-917-run-cell.mjs --list\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
-          '       node scripts/imp-917-run-cell.mjs --dry-run-all',
+          '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
+          '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run]',
       );
       process.exit(0);
     } else {
@@ -281,6 +293,26 @@ if (args.dryRunAll) {
     `imp-917 --dry-run-all OK: all ${BATCH_PLAN.length} BATCH_PLAN cells resolved cleanly.`,
   );
   process.exit(0);
+}
+
+if (Number.isFinite(args.cell)) {
+  if (Number.isFinite(args.N) || args.eps !== null) {
+    console.error(
+      'imp-917-run-cell: --cell is exclusive with --N/--eps (BATCH_PLAN is the single source of truth)',
+    );
+    process.exit(2);
+  }
+  const idx = args.cell;
+  if (!Number.isInteger(idx) || idx < 1 || idx > BATCH_PLAN.length) {
+    console.error(
+      `imp-917-run-cell: --cell must be an integer in [1, ${BATCH_PLAN.length}], got ${args.cell}`,
+    );
+    process.exit(2);
+  }
+  const p = BATCH_PLAN[idx - 1];
+  args.N = p.N;
+  args.eps = p.eps.join(',');
+  console.log(`imp-917 --cell ${idx}: ${p.label} (N=${p.N}, eps=${args.eps})`);
 }
 
 if (!Number.isFinite(args.N)) {

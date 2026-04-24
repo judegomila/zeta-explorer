@@ -23,6 +23,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -467,6 +468,7 @@ function parseArgs(argv) {
     batchPlanCostByN: false,
     batchPlanCostByNJson: false,
     batchPlanCostMaxTriple: false,
+    batchPlanCostMaxTripleJson: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -509,6 +511,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-by-N') out.batchPlanCostByN = true;
     else if (a === '--batch-plan-cost-by-N-json') out.batchPlanCostByNJson = true;
     else if (a === '--batch-plan-cost-max-triple') out.batchPlanCostMaxTriple = true;
+    else if (a === '--batch-plan-cost-max-triple-json') out.batchPlanCostMaxTripleJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -547,6 +550,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-max-triple-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -879,31 +883,39 @@ if (args.batchPlanCostByNJson) {
   process.exit(0);
 }
 
+// Critical-path lower bound: the single longest triple-run in BATCH_PLAN.
+// Since each triple is a sequential prototype invocation, no parallel schedule
+// across workers can finish faster than the longest triple regardless of
+// worker count. Unknown-N rows (wallSec === null) are excluded from the max
+// search so they do not produce a spurious "null vs number" comparison; the
+// unknownCount is reported separately. Returns {maxRow, knownCount,
+// unknownCount} where maxRow is null only if every triple has unknown N.
+// Shared by --batch-plan-cost-max-triple (shell) and
+// --batch-plan-cost-max-triple-json (JSON) so the two diagnostics cannot drift.
+function computeBatchPlanCostMaxTriple() {
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const knownRows = rows.filter((r) => r.wallSec !== null);
+  const maxRow = knownRows.length === 0
+    ? null
+    : knownRows.reduce((best, r) => (r.wallSec > best.wallSec ? r : best), knownRows[0]);
+  return { maxRow, knownCount: knownRows.length, unknownCount };
+}
+
 if (args.batchPlanCostMaxTriple) {
   // Shell data emitter: surface the single longest triple-run in BATCH_PLAN,
   // the critical-path lower bound for any parallel offline-worker schedule.
-  // Since each triple is a sequential prototype invocation, no sharding
-  // across workers can finish faster than the longest individual triple
-  // regardless of worker count. Distinct from --batch-plan-cost (per-triple
-  // rows, sequential single-worker total) and --batch-plan-cost-by-N
-  // (per-N aggregation, achievable bound for a worker-per-N schedule):
-  // --batch-plan-cost-max-triple is the theoretical best-case bound,
-  // achievable only if every triple runs on its own dedicated worker
-  // (6 workers). Reuses computeBatchPlanCost() so the max-triple lookup
-  // cannot drift from the per-triple and per-N views. Unknown-N triples
-  // (wallSec === null) are excluded from the max search so they do not
-  // produce a spurious "null vs number" comparison; an unknownNote is
-  // appended to the summary line if any are excluded. Pure data emitter,
-  // exit 0 unconditionally (no validation gate). Shell-only this partial;
-  // a --batch-plan-cost-max-triple-json analog can follow in a future
-  // partial to complete the shell/JSON pair.
-  const { rows, unknownCount } = computeBatchPlanCost();
-  const knownRows = rows.filter((r) => r.wallSec !== null);
-  if (knownRows.length === 0) {
+  // Distinct from --batch-plan-cost (per-triple rows, sequential single-worker
+  // total) and --batch-plan-cost-by-N (per-N aggregation, achievable bound for
+  // a worker-per-N schedule): --batch-plan-cost-max-triple is the theoretical
+  // best-case bound, achievable only if every triple runs on its own dedicated
+  // worker (6 workers). Reuses computeBatchPlanCostMaxTriple() with
+  // --batch-plan-cost-max-triple-json so the two diagnostics cannot drift.
+  // Pure data emitter, exit 0 unconditionally.
+  const { maxRow, unknownCount } = computeBatchPlanCostMaxTriple();
+  if (maxRow === null) {
     console.log('imp-917 BATCH_PLAN critical-path lower bound: unknown (all triples have unknown N).');
     process.exit(0);
   }
-  const maxRow = knownRows.reduce((best, r) => (r.wallSec > best.wallSec ? r : best), knownRows[0]);
   const unknownNote = unknownCount > 0 ? ` (${unknownCount} triple-run(s) with unknown N excluded from max search)` : '';
   console.log(
     `imp-917 BATCH_PLAN critical-path lower bound: ${maxRow.wallSec.toFixed(0)} s (~${(maxRow.wallSec / 3600).toFixed(1)} CPU-hours)${unknownNote}.`,
@@ -914,6 +926,30 @@ if (args.batchPlanCostMaxTriple) {
   console.log(
     '  (no parallel schedule across BATCH_PLAN can finish faster than this single triple.)',
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostMaxTripleJson) {
+  // Structural JSON analog of --batch-plan-cost-max-triple: emit the
+  // critical-path lower bound as one object {maxRow, maxSec, maxHours,
+  // knownCount, unknownCount} so Python / jq-based offline-worker drivers can
+  // consume the best-case parallel-schedule bound directly without re-parsing
+  // the shell summary lines. maxSec / maxHours are precomputed from
+  // maxRow.wallSec so jq one-liners do not need to redo the conversion,
+  // matching the --batch-plan-cost-json / --batch-plan-cost-by-N-json cadence.
+  // If every triple has unknown N, maxRow is null and maxSec / maxHours are
+  // null; otherwise they carry the same values the shell form prints. Reuses
+  // computeBatchPlanCostMaxTriple() with --batch-plan-cost-max-triple so the
+  // two diagnostics cannot drift. Pure data emitter, exit 0 unconditionally.
+  const { maxRow, knownCount, unknownCount } = computeBatchPlanCostMaxTriple();
+  const body = {
+    maxRow,
+    maxSec: maxRow === null ? null : maxRow.wallSec,
+    maxHours: maxRow === null ? null : maxRow.wallSec / 3600,
+    knownCount,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

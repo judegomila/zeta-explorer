@@ -33,6 +33,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-median
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-median-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -539,6 +540,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-mean') out.batchPlanCostTripleMean = true;
     else if (a === '--batch-plan-cost-triple-mean-json') out.batchPlanCostTripleMeanJson = true;
     else if (a === '--batch-plan-cost-triple-median') out.batchPlanCostTripleMedian = true;
+    else if (a === '--batch-plan-cost-triple-median-json') out.batchPlanCostTripleMedianJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -587,6 +589,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-median\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-median-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1374,6 +1377,58 @@ if (args.batchPlanCostTripleMedian) {
   console.log(
     `imp-917 BATCH_PLAN per-triple median wall-time: ${medianSec.toFixed(0)} s (~${(medianSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleMedianJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-median (partial-jjj):
+  // surface BATCH_PLAN's outlier-robust median per-triple wall-time as a
+  // single object {medianSec, medianHours, knownCount, unknownCount} so
+  // Python / jq offline-worker drivers can consume the central-tendency
+  // signal directly without re-parsing the one-line shell summary. Pure
+  // composition of computeBatchPlanCost() (partial-vv helper) with zero new
+  // math, matching the shell form exactly: identical known-row filter
+  // (wallSec !== null), identical sort over known wallSec values, identical
+  // even/odd midpoint selection (average of sorted[mid-1] and sorted[mid]
+  // when even-count, single sorted[mid] when odd-count), identical
+  // unknown-N handling (excluded from the sort and reported via
+  // unknownCount). All-unknown degenerate case emits {medianSec: null,
+  // medianHours: null, knownCount: 0, unknownCount} and exits 0, matching
+  // the shell form's graceful degenerate branch (both avoid sorting an
+  // empty array the same way). medianHours is precomputed inline as
+  // medianSec / 3600 (null when knownCount === 0) matching the
+  // precomputed-hours cadence established across the whole cost-emitter
+  // family (--batch-plan-cost-json, --batch-plan-cost-by-N-json,
+  // --batch-plan-cost-max-triple-json, --batch-plan-cost-min-triple-json,
+  // --batch-plan-cost-triple-range-json, --batch-plan-cost-triple-mean-json)
+  // so Python / jq drivers never redo the seconds-to-hours conversion per
+  // run. Pure data emitter, exit 0 unconditionally (no validation gate),
+  // not wired into --preflight / --preflight-json. Completes the {shell,
+  // JSON} pair for partial-jjj and rounds out the full triple-extrema /
+  // central-tendency {shell, JSON} family alongside --batch-plan-cost-max-
+  // triple (partial-zz) / --batch-plan-cost-max-triple-json (partial-aaa),
+  // --batch-plan-cost-min-triple (partial-ddd) / --batch-plan-cost-min-
+  // triple-json (partial-eee), --batch-plan-cost-triple-range (partial-fff)
+  // / --batch-plan-cost-triple-range-json (partial-ggg), --batch-plan-cost-
+  // triple-mean (partial-hhh) / --batch-plan-cost-triple-mean-json
+  // (partial-iii), and --batch-plan-cost-triple-median (partial-jjj).
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let medianSec = null;
+  if (known.length > 0) {
+    const sorted = known.map((r) => r.wallSec).sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    medianSec =
+      sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
+  }
+  const medianHours = medianSec === null ? null : medianSec / 3600;
+  const body = {
+    medianSec,
+    medianHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

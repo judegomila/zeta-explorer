@@ -61,6 +61,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-nonmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-nonmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -601,6 +602,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-octmean') out.batchPlanCostTripleOctmean = true;
     else if (a === '--batch-plan-cost-triple-octmean-json') out.batchPlanCostTripleOctmeanJson = true;
     else if (a === '--batch-plan-cost-triple-nonmean') out.batchPlanCostTripleNonmean = true;
+    else if (a === '--batch-plan-cost-triple-nonmean-json') out.batchPlanCostTripleNonmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -677,6 +679,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-nonmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-nonmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -3029,6 +3032,61 @@ if (args.batchPlanCostTripleNonmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple nonic-mean wall-time: ${nonmeanSec.toFixed(0)} s (~${(nonmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleNonmeanJson) {
+  // JSON data emitter: structural analog of --batch-plan-cost-triple-nonmean
+  // (partial-llll). Surfaces the nonic mean (p=9 Kolmogorov power-mean) of
+  // per-triple wall-times across the known-wallSec rows of BATCH_PLAN as a
+  // single object {nonmeanSec, nonmeanHours, knownCount, unknownCount} so
+  // Python / jq offline-worker drivers can consume the p=9 power-mean
+  // central-tendency signal directly without re-parsing the one-line shell
+  // summary and without redoing the seconds-to-hours conversion, matching the
+  // precomputed-hours cadence already established across every other JSON
+  // cost-emitter. Reuses computeBatchPlanCost() (partial-vv helper) with zero
+  // new math; identical known-row filter (wallSec !== null) to the
+  // partial-llll shell form so the two flags cannot drift. Handler uses the
+  // same (((x^2)^2)^2) * x factorization as partial-llll
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2; const w8 = w4 * w4;
+  // nonSum += w8 * r.wallSec;) for numerical-stability parity, then
+  // nonmeanSec = Math.pow(nonSum / known.length, 1 / 9). Odd-exponent p=9
+  // preserves sign (mirroring partial-zzz cubmean, partial-dddd quintmean,
+  // partial-hhhh septmean) and all wallSec values are strictly positive by
+  // construction so no non-positive-wallSec guard is required. All-unknown
+  // degenerate case (known.length === 0) emits {nonmeanSec: null,
+  // nonmeanHours: null, knownCount: 0, unknownCount} and exits 0 without
+  // attempting (0/0)^(1/9) = NaN, matching the partial-uuu / partial-www /
+  // partial-yyy / partial-aaaa / partial-cccc / partial-eeee / partial-gggg /
+  // partial-iiii / partial-kkkk JSON degenerate cadence. Completes the
+  // {shell, JSON} pair for partial-llll and brings the Kolmogorov power-mean
+  // elevenet at p in {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9} (HM, GM, AM, QM, CM,
+  // QUM, QIM, SXM, SPM, OCM, NPM) x {shell, JSON} to full parity, surfacing
+  // the complete monotone ordering
+  // NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >= QM >= AM >= GM >= HM at
+  // structural-JSON parity for offline-worker drivers gating the
+  // ~20 CPU-hour batch. Pure data emitter, exit 0 unconditionally (no
+  // validation gate), not wired into --preflight / --preflight-json.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let nonmeanSec = null;
+  if (known.length > 0) {
+    const nonSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      return s + w8 * r.wallSec;
+    }, 0);
+    nonmeanSec = Math.pow(nonSum / known.length, 1 / 9);
+  }
+  const nonmeanHours = nonmeanSec === null ? null : nonmeanSec / 3600;
+  const body = {
+    nonmeanSec,
+    nonmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

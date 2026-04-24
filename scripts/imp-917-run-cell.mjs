@@ -21,6 +21,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -463,6 +464,7 @@ function parseArgs(argv) {
     batchPlanCost: false,
     batchPlanCostJson: false,
     batchPlanCostByN: false,
+    batchPlanCostByNJson: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -503,6 +505,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
     else if (a === '--batch-plan-cost-json') out.batchPlanCostJson = true;
     else if (a === '--batch-plan-cost-by-N') out.batchPlanCostByN = true;
+    else if (a === '--batch-plan-cost-by-N-json') out.batchPlanCostByNJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -539,6 +542,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-by-N-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -790,18 +794,15 @@ if (args.batchPlanCostJson) {
   process.exit(0);
 }
 
-if (args.batchPlanCostByN) {
-  // Shell data emitter: aggregate the per-triple wall-time totals from
-  // computeBatchPlanCost() by N, so an operator splitting the offline batch
-  // across multiple workers can see which N values dominate the total
-  // wall-time budget (e.g. BATCH_PLAN packs two N=10000 triples at 72000 s
-  // each = 144000 s, dwarfing the N=1000 triple at 1400 s). Distinct from
-  // --batch-plan-cost (per-triple rows, sequential-worker budget) and from
-  // --missing-cells (per-cell amortized cost): this is the per-N
-  // sequential-worker budget, the natural axis for parallel-worker sharding.
-  // Unknown-N triples (wallSec === null) are aggregated under the "unknown"
-  // bucket and contribute zero seconds to the total, matching the
-  // --batch-plan-cost unknownCount handling. Pure data emitter, exit 0.
+// Per-N aggregation of BATCH_PLAN wall-time totals. Re-aggregates the
+// per-triple rows from computeBatchPlanCost() by N, the natural axis for
+// parallel-worker sharding (e.g. BATCH_PLAN packs two N=10000 triples at
+// 72000 s each = 144000 s, dwarfing the N=1000 triple at 1400 s). Unknown-N
+// triples (wallSec === null) are aggregated under the "unknown" bucket and
+// contribute zero seconds to the total, matching the --batch-plan-cost
+// unknownCount handling. Shared by --batch-plan-cost-by-N (shell) and
+// --batch-plan-cost-by-N-json (JSON) so the two diagnostics cannot drift.
+function computeBatchPlanCostByN() {
   const { rows, totalSec, unknownCount } = computeBatchPlanCost();
   const byN = new Map();
   for (const r of rows) {
@@ -816,6 +817,20 @@ if (args.batchPlanCostByN) {
     if (b.N === 'unknown') return -1;
     return Number(a.N) - Number(b.N);
   });
+  return { rows, totalSec, unknownCount, grouped };
+}
+
+if (args.batchPlanCostByN) {
+  // Shell data emitter: aggregate the per-triple wall-time totals from
+  // computeBatchPlanCost() by N, so an operator splitting the offline batch
+  // across multiple workers can see which N values dominate the total
+  // wall-time budget. Distinct from --batch-plan-cost (per-triple rows,
+  // sequential-worker budget) and from --missing-cells (per-cell amortized
+  // cost): this is the per-N sequential-worker budget, the natural axis for
+  // parallel-worker sharding. Reuses computeBatchPlanCostByN() with
+  // --batch-plan-cost-by-N-json so the two diagnostics cannot drift.
+  // Pure data emitter, exit 0.
+  const { rows, totalSec, unknownCount, grouped } = computeBatchPlanCostByN();
   const header = ['N', 'triples', 'wallSecTotal', 'hours'];
   const body = grouped.map((g) => [
     g.N,
@@ -837,6 +852,26 @@ if (args.batchPlanCostByN) {
   console.log(
     `  total: ${grouped.length} N, ${rows.length} triple-runs, sum ~= ${totalSec.toFixed(0)} s (~${(totalSec / 3600).toFixed(1)} CPU-hours)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostByNJson) {
+  // Structural JSON analog of --batch-plan-cost-by-N: emit the per-N
+  // aggregation as one object {grouped, totalSec, totalHours, unknownCount}
+  // so Python / jq-based offline-worker drivers can consume the per-N cost
+  // breakdown directly without re-parsing the shell table. totalHours is
+  // precomputed (totalSec / 3600) so jq one-liners do not need to redo the
+  // conversion, matching the --batch-plan-cost-json cadence. Reuses
+  // computeBatchPlanCostByN() with --batch-plan-cost-by-N so the two
+  // diagnostics cannot drift. Pure data emitter, exit 0 always.
+  const { totalSec, unknownCount, grouped } = computeBatchPlanCostByN();
+  const body = {
+    grouped,
+    totalSec,
+    totalHours: totalSec / 3600,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

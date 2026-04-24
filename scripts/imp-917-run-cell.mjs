@@ -80,6 +80,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septendecmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octodecmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octodecmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-novendecmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -639,6 +640,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-septendecmean-json') out.batchPlanCostTripleSeptendecmeanJson = true;
     else if (a === '--batch-plan-cost-triple-octodecmean') out.batchPlanCostTripleOctodecmean = true;
     else if (a === '--batch-plan-cost-triple-octodecmean-json') out.batchPlanCostTripleOctodecmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-novendecmean') out.batchPlanCostTripleNovendecmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -734,6 +736,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septendecmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octodecmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octodecmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-novendecmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -4308,6 +4311,64 @@ if (args.batchPlanCostTripleOctodecmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleNovendecmean) {
+  // Shell data emitter: surface the novendecic mean (p=19 Kolmogorov
+  // power-mean) of per-triple wall-times across the known-wallSec rows of
+  // BATCH_PLAN as the twenty-first power-mean sibling, extending the
+  // already-paired twenty-tet {HM (p=-1), GM (p=0), AM (p=1), QM (p=2),
+  // CM (p=3), QUM (p=4), QIM (p=5), SXM (p=6), SPM (p=7), OCM (p=8),
+  // NPM (p=9), DCM (p=10), UDM (p=11), DUM (p=12), TRM (p=13), QDM (p=14),
+  // QIM15 (p=15), SDM (p=16), SPM17 (p=17), OCDM18 (p=18)} upward to p=19
+  // as the novendecic sibling. Computed as NVDM19 = (sum(x_i^19) / n)^(1/19)
+  // via Math.pow(s, 1/19); by the generalized power-mean inequality NVDM19
+  // dominates every lower-p sibling so the full monotone chain NVDM19 >=
+  // OCDM18 >= SPM17 >= SDM >= QIM15 >= QDM >= TRM >= DUM >= UDM >= DCM >=
+  // NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >= QM >= AM >= GM >= HM
+  // now holds inline across all twenty-one emitters. Handler uses the
+  // (((x^2)^2)^2)^2 * (x^2) * x factorization (const w2 = r.wallSec * r.wallSec;
+  // const w4 = w2 * w2; const w8 = w4 * w4; const w16 = w8 * w8;
+  // novendecSum += w16 * w2 * r.wallSec;) to avoid calling Math.pow in the
+  // inner reduce loop (19 = 16+2+1), extending the partial-bbbbb septendecmean
+  // w16 * r.wallSec (17 = 16+1) and partial-ddddd octodecmean w16 * w2
+  // (18 = 16+2) factorizations by composing both offsets. Odd p=19 preserves
+  // sign, but all wallSec values are strictly positive by construction so no
+  // sign handling is required (mirroring the partial-zzz / partial-dddd /
+  // partial-hhhh / partial-llll / partial-pppp / partial-tttt / partial-xxxx /
+  // partial-bbbbb odd-exponent observation). All-unknown degenerate case
+  // (known.length === 0) prints a dedicated "unknown" summary and exits 0
+  // rather than (0/0)^(1/19) = NaN. Pure data emitter, exit 0 unconditionally
+  // (no validation gate), not wired into --preflight / --preflight-json.
+  // Shell-only this partial; a --batch-plan-cost-triple-novendecmean-json
+  // analog can follow as the next partial mirroring the shell-first /
+  // JSON-second cadence established across every other cost-emitter axis.
+  // Reuses computeBatchPlanCost() (partial-vv helper) with zero new
+  // batch-plan logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple novendecic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const novendecSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    return s + w16 * w2 * r.wallSec;
+  }, 0);
+  const novendecmeanSec = Math.pow(novendecSum / known.length, 1 / 19);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from novendecmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple novendecic-mean wall-time: ${novendecmeanSec.toFixed(0)} s (~${(novendecmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

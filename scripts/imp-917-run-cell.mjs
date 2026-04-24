@@ -46,6 +46,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -571,6 +572,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-geomean-json') out.batchPlanCostTripleGeomeanJson = true;
     else if (a === '--batch-plan-cost-triple-harmean') out.batchPlanCostTripleHarmean = true;
     else if (a === '--batch-plan-cost-triple-harmean-json') out.batchPlanCostTripleHarmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-quadmean') out.batchPlanCostTripleQuadmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -632,6 +634,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2125,6 +2128,55 @@ if (args.batchPlanCostTripleHarmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleQuadmean) {
+  // Shell data emitter: surface the quadratic mean (root mean square) of
+  // per-triple wall-times across the known-wallSec rows of BATCH_PLAN as the
+  // fourth power-mean sibling alongside the Pythagorean-mean triad
+  // --batch-plan-cost-triple-mean (arithmetic, partial-hhh),
+  // --batch-plan-cost-triple-geomean (geometric, partial-ttt) and
+  // --batch-plan-cost-triple-harmean (harmonic, partial-vvv). The quadratic
+  // mean QM = sqrt(sum(x_i^2) / n) is the power-mean with exponent p=2; by
+  // the power-mean inequality it is bounded below by the arithmetic mean for
+  // any non-constant positive sample, so the full ordering
+  // QM >= AM >= GM >= HM gives the operator the complete spread of Kolmogorov
+  // power-means at a glance. RMS is also the natural central-tendency signal
+  // when the operator is variance-bound rather than mean-bound: sum(x_i^2)
+  // scales with the L2 cost of the batch, so budgeting against RMS instead of
+  // AM carries an implicit penalty for long-tail triples already captured in
+  // --batch-plan-cost-triple-max-triple (partial-zz) and the dispersion
+  // signals (stddev partial-lll, variance partial-rrr). Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new batch-plan
+  // logic; identical known-row filter (wallSec !== null) to the Pythagorean-
+  // mean siblings. Squaring kills the sign so the non-positive-wallSec guard
+  // that the harmean handler needed for 1/x is not required here; the only
+  // degenerate case is all-unknown (known.length === 0) which prints a
+  // dedicated "unknown" summary and exits 0 rather than sqrt(0/0), matching
+  // the partial-hhh / partial-ttt / partial-vvv degenerate cadence. Pure data
+  // emitter, exit 0 unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json. Shell-only this partial; a
+  // --batch-plan-cost-triple-quadmean-json analog can follow mirroring the
+  // shell-first / JSON-second cadence established across the whole
+  // cost-emitter family.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple quadratic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const squareSum = known.reduce((s, r) => s + r.wallSec * r.wallSec, 0);
+  const quadmeanSec = Math.sqrt(squareSum / known.length);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from quadmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple quadratic-mean wall-time: ${quadmeanSec.toFixed(0)} s (~${(quadmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

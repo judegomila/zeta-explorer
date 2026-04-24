@@ -49,6 +49,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -577,6 +578,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-quadmean') out.batchPlanCostTripleQuadmean = true;
     else if (a === '--batch-plan-cost-triple-quadmean-json') out.batchPlanCostTripleQuadmeanJson = true;
     else if (a === '--batch-plan-cost-triple-cubmean') out.batchPlanCostTripleCubmean = true;
+    else if (a === '--batch-plan-cost-triple-cubmean-json') out.batchPlanCostTripleCubmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -641,6 +643,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quadmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2251,9 +2254,10 @@ if (args.batchPlanCostTripleCubmean) {
   // dedicated "unknown" summary and exits 0 rather than cbrt(0/0), matching
   // the partial-hhh / partial-ttt / partial-vvv / partial-xxx degenerate
   // cadence. Pure data emitter, exit 0 unconditionally (no validation
-  // gate), not wired into --preflight / --preflight-json. JSON analog can
-  // follow as partial-{next-slot} mirroring the shell-first / JSON-second
-  // cadence established across the whole cost-emitter family.
+  // gate), not wired into --preflight / --preflight-json. Paired with
+  // --batch-plan-cost-triple-cubmean-json to complete the {shell, JSON} pair
+  // mirroring the shell-first / JSON-second cadence established across the
+  // whole cost-emitter family.
   const { rows, unknownCount } = computeBatchPlanCost();
   const known = rows.filter((r) => r.wallSec !== null);
   if (known.length === 0) {
@@ -2271,6 +2275,49 @@ if (args.batchPlanCostTripleCubmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple cubic-mean wall-time: ${cubmeanSec.toFixed(0)} s (~${(cubmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleCubmeanJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-cubmean (partial-zzz):
+  // surface BATCH_PLAN cubic mean (p=3 power-mean) of per-triple wall-times as
+  // a single object {cubmeanSec, cubmeanHours, knownCount, unknownCount} so
+  // Python / jq offline-worker drivers can consume the p=3 power-mean central-
+  // tendency signal directly without re-parsing the one-line shell summary.
+  // Pure composition of computeBatchPlanCost() (partial-vv helper) with zero
+  // new batch-plan logic; identical known-row filter (wallSec !== null) to the
+  // shell form, so the two flags cannot drift. Cubing preserves the sign so
+  // no non-positive-wallSec guard is required (mirrors partial-zzz / partial-
+  // xxx / partial-yyy); the only degenerate case is all-unknown
+  // (known.length === 0), which emits {cubmeanSec: null, cubmeanHours: null,
+  // knownCount, unknownCount} and exits 0 without cbrt(0/0), matching the
+  // partial-uuu / partial-www / partial-yyy JSON degenerate cadence.
+  // cubmeanHours is precomputed inline as cubmeanSec / 3600 (null when
+  // knownCount === 0) matching the precomputed-hours cadence established
+  // across the whole cost-emitter family. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Completes the {shell, JSON} pair for partial-zzz and
+  // closes the Kolmogorov power-mean quintet {harmonic (p=-1, partial-vvv/
+  // www), geometric (p=0, partial-ttt/uuu), arithmetic (p=1, partial-hhh/
+  // iii), quadratic (p=2, partial-xxx/yyy), cubic (p=3, partial-zzz/THIS)}
+  // x {shell, JSON} at full parity, completing the monotone power-mean chain
+  // CM >= QM >= AM >= GM >= HM at structural-JSON parity for offline-worker
+  // drivers gating the ~20 CPU-hour batch.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let cubmeanSec = null;
+  if (known.length > 0) {
+    const cubeSum = known.reduce((s, r) => s + r.wallSec * r.wallSec * r.wallSec, 0);
+    cubmeanSec = Math.cbrt(cubeSum / known.length);
+  }
+  const cubmeanHours = cubmeanSec === null ? null : cubmeanSec / 3600;
+  const body = {
+    cubmeanSec,
+    cubmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

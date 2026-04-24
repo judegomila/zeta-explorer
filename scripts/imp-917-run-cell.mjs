@@ -92,6 +92,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tresvigintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorvigintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorvigintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinvigintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -663,6 +664,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-tresvigintmean-json') out.batchPlanCostTripleTresvigintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-quattuorvigintmean') out.batchPlanCostTripleQuattuorvigintmean = true;
     else if (a === '--batch-plan-cost-triple-quattuorvigintmean-json') out.batchPlanCostTripleQuattuorvigintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-quinvigintmean') out.batchPlanCostTripleQuinvigintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -770,6 +772,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tresvigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorvigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorvigintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinvigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -5115,6 +5118,68 @@ if (args.batchPlanCostTripleQuattuorvigintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleQuinvigintmean) {
+  // partial-rrrrr: surface the BATCH_PLAN quinvigintic mean (p=25
+  // Kolmogorov power-mean) of per-triple wall-times as a one-line
+  // shell summary, extending partial-nnnnn tresvigintmean (p=23) and
+  // partial-ppppp quattuorvigintmean (p=24) upward to p=25. Computed
+  // as QIVGM25 = (sum(x_i^25) / n)^(1/25) via Math.pow(s, 1/25); by
+  // the generalized power-mean inequality QIVGM25 dominates every
+  // lower-p sibling so the monotone chain
+  // QIVGM25 >= QVGM24 >= TVGM23 >= DVGM22 >= UVGM21 >= VGM20
+  //   >= NVDM19 >= OCDM18 >= SPM17 >= SDM >= QIM15 >= QDM >= TRM
+  //   >= DUM >= UDM >= DCM >= NPM >= OCM >= SPM >= SXM >= QIM
+  //   >= QUM >= CM >= QM >= AM >= GM >= HM
+  // now holds inline across all twenty-seven shell emitters. Handler
+  // uses the (((x^2)^2)^2)^2 * ((x^2)^2)^2 * x factorization
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  quinvigintSum += w16 * w8 * r.wallSec;)
+  // to avoid calling Math.pow in the inner reduce loop
+  // (25 = 16+8+1), extending the partial-ppppp quattuorvigintmean
+  // w16 * w8 (24 = 16+8) two-summand even-p decomposition by one
+  // trailing r.wallSec factor for the odd exponent. Odd p=25
+  // preserves sign but wallSec values are strictly positive by
+  // construction so no sign guard is required (mirroring the
+  // partial-zzz / partial-dddd / partial-hhhh / partial-llll /
+  // partial-pppp / partial-tttt / partial-xxxx / partial-bbbbb /
+  // partial-fffff / partial-jjjjj / partial-kkkkk / partial-nnnnn
+  // odd-exponent observation). All-unknown degenerate case
+  // (known.length === 0) prints a dedicated "unknown" summary and
+  // exits 0 rather than (0/0)^(1/25) = NaN. Pure data emitter,
+  // exit 0 unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json. Shell-only this partial; the
+  // --batch-plan-cost-triple-quinvigintmean-json analog will be
+  // added in a later partial mirroring the shell-first / JSON-second
+  // cadence established across every other cost-emitter axis.
+  // Reuses computeBatchPlanCost() (partial-vv helper) with zero new
+  // batch-plan logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple quinvigintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const quinvigintSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    return s + w16 * w8 * r.wallSec;
+  }, 0);
+  const quinvigintmeanSec = Math.pow(quinvigintSum / known.length, 1 / 25);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from quinvigintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple quinvigintic-mean wall-time: ${quinvigintmeanSec.toFixed(0)} s (~${(quinvigintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

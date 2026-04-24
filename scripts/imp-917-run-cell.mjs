@@ -10,6 +10,7 @@
 //
 // Usage:
 //   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 [--nSteps 40] [--dt 1e-4]
+//   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 --dry-run
 //   node scripts/imp-917-run-cell.mjs --list
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //
@@ -29,6 +30,13 @@
 // success, prints a diff and exits 1 on mismatch. Run this before launching
 // an offline worker — a silent BATCH_PLAN/MISSING_CELLS drift would waste the
 // full ~20 CPU-hour budget on the wrong grid.
+//
+// --dry-run resolves the full IMP857_* env var set for the given --N/--eps
+// cell (exactly as a real run would) and prints them as copy-pastable shell
+// `export` statements, then exits 0 without spawning the prototype. Intended
+// as a per-cell pre-flight check after --verify-plan: lets an offline worker
+// sanity-check k0_star / phaseVel_star lookup and nSteps/dt defaults before
+// consuming the ~3 CPU-hour wall-time of a real cell run.
 //
 // On completion the prototype prints a three-row comparison table; copy the
 // final-row maxIntervalWidth values into a new MEASURED_ROWS entry in
@@ -52,6 +60,7 @@ function parseArgs(argv) {
     dt: null,
     list: false,
     verifyPlan: false,
+    dryRun: false,
   };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
@@ -61,9 +70,10 @@ function parseArgs(argv) {
     else if (a === '--dt') out.dt = Number(argv[++i]);
     else if (a === '--list') out.list = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
+    else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--help' || a === '-h') {
       console.log(
-        'usage: node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> [--nSteps <k>] [--dt <dt>]\n' +
+        'usage: node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> [--nSteps <k>] [--dt <dt>] [--dry-run]\n' +
           '       node scripts/imp-917-run-cell.mjs --list\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan',
       );
@@ -214,6 +224,24 @@ console.log(`  dt        = ${dt}`);
 console.log(`  k0_star   = ${retuning.k0_star}`);
 console.log(`  phaseVel* = ${retuning.phaseVel_star}`);
 console.log(`  epsilons  = ${epsTriple.join(', ')}`);
+
+if (args.dryRun) {
+  console.log('--dry-run: prototype NOT spawned. Copy-pastable shell exports:');
+  const shellKeys = [
+    'IMP857_N',
+    'IMP857_NSTEPS',
+    'IMP857_DT',
+    'IMP857_K0',
+    'IMP857_PHASEVEL',
+    'IMP857_EPSILONS',
+  ];
+  for (const k of shellKeys) {
+    console.log(`  export ${k}=${env[k]}`);
+  }
+  console.log(`  node ${prototypePath}`);
+  process.exit(0);
+}
+
 console.log('spawning prototype:', prototypePath);
 console.log('---');
 

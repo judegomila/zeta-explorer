@@ -12671,7 +12671,8 @@ export const IMPROVEMENT_QUEUE = [
       'imp-917-partial-a (commit 1bb750e): parametrized EPSILONS via IMP857_EPSILONS env var so the {0.02, 0.1} cells no longer require a source edit.',
       'imp-917-partial-b (commit 2ecab5a): added scripts/imp-917-run-cell.mjs offline-worker driver that auto-looks-up (k0_star, phaseVel_star) from RETUNING_CALIBRATION given --N.',
       'imp-917-partial-c (commit 0153a59): added --list batch-plan emitter that prints the 6-invocation pack covering the 14 cells.',
-      'imp-917-partial-d (this commit): added scripts/imp-917-run-cell.mjs --verify-plan self-consistency check asserting the internal BATCH_PLAN covers MISSING_CELLS exactly, guarding the offline worker against silent drift between the two tables before consuming the ~20 CPU-hour budget.',
+      'imp-917-partial-d (commit 2996815): added scripts/imp-917-run-cell.mjs --verify-plan self-consistency check asserting the internal BATCH_PLAN covers MISSING_CELLS exactly, guarding the offline worker against silent drift between the two tables before consuming the ~20 CPU-hour budget.',
+      'imp-917-partial-e (this commit): added scripts/imp-917-run-cell.mjs --dry-run per-cell pre-flight that resolves the full IMP857_* env-var set for a given --N/--eps and prints it as copy-pastable shell exports without spawning the prototype, so each of the 6 batch-plan invocations can be env-wiring-checked before a ~3 CPU-hour spawn.',
     ],
     openSubGaps: [
       {

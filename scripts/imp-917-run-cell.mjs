@@ -27,6 +27,7 @@
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema-json
 //   node scripts/imp-917-run-cell.mjs --verify-retuning-coverage
+//   node scripts/imp-917-run-cell.mjs --verify-retuning-coverage-json
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
 //   node scripts/imp-917-run-cell.mjs --dry-run-all-json
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
@@ -214,10 +215,29 @@
 // a FAILED diagnostic listing the uncovered N values on failure (exit=1).
 // Uses a new computeRetuningCoverage() helper, shaped like
 // computePlanCoverage() (returns {ok, missingCellNs, retuningTableNs,
-// uncoveredNs}), so a future --verify-retuning-coverage-json analog can
-// reuse it without drift. Shell-only for this partial; the JSON analog and
-// --preflight / --preflight-json wiring can follow in future partials per
-// the established standalone-first / aggregate-later cadence.
+// uncoveredNs}), so the --verify-retuning-coverage-json analog reuses it
+// without drift. Paired with --verify-retuning-coverage-json for the
+// {shell, JSON} matrix; --preflight / --preflight-json wiring can follow in
+// future partials per the established standalone-first / aggregate-later
+// cadence.
+//
+// --verify-retuning-coverage-json is the structural JSON analog of
+// --verify-retuning-coverage. Reuses computeRetuningCoverage() so the shell
+// and JSON diagnostics cannot drift; both check the same (missingCells N set
+// vs retuningTable N set) alignment, both report the same uncoveredNs list.
+// Emits JSON.stringify(r, null, 2) of {ok, missingCellNs, retuningTableNs,
+// uncoveredNs} and exits r.ok ? 0 : 1, matching the shell form exit
+// semantics exactly so Python / jq offline-worker drivers can gate the
+// ~20 CPU-hour batch on BOTH the JSON body and the process exit code.
+// Completes the data-integrity {shell, JSON} pair, bringing the
+// --verify-retuning-coverage check to the same shell/JSON symmetry as
+// --verify-plan / --verify-plan-json, --verify-prototype /
+// --verify-prototype-json, --verify-output-target /
+// --verify-output-target-json, and --verify-output-schema /
+// --verify-output-schema-json. Not wired into --preflight / --preflight-json
+// yet (aggregation extension is a separate future partial, matching the
+// partial-p -> partial-q -> partial-r/s and partial-y -> partial-z ->
+// partial-aa/bb cadences for the on-disk and output-schema checks).
 //
 // --preflight runs five shell pre-flight checks in sequence — --verify-plan
 // (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype (prototype script
@@ -325,6 +345,7 @@ function parseArgs(argv) {
     verifyOutputSchema: false,
     verifyOutputSchemaJson: false,
     verifyRetuningCoverage: false,
+    verifyRetuningCoverageJson: false,
     dryRun: false,
     dryRunJson: false,
     dryRunAll: false,
@@ -355,6 +376,7 @@ function parseArgs(argv) {
     else if (a === '--verify-output-schema') out.verifyOutputSchema = true;
     else if (a === '--verify-output-schema-json') out.verifyOutputSchemaJson = true;
     else if (a === '--verify-retuning-coverage') out.verifyRetuningCoverage = true;
+    else if (a === '--verify-retuning-coverage-json') out.verifyRetuningCoverageJson = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-json') out.dryRunJson = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
@@ -381,6 +403,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-retuning-coverage\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-retuning-coverage-json\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run|--dry-run-json]\n' +
@@ -785,6 +808,12 @@ if (args.verifyRetuningCoverage) {
     `  (missingCell N set: ${r.missingCellNs.join(', ')}; retuningTable N set: ${r.retuningTableNs.join(', ')})`,
   );
   process.exit(1);
+}
+
+if (args.verifyRetuningCoverageJson) {
+  const r = computeRetuningCoverage();
+  console.log(JSON.stringify(r, null, 2));
+  process.exit(r.ok ? 0 : 1);
 }
 
 // Resolve one (N, epsTriple) cell into the full IMP857_* env-var set, using

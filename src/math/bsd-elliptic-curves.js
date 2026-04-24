@@ -154,6 +154,78 @@ function partialL1(a_n, N) {
 
 // ── Main test ────────────────────────────────────────────────────────────────
 
+/**
+ * imp-912 (cross-verify audit, 2026-04-23, honest-partial).
+ *
+ * Independent audit of bsdEllipticCurvesTest, following the format of
+ * imp-906/907/909/911. Verifies formulas, hand-computes a_p at small
+ * primes, and flags one real curve-record error plus one latent bug.
+ *
+ * (1) FORMULAS match Silverman, Arithmetic of Elliptic Curves (AEC):
+ *       a_p       = p + 1 - #E(F_p)              Hasse-Weil (AEC Ch V).
+ *       Hecke:     a_{p^k} = a_p a_{p^{k-1}} - p a_{p^{k-2}}   (good p)
+ *                                                weight-2 modular form.
+ *       a_{mn}    = a_m a_n when gcd(m,n)=1      multiplicativity.
+ *     isSmooth uses discriminant Delta = -16(4a^3 + 27b^2) for
+ *     y^2 = x^3 + a*x + b  (AEC III.1). Standard.
+ *
+ * (2) INDEPENDENT a_p SPOT CHECKS (hand point counts vs countPoints):
+ *       y^2 = x^3 - x   at p=3: #E(F_3)=4, a_3 = 0.
+ *       y^2 = x^3 - x   at p=5: #E(F_5)=8, a_5 = -2
+ *                                 matches LMFDB 32.a3 (CM by Z[i]).
+ *       y^2 = x^3 + 1   at p=5: #E(F_5)=6, a_5 = 0
+ *                                 CM by Z[omega], 5 mod 3 = 2 inert.
+ *       y^2 = x^3 - x+1 at p=5: #E(F_5)=8, a_5 = -2
+ *                                 matches LMFDB 37.a1.
+ *     Hasse bound |a_p| <= 2 sqrt(p) holds in every spot check.
+ *
+ * (3) NEW FINDING — curve record for 5077.a1 is a DIFFERENT curve.
+ *     The record { a: -7, b: 6, conductor: 5077, rank: 3 } claims to
+ *     be 5077.a1 (the historical Mestre/Goldfeld rank-3 curve). But
+ *     5077.a1 minimal Weierstrass is  y^2 + y = x^3 - 7x + 6  (long
+ *     form with a_3 = 1), whose minimal discriminant is 5077 (prime).
+ *     Dropping the +y to get the short form y^2 = x^3 - 7x + 6 gives
+ *     a DIFFERENT isomorphism class: discriminant
+ *         -16(4(-7)^3 + 27*36) = -16(-400) = 6400 = 2^8 * 5^2,
+ *     j-invariant ~5927 (vs. 5077.a1 j = -21952/5077 approx -4.32), and
+ *     hand-computed a_7 = +4 (for short) vs a_7 = -4 (for 5077.a1).
+ *     The correct integer short Weierstrass of 5077.a1 (via (X,Y) =
+ *     (4x, 8y+4) scaling) is  y^2 = x^3 - 112 x + 400,  with min disc
+ *     2^12 * 5077. The current record therefore reports a_p for the
+ *     wrong curve and cannot match the claimed rank 3 without fixing.
+ *     Also: isSmooth flags p=2 and p=5 as bad (from the 2^8*5^2 short
+ *     disc), zeroing a_2 and a_5, which propagates into partialL1.
+ *     Open sub-gap: imp-912-sub-minimal-model.
+ *
+ * (4) LATENT BUG — multiplicative fill uses  a_n[pK] !== 0  as a
+ *     "has been set" sentinel. When a_p = 0 for a CM inert prime (e.g.
+ *     a_3 = 0 for y^2 = x^3 - x), composite fills at n = p*m skip
+ *     silently. Harmless for CM curves because a_p * a_m = 0 * a_m
+ *     matches the unset Int32Array default, but the pattern is fragile
+ *     and would misfire for any future extension where a prime-power
+ *     slot holds zero from Hecke cancellation rather than from "unset".
+ *
+ * (5) EDGE CASES:
+ *     - countPoints uses Uint8Array isQR[p]; p <= 500 (sievePrimes(1000)
+ *       capped by nMax=500), so x^3 <= 499^3 approx 1.24e8 stays inside
+ *       exact-integer Number range. No overflow.
+ *     - a_n is Int32Array(501); |a_n| is bounded by divisor-sum of Hasse
+ *       bounds (~n^(1/2 + eps)), well within 2^31.
+ *     - isSmooth does ((disc % p) + p) % p !== 0  to handle negative
+ *       discriminants correctly (no modulo-sign bug).
+ *     - countPoints is never invoked at bad primes (guarded in
+ *       computeCoefficients), so no singular-point inflation of #E.
+ *
+ * (6) L(1, E) PARTIAL SUM CAVEAT:
+ *     partialL1 is the truncated Dirichlet sum  Sum_{n<=500} a_n / n,
+ *     which converges conditionally and SLOWLY to L(1, E). For rank 0
+ *     curves the true L(1, E) is typically O(1); for rank >= 1,
+ *     L(1, E) = 0. The bsd_consistent heuristic (|L| > 0.1 for rank 0,
+ *     |L| < 0.5 for rank >= 1) is very loose. For serious BSD work use
+ *     Mellin inversion or Dokchitser's algorithm; this module is
+ *     demonstrative only, and the finding in (3) means the rank-3 row
+ *     reflects neither 5077.a1 nor a standard rank-3 curve.
+ */
 export function bsdEllipticCurvesTest() {
   const primes = sievePrimes(1000);
 

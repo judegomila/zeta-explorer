@@ -67,6 +67,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duodecmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duodecmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -613,6 +614,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-undecmean') out.batchPlanCostTripleUndecmean = true;
     else if (a === '--batch-plan-cost-triple-undecmean-json') out.batchPlanCostTripleUndecmeanJson = true;
     else if (a === '--batch-plan-cost-triple-duodecmean') out.batchPlanCostTripleDuodecmean = true;
+    else if (a === '--batch-plan-cost-triple-duodecmean-json') out.batchPlanCostTripleDuodecmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -695,6 +697,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duodecmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duodecmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -3407,6 +3410,66 @@ if (args.batchPlanCostTripleUndecmeanJson) {
   const body = {
     undecmeanSec,
     undecmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleDuodecmeanJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-duodecmean (partial-rrrr):
+  // surface the BATCH_PLAN duodecic mean (p=12 Kolmogorov power-mean) of per-
+  // triple wall-times as a single object {duodecmeanSec, duodecmeanHours,
+  // knownCount, unknownCount} so Python / jq offline-worker drivers can consume
+  // the p=12 power-mean central-tendency signal directly without re-parsing the
+  // one-line shell summary and without redoing the seconds-to-hours conversion,
+  // matching the precomputed-hours cadence already established across every
+  // other JSON cost-emitter. Reuses computeBatchPlanCost() (partial-vv helper)
+  // with zero new math; identical known-row filter (wallSec !== null) to the
+  // partial-rrrr shell form so the two flags cannot drift. Handler uses the
+  // same (((x^2)^2)^2) * ((x^2)^2) factorization as partial-rrrr
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2; const w8 = w4 * w4;
+  // duodecSum += w8 * w4;) for numerical-stability parity, avoiding Math.pow in
+  // the inner reduce loop so the JSON and shell bodies agree bit-for-bit on
+  // IEEE-754 across Node versions, then duodecmeanSec =
+  // Math.pow(duodecSum / known.length, 1 / 12). Even-exponent p=12 forces non-
+  // negativity (mirroring partial-yyy quadmean-json p=2, partial-cccc
+  // quartmean-json p=4, partial-gggg sextmean-json p=6, partial-kkkk
+  // octmean-json p=8, partial-oooo decmean-json p=10 even-p observation) and
+  // all wallSec values are strictly positive by construction so no non-positive-
+  // wallSec guard is required. All-unknown degenerate case (known.length === 0)
+  // emits {duodecmeanSec: null, duodecmeanHours: null, knownCount: 0,
+  // unknownCount} and exits 0 without attempting (0/0)^(1/12) = NaN, matching
+  // the partial-uuu / partial-www / partial-yyy / partial-aaaa / partial-cccc /
+  // partial-eeee / partial-gggg / partial-iiii / partial-kkkk / partial-mmmm /
+  // partial-oooo / partial-qqqq JSON degenerate cadence. Completes the
+  // {shell, JSON} pair for partial-rrrr and brings the Kolmogorov power-mean
+  // quattuordectet at p in {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}
+  // (HM, GM, AM, QM, CM, QUM, QIM, SXM, SPM, OCM, NPM, DCM, UDM, DUM) x
+  // {shell, JSON} to full shell/JSON parity, surfacing the complete monotone
+  // ordering
+  // DUM >= UDM >= DCM >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >=
+  //   QM >= AM >= GM >= HM
+  // at structural-JSON parity for offline-worker drivers gating the
+  // ~20 CPU-hour batch. Pure data emitter, exit 0 unconditionally (no
+  // validation gate), not wired into --preflight / --preflight-json.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let duodecmeanSec = null;
+  if (known.length > 0) {
+    const duodecSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      return s + w8 * w4;
+    }, 0);
+    duodecmeanSec = Math.pow(duodecSum / known.length, 1 / 12);
+  }
+  const duodecmeanHours = duodecmeanSec === null ? null : duodecmeanSec / 3600;
+  const body = {
+    duodecmeanSec,
+    duodecmeanHours,
     knownCount: known.length,
     unknownCount,
   };

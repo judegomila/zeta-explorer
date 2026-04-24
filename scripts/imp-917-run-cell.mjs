@@ -36,6 +36,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-median-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-stddev
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-stddev-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -493,6 +494,7 @@ function parseArgs(argv) {
     batchPlanCostTripleMedianJson: false,
     batchPlanCostTripleStddev: false,
     batchPlanCostTripleStddevJson: false,
+    batchPlanCostTripleMad: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -548,6 +550,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-median-json') out.batchPlanCostTripleMedianJson = true;
     else if (a === '--batch-plan-cost-triple-stddev') out.batchPlanCostTripleStddev = true;
     else if (a === '--batch-plan-cost-triple-stddev-json') out.batchPlanCostTripleStddevJson = true;
+    else if (a === '--batch-plan-cost-triple-mad') out.batchPlanCostTripleMad = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -599,6 +602,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-median-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-stddev\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-stddev-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-mad\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -1544,6 +1548,66 @@ if (args.batchPlanCostTripleStddevJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleMad) {
+  // Shell data emitter: surface the median absolute deviation (MAD) of
+  // per-triple wall-times across the known-wallSec rows of BATCH_PLAN as an
+  // outlier-robust dispersion complement to the population stddev
+  // (--batch-plan-cost-triple-stddev, partial-lll). MAD is to stddev what the
+  // median is to the mean: it answers the same "how spread out is the
+  // distribution?" question but ignores tail outliers rather than squaring
+  // them. Concretely, on BATCH_PLAN's 6-row known set where two N=10000
+  // triples at 72000 s each sit alongside four N<=2000 triples at <=4000 s
+  // each, the stddev (29919 s / 8.31 h) is inflated by the two tail triples;
+  // MAD reports the typical per-triple deviation that the bulk of the
+  // workload actually exhibits from the per-triple median, which is the
+  // natural dispersion statistic for sizing a shared-queue schedule whose
+  // tail-latency is absorbed by overlap rather than by the worst-case
+  // per-triple floor. Formula: MAD = median(|x_i - median(x)|) computed over
+  // the known-wallSec values only; unknown-N rows (wallSec === null) are
+  // excluded from both the inner median and the deviation-median so null
+  // entries cannot corrupt either statistic, and unknownCount is reported in
+  // a trailing note. Even-count case averages the two middle values at both
+  // stages; odd-count picks the single middle value. All-unknown degenerate
+  // case prints a dedicated unknown summary and exits 0 without touching the
+  // sort, matching the partial-zz / partial-ddd / partial-hhh / partial-jjj /
+  // partial-lll degenerate cadence. Also emits MAD / median as a unit-free
+  // dispersion ratio (the robust analog of the CoV in partial-lll), with a
+  // null guard when the inner median is 0. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Shell-only this partial; a
+  // --batch-plan-cost-triple-mad-json analog can follow mirroring the
+  // shell-first / JSON-second cadence established across the whole
+  // cost-emitter family.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple MAD wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const medianOf = (arr) => {
+    const sorted = [...arr].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 === 0
+      ? (sorted[mid - 1] + sorted[mid]) / 2
+      : sorted[mid];
+  };
+  const values = known.map((r) => r.wallSec);
+  const medianSec = medianOf(values);
+  const deviations = values.map((v) => Math.abs(v - medianSec));
+  const madSec = medianOf(deviations);
+  const ratio = medianSec === 0 ? null : madSec / medianSec;
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from MAD)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple MAD wall-time: ${madSec.toFixed(0)} s (~${(madSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s); median ${medianSec.toFixed(0)} s, MAD/median = ${ratio === null ? 'n/a' : ratio.toFixed(2)}${unknownNote}.`,
+  );
   process.exit(0);
 }
 

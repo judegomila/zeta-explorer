@@ -98,6 +98,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexvigintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septenvigintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septenvigintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octovigintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -675,6 +676,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-sexvigintmean-json') out.batchPlanCostTripleSexvigintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-septenvigintmean') out.batchPlanCostTripleSeptenvigintmean = true;
     else if (a === '--batch-plan-cost-triple-septenvigintmean-json') out.batchPlanCostTripleSeptenvigintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-octovigintmean') out.batchPlanCostTripleOctovigintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -788,6 +790,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexvigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septenvigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septenvigintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octovigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -5541,6 +5544,80 @@ if (args.batchPlanCostTripleSeptenvigintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleOctovigintmean) {
+  // partial-xxxxx: surface the BATCH_PLAN octovigintic mean (p=28
+  // Kolmogorov power-mean) of per-triple wall-times as a one-line
+  // diagnostic, extending the Kolmogorov power-mean family from
+  // the already-paired twenty-nine-tet {HM (p=-1), GM (p=0), AM (p=1),
+  // QM (p=2), CM (p=3), QUM (p=4), QIM (p=5), SXM (p=6), SPM (p=7),
+  // OCM (p=8), NPM (p=9), DCM (p=10), UDM (p=11), DUM (p=12),
+  // TRM (p=13), QDM (p=14), QIM15 (p=15), SDM (p=16), SPM17 (p=17),
+  // OCDM18 (p=18), NVDM19 (p=19), VGM20 (p=20), UVGM21 (p=21),
+  // DVGM22 (p=22), TVGM23 (p=23), QVGM24 (p=24), QIVGM25 (p=25),
+  // SXVGM26 (p=26), SPVGM27 (p=27)} upward to p=28 as partial-xxxxx.
+  // Computed as OVGM28 = (sum(x_i^28) / n)^(1/28) via Math.pow(s, 1/28);
+  // by the generalized power-mean inequality OVGM28 dominates every
+  // lower-p sibling so the full monotone chain OVGM28 >= SPVGM27
+  // >= SXVGM26 >= QIVGM25 >= QVGM24 >= TVGM23 >= DVGM22 >= UVGM21
+  // >= VGM20 >= NVDM19 >= OCDM18 >= SPM17 >= SDM >= QIM15 >= QDM
+  // >= TRM >= DUM >= UDM >= DCM >= NPM >= OCM >= SPM >= SXM >= QIM
+  // >= QUM >= CM >= QM >= AM >= GM >= HM now holds inline across
+  // all thirty shell emitters. Handler uses the
+  // (((x^2)^2)^2)^2 * ((x^2)^2)^2 * ((x^2)^2) factorization
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  octovigintSum += w16 * w8 * w4;)
+  // to avoid calling Math.pow in the inner reduce loop (28 = 16+8+4),
+  // extending the partial-vvvvv septenvigintmean w16 * w8 * w2 * x
+  // (27 = 16+8+2+1) four-summand odd-p decomposition by replacing the
+  // trailing w2 * x pair (= x^3) with a single w4 (= x^4) factor to
+  // reach the next even exponent via a cleaner three-summand cadence.
+  // This mirrors the partial-ppppp quattuorvigintmean w16 * w8
+  // (24 = 16+8) two-summand even-p pattern at a higher magnitude:
+  // where quattuorvigintmean uses the {16,8} partition, octovigintmean
+  // uses the {16,8,4} partition, and both stay within the cached
+  // w2/w4/w8/w16 powers without re-multiplying wallSec directly.
+  // Even p=28 erases sign and wallSec values are strictly positive by
+  // construction so no sign guard is required (mirroring the
+  // partial-yyy / partial-cccc / partial-gggg / partial-kkkk /
+  // partial-oooo / partial-ssss / partial-wwww / partial-aaaaa /
+  // partial-eeeee / partial-iiiii / partial-mmmmm / partial-qqqqq /
+  // partial-ttttt even-p cadence). All-unknown degenerate case
+  // (known.length === 0) prints a dedicated "unknown" summary and
+  // exits 0 rather than (0/0)^(1/28) = NaN. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Shell-only this partial; the
+  // --batch-plan-cost-triple-octovigintmean-json analog will be
+  // added in a later partial mirroring the shell-first / JSON-second
+  // cadence established across every other cost-emitter axis.
+  // Reuses computeBatchPlanCost() (partial-vv helper) with zero new
+  // batch-plan logic.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple octovigintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const octovigintSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    return s + w16 * w8 * w4;
+  }, 0);
+  const octovigintmeanSec = Math.pow(octovigintSum / known.length, 1 / 28);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from octovigintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple octovigintic-mean wall-time: ${octovigintmeanSec.toFixed(0)} s (~${(octovigintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

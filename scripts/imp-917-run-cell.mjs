@@ -115,6 +115,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-pentatrigintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-pentatrigintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-hexatrigintmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-hexatrigintmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -709,6 +710,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-pentatrigintmean') out.batchPlanCostTriplePentatrigintmean = true;
     else if (a === '--batch-plan-cost-triple-pentatrigintmean-json') out.batchPlanCostTriplePentatrigintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-hexatrigintmean') out.batchPlanCostTripleHexatrigintmean = true;
+    else if (a === '--batch-plan-cost-triple-hexatrigintmean-json') out.batchPlanCostTripleHexatrigintmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -839,6 +841,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-pentatrigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-pentatrigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-hexatrigintmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-hexatrigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -6781,6 +6784,85 @@ if (args.batchPlanCostTriplePentatrigintmeanJson) {
   const body = {
     pentatrigintmeanSec,
     pentatrigintmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleHexatrigintmeanJson) {
+  // partial-oooooo: structural JSON analog of partial-nnnnnn
+  // --batch-plan-cost-triple-hexatrigintmean (p=36 Kolmogorov power-mean).
+  // Emits one object {hexatrigintmeanSec, hexatrigintmeanHours,
+  // knownCount, unknownCount} with hexatrigintmeanHours =
+  // hexatrigintmeanSec / 3600 (null when knownCount===0) so
+  // Python / jq offline-worker drivers can consume the p=36 power-mean
+  // central-tendency signal directly without re-parsing the one-line
+  // shell summary and without redoing the seconds-to-hours conversion,
+  // matching the precomputed-hours cadence established across every
+  // prior JSON cost-emitter. Reuses computeBatchPlanCost() (partial-vv
+  // helper) with zero new math; identical known-row filter
+  // (wallSec !== null) to the partial-nnnnnn shell form so the two
+  // flags cannot drift. Applies the same power-of-two squaring chain
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  const w32 = w16 * w16;
+  //  hexatrigintSum += w32 * w4;)
+  // as partial-nnnnnn for numerical-stability parity, avoiding
+  // Math.pow in the inner reduce loop (36 = 32+4, the cleanest
+  // {32,4}-partition factorization the cache admits at this exponent,
+  // one step past partial-jjjjjj tetratrigintmean w32 * w2 two-summand
+  // 34=32+2 and partial-ffffff duotrigintmean w32 single-summand
+  // 32=2^5 decomposition) so the JSON and shell bodies agree
+  // bit-for-bit on IEEE-754 across Node versions, then
+  // hexatrigintmeanSec = Math.pow(hexatrigintSum / known.length, 1 / 36).
+  // Even p=36 makes the inner summand a perfect square of w18 so the
+  // sum is non-negative regardless of wallSec sign; wallSec values are
+  // strictly positive by construction anyway (wall clock measurements)
+  // mirroring the partial-vv / partial-zzzz / partial-cccc / partial-gggg
+  // / partial-kkkk / partial-oooo / partial-ssss / partial-wwww /
+  // partial-aaaa / partial-cccccc / partial-gggggg / partial-kkkkkk
+  // even-p JSON cadence.
+  // All-unknown degenerate case (known.length===0) emits
+  // {hexatrigintmeanSec: null, hexatrigintmeanHours: null,
+  //  knownCount: 0, unknownCount} and exits 0 without attempting
+  // (0/0)^(1/36) = NaN, matching the JSON degenerate cadence across
+  // every prior JSON power-mean emitter. Completes the {shell, JSON}
+  // pair for partial-nnnnnn and brings the Kolmogorov power-mean
+  // family at p in {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+  // 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+  // 29, 30, 31, 32, 33, 34, 35, 36} x {shell, JSON} to full
+  // shell/JSON parity at thirty-eight exponents; the monotone ordering
+  // HTGM36 >= PTGM35 >= TTGM34 >= TRGM33 >= DTGM32 >= UTGM31 >= TGM30
+  //   >= NVGM29 >= OVGM28 >= SPVGM27 >= SXVGM26 >= QIVGM25
+  //   >= QVGM24 >= TVGM23 >= DVGM22 >= UVGM21 >= VGM20 >= NVDM19
+  //   >= OCDM18 >= SPM17 >= SDM >= QIM15 >= QDM >= TRM >= DUM
+  //   >= UDM >= DCM >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM
+  //   >= CM >= QM >= AM >= GM >= HM
+  // now holds at structural-JSON parity for offline-worker drivers
+  // gating the ~20 CPU-hour batch. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let hexatrigintmeanSec = null;
+  if (known.length > 0) {
+    const hexatrigintSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      const w16 = w8 * w8;
+      const w32 = w16 * w16;
+      return s + w32 * w4;
+    }, 0);
+    hexatrigintmeanSec = Math.pow(hexatrigintSum / known.length, 1 / 36);
+  }
+  const hexatrigintmeanHours =
+    hexatrigintmeanSec === null ? null : hexatrigintmeanSec / 3600;
+  const body = {
+    hexatrigintmeanSec,
+    hexatrigintmeanHours,
     knownCount: known.length,
     unknownCount,
   };

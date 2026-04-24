@@ -165,7 +165,7 @@
 // `const MEASURED_ROWS = [`. Exits 0 on success, 1 with a specific diagnostic
 // on read error or missing identifier. Paired with --verify-output-schema-json
 // for the {shell, JSON} matrix. Wired into --preflight as the appended step 5
-// (shell form; --preflight-json JSON-analog wiring is a separate future partial).
+// (shell form) and into --preflight-json as the appended step 5 (JSON form).
 //
 // --verify-output-schema-json is the structural JSON analog of
 // --verify-output-schema. Emits one object {ok, path, token, error} where path
@@ -178,9 +178,10 @@
 // exit code. Reuses the checkOutputSchema() helper with --verify-output-schema
 // so the two diagnostics cannot drift. Completes the content-level
 // {shell, JSON} pair for the transcription target, matching the stat-level
-// --verify-output-target / --verify-output-target-json pair. Not wired into
-// --preflight / --preflight-json yet (aggregation extension is a separate
-// future partial).
+// --verify-output-target / --verify-output-target-json pair. Wired into
+// --preflight-json as the appended step 5 (matching --preflight's step 5) so
+// the aggregated shell and JSON pre-flights both end with the same
+// output-schema token check.
 //
 // --verify-output-target-json is the structural JSON analog of
 // --verify-output-target. Emits one object {ok, path, sizeBytes, error} where
@@ -210,15 +211,17 @@
 //
 // --preflight-json is the structural JSON analog of --preflight. Emits one
 // object {ok, firstFailingStep, steps: [{step, name, ok, ...}]} aggregating
-// the four checks. Each step object carries the same body that the single-flag
+// the five checks. Each step object carries the same body that the single-flag
 // JSON analog would emit (plan coverage diff, prototype stat, per-cell resolve
-// summary, output-target stat). Exit status matches --preflight (0 on all-ok;
-// 1, 2, 3, or 4 on first failing step) so Python / jq offline-worker drivers
-// can gate the batch on a single JSON body and a single exit code, completing
-// the {shell, JSON} pair for every pre-flight check: --verify-plan /
-// --verify-plan-json, --verify-prototype / --verify-prototype-json,
-// --dry-run-all / --dry-run-all-json, --verify-output-target /
-// --verify-output-target-json, and --preflight / --preflight-json.
+// summary, output-target stat, output-schema token presence). Exit status
+// matches --preflight (0 on all-ok; 1, 2, 3, 4, or 5 on first failing step)
+// so Python / jq offline-worker drivers can gate the batch on a single JSON
+// body and a single exit code, completing the {shell, JSON} pair for every
+// pre-flight check: --verify-plan / --verify-plan-json, --verify-prototype /
+// --verify-prototype-json, --dry-run-all / --dry-run-all-json,
+// --verify-output-target / --verify-output-target-json,
+// --verify-output-schema / --verify-output-schema-json, and --preflight /
+// --preflight-json.
 //
 // --dry-run resolves the full IMP857_* env var set for the given --N/--eps
 // cell (exactly as a real run would) and prints them as copy-pastable shell
@@ -954,11 +957,11 @@ if (args.preflight) {
 }
 
 if (args.preflightJson) {
-  // Structural JSON analog of --preflight: aggregate the four checks into one
+  // Structural JSON analog of --preflight: aggregate the five checks into one
   // object. Each step body mirrors the corresponding single-flag JSON analog
   // so parsers can reuse the same schema per step. firstFailingStep is the
   // 1-indexed step number of the first failure (or null on all-ok); the process
-  // exit code mirrors that number, matching --preflight (0 / 1 / 2 / 3 / 4).
+  // exit code mirrors that number, matching --preflight (0 / 1 / 2 / 3 / 4 / 5).
   const planResult = computePlanCoverage();
   const protoResult = checkPrototype();
   const resolveRows = [];
@@ -975,12 +978,14 @@ if (args.preflightJson) {
   }
   const resolveOk = resolveFailures === 0;
   const outputTargetResult = checkOutputTarget();
+  const outputSchemaResult = checkOutputSchema();
 
   let firstFailingStep = null;
   if (!planResult.ok) firstFailingStep = 1;
   else if (!protoResult.ok) firstFailingStep = 2;
   else if (!resolveOk) firstFailingStep = 3;
   else if (!outputTargetResult.ok) firstFailingStep = 4;
+  else if (!outputSchemaResult.ok) firstFailingStep = 5;
 
   const body = {
     ok: firstFailingStep === null,
@@ -1001,6 +1006,12 @@ if (args.preflightJson) {
         name: '--verify-output-target',
         ok: outputTargetResult.ok,
         outputTarget: outputTargetResult,
+      },
+      {
+        step: 5,
+        name: '--verify-output-schema',
+        ok: outputSchemaResult.ok,
+        outputSchema: outputSchemaResult,
       },
     ],
   };

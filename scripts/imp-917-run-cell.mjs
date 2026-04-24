@@ -15,6 +15,7 @@
 //   node scripts/imp-917-run-cell.mjs --plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
+//   node scripts/imp-917-run-cell.mjs --dry-run-all-json
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
 //
 // --eps must be a comma-separated triple; the first entry is conventionally 0
@@ -55,6 +56,16 @@
 // epsTriple parse) in a single command, without the operator having to re-run
 // --dry-run per cell. Exits non-zero if any single cell fails to resolve.
 //
+// --dry-run-all-json is the structural JSON analog of --dry-run-all. It emits
+// the full BATCH_PLAN as a JSON array, one object per cell, each with the
+// fully-resolved env-var pack (IMP857_N/NSTEPS/DT/K0/PHASEVEL/EPSILONS) plus
+// the retuning inputs (k0_star, phaseVel_star, nSteps, dt). Python / jq-based
+// offline-worker drivers can consume the array directly — no need to re-parse
+// shell-export text or re-implement the (N -> retuning) lookup out-of-band.
+// Pairs with --plan-json (index-only) and --dry-run-all (shell exports) to
+// complete the {shell, JSON-index, JSON-resolved} output matrix. Exits
+// non-zero if any single cell fails to resolve, matching --dry-run-all.
+//
 // --cell <index> picks BATCH_PLAN[index-1] (1-indexed, matching the cell
 // numbers printed by --list) and invokes the single-cell path with that
 // cell N/eps. Exclusive with --N/--eps. Composes with --dry-run so an
@@ -88,6 +99,7 @@ function parseArgs(argv) {
     verifyPlan: false,
     dryRun: false,
     dryRunAll: false,
+    dryRunAllJson: false,
     cell: null,
   };
   for (let i = 2; i < argv.length; i++) {
@@ -101,6 +113,7 @@ function parseArgs(argv) {
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
+    else if (a === '--dry-run-all-json') out.dryRunAllJson = true;
     else if (a === '--cell') out.cell = Number(argv[++i]);
     else if (a === '--help' || a === '-h') {
       console.log(
@@ -109,6 +122,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
+          '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run]',
       );
       process.exit(0);
@@ -313,6 +327,46 @@ if (args.dryRunAll) {
   console.log(
     `imp-917 --dry-run-all OK: all ${BATCH_PLAN.length} BATCH_PLAN cells resolved cleanly.`,
   );
+  process.exit(0);
+}
+
+if (args.dryRunAllJson) {
+  // Structural JSON analog of --dry-run-all: one object per BATCH_PLAN cell,
+  // each carrying both the retuning inputs and the fully-resolved IMP857_*
+  // env-var pack. Python / jq runners can consume this directly without
+  // re-implementing the (N -> retuning) lookup or re-parsing shell exports.
+  const rows = [];
+  let failures = 0;
+  for (let i = 0; i < BATCH_PLAN.length; i++) {
+    const p = BATCH_PLAN[i];
+    const r = resolveCell(p.N, p.eps, null, null);
+    if (r.error) {
+      rows.push({
+        index: i + 1,
+        label: p.label,
+        N: p.N,
+        eps: p.eps,
+        error: r.error,
+      });
+      failures++;
+      continue;
+    }
+    const envSubset = {};
+    for (const k of SHELL_KEYS) envSubset[k] = r.env[k];
+    rows.push({
+      index: i + 1,
+      label: p.label,
+      N: p.N,
+      eps: p.eps,
+      nSteps: r.nSteps,
+      dt: r.dt,
+      k0_star: r.retuning.k0_star,
+      phaseVel_star: r.retuning.phaseVel_star,
+      env: envSubset,
+    });
+  }
+  console.log(JSON.stringify(rows, null, 2));
+  if (failures > 0) process.exit(1);
   process.exit(0);
 }
 

@@ -59,6 +59,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -597,6 +598,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-septmean') out.batchPlanCostTripleSeptmean = true;
     else if (a === '--batch-plan-cost-triple-septmean-json') out.batchPlanCostTripleSeptmeanJson = true;
     else if (a === '--batch-plan-cost-triple-octmean') out.batchPlanCostTripleOctmean = true;
+    else if (a === '--batch-plan-cost-triple-octmean-json') out.batchPlanCostTripleOctmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -671,6 +673,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-septmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-octmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2898,6 +2901,71 @@ if (args.batchPlanCostTripleOctmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple octic-mean wall-time: ${octmeanSec.toFixed(0)} s (~${(octmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleOctmeanJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-octmean (partial-jjjj):
+  // surface the BATCH_PLAN octic mean (p=8 Kolmogorov power-mean) of per-
+  // triple wall-times as a single object {octmeanSec, octmeanHours,
+  // knownCount, unknownCount} so Python / jq offline-worker drivers can
+  // consume the p=8 power-mean central-tendency signal directly without
+  // re-parsing the one-line shell summary. Reuses computeBatchPlanCost()
+  // (partial-vv helper) with zero new math; identical known-row filter
+  // (wallSec !== null) to the shell form so the two flags cannot drift.
+  // Even-exponent eighth power is strictly non-negative for any real input
+  // but since all wallSec values are strictly positive by construction
+  // (non-null rows carry measured runtimes > 0), the non-positive-wallSec
+  // guard that harmean needed for 1/x is unnecessary (matching the
+  // partial-yyy quadmean-json, partial-cccc quartmean-json and partial-gggg
+  // sextmean-json even-exponent JSON observation). octmeanHours precomputed
+  // inline as octmeanSec / 3600 (null when knownCount === 0) matching the
+  // partial-ww / partial-zz / partial-bbb / partial-eee / partial-ggg /
+  // partial-iii / partial-kkk / partial-mmm / partial-ooo / partial-qqq /
+  // partial-sss / partial-uuu / partial-www / partial-yyy / partial-aaaa /
+  // partial-cccc / partial-eeee / partial-gggg / partial-iiii precomputed-
+  // hours cadence so offline-worker drivers consuming the p=8 power-mean
+  // signal do not need to redo the seconds-to-hours conversion per run.
+  // All-unknown degenerate case emits {octmeanSec: null, octmeanHours: null,
+  // knownCount: 0, unknownCount} and exits 0 without computing
+  // (0/0)^(1/8) = NaN, matching the partial-uuu / partial-www / partial-yyy
+  // / partial-aaaa / partial-cccc / partial-eeee / partial-gggg /
+  // partial-iiii JSON degenerate cadence. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Completes the {shell, JSON} pair for partial-jjjj and
+  // brings the Kolmogorov power-mean dectet {harmonic (p=-1, partial-vvv/
+  // www), geometric (p=0, partial-ttt/uuu), arithmetic (p=1, partial-hhh/
+  // iii), quadratic (p=2, partial-xxx/yyy), cubic (p=3, partial-zzz/aaaa),
+  // quartic (p=4, partial-bbbb/cccc), quintic (p=5, partial-dddd/eeee),
+  // sextic (p=6, partial-ffff/gggg), septic (p=7, partial-hhhh/iiii), octic
+  // (p=8, partial-jjjj/THIS)} x {shell, JSON} to full parity, surfacing the
+  // complete monotone power-mean ordering
+  // OCM >= SPM >= SXM >= QIM >= QUM >= CM >= QM >= AM >= GM >= HM at
+  // structural-JSON parity for offline-worker drivers gating the
+  // ~20 CPU-hour batch. Numerical stability: uses the (((x^2)^2)^2)
+  // factorization (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  // octSum += w4 * w4;) to avoid calling Math.pow in the inner reduce loop,
+  // matching the partial-jjjj shell-form inline-multiply cadence that
+  // produces the same bit-pattern on IEEE-754 across Node versions.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let octmeanSec = null;
+  if (known.length > 0) {
+    const octSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      return s + w4 * w4;
+    }, 0);
+    octmeanSec = Math.pow(octSum / known.length, 1 / 8);
+  }
+  const octmeanHours = octmeanSec === null ? null : octmeanSec / 3600;
+  const body = {
+    octmeanSec,
+    octmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

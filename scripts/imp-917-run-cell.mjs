@@ -16,6 +16,7 @@
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
+//   node scripts/imp-917-run-cell.mjs --verify-prototype-json
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
 //   node scripts/imp-917-run-cell.mjs --dry-run-all-json
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
@@ -62,6 +63,16 @@
 // run, which would otherwise only surface when node cannot resolve the entry
 // point at cell spawn time. Exits 0 on success, 1 with an error message on
 // missing / non-regular-file.
+//
+// --verify-prototype-json is the structural JSON analog of --verify-prototype.
+// Emits one object {ok, path, sizeBytes, error} where path is always populated,
+// sizeBytes is the regular-file size on success and null on failure, and error
+// is null on success or a human-readable string on failure (stat error message,
+// or "not a regular file"). Exit status matches --verify-prototype (0 on ok,
+// 1 on failure) so Python / jq offline-worker drivers can gate the ~20 CPU-hour
+// run on the JSON body AND the process exit code, completing the {shell, JSON}
+// output matrix for all four pre-flight checks: --verify-plan / --verify-plan-json,
+// --verify-prototype / --verify-prototype-json.
 //
 // --dry-run resolves the full IMP857_* env var set for the given --N/--eps
 // cell (exactly as a real run would) and prints them as copy-pastable shell
@@ -133,6 +144,7 @@ function parseArgs(argv) {
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
+    verifyPrototypeJson: false,
     dryRun: false,
     dryRunJson: false,
     dryRunAll: false,
@@ -150,6 +162,7 @@ function parseArgs(argv) {
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
+    else if (a === '--verify-prototype-json') out.verifyPrototypeJson = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-json') out.dryRunJson = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
@@ -163,6 +176,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-prototype-json\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run|--dry-run-json]\n' +
@@ -286,25 +300,47 @@ const prototypePath = resolve(
   'src/math/imp-857-phase-locked-dyson.mjs',
 );
 
-if (args.verifyPrototype) {
+// Shared by --verify-prototype (shell) and --verify-prototype-json (JSON) so
+// the two diagnostics cannot drift: both check the same path, both classify
+// "not a regular file" the same way, both report the same size.
+function checkPrototype() {
   try {
     const s = statSync(prototypePath);
     if (!s.isFile()) {
-      console.error(
-        `imp-917 --verify-prototype FAILED: ${prototypePath} exists but is not a regular file.`,
-      );
-      process.exit(1);
+      return {
+        ok: false,
+        path: prototypePath,
+        sizeBytes: null,
+        error: 'not a regular file',
+      };
     }
+    return { ok: true, path: prototypePath, sizeBytes: s.size, error: null };
+  } catch (err) {
+    return {
+      ok: false,
+      path: prototypePath,
+      sizeBytes: null,
+      error: `cannot stat: ${err.message}`,
+    };
+  }
+}
+
+if (args.verifyPrototype) {
+  const r = checkPrototype();
+  if (r.ok) {
     console.log(
-      `imp-917 --verify-prototype OK: prototype script present (${prototypePath}, ${s.size} bytes).`,
+      `imp-917 --verify-prototype OK: prototype script present (${r.path}, ${r.sizeBytes} bytes).`,
     );
     process.exit(0);
-  } catch (err) {
-    console.error(
-      `imp-917 --verify-prototype FAILED: cannot stat ${prototypePath}: ${err.message}`,
-    );
-    process.exit(1);
   }
+  console.error(`imp-917 --verify-prototype FAILED: ${r.path}: ${r.error}`);
+  process.exit(1);
+}
+
+if (args.verifyPrototypeJson) {
+  const r = checkPrototype();
+  console.log(JSON.stringify(r, null, 2));
+  process.exit(r.ok ? 0 : 1);
 }
 
 // Resolve one (N, epsTriple) cell into the full IMP857_* env-var set, using

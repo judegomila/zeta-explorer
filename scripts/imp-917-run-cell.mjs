@@ -65,6 +65,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-decmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-decmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -609,6 +610,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-decmean') out.batchPlanCostTripleDecmean = true;
     else if (a === '--batch-plan-cost-triple-decmean-json') out.batchPlanCostTripleDecmeanJson = true;
     else if (a === '--batch-plan-cost-triple-undecmean') out.batchPlanCostTripleUndecmean = true;
+    else if (a === '--batch-plan-cost-triple-undecmean-json') out.batchPlanCostTripleUndecmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -689,6 +691,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-decmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-decmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-undecmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -3277,6 +3280,65 @@ if (args.batchPlanCostTripleDecmeanJson) {
   const body = {
     decmeanSec,
     decmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleUndecmeanJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-undecmean (partial-pppp):
+  // surface the BATCH_PLAN undecic mean (p=11 Kolmogorov power-mean) of per-
+  // triple wall-times as a single object {undecmeanSec, undecmeanHours,
+  // knownCount, unknownCount} so Python / jq offline-worker drivers can
+  // consume the p=11 power-mean central-tendency signal directly without
+  // re-parsing the one-line shell summary and without redoing the seconds-
+  // to-hours conversion, matching the precomputed-hours cadence already
+  // established across every other JSON cost-emitter. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new math; identical
+  // known-row filter (wallSec !== null) to the partial-pppp shell form so
+  // the two flags cannot drift. Handler uses the same (((x^2)^2)^2) * (x^2)
+  // * x factorization as partial-pppp (const w2 = r.wallSec * r.wallSec;
+  // const w4 = w2 * w2; const w8 = w4 * w4; undecSum += w8 * w2 * r.wallSec;)
+  // for numerical-stability parity, avoiding Math.pow in the inner reduce
+  // loop so the JSON and shell bodies agree bit-for-bit on IEEE-754 across
+  // Node versions, then undecmeanSec = Math.pow(undecSum / known.length,
+  // 1 / 11). Odd-exponent p=11 preserves sign (mirroring partial-aaaa
+  // cubmean-json, partial-eeee quintmean-json, partial-iiii septmean-json,
+  // partial-mmmm nonmean-json odd-p observation) but all wallSec values are
+  // strictly positive by construction so no non-positive-wallSec guard is
+  // required. All-unknown degenerate case (known.length === 0) emits
+  // {undecmeanSec: null, undecmeanHours: null, knownCount: 0, unknownCount}
+  // and exits 0 without attempting (0/0)^(1/11) = NaN, matching the
+  // partial-uuu / partial-www / partial-yyy / partial-aaaa / partial-cccc /
+  // partial-eeee / partial-gggg / partial-iiii / partial-kkkk /
+  // partial-mmmm / partial-oooo JSON degenerate cadence. Completes the
+  // {shell, JSON} pair for partial-pppp and brings the Kolmogorov power-mean
+  // tredectet at p in {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
+  // (HM, GM, AM, QM, CM, QUM, QIM, SXM, SPM, OCM, NPM, DCM, UDM) x
+  // {shell, JSON} to full shell/JSON parity, surfacing the complete monotone
+  // ordering
+  // UDM >= DCM >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >= QM >= AM >= GM >= HM
+  // at structural-JSON parity for offline-worker drivers gating the
+  // ~20 CPU-hour batch. Pure data emitter, exit 0 unconditionally (no
+  // validation gate), not wired into --preflight / --preflight-json.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let undecmeanSec = null;
+  if (known.length > 0) {
+    const undecSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      return s + w8 * w2 * r.wallSec;
+    }, 0);
+    undecmeanSec = Math.pow(undecSum / known.length, 1 / 11);
+  }
+  const undecmeanHours = undecmeanSec === null ? null : undecmeanSec / 3600;
+  const body = {
+    undecmeanSec,
+    undecmeanHours,
     knownCount: known.length,
     unknownCount,
   };

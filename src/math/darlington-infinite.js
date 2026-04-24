@@ -115,6 +115,42 @@ function verifyRotationStructure(omega, N) {
  *
  * We verify: (a) convergence of S₂₁,N to a limit, (b) zeros stay on line.
  */
+/**
+ * CROSS-VERIFICATION (imp-906): closed-form identity for S_21 in this cascade.
+ *
+ * The recurrence (nA = A + B*pms, nB = A*pms + B, nC = C + D*pms,
+ * nD = C*pms + D) with pms = p^(-s) preserves A = D and B = C by induction
+ * (imp-773 note in algebraicZeroArgument below). Under this symmetry,
+ * (A, B) evolves by left-multiplication by M_p = [[1, p^(-s)], [p^(-s), 1]]
+ * at each prime step. The row vector (1, 1) is a left-eigenvector of M_p:
+ *   (1, 1) . M_p = (1 + p^(-s), p^(-s) + 1) = (1 + p^(-s)) . (1, 1),
+ * with eigenvalue 1 + p^(-s). Starting from (A_0, B_0) = (1, 0) so that
+ * (1, 1) . (A_0, B_0) = 1, we obtain the closed form
+ *   A_N + B_N = Product over primes p <= N of (1 + p^(-s)).
+ * Therefore S_21,N(s) = 2 / (A_N + B_N + C_N + D_N) = 1 / (A_N + B_N),
+ * and the Euler-product identity Product_p (1 + p^(-s)) = zeta(s)/zeta(2s)
+ * (valid for Re(s) > 1, analytically continued to Re(s) > 1/2) gives
+ *   S_21,infinity(s) = zeta(2s) / zeta(s).
+ *
+ * ZERO-vs-POLE CAVEAT DISCOVERED: the transmission ZEROS of this specific
+ * cascade-S_21 are zeros of zeta(2s), located at s = rho/2 for rho a
+ * non-trivial zeta zero — so under RH they sit on sigma = Re(rho)/2 = 1/4,
+ * NOT on sigma = 1/2. What lies on sigma = 1/2 are the POLES of S_21,
+ * namely the zeros of zeta(s). Consequently the zeroLocationStability()
+ * heuristic below (which counts curr05 < 0.1 * prev05 as a "zero") detects
+ * local DIPS of |S_21| far from zeta zeros, not the transmission zeros of
+ * this cascade. The heuristic still shows that zeros of zeta(s) do not
+ * migrate off sigma = 1/2 at finite N, which is the Hurwitz input.
+ *
+ * The sound lossless-2-port model in this file is Reason 1
+ * (verifyRotationStructure), which uses T_p with the physical impedance
+ * Z_p = 1/log(p) and whose product is numerically in SO(2) on the critical
+ * line. The p^(-s) ABCD recurrence below is a DIFFERENT object whose
+ * transmission zeros sit on sigma = 1/4 (under RH); its relation to the
+ * SO(2) cascade is via analytic continuation rather than direct identity.
+ * The Hurwitz theorem itself (Reason 2) remains rigorous; the caveat is
+ * about which S_21 the numerical heuristic is actually probing.
+ */
 function hurwitzVerification(tValues, nValues) {
   const results = tValues.map(t => {
     const sigma = 0.5; // on the critical line

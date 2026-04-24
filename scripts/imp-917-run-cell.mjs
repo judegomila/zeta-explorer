@@ -15,6 +15,7 @@
 //   node scripts/imp-917-run-cell.mjs --plan-json
 //   node scripts/imp-917-run-cell.mjs --missing-cells
 //   node scripts/imp-917-run-cell.mjs --missing-cells-json
+//   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -66,6 +67,18 @@
 // --verify-plan-json (coverage diff), and --missing-cells (shell analog)
 // to form the MISSING_CELLS source-of-truth quartet: plan shape, target
 // shape (shell + JSON), coverage check.
+//
+// --retuning-table prints IMP_896_RETUNING_CALIBRATION.retuningTable as a
+// human-readable ASCII table (columns: N, k0_star, phaseVel_star, omega_star),
+// the per-N retuning-calibration lookup that resolveCell() consults to pack
+// IMP857_K0 / IMP857_PHASEVEL. Orthogonal to --missing-cells (the 14 target
+// (N, eps) pairs the batch is meant to cover) and to --plan-json / --list
+// (the 6 triple-run invocations): exposes the (N -> k0_star / phaseVel_star)
+// lookup directly so offline-worker operators can eyeball the retuning
+// inputs without opening src/data/imp-896-retuning-calibration.js or running
+// --dry-run per cell to reconstruct the table row by row. Pure data emitter,
+// exits 0 unconditionally (not a check). Shell-only; a --retuning-table-json
+// analog can follow in a future partial.
 //
 // --verify-plan asserts that the BATCH_PLAN below exactly covers the 14
 // MISSING_CELLS in imp-896-retuning-calibration.js (every missing (N, eps)
@@ -218,6 +231,7 @@ function parseArgs(argv) {
     planJson: false,
     missingCells: false,
     missingCellsJson: false,
+    retuningTable: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -242,6 +256,7 @@ function parseArgs(argv) {
     else if (a === '--plan-json') out.planJson = true;
     else if (a === '--missing-cells') out.missingCells = true;
     else if (a === '--missing-cells-json') out.missingCellsJson = true;
+    else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -262,6 +277,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --missing-cells\n' +
           '       node scripts/imp-917-run-cell.mjs --missing-cells-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -357,6 +373,34 @@ if (args.missingCellsJson) {
   console.log(
     JSON.stringify(IMP_896_RETUNING_CALIBRATION.missingCells, null, 2),
   );
+  process.exit(0);
+}
+
+if (args.retuningTable) {
+  // Shell emitter for the per-N retuning-calibration lookup. Prints one row
+  // per retuningTable entry with (k0_star, phaseVel_star, omega_star) formatted
+  // to fixed precision for operator readability. Pure data emitter matching
+  // the --missing-cells cadence (no check, exit 0).
+  const rows = IMP_896_RETUNING_CALIBRATION.retuningTable;
+  const header = ['N', 'k0_star', 'phaseVel_star', 'omega_star'];
+  const body = rows.map((r) => [
+    String(r.N),
+    r.k0_star.toFixed(6),
+    r.phaseVel_star.toFixed(6),
+    r.omega_star.toFixed(6),
+  ]);
+  const widths = header.map((h, col) =>
+    Math.max(h.length, ...body.map((row) => row[col].length)),
+  );
+  const pad = (s, w) => s + ' '.repeat(w - s.length);
+  const fmt = (row) => row.map((v, col) => pad(v, widths[col])).join('  ');
+  const sep = widths.map((w) => '-'.repeat(w)).join('  ');
+  console.log(
+    `imp-917 RETUNING_CALIBRATION.retuningTable (${rows.length} rows):`,
+  );
+  console.log(`  ${fmt(header)}`);
+  console.log(`  ${sep}`);
+  for (const r of body) console.log(`  ${fmt(r)}`);
   process.exit(0);
 }
 

@@ -218,10 +218,7 @@
 // uncoveredNs}), so the --verify-retuning-coverage-json analog reuses it
 // without drift. Paired with --verify-retuning-coverage-json for the
 // {shell, JSON} matrix; wired into --preflight as the appended step 6
-// (shell form; --preflight-json JSON-analog wiring is a separate future
-// partial, matching the partial-r / partial-s shell-first / JSON-second
-// cadence used for --verify-output-target and the partial-aa / partial-bb
-// cadence used for --verify-output-schema).
+// (shell form) and into --preflight-json as the appended step 6 (JSON form).
 //
 // --verify-retuning-coverage-json is the structural JSON analog of
 // --verify-retuning-coverage. Reuses computeRetuningCoverage() so the shell
@@ -236,10 +233,10 @@
 // --verify-plan / --verify-plan-json, --verify-prototype /
 // --verify-prototype-json, --verify-output-target /
 // --verify-output-target-json, and --verify-output-schema /
-// --verify-output-schema-json. Not wired into --preflight / --preflight-json
-// yet (aggregation extension is a separate future partial, matching the
-// partial-p -> partial-q -> partial-r/s and partial-y -> partial-z ->
-// partial-aa/bb cadences for the on-disk and output-schema checks).
+// --verify-output-schema-json. Wired into --preflight as the appended step 6
+// (shell form) and into --preflight-json as the appended step 6 (JSON form),
+// completing the aggregation-level {shell, JSON} pair for every pre-flight
+// check.
 //
 // --preflight runs six shell pre-flight checks in sequence — --verify-plan
 // (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype (prototype script
@@ -255,17 +252,18 @@
 //
 // --preflight-json is the structural JSON analog of --preflight. Emits one
 // object {ok, firstFailingStep, steps: [{step, name, ok, ...}]} aggregating
-// the five checks. Each step object carries the same body that the single-flag
+// the six checks. Each step object carries the same body that the single-flag
 // JSON analog would emit (plan coverage diff, prototype stat, per-cell resolve
-// summary, output-target stat, output-schema token presence). Exit status
-// matches --preflight (0 on all-ok; 1, 2, 3, 4, or 5 on first failing step)
-// so Python / jq offline-worker drivers can gate the batch on a single JSON
-// body and a single exit code, completing the {shell, JSON} pair for every
-// pre-flight check: --verify-plan / --verify-plan-json, --verify-prototype /
-// --verify-prototype-json, --dry-run-all / --dry-run-all-json,
-// --verify-output-target / --verify-output-target-json,
-// --verify-output-schema / --verify-output-schema-json, and --preflight /
-// --preflight-json.
+// summary, output-target stat, output-schema token presence, retuning-table
+// coverage). Exit status matches --preflight (0 on all-ok; 1, 2, 3, 4, 5, or 6
+// on first failing step) so Python / jq offline-worker drivers can gate the
+// batch on a single JSON body and a single exit code, completing the
+// {shell, JSON} pair for every pre-flight check: --verify-plan /
+// --verify-plan-json, --verify-prototype / --verify-prototype-json,
+// --dry-run-all / --dry-run-all-json, --verify-output-target /
+// --verify-output-target-json, --verify-output-schema /
+// --verify-output-schema-json, --verify-retuning-coverage /
+// --verify-retuning-coverage-json, and --preflight / --preflight-json.
 //
 // --dry-run resolves the full IMP857_* env var set for the given --N/--eps
 // cell (exactly as a real run would) and prints them as copy-pastable shell
@@ -1070,11 +1068,12 @@ if (args.preflight) {
 }
 
 if (args.preflightJson) {
-  // Structural JSON analog of --preflight: aggregate the five checks into one
+  // Structural JSON analog of --preflight: aggregate the six checks into one
   // object. Each step body mirrors the corresponding single-flag JSON analog
   // so parsers can reuse the same schema per step. firstFailingStep is the
   // 1-indexed step number of the first failure (or null on all-ok); the process
-  // exit code mirrors that number, matching --preflight (0 / 1 / 2 / 3 / 4 / 5).
+  // exit code mirrors that number, matching --preflight
+  // (0 / 1 / 2 / 3 / 4 / 5 / 6).
   const planResult = computePlanCoverage();
   const protoResult = checkPrototype();
   const resolveRows = [];
@@ -1092,6 +1091,7 @@ if (args.preflightJson) {
   const resolveOk = resolveFailures === 0;
   const outputTargetResult = checkOutputTarget();
   const outputSchemaResult = checkOutputSchema();
+  const retuningCoverageResult = computeRetuningCoverage();
 
   let firstFailingStep = null;
   if (!planResult.ok) firstFailingStep = 1;
@@ -1099,6 +1099,7 @@ if (args.preflightJson) {
   else if (!resolveOk) firstFailingStep = 3;
   else if (!outputTargetResult.ok) firstFailingStep = 4;
   else if (!outputSchemaResult.ok) firstFailingStep = 5;
+  else if (!retuningCoverageResult.ok) firstFailingStep = 6;
 
   const body = {
     ok: firstFailingStep === null,
@@ -1125,6 +1126,12 @@ if (args.preflightJson) {
         name: '--verify-output-schema',
         ok: outputSchemaResult.ok,
         outputSchema: outputSchemaResult,
+      },
+      {
+        step: 6,
+        name: '--verify-retuning-coverage',
+        ok: retuningCoverageResult.ok,
+        retuningCoverage: retuningCoverageResult,
       },
     ],
   };

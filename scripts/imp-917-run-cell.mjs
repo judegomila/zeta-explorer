@@ -13,6 +13,7 @@
 //   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 --dry-run
 //   node scripts/imp-917-run-cell.mjs --list
 //   node scripts/imp-917-run-cell.mjs --plan-json
+//   node scripts/imp-917-run-cell.mjs --missing-cells-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -42,6 +43,19 @@
 // can consume the plan without re-parsing the --list shell one-liners.
 // Pairs naturally with --verify-plan (assert coverage) -> --plan-json (feed
 // into a custom runner) when GNU parallel is not the preferred launcher.
+//
+// --missing-cells-json emits the ground-truth MISSING_CELLS list from
+// src/data/imp-896-retuning-calibration.js verbatim as a JSON array, one
+// object per target cell (fields: N, eps, dt, nSteps, wallSecondsEstPerTripleRun).
+// Orthogonal to --plan-json (which emits BATCH_PLAN, the triple-run packing
+// of MISSING_CELLS): gives offline-worker drivers direct structural access to
+// the 14 (N, eps) pairs the batch is meant to cover, without requiring them
+// to re-derive the set from BATCH_PLAN via the same coverage logic that
+// --verify-plan / --verify-plan-json already encode. Useful for post-batch
+// transcription validators that need to enumerate the target cells
+// independent of the packing. Pairs with --plan-json (packing structure) and
+// --verify-plan-json (coverage diff) to form the MISSING_CELLS source-of-truth
+// trio: plan shape, target shape, coverage check.
 //
 // --verify-plan asserts that the BATCH_PLAN below exactly covers the 14
 // MISSING_CELLS in imp-896-retuning-calibration.js (every missing (N, eps)
@@ -192,6 +206,7 @@ function parseArgs(argv) {
     dt: null,
     list: false,
     planJson: false,
+    missingCellsJson: false,
     verifyPlan: false,
     verifyPlanJson: false,
     verifyPrototype: false,
@@ -214,6 +229,7 @@ function parseArgs(argv) {
     else if (a === '--dt') out.dt = Number(argv[++i]);
     else if (a === '--list') out.list = true;
     else if (a === '--plan-json') out.planJson = true;
+    else if (a === '--missing-cells-json') out.missingCellsJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -232,6 +248,7 @@ function parseArgs(argv) {
         'usage: node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> [--nSteps <k>] [--dt <dt>] [--dry-run]\n' +
           '       node scripts/imp-917-run-cell.mjs --list\n' +
           '       node scripts/imp-917-run-cell.mjs --plan-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --missing-cells-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -287,6 +304,13 @@ if (args.planJson) {
     label: p.label,
   }));
   console.log(JSON.stringify(rows, null, 2));
+  process.exit(0);
+}
+
+if (args.missingCellsJson) {
+  console.log(
+    JSON.stringify(IMP_896_RETUNING_CALIBRATION.missingCells, null, 2),
+  );
   process.exit(0);
 }
 

@@ -111,6 +111,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tritrigintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tritrigintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tetratrigintmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tetratrigintmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -701,6 +702,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-tritrigintmean') out.batchPlanCostTripleTritrigintmean = true;
     else if (a === '--batch-plan-cost-triple-tritrigintmean-json') out.batchPlanCostTripleTritrigintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-tetratrigintmean') out.batchPlanCostTripleTetratrigintmean = true;
+    else if (a === '--batch-plan-cost-triple-tetratrigintmean-json') out.batchPlanCostTripleTetratrigintmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -827,6 +829,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tritrigintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tritrigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tetratrigintmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tetratrigintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -6490,6 +6493,82 @@ if (args.batchPlanCostTripleTetratrigintmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple tetratrigintic-mean wall-time: ${tetratrigintmeanSec.toFixed(0)} s (~${(tetratrigintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleTetratrigintmeanJson) {
+  // partial-kkkkkk: structural JSON analog of partial-jjjjjj
+  // --batch-plan-cost-triple-tetratrigintmean (p=34 Kolmogorov power-mean).
+  // Emits one object {tetratrigintmeanSec, tetratrigintmeanHours,
+  // knownCount, unknownCount} with tetratrigintmeanHours =
+  // tetratrigintmeanSec / 3600 (null when knownCount===0) so
+  // Python / jq offline-worker drivers can consume the p=34 power-mean
+  // central-tendency signal directly without re-parsing the one-line
+  // shell summary and without redoing the seconds-to-hours conversion,
+  // matching the precomputed-hours cadence established across every
+  // prior JSON cost-emitter. Reuses computeBatchPlanCost() (partial-vv
+  // helper) with zero new math; identical known-row filter
+  // (wallSec !== null) to the partial-jjjjjj shell form so the two
+  // flags cannot drift. Applies the same power-of-two squaring chain
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  const w32 = w16 * w16; tetratrigintSum += w32 * w2;)
+  // as partial-jjjjjj for numerical-stability parity, avoiding
+  // Math.pow in the inner reduce loop (34 = 32+2 = 16+16+2, the
+  // cleanest {32,2}-partition factorization the cache admits at this
+  // exponent) so the JSON and shell bodies agree bit-for-bit on
+  // IEEE-754 across Node versions, then tetratrigintmeanSec =
+  // Math.pow(tetratrigintSum / known.length, 1 / 34). Even p=34
+  // erases sign and wallSec values are strictly positive by
+  // construction (wall clock measurements) so no sign guard is
+  // required (mirroring the partial-zzz / partial-dddd / partial-hhhh
+  // / partial-llll / partial-pppp / partial-tttt / partial-xxxx /
+  // partial-bbbbb / partial-fffff / partial-jjjjj / partial-nnnnn /
+  // partial-rrrrr / partial-uuuuu / partial-yyyyy / partial-aaaaaa /
+  // partial-cccccc / partial-gggggg even-p JSON cadence).
+  // All-unknown degenerate case (known.length===0) emits
+  // {tetratrigintmeanSec: null, tetratrigintmeanHours: null,
+  //  knownCount: 0, unknownCount} and exits 0 without attempting
+  // (0/0)^(1/34) = NaN, matching the JSON degenerate cadence across
+  // every prior JSON power-mean emitter. Completes the {shell, JSON}
+  // pair for partial-jjjjjj and brings the Kolmogorov power-mean
+  // family at p in {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+  // 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+  // 29, 30, 31, 32, 33, 34} x {shell, JSON} to full shell/JSON
+  // parity at thirty-six exponents; the monotone ordering
+  // TTGM34 >= TRGM33 >= DTGM32 >= UTGM31 >= TGM30 >= NVGM29
+  //   >= OVGM28 >= SPVGM27 >= SXVGM26 >= QIVGM25 >= QVGM24
+  //   >= TVGM23 >= DVGM22 >= UVGM21 >= VGM20 >= NVDM19 >= OCDM18
+  //   >= SPM17 >= SDM >= QIM15 >= QDM >= TRM >= DUM >= UDM >= DCM
+  //   >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >= QM >= AM
+  //   >= GM >= HM
+  // now holds at structural-JSON parity for offline-worker drivers
+  // gating the ~20 CPU-hour batch. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let tetratrigintmeanSec = null;
+  if (known.length > 0) {
+    const tetratrigintSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      const w16 = w8 * w8;
+      const w32 = w16 * w16;
+      return s + w32 * w2;
+    }, 0);
+    tetratrigintmeanSec = Math.pow(tetratrigintSum / known.length, 1 / 34);
+  }
+  const tetratrigintmeanHours =
+    tetratrigintmeanSec === null ? null : tetratrigintmeanSec / 3600;
+  const body = {
+    tetratrigintmeanSec,
+    tetratrigintmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

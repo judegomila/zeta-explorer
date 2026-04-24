@@ -26,6 +26,7 @@
 //   node scripts/imp-917-run-cell.mjs --verify-output-target-json
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema
 //   node scripts/imp-917-run-cell.mjs --verify-output-schema-json
+//   node scripts/imp-917-run-cell.mjs --verify-retuning-coverage
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
 //   node scripts/imp-917-run-cell.mjs --dry-run-all-json
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
@@ -198,6 +199,26 @@
 // (matching --preflight's step 4) so the aggregated shell and JSON pre-flights
 // both end with the same output-target stat check.
 //
+// --verify-retuning-coverage is a data-integrity pre-flight check on the
+// imported IMP_896_RETUNING_CALIBRATION module itself: asserts every N value
+// in missingCells has a corresponding row in retuningTable, so the
+// (N -> k0_star / phaseVel_star) lookup that resolveCell() performs per
+// BATCH_PLAN cell cannot silently miss. Orthogonal to --verify-plan
+// (BATCH_PLAN vs MISSING_CELLS coverage) and to the on-disk presence trio
+// (--verify-prototype / --verify-output-target / --verify-output-schema):
+// catches the silent drift where MISSING_CELLS gains a new N before
+// retuningTable does, which would otherwise only surface as a
+// "N=<val> not in RETUNING_CALIBRATION" error at dry-run-all / actual
+// spawn time with no up-front diagnostic naming the missing N set.
+// Prints imp-917 --verify-retuning-coverage OK on success (exit=0); prints
+// a FAILED diagnostic listing the uncovered N values on failure (exit=1).
+// Uses a new computeRetuningCoverage() helper, shaped like
+// computePlanCoverage() (returns {ok, missingCellNs, retuningTableNs,
+// uncoveredNs}), so a future --verify-retuning-coverage-json analog can
+// reuse it without drift. Shell-only for this partial; the JSON analog and
+// --preflight / --preflight-json wiring can follow in future partials per
+// the established standalone-first / aggregate-later cadence.
+//
 // --preflight runs five shell pre-flight checks in sequence — --verify-plan
 // (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype (prototype script
 // exists), --dry-run-all (every BATCH_PLAN cell resolves its IMP857_* env-var
@@ -303,6 +324,7 @@ function parseArgs(argv) {
     verifyOutputTargetJson: false,
     verifyOutputSchema: false,
     verifyOutputSchemaJson: false,
+    verifyRetuningCoverage: false,
     dryRun: false,
     dryRunJson: false,
     dryRunAll: false,
@@ -332,6 +354,7 @@ function parseArgs(argv) {
     else if (a === '--verify-output-target-json') out.verifyOutputTargetJson = true;
     else if (a === '--verify-output-schema') out.verifyOutputSchema = true;
     else if (a === '--verify-output-schema-json') out.verifyOutputSchemaJson = true;
+    else if (a === '--verify-retuning-coverage') out.verifyRetuningCoverage = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-json') out.dryRunJson = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
@@ -357,6 +380,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-output-target-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-schema-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-retuning-coverage\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run|--dry-run-json]\n' +
@@ -719,6 +743,48 @@ if (args.verifyOutputSchemaJson) {
   const r = checkOutputSchema();
   console.log(JSON.stringify(r, null, 2));
   process.exit(r.ok ? 0 : 1);
+}
+
+// Data-integrity sibling of computePlanCoverage(): assert every N in
+// IMP_896_RETUNING_CALIBRATION.missingCells has a matching row in
+// IMP_896_RETUNING_CALIBRATION.retuningTable. Orthogonal to --verify-plan
+// (BATCH_PLAN vs MISSING_CELLS) and the on-disk trio (--verify-prototype /
+// --verify-output-target / --verify-output-schema): catches the silent drift
+// where MISSING_CELLS gains a new N before retuningTable does, which would
+// otherwise only surface as an "N=<val> not in RETUNING_CALIBRATION" error
+// at dry-run-all / actual spawn time. Shared-shape return so a future
+// --verify-retuning-coverage-json partial can reuse it without drift.
+function computeRetuningCoverage() {
+  const retuningNs = new Set(
+    IMP_896_RETUNING_CALIBRATION.retuningTable.map((r) => r.N),
+  );
+  const missingNs = [
+    ...new Set(IMP_896_RETUNING_CALIBRATION.missingCells.map((c) => c.N)),
+  ];
+  const uncoveredNs = missingNs.filter((n) => !retuningNs.has(n));
+  return {
+    ok: uncoveredNs.length === 0,
+    missingCellNs: missingNs,
+    retuningTableNs: [...retuningNs],
+    uncoveredNs,
+  };
+}
+
+if (args.verifyRetuningCoverage) {
+  const r = computeRetuningCoverage();
+  if (r.ok) {
+    console.log(
+      `imp-917 --verify-retuning-coverage OK: every N in MISSING_CELLS (${r.missingCellNs.join(', ')}) has a retuningTable row (retuningTable N set: ${r.retuningTableNs.join(', ')}).`,
+    );
+    process.exit(0);
+  }
+  console.error(
+    `imp-917 --verify-retuning-coverage FAILED: ${r.uncoveredNs.length} MISSING_CELLS N value(s) lack a retuningTable row: ${r.uncoveredNs.join(', ')}`,
+  );
+  console.error(
+    `  (missingCell N set: ${r.missingCellNs.join(', ')}; retuningTable N set: ${r.retuningTableNs.join(', ')})`,
+  );
+  process.exit(1);
 }
 
 // Resolve one (N, epsTriple) cell into the full IMP857_* env-var set, using

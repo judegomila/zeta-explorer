@@ -127,6 +127,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquadragintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquadragintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquadragintmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquadragintmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -733,6 +734,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-unquadragintmean') out.batchPlanCostTripleUnquadragintmean = true;
     else if (a === '--batch-plan-cost-triple-unquadragintmean-json') out.batchPlanCostTripleUnquadragintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-duoquadragintmean') out.batchPlanCostTripleDuoquadragintmean = true;
+    else if (a === '--batch-plan-cost-triple-duoquadragintmean-json') out.batchPlanCostTripleDuoquadragintmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -875,6 +877,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquadragintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquadragintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquadragintmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duoquadragintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -7719,6 +7722,85 @@ if (args.batchPlanCostTripleDuoquadragintmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple duoquadragintic-mean wall-time: ${duoquadragintmeanSec.toFixed(0)} s (~${(duoquadragintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleDuoquadragintmeanJson) {
+  // partial-aaaaaaa: structural JSON analog of
+  // --batch-plan-cost-triple-duoquadragintmean (p=42 Kolmogorov power-mean),
+  // completing the {shell, JSON} pair for partial-zzzzzz and bringing the
+  // Kolmogorov power-mean family at p in {-1, 0, 1..42} x {shell, JSON}
+  // to full shell/JSON parity at forty-four exponents (eighty-eight
+  // emitters in total across the power-mean axis).
+  // Emits one object {duoquadragintmeanSec, duoquadragintmeanHours,
+  // knownCount, unknownCount} with duoquadragintmeanHours =
+  // duoquadragintmeanSec / 3600 (null when knownCount===0) so Python / jq
+  // offline-worker drivers can consume the p=42 power-mean central-tendency
+  // signal directly without re-parsing the one-line shell summary and
+  // without redoing the seconds-to-hours conversion, matching the
+  // precomputed-hours cadence established across every prior JSON
+  // cost-emitter. Reuses computeBatchPlanCost() (partial-vv helper) with
+  // zero new math; identical known-row filter (wallSec !== null) to the
+  // partial-zzzzzz shell form so the two flags cannot drift. Applies the
+  // same cached squaring chain
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8;
+  //  const w32 = w16 * w16; duoquadragintSum += w32 * w8 * w2;)
+  // as partial-zzzzzz for numerical-stability parity, avoiding Math.pow
+  // in the inner reduce loop (42 = 32+8+2, the cleanest {32,8,2}-partition
+  // factorization the cache admits at this even exponent, promoting the
+  // partial-yyyyyy unquadragintmean-json w32 * w8 * r.wallSec (41 = 32+8+1)
+  // three-summand odd-p decomposition by swapping the trailing r.wallSec
+  // for w2 to reach the next even exponent -- contrasting partial-wwwwww
+  // quadragintmean-json w32 * w8 (40 = 32+8) two-summand even-p
+  // decomposition two lower which did not need a trailing square) so the
+  // JSON and shell bodies agree bit-for-bit on IEEE-754 across Node
+  // versions, then
+  // duoquadragintmeanSec = Math.pow(duoquadragintSum / known.length, 1 / 42).
+  // Even p=42 makes x^42 >= 0 for all real x and wallSec values are
+  // strictly positive by construction (wall-clock measurements) so no sign
+  // guard is required, mirroring the partial-ww / partial-aaaa (actually
+  // even-p) / partial-bbbbbb / partial-ffffff / partial-jjjjjj /
+  // partial-nnnnnn / partial-rrrrrr / partial-vvvvvv even-p JSON cadence.
+  // All-unknown degenerate case (known.length===0) emits
+  // {duoquadragintmeanSec: null, duoquadragintmeanHours: null,
+  //  knownCount: 0, unknownCount} and exits 0 without attempting
+  // (0/0)^(1/42) = NaN, matching the JSON degenerate cadence across
+  // every prior JSON power-mean emitter. The monotone ordering
+  // DQGM42 >= UQGM41 >= QGM40 >= NTGM39 >= OTGM38 >= HPTGM37 >= HTGM36
+  //   >= PTGM35 >= TTGM34 >= TRGM33 >= DTGM32 >= UTGM31 >= TGM30
+  //   >= NVGM29 >= OVGM28 >= SPVGM27 >= SXVGM26 >= QIVGM25 >= QVGM24
+  //   >= TVGM23 >= DVGM22 >= UVGM21 >= VGM20 >= NVDM19 >= OCDM18
+  //   >= SPM17 >= SDM >= QIM15 >= QDM >= TRM >= DUM >= UDM >= DCM
+  //   >= NPM >= OCM >= SPM >= SXM >= QIM >= QUM >= CM >= QM >= AM
+  //   >= GM >= HM
+  // now holds at structural-JSON parity for offline-worker drivers
+  // gating the ~20 CPU-hour batch. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let duoquadragintmeanSec = null;
+  if (known.length > 0) {
+    const duoquadragintSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      const w16 = w8 * w8;
+      const w32 = w16 * w16;
+      return s + w32 * w8 * w2;
+    }, 0);
+    duoquadragintmeanSec = Math.pow(duoquadragintSum / known.length, 1 / 42);
+  }
+  const duoquadragintmeanHours =
+    duoquadragintmeanSec === null ? null : duoquadragintmeanSec / 3600;
+  const body = {
+    duoquadragintmeanSec,
+    duoquadragintmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

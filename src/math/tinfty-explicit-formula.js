@@ -111,6 +111,61 @@ function verifyAtX(x, numZeros) {
   };
 }
 
+// ── Independent verification notes (imp-916) ───────────────────────────────
+// Cross-verification of the formulas and edge behavior in this module:
+//
+// (1) vonMangoldt(n) — CORRECT.
+//     Returns log(p) iff n = p^k (k≥1), else 0. Trial division peels off
+//     the smallest prime factor p; if anything remains after dividing out
+//     all p-powers, two distinct primes are present and the function
+//     returns 0. If no divisor d with d·d ≤ n is found, n is prime.
+//     Spot checks: Λ(1)=0, Λ(2)=log 2, Λ(4)=log 2, Λ(6)=0, Λ(8)=log 2,
+//     Λ(9)=log 3, Λ(12)=0, Λ(13)=log 13.
+//
+// (2) chebyshevPsi(x) — CORRECT.
+//     Reference value: ψ(10) = Λ(2)+Λ(3)+Λ(4)+Λ(5)+Λ(7)+Λ(8)+Λ(9)
+//     = 3·log 2 + 2·log 3 + log 5 + log 7 ≈ 7.832015.
+//     The ψ₀ midpoint adjustment only triggers when x equals a prime power,
+//     matching the Riemann-von-Mangoldt convention for jumps.
+//
+// (3) zeroSumContribution(x, γ) — CORRECT.
+//     For ρ = ½+iγ and its conjugate:
+//       x^ρ/ρ + x^ρ̄/ρ̄ = 2·Re(x^ρ/ρ).
+//     With x^ρ = √x · (cos(γ log x) + i sin(γ log x)) and
+//     1/ρ = (½ − iγ)/(¼+γ²), expanding (a+ib)(c−id) gives real part
+//     a·c + b·d = ½·cos(γ log x) + γ·sin(γ log x), so
+//       Re(x^ρ/ρ) = √x · (½ cos + γ sin) / (¼+γ²).
+//     This is exactly the kernel implemented at line 84; the factor of 2
+//     applied at line 85 accounts for the conjugate pair.
+//
+// (4) Trivial-zero correction − ½ log(1 − x^(−2)) — CORRECT.
+//     Trivial zeros sit at ρ = −2k (k ≥ 1). Their explicit-formula
+//     contribution is Σ_{k≥1} x^(−2k) divided by (−2k), which equals
+//     −½ · Σ_{k≥1} x^(−2k) / k = ½ · log(1 − x^(−2)). Subtracting this
+//     term recovers the standard shape.
+//
+// (5) Edge cases / NaN safety.
+//     log(1 − x^(−2)) requires x > 1; all test x-values {10.5, 20.5, 50.5,
+//     100.5, 200.5} satisfy this. vonMangoldt(n) returns 0 for n < 2, so
+//     no division-by-zero or Math.log(0) arises. No path produces NaN or
+//     Infinity under the intended inputs.
+//
+// (6) Caveat on the "formulaVerified" flag.
+//     The check maxErrorAt100Zeros < 1.0 is EMPIRICAL, not a proven bound.
+//     The classical truncation error using the first N zeros is
+//     O(x · log²(x·T_N) / T_N) where T_N is the height of the Nth zero.
+//     For x = 200.5 and N = 100 (T_100 ≈ 236), that bound is on the order
+//     of 10-30, i.e. WEAKER than the empirical error. Agreement within 1
+//     reflects partial-sum cancellation in this regime, not a worst-case
+//     guarantee. Treat formulaVerified as a smoke-test flag, and expect
+//     it to break if the test grid is pushed to larger x or onto exact
+//     prime powers without updating the tolerance.
+//
+// Verdict: main computations are correct and the explicit-formula
+// derivation matches the implementation; "formulaVerified" is a useful
+// sanity check but should not be read as an analytic certificate.
+// ───────────────────────────────────────────────────────────────────────
+
 // ── Main test ────────────────────────────────────────────────────────────────
 
 export function tInftyExplicitFormulaTest() {

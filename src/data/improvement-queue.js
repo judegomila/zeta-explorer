@@ -11534,12 +11534,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Cross-verify tinfty-explicit-formula.js: independent check of key computations",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: "Read src/math/tinfty-explicit-formula.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-24T01:05:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Full closure (not honest-partial): added a ~55-line inline verification block before tInftyExplicitFormulaTest documenting six independent checks. (1) vonMangoldt(n) correct (returns log(p) iff n = p^k). (2) chebyshevPsi matches hand-computed reference psi(10) = 3 log 2 + 2 log 3 + log 5 + log 7 approx 7.832015. (3) zeroSumContribution re-derived from x^rho/rho + x^rho-bar/rho-bar = 2 Re(x^rho/rho) with rho = 1/2 + i gamma; matches the kernel at line 84 and the factor of 2 at line 85. (4) Trivial-zero correction 1/2 log(1 - x^(-2)) re-derived from sum_{k>=1} x^(-2k)/(-2k). (5) Edge cases clean (x > 1, no log(0), no NaN). (6) HONEST CAVEAT: the formulaVerified < 1.0 flag is empirical, NOT analytic — classical truncation bound O(x log^2(x T_N) / T_N) gives approx 10-30 for x = 200.5 with N = 100 zeros; agreement within 1 reflects partial-sum cancellation rather than a worst-case guarantee. Documentation-only audit; no functional code changes to the module. npm run build passes.',
   },
 
     {

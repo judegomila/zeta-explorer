@@ -24,6 +24,7 @@
 //   node scripts/imp-917-run-cell.mjs --verify-prototype-json
 //   node scripts/imp-917-run-cell.mjs --verify-output-target
 //   node scripts/imp-917-run-cell.mjs --verify-output-target-json
+//   node scripts/imp-917-run-cell.mjs --verify-output-schema
 //   node scripts/imp-917-run-cell.mjs --dry-run-all
 //   node scripts/imp-917-run-cell.mjs --dry-run-all-json
 //   node scripts/imp-917-run-cell.mjs --cell 3 [--dry-run]
@@ -151,6 +152,20 @@
 // the operator tries to transcribe rows back and finds no MEASURED_ROWS block
 // to edit. Exits 0 on success, 1 with a diagnostic on missing / non-regular-file.
 //
+// --verify-output-schema asserts that the transcription target file still
+// declares the MEASURED_ROWS array — the exact identifier where the 14 measured
+// rows must be appended after the batch completes. Orthogonal to
+// --verify-output-target (which only stat()s the file): catches the silent
+// failure where the file exists but the transcription target identifier has
+// been renamed, deleted, or restructured between infrastructure work and the
+// ~20 CPU-hour offline run, which would otherwise only surface when the
+// operator tries to append measured rows and cannot find the MEASURED_ROWS
+// block. Reads the file via readFileSync and checks for the literal substring
+// `const MEASURED_ROWS = [`. Exits 0 on success, 1 with a specific diagnostic
+// on read error or missing identifier. Shell-only; a --verify-output-schema-json
+// analog can follow in a future partial. Not wired into --preflight /
+// --preflight-json yet (separate future partial once the JSON analog lands).
+//
 // --verify-output-target-json is the structural JSON analog of
 // --verify-output-target. Emits one object {ok, path, sizeBytes, error} where
 // path is always populated, sizeBytes is the regular-file size on success and
@@ -237,7 +252,7 @@
 // src/data/imp-857-phased-forcing-sweep.js.
 
 import { spawnSync } from 'node:child_process';
-import { statSync } from 'node:fs';
+import { readFileSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
@@ -266,6 +281,7 @@ function parseArgs(argv) {
     verifyPrototypeJson: false,
     verifyOutputTarget: false,
     verifyOutputTargetJson: false,
+    verifyOutputSchema: false,
     dryRun: false,
     dryRunJson: false,
     dryRunAll: false,
@@ -293,6 +309,7 @@ function parseArgs(argv) {
     else if (a === '--verify-prototype-json') out.verifyPrototypeJson = true;
     else if (a === '--verify-output-target') out.verifyOutputTarget = true;
     else if (a === '--verify-output-target-json') out.verifyOutputTargetJson = true;
+    else if (a === '--verify-output-schema') out.verifyOutputSchema = true;
     else if (a === '--dry-run') out.dryRun = true;
     else if (a === '--dry-run-json') out.dryRunJson = true;
     else if (a === '--dry-run-all') out.dryRunAll = true;
@@ -316,6 +333,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --verify-prototype-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-output-target-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --verify-output-schema\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all\n' +
           '       node scripts/imp-917-run-cell.mjs --dry-run-all-json\n' +
           '       node scripts/imp-917-run-cell.mjs --cell <index> [--dry-run|--dry-run-json]\n' +
@@ -632,6 +650,46 @@ if (args.verifyOutputTargetJson) {
   const r = checkOutputTarget();
   console.log(JSON.stringify(r, null, 2));
   process.exit(r.ok ? 0 : 1);
+}
+
+// Schema-level sibling of checkOutputTarget(): the stat check only proves the
+// file exists, it does not prove the MEASURED_ROWS identifier the transcription
+// step targets has survived. Shared-shape return so a future
+// --verify-output-schema-json partial can reuse it without drift.
+const OUTPUT_SCHEMA_TOKEN = 'const MEASURED_ROWS = [';
+
+function checkOutputSchema() {
+  try {
+    const content = readFileSync(outputTargetPath, 'utf8');
+    if (!content.includes(OUTPUT_SCHEMA_TOKEN)) {
+      return {
+        ok: false,
+        path: outputTargetPath,
+        token: OUTPUT_SCHEMA_TOKEN,
+        error: `identifier \`${OUTPUT_SCHEMA_TOKEN}\` not found`,
+      };
+    }
+    return { ok: true, path: outputTargetPath, token: OUTPUT_SCHEMA_TOKEN, error: null };
+  } catch (err) {
+    return {
+      ok: false,
+      path: outputTargetPath,
+      token: OUTPUT_SCHEMA_TOKEN,
+      error: `cannot read: ${err.message}`,
+    };
+  }
+}
+
+if (args.verifyOutputSchema) {
+  const r = checkOutputSchema();
+  if (r.ok) {
+    console.log(
+      `imp-917 --verify-output-schema OK: ${r.path} declares \`${OUTPUT_SCHEMA_TOKEN}\`.`,
+    );
+    process.exit(0);
+  }
+  console.error(`imp-917 --verify-output-schema FAILED: ${r.path}: ${r.error}`);
+  process.exit(1);
 }
 
 // Resolve one (N, epsTriple) cell into the full IMP857_* env-var set, using

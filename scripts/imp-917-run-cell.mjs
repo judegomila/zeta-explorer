@@ -145,6 +145,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquagintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquagintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquinquagintmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquinquagintmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -769,6 +770,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-quinquagintmean') out.batchPlanCostTripleQuinquagintmean = true;
     else if (a === '--batch-plan-cost-triple-quinquagintmean-json') out.batchPlanCostTripleQuinquagintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-unquinquagintmean') out.batchPlanCostTripleUnquinquagintmean = true;
+    else if (a === '--batch-plan-cost-triple-unquinquagintmean-json') out.batchPlanCostTripleUnquinquagintmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -929,6 +931,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquinquagintmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unquinquagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -8929,11 +8932,12 @@ if (args.batchPlanCostTripleUnquinquagintmean) {
   // cadence. All-unknown degenerate case (known.length === 0) prints a
   // dedicated unknown summary and exits 0 rather than
   // (0/0)^(1/51) = NaN. Pure data emitter, exit 0 unconditionally (no
-  // validation gate), not wired into --preflight / --preflight-json. To be
-  // paired in a future partial with the structural JSON analog
-  // --batch-plan-cost-triple-unquinquagintmean-json, matching the
-  // shell-first / JSON-second cadence established across every other
-  // cost-emitter axis. Reuses computeBatchPlanCost() (partial-vv helper)
+  // validation gate), not wired into --preflight / --preflight-json. Paired
+  // in partial-sssssss with the structural JSON analog
+  // --batch-plan-cost-triple-unquinquagintmean-json, completing the
+  // shell/JSON pair at p=51 and matching the shell-first / JSON-second
+  // cadence established across every other cost-emitter axis. Reuses
+  // computeBatchPlanCost() (partial-vv helper)
   // with zero new batch-plan logic. Honest-partial: imp-917 stays
   // pending -- the ~20 CPU-hour offline execution of the 14 measurement
   // rows remains the honest closure condition; this partial extends the
@@ -8963,6 +8967,71 @@ if (args.batchPlanCostTripleUnquinquagintmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple unquinquagintic-mean wall-time: ${unquinquagintmeanSec.toFixed(0)} s (~${(unquinquagintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleUnquinquagintmeanJson) {
+  // partial-sssssss: structural JSON analog of
+  // --batch-plan-cost-triple-unquinquagintmean (p=51 Kolmogorov power-mean),
+  // completing the {shell, JSON} pair for partial-rrrrrrr and bringing the
+  // Kolmogorov power-mean family at p in {-1, 0, 1..51} x {shell, JSON} to
+  // full shell/JSON parity at fifty-three exponents (one hundred six
+  // emitters in total across the power-mean axis, crossing the p=51
+  // un-quinquagint prefix boundary in both forms). Emits one object
+  // {unquinquagintmeanSec, unquinquagintmeanHours, knownCount, unknownCount}
+  // with unquinquagintmeanHours = unquinquagintmeanSec / 3600 (null when
+  // knownCount===0) so Python / jq offline-worker drivers can consume the
+  // p=51 power-mean central-tendency signal directly without re-parsing the
+  // one-line shell summary and without redoing the seconds-to-hours
+  // conversion, matching the precomputed-hours cadence established across
+  // every prior JSON cost-emitter. Reuses computeBatchPlanCost() (partial-vv
+  // helper) with zero new math; identical known-row filter (wallSec !== null)
+  // to the partial-rrrrrrr shell form so the two flags cannot drift. Applies
+  // the same cached squaring chain (const w2 = r.wallSec * r.wallSec;
+  // const w4 = w2 * w2; const w8 = w4 * w4; const w16 = w8 * w8;
+  // const w32 = w16 * w16; unquinquagintSum += w32 * w16 * w2 * r.wallSec;)
+  // as partial-rrrrrrr for numerical-stability parity and IEEE-754 bit
+  // parity, avoiding Math.pow in the inner reduce loop (51 = 32+16+2+1, the
+  // four-summand odd-p partition the cache admits, extending the
+  // partial-qqqqqqq quinquagintmean-json w32*w16*w2 (50=32+16+2) even-p
+  // decomposition by re-introducing the trailing r.wallSec factor to reach
+  // the next odd exponent with exactly one additional multiplication). Odd
+  // p=51 preserves sign; wallSec values are strictly positive by
+  // construction (wall-clock measurements) so no sign guard is required,
+  // matching every prior odd-p JSON emitter. All-unknown degenerate case
+  // (known.length===0) emits
+  // {unquinquagintmeanSec: null, unquinquagintmeanHours: null,
+  //  knownCount: 0, unknownCount} and exits 0 without attempting
+  // (0/0)^(1/51) = NaN, matching the JSON degenerate cadence across every
+  // prior JSON power-mean emitter. Pure data emitter, exit 0 unconditionally
+  // (no validation gate), not wired into --preflight / --preflight-json.
+  // Honest-partial: imp-917 stays pending -- the ~20 CPU-hour offline
+  // execution of the 14 measurement rows remains the honest closure
+  // condition; this partial closes the JSON half of the power-mean pair at
+  // p=51.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let unquinquagintmeanSec = null;
+  if (known.length > 0) {
+    const unquinquagintSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      const w16 = w8 * w8;
+      const w32 = w16 * w16;
+      return s + w32 * w16 * w2 * r.wallSec;
+    }, 0);
+    unquinquagintmeanSec = Math.pow(unquinquagintSum / known.length, 1 / 51);
+  }
+  const unquinquagintmeanHours =
+    unquinquagintmeanSec === null ? null : unquinquagintmeanSec / 3600;
+  const body = {
+    unquinquagintmeanSec,
+    unquinquagintmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

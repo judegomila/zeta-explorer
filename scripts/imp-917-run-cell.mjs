@@ -102,14 +102,18 @@
 // diagnostics cannot drift. Not wired into --preflight / --preflight-json yet
 // (separate future partial).
 //
-// --preflight runs the three existing shell pre-flight checks in sequence —
-// --verify-plan (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype
-// (prototype script exists), --dry-run-all (every BATCH_PLAN cell resolves its
-// IMP857_* env-var pack) — and aggregates the results. Prints a per-step banner
-// and a final PASS / FAILED summary. Exits 0 only if all three pass; otherwise
-// exits with the step number (1, 2, or 3) of the first failing step, so an
-// offline-worker driver can gate the ~20 CPU-hour batch on a single command
-// rather than orchestrating three separate invocations and three exit codes.
+// --preflight runs four shell pre-flight checks in sequence — --verify-plan
+// (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype (prototype script
+// exists), --dry-run-all (every BATCH_PLAN cell resolves its IMP857_* env-var
+// pack), --verify-output-target (transcription target exists) — and aggregates
+// the results. Prints a per-step banner and a final PASS / FAILED summary.
+// Exits 0 only if all four pass; otherwise exits with the step number
+// (1, 2, 3, or 4) of the first failing step, so an offline-worker driver can
+// gate the ~20 CPU-hour batch on a single command rather than orchestrating
+// four separate invocations and four exit codes. The --preflight-json analog
+// still aggregates three steps in this partial; a matching step-4 extension
+// is a separate future partial (preserves the partial-n / partial-o cadence
+// of landing shell first, JSON second).
 //
 // --preflight-json is the structural JSON analog of --preflight. Emits one
 // object {ok, firstFailingStep, steps: [{step, name, ok, ...}]} aggregating
@@ -597,11 +601,12 @@ if (args.dryRunAllJson) {
 }
 
 if (args.preflight) {
-  // Sequenced shell pre-flight: verify-plan -> verify-prototype -> dry-run-all.
-  // Each step mirrors the corresponding standalone flag so operator output is
-  // familiar. On failure, exits with the 1-indexed step number so the driver
-  // can tell which step tripped without parsing stdout.
-  console.log('=== imp-917 --preflight step 1/3: --verify-plan ===');
+  // Sequenced shell pre-flight: verify-plan -> verify-prototype -> dry-run-all
+  // -> verify-output-target. Each step mirrors the corresponding standalone
+  // flag so operator output is familiar. On failure, exits with the 1-indexed
+  // step number so the driver can tell which step tripped without parsing
+  // stdout.
+  console.log('=== imp-917 --preflight step 1/4: --verify-plan ===');
   const planResult = computePlanCoverage();
   if (!planResult.ok) {
     console.error('imp-917 --preflight FAILED at step 1 (--verify-plan):');
@@ -623,7 +628,7 @@ if (args.preflight) {
     `  OK: BATCH_PLAN covers all ${planResult.missingCount} MISSING_CELLS exactly.`,
   );
 
-  console.log('=== imp-917 --preflight step 2/3: --verify-prototype ===');
+  console.log('=== imp-917 --preflight step 2/4: --verify-prototype ===');
   const protoResult = checkPrototype();
   if (!protoResult.ok) {
     console.error(
@@ -635,7 +640,7 @@ if (args.preflight) {
     `  OK: prototype script present (${protoResult.path}, ${protoResult.sizeBytes} bytes).`,
   );
 
-  console.log('=== imp-917 --preflight step 3/3: --dry-run-all ===');
+  console.log('=== imp-917 --preflight step 3/4: --dry-run-all ===');
   let resolveFailures = 0;
   for (let i = 0; i < BATCH_PLAN.length; i++) {
     const p = BATCH_PLAN[i];
@@ -657,7 +662,19 @@ if (args.preflight) {
     `  OK: all ${BATCH_PLAN.length} BATCH_PLAN cells resolved cleanly.`,
   );
 
-  console.log('imp-917 --preflight PASS: all 3 steps OK, offline batch ready to launch.');
+  console.log('=== imp-917 --preflight step 4/4: --verify-output-target ===');
+  const outputTargetResult = checkOutputTarget();
+  if (!outputTargetResult.ok) {
+    console.error(
+      `imp-917 --preflight FAILED at step 4 (--verify-output-target): ${outputTargetResult.path}: ${outputTargetResult.error}`,
+    );
+    process.exit(4);
+  }
+  console.log(
+    `  OK: transcription target present (${outputTargetResult.path}, ${outputTargetResult.sizeBytes} bytes).`,
+  );
+
+  console.log('imp-917 --preflight PASS: all 4 steps OK, offline batch ready to launch.');
   process.exit(0);
 }
 

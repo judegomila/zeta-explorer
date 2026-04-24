@@ -13,6 +13,7 @@
 //   node scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 --dry-run
 //   node scripts/imp-917-run-cell.mjs --list
 //   node scripts/imp-917-run-cell.mjs --verify-plan
+//   node scripts/imp-917-run-cell.mjs --dry-run-all
 //
 // --eps must be a comma-separated triple; the first entry is conventionally 0
 // (baseline) so ratio rows can be computed against it. Defaults for nSteps/dt
@@ -38,6 +39,14 @@
 // sanity-check k0_star / phaseVel_star lookup and nSteps/dt defaults before
 // consuming the ~3 CPU-hour wall-time of a real cell run.
 //
+// --dry-run-all iterates the full BATCH_PLAN and emits the resolved env-var
+// exports for every cell in sequence, with a banner per cell. Intended as the
+// single final pre-flight an offline worker runs after --verify-plan and
+// before piping --list into GNU parallel: confirms that every one of the 6
+// triple-run invocations resolves cleanly (retuning lookup, nSteps/dt default,
+// epsTriple parse) in a single command, without the operator having to re-run
+// --dry-run per cell. Exits non-zero if any single cell fails to resolve.
+//
 // On completion the prototype prints a three-row comparison table; copy the
 // final-row maxIntervalWidth values into a new MEASURED_ROWS entry in
 // src/data/imp-857-phased-forcing-sweep.js.
@@ -61,6 +70,7 @@ function parseArgs(argv) {
     list: false,
     verifyPlan: false,
     dryRun: false,
+    dryRunAll: false,
   };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
@@ -71,11 +81,13 @@ function parseArgs(argv) {
     else if (a === '--list') out.list = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--dry-run') out.dryRun = true;
+    else if (a === '--dry-run-all') out.dryRunAll = true;
     else if (a === '--help' || a === '-h') {
       console.log(
         'usage: node scripts/imp-917-run-cell.mjs --N <N> --eps <e0,e1,e2> [--nSteps <k>] [--dt <dt>] [--dry-run]\n' +
           '       node scripts/imp-917-run-cell.mjs --list\n' +
-          '       node scripts/imp-917-run-cell.mjs --verify-plan',
+          '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
+          '       node scripts/imp-917-run-cell.mjs --dry-run-all',
       );
       process.exit(0);
     } else {
@@ -161,6 +173,116 @@ if (args.verifyPlan) {
   process.exit(1);
 }
 
+const prototypePath = resolve(
+  REPO_ROOT,
+  'src/math/imp-857-phase-locked-dyson.mjs',
+);
+
+// Resolve one (N, epsTriple) cell into the full IMP857_* env-var set, using
+// the retuning table and MISSING_CELLS nSteps/dt defaults. Returns
+// { nSteps, dt, retuning, env } on success, or { error } on any lookup /
+// validation failure. Shared by the single-cell path and --dry-run-all.
+function resolveCell(N, epsTriple, argsNSteps, argsDt) {
+  if (!Number.isFinite(N)) return { error: '--N <integer> is required' };
+  if (!Array.isArray(epsTriple) || epsTriple.length !== 3) {
+    return { error: '--eps <e0,e1,e2> required (exactly 3 numbers)' };
+  }
+  if (epsTriple.some((e) => !Number.isFinite(e))) {
+    return { error: '--eps values must all be finite numbers' };
+  }
+  const retuning = IMP_896_RETUNING_CALIBRATION.retuningTable.find(
+    (r) => r.N === N,
+  );
+  if (!retuning) {
+    return {
+      error:
+        `N=${N} not in RETUNING_CALIBRATION (supported: ` +
+        IMP_896_RETUNING_CALIBRATION.retuningTable.map((r) => r.N).join(', ') +
+        ')',
+    };
+  }
+  const cellRow = IMP_896_RETUNING_CALIBRATION.missingCells.find(
+    (c) => c.N === N,
+  );
+  const nSteps = argsNSteps ?? cellRow?.nSteps ?? null;
+  const dt = argsDt ?? cellRow?.dt ?? null;
+  if (!Number.isFinite(nSteps) || !Number.isFinite(dt)) {
+    return {
+      error: `no MISSING_CELLS default for N=${N}; pass --nSteps and --dt explicitly`,
+    };
+  }
+  const env = {
+    ...process.env,
+    IMP857_N: String(N),
+    IMP857_NSTEPS: String(nSteps),
+    IMP857_DT: String(dt),
+    IMP857_K0: String(retuning.k0_star),
+    IMP857_PHASEVEL: String(retuning.phaseVel_star),
+    IMP857_EPSILONS: epsTriple.join(','),
+  };
+  return { nSteps, dt, retuning, env };
+}
+
+const SHELL_KEYS = [
+  'IMP857_N',
+  'IMP857_NSTEPS',
+  'IMP857_DT',
+  'IMP857_K0',
+  'IMP857_PHASEVEL',
+  'IMP857_EPSILONS',
+];
+
+function printCellBanner(N, nSteps, dt, retuning, epsTriple) {
+  console.log('imp-917 cell:');
+  console.log(`  N         = ${N}`);
+  console.log(`  nSteps    = ${nSteps}`);
+  console.log(`  dt        = ${dt}`);
+  console.log(`  k0_star   = ${retuning.k0_star}`);
+  console.log(`  phaseVel* = ${retuning.phaseVel_star}`);
+  console.log(`  epsilons  = ${epsTriple.join(', ')}`);
+}
+
+function printDryRunExports(env) {
+  console.log('--dry-run: prototype NOT spawned. Copy-pastable shell exports:');
+  for (const k of SHELL_KEYS) {
+    console.log(`  export ${k}=${env[k]}`);
+  }
+  console.log(`  node ${prototypePath}`);
+}
+
+if (args.dryRunAll) {
+  // Pre-flight: resolve every BATCH_PLAN cell and emit its env-var set. Intended
+  // as a single final sanity-check after --verify-plan and before piping --list
+  // into an offline worker. Any single-cell resolve failure aborts the whole
+  // batch so the operator sees it before burning CPU hours.
+  let failures = 0;
+  for (let i = 0; i < BATCH_PLAN.length; i++) {
+    const p = BATCH_PLAN[i];
+    console.log(
+      `=== BATCH_PLAN cell ${i + 1}/${BATCH_PLAN.length}: ${p.label} ===`,
+    );
+    const r = resolveCell(p.N, p.eps, null, null);
+    if (r.error) {
+      console.error(`  ERROR: ${r.error}`);
+      failures++;
+      continue;
+    }
+    printCellBanner(p.N, r.nSteps, r.dt, r.retuning, p.eps);
+    printDryRunExports(r.env);
+    console.log();
+  }
+  if (failures > 0) {
+    console.error(
+      `imp-917 --dry-run-all FAILED: ${failures} of ${BATCH_PLAN.length} cells did not resolve.`,
+    );
+    process.exit(1);
+  }
+  console.log(
+    `imp-917 --dry-run-all OK: all ${BATCH_PLAN.length} BATCH_PLAN cells resolved cleanly.`,
+  );
+  process.exit(0);
+}
+
 if (!Number.isFinite(args.N)) {
   console.error('imp-917-run-cell: --N <integer> is required');
   process.exit(2);
@@ -172,73 +294,18 @@ if (!args.eps || args.eps.split(',').length !== 3) {
   process.exit(2);
 }
 const epsTriple = args.eps.split(',').map((s) => Number(s.trim()));
-if (epsTriple.some((e) => !Number.isFinite(e))) {
-  console.error('imp-917-run-cell: --eps values must all be finite numbers');
+
+const resolved = resolveCell(args.N, epsTriple, args.nSteps, args.dt);
+if (resolved.error) {
+  console.error(`imp-917-run-cell: ${resolved.error}`);
   process.exit(2);
 }
+const { nSteps, dt, retuning, env } = resolved;
 
-const retuning = IMP_896_RETUNING_CALIBRATION.retuningTable.find(
-  (r) => r.N === args.N,
-);
-if (!retuning) {
-  console.error(
-    `imp-917-run-cell: N=${args.N} not in RETUNING_CALIBRATION. Supported N: ` +
-      IMP_896_RETUNING_CALIBRATION.retuningTable.map((r) => r.N).join(', '),
-  );
-  process.exit(2);
-}
-
-// Fill nSteps/dt defaults from the matching MISSING_CELLS row (imp-896 schedule).
-// If no row matches (e.g. synthetic pilot N), require explicit --nSteps --dt.
-const cellRow = IMP_896_RETUNING_CALIBRATION.missingCells.find(
-  (c) => c.N === args.N,
-);
-const nSteps = args.nSteps ?? cellRow?.nSteps ?? null;
-const dt = args.dt ?? cellRow?.dt ?? null;
-if (!Number.isFinite(nSteps) || !Number.isFinite(dt)) {
-  console.error(
-    `imp-917-run-cell: no MISSING_CELLS default for N=${args.N}; pass --nSteps and --dt explicitly`,
-  );
-  process.exit(2);
-}
-
-const env = {
-  ...process.env,
-  IMP857_N: String(args.N),
-  IMP857_NSTEPS: String(nSteps),
-  IMP857_DT: String(dt),
-  IMP857_K0: String(retuning.k0_star),
-  IMP857_PHASEVEL: String(retuning.phaseVel_star),
-  IMP857_EPSILONS: epsTriple.join(','),
-};
-
-const prototypePath = resolve(
-  REPO_ROOT,
-  'src/math/imp-857-phase-locked-dyson.mjs',
-);
-
-console.log('imp-917 cell:');
-console.log(`  N         = ${args.N}`);
-console.log(`  nSteps    = ${nSteps}`);
-console.log(`  dt        = ${dt}`);
-console.log(`  k0_star   = ${retuning.k0_star}`);
-console.log(`  phaseVel* = ${retuning.phaseVel_star}`);
-console.log(`  epsilons  = ${epsTriple.join(', ')}`);
+printCellBanner(args.N, nSteps, dt, retuning, epsTriple);
 
 if (args.dryRun) {
-  console.log('--dry-run: prototype NOT spawned. Copy-pastable shell exports:');
-  const shellKeys = [
-    'IMP857_N',
-    'IMP857_NSTEPS',
-    'IMP857_DT',
-    'IMP857_K0',
-    'IMP857_PHASEVEL',
-    'IMP857_EPSILONS',
-  ];
-  for (const k of shellKeys) {
-    console.log(`  export ${k}=${env[k]}`);
-  }
-  console.log(`  node ${prototypePath}`);
+  printDryRunExports(env);
   process.exit(0);
 }
 

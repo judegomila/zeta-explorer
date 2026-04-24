@@ -45,6 +45,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -569,6 +570,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-geomean') out.batchPlanCostTripleGeomean = true;
     else if (a === '--batch-plan-cost-triple-geomean-json') out.batchPlanCostTripleGeomeanJson = true;
     else if (a === '--batch-plan-cost-triple-harmean') out.batchPlanCostTripleHarmean = true;
+    else if (a === '--batch-plan-cost-triple-harmean-json') out.batchPlanCostTripleHarmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -629,6 +631,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-geomean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-harmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2081,6 +2084,47 @@ if (args.batchPlanCostTripleHarmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple harmonic-mean wall-time: ${harmeanSec.toFixed(0)} s (~${(harmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleHarmeanJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-harmean (partial-vvv):
+  // surface BATCH_PLAN harmonic mean of per-triple wall-times as a single
+  // object {harmeanSec, harmeanHours, knownCount, unknownCount} so Python / jq
+  // offline-worker drivers can consume the throughput-bound central-tendency
+  // signal directly without re-parsing the one-line shell summary. Pure
+  // composition of computeBatchPlanCost() (partial-vv helper) with zero new
+  // batch-plan logic; identical known-row filter (wallSec !== null) and
+  // identical non-positive guard (any known row with wallSec <= 0 would make
+  // the reciprocal sum diverge via 1/0 or produce a negative harmean via a
+  // negative reciprocal) to the shell form, so the two flags cannot drift.
+  // harmeanHours is precomputed inline as harmeanSec / 3600 (null when
+  // knownCount === 0 or when the non-positive guard fires) matching the
+  // precomputed-hours cadence established across the whole cost-emitter
+  // family. All-unknown or non-positive-wallSec degenerate case emits
+  // {harmeanSec: null, harmeanHours: null, knownCount, unknownCount} and exits
+  // 0 without dividing by zero, matching the partial-ttt / partial-uuu geomean
+  // degenerate cadence. Pure data emitter, exit 0 unconditionally (no
+  // validation gate), not wired into --preflight / --preflight-json. Completes
+  // the {shell, JSON} pair for partial-vvv and closes the Pythagorean-mean
+  // triad {arithmetic, geometric, harmonic} x {shell, JSON} at full parity
+  // alongside the symmetric-dispersion {stddev, variance, range} and
+  // robust-dispersion {MAD, IQR} surfaces that were already at full parity.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let harmeanSec = null;
+  if (known.length > 0 && !known.some((r) => r.wallSec <= 0)) {
+    const reciprocalSum = known.reduce((s, r) => s + 1 / r.wallSec, 0);
+    harmeanSec = known.length / reciprocalSum;
+  }
+  const harmeanHours = harmeanSec === null ? null : harmeanSec / 3600;
+  const body = {
+    harmeanSec,
+    harmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

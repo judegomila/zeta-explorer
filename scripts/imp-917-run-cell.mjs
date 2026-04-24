@@ -51,6 +51,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -581,6 +582,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-cubmean') out.batchPlanCostTripleCubmean = true;
     else if (a === '--batch-plan-cost-triple-cubmean-json') out.batchPlanCostTripleCubmeanJson = true;
     else if (a === '--batch-plan-cost-triple-quartmean') out.batchPlanCostTripleQuartmean = true;
+    else if (a === '--batch-plan-cost-triple-quartmean-json') out.batchPlanCostTripleQuartmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -647,6 +649,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-cubmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quartmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -2377,6 +2380,57 @@ if (args.batchPlanCostTripleQuartmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple quartic-mean wall-time: ${quartmeanSec.toFixed(0)} s (~${(quartmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleQuartmeanJson) {
+  // Structural JSON analog of --batch-plan-cost-triple-quartmean (partial-bbbb):
+  // surface BATCH_PLAN quartic mean (p=4 Kolmogorov power-mean) of per-triple
+  // wall-times as a single object {quartmeanSec, quartmeanHours, knownCount,
+  // unknownCount} so Python / jq offline-worker drivers can consume the p=4
+  // power-mean central-tendency signal directly without re-parsing the one-line
+  // shell summary. Reuses computeBatchPlanCost() (partial-vv helper) with zero
+  // new math; identical known-row filter (wallSec !== null) to the shell form
+  // so the two flags cannot drift, and the same no-guard-required observation
+  // (fourth-power preserves non-negativity, mirroring partial-yyy quadmean and
+  // partial-aaaa cubmean) so a non-positive-wallSec guard is unnecessary.
+  // quartmeanHours precomputed inline as quartmeanSec / 3600 (null when
+  // knownCount === 0) matching the partial-ww / partial-zz / partial-bbb /
+  // partial-eee / partial-ggg / partial-iii / partial-kkk / partial-mmm /
+  // partial-ooo / partial-qqq / partial-sss / partial-uuu / partial-www /
+  // partial-yyy / partial-aaaa precomputed-hours cadence so offline-worker
+  // drivers consuming the p=4 power-mean signal do not need to redo the
+  // seconds-to-hours conversion per run. All-unknown degenerate case emits
+  // {quartmeanSec: null, quartmeanHours: null, knownCount: 0, unknownCount}
+  // and exits 0 without computing (0/0)^(1/4), matching the partial-uuu /
+  // partial-www / partial-yyy / partial-aaaa JSON degenerate cadence. Pure
+  // data emitter, exit 0 unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json. Completes the {shell, JSON} pair for
+  // partial-bbbb and brings the Kolmogorov power-mean sextet {harmonic
+  // (p=-1, partial-vvv/www), geometric (p=0, partial-ttt/uuu), arithmetic
+  // (p=1, partial-hhh/iii), quadratic (p=2, partial-xxx/yyy), cubic (p=3,
+  // partial-zzz/aaaa), quartic (p=4, partial-bbbb/THIS)} x {shell, JSON} to
+  // full parity, surfacing the complete monotone power-mean ordering
+  // QUM >= CM >= QM >= AM >= GM >= HM at structural-JSON parity for offline-
+  // worker drivers gating the ~20 CPU-hour batch.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let quartmeanSec = null;
+  if (known.length > 0) {
+    const quartSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      return s + w2 * w2;
+    }, 0);
+    quartmeanSec = Math.pow(quartSum / known.length, 1 / 4);
+  }
+  const quartmeanHours = quartmeanSec === null ? null : quartmeanSec / 3600;
+  const body = {
+    quartmeanSec,
+    quartmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

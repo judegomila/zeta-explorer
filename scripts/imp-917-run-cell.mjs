@@ -164,8 +164,8 @@
 // block. Reads the file via readFileSync and checks for the literal substring
 // `const MEASURED_ROWS = [`. Exits 0 on success, 1 with a specific diagnostic
 // on read error or missing identifier. Paired with --verify-output-schema-json
-// for the {shell, JSON} matrix. Not wired into --preflight / --preflight-json
-// yet (separate future partial now that both forms exist).
+// for the {shell, JSON} matrix. Wired into --preflight as the appended step 5
+// (shell form; --preflight-json JSON-analog wiring is a separate future partial).
 //
 // --verify-output-schema-json is the structural JSON analog of
 // --verify-output-schema. Emits one object {ok, path, token, error} where path
@@ -197,15 +197,16 @@
 // (matching --preflight's step 4) so the aggregated shell and JSON pre-flights
 // both end with the same output-target stat check.
 //
-// --preflight runs four shell pre-flight checks in sequence — --verify-plan
+// --preflight runs five shell pre-flight checks in sequence — --verify-plan
 // (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype (prototype script
 // exists), --dry-run-all (every BATCH_PLAN cell resolves its IMP857_* env-var
-// pack), --verify-output-target (transcription target exists) — and aggregates
-// the results. Prints a per-step banner and a final PASS / FAILED summary.
-// Exits 0 only if all four pass; otherwise exits with the step number
-// (1, 2, 3, or 4) of the first failing step, so an offline-worker driver can
-// gate the ~20 CPU-hour batch on a single command rather than orchestrating
-// four separate invocations and four exit codes.
+// pack), --verify-output-target (transcription target exists), and
+// --verify-output-schema (transcription target still declares MEASURED_ROWS) —
+// and aggregates the results. Prints a per-step banner and a final PASS /
+// FAILED summary. Exits 0 only if all five pass; otherwise exits with the step
+// number (1, 2, 3, 4, or 5) of the first failing step, so an offline-worker
+// driver can gate the ~20 CPU-hour batch on a single command rather than
+// orchestrating five separate invocations and five exit codes.
 //
 // --preflight-json is the structural JSON analog of --preflight. Emits one
 // object {ok, firstFailingStep, steps: [{step, name, ok, ...}]} aggregating
@@ -864,11 +865,11 @@ if (args.dryRunAllJson) {
 
 if (args.preflight) {
   // Sequenced shell pre-flight: verify-plan -> verify-prototype -> dry-run-all
-  // -> verify-output-target. Each step mirrors the corresponding standalone
-  // flag so operator output is familiar. On failure, exits with the 1-indexed
-  // step number so the driver can tell which step tripped without parsing
-  // stdout.
-  console.log('=== imp-917 --preflight step 1/4: --verify-plan ===');
+  // -> verify-output-target -> verify-output-schema. Each step mirrors the
+  // corresponding standalone flag so operator output is familiar. On failure,
+  // exits with the 1-indexed step number so the driver can tell which step
+  // tripped without parsing stdout.
+  console.log('=== imp-917 --preflight step 1/5: --verify-plan ===');
   const planResult = computePlanCoverage();
   if (!planResult.ok) {
     console.error('imp-917 --preflight FAILED at step 1 (--verify-plan):');
@@ -890,7 +891,7 @@ if (args.preflight) {
     `  OK: BATCH_PLAN covers all ${planResult.missingCount} MISSING_CELLS exactly.`,
   );
 
-  console.log('=== imp-917 --preflight step 2/4: --verify-prototype ===');
+  console.log('=== imp-917 --preflight step 2/5: --verify-prototype ===');
   const protoResult = checkPrototype();
   if (!protoResult.ok) {
     console.error(
@@ -902,7 +903,7 @@ if (args.preflight) {
     `  OK: prototype script present (${protoResult.path}, ${protoResult.sizeBytes} bytes).`,
   );
 
-  console.log('=== imp-917 --preflight step 3/4: --dry-run-all ===');
+  console.log('=== imp-917 --preflight step 3/5: --dry-run-all ===');
   let resolveFailures = 0;
   for (let i = 0; i < BATCH_PLAN.length; i++) {
     const p = BATCH_PLAN[i];
@@ -924,7 +925,7 @@ if (args.preflight) {
     `  OK: all ${BATCH_PLAN.length} BATCH_PLAN cells resolved cleanly.`,
   );
 
-  console.log('=== imp-917 --preflight step 4/4: --verify-output-target ===');
+  console.log('=== imp-917 --preflight step 4/5: --verify-output-target ===');
   const outputTargetResult = checkOutputTarget();
   if (!outputTargetResult.ok) {
     console.error(
@@ -936,7 +937,19 @@ if (args.preflight) {
     `  OK: transcription target present (${outputTargetResult.path}, ${outputTargetResult.sizeBytes} bytes).`,
   );
 
-  console.log('imp-917 --preflight PASS: all 4 steps OK, offline batch ready to launch.');
+  console.log('=== imp-917 --preflight step 5/5: --verify-output-schema ===');
+  const outputSchemaResult = checkOutputSchema();
+  if (!outputSchemaResult.ok) {
+    console.error(
+      `imp-917 --preflight FAILED at step 5 (--verify-output-schema): ${outputSchemaResult.path}: ${outputSchemaResult.error}`,
+    );
+    process.exit(5);
+  }
+  console.log(
+    `  OK: transcription target declares \`${outputSchemaResult.token}\` (${outputSchemaResult.path}).`,
+  );
+
+  console.log('imp-917 --preflight PASS: all 5 steps OK, offline batch ready to launch.');
   process.exit(0);
 }
 

@@ -217,9 +217,11 @@
 // computePlanCoverage() (returns {ok, missingCellNs, retuningTableNs,
 // uncoveredNs}), so the --verify-retuning-coverage-json analog reuses it
 // without drift. Paired with --verify-retuning-coverage-json for the
-// {shell, JSON} matrix; --preflight / --preflight-json wiring can follow in
-// future partials per the established standalone-first / aggregate-later
-// cadence.
+// {shell, JSON} matrix; wired into --preflight as the appended step 6
+// (shell form; --preflight-json JSON-analog wiring is a separate future
+// partial, matching the partial-r / partial-s shell-first / JSON-second
+// cadence used for --verify-output-target and the partial-aa / partial-bb
+// cadence used for --verify-output-schema).
 //
 // --verify-retuning-coverage-json is the structural JSON analog of
 // --verify-retuning-coverage. Reuses computeRetuningCoverage() so the shell
@@ -239,16 +241,17 @@
 // partial-p -> partial-q -> partial-r/s and partial-y -> partial-z ->
 // partial-aa/bb cadences for the on-disk and output-schema checks).
 //
-// --preflight runs five shell pre-flight checks in sequence — --verify-plan
+// --preflight runs six shell pre-flight checks in sequence — --verify-plan
 // (BATCH_PLAN vs MISSING_CELLS coverage), --verify-prototype (prototype script
 // exists), --dry-run-all (every BATCH_PLAN cell resolves its IMP857_* env-var
-// pack), --verify-output-target (transcription target exists), and
-// --verify-output-schema (transcription target still declares MEASURED_ROWS) —
-// and aggregates the results. Prints a per-step banner and a final PASS /
-// FAILED summary. Exits 0 only if all five pass; otherwise exits with the step
-// number (1, 2, 3, 4, or 5) of the first failing step, so an offline-worker
-// driver can gate the ~20 CPU-hour batch on a single command rather than
-// orchestrating five separate invocations and five exit codes.
+// pack), --verify-output-target (transcription target exists),
+// --verify-output-schema (transcription target still declares MEASURED_ROWS),
+// and --verify-retuning-coverage (every N in MISSING_CELLS has a retuningTable
+// row) — and aggregates the results. Prints a per-step banner and a final
+// PASS / FAILED summary. Exits 0 only if all six pass; otherwise exits with
+// the step number (1, 2, 3, 4, 5, or 6) of the first failing step, so an
+// offline-worker driver can gate the ~20 CPU-hour batch on a single command
+// rather than orchestrating six separate invocations and six exit codes.
 //
 // --preflight-json is the structural JSON analog of --preflight. Emits one
 // object {ok, firstFailingStep, steps: [{step, name, ok, ...}]} aggregating
@@ -963,11 +966,11 @@ if (args.dryRunAllJson) {
 
 if (args.preflight) {
   // Sequenced shell pre-flight: verify-plan -> verify-prototype -> dry-run-all
-  // -> verify-output-target -> verify-output-schema. Each step mirrors the
-  // corresponding standalone flag so operator output is familiar. On failure,
-  // exits with the 1-indexed step number so the driver can tell which step
-  // tripped without parsing stdout.
-  console.log('=== imp-917 --preflight step 1/5: --verify-plan ===');
+  // -> verify-output-target -> verify-output-schema -> verify-retuning-coverage.
+  // Each step mirrors the corresponding standalone flag so operator output is
+  // familiar. On failure, exits with the 1-indexed step number so the driver
+  // can tell which step tripped without parsing stdout.
+  console.log('=== imp-917 --preflight step 1/6: --verify-plan ===');
   const planResult = computePlanCoverage();
   if (!planResult.ok) {
     console.error('imp-917 --preflight FAILED at step 1 (--verify-plan):');
@@ -989,7 +992,7 @@ if (args.preflight) {
     `  OK: BATCH_PLAN covers all ${planResult.missingCount} MISSING_CELLS exactly.`,
   );
 
-  console.log('=== imp-917 --preflight step 2/5: --verify-prototype ===');
+  console.log('=== imp-917 --preflight step 2/6: --verify-prototype ===');
   const protoResult = checkPrototype();
   if (!protoResult.ok) {
     console.error(
@@ -1001,7 +1004,7 @@ if (args.preflight) {
     `  OK: prototype script present (${protoResult.path}, ${protoResult.sizeBytes} bytes).`,
   );
 
-  console.log('=== imp-917 --preflight step 3/5: --dry-run-all ===');
+  console.log('=== imp-917 --preflight step 3/6: --dry-run-all ===');
   let resolveFailures = 0;
   for (let i = 0; i < BATCH_PLAN.length; i++) {
     const p = BATCH_PLAN[i];
@@ -1023,7 +1026,7 @@ if (args.preflight) {
     `  OK: all ${BATCH_PLAN.length} BATCH_PLAN cells resolved cleanly.`,
   );
 
-  console.log('=== imp-917 --preflight step 4/5: --verify-output-target ===');
+  console.log('=== imp-917 --preflight step 4/6: --verify-output-target ===');
   const outputTargetResult = checkOutputTarget();
   if (!outputTargetResult.ok) {
     console.error(
@@ -1035,7 +1038,7 @@ if (args.preflight) {
     `  OK: transcription target present (${outputTargetResult.path}, ${outputTargetResult.sizeBytes} bytes).`,
   );
 
-  console.log('=== imp-917 --preflight step 5/5: --verify-output-schema ===');
+  console.log('=== imp-917 --preflight step 5/6: --verify-output-schema ===');
   const outputSchemaResult = checkOutputSchema();
   if (!outputSchemaResult.ok) {
     console.error(
@@ -1047,7 +1050,22 @@ if (args.preflight) {
     `  OK: transcription target declares \`${outputSchemaResult.token}\` (${outputSchemaResult.path}).`,
   );
 
-  console.log('imp-917 --preflight PASS: all 5 steps OK, offline batch ready to launch.');
+  console.log('=== imp-917 --preflight step 6/6: --verify-retuning-coverage ===');
+  const retuningCoverageResult = computeRetuningCoverage();
+  if (!retuningCoverageResult.ok) {
+    console.error(
+      `imp-917 --preflight FAILED at step 6 (--verify-retuning-coverage): ${retuningCoverageResult.uncoveredNs.length} MISSING_CELLS N value(s) lack a retuningTable row: ${retuningCoverageResult.uncoveredNs.join(', ')}`,
+    );
+    console.error(
+      `  (missingCell N set: ${retuningCoverageResult.missingCellNs.join(', ')}; retuningTable N set: ${retuningCoverageResult.retuningTableNs.join(', ')})`,
+    );
+    process.exit(6);
+  }
+  console.log(
+    `  OK: every N in MISSING_CELLS (${retuningCoverageResult.missingCellNs.join(', ')}) has a retuningTable row (retuningTable N set: ${retuningCoverageResult.retuningTableNs.join(', ')}).`,
+  );
+
+  console.log('imp-917 --preflight PASS: all 6 steps OK, offline batch ready to launch.');
   process.exit(0);
 }
 

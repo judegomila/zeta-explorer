@@ -26,6 +26,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress-fraction
 //   node scripts/imp-917-run-cell.mjs --progress-remaining
 //   node scripts/imp-917-run-cell.mjs --progress-done
+//   node scripts/imp-917-run-cell.mjs --progress-total
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -705,6 +706,7 @@ function parseArgs(argv) {
     else if (a === '--progress-fraction') out.progressFraction = true;
     else if (a === '--progress-remaining') out.progressRemaining = true;
     else if (a === '--progress-done') out.progressDone = true;
+    else if (a === '--progress-total') out.progressTotal = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -911,6 +913,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress-fraction\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-done\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-total\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1606,6 +1609,31 @@ if (args.progressDone) {
     measuredKeys.has(`${c.N}|${c.eps}`),
   ).length;
   console.log(doneCount);
+  process.exit(0);
+}
+
+if (args.progressTotal) {
+  // Bare-integer total-count emitter: the third leg of the bare-counter trio
+  // alongside --progress-done and --progress-remaining. Prints just
+  // MISSING_CELLS.length on a single line with no label, no surrounding text,
+  // no JSON envelope, so shell scripts can read the constant total without
+  // parsing the K/N fraction or piping through jq, awk, or sed. Completes the
+  // bare-counter sum invariant: for any state,
+  //   done=$(node scripts/imp-917-run-cell.mjs --progress-done)
+  //   remaining=$(node scripts/imp-917-run-cell.mjs --progress-remaining)
+  //   total=$(node scripts/imp-917-run-cell.mjs --progress-total)
+  //   [ $((done + remaining)) -eq $total ]   # always true
+  // gives the operator a third gate point they can assert mid-batch directly
+  // against the source-of-truth count rather than the derived sum, catching
+  // a future drift between MISSING_CELLS membership and the (N|eps) join key.
+  // Same source-of-truth as --progress / --progress-json / --progress-bar /
+  // --progress-pct / --progress-fraction / --progress-remaining /
+  // --progress-done (IMP_896_RETUNING_CALIBRATION.missingCells as ground
+  // truth) so the total matches all seven progress emitters byte-for-byte at
+  // integer precision. Pure data emitter, exit 0 unconditionally; not a
+  // check, not wired into --preflight.
+  const totalCount = IMP_896_RETUNING_CALIBRATION.missingCells.length;
+  console.log(totalCount);
   process.exit(0);
 }
 

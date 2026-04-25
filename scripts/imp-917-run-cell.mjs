@@ -22,6 +22,7 @@
 //   node scripts/imp-917-run-cell.mjs --done-cells-json
 //   node scripts/imp-917-run-cell.mjs --progress
 //   node scripts/imp-917-run-cell.mjs --progress-json
+//   node scripts/imp-917-run-cell.mjs --progress-bar
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -628,6 +629,7 @@ function parseArgs(argv) {
     remainingCellsJson: false,
     doneCells: false,
     progress: false,
+    progressBar: false,
     retuningTable: false,
     retuningTableJson: false,
     batchPlanCost: false,
@@ -692,6 +694,7 @@ function parseArgs(argv) {
     else if (a === '--done-cells-json') out.doneCellsJson = true;
     else if (a === '--progress') out.progress = true;
     else if (a === '--progress-json') out.progressJson = true;
+    else if (a === '--progress-bar') out.progressBar = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -893,6 +896,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --done-cells-json\n' +
           '       node scripts/imp-917-run-cell.mjs --progress\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-bar\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1456,6 +1460,37 @@ if (args.progressJson) {
     totalWallHours: totalWallSec / 3600,
   };
   console.log(JSON.stringify(out, null, 2));
+  process.exit(0);
+}
+
+if (args.progressBar) {
+  // Visual ASCII progress-bar companion to the --progress single-line counter
+  // and its --progress-json structural analog. Renders a fixed-width 30-char
+  // bar with the filled prefix proportional to doneCount/totalCount, suitable
+  // for human at-a-glance feedback during the ~20 CPU-hour batch (the numeric
+  // counter from --progress reads as a percentage but does not communicate
+  // "how far along" visually). Same source-of-truth pair as --progress and
+  // --done-cells (MISSING_CELLS as ground truth, MEASURED_ROWS as completion
+  // log, (N|eps) join key). Pure data emitter, exit 0 unconditionally; not a
+  // check, not wired into --preflight / --preflight-json. Shell-only by design
+  // (an ASCII bar has no meaningful JSON dual; the structural counters live
+  // in --progress-json).
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const doneCount = missing.filter((c) =>
+    measuredKeys.has(`${c.N}|${c.eps}`),
+  ).length;
+  const totalCount = missing.length;
+  const pct = totalCount > 0 ? (100 * doneCount) / totalCount : 0;
+  const barWidth = 30;
+  const filled =
+    totalCount > 0 ? Math.floor((barWidth * doneCount) / totalCount) : 0;
+  const empty = barWidth - filled;
+  const bar = '#'.repeat(filled) + '-'.repeat(empty);
+  console.log(
+    `imp-917 progress: [${bar}] ${doneCount}/${totalCount} (${pct.toFixed(1)}%)`,
+  );
   process.exit(0);
 }
 

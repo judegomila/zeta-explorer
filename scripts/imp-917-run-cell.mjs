@@ -175,6 +175,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquesexagintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquesexagintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexsexagintmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexsexagintmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -829,6 +830,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-quinquesexagintmean') out.batchPlanCostTripleQuinquesexagintmean = true;
     else if (a === '--batch-plan-cost-triple-quinquesexagintmean-json') out.batchPlanCostTripleQuinquesexagintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-sexsexagintmean') out.batchPlanCostTripleSexsexagintmean = true;
+    else if (a === '--batch-plan-cost-triple-sexsexagintmean-json') out.batchPlanCostTripleSexsexagintmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -1019,6 +1021,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquesexagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquesexagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexsexagintmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexsexagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -11148,6 +11151,82 @@ if (args.batchPlanCostTripleSexsexagintmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple sexsexagintic-mean wall-time: ${sexsexagintmeanSec.toFixed(0)} s (~${(sexsexagintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleSexsexagintmeanJson) {
+  // partial-wwwwwwww: structural JSON analog of partial-vvvvvvvv
+  // --batch-plan-cost-triple-sexsexagintmean (p=66 Kolmogorov power-mean),
+  // completing the {shell, JSON} pair for partial-vvvvvvvv and bringing
+  // the Kolmogorov power-mean family at p in {-1, 0, 1..66} x
+  // {shell, JSON} to full shell/JSON parity at sixty-eight exponents
+  // (one hundred thirty-six emitters total across the power-mean axis),
+  // at the second even exponent inside the sexaginta decade above the
+  // IEEE-754 double-precision overflow boundary established at p=64.
+  // Emits one object {sexsexagintmeanSec, sexsexagintmeanHours,
+  // knownCount, unknownCount} with sexsexagintmeanHours =
+  // sexsexagintmeanSec / 3600 (null when knownCount===0) so
+  // Python / jq offline-worker drivers can consume the p=66 power-mean
+  // central-tendency signal directly without re-parsing the one-line
+  // shell summary and without redoing the seconds-to-hours conversion,
+  // matching the precomputed-hours cadence established across every
+  // prior JSON cost-emitter. Reuses computeBatchPlanCost() (partial-vv
+  // helper) with zero new math; identical known-row filter
+  // (wallSec !== null) to the partial-vvvvvvvv shell form so the two
+  // flags cannot drift. Applies the same max-rescaling identity
+  //     PM_p(x_1, ..., x_n) = M * PM_p(x_1/M, ..., x_n/M)
+  // with M = max(x_i) used by partial-vvvvvvvv to evade the IEEE-754
+  // double overflow at p=66 (wallSec around 7e4 -> x^66 approx 10^319,
+  // well beyond Number.MAX_VALUE approx 1.8e308). Each ratio x_i/M lies
+  // in (0, 1] so (x_i/M)^66 is bounded by 1 and the sum is finite; the
+  // result equals the unscaled formula in exact arithmetic. Sums r^66
+  // via the cached squaring chain
+  // (const r2 = ratio * ratio; const r4 = r2 * r2; const r8 = r4 * r4;
+  //  const r16 = r8 * r8; const r32 = r16 * r16;
+  //  const r64 = r32 * r32; sexsexagintSum += r64 * r2;) --
+  // two-summand even-p decomposition (66 = 64+2) at numerical-stability
+  // and IEEE-754 bit parity with partial-vvvvvvvv; final value
+  // sexsexagintmeanSec = M * Math.pow(sexsexagintSum / known.length,
+  // 1/66). Even p=66 cannot induce sign cancellation; wallSec values
+  // strictly positive by construction so ratios are strictly positive
+  // and no sign guard is required, matching every prior even-p JSON
+  // emitter. All-unknown degenerate case (known.length===0) emits
+  // {sexsexagintmeanSec: null, sexsexagintmeanHours: null, knownCount:
+  // 0, unknownCount} and exits 0 without attempting (0/0)^(1/66) = NaN,
+  // matching the JSON degenerate cadence across every prior JSON
+  // power-mean emitter. Pure data emitter, exit 0 unconditionally (no
+  // validation gate), not wired into --preflight / --preflight-json.
+  // Honest-partial: imp-917 stays pending -- the ~20 CPU-hour offline
+  // execution of the 14 measurement rows remains the honest closure
+  // condition; this partial closes the JSON half of the power-mean
+  // pair at p=66, the second even exponent inside the sexaginta decade
+  // above the IEEE-754 double-precision overflow boundary.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let sexsexagintmeanSec = null;
+  if (known.length > 0) {
+    const M = known.reduce((m, r) => (r.wallSec > m ? r.wallSec : m), 0);
+    const sexsexagintSum = known.reduce((s, r) => {
+      const ratio = r.wallSec / M;
+      const r2 = ratio * ratio;
+      const r4 = r2 * r2;
+      const r8 = r4 * r4;
+      const r16 = r8 * r8;
+      const r32 = r16 * r16;
+      const r64 = r32 * r32;
+      return s + r64 * r2;
+    }, 0);
+    sexsexagintmeanSec = M * Math.pow(sexsexagintSum / known.length, 1 / 66);
+  }
+  const sexsexagintmeanHours =
+    sexsexagintmeanSec === null ? null : sexsexagintmeanSec / 3600;
+  const body = {
+    sexsexagintmeanSec,
+    sexsexagintmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

@@ -29,6 +29,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress-total
 //   node scripts/imp-917-run-cell.mjs --progress-pct-remaining
 //   node scripts/imp-917-run-cell.mjs --progress-fraction-remaining
+//   node scripts/imp-917-run-cell.mjs --progress-ratio
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -711,6 +712,7 @@ function parseArgs(argv) {
     else if (a === '--progress-total') out.progressTotal = true;
     else if (a === '--progress-pct-remaining') out.progressPctRemaining = true;
     else if (a === '--progress-fraction-remaining') out.progressFractionRemaining = true;
+    else if (a === '--progress-ratio') out.progressRatio = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -1702,6 +1704,38 @@ if (args.progressFractionRemaining) {
   ).length;
   const totalCount = missing.length;
   console.log(`${remainingCount}/${totalCount}`);
+  process.exit(0);
+}
+
+if (args.progressRatio) {
+  // Bare-ratio emitter: prints just the done-fraction as a unit-interval
+  // float in [0, 1] formatted to three decimal places (e.g. "0.000" at
+  // start, "0.500" at half-batch, "1.000" at completion) on a single line
+  // with no label, no surrounding text, no JSON envelope, no percent sign.
+  // The unit-interval analog of --progress-pct (percent done): same numeric
+  // content scaled by 1/100 for shell scripts that prefer feeding the
+  // progress signal into bc / awk / dc as a [0,1] multiplier rather than
+  // a [0,100] percent. Lets a bash one-liner gate on a fractional threshold
+  // without dividing the percent in the loop:
+  //   ratio=$(node scripts/imp-917-run-cell.mjs --progress-ratio)
+  //   width=$(echo "$ratio * 50" | bc -l)   # scale to a 50-col bar
+  // Same source-of-truth pair as --progress / --progress-json /
+  // --progress-bar / --progress-pct / --progress-fraction /
+  // --progress-remaining / --progress-done / --progress-total /
+  // --progress-pct-remaining / --progress-fraction-remaining
+  // (MISSING_CELLS as ground truth, MEASURED_ROWS as completion log,
+  // (N|eps) join key) so all eleven progress emitters cannot drift.
+  // Pure data emitter, exit 0 unconditionally; not a check, not wired
+  // into --preflight.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const doneCount = missing.filter((c) =>
+    measuredKeys.has(`${c.N}|${c.eps}`),
+  ).length;
+  const totalCount = missing.length;
+  const ratio = totalCount > 0 ? doneCount / totalCount : 0;
+  console.log(ratio.toFixed(3));
   process.exit(0);
 }
 

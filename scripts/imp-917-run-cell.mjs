@@ -33,6 +33,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress-ratio-remaining
 //   node scripts/imp-917-run-cell.mjs --progress-wall-remaining
 //   node scripts/imp-917-run-cell.mjs --progress-wall-done
+//   node scripts/imp-917-run-cell.mjs --progress-wall-done-json
 //   node scripts/imp-917-run-cell.mjs --progress-wall-total
 //   node scripts/imp-917-run-cell.mjs --progress-wall-total-json
 //   node scripts/imp-917-run-cell.mjs --progress-wall-pct
@@ -725,6 +726,7 @@ function parseArgs(argv) {
     else if (a === '--progress-ratio-remaining') out.progressRatioRemaining = true;
     else if (a === '--progress-wall-remaining') out.progressWallRemaining = true;
     else if (a === '--progress-wall-done') out.progressWallDone = true;
+    else if (a === '--progress-wall-done-json') out.progressWallDoneJson = true;
     else if (a === '--progress-wall-total') out.progressWallTotal = true;
     else if (a === '--progress-wall-total-json') out.progressWallTotalJson = true;
     else if (a === '--progress-wall-pct') out.progressWallPct = true;
@@ -943,6 +945,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress-ratio-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-done\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-wall-done-json\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-total\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-total-json\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-pct\n' +
@@ -1872,6 +1875,40 @@ if (args.progressWallDone) {
     0,
   );
   console.log((doneWallSec / 3600).toFixed(1));
+  process.exit(0);
+}
+
+if (args.progressWallDoneJson) {
+  // Structural JSON analog of --progress-wall-done. Emits a single object
+  // {doneWallHours} at full double precision, mirroring the way --progress-
+  // wall-total-json wraps the bare --progress-wall-total number. Continues
+  // JSON parity for the absolute-hours leg of the wall trio: --progress-wall-
+  // total / --progress-wall-total-json already pair via the prior partial;
+  // this partial extends the pairing to the done leg, leaving --progress-
+  // wall-remaining as the only absolute-hours leg without a JSON analog.
+  // Same source-of-truth as every other progress emitter (MISSING_CELLS as
+  // ground truth, MEASURED_ROWS as completion log, (N|eps) join key,
+  // wallSecondsEstPerTripleRun / 3 as the per-cell amortized cost) so the
+  // doneWallHours field matches the --progress-wall-done shell output
+  // numerically (full precision here, one-decimal rounded there) and the
+  // doneWallHours value matches the doneWallHours field surfaced by
+  // --progress-wall-pct-json / --progress-wall-pct-remaining-json byte-for-
+  // byte at full JSON precision. Pure data emitter, exit 0 unconditionally;
+  // not a check, not wired into --preflight.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const done = missing.filter(
+    (c) => measuredKeys.has(`${c.N}|${c.eps}`),
+  );
+  const doneWallSec = done.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  const out = {
+    doneWallHours: doneWallSec / 3600,
+  };
+  console.log(JSON.stringify(out, null, 2));
   process.exit(0);
 }
 

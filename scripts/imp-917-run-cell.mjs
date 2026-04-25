@@ -168,6 +168,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unsexagintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tressexagintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -815,6 +816,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-unsexagintmean-json') out.batchPlanCostTripleUnsexagintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-duosexagintmean') out.batchPlanCostTripleDuosexagintmean = true;
     else if (a === '--batch-plan-cost-triple-duosexagintmean-json') out.batchPlanCostTripleDuosexagintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-tressexagintmean') out.batchPlanCostTripleTressexagintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -998,6 +1000,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unsexagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tressexagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -10589,6 +10592,78 @@ if (args.batchPlanCostTripleDuosexagintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleTressexagintmean) {
+  // partial-pppppppp: pure-shell data emitter surfacing the
+  // tressexagintic mean (p=63 Kolmogorov power-mean) of per-triple
+  // wall-times across the known-wallSec rows of BATCH_PLAN, as the
+  // sixty-fifth power-mean sibling extending partial-nnnnnnnn
+  // duosexagintmean (p=62) upward by one exponent to the next odd p
+  // inside the sexaginta decade. sexaginta=60, so tressexaginta=63;
+  // matches the "tres" prefix cadence the project already uses at p=23
+  // tresvigintmean, p=43 tresquadragintmean, and p=53 tresquinquagintmean
+  // (the sole exception remains the trigint decade where p=33 collapses
+  // to tritrigintmean to avoid the awkward tres+trigint cluster).
+  // Computed as TSGM63 = (sum(x_i^63) / n)^(1/63) via Math.pow(s, 1/63);
+  // by the generalized power-mean inequality TSGM63 dominates every
+  // lower-p sibling so the monotone chain
+  // TSGM63 >= DSGM62 >= USGM61 >= SGM60 >= NQGM59 >= ... >= AM >= GM
+  // >= HM now holds inline across all sixty-five shell emitters.
+  // Handler uses the w32 * w16 * w8 * w4 * w2 * r.wallSec
+  // (63 = 32+16+8+4+2+1) six-summand odd-p decomposition
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8; const w32 = w16 * w16;
+  //  tressexagintSum += w32 * w16 * w8 * w4 * w2 * r.wallSec;) to avoid
+  // calling Math.pow in the inner reduce loop: promotes the
+  // partial-nnnnnnnn duosexagintmean w32 * w16 * w8 * w4 * w2
+  // (62 = 32+16+8+4+2) five-summand even-p decomposition to the next
+  // odd exponent by appending the trailing r.wallSec factor at exactly
+  // one additional multiplication on the same cached squaring chain,
+  // matching the five-summand-even -> six-summand-odd cadence
+  // (partial-bbbb/partial-cccc pair at p=52/53, partial-gggg/partial-hhhh
+  // pair at p=54/55, partial-kkkk/partial-llll pair at p=56/57, ...).
+  // wallSec values are strictly positive by construction (wall-clock
+  // measurements) so the trailing odd factor cannot induce sign
+  // cancellation; no sign guard is required, matching every prior odd-p
+  // shell emitter. All-unknown degenerate case (known.length===0) prints
+  // a dedicated unknown summary and exits 0 rather than (0/0)^(1/63) =
+  // NaN. Pure data emitter, exit 0 unconditionally (no validation gate),
+  // not wired into --preflight / --preflight-json. JSON analog
+  // --batch-plan-cost-triple-tressexagintmean-json can follow in a
+  // future partial, matching the shell-first / JSON-second cadence
+  // established across every other cost-emitter axis. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new batch-plan
+  // logic. Honest-partial: imp-917 stays pending -- the ~20 CPU-hour
+  // offline execution of the 14 measurement rows remains the honest
+  // closure condition; this partial extends the power-mean family by
+  // one exponent at the next odd p=63 sibling inside the sexaginta
+  // decade.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple tressexagintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const tressexagintSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    const w32 = w16 * w16;
+    return s + w32 * w16 * w8 * w4 * w2 * r.wallSec;
+  }, 0);
+  const tressexagintmeanSec = Math.pow(tressexagintSum / known.length, 1 / 63);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from tressexagintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple tressexagintic-mean wall-time: ${tressexagintmeanSec.toFixed(0)} s (~${(tressexagintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

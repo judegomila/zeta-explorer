@@ -35,6 +35,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress-wall-done
 //   node scripts/imp-917-run-cell.mjs --progress-wall-total
 //   node scripts/imp-917-run-cell.mjs --progress-wall-pct
+//   node scripts/imp-917-run-cell.mjs --progress-wall-pct-json
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -723,6 +724,7 @@ function parseArgs(argv) {
     else if (a === '--progress-wall-done') out.progressWallDone = true;
     else if (a === '--progress-wall-total') out.progressWallTotal = true;
     else if (a === '--progress-wall-pct') out.progressWallPct = true;
+    else if (a === '--progress-wall-pct-json') out.progressWallPctJson = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -937,6 +939,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress-wall-done\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-total\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-pct\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-wall-pct-json\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1933,6 +1936,44 @@ if (args.progressWallPct) {
     .reduce((acc, c) => acc + c.wallSecondsEstPerTripleRun / 3, 0);
   const pct = totalWallSec > 0 ? (100 * doneWallSec) / totalWallSec : 0;
   console.log(pct.toFixed(1));
+  process.exit(0);
+}
+
+if (args.progressWallPctJson) {
+  // Structural JSON analog of --progress-wall-pct. Emits a single object
+  // exposing the wall-percent value alongside its source-of-truth components
+  // (doneWallHours, totalWallHours), so a Python / jq offline-worker driver
+  // can verify the invariant
+  //   wallPercentDone == 100 * doneWallHours / totalWallHours
+  // in one structural read instead of three shell calls. Pairs with
+  // --progress-wall-pct (bare-number shell emitter) the same way --progress-
+  // json pairs with --progress: same source-of-truth pair (MISSING_CELLS as
+  // ground truth, MEASURED_ROWS as completion log, (N|eps) join key,
+  // wallSecondsEstPerTripleRun / 3 as the per-cell amortized cost), so the
+  // wallPercentDone field matches the --progress-wall-pct shell output
+  // numerically (full precision here, one-decimal rounded there) and the
+  // doneWallHours / totalWallHours fields match the absolute-hours values
+  // surfaced by --progress-wall-done / --progress-wall-total. Closes the
+  // wall-pct {shell, JSON} pair and brings the wall-trio's percent leg to
+  // the same structural-emitter parity the count trio enjoys via
+  // --progress-json. Pure data emitter, exit 0 unconditionally; not a check,
+  // not wired into --preflight.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const totalWallSec = missing.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  const doneWallSec = missing
+    .filter((c) => measuredKeys.has(`${c.N}|${c.eps}`))
+    .reduce((acc, c) => acc + c.wallSecondsEstPerTripleRun / 3, 0);
+  const out = {
+    doneWallHours: doneWallSec / 3600,
+    totalWallHours: totalWallSec / 3600,
+    wallPercentDone: totalWallSec > 0 ? (100 * doneWallSec) / totalWallSec : 0,
+  };
+  console.log(JSON.stringify(out, null, 2));
   process.exit(0);
 }
 

@@ -36,6 +36,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress-wall-total
 //   node scripts/imp-917-run-cell.mjs --progress-wall-pct
 //   node scripts/imp-917-run-cell.mjs --progress-wall-pct-json
+//   node scripts/imp-917-run-cell.mjs --progress-wall-pct-remaining
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -725,6 +726,7 @@ function parseArgs(argv) {
     else if (a === '--progress-wall-total') out.progressWallTotal = true;
     else if (a === '--progress-wall-pct') out.progressWallPct = true;
     else if (a === '--progress-wall-pct-json') out.progressWallPctJson = true;
+    else if (a === '--progress-wall-pct-remaining') out.progressWallPctRemaining = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -940,6 +942,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress-wall-total\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-pct\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-pct-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-wall-pct-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1974,6 +1977,53 @@ if (args.progressWallPctJson) {
     wallPercentDone: totalWallSec > 0 ? (100 * doneWallSec) / totalWallSec : 0,
   };
   console.log(JSON.stringify(out, null, 2));
+  process.exit(0);
+}
+
+if (args.progressWallPctRemaining) {
+  // Bare-number wall-percent-remaining emitter: the symmetric sibling of
+  // --progress-wall-pct in the wall-trio's percent leg, mirroring the count
+  // trio's --progress-pct / --progress-pct-remaining pair. Prints just the
+  // wall-percent-remaining value (100 - wallPct, e.g. "100.0" at start,
+  // "50.0" at half-budget-burned, "0.0" at completion) on a single line with
+  // no label, no surrounding text, no JSON envelope, no percent sign, so
+  // shell scripts can gate directly on numeric comparisons of "how much
+  // CPU-hour budget is left" without computing 100-wallPct in the loop or
+  // piping through jq, awk, or sed:
+  //   left=$(node scripts/imp-917-run-cell.mjs --progress-wall-pct-remaining)
+  //   if [ "${left%%.*}" -le 10 ]; then echo budget-near-burn; fi
+  // Mirrors --progress-wall-pct (which prints wall-percent-done) so for any
+  // state the two values sum to 100.0 exactly at the printed precision (one
+  // decimal place). Distinct content from --progress-pct-remaining because
+  // cells are not equally costly across N (wallSecondsEstPerTripleRun varies
+  // from ~6 minutes at N=500 to ~9.7 hours at N=10000), so for any partial-
+  // completion state the wall-pct-remaining value can differ substantially
+  // from the count-pct-remaining value (e.g. measuring all the cheap N=500
+  // cells first leaves the count-pct-remaining low but the wall-pct-
+  // remaining still high). Same source-of-truth pair as --progress /
+  // --progress-json / --progress-wall-* (MISSING_CELLS as ground truth,
+  // MEASURED_ROWS as completion log, (N|eps) join key,
+  // wallSecondsEstPerTripleRun / 3 as the per-cell amortized cost) so the
+  // value matches the remaining-hours-percent figure byte-for-byte at one-
+  // decimal precision against the source-of-truth missingCells reduction.
+  // Pure data emitter, exit 0 unconditionally; not a check, not wired into
+  // --preflight. Brings the wall trio's percent leg to the same {pct,
+  // pct-remaining} symmetric-pair shape the count trio has, so any future
+  // --progress-wall-pct-remaining-json analog can follow the count-trio's
+  // structural-emitter cadence.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const totalWallSec = missing.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  const doneWallSec = missing
+    .filter((c) => measuredKeys.has(`${c.N}|${c.eps}`))
+    .reduce((acc, c) => acc + c.wallSecondsEstPerTripleRun / 3, 0);
+  const pctRemaining =
+    totalWallSec > 0 ? (100 * (totalWallSec - doneWallSec)) / totalWallSec : 0;
+  console.log(pctRemaining.toFixed(1));
   process.exit(0);
 }
 

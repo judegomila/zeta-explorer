@@ -23,6 +23,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress
 //   node scripts/imp-917-run-cell.mjs --progress-json
 //   node scripts/imp-917-run-cell.mjs --progress-bar
+//   node scripts/imp-917-run-cell.mjs --progress-fraction
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -631,6 +632,7 @@ function parseArgs(argv) {
     progress: false,
     progressBar: false,
     progressPct: false,
+    progressFraction: false,
     retuningTable: false,
     retuningTableJson: false,
     batchPlanCost: false,
@@ -697,6 +699,7 @@ function parseArgs(argv) {
     else if (a === '--progress-json') out.progressJson = true;
     else if (a === '--progress-bar') out.progressBar = true;
     else if (a === '--progress-pct') out.progressPct = true;
+    else if (a === '--progress-fraction') out.progressFraction = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -900,6 +903,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress-json\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-bar\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-pct\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-fraction\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1518,6 +1522,31 @@ if (args.progressPct) {
   const totalCount = missing.length;
   const pct = totalCount > 0 ? (100 * doneCount) / totalCount : 0;
   console.log(pct.toFixed(1));
+  process.exit(0);
+}
+
+if (args.progressFraction) {
+  // Bare-fraction emitter: the textual sibling of --progress-pct in the
+  // stripped-down progress family. Prints just the integer pair "K/N" on
+  // a single line (no label, no surrounding text, no JSON envelope, no
+  // percent sign) so shell scripts can render the raw counter as-is in
+  // status-bar one-liners or split it on the literal slash to grab K and
+  // N independently:
+  //   frac=$(node scripts/imp-917-run-cell.mjs --progress-fraction)
+  //   done=${frac%%/*}; total=${frac##*/}
+  // Same source-of-truth pair as --progress / --progress-json /
+  // --progress-bar / --progress-pct (MISSING_CELLS as ground truth,
+  // MEASURED_ROWS as completion log, (N|eps) join key) so all five
+  // progress emitters cannot drift. Pure data emitter, exit 0
+  // unconditionally; not a check, not wired into --preflight.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const doneCount = missing.filter((c) =>
+    measuredKeys.has(`${c.N}|${c.eps}`),
+  ).length;
+  const totalCount = missing.length;
+  console.log(`${doneCount}/${totalCount}`);
   process.exit(0);
 }
 

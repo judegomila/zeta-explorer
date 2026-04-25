@@ -31,6 +31,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress-fraction-remaining
 //   node scripts/imp-917-run-cell.mjs --progress-ratio
 //   node scripts/imp-917-run-cell.mjs --progress-ratio-remaining
+//   node scripts/imp-917-run-cell.mjs --progress-wall-remaining
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -715,6 +716,7 @@ function parseArgs(argv) {
     else if (a === '--progress-fraction-remaining') out.progressFractionRemaining = true;
     else if (a === '--progress-ratio') out.progressRatio = true;
     else if (a === '--progress-ratio-remaining') out.progressRatioRemaining = true;
+    else if (a === '--progress-wall-remaining') out.progressWallRemaining = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -925,6 +927,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress-pct-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-fraction-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-ratio-remaining\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-wall-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1775,6 +1778,40 @@ if (args.progressRatioRemaining) {
   const totalCount = missing.length;
   const ratioRemaining = totalCount > 0 ? remainingCount / totalCount : 0;
   console.log(ratioRemaining.toFixed(3));
+  process.exit(0);
+}
+
+if (args.progressWallRemaining) {
+  // Bare wall-hours-remaining emitter: prints just the estimated CPU-hour
+  // budget remaining for the unmeasured cells, formatted to one decimal
+  // place (e.g. "42.4" at start, "0.0" at completion) on a single line
+  // with no label, no surrounding text, no JSON envelope, no unit suffix.
+  // Distinct content from the count / percent / fraction / ratio bare
+  // emitters: cells are not equally costly across N, so the wall-time
+  // signal does not track the cell-count signal proportionally (e.g.
+  // measuring the cheap small-N cells first leaves a high wall-hour
+  // remainder even at high cell-completion percent). Lets a bash one-
+  // liner gate on the actual budget left rather than a count proxy:
+  //   left=$(node scripts/imp-917-run-cell.mjs --progress-wall-remaining)
+  //   if [ "${left%.*}" -le 4 ]; then echo final-stretch; fi
+  // Same source-of-truth pair as --progress / --progress-json
+  // (MISSING_CELLS as ground truth, MEASURED_ROWS as completion log,
+  // (N|eps) join key, wallSecondsEstPerTripleRun / 3 as the per-cell
+  // amortized cost) so the value matches the remaining-hours figure
+  // surfaced by --progress / --progress-json byte-for-byte at one-decimal
+  // precision. Pure data emitter, exit 0 unconditionally; not a check,
+  // not wired into --preflight.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const remaining = missing.filter(
+    (c) => !measuredKeys.has(`${c.N}|${c.eps}`),
+  );
+  const remainingWallSec = remaining.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  console.log((remainingWallSec / 3600).toFixed(1));
   process.exit(0);
 }
 

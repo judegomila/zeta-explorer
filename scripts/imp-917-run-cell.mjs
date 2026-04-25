@@ -27,6 +27,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress-remaining
 //   node scripts/imp-917-run-cell.mjs --progress-done
 //   node scripts/imp-917-run-cell.mjs --progress-total
+//   node scripts/imp-917-run-cell.mjs --progress-pct-remaining
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -707,6 +708,7 @@ function parseArgs(argv) {
     else if (a === '--progress-remaining') out.progressRemaining = true;
     else if (a === '--progress-done') out.progressDone = true;
     else if (a === '--progress-total') out.progressTotal = true;
+    else if (a === '--progress-pct-remaining') out.progressPctRemaining = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -914,6 +916,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-done\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-total\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-pct-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1634,6 +1637,38 @@ if (args.progressTotal) {
   // check, not wired into --preflight.
   const totalCount = IMP_896_RETUNING_CALIBRATION.missingCells.length;
   console.log(totalCount);
+  process.exit(0);
+}
+
+if (args.progressPctRemaining) {
+  // Bare-number percent-remaining emitter: the symmetric sibling of
+  // --progress-pct in the progress-bare family. Prints just the
+  // percent-remaining value (100 - pct, e.g. "100.0" at start, "50.0"
+  // at half-batch, "0.0" at completion) on a single line with no label,
+  // no surrounding text, no JSON envelope, so shell scripts can gate
+  // directly on numeric comparisons of "how much work is left" without
+  // computing 100-pct in the loop or piping through jq, awk, or sed:
+  //   pct_left=$(node scripts/imp-917-run-cell.mjs --progress-pct-remaining)
+  //   if [ "${pct_left%%.*}" -le 10 ]; then echo near completion; fi
+  // Mirrors --progress-pct (which prints percent-done) so for any state
+  // the two values sum to 100.0 exactly at the printed precision (one
+  // decimal place). Same source-of-truth pair as --progress /
+  // --progress-json / --progress-bar / --progress-pct /
+  // --progress-fraction / --progress-remaining / --progress-done /
+  // --progress-total (MISSING_CELLS as ground truth, MEASURED_ROWS as
+  // completion log, (N|eps) join key) so all nine progress emitters
+  // cannot drift. Pure data emitter, exit 0 unconditionally; not a
+  // check, not wired into --preflight.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const doneCount = missing.filter((c) =>
+    measuredKeys.has(`${c.N}|${c.eps}`),
+  ).length;
+  const totalCount = missing.length;
+  const pctRemaining =
+    totalCount > 0 ? (100 * (totalCount - doneCount)) / totalCount : 0;
+  console.log(pctRemaining.toFixed(1));
   process.exit(0);
 }
 

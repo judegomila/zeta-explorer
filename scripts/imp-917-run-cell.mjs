@@ -174,6 +174,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorsexagintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquesexagintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquesexagintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexsexagintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -827,6 +828,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-quattuorsexagintmean-json') out.batchPlanCostTripleQuattuorsexagintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-quinquesexagintmean') out.batchPlanCostTripleQuinquesexagintmean = true;
     else if (a === '--batch-plan-cost-triple-quinquesexagintmean-json') out.batchPlanCostTripleQuinquesexagintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-sexsexagintmean') out.batchPlanCostTripleSexsexagintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -1016,6 +1018,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorsexagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquesexagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquesexagintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexsexagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -11061,6 +11064,90 @@ if (args.batchPlanCostTripleQuinquesexagintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleSexsexagintmean) {
+  // partial-vvvvvvvv: pure-shell data emitter surfacing the
+  // sexsexagintic mean (p=66 Kolmogorov power-mean) of per-triple
+  // wall-times across the known-wallSec rows of BATCH_PLAN as the
+  // sixty-eighth power-mean sibling extending partial-tttttttt
+  // quinquesexagintmean (p=65) upward by one exponent to p=66, the
+  // next even exponent inside the sexaginta decade (sex+sexaginta =
+  // 6+60 = 66, matching the project sex- prefix cadence at
+  // p=26 sexvigintmean, p=46 sexquadragintmean, and
+  // p=56 sexquinquagintmean). p=66 remains above the IEEE-754
+  // double-precision overflow boundary established at p=64
+  // (wallSec around 7e4 yields x^66 approx 10^319, well beyond
+  // Number.MAX_VALUE approx 1.8e308); the naive direct-sum form
+  // would emit Infinity. This partial therefore retains the
+  // max-rescaling identity introduced at partial-rrrrrrrr,
+  //     PM_p(x_1, ..., x_n) = M * PM_p(x_1/M, ..., x_n/M)
+  // with M = max(x_i): each ratio x_i/M lies in (0, 1] so
+  // (x_i/M)^66 is bounded by 1 and overflow is eliminated. The
+  // rescaled formula equals the unscaled formula in exact
+  // arithmetic and remains finite at every double-representable
+  // wall time. By the generalized power-mean inequality SSGM66
+  // dominates every lower-p sibling so the monotone chain
+  // SSGM66 >= QQGM65 >= QSGM64 >= TSGM63 >= DSGM62 >= USGM61
+  // >= SGM60 >= ... >= AM >= GM >= HM holds inline across all
+  // sixty-eight shell emitters. Handler computes ratios r = x_i/M
+  // then sums r^66 via the cached squaring chain
+  // (const r2 = ratio * ratio; const r4 = r2 * r2; const r8 = r4 * r4;
+  //  const r16 = r8 * r8; const r32 = r16 * r16;
+  //  const r64 = r32 * r32; sexsexagintSum += r64 * r2;) --
+  // two-summand even-p decomposition (66 = 64+2) promoting the
+  // partial-tttttttt quinquesexagintmean r64 * ratio (65 = 64+1)
+  // two-summand odd-p decomposition to the next even exponent by
+  // promoting the trailing ratio odd-tail factor to r2 with
+  // exactly zero additional multiplications on the same cached
+  // squaring chain (r2 is already computed), matching the
+  // two-summand-odd -> two-summand-even cadence. Even p=66 cannot
+  // induce sign cancellation; wallSec values are strictly positive
+  // by construction (wall-clock measurements) so ratios are
+  // strictly positive and no sign guard is required, matching
+  // every prior even-p shell emitter. All-unknown degenerate case
+  // (known.length===0) prints a dedicated unknown summary and
+  // exits 0 rather than (0/0)^(1/66) = NaN. Pure data emitter,
+  // exit 0 unconditionally (no validation gate), not wired into
+  // --preflight / --preflight-json. JSON analog
+  // --batch-plan-cost-triple-sexsexagintmean-json can follow in a
+  // future partial, matching the shell-first / JSON-second cadence
+  // established across every other cost-emitter axis. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new
+  // batch-plan logic. Honest-partial: imp-917 stays pending -- the
+  // ~20 CPU-hour offline execution of the 14 measurement rows
+  // remains the honest closure condition; this partial extends
+  // the power-mean family by one exponent at the next even p=66
+  // sibling above the IEEE-754 double overflow boundary inside
+  // the sexaginta decade.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple sexsexagintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const M = known.reduce((m, r) => (r.wallSec > m ? r.wallSec : m), 0);
+  const sexsexagintSum = known.reduce((s, r) => {
+    const ratio = r.wallSec / M;
+    const r2 = ratio * ratio;
+    const r4 = r2 * r2;
+    const r8 = r4 * r4;
+    const r16 = r8 * r8;
+    const r32 = r16 * r16;
+    const r64 = r32 * r32;
+    return s + r64 * r2;
+  }, 0);
+  const sexsexagintmeanSec = M * Math.pow(sexsexagintSum / known.length, 1 / 66);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from sexsexagintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple sexsexagintic-mean wall-time: ${sexsexagintmeanSec.toFixed(0)} s (~${(sexsexagintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

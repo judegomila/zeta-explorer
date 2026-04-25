@@ -33,6 +33,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress-ratio-remaining
 //   node scripts/imp-917-run-cell.mjs --progress-wall-remaining
 //   node scripts/imp-917-run-cell.mjs --progress-wall-done
+//   node scripts/imp-917-run-cell.mjs --progress-wall-total
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -719,6 +720,7 @@ function parseArgs(argv) {
     else if (a === '--progress-ratio-remaining') out.progressRatioRemaining = true;
     else if (a === '--progress-wall-remaining') out.progressWallRemaining = true;
     else if (a === '--progress-wall-done') out.progressWallDone = true;
+    else if (a === '--progress-wall-total') out.progressWallTotal = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -931,6 +933,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress-ratio-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-done\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-wall-total\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1854,6 +1857,34 @@ if (args.progressWallDone) {
     0,
   );
   console.log((doneWallSec / 3600).toFixed(1));
+  process.exit(0);
+}
+
+if (args.progressWallTotal) {
+  // Bare wall-hours-total emitter: the third leg of the bare-wall-time trio
+  // alongside --progress-wall-remaining and --progress-wall-done. Prints just
+  // the total estimated CPU-hour budget for the full 14-cell offline batch
+  // (currently ~42.4) formatted to one decimal place on a single line, with
+  // no label, no surrounding text, no JSON envelope, no unit suffix. Mirrors
+  // --progress-total for the count trio: closes the bare-wall-time invariant
+  // by binding the total leg directly to MISSING_CELLS so a divergence between
+  // the wall-time emitters and the underlying ground-truth wall-second sum
+  // surfaces immediately. For any state, the printed sum invariant
+  //   $(--progress-wall-done) + $(--progress-wall-remaining)
+  //     == $(--progress-wall-total)
+  // holds at one-decimal precision against the source-of-truth missingCells
+  // wallSecondsEstPerTripleRun / 3 reduction. Same source-of-truth as every
+  // other progress emitter (MISSING_CELLS as ground truth, (N|eps) join key,
+  // wallSecondsEstPerTripleRun / 3 as the per-cell amortized cost) so the
+  // value matches the total-hours figure surfaced by --progress / --progress-
+  // json byte-for-byte at one-decimal precision. Pure data emitter, exit 0
+  // unconditionally; not a check, not wired into --preflight.
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const totalWallSec = missing.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  console.log((totalWallSec / 3600).toFixed(1));
   process.exit(0);
 }
 

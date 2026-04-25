@@ -630,6 +630,7 @@ function parseArgs(argv) {
     doneCells: false,
     progress: false,
     progressBar: false,
+    progressPct: false,
     retuningTable: false,
     retuningTableJson: false,
     batchPlanCost: false,
@@ -695,6 +696,7 @@ function parseArgs(argv) {
     else if (a === '--progress') out.progress = true;
     else if (a === '--progress-json') out.progressJson = true;
     else if (a === '--progress-bar') out.progressBar = true;
+    else if (a === '--progress-pct') out.progressPct = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -897,6 +899,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-json\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-bar\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-pct\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1491,6 +1494,30 @@ if (args.progressBar) {
   console.log(
     `imp-917 progress: [${bar}] ${doneCount}/${totalCount} (${pct.toFixed(1)}%)`,
   );
+  process.exit(0);
+}
+
+if (args.progressPct) {
+  // Bare-number percentage emitter: the most stripped-down member of the
+  // progress family. Prints just the percent-done value (e.g. "0.0") on a
+  // single line with no label, no surrounding text, no JSON envelope, so
+  // shell scripts can gate directly on numeric comparisons without piping
+  // through jq or sed:
+  //   pct=$(node scripts/imp-917-run-cell.mjs --progress-pct)
+  //   if [ "${pct%%.*}" -ge 50 ]; then ... fi
+  // Same source-of-truth pair as --progress / --progress-json / --progress-bar
+  // (MISSING_CELLS as ground truth, MEASURED_ROWS as completion log,
+  // (N|eps) join key) so all four progress emitters cannot drift. Pure data
+  // emitter, exit 0 unconditionally; not a check, not wired into --preflight.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const doneCount = missing.filter((c) =>
+    measuredKeys.has(`${c.N}|${c.eps}`),
+  ).length;
+  const totalCount = missing.length;
+  const pct = totalCount > 0 ? (100 * doneCount) / totalCount : 0;
+  console.log(pct.toFixed(1));
   process.exit(0);
 }
 

@@ -167,6 +167,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unsexagintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unsexagintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -813,6 +814,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-unsexagintmean') out.batchPlanCostTripleUnsexagintmean = true;
     else if (a === '--batch-plan-cost-triple-unsexagintmean-json') out.batchPlanCostTripleUnsexagintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-duosexagintmean') out.batchPlanCostTripleDuosexagintmean = true;
+    else if (a === '--batch-plan-cost-triple-duosexagintmean-json') out.batchPlanCostTripleDuosexagintmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -995,6 +997,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unsexagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unsexagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -10519,6 +10522,73 @@ if (args.batchPlanCostTripleDuosexagintmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple duosexagintic-mean wall-time: ${duosexagintmeanSec.toFixed(0)} s (~${(duosexagintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleDuosexagintmeanJson) {
+  // partial-oooooooo: structural JSON analog of partial-nnnnnnnn
+  // --batch-plan-cost-triple-duosexagintmean (p=62 Kolmogorov power-mean),
+  // completing the {shell, JSON} pair for partial-nnnnnnnn and bringing
+  // the Kolmogorov power-mean family at p in {-1, 0, 1..62} x
+  // {shell, JSON} to full shell/JSON parity at sixty-four exponents,
+  // crossing the first even exponent past the p=61 unsexaginta sibling
+  // inside the sexaginta decade in both forms. Emits one object
+  // {duosexagintmeanSec, duosexagintmeanHours, knownCount, unknownCount}
+  // with duosexagintmeanHours = duosexagintmeanSec / 3600 (null when
+  // knownCount===0) so Python / jq offline-worker drivers can consume
+  // the p=62 power-mean central-tendency signal directly without
+  // re-parsing the one-line shell summary and without redoing the
+  // seconds-to-hours conversion, matching the precomputed-hours cadence
+  // established across every prior JSON cost-emitter. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new math;
+  // identical known-row filter (wallSec !== null) to the partial-nnnnnnnn
+  // shell form so the two flags cannot drift. Applies the same cached
+  // squaring chain (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8; const w32 = w16 * w16;
+  //  duosexagintSum += w32 * w16 * w8 * w4 * w2;) as partial-nnnnnnnn for
+  // numerical-stability parity and IEEE-754 bit parity, avoiding Math.pow
+  // in the inner reduce loop (62 = 32+16+8+4+2, the five-summand even-p
+  // decomposition promoting partial-llllllll unsexagintmean
+  // w32 * w16 * w8 * w4 * r.wallSec (61 = 32+16+8+4+1) to the next even
+  // exponent by promoting the trailing r.wallSec odd-tail factor to w2 at
+  // exactly zero additional multiplications on the same cached squaring
+  // chain), then duosexagintmeanSec = Math.pow(duosexagintSum / known.length,
+  // 1 / 62). Even p=62 cannot induce sign cancellation for any input;
+  // wallSec values are strictly positive by construction (wall-clock
+  // measurements) so no sign guard is required, matching every prior
+  // even-p JSON emitter. All-unknown degenerate case (known.length===0)
+  // emits {duosexagintmeanSec: null, duosexagintmeanHours: null,
+  // knownCount: 0, unknownCount} and exits 0 without attempting
+  // (0/0)^(1/62) = NaN, matching the JSON degenerate cadence across every
+  // prior JSON power-mean emitter. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Honest-partial: imp-917 stays pending -- the
+  // ~20 CPU-hour offline execution of the 14 measurement rows remains
+  // the honest closure condition; this partial closes the JSON half of
+  // the power-mean pair at p=62.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let duosexagintmeanSec = null;
+  if (known.length > 0) {
+    const duosexagintSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      const w16 = w8 * w8;
+      const w32 = w16 * w16;
+      return s + w32 * w16 * w8 * w4 * w2;
+    }, 0);
+    duosexagintmeanSec = Math.pow(duosexagintSum / known.length, 1 / 62);
+  }
+  const duosexagintmeanHours =
+    duosexagintmeanSec === null ? null : duosexagintmeanSec / 3600;
+  const body = {
+    duosexagintmeanSec,
+    duosexagintmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

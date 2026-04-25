@@ -17,6 +17,7 @@
 //   node scripts/imp-917-run-cell.mjs --missing-cells
 //   node scripts/imp-917-run-cell.mjs --missing-cells-json
 //   node scripts/imp-917-run-cell.mjs --remaining-cells
+//   node scripts/imp-917-run-cell.mjs --remaining-cells-json
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -620,6 +621,7 @@ function parseArgs(argv) {
     missingCells: false,
     missingCellsJson: false,
     remainingCells: false,
+    remainingCellsJson: false,
     retuningTable: false,
     retuningTableJson: false,
     batchPlanCost: false,
@@ -679,6 +681,7 @@ function parseArgs(argv) {
     else if (a === '--missing-cells') out.missingCells = true;
     else if (a === '--missing-cells-json') out.missingCellsJson = true;
     else if (a === '--remaining-cells') out.remainingCells = true;
+    else if (a === '--remaining-cells-json') out.remainingCellsJson = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -875,6 +878,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --missing-cells\n' +
           '       node scripts/imp-917-run-cell.mjs --missing-cells-json\n' +
           '       node scripts/imp-917-run-cell.mjs --remaining-cells\n' +
+          '       node scripts/imp-917-run-cell.mjs --remaining-cells-json\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1223,6 +1227,49 @@ if (args.remainingCells) {
   } else {
     console.log('  all 14 MISSING_CELLS rows have been transcribed into MEASURED_ROWS.');
   }
+  process.exit(0);
+}
+
+if (args.remainingCellsJson) {
+  // Structural JSON analog of --remaining-cells. Diffs MISSING_CELLS against
+  // MEASURED_ROWS (N|eps key) and emits a single object carrying both the
+  // progress counters (totalCount, doneCount, remainingCount) and the
+  // remaining cell rows so Python / jq offline-worker drivers can poll the
+  // batch progress structurally without re-parsing the shell ASCII table.
+  // Pure data emitter (exit 0 unconditionally) matching the
+  // --missing-cells-json / --retuning-table-json cadence. The shell and JSON
+  // forms must stay aligned: same ground-truth source (MISSING_CELLS), same
+  // measured-keys lookup ((r) => `${r.N}|${r.eps}`), same triple-amortized
+  // wallSecondsEstimate (sum of wallSecondsEstPerTripleRun / 3 across the
+  // remaining rows). remainingWallSecondsEstimate is null when no rows remain
+  // so consumers can distinguish "batch complete" from "estimate is zero".
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const remaining = missing.filter(
+    (c) => !measuredKeys.has(`${c.N}|${c.eps}`),
+  );
+  const remainingWallSec = remaining.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  const out = {
+    totalCount: missing.length,
+    doneCount: missing.length - remaining.length,
+    remainingCount: remaining.length,
+    remainingWallSecondsEstimate: remaining.length > 0 ? remainingWallSec : null,
+    remainingWallHoursEstimate:
+      remaining.length > 0 ? remainingWallSec / 3600 : null,
+    remaining: remaining.map((c, i) => ({
+      index: i + 1,
+      N: c.N,
+      eps: c.eps,
+      dt: c.dt,
+      nSteps: c.nSteps,
+      wallSecondsEstPerTripleRun: c.wallSecondsEstPerTripleRun,
+    })),
+  };
+  console.log(JSON.stringify(out, null, 2));
   process.exit(0);
 }
 

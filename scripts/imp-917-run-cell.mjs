@@ -20,6 +20,7 @@
 //   node scripts/imp-917-run-cell.mjs --remaining-cells-json
 //   node scripts/imp-917-run-cell.mjs --done-cells
 //   node scripts/imp-917-run-cell.mjs --done-cells-json
+//   node scripts/imp-917-run-cell.mjs --progress
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -625,6 +626,7 @@ function parseArgs(argv) {
     remainingCells: false,
     remainingCellsJson: false,
     doneCells: false,
+    progress: false,
     retuningTable: false,
     retuningTableJson: false,
     batchPlanCost: false,
@@ -687,6 +689,7 @@ function parseArgs(argv) {
     else if (a === '--remaining-cells-json') out.remainingCellsJson = true;
     else if (a === '--done-cells') out.doneCells = true;
     else if (a === '--done-cells-json') out.doneCellsJson = true;
+    else if (a === '--progress') out.progress = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -886,6 +889,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --remaining-cells-json\n' +
           '       node scripts/imp-917-run-cell.mjs --done-cells\n' +
           '       node scripts/imp-917-run-cell.mjs --done-cells-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1370,6 +1374,45 @@ if (args.doneCellsJson) {
     })),
   };
   console.log(JSON.stringify(out, null, 2));
+  process.exit(0);
+}
+
+if (args.progress) {
+  // Single-line shell progress summary: the table-less complement to
+  // --remaining-cells / --done-cells. Emits one line of the form
+  //   imp-917 progress: K/N done (P%), wall ~Xh consumed / ~Yh remaining / ~Zh total
+  // suitable for tight monitoring loops (e.g. `watch -n 60 node ... --progress`)
+  // where the operator wants a single counter per tick rather than the full
+  // ASCII table on every poll. Same source-of-truth pair as --remaining-cells
+  // and --done-cells (MISSING_CELLS as ground truth, MEASURED_ROWS as
+  // completion log). All three wall-hour figures use the triple-amortized
+  // wallSecondsEstPerTripleRun / 3 convention so consumed + remaining = total
+  // exactly. Pure data emitter, exit 0 unconditionally; --progress-json analog
+  // can follow in a later partial mirroring the shell-first/JSON-second
+  // cadence already established by the --remaining-cells and --done-cells
+  // pairs.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const done = missing.filter((c) => measuredKeys.has(`${c.N}|${c.eps}`));
+  const remaining = missing.filter((c) => !measuredKeys.has(`${c.N}|${c.eps}`));
+  const doneWallSec = done.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  const remainingWallSec = remaining.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  const totalWallSec = doneWallSec + remainingWallSec;
+  const pct = missing.length > 0 ? (100 * done.length) / missing.length : 0;
+  console.log(
+    `imp-917 progress: ${done.length}/${missing.length} done (${pct.toFixed(
+      1,
+    )}%), wall ~${(doneWallSec / 3600).toFixed(1)}h consumed / ~${(
+      remainingWallSec / 3600
+    ).toFixed(1)}h remaining / ~${(totalWallSec / 3600).toFixed(1)}h total.`,
+  );
   process.exit(0);
 }
 

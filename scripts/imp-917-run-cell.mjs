@@ -37,6 +37,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress-wall-pct
 //   node scripts/imp-917-run-cell.mjs --progress-wall-pct-json
 //   node scripts/imp-917-run-cell.mjs --progress-wall-pct-remaining
+//   node scripts/imp-917-run-cell.mjs --progress-wall-pct-remaining-json
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -727,6 +728,7 @@ function parseArgs(argv) {
     else if (a === '--progress-wall-pct') out.progressWallPct = true;
     else if (a === '--progress-wall-pct-json') out.progressWallPctJson = true;
     else if (a === '--progress-wall-pct-remaining') out.progressWallPctRemaining = true;
+    else if (a === '--progress-wall-pct-remaining-json') out.progressWallPctRemainingJson = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -943,6 +945,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress-wall-pct\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-pct-json\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-pct-remaining\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-wall-pct-remaining-json\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -2024,6 +2027,50 @@ if (args.progressWallPctRemaining) {
   const pctRemaining =
     totalWallSec > 0 ? (100 * (totalWallSec - doneWallSec)) / totalWallSec : 0;
   console.log(pctRemaining.toFixed(1));
+  process.exit(0);
+}
+
+if (args.progressWallPctRemainingJson) {
+  // Structural JSON analog of --progress-wall-pct-remaining. Emits a single
+  // object exposing the wall-percent-remaining value alongside its source-of-
+  // truth components (doneWallHours, totalWallHours, remainingWallHours), so
+  // a Python / jq offline-worker driver can verify the invariants
+  //   wallPercentRemaining == 100 * remainingWallHours / totalWallHours
+  //   wallPercentDone + wallPercentRemaining == 100
+  //   doneWallHours + remainingWallHours == totalWallHours
+  // in one structural read instead of three shell calls. Pairs with
+  // --progress-wall-pct-remaining (bare-number shell emitter) the same way
+  // --progress-wall-pct-json pairs with --progress-wall-pct: same source-of-
+  // truth pair (MISSING_CELLS as ground truth, MEASURED_ROWS as completion
+  // log, (N|eps) join key, wallSecondsEstPerTripleRun / 3 as the per-cell
+  // amortized cost), so the wallPercentRemaining field matches the
+  // --progress-wall-pct-remaining shell output numerically (full precision
+  // here, one-decimal rounded there) and the doneWallHours /
+  // remainingWallHours / totalWallHours fields match the absolute-hours
+  // values surfaced by --progress-wall-done / --progress-wall-remaining /
+  // --progress-wall-total. Closes the wall-pct-remaining {shell, JSON} pair
+  // and brings the wall-trio's percent-remaining leg to the same structural-
+  // emitter parity the count trio enjoys via --progress-json. Pure data
+  // emitter, exit 0 unconditionally; not a check, not wired into --preflight.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const totalWallSec = missing.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  const doneWallSec = missing
+    .filter((c) => measuredKeys.has(`${c.N}|${c.eps}`))
+    .reduce((acc, c) => acc + c.wallSecondsEstPerTripleRun / 3, 0);
+  const remainingWallSec = totalWallSec - doneWallSec;
+  const out = {
+    doneWallHours: doneWallSec / 3600,
+    remainingWallHours: remainingWallSec / 3600,
+    totalWallHours: totalWallSec / 3600,
+    wallPercentRemaining:
+      totalWallSec > 0 ? (100 * remainingWallSec) / totalWallSec : 0,
+  };
+  console.log(JSON.stringify(out, null, 2));
   process.exit(0);
 }
 

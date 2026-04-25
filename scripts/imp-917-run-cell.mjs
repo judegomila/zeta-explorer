@@ -155,6 +155,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquequinquagintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquequinquagintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexquinquagintmean
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexquinquagintmean-json
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -789,6 +790,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-quinquequinquagintmean') out.batchPlanCostTripleQuinquequinquagintmean = true;
     else if (a === '--batch-plan-cost-triple-quinquequinquagintmean-json') out.batchPlanCostTripleQuinquequinquagintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-sexquinquagintmean') out.batchPlanCostTripleSexquinquagintmean = true;
+    else if (a === '--batch-plan-cost-triple-sexquinquagintmean-json') out.batchPlanCostTripleSexquinquagintmeanJson = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -959,6 +961,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquequinquagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quinquequinquagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexquinquagintmean\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexquinquagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -9658,6 +9661,76 @@ if (args.batchPlanCostTripleSexquinquagintmean) {
   console.log(
     `imp-917 BATCH_PLAN per-triple sexquinquagintic-mean wall-time: ${sexquinquagintmeanSec.toFixed(0)} s (~${(sexquinquagintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
   );
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleSexquinquagintmeanJson) {
+  // partial-cccccccc: structural JSON analog of partial-bbbbbbbb
+  // --batch-plan-cost-triple-sexquinquagintmean (p=56 Kolmogorov
+  // power-mean), completing the {shell, JSON} pair for partial-bbbbbbbb
+  // and bringing the Kolmogorov power-mean family at p in {-1, 0, 1..56} x
+  // {shell, JSON} to full shell/JSON parity at fifty-eight exponents (one
+  // hundred ten emitters in total across the power-mean axis), crossing
+  // the p=56 sexquinquaginta boundary in both forms. Emits one object
+  // {sexquinquagintmeanSec, sexquinquagintmeanHours, knownCount,
+  // unknownCount} with sexquinquagintmeanHours = sexquinquagintmeanSec /
+  // 3600 (null when knownCount===0) so Python / jq offline-worker drivers
+  // can consume the p=56 power-mean central-tendency signal directly
+  // without re-parsing the one-line shell summary and without redoing the
+  // seconds-to-hours conversion, matching the precomputed-hours cadence
+  // established across every prior JSON cost-emitter. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new math;
+  // identical known-row filter (wallSec !== null) to the partial-bbbbbbbb
+  // shell form so the two flags cannot drift. Applies the same cached
+  // squaring chain
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8; const w32 = w16 * w16;
+  //  sexquinquagintSum += w32 * w16 * w8;) as partial-bbbbbbbb for
+  // numerical-stability parity and IEEE-754 bit parity, avoiding Math.pow
+  // in the inner reduce loop (56 = 32+16+8, the three-summand even-p
+  // decomposition collapsing the partial-aaaaaaaa quinquequinquagintmean-json
+  // w32 * w16 * w4 * w2 * r.wallSec (55 = 32+16+4+2+1) five-summand odd-p
+  // decomposition by promoting the trailing w4 * w2 * r.wallSec product
+  // chain to the cached w8 power, dropping from five multiplications back
+  // to two and matching the partial-yyyyyyy quattuorquinquagintmean-json
+  // (54 = 32+16+4) three-summand even-p cadence at the prior even
+  // exponent), then sexquinquagintmeanSec = Math.pow(sexquinquagintSum /
+  // known.length, 1 / 56). Even p=56 preserves sign; wallSec values are
+  // strictly positive by construction (wall-clock measurements) so no
+  // sign guard is required, matching every prior even-p JSON emitter.
+  // All-unknown degenerate case (known.length===0) emits
+  // {sexquinquagintmeanSec: null, sexquinquagintmeanHours: null,
+  // knownCount: 0, unknownCount} and exits 0 without attempting
+  // (0/0)^(1/56) = NaN, matching the JSON degenerate cadence across every
+  // prior JSON power-mean emitter. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. Honest-partial: imp-917 stays pending -- the ~20
+  // CPU-hour offline execution of the 14 measurement rows remains the
+  // honest closure condition; this partial closes the JSON half of the
+  // power-mean pair at p=56.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  let sexquinquagintmeanSec = null;
+  if (known.length > 0) {
+    const sexquinquagintSum = known.reduce((s, r) => {
+      const w2 = r.wallSec * r.wallSec;
+      const w4 = w2 * w2;
+      const w8 = w4 * w4;
+      const w16 = w8 * w8;
+      const w32 = w16 * w16;
+      return s + w32 * w16 * w8;
+    }, 0);
+    sexquinquagintmeanSec = Math.pow(sexquinquagintSum / known.length, 1 / 56);
+  }
+  const sexquinquagintmeanHours =
+    sexquinquagintmeanSec === null ? null : sexquinquagintmeanSec / 3600;
+  const body = {
+    sexquinquagintmeanSec,
+    sexquinquagintmeanHours,
+    knownCount: known.length,
+    unknownCount,
+  };
+  console.log(JSON.stringify(body, null, 2));
   process.exit(0);
 }
 

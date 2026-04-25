@@ -34,6 +34,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress-wall-remaining
 //   node scripts/imp-917-run-cell.mjs --progress-wall-done
 //   node scripts/imp-917-run-cell.mjs --progress-wall-total
+//   node scripts/imp-917-run-cell.mjs --progress-wall-pct
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -721,6 +722,7 @@ function parseArgs(argv) {
     else if (a === '--progress-wall-remaining') out.progressWallRemaining = true;
     else if (a === '--progress-wall-done') out.progressWallDone = true;
     else if (a === '--progress-wall-total') out.progressWallTotal = true;
+    else if (a === '--progress-wall-pct') out.progressWallPct = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -934,6 +936,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress-wall-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-done\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-total\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-wall-pct\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1885,6 +1888,51 @@ if (args.progressWallTotal) {
     0,
   );
   console.log((totalWallSec / 3600).toFixed(1));
+  process.exit(0);
+}
+
+if (args.progressWallPct) {
+  // Bare wall-percent emitter: the wall-time analog of --progress-pct (which
+  // prints percent-of-cells-done). Prints just the percent of the total
+  // CPU-hour budget already consumed by the measured cells, formatted to
+  // one decimal place (e.g. "0.0" at start, "100.0" at completion) on a
+  // single line with no label, no surrounding text, no JSON envelope, no
+  // percent sign. Closes the wall-trio with a percent emitter alongside the
+  // existing absolute-hours leg --progress-wall-done / --progress-wall-
+  // remaining / --progress-wall-total: the count trio already had its
+  // percent leg via --progress-pct, so this brings the wall trio to feature
+  // parity. Distinct content from --progress-pct because cells are not
+  // equally costly across N (wallSecondsEstPerTripleRun varies from
+  // ~6 minutes at N=500 to ~9.7 hours at N=10000), so for any partial-
+  // completion state the wall-pct value can differ substantially from the
+  // count-pct value (e.g. measuring all the cheap N=500 cells first leaves
+  // the count-pct high but the wall-pct low). Lets a bash one-liner gate
+  // on actual budget burned as a percentage rather than a count proxy:
+  //   pct=$(node scripts/imp-917-run-cell.mjs --progress-wall-pct)
+  //   if [ "${pct%%.*}" -ge 50 ]; then echo budget-half-burned; fi
+  // For any state, the bare invariant
+  //   $(--progress-wall-pct) == 100 * $(--progress-wall-done) / $(--progress-wall-total)
+  // holds at one-decimal precision against the source-of-truth missingCells
+  // wallSecondsEstPerTripleRun / 3 reduction. Same source-of-truth pair as
+  // --progress / --progress-json / --progress-wall-* (MISSING_CELLS as
+  // ground truth, MEASURED_ROWS as completion log, (N|eps) join key,
+  // wallSecondsEstPerTripleRun / 3 as the per-cell amortized cost) so the
+  // value matches the consumed-hours-percent figure surfaced byte-for-byte
+  // at one-decimal precision. Pure data emitter, exit 0 unconditionally;
+  // not a check, not wired into --preflight. Shell-only by design; a
+  // --progress-wall-pct-json analog can follow in a future partial.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const totalWallSec = missing.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  const doneWallSec = missing
+    .filter((c) => measuredKeys.has(`${c.N}|${c.eps}`))
+    .reduce((acc, c) => acc + c.wallSecondsEstPerTripleRun / 3, 0);
+  const pct = totalWallSec > 0 ? (100 * doneWallSec) / totalWallSec : 0;
+  console.log(pct.toFixed(1));
   process.exit(0);
 }
 

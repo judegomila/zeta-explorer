@@ -11554,12 +11554,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Cross-verify m-raw-from-umon-bridge.js: independent check of key computations",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: "Read src/math/m-raw-from-umon-bridge.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-25T06:10:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: "Independent cross-verification of src/math/m-raw-from-umon-bridge.js completed. (1) Formulas: rvmF(T)=(T/(2*pi))(log(T/(2*pi))-1) is the leading polynomial term of the Riemann-von Mangoldt zero-counting function N(T) (correct vs. standard reference); rvmDensity(T)=log(T/(2*pi))/(2*pi) is exactly F'(T) by direct differentiation (correct). (2) Edge cases: T<=0 yields log of negative -> NaN, T<=2*pi yields rvmDensity<=0 (sign issue not NaN); neither is exercised because gamma_1>14>2*pi. bridgeRecord(N=1) leaves H=Infinity and tauC_est=Infinity because the loop body never executes; not exercised since SPOT_N starts at 10 and the full sweep starts at N=2. N>ZETA_ZEROS.length triggers an out-of-bounds read yielding rvmF(undefined)->NaN; not exercised since SPOT_N caps at ZETA_ZEROS.length. (3) Reference values: independently computed rho(gamma_1)=log(14.1347/(2*pi))/(2*pi)=0.12904 matches the runtime jacobianLowerBound=0.129036 byte-for-byte at six-decimal precision; RHO_MIN_ANALYTIC_LB=log(14/(2*pi))/(2*pi)=0.12751 matches the in-code comment ~0.12751. Finding: the file's leading JSDoc line 24 claimed 'rho_min = rho(gamma_1) ~ 0.209' which is INCORRECT (the actual value is ~0.129). The error was prose-only -- runtime values, build-time assertions, and downstream consumers all use the correctly-computed RHO_MIN_ZETA so no proof step depended on the wrong number; but the docstring would have misled a future reader. Fix shipped: corrected the JSDoc to '~0.129' with an inline imp-918 cross-verification note explaining the discrepancy and noting that the runtime/analytic numbers were already correct."
   },
 
   

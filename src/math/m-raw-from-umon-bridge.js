@@ -21,7 +21,11 @@
  * The Riemann-von Mangoldt CDF F(T) = (T/(2*pi)) * (log(T/(2*pi)) - 1)
  * satisfies F'(T) = rho(T) = (1/(2*pi)) * log(T/(2*pi)) > 0 for all T > 2*pi.
  * In particular, rho(gamma_k) > 0 for every Riemann zero gamma_k (since gamma_1
- * ~ 14.1 >> 2*pi ~ 6.28), with minimum value rho_min = rho(gamma_1) ~ 0.209.
+ * ~ 14.1 >> 2*pi ~ 6.28), with minimum value rho_min = rho(gamma_1) ~ 0.129
+ * (independently cross-verified imp-918: log(14.1347/(2*pi))/(2*pi) = 0.12904;
+ * the prior docstring claim of ~0.209 was incorrect, while the runtime value
+ * jacobianLowerBound and the analytic lower bound RHO_MIN_ANALYTIC_LB ~ 0.12751
+ * were both correctly computed; only the prose number was wrong).
  *
  * Because F has everywhere-positive Jacobian (F' = rho > 0), F is a STRICTLY
  * MONOTONE BIJECTION on (2*pi, infinity).  Therefore, for every k and every

@@ -166,6 +166,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexagintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unsexagintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unsexagintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -811,6 +812,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-sexagintmean-json') out.batchPlanCostTripleSexagintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-unsexagintmean') out.batchPlanCostTripleUnsexagintmean = true;
     else if (a === '--batch-plan-cost-triple-unsexagintmean-json') out.batchPlanCostTripleUnsexagintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-duosexagintmean') out.batchPlanCostTripleDuosexagintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -992,6 +994,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-sexagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unsexagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-unsexagintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -10444,6 +10447,78 @@ if (args.batchPlanCostTripleUnsexagintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleDuosexagintmean) {
+  // partial-nnnnnnnn: pure-shell data emitter surfacing the
+  // duosexagintic mean (p=62 Kolmogorov power-mean) of per-triple
+  // wall-times across the known-wallSec rows of BATCH_PLAN, as the
+  // sixty-fourth power-mean sibling extending partial-llllllll
+  // unsexagintmean (p=61) upward by one exponent to the next even p
+  // past the p=60 sexaginta decade boundary (duo-sexaginta = 2+60 = 62,
+  // matching the project duo- prefix cadence at the next even sibling
+  // inside the sexaginta decade as duo-quinquaginta=52 followed
+  // un-quinquaginta=51 inside the quinquaginta decade and
+  // duo-quadraginta=42 followed un-quadraginta=41 inside the
+  // quadraginta decade). Computed as DSGM62 = (sum(x_i^62) / n)^(1/62)
+  // via Math.pow(s, 1/62); by the generalized power-mean inequality
+  // DSGM62 dominates every lower-p sibling so the monotone chain
+  // DSGM62 >= USGM61 >= SGM60 >= NQGM59 >= OQGM58 >= ... >= AM >= GM
+  // >= HM now holds inline across all sixty-four shell emitters.
+  // Handler uses the w32 * w16 * w8 * w4 * w2 (62 = 32+16+8+4+2)
+  // five-summand even-p decomposition
+  // (const w2 = r.wallSec * r.wallSec; const w4 = w2 * w2;
+  //  const w8 = w4 * w4; const w16 = w8 * w8; const w32 = w16 * w16;
+  //  duosexagintSum += w32 * w16 * w8 * w4 * w2;) to avoid calling
+  // Math.pow in the inner reduce loop: promotes the partial-llllllll
+  // unsexagintmean w32 * w16 * w8 * w4 * r.wallSec (61 = 32+16+8+4+1)
+  // five-summand odd-p decomposition to the next even exponent by
+  // promoting the trailing r.wallSec odd-tail factor to w2 at exactly
+  // zero additional multiplications on the same cached squaring chain
+  // (w2 is already computed for the chain), matching the
+  // five-summand-odd -> five-summand-even cadence (partial-aaa/partial-bbbb
+  // pair at p=51/52, partial-ffff/partial-gggg pair at p=53/54,
+  // partial-jjjj/partial-kkkk pair at p=55/56, ...). Even p=62 cannot
+  // induce sign cancellation for any input; wallSec values are strictly
+  // positive by construction (wall-clock measurements) so no sign guard
+  // is required, matching every prior even-p shell emitter. All-unknown
+  // degenerate case (known.length===0) prints a dedicated unknown summary
+  // and exits 0 rather than (0/0)^(1/62) = NaN. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. JSON analog
+  // --batch-plan-cost-triple-duosexagintmean-json can follow in a future
+  // partial, matching the shell-first / JSON-second cadence established
+  // across every other cost-emitter axis. Reuses computeBatchPlanCost()
+  // (partial-vv helper) with zero new batch-plan logic. Honest-partial:
+  // imp-917 stays pending -- the ~20 CPU-hour offline execution of the
+  // 14 measurement rows remains the honest closure condition; this
+  // partial extends the power-mean family by one exponent at the next
+  // even p=62 sibling inside the sexaginta decade.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple duosexagintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const duosexagintSum = known.reduce((s, r) => {
+    const w2 = r.wallSec * r.wallSec;
+    const w4 = w2 * w2;
+    const w8 = w4 * w4;
+    const w16 = w8 * w8;
+    const w32 = w16 * w16;
+    return s + w32 * w16 * w8 * w4 * w2;
+  }, 0);
+  const duosexagintmeanSec = Math.pow(duosexagintSum / known.length, 1 / 62);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from duosexagintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple duosexagintic-mean wall-time: ${duosexagintmeanSec.toFixed(0)} s (~${(duosexagintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

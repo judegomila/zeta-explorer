@@ -18,6 +18,7 @@
 //   node scripts/imp-917-run-cell.mjs --missing-cells-json
 //   node scripts/imp-917-run-cell.mjs --remaining-cells
 //   node scripts/imp-917-run-cell.mjs --remaining-cells-json
+//   node scripts/imp-917-run-cell.mjs --done-cells
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -622,6 +623,7 @@ function parseArgs(argv) {
     missingCellsJson: false,
     remainingCells: false,
     remainingCellsJson: false,
+    doneCells: false,
     retuningTable: false,
     retuningTableJson: false,
     batchPlanCost: false,
@@ -682,6 +684,7 @@ function parseArgs(argv) {
     else if (a === '--missing-cells-json') out.missingCellsJson = true;
     else if (a === '--remaining-cells') out.remainingCells = true;
     else if (a === '--remaining-cells-json') out.remainingCellsJson = true;
+    else if (a === '--done-cells') out.doneCells = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -1270,6 +1273,59 @@ if (args.remainingCellsJson) {
     })),
   };
   console.log(JSON.stringify(out, null, 2));
+  process.exit(0);
+}
+
+if (args.doneCells) {
+  // Progress-aware shell emitter: the converse of --remaining-cells. Diff
+  // MISSING_CELLS against MEASURED_ROWS (N|eps key) and print the rows that
+  // HAVE been transcribed back, so an operator can audit completion log
+  // ("which cells did the offline worker finish?") rather than the pending
+  // queue ("which cells are still outstanding?"). Same source-of-truth pair
+  // as --remaining-cells (MISSING_CELLS as ground truth, MEASURED_ROWS as
+  // completion log) with the filter inverted: doneCount + remainingCount
+  // always equals totalCount. Pure data emitter (exit 0 unconditionally)
+  // matching the --missing-cells / --remaining-cells / --retuning-table
+  // cadence.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const done = missing.filter((c) => measuredKeys.has(`${c.N}|${c.eps}`));
+  const header = ['idx', 'N', 'eps', 'dt', 'nSteps', 'wallSecEst'];
+  const body = done.map((c, i) => [
+    String(i + 1),
+    String(c.N),
+    String(c.eps),
+    String(c.dt),
+    String(c.nSteps),
+    String(c.wallSecondsEstPerTripleRun),
+  ]);
+  const widths = header.map((h, col) =>
+    Math.max(h.length, ...body.map((r) => r[col].length), 1),
+  );
+  const pad = (s, w) => s + ' '.repeat(w - s.length);
+  const fmt = (r) => r.map((v, col) => pad(v, widths[col])).join('  ');
+  const sep = widths.map((w) => '-'.repeat(w)).join('  ');
+  const remainingCount = missing.length - done.length;
+  console.log(
+    `imp-917 done-cells: ${done.length} of ${missing.length} measured (${remainingCount} pending):`,
+  );
+  if (done.length > 0) {
+    console.log(`  ${fmt(header)}`);
+    console.log(`  ${sep}`);
+    for (const r of body) console.log(`  ${fmt(r)}`);
+    const doneWallSec = done.reduce(
+      (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+      0,
+    );
+    console.log(
+      `  done: ${done.length} rows, wallSecondsConsumedEstimate ~= ${doneWallSec.toFixed(
+        0,
+      )} s (~${(doneWallSec / 3600).toFixed(1)} CPU-hours, triple-amortized).`,
+    );
+  } else {
+    console.log('  no MISSING_CELLS rows have been transcribed into MEASURED_ROWS yet.');
+  }
   process.exit(0);
 }
 

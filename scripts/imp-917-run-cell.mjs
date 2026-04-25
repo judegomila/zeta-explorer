@@ -32,6 +32,7 @@
 //   node scripts/imp-917-run-cell.mjs --progress-ratio
 //   node scripts/imp-917-run-cell.mjs --progress-ratio-remaining
 //   node scripts/imp-917-run-cell.mjs --progress-wall-remaining
+//   node scripts/imp-917-run-cell.mjs --progress-wall-done
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -717,6 +718,7 @@ function parseArgs(argv) {
     else if (a === '--progress-ratio') out.progressRatio = true;
     else if (a === '--progress-ratio-remaining') out.progressRatioRemaining = true;
     else if (a === '--progress-wall-remaining') out.progressWallRemaining = true;
+    else if (a === '--progress-wall-done') out.progressWallDone = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -928,6 +930,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --progress-fraction-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-ratio-remaining\n' +
           '       node scripts/imp-917-run-cell.mjs --progress-wall-remaining\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-wall-done\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1812,6 +1815,45 @@ if (args.progressWallRemaining) {
     0,
   );
   console.log((remainingWallSec / 3600).toFixed(1));
+  process.exit(0);
+}
+
+if (args.progressWallDone) {
+  // Bare wall-hours-done emitter: the symmetric companion of
+  // --progress-wall-remaining. Prints just the estimated CPU-hour budget
+  // already consumed by the measured cells, formatted to one decimal place
+  // (e.g. "0.0" at start, "42.4" at completion) on a single line with no
+  // label, no surrounding text, no JSON envelope, no unit suffix. Mirrors
+  // --progress-wall-remaining (which prints hours-remaining): for any state
+  // the two values sum to the total wall-hour budget exactly at one-decimal
+  // precision, completing the bare-wall-time pair the way --progress-done
+  // and --progress-remaining complete the bare-integer counter pair. Distinct
+  // from the count/percent/fraction/ratio bare emitters because cells are
+  // not equally costly across N (wallSecondsEstPerTripleRun varies from
+  // ~6 minutes at N=500 to ~9.7 hours at N=10000), so the wall-time signal
+  // does not track the count signal proportionally and gives an honest
+  // budget-consumed view independent of cell-count progress. Lets a bash
+  // one-liner gate on the actual budget burned rather than a count proxy:
+  //   used=$(node scripts/imp-917-run-cell.mjs --progress-wall-done)
+  //   if [ "${used%.*}" -ge 20 ]; then echo budget-half-burned; fi
+  // Same source-of-truth pair as --progress / --progress-json /
+  // --progress-wall-remaining (MISSING_CELLS as ground truth, MEASURED_ROWS
+  // as completion log, (N|eps) join key, wallSecondsEstPerTripleRun / 3 as
+  // the per-cell amortized cost) so the value matches the consumed-hours
+  // figure surfaced by --progress / --progress-json byte-for-byte at
+  // one-decimal precision. Pure data emitter, exit 0 unconditionally; not a
+  // check, not wired into --preflight.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const done = missing.filter(
+    (c) => measuredKeys.has(`${c.N}|${c.eps}`),
+  );
+  const doneWallSec = done.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  console.log((doneWallSec / 3600).toFixed(1));
   process.exit(0);
 }
 

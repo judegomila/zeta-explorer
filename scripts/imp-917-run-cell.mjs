@@ -170,6 +170,7 @@
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tressexagintmean
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tressexagintmean-json
+//   node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorsexagintmean
 //   node scripts/imp-917-run-cell.mjs --verify-plan
 //   node scripts/imp-917-run-cell.mjs --verify-plan-json
 //   node scripts/imp-917-run-cell.mjs --verify-prototype
@@ -819,6 +820,7 @@ function parseArgs(argv) {
     else if (a === '--batch-plan-cost-triple-duosexagintmean-json') out.batchPlanCostTripleDuosexagintmeanJson = true;
     else if (a === '--batch-plan-cost-triple-tressexagintmean') out.batchPlanCostTripleTressexagintmean = true;
     else if (a === '--batch-plan-cost-triple-tressexagintmean-json') out.batchPlanCostTripleTressexagintmeanJson = true;
+    else if (a === '--batch-plan-cost-triple-quattuorsexagintmean') out.batchPlanCostTripleQuattuorsexagintmean = true;
     else if (a === '--verify-plan') out.verifyPlan = true;
     else if (a === '--verify-plan-json') out.verifyPlanJson = true;
     else if (a === '--verify-prototype') out.verifyPrototype = true;
@@ -1004,6 +1006,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-duosexagintmean-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tressexagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-tressexagintmean-json\n' +
+          '       node scripts/imp-917-run-cell.mjs --batch-plan-cost-triple-quattuorsexagintmean\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-plan-json\n' +
           '       node scripts/imp-917-run-cell.mjs --verify-prototype\n' +
@@ -10734,6 +10737,86 @@ if (args.batchPlanCostTripleTressexagintmeanJson) {
     unknownCount,
   };
   console.log(JSON.stringify(body, null, 2));
+  process.exit(0);
+}
+
+if (args.batchPlanCostTripleQuattuorsexagintmean) {
+  // partial-rrrrrrrr: pure-shell data emitter surfacing the
+  // quattuorsexagintic mean (p=64 Kolmogorov power-mean) of per-triple
+  // wall-times across the known-wallSec rows of BATCH_PLAN as the
+  // sixty-sixth power-mean sibling extending partial-pppppppp
+  // tressexagintmean (p=63) upward by one exponent to p=64, the next
+  // even exponent inside the sexaginta decade (quattuor-sexaginta =
+  // 4+60 = 64, matching the project quattuor- prefix cadence at
+  // p=24 quattuorvigintmean, p=44 quattuorquadragintmean, and p=54
+  // quattuorquinquagintmean). p=64 is the IEEE-754 double-precision
+  // overflow boundary for this dataset: wallSec values around 7e4
+  // yield x^64 approx 10^310, exceeding Number.MAX_VALUE approx
+  // 1.8e308 and producing Infinity in the naive direct-sum form used
+  // by every prior partial. This partial therefore introduces the
+  // max-rescaling identity
+  //     PM_p(x_1, ..., x_n) = M * PM_p(x_1/M, ..., x_n/M)
+  // where M = max(x_i): each ratio x_i/M lies in (0, 1] so (x_i/M)^p
+  // is bounded by 1 for any p, eliminating overflow at every higher
+  // exponent. The result equals the unscaled formula in exact
+  // arithmetic and remains finite at every double-representable wall
+  // time. By the generalized power-mean inequality QSGM64 dominates
+  // every lower-p sibling so the monotone chain QSGM64 >= TSGM63 >=
+  // DSGM62 >= USGM61 >= SGM60 >= ... >= AM >= GM >= HM holds inline
+  // across all sixty-six shell emitters. Handler computes ratios r =
+  // x_i/M then sums r^64 via the cached squaring chain
+  // (const r2 = r * r; const r4 = r2 * r2; const r8 = r4 * r4;
+  //  const r16 = r8 * r8; const r32 = r16 * r16;
+  //  const r64 = r32 * r32; quattuorsexagintSum += r64;) -- single-
+  // factor power-of-two decomposition (64 = 64) extending the
+  // partial-pppppppp tressexagintmean cached squaring chain by one
+  // additional square at the next power-of-two exponent. Even p=64
+  // cannot induce sign cancellation; wallSec values are strictly
+  // positive by construction (wall-clock measurements) so the ratios
+  // are strictly positive and no sign guard is required, matching
+  // every prior even-p shell emitter. All-unknown degenerate case
+  // (known.length===0) prints a dedicated unknown summary and exits 0
+  // rather than (0/0)^(1/64) = NaN. Pure data emitter, exit 0
+  // unconditionally (no validation gate), not wired into --preflight /
+  // --preflight-json. JSON analog
+  // --batch-plan-cost-triple-quattuorsexagintmean-json can follow in
+  // a future partial, matching the shell-first / JSON-second cadence
+  // established across every other cost-emitter axis. Reuses
+  // computeBatchPlanCost() (partial-vv helper) with zero new
+  // batch-plan logic. Honest-partial: imp-917 stays pending -- the
+  // ~20 CPU-hour offline execution of the 14 measurement rows remains
+  // the honest closure condition; this partial extends the power-mean
+  // family by one exponent at the next even p=64 sibling, the second
+  // power-of-two exponent inside the sexaginta decade, and crosses
+  // the IEEE-754 double overflow boundary via the standard
+  // max-rescaling identity.
+  const { rows, unknownCount } = computeBatchPlanCost();
+  const known = rows.filter((r) => r.wallSec !== null);
+  if (known.length === 0) {
+    console.log(
+      'imp-917 BATCH_PLAN per-triple quattuorsexagintic-mean wall-time: unknown (all triples have unknown N).',
+    );
+    process.exit(0);
+  }
+  const M = known.reduce((m, r) => (r.wallSec > m ? r.wallSec : m), 0);
+  const quattuorsexagintSum = known.reduce((s, r) => {
+    const ratio = r.wallSec / M;
+    const r2 = ratio * ratio;
+    const r4 = r2 * r2;
+    const r8 = r4 * r4;
+    const r16 = r8 * r8;
+    const r32 = r16 * r16;
+    const r64 = r32 * r32;
+    return s + r64;
+  }, 0);
+  const quattuorsexagintmeanSec = M * Math.pow(quattuorsexagintSum / known.length, 1 / 64);
+  const unknownNote =
+    unknownCount > 0
+      ? ` (${unknownCount} triple-run(s) with unknown N excluded from quattuorsexagintmean)`
+      : '';
+  console.log(
+    `imp-917 BATCH_PLAN per-triple quattuorsexagintic-mean wall-time: ${quattuorsexagintmeanSec.toFixed(0)} s (~${(quattuorsexagintmeanSec / 3600).toFixed(2)} CPU-hours) across ${known.length} known triple(s)${unknownNote}.`,
+  );
   process.exit(0);
 }
 

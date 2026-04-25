@@ -21,6 +21,7 @@
 //   node scripts/imp-917-run-cell.mjs --done-cells
 //   node scripts/imp-917-run-cell.mjs --done-cells-json
 //   node scripts/imp-917-run-cell.mjs --progress
+//   node scripts/imp-917-run-cell.mjs --progress-json
 //   node scripts/imp-917-run-cell.mjs --retuning-table
 //   node scripts/imp-917-run-cell.mjs --retuning-table-json
 //   node scripts/imp-917-run-cell.mjs --batch-plan-cost
@@ -690,6 +691,7 @@ function parseArgs(argv) {
     else if (a === '--done-cells') out.doneCells = true;
     else if (a === '--done-cells-json') out.doneCellsJson = true;
     else if (a === '--progress') out.progress = true;
+    else if (a === '--progress-json') out.progressJson = true;
     else if (a === '--retuning-table') out.retuningTable = true;
     else if (a === '--retuning-table-json') out.retuningTableJson = true;
     else if (a === '--batch-plan-cost') out.batchPlanCost = true;
@@ -890,6 +892,7 @@ function parseArgs(argv) {
           '       node scripts/imp-917-run-cell.mjs --done-cells\n' +
           '       node scripts/imp-917-run-cell.mjs --done-cells-json\n' +
           '       node scripts/imp-917-run-cell.mjs --progress\n' +
+          '       node scripts/imp-917-run-cell.mjs --progress-json\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table\n' +
           '       node scripts/imp-917-run-cell.mjs --retuning-table-json\n' +
           '       node scripts/imp-917-run-cell.mjs --batch-plan-cost\n' +
@@ -1413,6 +1416,46 @@ if (args.progress) {
       remainingWallSec / 3600
     ).toFixed(1)}h remaining / ~${(totalWallSec / 3600).toFixed(1)}h total.`,
   );
+  process.exit(0);
+}
+
+if (args.progressJson) {
+  // Structural JSON analog of --progress. Emits a single object carrying the
+  // same six counters the shell one-liner exposes (doneCount, totalCount,
+  // remainingCount, percentDone, doneWallHours, remainingWallHours,
+  // totalWallHours) so Python / jq offline-worker drivers can poll the
+  // completion log structurally without re-parsing the shell summary line.
+  // Same source-of-truth pair as --progress / --remaining-cells / --done-cells
+  // (MISSING_CELLS as ground truth, MEASURED_ROWS as completion log) and the
+  // same triple-amortized wallSecondsEstPerTripleRun / 3 convention so
+  // doneWallHours + remainingWallHours = totalWallHours exactly. Pure data
+  // emitter, exit 0 unconditionally; completes the {shell, JSON} pair for the
+  // single-line progress emitter alongside the existing pairs for
+  // --remaining-cells / --done-cells.
+  const measured = IMP_857_PHASED_FORCING_SWEEP.measuredRows;
+  const measuredKeys = new Set(measured.map((r) => `${r.N}|${r.eps}`));
+  const missing = IMP_896_RETUNING_CALIBRATION.missingCells;
+  const done = missing.filter((c) => measuredKeys.has(`${c.N}|${c.eps}`));
+  const remaining = missing.filter((c) => !measuredKeys.has(`${c.N}|${c.eps}`));
+  const doneWallSec = done.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  const remainingWallSec = remaining.reduce(
+    (acc, c) => acc + c.wallSecondsEstPerTripleRun / 3,
+    0,
+  );
+  const totalWallSec = doneWallSec + remainingWallSec;
+  const out = {
+    doneCount: done.length,
+    totalCount: missing.length,
+    remainingCount: remaining.length,
+    percentDone: missing.length > 0 ? (100 * done.length) / missing.length : 0,
+    doneWallHours: doneWallSec / 3600,
+    remainingWallHours: remainingWallSec / 3600,
+    totalWallHours: totalWallSec / 3600,
+  };
+  console.log(JSON.stringify(out, null, 2));
   process.exit(0);
 }
 

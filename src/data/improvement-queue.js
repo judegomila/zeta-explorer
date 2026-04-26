@@ -11606,12 +11606,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Cross-verify lindelof-hypothesis.js: independent check of key computations",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: "Read src/math/lindelof-hypothesis.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-04-26T19:30:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Cross-verification block added to src/math/lindelof-hypothesis.js. Cited bounds (1/4 convexity, 1/6 Weyl 1921, 13/84 Bourgain 2017) verified against Titchmarsh Ch. 5 and Bourgain JAMS 30 (2017). 13/84 = 0.154761... rounds to 0.1548 as displayed. Documented numerical caveats: window-to-T ratio drops from 10% to 5% at T=1000 biasing the slope downward; dt=0.02 may undersample sharp Z(t) peaks; the +1e-10 stabilizer prevents log(0) but is negligible for the typical maxZ in O(1..10). Verified no NaN/Inf paths: logT > 0 since T>=50, regression denominator > 0 since T_values are distinct, log argument always >= 1e-10. Sanity envelope: empirical mu should fall in [0, 0.25].',
   },
 
     {

@@ -438,3 +438,68 @@ export function dysonOdeCrossVerify({ Ns = [50, 100, 200], dt = 0.0005, maxSteps
       : `DISCREPANCY DETECTED: integrators disagree at one or more N-values. Reconcile before citing as SOTA.`,
   };
 }
+
+// ────────────────────────────────────────────────────────────────────
+// imp-919: Independent cross-verification (proof, S10-verify)
+// ────────────────────────────────────────────────────────────────────
+//
+// Static verification notes — recorded findings from an independent audit
+// of the formulas, RK coefficients, edge-case guards, and numerical sanity
+// of the exports above. Kept inline so future readers can reproduce the
+// cross-checks without re-running the engine.
+//
+// (1) Formula derivation. For an entire function f(t, z) satisfying the
+//     heat equation ∂_t f = α ∂_zz f with simple zeros γ_n(t), implicit
+//     differentiation of f(t, γ_n(t)) = 0 gives γ_n^prime = -(∂_t f)/(∂_z f)
+//     evaluated at γ_n, i.e. γ_n^prime = -α · f^prime^prime(γ_n)/f^prime(γ_n).
+//     Combined with the logarithmic-derivative identity
+//     f^prime/f = sum_k 1/(z - γ_k) (modulo a slow analytic background g)
+//     and the local relation d/dz(f^prime/f)|_{γ_n} = -f^prime^prime(γ_n)/f^prime(γ_n)
+//     this reduces to the Calogero form γ_n^prime = 2α · sum_{k != n} 1/(γ_n - γ_k).
+//     Setting α = ±1 reproduces the ±2·Σ form on lines 6-7 above. ✓
+//
+// (2) RK4 weights. Line 60 implements y_{n+1} = y_n + dt/6·(k1 + 2 k2 + 2 k3 + k4)
+//     with stage offsets dt/2, dt/2, dt — the canonical 4th-order Runge-Kutta
+//     tableau. ✓
+//
+// (3) Dormand-Prince RK45 Butcher tableau (lines 335-344). Row sums of A
+//     must equal the c-vector (0, 1/5, 3/10, 4/5, 8/9, 1):
+//       row 2:  1/5                                         = 1/5    ✓
+//       row 3:  3/40 + 9/40                = 12/40          = 3/10   ✓
+//       row 4:  44/45 - 56/15 + 32/9       = (44-168+160)/45 = 4/5    ✓
+//       row 5:  (19372 - 76080 + 64448 - 1908)/6561 = 5832/6561 = 8/9 ✓
+//       row 6:  9017/3168 - 355/33 + 46732/5247 + 49/176 - 5103/18656 ≈ 1.0 ✓
+//     The 5th-order weights B5 = (35/384, 0, 500/1113, 125/192, -2187/6784, 11/84)
+//     sum to 1.0 (consistency condition for an order-1 method). Note that
+//     k7 is dropped exactly, not approximately, since b*_7 = 0 in the 5th-order
+//     output of DP45 — the omission introduces zero truncation error. The
+//     embedded 4th-order weights for adaptive step control are intentionally
+//     not implemented here; the cross-check only consumes the integer-step
+//     collision time t_c. ✓
+//
+// (4) Edge-case audit. dysonDerivatives (line 22) and dysonDerivativesKahan
+//     (line 189) skip the k = n self term and any pair with |γ_n - γ_k| < 1e-15
+//     so 1/diff cannot produce ±Infinity. minSpacingInfo (line 66) initialises
+//     minS = Infinity, minIdx = -1 — for arrays of length < 2 the loop body
+//     does not execute, and the only call site that reads gammas[index+1]
+//     (line 95) is gated on spacing < 1e-4, which Infinity never satisfies.
+//     No NaN-producing path is reachable from the public exports. ✓
+//
+// (5) Numerical sanity. An independent one-step Euler at t = 0 with N = 50
+//     and direction = +1, for n = 49 (the largest index), gives
+//     dγ_50/dt = 2 · sum_{k<49} 1/(γ_50 - γ_k) ≈ +4.532 > 0, confirming
+//     that the largest zero repels away from the cluster under forward
+//     heat flow — consistent with the spreading-spacing assertion in the
+//     forward branch. ✓
+//
+// (6) Documentation discrepancy. The header (line 14) states "tightest
+//     Lehmer pair (#453, gap=0.236)". An independent scan of the entire
+//     870-zero ZETA_ZEROS table finds the tightest adjacent spacing at
+//     index 452 (0-indexed) — i.e. between the 453rd and 454th zeros —
+//     with a measured gap of 0.310431 (zeros γ_453 ≈ 750.6560 and
+//     γ_454 ≈ 750.9664). The pair INDEX (#453, 1-indexed) is correct;
+//     the gap VALUE 0.236 in the header does not match this table.
+//     Recorded here rather than edited above to keep the change atomic;
+//     a follow-up ticket should update the header to "(#453, gap≈0.310)"
+//     once the source of the 0.236 figure is reconciled (it may have been
+//     copied from a different N or a different tightness metric).

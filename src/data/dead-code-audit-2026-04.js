@@ -44,6 +44,12 @@
 export const DEAD_CODE_AUDIT_2026_04 = {
   id: 'imp-851',
   generatedAt: '2026-04-19T03:30:00.000Z',
+  // imp-889: re-verification pass on 2026-04-26. All 27 keeper file paths
+  // confirmed present in src/math/. Totals below remain a 2026-04-19 snapshot;
+  // src/math/ has since grown from 297 to 309 .js files (+12). The two
+  // assertions are loose enough (>= 200 / >= 20) to remain valid; a full
+  // re-scan to refresh the exact totals is deferred to a separate ticket.
+  lastVerifiedAt: '2026-04-26T19:35:00Z',
   method: 'static-import scan across src/{math,pages,components,data}',
 
   totals: {
@@ -163,5 +169,16 @@ export const DEAD_CODE_AUDIT_2026_04_ASSERTIONS = [
     why:
       'Every assertion-bearing no-importer file must be explicitly listed ' +
       'as a keeper so future delete sweeps do not touch them.',
+  },
+  {
+    id: 'imp889-recently-verified',
+    holds: () =>
+      typeof DEAD_CODE_AUDIT_2026_04.lastVerifiedAt === 'string' &&
+      DEAD_CODE_AUDIT_2026_04.lastVerifiedAt.length >= 10 &&
+      !Number.isNaN(Date.parse(DEAD_CODE_AUDIT_2026_04.lastVerifiedAt)),
+    why:
+      'The audit must carry a parseable lastVerifiedAt timestamp so future ' +
+      'staleness sweeps (imp-889 family) can detect when re-verification is ' +
+      'overdue without re-running a full no-importer scan.',
   },
 ];

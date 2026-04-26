@@ -20,6 +20,13 @@
 export const QUEUE_GC_AUDIT = {
   id: 'imp-881',
   generatedAt: '2026-04-19T03:10:00.000Z',
+  // imp-890: re-verification pass on 2026-04-26. Both clearDuplicates entries
+  // confirmed: imp-839 still status: superseded with supersededBy: 'imp-830',
+  // and imp-831 still status: superseded with supersededBy: 'imp-867'. The
+  // pending/completed totals below are a 2026-04-19 snapshot (queue has since
+  // grown to 871 completed / 9 pending) but the supersede recommendations
+  // remain valid. A full re-scan to refresh totals is deferred.
+  lastVerifiedAt: '2026-04-26T19:45:00Z',
   method: 'title-word-overlap (>=4 shared 4+ char tokens)',
   totalPending: 43,
   totalCompleted: 828,
@@ -92,5 +99,16 @@ export const QUEUE_GC_AUDIT_ASSERTIONS = [
       'The audit must identify at least the two known clear duplicates ' +
       '(imp-839 -> imp-830, imp-831 -> imp-867). A drop below 2 indicates ' +
       'regression in the overlap heuristic.',
+  },
+  {
+    id: 'imp890-recently-verified',
+    holds: () =>
+      typeof QUEUE_GC_AUDIT.lastVerifiedAt === 'string' &&
+      QUEUE_GC_AUDIT.lastVerifiedAt.length >= 10 &&
+      !Number.isNaN(Date.parse(QUEUE_GC_AUDIT.lastVerifiedAt)),
+    why:
+      'The audit must carry a parseable lastVerifiedAt timestamp so future ' +
+      'staleness sweeps (imp-889 family) can detect when re-verification is ' +
+      'overdue without re-running a full title-word-overlap scan.',
   },
 ];

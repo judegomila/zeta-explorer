@@ -11623,6 +11623,70 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Cross-verification block added to src/math/lindelof-hypothesis.js. Cited bounds (1/4 convexity, 1/6 Weyl 1921, 13/84 Bourgain 2017) verified against Titchmarsh Ch. 5 and Bourgain JAMS 30 (2017). 13/84 = 0.154761... rounds to 0.1548 as displayed. Documented numerical caveats: window-to-T ratio drops from 10% to 5% at T=1000 biasing the slope downward; dt=0.02 may undersample sharp Z(t) peaks; the +1e-10 stabilizer prevents log(0) but is negligible for the typical maxZ in O(1..10). Verified no NaN/Inf paths: logT > 0 since T>=50, regression denominator > 0 since T_values are distinct, log argument always >= 1e-10. Sanity envelope: empirical mu should fall in [0, 0.25].',
   },
 
+  
+  // ── Auto-seeded batch (2026-04-27) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-922',
+    title: "Cross-verify cdv-variable-transformations.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S10-verify',
+    description: "Read src/math/cdv-variable-transformations.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-923',
+    title: "Add JSDoc module documentation to imp469-cross-verification.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/imp469-cross-verification.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+  // ── Odrzywołek 2026-03 (arXiv:2603.21852v2) inspired eml-normal-form work ──
+  // Single binary operator eml(x,y) = exp(x) - log(y) + constant 1 generates
+  // every elementary function (NAND-gate analog). Two angles for our work:
+  // (a) reformulate Dirichlet/Euler/twin-ladder in eml-normal-form to look
+  //     for algebraic cancellations in the s ↔ 1-s pairing;
+  // (b) build a single eml-interval primitive that closes the imp-857
+  //     directed-rounding-backend gap with much less infrastructure than Arb.
+  {
+    id: 'imp-924',
+    title: "eml-normal-form rewrite of Dirichlet/Euler/twin-ladder + cancellation search",
+    category: 'proof',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S10',
+    description: "Inspired by Odrzywołek 2026-03 (arXiv:2603.21852v2): the binary operator eml(x,y) = exp(x) - log(y) plus the constant 1 generates every elementary function. Apply to ζ(s) systematically: (1) Dirichlet ζ(s) = Σ exp(-s·log n) = Σ eml(-s·log n, 1); (2) log Euler product log ζ(s) = -Σ log(1 - exp(-s·log p)) = Σ_{p,k} eml(-s·k·log p, 1)/k; (3) Riemann-von Mangoldt explicit formula ψ(x) = x - Σ_ρ x^ρ/ρ - log(2π) - … with x^ρ = exp(ρ·log x) = eml(ρ·log x, 1); (4) functional-equation factor χ(s) factored through eml; (5) twin-ladder pairing cos((s-1/2)·log T) ± sin((s-1/2)·log T) in eml form. Then search for an algebraic identity under the s ↔ 1-s pairing that is hard to see in the standard form but visible in eml-normal-form. Deliverable: src/math/imp-924-eml-normal-form.js with the rewrites, the symbolic identities found (or a NEGATIVE result if none), and a build-time assertion. Speculative but cheap (~2-4 hours); positive result would unlock a new identity for the twin-ladder model.",
+    rationale: 'Long-shot: a syntactic normal form is content-neutral by default, but the s ↔ 1-s pairing is highly symmetric and might reveal cancellations not visible in standard form. Cheap to attempt.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+    estimatedModel: 'opus-4-7',
+    estimatedChannel: 'subscription',
+  },
+  {
+    id: 'imp-925',
+    title: "eml-interval primitive: single-operator directed-rounding backend for imp-857",
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S10',
+    description: "Practical application of Odrzywołek 2026-03: if every elementary function reduces to compositions of eml(x,y) = exp(x) - log(y), then a directed-rounding interval-arithmetic backend only needs ONE primitive: eml_interval([x_lo,x_hi], [y_lo,y_hi]) → [lo, hi] with rigorous outward rounding. This is much smaller surface area than Arb-via-WASM (which needs +, -, *, /, exp, log, sin, cos, gamma, …). Plan: (1) implement eml_interval using Float64 + outward-ULP inflation, BUT applied to a single composite primitive instead of per-op; (2) port a few key functions from interval-dyson-integrator.mjs into eml-normal-form (drift = -2/(g_k - g_j) → eml composition; min-gap = subInterval → eml composition); (3) verify the eml-form RK4 closes brackets at N=1000, 5000, 10000 with comparable or better wrapper width than the existing one-ULP per-op version; (4) if successful, this CLOSES imp-857-sub-scale-to-N10k via a much smaller engineering path than the directed-rounding backend originally specified (no WASM, no native binding, no Arb dependency). Deliverable: src/math/imp-925-eml-interval-primitive.mjs + benchmark vs existing interval-dyson-integrator.mjs.",
+    rationale: 'High-value: addresses the same imp-857 sub-gap as the (now-empirically-disproven-anyway) directed-rounding backend, but with ~10x less infrastructure. Combined with the imp-857 GUE-elimination already shipped (commit 01ebd80), this could fully close the L2 uniform-K bound on N ≤ 10⁴.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+    estimatedModel: 'opus-4-7',
+    estimatedChannel: 'subscription',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

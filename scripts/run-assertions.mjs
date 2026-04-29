@@ -84,6 +84,9 @@ const MATH_MODULES = [
   '/src/math/imp-925-eml-interval-primitive.mjs',
   // imp-924: eml-normal-form rewrites + cancellation-search NEGATIVE result.
   '/src/math/imp-924-eml-normal-form.js',
+  // imp-911 sharper cumulative Lipschitz bound: width-independent C_∞ ≈ 0.4382
+  // replaces the imp-911 universal-per-step W × 0.6796 bound.
+  '/src/math/imp-911-sharper-cumulative-lipschitz.js',
   // imp-911: formal Lipschitz bound on plateau F_mb growth (step 3 upgrade).
   '/src/math/imp-903-F-mb-plateau-lipschitz-proof.js',
   // imp-897: Richardson-extrapolated certified C_mb_empirical interval bound

@@ -13200,4 +13200,16 @@ export const IMPROVEMENT_QUEUE = [
       },
     ],
   },
+  {
+    id: 'imp-933',
+    title: 'imp-911-sub-gronwall-interval: per-plateau interval-RK4 evaluation to close the analytic-vs-empirical 33x gap',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S10-uniform-K-rigor',
+    description: "Per imp-911-sharper-cumulative-lipschitz.js (commit bea9a8a): the width-independent analytic Lipschitz cumulative bound C_inf = (e/4)*(pi^2/6 - 1) ~ 0.4382 gives an analytic K_paper_cert ceiling of ~5.83 on plateau 12 ([92, 135], h=0.7158), while the empirical certified K_max above N=100 is 0.190 — a ~33x analytic-vs-empirical gap. Closing this gap to fully unconditional rigor on N in [100, 10^4] requires per-plateau interval-RK4 evaluation of the binding-pair Jacobian-norm trajectory. Specifically: (1) at one or two representative interior N values per plateau (~30 N values total), run src/math/imp-857-baseline-scaling-N10k.mjs (or the imp-903 sweep script) and record K_paper_cert_floor; (2) aggregate into a new per-plateau-interior certificate file; (3) replace the universal Gronwall factor exp(1) in imp-911 with a per-plateau interval-certified upper bound derived from these certificates; (4) verify the rescue formula is satisfied analytically with the tightened bound. Cost: ~9-18 hours single-threaded CPU (parallelizable across the 27 plateaus). Deliverable: src/data/imp-911-per-plateau-gronwall-certs.js + the analytic tightening module update.",
+    rationale: 'This is the SOLE remaining blocker between L2-rigorous-cumulative-bound (the 2026-04-29 state after imp-911-sub-cumulative-lipschitz) and L2-FULLY-rigorous (the unconditional finite-height beat on N in [100, 10^4]). The analytic angle is exhausted; what remains is purely a compute-time investment. Promotes Lambda <= 0.121 from GUE-eliminated-with-numerical-tightness-gap to FULLY UNCONDITIONAL on N in [100, 10^4].',
+    estimatedComplexity: 'large',
+    completedAt: null,
+  },
 ];

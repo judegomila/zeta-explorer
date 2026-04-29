@@ -82,6 +82,8 @@ const MATH_MODULES = [
   '/src/math/imp-857-uniform-K-bound.js',
   // imp-925: eml-interval primitive (Odrzywołek arXiv:2603.21852v2).
   '/src/math/imp-925-eml-interval-primitive.mjs',
+  // imp-924: eml-normal-form rewrites + cancellation-search NEGATIVE result.
+  '/src/math/imp-924-eml-normal-form.js',
   // imp-911: formal Lipschitz bound on plateau F_mb growth (step 3 upgrade).
   '/src/math/imp-903-F-mb-plateau-lipschitz-proof.js',
   // imp-897: Richardson-extrapolated certified C_mb_empirical interval bound

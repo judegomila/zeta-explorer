@@ -1,4 +1,17 @@
 /**
+ * @module imp469-cross-verification
+ * @fileoverview Independent cross-verification of the imp-469 rho_min > 0
+ * lower bound, complementing scripts/verify-imp469-rho-min.py (mpmath
+ * 50-digit). Exports {@link IMP469_CROSS_VERIFICATION} (computed values
+ * and comparison) and {@link IMP469_XVERIFY_ASSERTIONS} (build-time guards).
+ * Belongs to the RvM / Polymath proof chain at the rho_min positivity step.
+ * Module-doc added by imp-923.
+ * @see src/math/rvm-jacobian-lower-bound.js
+ * @see imp-473
+ * @see imp-469
+ */
+
+/**
  * imp-473: Independent cross-verification of imp-469 rho_min lower bound
  *
  * imp-469 (src/math/rvm-jacobian-lower-bound.js) proves analytically:

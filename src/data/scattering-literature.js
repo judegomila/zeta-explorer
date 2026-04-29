@@ -1,4 +1,15 @@
 /**
+ * @module scattering-literature
+ * @fileoverview Curated database of scattering-theory papers connecting
+ * zeta / L-functions to scattering theory. Exports
+ * {@link scatteringLiterature} (entries), {@link literatureStats},
+ * {@link byAuthor}, and {@link criticalPapers}. Background reference for
+ * the LP path; NOT part of the formal proof chain. Module-doc added by
+ * imp-915.
+ * @see imp-146
+ */
+
+/**
  * Scattering Theory Literature Database
  *
  * imp-146: Papers connecting zeta functions, L-functions, and scattering theory.

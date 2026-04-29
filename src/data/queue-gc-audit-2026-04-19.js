@@ -1,4 +1,15 @@
 /**
+ * @module queue-gc-audit-2026-04-19
+ * @fileoverview Snapshot of stale-pending-ticket garbage-collection audit
+ * (2026-04-19). Exports {@link QUEUE_GC_AUDIT} (machine-generated supersede
+ * candidate list) and {@link QUEUE_GC_AUDIT_ASSERTIONS} (build guards).
+ * Meta-engine hygiene record, NOT part of the formal proof chain.
+ * Re-verified by imp-890; module-doc added by imp-910.
+ * @see imp-881
+ * @see imp-890
+ */
+
+/**
  * imp-881: Stale-ticket garbage-collection audit.
  *
  * WHAT THIS IS

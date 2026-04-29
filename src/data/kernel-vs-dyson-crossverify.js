@@ -1,4 +1,16 @@
 /**
+ * @module kernel-vs-dyson-crossverify
+ * @fileoverview Cross-verification of two independent routes to Lambda at
+ * N = 10K: PATH A kernel-hack pair-ODE (t_c = d_min^2 / 8) vs PATH B full
+ * N-body Dyson RK4. Exports {@link KERNEL_VS_DYSON_CROSSVERIFY} (verdict +
+ * data) and {@link KERNEL_VS_DYSON_ASSERTIONS} (consistency tripwires).
+ * Belongs to the PATH C hybrid proof chain at the cross-path consistency
+ * step (imp-515). Module-doc added by imp-908.
+ * @see imp-515
+ * @see imp-514
+ */
+
+/**
  * imp-515: Cross-verify kernel-hack Lambda vs measured Dyson Lambda
  *
  * Cross-verification of two independent routes to Lambda at N = 10K:

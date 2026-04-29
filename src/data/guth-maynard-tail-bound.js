@@ -1,4 +1,17 @@
 /**
+ * @module guth-maynard-tail-bound
+ * @fileoverview Numerical record of the Guth-Maynard 2024 zero-density tail
+ * budget applied to the Path C barrier above the verified height T_0 ~ 3000.
+ * Exports {@link GUTH_MAYNARD_TAIL_BOUND} (per-strip / per-probe-height tail
+ * counts) and {@link TAIL_BOUND_ASSERTIONS} (build guards). Belongs to the
+ * PATH C hybrid proof chain at the unconditional tail-certification step
+ * (imp-308 / imp-317). Module-doc added by imp-902.
+ * @see src/math/guth-maynard-zero-density.js
+ * @see imp-317
+ * @see imp-308
+ */
+
+/**
  * Guth-Maynard tail bound for the Path C barrier (imp-317, resolves imp-308)
  *
  * Path C delivered Λ = 0.0066 ± 0.01 from the backward Dyson ODE applied

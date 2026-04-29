@@ -133,6 +133,62 @@ export const paperSkepticReview = {
   },
 };
 
+/**
+ * imp-928: independent cross-verification block.
+ *
+ * (1) Severity tally vs hardcoded summary counts:
+ *     - FATAL claims by enumeration: skp-001, skp-006, skp-009 → 3.
+ *       summary.fatalGaps = 3 ✓ (the in-source comment "imp-725
+ *       verification: counted 3 FATAL claims, not 2" is correct;
+ *       the off-by-one fix is present.)
+ *     - NAMED claims: skp-002, skp-007 → 2. summary.namedGaps = 2 ✓
+ *     - SOFT claims: skp-003, skp-004, skp-005, skp-008, skp-010 → 5.
+ *       summary.softIssues = 5 ✓
+ *     - CLOSED claims: 0. summary.closedItems = 0 ✓
+ *     - Total: 3 + 2 + 5 + 0 = 10 = claims.length ✓ (no double-counting,
+ *       no missing severity).
+ *
+ * (2) NaN/Inf edge cases:
+ *     - File is pure data + three accessor functions; no arithmetic.
+ *       No NaN/Inf paths.
+ *     - getFatalGaps() filters by severity === 'FATAL' — re-counts
+ *       dynamically (3), so the hardcoded summary.fatalGaps stays in
+ *       sync only if both fields are kept consistent. The in-source
+ *       comment documents this dependency.
+ *     - getNewTicketRecommendations() filters followUpTicket strings
+ *       starting with 'NEW'; only skp-009 has 'NEW TICKET NEEDED — see
+ *       imp-424 recommendation below', so this returns one entry. ✓
+ *
+ * (3) Cross-references vs the actual queue:
+ *     - skp-001 → imp-348 (rate upgrade): imp-348 exists and is the
+ *       Burgers rate-upgrade ticket. ✓
+ *     - skp-001 → imp-370 (local-law rigidity): exists. ✓
+ *     - skp-002 → imp-422 (GMP/MPFR): exists. ✓
+ *     - skp-003 → imp-403 (Lean 4 verification), imp-422: exist. ✓
+ *     - skp-006 → imp-384, imp-385: gap-closing chain — exist. ✓
+ *     - skp-007 → imp-363 (Kahan-Neumaier): exists. ✓
+ *     - skp-009 → imp-424 (recommended new ticket): the
+ *       summary.newTicketRecommendation explicitly proposes imp-424
+ *       with the exact statement; the queue itself should be checked
+ *       for whether imp-424 has been opened.
+ *
+ * (4) Internal consistency:
+ *     - reviewedSection mentions Theorem 10.1, 10.2, Corollary; claims
+ *       skp-001..skp-005 cover those locations. ✓
+ *     - Path C (skp-006) and Path G (skp-007) reference Section 6 Nine
+ *       Closure Paths — consistent with the proof-paper structure.
+ *     - The SOFT-vs-FATAL classification is internally consistent:
+ *       FATAL items break the logical chain (skp-001 in-particular,
+ *       skp-006 circular, skp-009 unnamed gap); NAMED items are
+ *       acknowledged with follow-up; SOFT items are presentation.
+ *
+ * Sanity envelope: summary.fatalGaps + namedGaps + softIssues +
+ * closedItems must equal claims.length. Any future addition or removal
+ * of a claim must update both the array and the summary in lockstep,
+ * or getFatalGaps() will report a different count than summary
+ * indicates. (This was the imp-725 bug the in-source comment fixed.)
+ */
+
 export function getSkepticReview() {
   return paperSkepticReview;
 }

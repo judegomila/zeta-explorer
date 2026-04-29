@@ -1,4 +1,18 @@
 /**
+ * @module lambda-argmin-jumps
+ * @fileoverview Closure of imp-336 sub-gap G2 (argmin-jumps k*_N != k*_{N+1})
+ * at tau = 0 via the Cauchy-interlacing min-gap monotonicity B_{N+1} <= B_N.
+ * Exports {@link LAMBDA_ARGMIN_JUMPS} (lemma + corollary + numerical witness)
+ * and {@link LAMBDA_ARGMIN_JUMPS_ASSERTIONS} (build-time tripwires). Belongs
+ * to the PATH C hybrid proof chain at the imp-336 monotonicity-conjecture
+ * sub-gap closure step. Closes G2 only; G1 (imp-368) and the whole-trajectory
+ * propagation remain open. Module-doc added by imp-913.
+ * @see imp-369
+ * @see imp-336
+ * @see imp-368
+ */
+
+/**
  * imp-369: closure of G2 (argmin jumps k*_N not-equal k*_{N+1}) via Cauchy
  * interlacing / trivial pair-majorization at tau = 0
  *

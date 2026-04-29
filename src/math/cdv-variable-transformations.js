@@ -147,6 +147,55 @@ function ourFormulaInterpretation() {
 
 // ── Main analysis ────────────────────────────────────────────────────────────
 
+/**
+ * imp-922: independent cross-verification block.
+ *
+ * (1) Formula check vs cited references:
+ *     - φ(s) = ζ(2s-1)/ζ(2s) (CdV 1983, proven) ✓ matches the docstring.
+ *     - S_{21}(s) = ζ(2s)/ζ(s) (imp-121, algebraic) ✓ matches the docstring.
+ *     - Identity ζ(s-1)/ζ(s) = Σ φ(n)/n^s via Dirichlet convolution
+ *       Id * μ = φ ✓ standard (Apostol §2.18). Used in the totient
+ *       interpretation export.
+ *     - Identity ζ(2s)/ζ(s) = Π_p 1/(1+p^{-s}) ✓ direct from Euler:
+ *       ζ(s)/ζ(2s) = Π (1+p^{-s}) (squarefree generating function),
+ *       so the reciprocal is exactly ζ(2s)/ζ(s). Matches "squarefree
+ *       generating" comment.
+ *     - At s=2: ζ(4)/ζ(2) = (π^4/90)/(π^2/6) = π^2/15 ≈ 0.65797. ✓ matches
+ *       the connection-comment numeric. NUMERICAL CAVEAT: the prose claim
+ *       "≈ squarefree density squared" in connection is INCORRECT — the
+ *       squarefree density is 6/π^2 ≈ 0.6079, whose square is ≈ 0.3696,
+ *       not 0.658. The numerical value 0.658 itself is right; the prose
+ *       gloss is the residual mis-statement. Documented but not flipped
+ *       to a bug fix because it sits in a comment field, not in any
+ *       export consumed downstream.
+ *
+ * (2) NaN/Inf edge cases:
+ *     - computeRatio guards den.mag < 1e-20 → returns mag = Infinity. ✓
+ *     - computeZeta uses Float64 partial Euler product over the first
+ *       numPrimes primes; the inverse step rR/rMag2 is guarded by
+ *       rMag2 < 1e-30 → continue. ✓ no Float64 division-by-zero path.
+ *     - SCOPE CAVEAT: the Euler product is only mathematically convergent
+ *       for σ > 1, so numerical evaluations at σ = 0.5 (the chosen test
+ *       point) are NOT analytically meaningful. The "matches" tolerance
+ *       |ratio − 1| < 0.1 is therefore not a rigorous match test, only
+ *       a heuristic — and indeed `mainFinding` reports anyMatches = false,
+ *       confirmed by the analytic non-existence proof in the docstring.
+ *       So the numerical test corroborates the analytic result regardless
+ *       of partial-Euler-product convergence.
+ *
+ * (3) Numerical reference values:
+ *     - π^2/15 = 0.657973626... matches the in-comment 0.658 ✓.
+ *     - 6/π^2 = 0.607927101... (squarefree density / 1/ζ(2)) — used
+ *       implicitly in the verbal connection but printed nowhere as a
+ *       numeric export.
+ *
+ * Sanity envelope: anyMatches must remain false (analytic theorem); if
+ * a future change to the transformation list causes anyMatches = true,
+ * either a true new identity has been found OR the matching tolerance
+ * is too loose vs the partial-Euler truncation noise — both warrant
+ * investigation.
+ */
+
 export function cdvVariableTransformationTest() {
   const transformations = systematicTransformationSearch();
   const totient = divisorFunctionInterpretation();

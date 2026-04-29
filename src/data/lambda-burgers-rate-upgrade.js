@@ -1,4 +1,19 @@
 /**
+ * @module lambda-burgers-rate-upgrade
+ * @fileoverview Rate upgrade on the imp-341 Koksma-Hlawka uniformity bound:
+ * tightens psi_N from log gamma_N / sqrt(N) to (log gamma_N)^2 / N on the
+ * microscopic strip y_N^micro ~ 1 / log gamma_N. Exports
+ * {@link LAMBDA_BURGERS_RATE_UPGRADE} (rate hierarchy + per-N witness) and
+ * {@link LAMBDA_BURGERS_RATE_UPGRADE_ASSERTIONS} (build guards). Belongs to
+ * the PATH C hybrid proof chain at the G5_burgers rate-upgrade step. Ships
+ * angle (a) only; angle (b) (Erdos-Schlein-Yau ported to Riemann zeros)
+ * remains open research. Module-doc added by imp-920.
+ * @see imp-348
+ * @see imp-341
+ * @see imp-344
+ */
+
+/**
  * imp-348: Rate upgrade on the imp-341 Koksma-Hlawka uniformity bound
  *
  * Context and rate hierarchy

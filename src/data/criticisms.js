@@ -1,4 +1,16 @@
 /**
+ * @module criticisms
+ * @fileoverview Mathematical criticisms catalog of the ZPO (Zeta Prime
+ * Oscillator) model from a rigorous RH perspective. Exports
+ * {@link getAllCriticisms}, {@link getCriticismsByCategory},
+ * {@link getCriticismsBySeverity}, {@link getCriticismById},
+ * {@link SEVERITY_META}, and {@link CATEGORY_META}. Background reference
+ * for the RH Rigor Check page; NOT part of the formal proof chain.
+ * Module-doc added by imp-927.
+ * @see imp-146
+ */
+
+/**
  * RH Rigor Check: Mathematical Criticisms of the ZPO Model
  *
  * Each entry identifies a specific claim or assumption in the ZPO (Zeta Prime Oscillator)

@@ -1,4 +1,17 @@
 /**
+ * @module path-c-baseline-fit-v2
+ * @fileoverview Refitted 1/N OLS on the imp-360 measured Dyson backward-collision
+ * ladder, drop-in shadow for PATH_C_BASELINE_FIT. Belongs to the PATH C hybrid
+ * proof chain at the Lambda-intercept fit step. Exports
+ * {@link PATH_C_BASELINE_FIT_V2} (refit record) and
+ * {@link PATH_C_BASELINE_FIT_V2_ASSERTIONS} (build-time guards). Created by
+ * imp-400; module-doc added by imp-891.
+ * @see src/math/dyson-scaling-N5000.js
+ * @see imp-400
+ * @see imp-360
+ */
+
+/**
  * imp-400: Refit 1/N OLS on the measured Dyson backward-collision ladder
  *
  * Background

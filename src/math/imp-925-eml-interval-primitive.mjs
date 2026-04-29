@@ -269,6 +269,40 @@ export const IMP_925_EML_INTERVAL_PRIMITIVE = Object.freeze({
     'benchmark wrapper-width growth at N ∈ {1000, 5000, 10000} vs ' +
       'the existing per-op interval RK4',
   ],
+  applicationAnalysis: {
+    dysonDrift: {
+      verdict: 'NOT a natural eml application — no tightness gain.',
+      reason:
+        'Dyson drift is dg_k/dt = -2 * sum_{j!=k} 1/(g_k - g_j). The ' +
+        'inner term is a reciprocal, NOT an exp+log composite. The ' +
+        'natural eml win (3.5× median) is on the {exp, log, sub} chain, ' +
+        'where collapsing 3 outward inflations into 1 yields the gain. ' +
+        'Reciprocal 1/d via eml is a 2-eml chain (eml(eml(0,d)-1, 1)) ' +
+        'with TWO inflations, vs. one inflation for direct ' +
+        'reciprocalInterval. So eml-form Dyson drift is STRICTLY WORSE ' +
+        'than per-op for this kernel. Sign decomposition (split j<k ' +
+        'and j>k branches into positive-denominator subsums) does not ' +
+        'recover the gap because both branches still terminate in ' +
+        'reciprocal, not in exp+log.',
+    },
+    naturalDomain:
+      'Targets where eml DOES win: pre-exp/post-log composites such as ' +
+      'log(1 - exp(-s log p)) (Euler-product log), exp(-s log n) ' +
+      '(Dirichlet term), exp(rho log x) (Riemann-von Mangoldt explicit ' +
+      'formula). These are the eml-normal-form candidates from the ' +
+      'imp-924 program. The imp-925 primitive lives there, not in the ' +
+      'Dyson drift kernel.',
+    scopeNarrowing:
+      'imp-925 ships (a) the primitive and (b) the empirical 3.5× ' +
+      'tightness on the natural exp+log domain. The original ticket ' +
+      'items (2) and (3) — port dysonDriftInterval and rk4IntervalStep ' +
+      'into eml-normal form, then benchmark RK4 wrapper widths at N up ' +
+      'to 10K — are NOT closeable as wins for the Dyson kernel ' +
+      'specifically. The primitive is correct and useful; the ' +
+      'application target was wrong. Successor work for the imp-857 ' +
+      'directed-rounding-backend gap should target Arb-via-WASM or a ' +
+      'native binding rather than eml.',
+  },
 });
 
 export const IMP_925_EML_INTERVAL_PRIMITIVE_ASSERTIONS = [

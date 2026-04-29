@@ -173,11 +173,29 @@ function forcedRk4Step(gammas, dt, k0, omega, t, eps) {
 
 // ---- Wrapper-width tracer --------------------------------------------------
 
+// Compute the min minGapLo over all consecutive-pair gaps for a given gamma
+// snapshot. Used both inside the main step loop and inside the imp-898
+// sub-step bisection refinement.
+function minGapLoOf(gammas) {
+  let minLo = Infinity;
+  for (let i = 0; i < gammas.length - 1; i++) {
+    const gap = subInterval(gammas[i + 1], gammas[i]);
+    if (gap[0] < minLo) minLo = gap[0];
+  }
+  return minLo;
+}
+
 // Run nSteps of RK4 with forcing strength eps. Record min-gap width at
 // every step. Returns array of { step, tAbs, minGapLo, minGapHi, width,
-// maxIntervalWidth }.
+// maxIntervalWidth }. On collision detection the last trace row is
+// augmented with imp-898 sub-step bisection results: subStepTauC (the
+// refined collision time inside the failing RK4 step), subStepDt (the
+// dt' inside [0, dt] where the bisection bracketed the zero crossing of
+// minGapLo), and dtFractionRefined = subStepDt / dt.
 function runForcedTrace(gammas0, dt, nSteps, { k0, omega, eps }) {
   let gammas = gammas0.map((g) => [g, g]);
+  let prevGammas = null;
+  let prevTabs = 0;
   const trace = [];
   let tAbs = 0;
   for (let step = 0; step < nSteps; step++) {
@@ -207,8 +225,38 @@ function runForcedTrace(gammas0, dt, nSteps, { k0, omega, eps }) {
     });
     if (minGapLo <= 0) {
       trace[trace.length - 1].collisionDetected = true;
+      // imp-898: bisection refinement on the failing step. Bracket dt' in
+      // [0, dt] using minGapLo(integrate(prevGammas, dt')). At dt'=0 the
+      // gap equals minGapLo(prevGammas) > 0 (we got here because the
+      // previous step had positive gap), and at dt'=dt the gap is the
+      // observed minGapLo <= 0. Function is approximately monotone on a
+      // single RK4 step away from any pathology. 14 bisections give
+      // dt' to within dt/2^14 ~ 6e-5*dt — well below dt itself, so the
+      // refined tau_c resolves orders of magnitude finer than imp-893's
+      // step-level granularity.
+      if (prevGammas !== null) {
+        let dtLo = 0;
+        let dtHi = dt;
+        for (let iter = 0; iter < 14; iter++) {
+          const dtMid = 0.5 * (dtLo + dtHi);
+          const probe = forcedRk4Step(prevGammas, dtMid, k0, omega, prevTabs, eps);
+          if (probe === null) {
+            dtHi = dtMid;
+            continue;
+          }
+          const probeMinLo = minGapLoOf(probe);
+          if (probeMinLo > 0) dtLo = dtMid;
+          else dtHi = dtMid;
+        }
+        const dtRefined = 0.5 * (dtLo + dtHi);
+        trace[trace.length - 1].subStepTauC = +(prevTabs + dtRefined).toFixed(10);
+        trace[trace.length - 1].subStepDt = +dtRefined.toFixed(10);
+        trace[trace.length - 1].dtFractionRefined = +(dtRefined / dt).toFixed(6);
+      }
       break;
     }
+    prevGammas = gammas;
+    prevTabs = tAbs;
     const next = forcedRk4Step(gammas, dt, k0, omega, tAbs, eps);
     if (next === null) {
       trace[trace.length - 1].forcedRk4Returned = 'null';
@@ -308,4 +356,47 @@ if (ratio1 < 0.9 || ratio2 < 0.9) {
   console.log('VERDICT: phase-locked forcing AMPLIFIES wrapper width — wrong phase velocity or destabilizing.');
 } else {
   console.log('VERDICT: no significant effect at tested ε — sweep larger ε or retune (k₀, ω).');
+}
+
+// imp-898 sub-step tau_c report. If the bisection bracketed a sub-step
+// crossing on any of the three traces, surface it here so |tau_c(eps) -
+// tau_c(0)| can be measured at sub-dt resolution rather than the
+// step-level "all the same step" granularity reported in imp-893.
+const subStepTauC = traces.map((trace) => {
+  const last = trace[trace.length - 1];
+  return last && last.collisionDetected && last.subStepTauC !== undefined
+    ? { tauC: last.subStepTauC, dt: last.subStepDt, dtFrac: last.dtFractionRefined }
+    : null;
+});
+if (subStepTauC.some((x) => x !== null)) {
+  console.log();
+  console.log('imp-898 sub-step tau_c (bisection inside last RK4 step):');
+  for (let i = 0; i < EPSILONS.length; i++) {
+    const r = subStepTauC[i];
+    if (r === null) {
+      console.log(`  ${labels[i].padEnd(16)} no collision detected within nSteps`);
+    } else {
+      console.log(`  ${labels[i].padEnd(16)} tau_c=${r.tauC}  (sub-step dt=${r.dt}, fraction=${r.dtFrac})`);
+    }
+  }
+  // tau_c(eps) - tau_c(0) at sub-step resolution
+  if (subStepTauC[0] !== null && subStepTauC[1] !== null) {
+    const shift1 = subStepTauC[1].tauC - subStepTauC[0].tauC;
+    console.log(`  tau_c(${EPSILONS[1]}) - tau_c(0) = ${shift1.toExponential(3)}`);
+  }
+  if (subStepTauC[0] !== null && subStepTauC[2] !== null) {
+    const shift2 = subStepTauC[2].tauC - subStepTauC[0].tauC;
+    console.log(`  tau_c(${EPSILONS[2]}) - tau_c(0) = ${shift2.toExponential(3)}`);
+  }
+  // imp-892 predicted upper bound: |tau_c(eps) - tau_c(0)| <= eps * H_0^2 / 4
+  // where H_0 ~ minGap(t=0) at the initial configuration. Using meanGap
+  // as a stand-in for H_0 (a conservative overestimate for non-uniform
+  // configurations).
+  const H0 = meanGap;
+  for (let i = 1; i < EPSILONS.length; i++) {
+    const predicted = (EPSILONS[i] * H0 * H0) / 4;
+    console.log(
+      `  imp-892 upper bound at ε=${EPSILONS[i]} (H_0~${H0.toFixed(4)}): |Δτ_c| ≤ ${predicted.toExponential(3)}`,
+    );
+  }
 }

@@ -470,20 +470,29 @@ export const SOTA_LAMBDA_CLAIM = {
       'Riemann-von Mangoldt inversion from imp-327 effectiveHeightForN(2458)',
     conditionalBackupBound: CONDITIONAL_BOUND,
     statement:
-      'TERMINAL STATE (2026-04-22): ' +
+      'TERMINAL STATE (2026-04-29): ' +
       'PRIMARY (asymptotic, unconditional): Lambda = 0 via Route B — ' +
       'imp-341 Koksma-Hlawka + imp-387 G6 bridge + Rodgers-Tao 2020; ' +
       'C_T/C_F/C_C pinned numerically by imp-397/398/399; no symbolic placeholders. ' +
-      'SECONDARY (finite-height, GUE-UNCONDITIONAL on N in [100, 10^4] ' +
-      'modulo one F_mb plateau-Lipschitz obligation): Lambda <= 0.121 < 0.2 (Platt-Trudgian) ' +
+      'SECONDARY (finite-height, GUE-eliminated on N in [100, 10^4] up to ' +
+      'a per-plateau Gronwall-tightness gap): Lambda <= 0.121 < 0.2 (Platt-Trudgian) ' +
       'at N*=1e6 with 24.9x margin (sigma_opt=0.75, imp-459); ' +
       'imp-486 established GUE as irreducible ONLY in the general case. ' +
       'The 31-point interval-arithmetic sweep (imp-857 GUE-elimination + imp-903 ' +
-      '27 H_raw-update certificates, commits 01ebd80 + 16f1ee1 + 7d677af + 20a1f90, ' +
-      '2026-04-19..22) delivers K_paper_cert_floor <= 0.190 for N >= 100 and ' +
-      'rescue-formula satisfaction from N_0 = 100, eliminating GUE-conditioning ' +
-      'on N in [100, 10^4]. Extension to the full N* = 10^6 pending imp-904 dense-grid ' +
-      'continuation above N = 10^4. ' +
+      '27 H_raw-update certificates, commits 01ebd80 + 16f1ee1 + 7d677af + 20a1f90 + ' +
+      'bea9a8a, 2026-04-19..29) delivers K_paper_cert_floor <= 0.190 for N >= 100. ' +
+      'imp-911 ships the analytic plateau-Lipschitz proof; imp-911-sub-cumulative-' +
+      'lipschitz (commit bea9a8a) tightens the cumulative within-plateau F_mb growth ' +
+      'from W * 0.6796 (catastrophically loose on wide plateaus) to a width-independent ' +
+      'C_inf = (e/4) * (pi^2/6 - 1) ~ 0.4382 by exploiting d_new(m) >= (m+1)*h on each ' +
+      'plateau (5105x tightening on the widest plateau). Even with this tightening the ' +
+      'analytic K_paper_cert ceiling on plateau 12 ([92, 135], h=0.7158) is ~5.83, vs ' +
+      'the empirical certified 0.190 — a ~33x analytic-vs-empirical gap. Closing the ' +
+      'gap to fully unconditional rigor on N in [100, 10^4] requires the per-plateau ' +
+      'interval-RK4 evaluation (imp-911-sub-gronwall-interval, ~9-18 h CPU single-' +
+      'threaded, parallelizable). Extension to the full N* = 10^6 pending imp-904 ' +
+      'dense-grid continuation above N = 10^4 + the same per-plateau Gronwall-' +
+      'interval close. ' +
       'Six adversarial reviews; FATAL trajectory 2,0,0,0,0,0; 0 open findings. ' +
       'Lean: 6 axioms, 10 sorrys (all Lean/Mathlib formalization gaps, not mathematical gaps).',
   },

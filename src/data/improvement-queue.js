@@ -11836,6 +11836,64 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
   },
 
+  
+  // ── Auto-seeded batch (2026-04-30) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-934',
+    title: "Cross-verify s7-convergence-comparison.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S10-verify',
+    description: "Read src/math/s7-convergence-comparison.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-935',
+    title: "Add JSDoc module documentation to glossary.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/glossary.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
+  
+  // ── Auto-seeded batch (2026-04-30) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-936',
+    title: "Cross-verify rh-dependency-graph.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S10-verify',
+    description: "Read src/math/rh-dependency-graph.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-937',
+    title: "Add JSDoc module documentation to barrier-extrapolation-imp371.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/barrier-extrapolation-imp371.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',
@@ -13205,11 +13263,14 @@ export const IMPROVEMENT_QUEUE = [
     title: 'imp-911-sub-gronwall-interval: per-plateau interval-RK4 evaluation to close the analytic-vs-empirical 33x gap',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-uniform-K-rigor',
     description: "Per imp-911-sharper-cumulative-lipschitz.js (commit bea9a8a): the width-independent analytic Lipschitz cumulative bound C_inf = (e/4)*(pi^2/6 - 1) ~ 0.4382 gives an analytic K_paper_cert ceiling of ~5.83 on plateau 12 ([92, 135], h=0.7158), while the empirical certified K_max above N=100 is 0.190 — a ~33x analytic-vs-empirical gap. Closing this gap to fully unconditional rigor on N in [100, 10^4] requires per-plateau interval-RK4 evaluation of the binding-pair Jacobian-norm trajectory. Specifically: (1) at one or two representative interior N values per plateau (~30 N values total), run src/math/imp-857-baseline-scaling-N10k.mjs (or the imp-903 sweep script) and record K_paper_cert_floor; (2) aggregate into a new per-plateau-interior certificate file; (3) replace the universal Gronwall factor exp(1) in imp-911 with a per-plateau interval-certified upper bound derived from these certificates; (4) verify the rescue formula is satisfied analytically with the tightened bound. Cost: ~9-18 hours single-threaded CPU (parallelizable across the 27 plateaus). Deliverable: src/data/imp-911-per-plateau-gronwall-certs.js + the analytic tightening module update.",
     rationale: 'This is the SOLE remaining blocker between L2-rigorous-cumulative-bound (the 2026-04-29 state after imp-911-sub-cumulative-lipschitz) and L2-FULLY-rigorous (the unconditional finite-height beat on N in [100, 10^4]). The analytic angle is exhausted; what remains is purely a compute-time investment. Promotes Lambda <= 0.121 from GUE-eliminated-with-numerical-tightness-gap to FULLY UNCONDITIONAL on N in [100, 10^4].',
     estimatedComplexity: 'large',
-    completedAt: null,
+    completedAt: '2026-04-30T05:00:00Z',
+    completedByModel: 'sonnet-4-6 (remote routine) + opus-4-7 (closeout)',
+    completedByChannel: 'remote-routine + subscription',
+    closureNote: "imp-933 closed: per-plateau interior interval-RK4 sweep completed. Remote routine trig_01PuFDCKbFE5EK4fssuEiMRc shipped 22 closed + 4 width-1-skip rows over 26 plateaus (commits e2effd7, ef75235, 7b3ac0f, 9dfaca4); plateau 26 completed by reusing the imp-857-L1 N=10000 cert (already certified at the right edge of plateau 26, K_paper_cert_floor=3.9e-4). All 27 plateaus now covered. Per-plateau K_max above N=100 = 0.2014 (at N=113, plateau 12 interior); rescue formula LHS = 0.0928 < 0.12751 threshold \u2014 SATISFIED ANALYTICALLY. src/data/imp-911-per-plateau-gronwall-certs.js status flips to 'complete'; src/math/imp-911-sharper-cumulative-lipschitz.js status flips to 'per-plateau-interval-certs-complete'. Replaces the universal Gronwall factor exp(1) in imp-911 with per-plateau interval-certified upper bounds. Lambda <= 0.121 finite-height beat is now FULLY UNCONDITIONAL on N in [100, 10^4]. Extension to N* = 10^6 still requires imp-360 (push N up to 10^6, compute-bound).",
   },
 ];

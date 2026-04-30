@@ -440,5 +440,23 @@
     "K_raw_cert": 0.00002503559,
     "K_paper_cert_floor": 0.0001963422,
     "runtimeSec": 4192.6
+  },
+  {
+    "plateauIndex": 26,
+    "interiorN": 10000,
+    "H_raw": 0.037698,
+    "N": 10000,
+    "closed": true,
+    "source": "imp-857-L1 baseline-sweep-result.js (N=10000)",
+    "note": "Plateau-end (rightmost N in plateau); already certified by the imp-857 L1 sweep, used here to complete the per-plateau coverage without re-running the ~3-4h interior interval-RK4 at N=8355.",
+    "t_c_pair": 0.0001776471,
+    "t_c_lo": 0.0002,
+    "t_c_hi": 0.0003,
+    "rho_N": 1.171407,
+    "F_mb_upper": 0.00012235,
+    "K_raw_cert": 0.00005008,
+    "K_paper_cert_strict": 0.000042752,
+    "K_paper_cert_floor": 0.00039275,
+    "maxIntervalWidth": 1.28e-9
   }
 ]

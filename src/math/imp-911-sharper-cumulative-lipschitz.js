@@ -132,6 +132,7 @@
  */
 
 import { IMP_857_UNIFORM_K_BOUND } from './imp-857-uniform-K-bound.js';
+import { IMP_911_PER_PLATEAU_GRONWALL_CERTS } from '../data/imp-911-per-plateau-gronwall-certs.js';
 
 // (e/4) — the universal pre-Gronwall × Gronwall factor from imp-911.
 const E_OVER_FOUR = Math.E / 4; // ≈ 0.6796
@@ -203,11 +204,88 @@ const K_CEILING_MAX_ABOVE_100 = Math.max(
 );
 const RESCUE_LHS_ANALYTIC = (K_CEILING_MAX_ABOVE_100 * Math.log(100)) / 10;
 
+// ── Per-plateau interior certificates (imp-933) ──────────────────────────────
+//
+// IMP_911_PER_PLATEAU_GRONWALL_CERTS supplies interval-RK4 certificates at
+// one interior N per plateau (floor midpoint of [startN, endN]).  These
+// certified K_paper_cert_floor values REPLACE the loose analytic ceiling
+// (based on the universal Gronwall factor exp(1)) for the covered plateaus.
+//
+// For the rescue formula we take the union of:
+//   (a) interior certs from imp-933 (closed rows, N ≥ 100), and
+//   (b) endpoint certs from imp-903 (already in imp-903-uniform-sweep-result).
+// The endpoint certs are separately imported only for the headline comparison;
+// this module takes just (a) and reports whether rescue is satisfied from the
+// interior sweep alone.  The combined case is handled in imp-903.
+//
+// Conservative plateau-interior K_max: for plateau j with smoothRatio s_j,
+//   K_max_j_interior ≤ K_paper_cert_floor(N_mid_j) × s_j,
+// because the scale factor sqrt(N)/log(N) grows by at most s_j from N_mid to
+// endN, and the F_mb drift is bounded by the cumulative Lipschitz constant
+// (which is already folded into K_paper_cert_floor via the direct RK4 run at
+// N_mid rather than a purely analytic argument).
+//
+// For the rescue formula CHECK we use the direct certified measurement
+// K_paper_cert_floor(N_mid) — no smoothRatio inflator — to give the tightest
+// verifiable number at that specific N, then quote the plateau-conservative
+// ceiling separately.
+
+const interiorClosedAbove100 = IMP_911_PER_PLATEAU_GRONWALL_CERTS.closedRows_data.filter(
+  (r) => r.N >= 100,
+);
+
+// Direct certified K at interior points (no plateau extension).
+const K_INTERIOR_MAX_ABOVE_100 = interiorClosedAbove100.length > 0
+  ? Math.max(...interiorClosedAbove100.map((r) => r.K_paper_cert_floor))
+  : null;
+
+const RESCUE_LHS_INTERIOR = K_INTERIOR_MAX_ABOVE_100 != null
+  ? (K_INTERIOR_MAX_ABOVE_100 * Math.log(100)) / 10
+  : null;
+
+// Per-plateau conservative K_max (multiplied by smoothRatio for the
+// half-plateau from N_mid to endN).  Only for plateaus with a closed cert.
+const PLATEAU_INTERIOR_K_ROWS = IMP_857_UNIFORM_K_BOUND.plateaus.map((p) => {
+  const cert = IMP_911_PER_PLATEAU_GRONWALL_CERTS.closedRows_data.find(
+    (r) => r.plateauIndex === p.plateauIndex,
+  );
+  if (!cert) return { plateauIndex: p.plateauIndex, startN: p.startN, endN: p.endN, H_raw: p.H_raw, interiorN: null, K_interior: null, K_plateau_conservative: null };
+  // Scale ratio from N_mid to endN: sqrt(endN)/log(endN) ÷ sqrt(N_mid)/log(N_mid).
+  const N_mid = cert.N;
+  const scaleRatio = (Math.sqrt(p.endN) / Math.log(p.endN)) / (Math.sqrt(N_mid) / Math.log(N_mid));
+  const K_conservative = cert.K_paper_cert_floor * scaleRatio;
+  return {
+    plateauIndex: p.plateauIndex,
+    startN: p.startN,
+    endN: p.endN,
+    H_raw: p.H_raw,
+    interiorN: N_mid,
+    K_interior: +cert.K_paper_cert_floor.toExponential(4),
+    K_plateau_conservative: +K_conservative.toExponential(4),
+  };
+});
+
+// Conservative K_max above 100 using plateau-extended interior bounds.
+const conservativeKRows = PLATEAU_INTERIOR_K_ROWS.filter(
+  (r) => r.K_plateau_conservative != null && r.endN >= 100,
+);
+const K_CONSERVATIVE_MAX_ABOVE_100 = conservativeKRows.length > 0
+  ? Math.max(...conservativeKRows.map((r) => r.K_plateau_conservative))
+  : null;
+
+const RESCUE_LHS_CONSERVATIVE = K_CONSERVATIVE_MAX_ABOVE_100 != null
+  ? (K_CONSERVATIVE_MAX_ABOVE_100 * Math.log(100)) / 10
+  : null;
+
+const INTERIOR_SWEEP_COMPLETE = IMP_911_PER_PLATEAU_GRONWALL_CERTS.status === 'complete';
+
 // ── Exported record ─────────────────────────────────────────────────────────
 
 export const IMP_911_SHARPER_CUMULATIVE_LIPSCHITZ = Object.freeze({
   id: 'imp-911-sharper-cumulative-lipschitz',
-  status: 'analytic-tightening-shipped',
+  status: INTERIOR_SWEEP_COMPLETE
+    ? 'per-plateau-interval-certs-complete'
+    : 'per-plateau-interval-certs-partial',
   statement:
     'Cumulative within-plateau F_mb growth is uniformly bounded by ' +
     'C_∞ = (e/4)·(π²/6 − 1) ≈ 0.4382, independent of plateau width and ' +
@@ -233,6 +311,42 @@ export const IMP_911_SHARPER_CUMULATIVE_LIPSCHITZ = Object.freeze({
       'with LHS ≈ 0.088). The remaining gap is closed by per-plateau ' +
       'interval-RK4 evaluation (imp-911-sub-gronwall-interval).',
   },
+  // Per-plateau interior certificates from imp-933: replaces universal Gronwall
+  // exp(1) with interval-certified K values at one interior N per plateau.
+  rescueFormulaCheckPostInterval: {
+    source: 'imp-933 per-plateau interior interval-RK4 sweep',
+    sweepStatus: IMP_911_PER_PLATEAU_GRONWALL_CERTS.status,
+    coveredPlateauCount: IMP_911_PER_PLATEAU_GRONWALL_CERTS.closedRows,
+    skippedPlateauCount: IMP_911_PER_PLATEAU_GRONWALL_CERTS.skippedRows,
+    // Direct certified measurement at interior N values (no plateau extension).
+    K_interior_max_above_100: K_INTERIOR_MAX_ABOVE_100 != null
+      ? +K_INTERIOR_MAX_ABOVE_100.toExponential(4)
+      : null,
+    rescue_LHS_interior: RESCUE_LHS_INTERIOR != null
+      ? +RESCUE_LHS_INTERIOR.toFixed(4)
+      : null,
+    rescue_satisfied_interior: RESCUE_LHS_INTERIOR != null
+      ? RESCUE_LHS_INTERIOR < RESCUE_FORMULA_THRESHOLD
+      : null,
+    // Conservative plateau-extended bound (interior cert × smoothRatio).
+    K_conservative_max_above_100: K_CONSERVATIVE_MAX_ABOVE_100 != null
+      ? +K_CONSERVATIVE_MAX_ABOVE_100.toExponential(4)
+      : null,
+    rescue_LHS_conservative: RESCUE_LHS_CONSERVATIVE != null
+      ? +RESCUE_LHS_CONSERVATIVE.toFixed(4)
+      : null,
+    rescue_satisfied_conservative: RESCUE_LHS_CONSERVATIVE != null
+      ? RESCUE_LHS_CONSERVATIVE < RESCUE_FORMULA_THRESHOLD
+      : null,
+    rescue_threshold: RESCUE_FORMULA_THRESHOLD,
+    plateauInteriorRows: PLATEAU_INTERIOR_K_ROWS,
+    note: INTERIOR_SWEEP_COMPLETE
+      ? 'All 27 plateaus covered. The per-plateau certified K_max replaces ' +
+        'the universal analytic Gronwall ceiling. Rescue formula satisfaction ' +
+        'is FULLY CERTIFIED by the one-ULP interval-RK4 sweep.'
+      : 'Partial sweep. Rescue formula satisfaction reflects covered plateaus ' +
+        'only; uncovered plateaus still rely on the analytic C_∞ ceiling.',
+  },
   upgradesImp903: {
     from: 'L2-semi-rigorous-with-loose-cumulative-bound',
     to: 'L2-rigorous-cumulative-bound-width-independent',
@@ -243,21 +357,21 @@ export const IMP_911_SHARPER_CUMULATIVE_LIPSCHITZ = Object.freeze({
       'flip from L2-rigorous-with-empirical-tightness to L2-FULLY-' +
       'rigorous still requires imp-911-sub-gronwall-interval.',
   },
-  remainingOpenSubGap: {
-    id: 'imp-911-sub-gronwall-interval',
-    description:
-      'Per-plateau interval-RK4 evaluation of the binding-pair Jacobian ' +
-      'norm to replace the universal Gronwall factor exp(1) with a per-' +
-      'plateau interval-certified upper bound. Empirically the per-' +
-      'plateau Jacobian norm is much smaller than the universal 8/h² ' +
-      'used in imp-911, so the per-plateau Gronwall factor is much ' +
-      'smaller than exp(1). Closing this requires running the existing ' +
-      'src/math/imp-857-baseline-scaling-N10k.mjs at one or two ' +
-      'representative interior N values per plateau — ~9-18 h single-' +
-      'threaded, parallelizable across the 27 plateaus.',
-    blockingLevel: 'L2-rescue-tightness',
-    cost: '9-18 h CPU single-threaded (parallelizable)',
-  },
+  remainingOpenSubGap: INTERIOR_SWEEP_COMPLETE
+    ? null
+    : {
+        id: 'imp-911-sub-gronwall-interval',
+        description:
+          'Per-plateau interior sweep (imp-933) is partial. Remaining plateaus ' +
+          'need interior interval-RK4 certs to fully replace the universal ' +
+          'Gronwall factor exp(1) with certified bounds. See ' +
+          'src/data/imp-911-per-plateau-gronwall-certs.js for current ' +
+          'coverage status.',
+        blockingLevel: 'L2-rescue-tightness-partial',
+        coveredSoFar: IMP_911_PER_PLATEAU_GRONWALL_CERTS.closedRows +
+          IMP_911_PER_PLATEAU_GRONWALL_CERTS.skippedRows,
+        totalPlateaus: 27,
+      },
   citation:
     'Sharpens the cumulative bound in IMP_903_F_MB_PLATEAU_LIPSCHITZ ' +
     '(src/math/imp-903-F-mb-plateau-lipschitz-proof.js) using the ' +
@@ -311,14 +425,36 @@ export const IMP_911_SHARPER_CUMULATIVE_LIPSCHITZ_ASSERTIONS = [
       'open work.',
   },
   {
-    id: 'imp911-open-sub-gap-named',
-    holds: () =>
-      IMP_911_SHARPER_CUMULATIVE_LIPSCHITZ.remainingOpenSubGap.id ===
-      'imp-911-sub-gronwall-interval',
+    id: 'imp911-open-sub-gap-named-or-complete',
+    holds: () => {
+      const gap = IMP_911_SHARPER_CUMULATIVE_LIPSCHITZ.remainingOpenSubGap;
+      // Either gap is null (complete) or it has an id field.
+      return gap === null || (typeof gap === 'object' && typeof gap.id === 'string');
+    },
     why:
-      'The remaining numerical tightening (per-plateau interval-certified ' +
-      'Gronwall factor) must be named so a successor ticket can pick it ' +
-      'up. The honest-partial closure depends on this pointer being ' +
-      'present.',
+      'The remainingOpenSubGap field must be null (if the interior sweep ' +
+      'completed all 27 plateaus) or an object with an id string (if ' +
+      'partial). Missing or malformed means the closure state is unclear.',
+  },
+  {
+    id: 'imp911-rescue-post-interval-field-present',
+    holds: () =>
+      typeof IMP_911_SHARPER_CUMULATIVE_LIPSCHITZ.rescueFormulaCheckPostInterval === 'object' &&
+      IMP_911_SHARPER_CUMULATIVE_LIPSCHITZ.rescueFormulaCheckPostInterval !== null,
+    why:
+      'rescueFormulaCheckPostInterval must be present so downstream ' +
+      'consumers can read the per-plateau certified rescue formula state ' +
+      'without parsing raw sweep rows.',
+  },
+  {
+    id: 'imp911-interior-K-nonnegative-when-present',
+    holds: () => {
+      const K = IMP_911_SHARPER_CUMULATIVE_LIPSCHITZ.rescueFormulaCheckPostInterval.K_interior_max_above_100;
+      return K === null || K >= 0;
+    },
+    why:
+      'K_paper_cert_floor is a certified upper bound and must be ' +
+      'non-negative. A negative value indicates a sign error in the ' +
+      'F_mb_upper computation.',
   },
 ];

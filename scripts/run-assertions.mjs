@@ -131,6 +131,8 @@ const DATA_MODULES = [
   '/src/data/imp-903-uniform-sweep-result.js',
   // imp-904 dense-N-grid partial closure: 31-N combined catalog over [10, 10^4].
   '/src/data/imp-904-dense-grid-analysis.js',
+  // imp-933: per-plateau interior interval-RK4 certs (replaces universal Gronwall exp(1)).
+  '/src/data/imp-911-per-plateau-gronwall-certs.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -383,5 +383,24 @@
     "K_raw_cert": 0.0007434627,
     "K_paper_cert_floor": 0.005830623,
     "runtimeSec": 163
+  },
+  {
+    "plateauIndex": 23,
+    "interiorN": 2637,
+    "H_raw": 0.097503,
+    "N": 2637,
+    "closed": true,
+    "steps": 6,
+    "tAbs": 0.0012,
+    "t_c_lo": 0.001,
+    "t_c_hi": 0.0012,
+    "collisionWidth": 0.0002,
+    "maxIntervalWidth": 4.388e-11,
+    "minGapLoAtCollision": -0.001018,
+    "t_c_pair": 0.0011883544,
+    "F_mb_upper": 0.00001164562,
+    "K_raw_cert": 0.000007402068,
+    "K_paper_cert_floor": 0.00005805088,
+    "runtimeSec": 785.9
   }
 ]

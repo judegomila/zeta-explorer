@@ -10,6 +10,54 @@
  * For complex dual numbers: z = (a + bε) where a,b are complex [re, im].
  */
 
+/**
+ * Cross-Verification (imp-929, S10-verify):
+ *
+ * Independent check of the four key computations exported / used by this file,
+ * recorded inline so a future reader does not have to re-derive them.
+ *
+ * 1. Dual arithmetic identities (Dual.add / sub / mul / div).
+ *    - mul: (a + a'ε)(b + b'ε) = ab + (a'b + ab')ε  (since ε² = 0). Matches.
+ *    - div: (a + a'ε)/(b + b'ε) = a/b + (a'b - ab')/b² · ε. Verified by
+ *      multiplying numerator and denominator by the conjugate (b - b'ε)
+ *      and dropping ε² terms. Matches.
+ *
+ * 2. p^{-s} construction inside sMatrixWithDerivative.
+ *    With s = σ + i·t and logP = log p:  p^{-s} = e^{-s·logP}
+ *    = p^{-σ} · (cos(-t·logP) + i·sin(-t·logP)).
+ *    pmsVal = [p^{-σ}·cos(-t·logP), p^{-σ}·sin(-t·logP)] — matches.
+ *    Derivative d/ds[p^{-s}] = -logP · p^{-s}, so pmsDer = [-logP·Re, -logP·Im]
+ *    of pmsVal — matches.
+ *
+ * 3. Bombieri-Lagarias Li-coefficient identity inside liCoefficientSensitivity.
+ *    λ_n = Σ_ρ [1 - (1 - 1/ρ)^n]  (sum over nontrivial zeros, with multiplicity).
+ *    With the critical-line parametrization ρ(γ) = 1/2 + iγ:
+ *      dρ/dγ = i,  d/dγ[1/ρ] = -1/ρ² · dρ/dγ = -i/ρ²  →  matches dInvRho.
+ *      d/dγ[1 - (1-1/ρ)^n]
+ *        = -n·(1-1/ρ)^{n-1} · d/dγ[1-1/ρ]
+ *        = -n·(1-1/ρ)^{n-1} · (i/ρ²)
+ *        = n·(1-1/ρ)^{n-1} · (-i/ρ²)            →  matches dContrib.
+ *
+ * 4. Edge-case / NaN audit.
+ *    - sMatrixWithDerivative skips a prime when |1 - p^{-s}| < 1e-20. For σ > 0
+ *      one has |p^{-s}| = p^{-σ} < 1, so 1 - p^{-s} cannot vanish; the guard is
+ *      defensive but inert in the proof regime σ ≈ 1/2.
+ *    - Dual#sensitivity returns Infinity rather than NaN when |f| underflows.
+ *    - liCoefficientSensitivity reads ZETA_ZEROS[0..99]; safe (table is large).
+ *    - Reference value spot-check: sMatrixWithDerivative([0.5, 14.13], 50)
+ *      returns a finite product; the partial Euler product converges slowly
+ *      on the critical line (the full Euler product diverges there, as
+ *      expected from Riemann), so the value is a model and not ζ itself.
+ *
+ * 5. Documentation/code mismatch (recorded, not patched in this atomic change):
+ *    Dual#sensitivity JSDoc claims relative condition number |f'(x)·x/f(x)|,
+ *    but the body returns the absolute ratio |f'(x)|/|f(x)| (the |·x| factor
+ *    is missing). This value is reported only inside primeCountSensitivity
+ *    and does NOT propagate into any λ_n bound or proof-chain claim. Flagged
+ *    here for a future targeted ticket; left untouched to keep this change
+ *    atomic per the imp-929 mandate.
+ */
+
 import { cMul, cDiv, cSub, cAdd, cAbs, ZETA_ZEROS } from './zeta.js';
 import { getPrimes } from './primes.js';
 

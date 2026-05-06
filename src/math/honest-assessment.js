@@ -5,6 +5,31 @@
  *
  * The goal: invite scrutiny by clearly stating what could be wrong,
  * what would disprove the argument, and what a mathematician should check.
+ *
+ * ── Cross-verification note (imp-931) ─────────────────────────────────────
+ * This module exports pure narrative/structured content (no numerical
+ * computation), so the standard cross-verification template (NaN/infinity
+ * edge cases, reference numerical match) does not apply. The applicable
+ * cross-checks are structural and citation-based:
+ *
+ *   - All 9 cited imp-IDs resolve in src/data/improvement-queue.js:
+ *     imp-085, imp-108, imp-109, imp-116, imp-121, imp-122, imp-125,
+ *     imp-126, imp-127 (verified by grep on 2026-05-06).
+ *   - The withdrawnClaims narrative — imp-126 was found CIRCULAR by the
+ *     imp-127 self-audit on 2026-04-01 — matches the queue: imp-127's
+ *     title is "Devil's advocate on imp-126" and is marked completed.
+ *   - The weaknesses array is sorted by rank (1,2,3,4) and each entry
+ *     has the same shape (rank, area, bayesianProbability, issue,
+ *     whatWouldDisproveIt, myAssessment) — schema-consistent.
+ *   - bayesianProbability values are display strings (e.g. "~95%"); they
+ *     are not consumed by any arithmetic in the codebase, so there is no
+ *     NaN / infinity exposure.
+ *   - generateHonestAssessment() takes no arguments and is deterministic;
+ *     it cannot fail except by code-edit error.
+ *
+ * Conclusion: structurally consistent with the proof timeline; no numerical
+ * verification step is meaningful for this module.
+ * ──────────────────────────────────────────────────────────────────────────
  */
 
 export function generateHonestAssessment() {

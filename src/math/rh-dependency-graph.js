@@ -29,6 +29,45 @@
  *   Function field RH, Selberg zeta, Deligne, Ihara
  *
  * CRITICAL PATH: Layer 5 methods -> Layer 4 frameworks -> fill Layer 1
+ *
+ * ─────────────────────────────────────────────────────────────────────
+ * VERIFICATION NOTE (imp-936, S10-verify cross-check, 2026-05-07):
+ *
+ * This module is a meta-survey/dashboard: it returns only static structured
+ * metadata (layers, paths, rankings, counts). It performs NO arithmetic,
+ * no division, no transcendentals — therefore there are zero NaN/Infinity
+ * code paths. The relevant verification is internal consistency between
+ * the inline counts and the aggregate statistics block.
+ *
+ * Cross-checks performed:
+ *   (1) categories sum: 20+15+5+8+6+18+7+10+8+10+5+4+153 = 269.
+ *       Matches statistics.total_modules = 269.  PASS.
+ *   (2) Layer 5 'PROVEN ANALOGS' module count = 4
+ *       (function field, Selberg zeta, Deligne, Ihara graph).
+ *       Matches statistics.proven_analogs = 4.  PASS.
+ *   (3) criticalPaths array length = 4 (Berry-Keating, Weil PSD, Deninger,
+ *       Connes). Matches keyFindings "4 critical paths" and the verdict
+ *       string "4 critical paths to RH".  PASS.
+ *   (4) Layer 1 verdict "12/12 pass" references the imp-256 master
+ *       dashboard. The six rows enumerated in Layer 1 here are
+ *       representative anchors (Robin, Lagarias, Li, Beurling-Nyman,
+ *       Weil PSD, master) — not the full 12. The full equivalence list
+ *       (Robin, Lagarias, Li-Bombieri-Lagarias, Beurling-Nyman, Báez-
+ *       Duarte, Riesz, Hardy-Littlewood, Salem, Volchkov, Mertens-on-
+ *       average, Weil PSD, de Branges) lives in imp-256. CONSISTENT.
+ *   (5) statistics.zeta_zeros_computed = 870 cross-references zeta.js
+ *       ZETA_ZEROS table; this module does not recompute it, so this is
+ *       a pointer, not a derivation. Out of scope for arithmetic check.
+ *   (6) impactRanking has 7 entries; 3 are tagged "PROVES RH", which is
+ *       internally consistent (M_N PSD, Lambda gap to 0, H^1(Spec Z)).
+ *
+ * Edge cases: rhDependencyGraphTest takes no arguments and constructs
+ * literal arrays/objects only; the only failure mode is OOM (negligible
+ * — fixed-size payload < 4 KB). No user input, no division, no logs.
+ *
+ * Verdict: rh-dependency-graph.js is internally consistent. No numerical
+ * defects. Cited counts match aggregate statistics.
+ * ─────────────────────────────────────────────────────────────────────
  */
 
 export function rhDependencyGraphTest() {

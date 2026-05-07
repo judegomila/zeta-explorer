@@ -135,6 +135,8 @@ const DATA_MODULES = [
   '/src/data/imp-911-per-plateau-gronwall-certs.js',
   // imp-963: finite-K C_mb unconditional closure for imp-856 / imp-835 / imp-440.
   '/src/data/finite-k-c-mb-unconditional.js',
+  // imp-962 HONEST PARTIAL: plateau-structure scan on (10⁴, 10⁶].
+  '/src/data/imp-962-plateau-structure-N10k-to-N1e6.js',
 ];
 
 const ALL_MODULES = FAST_MODE

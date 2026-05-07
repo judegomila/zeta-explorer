@@ -83,6 +83,14 @@ function cascadeSMatrix(primes, omega) {
   // S₁₁ = (A + B - C - D) / (A + B + C + D)   (Z_S = Z_L = 1)
   const num = cSub(cAdd(A, B), cAdd(C, D));
   const den = cAdd(cAdd(A, B), cAdd(C, D));
+  // imp-961 (was imp-959 finding): guard against the (rare but possible)
+  // degenerate denominator A+B+C+D = 0. cDiv has no defensive check, so
+  // this would otherwise propagate Infinity/NaN through the cascade. At
+  // the degenerate point the S-matrix has a pole; caller treats |R| = 1
+  // (full reflection) as the appropriate physical sentinel.
+  if (cAbs(den) < 1e-15) {
+    return [1, 0];  // |R| = 1 + 0i — total reflection sentinel.
+  }
   return cDiv(num, den);
 }
 

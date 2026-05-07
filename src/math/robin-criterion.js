@@ -146,6 +146,14 @@ export function robinCriterionTest() {
   const exceptionsFound = [];  // n > 5040 violating Robin
   const robinBadBelow5040 = [];
 
+  // imp-961 (was imp-951 finding): seed n=2 manually because the loop
+  // guard `logN <= 1` skips it (log 2 ≈ 0.693 ≤ 1). Robin's inequality at
+  // n=2 reads σ(2)=3 ≥ e^γ·2·log log 2 with RHS ≈ −1.31 (log log 2 < 0),
+  // so it is vacuously Robin-violating and belongs in the canonical
+  // 27-element exception list. Without this seeding, knownExceptionsFound.
+  // match returns false because foundBad ends up size 26 vs expected 27.
+  robinBadBelow5040.push({ n: 2, f: NaN, note: 'log log 2 < 0; vacuous Robin-violation' });
+
   for (let n = 3; n <= N; n++) {
     const logN = Math.log(n);
     if (logN <= 1) continue;  // log log n undefined for n < e

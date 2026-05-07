@@ -143,6 +143,26 @@ export function dualTwistorFromS(s) {
  * When |χ| ≠ 1, the intertwiner stretches/compresses → non-unitary.
  */
 export function intertwiner(twistor, s) {
+  // imp-961 (was imp-955 finding): guard against the χ poles at s = 0 and
+  // s = 1 (Γ-ratio poles in the functional-equation factor). At these
+  // points |χ| → ∞ and the component-wise multiplication produces
+  // Infinity / NaN. Caller-visible signal: norm is Infinity, isUnitary
+  // false, couplingStrength Infinity. This is a graceful sentinel rather
+  // than throwing because s = 0/1 are valid inputs (they label the trivial
+  // zeros and the single ζ pole).
+  const [sigma, t] = s;
+  if (t === 0 && (sigma === 0 || sigma === 1)) {
+    return {
+      omega: [Infinity, Infinity],
+      pi: [Infinity, Infinity],
+      norm: Infinity,
+      couplingStrength: Infinity,
+      phase: 0,
+      isUnitary: false,
+      reflectionCoeff: NaN,
+      atChiPole: true,
+    };
+  }
   const bridge = losslessBridge(s);
   const chi = bridge.chi;
 

@@ -21,7 +21,7 @@
  * so zeros of E_ξ are real, making E_ξ "close to" Hermite-Biehler.
  *
  * de Branges attempted to prove RH by constructing H(E_ξ) with suitable
- * positivity; remains open (the Conrey-Li obstruction 1997 showed issues).
+ * positivity; remains open (the Conrey-Li 1998 obstruction showed issues).
  *
  * CONCRETE CASE: Paley-Wiener space PW_π = H(e^{-iπz}):
  *
@@ -280,10 +280,10 @@ export function deBrangesHilbertSpacesTest() {
         'de Branges conjectured a proof of RH via H(E_ξ) with E_ξ(z)=ξ(1/2−iz). ' +
         'Would show ξ\'s zeros are real by constructing a Hilbert space where they must be real.',
       conreyLiObstruction:
-        'Conrey-Li (1997, 1998) found counterexamples to specific de Branges conjectures. ' +
+        'Conrey-Li (1998, IMRN) found counterexamples to specific de Branges conjectures. ' +
         'de Branges continues to propose modifications; consensus is incomplete.',
       proven_application:
-        'de Branges DID prove Bieberbach conjecture (1984) using H(E) spaces — demonstrates their power.',
+        'de Branges DID prove Bieberbach conjecture (1985, Acta Math. 154) using H(E) spaces — demonstrates their power.',
       relatedCriteria:
         'de Branges theory LINKED to Li criterion (imp-207, imp-237): both are positivity conditions on reproducing kernels.',
       orthogonalityPrinciple:

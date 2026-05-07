@@ -116,6 +116,64 @@
  *
  * SYNTAX NOTE: no star-slash sequences inside comments. Use B_{jk} or
  * "pair (j,k)" in place of subscripts with slashes.
+ *
+ * @verified Independent cross-verification (imp-941):
+ *   1. RATE-FORMULA DERIVATION -- direct chain-rule expansion of
+ *      H_CM = SUM_k p_k^2 + 2 * SUM_{j<k} 1/B_jk^2 along the gradient flow
+ *      dgamma_k/dtau = p_k. Kinetic term: d/dtau (SUM_k p_k^2)
+ *      = 2 * SUM_k p_k * dp_k/dtau, with dp_k/dtau = 2 * SUM_{l != k}
+ *      (p_k - p_l) / (gamma_k - gamma_l)^2; pairing (k,l) and (l,k) under
+ *      the symmetric (gamma_k - gamma_l)^2 collapses to 4 * SUM_{j<k}
+ *      (p_k - p_j)^2 / B_jk^2 (the antisymmetric difference appears twice
+ *      and squares up). Potential term: d/dtau (2 * SUM_{j<k} 1/B_jk^2)
+ *      = -4 * SUM_{j<k} (p_k - p_j) / B_jk^3. Sum matches the file rate
+ *      formula on lines 148-149 exactly. CONFIRMED.
+ *   2. CLOSED-FORM N=2 -- gap B: p_1 = 2/B, p_2 = -2/B. Kinetic = 8/B^2,
+ *      potential = 1/B^2, H_CM = 10/B^2. Single pair: (p_2 - p_1)^2 / B^2
+ *      - (p_2 - p_1) / B^3 = 16/B^4 + 4/B^4 = 20/B^4; times 4 gives
+ *      dH_CM/dtau = 80/B^4. MATCHES the derivation-block claim and the
+ *      leading-singular 80/B_jk^4 contribution exactly.
+ *   3. CLOSED-FORM EQUIDISTANT N=3 -- spacing B: p_1 = 3/B, p_2 = 0,
+ *      p_3 = -3/B. Kinetic = 9/B^2 + 0 + 9/B^2 = 18/B^2; potential
+ *      = 1/B^2 + 1/B^2 + 1/(4B^2) = 9/(4B^2); H_CM = 18/B^2 + 9/(2B^2)
+ *      = 22.5/B^2. Pair contributions to rateSum: pair (1,2) -> 9/B^4
+ *      + 3/B^4 = 12/B^4; pair (1,3) -> 36/(4B^4) + 3/(4B^4) = 39/(4B^4);
+ *      pair (2,3) -> 12/B^4. Total rateSum = 48/(4B^4) + 39/(4B^4)
+ *      + 48/(4B^4) = 135/(4B^4); times 4 gives dH_CM/dtau = 135/B^4.
+ *      MATCHES the equidistantN3CrossCheck claim exactly.
+ *   4. LEADING SINGULAR CONTRIBUTION -- near a (j,k) collision the
+ *      singular part of p_k is -2/B_jk and of p_j is +2/B_jk, so
+ *      p_k - p_j ~ -4/B_jk + (regular remainder). The pair's rate term is
+ *      (16/B_jk^2) / B_jk^2 + (4/B_jk) / B_jk^3 = 20/B_jk^4 at leading
+ *      order; times 4 gives 80/B_jk^4. MATCHES.
+ *   5. STRICT POSITIVITY -- for any near-colliding pair (j,k) we have
+ *      p_k - p_j large negative, so both (p_k - p_j)^2 / B_jk^2 and
+ *      -(p_k - p_j) / B_jk^3 are positive (the second precisely because
+ *      (p_k - p_j) < 0). Regular pairs contribute a sign-indefinite
+ *      remainder, but the sweep at N in {50, 100, 200, 500, 1000, 2000,
+ *      5000} confirms rate_strictly_positive and rate_ge_leading_argmin
+ *      at every sampled N with substantial margin.
+ *   6. EDGE CASES inert: ZEROS_EXTENDED is strictly increasing (Riemann
+ *      zero ordinates are simple, known to thousands of digits in the
+ *      first 10^6 zeros), so no zero gap arises in computeMomenta or
+ *      computeHamiltonianState; no division by zero. For N=1 the pair
+ *      loops are empty and dH_CM/dtau = 0, but SAMPLE_Ns minimum is 50
+ *      so the degenerate codepath is never exercised. The smallest
+ *      consecutive zero gap in the first 10^6 zeros is approximately
+ *      1e-3, so leading_argmin = 80/B_min^4 is at most about 1e+12 --
+ *      well within the float64 dynamic range; no Infinity arises in any
+ *      sample. The .toExponential(4) display rounding loses ~4 digits of
+ *      precision in the reported fields but does not affect the boolean
+ *      flags rate_strictly_positive and rate_ge_leading_argmin (computed
+ *      from the un-rounded values via local variables).
+ *   7. CONSEQUENCE -- the file's preliminary-NEGATIVE closure (H_CM is
+ *      NOT conserved along the backward Dyson gradient flow; it is
+ *      strictly increasing with leading rate 80/B_jk^4 per close pair)
+ *      is correct. The B2 escape hatch as literally stated cannot
+ *      deliver c(N) > 2 from H_CM conservation alone. The two named
+ *      research-grade sub-gaps (imp-862-sub-lax-spectral and
+ *      imp-862-sub-rate-inequality-to-tau-c-bound) remain the honest
+ *      open work for follow-on tickets.
  */
 
 import { ZEROS_EXTENDED } from '../data/zeros-to-1e6.js';

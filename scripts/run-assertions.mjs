@@ -133,6 +133,8 @@ const DATA_MODULES = [
   '/src/data/imp-904-dense-grid-analysis.js',
   // imp-933: per-plateau interior interval-RK4 certs (replaces universal Gronwall exp(1)).
   '/src/data/imp-911-per-plateau-gronwall-certs.js',
+  // imp-963: finite-K C_mb unconditional closure for imp-856 / imp-835 / imp-440.
+  '/src/data/finite-k-c-mb-unconditional.js',
 ];
 
 const ALL_MODULES = FAST_MODE

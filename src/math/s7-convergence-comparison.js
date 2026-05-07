@@ -16,6 +16,70 @@
  *   P5: De Branges — Hermite-Biehler ratio improvement
  */
 
+/**
+ * Cross-verification note (imp-934, 2026-05-07):
+ *
+ * Independent check of formulas, edge cases, and numerical output. Findings
+ * recorded here so a future reader does not need to re-derive them.
+ *
+ * (1) FORMULAS verified vs cited references:
+ *   - fitPowerLaw: standard log-log linear regression. Spot-check on
+ *     y = 5*x^{-2} for x = [1, 2, 4, 8, 16] recovers alpha = 2.0000 and
+ *     C = 5.0000 (R^2 = 1.0000), matching the closed-form coefficients.
+ *   - transferMatrix T(p, omega) = [[c, Z_p s], [-s/Z_p, c]] with
+ *     Z_p = 1/log(p) is symplectic: det(T) = c^2 + (Z_p s)(s/Z_p) = c^2 + s^2 = 1
+ *     (verified at p = 2, omega = 1: det = 1 to floating-point precision).
+ *   - cTransferMatrix is the holomorphic extension to complex z: cos(z*log p)
+ *     and sin(z*log p) are entire functions of z with real coefficients, so
+ *     T(p, conj(z)) = conj(T(p, z)) elementwise; matrix products preserve
+ *     conjugation so M(conj(z)) = conj(M(z)) elementwise.
+ *   - In measureDeBrangesConvergence, ratio = |E(z)|/|E(conj(z))| equals the
+ *     classical Hermite-Biehler test |E(z)|/|E_star(z)| because
+ *     conj(M[0][0] + i*M[0][1]) = conj(M[0][0]) - i*conj(M[0][1]) = E(conj(z))
+ *     by the conjugation identity above.
+ *   - resolventApply is the Thomas algorithm for symmetric tridiagonal
+ *     (H - z) x = v with sub_k = super_k = offDiag[k]; the k = 0 forward
+ *     sweep and k = N-1 termination (cp[N-1] set to [0,0]) are correct.
+ *
+ * (2) EDGE CASES discovered by running s7ConvergenceComparison():
+ *   - P5 (deBranges) returns NaN for N >= 20. Root cause: at t = 14.13 and
+ *     primes p around 200, t*log(p) is roughly 75, so cosh(75) and sinh(75)
+ *     are roughly e^75 ~ 1.86e32 per matrix entry. After accumulating 20 or
+ *     more such matrices the cascade exceeds Number.MAX_VALUE (~1.8e308),
+ *     producing Infinity - Infinity = NaN in cSub. A log-norm normalization
+ *     per step (track log||M|| and rescale each iteration) would fix this;
+ *     recorded for a follow-up ticket.
+ *   - P5 returns 0 for N = 5, 10: deficit = max(0, 1 - ratio) and the
+ *     Hermite-Biehler condition (ratio >= 1) holds at small N, which is the
+ *     expected mathematical outcome at these test points, not a bug.
+ *
+ * (3) NUMERICAL OUTPUT vs expected scaling:
+ *   - P3 (Resolvent) data drops from 1.26e-4 at N = 5 to 2.70e-157 at N = 200,
+ *     i.e. roughly 150 orders of magnitude over a 40x range in N. The
+ *     power-law fit returns alpha = 19.26 with R^2 = 0.89, but this is the
+ *     artifact of fitting a power law to EXPONENTIAL decay (the true scaling
+ *     is roughly exp(-c*N)); the alpha value is not a meaningful polynomial
+ *     convergence exponent for this path.
+ *   - P2 (TraceClass) R^2 = 0.23, P1 (Weyl) R^2 = 0.29: both fits fail the
+ *     usual R^2 > 0.7 threshold for a usable power law. P2 oscillates
+ *     non-monotonically (0.024 at N = 100, 2.25 at N = 200) because it
+ *     samples at a single test frequency omega = 1.0; P1 is an integer-valued
+ *     trace-crossing count and is discretization-step dependent.
+ *   - P4 (Szego) is the only path with a clean power-law fit:
+ *     alpha = 0.8155, R^2 = 0.978. The Lyapunov-exponent metric is the
+ *     mathematically correct convergence indicator for the SL(2,R) cascade
+ *     and gives the only defensible alpha in the tested range.
+ *
+ * (4) CAVEAT on the recommendation field: ranking is by quality = alpha*R^2,
+ *     which currently elects P3 (Resolvent) due to its inflated alpha. Future
+ *     readers should treat the rank-1 result as a flag for the "fastest
+ *     decaying metric on this N grid", not as evidence of polynomial
+ *     convergence with the reported exponent. P4 (Szego) is the only path
+ *     with a power-law description of its convergence on N = 5..200.
+ *
+ * No code changes made: documentation-only cross-verification per imp-934.
+ */
+
 import { cMul, cDiv, cSub, cAdd, cAbs } from './zeta.js';
 import { getPrimes } from './primes.js';
 

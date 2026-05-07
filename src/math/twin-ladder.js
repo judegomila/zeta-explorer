@@ -22,6 +22,33 @@
  *      ≈ 1.7071, matching the truncated Euler factor 1 + p^{-1/2} for p=2, T=0.
  *   5. collapseAnimation uses P=0 (pressure-free) weights exp(-β·m·log(p)), equivalent
  *      to thermodynamicWeight(p, m, beta, 0) — intentional for β-collapse visualization.
+ *
+ * @verified Independent cross-verification (imp-938) — extends imp-731 with new checks:
+ *   6. T=0 CLOSED FORM — at T=0 every rung has phase=0, so the imaginary part is
+ *      identically 0 and the real sum reduces to the truncated geometric series
+ *      Σ_{m=0..M} p^{-m/2} = (1 − p^{-(M+1)/2}) / (1 − p^{-1/2}). Spot-check at
+ *      p=2, M=5: numerator 1 − 2^{-3} = 0.875; denominator 1 − 2^{-1/2} ≈ 0.29289;
+ *      ratio ≈ 2.98744. The infinite-M Euler-factor limit is 1/(1 − 1/√2) ≈ 3.41421,
+ *      so M=5 leaves a ~13 percent truncation residual; M=10 leaves ~2.6 percent.
+ *      This bounds the error from the M cutoff used downstream.
+ *   7. ADDITIVE-NOT-MULTIPLICATIVE — deformedZTL sums Euler-factor-like contributions
+ *      over primes (Σ_p Σ_m w · p^{-m(½+iT)}); it is NOT the Euler product
+ *      Π_p (1 − p^{-(½+iT)})^{-1}. The twin-ladder framework deliberately treats
+ *      primes additively as a thermodynamic partition function, distinct from ζ(½+iT).
+ *      Readers comparing against ζ should not expect agreement.
+ *   8. PHASE DIAGRAM GRID SIZE — phaseDiagram returns (resolution+1)^2 grid points
+ *      (not resolution^2): the inclusive-bounds loops i,j in [0..resolution] add a
+ *      fence-post sample at both endpoints. maxVal tracks the largest |Z| over the
+ *      whole grid for downstream colormap normalization.
+ *   9. GAUSSIAN PROXY AT u=0 — gaussianProxy(0, α, [c_0, c_2, c_4, ...]) = c_0
+ *      because exp(0)=1 and only the k=0 polynomial term survives. With default
+ *      coeffs [1, −0.1, 0.005], the proxy starts at 1 and the polynomial grows
+ *      polynomially while the Gaussian decays exp(−α·u^2): no overflow for any
+ *      finite u, since exp(−α·u^2)·u^{2k} → 0 as u → ∞ for any α>0.
+ *  10. SLACK INDEX SIGN/SCALING — slackIndex(α, t, ε, U) = (α − t − ε)·U^2 is
+ *      positive when α > t + ε (slack remains), zero on the boundary, negative
+ *      when the proxy fails. It is linear in (α − t − ε) and quadratic in U:
+ *      doubling U quadruples |Π_slack|. Independent of the sign of U.
  */
 
 import { getPrimes } from './primes.js';

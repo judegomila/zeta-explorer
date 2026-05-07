@@ -12311,6 +12311,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: "Cross-verification block added above marchenkoPotentialRecovery in src/math/marchenko.js. The kernel equation K(x,y)+F(x+y)+integral_x^infinity K(x,t)*F(t+y)dt=0 matches Marchenko 1955 (and Chadan-Sabatier III.4.5). Caveat noted: F omits the bound-state norming-constant sum Sum c_n^2*exp(-kappa_n*x) \u2014 fine for the no-bound-state ZPO setup but unstated. ABCD<->S_11 conversion verified against Pozar \u00a74.4. NaN paths: cDiv in cascadeSMatrix is UNGUARDED against A+B+C+D=0 (rare but no defensive check); gaussianElimination uses 1e-15 pivot floor (defensive, not rigorous). The `isConverging` test (last relative change <= 2x first) is WEAK and could PASS slowly-diverging sequences \u2014 flagged as a presentation issue, not a soundness bug.",
   },
 
+  
+  // ── Auto-seeded batch (2026-05-07) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-960',
+    title: "Add JSDoc module documentation to empirical-m-sweep-extended.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    proofSection: 'docs',
+    description: "src/data/empirical-m-sweep-extended.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-05-07T21:45:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Added @module data/empirical-m-sweep-extended and @fileoverview JSDoc tags to the file header. New top-of-file block documents the proof-chain step (PATH 1 of UNCOND-Lambda), the two exports (closure record + assertions array), the four key build-time assertions (E1, E2, analytic floor, sweep-covers-1M), and the three creating/modifying tickets (imp-833 initial 100k extension, imp-858 1M extension, imp-960 this doc pass). Existing rich descriptive prose preserved unchanged below the new structured tags.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

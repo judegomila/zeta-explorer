@@ -1,5 +1,32 @@
 /**
- * imp-833 / PATH 1 of UNCOND-Λ: Extended empirical M verification sweep.
+ * @module data/empirical-m-sweep-extended
+ * @fileoverview imp-833 / PATH 1 of UNCOND-Λ: Extended empirical M verification sweep.
+ *
+ * PROOF-CHAIN STEP: PATH 1 of the UNCOND-Λ closure plan (removes GUE
+ * conditioning for the leading-order M_uf bound on the empirically swept
+ * range of N). Combines with the exact RvM-Jacobian bridge (imp-462) to
+ * deliver M_raw unconditionally on the swept range.
+ *
+ * EXPORTS
+ *   - EMPIRICAL_M_SWEEP_EXTENDED            — closure record (sweep results,
+ *     samples, predicates, analytic floor, honest status, path sequence).
+ *   - EMPIRICAL_M_SWEEP_EXTENDED_ASSERTIONS — six build-time assertions
+ *     (sweep covers 100k, sweep covers 1M, E1 rho non-decreasing, E2 tau_c_est
+ *     non-increasing, analytic rho floor respected, widens floor 10x+).
+ *
+ * KEY ASSERTIONS (verified at build time via the *_ASSERTIONS array)
+ *   - (E1) rho_{J_star(N)} non-decreasing on N in {2,...,N_MAX}
+ *   - (E2) tau_c_est(N) = H_N^2 / (8 rho_{J_star(N)}^2) non-increasing
+ *   - rho_{J_star(N)} >= rho(14) ~ 0.12751 (analytic floor from imp-469)
+ *   - sweep covers >= 1,000,000 zeros (imp-858 floor)
+ *
+ * TICKETS
+ *   - imp-833 — initial extension 870 -> 100,000 zeros (Odlyzko zeros1)
+ *   - imp-858 — further extension 100,000 -> 1,000,000 (Odlyzko zeros6)
+ *   - imp-960 — added @module / @fileoverview JSDoc (this doc pass)
+ *
+ * @see {@link module:data/zeros-to-1e6} for zero-table provenance.
+ * @see {@link module:math/m-raw-from-umon-bridge} for the imp-462 RvM bridge.
  *
  * WHAT THIS DELIVERS
  * ------------------

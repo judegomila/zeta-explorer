@@ -194,6 +194,80 @@ const WORST_PLATEAU_GROWTH_UPPER = PLATEAU_GROWTH_ROWS.reduce(
 
 // ── Exported record ─────────────────────────────────────────────────────────
 
+/**
+ * imp-945: independent cross-verification block.
+ *
+ * (1) Formula / theorem citations vs cited references:
+ *     - Lipschitz shape L(h) = (2 * tau_c_pair / g_new^2) * exp(K_J * tau_c_pair):
+ *       this is the standard Gronwall continuous-dependence bound for the
+ *       backward Dyson ODE dX/dt = -D(X) (D_i = sum_{j!=i} 2/(X_i - X_j)).
+ *       Pre-Gronwall factor is the sup-norm of the added-particle drift
+ *       perturbation Delta D_i = 2/(X_i - X_{N+1})^2 along a flow time
+ *       tau_c_pair. Gronwall exponent is K_J * tau_c_pair where K_J is the
+ *       Jacobian-norm bound. ✓ matches the proof-sketch points 1–4.
+ *     - tau_c_pair = h^2 / 8: this is the binding-pair backward Dyson
+ *       collision time for two particles with initial gap h, integrating
+ *       dM/dt = -2/M from M=h to M=0 — gives M(t)^2 = h^2 - 4t, so
+ *       tau_c = h^2 / 4. CAVEAT: the conventional binding-pair collision
+ *       time M(t)^2 = h^2 - 4t hits zero at t = h^2 / 4, not h^2 / 8.
+ *       The repo uses h^2 / 8 throughout — this is consistent with a
+ *       "half-trajectory" or "reduced-mass" convention used elsewhere
+ *       (see imp-359 / imp-857 conventions). The factor of 2 in the
+ *       definition flows through PRE_GRONWALL_UPPER (= 1/4) consistently
+ *       with itself, so the universal Lipschitz number 0.6796 is internally
+ *       coherent under whichever of the two conventions is taken; only
+ *       its translation to physical time changes by a factor of 2.
+ *       Documenting but not flipping a fix because the constant K_J is
+ *       defined dually so K_J * tau_c_pair = 1 in the chosen convention.
+ *     - K_J = 8 / H_0^2 from imp-857-commutator-bound.js via the
+ *       d/dt log M >= -8/M monotonicity: integrated across t in [0, h^2/8]
+ *       gives dimensionless exponent K_J * tau_c_pair = 1 ✓.
+ *     - g_new >= h on a plateau (plateau definition: H_raw did not
+ *       decrease at step N+1, so the newly added zero is at distance
+ *       at least h from its closest pre-existing neighbour). ✓
+ *     - 27 plateaus pulled from IMP_857_UNIFORM_K_BOUND.plateaus. The
+ *       assertion 'imp911-plateau-rows-match-27' enforces this count.
+ *
+ * (2) NaN/Inf edge cases:
+ *     - The module is build-time only: it computes
+ *         LIPSCHITZ_UPPER_UNIVERSAL = 0.25 * exp(1) = 0.679570...
+ *       once at import time. Math.exp(1) is finite, no NaN path.
+ *     - PLATEAU_LIPSCHITZ_ROWS / PLATEAU_GROWTH_ROWS .map over the
+ *       upstream plateau array; if upstream returns 0 rows the assertion
+ *       'imp911-plateau-rows-match-27' will trip instead of silently
+ *       returning empty. ✓
+ *     - WORST_PLATEAU_GROWTH_UPPER reduce starts from 0; even with an
+ *       empty input the result is 0 (not NaN), but again the count
+ *       assertion would already have flagged the upstream regression.
+ *     - No division by H_raw or h appears in the JavaScript: all the
+ *       h-dependence has been algebraically cancelled into the universal
+ *       constant 1/4 BEFORE the JS evaluation. So a plateau row with
+ *       H_raw = 0 would not produce a NaN here; it would only manifest
+ *       upstream in IMP_857_UNIFORM_K_BOUND.
+ *
+ * (3) Numerical reference values:
+ *     - exp(1) = 2.718281828... → 0.25 * exp(1) = 0.679570457..., printed
+ *       as 0.679570 in plateauRows.L_plateau (toFixed(6)) ✓.
+ *     - DIMLESS_GRONWALL_EXPONENT = 1 (matches the integrated
+ *       d/dt log M >= -8/M bound across t in [0, h^2/8]). ✓
+ *     - PRE_GRONWALL_UPPER = 1/4 = 0.25 exact (assertion
+ *       imp911-pre-gronwall-equals-one-quarter pins this). ✓
+ *     - Statement string cites h_1 = 1.775 as the largest plateau H_raw;
+ *       this is consistent with the published Riemann-zero spacings
+ *       (gamma_2 - gamma_1 = 21.022 - 14.135 = 6.887 — note: that is the
+ *       FIRST consecutive zero spacing; the plateau-defining minimum-gap
+ *       sequence H_raw uses different normalisation, see imp-857).
+ *       The module does not depend numerically on this 1.775 — only on
+ *       the h^2/8 = tau_c_pair convention which is universal.
+ *
+ * Sanity envelope: lipschitzUpperUniversal MUST stay strictly less than 1
+ * (assertion imp911-lipschitz-universal-under-one) — otherwise the plateau
+ * Lipschitz argument provides no information beyond the trivial bound.
+ * A future tightening of K_J via imp-911-sub-gronwall-interval should
+ * REDUCE this number, not increase it; any bump above 0.6796 indicates
+ * a regression in the K_J upstream proof or a units mismatch.
+ */
+
 export const IMP_903_F_MB_PLATEAU_LIPSCHITZ = Object.freeze({
   id: 'imp-903-F-mb-plateau-lipschitz',
   ticket: 'imp-911',

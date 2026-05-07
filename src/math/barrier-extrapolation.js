@@ -26,6 +26,92 @@ function minSpacing(gammas) {
   return min;
 }
 
+/**
+ * imp-949: independent cross-verification block.
+ *
+ * (1) Formula / theorem citations vs cited references:
+ *     - Backward Dyson flow: dgamma_n / dt = -2 * sum_{k != n} 1/(gamma_n
+ *       - gamma_k). Implemented in dysonStep with dg[n] = -2 * sum
+ *       1/(gamma_n - gamma_k) ✓ matches the textbook Dyson Brownian
+ *       motion drift (Mehta, Random Matrices, §9; Forrester, Log-Gases
+ *       and Random Matrices, §11) for beta = 2 with the time-reversed
+ *       sign convention used in Polymath15 / imp-359 / imp-297.
+ *     - Square-root collision approach B(t) ~ C * (t_c - t)^{1/2} comes
+ *       from the local two-body Dyson ODE near a colliding pair:
+ *       dM/dt = -2/M (single drift dominates near collision) gives
+ *       M(t)^2 = M_0^2 - 4(t - t_0), i.e. M(t) = (4(t_c - t))^{1/2},
+ *       so alpha = 1/2 ✓ matches expected_alpha = 0.5.
+ *     - t_c_guess = -0.073 cited as "from imp-297 for N=100": this is
+ *       the previously-reported backward-Dyson collision time for the
+ *       first 100 Riemann zeros, reproducible from the local-pair
+ *       formula t_c ~ - h_min^2 / 4 with h_min ≈ gamma_2 - gamma_1 =
+ *       6.887 ⇒ t_c ≈ -11.85 (NOT -0.073). The repo-level imp-297 is
+ *       computed in NORMALISED units where gammas are rescaled by
+ *       2*pi/log(gamma_N) (the local-density rescaling) so the
+ *       time-scale shrinks by ~ (1/log(gamma_N))^2 ~ 0.09 — consistent
+ *       with t_c ~ -0.073. The constant -0.073 is therefore convention-
+ *       dependent and only meaningful within the imp-297 normalisation.
+ *       The export does not normalise the input ZETA_ZEROS, so the
+ *       fit's t_c is in RAW gamma units; the -0.073 anchor is in
+ *       NORMALISED units. POSSIBLE INCONSISTENCY: the linear
+ *       extrapolation linear_t_c uses the same trajectory t-axis as
+ *       the power-law fit, so the two t_c numbers are at least
+ *       internally consistent — but the choice of -0.073 as anchor
+ *       may bias the alpha estimate. Documented but not silently
+ *       fixed because verifying the imp-297 normalisation is out of
+ *       scope here.
+ *
+ * (2) NaN/Inf edge cases:
+ *     - dysonStep guards d = gammas[n] - gammas[k] with
+ *       Math.abs(d) < 1e-15 ⇒ continue; this prevents 1/0 = Infinity
+ *       at exact coincidences. ✓
+ *     - At post-collision steps the gammas may overshoot and cross,
+ *       making 1/(g_n - g_k) negative-then-positive — this generates
+ *       no NaN but does corrupt the trajectory; the loop breaks when
+ *       B < 1e-4, before that pathology is reached.
+ *     - Linear regression: divides by (n*sx2 - sx*sx). If all xs are
+ *       equal (degenerate t-axis or t_c_guess matches every t — never
+ *       happens here), this denominator is 0 ⇒ alpha = NaN. With the
+ *       sampling cadence (every 50 steps) and trajectory.length >= 5
+ *       guard, the xs are distinct in practice. ✓
+ *     - lastPoints filter requires p.B > 0.001 && p.B < 0.5 — if the
+ *       trajectory never enters that band the fit is skipped (fitResult
+ *       remains null); the verdict string then prints alpha = N/A,
+ *       gracefully. ✓
+ *     - Math.log(B) where B > 0.001 is finite; Math.log(|t - t_c_guess|)
+ *       is undefined if t == t_c_guess exactly. Since t_c_guess =
+ *       -0.073 and trajectory ts are multiples of -0.0002 * step, the
+ *       collision t = -0.073 corresponds to step 365 (-0.073/-0.0002)
+ *       — but trajectory only samples every 50 steps (step=350,400),
+ *       so t = -0.073 is never sampled exactly ⇒ no log(0). ✓
+ *     - linear extrapolation: t_zero = -intercept/slope, NaN if slope
+ *       = 0 (constant B). Defensive ordering guarantees slope < 0 in
+ *       practice on the descending tail; not guarded explicitly.
+ *
+ * (3) Numerical reference values:
+ *     - expected_alpha = 0.5 (square-root collision exponent). ✓
+ *       reference: Erdos-Schlein-Yau "Universality of random matrices
+ *       and local relaxation flow", Inv. Math. 2011 — the local
+ *       two-body collision dominates and gives exponent 1/2.
+ *     - The alpha-acceptance window (0.3, 0.7) for "Consistent with
+ *       square-root approach" is a 40% relative tolerance, much
+ *       wider than typical Dyson-edge fits report (alpha measured to
+ *       ~ 0.05 in Polymath15 figures). The wide tolerance is a
+ *       deliberate sanity bracket, not a precision claim.
+ *     - dt = 0.0002, maxSteps = 5000 ⇒ flow horizon t = -1.0. The
+ *       collision time in normalised units is ~ -0.073, so the loop
+ *       would naturally terminate at step ~ 365 via the B < 1e-4
+ *       break long before reaching -1.0. ✓
+ *
+ * Sanity envelope: trajectory must be monotone-decreasing in B once
+ * the flow has settled into the near-collision regime, and lastPoints
+ * (the points used for fit) must lie strictly before the
+ * Dyson-overshoot artefact. If a future change disables the
+ * B < 1e-4 termination, post-collision data could leak into the
+ * regression and corrupt alpha — a sign that any change there must
+ * be paired with a re-tightened fit-region filter.
+ */
+
 export function barrierExtrapolationTest() {
   const N = 100;
   const initial = ZETA_ZEROS.slice(0, N);

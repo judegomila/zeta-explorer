@@ -15,6 +15,77 @@ import { losslessBridge } from './oscillators.js';
 import { getPrimes, primeFrequency } from './primes.js';
 
 /**
+ * imp-955: independent cross-verification block.
+ *
+ * Reference: Penrose, R. "Twistor algebra", J. Math. Phys. 8 (1967), 345.
+ *
+ * (1) Formula / theorem citations vs cited references:
+ *     - A genuine Penrose twistor Z^α = (ω^A, π_{A'}) lives in C^4 with
+ *       SU(2,2) signature; the (||ω||² + ||π||²) norm used here is a
+ *       Euclidean R^4 norm, NOT the indefinite Penrose pseudo-norm
+ *       Z·Z̄ = ω^A·π̄_A + π_{A'}·ω̄^{A'}. So `norm` is an analogy, not
+ *       the twistor norm proper. CAVEAT documented; not a bug because
+ *       the file's own docstring frames the construction as a "ZPO
+ *       analog" rather than the literal Penrose object.
+ *     - Helicity h = (1/2)·Z·Z̄ in Penrose; here `helicity =
+ *       ω[0]·π[1] − ω[1]·π[0]` is the 2D cross-product, an analog of
+ *       Im(ω · π̄). Sign-convention consistent with twistor literature.
+ *     - Functional-equation dual: dualTwistorFromS(s) maps s → 1−s by
+ *       (σ → 0.5−σ, t → −t). The (σ − 0.5) and (0.5 − σ) negate, so
+ *       Z + W has zero σ-component on the critical line ✓ — matches the
+ *       Riemann functional equation ζ(s) = χ(s)·ζ(1−s) reflection axis.
+ *     - Incidence relation Z^α Ω_{αβ} W^β = 0: comment claims this
+ *       evaluates to 2(σ − 0.5)·cos(t·log 2). Verifying with our
+ *       encoding: omega_Z = (σ−0.5, t/(2π)),  pi_W = (cos(−t·log2),
+ *       sin(−t·log2)) = (cos(t·log2), −sin(t·log2)). Then
+ *       omega_Z · pi_W = (σ−0.5)·cos(t·log2) + (t/(2π))·(−sin(t·log2)).
+ *       pi_Z · omega_W = cos(t·log2)·(0.5−σ) + sin(t·log2)·(−t/(2π)).
+ *       Subtracting: 2(σ−0.5)·cos(t·log2) + 0. ✓ matches the comment.
+ *       So the incidence value is purely (σ−0.5)·cos(t·log2) up to
+ *       factor 2, vanishing on σ=0.5 OR at cos(t·log2)=0 (extra root
+ *       set t = (k+1/2)·π/log2). The latter is a coincidental zero
+ *       locus of the toy model, not part of RH.
+ *     - Intertwiner I: applies bridge χ(s) component-wise to (ω, π).
+ *       In Penrose, the action of χ is on the cohomology class, not
+ *       a spinor multiplication; the file labels this as an "analog"
+ *       which is consistent with its scope.
+ *
+ * (2) NaN/Inf edge cases:
+ *     - twistorFromS / dualTwistorFromS: pure trig and arithmetic on
+ *       finite (σ, t) — no division, no log of nonpositive arg, no NaN
+ *       paths.
+ *     - intertwiner: relies on losslessBridge(s); no guard here, but
+ *       χ(s) is finite away from s = 0, 1 (poles of Γ ratios). At
+ *       σ→0+ or σ→1−, χ may diverge; not guarded explicitly.
+ *     - penroseTransformScan: weight = 1 / Math.max(Z.norm, 0.01) ✓
+ *       guards the σ=0.5, t=0 case where Z.norm = 0 (since ω = (0,0)
+ *       and π = (1,0) give norm=1, so Z.norm ≥ 1 generically; the 0.01
+ *       floor is defensive belt-and-braces).
+ *     - Pearson correlation in penroseTransformScan: guarded by
+ *       `den > 1e-10 ? num/den : 0` ✓ no 0/0.
+ *     - eulerFactor at p^{-s} = 1 would produce a divide-by-zero in
+ *       the Euler product; not guarded here, but for σ ≥ 0.1 (default
+ *       sigmaRange) and finite t this never occurs.
+ *
+ * (3) Numerical reference values:
+ *     - log(2) = 0.693147180559945... — used in π = (cos(t·log2),
+ *       sin(t·log2)). For t = 14.1347 (γ_1), t·log2 ≈ 9.7984, so
+ *       cos(t·log2) ≈ −0.93, far from zero — the incidence vanishes
+ *       on σ = 0.5 cleanly at γ_1 (no spurious cancellation).
+ *     - 1/(2π) = 0.159154943... — appears in ω[1] = t/(2π). Not
+ *       printed numerically but checked against TWO_PI usage elsewhere.
+ *     - On σ = 0.5 the incidence magnitude reduces to |2·0·cos(t·log2)|
+ *       = 0; satisfaction threshold 0.05 trivially met. ✓
+ *
+ * Sanity envelope: incidenceRelation must vanish to machine precision
+ * whenever σ = 0.5, for every t. Any future change to twistorFromS or
+ * dualTwistorFromS that breaks the symplectic-cancellation identity
+ * (the σ-only structure of the symplectic product) must be caught
+ * before merging — it would falsely satisfy or falsely reject the
+ * critical line as the incidence locus.
+ */
+
+/**
  * Map s = σ + it to twistor space Z^α = (ω^A, π_{A'})
  *
  * The twistor Z encodes the "direct" side of the duality:

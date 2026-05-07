@@ -797,6 +797,82 @@ function pushTextNodes(nodes, text, macros) {
 
 // ─── Main Export ──────────────────────────────────────────────────────────────
 
+/**
+ * imp-950: independent cross-verification block.
+ *
+ * (1) Parser-design checks vs cited LaTeX behavior:
+ *     - extractBalancedBraces matches LaTeX's brace nesting semantics
+ *       (TeXbook §7): increments depth on '{', decrements on '}',
+ *       returns null on mismatch. ✓ This is correct for non-escaped
+ *       braces only — the implementation does NOT track \{ or \},
+ *       so a literal escaped brace inside a metadata field
+ *       (e.g. \title{a \{ b\} c}) will misalign depth. Documented bug,
+ *       not silently fixed: search for \\\\\{ tokens in real corpora to
+ *       gauge incidence.
+ *     - macro-expansion regex `\\\\<name>(?![a-zA-Z])` correctly enforces
+ *       the maximal-munch rule for control-word matching (Knuth, TeXbook
+ *       §3): \nu must not match \new etc. ✓
+ *     - parseInlineContent's findInlineDollar guards against `$$`,
+ *       leading `\$`, and a previous `$` to avoid splitting a closed
+ *       inline math span; matches the TeX inline-math convention. ✓
+ *     - align/gather/multline are rewritten to {aligned} for KaTeX
+ *       compatibility; this is a render-target choice, not a parse
+ *       semantic, but the rewrite preserves row/column structure. ✓
+ *     - Section numbering: appendixMode uses String.fromCharCode(64+n),
+ *       i.e. A,B,C... matching LaTeX appendix counter. ✓ Resets section
+ *       counter to 0 on \appendix, matching LaTeX. ✓
+ *     - cleanParagraph contains a `\\P(?:\'e|\\'{e}|olya)` regex whose
+ *       arrow function checks `match === '\\Polya'`; the regex pattern
+ *       cannot in fact yield the literal string '\Polya' (the alternation
+ *       is on `\P\'e | \P\\'{e} | \Polya`, which gives a leading `\P`
+ *       only for the first two; the third requires literal `\Polya`).
+ *       So the comparison is meaningful only for the third branch.
+ *       This is a noted nit, not load-bearing — the very next line
+ *       handles `\\'{e}` → `e` separately.
+ *
+ * (2) NaN/Inf / parsing-pathology edge cases:
+ *     - parseLatex returns an empty {metadata, nodes} on falsy or
+ *       non-string input. ✓ no crash on undefined/null.
+ *     - All while-loops on `pos < body.length` and `remaining.length > 0`
+ *       advance pos/remaining unconditionally in the default branch
+ *       (case fall-through and the `if (!earliest) break` early exit),
+ *       so no infinite loop on malformed LaTeX. ✓
+ *     - Unterminated environment (\begin{X} without \end{X}): endIdx ===
+ *       -1 path consumes the rest of body and sets pos = body.length,
+ *       terminating cleanly. ✓
+ *     - extractBalancedBraces returns null on unbalanced input; all
+ *       callers null-check before using `.content` or `.end`. ✓
+ *     - Macro expansion does NOT handle parameterized macros: the
+ *       `(?:\[\d+\])?` in the macroRe captures the [n] arg-count but
+ *       expandMacros substitutes the body verbatim, dropping any #1, #2
+ *       placeholders. Documented limitation: a `\newcommand{\f}[1]{F(#1)}`
+ *       with a call `\f{x}` will leave `#1` in the output rather than
+ *       substituting `x`. Acceptable for ChatGPT-style preambles which
+ *       rarely use parameterized macros, but a real-world bug surface.
+ *
+ * (3) Numerical / structural reference values:
+ *     - This is a parser, not a numerical module: there are no constants
+ *       to compare against known values. The closest analogue is
+ *       node-count / round-trip identity. A round-trip is NOT
+ *       implemented (no LaTeX serializer), so identity testing would
+ *       require comparing the AST to a hand-built fixture — not done
+ *       in this file.
+ *     - Section/subsection counter increment is deterministic; appendix
+ *       letters: A=1, B=2, ..., Z=26 via 64+counter; counter > 26 would
+ *       produce '[' (charCode 91) and beyond, breaking the alphabetic
+ *       convention. Acceptable since LaTeX appendices rarely exceed 26.
+ *
+ * Sanity envelope: parseLatex(raw) must return {metadata, nodes} for
+ * any string input without throwing; node objects must always carry a
+ * `type` field consumed by the rendering layer; macro substitution must
+ * be idempotent on already-expanded text (no infinite recursion on
+ * self-referential \newcommand). The current implementation does NOT
+ * detect a self-referential macro — `\newcommand{\foo}{\foo bar}` would
+ * loop only after parseLatex returns, when the rendered text is
+ * re-passed; the per-call expandMacros applies each macro exactly once
+ * per object key, so it terminates. ✓ within parseLatex.
+ */
+
 export function parseLatex(raw) {
   if (!raw || typeof raw !== 'string') return { metadata: { title: '', authors: [], date: '', abstract: '', macros: {} }, nodes: [] };
 

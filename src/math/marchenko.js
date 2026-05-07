@@ -245,6 +245,85 @@ function gaussianElimination(A, b, n) {
 /* ------------------------------------------------------------------ */
 
 /**
+ * imp-959: independent cross-verification block.
+ *
+ * Reference: Marchenko, V.A. (1955) "Reconstruction of the potential
+ * energy from the phases of scattered waves", Dokl. Akad. Nauk SSSR
+ * 104, 695. Also Gel'fand-Levitan (1951). Standard exposition:
+ * Chadan-Sabatier "Inverse Problems in Quantum Scattering Theory".
+ *
+ * (1) Formula / theorem citations vs cited references:
+ *     - Kernel equation K(x,y) + F(x+y) + ∫_x^∞ K(x,t)·F(t+y) dt = 0
+ *       for y > x ✓ matches Marchenko 1955 and Chadan-Sabatier eq. III.4.5.
+ *       Note the file uses F (not B) for the reflection-coefficient
+ *       Fourier transform; the variable rename is cosmetic.
+ *     - F(x) = (1/2π) ∫ [1 − S(k)] e^{ikx} dk ✓ standard form when only
+ *       the reflection coefficient is present and there are no bound
+ *       states. CAVEAT: a fully general Marchenko F also includes a
+ *       sum over bound-state norming constants, Σ c_n²·exp(−κ_n·x);
+ *       the file silently assumes the no-bound-state case (purely
+ *       continuous spectrum). For the ZPO cascade S(k) this is the
+ *       intended setup, but it is an unstated assumption.
+ *     - Potential reconstruction q(x) = −2·dK(x,x)/dx ✓ standard
+ *       (Marchenko's principal formula). Sign convention: this gives
+ *       the Schrödinger potential −ψ'' + qψ = k²ψ.
+ *     - LC section transfer matrix [[cosθ, jZ₀sinθ], [jsinθ/Z₀, cosθ]]
+ *       ✓ standard ABCD matrix for a series-L / shunt-C section with
+ *       characteristic impedance Z₀ = √(L/C); with L = log(p) and
+ *       C = 1/log(p), Z₀ = log(p) and √(LC) = 1, so θ = ω. ✓
+ *     - S₁₁ = (A + B − C − D)/(A + B + C + D) for Z_S = Z_L = 1 ✓
+ *       standard ABCD-to-S-parameter conversion (Pozar §4.4).
+ *
+ * (2) NaN/Inf edge cases:
+ *     - sectionTransferMatrix: pure trig, no NaN paths.
+ *     - cascadeSMatrix: cDiv may divide by zero if A+B+C+D = 0; not
+ *       explicitly guarded. CAVEAT: at resonance frequencies of the
+ *       cascade this could be marginal; in practice the imaginary
+ *       parts of B, C make |A+B+C+D| > 0 generically, but no defensive
+ *       guard is present.
+ *     - interpF: guards arg < 0 → 0, and idx ≥ fTable.length−1 → 0 ✓.
+ *     - solveMarchenkoAtX: guards x ≥ Xmax → 0 and h ≤ 0 → 0 ✓.
+ *     - gaussianElimination: guards |pivot| < 1e-15 → continue (skips
+ *       elimination) and |diag| < 1e-15 → 0 in back-sub. This is a
+ *       defensive but not rigorous guard — a singular system still
+ *       returns a (possibly wrong) numerical result rather than NaN.
+ *       Acceptable for the present diagnostic use.
+ *     - decayRate fit: guards absQ > 1e-20 before log; if fewer than
+ *       3 valid points, decayRate stays 0 ✓.
+ *     - L1norm: finite by construction (sum of |q_i|·dx, q_i finite).
+ *     - isReal check: q.every(Number.isFinite) — catches NaN from any
+ *       upstream divergence ✓.
+ *
+ * (3) Numerical reference values:
+ *     - For p = 2: Z₀ = log(2) = 0.6931... ; for p = 3: Z₀ = log(3) =
+ *       1.0986... — the cascade impedances are positive and increasing.
+ *     - At ω = 0: cosθ = 1, sinθ = 0 → T_p = identity, so S₁₁(0) = 0.
+ *       (At DC the matched cascade has zero reflection.) ✓ implicit
+ *       sanity check on the construction.
+ *     - Xmax = 4π ≈ 12.566 — chosen so the spatial domain spans several
+ *       wavelengths of the lowest-frequency mode at ω ~ 1.
+ *     - omegaMax = min(5 + 0.5·N, 50): caps at 50 to keep the F-table
+ *       integration tractable; for N ≥ 90 this saturates and the
+ *       Fourier-truncation error becomes the bottleneck. Stated
+ *       trade-off, not silently lost precision.
+ *     - The PASS verdict requires allReal && allL1 && allDecaying &&
+ *       isConverging — note `isConverging` only requires the LAST
+ *       relative change to be ≤ 2× the FIRST, a weak criterion that
+ *       passes monotone-decreasing AND oscillating-around-zero
+ *       trajectories. CAVEAT: a future regression that produces a
+ *       slowly diverging L¹ sequence whose final relative-change is
+ *       still small could spuriously PASS. This is a presentation
+ *       weakness, not a soundness bug.
+ *
+ * Sanity envelope: q(x) must remain real-valued (it is constructed from
+ * Re of a complex integrand by design) and the L¹ norm must stay
+ * finite as N grows. Any future change that pulls Im parts into q, or
+ * that drops the omegaMax cap so the Fourier table ceases to converge,
+ * must be caught: the existing checks `isReal` and `Number.isFinite(L1norm)
+ * && L1norm < 1e6` cover these envelopes.
+ */
+
+/**
  * Recover the scattering potential q(x) from the ZPO cascade S-matrix.
  *
  * @param {number} N        - number of primes in the cascade

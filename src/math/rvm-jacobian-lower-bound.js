@@ -43,6 +43,59 @@
 
 // ── Analytic constants ────────────────────────────────────────────────────────
 
+/**
+ * imp-957: independent cross-verification block.
+ *
+ * Independent of the existing imp-473 mpmath cross-verify in
+ * src/data/imp469-cross-verification.js — that audit lives at the data
+ * layer; this one re-checks the math/ source itself.
+ *
+ * (1) Formula / theorem citations vs cited references:
+ *     - Riemann–von Mangoldt density: rho(T) = (1/(2*pi)) · log(T/(2*pi))
+ *       is the derivative of the RvM CDF F(T) = (T/(2π))·(log(T/(2π))−1).
+ *       Differentiating: F'(T) = (1/(2π))·(log(T/(2π)) − 1) + (T/(2π))·
+ *       (1/T) = (1/(2π))·log(T/(2π)). ✓ matches the closed-form rho(T)
+ *       cited in proofSteps and used in RHO_MIN_ANALYTIC_LB.
+ *     - rho(T) > 0  iff  log(T/(2π)) > 0  iff  T > 2π. ✓ trivial.
+ *     - γ_1 > 14 is classical (Backlund 1914 explicit zero-count
+ *       formula; Gram 1903 sign changes in Z(T); Turing 1953 explicit
+ *       computation γ_1 ≈ 14.1347). Refs match.
+ *     - Monotonicity: rho'(T) = 1/(2π·T) > 0 for T > 0, so rho is
+ *       strictly increasing on (2π, ∞). ✓ Hence rho(γ_n) ≥ rho(γ_1) ≥
+ *       rho(14) for all n ≥ 1.
+ *
+ * (2) NaN/Inf edge cases:
+ *     - GAMMA1_LOWER_BOUND = 14 > 0 and TWO_PI = 2π ≈ 6.2832 > 0, so
+ *       14/TWO_PI ≈ 2.228 > 1, log(2.228) > 0, no NaN/Inf.
+ *     - Math.log(GAMMA1_LOWER_BOUND / TWO_PI) is finite and positive ✓.
+ *     - No division-by-zero or sqrt-of-negative paths in the file.
+ *     - Build-time assertions throw on regression — which is the right
+ *       behavior, since rho_min ≤ 0 would invalidate the imp-462 bridge.
+ *     - If a future edit set GAMMA1_LOWER_BOUND ≤ 2π, log(<1) < 0 →
+ *       RHO_MIN_ANALYTIC_LB ≤ 0 → both `imp469-rho-min-gt-zero` and
+ *       `imp469-rho-min-magnitude` assertions trip. ✓ guarded.
+ *
+ * (3) Numerical reference values:
+ *     - log(14/(2π)) = log(2.228169203...) = 0.801202287... .
+ *       (Sanity: log(2) = 0.6931, log(e) = 1, and 2.228 is between
+ *       e^{0.8} ≈ 2.2255 and e^{0.81} ≈ 2.2479, so log ≈ 0.801. ✓)
+ *     - rho(14) = 0.801202287... / (2π) = 0.801202287 / 6.283185307
+ *       = 0.127511799... — matches RHO_MIN_ANALYTIC_LB and the imp-473
+ *       mpmath 50-digit value 0.12751179919688685. ✓
+ *     - rho(γ_1) ≈ rho(14.1347) = log(14.1347/(2π))/(2π) =
+ *       log(2.249597...)/(2π) = 0.810787.../(2π) ≈ 0.129039 ≈ 0.12904
+ *       ✓ matches the imp-824 cite of 0.12901 (third-decimal agreement;
+ *       slight rounding to log(14.1347) = 0.810787 vs 0.81077).
+ *     - rho(2π) = log(1)/(2π) = 0 — the threshold ✓.
+ *
+ * Sanity envelope: RHO_MIN_ANALYTIC_LB must remain strictly positive
+ * AND must equal Math.log(GAMMA1_LOWER_BOUND / TWO_PI) / TWO_PI to
+ * within float precision. If either GAMMA1_LOWER_BOUND drops to ≤ 2π
+ * or the RHO_MIN_ANALYTIC_LB constant is hand-rewritten and drifts off
+ * the formula, the imp-462 bridge ceases to be analytic. The three
+ * build-time assertions enforce both invariants at module load.
+ */
+
 /** Proven lower bound on the first Riemann zero imaginary part. */
 export const GAMMA1_LOWER_BOUND = 14;   // classical: gamma_1 ~ 14.1347 > 14
 

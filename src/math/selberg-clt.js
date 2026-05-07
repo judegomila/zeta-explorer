@@ -32,6 +32,37 @@
  *   3. Compute empirical mean, variance, skewness, kurtosis.
  *   4. Bin into histogram; compare with N(0, 1) density.
  *   5. Verify Gaussian moments (skewness ≈ 0, kurtosis ≈ 3).
+ *
+ * @verified Independent cross-verification (imp-939):
+ *   1. FORMULA — selbergScale(T) = √(½ log log T) matches Selberg 1946 normalisation.
+ *      Spot-check at T=5000: log(5000) ≈ 8.5172, log(8.5172) ≈ 2.1421,
+ *      scale = √(0.5 · 2.1421) ≈ 1.0349 — matches selbergScale_at_Tmax in output.
+ *   2. FORMULA — computeMoments uses the standard one-pass central-moment sums
+ *      (m_k = (1/n) Σ (x − x̄)^k) and reports the RAW kurtosis m4/m2² (= 3 for
+ *      a Gaussian, not the "excess" kurtosis = 0). The expected target {kurtosis:3}
+ *      in standardizedStatistics.gaussianExpected is consistent with this convention.
+ *   3. FORMULA — normalPdf(x) = exp(−x²/2)/√(2π) is the standard normal density.
+ *      Spot-check normalPdf(0) = 1/√(2π) ≈ 0.39894.
+ *   4. EDGE CASES — sampleLogZ skips Z=0 and !isFinite(Z); selbergScale guards
+ *      with Math.max(logT, e) so log log T ≥ 1 (no NaN/negative scale for T < e^e).
+ *      computeMoments produces NaN only if all values are equal (m2=0 → 0/0);
+ *      not reachable for the t-grid here.
+ *   5. SUBTLE BIAS — the standardisation uses scale = √(½ log log T_max) as a
+ *      single global constant, but the local Selberg variance is ½ log log t and
+ *      varies across the sampled range. For t∈[100, 5000], log log t runs
+ *      ≈ [1.527, 2.142]; the average is ~1.918, so the empirical raw SD should
+ *      land near √(½·1.918) ≈ 0.979 vs scale 1.035 (predicted sd_ratio ≈ 0.946,
+ *      not 1.0). This is a known property of using T_max as the reference scale,
+ *      not a bug; it just means sd_ratio slightly < 1 is expected and consistent.
+ *   6. SUBTLE BIAS — the histogram trims to [−4, 4] but normalises by the FULL
+ *      sample size, so densities outside that band (≈3 samples for N(0,1) in 49k
+ *      points) underintegrate the empirical PDF in [−4, 4] by < 1e−4. Negligible
+ *      compared to the slow Selberg convergence rate.
+ *   7. CONVERGENCE RATE — Selberg CLT converges at rate ~1/√(log log T)
+ *      (Tsang 1980). At T=5000 this rate is ~1/1.46 ≈ 0.68, so noticeable
+ *      deviations from {0,1,0,3} for {mean, sd, skew, kurt} are EXPECTED and
+ *      do not contradict the theorem; the verdict's "consistent with Selberg
+ *      1946" should be read in this asymptotic sense.
  */
 
 import { riemannSiegelZEnhanced } from './zeta.js';

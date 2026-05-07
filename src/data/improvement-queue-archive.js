@@ -1,4 +1,15 @@
 /**
+ * @module improvement-queue-archive
+ * @fileoverview Long-term archive of completed improvement-queue items
+ * (older than ~30 days) plus a unified read view. Exports
+ * {@link IMPROVEMENT_QUEUE_ARCHIVE} (archived items) and
+ * {@link IMPROVEMENT_QUEUE_ALL} (live queue + archive concatenation).
+ * Meta-engine hygiene record; NOT part of the formal proof chain.
+ * Module-doc added by imp-942.
+ * @see src/data/improvement-queue.js
+ */
+
+/**
  * Improvement Queue Archive — long-term storage for completed items.
  *
  * Policy: completed items older than ~30 days may be moved here from

@@ -1,4 +1,19 @@
 /**
+ * @module lambda-N1e6-final-assembly
+ * @fileoverview Full finite-height Λ upper-bound assembly at N* = 10⁶:
+ * L_pt = L_cond + E_trunc_pt with PT-verified zeros below T_PT=3·10¹²
+ * and Ingham-density above. Reports headline L_pt ≈ 0.121 < 0.2 (Platt-
+ * Trudgian 2021) at 24.9× margin (σ_opt = 0.75, imp-459). Exports
+ * {@link LAMBDA_N1E6_FINAL_ASSEMBLY} (assembled bound + condition tally)
+ * and {@link LAMBDA_N1E6_ASSEMBLY_ASSERTIONS} (build guards). Belongs
+ * to the PATH C hybrid proof chain at the finite-height-beat-PT step.
+ * Module-doc added by imp-932.
+ * @see src/data/finite-height-beats-platt-trudgian.js
+ * @see imp-452
+ * @see imp-470
+ */
+
+/**
  * imp-452: Full finite-height Lambda bound assembly at N* = 1e6
  *
  * Now that E_trunc is closed (imp-447), this file assembles the best

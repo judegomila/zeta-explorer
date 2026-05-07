@@ -1,3 +1,14 @@
+/**
+ * @module sessions
+ * @fileoverview Coarse-grained journal of working sessions on the RH Λ-
+ * bound attack. Mirrors SESSIONS.md at the repo root (write-through to
+ * the .md file; this is the read interface consumed by the Sessions page).
+ * Exports {@link SESSIONS} (frozen entry list with date, focus, outcomes).
+ * Background reference; NOT part of the formal proof chain. Module-doc
+ * added by imp-954.
+ * @see SESSIONS.md
+ */
+
 // Research Sessions — ZPO Explorer / RH Attack Journal
 //
 // Coarse-grained journal of work sessions on the Riemann Hypothesis Λ bound

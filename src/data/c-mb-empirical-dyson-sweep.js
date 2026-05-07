@@ -1,4 +1,16 @@
 /**
+ * @module c-mb-empirical-dyson-sweep
+ * @fileoverview imp-860 / A3 — direct C_mb_empirical(N) measurement via
+ * the full Dyson backward integration (not a proxy). Exports
+ * {@link C_MB_EMPIRICAL_DYSON_SWEEP} (per-N empirical sweep record) and
+ * {@link C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS} (build guards). Belongs
+ * to the PATH 3 / C_mb empirical-bound step of the unconditional Λ ≤ 0.121
+ * chain. Module-doc added by imp-952.
+ * @see imp-860
+ * @see imp-857
+ */
+
+/**
  * imp-860 / A3: Direct C_mb_empirical(N) measurement via full Dyson integration
  *               (not a proxy).
  *

@@ -1,4 +1,18 @@
 /**
+ * @module imp-857-baseline-sweep-result
+ * @fileoverview imp-857-sub-scale-to-N10k baseline sweep result (complete,
+ * pure ε=0). One-ULP interval-RK4 of imp-362 against the 1M-zero
+ * zeros-to-1e6.js table at N ∈ {1000, 2000, 5000, 10000}. Exports
+ * {@link IMP_857_BASELINE_SWEEP_RESULT} (per-N collision-bracket record)
+ * and {@link IMP_857_BASELINE_SWEEP_ASSERTIONS} (build guards). Belongs
+ * to the unconditional-Λ-finite-height proof chain at the L1 8-N
+ * certificate step. Module-doc added by imp-958.
+ * @see imp-857
+ * @see imp-362
+ * @see src/math/imp-857-baseline-scaling-N10k.mjs
+ */
+
+/**
  * imp-857-sub-scale-to-N10k baseline sweep result (complete, pure ε=0).
  *
  * Produced by running src/math/imp-857-baseline-scaling-N10k.mjs

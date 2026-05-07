@@ -1,4 +1,17 @@
 /**
+ * @module barrier-extrapolation-imp371
+ * @fileoverview Partial closure of imp-371: cross-validates the imp-321
+ * Dyson-gap-barrier extrapolation against the imp-360 measured ladder
+ * at N > 5000. Exports {@link BARRIER_EXTRAPOLATION_IMP371} (validation
+ * record) and {@link BARRIER_IMP371_ASSERTIONS} (build guards). Belongs
+ * to the PATH C hybrid proof chain at the barrier-extrapolation step.
+ * Module-doc added by imp-937.
+ * @see imp-371
+ * @see imp-360
+ * @see imp-321
+ */
+
+/**
  * imp-371 (partial closure): Cross-validate barrier extrapolation on the
  * imp-360 measured Dyson ladder at N > 5000
  *

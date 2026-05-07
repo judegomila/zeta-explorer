@@ -1,4 +1,14 @@
 /**
+ * @module glossary
+ * @fileoverview Internal glossary and wiki of every term and concept used
+ * across the ZPO / RH attack project. Exports {@link glossary} (entries),
+ * {@link glossaryStats}, {@link findByTerm}, and {@link findByCategory}.
+ * Reference dictionary for the Glossary page; NOT part of the formal
+ * proof chain. Module-doc added by imp-935.
+ * @see imp-141
+ */
+
+/**
  * ZPO Math Explorer — Internal Glossary & Wiki
  *
  * imp-141: Definitions of every term and concept used in the project.

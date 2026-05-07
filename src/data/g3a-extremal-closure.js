@@ -1,4 +1,18 @@
 /**
+ * @module g3a-extremal-closure
+ * @fileoverview imp-451 — G3a extremal-statistics closure assembly: Route C
+ * density-squeeze sub-gap G3a_max_gap diagnostically closed; new primary
+ * sub-gap G3a_sub_fullsum named (full many-body S_{k_star} lower bound).
+ * Exports {@link G3A_EXTREMAL_CLOSURE} (closure record) and
+ * {@link G3A_EXTREMAL_CLOSURE_ASSERTIONS} (build guards). Belongs to the
+ * Route C density-squeeze branch of the unconditional-Λ chain.
+ * Module-doc added by imp-956.
+ * @see imp-451
+ * @see imp-342
+ * @see imp-343
+ */
+
+/**
  * imp-451: G3a extremal-statistics closure assembly
  *
  * Route C density squeeze gap G3a_max_gap -- final diagnostic assembly.

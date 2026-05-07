@@ -1,3 +1,16 @@
+/**
+ * @module ticket-router
+ * @fileoverview Routes each improvement ticket to the right execution
+ * venue (Opus subscription, Sonnet API, Haiku, scripted, manual, drop)
+ * based on ticket category, complexity, dependencies, and channel cost.
+ * Exports {@link CHANNELS} (channel definitions), {@link routeTicket}
+ * (per-ticket router), {@link groupByChannel} (aggregate report), and
+ * {@link TICKET_ROUTER_ASSERTIONS} (build-time guards). Meta-engine
+ * routing layer; NOT part of the formal proof chain. Module-doc added
+ * by imp-930.
+ * @see imp-880
+ */
+
 // Ticket channel router — which execution venue is right for each ticket?
 //
 // Motivation: every ticket in the improvement queue has been routed through

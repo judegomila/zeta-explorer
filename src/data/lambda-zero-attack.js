@@ -1,4 +1,17 @@
 /**
+ * @module lambda-zero-attack
+ * @fileoverview Strategy note for closing the gap between the project's
+ * Λ ≤ 0.017 envelope and the Rodgers-Tao 2020 lower bound Λ ≥ 0 (i.e.
+ * pinning Λ = 0 and unlocking RH). Exports {@link LAMBDA_ZERO_BLOCKERS}
+ * (blocker list with status), {@link LAMBDA_ZERO_CLOSURE} (closure plan),
+ * and {@link LAMBDA_ZERO_ATTACK_ASSERTIONS} (build guards). Strategic
+ * roadmap record; consumed by the Λ-roadmap and SOTA pages. Module-doc
+ * added by imp-944.
+ * @see imp-319
+ * @see src/data/sota-lambda-claim.js
+ */
+
+/**
  * Λ ≤ 0 attack note (imp-319)
  *
  * Path C currently delivers Λ ≤ 0.0066 + 0.01 ≈ 0.017 at N = 2458

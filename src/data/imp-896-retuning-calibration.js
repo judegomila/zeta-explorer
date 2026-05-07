@@ -1,4 +1,17 @@
 /**
+ * @module imp-896-retuning-calibration
+ * @fileoverview Per-N retuning calibration table for the imp-857 phased-
+ * forcing grid-completion run (k₀, ω, ε, dt, nSteps, wallSec budget per
+ * cell). Exports {@link IMP_896_RETUNING_CALIBRATION} (calibration record
+ * + missing-cells inventory) as default. Engineering record consumed by
+ * scripts/imp-917-run-cell.mjs; NOT part of the formal proof chain.
+ * Module-doc added by imp-946.
+ * @see imp-896
+ * @see imp-857
+ * @see imp-917
+ */
+
+/**
  * imp-896 / imp-857-sub-phased-forcing:
  *   Per-N retuning calibration for the phased-forcing grid-completion run.
  *

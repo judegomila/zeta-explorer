@@ -172,7 +172,7 @@ export const PATH_C_RATE_ANNOTATION = {
   pathCAnnotation:
     "Path C (imp-425): eigenvalue squeeze |lambda_j(S_P)| in [1/sqrt(1+delta), "
     + "sqrt(1+delta)] where delta(P) = O(1/log P). Rate is 1/log P dominant. "
-    + "At P = 1e4: within 5.3% of unit circle. "
+    + "At P = 1e4: within 5.4% of unit circle. "
     + "At P = 1e5: within 4.3% of unit circle. "
     + "At P = 1e6: within 3.6% of unit circle. "
     + "Path C is an honest INTERMEDIATE result: it establishes the limiting "
@@ -247,5 +247,29 @@ export const MERTENS_RATE_ASSERTIONS = [
     why:
       "The closure verdict must be CLOSED for the gap register to correctly "
       + "reflect that skp2-003 has been addressed.",
+  },
+  {
+    id: "imp943-witness-pct-cross-verified",
+    holds: function () {
+      // Cross-verification (imp-943): independent recomputation of
+      // mertensDeltaBound at the three witness primes gave
+      //   P=10007    -> pct = 5.434%
+      //   P=100003   -> pct = 4.293%
+      //   P=1000003  -> pct = 3.570%
+      // Pin the WITNESS_TABLE percentages to these values within 0.05%
+      // so any drift in the constants (GAMMA_1, M3) or formula will trip.
+      var expected = [5.434, 4.293, 3.570];
+      var tol = 0.05;
+      if (WITNESS_TABLE.length !== expected.length) return false;
+      for (var i = 0; i < expected.length; i++) {
+        if (Math.abs(WITNESS_TABLE[i].pct - expected[i]) >= tol) return false;
+      }
+      return true;
+    },
+    why:
+      "Independent cross-verification of mertensDeltaBound at the three witness "
+      + "primes. Confirms the formula 4/(gamma_1^2 log^2 P) + 1/log P + "
+      + "M3/(sqrt(P) log P) + 1/P reproduces the percentages cited in "
+      + "pathCAnnotation. Guards against silent drift if constants are edited.",
   },
 ];

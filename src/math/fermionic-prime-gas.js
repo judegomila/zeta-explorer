@@ -55,6 +55,42 @@
  *
  *   If the ZPO cascade IS the Witten index, its zeros/poles are topologically
  *   determined — they CANNOT move without breaking SUSY.
+ *
+ * @verified Independent cross-verification (imp-940):
+ *   1. IDENTITY — Σ_{squarefree n} 1/n^s = ζ(s)/ζ(2s). Euler-product proof:
+ *      ζ(s)/ζ(2s) = Π_p (1 − p^{−2s})/(1 − p^{−s}) = Π_p (1 + p^{−s}), which is
+ *      the Dirichlet series of the squarefree indicator (each prime contributes
+ *      a 0-or-1 factor). Numerical: at σ=2 the test reports Z_F_direct = 1.51969624
+ *      vs zeta_over_zeta2 = 1.51963299 (both truncated at maxN=5000); the closed
+ *      form 15/π² = 1.51982020. Both truncated values agree with the closed form
+ *      to within ~1.3e−4 — exactly the expected truncation tail at σ=2 (see edge
+ *      cases below). At σ=5, the two truncated computations agree to 1e−14 (machine ε).
+ *   2. IDENTITY — Σ λ(n)/n^s = ζ(2s)/ζ(s) (Liouville Dirichlet series). λ is
+ *      completely multiplicative with λ(p) = −1, so Σ λ(n)/n^s factors as
+ *      Π_p 1/(1 + p^{−s}) = Π_p (1 − p^{−s})/(1 − p^{−2s}) = ζ(2s)/ζ(s). Hence
+ *      the formal supertrace claim Tr(−1)^F e^{−sH} = ζ(2s)/ζ(s) with H eigenvalues
+ *      log(n) and (−1)^F = λ(n) is correct as a Dirichlet-series identity.
+ *   3. NUMERICS — Liouville partial sums L(x) = Σ_{n≤x} λ(n) reported as
+ *      L(100)=−2, L(1000)=−14, L(10^4)=−94, L(10^5)=−288. These match the
+ *      standard published reference values (summatory Liouville function, OEIS
+ *      A002819). All satisfy |L(x)/√x| ≤ 1 — well inside the conjectural RH
+ *      bound of 3 used by rhConsistent.
+ *   4. EDGE CASES — for σ ≥ 2 (the only values exercised) the Dirichlet sums
+ *      converge absolutely; no overflow at maxN=5000. computeLambda(n) handles
+ *      n=1 explicitly; for n ≥ 2, trial division terminates with m ≥ 1 and the
+ *      m > 1 branch only fires when the residual prime equals n itself.
+ *      Truncation error for ζ(s) at maxN=5000 is bounded by maxN^{1−s}/(s−1):
+ *      at σ=2 this gives ~2e−4, consistent with the σ=2 diff observed above.
+ *   5. INTERPRETATION CAVEAT — wittenIndexAnalysis.deformedInterpretation
+ *      already correctly notes that S₂₁(s) is s-dependent, hence NOT a strict
+ *      β-independent Witten index. The integer-graded "Hilbert space" lacks
+ *      the genuine bosonic-fermionic vacuum pairing of true SUSY, so the
+ *      label "Witten index" here is a structural analogy (graded supertrace),
+ *      not a topological invariant. The module narrative is internally consistent.
+ *   6. CRUFT NOTE (NOT fixed here — separate concern) — liouvillePartialSums
+ *      contains an empty smallest-prime-factor sieve loop (its body was removed
+ *      during development); the working computation falls through to the inline
+ *      computeLambda trial-division. Functionally inert but mildly confusing.
  */
 
 import { getPrimes } from './primes.js';

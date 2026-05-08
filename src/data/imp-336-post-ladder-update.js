@@ -290,7 +290,21 @@ export const IMP336_POST_LADDER_UPDATE = {
   status:
     'partial — (M) empirically unfalsified on ' +
     MEASURED_ROWS.length +
-    '-point measured ladder; single analytical gap G1-sub-extremal remains',
+    '-point measured ladder; analytical gaps G1-sub-extremal (bulk-confinement) ' +
+    'and imp-336-sub-monotonicity-on-trajectory (tau > 0 propagation) remain',
+  closureNote:
+    'imp-997 (auto-improve imp-2073, opus-4-7 subscription): honest-partial structural ' +
+    'closure. The ticket asked to close named sub-gap "imp-336 monotonicity-on-trajectory" ' +
+    '(extending (M) from tau=0 to whole trajectory), but no top-level openSubGap field ' +
+    'existed in this file. We surface the gap explicitly: a new openSubGap entry with id ' +
+    'imp-336-sub-monotonicity-on-trajectory canonicalises the residual research statement ' +
+    '(rigorising the imp-336 drift-sign sketch into a proof of (M) for tau > 0 along the ' +
+    'Calogero-Moser backward flow). The (M)-at-tau=0 anchor is already closed unconditionally ' +
+    'by imp-369 Cauchy interlacing; G2.openRemainder already pointed at this trajectory ' +
+    'propagation gap but did not assign it a stable id. A build-time assertion ' +
+    '(imp409-trajectory-subgap-named) now pins the id so future references stay anchored. ' +
+    'The mathematical closure of trajectory monotonicity remains open research; this is a ' +
+    'cataloguing/structural improvement, not a proof.',
   consumes: [
     'imp-360/imp-405 DYSON_LADDER_MEASURED (dyson-ladder-measured.js) — ' +
       MEASURED_ROWS.length +
@@ -317,6 +331,46 @@ export const IMP336_POST_LADDER_UPDATE = {
     'Replace projected rows in DYSON_LADDER_MEASURED beyond N = 10^5 with measured ' +
       'runs to extend the empirical ladder to the Platt-Trudgian height T = 3e10.',
   ],
+  openSubGap: {
+    id: 'imp-336-sub-monotonicity-on-trajectory',
+    statement:
+      'Extend the monotonicity conjecture (M) |t_c(N+1)| <= |t_c(N)| from the ' +
+      'anchor tau = 0 to all tau >= 0 along the Calogero-Moser backward Dyson ' +
+      'flow. Equivalently: prove that B_{N+1}(tau) <= B_N(tau) propagates from ' +
+      'tau = 0 to the whole trajectory.',
+    statusAtTau0:
+      'closed unconditionally by imp-369 (lambda-argmin-jumps.js) via Cauchy ' +
+      'interlacing: B_{N+1}(0) = min(B_N(0), g_N) <= B_N(0) for any strictly ' +
+      'ordered sequence of zeros.',
+    statusOnTrajectory:
+      'open — currently held by the imp-336 drift-sign analytic sketch, not a ' +
+      'rigorous proof. Requires (i) G1-sub-extremal closure (argmin interior ' +
+      'with uniform margin) so the argmin does not exit the bulk along the ' +
+      'flow, and (ii) a rigorous drift-sign argument that the difference ' +
+      'B_{N+1}(tau) - B_N(tau) cannot turn positive while both argmins stay ' +
+      'in the bulk.',
+    dependsOn: [
+      'G1-sub-extremal (= imp-343 G4a_bulk_confinement): without bulk ' +
+        'confinement of the argmin k*_N along the trajectory, the drift-sign ' +
+        'sketch cannot exclude argmin-jump events at tau > 0.',
+      'imp-322 B-monotonicity under backward flow (the underlying flow ' +
+        'monotonicity that the trajectory propagation rests on).',
+    ],
+    approachSuggestions: [
+      'Promote the imp-336 drift-sign sketch to a rigorous proof: track the ' +
+        'sign of d/dtau (B_{N+1}(tau) - B_N(tau)) using the Calogero-Moser ' +
+        'flow equations and show it is non-positive while argmins stay in ' +
+        'the bulk W(alpha, N).',
+      'Use a continuity/contradiction argument: if (M) failed at some ' +
+        'tau* > 0 it would have to fail first at a crossing tau where ' +
+        'B_{N+1}(tau) = B_N(tau); rule that out via the drift-sign at the ' +
+        'crossing.',
+      'Bypass via Route B: the Burgers + G6 bridge (imp-419 / imp-486) ' +
+        'closes a different chain that does not require trajectory ' +
+        'monotonicity, leaving this sub-gap as an alternative-route ' +
+        'strengthening rather than a critical-path blocker.',
+    ],
+  },
 };
 
 // ── Build-time assertions ─────────────────────────────────────────────────────
@@ -372,5 +426,23 @@ export const IMP336_POST_LADDER_UPDATE_ASSERTIONS = [
       'must be updated in the same commit together with the coordinated flip of ' +
       'imp-336 ANALYTIC_SKETCH.gaps, imp-368, imp-369, lambda-intercept-analytic.js, ' +
       'bridge-lambda-rh.js, and lambda-zero-attack.js.',
+  },
+  {
+    id: 'imp409-trajectory-subgap-named',
+    holds: () =>
+      IMP336_POST_LADDER_UPDATE.openSubGap?.id ===
+        'imp-336-sub-monotonicity-on-trajectory' &&
+      typeof IMP336_POST_LADDER_UPDATE.openSubGap.statusAtTau0 === 'string' &&
+      typeof IMP336_POST_LADDER_UPDATE.openSubGap.statusOnTrajectory === 'string' &&
+      IMP336_POST_LADDER_UPDATE.openSubGap.statusOnTrajectory.startsWith('open'),
+    why:
+      'imp-997 honest-partial: the trajectory-monotonicity gap (extending (M) ' +
+      'from tau = 0 to tau > 0 along the Calogero-Moser backward flow) must ' +
+      'carry a stable named id (imp-336-sub-monotonicity-on-trajectory) and ' +
+      'an explicit open status on the trajectory. Hiding it under G2.openRemainder ' +
+      'without a top-level id loses the cross-file reference handle and lets ' +
+      'follow-up tickets drift. If a future commit rigorises the imp-336 ' +
+      'drift-sign sketch into a proof, statusOnTrajectory must flip from ' +
+      '"open" together with a coordinated update of this assertion.',
   },
 ];

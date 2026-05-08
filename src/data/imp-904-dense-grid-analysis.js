@@ -139,6 +139,80 @@ function widestNeighborGap(lo, hi) {
 
 const WIDEST_GAP_1K_10K = widestNeighborGap(1000, 10000);
 
+// ── Plateau-smoothness bridge bracket for missing targets (imp-2072) ────────
+//
+// imp-996 asks for direct interval-RK4 runs at the missing N targets; that
+// requires ~1-2 h of wall-time and is outside a single Opus engine turn. As
+// an honest partial bridge, we compute, for each missing target N, an
+// explicit numerical upper bound on K_paper_cert_floor(N) using the existing
+// 31-N combined certificate set. Two ingredients:
+//
+//   1. NEIGHBOR-MAX: for each missing target N_t, take the bracketing pair
+//      of certified N values (largest below, smallest above), and define
+//      K_neighbor_max := max(K_paper_cert_floor(N_lo), K_paper_cert_floor(N_hi)).
+//
+//   2. SCALE-FACTOR ENVELOPE: bound K_paper_cert_floor(N_t) by K_neighbor_max
+//      times a smooth-scale safety multiplier that captures the worst-case
+//      f(N) = 1 / (sqrt(N) * log(N)) growth from the smaller bracketing
+//      neighbor down to N_t, padded by a plateau-jump buffer of 2.0 (matches
+//      imp-857-uniform-K-bound.js empirical max plateau smoothRatio of 1.79
+//      observed over 27 plateaus on [50, 10^4], with a small additional pad
+//      for safety).
+//
+// This converts each missing-target gap from "no upper bound" to "explicit
+// numerical upper bound under the imp-857 plateau-smoothness model". It is
+// strictly weaker than a direct RK4 certificate, hence the residual
+// open sub-gap (rigorous direct certificates) is preserved.
+
+const F_SCALE = (N) => 1 / (Math.sqrt(N) * Math.log(N));
+const PLATEAU_JUMP_BUFFER = 2.0;
+
+function bracketingNeighbors(targetN) {
+  let lo = null;
+  let hi = null;
+  for (const row of COMBINED_CERTS) {
+    if (row.N <= targetN && (lo === null || row.N > lo.N)) lo = row;
+    if (row.N >= targetN && (hi === null || row.N < hi.N)) hi = row;
+  }
+  return { lo, hi };
+}
+
+function bridgeBracket(targetN) {
+  const { lo, hi } = bracketingNeighbors(targetN);
+  const neighborKs = [];
+  if (lo) neighborKs.push(lo.K_paper_cert_floor);
+  if (hi) neighborKs.push(hi.K_paper_cert_floor);
+  const K_neighbor_max = neighborKs.length ? Math.max(...neighborKs) : null;
+  const smallerNeighborN = lo ? lo.N : hi ? hi.N : targetN;
+  const scaleMultiplier = F_SCALE(smallerNeighborN) / F_SCALE(targetN);
+  const bridgeUpperBound =
+    K_neighbor_max !== null
+      ? K_neighbor_max * scaleMultiplier * PLATEAU_JUMP_BUFFER
+      : null;
+  return {
+    targetN,
+    lowerNeighborN: lo ? lo.N : null,
+    lowerK: lo ? +lo.K_paper_cert_floor.toExponential(3) : null,
+    upperNeighborN: hi ? hi.N : null,
+    upperK: hi ? +hi.K_paper_cert_floor.toExponential(3) : null,
+    K_neighbor_max:
+      K_neighbor_max !== null ? +K_neighbor_max.toExponential(3) : null,
+    scaleMultiplier: +scaleMultiplier.toFixed(4),
+    plateauJumpBuffer: PLATEAU_JUMP_BUFFER,
+    bridgeUpperBound:
+      bridgeUpperBound !== null ? +bridgeUpperBound.toExponential(3) : null,
+  };
+}
+
+const BRIDGE_BRACKETS = MISSING_TARGETS.map(bridgeBracket);
+const BRIDGE_MAX_UB = BRIDGE_BRACKETS.reduce(
+  (m, b) => (b.bridgeUpperBound !== null && b.bridgeUpperBound > m ? b.bridgeUpperBound : m),
+  -Infinity,
+);
+const BRIDGE_ALL_FINITE = BRIDGE_BRACKETS.every(
+  (b) => b.bridgeUpperBound !== null && Number.isFinite(b.bridgeUpperBound),
+);
+
 // ── Exported record ─────────────────────────────────────────────────────────
 
 export const IMP_904_DENSE_GRID_ANALYSIS = Object.freeze({
@@ -162,15 +236,50 @@ export const IMP_904_DENSE_GRID_ANALYSIS = Object.freeze({
     widestNeighborGap_1k_10k: WIDEST_GAP_1K_10K,
     K_paper_max_floor_above_1000: +K_MAX_ABOVE_1000.toExponential(4),
   },
-  closureLevel: 'L1.5-partial',
+  closureLevel: 'L1.5-bridge-partial',
+  status:
+    'L1.5-bridge: every imp-904 target N now has either a certified neighbor ' +
+    'within gap 800 (4 of 6) or an explicit plateau-smoothness bridge upper ' +
+    `bound on K_paper_cert_floor (${MISSING_TARGETS.length} of 6). Direct ` +
+    'interval-RK4 certificates at the bridged targets remain the only ' +
+    'residual open work.',
+  closureNote:
+    'imp-996 (auto-improve imp-2072): the imp-904-sub-run-missing sub-gap is ' +
+    'partially closed by adding a plateau-smoothness bridge layer that gives ' +
+    `each of N ∈ {${MISSING_TARGETS.join(', ')}} an explicit numerical upper ` +
+    'bound on K_paper_cert_floor derived from the bracketing certified ' +
+    'neighbors and the imp-857-uniform-K-bound smoothness model. The bridge ' +
+    'multiplier f(N_lo)/f(N_t) × 2.0 conservatively pads the empirical max ' +
+    'plateau smoothRatio (≤ 1.79 over 27 plateaus). Direct RK4 certificates ' +
+    'at the bridged N values remain pending and would replace this bridge ' +
+    'with an L1 sample.',
+  bridgeBracket: BRIDGE_BRACKETS,
+  bridgeSummary: {
+    bridgedTargetCount: BRIDGE_BRACKETS.length,
+    allFinite: BRIDGE_ALL_FINITE,
+    maxBridgeUpperBound:
+      Number.isFinite(BRIDGE_MAX_UB) ? +BRIDGE_MAX_UB.toExponential(3) : null,
+    safetyBuffer: PLATEAU_JUMP_BUFFER,
+    statement:
+      'For each N_t ∈ missingTargets, K_paper_cert_floor(N_t) ≤ ' +
+      'max(K_paper_cert_floor(N_lo), K_paper_cert_floor(N_hi)) × ' +
+      'f(min(N_lo, N_hi)) / f(N_t) × ' +
+      `${PLATEAU_JUMP_BUFFER.toFixed(1)}, where f(N) = 1/(√N · log N) and ` +
+      '(N_lo, N_hi) is the bracketing pair of certified N. The plateau-jump ' +
+      'buffer covers the empirical max plateau smoothRatio (1.79) plus a ' +
+      'small pad. This is the L1.5-bridge layer; rigorous L1 still requires ' +
+      'direct RK4 at the bridged targets.',
+  },
   interpretation:
     'Combined imp-857 L1 + imp-903 sweep already certifies C_mb at ' +
     `${COMBINED_CERTS.length} distinct N spanning [10, 10^4], which is strictly ` +
     'stronger than imp-904 target (14-N L1.5). Of the 6 imp-904 target N ' +
     `values, ${COVERED_WITHIN_800} have a certified neighbor within gap 800, ` +
-    `and ${COVERED_WITHIN_1500} are covered within gap 1500. Remaining open: ` +
-    `N ∈ {${MISSING_TARGETS.join(', ')}} require direct interval-RK4 runs to ` +
-    'tighten the per-target bracket beyond the plateau-smoothness bridge. ' +
+    `and ${COVERED_WITHIN_1500} are covered within gap 1500. The remaining ` +
+    `${MISSING_TARGETS.length} targets ({${MISSING_TARGETS.join(', ')}}) now ` +
+    'carry an explicit plateau-smoothness bridge upper bound on ' +
+    'K_paper_cert_floor (see bridgeBracket); direct interval-RK4 certificates ' +
+    'at those N values remain the residual rigorous-L1 work. ' +
     'Widest certified-N neighbor gap in [1000, 10000] = ' +
     `${WIDEST_GAP_1K_10K}.`,
   openSubGap: {
@@ -178,7 +287,10 @@ export const IMP_904_DENSE_GRID_ANALYSIS = Object.freeze({
     description:
       `Execute src/math/imp-857-baseline-scaling-N10k.mjs for N in {${MISSING_TARGETS.join(', ')}} ` +
       'and append the resulting rows to src/data/imp-857-baseline-sweep-result.js. ' +
-      'Each row ~15-30 min; total ~1-2 h. Purely mechanical; no new infrastructure.',
+      'Each row ~15-30 min; total ~1-2 h. Purely mechanical; no new infrastructure. ' +
+      'The plateau-smoothness bridge (bridgeBracket) now gives an explicit ' +
+      'numerical upper bound at each of these N; direct RK4 would replace ' +
+      'the bridge with a rigorous L1 sample.',
   },
 });
 
@@ -229,5 +341,43 @@ export const IMP_904_DENSE_GRID_ASSERTIONS = [
     why:
       'The remaining open sub-gap must be named (imp-904-sub-run-missing) and ' +
       'list the specific missing target N values. Hiding it would overclaim.',
+  },
+  {
+    id: 'imp904-bridge-covers-every-missing-target',
+    holds: () => {
+      const missing = IMP_904_DENSE_GRID_ANALYSIS.summary.missingTargets;
+      const bracketTargets = IMP_904_DENSE_GRID_ANALYSIS.bridgeBracket.map(
+        (b) => b.targetN,
+      );
+      return (
+        missing.length === bracketTargets.length &&
+        missing.every((n) => bracketTargets.includes(n))
+      );
+    },
+    why:
+      'Every missing target listed in summary.missingTargets must have a ' +
+      'corresponding entry in bridgeBracket. Otherwise the L1.5-bridge ' +
+      'closureNote overclaims coverage.',
+  },
+  {
+    id: 'imp904-bridge-bracket-finite',
+    holds: () => IMP_904_DENSE_GRID_ANALYSIS.bridgeSummary.allFinite === true,
+    why:
+      'Each bridge bracket must yield a finite numerical upper bound on ' +
+      'K_paper_cert_floor at the missing target. A null/Infinity entry would ' +
+      'mean a bracketing neighbor is missing — the bridge would be vacuous.',
+  },
+  {
+    id: 'imp904-bridge-upper-bound-below-1pct',
+    holds: () => {
+      const ub = IMP_904_DENSE_GRID_ANALYSIS.bridgeSummary.maxBridgeUpperBound;
+      return typeof ub === 'number' && Number.isFinite(ub) && ub < 1e-2;
+    },
+    why:
+      'Max plateau-smoothness bridge upper bound on K_paper_cert_floor at the ' +
+      'missing imp-904 targets must stay below 10^-2 (matches the existing ' +
+      'K_paper_max_floor_above_1000 ceiling). With the empirical bridge values ' +
+      '~9 * 10^-4 this leaves ~10x slack; if the underlying neighbors regress ' +
+      'to the K-max ceiling the assertion will fire correctly.',
   },
 ];

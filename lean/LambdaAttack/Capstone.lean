@@ -125,10 +125,20 @@ theorem asymptotic_lambda_eq_zero : deBruijnNewmann = 0 :=
 
 end
 
-/-! ## Open sorrys in this file (imp-499 investigation)
+/-! ## Open sorrys in this file (imp-499 investigation; imp-1008 audit 2026-05-08)
 
     Capstone.lean has ZERO open sorrys. All remaining gaps are transitive,
     flowing through axioms and sorry'd theorems in the imported companion files.
+
+    imp-1008 (2026-05-08) re-confirmed via `grep -n sorry` that every "sorry"
+    occurrence in this file is inside a Lean comment (-- or /-! .. -/ or /-- .. -/),
+    NOT a tactic position. Composition step closure: asymptotic_lambda_eq_zero
+    closes via tendsto_nhds_unique on (G6_bridge_closed, neg_collTime_tendsto_zero);
+    the latter closes via squeeze_zero_norm + simpa [neg_zero] using h.neg.
+    Class for imp-1008 deliverable: N/A — there are no in-code sorrys to classify.
+    Resolution: ticket flipped to completed (audit-only); transitive gaps
+    remain open in BridgeTheorem.lean (imp-1009) and Foundation.lean axioms
+    (KoksmaHlawkaLimSup -> imp-403; G6_bridge_closed -> imp-412).
 
     1. neg_collTime_tendsto_zero (imp-421-sorry-1) -- PROVED (no sorry in code)
        Statement: Tendsto (fun N => -dysonCollTime N) atTop (nhds 0)

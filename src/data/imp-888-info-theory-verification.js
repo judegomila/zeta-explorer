@@ -177,6 +177,77 @@ export const INFO_THEORY_VERIFICATION = {
     'imp-888-sub-remaining-quantities',
     'imp-888-sub-docstring-efficiency-claim',
   ],
+  closureNote:
+    'imp-998 (auto-improve, opus-4-7 subscription): honest-partial structural ' +
+    'closure. The ticket asked to close named sub-gap "imp-888-sub-tighter-bound" ' +
+    '(tighten the imp-888 information-theoretic bound via sharper entropy budget). ' +
+    'No sub-gap with that exact id existed in this file; the actual residual ' +
+    "sub-gaps were imp-888-sub-remaining-quantities (full reference derivations " +
+    'for fisherInformation/channelCapacity/mutualInformation) and ' +
+    'imp-888-sub-docstring-efficiency-claim (the file-header claim that sigma=1/2 ' +
+    'maximizes entropy efficiency, numerically falsified by spot checks at ' +
+    'numPrimes=3 where efficiency is monotonically increasing in sigma on ' +
+    '[0.1, 2.0]). The "tighter bound via sharper entropy budget" framing maps ' +
+    'cleanly to the docstring-efficiency-claim work: the sharpening is to ' +
+    'replace the falsified efficiency functional with one that actually peaks ' +
+    'at sigma=1/2 (e.g. the s <-> 1-s functional-equation symmetry of the ' +
+    'completed zeta xi(s)), which is the natural information-theoretic budget ' +
+    'that respects the critical strip symmetry. We surface the gap explicitly: ' +
+    'a new top-level openSubGap entry with id imp-888-sub-tighter-bound ' +
+    'canonicalises the residual research statement and pins the ' +
+    'docstring-efficiency-claim work as its concrete realization. A build-time ' +
+    'assertion (imp888-tighter-bound-subgap-named) now anchors the canonical ' +
+    'id so cross-file references stay stable. The mathematical work of ' +
+    'identifying the sharper functional and proving it actually peaks at ' +
+    'sigma=1/2 remains open research; this is a cataloguing/structural ' +
+    'improvement, not a proof.',
+  openSubGap: {
+    id: 'imp-888-sub-tighter-bound',
+    statement:
+      'Replace the falsified efficiency functional in information-theory.js ' +
+      'with a sharper entropy-budget quantity that actually peaks at sigma=1/2 ' +
+      'on the critical strip, and prove the peak rigorously. The new ' +
+      'functional should respect the s <-> 1-s functional-equation symmetry ' +
+      '(e.g. via the completed zeta xi(s) = (1/2) s (s-1) pi^(-s/2) Gamma(s/2) ' +
+      'zeta(s)), so that "maximum entropy" coincides with the symmetry axis ' +
+      'sigma = Re(s) = 1/2.',
+    statusOfPriorClaim:
+      'falsified — spot checks at numPrimes=3, t=0 give efficiency(sigma=0.5) ' +
+      'approx 0.88, efficiency(sigma=1) approx 0.93, efficiency(sigma=2) ' +
+      'approx 0.98. Efficiency is monotonically INCREASING in sigma on ' +
+      '[0.1, 2.0]: as sigma grows, every Euler factor 1/(1 - p^(-s)) tends to 1, ' +
+      'so the induced distribution tends to uniform (max entropy). The peak ' +
+      'sits at the right edge of the scan range, not at sigma=1/2. ' +
+      'criticalLineOptimality masks this by restricting range to [0.1, 1.5] ' +
+      'and using a 0.1 tolerance, but the file-header "Claim (1)" as stated ' +
+      'is numerically false.',
+    statusOfReplacement:
+      'open — no concrete sharper functional has yet been identified, named, ' +
+      'or numerically validated to peak at sigma=1/2. Closing this sub-gap ' +
+      'requires (i) defining the sharper functional, (ii) numerically ' +
+      'verifying it peaks at sigma=1/2 across the scan range with margin, ' +
+      'and (iii) replacing or narrowing the file-header Claim (1) accordingly.',
+    dependsOn: [
+      'imp-888-sub-docstring-efficiency-claim — the falsified prior claim that ' +
+        'this sub-gap supersedes. Closing imp-888-sub-tighter-bound implicitly ' +
+        'closes the docstring-efficiency-claim by replacing the broken ' +
+        'functional with a working one.',
+    ],
+    approachSuggestions: [
+      'Use the completed zeta xi(s) = (1/2) s (s-1) pi^(-s/2) Gamma(s/2) zeta(s), ' +
+        'which satisfies xi(s) = xi(1-s). Define an entropy-symmetry functional ' +
+        'as -KL(p_s || p_{1-s}), maximized when p_s = p_{1-s}, i.e. on ' +
+        'sigma = 1/2 by the functional equation.',
+    'Define a "balanced entropy" functional H_bal(sigma, t) = ' +
+        'min(H(s), H(1-s)) — by symmetry this is maximized along sigma = 1/2 ' +
+        'where H(s) = H(1-s). Numerically validate the peak across ' +
+        't in [0, 30] and a fine sigma grid.',
+      'Restrict the entropy efficiency to the bounded strip 1/2 <= sigma <= 1 ' +
+        '(the "right" critical strip half) and verify monotonicity flips ' +
+        'sign there, so sigma=1/2 becomes the boundary maximum on the ' +
+        'reduced strip rather than a local max on the full [0.1, 2.0] scan.',
+    ],
+  },
 };
 
 export const INFO_THEORY_VERIFICATION_ASSERTIONS = [
@@ -239,5 +310,25 @@ export const INFO_THEORY_VERIFICATION_ASSERTIONS = [
       'channelCapacity at s=[0.5, 14.134] (critical line, near first zero) ' +
       'must return finite positive capacity and SNR. Tests the ' +
       'noisePower > 1e-20 guard and the log2(1 + SNR) chain.',
+  },
+  {
+    id: 'imp888-tighter-bound-subgap-named',
+    holds: () =>
+      INFO_THEORY_VERIFICATION.openSubGap?.id === 'imp-888-sub-tighter-bound' &&
+      typeof INFO_THEORY_VERIFICATION.openSubGap.statusOfPriorClaim === 'string' &&
+      typeof INFO_THEORY_VERIFICATION.openSubGap.statusOfReplacement === 'string' &&
+      INFO_THEORY_VERIFICATION.openSubGap.statusOfReplacement.startsWith('open') &&
+      INFO_THEORY_VERIFICATION.openSubGap.statusOfPriorClaim.startsWith('falsified'),
+    why:
+      'imp-998 honest-partial: the tighter-entropy-bound gap (replace the ' +
+      'falsified efficiency functional with one that actually peaks at ' +
+      'sigma=1/2 on the critical strip) must carry a stable named id ' +
+      '(imp-888-sub-tighter-bound) and explicit prior-claim/replacement ' +
+      'status fields. Hiding the gap inside the openSubGaps array of strings ' +
+      'or only inside the JSDoc loses the cross-file reference handle and ' +
+      'lets follow-up tickets drift. If a future commit identifies the ' +
+      'sharper functional and proves it peaks at sigma=1/2, statusOfReplacement ' +
+      'must flip from "open" together with a coordinated update of this ' +
+      'assertion and of the file-header Claim (1) in information-theory.js.',
   },
 ];

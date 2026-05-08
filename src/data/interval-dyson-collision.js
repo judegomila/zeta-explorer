@@ -1,4 +1,18 @@
 /**
+ * @module interval-dyson-collision
+ * @fileoverview imp-318 — verified-computing (interval arithmetic) Dyson
+ * backward integration record. Replaces the float64-RK4 + Kahan-summation
+ * Path C number with a one-ULP outward-rounded interval bracket on the
+ * collision time τ_c at the Riemann zeros. Exports
+ * {@link INTERVAL_DYSON_COLLISION} (per-N bracket data) and
+ * {@link INTERVAL_DYSON_COLLISION_ASSERTIONS} (build guards). Belongs to
+ * the PATH C hybrid proof chain at the verified-arithmetic step.
+ * Module-doc added by imp-970.
+ * @see imp-318
+ * @see imp-362
+ */
+
+/**
  * Verified-computing (interval arithmetic) Dyson backward integration (imp-318)
  *
  * Path C currently delivers Λ ≤ 0.0066 + 0.01 (bridge-lambda-rh.js) using

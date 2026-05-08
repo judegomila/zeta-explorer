@@ -1,4 +1,16 @@
 /**
+ * @module review-5-findings-audit
+ * @fileoverview imp-483 — full audit cross-checking every finding from
+ * paper-skeptic-review-5.js (imp-474) against the improvement queue and
+ * verifying each FATAL/NAMED finding has a closure ticket. Exports
+ * {@link REVIEW_5_FINDINGS_AUDIT} (audit record + per-finding status)
+ * and {@link REVIEW_5_FINDINGS_AUDIT_ASSERTIONS} (build guards). Meta-
+ * audit / proof-hygiene record. Module-doc added by imp-968.
+ * @see imp-474
+ * @see imp-483
+ */
+
+/**
  * imp-483: Full audit of imp-474 review-5 findings
  *
  * Cross-checks every finding from paper-skeptic-review-5.js against the

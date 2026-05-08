@@ -687,6 +687,36 @@ export const SOTA_LAMBDA_CLAIM = {
   // the SOTA claim chain. Added by imp-453 to keep the citation registry current.
   latestClosures: [
     {
+      ticket: 'imp-963',
+      gap: 'imp-856 / imp-440 / imp-835 (finite-K C_mb on N ∈ [100, 10⁴])',
+      summary:
+        'Finite-K C_mb unconditional closure on N ∈ [100, 10⁴]: the imp-933 ' +
+        'per-plateau interval-RK4 cert set (commits e2effd7..9dfaca4 + 9e22bfb) ' +
+        'gives K = 0.2014 unconditionally above N=100, with the imp-486 rescue ' +
+        'formula K * log(N_0)/sqrt(N_0) < 0.12751 satisfied at N_0=100 (LHS = ' +
+        '0.0928, margin 1.37×). Strictly weaker than imp-486 RATE-irreducibility ' +
+        '— complementary, not contradictory.',
+      file: 'src/data/finite-k-c-mb-unconditional.js',
+      impactOnSota:
+        'imp-840/imp-835 conditional-on-M condition discharged unconditionally on ' +
+        'N ∈ [100, 10⁴]; extension to N* > 10⁴ pending imp-962. Promotes Lambda ' +
+        '≤ 0.121 status from GUE-CONDITIONAL to FULLY UNCONDITIONAL on that range.',
+    },
+    {
+      ticket: 'imp-933',
+      gap: 'imp-911-sub-gronwall-interval (per-plateau Gronwall tightening)',
+      summary:
+        'Per-plateau interior interval-RK4 sweep covering all 27 H_raw-plateaus ' +
+        'on N ∈ [100, 10⁴]. Replaces the universal Gronwall factor exp(1) in ' +
+        'imp-911 with per-plateau interval-certified upper bounds; closes the ' +
+        '33× analytic-vs-empirical gap. K_paper_cert max above N=100 = 0.2014.',
+      file: 'src/data/imp-911-per-plateau-gronwall-certs.js',
+      impactOnSota:
+        'Promotes the secondary headline "Lambda ≤ 0.121 GUE-eliminated on ' +
+        'N ∈ [100, 10⁴] modulo Gronwall-tightness gap" → "FULLY UNCONDITIONAL ' +
+        'on N ∈ [100, 10⁴]".',
+    },
+    {
       ticket: 'imp-443',
       gap: 'skp3-001',
       summary:

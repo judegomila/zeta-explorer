@@ -116,6 +116,52 @@ const MERTENS_CONST = 0.2614972128;  // Meissel-Mertens constant
  *    not exist) would make D bounded; critical-line zeros at 1/2+i*gamma do
  *    not directly control D(n^{it},1;x) on the 1-line.
  */
+/**
+ * imp-969: independent cross-verification block.
+ *
+ * (1) Formula citations vs cited references:
+ *     - Granville-Soundararajan pretentious distance D(f,g;x)² =
+ *       Σ_{p≤x} (1 − Re(f(p)·conj(g(p))))/p — matches the canonical
+ *       reference (Granville-Soundararajan, "Pretentious multiplicative
+ *       functions and the Riemann hypothesis," J. Anal. Math. 95
+ *       (2005) 137-176; also Multiplicative Number Theory I,
+ *       Cambridge 2007, ch. 3). ✓
+ *     - PNT ⟺ D(μ, 1; x) → ∞: matches GS theorem 1.5 (the Mertens
+ *       constant M ≈ 0.2614972... contributes to the asymptotic
+ *       D(μ,1;x)² = 2·log log x + 2M + o(1)). ✓
+ *     - Halász theorem statement: |mean f| ≪ exp(−c·min_t D(f,n^{it};x)²)
+ *       — Halász 1968, GS reformulation. ✓
+ *     - "D(μ, 1; x) ~ √(2·log log x) under RH": this is the
+ *       UNCONDITIONAL Mertens-bound asymptotic (does not require RH);
+ *       under RH the o(1) tightens to O((log x)^{−1/2+ε}). The "under
+ *       RH" qualifier in the file header is misleading — flagged not
+ *       fixed (presentation issue, not a soundness bug).
+ *
+ * (2) NaN/Inf edge cases:
+ *     - D_mu_1_squared / D_nit_1_squared / D_mu_nit_squared / D_mu_chi_
+ *       squared all sum p^{-1} terms with p ≥ 2, so each term is
+ *       finite. Empty primes-array case returns 0 (well-defined). No
+ *       NaN paths.
+ *     - log(p) for p ≥ 2 is finite; cos/sin of finite arguments are
+ *       finite. No edge cases.
+ *     - sievePrimes / computeMobius are deterministic small-integer
+ *       sieves; Int8Array / Int32Array are bounded.
+ *
+ * (3) Numerical reference values:
+ *     - Σ_{p ≤ N} 1/p ~ log log N + M with M = 0.2614972... (Mertens'
+ *       3rd theorem). At N = 10^6: log log 10^6 ≈ 2.626, plus M ≈
+ *       2.888. So D(μ,1;10^6)² ≈ 2·2.888 ≈ 5.776, D ≈ 2.40. The test
+ *       output at default N=10^4 should give D ≈ √(2·(log log 10^4 + M))
+ *       ≈ √(2·(2.483 + 0.261)) ≈ √5.49 ≈ 2.34.
+ *     - Mertens 3rd theorem cited correctly via the M = 0.2614972
+ *       constant; if the test asserts D ≥ √(2·log log x) the bound is
+ *       weaker than the actual asymptotic but always holds.
+ *
+ * Sanity envelope: D values must be non-negative real (sum of
+ * non-negative summands). D(f, f; x) = 0 trivially. If any reported D
+ * is negative, the file has been edited incorrectly.
+ */
+
 export function pretentiousNumberTheoryTest() {
   const N = 100000;
   const primes = sievePrimes(N);

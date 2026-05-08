@@ -13,6 +13,52 @@
 import { ZETA_ZEROS } from './zeta.js';
 
 /**
+ * imp-967: independent cross-verification block.
+ *
+ * (1) Discrimination cited references:
+ *     - Davenport-Heilbronn 1936 ("On the zeros of certain Dirichlet
+ *       series"): the canonical RH-violating ζ-like function. ✓
+ *       Used here as the "passes ⟹ not RH-specific" counterexample.
+ *     - Functional equation classification: the row "Functional eq" is
+ *       generic — both ζ and D-H satisfy f(s) = χ(s)·f(1−s). ✓ matches
+ *       D-H's construction (linear combination of two L-functions
+ *       designed to preserve the functional eq while breaking RH).
+ *     - Hamiltonian convexity row: the in-source CRITICAL FIX correctly
+ *       documents that D-H also minimizes |f(σ+it)|² near σ=1/2 because
+ *       the functional eq forces approximate symmetry. ✓ matches the
+ *       honest-discrimination.js 100+ point numerical evidence.
+ *     - Weil positivity row: caveat about narrow test functions is
+ *       correct (Weil's positivity theorem; D-H has off-line zero at
+ *       t ≈ 85.7 detectable only with α ≤ 0.0001). ✓
+ *
+ * (2) NaN/Inf edge cases:
+ *     - Pure data structure; no arithmetic in the main export beyond
+ *       counting + array filter. No NaN paths.
+ *     - rhSpecificCount and genericCount are integer counts of array
+ *       filters; rhSpecificCount + genericCount must equal
+ *       criteria.length (12 currently).
+ *
+ * (3) Numerical reference values:
+ *     - criteria.length: 12 (counted manually).
+ *     - rhSpecific count: 9 (Euler product, bridge unitarity, S-matrix
+ *       J-contractivity, Li coefficient positivity, Weil positivity,
+ *       Darlington/Potapov, Marchenko reality, symplectic eigenvalue,
+ *       Selberg trace).
+ *     - generic count: 3 (functional eq, Hamiltonian convexity, GUE).
+ *     - specificRate: 9/12 = 0.75.
+ *     - proofCriteria.length: 4; proofUsesOnlySpecific must be true (the
+ *       4 proof-chain criteria — Euler, bridge, J-contractivity,
+ *       Darlington — all have rhSpecific=true).
+ *
+ * Sanity envelope: rhSpecificCount + genericCount === criteria.length
+ * AND proofUsesOnlySpecific === true. If a future change moves any of
+ * the 4 proof-chain criteria into the generic bucket, the proof's
+ * "cannot accidentally prove something false" claim would silently
+ * break — flag that with a build-time assertion if any proof-chain
+ * criterion's rhSpecific flag flips.
+ */
+
+/**
  * Build a discrimination matrix showing which criteria distinguish
  * zeta(s) (satisfies RH) from Davenport-Heilbronn (violates RH).
  *

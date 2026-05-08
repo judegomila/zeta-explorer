@@ -182,3 +182,50 @@ theorem bridge_constants_positive
   ⟨C_H_pos, C_T_pos hT0_exp2, C_F_pos hT0_pi, C_C_pos⟩
 
 end
+
+/-! ## Open sorrys in this file (imp-1012 audit 2026-05-08)
+
+    `grep -n sorry lean/LambdaAttack/Constants.lean` returns three matches:
+      line  17 — comment-only (status table inside the header doc-block)
+      line 128 — ACTUAL `sorry` in tactic position (C_F_ibp_value, skp-512a)
+      line 132 — comment-only (mention of "sorry reduced to ..." in the
+                 docstring of C_F_integral_identity)
+
+    Total in-code sorrys: ONE (line 128, C_F_ibp_value).
+
+    Class for that sorry: (a) pure formalization gap — Mathlib-tactic
+    mechanical, NOT a substantive mathematical gap.
+
+    Math is closed paper-side and JS-side. The IBP evaluation
+        INT_{T0}^{inf} log(T/(2*pi)) / (2*pi * T^2) dT
+            = (log(T0/(2*pi)) + 1) / (2*pi * T0)
+    follows from
+        F(T) = -(log(T/(2*pi)) + 1) / (2*pi * T),
+        F'(T) = log(T/(2*pi)) / (2*pi * T^2),         (computed)
+        F(T) -> 0 as T -> inf,                         (log T / T -> 0)
+        log(T/(2*pi)) / (2*pi * T^2) is L^1 on [T0, inf) for T0 > 0,
+        FTC + boundary value give the stated equality.
+
+    JS-side certificate: src/math/lean4-c-f-ibp.js exports
+    C_F_IBP_CERTIFICATE with remainingSubGap = 'skp-512a-lean-tactic',
+    classifying the gap explicitly as "pure Lean 4 mechanical".
+
+    Resolution path (Mathlib lemma chain to wire up the tactic):
+      * `Real.tendsto_log_div_atTop`            -- log T / T -> 0 boundary vanishing
+      * `intervalIntegral.integral_Ioi_of_hasDerivAt_of_tendsto`
+                                                -- FTC on the half-line
+      * `MeasureTheory.IntegrableOn`           -- L^1 on Set.Ici T0 via log/T^2 decay
+      * `HasDerivAt` chain rule + `Real.hasDerivAt_log`
+                                                -- compute F' and match the integrand
+    The proposed tactic body is sketched in src/math/lean4-c-f-ibp.js
+    (see exported `leanTactic` template, lines 147-171).
+
+    Deliverable for imp-1012: one in-code sorry at line 128, classified as
+    class (a) (formalization-only). The Mathlib tactic transcription itself
+    is a follow-up Lean ticket (skp-512a-lean-tactic); flipping that gap
+    requires verifying Mathlib namespaces against the active Mathlib pin
+    and is left out of this audit-only closure (consistent with imp-1008
+    Capstone.lean treatment).
+
+    Ticket imp-1012 closes as audit-only with the explicit class-(a) tag.
+-/

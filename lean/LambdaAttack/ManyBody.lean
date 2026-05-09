@@ -222,7 +222,7 @@ theorem many_body_correction_closed (N : ℝ) (hN : (N_0_mb : ℝ) ≤ N) :
     Domain split:
       - N >= N_0 = 10000: this theorem (analytic; conditional on GUE universality for C_mb).
       - N in {2,...,870}: empirical M-verification in m-raw-from-umon-bridge.js (unconditional).
-    Proof is formal given many_body_correction_closed (modulo that sorry). -/
+    Proof is formal given many_body_correction_closed (closed by imp-485). -/
 theorem many_body_imp471_closed (N : ℝ) (hN : (N_0_mb : ℝ) ≤ N) :
     C_MB * f_mb N / rho_min_mb < 1 := by
   rw [div_lt_one rho_min_mb_pos]
@@ -255,3 +255,33 @@ end
        Riemann zeros, but unconditional for GUE matrices (ESY 2011 Thm 2.2+2.3).
        GUE universality for Riemann zeros is the named sub-gap tracked in imp-482.
        many_body_imp471_closed is therefore formal given GUE universality. -/
+
+/-! ## Open sorrys in this file (imp-1007 audit 2026-05-08)
+
+    ManyBody.lean has ZERO open sorrys. `grep -n sorry` returns 3 matches but
+    EVERY one is inside a Lean comment (line 225 in the docstring of
+    many_body_imp471_closed, lines 233 and 235 inside the trailing
+    /-! Sorry status ... -/ doc-block) — there are ZERO sorry tokens in
+    tactic position.
+
+    Class for imp-1007 deliverable: N/A — there are no in-code sorrys to
+    classify. All three originally-tracked sorrys (f_mb_strictAntiOn,
+    correction_dominated_at_N0, many_body_correction_closed) were closed by
+    imp-485 on 2026-04-12 with the proofs that now occupy the file:
+      - f_mb_strictAntiOn: strictAntiOn_of_deriv_neg + quotient rule via
+        HasDerivAt.div, with numerator (2 - log x)/(2 sqrt x) < 0 for log x > 2.
+      - correction_dominated_at_N0: Real.sum_le_exp_of_nonneg gives exp 3 > 10,
+        hence log 10 < 3 and log 10000 = 4 log 10 < 12 < 12.751.
+      - many_body_correction_closed: add_one_le_exp(-1/2) gives exp(1/2) <= 2,
+        so exp 2 <= 16 < 10000 = N_0_mb; case split N = N_0_mb (base) vs
+        N > N_0_mb (strict antitone + C_MB_pos).
+
+    Resolution: ticket flipped to completed (audit-only). Transitive
+    conditionality lives outside this module:
+      - C_MB = 1 for Riemann zeros depends on GUE universality (imp-482 /
+        Montgomery 1973). For GUE matrices it is unconditional (ESY 2011
+        Thm 2.2 + 2.3).
+      - rho_min_mb = 0.12751 is established in src/math/rvm-jacobian-lower-bound.js
+        (imp-469 / imp-473) and cross-checked at all ladder ordinates
+        gamma_N for N in {2,...,870}.
+    Neither obligation belongs inside ManyBody.lean itself. -/

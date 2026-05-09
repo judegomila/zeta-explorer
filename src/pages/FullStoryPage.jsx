@@ -22,6 +22,7 @@ import {
 import { EMPIRICAL_M_SWEEP_EXTENDED_SUMMARY as EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended-summary.js';
 import { ROUTE_C_DYNAMICAL_ANALYSIS_SUMMARY as ROUTE_C_DYNAMICAL_ANALYSIS } from '../math/route-c-dynamical-analysis-summary.js';
 import { C_MB_WEAKER_BOUND_SEARCH_SUMMARY as C_MB_WEAKER_BOUND_SEARCH } from '../math/c-mb-weaker-bound-search-summary.js';
+import { FINITE_K_C_MB_UNCONDITIONAL } from '../data/finite-k-c-mb-unconditional.js';
 
 /**
  * FullStoryPage — linear end-to-end narrative, no accordion, math inlined.
@@ -1005,6 +1006,72 @@ function S15_UncondSequence() {
         <strong> PATH 3</strong> — find any finite-K weaker <InlineMath tex="C_{\text{mb}}" /> bound
         via hybrid analysis. Every result below is pulled live from the data modules.
       </Para>
+
+      {/* Closure status — imp-963 / imp-933 — pulled live from FINITE_K_C_MB_UNCONDITIONAL */}
+      <h3 style={{ fontSize: 17, color: COLORS.rigorous.fg, fontFamily: 'var(--font-mono)', margin: '28px 0 10px' }}>
+        Closure status — imp-963 / imp-933 deliver unconditional finite K on N ∈ [100, 10⁴]
+      </h3>
+      <Card tone="rigorous">
+        <Para>
+          The imp-933 per-plateau interval-RK4 sweep (
+          {FINITE_K_C_MB_UNCONDITIONAL.certificateProvenance.sweepCount} certificates across
+          N ∈ [{FINITE_K_C_MB_UNCONDITIONAL.certificateProvenance.nRangeCovered.min},{' '}
+          {FINITE_K_C_MB_UNCONDITIONAL.certificateProvenance.nRangeCovered.max.toLocaleString()}])
+          delivers a fixed finite K with{' '}
+          <InlineMath tex="C_{\text{mb}}(N) \leq K" /> unconditionally for every{' '}
+          <InlineMath tex="N \in [100,\,10^{4}]" /> — no GUE assumption. The headline:
+        </Para>
+        <BlockMath tex="K = 0.2014 \;\;\text{for}\;\; N \geq 100, \qquad K \cdot \log N_0 / \sqrt{N_0} \;<\; 0.12751." />
+        <Para>
+          Smallest <InlineMath tex="N_0" /> at which the imp-486 rescue formula is satisfied:{' '}
+          <strong style={{ color: COLORS.rigorous.fg }}>
+            {FINITE_K_C_MB_UNCONDITIONAL.tightestN0?.N0 ?? '—'}
+          </strong>{' '}
+          with margin factor{' '}
+          <strong style={{ color: COLORS.rigorous.fg }}>
+            {FINITE_K_C_MB_UNCONDITIONAL.tightestN0?.margin_factor ?? '—'}×
+          </strong>
+          . This is the load-bearing fact that makes the imp-440 finite-height beat{' '}
+          <InlineMath tex="\Lambda \leq 0.121" /> unconditional on{' '}
+          <InlineMath tex="N \in [100,\,10^{4}]" />.
+        </Para>
+        <div style={{ overflow: 'auto', borderRadius: 10, border: '1px solid #1e293b', margin: '12px 0' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)', fontSize: 13 }}>
+            <thead>
+              <tr style={{ background: '#0f172a', color: '#64748b', fontSize: 11, textTransform: 'uppercase' }}>
+                <th style={{ padding: '8px 10px', textAlign: 'right', borderBottom: '1px solid #1e293b' }}>N₀</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right', borderBottom: '1px solid #1e293b' }}>K_uncond</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right', borderBottom: '1px solid #1e293b' }}>K · log N₀ / √N₀</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right', borderBottom: '1px solid #1e293b' }}>Threshold</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right', borderBottom: '1px solid #1e293b' }}>Margin</th>
+              </tr>
+            </thead>
+            <tbody>
+              {FINITE_K_C_MB_UNCONDITIONAL.finiteKTable.map((r, i) => (
+                <tr key={r.N0} style={{ borderBottom: '1px solid #0f172a', background: i % 2 ? 'rgba(15,23,42,0.3)' : 'transparent' }}>
+                  <td style={{ padding: '8px 10px', textAlign: 'right', color: '#e2e8f0' }}>{r.N0.toLocaleString()}</td>
+                  <td style={{ padding: '8px 10px', textAlign: 'right', color: '#cbd5e1' }}>{r.K_unconditional ?? '—'}</td>
+                  <td style={{ padding: '8px 10px', textAlign: 'right', color: r.rescue_satisfied ? COLORS.rigorous.fg : COLORS.open.fg, fontWeight: 700 }}>
+                    {r.rescue_lhs ?? '—'}
+                  </td>
+                  <td style={{ padding: '8px 10px', textAlign: 'right', color: '#94a3b8' }}>{r.rescue_threshold}</td>
+                  <td style={{ padding: '8px 10px', textAlign: 'right', color: r.rescue_satisfied ? COLORS.rigorous.fg : COLORS.open.fg, fontWeight: 700 }}>
+                    {r.margin_factor != null ? `${r.margin_factor}×` : '—'}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, margin: 0, fontStyle: 'italic' }}>
+          Closes imp-856 (any finite K unconditionally), imp-835 (imp-440 sub-gap),
+          and imp-440 on N ∈ [100, 10⁴]. Open: extension above N = 10⁴ (imp-962).
+          The imp-486 asymptotic-rate impossibility stands at the rate level — this
+          is a complementary finite-K-at-fixed-N closure, not a contradiction. The
+          three PATHS below are kept for historical context and to surface the
+          remaining open work above N = 10⁴.
+        </p>
+      </Card>
 
       {/* PATH 1 */}
       <h3 style={{ fontSize: 17, color: COLORS.rigorous.fg, fontFamily: 'var(--font-mono)', margin: '28px 0 10px' }}>

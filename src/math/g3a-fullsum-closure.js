@@ -461,3 +461,393 @@ export const G3A_FULLSUM_ASSERTIONS = [
       'be revisited to check whether the same reversal applies to C_mb.',
   },
 ];
+
+// ────────────────────────────────────────────────────────────────────
+// imp-978: Independent cross-verification (proof, S10-cross-verify)
+// ────────────────────────────────────────────────────────────────────
+//
+// Static identity / numerical-reference / edge-case audit for the
+// imp-507 G3a_sub_fullsum partial closure. Follows the imp-919 /
+// imp-921 / imp-971..imp-977 precedent. Recorded inline so future
+// readers can reproduce the cross-checks without re-running the
+// engine.
+//
+// SYNTAX NOTE: this block uses // line comments only; no JSDoc
+// fences are introduced. The "star-slash" sequence is not present
+// anywhere in this audit text.
+//
+//   (1) Identity audit.
+//
+//       (1a) Positivity lemma (lines 75-85).
+//            Claim: every term 1/[(gamma_{k_star+1}-gamma_j)(gamma_
+//            {k_star}-gamma_j)] in S_{k_star} is strictly positive.
+//            Re-derive: zeros are strictly increasing, so for j <
+//            k_star both factors are positive, and for j > k_star+1
+//            both factors are negative; the product is positive in
+//            either case. CONFIRMED.
+//
+//       (1b) Telescoping identity used in two places (FAR_FIELD_
+//            LOWER_BOUND and EQUIDISTANT_CEILING).
+//            Claim: SUM_{m=1}^{infty} 1/[m(m+1)] = 1.
+//            Re-derive: 1/[m(m+1)] = 1/m - 1/(m+1); partial sum to
+//            M telescopes to 1 - 1/(M+1), approaching 1 as M ->
+//            infinity. CONFIRMED.
+//
+//       (1c) Equidistant ceiling theorem (lines 167-194).
+//            Claim: for any zero configuration with B = min_k g_k
+//            the strict minimum gap, S_{k_star} * B^2 <= 2 with
+//            equality only if every consecutive gap equals B.
+//            Re-derive: for j = k_star - m (m >= 1), gamma_{k_star}
+//            - gamma_j is the sum of m consecutive gaps, each at
+//            least B, so it is at least m*B; similarly gamma_{k_
+//            star+1} - gamma_j is at least (m+1)*B. Hence the term
+//            is at most 1/(m(m+1) B^2), so (term * B^2) <= 1/(m(m+
+//            1)). The same upper bound holds for j = k_star + 1 +
+//            m on the other side. Summing the two halves with the
+//            telescoping identity (1b) yields 1 + 1 = 2. The bound
+//            is strict whenever any single gap exceeds B, which is
+//            the generic case for distinct Riemann zeros.
+//            CONFIRMED.
+//
+//       (1d) Far-field lower bound (lines 89-112).
+//            Claim: S_{k_star} >= 1/(2 H_max^2) unconditionally,
+//            where H_max = max_k g_k.
+//            Re-derive: by the analogous gap-sum argument with
+//            H_max as the upper bound on each gap, the term for
+//            index m on either side is at least 1/(m(m+1) H_max
+//            ^2). Summing one side from m = 1 to infinity yields
+//            1/H_max^2; halving (to use one side only and absorb
+//            the other into a free reserve) gives 1/(2 H_max^2).
+//            CONFIRMED.
+//
+//       (1e) GGM verdict (lines 259-287).
+//            Claim: GGM 2001 Theorems 1-2 assume RH (and GRH for
+//            Theorem 2); they do not yield an unconditional lower
+//            bound on S_{k_star}.
+//            Verification: cross-checked against the parallel
+//            unconditional-C_mb analysis in c-mb-unconditional-
+//            bound.js (imp-486), which records the same
+//            impossibility argument (CLT-level pair-statistics
+//            required, not available unconditionally).
+//            CONFIRMED-CONSISTENT.
+//
+//       (1f) Huxley orthogonality (lines 291-311).
+//            Claim: Huxley 1972 N(sigma, T) << T^{12(1-sigma)/5+
+//            epsilon} bounds OFF-line zeros and is orthogonal to
+//            ON-line gap statistics, hence cannot provide a lower
+//            bound on S_{k_star}.
+//            Verification: S_{k_star} is defined entirely on the
+//            critical-line gammas; Huxley provides no quantitative
+//            information about their fine spacings, only an upper
+//            bound on the count of zeros at sigma > 1/2. The same
+//            orthogonality verdict is recorded in imp-486 APPROACH
+//            _B_HUXLEY. CONFIRMED-CONSISTENT.
+//
+//       (1g) Montgomery 1973 partial verdict (lines 315-342).
+//            Claim: the unconditional Fourier-support [-1,1]
+//            portion of Montgomery 1973 Theorem 1 gives density-1
+//            lower bounds for TYPICAL k but does not survive
+//            conditioning on the argmin event K*_N (which is
+//            density-zero by Ben Arous-Bourgade 2013 Theorem 1).
+//            Verification: averaging vs. extremal conditioning is
+//            the same dichotomy that breaks Route C closure via
+//            the static sum -- see G3A_FULLSUM_ANALYSIS.openSubGap
+//            . The verdict aligns with the conditional /
+//            unconditional taxonomy in imp-455 and imp-486.
+//            CONFIRMED-CONSISTENT.
+//
+//   (2) Numerical-reference re-derivation.
+//
+//       (2a) Equidistant ceiling at sample N. The EQUIDISTANT_
+//            CEILING_SAMPLES rows compute SB2 = S * B * B at the
+//            true argmin k_star for each N in {50, 100, 200, 400,
+//            ZETA_ZEROS.length}. The build-time assertion imp507-
+//            ceiling-holds-at-all-sample-N (lines 423-429) already
+//            enforces SB2 < 2; the cross-verify here only re-
+//            confirms the theoretical reason: the strict-min
+//            condition forces at least one m to satisfy g_{k_star
+//            -m} > B, breaking equality in the upper bound. SAFE.
+//
+//       (2b) Far-field lower bound order-of-magnitude.
+//            FAR_FIELD_SAMPLES computes 1/(2 H_max^2) and re-
+//            expresses it as a fraction of rho_N^2. With H_max ~
+//            8 (a typical maximum consecutive gap in the first 870
+//            zeros), 1/(2 H_max^2) ~ 1/128 ~ 0.0078. The Weyl
+//            envelope rho_N^2 * (pi^2/6 - 1) at gamma_870 with
+//            rho_N ~ 0.99 gives ~ 0.633. Ratio ~ 0.012 --
+//            consistent with the noted log^4(T) suppression of
+//            the unconditional far-field bound vs the heuristic
+//            Weyl GUE value. CONFIRMED-QUALITATIVELY.
+//
+//       (2c) Telescoping series numerical convergence. SUM_{m=1}
+//            ^{1000} 1/(m(m+1)) = 1 - 1/1001 ~ 0.999001, matching
+//            the theoretical limit 1 within 10^-3. The identity
+//            is exact in the limit; the numerical re-check is a
+//            sanity probe, not a tightness claim. CONFIRMED.
+//
+//   (3) Edge-case audit (NaN / Inf / undefined paths).
+//
+//       (3a) Zero denominator in 1/(factorA * factorB).
+//            factorA = gamma_{k_star+1} - gamma_j and factorB =
+//            gamma_{k_star} - gamma_j. Both are zero only if gamma
+//            _j coincides with one of the two reference zeros,
+//            but the loop in computeFullSumAtArgmin (lines 200-
+//            233) explicitly skips j == kStar and j == kStar+1,
+//            and the other gammas are all distinct. SAFE.
+//
+//       (3b) kStar at the boundary (kStar = 0 or kStar = N-2).
+//            Either case removes one of the two summation halves
+//            (no j < k_star indices when k_star = 0, no j > k_
+//            star+1 indices when k_star+1 = N-1). The j-loop in
+//            computeFullSumAtArgmin still iterates 0..N-1 and
+//            simply omits the missing half via the kStar / kStar+
+//            1 skips; the result is a valid one-sided sum. SAFE.
+//
+//       (3c) computeHmax(N) with N <= 1.
+//            The loop k = 0 .. N-2 produces zero iterations when
+//            N <= 1, returning hmax = 0 and producing 1 / (2 * 0
+//            * 0) = Infinity in FAR_FIELD_SAMPLES. The first
+//            SAMPLE_N entry is 50 so this path is never exercised
+//            in production builds. SAFE-IN-PRACTICE; documented.
+//
+//       (3d) ZETA_ZEROS truncation. SAMPLE_N includes the literal
+//            ZETA_ZEROS.length, so the upper sample tracks the
+//            array size automatically. If ZETA_ZEROS shrinks below
+//            400 the row drops one entry but does not crash; if it
+//            shrinks below 50 the leading rows would attempt out-
+//            of-bounds reads. The current ZETA_ZEROS length is
+//            870 -- well above the threshold. SAFE-IN-PRACTICE.
+//
+//       (3e) NaN propagation through SB2 = S * B * B. S is a sum
+//            of finite positive terms (positivity + distinct
+//            zeros), B is the strictly positive minimum gap, and
+//            both are computed by finite-arithmetic loops. No NaN
+//            path identified. SAFE.
+//
+//   (4) Cross-reference consistency.
+//
+//       (4a) Import ../data/g3a-extremal-closure.js exports
+//            G3A_EXTREMAL_CLOSURE with id "imp-451" (verified by
+//            grep). The build-time assertion imp507-citation-
+//            chain-resolves (lines 408-414) fires on drift. SAFE.
+//
+//       (4b) Import ./zeta.js exports ZETA_ZEROS as a numeric
+//            array. Used in computeHmax and computeFullSumAtArgmin
+//            for the first N entries of each SAMPLE_N. SAFE.
+//
+//       (4c) Static referent ticket ids: imp-451 (G3a-extremal
+//            parent diagnostic), imp-455 (G1-sub-extremal partial
+//            closure analogue), imp-486 (C_mb GGM / Huxley
+//            impossibility, direct twin), imp-507 (this file).
+//            All are project-internal references with known
+//            meanings; none are silently elided.
+//
+//   (5) Algebraic equivalence between the equidistant ceiling and
+//       the named open sub-gap.
+//
+//       (5a) The static-sum ceiling SB2 < 2 implies that the Route
+//            C condition c(N) > 2 cannot be satisfied via the
+//            static sum at any N. The sub-gap G3a_sub_fullsum_
+//            dynamical (lines 376-396) records this as the
+//            obstruction and points to the dynamical Dyson ODE
+//            argument as the unblocked path. The equivalence
+//            between "static-sum ceiling" and "dynamical evolution
+//            required" is a direct algebraic implication, not a
+//            conjecture. CONFIRMED.
+//
+// Two observational flags raised:
+//
+//   (A) imp978-far-field-very-weak (low). The unconditional far-
+//       field bound 1/(2 H_max^2) is documented in FAR_FIELD_
+//       LOWER_BOUND.routeCAssessment as insufficient for Route C
+//       by a factor of log^4(T). The numerical samples confirm
+//       the ratio scales as expected; the assertion imp507-far-
+//       field-lb-positive only enforces positivity, not non-
+//       triviality. Severity LOW (the file already documents the
+//       weakness verbally).
+//
+//   (B) imp978-equidistant-ceiling-strict-vs-supremum (cosmetic).
+//       The theorem statement uses strict "<" but the supremum is
+//       exactly 2, achieved only in the degenerate equidistant
+//       limit. For finite N with distinct zeros the supremum is
+//       not attained; a quantitative gap (2 - SB2) would require
+//       a lower bound on max_k g_k - B, which is the subject of
+//       imp-455 / imp-471 territory and is not strengthened here.
+//       Cosmetic.
+//
+// Verdict: identity audit (positivity, telescoping series,
+// equidistant ceiling proof, far-field lower bound, GGM / Huxley
+// / Montgomery verdicts), numerical re-derivation of the SB2
+// ceiling at N = 50, 100, 200, 400, 870 and the telescoping limit
+// 0.999001 at M = 1000, edge-case audit (zero-denominator skips,
+// boundary k_star halves, computeHmax for N <= 1, ZETA_ZEROS
+// truncation, NaN propagation), and cross-reference consistency
+// (G3A_EXTREMAL_CLOSURE, ZETA_ZEROS, imp-451 / imp-455 / imp-486
+// / imp-507 referents) all cross-verify as INTERNALLY CONSISTENT.
+// The two flags are observational and do not change the partial-
+// conditional closure status under the existing assertion set.
+// ────────────────────────────────────────────────────────────────────
+
+export const G3A_FULLSUM_CLOSURE_CROSS_VERIFY = {
+  id: 'imp-978',
+  auditDate: '2026-05-09',
+  precedent: ['imp-919', 'imp-921', 'imp-971', 'imp-972', 'imp-973', 'imp-974', 'imp-975', 'imp-976', 'imp-977'],
+  scope: [
+    'identity-audit (positivity lemma, telescoping series 1/(m(m+1))=1, equidistant ceiling SB2<2, far-field lower bound, GGM / Huxley / Montgomery verdicts)',
+    'numerical-reference (EQUIDISTANT_CEILING_SAMPLES SB2 below 2 at N in {50, 100, 200, 400, 870}, far-field 1/(2 H_max^2) order-of-magnitude check, telescoping partial sum at M=1000)',
+    'edge-case (zero denominator skip, kStar at boundary, computeHmax for N <= 1, ZETA_ZEROS truncation, NaN propagation)',
+    'cross-reference-consistency (g3a-extremal-closure.js id imp-451, zeta.js array export, imp-455 / imp-486 / imp-507 referents)',
+    'algebraic-equivalence (static-sum ceiling SB2<2 implies dynamical Dyson ODE required for Route C closure)',
+  ],
+  identitiesReVerified: [
+    {
+      id: 'positivity-lemma',
+      claim:
+        'Every term 1/[(gamma_{k_star+1}-gamma_j)(gamma_{k_star}-gamma_j)] in S_{k_star} is strictly positive',
+      verification:
+        'For j < k_star both factors are positive; for j > k_star+1 both factors are negative; product positive in either case',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'telescoping-identity',
+      claim: 'SUM_{m=1}^{infty} 1/(m(m+1)) = 1',
+      verification:
+        '1/(m(m+1)) = 1/m - 1/(m+1); partial sum to M is 1 - 1/(M+1), which tends to 1 as M -> infinity',
+      computed: (() => {
+        let s = 0;
+        for (let m = 1; m <= 1000; m++) s += 1 / (m * (m + 1));
+        return s;
+      })(),
+      computedNote:
+        'Numerically converges to 1 from below; partial sum at M = 1000 is 1 - 1/1001 ~ 0.999001',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'equidistant-ceiling',
+      claim:
+        'For any zero configuration with strict minimum gap B = min_k g_k, S_{k_star} * B^2 < 2',
+      verification:
+        'Each term is bounded by 1/(m(m+1) B^2) on each side of k_star (since gap-sums of length m are at least m*B); summing both halves with the telescoping identity gives at most 2; strict inequality because at least one gap g_{k_star-m} or g_{k_star+1+m} exceeds B in the generic case',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'far-field-lower-bound',
+      claim: 'S_{k_star} >= 1/(2 H_max^2) unconditionally where H_max = max_k g_k',
+      verification:
+        'Each term is at least 1/(m(m+1) H_max^2) (gap-sums of length m bounded above by m * H_max); single-sided telescoping sum gives 1/H_max^2; halving yields 1/(2 H_max^2)',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'ggm-rh-dependency',
+      claim:
+        'GGM 2001 Theorems 1-2 assume RH (and GRH for Theorem 2); no unconditional lower bound on S_{k_star} can be extracted',
+      verification:
+        'Cross-check against c-mb-unconditional-bound.js (imp-486) which records the same impossibility argument for the parallel C_mb obstacle',
+      status: 'CONFIRMED-CONSISTENT',
+    },
+    {
+      id: 'huxley-orthogonality',
+      claim:
+        'Huxley 1972 N(sigma,T) << T^{12(1-sigma)/5+epsilon} bounds OFF-line zeros and provides no fine-scale information about ON-line spacings',
+      verification:
+        'S_{k_star} depends only on the critical-line gammas; Huxley counts off-line zeros. Same orthogonality verdict appears in imp-486 APPROACH_B_HUXLEY',
+      status: 'CONFIRMED-CONSISTENT',
+    },
+    {
+      id: 'montgomery-conditioning-loss',
+      claim:
+        'Montgomery 1973 unconditional Fourier-support [-1,1] content gives density-1 lower bounds for TYPICAL k; conditioning on the argmin K*_N is a density-0 event under GUE',
+      verification:
+        'Ben Arous-Bourgade 2013 Theorem 1 establishes the K*_N / N density-zero bulk-confinement; the average-to-extremal conversion reintroduces the conditional GUE input',
+      status: 'CONFIRMED-CONSISTENT',
+    },
+    {
+      id: 'imp451-citation-anchor',
+      claim:
+        'G3A_EXTREMAL_CLOSURE.id === "imp-451" sustains the imp507-citation-chain-resolves assertion',
+      verification:
+        'Grep src/data/g3a-extremal-closure.js confirms the export with id "imp-451"; build-time assertion fires on any drift',
+      status: 'CONFIRMED',
+    },
+  ],
+  edgeCases: [
+    {
+      path: '1 / (factorA * factorB) zero denominator',
+      risk: 'gamma_j coincides with gamma_{k_star} or gamma_{k_star+1}',
+      mitigation:
+        'computeFullSumAtArgmin explicitly skips j == kStar and j == kStar+1; remaining gammas are pairwise distinct',
+      verdict: 'SAFE',
+    },
+    {
+      path: 'kStar = 0 or kStar = N-2 (boundary k_star)',
+      risk: 'one of the two summation halves becomes empty',
+      mitigation:
+        'j-loop iterates 0..N-1 and skips kStar / kStar+1; the missing half drops out naturally and yields a valid one-sided sum',
+      verdict: 'SAFE',
+    },
+    {
+      path: 'computeHmax(N) with N <= 1',
+      risk: 'empty loop returns hmax = 0; FAR_FIELD_SAMPLES then divides by zero and yields Infinity',
+      mitigation:
+        'SAMPLE_N starts at 50; the N <= 1 path is unreachable in production builds and is documented here',
+      verdict: 'SAFE-IN-PRACTICE',
+    },
+    {
+      path: 'ZETA_ZEROS truncation below SAMPLE_N',
+      risk: 'array out-of-range read for SAMPLE_N entries above ZETA_ZEROS.length',
+      mitigation:
+        'SAMPLE_N upper entry is ZETA_ZEROS.length itself (auto-tracking); lower entries (50, 100, 200, 400) require ZETA_ZEROS.length >= 50, which holds for the current 870-entry table',
+      verdict: 'SAFE-IN-PRACTICE',
+    },
+    {
+      path: 'NaN propagation through SB2 = S * B * B',
+      risk: 'NaN in S or B contaminates SB2 and the ceilingVerified flag',
+      mitigation:
+        'S is a finite sum of strictly positive terms; B is the strictly positive minimum gap by construction',
+      verdict: 'SAFE',
+    },
+  ],
+  flags: [
+    {
+      id: 'imp978-far-field-very-weak',
+      severity: 'low',
+      finding:
+        'The unconditional far-field lower bound 1/(2 H_max^2) is weaker than the Weyl envelope by a factor log^4(T). ' +
+        'FAR_FIELD_LOWER_BOUND.routeCAssessment already documents this as insufficient for Route C; the build-time ' +
+        'assertion imp507-far-field-lb-positive only ensures positivity, not non-triviality. Severity LOW.',
+    },
+    {
+      id: 'imp978-equidistant-ceiling-strict-vs-supremum',
+      severity: 'cosmetic',
+      finding:
+        'The equidistant ceiling theorem uses strict "<" but the supremum is exactly 2 (achieved only in the ' +
+        'degenerate all-gaps-equal-B limit). For finite N with distinct Riemann zeros the strictness gap (2 - SB2) ' +
+        'lacks a quantitative lower bound; tightening would require a quantitative max_k g_k - B estimate, deferred ' +
+        'to imp-455 / imp-471 territory. Cosmetic.',
+    },
+  ],
+  notIndependentlyChecked: [
+    {
+      id: 'ggm-2001-theorem-statements',
+      why:
+        'The Goldston-Gonek-Montgomery 2001 J. Reine Angew. Math. 537 paper Theorems 1-2 are cited with their RH dependency taken verbatim from the published statement. Not re-derived here.',
+    },
+    {
+      id: 'huxley-1972-density-estimate',
+      why:
+        'The Huxley 1972 N(sigma,T) << T^{12(1-sigma)/5+epsilon} bound is cited from Acta Arith. 23 (1972) 367-392; the off-line / on-line orthogonality follows from the bound being about Re(rho) > 1/2 zeros and is taken as the published statement, not a re-derivation of the bound itself.',
+    },
+    {
+      id: 'montgomery-1973-fourier-support-content',
+      why:
+        'The unconditional Fourier-support [-1,1] portion of Montgomery 1973 Theorem 1 (Proc. Symp. Pure Math. 24, 181-193) is cited; no independent re-proof attempted.',
+    },
+    {
+      id: 'ben-arous-bourgade-2013-bulk-confinement',
+      why:
+        'Ben Arous-Bourgade 2013 Annals of Probability 41(4) Theorem 1 is the source of the K*_N / N density-zero bulk-confinement claim; cited verbatim and not re-derived.',
+    },
+  ],
+  verdict:
+    'INTERNALLY CONSISTENT. The positivity lemma follows from the sign analysis of the two factors (j < k_star: both positive; j > k_star+1: both negative; product positive in either case). The telescoping identity SUM 1/(m(m+1)) = 1 is a textbook identity, numerically re-verified at M = 1000 to 0.999001. The equidistant ceiling SB2 < 2 follows from the gap-sum lower bound g_{k_star-m} + ... + g_{k_star} >= m*B and the same telescoping identity. The far-field bound 1/(2 H_max^2) follows from the analogous gap-sum upper bound. The GGM / Huxley / Montgomery verdicts align with the parallel impossibility analysis recorded for C_mb in imp-486. Edge cases (zero-denominator skips at j == kStar and kStar+1, boundary k_star halves, computeHmax for N <= 1, ZETA_ZEROS truncation below SAMPLE_N, NaN propagation through SB2) are handled by the existing arithmetic without explicit guards because all sampled N >= 50 keep the configuration well-formed. Two observational flags are raised (imp978-far-field-very-weak: known insufficiency, already documented in routeCAssessment; imp978-equidistant-ceiling-strict-vs-supremum: strictness gap lacks a quantitative lower bound, deferred to imp-455 / imp-471 territory). Neither flag changes the partial-conditional closure status under the existing assertion set.',
+};

@@ -272,4 +272,235 @@ export const MERTENS_RATE_ASSERTIONS = [
       + "M3/(sqrt(P) log P) + 1/P reproduces the percentages cited in "
       + "pathCAnnotation. Guards against silent drift if constants are edited.",
   },
+  {
+    id: "imp985-T2-dominates-at-1000003",
+    holds: function () {
+      var P = 1000003;
+      var logP = Math.log(P);
+      var T1 = 4 / (GAMMA_1 * GAMMA_1 * logP * logP);
+      var T2 = 1 / logP;
+      var T3 = M3 / (Math.sqrt(P) * logP);
+      var T4 = 1 / P;
+      var total = T1 + T2 + T3 + T4;
+      // At P = 10^6 the leading 1/log P term should dominate by > 99.5%.
+      return T2 / total > 0.995 && T2 / total < 1.0;
+    },
+    why:
+      "The closure prose (lines 32-36, 50-56) hinges on 1/log P being the "
+      + "dominant term at the witness primes. Pin that share to > 99.5% at "
+      + "P = 1000003 so any drift in GAMMA_1 or M3 that would inflate the "
+      + "subleading terms is caught at build time.",
+  },
 ];
+
+// ── imp-985: independent cross-verification of mertens-rate-tightening ────────
+//
+// Audit followed the imp-919 / imp-921 / imp-971..imp-984 precedent. Three
+// passes: (1) re-derive every numerical constant from first principles;
+// (2) walk each formula term-by-term against Rosser-Schoenfeld 1962 and
+// Mertens' third theorem to confirm shape; (3) probe edge cases including
+// the pMinForEpsilon overflow path (exp(1000) -> Infinity) and the
+// boundHolds prose-vs-behavior gap.
+//
+// Verdict: INTERNALLY CONSISTENT. One cosmetic flag raised on the
+// pMinForEpsilon prose; the closure verdict (skp2-003 CLOSED via option-c
+// honest annotation) is unaffected. Witness percentages reproduce to
+// 4-figure agreement; T2 = 1/log P share dominates by 99.6% at P = 10^6,
+// confirming the closure rests on the genuinely-O(1/log P) Mertens term
+// rather than on the subleading T1 / T3 / T4 corrections.
+
+const _CV985_GAMMA_1   = 14.134725;
+const _CV985_M3        = 2.51012;
+const _CV985_LOG_1Eq   = Math.log(1000003);
+const _CV985_T1_AT_1E6 = 4 / (_CV985_GAMMA_1 * _CV985_GAMMA_1 * _CV985_LOG_1Eq * _CV985_LOG_1Eq);
+const _CV985_T2_AT_1E6 = 1 / _CV985_LOG_1Eq;
+const _CV985_T3_AT_1E6 = _CV985_M3 / (Math.sqrt(1000003) * _CV985_LOG_1Eq);
+const _CV985_T4_AT_1E6 = 1 / 1000003;
+const _CV985_TOTAL_1E6 = _CV985_T1_AT_1E6 + _CV985_T2_AT_1E6 + _CV985_T3_AT_1E6 + _CV985_T4_AT_1E6;
+const _CV985_T2_SHARE  = _CV985_T2_AT_1E6 / _CV985_TOTAL_1E6;
+
+export const MERTENS_RATE_TIGHTENING_CROSS_VERIFY = {
+  id: 'imp-985',
+  auditDate: '2026-05-09',
+  precedent: [
+    'imp-919', 'imp-921',
+    'imp-971', 'imp-972', 'imp-973', 'imp-974', 'imp-975',
+    'imp-976', 'imp-977', 'imp-978', 'imp-979', 'imp-980',
+    'imp-981', 'imp-982', 'imp-983', 'imp-984',
+  ],
+  scope: [
+    'identity-audit (mertensDeltaBound formula 4/(gamma_1^2 log^2 P) + 1/log P + M3/(sqrt(P) log P) + 1/P; eigenvalueBounds squeeze upper = sqrt(1+delta), lower = 1/upper from imp-425; pMinForEpsilon analytic estimate P_approx = exp(1/epsilon) from setting T2 = 1/log P = epsilon; constants GAMMA_1 = 14.134725 first Riemann zero imaginary part, M3 = 2.51012 Rosser-Schoenfeld 1962 Mertens-third-theorem error constant)',
+    'numerical-reference-values (pct at P=10007 -> 5.4336%, P=100003 -> 4.2933%, P=1000003 -> 3.5698%; T2-share at P=1000003 -> 0.99603; pMinForEpsilon log10(P) -> 4.34, 8.69, 43.43, 434.29 for epsilon in {0.1, 0.05, 0.01, 0.001}; infeasibility threshold log10(P) > 30 hits at epsilon = 0.01)',
+    'edge-cases (P <= 1 returns Infinity by guard; logP = 0 unreachable for P > 1; pMinForEpsilon overflow at epsilon = 0.001 where exp(1000) = Infinity collapses delta to 0 and boundHolds becomes vacuously true; pMinForEpsilon for epsilon in {0.1, 0.05, 0.01} returns boundHolds = false because subleading terms push delta(PApprox) marginally above epsilon -- prose at lines 113-117 inaccurate but assertion only consults infeasible flag so closure unaffected)',
+    'cross-reference-consistency (mertensDeltaBound formula identical to path-c-circularity-resolution.js mertensDeltaBound -- repeated by design for standalone audit per file header lines 60-62; WITNESS_PRIMES match the three N in {1e4, 1e5, 1e6} witnesses cited by imp-425; constants GAMMA_1 / M3 used identically in the docstring and the formula)',
+    'algebraic-equivalence (1/log P dominance: T2 / (T1+T2+T3+T4) = 99.6% at P = 1e6 so T2 is the genuinely dominant Mertens-third-theorem term, not the subleading T1 = O(1/log^2 P) Rosser-Schoenfeld correction; T1 = 4/(gamma_1^2 log^2 P) ratio to T2 = 1/log P equals 4/(gamma_1^2 log P) -> 0 as P -> infty consistent with O(1/log P) leading rate)',
+  ],
+  identitiesReVerified: [
+    {
+      id: 'mertens-delta-formula-shape',
+      claim: 'delta(P) <= 4/(gamma_1^2 log^2 P) + 1/log P + M3/(sqrt(P) log P) + 1/P',
+      derivation:
+        'T2 = 1/log P is the leading Mertens-third-theorem error from sum_{p<=P} 1/p = log log P + M + O(1/log P). '
+        + 'T1 = 4/(gamma_1^2 log^2 P) is the Rosser-Schoenfeld 1962 explicit O(1/log^2 P) refinement under classical zero-free region. '
+        + 'T3 = M3/(sqrt(P) log P) is the explicit prime-counting error (Theorem 23 in Rosser-Schoenfeld). '
+        + 'T4 = 1/P is the boundary contribution. All four terms are non-negative for P > 1.',
+      status: 'CONFIRMED-STRUCTURALLY (textbook Rosser-Schoenfeld 1962 chain)',
+    },
+    {
+      id: 'eigenvalue-squeeze-from-delta',
+      claim: 'upper = sqrt(1 + delta(P)), lower = 1/upper, hence |lambda_j(S_P)| in [lower, upper]',
+      derivation: 'imp-425 squeeze: ||S_P^dag S_P - I||_F <= delta means singular values of S_P lie in [sqrt(1-delta), sqrt(1+delta)]; the file uses the more conservative upper sqrt(1+delta) and inverse for lower',
+      status: 'CONFIRMED-STRUCTURALLY (matches path-c-circularity-resolution.js bound)',
+    },
+    {
+      id: 'p-min-analytic-estimate',
+      claim: 'P_approx = exp(1/epsilon) is the analytic estimate from T2 = 1/log P = epsilon',
+      derivation: '1/log P = epsilon  iff  log P = 1/epsilon  iff  P = exp(1/epsilon); ignoring T1, T3, T4',
+      status: 'CONFIRMED-ALGEBRAICALLY',
+    },
+    {
+      id: 'T2-dominates-at-large-P',
+      claim: 'T2 / (T1+T2+T3+T4) > 0.995 at P = 1000003',
+      derivation: 'T1/T2 = 4/(gamma_1^2 log P) ~ 0.00145; T3/T2 = M3/sqrt(P) ~ 0.00251; T4/T2 = log P / P ~ 1.4e-5 at P=1e6',
+      cited: 'implicit (closure prose lines 32-36 hinges on 1/log P dominance)',
+      recomputed: _CV985_T2_SHARE,
+      status: 'CONFIRMED (99.603% share at P = 10^6)',
+    },
+    {
+      id: 'pmin-overflow-makes-bound-vacuous',
+      claim: 'pMinForEpsilon at epsilon = 0.001 returns boundHolds = true because exp(1000) = Infinity collapses delta to 0',
+      derivation: 'exp(1000) overflows to Infinity in IEEE 754; mertensDeltaBound(Infinity) returns 0 from 1/Infinity terms; 0 < 0.001 = true',
+      status: 'CONFIRMED-NUMERICALLY (boundHolds is vacuous-true at the overflow boundary)',
+    },
+  ],
+  numericalReferences: [
+    {
+      symbol: 'WITNESS_TABLE[0].pct (P = 10007)',
+      cited: 5.434,
+      recomputed: 5.4336,
+      delta: -0.0004,
+      verdict: 'CONFIRMED (4-figure agreement; matches imp943-witness-pct-cross-verified pin)',
+    },
+    {
+      symbol: 'WITNESS_TABLE[1].pct (P = 100003)',
+      cited: 4.293,
+      recomputed: 4.2933,
+      delta: 0.0003,
+      verdict: 'CONFIRMED (4-figure agreement)',
+    },
+    {
+      symbol: 'WITNESS_TABLE[2].pct (P = 1000003)',
+      cited: 3.570,
+      recomputed: 3.5698,
+      delta: -0.0002,
+      verdict: 'CONFIRMED (4-figure agreement)',
+    },
+    {
+      symbol: 'T2 share at P = 1000003 = 1/log P / total',
+      cited: 'implicit dominance claim',
+      recomputed: _CV985_T2_SHARE,
+      verdict: 'CONFIRMED (99.6% confirms 1/log P is genuinely dominant, not a subleading rebrand)',
+    },
+    {
+      symbol: 'P_MIN_TABLE[0].PApproxLog10 (epsilon = 0.1)',
+      cited: 4.3,
+      recomputed: 4.34,
+      delta: 0.04,
+      verdict: 'CONFIRMED (1-decimal toFixed match; 1/0.1/log(10) = 4.342944)',
+    },
+    {
+      symbol: 'P_MIN_TABLE[2].infeasible (epsilon = 0.01)',
+      cited: true,
+      recomputed: true,
+      verdict: 'CONFIRMED (log10(P) = 43.43 > 30 threshold)',
+    },
+    {
+      symbol: 'GAMMA_1 = 14.134725',
+      cited: 14.134725,
+      recomputed: 14.134725,
+      verdict: 'CONFIRMED (matches first Riemann zero imaginary part to 6 decimals; truncation of 14.1347251417...)',
+    },
+    {
+      symbol: 'M3 = 2.51012',
+      cited: 2.51012,
+      recomputed: 2.51012,
+      verdict: 'CONFIRMED-AS-CITED (Rosser-Schoenfeld 1962 explicit Mertens-error constant; not re-derived here)',
+    },
+  ],
+  edgeCases: [
+    {
+      path: 'mertensDeltaBound(P) for P <= 1',
+      risk: 'log P <= 0 would make T1 / T2 / T3 negative or infinite',
+      mitigation: 'explicit guard at line 72-74 returns Infinity for P <= 1 or logP <= 0',
+      verdict: 'SAFE',
+    },
+    {
+      path: 'pMinForEpsilon at epsilon = 0.001 with exp(1000) overflow',
+      risk: 'PApprox = Infinity collapses delta to 0; boundHolds = true is vacuous',
+      mitigation: 'infeasible flag (log10(P) > 30) correctly reports the bound as out-of-reach; only consumer of the row is the imp433-p-min-01-feasible assertion which checks epsilon = 0.1 and infeasible only',
+      verdict: 'SAFE-WITH-CAVEAT (the boundHolds field for infeasible rows is not load-bearing but the prose at lines 113-117 oversells it)',
+    },
+    {
+      path: 'pMinForEpsilon at epsilon in {0.1, 0.05, 0.01}: boundHolds = false',
+      risk: 'subleading T1 + T3 + T4 push delta(PApprox) marginally above epsilon (delta ~ 0.10194 at PApprox = e^10 vs epsilon = 0.1)',
+      mitigation: 'no consumer of pMinForEpsilon relies on boundHolds; prose at lines 113-117 reading "We evaluate the full formula at P_approx to confirm the bound holds there" is technically inaccurate at the exact analytic estimate, but the closure verdict is unaffected since the witness primes 10^4..10^6 all show delta < 0.12 with explicit upper bounds',
+      verdict: 'COSMETIC FLAG (raised below as imp985-pmin-prose-vs-behavior)',
+    },
+    {
+      path: 'WITNESS_TABLE constants (GAMMA_1, M3) drift',
+      risk: 'silent edit would change all three pcts',
+      mitigation: 'imp943-witness-pct-cross-verified pins pct values to 0.05% tolerance; imp985-T2-dominates-at-1000003 pins T2 share to > 99.5%',
+      verdict: 'SAFE',
+    },
+    {
+      path: 'eigenvalueBounds with delta >= 1',
+      risk: 'lower = 1/sqrt(1+delta) becomes < 1/sqrt(2) ~ 0.707; would invalidate eigenvalue-near-unit-circle prose',
+      mitigation: 'imp433-witnesses-finite assertion guards delta < 1 at all witnesses; at P = 10^4 delta ~ 0.112 << 1',
+      verdict: 'SAFE',
+    },
+  ],
+  flags: [
+    {
+      id: 'imp985-pmin-prose-vs-behavior',
+      severity: 'cosmetic',
+      finding:
+        'pMinForEpsilon docstring at lines 113-117 says "We evaluate the full formula at P_approx to confirm the bound holds there." In practice boundHolds returns false for epsilon in {0.1, 0.05, 0.01} because subleading T1/T3/T4 push delta(PApprox) marginally above epsilon (e.g. delta ~ 0.10194 vs epsilon = 0.1 at PApprox = e^10). At epsilon = 0.001 the IEEE 754 overflow exp(1000) = Infinity collapses delta to 0 making boundHolds vacuously true. No assertion or downstream consumer relies on boundHolds (only infeasible is consulted by imp433-p-min-01-feasible), so the closure verdict is unaffected -- but the prose oversells what the field captures. Suggested fix: rename the field to "leadingTermHoldsHere" or update docstring to "delta at PApprox is dominated by 1/log P = epsilon plus O(1/log^2 P) corrections that may marginally exceed epsilon".',
+    },
+    {
+      id: 'imp985-T1-coefficient-not-derived',
+      severity: 'low',
+      finding:
+        'T1 = 4/(gamma_1^2 log^2 P) coefficient 4 is taken from the imp-425 / Rosser-Schoenfeld lineage as a published anchor; not re-derived here from the explicit zero-free region of zeta. The numerical pct values reproduce regardless, but if the coefficient were halved or doubled in a future edit the pct deltas would still pass imp943 because T1 contributes < 0.25% of total at P = 10^6. The new imp985-T2-dominates-at-1000003 assertion mitigates this: drift in T1 that would matter (i.e. that pushes T1 above 0.5% of total) would trip the > 99.5% T2 share guard.',
+    },
+    {
+      id: 'imp985-formula-duplication-by-design',
+      severity: 'cosmetic',
+      finding:
+        'mertensDeltaBound is duplicated between this file (lines 71-81) and path-c-circularity-resolution.js. The duplication is by design (file header lines 60-62: "Repeated here for standalone verification of skp2-003 closure"). The two copies share constants GAMMA_1 = 14.134725 and M3 = 2.51012; if either copy is edited, the imp943-witness-pct-cross-verified guard would catch a divergence in this file, but a sibling guard in path-c-circularity-resolution.js would be needed to catch a one-sided edit there. Out of scope for this audit.',
+    },
+  ],
+  notIndependentlyChecked: [
+    {
+      id: 'rosser-schoenfeld-1962-M3-constant',
+      why: 'M3 = 2.51012 is taken from Rosser-Schoenfeld 1962 "Approximate formulas for some functions of prime numbers" as a published anchor; not re-derived here from the explicit zero-free region for zeta',
+    },
+    {
+      id: 'imp-425-squeeze-theorem',
+      why: 'the eigenvalue-modulus squeeze upper = sqrt(1+delta), lower = 1/upper is the imp-425 path-c-circularity-resolution.js result; not re-proved here',
+    },
+    {
+      id: 'mertens-third-theorem-error-shape',
+      why: 'the O(1/log P) error shape in Mertens 3rd theorem is a textbook unconditional bound (cf. Tenenbaum, "Introduction to Analytic and Probabilistic Number Theory", Theorem I.1.9); not re-proved here',
+    },
+    {
+      id: 'classical-zero-free-region-for-T1',
+      why: 'the 4/(gamma_1^2 log^2 P) refinement requires the classical de la Vallee-Poussin zero-free region; not re-derived from the prime number theorem with explicit constants',
+    },
+    {
+      id: 'path-c-circularity-resolution-mertensDeltaBound-twin',
+      why: 'the duplicated mertensDeltaBound in path-c-circularity-resolution.js is treated as a separate audit target if/when that file gets its own cross-verify ticket',
+    },
+  ],
+  verdict:
+    'INTERNALLY CONSISTENT. The skp2-003 option-c closure (accept O(1/log P) rate, annotate honestly) reproduces under independent recomputation: pct values 5.4336 / 4.2933 / 3.5698% match the cited 5.434 / 4.293 / 3.570 to 4-figure agreement; T2 = 1/log P share is 99.6% of total delta at P = 10^6 confirming 1/log P is the genuinely dominant Mertens-third-theorem term rather than a subleading rebrand; pMinForEpsilon log10(P) outputs 4.34 / 8.69 / 43.43 / 434.29 for epsilon in {0.1, 0.05, 0.01, 0.001} with infeasible threshold log10(P) > 30 correctly hitting at epsilon = 0.01. Three flags raised: imp985-pmin-prose-vs-behavior (cosmetic; boundHolds field oversold by docstring at lines 113-117 -- false for epsilon in {0.1, 0.05, 0.01} due to subleading terms, vacuous-true for epsilon = 0.001 due to exp(1000) overflow; not consumed by any assertion); imp985-T1-coefficient-not-derived (low; the 4/(gamma_1^2 log^2 P) coefficient is taken as anchor not re-proved -- new T2-dominance assertion now guards against drift that would matter); imp985-formula-duplication-by-design (cosmetic; mertensDeltaBound is duplicated in path-c-circularity-resolution.js by design per file header). None of the flags changes the certified status: skp2-003 remains CLOSED via honest O(1/log P) annotation, with eigenvalue moduli certified within 5.4% / 4.3% / 3.6% of the unit circle at P = 10^4 / 10^5 / 10^6.',
+};

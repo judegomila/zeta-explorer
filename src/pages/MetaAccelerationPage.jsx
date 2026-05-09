@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SESSIONS } from '../data/sessions.js';
-import { IMPROVEMENT_QUEUE } from '../data/improvement-queue.js';
-import { improvements } from '../data/improvements.js';
 import { LAMBDA_INTERCEPT_UNCONDITIONAL } from '../data/lambda-intercept-unconditional.js';
+// imp-1013: improvement-queue.js (~1.8 MB) and improvements.js (~3.3 MB) are
+// dynamic-imported below so opening this page does not block on a 5 MB chunk
+// download. Both files are also dynamic-imported by their primary pages
+// (ImprovementQueuePage, ImprovementsPage), so no static import remains.
 
 // Meta Acceleration — engine status dashboard + Λ attack progress snapshot.
 // This page is the read interface over:
@@ -182,9 +184,31 @@ const newChip = statusChip('rgba(234,179,8,0.12)', '#facc15', 'rgba(234,179,8,0.
 // ── The page ───────────────────────────────────────────────────────────────
 
 export default function MetaAccelerationPage() {
-  const qSummary = summarizeQueue(IMPROVEMENT_QUEUE);
-  const recentProof = recentProofImprovements(improvements, 8);
-  const metas = metaTickets(IMPROVEMENT_QUEUE);
+  const [improvementQueue, setImprovementQueue] = useState(null);
+  const [improvementsList, setImprovementsList] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all([
+      import('../data/improvement-queue.js'),
+      import('../data/improvements.js'),
+    ]).then(([qMod, iMod]) => {
+      if (cancelled) return;
+      setImprovementQueue(qMod.IMPROVEMENT_QUEUE);
+      setImprovementsList(iMod.improvements);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const dataReady = improvementQueue !== null && improvementsList !== null;
+  const qSummary = dataReady
+    ? summarizeQueue(improvementQueue)
+    : { byStatus: {}, byPriorityPending: {}, critPendingIds: [], total: 0 };
+  const recentProof = dataReady ? recentProofImprovements(improvementsList, 8) : [];
+  const metas = dataReady ? metaTickets(improvementQueue) : [];
+  const improvementsCount = dataReady ? improvementsList.length : 0;
   const latestSession = SESSIONS[SESSIONS.length - 1];
   const routes = LAMBDA_INTERCEPT_UNCONDITIONAL.routes;
   const strongestClaim = LAMBDA_INTERCEPT_UNCONDITIONAL.currentStrongestUnconditional;
@@ -279,7 +303,7 @@ export default function MetaAccelerationPage() {
 
         <div className="card" style={cardBaseLeft('#06b6d4')}>
           <div style={cardLabel}>Improvements shipped</div>
-          <div style={cardBig}>{improvements.length}</div>
+          <div style={cardBig}>{dataReady ? improvementsCount : '…'}</div>
           <div style={cardSub}>commits via auto-improve engine</div>
           <Link
             to="/improvements"

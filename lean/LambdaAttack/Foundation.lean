@@ -122,3 +122,33 @@ axiom KoksmaHlawkaLimSup :
     Filter.Tendsto (fun N : ℕ => |dysonCollTime N|) Filter.atTop (nhds 0)
 
 end
+
+/-! ## Open sorrys in this file (imp-1006 audit 2026-05-08)
+
+    Foundation.lean has ZERO open sorrys. `grep -n sorry` returns 3 matches but
+    EVERY one is inside a Lean comment (line 19 in the module-header `--` block,
+    lines 119-120 inside the KoksmaHlawkaLimSup doc-block /-- .. -/) — there are
+    ZERO sorry tokens in tactic position.
+
+    Class for imp-1006 deliverable: N/A — there are no in-code sorrys to classify.
+    The substantive content is foundational: 9 axiom declarations (deBruijnNewmann,
+    gammaOrdinate, gammaOrdinate_pos, gammaOrdinate_ge_exp2, dysonCollTime,
+    dysonCollTime_nonpos, gammaOrdinate_tendsto_atTop,
+    gammaOrdinate_log_div_N_tendsto_zero, KoksmaHlawkaLimSup) plus 2 lemmas
+    proved by `norm_num` (BRIDGE_kappa_T_pos, BRIDGE_C_G_pos). Axioms are
+    intentional foundational declarations — they parameterise the Lean module
+    over de Bruijn-Newman / Riemann-zero / Dyson-flow facts that the JS-side
+    proof and the broader literature establish; they are NOT sorrys awaiting
+    proof inside Lean.
+
+    Resolution: ticket flipped to completed (audit-only). Transitive proof
+    obligations for the axioms live in companion artifacts:
+      - KoksmaHlawkaLimSup -> imp-403 (Selberg S(T) bound + Whitham fold
+        Holder-1/2 modulus; src/math/lean4-koksma-hlawka.js).
+      - gammaOrdinate axioms -> Riemann-von Mangoldt (Mathlib gap; awaits
+        port of zeta-zero-counting machinery to Mathlib 4.x).
+      - dysonCollTime_nonpos -> imp-341 (backward-collision time sign).
+      - deBruijnNewmann existence -> Newman 1976 / Rodgers-Tao 2020.
+    Each transitive gap is tracked under its own ticket; none belong inside
+    Foundation.lean itself. -/
+

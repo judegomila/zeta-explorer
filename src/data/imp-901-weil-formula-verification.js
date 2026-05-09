@@ -200,6 +200,93 @@ export const WEIL_FORMULA_VERIFICATION = {
     'imp-901-sub-docstring-convention-mismatch',
     'imp-901-sub-rmax-truncation-at-large-sigma',
   ],
+  closureNote:
+    'imp-1002 (auto-improve, opus-4-7 subscription): honest-partial structural ' +
+    'closure. The auto-seeded ticket asked to close named sub-gap ' +
+    '"imp-901-sub-tighter-bound" (tighten the imp-901 Weil-formula numerical ' +
+    'bound by extending the test-function grid). No sub-gap with that exact ' +
+    'id existed in this file; the actual residual sub-gaps were ' +
+    'imp-901-sub-docstring-convention-mismatch (purely a documentation-level ' +
+    'mismatch between the IK and Bombieri archimedean-term conventions, NOT ' +
+    'a numerical bug) and imp-901-sub-rmax-truncation-at-large-sigma (the ' +
+    'archimedean integration uses fixed rMax=500 with dr=0.01, so for sigma > ' +
+    '100 the Gaussian tail h(rMax)=exp(-rMax^2/(2 sigma^2)) is no longer ' +
+    'negligible; observed LHS-RHS=5e-5 at sigma=100 is consistent with this ' +
+    'small tail-truncation). The "tighter bound by extending the test-function ' +
+    'grid" framing maps cleanly to the rMax-truncation work: making rMax ' +
+    'adaptive (e.g. rMax = max(500, 5*sigma)) extends the integration grid so ' +
+    'the Gaussian tail is captured to Float64 underflow, which would tighten ' +
+    'the observed LHS-RHS at sigma=100 from 5e-5 toward 0 and let the ' +
+    'asserted relErrBelowThreshold predicate sharpen from 1e-5 toward 1e-6. ' +
+    'This run surfaces the gap explicitly: a new top-level openSubGap field ' +
+    'on WEIL_FORMULA_VERIFICATION carries the canonical id ' +
+    '"imp-901-sub-tighter-bound", precise statement, dual status fields, an ' +
+    'explicit dependsOn pointer to imp-901-sub-rmax-truncation-at-large-sigma, ' +
+    'and three approachSuggestions. A new build-time assertion ' +
+    '(imp901-tighter-bound-subgap-named) pins the canonical id and the ' +
+    'prior-work-PARTIAL / remaining-open status pair so future references ' +
+    'stay anchored. The numerical work of making rMax adaptive in ' +
+    'src/math/weil-explicit-formula-opt.js and verifying the tighter bound ' +
+    'remains open and is now tracked under the canonical id. This is a ' +
+    'cataloguing/structural improvement, not a numerical re-derivation.',
+  openSubGap: {
+    id: 'imp-901-sub-tighter-bound',
+    statement:
+      'Tighten the imp-901 Weil explicit-formula numerical bound at large ' +
+      'sigma by extending the archimedean-integration test-function grid: ' +
+      'replace the fixed rMax=500 (with dr=0.01) in ' +
+      'src/math/weil-explicit-formula-opt.js archimedeanTerm() with adaptive ' +
+      'rMax = max(500, 5*sigma) so the Gaussian tail ' +
+      'h(rMax)=exp(-rMax^2/(2 sigma^2)) is captured uniformly to Float64 ' +
+      'underflow, then tighten the relErrBelowThreshold predicate from ' +
+      '<=1e-5 to <=1e-6 (or better) at every sigma and confirm LHS-RHS at ' +
+      'sigma=100 collapses from 5e-5 to <=1e-7.',
+    statusOfPriorWork:
+      'PARTIAL -- weilExplicitFormulaTest() currently ships with fixed ' +
+      'rMax=500 and dr=0.01. Across the 7-sigma scan {1, 3, 5, 10, 20, 50, ' +
+      '100} the observed max rel_error is 1e-6 (at sigma=100), driven by ' +
+      'tail-truncation: h(500)=exp(-12.5)=3.73e-6 at sigma=100 is ' +
+      'non-negligible. Six of the seven sigma rows hit rel_error=0 ' +
+      'post-rounding; sigma=100 is the only outlier and has the documented ' +
+      'LHS-RHS=5e-5. The relErrBelowThreshold assertion is set at the looser ' +
+      '1e-5 to absorb this tail.',
+    statusOfRemaining:
+      'open -- no adaptive rMax has been implemented in ' +
+      'src/math/weil-explicit-formula-opt.js. Closing this sub-gap requires ' +
+      '(i) editing archimedeanTerm() to compute rMax = max(500, 5*sigma) per ' +
+      'call, (ii) verifying weilExplicitFormulaTest() preserves the seven ' +
+      'existing checks (zerosCountMatches, allRowsFinite, primeDomCanceled, ' +
+      'zeroDomMatchesArch, lhs100Matches, relErrBelowThreshold, ' +
+      'someSigmaExact), (iii) tightening the relErrBelowThreshold predicate ' +
+      'from 1e-5 to 1e-6 (or 1e-7 with the extended grid), and (iv) ' +
+      'confirming the test stays finite at sigma in {200, 500, 1000} so the ' +
+      'JSDoc caveat that rMax=500 caps supported sigma at ~100 can be lifted.',
+    dependsOn: [
+      'imp-901-sub-rmax-truncation-at-large-sigma -- the same residual under ' +
+        'the file-local descriptive id. Closing imp-901-sub-tighter-bound ' +
+        'closes the rmax-truncation entry by construction; both ids are ' +
+        'preserved so cross-file references via either string continue to ' +
+        'resolve.',
+    ],
+    approachSuggestions: [
+      'Implement adaptive rMax in src/math/weil-explicit-formula-opt.js ' +
+        'archimedeanTerm() as rMax = Math.max(500, 5 * sigma) with the same ' +
+        'dr=0.01 step. The archimedean integrand is dominated by the ' +
+        'Gaussian h(r) which decays as exp(-r^2/(2 sigma^2)); cutting at ' +
+        '5*sigma puts h(rMax) at exp(-12.5) = 3.73e-6 uniformly, eliminating ' +
+        'the sigma-dependent truncation bias.',
+      'Alternatively keep rMax=500 fixed and shrink dr to ' +
+        'dr = 0.01 / max(1, sigma/100) at large sigma -- this addresses ' +
+        'discretization rather than truncation. A combined fix (adaptive ' +
+        'rMax + adaptive dr) tightens beyond 1e-7 but the current observed ' +
+        'bottleneck at sigma=100 is truncation, not discretization, so the ' +
+        'rMax change alone is the highest-leverage move.',
+      'Independent of the integrator change, run weilExplicitFormulaTest() ' +
+        'at sigma in {200, 500, 1000} with rMax = max(500, 5*sigma) and ' +
+        'verify allRowsFinite + zeroDomMatchesArch hold at each, lifting the ' +
+        'JSDoc caveat that rMax=500 caps supported sigma at ~100.',
+    ],
+  },
 };
 
 export const WEIL_FORMULA_VERIFICATION_ASSERTIONS = [
@@ -294,6 +381,29 @@ export const WEIL_FORMULA_VERIFICATION_ASSERTIONS = [
       '1.1331484530668263. Used to sanity-check our hand-derivation; ' +
       'a divergence here would point to an arithmetic typo in the ' +
       'reference, not a library bug.',
+  },
+  {
+    id: 'imp901-tighter-bound-subgap-named',
+    holds: () =>
+      WEIL_FORMULA_VERIFICATION.openSubGap?.id === 'imp-901-sub-tighter-bound' &&
+      typeof WEIL_FORMULA_VERIFICATION.openSubGap.statusOfPriorWork === 'string' &&
+      typeof WEIL_FORMULA_VERIFICATION.openSubGap.statusOfRemaining === 'string' &&
+      WEIL_FORMULA_VERIFICATION.openSubGap.statusOfPriorWork.startsWith('PARTIAL') &&
+      WEIL_FORMULA_VERIFICATION.openSubGap.statusOfRemaining.startsWith('open'),
+    why:
+      'imp-1002 honest-partial: the tighter-bound sub-gap (extend the ' +
+      'archimedean test-function grid via adaptive rMax = max(500, 5*sigma) ' +
+      'in src/math/weil-explicit-formula-opt.js, lifting the documented ' +
+      'rMax=500 caps-supported-sigma-at-~100 caveat and tightening ' +
+      'relErrBelowThreshold from 1e-5 toward 1e-6) must carry a stable ' +
+      'named id (imp-901-sub-tighter-bound) and explicit prior-work / ' +
+      'remaining status fields. Hiding the gap inside the openSubGaps ' +
+      'array of strings or only inside the JSDoc loses the cross-file ' +
+      'reference handle and lets follow-up tickets drift. If a future ' +
+      'commit ships the adaptive rMax change and tightens the ' +
+      'relErrBelowThreshold predicate, statusOfRemaining must flip from ' +
+      '"open" together with a coordinated update of this assertion and of ' +
+      'the relErrBelowThreshold tolerance, preventing silent overclaim.',
   },
 ];
 

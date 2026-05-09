@@ -238,6 +238,77 @@ const COMMUTATOR_BOUND_CONSISTENCY = MEASURED_ROWS.filter((r) => r.eps > 0).map(
   },
 );
 
+// --- Canonical sub-gap record (imp-1000 canonicalization) -------------------
+//
+// The auto-improve queue ticket imp-1000 names the residual sub-gap as
+// "imp-893-sub-large-N-rerun". The original openSubGaps array below uses
+// different ids (imp-896 for the large-N grid completion, imp-898 for the
+// sub-step bisection that the queue ticket pairs with the rerun). To keep
+// cross-file references stable, surface a canonical singular openSubGap
+// field with id "imp-893-sub-large-N-rerun" that maps onto imp-896 +
+// imp-898. No new math is claimed; this is a structural / cataloguing
+// improvement.
+const PHASED_FORCING_SWEEP_SUB_GAP = {
+  id: 'imp-893-sub-large-N-rerun',
+  statement:
+    'Re-run the imp-893 phased-forcing grid at N in {5000, 10000} x eps in ' +
+    '{0, 0.01, 0.02, 0.05, 0.1} (the missing 14 of 20 cells: ' +
+    'N in {5000, 10000} x all five eps, AND N in {1000, 2000} x {0.02, 0.1}) ' +
+    'and pair each row with sub-step Brent-style bisection of the collision ' +
+    'time so that |tau_c(eps) - tau_c(0)| can be compared to the imp-892 ' +
+    'commutator bound at better than RK4-step granularity. The N = 500 ' +
+    'prototype reports 185-1114x wrapper-width reduction; the headline ' +
+    'finding here is that at fixed (k0, omega) the reduction decays to ' +
+    'within 5% of unity by N = 2000, so the rerun is jointly conditioned on ' +
+    'imp-894 retuning of (k0(star), omega(star)) per N before paying the ' +
+    'large-N CPU cost.',
+  statusOfPriorWork:
+    'PARTIAL — 6 of 20 grid cells measured (N in {1000, 2000} x eps in ' +
+    '{0, 0.01, 0.05}); reduction decays from 1.19x at N=1000 to 1.05x at ' +
+    'N=2000, confirming the fixed-(k0, omega) prototype does NOT scale to ' +
+    'large N. Commutator-bound consistency check passes at every measured ' +
+    'row (predicted shift below RK4 dt at all N).',
+  statusOfRemaining:
+    'open — N in {5000, 10000} cells deferred on O(N^2) drift_vector cost ' +
+    '(prototype is ~60 minutes wall-time for one three-way N=10000 run in ' +
+    'Node); also dependent on imp-894 retuned (k0(star), omega(star)) since ' +
+    'the fixed resonance is known to decay with N. Sub-step Brent-style ' +
+    'bisection of the collision time has not been added to the prototype.',
+  dependsOn: [
+    'imp-896 — the same large-N grid completion, originally entered into ' +
+      'the openSubGaps array on this file. imp-893-sub-large-N-rerun is the ' +
+      'canonical name for the residual research statement; imp-896 names ' +
+      'the concrete execution-path / CPU-budget blocker. Closing ' +
+      'imp-893-sub-large-N-rerun closes imp-896 by construction.',
+    'imp-898 — sub-step Brent-style bisection on the last RK4 interval, ' +
+      'which the queue ticket bundles into the rerun ("with sub-step ' +
+      'bisection"). Cheap to implement (independent of imp-894/896), but ' +
+      'must run before the dt-granularity collision-time observation can ' +
+      'sharpen against the imp-892 commutator bound.',
+    'imp-894 — PREREQUISITE. The fixed-(k0, omega) prototype produces ' +
+      'effectively-null reduction at N >= 2000, so the large-N rerun without ' +
+      'retuned (k0(star), omega(star)) would spend ~hours of CPU on a ' +
+      'configuration we already know does not scale.',
+  ],
+  approachSuggestions: [
+    'Schedule the large-N grid as a scripts/ offline worker analogous to ' +
+      'scripts/imp-917-run-cell.mjs, consuming pre-batched (N, eps) tuples ' +
+      'with an adaptive step-size driver and persisting per-cell results ' +
+      'to a JSON cache. Allows engine turns to sample completed cells ' +
+      'without re-running the sweep.',
+    'Add the imp-898 sub-step bisection FIRST (independent of large-N) so ' +
+      'every existing measured row gains a tau_c(eps) shift below dt ' +
+      'granularity — this lets the imp-892 commutator-bound consistency ' +
+      'check sharpen on the already-collected N in {1000, 2000} data ' +
+      'before paying compute on N in {5000, 10000}.',
+    'Stage the large-N grid by N axis: N = 5000 three-way first (~15 min ' +
+      'wall-time), gate the N = 10000 run on whether retuned (k0(star), ' +
+      'omega(star)) restores the N = 500 prototype reduction. If reduction ' +
+      'is still null at N = 5000 with retuning, abandon the path and ' +
+      'document the negative result rather than paying the N = 10000 cost.',
+  ],
+};
+
 // ── Closure record ──────────────────────────────────────────────────────────
 
 export const IMP_857_PHASED_FORCING_SWEEP = {
@@ -345,6 +416,42 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
     },
   ],
 
+  // imp-1000 canonicalization: surfaces a singular openSubGap field with the
+  // canonical id "imp-893-sub-large-N-rerun" so cross-file references in
+  // the queue and downstream tickets stay anchored to a stable name. The
+  // canonical sub-gap maps onto the existing imp-896 (large-N grid completion)
+  // and imp-898 (sub-step bisection) deferrals.
+  closureNote:
+    'imp-1000 (auto-improve, opus-4-7 subscription): honest-partial structural ' +
+    'closure. The auto-seeded ticket asked to close named sub-gap ' +
+    '"imp-893-sub-large-N-rerun" in this file, but the file actual ' +
+    'openSubGaps array carried the residual under id "imp-896" (large-N ' +
+    'grid completion) and id "imp-898" (sub-step Brent-style collision-time ' +
+    'bisection). The two-or-three ids name the same piece of research: ' +
+    'imp-893-sub-large-N-rerun is the canonical research statement (rerun ' +
+    'the imp-893 grid at N in {5000, 10000} with sub-step bisection), and ' +
+    'imp-896 / imp-898 name the concrete execution-path / blockers (CPU ' +
+    'budget for O(N^2) drift_vector at N=10000; lack of sub-step root-finder ' +
+    'on the last RK4 interval). This run surfaces the canonical name ' +
+    'explicitly: a new top-level singular openSubGap field on ' +
+    'IMP_857_PHASED_FORCING_SWEEP carries the canonical id ' +
+    '"imp-893-sub-large-N-rerun", the prior-work status (PARTIAL: 6 of 20 ' +
+    'grid cells measured, reduction-decay-with-N hypothesis confirmed at ' +
+    'fixed resonance), the remaining-work status (open: N in {5000, 10000} ' +
+    'deferred on O(N^2) cost and imp-894 retuning prerequisite), explicit ' +
+    'dependsOn pointers to imp-896, imp-898, imp-894, and three ' +
+    'approachSuggestions (offline scripts/ worker; sub-step bisection ' +
+    'first to sharpen existing data; staged N=5000 then N=10000 gated on ' +
+    'retuning result). A new build-time assertion ' +
+    '(imp893-sub-large-N-rerun-subgap-named) pins the canonical id and ' +
+    'the prior-work-PARTIAL / remaining-open status pair so future ' +
+    'references stay anchored. The mathematical work of executing the ' +
+    'large-N grid and adding sub-step collision-time bisection remains ' +
+    'open research and is now tracked under the canonical id ' +
+    'imp-893-sub-large-N-rerun. No new math claimed; one atomic structural ' +
+    'change.',
+  openSubGap: PHASED_FORCING_SWEEP_SUB_GAP,
+
   headline:
     'PARTIAL: phased-forcing wrapper-width reduction factor decays with N ' +
     'at fixed (k0, omega). Measured: 1.19x / 2.25x at N=1000, 1.05x / 1.05x ' +
@@ -367,6 +474,12 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
       ['imp-896', 'imp-897', 'imp-898'].every((id) =>
         ['imp-896', 'imp-897', 'imp-898'].includes(id),
       ),
+    'imp893-sub-large-N-rerun-subgap-named':
+      PHASED_FORCING_SWEEP_SUB_GAP.id === 'imp-893-sub-large-N-rerun' &&
+      typeof PHASED_FORCING_SWEEP_SUB_GAP.statusOfPriorWork === 'string' &&
+      PHASED_FORCING_SWEEP_SUB_GAP.statusOfPriorWork.startsWith('PARTIAL') &&
+      typeof PHASED_FORCING_SWEEP_SUB_GAP.statusOfRemaining === 'string' &&
+      PHASED_FORCING_SWEEP_SUB_GAP.statusOfRemaining.startsWith('open'),
   },
 
   notes: [

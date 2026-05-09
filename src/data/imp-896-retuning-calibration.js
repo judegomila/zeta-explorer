@@ -200,6 +200,90 @@ const MISSING_CELLS = [
 // cell to the underlying triple; a given triple covers up to 3 cells so
 // the MISSING_CELLS totals are an upper bound on the actual CPU needed).
 
+// --- Canonical sub-gap record (imp-1001 canonicalization) ------------------
+//
+// The auto-improve queue ticket imp-1001 names the residual sub-gap as
+// "imp-917-exec". The original openSubGaps array below uses id "imp-917"
+// for the same piece of research (~20 CPU-h to execute the 14 missing
+// (N, eps) cells via 6 batch-plan invocations of the offline-worker
+// scripts/imp-917-run-cell.mjs). To keep cross-file references stable,
+// surface a canonical singular openSubGap field with id "imp-917-exec"
+// that maps onto imp-917. No new math is claimed; this is a structural /
+// cataloguing improvement.
+const RETUNING_CALIBRATION_SUB_GAP = {
+  id: 'imp-917-exec',
+  statement:
+    'Execute the 14 missing (N, eps) cells of the imp-896 phased-forcing ' +
+    'grid using the RETUNING_CALIBRATION table (k0_star, phaseVel_star) per ' +
+    'N and the executionRecipe IMP857_* env vars: roughly 6 batch-plan ' +
+    'invocations of scripts/imp-917-run-cell.mjs covering N=1000 x ' +
+    '{0.02, 0.1} (1 triple), N=2000 x {0.02, 0.1} (1 triple), N=5000 x ' +
+    '{0, 0.01, 0.02, 0.05, 0.1} (2 triples), and N=10000 x ' +
+    '{0, 0.01, 0.02, 0.05, 0.1} (2 triples). Output rows append to ' +
+    'MEASURED_ROWS in src/data/imp-857-phased-forcing-sweep.js with the ' +
+    'retuned (k0_star, phaseVel_star) per N rather than the imp-893 ' +
+    'fixed-resonance corner.',
+  statusOfPriorWork:
+    'INFRASTRUCTURE-COMPLETE (imp-896 closure): per-N retuning calibration ' +
+    'CALIBRATION (minGap, meanGap, rhoMean, rhoMin, rhoMax) derived exactly ' +
+    'from the first N entries of zeros-to-1e6.js for N in {500, 1000, 2000, ' +
+    '5000, 10000}; RETUNING_CALIBRATION (k0_star=2*pi/min_gap(N), ' +
+    'phaseVel_star=pi*rho_mean(N), omega_star=k0_star*phaseVel_star) ' +
+    'computed per N and exposed via retuningTable; offline-worker ' +
+    'invocation recipe published with IMP857_EPSILONS env override so no ' +
+    'source edit is required to sweep the {0.02, 0.1} cells. Driver ' +
+    'scripts/imp-917-run-cell.mjs implemented with --plan-table, ' +
+    '--missing-cells, --batch-plan-cost, --remaining-cells progress flags.',
+  statusOfRemaining:
+    'open: 14-cell measurement execution requires ~20 CPU-hours of ' +
+    'wall-time (~13 min per N=1000 triple, ~27 min per N=2000 triple, ~85 ' +
+    'min per N=5000 triple, ~170 min per N=10000 triple) on 2024-era Apple ' +
+    'Silicon under concurrent engine load. Cannot run inside an engine ' +
+    'turn; must be scheduled on an idle scripts/ offline worker. Output ' +
+    'rows must merge into src/data/imp-857-phased-forcing-sweep.js ' +
+    'MEASURED_ROWS to close the imp-893 grid completion downstream.',
+  dependsOn: [
+    'imp-917 -- same 14-cell execution, originally entered into the ' +
+      'openSubGaps array on this file. imp-917-exec is the canonical name ' +
+      'for the residual research statement; imp-917 names the concrete ' +
+      'CPU-budget blocker. Closing imp-917-exec closes imp-917 by ' +
+      'construction.',
+    'imp-899 (PREREQUISITE-OPTIONAL) -- the dense (k0, phaseVel) heatmap ' +
+      'at nSteps=200. Per the notes[] field on this file, if imp-899 ' +
+      'sharpens the (k0_star, phaseVel_star) recommendation away from the ' +
+      'imp-894 minimum-viable rule, imp-917-exec should re-derive the ' +
+      'retuning at N=10000 from the imp-899 heatmap before consuming the ' +
+      'big-N CPU budget. Not strictly blocking -- the current rule is the ' +
+      'best available pre-imp-899.',
+    'imp-893-sub-large-N-rerun (DOWNSTREAM CONSUMER) -- canonical id of ' +
+      'the large-N rerun in src/data/imp-857-phased-forcing-sweep.js ' +
+      '(imp-1000 canonicalization). The imp-917-exec output rows feed ' +
+      'directly into MEASURED_ROWS to flip the rerun statusOfRemaining ' +
+      'from open to partial/closed.',
+  ],
+  approachSuggestions: [
+    'Schedule each batch as a single scripts/imp-917-run-cell.mjs ' +
+      'invocation reading IMP857_N, IMP857_NSTEPS, IMP857_DT, IMP857_K0, ' +
+      'IMP857_PHASEVEL, IMP857_EPSILONS from env. The driver already ' +
+      'persists per-cell JSON output so partially-completed batches ' +
+      'resume from the cache; engine turns sample --done-cells / ' +
+      '--remaining-cells without re-running the sweep.',
+    'Stage by N axis from cheap to expensive: N=1000 triples (~13 min ' +
+      'each) first, then N=2000 (~27 min), then N=5000 (~85 min per ' +
+      'triple), gate the N=10000 batches (~170 min per triple, ~14 hours ' +
+      'total) on whether the retuned (k0_star, phaseVel_star) restores ' +
+      'wrapper-width reduction at N=5000. If reduction is still null at ' +
+      'N=5000 with retuning, abandon the N=10000 batch and document the ' +
+      'negative result rather than paying the dominant CPU cost.',
+    'Re-probe the per-cell wall-time before committing the full budget: ' +
+      'the MISSING_CELLS estimates are derived from a single 2026-04-23 ' +
+      'probe at N=1000, nSteps=10 under concurrent engine load and may be ' +
+      'off by 2x in either direction depending on machine contention. A ' +
+      '5-minute re-probe at N=1000, nSteps=40 sharpens all four scaling ' +
+      'multipliers before the big-N runs.',
+  ],
+};
+
 // --- Closure record ---------------------------------------------------------
 
 export const IMP_896_RETUNING_CALIBRATION = {
@@ -279,6 +363,39 @@ export const IMP_896_RETUNING_CALIBRATION = {
     },
   ],
 
+  // imp-1001 canonicalization: surfaces a singular openSubGap field with the
+  // canonical id "imp-917-exec" so cross-file references in the queue and
+  // downstream tickets stay anchored to a stable name. The canonical sub-gap
+  // maps onto the existing imp-917 (CPU-budget execution) deferral.
+  closureNote:
+    'imp-1001 (auto-improve, opus-4-7 subscription): honest-partial structural ' +
+    'closure. The auto-seeded ticket asked to close named sub-gap ' +
+    '"imp-917-exec" in this file, but the file actual openSubGaps array ' +
+    'carried the residual under id "imp-917" -- the same 14-cell execution ' +
+    'work, named under the concrete CPU-budget blocker rather than under the ' +
+    'queue ticket canonical id. This run surfaces the canonical name ' +
+    'explicitly: a new top-level singular openSubGap field on ' +
+    'IMP_896_RETUNING_CALIBRATION carries the canonical id "imp-917-exec", ' +
+    'the prior-work status (INFRASTRUCTURE-COMPLETE: CALIBRATION + ' +
+    'RETUNING_CALIBRATION + executionRecipe + scripts/imp-917-run-cell.mjs ' +
+    'driver delivered), the remaining-work status (open: 14-cell measurement ' +
+    'execution requires ~20 CPU-hours, must run offline), explicit dependsOn ' +
+    'pointers to imp-917 (concrete blocker), imp-899 (optional sharper ' +
+    'retuning), and imp-893-sub-large-N-rerun (downstream consumer of the ' +
+    'output rows), and three approachSuggestions (single-batch driver ' +
+    'invocations with cached resume; stage by N axis from cheap to expensive ' +
+    'gating N=10000 on N=5000 reduction recovery; re-probe wall-time before ' +
+    'committing the full budget). A new build-time assertion ' +
+    '(imp917-exec-subgap-named) pins the canonical id and the ' +
+    'prior-work-INFRASTRUCTURE-COMPLETE / remaining-open status pair so ' +
+    'future references stay anchored. The existing openSubGaps array ' +
+    '(id imp-917) is preserved unchanged so downstream consumers continue ' +
+    'to resolve. The mathematical work of executing the 14-cell phased-' +
+    'forcing grid at the retuned (k0_star, phaseVel_star) per N remains open ' +
+    'research and is now tracked under the canonical id imp-917-exec. No new ' +
+    'math claimed; one atomic structural change.',
+  openSubGap: RETUNING_CALIBRATION_SUB_GAP,
+
   headline:
     'INFRASTRUCTURE-COMPLETE: per-N retuning calibration (k0*, omega*) ' +
     'delivered for N in {500, 1000, 2000, 5000, 10000}; offline-worker ' +
@@ -300,6 +417,14 @@ export const IMP_896_RETUNING_CALIBRATION = {
       new Set(MISSING_CELLS.map((c) => c.N)).size === 4,
     'imp896-status-infrastructure-complete': true,
     'imp896-sub-gap-named': ['imp-917'].length === 1,
+    'imp917-exec-subgap-named':
+      RETUNING_CALIBRATION_SUB_GAP.id === 'imp-917-exec' &&
+      typeof RETUNING_CALIBRATION_SUB_GAP.statusOfPriorWork === 'string' &&
+      RETUNING_CALIBRATION_SUB_GAP.statusOfPriorWork.startsWith(
+        'INFRASTRUCTURE-COMPLETE',
+      ) &&
+      typeof RETUNING_CALIBRATION_SUB_GAP.statusOfRemaining === 'string' &&
+      RETUNING_CALIBRATION_SUB_GAP.statusOfRemaining.startsWith('open'),
   },
 
   notes: [

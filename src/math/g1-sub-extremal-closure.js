@@ -422,3 +422,339 @@ export const G1_SUB_EXTREMAL_CLOSURE_ASSERTIONS = [
       'coordinated in the same commit.',
   },
 ];
+
+// ────────────────────────────────────────────────────────────────────
+// imp-977: Independent cross-verification (proof, S10-cross-verify)
+// ────────────────────────────────────────────────────────────────────
+//
+// Static identity / numerical-reference / edge-case audit recorded
+// inline so future readers can reproduce the cross-checks without
+// re-running the engine. Follows the imp-919 / imp-921 / imp-971 /
+// imp-972 / imp-973 / imp-974 / imp-975 / imp-976 precedent.
+//
+// SYNTAX NOTE: this block uses // line comments only; no JSDoc fences
+// are introduced. The "star-slash" sequence is not present anywhere
+// in this audit text.
+//
+//   (1) Identity / citation audit.
+//
+//       (1a) Riemann-von Mangoldt CDF (lines 147-150).
+//            Claim: F(T) = (T/(2*pi)) * (log(T/(2*pi)) - 1).
+//            Re-derive: this is the leading-order smooth count
+//            N(T) ~ (T/(2*pi)) log(T/(2*pi)) - T/(2*pi) (Titchmarsh,
+//            "The Theory of the Riemann Zeta-Function," chapter 9
+//            eq 9.4.4). Dropping the 7/8 + S(T) + O(1/T) tail yields
+//            (T/(2*pi))(log(T/(2*pi)) - 1). CONFIRMED at leading order.
+//
+//       (1b) RvM density (lines 154-156). Claim: rho(T) = log(T/(2*pi))
+//            / (2*pi). Re-derive: with u = T/(2*pi), F = u(log u - 1),
+//            so dF/du = log u and dF/dT = log(T/(2*pi))/(2*pi). This
+//            is exactly d (smooth count) / dT. CONFIRMED.
+//
+//       (1c) Bourgade-extremal raw-vs-unfolded relation (lines 67-71).
+//            Claim: g_k ~ (h_k / N) * F(gamma_N) / rho(gamma_k), where
+//            h_k = x_{k+1} - x_k is the unfolded gap and g_k =
+//            gamma_{k+1} - gamma_k is the raw gap. Re-derive: x_k =
+//            F(gamma_k) / F(gamma_N) * N gives h_k = (F(gamma_{k+1}) -
+//            F(gamma_k)) / F(gamma_N) * N. By the mean-value theorem
+//            applied to F (continuously differentiable for T > 2*pi),
+//            F(gamma_{k+1}) - F(gamma_k) = F'(c) * g_k = rho(c) * g_k
+//            for some c between gamma_k and gamma_{k+1}. Substituting
+//            and approximating c ~ gamma_k yields h_k ~ rho(gamma_k) *
+//            g_k * N / F(gamma_N), or equivalently g_k ~ (h_k / N) *
+//            F(gamma_N) / rho(gamma_k). CONFIRMED.
+//
+//       (1d) C_alpha density-gradient ratio (line 232).
+//            Claim: C_alpha = rho(gamma_{(1-alpha)*N}) /
+//            rho(gamma_{alpha*N}) bounds the multiplicative variation
+//            of rho across the bulk window. Since rho(T) is monotone
+//            increasing in T (log is monotone) and gamma_k is monotone
+//            increasing in k, C_alpha >= 1 with equality iff the bulk
+//            window collapses. CONFIRMED -- the assertion imp455-
+//            density-gradient-ratios-exceed-one (lines 402-410)
+//            enforces this at module load.
+//
+//       (1e) Citation: Ben Arous-Bourgade 2013 "Extreme gaps between
+//            eigenvalues of random matrices," Annals of Probability
+//            41(4), 2648-2681. Theorem 1 (minimum gap N^{4/3} scaling)
+//            and the bulk-confinement of K*_N / N (no mass at 0 or 1)
+//            are taken as cited; not re-derived. The conditional port
+//            (under H1 = Montgomery pair-correlation) is the central
+//            HONEST-PARTIAL claim of this file.
+//
+//       (1f) imp-368 LAMBDA_ARGMIN_INTERIORITY import. Verified via
+//            grep: src/data/lambda-argmin-interiority.js exports
+//            LAMBDA_ARGMIN_INTERIORITY with id "imp-368". The build-
+//            time assertion imp455-citation-chain-resolves (lines 367-
+//            372) fires if the id drifts.
+//
+//   (2) Numerical-reference re-derivation.
+//
+//       (2a) RvM count at gamma_50. The 50th nontrivial Riemann zero
+//            has imag part gamma_50 ~ 143.347. Re-derive: u = 143.347 /
+//            (2*pi) = 22.81; log u = 3.127; F = 22.81 * (3.127 - 1) =
+//            48.52. The 50th zero should give count ~ 50 by definition;
+//            the leading-order RvM smooth count yields 48.52, which
+//            differs by ~3% from 50 (the gap is the 7/8 + S(T)
+//            constant and tail). CONFIRMED-QUALITATIVELY. The raw-vs-
+//            unfolded comparison is insensitive to this offset because
+//            both x_k and the denomCdf normaliser absorb F(gamma_N)
+//            symmetrically.
+//
+//       (2b) RvM density at gamma_50. rho(143.347) = log(143.347 /
+//            (2*pi)) / (2*pi) = 3.127 / 6.283 = 0.4977 zeros per unit
+//            T. Mean spacing 1/rho = 2.009, matching the empirical
+//            average gap ~ 2.0 in the 50-zero range. CONFIRMED.
+//
+//       (2c) Density-gradient ratio C_alpha for alpha = 0.25 at N =
+//            100. Approximate gamma_25 ~ 88, gamma_75 ~ 188.
+//            rho(88) = log(88/6.283)/6.283 = log(14.0)/6.283 =
+//            2.64/6.283 = 0.420. rho(188) = log(188/6.283)/6.283 =
+//            log(29.92)/6.283 = 3.40/6.283 = 0.541. C_alpha = 0.541 /
+//            0.420 = 1.288. The log-log decay log(1/alpha) /
+//            log(log(N)) is the rate; numerically C_alpha - 1 ~ 0.29
+//            for N = 100, decreasing slowly. CONFIRMED-QUALITATIVELY:
+//            C_alpha > 1, finite, and tending to 1 as N grows.
+//
+//   (3) Edge-case audit (NaN / Inf / undefined paths).
+//
+//       (3a) rvmCdf(T) for T just above 2*pi (~6.28) but below 2*pi*e
+//            (~17.08). Math.log(T/(2*pi)) lies in (0, 1), so F can be
+//            negative. ZETA_ZEROS[0] = 14.135 is in this band, giving
+//            rvmCdf(14.135) ~ 2.25 * (0.81 - 1) ~ -0.43. The unfolded
+//            coordinate x_1 = rvmCdf(gamma_1) / denomCdf * N is
+//            therefore slightly negative (~-0.4 for N = 50), but
+//            denomCdf = rvmCdf(gamma_50) ~ 48.5 > 0 and rvmCdf is
+//            monotone increasing on [gamma_1, gamma_N], so x_k stays
+//            monotone and h_k > 0 throughout. SAFE: no NaN, no sign-
+//            flip in the gap differences.
+//
+//       (3b) Division by denomCdf in unfoldedArgminWitness (line 196).
+//            denomCdf = rvmCdf(ZETA_ZEROS[N-1]). For SAMPLE_N min N =
+//            50, ZETA_ZEROS[49] ~ 143, denomCdf ~ 48.5 > 0. Bounded
+//            away from zero. SAFE.
+//
+//       (3c) rvmDensity(T) at T <= 2*pi. Math.log returns negative,
+//            so rho < 0 -- but ZETA_ZEROS values used are all >=
+//            gamma_1 = 14.135 > 2*pi = 6.283, so log(T/(2*pi)) > 0
+//            always. SAFE.
+//
+//       (3d) DENSITY_GRADIENT_RATIOS index bounds (lines 220-223).
+//            kLo = max(0, floor(alpha*N) - 1); kHi = min(N-1,
+//            ceil((1-alpha)*N) - 1). Both clamped within [0, N-1].
+//            For SAMPLE_N min N = 50 and alpha = 0.25: kLo = 11,
+//            kHi = 37. Both safe array indices. SAFE.
+//
+//       (3e) ZETA_ZEROS truncation. SAMPLE_N includes the literal
+//            ZETA_ZEROS.length, so the upper sample N tracks the array
+//            size automatically. If ZETA_ZEROS shrinks below N=400 the
+//            sample drops one row but does not crash. SAFE.
+//
+//       (3f) Math.log(0) / Math.log(<0) protection. ZETA_ZEROS[0] =
+//            14.135 > 2*pi = 6.283 (verified arithmetically), so all
+//            log arguments in rvmCdf and rvmDensity stay positive on
+//            the sampled domain. SAFE.
+//
+//   (4) Cross-reference consistency.
+//
+//       (4a) Import ./zeta.js exports ZETA_ZEROS as an array of
+//            numbers (verified by grep). Used in rawArgminWitness /
+//            unfoldedArgminWitness loops over the first N entries.
+//            SAFE.
+//
+//       (4b) Import ../data/lambda-argmin-interiority.js exports
+//            LAMBDA_ARGMIN_INTERIORITY with id "imp-368" (verified by
+//            grep). Used both as consumesId metadata and as the
+//            citation-chain anchor in the assertion suite. SAFE.
+//
+//       (4c) Static referent ticket ids: imp-336 (analytic-sketch
+//            G1/G2 tripwires, deferred), imp-368 (LAMBDA_ARGMIN_
+//            INTERIORITY, live), imp-450 (g1-g2-closure.js follow-up
+//            parent), imp-455 (this file). All are project-internal
+//            references with known meanings.
+//
+//   (5) Algebraic equivalence between the BABL bulk-confinement claim
+//       and the conditional partial closure (lines 95-104).
+//
+//       (5a) Under (H1) GUE pair-correlation, J*_N = argmin{h_k} obeys
+//            the BABL bulk-confinement: P(J*_N / N < alpha) -> 0 and
+//            P(J*_N / N > 1 - alpha) -> 0 for any alpha > 0. Under
+//            (H2) C_alpha -> 1, the re-weighting argmin shift
+//            argmin{h_k / rho_k} - argmin{h_k} is at most a
+//            multiplicative factor C_alpha in the index scale, hence
+//            o(N) as N -> infinity. INTERNALLY-CONSISTENT, but the
+//            quantitative o(N) bound is the open sub-gap G1-sub-
+//            extremal-raw-vs-unfolded recorded in the export.
+//
+// Two observational flags raised:
+//
+//   (A) imp977-rvm-leading-order-only (low). The cross-verify uses
+//       the leading-order RvM smooth count F(T) = (T/(2*pi))(log(T/
+//       (2*pi)) - 1) and ignores the 7/8 + S(T) + O(1/T) tail. For
+//       the raw-vs-unfolded ARGMIN comparison (a positional, not
+//       absolute, claim) the leading-order term suffices: both x_k
+//       and denomCdf rescale by the same constant, and the constant
+//       drops out under differencing. Severity LOW.
+//
+//   (B) imp977-c-alpha-log-log-rate (cosmetic). The verbal claim
+//       that C_alpha - 1 = O(log(1/alpha) / log(log(N))) is a
+//       leading-order asymptotic, not a tight finite-N bound. The
+//       DENSITY_GRADIENT_RATIOS witnesses confirm C_alpha > 1 and
+//       finite for all sampled N, but the rate of decay to 1 is
+//       slow (log-log) and could be made quantitative at the cost
+//       of explicit Riemann-Siegel zero positions. Cosmetic.
+//
+// Verdict: identity audit (RvM CDF, density, raw-vs-unfolded
+// algebraic relation, C_alpha gradient bound, imp-368 citation
+// chain), numerical re-derivation of count(gamma_50) and rho(gamma_
+// 50), and edge-case audit (rvmCdf sign at gamma_1, division by
+// denomCdf, log domain, array index clamps, ZETA_ZEROS shrink-
+// resilience) all cross-verify as INTERNALLY CONSISTENT. The two
+// flags are observational and do not change the partial-conditional
+// closure status under the existing assertion set.
+// ────────────────────────────────────────────────────────────────────
+
+export const G1_SUB_EXTREMAL_CLOSURE_CROSS_VERIFY = {
+  id: 'imp-977',
+  auditDate: '2026-05-09',
+  precedent: ['imp-919', 'imp-921', 'imp-971', 'imp-972', 'imp-973', 'imp-974', 'imp-975', 'imp-976'],
+  scope: [
+    'identity-audit (RvM CDF F(T), density rho(T), raw-vs-unfolded relation g_k ~ (h_k/N) F(gamma_N) / rho(gamma_k), C_alpha bound, imp-368 citation chain)',
+    'numerical-reference (count(gamma_50) ~ 48.5, rho(gamma_50) ~ 0.498 mean-spacing match, C_alpha ~ 1.29 at N=100)',
+    'edge-case (rvmCdf sign at gamma_1, denomCdf bound, log domain, array index clamps, ZETA_ZEROS shrink-resilience)',
+    'cross-reference-consistency (zeta.js, lambda-argmin-interiority.js, imp-336/368/450/455 referents)',
+    'algebraic-equivalence (BABL bulk confinement under H1 + H2 vs raw argmin shift bound)',
+  ],
+  identitiesReVerified: [
+    {
+      id: 'rvm-cdf-leading',
+      claim: 'F(T) = (T/(2*pi)) * (log(T/(2*pi)) - 1) leading-order RvM smooth count',
+      verification:
+        'Drop 7/8 + S(T) + O(1/T) tail from N(T) = (T/(2*pi)) log(T/(2*pi)) - T/(2*pi) + 7/8 + S(T) + ... (Titchmarsh chapter 9 eq 9.4.4)',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'rvm-density-derivative',
+      claim: 'rho(T) = log(T/(2*pi)) / (2*pi) = dF/dT',
+      verification:
+        'With u = T/(2*pi): d/du[u(log u - 1)] = log u; chain rule with du/dT = 1/(2*pi) gives log(T/(2*pi))/(2*pi)',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'raw-vs-unfolded-algebra',
+      claim:
+        'g_k ~ (h_k / N) * F(gamma_N) / rho(gamma_k) where x_k = F(gamma_k) / F(gamma_N) * N and h_k = x_{k+1} - x_k',
+      verification:
+        'Mean-value theorem: F(gamma_{k+1}) - F(gamma_k) = rho(c) g_k for c in (gamma_k, gamma_{k+1}); take c ~ gamma_k',
+      computed: (() => {
+        const F50 = (143.347 / (2 * Math.PI)) * (Math.log(143.347 / (2 * Math.PI)) - 1);
+        const rho50 = Math.log(143.347 / (2 * Math.PI)) / (2 * Math.PI);
+        return ((1 / 50) * F50) / rho50;
+      })(),
+      computedNote:
+        'Numerically ~1.95 with h_k = 1, N = 50, F(gamma_50) ~ 48.5, rho(gamma_50) ~ 0.498. The empirical average raw gap in the 50-zero range is ~2.0; the relation predicts the mean spacing within ~3% (the gap is the 7/8 + S(T) tail).',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'c-alpha-monotone',
+      claim: 'C_alpha = rho(gamma_{(1-alpha)*N}) / rho(gamma_{alpha*N}) > 1 since rho is monotone increasing in T',
+      verification:
+        'rho(T) = log(T/(2*pi))/(2*pi) is monotone increasing for T > 2*pi; gamma_k monotone increasing in k; ratio >= 1',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'imp368-citation-anchor',
+      claim: 'LAMBDA_ARGMIN_INTERIORITY.id === "imp-368" sustains the imp455-citation-chain-resolves assertion',
+      verification:
+        'Grep src/data/lambda-argmin-interiority.js confirms the export with id "imp-368"; build-time assertion fires on drift',
+      status: 'CONFIRMED',
+    },
+  ],
+  edgeCases: [
+    {
+      path: 'rvmCdf(T) for T in (2*pi, 2*pi*e) ~ (6.28, 17.08)',
+      risk: 'F can be negative because log(T/(2*pi)) in (0,1) makes F < 0',
+      mitigation:
+        'Used as denomCdf only for T = ZETA_ZEROS[N-1] with N >= 50; gamma_50 ~ 143 >> 17.08, so denomCdf ~ 48.5 > 0',
+      verdict: 'SAFE',
+    },
+    {
+      path: 'unfolded x_1 negative when ZETA_ZEROS[0] = 14.135',
+      risk: 'first unfolded coordinate slightly negative',
+      mitigation:
+        'rvmCdf is monotone increasing on the sample, so x_k stays monotone and h_k > 0; only x_1 ~ -0.4 for N = 50 is briefly negative',
+      verdict: 'SAFE',
+    },
+    {
+      path: 'rvmDensity(T) at T <= 2*pi',
+      risk: 'log argument <= 1, density non-positive',
+      mitigation: 'All ZETA_ZEROS entries exceed gamma_1 = 14.135 > 2*pi = 6.283',
+      verdict: 'SAFE',
+    },
+    {
+      path: 'DENSITY_GRADIENT_RATIOS index clamps (kLo, kHi)',
+      risk: 'array out-of-bounds for small N',
+      mitigation:
+        'Math.max(0, ...) and Math.min(N-1, ...) clamps; alpha = 0.25 gives kLo = 11, kHi = 37 for N = 50',
+      verdict: 'SAFE',
+    },
+    {
+      path: 'ZETA_ZEROS truncation below SAMPLE_N upper bound',
+      risk: 'SAMPLE_N entry exceeds array length',
+      mitigation:
+        'SAMPLE_N uses ZETA_ZEROS.length as the final entry; if upstream truncates, the row drops one entry but no out-of-range read',
+      verdict: 'SAFE',
+    },
+  ],
+  flags: [
+    {
+      id: 'imp977-rvm-leading-order-only',
+      severity: 'low',
+      finding:
+        'The audit uses F(T) = (T/(2*pi))(log(T/(2*pi)) - 1) without the 7/8 + S(T) + O(1/T) tail. ' +
+        'For the positional argmin claim (raw-vs-unfolded shift) the tail enters as a uniform offset ' +
+        'in x_k and drops out under differencing. The numerical 3% discrepancy at gamma_50 (count = ' +
+        '48.5 vs 50) is expected, not a bug. Severity LOW.',
+    },
+    {
+      id: 'imp977-c-alpha-log-log-rate',
+      severity: 'cosmetic',
+      finding:
+        'C_alpha - 1 = O(log(1/alpha) / log(log(N))) is the leading-order asymptotic. ' +
+        'DENSITY_GRADIENT_RATIOS confirms C_alpha > 1 numerically for sampled N (~1.29 at N=100), ' +
+        'but the log-log decay to 1 is slow; making the rate quantitative would require Riemann-Siegel ' +
+        'zero positions, which this file deliberately abstracts away in favour of the qualitative ' +
+        'obstruction analysis. Cosmetic.',
+    },
+  ],
+  notIndependentlyChecked: [
+    {
+      id: 'babl-2013-theorem-1',
+      why:
+        'The Ben Arous-Bourgade 2013 minimum-gap N^{4/3} scaling and bulk-confinement of K*_N / N are taken ' +
+        'verbatim from Annals of Probability 41(4), 2648-2681 Theorem 1. Not re-derived here.',
+    },
+    {
+      id: 'h1-montgomery-pair-correlation',
+      why:
+        'Montgomery 1973 GUE pair-correlation hypothesis is the entire content of (H1). It is conjectural ' +
+        'and is the central conditional input; recorded as such in conditionedOn (lines 328-331).',
+    },
+    {
+      id: 'h2-density-gradient-rate',
+      why:
+        'The exact rate at which C_alpha -> 1 (vs the rate at which BABL fluctuations average out) is the ' +
+        'open sub-gap G1-sub-extremal-raw-vs-unfolded; not closed here.',
+    },
+  ],
+  verdict:
+    'INTERNALLY CONSISTENT. The RvM leading-order count and its derivative re-derive directly. ' +
+    'The raw-vs-unfolded algebraic relation g_k ~ (h_k / N) * F(gamma_N) / rho(gamma_k) follows from the ' +
+    'mean-value theorem applied to F. The C_alpha density-gradient ratio is monotone (>= 1) by monotonicity ' +
+    'of rho. Edge cases (rvmCdf sign at gamma_1, denomCdf bound, log domain, array index clamps, ZETA_ZEROS ' +
+    'shrink-resilience) are handled by the existing arithmetic without explicit guards because all sampled ' +
+    'N >= 50 keep gamma_N well above 2*pi*e. Two observational flags are raised (imp977-rvm-leading-order-' +
+    'only: 7/8 + S(T) tail dropped, positional argmin claim invariant; imp977-c-alpha-log-log-rate: ' +
+    'leading-order log-log asymptotic, quantitative tightening deferred). Neither flag changes the partial-' +
+    'conditional closure status under the existing assertion set.',
+};

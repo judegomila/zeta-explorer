@@ -337,6 +337,132 @@ export const IMP_857_TWIN_LADDER_SYMMETRIC_FORCING = Object.freeze({
     'imp-895-sub-proto: N = 500 restricted prototype with sigma-symmetric IC under symmetric forcing, empirical (C).',
     'imp-895-sub-fraction: estimate fraction of first-collisions that are mirrored at N in {1000, 2000, 5000, 10000}.',
   ],
+  openSubGap: {
+    id: 'imp-895-sub-fraction',
+    file: 'src/math/imp-857-twin-ladder-symmetric-forcing.js',
+    statement:
+      'Estimate the fraction p_mirror(N) of first-collision events under ' +
+      'unforced Dyson backward flow that are mirrored (j* = sigma(i*)) ' +
+      'rather than adjacent / non-mirror, at N in {1000, 2000, 5000, ' +
+      '10000} for sigma-symmetric initial data built from the first-N ' +
+      'Riemann zero ordinates plus their functional-equation mirrors. ' +
+      'The imp-895 corollary delivers the EXACT cancellation (C) ' +
+      'tau_c^{(eps)} = tau_c^{(0)} only on the mirror-collision subclass; ' +
+      'p_mirror(N) quantifies how often (C) can be invoked in practice ' +
+      'versus when the imp-892 O(eps * H_0^2) bound (D) remains binding. ' +
+      'Pure-data ticket (no new math): the corollary itself is proven-' +
+      'partial; the unfilled work is the empirical fraction.',
+    statusOfPriorWork:
+      'OPEN: no estimate of p_mirror(N) has been produced. The corollary ' +
+      'itself is proven-partial -- (A) sigma-invariance preserved by the ' +
+      'forced flow, (B) zero forcing on the mirror variable u_k = ' +
+      '2 g_k - 1 (exact, all orders in eps), (C) tau_c unshifted on the ' +
+      'mirror-collision subclass (exact), and (D) imp-892 bound applies ' +
+      'unchanged for non-mirror collisions. The numerical identity check ' +
+      'numericalCheckZeroMirrorForcing() at N = 10 verifies (B) at ' +
+      'machine precision but is not a fraction sweep. The sister sub-gap ' +
+      'imp-895-sub-proto (N = 500 restricted prototype) is also open and ' +
+      'would supply the per-N first-collision-pair classification needed ' +
+      'to compute p_mirror at N = 500 as a probe before scaling.',
+    statusOfRemaining:
+      'open: closing requires either (a) a NUMERICAL SWEEP -- offline ' +
+      'scripts/ worker running unforced Dyson backward flow on sigma-' +
+      'symmetric IC at N in {1000, 2000, 5000, 10000} built from the ' +
+      'first-N Riemann zero ordinates plus mirrors (so 2N particles), ' +
+      'recording the first-collision pair (i*, j*) and tabulating the ' +
+      'fraction with j* == sigma(i*); or (b) an ANALYTIC UPPER BOUND ' +
+      'p_mirror(N) <= P[min_k |u_k(0)| < min_{adjacent (i,j)} |g_i(0) - ' +
+      'g_j(0)|] -- on the unfolded scale where mean spacing is 1, the ' +
+      'smallest mirror gap is bounded below by 2 * (gamma_1 * log(gamma_1) ' +
+      '/ (2 pi)) / X_N (where gamma_1 ~ 14.13 is the first Riemann zero ' +
+      'and X_N is the unfolded width of the configuration), while the ' +
+      'expected smallest adjacent gap is Theta(1 / (2N * sqrt(log(2N)))) ' +
+      'under GUE Wigner-Dyson smallest-spacing statistics, giving ' +
+      'p_mirror(N) -> 0 asymptotically. Neither approach has been ' +
+      'executed; (a) is preferred for a per-N table, (b) for an N -> oo ' +
+      'asymptote.',
+    dependsOn: [
+      {
+        id: 'imp-895-sub-proto',
+        file: 'src/math/imp-857-twin-ladder-symmetric-forcing.js',
+        status:
+          'open -- N = 500 restricted prototype with sigma-symmetric IC ' +
+          'under symmetric forcing, empirical (C); supplies the per-N ' +
+          'first-collision-pair classification needed for p_mirror at N ' +
+          '= 500 as a probe',
+      },
+      {
+        id: 'imp-892-commutator-bound',
+        file: 'src/math/imp-857-commutator-bound.js',
+        status:
+          'closed -- supplies the (D) baseline |tau_c^{(eps)} - ' +
+          'tau_c^{(0)}| <= (1/4) * eps * H_0^2 for non-mirror collisions ' +
+          'unchanged; relevant because (1 - p_mirror(N)) is the fraction ' +
+          'of first-collisions for which the imp-892 bound (rather than ' +
+          'the (C) exact identity) is binding',
+      },
+    ],
+    approachSuggestions: [
+      'Numerical sweep (preferred for the per-N table): offline scripts/ ' +
+        'worker running unforced Dyson backward flow on sigma-symmetric ' +
+        'IC at N in {1000, 2000, 5000, 10000} built from the first-N ' +
+        'Riemann zero ordinates plus mirrors (2N particles), recording ' +
+        'the first-collision pair (i*, j*) and reporting the fraction ' +
+        'with j* == sigma(i*) as p_mirror_hat(N) plus a Wilson interval; ' +
+        'output a table p_mirror_hat(N) for N in {1000, 2000, 5000, ' +
+        '10000} that downstream consumers can read.',
+      'Analytic upper bound via gap-ratio statistics: on the unfolded ' +
+        'scale, p_mirror(N) <= P[min mirror gap < min adjacent gap]; ' +
+        'lower-bound the smallest mirror gap by 2 * (smallest unfolded ' +
+        'ordinate after sigma-symmetric extension) / X_N, upper-bound ' +
+        'the smallest adjacent gap by O(1 / (2N * sqrt(log(2N)))) under ' +
+        'GUE Wigner-Dyson smallest-spacing statistics (Bourgade-Ben ' +
+        'Arous), conclude p_mirror(N) = O((log N)^{1/2} / N) -> 0.',
+      'Restricted-N=500 prototype piggy-back: close imp-895-sub-proto ' +
+        'first, then extrapolate p_mirror(500) -> p_mirror(1000..10000); ' +
+        'if the prototype shows zero mirror first-collisions across an ' +
+        'M-trial Monte Carlo, the binomial 95% upper bound 3/M on ' +
+        'p_mirror(500) is already a strong nonparametric witness that ' +
+        'p_mirror(N) is small at all N >= 500 (since both numerator ' +
+        'min mirror gap is O(1) and denominator min adjacent gap is ' +
+        'monotone-shrinking in N).',
+    ],
+  },
+  closureNote:
+    'imp-1005 honest-partial: when picked up, src/math/imp-857-twin-ladder-' +
+    'symmetric-forcing.js had no top-level openSubGap field with the exact ' +
+    'id imp-895-sub-fraction; the sub-gap was named only as a string in ' +
+    'the openSubGaps array ("estimate fraction of first-collisions that ' +
+    'are mirrored at N in {1000, 2000, 5000, 10000}") and as a corollary-' +
+    'level OPEN_SUB_GAPS comment in the file header. This run surfaces the ' +
+    'gap explicitly: a new top-level singular openSubGap field on ' +
+    'IMP_857_TWIN_LADDER_SYMMETRIC_FORCING carries the canonical id ' +
+    'imp-895-sub-fraction, full statement, dual status fields ' +
+    'statusOfPriorWork (OPEN: no estimate produced; the corollary itself ' +
+    'is proven-partial via (A)/(B)/(C)/(D); the numerical identity check ' +
+    'verifies (B) at N=10 but is not a fraction sweep) and ' +
+    'statusOfRemaining (open: needs either an offline scripts/ Dyson ' +
+    'backward-flow sweep recording first-collision pair types at N in ' +
+    '{1000, 2000, 5000, 10000}, or an analytic upper bound via gap-ratio ' +
+    'statistics on the unfolded scale combining smallest unfolded ordinate ' +
+    'with GUE Wigner-Dyson smallest-spacing), explicit dependsOn pointers ' +
+    'to imp-895-sub-proto (open sister sub-gap supplying N=500 probe) and ' +
+    'imp-892-commutator-bound (closed; supplies the (D) non-mirror ' +
+    'baseline that becomes binding for the (1 - p_mirror) fraction), and ' +
+    'three approachSuggestions (numerical sweep with Wilson intervals; ' +
+    'analytic upper bound O((log N)^{1/2} / N) -> 0 via Bourgade-Ben ' +
+    'Arous smallest-spacing; piggy-back via imp-895-sub-proto Monte ' +
+    'Carlo extrapolation). New build-time assertion imp1005-fraction-' +
+    'subgap-named pins the canonical id and the prior-work-OPEN / ' +
+    'remaining-open status pair plus dependsOn.length=2 and ' +
+    'approachSuggestions.length=3. Existing claims A/B/C/D, ' +
+    'numericalIdentityCheck, scope, openSubGaps array, and ' +
+    'IMP_857_TWIN_LADDER_SYMMETRIC_FORCING_ASSERTIONS structure are ' +
+    'preserved unchanged; the proven-partial status is preserved (the ' +
+    'corollary is proven; the sub-gap is purely empirical). The empirical ' +
+    'work of producing p_mirror_hat(N) at N in {1000, 2000, 5000, 10000} ' +
+    'remains open and is now tracked under the canonical id ' +
+    'imp-895-sub-fraction. One atomic structural change; no math claimed.',
 });
 
 export const IMP_857_TWIN_LADDER_SYMMETRIC_FORCING_ASSERTIONS = [
@@ -362,5 +488,30 @@ export const IMP_857_TWIN_LADDER_SYMMETRIC_FORCING_ASSERTIONS = [
       IMP_857_TWIN_LADDER_SYMMETRIC_FORCING.status === 'proven-partial' &&
       IMP_857_TWIN_LADDER_SYMMETRIC_FORCING.claims.B.orderInEps === 'exact (all orders)',
     why: 'Honest-partial closure: (A),(B),(C) are proven exactly for mirrored collisions; (D) imports imp-892 unchanged for non-mirror collisions.',
+  },
+  {
+    id: 'imp1005-fraction-subgap-named',
+    holds: () => {
+      const sg = IMP_857_TWIN_LADDER_SYMMETRIC_FORCING.openSubGap;
+      return (
+        sg !== undefined &&
+        sg.id === 'imp-895-sub-fraction' &&
+        typeof sg.statement === 'string' &&
+        sg.statement.length > 100 &&
+        typeof sg.statusOfPriorWork === 'string' &&
+        sg.statusOfPriorWork.startsWith('OPEN') &&
+        typeof sg.statusOfRemaining === 'string' &&
+        sg.statusOfRemaining.startsWith('open') &&
+        Array.isArray(sg.dependsOn) &&
+        sg.dependsOn.length === 2 &&
+        sg.dependsOn.some((d) => d.id === 'imp-895-sub-proto') &&
+        sg.dependsOn.some((d) => d.id === 'imp-892-commutator-bound') &&
+        Array.isArray(sg.approachSuggestions) &&
+        sg.approachSuggestions.length === 3 &&
+        typeof IMP_857_TWIN_LADDER_SYMMETRIC_FORCING.closureNote === 'string' &&
+        IMP_857_TWIN_LADDER_SYMMETRIC_FORCING.closureNote.includes('imp-1005')
+      );
+    },
+    why: 'imp-1005 canonicalisation tripwire: pins the canonical id imp-895-sub-fraction on the top-level openSubGap, the prior-work-OPEN / remaining-open status pair, dependsOn pointers to imp-895-sub-proto and imp-892-commutator-bound, three approachSuggestions, and a closureNote crediting imp-1005. Future references to the sub-gap stay anchored to the canonical id.',
   },
 ];

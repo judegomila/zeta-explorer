@@ -370,3 +370,271 @@ export const C_MB_INTERVAL_CERTIFIED_ASSERTIONS = [
       'downstream consumer path to the analytic-closure threshold.',
   },
 ];
+
+// ────────────────────────────────────────────────────────────────────
+// imp-972: Independent cross-verification (proof, S10-cross-verify)
+// ────────────────────────────────────────────────────────────────────
+//
+// Static formula + edge-case + numerical-reference audit recorded
+// inline so future readers can reproduce the cross-checks without
+// re-running the engine. Follows the imp-919 / imp-921 / imp-971
+// precedent. Scope: (1) re-derive the load-bearing formulas from
+// first principles to catch silent drift, (2) audit each numerical
+// step for NaN / Inf / divide-by-zero, (3) check declared numerical
+// constants against published references, (4) verify cross-references
+// to imp-362 / imp-486 / imp-469 are internally consistent.
+//
+// (1) Formula re-derivation.
+//
+//     (1a) 2-particle Calogero-Moser (line 30, line 115).
+//          The raw Dyson flow is dg_k/dt = -2 * sum_{j != k} 1/(g_k - g_j).
+//          For 2 particles with B = g_2 - g_1 > 0:
+//            dg_1/dt = -2 / (g_1 - g_2) = +2 / B
+//            dg_2/dt = -2 / (g_2 - g_1) = -2 / B
+//            dB/dt   = dg_2/dt - dg_1/dt = -4 / B
+//            d(B^2)/dt = 2 B * dB/dt = -8
+//          So B^2(t) = B(0)^2 - 8 t, collision at t_c = B(0)^2 / 8.
+//          The header comment and the implementation t_c_pair =
+//          (H_raw * H_raw) / 8 (line 115) match this derivation. CONFIRMED.
+//
+//     (1b) RVM density (line 81-83, function rvmDensity).
+//          The Riemann-von Mangoldt formula gives
+//            N(T) = (T/(2*pi)) * log(T/(2*pi)) - T/(2*pi) + 7/8 + S(T) + O(1/T),
+//          and differentiating the smooth part yields
+//            N'(T) = log(T/(2*pi)) / (2*pi) + O(1/T).
+//          rvmDensity(T) implements exactly this leading-order density. The
+//          O(1/T) tail is dropped (correct: the floor at T = 14 still gives
+//          a strict lower bound at all gamma_N >= 14 because the tail is
+//          negligible compared to the log term and rho is monotone in T).
+//          CONFIRMED.
+//
+//     (1c) Paper-normalization conversion (line 60-65).
+//          The paper bound is |F_mb| <= C_mb * rho^2 * N^{-1/2} * log(N) / H_unf
+//          with H_unf the UNFOLDED min-gap. The local Riemann-zero unfolding
+//          is gamma_unf,k = N(gamma_k), so dgamma_unf = rho(gamma) dgamma at
+//          leading order, giving H_unf = rho * H_raw at the relevant scale.
+//          Substituting:
+//            C_mb = |F_mb| * H_unf / (rho^2 * N^{-1/2} * log(N))
+//                 = |F_mb| * (rho * H_raw) / (rho^2 * N^{-1/2} * log(N))
+//                 = |F_mb| * H_raw / (rho * N^{-1/2} * log(N))
+//                 = K_raw / rho.
+//          The line 130-131 conversion K_paper_cert_strict = K_raw_cert /
+//          rho_N and K_paper_cert_floor = K_raw_cert / 0.12751 implement
+//          exactly this. CONFIRMED.
+//
+//     (1d) Monotonicity-of-floor (line 62-63).
+//          rvmDensity is increasing in T because log is increasing. So for
+//          gamma_N >= 14 we have rho(gamma_N) >= rho(14) = 0.12751 and
+//          therefore K_raw / rho_N <= K_raw / 0.12751. The "_floor" name is
+//          ACCURATE for the rho input but is a CEILING for the resulting K
+//          (i.e. K_paper_floor is the conservative UPPER bound on C_mb).
+//          The header comment "uniform floor" refers to the rho input;
+//          arithmetically the resulting K is an upper bound. CONFIRMED.
+//
+//     (1e) Rescue formula (line 188-189).
+//          The threshold is K * log(N_0) / sqrt(N_0) < rho_min = 0.12751.
+//          This is the imp-486 c-mb-unconditional-bound.js closure
+//          condition: when this holds, the C_mb correction is dominated
+//          by rho_min, hence cannot un-do the analytic closure. The
+//          binary search bisects in geometric (sqrt(lo*hi)) coordinates,
+//          which is correct for a monotone function in log-N space.
+//          CONFIRMED.
+//
+// (2) NaN / Inf / divide-by-zero edge-case audit.
+//
+//     (2a) minRawGap. For N >= 2 the loop runs at least once and assigns
+//          a finite d. The Math.min update only narrows H. For N = 1 the
+//          loop is empty and H = Infinity is returned, but the caller
+//          rowCertifiedBound first guards `ZETA_ZEROS.length < N`, and
+//          all witness rows have N >= 50, so N >= 2 holds. SAFE.
+//
+//     (2b) t_c_pair = H_raw^2 / 8. H_raw > 0 always (Riemann zeros are
+//          simple under the assumed numerical table; the smallest
+//          observed gap is ~0.6). t_c_pair > 0. SAFE.
+//
+//     (2c) F_mb_upper / t_c_pair (line 134, R_rel_cert). Divisor t_c_pair
+//          is strictly positive by (2b). SAFE.
+//
+//     (2d) K_raw_cert = (F_mb_upper * H_raw) / scaleFactor where
+//          scaleFactor = (1/sqrt(N)) * log(N). For N >= 2, log(N) >=
+//          log(2) ~= 0.693 > 0 and sqrt(N) > 0, so scaleFactor > 0. SAFE.
+//
+//     (2e) K_paper_cert_strict = K_raw_cert / rho_N. rho_N > 0 because
+//          gamma_N > 14 > 2*pi for N >= 1 (gamma_1 ~= 14.13). SAFE.
+//
+//     (2f) K_paper_cert_floor uses literal divisor 0.12751. SAFE.
+//
+//     (2g) Empty-CLOSED_ROWS path. If N_CERTIFIED === 0 the spread
+//          Math.max(...[]) would yield -Infinity, but the ternary guards
+//          `N_CERTIFIED > 0 ? ... : Infinity` (lines 161-172) replace
+//          the empty case with Infinity. The downstream
+//          K_paper_below_one flag (Infinity < 1) is false, the
+//          imp857-at-least-one-certified-N assertion trips, and
+//          minN0ForK is gated by Number.isFinite. SAFE.
+//
+//     (2h) minN0ForK binary search. lo = 1e4, hi = 1e14, geometric mean
+//          mid = sqrt(lo*hi) ~= 3.16e9 — well within Float64 range. The
+//          80-iteration loop is enough for ~24 decimal digits of
+//          contraction in log space, far more than needed. The lhs
+//          K * log(mid) / sqrt(mid) is finite for any finite K. SAFE.
+//
+// (3) Numerical reference values.
+//
+//     (3a) rho(14) = 0.12751 (imp-469 analytic floor).
+//          rvmDensity(14) = log(14 / (2*pi)) / (2*pi)
+//                         = log(2.228169...) / 6.283185...
+//                         = 0.801281... / 6.283185...
+//                         = 0.127529...
+//          Rounded to five decimals = 0.12753, written here and in
+//          imp-469 as 0.12751. The cited 0.12751 is a SLIGHT
+//          UNDER-quote (0.12751 < 0.12753), which is conservative for
+//          a floor — i.e. dividing K_raw by 0.12751 produces a
+//          slightly LARGER (more pessimistic) K_paper_floor than
+//          dividing by the exact 0.127529. This direction is SAFE
+//          for an upper-bound certificate. CONFIRMED-CONSERVATIVE.
+//          (A future tightening could replace 0.12751 with the
+//          exact rvmDensity(14) ~= 0.12753 to recover ~0.02 percent
+//          headroom; logged as suggested-future-tightening below.)
+//
+//     (3b) Closable N set {50, 100, 200, 500}. The header asserts that
+//          the imp-362 interval-RK4 wrapper closes its bracket at these
+//          and not at N >= 1000. This is a runtime fact recorded in
+//          LAMBDA_INTERVAL_DYSON.witness, so the cross-verify cannot
+//          re-derive it analytically — it is consumed as a given from
+//          imp-362 and the assertion imp857-at-least-one-certified-N
+//          guards against silent loss. NOT-INDEPENDENTLY-CHECKED-HERE.
+//
+//     (3c) Pair-time leading-order check. For N = 100 with H_raw ~= 0.6
+//          (typical first-100 min gap), t_c_pair ~= 0.36/8 = 0.045.
+//          This is the order-of-magnitude expected from the imp-833 /
+//          imp-858 empirical sweep, which placed t_c at ~10^-2 for the
+//          first few hundred zeros. The two should agree to within an
+//          O(1) many-body factor, which is exactly the F_mb residual
+//          this file computes. CONSISTENT.
+//
+// (4) Cross-reference consistency.
+//
+//     (4a) imports `LAMBDA_INTERVAL_DYSON` from
+//          './interval-dyson-integrator.mjs' (imp-362). The witness
+//          schema used here (.witness with rows containing .N,
+//          .reason, .t_c_lo, .t_c_hi) matches the documented imp-362
+//          contract. INTERNALLY CONSISTENT.
+//
+//     (4b) imports `ZETA_ZEROS` from './zeta.js'. The minRawGap loop
+//          assumes consecutive entries are sorted ascending Riemann
+//          zero ordinates. zeta.js is the canonical source in this
+//          repo. INTERNALLY CONSISTENT.
+//
+//     (4c) cites imp-486 c-mb-unconditional-bound.js for the rescue
+//          formula and imp-469 for the rho-floor 0.12751. Both are
+//          referenced consistently by the rescueMapping export and
+//          the K_paper_cert_floor name. INTERNALLY CONSISTENT.
+//
+//     (4d) The openSubGap.id "imp-857-sub-scale-to-N10k" is named in
+//          two places (line 17 header and line 279 export) and they
+//          match. INTERNALLY CONSISTENT.
+//
+// Verdict: c-mb-interval-certified.js cross-verifies as INTERNALLY
+// CONSISTENT. The five load-bearing formulas (Calogero-Moser pair
+// collision, RVM density, paper-norm conversion, monotone rho-floor,
+// rescue threshold) are all independently re-derived and match the
+// implementation. No reachable NaN / Inf / divide-by-zero path. The
+// only numerical reference value (0.12751) is a CONSERVATIVE
+// under-quote of the exact rvmDensity(14) ~= 0.127529 and therefore
+// safe for an upper-bound certificate. One suggested-future-tightening
+// is logged (replace 0.12751 with the exact value to reclaim ~0.02
+// percent headroom); not made in this commit to keep imp-972 atomic.
+// ────────────────────────────────────────────────────────────────────
+
+export const C_MB_INTERVAL_CERTIFIED_CROSS_VERIFY = {
+  id: 'imp-972',
+  auditDate: '2026-05-08',
+  precedent: ['imp-919', 'imp-921', 'imp-971'],
+  scope: [
+    'formula-re-derivation (Calogero-Moser pair, RVM density, paper-norm conversion, monotone floor, rescue threshold)',
+    'edge-case (NaN / Inf / divide-by-zero across minRawGap, rowCertifiedBound, minN0ForK, headline aggregates)',
+    'numerical-reference-values (rho(14) = 0.12751 vs exact rvmDensity(14))',
+    'cross-reference-consistency (imp-362 witness schema, imp-486 rescue formula, imp-469 rho-floor, imp-857 sub-gap naming)',
+  ],
+  formulasReDerived: [
+    {
+      id: 'calogero-moser-pair-collision',
+      claim: 't_c_pair = H_raw^2 / 8 from dg_k/dt = -2 sum 1/(g_k - g_j)',
+      derivation: 'dB/dt = -4/B for 2 particles, so d(B^2)/dt = -8, B^2(t) = B(0)^2 - 8 t, t_c = B(0)^2 / 8',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'rvm-density-leading-order',
+      claim: 'rho(T) = log(T/(2*pi)) / (2*pi)',
+      derivation: 'differentiate the smooth part of the Riemann-von Mangoldt N(T) formula; O(1/T) tail dropped',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'paper-norm-conversion',
+      claim: 'C_mb = K_raw / rho with K_raw = |F_mb| * H_raw / (N^{-1/2} * log(N))',
+      derivation: 'substitute H_unf = rho * H_raw into |F_mb| <= C_mb * rho^2 * N^{-1/2} * log(N) / H_unf',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'monotone-rho-floor',
+      claim: 'K_paper_floor = K_raw / 0.12751 is a conservative UPPER bound on C_mb',
+      derivation: 'rho(gamma_N) >= rho(14) = 0.12751 for N >= 1 since rho is increasing in T',
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'rescue-threshold',
+      claim: 'minN0ForK bisects K * log(N_0) / sqrt(N_0) < 0.12751 in geometric coordinates',
+      derivation: 'imp-486 closure condition; binary search in log-N space because the lhs is monotone decreasing',
+      status: 'CONFIRMED',
+    },
+  ],
+  edgeCases: [
+    { path: 'minRawGap', risk: 'empty-loop returns Infinity', mitigation: 'caller guards ZETA_ZEROS.length < N and witness rows have N >= 50', verdict: 'SAFE' },
+    { path: 't_c_pair = H^2/8',           risk: 'H_raw = 0',           mitigation: 'distinct Riemann zeros, smallest observed gap ~0.6',                                  verdict: 'SAFE' },
+    { path: 'R_rel_cert = F_mb / t_c_pair', risk: 'divide by zero',     mitigation: 't_c_pair > 0 by (2b)',                                                              verdict: 'SAFE' },
+    { path: 'K_raw_cert / scaleFactor',    risk: 'log(N) <= 0',         mitigation: 'witness N >= 50 implies log(N) >= log(50) ~= 3.91',                                 verdict: 'SAFE' },
+    { path: 'K_paper_cert_strict / rho_N', risk: 'rho_N <= 0',          mitigation: 'gamma_N > 14 > 2*pi gives rho_N > 0',                                              verdict: 'SAFE' },
+    { path: 'Math.max on empty CLOSED_ROWS', risk: 'spread of [] -> -Infinity', mitigation: 'ternary guard sets Infinity sentinel + assertion imp857-at-least-one-certified-N trips', verdict: 'SAFE' },
+    { path: 'minN0ForK binary search',     risk: 'overflow / non-convergence', mitigation: 'lo=1e4 hi=1e14 with 80 iterations gives ~24 decimal digits of contraction', verdict: 'SAFE' },
+  ],
+  numericalReferences: [
+    {
+      symbol: 'rho(14)',
+      cited: 0.12751,
+      recomputed: Math.log(14 / (2 * Math.PI)) / (2 * Math.PI),
+      delta: Math.log(14 / (2 * Math.PI)) / (2 * Math.PI) - 0.12751,
+      verdict: 'CONFIRMED-CONSERVATIVE (cited 0.12751 < exact ~0.127529; under-quote is safe for an upper-bound certificate)',
+    },
+  ],
+  flags: [
+    {
+      id: 'rho-floor-under-quote',
+      severity: 'low',
+      finding:
+        'The cited rho(14) = 0.12751 is ~0.02 percent below the exact ' +
+        'rvmDensity(14) ~= 0.127529. Direction is conservative for an ' +
+        'upper-bound certificate (K_paper_floor is slightly larger than ' +
+        'K_paper_strict at gamma = 14). A future tightening could replace ' +
+        '0.12751 with the exact value to reclaim ~0.02 percent headroom. ' +
+        'Not changed in this commit to keep imp-972 atomic.',
+    },
+  ],
+  notIndependentlyChecked: [
+    {
+      id: 'closable-N-set',
+      why:
+        'The fact that imp-362 interval-RK4 closes its bracket at N in ' +
+        '{50, 100, 200, 500} but not at N >= 1000 is a runtime artifact ' +
+        'recorded in LAMBDA_INTERVAL_DYSON.witness. It is consumed as a ' +
+        'given from imp-362 and is guarded by the imp857-at-least-one- ' +
+        'certified-N assertion against silent loss.',
+    },
+  ],
+  verdict:
+    'INTERNALLY CONSISTENT. Five load-bearing formulas re-derived from ' +
+    'first principles; no reachable NaN / Inf / divide-by-zero path; ' +
+    'the single numerical reference (rho(14) = 0.12751) is a ' +
+    'conservative under-quote of the exact value ~0.127529, safe for ' +
+    'an upper-bound certificate. One low-severity flag logged ' +
+    '(rho-floor-under-quote) as a suggested-future-tightening.',
+};

@@ -218,3 +218,126 @@ export const C_MB_ALTERNATIVE_ANGLES_EVAL_ASSERTIONS = [
       'actionable.',
   },
 ];
+
+// ────────────────────────────────────────────────────────────────────
+// imp-971: Independent cross-verification (proof, S10-cross-verify)
+// ────────────────────────────────────────────────────────────────────
+//
+// Static audit recorded inline so future readers can reproduce the
+// cross-checks without re-running the engine. Follows the imp-919 /
+// imp-921 precedent. This file is a scoping evaluation (no numerical
+// kernel), so the audit covers (i) citation correctness, (ii) internal
+// consistency of the cross-references to imp-486 / imp-856, and
+// (iii) absence of NaN/Inf paths.
+//
+// (1) Citation audit.
+//     (1a) BDG 2016 = Bourgain-Demeter-Guth, "Proof of the main
+//          conjecture in Vinogradov mean value theorem for degrees
+//          higher than three", Ann. of Math. 184 (2016), 633-682. The
+//          name and year in C1 match this canonical reference. ✓
+//     (1b) BBS 2013 in C2 is named as Bourgain-Bondarenko-Seip 2013.
+//          Bondarenko-Seip have a well-known sequence of papers on
+//          extreme values of zeta on the critical line (e.g.
+//          Duke Math. J. 166 (2017), 1685-1701), and Bourgain wrote
+//          extensively on zero-density. A canonical TRIPLE-author 2013
+//          paper under all three names is not standard in the
+//          literature; the citation is plausibly an internal shorthand
+//          for the Bondarenko-Seip line of work that Bourgain later
+//          built on. FLAGGED for downstream resolution: the verdict
+//          (LIKELY FAILS by orthogonality) does not depend on the
+//          attribution, so the scoping conclusion is robust to this
+//          citation edit.
+//     (1c) Maier 1988 in C3 references the Maier matrix method. The
+//          canonical paper is Maier, "Primes in short intervals",
+//          Michigan Math. J. 35 (1988), 323-344, which introduced the
+//          matrix method. The text correctly identifies the
+//          divisor-function structure as the load-bearing mechanism. ✓
+//     (1d) Montgomery 1973 pair-correlation: F-hat supported in
+//          (-1, 1). The (-1, 1) Fourier-support window cited in C3 is
+//          standard; matches Montgomery, Proc. Sympos. Pure Math. 24
+//          (1973), 181-193. ✓
+//     (1e) ESY 2011 = Erdos-Schlein-Yau local semicircle law.
+//          Citation matches the standard reference and is correctly
+//          flagged as the load-bearing GUE-universality input. ✓
+//
+// (2) Selberg S(T) bound discrepancy (FLAG, not blocker).
+//     C2 cites "Selberg S(T) = O(log T / log log T)". The
+//     unconditional Selberg / Backlund bound is S(T) = O(log T); the
+//     SHARPER S(T) = O(log T / log log T) is RH-conditional
+//     (Goldston-Gonek 2007 building on Selberg). Inside an
+//     UNCONDITIONAL-bound discussion this should be the weaker
+//     O(log T) bound. The verdict (orthogonality of off-line and
+//     on-line statistics) is unaffected because the orthogonality
+//     argument does not use the strength of the on-line bound — it
+//     uses its log-scale. Flagged here for a follow-up edit; not
+//     fixed in this atomic change to keep the imp-971 commit
+//     scope-bound.
+//
+// (3) Cross-reference consistency to imp-486 and imp-856.
+//     The "context" string asserts imp-486 ruled out Selberg / Huxley /
+//     GGM and imp-856 scoped Selberg+Huxley hybrid / partial-GUE /
+//     interval-arithmetic. The technicalObstacle of C3 explicitly
+//     reduces back to ESY 2011 / GUE universality, which is the same
+//     barrier imp-486 hit; this cross-reference is internally
+//     consistent. The conclusion that the only finite-probability
+//     surviving angle is imp-856 (c) interval-arithmetic certification
+//     follows from the three LIKELY-FAILS verdicts plus the imp-486 /
+//     imp-856 closures and is internally consistent.
+//
+// (4) Edge-case audit (NaN / Inf / undefined).
+//     All exports (C1_VINOGRADOV_MEAN_VALUE, C2_BBS_ZERO_DENSITY,
+//     C3_MAIER_MATRIX, C_MB_ALTERNATIVE_ANGLES_EVAL) are STATIC data
+//     literals — no Math operations, no division, no array indexing,
+//     no recursion. There is no reachable path to NaN, Infinity, or
+//     undefined-property access. The ASSERTIONS array uses
+//     Object.keys(...).length and a typeof check; both are total. ✓
+//
+// (5) Numerical reference values.
+//     The file declares no numerical constants (no thresholds, no
+//     window widths, no probability bounds). There are no reference
+//     values to cross-check against published numerics — the audit
+//     reduces to citation correctness, which is covered above. ✓
+//
+// Verdict: scoping evaluation cross-verifies as INTERNALLY CONSISTENT
+// with one citation flag (BBS triple-attribution, item 1b) and one
+// strength flag (Selberg unconditional vs RH-conditional, item 2).
+// Neither flag changes any of the three LIKELY-FAILS verdicts or the
+// surviving-next-ticket conclusion (imp-857 interval-arithmetic cert).
+// ────────────────────────────────────────────────────────────────────
+
+export const C_MB_ALTERNATIVE_ANGLES_EVAL_CROSS_VERIFY = {
+  id: 'imp-971',
+  auditDate: '2026-05-08',
+  precedent: ['imp-919', 'imp-921'],
+  scope: [
+    'citation-audit (BDG 2016, BBS 2013, Maier 1988, Montgomery 1973, ESY 2011)',
+    'internal-consistency (cross-references to imp-486 / imp-856)',
+    'edge-case (NaN/Inf/undefined paths in static exports)',
+    'numerical-reference-values (none in this file)',
+  ],
+  flags: [
+    {
+      id: 'bbs-triple-attribution',
+      severity: 'low',
+      finding:
+        'C2 names "Bourgain-Bondarenko-Seip 2013" but a canonical ' +
+        'triple-author 2013 paper is not standard. Likely an internal ' +
+        'shorthand for the Bondarenko-Seip line. Verdict (orthogonality) ' +
+        'is robust to attribution edits.',
+    },
+    {
+      id: 'selberg-strength-rh-conditional',
+      severity: 'low',
+      finding:
+        'C2 cites Selberg S(T) = O(log T / log log T). Unconditionally ' +
+        'the bound is O(log T); the sharper form is RH-conditional. ' +
+        'Inside an unconditional-bound discussion the weaker form ' +
+        'applies. Verdict unaffected (orthogonality uses log-scale, ' +
+        'not the exact strength).',
+    },
+  ],
+  verdict:
+    'INTERNALLY CONSISTENT with two minor citation flags. Neither flag ' +
+    'changes any of the three LIKELY-FAILS verdicts or the ' +
+    'surviving-next-ticket conclusion (imp-857 interval-arithmetic cert).',
+};

@@ -277,3 +277,295 @@ export const C_MB_WEAKER_BOUND_SEARCH_ASSERTIONS = [
       'path-3 scoping is not actionable.',
   },
 ];
+
+// ────────────────────────────────────────────────────────────────────
+// imp-973: Independent cross-verification (proof, S10-cross-verify)
+// ────────────────────────────────────────────────────────────────────
+//
+// Static citation + numerical-reference + edge-case audit recorded
+// inline so future readers can reproduce the cross-checks without
+// re-running the engine. Follows the imp-919 / imp-921 / imp-971 /
+// imp-972 precedent. Scope:
+//
+//   (1) Citation audit. The four published references load-bearing
+//       in this evaluation are checked for attribution and
+//       unconditional-vs-conditional strength.
+//
+//       (1a) Selberg 1946. APPROACH_A.idea cites
+//            S(T) = O(log T / log log T) UNCONDITIONALLY. The
+//            sharper log/loglog form is RH-conditional; the truly
+//            unconditional Selberg bound is only S(T) = O(log T).
+//            This is the same flag imp-971 raised against
+//            c-mb-alternative-angles-eval.js. The structural
+//            obstacle (covariance growth) holds for either strength
+//            of S(T) bound, so the LIKELY-FAILS verdict for
+//            APPROACH_A is unaffected.
+//
+//       (1b) Huxley 1972 zero-density. APPROACH_A cites
+//            N(sigma, T) << T^{12(1-sigma)/5+eps}. The 12/5 exponent
+//            is the standard attribution and is taken as given from
+//            the literature.
+//
+//       (1c) Montgomery 1973 unconditional Fourier-support content.
+//            APPROACH_B cites the Fourier-support range (-1, 1).
+//            This matches the standard form of the pair-correlation
+//            theorem.
+//
+//       (1d) Ben Arous-Bourgade 2013 extreme-gap scaling.
+//            APPROACH_B cites the N^{4/3} scaling for argmin gaps
+//            in GUE; this matches the qualitative scaling in
+//            "Extreme gaps between eigenvalues of random matrices"
+//            (PTRF 2013).
+//
+//   (2) Numerical-reference re-derivation.
+//
+//       (2a) imp-471 ratio at N = 10000. The preliminaryEstimate
+//            string asserts:
+//              C_mb * (10000)^{-1/2} * log(10000) / rho_min ~ 0.722
+//            Compute under C_mb = 1, rho_min = 0.12751:
+//              (1/100) * ln(10000) / 0.12751
+//                = 0.0921034 / 0.12751
+//                = 0.722323
+//            Cited 0.722 matches recomputed 0.72232 to three
+//            significant figures (truncation, not rounding error).
+//            CONFIRMED.
+//
+//       (2b) imp-486 rescue-table cited values. The opening
+//            summary asserts:
+//              K = 2 => N_0 ~ 10^6
+//              K = 5 => N_0 ~ 10^8
+//              K = 7 => N_0 ~ 10^9
+//            Direct evaluation of the imp-486 rescue formula
+//            K * log(N_0) / sqrt(N_0) < 0.12751 gives
+//              K = 2 => N_0 ~ 2.53e4
+//              K = 5 => N_0 ~ 2.35e5
+//              K = 7 => N_0 ~ 5.22e5
+//            The log-growing variant (imp-586)
+//            K * log^2(N_0) / sqrt(N_0) < 0.12751 gives
+//              K = 2 => N_0 ~ 1.95e7
+//              K = 5 => N_0 ~ 2.07e8
+//              K = 7 => N_0 ~ 4.82e8
+//            The cited "10^8" / "10^9" line up roughly with the
+//            log-growing variant; the cited "10^6" for K = 2 does
+//            not match either variant precisely. They appear to be
+//            order-of-magnitude approximations rather than the
+//            exact RESCUE_TABLE numbers. DIRECTION is safe when
+//            cited values OVER-quote N_0 (any rescue at the cited
+//            larger N_0 suffices a fortiori at the smaller actual
+//            N_0). Flagged as imp973-rescue-citation-rough.
+//
+//   (3) Edge-case audit (NaN / Inf / undefined paths).
+//
+//       (3a) N_MAX_AVAILABLE = ZEROS_EXTENDED.length. ZEROS_EXTENDED
+//            is exported from src/data/zeros-to-1e6.js with metadata
+//            count = 1,000,000, so N_MAX_AVAILABLE > 0 by
+//            construction. SAFE.
+//
+//       (3b) Object.keys(approaches).length === 3. Guarded by the
+//            imp856-three-approaches-evaluated build-time
+//            assertion; silent removal of an approach fails the
+//            build. SAFE.
+//
+//       (3c) C_MB_WEAKER_BOUND_SEARCH.status === 'partial'. Guarded
+//            by imp856-status-partial. Drift to "closed" without
+//            new proof fails the build. SAFE.
+//
+//       (3d) typeof recommendedNext.ticket === 'string'. Guarded
+//            by imp856-recommended-next-seeded. Removal of the
+//            named follow-up fails the build. SAFE.
+//
+//       (3e) Narrative-only fields (verdict, summaryForSequence,
+//            landscapeDisclaimer). No numeric arithmetic exposure.
+//            Inert under all inputs. SAFE.
+//
+//   (4) Cross-reference consistency.
+//
+//       (4a) imp-486, imp-833, imp-857, imp-471, imp-362,
+//            imp-315/357 referent ids: each names an existing
+//            ticket or file in the project. Static referents only
+//            (no programmatic resolution).
+//
+//       (4b) The "imp-857 (to be seeded)" marker in
+//            recommendedNext.ticket has since been seeded as
+//            imp-857 (interval-arithmetic certification),
+//            delivered as c-mb-interval-certified.js. The marker
+//            text remains for historical accuracy of the
+//            evaluation snapshot.
+//
+// Verdict: scoping evaluation cross-verifies as INTERNALLY
+// CONSISTENT with two low-severity flags (Selberg strength,
+// rescue-table citation roughness). Neither flag changes any of
+// the three approach verdicts or the surviving-next-ticket
+// conclusion (imp-857, now delivered). The single computable
+// numerical reference (imp-471 ratio 0.722) is CONFIRMED to three
+// significant figures.
+// ────────────────────────────────────────────────────────────────────
+
+export const C_MB_WEAKER_BOUND_SEARCH_CROSS_VERIFY = {
+  id: 'imp-973',
+  auditDate: '2026-05-09',
+  precedent: ['imp-919', 'imp-921', 'imp-971', 'imp-972'],
+  scope: [
+    'citation-audit (Selberg 1946, Huxley 1972, Montgomery 1973, Ben Arous-Bourgade 2013)',
+    'numerical-reference-values (imp-471 ratio 0.722 at N=10000, imp-486 rescue-table cited orders of magnitude)',
+    'edge-case (NaN / Inf / undefined paths in static evaluation exports)',
+    'cross-reference-consistency (imp-486 / imp-833 / imp-857 / imp-471 referent ids and ZEROS_EXTENDED bound)',
+  ],
+  formulasReDerived: [
+    {
+      id: 'imp471-paper-norm-ratio',
+      claim:
+        'C_mb * N^{-1/2} * log(N) / rho_min ~ 0.722 at N = 10000 ' +
+        'under C_mb = 1, rho_min = 0.12751',
+      derivation:
+        '(1 / sqrt(10000)) * ln(10000) / 0.12751 ' +
+        '= (1 / 100) * 9.2103404 / 0.12751 ' +
+        '= 0.0921034 / 0.12751 ' +
+        '= 0.7223229',
+      cited: 0.722,
+      recomputed: (Math.log(10000) / 100) / 0.12751,
+      delta: (Math.log(10000) / 100) / 0.12751 - 0.722,
+      status: 'CONFIRMED',
+    },
+    {
+      id: 'rescue-condition-shape',
+      claim:
+        'imp-486 rescue threshold has form K * log(N_0) / sqrt(N_0) < rho_min, ' +
+        'so the implicit solution scales like N_0 ~ (K / rho_min)^2 * log(N_0)^2',
+      derivation:
+        'Solve K * ln(N) / sqrt(N) = rho => sqrt(N) / ln(N) = K / rho ' +
+        '=> N = (K / rho)^2 * ln(N)^2 (implicit; gives qualitative K^2 scaling)',
+      status: 'CONFIRMED-QUALITATIVELY',
+    },
+  ],
+  edgeCases: [
+    { path: 'N_MAX_AVAILABLE = ZEROS_EXTENDED.length', risk: 'empty array yields 0',          mitigation: 'ZEROS_EXTENDED has 1,000,000 entries (zeros-to-1e6.js metadata count = 1000000)', verdict: 'SAFE' },
+    { path: 'Object.keys(approaches).length',          risk: 'silent removal of an approach', mitigation: 'imp856-three-approaches-evaluated assertion fails the build',                       verdict: 'SAFE' },
+    { path: 'status === "partial"',                    risk: 'drift to "closed" without proof', mitigation: 'imp856-status-partial assertion fails the build',                                  verdict: 'SAFE' },
+    { path: 'recommendedNext.ticket type',             risk: 'undefined or non-string',       mitigation: 'imp856-recommended-next-seeded assertion fails the build',                          verdict: 'SAFE' },
+    { path: 'narrative fields (verdict, summary)',     risk: 'no numeric exposure',           mitigation: 'inert string content',                                                              verdict: 'SAFE' },
+  ],
+  numericalReferences: [
+    {
+      symbol: 'imp-471 ratio at N = 10000',
+      cited: 0.722,
+      recomputed: (Math.log(10000) / 100) / 0.12751,
+      delta: (Math.log(10000) / 100) / 0.12751 - 0.722,
+      verdict: 'CONFIRMED (recomputed 0.72232; cited 0.722 is a three-digit truncation; delta ~+0.0003)',
+    },
+    {
+      symbol: 'imp-486 rescue cited "K = 2 => N_0 ~ 10^6"',
+      cited: 1e6,
+      recomputedDirect: 2.53e4,
+      recomputedLogGrowing: 1.95e7,
+      verdict:
+        'ROUGH (direct rescue gives ~2.5e4; log-growing gives ~2e7; cited 10^6 ' +
+        'sits between but matches neither precisely)',
+    },
+    {
+      symbol: 'imp-486 rescue cited "K = 5 => N_0 ~ 10^8"',
+      cited: 1e8,
+      recomputedDirect: 2.35e5,
+      recomputedLogGrowing: 2.07e8,
+      verdict:
+        'CONSISTENT-WITH-LOG-GROWING (cited 10^8 matches log-growing imp-586 ' +
+        'variant 2.07e8 to within one order; differs from direct rescue 2.35e5 by ~400x)',
+    },
+    {
+      symbol: 'imp-486 rescue cited "K = 7 => N_0 ~ 10^9"',
+      cited: 1e9,
+      recomputedDirect: 5.22e5,
+      recomputedLogGrowing: 4.82e8,
+      verdict:
+        'CONSERVATIVE-OVER-QUOTE-OF-LOG-GROWING (cited 10^9 is ~2x larger than ' +
+        'log-growing imp-586 variant 4.82e8; safe direction for an upper-bound ' +
+        'rescue argument; differs from direct rescue 5.22e5 by ~1900x)',
+    },
+  ],
+  flags: [
+    {
+      id: 'imp973-selberg-strength-rh-conditional',
+      severity: 'low',
+      finding:
+        'APPROACH_A.idea cites Selberg (1946) as giving ' +
+        'S(T) = O(log T / log log T) unconditionally. The sharper ' +
+        'log/loglog form is RH-conditional; the truly unconditional ' +
+        'Selberg bound is only S(T) = O(log T). Same flag as ' +
+        'imp-971 against c-mb-alternative-angles-eval.js. The ' +
+        'LIKELY-FAILS verdict for APPROACH_A is unaffected because ' +
+        'the structural obstacle (covariance growth on the ' +
+        'argmin-conditional Cauchy sum) holds for either strength ' +
+        'of S(T) bound. Not changed in this commit to keep imp-973 ' +
+        'atomic.',
+    },
+    {
+      id: 'imp973-rescue-citation-rough',
+      severity: 'low',
+      finding:
+        'The opening summary cites K = 2 => N_0 ~ 10^6, K = 5 => ' +
+        'N_0 ~ 10^8, K = 7 => N_0 ~ 10^9 as the imp-486 rescue ' +
+        'table. Recomputation: direct rescue formula gives ~2.5e4 ' +
+        ', ~2.4e5, ~5.2e5; log-growing variant (imp-586) gives ' +
+        '~2e7, ~2e8, ~5e8. The K = 5 and K = 7 cited values match ' +
+        'the log-growing variant to within one order of magnitude; ' +
+        'the K = 2 cited value (10^6) matches neither variant ' +
+        'precisely. The qualitative claim "any finite K is USEFUL ' +
+        'at a finite N_0" is preserved by both variants. A future ' +
+        'tightening could replace the opening citation with the ' +
+        'exact C_MB_RESCUE_TABLE numbers and disambiguate the two ' +
+        'rescue variants.',
+    },
+  ],
+  notIndependentlyChecked: [
+    {
+      id: 'huxley-12-over-5-exponent',
+      why:
+        'APPROACH_A cites Huxley (1972) zero-density estimate ' +
+        'N(sigma, T) << T^{12(1-sigma)/5+eps}. The 12/5 exponent ' +
+        'is the standard attribution to Huxley but a precise ' +
+        'paper-and-page citation is not reproduced in this audit; ' +
+        'taken as given from the literature.',
+    },
+    {
+      id: 'ben-arous-bourgade-extreme-scaling',
+      why:
+        'APPROACH_B cites Ben Arous-Bourgade (2013) for N^{4/3} ' +
+        'scaling of GUE extreme gaps. The qualitative scaling ' +
+        'matches "Extreme gaps between eigenvalues of random ' +
+        'matrices" (PTRF 2013); the precise normalization constant ' +
+        'is not reproduced here.',
+    },
+    {
+      id: 'montgomery-1973-fourier-support',
+      why:
+        'APPROACH_B cites Montgomery (1973) Theorem 1 ' +
+        'unconditional Fourier-support content for f hat in ' +
+        '(-1, 1). Standard form of the pair-correlation theorem; ' +
+        'the unconditional support range matches the published ' +
+        'theorem.',
+    },
+    {
+      id: 'imp-857-original-marker',
+      why:
+        'recommendedNext.ticket = "imp-857 (to be seeded)" is a ' +
+        'historical snapshot. imp-857 has since been seeded and ' +
+        'delivered as c-mb-interval-certified.js (see imp-972 ' +
+        'cross-verify). The marker is preserved for evaluation-' +
+        'snapshot accuracy.',
+    },
+  ],
+  verdict:
+    'INTERNALLY CONSISTENT with two low-severity flags. The single ' +
+    'computable numerical reference (imp-471 ratio at N = 10000) ' +
+    'is CONFIRMED to three significant figures (recomputed 0.72232 ' +
+    'vs cited 0.722). Cited imp-486 rescue-table values are ' +
+    'order-of-magnitude approximations consistent with the imp-586 ' +
+    'log-growing variant for K in {5, 7}; the K = 2 cited value ' +
+    'matches neither variant precisely but the qualitative claim ' +
+    '("any finite K is USEFUL at a finite N_0") survives. The ' +
+    'Selberg (1946) S(T) = O(log T / log log T) attribution is ' +
+    'RH-conditional rather than unconditional but does not change ' +
+    'the LIKELY-FAILS verdict for APPROACH_A. Recommended-next ' +
+    'ticket (imp-857) and three-approach scope are guarded by ' +
+    'build-time assertions.',
+};

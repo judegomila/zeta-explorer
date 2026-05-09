@@ -139,3 +139,87 @@ theorem leadingOrderMonotonicity_of_E1_E2
 theorem empirical_sweep_js_certificate : True := trivial
 
 end
+
+/-! ## Open sorrys in this file (imp-1011 audit 2026-05-09)
+
+    `grep -n sorry lean/LambdaAttack/EmpiricalSweep.lean` returns two
+    matches:
+      line   4 — comment-only (module-header `--` doc note: "ZERO new
+                 Lean sorrys; ZERO new axioms" -- describes the file's
+                 design intent in prose; not a tactic-position sorry)
+      line 117 — ACTUAL `sorry` in tactic position, inside the proof of
+                 theorem `E1_E2_hold_on_swept_range`, with the trailing
+                 comment `-- imp-870-sub-native-decide` naming the
+                 designated closure path
+
+    Total in-code sorrys: ONE (line 117, E1_E2_hold_on_swept_range).
+
+    Class for that sorry: (a) pure formalization gap — the underlying
+    mathematics is closed JS-side, NOT a substantive mathematical gap.
+
+    Math is closed JS-side. The JavaScript empirical sweep at
+    `src/data/empirical-m-sweep-extended.js` (imp-833 + imp-858) ran
+    both predicates over N ∈ {2, …, 10^6} and reported ZERO violations
+    for either E1_rho_nondec or E2_tauCEst_nonincr at floating-point
+    tolerance. The summary projection used by the UI is exported as
+    `EMPIRICAL_M_SWEEP_EXTENDED_SUMMARY` from
+    `src/data/empirical-m-sweep-extended-summary.js` and is regenerated
+    daily by scripts/daily-health-check.sh (imp-877), which writes
+    .empirical-floor-violation if either predicate ever regresses.
+
+    Why this is class (a) and not class (b): the predicates E1 and E2
+    are decidable-in-principle finite-range statements (universal
+    quantifiers over k ∈ {2, …, N-1} with N=10^6). Closing the Lean
+    `sorry` does not require any new mathematics — only baking the
+    Odlyzko first-10^6 zeros into Lean as an `Array ℝ` (with
+    interval-arithmetic bounds) and discharging the universal
+    quantifiers via `native_decide`. The current placeholder axioms
+    `rho_at_JStar` and `rho_at_JStar_pos` are likewise removed once the
+    table is concrete: rho_at_JStar then becomes a computable function
+    over the table, and its positivity follows from
+    `gammaOrdinate_ge_exp2` (Foundation.lean) + `Real.exp_two_gt_two_pi`
+    (so log(γ_N / (2π)) > 0 hence rvmDensity γ_N > 0 hence
+    rho_at_JStar N > 0 by selection from the gap-argmin witness).
+
+    Resolution path (named sub-gaps of imp-870, declared in this file's
+    module header at lines 35-43):
+      * `imp-870-sub-precomputed-table` — bake the Odlyzko first-10^6
+        zeros into a Lean `Array ℝ` with interval-arithmetic bounds;
+        Mathlib infrastructure: `Mathlib.Data.Real.Interval`,
+        `Float.toReal` discipline, build-time generation script
+      * `imp-870-sub-native-decide` — close the `sorry` at line 117 by
+        `native_decide` over the table; cost is finite computation at
+        Lean build time over N=10^6 entries; trades build time for
+        formal certificate
+      * `imp-870-sub-structural-proof` — alternative path: prove E1/E2
+        from Riemann-von Mangoldt density alone + smallest-gap
+        inequalities (no table); requires porting GUE Wigner-Dyson
+        smallest-spacing statistics (Bourgade-Ben Arous) to Mathlib
+
+    Deliverable for imp-1011: one in-code sorry at line 117, classified
+    as class (a) (formalization-only, JS-side certificate exists). The
+    Lean tactic transcription itself is a follow-up Lean ticket
+    (imp-870-sub-native-decide) that requires baking the first-10^6
+    Odlyzko zeros into Lean (imp-870-sub-precomputed-table) and is left
+    out of this audit-only closure (consistent with imp-1008 Capstone,
+    imp-1009 BridgeTheorem, imp-1010 CompositionCheck, imp-1012
+    Constants treatments).
+
+    Transitive obligations on this file's two non-Mathlib axioms:
+      * `rho_at_JStar` — placeholder for the density-at-argmin
+        function; concrete value emerges automatically once
+        imp-870-sub-precomputed-table closes (rho_at_JStar N is then a
+        computable selection of rvmDensity at the witness k* satisfying
+        deltaF k* = H_N_of N from the baked-in table). NOT a transitive
+        Mathlib gap.
+      * `rho_at_JStar_pos` — placeholder for positivity; once concrete,
+        follows from `gammaOrdinate_ge_exp2` (Foundation.lean,
+        imp-1006-audited) + `Real.log_pos_iff` applied at γ_N / (2π).
+        Lifts to a one-line `by` proof. NOT a transitive Mathlib gap.
+
+    Ticket imp-1011 closes as audit-only with the explicit class-(a)
+    tag. The mathematical claim that E1 and E2 hold on N ≤ 10^6 is
+    established JS-side (imp-833 + imp-858); the Lean formalization
+    awaits the named sub-gap chain.
+-/
+

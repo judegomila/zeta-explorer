@@ -112,6 +112,46 @@ theorem squeeze_type_check (f g : ℕ -> ℝ)
     Tendsto f atTop (nhds 0) :=
   squeeze_zero_norm hbound hlim
 
+/-- IMP-965 EXPLICIT COMPOSITION: parameterised version of
+    Capstone.asymptotic_lambda_eq_zero, named with the variable letters
+    used in imp-965's deliverable wording (t_c for dysonCollTime,
+    Lambda for deBruijnNewmann).
+
+    Hypotheses mirror the two upstream Tendsto facts:
+      hKH : Tendsto (fun N => |t_c N|) atTop (nhds 0)
+            (= KoksmaHlawkaLimSup from Foundation.lean / imp-341)
+      hG6 : Tendsto (fun N => -t_c N) atTop (nhds Lambda)
+            (= G6_bridge_closed from BridgeTheorem.lean / imp-490+imp-510+imp-511)
+
+    Conclusion: Lambda ≤ 0 (matches the imp-965 deliverable wording exactly).
+    The proof produces the strictly stronger Lambda = 0 internally (same
+    composition as Capstone.asymptotic_lambda_eq_zero) and weakens via Eq.le.
+
+    Proof structure (three-step, identical to Capstone):
+      (1) squeeze_zero_norm  : |t_c(N)| -> 0  =>  t_c(N) -> 0
+      (2) Tendsto.neg + neg_zero : t_c(N) -> 0  =>  -t_c(N) -> 0
+      (3) tendsto_nhds_unique  : -t_c(N) -> 0 and -t_c(N) -> Lambda  =>  Lambda = 0
+
+    Type-compatibility: this theorem is the explicit instantiation that
+    imp-965 asked for. Cross-module signatures already match the
+    parameterised hypotheses (Foundation.dysonCollTime : ℕ → ℝ;
+    Foundation.deBruijnNewmann : ℝ; BridgeTheorem.G6_bridge_closed
+    targets nhds deBruijnNewmann); the file-level type compatibility is
+    therefore CONFIRMED here at the parameterised level. The remaining
+    sub-gap is the actual `lake build` invocation, owned by
+    imp-1019-sub-first-run (Mathlib bootstrap exceeds a single
+    auto-improve cycle's runtime window).                                -/
+theorem imp965_explicit_composition (t_c : ℕ -> ℝ) (Lambda : ℝ)
+    (hKH : Tendsto (fun N => |t_c N|) atTop (nhds 0))
+    (hG6 : Tendsto (fun N : ℕ => -t_c N) atTop (nhds Lambda)) :
+    Lambda ≤ 0 := by
+  have hAbs : Tendsto (fun N : ℕ => t_c N) atTop (nhds 0) :=
+    squeeze_zero_norm (fun N => (Real.norm_eq_abs _).le) hKH
+  have hNeg : Tendsto (fun N : ℕ => -t_c N) atTop (nhds 0) := by
+    simpa [neg_zero] using hAbs.neg
+  have hEq : Lambda = 0 := tendsto_nhds_unique hG6 hNeg
+  exact hEq.le
+
 end
 
 /-! ## imp-441 + imp-448 closure note

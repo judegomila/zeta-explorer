@@ -138,3 +138,32 @@ end
       (a) DONE (imp-461): BC_ vs C_ naming unified; Constants.lean is canonical source.
       (b) DONE (imp-454): lean/lakefile.lean created declaring Mathlib dependency.
       (c) Run `lake build LambdaAttack.CompositionCheck` to confirm zero errors.     -/
+
+/-! ## Open sorrys in this file (imp-1010 audit 2026-05-08)
+
+    CompositionCheck.lean has ZERO open sorrys. `grep -n sorry` returns 1 match
+    but it is inside a Lean comment (line 34 of the module-header static
+    incompatibility report, in the phrase "G6_bridge_closed (the sorry'd
+    theorem from BridgeTheorem.lean)" — the reference is to a sibling file's
+    historical sorrys, not to a placeholder in this module). There are ZERO
+    sorry tokens in tactic position in CompositionCheck.lean.
+
+    Class for imp-1010 deliverable: N/A — there are no in-code sorrys to
+    classify. The substantive content of the file is three type-check theorems
+    that are fully closed via Mathlib lemmas: composition_type_check (closed by
+    Mathlib `tendsto_nhds_unique`), constants_type_check (closed by
+    `mul_pos hc (Real.sqrt_pos.mpr hc)`), and squeeze_type_check (closed by
+    Mathlib `squeeze_zero_norm`). Each is a generic instantiation of the
+    corresponding step in Capstone.lean's asymptotic_lambda_eq_zero composition
+    and exists precisely to verify the Capstone composition is well-typed
+    without redeclaring the Foundation.lean axioms.
+
+    Resolution: ticket flipped to completed (audit-only). The historical
+    G6_bridge_closed sorrys referenced in the line-34 comment have themselves
+    been closed in BridgeTheorem.lean by imp-510 / imp-511 + imp-513 + imp-525
+    + imp-535 / imp-490 (audited under imp-1009 on 2026-05-09). Same audit-only
+    pattern as imp-1006 (Foundation.lean), imp-1007 (ManyBody.lean), imp-1008
+    (Capstone.lean), imp-1009 (BridgeTheorem.lean), and imp-1012
+    (Constants.lean). No transitive obligations remain inside this module:
+    the three composition steps it type-checks resolve via Mathlib lemmas
+    already available in Mathlib 4.9+.                                      -/

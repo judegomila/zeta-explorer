@@ -540,6 +540,147 @@ export const ESY_RIGIDITY_PORT = {
     'three named sub-gaps. imp-348 ANGLE_B_OPEN status is NOT overridden.',
 
   angleAReference: LAMBDA_BURGERS_RATE_UPGRADE.derivation.angleB.status,
+
+  closureNote:
+    'imp-1003 (auto-improve, opus-4-7 subscription): honest-partial structural ' +
+    'closure. The auto-seeded ticket asked to close named sub-gap ' +
+    '"esy-rigidity-port-sub-rate" (push the Erdos-Schlein-Yau local-rigidity ' +
+    'port to a sharper rate -- imp-348 angle b). No sub-gap with that exact ' +
+    'id existed in this file; the openSubGaps array carried entries ' +
+    'esy-port-O1-unconditional-rigidity (partial-closed at C_poly = 1 by ' +
+    'imp-508 via the imp-341 Koksma-Hlawka / Selberg discrepancy bound plus ' +
+    'the imp-369 Cauchy-interlacing deterministic level-repulsion estimate; ' +
+    'residual sub-Selberg discrepancy named O1-remaining-concentration), ' +
+    'esy-port-O2-backward-flow-coupling (research-grade), and ' +
+    'esy-port-O3-derandomization (research-grade). The "sharper rate ' +
+    '(imp-348 angle b)" framing maps cleanly to the C_poly < 1 residual: ' +
+    'pushing the discrepancy exponent below the unconditionally-closed ' +
+    'Selberg level (C_poly = 1) toward the optimistic GUE-matched level ' +
+    '(C_poly = 0) is exactly what "sharper rate" means in the ' +
+    'conditionalDerivation table -- psi_N(y_micro) <= (C_ESY_RIG/2) * ' +
+    '(log gamma_N)^{C_poly+1} / N tightens by a factor of ' +
+    '(log gamma_N)^{1 - C_poly}, and under C_poly = 0 the per-N tau_c upper ' +
+    'bound becomes O(pi / (log gamma_N)^2) instead of the angle-(a) ' +
+    'O(pi / log gamma_N) baseline. This run surfaces the gap explicitly: a ' +
+    'new top-level singular openSubGap field on ESY_RIGIDITY_PORT carries ' +
+    'the canonical id "esy-rigidity-port-sub-rate", precise statement, dual ' +
+    'status fields statusOfPriorWork (PARTIAL: imp-407 framework + obstacles ' +
+    'O1/O2/O3 + conditional derivation + 25-row consistency witness on ' +
+    'PATH_C_BASELINE_FIT_V2; imp-508 partial closure of O1 at C_poly = 1; ' +
+    'imp-650 upgrade investigation 2026-04-14 cannot-upgrade) and ' +
+    'statusOfRemaining (open: pushing C_poly strictly below 1 is ' +
+    'research-grade and has no unconditional path without sub-Selberg ' +
+    'discrepancy or derandomization input), explicit dependsOn pointers to ' +
+    'the three OPEN_SUB_GAPS entries, and three approachSuggestions ' +
+    '(sub-Selberg unconditional discrepancy via zero-density input; ' +
+    'conditional GUE derandomization under GRH + full explicit-formula pair ' +
+    'correlation; backward-flow ESY via Tao-Vu time-reversal). A new ' +
+    'build-time assertion imp407-rate-subgap-named pins the canonical id ' +
+    'and the prior-work-PARTIAL / remaining-open status pair so future ' +
+    'references stay anchored. The existing OPEN_SUB_GAPS array ' +
+    '(esy-port-O1-unconditional-rigidity, esy-port-O2-backward-flow-coupling, ' +
+    'esy-port-O3-derandomization) is preserved unchanged, as are the imp-348 ' +
+    'angleAReference open status and the existing six tripwires. The ' +
+    'mathematical work of pushing C_poly < 1 (sub-Selberg discrepancy or ' +
+    'derandomization) remains open and is now tracked under the canonical id ' +
+    'esy-rigidity-port-sub-rate. This is a cataloguing/structural ' +
+    'improvement, not a numerical re-derivation; ESY_RIGIDITY_PORT.status ' +
+    'remains "partial".',
+
+  openSubGap: {
+    id: 'esy-rigidity-port-sub-rate',
+    statement:
+      'Push the Erdos-Schlein-Yau local-rigidity port (imp-407 / imp-348 ' +
+      'angle b) to a sharper rate by reducing the discrepancy exponent ' +
+      'C_poly from the unconditionally-closed Selberg level (C_poly = 1, ' +
+      'imp-508) toward the optimistic GUE-matched level (C_poly = 0). ' +
+      'Closing this sub-gap requires either (a) a sub-Selberg unconditional ' +
+      'discrepancy estimate D_N^* <= C * (log gamma_N)^c / N with c < 1 for ' +
+      'the deterministic zero sequence, or (b) a deterministic version of ' +
+      'the ESY high-probability rigidity bound that applies to the specific ' +
+      'sequence {gamma_k} rather than only to almost-every sample of a ' +
+      'Wigner ensemble. Outcome: psi_N(y_micro) <= (C_ESY_RIG / 2) * ' +
+      '(log gamma_N)^{C_poly + 1} / N tightens by a factor of ' +
+      '(log gamma_N)^{1 - C_poly}; under C_poly = 0 the per-N tau_c upper ' +
+      'bound becomes O(pi / (log gamma_N)^2) instead of the O(pi / log gamma_N) ' +
+      'angle-(a) baseline.',
+    statusOfPriorWork:
+      'PARTIAL -- imp-407 (this file) states the ESY 2011 / Erdos-Yau 2017 ' +
+      'framework, identifies the three obstacles O1 (unconditional input), ' +
+      'O2 (forward DBM vs backward de Bruijn flow coupling), O3 ' +
+      '(high-probability vs deterministic conversion), derives the ' +
+      'conditional rate (C_poly = 0 optimistic and C_poly = 1 conservative ' +
+      'scenarios), and ships the 25-row numerical witness on ' +
+      'PATH_C_BASELINE_FIT_V2 confirming both scenarios are consistent with ' +
+      'measurement (allOptConsistentWithMeasured / allConsConsistentWithMeasured ' +
+      'true; allOptRatiosStrictlyBelowOne / allConsRatiosStrictlyBelowOne true; ' +
+      'optImprovesOverAngleA true). imp-508 partial-closed obstacle O1 ' +
+      'unconditionally at C_poly = 1 by combining (A) the imp-341 ' +
+      'Koksma-Hlawka / Selberg discrepancy bound with (B) the imp-369 ' +
+      'Cauchy-interlacing deterministic level-repulsion estimate ' +
+      '(B_{N+1}(0) <= B_N(0)); together these deliver a full unconditional ' +
+      'instantiation of the ESY conservative scenario without any GUE ' +
+      'assumption. imp-650 upgrade investigation (2026-04-14) reviewed the ' +
+      'imp-462/463/464/471 ZPO B1/B2 closures and ruled them orthogonal to ' +
+      'the rigidity port, returning conclusion cannot-upgrade and pinning ' +
+      'ESY_RIGIDITY_PORT.status at "partial". The angle-b open status in ' +
+      'LAMBDA_BURGERS_RATE_UPGRADE is preserved by the existing ' +
+      'imp407-consumes-imp348-angle-b-open tripwire.',
+    statusOfRemaining:
+      'open -- pushing C_poly strictly below 1 (sharper rate, optimistic ' +
+      'GUE-matched scenario) is research-grade and currently has no ' +
+      'unconditional path. Closing requires either (a) a sub-Selberg ' +
+      'unconditional discrepancy estimate D_N^* <= C * (log gamma_N)^c / N ' +
+      'with c < 1 for the deterministic zero sequence -- neither the ' +
+      'Riemann-von Mangoldt counting input nor any current explicit-formula ' +
+      'technique gives a sub-Selberg rate without additional ' +
+      'analytic-number-theory input (e.g. zero-density estimates assuming ' +
+      'GRH, or quantitative Montgomery pair-correlation beyond the leading ' +
+      '1 - (sin pi x / pi x)^2 term); or (b) a derandomization theorem ' +
+      'turning the ESY high-probability Wigner rigidity bound into a ' +
+      'deterministic statement about {gamma_k}, which itself depends on a ' +
+      'quantitative Montgomery-Dyson identification beyond the conjectural ' +
+      'pair-correlation level. The existing OPEN_SUB_GAPS entry ' +
+      'esy-port-O1-unconditional-rigidity already names this residual via ' +
+      'its O1-remaining-concentration sub-id; the canonical sub-gap id ' +
+      'esy-rigidity-port-sub-rate consolidates that residual under a stable ' +
+      'cross-file handle. No code change in src/math/ would close this ' +
+      'sub-gap: it is a mathematical-research gap, not an implementation ' +
+      'gap.',
+    dependsOn: [
+      'esy-port-O1-unconditional-rigidity -- existing OPEN_SUB_GAPS entry; ' +
+        'partial-closed at C_poly = 1 by imp-508 (KH + Cauchy interlacing); ' +
+        'the residual O1-remaining-concentration is the same sub-Selberg ' +
+        'discrepancy gap.',
+      'esy-port-O2-backward-flow-coupling -- existing OPEN_SUB_GAPS entry; ' +
+        'research-grade; couples the ESY Dyson Brownian motion forward ' +
+        'regularization to the Polymath15 backward de Bruijn flow used here.',
+      'esy-port-O3-derandomization -- existing OPEN_SUB_GAPS entry; ' +
+        'research-grade; converts an ESY high-probability Wigner bound into ' +
+        'a deterministic statement about the specific sequence {gamma_k}.',
+    ],
+    approachSuggestions: [
+      'Sub-Selberg unconditional discrepancy: attempt to upgrade the imp-341 ' +
+        'Selberg-style Koksma-Hlawka bound to a sub-logarithmic rate by ' +
+        'inserting a non-trivial zero-density input (e.g. Ingham-Huxley ' +
+        'zero-density bounds or a quantitative form of Montgomery pair ' +
+        'correlation). Any improvement c < 1 in D_N^* <= C * (log gamma_N)^c ' +
+        '/ N immediately propagates to psi_N(y_micro) <= (C_ESY_RIG / 2) * ' +
+        '(log gamma_N)^{1 + c} / N and tightens tau_c_upper.',
+      'Conditional GUE derandomization: assuming GRH plus the full explicit ' +
+        'formula for pair correlation (not just the leading Montgomery ' +
+        'term), derive a deterministic version of the ESY high-probability ' +
+        'rigidity for {gamma_k}. This addresses obstacles O3 and partially ' +
+        'O1 simultaneously and is the most plausible path under standard ' +
+        'analytic-number-theory hypotheses.',
+      'Backward-flow ESY via Tao-Vu: reformulate the ESY 2011 forward Dyson ' +
+        'Brownian motion regularization in the Polymath15 backward de ' +
+        'Bruijn flow language using Tao-Vu bulk universality plus a ' +
+        'time-reversal coupling argument. This addresses obstacle O2 ' +
+        'directly and would let the existing OPEN_SUB_GAPS narrative drop ' +
+        'the forward / backward asymmetry caveat.',
+    ],
+  },
 };
 
 // ── Build-time assertions ──────────────────────────────────────────────────────
@@ -609,5 +750,39 @@ export const ESY_RIGIDITY_PORT_ASSERTIONS = [
       'that block full unconditional closure. If the array shrinks below 3, ' +
       'either a sub-gap was improperly removed or the structure was changed ' +
       'without updating this assertion.',
+  },
+  {
+    id: 'imp407-rate-subgap-named',
+    holds: () =>
+      ESY_RIGIDITY_PORT.openSubGap?.id === 'esy-rigidity-port-sub-rate' &&
+      typeof ESY_RIGIDITY_PORT.openSubGap.statusOfPriorWork === 'string' &&
+      typeof ESY_RIGIDITY_PORT.openSubGap.statusOfRemaining === 'string' &&
+      ESY_RIGIDITY_PORT.openSubGap.statusOfPriorWork.startsWith('PARTIAL') &&
+      ESY_RIGIDITY_PORT.openSubGap.statusOfRemaining.startsWith('open') &&
+      Array.isArray(ESY_RIGIDITY_PORT.openSubGap.dependsOn) &&
+      ESY_RIGIDITY_PORT.openSubGap.dependsOn.length === 3 &&
+      Array.isArray(ESY_RIGIDITY_PORT.openSubGap.approachSuggestions) &&
+      ESY_RIGIDITY_PORT.openSubGap.approachSuggestions.length === 3,
+    why:
+      'imp-1003 honest-partial: the rate-tightening sub-gap (push the ESY ' +
+      'discrepancy exponent C_poly below the unconditionally-closed Selberg ' +
+      'level C_poly = 1 toward GUE level C_poly = 0; sharper tau_c upper ' +
+      'bound by a factor of (log gamma_N)^{1 - C_poly}) must carry a stable ' +
+      'named id (esy-rigidity-port-sub-rate) and explicit prior-work / ' +
+      'remaining status fields. The OPEN_SUB_GAPS array names the ' +
+      'underlying obstacles O1/O2/O3 narratively but does not expose the ' +
+      'rate-improvement framing under a single canonical id, which loses ' +
+      'the cross-file reference handle. The dependsOn array pins the three ' +
+      'OPEN_SUB_GAPS entries the rate residual reduces to ' +
+      '(O1-unconditional-rigidity, O2-backward-flow-coupling, ' +
+      'O3-derandomization); the approachSuggestions array names the three ' +
+      'closure paths (sub-Selberg discrepancy via zero-density input; ' +
+      'conditional GUE derandomization under GRH + full explicit-formula ' +
+      'pair correlation; backward-flow ESY via Tao-Vu time-reversal). If a ' +
+      'future commit closes one of those paths and pushes C_poly < 1 ' +
+      'unconditionally, statusOfRemaining must flip from "open" together ' +
+      'with a coordinated update of this assertion and of the ' +
+      'imp407-consumes-imp348-angle-b-open tripwire, preventing silent ' +
+      'overclaim.',
   },
 ];

@@ -224,6 +224,88 @@ export const G1_G2_CLOSURE_ASSEMBLY = {
   consumesG1Id: LAMBDA_ARGMIN_INTERIORITY.id,
   consumesG2Id: LAMBDA_ARGMIN_JUMPS.id,
   consumesImp336Id: LAMBDA_INTERCEPT_MONOTONICITY.id,
+  openSubGap: {
+    id: 'g1-uniform-margin',
+    file: 'src/data/g1-g2-closure.js',
+    statement:
+      'Close the G1 uniform-margin step (k*_N interior with explicit ' +
+      'margin alpha uniform in N) -- last conditional in Route A-prime. ' +
+      'imp-368 delivered (L-triv) k*_N in {1, ..., N-1} unconditionally ' +
+      'with non-uniform margin 1/N, plus (L-cond) alpha*N <= k*_N <= ' +
+      '(1 - alpha)*N for N >= N_0(alpha), conditional on G1-sub-extremal. ' +
+      'The imp-336 sign-reinforcement step consumes the uniform alpha; ' +
+      'without it Route A is not a proof of (M).',
+    statusOfPriorWork:
+      'PARTIAL: imp-368 (LAMBDA_ARGMIN_INTERIORITY) delivered the dual ' +
+      '(L-triv unconditional) + (L-cond conditional on G1-sub-extremal) ' +
+      'strata; imp-369 closed the orthogonal G2 tau=0 case via Cauchy ' +
+      'interlacing; imp-450 assembled G1+G2 joint closure status; ' +
+      'imp-455 (G1_SUB_EXTREMAL_CLOSURE) ported Bourgade-Ben Arous ' +
+      'extremal-gap to GUE unconditionally and gave a conditional partial ' +
+      'closure of G1-sub-extremal under H1 (Montgomery pair-correlation) + ' +
+      'H2 (RvM density-gradient absorption); imp-651 upgrade investigation ' +
+      '2026-04-14 concluded cannot-upgrade because the imp-462/463/464/471 ' +
+      'M-raw / B1+B2 ZPO chain is orthogonal to the tau-positive conditional.',
+    statusOfRemaining:
+      'open: pushing the uniform alpha-margin from conditional (under H1+H2) ' +
+      'to unconditional requires either (a) a deterministic minimum-gap ' +
+      'bulk-confinement bound for the specific Riemann-zero sequence ' +
+      '{gamma_k} that avoids GUE pair-correlation hypotheses, or ' +
+      '(b) closing the named G1-sub-extremal-raw-vs-unfolded density-gradient ' +
+      'sub-gap via Selberg CLT variance bound + RvM discrepancy. Both are ' +
+      'research-grade and have no unconditional path in current technology.',
+    dependsOn: [
+      {
+        id: 'G1-sub-extremal',
+        file: 'src/data/g1-g2-closure.js',
+        status:
+          'partial-closed by imp-455 (Bourgade GUE port; conditional under H1+H2)',
+      },
+      {
+        id: 'G1-sub-extremal-raw-vs-unfolded',
+        file: 'src/math/g1-sub-extremal-closure.js',
+        status:
+          'open -- needs quantitative density-gradient control via Selberg ' +
+          'CLT variance bound or Bourgade 2022 inhomogeneous Wigner generalization',
+      },
+    ],
+    approachSuggestions: [
+      'Sub-Selberg unconditional discrepancy: D_N^* <= C * (log gamma_N)^c / N ' +
+        'with c < 1 for the deterministic zero sequence, eliminating the H1 dependency',
+      'Selberg CLT variance bound on minimum-gap location, or second-moment ' +
+        'estimate for the gap-spacing process, closing G1-sub-extremal-raw-vs-unfolded',
+      'Bourgade 2022 Wigner-matrix extremal-gap generalization to the ' +
+        'inhomogeneous (varying density) case, absorbing the RvM density-gradient ' +
+        'correction in the BABL CLT error term',
+    ],
+  },
+  closureNote:
+    'imp-1004 honest-partial: when picked up, src/data/g1-g2-closure.js had no ' +
+    'sub-gap with the exact id g1-uniform-margin. The substantive content ' +
+    '(uniform alpha-margin for k*_N) lives in G1_CLOSURE_STATUS.conditionalContent ' +
+    'as the (L-cond) stratum, conditional on G1-sub-extremal, which is ' +
+    'partial-closed by imp-455 (G1_SUB_EXTREMAL_CLOSURE) under H1+H2 with ' +
+    'the named density-gradient remainder G1-sub-extremal-raw-vs-unfolded ' +
+    'still open. This run surfaces the gap explicitly: a new top-level ' +
+    'singular openSubGap field on G1_G2_CLOSURE_ASSEMBLY carries the ' +
+    'canonical id g1-uniform-margin, dual status fields statusOfPriorWork ' +
+    '(PARTIAL: imp-368 L-triv + L-cond strata, imp-455 partial closure of ' +
+    'G1-sub-extremal under H1+H2, imp-651 cannot-upgrade investigation) and ' +
+    'statusOfRemaining (open: unconditional uniform margin requires ' +
+    'deterministic bulk-confinement or closing the density-gradient ' +
+    'remainder), explicit dependsOn pointers to G1-sub-extremal and ' +
+    'G1-sub-extremal-raw-vs-unfolded, and three approachSuggestions ' +
+    '(sub-Selberg unconditional discrepancy; Selberg CLT variance bound on ' +
+    'minimum-gap location; Bourgade 2022 inhomogeneous Wigner generalization). ' +
+    'New build-time assertion imp1004-uniform-margin-subgap-named pins the ' +
+    'canonical id and the prior-work-PARTIAL / remaining-open status pair so ' +
+    'future references stay anchored. Existing G1_CLOSURE_STATUS / ' +
+    'G2_CLOSURE_STATUS / jointAnalysis / openWork structure preserved ' +
+    'unchanged, as is the imp-450 ANALYTIC_SKETCH-untouched scope tripwire. ' +
+    'The mathematical work of pushing uniform alpha-margin to unconditional ' +
+    'remains open and is now tracked under the canonical id g1-uniform-margin. ' +
+    'Build passes (vite green; 6 G1_G2_CLOSURE_ASSERTIONS resolve true). ' +
+    'One atomic structural change; no math claimed.',
 };
 
 // ── Build-time assertions ────────────────────────────────────────────────────
@@ -292,5 +374,34 @@ export const G1_G2_CLOSURE_ASSERTIONS = [
       'future edit upgrades to full closure, it MUST also flip the imp-336 ' +
       'ANALYTIC_SKETCH G1/G2 status and coordinate lambda-intercept-analytic.js, ' +
       'bridge-lambda-rh.js, and lambda-zero-attack.js in the same commit.',
+  },
+  {
+    id: 'imp1004-uniform-margin-subgap-named',
+    holds: () => {
+      const sg = G1_G2_CLOSURE_ASSEMBLY.openSubGap;
+      return (
+        sg !== undefined &&
+        sg.id === 'g1-uniform-margin' &&
+        typeof sg.statusOfPriorWork === 'string' &&
+        sg.statusOfPriorWork.startsWith('PARTIAL') &&
+        typeof sg.statusOfRemaining === 'string' &&
+        sg.statusOfRemaining.startsWith('open') &&
+        Array.isArray(sg.dependsOn) &&
+        sg.dependsOn.length >= 2 &&
+        sg.dependsOn.some((d) => d.id === 'G1-sub-extremal') &&
+        sg.dependsOn.some((d) => d.id === 'G1-sub-extremal-raw-vs-unfolded')
+      );
+    },
+    why:
+      'imp-1004 honest-partial closure pins the canonical sub-gap id ' +
+      'g1-uniform-margin onto G1_G2_CLOSURE_ASSEMBLY. The dual ' +
+      'statusOfPriorWork (PARTIAL: imp-368 strata + imp-455 partial closure + ' +
+      'imp-651 cannot-upgrade) and statusOfRemaining (open: unconditional ' +
+      'uniform margin is research-grade) status pair must remain stable so ' +
+      'future references to this sub-gap stay anchored. The dependsOn list ' +
+      'must keep both the parent G1-sub-extremal pointer and the ' +
+      'G1-sub-extremal-raw-vs-unfolded density-gradient remainder pointer. ' +
+      'If a future commit closes the gap unconditionally, it MUST update the ' +
+      'status fields and remove this assertion in the same commit.',
   },
 ];

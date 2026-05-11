@@ -7,7 +7,8 @@
 # 3. Dev server alive — report if down
 # 4. Queue not empty — run autofill if drained
 # 5. Queue index fresh — rebuild if stale
-# 6. Git push — push any unpushed commits
+# 6. Stale rate-limit sentinel sweep — wipe .rate-limit-backoff-state* older than 24h (imp-1017)
+# 7. Git push — push any unpushed commits
 #
 # Usage: ./scripts/daily-health-check.sh
 # Intended to run via cron: 0 8 * * * cd /path/to/mathexplorer && ./scripts/daily-health-check.sh >> scripts/logs/daily-health.log 2>&1
@@ -114,6 +115,32 @@ else
   echo "{\"at\":\"$LOG_PREFIX\",\"check\":$EMPIRICAL_CHECK}" > "$SCRIPT_DIR/.empirical-floor-violation"
   echo "$LOG_PREFIX WARNING: empirical-Λ floor check FAILED — sentinel written to .empirical-floor-violation"
 fi
+
+# ── 6b. Stale rate-limit sentinel sweep (imp-1017) ─────────────────────
+# Each auto-improve*.sh writes a .rate-limit-backoff-state{,-haiku,-sonnet,-opus46}
+# sentinel on a rate-limit hit and removes it on the next clean run. If the
+# engine is killed mid-run while the sentinel exists, or if an external monitor
+# treats the sentinel as a "do not start" gate, throughput degrades silently
+# long after the originating throttle window has expired. Wipe any sentinel
+# whose mtime is older than RATE_LIMIT_SENTINEL_MAX_AGE_HOURS (default 24h)
+# so daily cron heals the staleness without operator intervention.
+RATE_LIMIT_SENTINEL_MAX_AGE_HOURS="${RATE_LIMIT_SENTINEL_MAX_AGE_HOURS:-24}"
+RATE_LIMIT_SENTINEL_MAX_AGE_MIN=$(( RATE_LIMIT_SENTINEL_MAX_AGE_HOURS * 60 ))
+for sentinel in \
+  "$SCRIPT_DIR/.rate-limit-backoff-state" \
+  "$SCRIPT_DIR/.rate-limit-backoff-state-haiku" \
+  "$SCRIPT_DIR/.rate-limit-backoff-state-sonnet" \
+  "$SCRIPT_DIR/.rate-limit-backoff-state-opus46"; do
+  if [ -f "$sentinel" ]; then
+    stale=$(find "$sentinel" -mmin "+$RATE_LIMIT_SENTINEL_MAX_AGE_MIN" -print 2>/dev/null)
+    if [ -n "$stale" ]; then
+      rm -f "$sentinel"
+      echo "$LOG_PREFIX Rate-limit sentinel: wiped stale $(basename "$sentinel") (>${RATE_LIMIT_SENTINEL_MAX_AGE_HOURS}h old)"
+    else
+      echo "$LOG_PREFIX Rate-limit sentinel: $(basename "$sentinel") present but fresh — leaving in place"
+    fi
+  fi
+done
 
 # ── 7. Git push ─────────────────────────────────────────────────────────
 UNPUSHED=$(git log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')

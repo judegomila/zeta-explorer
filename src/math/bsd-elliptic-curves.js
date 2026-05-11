@@ -1,4 +1,38 @@
 /**
+ * @module bsd-elliptic-curves
+ * @fileoverview Birch-Swinnerton-Dyer (BSD) conjecture for elliptic curves
+ * over Q (imp-226), the elliptic-curve analog of the class number formula
+ * and a sibling Millennium Problem to the Riemann Hypothesis. BSD asserts
+ * ord_{s=1} L(s, E) = rank(E(Q)), with the leading coefficient given by
+ * L^{(r)}(1, E)/r! = (|Sha(E)| * Reg(E) * Omega_E * prod_p c_p) / |E(Q)_tors|^2.
+ * Each elliptic curve over Q has an L-function L(s, E) = prod_p L_p(s, E)^{-1}
+ * built from the local factors L_p(s, E) = 1 - a_p*p^{-s} + p^{1-2s} at primes
+ * of good reduction (with a_p = p + 1 - #E(F_p) and the Hasse bound
+ * |a_p| <= 2*sqrt(p)), and the multiplicative Dirichlet series
+ * L(s, E) = sum_{n>=1} a_n(E)*n^{-s}. This module point-counts E(F_p) for a
+ * short list of LMFDB-curated test curves (ranks 0, 1, 3), assembles a_n
+ * multiplicatively through n = 500, and inspects the truncated central
+ * value partialL1(a_n, 500) as a heuristic indicator of vanishing at s = 1.
+ * Rank-0 curves should leave partialL1 bounded away from zero while rank
+ * >= 1 curves should drive partialL1 toward zero; the bsd_consistent flag
+ * applies a deliberately loose |L| threshold given the slow conditional
+ * convergence of the partial Dirichlet sum (a rigorous evaluation would
+ * use Mellin inversion or Dokchitser's algorithm). Key export:
+ * bsdEllipticCurvesTest. Originating ticket: imp-226. Proof-chain role:
+ * sibling-Millennium context for the analytic-rank / order-of-vanishing
+ * narrative that frames the RH attack in the broader L-function landscape.
+ * @see imp-226
+ * @see imp-911
+ * @see imp-924
+ * @see imp-988
+ * @see imp-989
+ * @see imp-990
+ * @see imp-991
+ * @see imp-992
+ * @see imp-993
+ */
+
+/**
  * BSD Conjecture for Elliptic Curves: L(s, E) at s = 1
  *
  * imp-226: The Birch-Swinnerton-Dyer conjecture is the elliptic-curve

@@ -12520,12 +12520,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Add JSDoc module documentation to lambda-burgers-shock-lipschitz.js",
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'docs',
     description: "src/data/lambda-burgers-shock-lipschitz.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-05-11T11:25:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: "Prepended @module / @fileoverview JSDoc header to src/data/lambda-burgers-shock-lipschitz.js (per the imp-911 / imp-924 / imp-986..imp-995 precedent). The new header documents: purpose (Holder-1/2 modulus of tau_c at the Burgers shock as a PARTIAL closure of G6a_shock_lipschitz inside G6_polymath15_bridge), the imp-345 error decomposition |Lambda - (- t_c(N))| <= E_trunc + E_flow + E_coll, the Whitham fold-catastrophe expansion t_shock(z_0) = tau_c + (1/2) alpha (z_0 - z_0*)^2 + O(cubic) with the Whitham constant C_W = sqrt(2 / |u_0_double_prime(z_0*)|), composition with imp-341 Koksma-Hlawka into the combined rate E_coll(N) <= C_prime * sqrt(log gamma_N) / N^{1/4} strictly positive and strictly decreasing in N, the two named honestly-open sub-sub-gaps G6a-sub-hyperbolic (Riemann-Hilbert transcription of real-valued Whitham) and G6a-sub-constant (numerical C_W at the boundary shock), key exports LAMBDA_BURGERS_SHOCK_LIPSCHITZ + LAMBDA_BURGERS_SHOCK_LIPSCHITZ_ASSERTIONS (five tripwires: citation-chain-by-id, Holder-exponent-pinned-at-1/2, Whitham-constant-finite-and-positive, combined-E-strict-positive-and-decreasing, verdict-stays-partial), and the originating imp-354 ticket. The existing imp-354 narrative JSDoc is preserved unchanged immediately below the new @module / @fileoverview header.",
   },
 
     {

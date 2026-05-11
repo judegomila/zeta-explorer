@@ -1,4 +1,48 @@
 /**
+ * @module lambda-burgers-shock-lipschitz
+ * @fileoverview Holder-1/2 continuity of the backward-collision-time
+ * functional tau_c at the Burgers shock m_infinity (imp-354), a PARTIAL
+ * closure of the sub-gap G6a_shock_lipschitz opened by imp-345 inside
+ * G6_polymath15_bridge. The imp-345 decomposition bounds
+ * |Lambda - (- t_c(N))| <= E_trunc(N) + E_flow(N) + E_coll(N), where
+ * E_coll(N) = (modulus of continuity of tau_c at m_infinity) *
+ * ||m_N - m_infinity||_{L^inf({Im z >= y_N^sharp})}. This module supplies a
+ * Whitham-style Holder-1/2 modulus at the simple Burgers shock, gives the
+ * fold-catastrophe expansion t_shock(z_0) = tau_c + (1/2) alpha
+ * (z_0 - z_0*)^2 + O(cubic) with alpha = u_0_double_prime(z_0*) /
+ * (u_0_prime(z_0*))^2, and composes the resulting Whitham constant
+ * C_W = sqrt(2 / |u_0_double_prime(z_0*)|) with the imp-341 Koksma-Hlawka
+ * bound psi_N(y_N^sharp) <= pi C_Selberg log gamma_N / sqrt(2 pi N) to
+ * deliver the explicit combined rate E_coll(N) <= C_prime *
+ * sqrt(log gamma_N) / N^{1/4}, strictly positive and strictly decreasing
+ * in N on every PATH_C_BASELINE_FIT anchor. The Holder exponent 1/2 is
+ * FORCED by the fold catastrophe and pinned by a build-time tripwire;
+ * the closure is honestly partial because (G6a-sub-hyperbolic) Whitham
+ * is stated for real-valued u : R -> R and porting to the complex
+ * Stieltjes m : C_+ -> C_+ needs a Riemann-Hilbert fold analysis we do
+ * not reproduce, and (G6a-sub-constant) C_W is symbolic because the RvM
+ * boundary shock at y -> 0+ puts z_0* on the real axis where
+ * u_0_double_prime diverges in the pointwise sense. Key exports:
+ * LAMBDA_BURGERS_SHOCK_LIPSCHITZ (record with lemma, combined rate,
+ * verdict, openWork) and LAMBDA_BURGERS_SHOCK_LIPSCHITZ_ASSERTIONS
+ * (five tripwires: citation-chain by id, Holder-exponent pinned at 1/2,
+ * Whitham/combined constants finite and positive, combined E_coll
+ * strict-positive-and-decreasing across the ladder, verdict-stays-partial
+ * until both sub-gaps discharge). Originating ticket: imp-354.
+ * Proof-chain role: tightens imp-345 G6_polymath15_bridge by reducing its
+ * unnamed Holder lemma to two specifically named sub-sub-gaps with
+ * explicit constants and an explicit rate; the load-bearing blocker per
+ * lambda-zero-attack.js remains G6_polymath15_bridge itself.
+ * @see imp-354
+ * @see imp-345
+ * @see imp-341
+ * @see imp-338
+ * @see imp-911
+ * @see imp-924
+ * @see imp-995
+ */
+
+/**
  * imp-354: PARTIAL closure of G6a_shock_lipschitz
  *
  * Hölder-1/2 continuity of the backward-collision-time functional tau_c

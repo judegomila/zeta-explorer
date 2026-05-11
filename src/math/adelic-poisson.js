@@ -1,4 +1,19 @@
 /**
+ * @module adelic-poisson
+ * @fileoverview Adelic Poisson summation and the functional equation
+ * ξ(s) = ξ(1-s). Numerically verifies the three self-duality facts that make
+ * Tate's adelic Poisson summation collapse onto a manifest s ↔ 1-s symmetry:
+ * (1) archimedean Gaussian self-duality Φ̂_∞ = Φ_∞, (2) p-adic self-duality
+ * Φ̂_p = 𝟙_{ℤ_p}, (3) archimedean functional-equation factor
+ * π^{-s/2}Γ(s/2) paired with π^{-(1-s)/2}Γ((1-s)/2). Key exports:
+ * `verifyArchimedeanSelfDuality`, `verifyPAdicSelfDuality`,
+ * `verifyArchimedeanFunctionalFactor`, `verifyXiFunctionalEquation`,
+ * `runAdelicPoissonSummationCheck`. Originating ticket: imp-170. Proof-chain
+ * step: grounds the functional equation from imp-162 (RH skeleton) in
+ * explicit numerical adelic self-duality (Tate's theorem).
+ * @see imp-162
+ * @see imp-170
+ *
  * Adelic Poisson Summation and Functional Equation ξ(s) = ξ(1-s)
  *
  * imp-170: Grounds the functional equation from imp-162 in explicit numerical

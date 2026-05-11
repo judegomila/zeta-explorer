@@ -12485,12 +12485,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Cross-verify polymath8-bounded-gaps.js: independent check of key computations",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: "Read src/math/polymath8-bounded-gaps.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-05-11T10:30:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: "AUDIT-ONLY (follows the imp-919 / imp-921 / imp-971..imp-985 cross-verification precedent). Appended POLYMATH8_BOUNDED_GAPS_CROSS_VERIFY and POLYMATH8_BOUNDED_GAPS_ASSERTIONS exports to src/math/polymath8-bounded-gaps.js documenting an independent three-pass audit: (1) identity-audit of sievePrimes (standard Sieve of Eratosthenes, sieve[n]=1 for composites, !sieve[n] correctly tests primality), isAdmissible (loop p <= k+1 is conservative since p <= k suffices when |H|=k -- cosmetic over-check, no correctness bug), greedyAdmissibleTuple (standard greedy from {0}), countPrimeTuples; (2) citation audit confirming Zhang 2013 70,000,000 (Annals 179), Maynard-Tao 2014 k_0=105 with H=600 (Annals 181), Polymath 8b k_0=50 with H=246 (Research in the Math Sci 1:12) all match published bounds exactly; (3) edge cases including Math.min spread over ~78,497 gap values at line 109 (works in current V8, flagged as low-severity since historical engines had argument-count caps as low as 65,535 -- safer pattern is gaps.reduce), redundant n+h bound guard at line 64 (tautology since h <= max(H)), redundant greedyAdmissibleTuple regen in tupleCounts (forced by H_sample storing only first 8 elements), inverted isPrime variable name (Uint8Array stores 1 for composites, name reads opposite of values, !isPrime[n] is correct at every call site). Greedy admissible diameters at k=2, 3, 5 reproduce by hand-trace to {0,2}, {0,2,6}, {0,2,6,8,12} matching the Engelsma optimal H_2 = 2, H_3 = 6, H_5 = 12. pi(10^6) = 78498 = OEIS A000720; twin pair count 8169 = OEIS A007508; min gap = 2 from twin primes. Five build-time assertions added: imp1026-greedy-admissible-k2-eq-02, imp1026-greedy-admissible-k3-diameter-6, imp1026-greedy-admissible-k5-diameter-12, imp1026-pi-100-equals-25, imp1026-not-admissible-024-mod-3. Four flags raised, all cosmetic / low (imp1026-isPrime-naming-inverted, imp1026-admissibility-bound-loose, imp1026-math-min-spread-risky, imp1026-greedy-redundant-regen). None of the flags changes the verdict: polymath8BoundedGapsTest produces correct numerical and citation output consistent with the Zhang-Maynard-Tao bounded-gaps literature. Verdict: INTERNALLY CONSISTENT.",
   },
 
   

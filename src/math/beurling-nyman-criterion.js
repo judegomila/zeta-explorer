@@ -1,4 +1,27 @@
 /**
+ * @module beurling-nyman-criterion
+ * @fileoverview Beurling-Nyman-Baez-Duarte L^2 reformulation of the Riemann
+ * Hypothesis (imp-236). Beurling (1955) and Nyman (1950) proved that RH is
+ * equivalent to the indicator chi_{(0,1)} being approximable in L^2(0,1) by
+ * linear combinations of dilated fractional-part functions f_k(x) = {k/x}.
+ * Baez-Duarte (2003) refined this: RH <=> d_N := dist_{L^2}(1, span{f_1, ...,
+ * f_N}) -> 0, with the quantitative bound d_N = O((log log N / log N)^{1/2})
+ * under RH. This module computes d_N for N = 1..20 by (i) evaluating the
+ * Gram matrix G[i][j] = integral_0^1 {i/x} {j/x} dx via the substitution
+ * u = 1/x, (ii) evaluating the RHS b[i] = i * (H_i - log i - gamma) in closed
+ * form, (iii) solving the normal equations G c = b by Cholesky, and (iv)
+ * checking that d_N^2 = 1 - b^T G^{-1} b decreases monotonically. Key export:
+ * beurlingNymanCriterionTest. Originating ticket: imp-236. Proof-chain step:
+ * L^2 approximation route to RH, providing a complementary criterion to the
+ * Hilbert-Polya spectral and Li-positivity arithmetic routes.
+ * @see imp-236
+ * @see imp-911
+ * @see imp-924
+ * @see imp-988
+ * @see imp-989
+ * @see imp-990
+ * @see imp-991
+ *
  * Beurling-Nyman Criterion for the Riemann Hypothesis
  *
  * imp-236: Beurling (1955) & Nyman (1950), refined by Báez-Duarte (2003):

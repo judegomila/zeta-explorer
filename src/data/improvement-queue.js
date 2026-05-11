@@ -12493,6 +12493,35 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
   },
 
+  
+  // ── Auto-seeded batch (2026-05-11) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1027',
+    title: "Cross-verify family-pair-correlation.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S10-verify',
+    description: "Read src/math/family-pair-correlation.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-1028',
+    title: "Add JSDoc module documentation to lambda-burgers-shock-lipschitz.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/lambda-burgers-shock-lipschitz.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',
@@ -14624,12 +14653,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Refresh dead-code-audit (last sweep was 2026-04)",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'meta',
     description: "src/data/dead-code-audit-2026-04.js is now ~1 month stale. Run a fresh sweep: identify exports that are never imported anywhere in src/ + scripts/, exclude *_ASSERTIONS exports (consumed only via runtime ssrLoadModule). Ship src/data/dead-code-audit-2026-05.js with the new audit + supersedes pointer.",
     rationale: "Dead code accumulates. Periodic sweeps prevent bit-rot.",
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: "2026-05-11T03:35:00Z",
+    completedByModel: "opus-4-7",
+    completedByChannel: "subscription",
+    closureNote: "Shipped src/data/dead-code-audit-2026-05.js (DEAD_CODE_AUDIT_2026_05 + DEAD_CODE_AUDIT_2026_05_ASSERTIONS). Fresh static-import scan across src/{math,pages,components,data}: 312 math .js modules total (vs 297 at 2026-04, +15); 262 no-importers (vs 284, -22); 27 assertion-bearing keepers (composition shifted -- ~14 old route-a/path-c/m-raw/many-body/noswap/rvm-jacobian keepers retired into the imported set thanks to the imp-919/imp-921/imp-971..imp-985 cross-verification-block precedent; ~14 new imp-857/imp-903/imp-911/imp-924 family members joined); 235 strong delete-candidates (vs 257, -22). File carries supersedes pointer to dead-code-audit-2026-04.js + retiredFromKeepersWithImporters list (14 modules now visible in the import graph) + 60-deep alphabetical sample of delete-candidates + nextTickets imp-1015a..imp-1015z for batched manual review. Five assertions: noImporters >= 200, assertion-bearers >= 20, totals decomposition consistent, supersedes pointer non-empty, lastVerifiedAt parseable -- all PASS at ship time. Build passes (npm run build, vite green).",
   },
   {
     id: 'imp-1016',

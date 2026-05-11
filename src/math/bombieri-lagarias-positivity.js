@@ -1,4 +1,32 @@
 /**
+ * @module bombieri-lagarias-positivity
+ * @fileoverview Bombieri-Lagarias (1999) positivity criterion for the Riemann
+ * Hypothesis (imp-237). Bombieri and Lagarias refined Li (1997) and proved
+ * the full equivalence RH <=> lambda_n >= 0 for all n >= 1, where the
+ * Li-Keiper coefficients are lambda_n = sum_rho [1 - (1 - 1/rho)^n] taken
+ * over the nontrivial zeta zeros. Under RH the conformal map rho |-> 1 - 1/rho
+ * sends the critical line onto the unit circle, so each conjugate pair
+ * contributes 4*sin^2(n*theta/2) with theta(gamma) = atan2(gamma, gamma^2 - 1/4),
+ * making lambda_n manifestly nonnegative; an off-critical-line zero would
+ * break positivity. The known Voros-Coffey-Mazhouda asymptotic
+ * lambda_n = (n/2)*(log(n/(2*pi)) + gamma_Euler - 1) + O(sqrt(n)*log(n))
+ * predicts (n log n)/2 growth. This module evaluates theta on the cached
+ * 869 zeta zeros, computes lambda_n for n = 1..50 via the sin^2 sum,
+ * verifies strict positivity, and compares the numerics against the
+ * asymptotic Voros formula. Key export: bombieriLagariasPositivityTest.
+ * Originating ticket: imp-237. Proof-chain step: positivity-criterion
+ * evidence supporting the Li-Bombieri-Lagarias route to RH.
+ * @see imp-237
+ * @see imp-911
+ * @see imp-924
+ * @see imp-988
+ * @see imp-989
+ * @see imp-990
+ * @see imp-991
+ * @see imp-992
+ */
+
+/**
  * Bombieri-Lagarias Positivity Criterion for RH
  *
  * imp-237: Bombieri-Lagarias (1999) refined and proved Li's criterion:

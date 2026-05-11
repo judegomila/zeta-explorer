@@ -1,4 +1,22 @@
 /**
+ * @module analytical-resolvent
+ * @fileoverview Analytical proof that the finite-truncation resolvent
+ * (H_N - z)^-1 converges in the strong-resolvent sense to (H_inf - z)^-1 for
+ * Im(z) != 0, supplying the operator-convergence input that Trotter-Kato
+ * (Trotter 1958, Kato 1966) needs to lift LC-ladder dynamics e^{i H_N t} to
+ * the infinite-prime limit. Norm convergence fails because the rank-2 site-
+ * coupling perturbation V_{N+1} = -c_N (|e_N><e_{N+1}| + h.c.) has
+ * c_N = sqrt(log p_N * log p_{N+1}) growing unboundedly; the strong-resolvent
+ * route succeeds via the second resolvent identity combined with Green's-
+ * function decay |G_N(i, N; z)| <= C exp(-(N - i) / xi) / |Im z|, yielding a
+ * summable per-site bound C * c_N * exp(-(N - K) / xi) on any fixed test
+ * vector supported on sites {1, ..., K}. The resulting strong convergence
+ * feeds Lax-Phillips contraction (LP 1967, Thm IV.3.1) to confine scattering-
+ * matrix zeros to the critical line. Key export: analyticalResolventTest.
+ * Originating ticket: imp-104. Proof-chain step: Trotter-Kato strong-resolvent
+ * lift from finite N-prime truncations to the infinite LC-ladder Hamiltonian.
+ * @see imp-104
+ *
  * Analytical Proof of Resolvent Convergence
  *
  * imp-104: Upgrade Trotter-Kato path from numerical to fully analytical.

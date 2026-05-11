@@ -20,6 +20,8 @@ const DRY_RUN = process.argv.includes('--dry-run');
 const ROOT = process.cwd();
 const QUEUE_PATH = join(ROOT, 'src/data/improvement-queue.js');
 const HISTORY_PATH = join(ROOT, 'scripts/.autofill-history.json');
+const HISTORY_ARCHIVE_PATH = join(ROOT, 'scripts/.autofill-history-archive.json');
+const HISTORY_RETENTION_MS = 30 * 24 * 60 * 60 * 1000; // imp-1014: archive after 30 days
 const CATEGORIES = ['proof', 'meta', 'feature', 'content']; // Opus-eligible only
 
 // ── Repetition detection ──────────────────────────────────────────────────
@@ -31,14 +33,54 @@ const CATEGORIES = ['proof', 'meta', 'feature', 'content']; // Opus-eligible onl
 
 function loadHistory() {
   try {
-    return JSON.parse(readFileSync(HISTORY_PATH, 'utf-8'));
+    const raw = JSON.parse(readFileSync(HISTORY_PATH, 'utf-8'));
+    // imp-1014 backward compat: legacy entries were plain strings without
+    // timestamps. Stamp them with the previous lastPurge so the rotation in
+    // saveHistory() can age them out as they cross the 30-day cutoff.
+    const stamped = (raw.seededTitles || []).map(e =>
+      typeof e === 'string' ? { title: e, seededAt: raw.lastPurge || null } : e
+    );
+    return { seededTitles: stamped, lastPurge: raw.lastPurge || new Date().toISOString() };
   } catch {
     return { seededTitles: [], lastPurge: new Date().toISOString() };
   }
 }
 
+function archiveAgedEntries(history) {
+  // imp-1014: move entries older than HISTORY_RETENTION_MS to a sibling
+  // archive file. Entries whose seededAt cannot be parsed (legacy rows
+  // imported without a known lastPurge) are also treated as aged so they
+  // drop out of the active dedup set rather than persist forever.
+  const now = Date.now();
+  const active = [];
+  const aged = [];
+  for (const e of history.seededTitles) {
+    const ts = e && e.seededAt ? Date.parse(e.seededAt) : NaN;
+    if (Number.isFinite(ts) && (now - ts) <= HISTORY_RETENTION_MS) {
+      active.push(e);
+    } else {
+      aged.push(e);
+    }
+  }
+  if (aged.length > 0) {
+    let archive = { archived: [] };
+    try {
+      const prev = JSON.parse(readFileSync(HISTORY_ARCHIVE_PATH, 'utf-8'));
+      if (prev && Array.isArray(prev.archived)) archive = prev;
+    } catch { /* archive file does not exist yet */ }
+    const archivedAt = new Date().toISOString();
+    for (const e of aged) archive.archived.push({ ...e, archivedAt });
+    writeFileSync(HISTORY_ARCHIVE_PATH, JSON.stringify(archive, null, 2));
+  }
+  history.seededTitles = active;
+  return aged.length;
+}
+
 function saveHistory(history) {
-  // Keep only last 200 entries to prevent unbounded growth
+  // imp-1014: rotate aged entries to the sibling archive BEFORE applying the
+  // 200-entry cap so we never lose entries to truncation without preserving
+  // them on disk.
+  archiveAgedEntries(history);
   if (history.seededTitles.length > 200) {
     history.seededTitles = history.seededTitles.slice(-200);
   }
@@ -437,7 +479,7 @@ function main() {
 
   // Deduplicate by title similarity (first 50 chars) AND against history
   const history = loadHistory();
-  const historySet = new Set(history.seededTitles.map(t => titleKey(t)));
+  const historySet = new Set(history.seededTitles.map(e => titleKey(e.title)));
   const seen = new Set();
   const unique = candidates.filter(c => {
     const key = titleKey(c.title);
@@ -507,7 +549,8 @@ function main() {
   console.log(`\nSeeded ${batch.length} tickets (imp-${nextId - batch.length} through imp-${nextId - 1}).`);
 
   // Record seeded titles in history to prevent re-seeding in future cycles
-  batch.forEach(t => history.seededTitles.push(t.title));
+  const seededAt = new Date().toISOString();
+  batch.forEach(t => history.seededTitles.push({ title: t.title, seededAt }));
   saveHistory(history);
   console.log(`History updated: ${history.seededTitles.length} total seeded titles tracked.`);
 

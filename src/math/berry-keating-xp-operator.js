@@ -1,4 +1,27 @@
 /**
+ * @module berry-keating-xp-operator
+ * @fileoverview Berry-Keating H = xp semiclassical operator as a candidate
+ * Hilbert-Polya operator for the Riemann zeros (imp-266). Quantizing the
+ * classical Hamiltonian H = xp gives the symmetric self-adjoint operator
+ * H_BK = (1/2)(xp + px) = -i*hbar*(x*d/dx + 1/2) on L^2(R+, dx/x), whose
+ * eigenvalue counting function smoothly reproduces the Riemann-von Mangoldt
+ * main term N(T) ~ (T/(2*pi)) * log(T/(2*pi*e)). With Dirichlet boundary
+ * conditions on [1, T] the discrete eigenvalues E_n ~ 2*pi*n / log(T/(2*pi))
+ * have density matching the average zeta-zero spacing, and the regularized
+ * resolvent trace recovers the Weil explicit formula. This module discretizes
+ * H_BK on a logarithmic grid, compares the eigenvalue density against the
+ * Riemann-von Mangoldt count, tests GUE-like level statistics, and bundles
+ * the diagnostics into an assertion-runner harness. Key export:
+ * berryKeatingXpOperatorTest. Originating ticket: imp-266. Proof-chain step:
+ * spectral-realization plausibility check supporting the Hilbert-Polya
+ * route to localizing zeta zeros on the critical line.
+ * @see imp-266
+ * @see imp-911
+ * @see imp-924
+ * @see imp-988
+ * @see imp-989
+ * @see imp-990
+ *
  * Berry-Keating H=xp Quantization: Semiclassical Zeta-Zero Operator
  *
  * imp-266 (CRITICAL): Berry-Keating (1999) conjectured that the Hilbert-Polya

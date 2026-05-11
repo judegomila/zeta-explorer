@@ -1,4 +1,18 @@
 /**
+ * @module adversarial-stress-test
+ * @fileoverview Full proof-chain stress test against functions known to violate
+ * RH: Davenport-Heilbronn f(s) (functional equation ✓, RH ✗), Hurwitz ζ(s, 1/4)
+ * (no functional equation, off-line zeros), Epstein ζ_Q for non-class-1 forms
+ * (functional equation ✓, RH ✗), and a planted off-line-zero Dirichlet series.
+ * Each function is fed through the proof steps S1 (transfer-matrix det = 1),
+ * S2 (cascade determinant), S5 (Mertens unitarity bound δ → 0), S8 (zero
+ * identification S₂₁ ∝ 1/L), and S9 (losslessness |χ| = 1 on the critical
+ * line). Expected: every step FAILS on the adversarial functions; if a step
+ * passes, it is not RH-specific and cannot belong to a valid proof. Key export:
+ * `adversarialStressTest`. Originating ticket: imp-107. Proof-chain step:
+ * negative-control falsification probe for the full proof pipeline.
+ * @see imp-107
+ *
  * Adversarial Stress Test: Full Proof Chain on Functions That Violate RH
  *
  * imp-107: Test every proof step against functions known to have off-line zeros.

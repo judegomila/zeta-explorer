@@ -31,6 +31,7 @@
 //     hotFiles: { path: tokenEstimate, ... }  // token burn diagnostic
 //   }
 
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -41,6 +42,15 @@ const PROJECT_ROOT = path.resolve(__dirname, '..');
 const QUEUE_FILE = path.join(PROJECT_ROOT, 'src/data/improvement-queue.js');
 const IMPROVEMENTS_FILE = path.join(PROJECT_ROOT, 'src/data/improvements.js');
 const OUTPUT_FILE = path.join(PROJECT_ROOT, 'scripts/queue-index.json');
+
+function sha256(text) {
+  return crypto.createHash('sha256').update(text).digest('hex');
+}
+
+function fail(code, msg) {
+  console.error(`build-queue-index: ${msg}`);
+  process.exit(code);
+}
 
 // ── Parse improvement-queue.js with a balanced-brace walker ───────────────
 
@@ -151,7 +161,64 @@ function tokenEstimate(filePath) {
 
 // ── Main ──────────────────────────────────────────────────────────────────
 
+// --verify: assert that scripts/queue-index.json is fresh relative to
+// src/data/improvement-queue.js. Exits 0 on fresh, 1 on stale, 2 on
+// environment errors (file missing, JSON corrupt). Use this as a build-time
+// gate so a stale cache never silently leaks tickets that the engine should
+// have already worked on.
+function verify() {
+  if (!fs.existsSync(QUEUE_FILE)) {
+    fail(2, `improvement-queue.js missing at ${QUEUE_FILE}`);
+  }
+  if (!fs.existsSync(OUTPUT_FILE)) {
+    fail(1, `queue-index.json missing at ${OUTPUT_FILE}; run: node scripts/build-queue-index.mjs`);
+  }
+  const indexMtime = fs.statSync(OUTPUT_FILE).mtimeMs;
+  const queueMtime = fs.statSync(QUEUE_FILE).mtimeMs;
+  if (indexMtime < queueMtime) {
+    fail(
+      1,
+      `queue-index.json (mtime ${new Date(indexMtime).toISOString()}) is OLDER than improvement-queue.js (mtime ${new Date(queueMtime).toISOString()}); regenerate via: node scripts/build-queue-index.mjs`,
+    );
+  }
+  let index;
+  try {
+    index = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'));
+  } catch (e) {
+    fail(2, `queue-index.json is not valid JSON: ${e.message}`);
+  }
+  if (!index.sourceQueueSha256) {
+    fail(
+      1,
+      'queue-index.json predates the sourceQueueSha256 hash field; regenerate via: node scripts/build-queue-index.mjs',
+    );
+  }
+  const queueText = fs.readFileSync(QUEUE_FILE, 'utf8');
+  const currentHash = sha256(queueText);
+  if (index.sourceQueueSha256 !== currentHash) {
+    fail(
+      1,
+      `sourceQueueSha256 mismatch: index has ${index.sourceQueueSha256.slice(0, 12)}..., source is ${currentHash.slice(0, 12)}...; regenerate via: node scripts/build-queue-index.mjs`,
+    );
+  }
+  console.log(
+    `queue-index.json is fresh (mtime ${new Date(indexMtime).toISOString()}, sha256 ${currentHash.slice(0, 12)}...).`,
+  );
+  process.exit(0);
+}
+
 function main() {
+  if (process.argv.includes('--verify')) return verify();
+
+  // Edge case: queue file missing. Refuse to overwrite the index with empty
+  // data — that would silently hide every pending ticket from the engine.
+  if (!fs.existsSync(QUEUE_FILE)) {
+    fail(2, `improvement-queue.js missing at ${QUEUE_FILE}; refusing to write a stale index`);
+  }
+  if (!fs.existsSync(IMPROVEMENTS_FILE)) {
+    fail(2, `improvements.js missing at ${IMPROVEMENTS_FILE}; refusing to write a stale index`);
+  }
+
   // Staleness check: if queue-index.json is newer than improvement-queue.js,
   // the cache is still valid — skip the expensive rebuild.
   try {
@@ -169,6 +236,18 @@ function main() {
   const improvementsText = fs.readFileSync(IMPROVEMENTS_FILE, 'utf8');
 
   const items = parseQueue(queueText);
+
+  // Edge case: parse produced zero items despite a non-trivial source file.
+  // That is a parser failure (e.g. an unterminated quote upstream broke the
+  // balanced-brace walker), not a legitimately empty queue. Refuse to write
+  // an empty index in that case — the engine would conclude there is nothing
+  // to do and exit.
+  if (items.length === 0 && queueText.length > 1000) {
+    fail(
+      2,
+      `parseQueue produced 0 items from a ${queueText.length}-char source; likely a parse failure (unterminated quote / comment?). Refusing to overwrite the index.`,
+    );
+  }
 
   const byPriority = {
     critical: [],
@@ -236,6 +315,7 @@ function main() {
 
   const index = {
     generatedAt: new Date().toISOString(),
+    sourceQueueSha256: sha256(queueText),
     nextImprovementId: maxId + 1,
     improvementsTotal,
     totalPending,

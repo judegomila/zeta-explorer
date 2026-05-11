@@ -1,4 +1,31 @@
 /**
+ * @module backlund-zero-count
+ * @fileoverview Rigorous zero count N(T) for the Riemann zeta function via
+ * the Backlund-Titchmarsh-Trudgian S(T) bound (imp-175). The Riemann-von
+ * Mangoldt formula factors N(T) = theta(T)/pi + 1 + S(T) into a smooth main
+ * term theta(T)/pi + 1 (Riemann-Siegel theta) and a fluctuation term S(T) =
+ * (1/pi) arg zeta(1/2 + iT). Trudgian's 2014 explicit bound |S(T)| &lt;= 0.112
+ * log T + 0.278 log log T + 3.385 (refining Backlund 1918) gives a rigorous
+ * ceiling on the deviation between actual zero counts and the main term,
+ * letting us argument-principle-verify zero counts against an unconditional
+ * estimate independent of RH. Module computes the main term at test heights,
+ * counts zeros gamma_n &lt; T from the verified ZETA_ZEROS prefix, forms the
+ * deviation S(T) = N(T) - (theta(T)/pi + 1), checks |S(T)| against the
+ * Trudgian bound, and tracks mean/std statistics as a finite-T sanity check
+ * against Selberg's central limit theorem S(T)/sqrt(log log T / (2 pi^2))
+ * -&gt; N(0,1). Key export: backlundZeroCountTest. Originating ticket: imp-175.
+ * Proof-chain step: rigorous zero-count verification grounding the
+ * Lax-Phillips / S-matrix zero-location arguments downstream.
+ * @see imp-175
+ * @see imp-911
+ * @see imp-924
+ * @see imp-986
+ * @see imp-987
+ * @see imp-988
+ * @see imp-989
+ */
+
+/**
  * Backlund-Titchmarsh Rigorous Zero Count N(T)
  *
  * imp-175: The Riemann-von Mangoldt formula gives

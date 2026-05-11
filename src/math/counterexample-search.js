@@ -1,4 +1,46 @@
 /**
+ * @module counterexample-search
+ * @fileoverview Adversarial stress-testing of the ZPO (zeta-positivity-operator)
+ * proof criteria against L-like functions that share some -- but not all -- of
+ * the structural properties of the Riemann zeta function (imp-995). A proof
+ * criterion is only RH-content-bearing if it actually distinguishes
+ * RH-satisfying L-functions from RH-violating look-alikes; otherwise it
+ * follows from the functional equation (or some other generic ingredient)
+ * alone and cannot prove RH. This module wires up two classical counterexample
+ * families and runs each of the candidate ZPO criteria (Hamiltonian convexity
+ * at sigma = 1/2, bridge unitarity / lossless Euler factorisation, Weil
+ * positivity sum_rho h(rho) >= 0) against them. (1) The Davenport-Heilbronn
+ * function f(s) = ((1 - i*kappa)/2) * L(s, chi_1) + ((1 + i*kappa)/2) *
+ * L(s, chi_1_bar) for the primitive Dirichlet character chi_1 mod 5 with
+ * chi_1(2) = i and the canonical mixing constant kappa: f satisfies a
+ * functional equation, has NO Euler product, and is known to have zeros OFF
+ * the critical line, so any criterion it passes is RH-generic. (2) Epstein
+ * zeta functions E(s; a, b, c) = sum' (a*m^2 + b*m*n + c*n^2)^{-s} attached to
+ * positive-definite binary quadratic forms: when the class number of the
+ * underlying discriminant is h = 1 the Epstein zeta factors as a Dirichlet
+ * L-function and RH holds; when h > 1 it splits into a class-group sum and
+ * RH provably FAILS (e.g. D = -20, h = 2; D = -23, h = 3). A criterion that
+ * tracks h is RH-specific; a criterion that passes for every form regardless
+ * of h is RH-generic. Each criterion is then verdicted: RH-SPECIFIC (passes
+ * for zeta, fails for D-H) or RH-GENERIC (cannot tell zeta from D-H on this
+ * criterion alone). Key exports: davenportHeilbronn, davenportHeilbronnTest,
+ * epsteinZeta, epsteinZetaTest, adversarialReport. Originating ticket:
+ * imp-995. Proof-chain role: the falsification harness for every candidate
+ * RH-implying criterion the ZPO program proposes -- it is the line of
+ * defence that prevents the proof chain from depending on properties that
+ * are too generic to imply RH.
+ * @see imp-995
+ * @see imp-911
+ * @see imp-924
+ * @see imp-989
+ * @see imp-990
+ * @see imp-991
+ * @see imp-992
+ * @see imp-993
+ * @see imp-994
+ */
+
+/**
  * Counterexample Search — Adversarial stress-testing of ZPO criteria
  *
  * Tests whether ZPO proof criteria (Hamiltonian convexity, bridge unitarity,

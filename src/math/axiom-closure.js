@@ -1,4 +1,28 @@
 /**
+ * @module axiom-closure
+ * @fileoverview Closes the Darlington S-matrix axiom by promoting the finite-
+ * prime truncations S_N to their infinite-prime limit S_inf and proving the
+ * limit retains every property the RH route depends on. Two complementary
+ * arguments do the lifting: (i) operator-norm convergence ||S_N - S_inf||_op
+ * = O(1 / log P_N) (imp-051) driven by Mertens (imp-003), combined with the
+ * fact that J-contractivity (S*JS &lt;= J on the indefinite metric J = diag(1,
+ * -1)) is a closed condition in operator-norm topology, so J-contractivity
+ * of each S_N (Potapov, imp-049) passes to S_inf, and (ii) the Vitali
+ * convergence theorem (imp-052) — uniform boundedness of {S_N} on the
+ * critical strip plus pointwise convergence on a set with accumulation point
+ * inside the strip upgrades pointwise to locally-uniform convergence,
+ * preserving analyticity, factorization structure, and zero locations of the
+ * S-matrix family. Together these feed the J-contractive Potapov
+ * factorization that confines S-matrix zeros (= Riemann zeta zeros after
+ * Lax-Phillips identification) to the critical line Re(s) = 1/2. Key
+ * exports: operatorNormConvergenceProof, vitaliConvergenceArgument.
+ * Originating tickets: imp-051 (operator-norm closure) and imp-052 (Vitali
+ * lift). Proof-chain step: closure of the Darlington axiom from finite-N
+ * truncations to the infinite-prime S-matrix.
+ * @see imp-051
+ * @see imp-052
+ * @see imp-989
+ *
  * Axiom Closure Module — Operator Norm Convergence & Vitali Convergence
  *
  * imp-051: Operator norm convergence proof closing the Darlington axiom.

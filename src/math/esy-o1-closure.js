@@ -702,3 +702,146 @@ export const ESY_O1_CLOSURE_CROSS_VERIFY = {
     'differ from the literature value; imp976-rvm-newton-precision: 6-iteration Newton is sufficient for ' +
     'log-rate purposes only). Neither flag changes the partial-closure status under the existing assertion set.',
 };
+
+// ────────────────────────────────────────────────────────────────────
+// imp-1029: Numerical reference cross-verification (proof, S10-verify)
+// ────────────────────────────────────────────────────────────────────
+//
+// Follow-up to imp-976. The earlier audit re-derived the formulas and
+// re-checked edge cases but only "qualitatively" sanity-checked the
+// gammaNFromRvM Newton output against a known zero value. This block
+// adds the missing numerical cross-check: for N in {1, 10, 100, 1000}
+// we run the Newton iteration and compare the returned gamma_N proxy
+// to the standard Odlyzko-table imaginary parts of the corresponding
+// nontrivial zeros, and we record the relative offset against a
+// theoretical bound derived from the Riemann-von Mangoldt remainder.
+//
+// Why the Newton output is expected to OVER-SHOOT gamma_N:
+//   gammaNFromRvM inverts the LEADING-ORDER smooth count
+//       count(T) = (T/(2*pi)) (log(T/(2*pi)) - 1)
+//   to solve count(T) = N. The true counting function is
+//       N(T) = count(T) + 7/8 + S(T) + O(1/T)
+//   so the actual gamma_N satisfies count(gamma_N) = N - 7/8 - S(gamma_N)
+//   + O(1/gamma_N). For positive N, count is increasing in T, so the
+//   smooth inverse satisfies gammaNFromRvM(N) >= gamma_N with offset
+//   determined by 7/8 + |S(gamma_N)|. Selberg's bound |S(T)| <=
+//   C * log T / log log T (Titchmarsh ch 14, conservative C = 3.0
+//   here matching imp-341 convention) gives the theoretical relative
+//   error budget
+//       relErrBound(N) := (0.875 + 3.0 * log(gamma_N) / log log gamma_N) / gamma_N.
+//   This decays like O(log N / N) and is the rate the implementation
+//   must respect.
+//
+// Reference values (Odlyzko tables, leading digits):
+//     gamma_1     ~ 14.134725 142
+//     gamma_10    ~ 49.773832 478
+//     gamma_100   ~ 236.52422 967
+//     gamma_1000  ~ 1419.4225 412
+//
+// SYNTAX NOTE: line comments only; no JSDoc fences.
+// ────────────────────────────────────────────────────────────────────
+
+const IMP1029_REFERENCE_ZEROS = {
+  1: 14.134725,
+  10: 49.773832,
+  100: 236.524229,
+  1000: 1419.422548,
+};
+
+const IMP1029_RVM_NEWTON_AUDIT = Object.entries(IMP1029_REFERENCE_ZEROS).map(([nStr, refGamma]) => {
+  const N = Number(nStr);
+  const computedGamma = gammaNFromRvM(N);
+  const relErr = Math.abs(computedGamma - refGamma) / refGamma;
+  // log log gamma_N is positive for gamma_N > e (all sampled refGamma > 14);
+  // the Math.max guard is purely defensive for any future N=1-and-below sample.
+  const logLogRef = Math.max(Math.log(Math.log(refGamma)), 1e-3);
+  const offsetBound = (0.875 + C_SELBERG * Math.log(refGamma) / logLogRef) / refGamma;
+  return {
+    N,
+    refGamma,
+    computedGamma,
+    relErr,
+    offsetBound,
+    // The relErr is bounded by offsetBound up to the Selberg constant choice.
+    // Allow a small slack (1.05x) because C_Selberg = 3.0 is the project
+    // convention, not the tightest literature constant (imp-976 flag A).
+    within: relErr <= offsetBound * 1.05 + 1e-12,
+    isFiniteAll: Number.isFinite(computedGamma) && Number.isFinite(relErr) && Number.isFinite(offsetBound),
+  };
+});
+
+const IMP1029_ALL_FINITE = IMP1029_RVM_NEWTON_AUDIT.every((r) => r.isFiniteAll);
+const IMP1029_ALL_WITHIN_OFFSET_BOUND = IMP1029_RVM_NEWTON_AUDIT.every((r) => r.within);
+// The N=1 row is special: gammaNFromRvM hard-codes 14.134725 for N<2, so the
+// row must match the reference EXACTLY (up to the tabulated truncation).
+const IMP1029_N1_EXACT = (() => {
+  const row = IMP1029_RVM_NEWTON_AUDIT.find((r) => r.N === 1);
+  return row !== undefined && row.relErr < 1e-6;
+})();
+
+ESY_O1_CLOSURE_ASSERTIONS.push(
+  {
+    id: 'imp1029-rvm-newton-finite-on-reference-N',
+    holds: () => IMP1029_ALL_FINITE && IMP1029_RVM_NEWTON_AUDIT.length === 4,
+    why:
+      'gammaNFromRvM must produce finite output on the reference grid {1, 10, 100, 1000}. ' +
+      'Failure indicates Newton divergence, log-domain violation, or division by zero on the ' +
+      'sample range used by this module. Tripwire complements the SAMPLE_N_VALUES-based bounds ' +
+      'in imp508-o1-psi-kh-positive but checks the rate-comparison function directly.',
+  },
+  {
+    id: 'imp1029-rvm-newton-within-rvm-offset-bound',
+    holds: () => IMP1029_ALL_WITHIN_OFFSET_BOUND,
+    why:
+      'For each N in the reference grid, |gammaNFromRvM(N) - gamma_N_ref| / gamma_N_ref must ' +
+      'lie within the Riemann-von Mangoldt offset bound (0.875 + C_Selberg * log gamma / log log gamma) ' +
+      '/ gamma. This is the theoretical smooth-count-vs-full-count discrepancy from Titchmarsh ' +
+      'ch 9 eq 9.4.4 plus the Selberg S(T) bound. Failure means the Newton inversion has drifted ' +
+      'from the smooth RvM count, invalidating the log gamma_N proxy used in the witness table.',
+  },
+  {
+    id: 'imp1029-n1-fallback-exact',
+    holds: () => IMP1029_N1_EXACT,
+    why:
+      'gammaNFromRvM(1) returns the hard-coded fallback 14.134725 (line 116 path for N<2). ' +
+      'This must equal the tabulated gamma_1 to the digits stored in IMP1029_REFERENCE_ZEROS. ' +
+      'Any drift here means someone edited the fallback constant in gammaNFromRvM without ' +
+      'updating the reference table, which would silently corrupt the rate-comparison witness.',
+  },
+);
+
+export const ESY_O1_CLOSURE_CROSS_VERIFY_IMP1029 = {
+  id: 'imp-1029',
+  auditDate: '2026-05-11',
+  precedent: ['imp-976'],
+  scope: [
+    'numerical-reference: gammaNFromRvM(N) at N in {1, 10, 100, 1000} vs Odlyzko gamma_N',
+    'edge-case-revisit: finiteness of Newton output on the reference grid',
+    'tripwire: hard-coded gamma_1 fallback must match reference table to <= 1e-6 relative',
+  ],
+  referenceTable: IMP1029_REFERENCE_ZEROS,
+  rows: IMP1029_RVM_NEWTON_AUDIT,
+  // Verbal expectation captured for future maintainers: Newton OVER-SHOOTS gamma_N
+  // because it inverts the smooth count, not N(T). The offset is positive and
+  // bounded by (7/8 + |S(gamma_N)|), giving relative error O(log N / N).
+  expectedOvershootSign: 'gammaNFromRvM(N) >= gamma_N for all N >= 2',
+  flags: [
+    {
+      id: 'imp1029-newton-overshoot-by-design',
+      severity: 'observational',
+      finding:
+        'For N=10 the Newton inverse returns ~54.3 against gamma_10 ~ 49.77 (relative error ~9.1%). ' +
+        'This is by design: the smooth-count inverse omits 7/8 + S(T) + O(1/T). For larger N the ' +
+        'relative offset shrinks rapidly (gamma_100: ~0.9%, gamma_1000: ~0.15%). The witness ' +
+        'consumes only log gamma_N, where this offset induces a sub-percent error well below ' +
+        'the C_poly comparison resolution. No code change recommended.',
+    },
+  ],
+  verdict:
+    'NUMERICALLY CONSISTENT WITH ANALYTIC OFFSET. The Newton output on the four-point reference ' +
+    'grid lies within the Riemann-von Mangoldt smooth-vs-full count offset (0.875 + ' +
+    'C_Selberg log gamma / log log gamma) / gamma in every row, and the N=1 fallback matches the ' +
+    'tabulated gamma_1 exactly. Three new build-time tripwires guard against (a) Newton non-finite ' +
+    'output, (b) drift beyond the RvM offset, (c) silent edit of the gamma_1 fallback. The ' +
+    'partial-closure status of ESY_O1_CLOSURE remains unchanged.',
+};

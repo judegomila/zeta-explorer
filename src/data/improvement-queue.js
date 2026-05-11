@@ -12531,6 +12531,37 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: "Prepended @module / @fileoverview JSDoc header to src/data/lambda-burgers-shock-lipschitz.js (per the imp-911 / imp-924 / imp-986..imp-995 precedent). The new header documents: purpose (Holder-1/2 modulus of tau_c at the Burgers shock as a PARTIAL closure of G6a_shock_lipschitz inside G6_polymath15_bridge), the imp-345 error decomposition |Lambda - (- t_c(N))| <= E_trunc + E_flow + E_coll, the Whitham fold-catastrophe expansion t_shock(z_0) = tau_c + (1/2) alpha (z_0 - z_0*)^2 + O(cubic) with the Whitham constant C_W = sqrt(2 / |u_0_double_prime(z_0*)|), composition with imp-341 Koksma-Hlawka into the combined rate E_coll(N) <= C_prime * sqrt(log gamma_N) / N^{1/4} strictly positive and strictly decreasing in N, the two named honestly-open sub-sub-gaps G6a-sub-hyperbolic (Riemann-Hilbert transcription of real-valued Whitham) and G6a-sub-constant (numerical C_W at the boundary shock), key exports LAMBDA_BURGERS_SHOCK_LIPSCHITZ + LAMBDA_BURGERS_SHOCK_LIPSCHITZ_ASSERTIONS (five tripwires: citation-chain-by-id, Holder-exponent-pinned-at-1/2, Whitham-constant-finite-and-positive, combined-E-strict-positive-and-decreasing, verdict-stays-partial), and the originating imp-354 ticket. The existing imp-354 narrative JSDoc is preserved unchanged immediately below the new @module / @fileoverview header.",
   },
 
+  
+  // ── Auto-seeded batch (2026-05-11) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1029',
+    title: "Cross-verify esy-o1-closure.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/esy-o1-closure.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-11T12:15:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+  },
+  {
+    id: 'imp-1030',
+    title: "Add JSDoc module documentation to platt-trudgian-recheck-post-closure.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/platt-trudgian-recheck-post-closure.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

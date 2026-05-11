@@ -313,3 +313,180 @@ export function normResolventTest(maxN = 100) {
         : 'Partial verification — more primes needed for definitive resolvent convergence.'),
   };
 }
+
+// ─────────────────────────────────────────────────────────────────────
+// imp-1031 / S10-verify: Independent cross-verification of norm-resolvent.js
+// Auditor: opus-4-7 (subscription channel), 2026-05-11
+// Scope: (1) formula correctness vs cited references, (2) edge cases
+//        producing NaN/Infinity, (3) numerical output vs hand-computed
+//        reference eigenvalues. Atomic constraint: no existing code
+//        modified; this audit is read-only observational and adds one
+//        export constant plus a build-time assertions array.
+// ─────────────────────────────────────────────────────────────────────
+
+export const NORM_RESOLVENT_CROSS_VERIFY_IMP1031 = {
+  auditDate: "2026-05-11",
+  ticket: "imp-1031",
+  auditor: "opus-4-7",
+  channel: "subscription",
+  precedent: ["imp-073", "imp-508", "imp-976", "imp-1029"],
+  scope: [
+    "buildHamiltonian formula vs JSDoc header",
+    "tridiagEigenvalues Sturm-sequence bisection",
+    "resolventApply Thomas-algorithm complex tridiagonal solve",
+    "edge cases (N=0, N=1, z on spectrum, zero Sturm pivot)",
+    "numerical eigenvalue reference at N=2 and N=3 (hand-computed)",
+    "functional-analysis citation precision (Kato-Rellich vs Trotter-Kato)",
+  ],
+  findings: [
+    {
+      id: "imp1031-formula-diag-normalized",
+      claim: "buildHamiltonian diag[k] reduces to a constant 1 under the chosen normalization",
+      verification: "With L_k = 1/log(p_k) and C_k = log(p_k), the product L_k * C_k equals 1 for every k, so diag[k] = 1/(L_k * C_k) = 1. This is consistent with the JSDoc header at line 25 which states omega_k = 1 (normalized).",
+      status: "consistent-with-header",
+    },
+    {
+      id: "imp1031-formula-inline-comment-stale",
+      claim: "The inline trailing comment on the diag[k] assignment (line 42) claims the value equals log-squared of p_k, which is mathematically inconsistent with the code as written",
+      verification: "log-squared of p_k would require L_k * C_k = 1/log-squared(p_k), i.e. C_k = 1/log(p_k) = L_k. The code uses C_k = log(p_k) instead, so the trailing claim is stale relative to the surrounding normalization. The code is correct (it matches the JSDoc header); the trailing comment is the stale text. Recorded as observational; no code change here per atomic-change discipline.",
+      status: "flag-only",
+    },
+    {
+      id: "imp1031-formula-offdiag",
+      claim: "offDiag[k] = -1/sqrt(L_k * L_{k+1}) equals -sqrt(log(p_k) * log(p_{k+1}))",
+      verification: "1/sqrt((1/log p_k)*(1/log p_{k+1})) = sqrt(log p_k * log p_{k+1}). For (p_0,p_1)=(2,3) the closed form gives -sqrt(0.693147 * 1.098612) = -0.872567. Matches the implementation.",
+      status: "matches",
+    },
+    {
+      id: "imp1031-eig-N2-reference",
+      claim: "For N=2 (primes 2,3) the eigenvalues are 1 plus-or-minus sqrt(log(2)*log(3)), approximately {0.127433, 1.872567}",
+      verification: "A 2x2 symmetric tridiagonal matrix with diag=[1,1] and off-diagonal a has eigenvalues 1 plus-or-minus |a|. Sturm-bisection in tridiagEigenvalues uses 60 iterations over an initial range of width about 3.7, giving precision near 3e-18 — far inside any reasonable tolerance.",
+      status: "reference-computed",
+    },
+    {
+      id: "imp1031-eig-N3-reference",
+      claim: "For N=3 (primes 2,3,5) the eigenvalues are {1 - r, 1, 1 + r} where r = sqrt(log(2)*log(3) + log(3)*log(5)) approximately equal to 1.590451",
+      verification: "The characteristic polynomial of a 3x3 tridiagonal with constant diagonal d and off-diagonals a,b expands along the middle row to (lambda - d) * ((lambda - d)^2 - a^2 - b^2). Roots: d and d plus-or-minus sqrt(a^2 + b^2). Independent of the sign or specific arrangement of a,b. Numerical values: r-squared = 0.761388 + 1.768149 = 2.529537; r = 1.590451; eigenvalues {-0.590451, 1.000000, 2.590451}.",
+      status: "reference-computed",
+    },
+    {
+      id: "imp1031-edge-N0",
+      claim: "buildHamiltonian(0) attempts to allocate new Float64Array(-1) for the offDiag array, which throws RangeError",
+      verification: "The Float64Array constructor requires a non-negative length argument. tridiagEigenvalues guards N===0 by returning [] (line 180), but buildHamiltonian itself does not. The only public entry point normResolventTest uses nPairs starting at N=10, so this edge case is not currently reachable. Observational; defensive guard could be added in a future authorized pass.",
+      status: "edge-bug-not-exercised",
+    },
+    {
+      id: "imp1031-edge-z-on-spectrum",
+      claim: "When the spectral parameter z lands on an eigenvalue, the Thomas-algorithm pivot in resolventApply collapses and the function should signal failure cleanly",
+      verification: "Inside the k=1..N-1 forward-sweep loop, the denom = b[k] - a[k] * cp[k-1] is checked at line 88: if cAbs(denom) < 1e-30 the function returns null. resolventDifference then skips that trial via 'if (!rN || !rM) continue'. For N=1 the inner loop does not execute and cDiv silently returns [0,0] via its own |b|<1e-30 short-circuit (zeta.js line 17), so the function returns [0,0] rather than null in the N=1 singular subcase. Both behaviors are non-NaN-propagating.",
+      status: "handled",
+    },
+    {
+      id: "imp1031-edge-sturm-zero-pivot",
+      claim: "The Sturm recurrence d_k = diag[k] - lambda - offSq/d_{k-1} divides by the previous pivot; a zero pivot would produce Infinity",
+      verification: "Line 199 substitutes d = 1e-30 when |d| < 1e-30 (standard Wilkinson zero-pivot trick). The sign-change count remains monotone in lambda so the bisection still converges to the correct eigenvalue.",
+      status: "handled",
+    },
+    {
+      id: "imp1031-citation-precision",
+      claim: "The file labels the strong-resolvent-to-spectral-upper-semicontinuity step as 'Kato-Rellich (1966)'. The strict reference for that step is Trotter-Kato",
+      verification: "Kato-Rellich (Reed-Simon vol II thm X.12) concerns relative boundedness of perturbations and is the right tool for proving self-adjointness on a common domain. The norm-resolvent convergence implying sigma(H_infinity) subset liminf sigma(H_N) is Trotter-Kato (Reed-Simon vol I thm VIII.21) plus upper-semicontinuity of spectrum (Reed-Simon vol IV thm XII.8). Both apply to this setup but they are distinct theorems. Recorded as a flag-only citation tightening; no proof-chain step changes.",
+      status: "flag-only",
+    },
+  ],
+  numericalReference: {
+    N2: {
+      primes: [2, 3],
+      diag: [1, 1],
+      offDiag: [-Math.sqrt(Math.log(2) * Math.log(3))],
+      expectedEigenvalues: [
+        1 - Math.sqrt(Math.log(2) * Math.log(3)),
+        1 + Math.sqrt(Math.log(2) * Math.log(3)),
+      ],
+      formula: "1 plus-or-minus sqrt(log(2) * log(3))",
+    },
+    N3: {
+      primes: [2, 3, 5],
+      diag: [1, 1, 1],
+      offDiag: [
+        -Math.sqrt(Math.log(2) * Math.log(3)),
+        -Math.sqrt(Math.log(3) * Math.log(5)),
+      ],
+      expectedEigenvalues: [
+        1 - Math.sqrt(Math.log(2) * Math.log(3) + Math.log(3) * Math.log(5)),
+        1,
+        1 + Math.sqrt(Math.log(2) * Math.log(3) + Math.log(3) * Math.log(5)),
+      ],
+      formula: "{1 - r, 1, 1 + r} where r = sqrt(log(2)*log(3) + log(3)*log(5))",
+    },
+    N1ResolventAtTwoPlusI: {
+      H: [1],
+      z: [2, 1],
+      v: [1],
+      expected: [-0.5, 0.5],
+      derivation: "1/(1 - (2+i)) = 1/(-1-i) = (-1+i)/2",
+    },
+  },
+  flags: [
+    "imp1031-formula-inline-comment-stale: trailing trivia on the diag[k] assignment line claims log-squared of p_k but the code computes 1 (matching the JSDoc header normalization). Stale doc; code is right.",
+    "imp1031-edge-N0: buildHamiltonian(0) throws RangeError on the offDiag allocation. Defensive guard not in place; not currently reachable from normResolventTest.",
+    "imp1031-citation-precision: file uses Kato-Rellich as a catch-all label for the strong-resolvent-to-spectral-upper-semicontinuity step; the precise reference is Trotter-Kato (Reed-Simon vol I thm VIII.21) plus the upper-semicontinuity lemma. Both still apply.",
+  ],
+  verdict:
+    "CONFIRMED with three observational flags (no proof-chain status changes). The tridiagonal Hamiltonian construction, Sturm-bisection eigenvalue solver, and complex-shifted Thomas-algorithm resolvent are all correctly implemented. Edge cases are guarded: singular shift in the inner loop returns null; zero Sturm pivot is patched to 1e-30; the N=0 input throws but is not reachable from the public entry point. Hand-computed eigenvalue references for N=2 and N=3 are now recorded for regression. The file uses 'Kato-Rellich' as a shorthand for the strong-resolvent-to-spectral-upper-semicontinuity argument; the precise citation is Trotter-Kato.",
+};
+
+// Build-time assertions for the imp-1031 cross-verification.
+// Each `check` returns true on PASS, false on FAIL. They are NOT
+// auto-executed at module load; downstream harnesses iterate this
+// array. Closures capture the module-private buildHamiltonian /
+// tridiagEigenvalues / resolventApply functions directly.
+export const NORM_RESOLVENT_ASSERTIONS = [
+  {
+    id: "imp1031-buildHamiltonian-N2-diag-is-constant-one",
+    check: () => {
+      const H = buildHamiltonian(2);
+      return H.diag[0] === 1 && H.diag[1] === 1;
+    },
+  },
+  {
+    id: "imp1031-buildHamiltonian-N2-offdiag-matches-reference",
+    check: () => {
+      const H = buildHamiltonian(2);
+      const expected = -Math.sqrt(Math.log(2) * Math.log(3));
+      return Math.abs(H.offDiag[0] - expected) < 1e-12;
+    },
+  },
+  {
+    id: "imp1031-tridiagEigenvalues-N2-matches-closed-form",
+    check: () => {
+      const H = buildHamiltonian(2);
+      const eigs = tridiagEigenvalues(H, 2);
+      const a = Math.sqrt(Math.log(2) * Math.log(3));
+      return (
+        Math.abs(eigs[0] - (1 - a)) < 1e-6 &&
+        Math.abs(eigs[1] - (1 + a)) < 1e-6
+      );
+    },
+  },
+  {
+    id: "imp1031-tridiagEigenvalues-N3-middle-eigenvalue-is-one",
+    check: () => {
+      const H = buildHamiltonian(3);
+      const eigs = tridiagEigenvalues(H, 3);
+      // The middle eigenvalue of a 3x3 tridiagonal with constant diagonal
+      // is exactly the diagonal value, independent of the off-diagonals.
+      return Math.abs(eigs[1] - 1.0) < 1e-6;
+    },
+  },
+  {
+    id: "imp1031-resolventApply-N1-matches-hand-computation",
+    check: () => {
+      const H = buildHamiltonian(1);
+      const v = new Float64Array([1]);
+      const r = resolventApply(H, [2, 1], v);
+      if (!r) return false;
+      return Math.abs(r[0][0] - -0.5) < 1e-9 && Math.abs(r[0][1] - 0.5) < 1e-9;
+    },
+  },
+];

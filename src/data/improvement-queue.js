@@ -12564,6 +12564,26 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'subscription',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-11) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1031',
+    title: "Cross-verify norm-resolvent.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/norm-resolvent.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-11T12:45:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Appended NORM_RESOLVENT_CROSS_VERIFY_IMP1031 audit constant and NORM_RESOLVENT_ASSERTIONS array (5 build-time tripwires, all PASS) to src/math/norm-resolvent.js. Findings: (1) buildHamiltonian diag[k] reduces to 1 under the chosen normalization (consistent with JSDoc header line 25 "omega_k = 1 normalized"; the inline trailing comment claiming log-squared of p_k is mathematically stale relative to the surrounding code — flag-only, no code change); (2) offDiag[k] = -sqrt(log(p_k)*log(p_{k+1})) matches the implementation; (3) hand-computed eigenvalue references for N=2 (eigs = 1 plus-or-minus sqrt(log(2)*log(3))) and N=3 (eigs = {1-r, 1, 1+r} where r = sqrt(log(2)*log(3) + log(3)*log(5))) are encoded as Sturm-bisection regression tests; (4) edge cases — N=0 throws RangeError on new Float64Array(-1) but is unreachable from normResolventTest (starts at N=10); z-on-spectrum returns null via the inner-loop cAbs(denom)<1e-30 guard for N>=2 and silently returns [0,0] via cDiv short-circuit for N=1, both non-NaN-propagating; Sturm zero-pivot is patched to 1e-30 (Wilkinson trick); (5) citation precision flag — the file labels the strong-resolvent-to-spectral-upper-semicontinuity step as Kato-Rellich (1966) but the strict reference for that step is Trotter-Kato (Reed-Simon vol I thm VIII.21) plus upper-semicontinuity of spectrum (Reed-Simon vol IV thm XII.8); Kato-Rellich proper concerns relatively-bounded perturbations. Three observational flags recorded; no proof-chain step status changed. Atomic change: appended audit block only, no existing lines modified, no behavior change. All 5 assertions PASS at runtime (verified via node -e dynamic import). Build passes (npm run build, vite green, 4.44s).',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

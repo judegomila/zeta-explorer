@@ -1,4 +1,37 @@
 /**
+ * @fileoverview Platt-Trudgian Lambda <= 0.2 consistency re-check after the
+ *   FATAL/NAMED gap closures imp-424, imp-425, imp-426, imp-427. Recomputes
+ *   the Path C projected |t_c(N)| at the matched height T = 3e10 (N ~ 1.016e11)
+ *   with every pinned bridge constant (C_T, C_F, C_C, C_1) and confirms the
+ *   prior PASS-large-margin verdict from imp-411 is still intact.
+ * @module data/platt-trudgian-recheck-post-closure
+ *
+ * Proof chain step: S5-bridge (Polymath15 Lambda <= 0.2 reconciliation).
+ *
+ * EXPORTS.
+ *   - LAMBDA_PLATT_TRUDGIAN_RECHECK: record with priorMargin, newMargin,
+ *     verdict in {PASS, IMPROVED-PASS, DEGRADED-PASS, INCONSISTENT}, the
+ *     pinned constants (C_1, C_C, C_T, kappa_T, C_F), the assembled error
+ *     budget (E_trunc, E_flow, E_coll), both lambdaBounds variants
+ *     (projection + closure-affected E, and full bridge including E_trunc),
+ *     the bridgeLoosenessAtMatchedHeight diagnostic, and a sources list
+ *     citing Platt & Trudgian (2021).
+ *   - LAMBDA_PLATT_TRUDGIAN_RECHECK_ASSERTIONS: six build-time assertions:
+ *     imp431-citation-chain-intact (id+value match for imp-424/425/426/399/
+ *     397/398), imp431-new-margin-finite-positive, imp431-inconsistent-iff-
+ *     delta-large-negative, imp431-projected-tc-matches-imp411,
+ *     imp431-E_coll-below-projection, imp431-verdict-is-known-label.
+ *
+ * TICKETS.
+ *   - Created by imp-431 (this file).
+ *   - Reads pinned constants from imp-397 (C_T), imp-398 (C_F),
+ *     imp-399 (C_C), imp-426 (C_1), imp-424 (KH -> t_c closure record),
+ *     imp-425 (Path C circularity resolution), imp-400 (V2 baseline fit),
+ *     imp-327 (height <-> N mapping).
+ *   - Verdict context: imp-408 / imp-411 (prior 30x margin baseline).
+ *   - Honest-scope caveat: B1/B2/B4 looseness in
+ *     finite-height-lambda-bound.js.
+ *
  * imp-431: Re-run the imp-411 Platt-Trudgian consistency check using the
  * POST-CLOSURE constants delivered by imp-424, imp-425, imp-426, imp-427.
  *

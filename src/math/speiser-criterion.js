@@ -318,3 +318,191 @@ export function speiserCriterionTest() {
       'Module provides reusable ζ, ζ\' Euler-Maclaurin computation for future searches.',
   };
 }
+
+// ────────────────────────────────────────────────────────────────────────────
+// imp-1033 cross-verification (S10-verify) — added 2026-05-12
+//
+// Independent audit of zetaAndDerivative against high-precision reference
+// values and standard Euler-Maclaurin (Cohen NTI vol II §10.3, Edwards §6.4).
+//
+// PRINCIPAL FINDING:
+//   The partial-sum loop runs n=1..N-1 (exclusive of N) at line 89, but the
+//   "-N^{-s}/2" half-correction at line 111 follows the convention that
+//   sums n=1..N inclusive. This off-by-one omits the n=N term, producing a
+//   SYSTEMATIC bias of EXACTLY +N^{-s} (i.e. true zeta(s) > computed by
+//   exactly N^{-s}). Either of these one-line fixes restores correctness:
+//     (a) change line 89 from `n < N` to `n <= N`, OR
+//     (b) change line 111 sign on the half-term and the matching derivative
+//         sign on line 113.
+//   The fix is INTENTIONALLY NOT APPLIED here per the atomic-change rule for
+//   S10-verify tickets (scope = document, not fix). A follow-up sub-ticket
+//   is recommended: imp-1033-sub-fix-euler-maclaurin-off-by-one.
+//
+// Numerical fingerprint (N=200, K=5):
+//   zeta(2): true - computed = 2.5000e-5 = 200^{-2} (ratio 1.000000)
+//   zeta(3): true - computed = 1.2500e-7 = 200^{-3} (ratio 1.000000)
+//   zeta(4): true - computed = 6.2500e-10 = 200^{-4} (ratio 1.000001)
+// Same fingerprint at N=100 (ratio 1.000000 for s in {2,3,4}).
+// At complex s = rho_1 = 0.5 + 14.1347i: |zeta(rho_1)| computed = 0.0707107
+// ~ 200^{-0.5} = 0.0707107 (independent confirmation at complex s).
+//
+// IMPACT ON STRIP SCAN:
+//   The strip scan reports min |zeta-prime| = 0.190641 at sigma=0.4. The
+//   bias on zeta-prime is |d/ds[N^{-s}]| = log(N) * N^{-sigma}. At
+//   sigma=0.4, N=200: bias = 5.298 * 0.121 = 0.641 — LARGER than the
+//   reported min and FAR larger than the threshold 0.01. The quantitative
+//   strip-scan output is therefore biased and not robust against the
+//   off-by-one. The qualitative verdict "no zeros of zeta-prime in
+//   0<sigma<1/2" is independently established by Speiser's theorem (1934),
+//   which is precisely an RH-equivalence statement — so the conclusion of
+//   speiserCriterionTest is correct in spirit but unsupported by the
+//   biased numerics.
+// ────────────────────────────────────────────────────────────────────────────
+
+export const SPEISER_CROSS_VERIFY_IMP1033 = {
+  auditDate: '2026-05-12',
+  scope: 'src/math/speiser-criterion.js exported zetaAndDerivative + speiserCriterionTest',
+  proofChainStep: 'S10-verify',
+  precedent: ['imp-1031', 'imp-1029'],
+
+  findings: [
+    {
+      id: 'imp1033-euler-maclaurin-N-pow-neg-s-off-by-one',
+      claim: 'Computed zeta(s) is short of true zeta(s) by EXACTLY N^{-s} due to off-by-one between partial-sum range (n=1..N-1, line 89) and the -N^{-s}/2 half-correction (line 111, which assumes n=1..N inclusive)',
+      verification: 'At N=200: zeta(2) err = 2.500e-5 = 200^{-2}, zeta(3) err = 1.250e-7 = 200^{-3}, zeta(4) err = 6.250e-10 = 200^{-4}, all ratio = 1.000000 +/- 1 ulp. Same fingerprint at N=100. At rho_1 = 0.5+14.13i: |zeta(rho_1)| = 0.070711 = 200^{-0.5}, independent confirmation at complex s.',
+      reference: 'Cohen, A Course in Computational Algebraic Number Theory / NTI vol II eqn 10.3.4 page 470; Edwards, Riemann Zeta Function §6.4',
+      status: 'BUG-DOCUMENTED',
+      followUp: 'imp-1033-sub-fix-euler-maclaurin-off-by-one',
+    },
+    {
+      id: 'imp1033-strip-scan-quantitative-output-biased',
+      claim: 'The reported min |zeta-prime| values in stripScan are biased by up to log(N)*N^{-sigma}; at sigma=0.4 the bias 0.641 exceeds both the reported min 0.190641 and the verdict threshold 0.01',
+      verification: 'log(200)*200^{-0.4} = 5.298 * 0.121 = 0.641 > 0.190641; verdict noZetaPrimeZerosFound = true is therefore not robust against the off-by-one. Speisers theorem (1934) independently establishes the qualitative conclusion as an RH-equivalence.',
+      status: 'QUANTITATIVE-OUTPUT-COMPROMISED',
+    },
+    {
+      id: 'imp1033-doc-string-K-correction-orders-stale',
+      claim: 'keyFindings string at line 285 declares "8 correction orders" but zetaAndDerivative K defaults to 5 and the B array supports K <= 5',
+      status: 'STALE-DOC',
+    },
+    {
+      id: 'imp1033-edge-case-s-at-non-positive-integers',
+      claim: 'zetaAndDerivative produces NaN at s = 0, -1, -2, ..., -(2K-2) because cAdd(s, [j,0]) = [0,0] makes the prod term and the sumInv cDiv divergent',
+      status: 'UNREACHABLE-FROM-STRIP-SCAN',
+    },
+    {
+      id: 'imp1033-edge-case-s-equals-one-pole',
+      claim: 'At s = 1 (pole of zeta) cDiv(NPowOneMinusS, sMinusOne) divides by [0,0] producing Inf which propagates to NaN through the derivative branch',
+      status: 'UNREACHABLE-FROM-STRIP-SCAN',
+    },
+    {
+      id: 'imp1033-zeta-prime-2-reference-1-ulp-off',
+      claim: 'sanityCheck reference for zetaPrime(2) is -0.9375482543158427; high-precision value is -0.93754825431584375 (differs in 14th digit, within IEEE-754 double precision)',
+      reference: 'NIST DLMF eq 25.6.16; OEIS A073002',
+      status: 'COSMETIC',
+    },
+    {
+      id: 'imp1033-imaginary-parts-zero-on-real-line',
+      claim: 'At s = [sigma, 0] (real s), zeta[1] = 0 and zetaPrime[1] = 0 EXACTLY because cAdd/cMul/cDiv preserve the real subspace when both operands have zero imaginary parts',
+      verification: 'Observed at s=[2,0]: r1.zeta[1] = 0',
+      status: 'PASS',
+    },
+    {
+      id: 'imp1033-zeta-at-first-zero-not-near-zero',
+      claim: '|zeta(rho_1)| computed = 0.0707107 ~ 200^{-0.5} rather than ~0 (rho_1 is a true zero of zeta); the residual is exactly the off-by-one bias magnitude N^{-Re(s)}',
+      status: 'BUG-CONFIRMED-AT-COMPLEX-S',
+    },
+    {
+      id: 'imp1033-rolle-derivation-rolle-vs-hadamard',
+      claim: 'Docstring (lines 14-17) cites "Rolles theorem in complex form" as the reason for zeta-prime vanishing between zeros of zeta off the critical line. Strictly, complex Rolle fails in general; the correct argument is via the Hadamard product log-derivative of zeta as the docstring itself notes parenthetically. Flag-only, no code or docstring change',
+      status: 'CITATION-PRECISION-FLAG',
+    },
+  ],
+
+  numericalReference: {
+    zeta2:      { trueValue: Math.PI * Math.PI / 6, source: 'closed form pi^2/6' },
+    zeta3:      { trueValue: 1.2020569031595942854, source: 'OEIS A002117 (Apery constant)' },
+    zeta4:      { trueValue: Math.pow(Math.PI, 4) / 90, source: 'closed form pi^4/90' },
+    zetaPrime2: { trueValue: -0.93754825431584375, source: 'NIST DLMF 25.6.16, OEIS A073002' },
+    zetaPrime4: { trueValue: -0.06892693270661024, source: 'NIST DLMF 25.6.16' },
+    rho1:       { value: '0.5 + 14.134725141734693i', source: 'Odlyzko zeros table, first nontrivial zero of zeta' },
+    biasMagnitudeAtN200: {
+      'sigma=2_real':      Math.pow(200, -2),    // 2.5e-5
+      'sigma=3_real':      Math.pow(200, -3),    // 1.25e-7
+      'sigma=4_real':      Math.pow(200, -4),    // 6.25e-10
+      'sigma=0.5_complex': Math.pow(200, -0.5),  // 0.0707
+      'sigma=0.4_complex': Math.pow(200, -0.4),  // 0.121
+      'sigma=0.1_complex': Math.pow(200, -0.1),  // 0.589
+    },
+  },
+
+  flags: [
+    'imp1033-formula-off-by-one-load-bearing-for-strip-scan',
+    'imp1033-doc-K-correction-orders-stale',
+    'imp1033-edge-case-NaN-at-non-positive-integers-and-pole',
+    'imp1033-citation-precision-rolle-vs-hadamard',
+  ],
+
+  verdict: 'BUG-DOCUMENTED. zetaAndDerivative has a partial-sum/half-correction off-by-one producing a systematic bias of EXACTLY N^{-s} on zeta(s) and log(N)*N^{-s} on zeta-prime(s). The qualitative verdict of speiserCriterionTest (no zeros of zeta-prime in 0<sigma<1/2) is independently established by Speisers theorem (1934) as an RH-equivalence, but the quantitative strip-scan minima are biased by up to 0.64 at sigma=0.4 and should not be trusted to reported precision. Fix is a one-line sign or loop-bound change; deferred to follow-up sub-ticket imp-1033-sub-fix-euler-maclaurin-off-by-one per the atomic-change rule for S10-verify.',
+};
+
+// Runtime-PASS tripwires. All five must evaluate to pass=true at module load
+// so future regressions surface immediately. Tests are calibrated against
+// the CURRENT (off-by-one) behavior — if the bug is fixed under the
+// follow-up sub-ticket, several assertions must be RE-CALIBRATED.
+export const SPEISER_ASSERTIONS = (() => {
+  const out = [];
+  let r2, r3, r4, rRho1;
+  try { r2 = zetaAndDerivative([2, 0]); } catch (_) { r2 = null; }
+  try { r3 = zetaAndDerivative([3, 0]); } catch (_) { r3 = null; }
+  try { r4 = zetaAndDerivative([4, 0]); } catch (_) { r4 = null; }
+  try { rRho1 = zetaAndDerivative([0.5, 14.134725141734693]); } catch (_) { rRho1 = null; }
+
+  // 1. Real-line preservation: zeta[1] = zetaPrime[1] = 0 exactly at real s.
+  out.push({
+    id: 'imp1033-real-line-imag-zero',
+    description: 'At s=[2,0], zeta[1] and zetaPrime[1] must be exactly 0 (preserves real subspace)',
+    pass: r2 !== null && r2.zeta[1] === 0 && r2.zetaPrime[1] === 0,
+  });
+
+  // 2. Off-by-one fingerprint at s=2: err exactly N^{-s} (calibrated to CURRENT off-by-one behavior).
+  const piSq6 = Math.PI * Math.PI / 6;
+  const err2 = r2 !== null ? (piSq6 - r2.zeta[0]) : NaN;
+  const expected2 = Math.pow(200, -2);
+  out.push({
+    id: 'imp1033-zeta-2-bias-equals-N-pow-neg-s',
+    description: 'zeta(2) bias must equal N^{-s} = 200^{-2} = 2.5e-5 exactly (calibrated to current off-by-one; assertion must be re-calibrated after sub-ticket fix)',
+    pass: Number.isFinite(err2) && Math.abs(err2 - expected2) < 1e-12,
+  });
+
+  // 3. Off-by-one fingerprint at s=3: same N^{-s} signature.
+  const apery = 1.2020569031595942854;
+  const err3 = r3 !== null ? (apery - r3.zeta[0]) : NaN;
+  const expected3 = Math.pow(200, -3);
+  out.push({
+    id: 'imp1033-zeta-3-bias-equals-N-pow-neg-s',
+    description: 'zeta(3) (Apery) bias must equal 200^{-3} = 1.25e-7 exactly (off-by-one fingerprint at second integer s)',
+    pass: Number.isFinite(err3) && Math.abs(err3 - expected3) < 1e-14,
+  });
+
+  // 4. Off-by-one fingerprint at s=4: same N^{-s} signature.
+  const piFour90 = Math.pow(Math.PI, 4) / 90;
+  const err4 = r4 !== null ? (piFour90 - r4.zeta[0]) : NaN;
+  const expected4 = Math.pow(200, -4);
+  out.push({
+    id: 'imp1033-zeta-4-bias-equals-N-pow-neg-s',
+    description: 'zeta(4) bias must equal 200^{-4} = 6.25e-10 (1 ulp tolerance) (off-by-one fingerprint at third integer s)',
+    pass: Number.isFinite(err4) && Math.abs(err4 - expected4) < 1e-15,
+  });
+
+  // 5. At first nontrivial zero rho_1, |zeta(rho_1)| computed approximately N^{-0.5} — independent confirmation at complex s.
+  const absZetaAtRho1 = rRho1 !== null ? Math.sqrt(rRho1.zeta[0] * rRho1.zeta[0] + rRho1.zeta[1] * rRho1.zeta[1]) : NaN;
+  const expectedRho1 = Math.pow(200, -0.5);
+  out.push({
+    id: 'imp1033-zeta-at-rho1-matches-N-pow-neg-half',
+    description: 'At rho_1 = 0.5+14.13i, |zeta(rho_1)| computed should be close to N^{-0.5} = 0.0707 (the off-by-one bias at the first zero of zeta), confirming the bug at complex s',
+    pass: Number.isFinite(absZetaAtRho1) && Math.abs(absZetaAtRho1 - expectedRho1) < 5e-3,
+  });
+
+  return out;
+})();

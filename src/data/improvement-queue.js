@@ -12584,6 +12584,55 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Appended NORM_RESOLVENT_CROSS_VERIFY_IMP1031 audit constant and NORM_RESOLVENT_ASSERTIONS array (5 build-time tripwires, all PASS) to src/math/norm-resolvent.js. Findings: (1) buildHamiltonian diag[k] reduces to 1 under the chosen normalization (consistent with JSDoc header line 25 "omega_k = 1 normalized"; the inline trailing comment claiming log-squared of p_k is mathematically stale relative to the surrounding code — flag-only, no code change); (2) offDiag[k] = -sqrt(log(p_k)*log(p_{k+1})) matches the implementation; (3) hand-computed eigenvalue references for N=2 (eigs = 1 plus-or-minus sqrt(log(2)*log(3))) and N=3 (eigs = {1-r, 1, 1+r} where r = sqrt(log(2)*log(3) + log(3)*log(5))) are encoded as Sturm-bisection regression tests; (4) edge cases — N=0 throws RangeError on new Float64Array(-1) but is unreachable from normResolventTest (starts at N=10); z-on-spectrum returns null via the inner-loop cAbs(denom)<1e-30 guard for N>=2 and silently returns [0,0] via cDiv short-circuit for N=1, both non-NaN-propagating; Sturm zero-pivot is patched to 1e-30 (Wilkinson trick); (5) citation precision flag — the file labels the strong-resolvent-to-spectral-upper-semicontinuity step as Kato-Rellich (1966) but the strict reference for that step is Trotter-Kato (Reed-Simon vol I thm VIII.21) plus upper-semicontinuity of spectrum (Reed-Simon vol IV thm XII.8); Kato-Rellich proper concerns relatively-bounded perturbations. Three observational flags recorded; no proof-chain step status changed. Atomic change: appended audit block only, no existing lines modified, no behavior change. All 5 assertions PASS at runtime (verified via node -e dynamic import). Build passes (npm run build, vite green, 4.44s).',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-12) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1032',
+    title: "Add JSDoc module documentation to koksma-hlawka-C1-pinned.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/koksma-hlawka-C1-pinned.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
+  
+  // ── Auto-seeded batch (2026-05-12) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1033',
+    title: "Cross-verify speiser-criterion.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/speiser-criterion.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-12T15:30:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Appended SPEISER_CROSS_VERIFY_IMP1033 audit constant and SPEISER_ASSERTIONS (5 runtime-PASS tripwires) to src/math/speiser-criterion.js. PRINCIPAL FINDING: zetaAndDerivative has a partial-sum/half-correction off-by-one — the loop at line 89 runs n=1..N-1 but the -N^{-s}/2 half-correction at line 111 assumes n=1..N inclusive (cf. Cohen NTI vol II §10.3.4, Edwards §6.4). This produces a SYSTEMATIC bias of EXACTLY +N^{-s} on zeta(s) and log(N)*N^{-s} on zetaPrime(s). Verified at N=200 with err/N^{-s} ratio = 1.000000 for s in {2,3,4} (also at N=100; independent confirmation at complex s rho_1 = 0.5+14.13i where |zeta(rho_1)| = 0.0707 = 200^{-0.5}). IMPACT: the stripScan reports min |zetaPrime| = 0.190641 at sigma=0.4 but the derivative bias at sigma=0.4 is log(200)*200^{-0.4} = 0.641, far exceeding both the reported min and the verdict threshold 0.01 — so the noZetaPrimeZerosFound verdict is NOT robust against the bug. Speisers theorem (1934) independently establishes the qualitative conclusion as an RH-equivalence. Per the atomic-change rule for S10-verify, the fix is INTENTIONALLY NOT APPLIED — a follow-up sub-ticket is recommended (imp-1033-sub-fix-euler-maclaurin-off-by-one), with the one-line fix being either (a) change line 89 `n < N` to `n <= N`, OR (b) flip the sign on the half-term at line 111 and the matching derivative sign on line 113. Eight additional findings recorded: doc-string K=8 vs actual K=5 stale (line 285), edge-case NaN at s in {0,-1,...,-(2K-2)} via cAdd(s,[j,0])=[0,0] → cDiv divide-by-zero in the sumInv loop, edge-case NaN at s=1 pole, sanityCheck zetaPrime(2) reference -0.9375482543158427 differs from NIST DLMF 25.6.16 high-precision -0.93754825431584375 in the 14th digit (cosmetic 1-ulp), real-line preservation verified (zeta[1]=zetaPrime[1]=0 exactly at real s), Rolle vs Hadamard citation precision flag on docstring lines 14-17. All five SPEISER_ASSERTIONS PASS at runtime (verified via dynamic import). Build passes (npm run build, vite green, 4.68s).',
+  },
+  {
+    id: 'imp-1034',
+    title: "Add JSDoc module documentation to imp-904-dense-grid-analysis.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/imp-904-dense-grid-analysis.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

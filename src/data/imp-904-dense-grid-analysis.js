@@ -1,4 +1,52 @@
 /**
+ * @fileoverview Honest L1.5-bridge partial closure of imp-904 (dense-grid C_mb
+ *   certification at N in {3000, 4000, 6000, 7000, 8000, 9000}). The proposed
+ *   6 fresh interval-RK4 baseline runs (~1-2 h wall-time) are out of a single
+ *   Opus engine turn, so this module instead leverages the 31-N combined
+ *   certificate already in hand (imp-857 L1 8-N + imp-903 23-N sweep) to
+ *   bracket each imp-904 target N by its nearest already-certified neighbors
+ *   and to emit an explicit plateau-smoothness bridge upper bound on
+ *   K_paper_cert_floor at the bridged targets via f(N) = 1/(sqrt(N) * log N)
+ *   with empirical plateau smoothRatio buffer 2.0 (covers measured max 1.79
+ *   over 27 plateaus). Names the residual open sub-gap imp-904-sub-run-missing
+ *   covering the {8000, 9000} direct RK4 runs that would replace the bridge
+ *   with rigorous L1 samples.
+ * @module data/imp-904-dense-grid-analysis
+ *
+ * Proof chain step: L1.5-bridge (C_mb dense-grid coverage at imp-904 targets).
+ *
+ * EXPORTS.
+ *   - IMP_904_DENSE_GRID_ANALYSIS: full record with provenance (imp-857
+ *     L1 + imp-903 sweep), combinedCertifiedCount, combinedRangeN, imp904
+ *     Targets, per-target targetCoverage rows, summary (totalTargets,
+ *     coveredWithinGap800, coveredWithinGap1500, missingTargets, widest
+ *     NeighborGap_1k_10k, K_paper_max_floor_above_1000), closureLevel
+ *     L1.5-bridge-partial, bridgeBracket per missing target, bridgeSummary
+ *     (bridgedTargetCount, allFinite, maxBridgeUpperBound, safetyBuffer,
+ *     statement), interpretation, and openSubGap (imp-904-sub-run-missing).
+ *   - IMP_904_DENSE_GRID_ASSERTIONS: nine build-time tripwires enumerated by
+ *     id: imp904-combined-cert-at-least-28, imp904-range-covers-10k,
+ *     imp904-majority-targets-covered-within-800, imp904-all-targets-covered
+ *     -within-1500, imp904-K-max-above-1000-below-threshold, imp904-open-
+ *     subgap-named, imp904-bridge-covers-every-missing-target, imp904-bridge-
+ *     bracket-finite, imp904-bridge-upper-bound-below-1pct.
+ *
+ * TICKETS.
+ *   - Created by imp-904 (original L1.5 target proposal).
+ *   - L1.5-bridge layer added by imp-996: bridgeBracket, bridgeSummary, and
+ *     the four bridge-specific assertions.
+ *   - Module-level JSDoc header added by imp-1034 (this header block).
+ *   - Open sub-gap imp-904-sub-run-missing names the {8000, 9000} direct RK4
+ *     runs that would replace the bridge with rigorous L1 samples.
+ *
+ * @see ./imp-857-baseline-sweep-result.js
+ * @see ./imp-903-uniform-sweep-result-rows.json
+ * @see ../math/imp-857-gue-elimination.js
+ * @see ../math/imp-857-uniform-K-bound.js
+ * @see ../math/imp-857-baseline-scaling-N10k.mjs
+ */
+
+/**
  * imp-904 DENSE-GRID PARTIAL CLOSURE
  * ----------------------------------
  * imp-904 proposed certifying C_mb at the denser N grid

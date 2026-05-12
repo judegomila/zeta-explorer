@@ -79,14 +79,21 @@ const B = [1, -0.5, 1/6, 0, -1/30, 0, 1/42, 0, -1/30, 0, 5/66];
  * Compute ζ(s) and ζ'(s) together via Euler-Maclaurin.
  * Works for Re(s) > 1 - 2K where K is number of correction terms.
  *
- *   ζ(s) = Σ_{n=1}^{N-1} n^{-s} + N^{1-s}/(s-1) - N^{-s}/2
+ *   ζ(s) = Σ_{n=1}^{N} n^{-s} + N^{1-s}/(s-1) - N^{-s}/2
  *        + Σ_{k=1}^{K} B_{2k}/(2k)! · (s)(s+1)...(s+2k-2) · N^{-s-2k+1}
+ *
+ * imp-1037 fix: the loop and the half-correction must use the same N
+ * convention. Previously the loop ran n=1..N-1 (exclusive) while the
+ * half-term subtracted N^{-s}/2 — the standard convention for that
+ * sign uses n=1..N (inclusive). The off-by-one produced a systematic
+ * bias of exactly +N^{-s} on ζ and log(N)·N^{-s} on ζ', flagged by
+ * imp-1033 (5 build-time tripwires now pass with the correct sum).
  */
 export function zetaAndDerivative(s, N = 200, K = 5) {
   // Partial sum Σ n^{-s}
   let zeta = [0, 0];
   let zetaPrime = [0, 0];
-  for (let n = 1; n < N; n++) {
+  for (let n = 1; n <= N; n++) {
     zeta = cAdd(zeta, cPowNegS(n, s));
     zetaPrime = cAdd(zetaPrime, cDerivPowNegS(n, s));
   }
@@ -465,43 +472,45 @@ export const SPEISER_ASSERTIONS = (() => {
     pass: r2 !== null && r2.zeta[1] === 0 && r2.zetaPrime[1] === 0,
   });
 
-  // 2. Off-by-one fingerprint at s=2: err exactly N^{-s} (calibrated to CURRENT off-by-one behavior).
+  // 2. (imp-1037 fix verification) zeta(2) accurate to truncation: post-fix
+  //    residual is the K=5 Euler-Maclaurin tail bounded by O(N^{-s-9}) ~ 1e-25
+  //    at s=2,N=200. Use a generous 1e-6 tolerance to absorb floating-point
+  //    accumulation; the previous +N^{-s} = 2.5e-5 systematic bias is gone.
   const piSq6 = Math.PI * Math.PI / 6;
   const err2 = r2 !== null ? (piSq6 - r2.zeta[0]) : NaN;
-  const expected2 = Math.pow(200, -2);
   out.push({
-    id: 'imp1033-zeta-2-bias-equals-N-pow-neg-s',
-    description: 'zeta(2) bias must equal N^{-s} = 200^{-2} = 2.5e-5 exactly (calibrated to current off-by-one; assertion must be re-calibrated after sub-ticket fix)',
-    pass: Number.isFinite(err2) && Math.abs(err2 - expected2) < 1e-12,
+    id: 'imp1037-zeta-2-bias-near-zero-post-fix',
+    description: 'zeta(2) bias must be near zero (|err| < 1e-6) after the imp-1037 off-by-one fix; pre-fix bias was exactly +N^{-s} = 2.5e-5',
+    pass: Number.isFinite(err2) && Math.abs(err2) < 1e-6,
   });
 
-  // 3. Off-by-one fingerprint at s=3: same N^{-s} signature.
+  // 3. zeta(3) Apery: same near-zero post-fix tolerance.
   const apery = 1.2020569031595942854;
   const err3 = r3 !== null ? (apery - r3.zeta[0]) : NaN;
-  const expected3 = Math.pow(200, -3);
   out.push({
-    id: 'imp1033-zeta-3-bias-equals-N-pow-neg-s',
-    description: 'zeta(3) (Apery) bias must equal 200^{-3} = 1.25e-7 exactly (off-by-one fingerprint at second integer s)',
-    pass: Number.isFinite(err3) && Math.abs(err3 - expected3) < 1e-14,
+    id: 'imp1037-zeta-3-bias-near-zero-post-fix',
+    description: 'zeta(3) (Apery) bias must be near zero (|err| < 1e-8) after the imp-1037 off-by-one fix; pre-fix bias was 200^{-3} = 1.25e-7',
+    pass: Number.isFinite(err3) && Math.abs(err3) < 1e-8,
   });
 
-  // 4. Off-by-one fingerprint at s=4: same N^{-s} signature.
+  // 4. zeta(4): same near-zero post-fix tolerance.
   const piFour90 = Math.pow(Math.PI, 4) / 90;
   const err4 = r4 !== null ? (piFour90 - r4.zeta[0]) : NaN;
-  const expected4 = Math.pow(200, -4);
   out.push({
-    id: 'imp1033-zeta-4-bias-equals-N-pow-neg-s',
-    description: 'zeta(4) bias must equal 200^{-4} = 6.25e-10 (1 ulp tolerance) (off-by-one fingerprint at third integer s)',
-    pass: Number.isFinite(err4) && Math.abs(err4 - expected4) < 1e-15,
+    id: 'imp1037-zeta-4-bias-near-zero-post-fix',
+    description: 'zeta(4) bias must be near zero (|err| < 1e-10) after the imp-1037 off-by-one fix; pre-fix bias was 200^{-4} = 6.25e-10',
+    pass: Number.isFinite(err4) && Math.abs(err4) < 1e-10,
   });
 
-  // 5. At first nontrivial zero rho_1, |zeta(rho_1)| computed approximately N^{-0.5} — independent confirmation at complex s.
+  // 5. (imp-1037 fix verification) At first nontrivial zero rho_1, |zeta(rho_1)|
+  //    should now be near zero (it's an actual zero). Pre-fix it was ~ N^{-0.5}
+  //    = 0.0707 from the bias. Post-fix tolerance reflects Euler-Maclaurin
+  //    truncation at σ=0.5 with K=5 corrections.
   const absZetaAtRho1 = rRho1 !== null ? Math.sqrt(rRho1.zeta[0] * rRho1.zeta[0] + rRho1.zeta[1] * rRho1.zeta[1]) : NaN;
-  const expectedRho1 = Math.pow(200, -0.5);
   out.push({
-    id: 'imp1033-zeta-at-rho1-matches-N-pow-neg-half',
-    description: 'At rho_1 = 0.5+14.13i, |zeta(rho_1)| computed should be close to N^{-0.5} = 0.0707 (the off-by-one bias at the first zero of zeta), confirming the bug at complex s',
-    pass: Number.isFinite(absZetaAtRho1) && Math.abs(absZetaAtRho1 - expectedRho1) < 5e-3,
+    id: 'imp1037-zeta-at-rho1-near-zero-post-fix',
+    description: 'At rho_1 = 0.5+14.13i, |zeta(rho_1)| must be near zero (|val| < 1e-4) after the imp-1037 off-by-one fix; pre-fix value was ~ N^{-0.5} = 0.0707 (the systematic bias)',
+    pass: Number.isFinite(absZetaAtRho1) && absZetaAtRho1 < 1e-4,
   });
 
   return out;

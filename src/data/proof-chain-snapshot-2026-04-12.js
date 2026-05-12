@@ -1,4 +1,73 @@
 /**
+ * @fileoverview Submission-readiness capstone snapshot: condenses 50+
+ *   improvement tickets into a single-page proof-chain summary for an external
+ *   referee or collaborator. Records the headline Lambda <= 0.121 bound at
+ *   N* = 1e6 (1.65x tighter than Platt-Trudgian 2021 Lambda <= 0.2), the
+ *   12-step proof chain from imp-341 (Burgers lim-sup closure) through
+ *   imp-471 (many-body bound), the conditional-vs-unconditional regime split
+ *   (empirical predicates E1, E2 unconditional on N <= 1e6 via imp-833 +
+ *   imp-858; full analytic chain GUE-unconditional on N in [100, 10^4] via
+ *   the imp-857 GUE-elimination pathway modulo one F_mb plateau-Lipschitz
+ *   obligation; GUE-conditional at N* = 1e6 pending the imp-904 dense-grid
+ *   continuation), the Lean formalization sorry-count trajectory, and the
+ *   six adversarial-review FATAL-count trajectory (2, 0, 0, 0, 0, 0). This is
+ *   the terminal-state readers-first artifact alongside the imp-500
+ *   submission-ready-2026-04-12.js milestone and the imp-501 assertion-sweep
+ *   build-time tripwire bundle. Snapshot date: 2026-04-12; re-verified
+ *   2026-04-14 by imp-717.
+ * @module data/proof-chain-snapshot-2026-04-12
+ *
+ * Proof chain step: capstone (single-page proof-chain summary across all 12
+ *   steps; not a derivation lemma but a navigation index for external readers).
+ *
+ * EXPORTS.
+ *   - HEADLINE: bound (Lambda <= 0.121), baseline (Platt-Trudgian 2021 Lambda
+ *     <= 0.2), improvement factor, scale (N* = 1e6 Riemann zeros), regime
+ *     split (empiricalPredicatesRegime unconditional on N <= 1e6 vs
+ *     analyticChainRegime GUE-unconditional on N in [100, 10^4]), condition,
+ *     rigorLevel, routeUsed (Route B + finite-height assembly + empirical
+ *     floor widening), uncondFloorTickets (imp-833, imp-858), uncondFloor
+ *     Module pointer, uncondFloorZeroCount (1e6).
+ *   - PROOF_CHAIN: array of 12 step records, each with step number, ticket id,
+ *     claim, and status (CLOSED / OPEN / CONDITIONAL).
+ *   - ROUTE_STATUS: per-route closure metadata for Route A, Route B, finite-
+ *     height assembly, GUE-elimination pathway, and the lim-sup chain.
+ *   - CONDITIONS: enumeration of analytic and empirical conditions backing
+ *     each chain step (Selberg input, Koksma-Hlawka discrepancy, GUE
+ *     universality where invoked, ESY local-law usage points).
+ *   - LEAN_STATUS: sorry/axiom counts for the lean/LambdaAttack/Capstone.lean
+ *     formalization skeleton at snapshot date.
+ *   - ADVERSARIAL_REVIEWS: array of six adversarial-review pass records with
+ *     FATAL-count trajectory 2, 0, 0, 0, 0, 0.
+ *   - PROOF_CHAIN_SNAPSHOT: aggregated capstone object exposing id, generated
+ *     At, verifiedAt, headline, chain, routes, conditions, lean,
+ *     adversarialReviews, execSummary, and howToVerify breadcrumb list.
+ *
+ * TICKETS.
+ *   - Created by imp-488 (final SOTA snapshot, capstone for submission
+ *     readiness; snapshot date 2026-04-12).
+ *   - Updated by imp-499 (Lean sorry-count audit 8 -> 10 confirmed correct,
+ *     Capstone.lean has 0 sorrys), imp-500 (submission-ready terminal-state
+ *     milestone marker), imp-501 (12 previously dead build-time assertions
+ *     wired in assertion-sweep-2026-04-12.js), and imp-717 (re-verified
+ *     2026-04-14 build clean, chain references and sorry/axiom counts
+ *     confirmed accurate after imp-716 Lambda bound grid extension).
+ *   - Module-level @module / @fileoverview JSDoc header added by imp-1036
+ *     (this header block; atomic structural change only, no behavior change).
+ *
+ * SYNTAX NOTE: avoid the two-char sequence star-slash inside JSDoc block text.
+ *   Use dg_{k*}/dt notation (not dg_k-star/dt) in comments.
+ *
+ * @see ./submission-ready-2026-04-12.js
+ * @see ./assertion-sweep-2026-04-12.js
+ * @see ./empirical-m-sweep-extended.js
+ * @see ./lambda-roadmap.js
+ * @see ./sota-lambda-claim.js
+ * @see ../math/imp-857-gue-elimination.js
+ * @see ../math/imp-857-uniform-K-bound.js
+ */
+
+/**
  * imp-488: Final SOTA snapshot — single-page proof-chain summary for external readers.
  *
  * PURPOSE

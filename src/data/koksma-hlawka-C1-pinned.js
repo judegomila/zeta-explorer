@@ -1,4 +1,47 @@
 /**
+ * @fileoverview Pin the Koksma-Hlawka Stieltjes bound constant
+ *   C_1 = pi * C_Selberg = 3 * pi ~ 9.4248 used in
+ *   ||m_N - m_inf||_{L^inf, Im z >= y} <= C_1 * log(gamma_N) / (N * y).
+ *   Closes skp-002 (NAMED gap from paper-skeptic-review.js / imp-417) by
+ *   deriving C_1 in three steps: (1) Cauchy-kernel integral pi/y from
+ *   integration by parts on the Stieltjes transform difference, (2) star
+ *   discrepancy D*_N <= max|S(T)|/N via Riemann-von Mangoldt, (3) the
+ *   Selberg S(T) bound |S(T)| <= 3 log T from Titchmarsh Section 14.13.
+ * @module data/koksma-hlawka-C1-pinned
+ *
+ * Proof chain step: S5-bridge (Koksma-Hlawka Stieltjes bound C_1 pinning).
+ *
+ * EXPORTS.
+ *   - C_1_PINNED: numerical value pi * 3 (used by downstream bridge files).
+ *   - KOKSMA_HLAWKA_C1_PINNED: full record with gapStatement (skp-002),
+ *     three-step derivation, references (Selberg 1946, Titchmarsh Section
+ *     14.13, Carneiro-Chandee-Milinovich 2013, Koksma 1943, Kuipers-
+ *     Niederreiter 1974), CCM-vs-conservative comparison table at
+ *     N in {100, 1k, 10k, 100k, 1M}, consistencyWithChain (matches imp-341
+ *     and imp-424), consumesIds list, and verdict (CLOSED).
+ *   - KOKSMA_HLAWKA_C1_ASSERTIONS: seven build-time assertions:
+ *     imp426-C1-equals-3pi, imp426-C1-matches-imp341, imp426-C1-matches-
+ *     imp424, imp426-C_Selberg-is-3, imp426-C1-finite-positive,
+ *     imp426-CCM-tighter-at-all-N, imp426-skp002-verdict-closed.
+ *
+ * TICKETS.
+ *   - Created by imp-426 (this file).
+ *   - Closes skp-002 raised by imp-417 (paper-skeptic-review.js).
+ *   - Reads C1 cross-check values from imp-341
+ *     (lambda-intercept-burgers-uniformity.js) and imp-424
+ *     (koksma-to-tc-closure.js); both must equal pi * 3 exactly.
+ *   - Module-level JSDoc header added by imp-1032 (this header block).
+ *   - Downstream consumers: imp-431
+ *     (platt-trudgian-recheck-post-closure.js) reads C_1_PINNED to assemble
+ *     the post-closure Lambda <= 0.2 budget.
+ *
+ * @see ./paper-skeptic-review.js
+ * @see ./lambda-intercept-burgers-uniformity.js
+ * @see ./koksma-to-tc-closure.js
+ * @see ./platt-trudgian-recheck-post-closure.js
+ */
+
+/**
  * imp-426: Close skp-002 (NAMED): pin C_1 constant in the Koksma-Hlawka
  * Stieltjes bound.
  *

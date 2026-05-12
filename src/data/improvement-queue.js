@@ -12593,12 +12593,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Add JSDoc module documentation to koksma-hlawka-C1-pinned.js",
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'docs',
     description: "src/data/koksma-hlawka-C1-pinned.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-05-12T17:00:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Prepended @module / @fileoverview JSDoc header to src/data/koksma-hlawka-C1-pinned.js documenting purpose (pin C_1 = pi * C_Selberg = 3 * pi ~ 9.4248 used in the Koksma-Hlawka Stieltjes bound ||m_N - m_inf|| <= C_1 * log(gamma_N) / (N * y), closes skp-002 NAMED gap from paper-skeptic-review.js / imp-417 via three-step derivation), proof chain step (S5-bridge Koksma-Hlawka Stieltjes bound C_1 pinning), key exports (C_1_PINNED constant, KOKSMA_HLAWKA_C1_PINNED record, KOKSMA_HLAWKA_C1_ASSERTIONS array with seven build-time tripwires enumerated by id), originating ticket imp-426, downstream consumer imp-431 (platt-trudgian-recheck-post-closure.js), cross-check sources imp-341 and imp-424, and @see references to ./paper-skeptic-review.js / ./lambda-intercept-burgers-uniformity.js / ./koksma-to-tc-closure.js / ./platt-trudgian-recheck-post-closure.js. Existing imp-426 derivation block preserved unchanged below the new header. Atomic change: prepended one JSDoc block; no existing lines modified. Build passes (npm run build, vite green, 4.81s).',
   },
 
   

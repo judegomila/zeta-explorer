@@ -12749,6 +12749,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended @module / @fileoverview JSDoc header to src/data/imp-857-phased-forcing-sweep.js following the imp-1036 / imp-1039 pattern. The new block names the module slug (data/imp-857-phased-forcing-sweep), the @fileoverview summary (imp-893 N-scaling sweep recording 6 of 20 measured cells and the reduction-decays-with-N negative finding), the proof-chain step (imp-857 alt-path; consistency invariant from imp-892 commutator bound), the exports (IMP_857_PHASED_FORCING_SWEEP default + named with measuredRows / reductionTable / commutatorBoundConsistency / openSubGaps / canonical openSubGap imp-893-sub-large-N-rerun / 8 assertions), the 8 key assertions one-by-one (imp893-at-least-six-measured-rows, imp893-baseline-rows-nonempty, imp893-reduction-at-N1000-sub-unity-eps-0p05, imp893-reduction-at-N2000-near-unity-eps-0p05, imp893-commutator-bound-consistent, imp893-status-partial, imp893-sub-gaps-named, imp893-sub-large-N-rerun-subgap-named), tickets that created (imp-893) and modified (imp-1000 + imp-1041) the file, and upstream dependencies (phase-locked-dyson.mjs prototype, phased-forcing-memo, commutator-bound, zeros-to-1e6). One atomic change; existing JSDoc and all data/exports preserved verbatim. Build passes (4.44s).',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1042',
+    title: "Cross-verify de-branges.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/de-branges.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T20:10:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Appended DE_BRANGES_CROSS_VERIFY_IMP1042 (10 findings, 5 LOW flags, numericalReference table, PASS verdict) plus DE_BRANGES_ASSERTIONS_IMP1042 (10 runtime-PASS tripwires) and a small independent _imp1042TransferReimpl helper. Cross-verification covers three independent angles: (V1) algebraic-identity checks -- det(M_p(z)) = cos^2(zD) + sin^2(zD) = 1 (canonical-system Wronskian invariant) verified at 25 sample (z, p) combinations; M_p(0) = I bitwise; M_p(pi/log p) = -I within machine epsilon; (V2) the imp-728 magnitude identity |E(z)|^2 - |E(z-bar)|^2 = 4(ad-bc) = 4 Im(conj(M11) M12) verified by direct algebraic expansion (cancellation-resistant alternative to the magnitude-ratio test in the overflow regime); (V3) structural / shape invariants on deBrangesTest(20) output -- cascadeResults length 3, hermiteBiehler.total = 28 per row, hamiltonianPositiveDefinite always true, bestHBRate = max over cascadeResults, hermiteBiehlerHolds iff all rates > 0.8, no NaN in any rate or average ratio. All 10 assertions PASS at runtime (verified via node --input-type=module dynamic import). Five LOW flags recorded: (F1) dead store prevMag at line 158 of findRealZeros; (F2) bisection inner loop recomputes deBrangesE([0.5, lo], N) needlessly; (F3) zeroCorrelation reduce with undefined seed at empty knownZeros (works by NaN comparison semantics); (F4) Infinity / Infinity = NaN ratio at N >= 50 / |t| >= 14 is correctly reported as hbHolds = false by the existing line 135 guard (overflow indeterminate, not genuine HB failure) -- already documented in imp-728 comment at lines 131-134; (F5) canonical-system convention difference -- the off-diagonal M_p entries (+Z_p sin in 01, -sin/Z_p in 10) differ from the textbook exp(z J H D) form (-C_p sin in 01, +L_p sin in 10) by a sign flip combined with L_p/C_p swap, equivalent to using J = [[0,1],[-1,0]] or working with the transposed chain matrix; det(M) = 1 invariant holds either way so this is CONVENTION not error. No bug surfaced; no proof-chain status change. Verdict PASS.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

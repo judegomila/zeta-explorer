@@ -12859,6 +12859,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended a structured @module data/dyson-python-crosscheck-result JSDoc block above the existing imp-415 header in src/data/dyson-python-crosscheck-result.js. The new header documents: (a) what the file is — the verdict of an independent Python RK4+Kahan reimplementation of the backward Dyson ODE dg_{k}/dt = -2 * sum_{j!=k} 1/(g_k - g_j) cross-validated against the JS interval-arithmetic witness from imp-362 (src/math/interval-dyson-integrator.mjs), with verdict "CROSS-VERIFIED" across N in {50, 100, 200, 500}; (b) proof-chain role — Route B "no collision before t_c" sub-witness whose enclosures feed lim sup |t_c(N)| = 0 used by submission-ready-2026-04-12 (imp-500), serving as the cross-language safety net against an integrator bug in either language; (c) exports — DYSON_PYTHON_CROSSCHECK with verdict, measurements rows (py_tc, iv_lo, iv_hi, euler_ref, pairIdx, agree), eulerArtifactNote, referenceImpl, script, generatedAt; (d) key invariants — every row has agree === true, py_tc < euler_ref, and iv_hi >= py_tc; (e) ticket chain imp-415 -> imp-1047. Atomic structural change only: original 10-line imp-415 header preserved verbatim beneath the new block; DYSON_PYTHON_CROSSCHECK export, measurement values, and existing inline JSDoc on fields untouched. Build passes (npm run build, vite green).',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1048',
+    title: "Cross-verify vinogradov-korobov-zero-free.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/vinogradov-korobov-zero-free.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T21:25:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Independent cross-verification of vinogradov-korobov-zero-free.js. (1) Formulas verified against Korobov 1958, Vinogradov 1958, de la Vallée Poussin 1899; Ford 2002 c=1/57.54 and Kadiri 2005 c₀=1/5.69693 constants confirmed. (2) Edge cases: t<3 guard returns 0.5 safely; the inner log log t ≤ 0 fallback is unreachable defensive code (verified — t<3 already excludes it). No NaN/Infinity producers across heights[3, 10^20]. (3) Numerical check at t=10^20 via Node REPL matches module output to ≥6 decimal places (σ_VK ≈ 0.99913541). Key finding: with admissible Ford/Kadiri constants, the VK zero-free strip is NARROWER than classical at every tabulated height (crossover at t > e^{10000}); keyFindings[3] parenthetical "VK wider zero-free region" is therefore misleading and flagged for future copy-edit (lines 148 and 153 already describe the relation correctly). PNT exponents (3/5,1/5) for VK and (1/2) for RH verified. Documented as a CROSS-VERIFICATION NOTE comment block appended to the file. VERDICT: module is mathematically correct; safe to cite.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

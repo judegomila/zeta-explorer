@@ -186,3 +186,83 @@ export function vinogradovKorobovZeroFreeTest() {
       `VK never reaches σ=1/2 (would require t → ∞). Improving 2/3 → 1 would prove RH.`,
   };
 }
+
+/**
+ * ── CROSS-VERIFICATION NOTE (imp-1048, 2026-05-13) ─────────────────────────
+ *
+ * Independent audit of vinogradovKorobovZeroFreeTest() — formulas, constants,
+ * edge cases, and asymptotic claims.
+ *
+ * 1. FORMULAS — match the literature.
+ *    - VK boundary  σ > 1 − c · (log t)^{-2/3} · (log log t)^{-1/3}
+ *      (Korobov, Izv. Akad. Nauk SSSR 22 (1958); Vinogradov 1958).
+ *    - Classical    σ > 1 − c₀ / log t   (de la Vallée Poussin, 1899).
+ *    - Ford (2002, Proc. LMS 85): admissible c = 1/57.54 for |t| ≥ 3.
+ *    - Kadiri (2005, Acta Arith. 117): admissible c₀ = 1/5.69693.
+ *    sigmaVK() and sigmaClassical() implement these formulas verbatim.
+ *
+ * 2. INDEPENDENT NUMERICAL CHECK at t = 10^20 (reproduced via Node REPL):
+ *      log t      = 20·ln 10              ≈ 46.05170186
+ *      log log t  = ln(log t)             ≈ 3.82979566
+ *      (log t)^{2/3}                      ≈ 12.8444
+ *      (log log t)^{1/3}                  ≈ 1.5645
+ *      denom_VK   = product               ≈ 20.0975
+ *      σ_VK       = 1 − (1/57.54)/denom   ≈ 0.99913541
+ *      σ_cl       = 1 − (1/5.69693)/log t ≈ 0.99618835
+ *    Module's boundary_table row for t=1e20 agrees to ≥6 decimal places.
+ *
+ * 3. EDGE CASES.
+ *    - t < 3: function returns 0.5 (documented guard; matches the |t| ≥ 3
+ *      hypothesis of the underlying theorems).
+ *    - log log t ≤ 0 (would require t < e): VK falls back to classical to
+ *      avoid Math.pow on a negative base (which returns NaN in JavaScript).
+ *      The t < 3 guard already excludes that branch, so the inner check is
+ *      defensive belt-and-braces — verified unreachable from all heights[]
+ *      and from ZETA_ZEROS (γ₁ ≈ 14.13 > 3).
+ *    - No NaN / Infinity produced for t ∈ [3, 10^20].
+ *
+ * 4. ASYMPTOTIC vs FINITE-HEIGHT BEHAVIOR — subtle, worth flagging.
+ *    With the cited admissible constants (Ford 1/57.54, Kadiri 1/5.69693),
+ *    the VK leading constant is ~10× smaller than the classical one. The VK
+ *    zero-free *width* w_VK = 1 − σ_VK exceeds the classical w_cl only when
+ *      c · log(t)^{1/3} / (log log t)^{1/3} > c₀
+ *      ⇔ log(t) / log log(t) > (c₀/c)^3 ≈ 1030.
+ *    That requires log t ≳ 10⁴, i.e. t ≳ e^{10000} ≈ 10^{4343} —
+ *    astronomically beyond every height in the boundary_table.
+ *
+ *    Practical consequence: at all eight heights actually tabulated
+ *    (t = 10, 10², …, 10^20), σ_VK > σ_classical, so the VK zero-free strip
+ *    is NARROWER than the classical strip with these admissible constants.
+ *    Numerical confirmation:
+ *      t        wVK / wCl       VK_wider?
+ *      10^1     0.139           NO
+ *      10^6     0.172           NO
+ *      10^20    0.227           NO
+ *    The asymptotic statement "VK region strictly larger than classical"
+ *    (file header, line 21) is still TRUE in the c → 1, c₀ → 1 limit and
+ *    holds eventually for any fixed admissible pair — but for *displayed*
+ *    heights with Ford/Kadiri constants, the inequality runs the other way.
+ *
+ *    keyFindings[3] (line 150) prints "VK improvement over classical:
+ *    X× at t=10^20 (VK wider zero-free region)". The ratio X is correct
+ *    (it is wVK/wCl), but the parenthetical reads as a literal width claim
+ *    and is misleading at the tabulated heights. Future copy-edit should
+ *    re-phrase to "(ratio of zero-free widths)" or similar. Lines 148 and
+ *    153 already describe the relation correctly.
+ *
+ * 5. PNT ERROR EXPONENTS — verified.
+ *    - VK-PNT:  E_VK(x)  ∝ (log x)^{3/5} / (log log x)^{1/5}  (Korobov 1958).
+ *    - Classical: E_cl(x) ∝ √(log x)                          (de la Vallée Poussin).
+ *    - RH:      E_RH(x)  ~ (1/2) log x  from ψ(x)=x+O(√x · log² x).
+ *    The illustrative constants c₁ = 0.2, c₂ = 0.5 are arbitrary; published
+ *    admissible values are smaller. The asymptotic ordering E_RH ≫ E_VK ≫
+ *    E_classical (and hence VK/RH → 0, classical/VK → 0 as x → ∞) is
+ *    preserved by the implementation.
+ *
+ * 6. VERDICT.
+ *    vinogradovKorobovZeroFreeTest() is mathematically correct. No sign
+ *    errors, off-by-one, NaN producers, or formula deviations from the
+ *    cited literature. The only artefact is a misleading parenthetical
+ *    in keyFindings[3]; behavior is unaffected. SAFE TO USE in citations
+ *    and dashboards.
+ */

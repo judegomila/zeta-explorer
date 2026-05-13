@@ -13013,12 +13013,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Add JSDoc module documentation to imp-857-resonance-tuning-sweep.js",
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'docs',
     description: "src/data/imp-857-resonance-tuning-sweep.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-05-13T23:40:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Prepended a structured @module data/imp-857-resonance-tuning-sweep + @fileoverview JSDoc block above the pre-existing 67-line imp-894 prose JSDoc header in src/data/imp-857-resonance-tuning-sweep.js, preserving every original line verbatim. The new header documents the honest-partial closure for imp-894 (resonance-tuning sweep at N=500, nSteps=30, 2x2 pilot grid with eigenmode corner k0=2*pi/min_gap at phaseVel=pi*rho_mean as minimum-ratio cell 0.955 at eps=0.01), the proof-chain step (imp-857 phase-locked Dyson forcing sub-step imp-894), the single export IMP_857_RESONANCE_TUNING_SWEEP with all sub-fields, the nine build-time assertions (imp894-calibration-nonzero / -pilot-four-cells / -pilot-twelve-rows / -eigenmode-corner-reduces / -prototype-corner-amplifies / -recommendation-matches-eigenmode / -status-partial / -sub-gap-named / -resonance-sweep-subgap-named), the canonical sub-gap imp-894-sub-resonance-sweep mapping onto imp-899 dense-heatmap deferral, ticket chain imp-857 -> imp-894 -> imp-999 -> imp-1056, and @see pointers to companion files. Build passes (npm run build, vite green, 4.48s). Atomic structural change only; no math claimed, no exports modified, no assertion changed, no behavior change.',
   },
 
     {

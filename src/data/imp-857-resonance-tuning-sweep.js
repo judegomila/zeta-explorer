@@ -1,4 +1,77 @@
 /**
+ * @module data/imp-857-resonance-tuning-sweep
+ * @fileoverview Honest-partial closure record for imp-894 (resonance-tuning
+ *   sweep for the imp-857 phase-locked traveling-wave Dyson forcing prototype).
+ *   The file holds the calibration constants, the 2 x 2 pilot grid measured
+ *   at N = 500, nSteps = 30, the eps = 0.01 and eps = 0.05 reduction-ratio
+ *   heatmaps, the extracted preliminary recommendation (k0(star), omega(star))
+ *   = (2*pi / min_gap(N=500), pi * rho_mean(N=500)), and the canonical
+ *   open-sub-gap record naming the residual dense-heatmap research as
+ *   imp-894-sub-resonance-sweep (which maps onto the imp-899 execution-path
+ *   deferral).
+ *
+ * Proof chain step: imp-857 phase-locked Dyson forcing programme, sub-step
+ *   imp-894 resonance tuning. The parent imp-857 line searches for forcing
+ *   schemes that reduce the wrapper-width of the Dyson backward-collision
+ *   evolution; imp-894 asks which (k0, omega) corner of the predicted search
+ *   window minimises that width. This file delivers a partial answer (linear-
+ *   response regime at nSteps = 30 picks out the drift-Jacobian eigenmode at
+ *   the prototype phase velocity as the minimum-ratio cell, 5 percent
+ *   reduction at eps = 0.01) and names the residual nSteps = 200 dense-grid
+ *   work as imp-894-sub-resonance-sweep / imp-899.
+ *
+ * Exports:
+ *   - IMP_857_RESONANCE_TUNING_SWEEP (also default): closure record with id
+ *     "imp-894", status string starting "PARTIAL", pointers to the
+ *     prototypeFile and upstreamSweep, an infrastructure block enumerating
+ *     the IMP857_K0 / IMP857_PHASEVEL / IMP857_N / IMP857_NSTEPS / IMP857_DT
+ *     env-var overrides, the CALIBRATION_N500 constants, the pilotConfig
+ *     parameters, the 12-row pilotRows, two heatmaps (eps = 0.01 and 0.05),
+ *     the PILOT_RECOMMENDATION, the headlineFinding / interpretation prose,
+ *     a consequencesForRoadmap list (imp-896 recommendation, prototype k0
+ *     sub-optimality, imp-892 commutator-bound independence), the legacy
+ *     openSubGaps array carrying the imp-899 deferral, the canonical singular
+ *     openSubGap field carrying the imp-894-sub-resonance-sweep record, a
+ *     closureNote tracing the imp-999 canonicalization, the headline summary,
+ *     the assertions block (nine build-time tripwires), and provenance notes.
+ *
+ * Key build-time assertions (consumed by scripts/run-assertions.mjs):
+ *   - imp894-calibration-nonzero: minGap and rhoMean are strictly positive.
+ *   - imp894-pilot-four-cells: PILOT_ROWS spans four distinct (k0, phaseVel)
+ *     cells (Set on the stringified pair has size 4).
+ *   - imp894-pilot-twelve-rows: PILOT_ROWS has 12 entries (4 cells x 3 eps).
+ *   - imp894-eigenmode-corner-reduces: heatmap entry at (k0 = 20.24,
+ *     phaseVel = 1.97, eps = 0.01) is strictly below 1.
+ *   - imp894-prototype-corner-amplifies: heatmap entry at (k0 = pi,
+ *     phaseVel = 1.97, eps = 0.01) is strictly above 1.
+ *   - imp894-recommendation-matches-eigenmode: PILOT_RECOMMENDATION k0_star
+ *     equals 20.24 and phaseVel_star equals 1.9668.
+ *   - imp894-status-partial: literal true pinning the partial-closure label.
+ *   - imp894-sub-gap-named: legacy openSubGaps array contains a single
+ *     imp-899 entry.
+ *   - imp894-resonance-sweep-subgap-named: the canonical singular
+ *     openSubGap field has id "imp-894-sub-resonance-sweep" with
+ *     statusOfPriorWork starting "PARTIAL" and statusOfRemaining starting
+ *     "open" (added by imp-999).
+ *
+ * Ticket chain: imp-857 (parent phase-locked-forcing programme) -> imp-894
+ *   (ticket asking for the (k0, omega) sweep) -> imp-999 (canonicalized the
+ *   residual sub-gap id as imp-894-sub-resonance-sweep and added the matching
+ *   build-time tripwire) -> imp-1056 (this ticket, prepended the @module /
+ *   @fileoverview header for cross-file navigability). The execution-path
+ *   blocker for the dense heatmap is tracked as imp-899.
+ *
+ * @see ../math/imp-857-phase-locked-dyson.mjs
+ * @see ./imp-857-phased-forcing-sweep.js
+ * @see ./zeros-to-1e6.js
+ *
+ * Syntax note: this header uses "k0(star)" / "omega(star)" / "2*pi" prose
+ *   forms to avoid the star-slash JSDoc-terminator hazard; the same
+ *   convention is honoured throughout the file (see the original SYNTAX
+ *   NOTE retained verbatim in the prose header below).
+ */
+
+/**
  * imp-894 / imp-857-sub-phased-forcing:
  *   Resonance-tuning sweep of the phase-locked traveling-wave Dyson forcing
  *   prototype src/math/imp-857-phase-locked-dyson.mjs at N = 500.

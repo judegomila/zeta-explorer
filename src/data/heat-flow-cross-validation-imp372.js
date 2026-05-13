@@ -1,4 +1,87 @@
 /**
+ * @module data/heat-flow-cross-validation-imp372
+ * @fileoverview Heat-flow Lambda method cross-validation against the
+ *   imp-360 measured Dyson ladder. Computes an ANALYTICAL initial-slope
+ *   heat-flow estimate of the collision time t_c at each N in
+ *   {50, 100, 200, 500, 870}, fits OLS on tc_hf_initial vs 1/N, halves
+ *   the OLS intercept to correct for the factor-2 ODE normalization
+ *   difference between the imp-292 H_t zeros ODE
+ *   (dg_{k}/dt = -sum_{j!=k} 1/(g_k - g_j), factor-1) and the
+ *   barrier-extrapolation-v2.js backward Dyson ODE
+ *   (dg_{k}/dtau = -2 * sum_{j!=k} 1/(g_k - g_j), factor-2), and
+ *   compares the normalized intercept a_hf_norm = a_hf / 2 against
+ *   a_rk4 from PATH_C_BASELINE_FIT_V2 (imp-400) within 2 sigma of the
+ *   heat-flow OLS standard error.
+ *
+ * Proof chain step: heat-flow Lambda cross-validation sub-witness of
+ *   the SOTA Lambda lower-bound claim. The full three-way agreement
+ *   check (barrier + RK4 + heat-flow) is the gold-standard
+ *   cross-verification for the Lambda <= 0.121 finite-height claim
+ *   delivered by the ZPO Calogero-Moser route (imp-462 / imp-463 /
+ *   imp-464 / imp-471). This file delivers the heat-flow leg as an
+ *   analytical lower bound rather than a full H_t trajectory
+ *   computation, marked HONEST PARTIAL CLOSURE.
+ *
+ * Honest partial scope: full H_t trajectory tracking via the imp-292
+ *   Polya Phi-kernel integral at N >= 50 costs approx 1 billion
+ *   arithmetic operations per N and is infeasible at Vite build time.
+ *   This file delivers the analytical initial-slope approximation
+ *   t_c^dyson_initial(N) = B_0(N) / |dB/dtau|_{tau=0}, which is a
+ *   LOWER BOUND on the actual Dyson ODE t_c because the dominant
+ *   -4/B_0 term in dB/dtau overestimates the closure rate as the
+ *   1/B singularity grows with shrinking B. Sub-gap
+ *   imp372-Ht-full names the deferred full-trajectory computation;
+ *   imp372-three-way names the dependent three-way agreement check;
+ *   imp372-ode-norm names the explicit Polymath15-paper
+ *   factor-1-vs-factor-2 reconciliation.
+ *
+ * Exports:
+ *   - HEAT_FLOW_CROSS_VALIDATION_IMP372: frozen-style record with
+ *     id "imp-372", status "partial", method narrative, hfOls
+ *     (intercept_a, intercept_a_normalized, slope_b, R2, n, seA),
+ *     rk4Reference (intercept_a / slope_b / R2 / n / source pointer
+ *     to PATH_C_BASELINE_FIT_V2 from imp-400), lambdaConvergenceVerdict
+ *     string ("CONSISTENT" or "INCONSISTENT" with explicit numeric
+ *     comparison), hfTable (per-N B_0 / kStar / S / dBdtau /
+ *     tc_dyson_initial / tc_hf_initial / reason rows), comparisonTable
+ *     (per-N tc_dyson_initial / tc_hf_initial / t_c_lo / t_c_hi /
+ *     ratio_hf_to_rk4 / agree rows), summary (nValuesChecked /
+ *     consistentRows / allConsistent), honestLimits prose, openWork
+ *     list (three deferred sub-gaps), sources list (imp-292 / imp-360 /
+ *     imp-400 / imp-359), and upgradeInvestigation record from imp-670
+ *     with verdict "cannot-upgrade" plus blockingSubGaps enumeration.
+ *   - HF_IMP372_ASSERTIONS: three build-time tripwires
+ *     (imp372-ols-valid, imp372-intercept-positive,
+ *     imp372-majority-consistent) executed as part of the
+ *     Vite build-time assertion sweep.
+ *
+ * Key invariants encoded in the data (verified at build): HF_OLS is
+ *   non-null with at least 3 valid N rows; HF_OLS.intercept_a is
+ *   strictly positive; CONSISTENT_COUNT >= 2 of 5 N values agree
+ *   with the imp-360 measured t_c_lo within the
+ *   lower-bound-consistent or within-50pct-of-lo categories.
+ *
+ * Ticket chain: imp-292 introduced the heat-flow barrier method;
+ *   imp-372 requested the cross-validation; imp-400 supplied the RK4
+ *   reference fit; imp-359 supplied the 100K Odlyzko ordinate ladder;
+ *   imp-670 verified cannot-upgrade vs the imp-462/463/464/471
+ *   route-A unconditional beat; imp-1050 (this ticket) prepended the
+ *   @module header for cross-file navigability.
+ *
+ * @see ./zeros-to-1e6.js
+ * @see ./path-c-baseline-fit-v2.js
+ * @see ./dyson-ladder-measured.js
+ * @see ../math/polymath15-lambda-barrier.js
+ * @see ../math/barrier-extrapolation-v2.js
+ * @see ../math/interval-dyson-integrator.mjs
+ *
+ * Syntax note: this header deliberately writes
+ *   "dg_{k}/dt" / "dg_{k}/dtau" rather than "dg_k* slash dt" to
+ *   avoid the star-slash JSDoc-terminator hazard documented in the
+ *   auto-improve syntax-gotchas list.
+ */
+
+/**
  * imp-372 (partial closure): Cross-validation of heat-flow Lambda method on
  * the imp-360 measured Dyson ladder
  *

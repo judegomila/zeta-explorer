@@ -12903,12 +12903,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Add JSDoc module documentation to heat-flow-cross-validation-imp372.js",
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'docs',
     description: "src/data/heat-flow-cross-validation-imp372.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-05-13T22:10:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Prepended a /** @module data/heat-flow-cross-validation-imp372 + @fileoverview ... */ JSDoc block above the existing 72-line imp-372 partial-closure prose comment in src/data/heat-flow-cross-validation-imp372.js. New header documents: purpose (heat-flow Lambda method cross-validation against the imp-360 measured Dyson ladder, analytical initial-slope estimate at N in {50, 100, 200, 500, 870}, factor-2 ODE normalization correction, comparison vs PATH_C_BASELINE_FIT_V2 within 2 sigma), proof chain step (heat-flow leg of the three-way agreement check barrier + RK4 + heat-flow for the SOTA Lambda <= 0.121 finite-height claim, HONEST PARTIAL CLOSURE status with three named sub-gaps imp372-Ht-full / imp372-three-way / imp372-ode-norm), both exports (HEAT_FLOW_CROSS_VALIDATION_IMP372 with id status method hfOls rk4Reference lambdaConvergenceVerdict hfTable comparisonTable summary honestLimits openWork sources upgradeInvestigation, HF_IMP372_ASSERTIONS with three build-time tripwires imp372-ols-valid / imp372-intercept-positive / imp372-majority-consistent), key invariants (OLS non-null with at least 3 valid N rows, intercept_a strictly positive, CONSISTENT_COUNT >= 2 of 5), ticket chain (imp-292 introduced the method, imp-372 requested the cross-validation, imp-400 supplied RK4 fit, imp-359 supplied the ladder, imp-670 verified cannot-upgrade vs imp-462/463/464/471, imp-1050 added the header), @see references to companion files, and a syntax note documenting the dg_{k}/dt and dg_{k}/dtau brace notation used to avoid the star-slash JSDoc-terminator hazard. Atomic structural change only; no math claimed, no exports modified, no behavior change. Build passes (npm run build, vite green, 4.53s).',
   },
 
     {

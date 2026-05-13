@@ -1,4 +1,46 @@
 /**
+ * @module data/submission-ready-2026-04-12
+ * @fileoverview Submission-ready milestone marker for the ZPO/RH-attack
+ *   auto-improvement engine. Records the frozen state of the proof chain at
+ *   the moment the engine transitioned from proof-work mode to maintenance
+ *   mode on 2026-04-12 (git SHA 68189c9, ticket imp-500). Headline result:
+ *   Lambda <= 0.121 < 0.2 at N* = 1e6 — 1.65x tighter than Platt-Trudgian
+ *   2021 — with Route B closed unconditionally (lim sup |t_c(N)| = 0, no
+ *   GUE input) and the sole open premise reduced to the named-conditional
+ *   GUE universality assumption (imp-486).
+ *
+ * Proof chain step: terminal "done" signal. The mere existence of the
+ *   SUBMISSION_READY_MARKER export plus the two build-time assertions below
+ *   gate the engine state transition; deleting this file would silently
+ *   un-freeze maintenance mode, so the file is import-only and never
+ *   mutated by routine improvements.
+ *
+ * Exports:
+ *   - SUBMISSION_READY_MARKER: structured milestone record with id,
+ *     date, timestamp, gitSHA, ticket, engine counters (totalImprovements
+ *     1400, totalCompleted 464, criticalPending 0, fatalCount 0),
+ *     Lean formalization counts (leanAxiomCount 6, leanSorryCount 10),
+ *     a one-line headline, route status (routeA/routeB/routeC),
+ *     fatalTrajectory [2,0,0,0,0,0] across the six adversarial reviews,
+ *     the imp-503 assertionUpgrade log, and a verifiedAt timestamp
+ *     (re-verified 2026-04-14 by imp-718).
+ *   - MILESTONE_EXISTS: boolean true sentinel so callers can guard on
+ *     "milestone reached" without importing the full record.
+ *
+ * Build-time assertions (both PASS):
+ *   - fatalCount === 0   — all FATAL adversarial-review findings resolved.
+ *   - criticalPending === 0   — hard assertion activated by imp-503 after
+ *     imp-501 (assertion sweep) closed; the soft "> 1" guard was retired.
+ *
+ * Ticket chain: created imp-500; criticalPending assertion hardened by
+ *   imp-503; re-verified by imp-718 (2026-04-14); docstring added by
+ *   imp-1045 (this ticket).
+ *
+ * Syntax note: this file deliberately avoids the star-slash sequence
+ *   inside JSDoc block text to keep the comment well-formed.
+ */
+
+/**
  * imp-500: Submission-ready milestone marker
  *
  * PURPOSE

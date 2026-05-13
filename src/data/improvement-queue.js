@@ -12813,12 +12813,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Add JSDoc module documentation to submission-ready-2026-04-12.js",
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'docs',
     description: "src/data/submission-ready-2026-04-12.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-05-13T20:50:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Prepended @module data/submission-ready-2026-04-12 + @fileoverview JSDoc block above the existing imp-500 prose header. New block documents both exports (SUBMISSION_READY_MARKER, MILESTONE_EXISTS), the two passing build-time assertions (fatalCount === 0, criticalPending === 0), the proof-chain role (terminal done signal gating engine maintenance-mode transition), and the ticket chain imp-500 -> imp-503 -> imp-718 -> imp-1045. Existing comment block preserved verbatim. Build passes.',
   },
 
     {

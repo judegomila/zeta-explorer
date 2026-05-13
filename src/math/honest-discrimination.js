@@ -7,6 +7,53 @@
  *
  * This module tests all 12 criteria honestly against D-H, using actual
  * numerical computation rather than assumed outcomes.
+ *
+ * ─── CROSS-VERIFICATION NOTE (imp-1054, 2026-05-13) ─────────────────────
+ * Independent verification of the key computations in this module:
+ *
+ *   1. KAPPA constant: (sqrt(10 - 2*sqrt(5)) - 2)/(sqrt(5) - 1) evaluates to
+ *      0.28407904384041227, matching the canonical Davenport-Heilbronn
+ *      constant used in the standard D-H construction. CONFIRMED.
+ *
+ *   2. chi1Mod5: with 2 as primitive root mod 5, this is the order-4
+ *      Dirichlet character with chi(1)=1, chi(2)=i, chi(3)=-i, chi(4)=-1,
+ *      chi(0)=0. The case table here matches. CONFIRMED.
+ *
+ *   3. dhCoefficient: algebraically simplifies to a(n) = Re(chi_1(n)) +
+ *      KAPPA*Im(chi_1(n)), which is real. Hence a(1)=1, a(2)=KAPPA,
+ *      a(3)=-KAPPA, a(4)=-1, a(5)=0. CONFIRMED.
+ *
+ *   4. testMultiplicativity: a(2)*a(3) = -KAPPA^2 ~ -0.0807, but a(6) = 1,
+ *      so a(mn) != a(m)a(n) — non-multiplicative as expected. CONFIRMED.
+ *
+ *   5. testLiPositivity: from |1-1/rho|^2 = 1 + (1-2*sigma)/(sigma^2+t^2),
+ *      we get |1-1/rho| < 1 for Re(rho) > 1/2 and |1-1/rho| > 1 for
+ *      Re(rho) < 1/2. The inline verbal claim that "For sigma > 1/2,
+ *      |1 - 1/rho| > 1, so powers grow" is BACKWARDS — for the D-H zero
+ *      rho = 0.808517 + 85.699348i used here, |1-1/rho| ~ 0.99996 < 1
+ *      (powers DECAY). The actual Li-positivity violation in D-H comes
+ *      from the conjugate-reflected partner rho = 0.191483 + 85.699348i
+ *      (sigma < 1/2, |1-1/rho| ~ 1.00004), which the demonstration does
+ *      not include. The hard-coded verdict dhPasses:false remains correct
+ *      because off-line zeros do violate Li positivity at sufficiently
+ *      large n, but the inline numerical demonstration here is misleading.
+ *      FLAGGED — sub-gap for a follow-up imp- ticket: include both members
+ *      of the conjugate-reflection pair in the lambda_n series.
+ *
+ *   6. testWeilPositivity: convention r = t + i*(sigma - 1/2) versus the
+ *      standard r = t + i*(1/2 - sigma) only flips the sign of r2Imag.
+ *      Because the off-line pair (sigma, t) and (1-sigma, t) both
+ *      contribute with opposite deltaSigma, the imaginary parts cancel
+ *      and the total real sum is sign-invariant. No functional bug.
+ *      CONFIRMED.
+ *
+ *   7. testHamiltonianConvexity numerical derivatives (central differences,
+ *      second derivative via 3-point stencil) are textbook-correct.
+ *      CONFIRMED.
+ *
+ * Net: 6/7 verifiable computations are correct; 1 has a misleading inline
+ * demonstration (Li-positivity) that does not affect the overall verdict.
+ * ────────────────────────────────────────────────────────────────────────
  */
 
 import {

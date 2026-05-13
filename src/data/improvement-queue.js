@@ -12969,6 +12969,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Appended S10-verify finding block at the end of route-a-monotonicity-closure-crossverify.js. Verified that (1) no floating-point arithmetic is performed in this module; its two pinned numeric constants (0.02 ceiling at C8 and approximately 0.0094 reference value in C4 prose) match upstream A_UB_CEILING and the upstream prose in b2-intercept-analytic-bound.js. (2) NaN/Inf edge cases are guarded by C4 Number.isFinite check; cosmetic short-circuit return-type asymmetry in C6 and C8 was noted but is harmless under the self-invoke loop. (3) The expected monolithic file src/math/route-a-monotonicity-closure.js is confirmed absent via repo glob and the three upstream module ids imp-463/imp-457/imp-458 are present as exports. Verdict: cross-verified clean; no corrective edit required.',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1054',
+    title: "Cross-verify honest-discrimination.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/honest-discrimination.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T23:05:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Independently re-derived KAPPA (0.28407904, matches canonical D-H), the mod-5 character chi_1 (chi(2)=i for primitive root 2), and the algebraic simplification a(n) = Re(chi_1(n)) + KAPPA*Im(chi_1(n)). Confirmed non-multiplicativity numerically: a(2)*a(3) = -KAPPA^2 ~ -0.0807 vs a(6) = 1. testHamiltonianConvexity uses textbook 3-point stencil + central difference — correct. testWeilPositivity sign convention r = t + i*(sigma-1/2) is non-standard but gives sign-invariant real-part sums for the conjugate-reflected pair — no functional bug. ONE SUB-GAP FOUND in testLiPositivity: closed-form |1-1/rho|^2 = 1 + (1-2*sigma)/(sigma^2+t^2) gives |1-1/rho|<1 for sigma>1/2, but the inline verbal claim says the opposite ("powers grow"). The numerical demonstration uses only the rho = 0.808+85.7i zero whose powers DECAY; the actual Li-positivity violation comes from the partner rho = 0.191+85.7i (|1-1/rho|~1.00004). Hard-coded dhPasses:false verdict remains correct, but the demonstration is misleading. Added a 50-line cross-verification block at the file header documenting all 7 verifiable computations and flagging the Li sub-gap.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

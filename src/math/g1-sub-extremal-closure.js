@@ -758,3 +758,214 @@ export const G1_SUB_EXTREMAL_CLOSURE_CROSS_VERIFY = {
     'leading-order log-log asymptotic, quantitative tightening deferred). Neither flag changes the partial-' +
     'conditional closure status under the existing assertion set.',
 };
+
+// ────────────────────────────────────────────────────────────────────
+// imp-1038: Second-pass S10-verify cross-verification (auditor opus-4-7,
+// 2026-05-13, subscription channel). Distinct from the imp-977 audit
+// which focused on identity / numerical-reference / edge-case audits at
+// gamma_50. This pass adds three NEW independent angles, anchored on
+// the actual witness arrays already computed at module load:
+//
+//   (X1) C_alpha monotone decreasing in N. The H2 hypothesis cited in
+//        the BABL_PORT.conditionalPartialClosure asserts C_alpha -> 1
+//        as N -> infinity (log-log decay). Empirically across SAMPLE_N
+//        = [50, 100, 200, 400, ZETA_ZEROS.length] the recorded
+//        DENSITY_GRADIENT_RATIOS show strictly decreasing C_alpha
+//        (1.3389, 1.2912, 1.2563, 1.2285, 1.2063). The decrease is a
+//        finite-N directional confirmation of H2.
+//
+//   (X2) raw-vs-unfolded argmin divergence is observable at finite N.
+//        The file claims the density-gradient re-weighting shifts the
+//        raw argmin away from the unfolded argmin. At N = 100 the
+//        recorded witnesses give k*_raw = 91 (k/N = 0.910) and
+//        j*_unfolded = 34 (j/N = 0.340) -- a direct empirical demo
+//        of the obstruction, not merely a leading-order asymptotic.
+//
+//   (X3) Witness arrays aligned. RAW_ARGMIN_WITNESSES and UNFOLDED_
+//        ARGMIN_WITNESSES must have the same length and matching N at
+//        every index since both iterate over SAMPLE_N. imp-977 audited
+//        the contents but not the alignment invariant.
+//
+// SYNTAX NOTE: // line comments only; no JSDoc fence is introduced.
+// Precedent: imp-977 / imp-1029 / imp-1031 / imp-1033 / imp-1035.
+// ────────────────────────────────────────────────────────────────────
+
+export const G1_SUB_EXTREMAL_CROSS_VERIFY_IMP1038 = {
+  auditDate: '2026-05-13',
+  ticket: 'imp-1038',
+  auditor: 'opus-4-7',
+  channel: 'subscription',
+  scope: 'src/math/g1-sub-extremal-closure.js -- second independent S10-verify pass',
+  proofSection: 'S10-verify',
+  precedent: ['imp-977', 'imp-1029', 'imp-1031', 'imp-1033', 'imp-1035'],
+  newAngleVsImp977:
+    'imp-977 audited identities (RvM CDF, density, raw-vs-unfolded algebra, C_alpha bound) and ' +
+    'numerical references at gamma_50. This pass adds (X1) finite-N directional confirmation ' +
+    'that C_alpha decreases monotonically across SAMPLE_N (the H2 -> 1 hypothesis); (X2) direct ' +
+    'empirical demonstration that the raw and unfolded argmins diverge at N = 100 (a witness for ' +
+    'the density-gradient obstruction); (X3) the structural alignment invariant between the raw ' +
+    'and unfolded witness arrays, which imp-977 did not enforce.',
+  findings: [
+    {
+      id: 'imp1038-c-alpha-monotone-decreasing',
+      claim:
+        'C_alpha decreases monotonically across SAMPLE_N = [50, 100, 200, 400, 870] from ~1.3389 ' +
+        'at N=50 to ~1.2063 at N=870, finite-N evidence of the H2 hypothesis C_alpha -> 1 as N -> infinity.',
+      verification:
+        'Read DENSITY_GRADIENT_RATIOS[i].C_alpha and check C_alpha[i] > C_alpha[i+1] for every i. ' +
+        'RvM density rho(T) = log(T/(2*pi))/(2*pi) is concave (its derivative 1/(T*2*pi) is decreasing), ' +
+        'so the relative variation log(gamma_{3N/4}) / log(gamma_{N/4}) shrinks as N grows. The ' +
+        'observed strict decrease across SAMPLE_N confirms this rate directionally; the rate is ' +
+        'log-log per the imp977-c-alpha-log-log-rate flag.',
+      status: 'PASS',
+    },
+    {
+      id: 'imp1038-raw-vs-unfolded-divergence-observable',
+      claim:
+        'At N = 100, the raw argmin k*_raw = 91 differs from the unfolded argmin j*_unfolded = 34 ' +
+        '(a 57-index gap on N = 100, or 0.57 N), empirically demonstrating that the density-gradient ' +
+        're-weighting g_k = h_k / rho(gamma_k) shifts the argmin away from the bulk-confined j*.',
+      verification:
+        'Read RAW_ARGMIN_WITNESSES[1] and UNFOLDED_ARGMIN_WITNESSES[1] (both at N=100). Their ' +
+        'k_star_raw and j_star_unfolded fields differ. This is a finite-N witness of the obstruction ' +
+        'analysed in BABL_PORT.densityGradientObstruction, not merely an asymptotic prediction.',
+      status: 'PASS',
+    },
+    {
+      id: 'imp1038-witness-arrays-aligned',
+      claim:
+        'RAW_ARGMIN_WITNESSES and UNFOLDED_ARGMIN_WITNESSES have identical length and matching N at ' +
+        'every index, since both are built by mapping over SAMPLE_N.',
+      verification:
+        'Read G1_SUB_EXTREMAL_CLOSURE.numericalWitnesses.rawArgmin and .unfoldedArgmin; check arrays ' +
+        'of equal length with rawArgmin[i].N === unfoldedArgmin[i].N for every i. Failure would ' +
+        'indicate a desynchronisation bug between the two witness builders.',
+      status: 'PASS',
+    },
+    {
+      id: 'imp1038-min-gaps-strictly-positive',
+      claim:
+        'Both min_raw_gap and min_unfolded_gap are strictly positive at every sampled N (rvmCdf is ' +
+        'strictly monotone on the support of ZETA_ZEROS, and ZETA_ZEROS itself is strictly increasing).',
+      verification:
+        'Read all rawArgmin[i].min_raw_gap and unfoldedArgmin[i].min_unfolded_gap; check finite and > 0. ' +
+        'This is the build-time enforcement of the imp-977 edge-case observation that x_k stays ' +
+        'monotone (so h_k > 0) and ZETA_ZEROS is strictly increasing (so g_k > 0).',
+      status: 'PASS',
+    },
+  ],
+  numericalReference: {
+    c_alpha_by_N: {
+      50: 1.3389,
+      100: 1.2912,
+      200: 1.2563,
+      400: 1.2285,
+      870: 1.2063,
+    },
+    raw_vs_unfolded_argmin_by_N: {
+      50: { k_star_raw: 34, j_star_unfolded: 34, diverges: false },
+      100: { k_star_raw: 91, j_star_unfolded: 34, diverges: true },
+      200: { k_star_raw: 186, j_star_unfolded: 186, diverges: false },
+      400: { k_star_raw: 363, j_star_unfolded: 363, diverges: false },
+      870: { k_star_raw: 453, j_star_unfolded: 453, diverges: false },
+    },
+    notes:
+      'The raw-vs-unfolded argmin coincides at N in {50, 200, 400, 870} because the same gap happens ' +
+      'to be minimal in both metrics at those samples (the re-weighting by rho_k shifts the candidates ' +
+      'but does not always change the argmin). The N = 100 divergence is the cleanest finite-N witness; ' +
+      'larger N gives a probabilistic divergence that is not guaranteed at every sample.',
+  },
+  flags: [
+    {
+      id: 'imp1038-divergence-at-single-N-not-asymptotic',
+      severity: 'low',
+      finding:
+        'The X2 empirical divergence holds at N = 100 in the recorded ZETA_ZEROS data but is not ' +
+        'guaranteed at every N -- the raw and unfolded argmins coincide at N in {50, 200, 400, 870} ' +
+        'because the re-weighting by 1/rho_k does not always reorder the top candidates. The directional ' +
+        'obstruction claim (raw argmin pulled toward larger k on average) is the asymptotic statement; ' +
+        'the N = 100 witness is a single-sample demonstration that the effect is observable, not a ' +
+        'statistical proof. Severity LOW.',
+    },
+    {
+      id: 'imp1038-c-alpha-decrease-is-empirical-not-proved',
+      severity: 'low',
+      finding:
+        'The C_alpha monotone-decreasing assertion across SAMPLE_N is an empirical observation on the ' +
+        'recorded ZETA_ZEROS values, not a rigorous theorem about all N. rho(T) is concave so the ' +
+        'relative variation should shrink as N grows, but the precise rate (log(1/alpha) / log(log(N))) ' +
+        'is leading-order and the witness data could in principle break monotonicity at very small N. ' +
+        'SAMPLE_N starts at 50 which is large enough to be in the asymptotic regime. Severity LOW.',
+    },
+  ],
+  verdict:
+    'PASS. The second independent audit confirms (X1) C_alpha decreases monotonically across SAMPLE_N ' +
+    '(direct finite-N confirmation of the H2 hypothesis C_alpha -> 1); (X2) the raw and unfolded ' +
+    'argmins diverge at N = 100 (a clean empirical witness of the density-gradient obstruction); ' +
+    '(X3) the raw and unfolded witness arrays are structurally aligned on SAMPLE_N; and (X4) both ' +
+    'min gaps are strictly positive at every sampled N. Two LOW flags recorded; no bug, no proof- ' +
+    'chain status change.',
+};
+
+// Build-time assertions for the imp-1038 second-pass cross-verification.
+// Each `check` returns true on PASS, false on FAIL. They are NOT auto-
+// executed at module load; downstream harnesses iterate this array.
+export const G1_SUB_EXTREMAL_ASSERTIONS_IMP1038 = [
+  {
+    id: 'imp1038-min-unfolded-gap-positive',
+    check: () =>
+      G1_SUB_EXTREMAL_CLOSURE.numericalWitnesses.unfoldedArgmin.every(
+        (w) => Number.isFinite(w.min_unfolded_gap) && w.min_unfolded_gap > 0,
+      ),
+    why:
+      'All unfolded gaps must be strictly positive (rvmCdf strictly monotone for T > 2*pi).',
+  },
+  {
+    id: 'imp1038-min-raw-gap-positive',
+    check: () =>
+      G1_SUB_EXTREMAL_CLOSURE.numericalWitnesses.rawArgmin.every(
+        (w) => Number.isFinite(w.min_raw_gap) && w.min_raw_gap > 0,
+      ),
+    why:
+      'All raw gaps must be strictly positive (ZETA_ZEROS strictly increasing).',
+  },
+  {
+    id: 'imp1038-witness-arrays-aligned',
+    check: () => {
+      const raw = G1_SUB_EXTREMAL_CLOSURE.numericalWitnesses.rawArgmin;
+      const unf = G1_SUB_EXTREMAL_CLOSURE.numericalWitnesses.unfoldedArgmin;
+      if (raw.length !== unf.length) return false;
+      for (let i = 0; i < raw.length; i++) {
+        if (raw[i].N !== unf[i].N) return false;
+      }
+      return true;
+    },
+    why:
+      'RAW_ARGMIN_WITNESSES and UNFOLDED_ARGMIN_WITNESSES must have identical length and matching N entries (both built over SAMPLE_N).',
+  },
+  {
+    id: 'imp1038-c-alpha-monotone-decreasing',
+    check: () => {
+      const ratios = G1_SUB_EXTREMAL_CLOSURE.numericalWitnesses.densityGradientRatios;
+      for (let i = 0; i + 1 < ratios.length; i++) {
+        if (!(ratios[i].C_alpha > ratios[i + 1].C_alpha)) return false;
+      }
+      return true;
+    },
+    why:
+      'C_alpha must strictly decrease across SAMPLE_N -- finite-N witness of H2: C_alpha -> 1 as N -> infinity.',
+  },
+  {
+    id: 'imp1038-raw-vs-unfolded-divergence-at-some-N',
+    check: () => {
+      const raw = G1_SUB_EXTREMAL_CLOSURE.numericalWitnesses.rawArgmin;
+      const unf = G1_SUB_EXTREMAL_CLOSURE.numericalWitnesses.unfoldedArgmin;
+      for (let i = 0; i < raw.length; i++) {
+        if (raw[i].k_star_raw !== unf[i].j_star_unfolded) return true;
+      }
+      return false;
+    },
+    why:
+      'The density-gradient obstruction must be observable at at least one sampled N (raw and unfolded argmins differ).',
+  },
+];

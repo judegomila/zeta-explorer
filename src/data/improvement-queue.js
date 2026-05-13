@@ -12674,6 +12674,55 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended @module / @fileoverview JSDoc header to src/data/proof-chain-snapshot-2026-04-12.js documenting the capstone submission-readiness snapshot (Lambda <= 0.121 at N* = 1e6, 1.65x tighter than Platt-Trudgian 2021), the regime split (empirical predicates E1/E2 unconditional on N <= 1e6 via imp-833 + imp-858; analytic chain GUE-unconditional on N in [100, 10^4] via imp-857 GUE-elimination; GUE-conditional at N* = 1e6 pending imp-904 dense-grid continuation), all seven exports (HEADLINE, PROOF_CHAIN 12-step, ROUTE_STATUS, CONDITIONS, LEAN_STATUS, ADVERSARIAL_REVIEWS, PROOF_CHAIN_SNAPSHOT), the originating ticket chain (imp-488 created, imp-499/500/501/717 updated, imp-1036 added header), and @see breadcrumbs to submission-ready / assertion-sweep / empirical-m-sweep-extended / lambda-roadmap / sota-lambda-claim / imp-857-gue-elimination / imp-857-uniform-K-bound. Atomic structural change only -- no behavior change. Continues imp-1028 / imp-1030 / imp-1032 / imp-1034 precedent extending the @module convention into src/data/. Build passes.',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1038',
+    title: "Cross-verify g1-sub-extremal-closure.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/g1-sub-extremal-closure.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T15:30:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Appended G1_SUB_EXTREMAL_CROSS_VERIFY_IMP1038 audit record + G1_SUB_EXTREMAL_ASSERTIONS_IMP1038 (5 runtime-PASS tripwires) to src/math/g1-sub-extremal-closure.js. Distinct from the existing imp-977 audit which focused on identity / numerical-reference / edge-case audits at gamma_50. The imp-1038 pass adds three new independent angles anchored on the actual witness arrays: (X1) C_alpha decreases monotonically across SAMPLE_N (1.3389 -> 1.2912 -> 1.2563 -> 1.2285 -> 1.2063 at N in {50, 100, 200, 400, 870}), finite-N witness of the H2 hypothesis C_alpha -> 1; (X2) raw and unfolded argmins diverge at N=100 (k*_raw=91 vs j*_unfolded=34, a 57-index gap), clean empirical demo of the density-gradient obstruction; (X3) structural alignment invariant between RAW_ARGMIN_WITNESSES and UNFOLDED_ARGMIN_WITNESSES (same length, matching N at each index). All 5 assertions PASS at runtime: imp1038-min-unfolded-gap-positive, imp1038-min-raw-gap-positive, imp1038-witness-arrays-aligned, imp1038-c-alpha-monotone-decreasing, imp1038-raw-vs-unfolded-divergence-at-some-N. Two LOW flags recorded (single-N divergence is a sample witness not a statistical proof; C_alpha decrease is an empirical observation over SAMPLE_N). No bug, no proof-chain status change. Build passes (4.40s).',
+  },
+  {
+    id: 'imp-1039',
+    title: "Add JSDoc module documentation to platt-trudgian-matched-check.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/platt-trudgian-matched-check.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1040',
+    title: "Cross-verify connes-adelic-trace.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S10-verify',
+    description: "Read src/math/connes-adelic-trace.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

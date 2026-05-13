@@ -12879,6 +12879,38 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Independent cross-verification of vinogradov-korobov-zero-free.js. (1) Formulas verified against Korobov 1958, Vinogradov 1958, de la Vallée Poussin 1899; Ford 2002 c=1/57.54 and Kadiri 2005 c₀=1/5.69693 constants confirmed. (2) Edge cases: t<3 guard returns 0.5 safely; the inner log log t ≤ 0 fallback is unreachable defensive code (verified — t<3 already excludes it). No NaN/Infinity producers across heights[3, 10^20]. (3) Numerical check at t=10^20 via Node REPL matches module output to ≥6 decimal places (σ_VK ≈ 0.99913541). Key finding: with admissible Ford/Kadiri constants, the VK zero-free strip is NARROWER than classical at every tabulated height (crossover at t > e^{10000}); keyFindings[3] parenthetical "VK wider zero-free region" is therefore misleading and flagged for future copy-edit (lines 148 and 153 already describe the relation correctly). PNT exponents (3/5,1/5) for VK and (1/2) for RH verified. Documented as a CROSS-VERIFICATION NOTE comment block appended to the file. VERDICT: module is mathematically correct; safe to cite.',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1049',
+    title: "Cross-verify weil-breaking-point.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/weil-breaking-point.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T21:55:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Structural PSD-by-construction finding (load-bearing): each per-zero contribution is a sum of rank-1 (on-line) or rank-2 (off-line) outer products of REAL vectors, so the total M is PSD for ANY beta, K, N. The breaking-point experiment is therefore a tautology -- every reported min_eig is exactly 0.000000 across 15 (beta, K) probes. Also flagged an on-line / off-line formula inconsistency at beta = 1/2 (off-line gives an extra cos((i-j) theta / 2) factor that the on-line code drops). Edge-case audit found no NaN/Infinity paths under in-file call sites (gamma = 0 safe, beta in {0.6, 0.9} > 1/2 so |w| < 1, K clamped, Jacobi converges). Reference-value check: all 15 min_eig = 0.000000 matches structural-PSD prediction. Recommended follow-up: either swap to the Hermitian M_C = sum a a^H so PSD becomes non-trivial, or reframe as a structural-rank observation. Atomic verification-only change: appended one CROSS-VERIFICATION NOTE block (line // comments to avoid the star-slash hazard) at end of file; no code change.',
+  },
+  {
+    id: 'imp-1050',
+    title: "Add JSDoc module documentation to heat-flow-cross-validation-imp372.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/heat-flow-cross-validation-imp372.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

@@ -12729,6 +12729,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Appended CONNES_ADELIC_CROSS_VERIFY_IMP1040 audit record + CONNES_ADELIC_ASSERTIONS_IMP1040 (10 runtime-PASS tripwires) to src/math/connes-adelic-trace.js. Three independent cross-verification angles: (V1) closed-form formula checks at integer s -- zeta_inf(2) = 1/pi to 1e-10, zeta_p(p,2) = 1/(1-p^{-2}) rational at p=2,3,5,7; (V2) Euler product convergence to known constants at P=1000 -- pi^2/6, Aperys constant, pi^4/90 all within tail bounds 1.45e-4 / 7.2e-8 / 4.8e-11; (V3) Connes finite-place positivity W_p > 0 with strict monotone decrease W_2 > W_3 > W_5 (independently recomputed: 0.135169, 0.006646, 0.000015). Also verified Riemann xi functional equation symmetry at 5 sampled s, xi-adelic relative error < 1e-3 at all 4 sampled s, and absence of NaN/Infinity in any numeric output. Four LOW flags recorded: zeta pole at s=1 is intentional and unreachable from test entry point; functional-equation 2% tolerance is conservative (actual error < 1e-3); eta-acceleration code comment misleading (Knopp-Borchardt described but not used); toFixed(6) clamps W_p to 0 for p >= 7 as a display artefact. All 10 assertions PASS at runtime. No bug, no proof-chain status change. Build passes (4.63s).',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1041',
+    title: "Add JSDoc module documentation to imp-857-phased-forcing-sweep.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    proofSection: 'docs',
+    description: "src/data/imp-857-phased-forcing-sweep.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-05-13T19:35:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Prepended @module / @fileoverview JSDoc header to src/data/imp-857-phased-forcing-sweep.js following the imp-1036 / imp-1039 pattern. The new block names the module slug (data/imp-857-phased-forcing-sweep), the @fileoverview summary (imp-893 N-scaling sweep recording 6 of 20 measured cells and the reduction-decays-with-N negative finding), the proof-chain step (imp-857 alt-path; consistency invariant from imp-892 commutator bound), the exports (IMP_857_PHASED_FORCING_SWEEP default + named with measuredRows / reductionTable / commutatorBoundConsistency / openSubGaps / canonical openSubGap imp-893-sub-large-N-rerun / 8 assertions), the 8 key assertions one-by-one (imp893-at-least-six-measured-rows, imp893-baseline-rows-nonempty, imp893-reduction-at-N1000-sub-unity-eps-0p05, imp893-reduction-at-N2000-near-unity-eps-0p05, imp893-commutator-bound-consistent, imp893-status-partial, imp893-sub-gaps-named, imp893-sub-large-N-rerun-subgap-named), tickets that created (imp-893) and modified (imp-1000 + imp-1041) the file, and upstream dependencies (phase-locked-dyson.mjs prototype, phased-forcing-memo, commutator-bound, zeros-to-1e6). One atomic change; existing JSDoc and all data/exports preserved verbatim. Build passes (4.44s).',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

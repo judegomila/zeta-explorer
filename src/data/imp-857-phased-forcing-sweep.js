@@ -1,4 +1,55 @@
 /**
+ * @module data/imp-857-phased-forcing-sweep
+ * @fileoverview imp-893 N-scaling sweep of the phase-locked traveling-wave
+ *   Dyson forcing prototype src/math/imp-857-phase-locked-dyson.mjs. Records
+ *   six measured (N, eps) grid cells out of the requested twenty, surfaces
+ *   the headline negative finding that wrapper-width reduction decays from
+ *   ~1000x at N=500 to ~1.05x at N=2000 under fixed (k0, omega), and tracks
+ *   the residual research statement under the canonical sub-gap id
+ *   imp-893-sub-large-N-rerun (which maps onto imp-896 large-N grid
+ *   completion and imp-898 sub-step Brent-style collision-time bisection).
+ *
+ * Proof chain step: imp-857 alt-path (phased-forcing wrapper-width reduction
+ *   as a candidate alternative to the directed-rounding backend of
+ *   imp-857-sub-scale-to-N10k). Reads the imp-892 commutator bound
+ *   |tau_c(eps) - tau_c(0)| <= eps * H_0^2 / 4 as a consistency invariant.
+ *
+ * Exports:
+ *   - IMP_857_PHASED_FORCING_SWEEP (default + named): structured record with
+ *     measuredRows (6 cells), reductionTable (per-N ratio + factor), commutator
+ *     BoundConsistency (per-row predicted-shift vs RK4 dt), headlineFinding,
+ *     interpretation, consequencesForRoadmap, openSubGaps (imp-896 large-N
+ *     grid, imp-897 Richardson-extrapolated certified C_mb bound, imp-898
+ *     sub-step bisection), canonical openSubGap (imp-893-sub-large-N-rerun),
+ *     assertions (8 self-documenting tripwires), notes.
+ *
+ * Key assertions (self-documenting; not wired to run-assertions.mjs):
+ *   - imp893-at-least-six-measured-rows: MEASURED_ROWS.length >= 6
+ *   - imp893-baseline-rows-nonempty: at least one eps=0 row present
+ *   - imp893-reduction-at-N1000-sub-unity-eps-0p05: ratio < 1
+ *   - imp893-reduction-at-N2000-near-unity-eps-0p05: |ratio - 1| < 0.2
+ *   - imp893-commutator-bound-consistent: every measured row consistent with
+ *     imp-892 bound at RK4-step granularity
+ *   - imp893-status-partial: PARTIAL closure flag pinned
+ *   - imp893-sub-gaps-named: imp-896 / imp-897 / imp-898 ids surfaced
+ *   - imp893-sub-large-N-rerun-subgap-named: canonical id + PARTIAL/open
+ *     status pair pinned for cross-file references
+ *
+ * Created by: imp-893 (honest-partial scale sweep of the imp-857 phased-
+ *   forcing prototype).
+ * Modified by: imp-1000 (canonical sub-gap surfacing under id
+ *   imp-893-sub-large-N-rerun + 8th assertion); imp-1041 (added @module /
+ *   @fileoverview JSDoc header for navigation).
+ *
+ * Upstream deps:
+ *   - src/math/imp-857-phase-locked-dyson.mjs (prototype the rows measure)
+ *   - src/math/imp-857-phased-forcing-memo.js (motivation memo)
+ *   - src/math/imp-857-commutator-bound.js (imp-892 bound used in consistency
+ *     check)
+ *   - src/data/zeros-to-1e6.js (ZEROS_EXTENDED, first-N zero source)
+ */
+
+/**
  * imp-893 / imp-857-sub-phased-forcing:
  *   N-scaling sweep of the phase-locked traveling-wave Dyson forcing
  *   prototype src/math/imp-857-phase-locked-dyson.mjs.

@@ -12949,6 +12949,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended a structured @module data/dead-code-audit-2026-04 / @fileoverview JSDoc block above the existing imp-851 prose header in src/data/dead-code-audit-2026-04.js. The new header documents: (a) methodology (static-import scan across src/{math,pages,components,data} on every .js file in src/math/, 297 files at 2026-04-19 snapshot; imp-889 re-verification on 2026-04-26); (b) proof-chain role (meta / codebase hygiene navigational aid, NOT a proof artifact); (c) key snapshot numbers (297 total, 284 no-importers = 96%, 27 assertion-bearing keepers, 257 strong delete-candidates); (d) caveats (static imports only, 27 keepers reached via run-assertions.mjs hardcoded list, some historical research records to keep); (e) both exports (DEAD_CODE_AUDIT_2026_04 record with all sub-fields, DEAD_CODE_AUDIT_2026_04_ASSERTIONS with three named tripwires); (f) the three assertions imp851-identifies-many-no-importers (>= 200 noImporters), imp851-assertion-bearers-listed (>= 20 keepers), imp889-recently-verified (parseable lastVerifiedAt); (g) key invariants encoded; (h) staleness note (src/math/ grew from 297 to 309, thresholds loose enough to stay valid); (i) ticket chain imp-851 -> imp-889 -> imp-1052; (j) @see pointers to scripts/run-assertions.mjs, module-index.js, proof-paper.js; (k) syntax note documenting the deliberate avoidance of the star-slash JSDoc-terminator hazard. Atomic structural change only: the entire 42-line original prose header preserved verbatim, both exports unchanged, all numerical values unchanged, both assertion tripwires unchanged. No math claimed, no exports modified, no behavior change. Build passes (npm run build, vite green, 4.44s).',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1053',
+    title: "Cross-verify route-a-monotonicity-closure-crossverify.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/route-a-monotonicity-closure-crossverify.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T22:50:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Appended S10-verify finding block at the end of route-a-monotonicity-closure-crossverify.js. Verified that (1) no floating-point arithmetic is performed in this module; its two pinned numeric constants (0.02 ceiling at C8 and approximately 0.0094 reference value in C4 prose) match upstream A_UB_CEILING and the upstream prose in b2-intercept-analytic-bound.js. (2) NaN/Inf edge cases are guarded by C4 Number.isFinite check; cosmetic short-circuit return-type asymmetry in C6 and C8 was noted but is harmless under the self-invoke loop. (3) The expected monolithic file src/math/route-a-monotonicity-closure.js is confirmed absent via repo glob and the three upstream module ids imp-463/imp-457/imp-458 are present as exports. Verdict: cross-verified clean; no corrective edit required.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

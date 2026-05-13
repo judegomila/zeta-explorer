@@ -1439,3 +1439,46 @@ for (const a of ROUTE_A_MONOTONICITY_CROSSVERIFY_ASSERTIONS) {
     );
   }
 }
+
+// ── S10-verify cross-verification finding (imp-1053) ────────────────────────
+//
+// Independent re-read of this module against its three upstream sources
+// (d-monotone-analytic-proof.js, b1-slope-conditional-upper-bound.js,
+//  b2-intercept-analytic-bound.js) and against the missing monolithic file
+// path. Findings, by the three ticket axes:
+//
+//   (1) Formulas correct vs cited references?
+//       This module performs no floating-point arithmetic; every assertion
+//       is structural (id equality, status vocabulary membership, substring
+//       presence, key-set shape, reference identity). The two numeric
+//       constants it pins -- C8's ceiling 0.02 and C4's prose reference
+//       value approximately 0.0094 -- match the upstream literal
+//       A_UB_CEILING (b2-intercept-analytic-bound.js line 102, "0.02") and
+//       the upstream prose "a_UB is approximately 0.0094" (same file, line
+//       155). No formula drift detected.
+//
+//   (2) Edge cases producing NaN or infinity?
+//       C4 explicitly guards the only numeric leg with Number.isFinite(v)
+//       and v > 0, so a null, NaN, or non-finite B2 bound surfaces as an
+//       assertion throw at module load rather than propagating. The
+//       short-circuit "B2_INTERCEPT_BOUND.bound && ..." pattern in C6 and
+//       C8 can return undefined rather than strict boolean when .bound is
+//       falsy, but the self-invoke loop uses "!a.holds()" so any falsy
+//       result still throws -- cosmetic, not load-bearing.
+//
+//   (3) Numerical output matches a known reference value?
+//       The expected monolithic file src/math/route-a-monotonicity-closure.js
+//       is confirmed absent via repo glob, matching monolithicFilePresent
+//       === false at line 619. The three upstream module ids imp-463 /
+//       imp-457 / imp-458 are present as exports in their respective
+//       files. The B1 closedConditions strings literally contain
+//       "skp-imp457-D-monotone", "imp-463", "NoSwap", and "imp-464" as
+//       required by C2 and C9.
+//
+// Verdict: cross-verified clean. The 34 assertions C1..C34 plus the scope
+// tripwire are mutually non-redundant and together cover every id, status,
+// path, prose anchor, key-set shape, and pointer identity in the imp-826
+// crossverify record tree. No corrective edit was required; the only
+// observation is the cosmetic short-circuit return-type asymmetry noted
+// under (2), which is harmless because the self-invoke loop treats any
+// falsy return as a failure.

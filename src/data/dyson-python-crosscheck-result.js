@@ -1,4 +1,51 @@
 /**
+ * @module data/dyson-python-crosscheck-result
+ * @fileoverview Cross-language verification artifact for the backward
+ *   Dyson ODE integrator that underpins Route B of the ZPO/RH-attack
+ *   proof chain. Records the verdict of an independent Python
+ *   RK4+Kahan reimplementation of dg_{k}/dt = -2 * sum_{j!=k}
+ *   1/(g_k - g_j) cross-validated against the JS interval-arithmetic
+ *   witness produced by imp-362
+ *   (src/math/interval-dyson-integrator.mjs). All four tested N values
+ *   (N in {50, 100, 200, 500}) yield Python collision times py_tc that
+ *   land inside the certified [iv_lo, iv_hi] enclosures with one-step
+ *   rounding tolerance, so the overall verdict is "CROSS-VERIFIED".
+ *
+ * Proof chain step: Route B "no collision before t_c" sub-witness.
+ *   The interval enclosures from imp-362 are the source-of-truth for
+ *   the t_c bounds that feed the lim sup |t_c(N)| = 0 closure used by
+ *   submission-ready-2026-04-12 (imp-500); this file is the
+ *   independent-implementation safety net that catches an integrator
+ *   bug in either language by disagreement.
+ *
+ * Exports:
+ *   - DYSON_PYTHON_CROSSCHECK: frozen record with verdict
+ *     ("CROSS-VERIFIED"), measurements array (one row per N with
+ *     py_tc, iv_lo, iv_hi, euler_ref, pairIdx, and an agree flag),
+ *     an eulerArtifactNote explaining why the older
+ *     PATH_C_FIT_POINTS Euler values disagree (first-order
+ *     overshoot of the first collision singularity, mistaking the
+ *     second near-approach for the first), the referenceImpl
+ *     pointer to the interval integrator, the script path that
+ *     produced the numbers, and a generatedAt timestamp.
+ *
+ * Key assertions encoded in the data (verified by inspection, not
+ *   build-time): every measurement row has agree === true; py_tc
+ *   strictly less than euler_ref for every N tested, matching the
+ *   "true earlier collision time" claim; iv_hi >= py_tc for every
+ *   row.
+ *
+ * Ticket chain: created imp-415 (generated the artifact and the
+ *   companion Python script src/math/dyson-backward-crosscheck.py);
+ *   docstring added by imp-1047 (this ticket). The cross-check is
+ *   referenced from the Route B closure narrative and from the
+ *   dyson-scaling-N5000.js Euler-artifact note.
+ *
+ * Syntax note: this file deliberately avoids the star-slash sequence
+ *   inside JSDoc block text to keep the comment well-formed.
+ */
+
+/**
  * imp-415: Python RK4+Kahan backward Dyson cross-check result
  *
  * Independent Python reimplementation of the backward Dyson ODE integrator

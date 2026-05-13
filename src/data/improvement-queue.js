@@ -12938,12 +12938,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Add JSDoc module documentation to dead-code-audit-2026-04.js",
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'docs',
     description: "src/data/dead-code-audit-2026-04.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-05-13T22:35:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Prepended a structured @module data/dead-code-audit-2026-04 / @fileoverview JSDoc block above the existing imp-851 prose header in src/data/dead-code-audit-2026-04.js. The new header documents: (a) methodology (static-import scan across src/{math,pages,components,data} on every .js file in src/math/, 297 files at 2026-04-19 snapshot; imp-889 re-verification on 2026-04-26); (b) proof-chain role (meta / codebase hygiene navigational aid, NOT a proof artifact); (c) key snapshot numbers (297 total, 284 no-importers = 96%, 27 assertion-bearing keepers, 257 strong delete-candidates); (d) caveats (static imports only, 27 keepers reached via run-assertions.mjs hardcoded list, some historical research records to keep); (e) both exports (DEAD_CODE_AUDIT_2026_04 record with all sub-fields, DEAD_CODE_AUDIT_2026_04_ASSERTIONS with three named tripwires); (f) the three assertions imp851-identifies-many-no-importers (>= 200 noImporters), imp851-assertion-bearers-listed (>= 20 keepers), imp889-recently-verified (parseable lastVerifiedAt); (g) key invariants encoded; (h) staleness note (src/math/ grew from 297 to 309, thresholds loose enough to stay valid); (i) ticket chain imp-851 -> imp-889 -> imp-1052; (j) @see pointers to scripts/run-assertions.mjs, module-index.js, proof-paper.js; (k) syntax note documenting the deliberate avoidance of the star-slash JSDoc-terminator hazard. Atomic structural change only: the entire 42-line original prose header preserved verbatim, both exports unchanged, all numerical values unchanged, both assertion tripwires unchanged. No math claimed, no exports modified, no behavior change. Build passes (npm run build, vite green, 4.44s).',
   },
 
     {

@@ -1,4 +1,77 @@
 /**
+ * @module data/dead-code-audit-2026-04
+ * @fileoverview Snapshot record of the imp-851 static-import dead-code audit
+ *   over src/math/ taken on 2026-04-19, with an imp-889 re-verification on
+ *   2026-04-26. Methodology: for every .js file in src/math/ (297 total at
+ *   snapshot time), grep every .js / .jsx file in src/{math,pages,components,
+ *   data}/ for an import of "./<name>" or "../math/<name>" (with or without
+ *   the .js suffix). Files with zero static importers anywhere in the project
+ *   are "no-importers" candidates. The set is then split by whether the file
+ *   exports a *_ASSERTIONS array, because scripts/run-assertions.mjs maintains
+ *   its own hardcoded MATH_MODULES / DATA_MODULES list and may still be
+ *   reaching the module at build time even without source-level imports.
+ *
+ * Proof chain step: meta / codebase hygiene. This file is a navigational aid
+ *   for src/math/ housekeeping, not itself a proof artifact. It identifies
+ *   which math modules are reachable via static import vs. assertion sweep
+ *   vs. neither, so that future delete-or-archive sweeps know which files
+ *   are safe to touch and which carry assertion tripwires or proof-paper
+ *   documentation value.
+ *
+ * Key numbers at snapshot (2026-04-19):
+ *   - 297 total math modules
+ *   - 284 with no static importers anywhere (96%)
+ *     - 27 of those export *_ASSERTIONS and are pinned as keepers
+ *       (assertionBearingKeepers list)
+ *     - 257 of those are strong delete-or-archive candidates
+ *       (first 40 sampled in noImporterCandidatesSample)
+ *
+ * Caveats (do not auto-delete): (1) the scan counts STATIC imports only;
+ *   dynamic import() or string references in module-index.js / proof-paper.js
+ *   are missed. (2) the 27 assertion-bearing no-import files are reached by
+ *   scripts/run-assertions.mjs via hardcoded paths and must not be deleted.
+ *   (3) some no-importer files are historical research records or prose
+ *   documentation that should stay for proof narrative continuity.
+ *
+ * Exports:
+ *   - DEAD_CODE_AUDIT_2026_04: record with id "imp-851", generatedAt,
+ *     lastVerifiedAt (refreshed by imp-889), method narrative, totals
+ *     (total / noImporters / noImportersButAssertBearing /
+ *     noImportersNoAssertions), assertionBearingKeepers (27 paths),
+ *     noImporterCandidatesSample (first 40 of 257 paths), recommendation
+ *     prose, and nextTickets pointer list.
+ *   - DEAD_CODE_AUDIT_2026_04_ASSERTIONS: three build-time tripwires
+ *     (imp851-identifies-many-no-importers requires totals.noImporters >= 200;
+ *     imp851-assertion-bearers-listed requires assertionBearingKeepers.length
+ *     >= 20; imp889-recently-verified requires lastVerifiedAt to be a
+ *     parseable ISO date string).
+ *
+ * Key invariants encoded in the data (verified at build): no-importer count
+ *   stays >= 200 so the cleanup opportunity remains meaningful; keeper list
+ *   has at least 20 entries so future sweeps cannot trivially drop them;
+ *   lastVerifiedAt is parseable as a date so the imp-889 staleness sweep can
+ *   detect when re-verification is overdue without re-running a full scan.
+ *
+ * Staleness note: totals are a 2026-04-19 snapshot. src/math/ has since
+ *   grown from 297 to 309 .js files (+12) per the imp-889 re-verification
+ *   comment, but the >= 200 / >= 20 assertion thresholds are loose enough
+ *   that the tripwires remain valid; a full re-scan to refresh exact totals
+ *   is deferred to a separate ticket.
+ *
+ * Ticket chain: imp-851 generated the original audit; imp-889 re-verified
+ *   the 27 keeper paths and added lastVerifiedAt; imp-1052 (this ticket)
+ *   prepended the @module header for cross-file navigability.
+ *
+ * @see ../../scripts/run-assertions.mjs
+ * @see ../math/module-index.js
+ * @see ./proof-paper.js
+ *
+ * Syntax note: this header avoids the star-slash JSDoc-terminator hazard;
+ *   see the SYNTAX NOTE retained verbatim at the end of the original
+ *   prose header below.
+ */
+
+/**
  * imp-851: src/math/ dead-code audit (2026-04-19).
  *
  * METHOD

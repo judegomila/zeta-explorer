@@ -1,4 +1,29 @@
 /**
+ * @module data/platt-trudgian-matched-check
+ * @fileoverview Platt-Trudgian 2021 consistency check at matched height T = 3e10.
+ *
+ * Proof chain step: finite-height literature cross-check (Path C / Lambda bound).
+ * Lives between the empirical OLS fit (imp-400 PATH_C_BASELINE_FIT_V2) and the
+ * unconditional finite-height SOTA Lambda <= 0.2 of Platt-Trudgian (2021).
+ *
+ * Exports:
+ *   - PLATT_TRUDGIAN_MATCHED_CHECK: structured record with testHeight, matchedN,
+ *     fitConstants, projection, plattTrudgianBound, checkResult, whatThisProves,
+ *     openGaps, sources.
+ *   - PLATT_TRUDGIAN_MATCHED_CHECK_ASSERTIONS: 6 build-time tripwires
+ *     (imp408-fit-is-available, imp408-n-at-test-height-is-large,
+ *      imp408-slope-contribution-negligible, imp408-check-passes,
+ *      imp408-margin-factor-above-10, imp408-round-trip-height-close-to-test).
+ *
+ * Created by: imp-408 (matched-height consistency check vs PT 2021).
+ * Modified by: imp-1039 (added @module / @fileoverview JSDoc header).
+ *
+ * Upstream deps:
+ *   - imp-327 zeroCountAtHeight from src/data/lambda-rh-height-mapping.js
+ *   - imp-400 PATH_C_BASELINE_FIT_V2 from src/data/path-c-baseline-fit-v2.js
+ */
+
+/**
  * imp-408: Platt-Trudgian 2021 consistency check at matched height
  *
  * Context

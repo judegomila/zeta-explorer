@@ -12824,6 +12824,38 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended @module data/submission-ready-2026-04-12 + @fileoverview JSDoc block above the existing imp-500 prose header. New block documents both exports (SUBMISSION_READY_MARKER, MILESTONE_EXISTS), the two passing build-time assertions (fatalCount === 0, criticalPending === 0), the proof-chain role (terminal done signal gating engine maintenance-mode transition), and the ticket chain imp-500 -> imp-503 -> imp-718 -> imp-1045. Existing comment block preserved verbatim. Build passes.',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1046',
+    title: "Cross-verify dyson-mean-field.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/dyson-mean-field.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T21:05:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Appended a CROSS-VERIFICATION NOTE block at the end of src/math/dyson-mean-field.js documenting an independent audit of the mean-field tail correction. (1) Formula correctness: re-derived the leading n-dependent term of integral_T^inf rho(g)/(g_n - g) dg via Taylor expansion of 1/(g_n - g) = -1/g - g_n/g^2 - O(g_n^2/g^3) and integration-by-parts on integral log(g/(2pi))/g^2 dg = (log(T/(2pi))+1)/T; result is -g_n*(log(T/(2pi))+1)/(2pi*T), NEGATIVE. The code at lines 41-50 transcribes the magnitude but drops the leading minus sign from the Taylor expansion, so mfCorrection enters the discrete sum with INVERTED sign. Numerical check (trapezoidal integration with N=2e6 to 5e6 panels) at T in {100, 1000, 10000, 100000} with g_n=50 confirms the negative sign and matches the analytic approximation with ratio numerical/myApprox = 1.327, 1.021, 1.000, 0.997 respectively -- a clean monotone convergence to 1 as T grows that validates the leading-order formula. (2) Edge cases: no NaN/Infinity paths reachable from in-file call sites; gammas[n]=0 -> zero correction, T_max=0 and T_max<2pi unreachable because ZETA_ZEROS[0]~14.13, degenerate g_n=g_k guarded by abs(diff)<1e-15. (3) Reference-value sanity: at N=200, T_max~396, |mfCorrection(g_n=100)|~0.207 vs typical discrete sum~5-10, so 2-4 percent relative perturbation -- consistent with the small delays reported by the framework but with inverted sign meaning the empirical delay values should be re-evaluated after a sign fix. Verification-only ticket: no code behavior changed, no exports modified, no math claimed in the proof chain. A follow-up ticket should flip the sign of mfCorrection and re-run dysonMeanFieldTest to confirm the "delay" verdict empirically. Build passes (npm run build, vite green).',
+  },
+  {
+    id: 'imp-1047',
+    title: "Add JSDoc module documentation to dyson-python-crosscheck-result.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/dyson-python-crosscheck-result.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

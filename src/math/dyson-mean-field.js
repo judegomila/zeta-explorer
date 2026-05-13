@@ -144,3 +144,99 @@ export function dysonMeanFieldTest() {
       'Tail repulsion delays collision. Phase 3: 4/10.',
   };
 }
+
+// ──────────────────────────────────────────────────────────────────────
+// imp-1046 CROSS-VERIFICATION NOTE (S10-verify, 2026-05-13, opus-4-7)
+// ──────────────────────────────────────────────────────────────────────
+// Independent audit of the mean-field correction formula used above.
+//
+// (1) FORMULA CORRECTNESS — SIGN DISCREPANCY FOUND
+// ----------------------------------------------------------------------
+// The code claims (lines 41-50) that the leading n-dependent contribution
+// of the tail integral I(g_n) = integral_T^inf rho(g)/(g_n - g) dg is:
+//     mfCorrection = + g_n * (log(T/(2pi)) + 1) / (2pi * T)
+// and adds this positively into the discrete `sum` variable.
+//
+// Re-deriving independently: for g >> g_n, Taylor expand
+//     1/(g_n - g) = -1/g * 1/(1 - g_n/g)
+//                 = -1/g - g_n/g^2 - g_n^2/g^3 - ...
+// Multiplying by rho(g) = log(g/(2pi))/(2pi) and integrating from T to inf:
+//   I(g_n) = - integral_T^inf rho(g)/g dg          (n-independent, divergent)
+//            - g_n * integral_T^inf rho(g)/g^2 dg  (first n-dependent term)
+//            - O(g_n^2)
+// Using integration-by-parts:
+//   integral_T^inf log(g/(2pi))/(2pi*g^2) dg = (log(T/(2pi)) + 1)/(2pi*T)
+// Therefore the first n-dependent term is
+//     I_dep(g_n) = - g_n * (log(T/(2pi)) + 1) / (2pi * T)   <-- NEGATIVE
+//
+// The code DROPS the leading minus sign from the Taylor expansion of
+// 1/(g_n - g) when it transcribes the integrand. Numerical check
+// (this ticket, run 2026-05-13) confirms the sign:
+//   T=  100, g_n=50: numerical I(g_n)-I(0) = -3.978e-1; my approx = -2.998e-1
+//   T= 1000, g_n=50:                       = -4.932e-2;            = -4.830e-2 (ratio 1.021)
+//   T=10000, g_n=50:                       = -6.660e-3;            = -6.663e-3 (ratio 1.000)
+//   T=100000,g_n=50:                       = -8.473e-4;            = -8.495e-4 (ratio 0.997)
+// Convergence ratio -> 1.000 as T grows confirms the analytic form, and
+// the sign is unambiguously NEGATIVE. The code therefore applies the
+// mean-field correction with the WRONG SIGN.
+//
+// PHYSICAL CONSISTENCY CHECK: tail zeros at heights g > T repel a tracked
+// zero g_n < T DOWNWARD (toward smaller g). In forward Dyson time
+// (direction=+1) this corresponds to dg_n/dt receiving a NEGATIVE
+// contribution from the tail. With direction=-1 (backward time, used to
+// find collisions) this flips sign and DELAYS collision — consistent with
+// the "tail repulsion delays collision" verdict in the framework, but
+// ONLY if the n-dependent term enters `sum` with the correct (NEGATIVE)
+// sign. The current code's positive sign would predict the OPPOSITE
+// effect; the empirical "delay" values reported by the test are therefore
+// suspect and should be re-evaluated after a sign fix.
+//
+// IMPACT: the magnitude of mfCorrection at N=200, T_max~396 is ~0.2 vs
+// a typical discrete `sum` of ~5-10, so the absolute perturbation is
+// only a few percent. A sign flip changes a small delay into a small
+// advance but does not blow up the numerics. Fix is one character;
+// deferred to a follow-up ticket so this audit remains a pure
+// verification artifact.
+//
+// (2) EDGE CASES — NaN / Infinity AUDIT
+// ----------------------------------------------------------------------
+// - gammas[n] === 0          -> mfCorrection = 0. Safe.
+// - T_max === 0              -> division by zero. Source: T_max =
+//                               initial[actual-1]. Since ZETA_ZEROS[0]
+//                               is ~14.13 and actual >= 1 is enforced by
+//                               Math.min(N, ZETA_ZEROS.length), this is
+//                               unreachable in practice.
+// - T_max < 2*pi             -> log(T_max/(2pi)) < 0 -> finite but
+//                               correction sign flips locally. The
+//                               smallest zeta zero (~14.13) is already
+//                               > 2*pi (~6.28), so unreachable.
+// - gammas[n] === gammas[k]  -> guarded by Math.abs(diff) < 1e-15 in
+//                               dysonWithMeanField (line 36) and in the
+//                               no-MF baseline (line 94). Safe.
+// - Empty initial array      -> N=0 in dysonMeanFieldTest is unreachable
+//                               (nValues hard-coded to [50,100,200]).
+//                               If called externally with N=0 the loops
+//                               degenerate to no-ops and return empty
+//                               Float64Array. Safe but trivial.
+// - direction === 0          -> dg becomes zero -> integrator stalls.
+//                               Callers in this file always pass +/-1.
+// No NaN or Infinity paths identified under the in-file call sites.
+//
+// (3) REFERENCE-VALUE SANITY CHECK
+// ----------------------------------------------------------------------
+// For N=200, T_max ~ gamma_200 ~ 396.38, log(T_max/(2pi)) ~ 4.14, so
+// |mfCorrection(g_n=100)| ~ 100*5.14/(2pi*396.38) ~ 0.207. The
+// dominant discrete contribution from the nearest neighbour is
+// 1/spacing ~ log(g_n/(2pi))/(2pi) ~ 0.44, summed over many neighbours
+// gives `sum` ~ 5-10. So the relative size of the MF correction is
+// 2-4% — consistent with the small "MF delays by" values returned by
+// the framework. Magnitude is correct; sign is wrong (see (1)).
+//
+// CONCLUSION
+// ----------------------------------------------------------------------
+// Mean-field magnitude formula derived correctly; sign as wired into
+// `sum` is inverted (Taylor minus sign dropped). Edge-case analysis
+// reveals no NaN/Infinity paths under current call sites. A follow-up
+// ticket should flip the sign of mfCorrection and re-run the comparison
+// table to confirm the "delay" verdict empirically. — opus-4-7
+

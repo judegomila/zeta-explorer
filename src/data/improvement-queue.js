@@ -13024,6 +13024,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended a structured @module data/imp-857-resonance-tuning-sweep + @fileoverview JSDoc block above the pre-existing 67-line imp-894 prose JSDoc header in src/data/imp-857-resonance-tuning-sweep.js, preserving every original line verbatim. The new header documents the honest-partial closure for imp-894 (resonance-tuning sweep at N=500, nSteps=30, 2x2 pilot grid with eigenmode corner k0=2*pi/min_gap at phaseVel=pi*rho_mean as minimum-ratio cell 0.955 at eps=0.01), the proof-chain step (imp-857 phase-locked Dyson forcing sub-step imp-894), the single export IMP_857_RESONANCE_TUNING_SWEEP with all sub-fields, the nine build-time assertions (imp894-calibration-nonzero / -pilot-four-cells / -pilot-twelve-rows / -eigenmode-corner-reduces / -prototype-corner-amplifies / -recommendation-matches-eigenmode / -status-partial / -sub-gap-named / -resonance-sweep-subgap-named), the canonical sub-gap imp-894-sub-resonance-sweep mapping onto imp-899 dense-heatmap deferral, ticket chain imp-857 -> imp-894 -> imp-999 -> imp-1056, and @see pointers to companion files. Build passes (npm run build, vite green, 4.48s). Atomic structural change only; no math claimed, no exports modified, no assertion changed, no behavior change.',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1057',
+    title: "Add JSDoc module documentation to soft-gaps-cleanup-log.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    proofSection: 'docs',
+    description: "src/data/soft-gaps-cleanup-log.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-05-13T23:55:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Prepended a structured @module data/soft-gaps-cleanup-log + @fileoverview JSDoc block above the pre-existing 12-line imp-435 / imp-445 prose JSDoc header in src/data/soft-gaps-cleanup-log.js, preserving every original line verbatim (the imp-435 cleanup intro, the imp-445 extension note, the three source-review lines listing skp / skp2 / skp3 ids, the 12-presentation-overstatements line, the surgical-edit-target line). The new header documents the proof-chain role as a meta / hygiene artifact recording 12 SOFT-class findings folded into src/math/proof-paper.js with zero math content changed, the full review and cleanup chain imp-417 -> imp-430 -> imp-437 -> imp-435 -> imp-445, the two named exports (SOFT_GAPS_CLEANUP_LOG with all top-level fields ticket / extendedBy / date / sourceReviews / totalSoftGaps / fixes / summary enumerated and the per-summary sub-counts named, and SOFT_GAPS_ASSERTIONS with the three build-time tripwires imp435-all-soft-gaps-logged / imp435-no-math-changes / imp435-review-counts-add-up), the 12 individual gap ids enumerated by source review (skp-004/005/008/010 from imp-417, skp2-002/004/006/007/008 from imp-430, skp3-003/004/005 from imp-437), the load-bearing invariant that summary.mathematicalChanges is hard-zero so any future math claim trips imp435-no-math-changes, the ticket chain imp-417 / imp-430 / imp-435 / imp-437 / imp-445 / imp-1057, @see pointers to ../math/proof-paper.js and the three paper-skeptic-review-N.js source files, and a syntax note that the header avoids the star-slash JSDoc-terminator hazard. Build passes (npm run build, vite green, 4.24s). Atomic structural change only; no math claimed, no exports modified, no assertion changed, no behavior change outside the new comment block.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

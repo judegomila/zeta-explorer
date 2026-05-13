@@ -1,4 +1,78 @@
 /**
+ * @module data/soft-gaps-cleanup-log
+ * @fileoverview Record of the imp-435 / imp-445 cleanup pass closing all 12 SOFT
+ *   presentation gaps surfaced by the three adversarial reviews of the Lambda = 0
+ *   proof paper (imp-417 first review, imp-430 second review, imp-437 third review).
+ *
+ *   PROOF-CHAIN ROLE.
+ *   This file is a meta / hygiene artifact and is NOT itself a proof step. It
+ *   records that 12 SOFT-class findings have been folded into src/math/proof-paper.js
+ *   as presentation tightening (precision, citation accuracy, scope honesty) with
+ *   zero changes to the underlying mathematical content. The proof chain it
+ *   supports is:
+ *     - imp-417 first adversarial review of src/math/proof-paper.js (paper-skeptic-review.js)
+ *     - imp-430 second adversarial review (paper-skeptic-review-2.js)
+ *     - imp-437 third adversarial review (paper-skeptic-review-3.js)
+ *     - imp-435 cleanup pass closing the 9 SOFT gaps from imp-417 + imp-430
+ *     - imp-445 cleanup extension closing the 3 SOFT gaps from imp-437
+ *   Downstream consumers: the rigorLabel field and the adversarialReview record
+ *   tree inside src/math/proof-paper.js cite this log as the SOFT-gap audit trail.
+ *
+ *   EXPORTS.
+ *   Two named exports:
+ *     SOFT_GAPS_CLEANUP_LOG  - frozen record with these top-level fields:
+ *       ticket            "imp-435" (originating ticket)
+ *       extendedBy        "imp-445" (extension ticket)
+ *       date              "2026-04-11" (consolidation date)
+ *       sourceReviews     ["imp-417", "imp-430", "imp-437"]
+ *       totalSoftGaps     12 (4 from imp-417 + 5 from imp-430 + 3 from imp-437)
+ *       fixes             array of 12 entries, each with id / review / location /
+ *                         issue / change describing one SOFT gap closure
+ *       summary           subobject with per-review counts (4 / 5 / 3),
+ *                         totalAddressed (12), mathematicalChanges (0),
+ *                         presentationChanges (12), and verdict prose
+ *     SOFT_GAPS_ASSERTIONS - array of three build-time tripwires consumed by
+ *                            scripts/run-assertions.mjs:
+ *       imp435-all-soft-gaps-logged  - fixes.length must equal totalSoftGaps
+ *       imp435-no-math-changes       - mathematicalChanges must be 0
+ *       imp435-review-counts-add-up  - the three per-review sub-counts must sum
+ *                                       to totalAddressed
+ *
+ *   KEY INVARIANTS ENCODED IN THE DATA.
+ *   - All 12 SOFT findings are presentation issues (precision, citation hygiene,
+ *     scope honesty); zero entries describe a mathematical correction.
+ *   - The fixes array enumerates every individual id named by the source reviews:
+ *     skp-004, skp-005, skp-008, skp-010 (imp-417);
+ *     skp2-002, skp2-004, skp2-006, skp2-007, skp2-008 (imp-430);
+ *     skp3-003, skp3-004, skp3-005 (imp-437).
+ *   - summary.mathematicalChanges is hard-zero, making it a tripwire: any
+ *     future entry that claims math content changed would have to bump this
+ *     and immediately fail the imp435-no-math-changes assertion.
+ *
+ *   TICKET CHAIN.
+ *   imp-417 generated the first adversarial review surfacing 4 SOFT gaps;
+ *   imp-430 generated the second review surfacing 5 more SOFT gaps;
+ *   imp-435 closed those 9 gaps and created this log;
+ *   imp-437 generated the third review surfacing 3 more SOFT gaps;
+ *   imp-445 closed those 3 gaps and extended this log to totalSoftGaps = 12;
+ *   imp-1057 this commit prepended the @module / @fileoverview header for
+ *   cross-file navigability without modifying any existing line of the
+ *   prose header below.
+ *
+ *   @see ../math/proof-paper.js for the surgical edits enumerated in fixes[].location
+ *   @see ./paper-skeptic-review.js (imp-417 source review, 4 SOFT)
+ *   @see ./paper-skeptic-review-2.js (imp-430 source review, 5 SOFT)
+ *   @see ./paper-skeptic-review-3.js (imp-437 source review, 3 SOFT)
+ *
+ *   SYNTAX NOTE.
+ *   This header deliberately avoids the close-comment terminator sequence inside
+ *   prose by writing dg_{k}/dt brace notation when derivatives are needed (none
+ *   appear here) and by using ASCII hyphen-minus throughout. The only literal
+ *   close-comment terminator is the standard one at the very end of this JSDoc
+ *   block.
+ */
+
+/**
  * imp-435: Cleanup pass — all 9 SOFT gaps from imp-417 and imp-430 adversarial reviews.
  * imp-445: Extends with 3 SOFT gaps from imp-437 third adversarial review (skp3-003/004/005).
  *

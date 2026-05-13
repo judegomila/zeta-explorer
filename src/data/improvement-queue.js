@@ -12989,6 +12989,38 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Independently re-derived KAPPA (0.28407904, matches canonical D-H), the mod-5 character chi_1 (chi(2)=i for primitive root 2), and the algebraic simplification a(n) = Re(chi_1(n)) + KAPPA*Im(chi_1(n)). Confirmed non-multiplicativity numerically: a(2)*a(3) = -KAPPA^2 ~ -0.0807 vs a(6) = 1. testHamiltonianConvexity uses textbook 3-point stencil + central difference — correct. testWeilPositivity sign convention r = t + i*(sigma-1/2) is non-standard but gives sign-invariant real-part sums for the conjugate-reflected pair — no functional bug. ONE SUB-GAP FOUND in testLiPositivity: closed-form |1-1/rho|^2 = 1 + (1-2*sigma)/(sigma^2+t^2) gives |1-1/rho|<1 for sigma>1/2, but the inline verbal claim says the opposite ("powers grow"). The numerical demonstration uses only the rho = 0.808+85.7i zero whose powers DECAY; the actual Li-positivity violation comes from the partner rho = 0.191+85.7i (|1-1/rho|~1.00004). Hard-coded dhPasses:false verdict remains correct, but the demonstration is misleading. Added a 50-line cross-verification block at the file header documenting all 7 verifiable computations and flagging the Li sub-gap.',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1055',
+    title: "Cross-verify c-mb-unconditional-bound.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/c-mb-unconditional-bound.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T23:30:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: "Cross-verified clean with one intentional-floor caveat documented. All five tested numerical claims (bestUnconditionalBound chain; C_MB_RESCUE_TABLE K=1 row; SELBERG_LOG_T_RESCUE K=1 and K=3 rows; rescueTable closure build-time assertion) independently reproduced. minN0ForC_mb lo=1e4 floor returns ceil(1e4) for K=1 rather than the smaller true threshold ~4250 -- a LOOSE upper bound anchored at the imp-486 GUE-conditional baseline N_0=1e4, now documented. Edge cases for K<=0 or K NaN/Infinity are unexercised. Selberg/Huxley/GGM citations all correctly characterised as RH-conditional or off-critical-line. Atomic change: appended CROSS_VERIFICATION_IMP1055_2026_05_13 export plus one build-time assertion at the end of src/math/c-mb-unconditional-bound.js.",
+  },
+  {
+    id: 'imp-1056',
+    title: "Add JSDoc module documentation to imp-857-resonance-tuning-sweep.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/imp-857-resonance-tuning-sweep.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

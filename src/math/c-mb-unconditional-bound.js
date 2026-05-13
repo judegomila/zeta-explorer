@@ -470,3 +470,113 @@ if (!SELBERG_LOG_T_RESCUE.rescueTable.every(row => row.closes)) {
     "imp-586: SELBERG_LOG_T_RESCUE.rescueTable -- all rows must satisfy closure condition"
   );
 }
+
+// ── Cross-verification record (imp-1055, 2026-05-13) ─────────────────────────
+//
+// Independent re-derivation of every numeric claim above. Uses no helper from
+// this file (re-implements minN0 with a fresh Node REPL). Findings recorded as
+// data so the audit is grep-able and survives future edits.
+//
+// SYNTAX NOTE: this block uses line // comments to avoid any chance of the
+// star-slash sequence prematurely closing a JSDoc block.
+
+export const CROSS_VERIFICATION_IMP1055_2026_05_13 = {
+  ticket: "imp-1055",
+  date: "2026-05-13",
+  verifier: "opus-4-7 S10-verify cross-verify pass",
+  subject: "src/math/c-mb-unconditional-bound.js",
+
+  computationsChecked: [
+    {
+      label: "IMPOSSIBILITY_ARGUMENT.bestUnconditionalBound numeric chain",
+      claim: "log(74920) ~ 11.2; (11 * 9.21 / 100) / 0.12751 ~ 7.9",
+      independentCheck:
+        "log(74920) = 11.22414 (matches '~11.2'). " +
+        "11 * 9.21 / 100 = 1.01310. 1.01310 / 0.12751 = 7.9453 (matches '~7.9'). " +
+        "Closure-fail ratio at N_0=1e4 with C_mb=11 is therefore 7.95x, " +
+        "confirming the analytic closure fails unconditionally at the empirical floor.",
+      verdict: "OK",
+    },
+    {
+      label: "C_MB_RESCUE_TABLE row K=1: N_0 returned by minN0ForC_mb",
+      claim: "Note says 'Current closure (GUE-conditional)' anchored at N_0 = 10^4.",
+      independentCheck:
+        "The true mathematical root of log(N)/sqrt(N) = 0.12751 lies near N ~ 4250 " +
+        "(at N=4250: log=8.3548, sqrt=65.192, ratio=0.12816; at N=4500: ratio=0.12539). " +
+        "minN0ForC_mb has hard lower bound lo=1e4, so for K=1 it returns ceil(~1e4) = 10000 " +
+        "rather than the smaller true threshold. This is a LOOSE upper bound, not WRONG: " +
+        "it deliberately anchors the table at the imp-486 GUE-conditional baseline N_0=1e4. " +
+        "Edge cases for K <= 0 fall in the same floor; for K large enough that the threshold " +
+        "exceeds 1e12 the function returns ceil(1e12). Both edges are unexercised by table rows.",
+      verdict: "OK (intentional floor, documented now)",
+    },
+    {
+      label: "SELBERG_LOG_T_RESCUE.rescueTable row K=1: N_0 ~ 3.1e6",
+      claim: "Solve K*log^2(N)/sqrt(N) < 0.12751 for K=1.",
+      independentCheck:
+        "At N=3.1e6: log=14.9471, log^2=223.416, sqrt=1760.68, " +
+        "ratio=0.126892 < 0.12751 (satisfied). " +
+        "At N=3.0e6: log=14.9141, log^2=222.430, sqrt=1732.05, ratio=0.128419 (fails). " +
+        "True threshold N_0_star(1) ~ 3.05e6; matches the file note 'N_0_star ~ 3.1e6'.",
+      verdict: "OK",
+    },
+    {
+      label: "SELBERG_LOG_T_RESCUE.rescueTable row K=3: N_0 in the 5e7 range",
+      claim: "Solve 3*log^2(N)/sqrt(N) < 0.12751.",
+      independentCheck:
+        "At N=5.7e7: log=17.8580, log^2=318.911, sqrt=7549.83, " +
+        "ratio=0.0422409, K*ratio=0.126723 < 0.12751 (satisfied). " +
+        "At N=5.5e7: K*ratio=0.128944 (fails). " +
+        "True threshold N_0_star(3) ~ 5.6e7 matches the file note 'N_0_star ~ 5.6e7'. " +
+        "Feasibility tag 'challenging' (5.6e7 > 5e6, 5.6e7 <= 1e8) is correct.",
+      verdict: "OK",
+    },
+    {
+      label: "Build-time assertion guarding every rescueTable row",
+      claim: "SELBERG_LOG_T_RESCUE.rescueTable.every(row => row.closes) must be true.",
+      independentCheck:
+        "Each row materializes closureConditionValue = K * log^2(N_0) / sqrt(N_0) " +
+        "and closes = closureConditionValue < 0.12751. The binary search drives the " +
+        "expression strictly below the threshold at convergence (60-80 iterations), so " +
+        "every row satisfies the predicate. Assertion currently passes.",
+      verdict: "OK",
+    },
+  ],
+
+  edgeCases: [
+    "K <= 0: condition K*(...) < 0.12751 holds for every positive N; binary search " +
+    "drives hi down to lo=1e4 and returns 10000. Not exercised by table rows (K >= 1).",
+    "K = NaN or K = Infinity: the predicate NaN<x and Infinity<x are both false, so lo " +
+    "rises toward hi=1e12 and the function returns ceil(1e12). Also unexercised.",
+    "Internal arithmetic: lo and hi are both positive throughout, geometric midpoint " +
+    "sqrt(lo*hi) is well-defined, no sqrt-of-negative or division-by-zero paths exist.",
+    "Math.log and Math.sqrt on finite positive inputs return finite values, so " +
+    "the binary search never propagates NaN under any K used in the tables.",
+  ],
+
+  referenceProvenance: [
+    "Selberg N(T) formula: Riemann-von Mangoldt; Selberg 1946 sec. 2; Titchmarsh ch. 9.",
+    "Selberg S(T) = O(log T / log log T) under RH: Selberg 1946 sec. 4.",
+    "Huxley zero-density exponent A = 12/5: Huxley 1972 main theorem (improving Ingham 12/(5(1-sigma)) + epsilon).",
+    "GGM 2001 Theorems 1 and 2: both correctly characterised as RH-conditional.",
+    "Montgomery 1973 pair correlation conjecture: equivalence with GUE 2-point correlations " +
+    "established by Rudnick-Sarnak 1996 and the Katz-Sarnak 1999 framework.",
+  ],
+
+  summaryVerdict:
+    "All exported numerical claims independently reproduced; both helper functions " +
+    "(minN0ForC_mb and minN0ForLogGrowingC_mb) converge correctly for the K values " +
+    "actually exercised by the tables. The lo=1e4 floor in minN0ForC_mb is a deliberate " +
+    "anchor at the imp-486 GUE-conditional baseline (not a bug) and is now documented. " +
+    "The narrative claims about Selberg, Huxley, and GGM correctly cite their references " +
+    "and correctly flag each as RH-conditional or off-critical-line, so the impossibility " +
+    "chain (Step 1 to Step 5) stands. No corrective edit required.",
+};
+
+if (CROSS_VERIFICATION_IMP1055_2026_05_13.computationsChecked.length < 5) {
+  throw new Error(
+    "imp-1055: CROSS_VERIFICATION_IMP1055_2026_05_13.computationsChecked must cover " +
+    "at least the five numerical claims audited (bestUnconditionalBound, rescueTable K=1, " +
+    "Selberg log-T table K=1 and K=3, and the rescueTable closure assertion)."
+  );
+}

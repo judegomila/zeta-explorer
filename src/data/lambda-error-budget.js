@@ -1,4 +1,48 @@
 /**
+ * @module data/lambda-error-budget
+ * @fileoverview Λ error-budget audit. Itemised decomposition of the ±0.01
+ *   error bar on the Path C result Λ = 0.0066 (imp-307 / commit 229139).
+ *   Enumerates three identified sources — scaling-fit intercept standard error
+ *   (~7·10⁻³, dominant), Dyson RK4 float64 accumulated roundoff (~1·10⁻⁵,
+ *   negligible after imp-306), and finite-N extrapolation shape (~3·10⁻³) —
+ *   combines them in quadrature (~7.6·10⁻³, consistent with the reported
+ *   ±0.01), and identifies imp-315 (extend N to 3500, 5000) as the binding
+ *   precondition for any "sign of Λ numerically verified" claim at this scale.
+ *
+ * Proof chain step: Path C / Λ decidability audit. Sits between the empirical
+ *   2458-zero result (imp-307) and the open extend-N programme (imp-315). The
+ *   file is intentionally a data module rather than prose so other modules and
+ *   tests can import the budget and refuse to silently overstate the combined
+ *   error.
+ *
+ * Exports:
+ *   - LAMBDA_ERROR_BUDGET: structured record with centralValue (0.0066),
+ *     reportedError (0.01), centralValueSource, zeroCount (2458),
+ *     verifiedHeight (3000), sources (3 itemised contributions with
+ *     reasoning + mitigation + tightenable flag), combinedQuadrature,
+ *     signDecidabilityThreshold (5·10⁻³), bindingConstraint
+ *     ("fit-intercept-se"), preconditionForSignClaim, uiDisclaimer.
+ *   - ERROR_BUDGET_ASSERTIONS: 3 self-documenting tripwires —
+ *     quadrature-within-reported (quadrature sum ≤ reported ±0.01),
+ *     binding-source-exists (named constraint must point at a dominant
+ *     source), sign-not-decidable-yet (until error bar shrinks below central
+ *     value, the sign of Λ stays undecided).
+ *
+ * Created by: imp-314 (audit of the ±0.01 error budget on Λ).
+ * Modified by: imp-1043 (added @module / @fileoverview JSDoc header).
+ *
+ * Upstream deps:
+ *   - imp-307 Path C central value Λ = 0.0066 (commit 229139).
+ *   - imp-306 Kahan compensation + Richardson local-error machinery (reduces
+ *     the RK4 roundoff contribution to O(10⁻⁵), so it is no longer dominant).
+ *
+ * Downstream consumers:
+ *   - imp-315 extend-N programme (uses bindingConstraint to gate the sign
+ *     claim).
+ *   - Any UI surface that reports Λ ± uncertainty (uiDisclaimer).
+ */
+
+/**
  * Λ error-budget audit (imp-314)
  *
  * The Path C result Λ = 0.0066 ± 0.01 (commit 229f...) has an error bar

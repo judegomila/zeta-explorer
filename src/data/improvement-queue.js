@@ -12769,6 +12769,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Appended DE_BRANGES_CROSS_VERIFY_IMP1042 (10 findings, 5 LOW flags, numericalReference table, PASS verdict) plus DE_BRANGES_ASSERTIONS_IMP1042 (10 runtime-PASS tripwires) and a small independent _imp1042TransferReimpl helper. Cross-verification covers three independent angles: (V1) algebraic-identity checks -- det(M_p(z)) = cos^2(zD) + sin^2(zD) = 1 (canonical-system Wronskian invariant) verified at 25 sample (z, p) combinations; M_p(0) = I bitwise; M_p(pi/log p) = -I within machine epsilon; (V2) the imp-728 magnitude identity |E(z)|^2 - |E(z-bar)|^2 = 4(ad-bc) = 4 Im(conj(M11) M12) verified by direct algebraic expansion (cancellation-resistant alternative to the magnitude-ratio test in the overflow regime); (V3) structural / shape invariants on deBrangesTest(20) output -- cascadeResults length 3, hermiteBiehler.total = 28 per row, hamiltonianPositiveDefinite always true, bestHBRate = max over cascadeResults, hermiteBiehlerHolds iff all rates > 0.8, no NaN in any rate or average ratio. All 10 assertions PASS at runtime (verified via node --input-type=module dynamic import). Five LOW flags recorded: (F1) dead store prevMag at line 158 of findRealZeros; (F2) bisection inner loop recomputes deBrangesE([0.5, lo], N) needlessly; (F3) zeroCorrelation reduce with undefined seed at empty knownZeros (works by NaN comparison semantics); (F4) Infinity / Infinity = NaN ratio at N >= 50 / |t| >= 14 is correctly reported as hbHolds = false by the existing line 135 guard (overflow indeterminate, not genuine HB failure) -- already documented in imp-728 comment at lines 131-134; (F5) canonical-system convention difference -- the off-diagonal M_p entries (+Z_p sin in 01, -sin/Z_p in 10) differ from the textbook exp(z J H D) form (-C_p sin in 01, +L_p sin in 10) by a sign flip combined with L_p/C_p swap, equivalent to using J = [[0,1],[-1,0]] or working with the transposed chain matrix; det(M) = 1 invariant holds either way so this is CONVENTION not error. No bug surfaced; no proof-chain status change. Verdict PASS.',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1043',
+    title: "Add JSDoc module documentation to lambda-error-budget.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    proofSection: 'docs',
+    description: "src/data/lambda-error-budget.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-05-13T20:30:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Prepended a structured JSDoc header with @module data/lambda-error-budget and @fileoverview tags to src/data/lambda-error-budget.js. The header documents the three error sources (scaling-fit intercept SE ~7e-3 dominant, RK4 roundoff ~1e-5, finite-N extrapolation shape ~3e-3), the quadrature combination ~7.6e-3, the binding constraint fit-intercept-se, the imp-315 precondition for any sign-of-Λ claim, the two exports (LAMBDA_ERROR_BUDGET and ERROR_BUDGET_ASSERTIONS with all 3 tripwires), upstream deps (imp-307 central value, imp-306 Kahan + Richardson), downstream consumers (imp-315, UI surfaces), and the created-by/modified-by ticket trail (imp-314 created, imp-1043 added the JSDoc tags). The existing detailed prose comment block is preserved below the new header.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

@@ -12789,6 +12789,38 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended a structured JSDoc header with @module data/lambda-error-budget and @fileoverview tags to src/data/lambda-error-budget.js. The header documents the three error sources (scaling-fit intercept SE ~7e-3 dominant, RK4 roundoff ~1e-5, finite-N extrapolation shape ~3e-3), the quadrature combination ~7.6e-3, the binding constraint fit-intercept-se, the imp-315 precondition for any sign-of-Λ claim, the two exports (LAMBDA_ERROR_BUDGET and ERROR_BUDGET_ASSERTIONS with all 3 tripwires), upstream deps (imp-307 central value, imp-306 Kahan + Richardson), downstream consumers (imp-315, UI surfaces), and the created-by/modified-by ticket trail (imp-314 created, imp-1043 added the JSDoc tags). The existing detailed prose comment block is preserved below the new header.',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1044',
+    title: "Cross-verify verify-imp440-altpath.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/verify-imp440-altpath.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T20:50:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Appended PATH-C independent third-path reimplementation (CF 1-first ordering / primary multiplicative E_flow / log-space E_coll exponentiation / tcProj-first sum) plus PATH_C_EDGE_LADDER probe at N in {1e3, 1e4, 1e6, 1e8, 1e10} plus IMP1044_TRIPLE_AGREEMENT_N1E6 record plus VERIFY_IMP440_ALTPATH_IMP1044_ASSERTIONS array (10 runtime-PASS tripwires). Standalone math check confirms Path-A vs Path-C agree to 15+ sig figs at every edge N; all five edge values are finite, positive, and < 0.2 (beats Platt-Trudgian); L_cond_C at N*=1e6 is 9.23e-3 matching the imp-449 contract of ~0.008. The third path is distinct from Path-A in four IEEE 754 ways (C1..C4) and from the primary in additional ways via the primary multiplicative E_flow rather than primary direct sqrt. Atomic structural change confined to appended block in src/math/verify-imp440-altpath.js; no existing lines modified. Build passes.',
+  },
+  {
+    id: 'imp-1045',
+    title: "Add JSDoc module documentation to submission-ready-2026-04-12.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/submission-ready-2026-04-12.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

@@ -118,3 +118,181 @@ export const VERIFY_IMP440_ALTPATH_ASSERTIONS = [
       'L_cond_alt must be positive and below 0.05 to remain in the expected range.',
   },
 ];
+
+// ───────────────────────────────────────────────────────────────────────────
+// imp-1044 (medium, proof, S10-verify): independent third-path cross-verify.
+//
+// imp-449 supplied Path-A (alt). imp-830 added per-component intermediate
+// agreement check. imp-1044 supplies an INDEPENDENT third path (Path-C) with
+// further IEEE 754 distinctions, plus an explicit edge-case probe at five N
+// values, and 10 runtime-PASS assertions covering finiteness, sign, ladder
+// agreement, and triple-path concordance with ALT_PATH at N* = 1e6.
+//
+// Path-C distinctions from Path-A:
+//   (C1) CF_C: (1 + log(T0) - log(2*pi)) / (2*pi)
+//        => 1-first order vs A1 logT0-first order
+//   (C2) E_flow_C: CF_C * (log(T0) / T0) * exp(tcProj)
+//        => primary multiplicative form (NOT log-sum-exp like A2)
+//   (C3) E_coll_C: exp(log(C_C) + 0.5*log(L) - 0.5*log(N))
+//        => log-space exponentiation vs A3 split-sqrt
+//   (C4) L_cond_C: tcProj-first sum order (NOT ascending like A4)
+//
+// Algebraic equivalence (verifiable by inspection):
+//   C1 = log(T0/(2pi)) + 1 = A1  (real arithmetic)
+//   C2 = CF * L / T0 * exp(tcProj) = A2  (real arithmetic)
+//   C3 = C_C * sqrt(L/N) = A3  (positive operands)
+//   C4 = a + b + c regardless of order (real addition is associative)
+// In IEEE 754 double the four paths differ at the ULP level and must agree
+// to ~13 sig figs, far exceeding the 6-sig-fig contract of imp-449/imp-460.
+// ───────────────────────────────────────────────────────────────────────────
+
+function computeLCondPathC(N) {
+  const fit = PATH_C_BASELINE_FIT_V2.fit;
+  if (!fit) return { N, available: false, reason: "V2 fit not available" };
+
+  const a = fit.intercept_a;
+  const b = fit.slope_b;
+
+  const T0    = effectiveHeightForN(N);
+  const logT0 = Math.log(T0);
+
+  // (C1) CF_C: 1-first then log difference
+  const CF_C = (1.0 + logT0 - LOG_TWO_PI) / TWO_PI;
+
+  // tcProj via fused 1/N (matches alt path)
+  const tcProj = a + b * (1.0 / N);
+
+  // (C2) E_flow_C: primary multiplicative form
+  const E_flow_C = CF_C * (logT0 / T0) * Math.exp(tcProj);
+
+  // (C3) E_coll_C: log-space exponentiation
+  const log_C_C   = Math.log(C_C_PINNED);
+  const E_coll_C  = Math.exp(log_C_C + 0.5 * Math.log(logT0) - 0.5 * Math.log(N));
+
+  // (C4) L_cond sum order: tcProj first
+  const L_cond_C = tcProj + E_flow_C + E_coll_C;
+
+  const finite = Number.isFinite(T0)        &&
+                 Number.isFinite(CF_C)      &&
+                 Number.isFinite(tcProj)    &&
+                 Number.isFinite(E_flow_C)  &&
+                 Number.isFinite(E_coll_C)  &&
+                 Number.isFinite(L_cond_C);
+
+  return {
+    N,
+    available: true,
+    T0,
+    logT0:    +logT0.toFixed(7),
+    CF_C:     +CF_C.toFixed(8),
+    tcProj:   +tcProj.toFixed(10),
+    E_flow_C: +E_flow_C.toExponential(7),
+    E_coll_C: +E_coll_C.toFixed(10),
+    L_cond_C: +L_cond_C.toFixed(10),
+    finite,
+    beatsPT:  L_cond_C < 0.2,
+  };
+}
+
+// Path-C at the headline target N* = 1e6
+export const PATH_C_N1E6 = computeLCondPathC(1e6);
+
+// Extended edge-case probe: small / mid / large N
+// Ensures no NaN / Infinity escapes for the supported operating range.
+const PATH_C_EDGE_NS = [1e3, 1e4, 1e6, 1e8, 1e10];
+export const PATH_C_EDGE_LADDER = PATH_C_EDGE_NS.map(computeLCondPathC);
+
+// Triple-path agreement at N* = 1e6: |Path-A - Path-C| / |Path-A|
+const _altL    = ALT_PATH_N1E6.available ? ALT_PATH_N1E6.L_cond_alt : NaN;
+const _pathCL  = PATH_C_N1E6.available   ? PATH_C_N1E6.L_cond_C    : NaN;
+const _absDiff = Math.abs(_altL - _pathCL);
+const _relDiff = _absDiff / Math.abs(_altL);
+
+export const IMP1044_TRIPLE_AGREEMENT_N1E6 = {
+  L_cond_altA:  +(_altL).toFixed(12),
+  L_cond_pathC: +(_pathCL).toFixed(12),
+  absDiff:      Number.isFinite(_absDiff) ? +_absDiff.toExponential(4) : null,
+  relDiff:      Number.isFinite(_relDiff) ? +_relDiff.toExponential(4) : null,
+  // Sig figs agreeing = floor(-log10(relDiff)); guard against zero/NaN
+  sigFigsAgreeing:
+    Number.isFinite(_relDiff) && _relDiff > 0
+      ? Math.floor(-Math.log10(_relDiff))
+      : 15,
+};
+
+export const VERIFY_IMP440_ALTPATH_IMP1044_ASSERTIONS = [
+  {
+    id: 'imp1044-pathC-N1e6-available-and-finite',
+    holds: () => PATH_C_N1E6.available && PATH_C_N1E6.finite,
+    why:
+      'Path-C at N*=1e6 must complete and all intermediates must be IEEE 754 finite.',
+  },
+  {
+    id: 'imp1044-pathC-N1e6-positive-and-below-pt',
+    holds: () =>
+      PATH_C_N1E6.available &&
+      PATH_C_N1E6.L_cond_C > 0 &&
+      PATH_C_N1E6.L_cond_C < 0.05,
+    why:
+      'Path-C L_cond at N*=1e6 must be strictly positive and below 0.05 (Platt-Trudgian is 0.2).',
+  },
+  {
+    id: 'imp1044-pathA-pathC-agree-6-sigfigs-at-N1e6',
+    holds: () =>
+      IMP1044_TRIPLE_AGREEMENT_N1E6.relDiff !== null &&
+      IMP1044_TRIPLE_AGREEMENT_N1E6.relDiff < 1e-6,
+    why:
+      'Path-A (imp-449) and Path-C (imp-1044) must agree on L_cond at N*=1e6 to 6+ sig figs (relDiff < 1e-6). Contract from imp-449.',
+  },
+  {
+    id: 'imp1044-pathA-pathC-agree-12-sigfigs-at-N1e6',
+    holds: () =>
+      IMP1044_TRIPLE_AGREEMENT_N1E6.relDiff !== null &&
+      IMP1044_TRIPLE_AGREEMENT_N1E6.relDiff < 1e-12,
+    why:
+      'Stronger: Path-A and Path-C should agree to 12+ sig figs in IEEE 754 double; weaker than this hints at a real formula divergence rather than ULP noise.',
+  },
+  {
+    id: 'imp1044-edge-ladder-all-available',
+    holds: () => PATH_C_EDGE_LADDER.every(r => r.available),
+    why:
+      'Every edge-probe N (1e3, 1e4, 1e6, 1e8, 1e10) must complete a Path-C computation.',
+  },
+  {
+    id: 'imp1044-edge-ladder-no-nan-no-inf',
+    holds: () => PATH_C_EDGE_LADDER.every(r => r.available && r.finite),
+    why:
+      'No edge-probe N may produce NaN or Infinity in any intermediate or final value.',
+  },
+  {
+    id: 'imp1044-edge-ladder-all-positive',
+    holds: () => PATH_C_EDGE_LADDER.every(r => r.available && r.L_cond_C > 0),
+    why:
+      'L_cond_C must remain strictly positive across the supported N range (tcProj > 0 plus positive corrections).',
+  },
+  {
+    id: 'imp1044-edge-ladder-all-beat-pt',
+    holds: () => PATH_C_EDGE_LADDER.every(r => r.available && r.beatsPT),
+    why:
+      'L_cond_C must remain < 0.2 (Platt-Trudgian conditional bound) across every probed N.',
+  },
+  {
+    id: 'imp1044-tcProj-pathC-matches-pathA-at-N1e6',
+    holds: () => {
+      if (!ALT_PATH_N1E6.available || !PATH_C_N1E6.available) return false;
+      const d = Math.abs(ALT_PATH_N1E6.tcProj - PATH_C_N1E6.tcProj);
+      return d < 1e-9;
+    },
+    why:
+      'tcProj is computed identically in both paths (a + b/N); any divergence > 1e-9 indicates a regression in PATH_C_BASELINE_FIT_V2 consumption.',
+  },
+  {
+    id: 'imp1044-triple-agreement-record-sane',
+    holds: () =>
+      IMP1044_TRIPLE_AGREEMENT_N1E6.sigFigsAgreeing >= 12 &&
+      Number.isFinite(IMP1044_TRIPLE_AGREEMENT_N1E6.L_cond_altA) &&
+      Number.isFinite(IMP1044_TRIPLE_AGREEMENT_N1E6.L_cond_pathC),
+    why:
+      'The cross-verification record itself must be sane: finite values on both sides and >=12 sig figs of agreement.',
+  },
+];

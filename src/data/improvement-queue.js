@@ -12715,12 +12715,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Cross-verify connes-adelic-trace.js: independent check of key computations",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S10-verify',
     description: "Read src/math/connes-adelic-trace.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-05-13T19:30:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Appended CONNES_ADELIC_CROSS_VERIFY_IMP1040 audit record + CONNES_ADELIC_ASSERTIONS_IMP1040 (10 runtime-PASS tripwires) to src/math/connes-adelic-trace.js. Three independent cross-verification angles: (V1) closed-form formula checks at integer s -- zeta_inf(2) = 1/pi to 1e-10, zeta_p(p,2) = 1/(1-p^{-2}) rational at p=2,3,5,7; (V2) Euler product convergence to known constants at P=1000 -- pi^2/6, Aperys constant, pi^4/90 all within tail bounds 1.45e-4 / 7.2e-8 / 4.8e-11; (V3) Connes finite-place positivity W_p > 0 with strict monotone decrease W_2 > W_3 > W_5 (independently recomputed: 0.135169, 0.006646, 0.000015). Also verified Riemann xi functional equation symmetry at 5 sampled s, xi-adelic relative error < 1e-3 at all 4 sampled s, and absence of NaN/Infinity in any numeric output. Four LOW flags recorded: zeta pole at s=1 is intentional and unreachable from test entry point; functional-equation 2% tolerance is conservative (actual error < 1e-3); eta-acceleration code comment misleading (Knopp-Borchardt described but not used); toFixed(6) clamps W_p to 0 for p >= 7 as a display artefact. All 10 assertions PASS at runtime. No bug, no proof-chain status change. Build passes (4.63s).',
   },
 
     {

@@ -12914,6 +12914,38 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended a /** @module data/heat-flow-cross-validation-imp372 + @fileoverview ... */ JSDoc block above the existing 72-line imp-372 partial-closure prose comment in src/data/heat-flow-cross-validation-imp372.js. New header documents: purpose (heat-flow Lambda method cross-validation against the imp-360 measured Dyson ladder, analytical initial-slope estimate at N in {50, 100, 200, 500, 870}, factor-2 ODE normalization correction, comparison vs PATH_C_BASELINE_FIT_V2 within 2 sigma), proof chain step (heat-flow leg of the three-way agreement check barrier + RK4 + heat-flow for the SOTA Lambda <= 0.121 finite-height claim, HONEST PARTIAL CLOSURE status with three named sub-gaps imp372-Ht-full / imp372-three-way / imp372-ode-norm), both exports (HEAT_FLOW_CROSS_VALIDATION_IMP372 with id status method hfOls rk4Reference lambdaConvergenceVerdict hfTable comparisonTable summary honestLimits openWork sources upgradeInvestigation, HF_IMP372_ASSERTIONS with three build-time tripwires imp372-ols-valid / imp372-intercept-positive / imp372-majority-consistent), key invariants (OLS non-null with at least 3 valid N rows, intercept_a strictly positive, CONSISTENT_COUNT >= 2 of 5), ticket chain (imp-292 introduced the method, imp-372 requested the cross-validation, imp-400 supplied RK4 fit, imp-359 supplied the ladder, imp-670 verified cannot-upgrade vs imp-462/463/464/471, imp-1050 added the header), @see references to companion files, and a syntax note documenting the dg_{k}/dt and dg_{k}/dtau brace notation used to avoid the star-slash JSDoc-terminator hazard. Atomic structural change only; no math claimed, no exports modified, no behavior change. Build passes (npm run build, vite green, 4.53s).',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1051',
+    title: "Cross-verify nicolas-criterion.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/nicolas-criterion.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T22:30:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Cross-verified nicolasCriterionTest() against Nicolas (1983) "Petites valeurs de la fonction d Euler", J. Number Theory 17, 375-388. (1) FORMULA correct: phi(N_k)/N_k < e^{-gamma}/loglog(N_k) is the standard equivalent form. (2) CONSTANT correct: EULER_GAMMA = 0.5772156649015329 (15+ digits); independently recomputed e^{-gamma} = 0.5614594835668851. (3) RECURRENCE correct: phi(N_k)/N_k = prod (1 - 1/p_i) and log(N_k) = sum log(p_i) are algebraically exact, only standard double-precision ULP drift. (4) EDGE CASES correct: for k=1, log(log(2)) < 0 so the bound is negative and a naive comparison would falsely report fail; the `if (loglogNk <= 0) continue` guard correctly skips this iteration. For k >= 2, loglogNk > 0 so no NaN/Inf is producible. sievePrimes(100) yields 25 primes, loop caps at 20, no out-of-bounds. (5) NUMERICAL CHECK: I recomputed phi/N, bound, and margin for k=2..6 and k=20 via a separate Node script (independent of the source file) and the values agree to displayed precision with nicolasCriterionTest() output. Margins shrink monotonically as Nicolas asymptotics predict. (6) COSMETIC MISLABEL FOUND (NOT fixed in this atomic change): keyFindings hardcodes "(k=1)" for the first margin and "k=${results.length}" for the last, but because k=1 is skipped, the first emitted row has k=2 and the last has k=20 with results.length=19. Numbers correct; only the k-index labels are off by one. Flagged inside the JSDoc for a future minor follow-up ticket. VERDICT: formula, recurrence, guard, and emitted numbers are all CORRECT. One cosmetic label bug documented. Verification note prepended to src/math/nicolas-criterion.js as expanded JSDoc header. Build passes (npm run build, 4.42s).',
+  },
+  {
+    id: 'imp-1052',
+    title: "Add JSDoc module documentation to dead-code-audit-2026-04.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/dead-code-audit-2026-04.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

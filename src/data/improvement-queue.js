@@ -13044,6 +13044,38 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended a structured @module data/soft-gaps-cleanup-log + @fileoverview JSDoc block above the pre-existing 12-line imp-435 / imp-445 prose JSDoc header in src/data/soft-gaps-cleanup-log.js, preserving every original line verbatim (the imp-435 cleanup intro, the imp-445 extension note, the three source-review lines listing skp / skp2 / skp3 ids, the 12-presentation-overstatements line, the surgical-edit-target line). The new header documents the proof-chain role as a meta / hygiene artifact recording 12 SOFT-class findings folded into src/math/proof-paper.js with zero math content changed, the full review and cleanup chain imp-417 -> imp-430 -> imp-437 -> imp-435 -> imp-445, the two named exports (SOFT_GAPS_CLEANUP_LOG with all top-level fields ticket / extendedBy / date / sourceReviews / totalSoftGaps / fixes / summary enumerated and the per-summary sub-counts named, and SOFT_GAPS_ASSERTIONS with the three build-time tripwires imp435-all-soft-gaps-logged / imp435-no-math-changes / imp435-review-counts-add-up), the 12 individual gap ids enumerated by source review (skp-004/005/008/010 from imp-417, skp2-002/004/006/007/008 from imp-430, skp3-003/004/005 from imp-437), the load-bearing invariant that summary.mathematicalChanges is hard-zero so any future math claim trips imp435-no-math-changes, the ticket chain imp-417 / imp-430 / imp-435 / imp-437 / imp-445 / imp-1057, @see pointers to ../math/proof-paper.js and the three paper-skeptic-review-N.js source files, and a syntax note that the header avoids the star-slash JSDoc-terminator hazard. Build passes (npm run build, vite green, 4.24s). Atomic structural change only; no math claimed, no exports modified, no assertion changed, no behavior change outside the new comment block.',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-13) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1058',
+    title: "Cross-verify branched-flow.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/branched-flow.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T23:58:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Independent audit appended to src/math/branched-flow.js as CROSS_VERIFICATION_IMP1058_2026_05_13 plus a build-time assertion. Eight claims reproduced: (1) primePotential closed form derived from p^(-s) = p^(-sigma)(cos(t log p) - i sin(t log p)) matches the code (phase = -t log p flips the sin sign correctly); (2) spot-check V_2(0.5, 0) = log((1 - 1/sqrt(2))^2) = -2.4554 matches; (3) totalPotential(2, 0, N) approaches -2 log(pi^2/6) = -0.9954 as N -> infinity (first-50-prime truncation lies in [-0.9954, -0.991]); (4) potentialGradient is correct first-order forward FD; (5) causticDetection second-derivative stencils for sigma and t are centered O(h^2); the mixed-partial d2_st uses an asymmetric 4-corner rectangle (O(h) but valid) and computes VdiaM as DEAD CODE - never consumed; (6) Hessian eigenvalue formula is standard for 2x2 symmetric matrices; (7) classicalRay rounds only the recorded path entry, not the propagating state; (8) ZETA_ZEROS provenance delegated to earlier audits. NaN/Inf risk: 1 - p^(-s) = 0 requires sigma = 0 and t = 2 pi k / log(p); no call path samples sigma = 0, so the existing usage is safe. Conceptual caveat (already flagged by the file): the truncated Euler product converges to -log|zeta|^2 only for sigma > 1, so the "caustic spike at zeta-zero" picture at sigma = 0.5 is heuristic extrapolation, not literal. Heller-Topinka ell_b ~ V^(-2/3) scaling is for weak Gaussian potentials and is honestly flagged as heuristic in the file. No corrective edit required.',
+  },
+  {
+    id: 'imp-1059',
+    title: "Add JSDoc module documentation to imp-903-uniform-sweep-result.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/imp-903-uniform-sweep-result.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

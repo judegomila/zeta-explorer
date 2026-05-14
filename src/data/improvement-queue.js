@@ -13123,12 +13123,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Add JSDoc module documentation to turing-zero-count-verification.js",
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'docs',
     description: "src/data/turing-zero-count-verification.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-05-14T01:10:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: "Prepended a structured /** @module data/turing-zero-count-verification + @fileoverview ... */ JSDoc block above the pre-existing imp-361 prose header in src/data/turing-zero-count-verification.js, preserving every original line verbatim below an ORIGINAL HEADLINE COMMENT marker. The new header documents (a) what the file does — Turing-method zero-count certificate over MEASURED_NS = 35 N values for the imp-360 backward Dyson-ODE measured ladder, recomputing the RvM main term N_main(gamma_N) and asserting |S(T)| < C_SELBERG * log(T) with C_SELBERG = 3 (Titchmarsh 14.13), plus adjacent ordering gamma_{N-1} < gamma_N; (b) proof-chain role as S10 backward Dyson-ODE ladder verification audit ensuring dyson-ladder-measured.js does not silently run on a truncated or out-of-order zero table; (c) both named exports with per-field semantics — TURING_ZERO_COUNT_VERIFICATION (id, closes, method subobject with formula/certificate/C_Selberg/source_C_Selberg, summary subobject with totalN/totalZerosLoaded/allVerified/allSInBound/allOrderingOk/worstSMargin/verdict, certificates array of 35 per-N records) and TURING_VERIFICATION_ASSERTIONS (five holds()/why guard predicates); (d) the five named guard assertions enumerated — imp361-all-certs-verified, imp361-all-ordering-ok, imp361-zeros-table-covers-max-N, imp361-verdict-is-verified, imp361-worst-margin-below-half, each with the failure mode it detects; (e) ticket lineage — imp-361 created the file, imp-360 produced the companion dyson-ladder-measured.js whose input this audits, imp-426 produced koksma-hlawka-C1-pinned.js sharing the same C_SELBERG = 3 constant, imp-1062 this commit added the @module header; (f) @see pointers to ../math/dyson-ladder-measured.js, ../math/koksma-hlawka-C1-pinned.js, and ./zeros-to-1e6.js. Continues the imp-1028/1030/1032/1034/1036/1039/1041/1043/1045/1047/1050/1052/1056/1057/1059 precedent extending the @module convention into src/data/. Atomic structural change only — no math claimed, no exports modified, no assertion modification, no behavior change outside the new comment block. Build passes (npm run build, vite green, 4.53s). Selected via legacy fallback: byModel[opus-4-7] empty, imp-1062 sole pending ticket (lowPending, untagged, content/low/docs)."
   },
 
     {

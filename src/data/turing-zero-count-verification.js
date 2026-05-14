@@ -1,4 +1,94 @@
 /**
+ * @module data/turing-zero-count-verification
+ * @fileoverview Turing-method zero-count certificate for each N value in the
+ *   imp-360 backward Dyson-ODE measured ladder. For every N in the standard
+ *   ladder MEASURED_NS = [50, 100, 200, 500, 870, 1000..25000 step 1000,
+ *   30000, 40000, 50000, 75000, 100000] (35 entries total), this file
+ *   recomputes the Riemann-von Mangoldt main term N_main(T) at T = gamma_N
+ *   (the N-th Odlyzko zero from ZEROS_EXTENDED), extracts the Selberg
+ *   argument S(gamma_N) = N - N_main(gamma_N), and asserts |S(T)| is below
+ *   the conservative Selberg bound S_max(T) = C_SELBERG * log(T) with
+ *   C_SELBERG = 3 (Titchmarsh Section 14.13, same constant as
+ *   src/math/koksma-hlawka-C1-pinned.js imp-426). The certificate also
+ *   verifies strict adjacent ordering gamma_{N-1} < gamma_N for every
+ *   measured N. A failing certificate signals either (a) a truncated or
+ *   corrupted zero table, (b) out-of-order entries that would blow up the
+ *   Calogero-Moser potential (gamma_i - gamma_j)^{-3} in dyson-ladder-measured.js,
+ *   or (c) a Selberg-bound violation (impossible for T < 800000 by Backlund
+ *   theory).
+ *
+ * Proof-chain step: S10 backward Dyson-ODE ladder verification. The companion
+ *   integrator src/math/dyson-ladder-measured.js (imp-360) starts each
+ *   backward Calogero-Moser integration from the first N Riemann zero
+ *   ordinates in ZEROS_EXTENDED and produces a measured t_c(N) collapse
+ *   time. Without an independent zero-count audit, a silent truncation of
+ *   the loaded zero list would cause the integrator to run on the wrong
+ *   initial configuration with no diagnostic flag. This file delivers the
+ *   Turing certificate that makes dyson-ladder-measured.js's input
+ *   trustworthy.
+ *
+ * Exports:
+ *   - TURING_ZERO_COUNT_VERIFICATION: frozen object with id "imp-361",
+ *     closes "imp-361 (Turing certificate requirement for
+ *     dyson-ladder-measured.js)", a method subobject describing the
+ *     Riemann-von Mangoldt + Selberg-argument approach (formula, certificate
+ *     inequality, C_Selberg = 3, provenance pointer to Titchmarsh Section
+ *     14.13 and koksma-hlawka-C1-pinned.js imp-426), a summary subobject
+ *     reporting totalN (length of MEASURED_NS), totalZerosLoaded
+ *     (ZEROS_EXTENDED.length), allVerified / allSInBound / allOrderingOk
+ *     boolean flags, worstSMargin (tightest observed |S(T)|/S_max ratio),
+ *     and verdict ("VERIFIED" or "FAILED"); and a certificates array of
+ *     35 per-N records (N, gammaN, N_rvm_main, S_T, S_max, S_T_abs,
+ *     S_T_within_bound, ordering_ok, verified, plus failReason on insufficient
+ *     zero coverage).
+ *   - TURING_VERIFICATION_ASSERTIONS: array of five holds()/why guard
+ *     predicates consumed by the dashboard self-check pipeline.
+ *
+ * Key assertions (each a holds()/why pair):
+ *   - imp361-all-certs-verified: every certificate must pass both the
+ *     Selberg bound check and the strict-ordering check. A failure means
+ *     the zero table is missing entries, has corrupted ordering, or the
+ *     Selberg bound is violated (impossible for T < 800000 by Backlund).
+ *   - imp361-all-ordering-ok: every adjacent pair gamma_{N-1} < gamma_N
+ *     must hold strictly. Out-of-order zeros would blow up the
+ *     Calogero-Moser potential (gamma_i - gamma_j)^{-3} in the backward
+ *     Dyson ODE.
+ *   - imp361-zeros-table-covers-max-N: ZEROS_EXTENDED.length must be at
+ *     least 100000 (the largest measured N). Fewer entries means the
+ *     certificate for N = 100000 returns verified = false with failReason
+ *     "zero-list-insufficient".
+ *   - imp361-verdict-is-verified: summary.verdict must be the string
+ *     "VERIFIED". A "FAILED" verdict indicates a missing or out-of-order
+ *     entry at some measured N.
+ *   - imp361-worst-margin-below-half: the worst observed |S(T)|/S_max ratio
+ *     must be below 0.5. For the Odlyzko verified table with T < 800000,
+ *     empirically |S(T)| < 2 while S_max = 3 * log(T) >= 11.7 at the
+ *     smallest measured T (gamma_50). A margin >= 0.5 should trigger
+ *     manual inspection of the zero table around that N.
+ *
+ * Ticket lineage:
+ *   - imp-361 created this file as the Turing certificate companion to the
+ *     imp-360 dyson-ladder-measured.js backward ODE integrator.
+ *   - imp-360 produced dyson-ladder-measured.js whose initial configuration
+ *     this file audits.
+ *   - imp-426 produced src/math/koksma-hlawka-C1-pinned.js which uses the
+ *     same C_SELBERG = 3 constant from Titchmarsh Section 14.13.
+ *   - imp-1062 (this commit) prepended this @module / @fileoverview JSDoc
+ *     header for cross-file navigability; no math, exports, or assertions
+ *     modified.
+ *
+ * @see ../math/dyson-ladder-measured.js for the backward Dyson ODE integrator
+ *   that consumes ZEROS_EXTENDED and whose initial configuration this file
+ *   audits.
+ * @see ../math/koksma-hlawka-C1-pinned.js for the imp-426 companion using the
+ *   same C_SELBERG = 3 conservative Selberg bound constant.
+ * @see ./zeros-to-1e6.js for the Odlyzko zero table ZEROS_EXTENDED loaded
+ *   here.
+ */
+
+// ── ORIGINAL HEADLINE COMMENT (preserved verbatim from imp-361) ───────────────
+
+/**
  * imp-361: Turing-method zero-count verification for each N in the imp-360 measured ladder.
  *
  * Purpose

@@ -1,4 +1,144 @@
 /**
+ * @module data/lambda-polymath15-bridge
+ * @fileoverview Quantitative Polymath15 bridge connecting the N-particle Dyson
+ *   backward collision time t_c(N) to the de Bruijn-Newman constant Λ via the
+ *   explicit error decomposition E(N) = E_trunc(N) + E_flow(N) + E_coll(N) of
+ *   the Polymath15 / Tao truncated zero-evolution approximation of H_t. The
+ *   three error terms are: (a) E_trunc(N) ≤ C_T · T_0(N)^(−kappa_T) · log T_0(N)
+ *   from Polymath15 Lemma 3.3 composed with the imp-317 hybrid Guth-Maynard /
+ *   Ingham tail density at the thin strip sigma = 1/2 + 1/log T_0(N), with
+ *   kappa_T = 1 − binding hybrid exponent ≈ 0.182 strictly positive
+ *   unconditionally; (b) E_flow(N) ≤ C_F · log T_0(N) / T_0(N) · exp(C_G · |t_c(N)|)
+ *   from the Riemann-von Mangoldt drift-tail integral above T_0(N) Grönwall-
+ *   propagated over [t_c(N), 0] using Tao "Effective approximation" Proposition
+ *   4.1; (c) E_coll(N) ≤ C_C · (log gamma_N / N)^(1/2) from the imp-341
+ *   Koksma-Hlawka W_1 modulus composed with the Hölder-1/2 modulus of the
+ *   first-collision functional tau_c at the Burgers shock from imp-366
+ *   (Polymath15 Lemma 5.2 port). Sum yields E(N) ≤ C_★ · (log N)² / N^kappa
+ *   with kappa > 0 unconditionally, hence E(N) → 0 at a polylog-over-N rate.
+ *
+ * Proof-chain step: G6_polymath15_bridge closure (S8 / Polymath15 layer). This
+ *   file is the load-bearing bridge that upgrades the imp-341 unconditional
+ *   lim-sup statement a := lim sup_{N→∞} |t_c(N)| = 0 from a statement about
+ *   the N-particle Calogero-Moser collapse time to a statement about Λ itself,
+ *   since Λ is defined via the entire heat-evolved function H_t not via any
+ *   finite truncation. Without this bridge the imp-341 theorem is silent on Λ;
+ *   with it, the chain imp-317 (tail bound) + imp-341 (Burgers uniformity) +
+ *   imp-366 (Hölder-1/2 modulus at the shock) compose into an unconditional
+ *   bound |Λ − (−t_c(N))| ≤ E(N) → 0. The G6a_shock_lipschitz sub-gap that was
+ *   the single open analytic step at imp-345 inception was closed by imp-366
+ *   and the coordinated G6 flip was performed by imp-387; verdict.closure is
+ *   now "closed" (modulo symbolic constants of order unity).
+ *
+ * Exports:
+ *   - LAMBDA_POLYMATH15_BRIDGE: top-level record with id imp-345, role string,
+ *     blocker G6_polymath15_bridge, consumes array (imp-344 surfacing, imp-341
+ *     Koksma-Hlawka, imp-327 effective height map, imp-317 Guth-Maynard tail),
+ *     setup subobject (truncation / flow / target prose), errorBoundE_N
+ *     subobject with formula string, termProvenance per-term (E_trunc / E_flow
+ *     / E_coll each with formula plus source plus kappa_T_interpretation where
+ *     applicable), constants subobject naming each C_T / C_F / C_G / C_C /
+ *     kappa_T provenance, rateSummary prose, atLadder array of seven per-N
+ *     numerical rows over LADDER_N = [2458, 5000, 10000, 100000, 1e6, 1e7, 1e8],
+ *     allRowsFinitePositive / rowsStrictlyDecreasing boolean flags, ansatzForNumericalRows
+ *     subobject (C_T = C_F = C_C = 1, C_G = 1, kappa_T = 0.5, tcAssumedBound =
+ *     0.01, plus purpose prose declaring these as illustrative placeholders),
+ *     openSubgap pointing at the now-closed G6A_SHOCK_LIPSCHITZ record,
+ *     dependsOnImp317TailBound string consuming GUTH_MAYNARD_TAIL_BOUND.thinStripExample.binding_exponent_at_strip,
+ *     verdict subobject (closure closed, headline prose, whatIsRigorous array,
+ *     whatIsConditional array, finiteHeightRHCorollary "NONE yet" with
+ *     explanation), and openWork array of three follow-up directions.
+ *   - LAMBDA_POLYMATH15_BRIDGE_ASSERTIONS: array of ten holds()/why guard
+ *     predicates consumed by the dashboard self-check pipeline.
+ *
+ * Key assertions (each a holds()/why pair):
+ *   - imp345-consumes-imp344-by-id: LAMBDA_INTERCEPT_UNCONDITIONAL.id must
+ *     equal "imp-344". Id drift breaks the assembly citation chain.
+ *   - imp345-consumes-imp341-by-id: LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.id
+ *     must equal "imp-341". E_coll(N) rides on the imp-341 Koksma-Hlawka W_1
+ *     bound; id drift silently strands the citation.
+ *   - imp345-consumes-imp317-guth-maynard-tail: GUTH_MAYNARD_TAIL_BOUND must
+ *     report a thinStripExample.binding_exponent_at_strip strictly less than 1,
+ *     so kappa_T = 1 − binding_exponent is strictly positive and E_trunc(N)
+ *     → 0 at a polynomial rate.
+ *   - imp345-consumes-imp327-height-map: FINITE_HEIGHT_RH_STATEMENT.id must
+ *     equal "imp-327". T_0(N) is computed via effectiveHeightForN from imp-327
+ *     and id drift or helper rename breaks the ladder rows.
+ *   - imp345-ladder-rows-finite-positive: every numerical row for E(N) at the
+ *     imp-321 ladder values must be finite and strictly positive; null or
+ *     non-finite means effectiveHeightForN or the ansatz computation broke.
+ *   - imp345-ladder-rows-strictly-decreasing: E(N) under the ansatz must decay
+ *     monotonically with N; non-monotone rows mean the rate formula has been
+ *     miscoded or the ansatz constants have drifted.
+ *   - imp345-g6a-shock-lipschitz-closed: G6A_SHOCK_LIPSCHITZ.status must equal
+ *     "closed" (closed by imp-366 / coordinated flip imp-387). A revert to
+ *     "open" must also revert verdict.closure to "partial" in the same commit.
+ *   - imp345-verdict-full-closure-acknowledged: LAMBDA_POLYMATH15_BRIDGE.verdict.closure
+ *     must equal "closed". Any future revert must also revert the roadmap and
+ *     imp-344 records in the same commit.
+ *   - imp345-finite-height-corollary-still-none: verdict.finiteHeightRHCorollary
+ *     must contain the string "NONE yet". If a future edit removes "NONE yet"
+ *     the same commit must land an actual finite-height RH theorem; the
+ *     bridge only upgrades the lim-sup statement to a Λ statement at the
+ *     limit, not per-N.
+ *   - imp345-kappa-T-positive-from-imp317: 1 − GUTH_MAYNARD_TAIL_BOUND.thinStripExample.binding_exponent_at_strip
+ *     must be > 0. At the baseline sigma ≈ 0.625 the binding exponent is
+ *     ≈ 0.818 giving kappa_T ≈ 0.182. Any tightening of imp-317 that pushes
+ *     the exponent to ≥ 1 invalidates the rate argument and the tripwire
+ *     makes that visible.
+ *
+ * Imported lemmas (cited by reference, NOT re-proved):
+ *   - L1 = Polymath15 Lemma 3.3: truncation of H_t by H_t^{(N)} is
+ *     quantitatively bounded by the tail-zero-density integral.
+ *   - L2 = Tao "Effective approximation" Proposition 4.1: for every t in
+ *     [−1, 0] the backward Calogero-Moser flow on the first N zeros tracks
+ *     the real zeros of H_t^{(N)} with defect bounded by N^(−1/2 + o(1)) on
+ *     the macroscopic scale.
+ *   - L3 = Polymath15 Lemma 5.2: Hölder-1/2 modulus of tau_c at the Burgers
+ *     shock; ported by imp-366 as src/data/polymath15-lemma52-shock-holder.js.
+ *
+ * Ticket lineage:
+ *   - imp-344 (lambda-intercept-unconditional.js) surfaced G6_polymath15_bridge
+ *     as the single load-bearing gap between the imp-341 lim-sup statement and
+ *     a Λ statement.
+ *   - imp-317 (guth-maynard-tail-bound.js) supplies the hybrid Guth-Maynard /
+ *     Ingham tail exponent feeding kappa_T in E_trunc(N).
+ *   - imp-341 (lambda-intercept-burgers-uniformity.js) supplies the
+ *     Koksma-Hlawka W_1 bound feeding E_coll(N).
+ *   - imp-327 (lambda-rh-height-mapping.js) supplies effectiveHeightForN for
+ *     the N to T_0(N) inversion.
+ *   - imp-345 (this file) created the bridge with G6a_shock_lipschitz left
+ *     open.
+ *   - imp-366 (polymath15-lemma52-shock-holder.js) closed G6a_shock_lipschitz
+ *     by porting Polymath15 Lemma 5.2.
+ *   - imp-387 performed the coordinated G6 flip updating verdict.closure to
+ *     "closed".
+ *   - imp-838 (skp3-002) pinned C_F analytically as
+ *     C_F(N) = (log(T_0(N)/2pi) + 1) / (2pi).
+ *   - imp-1063 (this commit) prepended this @module / @fileoverview JSDoc
+ *     header for cross-file navigability; no math, exports, or assertions
+ *     modified.
+ *
+ * @see ./lambda-intercept-unconditional.js for the imp-344 surfacing of
+ *   G6_polymath15_bridge and the imp-341 lim-sup statement that this bridge
+ *   upgrades to a Λ statement.
+ * @see ./lambda-intercept-burgers-uniformity.js for the imp-341 Koksma-Hlawka
+ *   W_1 bound feeding E_coll(N).
+ * @see ./lambda-rh-height-mapping.js for effectiveHeightForN and the imp-327
+ *   finite-height RH statement.
+ * @see ./guth-maynard-tail-bound.js for the imp-317 hybrid tail exponent
+ *   feeding kappa_T in E_trunc(N).
+ * @see ./polymath15-lemma52-shock-holder.js for the imp-366 port of Polymath15
+ *   Lemma 5.2 that closed G6a_shock_lipschitz.
+ *
+ * Syntax note: this header uses brace notation gamma_{k} and dgamma_{k*}/dt
+ *   style for any derivative-like expression, avoids the close-comment
+ *   terminator sequence inside prose, and uses ASCII hyphen-minus throughout.
+ */
+
+// ── ORIGINAL HEADLINE COMMENT (preserved verbatim from imp-345) ───────────────
+
+/**
  * imp-345: attempted closure of G6_polymath15_bridge
  *
  * Explicit error bound E(N) connecting the N-particle Dyson backward

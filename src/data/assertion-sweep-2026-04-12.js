@@ -1,4 +1,94 @@
 /**
+ * @module data/assertion-sweep-2026-04-12
+ * @fileoverview imp-501 full build-time assertion sweep dated 2026-04-12. This
+ *   file is both an audit artifact (the ASSERTION_SWEEP_2026_04_12 PASS matrix
+ *   documenting every top-level throw-on-failure assertion in src/data/ and
+ *   src/math/) and a load-bearing wiring step (four side-effect imports that
+ *   activate twelve previously dead build-time assertions by making their
+ *   parent modules reachable from rh-attack.js). Without the side-effect
+ *   imports, those four modules sit outside the production import graph and
+ *   their top-level throws are dead code — silent regressions to C_H / C_C /
+ *   C_T / C_F precision, submission-ready fatalCount, criticalPending, or
+ *   c-mb searchComplete would land without a build-time signal.
+ *
+ * Proof-chain step: meta / hygiene wiring (NOT itself a proof step). The
+ *   purpose is to guarantee that every previously authored top-level throw
+ *   assertion fires at module-load time so silent regressions cannot land. If
+ *   any of the seventeen tracked assertions starts failing under a future
+ *   edit, npm run build aborts with the original module error message and
+ *   the surrounding ticket id is preserved in the bracketed prefix of the
+ *   thrown error (e.g. "[imp-413] ulpErr exceeded threshold").
+ *
+ * Side-effect imports (load order, after rh-attack.js pulls this file):
+ *   - polymath15-constants-mpfr-check.js  imp-413  4 assertions (C_H / C_C /
+ *     C_T / C_F worst-case ulp under 5 via double-double arithmetic Dekker
+ *     1971 with about 32 significant digits; max observed ulpErr 0.852).
+ *   - polymath15-constants-gmp-check.js   imp-422  4 assertions (relErr under
+ *     1e-14 via BigInt fixed-point at D = 10^100 about 100 significant digits).
+ *   - submission-ready-2026-04-12.js      imp-500  2 assertions (fatalCount
+ *     strictly equal to 0; criticalPending strictly equal to 0 hardened from
+ *     soft warning to hard throw by imp-503).
+ *   - c-mb-unconditional-bound.js         imp-486  2 assertions (searchComplete
+ *     strictly equal to true; approachesExamined.length at least 3 — the
+ *     three approaches Selberg / Huxley / GGM documented for GUE universality
+ *     irreducibility).
+ *   The fifth tracked module imp469-cross-verification.js (imp-473, 5
+ *   assertions on rho(14) and rho(gamma_1) positivity and threshold floors)
+ *   is already live via m-raw-from-umon-bridge.js (independent side-effect
+ *   import predating this sweep), so this file does not re-import it.
+ *
+ * Exports:
+ *   - ASSERTION_SWEEP_2026_04_12: object with ticket imp-501, date
+ *     2026-04-12, timestamp 2026-04-12T07:00:00.000Z, buildPassed true,
+ *     verifiedAt 2026-04-15T23:00:00.000Z (imp-806 re-verification stamp),
+ *     totalAssertions 17, deadBeforeSweep 12, liveBeforeSweep 5,
+ *     deadAfterSweep 0, and an assertions array of five per-file rows each
+ *     carrying file path, ticket id, count integer, checks string array,
+ *     wasLive boolean, nowLive boolean, pass boolean, optional liveVia
+ *     pointer string (present for imp-473 only), and a note describing
+ *     precision methodology or rounding origin.
+ *   - ASSERTION_SWEEP_ALL_PASS: boolean true sentinel re-exported as a
+ *     quick dashboard check.
+ *
+ * Build-time guard (one tripwire local to this file):
+ *   - The reduce sum of assertions[i].count must equal totalAssertions; if
+ *     it drifts (a new check added without bumping the total, or a count
+ *     decremented without updating the matrix) the module throws
+ *     "[imp-501] Assertion sweep count mismatch: matrix sums to X but
+ *     totalAssertions=Y" at load time. This is the only top-level throw in
+ *     this file; the seventeen tracked assertions live in the four imported
+ *     modules above plus the already-live imp-473 file.
+ *
+ * Ticket lineage:
+ *   - imp-413 / imp-422 / imp-473 / imp-486 / imp-500 created the per-module
+ *     top-level throw assertions that this sweep tracks.
+ *   - imp-501 created this file: the sweep, the four side-effect imports,
+ *     the PASS matrix, and the count-mismatch tripwire.
+ *   - imp-503 hardened the submission-ready-2026-04-12 criticalPending
+ *     assertion from a soft warning to a hard throw (making it reachable as
+ *     a build-time failure rather than a console message).
+ *   - imp-806 re-verified all seventeen assertions still pass and stamped
+ *     verifiedAt 2026-04-15T23:00:00.000Z.
+ *   - imp-1064 this commit prepended the @module / @fileoverview header for
+ *     cross-file navigability and ticket lineage discoverability.
+ *
+ * Syntax discipline: the original imp-501 prose header preserved verbatim
+ *   below the ORIGINAL HEADLINE COMMENT marker carries an explicit note
+ *   "avoid star-slash sequences inside JSDoc block text" and this new
+ *   header follows the same convention — no literal close-comment
+ *   terminator anywhere in the prose, only at the very end of the block
+ *   immediately before the marker line.
+ *
+ * @see ./polymath15-constants-mpfr-check.js
+ * @see ./polymath15-constants-gmp-check.js
+ * @see ./submission-ready-2026-04-12.js
+ * @see ../math/c-mb-unconditional-bound.js
+ * @see ./imp469-cross-verification.js
+ */
+
+// ── ORIGINAL HEADLINE COMMENT (preserved verbatim from imp-501) ───────────────
+
+/**
  * imp-501: Full build-time assertion sweep -- 2026-04-12
  *
  * WHAT THIS FILE DOES

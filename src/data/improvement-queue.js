@@ -13099,6 +13099,38 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Eight independent numerical checks all clean: (1) all ten ZETA_EXACT reference values match a 1e7-term Dirichlet series + Euler-Maclaurin tail to relative error <= 2.2e-16; (2) Apery recurrence polynomial (2n+1)(17n^2+17n+5) verified to equal the textbook 34n^3+51n^2+27n+5; (3) computed bn matches OEIS A005259 exactly: 1, 5, 73, 1445, 33001, 819005, 21460825, 584307365; (4) Apery convergent saturates float64 by n=8; (5) Euler product errors match expected O(P^{1-n}/log P) tail; (6) Wynn epsilon recurrence is textbook-standard; (7) runs-test variance formula = Wald-Wolfowitz; (8) float64 mantissa cap of 52 bits is correct. Noted but out of scope: 3 unused imports (eulerFactor, cAbs, zetaCriticalStrip from zeta.js) and 2 conceptual caveats (chaitinProofStrategy prime-bound looseness, hermitePadeApproximants naming). Findings recorded as CROSS_VERIFICATION_IMP1060_2026_05_13 export at end of src/math/odd-zeta.js.',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-14) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1061',
+    title: "Cross-verify kernel-hack-rigorous-error.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/kernel-hack-rigorous-error.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-14T00:55:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: "Second independent cross-verification appended to src/math/kernel-hack-rigorous-error.js as CROSS_VERIFICATION_IMP1061_2026_05_13. Eight numerical anchors (DELTA_PLATT 0.2436, D_MIN_CENTRAL 5.460e-5, LAMBDA_CENTRAL 3.726e-10, BF_BOUND_PLATT 1.540e-17 / 4.13e-8 rel, GUE scale 1.264e-4, CI bounds [1.633e-11, 2.465e-10], midpoint 1.314e-10, half-width 1.151e-10, plus Basel sum and EXP1 prose) re-derived from first principles to 3-4 figure agreement with the file and with the prior imp-983 verify. All five build-time assertions confirmed PASS with margins quantified: BF-vs-Lambda 7 orders of magnitude (loosest), CI-width-vs-Fermi 11.5% (tightest). Edge-case audit (meanSpacing near T=2*pi, gueScale at N=0, bfTruncationBound at delta=0, Math.pow at p=1, .toExponential coercion) re-confirmed SAFE under fixed Platt scale. The three imp-983 flags (prose rounding, leading factor of 2 in ||E_mb||, c_GUE = 1.5 conservative) are independently re-confirmed; no new findings raised.",
+  },
+  {
+    id: 'imp-1062',
+    title: "Add JSDoc module documentation to turing-zero-count-verification.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/turing-zero-count-verification.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

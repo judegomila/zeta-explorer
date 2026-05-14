@@ -13068,12 +13068,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Add JSDoc module documentation to imp-903-uniform-sweep-result.js",
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'docs',
     description: "src/data/imp-903-uniform-sweep-result.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-05-14T00:15:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: "Prepended a structured @module / @fileoverview JSDoc block to src/data/imp-903-uniform-sweep-result.js. The new header covers (a) the proof chain step (L2 uniform C_mb bound programme - imp-857 plateau + imp-903 endpoint sweep), (b) the two exports IMP_903_UNIFORM_SWEEP_RESULT and IMP_903_UNIFORM_SWEEP_ASSERTIONS with per-field semantics, (c) the four named guard assertions and what each one regresses against, and (d) the ticket lineage (imp-903 created, imp-857 / imp-486 companions, imp-1059 documentation). The original headline comment is preserved verbatim below an ORIGINAL HEADLINE COMMENT marker.",
   },
 
     {

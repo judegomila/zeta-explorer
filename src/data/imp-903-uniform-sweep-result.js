@@ -1,4 +1,48 @@
 /**
+ * @module data/imp-903-uniform-sweep-result
+ * @fileoverview Closure record for imp-903-sub-sweep-27-updates: interval
+ *   RK4 at each of the 27 H_raw-update N values (the empirical sweep that
+ *   imp-903 named as its sole blocker). Loads the per-row raw data from
+ *   imp-903-uniform-sweep-result-rows.json, derives the
+ *   K_paper_cert_floor maxima per N0 band, computes the imp-486 rescue
+ *   formula K * log(N0) / sqrt(N0) at the standard N0 ladder, and exposes
+ *   four IMP_903_UNIFORM_SWEEP_ASSERTIONS that the dashboard self-check
+ *   pipeline ratifies on every build.
+ *
+ * Proof chain step: L2 uniform C_mb bound programme (imp-857 plateau +
+ *   imp-903 endpoint sweep). The plateau-smoothness analytic argument in
+ *   src/math/imp-857-uniform-K-bound.js bounds C_mb on plateau interiors;
+ *   this file delivers the certified endpoint maxima needed to pin down
+ *   the per-band K constant. The imp-486 rescue formula
+ *   K * log(N0) / sqrt(N0) < 0.12751 is the gate criterion for honest
+ *   discrimination of L vs Li under uniform-C_mb regularity.
+ *
+ * Exports:
+ *   - IMP_903_UNIFORM_SWEEP_RESULT: frozen object with the 27-row sweep
+ *     data, rescueTable across N0 in [10, 25, 50, 100, 200, 500, 1000,
+ *     2000, 5000], tightestRescue (smallest N0 where rescue holds), and
+ *     a headline block reporting K_paper_cert_floor maxima above 100 /
+ *     500 plus the prose interpretation message.
+ *   - IMP_903_UNIFORM_SWEEP_ASSERTIONS: four guard predicates picked up
+ *     by the dashboard self-check pipeline.
+ *
+ * Key assertions (each a holds() / why pair):
+ *   - imp903-sweep-at-least-23-closed: at least 23 of 27 rows must close
+ *     a backward-collision bracket (regression guard).
+ *   - imp903-rescue-satisfied-from-100: imp-486 rescue must hold from
+ *     N0 <= 100 (the key empirical claim unblocking the L2 bound).
+ *   - imp903-widest-wrapper-under-heuristic: widest maxIntervalWidth
+ *     must stay below 1e-5 (three orders below the 0.01 heuristic).
+ *   - imp903-K-above-500-tiny: K_paper_cert_floor max for N >= 500 must
+ *     be < 0.02 (gives > 6x rescue safety margin at N0 = 500).
+ *
+ * Tickets:
+ *   - Created by imp-903 (sub-sweep-27-updates execution, 2026-04-22).
+ *   - Companion to imp-857 plateau-smoothness analytic bound and the
+ *     imp-486 rescue criterion.
+ *   - Documentation header added by imp-1059 (this ticket).
+ *
+ * --- ORIGINAL HEADLINE COMMENT ---
  * imp-903-sub-sweep-27-updates RESULT: interval RK4 at each of the 27
  * H_raw-update N values (closure of the empirical sweep that imp-903
  * named as its sole blocker).

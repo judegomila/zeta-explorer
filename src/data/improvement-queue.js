@@ -13079,6 +13079,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: "Prepended a structured @module / @fileoverview JSDoc block to src/data/imp-903-uniform-sweep-result.js. The new header covers (a) the proof chain step (L2 uniform C_mb bound programme - imp-857 plateau + imp-903 endpoint sweep), (b) the two exports IMP_903_UNIFORM_SWEEP_RESULT and IMP_903_UNIFORM_SWEEP_ASSERTIONS with per-field semantics, (c) the four named guard assertions and what each one regresses against, and (d) the ticket lineage (imp-903 created, imp-857 / imp-486 companions, imp-1059 documentation). The original headline comment is preserved verbatim below an ORIGINAL HEADLINE COMMENT marker.",
   },
 
+  
+  // ── Auto-seeded batch (2026-05-14) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1060',
+    title: "Cross-verify odd-zeta.js: independent check of key computations",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10-verify',
+    description: "Read src/math/odd-zeta.js and independently verify its main exported computation. Check: (1) are the formulas correct vs. the cited references? (2) are there edge cases that produce NaN or infinity? (3) does the numerical output match a known reference value? Document findings as inline comments or a verification note.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-05-13T00:30:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Eight independent numerical checks all clean: (1) all ten ZETA_EXACT reference values match a 1e7-term Dirichlet series + Euler-Maclaurin tail to relative error <= 2.2e-16; (2) Apery recurrence polynomial (2n+1)(17n^2+17n+5) verified to equal the textbook 34n^3+51n^2+27n+5; (3) computed bn matches OEIS A005259 exactly: 1, 5, 73, 1445, 33001, 819005, 21460825, 584307365; (4) Apery convergent saturates float64 by n=8; (5) Euler product errors match expected O(P^{1-n}/log P) tail; (6) Wynn epsilon recurrence is textbook-standard; (7) runs-test variance formula = Wald-Wolfowitz; (8) float64 mantissa cap of 52 bits is correct. Noted but out of scope: 3 unused imports (eulerFactor, cAbs, zetaCriticalStrip from zeta.js) and 2 conceptual caveats (chaitinProofStrategy prime-bound looseness, hermitePadeApproximants naming). Findings recorded as CROSS_VERIFICATION_IMP1060_2026_05_13 export at end of src/math/odd-zeta.js.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

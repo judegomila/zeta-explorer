@@ -13154,6 +13154,23 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: "Prepended a structured /** @module data/lambda-polymath15-bridge + @fileoverview ... */ JSDoc block above the pre-existing imp-345 prose header in src/data/lambda-polymath15-bridge.js, preserving every original line verbatim below an ORIGINAL HEADLINE COMMENT marker. The new header documents (a) what the file does — quantitative Polymath15 bridge connecting t_c(N) to Lambda via the explicit error decomposition E(N) = E_trunc(N) + E_flow(N) + E_coll(N) with kappa_T = 1 minus binding Guth-Maynard exponent strictly positive unconditionally; (b) proof-chain role as the G6_polymath15_bridge closure that upgrades the imp-341 lim-sup statement to a Lambda statement at the limit, with the G6a_shock_lipschitz sub-gap closed by imp-366 and coordinated G6 flip done by imp-387; (c) both named exports with per-field semantics — LAMBDA_POLYMATH15_BRIDGE (id, role, blocker, consumes array, setup, errorBoundE_N with formula and termProvenance and constants and rateSummary and atLadder rows and openSubgap and dependsOnImp317TailBound, verdict subobject with closure 'closed' and headline and whatIsRigorous and whatIsConditional arrays and finiteHeightRHCorollary 'NONE yet', openWork array) and LAMBDA_POLYMATH15_BRIDGE_ASSERTIONS array of ten holds()/why guards; (d) the ten named guard assertions enumerated with what each one regresses against — imp345-consumes-imp344-by-id, imp345-consumes-imp341-by-id, imp345-consumes-imp317-guth-maynard-tail, imp345-consumes-imp327-height-map, imp345-ladder-rows-finite-positive, imp345-ladder-rows-strictly-decreasing, imp345-g6a-shock-lipschitz-closed, imp345-verdict-full-closure-acknowledged, imp345-finite-height-corollary-still-none, imp345-kappa-T-positive-from-imp317; (e) imported lemmas cited by reference not re-proved — L1 Polymath15 Lemma 3.3 truncation, L2 Tao Effective approximation Proposition 4.1 backward Calogero-Moser tracking, L3 Polymath15 Lemma 5.2 Holder-1/2 modulus at the shock; (f) ticket lineage — imp-344 surfaced G6, imp-317 supplies tail exponent, imp-341 supplies W_1 bound, imp-327 supplies height map, imp-345 created the bridge with G6a open, imp-366 closed G6a, imp-387 coordinated flip, imp-838 pinned C_F analytically, imp-1063 this commit added the @module header; (g) @see pointers to ./lambda-intercept-unconditional.js, ./lambda-intercept-burgers-uniformity.js, ./lambda-rh-height-mapping.js, ./guth-maynard-tail-bound.js, ./polymath15-lemma52-shock-holder.js. Continues the imp-1028/1030/1032/1034/1036/1039/1041/1043/1045/1047/1050/1052/1056/1057/1059/1062 precedent extending the @module convention into src/data/. Atomic structural change only — no math claimed, no exports modified, no assertion modification, no behavior change outside the new comment block. Build passes (npm run build, vite green, 4.70s). Selected via legacy fallback: byModel[opus-4-7] empty, imp-1063 sole pending ticket (lowPending, untagged, content/low/docs).",
   },
 
+  
+  // ── Auto-seeded batch (2026-05-14) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1064',
+    title: "Add JSDoc module documentation to assertion-sweep-2026-04-12.js",
+    category: 'content',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'docs',
+    description: "src/data/assertion-sweep-2026-04-12.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

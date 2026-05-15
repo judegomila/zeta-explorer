@@ -1,4 +1,27 @@
 /**
+ * @module burgess-character-sums
+ * @fileoverview Burgess (1957, 1962, 1963) character-sum bounds: the best
+ * unconditional control on partial sums of non-principal Dirichlet characters,
+ * |sum_{n<=x} chi(n)| < x^{1 - 1/r} . q^{(r+1)/(4 r^2) + epsilon} for any
+ * integer r >= 1, which strictly sharpens the classical Polya-Vinogradov
+ * estimate c . sqrt(q) . log q whenever x >= q^{1/4 + epsilon}. The module
+ * numerically compares the actual extremum max_{x<=10000} |sum chi(n)| with
+ * the trivial, Polya-Vinogradov, and Burgess (r=2 and r=3) bounds for six
+ * real quadratic characters chi mod q for q in {3, 4, 5, 7, 11, 13}, and
+ * tracks the O(sqrt(x)) growth profile of the chi mod 7 partial-sum extremum
+ * to confirm empirical square-root cancellation. Key export:
+ * burgessCharacterSumsTest (returns per-character results, growth analysis,
+ * key findings, relation to GRH, next steps, and a verdict). Originating
+ * ticket: imp-209. Proof-chain step: anchors the unconditional character-sum
+ * baseline above which GRH (for L(s, chi)) is expected to deliver the
+ * sharper O(sqrt(q) . log q . log log q) Montgomery-Vaughan bound, feeding
+ * the RH attack the explicit gap between unconditional and GRH-conditional
+ * control of Dirichlet L-function partial sums.
+ * @see imp-209
+ * @see imp-1074
+ */
+
+/**
  * Burgess Character Sum Bounds
  *
  * imp-209: Burgess (1957, 1962, 1963) established the BEST UNCONDITIONAL

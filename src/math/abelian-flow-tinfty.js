@@ -1,4 +1,22 @@
 /**
+ * @module abelian-flow-tinfty
+ * @fileoverview Commutative spectral realization of the prime spectrum via the
+ * translation flow Phi_t on T^infinity = Prod_{p prime} S^1_{log p}. Establishes
+ * three facts: (1) Q-linear independence of {log p} forces equidistribution of
+ * orbits (Kronecker-Weyl 1914); (2) closed-orbit period set equals {log m : m
+ * positive integer} with primitive periods {log p}; (3) the dynamical zeta
+ * function of this flow equals the Euler product Prod_p (1 - p^{-s})^{-1} =
+ * zeta(s). Key exports: `abelianFlowTInftyTest` (returns numerical checks of
+ * Q-linear independence, closed-orbit spectrum, and dynamical zeta agreement
+ * with the Euler product). Originating ticket: imp-159. Proof-chain step:
+ * resolves the commutativity obstacle surfaced in imp-158 by replacing the
+ * non-abelian operator search with an abelian R-action whose primitive orbit
+ * spectrum is exactly {log p}.
+ * @see imp-158
+ * @see imp-159
+ */
+
+/**
  * Abelian Flow on T^∞ — Commutative Spectral Realization
  *
  * imp-159: imp-158 revealed the commutativity obstacle. The natural

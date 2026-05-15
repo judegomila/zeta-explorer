@@ -1,4 +1,25 @@
 /**
+ * @module brun-constant
+ * @fileoverview Brun (1919) twin-prime reciprocal sum: numerically evaluates
+ * the famous constant B_2 = sum over twin primes p of (1/p + 1/(p+2)), which
+ * Brun proved converges (a striking contrast with Euler's divergent sum of
+ * all prime reciprocals). The module sieves primes up to 10^7 via the
+ * Sieve of Eratosthenes, enumerates every twin pair (p, p+2), accumulates
+ * the partial sum S(x), and extrapolates the slow Hardy-Littlewood tail
+ * 4*C_2/log(x) (with twin-prime constant C_2 approx 0.660162) to recover
+ * B_2 approx 1.9021605778 (Nicely 1996, Sebah 2002). Brun's sieve laid
+ * the analytic-number-theory foundation later refined by Selberg, Bombieri,
+ * Zhang, and Maynard. Key export: `brunConstantTest` (returns the partial
+ * sum, the Hardy-Littlewood tail estimate, the extrapolated B_2, and a
+ * comparison with the reference value). Originating ticket: imp-195.
+ * Proof-chain step: anchors the convergence baseline that the RH attack
+ * uses to bound twin-prime density contributions before invoking the
+ * Bombieri-Vinogradov / bounded-gaps machinery downstream.
+ * @see imp-195
+ * @see imp-1073
+ */
+
+/**
  * Brun Constant B_2 for Twin Primes
  *
  * imp-195: Brun (1919) proved that the sum of reciprocals of twin primes

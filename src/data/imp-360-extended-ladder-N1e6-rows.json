@@ -17,6 +17,23 @@
     "generatedAt": "2026-05-15T21:29:28.084Z"
   },
   {
+    "N": 50000,
+    "dt": 0.0001,
+    "nStepsMax": 50,
+    "H_raw": 0.0295376,
+    "t_c_pair": 0.00010906,
+    "t_c_lo": 0.0001,
+    "t_c_hi": 0.0002,
+    "K_paper_cert_floor": 0.0001,
+    "maxIntervalWidth": 8.913e-10,
+    "closed": true,
+    "steps": 2,
+    "reason": "gap-lower-bound-nonpositive",
+    "runtimeSec": 3337.8,
+    "source": "imp-360-one-ulp-interval-rk4-optimized",
+    "generatedAt": "2026-05-15T22:25:39.047Z"
+  },
+  {
     "N": 250000,
     "dt": null,
     "nStepsMax": 0,

@@ -1,4 +1,75 @@
 /**
+ * @module data/empirical-sweep-dp8-crosscheck
+ * @fileoverview imp-859 / Theme A / PATH 1 hardening artefact: cross-check of
+ *   the imp-833 empirical sweep (closed-form tau_c_est(N) = H_N^2 / (8 rho_{J*(N)}^2),
+ *   src/data/empirical-m-sweep-extended.js) against the actual backward Dyson
+ *   ODE run with two independent time integrators on a tractable subset of N
+ *   values. Runs dysonOdeCrossVerify({ Ns: [50, 100, 200], dt: 5e-4,
+ *   maxSteps: 800 }) at module load and stitches the per-N results against the
+ *   sweep SAMPLES list to produce a measured-vs-estimated comparison for each N.
+ *
+ * Proof-chain step: Theme A / PATH 1 hardening of the empirical Lambda
+ *   collision-time sweep. Upgrades imp-833 from single-method numerical
+ *   (RK4 only) to two-integrator cross-verified on {50, 100, 200} via the
+ *   imp-357 Dormand-Prince RK45 alternative time integrator. NOT a primary
+ *   proof step itself — it is a verification rung that lifts the imp-833
+ *   sweep status from "single-method numerical" to "integrator-independent
+ *   on the cross-checked subset", which downstream consumers (imp-874
+ *   arXiv draft narrative, imp-870 Lean port discussion) cite when relying
+ *   on the closed-form tau_c_est.
+ *
+ * Honest scope: the ticket language calls for DP8 (8th-order Dormand-Prince).
+ *   The repository does not yet ship a DP8 integrator; the only higher-order
+ *   DP variant available is the 5th-order RK45 (DP45) from imp-357. This
+ *   closure uses DP45 as the second integrator (order 5 > RK4 order 4,
+ *   independent Butcher tableau, shared only the Kahan-compensated kernel
+ *   reduction which is by design). The remaining true DP8 / Verner 8(7) port
+ *   is tracked as an open sub-gap in openFollowups. The filename retains
+ *   "-dp8-" for ticket traceability.
+ *
+ * Key assertions:
+ *   - INTEGRATOR INDEPENDENCE: for every N in {50, 100, 200}, RK4 and DP45
+ *     measured collision times agree to within imp-357 tolerance
+ *     max(5*dt, 1e-3). Surfaced as verdicts.allIntegratorsAgree.
+ *   - CLOSED-FORM CONSISTENCY BAND: measured/estimated ratio lies in the
+ *     guarded band (0.1, 1.5] for both integrators at every N. Lower guard
+ *     (0.1) rejects gross underestimation by the closed form; upper guard
+ *     (1.5) tolerates the expected many-body funnel acceleration (measured
+ *     < estimated under the CM-boundary two-particle estimate). Surfaced as
+ *     verdicts.allRatiosInBand.
+ *   - COMBINED VERDICT: verdicts.combined = allIntegratorsAgree AND
+ *     allRatiosInBand. When true, status reads "CROSS-VERIFIED (partial —
+ *     DP45 stands in for DP8)"; otherwise "DISCREPANCY — investigate
+ *     before citing".
+ *
+ * Exports:
+ *   - EMPIRICAL_SWEEP_DP8_CROSSCHECK: frozen-shape record with id ('imp-859'),
+ *     title (DP45 stand-in disclosed), status string keyed on the combined
+ *     verdict, predicate prose, method block (primary RK4 + Kahan-Neumaier
+ *     citing imp-306/imp-363, secondary DP45 + Kahan citing imp-357,
+ *     closedForm tau_c_est identity citing imp-833, collisionGate
+ *     spacing < 1e-4, Dormand-Prince reference), config (Ns, dt, maxSteps,
+ *     integratorTol, ratio guards), per-N comparisons array (rk4_tc_measured,
+ *     dp45_tc_measured, sweep_tauC_est, delta_integrators, integrators_agree,
+ *     ratio_rk4_over_est, ratio_dp45_over_est, rvm_gamma_argmin, H_N,
+ *     rho_argmin), verdicts triple, keyFindings prose strings per N,
+ *     interpretation paragraph, openFollowups (true DP8/Verner 8(7) port;
+ *     extension to N in {500, 870}; ratio propagation into the rho_amp
+ *     table), and provenance block.
+ *
+ * Inbound dependencies:
+ *   - src/math/dyson-ode-integrator.js (dysonOdeCrossVerify, the RK4 + DP45
+ *     dual-integrator driver from imp-357).
+ *   - src/data/empirical-m-sweep-extended.js (EMPIRICAL_M_SWEEP_EXTENDED,
+ *     the imp-833 sweep providing tabulated tau_c_est(N) and the per-N
+ *     gamma_jStar / H_N / rho_jStar fields).
+ *
+ * Tickets that created or modified this file: imp-859 (initial closure
+ *   with DP45 as the second integrator and the explicit DP8 sub-gap),
+ *   imp-1078 (this @module / @fileoverview header).
+ */
+
+/**
  * imp-859 / A2: Cross-check the imp-833 empirical sweep with a second
  * integrator.
  *

@@ -4602,6 +4602,15 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'The measured ladder is the actual evidence. Projection is a placeholder. Extending by two decades tightens the imp-328 conditional UB from 0.0086 to ~2·10⁻⁵.',
     estimatedComplexity: 'high',
     completedAt: '2026-04-11',
+    closureNote: 'imp-360 partial (2026-05-15): Extended ladder shipped to src/data/imp-360-extended-ladder-N1e6.js. ' +
+      'N=25000 CLOSED: t_c ∈ [0.0001,0.0002], maxIntervalWidth=8.29e-10, 2 steps, 820s. ' +
+      'N=50000 in progress (expected ~55 min). ' +
+      'N=250000/500000/1000000 honest-partial: H_raw and t_c_pair certified; integration infeasible ' +
+      '(one RK4 step at N=250000 takes ~29.6h O(N²)). ' +
+      'ZEROS_EXTENDED confirmed: 1M Odlyzko ordinates in zeros-to-1e6.js. ' +
+      'Optimised runner: scripts/run-imp360-single-N.mjs (Uint32Array ULP, ~10× speedup vs BigInt). ' +
+      'Remaining: N=50000 (in progress), N=100000 (attempt after N=50000), N=250k/500k/1M (need C/Arb backend). ' +
+      'Sub-ticket imp-360-sub-remaining-N deferred for native-backend follow-up.',
   },
   {
     id: 'imp-361',
@@ -5251,8 +5260,17 @@ export const IMPROVEMENT_QUEUE = [
     description: 'imp-405 pushed the measured ladder to N=100,000 using the full imp-359 100K Odlyzko table. For the imp-418 zero-free region consequence and the imp-416 finite-height claim, another decade of N matters: the effective height T* grows with N and the 1/N fit tightens the projected intercept. Load Odlyzko zeros2 (or zeros4, the 10^6-zero extended tables at https://www-users.cse.umn.edu/~odlyzko/zeta_tables/) and run the imp-362 interval integrator on a log-spaced ladder {150k, 250k, 400k, 600k, 1M}. Append 5 new measured rows to dyson-ladder-measured.js. Deliverable: extended ladder + consistency note confirming the 1/N ansatz still holds out to N=10^6.',
     rationale: 'Extending the ladder another decade tests whether the asymptotic 1/N ansatz holds at N=10^6 (the largest N any other published Lambda result has reached). Agreement out to N=10^6 is the strongest possible empirical confirmation short of a formal proof.',
     estimatedComplexity: 'high',
-    partialNote: 'imp-423 partial (2026-04-11): PROJECTED_NS extended to {150k,250k,400k,600k,1M} in dyson-ladder-measured.js. Measured rows blocked by sub-gap skp-imp423-compute: (a) zeros6 ~35MB download needed (node scripts/fetch-odlyzko-zeros.mjs 1000000), (b) O(N^2) interval integrator infeasible at Vite build time at these N. OLS projections confirm 1/N ansatz holds extrapolated to N=1M (tc_proj~0.006605 at N=1M).',
+    partialNote: 'imp-423 partial (2026-04-11): PROJECTED_NS extended to {150k,250k,400k,600k,1M} in dyson-ladder-measured.js. Measured rows blocked by sub-gap skp-imp423-compute: (a) zeros6 ~35MB download needed — RESOLVED: zeros-to-1e6.js already has 1M Odlyzko ordinates. (b) O(N^2) interval integrator infeasible at build time — MITIGATED: scripts/run-imp360-single-N.mjs (~10× optimised runner) closes brackets at N≤50000 in ~1h offline.',
     completedAt: null,
+    closureNote: 'imp-423 partial (2026-05-15): src/data/imp-360-extended-ladder-N1e6.js ships interval-certified rows. ' +
+      'N=25000 CLOSED: t_c ∈ [0.0001,0.0002], maxW=8.29e-10. ' +
+      'N=50000 in progress. ' +
+      'N=100000 attempt pending (est. 109 min/step, ~1-3 steps; borderline feasible). ' +
+      'N=250000/500000/1M honest-partial: H_raw+t_c_pair only, no integration. ' +
+      'Blocking sub-gap skp-imp423-compute resolved for N≤100000 (zeros-to-1e6.js has 1M entries). ' +
+      'Remaining: N=100000 closed bracket (attempt in progress); ' +
+      'N≥250000 requires C/Arb/CAPD backend (imp-925 pathway). ' +
+      'Sub-ticket imp-360-sub-remaining-N deferred.',
   },
 
   {

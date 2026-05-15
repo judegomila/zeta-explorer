@@ -1,0 +1,18 @@
+[
+  {
+    "plateauIndex": 0,
+    "certType": "start",
+    "N": 10000,
+    "H_raw": 0.037698,
+    "closed": true,
+    "source": "imp-933 / imp-911-per-plateau-gronwall-certs-rows.json plateau-26 (imp-857-L1 N=10000, commit 9e22bfb)",
+    "note": "Carry-over plateau 0 start. Same H_raw = 0.037698 plateau as imp-933 final plateau (index 26). Cert sourced from imp-911-per-plateau-gronwall-certs-rows.json entry with plateauIndex=26.",
+    "t_c_pair": 0.0001776471,
+    "t_c_lo": 0.0002,
+    "t_c_hi": 0.0003,
+    "F_mb_upper": 0.00012235,
+    "K_raw_cert": 0.00005008,
+    "K_paper_cert_floor": 0.00039275,
+    "maxIntervalWidth": 1.28e-9
+  }
+]

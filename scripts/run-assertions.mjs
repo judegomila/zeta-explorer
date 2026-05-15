@@ -139,6 +139,8 @@ const DATA_MODULES = [
   '/src/data/imp-962-plateau-structure-N10k-to-N1e6.js',
   // imp-360 / imp-423: extended measured ladder at N ∈ {25k…1M} (one-ULP interval RK4).
   '/src/data/imp-360-extended-ladder-N1e6.js',
+  // imp-962: per-plateau START+INTERIOR interval-RK4 certs for N ∈ (10⁴, 10⁶].
+  '/src/data/imp-962-per-plateau-gronwall-certs-N10k-to-N1e6.js',
 ];
 
 const ALL_MODULES = FAST_MODE

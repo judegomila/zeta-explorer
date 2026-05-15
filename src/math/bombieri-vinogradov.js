@@ -1,4 +1,26 @@
 /**
+ * @module bombieri-vinogradov
+ * @fileoverview Bombieri-Vinogradov theorem (1965): the "GRH on average"
+ * estimate Sum_{q <= Q} max_{(a,q)=1} max_{y <= x} |psi(y; q, a) - y/phi(q)|
+ * << x (log x)^{-A}, valid UNCONDITIONALLY for every A > 0 in the range
+ * Q <= sqrt(x) (log x)^{-B(A)}. The module precomputes the von Mangoldt
+ * weight Lambda(n), tabulates psi(x; q, a) over all coprime residues a
+ * modulo each q in [2, Q] with Q = floor(sqrt(x)), forms the per-modulus
+ * maxima M_q(x) = max_a |psi(x; q, a) - x / phi(q)|, and compares the
+ * accumulated sum Sum_q M_q(x) against the two canonical right-hand sides
+ * x (log x)^{-2} and x (log x)^{-4} as well as the GRH-per-q bound
+ * Q sqrt(x) (log x)^2. Key export: `bombieriVinogradovTest` (returns the
+ * theorem statement, the per-q diagnostics, the ratio-to-bound summary,
+ * and a pass/fail verdict at x = 10000, Q = 100). Originating ticket:
+ * imp-218. Proof-chain step: anchors the unconditional half of the
+ * "average GRH" leg of the RH attack, supplying the sieve-side error
+ * term consumed by the Zhang-Maynard-Tao bounded-prime-gap modules
+ * (imp-189) and the Elliott-Halberstam strengthening downstream.
+ * @see imp-218
+ * @see imp-1071
+ */
+
+/**
  * Bombieri-Vinogradov Theorem: GRH on Average (Unconditional)
  *
  * imp-218: Bombieri (1965) and A.I. Vinogradov (1965) independently proved

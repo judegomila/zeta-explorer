@@ -1,4 +1,23 @@
 /**
+ * @module artin-l-functions
+ * @fileoverview Non-abelian Artin L-functions L(s, rho) attached to Galois
+ * representations rho: Gal(K-bar/K) -> GL_n(C), generalizing Dirichlet/Hecke
+ * L-functions to higher-dimensional automorphic data. The module realises the
+ * one-dimensional (abelian) case explicitly by reconstructing L(s, chi_{-3})
+ * as the Artin L-function of the sign representation of Gal(Q(omega)/Q),
+ * then numerically witnesses the cyclotomic factorization zeta_{Q(omega)}(s)
+ * = zeta(s) * L(s, chi_{-3}) as a special case of the general Artin product
+ * decomposition zeta_{K}(s) = prod_rho L(s, rho)^{dim rho}. Key exports:
+ * `artinLFunctionsTest` (returns numerical agreement at probe values of s for
+ * the abelian-case Euler product, the cyclotomic factorization, and a sanity
+ * check of the S_3 dimension formula). Originating ticket: imp-219.
+ * Proof-chain step: provides the non-abelian L-function scaffold required for
+ * downstream Langlands-side spectral arguments (functoriality, holomorphy
+ * conjecture) that feed the lambda-bound program.
+ * @see imp-219
+ */
+
+/**
  * Artin L-Functions: Non-Abelian Extension of Hecke
  *
  * imp-219: Artin L-functions L(s, ρ) generalize Dirichlet/Hecke L-functions

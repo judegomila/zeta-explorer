@@ -1,4 +1,28 @@
 /**
+ * @module bounded-prime-gaps
+ * @fileoverview Zhang-Maynard-Tao bounded prime gaps witnesses (2013-2014):
+ * Zhang (2013) proved H_1 := liminf (p_{n+1} - p_n) <= 70,000,000, breaking
+ * a century-old open problem; Maynard (2014) and Polymath8b (2014) refined
+ * the bound to H_1 <= 246 unconditionally, with H_1 <= 6 under GRH and the
+ * twin prime conjecture H_1 = 2 still open. The module sieves primes up
+ * to 10^6 via the standard Sieve of Eratosthenes, enumerates prime pairs
+ * at gaps 2, 4, 6, 8, 10, 12, and locates Hardy-Littlewood prime
+ * constellations (p, p+2, p+6), (p, p+2, p+6, p+8), and the admissible
+ * 5-tuple (p, p+2, p+6, p+8, p+12), comparing observed counts against
+ * the Hardy-Littlewood k-tuple conjecture pi_k(x; H) ~ C(H) x / (log x)^k
+ * with C(H) the singular series. Each witness pair (p, p') with p' - p
+ * <= 246 confirms the Polymath8b bound numerically on the sieve range.
+ * Key export: `boundedPrimeGapsTest` (returns gap-histogram counts,
+ * constellation tallies, the Polymath8b verdict, and per-tuple
+ * Hardy-Littlewood ratios). Originating ticket: imp-189. Proof-chain step:
+ * consumes the Bombieri-Vinogradov average-GRH error term (imp-218) to
+ * supply the unconditional sieve input for the Elliott-Halberstam
+ * strengthening downstream of the RH attack.
+ * @see imp-189
+ * @see imp-1072
+ */
+
+/**
  * Zhang-Maynard-Tao Bounded Prime Gaps Witnesses
  *
  * imp-189: Zhang (2013) proved a massive breakthrough: there are

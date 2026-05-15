@@ -1,4 +1,52 @@
 /**
+ * @module data/zero-free-region-from-lambda
+ * @fileoverview imp-418 downstream consequence: zero-free region tightening
+ *   from the Lambda bound. Translates a de Bruijn-Newman bound Lambda <= L
+ *   into an explicit TYPE B zero-free strip { sigma > 1/2 + L * log(|t|/(2*pi)) }
+ *   via the heat-flow ODE for H_t zeros (de Bruijn 1950, Csordas-Norfolk-Varga
+ *   1986), and compares it to the unconditional Mossinghoff-Trudgian 2015
+ *   TYPE A region zeta(s) != 0 for sigma >= 1 - 1/(R_MT * log|t|) with
+ *   R_MT = 5.573412. Computes (i) the dbnBoundary(L, gamma) and
+ *   effectiveVKConstant(L, gamma) at fixed gamma, (ii) the crossover height
+ *   gamma_crossover(L) ~ 2*pi * exp(1/(2*L)) below which TYPE B dominates
+ *   TYPE A, and (iii) a COMPARISON_TABLE across gamma in {1e3, 1e6, 3e12, 1e20}
+ *   for the three Lambda levels {Platt-Trudgian 0.2, our OLS headline 0.0166,
+ *   asymptotic 0}. Headline number: at gamma = 3e12 (Platt-Trudgian verified
+ *   height) the projected Lambda <= 0.0166 yields R_eff ~ 0.649 vs R_MT
+ *   = 5.573 (an ~8.6x improvement in zero-free constant), conditional on the
+ *   OLS intercept a ~ 0.007 and blockers B1, B2, B4 of lambda-zero-attack.js.
+ *
+ * Proof-chain step: downstream consequence of the Lambda chain (NOT itself a
+ *   proof step). The TYPE B strip is rigorous IF Lambda <= L is rigorous; it
+ *   inherits the conditional status of bridge-lambda-rh.js pathCBound. The
+ *   mean-density (Poisson-kernel) approximation of the heat-flow collision
+ *   time t_c ~ y0 / log(gamma/(2*pi)) is named as the only non-elementary
+ *   step beyond the heat-flow ODE itself, and is tracked in the openItems
+ *   field "density-approximation".
+ *
+ * Exports:
+ *   - ZERO_FREE_REGION_FROM_LAMBDA: frozen-shape record with typeBStrip
+ *     formula, typeAMT2015 reference, effectiveVKAtPTHeight headline at
+ *     gamma = 3e12, crossoverHeights (ourBound ~7.2e13, plattTrudgian ~76),
+ *     comparisonTable across four heights, finiteHeightLadder rows derived
+ *     from FINITE_HEIGHT_LAMBDA_BOUND.ladder (imp-416), honestSummary, and
+ *     openItems tracking density-approximation and lambda-chain-rigorous.
+ *   - ZERO_FREE_REGION_ASSERTIONS: six build-time assertions covering
+ *     boundary range at 1e12, TYPE B < TYPE A at 1e6, R_eff < R_MT at 1e6,
+ *     crossover > 1e13, table row count = 4, and R_eff < R_MT at 3e12.
+ *
+ * Inbound dependencies:
+ *   - bridge-lambda-rh.js (imp-316): supplies LAMBDA_RH_BRIDGE.sotaUpperBound
+ *     (Platt-Trudgian Lambda <= 0.2) and LAMBDA_RH_BRIDGE.pathCBound (our
+ *     OLS projection central + error bar = 0.0166).
+ *   - finite-height-lambda-bound.js (imp-416): supplies
+ *     FINITE_HEIGHT_LAMBDA_BOUND.ladder for the per-N projected Lambda values
+ *     at N in {1e4, 1e5, 1e6}.
+ *
+ * Tickets that created or modified this file: imp-418 (initial delivery of
+ *   the TYPE B strip translation and MT 2015 comparison), imp-1066 (this
+ *   @module / @fileoverview header).
+ *
  * imp-418: Downstream consequence -- zero-free region tightening from the Lambda bound
  *
  * Central question

@@ -13194,6 +13194,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: "Prepended a structured /** @module data/dyson-slope-analytic-bound + @fileoverview ... block above the pre-existing imp-324 prose header in src/data/dyson-slope-analytic-bound.js, preserving every original line verbatim below an ORIGINAL HEADLINE COMMENT marker. The new header documents (a) what the file does — first-order analytic estimate of the Path C slope b in the 1/N ansatz |t_c(N)| approx a + b/N from the imp-322 Calogero-Moser boundary identity at tau=0, naming the analytic counterpart of the empirical OLS slope 4.91 = b_lin(N) := N * tauLin(N) = N * B(0)^2 / (8 - 4 B(0)^2 S_{k*}(0)), with no random-matrix model, no GUE assumption, and no fit residual; (b) proof-chain role as S6 / Path C slope FIRST-ORDER ESTIMATE, NOT a theorem — names the gap between OLS fit and bound but does NOT close B1 (lambda-zero-attack.js), because the linearisation is only valid while the minimum-gap index does not switch on [0, tau_c] and the bracket d(g_{k*}^2)/dtau does not move upward toward 0; (c) all seven named exports with per-field semantics — PATH_C_EMPIRICAL_SLOPE 4.91 re-pinned, ANALYTIC_SLOPE_TABLE per-N records over FIT_NS=[50,100,200,500,min(870,ZETA_ZEROS.length)] each with N/kStar/B/S/D/tauLin/bLin, ANALYTIC_SLOPE_GEOMEAN geometric mean of b_lin, ANALYTIC_SLOPE_DRIFT_RATIO max/min of b_lin (drift ratio measuring whether the 1/N ansatz is structurally consistent), ANALYTIC_VS_EMPIRICAL_RATIO_AT_MAX_N b_lin at max N divided by 4.91, DYSON_SLOPE_ANALYTIC_BOUND structured record with id imp-324 plus blocker/name/formula/derivation/empirical/analytic/whatThisIs/whatThisIsNot/scope/consumes/feeds/status fields, DYSON_SLOPE_BOUND_ASSERTIONS array of four holds()/why guards; (d) the four named guard assertions enumerated — boundary-drift-strictly-negative (D > 0 at every N), min-gap-and-tau-positive (B and tauLin and bLin all finite positive), analytic-slope-same-order-as-empirical (ratio in (0.05, 50) at max N), imp322-boundary-coefficient-still-8 (recomputes the -8 from dg/dt at S=0, g=0.5 as defence-in-depth tripwire against silent change to dyson-monotonicity-proof.js); (e) ticket lineage — imp-322 supplied the closed-form boundary identity dg_k/dt = 4/g_k - 2 g_k S_k(t) and the strict S_k(0) > 0 bound, imp-325 supplied the conservative floor tau_c >= B(0)^2/8 that drops the +4 g^2 S_{k*} term (too loose to be the analytic counterpart of 4.91 hence this file uses the full bracket instead), imp-314 named the fit-intercept SE that gates the sign of Lambda and made the slope SE the load-bearing residual, imp-318 cited 4.91 as the Path C OLS slope on Ns ∈ {50,100,200,500,2458} R^2=0.943 and pinned B1-slope-constant, imp-324 delivered the analytic counterpart with closure caveats and four-assertion self-check, imp-1065 this commit prepended the @module header; (f) @see pointers to ./dyson-monotonicity-proof.js, ./lambda-zero-attack.js, ../math/zeta.js. Continues the imp-1028/1030/1032/1034/1036/1039/1041/1043/1045/1047/1050/1052/1056/1057/1059/1062/1063/1064 precedent extending the @module convention into src/data/. Atomic structural change only — no math claimed, no exports modified, no assertion modification, no behavior change outside the new comment block. Build passes (npm run build, vite green, 4.32s). Selected via legacy fallback (byModel[opus-4-7] empty; imp-1065 sole pending ticket, lowPending, untagged, content/low/docs).",
   },
 
+  
+  // ── Auto-seeded batch (2026-05-15) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1066',
+    title: "Add JSDoc module documentation to zero-free-region-from-lambda.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    proofSection: 'docs',
+    description: "src/data/zero-free-region-from-lambda.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-05-15T19:45:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Prepended a @module / @fileoverview JSDoc header block to src/data/zero-free-region-from-lambda.js summarising the TYPE B zero-free strip translation of the Lambda bound, the MT 2015 TYPE A reference, the headline R_eff ~ 0.649 vs R_MT = 5.573 at gamma = 3e12, exports (ZERO_FREE_REGION_FROM_LAMBDA and its six assertions), inbound dependencies (bridge-lambda-rh.js imp-316, finite-height-lambda-bound.js imp-416), and tickets that authored / modified the file. The original imp-418 descriptive JSDoc body is retained verbatim below the new header.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

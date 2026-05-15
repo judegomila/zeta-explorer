@@ -1,4 +1,122 @@
 /**
+ * @module data/dyson-slope-analytic-bound
+ * @fileoverview First-order analytic estimate of the Path C slope b in the
+ *   1/N ansatz |t_c(N)| ≈ a + b/N (imp-324, BLOCKER B1 of
+ *   src/data/lambda-zero-attack.js). The empirical Path C OLS fit on Ns ∈
+ *   {50, 100, 200, 500, 2458} reports b = 4.91 with R² = 0.943, but B1
+ *   explicitly flags that 4.91 as "fitted, not bounded" — the slope SE is
+ *   the dominant contributor to the imp-314 fit-intercept SE that gates the
+ *   sign of Λ. This file delivers the strongest a-priori statement the
+ *   imp-322 Calogero-Moser boundary identity supports without additional
+ *   structural assumptions: an analytic counterpart of 4.91 derived from
+ *   the boundary derivative of B² at τ = 0, with no random-matrix model,
+ *   no GUE assumption, and no fit residual. The derivation chain is the
+ *   imp-322 closed form dg_k/dt = 4/g_k − 2 g_k S_k(t) passed to backward
+ *   time τ = −t and squared to d(g_k²)/dτ = −8 + 4 g_k² S_k, evaluated at
+ *   τ = 0 at the minimum-gap index k* to define the strictly-positive
+ *   boundary drift D := 8 − 4 B(0)² S_{k*}(0), linearised
+ *   B²(τ) ≈ B(0)² − D · τ, and zeroed to yield τ_lin(N) = B(0)² / D and
+ *   the analytic slope
+ *   b_lin(N) := N · τ_lin(N) = N · B(0)² / (8 − 4 B(0)² S_{k*}(0)).
+ *
+ * Proof-chain step: S6 / Path C slope (FIRST-ORDER ESTIMATE, not a theorem).
+ *   This file is the analytic counterpart of the empirical OLS slope 4.91 —
+ *   it names the gap between fit and bound, it does NOT close B1 to a
+ *   theorem. The linearisation is only accurate while (i) the minimum-gap
+ *   index does not switch on [0, τ_c] and (ii) the bracket d(g_{k*}²)/dτ
+ *   does not move upward toward 0 along the trajectory. Neither condition
+ *   is guaranteed by the boundary identity alone, so τ_lin(N) is an
+ *   ESTIMATE of τ_c(N), not a proven upper bound, and the status field of
+ *   DYSON_SLOPE_ANALYTIC_BOUND is therefore
+ *   "first-order estimate (this file); full theorem still open". Closing
+ *   B1 to a theorem requires global control on the boundary trajectory,
+ *   not just its τ = 0 derivative.
+ *
+ * Exports:
+ *   - PATH_C_EMPIRICAL_SLOPE: the literal 4.91 re-pinned as a named
+ *     constant so the assertions can compare against the OLS slope without
+ *     parsing prose out of lambda-zero-attack.js LAMBDA_ZERO_BLOCKERS
+ *     B1.numericalForm.
+ *   - ANALYTIC_SLOPE_TABLE: per-N records over FIT_NS = [50, 100, 200,
+ *     500, min(870, ZETA_ZEROS.length)] each with N, kStar, B (= min gap),
+ *     S (= imp-322 boundary sum), D (= boundary drift),
+ *     tauLin (= linear collision time), bLin (= N · tauLin).
+ *   - ANALYTIC_SLOPE_GEOMEAN: geometric mean of b_lin across the table —
+ *     the natural single-number summary because b_lin enters
+ *     multiplicatively through (✦). If the slope is structurally constant
+ *     in N this matches the OLS slope; if it drifts the geometric mean is
+ *     the right central tendency for a power-law-like trend.
+ *   - ANALYTIC_SLOPE_DRIFT_RATIO: max(b_lin) / min(b_lin) across the
+ *     table. Drift ≈ 1 means the 1/N ansatz is structurally consistent at
+ *     this N range; drift much greater than 1 means the ansatz is not the
+ *     right scaling and the imp-314 fit-intercept SE is biased, not just
+ *     noisy.
+ *   - ANALYTIC_VS_EMPIRICAL_RATIO_AT_MAX_N: b_lin at the largest N in the
+ *     table divided by PATH_C_EMPIRICAL_SLOPE — the cleanest head-to-head
+ *     since the OLS fit is dominated by its largest lever-arm point.
+ *   - DYSON_SLOPE_ANALYTIC_BOUND: the structured record with id imp-324,
+ *     blocker, name, formula, derivation, empirical / analytic subobjects,
+ *     whatThisIs / whatThisIsNot prose pair, scope, consumes, feeds, and
+ *     status fields.
+ *   - DYSON_SLOPE_BOUND_ASSERTIONS: array of four holds()/why guards
+ *     consumed by the dashboard self-check pipeline.
+ *
+ * Key assertions (each a holds()/why pair):
+ *   - boundary-drift-strictly-negative: D = 8 − 4 B² S_{k*} must be
+ *     strictly positive at every N in the table — equivalently
+ *     4 B² S_{k*} < 8, the strict form of the imp-322 monotonicity bound.
+ *     A failure means the boundary identity does not even support a
+ *     first-order slope estimate at one of the table Ns and the file must
+ *     be re-derived.
+ *   - min-gap-and-tau-positive: each row needs B(0) > 0 (zeros simple),
+ *     tauLin > 0 (D > 0 and B > 0), and bLin finite. Catches NaN /
+ *     Infinity from a corrupted zero list or an empty FIT_NS array.
+ *   - analytic-slope-same-order-as-empirical: b_lin at max N divided by
+ *     4.91 must lie in (0.05, 50). A 100× discrepancy here would indicate
+ *     a bug in this file, not in the empirical fit (the imp-322 identity
+ *     is symbolic and cannot be wrong; a wide gap is a coding bug in
+ *     analyticSlopeAtN or sumS).
+ *   - imp322-boundary-coefficient-still-8: recomputes the −8 boundary
+ *     coefficient from imp-322 inside this file by evaluating dg_k/dt at
+ *     S_k = 0, g = 0.5 and squaring. Defence-in-depth tripwire so a silent
+ *     change to dyson-monotonicity-proof.js would fire here, not just in
+ *     that file.
+ *
+ * Ticket lineage:
+ *   - imp-322 (dyson-monotonicity-proof.js) supplied the boundary identity
+ *     dg_k/dt = 4/g_k − 2 g_k S_k(t) and the strict S_k(0) > 0 bound that
+ *     makes D > 0 generically on the actual zero list.
+ *   - imp-325 supplied the conservative floor τ_c ≥ B(0)²/8 that drops
+ *     the +4 g² S_k* term — too loose to be the analytic counterpart of
+ *     4.91, hence this file uses the full bracket (✦) instead.
+ *   - imp-314 named the fit-intercept SE that gates the sign of Λ and
+ *     made the slope SE the load-bearing residual.
+ *   - imp-318 (lambda-zero-attack.js) cited 4.91 as the literal Path C
+ *     OLS slope on Ns ∈ {50, 100, 200, 500, 2458} with R² = 0.943 and
+ *     pinned B1-slope-constant as the named blocker.
+ *   - imp-324 (this file) delivered the boundary-linearised analytic
+ *     counterpart of 4.91 with the closure caveats spelled out and a
+ *     four-assertion self-check.
+ *   - imp-1065 (this commit) prepended this @module / @fileoverview
+ *     JSDoc header for cross-file navigability; no math, exports, or
+ *     assertions modified.
+ *
+ * @see ./dyson-monotonicity-proof.js for the imp-322 closed form and the
+ *   strict S_k(0) > 0 bound feeding D > 0.
+ * @see ./lambda-zero-attack.js for the LAMBDA_ZERO_BLOCKERS
+ *   B1-slope-constant entry that defines the empirical 4.91 and the gap
+ *   this file names.
+ * @see ../math/zeta.js for ZETA_ZEROS, the literal zero list the analytic
+ *   slope table reads.
+ *
+ * Syntax note: this header uses brace notation g_{k*} and dg_{k*}/dt for
+ *   any derivative-like expression to avoid the close-comment terminator
+ *   sequence inside prose, and uses ASCII hyphen-minus throughout.
+ */
+
+// ── ORIGINAL HEADLINE COMMENT (preserved verbatim from imp-324) ───────────────
+
+/**
  * Analytic estimate of the Path C slope b in |t_c(N)| ≈ a + b/N (imp-324, BLOCKER B1)
  *
  * lambda-zero-attack.js B1 calls the slope b = 4.91 a "fitted, not bounded"

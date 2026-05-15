@@ -1,4 +1,27 @@
 /**
+ * @module berry-keating-connes
+ * @fileoverview Discretized Berry-Keating dilation Hamiltonian H_BK = (x p + p x)/2
+ * and its Connes-refined adelic cousin, the canonical Hilbert-Polya candidate
+ * whose spectrum is conjectured to reproduce the imaginary parts of the
+ * non-trivial zeta zeros. Under the substitution x = e^u the operator reduces
+ * to P = -i d/du on L^2(R), which we truncate to [-L, L] with periodic
+ * boundary conditions; eigenvalues become lambda_k = sin(2 pi k / N)/du and
+ * the limiting continuum spectrum is the equally-spaced lattice pi n / L. The
+ * module then quantifies the well-known density mismatch against the
+ * Riemann-von Mangoldt count N(T) = (T/2pi) log(T/2pi) - T/2pi + O(1) and
+ * computes the height-dependent required box size L(T) = log(T/2pi)/2 that
+ * the Connes (1999) Sonin-type projection enforces. Key exports:
+ * `berryKeatingConnesTest` (returns the first 10 box-truncated BK eigenvalues
+ * alongside zeta zeros, the density ratio at several heights, and the
+ * required-L diagnostic). Originating ticket: imp-165. Proof-chain step:
+ * provides the spectral-operator scaffold used by the Hilbert-Polya leg of
+ * the RH attack, feeding downstream Connes-trace-formula and lambda-bound
+ * arguments that require a self-adjoint operator with the correct zero
+ * density.
+ * @see imp-165
+ */
+
+/**
  * Berry-Keating / Connes Dilation Hamiltonian — Truncated Construction
  *
  * imp-165: The Connes (1999) adelic Hilbert-Pólya construction builds an

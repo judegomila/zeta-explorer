@@ -1,4 +1,24 @@
 /**
+ * @module analytic-conductor
+ * @fileoverview Iwaniec-Kowalski analytic conductor q(pi, s) = q(pi) * Prod_j (1
+ * + |mu_j + s|) for an automorphic L-function L(s, pi) of degree d, with
+ * integer conductor q(pi) and archimedean Langlands parameters mu_j. The
+ * module evaluates q(pi, s) for the standard families (Riemann zeta, Dirichlet
+ * L-functions with q <= 100, weight-k modular L-functions of level N, elliptic
+ * curve L-functions, symmetric-square lifts) and uses it to predict the zero
+ * density N_pi(T) = #{rho : L(rho, pi) = 0, |Im(rho)| <= T} via the
+ * Iwaniec-Kowalski leading-order formula (T d / 2 pi) log(q(pi) T^d / (2 pi
+ * e)^d). The leading-term prediction is then verified for the Riemann zeta
+ * function against the 869 archived zeros via Riemann-von Mangoldt. Sole
+ * export: `analyticConductorTest` (returns numerical checks for each L-family,
+ * the zero-density prediction at several heights T, and the zeta comparison
+ * against archived zeros). Originating ticket: imp-240. Proof-chain step:
+ * supplies the conductor scale used by the zero-density and Katz-Sarnak
+ * family-statistics arguments downstream.
+ * @see imp-240
+ */
+
+/**
  * Iwaniec-Kowalski Analytic Conductor
  *
  * imp-240: For an automorphic L-function L(s, π) with integer conductor q(π)

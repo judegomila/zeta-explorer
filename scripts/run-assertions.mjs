@@ -137,6 +137,8 @@ const DATA_MODULES = [
   '/src/data/finite-k-c-mb-unconditional.js',
   // imp-962 HONEST PARTIAL: plateau-structure scan on (10⁴, 10⁶].
   '/src/data/imp-962-plateau-structure-N10k-to-N1e6.js',
+  // imp-360 / imp-423: extended measured ladder at N ∈ {25k…1M} (one-ULP interval RK4).
+  '/src/data/imp-360-extended-ladder-N1e6.js',
 ];
 
 const ALL_MODULES = FAST_MODE

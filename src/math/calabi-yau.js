@@ -1,4 +1,36 @@
 /**
+ * @module calabi-yau
+ * @fileoverview Calabi-Yau threefold attack on the Riemann zeta function:
+ * a six-dimensional geometric route that lifts zeta data into the Hodge
+ * theory, period geometry, mirror symmetry, Hasse-Weil local zeta, and
+ * Laplace spectrum of CY3-folds (the canonical example being the quintic
+ * X_5 in P^4 with Hodge numbers h^{1,1}=1, h^{2,1}=101 and Euler
+ * characteristic chi = -200, and its mirror with h^{1,1}=101, h^{2,1}=1).
+ * The module implements (1) hodgeDiamond and CY_EXAMPLES, listing the
+ * Hodge numbers of standard CY3 families, (2) picardFuchsPeriods, sampling
+ * the Picard-Fuchs ODE solution along the quintic moduli z-axis with a
+ * derivativeCorrection helper, (3) mirrorPrepotential, a A-model
+ * prepotential including Gromov-Witten instanton corrections, (4)
+ * localZetaFermat, the Hasse-Weil local zeta factors of the Fermat quintic
+ * over F_p, (5) calabiYauSpectrum, model Laplacian eigenvalues controlled
+ * by h^{1,1} / h^{2,1}, (6) modularityCheck and etaleCohomologyTest, which
+ * cross-check L-function/Galois-representation predictions, (7)
+ * threefoldLiftAnalysis, deligneExtensionGap, spectralZeroCorrelation,
+ * calabiYauFisherInfo, and cyZetaCrossCheck, which sit at the interface
+ * with the RH attack and compare CY-derived spectral statistics against
+ * the first ~50 nontrivial zeta zeros. Originating ticket: imp-026 (CY
+ * threefold lift and Langlands program connection); JSDoc header added
+ * under imp-1075. Proof-chain step: the geometric / Langlands branch of
+ * the RH attack — supplies the motive-theoretic comparison data
+ * (cohomology dimensions, local zeta factors, spectral correlation) that
+ * the main proof uses to test whether nontrivial zeros of zeta are
+ * consistent with eigenvalues of a Hermitian operator arising from CY3
+ * geometry.
+ * @see imp-026
+ * @see imp-1075
+ */
+
+/**
  * Calabi-Yau Manifold Attack Module
  *
  * Explores connections between 6-dimensional Calabi-Yau geometry and the

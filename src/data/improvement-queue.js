@@ -13233,6 +13233,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended a @module / @fileoverview JSDoc header block to src/data/zero-free-region-from-lambda.js summarising the TYPE B zero-free strip translation of the Lambda bound, the MT 2015 TYPE A reference, the headline R_eff ~ 0.649 vs R_MT = 5.573 at gamma = 3e12, exports (ZERO_FREE_REGION_FROM_LAMBDA and its six assertions), inbound dependencies (bridge-lambda-rh.js imp-316, finite-height-lambda-bound.js imp-416), and tickets that authored / modified the file. The original imp-418 descriptive JSDoc body is retained verbatim below the new header.',
   },
 
+  
+  // ── Auto-seeded batch (2026-05-15) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-1077',
+    title: "Add JSDoc module documentation to cross-reference-integrity-2026-04-12.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    proofSection: 'docs',
+    description: "src/data/cross-reference-integrity-2026-04-12.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-05-15T21:30:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Prepended a @module / @fileoverview JSDoc header block to src/data/cross-reference-integrity-2026-04-12.js summarising the imp-504 cross-reference integrity sweep: scope (src/, papers/, lean/, IMPROVEMENTS.md with the three queue-internal files excluded), the two phantom-id findings (imp-364, imp-367 cited in lambda-roadmap.js but never created in the queue) and their corrections, the CLEAN result on pendingCitedAsCompleted, the classification of out-of-range refs imp-1090..imp-1361 as informal improvements.js log shorthand (NOT-A-VIOLATION), the XREF_INTEGRITY_2026_04_12 export shape, inbound dependencies on improvement-queue.js (audit target) and lambda-roadmap.js (correction target), and the imp-504 / imp-1077 authorship trail. Original imp-504 descriptive JSDoc body retained verbatim below the new header.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

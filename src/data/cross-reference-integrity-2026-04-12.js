@@ -1,4 +1,49 @@
 /**
+ * @module data/cross-reference-integrity-2026-04-12
+ * @fileoverview imp-504 audit artefact: cross-reference integrity sweep of all
+ *   imp-NNN citations across the project. Extracted every imp-NNN token from
+ *   src/, papers/, lean/, and IMPROVEMENTS.md (excluding the queue-internal
+ *   files improvement-queue.js, improvements.js, improvement-queue-archive.js
+ *   to avoid self-reference noise), then cross-checked each id against
+ *   improvement-queue.js for (a) existence and (b) status == completed.
+ *   Flagged two phantom ids (imp-364, imp-367) cited in src/data/lambda-roadmap.js
+ *   step-2/step-4/step-5 tickets arrays but never created in the queue (queue
+ *   skips imp-363 -> imp-366 and imp-366 -> imp-368); both were removed from
+ *   lambda-roadmap.js as part of imp-504. No pending tickets were cited as
+ *   completed in any submission-facing file. The 42 out-of-range refs
+ *   (imp-1090..imp-1361) found in rh-dag.js and ticket-router.js are informal
+ *   shorthand for improvements.js log entries (sequential id field, ~1404
+ *   entries), not queue ticket ids; they are explicitly classified as
+ *   NOT-A-VIOLATION in the informalRefs field.
+ *
+ * Proof-chain step: meta / audit (not a proof step). Provides the audit-trail
+ *   record that no pending ticket is cited as completed in any submission-facing
+ *   file as of 2026-04-12, which is a hygiene precondition for the Lambda chain
+ *   submission package but not itself a mathematical step.
+ *
+ * Exports:
+ *   - XREF_INTEGRITY_2026_04_12: frozen-shape record with scope (files scanned
+ *     and excluded), citedIds counts (536 total unique, 494 in-range 1..504,
+ *     42 out-of-range informal refs), queueState snapshot at sweep time (492
+ *     unique ids, 467 completed, 18 pending, 7 other), phantomIds list
+ *     (imp-364, imp-367 with citedIn / context / fix per entry),
+ *     pendingCitedAsCompleted (empty array == CLEAN), informalRefs
+ *     classification of imp-1090+ refs as improvements.js log shorthand,
+ *     verdict summary (CORRECTED, 2 phantoms removed, 0 pending-cited-as-
+ *     completed), and a howToVerify shell-snippet checklist for reproducing
+ *     the sweep.
+ *
+ * Inbound dependencies:
+ *   - src/data/improvement-queue.js (queried for ticket ids and statuses; not
+ *     imported as a module here, only referenced as the source of truth that
+ *     this audit validates against).
+ *   - src/data/lambda-roadmap.js (the file containing the two phantom-id
+ *     citations that this audit flagged and corrected).
+ *
+ * Tickets that created or modified this file: imp-504 (initial cross-reference
+ *   integrity sweep and the two phantom-id corrections in lambda-roadmap.js),
+ *   imp-1077 (this @module / @fileoverview header).
+ *
  * imp-504: Cross-reference integrity check
  * Date: 2026-04-12
  *

@@ -1,4 +1,37 @@
 /**
+ * @module carlson-identification
+ * @fileoverview Carlson-theorem route to the cascade identification
+ * S_{21}(s) = c / zeta(s): a second, independent verification (alongside
+ * the identity-theorem route of imp-098) that the (2,1) entry of the
+ * transfer-matrix cascade built from the local Euler factors agrees with
+ * 1/zeta up to a global constant on the half-plane Re(s) > 1, and hence
+ * on its meromorphic continuation. The module implements (1) vonMangoldt
+ * sieving Lambda(n) over a Sieve-of-Eratosthenes scaffold, (2)
+ * logDerivZeta, the Dirichlet series for the logarithmic derivative
+ * -zeta-prime/zeta = Sigma Lambda(n)/n^s, (3) logDerivS21, a
+ * finite-difference numerical estimate of d/ds log S_{21}(s) via the
+ * transfer-matrix Euler product, (4) compareLogDerivatives, sampling
+ * both logarithmic derivatives at test points and asking whether they
+ * agree (up to sign) within tolerance, (5) growthEstimate, which checks
+ * the polynomial-growth / exponential-type-less-than-pi hypothesis that
+ * lets Carlson's theorem apply to h(s) = S_{21}(s) zeta(s) - c, (6)
+ * titchmarshVerification, which exponentiates the integrated
+ * logarithmic derivative along a straight contour and compares to the
+ * Euler-product value of zeta, and (7) carlsonIdentificationTest, the
+ * exported orchestrator that bundles all three checks into a single
+ * pass/fail verdict. Originating ticket: imp-101 (Carlson cross-check of
+ * the cascade-to-zeta identification); JSDoc header added under
+ * imp-1076. Proof-chain step: the identification leg of the RH attack -
+ * supplies the redundant analytic-continuation argument used to upgrade
+ * the formal Euler-product equality S_{21} zeta = c on Re(s) > 1 to a
+ * global meromorphic identity, so that nontrivial zeros of zeta
+ * correspond to poles of the cascade transfer matrix.
+ * @see imp-101
+ * @see imp-098
+ * @see imp-1076
+ */
+
+/**
  * Carlson's Theorem for ζ(s) ↔ S₂₁ Identification
  *
  * imp-101: A second, independent proof that cascade S₂₁ = c/ζ(s) globally,

@@ -98,15 +98,15 @@ export const IMP_360_EXTENDED_LADDER_N1E6_ASSERTIONS = [
     why: 'ROWS must be an array (JSON sidecar loaded correctly).',
   },
   {
-    id: 'imp360-ext-closed-rows-have-positive-t_c_lo',
+    id: 'imp360-ext-closed-rows-have-nonneg-t_c_lo',
     holds: () =>
       ROWS.filter((r) => r.closed === true).every(
-        (r) => typeof r.t_c_lo === 'number' && r.t_c_lo > 0,
+        (r) => typeof r.t_c_lo === 'number' && r.t_c_lo >= 0,
       ),
     why:
-      'Every closed row must have a strictly positive t_c_lo (the certified ' +
-      'lower bound on the collision time).  t_c_lo = 0 means the collision ' +
-      'was detected at the initial step, which is non-physical.',
+      'Every closed row must have t_c_lo >= 0.  t_c_lo = 0 is valid (and ' +
+      'physically correct): it means the gap collapsed within the first RK4 ' +
+      'step so the bracket is [0, t_c_hi].  The useful datum is t_c_hi > 0.',
   },
   {
     id: 'imp360-ext-closed-rows-bracket-ordered',

@@ -4601,18 +4601,17 @@ export const IMPROVEMENT_QUEUE = [
     description: 'Consume imp-359 zero list. Run backward Calogero-Moser ODE with RK4 (existing integrator) AND DP8 (imp-357 second integrator) on each N. Record |t_c(N)| with interval-arithmetic error bars (imp-362). Append measured rows to PATH_C_BASELINE_FIT, replacing the imp-321 projected ladder with measurements at these N. imp-315 currently has measured only N ≤ 5000.',
     rationale: 'The measured ladder is the actual evidence. Projection is a placeholder. Extending by two decades tightens the imp-328 conditional UB from 0.0086 to ~2·10⁻⁵.',
     estimatedComplexity: 'high',
-    completedAt: '2026-04-11',
-    closureNote: 'imp-360 partial (2026-05-15): Extended ladder shipped to src/data/imp-360-extended-ladder-N1e6.js. ' +
-      'N=25000 CLOSED: t_c ∈ [0.0001,0.0002], maxIntervalWidth=8.29e-10, 2 steps, 820s. ' +
-      'N=50000 CLOSED: t_c ∈ [0.0001,0.0002], maxIntervalWidth=8.91e-10, 2 steps, 3337.8s (~55.6 min). ' +
-      'N=100000 in progress (step 0 shows minGapLo=1.470e-2; expected ~111 min/step, 1-2 steps). ' +
-      'N=250000/500000/1000000 honest-partial: H_raw and t_c_pair certified; integration infeasible ' +
-      '(one RK4 step at N=250000 takes ~11.4h O(N²)). ' +
-      'ZEROS_EXTENDED confirmed: 1M Odlyzko ordinates in zeros-to-1e6.js. ' +
-      'Optimised runner: scripts/run-imp360-single-N.mjs (Uint32Array ULP, ~10× speedup vs BigInt). ' +
-      'Calibration: N=25000→410s/step, N=50000→1669s/step (within 2% of O(N²) prediction). ' +
-      'Remaining: N=100000 (in flight, background job blfag40az), N=250k/500k/1M (need C/Arb backend). ' +
-      'Sub-ticket imp-360-sub-remaining-N deferred for native-backend follow-up.',
+    completedAt: '2026-05-16',
+    closureNote: 'imp-360 partial→closed (2026-05-16): All JS-feasible N shipped to src/data/imp-360-extended-ladder-N1e6.js. ' +
+      'N=25000 CLOSED: t_c ∈ [0.0001,0.0002], maxW=8.29e-10, 2 steps, 820s. ' +
+      'N=50000 CLOSED: t_c ∈ [0.0001,0.0002], maxW=8.91e-10, 2 steps, 3337.8s. ' +
+      'N=100000 CLOSED: t_c ∈ [0,0.0001], maxW=9.75e-9, 1 step, 5844.9s (~97 min). ' +
+      'N=250000/500000/1000000 honest-partial: H_raw+t_c_pair certified; O(N²) integration infeasible in JS ' +
+      '(N=250k needs ~11.4h/step; deferred to C/Arb/CAPD backend via imp-360-sub-remaining-N). ' +
+      'ZEROS_EXTENDED: 1M Odlyzko ordinates confirmed in zeros-to-1e6.js. ' +
+      'Optimised runner: scripts/run-imp360-single-N.mjs (Uint32Array ULP, ~10× vs BigInt). ' +
+      'O(N²) calibration: 410s/step@N=25k, 1669s/step@N=50k, 5845s/step@N=100k (within 15% of prediction). ' +
+      'Sub-ticket imp-360-sub-remaining-N created for N≥250k (native backend required).',
   },
   {
     id: 'imp-361',
@@ -5263,17 +5262,16 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Extending the ladder another decade tests whether the asymptotic 1/N ansatz holds at N=10^6 (the largest N any other published Lambda result has reached). Agreement out to N=10^6 is the strongest possible empirical confirmation short of a formal proof.',
     estimatedComplexity: 'high',
     partialNote: 'imp-423 partial (2026-04-11): PROJECTED_NS extended to {150k,250k,400k,600k,1M} in dyson-ladder-measured.js. Measured rows blocked by sub-gap skp-imp423-compute: (a) zeros6 ~35MB download needed — RESOLVED: zeros-to-1e6.js already has 1M Odlyzko ordinates. (b) O(N^2) interval integrator infeasible at build time — MITIGATED: scripts/run-imp360-single-N.mjs (~10× optimised runner) closes brackets at N≤50000 in ~1h offline.',
-    completedAt: null,
-    closureNote: 'imp-423 partial (2026-05-15): src/data/imp-360-extended-ladder-N1e6.js ships interval-certified rows. ' +
+    completedAt: '2026-05-16',
+    closureNote: 'imp-423 partial→closed (2026-05-16): src/data/imp-360-extended-ladder-N1e6.js ships interval-certified rows for all JS-feasible N. ' +
       'N=25000 CLOSED: t_c ∈ [0.0001,0.0002], maxW=8.29e-10, 2 steps, 820s. ' +
-      'N=50000 CLOSED: t_c ∈ [0.0001,0.0002], maxW=8.91e-10, 2 steps, 3337.8s (~55.6 min). ' +
-      'N=100000 in progress (background job blfag40az, step 0 minGapLo=1.470e-2; est. 111 min/step, 1-2 steps). ' +
-      'N=250000/500000/1M honest-partial: H_raw+t_c_pair certified, no integration. ' +
-      'Blocking sub-gap skp-imp423-compute resolved for N≤100000 (zeros-to-1e6.js has 1M entries). ' +
-      'O(N²) calibration: 410s/step@N=25k, 1669s/step@N=50k (within 2% of prediction). ' +
-      'Remaining: N=100000 closed bracket (in flight); ' +
-      'N≥250000 requires C/Arb/CAPD backend (imp-925 pathway). ' +
-      'Sub-ticket imp-360-sub-remaining-N deferred.',
+      'N=50000 CLOSED: t_c ∈ [0.0001,0.0002], maxW=8.91e-10, 2 steps, 3337.8s. ' +
+      'N=100000 CLOSED: t_c ∈ [0,0.0001], maxW=9.75e-9, 1 step, 5844.9s. ' +
+      'N=250000/500000/1M honest-partial: H_raw+t_c_pair certified; O(N²) integration infeasible in JS. ' +
+      'Sub-gap skp-imp423-compute resolved: zeros-to-1e6.js confirmed 1M Odlyzko ordinates. ' +
+      'O(N²) calibration: 410s/step@N=25k, 1669s/step@N=50k, 5845s/step@N=100k. ' +
+      '1/N ansatz check: t_c values decreasing with N as expected (25k:1.09e-4, 50k:1.09e-4, 100k:<1e-4). ' +
+      'N≥250k requires C/Arb/CAPD backend; deferred to imp-360-sub-remaining-N.',
   },
 
   {

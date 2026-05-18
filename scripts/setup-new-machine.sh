@@ -100,6 +100,25 @@ else
 fi
 echo
 
+# ── 3b. Claude conversational memory ─────────────────────────────────────
+echo "[3b/5] Claude conversational memory"
+MEMORY_SRC="$REPO_DIR/.claude-memory"
+MEMORY_DST="$HOME/.claude/projects/-Users-USER-Code-Experiments-mathexplorer/memory"
+if [ ! -d "$MEMORY_SRC" ]; then
+    color_yellow "  - $MEMORY_SRC not present in repo; skipping memory restore."
+elif [ "$CHECK_ONLY" -eq 1 ]; then
+    if [ -d "$MEMORY_DST" ] && [ -n "$(ls -A "$MEMORY_DST" 2>/dev/null)" ]; then
+        color_green "  ✓ memory already present at $MEMORY_DST"
+    else
+        color_yellow "  - memory would be restored from $MEMORY_SRC"
+    fi
+else
+    mkdir -p "$MEMORY_DST"
+    cp "$MEMORY_SRC"/*.md "$MEMORY_DST/" 2>/dev/null
+    color_green "  ✓ memory restored to $MEMORY_DST ($(ls "$MEMORY_DST"/*.md 2>/dev/null | wc -l | tr -d ' ') files)"
+fi
+echo
+
 # ── 4. LaunchAgents ──────────────────────────────────────────────────────
 echo "[4/5] LaunchAgents"
 if [ "$NO_LAUNCHD" -eq 1 ]; then

@@ -154,6 +154,8 @@ const DATA_MODULES = [
   '/src/data/paper-sections-1-3.js',
   // imp-1090: Rust interval-RK4 backend Phase 1 MVP validation record.
   '/src/data/rust-port-phase1-validation.js',
+  // imp-1091: Rust interval-RK4 Phase 2 wire-up validation (CLI dispatch).
+  '/src/data/rust-port-phase2-wire-validation.js',
   // imp-1093: Lambda timeline visualization page build-time validation.
   '/src/data/lambda-timeline-page-validation.js',
   // imp-1095: LIVE Lean toolchain installed + per-module lake build executed.

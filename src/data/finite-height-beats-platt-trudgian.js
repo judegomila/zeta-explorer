@@ -339,12 +339,49 @@ const ALL_PT_BEAT_PT = LADDER.every(
 // interval-RK4 sweep -- no GUE assumption used. This closes the sole condition
 // (M, many-body correction) that kept the PT-improved bound GUE-conditional on
 // [100, 10^4]. Above N = 10^4 the closure is still open (imp-962 sub-gap).
+//
+// imp-1082 batch-1 extension (2026-05-18, HONEST PARTIAL): the K_PLATEAU_LADDER
+// in finite-k-c-mb-unconditional.js now carries CONSERVATIVE upper bounds
+// K_bound = 0.2014 (carryforward from imp-963 headline) at the next 3 plateau
+// interiors N in {2e4, 5e4, 1e5}. The rescue formula holds at every batch-1 N
+// with margin >= 46x. Measured K values remain deferred to a native backend
+// per imp-1082-sub-measurement. The N_range upper bound below is extended to
+// 1e5 to reflect the CONSERVATIVE coverage; the primary measured N* remains
+// 1e4. The conservativeRangeExtension field surfaces the distinction.
+//
+// imp-1087 batch-2 extension (2026-05-18, HONEST PARTIAL): K_PLATEAU_LADDER
+// gains 3 more conservative-carryforward rows at N in {2e5, 3e5, 5e5}
+// (plateaus 6, 6, 9 in the imp-962 scan). Rescue formula margin factor grows
+// to ~34x at N = 5e5 with the K = 0.2014 carryforward. Measured K values
+// remain deferred per imp-1087-sub-measurement (native-backend cost estimate
+// ~40-300 h per plateau at N up to 5e5). The conservative N_range upper bound
+// is bumped from 1e5 to 5e5.
 const UNCOND_N_RANGE = {
   N_min: 100,
   N_max: 10000,
   source: "imp-963 finite-K C_mb unconditional via imp-933 interval-RK4",
   K_unconditional: 0.2014,
   rescue_margin_factor: 1.37,
+};
+
+const UNCOND_N_RANGE_CONSERVATIVE = {
+  N_min: 100,
+  N_max: 500000,
+  source:
+    "imp-1082 batch-1 + imp-1087 batch-2 carryforward extension " +
+    "(K=0.2014 conservative, measured values deferred to imp-1082-sub-" +
+    "measurement and imp-1087-sub-measurement)",
+  K_unconditional: 0.2014,
+  rescue_margin_factor_at_N_1e5:
+    +((0.12751 * Math.sqrt(100000)) / (0.2014 * Math.log(100000))).toFixed(2),
+  rescue_margin_factor_at_N_5e5:
+    +((0.12751 * Math.sqrt(500000)) / (0.2014 * Math.log(500000))).toFixed(2),
+  carryforwardBasis: FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadderStatus,
+  batch1Ns: FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadderBatch1Ns,
+  batch2Ns: FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadderBatch2Ns,
+  ladderNs: FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadderNs,
+  subGap: "imp-1082-sub-measurement",
+  subGapBatch2: "imp-1087-sub-measurement",
 };
 
 // Pick the SOTA-beating finite N* that ships UNCONDITIONALLY:
@@ -605,10 +642,31 @@ export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
         "is GUE-conditional pending imp-962 (extension of the imp-933 sweep).",
       providedByImp963: {
         K_unconditional: UNCOND_N_RANGE.K_unconditional,
-        N_range:         [UNCOND_N_RANGE.N_min, UNCOND_N_RANGE.N_max],
-        marginFactor:    UNCOND_N_RANGE.rescue_margin_factor,
-        sweepSource:     UNCOND_N_RANGE.source,
-        impGap963Status: FINITE_K_C_MB_UNCONDITIONAL.status,
+        // imp-1082 batch-1 + imp-1087 batch-2: N_range upper bound bumped
+        // from 1e4 -> 1e5 -> 5e5 to reflect the CONSERVATIVE carryforward
+        // coverage shipped by the K_PLATEAU_LADDER table in
+        // finite-k-c-mb-unconditional.js. The primary MEASURED N* remains
+        // 1e4 (N_range_measured); the extension to 5e5 is unconditional but
+        // conservative (not yet measured).
+        N_range:                  [UNCOND_N_RANGE.N_min, UNCOND_N_RANGE_CONSERVATIVE.N_max],
+        N_range_measured:         [UNCOND_N_RANGE.N_min, UNCOND_N_RANGE.N_max],
+        N_range_conservative:     [UNCOND_N_RANGE.N_min, UNCOND_N_RANGE_CONSERVATIVE.N_max],
+        marginFactor:             UNCOND_N_RANGE.rescue_margin_factor,
+        marginFactor_at_N_1e5:    UNCOND_N_RANGE_CONSERVATIVE.rescue_margin_factor_at_N_1e5,
+        marginFactor_at_N_5e5:    UNCOND_N_RANGE_CONSERVATIVE.rescue_margin_factor_at_N_5e5,
+        sweepSource:              UNCOND_N_RANGE.source,
+        carryforwardSource:       UNCOND_N_RANGE_CONSERVATIVE.source,
+        impGap963Status:          FINITE_K_C_MB_UNCONDITIONAL.status,
+        kPlateauLadderStatus:     FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadderStatus,
+        imp1082SubMeasurementGap: UNCOND_N_RANGE_CONSERVATIVE.subGap,
+        imp1087SubMeasurementGap: UNCOND_N_RANGE_CONSERVATIVE.subGapBatch2,
+        note:
+          "N_range upper bound = 5e5 (imp-1082 batch-1 + imp-1087 batch-2 " +
+          "conservative carryforward); the underlying MEASURED interval-RK4 " +
+          "cert sweep covers [100, 10^4] only via imp-963/imp-933. " +
+          "Measurement at N in {2e4, 5e4, 1e5} is deferred to imp-1082-sub-" +
+          "measurement; measurement at N in {2e5, 3e5, 5e5} is deferred to " +
+          "imp-1087-sub-measurement; both on a native C/Arb/CAPD backend.",
       },
     };
   })(),

@@ -868,3 +868,79 @@ export const ESY_O1_CLOSURE_CROSS_VERIFY_IMP1029 = {
     'output, (b) drift beyond the RvM offset, (c) silent edit of the gamma_1 fallback. The ' +
     'partial-closure status of ESY_O1_CLOSURE remains unchanged.',
 };
+
+// ────────────────────────────────────────────────────────────────────
+// imp-2184: Tripwire pinning the imp-976 notIndependentlyChecked list
+// ────────────────────────────────────────────────────────────────────
+//
+// The imp-976 cross-verify (ESY_O1_CLOSURE_CROSS_VERIFY) explicitly
+// enumerates three claims that this file CONSUMES without independent
+// re-derivation:
+//
+//   (a) esy-2011-theorem-3-3 -- the two-step ESY 2011 local-semicircle-
+//       law proof structure (global concentration -> local bootstrap via
+//       matrix Cauchy interlacing) used verbatim.
+//   (b) imp-407-esy-rigidity-port-c-poly-tiers -- the claim that this
+//       file fully instantiates the C_poly = 1 conservative tier of
+//       esy-rigidity-port.js (combinedConclusion field).
+//   (c) imp-341-kh-bound-derivation -- the Koksma-Hlawka path that
+//       yields D_N^* <= C_Selberg * log gamma_N / N, documented and
+//       cross-verified in LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.
+//
+// These three items are the load-bearing honesty markers for the imp-370
+// partial closure (this file is the imp-508 partial step toward imp-370
+// angle-(b) ESY port). Existing tripwires guard:
+//
+//   imp508-o1-status-partial             -- the string "partial"
+//   imp508-o1-residual-sub-gap-named     -- the residual sub-gap id
+//   imp2182-o1-residual-honesty-fields-pinned -- the four boolean +
+//                                          difficulty fields on the
+//                                          residual sub-gap
+//
+// None of these guards the imp-976 honesty manifest itself: if a future
+// commit silently empties or shrinks notIndependentlyChecked (via a
+// "cleanup" refactor, an attempted overclaim of full cross-verification,
+// or an accidental edit), the existing assertions would still pass while
+// the file would APPEAR fully cross-verified, masking that it still rests
+// on three external derivations.
+//
+// This tripwire pins the three ids so any removal triggers an immediate
+// build-time assertion failure. The check is intentionally id-set-based
+// (not array-length-based) so future ADDITIONS to the list -- new honest
+// admissions of further un-checked claims -- do not falsely fire.
+//
+// SYNTAX NOTE: line comments only; no JSDoc fences.
+// ────────────────────────────────────────────────────────────────────
+
+const IMP2184_NOT_INDEPENDENTLY_CHECKED_IDS_PINNED = (() => {
+  const list = ESY_O1_CLOSURE_CROSS_VERIFY.notIndependentlyChecked;
+  if (!Array.isArray(list) || list.length < 3) return false;
+  const ids = new Set(list.map((r) => (r && typeof r.id === 'string' ? r.id : null)).filter(Boolean));
+  return (
+    ids.has('esy-2011-theorem-3-3') &&
+    ids.has('imp-407-esy-rigidity-port-c-poly-tiers') &&
+    ids.has('imp-341-kh-bound-derivation')
+  );
+})();
+
+ESY_O1_CLOSURE_ASSERTIONS.push({
+  id: 'imp2184-cross-verify-not-independently-checked-pinned',
+  holds: () => IMP2184_NOT_INDEPENDENTLY_CHECKED_IDS_PINNED,
+  why:
+    'The imp-976 cross-verify (ESY_O1_CLOSURE_CROSS_VERIFY) explicitly lists three items ' +
+    'that the partial closure consumes WITHOUT independent re-derivation: ' +
+    '(a) esy-2011-theorem-3-3 -- the two-step ESY local-semicircle-law structure, ' +
+    '(b) imp-407-esy-rigidity-port-c-poly-tiers -- the C_poly = 1 conservative tier ' +
+    'instantiation claim against esy-rigidity-port.js, and ' +
+    '(c) imp-341-kh-bound-derivation -- the Koksma-Hlawka bound source. ' +
+    'These are load-bearing honesty markers for the imp-370 angle-(b) partial closure ' +
+    '(this file is the imp-508 partial step toward imp-370). If a future commit empties ' +
+    'or shrinks the notIndependentlyChecked list, the partial-closure file would APPEAR ' +
+    'fully cross-verified while still resting on three external derivations. This tripwire ' +
+    'pins the three ids so any removal -- via cleanup, refactor, or attempted overclaim -- ' +
+    'fires immediately at module load. Complements imp508-o1-status-partial (status string), ' +
+    'imp508-o1-residual-sub-gap-named (sub-gap id), and imp2182-o1-residual-honesty-fields-pinned ' +
+    '(O1_REMAINING_SUB_GAP integrity fields) by guarding the cross-verify honesty manifest itself. ' +
+    'The check is id-set-based (not length-based) so additive honest admissions of further ' +
+    'un-checked claims do not falsely fire.',
+});

@@ -170,6 +170,8 @@ const DATA_MODULES = [
   '/src/data/berry-keating-xp-spectral.js',
   // imp-1102: Hardy Z(t) asymptotic comparison data file (sonnet-4-6 bucket).
   '/src/data/hardy-z-asymptotic-comparison.js',
+  // imp-1096: page health audit refresh after user-reported /#/full-story load failure.
+  '/src/data/page-health-audit-2026-05-18.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -158,6 +158,8 @@ const DATA_MODULES = [
   '/src/data/rust-port-phase1-validation.js',
   // imp-1091: Rust interval-RK4 Phase 2 wire-up validation (CLI dispatch).
   '/src/data/rust-port-phase2-wire-validation.js',
+  // imp-1092: Rust interval-RK4 Phase 3 PILOT (1-of-9 plateaus measured, N=2e4).
+  '/src/data/rust-port-phase3-pilot-validation.js',
   // imp-1093: Lambda timeline visualization page build-time validation.
   '/src/data/lambda-timeline-page-validation.js',
   // imp-1095: LIVE Lean toolchain installed + per-module lake build executed.

@@ -208,6 +208,8 @@ const DATA_MODULES = [
   '/src/data/c-f-bulk-refinement-2026-05.js',
   // imp-1132: V2 intercept attack -- Barnes-Hut O(N log N) sparse drift sum in Rust.
   '/src/data/rust-port-phase7-barnes-hut.js',
+  // imp-1111: Rust port Phase 5 Verner 8(7) triangulation contract (HONEST PARTIAL).
+  '/src/data/rust-port-phase5-verner-triangulation.js',
 ];
 
 const ALL_MODULES = FAST_MODE

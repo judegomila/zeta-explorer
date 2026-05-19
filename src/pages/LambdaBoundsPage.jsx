@@ -96,6 +96,22 @@ export default function LambdaBoundsPage() {
           RH ⟺ Λ = 0 (de Bruijn 1950 + Rodgers-Tao 2020). This page is the
           plan, the status, and the verification efforts of our attack.
         </p>
+        <div style={{ marginTop: 10 }}>
+          <Link
+            to="/lambda-timeline"
+            style={{
+              color: '#a855f7',
+              fontFamily: 'var(--font-mono)',
+              fontSize: 12,
+              textDecoration: 'none',
+              padding: '4px 10px',
+              border: '1px solid #a855f7',
+              borderRadius: 6,
+            }}
+          >
+            Λ Timeline →
+          </Link>
+        </div>
       </div>
 
       {/* ── Top banner: current bounds ─────────────────────────────────── */}

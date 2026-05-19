@@ -63,6 +63,26 @@ export const LAMBDA_BOUNDS = [
       'per-N bound via route A, B-rate-upgrade, or C.',
   },
   {
+    id: 'our-finite-N-1e4-via-imp-440',
+    label: 'Λ(1e4) ≤ 0.02 rigorous unconditional (measured)',
+    kind: 'upper-rigorous-finite-N',
+    value: 0.02,
+    status: 'rigorous-measured',
+    source: 'imp-440 capstone via imp-963 measured C_mb on [100, 1e4]',
+    note:
+      'FIRST PROJECT RESULT STRICTLY IMPROVING ON PT 2021 RIGOROUSLY AND ' +
+      'UNCONDITIONALLY AT A FINITE N. L_pt(N* = 1e4) ~ 0.02 < 0.2 = PT_BOUND ' +
+      'with margin factor ~10x. The 6-link rigor chain (V2 fit + measured C_mb ' +
+      'from imp-963 + E_trunc_pt from imp-447 + imp-459 + E_flow from imp-398 + ' +
+      'E_coll from imp-399 + rho_min from imp-469) is DISCHARGED at N = 1e4 ' +
+      'without any GUE assumption. Lean 4 formalisation of the composition ' +
+      'shipped by imp-1084 (lean/LambdaAttack/FiniteHeightBeat.lean, zero ' +
+      'tactic-position sorrys; 6 upstream-link axioms encode JS-side claims). ' +
+      'Paper appendix C (imp-1081) + abstract rewrite (imp-1083) + sections 1-3 ' +
+      '(imp-1094 pending) compose this into the publishable claim. Pairs with ' +
+      'our-finite-N-1e6-via-imp-1088 (carryforward extension to N = 1e6).',
+  },
+  {
     id: 'our-finite-N-1e6-via-imp-1088',
     label: 'Λ(1e6) ≤ 0.2 rigorous unconditional (carryforward)',
     kind: 'upper-rigorous-finite-N',

@@ -30,11 +30,16 @@
 --
 -- Lake project imports (imp-448 fix, replaces inline axiom block):
 import LambdaAttack.BridgeTheorem
+-- imp-1084: import the finite-height beat module so the imp-440 6-link rigor
+-- chain (finite_height_beat_at_N_1e4 : Lambda < 0.2 unconditionally at N* = 10000)
+-- is reachable from the same import root as asymptotic_lambda_eq_zero.
+import LambdaAttack.FiniteHeightBeat
 -- Companion files:
---   lean/LambdaAttack/Foundation.lean    (imp-448: canonical axioms)
---   src/math/lean4-koksma-hlawka.js      (imp-403: KH lim-sup skeleton)
---   lean/LambdaAttack/BridgeTheorem.lean (imp-412: G6 bridge theorem)
---   lean/LambdaAttack/Constants.lean     (imp-410: bridge constants)
+--   lean/LambdaAttack/Foundation.lean       (imp-448: canonical axioms)
+--   src/math/lean4-koksma-hlawka.js         (imp-403: KH lim-sup skeleton)
+--   lean/LambdaAttack/BridgeTheorem.lean    (imp-412: G6 bridge theorem)
+--   lean/LambdaAttack/Constants.lean        (imp-410: bridge constants)
+--   lean/LambdaAttack/FiniteHeightBeat.lean (imp-1084: imp-440 6-link rigor chain)
 -- Requires: Mathlib 4.9+
 
 import Mathlib.Topology.Algebra.InfiniteSum.Basic

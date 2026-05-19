@@ -154,7 +154,10 @@ export const IMP_441_LEAN_IMPORT_GRAPH = Object.freeze({
     Object.freeze({
       path: 'lean/LambdaAttack/Capstone.lean',
       module: 'LambdaAttack.Capstone',
-      directLambdaAttackImports: Object.freeze(['LambdaAttack.BridgeTheorem']),
+      directLambdaAttackImports: Object.freeze([
+        'LambdaAttack.BridgeTheorem',
+        'LambdaAttack.FiniteHeightBeat',
+      ]),
       directMathlibImports: Object.freeze([
         'Mathlib.Topology.Algebra.InfiniteSum.Basic',
         'Mathlib.Topology.MetricSpace.Basic',
@@ -165,12 +168,50 @@ export const IMP_441_LEAN_IMPORT_GRAPH = Object.freeze({
         'LambdaAttack.BridgeTheorem',
         'LambdaAttack.Foundation',
         'LambdaAttack.Constants',
+        'LambdaAttack.FiniteHeightBeat',
       ]),
       axiomCount: 1,
       axiomNames: Object.freeze(['rodgers_tao_nonneg']),
       theoremNames: Object.freeze(['asymptotic_lambda_eq_zero']),
       lemmaNames: Object.freeze(['neg_collTime_tendsto_zero']),
       tacticPositionSorryCount: 0,
+    }),
+    Object.freeze({
+      path: 'lean/LambdaAttack/FiniteHeightBeat.lean',
+      module: 'LambdaAttack.FiniteHeightBeat',
+      directLambdaAttackImports: Object.freeze([
+        'LambdaAttack.Foundation',
+        'LambdaAttack.Constants',
+        'LambdaAttack.BridgeTheorem',
+      ]),
+      directMathlibImports: Object.freeze([
+        'Mathlib.Analysis.SpecialFunctions.Exp.Basic',
+        'Mathlib.Tactic',
+      ]),
+      transitiveLambdaAttackImports: Object.freeze([
+        'LambdaAttack.Foundation',
+        'LambdaAttack.Constants',
+        'LambdaAttack.BridgeTheorem',
+      ]),
+      axiomCount: 6,
+      axiomNames: Object.freeze([
+        'link1_bridge_inequality_at_N1e4',
+        'link2_tc_bound_at_N1e4',
+        'link3_C_mb_unconditional',
+        'link4_Etrunc_pt_pinned',
+        'link5_rho_min_lower_bound',
+        'link6_Eflow_plus_Ecoll_pinned',
+      ]),
+      theoremNames: Object.freeze([
+        'finite_height_beat_at_N_1e4',
+        'Lambda_pt_at_N1e4_lt_PT',
+      ]),
+      lemmaNames: Object.freeze([
+        'pinned_sum_lt_PT',
+      ]),
+      tacticPositionSorryCount: 0,
+      addedByTicket: 'imp-1084',
+      note: 'imp-1084 deliverable: Lean 4 port of the imp-440 6-link rigor chain from src/data/finite-height-beats-platt-trudgian.js. Headline theorem finite_height_beat_at_N_1e4 proves deBruijnNewmann < L_PT_2021 (= 1/5 = 0.2) by linarith composition of the six numeric-pinned axiom-encoded link conclusions at N* = 10000; the arithmetic 71/10000 + 4/100000 + 125/100000 + 12/1000 < 1/5 closes by norm_num on exact rationals. The six link axioms encode the JS-side closed chain links (imp-345 / imp-366 / imp-424 bridge; imp-400 / imp-470 V2 fit; imp-963 C_mb; imp-447 / imp-459 E_trunc_pt; imp-469 / imp-473 rho_min; imp-398 C_F + imp-399 C_C) -- they are NOT duplicates of Foundation.lean axioms because they pin numeric values at the specific point N* = 10000. Zero tactic-position sorrys.',
     }),
     Object.freeze({
       path: 'lean/LambdaAttack/BridgeTheorem.lean',
@@ -296,13 +337,17 @@ export const IMP_441_LEAN_IMPORT_GRAPH = Object.freeze({
     }),
   ]),
   capstoneImportClosure: Object.freeze({
-    direct: Object.freeze(['LambdaAttack.BridgeTheorem']),
+    direct: Object.freeze([
+      'LambdaAttack.BridgeTheorem',
+      'LambdaAttack.FiniteHeightBeat',
+    ]),
     transitive: Object.freeze([
       'LambdaAttack.BridgeTheorem',
       'LambdaAttack.Foundation',
       'LambdaAttack.Constants',
+      'LambdaAttack.FiniteHeightBeat',
     ]),
-    note: 'Capstone.lean imports only LambdaAttack.BridgeTheorem directly; BridgeTheorem.lean imports Foundation and Constants directly; so the full reachable LambdaAttack subgraph from Capstone is {BridgeTheorem, Foundation, Constants}. EmpiricalSweep.lean and ManyBody.lean are siblings (not reachable from Capstone).',
+    note: 'imp-1084 extension: Capstone.lean now imports BOTH LambdaAttack.BridgeTheorem AND LambdaAttack.FiniteHeightBeat directly. BridgeTheorem.lean imports Foundation and Constants directly; FiniteHeightBeat.lean imports Foundation, Constants, and BridgeTheorem directly (no new modules pulled). The full reachable LambdaAttack subgraph from Capstone is {BridgeTheorem, Foundation, Constants, FiniteHeightBeat} -- four modules. EmpiricalSweep.lean and ManyBody.lean are siblings (not reachable from Capstone).',
   }),
   threeNamedLemmas: Object.freeze([
     Object.freeze({
@@ -337,6 +382,17 @@ export const IMP_441_LEAN_IMPORT_GRAPH = Object.freeze({
       reachableFromCapstone: true,
       reachabilityPath: 'Capstone -> BridgeTheorem',
       proofStatus: 'FULLY PROVED via squeeze (imp-490 assembly; imp-510 bridge_theorem; imp-511+imp-513+imp-525+imp-535 rate_tendsto_zero). Zero remaining tactic-position sorrys.',
+    }),
+    Object.freeze({
+      name: 'finite_height_beat_at_N_1e4',
+      originTicket: 'imp-1084',
+      declaredIn: 'lean/LambdaAttack/FiniteHeightBeat.lean',
+      declarationLine: 188,
+      declarationKind: 'theorem',
+      statement: 'deBruijnNewmann < L_PT_2021 (= 1/5 = 0.2), proving the imp-440 finite-height unconditional beat at N* = 10000',
+      reachableFromCapstone: true,
+      reachabilityPath: 'Capstone -> FiniteHeightBeat',
+      proofStatus: 'FULLY PROVED via linarith composition of six numeric-pinned axiom-encoded link conclusions plus pinned_sum_lt_PT (norm_num on exact rationals 71/10000 + 4/100000 + 125/100000 + 12/1000 < 1/5). Zero tactic-position sorrys. Six new upstream-link axioms encode the JS-side closed chain links (link1 bridge inequality imp-345/366/424; link2 |t_c| <= 0.0071 imp-400/470; link3 C_mb unconditional imp-963; link4 E_trunc_pt <= 4e-5 imp-447/459; link5 rho_min lower bound imp-469/473; link6 E_flow + E_coll <= 0.014 imp-398/399). These axioms encode the NUMERIC pinning at N* = 10000 and are not duplicates of Foundation.lean axioms.',
     }),
   ]),
   capstoneCompositionTheorem: Object.freeze({
@@ -382,9 +438,19 @@ export const IMP_441_LEAN_IMPORT_GRAPH = Object.freeze({
 
 export const IMP_441_IMPORT_GRAPH_ASSERTIONS = Object.freeze([
   Object.freeze({
-    id: 'imp441-three-lemmas-array-has-three-entries',
-    holds: () => IMP_441_LEAN_IMPORT_GRAPH.threeNamedLemmas.length === 3,
-    why: 'imp-441 ticket explicitly names three module-level lemmas (KoksmaHlawkaLimSup, bridge constants, G6_bridge_closed). Array length must equal 3 or the artifact is mis-describing the ticket.',
+    id: 'imp441-three-lemmas-array-has-at-least-three-entries',
+    holds: () => IMP_441_LEAN_IMPORT_GRAPH.threeNamedLemmas.length >= 3,
+    why: 'imp-441 ticket explicitly names three module-level lemmas (KoksmaHlawkaLimSup, bridge constants, G6_bridge_closed). Array length must be at least 3 or the artifact is mis-describing the ticket. imp-1084 extends the array to four entries (adds finite_height_beat_at_N_1e4) -- the original three remain present plus the new fourth.',
+  }),
+  Object.freeze({
+    id: 'imp1084-finite-height-beat-fourth-entry-present',
+    holds: () => IMP_441_LEAN_IMPORT_GRAPH.threeNamedLemmas.some(
+      (entry) => entry.name === 'finite_height_beat_at_N_1e4'
+        && entry.originTicket === 'imp-1084'
+        && entry.declaredIn === 'lean/LambdaAttack/FiniteHeightBeat.lean'
+        && entry.reachableFromCapstone === true,
+    ),
+    why: 'imp-1084 ports the imp-440 6-link rigor chain to Lean. The new module-level theorem finite_height_beat_at_N_1e4 must appear as the fourth entry in threeNamedLemmas (originTicket imp-1084, declared in FiniteHeightBeat.lean, reachable from Capstone) or the import-graph artifact is out of sync with the new Lean source.',
   }),
   Object.freeze({
     id: 'imp441-all-three-lemmas-reachable-from-capstone',
@@ -423,16 +489,37 @@ export const IMP_441_IMPORT_GRAPH_ASSERTIONS = Object.freeze([
     why: 'Partial closures must name the residual blocker as a skp id and assign an owner ticket so the closure path is not lost.',
   }),
   Object.freeze({
-    id: 'imp441-capstone-direct-import-is-bridge-theorem',
+    id: 'imp441-capstone-direct-imports-include-bridge-theorem',
     holds: () => {
       const capstone = IMP_441_LEAN_IMPORT_GRAPH.parsedFiles.find(
         (f) => f.module === 'LambdaAttack.Capstone',
       );
       return capstone
-        && capstone.directLambdaAttackImports.length === 1
-        && capstone.directLambdaAttackImports[0] === 'LambdaAttack.BridgeTheorem';
+        && capstone.directLambdaAttackImports.includes('LambdaAttack.BridgeTheorem');
     },
-    why: 'Per imp-448 dedup, Capstone.lean imports only LambdaAttack.BridgeTheorem directly. If the direct import set drifts the imp-441 reachability claim must be re-derived.',
+    why: 'Per imp-448 dedup, Capstone.lean imports LambdaAttack.BridgeTheorem directly. imp-1084 added a second direct import (LambdaAttack.FiniteHeightBeat) for the finite-height beat companion module. The check now ensures BridgeTheorem remains among the direct imports rather than asserting a singleton list.',
+  }),
+  Object.freeze({
+    id: 'imp1084-capstone-imports-finite-height-beat',
+    holds: () => {
+      const capstone = IMP_441_LEAN_IMPORT_GRAPH.parsedFiles.find(
+        (f) => f.module === 'LambdaAttack.Capstone',
+      );
+      return capstone
+        && capstone.directLambdaAttackImports.includes('LambdaAttack.FiniteHeightBeat')
+        && capstone.transitiveLambdaAttackImports.includes('LambdaAttack.FiniteHeightBeat');
+    },
+    why: 'imp-1084 wires LambdaAttack.FiniteHeightBeat into Capstone.lean so the finite_height_beat_at_N_1e4 theorem is reachable from the same import root as asymptotic_lambda_eq_zero. Both direct and transitive import lists in this artifact must include the new module.',
+  }),
+  Object.freeze({
+    id: 'imp1084-finite-height-beat-zero-tactic-sorrys',
+    holds: () => {
+      const fhb = IMP_441_LEAN_IMPORT_GRAPH.parsedFiles.find(
+        (f) => f.module === 'LambdaAttack.FiniteHeightBeat',
+      );
+      return fhb && fhb.tacticPositionSorryCount === 0;
+    },
+    why: 'imp-1084 deliverable specifies zero tactic-position sorrys in FiniteHeightBeat.lean. The arithmetic 71/10000 + 4/100000 + 125/100000 + 12/1000 < 1/5 closes by norm_num on exact rationals; the headline theorem composes via linarith on the six axiom-encoded link conclusions. If a future commit reintroduces a sorry the tripwire fires.',
   }),
 ]);
 

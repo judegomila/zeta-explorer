@@ -1,0 +1,25 @@
+[package]
+name = "interval-rk4"
+version = "0.1.0"
+edition = "2021"
+description = "Phase 1 MVP — native Rust port of the JS interval-RK4 Dyson backward integrator (mathexplorer imp-1090)"
+license = "MIT"
+
+[dependencies]
+inari = "2.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clap = { version = "4", features = ["derive"] }
+
+[[bin]]
+name = "interval-rk4-cli"
+path = "src/bin/interval-rk4-cli.rs"
+
+[lib]
+name = "interval_rk4"
+path = "src/lib.rs"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1

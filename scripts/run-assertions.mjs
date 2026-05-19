@@ -150,6 +150,8 @@ const DATA_MODULES = [
   '/src/data/paper-appendix-C-finite-height-beat.js',
   // imp-1083: arXiv front-matter abstract rewrite leading with the rigorous finite-N* beat.
   '/src/data/paper-abstract-rewrite-2026-05.js',
+  // imp-1090: Rust interval-RK4 backend Phase 1 MVP validation record.
+  '/src/data/rust-port-phase1-validation.js',
 ];
 
 const ALL_MODULES = FAST_MODE

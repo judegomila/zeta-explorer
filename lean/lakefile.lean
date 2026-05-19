@@ -25,7 +25,12 @@ import Lake
 open Lake DSL
 
 package «LambdaAttack» where
-  name := "LambdaAttack"
+  -- imp-1095 (2026-05-18): removed the redundant `name := "LambdaAttack"` field.
+  -- Lake v5 (Lean 4.9.0) infers the package name from the `package «...»`
+  -- literal above; setting it explicitly raised the elaboration error
+  -- `field 'name' has already been specified` and prevented `lake update`
+  -- from running. Removing the line unblocks the toolchain demo without
+  -- changing the effective package name (still "LambdaAttack").
 
 require mathlib from git
   "https://github.com/leanprover-community/mathlib4" @ "v4.9.0"

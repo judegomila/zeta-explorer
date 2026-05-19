@@ -42,7 +42,8 @@
 -- Requires: Mathlib 4.9+
 
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
-import Mathlib.Analysis.SpecialFunctions.Exp.Basic
+-- imp-1095: was `Exp.Basic` (no such file in mathlib 4.9.0); see Foundation.lean header.
+import Mathlib.Analysis.SpecialFunctions.Exp
 import Mathlib.Analysis.SpecialFunctions.Sqrt
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Topology.Algebra.Order.LiminfLimsup

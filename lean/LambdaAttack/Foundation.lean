@@ -27,7 +27,13 @@
 --
 -- Requires: Mathlib 4.9+
 
-import Mathlib.Analysis.SpecialFunctions.Exp.Basic
+-- imp-1095 (2026-05-18): fixed bad-import revealed by first live `lake build`.
+-- Mathlib 4.9.0 ships the Exp module as `Mathlib.Analysis.SpecialFunctions.Exp`
+-- (no `.Basic` subpath; the file lives at
+--  .lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Exp.lean).
+-- The prior `Exp.Basic` line raised "bad import" and aborted Foundation.lean
+-- elaboration even AFTER mathlib finished building.
+import Mathlib.Analysis.SpecialFunctions.Exp
 import Mathlib.Tactic
 
 open Real

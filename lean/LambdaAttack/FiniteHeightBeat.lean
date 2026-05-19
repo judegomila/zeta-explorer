@@ -77,7 +77,8 @@
 import LambdaAttack.Foundation
 import LambdaAttack.Constants
 import LambdaAttack.BridgeTheorem
-import Mathlib.Analysis.SpecialFunctions.Exp.Basic
+-- imp-1095: was `Exp.Basic` (no such file in mathlib 4.9.0); see Foundation.lean header.
+import Mathlib.Analysis.SpecialFunctions.Exp
 import Mathlib.Tactic
 
 open Real

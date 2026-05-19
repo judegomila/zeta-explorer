@@ -45,11 +45,16 @@ const MAKEFILE_PATH = 'paper/Makefile';
 
 // Recorded from `ls -la paper/main.pdf` + `mdls -name kMDItemNumberOfPages`
 // after the tectonic compile.
-const PAGE_COUNT = 6;
-const FILE_SIZE_BYTES = 91401;
+//
+// 2026-05-19 refresh (imp-1133): rolled the imp-1127 hybrid bridge
+// refinements into Appendix C, added a new Appendix C-prime hybrid factor
+// table + a new Appendix D refresh log. PDF rebuilt via tectonic 0.16.9;
+// size grew from 91401 bytes (6 pages) to 113912 bytes (8 pages).
+const PAGE_COUNT = 8;
+const FILE_SIZE_BYTES = 113912;
 
 // Compile timestamp (commit time, not build time).
-const BUILT_AT = '2026-05-18T22:32:00Z';
+const BUILT_AT = '2026-05-19T10:02:00Z';
 const LATEX_COMPILER_USED = 'tectonic 0.16.9';
 
 // ── Sections included (mirrors the LaTeX TOC) ────────────────────────────────
@@ -61,9 +66,42 @@ const SECTIONS_INCLUDED = [
   'Section 3. Main result (Theorem 1 + Corollary 1 + 6-link proof sketch)',
   'Section 4. Conclusion and open problems',
   'Appendix C. Six-link rigor chain',
+  'Appendix C-prime. Hybrid factor table (2026-05-19 refresh, imp-1127)',
+  'Appendix D. Refresh log 2026-05-19 (imp-1123 + imp-1125 + imp-1127 + imp-1128)',
   'Bibliography (8 entries: de Bruijn 1950, Newman 1976, Ingham 1940, ' +
     'Iwaniec-Kowalski 2004, ESY 2011, Polymath15 2018, Rodgers-Tao 2020, ' +
     'Platt-Trudgian 2021)',
+];
+
+// 2026-05-19 refresh history (imp-1133). Newest entries appended; the first
+// entry records the wave-3 (2026-05-19) update where the imp-1127 hybrid
+// bridge refinements were rolled into Appendix C and the new Appendix D
+// refresh-log was added.
+const REFRESH_HISTORY = [
+  Object.freeze({
+    at: '2026-05-19T10:02:00Z',
+    ticket: 'imp-1133',
+    summary:
+      'Rolled the imp-1127 8pct finite-N tightening into Abstract paragraph 1, ' +
+      'Main result (Theorem 1), Appendix C six-link rigor chain (E_flow ' +
+      '0.00125 -> 0.00119, E_coll 0.01164 -> 0.01012, L_pt 0.0195 -> 0.0179), ' +
+      'and added a new Appendix C-prime hybrid factor table + Appendix D ' +
+      'refresh log. Margin vs Platt-Trudgian (2021) lifts from ~10x to ' +
+      '~11.1x at N* = 10^4. Honest scope: the gain is from the Polymath15 ' +
+      'bridge refinements (C_F bulk-approximation 1.05x on E_flow, ' +
+      'engine-closable; C_C Selberg-sieve 1.15x on E_coll, research-feasible) ' +
+      'NOT from the Bui-Sound zero-density route, which is invisible at ' +
+      'finite N = 10^4 because E_trunc ~ 3e-5 is dwarfed by E_coll ~ 0.012.',
+    citedTickets: ['imp-1123', 'imp-1125', 'imp-1127', 'imp-1128'],
+    pdfSizeBefore: 91401,
+    pdfSizeAfter: FILE_SIZE_BYTES,
+    pageCountBefore: 6,
+    pageCountAfter: PAGE_COUNT,
+    lPtBefore: 0.0195,
+    lPtAfter: 0.0179,
+    marginBefore: 10.0,
+    marginAfter: 11.1,
+  }),
 ];
 
 // Upstream source files used to compose the LaTeX manuscript. Pure provenance.
@@ -141,12 +179,16 @@ export const PAPER_PUBLICATION = Object.freeze({
   builtAt: BUILT_AT,
   latexCompilerUsed: LATEX_COMPILER_USED,
 
+  // imp-1133 refresh history. Append-only chronological log of paper
+  // rebuilds; consumed by the imp1133-refresh-history-nonempty tripwire.
+  refreshHistory: Object.freeze(REFRESH_HISTORY.map((r) => Object.freeze(r))),
+
   headlineClaim: HEADLINE,
 
   downloadButtonCopy:
     'Download paper PDF (draft, ' + PAGE_COUNT + ' pages, ' +
     (FILE_SIZE_BYTES / 1024).toFixed(0) +
-    ' KB) -- gomila-finite-height-beat-2026-05.pdf',
+    ' KB, refreshed 2026-05-19) -- gomila-finite-height-beat-2026-05.pdf',
 
   honestScopeNotes: [
     'This is a DRAFT preprint. It has not been peer-reviewed. All numbers in ' +

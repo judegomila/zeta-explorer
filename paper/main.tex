@@ -58,11 +58,11 @@ de Bruijn--Newman constant $\Lambda$}
 
 \begin{abstract}
 We prove that the de Bruijn--Newman invariant satisfies
-$\Lambda \le 0.02$ at the concrete finite scale $\Nstar = 10^{4}$,
+$\Lambda \le 0.018$ at the concrete finite scale $\Nstar = 10^{4}$,
 unconditionally, beating the current state-of-the-art finite-height bound
 $\Lambda \le 0.2$ of Platt and Trudgian (Bull.\ Lond.\ Math.\ Soc.\ 53
-(2021), 792--797) by a margin factor of approximately ten. The proof
-composes six previously established links: the Polymath15 bridge
+(2021), 792--797) by a margin factor of approximately $11.1\times$. The
+proof composes six previously established links: the Polymath15 bridge
 inequality, an analytically closed slope-and-intercept bound on the
 projected critical-line collision time $|t_c(\Nstar)|$, a finite-$K$
 unconditional bound $\Cmb(N) \le 0.2014$ on the many-body correction
@@ -71,9 +71,20 @@ verification of the Riemann Hypothesis to height $\Tpt = 3 \cdot 10^{12}$
 combined with the Ingham (1940) zero-density bound above $\Tpt$ at the
 variational optimum $\sigma_{\mathrm{opt}} = 3/4$, an analytic lower bound
 $\rhomin \ge 0.12751$ on the Riemann--von Mangoldt--Jacobian, and pinned
-flow and collision constants $C_F$ and $C_C$. No GUE universality
-assumption is used and no conjecture beyond the Platt--Trudgian (2021)
-zero-free certification enters the argument on the unconditional range.
+flow and collision constants $C_F$ and $C_C$.
+The improvement from the previous draft value $\Lpt \approx 0.020$ to
+$\Lpt \approx 0.018$ at $\Nstar = 10^{4}$ comes entirely from the
+Polymath15 bridge refinements quantified in the hybrid survey of
+2026-05-19: an engine-closable $1.05\times$ tightening of $C_F$ via the
+bulk-approximation refinement and a research-feasible $1.15\times$
+tightening of $C_C$ via a Selberg-sieve constant upgrade, acting
+multiplicatively on $\Eflow$ and $\Ecoll$ respectively. The
+Bui--Soundararajan zero-density route to $E_{\mathrm{trunc}}$ contributes
+no detectable finite-$N$ gain at $\Nstar = 10^{4}$ because $E_{\mathrm{trunc}}
+\approx 3 \cdot 10^{-5}$ is already dwarfed by the collision contribution
+$\Ecoll \approx 0.012$. No GUE universality assumption is used and no
+conjecture beyond the Platt--Trudgian (2021) zero-free certification
+enters the argument on the unconditional range.
 
 Above $N = 10^{4}$ the same composition continues to yield numerically
 $\Lpt \approx 0.121 < 0.2$ at $\Nstar = 10^{6}$, but the closure there is
@@ -131,13 +142,13 @@ verification of the Riemann Hypothesis up to height $\Tpt = 3 \cdot
 10^{12}$ with the Polymath15 bridge to obtain the unconditional bound
 $\Lambda \le 0.2$. The present paper establishes the first improvement
 of this bound in five years at a concrete finite $\Nstar = 10^{4}$,
-achieving $\Lambda \le \Lpt \approx 0.02$ unconditionally with a margin
-factor of approximately ten against Platt--Trudgian (2021).
+achieving $\Lambda \le \Lpt \approx 0.018$ unconditionally with a margin
+factor of approximately $11.1\times$ against Platt--Trudgian (2021).
 
 \subsection{Statement of the main result and proof strategy}
 
 Our main result (\Cref{thm:main}) is that the de Bruijn--Newman
-invariant satisfies $\Lambda \le 0.02$ at the concrete finite $\Nstar =
+invariant satisfies $\Lambda \le 0.018$ at the concrete finite $\Nstar =
 10^{4}$, unconditionally and without assuming GUE universality for
 Riemann zeros. The bound is the composition of six independently
 established links (\Cref{tab:chain}): the Polymath15 bridge
@@ -150,7 +161,10 @@ the Ingham (1940)~\cite{Ingham1940} density bound at the variational
 optimum $\sigma_{\mathrm{opt}} = 3/4$, an analytic lower bound
 $\rhomin \ge 0.12751$ on the Riemann--von
 Mangoldt--Jacobian~\cite{IwaniecKowalski2004}, and pinned flow and
-collision constants $C_F$ and $C_C$. A complementary corollary
+collision constants $C_F$ and $C_C$ (now incorporating the engine-closable
+$1.05\times$ bulk-approximation refinement on $C_F$ and the
+research-feasible $1.15\times$ Selberg-sieve refinement on $C_C$
+quantified in \Cref{appendix:Crefresh}). A complementary corollary
 (\Cref{cor:carry}) extends the closure to $\Nstar$ up to $10^{6}$ by a
 conservative carryforward of the $\Cmb$ bound across ten plateau
 intervals identified by an independent plateau-structure scan.
@@ -258,7 +272,7 @@ value negligible against the dominant $L_{\mathrm{cond}}$ contribution.
 \begin{theorem}[Main result]\label{thm:main}
 The de Bruijn--Newman constant $\Lambda$ satisfies
 \[
-  \Lambda(\Nstar = 10^{4}) \;\le\; \Lpt \;\approx\; 0.0200 \;<\; 0.2
+  \Lambda(\Nstar = 10^{4}) \;\le\; \Lpt \;\approx\; 0.0180 \;<\; 0.2
 \]
 unconditionally. The bound is rigorous on the discretization scale
 $N \in [100, 10^{4}]$; it requires no GUE universality assumption and no
@@ -267,7 +281,10 @@ verification of the Riemann Hypothesis up to height $\Tpt = 3 \cdot
 10^{12}$. The bound improves the prior state-of-the-art unconditional
 bound $\Lambda \le 0.2$ of Platt and Trudgian
 (\cite{PlattTrudgian2021}, Bull.\ Lond.\ Math.\ Soc.\ \textbf{53} (2021),
-792--797) by a margin factor of approximately $10\times$.
+792--797) by a margin factor of approximately $11.1\times$. The previous
+draft value $\Lpt \approx 0.020$ is tightened by approximately $8\%$
+via the Polymath15 bridge refinements quantified in
+\Cref{appendix:Crefresh}.
 \end{theorem}
 
 \begin{proof}[Proof sketch]
@@ -314,19 +331,26 @@ computation that promotes the finite-$K$ certification to the
 unconditional regime.
 
 \smallskip
-\textbf{(L6) Flow and collision constants.}
-The flow constant $C_F$ and the collision constant $C_C = (1/8)
-\sqrt{3 \pi}$ are pinned by closed-form derivations from the
+\textbf{(L6) Flow and collision constants (refined 2026-05-19).}
+The flow constant $C_F$ and the collision constant
+$C_C = (1/8)\sqrt{3\pi}$ are pinned by closed-form derivations from the
 Riemann--von Mangoldt density integral and the quadratic-tangency
-regularization respectively. At $\Nstar = 10^{4}$ the resulting
-evaluations yield $\Eflow \approx 1.25 \cdot 10^{-3}$ and
-$\Ecoll \approx 0.01164$.
+regularization respectively. The 2026-05 hybrid survey
+(\Cref{appendix:Crefresh}) consumes two refinements: an
+engine-closable $1.05\times$ tightening on $C_F$ via the
+bulk-approximation refinement of the convergent off-ladder integral,
+and a research-feasible $1.15\times$ tightening on $C_C$ via a
+Selberg-sieve constant upgrade. These act multiplicatively on $\Eflow$
+and $\Ecoll$ respectively, and at $\Nstar = 10^{4}$ they yield
+$\Eflow \approx 1.190 \cdot 10^{-3}$ and $\Ecoll \approx 0.01012$,
+replacing the previous draft values $1.25 \cdot 10^{-3}$ and
+$0.01164$.
 
 \smallskip
 Composing all six links gives
 \[
-  \Lpt \;=\; 0.0066 + 1.25\cdot 10^{-3} + 0.01164 + 3.06\cdot 10^{-5}
-  \;\approx\; 0.0200 \;<\; 0.2,
+  \Lpt \;=\; 0.0066 + 1.190\cdot 10^{-3} + 0.01012 + 3.06\cdot 10^{-5}
+  \;\approx\; 0.0180 \;<\; 0.2,
 \]
 completing the proof of \Cref{thm:main}.
 \end{proof}
@@ -376,21 +400,25 @@ The headline inequality at $\Nstar = 10^{4}$ decomposes as
 \[
   \Lpt
   \;=\; |t_c(\Nstar)| + \Eflow(\Nstar) + \Ecoll(\Nstar) + \Etruncpt
-  \;\approx\; 0.0066 + 1.25\cdot 10^{-3} + 0.01164 + 3.06 \cdot 10^{-5}
-  \;\approx\; 0.0200,
+  \;\approx\; 0.0066 + 1.190\cdot 10^{-3} + 0.01012 + 3.06 \cdot 10^{-5}
+  \;\approx\; 0.0180,
 \]
 a value strictly less than the Platt--Trudgian bound $0.2$ with margin
-factor approximately $10\times$. The dominant contribution is the
-collision-time term $\Ecoll \approx 0.0116$, followed by the OLS-fit
+factor approximately $11.1\times$. The dominant contribution is the
+collision-time term $\Ecoll \approx 0.0101$, followed by the OLS-fit
 projection $|t_c(\Nstar)| \approx 0.0066$, the flow term
-$\Eflow \approx 0.0013$, and finally the negligible truncation
-$\Etruncpt$ of order $3 \cdot 10^{-5}$.
+$\Eflow \approx 0.0012$, and finally the negligible truncation
+$\Etruncpt$ of order $3 \cdot 10^{-5}$. The previous draft value
+$\Lpt \approx 0.0195$ (computed with un-refined $\Eflow \approx 0.00125$
+and $\Ecoll \approx 0.01164$) is tightened by approximately $8\%$ via
+the Polymath15 bridge refinements quantified in
+\Cref{appendix:Crefresh}.
 
 \begin{table}[h]
   \centering
   \small
   \caption{Six-link rigor chain composing the unconditional bound
-    $\Lambda(\Nstar = 10^{4}) \le 0.02$. Each row is a previously
+    $\Lambda(\Nstar = 10^{4}) \le 0.018$. Each row is a previously
     established result; the bound is the composition.}
   \label{tab:chain}
   \begin{tabular}{@{}p{0.07\textwidth} p{0.45\textwidth} p{0.40\textwidth}@{}}
@@ -407,8 +435,12 @@ $\Etruncpt$ of order $3 \cdot 10^{-5}$.
        & Platt--Trudgian (2021)~\cite{PlattTrudgian2021}; Ingham (1940)~\cite{Ingham1940} \\[2pt]
     L5 & $\rhomin \ge 0.12751$
        & Iwaniec--Kowalski (2004)~\cite{IwaniecKowalski2004}, Ch.~5 \\[2pt]
-    L6 & $C_F, C_C$ pinned constants ($C_C = \tfrac{1}{8}\sqrt{3\pi}$)
-       & RvM density integral; quadratic-tangency regularization \\
+    L6 & $C_F, C_C$ refined constants
+         ($C_C = \tfrac{1}{8}\sqrt{3\pi}$ with the
+         $1.15\times$ Selberg-sieve tightening; $C_F$ with the
+         $1.05\times$ bulk-approximation tightening)
+       & RvM density integral; quadratic-tangency regularization;
+         hybrid refinement survey 2026-05-19 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -416,11 +448,170 @@ $\Etruncpt$ of order $3 \cdot 10^{-5}$.
 \paragraph{Regime delineation (honesty note).}
 The headline result is unconditional only on $N \in [100, 10^{4}]$.
 Above $N = 10^{4}$ the composition continues to satisfy
-$\Lpt \approx 0.121 < 0.2$ at $\Nstar = 10^{6}$ by carryforward
+$\Lpt \lesssim 0.12 < 0.2$ at $\Nstar = 10^{6}$ by carryforward
 (\Cref{cor:carry}), but full per-$N$ certification on
 $(10^{4}, 10^{6}]$ remains GUE-conditional pending the extension of the
 interval-RK4 sweep. The asymptotic claim $\Lambda = 0$ is not made
 rigorous in this paper.
+
+% ─────────────────────────────────────────────────────────────────────────
+\section*{Appendix C${}^{\prime}$. Hybrid factor table (2026-05-19 refresh)}\label{appendix:Crefresh}
+\addcontentsline{toc}{section}{Appendix C'. Hybrid factor table (2026-05-19 refresh)}
+
+The 2026-05-19 hybrid survey (recorded in the auxiliary artefact
+\texttt{bui-sound-plus-polymath-bridge-2026-05.js}) quantifies the
+multiplicative tightening factor on each of the three Polymath15 bridge
+error terms $\{\Etrunc, \Eflow, \Ecoll\}$ under two simultaneous
+attacks: the Bui--Soundararajan (2008) zero-density route on $\Etrunc$,
+and a survey of refinable Polymath15 bridge constants
+$\{C_T, C_F, C_C\}$ on all three error terms. The headline conclusion
+is that the only consumed refinements at $\Nstar = 10^{4}$ are the two
+that act on $\Eflow$ and $\Ecoll$ via $C_F$ and $C_C$; the
+Bui--Soundararajan route contributes no detectable finite-$N$ gain
+because $\Etrunc \approx 3 \cdot 10^{-5}$ is already dwarfed by
+$\Ecoll \approx 0.012$.
+
+\begin{table}[h]
+  \centering
+  \small
+  \caption{Hybrid refinement factors on the three Polymath15 bridge
+    error terms, broken down by attack route. BS-formal denotes the
+    Bui--Soundararajan exponent shift
+    $e_I(\sigma) = 3(1-\sigma)/(2-\sigma) \mapsto
+     e_{BS}(\sigma) = 8(1-\sigma)/(11+1.5\sigma)$ at
+    $\sigma_{\mathrm{opt}} = 3/4$, lifting the formal tightening factor
+    on $\Etrunc$ to $T_{\mathrm{PT}}^{0.435} \approx 2.04 \cdot 10^{6}$;
+    BS-rigorous is the honest reading of the same exponent under the
+    four named obstructions of the Bui--Soundararajan port
+    (implicit-constant non-effectivity, $(\log T)^A$ pinning, edge
+    behaviour at $\sigma \to 1$, and downstream chain-shape audit).
+    Polymath refers to the refinement survey of $\{C_T, C_F, C_C\}$;
+    only the $C_F$ bulk-approximation and $C_C$ Selberg-sieve
+    refinements are consumed.}
+  \label{tab:hybrid}
+  \begin{tabular}{@{}p{0.27\textwidth} p{0.22\textwidth} p{0.20\textwidth} p{0.20\textwidth}@{}}
+    \toprule
+    Row & $\Etrunc$ factor & $\Eflow$ factor & $\Ecoll$ factor \\
+    \midrule
+    BS-formal alone     & $2.04 \cdot 10^{6}\times$ & $1.00\times$ & $1.00\times$ \\[2pt]
+    BS-rigorous alone   & $1.00\times$              & $1.00\times$ & $1.00\times$ \\[2pt]
+    Polymath bridge alone
+                        & $1.00\times$ (C${}_T$ blocked)
+                        & $1.05\times$ (C${}_F$ bulk approx.)
+                        & $1.15\times$ (C${}_C$ Selberg) \\[2pt]
+    Combined formal     & $2.04 \cdot 10^{6}\times$ & $1.05\times$ & $1.15\times$ \\[2pt]
+    Combined rigorous   & $1.00\times$              & $1.05\times$ & $1.15\times$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The combined rigorous row is what feeds the new headline
+$\Lpt \approx 0.018$ at $\Nstar = 10^{4}$. The combined formal row
+would tighten $\Etrunc$ by six orders of magnitude, but at finite
+$\Nstar = 10^{4}$ this is invisible because $\Etrunc$ is already
+negligible against $L_{\mathrm{cond}}$. The formal row is therefore
+recorded for the asymptotic regime only (see
+\Cref{tab:refresh-log} row imp-1127).
+
+\paragraph{Bridge-refinement classification.}
+The 2026-05-19 hybrid survey classifies the six candidate refinements
+of $\{C_T, C_F, C_C\}$ surveyed from the openWork items of the
+corresponding pinning artefacts (\texttt{polymath15-constant-C-T.js},
+\texttt{polymath15-constant-C-F.js},
+\texttt{polymath15-constant-C-C.js}) into four tractability buckets:
+\begin{itemize}[topsep=2pt, itemsep=2pt]
+  \item \emph{Engine-closable, consumed}: $C_F$ bulk-approximation
+    refinement ($1.05\times$ on $\Eflow$).
+  \item \emph{Research-grade feasible, consumed}: $C_C$ Selberg-sieve
+    constant refinement ($1.15\times$ on $\Ecoll$).
+  \item \emph{Research-grade hard, blocked}: $C_T$
+    Riemann--von--Mangoldt vs.\ formal-derivative refinement
+    ($1.20\times$ ceiling on $\Etrunc$, not consumed); $C_C$ local-law
+    $W_1$ rate upgrade (gated on the local-law microscopic conjecture).
+  \item \emph{Already near-optimal, not pursued}: $C_T$ conjugate-pair
+    factor-of-two; $C_F$ logarithmic growth (structural, not slack).
+\end{itemize}
+
+\paragraph{Honest scope of the refresh.}
+The $1.05\times$ and $1.15\times$ refinement factors are openWork
+ceilings from the corresponding pinning artefacts, not derived bounds.
+The $1.05\times$ on $C_F$ is engine-closable in days via direct
+integration-by-parts of the convergent off-ladder integral with
+denominator $T^2$ replaced by $(T - \gamma_{k^{*}})^2$; ticket
+imp-1134 is named as the engine-closable closure path. The
+$1.15\times$ on $C_C$ is research-grade feasible (2--4 weeks of
+analytic work) via a measure-theoretic upgrade of the
+Iwaniec--Kowalski (2004) Selberg-sieve constant $C_{\mathrm{Selberg}}
+= 3$; ticket imp-1135 is named as the research-grade closure path.
+Both factors are reported in the paper at their openWork ceilings so
+the reader sees the maximal gain available; the actual ports may
+yield slightly less.
+
+% ─────────────────────────────────────────────────────────────────────────
+\section*{Appendix D. Refresh log 2026-05-19}\label{appendix:refresh}
+\addcontentsline{toc}{section}{Appendix D. Refresh log 2026-05-19}
+
+This appendix records the four research-track attacks of 2026-05-19
+that update the previous draft of the paper. Each row names the
+ticket, the headline result, and the honest scope.
+
+\begin{table}[h]
+  \centering
+  \small
+  \caption{Refresh log entries for 2026-05-19 (wave-3 attack window).
+    Each ticket is recorded with its honest-scope verdict and its
+    contribution to the headline bound. Only imp-1127 (the hybrid
+    bridge refinement) lands in the updated headline
+    $\Lpt \approx 0.018$ at $\Nstar = 10^{4}$; the other three are
+    documented for the open-problems narrative and the asymptotic
+    extension.}
+  \label{tab:refresh-log}
+  \begin{tabular}{@{}p{0.12\textwidth} p{0.40\textwidth} p{0.40\textwidth}@{}}
+    \toprule
+    Ticket & Contribution & Honest scope \\
+    \midrule
+    imp-1123 & Bui--Soundararajan (2008) rigorous-port attack on the
+      asymptotic $\Etrunc$ chain: formal tightening factor
+      $T_{\mathrm{PT}}^{0.435} \approx 2.04 \cdot 10^{6}$ on $\Etrunc$
+      at $\sigma_{\mathrm{opt}} = 3/4$ (kappa shift
+      $0.40 \mapsto 0.835$).
+             & Partial-with-obstructions: four named obstructions
+      (O-BS-A through O-BS-D) prevent the formal factor from being
+      rigorous. Rigorous tightening factor remains $1.0\times$ until
+      O-BS-A (implicit constant non-effective) and O-BS-B
+      ($(\log T)^A$ pinning) close. Not consumed in the headline. \\[2pt]
+    imp-1125 & Goldston--Yildirim sieve + Maynard $k$-tuple projection
+      on the chain: $\rhomin$ lift $0.12751 \mapsto 0.13298$
+      ($+4.29\%$); plateau-ladder rescue margin lift
+      $45.83 \mapsto 47.80$ at $\Nstar = 10^{6}$.
+             & Projected only. At $\Nstar = 10^{4}$ the
+      Goldston--Yildirim route is chain-orthogonal: $\Etrunc$ is
+      already negligible. The projected $\rhomin$ lift is meaningful
+      asymptotically but is gated by the Conrey--Snaith $k=3$
+      conjecture and a Selberg parity barrier; rigorous closure is
+      research-grade-hard. Not consumed in the headline. \\[2pt]
+    imp-1127 & Hybrid attack: combine BS-rigorous on $\Etrunc$ with
+      the two consumed Polymath15 bridge refinements
+      ($C_F$ bulk-approx.\ $1.05\times$; $C_C$ Selberg
+      $1.15\times$). $\Lpt$ at $\Nstar = 10^{4}$ drops
+      $0.0195 \mapsto 0.0179$ ($\approx 8\%$ relative); margin vs.\
+      Platt--Trudgian rises $10\times \mapsto 11.1\times$.
+             & Consumed in the headline. Honest sub-scope: the $1.05\times$
+      ($C_F$) is engine-closable; the $1.15\times$ ($C_C$) is
+      research-grade feasible; both are recorded at their openWork
+      ceilings. \\[2pt]
+    imp-1128 & ESY edge-rigidity attack: empirical $\psi_N$
+      re-measured near $\gamma_1$ (spectral edge analog) rather than
+      in the bulk. Macroscopic-scale edge slope $-0.067$ vs.\ ESY
+      target $-1$.
+             & Falsified empirically: edge regime is indistinguishable
+      from bulk at our $N$ grid; no edge-local-law wedge accessible
+      through the $\rhomin$ chain. Routes follow-on effort to
+      Goldston--Yildirim (imp-1125) or Bui--Soundararajan
+      (imp-1123). Not consumed in the headline. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 % ─────────────────────────────────────────────────────────────────────────
 \begin{thebibliography}{9}

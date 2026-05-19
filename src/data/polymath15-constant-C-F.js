@@ -24,7 +24,7 @@
  * -----------------
  * The imp-322 boundary identity for the minimum gap B = g_{k*} is:
  *
- *     dg_{k*}/dt  =  4/B  -  2B * S_{k*}
+ *     dg_{k_*}/dt  =  4/B  -  2B * S_{k*}
  *
  * where S_{k*} = sum_{j != k*, k*+1} 1/[(gamma_{k*+1} - gamma_j)(gamma_{k*} - gamma_j)].
  *
@@ -78,7 +78,7 @@
  * This is the key quantity entering the E_flow bound. The boundary identity
  * correction from off-ladder zeros is:
  *
- *     delta(dg_{k*}/dt)  =  2B * S_{k*}^{off}  =  2B * C_F(N) / T_0(N)
+ *     delta(dg_{k_*}/dt)  =  2B * S_{k*}^{off}  =  2B * C_F(N) / T_0(N)
  *
  * Gronwall-propagating over backward time |t_c(N)|:
  *
@@ -119,17 +119,17 @@
  *
  * For the argmin k* distributed somewhere in the bulk (not near the boundary
  * k* = 1 or k* = N-1), the correction to S_{k*}^{off} from the finite
- * gamma_{k*}/T_0 ratio is bounded by:
+ * gamma_{k_*}/T_0 ratio is bounded by:
  *
- *     delta S_{k*}^{off}  <=  (gamma_{k*}/T_0)  *  C_F(N) / T_0
+ *     delta S_{k*}^{off}  <=  (gamma_{k_*}/T_0)  *  C_F(N) / T_0
  *
- * which is O(k*/N) smaller than the leading term — negligible for k* << N.
+ * which is O(k_{*}/N) smaller than the leading term — negligible for k_{*} << N.
  *
  * References
  * ----------
  * Riemann (1859) / von Mangoldt (1905). Zero density formula:
  *   N(T) approx T/(2pi) * log(T/(2pi*e)),  rho(T) = log(T/2pi)/(2pi).
- * imp-322 (dyson-monotonicity-proof.js). Boundary identity dg_{k*}/dt = 4/B - 2B*S_{k*}
+ * imp-322 (dyson-monotonicity-proof.js). Boundary identity dg_{k_*}/dt = 4/B - 2B*S_{k*}
  *   and the telescoping bound S_{k*}^{on} <= 2/B^2 for on-ladder zeros.
  * imp-345 (lambda-polymath15-bridge.js). E_flow formula and the role of C_F.
  * imp-397 (polymath15-constant-C-T.js). Analogous derivation for C_T.
@@ -303,7 +303,7 @@ export const POLYMATH15_CONSTANT_C_F_ASSERTIONS = [
       return corrLast < corrFirst;
     },
     why:
-      "The off-ladder correction to dg_{k*}/dt is 2*B*S_{k*}^{off} approx " +
+      "The off-ladder correction to dg_{k_*}/dt is 2*B*S_{k*}^{off} approx " +
       "2*(2pi/log T_0)*C_F/T_0 = (4pi*C_F)/(T_0*log T_0). Since C_F grows " +
       "only as log(T_0) while T_0*log(T_0) grows faster, the correction " +
       "decreases with N. This confirms the truncated flow converges to the full flow.",
@@ -324,7 +324,7 @@ export const POLYMATH15_CONSTANT_C_F = {
     S_off_definition:
       "S_{k*}^{off} = C_F(N) / T_0(N) = INT_{T_0}^{inf} log(T/2pi)/(2pi*T^2) dT",
     boundary_identity:
-      "dg_{k*}/dt = 4/B - 2B*(S_{k*}^{on} + S_{k*}^{off})   [imp-322 with off-ladder correction]",
+      "dg_{k_*}/dt = 4/B - 2B*(S_{k*}^{on} + S_{k*}^{off})   [imp-322 with off-ladder correction]",
   },
 
   derivationSummary: [
@@ -363,7 +363,7 @@ export const POLYMATH15_CONSTANT_C_F = {
   derivationProvenance: [
     "Riemann-von Mangoldt formula: N(T) = (T/2pi)*log(T/(2pi*e)) + O(log T); " +
       "density rho(T) = log(T/2pi)/(2pi).",
-    "imp-322 boundary identity: dg_{k*}/dt = 4/B - 2B*S_{k*} with " +
+    "imp-322 boundary identity: dg_{k_*}/dt = 4/B - 2B*S_{k*} with " +
       "S_{k*}^{on} <= 2/B^2 (on-ladder telescoping sum).",
     "Bulk approximation: for T > T_0 >> gamma_{k*}, gamma_{k*+1}, the denominator " +
       "(T-gamma_{k*})(T-gamma_{k*+1}) approx T^2, giving S_{k*}^{off} approx INT rho(T)/T^2 dT.",

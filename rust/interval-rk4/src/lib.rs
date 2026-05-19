@@ -18,12 +18,17 @@
 //!   - `rk4::rk4_interval_step(state, dt) -> Option<Vec<Interval>>` —
 //!     one classical RK4 step using `dyson_drift_vector` as the RHS.
 
+pub mod barnes_hut;
 pub mod dyson;
 pub mod eml;
 pub mod parallel;
 pub mod rk4;
 
-pub use dyson::{dyson_drift_interval, dyson_drift_vector};
+pub use barnes_hut::{BHTree, LEAF_SIZE};
+pub use dyson::{
+    dyson_drift_barnes_hut, dyson_drift_interval, dyson_drift_vector,
+    dyson_drift_vector_barnes_hut,
+};
 pub use eml::eml_interval;
 pub use parallel::{
     par_plateau_sweep, serial_plateau_sweep, PlateauResult, PlateauSpec, SweepOpts,

@@ -14,6 +14,7 @@
 //! as a closed bracket.
 
 use crate::as_interval;
+use crate::barnes_hut::BHTree;
 use inari::Interval;
 
 /// Drift for particle `k`. Returns `None` if any (g_k - g_j) straddles 0.
@@ -47,6 +48,46 @@ pub fn dyson_drift_vector(gammas: &[Interval]) -> Option<Vec<Interval>> {
     let mut out = Vec::with_capacity(n);
     for k in 0..n {
         match dyson_drift_interval(gammas, k) {
+            Some(d) => out.push(d),
+            None => return None,
+        }
+    }
+    Some(out)
+}
+
+/// imp-1132 Barnes-Hut drift at particle `k`. Returns the same
+/// quantity as `dyson_drift_interval` -- namely `-2 * sum_{j != k}
+/// 1/(g_k - g_j)` -- but uses a pre-built BH tree to compute the sum
+/// in O(log N) per query rather than O(N). The `theta` parameter
+/// controls the multipole-acceptance criterion: cells with
+/// extent / dist < theta are treated as point masses with a
+/// truncation-bound interval inflation. Typical values are 0.3 to
+/// 0.5; smaller theta is more accurate but slower.
+///
+/// Returns `None` if any encountered distance straddles zero (the
+/// collision short-circuit, identical semantics to the dense path).
+pub fn dyson_drift_barnes_hut(
+    gammas: &[Interval],
+    tree: &BHTree,
+    k: usize,
+    theta: f64,
+) -> Option<Interval> {
+    let sum = tree.query_sum(gammas, k, theta)?;
+    let neg_two = as_interval(-2.0);
+    Some(neg_two * sum)
+}
+
+/// Full drift vector via Barnes-Hut. Builds the tree once and queries
+/// every particle, yielding the O(N log N) full drift.
+pub fn dyson_drift_vector_barnes_hut(
+    gammas: &[Interval],
+    theta: f64,
+) -> Option<Vec<Interval>> {
+    let tree = BHTree::build(gammas);
+    let n = gammas.len();
+    let mut out = Vec::with_capacity(n);
+    for k in 0..n {
+        match dyson_drift_barnes_hut(gammas, &tree, k, theta) {
             Some(d) => out.push(d),
             None => return None,
         }

@@ -1,0 +1,181 @@
+{
+  "runAt": "2026-05-19T07:52:21.671Z",
+  "timeoutMs": 1800000,
+  "shortTimeoutMs": 300000,
+  "shortTimeoutForNAtOrAbove": 100000,
+  "binary": "/Users/USER/Documents/GitHub/mathexplorer/rust/interval-rk4/target/release/interval-rk4-cli",
+  "perN_results": [
+    {
+      "N": 20000,
+      "dt": 0.00005,
+      "maxSteps": 12,
+      "perNTimeoutMs": 1800000,
+      "t_c_lo": 0.00015000000000000001,
+      "t_c_hi": 0.0002,
+      "wrapperWidth": 0.000049999999999999996,
+      "maxIntervalWidth": 2.3283064365386963e-9,
+      "stepsTaken": 4,
+      "rustReportedRuntimeMs": 356458,
+      "runtimeMs": 356461,
+      "terminationReason": "gap-lower-bound-nonpositive",
+      "success": true
+    },
+    {
+      "N": 50000,
+      "dt": 0.00005,
+      "maxSteps": 2,
+      "perNTimeoutMs": 1800000,
+      "t_c_lo": 0.0001,
+      "t_c_hi": null,
+      "wrapperWidth": null,
+      "maxIntervalWidth": 2.9103830456733704e-11,
+      "stepsTaken": 2,
+      "rustReportedRuntimeMs": 1113504,
+      "runtimeMs": 1113508,
+      "terminationReason": "budget-exhausted",
+      "success": true
+    },
+    {
+      "N": 100000,
+      "dt": 0.0001,
+      "maxSteps": 1,
+      "perNTimeoutMs": 300000,
+      "t_c_lo": null,
+      "t_c_hi": null,
+      "wrapperWidth": null,
+      "maxIntervalWidth": null,
+      "runtimeMs": 300002,
+      "terminationReason": "timed-out-5min-short-budget",
+      "success": false
+    },
+    {
+      "N": 200000,
+      "dt": 0.0001,
+      "maxSteps": 1,
+      "perNTimeoutMs": 300000,
+      "t_c_lo": null,
+      "t_c_hi": null,
+      "wrapperWidth": null,
+      "maxIntervalWidth": null,
+      "runtimeMs": 300003,
+      "terminationReason": "timed-out-5min-short-budget",
+      "success": false
+    },
+    {
+      "N": 300000,
+      "dt": 0.0001,
+      "maxSteps": 1,
+      "perNTimeoutMs": 300000,
+      "t_c_lo": null,
+      "t_c_hi": null,
+      "wrapperWidth": null,
+      "maxIntervalWidth": null,
+      "runtimeMs": 300003,
+      "terminationReason": "timed-out-5min-short-budget",
+      "success": false
+    },
+    {
+      "N": 500000,
+      "dt": 0.0005,
+      "maxSteps": 1,
+      "perNTimeoutMs": 300000,
+      "t_c_lo": null,
+      "t_c_hi": null,
+      "wrapperWidth": null,
+      "maxIntervalWidth": null,
+      "runtimeMs": 300003,
+      "terminationReason": "timed-out-5min-short-budget",
+      "success": false
+    },
+    {
+      "N": 600000,
+      "dt": 0.0005,
+      "maxSteps": 1,
+      "perNTimeoutMs": 300000,
+      "t_c_lo": null,
+      "t_c_hi": null,
+      "wrapperWidth": null,
+      "maxIntervalWidth": null,
+      "runtimeMs": 300003,
+      "terminationReason": "timed-out-5min-short-budget",
+      "success": false
+    },
+    {
+      "N": 800000,
+      "dt": 0.0005,
+      "maxSteps": 1,
+      "perNTimeoutMs": 300000,
+      "t_c_lo": null,
+      "t_c_hi": null,
+      "wrapperWidth": null,
+      "maxIntervalWidth": null,
+      "runtimeMs": 300003,
+      "terminationReason": "timed-out-5min-short-budget",
+      "success": false
+    },
+    {
+      "N": 1000000,
+      "dt": 0.0005,
+      "maxSteps": 1,
+      "perNTimeoutMs": 300000,
+      "t_c_lo": null,
+      "t_c_hi": null,
+      "wrapperWidth": null,
+      "maxIntervalWidth": null,
+      "runtimeMs": 300003,
+      "terminationReason": "timed-out-5min-short-budget",
+      "success": false
+    }
+  ],
+  "successCount": 2,
+  "totalN": 9,
+  "wrapperWidthGrowthRate": {
+    "slope": null,
+    "intercept": null,
+    "R2": null,
+    "n": 1
+  },
+  "maxIntervalWidthGrowthRate": {
+    "slope": -4.782353986830144,
+    "intercept": 27.483858495469647,
+    "R2": 0.9999999999999998,
+    "n": 2
+  },
+  "blockersFoundAtSpecificN": [
+    {
+      "N": 100000,
+      "reason": "timed-out-5min-short-budget",
+      "runtimeMs": 300002
+    },
+    {
+      "N": 200000,
+      "reason": "timed-out-5min-short-budget",
+      "runtimeMs": 300003
+    },
+    {
+      "N": 300000,
+      "reason": "timed-out-5min-short-budget",
+      "runtimeMs": 300003
+    },
+    {
+      "N": 500000,
+      "reason": "timed-out-5min-short-budget",
+      "runtimeMs": 300003
+    },
+    {
+      "N": 600000,
+      "reason": "timed-out-5min-short-budget",
+      "runtimeMs": 300003
+    },
+    {
+      "N": 800000,
+      "reason": "timed-out-5min-short-budget",
+      "runtimeMs": 300003
+    },
+    {
+      "N": 1000000,
+      "reason": "timed-out-5min-short-budget",
+      "runtimeMs": 300003
+    }
+  ]
+}

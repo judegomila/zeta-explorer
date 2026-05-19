@@ -399,4 +399,141 @@ export const PAPER_PUBLICATION_ASSERTIONS = [
       'gomila-finite-height-beat-2026-05.pdf. Any drift breaks the in-app ' +
       'download link.',
   },
+
+  // ── imp-1133 refresh tripwires (2026-05-19) ───────────────────────────────
+
+  {
+    id: 'imp1133-refresh-history-nonempty',
+    holds: () => {
+      const r = PAPER_PUBLICATION.refreshHistory;
+      return Array.isArray(r) && r.length >= 1 &&
+        r.every((row) => row && typeof row.at === 'string' &&
+                         typeof row.summary === 'string' &&
+                         row.summary.length > 50 &&
+                         Array.isArray(row.citedTickets) &&
+                         row.citedTickets.length >= 1);
+    },
+    why:
+      'refreshHistory must contain at least one entry with at (ISO timestamp), ' +
+      'summary (>= 50 chars), and citedTickets (non-empty array). The wave-3 ' +
+      'refresh (imp-1133) is the first entry; later refreshes append to this ' +
+      'log so the dissemination provenance is preserved across rebuilds.',
+  },
+
+  {
+    id: 'imp1133-pdf-file-size-above-50kb',
+    holds: () => {
+      const stat = tryStatNode(PAPER_PUBLICATION.pdfRepoPath);
+      if (stat === null) return true;
+      return stat.size > 50 * 1024;
+    },
+    why:
+      'Post-refresh the shipped PDF at public/papers/gomila-finite-height-' +
+      'beat-2026-05.pdf must be larger than 50 KB (the 2026-05-18 baseline ' +
+      'was 91.4 KB; the imp-1133 refresh added two appendices and grew to ' +
+      '~ 113 KB). A size below 50 KB would mean the new appendices were lost ' +
+      'or the tectonic compile silently failed and left the old file.',
+  },
+
+  {
+    id: 'imp1133-page-count-above-five',
+    holds: () =>
+      typeof PAPER_PUBLICATION.pageCount === 'number' &&
+      PAPER_PUBLICATION.pageCount > 5,
+    why:
+      'Post-refresh the paper must be more than 5 pages (the imp-1133 ' +
+      'refresh adds Appendix C-prime hybrid factor table + Appendix D ' +
+      'refresh log, taking the page count from 6 to 8). A page count <= 5 ' +
+      'means the new appendices did not land.',
+  },
+
+  {
+    id: 'imp1133-l-pt-0p018-figure-appears-in-main-tex',
+    holds: () => {
+      const stat = tryStatNode(PAPER_PUBLICATION.texSourcePath);
+      if (stat === null) return true;
+      try {
+        if (typeof process === 'undefined' || !process.versions || !process.versions.node) {
+          return true;
+        }
+        const req = (typeof require === 'function')
+          ? require
+          // eslint-disable-next-line no-eval
+          : (0, eval)('require');
+        if (typeof req !== 'function') return true;
+        const fs = req('node:fs');
+        const path = req('node:path');
+        const abs = path.resolve(process.cwd(), PAPER_PUBLICATION.texSourcePath);
+        const src = fs.readFileSync(abs, 'utf8');
+        // Must mention the new 0.018 headline AND the 11.1x margin somewhere.
+        return src.indexOf('0.018') >= 0 && src.indexOf('11.1') >= 0;
+      } catch (_e) {
+        return true;
+      }
+    },
+    why:
+      'The refreshed paper/main.tex must mention the new 0.018 headline ' +
+      'L_pt figure AND the 11.1x margin factor somewhere in the source. ' +
+      'If grep cannot find both in the .tex, the abstract or main result ' +
+      'has drifted off the imp-1127 refresh.',
+  },
+
+  {
+    id: 'imp1133-sections-list-includes-refresh-log-appendix',
+    holds: () => {
+      const s = PAPER_PUBLICATION.sectionsIncluded;
+      return Array.isArray(s) &&
+        s.some((row) =>
+          typeof row === 'string' && row.indexOf('Refresh log') >= 0
+        ) &&
+        s.some((row) =>
+          typeof row === 'string' && row.indexOf('Hybrid factor table') >= 0
+        );
+    },
+    why:
+      'The sectionsIncluded list must contain BOTH the new Appendix D ' +
+      'refresh log AND the new Appendix C-prime hybrid factor table. ' +
+      'Missing either means the source-of-truth section list has drifted ' +
+      'apart from the recompiled LaTeX.',
+  },
+
+  {
+    id: 'imp1133-refresh-history-cites-wave3-tickets',
+    holds: () => {
+      const r = PAPER_PUBLICATION.refreshHistory;
+      if (!Array.isArray(r) || r.length === 0) return false;
+      const first = r[0];
+      if (!first || !Array.isArray(first.citedTickets)) return false;
+      // Wave 3 refresh must cite at least imp-1127 (the only ticket whose
+      // numerical result lands in the headline) and at least 3 wave-3 tickets
+      // in total (imp-1123 / imp-1125 / imp-1127 / imp-1128 are the four
+      // candidates).
+      const cited = first.citedTickets;
+      const hasHybrid = cited.indexOf('imp-1127') >= 0;
+      const wave3Set = ['imp-1123', 'imp-1125', 'imp-1127', 'imp-1128'];
+      const wave3Count = cited.filter((t) => wave3Set.indexOf(t) >= 0).length;
+      return hasHybrid && wave3Count >= 3;
+    },
+    why:
+      'The first refresh-history entry must cite imp-1127 (the hybrid attack ' +
+      'that landed the new 0.018 figure in the headline) AND at least three ' +
+      'of the four wave-3 tickets {imp-1123, imp-1125, imp-1127, imp-1128} ' +
+      'to ground the new Appendix D refresh log in the work record.',
+  },
+
+  {
+    id: 'imp1133-built-at-newer-than-2026-05-18',
+    holds: () => {
+      const t = PAPER_PUBLICATION.builtAt;
+      if (typeof t !== 'string') return false;
+      const ms = Date.parse(t);
+      const cutoff = Date.parse('2026-05-19T00:00:00Z');
+      return Number.isFinite(ms) && Number.isFinite(cutoff) && ms >= cutoff;
+    },
+    why:
+      'builtAt must be at or after 2026-05-19T00:00:00Z (the wave-3 ' +
+      'refresh window). A timestamp earlier than that means the PDF on ' +
+      'disk was not rebuilt and the recorded fileSizeBytes / pageCount ' +
+      'no longer match the artefact.',
+  },
 ];

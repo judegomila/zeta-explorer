@@ -900,7 +900,7 @@ function S12_Timeline() {
     { year: 2021,  who: 'Platt &amp; Trudgian',          event: 'Λ ≤ 0.2 (Bull. LMS); current public SOTA upper bound' },
     { year: 2024,  who: 'Guth-Maynard',              event: 'Sharpest zero-density estimates; tail bound input to Step 4' },
     { year: 2025,  who: 'Connes',                    event: 'Adelic trace formula refinements; cross-check of spectral side' },
-    { year: 2026,  who: 'This project (Phase 37+)',  event: 'Route B: unconditional asymptotic Λ = 0 via Koksma-Hlawka; finite-height beat Λ ≤ 0.121 — GUE-UNCOND on N ∈ [100, 10⁴] (imp-857 + imp-903 27-point interval sweep)' },
+    { year: 2026,  who: 'Gomila',  event: 'Route B: unconditional asymptotic Λ = 0 via Koksma-Hlawka; finite-height beat Λ ≤ 0.121 — GUE-UNCOND on N ∈ [100, 10⁴] (imp-857 + imp-903 27-point interval sweep)' },
   ];
   return (
     <Section id="timeline" number={12} title="Timeline"

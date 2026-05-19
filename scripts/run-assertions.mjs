@@ -148,6 +148,8 @@ const DATA_MODULES = [
   '/src/data/imp-962-per-plateau-gronwall-certs-N10k-to-N1e6.js',
   // imp-1081: paper appendix C — rigorous unconditional finite-height beat at N* = 1e4.
   '/src/data/paper-appendix-C-finite-height-beat.js',
+  // imp-1083: arXiv front-matter abstract rewrite leading with the rigorous finite-N* beat.
+  '/src/data/paper-abstract-rewrite-2026-05.js',
 ];
 
 const ALL_MODULES = FAST_MODE

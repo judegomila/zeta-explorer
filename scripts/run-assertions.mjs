@@ -186,6 +186,8 @@ const DATA_MODULES = [
   '/src/data/esy-rigidity-empirical-2026-05.js',
   // imp-1112: Rust-only sanity sweep diagnostic at plateau N in (1e4, 1e6].
   '/src/data/rust-port-sanity-sweep-2026-05.js',
+  // imp-1110: Rust interval-RK4 Phase 4 rayon parallel plateau sweep.
+  '/src/data/rust-port-phase4-rayon-validation.js',
 ];
 
 const ALL_MODULES = FAST_MODE

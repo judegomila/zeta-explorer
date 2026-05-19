@@ -184,6 +184,8 @@ const DATA_MODULES = [
   '/src/data/connes-adelic-lambda-2026-05.js',
   // imp-1108: SOTA attack 3 -- empirical psi_N measurement of ESY rigidity at our existing N.
   '/src/data/esy-rigidity-empirical-2026-05.js',
+  // imp-1112: Rust-only sanity sweep diagnostic at plateau N in (1e4, 1e6].
+  '/src/data/rust-port-sanity-sweep-2026-05.js',
 ];
 
 const ALL_MODULES = FAST_MODE

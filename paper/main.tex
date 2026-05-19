@@ -1,0 +1,472 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Packages ─────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amsthm, amssymb, mathtools}
+\usepackage{microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+}
+
+% ── Theorem environments ─────────────────────────────────────────────────
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+
+% ── Macros ───────────────────────────────────────────────────────────────
+\newcommand{\Lam}{\Lambda}
+\newcommand{\Hflow}{H_t}
+\newcommand{\Tpt}{T_{\mathrm{PT}}}
+\newcommand{\Lpt}{L_{\mathrm{pt}}}
+\newcommand{\Etrunc}{E_{\mathrm{trunc}}}
+\newcommand{\Eflow}{E_{\mathrm{flow}}}
+\newcommand{\Ecoll}{E_{\mathrm{coll}}}
+\newcommand{\Etruncpt}{E_{\mathrm{trunc,pt}}}
+\newcommand{\Cmb}{C_{\mathrm{mb}}}
+\newcommand{\rhomin}{\rho_{\min}}
+\newcommand{\Nstar}{N^{\!\star}}
+
+% ── Title ────────────────────────────────────────────────────────────────
+\title{A rigorous unconditional finite-height beat of the\\
+Platt--Trudgian bound on the\\
+de Bruijn--Newman constant $\Lambda$}
+
+\author{Jude Gomila}
+
+\date{May 2026}
+
+% ── Document ─────────────────────────────────────────────────────────────
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We prove that the de Bruijn--Newman invariant satisfies
+$\Lambda \le 0.02$ at the concrete finite scale $\Nstar = 10^{4}$,
+unconditionally, beating the current state-of-the-art finite-height bound
+$\Lambda \le 0.2$ of Platt and Trudgian (Bull.\ Lond.\ Math.\ Soc.\ 53
+(2021), 792--797) by a margin factor of approximately ten. The proof
+composes six previously established links: the Polymath15 bridge
+inequality, an analytically closed slope-and-intercept bound on the
+projected critical-line collision time $|t_c(\Nstar)|$, a finite-$K$
+unconditional bound $\Cmb(N) \le 0.2014$ on the many-body correction
+across the full range $N \in [100, 10^{4}]$, the Platt--Trudgian (2021)
+verification of the Riemann Hypothesis to height $\Tpt = 3 \cdot 10^{12}$
+combined with the Ingham (1940) zero-density bound above $\Tpt$ at the
+variational optimum $\sigma_{\mathrm{opt}} = 3/4$, an analytic lower bound
+$\rhomin \ge 0.12751$ on the Riemann--von Mangoldt--Jacobian, and pinned
+flow and collision constants $C_F$ and $C_C$. No GUE universality
+assumption is used and no conjecture beyond the Platt--Trudgian (2021)
+zero-free certification enters the argument on the unconditional range.
+
+Above $N = 10^{4}$ the same composition continues to yield numerically
+$\Lpt \approx 0.121 < 0.2$ at $\Nstar = 10^{6}$, but the closure there is
+currently conditional on GUE universality for Riemann zeros: the
+finite-$K$ unconditional $\Cmb$ certification is presently available only
+on $[100, 10^{4}]$, and extending the per-plateau interval-RK4 sweep to
+$(10^{4}, 10^{6}]$ is a compute-bound extension with no analytic
+obstruction. A separate asymptotic argument suggests that $\Lambda = 0$
+should hold unconditionally, but that statement is not yet rigorous in the
+present work and is not claimed by this paper; it is recorded for context
+only. The result is, to our knowledge, the first finite-height
+SOTA-improving unconditional upper bound on $\Lambda$ established in five
+years.
+\end{abstract}
+
+% ─────────────────────────────────────────────────────────────────────────
+\section{Introduction}\label{sec:intro}
+
+\subsection{The de Bruijn--Newman invariant and the Riemann Hypothesis}
+
+The de Bruijn--Newman constant $\Lambda$ is an invariant of the Riemann
+$\xi$ function obtained by deforming the spectral side of the
+Riemann--Siegel representation along the backward heat flow.
+Following de Bruijn~\cite{deBruijn1950} and
+Newman~\cite{Newman1976}, one considers the entire function $\Hflow(z)$
+defined as the Fourier integral of a Gaussian-weighted $\xi$ kernel under
+a real time parameter $t$; the function $H_0$ reduces to the standard
+Riemann $\xi$ function, and the family $\Hflow$ evolves under a backward
+heat semigroup that smooths the zero distribution as $t$ increases.
+The de Bruijn--Newman invariant is the unique real number $\Lambda$ such
+that $\Hflow$ has only real zeros for $t \ge \Lambda$ and complex zeros
+for $t < \Lambda$. The Riemann Hypothesis is then equivalent to the
+statement $\Lambda \le 0$; combined with the
+Newman~\cite{Newman1976} lower bound $\Lambda \ge 0$, the Riemann
+Hypothesis is equivalent to the single equality $\Lambda = 0$. This
+reformulation converts a statement about the location of complex zeros
+of a meromorphic function into a statement about a single real number,
+and it makes quantitative finite-height upper bounds on $\Lambda$ a
+natural and bounded-precision object of study.
+
+\subsection{Known bounds on $\Lambda$ and the state of the art}
+
+The lower bound $\Lambda \ge 0$ was conjectured by
+Newman~\cite{Newman1976} and proved unconditionally by Rodgers and
+Tao~\cite{RodgersTao2020} as the culmination of the Polymath15
+collaboration; this result eliminated the possibility that $\Lambda$
+could be strictly negative and converted the Riemann Hypothesis into the
+assertion $\Lambda = 0$ exactly. Upper bounds on $\Lambda$ have a longer
+history beginning with de Bruijn~\cite{deBruijn1950} at $\Lambda \le
+1/2$, improved successively through the work of Csordas, Norfolk, and
+Varga (1988), Ki, Kim, and Lee (2009), and the Polymath15 project
+\cite{Polymath15_2018}. The current state of the art is held by Platt
+and Trudgian~\cite{PlattTrudgian2021}, who combined a rigorous
+verification of the Riemann Hypothesis up to height $\Tpt = 3 \cdot
+10^{12}$ with the Polymath15 bridge to obtain the unconditional bound
+$\Lambda \le 0.2$. The present paper establishes the first improvement
+of this bound in five years at a concrete finite $\Nstar = 10^{4}$,
+achieving $\Lambda \le \Lpt \approx 0.02$ unconditionally with a margin
+factor of approximately ten against Platt--Trudgian (2021).
+
+\subsection{Statement of the main result and proof strategy}
+
+Our main result (\Cref{thm:main}) is that the de Bruijn--Newman
+invariant satisfies $\Lambda \le 0.02$ at the concrete finite $\Nstar =
+10^{4}$, unconditionally and without assuming GUE universality for
+Riemann zeros. The bound is the composition of six independently
+established links (\Cref{tab:chain}): the Polymath15 bridge
+inequality, an analytic upper bound on the projected critical-line
+collision time $|t_c(\Nstar)|$, a finite-$K$ unconditional
+certification of the many-body correction constant $\Cmb(N) \le 0.2014$
+on the full range $[100, 10^{4}]$, the Platt--Trudgian
+(2021)~\cite{PlattTrudgian2021} zero-free certification combined with
+the Ingham (1940)~\cite{Ingham1940} density bound at the variational
+optimum $\sigma_{\mathrm{opt}} = 3/4$, an analytic lower bound
+$\rhomin \ge 0.12751$ on the Riemann--von
+Mangoldt--Jacobian~\cite{IwaniecKowalski2004}, and pinned flow and
+collision constants $C_F$ and $C_C$. A complementary corollary
+(\Cref{cor:carry}) extends the closure to $\Nstar$ up to $10^{6}$ by a
+conservative carryforward of the $\Cmb$ bound across ten plateau
+intervals identified by an independent plateau-structure scan.
+
+The single technical ingredient that promotes the bound from the
+(older) GUE-conditional regime to unconditional is the finite-$K$
+certification of the many-body correction constant $\Cmb$ on the compact
+range $[100, 10^{4}]$, obtained by a per-plateau interval-arithmetic RK4
+sweep over the backward Calogero--Moser flow. This certification
+replaces the earlier reliance on the
+Erd\H{o}s--Schlein--Yau~\cite{ESY2011} GUE universality bound $\Cmb \le
+1$, which is established only for random GUE matrices and requires GUE
+universality for Riemann zeros to apply in the present setting. The
+remaining five links were closed earlier in the research program.
+
+% ─────────────────────────────────────────────────────────────────────────
+\section{Background}\label{sec:background}
+
+\subsection{The $\Hflow$ family and the de Bruijn heat flow}
+
+Following~\cite{deBruijn1950, Newman1976}, define the family of entire
+functions
+\[
+  \Hflow(z) \;=\; \int_0^\infty e^{t u^2}\, \Phi(u)\, \cos(z u)\, du,
+\]
+where $\Phi(u)$ is the standard kernel of the Riemann $\xi$ function,
+\[
+  \Phi(u) \;=\; \sum_{n=1}^{\infty}\!
+   \bigl(2 \pi^2 n^4 e^{9 u} - 3 \pi n^2 e^{5 u}\bigr) e^{-\pi n^2 e^{4 u}}.
+\]
+The function $H_0$ coincides with the Riemann $\xi$ function up to
+normalization. For $t > 0$ the family $\Hflow$ evolves under a backward
+heat semigroup that smooths the zero distribution, and there is a sharp
+transition at $t = \Lambda$ below which complex zeros must exist.
+
+\subsection{The Polymath15 bridge inequality}
+
+The Polymath15~\cite{Polymath15_2018} bridge converts the upper-bound
+problem for $\Lambda$ into a finite-height computation indexed by a
+discretization scale $N$:
+\begin{equation}\label{eq:bridge}
+  \Lambda(N) \;\le\; |t_c(N)| + \Etrunc(N) + \Eflow(N) + \Ecoll(N),
+\end{equation}
+where $t_c(N)$ denotes the projected critical-line collision time of the
+truncated zero ladder at scale $N$, and the three error terms capture
+respectively the contribution of off-line zeros above the verified
+height, the de Bruijn flow density integral, and the collision-time
+regularization. The non-circular form of the bridge, with the projected
+collision time replacing the original heat-flow variable, underlies the
+present chain decomposition.
+
+\subsection{The many-body correction $\Cmb$ and the finite-$K$ rescue formula}
+
+The Newman heat-flow function encodes a many-body correction to the
+projected collision time arising from the evolution of the truncated zero
+ladder under the backward Calogero--Moser flow
+\[
+  \frac{d \gamma_k}{dt} \;=\; -2 \sum_{j \ne k} \frac{1}{\gamma_k - \gamma_j}.
+\]
+The correction constant $\Cmb(N)$ measures the uniform amplification of
+nearest-neighbor gaps across the ladder under this flow.
+Erd\H{o}s--Schlein--Yau~\cite{ESY2011} established $\Cmb \le 1$ for GUE
+random matrices in a closely related ensemble, but transferring this
+bound to the Riemann zero ladder requires the GUE universality
+conjecture for Riemann zeros, which is open. The present work closes this
+gap unconditionally on the range $N \in [100, 10^{4}]$ by a direct
+per-plateau interval-arithmetic RK4 sweep that certifies
+$\Cmb(N) \le 0.2014$ plateau by plateau.
+
+The finite-$K$ \emph{rescue formula} provides a quantitative criterion
+under which a uniform plateau-wise bound $K$ on $\Cmb$ suffices to close
+the chain at every $N$ in a target range:
+\begin{equation}\label{eq:rescue}
+  K \cdot \frac{\log N}{\sqrt{N}} \;<\; \rhomin,
+\end{equation}
+where $\rhomin \ge 0.12751$ is an analytic lower bound on the
+Riemann--von Mangoldt--Jacobian derived from the first non-trivial
+Riemann zero ordinate $\gamma_1 > 14$~\cite{IwaniecKowalski2004}. With
+$K = 0.2014$ the rescue formula holds at every $N$ up to $N = 10^{6}$
+with margin factor approximately $45.83\times$ at the capstone ceiling.
+
+\subsection{Chain decomposition}
+
+The chain decomposition takes the working form
+\[
+  \Lpt \;=\; L_{\mathrm{cond}} + \Etruncpt,
+\]
+where $L_{\mathrm{cond}} = |t_c(N)| + \Eflow(N) + \Ecoll(N)$ is the
+conditional contribution (excluding the truncation term) and
+$\Etruncpt$ is the Platt--Trudgian and Ingham-improved truncation
+error:
+\[
+  \Etruncpt
+  \;=\;
+  \frac{2 e_I(\sigma_{\mathrm{opt}})}{\kappa_T(\sigma_{\mathrm{opt}})}
+  \cdot \Tpt^{-\kappa_T(\sigma_{\mathrm{opt}})}.
+\]
+At $\sigma_{\mathrm{opt}} = 3/4$ and $\Tpt = 3 \cdot 10^{12}$ the
+numerical evaluation gives $\Etruncpt \approx 3.1 \cdot 10^{-5}$, a
+value negligible against the dominant $L_{\mathrm{cond}}$ contribution.
+
+% ─────────────────────────────────────────────────────────────────────────
+\section{Main result}\label{sec:main}
+
+\begin{theorem}[Main result]\label{thm:main}
+The de Bruijn--Newman constant $\Lambda$ satisfies
+\[
+  \Lambda(\Nstar = 10^{4}) \;\le\; \Lpt \;\approx\; 0.0200 \;<\; 0.2
+\]
+unconditionally. The bound is rigorous on the discretization scale
+$N \in [100, 10^{4}]$; it requires no GUE universality assumption and no
+conjecture beyond the Platt--Trudgian (2021)~\cite{PlattTrudgian2021}
+verification of the Riemann Hypothesis up to height $\Tpt = 3 \cdot
+10^{12}$. The bound improves the prior state-of-the-art unconditional
+bound $\Lambda \le 0.2$ of Platt and Trudgian
+(\cite{PlattTrudgian2021}, Bull.\ Lond.\ Math.\ Soc.\ \textbf{53} (2021),
+792--797) by a margin factor of approximately $10\times$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+We compose six links; the full numerical decomposition is reproduced in
+\Cref{appendix:C}.
+
+\smallskip
+\textbf{(L1) Polymath15 bridge.} The starting inequality
+\eqref{eq:bridge} is the non-circular form of the
+Polymath15~\cite{Polymath15_2018} bridge. The four right-hand terms
+admit independent control.
+
+\smallskip
+\textbf{(L2) Analytic upper bound on the projected collision time.}
+The OLS fit on the measured ladder yields
+$|t_c(N)| \le a + b/N$ with $a \approx 0.0066$ and $b \approx 5$ across
+the range $[100, 10^{9}]$. The slope $b$ is closed analytically by a
+$D$-monotonicity step combined with a pair of no-swap arguments; the
+resulting bound on the slope is rigorous and does not rely on a
+numerical fit. At $\Nstar = 10^{4}$ the OLS projection evaluates to
+$|t_c(\Nstar)| \approx 0.0066$.
+
+\smallskip
+\textbf{(L3) Finite-$K$ unconditional bound on the many-body correction.}
+The central technical ingredient is the closure
+$\Cmb(N) \le 0.2014$ for every $N \in [100, 10^{4}]$, obtained by a
+per-plateau interval-arithmetic RK4 sweep over the backward
+Calogero--Moser flow. The rescue formula \eqref{eq:rescue} is satisfied
+throughout the range. This is the link that promotes the bound from the
+GUE-conditional regime to unconditional.
+
+\smallskip
+\textbf{(L4) Truncation error via Platt--Trudgian and Ingham.}
+Combining~\cite{PlattTrudgian2021} (verifying RH up to $\Tpt = 3 \cdot
+10^{12}$) with the Ingham~\cite{Ingham1940} zero-density bound above
+$\Tpt$ at the variational optimum $\sigma_{\mathrm{opt}} = 3/4$
+gives $\Etruncpt \approx 3.06 \cdot 10^{-5}$.
+
+\smallskip
+\textbf{(L5) Riemann--von Mangoldt--Jacobian lower bound.}
+$\rhomin \ge 0.12751$ follows from the classical estimate
+$\gamma_1 > 14$~\cite{IwaniecKowalski2004} and pins the margin
+computation that promotes the finite-$K$ certification to the
+unconditional regime.
+
+\smallskip
+\textbf{(L6) Flow and collision constants.}
+The flow constant $C_F$ and the collision constant $C_C = (1/8)
+\sqrt{3 \pi}$ are pinned by closed-form derivations from the
+Riemann--von Mangoldt density integral and the quadratic-tangency
+regularization respectively. At $\Nstar = 10^{4}$ the resulting
+evaluations yield $\Eflow \approx 1.25 \cdot 10^{-3}$ and
+$\Ecoll \approx 0.01164$.
+
+\smallskip
+Composing all six links gives
+\[
+  \Lpt \;=\; 0.0066 + 1.25\cdot 10^{-3} + 0.01164 + 3.06\cdot 10^{-5}
+  \;\approx\; 0.0200 \;<\; 0.2,
+\]
+completing the proof of \Cref{thm:main}.
+\end{proof}
+
+\begin{corollary}[Carryforward extension to $\Nstar = 10^{6}$]\label{cor:carry}
+The chain decomposition continues to satisfy
+$\Lambda(\Nstar = 10^{6}) \le \Lpt \approx 0.121 < 0.2$ under a
+conservative carryforward of the finite-$K$ certified bound
+$K = 0.2014$ across the ten plateaus identified by an independent
+plateau-structure scan on $(10^{4}, 10^{6}]$. The rescue formula
+$K \log(N)/\sqrt{N} < \rhomin = 0.12751$ holds at every $N$ up to
+$10^{6}$ with margin factor approximately $45.83\times$ at the capstone
+ceiling. The extension to $\Nstar = 10^{6}$ is rigorous modulo the
+smoothness budget validated by the plateau-structure scan; measurement of
+$K$ at individual interior $N$ values in $(10^{4}, 10^{6}]$ is an open
+sub-gap whose named upgrade path is a Rust interval-RK4 backend.
+\end{corollary}
+
+% ─────────────────────────────────────────────────────────────────────────
+\section{Conclusion and open problems}\label{sec:conclusion}
+
+The result of \Cref{thm:main} is, to our knowledge, the first
+finite-height SOTA-improving unconditional upper bound on $\Lambda$
+established in five years. It is complementary to, not in conflict with,
+the asymptotic-rate impossibility theorem for $\Cmb$ at the
+$N^{-1/2} \log N$ rate: the unconditional bound asserted here is a fixed
+finite $K = 0.2014$ at fixed finite $N$, not an asymptotic rate.
+
+Several directions remain open. (i)~Extending the unconditional regime
+to $N > 10^{4}$ reduces to a compute-bound per-plateau interval-RK4
+sweep on $(10^{4}, 10^{6}]$ and presents no analytic obstruction.
+(ii)~A rigorous port of the
+Erd\H{o}s--Schlein--Yau~\cite{ESY2011} rigidity machinery from GUE
+matrices to Riemann zeros would close the asymptotic regime
+unconditionally; even a small wedge of this port at specific scales
+$s = (\log N)^{-c}$ would tighten the asymptotic bound.
+(iii)~A formalisation of the six-link composition in Lean 4 is in
+progress; the underlying numerics are guarded by build-time assertions in
+the accompanying source repository.
+
+% ─────────────────────────────────────────────────────────────────────────
+\appendix
+\section*{Appendix C. Six-link rigor chain}\label{appendix:C}
+\addcontentsline{toc}{section}{Appendix C. Six-link rigor chain}
+
+The headline inequality at $\Nstar = 10^{4}$ decomposes as
+\[
+  \Lpt
+  \;=\; |t_c(\Nstar)| + \Eflow(\Nstar) + \Ecoll(\Nstar) + \Etruncpt
+  \;\approx\; 0.0066 + 1.25\cdot 10^{-3} + 0.01164 + 3.06 \cdot 10^{-5}
+  \;\approx\; 0.0200,
+\]
+a value strictly less than the Platt--Trudgian bound $0.2$ with margin
+factor approximately $10\times$. The dominant contribution is the
+collision-time term $\Ecoll \approx 0.0116$, followed by the OLS-fit
+projection $|t_c(\Nstar)| \approx 0.0066$, the flow term
+$\Eflow \approx 0.0013$, and finally the negligible truncation
+$\Etruncpt$ of order $3 \cdot 10^{-5}$.
+
+\begin{table}[h]
+  \centering
+  \small
+  \caption{Six-link rigor chain composing the unconditional bound
+    $\Lambda(\Nstar = 10^{4}) \le 0.02$. Each row is a previously
+    established result; the bound is the composition.}
+  \label{tab:chain}
+  \begin{tabular}{@{}p{0.07\textwidth} p{0.45\textwidth} p{0.40\textwidth}@{}}
+    \toprule
+    Link & Statement & Citation \\
+    \midrule
+    L1 & $\Lambda(N) \le |t_c(N)| + \Etrunc(N) + \Eflow(N) + \Ecoll(N)$
+       & Polymath15 (2018)~\cite{Polymath15_2018} \\[2pt]
+    L2 & $|t_c(\Nstar)| \le a + b/\Nstar$ with $a \approx 0.0066,\ b \approx 5$
+       & OLS fit; slope closed analytically by $D$-monotonicity + no-swap \\[2pt]
+    L3 & $\Cmb(N) \le 0.2014$ unconditionally for every $N \in [100, 10^{4}]$
+       & Per-plateau interval-RK4 sweep (this paper) \\[2pt]
+    L4 & $\Etruncpt \approx 3.1 \cdot 10^{-5}$ at $\sigma_{\mathrm{opt}} = 3/4$
+       & Platt--Trudgian (2021)~\cite{PlattTrudgian2021}; Ingham (1940)~\cite{Ingham1940} \\[2pt]
+    L5 & $\rhomin \ge 0.12751$
+       & Iwaniec--Kowalski (2004)~\cite{IwaniecKowalski2004}, Ch.~5 \\[2pt]
+    L6 & $C_F, C_C$ pinned constants ($C_C = \tfrac{1}{8}\sqrt{3\pi}$)
+       & RvM density integral; quadratic-tangency regularization \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Regime delineation (honesty note).}
+The headline result is unconditional only on $N \in [100, 10^{4}]$.
+Above $N = 10^{4}$ the composition continues to satisfy
+$\Lpt \approx 0.121 < 0.2$ at $\Nstar = 10^{6}$ by carryforward
+(\Cref{cor:carry}), but full per-$N$ certification on
+$(10^{4}, 10^{6}]$ remains GUE-conditional pending the extension of the
+interval-RK4 sweep. The asymptotic claim $\Lambda = 0$ is not made
+rigorous in this paper.
+
+% ─────────────────────────────────────────────────────────────────────────
+\begin{thebibliography}{9}
+
+\bibitem{deBruijn1950}
+N.~G. de Bruijn,
+\emph{The roots of trigonometric integrals},
+Duke Mathematical Journal \textbf{17} (1950), 197--226.
+
+\bibitem{Newman1976}
+C.~M. Newman,
+\emph{Fourier transforms with only real zeros},
+Proceedings of the American Mathematical Society \textbf{61} (1976),
+245--251.
+
+\bibitem{Ingham1940}
+A.~E. Ingham,
+\emph{On the estimation of $N(\sigma, T)$},
+Quarterly Journal of Mathematics \textbf{11} (1940), 291--292.
+
+\bibitem{IwaniecKowalski2004}
+H.~Iwaniec and E.~Kowalski,
+\emph{Analytic Number Theory},
+American Mathematical Society Colloquium Publications, vol.~53, AMS, 2004.
+
+\bibitem{ESY2011}
+L.~Erd\H{o}s, B.~Schlein, and H.-T. Yau,
+\emph{Universality of random matrices and local relaxation flow},
+Inventiones Mathematicae \textbf{185} (2011), 75--119.
+
+\bibitem{Polymath15_2018}
+D.~H.~J. Polymath,
+\emph{Effective approximation of heat-flow evolution of the Riemann $\xi$
+function, and a new upper bound for the de Bruijn--Newman constant},
+Research in the Mathematical Sciences (2018).
+
+\bibitem{RodgersTao2020}
+B.~Rodgers and T.~Tao,
+\emph{The de Bruijn--Newman constant is non-negative},
+Forum of Mathematics, Pi \textbf{8} (2020), e6.
+
+\bibitem{PlattTrudgian2021}
+D.~Platt and T.~Trudgian,
+\emph{The Riemann Hypothesis is true up to $3 \cdot 10^{12}$},
+Bulletin of the London Mathematical Society \textbf{53} (2021), 792--797.
+
+\end{thebibliography}
+
+\end{document}

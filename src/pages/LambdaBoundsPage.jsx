@@ -7,6 +7,7 @@ import {
   VERIFICATION_EFFORTS,
   OPEN_GAPS,
 } from '../data/lambda-roadmap.js';
+import { PAPER_PUBLICATION } from '../data/paper-publication-2026-05.js';
 
 // Lambda Bounds & RH Roadmap — the plan, the status, the verification.
 // Read interface for src/data/lambda-roadmap.js.
@@ -96,7 +97,7 @@ export default function LambdaBoundsPage() {
           RH ⟺ Λ = 0 (de Bruijn 1950 + Rodgers-Tao 2020). This page is the
           plan, the status, and the verification efforts of our attack.
         </p>
-        <div style={{ marginTop: 10 }}>
+        <div style={{ marginTop: 10, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
           <Link
             to="/lambda-timeline"
             style={{
@@ -111,6 +112,26 @@ export default function LambdaBoundsPage() {
           >
             Λ Timeline →
           </Link>
+          <a
+            href={PAPER_PUBLICATION.pdfPath}
+            target="_blank"
+            rel="noopener noreferrer"
+            download="gomila-finite-height-beat-2026-05.pdf"
+            title={PAPER_PUBLICATION.title}
+            style={{
+              color: '#facc15',
+              fontFamily: 'var(--font-mono)',
+              fontSize: 12,
+              textDecoration: 'none',
+              padding: '4px 10px',
+              border: '1px solid #facc15',
+              borderRadius: 6,
+              background: 'rgba(234,179,8,0.08)',
+            }}
+          >
+            ↓ Download paper PDF (draft, {PAPER_PUBLICATION.pageCount} pp,
+            {' '}{Math.round(PAPER_PUBLICATION.fileSizeBytes / 1024)} KB)
+          </a>
         </div>
       </div>
 

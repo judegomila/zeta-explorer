@@ -22,6 +22,7 @@
 
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.Data.Real.Pi.Bounds
 import Mathlib.Tactic
 
 open Real
@@ -69,13 +70,15 @@ lemma C_H_val : C_H = 1 / 8 := rfl
 noncomputable def C_T (T0 : ℝ) : ℝ :=
   (3 * Real.log T0 - 6) / (2 * Real.log T0)
 
-/-- C_T(T0) > 0 when T0 >= exp(2).
-    At T0 = exp(2), log T0 = 2, so 3*log T0 - 6 = 0. For T0 > exp(2),
-    3*log T0 > 6 and 2*log T0 > 0, giving C_T > 0.
-    All Polymath15 ladder entries have T0 >= 3000 >> exp(2) ~= 7.39. -/
-lemma C_T_pos {T0 : ℝ} (hT0 : Real.exp 2 ≤ T0) : 0 < C_T T0 := by
-  have hlog : 2 ≤ Real.log T0 :=
-    (Real.log_exp 2) ▸ Real.log_le_log (Real.exp_pos 2) hT0
+/-- C_T(T0) > 0 when T0 > exp(2) (STRICT, imp-1114).
+    At the boundary T0 = exp(2) we have log T0 = 2, so 3*log T0 - 6 = 0 and
+    C_T = 0 exactly — NOT positive. The hypothesis is therefore the strict
+    `Real.exp 2 < T0`: then 3*log T0 > 6 and 2*log T0 > 0, giving C_T > 0.
+    All Polymath15 ladder entries have T0 >= 3000 >> exp(2) ~= 7.39, so the
+    strict bound holds with a wide margin for every ladder use site. -/
+lemma C_T_pos {T0 : ℝ} (hT0 : Real.exp 2 < T0) : 0 < C_T T0 := by
+  have hlog : 2 < Real.log T0 :=
+    (Real.log_exp 2) ▸ Real.log_lt_log (Real.exp_pos 2) hT0
   have hlog_pos : 0 < Real.log T0 := by linarith
   unfold C_T
   apply div_pos <;> linarith
@@ -152,15 +155,19 @@ lemma C_C_pos : (0 : ℝ) < C_C :=
 
 /-- C_C expressed in closed form. -/
 lemma C_C_eq : C_C = (1 / 8) * Real.sqrt (3 * Real.pi) := by
-  unfold C_C C_H C_KH C_Selberg; norm_num
+  unfold C_C C_H C_KH C_Selberg; rw [mul_comm Real.pi (3 : ℝ)]
 
 /-- C_C < 1: the pinned collision constant is tighter than the ANSATZ placeholder 1.
     Proof path: 3*pi < 64 (using pi < 3.1416), so sqrt(3*pi) < 8, so (1/8)*sqrt(3*pi) < 1. -/
 lemma C_C_lt_one : C_C < 1 := by
   rw [C_C_eq]
   have hpi : Real.pi < 3.1416 := by
-    have := Real.pi_lt_3141593; linarith
-  have h3pi : 3 * Real.pi < 64 := by linarith
+    have hbound := Real.pi_lt_3141593
+    have hlit : (3.141593 : ℝ) < 3.1416 := by norm_num
+    linarith
+  have h3pi : 3 * Real.pi < 64 := by
+    have hlit3 : 3 * (3.1416 : ℝ) < 64 := by norm_num
+    linarith
   have hsqrt : Real.sqrt (3 * Real.pi) < Real.sqrt 64 :=
     Real.sqrt_lt_sqrt (by positivity) h3pi
   have h8 : Real.sqrt 64 = 8 := by
@@ -177,7 +184,7 @@ lemma C_C_lt_one : C_C < 1 := by
     C_T and C_F are functions of T0; the hypotheses are satisfied for all
     ladder entries (minimum T0 ~= 3000, well above max(exp(2), 2pi/e) ~= 7.4). -/
 theorem bridge_constants_positive
-    {T0 : ℝ} (hT0_exp2 : Real.exp 2 ≤ T0) (hT0_pi : 2 * Real.pi * Real.exp (-1) < T0) :
+    {T0 : ℝ} (hT0_exp2 : Real.exp 2 < T0) (hT0_pi : 2 * Real.pi * Real.exp (-1) < T0) :
     (0 : ℝ) < C_H ∧ 0 < C_T T0 ∧ 0 < C_F T0 ∧ 0 < C_C :=
   ⟨C_H_pos, C_T_pos hT0_exp2, C_F_pos hT0_pi, C_C_pos⟩
 

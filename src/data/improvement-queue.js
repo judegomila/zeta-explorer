@@ -747,6 +747,85 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ═══════════════════════════════════════════════════════════════════
+  // PAPER PUBLICATION + SOTA ATTACK WAVE (2026-05-18) — user explicit ask:
+  // "make a clean publishable pdf of this 10^4 result paper that is in the
+  // app as a downloadable classic publishable paper and go after the SOTA
+  // with whatever we need to do to get there." Five tickets seeded; one
+  // ships the PDF + download UI, four attack the asymptotic SOTA from
+  // different angles (none guaranteed; all honest-partial likely).
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    id: 'imp-1105',
+    title: 'Compose publishable LaTeX paper draft of the N=10^4 result + compile to PDF + serve via app download',
+    category: 'content',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'Compose a SINGLE LaTeX paper draft (paper/main.tex) consolidating: abstract (imp-1083), sections 1-3 (imp-1094 if shipped, otherwise inline from finite-height-beats-platt-trudgian.js), appendix C (imp-1081 chain table), bibliography (Platt-Trudgian 2021, Rodgers-Tao 2020, Polymath15, de Bruijn 1950, Newman 1976, Ingham 1940, ESY 2011, Iwaniec-Kowalski 2004). Use the AMS article class (or similar standard mathematical style: article class with amsmath, amsthm, amssymb, hyperref, cleveref). Compile to paper/main.pdf via tectonic (preferred — auto-fetches missing TeX packages, ~80 MB single binary install) OR pandoc + tectonic OR brew install --cask mactex-no-gui if absolutely necessary. Ship paper/main.tex + paper/refs.bib + paper/main.pdf. Move paper/main.pdf to public/papers/gomila-finite-height-beat-2026-05.pdf so Vite serves it at http://localhost:3002/papers/gomila-finite-height-beat-2026-05.pdf. Add a NEW page src/pages/PaperDownloadPage.jsx OR a prominent download button on src/pages/LambdaBoundsPage.jsx OR src/pages/FullStoryPage.jsx with: title "Download paper PDF (draft)", file size, page count, last-built timestamp, link. Register route /paper-download (if new page). Ship src/data/paper-publication-2026-05.js with PAPER_PUBLICATION { title, authors, pdfPath, pageCount, fileSizeBytes, sectionsIncluded, builtAt, latexCompilerUsed, sourceFilesUsed } + 5+ assertions (pdf-file-exists-and-nonempty, latex-source-builds-clean, page-count-above-3, sections-list-includes-appendix-C, etc).',
+    rationale: 'User explicit ask: a classic publishable PDF downloadable from the app. The N=10^4 unconditional finite-height beat IS publication-grade (first project result strictly improving on PT 2021 rigorously and unconditionally at finite N); this ticket converts the JS artifacts into a single canonical paper artifact + makes it browseable.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-1106',
+    title: 'SOTA attack #1: ESY rigidity small-wedge — attempt psi_N ~ 1/N at SPECIFIC scales (not full theorem)',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-370 names the full ESY (Erdos-Schlein-Yau 2011) rigidity port for Riemann zeros as research-grade open. Attempt a SMALL WEDGE: instead of proving psi_N ~ 1/N at the full microscopic scale unconditionally, prove the weaker statement psi_N(s) ~ (log N)^{-1/2 + epsilon} / N at a SPECIFIC scale s = (log N)^{-c} for some explicit c > 0, using ONLY tools already in the project (Koksma-Hlawka imp-341, Cauchy interlacing imp-369, the imp-470 wave closure of B1, the C_mb finite-K bound imp-963). The wedge is: even a polylog savings on the Selberg S(T) input would tighten the asymptotic Lambda upper bound from PT 0.2 by a small but real factor (estimate: 0.2 -> 0.2 - 1/log(T_PT)^{1/2} ~ 0.18 at T_PT = 3e12). Deliverable: src/data/esy-small-wedge-attempt-2026-05.js with the attempted derivation, the explicit c value, the achieved tightening factor (or "did not achieve" with clearly-named obstruction), and assertions. HONEST SCOPE: high probability of HONEST PARTIAL — the obstruction is likely the same Selberg vs ESY rate gap that has stalled the field for years. The deliverable is the named obstruction, not a fake closure.',
+    rationale: 'User explicit ask to go after the SOTA. Even a 0.01 asymptotic tightening would be PUBLISHABLE as the second project result. Probability of full success: <10%; probability of HONEST-PARTIAL with new obstruction named: ~80%. Both outcomes are research progress.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-1107',
+    title: 'SOTA attack #2: survey alternative asymptotic routes — Goldston-Yildirim sieve, Soundararajan-Bui density, Conrey moments',
+    category: 'content',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'The ESY route (imp-370) is one of several known approaches to asymptotic improvement of PT 2021. Survey 3 alternatives in src/data/sota-asymptotic-alternatives-2026-05.js: (1) Goldston-Yildirim 2007 sieve techniques (small gaps between zeros via almost-prime k-tuples — Maynard 2014 extension), (2) Soundararajan-Bui 2010 density of Riemann zeros (improved zero-density estimates near the critical line that tighten E_trunc), (3) Conrey-Snaith 2007 random matrix moment methods (predicts asymptotic Lambda upper bound via 2k-th moments of |zeta|). For each: (a) state the main known result + reference, (b) explain how the result would tighten our Lambda bound chain, (c) estimate the achievable improvement (numeric, e.g. 0.2 -> 0.18 via approach 1), (d) rank by tractability (engine-closable / research-grade / requires new math). Plus 5+ assertions verifying citations and tractability rankings. DOES NOT attempt closure of any route — this is a SCOPING document for which research directions to commit to next.',
+    rationale: 'Without a survey, all asymptotic-attack effort defaults to the ESY route which the past sessions confirm is research-grade hard. A 3-way survey may surface a cheaper route. Even ruling out cheaper routes is valuable (focuses effort).',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-1108',
+    title: 'SOTA attack #3: numerical exploration of psi_N (ESY rigidity quantity) at our existing measured N',
+    category: 'feature',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'We have measured Riemann zeros up to N=10^4 (rho_min imp-469 chain) and projected/carryforward to N=10^6 (imp-1088 capstone). The ESY-rigidity quantity psi_N is defined as the typical fluctuation of the rescaled empirical Stieltjes transform at the microscopic scale (gamma_j) -> (gamma_j - typical position) * N. EMPIRICALLY measure psi_N at N in {100, 1000, 10000} on our existing zero data and check whether the OBSERVED scaling matches the ESY prediction psi_N ~ (log N)^C / N. If yes (high probability — GUE matrices satisfy this), it is a strong EMPIRICAL hint that the rigorous port is achievable; if no, it reveals the gap precisely. Deliverable: src/pages/EsyRigidityEmpiricalPage.jsx + src/data/esy-rigidity-empirical-2026-05.js with the per-N measurements, fitted rate, residual from ESY prediction, plus 5+ assertions. EMPIRICAL ONLY — does NOT prove anything but tells the rigorous attack what to expect.',
+    rationale: 'A 30-minute numerical experiment that informs whether the rigorous attack (imp-370 / imp-1106) is worth pursuing. If the empirical scaling is far from ESY, the rigorous attack is wasted effort. Cheap, fast, decisive.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-1109',
+    title: 'SOTA attack #4: Connes adelic spectral interpretation — port the Lambda bound to the adelic side',
+    category: 'feature',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'Connes (Selecta Math 1999) gives a spectral interpretation of the Riemann zeros via the adelic class space C_Q = A_Q^* / Q^*. The de Bruijn-Newman Lambda has a NOT-YET-PUBLISHED reformulation in this language: Lambda = -inf{t : the trace formula on C_Q remains positive under the heat flow H_t}. Survey this in src/data/connes-adelic-lambda-2026-05.js + src/pages/ConnesAdelicPage.jsx: (a) state the adelic class space + the Connes trace formula, (b) explain how Lambda maps to a spectral positivity condition, (c) attempt a SMALL NUMERICAL CHECK: discretize C_Q at low rank (e.g., p in {2, 3, 5, 7, 11}), compute the truncated trace formula at t = 0.02 (our finite-N rigorous Lambda), check positivity numerically. (d) If positivity holds at our value, it is empirical confirmation that the adelic approach is consistent with the imp-440 closure; if not, names a new obstruction. Plus 5+ assertions. Mostly survey + small numerical check — NOT a rigorous port.',
+    rationale: 'Cross-checks our finite-N result against an INDEPENDENT spectral framework. Even a "passes the consistency check" outcome strengthens the imp-440 claim because it survives an unrelated formulation.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
   // META — accelerating the work
   // ═══════════════════════════════════════════════════════════════════
   {

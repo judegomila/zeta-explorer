@@ -229,6 +229,18 @@ EOF
         backoff_s=0
       fi
 
+      # Auto-push every 5 clean runs (mirrors auto-improve.sh, added
+      # 2026-05-19 — overnight commits piled up unpushed when Opus 4.7 stalled).
+      if [ "$((run_count % 5))" -eq 0 ]; then
+        unpushed=$(git -C "$PROJECT_DIR" log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')
+        if [ "${unpushed:-0}" -gt 0 ]; then
+          echo "AUTO-PUSH (sonnet): $unpushed unpushed commit(s) — pushing at run #$run_count..." | tee -a "$log_file"
+          git -C "$PROJECT_DIR" push >> "$log_file" 2>&1 \
+            && echo "AUTO-PUSH (sonnet): success" | tee -a "$log_file" \
+            || echo "AUTO-PUSH (sonnet): push failed (non-fatal; will retry)" | tee -a "$log_file"
+        fi
+      fi
+
       if [ "$run_count" -lt "$MAX_RUNS" ]; then
         sleep_total=$((INTERVAL + backoff_s))
         sleep "$sleep_total"

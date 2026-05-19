@@ -156,6 +156,8 @@ const DATA_MODULES = [
   '/src/data/rust-port-phase1-validation.js',
   // imp-1093: Lambda timeline visualization page build-time validation.
   '/src/data/lambda-timeline-page-validation.js',
+  // imp-1095: LIVE Lean toolchain installed + per-module lake build executed.
+  '/src/data/lean-toolchain-validation-2026-05.js',
   // imp-1099: GUE Wigner surmise vs first 10000 Riemann zero spacings.
   '/src/data/gue-vs-zeros-comparison.js',
   // imp-1100: Voronin universality theorem numerical witness.

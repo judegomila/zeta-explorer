@@ -57,6 +57,7 @@ const RigorDashboardPage = lazy(() => import('./pages/RigorDashboardPage.jsx'));
 const DysonVerifierPage = lazy(() => import('./pages/DysonVerifierPage.jsx'));
 const HealthPage = lazy(() => import('./pages/HealthPage.jsx'));
 const FullStoryPage = lazy(() => import('./pages/FullStoryPage.jsx'));
+const GramPointsPage = lazy(() => import('./pages/GramPointsPage.jsx'));
 
 function PageLoader() {
   return (
@@ -429,6 +430,7 @@ function AppShell() {
           <Route path="/dyson-verifier" element={<DysonVerifierPage />} />
           <Route path="/health" element={<HealthPage />} />
           <Route path="/full-story" element={<FullStoryPage />} />
+          <Route path="/gram-points" element={<GramPointsPage />} />
         </Routes>
         </Suspense>
       </div>

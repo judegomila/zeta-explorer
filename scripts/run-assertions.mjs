@@ -95,6 +95,11 @@ const MATH_MODULES = [
   // imp-899 HONEST PARTIAL: bilinear linear-response fit + saddle-point
   // analysis of the imp-894 2x2 pilot (nSteps=30 regime only).
   '/src/math/imp-899-linear-response-bilinear-fit.js',
+  // imp-370 / imp-508: HONEST PARTIAL closure of ESY port obstacle O1
+  // (arithmetic input via Burgers-envelope KH bound + Cauchy interlacing).
+  // Tripwires keep the residual O1-remaining-concentration sub-gap honest
+  // and prevent a silent flip to "closed".
+  '/src/math/esy-o1-closure.js',
 ];
 
 // ── Data module registrations for imp-857 baseline sweep result. ──

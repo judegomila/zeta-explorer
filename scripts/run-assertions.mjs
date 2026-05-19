@@ -188,6 +188,16 @@ const DATA_MODULES = [
   '/src/data/rust-port-sanity-sweep-2026-05.js',
   // imp-1110: Rust interval-RK4 Phase 4 rayon parallel plateau sweep.
   '/src/data/rust-port-phase4-rayon-validation.js',
+  // imp-1124: Bui-Sound optimal sigma finder for E_trunc_pt under the BS exponent.
+  '/src/data/bui-soundararajan-optimal-sigma-2026-05.js',
+  // imp-1128: EDGE rigidity attack -- psi_N measurement near gamma_1 (vs imp-1108 bulk).
+  '/src/data/edge-rigidity-empirical-2026-05.js',
+  // imp-1123: Bui-Soundararajan PRIMARY rigorous-port attack on asymptotic SOTA.
+  '/src/data/bui-soundararajan-rigorous-port-2026-05.js',
+  // imp-1125: Goldston-Yildirim sieve + Maynard k-tuple numerical projection on imp-440 chain.
+  '/src/data/goldston-yildirim-projection-2026-05.js',
+  // imp-1127: HYBRID attack -- Bui-Sound density (imp-1123) + Polymath15 bridge refinement (imp-397/398/399).
+  '/src/data/bui-sound-plus-polymath-bridge-2026-05.js',
 ];
 
 const ALL_MODULES = FAST_MODE

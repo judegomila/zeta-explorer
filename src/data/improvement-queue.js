@@ -1080,12 +1080,13 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Bui-Sound optimal sigma finder: minimize E_trunc_pt(sigma) under the BS exponent across sigma in [0.5, 1.0]',
     category: 'proof',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'After imp-1123 ports BS into E_trunc, the optimal sigma for the new exponent function may NOT be sigma=0.75 (imp-459 found that for Ingham). Under BS at sigma in [0.5, 1.0], E_trunc_pt = (2 * e_BS / kappa_T) * T_PT^{-(8(1-sigma)/(11+1.5*sigma))}. Minimize numerically over sigma. The optimal sigma may be higher than 0.75 (since BS exponent is more favorable in σ tail). Ship src/data/bui-soundararajan-optimal-sigma-2026-05.js with: (a) sigma grid {0.5, 0.55, ..., 0.95, 1.0}, (b) per-sigma E_trunc_pt under BS, (c) per-sigma E_trunc_pt under Ingham (for comparison), (d) BS-optimal sigma + corresponding L_pt at N=1e4, (e) sensitivity analysis at +- 5% on the BS implicit constant. 5+ tripwires. PURELY NUMERICAL — no new rigor required.',
     rationale: 'Cheap optimization to extract the maximum tightening BS can give. Likely small improvement beyond imp-1123 baseline (a few percent), but easy to ship and load-bearing for the paper.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-05-19T11:30:00Z',
+    closureNote: 'Shipped src/data/bui-soundararajan-optimal-sigma-2026-05.js with the 11-point sigma grid {0.5, 0.55, ..., 0.95, 0.99} evaluated under BOTH the Ingham exponent e_I = 3(1-sigma)/(2-sigma) and the Bui-Sound exponent e_BS = 8(1-sigma)/(11+1.5*sigma), using the imp-447 / imp-459 form E_trunc_pt = (2*e/kappa) * T_PT^{-kappa} with kappa = 1 - e and T_PT = 3e12. Both bounds are MONOTONICALLY DECREASING in sigma across the grid (the exponent function approaches 0 as sigma -> 1, kappa -> 1, and the integrand T_PT^{-kappa} shrinks). The argmin under BOTH is the right endpoint sigma = 0.99. Headline numbers: (a) optimalSigmaBS = 0.99 with EtruncOptimalBS = 5.17e-15; (b) optimalSigmaIngham = 0.99 with EtruncOptimalIngham = 4.79e-14; (c) tighteningFactor (BS vs Ingham at the production sigma = 0.75) = 2.04e6 -- six orders of magnitude (E_trunc_I(0.75) = 3.06e-5 vs E_trunc_BS(0.75) = 1.51e-11); (d) tighteningFactorAtArgmin (BS at 0.99 vs Ingham at 0.99) = 9.27x; (e) sensitivityAtPlusMinus5Pct on the BS implicit constant C_BS perturbs E_trunc_BS linearly by +- 5pct at every sigma. HONEST SCOPE: the argmin sigma = 0.99 is the BOUND-OPTIMUM under the closed-form BS exponent; the PRODUCTION sigma stays at 0.75 (imp-459 hardened value) because the rigorous port of the BS theorem (imp-1123) has not yet audited the implicit constant chain at sigma close to 1. L_pt = L_cond + E_trunc_pt at N = 1e4 is dominated by L_cond ~ 0.008 so the BS tightening barely moves the headline (margin vs PT remains ~25x under all three choices: Ingham at 0.75, BS at 0.75, BS at 0.99); the value is THEORETICAL (the finite-N* beat becomes more robust against future tightening of L_cond because the truncation term no longer contributes meaningful weight). Seven build-time tripwires: imp1124-sigma-grid-has-11-points, imp1124-etrunc-bs-monotone-decreasing, imp1124-bs-argmin-at-highest-sigma, imp1124-bs-tightening-vs-ingham-at-sigma-075-large (range [1e5, 1e8]), imp1124-sensitivity-record-linear-in-CBS, imp1124-lpt-at-N1e4-beats-PT-under-bs-optimal, imp1124-tightening-at-argmin-modest (range [5, 20]). All PASS at module load (verified via direct ESM import). Wired into scripts/run-assertions.mjs DATA_MODULES (appended after imp-1110). npm run build green.',
     model: 'opus-4-7',
     channel: 'subscription',
   },
@@ -1094,14 +1095,33 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Goldston-Yildirim sieve attack: numerical projection of small-gap exponent for Riemann zeros',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: 'imp-1107 estimated Goldston-Yildirim 2007 + Maynard 2014 k-tuple methods could give PT 0.200 -> 0.195 via tighter small-gap-between-zeros bounds. Compute the projection numerically: the GY sieve gives bounded gaps with conditional density theta = (some explicit formula in k). At the level relevant for our chain (gaps below the mean spacing 2*pi/log(gamma_N)), what does this give for rho_min and through the imp-469 chain for E_trunc + E_flow? Ship src/data/goldston-yildirim-projection-2026-05.js with the chain-level numerical projection + 5+ tripwires + named research-grade obstructions for full rigor. HONEST SCOPE: GY rigorous port is harder than BS — likely a numerical-only deliverable with named blockers.',
     rationale: 'Second-line asymptotic attack. Even if just numerical, having two independent route projections lets the paper claim "we explored both Bui-Sound and GY; BS gives larger tightening".',
     estimatedComplexity: 'high',
-    completedAt: null,
+    completedAt: '2026-05-19T16:00:00Z',
     model: 'opus-4-7',
     channel: 'subscription',
+    closureNote:
+      'NUMERICAL PROJECTION ONLY shipped in src/data/goldston-yildirim-projection-2026-05.js (8 ' +
+      'tripwires PASS at module load). Headline numerics: GY/Maynard k-tuple zero-gap-ratio ' +
+      '0.5169 -> 0.5067 (1.97 pct tighten); through Selberg lambda-squared amplification factor ' +
+      '2.18x the projected rho_min lift is 4.29 pct (0.12751 -> 0.13298). At L_pt scale and N = ' +
+      '1e4 the projected tightening is HONESTLY ZERO -- the chain bottleneck E_coll = 1.16e-2 is ' +
+      'GY-orthogonal (380x larger than E_trunc_pt = 3.06e-5 which is the only L_pt term GY could ' +
+      'in principle touch). Where GY pays: (a) ASYMPTOTIC L_pt tightening 0.2 -> 0.195 (2.5 pct ' +
+      'relative, inherited from imp-1107 estimate); (b) K_PLATEAU_LADDER rescue margin factor at ' +
+      'imp-1088 batch-3 ceiling N = 1e6 lifts 45.83 -> 47.80 (4.29 pct, linear in rho_min). ' +
+      'Four named obstructions for full rigor: O-GY-A (liminf vs per-N), O-GY-B (mollifier ' +
+      'construction not portable to project tool inventory), O-GY-C (Selberg parity barrier ' +
+      'caps the gap-ratio at 0.5 for classical sieves), O-GY-D (clean-form 0.5067 is GUE-cond ' +
+      'on Conrey-Snaith k = 3 which is open). Tractability: research-grade-hard. Honest paper-' +
+      'level recommendation: prefer Bui-Sound (imp-1123) which has larger gain at lower rigor ' +
+      'cost; document GY as the second-line attack with explicit comparison. comparisonVsBuiSound ' +
+      'field ships the side-by-side. NO touch to src/App.jsx per ticket directive. NO new sub-' +
+      'gaps opened (the obstructions are documented in the data file as named blockers, not as ' +
+      'engine sub-tickets).',
   },
   {
     id: 'imp-1126',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import {
   LAMBDA_BOUNDS,
@@ -22,7 +22,16 @@ import {
 import { EMPIRICAL_M_SWEEP_EXTENDED_SUMMARY as EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended-summary.js';
 import { ROUTE_C_DYNAMICAL_ANALYSIS_SUMMARY as ROUTE_C_DYNAMICAL_ANALYSIS } from '../math/route-c-dynamical-analysis-summary.js';
 import { C_MB_WEAKER_BOUND_SEARCH_SUMMARY as C_MB_WEAKER_BOUND_SEARCH } from '../math/c-mb-weaker-bound-search-summary.js';
-import { FINITE_K_C_MB_UNCONDITIONAL } from '../data/finite-k-c-mb-unconditional.js';
+
+// Lazy load large data structure to keep bundle size manageable
+let FINITE_K_C_MB_UNCONDITIONAL = null;
+const loadFiniteKData = async () => {
+  if (!FINITE_K_C_MB_UNCONDITIONAL) {
+    const mod = await import('../data/finite-k-c-mb-unconditional.js');
+    FINITE_K_C_MB_UNCONDITIONAL = mod.FINITE_K_C_MB_UNCONDITIONAL;
+  }
+  return FINITE_K_C_MB_UNCONDITIONAL;
+};
 
 /**
  * FullStoryPage — linear end-to-end narrative, no accordion, math inlined.
@@ -991,10 +1000,18 @@ function S13_Open() {
 // ─── § 15: Unconditional-Λ Sequence (live from imp-833/834/856) ────────────
 
 function S15_UncondSequence() {
+  const [finiteK, setFiniteK] = useState(null);
+  useEffect(() => {
+    loadFiniteKData().then(setFiniteK).catch(e => console.error('Failed to load FINITE_K_C_MB_UNCONDITIONAL:', e));
+  }, []);
+
   const sweep    = EMPIRICAL_M_SWEEP_EXTENDED;
   const dynamical = ROUTE_C_DYNAMICAL_ANALYSIS;
   const search   = C_MB_WEAKER_BOUND_SEARCH;
   const samples  = dynamical.numericalEvidence.samples;
+
+  if (!finiteK) return <Section id="uncond" number={15} title="Loading..."><p style={{ color: '#cbd5e1' }}>Loading unconditional Λ bounds...</p></Section>;
+
   return (
     <Section id="uncond" number={15} title="Toward an Unconditional Finite-Height Λ Bound — Three-Path Sequence"
       subtitle={`Live from imp-833/834/856. Three sequenced paths toward removing GUE from the finite-height bound. PATH 1 delivered (${sweep.newEmpiricalFloor.N_max.toLocaleString()}× empirical floor); PATH 2 partial-negative; PATH 3 scoped with imp-857 follow-up.`}>
@@ -1014,9 +1031,9 @@ function S15_UncondSequence() {
       <Card tone="rigorous">
         <Para>
           The imp-933 per-plateau interval-RK4 sweep (
-          {FINITE_K_C_MB_UNCONDITIONAL.certificateProvenance.sweepCount} certificates across
-          N ∈ [{FINITE_K_C_MB_UNCONDITIONAL.certificateProvenance.nRangeCovered.min},{' '}
-          {FINITE_K_C_MB_UNCONDITIONAL.certificateProvenance.nRangeCovered.max.toLocaleString()}])
+          {finiteK.certificateProvenance.sweepCount} certificates across
+          N ∈ [{finiteK.certificateProvenance.nRangeCovered.min},{' '}
+          {finiteK.certificateProvenance.nRangeCovered.max.toLocaleString()}])
           delivers a fixed finite K with{' '}
           <InlineMath tex="C_{\text{mb}}(N) \leq K" /> unconditionally for every{' '}
           <InlineMath tex="N \in [100,\,10^{4}]" /> — no GUE assumption. The headline:
@@ -1025,11 +1042,11 @@ function S15_UncondSequence() {
         <Para>
           Smallest <InlineMath tex="N_0" /> at which the imp-486 rescue formula is satisfied:{' '}
           <strong style={{ color: COLORS.rigorous.fg }}>
-            {FINITE_K_C_MB_UNCONDITIONAL.tightestN0?.N0 ?? '—'}
+            {finiteK.tightestN0?.N0 ?? '—'}
           </strong>{' '}
           with margin factor{' '}
           <strong style={{ color: COLORS.rigorous.fg }}>
-            {FINITE_K_C_MB_UNCONDITIONAL.tightestN0?.margin_factor ?? '—'}×
+            {finiteK.tightestN0?.margin_factor ?? '—'}×
           </strong>
           . This is the load-bearing fact that makes the imp-440 finite-height beat{' '}
           <InlineMath tex="\Lambda \leq 0.121" /> unconditional on{' '}
@@ -1047,7 +1064,7 @@ function S15_UncondSequence() {
               </tr>
             </thead>
             <tbody>
-              {FINITE_K_C_MB_UNCONDITIONAL.finiteKTable.map((r, i) => (
+              {finiteK.finiteKTable.map((r, i) => (
                 <tr key={r.N0} style={{ borderBottom: '1px solid #0f172a', background: i % 2 ? 'rgba(15,23,42,0.3)' : 'transparent' }}>
                   <td style={{ padding: '8px 10px', textAlign: 'right', color: '#e2e8f0' }}>{r.N0.toLocaleString()}</td>
                   <td style={{ padding: '8px 10px', textAlign: 'right', color: '#cbd5e1' }}>{r.K_unconditional ?? '—'}</td>

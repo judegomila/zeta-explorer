@@ -150,8 +150,24 @@ const DATA_MODULES = [
   '/src/data/paper-appendix-C-finite-height-beat.js',
   // imp-1083: arXiv front-matter abstract rewrite leading with the rigorous finite-N* beat.
   '/src/data/paper-abstract-rewrite-2026-05.js',
+  // imp-1094: paper Sections 1-3 draft (Introduction, Background, Main Result).
+  '/src/data/paper-sections-1-3.js',
   // imp-1090: Rust interval-RK4 backend Phase 1 MVP validation record.
   '/src/data/rust-port-phase1-validation.js',
+  // imp-1093: Lambda timeline visualization page build-time validation.
+  '/src/data/lambda-timeline-page-validation.js',
+  // imp-1099: GUE Wigner surmise vs first 10000 Riemann zero spacings.
+  '/src/data/gue-vs-zeros-comparison.js',
+  // imp-1100: Voronin universality theorem numerical witness.
+  '/src/data/voronin-universality-numerical.js',
+  // imp-1098: Montgomery pair correlation conjecture numerical exploration.
+  '/src/data/pair-correlation-montgomery-numerical.js',
+  // imp-1097: Riemann-Siegel Z(t) high-precision explorer data + tripwires.
+  '/src/data/riemann-siegel-z-explorer.js',
+  // imp-1101: Berry-Keating xp Hamiltonian -- truncated-Hermite spectral data.
+  '/src/data/berry-keating-xp-spectral.js',
+  // imp-1102: Hardy Z(t) asymptotic comparison data file (sonnet-4-6 bucket).
+  '/src/data/hardy-z-asymptotic-comparison.js',
 ];
 
 const ALL_MODULES = FAST_MODE

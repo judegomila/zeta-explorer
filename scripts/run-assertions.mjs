@@ -182,6 +182,8 @@ const DATA_MODULES = [
   '/src/data/esy-small-wedge-attempt-2026-05.js',
   // imp-1109: SOTA attack 4 -- Connes adelic spectral interpretation + truncated trace positivity at t = 0.02.
   '/src/data/connes-adelic-lambda-2026-05.js',
+  // imp-1108: SOTA attack 3 -- empirical psi_N measurement of ESY rigidity at our existing N.
+  '/src/data/esy-rigidity-empirical-2026-05.js',
 ];
 
 const ALL_MODULES = FAST_MODE

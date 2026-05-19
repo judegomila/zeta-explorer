@@ -198,6 +198,14 @@ const DATA_MODULES = [
   '/src/data/goldston-yildirim-projection-2026-05.js',
   // imp-1127: HYBRID attack -- Bui-Sound density (imp-1123) + Polymath15 bridge refinement (imp-397/398/399).
   '/src/data/bui-sound-plus-polymath-bridge-2026-05.js',
+  // imp-1135: C_C Selberg sieve refinement attempt (research-feasible 1.15x ceiling).
+  '/src/data/c-c-selberg-refinement-2026-05.js',
+  // imp-1131: JSDoc asterisk-slash audit for Polymath15 constants and consumers.
+  '/src/data/polymath15-jsdoc-audit-2026-05.js',
+  // imp-1134: C_F engine-closable refinement audit -- the imp-1127 hypothetical 1.05x is sign-flipped; honest factor = 1.00x.
+  '/src/data/c-f-bulk-refinement-2026-05.js',
+  // imp-1132: V2 intercept attack -- Barnes-Hut O(N log N) sparse drift sum in Rust.
+  '/src/data/rust-port-phase7-barnes-hut.js',
 ];
 
 const ALL_MODULES = FAST_MODE

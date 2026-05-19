@@ -102,8 +102,9 @@
  *
  * Syntax note
  * -----------
- * This file uses dg_{k*}/dt, not dg_k*/dt, in JSDoc to avoid the ** close
- * of comment pitfall. All single-quoted strings avoid apostrophes and
+ * This file uses dg_{k_*}/dt (brace form) and never the bare dg_k followed by
+ * asterisk-and-slash, to avoid the inadvertent end-of-comment pitfall in
+ * JSDoc. All single-quoted strings avoid apostrophes and
  * use rewritten phrasing where needed.
  */
 

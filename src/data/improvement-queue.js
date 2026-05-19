@@ -584,6 +584,8 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'A broken page silently degrades user trust in every other page (if /#/full-story is broken, what else is?). Critical priority because: (a) /#/full-story is the primary narrative dashboard a math reader would land on, (b) we just landed 5+ new data files in the past hour any of which could be the culprit, (c) the engine never runs a route-level health check after data file edits.',
     estimatedComplexity: 'medium',
     completedAt: "2026-05-18T21:45:00Z", completedByModel: "haiku-4-5", completedByChannel: "subscription",
+    refreshAt: "2026-05-19T05:05:00Z", refreshByModel: "opus-4-7", refreshByChannel: "subscription",
+    closureNote: "Original fix shipped in commits 3766a0a9 + 5bc0868a (haiku-4-5) lazy-loaded FINITE_K_C_MB_UNCONDITIONAL so the FullStoryPage chunk dropped 16 MB to 67 KB. This REFRESH (opus-4-7) installed Playwright Chromium, re-ran scripts/check-page-health.mjs against the full 53-route sweep (52/53 pass; /full-story PASS confirmed), shipped src/data/page-health-audit-2026-05-18.js with PAGE_HEALTH_AUDIT (frozen perRouteResults + fixApplied citing the 3766a0a9 / 5bc0868a commit pair) + PAGE_HEALTH_AUDIT_ASSERTIONS (7 tripwires, 7/7 pass), wired into scripts/run-assertions.mjs, and handed off the single residual /lambda-timeline failure (rendered body 0 chars; React mounts but renders nothing; no console / no pageerror) to imp-1093 as blockersRemaining. npm run build green (vite 9.41s).",
     model: 'opus-4-7',
     channel: 'subscription',
   },

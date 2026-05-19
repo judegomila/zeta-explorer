@@ -364,6 +364,29 @@ export const ESY_O1_CLOSURE_ASSERTIONS = [
       'O1-remaining-concentration is resolved. Changing this to "closed" would be ' +
       'mathematically incorrect: the sub-Gaussian concentration step is still open.',
   },
+  {
+    id: 'imp2182-o1-residual-honesty-fields-pinned',
+    holds: () =>
+      O1_REMAINING_SUB_GAP.closedByIngredientA === false &&
+      O1_REMAINING_SUB_GAP.closedByIngredientB === false &&
+      O1_REMAINING_SUB_GAP.isSubGapOfO1 === true &&
+      typeof O1_REMAINING_SUB_GAP.difficulty === 'string' &&
+      O1_REMAINING_SUB_GAP.difficulty.includes('research-grade'),
+    why:
+      'The residual O1 sub-gap (esy-port-O1-remaining-concentration) carries four ' +
+      'integrity-critical fields that are NOT covered by the existing imp-508 / ' +
+      'imp-1029 tripwires: closedByIngredientA, closedByIngredientB, isSubGapOfO1, ' +
+      'and difficulty. The imp-508 partial closure makes the explicit claim that ' +
+      'neither ingredient A (Selberg-KH bound, imp-341) nor ingredient B (Cauchy ' +
+      'interlacing, imp-369) closes the residual concentration sub-gap -- only the ' +
+      'C_poly = 1 baseline is unconditionally instantiated. If a future commit flips ' +
+      'closedByIngredientA or closedByIngredientB to true (silent overclaim of full ' +
+      'O1 closure), demotes difficulty out of the "research-grade" tier, or removes ' +
+      'isSubGapOfO1 (so the residual stops being attributed to obstacle O1), this ' +
+      'tripwire fires. Complements imp508-o1-residual-sub-gap-named (which only pins ' +
+      'the id string) by pinning the underlying boolean / difficulty fields that ' +
+      'encode the honest-partial mathematical content.',
+  },
 ];
 
 // ────────────────────────────────────────────────────────────────────

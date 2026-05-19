@@ -1,7 +1,10 @@
 /**
  * @module imp-360-extended-ladder-N1e6
  * @fileoverview imp-360 / imp-423: Extended measured Dyson backward-ODE
- * collision-time ladder at N ∈ {25k, 50k, 100k, 250k, 500k, 1M}.
+ * collision-time ladder at N ∈ {25k, 50k, 100k, 150k, 250k, 400k, 600k, 1M}
+ * (the 25k/50k/100k rows are JS interval-RK4 CLOSED; the imp-423 ticket-spec
+ * ladder {150k, 250k, 400k, 600k, 1M} ships as H_raw + t_c_pair honest-partial
+ * rows pending a C/Arb/CAPD backend for O(N^2) integration).
  *
  * Each row is produced by scripts/run-imp360-single-N.mjs — an optimised
  * one-ULP interval-RK4 driver (mathematically identical to
@@ -51,7 +54,7 @@ export const IMP_360_EXTENDED_LADDER_N1E6 = Object.freeze({
   tickets: ['imp-360', 'imp-423'],
   title:
     'Extended measured Dyson backward-ODE collision-time ladder ' +
-    '(N ∈ {25k, 50k, 100k, 250k, 500k, 1M})',
+    '(N ∈ {25k, 50k, 100k, 150k, 250k, 400k, 600k, 500k, 1M})',
   status: ROWS.length === 0
     ? 'scaffolded-no-rows-yet'
     : ROWS.some((r) => r.closed)
@@ -62,7 +65,7 @@ export const IMP_360_EXTENDED_LADDER_N1E6 = Object.freeze({
     'Pre-allocated Uint32Array buffers replace per-call BigInt for ~10× ' +
     'speedup.  Math is bit-for-bit identical on all finite positive inputs.',
   zeroSource: 'src/data/zeros-to-1e6.js (1 000 000 Odlyzko ordinates)',
-  targetNs: [25000, 50000, 100000, 250000, 500000, 1000000],
+  targetNs: [25000, 50000, 100000, 150000, 250000, 400000, 500000, 600000, 1000000],
   rows: ROWS,
   closedRows: ROWS.filter((r) => r.closed === true),
   partialRows: ROWS.filter((r) => r.closed === false),
@@ -132,12 +135,14 @@ export const IMP_360_EXTENDED_LADDER_N1E6_ASSERTIONS = [
   {
     id: 'imp360-ext-n-values-are-expected',
     holds: () => {
-      const expected = new Set([25000, 50000, 100000, 250000, 500000, 1000000]);
+      const expected = new Set([25000, 50000, 100000, 150000, 250000, 400000, 500000, 600000, 1000000]);
       return ROWS.every((r) => expected.has(r.N));
     },
     why:
-      'All rows must have N in the target set {25k, 50k, 100k, 250k, 500k, 1M}. ' +
-      'A row with an unexpected N suggests a runner misconfiguration.',
+      'All rows must have N in the union of the original imp-360 target set ' +
+      '{25k, 50k, 100k, 250k, 500k, 1M} and the imp-423 ticket-spec ladder ' +
+      '{150k, 250k, 400k, 600k, 1M}. Together {25k, 50k, 100k, 150k, 250k, 400k, ' +
+      '500k, 600k, 1M}. A row with an unexpected N suggests a runner misconfiguration.',
   },
   {
     id: 'imp360-ext-source-tag-present',

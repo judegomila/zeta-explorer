@@ -51,6 +51,26 @@
     "generatedAt": "2026-05-16T00:03:55.428Z"
   },
   {
+    "N": 150000,
+    "dt": null,
+    "nStepsMax": 0,
+    "H_raw": 0.0147015,
+    "t_c_pair": 0.000027017,
+    "t_c_lo": 0,
+    "t_c_hi": null,
+    "K_paper_cert_floor": 0,
+    "maxIntervalWidth": 0,
+    "closed": false,
+    "steps": 0,
+    "reason": "compute-budget-infeasible-O-N-squared",
+    "runtimeSec": 0,
+    "source": "imp-360-honest-partial-H-raw-only",
+    "pairIdx": 95247,
+    "estimatedStepSec": 14760,
+    "note": "imp-423: One-ULP interval-RK4 step at N=150000 takes ~4.1h (scaled from N=25000 empirical: 410s/step, O(N^2)). H_raw and t_c_pair certified from ZEROS_EXTENDED first 150000 Odlyzko ordinates. Dominant collision pair at index 95247 (same pair as N=100000 and N=250000 — pairIdx<<N so adding zeros 100001..150000 does not change the min-gap location). t_c_hi = +infinity (no integration steps taken). Closed bracket requires C/Arb/CAPD native backend.",
+    "generatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
     "N": 250000,
     "dt": null,
     "nStepsMax": 0,
@@ -67,8 +87,28 @@
     "source": "imp-360-honest-partial-H-raw-only",
     "pairIdx": 95248,
     "estimatedStepSec": 41000,
-    "note": "One-ULP interval-RK4 step at N=250000 takes ~11.4h (scaled from N=25000 empirical: 410s/step). H_raw and t_c_pair certified from ZEROS_EXTENDED (1M Odlyzko ordinates). Dominant collision pair at index 95248 (same as N=100000). t_c_hi = +∞ (no integration steps taken). Closed bracket requires C/Arb/CAPD native backend.",
+    "note": "One-ULP interval-RK4 step at N=250000 takes ~11.4h (scaled from N=25000 empirical: 410s/step). H_raw and t_c_pair certified from ZEROS_EXTENDED (1M Odlyzko ordinates). Dominant collision pair at index 95248 (same as N=100000). t_c_hi = +infinity (no integration steps taken). Closed bracket requires C/Arb/CAPD native backend.",
     "generatedAt": "2026-05-15T21:30:29.646Z"
+  },
+  {
+    "N": 400000,
+    "dt": null,
+    "nStepsMax": 0,
+    "H_raw": 0.0130532,
+    "t_c_pair": 0.0000212983,
+    "t_c_lo": 0,
+    "t_c_hi": null,
+    "K_paper_cert_floor": 0,
+    "maxIntervalWidth": 0,
+    "closed": false,
+    "steps": 0,
+    "reason": "compute-budget-infeasible-O-N-squared",
+    "runtimeSec": 0,
+    "source": "imp-360-honest-partial-H-raw-only",
+    "pairIdx": 354768,
+    "estimatedStepSec": 104960,
+    "note": "imp-423: One-ULP interval-RK4 step at N=400000 takes ~29.2h (scaled from N=25000 empirical: 410s/step, O(N^2)). H_raw and t_c_pair certified from ZEROS_EXTENDED first 400000 Odlyzko ordinates. Dominant collision pair at index 354768 — DIFFERENT from N<=250000 (which used 95248) and from N>=500000 (which use 420891); the min-gap location migrated into the (250000, 400000] range as new tighter pairs enter the window. t_c_hi = +infinity (no integration steps taken). Closed bracket requires C/Arb/CAPD native backend.",
+    "generatedAt": "2026-05-18T00:00:00.000Z"
   },
   {
     "N": 500000,
@@ -87,8 +127,28 @@
     "source": "imp-360-honest-partial-H-raw-only",
     "pairIdx": 420891,
     "estimatedStepSec": 164000,
-    "note": "One-ULP interval-RK4 step at N=500000 takes ~45.6h (scaled from N=25000 empirical: 410s/step). H_raw and t_c_pair certified from ZEROS_EXTENDED (1M Odlyzko ordinates). Dominant collision pair at index 420891 (same as N=500000). t_c_hi = +∞ (no integration steps taken). Closed bracket requires C/Arb/CAPD native backend.",
+    "note": "One-ULP interval-RK4 step at N=500000 takes ~45.6h (scaled from N=25000 empirical: 410s/step). H_raw and t_c_pair certified from ZEROS_EXTENDED (1M Odlyzko ordinates). Dominant collision pair at index 420891 (same as N=500000). t_c_hi = +infinity (no integration steps taken). Closed bracket requires C/Arb/CAPD native backend.",
     "generatedAt": "2026-05-15T21:30:29.646Z"
+  },
+  {
+    "N": 600000,
+    "dt": null,
+    "nStepsMax": 0,
+    "H_raw": 0.0057037,
+    "t_c_pair": 0.0000040665,
+    "t_c_lo": 0,
+    "t_c_hi": null,
+    "K_paper_cert_floor": 0,
+    "maxIntervalWidth": 0,
+    "closed": false,
+    "steps": 0,
+    "reason": "compute-budget-infeasible-O-N-squared",
+    "runtimeSec": 0,
+    "source": "imp-360-honest-partial-H-raw-only",
+    "pairIdx": 420890,
+    "estimatedStepSec": 236160,
+    "note": "imp-423: One-ULP interval-RK4 step at N=600000 takes ~65.6h (scaled from N=25000 empirical: 410s/step, O(N^2)). H_raw and t_c_pair certified from ZEROS_EXTENDED first 600000 Odlyzko ordinates. Dominant collision pair at index 420890 (effectively the same pair as N=500000 and N=1000000; pairIdx values 420890 vs 420891 differ by one-index quirk in argmin tie-break, gap value identical to printed precision). t_c_hi = +infinity (no integration steps taken). Closed bracket requires C/Arb/CAPD native backend.",
+    "generatedAt": "2026-05-18T00:00:00.000Z"
   },
   {
     "N": 1000000,
@@ -107,7 +167,7 @@
     "source": "imp-360-honest-partial-H-raw-only",
     "pairIdx": 420891,
     "estimatedStepSec": 656000,
-    "note": "One-ULP interval-RK4 step at N=1000000 takes ~182.2h (scaled from N=25000 empirical: 410s/step). H_raw and t_c_pair certified from ZEROS_EXTENDED (1M Odlyzko ordinates). Dominant collision pair at index 420891 (same as N=500000). t_c_hi = +∞ (no integration steps taken). Closed bracket requires C/Arb/CAPD native backend.",
+    "note": "One-ULP interval-RK4 step at N=1000000 takes ~182.2h (scaled from N=25000 empirical: 410s/step). H_raw and t_c_pair certified from ZEROS_EXTENDED (1M Odlyzko ordinates). Dominant collision pair at index 420891 (same as N=500000). t_c_hi = +infinity (no integration steps taken). Closed bracket requires C/Arb/CAPD native backend.",
     "generatedAt": "2026-05-15T21:30:29.646Z"
   }
 ]

@@ -489,6 +489,20 @@ export const IMPROVEMENT_QUEUE = [
     model: 'opus-4-7',
     channel: 'subscription',
   },
+  {
+    id: 'imp-1090',
+    title: 'Rust interval-RK4 backend Phase 1 MVP: port dyson drift + RK4 step + eml primitive',
+    category: 'feature',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'The imp-1082/imp-1087 (and pending imp-1088) plateau extension tickets all ship CONSERVATIVE-CARRYFORWARD rows because JS interval-RK4 is O(N^2) per step and infeasible past N~10^5 (5800s/step at N=10^5, 182hrs/step at N=10^6). Native backend would unlock measured rows. PHASE 1 MVP scope: scaffold a Rust crate rust/interval-rk4 with Cargo.toml depending on inari 1.x (pure-Rust IEEE 1788 interval arithmetic), serde + serde_json, clap. Port THREE functions from src/math/interval-dyson-integrator.mjs and src/math/imp-925-eml-interval-primitive.mjs: (1) eml_interval(x_lo, x_hi, y_lo, y_hi) using inari intervals and directed-rounded f64 exp/log via std::arch, (2) dyson_drift_interval(x_vec, t) computing the Calogero-Moser drift sum d|x_i - x_j|/dt = -2/(x_i - x_j), (3) one rk4_interval_step at the slowest level. CLI binary rust/interval-rk4/bin/interval-rk4-cli reads N + initial conditions + dt + tolerance JSON on stdin, writes interval brackets JSON on stdout. ACCEPTANCE TEST: at N=1000 the Rust output must agree with the JS imp-933 driver to within 1e-8 on the t_c lower and upper brackets. DELIVERABLES: rust/interval-rk4/{Cargo.toml,src/{lib.rs,eml.rs,dyson.rs,rk4.rs},src/bin/interval-rk4-cli.rs,tests/n_1000_vs_js.rs} plus a src/data/rust-port-phase1-validation.js artifact recording the N=1000 cross-check (Rust output vs JS output, max abs diff, build status, runtime ratio). If cargo/rustc are NOT installed on engine host, install them via the Rust official one-liner (curl --proto =https --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable) before scaffolding the crate.',
+    rationale: 'Single biggest leverage unlock left in the project. Conservative carryforward technically satisfies the proof chain (K=0.2014 from imp-963 worst-case rescue formula holds at every plateau), but MEASURED rows would tighten L_pt(10^6) substantially and let imp-1088 capstone ship as truly measured-rigorous rather than carryforward-rigorous. Per the scoping doc 2026-05-18: 2.5 engineer-days for a 50-100x speedup. Phase 1 MVP alone is ~1 day and reversible — worst case it spent a day validating the inari + eml approach and we fall back to the conservative capstone.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
 
   // ═══════════════════════════════════════════════════════════════════
   // META — accelerating the work

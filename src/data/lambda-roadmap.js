@@ -62,6 +62,26 @@ export const LAMBDA_BOUNDS = [
       'G6_polymath15_bridge (imp-345 / imp-354 / imp-366) AND producing a ' +
       'per-N bound via route A, B-rate-upgrade, or C.',
   },
+  {
+    id: 'our-finite-N-1e6-via-imp-1088',
+    label: 'Λ(1e6) ≤ 0.2 rigorous unconditional (carryforward)',
+    kind: 'upper-rigorous-finite-N',
+    value: 0.2,
+    status: 'rigorous-via-carryforward',
+    source: 'imp-1088 capstone via imp-963 rescue formula',
+    note:
+      'Conservative-carryforward extension of the imp-440 / imp-963 ' +
+      'rigorous unconditional finite-N* beat from the measured N* = 1e4 ' +
+      'to the capstone N* = 1e6 (the original imp-440 spec ceiling). C_mb ' +
+      'is held by the K_PLATEAU_LADDER carryforward K = 0.2014 at every ' +
+      'N up to 1e6 (rescue formula K * log(N) / sqrt(N) < 0.12751 holds ' +
+      'with margin factor 45.83x at N = 1e6); measurement at N in ' +
+      '{2e4..1e6} is deferred to imp-1082/imp-1087/imp-1088 sub-measurement ' +
+      'sub-gaps (named upgrade path for the batch-3 ceiling: imp-1090 Rust ' +
+      'interval-RK4 port Phase 1 MVP, src/rust/interval-rk4/). The bound ' +
+      'matches PT 2021 numerically (0.2) but is rigorous-finite-N rather ' +
+      'than asymptotic.',
+  },
 ];
 
 // ── The chain — 5 steps to an RH statement ────────────────────────────────

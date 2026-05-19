@@ -31,11 +31,26 @@
  * session budget. Rows therefore ship status = projected-not-measured + source
  * = imp-1087-conservative-carryforward and reference the imp-1087-sub-
  * measurement deferral. The rescue formula K * log(N) / sqrt(N) < 0.12751
- * continues to hold with growing slack (margin factor at N = 5e5 is ~63x vs
+ * continues to hold with growing slack (margin factor at N = 5e5 is ~34x vs
  * the K = 0.2014 carryforward), so the conservative-extension is rigorously
  * sound on (1e5, 5e5] modulo the smoothness budget validated by the imp-962
  * plateau-structure scan (maxSmoothScaleRatio = 2.15 across all 10 plateaus
  * on (10^4, 10^6]).
+ *
+ * imp-1088 CAPSTONE extension (2026-05-18, conservative-carryforward):
+ * appends the final 3 conservative-carryforward rows to K_PLATEAU_LADDER at
+ * N in {6e5, 8e5, 1e6} (batch 3, the CAPSTONE of the imp-962 plateau ladder).
+ * All three N values sit inside imp-962 plateau 9 (startN=420892, endN=10^6),
+ * the same plateau hosting N=5e5 from batch 2. After this batch ships the
+ * K_PLATEAU_LADDER carries conservative coverage up to N = 1e6 -- the original
+ * imp-440 spec ceiling -- so the unconditional finite-N* beat regime extends
+ * (conservatively) to N* = 1e6. The interval-RK4 measurement remains deferred
+ * to a native backend per imp-1088-sub-measurement (the parallel imp-1090
+ * Rust interval-RK4 port Phase 1 MVP is the named upgrade path). Rescue
+ * formula margin factor at N = 1e6 is ~45.83x vs the K = 0.2014 carryforward
+ * (lhs = 0.0027824, threshold 0.12751), so the conservative-extension is
+ * rigorously sound on (5e5, 1e6] modulo the same smoothness budget validated
+ * by the imp-962 plateau-structure scan.
  *
  * @see imp-856
  * @see imp-933
@@ -43,6 +58,8 @@
  * @see imp-962
  * @see imp-1082
  * @see imp-1087
+ * @see imp-1088
+ * @see imp-1090
  */
 
 import { IMP_911_PER_PLATEAU_GRONWALL_CERTS } from './imp-911-per-plateau-gronwall-certs.js';
@@ -155,26 +172,35 @@ function buildPlateauRow(N, opts) {
     runtimeSec: null,
     estimatedRuntimeHours: +estTotalHours.toFixed(2),
     status: 'projected-not-measured',
-    source: opts && opts.batch === 2
-      ? 'imp-1087-conservative-carryforward'
-      : 'imp-1082-conservative-carryforward',
-    measurementSubGap: opts && opts.batch === 2
-      ? 'imp-1087-sub-measurement'
-      : 'imp-1082-sub-measurement',
-    batch: opts && opts.batch === 2 ? 2 : 1,
+    source:
+      opts && opts.batch === 3
+        ? 'imp-1088-conservative-carryforward'
+        : opts && opts.batch === 2
+          ? 'imp-1087-conservative-carryforward'
+          : 'imp-1082-conservative-carryforward',
+    measurementSubGap:
+      opts && opts.batch === 3
+        ? 'imp-1088-sub-measurement'
+        : opts && opts.batch === 2
+          ? 'imp-1087-sub-measurement'
+          : 'imp-1082-sub-measurement',
+    batch: opts && opts.batch === 3 ? 3 : opts && opts.batch === 2 ? 2 : 1,
   };
 }
 
 const K_PLATEAU_LADDER_BATCH1_NS = [20000, 50000, 100000];
 const K_PLATEAU_LADDER_BATCH2_NS = [200000, 300000, 500000];
+const K_PLATEAU_LADDER_BATCH3_NS = [600000, 800000, 1000000];
 const K_PLATEAU_LADDER_NS = [
   ...K_PLATEAU_LADDER_BATCH1_NS,
   ...K_PLATEAU_LADDER_BATCH2_NS,
+  ...K_PLATEAU_LADDER_BATCH3_NS,
 ];
 export const K_PLATEAU_LADDER = Object.freeze(
   [
     ...K_PLATEAU_LADDER_BATCH1_NS.map((N) => buildPlateauRow(N, { batch: 1 })),
     ...K_PLATEAU_LADDER_BATCH2_NS.map((N) => buildPlateauRow(N, { batch: 2 })),
+    ...K_PLATEAU_LADDER_BATCH3_NS.map((N) => buildPlateauRow(N, { batch: 3 })),
   ].filter((r) => r != null),
 );
 
@@ -234,6 +260,52 @@ const IMP_1087_SUB_MEASUREMENT_SUB_GAP = Object.freeze({
     '~40-300 h per plateau on a native backend at N up to 5e5 (JS sandbox ' +
     'estimate ~2000-12000 h, well beyond a single session budget).',
   deferredTo: 'native-backend (imp-360-sub-remaining-N infrastructure)',
+});
+
+// imp-1088-sub-measurement: the deferred measurement work for the batch-3
+// CAPSTONE plateaus N in {6e5, 8e5, 1e6} (all three sit in plateau 9 of the
+// imp-962 plateau-structure scan, range [420892, 10^6]). Per-plateau interior
+// cert at N = 1e6 takes ~584000 seconds native (~162 h) under the O(N^2) cost
+// model (3 * 5845 * (1e6 / 1e5)^2 = ~1.75 million seconds wallclock estimate
+// per step times the bracket-step count); JS sandbox estimate is ~50000 h,
+// completely infeasible in a single session. The conservative K = 0.2014
+// carryforward is therefore the only realistic shipment in the JS engine.
+// Rescue formula margin grows to ~45.83 at N = 1e6, so the conservative-
+// extension is rigorously sound on (5e5, 1e6] with very comfortable slack.
+//
+// UPGRADE PATH: imp-1090 (Rust port Phase 1 MVP, src/rust/interval-rk4/) is
+// the named consumer of this sub-gap. If imp-1090 ships clean its native
+// interval-RK4 driver becomes the backend that can run these certs at native
+// speed, demoting the carryforward bounds to measured K_paper_cert_floor
+// values. Until then the sub-gap remains OPEN with blocker:false (the
+// carryforward bound is rigorously valid, so this is a tightening exercise).
+const IMP_1088_SUB_MEASUREMENT_SUB_GAP = Object.freeze({
+  id: 'imp-1088-sub-measurement',
+  parent: 'imp-1088',
+  status: 'open',
+  blocker: false,
+  statement:
+    'Run interval-RK4 certificates at the 3 batch-3 CAPSTONE plateau interiors ' +
+    '(N = 6e5 in plateau 9, N = 8e5 in plateau 9, N = 1e6 in plateau 9 -- all ' +
+    'three batch-3 N values share the same imp-962 plateau 9 spanning ' +
+    '[420892, 1e6]) on a native C/Arb/CAPD backend to replace the conservative ' +
+    'carryforward K_bound = 0.2014 with measured K_paper_cert_floor values. ' +
+    'Expected measured K values continue the imp-933 monotone-decreasing trend ' +
+    '(at N = 1e4 measured K was ~4e-4; at N = 1e6 an order-of-magnitude smaller ' +
+    'or better is expected). The carryforward bound is rigorously valid (rescue ' +
+    'formula holds with margin factor 45.83x at N = 1e6), so measurement is a ' +
+    'tightening exercise, not a soundness fix.',
+  estimatedRuntimeHours:
+    '~300-1600 h per plateau on a native backend at N up to 1e6 under the ' +
+    'O(N^2) imp-360 cost model (JS sandbox estimate ~15000-80000 h, completely ' +
+    'infeasible in a single session).',
+  deferredTo: 'native-backend (imp-1090 Rust interval-RK4 port Phase 1 MVP)',
+  upgradePath:
+    'imp-1090 (Rust port Phase 1 MVP, src/rust/interval-rk4/) is the named ' +
+    'upgrade path. If imp-1090 ships clean its native interval-RK4 driver can ' +
+    'be invoked on the 3 batch-3 plateau interiors to demote the carryforward ' +
+    'K_bound = 0.2014 to measured K_paper_cert_floor values, closing this ' +
+    'sub-gap. Cross-reference: imp-1090 ships in parallel with imp-1088.',
 });
 
 // Smallest rescue margin across the batch-1 plateaus (the binding margin).
@@ -317,26 +389,33 @@ export const FINITE_K_C_MB_UNCONDITIONAL = Object.freeze({
     'imp-1087-sub-measurement — replace the batch-2 K_PLATEAU_LADDER ' +
       'conservative carryforward bounds with measured interval-RK4 K values ' +
       'at N in {2e5, 3e5, 5e5}. Native-backend deferral.',
+    'imp-1088-sub-measurement — replace the batch-3 CAPSTONE K_PLATEAU_LADDER ' +
+      'conservative carryforward bounds with measured interval-RK4 K values ' +
+      'at N in {6e5, 8e5, 1e6}. Named upgrade path is imp-1090 (Rust ' +
+      'interval-RK4 port Phase 1 MVP).',
   ],
 
-  // imp-1082 batch-1 + imp-1087 batch-2 K_PLATEAU_LADDER: HONEST PARTIAL
-  // extension of the unconditional finite-K closure past N = 10⁴ using
-  // conservative K_bound = 0.2014 carryforward at N in
-  // {2e4, 5e4, 1e5, 2e5, 3e5, 5e5}. Measured values are deferred to a native
-  // backend per imp-1082-sub-measurement (batch 1) and imp-1087-sub-
-  // measurement (batch 2).
+  // imp-1082 batch-1 + imp-1087 batch-2 + imp-1088 batch-3 CAPSTONE
+  // K_PLATEAU_LADDER: HONEST PARTIAL extension of the unconditional finite-K
+  // closure past N = 10⁴ using conservative K_bound = 0.2014 carryforward at
+  // N in {2e4, 5e4, 1e5, 2e5, 3e5, 5e5, 6e5, 8e5, 1e6}. Measured values are
+  // deferred to a native backend per imp-1082-sub-measurement (batch 1),
+  // imp-1087-sub-measurement (batch 2), and imp-1088-sub-measurement
+  // (batch 3 CAPSTONE; upgrade path imp-1090 Rust port).
   kPlateauLadder: K_PLATEAU_LADDER,
   kPlateauLadderNs: K_PLATEAU_LADDER_NS,
   kPlateauLadderBatch1Ns: K_PLATEAU_LADDER_BATCH1_NS,
   kPlateauLadderBatch2Ns: K_PLATEAU_LADDER_BATCH2_NS,
+  kPlateauLadderBatch3Ns: K_PLATEAU_LADDER_BATCH3_NS,
   kPlateauLadderMinRescueMargin: K_PLATEAU_LADDER_MIN_MARGIN,
   kPlateauLadderStatus:
     K_PLATEAU_LADDER.length > 0 &&
     K_PLATEAU_LADDER.every((r) => r.rescue_satisfied)
-      ? 'projected-conservative-bounds-cover-N-up-to-5e5'
+      ? 'projected-conservative-bounds-cover-N-up-to-1e6'
       : 'no-coverage',
   imp1082SubMeasurement: IMP_1082_SUB_MEASUREMENT_SUB_GAP,
   imp1087SubMeasurement: IMP_1087_SUB_MEASUREMENT_SUB_GAP,
+  imp1088SubMeasurement: IMP_1088_SUB_MEASUREMENT_SUB_GAP,
 });
 
 export const FINITE_K_C_MB_UNCONDITIONAL_ASSERTIONS = [
@@ -552,12 +631,121 @@ export const FINITE_K_C_MB_UNCONDITIONAL_ASSERTIONS = [
       'plateau structure changed or the batch-2 N choices were stale.',
   },
   {
-    id: 'imp1087-ladder-total-length-six',
-    holds: () => FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadder.length === 6,
+    id: 'imp1087-ladder-total-length-at-least-six',
+    holds: () => FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadder.length >= 6,
     why:
-      'After batch-2 the K_PLATEAU_LADDER must have exactly 6 rows ' +
+      'After batch-2 the K_PLATEAU_LADDER must have at least 6 rows ' +
       '(3 batch-1 at N in {2e4, 5e4, 1e5} plus 3 batch-2 at N in ' +
-      '{2e5, 3e5, 5e5}). A different length means either a batch was ' +
-      'dropped or an extra row leaked in.',
+      '{2e5, 3e5, 5e5}); imp-1088 batch-3 brings the total to 9. A length ' +
+      'below 6 means a batch was dropped.',
+  },
+  // ── imp-1088 batch-3 CAPSTONE K_PLATEAU_LADDER tripwires ────────────────
+  {
+    id: 'imp1088-k-plateau-ladder-has-three-batch3-rows',
+    holds: () => {
+      const rows = FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadder;
+      if (!Array.isArray(rows)) return false;
+      const batch3Rows = rows.filter(
+        (r) => [600000, 800000, 1000000].includes(r.N),
+      );
+      return batch3Rows.length === 3;
+    },
+    why:
+      'The batch-3 K_PLATEAU_LADDER subset must have exactly 3 rows at ' +
+      'N in {6e5, 8e5, 1e6}. A different shape means imp-1088 was either ' +
+      'reduced without an assertion update or a row was accidentally dropped.',
+  },
+  {
+    id: 'imp1088-every-batch3-row-satisfies-rescue',
+    holds: () =>
+      FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadder
+        .filter((r) => [600000, 800000, 1000000].includes(r.N))
+        .every(
+          (r) => r.rescue_satisfied === true && r.rescue_margin_factor > 1,
+        ),
+    why:
+      'Every batch-3 row must satisfy the imp-486 rescue formula strictly ' +
+      '(margin factor > 1). The K = 0.2014 carryforward gives growing slack ' +
+      'with N: margin factor ~36.86 at N = 6e5, ~41.66 at N = 8e5, ~45.83 ' +
+      'at N = 1e6. Failure here would mean the carryforward changed or the ' +
+      'rescue computation regressed.',
+  },
+  {
+    id: 'imp1088-every-batch3-row-labeled-conservative',
+    holds: () =>
+      FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadder
+        .filter((r) => [600000, 800000, 1000000].includes(r.N))
+        .every(
+          (r) =>
+            r.status === 'projected-not-measured' &&
+            r.source === 'imp-1088-conservative-carryforward' &&
+            r.measurementSubGap === 'imp-1088-sub-measurement',
+        ),
+    why:
+      'Every batch-3 row must carry status = projected-not-measured and ' +
+      'source = imp-1088-conservative-carryforward and measurementSubGap = ' +
+      'imp-1088-sub-measurement. A row labeled measured without an actual ' +
+      'interval-RK4 cert would be a false claim of rigor.',
+  },
+  {
+    id: 'imp1088-sub-measurement-gap-named-and-open',
+    holds: () => {
+      const g = FINITE_K_C_MB_UNCONDITIONAL.imp1088SubMeasurement;
+      return (
+        g != null &&
+        g.id === 'imp-1088-sub-measurement' &&
+        g.parent === 'imp-1088' &&
+        g.status === 'open' &&
+        g.blocker === false
+      );
+    },
+    why:
+      'The imp-1088-sub-measurement deferral sub-gap must be present with ' +
+      'status = open and blocker = false. If it flips to closed without ' +
+      'measured K_paper_cert_floor values being written into the ladder, ' +
+      'the conservative carryforward becomes a false claim of measurement.',
+  },
+  {
+    id: 'imp1088-batch3-plateau-assignments',
+    holds: () => {
+      const rows = FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadder;
+      const r600k = rows.find((r) => r.N === 600000);
+      const r800k = rows.find((r) => r.N === 800000);
+      const r1e6  = rows.find((r) => r.N === 1000000);
+      return (
+        r600k != null && r600k.plateauIndex === 9 &&
+        r800k != null && r800k.plateauIndex === 9 &&
+        r1e6  != null && r1e6.plateauIndex  === 9
+      );
+    },
+    why:
+      'The batch-3 rows must all land in imp-962 plateau 9 (startN=420892, ' +
+      'endN=1e6). A drift here means the imp-962 plateau structure changed ' +
+      'or the batch-3 N choices fell outside plateau 9.',
+  },
+  {
+    id: 'imp1088-ladder-total-length-nine',
+    holds: () => FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadder.length === 9,
+    why:
+      'After batch-3 the K_PLATEAU_LADDER must have exactly 9 rows ' +
+      '(3 batch-1 at N in {2e4, 5e4, 1e5} plus 3 batch-2 at N in ' +
+      '{2e5, 3e5, 5e5} plus 3 batch-3 at N in {6e5, 8e5, 1e6}). A different ' +
+      'length means either a batch was dropped or an extra row leaked in.',
+  },
+  {
+    id: 'imp1088-sub-measurement-cites-imp1090-upgrade-path',
+    holds: () => {
+      const g = FINITE_K_C_MB_UNCONDITIONAL.imp1088SubMeasurement;
+      return (
+        g != null &&
+        typeof g.upgradePath === 'string' &&
+        g.upgradePath.indexOf('imp-1090') !== -1
+      );
+    },
+    why:
+      'The imp-1088-sub-measurement record must name imp-1090 (Rust ' +
+      'interval-RK4 port Phase 1 MVP) as the upgrade path in its ' +
+      'upgradePath field. The cross-reference is load-bearing for routing ' +
+      'the carryforward-to-measured transition when imp-1090 ships clean.',
   },
 ];

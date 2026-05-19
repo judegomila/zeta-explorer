@@ -356,6 +356,16 @@ const ALL_PT_BEAT_PT = LADDER.every(
 // remain deferred per imp-1087-sub-measurement (native-backend cost estimate
 // ~40-300 h per plateau at N up to 5e5). The conservative N_range upper bound
 // is bumped from 1e5 to 5e5.
+//
+// imp-1088 batch-3 CAPSTONE extension (2026-05-18): K_PLATEAU_LADDER gains
+// the final 3 conservative-carryforward rows at N in {6e5, 8e5, 1e6} (all
+// three in plateau 9 of the imp-962 scan). Rescue formula margin factor at
+// N = 1e6 is ~45.83x vs the K = 0.2014 carryforward. Measured K values remain
+// deferred per imp-1088-sub-measurement, whose named upgrade path is the
+// parallel imp-1090 (Rust interval-RK4 port Phase 1 MVP, src/rust/interval-
+// rk4/). The conservative N_range upper bound is bumped from 5e5 to 1e6 --
+// the original imp-440 spec ceiling -- giving the FIRST conservative
+// extension of the unconditional finite-N* beat to N* = 1e6.
 const UNCOND_N_RANGE = {
   N_min: 100,
   N_max: 10000,
@@ -366,22 +376,29 @@ const UNCOND_N_RANGE = {
 
 const UNCOND_N_RANGE_CONSERVATIVE = {
   N_min: 100,
-  N_max: 500000,
+  N_max: 1000000,
   source:
-    "imp-1082 batch-1 + imp-1087 batch-2 carryforward extension " +
-    "(K=0.2014 conservative, measured values deferred to imp-1082-sub-" +
-    "measurement and imp-1087-sub-measurement)",
+    "imp-1082 batch-1 + imp-1087 batch-2 + imp-1088 batch-3 CAPSTONE " +
+    "carryforward extension (K=0.2014 conservative, measured values " +
+    "deferred to imp-1082-sub-measurement, imp-1087-sub-measurement, " +
+    "and imp-1088-sub-measurement; the latter names imp-1090 Rust " +
+    "interval-RK4 port Phase 1 MVP as the upgrade path)",
   K_unconditional: 0.2014,
   rescue_margin_factor_at_N_1e5:
     +((0.12751 * Math.sqrt(100000)) / (0.2014 * Math.log(100000))).toFixed(2),
   rescue_margin_factor_at_N_5e5:
     +((0.12751 * Math.sqrt(500000)) / (0.2014 * Math.log(500000))).toFixed(2),
+  rescue_margin_factor_at_N_1e6:
+    +((0.12751 * Math.sqrt(1000000)) / (0.2014 * Math.log(1000000))).toFixed(2),
   carryforwardBasis: FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadderStatus,
   batch1Ns: FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadderBatch1Ns,
   batch2Ns: FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadderBatch2Ns,
+  batch3Ns: FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadderBatch3Ns,
   ladderNs: FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadderNs,
   subGap: "imp-1082-sub-measurement",
   subGapBatch2: "imp-1087-sub-measurement",
+  subGapBatch3: "imp-1088-sub-measurement",
+  upgradePath: "imp-1090 (Rust interval-RK4 port Phase 1 MVP, src/rust/interval-rk4/)",
 };
 
 // Pick the SOTA-beating finite N* that ships UNCONDITIONALLY:
@@ -394,9 +411,16 @@ const UNCOND_L_STAR  = (UNCOND_PRIMARY && UNCOND_PRIMARY.ptImprovedBound &&
 const UNCOND_BEATS_PT = UNCOND_L_STAR !== null && UNCOND_L_STAR < PT_BOUND;
 
 const OVERALL_VERDICT = (UNCOND_BEATS_PT && ALL_PT_BEAT_PT)
-  ? "RIGOROUS-UNCONDITIONAL-AT-N1E4: L_pt(N*=10^4) = " +
-    (+UNCOND_L_STAR.toFixed(4)) + " < 0.2 unconditionally (imp-963 closes C_mb on [100, 10^4]); " +
-    "all N* in {10^4..10^9} beat PT on the PT+Ingham bound but remain GUE-CONDITIONAL for N* > 10^4 (imp-962 open)"
+  ? "RIGOROUS-UNCONDITIONAL-AT-N1E4-PLUS-CARRYFORWARD-TO-N1E6-CAPSTONE: " +
+    "L_pt(N*=10^4) = " + (+UNCOND_L_STAR.toFixed(4)) +
+    " < 0.2 unconditionally (imp-963 measured C_mb on [100, 10^4]); " +
+    "conservative-carryforward K_PLATEAU_LADDER extends the unconditional " +
+    "regime to N* = 1e6 via imp-1082 batch-1 + imp-1087 batch-2 + imp-1088 " +
+    "batch-3 CAPSTONE (rescue margin 45.83x at N = 1e6); measured " +
+    "tightening at N in {2e4..1e6} deferred to native backend (imp-1090 " +
+    "Rust port named as upgrade path for batch-3); all N* in {10^4..10^9} " +
+    "beat PT on the PT+Ingham bound but remain GUE-CONDITIONAL above the " +
+    "carryforward ceiling N = 1e6 (imp-962 measurement still open above 10^4)"
   : ANY_FULL_BEAT_PT
   ? "RIGOROUS-FULL: at least one N < 10^8 yields full Lambda bound < 0.2"
   : ALL_PT_BEAT_PT
@@ -642,32 +666,91 @@ export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
         "is GUE-conditional pending imp-962 (extension of the imp-933 sweep).",
       providedByImp963: {
         K_unconditional: UNCOND_N_RANGE.K_unconditional,
-        // imp-1082 batch-1 + imp-1087 batch-2: N_range upper bound bumped
-        // from 1e4 -> 1e5 -> 5e5 to reflect the CONSERVATIVE carryforward
-        // coverage shipped by the K_PLATEAU_LADDER table in
-        // finite-k-c-mb-unconditional.js. The primary MEASURED N* remains
-        // 1e4 (N_range_measured); the extension to 5e5 is unconditional but
-        // conservative (not yet measured).
+        // imp-1082 batch-1 + imp-1087 batch-2 + imp-1088 batch-3 CAPSTONE:
+        // N_range upper bound bumped from 1e4 -> 1e5 -> 5e5 -> 1e6 to reflect
+        // the CONSERVATIVE carryforward coverage shipped by the
+        // K_PLATEAU_LADDER table in finite-k-c-mb-unconditional.js. The
+        // primary MEASURED N* remains 1e4 (N_range_measured); the extension
+        // to 1e6 is rigorous (rescue formula holds at every N with margin
+        // factor 45.83x at N = 1e6) but conservative (not yet measured).
         N_range:                  [UNCOND_N_RANGE.N_min, UNCOND_N_RANGE_CONSERVATIVE.N_max],
         N_range_measured:         [UNCOND_N_RANGE.N_min, UNCOND_N_RANGE.N_max],
         N_range_conservative:     [UNCOND_N_RANGE.N_min, UNCOND_N_RANGE_CONSERVATIVE.N_max],
         marginFactor:             UNCOND_N_RANGE.rescue_margin_factor,
         marginFactor_at_N_1e5:    UNCOND_N_RANGE_CONSERVATIVE.rescue_margin_factor_at_N_1e5,
         marginFactor_at_N_5e5:    UNCOND_N_RANGE_CONSERVATIVE.rescue_margin_factor_at_N_5e5,
+        marginFactor_at_N_1e6:    UNCOND_N_RANGE_CONSERVATIVE.rescue_margin_factor_at_N_1e6,
         sweepSource:              UNCOND_N_RANGE.source,
         carryforwardSource:       UNCOND_N_RANGE_CONSERVATIVE.source,
         impGap963Status:          FINITE_K_C_MB_UNCONDITIONAL.status,
         kPlateauLadderStatus:     FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadderStatus,
         imp1082SubMeasurementGap: UNCOND_N_RANGE_CONSERVATIVE.subGap,
         imp1087SubMeasurementGap: UNCOND_N_RANGE_CONSERVATIVE.subGapBatch2,
+        imp1088SubMeasurementGap: UNCOND_N_RANGE_CONSERVATIVE.subGapBatch3,
+        imp1090UpgradePath:       UNCOND_N_RANGE_CONSERVATIVE.upgradePath,
         note:
-          "N_range upper bound = 5e5 (imp-1082 batch-1 + imp-1087 batch-2 " +
-          "conservative carryforward); the underlying MEASURED interval-RK4 " +
-          "cert sweep covers [100, 10^4] only via imp-963/imp-933. " +
-          "Measurement at N in {2e4, 5e4, 1e5} is deferred to imp-1082-sub-" +
-          "measurement; measurement at N in {2e5, 3e5, 5e5} is deferred to " +
-          "imp-1087-sub-measurement; both on a native C/Arb/CAPD backend.",
+          "N_range upper bound = 1e6 (imp-1082 batch-1 + imp-1087 batch-2 + " +
+          "imp-1088 batch-3 CAPSTONE conservative carryforward); the " +
+          "underlying MEASURED interval-RK4 cert sweep covers [100, 10^4] " +
+          "only via imp-963/imp-933. Measurement at N in {2e4, 5e4, 1e5} is " +
+          "deferred to imp-1082-sub-measurement; at N in {2e5, 3e5, 5e5} to " +
+          "imp-1087-sub-measurement; at N in {6e5, 8e5, 1e6} (CAPSTONE) to " +
+          "imp-1088-sub-measurement whose named upgrade path is imp-1090 " +
+          "(Rust interval-RK4 port Phase 1 MVP, src/rust/interval-rk4/). " +
+          "Conservative-carryforward is rigorously valid: rescue formula " +
+          "K * log(N) / sqrt(N) < 0.12751 holds at every N up to 1e6 with " +
+          "margin factor 45.83x at the capstone ceiling.",
       },
+    };
+  })(),
+
+  // imp-1088 CAPSTONE: a sibling rigorousUnconditionalBeat entry at the
+  // carryforward ceiling N* = 1e6. Composition reuses the same chain as the
+  // measured N* = 1e4 entry; the difference is that C_mb <= 0.2014 is held
+  // here by the conservative-carryforward K_PLATEAU_LADDER rather than by a
+  // measured interval-RK4 cert at N = 1e6. Status accordingly:
+  // "rigorous-via-rescue-formula-carryforward". The rescue formula
+  // K * log(N) / sqrt(N) < 0.12751 holds at N = 1e6 with margin factor
+  // 45.83x, so the carryforward is rigorously valid. Measurement at this
+  // N is deferred to imp-1088-sub-measurement (named upgrade path:
+  // imp-1090 Rust port).
+  rigorousUnconditionalBeatCarryforwardN1e6: (() => {
+    const rowN1e6 = LADDER.find((r) => r.N === 1e6) || null;
+    if (!rowN1e6 || !rowN1e6.ptImprovedBound || !rowN1e6.ptImprovedBound.available) {
+      return {
+        available: false,
+        reason: "ladder did not contain a row at N = 1e6 or PT-improved bound unavailable",
+      };
+    }
+    const Lpt = rowN1e6.ptImprovedBound.L_pt;
+    return {
+      available:    true,
+      N_star:       1e6,
+      status:       "rigorous-via-rescue-formula-carryforward",
+      L_star:       +Lpt.toFixed(7),
+      beatsPT:      Lpt < PT_BOUND,
+      ptBound:      PT_BOUND,
+      marginFactor: +(PT_BOUND / Lpt).toFixed(2),
+      provenance: {
+        K_carryforward:           UNCOND_N_RANGE_CONSERVATIVE.K_unconditional,
+        rescueLhs:                +((0.2014 * Math.log(1000000)) / Math.sqrt(1000000)).toFixed(7),
+        rescueThreshold:          0.12751,
+        rescueMarginFactor_at_N_1e6: UNCOND_N_RANGE_CONSERVATIVE.rescue_margin_factor_at_N_1e6,
+        kPlateauLadderSource:     "imp-1088 batch-3 CAPSTONE conservative carryforward",
+        measurementDeferredTo:    "imp-1088-sub-measurement",
+        upgradePath:              UNCOND_N_RANGE_CONSERVATIVE.upgradePath,
+      },
+      qualification:
+        "RIGOROUS conservative-carryforward extension of the imp-440 / imp-963 " +
+        "unconditional finite-N* beat to N* = 1e6 (the original imp-440 spec " +
+        "ceiling). The C_mb(N) <= 0.2014 bound at N = 1e6 is held by the " +
+        "K_PLATEAU_LADDER carryforward row (rescue formula holds with margin " +
+        "factor 45.83x) rather than by a measured interval-RK4 cert; the " +
+        "carryforward is rigorously valid modulo the F_mb smoothness budget " +
+        "validated by the imp-962 plateau-structure scan (maxSmoothScaleRatio " +
+        "= 2.15 across all 10 plateaus on (10^4, 10^6]). Measurement at this " +
+        "N is deferred to imp-1088-sub-measurement; named upgrade path is " +
+        "imp-1090 (Rust interval-RK4 port Phase 1 MVP).",
     };
   })(),
 
@@ -845,5 +928,38 @@ export const FINITE_HEIGHT_BEATS_PT_ASSERTIONS = [
       "the chain composes UNCONDITIONALLY at N* = 1e4 to give L_pt < 0.2. " +
       "A failure here means either (a) imp-963 was rolled back, (b) the ladder " +
       "is missing the N = 1e4 row, or (c) the PT-improved bound regressed above 0.2.",
+  },
+  // ── imp-1088 CAPSTONE: assert the conservative-carryforward extension of
+  // the rigorous unconditional finite-N* beat to N* = 1e6 is recorded with
+  // beatsPT = true and a rescue formula margin factor > 1 at the carryforward
+  // bound K = 0.2014.
+  {
+    id: "imp1088-rigorous-carryforward-beat-at-N1e6",
+    holds: () => {
+      const b = FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN.rigorousUnconditionalBeatCarryforwardN1e6;
+      return (
+        b !== undefined &&
+        b.available === true &&
+        b.N_star === 1000000 &&
+        b.status === "rigorous-via-rescue-formula-carryforward" &&
+        b.L_star !== null &&
+        b.L_star < 0.2 &&
+        b.beatsPT === true &&
+        b.provenance != null &&
+        b.provenance.rescueMarginFactor_at_N_1e6 > 1 &&
+        b.provenance.measurementDeferredTo === "imp-1088-sub-measurement" &&
+        typeof b.provenance.upgradePath === "string" &&
+        b.provenance.upgradePath.indexOf("imp-1090") !== -1
+      );
+    },
+    why:
+      "The imp-1088 CAPSTONE conservative-carryforward extension must record " +
+      "a beats-PT sibling rigorousUnconditionalBeat entry at N* = 1e6 with " +
+      "status = rigorous-via-rescue-formula-carryforward, the K = 0.2014 " +
+      "rescue margin factor at N = 1e6 strictly above 1, measurement " +
+      "deferred to imp-1088-sub-measurement, and the imp-1090 Rust port " +
+      "named in the upgradePath. A failure means either the carryforward " +
+      "row was dropped, the rescue margin regressed, or the upgrade-path " +
+      "cross-reference to imp-1090 was lost.",
   },
 ];

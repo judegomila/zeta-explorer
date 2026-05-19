@@ -152,6 +152,8 @@ const DATA_MODULES = [
   '/src/data/paper-abstract-rewrite-2026-05.js',
   // imp-1094: paper Sections 1-3 draft (Introduction, Background, Main Result).
   '/src/data/paper-sections-1-3.js',
+  // imp-1105: paper publication record (compiled PDF + sectionsIncluded + tripwires).
+  '/src/data/paper-publication-2026-05.js',
   // imp-1090: Rust interval-RK4 backend Phase 1 MVP validation record.
   '/src/data/rust-port-phase1-validation.js',
   // imp-1091: Rust interval-RK4 Phase 2 wire-up validation (CLI dispatch).
@@ -174,6 +176,12 @@ const DATA_MODULES = [
   '/src/data/hardy-z-asymptotic-comparison.js',
   // imp-1096: page health audit refresh after user-reported /#/full-story load failure.
   '/src/data/page-health-audit-2026-05-18.js',
+  // imp-1107: SOTA attack 2 -- survey of 3 alternative asymptotic routes.
+  '/src/data/sota-asymptotic-alternatives-2026-05.js',
+  // imp-1106: SOTA attack 1 -- ESY rigidity SMALL-WEDGE attempt (wedge failed cleanly, 3 obstructions named).
+  '/src/data/esy-small-wedge-attempt-2026-05.js',
+  // imp-1109: SOTA attack 4 -- Connes adelic spectral interpretation + truncated trace positivity at t = 0.02.
+  '/src/data/connes-adelic-lambda-2026-05.js',
 ];
 
 const ALL_MODULES = FAST_MODE

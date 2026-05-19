@@ -20,10 +20,14 @@
 
 pub mod dyson;
 pub mod eml;
+pub mod parallel;
 pub mod rk4;
 
 pub use dyson::{dyson_drift_interval, dyson_drift_vector};
 pub use eml::eml_interval;
+pub use parallel::{
+    par_plateau_sweep, serial_plateau_sweep, PlateauResult, PlateauSpec, SweepOpts,
+};
 pub use rk4::rk4_interval_step;
 
 /// Re-export the underlying interval type so downstream crates do not

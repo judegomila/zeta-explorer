@@ -1202,6 +1202,84 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ═══════════════════════════════════════════════════════════════════
+  // WAVE 3 (2026-05-19) — capture imp-1127 finite-N gain, fix the C_F bug
+  // surfaced during imp-1127, and attack the V2 INTERCEPT BOTTLENECK (the
+  // actual asymptotic blocker per imp-1123's analysis). User: "keep going".
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    id: 'imp-1131',
+    title: 'Fix C_F JSDoc bug + audit Polymath15 constant files for similar star-slash terminations',
+    category: 'bug',
+    priority: 'high',
+    status: 'pending',
+    proofSection: null,
+    description: 'imp-1127 surfaced a real pre-existing bug: src/data/polymath15-constant-C-F.js line ~126 has the substring k*/N inside a /** */ JSDoc block which terminates the comment prematurely under strict esbuild parsing. This made the file SSR-load-broken (transitively breaking polymath15-constant-C-C.js which imports it). Fix the C-F file by rewriting the offending JSDoc to use brace notation k_{*}/N or another formulation, then audit all polymath15-constant-*.js files + finite-height-beats-platt-trudgian.js + any data files matching grep -rE "[a-z][*]/" src/data/ for similar bugs. Ship src/data/polymath15-jsdoc-audit-2026-05.js with per-file audit result + the fix log + 5+ tripwires.',
+    rationale: 'Real bug, low-effort fix, unblocks the C_F/C_C SSR import chain that imp-1127 had to work around with string-literal references instead of real imports.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-1132',
+    title: 'V2 INTERCEPT ATTACK: Barnes-Hut sparse drift sum in Rust to break the O(N^2) Rust ceiling',
+    category: 'feature',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-1112 + imp-1123 collectively established that the asymptotic Lambda upper bound is bottlenecked by the V2 OLS intercept (~0.0066), which tightens ONLY via measured plateau rows at large N. imp-1112 showed the current Rust integrator times out at N>=1e5 because dyson_drift_interval is O(N^2) per step. Implement a Barnes-Hut octree (or 1D analog: bisection-tree on the gamma_k positions) so the drift sum becomes O(N log N) instead of O(N^2) — at N=1e6, that is a ~50000x algorithmic speedup. Tradeoff: BH introduces a controlled approximation that must compose with the interval-arithmetic chain (each BH cell contributes a far-field interval with width proportional to the cell extent / distance). Ship rust/interval-rk4/src/barnes_hut.rs + benchmarks vs the existing O(N^2) drift at N in {1000, 5000, 10000} verifying agreement to 1e-6 on t_c_lo/t_c_hi. ACCEPTANCE: at N=1e5, BH drift completes one RK4 step in <30s (vs current >3000s O(N^2) projection).',
+    rationale: 'This is the SINGLE highest-leverage move left for the asymptotic SOTA attack: O(N log N) drift unlocks measured plateau rows past N=1e5, which is the only known way to tighten the V2 intercept that gates the asymptotic Lambda upper bound. ~2-3 day engineering effort but enables every other extension.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+    dependsOn: ['imp-1090', 'imp-1091', 'imp-1110'],
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-1133',
+    title: 'Paper claim refresh: roll imp-1127 8pct finite-N tightening into appendix C + abstract + PDF',
+    category: 'content',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-1127 shipped the first finite-N L_pt improvement of the session: at N=1e4, L_pt drops from 0.020 -> 0.018 via the Polymath bridge C_F + C_C refinements (8pct tighter; rigorous gain on C_F at 1.05x, research-feasible 1.15x on C_C). The paper (paper/main.tex + paper/main.pdf + paper-appendix-C-finite-height-beat.js + paper-abstract-rewrite-2026-05.js) still claims 0.02. Refresh: (a) update appendix C chainTable to incorporate the imp-1127 hybrid factors with appropriate scope qualifiers (rigorous vs formal), (b) update abstract paragraph 1 to lead with L_pt ~ 0.018 (margin ~11.1x vs PT 0.2) AND note that the gain is from imp-1127 polymath bridge refinements not from Bui-Sound (E_trunc dominated by E_coll at finite N), (c) recompile paper/main.pdf via tectonic, (d) update public/papers/gomila-finite-height-beat-2026-05.pdf, (e) add a "Refresh log" appendix listing imp-1127 + imp-1128 + imp-1123 contributions with their honest scope. 6+ tripwires verifying the new 0.018 figure appears in all artifacts.',
+    rationale: 'The shipping artifact must reflect our best result. 8pct is publishable refinement.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+    dependsOn: ['imp-1105', 'imp-1127'],
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-1134',
+    title: 'C_F engine-closable refinement: ship the rigorous 1.05x bulk-approximation tightening',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-1127 consumed a hypothetical 1.05x rigorous refinement to C_F (the Polymath15 bulk-approximation constant in E_flow) but did not actually derive it — the agent treated it as already-engine-closable and rolled it into the hybrid factor. THIS ticket actually derives the 1.05x rigorously by re-examining the Polymath15 bulk-approximation argument (Lemma 4.X in the polymath15 paper) and explicitly tracking where the slack can be reduced. Ship src/data/c-f-bulk-refinement-2026-05.js with the actual derivation + the new explicit C_F value + comparison to the imp-398 production value + 5+ tripwires. If the 1.05x cannot be derived rigorously, ship a smaller HONEST factor (or 1.0x with named obstruction).',
+    rationale: 'Closes the dependency that imp-1127 + imp-1133 rely on. Without this, the 8pct finite-N gain is "formal" not "rigorous" at the C_F step.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-1135',
+    title: 'C_C Selberg sieve refinement: attempt the research-feasible 1.15x tightening on the collision constant',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'imp-1127 named a 1.15x research-feasible refinement to C_C (the Polymath15 collision-constant from imp-399) via a Selberg sieve argument. Attempt the derivation: re-examine the imp-399 closure (C_C = (1/8)*sqrt(3*pi)) and identify which Selberg-sieve input could give a tighter constant. The 1.15x is multiplicative on E_coll which at N=1e4 is the LARGEST term (~0.0116), so closure here gives the biggest finite-N L_pt drop of any lane. Ship src/data/c-c-selberg-refinement-2026-05.js with the derivation + new explicit C_C + named obstructions for the parts that turn research-grade. HONEST SCOPE: likely honest-partial; the 1.15x may need a non-trivial Selberg lambda^2 construction we do not yet have in the tool inventory.',
+    rationale: 'C_C is the load-bearing finite-N term. If we close even 1.10x of this, L_pt(N=1e4) drops further.',
+    estimatedComplexity: 'high',
+    completedAt: null,
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
   // META — accelerating the work
 
   // ═══════════════════════════════════════════════════════════════════

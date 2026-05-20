@@ -210,8 +210,16 @@ const DATA_MODULES = [
   '/src/data/c-f-bulk-refinement-2026-05.js',
   // imp-1132: V2 intercept attack -- Barnes-Hut O(N log N) sparse drift sum in Rust.
   '/src/data/rust-port-phase7-barnes-hut.js',
+  // imp-1139: BH multipole extension (monopole + dipole + quadrupole) -- O((extent/dist)^3) envelope.
+  '/src/data/rust-port-phase8-multipole.js',
   // imp-1111: Rust port Phase 5 Verner 8(7) triangulation contract (HONEST PARTIAL).
   '/src/data/rust-port-phase5-verner-triangulation.js',
+  // imp-1142: API channel engine (5th engine variant via Anthropic API direct).
+  '/src/data/api-channel-engine-2026-05.js',
+  // imp-1136: Phase 3 production sweep with Barnes-Hut backend -- HONEST PARTIAL.
+  '/src/data/k-plateau-ladder-measured-2026-05.js',
+  // imp-1137: V2 OLS interval-arithmetic refit -- rigorous error bar on the asymptotic intercept.
+  '/src/data/v2-ols-interval-2026-05.js',
 ];
 
 const ALL_MODULES = FAST_MODE

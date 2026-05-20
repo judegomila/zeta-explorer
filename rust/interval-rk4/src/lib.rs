@@ -19,6 +19,7 @@
 //!     one classical RK4 step using `dyson_drift_vector` as the RHS.
 
 pub mod barnes_hut;
+pub mod barnes_hut_multipole;
 pub mod dyson;
 pub mod eml;
 pub mod interval_ols;
@@ -26,9 +27,11 @@ pub mod parallel;
 pub mod rk4;
 
 pub use barnes_hut::{BHTree, LEAF_SIZE};
+pub use barnes_hut_multipole::{BHTreeMultipole, LEAF_SIZE as LEAF_SIZE_MULTIPOLE};
 pub use dyson::{
-    dyson_drift_barnes_hut, dyson_drift_interval, dyson_drift_vector,
-    dyson_drift_vector_barnes_hut,
+    dyson_drift_barnes_hut, dyson_drift_barnes_hut_multipole, dyson_drift_interval,
+    dyson_drift_vector, dyson_drift_vector_barnes_hut,
+    dyson_drift_vector_barnes_hut_multipole,
 };
 pub use eml::eml_interval;
 pub use interval_ols::{interval_ols, OlsError, OlsIntervalFit, OlsRow};

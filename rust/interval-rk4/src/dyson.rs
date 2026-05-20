@@ -15,6 +15,7 @@
 
 use crate::as_interval;
 use crate::barnes_hut::BHTree;
+use crate::barnes_hut_multipole::BHTreeMultipole;
 use inari::Interval;
 
 /// Drift for particle `k`. Returns `None` if any (g_k - g_j) straddles 0.
@@ -88,6 +89,45 @@ pub fn dyson_drift_vector_barnes_hut(
     let mut out = Vec::with_capacity(n);
     for k in 0..n {
         match dyson_drift_barnes_hut(gammas, &tree, k, theta) {
+            Some(d) => out.push(d),
+            None => return None,
+        }
+    }
+    Some(out)
+}
+
+/// imp-1139 Barnes-Hut MULTIPOLE drift at particle `k`. Returns the
+/// same quantity as `dyson_drift_interval` but uses a pre-built
+/// multipole tree (monopole + dipole + quadrupole) so the per-cell
+/// truncation envelope is O((extent/dist)^3) instead of O(extent/dist).
+/// At theta = 0.5 the midpoint disagreement vs dense drops by 3+ orders
+/// of magnitude relative to the monopole-only imp-1132 path.
+///
+/// Returns `None` on the collision short-circuit (any pair distance
+/// straddles zero).
+pub fn dyson_drift_barnes_hut_multipole(
+    gammas: &[Interval],
+    tree: &BHTreeMultipole,
+    k: usize,
+    theta: f64,
+) -> Option<Interval> {
+    let sum = tree.query_sum(gammas, k, theta)?;
+    let neg_two = as_interval(-2.0);
+    Some(neg_two * sum)
+}
+
+/// Full multipole drift vector. Builds the tree once and queries every
+/// particle, yielding the O(N log N) full drift at the tighter
+/// quadrupole envelope.
+pub fn dyson_drift_vector_barnes_hut_multipole(
+    gammas: &[Interval],
+    theta: f64,
+) -> Option<Vec<Interval>> {
+    let tree = BHTreeMultipole::build(gammas);
+    let n = gammas.len();
+    let mut out = Vec::with_capacity(n);
+    for k in 0..n {
+        match dyson_drift_barnes_hut_multipole(gammas, &tree, k, theta) {
             Some(d) => out.push(d),
             None => return None,
         }

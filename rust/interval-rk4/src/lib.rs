@@ -21,6 +21,7 @@
 pub mod barnes_hut;
 pub mod dyson;
 pub mod eml;
+pub mod interval_ols;
 pub mod parallel;
 pub mod rk4;
 
@@ -30,6 +31,7 @@ pub use dyson::{
     dyson_drift_vector_barnes_hut,
 };
 pub use eml::eml_interval;
+pub use interval_ols::{interval_ols, OlsError, OlsIntervalFit, OlsRow};
 pub use parallel::{
     par_plateau_sweep, serial_plateau_sweep, PlateauResult, PlateauSpec, SweepOpts,
 };

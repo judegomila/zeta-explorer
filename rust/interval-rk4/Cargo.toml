@@ -16,6 +16,10 @@ rayon = "1.10"
 name = "interval-rk4-cli"
 path = "src/bin/interval-rk4-cli.rs"
 
+[[bin]]
+name = "interval-ols-cli"
+path = "src/bin/interval-ols-cli.rs"
+
 [lib]
 name = "interval_rk4"
 path = "src/lib.rs"

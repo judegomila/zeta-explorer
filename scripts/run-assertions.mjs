@@ -226,6 +226,8 @@ const DATA_MODULES = [
   '/src/data/asymptotic-lambda-bound-2026-05-20.js',
   // imp-1129: Path C heuristic error-bar refit using imp-1136 9-plateau BH sweep.
   '/src/data/path-c-error-bar-refit-2026-05-20.js',
+  // imp-1149: HONEST PARTIAL Koksma-Hlawka 2nd-moment attempt — intermediate N^{3/2} rate result.
+  '/src/data/koksma-hlawka-2nd-moment-deviation-bound.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -224,6 +224,8 @@ const DATA_MODULES = [
   '/src/data/click-links-audit-2026-05-19.js',
   // imp-1147: composed rigorous asymptotic Lambda upper bound (~8e-4, 250x tighter than PT 2021).
   '/src/data/asymptotic-lambda-bound-2026-05-20.js',
+  // imp-1141: Rust full-chain port (C_mb + E_trunc + E_flow + E_coll + L_pt in chain.rs).
+  '/src/data/rust-port-phase10-full-chain.js',
 ];
 
 const ALL_MODULES = FAST_MODE

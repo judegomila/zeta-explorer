@@ -1,0 +1,23 @@
+{
+  "N": 10000,
+  "T_PT": 3000000000000,
+  "sigma_opt": 0.75,
+  "fit_a": 0.0066,
+  "fit_b": 4.91,
+  "C_C": 0.3837475154799332,
+  "K_mb": 0.2014,
+  "T0": 9878.803411747638,
+  "tcProj": 0.007091,
+  "C_T": 1.173847340423319,
+  "kappa_T": 0.15628394283515026,
+  "C_F": 1.3305782331890808,
+  "E_trunc_polymath": 2.564506508244126,
+  "E_flow": 0.0012477166891503631,
+  "E_coll": 0.01163846599286908,
+  "E_trunc_pt": 0.000030638870628004004,
+  "L_cond": 0.019977182682019444,
+  "L_full": 2.5844836909261457,
+  "L_pt": 0.020007821552647447,
+  "note": "Self-contained JS reference for imp-1141. Reproduces the formulas in src/data/finite-height-beats-platt-trudgian.js verbatim with pinned V2 OLS fit constants (a, b) = (0.0066, 4.91). If the V2 fit drifts, re-pin FIT_A / FIT_B and regenerate via \"node rust/interval-rk4/tests/generate-chain-reference.mjs\".",
+  "generatedAt": "2026-05-20T18:40:38.213Z"
+}

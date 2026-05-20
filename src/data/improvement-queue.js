@@ -492,7 +492,7 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Without this honesty record, future engine runs may attempt the ESY port as a normal ticket (wasting Opus quota on a guaranteed-partial closure). Explicit research-grade flag prevents that. Also informs the imp-1081 paper appendix C: the appendix should LEAD with the finite-N rigorous beat and only mention the asymptotic gap as a sub-paragraph.',
     estimatedComplexity: 'small',
     completedAt: null,
-    model: 'opus-4-7',
+    model: 'sonnet-4-6',
     channel: 'subscription',
   },
   {
@@ -576,7 +576,7 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Without sections 1-3 we have an appendix and an abstract floating without the connecting paper body. This is the missing chunk between abstract and appendix-C for a publishable draft.',
     estimatedComplexity: 'high',
     completedAt: null,
-    model: 'opus-4-7',
+    model: 'sonnet-4-6',
     channel: 'subscription',
   },
   {
@@ -914,7 +914,7 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     completedAt: null,
     dependsOn: ['imp-1090', 'imp-1091', 'imp-1110'],
-    model: 'opus-4-7',
+    model: 'sonnet-4-6',
     channel: 'subscription',
   },
 

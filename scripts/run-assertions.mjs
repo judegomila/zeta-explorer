@@ -220,6 +220,8 @@ const DATA_MODULES = [
   '/src/data/k-plateau-ladder-measured-2026-05.js',
   // imp-1137: V2 OLS interval-arithmetic refit -- rigorous error bar on the asymptotic intercept.
   '/src/data/v2-ols-interval-2026-05.js',
+  // imp-1144: USER-REPORTED click-links audit (TOC fix on /#/full-story + app-wide click sweep).
+  '/src/data/click-links-audit-2026-05-19.js',
 ];
 
 const ALL_MODULES = FAST_MODE

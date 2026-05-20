@@ -197,6 +197,15 @@ function TableOfContents() {
           <li key={t.id}>
             <a
               href={`#${t.id}`}
+              onClick={(e) => {
+                // imp-1144: HashRouter consumes the location hash for routing,
+                // so a raw "#foo" anchor click rewrites the hash and tears down
+                // the /#/full-story route. Intercept the click, scroll the
+                // target into view ourselves, and skip default navigation.
+                e.preventDefault();
+                const el = document.getElementById(t.id);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
               style={{
                 color: '#94a3b8',
                 textDecoration: 'none',

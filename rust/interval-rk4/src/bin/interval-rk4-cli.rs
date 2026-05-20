@@ -13,6 +13,7 @@
 //!        { "wall_clock_ms": u128, "workers": usize, "results": [...] }
 //!      to stdout.
 
+use interval_rk4::chain::{compute_chain, ChainInputs, ChainResult};
 use interval_rk4::parallel::{par_plateau_sweep, PlateauSpec, PlateauResult, SweepOpts};
 use interval_rk4::rk4::{backward_collision_interval, backward_collision_interval_bh_multipole};
 use serde::{Deserialize, Serialize};
@@ -158,11 +159,115 @@ fn run_sweep_mode(args: &[String]) {
     );
 }
 
+#[derive(Debug, Serialize)]
+struct ChainOutput {
+    n: f64,
+    t_pt: f64,
+    sigma_opt: f64,
+    fit_a: f64,
+    fit_b: f64,
+    c_c: f64,
+    k_mb: f64,
+    t0: f64,
+    tc_proj: f64,
+    c_t: f64,
+    kappa_t: f64,
+    c_f: f64,
+    e_trunc_polymath: f64,
+    e_flow: f64,
+    e_coll: f64,
+    e_trunc_pt: f64,
+    l_cond: f64,
+    l_full: f64,
+    l_pt: f64,
+    l_pt_lo: f64,
+    l_pt_hi: f64,
+    l_cond_lo: f64,
+    l_cond_hi: f64,
+    rescue_lhs: f64,
+    rescue_satisfied: bool,
+    runtime_us: u128,
+}
+
+impl From<(ChainInputs, ChainResult, u128)> for ChainOutput {
+    fn from((inp, r, runtime_us): (ChainInputs, ChainResult, u128)) -> Self {
+        Self {
+            n: inp.n,
+            t_pt: inp.t_pt,
+            sigma_opt: inp.sigma_opt,
+            fit_a: inp.fit_a,
+            fit_b: inp.fit_b,
+            c_c: inp.c_c,
+            k_mb: inp.k_mb,
+            t0: r.t0_mid,
+            tc_proj: r.tc_proj_mid,
+            c_t: r.c_t_mid,
+            kappa_t: r.kappa_t_mid,
+            c_f: r.c_f_mid,
+            e_trunc_polymath: r.e_trunc_polymath_mid,
+            e_flow: r.e_flow_mid,
+            e_coll: r.e_coll_mid,
+            e_trunc_pt: r.e_trunc_pt_mid,
+            l_cond: r.l_cond_mid,
+            l_full: r.l_full_mid,
+            l_pt: r.l_pt_mid,
+            l_pt_lo: r.l_pt_lo,
+            l_pt_hi: r.l_pt_hi,
+            l_cond_lo: r.l_cond_lo,
+            l_cond_hi: r.l_cond_hi,
+            rescue_lhs: r.rescue_lhs,
+            rescue_satisfied: r.rescue_satisfied,
+            runtime_us,
+        }
+    }
+}
+
+fn parse_f64_flag(args: &[String], flag: &str, default: f64) -> f64 {
+    let mut i = 0;
+    while i + 1 < args.len() {
+        if args[i] == flag {
+            return args[i + 1]
+                .parse::<f64>()
+                .unwrap_or_else(|_| panic!("{} must be a finite f64", flag));
+        }
+        i += 1;
+    }
+    default
+}
+
+fn run_chain_mode(args: &[String]) {
+    let defaults = ChainInputs::default();
+    let n = parse_f64_flag(args, "--N", 1.0e4);
+    let t_pt = parse_f64_flag(args, "--T_PT", 3.0e12);
+    let sigma_opt = parse_f64_flag(args, "--sigma_opt", 0.75);
+    // V2 OLS fit constants are required CLI args (no project-wide pin shared
+    // with Rust); the validation JS passes them in via --fit-a / --fit-b.
+    let fit_a = parse_f64_flag(args, "--fit-a", 0.0);
+    let fit_b = parse_f64_flag(args, "--fit-b", 0.0);
+    let c_c = parse_f64_flag(args, "--C_C", defaults.c_c);
+    let k_mb = parse_f64_flag(args, "--K_mb", defaults.k_mb);
+
+    let inp = ChainInputs { n, t_pt, sigma_opt, fit_a, fit_b, c_c, k_mb };
+
+    let t0 = Instant::now();
+    let result = compute_chain(inp).expect("chain composition produced no result -- check inputs");
+    let runtime_us = t0.elapsed().as_micros();
+
+    let out: ChainOutput = (inp, result, runtime_us).into();
+    println!(
+        "{}",
+        serde_json::to_string(&out).expect("serialize chain output JSON")
+    );
+}
+
 fn main() {
     let argv: Vec<String> = std::env::args().collect();
     if argv.len() >= 2 && argv[1] == "sweep" {
         let rest: Vec<String> = argv.iter().skip(2).cloned().collect();
         run_sweep_mode(&rest);
+    } else if argv.len() >= 2 && argv[1] == "chain" {
+        let rest: Vec<String> = argv.iter().skip(2).cloned().collect();
+        run_chain_mode(&rest);
     } else {
         let rest: Vec<String> = argv.iter().skip(1).cloned().collect();
         run_single_mode(&rest);

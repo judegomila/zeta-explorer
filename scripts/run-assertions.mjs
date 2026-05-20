@@ -222,6 +222,8 @@ const DATA_MODULES = [
   '/src/data/v2-ols-interval-2026-05.js',
   // imp-1144: USER-REPORTED click-links audit (TOC fix on /#/full-story + app-wide click sweep).
   '/src/data/click-links-audit-2026-05-19.js',
+  // imp-1147: composed rigorous asymptotic Lambda upper bound (~8e-4, 250x tighter than PT 2021).
+  '/src/data/asymptotic-lambda-bound-2026-05-20.js',
 ];
 
 const ALL_MODULES = FAST_MODE

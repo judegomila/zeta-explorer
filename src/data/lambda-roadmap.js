@@ -63,6 +63,26 @@ export const LAMBDA_BOUNDS = [
       'per-N bound via route A, B-rate-upgrade, or C.',
   },
   {
+    id: 'our-asymptotic-via-imp-1147',
+    label: 'Λ ≲ 8e-4 asymptotic (conditional on linear-1/N model, 250× under PT)',
+    kind: 'upper-asymptotic-conditional',
+    value: 0.0008,
+    status: 'rigorous-conditional-on-linear-1N-model',
+    source: 'imp-1147 via imp-1136 BH-multipole sweep + imp-1137 interval OLS refit',
+    note:
+      'FIRST PROJECT RESULT IMPROVING THE ASYMPTOTIC Λ UPPER BOUND BELOW PT 2021. ' +
+      '9 plateau brackets measured at N ∈ {2e4..1e6} via BH-multipole CLI (theta=0.05, ' +
+      '~10 min wall-clock total). Rigorous interval-OLS refit gives a_interval = ' +
+      '[2.83e-5, 7.67e-4]; composed with E_trunc_pt = 3.06e-5 (Ingham, imp-447/459) + ' +
+      'asymptotic-vanishing E_flow + E_coll gives Λ ≤ 8e-4. Approximately 250× ' +
+      'tighter than PT 2021 unconditional 0.2. CONDITIONAL on the linear-1/N ' +
+      'asymptotic model for |t_c(N)| — bounding the (1/N)^2 deviation rigorously ' +
+      '(sub-gap imp-1147-sub-deviation-from-linear-1N, 2-4 weeks research-port) ' +
+      'would convert this to UNCONDITIONAL. Also conditional on the Polymath15 ' +
+      'bridge step 4 rigor gate (G6a_shock_lipschitz, longstanding open). ' +
+      'NOT YET in paper — imp-1148 follow-up will refresh PDF.',
+  },
+  {
     id: 'our-finite-N-1e4-via-imp-440',
     label: 'Λ(1e4) ≤ 0.02 rigorous unconditional (measured)',
     kind: 'upper-rigorous-finite-N',

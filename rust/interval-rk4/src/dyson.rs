@@ -16,6 +16,7 @@
 use crate::as_interval;
 use crate::barnes_hut::BHTree;
 use crate::barnes_hut_multipole::BHTreeMultipole;
+use crate::barnes_hut_multipole_high::BHTreeMultipoleHigh;
 use inari::Interval;
 
 /// Drift for particle `k`. Returns `None` if any (g_k - g_j) straddles 0.
@@ -128,6 +129,47 @@ pub fn dyson_drift_vector_barnes_hut_multipole(
     let mut out = Vec::with_capacity(n);
     for k in 0..n {
         match dyson_drift_barnes_hut_multipole(gammas, &tree, k, theta) {
+            Some(d) => out.push(d),
+            None => return None,
+        }
+    }
+    Some(out)
+}
+
+/// imp-1132-sub-multipole-extension HIGH-ORDER Barnes-Hut MULTIPOLE
+/// drift at particle `k`. Returns the same quantity as
+/// `dyson_drift_interval` but uses a pre-built high-order multipole
+/// tree (monopole + dipole + quadrupole + octupole + hexadecapole) so
+/// the per-cell truncation envelope is O((extent/dist)^5) instead of
+/// O((extent/dist)^3). At theta = 0.5 the predicted reduction in
+/// midpoint disagreement is roughly 16x vs the imp-1139 quadrupole
+/// path (the (extent/dist)^2 ratio at the per-cell normalized bound).
+///
+/// Returns `None` on the collision short-circuit (any pair distance
+/// straddles zero).
+pub fn dyson_drift_barnes_hut_multipole_high(
+    gammas: &[Interval],
+    tree: &BHTreeMultipoleHigh,
+    k: usize,
+    theta: f64,
+) -> Option<Interval> {
+    let sum = tree.query_sum(gammas, k, theta)?;
+    let neg_two = as_interval(-2.0);
+    Some(neg_two * sum)
+}
+
+/// Full high-order multipole drift vector. Builds the tree once and
+/// queries every particle, yielding the O(N log N) full drift at the
+/// tighter hexadecapole envelope.
+pub fn dyson_drift_vector_barnes_hut_multipole_high(
+    gammas: &[Interval],
+    theta: f64,
+) -> Option<Vec<Interval>> {
+    let tree = BHTreeMultipoleHigh::build(gammas);
+    let n = gammas.len();
+    let mut out = Vec::with_capacity(n);
+    for k in 0..n {
+        match dyson_drift_barnes_hut_multipole_high(gammas, &tree, k, theta) {
             Some(d) => out.push(d),
             None => return None,
         }

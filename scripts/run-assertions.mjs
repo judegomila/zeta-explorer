@@ -214,6 +214,8 @@ const DATA_MODULES = [
   '/src/data/rust-port-phase7-barnes-hut.js',
   // imp-1139: BH multipole extension (monopole + dipole + quadrupole) -- O((extent/dist)^3) envelope.
   '/src/data/rust-port-phase8-multipole.js',
+  // imp-1132-sub-multipole-extension: BH high-order multipole (M_0..M_4) -- O((extent/dist)^5) envelope.
+  '/src/data/rust-port-phase8-multipole-high.js',
   // imp-1111: Rust port Phase 5 Verner 8(7) triangulation contract (HONEST PARTIAL).
   '/src/data/rust-port-phase5-verner-triangulation.js',
   // imp-1142: API channel engine (5th engine variant via Anthropic API direct).

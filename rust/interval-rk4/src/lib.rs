@@ -20,6 +20,7 @@
 
 pub mod barnes_hut;
 pub mod barnes_hut_multipole;
+pub mod barnes_hut_multipole_high;
 pub mod chain;
 pub mod verner87;
 pub mod dyson;
@@ -30,11 +31,15 @@ pub mod rk4;
 
 pub use barnes_hut::{BHTree, LEAF_SIZE};
 pub use barnes_hut_multipole::{BHTreeMultipole, LEAF_SIZE as LEAF_SIZE_MULTIPOLE};
+pub use barnes_hut_multipole_high::{
+    BHTreeMultipoleHigh, LEAF_SIZE as LEAF_SIZE_MULTIPOLE_HIGH,
+};
 pub use chain::{compute_chain, effective_height_for_n, ChainInputs, ChainResult};
 pub use dyson::{
-    dyson_drift_barnes_hut, dyson_drift_barnes_hut_multipole, dyson_drift_interval,
-    dyson_drift_vector, dyson_drift_vector_barnes_hut,
-    dyson_drift_vector_barnes_hut_multipole,
+    dyson_drift_barnes_hut, dyson_drift_barnes_hut_multipole,
+    dyson_drift_barnes_hut_multipole_high, dyson_drift_interval, dyson_drift_vector,
+    dyson_drift_vector_barnes_hut, dyson_drift_vector_barnes_hut_multipole,
+    dyson_drift_vector_barnes_hut_multipole_high,
 };
 pub use eml::eml_interval;
 pub use interval_ols::{interval_ols, OlsError, OlsIntervalFit, OlsRow};

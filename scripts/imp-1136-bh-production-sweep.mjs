@@ -111,7 +111,7 @@ async function runOneN({ N, dt, maxSteps, tolerance }) {
 
   const perNTimeoutMs = N >= SHORT_FOR_N_AT_OR_ABOVE ? SHORT_BUDGET_MS : LONG_BUDGET_MS;
   return new Promise((resolve) => {
-    const child = spawn(RUST_CLI, [], { stdio: ['pipe', 'pipe', 'pipe'] });
+    const child = spawn(RUST_CLI, ['--drift-mode', 'bh_multipole', '--theta', '0.1'], { stdio: ['pipe', 'pipe', 'pipe'] });
     let stdout = '';
     let stderr = '';
     let killed = false;

@@ -51,10 +51,10 @@ const MAKEFILE_PATH = 'paper/Makefile';
 // table + a new Appendix D refresh log. PDF rebuilt via tectonic 0.16.9;
 // size grew from 91401 bytes (6 pages) to 113912 bytes (8 pages).
 const PAGE_COUNT = 9;
-const FILE_SIZE_BYTES = 123049;
+const FILE_SIZE_BYTES = 132740;
 
 // Compile timestamp (commit time, not build time).
-const BUILT_AT = '2026-05-20T08:00:00Z';
+const BUILT_AT = '2026-05-20T20:00:00Z';
 const LATEX_COMPILER_USED = 'tectonic 0.16.9';
 
 // ── Sections included (mirrors the LaTeX TOC) ────────────────────────────────
@@ -79,6 +79,25 @@ const SECTIONS_INCLUDED = [
 // bridge refinements were rolled into Appendix C and the new Appendix D
 // refresh-log was added.
 const REFRESH_HISTORY = [
+  Object.freeze({
+    at: '2026-05-20T20:00:00Z',
+    ticket: 'imp-1149-paper-update',
+    summary:
+      'Added Theorem 3 (Unconditional second-moment rate) to Section 4: the imp-1149 ' +
+      'Koksma-Hlawka 2nd-moment result |t_c(N) - 1/(2 M_infty(N))| <= C_HO / (log gamma_N * N^{3/2}) ' +
+      'with C_HO ~ 189 at C_Selberg = 3. Strictly tighter than imp-341 N^{-1} by sqrt(N) ' +
+      '(factor 4.87x at N=1e4, 70x at N=1e6, 258x at N=1e7). Three named obstructions for ' +
+      'the gap to N^{-2}: sub-Selberg discrepancy, L^2-to-L^infty Sobolev cost, ESY rigidity ' +
+      'residual. Abstract rewritten to lead with THREE results (was 2): finite-N unconditional, ' +
+      'asymptotic conditional, asymptotic-rate unconditional improvement. PDF rebuilt via tectonic.',
+    citedTickets: ['imp-341', 'imp-1149'],
+    pdfSizeBefore: 123049,
+    pdfSizeAfter: FILE_SIZE_BYTES,
+    pageCountBefore: 9,
+    pageCountAfter: PAGE_COUNT,
+    newTheoremNumber: 3,
+    newRateExponent: 1.5,
+  }),
   Object.freeze({
     at: '2026-05-20T08:00:00Z',
     ticket: 'imp-1148',

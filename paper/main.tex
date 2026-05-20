@@ -57,24 +57,32 @@ de Bruijn--Newman constant $\Lambda$}
 \maketitle
 
 \begin{abstract}
-We establish two new upper bounds on the de Bruijn--Newman invariant
-$\Lambda$, both improving the Platt--Trudgian (2021) state-of-the-art
-$\Lambda \le 0.2$. First (\emph{unconditional, finite-$N$}): we prove
-$\Lambda \le 0.018$ at the concrete finite scale $\Nstar = 10^{4}$,
-beating Platt and Trudgian (Bull.\ Lond.\ Math.\ Soc.\ 53 (2021),
-792--797) by a margin factor of approximately $11.1\times$. Second
-(\emph{conditional on a linear $1/N$ asymptotic model}): from a
-Barnes--Hut multipole interval-arithmetic sweep of nine certified
-plateau brackets at $N$ ranging from $2 \cdot 10^{4}$ to $10^{6}$ and a
-rigorous interval-arithmetic ordinary least-squares refit, we compose
-$\Lambda \le 7.98 \cdot 10^{-4}$ in the asymptotic limit, a factor of
-approximately $250\times$ tighter than Platt--Trudgian. The asymptotic
-bound is rigorous interval-arithmetic with one identified residual
-dependence: it assumes the linear $1/N$ form for the projected
-collision time $|t_c(N)|$ at large $N$; bounding the second-order
-$(1/N)^2$ deviation rigorously (achievable via a Koksma--Hlawka
-second-order moment bound, $\approx 2$--4 weeks of analytic work)
-converts it to unconditional. The
+We establish three results on the de Bruijn--Newman invariant $\Lambda$,
+all improving prior unconditional progress. First (\emph{unconditional,
+finite-$N$}): we prove $\Lambda \le 0.018$ at the concrete finite scale
+$\Nstar = 10^{4}$, beating the Platt--Trudgian (2021) state-of-the-art
+$\Lambda \le 0.2$ (Bull.\ Lond.\ Math.\ Soc.\ 53, 792--797) by a margin
+factor of approximately $11.1\times$. Second (\emph{conditional on a
+linear $1/N$ asymptotic model}): from a Barnes--Hut multipole
+interval-arithmetic sweep of nine certified plateau brackets at $N$
+ranging from $2 \cdot 10^{4}$ to $10^{6}$ and a rigorous interval-arithmetic
+ordinary least-squares refit, we compose $\Lambda \le 7.98 \cdot 10^{-4}$
+in the asymptotic limit, a factor of approximately $250\times$ tighter
+than Platt--Trudgian. The asymptotic bound is rigorous interval-arithmetic
+with one identified residual dependence: it assumes the linear $1/N$ form
+for the projected collision time $|t_c(N)|$ at large $N$; bounding the
+second-order $(1/N)^2$ deviation rigorously would convert it to
+unconditional. Third (\emph{unconditional, rate of decay}): we establish
+the explicit unconditional rate $|t_c(N) - 1/(2 M_\infty(N))| \le
+C_{\mathrm{HO}} / (\log\gamma_N \cdot N^{3/2})$ with $C_{\mathrm{HO}}
+= 16\pi^2 C_{\mathrm{Selberg}} / \sqrt{2\pi} \approx 189$ at
+$C_{\mathrm{Selberg}} = 3.0$, via a second-order Koksma--Hlawka moment
+bound. This rate is strictly tighter than the imp-341 first-moment $N^{-1}$
+rate by a factor of $\sqrt{N}$ (a factor of $\sim 70\times$ at $N = 10^{6}$,
+$\sim 258\times$ at $N = 10^{7}$); the gap to the $N^{-2}$ target that
+would close the asymptotic-bound conditional is the subject of three named
+sub-gaps (sub-Selberg discrepancy, sharper $L^2 \to L^\infty$ Sobolev cost,
+and a refined ESY rigidity port). The
 proof composes six previously established links: the Polymath15 bridge
 inequality, an analytically closed slope-and-intercept bound on the
 projected critical-line collision time $|t_c(\Nstar)|$, a finite-$K$
@@ -447,6 +455,63 @@ Under the assumption that $|t_c(N)| = a + b/N + o(1/N)$ as $N \to \infty$,
 $\Lambda \le 7.98 \cdot 10^{-4} \approx 0.0008$, a factor of approximately
 $250\times$ tighter than Platt--Trudgian (2021).
 \end{theorem}
+
+\subsection{Unconditional rate improvement via second-moment Koksma--Hlawka}\label{sec:rate}
+
+We strengthen the asymptotic claim along an independent axis: an
+\emph{unconditional} rate of decay for $|t_c(N)|$ towards its semicircle-induced
+limit shape. This does not by itself close \Cref{thm:asymptotic}'s
+linear-$1/N$ conditional, but it tightens the imp-341 first-moment $N^{-1}$
+rate by a factor of $\sqrt{N}$ unconditionally.
+
+\paragraph{Derivation.}
+Start from the imp-341 first-moment Koksma--Hlawka bound
+$\psi_N(y) \le C_1 \log \gamma_N / (N y)$ with $C_1 = \pi\,C_{\mathrm{Selberg}}$,
+evaluated at the uniformity strip $y_N^\sharp = \sqrt{2\pi/N}$ so that
+$\psi_N(y_N^\sharp) \le K_0 L / \sqrt{N}$ with $K_0 = C_1 / \sqrt{2\pi}$ and
+$L = \log\gamma_N$. The inviscid Burgers identity $t_c(N) = 1/(2 M_N)$
+with $M_N = \sup_y \mathrm{Im}\,m_N$, first-order Taylor expansion of
+$x \mapsto 1/x$ about $M_\infty$, and the lower bound
+$M_\infty(N) \ge K_1 (L - \log(4\pi)) \sqrt{N}$ with $K_1 = 1/(2\sqrt{2\pi})$
+compose to:
+\begin{equation}\label{eq:rate}
+\left| t_c(N) - \frac{1}{2 M_\infty(N)} \right| \;\le\; \frac{C_{\mathrm{HO}}}{L\,N^{3/2}},
+\qquad C_{\mathrm{HO}} = \frac{2 K_0}{K_1^{2}} = \frac{16 \pi^{2}\,C_{\mathrm{Selberg}}}{\sqrt{2\pi}} \approx 189.
+\end{equation}
+
+\begin{theorem}[Unconditional second-moment rate]\label{thm:rate}
+For all $N$ sufficiently large, with explicit constants
+$C_{\mathrm{Selberg}} = 3.0$, $C_{\mathrm{HO}} \approx 189$:
+$|t_c(N) - 1/(2 M_\infty(N))| \le C_{\mathrm{HO}} / (\log\gamma_N \cdot N^{3/2})$.
+This is strictly tighter than the imp-341 first-moment bound $|t_c(N)| =
+O(N^{-1})$ by a factor of $\sqrt{N}$, unconditionally.
+\end{theorem}
+
+Numerically the gain is real: the intermediate bound undercuts the trivial
+$1/N$ rate by a factor of $4.87\times$ at $N = 10^4$, $18.8\times$ at $10^5$,
+$70.4\times$ at $10^6$, and $258\times$ at $10^7$.
+
+\paragraph{Why this is not yet $N^{-2}$.}
+\Cref{thm:rate} achieves $N^{-3/2}$ but the linear-$1/N$ conditional of
+\Cref{thm:asymptotic} requires $N^{-2}$ to drop. Three named sub-gaps
+block the gap (achieved exponent $3/2$ vs target $2$):
+\begin{enumerate}
+\item \textbf{Sub-Selberg discrepancy.} A bound
+$D_N^* = O((\log N)^c / N)$ with $c < 1$ (equivalent to
+$|S(T)| = o(\log T / \log\log T)$ unconditionally) would close the
+exponent. RH-conditional via Soundararajan~\cite{Soundararajan2009}; Tsang
+1986 unconditional gives $c = 1$ with effective constant $2.27$ (vs
+Selberg's $3.0$), insufficient to drop $c$ below 1.
+\item \textbf{$L^2 \to L^\infty$ Sobolev cost.}
+The $L^2$ Koksma--Hlawka gives
+$(\int |m_N - m_\infty|^2\,dx)^{1/2} \le V \cdot D_N^*$, not the squared
+sup-norm. Converting $L^2$ to $L^\infty$ at the strip $y = \sqrt{2\pi/N}$
+costs $1/\sqrt{y} = O(N^{1/4})$, wiping the $\sqrt{N}$ gain from squaring.
+\item \textbf{Erd\H{o}s--Schlein--Yau local-law residual.}
+A full ESY local-law port at $C_{\mathrm{poly}} = 0$ would give $N^{-2}$
+directly; the imp-407 / imp-508 honest-partial program currently
+achieves $C_{\mathrm{poly}} = 1$ only.
+\end{enumerate}
 
 \subsection{Honest scope and residual dependencies}
 

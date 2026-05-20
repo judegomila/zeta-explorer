@@ -140,6 +140,8 @@ const DATA_MODULES = [
   '/src/data/imp-911-per-plateau-gronwall-certs.js',
   // imp-963: finite-K C_mb unconditional closure for imp-856 / imp-835 / imp-440.
   '/src/data/finite-k-c-mb-unconditional.js',
+  // imp-1086: cross-verification of imp-963 K = 0.2014 with DP45 second integrator.
+  '/src/data/finite-k-c-mb-crosscheck.js',
   // imp-962 HONEST PARTIAL: plateau-structure scan on (10⁴, 10⁶].
   '/src/data/imp-962-plateau-structure-N10k-to-N1e6.js',
   // imp-360 / imp-423: extended measured ladder at N ∈ {25k…1M} (one-ULP interval RK4).

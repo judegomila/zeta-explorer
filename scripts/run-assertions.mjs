@@ -224,6 +224,8 @@ const DATA_MODULES = [
   '/src/data/click-links-audit-2026-05-19.js',
   // imp-1147: composed rigorous asymptotic Lambda upper bound (~8e-4, 250x tighter than PT 2021).
   '/src/data/asymptotic-lambda-bound-2026-05-20.js',
+  // imp-1149: HONEST PARTIAL Koksma-Hlawka 2nd-moment attempt at |t_c - a - b/N| = O((log N)^k / N^2).
+  '/src/data/koksma-hlawka-2nd-moment-deviation-bound.js',
 ];
 
 const ALL_MODULES = FAST_MODE

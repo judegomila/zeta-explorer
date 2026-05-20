@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage.jsx';
 import './styles/app.css';
 
 // Lazy-load all pages except HomePage for code-splitting
+const PapersDownloadPage = lazy(() => import('./pages/PapersDownloadPage.jsx'));
 const OscillatorsPage = lazy(() => import('./pages/OscillatorsPage.jsx'));
 const HamiltonianPage = lazy(() => import('./pages/HamiltonianPage.jsx'));
 const ZetaPage = lazy(() => import('./pages/ZetaPage.jsx'));
@@ -430,6 +431,7 @@ function AppShell() {
           <Route path="/dyson-verifier" element={<DysonVerifierPage />} />
           <Route path="/health" element={<HealthPage />} />
           <Route path="/full-story" element={<FullStoryPage />} />
+          <Route path="/papers" element={<PapersDownloadPage />} />
           <Route path="/gram-points" element={<GramPointsPage />} />
         </Routes>
         </Suspense>

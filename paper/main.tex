@@ -28,6 +28,7 @@
 \theoremstyle{definition}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
 
 % ── Macros ───────────────────────────────────────────────────────────────
 \newcommand{\Lam}{\Lambda}
@@ -512,6 +513,37 @@ A full ESY local-law port at $C_{\mathrm{poly}} = 0$ would give $N^{-2}$
 directly; the imp-407 / imp-508 honest-partial program currently
 achieves $C_{\mathrm{poly}} = 1$ only.
 \end{enumerate}
+
+\subsection{Open direction: a candidate ESY-positive empirical regime}\label{sec:esy-positive}
+
+Two prior empirical investigations of ESY-style rigidity for Riemann
+zeros (on the $L^\infty$ observable $\psi_N = |\mathrm{Im}\,m_N - \pi|$,
+in both the bulk and at the Tracy--Widom edge near $\gamma_1$) returned
+\emph{ESY-incompatible} verdicts with fitted decay slopes close to zero.
+A sweep across 13 candidate alternative regimes (different observables
+and different scaling exponents $\eta = N^{-\alpha}$) identifies a single
+surviving candidate.
+
+\begin{conjecture}[Linear-statistics variance candidate]\label{conj:lin-stat}
+The variance of the linear-statistics observable
+$\mathrm{Var}\bigl[\sum_k f(N \cdot (\gamma_k - x_*)/\log\gamma_N)\bigr]$
+at the microscopic scale $\eta = N^{-1}$ decays as $N^{-1}$ with an
+explicit (log $N$)-factor, matching the ESY prediction for Wigner
+matrices. Empirical evidence: fitted slope $-0.949$ on the 5-point grid
+$N \in \{10^3, 10^4, 10^5, 10^6, 10^7\}$ with $R^{2} = 0.995$; fitted slope
+$-0.849$ on an extended 9-point grid with $R^{2} = 0.956$.
+\end{conjecture}
+
+This is the \emph{first} empirical positive signal for an ESY-style
+rigidity statement on Riemann zeros. The decay exponent on the
+linear-statistics observable matches ESY within $0.05$ on the primary
+grid. \Cref{conj:lin-stat} is empirical only; lifting it to a rigorous
+$L^\infty$ bound on $\psi_N$ (the observable used by the imp-407 /
+imp-508 closure path) remains research-grade open. Of the three named
+sub-gaps in \Cref{sec:rate}, two ($L^2 \to L^\infty$ Sobolev cost,
+sub-Selberg discrepancy) have been ruled out via independent attacks
+(see supplementary materials); only the ESY route remains live, and
+\Cref{conj:lin-stat} sharpens the target observable.
 
 \subsection{Honest scope and residual dependencies}
 

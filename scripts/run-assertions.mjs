@@ -230,6 +230,8 @@ const DATA_MODULES = [
   '/src/data/path-c-error-bar-refit-2026-05-20.js',
   // imp-1149: HONEST PARTIAL Koksma-Hlawka 2nd-moment attempt — intermediate N^{3/2} rate result.
   '/src/data/koksma-hlawka-2nd-moment-deviation-bound.js',
+  // imp-1149-sub-erdos-schlein-yau-port-residual: alternative-regimes sweep -- R3 linear-statistics candidate.
+  '/src/data/esy-residual-alternative-regimes-2026-05.js',
   // imp-1141: Rust full-chain port (C_mb + E_trunc + E_flow + E_coll + L_pt in chain.rs).
   '/src/data/rust-port-phase10-full-chain.js',
   // imp-1140: Verner 8(7) / Fehlberg RK7(8) third integrator for bug-class triangulation.

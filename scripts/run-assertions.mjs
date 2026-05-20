@@ -244,6 +244,8 @@ const DATA_MODULES = [
   '/src/data/rust-port-phase10-full-chain.js',
   // imp-1140: Verner 8(7) / Fehlberg RK7(8) third integrator for bug-class triangulation.
   '/src/data/rust-port-phase9-verner-triangulation.js',
+  // imp-1086-sub-interval-dp45: DP45 interval-arithmetic cross-check (extends imp-1086 from point to interval).
+  '/src/data/rust-port-phase11-dp45-triangulation.js',
 ];
 
 const ALL_MODULES = FAST_MODE

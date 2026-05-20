@@ -22,6 +22,7 @@ pub mod barnes_hut;
 pub mod barnes_hut_multipole;
 pub mod barnes_hut_multipole_high;
 pub mod chain;
+pub mod dp45;
 pub mod verner87;
 pub mod dyson;
 pub mod eml;

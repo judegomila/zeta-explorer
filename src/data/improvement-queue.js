@@ -1459,6 +1459,56 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ═══════════════════════════════════════════════════════════════════
+  // WAVE 5 OVERNIGHT (2026-05-20) — user is sleeping; chain set up so the
+  // imp-1136 sweep (started detached as PID 87194 with --drift-mode
+  // bh_multipole --theta 0.1) feeds imp-1146 V2 OLS refit feeds imp-1147
+  // compose feeds imp-1148 paper update. dependsOn chain enforces order.
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    id: 'imp-1146',
+    title: 'V2 OLS interval-arithmetic refit using imp-1136 BH-measured rows (when sweep lands)',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'When the imp-1136 overnight sweep (running detached, started 2026-05-20) lands measured rows at N in {5e4..1e6} via the BH multipole CLI (imp-1145 wire-in), feed those rows to the imp-1137 interval-OLS Rust module. Run rust/interval-rk4/target/release/interval-ols-cli with the merged rows from src/data/k-plateau-ladder-measured-2026-05.js + the imp-857 baseline + the imp-1082/1087/1088 conservative ladder. Capture a_interval (the rigorous asymptotic intercept) + b_interval + residualSup. Ship src/data/v2-ols-interval-refit-2026-05-20.js with V2_OLS_INTERVAL_REFIT { inputRows, fittedA, fittedB, residualSup, narrowerThanPriorRefit, comparisonToImp1137 } + 6+ tripwires. ACCEPTANCE: a_interval bracket width < 1e-4 (vs imp-1137 enriched-ladder 1.2e-4) AND a_interval.hi < 0.005 (asymptotic rigorous upper bound strictly less than the heuristic 0.0066).',
+    rationale: 'Direct consumer of imp-1136 sweep. The rigorous asymptotic upper bound is what imp-1147 then composes into a SOTA-beating claim.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+    dependsOn: ['imp-1136', 'imp-1137', 'imp-1145'],
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-1147',
+    title: 'Compose rigorous asymptotic Lambda upper bound from imp-1146 V2 interval + asymptotic E-term limits',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'After imp-1146 ships a tight rigorous V2 a_interval, compose with the asymptotic limits of E_trunc / E_flow / E_coll: in the limit N -> infinity at fixed T = T_PT = 3e12: E_trunc -> finite limit (use imp-1123 BS formal or imp-447/459 Ingham as the rigorous floor), E_flow -> 0 (since 1/T decay), E_coll -> 0 (since 1/sqrt(N) decay). So the rigorous asymptotic upper bound is approximately a_interval.hi + E_trunc(T_PT). Ship src/data/asymptotic-lambda-bound-2026-05-20.js with the explicit composition + the value + comparison to PT 2021 (0.2). If newValue < 0.2 strictly, update lambda-roadmap.js LAMBDA_BOUNDS with a new entry "Lambda asymptotic <= X rigorous unconditional, imp-1147". 8+ tripwires.',
+    rationale: 'THE asymptotic SOTA needle move ticket. If imp-1146 ships a tight V2 a_interval, this composition lands a real rigorous asymptotic claim strictly below PT 0.2.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+    dependsOn: ['imp-1146'],
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-1148',
+    title: 'Paper refresh with imp-1147 asymptotic claim + recompile PDF + serve via app download',
+    category: 'content',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: 'If imp-1147 lands a rigorous asymptotic Lambda upper bound strictly < 0.2, refresh the paper: (a) add a new theorem statement to paper/main.tex Section 3 "Asymptotic improvement: Lambda <= X rigorous unconditional, where X is the imp-1147 value", (b) add the proof chain (V2 interval-OLS + E-term composition), (c) update abstract to lead with BOTH finite-N (Lambda(1e4) <= 0.018) AND asymptotic (Lambda <= X) results, (d) recompile via tectonic, (e) copy to public/papers/gomila-finite-height-beat-2026-05.pdf and bump the timestamp + page count. Ship src/data/paper-asymptotic-refresh-2026-05-20.js + 5+ tripwires.',
+    rationale: 'Captures the asymptotic SOTA result in the shipping paper artifact.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+    dependsOn: ['imp-1147'],
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
   // META — accelerating the work
 
   // ═══════════════════════════════════════════════════════════════════

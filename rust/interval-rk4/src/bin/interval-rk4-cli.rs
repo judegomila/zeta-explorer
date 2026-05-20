@@ -14,7 +14,7 @@
 //!      to stdout.
 
 use interval_rk4::parallel::{par_plateau_sweep, PlateauSpec, PlateauResult, SweepOpts};
-use interval_rk4::rk4::backward_collision_interval;
+use interval_rk4::rk4::{backward_collision_interval, backward_collision_interval_bh_multipole};
 use serde::{Deserialize, Serialize};
 use std::io::Read;
 use std::time::Instant;
@@ -48,7 +48,25 @@ struct SweepOutput {
     results: Vec<PlateauResult>,
 }
 
-fn run_single_mode() {
+fn run_single_mode(args: &[String]) {
+    // imp-1145: parse --drift-mode and --theta to dispatch dense vs BH-multipole.
+    let mut drift_mode = "dense".to_string();
+    let mut theta = 0.1_f64;
+    let mut i = 0;
+    while i < args.len() {
+        match args[i].as_str() {
+            "--drift-mode" => {
+                drift_mode = args.get(i + 1).expect("--drift-mode requires a value").clone();
+                i += 2;
+            }
+            "--theta" => {
+                theta = args.get(i + 1).expect("--theta requires a value").parse().expect("--theta must be a number");
+                i += 2;
+            }
+            _ => { i += 1; }
+        }
+    }
+
     let mut s = String::new();
     std::io::stdin()
         .read_to_string(&mut s)
@@ -61,7 +79,12 @@ fn run_single_mode() {
     );
 
     let t0 = Instant::now();
-    let result = backward_collision_interval(&input.initial_x, input.dt, input.max_steps);
+    let result = match drift_mode.as_str() {
+        "bh_multipole" | "bh-multipole" => backward_collision_interval_bh_multipole(
+            &input.initial_x, input.dt, input.max_steps, theta,
+        ),
+        "dense" | _ => backward_collision_interval(&input.initial_x, input.dt, input.max_steps),
+    };
     let runtime_ms = t0.elapsed().as_millis();
 
     let output = SingleOutput {
@@ -141,6 +164,7 @@ fn main() {
         let rest: Vec<String> = argv.iter().skip(2).cloned().collect();
         run_sweep_mode(&rest);
     } else {
-        run_single_mode();
+        let rest: Vec<String> = argv.iter().skip(1).cloned().collect();
+        run_single_mode(&rest);
     }
 }

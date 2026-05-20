@@ -21,6 +21,7 @@
 pub mod barnes_hut;
 pub mod barnes_hut_multipole;
 pub mod chain;
+pub mod verner87;
 pub mod dyson;
 pub mod eml;
 pub mod interval_ols;

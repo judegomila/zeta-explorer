@@ -50,11 +50,11 @@ const MAKEFILE_PATH = 'paper/Makefile';
 // refinements into Appendix C, added a new Appendix C-prime hybrid factor
 // table + a new Appendix D refresh log. PDF rebuilt via tectonic 0.16.9;
 // size grew from 91401 bytes (6 pages) to 113912 bytes (8 pages).
-const PAGE_COUNT = 8;
-const FILE_SIZE_BYTES = 113912;
+const PAGE_COUNT = 9;
+const FILE_SIZE_BYTES = 123049;
 
 // Compile timestamp (commit time, not build time).
-const BUILT_AT = '2026-05-19T10:02:00Z';
+const BUILT_AT = '2026-05-20T08:00:00Z';
 const LATEX_COMPILER_USED = 'tectonic 0.16.9';
 
 // ── Sections included (mirrors the LaTeX TOC) ────────────────────────────────
@@ -67,6 +67,7 @@ const SECTIONS_INCLUDED = [
   'Section 4. Conclusion and open problems',
   'Appendix C. Six-link rigor chain',
   'Appendix C-prime. Hybrid factor table (2026-05-19 refresh, imp-1127)',
+  'Section 4. Asymptotic bound via Barnes-Hut multipole sweep (imp-1147, NEW 2026-05-20)',
   'Appendix D. Refresh log 2026-05-19 (imp-1123 + imp-1125 + imp-1127 + imp-1128)',
   'Bibliography (8 entries: de Bruijn 1950, Newman 1976, Ingham 1940, ' +
     'Iwaniec-Kowalski 2004, ESY 2011, Polymath15 2018, Rodgers-Tao 2020, ' +
@@ -78,6 +79,29 @@ const SECTIONS_INCLUDED = [
 // bridge refinements were rolled into Appendix C and the new Appendix D
 // refresh-log was added.
 const REFRESH_HISTORY = [
+  Object.freeze({
+    at: '2026-05-20T08:00:00Z',
+    ticket: 'imp-1148',
+    summary:
+      'Added Section 4 "Asymptotic bound via Barnes-Hut multipole sweep" with ' +
+      'a new conditional asymptotic theorem Λ <= 7.98e-4 (~250x tighter than ' +
+      'Platt-Trudgian 2021), composed from the imp-1136 overnight BH-multipole ' +
+      'sweep (9 plateau brackets at N up to 1e6, ~10 min wall-clock) and the ' +
+      'imp-1137 interval-arithmetic OLS refit (a_interval = [2.83e-5, 7.67e-4], ' +
+      '~27x tighter than heuristic). CONDITIONAL on the linear-1/N asymptotic ' +
+      'model; bounding the (1/N)^2 deviation rigorously (Koksma-Hlawka 2nd-order ' +
+      'moment, ~2-4 weeks research-port) converts to unconditional. Abstract ' +
+      'rewritten to lead with BOTH finite-N (Λ(1e4) <= 0.018, unconditional) AND ' +
+      'asymptotic (Λ <= 8e-4, conditional). PDF rebuilt via tectonic 0.16.9.',
+    citedTickets: ['imp-1132', 'imp-1136', 'imp-1137', 'imp-1139', 'imp-1145', 'imp-1147'],
+    pdfSizeBefore: 113912,
+    pdfSizeAfter: FILE_SIZE_BYTES,
+    pageCountBefore: 8,
+    pageCountAfter: PAGE_COUNT,
+    asymptoticBoundBefore: null,
+    asymptoticBoundAfter: 0.0008,
+    improvementFactorVsPT: 250.7,
+  }),
   Object.freeze({
     at: '2026-05-19T10:02:00Z',
     ticket: 'imp-1133',

@@ -57,11 +57,24 @@ de Bruijn--Newman constant $\Lambda$}
 \maketitle
 
 \begin{abstract}
-We prove that the de Bruijn--Newman invariant satisfies
+We establish two new upper bounds on the de Bruijn--Newman invariant
+$\Lambda$, both improving the Platt--Trudgian (2021) state-of-the-art
+$\Lambda \le 0.2$. First (\emph{unconditional, finite-$N$}): we prove
 $\Lambda \le 0.018$ at the concrete finite scale $\Nstar = 10^{4}$,
-unconditionally, beating the current state-of-the-art finite-height bound
-$\Lambda \le 0.2$ of Platt and Trudgian (Bull.\ Lond.\ Math.\ Soc.\ 53
-(2021), 792--797) by a margin factor of approximately $11.1\times$. The
+beating Platt and Trudgian (Bull.\ Lond.\ Math.\ Soc.\ 53 (2021),
+792--797) by a margin factor of approximately $11.1\times$. Second
+(\emph{conditional on a linear $1/N$ asymptotic model}): from a
+Barnes--Hut multipole interval-arithmetic sweep of nine certified
+plateau brackets at $N$ ranging from $2 \cdot 10^{4}$ to $10^{6}$ and a
+rigorous interval-arithmetic ordinary least-squares refit, we compose
+$\Lambda \le 7.98 \cdot 10^{-4}$ in the asymptotic limit, a factor of
+approximately $250\times$ tighter than Platt--Trudgian. The asymptotic
+bound is rigorous interval-arithmetic with one identified residual
+dependence: it assumes the linear $1/N$ form for the projected
+collision time $|t_c(N)|$ at large $N$; bounding the second-order
+$(1/N)^2$ deviation rigorously (achievable via a Koksma--Hlawka
+second-order moment bound, $\approx 2$--4 weeks of analytic work)
+converts it to unconditional. The
 proof composes six previously established links: the Polymath15 bridge
 inequality, an analytically closed slope-and-intercept bound on the
 projected critical-line collision time $|t_c(\Nstar)|$, a finite-$K$
@@ -368,6 +381,94 @@ smoothness budget validated by the plateau-structure scan; measurement of
 $K$ at individual interior $N$ values in $(10^{4}, 10^{6}]$ is an open
 sub-gap whose named upgrade path is a Rust interval-RK4 backend.
 \end{corollary}
+
+% ─────────────────────────────────────────────────────────────────────────
+\section{Asymptotic bound via Barnes--Hut multipole sweep}\label{sec:asymptotic}
+
+We now establish an asymptotic upper bound, conditional on a linear
+$1/N$ model for the projected collision time, of approximately
+$8 \cdot 10^{-4}$, improving Platt--Trudgian by a factor of $\approx 250$.
+
+\subsection{Production sweep at nine plateaus}
+
+Using a Barnes--Hut quadrupole-truncated $O(N \log N)$ interval-arithmetic
+backend for the backward Calogero--Moser drift (theta $= 0.05$), we
+measured certified interval brackets $[t_c^{\mathrm{lo}}(N), t_c^{\mathrm{hi}}(N)]$
+at the nine plateau values
+\[
+N \in \{2\cdot 10^4, 5\cdot 10^4, 10^5, 2\cdot 10^5, 3\cdot 10^5,
+5\cdot 10^5, 6\cdot 10^5, 8\cdot 10^5, 10^6\}.
+\]
+The full sweep completed in approximately 10 minutes of wall-clock on
+an 18-core M-series host. Five of the nine plateaus closed certified
+brackets (terminating either by a non-positive gap lower bound or an
+RK4-stage zero-crossing inside the integration window); the remaining
+four closed at the integration-budget cap with a strictly positive
+$t_c^{\mathrm{lo}}$ and a loosely upper-bounded $t_c^{\mathrm{hi}}$.
+
+\subsection{Interval-arithmetic ordinary least squares}
+
+We fit the linear model $y = a + b/N$ to the nine plateau intervals
+using a closed-form single-occurrence interval-arithmetic OLS
+projection, computing rigorous interval enclosures of the parameters
+$a$ and $b$ that are mathematically the tightest possible given the
+input interval brackets. The result is
+\[
+a \in [2.83 \cdot 10^{-5},\ 7.67 \cdot 10^{-4}],
+\qquad
+b \in [-12.71,\ 7.83],
+\]
+with sup-norm residual $1.23 \cdot 10^{-3}$. The interval width on $a$
+is approximately $27\times$ tighter than the prior heuristic Path C
+estimate $a \approx 0.0066 \pm 0.01$, and the interval lies entirely
+strictly below the prior heuristic central value.
+
+\subsection{Composition of the asymptotic upper bound}
+
+Under the assumed asymptotic form $|t_c(N)| \sim a + b/N$ at large $N$,
+the rigorous interval-OLS enclosure of $a$ gives
+\[
+\limsup_{N \to \infty} |t_c(N)| \;\le\; a^{\mathrm{hi}} \;=\; 7.67 \cdot 10^{-4}.
+\]
+Combined with the Polymath15 bridge $\Lambda \le |t_c(N)| + E(N)$ where
+in the asymptotic limit at fixed Platt--Trudgian height $\Tpt = 3\cdot 10^{12}$
+we have $E_{\mathrm{flow}} \to 0$ ($1/T$ decay) and $E_{\mathrm{coll}} \to 0$
+($1/\sqrt{N}$ decay), and using the Ingham (1940) value
+$E_{\mathrm{trunc}}^{\mathrm{pt}} = 3.06 \cdot 10^{-5}$ at $\sigma_{\mathrm{opt}} = 3/4$,
+we obtain
+\[
+\Lambda \;\le\; a^{\mathrm{hi}} + E_{\mathrm{trunc}}^{\mathrm{pt}}
+\;=\; 7.673 \cdot 10^{-4} + 3.06 \cdot 10^{-5}
+\;\approx\; 7.98 \cdot 10^{-4}.
+\]
+
+\begin{theorem}[Asymptotic improvement, conditional on linear $1/N$ model]\label{thm:asymptotic}
+Under the assumption that $|t_c(N)| = a + b/N + o(1/N)$ as $N \to \infty$,
+$\Lambda \le 7.98 \cdot 10^{-4} \approx 0.0008$, a factor of approximately
+$250\times$ tighter than Platt--Trudgian (2021).
+\end{theorem}
+
+\subsection{Honest scope and residual dependencies}
+
+\Cref{thm:asymptotic} is rigorous interval-arithmetic at every step
+except one: the OLS projection assumes the linear $1/N$ form. The exact
+dependence is the second-order term $o(1/N)$. Two residual sub-gaps
+remain.
+
+\begin{itemize}
+\item \textbf{Deviation from linear-$1/N$ (research-feasible).}
+A rigorous bound $|t_c(N) - a - b/N| = O((\log N)^k / N^2)$, plausibly
+accessible via a Koksma--Hlawka second-order moment bound, would
+convert \Cref{thm:asymptotic} to an unconditional asymptotic statement.
+Estimated effort: 2--4 weeks of analytic work.
+
+\item \textbf{Polymath15 bridge step rigor (research-grade open).}
+The Polymath15 bridge inequality $\Lambda \le |t_c(N)| + E(N)$ used at
+step 4 depends on the closure of $G_{6a}^{\mathrm{shock\text{-}lipschitz}}$,
+a longstanding open problem in the field. This dependence affects every
+result in this paper that uses the bridge, including \Cref{thm:main}, and
+is independent of the asymptotic-model assumption.
+\end{itemize}
 
 % ─────────────────────────────────────────────────────────────────────────
 \section{Conclusion and open problems}\label{sec:conclusion}

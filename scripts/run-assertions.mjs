@@ -232,6 +232,8 @@ const DATA_MODULES = [
   '/src/data/koksma-hlawka-2nd-moment-deviation-bound.js',
   // imp-1149-sub-L2-to-Linfty-sobolev-cost: FAILED attack on the Sobolev 1/sqrt(y) cost (3 routes documented).
   '/src/data/L2-to-Linfty-sobolev-attempt-2026-05.js',
+  // imp-1149-sub-sub-selberg-discrepancy: NEGATIVE result attack on the sub-Selberg c < 1 sub-gap blocking N^{-2}.
+  '/src/data/sub-selberg-discrepancy-attempt-2026-05.js',
   // imp-1141: Rust full-chain port (C_mb + E_trunc + E_flow + E_coll + L_pt in chain.rs).
   '/src/data/rust-port-phase10-full-chain.js',
   // imp-1140: Verner 8(7) / Fehlberg RK7(8) third integrator for bug-class triangulation.

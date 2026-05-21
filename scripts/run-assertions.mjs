@@ -238,6 +238,9 @@ const DATA_MODULES = [
   '/src/data/sub-selberg-discrepancy-attempt-2026-05.js',
   // imp-1149-sub-erdos-schlein-yau-port-residual: alternative-regimes sweep -- R3 linear-statistics candidate POSITIVE.
   '/src/data/esy-residual-alternative-regimes-2026-05.js',
+  // imp-1163: literature survey of published lin-stat results for Riemann zeros
+  // verifying paper Section 4.5 Conjecture 1 novelty -- verdict subsumed-by-hughes-rudnick-and-bourgade.
+  '/src/data/lin-stat-riemann-literature-survey-2026-05.js',
   // imp-1151: papers release manifest — ordered downloads for the /papers page.
   '/src/data/papers-release-manifest.js',
   // imp-1141: Rust full-chain port (C_mb + E_trunc + E_flow + E_coll + L_pt in chain.rs).

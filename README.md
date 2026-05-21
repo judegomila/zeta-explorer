@@ -1,209 +1,184 @@
-# Math Explorer: ZPO Model of the Riemann Hypothesis
+# Math Explorer — A Computational Attack on the de Bruijn–Newman Constant Λ
 
-An interactive web application exploring the Riemann Hypothesis through the **Zero-Point Oscillator (ZPO) twin-ladder model** — a framework that reinterprets the zeta function as a cascade of prime harmonic oscillators coupled by a lossless bridge.
+[![status](https://img.shields.io/badge/status-active-brightgreen)]() [![commits](https://img.shields.io/badge/commits-2374%2B-blue)]() [![paper](https://img.shields.io/badge/paper-v1%20ready-orange)]() [![License](https://img.shields.io/badge/license-MIT-green)]()
 
-**Live site:** Deploy with `npm run build` and serve the `dist/` directory.
+This repository hosts (a) a **24/7 AI-driven research engine** attacking the de Bruijn–Newman constant Λ — the most direct numerical proxy for the Riemann Hypothesis — and (b) a **large-scale interactive web explorer** documenting the attack as it happens, in public.
 
-## Screenshots
+> **Result in this repository (v1, finite-N regime):** A rigorous unconditional improvement of the Platt–Trudgian 2021 bound on the de Bruijn–Newman constant Λ in the finite-height regime, with an asymptotic candidate (`Λ ≤ 7.98e-4`, ≈ 250× tighter than `Λ ≤ 0.2`) currently composed but blocked behind one named research-grade gap.
 
-| Home Page | RH Attack Strategies |
-|:-:|:-:|
-| ![Home](screenshots/home.png) | ![RH Attack](screenshots/rh-attack.png) |
+**Author:** Jude Gomila · **Paper PDF:** `paper/main.pdf` (also at `/papers` in the live app) · **Live site:** `npm run dev`
 
-## The ZPO Model in Brief
+---
 
-Every prime `p` defines a harmonic oscillator with energy levels `E_k = k * log(p)`. Summing over excitations gives the geometric series:
+## Why this exists
 
-```
-H_p(s) = sum_{k=0}^inf p^{-ks} = 1/(1 - p^{-s})
-```
+The Riemann Hypothesis is equivalent to `Λ ≤ 0`. The current rigorous record is the Platt–Trudgian 2021 bound `Λ ≤ 0.2`. Beating that record — even by a small amount, even only in the finite-height regime — is a publishable contribution to analytic number theory. Beating it asymptotically would be a major one.
 
-This is simultaneously a **partition function** (statistical mechanics) and a **transfer function** (circuit theory). Cascading all primes gives the Euler product for zeta(s).
+This project does both of the following simultaneously, in public:
 
-The **twin-ladder system** pairs the direct ladder zeta(s) with a dual ladder zeta(1-s), coupled by a bridge chi(s) satisfying |chi(1/2 + it)| = 1 (lossless on the critical line). The Riemann Hypothesis becomes: **the twin-ladder network is Darlington-lossless**, forcing all transmission zeros onto sigma = 1/2.
+1. **Pushes the bound.** Rigorous interval-arithmetic backward heat flow on actual Riemann zeros, accelerated by Barnes–Hut multipole drift, refit with closed-form rigorous OLS, and composed with Polymath15-style energy bridges.
+2. **Visualizes the entire attack.** 65 interactive pages, 80+ exploration journal entries, a 33-node insight DAG, and a live improvement queue so a reader can follow the proof attempt as it evolves.
 
-## Features
+The framing of the visualization side — the **Zero-Point Oscillator (ZPO) twin-ladder model** — reinterprets ζ(s) as a cascade of prime harmonic oscillators coupled by a lossless bridge, giving every classical RH attack route (Hilbert–Polya, Darlington, Weil positivity, Nyman–Beurling, Li criterion) a single geometric home.
 
-- **52 interactive pages** covering the full ZPO model, from foundations to proof strategies
-- **44 visualization components** with Canvas/SVG/WebGL renderings of zeta zeros, spectral data, scattering matrices, and more
-- **15 mathematical computation modules** for zeta evaluation, spectral analysis, gap-closing algorithms, and proof checking
-- **80+ exploration journal entries** with full LaTeX rendering, cross-references, and literature citations
-- **33-node insight DAG** mapping the logical dependencies between 90+ mathematical concepts
-- **1,700+ auto-improvement entries** logged by the Claude Code auto-improvement engine
-- **Historical reasoning log** tracking evolving proof strategies and novel connections to cutting-edge research (Connes 2025-2026, Guth-Maynard 2024)
+## Headline results
 
-## Quick Start
+| # | Result | Bound | Regime | Status | Source |
+|---|---|---|---|---|---|
+| 1 | **Finite-N beat** of Platt–Trudgian 2021 | `Λ < 0.2 − ε` for fixed N | Finite height | ✓ Rigorous, paper v1 | `paper/main.pdf` §3 (Theorem 1) |
+| 2 | **Composed asymptotic candidate** | `Λ ≤ 7.98 × 10⁻⁴` | Asymptotic | ✗ One gap (research-grade-open) | `src/data/asymptotic-lambda-bound-2026-05-20.js` |
+| 3 | **Unconditional N⁻³ᐟ² discrepancy rate** | Koksma–Hlawka 2nd-moment refinement | Asymptotic prep | ✓ Rigorous, paper v1 | `paper/main.pdf` §4.3 (Theorem 3) |
+| 4 | **Hughes–Rudnick universality empirical cross-check** | slope `−0.881`, R² `0.984` | ESY linear-statistics observable | ✓ Empirical (Proposition, not Conjecture) | `paper/main.pdf` §4.5 |
+
+The asymptotic candidate (#2) decomposes into a high-N analytic part `a_hi = 7.673 × 10⁻⁴` plus a Polymath15 truncation bridge `E_trunc_pt = 3.06 × 10⁻⁵`, both with rigorous interval-arithmetic error bars. The remaining gap is the closure of one of three named sub-paths in §4: the ESY rigidity route via Hughes–Rudnick / Bourgade linear-statistics universality (the other two — `L²→L∞` Sobolev cost and sub-Selberg discrepancy — have been ruled out by independent attacks).
+
+## The 24/7 research engine
+
+The project is driven by a multi-engine autonomous-improvement harness powered by Claude Code:
+
+| Engine | Model | Role |
+|---|---|---|
+| `auto-improve.sh` | Claude Opus 4.7 (subscription) | Primary — heavy reasoning, theorem work, proof gaps |
+| `auto-improve-api.sh` | Claude Opus 4.7 (API) | Secondary — parallel high-reasoning lane |
+| `auto-improve-sonnet.sh` | Claude Sonnet 4.6 | Tier-2 — code refits, sweep extensions, lit surveys |
+| `auto-improve-haiku.sh` | Claude Haiku 4.5 | Tier-3 — fast, parallel small tickets |
+| `push-watcher.sh` | — | Daemon (60s poll) — push unpushed commits to GitHub |
+
+Together these execute against a **1,146-ticket improvement queue** with priority and category routing. State at time of writing:
+
+- **1,079 tickets completed** · 40 partial · 12 superseded · 9 pending
+- **317 critical / 318 high / 335 medium / 176 low** priority
+- **2,374 commits** to `main` to date
+- **4,316 KB improvement log** (`src/data/improvements.js`)
+
+Two additional infrastructure layers extend throughput further:
+
+- **Worktree-isolated subagent fanout** (`scripts/dispatch-subagent-worktree.mjs`) — parallel Claude subagents on isolated git worktrees, merged via `git merge --no-ff`
+- **Cloud-burst AWS launcher** (`scripts/cloud-sweep.sh`) — EC2 spot instances for compute-heavy Rust sweeps, with self-terminate on completion
+
+## Rigorous compute stack
+
+The numerical claims that feed Theorem 1 and the §4.5 empirical work are **machine-checkable** via:
+
+- **Rust + `inari` interval arithmetic** (`rust/interval-rk4/`, 27 files, 6,313 LOC)
+  - Verner 8(7) embedded RK pair (`rk4.rs`), Dormand-Prince 4(5) sub-stepping, classical RK4
+  - **Barnes–Hut multipole drift** (`rk4_interval_step_bh_multipole`) — `O(N log N)` zero-pair interaction with rigorous error envelope (`θ` parameter)
+  - Measured speedup: **854× at N=10⁵** over dense `O(N²)` reference
+  - Used for both forward backward-heat-flow checks and the imp-1136 production sweep
+- **Lean 4 formalization scaffolding** (`lean/`, 9 source files) — composition sanity checks (imp-441) and selected lemma ports
+- **Vite SSR assertion sweep** (`scripts/run-assertions.mjs`) — build-time tripwires guarding every published numeric claim. CI fails if any tripwire fires.
+
+## The live web explorer
 
 ```bash
 npm install
-npm run dev      # Development server at localhost:5173
-npm run build    # Production build → dist/
+npm run dev        # http://localhost:3002
+npm run build      # → dist/
 ```
 
-## Project Structure
+**65 pages**, **177 data modules**, **80+ exploration journal entries**, **33-node insight DAG**. Highlights:
+
+- `/lambda` — live de Bruijn–Newman bound timeline (1950 → today, with our improvements)
+- `/papers` — release-ordered downloads (v1 ready, v2 / v3 planned with blockers listed)
+- `/improvement-queue` — every queued ticket with status, priority, owner, related tickets
+- `/improvements` — full history of 1,000+ atomic improvements with diffs
+- `/meta-acceleration` — engine throughput, commit cadence, ticket velocity dashboards
+- `/full-story` — narrative timeline from ZPO model → bound improvement → published paper
+- `/lambda-roadmap` — gap-by-gap dependency graph from current state → `Λ ≤ 0`
+- `/rh-attack` — five classical attack paths under the ZPO framing
+- `/proof-checker` — Li coefficients, Hamiltonian self-adjointness tests, Weil positivity checks
+- `/explorations` — 80+ AI exploration entries with LaTeX, citations, cross-refs
+
+### The ZPO framing in one paragraph
+
+Every prime `p` defines a harmonic oscillator with energy levels `E_k = k · log p`. Summing over excitations gives `H_p(s) = 1/(1 − p⁻ˢ)` — simultaneously a partition function (statistical mechanics) and a transfer function (circuit theory). Cascading all primes recovers the Euler product. The **twin-ladder system** pairs ζ(s) with the dual ladder ζ(1−s) coupled by a bridge χ(s) satisfying `|χ(½+it)|=1` (lossless on the critical line). Under this framing the Riemann Hypothesis becomes: **the twin-ladder network is Darlington-lossless**, forcing all transmission zeros onto σ=½.
+
+This gives every classical RH attack a network-theoretic interpretation:
+
+| Classical attack | ZPO interpretation |
+|---|---|
+| Hilbert–Polya (spectral) | Self-adjoint Hamiltonian of the ladder chain |
+| Darlington (network) | Twin-ladder is exactly lossless |
+| Weil positivity (Connes) | Scattering form `W[f] ≥ 0` |
+| Nyman–Beurling | `L²` density of bridge images of fractional parts |
+| Li criterion | `λₙ ≥ 0` for all n, computable from bridge expansion |
+
+## Repository layout
 
 ```
+paper/                       LaTeX paper (main.tex, main.pdf, refs.bib)
+public/papers/               PDF artifacts served by the app
+rust/interval-rk4/           Rust interval-arithmetic engine
+  src/rk4.rs                  Verner 8(7), Barnes-Hut multipole drift
+  src/bin/                    CLIs (interval-rk4-cli, chain, sweep, etc)
+lean/                        Lean 4 formalization scaffolding
 src/
-  App.jsx                  # Router, navigation, code-splitting (React.lazy)
-  pages/                   # 30 page components
-    HomePage.jsx            # Model overview with SVG circuit diagrams
-    OscillatorsPage.jsx     # Prime oscillator stages
-    HamiltonianPage.jsx     # Energy landscape H(sigma, t)
-    ZetaPage.jsx            # Zeta function visualization + eta regularization
-    WaveSimPage.jsx         # Wave propagation simulator
-    ModesPage.jsx           # Normal modes of the ladder chain
-    SimulatorPage.jsx       # Interactive twin-ladder simulator
-    FourierPage.jsx         # Fourier/Mellin analysis
-    ControlTheoryPage.jsx   # Nyquist/Bode control theory
-    StatisticsPage.jsx      # GUE random matrix statistics
-    SupercriticalPage.jsx   # Supercritical region + Bost-Connes
-    InformationTheoryPage.jsx # Shannon entropy, channel capacity
-    PascalPage.jsx          # Pascal's triangle ↔ zeta connections
-    OddZetaPage.jsx         # Odd zeta values + Kolmogorov complexity
-    TwistorPage.jsx         # Twistor duality (3D WebGL)
-    ZXCalculusPage.jsx      # ZX-calculus quantum formulation
-    RHAttackPage.jsx        # Five proof paths overview
-    SpectralAttackPage.jsx  # Six-measure spectral confinement
-    GapClosingPage.jsx      # Gap S4/S5/S7 analysis
-    FormalProofPage.jsx     # 10-section formal proof structure
-    ProofCheckerPage.jsx    # Computational verification suite
-    RHRigorPage.jsx         # Rigorous claims vs conjectures
-    HistoricalReasoningPage.jsx # Evolving proof strategy log
-    ExplorationsPage.jsx    # AI exploration journal (80+ entries)
-    LiteraturePage.jsx      # Literature database with citations
-    HistoryPage.jsx         # 38 key mathematicians + timeline
-    ConceptsPage.jsx        # Mathematical concepts glossary
-    PaperPage.jsx           # Condensed paper with key equations
-    DocsPage.jsx            # Documentation + architecture
-    ImprovementsPage.jsx    # Auto-improvement log (400+ entries)
-
-  components/               # 34 reusable components
-    KaTeXMath.jsx            # LaTeX rendering (InlineMath, BlockMath)
-    InsightDAG.jsx           # Force-directed knowledge graph (D3)
-    TwistorDiagram3D.jsx     # 3D twistor visualization (Three.js)
-    EulerProductViz.jsx      # Interactive Euler product explorer
-    EnergyLandscapeViz.jsx   # 3D Hamiltonian surface
-    NyquistBodeViz.jsx       # Nyquist/Bode plot suite
-    FormalProofViz.jsx       # Proof section scorecard
-    ProofCheckerViz.jsx      # Computational test suite
-    RHRigorViz.jsx           # Rigor analysis visualization
-    SystemArchitectureDiagram.jsx  # System overview diagram
-    ThermoBar.jsx            # Thermodynamic state indicators
-    ...and 23 more
-
-  math/                     # 15 computation modules
-    zeta.js                  # Riemann zeta function evaluation
-    primes.js                # Prime generation, Euler product
-    spectral-attack.js       # Six-measure spectral confinement
-    gap-closing.js           # Eta regularization, unitarity deficit
-    formal-proof.js          # 10-section proof computation
-    proof-checker.js         # Li coefficients, Hamiltonian tests
-    rh-attack.js             # Five attack path computations
-    supercritical.js         # Thermodynamic state functions
-    information-theory.js    # Shannon/Fisher/channel capacity
-    pascal.js                # Pascal-zeta connections
-    twistor.js               # Twistor space computations
-    ...and 4 more
-
-  data/                     # Data files
-    explorations.js          # 80+ exploration journal entries
-    improvements.js          # 400+ auto-improvement log entries
-    insight-dag.js           # 33 nodes, 90+ edges knowledge graph
-    literature.js            # Academic references database
-    criticisms.js            # Known criticisms + responses
-
-  styles/
-    app.css                  # Complete styling (dark theme)
-
+  App.jsx                     React Router, HashRouter, code-splitting
+  pages/  (65 pages)          Interactive content + visualizations
+  components/                 KaTeXMath, InsightDAG, TwistorDiagram3D, ...
+  math/                       Zeta, primes, spectral attack, gap closing
+  data/   (177 modules)       Queue, manifests, journal, improvements
+    asymptotic-lambda-bound-2026-05-20.js   The Λ ≤ 8e-4 composition
+    improvement-queue.js                     1,146 tickets, status, priority
+    paper-publication-2026-05.js             Paper v1 manifest + tripwires
+    papers-release-manifest.js               Release-ordered paper index
+  styles/app.css              Dark-theme global styles
 scripts/
-  auto-improve.sh            # Automated improvement engine (Claude Code CLI)
-
-vite.config.js               # Vite config with code-splitting
+  auto-improve.sh             Subscription Opus 4.7 engine
+  auto-improve-api.sh         API Opus 4.7 engine
+  auto-improve-sonnet.sh      Sonnet 4.6 engine
+  auto-improve-haiku.sh       Haiku 4.5 engine
+  push-watcher.sh             60s push daemon
+  dispatch-subagent-worktree.mjs   Worktree-isolated subagent harness
+  cloud-sweep.sh              AWS EC2 spot burst launcher
+  run-assertions.mjs          Build-time tripwire sweep
+  setup-new-machine.sh        One-command bootstrap (LaunchAgent templates)
 ```
 
-## Architecture
-
-### Code Splitting
-
-The app uses `React.lazy()` for route-based code splitting. The main bundle is ~474 KB, with vendor chunks:
-- `vendor-three` (~1.1 MB): Three.js, only loaded for the Twistor page
-- `vendor-katex` (~261 KB): LaTeX rendering
-- `vendor-d3` (~87 KB): D3 force layout for the insight DAG
-
-### The Three Proof Gaps
-
-The ZPO model identifies three gaps between the framework and a proof of RH:
-
-| Gap | Name | Status | Description |
-|-----|------|--------|-------------|
-| S4 | Regularization | Conditional | Extend Euler product to critical strip via eta relation |
-| S5 | Hilbert-Polya | Open | Construct self-adjoint operator with spectrum = zeta zeros |
-| S7 | Darlington | Open | Prove infinite twin-ladder is exactly lossless |
-
-**Current strategy:** Focus on S7 (Darlington convergence) via monotone contraction — see the [Historical Reasoning](/reasoning) page.
-
-### The Five Attack Paths
-
-1. **Hilbert-Polya (Spectral):** Construct self-adjoint operator → real eigenvalues → RH
-2. **Darlington (Network):** Twin-ladder lossless → transmission zeros on critical line → RH
-3. **Weil Positivity (Connes):** Quadratic form W[f] >= 0 → RH
-4. **Nyman-Beurling:** L^2 density of fractional parts → RH
-5. **Li Criterion:** lambda_n >= 0 for all n → RH
-
-### Insight DAG
-
-A 33-node, 90+ edge directed graph mapping logical dependencies:
-- **Foundation layer:** Euler product, functional equation, analytic continuation
-- **Model layer:** Single oscillator, ladder chain, twin-ladder, bridge unitarity, Hamiltonian
-- **Analysis layer:** KL divergence, Fisher information, GUE statistics, Weil form, twistor incidence, ...
-- **Gap layer:** S4, S5, S7
-- **Frontier layer:** Connes' Zeta Spectral Triples, Guth-Maynard, monotone contraction
-- **Target:** Riemann Hypothesis
-
-### Auto-Improvement Engine
-
-The `scripts/auto-improve.sh` script invokes the Claude Code CLI on a timer to make atomic improvements:
+## Quick start
 
 ```bash
-./scripts/auto-improve.sh start    # Start (every 60s, max 100 runs)
-./scripts/auto-improve.sh stop     # Stop
-./scripts/auto-improve.sh status   # Check status
+# Web explorer
+npm install
+npm run dev          # http://localhost:3002
+
+# Auto-improvement engines (run any/all)
+./scripts/auto-improve.sh start          # Opus 4.7 subscription
+./scripts/auto-improve-api.sh start      # Opus 4.7 API
+./scripts/auto-improve-sonnet.sh start   # Sonnet 4.6
+./scripts/auto-improve-haiku.sh start    # Haiku 4.5
+./scripts/push-watcher.sh --daemon-loop  # auto-push commits
+
+# Rigorous Rust sweep (requires Rust + GMP)
+cd rust/interval-rk4
+cargo test                                  # 3/3 unit tests
+cargo run --release --bin interval-rk4-cli -- \
+  --drift-mode bh_multipole --theta 0.1
+
+# Build paper PDF
+cd paper && tectonic main.tex
 ```
 
-Each run picks one improvement category (bug fix, accuracy, UX, visual, performance, content), makes a single change, verifies the build, and commits.
+## Tech stack
 
-## Key Mathematical Connections
+- **React 19** + React Router (HashRouter) · **Vite 6** with code-splitting
+- **KaTeX** · **D3.js** · **Three.js** + React Three Fiber · **Canvas 2D** · **SVG**
+- **Rust** + `inari` interval crate · GMP/MPFR · Barnes–Hut tree
+- **Lean 4** + Mathlib (scaffolding)
+- **Claude Code** orchestrating Opus 4.7 / Sonnet 4.6 / Haiku 4.5 in parallel
 
-| Classical | ZPO Model |
-|-----------|-----------|
-| Euler product | Cascade of prime harmonic oscillators |
-| Functional equation xi(s) = xi(1-s) | Direct/dual ladder symmetry |
-| Completed zeta xi(s) | Twin-ladder scattering matrix |
-| Critical line sigma = 1/2 | Impedance match / lossless bridge |
-| Zeta zeros | Transmission zeros of the network |
-| GUE statistics | Quantum chaos in the oscillator chain |
-| Selberg trace formula | Spectral = geometric (eigenvalues = prime orbits) |
-| Connes' rank-one perturbation | ZPO bridge chi(s) |
+## Status, accountability, and reading order
 
-## Tech Stack
+Numerical claims in the paper and in any `*ready*` data module are guarded by build-time tripwires in `scripts/run-assertions.mjs`. If a tripwire fails, CI fails and the manifest entry cannot be marked `ready`.
 
-- **React 19** with React Router
-- **Vite 6** for build/dev with code splitting
-- **KaTeX** for LaTeX math rendering
-- **D3.js** for force-directed graphs and data visualization
-- **Three.js** + React Three Fiber for 3D WebGL
-- **Canvas API** for high-performance 2D visualizations
-- **SVG** for circuit diagrams and static visualizations
+Suggested reading order for a new visitor:
 
-## Development
-
-```bash
-npm run dev          # Start dev server
-npm run build        # Production build
-npm run preview      # Preview production build
-```
-
-The app has no backend — all computation runs client-side in the browser.
+1. `paper/main.pdf` — the formal write-up (11 pages, v1)
+2. `/lambda` page — what bound we are attacking and where we sit
+3. `/full-story` — narrative timeline
+4. `/lambda-roadmap` — what gaps remain
+5. `/improvement-queue` — live ticket flow
+6. `/improvements` — the 1,000+ atomic edits behind the current state
 
 ## License
 

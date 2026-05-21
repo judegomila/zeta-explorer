@@ -206,6 +206,8 @@ const DATA_MODULES = [
   '/src/data/rust-port-phase4-rayon-validation.js',
   // imp-1124: Bui-Sound optimal sigma finder for E_trunc_pt under the BS exponent.
   '/src/data/bui-soundararajan-optimal-sigma-2026-05.js',
+  // imp-1115: Bui-Sound density numerical projection (4-point sigma grid + L_pt headline).
+  '/src/data/bui-soundararajan-density-numerical-2026-05.js',
   // imp-1128: EDGE rigidity attack -- psi_N measurement near gamma_1 (vs imp-1108 bulk).
   '/src/data/edge-rigidity-empirical-2026-05.js',
   // imp-1123: Bui-Soundararajan PRIMARY rigorous-port attack on asymptotic SOTA.

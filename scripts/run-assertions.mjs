@@ -29,6 +29,16 @@ const __dirname  = path.dirname(__filename);
 const ROOT       = path.resolve(__dirname, '..');
 const LOGS_DIR   = path.join(__dirname, 'logs');
 const FAST_MODE  = process.argv.includes('--fast');
+const SEQUENTIAL = process.argv.includes('--sequential');
+const PARALLEL_FLAG = process.argv.find((a) => a.startsWith('--parallel='));
+// imp-1171: concurrent module loading via shared-Vite-server promise.all pool.
+// Worker_threads would require one Vite SSR server per thread (port conflicts)
+// so we instead use a concurrency-capped Promise.all against the single server,
+// which scales the slow ssrLoadModule I/O without server duplication.
+const PARALLEL_DEFAULT = 4;
+const PARALLEL = SEQUENTIAL
+  ? 1
+  : (PARALLEL_FLAG ? Math.max(1, parseInt(PARALLEL_FLAG.split('=')[1], 10) || PARALLEL_DEFAULT) : PARALLEL_DEFAULT);
 
 // ── Module lists ──────────────────────────────────────────────────────────────
 
@@ -293,10 +303,10 @@ async function main() {
   function log(msg) { console.log(msg); lines.push(msg); }
 
   log('# Assertion sweep — ' + new Date().toISOString());
-  log('Mode: ' + (FAST_MODE ? 'fast (heavy modules skipped)' : 'full'));
+  log('Mode: ' + (FAST_MODE ? 'fast (heavy modules skipped)' : 'full') + ' · parallel: ' + PARALLEL);
   log('');
 
-  for (const modPath of ALL_MODULES) {
+  async function processOne(modPath) {
     let mod;
     try {
       mod = await server.ssrLoadModule(modPath);
@@ -306,13 +316,13 @@ async function main() {
       loadErrors++;
       failed++;
       failures.push({ id: modPath, why: 'module load error: ' + e.message.slice(0, 80) });
-      continue;
+      return;
     }
 
     const arrays = Object.entries(mod).filter(
       ([k, v]) => k.endsWith('_ASSERTIONS') && Array.isArray(v)
     );
-    if (arrays.length === 0) continue;
+    if (arrays.length === 0) return;
 
     for (const [name, arr] of arrays) {
       let modPass = 0, modFail = 0;
@@ -336,6 +346,24 @@ async function main() {
         log('  OK  : ' + name + ' (' + modPass + ' assertions)');
       }
     }
+  }
+
+  // imp-1171: concurrency-capped pool — N workers pull from a shared queue
+  // against the single Vite SSR server. Sequential when PARALLEL=1.
+  if (PARALLEL === 1) {
+    for (const modPath of ALL_MODULES) {
+      await processOne(modPath);
+    }
+  } else {
+    const queue = [...ALL_MODULES];
+    async function worker() {
+      while (queue.length > 0) {
+        const modPath = queue.shift();
+        if (!modPath) return;
+        await processOne(modPath);
+      }
+    }
+    await Promise.all(Array.from({ length: PARALLEL }, () => worker()));
   }
 
   const elapsed = ((Date.now() - startMs) / 1000).toFixed(1);

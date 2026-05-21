@@ -40,6 +40,7 @@
 
 import { execSync, spawn } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -50,6 +51,96 @@ const WORKTREE_DIR = path.join(ROOT, '.worktrees');
 
 function run(cmd, opts = {}) {
   return execSync(cmd, { cwd: opts.cwd ?? ROOT, encoding: 'utf-8', ...opts }).trim();
+}
+
+/**
+ * imp-1172 — auto-scale concurrency cap by CPU + free-RAM headroom.
+ *
+ * Replaces a hardcoded MAX_PARALLEL=5 in downstream fanout callers so the
+ * same script bursts higher on a beefy laptop / cloud instance without
+ * code changes.
+ *
+ * Formula: min(floor(ncpu / 2), floor(free_ram_gb / 3), 8)
+ *   - /2 on CPU leaves headroom for the parent session + system processes.
+ *   - /3 on RAM (GB) keeps each subagent under a 3GB working-set budget.
+ *   - hard ceiling of 8 because git/file-IO contention dominates past that.
+ *
+ * Env override SUBAGENT_MAX_PARALLEL=N short-circuits detection.
+ * Falls back to 3 if any probe fails (safe default matching the old single-thread CI path).
+ *
+ * @returns {{ cap: number, ncpu: number|null, freeRamGb: number|null, override: number|null, source: string }}
+ */
+export function detectMaxParallel({ silent = false } = {}) {
+  const FALLBACK = 3;
+  const HARD_CEILING = 8;
+
+  // 1. Env override wins
+  const envRaw = process.env.SUBAGENT_MAX_PARALLEL;
+  if (envRaw !== undefined && envRaw !== '') {
+    const envN = parseInt(envRaw, 10);
+    if (Number.isFinite(envN) && envN > 0) {
+      const out = { cap: envN, ncpu: null, freeRamGb: null, override: envN, source: 'env' };
+      if (!silent) {
+        console.log(`[dispatch] auto-scale concurrency cap = ${envN} (ncpu=N/A, free_ram_gb=N/A, override=${envN})`);
+      }
+      return out;
+    }
+  }
+
+  let ncpu = null;
+  let freeRamGb = null;
+  const platform = process.platform;
+
+  try {
+    if (platform === 'darwin') {
+      ncpu = parseInt(run('sysctl -n hw.ncpu'), 10);
+      // vm_stat: "Pages free: 12345." + "Pages inactive: 67890." — both count as available.
+      // Page size on Apple Silicon = 16384, on Intel macs = 4096; parse from header.
+      const vm = run('vm_stat');
+      const pageSizeMatch = vm.match(/page size of (\d+) bytes/);
+      const pageSize = pageSizeMatch ? parseInt(pageSizeMatch[1], 10) : 4096;
+      const freeMatch = vm.match(/Pages free:\s+(\d+)/);
+      const inactiveMatch = vm.match(/Pages inactive:\s+(\d+)/);
+      const speculativeMatch = vm.match(/Pages speculative:\s+(\d+)/);
+      const freePages = (freeMatch ? parseInt(freeMatch[1], 10) : 0)
+        + (inactiveMatch ? parseInt(inactiveMatch[1], 10) : 0)
+        + (speculativeMatch ? parseInt(speculativeMatch[1], 10) : 0);
+      freeRamGb = (freePages * pageSize) / (1024 ** 3);
+    } else if (platform === 'linux') {
+      ncpu = parseInt(run('nproc'), 10);
+      const meminfo = run('cat /proc/meminfo');
+      const availMatch = meminfo.match(/MemAvailable:\s+(\d+)\s+kB/);
+      if (availMatch) freeRamGb = parseInt(availMatch[1], 10) / (1024 * 1024);
+    } else {
+      // Other platforms (e.g., win32): use os.cpus() + os.freemem() as best-effort.
+      ncpu = os.cpus().length;
+      freeRamGb = os.freemem() / (1024 ** 3);
+    }
+  } catch (e) {
+    if (!silent) console.warn(`[dispatch] detectMaxParallel: probe failed (${e.message}); using fallback=${FALLBACK}`);
+    const out = { cap: FALLBACK, ncpu, freeRamGb, override: null, source: 'fallback-probe-error' };
+    if (!silent) {
+      console.log(`[dispatch] auto-scale concurrency cap = ${FALLBACK} (ncpu=${ncpu ?? 'N/A'}, free_ram_gb=${freeRamGb ?? 'N/A'}, override=none)`);
+    }
+    return out;
+  }
+
+  if (!Number.isFinite(ncpu) || ncpu <= 0 || !Number.isFinite(freeRamGb) || freeRamGb <= 0) {
+    const out = { cap: FALLBACK, ncpu, freeRamGb, override: null, source: 'fallback-bad-values' };
+    if (!silent) {
+      console.log(`[dispatch] auto-scale concurrency cap = ${FALLBACK} (ncpu=${ncpu ?? 'N/A'}, free_ram_gb=${freeRamGb ?? 'N/A'}, override=none)`);
+    }
+    return out;
+  }
+
+  const cpuCap = Math.floor(ncpu / 2);
+  const ramCap = Math.floor(freeRamGb / 3);
+  const cap = Math.max(1, Math.min(cpuCap, ramCap, HARD_CEILING));
+  const out = { cap, ncpu, freeRamGb: Math.round(freeRamGb * 100) / 100, override: null, source: 'auto' };
+  if (!silent) {
+    console.log(`[dispatch] auto-scale concurrency cap = ${cap} (ncpu=${ncpu}, free_ram_gb=${out.freeRamGb}, override=none)`);
+  }
+  return out;
 }
 
 function isoStamp() {
@@ -133,8 +224,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       case 'cleanup': result = cleanupWorktree({ name: args.name }); break;
       case 'list':    result = listWorktrees(); break;
       case 'prune':   result = pruneStaleWorktrees(); break;
+      case 'max-parallel': result = detectMaxParallel(); break;
       default:
-        console.error('usage: create --ticket | merge --name | cleanup --name | list | prune');
+        console.error('usage: create --ticket | merge --name | cleanup --name | list | prune | max-parallel');
         process.exit(1);
     }
     console.log(JSON.stringify(result, null, 2));

@@ -238,6 +238,8 @@ const DATA_MODULES = [
   '/src/data/sub-selberg-discrepancy-attempt-2026-05.js',
   // imp-1149-sub-erdos-schlein-yau-port-residual: alternative-regimes sweep -- R3 linear-statistics candidate POSITIVE.
   '/src/data/esy-residual-alternative-regimes-2026-05.js',
+  // imp-1160: bootstrap 95 pct CI on the imp-1149-sub-ESY R3 slope -- candidate-weak (CI width 0.54, contains -1).
+  '/src/data/esy-lin-stat-slope-bootstrap-CI-2026-05.js',
   // imp-1151: papers release manifest — ordered downloads for the /papers page.
   '/src/data/papers-release-manifest.js',
   // imp-1141: Rust full-chain port (C_mb + E_trunc + E_flow + E_coll + L_pt in chain.rs).

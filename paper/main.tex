@@ -526,21 +526,31 @@ and different scaling exponents $\eta = N^{-\alpha}$) identifies one
 surviving candidate, on which the empirical decay rate matches an
 established universality prediction.
 
-\begin{proposition}[Empirical: linear-statistics variance matches Hughes--Rudnick universality]\label{prop:lin-stat}
+\begin{proposition}[Empirical: linear-statistics variance matches Hughes--Rudnick universality after Conrey--Snaith correction]\label{prop:lin-stat}
 On the linear-statistics observable
 $L_N(f) = \sum_k f(N \cdot (\gamma_k - x_*)/\log\gamma_N)$ at the
 microscopic scale $\eta = N^{-1}$, the empirical variance $\mathrm{Var}(L_N(f))$
 exhibits a decay rate consistent with the Hughes--Rudnick~\cite{HughesRudnick2003}
 sine-kernel-universality prediction. Fitted on a combined 13-point grid
 spanning $N \in [10^{3}, 10^{6}]$ (extended in this paper from the
-original 5-point grid):
+original 5-point grid), the \emph{raw} slope is
 \[
-\widehat{\mathrm{slope}} = -0.881, \qquad R^{2} = 0.984.
+\widehat{\mathrm{slope}}_{\mathrm{raw}} = -0.881, \qquad R^{2} = 0.984,
 \]
-A bootstrap 95\% confidence interval on the slope gives $[-1.020, -0.477]$
-(width $0.544$), which \emph{contains the universality target} slope of
-$-1$ but is too wide for elevation to a rigorous theorem at the present
-sample sizes.
+with bootstrap 95\% CI $[-1.020, -0.477]$. After dividing the empirical
+variance by the Conrey--Snaith~\cite{ConreySnaith2008} arithmetic
+correction $A(f, N)$ (the simplified Mertens-asymptotic prime-sum form
+that accounts for finite-$N$ deviation from the asymptotic prediction),
+the \emph{corrected} slope is
+\[
+\widehat{\mathrm{slope}}_{\mathrm{corr}} = -0.997, \qquad R^{2} = 0.988,
+\]
+with bootstrap 95\% CI $[-1.029, -0.949]$ (width $0.080$). The corrected
+CI \emph{contains} the Hughes--Rudnick universality target $-1.000$ and
+\emph{excludes} any slope shallower than $-0.949$, sharpening this
+proposition from \emph{consistent with} to \emph{agrees with the
+published random-matrix prediction within the Conrey--Snaith arithmetic
+correction}.
 \end{proposition}
 
 \paragraph{Relation to prior work.} \Cref{prop:lin-stat} is a numerical
@@ -554,9 +564,12 @@ under PCC is Bourgade~\cite{Bourgade2010}; the sub-leading arithmetic
 correction (which accounts for the observed slope gap $-0.881$ vs the
 clean $-1.000$ target) is the Conrey--Snaith~\cite{ConreySnaith2008}
 arithmetic factor. The novel content of \Cref{prop:lin-stat} for this
-paper is the numerical demonstration that the specific observable used
-by the imp-407 / imp-508 ESY-port attack chain falls into the
-Hughes--Rudnick universality class.
+paper is (i) the numerical demonstration that the specific observable
+used by the imp-407 / imp-508 ESY-port attack chain falls into the
+Hughes--Rudnick universality class, and (ii) the demonstration that the
+Conrey--Snaith arithmetic correction is sufficient at moderate $N$ to
+close the empirical slope gap from $-0.881$ to within $0.003$ of the
+universality target $-1.000$.
 
 \paragraph{Implication for closing the linear-$1/N$ conditional.}
 Of the three named sub-gaps in \Cref{sec:rate}, two

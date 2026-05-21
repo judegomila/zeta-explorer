@@ -50,8 +50,8 @@ const MAKEFILE_PATH = 'paper/Makefile';
 // refinements into Appendix C, added a new Appendix C-prime hybrid factor
 // table + a new Appendix D refresh log. PDF rebuilt via tectonic 0.16.9;
 // size grew from 91401 bytes (6 pages) to 113912 bytes (8 pages).
-const PAGE_COUNT = 9;
-const FILE_SIZE_BYTES = 132740;
+const PAGE_COUNT = 11;
+const FILE_SIZE_BYTES = 139235;
 
 // Compile timestamp (commit time, not build time).
 const BUILT_AT = '2026-05-20T20:00:00Z';

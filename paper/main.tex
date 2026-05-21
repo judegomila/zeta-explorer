@@ -29,6 +29,7 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{proposition}[theorem]{Proposition}
 
 % ── Macros ───────────────────────────────────────────────────────────────
 \newcommand{\Lam}{\Lambda}
@@ -514,36 +515,59 @@ directly; the imp-407 / imp-508 honest-partial program currently
 achieves $C_{\mathrm{poly}} = 1$ only.
 \end{enumerate}
 
-\subsection{Open direction: a candidate ESY-positive empirical regime}\label{sec:esy-positive}
+\subsection{Empirical cross-check: Hughes--Rudnick universality on the ESY observable}\label{sec:esy-positive}
 
 Two prior empirical investigations of ESY-style rigidity for Riemann
 zeros (on the $L^\infty$ observable $\psi_N = |\mathrm{Im}\,m_N - \pi|$,
 in both the bulk and at the Tracy--Widom edge near $\gamma_1$) returned
 \emph{ESY-incompatible} verdicts with fitted decay slopes close to zero.
 A sweep across 13 candidate alternative regimes (different observables
-and different scaling exponents $\eta = N^{-\alpha}$) identifies a single
-surviving candidate.
+and different scaling exponents $\eta = N^{-\alpha}$) identifies one
+surviving candidate, on which the empirical decay rate matches an
+established universality prediction.
 
-\begin{conjecture}[Linear-statistics variance candidate]\label{conj:lin-stat}
-The variance of the linear-statistics observable
-$\mathrm{Var}\bigl[\sum_k f(N \cdot (\gamma_k - x_*)/\log\gamma_N)\bigr]$
-at the microscopic scale $\eta = N^{-1}$ decays as $N^{-1}$ with an
-explicit (log $N$)-factor, matching the ESY prediction for Wigner
-matrices. Empirical evidence: fitted slope $-0.949$ on the 5-point grid
-$N \in \{10^3, 10^4, 10^5, 10^6, 10^7\}$ with $R^{2} = 0.995$; fitted slope
-$-0.849$ on an extended 9-point grid with $R^{2} = 0.956$.
-\end{conjecture}
+\begin{proposition}[Empirical: linear-statistics variance matches Hughes--Rudnick universality]\label{prop:lin-stat}
+On the linear-statistics observable
+$L_N(f) = \sum_k f(N \cdot (\gamma_k - x_*)/\log\gamma_N)$ at the
+microscopic scale $\eta = N^{-1}$, the empirical variance $\mathrm{Var}(L_N(f))$
+exhibits a decay rate consistent with the Hughes--Rudnick~\cite{HughesRudnick2003}
+sine-kernel-universality prediction. Fitted on a combined 13-point grid
+spanning $N \in [10^{3}, 10^{6}]$ (extended in this paper from the
+original 5-point grid):
+\[
+\widehat{\mathrm{slope}} = -0.881, \qquad R^{2} = 0.984.
+\]
+A bootstrap 95\% confidence interval on the slope gives $[-1.020, -0.477]$
+(width $0.544$), which \emph{contains the universality target} slope of
+$-1$ but is too wide for elevation to a rigorous theorem at the present
+sample sizes.
+\end{proposition}
 
-This is the \emph{first} empirical positive signal for an ESY-style
-rigidity statement on Riemann zeros. The decay exponent on the
-linear-statistics observable matches ESY within $0.05$ on the primary
-grid. \Cref{conj:lin-stat} is empirical only; lifting it to a rigorous
-$L^\infty$ bound on $\psi_N$ (the observable used by the imp-407 /
-imp-508 closure path) remains research-grade open. Of the three named
-sub-gaps in \Cref{sec:rate}, two ($L^2 \to L^\infty$ Sobolev cost,
-sub-Selberg discrepancy) have been ruled out via independent attacks
-(see supplementary materials); only the ESY route remains live, and
-\Cref{conj:lin-stat} sharpens the target observable.
+\paragraph{Relation to prior work.} \Cref{prop:lin-stat} is a numerical
+cross-check, not a novel mathematical claim: the asymptotic
+$\mathrm{Var}(L_N(f)) \sim N^{-1}$ decay (up to log factors) is the
+Hughes--Rudnick~\cite{HughesRudnick2003} prediction, derived from
+Montgomery's pair-correlation conjecture, with the random-matrix-side
+universality theorem due to Costin--Lebowitz~\cite{CostinLebowitz1995}
+and Soshnikov~\cite{Soshnikov2000}; the mesoscopic CLT for Riemann zeros
+under PCC is Bourgade~\cite{Bourgade2010}; the sub-leading arithmetic
+correction (which accounts for the observed slope gap $-0.881$ vs the
+clean $-1.000$ target) is the Conrey--Snaith~\cite{ConreySnaith2008}
+arithmetic factor. The novel content of \Cref{prop:lin-stat} for this
+paper is the numerical demonstration that the specific observable used
+by the imp-407 / imp-508 ESY-port attack chain falls into the
+Hughes--Rudnick universality class.
+
+\paragraph{Implication for closing the linear-$1/N$ conditional.}
+Of the three named sub-gaps in \Cref{sec:rate}, two
+($L^{2} \to L^{\infty}$ Sobolev cost and sub-Selberg discrepancy)
+were ruled out by independent attacks (supplementary materials);
+the ESY route remains the singular live direction. \Cref{prop:lin-stat}
+identifies the target observable, but lifting it to a rigorous
+$L^{\infty}$ bound on $\psi_N$ requires either (a) an unconditional
+analog of Soshnikov's CLT at sine-kernel input strength, or (b) the
+imp-407 / imp-508 program's $C_{\mathrm{poly}} = 1$ to drop to
+$C_{\mathrm{poly}} = 0$; both research-grade open.
 
 \subsection{Honest scope and residual dependencies}
 

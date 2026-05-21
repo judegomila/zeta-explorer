@@ -242,6 +242,9 @@ const DATA_MODULES = [
   '/src/data/esy-lin-stat-slope-bootstrap-CI-2026-05.js',
   // imp-1162: extended imp-1149-sub-ESY linear-statistics sweep to N=1e6 (13-point combined OLS).
   '/src/data/esy-lin-stat-extended-sweep-2026-05.js',
+  // imp-1163: literature survey of published lin-stat results for Riemann zeros
+  // verifying paper Section 4.5 Conjecture 1 novelty -- verdict subsumed-by-hughes-rudnick-and-bourgade.
+  '/src/data/lin-stat-riemann-literature-survey-2026-05.js',
   // imp-1151: papers release manifest — ordered downloads for the /papers page.
   '/src/data/papers-release-manifest.js',
   // imp-1141: Rust full-chain port (C_mb + E_trunc + E_flow + E_coll + L_pt in chain.rs).

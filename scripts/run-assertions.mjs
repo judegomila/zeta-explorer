@@ -271,6 +271,9 @@ const DATA_MODULES = [
   '/src/data/imp-1167-wieand-cue-cross-validation.js',
   // imp-1164: BS 2008 50-point σ-sweep on [0.5, 0.75], formal tightening factor 2.04e6 (inherits imp-1123 obstructions).
   '/src/data/imp-1164-bui-sound-rigorous-port.js',
+  // imp-1179: refines imp-1123 O-BS-B obstruction — bounds (log T)^A factor in BS 2008.
+  // Verdict: rigorous tightening at T_PT=3e12 requires A_BS ≤ 4 (log-free) or ≤ 6 (BS-favorable σ-shift).
+  '/src/data/imp-1179-bs-log-T-power-A-bound.js',
   // imp-1165: NEGATIVE RESULT - HR-via-Sobolev bridge to ESY closure fails by √N factor.
   '/src/data/imp-1165-hughes-rudnick-to-esy-closure-bridge.js',
   // imp-1126: Conrey-Snaith 3rd-moment attack — verdict no-new-rigorous-bound (CS bound from HB 1981 + Ingham 1926 is within polylog of conjectural truth).

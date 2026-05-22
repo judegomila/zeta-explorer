@@ -271,6 +271,8 @@ const DATA_MODULES = [
   '/src/data/imp-1167-wieand-cue-cross-validation.js',
   // imp-1164: BS 2008 50-point σ-sweep on [0.5, 0.75], formal tightening factor 2.04e6 (inherits imp-1123 obstructions).
   '/src/data/imp-1164-bui-sound-rigorous-port.js',
+  // imp-1165: NEGATIVE RESULT - HR-via-Sobolev bridge to ESY closure fails by √N factor.
+  '/src/data/imp-1165-hughes-rudnick-to-esy-closure-bridge.js',
 ];
 
 const ALL_MODULES = FAST_MODE

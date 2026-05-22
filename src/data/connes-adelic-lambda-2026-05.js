@@ -1,3 +1,11 @@
+/**
+ * @module connes-adelic-lambda-2026-05
+ * @fileoverview Connes adelic spectral interpretation: small numerical
+ * positivity check of the truncated Weil-Connes trace formula at t = 0.02
+ * (matching the imp-440 finite-N Lambda regime). HONEST SCOPE: a SURVEY +
+ * SMALL NUMERICAL CONSISTENCY CHECK, not a rigorous adelic port. Ticket
+ * imp-1109.
+ */
 // imp-1109 -- Connes adelic spectral interpretation: small numerical positivity
 // check of the truncated Weil-Connes trace formula at t = 0.02 (matching the
 // imp-440 finite-N Lambda regime).

@@ -1,3 +1,10 @@
+/**
+ * @module edge-rigidity-empirical-2026-05
+ * @fileoverview EDGE rigidity attack — re-measure psi_N at the SPECTRAL EDGE
+ * (near gamma_1 = 14.1347...) rather than in the bulk midpoint. Companion to
+ * the imp-1108 bulk measurement; tests whether the ESY local-law fluctuation
+ * rate differs near the spectral edge. Ticket imp-1128.
+ */
 // imp-1128 -- EDGE rigidity attack: re-measure psi_N at the SPECTRAL EDGE
 // (i.e. the small-ordinate region near gamma_1 = 14.1347...) rather than in
 // the bulk midpoint.

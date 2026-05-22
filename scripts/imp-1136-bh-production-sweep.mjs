@@ -70,6 +70,29 @@ export const SCHEDULE = [
   { N: 1000000, dt: 5e-4, maxSteps: 1,  tolerance: 1e-8 },
 ];
 
+// imp-1150 extended ladder for the cloud-sweep path. Three additional N
+// values appended past the laptop reach to tighten the imp-1137 V2 OLS
+// interval. Enabled via the --extended CLI flag; the base SCHEDULE is the
+// default so existing callers (cloud-sweep.sh user-data, watchdog, manual
+// laptop runs) keep their original 9-row behavior.
+//
+// Per-N budget reuse: N >= 1e5 already maps to SHORT_BUDGET_MS (1 hour),
+// so the new rows inherit the 1-hour-per-N cap with no extra wiring.
+//
+// PREREQUISITE for closed brackets at these N: src/data/zeros-to-1e6.js
+// only stores 10^6 ordinates, so N in {2e6, 5e6, 1e7} currently resolves
+// to terminationReason='zeros-array-too-short' (the runOneN guard at the
+// top of the function). The harness still emits a row -- ticket imp-1150
+// acceptance allows "documented" rows -- but a closed-bracket cloud sweep
+// requires fetching the Odlyzko 10^6..10^7 ordinate block first. That is
+// the sub-gap blocking full imp-1150 closure.
+export const EXTENDED_PLATEAU_NS = [2000000, 5000000, 10000000];
+export const EXTENDED_SCHEDULE = [
+  { N: 2000000,  dt: 5e-4, maxSteps: 1, tolerance: 1e-8 },
+  { N: 5000000,  dt: 5e-4, maxSteps: 1, tolerance: 1e-8 },
+  { N: 10000000, dt: 5e-4, maxSteps: 1, tolerance: 1e-8 },
+];
+
 // Per-N wall-clock budget. Per ticket: 3 h for N < 1e5, 1 h for N >= 1e5.
 export const LONG_BUDGET_MS  = 3 * 60 * 60 * 1000;
 export const SHORT_BUDGET_MS = 1 * 60 * 60 * 1000;
@@ -221,6 +244,15 @@ async function runAll(argv) {
     ? new Set(argv[onlyN + 1].split(',').map((s) => Number(s)))
     : null;
 
+  // imp-1150: --extended appends N in {2e6, 5e6, 1e7} to the schedule for
+  // the cloud-sweep path. Default (no flag) runs the base 9-row laptop
+  // ladder unchanged.
+  const extended = argv.includes('--extended');
+  const activeSchedule = extended ? [...SCHEDULE, ...EXTENDED_SCHEDULE] : SCHEDULE;
+  if (extended) {
+    process.stderr.write(`[imp-1136] --extended: schedule now ${activeSchedule.length} rows (adds N in {${EXTENDED_PLATEAU_NS.join(', ')}})\n`);
+  }
+
   // Incremental checkpoint -- append one NDJSON row per N as soon as it
   // completes so a SIGKILL of the parent loses at most ONE in-flight N.
   const checkpointPath = path.join(ROOT, 'scripts/logs/imp-1136-sweep-checkpoint.ndjson');
@@ -242,7 +274,7 @@ async function runAll(argv) {
   }
   const results = [...existing];
 
-  for (const cfg of SCHEDULE) {
+  for (const cfg of activeSchedule) {
     if (onlySet && !onlySet.has(cfg.N)) continue;
     if (haveN.has(cfg.N)) {
       process.stderr.write(`[imp-1136] N=${cfg.N} skipped (already in checkpoint)\n`);
@@ -276,7 +308,8 @@ async function runAll(argv) {
     imp1139Shipped: IMP1139_SHIPPED,
     perN_results: results,
     successCount,
-    totalN: SCHEDULE.length,
+    totalN: activeSchedule.length,
+    extendedLadder: extended,
     blockersFoundAtSpecificN: blockers,
   };
 

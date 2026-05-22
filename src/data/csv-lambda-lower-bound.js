@@ -1,4 +1,12 @@
 /**
+ * @module csv-lambda-lower-bound
+ * @fileoverview Csordas-Smith-Varga (CSV) Lehmer-pair-based lower bound on
+ * the de Bruijn-Newman constant Lambda, instantiated against this project's
+ * Lehmer-pair database (imp-300, P15-6). Captures the closed-form bound,
+ * candidate near-pairs, and certified rigour status.
+ */
+
+/**
  * Csordas-Smith-Varga (CSV) lower bound on Λ from our Lehmer pair database
  * (imp-300, P15-6).
  *

@@ -1,3 +1,10 @@
+/**
+ * @module click-links-audit-2026-05-19
+ * @fileoverview USER-REPORTED click-link audit (2026-05-19). Root-caused a
+ * Table-of-Contents anchor failure on /#/full-story under HashRouter: in-page
+ * "#foo" anchors clobbered the route hash. Fix + audit manifest of every
+ * anchor in the app to prevent regressions. Ticket imp-1144.
+ */
 // imp-1144 -- USER-REPORTED click-link audit (2026-05-19).
 //
 // User reported 2026-05-19 that clicking the Table of Contents on

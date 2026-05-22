@@ -1,3 +1,10 @@
+/**
+ * @module berry-keating-xp-spectral
+ * @fileoverview Berry-Keating xp Hamiltonian: interactive demo + spectral
+ * conjecture. Quantizes H = xp on a phase-space cell and compares the
+ * symmetric H_sym = (xp + px)/2 spectrum against the first 30 Riemann zeros
+ * via a Hermite-basis truncation. Ticket imp-1101.
+ */
 // imp-1101 -- Berry-Keating xp Hamiltonian: interactive demo + spectral conjecture.
 //
 // Quantize the classical Hamiltonian H = x*p on a phase-space cell and compare

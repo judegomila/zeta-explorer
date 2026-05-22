@@ -271,6 +271,10 @@ const DATA_MODULES = [
   '/src/data/imp-1167-wieand-cue-cross-validation.js',
   // imp-1164: BS 2008 50-point σ-sweep on [0.5, 0.75], formal tightening factor 2.04e6 (inherits imp-1123 obstructions).
   '/src/data/imp-1164-bui-sound-rigorous-port.js',
+  // imp-1104: Selberg trace formula reference doc (haiku-4-5 bucket).
+  '/src/data/selberg-trace-formula-reference.js',
+  // imp-1119: Riemann hypothesis equivalents catalog (haiku-4-5 bucket).
+  '/src/data/rh-equivalents-reference.js',
 ];
 
 const ALL_MODULES = FAST_MODE

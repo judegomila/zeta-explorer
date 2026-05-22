@@ -282,6 +282,8 @@ const DATA_MODULES = [
   '/src/data/imp-1126-auto-tripwires.js',
   // imp-1161: Costin-Lebowitz / Soshnikov port attempt — rigorous-partial-variance-upper-bound verdict.
   '/src/data/imp-1161-costin-lebowitz-port-attempt.js',
+  // imp-1180: Higher-order-correlation alternative route for ESY closure — research-grade-open with c_3 unconditional gap.
+  '/src/data/imp-1180-higher-order-correlation-route.js',
   // imp-1104: Selberg trace formula reference doc (haiku-4-5 bucket).
   '/src/data/selberg-trace-formula-reference.js',
   // imp-1119: Riemann hypothesis equivalents catalog (haiku-4-5 bucket).

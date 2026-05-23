@@ -1,4 +1,12 @@
 /**
+ * @module data/dyson-monotonicity-proof
+ * @fileoverview imp-322 analytic proof that the minimum-gap B(t) is
+ * non-increasing as t decreases under backward Calogero-Moser/Dyson flow,
+ * upgrading the imp-299 numerical N=100 check to a theorem.
+ * Proof-chain role: load-bearing monotonicity lemma for the Path C
+ * barrier-extrapolation -> t_c -> Lambda >= -t_c chain.
+ */
+/**
  * Analytic monotonicity of B(t) under backward Dyson flow (imp-322)
  *
  * The Path C collision argument (barrier-extrapolation.js, imp-299) tracks

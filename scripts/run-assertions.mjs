@@ -269,6 +269,8 @@ const DATA_MODULES = [
   '/src/data/imp-1163-auto-tripwires.js',
   // imp-1167: Wieand 1999 CUE bulk linear-statistics analog port for cross-validation.
   '/src/data/imp-1167-wieand-cue-cross-validation.js',
+  // imp-1185: Block-bootstrap CI on Conrey-Snaith corrected slope -- cross-validates imp-1166 percentile method.
+  '/src/data/imp-1185-block-bootstrap-cross-validation.js',
   // imp-1164: BS 2008 50-point σ-sweep on [0.5, 0.75], formal tightening factor 2.04e6 (inherits imp-1123 obstructions).
   '/src/data/imp-1164-bui-sound-rigorous-port.js',
   // imp-1179: refines imp-1123 O-BS-B obstruction — bounds (log T)^A factor in BS 2008.

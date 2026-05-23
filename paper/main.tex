@@ -554,20 +554,23 @@ the \emph{corrected} slope is
 \[
 \widehat{\mathrm{slope}}_{\mathrm{corr}} = -0.997, \qquad R^{2} = 0.988,
 \]
-with bootstrap 95\% CI $[-1.029, -0.949]$ (width $0.080$). The corrected
-CI \emph{contains} the Hughes--Rudnick universality target $-1.000$ and
-\emph{excludes} any slope shallower than $-0.949$, sharpening this
-proposition from \emph{consistent with} to \emph{agrees with the
+with conservative \emph{block-bootstrap} 95\% CI $[-1.076, -0.912]$
+(width $0.164$); the i.i.d.\ percentile-bootstrap CI is $[-1.029, -0.949]$
+(width $0.080$) but was found to be optimistic on width relative to
+block-bootstrap cross-validation. Both CIs \emph{contain} the
+Hughes--Rudnick universality target $-1.000$, sharpening this proposition
+from \emph{consistent with} to \emph{agrees with the
 published random-matrix prediction within the Conrey--Snaith arithmetic
-correction}.\footnote{A more complete reconstruction of the
-Conrey--Snaith arithmetic factor (full leading $+$ next-to-leading prime
-sums, but \emph{omitting} the bulk-window Fourier-truncation dampener)
-yields slope $-1.141$ with CI $[-1.188, -1.083]$, over-correcting past
-the universality target $-1.000$. Including the missing dampener is
-expected to bring the slope back into the $[-1.05, -0.95]$ universality
-window; the present simplified correction $-0.997$ and the full-arithmetic
-over-correction $-1.141$ bracket the true corrected slope. The honest
-range across both reconstructions is $[-1.188, -0.949]$.}
+correction at the conservative block-bootstrap level}.\footnote{A more
+complete reconstruction of the Conrey--Snaith arithmetic factor (full
+leading $+$ next-to-leading prime sums, but \emph{omitting} the
+bulk-window Fourier-truncation dampener) yields slope $-1.141$ with CI
+$[-1.188, -1.083]$, over-correcting past the universality target
+$-1.000$. Including the missing dampener is expected to bring the slope
+back into the $[-1.05, -0.95]$ universality window. The honest range
+across both arithmetic-factor reconstructions and both bootstrap methods
+is $[-1.188, -0.912]$, which contains the universality target $-1.000$
+strictly in its interior.}
 \end{proposition}
 
 \paragraph{Relation to prior work.} \Cref{prop:lin-stat} is a numerical

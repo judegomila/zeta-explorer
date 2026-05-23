@@ -134,6 +134,11 @@ elif [ "$CHECK_ONLY" -eq 1 ]; then
     else
         color_yellow "  - daily-health.plist would be installed"
     fi
+    if [ -f "$LAUNCH_INSTALL/com.mathexplorer.engine-watchdog.plist" ]; then
+        color_green "  ✓ com.mathexplorer.engine-watchdog.plist already installed"
+    else
+        color_yellow "  - engine-watchdog.plist would be installed"
+    fi
 else
     mkdir -p "$LAUNCH_INSTALL"
     install_one() {
@@ -158,6 +163,7 @@ else
     }
     install_one com.mathexplorer.auto-improve
     install_one com.mathexplorer.daily-health
+    install_one com.mathexplorer.engine-watchdog
 fi
 echo
 

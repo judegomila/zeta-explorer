@@ -1,3 +1,11 @@
+/**
+ * @module data/c-c-selberg-refinement-2026-05
+ * @fileoverview imp-1135 attack survey + derivation attempt for refining the
+ * Selberg-sieve constant C_Selberg = 3 that pins C_C = (1/8)*sqrt(3*pi) in
+ * the Polymath15 collision-error chain (parent imp-399, imp-1127 ceiling).
+ * Proof-chain role: ceiling-tightening candidate for the C_C constant feeding
+ * the E_coll(N) -> W_1(mu_N, rho_inf) -> Lambda bound.
+ */
 // imp-1135: C_C Selberg sieve refinement attempt (research-feasible target 1.15x)
 //
 // PARENT: imp-399 (polymath15-constant-C-C.js) pinned

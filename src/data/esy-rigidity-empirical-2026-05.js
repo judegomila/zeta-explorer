@@ -1,3 +1,12 @@
+/**
+ * @module data/esy-rigidity-empirical-2026-05
+ * @fileoverview imp-1108 SOTA attack #3 — empirical measurement of the
+ * Erdos-Schlein-Yau local-semicircle fluctuation psi_N(z) on Odlyzko Riemann
+ * zeros (N in {100..10000}) to test deterministic ESY-rigidity for zeta zeros.
+ * Proof-chain role: empirical scouting for the ESY port that would unlock
+ * asymptotic improvement of the Polymath15 Lambda bound (parents imp-370 /
+ * imp-407 / imp-508 / imp-1106).
+ */
 // imp-1108 -- SOTA attack #3: numerical empirical measurement of ESY psi_N
 // at our existing N (first N Odlyzko Riemann zeros, N in {100, 500, 1000,
 // 5000, 10000}).

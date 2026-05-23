@@ -1,4 +1,11 @@
 /**
+ * @module data/dead-code-audit-2026-05
+ * @fileoverview imp-1015 src/math/ dead-code audit refresh (2026-05-11);
+ * supersedes the 2026-04 audit and re-classifies no-importer modules into
+ * assertion-keepers vs prunable. Proof-chain role: meta / build-hygiene
+ * input — not load-bearing for Lambda, used by maintenance and cleanup.
+ */
+/**
  * imp-1015: src/math/ dead-code audit refresh (2026-05-11).
  *
  * SUPERSEDES

@@ -1,4 +1,12 @@
 /**
+ * @module data/holder-modulus-verification
+ * @fileoverview imp-506 empirical Holder-1/2 modulus check of tau_c across
+ * heights T in [gamma_1000, gamma_2000] with h in {0.1, 1, 10, 100}, verifying
+ * the C_H = 1/8 constant pinned by imp-395 (analytic port of Polymath15
+ * Lemma 5.2 in imp-366). Proof-chain role: empirical discharge of the
+ * remaining verification obligation for the G6a shock-closure chain.
+ */
+/**
  * imp-506: Empirical Holder-1/2 modulus verification for G6a shock closure.
  *
  * Verification deliverable

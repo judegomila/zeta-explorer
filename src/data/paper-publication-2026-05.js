@@ -51,7 +51,7 @@ const MAKEFILE_PATH = 'paper/Makefile';
 // table + a new Appendix D refresh log. PDF rebuilt via tectonic 0.16.9;
 // size grew from 91401 bytes (6 pages) to 113912 bytes (8 pages).
 const PAGE_COUNT = 11;
-const FILE_SIZE_BYTES = 140350;
+const FILE_SIZE_BYTES = 154640;
 
 // Compile timestamp (commit time, not build time).
 const BUILT_AT = '2026-05-20T20:00:00Z';

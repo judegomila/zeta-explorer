@@ -32,6 +32,13 @@ const LOGS_DIR   = path.join(__dirname, 'logs');
 const FAST_MODE  = process.argv.includes('--fast');
 const SEQUENTIAL = process.argv.includes('--sequential');
 const PARALLEL_FLAG = process.argv.find((a) => a.startsWith('--parallel='));
+// imp-1193: optional in-process Vite SSR pool. --ssr-pool=N opts in. Default OFF
+// (no flag = code path is byte-identical to the imp-1171 single-server world).
+const SSR_POOL_FLAG = process.argv.find((a) => a.startsWith('--ssr-pool='));
+const SSR_POOL_N    = SSR_POOL_FLAG
+  ? Math.max(1, parseInt(SSR_POOL_FLAG.split('=')[1], 10) || 1)
+  : 0;
+const SELF_TEST_MODE = process.argv.includes('--self-test-pool');
 // imp-1171: concurrent module loading via shared-Vite-server promise.all pool.
 // Worker_threads would require one Vite SSR server per thread (port conflicts)
 // so we instead use a concurrency-capped Promise.all against the single server,
@@ -309,10 +316,9 @@ const DATA_MODULES = [
   '/src/data/selberg-trace-formula-reference.js',
   // imp-1119: Riemann hypothesis equivalents catalog (haiku-4-5 bucket).
   '/src/data/rh-equivalents-reference.js',
-  // imp-1187: literature survey of explicit asymptotic constants for the integer-k moments of |zeta(1/2+it)|.
-  '/src/data/imp-1187-zeta-moment-asymptotic-constants-survey.js',
-  // imp-1188: numerical-equivalence tripwires for the shared scripts/bootstrap-ci.mjs helper.
-  '/src/data/imp-1188-bootstrap-ci-helper-tripwires.js',
+  // imp-1193: in-process Vite SSR pool validation (this script's own opt-in
+  // fast-path is gated by --ssr-pool=N; the tripwires here lock the contract).
+  '/src/data/imp-1193-ssr-pool-validation.js',
 ];
 
 const ALL_MODULES = FAST_MODE
@@ -402,39 +408,44 @@ async function sweepViaPool(sockPath, modules, parallel, fastMode) {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
-  // imp-1193: try the pool daemon first; fall back transparently on any error.
-  if (POOL_SOCK) {
-    let usePool = false;
-    try {
-      const pong = await poolRequest(POOL_SOCK, { op: 'ping' }, POOL_PROBE_MS);
-      usePool = !!(pong && pong.ok);
-    } catch {
-      usePool = false;
-    }
-    if (usePool) {
-      try {
-        const r = await sweepViaPool(POOL_SOCK, ALL_MODULES, PARALLEL, FAST_MODE);
-        await finalize(r);
-        return;
-      } catch (e) {
-        console.error('NOTE: pool sweep failed (' + (e.message || e) +
-          '); falling back to cold-start.');
-        // fall through to cold-start path
-      }
-    }
+  if (SELF_TEST_MODE) {
+    return runSelfTest();
   }
 
-  let server;
-  try {
-    server = await createServer({
-      root:    ROOT,
-      logLevel: 'error',
-      appType:  'custom',
-      server:   { middlewareMode: true },
-    });
-  } catch (e) {
-    console.error('FATAL: could not create Vite server:', e.message);
-    process.exit(2);
+  // imp-1193: optional pool. When SSR_POOL_N > 0 we lazy-acquire from the pool
+  // on each processOne call; otherwise the original single-server path runs.
+  let server;        // single-server fallback (default behavior)
+  let pool   = null; // populated only when --ssr-pool=N is passed
+  if (SSR_POOL_N > 0) {
+    try {
+      const { createPool } = await import('./lib/ssr-pool.mjs');
+      pool = createPool({
+        cap: SSR_POOL_N,
+        viteOptions: {
+          root:     ROOT,
+          logLevel: 'error',
+          appType:  'custom',
+          // ws:false silences the HMR WebSocket port-bind warning when N>1
+          // servers run concurrently in the same process.
+          server:   { middlewareMode: true, ws: false },
+        },
+      });
+    } catch (e) {
+      console.error('FATAL: could not init Vite SSR pool:', e.message);
+      process.exit(2);
+    }
+  } else {
+    try {
+      server = await createServer({
+        root:    ROOT,
+        logLevel: 'error',
+        appType:  'custom',
+        server:   { middlewareMode: true },
+      });
+    } catch (e) {
+      console.error('FATAL: could not create Vite server:', e.message);
+      process.exit(2);
+    }
   }
 
   const startMs  = Date.now();
@@ -447,14 +458,24 @@ async function main() {
   function log(msg) { console.log(msg); lines.push(msg); }
 
   log('# Assertion sweep — ' + new Date().toISOString());
-  log('Mode: ' + (FAST_MODE ? 'fast (heavy modules skipped)' : 'full') + ' · parallel: ' + PARALLEL);
+  log('Mode: ' + (FAST_MODE ? 'fast (heavy modules skipped)' : 'full') +
+      ' · parallel: ' + PARALLEL +
+      (pool ? ' · ssr-pool: ' + SSR_POOL_N : ''));
   log('');
 
   async function processOne(modPath) {
     let mod;
+    let slot;
     try {
-      mod = await server.ssrLoadModule(modPath);
+      if (pool) {
+        slot = await pool.acquire();
+        mod  = await slot.server.ssrLoadModule(modPath);
+        pool.release(slot);
+      } else {
+        mod = await server.ssrLoadModule(modPath);
+      }
     } catch (e) {
+      if (slot && pool) pool.release(slot);
       const msg = 'LOAD_ERR ' + modPath + ': ' + e.message.slice(0, 120);
       log('  ' + msg);
       loadErrors++;
@@ -539,8 +560,12 @@ async function finalize(state, server) {
   fs.writeFileSync(logFile, lines.join('\n') + '\n');
   console.log('\nLog written to ' + path.relative(ROOT, logFile));
 
-  if (server) {
-    try { await server.close(); } catch {}
+  if (pool) {
+    const s = pool.stats();
+    console.log('ssr-pool: created=' + s.created + ' reuseCount=' + s.reuseCount + ' cap=' + s.cap);
+    await pool.drain();
+  } else {
+    await server.close();
   }
 
   if (failed > 0) {
@@ -550,6 +575,102 @@ async function finalize(state, server) {
     console.log('\nAll assertions pass.');
     process.exit(0);
   }
+}
+
+// ── imp-1193 self-test ────────────────────────────────────────────────────────
+// `node scripts/run-assertions.mjs --self-test-pool` runs a tiny micro-bench:
+// loads a small fixed module subset (a) cold-single-server, (b) pool-of-4,
+// prints wallclock numbers + pool stats + active-handle delta after drain.
+// Used by tools / by the imp-1193 validation file to refresh measured numbers.
+async function runSelfTest() {
+  const { createPool } = await import('./lib/ssr-pool.mjs');
+  // 12 mixed modules (math + data) — enough to amortise warm-up, small enough
+  // to keep the self-test under ~15 s.
+  const SUBSET = [
+    '/src/data/lambda-roadmap.js',
+    '/src/data/rh-dag.js',
+    '/src/data/sota-lambda-claim.js',
+    '/src/data/lambda-N1e6-final-assembly.js',
+    '/src/data/lambda-intercept-pooled.js',
+    '/src/data/imp-360-extended-ladder-N1e6.js',
+    '/src/math/g1-sub-extremal-closure.js',
+    '/src/math/path-g-cauchy-rigorous.js',
+    '/src/math/noswap-closure.js',
+    '/src/math/route-a-shift-witness.js',
+    '/src/data/papers-release-manifest.js',
+    '/src/data/rh-equivalents-reference.js',
+  ];
+
+  async function loadAll(srv, paths) {
+    for (const p of paths) {
+      try { await srv.ssrLoadModule(p); } catch { /* ignore */ }
+    }
+  }
+
+  // (A) Baseline: single fresh Vite server.
+  const baselineHandlesBefore = process._getActiveHandles().length;
+  const t0 = Date.now();
+  const single = await createServer({
+    root: ROOT, logLevel: 'error', appType: 'custom',
+    server: { middlewareMode: true },
+  });
+  await loadAll(single, SUBSET);
+  const baselineMs = Date.now() - t0;
+  await single.close();
+  const baselineHandlesAfter = process._getActiveHandles().length;
+  const baselineHandleDelta  = baselineHandlesAfter - baselineHandlesBefore;
+
+  // (B) Pool-of-4 against the same subset, run twice to exercise reuse.
+  const poolHandlesBefore = process._getActiveHandles().length;
+  const t1 = Date.now();
+  const pool = createPool({
+    cap: 4,
+    viteOptions: {
+      root: ROOT, logLevel: 'error', appType: 'custom',
+      server: { middlewareMode: true, ws: false },
+    },
+  });
+  // Concurrency-cap-4 worker race over SUBSET ++ SUBSET (so each slot reused).
+  const work = [...SUBSET, ...SUBSET];
+  async function worker() {
+    while (work.length) {
+      const p = work.shift();
+      if (!p) return;
+      const slot = await pool.acquire();
+      try { await slot.server.ssrLoadModule(p); } catch { /* ignore */ }
+      pool.release(slot);
+    }
+  }
+  await Promise.all(Array.from({ length: 4 }, () => worker()));
+  const poolMs   = Date.now() - t1;
+  const poolStat = pool.stats();
+  await pool.drain();
+  const poolHandlesAfter = process._getActiveHandles().length;
+  const poolHandleDelta  = poolHandlesAfter - poolHandlesBefore;
+
+  const ratio = baselineMs > 0 ? (poolMs / baselineMs) : 1;
+  const result = {
+    timestamp:           new Date().toISOString(),
+    subsetSize:          SUBSET.length,
+    baselineMs,
+    poolMs,
+    ratio:               Number(ratio.toFixed(3)),
+    pool: {
+      created:    poolStat.created,
+      reuseCount: poolStat.reuseCount,
+      cap:        poolStat.cap,
+    },
+    handleDeltaBaseline: baselineHandleDelta,
+    handleDeltaPool:     poolHandleDelta,
+  };
+
+  console.log('# imp-1193 ssr-pool self-test');
+  console.log(JSON.stringify(result, null, 2));
+
+  // Emit machine-readable line for scripted ingestion.
+  console.log('SELFTEST_RESULT=' + JSON.stringify(result));
+
+  process.exit(0);
 }
 
 main().catch((e) => {

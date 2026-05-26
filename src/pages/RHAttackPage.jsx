@@ -454,10 +454,36 @@ export default function RHAttackPage() {
         </table>
       </div>
 
+      {/* Four Closure Routes */}
+      <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #06b6d4' }}>
+        <h3 style={{ color: '#06b6d4' }}>Four Equivalent Closure Routes</h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 12 }}>
+          The five classical proof strategies above can be organized into four <strong>logically equivalent closure routes</strong>,
+          each providing a distinct mathematical framework for completing the RH proof. Though superficially different,
+          these routes are fundamentally equivalent at their core.
+        </p>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 12 }}>
+          Each closure route begins with a different foundational assumption but converges to the same conclusion:
+          the non-trivial zeros of <InlineMath tex={"\\zeta(s)"} /> lie on the critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />.
+          Understanding the equivalence reveals deep connections between spectral analysis, network theory, harmonic analysis,
+          and number theory.
+        </p>
+        <div style={{ marginTop: 16, padding: '14px', background: 'rgba(6,182,212,0.08)', borderRadius: 8, border: '1px solid #06b6d420' }}>
+          <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, margin: 0 }}>
+            For a detailed analysis of how these routes interlock and their mathematical equivalence, see{' '}
+            <Link to="/closure-routes" style={{ color: '#06b6d4', fontWeight: 600, textDecoration: 'underline' }}>
+              Four Closure Routes
+            </Link>.
+          </p>
+        </div>
+      </div>
+
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>
         <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          <Link to="/closure-routes" style={{ color: '#06b6d4', fontSize: 13 }}>Closure Routes (equivalence)</Link>
+          <span style={{ color: '#334155' }}>|</span>
           <Link to="/spectral-attack" style={{ color: '#06b6d4', fontSize: 13 }}>Spectral Attack (6 vectors)</Link>
           <span style={{ color: '#334155' }}>|</span>
           <Link to="/gap-closing" style={{ color: '#f97316', fontSize: 13 }}>Gap Closing (S4/S5/S7)</Link>

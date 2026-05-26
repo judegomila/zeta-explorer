@@ -17784,7 +17784,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'App H restricted-lift first floating-point pilot at a = 0.025',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "App H describes first floating-point pilot of restricted reciprocal Mobius-delay lifts. Per App S, a = 0.025 passed but a = 0.010 hit a central-band conditioning barrier. Implement in src/data/imp-1204-restricted-lift-pilot.js using simple linear algebra (degree-2 reciprocal family on coarse mesh). Match App H reported behavior. 5+ tripwires.",
     rationale: 'Restricted-lift = route from theorem-target to first numerical certificate. Reproducing App H+S pilot puts the infrastructure online.',
@@ -17792,6 +17792,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['research-inputs/twin_ladder_consolidated_v52.pdf'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-1205',

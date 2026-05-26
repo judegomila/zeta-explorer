@@ -319,6 +319,8 @@ const DATA_MODULES = [
   // imp-1193: in-process Vite SSR pool validation (this script's own opt-in
   // fast-path is gated by --ssr-pool=N; the tripwires here lock the contract).
   '/src/data/imp-1193-ssr-pool-validation.js',
+  // imp-1183: 3-point correlation empirical on 1e6 zeros — Pearson 0.978 vs GUE, supports imp-1180 route.
+  '/src/data/imp-1183-3point-correlation-empirical.js',
 ];
 
 const ALL_MODULES = FAST_MODE

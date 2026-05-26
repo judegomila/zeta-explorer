@@ -325,6 +325,8 @@ const DATA_MODULES = [
   '/src/data/imp-1183-3point-correlation-empirical.js',
   // imp-1198: Blaschke ghosts section — §17 of twin-ladder-v52 paper.
   '/src/data/blaschke-ghosts-section.js',
+  // imp-1210: literature audit on twin-ladder paper Section 22 Conjectures (22.1-22.4) — verdict 22.4=SUBSUMED.
+  '/src/data/imp-1210-conjecture-22-literature-audit.js',
 ];
 
 const ALL_MODULES = FAST_MODE

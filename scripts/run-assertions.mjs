@@ -286,6 +286,8 @@ const DATA_MODULES = [
   '/src/data/imp-1161-costin-lebowitz-port-attempt.js',
   // imp-1180: Higher-order-correlation alternative route for ESY closure — research-grade-open with c_3 unconditional gap.
   '/src/data/imp-1180-higher-order-correlation-route.js',
+  // imp-1184: Direct Selberg + ESY-rigidity route audit — verdict direct-route-needs-pcc-at-step-D3-and-rho3-at-step-D5; shared-obstruction map narrows live attack surface to gap-PCC-2pt and gap-RS-3pt.
+  '/src/data/imp-1184-direct-selberg-esy-route-audit.js',
   // imp-1178: refines imp-1166 simplified-correction to best-available Conrey-Snaith 2008 ratios-conjecture formula on the imp-1162 13-point grid.
   '/src/data/imp-1178-conrey-snaith-full-ratios-derivation.js',
   // imp-1104: Selberg trace formula reference doc (haiku-4-5 bucket).

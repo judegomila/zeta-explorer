@@ -20,6 +20,7 @@
 //   scripts/logs/assertions-<ISO>.md
 
 import fs from 'node:fs';
+import net from 'node:net';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createServer } from 'vite';
@@ -39,6 +40,18 @@ const PARALLEL_DEFAULT = 4;
 const PARALLEL = SEQUENTIAL
   ? 1
   : (PARALLEL_FLAG ? Math.max(1, parseInt(PARALLEL_FLAG.split('=')[1], 10) || PARALLEL_DEFAULT) : PARALLEL_DEFAULT);
+
+// imp-1193: Pre-warmed Vite SSR pool support. If POOL_SOCK env var is set
+// (or --pool-sock=PATH passed) and the unix socket accepts a ping within
+// POOL_PROBE_MS, the sweep is delegated to the running daemon and we skip
+// our own Vite createServer cold-start. If the probe fails for any reason
+// we fall back silently to the original cold-start path -- behavior is
+// unchanged for callers who do not start the pool.
+const POOL_SOCK_FLAG = process.argv.find((a) => a.startsWith('--pool-sock='));
+const POOL_SOCK = POOL_SOCK_FLAG
+  ? POOL_SOCK_FLAG.slice('--pool-sock='.length)
+  : (process.env.POOL_SOCK || '');
+const POOL_PROBE_MS = 250;
 
 // ── Module lists ──────────────────────────────────────────────────────────────
 
@@ -312,9 +325,105 @@ function isoTimestamp() {
   return new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19) + 'Z';
 }
 
+// imp-1193: Send a single NDJSON request to the vite-ssr-pool daemon.
+// Returns the parsed response or rejects on socket / parse error.
+function poolRequest(sockPath, request, timeoutMs) {
+  return new Promise((resolve, reject) => {
+    const client = net.createConnection(sockPath);
+    const timer = setTimeout(() => {
+      try { client.destroy(new Error('pool request timeout')); } catch {}
+      reject(new Error('pool request timeout'));
+    }, timeoutMs);
+    let buf = '';
+    client.on('connect', () => {
+      client.write(JSON.stringify(request) + '\n');
+    });
+    client.on('data', (chunk) => {
+      buf += chunk.toString('utf8');
+      const nl = buf.indexOf('\n');
+      if (nl >= 0) {
+        clearTimeout(timer);
+        const line = buf.slice(0, nl);
+        client.end();
+        try { resolve(JSON.parse(line)); } catch (e) { reject(e); }
+      }
+    });
+    client.on('error', (e) => { clearTimeout(timer); reject(e); });
+    client.on('close', () => {
+      clearTimeout(timer);
+      if (!buf) reject(new Error('pool socket closed before response'));
+    });
+  });
+}
+
+// imp-1193: Run the sweep via the pool daemon when available. Returns
+// the same shape that the in-process loop produces (passed/failed/loadErrors/
+// failures/lines) so the rest of main() is identical between paths.
+async function sweepViaPool(sockPath, modules, parallel, fastMode) {
+  const startMs = Date.now();
+  const lines = [];
+  const log = (msg) => { console.log(msg); lines.push(msg); };
+  log('# Assertion sweep — ' + new Date().toISOString());
+  log('Mode: ' + (fastMode ? 'fast (heavy modules skipped)' : 'full') + ' · parallel: ' + parallel + ' (via pool)');
+  log('');
+  const resp = await poolRequest(sockPath, { op: 'sweep', modules, parallel }, 600000);
+  if (!resp || !resp.ok) {
+    throw new Error('pool sweep returned non-ok: ' + JSON.stringify(resp).slice(0, 200));
+  }
+  let passed = 0, failed = 0, loadErrors = 0;
+  const failures = [];
+  for (const le of resp.loadErrors || []) {
+    log('  LOAD_ERR ' + le.moduleName + ': ' + (le.error || '').slice(0, 120));
+    loadErrors++;
+    failed++;
+    failures.push({ id: le.moduleName, why: 'module load error: ' + (le.error || '').slice(0, 80) });
+  }
+  for (const r of resp.results || []) {
+    let modPass = 0, modFail = 0;
+    for (const a of r.assertions || []) {
+      if (a.ok) { passed++; modPass++; }
+      else {
+        failed++; modFail++;
+        failures.push({ id: a.id, why: (a.why || '').slice(0, 100) });
+        log('  FAIL: ' + a.id);
+      }
+    }
+    if (modFail === 0 && modPass > 0) log('  OK  : ' + r.arrayName + ' (' + modPass + ' assertions)');
+  }
+  // Sanity-check the pool stats against our re-tally.
+  if (resp.stats && (resp.stats.passed !== passed || resp.stats.failed !== failed)) {
+    log('  NOTE: pool stats differ from local tally (pool=' +
+      resp.stats.passed + '/' + resp.stats.failed +
+      ', local=' + passed + '/' + failed + ')');
+  }
+  return { passed, failed, loadErrors, failures, lines, startMs };
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
+  // imp-1193: try the pool daemon first; fall back transparently on any error.
+  if (POOL_SOCK) {
+    let usePool = false;
+    try {
+      const pong = await poolRequest(POOL_SOCK, { op: 'ping' }, POOL_PROBE_MS);
+      usePool = !!(pong && pong.ok);
+    } catch {
+      usePool = false;
+    }
+    if (usePool) {
+      try {
+        const r = await sweepViaPool(POOL_SOCK, ALL_MODULES, PARALLEL, FAST_MODE);
+        await finalize(r);
+        return;
+      } catch (e) {
+        console.error('NOTE: pool sweep failed (' + (e.message || e) +
+          '); falling back to cold-start.');
+        // fall through to cold-start path
+      }
+    }
+  }
+
   let server;
   try {
     server = await createServer({
@@ -401,6 +510,14 @@ async function main() {
     await Promise.all(Array.from({ length: PARALLEL }, () => worker()));
   }
 
+  await finalize({ passed, failed, loadErrors, failures, lines, startMs }, server);
+}
+
+// imp-1193: shared end-of-sweep handler used by both the cold-start and the
+// pool-delegate paths. `server` is optional (the pool path does not own one).
+async function finalize(state, server) {
+  const { passed, failed, loadErrors, failures, lines, startMs } = state;
+  const log = (msg) => { console.log(msg); lines.push(msg); };
   const elapsed = ((Date.now() - startMs) / 1000).toFixed(1);
   log('');
   log('---');
@@ -417,13 +534,14 @@ async function main() {
     }
   }
 
-  // Write log file
   if (!fs.existsSync(LOGS_DIR)) fs.mkdirSync(LOGS_DIR, { recursive: true });
   const logFile = path.join(LOGS_DIR, 'assertions-' + isoTimestamp() + '.md');
   fs.writeFileSync(logFile, lines.join('\n') + '\n');
   console.log('\nLog written to ' + path.relative(ROOT, logFile));
 
-  await server.close();
+  if (server) {
+    try { await server.close(); } catch {}
+  }
 
   if (failed > 0) {
     console.error('\nASSERTION SWEEP FAILED: ' + failed + ' failures');

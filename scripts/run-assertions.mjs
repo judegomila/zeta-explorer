@@ -329,6 +329,8 @@ const DATA_MODULES = [
   '/src/data/imp-1210-conjecture-22-literature-audit.js',
   // imp-1201: Apps M-O -- KYP state-space, bounded-real delay, delay-Gram positivity.
   '/src/data/kyp-bounded-real-section.js',
+  // imp-1196: Shift-Bridge Reflection Positivity (§15 of v52 paper) reference doc.
+  '/src/data/shift-bridge-positivity-section.js',
 ];
 
 const ALL_MODULES = FAST_MODE

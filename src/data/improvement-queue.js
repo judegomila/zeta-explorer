@@ -17702,7 +17702,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'NEW SECTION /three-attacks: para 18 -- kernel-passivity, prime-delay, Weil-Pontryagin',
     category: 'feature',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Build /three-attacks page rendering para 18 (pages 26-31): Attack I (kernel/passivity closure, Conj 18.1), Attack II (prime-delay domination, Conj 18.2), Attack III (Weil/Pontryagin index closure, Conj 18.4), synthesis. KaTeX for kernels. Ship src/data/three-attacks-section.js + src/pages/ThreeAttacksPage.jsx. 5+ tripwires.",
     rationale: 'Para 18 is most actionable: 3 concrete attack programs. Side-by-side comparison enables progress tracking per attack.',
@@ -17710,6 +17710,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['research-inputs/twin_ladder_consolidated_v52.pdf'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'subscription',
   },
   {
     id: 'imp-1200',

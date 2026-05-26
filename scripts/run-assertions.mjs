@@ -292,6 +292,10 @@ const DATA_MODULES = [
   '/src/data/selberg-trace-formula-reference.js',
   // imp-1119: Riemann hypothesis equivalents catalog (haiku-4-5 bucket).
   '/src/data/rh-equivalents-reference.js',
+  // imp-1187: literature survey of explicit asymptotic constants for the integer-k moments of |zeta(1/2+it)|.
+  '/src/data/imp-1187-zeta-moment-asymptotic-constants-survey.js',
+  // imp-1188: numerical-equivalence tripwires for the shared scripts/bootstrap-ci.mjs helper.
+  '/src/data/imp-1188-bootstrap-ci-helper-tripwires.js',
 ];
 
 const ALL_MODULES = FAST_MODE

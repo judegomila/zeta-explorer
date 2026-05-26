@@ -333,6 +333,8 @@ const DATA_MODULES = [
   '/src/data/kyp-bounded-real-section.js',
   // imp-1196: Shift-Bridge Reflection Positivity (§15 of v52 paper) reference doc.
   '/src/data/shift-bridge-positivity-section.js',
+  // imp-1205: Cross-walk -- Connes 2025-2026 vs para 16 four-route equivalence.
+  '/src/data/imp-1205-connes-four-route-crosswalk.js',
 ];
 
 const ALL_MODULES = FAST_MODE

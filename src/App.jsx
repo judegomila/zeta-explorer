@@ -63,6 +63,7 @@ const SelbergTracePage = lazy(() => import('./pages/SelbergTracePage.jsx'));
 const RHEquivalentsPage = lazy(() => import('./pages/RHEquivalentsPage.jsx'));
 const ThreeAttacksPage = lazy(() => import('./pages/ThreeAttacksPage.jsx'));
 const BlaschkeGhostsPage = lazy(() => import('./pages/BlaschkeGhostsPage.jsx'));
+const ClosureRoutesPage = lazy(() => import('./pages/ClosureRoutesPage.jsx'));
 
 function PageLoader() {
   return (
@@ -441,6 +442,7 @@ function AppShell() {
           <Route path="/rh-equivalents" element={<RHEquivalentsPage />} />
           <Route path="/three-attacks" element={<ThreeAttacksPage />} />
           <Route path="/blaschke-ghosts" element={<BlaschkeGhostsPage />} />
+          <Route path="/closure-routes" element={<ClosureRoutesPage />} />
         </Routes>
         </Suspense>
       </div>

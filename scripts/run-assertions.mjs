@@ -316,6 +316,8 @@ const DATA_MODULES = [
   '/src/data/selberg-trace-formula-reference.js',
   // imp-1119: Riemann hypothesis equivalents catalog (haiku-4-5 bucket).
   '/src/data/rh-equivalents-reference.js',
+  // imp-1197: §16 four equivalent closure routes (companion to /closure-routes page).
+  '/src/data/closure-routes-section.js',
   // imp-1193: in-process Vite SSR pool validation (this script's own opt-in
   // fast-path is gated by --ssr-pool=N; the tripwires here lock the contract).
   '/src/data/imp-1193-ssr-pool-validation.js',

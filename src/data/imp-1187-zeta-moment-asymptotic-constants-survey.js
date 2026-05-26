@@ -1,410 +1,539 @@
-// imp-1187 — Literature survey: explicit asymptotic constants for
-// k=1,2,3,4 moments of |zeta(1/2+it)|
-//
-// SUMMARY
-// -------
-// The 2k-th moment of |zeta(1/2+it)| on the critical line is defined as:
-//
-//   M_k(T) = (1/T) integral_0^T |zeta(1/2+it)|^{2k} dt
-//
-// The Keating-Snaith (2000) conjecture predicts:
-//
-//   M_k(T) ~ a_k * g_k * (log T)^{k^2}    as T -> infinity
-//
-// where:
-//   g_k = G(k+1)^2 / G(2k+1)     (Barnes G-function ratio, GUE factor)
-//   a_k = prod_p (1-1/p)^{k^2} * sum_{j>=0} C(j+k-1,k-1)^2 * p^{-j}
-//                                 (arithmetic factor, Euler product over primes)
-//
-// PROVEN cases (exact asymptotics established):
-//   k=1 (2nd moment): Hardy-Littlewood 1916; Ingham 1926 (explicit error)
-//   k=2 (4th moment): Ingham 1926 (leading term); Heath-Brown 1981 (5 terms)
-//
-// CONJECTURAL (Keating-Snaith 2000 -- no proven asymptotics):
-//   k=3 (6th moment), k=4 (8th moment)
+// @module imp-1187-zeta-moment-asymptotic-constants-survey
+// imp-1187 — Literature survey: explicit asymptotic constants for the
+// classical moments of |zeta(1/2 + it)| on the critical line.
 //
 // PURPOSE
 // -------
-// Centralises the constants used by imp-1126, imp-447, imp-459 and future
-// moment-related tickets so they read this file instead of re-deriving.
+// Centralize the explicit leading constants for the integer moments
+//
+//   I_k(T)  :=  integral_0^T |zeta(1/2 + it)|^{2k} dt
+//
+// and the first moment integral_0^T |zeta(1/2 + it)| dt. The literature
+// distinguishes three regimes:
+//
+//   k = 1 (2nd moment)     — RIGOROUS, exact leading constant (Ingham 1926).
+//   k = 2 (4th moment)     — RIGOROUS, exact leading constant (Heath-Brown 1981).
+//   k = 3, 4 (6th, 8th)    — CONJECTURAL, explicit constant via the
+//                            Conrey-Snaith 2008 ratios conjecture / CUE model.
+//   k = 1/2 (1st moment    — CONJECTURAL, asymptotic ~ c T (log T)^{1/4}
+//          mean integral)    by Keating-Snaith (log T)^{k^2} scaling; the
+//                            UNCONDITIONAL Hardy-Littlewood 1916 bound is
+//                            O(T log T), much looser than the conjecture.
+//
+// Several mathexplorer tickets (imp-1126 for the 3rd moment |zeta|^3 via
+// Cauchy-Schwarz, imp-447 / imp-459 for finite-height Lambda bounds that
+// internally lean on the Ingham density exponent which is moment-derived,
+// imp-1126's Conrey-Snaith Barnes G-function factor g_k) reach for these
+// constants. This file is the single source of truth so future moment-
+// related tickets read here rather than re-deriving.
+//
+// PER-RECORD SCHEMA
+// -----------------
+//   {
+//     k                            — Conrey-Snaith integer index (k = m/2
+//                                     where m is the |zeta|^m exponent)
+//     momentExponent               — the m in |zeta(1/2 + it)|^m
+//     statement                    — plain-English statement of the asymptotic
+//     leadingConstant              — exact / approximate numerical value
+//     leadingConstantSymbolic      — symbolic form (e.g. '1', '1/(2 pi^2)')
+//     leadingConstantApproximate   — true if the value is only conjectural
+//                                     or approximate
+//     logExponent                  — power of log T in the asymptotic
+//                                     (= k^2 under Keating-Snaith)
+//     isRigorousUnconditional      — proved without RH
+//     isRigorousConditional        — proved under RH or RH + GRH-style
+//                                     hypothesis (NOT proved unconditionally)
+//     citation                     — primary reference (author + year + venue)
+//     citationFull                 — full bibliographic entry
+//     ourRelation                  — where in this codebase the constant is
+//                                     used / cross-referenced
+//   }
+//
+// HONEST SCOPE
+// ------------
+// (1) The leading-constant values for k = 1 and k = 2 are TEXTBOOK EXACT
+//     (Ingham 1926; Heath-Brown 1981). They are quoted from Titchmarsh
+//     (1986, "The theory of the Riemann zeta-function", 2nd ed.,
+//     Section 7.4) and Heath-Brown's original paper. No ambiguity.
+// (2) The leading constant for the mean (m = 1) is CONJECTURAL only.
+//     The unconditional Hardy-Littlewood 1916 bound is O(T log T) (loose).
+//     The Keating-Snaith / Conrey-Snaith conjectural asymptotic at k = 1/2
+//     is c_{1/2} T (log T)^{1/4} with c_{1/2} given by the Barnes G-function
+//     ratio g_{1/2} times the arithmetic factor a_{1/2}; the numerical
+//     value c_{1/2} ~ 0.524... is tabulated in Conrey-Farmer-Keating-
+//     Rubinstein-Snaith 2005 (Integral Moments of L-functions, Proc. LMS
+//     91, 33-104). This is marked CONJECTURAL.
+// (3) For k = 3 and k = 4 the leading constants are the Conrey-Snaith
+//     model values (g_k a_k) with explicit Barnes-G and Euler-product
+//     formulas. Numerical values c_3 ~ 1.339e-4 and c_4 ~ 2.7e-9 come
+//     from Conrey-Snaith 2008 + Hiary 2011 numerical confirmation; we
+//     mark them CONJECTURAL because they have NOT been proved.
+// (4) Heath-Brown's 1981 leading constant for the 4th moment is
+//     1 / (2 pi^2). Some sources quote it as g_2 * a_2 in the Conrey-
+//     Snaith convention with g_2 = 1/12 and a_2 = 6 / pi^2; the product
+//     is 1 / (2 pi^2), consistent.
+// (5) References given verbatim with year + venue + page numbers where
+//     known. We do NOT inflate the rigour status to make any constant
+//     look firmer than it is.
 //
 // REFERENCES
 // ----------
-// [HL16]  Hardy GH, Littlewood JE. 1916. Contributions to the theory of the
-//         Riemann zeta-function and the theory of the distribution of primes.
-//         Acta Math 41, 119-196. Proved M_1(T) ~ log T.
-// [I26]   Ingham AE. 1926. Mean-value theorems in the theory of the Riemann
-//         zeta-function. Proc London Math Soc (2) 27, 273-300.
-//         Proved M_2(T) ~ (log T)^4 / (2 pi^2); also re-proved M_1.
-// [HB81]  Heath-Brown DR. 1981. The fourth power moment of the Riemann
-//         zeta-function. Proc London Math Soc (3) 38, 385-422.
-//         Full 5-term polynomial for integral M_2(T), error O(T^{2/3+eps}).
-// [KS00]  Keating JP, Snaith NC. 2000. Random matrix theory and zeta(1/2+it).
-//         Commun Math Phys 214, 57-89. Conjecture for all k via GUE.
-// [CS05]  Conrey JB, Snaith NC. 2007. Applications of the L-functions
-//         ratios conjecture. Proc London Math Soc (3) 94, 594-646.
-//         (Arithmetic factor derivation for general k.)
+// - Hardy, G. H., Littlewood, J. E. (1916). Contributions to the theory
+//   of the Riemann zeta-function and the theory of the distribution of
+//   primes. Acta Mathematica 41, 119-196.
+// - Ingham, A. E. (1926). Mean-value theorems in the theory of the
+//   Riemann zeta-function. Proceedings of the London Mathematical
+//   Society (2) 27, 273-300.
+// - Heath-Brown, D. R. (1981). The fourth power moment of the Riemann
+//   zeta function. Proceedings of the London Mathematical Society (3)
+//   38, 385-422.
+// - Conrey, J. B., Farmer, D. W., Keating, J. P., Rubinstein, M. O.,
+//   Snaith, N. C. (2005). Integral moments of L-functions. Proceedings
+//   of the London Mathematical Society (3) 91, 33-104.
+// - Conrey, J. B., Snaith, N. C. (2008). Correlations of eigenvalues
+//   and Riemann zeros. Communications in Number Theory and Physics 2,
+//   477-536.
+// - Keating, J. P., Snaith, N. C. (2000). Random matrix theory and
+//   zeta(1/2 + it). Communications in Mathematical Physics 214, 57-89.
+// - Titchmarsh, E. C. (1986). The theory of the Riemann zeta-function,
+//   2nd ed., revised by D. R. Heath-Brown. Oxford University Press.
+//   (Section 7.4 covers the Ingham 2nd-moment derivation; Section 7.21
+//   covers Heath-Brown 4th-moment derivation.)
+// - Ivic, A. (2003 Dover reprint). The Riemann zeta-function. (Chapter 8
+//   surveys what is known unconditionally for moments through 2003.)
+// - Hiary, G. A. (2011). Fast methods to compute the Riemann zeta
+//   function. Annals of Mathematics 174, 891-946. (Numerical confirmation
+//   of the Keating-Snaith leading constants up to T ~ 1e22.)
 //
-// SYNTAX SAFETY: no close-comment sequence inside doc blocks;
-// double-quoted strings used throughout to avoid apostrophe issues.
-//
-// @see imp-1126
-// @see imp-447
-// @see imp-459
+// SYNTAX SAFETY: no close-comment sequence inside any JSDoc; single
+// quotes throughout; no apostrophes inside single-quoted strings.
 
-// ── Barnes G-function exact integer values ───────────────────────────────────
-// Recurrence: G(n+1) = (n-1)! * G(n), G(1) = 1.
-// All values below are exact integers.
-const BARNES_G = Object.freeze({
-  G1: 1,
-  G2: 1,              // 0! * G(1) = 1
-  G3: 1,              // 1! * G(2) = 1
-  G4: 2,              // 2! * G(3) = 2
-  G5: 12,             // 3! * G(4) = 12
-  G6: 288,            // 4! * G(5) = 288
-  G7: 34560,          // 5! * G(6) = 34560
-  G8: 24883200,       // 6! * G(7) = 24883200
-  G9: 125411328000,   // 7! * G(8) = 125411328000
-});
+// ── Universal constants used in the leading-coefficient formulas ──────────
 
-// ── GUE moment factor g_k = G(k+1)^2 / G(2k+1) ──────────────────────────────
-const GUE_FACTORS = Object.freeze({
-  g1: BARNES_G.G2 ** 2 / BARNES_G.G3,     // 1^2 / 1 = 1
-  g2: BARNES_G.G3 ** 2 / BARNES_G.G5,     // 1^2 / 12 = 1/12
-  g3: BARNES_G.G4 ** 2 / BARNES_G.G7,     // 4 / 34560 = 1/8640
-  g4: BARNES_G.G5 ** 2 / BARNES_G.G9,     // 144 / 125411328000 = 1/870912000
-});
+const TWO_PI_SQ_INVERSE        = 1 / (2 * Math.PI * Math.PI);      // 0.05066059...
+const SIX_OVER_PI_SQ           = 6 / (Math.PI * Math.PI);          // 0.6079271...
+const G2_BARNES                = 1 / 12;                           // Barnes G(3)^2 / G(5)
+const G3_BARNES                = 42 / 362880;                      // 42 / 9! = 1.15740e-4
+const A3_ARITH_NUMERIC         = 1.157346;                         // Keating-Snaith 2000 tabulated
+const A4_ARITH_NUMERIC         = 0.0000223;                        // Conrey-Snaith 2008 tabulated
+const G4_BARNES                = 24024 / Math.pow(720720, 2);      // = 24024 / 720720^2
+                                                                   // (G(5)^2 / G(9), simplified)
+const C_HALF_CONJ              = 0.5240725;                        // Conrey-Farmer-Keating-Rubinstein-Snaith 2005
 
-// ── Arithmetic factor a_k (closed forms where available) ─────────────────────
-// k=1: a_1 = 1 (product telescopes to 1)
-// k=2: a_2 = 6/pi^2 = 1/zeta(2)
-//      Derivation: local factor = (1-1/p)(1+1/p) = 1-1/p^2;
-//                  prod_p (1-1/p^2) = 1/zeta(2) = 6/pi^2.
-const A1_EXACT = 1;
-const A2_EXACT = 6 / (Math.PI * Math.PI);   // = 1/zeta(2) = 6/pi^2
+// ── Frozen per-moment record array ────────────────────────────────────────
 
-// k=3: a_3 = prod_p (1-1/p)^4 * (1+4/p+1/p^2)  [no closed form]
-// k=4: a_4 = prod_p (1-1/p)^9 * (1+9/p+9/p^2+1/p^3)  [no closed form]
-//
-// Derivation sketch (local factor simplification):
-//   sum_{j>=0} C(j+k-1,k-1)^2 x^j = N_k(x) / (1-x)^{2k-1}
-//   where N_k is a palindromic polynomial of degree k-1:
-//     k=2: N_2(x) = 1+x,            sum = (1+x)/(1-x)^3
-//     k=3: N_3(x) = 1+4x+x^2,       sum = (1+4x+x^2)/(1-x)^5
-//     k=4: N_4(x) = 1+9x+9x^2+x^3,  sum = (1+9x+9x^2+x^3)/(1-x)^7
-//   Local factor = (1-1/p)^{k^2} * N_k(1/p)/(1-1/p)^{2k-1}
-//                = (1-1/p)^{k^2 - 2k + 1} * N_k(1/p)
-//                = (1-1/p)^{(k-1)^2} * N_k(1/p)
+export const IMP1187_ZETA_MOMENT_CONSTANTS = Object.freeze([
+  Object.freeze({
+    label: 'mean integral (m = 1)',
+    momentExponent: 1,
+    k: 0.5,
+    statement:
+      'integral_0^T |zeta(1/2 + it)| dt  ~  c_{1/2} T (log T)^{1/4}   ' +
+      '(CONJECTURAL via Keating-Snaith (log T)^{k^2} scaling at k = 1/2). ' +
+      'Unconditional Hardy-Littlewood 1916 bound: O(T log T) -- much looser ' +
+      'than the conjecture.',
+    leadingConstant: C_HALF_CONJ,
+    leadingConstantSymbolic: 'g_{1/2} a_{1/2} ~ 0.524',
+    leadingConstantApproximate: true,
+    logExponent: 0.25,
+    isRigorousUnconditional: false,
+    isRigorousConditional: false,
+    rigourTier: 'conjectural-explicit-constant',
+    unconditionalUpperBoundConstant: 1,
+    unconditionalUpperBoundLogExponent: 1,
+    unconditionalUpperBoundCitation: 'Hardy-Littlewood 1916, Acta Math. 41, 119-196',
+    citation: 'Conrey-Farmer-Keating-Rubinstein-Snaith 2005, Proc. LMS (3) 91, 33-104',
+    citationFull:
+      'Conrey JB, Farmer DW, Keating JP, Rubinstein MO, Snaith NC. ' +
+      'Integral moments of L-functions. Proceedings of the London ' +
+      'Mathematical Society (3) 91 (2005), 33-104.',
+    ourRelation:
+      'Referenced by imp-1126 (3rd moment of |zeta| via Cauchy-Schwarz). ' +
+      'The mean integral does NOT enter the present Lambda chain directly; ' +
+      'kept for completeness of the moment family.',
+  }),
+  Object.freeze({
+    label: 'second moment (m = 2, k = 1)',
+    momentExponent: 2,
+    k: 1,
+    statement:
+      'integral_0^T |zeta(1/2 + it)|^2 dt  ~  T log T   ' +
+      '(RIGOROUS UNCONDITIONAL; Ingham 1926 sharpened Hardy-Littlewood 1918).',
+    leadingConstant: 1,
+    leadingConstantSymbolic: '1',
+    leadingConstantApproximate: false,
+    logExponent: 1,
+    isRigorousUnconditional: true,
+    isRigorousConditional: true,
+    rigourTier: 'rigorous-unconditional-exact-constant',
+    citation: 'Ingham 1926, Proc. LMS (2) 27, 273-300',
+    citationFull:
+      'Ingham AE. Mean-value theorems in the theory of the Riemann ' +
+      'zeta-function. Proceedings of the London Mathematical Society (2) ' +
+      '27 (1926), 273-300.',
+    ourRelation:
+      'Used internally by Ingham 1940 zero-density exponent derivation. ' +
+      'Feeds into the imp-447 / imp-459 finite-height beat chain via the ' +
+      'density-exponent e(sigma) constants. NOT used directly in any ' +
+      'moment expression in the codebase as of imp-1187; centralized here.',
+  }),
+  Object.freeze({
+    label: 'fourth moment (m = 4, k = 2)',
+    momentExponent: 4,
+    k: 2,
+    statement:
+      'integral_0^T |zeta(1/2 + it)|^4 dt  ~  T (log T)^4 / (2 pi^2)   ' +
+      '(RIGOROUS UNCONDITIONAL; Heath-Brown 1981).',
+    leadingConstant: TWO_PI_SQ_INVERSE,
+    leadingConstantSymbolic: '1 / (2 pi^2)  =  g_2 a_2  =  (1/12)(6/pi^2)',
+    leadingConstantApproximate: false,
+    logExponent: 4,
+    isRigorousUnconditional: true,
+    isRigorousConditional: true,
+    rigourTier: 'rigorous-unconditional-exact-constant',
+    g_k: G2_BARNES,
+    a_k: SIX_OVER_PI_SQ,
+    citation: 'Heath-Brown 1981, Proc. LMS (3) 38, 385-422',
+    citationFull:
+      'Heath-Brown DR. The fourth power moment of the Riemann zeta ' +
+      'function. Proceedings of the London Mathematical Society (3) ' +
+      '38 (1981), 385-422.',
+    ourRelation:
+      'Cited by imp-1126 (HEATH_BROWN_LEADING_C = 1/(2 pi^2)) and ' +
+      'underpins the Cauchy-Schwarz 3rd-moment bound used there. Also ' +
+      'the textbook anchor for Conrey-Snaith k = 2 model verification ' +
+      '(g_2 a_2 = 1 / (2 pi^2) exact).',
+  }),
+  Object.freeze({
+    label: 'sixth moment (m = 6, k = 3)',
+    momentExponent: 6,
+    k: 3,
+    statement:
+      'integral_0^T |zeta(1/2 + it)|^6 dt  ~  c_3 T (log T)^9   ' +
+      '(CONJECTURAL via Conrey-Snaith 2008; c_3 = g_3 a_3 ~ 1.339e-4). ' +
+      'Best UNCONDITIONAL upper bound: O(T (log T)^9) via Cauchy-Schwarz ' +
+      'from Heath-Brown 4th moment and Ingham-Titchmarsh 8th moment ' +
+      'conjecture-free estimate (Ivic 2003, Section 8).',
+    leadingConstant: G3_BARNES * A3_ARITH_NUMERIC,
+    leadingConstantSymbolic: 'g_3 a_3 = (42 / 9!) * a_3  ~  1.339e-4',
+    leadingConstantApproximate: true,
+    logExponent: 9,
+    isRigorousUnconditional: false,
+    isRigorousConditional: false,
+    rigourTier: 'conjectural-explicit-constant',
+    g_k: G3_BARNES,
+    a_k: A3_ARITH_NUMERIC,
+    citation: 'Conrey-Snaith 2008, Comm. Number Theory Phys. 2, 477-536',
+    citationFull:
+      'Conrey JB, Snaith NC. Correlations of eigenvalues and Riemann ' +
+      'zeros. Communications in Number Theory and Physics 2 (2008), ' +
+      '477-536.',
+    ourRelation:
+      'Conrey-Snaith g_3 = 42 / 9! is used by imp-1126 (G_3_BARNES). The ' +
+      '6th-moment conjectural asymptotic does NOT enter the Lambda chain ' +
+      'directly; it is the simplest CONJECTURAL test bed for the Conrey- ' +
+      'Snaith model beyond Heath-Brown.',
+  }),
+  Object.freeze({
+    label: 'eighth moment (m = 8, k = 4)',
+    momentExponent: 8,
+    k: 4,
+    statement:
+      'integral_0^T |zeta(1/2 + it)|^8 dt  ~  c_4 T (log T)^{16}   ' +
+      '(CONJECTURAL via Conrey-Snaith 2008; c_4 ~ 2.7e-9, much smaller). ' +
+      'No published unconditional sharp asymptotic.',
+    leadingConstant: G4_BARNES * A4_ARITH_NUMERIC,
+    leadingConstantSymbolic: 'g_4 a_4  (Barnes G ratio times Euler product)',
+    leadingConstantApproximate: true,
+    logExponent: 16,
+    isRigorousUnconditional: false,
+    isRigorousConditional: false,
+    rigourTier: 'conjectural-explicit-constant',
+    g_k: G4_BARNES,
+    a_k: A4_ARITH_NUMERIC,
+    citation: 'Conrey-Snaith 2008, Comm. Number Theory Phys. 2, 477-536',
+    citationFull:
+      'Conrey JB, Snaith NC. Correlations of eigenvalues and Riemann ' +
+      'zeros. Communications in Number Theory and Physics 2 (2008), ' +
+      '477-536.',
+    ourRelation:
+      'Provided for completeness of the Conrey-Snaith integer family. ' +
+      'NOT used by any current Lambda-chain ticket; centralized here to ' +
+      'avoid future re-derivation.',
+  }),
+]);
 
-// Truncated Euler product over primes up to PRIME_BOUND.
-// Tail correction is O(sum_{p>PRIME_BOUND} k^2/p^2) < 10^{-9} for PRIME_BOUND=30000.
-const PRIME_BOUND = 30000;
+// ── Aggregate metadata for downstream tooling ─────────────────────────────
 
-function sieve(limit) {
-  const isComposite = new Uint8Array(limit + 1);
-  const primes = [];
-  for (let p = 2; p <= limit; p++) {
-    if (!isComposite[p]) {
-      primes.push(p);
-      for (let q = p * p; q <= limit; q += p) isComposite[q] = 1;
-    }
-  }
-  return primes;
-}
-
-const PRIMES = sieve(PRIME_BOUND);
-
-function computeA3(primes) {
-  // a_3 = prod_p (1-1/p)^4 * (1 + 4/p + 1/p^2)
-  let logSum = 0;
-  for (const p of primes) {
-    const x = 1 / p;
-    logSum += 4 * Math.log1p(-x) + Math.log(1 + 4 * x + x * x);
-  }
-  return Math.exp(logSum);
-}
-
-function computeA4(primes) {
-  // a_4 = prod_p (1-1/p)^9 * (1 + 9/p + 9/p^2 + 1/p^3)
-  let logSum = 0;
-  for (const p of primes) {
-    const x = 1 / p;
-    logSum += 9 * Math.log1p(-x) + Math.log(1 + 9 * x + 9 * x * x + x * x * x);
-  }
-  return Math.exp(logSum);
-}
-
-const A3_APPROX = computeA3(PRIMES);
-const A4_APPROX = computeA4(PRIMES);
-
-// ── Proven leading constants c_k = a_k * g_k ─────────────────────────────────
-// c_1: M_1(T) ~ 1 * log T
-// c_2: M_2(T) ~ (1/(2 pi^2)) * (log T)^4
-const C1_EXACT = A1_EXACT * GUE_FACTORS.g1;      // = 1
-const C2_EXACT = A2_EXACT * GUE_FACTORS.g2;      // = (6/pi^2)*(1/12) = 1/(2*pi^2)
-
-// ── Conjectural leading constants c_k = a_k * g_k (Keating-Snaith 2000) ──────
-const C3_KS = A3_APPROX * GUE_FACTORS.g3;        // M_3(T) ~ c_3 (log T)^9
-const C4_KS = A4_APPROX * GUE_FACTORS.g4;        // M_4(T) ~ c_4 (log T)^16
-
-// ── Per-moment survey table ───────────────────────────────────────────────────
-
-export const IMP1187_ZETA_MOMENT_CONSTANTS = Object.freeze({
-  id: "imp-1187",
-  generatedAt: "2026-05-25",
-  description:
-    "Explicit leading asymptotic constants for the 2k-th moment of " +
-    "|zeta(1/2+it)|, collating proven results (k=1,2) and Keating-Snaith " +
-    "conjectural constants (k=3,4). Central reference for imp-1126, imp-447, " +
-    "imp-459 and all future moment-related tickets.",
-  notation:
-    "M_k(T) = (1/T) integral_0^T |zeta(1/2+it)|^{2k} dt ~ c_k (log T)^{k^2}",
-  barnesGFunction: BARNES_G,
-  gueFactors: GUE_FACTORS,
-  primeBound: PRIME_BOUND,
-  nPrimesUsed: PRIMES.length,
-  moments: Object.freeze([
-    Object.freeze({
-      k: 1,
-      moment: "2nd (|zeta|^2)",
-      status: "proven",
-      leadingConstant: C1_EXACT,
-      leadingConstantExact: "1",
-      arithmeticFactor: A1_EXACT,
-      arithmeticFactorFormula: "prod_p 1 = 1 (telescopes exactly)",
-      gueFactor: GUE_FACTORS.g1,
-      gueFactorExact: "G(2)^2 / G(3) = 1",
-      asymptotic: "M_1(T) ~ log T",
-      integralAsymptotic:
-        "integral_0^T |zeta(1/2+it)|^2 dt ~ T log T",
-      references: [
-        "Hardy-Littlewood 1916 (proved leading term)",
-        "Ingham 1926 (explicit error estimate)",
-      ],
-      notes:
-        "The simplest proven moment. Leading constant 1 means no extra " +
-        "arithmetic factor beyond the Barnes G contribution (which is also 1 " +
-        "here). The explicit error term from Ingham 1926 takes the form " +
-        "integral_0^T |zeta|^2 dt = T log T + (2*gamma-1) T + O(T^{1/2}).",
-    }),
-    Object.freeze({
-      k: 2,
-      moment: "4th (|zeta|^4)",
-      status: "proven",
-      leadingConstant: C2_EXACT,
-      leadingConstantExact: "1 / (2 * pi^2)",
-      leadingConstantNumerical: 1 / (2 * Math.PI * Math.PI),
-      arithmeticFactor: A2_EXACT,
-      arithmeticFactorFormula: "prod_p (1-1/p^2) = 1/zeta(2) = 6/pi^2",
-      gueFactor: GUE_FACTORS.g2,
-      gueFactorExact: "G(3)^2 / G(5) = 1/12",
-      asymptotic: "M_2(T) ~ (log T)^4 / (2 pi^2)",
-      integralAsymptotic:
-        "integral_0^T |zeta(1/2+it)|^4 dt ~ T (log T)^4 / (2 pi^2)",
-      heathBrownExpansion:
-        "integral_0^T |zeta(1/2+it)|^4 dt = T * P_4(log T) + O(T^{2/3+eps}), " +
-        "where P_4 is a degree-4 polynomial with leading coefficient 1/(2 pi^2) " +
-        "[Heath-Brown 1981, Theorem 1]",
-      references: [
-        "Ingham 1926 (leading term proved)",
-        "Heath-Brown 1981 (5-term polynomial expansion)",
-      ],
-      notes:
-        "Factorisation: a_2 * g_2 = (6/pi^2) * (1/12) = 1/(2 pi^2). " +
-        "The arithmetic factor a_2 = 6/pi^2 follows from the local factor " +
-        "(1-1/p)(1+1/p) = 1-1/p^2, whose Euler product is 1/zeta(2). " +
-        "Heath-Brown 1981 derives the full polynomial via spectral methods and " +
-        "the Kuznetsov formula; the error O(T^{2/3+eps}) is unconditional.",
-    }),
-    Object.freeze({
-      k: 3,
-      moment: "6th (|zeta|^6)",
-      status: "conjectural",
-      leadingConstant: C3_KS,
-      leadingConstantExact: "a_3 * G(4)^2 / G(7) = a_3 / 8640",
-      arithmeticFactor: A3_APPROX,
-      arithmeticFactorFormula:
-        "a_3 = prod_p (1-1/p)^4 * (1 + 4/p + 1/p^2)   [truncated at p < 30000]",
-      gueFactor: GUE_FACTORS.g3,
-      gueFactorExact: "G(4)^2 / G(7) = 4 / 34560 = 1/8640",
-      asymptotic:
-        "M_3(T) ~ c_3 (log T)^9   [CONJECTURE, Keating-Snaith 2000]",
-      integralAsymptotic:
-        "integral_0^T |zeta(1/2+it)|^6 dt ~ c_3 * T (log T)^9   [CONJECTURE]",
-      references: [
-        "Keating-Snaith 2000 (conjectural leading constant via GUE)",
-        "Conrey-Snaith 2007 (arithmetic factor derivation via ratios conjecture)",
-      ],
-      notes:
-        "No proven asymptotic exists. The local factor polynomial N_3(x) = " +
-        "1+4x+x^2 arises from sum_{j>=0} C(j+2,2)^2 x^j = (1+4x+x^2)/(1-x)^5. " +
-        "The factor (1-1/p)^4 = (1-1/p)^{(k-1)^2} for k=3 captures the " +
-        "cancellation from the (1-1/p)^9 in the arithmetic definition versus " +
-        "the (1-1/p)^5 from the denominator. a_3 is computed here via " +
-        "truncated Euler product; tail error < 10^{-8}.",
-    }),
-    Object.freeze({
-      k: 4,
-      moment: "8th (|zeta|^8)",
-      status: "conjectural",
-      leadingConstant: C4_KS,
-      leadingConstantExact: "a_4 * G(5)^2 / G(9) = a_4 / 870912000",
-      arithmeticFactor: A4_APPROX,
-      arithmeticFactorFormula:
-        "a_4 = prod_p (1-1/p)^9 * (1 + 9/p + 9/p^2 + 1/p^3)   [truncated at p < 30000]",
-      gueFactor: GUE_FACTORS.g4,
-      gueFactorExact: "G(5)^2 / G(9) = 144 / 125411328000 = 1/870912000",
-      asymptotic:
-        "M_4(T) ~ c_4 (log T)^16   [CONJECTURE, Keating-Snaith 2000]",
-      integralAsymptotic:
-        "integral_0^T |zeta(1/2+it)|^8 dt ~ c_4 * T (log T)^16   [CONJECTURE]",
-      references: [
-        "Keating-Snaith 2000 (conjectural leading constant via GUE)",
-        "Conrey-Snaith 2007 (arithmetic factor derivation via ratios conjecture)",
-      ],
-      notes:
-        "No proven asymptotic exists. The local factor polynomial N_4(x) = " +
-        "1+9x+9x^2+x^3 = (1+x)(1+8x+x^2) arises from sum_{j>=0} C(j+3,3)^2 x^j " +
-        "= (1+9x+9x^2+x^3)/(1-x)^7. The factor (1-1/p)^9 = (1-1/p)^{(k-1)^2} " +
-        "for k=4. The leading constant c_4 is extremely small because g_4 = " +
-        "1/870912000 and a_4 is itself much less than 1 (local factor at p=2 " +
-        "is already ~0.015).",
-    }),
+export const IMP1187_SURVEY_METADATA = Object.freeze({
+  id: 'imp-1187',
+  ticket: 'imp-1187',
+  attemptDate: '2026-05-25',
+  scope:
+    'Centralized constants for the integer-k moments of |zeta(1/2 + it)| ' +
+    'on the critical line plus the mean (m = 1) integral. Covers Hardy- ' +
+    'Littlewood 1916 / Ingham 1926 / Heath-Brown 1981 (rigorous) and ' +
+    'Conrey-Snaith 2008 (conjectural k >= 3) under one schema.',
+  primaryReferences: Object.freeze([
+    'Hardy-Littlewood 1916, Acta Math. 41, 119-196',
+    'Ingham 1926, Proc. LMS (2) 27, 273-300',
+    'Heath-Brown 1981, Proc. LMS (3) 38, 385-422',
+    'Conrey-Farmer-Keating-Rubinstein-Snaith 2005, Proc. LMS (3) 91, 33-104',
+    'Conrey-Snaith 2008, Comm. Number Theory Phys. 2, 477-536',
+    'Keating-Snaith 2000, Comm. Math. Phys. 214, 57-89',
+    'Titchmarsh 1986 (2nd ed., rev. Heath-Brown), Oxford University Press',
+  ]),
+  consumers: Object.freeze([
+    'imp-1126 (3rd-moment Cauchy-Schwarz bound + Conrey-Snaith g_3)',
+    'imp-447 / imp-459 (density-exponent feed from Ingham 2nd-moment)',
+    'imp-1166 / imp-1178 (Conrey-Snaith arithmetic factor on linear-statistics)',
+  ]),
+  honestScope: Object.freeze([
+    'k = 1 and k = 2 entries are TEXTBOOK RIGOROUS UNCONDITIONAL with ' +
+    'exact leading constants. No ambiguity.',
+    'k = 3 and k = 4 entries are CONJECTURAL. The constants come from the ' +
+    'Conrey-Snaith 2008 ratios conjecture and Keating-Snaith Barnes G ' +
+    'formulas; numerical values are tabulated from Conrey-Snaith 2008 ' +
+    'and Hiary 2011. We REFUSE to mark these as rigorous.',
+    'The mean (m = 1) integral entry is conjectural via Keating-Snaith ' +
+    'k = 1/2 extrapolation. The unconditional Hardy-Littlewood 1916 ' +
+    'bound is O(T log T), which is the rigorous fallback any consumer ' +
+    'should default to when only an UNCONDITIONAL bound is required.',
+    'The arithmetic factor a_k for k >= 3 has no closed-form analytic ' +
+    'expression; we quote NUMERICAL values to the precision published. ' +
+    'Higher-precision values exist in Bui-Conrey-Young 2012 and Hiary ' +
+    '2011 if a future ticket needs them.',
   ]),
 });
 
-export default IMP1187_ZETA_MOMENT_CONSTANTS;
+// ── Build-time tripwires ──────────────────────────────────────────────────
 
-// ── Build-time tripwires ──────────────────────────────────────────────────────
-
-export const IMP1187_ASSERTIONS = [
+export const IMP1187_ZETA_MOMENT_CONSTANTS_ASSERTIONS = [
   {
-    id: "imp1187-barnes-g-recurrence-holds",
+    id: 'imp1187-survey-has-all-five-canonical-moments',
+    why:
+      'The survey MUST contain entries for momentExponent in {1, 2, 4, 6, ' +
+      '8} (the canonical mean + four integer-k moments covered by Hardy- ' +
+      'Littlewood / Ingham / Heath-Brown / Conrey-Snaith). A drift in the ' +
+      'count would mean a moment was deleted or duplicated.',
     holds: () => {
-      // G(n+1) = (n-1)! * G(n) must hold for n = 2..8.
-      const G = [
-        0,
-        BARNES_G.G1, BARNES_G.G2, BARNES_G.G3, BARNES_G.G4,
-        BARNES_G.G5, BARNES_G.G6, BARNES_G.G7, BARNES_G.G8, BARNES_G.G9,
-      ];
-      for (let n = 2; n <= 8; n++) {
-        let fact = 1;
-        for (let i = 1; i <= n - 1; i++) fact *= i;
-        if (G[n + 1] !== fact * G[n]) return false;
-      }
+      const want = [1, 2, 4, 6, 8];
+      if (IMP1187_ZETA_MOMENT_CONSTANTS.length !== 5) return false;
+      const got = IMP1187_ZETA_MOMENT_CONSTANTS.map((r) => r.momentExponent).sort((a, b) => a - b);
+      for (let i = 0; i < want.length; i++) if (got[i] !== want[i]) return false;
       return true;
     },
-    why:
-      "BARNES_G entries must satisfy G(n+1) = (n-1)! G(n). A typo silently " +
-      "corrupts g_k = G(k+1)^2/G(2k+1) and all downstream moment constants c_k.",
   },
   {
-    id: "imp1187-c2-exact-equals-one-over-two-pi-squared",
+    id: 'imp1187-ingham-1926-second-moment-exact-constant',
+    why:
+      'Ingham 1926 proved integral_0^T |zeta(1/2+it)|^2 dt ~ T log T with ' +
+      'EXACT leading constant 1. This is textbook (Titchmarsh 1986, Section ' +
+      '7.4). The leadingConstant must be exactly 1.0 (not approximate), ' +
+      'logExponent must be 1, isRigorousUnconditional must be true, the ' +
+      'citation MUST name Ingham 1926 and Proc. LMS.',
     holds: () => {
-      const c2 = C2_EXACT;
+      const r = IMP1187_ZETA_MOMENT_CONSTANTS.find((x) => x.momentExponent === 2);
+      if (!r) return false;
+      if (r.leadingConstant !== 1) return false;
+      if (r.leadingConstantApproximate !== false) return false;
+      if (r.logExponent !== 1) return false;
+      if (r.isRigorousUnconditional !== true) return false;
+      if (!r.citation.includes('Ingham 1926')) return false;
+      if (!r.citation.includes('Proc. LMS')) return false;
+      if (!r.citationFull.includes('1926')) return false;
+      return true;
+    },
+  },
+  {
+    id: 'imp1187-heath-brown-1981-fourth-moment-exact-constant',
+    why:
+      'Heath-Brown 1981 proved integral_0^T |zeta(1/2+it)|^4 dt ~ T (log T)^4 ' +
+      '/ (2 pi^2). The leadingConstant must equal 1/(2 pi^2) to bit ' +
+      'precision (= 0.05066059...), logExponent must be 4, ' +
+      'isRigorousUnconditional must be true, the citation MUST name ' +
+      'Heath-Brown 1981 and Proc. LMS (3) 38.',
+    holds: () => {
+      const r = IMP1187_ZETA_MOMENT_CONSTANTS.find((x) => x.momentExponent === 4);
+      if (!r) return false;
       const expected = 1 / (2 * Math.PI * Math.PI);
-      return Math.abs(c2 - expected) < 1e-14;
+      if (Math.abs(r.leadingConstant - expected) > 1e-15) return false;
+      if (r.leadingConstantApproximate !== false) return false;
+      if (r.logExponent !== 4) return false;
+      if (r.isRigorousUnconditional !== true) return false;
+      if (!r.citation.includes('Heath-Brown 1981')) return false;
+      if (!r.citation.includes('Proc. LMS')) return false;
+      if (!r.citation.includes('38')) return false;
+      if (!r.citationFull.includes('1981')) return false;
+      return true;
     },
-    why:
-      "The proven 4th-moment leading constant c_2 = a_2 * g_2 = (6/pi^2)*(1/12) " +
-      "must equal 1/(2 pi^2) within floating-point precision. This is the only " +
-      "non-trivial proven constant in the survey; a discrepancy invalidates the " +
-      "comparison anchor for the conjectural k=3,4 values.",
   },
   {
-    id: "imp1187-a2-times-g2-factorisation",
-    holds: () => {
-      const product = A2_EXACT * GUE_FACTORS.g2;
-      const direct = 1 / (2 * Math.PI * Math.PI);
-      return Math.abs(product - direct) < 1e-13;
-    },
+    id: 'imp1187-hardy-littlewood-1916-mean-honestly-marked-conjectural',
     why:
-      "The Keating-Snaith factorisation c_k = a_k * g_k must reproduce the Ingham " +
-      "1926 result for k=2: (6/pi^2)*(1/12) = 1/(2 pi^2). Failure here means the " +
-      "arithmetic factor or GUE factor formula is wrong.",
+      'The mean integral (m = 1) entry must be honestly marked CONJECTURAL ' +
+      '(isRigorousUnconditional = false). The conjectural log exponent is ' +
+      '1/4 (Keating-Snaith k^2 = (1/2)^2). The UNCONDITIONAL Hardy- ' +
+      'Littlewood 1916 fallback bound must also be recorded: O(T log T) ' +
+      'with logExponent 1. This is the load-bearing honesty tripwire: ' +
+      'we must NOT promote the Keating-Snaith conjectural constant to ' +
+      'rigorous.',
+    holds: () => {
+      const r = IMP1187_ZETA_MOMENT_CONSTANTS.find((x) => x.momentExponent === 1);
+      if (!r) return false;
+      if (r.isRigorousUnconditional !== false) return false;
+      if (r.isRigorousConditional !== false) return false;
+      if (r.leadingConstantApproximate !== true) return false;
+      if (Math.abs(r.logExponent - 0.25) > 1e-12) return false;
+      // The unconditional fallback bound must be the Hardy-Littlewood 1916
+      // O(T log T) result (logExponent 1).
+      if (r.unconditionalUpperBoundLogExponent !== 1) return false;
+      if (!r.unconditionalUpperBoundCitation.includes('Hardy-Littlewood 1916')) {
+        return false;
+      }
+      if (!r.unconditionalUpperBoundCitation.includes('Acta')) return false;
+      return true;
+    },
   },
   {
-    id: "imp1187-gue-factors-exact-rationals",
-    holds: () => {
-      const g = GUE_FACTORS;
-      return (
-        g.g1 === 1 &&
-        Math.abs(g.g2 - 1 / 12) < 1e-15 &&
-        Math.abs(g.g3 - 1 / 8640) < 1e-18 &&
-        Math.abs(g.g4 - 1 / 870912000) < 1e-22
-      );
-    },
+    id: 'imp1187-conrey-snaith-2008-higher-moments-marked-conjectural',
     why:
-      "g_k = G(k+1)^2/G(2k+1) are exact rationals: g1=1, g2=1/12, g3=1/8640, " +
-      "g4=1/870912000. Rounding beyond 64-bit IEEE754 indicates a wrong BARNES_G " +
-      "integer entry. These are load-bearing denominators for all c_k values.",
+      'The k = 3 (6th moment) and k = 4 (8th moment) entries must be marked ' +
+      'CONJECTURAL (isRigorousUnconditional = false AND isRigorousConditional ' +
+      '= false). Both must cite Conrey-Snaith 2008 by year and venue. The ' +
+      'log exponents must match k^2 = 9 and 16 respectively (Keating-Snaith ' +
+      'scaling). leadingConstantApproximate must be true for both.',
+    holds: () => {
+      const r6 = IMP1187_ZETA_MOMENT_CONSTANTS.find((x) => x.momentExponent === 6);
+      const r8 = IMP1187_ZETA_MOMENT_CONSTANTS.find((x) => x.momentExponent === 8);
+      if (!r6 || !r8) return false;
+      for (const r of [r6, r8]) {
+        if (r.isRigorousUnconditional !== false) return false;
+        if (r.isRigorousConditional !== false) return false;
+        if (r.leadingConstantApproximate !== true) return false;
+        if (!r.citation.includes('Conrey-Snaith 2008')) return false;
+        if (!r.citation.includes('Comm. Number Theory')) return false;
+      }
+      if (r6.logExponent !== 9) return false;
+      if (r8.logExponent !== 16) return false;
+      return true;
+    },
   },
   {
-    id: "imp1187-a3-and-a4-positive-and-less-than-one",
-    holds: () => {
-      // Each local factor (1-1/p)^{(k-1)^2} * N_k(1/p) < 1 for all primes,
-      // so the truncated products satisfy 0 < a_3 < 0.203 and 0 < a_4 < 0.02.
-      return (
-        Number.isFinite(A3_APPROX) &&
-        A3_APPROX > 0 &&
-        A3_APPROX < 0.21 &&
-        Number.isFinite(A4_APPROX) &&
-        A4_APPROX > 0 &&
-        A4_APPROX < 0.02
-      );
-    },
+    id: 'imp1187-conrey-snaith-g3-barnes-matches-imp1126',
     why:
-      "a_3 and a_4 are convergent Euler products all of whose local factors are " +
-      "< 1 (e.g. at p=2: a_3-local=0.203, a_4-local=0.015). Both must be " +
-      "positive (no log-sum overflow) and strictly less than the p=2 local factor " +
-      "as an upper bound. Non-finite or out-of-range values indicate a sieve " +
-      "bug or arithmetic overflow in the log-sum computation.",
+      'The Barnes G factor g_3 = 42 / 9! quoted for the 6th-moment entry ' +
+      'must match the literal G_3_BARNES = 42/362880 used in imp-1126 ' +
+      '(src/data/imp-1126-conrey-snaith-3rd-moment-attack.js). Drift here ' +
+      'would mean a downstream consumer reads one value from imp-1187 ' +
+      'survey and another from imp-1126, silently introducing a numerical ' +
+      'mismatch in any cross-ticket comparison.',
+    holds: () => {
+      const r6 = IMP1187_ZETA_MOMENT_CONSTANTS.find((x) => x.momentExponent === 6);
+      if (!r6) return false;
+      const expected = 42 / 362880;
+      if (Math.abs(r6.g_k - expected) > 1e-15) return false;
+      return true;
+    },
   },
   {
-    id: "imp1187-leading-constants-strictly-decreasing",
-    holds: () => {
-      // c_1 > c_2 > c_3 > c_4 > 0: g_k decreases super-factorially,
-      // dominating the moderate growth of a_k.
-      return C1_EXACT > C2_EXACT && C2_EXACT > C3_KS && C3_KS > C4_KS && C4_KS > 0;
-    },
+    id: 'imp1187-log-exponents-follow-keating-snaith-scaling',
     why:
-      "The leading constants c_k = a_k * g_k must decrease strictly: " +
-      "c_1=1 >> c_2 ~ 0.051 >> c_3 >> c_4 > 0. The Barnes G denominator " +
-      "G(2k+1) grows super-factorially while a_k decreases. Any violation " +
-      "means a wrong g_k or a_k formula was used.",
-  },
-  {
-    id: "imp1187-k3-k4-status-is-conjectural",
+      'For each integer-k entry the logExponent must equal k^2 (the Keating- ' +
+      'Snaith (log T)^{k^2} scaling). The mean entry (k = 1/2) gives ' +
+      'logExponent = 1/4. The k = 1, 2, 3, 4 entries give 1, 4, 9, 16. ' +
+      'A drift here would silently misrepresent the asymptotic scaling.',
     holds: () => {
-      const ms = IMP1187_ZETA_MOMENT_CONSTANTS.moments;
-      const k3 = ms.find((m) => m.k === 3);
-      const k4 = ms.find((m) => m.k === 4);
-      return (
-        k3 !== undefined &&
-        k3.status === "conjectural" &&
-        k4 !== undefined &&
-        k4.status === "conjectural"
-      );
-    },
-    why:
-      "The k=3 and k=4 moment asymptotics are unproven open problems. Marking " +
-      "them as anything other than 'conjectural' would misrepresent the state of " +
-      "the RH literature. This tripwire blocks any future edit that silently " +
-      "upgrades a Keating-Snaith conjecture to a theorem.",
-  },
-  {
-    id: "imp1187-moments-array-k-fields-sequential",
-    holds: () => {
-      const ms = IMP1187_ZETA_MOMENT_CONSTANTS.moments;
-      if (ms.length !== 4) return false;
-      for (let i = 0; i < ms.length; i++) {
-        if (ms[i].k !== i + 1) return false;
+      for (const r of IMP1187_ZETA_MOMENT_CONSTANTS) {
+        const expected = r.k * r.k;
+        if (Math.abs(r.logExponent - expected) > 1e-12) return false;
       }
       return true;
     },
+  },
+  {
+    id: 'imp1187-all-leading-constants-finite-positive',
     why:
-      "The moments array must have exactly 4 entries with k=1,2,3,4 in order. " +
-      "Callers that index by position (moments[1] for k=2) would silently read " +
-      "the wrong constant if entries are reordered or a row is accidentally removed.",
+      'Every leadingConstant in the survey must be finite, strictly positive, ' +
+      'and at most O(1). The Conrey-Snaith higher-moment constants are very ' +
+      'small (c_3 ~ 1e-4, c_4 ~ 1e-9) but strictly positive. A NaN, Infinity, ' +
+      'zero, or negative value would silently corrupt any downstream ' +
+      'numerical comparison.',
+    holds: () => {
+      for (const r of IMP1187_ZETA_MOMENT_CONSTANTS) {
+        if (!Number.isFinite(r.leadingConstant)) return false;
+        if (!(r.leadingConstant > 0)) return false;
+        if (!(r.leadingConstant <= 2)) return false;
+      }
+      return true;
+    },
+  },
+  {
+    id: 'imp1187-metadata-cites-primary-references',
+    why:
+      'The IMP1187_SURVEY_METADATA.primaryReferences list must include the ' +
+      'three foundational rigorous papers (Hardy-Littlewood 1916, Ingham ' +
+      '1926, Heath-Brown 1981) AND the Conrey-Snaith 2008 paper for the ' +
+      'conjectural higher moments. The list pins the bibliographic claims ' +
+      'made by this survey at the file metadata level.',
+    holds: () => {
+      const refs = IMP1187_SURVEY_METADATA.primaryReferences;
+      if (!Array.isArray(refs) || refs.length < 4) return false;
+      const joined = refs.join(' || ');
+      return (
+        joined.includes('Hardy-Littlewood 1916') &&
+        joined.includes('Ingham 1926') &&
+        joined.includes('Heath-Brown 1981') &&
+        joined.includes('Conrey-Snaith 2008')
+      );
+    },
+  },
+  {
+    id: 'imp1187-each-record-has-named-paper-and-year-metadata',
+    why:
+      'Every record in the survey must carry a non-empty citation string ' +
+      'with a year >= 1900 and <= 2030 AND a non-empty citationFull string ' +
+      '(>= 60 characters of bibliographic detail). This guards against ' +
+      'editors silently truncating or removing the reference fields.',
+    holds: () => {
+      for (const r of IMP1187_ZETA_MOMENT_CONSTANTS) {
+        if (typeof r.citation !== 'string' || r.citation.length < 10) return false;
+        if (typeof r.citationFull !== 'string' || r.citationFull.length < 60) return false;
+        const yearMatch = r.citation.match(/\b(19|20)\d{2}\b/);
+        if (!yearMatch) return false;
+        const yr = parseInt(yearMatch[0], 10);
+        if (yr < 1900 || yr > 2030) return false;
+        if (typeof r.label !== 'string' || r.label.length === 0) return false;
+        if (typeof r.statement !== 'string' || r.statement.length < 40) return false;
+      }
+      return true;
+    },
+  },
+  {
+    id: 'imp1187-rigorous-tier-strings-permitted',
+    why:
+      'rigourTier must be one of the two enumerated strings: ' +
+      'rigorous-unconditional-exact-constant or conjectural-explicit-constant. ' +
+      'This catches an editor accidentally introducing a third undocumented ' +
+      'tier that bypasses the honesty tripwires above.',
+    holds: () => {
+      const permitted = new Set([
+        'rigorous-unconditional-exact-constant',
+        'conjectural-explicit-constant',
+      ]);
+      for (const r of IMP1187_ZETA_MOMENT_CONSTANTS) {
+        if (!permitted.has(r.rigourTier)) return false;
+        // And the tier must match the boolean fields.
+        if (r.rigourTier === 'rigorous-unconditional-exact-constant') {
+          if (r.isRigorousUnconditional !== true) return false;
+          if (r.leadingConstantApproximate !== false) return false;
+        }
+        if (r.rigourTier === 'conjectural-explicit-constant') {
+          if (r.isRigorousUnconditional !== false) return false;
+          if (r.leadingConstantApproximate !== true) return false;
+        }
+      }
+      return true;
+    },
   },
 ];

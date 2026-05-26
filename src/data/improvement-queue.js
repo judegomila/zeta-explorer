@@ -17670,7 +17670,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'NEW SECTION /closure-routes: para 16 -- four equivalent closure routes',
     category: 'feature',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Build /closure-routes page rendering para 16 (pages 16-22): four equivalent closure statements (Schur contractivity Route A, de Branges positivity Route B, hidden-square kernel factorization Route C, Weil/twin-ladder norm square Route D), shared bottleneck, Conjectures 16.4 and 16.6. Show equivalence diagram (D3 or SVG) + per-route status. Ship src/data/closure-routes-section.js + src/pages/ClosureRoutesPage.jsx. 6+ tripwires.",
     rationale: 'Four-route equivalence is a major structural insight. The app has RHAttackPage but lists 5 different attacks, not these four.',

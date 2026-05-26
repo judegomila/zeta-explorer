@@ -290,6 +290,8 @@ export default function LiteraturePage() {
           <a href="#/selberg-trace" style={{ color: '#10b981', fontSize: 13 }}>Selberg Trace</a>
           <span style={{ color: '#334155' }}>|</span>
           <a href="#/rh-equivalents" style={{ color: '#ec4899', fontSize: 13 }}>RH Equivalents</a>
+          <span style={{ color: '#334155' }}>|</span>
+          <a href="#/closure-routes" style={{ color: '#a855f7', fontSize: 13 }}>Closure Routes (§16)</a>
         </div>
       </div>
     </div>

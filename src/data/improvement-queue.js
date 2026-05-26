@@ -17873,7 +17873,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'META-app: HomePage.jsx -- add nav for the 6 wave-11 pages',
     category: 'ux',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'meta-portability',
     description: "Once imp-1196..imp-1201 ship, HomePage needs 6 new nav entries: /shift-bridge-positivity, /closure-routes, /blaschke-ghosts, /three-attacks, /reciprocal-program, /kyp-bounded-real. Add under new 'Twin-Ladder Program (v52)' section.",
     rationale: 'New pages without nav are unreachable.',
@@ -17881,6 +17881,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1196', 'imp-1197', 'imp-1198', 'imp-1199', 'imp-1200', 'imp-1201'],
     model: 'haiku-4-5',
     channel: 'haiku',
+    completedByModel: 'haiku-4-5',
+    completedByChannel: 'subscription',
   },
   {
     id: 'imp-1215',

@@ -914,6 +914,48 @@ export default function HomePage() {
                Hodge structure, and spectral universality.</p>
           </div>
         </Link>
+        <Link to="/shift-bridge-positivity" style={{ textDecoration: 'none' }}>
+          <div className="card">
+            <h3 style={{ color: '#3b82f6' }}>Shift-Bridge Positivity</h3>
+            <p>RH equivalence through bridge-thickness — parametric shift analysis and positivity bounds
+               that collapse to RH on the critical line.</p>
+          </div>
+        </Link>
+        <Link to="/closure-routes" style={{ textDecoration: 'none' }}>
+          <div className="card">
+            <h3 style={{ color: '#10b981' }}>Four Closure Routes</h3>
+            <p>Four equivalent closure pathways for the twin-ladder functional equation —
+               each a sufficient condition for all zeros on the critical line.</p>
+          </div>
+        </Link>
+        <Link to="/blaschke-ghosts" style={{ textDecoration: 'none' }}>
+          <div className="card">
+            <h3 style={{ color: '#ec4899' }}>Blaschke Ghosts</h3>
+            <p>Inverse Blaschke product geometry and Pontryagin operators — ghost reflection zeros
+               and their confinement to the left half-plane.</p>
+          </div>
+        </Link>
+        <Link to="/three-attacks" style={{ textDecoration: 'none' }}>
+          <div className="card">
+            <h3 style={{ color: '#ef4444' }}>Three Attacks</h3>
+            <p>Kernel-passivity, prime-delay domination, and Weil-Pontryagin frameworks —
+               three independent routes to confinement on the critical line.</p>
+          </div>
+        </Link>
+        <Link to="/reciprocal-program" style={{ textDecoration: 'none' }}>
+          <div className="card">
+            <h3 style={{ color: '#f59e0b' }}>Reciprocal Program</h3>
+            <p>Reciprocal lattice automorphisms, Schoenberg kernels, Möbius inversions, and Hardy-Corona theory —
+               dual-space geometry of the twin ladder.</p>
+          </div>
+        </Link>
+        <Link to="/kyp-bounded-real" style={{ textDecoration: 'none' }}>
+          <div className="card">
+            <h3 style={{ color: '#06b6d4' }}>KYP Bounded-Real</h3>
+            <p>Kalman-Yacubovich-Popov state-space framework, bounded-real Lemma, and delay-Gram positivity —
+               computational certification of bridge losslessness.</p>
+          </div>
+        </Link>
       </div>
 
       {/* ══════════════ CORRESPONDENCES TABLE ══════════════ */}

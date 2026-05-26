@@ -290,6 +290,8 @@ const DATA_MODULES = [
   '/src/data/imp-1184-direct-selberg-esy-route-audit.js',
   // imp-1178: refines imp-1166 simplified-correction to best-available Conrey-Snaith 2008 ratios-conjecture formula on the imp-1162 13-point grid.
   '/src/data/imp-1178-conrey-snaith-full-ratios-derivation.js',
+  // imp-1186: extends imp-1162 13-point lin-stat grid to 20 points (interior fill + zeros6-based extension to N=2e6); reports 20-point OLS slope + 2000-replicate percentile-bootstrap CI.
+  '/src/data/imp-1186-lin-stat-20point-sweep.js',
   // imp-1104: Selberg trace formula reference doc (haiku-4-5 bucket).
   '/src/data/selberg-trace-formula-reference.js',
   // imp-1119: Riemann hypothesis equivalents catalog (haiku-4-5 bucket).

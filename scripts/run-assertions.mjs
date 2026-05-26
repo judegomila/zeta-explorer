@@ -321,6 +321,8 @@ const DATA_MODULES = [
   '/src/data/imp-1193-ssr-pool-validation.js',
   // imp-1183: 3-point correlation empirical on 1e6 zeros — Pearson 0.978 vs GUE, supports imp-1180 route.
   '/src/data/imp-1183-3point-correlation-empirical.js',
+  // imp-1196: Shift-Bridge Reflection Positivity (§15 of v52 paper) reference doc.
+  '/src/data/shift-bridge-positivity-section.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -60,6 +60,7 @@ const HealthPage = lazy(() => import('./pages/HealthPage.jsx'));
 const FullStoryPage = lazy(() => import('./pages/FullStoryPage.jsx'));
 const GramPointsPage = lazy(() => import('./pages/GramPointsPage.jsx'));
 const SelbergTracePage = lazy(() => import('./pages/SelbergTracePage.jsx'));
+const RHEquivalentsPage = lazy(() => import('./pages/RHEquivalentsPage.jsx'));
 
 function PageLoader() {
   return (
@@ -435,6 +436,7 @@ function AppShell() {
           <Route path="/papers" element={<PapersDownloadPage />} />
           <Route path="/gram-points" element={<GramPointsPage />} />
           <Route path="/selberg-trace" element={<SelbergTracePage />} />
+          <Route path="/rh-equivalents" element={<RHEquivalentsPage />} />
         </Routes>
         </Suspense>
       </div>

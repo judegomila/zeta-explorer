@@ -2,6 +2,12 @@
 
 Automated improvements made by the Claude Code auto-improvement engine.
 
+This log now spans 1100+ entries across the mathexplorer project — visualizations,
+proofs, meta-harness infrastructure, paper artifacts, and routing/UX. The chain
+currently sits at a composed Λ ≤ 7.98e-4 candidate (Routes A+B+C, paper v1 shipped);
+see `src/data/lambda-roadmap.js` and `/lambda-bounds` for live status. Header columns
+below are the engine contract — do not rename or reorder.
+
 | # | Timestamp | Summary | Files Changed |
 |---|-----------|---------|---------------|
 | 1 | 2026-03-02T12:00:00Z | Fix de Bruijn-Newman x-scale using gamma values instead of zero count | LiCriterionViz.jsx |

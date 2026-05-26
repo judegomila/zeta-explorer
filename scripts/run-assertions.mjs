@@ -286,12 +286,16 @@ const DATA_MODULES = [
   '/src/data/imp-1161-costin-lebowitz-port-attempt.js',
   // imp-1180: Higher-order-correlation alternative route for ESY closure — research-grade-open with c_3 unconditional gap.
   '/src/data/imp-1180-higher-order-correlation-route.js',
+  // imp-1184: Direct Selberg + ESY-rigidity route Stage-S2 audit — research-grade-open with O-DS-A/B/C critical obstructions.
+  '/src/data/imp-1184-direct-selberg-esy-route-audit.js',
   // imp-1178: refines imp-1166 simplified-correction to best-available Conrey-Snaith 2008 ratios-conjecture formula on the imp-1162 13-point grid.
   '/src/data/imp-1178-conrey-snaith-full-ratios-derivation.js',
   // imp-1104: Selberg trace formula reference doc (haiku-4-5 bucket).
   '/src/data/selberg-trace-formula-reference.js',
   // imp-1119: Riemann hypothesis equivalents catalog (haiku-4-5 bucket).
   '/src/data/rh-equivalents-reference.js',
+  // imp-1182: refines imp-1179 A_BS window [4,12] central 8 to [4,8] central 6 via structural derivation.
+  '/src/data/imp-1182-bs-2008-paper-walk-A-bound.js',
 ];
 
 const ALL_MODULES = FAST_MODE

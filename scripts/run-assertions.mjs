@@ -327,6 +327,8 @@ const DATA_MODULES = [
   '/src/data/blaschke-ghosts-section.js',
   // imp-1210: literature audit on twin-ladder paper Section 22 Conjectures (22.1-22.4) — verdict 22.4=SUBSUMED.
   '/src/data/imp-1210-conjecture-22-literature-audit.js',
+  // imp-1201: Apps M-O -- KYP state-space, bounded-real delay, delay-Gram positivity.
+  '/src/data/kyp-bounded-real-section.js',
 ];
 
 const ALL_MODULES = FAST_MODE

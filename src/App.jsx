@@ -64,6 +64,7 @@ const RHEquivalentsPage = lazy(() => import('./pages/RHEquivalentsPage.jsx'));
 const ThreeAttacksPage = lazy(() => import('./pages/ThreeAttacksPage.jsx'));
 const BlaschkeGhostsPage = lazy(() => import('./pages/BlaschkeGhostsPage.jsx'));
 const ClosureRoutesPage = lazy(() => import('./pages/ClosureRoutesPage.jsx'));
+const KypBoundedRealPage = lazy(() => import('./pages/KypBoundedRealPage.jsx'));
 
 function PageLoader() {
   return (
@@ -443,6 +444,7 @@ function AppShell() {
           <Route path="/three-attacks" element={<ThreeAttacksPage />} />
           <Route path="/blaschke-ghosts" element={<BlaschkeGhostsPage />} />
           <Route path="/closure-routes" element={<ClosureRoutesPage />} />
+          <Route path="/kyp-bounded-real" element={<KypBoundedRealPage />} />
         </Routes>
         </Suspense>
       </div>

@@ -17732,7 +17732,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'NEW SECTION /kyp-bounded-real: Apps M-O -- KYP state-space + bounded-real delay + delay-Gram',
     category: 'feature',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Build /kyp-bounded-real page rendering Apps M-O (pages 97-110): KYP state-space passive lifts (M), bounded-real delay lifts + signed-Mobius barrier (N), delay-Gram bounded-real certificates (O). Control-theory bridge to no-ghost problem. Include parallel-delay realization diagram. Ship src/data/kyp-bounded-real-section.js + src/pages/KYPBoundedRealPage.jsx. 5+ tripwires.",
     rationale: 'KYP / bounded-real is the route to actual computable finite certificates. Central to rigorous-numerics program.',
@@ -17740,6 +17740,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['research-inputs/twin_ladder_consolidated_v52.pdf'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'subscription',
   },
   {
     id: 'imp-1202',

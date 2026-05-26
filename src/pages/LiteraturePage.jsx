@@ -286,6 +286,8 @@ export default function LiteraturePage() {
           <a href="#/concepts" style={{ color: '#06b6d4', fontSize: 13 }}>Concepts</a>
           <span style={{ color: '#334155' }}>|</span>
           <a href="#/explorations" style={{ color: '#8b5cf6', fontSize: 13 }}>Explorations</a>
+          <span style={{ color: '#334155' }}>|</span>
+          <a href="#/selberg-trace" style={{ color: '#10b981', fontSize: 13 }}>Selberg Trace</a>
         </div>
       </div>
     </div>

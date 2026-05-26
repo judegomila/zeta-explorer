@@ -17514,7 +17514,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add /selberg-trace nav link to LiteraturePage.jsx',
     category: 'ux',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'meta-portability',
     description: "imp-1118 shipped SelbergTracePage but didn't wire a nav link from LiteraturePage where readers would look for it. Add a single link in the appropriate section of src/pages/LiteraturePage.jsx pointing to /#/selberg-trace with a one-line label. Atomic. Build verify green.",
     rationale: 'Small UX gap closure. Pages exist but are not discoverable from where readers naturally look.',
@@ -17522,6 +17522,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1118'],
     model: 'haiku-4-5',
     channel: 'haiku',
+    completedByModel: 'haiku-4-5',
+    completedByChannel: 'subscription',
   },
   {
     id: 'imp-1191',

@@ -61,6 +61,8 @@ const FullStoryPage = lazy(() => import('./pages/FullStoryPage.jsx'));
 const GramPointsPage = lazy(() => import('./pages/GramPointsPage.jsx'));
 const SelbergTracePage = lazy(() => import('./pages/SelbergTracePage.jsx'));
 const RHEquivalentsPage = lazy(() => import('./pages/RHEquivalentsPage.jsx'));
+const ThreeAttacksPage = lazy(() => import('./pages/ThreeAttacksPage.jsx'));
+const BlaschkeGhostsPage = lazy(() => import('./pages/BlaschkeGhostsPage.jsx'));
 
 function PageLoader() {
   return (
@@ -437,6 +439,8 @@ function AppShell() {
           <Route path="/gram-points" element={<GramPointsPage />} />
           <Route path="/selberg-trace" element={<SelbergTracePage />} />
           <Route path="/rh-equivalents" element={<RHEquivalentsPage />} />
+          <Route path="/three-attacks" element={<ThreeAttacksPage />} />
+          <Route path="/blaschke-ghosts" element={<BlaschkeGhostsPage />} />
         </Routes>
         </Suspense>
       </div>

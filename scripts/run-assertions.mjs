@@ -321,6 +321,8 @@ const DATA_MODULES = [
   '/src/data/imp-1193-ssr-pool-validation.js',
   // imp-1183: 3-point correlation empirical on 1e6 zeros — Pearson 0.978 vs GUE, supports imp-1180 route.
   '/src/data/imp-1183-3point-correlation-empirical.js',
+  // imp-1198: Blaschke ghosts section — §17 of twin-ladder-v52 paper.
+  '/src/data/blaschke-ghosts-section.js',
 ];
 
 const ALL_MODULES = FAST_MODE

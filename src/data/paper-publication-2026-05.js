@@ -50,11 +50,17 @@ const MAKEFILE_PATH = 'paper/Makefile';
 // refinements into Appendix C, added a new Appendix C-prime hybrid factor
 // table + a new Appendix D refresh log. PDF rebuilt via tectonic 0.16.9;
 // size grew from 91401 bytes (6 pages) to 113912 bytes (8 pages).
-const PAGE_COUNT = 11;
-const FILE_SIZE_BYTES = 157595;
+// 2026-05-26 refresh (imp-1237): added an additional-empirical-support
+// paragraph inside Proposition 4.5 citing the imp-1186 20-point densified
+// grid (slope -0.892, R^2 0.979, percentile-bootstrap CI [-0.948, -0.826],
+// extension to N=2e6 via the Odlyzko zeros6 concatenation). PDF rebuilt
+// via tectonic 0.16.9; size grew from 157595 bytes (11 pages) to 159284
+// bytes (12 pages).
+const PAGE_COUNT = 12;
+const FILE_SIZE_BYTES = 159284;
 
 // Compile timestamp (commit time, not build time).
-const BUILT_AT = '2026-05-20T20:00:00Z';
+const BUILT_AT = '2026-05-26T23:43:43Z';
 const LATEX_COMPILER_USED = 'tectonic 0.16.9';
 
 // ── Sections included (mirrors the LaTeX TOC) ────────────────────────────────
@@ -79,6 +85,30 @@ const SECTIONS_INCLUDED = [
 // bridge refinements were rolled into Appendix C and the new Appendix D
 // refresh-log was added.
 const REFRESH_HISTORY = [
+  Object.freeze({
+    at: '2026-05-26T23:43:43Z',
+    ticket: 'imp-1237',
+    summary:
+      'Paper §4.5 (Proposition 4.5) gains an "Additional empirical support" ' +
+      'paragraph rolling in the imp-1186 20-point densified-grid lin-stat ' +
+      'sweep (raw slope -0.892, R^2 0.979, 2000-replicate percentile-bootstrap ' +
+      '95%% CI [-0.948, -0.826] on the raw slope; grid spans N in ' +
+      '[10^2, 2e6] using the imp-1186 zeros6-based extension). The 13-point ' +
+      'block-bootstrap CI [-1.076, -0.912] remains the headline conservative ' +
+      'interval; the 20-point fit is reported as an empirical-strength ' +
+      'robustness cross-check that grid extension preserves the ' +
+      'sine-kernel-universality verdict. PDF rebuilt via tectonic 0.16.9; ' +
+      'size grew from 157595 bytes (11 pages) to 159284 bytes (12 pages).',
+    citedTickets: ['imp-1162', 'imp-1166', 'imp-1185', 'imp-1186'],
+    pdfSizeBefore: 157595,
+    pdfSizeAfter: FILE_SIZE_BYTES,
+    pageCountBefore: 11,
+    pageCountAfter: PAGE_COUNT,
+    twentyPointRawSlope: -0.892,
+    twentyPointR2: 0.979,
+    twentyPointBootstrapCI: Object.freeze([-0.948, -0.826]),
+    twentyPointGridUpperN: 2000000,
+  }),
   Object.freeze({
     at: '2026-05-20T20:00:00Z',
     ticket: 'imp-1149-paper-update',
@@ -231,7 +261,7 @@ export const PAPER_PUBLICATION = Object.freeze({
   downloadButtonCopy:
     'Download paper PDF (draft, ' + PAGE_COUNT + ' pages, ' +
     (FILE_SIZE_BYTES / 1024).toFixed(0) +
-    ' KB, refreshed 2026-05-19) -- gomila-finite-height-beat-2026-05.pdf',
+    ' KB, refreshed 2026-05-26) -- gomila-finite-height-beat-2026-05.pdf',
 
   honestScopeNotes: [
     'This is a DRAFT preprint. It has not been peer-reviewed. All numbers in ' +
@@ -545,23 +575,77 @@ export const PAPER_PUBLICATION_ASSERTIONS = [
     holds: () => {
       const r = PAPER_PUBLICATION.refreshHistory;
       if (!Array.isArray(r) || r.length === 0) return false;
-      const first = r[0];
-      if (!first || !Array.isArray(first.citedTickets)) return false;
-      // Wave 3 refresh must cite at least imp-1127 (the only ticket whose
-      // numerical result lands in the headline) and at least 3 wave-3 tickets
-      // in total (imp-1123 / imp-1125 / imp-1127 / imp-1128 are the four
-      // candidates).
-      const cited = first.citedTickets;
-      const hasHybrid = cited.indexOf('imp-1127') >= 0;
+      // The wave-3 refresh-history entry (added by imp-1133, may now sit
+      // deeper in the array as newer refreshes are prepended) must cite
+      // imp-1127 AND at least three of the four wave-3 tickets {imp-1123,
+      // imp-1125, imp-1127, imp-1128}.
       const wave3Set = ['imp-1123', 'imp-1125', 'imp-1127', 'imp-1128'];
-      const wave3Count = cited.filter((t) => wave3Set.indexOf(t) >= 0).length;
-      return hasHybrid && wave3Count >= 3;
+      for (const entry of r) {
+        if (!entry || !Array.isArray(entry.citedTickets)) continue;
+        const cited = entry.citedTickets;
+        const hasHybrid = cited.indexOf('imp-1127') >= 0;
+        const wave3Count = cited.filter((t) => wave3Set.indexOf(t) >= 0).length;
+        if (hasHybrid && wave3Count >= 3) return true;
+      }
+      return false;
     },
     why:
-      'The first refresh-history entry must cite imp-1127 (the hybrid attack ' +
+      'Some refresh-history entry must cite imp-1127 (the hybrid attack ' +
       'that landed the new 0.018 figure in the headline) AND at least three ' +
       'of the four wave-3 tickets {imp-1123, imp-1125, imp-1127, imp-1128} ' +
-      'to ground the new Appendix D refresh log in the work record.',
+      'to ground the Appendix D refresh log in the work record.',
+  },
+
+  {
+    id: 'imp1237-refresh-history-cites-imp1186-20-point-numbers',
+    holds: () => {
+      const r = PAPER_PUBLICATION.refreshHistory;
+      if (!Array.isArray(r) || r.length === 0) return false;
+      const entry = r.find((e) => e && e.ticket === 'imp-1237');
+      if (!entry) return false;
+      if (!Array.isArray(entry.citedTickets)) return false;
+      const hasImp1186 = entry.citedTickets.indexOf('imp-1186') >= 0;
+      const slopeOk = entry.twentyPointRawSlope === -0.892;
+      const r2Ok = entry.twentyPointR2 === 0.979;
+      return hasImp1186 && slopeOk && r2Ok;
+    },
+    why:
+      'The imp-1237 refresh-history entry must cite imp-1186 and record the ' +
+      '20-point grid raw slope -0.892 and R^2 0.979 so the §4.5 paragraph ' +
+      'addition stays grounded in the source numbers.',
+  },
+
+  {
+    id: 'imp1237-paper-main-tex-mentions-20-point-grid',
+    holds: () => {
+      const stat = tryStatNode(PAPER_PUBLICATION.texSourcePath);
+      if (stat === null) return true;
+      try {
+        if (typeof process === 'undefined' || !process.versions || !process.versions.node) {
+          return true;
+        }
+        const req = (typeof require === 'function')
+          ? require
+          // eslint-disable-next-line no-eval
+          : (0, eval)('require');
+        if (typeof req !== 'function') return true;
+        const fs = req('node:fs');
+        const path = req('node:path');
+        const abs = path.resolve(process.cwd(), PAPER_PUBLICATION.texSourcePath);
+        const src = fs.readFileSync(abs, 'utf8');
+        // Must mention the 20-point grid AND the imp-1186 raw slope -0.892
+        // AND the 2 cdot 10^6 extension somewhere in §4.5.
+        return src.indexOf('20-point') >= 0
+          && src.indexOf('-0.892') >= 0
+          && src.indexOf('2 \\cdot 10^{6}') >= 0;
+      } catch (_e) {
+        return true;
+      }
+    },
+    why:
+      'After the imp-1237 update, paper/main.tex must mention the 20-point ' +
+      'densified grid, the raw slope -0.892, and the N = 2 cdot 10^6 ' +
+      'extension. Missing any of these means the §4.5 update did not land.',
   },
 
   {

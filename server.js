@@ -55,6 +55,7 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(3002, '0.0.0.0', () => {
-  console.log('Server running on http://0.0.0.0:3002');
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3003;
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on http://0.0.0.0:${PORT}`);
 });

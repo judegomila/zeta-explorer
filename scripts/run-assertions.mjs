@@ -355,6 +355,8 @@ const DATA_MODULES = [
   '/src/data/viz-prime-caustic.js',
   // imp-1227: VIZ prime phase-crystal Bragg-pattern reference data (sonnet-4-6 bucket).
   '/src/data/viz-prime-phase-crystal.js',
+  // imp-1229: targeted audit of Conjecture 15.2 (zero bridge-thickness / shift contractivity) -- SUBSUMED-BY-RH.
+  '/src/data/imp-1229-conjecture-15-2-audit.js',
   // imp-1232: Literature audit Conjectures 17.3 + 18.4 (ghost-absence) -- both SUBSUMED-BY-RH.
   '/src/data/imp-1232-conjectures-17-3-18-4-audit.js',
   // imp-1234: ZPO model (/oscillators, /hamiltonian, /modes, /twin-ladder) vs

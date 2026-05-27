@@ -67,6 +67,7 @@ const ClosureRoutesPage = lazy(() => import('./pages/ClosureRoutesPage.jsx'));
 const KypBoundedRealPage = lazy(() => import('./pages/KypBoundedRealPage.jsx'));
 const ShiftBridgePositivityPage = lazy(() => import('./pages/ShiftBridgePositivityPage.jsx'));
 const FreezingBridgePage = lazy(() => import('./pages/FreezingBridgePage.jsx'));
+const TwinLadderPaperRoadmapPage = lazy(() => import('./pages/TwinLadderPaperRoadmapPage.jsx'));
 
 function PageLoader() {
   return (
@@ -115,6 +116,7 @@ const NAV_GROUPS = [
       { to: '/three-attacks', label: 'Three Attacks (§18)' },
       { to: '/freezing-bridge', label: 'Freezing Bridge (§23)' },
       { to: '/kyp-bounded-real', label: 'KYP / Bounded-Real' },
+      { to: '/twin-ladder-paper-roadmap', label: 'Paper Roadmap' },
     ],
   },
   {
@@ -463,6 +465,7 @@ function AppShell() {
           <Route path="/kyp-bounded-real" element={<KypBoundedRealPage />} />
           <Route path="/shift-bridge-positivity" element={<ShiftBridgePositivityPage />} />
           <Route path="/freezing-bridge" element={<FreezingBridgePage />} />
+          <Route path="/twin-ladder-paper-roadmap" element={<TwinLadderPaperRoadmapPage />} />
         </Routes>
         </Suspense>
       </div>

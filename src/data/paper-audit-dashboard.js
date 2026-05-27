@@ -16,21 +16,24 @@
 // below should be updated in-place with the new verdict + auditTicket +
 // recommendationForPaper.
 //
-// HONEST READ AS OF IMP-1218
+// HONEST READ AS OF IMP-1229
 // --------------------------
-// Of 13 numbered conjectures spanning Sections 15-22, three have been
+// Of 13 numbered conjectures spanning Sections 15-22, four have been
 // audited so far:
 //   * Section 4.5 Conjecture 1 (lin-stat variance) -> SUBSUMED-BY-LITERATURE
 //     (Hughes-Rudnick 2003 + Bourgade 2010), via imp-1163. NOTE this is in
 //     Section 4, not in 15-22, so it is OUT of this dashboard's coverage --
 //     it is named here in the closureNote of the parent ticket for
 //     bookkeeping but does not appear in the per-conjecture table.
+//   * Conjecture 15.2 (zero bridge-thickness, shift contractivity) ->
+//     SUBSUMED-BY-RH via shift-bridge threshold theorem (imp-1229): the
+//     paper itself states |X(w-a)| < |X(w+a)| iff RH; same statement as 22.4.
 //   * Conjecture 15.4 (prime-delay domination, infinitesimal form) ->
 //     SUBSUMED-BY-RH via paired Hadamard (imp-1202).
 //   * Conjecture 22.4 (zero bridge-thickness) -> SUBSUMED-BY-RH via the
 //     de Branges / Lagarias formulation (imp-1210).
 // Conjectures 22.2 and 22.3 received a PARTIALLY-RELATED verdict, 22.1 is
-// INDEPENDENT-NOVEL, and the remaining eight (15.2, 15.3, 16.4, 16.6, 17.3,
+// INDEPENDENT-NOVEL, and the remaining seven (15.3, 16.4, 16.6, 17.3,
 // 18.1, 18.2, 18.4) remain UNAUDITED.
 //
 // VERDICT VOCABULARY
@@ -76,14 +79,17 @@ const CONJECTURE_ENTRIES = [
       'Equivalently, the shifted de Branges kernel K_a is positive definite ' +
       'for every a > 0. By the shift-bridge threshold theorem this conjecture ' +
       'is EQUIVALENT TO RH.',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'SUBSUMED-BY-RH',
+    auditTicket: 'imp-1229',
+    auditDate: '2026-05-27',
     recommendationForPaper:
-      'Pending audit. Internally flagged as RH-equivalent in the paper itself ' +
-      '(via the shift-bridge threshold theorem). A literature audit comparable ' +
-      'to imp-1210 should formally walk the de Branges / Lagarias machinery ' +
-      'and assign verdict SUBSUMED-BY-RH if confirmed.',
+      'CONFIRMED SUBSUMED-BY-RH. The paper Section 15 states explicitly that ' +
+      'the shift-bridge threshold theorem makes |X(w-a)| < |X(w+a)| for all ' +
+      'Re(w) > 0 EQUIVALENT TO RH. This is the same Hermite-Biehler statement ' +
+      'as Conjecture 22.4 (audited SUBSUMED-BY-RH via imp-1210). Cite de ' +
+      'Branges 1968, Lagarias 2007. Move out of the theorem-targets list into ' +
+      'a single RH-equivalent reformulation subsection alongside 22.4, 17.3, ' +
+      'and 18.4.',
   },
   {
     id: '15.3',
@@ -369,10 +375,10 @@ const HONEST_SCOPE = Object.freeze([
     'of scope here because Section 4 is not covered by this tracker -- the ' +
     'verdict (SUBSUMED-BY-LITERATURE via Hughes-Rudnick 2003 + Bourgade ' +
     '2010) is recorded in imp-1163 and IMPROVEMENTS.md.',
-  'As of imp-1218 only 5 of 13 conjectures (15.4, 22.1, 22.2, 22.3, 22.4) ' +
-    'have received a verdict. The remaining 8 (15.2, 15.3, 16.4, 16.6, ' +
+  'As of imp-1229, 6 of 13 conjectures (15.2, 15.4, 22.1, 22.2, 22.3, 22.4) ' +
+    'have received a verdict. The remaining 7 (15.3, 16.4, 16.6, ' +
     '17.3, 18.1, 18.2, 18.4) are UNAUDITED with auditTicket = null. ' +
-    'recommendationForPaper for those 8 is a PREDICTION of the likely ' +
+    'recommendationForPaper for those 7 is a PREDICTION of the likely ' +
     'verdict based on visible cross-references, not a completed audit.',
   'The verdicts SUBSUMED-BY-RH on 15.4 (imp-1202) and 22.4 (imp-1210) are ' +
     'based on textbook de Branges / Hadamard machinery and are robust ' +
@@ -396,8 +402,8 @@ const HONEST_SCOPE = Object.freeze([
 
 export const PAPER_AUDIT_DASHBOARD = Object.freeze({
   id: 'paper-audit-dashboard',
-  ticket: 'imp-1218',
-  builtAt: '2026-05-26T18:00:00Z',
+  ticket: 'imp-1229',
+  builtAt: '2026-05-27T00:00:00Z',
   paper: 'twin_ladder_consolidated_v52.pdf',
   paperSectionsCovered: Object.freeze(['§15', '§16', '§17', '§18', '§22']),
 
@@ -433,6 +439,13 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
       coversConjectures: Object.freeze(['22.1', '22.2', '22.3', '22.4']),
       auditDate: '2026-05-26',
     }),
+    Object.freeze({
+      ticket: 'imp-1229',
+      title: 'Conjecture 15.2 audit (zero bridge-thickness / shift contractivity)',
+      verdict: '15.2 SUBSUMED-BY-RH (shift-bridge threshold theorem, same Hermite-Biehler statement as 22.4)',
+      coversConjectures: Object.freeze(['15.2']),
+      auditDate: '2026-05-27',
+    }),
   ]),
 
   honestScope: HONEST_SCOPE,
@@ -441,8 +454,8 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
     'DASHBOARD: living tracker of every named conjecture in v52 paper ' +
     'Sections 15-22, with per-conjecture verdict in {SUBSUMED-BY-RH, ' +
     'SUBSUMED-BY-LITERATURE, PARTIALLY-RELATED, INDEPENDENT-NOVEL, ' +
-    'UNAUDITED}. 13 conjectures total: 2 SUBSUMED-BY-RH (15.4, 22.4), ' +
-    '2 PARTIALLY-RELATED (22.2, 22.3), 1 INDEPENDENT-NOVEL (22.1), 8 ' +
+    'UNAUDITED}. 13 conjectures total: 3 SUBSUMED-BY-RH (15.2, 15.4, 22.4), ' +
+    '2 PARTIALLY-RELATED (22.2, 22.3), 1 INDEPENDENT-NOVEL (22.1), 7 ' +
     'UNAUDITED. Drives /paper-audit-dashboard page.',
 });
 
@@ -508,6 +521,20 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     },
   },
   {
+    id: 'paper-audit-subsumed-by-rh-15-2-present',
+    why:
+      'Conjecture 15.2 was audited SUBSUMED-BY-RH via imp-1229 (the paper ' +
+      'Section 15 states the shift-bridge threshold theorem makes |X(w-a)| < ' +
+      '|X(w+a)| EQUIVALENT TO RH; same Hermite-Biehler statement as 22.4). ' +
+      'The dashboard entry for 15.2 must reflect this verdict and link to ' +
+      'imp-1229.',
+    holds: () => {
+      const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '15.2');
+      return !!c && c.auditStatus === 'SUBSUMED-BY-RH' &&
+        c.auditTicket === 'imp-1229';
+    },
+  },
+  {
     id: 'paper-audit-partially-related-22-2-and-22-3',
     why:
       'Conjectures 22.2 and 22.3 were audited PARTIALLY-RELATED via imp-1210 ' +
@@ -537,18 +564,19 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     },
   },
   {
-    id: 'paper-audit-eight-unaudited-conjectures',
+    id: 'paper-audit-seven-unaudited-conjectures',
     why:
-      'Of 13 conjectures, exactly 8 remain UNAUDITED (15.2, 15.3, 16.4, 16.6, ' +
-      '17.3, 18.1, 18.2, 18.4). Each UNAUDITED entry must carry auditTicket ' +
-      'null and auditDate null -- inventing an audit ticket for a conjecture ' +
-      'we have not actually audited would overclaim.',
+      'Of 13 conjectures, exactly 7 remain UNAUDITED (15.3, 16.4, 16.6, ' +
+      '17.3, 18.1, 18.2, 18.4) after imp-1229 confirmed 15.2 SUBSUMED-BY-RH. ' +
+      'Each UNAUDITED entry must carry auditTicket null and auditDate null -- ' +
+      'inventing an audit ticket for a conjecture we have not actually audited ' +
+      'would overclaim.',
     holds: () => {
       const unaudited = PAPER_AUDIT_DASHBOARD.conjectures.filter(
         (c) => c.auditStatus === 'UNAUDITED',
       );
-      if (unaudited.length !== 8) return false;
-      const expected = new Set(['15.2', '15.3', '16.4', '16.6', '17.3',
+      if (unaudited.length !== 7) return false;
+      const expected = new Set(['15.3', '16.4', '16.6', '17.3',
                                 '18.1', '18.2', '18.4']);
       return unaudited.every(
         (c) => expected.has(c.id) && c.auditTicket === null &&
@@ -559,20 +587,21 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
   {
     id: 'paper-audit-status-counts-sum-to-thirteen',
     why:
-      'statusCounts must partition the 13 conjectures exactly: 2 SUBSUMED-BY-' +
+      'statusCounts must partition the 13 conjectures exactly: 3 SUBSUMED-BY-' +
       'RH + 0 SUBSUMED-BY-LITERATURE + 2 PARTIALLY-RELATED + 1 INDEPENDENT-' +
-      'NOVEL + 8 UNAUDITED = 13. Any drift would mean the dashboard counts ' +
-      'don\'t match the per-conjecture entries.',
+      'NOVEL + 7 UNAUDITED = 13 (after imp-1229 moved 15.2 to SUBSUMED-BY-RH). ' +
+      'Any drift would mean the dashboard counts don\'t match the per-conjecture ' +
+      'entries.',
     holds: () => {
       const s = PAPER_AUDIT_DASHBOARD.statusCounts;
       const total = s['SUBSUMED-BY-RH'] + s['SUBSUMED-BY-LITERATURE'] +
         s['PARTIALLY-RELATED'] + s['INDEPENDENT-NOVEL'] + s.UNAUDITED;
       return total === PAPER_AUDIT_DASHBOARD.totalCount &&
         PAPER_AUDIT_DASHBOARD.totalCount === 13 &&
-        s['SUBSUMED-BY-RH'] === 2 &&
+        s['SUBSUMED-BY-RH'] === 3 &&
         s['PARTIALLY-RELATED'] === 2 &&
         s['INDEPENDENT-NOVEL'] === 1 &&
-        s.UNAUDITED === 8;
+        s.UNAUDITED === 7;
     },
   },
   {

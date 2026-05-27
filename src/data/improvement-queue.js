@@ -18160,7 +18160,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Audit Conjecture 15.2 (zero bridge-thickness) -- likely SUBSUMED by RH like 22.4',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Per imp-1218 honestScope, Conjecture 15.2 (zero bridge-thickness) is structurally identical to Conjecture 22.4 which was audited SUBSUMED by direct RH unwinding (imp-1210). Walk the unwinding for 15.2 explicitly: statement is For every a > 0 and every w with Re(w) > 0, the shift-contractivity |X(w-a)| < |X(w+a)| holds (where X(w) = xi(1/2 + w)). Show this is equivalent to RH via the Hadamard factorization + functional equation. Ship src/data/imp-1229-conjecture-15-2-audit.js. 4+ tripwires.",
     rationale: 'Quick win — likely SUBSUMED by RH like 22.4. Closes one more conjecture in the paper-audit-dashboard.',
@@ -18168,6 +18168,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1210', 'imp-1218'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'subscription',
   },
   {
     id: 'imp-1230',

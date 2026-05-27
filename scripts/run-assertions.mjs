@@ -343,6 +343,8 @@ const DATA_MODULES = [
   '/src/data/rigorous-numerics-stages.js',
   // imp-1218: Paper Audit Dashboard -- per-conjecture verdict tracker for v52 §§15-22.
   '/src/data/paper-audit-dashboard.js',
+  // imp-1224: VIZ /viz-euler-transport-flow -- streamlines of -zeta'/zeta vector field.
+  '/src/data/viz-euler-transport-flow.js',
 ];
 
 const ALL_MODULES = FAST_MODE

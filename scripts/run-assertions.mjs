@@ -345,6 +345,8 @@ const DATA_MODULES = [
   '/src/data/paper-audit-dashboard.js',
   // imp-1226: hyperbolic prime spiral — primes in Poincaré disk.
   '/src/data/viz-hyperbolic-prime-spiral.js',
+  // imp-1222: WAVE 13 viz — log-phase interference spiral of zeta(1/2 + it).
+  '/src/data/viz-log-phase-spiral.js',
 ];
 
 const ALL_MODULES = FAST_MODE

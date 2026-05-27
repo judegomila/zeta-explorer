@@ -71,6 +71,7 @@ const RigorousNumericsStagesPage = lazy(() => import('./pages/RigorousNumericsSt
 const TwinLadderPaperRoadmapPage = lazy(() => import('./pages/TwinLadderPaperRoadmapPage.jsx'));
 const PaperAuditDashboardPage = lazy(() => import('./pages/PaperAuditDashboardPage.jsx'));
 const VizHyperbolicPrimeSpiralPage = lazy(() => import('./pages/VizHyperbolicPrimeSpiralPage.jsx'));
+const VizLogPhaseSpiralPage = lazy(() => import('./pages/VizLogPhaseSpiralPage.jsx'));
 
 function PageLoader() {
   return (
@@ -128,6 +129,7 @@ const NAV_GROUPS = [
     label: 'Visualizations',
     items: [
       { to: '/viz-hyperbolic-prime-spiral', label: 'Hyperbolic Prime Spiral' },
+      { to: '/viz-log-phase-spiral', label: 'Log-Phase Spiral' },
     ],
   },
   {
@@ -480,6 +482,7 @@ function AppShell() {
           <Route path="/twin-ladder-paper-roadmap" element={<TwinLadderPaperRoadmapPage />} />
           <Route path="/paper-audit-dashboard" element={<PaperAuditDashboardPage />} />
           <Route path="/viz-hyperbolic-prime-spiral" element={<VizHyperbolicPrimeSpiralPage />} />
+          <Route path="/viz-log-phase-spiral" element={<VizLogPhaseSpiralPage />} />
         </Routes>
         </Suspense>
       </div>

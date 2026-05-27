@@ -343,6 +343,8 @@ const DATA_MODULES = [
   '/src/data/rigorous-numerics-stages.js',
   // imp-1218: Paper Audit Dashboard -- per-conjecture verdict tracker for v52 §§15-22.
   '/src/data/paper-audit-dashboard.js',
+  // imp-1222: WAVE 13 viz — log-phase interference spiral of zeta(1/2 + it).
+  '/src/data/viz-log-phase-spiral.js',
 ];
 
 const ALL_MODULES = FAST_MODE

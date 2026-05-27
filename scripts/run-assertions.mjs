@@ -343,6 +343,10 @@ const DATA_MODULES = [
   '/src/data/rigorous-numerics-stages.js',
   // imp-1218: Paper Audit Dashboard -- per-conjecture verdict tracker for v52 §§15-22.
   '/src/data/paper-audit-dashboard.js',
+  // imp-1234: ZPO model (/oscillators, /hamiltonian, /modes, /twin-ladder) vs
+  // twin-ladder v52 §15 shift-bridge crosswalk -- 12 entries with honest
+  // verdict vocabulary (identical / related / distinct / not-yet-identified).
+  '/src/data/imp-1234-zpo-vs-twin-ladder-v52-crosswalk.js',
 ];
 
 const ALL_MODULES = FAST_MODE

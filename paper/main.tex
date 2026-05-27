@@ -571,6 +571,28 @@ back into the $[-1.05, -0.95]$ universality window. The honest range
 across both arithmetic-factor reconstructions and both bootstrap methods
 is $[-1.188, -0.912]$, which contains the universality target $-1.000$
 strictly in its interior.}
+
+\emph{Additional empirical support (20-point densified grid).}
+Densifying the imp-1162 13-point grid to 20 points (interior fill
+within the bundled Odlyzko zero table together with two extension
+points at $N \in \{1.5 \cdot 10^{6}, 2 \cdot 10^{6}\}$ supplied by
+the imp-1186 Odlyzko \texttt{zeros6}-based concatenation) and refitting
+yields the \emph{raw} slope on the 20-point grid spanning
+$N \in [10^{2}, 2 \cdot 10^{6}]$:
+\[
+\widehat{\mathrm{slope}}_{\mathrm{raw}}^{(20)} = -0.892, \qquad R^{2} = 0.979,
+\]
+with a 2000-replicate percentile-bootstrap 95\% CI of
+$[-0.948, -0.826]$ on the raw slope. The 20-point raw slope agrees
+with the 13-point raw slope to within $0.011$ (a $1.3\%$ relative
+shift), and the densified CI sits within the wider raw-slope CI of the
+13-point fit, providing an additional empirical strength check that
+extending the sample to $N = 2 \cdot 10^{6}$ does not alter the
+qualitative verdict. The headline conservative block-bootstrap CI on
+the Conrey--Snaith-corrected slope, $[-1.076, -0.912]$, remains the
+load-bearing interval; the 20-point raw fit is reported here as a
+robustness cross-check that the grid extension preserves the
+sine-kernel-universality verdict.
 \end{proposition}
 
 \paragraph{Relation to prior work.} \Cref{prop:lin-stat} is a numerical

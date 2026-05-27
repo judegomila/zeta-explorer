@@ -18220,7 +18220,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Cross-check: ZPO model (existing /oscillators-/hamiltonian) vs twin-ladder paper §15 shift-bridge',
     category: 'content',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'meta-portability',
     description: "The app has an EXISTING ZPO model (zero-point-oscillator twin-ladder) framing via /oscillators, /hamiltonian, /modes, /twin-ladder pages from before the user dropped v52 paper. The v52 paper §15 introduces the centered completed function X(w) = xi(1/2 + w) + shift-bridge framing. Cross-walk: which ZPO concepts map to v52 paper concepts (oscillator energy E_k -> 1/(s+a-iz) Cauchy kernel? Bridge chi(s) -> shifted bridge E_a? etc). Ship src/data/imp-1234-zpo-vs-twin-ladder-v52-crosswalk.js. 5+ tripwires.",
     rationale: 'Two parallel framings should be unified for the reader. Otherwise app looks inconsistent (old ZPO content vs new v52 paper content).',
@@ -18228,6 +18228,7 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1196'],
     model: 'opus-4-7',
     channel: 'subscription',
+    closureNote: 'Shipped src/data/imp-1234-zpo-vs-twin-ladder-v52-crosswalk.js -- 12 entries (target was 10+) covering EulerFactor-as-LC, direct/dual ladders, chi bridge, Q-factor, ZPO Hamiltonian, zero modes, impedance mismatch, critical coupling, Mexican-hat potential, Berry-Keating xp, Blaschke ghost pre-image, and the user-probed 1/(s+a-iz) Cauchy kernel. Verdict counts: 0 identical / 6 related / 2 distinct / 4 not-yet-identified. Honest scope explicit: ZPO is an analogy framing, many concepts have no load-bearing v52 anchor (entries 1, 4, 9, 12 are DISTINCT or NOT_YET_IDENTIFIED). Wired into scripts/run-assertions.mjs with 8 tripwires (all PASS). Build green.',
   },
   {
     id: 'imp-1235',
@@ -18264,7 +18265,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Paper §4.5 numbers update: roll imp-1186 20-point slope -0.892 (R^2 0.979) into Proposition 4.5',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "imp-1186 extended the lin-stat sweep from 13 to 20 points giving slope -0.892 (R^2 0.979), CI [-0.948, -0.826], paper §4.5 confidence STRENGTHENED. The paper currently cites the 13-point numbers. Update paper/main.tex §4.5 + paper-publication-2026-05.js manifest to use the 20-point numbers + cite the larger N range (up to 2e6). Atomic paper-text change.",
     rationale: 'Paper numerical claims should reflect the strongest available data. 20-point grid is the current best.',
@@ -18272,6 +18273,7 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1186'],
     model: 'opus-4-7',
     channel: 'subscription',
+    closureNote: 'Added an "Additional empirical support (20-point densified grid)" paragraph inside paper/main.tex Proposition 4.5: raw slope -0.892, R^2 0.979, 2000-replicate percentile-bootstrap 95%% CI [-0.948, -0.826] on the raw 20-point grid spanning N in [10^2, 2e6] via the imp-1186 zeros6 concatenation. Kept the block-bootstrap CI [-1.076, -0.912] on the Conrey-Snaith-corrected slope as the headline conservative interval; 20-point is reported as a robustness cross-check. Rebuilt main.pdf via tectonic 0.16.9 (12 pages, 159284 bytes -- up from 11 pages, 157595 bytes). Updated src/data/paper-publication-2026-05.js PAGE_COUNT, FILE_SIZE_BYTES, BUILT_AT, prepended refresh-history entry, and added two new tripwires (imp1237-refresh-history-cites-imp1186-20-point-numbers + imp1237-paper-main-tex-mentions-20-point-grid). Loosened the stale imp1133-refresh-history-cites-wave3-tickets check to scan ANY refresh-history entry rather than r[0]. Build green.',
   },
   {
     id: 'imp-1238',

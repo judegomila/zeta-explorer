@@ -102,6 +102,17 @@ const NAV_GROUPS = [
       { to: '/odd-zeta', label: 'Odd Zeta' },
       { to: '/twin-ladder', label: 'Twin Ladder' },
       { to: '/calabi-yau', label: 'Calabi-Yau' },
+      { to: '/gram-points', label: 'Gram Points' },
+    ],
+  },
+  {
+    label: 'Twin-Ladder v52',
+    items: [
+      { to: '/shift-bridge-positivity', label: 'Shift-Bridge (§15)' },
+      { to: '/closure-routes', label: 'Four Closure Routes (§16)' },
+      { to: '/blaschke-ghosts', label: 'Blaschke Ghosts (§17)' },
+      { to: '/three-attacks', label: 'Three Attacks (§18)' },
+      { to: '/kyp-bounded-real', label: 'KYP / Bounded-Real' },
     ],
   },
   {
@@ -153,6 +164,8 @@ const NAV_GROUPS = [
       { to: '/wiki', label: 'Wiki' },
       { to: '/index', label: 'Index' },
       { to: '/docs', label: 'Docs' },
+      { to: '/selberg-trace', label: 'Selberg Trace' },
+      { to: '/rh-equivalents', label: 'RH Equivalents' },
     ],
   },
 ];

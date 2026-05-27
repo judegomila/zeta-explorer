@@ -347,6 +347,8 @@ const DATA_MODULES = [
   '/src/data/viz-hyperbolic-prime-spiral.js',
   // imp-1222: WAVE 13 viz — log-phase interference spiral of zeta(1/2 + it).
   '/src/data/viz-log-phase-spiral.js',
+  // imp-1224: VIZ /viz-euler-transport-flow -- streamlines of -zeta'/zeta vector field.
+  '/src/data/viz-euler-transport-flow.js',
 ];
 
 const ALL_MODULES = FAST_MODE

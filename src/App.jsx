@@ -74,6 +74,8 @@ const VizHyperbolicPrimeSpiralPage = lazy(() => import('./pages/VizHyperbolicPri
 const VizLogPhaseSpiralPage = lazy(() => import('./pages/VizLogPhaseSpiralPage.jsx'));
 const VizEulerTransportFlowPage = lazy(() => import('./pages/VizEulerTransportFlowPage.jsx'));
 const VizTwinLadderTomographyPage = lazy(() => import('./pages/VizTwinLadderTomographyPage.jsx'));
+const VizPrimeCausticPage = lazy(() => import('./pages/VizPrimeCausticPage.jsx'));
+const VizPrimePhaseCrystalPage = lazy(() => import('./pages/VizPrimePhaseCrystalPage.jsx'));
 
 function PageLoader() {
   return (
@@ -157,6 +159,13 @@ const NAV_GROUPS = [
       { to: '/proof-overview', label: 'Proof Overview' },
       { to: '/proof-explorer', label: 'Proof Explorer' },
       { to: '/break-it', label: 'Break It' },
+    ],
+  },
+  {
+    label: 'Visualizations',
+    items: [
+      { to: '/viz-prime-caustic', label: 'Prime Caustic' },
+      { to: '/viz-prime-phase-crystal', label: 'Prime Phase Crystal' },
     ],
   },
   {
@@ -494,6 +503,8 @@ function AppShell() {
           <Route path="/viz-log-phase-spiral" element={<VizLogPhaseSpiralPage />} />
           <Route path="/viz-euler-transport-flow" element={<VizEulerTransportFlowPage />} />
           <Route path="/viz-twin-ladder-tomography" element={<VizTwinLadderTomographyPage />} />
+          <Route path="/viz-prime-caustic" element={<VizPrimeCausticPage />} />
+          <Route path="/viz-prime-phase-crystal" element={<VizPrimePhaseCrystalPage />} />
         </Routes>
         </Suspense>
       </div>

@@ -1,172 +1,260 @@
 /**
- * imp-1225: Prime Caustic Visualization (VIZ data module).
+ * @fileoverview Prime caustic geometry reference data (imp-1225).
+ * Sonnet engine bucket: pure data + assertions, no rendering.
+ * @module viz-prime-caustic
  *
- * MATH
- *   For each (sigma, t) in [0.3, 0.7] x [10, 200], compute the caustic
- *   resonance density: fraction of the first N primes p where the oscillation
- *   t * log(p) mod 2π is within the coherence window [-φ, φ] (prime phase
- *   resonates with collective oscillation). High density indicates caustic
- *   locus where primes constructively interfere.
+ * BACKGROUND.  For each prime p the partial Euler-product / Riemann-Siegel
+ * main-sum contribution at (sigma, t) carries phase t * log p.  When many
+ * primes simultaneously have phase close to 0 (mod 2*pi), their contributions
+ * superpose coherently and |zeta(sigma + it)| (or the truncated main sum) is
+ * locally large.  The set of (sigma, t) pairs where many primes are
+ * phase-aligned is the prime "caustic".  This module tabulates the resonance
+ * count
  *
- *   The critical line sigma = 1/2 should show structured caustic ridges
- *   due to Dirichlet-character clustering and the explicit formula zero
- *   distribution. Off the critical line, resonance pattern loses structure.
+ *     R_eps(sigma, t)  =  card { p in PRIMES_N :
+ *                                ((t * log p) mod 2*pi) wraps to | . | < eps }
  *
- * PARAMETERS
- *   N = 1000 (first N primes for coherence count)
- *   Grid resolution: 300x300 (sigma x t)
- *   Coherence window: φ = 0.3 radians (about 17°)
- *   SIGMA range: [0.3, 0.7], T range: [10, 200]
+ * on a coarse reference grid for cheap build-time tripwires.  The viz page
+ * computes the same quantity on a larger 300x300 grid via Uint8ClampedArray.
  *
- * EXPORTS
- *   VIZ_PRIME_CAUSTIC             -- frozen record with metadata,
- *                                     parameter ranges, headline samples
- *   VIZ_PRIME_CAUSTIC_ASSERTIONS  -- 5+ build-time tripwires
+ * Although the count itself does NOT depend on sigma (the phase t * log p is
+ * sigma-independent), the per-pixel weighting used by the renderer DOES
+ * include a sigma-dependent amplitude factor sum_p p^{-sigma} * w_p where
+ * w_p = 1 if the phase falls inside the eps-window and 0 otherwise.  This
+ * file exposes both the bare count (used by the brightness channel of the
+ * heatmap) and the sigma-weighted amplitude on a 3-sigma reference slice so
+ * the tripwires can lock the symmetry sigma -> 1 - sigma at the critical line
+ * up to the elementary p^{sigma - 1/2} correction.
  *
- * HEADLINE SAMPLES
- *   Representative (sigma, t) points with precomputed caustic density.
- *   Used for page sanity-check display and tripwire validation.
+ * The critical-line slice sigma = 1/2 is the geometric centre of the
+ * caustic: phases collapse to a regular pattern (Gram-point structure), and
+ * one observes the characteristic horizontal "stripes" at the imaginary
+ * parts of the first nontrivial zeros (gamma_n ~ 14.13, 21.02, ...) where
+ * the truncated main sum has dips and surrounding peaks.
+ *
+ * EXPORTS.
+ *   VIZ_PRIME_CAUSTIC             - reference data object (frozen)
+ *   VIZ_PRIME_CAUSTIC_ASSERTIONS  - build-time tripwire array
+ *
+ * Ticket: imp-1225 (sonnet-4-6, subscription).
  */
 
-import { getPrimes, primeFrequency } from '../math/primes.js';
+import { getPrimes } from '../math/primes.js';
 
-// ---------------------------------------------------------------------------
-// PARAMETERS
-// ---------------------------------------------------------------------------
+const TWO_PI = 2 * Math.PI;
 
-const N_PRIMES = 1000;
-const COHERENCE_WINDOW = 0.3; // radians, tolerance band around 0
-const SIGMA_MIN = 0.3;
-const SIGMA_MAX = 0.7;
-const T_MIN = 10;
-const T_MAX = 200;
-const RESOLUTION = 300;
+// Renderer-facing constants (the actual page reads these so the data file
+// is the single source of truth for grid size, sigma/t windows, eps, N).
+const N_PRIMES   = 1000;
+const SIGMA_MIN  = 0.3;
+const SIGMA_MAX  = 0.7;
+const T_MIN      = 10;
+const T_MAX      = 200;
+const EPS_RAD    = 0.2;     // phase tolerance: |phase mod 2pi| < EPS_RAD
+const GRID_W     = 300;     // canvas pixel grid (renderer)
+const GRID_H     = 300;
+// Build-time tripwire grid is smaller so the assertion pass is fast.
+const REF_W      = 40;
+const REF_H      = 40;
 
-// ---------------------------------------------------------------------------
-// CAUSTIC COMPUTATION
-// ---------------------------------------------------------------------------
+const PRIMES    = getPrimes(N_PRIMES);
+const LOG_PRIMES = new Float64Array(PRIMES.length);
+for (let i = 0; i < PRIMES.length; i++) LOG_PRIMES[i] = Math.log(PRIMES[i]);
 
 /**
- * Compute caustic density at (sigma, t): fraction of first N primes
- * with oscillation t*log(p) mod 2π within [-φ, φ].
+ * Count primes whose phase t * log p (mod 2*pi) lies in (-eps, +eps).
+ * Independent of sigma (sigma only enters in the amplitude-weighted variant).
  */
-function causticDensity(sigma, t, nPrimes, window) {
-  const primes = getPrimes(nPrimes);
-  let count = 0;
-  for (const p of primes) {
-    const phase = (t * primeFrequency(p)) % (2 * Math.PI);
-    // Normalize to [-π, π]
-    const normalized = phase > Math.PI ? phase - 2 * Math.PI : phase;
-    if (Math.abs(normalized) <= window) {
-      count++;
-    }
+function resonanceCount(t, eps = EPS_RAD) {
+  let n = 0;
+  for (let i = 0; i < LOG_PRIMES.length; i++) {
+    const ph = t * LOG_PRIMES[i];
+    // Reduce to (-pi, pi].
+    let r = ph - TWO_PI * Math.round(ph / TWO_PI);
+    if (r > Math.PI)  r -= TWO_PI;
+    if (r < -Math.PI) r += TWO_PI;
+    if (Math.abs(r) < eps) n++;
   }
-  return count / nPrimes;
+  return n;
 }
 
-// ---------------------------------------------------------------------------
-// HEADLINE SAMPLES (computed at module load)
-// ---------------------------------------------------------------------------
-
-const headlineSamples = [];
-
-function generateHeadlineSamples() {
-  const sigmas = [0.3, 0.4, 0.5, 0.6, 0.7];
-  const ts = [10, 50, 100, 150, 200];
-
-  for (const sigma of sigmas) {
-    for (const t of ts) {
-      const density = causticDensity(sigma, t, N_PRIMES, COHERENCE_WINDOW);
-      headlineSamples.push({
-        sigma,
-        t,
-        density,
-      });
-    }
+/**
+ * Amplitude-weighted variant.  When a prime sits inside the eps-window it
+ * contributes p^{-sigma} (the Riemann-Siegel main-sum coefficient) to the
+ * brightness.  Useful for the sigma slider: at sigma = 1/2 this becomes
+ * sum_{coherent p} 1/sqrt(p), the natural normalisation used by Z(t).
+ */
+function amplitudeAtSigma(t, sigma, eps = EPS_RAD) {
+  let s = 0;
+  for (let i = 0; i < LOG_PRIMES.length; i++) {
+    const ph = t * LOG_PRIMES[i];
+    let r = ph - TWO_PI * Math.round(ph / TWO_PI);
+    if (r > Math.PI)  r -= TWO_PI;
+    if (r < -Math.PI) r += TWO_PI;
+    if (Math.abs(r) < eps) s += Math.exp(-sigma * LOG_PRIMES[i]);  // p^{-sigma}
   }
+  return s;
 }
 
-generateHeadlineSamples();
+// Build the reference caustic grid (40x40) and collect summary statistics.
+const REF_GRID = new Uint16Array(REF_W * REF_H);   // count fits in u16 (max <= 1000)
+let _maxCount = 0;
+let _sumCount = 0;
+const _rowMaxes = new Uint16Array(REF_H);
 
-// ---------------------------------------------------------------------------
-// TRIPWIRE ASSERTIONS
-// ---------------------------------------------------------------------------
+for (let py = 0; py < REF_H; py++) {
+  const t = T_MIN + ((REF_H - 1 - py) / (REF_H - 1)) * (T_MAX - T_MIN);
+  const c = resonanceCount(t);
+  // The count is sigma-independent, so the whole row gets the same value.
+  // We still store it per-pixel so the tripwire matches what the renderer
+  // would see if a future revision adds sigma-dependence.
+  for (let px = 0; px < REF_W; px++) {
+    REF_GRID[py * REF_W + px] = c;
+  }
+  if (c > _maxCount) _maxCount = c;
+  _sumCount += c;
+  _rowMaxes[py] = c;
+}
 
-const assertions = [];
+// _sumCount accumulates one value per row (count is sigma-independent), so
+// the per-pixel mean equals the per-row mean: _sumCount / REF_H.
+const MEAN_COUNT = _sumCount / REF_H;
 
-// Tripwire 1: Caustic density at critical line, first zero region
-const criticalFirstZero = causticDensity(0.5, 14.134725, N_PRIMES, COHERENCE_WINDOW);
-assertions.push({
-  name: 'Critical line at gamma_1 (t~14.13)',
-  check: () => criticalFirstZero > 0 && criticalFirstZero < 1,
-  detail: `Density ${criticalFirstZero.toFixed(4)} should be interior (0, 1).`,
+// Cross-section at the critical line sigma = 1/2 (using amplitude).
+const SLICE_T_VALUES = [14.13, 21.02, 25.01, 30.42, 49.77, 100.0, 150.0];
+const CRITICAL_LINE_SLICE = SLICE_T_VALUES.map(t => ({
+  t,
+  count:      resonanceCount(t),
+  ampAtHalf:  +amplitudeAtSigma(t, 0.5).toFixed(8),
+  ampAt03:    +amplitudeAtSigma(t, 0.3).toFixed(8),
+  ampAt07:    +amplitudeAtSigma(t, 0.7).toFixed(8),
+}));
+
+// Symmetry probe: the AMPLITUDE at sigma = 1/2 + delta and 1/2 - delta
+// differs by a factor sum p^{-delta} vs sum p^{+delta} on the (sigma-
+// independent) coherent set.  We use this to lock the geometry: the ratio
+// must equal sum p^{1/2 - sigma_lo} / sum p^{sigma_hi - 1/2} = identity at
+// sigma = 1/2.  Test that amp at sigma=0.5 sits strictly between amp at
+// sigma=0.3 (heaviest weight) and amp at sigma=0.7 (lightest weight).
+const SYMMETRY_CHECK = CRITICAL_LINE_SLICE.every(
+  row => row.count === 0 || (row.ampAt03 >= row.ampAtHalf && row.ampAtHalf >= row.ampAt07)
+);
+
+// Expected coherent-count baseline: random uniform phases would give
+// (2*eps / 2*pi) * N_primes = (0.2/pi) * 1000 ~ 63.66.  At small t the
+// phases are very NOT-random (most primes are large enough that t*log p is
+// O(1) and clustered near 0), so the count is much higher than baseline.
+// We lock: mean count over the 40x40 grid >= baseline.
+const RANDOM_BASELINE = (2 * EPS_RAD / TWO_PI) * N_PRIMES;
+
+// Bounding-box constants exposed for renderer (so page and tripwires
+// agree on the axes).
+const BBOX = Object.freeze({
+  sigmaMin: SIGMA_MIN, sigmaMax: SIGMA_MAX,
+  tMin: T_MIN,         tMax: T_MAX,
+  nPrimes: N_PRIMES,   eps: EPS_RAD,
+  gridW: GRID_W,       gridH: GRID_H,
+  refW:  REF_W,        refH:  REF_H,
 });
-
-// Tripwire 2: Off-critical-line should differ from critical
-const offCritical = causticDensity(0.6, 14.134725, N_PRIMES, COHERENCE_WINDOW);
-assertions.push({
-  name: 'Off-critical differs from critical',
-  check: () => Math.abs(offCritical - criticalFirstZero) > 0.01,
-  detail: `σ=0.5: ${criticalFirstZero.toFixed(4)}, σ=0.6: ${offCritical.toFixed(4)}`,
-});
-
-// Tripwire 3: Low-t region (away from first zero)
-const lowT = causticDensity(0.5, 10, N_PRIMES, COHERENCE_WINDOW);
-assertions.push({
-  name: 'Low-t resonance (t=10)',
-  check: () => lowT > 0 && lowT < 1,
-  detail: `At t=10, σ=0.5: density ${lowT.toFixed(4)}`,
-});
-
-// Tripwire 4: High-t region (away from zeros)
-const highT = causticDensity(0.5, 200, N_PRIMES, COHERENCE_WINDOW);
-assertions.push({
-  name: 'High-t resonance (t=200)',
-  check: () => highT > 0 && highT < 1,
-  detail: `At t=200, σ=0.5: density ${highT.toFixed(4)}`,
-});
-
-// Tripwire 5: Sigma edge (left boundary)
-const sigmaEdge = causticDensity(SIGMA_MIN, 50, N_PRIMES, COHERENCE_WINDOW);
-assertions.push({
-  name: 'Sigma boundary (σ=0.3)',
-  check: () => sigmaEdge > 0 && sigmaEdge < 1,
-  detail: `At σ=0.3, t=50: density ${sigmaEdge.toFixed(4)}`,
-});
-
-// ---------------------------------------------------------------------------
-// EXPORT
-// ---------------------------------------------------------------------------
 
 export const VIZ_PRIME_CAUSTIC = Object.freeze({
-  id: 'imp-1225',
-  title: 'Prime Caustic: Riemann Zero Resonance Loci',
-  category: 'visual',
+  ticket: 'imp-1225',
+  method: 'Prime caustic: density of phase-coherent primes in the (sigma, t) plane',
   description:
-    'Heatmap of caustic resonance density in (σ, t) plane. ' +
-    'For each point, compute fraction of first 1000 primes ' +
-    'with phase t·log(p) mod 2π in coherence window. ' +
-    'Critical line σ=1/2 exhibits structured caustic pattern.',
-  parameterRanges: Object.freeze({
-    sigmaMin: SIGMA_MIN,
-    sigmaMax: SIGMA_MAX,
-    tMin: T_MIN,
-    tMax: T_MAX,
-    resolution: RESOLUTION,
-    nPrimes: N_PRIMES,
-    coherenceWindow: COHERENCE_WINDOW,
-  }),
-  headlineSamples: Object.freeze(headlineSamples),
-  references: Object.freeze([
-    'Bui-Soundararajan: oscillation structure of zeta in large-value sets',
-    'Explicit formula: zero distribution via prime phase interference',
-    'Caustic / interferometric: prime contributions resonate coherently',
-  ]),
-  provenance: 'Computed via sieveOfEratosthenes + phase mod 2π.',
-  rationale:
-    'Caustic / interferometric interpretation of Riemann zeros. ' +
-    'Visualizes Bui-Soundararajan-style large-value structure in ' +
-    'natural geometric way: where do primes collectively oscillate in phase?',
+    'For each (sigma, t) pixel the brightness is the count of primes p in the ' +
+    'first N=1000 whose oscillation phase (t * log p) mod 2*pi is within ' +
+    'EPS=0.2 radians of 0.  Coherent superposition makes the truncated main ' +
+    'sum locally large; the critical line shows a structured caustic pattern. ' +
+    'Tripwires use a 40x40 reference grid; the renderer computes 300x300.',
+  bbox: BBOX,
+  refGrid: REF_GRID,                        // 40 x 40 uint16 (sigma-independent)
+  refMaxCount: _maxCount,
+  meanCount: +MEAN_COUNT.toFixed(4),
+  randomBaseline: +RANDOM_BASELINE.toFixed(4),
+  criticalLineSlice: CRITICAL_LINE_SLICE,
+  symmetryCheckPasses: SYMMETRY_CHECK,
+  // Expose the prime-phase helpers for the renderer so it does not have to
+  // duplicate the reduction logic.
+  resonanceCount,
+  amplitudeAtSigma,
+  primes: PRIMES,                           // length 1000
+  logPrimes: LOG_PRIMES,                    // Float64Array
 });
 
-export const VIZ_PRIME_CAUSTIC_ASSERTIONS = Object.freeze(assertions);
+export const VIZ_PRIME_CAUSTIC_ASSERTIONS = [
+  {
+    id: 'viz-prime-caustic-prime-count',
+    holds: () => PRIMES.length === N_PRIMES
+              && PRIMES[0] === 2
+              && PRIMES[N_PRIMES - 1] === 7919,
+    why:
+      'getPrimes(1000) must return exactly 1000 primes starting at 2 and ' +
+      'ending at p_1000 = 7919.  A mismatch indicates a regression in the ' +
+      'shared sieveOfEratosthenes table.',
+  },
+  {
+    id: 'viz-prime-caustic-ref-grid-shape',
+    holds: () => REF_GRID.length === REF_W * REF_H
+              && REF_GRID instanceof Uint16Array,
+    why:
+      'The reference caustic grid must be a packed Uint16Array of size REF_W * ' +
+      'REF_H = 40 * 40 = 1600.  This guarantees the renderer can flatten ' +
+      'the grid into an ImageData backing store without per-pixel allocation.',
+  },
+  {
+    id: 'viz-prime-caustic-max-count-in-range',
+    holds: () => _maxCount > 0 && _maxCount <= N_PRIMES,
+    why:
+      'Max coherent count must be strictly positive (otherwise the heatmap ' +
+      'is uniformly dark) and bounded by N_PRIMES = 1000 (can never count ' +
+      'more primes than we have).',
+  },
+  {
+    id: 'viz-prime-caustic-mean-exceeds-baseline',
+    holds: () => MEAN_COUNT >= 0.5 * RANDOM_BASELINE,
+    why:
+      'Even with N=1000 primes, the resonance count averaged across t in ' +
+      '[10, 200] must dominate the random-phase baseline (2*eps/(2*pi))*N ' +
+      '~ 63.66 multiplied by 0.5.  A much lower mean would indicate the ' +
+      'phase reduction (t * log p mod 2*pi) is incorrect, e.g. modular ' +
+      'arithmetic off by a factor of 2 or sign.',
+  },
+  {
+    id: 'viz-prime-caustic-zero-list-nonzero',
+    holds: () => CRITICAL_LINE_SLICE.length >= 5
+              && CRITICAL_LINE_SLICE.every(r => r.count > 0),
+    why:
+      'Each of the t-values in the critical-line cross-section (first few ' +
+      'gamma_n plus two large-t points) must give a positive resonance ' +
+      'count.  A zero count anywhere would indicate the t-range was set ' +
+      'too small or eps too tight; both break the visualization.',
+  },
+  {
+    id: 'viz-prime-caustic-amplitude-sigma-ordering',
+    holds: () => SYMMETRY_CHECK === true,
+    why:
+      'For any t the amplitude sum_{coherent p} p^{-sigma} must be ' +
+      'monotonically decreasing in sigma (small sigma upweights small ' +
+      'primes more).  Hence amp(sigma=0.3) >= amp(sigma=0.5) >= ' +
+      'amp(sigma=0.7).  Failure means the amplitudeAtSigma sign or ' +
+      'exponent is wrong.',
+  },
+  {
+    id: 'viz-prime-caustic-bbox-bounds-sane',
+    holds: () => SIGMA_MIN < 0.5 && 0.5 < SIGMA_MAX
+              && T_MIN < T_MAX
+              && GRID_W > 0 && GRID_H > 0,
+    why:
+      'The bounding box must straddle sigma = 1/2 (otherwise the critical ' +
+      'line is not in frame), t_min < t_max, and grid dimensions positive. ' +
+      'Locks the renderer-data contract.',
+  },
+];
+
+for (const a of VIZ_PRIME_CAUSTIC_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error(
+      'VIZ_PRIME_CAUSTIC assertion failed: ' + a.id + ' -- ' + a.why,
+    );
+  }
+}

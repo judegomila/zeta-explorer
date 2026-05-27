@@ -366,6 +366,11 @@ const DATA_MODULES = [
   // imp-1239: imp-447 / imp-459 sigma-shift admissibility audit -- YES at sigma=0.99
   // under log-free convention; sigma-shift is strictly required if the log factor is restored.
   '/src/data/imp-1239-imp447-sigma-shift-audit.js',
+  // imp-1235: lambda-roadmap.js vs paper §24 "What remains to get the proof working"
+  // crosswalk -- 15 entries (correspondence / partial-correspondence / lambda-unique /
+  // sec24-gap / confirmed-by-v52). Identifies §24 open targets absent from lambda-roadmap
+  // and lambda-roadmap items absent from §24. Name-collision warning for Routes A/B/C.
+  '/src/data/imp-1235-lambda-roadmap-vs-paper-sec-24-crosswalk.js',
 ];
 
 const ALL_MODULES = FAST_MODE

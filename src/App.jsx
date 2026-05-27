@@ -70,6 +70,7 @@ const FreezingBridgePage = lazy(() => import('./pages/FreezingBridgePage.jsx'));
 const RigorousNumericsStagesPage = lazy(() => import('./pages/RigorousNumericsStagesPage.jsx'));
 const TwinLadderPaperRoadmapPage = lazy(() => import('./pages/TwinLadderPaperRoadmapPage.jsx'));
 const PaperAuditDashboardPage = lazy(() => import('./pages/PaperAuditDashboardPage.jsx'));
+const VizTwinLadderTomographyPage = lazy(() => import('./pages/VizTwinLadderTomographyPage.jsx'));
 
 function PageLoader() {
   return (
@@ -156,6 +157,12 @@ const NAV_GROUPS = [
       { to: '/improvements', label: 'Improvements Log' },
       { to: '/dashboard', label: 'Dashboard' },
       { to: '/health', label: 'Health Check' },
+    ],
+  },
+  {
+    label: 'Visualizations',
+    items: [
+      { to: '/viz-twin-ladder-tomography', label: 'Twin-Ladder Tomography' },
     ],
   },
   {
@@ -472,6 +479,7 @@ function AppShell() {
           <Route path="/rigorous-numerics-stages" element={<RigorousNumericsStagesPage />} />
           <Route path="/twin-ladder-paper-roadmap" element={<TwinLadderPaperRoadmapPage />} />
           <Route path="/paper-audit-dashboard" element={<PaperAuditDashboardPage />} />
+          <Route path="/viz-twin-ladder-tomography" element={<VizTwinLadderTomographyPage />} />
         </Routes>
         </Suspense>
       </div>

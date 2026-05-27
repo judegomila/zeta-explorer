@@ -343,6 +343,8 @@ const DATA_MODULES = [
   '/src/data/rigorous-numerics-stages.js',
   // imp-1218: Paper Audit Dashboard -- per-conjecture verdict tracker for v52 §§15-22.
   '/src/data/paper-audit-dashboard.js',
+  // imp-1223: VIZ /viz-twin-ladder-tomography -- |zeta(sigma+it)| * |zeta((1-sigma)+it)| heatmap data + tripwires.
+  '/src/data/viz-twin-ladder-tomography.js',
 ];
 
 const ALL_MODULES = FAST_MODE

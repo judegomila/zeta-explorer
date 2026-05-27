@@ -66,6 +66,7 @@ const BlaschkeGhostsPage = lazy(() => import('./pages/BlaschkeGhostsPage.jsx'));
 const ClosureRoutesPage = lazy(() => import('./pages/ClosureRoutesPage.jsx'));
 const KypBoundedRealPage = lazy(() => import('./pages/KypBoundedRealPage.jsx'));
 const ShiftBridgePositivityPage = lazy(() => import('./pages/ShiftBridgePositivityPage.jsx'));
+const PaperAuditDashboardPage = lazy(() => import('./pages/PaperAuditDashboardPage.jsx'));
 
 function PageLoader() {
   return (
@@ -113,6 +114,7 @@ const NAV_GROUPS = [
       { to: '/blaschke-ghosts', label: 'Blaschke Ghosts (§17)' },
       { to: '/three-attacks', label: 'Three Attacks (§18)' },
       { to: '/kyp-bounded-real', label: 'KYP / Bounded-Real' },
+      { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard' },
     ],
   },
   {
@@ -460,6 +462,7 @@ function AppShell() {
           <Route path="/closure-routes" element={<ClosureRoutesPage />} />
           <Route path="/kyp-bounded-real" element={<KypBoundedRealPage />} />
           <Route path="/shift-bridge-positivity" element={<ShiftBridgePositivityPage />} />
+          <Route path="/paper-audit-dashboard" element={<PaperAuditDashboardPage />} />
         </Routes>
         </Suspense>
       </div>

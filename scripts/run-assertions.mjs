@@ -335,6 +335,8 @@ const DATA_MODULES = [
   '/src/data/shift-bridge-positivity-section.js',
   // imp-1205: Cross-walk -- Connes 2025-2026 vs para 16 four-route equivalence.
   '/src/data/imp-1205-connes-four-route-crosswalk.js',
+  // imp-1217: Master index of every section of v52 paper (companion to /twin-ladder-paper-roadmap).
+  '/src/data/twin-ladder-paper-roadmap.js',
 ];
 
 const ALL_MODULES = FAST_MODE

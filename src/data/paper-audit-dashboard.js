@@ -185,16 +185,18 @@ const CONJECTURE_ENTRIES = [
       'For every a > 0, the right-half-plane ghost Blaschke product B_a^+(w) ' +
       'is identically 1. Equivalently: no off-critical zeros with ' +
       '|Re rho - 1/2| > a; equivalently RH in the limit a -> 0.',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'SUBSUMED-BY-RH',
+    auditTicket: 'imp-1232',
+    auditDate: '2026-05-27',
     recommendationForPaper:
-      'Pending audit. The paper Section 17.6 itself derives RH-equivalence. ' +
-      'This is structurally identical to Conjecture 22.4 (already SUBSUMED-' +
-      'BY-RH via imp-1210). A targeted audit should cross-link and assign ' +
-      'SUBSUMED-BY-RH; the paper should present 17.3, 18.4, and 22.4 ' +
-      'together as a single RH-equivalent reformulation rather than three ' +
-      'independent conjectures.',
+      'CONFIRMED SUBSUMED-BY-RH (imp-1232). B_a^+(w) = 1 iff P_a empty iff ' +
+      'xi has no zeros with Re(s) > 1/2 + a; for every a > 0 this is RH. ' +
+      'The §17.4 Krein-Langer identity ind_-(K_{R_a}) = #{off-critical zeros} ' +
+      'makes the equivalence exact. Move out of theorem-target list into the ' +
+      'unified RH-equivalent reformulations subsection alongside 15.2, 15.4, ' +
+      '18.4, 22.4. Cite de Branges (1968), Krein-Langer (1973, 1977), ' +
+      'Lagarias (2007). The genuinely open content in §17-18 is in the three ' +
+      'non-circular closure programs §18.1-18.3.',
   },
   {
     id: '18.1',
@@ -249,15 +251,18 @@ const CONJECTURE_ENTRIES = [
       'B_a^+ identically 1. Equivalently: R_a Schur in right half-plane; ' +
       'K_a positive semidefinite; twin-ladder Weil form has zero negative ' +
       'index; equivalently RH holds.',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'SUBSUMED-BY-RH',
+    auditTicket: 'imp-1232',
+    auditDate: '2026-05-27',
     recommendationForPaper:
-      'Pending audit. Verbatim equivalent to Conjecture 17.3 and the ' +
-      'Hermite-Biehler form of Conjecture 22.4 (already SUBSUMED-BY-RH via ' +
-      'imp-1210). A targeted audit should cross-link and assign SUBSUMED-BY-' +
-      'RH. The paper should present 17.3, 18.4, 22.4 as a single RH-' +
-      'equivalent reformulation.',
+      'CONFIRMED SUBSUMED-BY-RH (imp-1232). The paper Section 18.4 itself ' +
+      'states "equivalently RH holds". The four conditions (B_a^+ = 1, R_a ' +
+      'Schur, K_a PSD, Weil-form negative index = 0) are mutually equivalent ' +
+      'by the §17.4 Krein-Langer identity and each equivalent to RH. 18.4 ' +
+      'restates 17.3 in four languages. Move into the unified ' +
+      'RH-equivalent reformulations subsection alongside 15.2, 15.4, 17.3, ' +
+      '22.4. Cite Weil (1952), Connes (1999), Krein-Langer (1973, 1977). ' +
+      'The genuinely open content in §18 is §18.1-18.3.',
   },
   {
     id: '22.1',
@@ -375,10 +380,10 @@ const HONEST_SCOPE = Object.freeze([
     'of scope here because Section 4 is not covered by this tracker -- the ' +
     'verdict (SUBSUMED-BY-LITERATURE via Hughes-Rudnick 2003 + Bourgade ' +
     '2010) is recorded in imp-1163 and IMPROVEMENTS.md.',
-  'As of imp-1229, 6 of 13 conjectures (15.2, 15.4, 22.1, 22.2, 22.3, 22.4) ' +
-    'have received a verdict. The remaining 7 (15.3, 16.4, 16.6, ' +
-    '17.3, 18.1, 18.2, 18.4) are UNAUDITED with auditTicket = null. ' +
-    'recommendationForPaper for those 7 is a PREDICTION of the likely ' +
+  'As of imp-1232, 8 of 13 conjectures (15.2, 15.4, 17.3, 18.4, 22.1, 22.2, 22.3, 22.4) ' +
+    'have received a verdict. The remaining 5 (15.3, 16.4, 16.6, ' +
+    '18.1, 18.2) are UNAUDITED with auditTicket = null. ' +
+    'recommendationForPaper for those 5 is a PREDICTION of the likely ' +
     'verdict based on visible cross-references, not a completed audit.',
   'The verdicts SUBSUMED-BY-RH on 15.4 (imp-1202) and 22.4 (imp-1210) are ' +
     'based on textbook de Branges / Hadamard machinery and are robust ' +
@@ -391,11 +396,10 @@ const HONEST_SCOPE = Object.freeze([
   'No external browsing was performed for any of the three completed ' +
     'audits. All verdicts use training-time knowledge plus internal cross-' +
     'references between sections of the paper itself.',
-  'The recommendationForPaper text for the 8 UNAUDITED conjectures is ' +
-    'INDICATIVE -- it notes the cross-references (e.g. 17.3 is structurally ' +
-    'identical to 22.4) but is not a substitute for a per-conjecture ' +
-    'literature audit ticket. Follow-up tickets per conjecture are the ' +
-    'natural extension of this dashboard.',
+  'The recommendationForPaper text for the 5 UNAUDITED conjectures is ' +
+    'INDICATIVE -- it notes the cross-references but is not a substitute for ' +
+    'a per-conjecture literature audit ticket. Follow-up tickets per conjecture ' +
+    'are the natural extension of this dashboard.',
 ]);
 
 // ── Frozen export ─────────────────────────────────────────────────────────
@@ -446,6 +450,15 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
       coversConjectures: Object.freeze(['15.2']),
       auditDate: '2026-05-27',
     }),
+    Object.freeze({
+      ticket: 'imp-1232',
+      title: 'Conjectures 17.3 + 18.4 audit (ghost-absence theorem)',
+      verdict:
+        '17.3 SUBSUMED-BY-RH (Krein-Langer identity: B_a^+=1 is definitionally RH); ' +
+        '18.4 SUBSUMED-BY-RH (paper itself states equivalently RH holds; restates 17.3 in four languages)',
+      coversConjectures: Object.freeze(['17.3', '18.4']),
+      auditDate: '2026-05-27',
+    }),
   ]),
 
   honestScope: HONEST_SCOPE,
@@ -454,9 +467,9 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
     'DASHBOARD: living tracker of every named conjecture in v52 paper ' +
     'Sections 15-22, with per-conjecture verdict in {SUBSUMED-BY-RH, ' +
     'SUBSUMED-BY-LITERATURE, PARTIALLY-RELATED, INDEPENDENT-NOVEL, ' +
-    'UNAUDITED}. 13 conjectures total: 3 SUBSUMED-BY-RH (15.2, 15.4, 22.4), ' +
-    '2 PARTIALLY-RELATED (22.2, 22.3), 1 INDEPENDENT-NOVEL (22.1), 7 ' +
-    'UNAUDITED. Drives /paper-audit-dashboard page.',
+    'UNAUDITED}. 13 conjectures total: 5 SUBSUMED-BY-RH (15.2, 15.4, 17.3, ' +
+    '18.4, 22.4), 2 PARTIALLY-RELATED (22.2, 22.3), 1 INDEPENDENT-NOVEL ' +
+    '(22.1), 5 UNAUDITED (15.3, 16.4, 16.6, 18.1, 18.2). Drives /paper-audit-dashboard page.',
 });
 
 export default PAPER_AUDIT_DASHBOARD;
@@ -564,10 +577,10 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     },
   },
   {
-    id: 'paper-audit-seven-unaudited-conjectures',
+    id: 'paper-audit-five-unaudited-conjectures',
     why:
-      'Of 13 conjectures, exactly 7 remain UNAUDITED (15.3, 16.4, 16.6, ' +
-      '17.3, 18.1, 18.2, 18.4) after imp-1229 confirmed 15.2 SUBSUMED-BY-RH. ' +
+      'Of 13 conjectures, exactly 5 remain UNAUDITED (15.3, 16.4, 16.6, ' +
+      '18.1, 18.2) after imp-1232 confirmed 17.3 and 18.4 SUBSUMED-BY-RH. ' +
       'Each UNAUDITED entry must carry auditTicket null and auditDate null -- ' +
       'inventing an audit ticket for a conjecture we have not actually audited ' +
       'would overclaim.',
@@ -575,9 +588,8 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       const unaudited = PAPER_AUDIT_DASHBOARD.conjectures.filter(
         (c) => c.auditStatus === 'UNAUDITED',
       );
-      if (unaudited.length !== 7) return false;
-      const expected = new Set(['15.3', '16.4', '16.6', '17.3',
-                                '18.1', '18.2', '18.4']);
+      if (unaudited.length !== 5) return false;
+      const expected = new Set(['15.3', '16.4', '16.6', '18.1', '18.2']);
       return unaudited.every(
         (c) => expected.has(c.id) && c.auditTicket === null &&
           c.auditDate === null,
@@ -587,21 +599,37 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
   {
     id: 'paper-audit-status-counts-sum-to-thirteen',
     why:
-      'statusCounts must partition the 13 conjectures exactly: 3 SUBSUMED-BY-' +
+      'statusCounts must partition the 13 conjectures exactly: 5 SUBSUMED-BY-' +
       'RH + 0 SUBSUMED-BY-LITERATURE + 2 PARTIALLY-RELATED + 1 INDEPENDENT-' +
-      'NOVEL + 7 UNAUDITED = 13 (after imp-1229 moved 15.2 to SUBSUMED-BY-RH). ' +
-      'Any drift would mean the dashboard counts don\'t match the per-conjecture ' +
-      'entries.',
+      'NOVEL + 5 UNAUDITED = 13 (after imp-1232 moved 17.3 and 18.4 to ' +
+      'SUBSUMED-BY-RH). Any drift means the dashboard counts do not match ' +
+      'the per-conjecture entries.',
     holds: () => {
       const s = PAPER_AUDIT_DASHBOARD.statusCounts;
       const total = s['SUBSUMED-BY-RH'] + s['SUBSUMED-BY-LITERATURE'] +
         s['PARTIALLY-RELATED'] + s['INDEPENDENT-NOVEL'] + s.UNAUDITED;
       return total === PAPER_AUDIT_DASHBOARD.totalCount &&
         PAPER_AUDIT_DASHBOARD.totalCount === 13 &&
-        s['SUBSUMED-BY-RH'] === 3 &&
+        s['SUBSUMED-BY-RH'] === 5 &&
         s['PARTIALLY-RELATED'] === 2 &&
         s['INDEPENDENT-NOVEL'] === 1 &&
-        s.UNAUDITED === 7;
+        s.UNAUDITED === 5;
+    },
+  },
+  {
+    id: 'paper-audit-subsumed-by-rh-17-3-and-18-4-present',
+    why:
+      'Conjectures 17.3 and 18.4 were audited SUBSUMED-BY-RH via imp-1232 ' +
+      '(Krein-Langer identity: B_a^+=1 is definitionally RH; paper itself ' +
+      'states "equivalently RH holds" in 18.4). Both entries must reflect ' +
+      'this verdict and link to imp-1232.',
+    holds: () => {
+      const c17 = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '17.3');
+      const c18 = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '18.4');
+      return !!c17 && c17.auditStatus === 'SUBSUMED-BY-RH' &&
+        c17.auditTicket === 'imp-1232' &&
+        !!c18 && c18.auditStatus === 'SUBSUMED-BY-RH' &&
+        c18.auditTicket === 'imp-1232';
     },
   },
   {

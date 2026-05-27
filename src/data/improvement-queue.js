@@ -18209,7 +18209,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Audit Conjectures 17.3 + 18.4 (ghost-absence) -- likely SUBSUMED by RH like 22.4',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Per imp-1218 honestScope, Conjectures 17.3 and 18.4 are STRUCTURALLY IDENTICAL to 22.4 (SUBSUMED-BY-RH). Walk the unwinding: 17.3 says B_a^+(w) = 1 identically for every a > 0; 18.4 says the Weil/Pontryagin index identity collapses to zero. Both are equivalent to no off-critical zeros = RH. Ship src/data/imp-1232-conjectures-17-3-18-4-audit.js. 5+ tripwires.",
     rationale: 'Quick batch audit — likely closes 2 more conjectures as SUBSUMED-BY-RH. Brings total subsumed count to 5 of 13.',
@@ -18217,6 +18217,9 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1210', 'imp-1218'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'subscription',
+    closureNote: 'BOTH CONJECTURES CONFIRMED SUBSUMED-BY-RH. 17.3: B_a^+(w)=1 iff P_a empty iff xi has no zeros Re(s)>1/2+a; for every a>0 this is RH. 18.4: paper itself states equivalently RH holds; restates 17.3 in four languages. Ships src/data/imp-1232-conjectures-17-3-18-4-audit.js (7 tripwires). Updates paper-audit-dashboard.js: 5 SUBSUMED-BY-RH, 5 UNAUDITED. Wired into run-assertions.mjs.',
   },
   {
     id: 'imp-1233',

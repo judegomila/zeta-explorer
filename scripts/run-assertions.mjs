@@ -341,6 +341,8 @@ const DATA_MODULES = [
   '/src/data/twin-ladder-paper-roadmap.js',
   // imp-1220: rigorous-numerics stages I/II/III — §20 of twin-ladder v52.
   '/src/data/rigorous-numerics-stages.js',
+  // imp-1218: Paper Audit Dashboard -- per-conjecture verdict tracker for v52 §§15-22.
+  '/src/data/paper-audit-dashboard.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -69,6 +69,7 @@ const ShiftBridgePositivityPage = lazy(() => import('./pages/ShiftBridgePositivi
 const FreezingBridgePage = lazy(() => import('./pages/FreezingBridgePage.jsx'));
 const RigorousNumericsStagesPage = lazy(() => import('./pages/RigorousNumericsStagesPage.jsx'));
 const TwinLadderPaperRoadmapPage = lazy(() => import('./pages/TwinLadderPaperRoadmapPage.jsx'));
+const PaperAuditDashboardPage = lazy(() => import('./pages/PaperAuditDashboardPage.jsx'));
 
 function PageLoader() {
   return (
@@ -119,6 +120,7 @@ const NAV_GROUPS = [
       { to: '/kyp-bounded-real', label: 'KYP / Bounded-Real' },
       { to: '/twin-ladder-paper-roadmap', label: 'Paper Roadmap' },
       { to: '/rigorous-numerics-stages', label: 'Rigorous Numerics (§20)' },
+      { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard' },
     ],
   },
   {
@@ -469,6 +471,7 @@ function AppShell() {
           <Route path="/freezing-bridge" element={<FreezingBridgePage />} />
           <Route path="/rigorous-numerics-stages" element={<RigorousNumericsStagesPage />} />
           <Route path="/twin-ladder-paper-roadmap" element={<TwinLadderPaperRoadmapPage />} />
+          <Route path="/paper-audit-dashboard" element={<PaperAuditDashboardPage />} />
         </Routes>
         </Suspense>
       </div>

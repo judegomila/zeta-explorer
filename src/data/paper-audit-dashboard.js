@@ -101,14 +101,19 @@ const CONJECTURE_ENTRIES = [
       'The shifted bridge functions E_a(z) = xi(1/2 + a - iz) are ' +
       'Hermite-Biehler for every a > 0. (Equivalent to Conjecture 15.2 and ' +
       'hence to RH.)',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'SUBSUMED-BY-RH',
+    auditTicket: 'imp-1230',
+    auditDate: '2026-05-27',
     recommendationForPaper:
-      'Pending audit. The paper itself notes equivalence to 15.2 and hence ' +
-      'to RH. This is the same de Branges Hermite-Biehler statement as ' +
-      'Conjecture 22.4 (already audited SUBSUMED-BY-RH); a follow-up audit ' +
-      'should cross-link to imp-1210 and likely assign SUBSUMED-BY-RH.',
+      'CONFIRMED SUBSUMED-BY-RH (imp-1230). The paper itself states 15.3 is ' +
+      'equivalent to 15.2 (shift contractivity) and hence to RH. The ' +
+      'Hermite-Biehler condition on E_a(z) = xi(1/2 + a - iz) is exactly the ' +
+      'statement K_a(w,w) >= 0 for all w (de Branges kernel positivity). This ' +
+      'is identical in content to Conjecture 22.4 (SUBSUMED-BY-RH via imp-1210: ' +
+      'de Branges 1968, Lagarias 2007). Move 15.3 into the unified ' +
+      'RH-equivalent reformulations subsection alongside 15.2, 15.4, 17.3, ' +
+      '18.4, 22.4. Cite de Branges 1968, Lagarias 2007. K_a >= 0 is not ' +
+      'stronger nor weaker than RH -- it is RH.',
   },
   {
     id: '15.4',
@@ -380,10 +385,10 @@ const HONEST_SCOPE = Object.freeze([
     'of scope here because Section 4 is not covered by this tracker -- the ' +
     'verdict (SUBSUMED-BY-LITERATURE via Hughes-Rudnick 2003 + Bourgade ' +
     '2010) is recorded in imp-1163 and IMPROVEMENTS.md.',
-  'As of imp-1232, 8 of 13 conjectures (15.2, 15.4, 17.3, 18.4, 22.1, 22.2, 22.3, 22.4) ' +
-    'have received a verdict. The remaining 5 (15.3, 16.4, 16.6, ' +
+  'As of imp-1230, 9 of 13 conjectures (15.2, 15.3, 15.4, 17.3, 18.4, 22.1, 22.2, 22.3, 22.4) ' +
+    'have received a verdict. The remaining 4 (16.4, 16.6, ' +
     '18.1, 18.2) are UNAUDITED with auditTicket = null. ' +
-    'recommendationForPaper for those 5 is a PREDICTION of the likely ' +
+    'recommendationForPaper for those 4 is a PREDICTION of the likely ' +
     'verdict based on visible cross-references, not a completed audit.',
   'The verdicts SUBSUMED-BY-RH on 15.4 (imp-1202) and 22.4 (imp-1210) are ' +
     'based on textbook de Branges / Hadamard machinery and are robust ' +
@@ -396,7 +401,7 @@ const HONEST_SCOPE = Object.freeze([
   'No external browsing was performed for any of the three completed ' +
     'audits. All verdicts use training-time knowledge plus internal cross-' +
     'references between sections of the paper itself.',
-  'The recommendationForPaper text for the 5 UNAUDITED conjectures is ' +
+  'The recommendationForPaper text for the 4 UNAUDITED conjectures is ' +
     'INDICATIVE -- it notes the cross-references but is not a substitute for ' +
     'a per-conjecture literature audit ticket. Follow-up tickets per conjecture ' +
     'are the natural extension of this dashboard.',
@@ -459,6 +464,13 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
       coversConjectures: Object.freeze(['17.3', '18.4']),
       auditDate: '2026-05-27',
     }),
+    Object.freeze({
+      ticket: 'imp-1230',
+      title: 'Conjecture 15.3 audit (shift-bridge positivity / Hermite-Biehler)',
+      verdict: '15.3 SUBSUMED-BY-RH (E_a Hermite-Biehler iff K_a PSD iff RH; identical to 22.4; cite de Branges 1968, Lagarias 2007)',
+      coversConjectures: Object.freeze(['15.3']),
+      auditDate: '2026-05-27',
+    }),
   ]),
 
   honestScope: HONEST_SCOPE,
@@ -467,9 +479,9 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
     'DASHBOARD: living tracker of every named conjecture in v52 paper ' +
     'Sections 15-22, with per-conjecture verdict in {SUBSUMED-BY-RH, ' +
     'SUBSUMED-BY-LITERATURE, PARTIALLY-RELATED, INDEPENDENT-NOVEL, ' +
-    'UNAUDITED}. 13 conjectures total: 5 SUBSUMED-BY-RH (15.2, 15.4, 17.3, ' +
+    'UNAUDITED}. 13 conjectures total: 6 SUBSUMED-BY-RH (15.2, 15.3, 15.4, 17.3, ' +
     '18.4, 22.4), 2 PARTIALLY-RELATED (22.2, 22.3), 1 INDEPENDENT-NOVEL ' +
-    '(22.1), 5 UNAUDITED (15.3, 16.4, 16.6, 18.1, 18.2). Drives /paper-audit-dashboard page.',
+    '(22.1), 4 UNAUDITED (16.4, 16.6, 18.1, 18.2). Drives /paper-audit-dashboard page.',
 });
 
 export default PAPER_AUDIT_DASHBOARD;
@@ -548,6 +560,20 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     },
   },
   {
+    id: 'paper-audit-subsumed-by-rh-15-3-present',
+    why:
+      'Conjecture 15.3 was audited SUBSUMED-BY-RH via imp-1230. The paper ' +
+      'itself states 15.3 is equivalent to 15.2 (and hence RH); the ' +
+      'Hermite-Biehler condition E_a Hermite-Biehler is identical in content ' +
+      'to Conjecture 22.4 (de Branges 1968, Lagarias 2007). The dashboard ' +
+      'entry for 15.3 must reflect this verdict and link to imp-1230.',
+    holds: () => {
+      const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '15.3');
+      return !!c && c.auditStatus === 'SUBSUMED-BY-RH' &&
+        c.auditTicket === 'imp-1230';
+    },
+  },
+  {
     id: 'paper-audit-partially-related-22-2-and-22-3',
     why:
       'Conjectures 22.2 and 22.3 were audited PARTIALLY-RELATED via imp-1210 ' +
@@ -577,10 +603,10 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     },
   },
   {
-    id: 'paper-audit-five-unaudited-conjectures',
+    id: 'paper-audit-four-unaudited-conjectures',
     why:
-      'Of 13 conjectures, exactly 5 remain UNAUDITED (15.3, 16.4, 16.6, ' +
-      '18.1, 18.2) after imp-1232 confirmed 17.3 and 18.4 SUBSUMED-BY-RH. ' +
+      'Of 13 conjectures, exactly 4 remain UNAUDITED (16.4, 16.6, ' +
+      '18.1, 18.2) after imp-1230 confirmed 15.3 SUBSUMED-BY-RH. ' +
       'Each UNAUDITED entry must carry auditTicket null and auditDate null -- ' +
       'inventing an audit ticket for a conjecture we have not actually audited ' +
       'would overclaim.',
@@ -588,8 +614,8 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       const unaudited = PAPER_AUDIT_DASHBOARD.conjectures.filter(
         (c) => c.auditStatus === 'UNAUDITED',
       );
-      if (unaudited.length !== 5) return false;
-      const expected = new Set(['15.3', '16.4', '16.6', '18.1', '18.2']);
+      if (unaudited.length !== 4) return false;
+      const expected = new Set(['16.4', '16.6', '18.1', '18.2']);
       return unaudited.every(
         (c) => expected.has(c.id) && c.auditTicket === null &&
           c.auditDate === null,
@@ -599,9 +625,9 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
   {
     id: 'paper-audit-status-counts-sum-to-thirteen',
     why:
-      'statusCounts must partition the 13 conjectures exactly: 5 SUBSUMED-BY-' +
+      'statusCounts must partition the 13 conjectures exactly: 6 SUBSUMED-BY-' +
       'RH + 0 SUBSUMED-BY-LITERATURE + 2 PARTIALLY-RELATED + 1 INDEPENDENT-' +
-      'NOVEL + 5 UNAUDITED = 13 (after imp-1232 moved 17.3 and 18.4 to ' +
+      'NOVEL + 4 UNAUDITED = 13 (after imp-1230 moved 15.3 to ' +
       'SUBSUMED-BY-RH). Any drift means the dashboard counts do not match ' +
       'the per-conjecture entries.',
     holds: () => {
@@ -610,10 +636,10 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
         s['PARTIALLY-RELATED'] + s['INDEPENDENT-NOVEL'] + s.UNAUDITED;
       return total === PAPER_AUDIT_DASHBOARD.totalCount &&
         PAPER_AUDIT_DASHBOARD.totalCount === 13 &&
-        s['SUBSUMED-BY-RH'] === 5 &&
+        s['SUBSUMED-BY-RH'] === 6 &&
         s['PARTIALLY-RELATED'] === 2 &&
         s['INDEPENDENT-NOVEL'] === 1 &&
-        s.UNAUDITED === 5;
+        s.UNAUDITED === 4;
     },
   },
   {
@@ -662,7 +688,7 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     id: 'paper-audit-honest-scope-discloses-unaudited-predictions',
     why:
       'The honestScope array must explicitly disclose that recommendations ' +
-      'for the 8 UNAUDITED conjectures are PREDICTIONS / INDICATIVE rather ' +
+      'for the 4 UNAUDITED conjectures are PREDICTIONS / INDICATIVE rather ' +
       'than completed audits. Per the ticket instructions: do not invent ' +
       'audits you haven\'t done.',
     holds: () => {

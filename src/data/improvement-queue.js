@@ -18181,7 +18181,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Audit Conjecture 15.3 (shifted bridge positivity K_a >= 0) -- equivalent to Hermite-Biehler',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Conjecture 15.3 (paper page 12): For every a > 0, the shifted bridge kernel K_a = (E_a(z) E_a(w-bar) - E_a^#(z) E_a^#(w-bar)) / (2*pi*i*(w-bar - z)) is positive semidefinite. This is the de Branges Hermite-Biehler positivity, known equivalent to E_a being Hermite-Biehler, known equivalent to no zeros of X(w) in the right half-plane Re(w) > a (so equivalent to RH in the limit a -> 0). Walk the unwinding. Ship src/data/imp-1230-conjecture-15-3-audit.js. 4+ tripwires.",
     rationale: 'Quick audit — likely SUBSUMED by Hermite-Biehler theory, which is equivalent to RH.',
@@ -18189,6 +18189,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1218'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'subscription',
   },
   {
     id: 'imp-1231',

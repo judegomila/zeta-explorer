@@ -66,6 +66,7 @@ const BlaschkeGhostsPage = lazy(() => import('./pages/BlaschkeGhostsPage.jsx'));
 const ClosureRoutesPage = lazy(() => import('./pages/ClosureRoutesPage.jsx'));
 const KypBoundedRealPage = lazy(() => import('./pages/KypBoundedRealPage.jsx'));
 const ShiftBridgePositivityPage = lazy(() => import('./pages/ShiftBridgePositivityPage.jsx'));
+const FreezingBridgePage = lazy(() => import('./pages/FreezingBridgePage.jsx'));
 
 function PageLoader() {
   return (
@@ -112,6 +113,7 @@ const NAV_GROUPS = [
       { to: '/closure-routes', label: 'Four Closure Routes (§16)' },
       { to: '/blaschke-ghosts', label: 'Blaschke Ghosts (§17)' },
       { to: '/three-attacks', label: 'Three Attacks (§18)' },
+      { to: '/freezing-bridge', label: 'Freezing Bridge (§23)' },
       { to: '/kyp-bounded-real', label: 'KYP / Bounded-Real' },
     ],
   },
@@ -460,6 +462,7 @@ function AppShell() {
           <Route path="/closure-routes" element={<ClosureRoutesPage />} />
           <Route path="/kyp-bounded-real" element={<KypBoundedRealPage />} />
           <Route path="/shift-bridge-positivity" element={<ShiftBridgePositivityPage />} />
+          <Route path="/freezing-bridge" element={<FreezingBridgePage />} />
         </Routes>
         </Suspense>
       </div>

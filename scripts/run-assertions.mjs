@@ -363,6 +363,9 @@ const DATA_MODULES = [
   // twin-ladder v52 §15 shift-bridge crosswalk -- 12 entries with honest
   // verdict vocabulary (identical / related / distinct / not-yet-identified).
   '/src/data/imp-1234-zpo-vs-twin-ladder-v52-crosswalk.js',
+  // imp-1239: imp-447 / imp-459 sigma-shift admissibility audit -- YES at sigma=0.99
+  // under log-free convention; sigma-shift is strictly required if the log factor is restored.
+  '/src/data/imp-1239-imp447-sigma-shift-audit.js',
 ];
 
 const ALL_MODULES = FAST_MODE

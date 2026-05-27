@@ -18318,7 +18318,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'imp-1147 chain audit: is BS sigma-shift to 0.99 admissible in the imp-447 E_trunc derivation?',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Per imp-1179 + imp-1182, the BS rigorous tightening at sigma=0.99 (where A_BS=6 is admissible) would give E_trunc ~ Ingham value if the imp-447 chain admits sigma=0.99. The imp-447 chain was DERIVED at sigma_opt=0.75 (the Ingham optimum). Is that constraint sigma_opt=0.75 OR can the chain re-derive at sigma=0.99 and still give a usable E_trunc bound? Audit the imp-447 derivation in src/data/finite-height-beats-platt-trudgian.js. Ship src/data/imp-1239-imp447-sigma-shift-audit.js. 5+ tripwires.",
     rationale: 'This is the load-bearing question for whether the BS-based tightening can be rigorously recovered. Audit before more work on imp-1182-sub-literal-paper-walk.',
@@ -18326,5 +18326,9 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1179', 'imp-1182'],
     model: 'opus-4-7',
     channel: 'subscription',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    completedAt: '2026-05-27T00:00:00Z',
+    completionNote: 'YES verdict: sigma_N=0.99 admissible in imp-447 chain (all 4 algebraic conditions hold; log-free bound monotone-decreasing in sigma; tightens 6.4e8x from 0.75 to 0.99). Load-bearing caveat: under full Ingham (log T)^5 convention, sigma=0.75 fails (~597) while sigma=0.99 succeeds (~9.3e-7). Audit ships at src/data/imp-1239-imp447-sigma-shift-audit.js with 8 tripwires (all green).',
   },
 ];

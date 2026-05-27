@@ -339,6 +339,8 @@ const DATA_MODULES = [
   '/src/data/freezing-bridge-section.js',
   // imp-1217: Master index of every section of v52 paper (companion to /twin-ladder-paper-roadmap).
   '/src/data/twin-ladder-paper-roadmap.js',
+  // imp-1220: rigorous-numerics stages I/II/III — §20 of twin-ladder v52.
+  '/src/data/rigorous-numerics-stages.js',
 ];
 
 const ALL_MODULES = FAST_MODE

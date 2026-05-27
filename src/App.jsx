@@ -67,6 +67,7 @@ const ClosureRoutesPage = lazy(() => import('./pages/ClosureRoutesPage.jsx'));
 const KypBoundedRealPage = lazy(() => import('./pages/KypBoundedRealPage.jsx'));
 const ShiftBridgePositivityPage = lazy(() => import('./pages/ShiftBridgePositivityPage.jsx'));
 const FreezingBridgePage = lazy(() => import('./pages/FreezingBridgePage.jsx'));
+const RigorousNumericsStagesPage = lazy(() => import('./pages/RigorousNumericsStagesPage.jsx'));
 const TwinLadderPaperRoadmapPage = lazy(() => import('./pages/TwinLadderPaperRoadmapPage.jsx'));
 
 function PageLoader() {
@@ -117,6 +118,7 @@ const NAV_GROUPS = [
       { to: '/freezing-bridge', label: 'Freezing Bridge (§23)' },
       { to: '/kyp-bounded-real', label: 'KYP / Bounded-Real' },
       { to: '/twin-ladder-paper-roadmap', label: 'Paper Roadmap' },
+      { to: '/rigorous-numerics-stages', label: 'Rigorous Numerics (§20)' },
     ],
   },
   {
@@ -465,6 +467,7 @@ function AppShell() {
           <Route path="/kyp-bounded-real" element={<KypBoundedRealPage />} />
           <Route path="/shift-bridge-positivity" element={<ShiftBridgePositivityPage />} />
           <Route path="/freezing-bridge" element={<FreezingBridgePage />} />
+          <Route path="/rigorous-numerics-stages" element={<RigorousNumericsStagesPage />} />
           <Route path="/twin-ladder-paper-roadmap" element={<TwinLadderPaperRoadmapPage />} />
         </Routes>
         </Suspense>

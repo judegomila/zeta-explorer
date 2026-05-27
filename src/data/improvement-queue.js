@@ -18066,7 +18066,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'VIZ /viz-twin-ladder-tomography: |zeta(sigma+it)| * |zeta((1-sigma)+it)| heatmap',
     category: 'visual',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'meta-portability',
     description: "Build /viz-twin-ladder-tomography page. 2D Canvas heatmap of the twin-ladder product |zeta(sigma+it)| * |zeta((1-sigma)+it)| over (sigma, t) in [0.05, 0.95] x [0, 100]. Resolution 400x400. The critical line sigma=1/2 stands out as the interference minimum (since the functional equation makes both factors equal there). Color: log-scale viridis. Slider for max-t window. Optional overlay: known zeros on sigma=1/2 line. Ship src/data/viz-twin-ladder-tomography.js + src/pages/VizTwinLadderTomographyPage.jsx. 5+ tripwires.",
     rationale: 'Twin-ladder model heart: visualize the symmetry that makes critical line special. Direct view of why sigma=1/2 is privileged in the framework.',
@@ -18074,6 +18074,7 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['research-inputs/twin_ladder_consolidated_v52.pdf'],
     model: 'opus-4-7',
     channel: 'api',
+    completedAt: '2026-05-26T00:00:00Z',
   },
   {
     id: 'imp-1224',

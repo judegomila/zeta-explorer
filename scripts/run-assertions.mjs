@@ -349,6 +349,8 @@ const DATA_MODULES = [
   '/src/data/viz-log-phase-spiral.js',
   // imp-1224: VIZ /viz-euler-transport-flow -- streamlines of -zeta'/zeta vector field.
   '/src/data/viz-euler-transport-flow.js',
+  // imp-1223: VIZ /viz-twin-ladder-tomography -- |zeta(sigma+it)| * |zeta((1-sigma)+it)| heatmap data + tripwires.
+  '/src/data/viz-twin-ladder-tomography.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -343,6 +343,10 @@ const DATA_MODULES = [
   '/src/data/rigorous-numerics-stages.js',
   // imp-1218: Paper Audit Dashboard -- per-conjecture verdict tracker for v52 §§15-22.
   '/src/data/paper-audit-dashboard.js',
+  // imp-1225: VIZ prime caustic reference data (sonnet-4-6 bucket).
+  '/src/data/viz-prime-caustic.js',
+  // imp-1227: VIZ prime phase-crystal Bragg-pattern reference data (sonnet-4-6 bucket).
+  '/src/data/viz-prime-phase-crystal.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -1,0 +1,321 @@
+// VizPrimeCausticPage.jsx -- imp-1225
+// Caustic-geometry visualisation: for each (sigma, t) in the bounding box,
+// count how many of the first N=1000 primes have phase (t * log p) mod 2*pi
+// within EPS=0.2 radians of zero, and render the result as a Canvas heatmap.
+//
+// The sigma axis enters via an amplitude weight p^{-sigma} on the coherent
+// set, so the brightness varies with sigma even though the *count* does not.
+// User can toggle between "count" and "amplitude" modes and pick eps + N.
+//
+// Renders ~300 x 300 pixels via a single putImageData call.  Pre-computed
+// 256-entry RGB colormap (viridis-like) keeps the inner loop branch-free.
+
+import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import { VIZ_PRIME_CAUSTIC } from '../data/viz-prime-caustic.js';
+
+const D = VIZ_PRIME_CAUSTIC;
+const TWO_PI = 2 * Math.PI;
+const mono = 'var(--font-mono)';
+
+// 256-entry viridis-like colormap as a flat Uint8Array (R, G, B per entry).
+// Pre-computed once at module load.
+const COLORMAP = (() => {
+  const out = new Uint8Array(256 * 3);
+  for (let i = 0; i < 256; i++) {
+    const x = i / 255;
+    // Quick viridis-like ramp: dark navy -> teal -> green -> yellow.
+    const r = Math.round(255 * Math.max(0, Math.min(1, -0.20 + 1.50 * x)));
+    const g = Math.round(255 * Math.max(0, Math.min(1,  0.10 + 1.05 * x - 0.20 * x * x)));
+    const b = Math.round(255 * Math.max(0, Math.min(1,  0.40 + 0.40 * x - 0.90 * x * x)));
+    out[i * 3 + 0] = r;
+    out[i * 3 + 1] = g;
+    out[i * 3 + 2] = b;
+  }
+  return out;
+})();
+
+// Reduce phase to (-pi, pi].
+function wrap(x) {
+  let r = x - TWO_PI * Math.round(x / TWO_PI);
+  if (r >  Math.PI) r -= TWO_PI;
+  if (r < -Math.PI) r += TWO_PI;
+  return r;
+}
+
+export default function VizPrimeCausticPage() {
+  const canvasRef = useRef(null);
+  const [nPrimes, setNPrimes] = useState(D.bbox.nPrimes);
+  const [eps, setEps]         = useState(D.bbox.eps);
+  const [mode, setMode]       = useState('amplitude');     // 'count' or 'amplitude'
+  const [resolution, setRes]  = useState(1);                // 1=full 300x300, 2=half, 4=coarse
+  const [renderInfo, setRenderInfo] = useState({ ms: 0, maxVal: 0 });
+
+  // Pre-slice the prime list to the active count.
+  const logPrimes = useMemo(() => {
+    const N = Math.min(nPrimes, D.primes.length);
+    return D.logPrimes.slice(0, N);
+  }, [nPrimes]);
+
+  const draw = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const t0 = performance.now();
+
+    const W = D.bbox.gridW;
+    const H = D.bbox.gridH;
+    canvas.width  = W;
+    canvas.height = H;
+    const ctx = canvas.getContext('2d');
+
+    const step = resolution;
+    const sMin = D.bbox.sigmaMin, sMax = D.bbox.sigmaMax;
+    const tMin = D.bbox.tMin,     tMax = D.bbox.tMax;
+    const M = logPrimes.length;
+
+    // Step 1: compute the row-only count once per scanline (sigma-independent).
+    const rowCounts = new Uint16Array(H);
+    const rowAmp    = new Float64Array(H);
+    // For amplitude mode we need sigma per pixel, so we precompute per-row the
+    // list of coherent primes (their log p values), then evaluate the sum
+    // per (row, col).  For count mode we just store the count once per row.
+    const coherentByRow = new Array(H);  // each entry: Float64Array of log p
+    for (let py = 0; py < H; py += step) {
+      const t = tMax - (py / (H - 1)) * (tMax - tMin);
+      let c = 0;
+      const tmp = new Float64Array(M);
+      for (let i = 0; i < M; i++) {
+        const r = wrap(t * logPrimes[i]);
+        if (Math.abs(r) < eps) tmp[c++] = logPrimes[i];
+      }
+      coherentByRow[py] = tmp.slice(0, c);
+      rowCounts[py] = c;
+    }
+
+    // Pass 2: find max value for normalisation (uses sigma at midpoint for amp).
+    let maxVal = 1;
+    if (mode === 'count') {
+      for (let py = 0; py < H; py += step) {
+        if (rowCounts[py] > maxVal) maxVal = rowCounts[py];
+      }
+    } else {
+      // For amplitude, evaluate at sigma_min (where amp is largest) per row.
+      for (let py = 0; py < H; py += step) {
+        const coh = coherentByRow[py];
+        let s = 0;
+        for (let i = 0; i < coh.length; i++) s += Math.exp(-sMin * coh[i]);
+        if (s > maxVal) maxVal = s;
+        rowAmp[py] = s;  // reuse for the dynamic floor
+      }
+    }
+
+    // Pass 3: fill the ImageData buffer.
+    const imgData = ctx.createImageData(W, H);
+    const data    = imgData.data;
+    for (let py = 0; py < H; py += step) {
+      const coh = coherentByRow[py];
+      for (let px = 0; px < W; px += step) {
+        const sigma = sMin + (px / (W - 1)) * (sMax - sMin);
+        let v;
+        if (mode === 'count') {
+          v = rowCounts[py];
+        } else {
+          let s = 0;
+          for (let i = 0; i < coh.length; i++) {
+            s += Math.exp(-sigma * coh[i]);
+          }
+          v = s;
+        }
+        const norm = Math.min(1, v / maxVal);
+        // gamma-correct for visual punch (sqrt brings out mid-tones).
+        const idx256 = Math.min(255, Math.floor(Math.sqrt(norm) * 255));
+        const cmIdx = idx256 * 3;
+        const r = COLORMAP[cmIdx + 0];
+        const g = COLORMAP[cmIdx + 1];
+        const b = COLORMAP[cmIdx + 2];
+        // Replicate the cell across the step block.
+        for (let dy = 0; dy < step && py + dy < H; dy++) {
+          for (let dx = 0; dx < step && px + dx < W; dx++) {
+            const pos = ((py + dy) * W + (px + dx)) * 4;
+            data[pos]     = r;
+            data[pos + 1] = g;
+            data[pos + 2] = b;
+            data[pos + 3] = 255;
+          }
+        }
+      }
+    }
+    ctx.putImageData(imgData, 0, 0);
+
+    // Critical-line marker (vertical dashed line at sigma = 1/2).
+    const critX = ((0.5 - sMin) / (sMax - sMin)) * W;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+    ctx.setLineDash([4, 4]);
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(critX, 0); ctx.lineTo(critX, H);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Axis labels (drawn on the canvas itself for portability).
+    ctx.font = '11px "JetBrains Mono", monospace';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+    ctx.textAlign = 'left';
+    ctx.fillText('sigma = ' + sMin.toFixed(2), 4, H - 6);
+    ctx.textAlign = 'right';
+    ctx.fillText('sigma = ' + sMax.toFixed(2), W - 4, H - 6);
+    ctx.textAlign = 'center';
+    ctx.fillText('sigma = 1/2', critX, H - 6);
+    ctx.textAlign = 'left';
+    ctx.fillText('t = ' + tMax.toFixed(0), 4, 14);
+    ctx.fillText('t = ' + tMin.toFixed(0), 4, H - 22);
+
+    setRenderInfo({ ms: +(performance.now() - t0).toFixed(1), maxVal: +maxVal.toFixed(2) });
+  }, [logPrimes, eps, mode, resolution]);
+
+  useEffect(() => { draw(); }, [draw]);
+
+  return (
+    <div className="page">
+      <div className="page-header">
+        <h1>Prime Caustic (imp-1225)</h1>
+        <p className="page-subtitle">
+          For each (sigma, t) pixel in [{D.bbox.sigmaMin}, {D.bbox.sigmaMax}] x [{D.bbox.tMin}, {D.bbox.tMax}],
+          count how many of the first N primes have phase t * log p mod 2*pi within
+          eps = {D.bbox.eps} rad of zero. Coherent superposition makes the truncated
+          main sum locally large; the critical line shows a structured caustic. Reference
+          data + tripwires live in <code>src/data/viz-prime-caustic.js</code>; the renderer
+          here computes a {D.bbox.gridW} x {D.bbox.gridH} grid into a single ImageData
+          buffer (no per-pixel fillRect).
+        </p>
+        <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+          <Link to="/explorations" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
+            &larr; Explorations
+          </Link>
+          <Link to="/viz-prime-phase-crystal" style={{ color: '#a855f7', fontFamily: mono, fontSize: 12 }}>
+            Prime Phase Crystal (imp-1227) &rarr;
+          </Link>
+          <Link to="/zeta" style={{ color: '#0891b2', fontFamily: mono, fontSize: 12 }}>
+            Zeta visualisation
+          </Link>
+        </div>
+      </div>
+
+      <div style={{
+        marginTop: 14,
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(168px, 1fr))',
+        gap: 12,
+      }}>
+        <Stat label="N primes (active)"     value={String(logPrimes.length)} />
+        <Stat label="eps (rad)"             value={eps.toFixed(2)} />
+        <Stat label="ref-grid max count"    value={String(D.refMaxCount)} />
+        <Stat label="ref-grid mean count"   value={D.meanCount.toFixed(2)} />
+        <Stat label="random baseline"       value={D.randomBaseline.toFixed(2)} />
+        <Stat label="render time (ms)"      value={renderInfo.ms.toString()} />
+        <Stat label="max value (rendered)"  value={String(renderInfo.maxVal)} />
+        <Stat label="mode"                  value={mode} accent="#c4b5fd" />
+      </div>
+
+      <div style={{ display: 'flex', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
+        <div className="control-group">
+          <label>N primes</label>
+          <input type="range" min="50" max={D.primes.length} step="50" value={nPrimes}
+                 onChange={e => setNPrimes(+e.target.value)} />
+          <span className="control-value">{nPrimes}</span>
+        </div>
+        <div className="control-group">
+          <label>eps (rad)</label>
+          <input type="range" min="0.02" max="0.5" step="0.02" value={eps}
+                 onChange={e => setEps(+e.target.value)} />
+          <span className="control-value">{eps.toFixed(2)}</span>
+        </div>
+        <div className="control-group">
+          <label>resolution</label>
+          <input type="range" min="1" max="4" step="1" value={resolution}
+                 onChange={e => setRes(+e.target.value)} />
+          <span className="control-value">{resolution === 1 ? 'Full' : resolution === 2 ? 'Half' : resolution === 3 ? 'Coarse' : 'Fast'}</span>
+        </div>
+        <div className="control-group">
+          <label>mode</label>
+          <select value={mode} onChange={e => setMode(e.target.value)}
+                  style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155',
+                           borderRadius: 4, padding: '4px 8px', fontFamily: mono, fontSize: 12 }}>
+            <option value="amplitude">amplitude (sigma-weighted)</option>
+            <option value="count">count (sigma-independent)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style={{ marginTop: 16, background: 'var(--bg-panel)', border: '1px solid var(--border)',
+                    borderRadius: 8, padding: 12, display: 'flex', justifyContent: 'center' }}>
+        <canvas ref={canvasRef}
+                style={{ width: '100%', maxWidth: D.bbox.gridW, height: 'auto',
+                         border: '1px solid #1e293b', borderRadius: 4,
+                         imageRendering: 'pixelated' }} />
+      </div>
+
+      <div className="card" style={{ marginTop: 14, padding: 14 }}>
+        <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--text-muted)',
+                      letterSpacing: 0.5, marginBottom: 8 }}>
+          Critical-line cross-section (sigma = 1/2)
+        </div>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11, fontFamily: mono }}>
+            <thead>
+              <tr style={{ background: 'var(--bg-primary)' }}>
+                <th style={{ textAlign: 'right', padding: 6 }}>t</th>
+                <th style={{ textAlign: 'right', padding: 6 }}>count</th>
+                <th style={{ textAlign: 'right', padding: 6 }}>amp(sigma=0.3)</th>
+                <th style={{ textAlign: 'right', padding: 6 }}>amp(sigma=0.5)</th>
+                <th style={{ textAlign: 'right', padding: 6 }}>amp(sigma=0.7)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {D.criticalLineSlice.map((r, i) => (
+                <tr key={i} style={{ borderTop: '1px solid var(--border)' }}>
+                  <td style={{ padding: 6, textAlign: 'right', color: '#a855f7' }}>{r.t.toFixed(2)}</td>
+                  <td style={{ padding: 6, textAlign: 'right' }}>{r.count}</td>
+                  <td style={{ padding: 6, textAlign: 'right', color: '#86efac' }}>{r.ampAt03.toFixed(4)}</td>
+                  <td style={{ padding: 6, textAlign: 'right', color: '#fef08a' }}>{r.ampAtHalf.toFixed(4)}</td>
+                  <td style={{ padding: 6, textAlign: 'right', color: '#fca5a5' }}>{r.ampAt07.toFixed(4)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div style={{ marginTop: 14, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6 }}>
+        <strong style={{ color: '#cbd5e1' }}>Reading the map.</strong> Bright pixels are
+        coherent: many primes simultaneously close to phase 0. The vertical dashed line
+        marks sigma = 1/2 (the critical line). Horizontal banding reflects the
+        characteristic Riemann-Siegel main-sum structure -- bands at the Gram-point
+        spacing and dips near nontrivial zeros (gamma_1 = 14.13, gamma_2 = 21.02, ...).
+        Amplitude mode multiplies each coherent prime by p^{'{-sigma}'} (the natural
+        Riemann-Siegel weight), so small sigma upweights small primes and shifts
+        contrast leftward. Count mode is sigma-independent. The render uses a single
+        putImageData of a {D.bbox.gridW} x {D.bbox.gridH} buffer -- no per-pixel
+        fillRect calls.
+      </div>
+    </div>
+  );
+}
+
+function Stat({ label, value, accent }) {
+  return (
+    <div style={{
+      background: 'var(--bg-panel)',
+      border: '1px solid var(--border)',
+      borderRadius: 8,
+      padding: 10,
+    }}>
+      <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5 }}>
+        {label}
+      </div>
+      <div style={{ marginTop: 4, fontSize: 18, fontFamily: mono, color: accent || '#e2e8f0' }}>
+        {value}
+      </div>
+    </div>
+  );
+}

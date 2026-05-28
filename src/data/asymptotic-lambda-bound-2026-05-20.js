@@ -139,17 +139,28 @@
  * @see PT 2021 (Platt-Trudgian, Bull. LMS 2021): Lambda <= 0.2 SOTA
  */
 
-import { KOKSMA_HLAWKA_2ND_MOMENT } from './koksma-hlawka-2nd-moment-deviation-bound.js';
-
 // ── Numerical constants ───────────────────────────────────────────────────
 //
-// Inherit C_HO ~ 189 and K_1 = 1 / (2 pi) from imp-1149 (the published
-// Theorem 3 source). Inherit E_trunc_pt = 3.06e-5 from the imp-447 +
-// imp-459 Ingham chain at T_PT = 3e12, sigma_opt = 0.75 (unchanged
-// from the historical composition; only the |t_c| upper bound has
-// been re-derived).
-const C_HO              = KOKSMA_HLAWKA_2ND_MOMENT.constants.CHO_composed_const;
-const K1_M_INF          = KOKSMA_HLAWKA_2ND_MOMENT.constants.K1_M_infty_strip_const;
+// Constants are HARD-CODED from imp-1149 (the published Theorem 3 source)
+// and from the imp-447 + imp-459 Ingham chain at T_PT = 3e12,
+// sigma_opt = 0.75. Hard-coding avoids a circular ESM import (imp-1149
+// imports THIS module for its live-import sanity check; importing
+// imp-1149 here creates a TDZ "Cannot access before initialization"
+// error at sweep time). The constants are pinned PUBLIC values; drift
+// is detected by the imp-1261 tripwires and by the imp-1149 file's own
+// constants block.
+//
+//   K_1 = 1 / (2 * sqrt(2 * pi))   strip-Jacobian constant
+//                                  (imp-1149 STEP 5; M_infty >= K_1 (L - log 4pi) sqrt(N))
+//   K_0 = pi * C_Selberg / sqrt(2 * pi)
+//   C_HO = 2 * K_0 / (K_1 * K_1) ~ 189 at C_Selberg = 3
+//                                  (imp-1149 STEP 6 composed constant on the N^{-3/2} rate)
+//   E_trunc_pt = 3.06e-5            (imp-447 + imp-459 at sigma_opt = 0.75, T_PT = 3e12)
+const _C_SELBERG = 3.0;
+const _K1_RAW    = 1 / (2 * Math.sqrt(2 * Math.PI));
+const _K0_RAW    = (Math.PI * _C_SELBERG) / Math.sqrt(2 * Math.PI);
+const C_HO              = (2 * _K0_RAW) / (_K1_RAW * _K1_RAW); // ~ 188.995 at C_Selberg = 3
+const K1_M_INF          = _K1_RAW;                              // 1 / (2 sqrt(2 pi)) ~ 0.19947
 const LOG_4PI           = Math.log(4 * Math.PI);
 const E_TRUNC_PT_INGHAM = 3.06e-5;
 const PT_BOUND          = 0.2;
@@ -217,9 +228,12 @@ export const ASYMPTOTIC_LAMBDA_BOUND_2026_05_20 = Object.freeze({
       '(imp-341 statement, imp-1149 explicit rate). Composing with the ' +
       'Polymath15 bridge gives Lambda <= 0 + E_trunc_pt = 3.06e-5.',
 
-    // The triangle-inequality components.
+    // The triangle-inequality components. Form: |t_c(N)| is split into
+    // its imp-1149 deviation from 1/(2 M_infty(N)) plus the explicit
+    // M_infty(N) lower bound K_1 (L - log 4pi) sqrt(N).
     tcUpperFormula:
-      '|t_c(N)| <= C_HO / (L * N^{3/2}) + 1 / (2 K_1 (L - log 4 pi) sqrt(N))',
+      '|t_c(N)| <= 1/(2 M_infty(N)) + C_HO / (L * N^{3/2}) ' +
+      '<= 1 / (2 K_1 (L - log 4 pi) sqrt(N)) + C_HO / (L * N^{3/2})',
     cHO_composed: C_HO,
     K1_strip: K1_M_INF,
     log_4pi: LOG_4PI,

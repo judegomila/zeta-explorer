@@ -491,6 +491,12 @@ const DATA_MODULES = [
   // margin). Points to imp-1267 (HS, already shipped) as the productive
   // attack. 13 tripwires.
   '/src/data/imp-1266-volterra-mellin-symbol.js',
+  // imp-1267: analytical Hilbert-Schmidt upper bound for ||V_{a,Φ}|| on
+  // L²([0, ∞)) — route 1 of imp-1260. Closed-form: ||V||_op ≤ sqrt(I_0 · J_a)
+  // where I_0 = ||Φ||_{L²(R_+)}^2 ≈ 1.047e-2 and J_a = ∫ Φ² sinh²(au) du.
+  // Worst HS_bound across the imp-1240 grid is 2.94e-4 (a=0.5), more than
+  // 3000x below the Conj 27.2 threshold of 1. 10 tripwires.
+  '/src/data/imp-1267-volterra-hs-bound.js',
   // imp-1261: EXECUTION RECORD for the imp-1246 redirect -- shipped the
   // unconditional Lambda <= 3.06e-5 asymptotic bound (modulo Polymath15
   // G6a) via composition rewrite of asymptotic-lambda-bound-2026-05-20.js.

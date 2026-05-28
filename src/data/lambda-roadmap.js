@@ -63,24 +63,54 @@ export const LAMBDA_BOUNDS = [
       'per-N bound via route A, B-rate-upgrade, or C.',
   },
   {
-    id: 'our-asymptotic-via-imp-1147',
-    label: 'Λ ≲ 8e-4 asymptotic (conditional on linear-1/N model, 250× under PT)',
-    kind: 'upper-asymptotic-conditional',
-    value: 0.0008,
-    status: 'rigorous-conditional-on-linear-1N-model',
-    source: 'imp-1147 via imp-1136 BH-multipole sweep + imp-1137 interval OLS refit',
+    id: 'our-asymptotic-via-imp-1261-redirect',
+    label: 'Λ ≤ 3.06×10⁻⁵ asymptotic UNCONDITIONAL (modulo Polymath15 G6a, ~6,500× under PT)',
+    kind: 'upper-asymptotic-unconditional',
+    value: 3.06e-5,
+    isUnconditional: true,
+    modulo: 'Polymath15 G6a',
+    status: 'rigorous-modulo-polymath15-G6a',
+    source: 'imp-1261 redirect (imp-341 lim sup + imp-1149 / Theorem 3 N^{-3/2} rate)',
     note:
-      'FIRST PROJECT RESULT IMPROVING THE ASYMPTOTIC Λ UPPER BOUND BELOW PT 2021. ' +
-      '9 plateau brackets measured at N ∈ {2e4..1e6} via BH-multipole CLI (theta=0.05, ' +
-      '~10 min wall-clock total). Rigorous interval-OLS refit gives a_interval = ' +
-      '[2.83e-5, 7.67e-4]; composed with E_trunc_pt = 3.06e-5 (Ingham, imp-447/459) + ' +
-      'asymptotic-vanishing E_flow + E_coll gives Λ ≤ 8e-4. Approximately 250× ' +
-      'tighter than PT 2021 unconditional 0.2. CONDITIONAL on the linear-1/N ' +
-      'asymptotic model for |t_c(N)| — bounding the (1/N)^2 deviation rigorously ' +
-      '(sub-gap imp-1147-sub-deviation-from-linear-1N, 2-4 weeks research-port) ' +
-      'would convert this to UNCONDITIONAL. Also conditional on the Polymath15 ' +
-      'bridge step 4 rigor gate (G6a_shock_lipschitz, longstanding open). ' +
-      'NOT YET in paper — imp-1148 follow-up will refresh PDF.',
+      'SECOND PROJECT RESULT IMPROVING THE ASYMPTOTIC Λ UPPER BOUND BELOW PT 2021, ' +
+      'AND THE FIRST UNCONDITIONAL ONE (modulo Polymath15 bridge G6a). The chain ' +
+      'imp-341 (lim sup_N |t_c(N)| = 0 unconditional, shipped 2025) + imp-1149 / ' +
+      'paper Theorem 3 (explicit unconditional N^{-3/2} rate on |t_c(N) - 1/(2 M_∞(N))|) ' +
+      'composes via the triangle inequality + the M_∞(N) ≥ K_1 (L - log 4π) √N ' +
+      'strip-Jacobian decay to give |t_c(N)| ≤ C_HO / (L · N^{3/2}) + 1/(2 K_1 ' +
+      '(L - log 4π) √N) → 0 as N → ∞, unconditionally. Composed with the Polymath15 ' +
+      'bridge + E_trunc_pt = 3.06×10⁻⁵ (Ingham at T_PT = 3e12) and the vanishing ' +
+      'E_flow / E_coll terms gives Λ ≤ 3.06×10⁻⁵ asymptotic. Approximately 6,500× ' +
+      'tighter than PT 2021 unconditional 0.2 AND approximately 26× tighter than ' +
+      'the historical imp-1147 conditional 7.98×10⁻⁴ -- WITH the linear-1/N ' +
+      'conditional dependence removed. SOLE remaining conditional: Polymath15 ' +
+      'bridge step 4 G6a_shock_lipschitz (sub-tracked as imp-1264). imp-1246 ' +
+      'identified the redirect path; imp-1261 executed the composition rewrite ' +
+      'in src/data/asymptotic-lambda-bound-2026-05-20.js (no new mathematics ' +
+      'required -- imp-341 + imp-1149 already deliver the chain).',
+  },
+  {
+    id: 'our-asymptotic-via-imp-1147',
+    label: 'Λ ≲ 8e-4 asymptotic (historical conditional on linear-1/N model, 250× under PT)',
+    kind: 'upper-asymptotic-conditional-historical',
+    value: 0.0008,
+    isUnconditional: false,
+    status: 'historical-conditional-superseded-by-imp-1261',
+    source: 'imp-1147 via imp-1136 BH-multipole sweep + imp-1137 interval OLS refit (HISTORICAL)',
+    note:
+      'HISTORICAL CONDITIONAL bound, SUPERSEDED by the imp-1261 unconditional ' +
+      '3.06×10⁻⁵ redirect (entry "our-asymptotic-via-imp-1261-redirect" above). ' +
+      'Retained as a reference entry to preserve the conditional 7.98×10⁻⁴ ' +
+      'narrative and the imp-1136 sweep / imp-1137 OLS refit provenance. ' +
+      '9 plateau brackets measured at N ∈ {2e4..1e6} via BH-multipole CLI ' +
+      '(theta=0.05, ~10 min wall-clock total). Rigorous interval-OLS refit gave ' +
+      'a_interval = [2.83e-5, 7.67e-4]; composed with E_trunc_pt = 3.06×10⁻⁵ ' +
+      '(Ingham, imp-447/459) + asymptotic-vanishing E_flow + E_coll gave Λ ≤ ' +
+      '7.98×10⁻⁴. CONDITIONAL on the linear-1/N asymptotic model for |t_c(N)|. ' +
+      'imp-1246 identified that the OLS framework was a CONVENIENCE-OF-DERIVATION ' +
+      'not a NECESSITY-OF-THE-CONCLUSION, and imp-1261 retired the framework in ' +
+      'favour of the imp-341 / imp-1149 chain (see "our-asymptotic-via-imp-1261-' +
+      'redirect" for the live current bound).',
   },
   {
     id: 'our-finite-N-1e4-via-imp-440',

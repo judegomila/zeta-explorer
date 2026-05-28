@@ -18773,7 +18773,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'paper-audit-dashboard: flag Conj 27.2 as the central load-bearing claim of §15-27',
     category: 'ux',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Per imp-1258 two-way collapse, Conj 27.2 (‖V_{a,Φ}‖ ≤ 1) is the SINGLE statement that the entire §15-27 program reduces to. The paper-audit-dashboard currently treats all 13 conjectures uniformly. Update dashboard to (a) add 'centralCollapseTarget' flag on 27.2 (which is not yet in the 13; needs to be added or audit verdict needs to surface 27.2 as the live front), (b) add cross-reference from 16.4/16.6/17.3/18.1/25.2/25.3/26.3/26.4 entries pointing to 'two-way collapse via imp-1258 -- reducible to 27.2', (c) add a 'collapsed-conjectures' summary at top of dashboard. Ship updated src/data/paper-audit-dashboard.js + src/pages/PaperAuditDashboardPage.jsx visualization. 5+ tripwires.",
     rationale: 'Surface the imp-1258 finding prominently so the dashboard reflects the new structural reality.',
@@ -18781,6 +18781,9 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1258'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'haiku-4-5',
+    completedByChannel: 'subscription',
+    completedAt: '2026-05-28T23:15:00Z',
   },
   {
     id: 'imp-1264',

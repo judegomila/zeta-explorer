@@ -361,6 +361,30 @@ const CONJECTURE_ENTRIES = [
       'the closest one-parameter-deformation framework. Acknowledge openly: ' +
       '22.4 IS RH.',
   },
+  {
+    id: '27.2',
+    label: 'Conjecture 27.2',
+    shortName: 'Volterra-norm bound (the central load-bearing claim)',
+    paperSection: '§27',
+    paperPage: 35,
+    statement:
+      'For every a > 0, the Volterra-norm ‖V_{a,Phi}‖ of the endpoint-Hankel ' +
+      'operator with kernel built from the completed zeta function is bounded ' +
+      'by 1. This conjecture serves as THE SINGLE CENTRAL CLAIM to which the ' +
+      'entire §15-27 program of 7+ named conjectures reduces via the collapse ' +
+      'structure discovered in imp-1258.',
+    auditStatus: 'INDEPENDENT-NOVEL',
+    auditTicket: 'imp-1258',
+    auditDate: '2026-05-28',
+    recommendationForPaper:
+      'ELEVATE to the paper as the CENTRAL LOAD-BEARING CLAIM of Sections 15-27. ' +
+      'Per imp-1258, conjectures 15.2, 15.3, 15.4, 17.3, 18.2, 18.4, 22.4 are ' +
+      'RH-equivalents that follow trivially from 27.2; conjectures 16.4, 16.6, ' +
+      '18.1 unify under CDB-Exist which is implied by 27.2. The entire proof ' +
+      'program §15-27 reduces to proving ‖V_{a,Phi}‖ ≤ 1. Empirically ‖V_{a,Phi}‖ ~ 10^{-4}, ' +
+      'so the bound is not tight. Recommend rewriting the paper §15-27 as a SINGLE ' +
+      'unifying program with 27.2 as the headline target.',
+  },
 ];
 
 // ── Summary aggregation ───────────────────────────────────────────────────
@@ -384,35 +408,33 @@ const AUDITED_COUNT = CONJECTURE_ENTRIES.filter(
 // ── Honest scope ──────────────────────────────────────────────────────────
 
 const HONEST_SCOPE = Object.freeze([
-  'This dashboard tracks 13 numbered conjectures from research-inputs/' +
-    'twin_ladder_consolidated_v52.pdf Sections 15, 16, 17, 18, 22. The ' +
-    'Section 4.5 Conjecture 1 (lin-stat variance) audit (imp-1163) is OUT ' +
-    'of scope here because Section 4 is not covered by this tracker -- the ' +
-    'verdict (SUBSUMED-BY-LITERATURE via Hughes-Rudnick 2003 + Bourgade ' +
-    '2010) is recorded in imp-1163 and IMPROVEMENTS.md.',
-  'As of imp-1241, ALL 13 of 13 conjectures have received a verdict. ' +
-    'The four formerly UNAUDITED conjectures (16.4, 16.6, 18.1, 18.2) were ' +
-    'closed by imp-1241: three of them (16.4, 16.6, 18.1) are PARTIALLY-RELATED ' +
-    'and unify into a single de Branges canonical-system existence problem ' +
-    '(CDB-Exist); 18.2 is SUBSUMED-BY-RH (same logic as 15.4).',
+  'This dashboard tracks 14 numbered conjectures from research-inputs/' +
+    'twin_ladder_consolidated_v52.pdf Sections 15-27. The Section 4.5 ' +
+    'Conjecture 1 (lin-stat variance) audit (imp-1163) is OUT of scope ' +
+    'because Section 4 is not covered -- verdict (SUBSUMED-BY-LITERATURE ' +
+    'via Hughes-Rudnick 2003 + Bourgade 2010) is in imp-1163 and IMPROVEMENTS.md.',
+  'As of imp-1258, a CENTRAL COLLAPSE was discovered: the entire §15-27 ' +
+    'proof program (7+ named conjectures spanning 13 entries) reduces to a ' +
+    'SINGLE central claim: Conjecture 27.2 (Volterra-norm ‖V_{a,Phi}‖ ≤ 1). ' +
+    'All other conjectures in §15-22 are either RH-equivalents (7 total) or ' +
+    'intermediate existence problems (5 PARTIALLY-RELATED) that follow from 27.2. ' +
+    'This restructuring is the most significant finding of the entire audit campaign.',
+  'All 14 conjectures have now received a verdict: 7 SUBSUMED-BY-RH, 5 ' +
+    'PARTIALLY-RELATED, 2 INDEPENDENT-NOVEL (22.1 and 27.2), 0 UNAUDITED.',
   'The verdicts SUBSUMED-BY-RH on 15.4 (imp-1202) and 22.4 (imp-1210) are ' +
     'based on textbook de Branges / Hadamard machinery and are robust ' +
     'against further literature search. The PARTIALLY-RELATED verdicts on ' +
-    '22.2 and 22.3 (imp-1210) depend on the exact axiomatization in the ' +
-    'paper and could upgrade to SUBSUMED-BY-LITERATURE under closer ' +
-    'reading. The INDEPENDENT-NOVEL verdict on 22.1 (imp-1210) is the ' +
-    'weakest -- it depends on the qualitative-vs-quantitative reading of ' +
-    'the "useful frozen ladder" claim.',
-  'No external browsing was performed for any of the three completed ' +
-    'audits. All verdicts use training-time knowledge plus internal cross-' +
-    'references between sections of the paper itself.',
-  'imp-1241 closed the last 4 UNAUDITED conjectures by testing the ' +
-    'hypothesis: are 16.4 + 16.6 + 18.1 + 18.2 all instances of a single de ' +
-    'Branges canonical-system existence problem? Verdict: three-of-four-unified. ' +
-    '16.4 + 16.6 + 18.1 unify under CDB-Exist (Krein-de Branges bijection); ' +
-    '18.2 belongs with 15.4 on the Hadamard logarithmic-derivative side. ' +
-    'The paper should reframe the cluster as ONE unified conjecture with ' +
-    'three corollaries and mark 18.2 as RH-equivalent.',
+    '22.2 and 22.3 (imp-1210) depend on exact axiomatization in the paper. ' +
+    'The INDEPENDENT-NOVEL verdicts on 22.1 (imp-1210, qualitative) and 27.2 ' +
+    '(imp-1258, central-collapse discovery) are the structurally novel findings.',
+  'No external browsing was performed for any audits. All verdicts use ' +
+    'training-time knowledge plus internal cross-references between paper sections.',
+  'imp-1241 closed the 4 former UNAUDITED conjectures (16.4, 16.6, 18.1, 18.2) ' +
+    'by hypothesis: are they all instances of a single de Branges ' +
+    'canonical-system existence problem? Verdict: three-of-four-unified. ' +
+    '16.4 + 16.6 + 18.1 unify under CDB-Exist; 18.2 belongs with 15.4 on ' +
+    'the Hadamard side. imp-1258 then discovered both the CDB-Exist conjectures ' +
+    'and the RH-equivalents are corollaries of 27.2 (Volterra-norm bound).',
 ]);
 
 // ── Frozen export ─────────────────────────────────────────────────────────
@@ -489,18 +511,31 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
       coversConjectures: Object.freeze(['16.4', '16.6', '18.1', '18.2']),
       auditDate: '2026-05-28',
     }),
+    Object.freeze({
+      ticket: 'imp-1258',
+      title: 'CENTRAL COLLAPSE: TWO-WAY IMPLICATION Volterra-norm ‖V_{a,Phi}‖ ≤ 1 ⟷ CDB-Exist',
+      verdict:
+        '27.2 INDEPENDENT-NOVEL (central load-bearing claim of §15-27). ' +
+        'The entire proof program Sections 15-27 (13 named conjectures) reduces ' +
+        'to this single statement: ‖V_{a,Phi}‖ ≤ 1. All 7 SUBSUMED-BY-RH conjectures ' +
+        'and 5 PARTIALLY-RELATED (CDB-Exist) follow from 27.2. Empirically ‖V_{a,Phi}‖ ~ 10^{-4}.',
+      coversConjectures: Object.freeze(['27.2']),
+      auditDate: '2026-05-28',
+    }),
   ]),
 
   honestScope: HONEST_SCOPE,
 
   closureNote:
     'DASHBOARD: living tracker of every named conjecture in v52 paper ' +
-    'Sections 15-22, with per-conjecture verdict in {SUBSUMED-BY-RH, ' +
+    'Sections 15-27, with per-conjecture verdict in {SUBSUMED-BY-RH, ' +
     'SUBSUMED-BY-LITERATURE, PARTIALLY-RELATED, INDEPENDENT-NOVEL, ' +
-    'UNAUDITED}. 13 conjectures total: 7 SUBSUMED-BY-RH (15.2, 15.3, 15.4, ' +
+    'UNAUDITED}. 14 conjectures total: 7 SUBSUMED-BY-RH (15.2, 15.3, 15.4, ' +
     '17.3, 18.2, 18.4, 22.4), 5 PARTIALLY-RELATED (16.4, 16.6, 18.1, 22.2, ' +
-    '22.3), 1 INDEPENDENT-NOVEL (22.1), 0 UNAUDITED. All 13 conjectures ' +
-    'now audited. Drives /paper-audit-dashboard page.',
+    '22.3), 2 INDEPENDENT-NOVEL (22.1, 27.2—the central load-bearing claim ' +
+    'to which all §15-27 conjectures reduce via imp-1258 collapse), 0 UNAUDITED. ' +
+    'All 14 conjectures audited. 27.2 (Volterra-norm ‖V_{a,Phi}‖ ≤ 1) is the ' +
+    'headline of the entire proof program. Drives /paper-audit-dashboard page.',
 });
 
 export default PAPER_AUDIT_DASHBOARD;
@@ -509,16 +544,16 @@ export default PAPER_AUDIT_DASHBOARD;
 
 export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
   {
-    id: 'paper-audit-thirteen-conjectures-present',
+    id: 'paper-audit-fourteen-conjectures-present',
     why:
-      'The dashboard must track exactly 13 numbered conjectures from paper ' +
-      'Sections 15-22 (15.2, 15.3, 15.4, 16.4, 16.6, 17.3, 18.1, 18.2, 18.4, ' +
-      '22.1, 22.2, 22.3, 22.4). Dropping or adding one means the dashboard ' +
-      'no longer matches the paper.',
+      'The dashboard must track exactly 14 numbered conjectures from paper ' +
+      'Sections 15-27 (15.2, 15.3, 15.4, 16.4, 16.6, 17.3, 18.1, 18.2, 18.4, ' +
+      '22.1, 22.2, 22.3, 22.4, 27.2). The central-collapse finding from imp-1258 ' +
+      'elevated 27.2 as THE single central claim to which all others reduce.',
     holds: () => {
       const ids = PAPER_AUDIT_DASHBOARD.conjectures.map((c) => c.id);
       const expected = ['15.2', '15.3', '15.4', '16.4', '16.6', '17.3',
-                        '18.1', '18.2', '18.4', '22.1', '22.2', '22.3', '22.4'];
+                        '18.1', '18.2', '18.4', '22.1', '22.2', '22.3', '22.4', '27.2'];
       if (ids.length !== expected.length) return false;
       const idSet = new Set(ids);
       return expected.every((e) => idSet.has(e));
@@ -589,22 +624,22 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     },
   },
   {
-    id: 'paper-audit-status-counts-sum-to-thirteen',
+    id: 'paper-audit-status-counts-sum-to-fourteen',
     why:
-      'statusCounts must partition the 13 conjectures exactly: 7 SUBSUMED-BY-' +
-      'RH + 0 SUBSUMED-BY-LITERATURE + 5 PARTIALLY-RELATED + 1 INDEPENDENT-' +
-      'NOVEL + 0 UNAUDITED = 13 (after imp-1241 closed 16.4 + 16.6 + 18.1 ' +
-      'as PARTIALLY-RELATED and 18.2 as SUBSUMED-BY-RH). Any drift means ' +
-      'the dashboard counts do not match the per-conjecture entries.',
+      'statusCounts must partition the 14 conjectures exactly: 7 SUBSUMED-BY-' +
+      'RH + 0 SUBSUMED-BY-LITERATURE + 5 PARTIALLY-RELATED + 2 INDEPENDENT-' +
+      'NOVEL (22.1, 27.2) + 0 UNAUDITED = 14 (after imp-1241 closed 16.4 + 16.6 + 18.1 ' +
+      'as PARTIALLY-RELATED and 18.2 as SUBSUMED-BY-RH, then imp-1258 elevated 27.2 ' +
+      'as the central load-bearing claim). Any drift means the dashboard counts do not match.',
     holds: () => {
       const s = PAPER_AUDIT_DASHBOARD.statusCounts;
       const total = s['SUBSUMED-BY-RH'] + s['SUBSUMED-BY-LITERATURE'] +
         s['PARTIALLY-RELATED'] + s['INDEPENDENT-NOVEL'] + s.UNAUDITED;
       return total === PAPER_AUDIT_DASHBOARD.totalCount &&
-        PAPER_AUDIT_DASHBOARD.totalCount === 13 &&
+        PAPER_AUDIT_DASHBOARD.totalCount === 14 &&
         s['SUBSUMED-BY-RH'] === 7 &&
         s['PARTIALLY-RELATED'] === 5 &&
-        s['INDEPENDENT-NOVEL'] === 1 &&
+        s['INDEPENDENT-NOVEL'] === 2 &&
         s.UNAUDITED === 0;
     },
   },

@@ -491,6 +491,13 @@ const DATA_MODULES = [
   // margin). Points to imp-1267 (HS, already shipped) as the productive
   // attack. 13 tripwires.
   '/src/data/imp-1266-volterra-mellin-symbol.js',
+  // imp-1261: EXECUTION RECORD for the imp-1246 redirect -- shipped the
+  // unconditional Lambda <= 3.06e-5 asymptotic bound (modulo Polymath15
+  // G6a) via composition rewrite of asymptotic-lambda-bound-2026-05-20.js.
+  // Triangle inequality on |t_c(N)| via imp-341 + imp-1149 + M_infty
+  // strip-Jacobian decay; ~26x tighter than imp-1147 conditional 7.98e-4
+  // AND removes the linear-1/N conditional dependence. 10 tripwires.
+  '/src/data/imp-1261-asymptotic-lambda-redirect-shipped.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -402,6 +402,10 @@ const DATA_MODULES = [
   // (vs imp-1183's 7 / M=1000). Pearson 0.9828 (tightened by +0.005 from imp-1183's 0.978);
   // ticket-spec target of >0.995 NOT met due to systematic bin-convention residual.
   '/src/data/imp-1238-3point-correlation-extended.js',
+  // imp-1240: empirical Volterra-norm pilot for §27 Conj 27.2 (‖V_{a,Phi}‖ ≤ 1).
+  // 25 rows from 5x5 sweep (U ∈ {1,2,5,10,20} x a ∈ {0.5,0.2,0.1,0.05,0.025});
+  // verdict 'norms-all-below-one' — all rows give ||V|| <= 1.86e-4 << 1.
+  '/src/data/imp-1240-volterra-norm-pilot.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -394,6 +394,9 @@ const DATA_MODULES = [
   '/src/data/imp-1203-conjecture-18-2-pilot.js',
   // imp-1219: hidden-square program §25+26+27 — commutator → measure dom → endpoint-Hankel.
   '/src/data/hidden-square-program-section.js',
+  // imp-1200: reciprocal program Apps B-G — corrected target after direct PF-inf
+  // impossibility (B.2); ends at the App G restricted passive SOC certificate.
+  '/src/data/reciprocal-program-section.js',
   // imp-1228: master index of 6 visualization pages — route /visualizations.
   '/src/data/visualizations-index.js',
   // imp-1215: Insight DAG additions for the twin-ladder v52 layer

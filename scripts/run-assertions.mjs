@@ -359,6 +359,11 @@ const DATA_MODULES = [
   '/src/data/imp-1229-conjecture-15-2-audit.js',
   // imp-1232: Literature audit Conjectures 17.3 + 18.4 (ghost-absence) -- both SUBSUMED-BY-RH.
   '/src/data/imp-1232-conjectures-17-3-18-4-audit.js',
+  // imp-1241: Unified de Branges canonical-system existence audit for
+  // Conjectures 16.4 + 16.6 + 18.1 + 18.2. Verdict: three-of-four-unified.
+  // 16.4 + 16.6 + 18.1 PARTIALLY-RELATED, unified under CDB-Exist. 18.2
+  // SUBSUMED-BY-RH (same logic as 15.4: paired Hadamard).
+  '/src/data/imp-1241-unified-existence-conjecture.js',
   // imp-1234: ZPO model (/oscillators, /hamiltonian, /modes, /twin-ladder) vs
   // twin-ladder v52 §15 shift-bridge crosswalk -- 12 entries with honest
   // verdict vocabulary (identical / related / distinct / not-yet-identified).

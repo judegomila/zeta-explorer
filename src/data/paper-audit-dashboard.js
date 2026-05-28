@@ -147,16 +147,17 @@ const CONJECTURE_ENTRIES = [
       'For every a > 0 there exists a Hilbert space H_a and a transform B_a, ' +
       'built directly from the completed Riemann kernel and NOT from the zero ' +
       'set, such that K_a(zeta, z) = <B_a(z), B_a(zeta)>_{H_a}.',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'PARTIALLY-RELATED',
+    auditTicket: 'imp-1241',
+    auditDate: '2026-05-28',
     recommendationForPaper:
-      'Pending audit. Closely related to Conjecture 22.3 (bridge-norm ' +
-      'realization), already audited PARTIALLY-RELATED via imp-1210 (Weil ' +
-      '1952 / Bombieri 2003 / de Branges 1968 / Lagarias 2007). A targeted ' +
-      'audit should cross-link to imp-1210 22.3 and likely inherit ' +
-      'PARTIALLY-RELATED (the non-circular constraint is the open novel ' +
-      'content).',
+      'PARTIALLY-RELATED via de Branges 1968 H(E) existence + Lagarias 2007 ' +
+      'survey (imp-1241). Existence of H_a, B_a is automatic by Kolmogorov ' +
+      'factorization once K_a is PSD. The open content is the non-circular ' +
+      'construction from Phi. Reframe as a corollary of the UNIFIED CDB-Exist ' +
+      'conjecture (with 16.6 and 18.1) -- the three are notational ' +
+      'presentations of a single de Branges canonical-system existence problem. ' +
+      'See imp-1241 for the unified statement.',
   },
   {
     id: '16.6',
@@ -169,16 +170,16 @@ const CONJECTURE_ENTRIES = [
       'is the transfer function of a passive canonical system constructed ' +
       'directly from the completed Riemann kernel. Equivalently, Theta_a is ' +
       'Schur in C_+ for every a > 0.',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'PARTIALLY-RELATED',
+    auditTicket: 'imp-1241',
+    auditDate: '2026-05-28',
     recommendationForPaper:
-      'Pending audit. Sits on top of de Branges canonical-system theory ' +
-      '(Krein 1955, de Branges 1968). A targeted audit should compare to ' +
-      'the Connes 1999 / 2025-2026 noncommutative-geometric attacks (the ' +
-      'imp-1205 crosswalk has partial coverage) and likely classify ' +
-      'PARTIALLY-RELATED with the non-circular kernel-only construction as ' +
-      'the genuinely-open content.',
+      'PARTIALLY-RELATED via Krein-de Branges canonical-system bijection ' +
+      '(de Branges 1968 / Krein 1955 / Romanov 2010 / Winkler 1995) per ' +
+      'imp-1241. Once E_a is Hermite-Biehler, the canonical-system dm exists ' +
+      'automatically. The open content is the non-circular construction of ' +
+      'dm from Phi. Reframe as a corollary of the UNIFIED CDB-Exist conjecture ' +
+      '(with 16.4 and 18.1).',
   },
   {
     id: '17.3',
@@ -215,15 +216,16 @@ const CONJECTURE_ENTRIES = [
       'positive Hamiltonian canonical system whose Weyl transfer function is ' +
       'Theta_a(z) = E_a^#(z)/E_a(z). Equivalently, K_a is the energy kernel ' +
       'of a passive system constructed directly from Phi.',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'PARTIALLY-RELATED',
+    auditTicket: 'imp-1241',
+    auditDate: '2026-05-28',
     recommendationForPaper:
-      'Pending audit. Strongly overlaps with Conjecture 16.6 (canonical-' +
-      'system closure) and with Conjecture 22.3 (bridge-norm realization, ' +
-      'already PARTIALLY-RELATED via imp-1210). A targeted audit should ' +
-      'cross-link to imp-1210 22.3 and to KYP/bounded-real literature ' +
-      '(Anderson-Vongpanitlerd 1973, Yakubovich-Kalman-Popov classical KYP).',
+      'PARTIALLY-RELATED via Krein-de Branges canonical-system bijection + ' +
+      'classical KYP / passive realization (Anderson-Vongpanitlerd 1973, ' +
+      'Yakubovich-Kalman-Popov) per imp-1241. Identical TYPE of existence ' +
+      'as 16.4 and 16.6. Reframe as a corollary of the UNIFIED CDB-Exist ' +
+      'conjecture. Disambiguate the B_a notation (Fourier sine channel here, ' +
+      'reproducing-kernel evaluation in 16.4).',
   },
   {
     id: '18.2',
@@ -235,15 +237,18 @@ const CONJECTURE_ENTRIES = [
       'For every w with Re w > 0, the completed archimedean drift dominates ' +
       'the coherent prime-delay echo train (Weil-explicit-formula completed ' +
       'sense): Re(X\'/X)(w) > 0 for Re w > 0.',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'SUBSUMED-BY-RH',
+    auditTicket: 'imp-1241',
+    auditDate: '2026-05-28',
     recommendationForPaper:
-      'Pending audit. Structurally identical to Conjecture 15.4 (already ' +
-      'SUBSUMED-BY-RH via imp-1202: paired Hadamard makes Re(xi\'/xi) > 0 ' +
-      'manifest under RH). A targeted audit should cross-link to imp-1202 ' +
-      'and likely inherit SUBSUMED-BY-RH; the quantitative-form follow-up ' +
-      '(imp-1202-sub-quantitative-form) carries any independent content.',
+      'CONFIRMED SUBSUMED-BY-RH (imp-1241). Structurally identical to ' +
+      'Conjecture 15.4 (SUBSUMED-BY-RH via imp-1202: paired Hadamard makes ' +
+      'Re(xi\'/xi) > 0 manifest under RH). The "completed sense / Weil ' +
+      'explicit formula" qualification replaces the divergent Euler series ' +
+      'by its analytic continuation, which is exactly xi\'/xi. So 18.2 = 15.4 ' +
+      'in notation. Move out of theorem-targets list into the unified ' +
+      'RH-equivalent reformulations subsection alongside 15.2, 15.3, 15.4, ' +
+      '17.3, 18.4, 22.4. Cite Hadamard / Lagarias 2007.',
   },
   {
     id: '18.4',
@@ -385,11 +390,11 @@ const HONEST_SCOPE = Object.freeze([
     'of scope here because Section 4 is not covered by this tracker -- the ' +
     'verdict (SUBSUMED-BY-LITERATURE via Hughes-Rudnick 2003 + Bourgade ' +
     '2010) is recorded in imp-1163 and IMPROVEMENTS.md.',
-  'As of imp-1230, 9 of 13 conjectures (15.2, 15.3, 15.4, 17.3, 18.4, 22.1, 22.2, 22.3, 22.4) ' +
-    'have received a verdict. The remaining 4 (16.4, 16.6, ' +
-    '18.1, 18.2) are UNAUDITED with auditTicket = null. ' +
-    'recommendationForPaper for those 4 is a PREDICTION of the likely ' +
-    'verdict based on visible cross-references, not a completed audit.',
+  'As of imp-1241, ALL 13 of 13 conjectures have received a verdict. ' +
+    'The four formerly UNAUDITED conjectures (16.4, 16.6, 18.1, 18.2) were ' +
+    'closed by imp-1241: three of them (16.4, 16.6, 18.1) are PARTIALLY-RELATED ' +
+    'and unify into a single de Branges canonical-system existence problem ' +
+    '(CDB-Exist); 18.2 is SUBSUMED-BY-RH (same logic as 15.4).',
   'The verdicts SUBSUMED-BY-RH on 15.4 (imp-1202) and 22.4 (imp-1210) are ' +
     'based on textbook de Branges / Hadamard machinery and are robust ' +
     'against further literature search. The PARTIALLY-RELATED verdicts on ' +
@@ -401,10 +406,13 @@ const HONEST_SCOPE = Object.freeze([
   'No external browsing was performed for any of the three completed ' +
     'audits. All verdicts use training-time knowledge plus internal cross-' +
     'references between sections of the paper itself.',
-  'The recommendationForPaper text for the 4 UNAUDITED conjectures is ' +
-    'INDICATIVE -- it notes the cross-references but is not a substitute for ' +
-    'a per-conjecture literature audit ticket. Follow-up tickets per conjecture ' +
-    'are the natural extension of this dashboard.',
+  'imp-1241 closed the last 4 UNAUDITED conjectures by testing the ' +
+    'hypothesis: are 16.4 + 16.6 + 18.1 + 18.2 all instances of a single de ' +
+    'Branges canonical-system existence problem? Verdict: three-of-four-unified. ' +
+    '16.4 + 16.6 + 18.1 unify under CDB-Exist (Krein-de Branges bijection); ' +
+    '18.2 belongs with 15.4 on the Hadamard logarithmic-derivative side. ' +
+    'The paper should reframe the cluster as ONE unified conjecture with ' +
+    'three corollaries and mark 18.2 as RH-equivalent.',
 ]);
 
 // ── Frozen export ─────────────────────────────────────────────────────────
@@ -471,6 +479,16 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
       coversConjectures: Object.freeze(['15.3']),
       auditDate: '2026-05-27',
     }),
+    Object.freeze({
+      ticket: 'imp-1241',
+      title: 'Unified existence audit: Conjectures 16.4 + 16.6 + 18.1 + 18.2',
+      verdict:
+        'three-of-four-unified: 16.4 + 16.6 + 18.1 PARTIALLY-RELATED, unify ' +
+        'under CDB-Exist (de Branges canonical-system existence non-circularly ' +
+        'from Phi); 18.2 SUBSUMED-BY-RH (paired Hadamard, same logic as 15.4)',
+      coversConjectures: Object.freeze(['16.4', '16.6', '18.1', '18.2']),
+      auditDate: '2026-05-28',
+    }),
   ]),
 
   honestScope: HONEST_SCOPE,
@@ -479,9 +497,10 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
     'DASHBOARD: living tracker of every named conjecture in v52 paper ' +
     'Sections 15-22, with per-conjecture verdict in {SUBSUMED-BY-RH, ' +
     'SUBSUMED-BY-LITERATURE, PARTIALLY-RELATED, INDEPENDENT-NOVEL, ' +
-    'UNAUDITED}. 13 conjectures total: 6 SUBSUMED-BY-RH (15.2, 15.3, 15.4, 17.3, ' +
-    '18.4, 22.4), 2 PARTIALLY-RELATED (22.2, 22.3), 1 INDEPENDENT-NOVEL ' +
-    '(22.1), 4 UNAUDITED (16.4, 16.6, 18.1, 18.2). Drives /paper-audit-dashboard page.',
+    'UNAUDITED}. 13 conjectures total: 7 SUBSUMED-BY-RH (15.2, 15.3, 15.4, ' +
+    '17.3, 18.2, 18.4, 22.4), 5 PARTIALLY-RELATED (16.4, 16.6, 18.1, 22.2, ' +
+    '22.3), 1 INDEPENDENT-NOVEL (22.1), 0 UNAUDITED. All 13 conjectures ' +
+    'now audited. Drives /paper-audit-dashboard page.',
 });
 
 export default PAPER_AUDIT_DASHBOARD;
@@ -603,43 +622,60 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     },
   },
   {
-    id: 'paper-audit-four-unaudited-conjectures',
+    id: 'paper-audit-zero-unaudited-conjectures',
     why:
-      'Of 13 conjectures, exactly 4 remain UNAUDITED (16.4, 16.6, ' +
-      '18.1, 18.2) after imp-1230 confirmed 15.3 SUBSUMED-BY-RH. ' +
-      'Each UNAUDITED entry must carry auditTicket null and auditDate null -- ' +
-      'inventing an audit ticket for a conjecture we have not actually audited ' +
-      'would overclaim.',
+      'After imp-1241 closed the final 4 conjectures (16.4 + 16.6 + 18.1 + ' +
+      '18.2), exactly 0 conjectures remain UNAUDITED. All 13 conjectures ' +
+      'in §15-22 now carry a verdict. Allowing a regression to UNAUDITED ' +
+      'would silently undo audit progress.',
     holds: () => {
       const unaudited = PAPER_AUDIT_DASHBOARD.conjectures.filter(
         (c) => c.auditStatus === 'UNAUDITED',
       );
-      if (unaudited.length !== 4) return false;
-      const expected = new Set(['16.4', '16.6', '18.1', '18.2']);
-      return unaudited.every(
-        (c) => expected.has(c.id) && c.auditTicket === null &&
-          c.auditDate === null,
-      );
+      return unaudited.length === 0;
     },
   },
   {
     id: 'paper-audit-status-counts-sum-to-thirteen',
     why:
-      'statusCounts must partition the 13 conjectures exactly: 6 SUBSUMED-BY-' +
-      'RH + 0 SUBSUMED-BY-LITERATURE + 2 PARTIALLY-RELATED + 1 INDEPENDENT-' +
-      'NOVEL + 4 UNAUDITED = 13 (after imp-1230 moved 15.3 to ' +
-      'SUBSUMED-BY-RH). Any drift means the dashboard counts do not match ' +
-      'the per-conjecture entries.',
+      'statusCounts must partition the 13 conjectures exactly: 7 SUBSUMED-BY-' +
+      'RH + 0 SUBSUMED-BY-LITERATURE + 5 PARTIALLY-RELATED + 1 INDEPENDENT-' +
+      'NOVEL + 0 UNAUDITED = 13 (after imp-1241 closed 16.4 + 16.6 + 18.1 ' +
+      'as PARTIALLY-RELATED and 18.2 as SUBSUMED-BY-RH). Any drift means ' +
+      'the dashboard counts do not match the per-conjecture entries.',
     holds: () => {
       const s = PAPER_AUDIT_DASHBOARD.statusCounts;
       const total = s['SUBSUMED-BY-RH'] + s['SUBSUMED-BY-LITERATURE'] +
         s['PARTIALLY-RELATED'] + s['INDEPENDENT-NOVEL'] + s.UNAUDITED;
       return total === PAPER_AUDIT_DASHBOARD.totalCount &&
         PAPER_AUDIT_DASHBOARD.totalCount === 13 &&
-        s['SUBSUMED-BY-RH'] === 6 &&
-        s['PARTIALLY-RELATED'] === 2 &&
+        s['SUBSUMED-BY-RH'] === 7 &&
+        s['PARTIALLY-RELATED'] === 5 &&
         s['INDEPENDENT-NOVEL'] === 1 &&
-        s.UNAUDITED === 4;
+        s.UNAUDITED === 0;
+    },
+  },
+  {
+    id: 'paper-audit-imp-1241-closed-four-unaudited',
+    why:
+      'imp-1241 closed the final 4 UNAUDITED conjectures (16.4, 16.6, 18.1, ' +
+      '18.2). Each of those entries must carry auditTicket = imp-1241 and ' +
+      'a non-null auditDate. The unified existence verdict (three-of-four ' +
+      'unify under CDB-Exist; 18.2 SUBSUMED-BY-RH) must be reflected in ' +
+      'the per-conjecture entries: 16.4, 16.6, 18.1 PARTIALLY-RELATED; ' +
+      '18.2 SUBSUMED-BY-RH.',
+    holds: () => {
+      const get = (id) =>
+        PAPER_AUDIT_DASHBOARD.conjectures.find((c) => c.id === id);
+      const c164 = get('16.4');
+      const c166 = get('16.6');
+      const c181 = get('18.1');
+      const c182 = get('18.2');
+      if (!c164 || !c166 || !c181 || !c182) return false;
+      return c164.auditTicket === 'imp-1241' && c164.auditStatus === 'PARTIALLY-RELATED' &&
+        c166.auditTicket === 'imp-1241' && c166.auditStatus === 'PARTIALLY-RELATED' &&
+        c181.auditTicket === 'imp-1241' && c181.auditStatus === 'PARTIALLY-RELATED' &&
+        c182.auditTicket === 'imp-1241' && c182.auditStatus === 'SUBSUMED-BY-RH';
     },
   },
   {

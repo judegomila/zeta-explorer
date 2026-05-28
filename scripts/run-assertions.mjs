@@ -463,6 +463,12 @@ const DATA_MODULES = [
   // rescan (N = 100*U + 100) with U in {1, 2, 5, 10, 20, 50, 100}; 35 rows.
   // All norms <= 1.86e-4 << 1. imp-1240 U=20 artifact (ratio 1.62) resolved.
   '/src/data/imp-1248-volterra-norm-rescan.js',
+  // imp-1262: EXTENDED Volterra-norm pilot. Widens a-grid 25x smaller
+  // (down to a=0.001) while keeping U up to 100 with N = max(2000, 100*U+100).
+  // 25 rows; all norms <= 7.45e-5 << 1; all converged in 7 power-iter steps;
+  // STRONGER claim ||V|| <= 1e-3 also holds. U=50, U=100 rows reproduce
+  // imp-1248 to 16 decimal digits (clean determinism check).
+  '/src/data/imp-1262-volterra-extended-sweep.js',
 ];
 
 const ALL_MODULES = FAST_MODE

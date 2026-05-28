@@ -434,6 +434,20 @@ const DATA_MODULES = [
   // bridge G6a). Tightens imp-1147 conditional 7.98e-4 by ~26x AND removes
   // the linear-1/N conditional dependence.
   '/src/data/imp-1246-linear-1N-gap-recheck.js',
+  // imp-1257: BIN-INTEGRATION variant of imp-1238. Bin-averaging the GUE side
+  // (the empirical side was already a bin integral) moves Pearson 0.98279 ->
+  // 0.98311 (+0.0003) -- nowhere near 0.995. Pearson is scale-invariant so the
+  // ~0.85 plateau offset is a no-op; the residual is sampling noise / finite-height,
+  // NOT a bin-convention bug. Verdict: bin-integration-does-not-reach-0.995.
+  '/src/data/imp-1257-3point-bin-integration.js',
+  // imp-1245: OPUS-4.8 adversarial stress-test of imp-1241 CDB-Exist three-of-four
+  // unification. Axes (a) reduction-of-18.1, (b) implication-strength, (c) Phi-
+  // non-circularity. Verdict 'unification-holds-partially': axes (a) + (b) pass
+  // with named gaps (missing Arov-Nudelman 1996 citation, outer-factor rigidity
+  // of E_a not explicit); axis (c) FAILS -- CDB-Exist inherits the same Phi-non-
+  // circularity obstruction. Updated recommendation: KEEP the expository
+  // unification but explicitly state CDB-Exist is NOT a more tractable target.
+  '/src/data/imp-1245-cdb-exist-stress-test.js',
 ];
 
 const ALL_MODULES = FAST_MODE

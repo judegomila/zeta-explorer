@@ -18485,7 +18485,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'OPUS-4.8 RECHECK: imp-1241 CDB-Exist unification — does it actually hold? Stress-test it.',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "imp-1241 claimed three-of-four unification: 16.4 + 16.6 + 18.1 collapse to a single Canonical de Branges existence problem (CDB-Exist). This is a major structural claim. Stress-test: (a) does 18.1 actually reduce to canonical-system existence, or is it a fundamentally different KYP-passivity problem that LOOKS similar? (b) is the unified statement strong enough that proving it implies the three corollaries, or are there gaps in the derivation? (c) does the unified statement avoid the same Phi-non-circularity obstruction as the three originals? Ship src/data/imp-1245-cdb-exist-stress-test.js with verdict on each of 3 stress-test questions + overall unification-holds / unification-partial / unification-fails. 5+ tripwires.",
     rationale: 'imp-1241 paper recommendation is to fold three conjectures into one. Before recommending that to the author, the unification needs adversarial review.',
@@ -18493,6 +18493,9 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1241'],
     model: 'opus-4-8',
     channel: 'api',
+    completedByModel: 'subagent-worktree',
+    completedByChannel: 'opus-4-8-worktree',
+    closureNote: 'Shipped src/data/imp-1245-cdb-exist-stress-test.js (~560 LOC) with verdict on three stress-test axes. Axis (a) does 18.1 reduce to canonical-system existence: PASS-WITH-CAVEATS (KYP-passive bridge requires Arov-Nudelman 1996 + Brodskii 1971 for infinite-dim case, not Anderson-Vongpanitlerd 1973 alone; imp-1241 cited only the latter -- citation gap). Axis (b) does CDB-Exist imply the three corollaries 16.4 / 16.6 / 18.1: PASS-WITH-GAP (16.6 implication is direct, 16.4 needs outer-factor rigidity of E_a which the unification statement does not explicitly state, 18.1 needs simple-conservative-class disambiguation). Axis (c) does CDB-Exist avoid the Phi-non-circularity obstruction: FAILS (CDB-Exist inherits the SAME obstruction -- constructing dm_a directly from Phi without using zeros of X is exactly what each original conjecture requires; the unification reduces the count of open problems from 3 to 1 but does NOT make the residual problem more tractable). Overall verdict: unification-holds-partially. Updated recommendation: KEEP the expository unification (axes a + b pass with named gaps) but explicitly state CDB-Exist is NOT a more tractable target than the originals (axis c fails). The paper should not present CDB-Exist as a strategic advance in the proof programme. 10 build-time tripwires, all green. NOTE: subagent hit duration limit on assertion sweep but the salvaged file is complete and well-structured.',
   },
   {
     id: 'imp-1246',

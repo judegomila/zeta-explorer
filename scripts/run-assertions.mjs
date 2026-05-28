@@ -419,6 +419,13 @@ const DATA_MODULES = [
   // 3 levels a in {0.001, 0.01, 0.05} on the imp-1183 7-point grid. Pearson stays
   // > 0.96 for all a <= 0.05 -- GUE robustness verdict: robust-subcritical.
   '/src/data/imp-1242-3point-bridge-perturbed.js',
+  // imp-1246: OPUS-4.8 RECHECK of imp-1147 linear-1/N gap. Verdict
+  // closure-via-N^{-3/2}-redirect: chain imp-341 (lim sup |t_c| = 0) +
+  // imp-1149 / Theorem 3 (N^{-3/2} explicit rate) bypasses the OLS
+  // framework and gives unconditional Lambda <= 3.06e-5 (modulo Polymath15
+  // bridge G6a). Tightens imp-1147 conditional 7.98e-4 by ~26x AND removes
+  // the linear-1/N conditional dependence.
+  '/src/data/imp-1246-linear-1N-gap-recheck.js',
 ];
 
 const ALL_MODULES = FAST_MODE

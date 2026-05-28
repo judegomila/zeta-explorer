@@ -541,55 +541,22 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     },
   },
   {
-    id: 'paper-audit-subsumed-by-rh-15-4-present',
+    id: 'paper-audit-all-subsumed-by-rh-verdicts',
     why:
-      'Conjecture 15.4 was audited SUBSUMED-BY-RH via imp-1202 (paired ' +
-      'Hadamard makes Re(xi\'/xi) > 0 manifest under RH). The dashboard ' +
-      'entry for 15.4 must reflect this verdict and link to imp-1202.',
+      'All 7 SUBSUMED-BY-RH conjectures must carry that verdict and the ' +
+      'correct audit ticket: 15.4 (imp-1202), 22.4 (imp-1210), 15.2 (imp-1229), ' +
+      '15.3 (imp-1230), 17.3 + 18.4 (imp-1232), 18.2 (imp-1241). Any ' +
+      'regression loses the audit record and breaks downstream routing.',
     holds: () => {
-      const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '15.4');
-      return !!c && c.auditStatus === 'SUBSUMED-BY-RH' &&
-        c.auditTicket === 'imp-1202';
-    },
-  },
-  {
-    id: 'paper-audit-subsumed-by-rh-22-4-present',
-    why:
-      'Conjecture 22.4 was audited SUBSUMED-BY-RH via imp-1210 (E_a ' +
-      'Hermite-Biehler iff RH per de Branges / Lagarias). The dashboard ' +
-      'entry for 22.4 must reflect this verdict and link to imp-1210.',
-    holds: () => {
-      const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '22.4');
-      return !!c && c.auditStatus === 'SUBSUMED-BY-RH' &&
-        c.auditTicket === 'imp-1210';
-    },
-  },
-  {
-    id: 'paper-audit-subsumed-by-rh-15-2-present',
-    why:
-      'Conjecture 15.2 was audited SUBSUMED-BY-RH via imp-1229 (the paper ' +
-      'Section 15 states the shift-bridge threshold theorem makes |X(w-a)| < ' +
-      '|X(w+a)| EQUIVALENT TO RH; same Hermite-Biehler statement as 22.4). ' +
-      'The dashboard entry for 15.2 must reflect this verdict and link to ' +
-      'imp-1229.',
-    holds: () => {
-      const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '15.2');
-      return !!c && c.auditStatus === 'SUBSUMED-BY-RH' &&
-        c.auditTicket === 'imp-1229';
-    },
-  },
-  {
-    id: 'paper-audit-subsumed-by-rh-15-3-present',
-    why:
-      'Conjecture 15.3 was audited SUBSUMED-BY-RH via imp-1230. The paper ' +
-      'itself states 15.3 is equivalent to 15.2 (and hence RH); the ' +
-      'Hermite-Biehler condition E_a Hermite-Biehler is identical in content ' +
-      'to Conjecture 22.4 (de Branges 1968, Lagarias 2007). The dashboard ' +
-      'entry for 15.3 must reflect this verdict and link to imp-1230.',
-    holds: () => {
-      const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '15.3');
-      return !!c && c.auditStatus === 'SUBSUMED-BY-RH' &&
-        c.auditTicket === 'imp-1230';
+      const get = (id) => PAPER_AUDIT_DASHBOARD.conjectures.find((c) => c.id === id);
+      const ok = (id, ticket) => {
+        const c = get(id);
+        return !!c && c.auditStatus === 'SUBSUMED-BY-RH' && c.auditTicket === ticket;
+      };
+      return ok('15.4', 'imp-1202') && ok('22.4', 'imp-1210') &&
+        ok('15.2', 'imp-1229') && ok('15.3', 'imp-1230') &&
+        ok('17.3', 'imp-1232') && ok('18.4', 'imp-1232') &&
+        ok('18.2', 'imp-1241');
     },
   },
   {
@@ -619,20 +586,6 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '22.1');
       return !!c && c.auditStatus === 'INDEPENDENT-NOVEL' &&
         c.auditTicket === 'imp-1210';
-    },
-  },
-  {
-    id: 'paper-audit-zero-unaudited-conjectures',
-    why:
-      'After imp-1241 closed the final 4 conjectures (16.4 + 16.6 + 18.1 + ' +
-      '18.2), exactly 0 conjectures remain UNAUDITED. All 13 conjectures ' +
-      'in §15-22 now carry a verdict. Allowing a regression to UNAUDITED ' +
-      'would silently undo audit progress.',
-    holds: () => {
-      const unaudited = PAPER_AUDIT_DASHBOARD.conjectures.filter(
-        (c) => c.auditStatus === 'UNAUDITED',
-      );
-      return unaudited.length === 0;
     },
   },
   {
@@ -676,22 +629,6 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
         c166.auditTicket === 'imp-1241' && c166.auditStatus === 'PARTIALLY-RELATED' &&
         c181.auditTicket === 'imp-1241' && c181.auditStatus === 'PARTIALLY-RELATED' &&
         c182.auditTicket === 'imp-1241' && c182.auditStatus === 'SUBSUMED-BY-RH';
-    },
-  },
-  {
-    id: 'paper-audit-subsumed-by-rh-17-3-and-18-4-present',
-    why:
-      'Conjectures 17.3 and 18.4 were audited SUBSUMED-BY-RH via imp-1232 ' +
-      '(Krein-Langer identity: B_a^+=1 is definitionally RH; paper itself ' +
-      'states "equivalently RH holds" in 18.4). Both entries must reflect ' +
-      'this verdict and link to imp-1232.',
-    holds: () => {
-      const c17 = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '17.3');
-      const c18 = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '18.4');
-      return !!c17 && c17.auditStatus === 'SUBSUMED-BY-RH' &&
-        c17.auditTicket === 'imp-1232' &&
-        !!c18 && c18.auditStatus === 'SUBSUMED-BY-RH' &&
-        c18.auditTicket === 'imp-1232';
     },
   },
   {

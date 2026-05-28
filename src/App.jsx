@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { MathModalProvider } from './components/KaTeXMath.jsx';
 import HomePage from './pages/HomePage.jsx';
+import RouteErrorBoundary from './components/RouteErrorBoundary.jsx';
 import './styles/app.css';
 
 // Lazy-load all pages except HomePage for code-splitting
@@ -431,6 +432,7 @@ function AppShell() {
       <NavBar onShowShortcuts={() => setShowHelp(true)} />
       <KeyboardShortcutOverlay show={showHelp} onClose={() => setShowHelp(false)} />
       <div className="app-content">
+        <RouteErrorBoundary>
         <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -507,6 +509,7 @@ function AppShell() {
           <Route path="/viz-prime-phase-crystal" element={<VizPrimePhaseCrystalPage />} />
         </Routes>
         </Suspense>
+        </RouteErrorBoundary>
       </div>
       <footer style={{
         textAlign: 'center',

@@ -377,6 +377,8 @@ const DATA_MODULES = [
   '/src/data/imp-1203-conjecture-18-2-pilot.js',
   // imp-1219: hidden-square program §25+26+27 — commutator → measure dom → endpoint-Hankel.
   '/src/data/hidden-square-program-section.js',
+  // imp-1228: master index of 6 visualization pages — route /visualizations.
+  '/src/data/visualizations-index.js',
 ];
 
 const ALL_MODULES = FAST_MODE

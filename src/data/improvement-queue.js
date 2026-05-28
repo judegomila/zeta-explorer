@@ -18421,6 +18421,11 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1183', 'imp-1196'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    status: 'completed',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'subscription',
+    completedAt: '2026-05-28T21:00:00Z',
+    completionNote: 'Ships src/data/imp-1242-3point-bridge-perturbed.js: 3-level bridge perturbation pilot (a in {0.001, 0.01, 0.05}) on the imp-1183 7-point grid, M_BULK=1000. HEADLINE: GUE 3-point universality is ROBUST -- Pearson 0.978 / 0.975 / 0.965 for the three a-values, all > 0.96. Total drop 0.013 over 50x increase in a; sensitivity ~0.26 Pearson-units per unit a; extrapolated threshold (Pearson=0.90) at a~0.34, well above the Lambda < 0.22 regime. Verdict: robust-subcritical. 8 build-time tripwires PASS. Supports §25-27 hidden-square program.',
   },
   {
     id: 'imp-1243',

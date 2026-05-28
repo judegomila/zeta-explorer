@@ -415,6 +415,10 @@ const DATA_MODULES = [
   // 25 rows from 5x5 sweep (U ∈ {1,2,5,10,20} x a ∈ {0.5,0.2,0.1,0.05,0.025});
   // verdict 'norms-all-below-one' — all rows give ||V|| <= 1.86e-4 << 1.
   '/src/data/imp-1240-volterra-norm-pilot.js',
+  // imp-1242: sensitivity of 3-point GUE empirical R_3 to bridge perturbation a > 0.
+  // 3 levels a in {0.001, 0.01, 0.05} on the imp-1183 7-point grid. Pearson stays
+  // > 0.96 for all a <= 0.05 -- GUE robustness verdict: robust-subcritical.
+  '/src/data/imp-1242-3point-bridge-perturbed.js',
 ];
 
 const ALL_MODULES = FAST_MODE

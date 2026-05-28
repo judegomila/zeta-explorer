@@ -448,6 +448,11 @@ const DATA_MODULES = [
   // circularity obstruction. Updated recommendation: KEEP the expository
   // unification but explicitly state CDB-Exist is NOT a more tractable target.
   '/src/data/imp-1245-cdb-exist-stress-test.js',
+  // imp-1258: bridge from imp-1240 Conj 27.2 (‖V_{a,Φ}‖ ≤ 1) to imp-1241 CDB-Exist.
+  // Verdict TWO-WAY-COLLAPSE: forward + reverse implications hold modulo a single
+  // §27 paper-construct identity (block positivity ⇔ K_a ⪰ 0). The §15-27 program
+  // reduces to ONE statement: ‖V_{a,Φ}‖_{L²([0,∞))} ≤ 1.
+  '/src/data/imp-1258-volterra-cdb-bridge.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -504,12 +504,16 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
         'paper §15.3 + Thm 15.1; directly-from-Phi canonical-system Hamiltonian is the open ' +
         'content; cite Krein 1955, de Branges 1968 Thm 38-40, Romanov 2010, Remling 2002/2018).',
       coversConjectures: Object.freeze(['16.4', '16.6']),
+      auditDate: '2026-05-28',
+    }),
+    Object.freeze({
       ticket: 'imp-1233',
       title: 'Conjectures 18.1 + 18.2 audit (kernel/passivity + prime-delay domination closures)',
+      verdict:
         '18.1 PARTIALLY-RELATED (KYP / Yakubovich-Kalman / Anderson-Vongpanitlerd / Krein 1955 / de Branges 1968 / Lagarias 2007; ' +
-        'literature gives the realization machinery but not the non-circular construction from Phi alone); ' +
+        'literature gives the realization machinery but not the non-circular construction from Phi alone). ' +
         '18.2 PARTIALLY-RELATED (Weil 1952 / Bombieri 1965, 1974 / Iwaniec-Kowalski 2004 / Vinogradov-Korobov 1958 / Selberg 1942; ' +
-        'critical-half-strip strengthening of 15.4, where Euler diverges and Hadamard no longer separates terms)',
+        'critical-half-strip strengthening of 15.4, where Euler diverges and Hadamard no longer separates terms).',
       coversConjectures: Object.freeze(['18.1', '18.2']),
       auditDate: '2026-05-28',
     }),

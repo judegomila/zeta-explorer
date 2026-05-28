@@ -18339,4 +18339,68 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-27T00:00:00Z',
     completionNote: 'YES verdict: sigma_N=0.99 admissible in imp-447 chain (all 4 algebraic conditions hold; log-free bound monotone-decreasing in sigma; tightens 6.4e8x from 0.75 to 0.99). Load-bearing caveat: under full Ingham (log T)^5 convention, sigma=0.75 fails (~597) while sigma=0.99 succeeds (~9.3e-7). Audit ships at src/data/imp-1239-imp447-sigma-shift-audit.js with 8 tripwires (all green).',
   },
+
+
+  // WAVE 14 (seeded 2026-05-28): user said "ramp up more tasks", 11 was
+  // not enough. Add 4 substantive research follow-ups derived from the
+  // 5/13 SUBSUMED-BY-RH audit pattern + the chain of reductions exposed
+  // by imp-1219 hidden-square program.
+  {
+    id: 'imp-1240',
+    title: 'imp-1219-sub-volterra-norm-pilot: empirical ||V_{a,Phi}|| measurement on imp-1162 grid',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per imp-1219 verdict, the no-ghost theorem reduces to ||V_{a,Phi}|| <= 1 in L^2 (Conj 27.2). Build a finite-window numerical pilot: truncate to L^2([0, U]) for U in {1, 2, 5, 10, 20}, build V_{a,Phi,U} as a matrix on a discretization grid, compute its operator norm. Sweep a in {0.5, 0.2, 0.1, 0.05, 0.025} (the App S range where adaptive refinement saw the conditioning barrier). Verify ||V|| <= 1 empirically OR find the regime where it spikes. Ship src/data/imp-1240-volterra-norm-pilot.js with 6+ tripwires. This is the concrete numerical test promised by imp-1219.",
+    rationale: 'imp-1219 named this follow-up. Concrete empirical test of the §27 endpoint-Hankel chain — either supports the §25-27 program or surfaces the regime where the contraction fails.',
+    estimatedComplexity: 'medium',
+    dependsOn: ['imp-1219'],
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
+  {
+    id: 'imp-1241',
+    title: 'Investigate the 5 unaudited paper conjectures as a single GROUP: are 16.4/16.6/18.1/18.2 ' +
+           'all instances of de Branges canonical-system existence?',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per the imp-1218 dashboard, 5 paper conjectures remain UNAUDITED: 15.3 (shifted bridge K_a >= 0), 16.4 (shift-bridge square Hilbert-space existence), 16.6 (canonical-system closure), 18.1 (kernel/passivity), 18.2 (prime-delay domination). The first FOUR are constructive existence claims. Hypothesis to test: ALL FOUR may be instances of a single de Branges canonical-system existence problem. Survey de Branges 1968 + Romanov 2010 + Lagarias-Suzuki + Krein-Langer to determine whether each conjecture is a special case. If yes, the paper should reframe them as a SINGLE conjecture with 4 corollaries. Ship src/data/imp-1241-unified-existence-conjecture.js with verdict per conjecture + a possible unified statement. 6+ tripwires.",
+    rationale: 'Audit-pattern observation: 5/13 SUBSUMED-BY-RH suggests another grouping might subsume more. Worth testing the de-Branges-existence hypothesis explicitly before more individual audits.',
+    estimatedComplexity: 'large',
+    dependsOn: ['imp-1218', 'imp-1231', 'imp-1233'],
+    model: 'opus-4-7',
+    channel: 'api',
+  },
+  {
+    id: 'imp-1242',
+    title: 'Numerical pilot: 3-point correlation on Riemann zeros vs 3-point correlation under the BRIDGE perturbation a > 0',
+    category: 'proof',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per imp-1183: 3-point Pearson 0.978 vs GUE. Per imp-1219: the shifted bridge K_a depends on a > 0. Question: does the 3-point empirical Pearson stay > 0.95 as we measure correlations of zero-images under the bridge perturbation (analogous to perturbing positions by Im(alpha)? Build src/data/imp-1242-3point-bridge-perturbed.js: take the 1e6 Odlyzko zeros, shift each by a fixed a in {0.001, 0.01, 0.05}, recompute the 3-point empirical R_3 on the shifted set, compare to GUE prediction. Sensitivity to a tells us how much bridge-thickness breaks the universality. 6+ tripwires.",
+    rationale: 'Connects the bridge-thickness Delta parameter of §15 to the empirical 3-point structure of imp-1183. If 3-point survives the perturbation, it strengthens the §25-27 hidden-square program.',
+    estimatedComplexity: 'medium',
+    dependsOn: ['imp-1183', 'imp-1196'],
+    model: 'sonnet-4-6',
+    channel: 'sonnet',
+  },
+  {
+    id: 'imp-1243',
+    title: 'Cross-check: does the imp-1147 asymptotic Lambda <= 7.98e-4 candidate survive the v52 §17.4 ' +
+           'negative-index identity at all the imp-1136 plateau brackets?',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per §17.4 of the v52 paper: ind_-(K_R_a) = #{lambda : X(lambda) = 0, Re(lambda) > a}. imp-1147 used 9 plateau brackets at N up to 1e6 to derive Lambda <= 7.98e-4 ASSUMING no off-critical zeros (since PT 2021 verified RH up to T_PT = 3e12). The §17.4 identity says even a single off-critical zero with Re(rho) - 1/2 > a would add a negative square. Cross-check: at each of the 9 imp-1136 plateau brackets, is there room for a hypothetical off-critical zero that would invalidate the Lambda <= 7.98e-4 composition? Build src/data/imp-1243-imp1147-ghost-margin-audit.js with per-plateau margin computation + verdict 'composition-robust' / 'composition-marginal' / 'composition-broken'. 5+ tripwires.",
+    rationale: 'Audit of the headline Lambda <= 7.98e-4 claim against the v52 §17.4 identity. Either strengthens the result with explicit margin (publishable) or surfaces a tightness that needs addressing.',
+    estimatedComplexity: 'medium',
+    dependsOn: ['imp-1147', 'imp-1198'],
+    model: 'opus-4-7',
+    channel: 'subscription',
+  },
 ];

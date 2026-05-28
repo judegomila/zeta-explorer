@@ -364,6 +364,10 @@ const DATA_MODULES = [
   // RH-equivalent existence half + open non-circular-construction half. Cites
   // de Branges 1968, Krein 1955, Romanov 2010, Remling 2002/2018.
   '/src/data/imp-1231-conjectures-16-4-16-6-audit.js',
+  // imp-1233: Literature audit Conjectures 18.1 (kernel/passivity closure) + 18.2
+  // (prime-delay domination closure) -- both PARTIALLY-RELATED to KYP / de Branges-Krein
+  // and Bombieri-Iwaniec / Vinogradov-Korobov / Weil-positivity literature respectively.
+  '/src/data/imp-1233-conjectures-18-1-18-2-audit.js',
   // imp-1234: ZPO model (/oscillators, /hamiltonian, /modes, /twin-ladder) vs
   // twin-ladder v52 §15 shift-bridge crosswalk -- 12 entries with honest
   // verdict vocabulary (identical / related / distinct / not-yet-identified).

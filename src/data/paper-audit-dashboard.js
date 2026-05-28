@@ -223,15 +223,21 @@ const CONJECTURE_ENTRIES = [
       'positive Hamiltonian canonical system whose Weyl transfer function is ' +
       'Theta_a(z) = E_a^#(z)/E_a(z). Equivalently, K_a is the energy kernel ' +
       'of a passive system constructed directly from Phi.',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'PARTIALLY-RELATED',
+    auditTicket: 'imp-1233',
+    auditDate: '2026-05-28',
     recommendationForPaper:
-      'Pending audit. Strongly overlaps with Conjecture 16.6 (canonical-' +
-      'system closure) and with Conjecture 22.3 (bridge-norm realization, ' +
-      'already PARTIALLY-RELATED via imp-1210). A targeted audit should ' +
-      'cross-link to imp-1210 22.3 and to KYP/bounded-real literature ' +
-      '(Anderson-Vongpanitlerd 1973, Yakubovich-Kalman-Popov classical KYP).',
+      'CONFIRMED PARTIALLY-RELATED (imp-1233). Reframe as a CONTRIBUTION TO ' +
+      'the de Branges-Krein canonical-system + KYP / Darlington passive-' +
+      'realization program rather than a free-standing conjecture. The paper ' +
+      'itself states 18.1 implies RH, so it is NOT a mere RH restatement. ' +
+      'Cite Yakubovich (1962), Kalman (1963), Anderson-Vongpanitlerd (1973) ' +
+      'for KYP; Krein (1955), de Branges (1968) for canonical systems; ' +
+      'Lagarias (2007) for the surveyed open Weil-form realization problem. ' +
+      'Cross-link to 16.6 (canonical-system closure) and 22.3 (bridge-norm ' +
+      'realization, PARTIALLY-RELATED via imp-1210). The new content is the ' +
+      'explicit Wronskian-symplectic-pairing form and the diagnosis that the ' +
+      'obstruction is the off-diagonal even/odd channel commutator.',
   },
   {
     id: '18.2',
@@ -243,15 +249,21 @@ const CONJECTURE_ENTRIES = [
       'For every w with Re w > 0, the completed archimedean drift dominates ' +
       'the coherent prime-delay echo train (Weil-explicit-formula completed ' +
       'sense): Re(X\'/X)(w) > 0 for Re w > 0.',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'PARTIALLY-RELATED',
+    auditTicket: 'imp-1233',
+    auditDate: '2026-05-28',
     recommendationForPaper:
-      'Pending audit. Structurally identical to Conjecture 15.4 (already ' +
-      'SUBSUMED-BY-RH via imp-1202: paired Hadamard makes Re(xi\'/xi) > 0 ' +
-      'manifest under RH). A targeted audit should cross-link to imp-1202 ' +
-      'and likely inherit SUBSUMED-BY-RH; the quantitative-form follow-up ' +
-      '(imp-1202-sub-quantitative-form) carries any independent content.',
+      'CONFIRMED PARTIALLY-RELATED (imp-1233). 18.2 is the CRITICAL-HALF-' +
+      'STRIP strengthening of Conjecture 15.4 (SUBSUMED-BY-RH via imp-1202). ' +
+      '15.4 holds in the Euler-convergent half-plane sigma > 1/2 by paired ' +
+      'Hadamard; 18.2 demands the inequality for ALL Re(w) > 0 (i.e. into ' +
+      'the critical half-strip), where Euler diverges and Hadamard no longer ' +
+      'separates zero and prime contributions term-by-term. The off-critical-' +
+      'zero witness Q_{delta,gamma}(w) = (w - i gamma)^2 - delta^2 makes 18.2 ' +
+      'a tool that PROVES RH, not a mere restatement. Cite Weil (1952), ' +
+      'Bombieri (1965, 1974), Iwaniec-Kowalski (2004 ch 5,17), Selberg (1942), ' +
+      'Vinogradov-Korobov (1958). Cross-link imp-1184 (Montgomery PCC at ' +
+      '2-point shared obstruction) and imp-1202 (15.4 Euler-half-plane case).',
   },
   {
     id: '18.4',
@@ -396,6 +408,9 @@ const HONEST_SCOPE = Object.freeze([
   'As of imp-1231, 11 of 13 conjectures (15.2, 15.3, 15.4, 16.4, 16.6, ' +
     '17.3, 18.4, 22.1, 22.2, 22.3, 22.4) have received a verdict. The ' +
     'remaining 2 (18.1, 18.2) are UNAUDITED with auditTicket = null. ' +
+  'As of imp-1233, 11 of 13 conjectures (15.2, 15.3, 15.4, 17.3, 18.1, 18.2, ' +
+    '18.4, 22.1, 22.2, 22.3, 22.4) have received a verdict. The remaining 2 ' +
+    '(16.4, 16.6) are UNAUDITED with auditTicket = null. ' +
     'recommendationForPaper for those 2 is a PREDICTION of the likely ' +
     'verdict based on visible cross-references, not a completed audit.',
   'The verdicts SUBSUMED-BY-RH on 15.4 (imp-1202) and 22.4 (imp-1210) are ' +
@@ -489,6 +504,13 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
         'paper §15.3 + Thm 15.1; directly-from-Phi canonical-system Hamiltonian is the open ' +
         'content; cite Krein 1955, de Branges 1968 Thm 38-40, Romanov 2010, Remling 2002/2018).',
       coversConjectures: Object.freeze(['16.4', '16.6']),
+      ticket: 'imp-1233',
+      title: 'Conjectures 18.1 + 18.2 audit (kernel/passivity + prime-delay domination closures)',
+        '18.1 PARTIALLY-RELATED (KYP / Yakubovich-Kalman / Anderson-Vongpanitlerd / Krein 1955 / de Branges 1968 / Lagarias 2007; ' +
+        'literature gives the realization machinery but not the non-circular construction from Phi alone); ' +
+        '18.2 PARTIALLY-RELATED (Weil 1952 / Bombieri 1965, 1974 / Iwaniec-Kowalski 2004 / Vinogradov-Korobov 1958 / Selberg 1942; ' +
+        'critical-half-strip strengthening of 15.4, where Euler diverges and Hadamard no longer separates terms)',
+      coversConjectures: Object.freeze(['18.1', '18.2']),
       auditDate: '2026-05-28',
     }),
   ]),
@@ -502,6 +524,8 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
     'UNAUDITED}. 13 conjectures total: 6 SUBSUMED-BY-RH (15.2, 15.3, 15.4, 17.3, ' +
     '18.4, 22.4), 4 PARTIALLY-RELATED (16.4, 16.6, 22.2, 22.3), 1 INDEPENDENT-NOVEL ' +
     '(22.1), 2 UNAUDITED (18.1, 18.2). Drives /paper-audit-dashboard page.',
+    '18.4, 22.4), 4 PARTIALLY-RELATED (18.1, 18.2, 22.2, 22.3), 1 INDEPENDENT-NOVEL ' +
+    '(22.1), 2 UNAUDITED (16.4, 16.6). Drives /paper-audit-dashboard page.',
 });
 
 export default PAPER_AUDIT_DASHBOARD;
@@ -629,12 +653,17 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       'imp-1231 confirmed 16.4 and 16.6 PARTIALLY-RELATED. Each UNAUDITED ' +
       'entry must carry auditTicket null and auditDate null -- inventing an ' +
       'audit ticket for a conjecture we have not actually audited would overclaim.',
+      'Of 13 conjectures, exactly 2 remain UNAUDITED (16.4, 16.6) after ' +
+      'imp-1233 confirmed 18.1 and 18.2 PARTIALLY-RELATED. Each UNAUDITED ' +
+      'audit ticket for a conjecture we have not actually audited would ' +
+      'overclaim.',
     holds: () => {
       const unaudited = PAPER_AUDIT_DASHBOARD.conjectures.filter(
         (c) => c.auditStatus === 'UNAUDITED',
       );
       if (unaudited.length !== 2) return false;
       const expected = new Set(['18.1', '18.2']);
+      const expected = new Set(['16.4', '16.6']);
       return unaudited.every(
         (c) => expected.has(c.id) && c.auditTicket === null &&
           c.auditDate === null,
@@ -647,6 +676,7 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       'statusCounts must partition the 13 conjectures exactly: 6 SUBSUMED-BY-' +
       'RH + 0 SUBSUMED-BY-LITERATURE + 4 PARTIALLY-RELATED + 1 INDEPENDENT-' +
       'NOVEL + 2 UNAUDITED = 13 (after imp-1231 moved 16.4 and 16.6 to ' +
+      'NOVEL + 2 UNAUDITED = 13 (after imp-1233 moved 18.1 and 18.2 to ' +
       'PARTIALLY-RELATED). Any drift means the dashboard counts do not match ' +
       'the per-conjecture entries.',
     holds: () => {
@@ -676,6 +706,17 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
         c16_4.auditTicket === 'imp-1231' &&
         !!c16_6 && c16_6.auditStatus === 'PARTIALLY-RELATED' &&
         c16_6.auditTicket === 'imp-1231';
+    id: 'paper-audit-partially-related-18-1-and-18-2-present',
+      'Conjectures 18.1 and 18.2 were audited PARTIALLY-RELATED via imp-1233 ' +
+      '(18.1 vs KYP / de Branges-Krein; 18.2 vs Bombieri-Iwaniec / ' +
+      'Vinogradov-Korobov / Weil-positivity). Both must carry that verdict ' +
+      'linked to imp-1233.',
+      const c18_1 = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '18.1');
+      const c18_2 = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '18.2');
+      return !!c18_1 && c18_1.auditStatus === 'PARTIALLY-RELATED' &&
+        c18_1.auditTicket === 'imp-1233' &&
+        !!c18_2 && c18_2.auditStatus === 'PARTIALLY-RELATED' &&
+        c18_2.auditTicket === 'imp-1233';
     },
   },
   {

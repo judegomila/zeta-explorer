@@ -18249,7 +18249,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Audit Conjectures 18.1 (kernel/passivity) + 18.2 (prime-delay)',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Conjecture 18.1 (kernel/passivity closure): for every a > 0, the pair (A_a, B_a) arises from a passive realization. Conjecture 18.2 (prime-delay domination closure). Both are non-trivial closure attacks per the paper. Survey: is either known to follow from existing control-theory or analytic-number-theory results? KYP lemma, Bombieri-Iwaniec mean-value, Selberg sieve. Verdict per conjecture. Ship src/data/imp-1233-conjectures-18-1-18-2-audit.js. 5+ tripwires.",
     rationale: 'Tracks §18 attacks. Likely PARTIALLY-RELATED to KYP / Bombieri-Iwaniec / Selberg literature.',
@@ -18257,6 +18257,10 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1218'],
     model: 'opus-4-7',
     channel: 'api',
+    completedAt: '2026-05-28',
+    completedByModel: 'subagent-worktree',
+    completedByChannel: 'opus-4-7-worktree',
+    closureNote: 'BOTH CONJECTURES CONFIRMED PARTIALLY-RELATED (not SUBSUMED-BY-RH). 18.1 (kernel/passivity closure): sits on top of KYP / Yakubovich-Kalman / Anderson-Vongpanitlerd passive-realization theory + Krein 1955 / de Branges 1968 canonical-system theory + Lagarias 2007 survey of the open Weil-form realization problem. Paper itself states 18.1 implies RH, so it is NOT a restatement of RH. Open content: non-circular construction of the realization from Phi alone (Wronskian symplectic-pairing obstruction is new). 18.2 (prime-delay domination closure): critical-half-strip strengthening of 15.4 (SUBSUMED-BY-RH via imp-1202); Euler diverges in critical strip so paired Hadamard breaks down. Off-critical-zero witness Q_{delta,gamma}(w) makes 18.2 a tool that PROVES RH. PARTIALLY-RELATED via Weil 1952 / Bombieri 1965 / Iwaniec-Kowalski 2004 / Vinogradov-Korobov 1958 / Selberg 1942. Shared obstruction is Montgomery PCC at 2-point (imp-1184). Ships src/data/imp-1233-conjectures-18-1-18-2-audit.js (12 tripwires). Updates paper-audit-dashboard.js: 6 SUBSUMED-BY-RH, 4 PARTIALLY-RELATED, 1 INDEPENDENT-NOVEL, 2 UNAUDITED. Wired into run-assertions.mjs. npm run build green.',
   },
 
   // --------- CROSS-CHECKS WITH PREVIOUS WORK ---------

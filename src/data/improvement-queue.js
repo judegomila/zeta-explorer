@@ -18197,7 +18197,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Audit Conjectures 16.4 + 16.6 (shift-bridge square + canonical-system closure)',
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Bundle audit of Conjectures 16.4 (shift-bridge square: exists Hilbert space H_a + isometric bracket) and 16.6 (canonical-system closure). Both are constructive existence claims that, if true, would close one of the four routes. Survey: are these known to follow from de Branges canonical-system theory? Citation: de Branges 1968, Romanov 2010. Verdict per conjecture (SUBSUMED-BY-DE-BRANGES / PARTIALLY-RELATED / NOVEL). Ship src/data/imp-1231-conjectures-16-4-16-6-audit.js. 5+ tripwires.",
     rationale: 'Tracks the §16 closure-routes audit. de Branges canonical-system theory likely already covers parts; audit honestly.',
@@ -18205,6 +18205,9 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1218'],
     model: 'opus-4-7',
     channel: 'subscription',
+    completedByModel: 'subagent-worktree',
+    completedByChannel: 'opus-4-7-worktree',
+    closureNote: 'BOTH CONJECTURES PARTIALLY-RELATED. 16.4 (shift-bridge square / hidden-square kernel factorization, §16.4 lines 1626-1631): existence of (H_a, B_a) with K_a = <B_a(z),B_a(zeta)>_{H_a} is RH-equivalent (Aronszajn 1950 RKHS theorem + Thm 15.1 + de Branges 1968 H(E_a)). Non-circular B_a-from-Phi construction is the open content. 16.6 (canonical-system closure, §16.7 lines 1713-1720): Theta_a Schur for every a>0 is RH-equivalent (paper §15.3 line 1208 + Thm 15.1). The directly-from-Phi passive-Hamiltonian construction is the open content -- in dialogue with Krein 1955, de Branges 1968 Thm 38-40, Romanov 2010, Remling 2002/2018, Lagarias-Suzuki 2006, Burnol 2002, Connes 1999. Both are constructive existence claims with two-part shape (RH-equivalent existence-half + open non-circular-construction-half) -- distinct from the §15/17/18 audits which were all SUBSUMED-BY-RH. Paper itself acknowledges the non-circular gap on lines 1630-1631 (16.4) and 1722-1723 (16.6). Ships src/data/imp-1231-conjectures-16-4-16-6-audit.js (10 tripwires) + updates paper-audit-dashboard.js (now 6 SUBSUMED, 4 PARTIALLY-RELATED, 1 NOVEL, 2 UNAUDITED). Wired into run-assertions.mjs.',
   },
   {
     id: 'imp-1232',

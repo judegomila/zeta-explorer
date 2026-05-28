@@ -34,7 +34,9 @@
 //     de Branges / Lagarias formulation (imp-1210).
 // Conjectures 22.2 and 22.3 received a PARTIALLY-RELATED verdict, 22.1 is
 // INDEPENDENT-NOVEL, and the remaining seven (15.3, 16.4, 16.6, 17.3,
-// 18.1, 18.2, 18.4) remain UNAUDITED.
+// 18.1, 18.2, 18.4) remain UNAUDITED. (NOTE: by imp-1231, 16.4 and 16.6 have
+// moved to PARTIALLY-RELATED; by imp-1230 / imp-1232, 15.3, 17.3, 18.4 have
+// moved to SUBSUMED-BY-RH.)
 //
 // VERDICT VOCABULARY
 // ------------------
@@ -147,16 +149,19 @@ const CONJECTURE_ENTRIES = [
       'For every a > 0 there exists a Hilbert space H_a and a transform B_a, ' +
       'built directly from the completed Riemann kernel and NOT from the zero ' +
       'set, such that K_a(zeta, z) = <B_a(z), B_a(zeta)>_{H_a}.',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'PARTIALLY-RELATED',
+    auditTicket: 'imp-1231',
+    auditDate: '2026-05-28',
     recommendationForPaper:
-      'Pending audit. Closely related to Conjecture 22.3 (bridge-norm ' +
-      'realization), already audited PARTIALLY-RELATED via imp-1210 (Weil ' +
-      '1952 / Bombieri 2003 / de Branges 1968 / Lagarias 2007). A targeted ' +
-      'audit should cross-link to imp-1210 22.3 and likely inherit ' +
-      'PARTIALLY-RELATED (the non-circular constraint is the open novel ' +
-      'content).',
+      'CONFIRMED PARTIALLY-RELATED (imp-1231). Conj 16.4 has TWO PARTS: ' +
+      '(a) EXISTENCE -- RH-equivalent by Thm 15.1 + de Branges 1968 RKHS ' +
+      'realization; paper itself acknowledges on line 1630-1631. ' +
+      '(b) NON-CIRCULAR CONSTRUCTION (build B_a directly from Phi, not from ' +
+      'the zero set) -- genuinely open content. Cite de Branges 1968, ' +
+      'Aronszajn 1950, Burnol 2002, Lagarias 2007, Connes 1999. Reframe as ' +
+      'a CONTRIBUTION TO the de-Branges-realization-for-xi program with ' +
+      'the non-circular-construction constraint as the precise open target. ' +
+      'Same shape as 22.3 (PARTIALLY-RELATED via imp-1210).',
   },
   {
     id: '16.6',
@@ -169,16 +174,19 @@ const CONJECTURE_ENTRIES = [
       'is the transfer function of a passive canonical system constructed ' +
       'directly from the completed Riemann kernel. Equivalently, Theta_a is ' +
       'Schur in C_+ for every a > 0.',
-    auditStatus: 'UNAUDITED',
-    auditTicket: null,
-    auditDate: null,
+    auditStatus: 'PARTIALLY-RELATED',
+    auditTicket: 'imp-1231',
+    auditDate: '2026-05-28',
     recommendationForPaper:
-      'Pending audit. Sits on top of de Branges canonical-system theory ' +
-      '(Krein 1955, de Branges 1968). A targeted audit should compare to ' +
-      'the Connes 1999 / 2025-2026 noncommutative-geometric attacks (the ' +
-      'imp-1205 crosswalk has partial coverage) and likely classify ' +
-      'PARTIALLY-RELATED with the non-circular kernel-only construction as ' +
-      'the genuinely-open content.',
+      'CONFIRMED PARTIALLY-RELATED (imp-1231). Conj 16.6 has TWO PARTS: ' +
+      '(a) SCHUR / TRANSFER-FUNCTION half -- RH-equivalent by paper §15.3 ' +
+      'line 1208-1209 (K_a positivity <=> Theta_a Schur) + Thm 15.1; paper ' +
+      'itself acknowledges on line 1722-1723. (b) DIRECTLY-FROM-PHI ' +
+      'HAMILTONIAN CONSTRUCTION -- the open content. Cite Krein 1955, ' +
+      'de Branges 1968 Thm 38-40 (inverse spectral theorem), Romanov 2010, ' +
+      'Remling 2002/2018 (Spectral theory of canonical systems), Lagarias-' +
+      'Suzuki 2006, Burnol 2002, Connes 1999. Position §16.7 explicitly as ' +
+      '"the inverse-spectral theorem for the Riemann case".',
   },
   {
     id: '17.3',
@@ -385,10 +393,10 @@ const HONEST_SCOPE = Object.freeze([
     'of scope here because Section 4 is not covered by this tracker -- the ' +
     'verdict (SUBSUMED-BY-LITERATURE via Hughes-Rudnick 2003 + Bourgade ' +
     '2010) is recorded in imp-1163 and IMPROVEMENTS.md.',
-  'As of imp-1230, 9 of 13 conjectures (15.2, 15.3, 15.4, 17.3, 18.4, 22.1, 22.2, 22.3, 22.4) ' +
-    'have received a verdict. The remaining 4 (16.4, 16.6, ' +
-    '18.1, 18.2) are UNAUDITED with auditTicket = null. ' +
-    'recommendationForPaper for those 4 is a PREDICTION of the likely ' +
+  'As of imp-1231, 11 of 13 conjectures (15.2, 15.3, 15.4, 16.4, 16.6, ' +
+    '17.3, 18.4, 22.1, 22.2, 22.3, 22.4) have received a verdict. The ' +
+    'remaining 2 (18.1, 18.2) are UNAUDITED with auditTicket = null. ' +
+    'recommendationForPaper for those 2 is a PREDICTION of the likely ' +
     'verdict based on visible cross-references, not a completed audit.',
   'The verdicts SUBSUMED-BY-RH on 15.4 (imp-1202) and 22.4 (imp-1210) are ' +
     'based on textbook de Branges / Hadamard machinery and are robust ' +
@@ -471,6 +479,18 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
       coversConjectures: Object.freeze(['15.3']),
       auditDate: '2026-05-27',
     }),
+    Object.freeze({
+      ticket: 'imp-1231',
+      title: 'Conjectures 16.4 + 16.6 audit (shift-bridge square + canonical-system closure)',
+      verdict:
+        '16.4 PARTIALLY-RELATED (existence-half RH-equivalent via de Branges 1968 RKHS; ' +
+        'non-circular B_a-from-Phi construction is the open content; cite Aronszajn 1950, ' +
+        'Burnol 2002, Lagarias 2007). 16.6 PARTIALLY-RELATED (Schur-half RH-equivalent via ' +
+        'paper §15.3 + Thm 15.1; directly-from-Phi canonical-system Hamiltonian is the open ' +
+        'content; cite Krein 1955, de Branges 1968 Thm 38-40, Romanov 2010, Remling 2002/2018).',
+      coversConjectures: Object.freeze(['16.4', '16.6']),
+      auditDate: '2026-05-28',
+    }),
   ]),
 
   honestScope: HONEST_SCOPE,
@@ -480,8 +500,8 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
     'Sections 15-22, with per-conjecture verdict in {SUBSUMED-BY-RH, ' +
     'SUBSUMED-BY-LITERATURE, PARTIALLY-RELATED, INDEPENDENT-NOVEL, ' +
     'UNAUDITED}. 13 conjectures total: 6 SUBSUMED-BY-RH (15.2, 15.3, 15.4, 17.3, ' +
-    '18.4, 22.4), 2 PARTIALLY-RELATED (22.2, 22.3), 1 INDEPENDENT-NOVEL ' +
-    '(22.1), 4 UNAUDITED (16.4, 16.6, 18.1, 18.2). Drives /paper-audit-dashboard page.',
+    '18.4, 22.4), 4 PARTIALLY-RELATED (16.4, 16.6, 22.2, 22.3), 1 INDEPENDENT-NOVEL ' +
+    '(22.1), 2 UNAUDITED (18.1, 18.2). Drives /paper-audit-dashboard page.',
 });
 
 export default PAPER_AUDIT_DASHBOARD;
@@ -603,19 +623,18 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     },
   },
   {
-    id: 'paper-audit-four-unaudited-conjectures',
+    id: 'paper-audit-two-unaudited-conjectures',
     why:
-      'Of 13 conjectures, exactly 4 remain UNAUDITED (16.4, 16.6, ' +
-      '18.1, 18.2) after imp-1230 confirmed 15.3 SUBSUMED-BY-RH. ' +
-      'Each UNAUDITED entry must carry auditTicket null and auditDate null -- ' +
-      'inventing an audit ticket for a conjecture we have not actually audited ' +
-      'would overclaim.',
+      'Of 13 conjectures, exactly 2 remain UNAUDITED (18.1, 18.2) after ' +
+      'imp-1231 confirmed 16.4 and 16.6 PARTIALLY-RELATED. Each UNAUDITED ' +
+      'entry must carry auditTicket null and auditDate null -- inventing an ' +
+      'audit ticket for a conjecture we have not actually audited would overclaim.',
     holds: () => {
       const unaudited = PAPER_AUDIT_DASHBOARD.conjectures.filter(
         (c) => c.auditStatus === 'UNAUDITED',
       );
-      if (unaudited.length !== 4) return false;
-      const expected = new Set(['16.4', '16.6', '18.1', '18.2']);
+      if (unaudited.length !== 2) return false;
+      const expected = new Set(['18.1', '18.2']);
       return unaudited.every(
         (c) => expected.has(c.id) && c.auditTicket === null &&
           c.auditDate === null,
@@ -626,9 +645,9 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     id: 'paper-audit-status-counts-sum-to-thirteen',
     why:
       'statusCounts must partition the 13 conjectures exactly: 6 SUBSUMED-BY-' +
-      'RH + 0 SUBSUMED-BY-LITERATURE + 2 PARTIALLY-RELATED + 1 INDEPENDENT-' +
-      'NOVEL + 4 UNAUDITED = 13 (after imp-1230 moved 15.3 to ' +
-      'SUBSUMED-BY-RH). Any drift means the dashboard counts do not match ' +
+      'RH + 0 SUBSUMED-BY-LITERATURE + 4 PARTIALLY-RELATED + 1 INDEPENDENT-' +
+      'NOVEL + 2 UNAUDITED = 13 (after imp-1231 moved 16.4 and 16.6 to ' +
+      'PARTIALLY-RELATED). Any drift means the dashboard counts do not match ' +
       'the per-conjecture entries.',
     holds: () => {
       const s = PAPER_AUDIT_DASHBOARD.statusCounts;
@@ -637,9 +656,26 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       return total === PAPER_AUDIT_DASHBOARD.totalCount &&
         PAPER_AUDIT_DASHBOARD.totalCount === 13 &&
         s['SUBSUMED-BY-RH'] === 6 &&
-        s['PARTIALLY-RELATED'] === 2 &&
+        s['PARTIALLY-RELATED'] === 4 &&
         s['INDEPENDENT-NOVEL'] === 1 &&
-        s.UNAUDITED === 4;
+        s.UNAUDITED === 2;
+    },
+  },
+  {
+    id: 'paper-audit-partially-related-16-4-and-16-6-present',
+    why:
+      'Conjectures 16.4 and 16.6 were audited PARTIALLY-RELATED via imp-1231 ' +
+      '(constructive existence claims: each bundles an RH-equivalent existence ' +
+      'half with an open non-circular-construction half; PARTIALLY-RELATED to ' +
+      'de Branges 1968 / Krein 1955 / Romanov 2010 / Remling 2002-2018). Both ' +
+      'entries must reflect this verdict and link to imp-1231.',
+    holds: () => {
+      const c16_4 = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '16.4');
+      const c16_6 = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '16.6');
+      return !!c16_4 && c16_4.auditStatus === 'PARTIALLY-RELATED' &&
+        c16_4.auditTicket === 'imp-1231' &&
+        !!c16_6 && c16_6.auditStatus === 'PARTIALLY-RELATED' &&
+        c16_6.auditTicket === 'imp-1231';
     },
   },
   {

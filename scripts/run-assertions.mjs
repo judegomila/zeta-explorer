@@ -359,6 +359,11 @@ const DATA_MODULES = [
   '/src/data/imp-1229-conjecture-15-2-audit.js',
   // imp-1232: Literature audit Conjectures 17.3 + 18.4 (ghost-absence) -- both SUBSUMED-BY-RH.
   '/src/data/imp-1232-conjectures-17-3-18-4-audit.js',
+  // imp-1231: Literature audit Conjectures 16.4 (shift-bridge square) + 16.6
+  // (canonical-system closure) -- both PARTIALLY-RELATED. Two-part reading:
+  // RH-equivalent existence half + open non-circular-construction half. Cites
+  // de Branges 1968, Krein 1955, Romanov 2010, Remling 2002/2018.
+  '/src/data/imp-1231-conjectures-16-4-16-6-audit.js',
   // imp-1234: ZPO model (/oscillators, /hamiltonian, /modes, /twin-ladder) vs
   // twin-ladder v52 §15 shift-bridge crosswalk -- 12 entries with honest
   // verdict vocabulary (identical / related / distinct / not-yet-identified).

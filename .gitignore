@@ -21,3 +21,9 @@ mathexplorer-claude-sessions-*.tar.gz
 
 # imp-1143 worktree harness — local-only
 .worktrees/
+
+# thinking/ infrastructure: persistent reasoning logs. decisions/ are
+# git-tracked (audit trail); transcripts/ are raw subagent JSONL captures
+# (large, ephemeral) — keep only the .gitkeep marker.
+thinking/transcripts/*
+!thinking/transcripts/.gitkeep

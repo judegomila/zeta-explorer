@@ -667,11 +667,9 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     id: 'paper-audit-status-counts-sum-to-thirteen',
     why:
       'statusCounts must partition the 13 conjectures exactly: 6 SUBSUMED-BY-' +
-      'RH + 0 SUBSUMED-BY-LITERATURE + 4 PARTIALLY-RELATED + 1 INDEPENDENT-' +
-      'NOVEL + 2 UNAUDITED = 13 (after imp-1231 moved 16.4 and 16.6 to ' +
-      'NOVEL + 2 UNAUDITED = 13 (after imp-1233 moved 18.1 and 18.2 to ' +
-      'PARTIALLY-RELATED). Any drift means the dashboard counts do not match ' +
-      'the per-conjecture entries.',
+      'RH + 0 SUBSUMED-BY-LITERATURE + 6 PARTIALLY-RELATED + 1 INDEPENDENT-' +
+      'NOVEL + 0 UNAUDITED = 13. This is the post-imp-1231 + imp-1233 final ' +
+      'state where ALL 13 conjectures are audited. Any drift fires.',
     holds: () => {
       const s = PAPER_AUDIT_DASHBOARD.statusCounts;
       const total = s['SUBSUMED-BY-RH'] + s['SUBSUMED-BY-LITERATURE'] +
@@ -679,9 +677,9 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       return total === PAPER_AUDIT_DASHBOARD.totalCount &&
         PAPER_AUDIT_DASHBOARD.totalCount === 13 &&
         s['SUBSUMED-BY-RH'] === 6 &&
-        s['PARTIALLY-RELATED'] === 4 &&
+        s['PARTIALLY-RELATED'] === 6 &&
         s['INDEPENDENT-NOVEL'] === 1 &&
-        s.UNAUDITED === 2;
+        s.UNAUDITED === 0;
     },
   },
   {

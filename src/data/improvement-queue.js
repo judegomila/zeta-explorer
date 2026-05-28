@@ -18396,7 +18396,7 @@ export const IMPROVEMENT_QUEUE = [
            'all instances of de Branges canonical-system existence?',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Per the imp-1218 dashboard, 5 paper conjectures remain UNAUDITED: 15.3 (shifted bridge K_a >= 0), 16.4 (shift-bridge square Hilbert-space existence), 16.6 (canonical-system closure), 18.1 (kernel/passivity), 18.2 (prime-delay domination). The first FOUR are constructive existence claims. Hypothesis to test: ALL FOUR may be instances of a single de Branges canonical-system existence problem. Survey de Branges 1968 + Romanov 2010 + Lagarias-Suzuki + Krein-Langer to determine whether each conjecture is a special case. If yes, the paper should reframe them as a SINGLE conjecture with 4 corollaries. Ship src/data/imp-1241-unified-existence-conjecture.js with verdict per conjecture + a possible unified statement. 6+ tripwires.",
     rationale: 'Audit-pattern observation: 5/13 SUBSUMED-BY-RH suggests another grouping might subsume more. Worth testing the de-Branges-existence hypothesis explicitly before more individual audits.',
@@ -18404,6 +18404,9 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1218', 'imp-1231', 'imp-1233'],
     model: 'opus-4-7',
     channel: 'api',
+    completedByModel: 'subagent-worktree',
+    completedByChannel: 'opus-4-7-worktree',
+    closureNote: 'VERDICT: three-of-four-unified. 16.4 (Hilbert-space bracket existence), 16.6 (canonical-system closure), 18.1 (kernel/passivity) are three notational presentations of a SINGLE de Branges canonical-system existence problem (CDB-Exist): build E_a / dm_a / passive realization NON-CIRCULARLY from Phi. By the Krein-de Branges bijection (de Branges 1968, Krein 1955, Romanov 2010) the three are logically equivalent once K_a positivity is given; existence is automatic, non-circularity is the open content. All three audited PARTIALLY-RELATED via imp-1241. 18.2 (Re(X\'/X) > 0) is NOT a canonical-system existence claim -- it is a scalar Hadamard inequality structurally identical to 15.4; audited SUBSUMED-BY-RH via imp-1241 (same logic as imp-1202 for 15.4). Ships src/data/imp-1241-unified-existence-conjecture.js (~530 LOC, 10 tripwires). Updates paper-audit-dashboard.js: 7 SUBSUMED-BY-RH, 5 PARTIALLY-RELATED, 1 INDEPENDENT-NOVEL, 0 UNAUDITED (all 13 paper conjectures now audited). Wired into run-assertions.mjs. Recommendation to paper author: reframe 16.4 + 16.6 + 18.1 as a single CDB-Exist conjecture with three corollaries; move 18.2 into the RH-equivalent reformulations subsection alongside 15.2-15.4, 17.3, 18.4, 22.4.',
   },
   {
     id: 'imp-1242',

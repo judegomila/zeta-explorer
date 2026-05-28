@@ -368,6 +368,11 @@ const DATA_MODULES = [
   // (prime-delay domination closure) -- both PARTIALLY-RELATED to KYP / de Branges-Krein
   // and Bombieri-Iwaniec / Vinogradov-Korobov / Weil-positivity literature respectively.
   '/src/data/imp-1233-conjectures-18-1-18-2-audit.js',
+  // imp-1241: Unified de Branges canonical-system existence audit for
+  // Conjectures 16.4 + 16.6 + 18.1 + 18.2. Verdict: three-of-four-unified.
+  // 16.4 + 16.6 + 18.1 PARTIALLY-RELATED, unified under CDB-Exist. 18.2
+  // SUBSUMED-BY-RH (same logic as 15.4: paired Hadamard).
+  '/src/data/imp-1241-unified-existence-conjecture.js',
   // imp-1234: ZPO model (/oscillators, /hamiltonian, /modes, /twin-ladder) vs
   // twin-ladder v52 §15 shift-bridge crosswalk -- 12 entries with honest
   // verdict vocabulary (identical / related / distinct / not-yet-identified).

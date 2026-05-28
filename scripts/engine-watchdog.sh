@@ -130,6 +130,11 @@ case "${1:-status}" in
     nohup "$0" --daemon-loop > /dev/null 2>&1 &
     echo $! > "$PID_FILE"
     echo "Engine watchdog started (PID $!, log: $LOG_FILE)"
+    # imp-1278: also kick the ssr-pool supervisor so assertion sweeps run
+    # against a warm vite server (idempotent; no-op if already running).
+    if [ -x "$SCRIPT_DIR/ssr-pool-supervisor.sh" ]; then
+      "$SCRIPT_DIR/ssr-pool-supervisor.sh" start >> "$LOG_FILE" 2>&1 || true
+    fi
     ;;
 
   stop)

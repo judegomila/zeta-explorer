@@ -481,6 +481,16 @@ const DATA_MODULES = [
   // verdict SURVIVES this audit with one additional citation caveat for the
   // reverse chain. 12 tripwires.
   '/src/data/imp-1265-section27-identity-recheck.js',
+  // imp-1266: Mellin diagonalization ATTEMPT for V_{a,Φ} (route 3 of imp-1260).
+  // NEGATIVE RESULT — V is NOT a multiplicative convolution on (0, ∞). Three
+  // independent obstructions (kernel not a function of t/s, K_a is additive
+  // not multiplicative convolution, Mellin of sinh diverges) kill the route
+  // at step 0. Salvage: closed-form Laplace symbol L[k_a](z) = a/(z²-a²) for
+  // route 4 (Wiener-Hopf); Phi Mellin shape ~ 2 ξ(s); rigorous HS-style bound
+  // proving ||V|| ≤ 1 for all a ≤ ~12.6 (covers App-S a ≤ 0.5 with wide
+  // margin). Points to imp-1267 (HS, already shipped) as the productive
+  // attack. 13 tripwires.
+  '/src/data/imp-1266-volterra-mellin-symbol.js',
 ];
 
 const ALL_MODULES = FAST_MODE

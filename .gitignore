@@ -8,6 +8,10 @@ scripts/.rate-limit-backoff-state*
 scripts/.env
 scripts/queue-index.json
 
+# imp-1278 ssr-pool supervisor: local-only runtime state
+scripts/.ssr-pool.pid
+scripts/.vite-ssr-pool.sock
+
 # Rust build artifacts (imp-1090 interval-rk4 backend)
 rust/*/target/
 rust/*/Cargo.lock

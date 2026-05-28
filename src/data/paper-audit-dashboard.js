@@ -699,11 +699,16 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
         c16_4.auditTicket === 'imp-1231' &&
         !!c16_6 && c16_6.auditStatus === 'PARTIALLY-RELATED' &&
         c16_6.auditTicket === 'imp-1231';
+    },
+  },
+  {
     id: 'paper-audit-partially-related-18-1-and-18-2-present',
+    why:
       'Conjectures 18.1 and 18.2 were audited PARTIALLY-RELATED via imp-1233 ' +
       '(18.1 vs KYP / de Branges-Krein; 18.2 vs Bombieri-Iwaniec / ' +
       'Vinogradov-Korobov / Weil-positivity). Both must carry that verdict ' +
       'linked to imp-1233.',
+    holds: () => {
       const c18_1 = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '18.1');
       const c18_2 = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '18.2');
       return !!c18_1 && c18_1.auditStatus === 'PARTIALLY-RELATED' &&

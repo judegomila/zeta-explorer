@@ -39,7 +39,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const PROJECT_DIR = path.dirname(__dirname);
 
-const MODEL = process.env.API_ENGINE_MODEL || 'claude-opus-4-7';
+const MODEL = process.env.API_ENGINE_MODEL || 'claude-opus-4-8';
 const PREFLIGHT_MARKER = path.join(__dirname, '.api-engine-preflighted');
 const MAX_TOKENS = parseInt(process.env.API_ENGINE_MAX_TOKENS || '4096', 10);
 

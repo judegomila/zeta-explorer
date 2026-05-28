@@ -70,7 +70,7 @@ do_start() {
   echo "Starting auto-improvement engine (API tier)..."
   echo "  Interval: ${INTERVAL}s ($(( INTERVAL / 60 )) minutes)"
   echo "  Max runs: $MAX_RUNS"
-  echo "  Model:    ${API_ENGINE_MODEL:-claude-opus-4-7}"
+  echo "  Model:    ${API_ENGINE_MODEL:-claude-opus-4-8}"
   echo "  Logs:     $LOG_DIR (run_api_*.log)"
   echo "  PID file: $PID_FILE"
 
@@ -314,7 +314,7 @@ case "${1:-}" in
     echo ""
     echo "Env vars:"
     echo "  ANTHROPIC_API_KEY    REQUIRED -- the engine will not start without it"
-    echo "  API_ENGINE_MODEL     default claude-opus-4-7"
+    echo "  API_ENGINE_MODEL     default claude-opus-4-8"
     echo "  API_ENGINE_MAX_TOKENS default 4096"
     exit 1
     ;;

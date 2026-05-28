@@ -453,6 +453,16 @@ const DATA_MODULES = [
   // §27 paper-construct identity (block positivity ⇔ K_a ⪰ 0). The §15-27 program
   // reduces to ONE statement: ‖V_{a,Φ}‖_{L²([0,∞))} ≤ 1.
   '/src/data/imp-1258-volterra-cdb-bridge.js',
+  // imp-1247: OPUS-4.8 RECHECK of imp-1184 shared-PCC obstruction across the
+  // three live ESY-closure routes. Verdict: PCC strictly load-bearing for
+  // Route 1 only; Route 3 needs RS-3pt not PCC; no 4th route bypasses all
+  // bottlenecks (Conrey-Snaith stronger than PCC, Heath-Brown 4th moment too
+  // weak, Riemann-Hilbert spectral requires universality).
+  '/src/data/imp-1247-shared-pcc-obstruction-recheck.js',
+  // imp-1248: OPUS-4.8 RECHECK of imp-1240 Volterra-norm pilot. Adaptive-N
+  // rescan (N = 100*U + 100) with U in {1, 2, 5, 10, 20, 50, 100}; 35 rows.
+  // All norms <= 1.86e-4 << 1. imp-1240 U=20 artifact (ratio 1.62) resolved.
+  '/src/data/imp-1248-volterra-norm-rescan.js',
 ];
 
 const ALL_MODULES = FAST_MODE

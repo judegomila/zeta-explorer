@@ -72,6 +72,7 @@ const RigorousNumericsStagesPage = lazy(() => import('./pages/RigorousNumericsSt
 const TwinLadderPaperRoadmapPage = lazy(() => import('./pages/TwinLadderPaperRoadmapPage.jsx'));
 const PaperAuditDashboardPage = lazy(() => import('./pages/PaperAuditDashboardPage.jsx'));
 const VizHyperbolicPrimeSpiralPage = lazy(() => import('./pages/VizHyperbolicPrimeSpiralPage.jsx'));
+const HiddenSquareProgramPage = lazy(() => import('./pages/HiddenSquareProgramPage.jsx'));
 const VizLogPhaseSpiralPage = lazy(() => import('./pages/VizLogPhaseSpiralPage.jsx'));
 const VizEulerTransportFlowPage = lazy(() => import('./pages/VizEulerTransportFlowPage.jsx'));
 const VizTwinLadderTomographyPage = lazy(() => import('./pages/VizTwinLadderTomographyPage.jsx'));
@@ -128,6 +129,7 @@ const NAV_GROUPS = [
       { to: '/twin-ladder-paper-roadmap', label: 'Paper Roadmap' },
       { to: '/rigorous-numerics-stages', label: 'Rigorous Numerics (§20)' },
       { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard' },
+      { to: '/hidden-square-program', label: 'Hidden-Square Program (§25–27)' },
     ],
   },
   {
@@ -502,6 +504,7 @@ function AppShell() {
           <Route path="/twin-ladder-paper-roadmap" element={<TwinLadderPaperRoadmapPage />} />
           <Route path="/paper-audit-dashboard" element={<PaperAuditDashboardPage />} />
           <Route path="/viz-hyperbolic-prime-spiral" element={<VizHyperbolicPrimeSpiralPage />} />
+          <Route path="/hidden-square-program" element={<HiddenSquareProgramPage />} />
           <Route path="/viz-log-phase-spiral" element={<VizLogPhaseSpiralPage />} />
           <Route path="/viz-euler-transport-flow" element={<VizEulerTransportFlowPage />} />
           <Route path="/viz-twin-ladder-tomography" element={<VizTwinLadderTomographyPage />} />

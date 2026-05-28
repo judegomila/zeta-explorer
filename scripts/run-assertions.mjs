@@ -371,6 +371,12 @@ const DATA_MODULES = [
   // sec24-gap / confirmed-by-v52). Identifies §24 open targets absent from lambda-roadmap
   // and lambda-roadmap items absent from §24. Name-collision warning for Routes A/B/C.
   '/src/data/imp-1235-lambda-roadmap-vs-paper-sec-24-crosswalk.js',
+  // imp-1203: numerical pilot of Conjecture 18.2 (prime-delay domination closure,
+  // finite-w form) -- empirical-supports in the convergent half-plane Re(w) > 1/2;
+  // critical strip is truncation-inconclusive (finite p<=1e4 echo train diverges there).
+  '/src/data/imp-1203-conjecture-18-2-pilot.js',
+  // imp-1219: hidden-square program §25+26+27 — commutator → measure dom → endpoint-Hankel.
+  '/src/data/hidden-square-program-section.js',
 ];
 
 const ALL_MODULES = FAST_MODE

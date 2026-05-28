@@ -464,7 +464,66 @@ export const LAMBDA_ROADMAP = {
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,
   openGaps: OPEN_GAPS,
+  milestones: undefined, // populated below to avoid forward-ref
 };
+
+// ── Milestones (program-level landings, not bounds) ────────────────────────
+//
+// Distinct from LAMBDA_BOUNDS (which tracks numeric Λ upper/lower values),
+// MILESTONES tracks high-level "landings" of the program: paper drops,
+// section-cluster ships, etc. Cited so the roadmap stays in sync with
+// research-inputs/ and the app pages.
+
+export const LAMBDA_ROADMAP_MILESTONES = [
+  {
+    id: 'twin-ladder-consolidated-v52',
+    label: 'Twin-ladder consolidated v52 paper landing',
+    date: '2026-05-26',
+    kind: 'paper-landing',
+    paperRef: 'research-inputs/twin_ladder_consolidated_v52.pdf (v52, 191 pages)',
+    summary:
+      'v52 of the consolidated twin-ladder paper landed 2026-05-26 with 9 new ' +
+      'top-level app sections wired into the explorer. The paper introduces ' +
+      'paragraphs 15 (shift-bridge reflection positivity), 16 (four equivalent ' +
+      'closure routes), 17 (inverse Blaschke ghosts + Pontryagin decomposition), ' +
+      '18 (three direct attacks on B_a^+ = 1), 20 (rigorous-numerics stages ' +
+      'I/II/III), 23 (freezing + bridge renormalization), 24 (what remains), ' +
+      'plus appendices B-T (KYP, bounded-real, delay-Gram positivity, ' +
+      'reciprocal program, hidden-square machinery).',
+    newAppRoutes: [
+      '/shift-bridge-positivity',
+      '/closure-routes',
+      '/blaschke-ghosts',
+      '/three-attacks',
+      '/freezing-bridge',
+      '/kyp-bounded-real',
+      '/twin-ladder-paper-roadmap',
+      '/paper-audit-dashboard',
+      '/rigorous-numerics-stages',
+    ],
+    tickets: [
+      'imp-1196', 'imp-1197', 'imp-1198', 'imp-1199', 'imp-1200', 'imp-1201',
+      'imp-1216', 'imp-1217', 'imp-1218', 'imp-1220', 'imp-1221',
+    ],
+    ticketRange: 'wave-11 (imp-1196..imp-1201) + wave-12 (imp-1216..imp-1221)',
+    auditStatus:
+      'Per imp-1218 paper-audit-dashboard: 5 of 13 paper conjectures ' +
+      'SUBSUMED-BY-RH (15.2, 17.3, 18.4, 22.4 + structural family) via ' +
+      'direct RH unwinding; the remaining live conjectures share a ' +
+      'Montgomery PCC obstruction across all ESY-closure routes ' +
+      '(imp-1184 audit verdict).',
+    relationToLambdaAttack:
+      'The v52 paper is the SECOND RH-attack track in this project ' +
+      '(twin-ladder / closure-routes / shift-bridge), distinct from the ' +
+      'Λ-attack track (Λ ≤ 0 unconditional via Calogero-Moser flow + ' +
+      'Polymath15 bridge). Both tracks share the same target (RH) but ' +
+      'operate via different mathematical machinery; this milestone ' +
+      'records the v52 landing without re-organising the Λ chain.',
+  },
+];
+
+// Patch the master record to expose milestones now that the array exists.
+LAMBDA_ROADMAP.milestones = LAMBDA_ROADMAP_MILESTONES;
 
 // ── Build-time assertions ──────────────────────────────────────────────────
 
@@ -508,5 +567,54 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'imp-347; G6 was closed by imp-345 + imp-366 + imp-387. Both must remain ' +
       'closed. A future edit that reopens either gap must update the ' +
       'corresponding proof file and this assertion in the same commit.',
+  },
+  {
+    id: 'roadmap-twin-ladder-v52-milestone-present',
+    holds: () => {
+      const m = LAMBDA_ROADMAP_MILESTONES.find(
+        (x) => x.id === 'twin-ladder-consolidated-v52'
+      );
+      return (
+        !!m &&
+        m.date === '2026-05-26' &&
+        m.kind === 'paper-landing' &&
+        Array.isArray(m.newAppRoutes) &&
+        m.newAppRoutes.length === 9 &&
+        Array.isArray(m.tickets) &&
+        m.tickets.length >= 9
+      );
+    },
+    why:
+      'imp-1213: The Twin-ladder consolidated v52 paper landing of 2026-05-26 ' +
+      'wired 9 new app routes (shift-bridge / closure-routes / blaschke-ghosts ' +
+      '/ three-attacks / freezing-bridge / kyp-bounded-real / twin-ladder-paper-' +
+      'roadmap / paper-audit-dashboard / rigorous-numerics-stages). Drift in ' +
+      'route count or date breaks the wave-11/12 ticket audit trail.',
+  },
+  {
+    id: 'roadmap-twin-ladder-v52-routes-unique',
+    holds: () => {
+      const m = LAMBDA_ROADMAP_MILESTONES.find(
+        (x) => x.id === 'twin-ladder-consolidated-v52'
+      );
+      if (!m || !Array.isArray(m.newAppRoutes)) return false;
+      const set = new Set(m.newAppRoutes);
+      return set.size === m.newAppRoutes.length &&
+        m.newAppRoutes.every((r) => typeof r === 'string' && r.startsWith('/'));
+    },
+    why:
+      'Each new route in the v52 milestone must be a unique app path starting ' +
+      'with "/". Duplicates or malformed entries would silently break audit ' +
+      'cross-checks against src/App.jsx <Route> entries.',
+  },
+  {
+    id: 'roadmap-milestones-exposed-on-master-record',
+    holds: () =>
+      Array.isArray(LAMBDA_ROADMAP.milestones) &&
+      LAMBDA_ROADMAP.milestones === LAMBDA_ROADMAP_MILESTONES,
+    why:
+      'LAMBDA_ROADMAP.milestones must be wired to LAMBDA_ROADMAP_MILESTONES so ' +
+      'page consumers reading the master record see the same data as direct ' +
+      'importers. A forgotten patch leaves the master record stale.',
   },
 ];

@@ -109,6 +109,18 @@ export const INSIGHT_NODES = [
   { id: 'caratheodory-fejer', label: 'Carath\u00e9odory-Fej\u00e9r', category: 'analysis', status: 'proven', page: '/reasoning',
     description: 'Toeplitz PSD \u21d4 trigonometric polynomial \u2265 0 \u2014 guarantees self-adjointness' },
 
+  // Twin-ladder v52 layer (wave-11/12, paper landing 2026-05-26)
+  { id: 'shift-bridge-positivity', label: 'Shift-Bridge Positivity', category: 'analysis', status: 'conditional', page: '/shift-bridge-positivity',
+    description: 'Para 15: shifted bridge K_a positive definite \u21d4 RH (Theorem 15.1).' },
+  { id: 'four-route-equivalence', label: 'Four-Route Equivalence', category: 'analysis', status: 'conditional', page: '/closure-routes',
+    description: 'Para 16: Schur / de Branges / hidden-square / Weil routes all RH-equivalent.' },
+  { id: 'inverse-Blaschke-ghosts', label: 'Inverse Blaschke Ghosts', category: 'gap', status: 'gap', page: '/blaschke-ghosts',
+    description: 'Para 17: B_a^+ = 1 \u21d4 RH; ghost poles = off-critical zeros (Krein-Langer/Pontryagin).' },
+  { id: 'reciprocal-program', label: 'Reciprocal Program', category: 'analysis', status: 'conditional', page: '/three-attacks',
+    description: 'Para 18: three direct attacks (kernel/passivity, prime-delay, Weil/Pontryagin) on B_a^+ = 1.' },
+  { id: 'KYP-bounded-real', label: 'KYP / Bounded-Real Lemma', category: 'model', status: 'conditional', page: '/kyp-bounded-real',
+    description: 'App M-O: KYP state-space, bounded-real delay, delay-Gram positivity certificates.' },
+
   // Target
   { id: 'rh', label: 'Riemann Hypothesis', category: 'target', status: 'open', page: '/formal-proof',
     description: 'All nontrivial zeros have Re(\u03c1) = \u00bd' },
@@ -239,6 +251,44 @@ export const INSIGHT_EDGES = [
   { from: 'davenport-heilbronn', to: 'monotone-contraction', type: 'supports' }, // D-H shows Euler product is essential
   { from: 'monotone-contraction', to: 'rh', type: 'proves' }, // If proven, RH follows
   { from: 'bost-connes', to: 'monotone-contraction', type: 'inspires' }, // Phase transition structure
+
+  // ── Twin-ladder v52 layer edges (imp-1215, paper landing 2026-05-26) ──
+  // All edges flow from existing nodes INTO the new layer, then from the new
+  // layer forward to rh / gap-s5 / gap-s7 — preserving the DAG acyclicity
+  // invariant. The reverse direction is forbidden.
+
+  // Shift-bridge positivity (para 15): twin-ladder + functional-eq derive it,
+  // and it supplies a route into the RH target.
+  { from: 'twin-ladder', to: 'shift-bridge-positivity', type: 'derives' },
+  { from: 'functional-eq', to: 'shift-bridge-positivity', type: 'derives' },
+  { from: 'bridge-unitarity', to: 'shift-bridge-positivity', type: 'composes' },
+  { from: 'shift-bridge-positivity', to: 'rh', type: 'equivalent' }, // Thm 15.1 RH ⇔ K_a ⪰ 0
+
+  // Four-route equivalence (para 16): four classical routes meet here, and
+  // any one of them closing implies RH.
+  { from: 'weil-form', to: 'four-route-equivalence', type: 'composes' },
+  { from: 'weil-positivity', to: 'four-route-equivalence', type: 'composes' },
+  { from: 'shift-bridge-positivity', to: 'four-route-equivalence', type: 'composes' },
+  { from: 'four-route-equivalence', to: 'rh', type: 'proves' }, // Any route → RH
+
+  // Inverse Blaschke ghosts (para 17): the obstruction node. Off-critical
+  // zeros materialize as Pontryagin negative-index ghost poles.
+  { from: 'shift-bridge-positivity', to: 'inverse-Blaschke-ghosts', type: 'requires' },
+  { from: 'davenport-heilbronn', to: 'inverse-Blaschke-ghosts', type: 'supports' }, // D-H exhibits the ghost mechanism
+  { from: 'inverse-Blaschke-ghosts', to: 'rh', type: 'equivalent' }, // B_a^+ ≡ 1 ⇔ RH
+
+  // Reciprocal program (para 18): three direct attacks on B_a^+ = 1.
+  { from: 'inverse-Blaschke-ghosts', to: 'reciprocal-program', type: 'requires' },
+  { from: 'four-route-equivalence', to: 'reciprocal-program', type: 'composes' },
+  { from: 'reciprocal-program', to: 'rh', type: 'proves' }, // Any of the 3 attacks → RH
+
+  // KYP / Bounded-Real (App M-O): operator-theoretic certificates for the
+  // shift-bridge positivity. Feeds shift-bridge-positivity numerically, and
+  // composes with hamiltonian / berry-keating on the model side.
+  { from: 'hamiltonian', to: 'KYP-bounded-real', type: 'analogous' },
+  { from: 'twin-ladder', to: 'KYP-bounded-real', type: 'derives' },
+  { from: 'KYP-bounded-real', to: 'shift-bridge-positivity', type: 'supports' },
+  { from: 'KYP-bounded-real', to: 'gap-s7', type: 'supports' }, // KYP gives Darlington-style certs
 ];
 
 // Status colors
@@ -257,3 +307,242 @@ export const CATEGORY_COLORS = {
   gap: '#f97316',
   target: '#ef4444',
 };
+
+// ── Build-time assertions (imp-1215 + DAG integrity) ─────────────────────────
+//
+// These tripwires lock the structural invariants of the Insight DAG so that
+// future edits cannot silently introduce cycles, dangling edges, or duplicate
+// node ids. They also pin the five wave-11/12 nodes added by imp-1215 so the
+// twin-ladder v52 layer cannot regress.
+
+// Tarjan SCC: returns the list of strongly-connected components (each SCC is
+// an array of node ids). An SCC of size > 1 is a true cycle; an SCC of size 1
+// is a cycle iff the node has a self-loop. Used by the imp-1215 tripwire that
+// pins the cycle structure of the DAG.
+function _stronglyConnectedComponents() {
+  const adj = new Map();
+  for (const n of INSIGHT_NODES) adj.set(n.id, []);
+  for (const e of INSIGHT_EDGES) {
+    if (adj.has(e.from)) adj.get(e.from).push(e.to);
+  }
+  const index = new Map();
+  const lowlink = new Map();
+  const onStack = new Set();
+  const stack = [];
+  const sccs = [];
+  let idx = 0;
+
+  function strongconnect(v) {
+    // Iterative Tarjan to avoid recursion-stack blow-ups.
+    const work = [{ v, pi: 0, child: null }];
+    index.set(v, idx);
+    lowlink.set(v, idx);
+    idx++;
+    stack.push(v);
+    onStack.add(v);
+
+    while (work.length) {
+      const top = work[work.length - 1];
+      const children = adj.get(top.v) || [];
+      if (top.child !== null) {
+        // Returning from recursion on `top.child` — propagate lowlink.
+        lowlink.set(top.v, Math.min(lowlink.get(top.v), lowlink.get(top.child)));
+        top.child = null;
+      }
+      if (top.pi < children.length) {
+        const w = children[top.pi++];
+        if (!index.has(w)) {
+          index.set(w, idx);
+          lowlink.set(w, idx);
+          idx++;
+          stack.push(w);
+          onStack.add(w);
+          top.child = w;
+          work.push({ v: w, pi: 0, child: null });
+        } else if (onStack.has(w)) {
+          lowlink.set(top.v, Math.min(lowlink.get(top.v), index.get(w)));
+        }
+        continue;
+      }
+      // Done with v: if it is an SCC root, pop the SCC.
+      if (lowlink.get(top.v) === index.get(top.v)) {
+        const comp = [];
+        let w;
+        do {
+          w = stack.pop();
+          onStack.delete(w);
+          comp.push(w);
+        } while (w !== top.v);
+        sccs.push(comp);
+      }
+      work.pop();
+    }
+  }
+
+  for (const n of INSIGHT_NODES) {
+    if (!index.has(n.id)) strongconnect(n.id);
+  }
+  return sccs;
+}
+
+// Compute the cycle-baseline (size of largest SCC + number of non-trivial SCCs)
+// for the pre-imp-1215 graph. This is recorded so the assertion below can
+// detect REGRESSIONS introduced by future edits without forcing us to
+// unwind a pre-existing legacy cycle (davenport-heilbronn -> euler-product
+// closes a 9-cycle through the model layer; that cycle predates imp-1215 and
+// is out of scope for this ticket).
+
+function _nontrivialSCCs() {
+  return _stronglyConnectedComponents().filter((c) => c.length > 1);
+}
+
+// Baseline pinned 2026-05-28 (imp-1215): the legacy DAG contains exactly
+// TWO non-trivial SCCs:
+//   (a) size-10 cycle through the foundation/model layer
+//       (euler-product -> single-oscillator -> ladder-chain -> twin-ladder
+//        -> connes-trace -> nyman-beurling -> li-criterion -> bridge-unitarity
+//        -> davenport-heilbronn -> euler-product; selberg-trace also lands
+//        inside this SCC via euler-product -> selberg-trace + selberg-trace
+//        -> connes-trace).
+//   (b) size-4 cycle through the analysis layer
+//       (gue-statistics -> spectral-form-factor -> bost-connes ->
+//        berry-keating -> gue-statistics).
+// Both predate imp-1215 and are out of scope for this ticket (they originate
+// from cross-cutting "inspires" / "analogous" edges that are pedagogically
+// useful but structurally form back-edges). New imp-1215 nodes / edges are
+// wired STRICTLY downstream of these cycles (they all point into the
+// four-route / inverse-Blaschke / reciprocal / KYP / shift-bridge subgraph
+// and forward to rh, never back to euler-product or gue-statistics), so the
+// post-imp-1215 graph must still have AT MOST 2 non-trivial SCCs of
+// total size AT MOST 14.
+const _PRE_IMP1215_MAX_SCC_SIZE = 10;
+const _PRE_IMP1215_NONTRIVIAL_SCC_COUNT = 2;
+const _PRE_IMP1215_TOTAL_SCC_SIZE = 14;
+
+export const INSIGHT_DAG_ASSERTIONS = [
+  {
+    id: 'insight-dag-no-new-cycles-from-imp1215',
+    holds: () => {
+      const scc = _nontrivialSCCs();
+      if (scc.length > _PRE_IMP1215_NONTRIVIAL_SCC_COUNT) return false;
+      const maxSize = scc.reduce((m, c) => Math.max(m, c.length), 0);
+      if (maxSize > _PRE_IMP1215_MAX_SCC_SIZE) return false;
+      const totalSize = scc.reduce((s, c) => s + c.length, 0);
+      if (totalSize > _PRE_IMP1215_TOTAL_SCC_SIZE) return false;
+      // Crucially: none of the new imp-1215 nodes may appear in any
+      // non-trivial SCC. Their role in the DAG is strictly forward-flowing.
+      const imp1215Nodes = new Set([
+        'shift-bridge-positivity',
+        'four-route-equivalence',
+        'inverse-Blaschke-ghosts',
+        'reciprocal-program',
+        'KYP-bounded-real',
+      ]);
+      for (const comp of scc) {
+        for (const id of comp) {
+          if (imp1215Nodes.has(id)) return false;
+        }
+      }
+      return true;
+    },
+    why:
+      'imp-1215 invariant: the five new wave-11/12 nodes must not appear in ' +
+      'any cycle, and adding them must not increase the cycle-baseline of ' +
+      'the legacy graph. The legacy DAG has two pre-existing non-trivial ' +
+      'SCCs (size 10 through euler-product / davenport-heilbronn / model ' +
+      'layer; size 4 through gue-statistics / bost-connes / berry-keating / ' +
+      'spectral-form-factor) for a total of 14 nodes in cycles. This ' +
+      'assertion pins that baseline so any FUTURE edit that extends a cycle ' +
+      'through the imp-1215 layer fires immediately. The legacy cycles are ' +
+      'out of scope for imp-1215 and are left for a separate cleanup ticket.',
+  },
+  {
+    id: 'insight-dag-edges-reference-known-nodes',
+    holds: () => {
+      const ids = new Set(INSIGHT_NODES.map((n) => n.id));
+      return INSIGHT_EDGES.every((e) => ids.has(e.from) && ids.has(e.to));
+    },
+    why:
+      'Every edge must reference node ids that exist in INSIGHT_NODES. ' +
+      'Dangling edges would render as floating arrows in InsightGraph and ' +
+      'silently mislead the reader about which dependencies are actually ' +
+      'encoded.',
+  },
+  {
+    id: 'insight-dag-node-ids-unique',
+    holds: () => {
+      const ids = INSIGHT_NODES.map((n) => n.id);
+      return new Set(ids).size === ids.length;
+    },
+    why:
+      'Duplicate node ids would cause the second copy to silently overwrite ' +
+      'the first in any id-indexed render, hiding one of the two nodes.',
+  },
+  {
+    id: 'insight-dag-imp1215-five-nodes-present',
+    holds: () => {
+      const required = [
+        'shift-bridge-positivity',
+        'four-route-equivalence',
+        'inverse-Blaschke-ghosts',
+        'reciprocal-program',
+        'KYP-bounded-real',
+      ];
+      const ids = new Set(INSIGHT_NODES.map((n) => n.id));
+      return required.every((id) => ids.has(id));
+    },
+    why:
+      'imp-1215 added five wave-11/12 nodes for the twin-ladder v52 paper ' +
+      'landing (shift-bridge-positivity, four-route-equivalence, ' +
+      'inverse-Blaschke-ghosts, reciprocal-program, KYP-bounded-real). ' +
+      'Removing any of them silently de-wires the v52 layer from the DAG.',
+  },
+  {
+    id: 'insight-dag-imp1215-nodes-reach-rh',
+    holds: () => {
+      // Every imp-1215 node should reach 'rh' via some directed path.
+      const adj = new Map();
+      for (const n of INSIGHT_NODES) adj.set(n.id, []);
+      for (const e of INSIGHT_EDGES) {
+        if (adj.has(e.from)) adj.get(e.from).push(e.to);
+      }
+      function reaches(start, target) {
+        const seen = new Set();
+        const stack = [start];
+        while (stack.length) {
+          const x = stack.pop();
+          if (x === target) return true;
+          if (seen.has(x)) continue;
+          seen.add(x);
+          for (const y of adj.get(x) || []) stack.push(y);
+        }
+        return false;
+      }
+      return [
+        'shift-bridge-positivity',
+        'four-route-equivalence',
+        'inverse-Blaschke-ghosts',
+        'reciprocal-program',
+        'KYP-bounded-real',
+      ].every((id) => reaches(id, 'rh'));
+    },
+    why:
+      'Each imp-1215 node must reach the rh target via some directed path ' +
+      '(directly or through gap-s5/s7). A node disconnected from rh would ' +
+      'be a dead branch in the proof chain and misrepresent the role of the ' +
+      'twin-ladder v52 program.',
+  },
+  {
+    id: 'insight-dag-status-and-category-valid',
+    holds: () =>
+      INSIGHT_NODES.every(
+        (n) =>
+          Object.prototype.hasOwnProperty.call(STATUS_COLORS, n.status) &&
+          Object.prototype.hasOwnProperty.call(CATEGORY_COLORS, n.category)
+      ),
+    why:
+      'Every node\'s status and category must have a color mapping; ' +
+      'otherwise the InsightGraph renderer would receive undefined fills and ' +
+      'fall back to the default which hides the layer semantics.',
+  },
+];

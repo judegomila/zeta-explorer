@@ -19145,4 +19145,18 @@ export const IMPROVEMENT_QUEUE = [
     model: 'opus-4-8',
     channel: 'api',
   },
+  {
+    id: 'imp-1286',
+    title: 'OPUS-4.8 DEEP: tail-bound transfer L^2([0,U]) -> L^2([0, inf)) for the imp-1267 HS bound',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "imp-1267 ships a RIGOROUS analytical HS bound ||V_{a,Phi}|| <= sqrt(I_0 * J_a) on L^2([0, U_INF=4]) proving ||V|| <= 1 for a in (0, ~2]. imp-1265 caveat (c) flags that the §27 identity does NOT transfer verbatim L^2([0,U]) -> L^2([0, inf)). To make the imp-1258 collapse RIGOROUSLY supported on L^2([0, inf)) for a in App-S range (a <= 0.5), need to prove: (i) the truncated kernel k_{a,Phi}^{[0,U]}(x,y) converges in HS-norm to k_{a,Phi}(x,y) on L^2([0, inf)) as U -> inf, (ii) the tail integral int_{U}^{inf} int_0^x |k_{a,Phi}(x,y)|^2 dy dx is bounded by a small constant that does not interact with the App-S regime. Ship src/data/imp-1286-tail-bound-transfer.js with: (a) explicit tail-bound formula, (b) numerical verification at the imp-1262 / imp-1267 grid points, (c) verdict tail-bound-closes / tail-bound-residual-X / approach-eliminated. 8+ tripwires. If closure: combined with imp-1267 this gives the full RIGOROUS ||V_{a,Phi}|| <= 1 on L^2([0, inf)) for a <= 0.5 -- closing the §15-27 program in the App-S regime modulo PCC.",
+    rationale: 'After imp-1267 the only RH-side gap for the App-S regime is the truncated -> infinite-window transfer. imp-1265 caveat (c) made this gap precise. Closing it with a small tail bound (Phi super-exponential decay should make this easy) is the last meaningful step in the §15-27 closure for a <= 0.5.',
+    estimatedComplexity: 'large',
+    dependsOn: ['imp-1267', 'imp-1265'],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
 ];

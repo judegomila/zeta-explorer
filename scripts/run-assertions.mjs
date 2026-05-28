@@ -481,6 +481,11 @@ const DATA_MODULES = [
   // verdict SURVIVES this audit with one additional citation caveat for the
   // reverse chain. 12 tripwires.
   '/src/data/imp-1265-section27-identity-recheck.js',
+  // imp-1281: tripwire-template helper library — factory contract self-tests
+  // (makeRowCountTripwire / makeFieldPresence / makeAllBelow / makeAllAbove /
+  // makeMonotone / makeSumEquals / makeStringContains / makeFrozenObject).
+  // imp-1240 / imp-1245 / imp-1258 consume these helpers.
+  '/src/data/_tripwire-helpers.js',
   // imp-1266: Mellin diagonalization ATTEMPT for V_{a,Φ} (route 3 of imp-1260).
   // NEGATIVE RESULT — V is NOT a multiplicative convolution on (0, ∞). Three
   // independent obstructions (kernel not a function of t/s, K_a is additive

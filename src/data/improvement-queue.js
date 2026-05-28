@@ -19076,7 +19076,10 @@ export const IMPROVEMENT_QUEUE = [
     title: 'META-HARNESS: tripwire-template helper library',
     category: 'meta',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
+    completedByModel: 'subagent-worktree',
+    completedByChannel: 'opus-4-8-worktree',
+    completedAt: '2026-05-28T22:30:00Z',
     proofSection: 'S0',
     description: "Every subagent ticket writes 5-10 tripwires by hand. Common shapes: row-count, all-rows-have-field-X, all-below-threshold, monotone-in-K, sum-equals-total, frozen-string-contains-substring. Build src/data/_tripwire-helpers.js with reusable factories: makeRowCountTripwire(arr, expected), makeFieldPresenceTripwire(arr, field), makeAllBelowTripwire(arr, accessor, bound), makeMonotoneTripwire(arr, accessor), makeStringContainsTripwire(s, substr). Refactor 3 recent tickets (imp-1240, imp-1245, imp-1258) to use the helpers as a proof-of-value. Saves ~5-10 lines per tripwire * 5-10 tripwires per ticket * many tickets = 200+ lines/wave.",
     rationale: 'Code-volume reduction + consistency across tickets.',
@@ -19084,6 +19087,7 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'opus-4-8',
     channel: 'api',
+    closureNote: "Shipped src/data/_tripwire-helpers.js exporting 8 factories with id-first signatures: makeRowCountTripwire(id, arr, expected, why?), makeFieldPresenceTripwire(id, arr, fieldName, why?), makeAllBelowTripwire(id, arr, accessor, bound, why?), makeAllAboveTripwire(id, arr, accessor, bound, why?), makeMonotoneTripwire(id, arr, accessor, direction?, why?) supporting 'increasing'|'decreasing'|'strict-increasing'|'strict-decreasing', makeSumEqualsTripwire(id, arr, accessor, expected, tolerance?, why?), makeStringContainsTripwire(id, str, substring, why?) accepting string or RegExp, makeFrozenObjectTripwire(id, obj, fieldName, expectedValue, why?). Every factory returns a plain { id, why, holds } tripwire; why defaults to an auto-generated rationale per factory; holds is defensive (returns false rather than throwing on missing input). Wired up in scripts/run-assertions.mjs DATA_MODULES with 25 self-test assertions in TRIPWIRE_HELPERS_SELFTEST_ASSERTIONS covering pass/fail paths for each factory, shape contract, id-preservation, and custom-why-override. Refactored 3 tickets as proof-of-value: imp-1240 (2 tripwires now use makeRowCountTripwire + makeAllBelowTripwire), imp-1245 (2 use makeFrozenObjectTripwire + makeStringContainsTripwire), imp-1258 (3 use makeRowCountTripwire + makeFrozenObjectTripwire). Tripwire COUNTS preserved exactly (9/9/11) and assertion semantics preserved (verified via standalone node sweep: 29/29 + 25/25 helper self-tests pass). Honest line-count outcome: imp-1240 94 lines -> 97 (+3 due to helper-call argument-per-line formatting and import lines), imp-1245 133 -> 126 (-7), imp-1258 132 -> 133 (~flat). Aggregate change is roughly break-even (-3 net lines on the assertions blocks themselves) NOT the 50%-reduction target stated in the description -- preserving the original verbose 'why' strings (which are documentation-load-bearing) means the helper-call multi-line argument syntax counterbalances the saved 'holds' closure lines. The structural payoff is downstream: NEW tickets adopting the helpers with auto-generated 'why' (one-liner calls) will see the 5-10 lines/tripwire savings the ticket description anticipated. Helper signatures take id FIRST to keep tripwire IDs stable across the inline -> helper migration. Build green (vite build, 4.9s)."
   },
   {
     id: 'imp-1282',

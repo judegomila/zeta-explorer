@@ -228,26 +228,37 @@ export const IMP1240_VOLTERRA_NORM_PILOT = Object.freeze({
 });
 
 // ── Tripwire assertions (6+ required) ────────────────────────────────────────
+// imp-1281: refactor uses src/data/_tripwire-helpers.js for the row-count,
+// all-rows-below-bound, and frozen-field patterns. Bespoke multi-field /
+// group-by / multi-grid tripwires remain inline.
+import {
+  makeRowCountTripwire,
+  makeAllBelowTripwire,
+} from './_tripwire-helpers.js';
+
 export const IMP1240_VOLTERRA_NORM_PILOT_ASSERTIONS = [
-  {
-    id: 'imp1240-row-count-25',
-    why: 'The 5 x 5 sweep must produce exactly 25 (U, a, norm) tuples. ' +
-         'A mis-count means the sweep grid or freeze step dropped/duplicated rows.',
-    holds: () => IMP1240_VOLTERRA_NORM_PILOT.rows.length === 25,
-  },
+  makeRowCountTripwire(
+    'imp1240-row-count-25',
+    FROZEN_ROWS,
+    25,
+    'The 5 x 5 sweep must produce exactly 25 (U, a, norm) tuples. ' +
+      'A mis-count means the sweep grid or freeze step dropped/duplicated rows.',
+  ),
   {
     id: 'imp1240-all-norms-below-one',
     why: 'The whole pilot tests Conj 27.2 (‖V‖ ≤ 1). If any frozen row reports ' +
          'norm > 1, the data file is inconsistent with its own verdict.',
     holds: () => IMP1240_VOLTERRA_NORM_PILOT.rows.every((r) => r.norm <= 1 && !r.exceedsOne),
   },
-  {
-    id: 'imp1240-max-norm-far-below-one',
-    why: 'The observed max norm is ~1.86e-4, more than 5000x below 1. If a ' +
-         'frozen row drifts above 0.5 the data file has been corrupted or ' +
-         'the freeze was overwritten with a different sweep.',
-    holds: () => IMP1240_VOLTERRA_NORM_PILOT.summary_stats.maxNorm < 0.5,
-  },
+  makeAllBelowTripwire(
+    'imp1240-max-norm-far-below-one',
+    FROZEN_ROWS,
+    (r) => r.norm,
+    0.5,
+    'The observed max norm is ~1.86e-4, more than 5000x below 1. If a ' +
+      'frozen row drifts above 0.5 the data file has been corrupted or ' +
+      'the freeze was overwritten with a different sweep.',
+  ),
   {
     id: 'imp1240-verdict-matches-row-data',
     why: 'Summary verdict must agree with row data. norms-all-below-one ⇔ ' +

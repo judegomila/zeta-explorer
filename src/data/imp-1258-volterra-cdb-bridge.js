@@ -489,31 +489,40 @@ export const IMP_1258_VOLTERRA_CDB_BRIDGE = Object.freeze({
 export default IMP_1258_VOLTERRA_CDB_BRIDGE;
 
 // ── Tripwires (6+ required) ───────────────────────────────────────────────
+// imp-1281: refactor uses src/data/_tripwire-helpers.js for the
+// frozen-field-equals and row-count patterns. Bespoke multi-field /
+// derived-stat / multi-substring tripwires remain inline.
+import {
+  makeRowCountTripwire,
+  makeFrozenObjectTripwire,
+} from './_tripwire-helpers.js';
+
 export const IMP_1258_VOLTERRA_CDB_BRIDGE_ASSERTIONS = [
-  {
-    id: 'imp1258-master-verdict-is-two-way-collapse',
-    why:
-      'The ticket asks whether ‖V‖ ≤ 1 implies CDB-Exist. The derivation found ' +
+  makeFrozenObjectTripwire(
+    'imp1258-master-verdict-is-two-way-collapse',
+    IMP_1258_VOLTERRA_CDB_BRIDGE,
+    'masterVerdict',
+    'two-way-collapse',
+    'The ticket asks whether ‖V‖ ≤ 1 implies CDB-Exist. The derivation found ' +
       'BOTH directions hold modulo the §27 paper-construct identity, giving a ' +
       'two-way collapse. Master verdict must record this.',
-    holds: () => IMP_1258_VOLTERRA_CDB_BRIDGE.masterVerdict === 'two-way-collapse',
-  },
-  {
-    id: 'imp1258-forward-chain-has-seven-steps',
-    why:
-      'The forward implication ‖V‖ ≤ 1 ⇒ CDB-Exist walks through exactly 7 named ' +
+  ),
+  makeRowCountTripwire(
+    'imp1258-forward-chain-has-seven-steps',
+    FORWARD_CHAIN,
+    7,
+    'The forward implication ‖V‖ ≤ 1 ⇒ CDB-Exist walks through exactly 7 named ' +
       'steps: given hypothesis → block positivity → K_a ⪰ 0 → E_a HB → H(E_a) → ' +
       'dm_a → CDB-Exist. Any drift here means the chain is misrepresented.',
-    holds: () => IMP_1258_VOLTERRA_CDB_BRIDGE.forwardChain.length === 7,
-  },
-  {
-    id: 'imp1258-reverse-chain-has-five-steps',
-    why:
-      'The reverse chain CDB-Exist ⇒ ‖V‖ ≤ 1 walks 5 named steps: given hypothesis → ' +
+  ),
+  makeRowCountTripwire(
+    'imp1258-reverse-chain-has-five-steps',
+    REVERSE_CHAIN,
+    5,
+    'The reverse chain CDB-Exist ⇒ ‖V‖ ≤ 1 walks 5 named steps: given hypothesis → ' +
       'E_a HB (Krein-de Branges) → K_a ⪰ 0 → block positivity → ‖V‖ ≤ 1. Drift here ' +
       'means the reverse implication has been mis-counted.',
-    holds: () => IMP_1258_VOLTERRA_CDB_BRIDGE.reverseChain.length === 5,
-  },
+  ),
   {
     id: 'imp1258-every-step-has-verdict-and-justification',
     why:

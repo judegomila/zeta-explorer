@@ -427,20 +427,26 @@ export const IMP_1245_CDB_EXIST_STRESS_TEST = Object.freeze({
 export default IMP_1245_CDB_EXIST_STRESS_TEST;
 
 // -- Build-time tripwires ---------------------------------------------------
+// imp-1281: refactor uses src/data/_tripwire-helpers.js for the frozen-field-
+// equals, string-contains, and string-contains-on-joined-array patterns.
+// Bespoke multi-field / multi-substring tripwires remain inline.
+import {
+  makeFrozenObjectTripwire,
+  makeStringContainsTripwire,
+} from './_tripwire-helpers.js';
 
 export const IMP_1245_ASSERTIONS = [
-  {
-    id: 'imp1245-overall-verdict-is-unification-holds-partially',
-    why:
-      'Two of three axes pass with caveats / gaps and one fails (axis c). ' +
+  makeFrozenObjectTripwire(
+    'imp1245-overall-verdict-is-unification-holds-partially',
+    OVERALL,
+    'finalVerdict',
+    'unification-holds-partially',
+    'Two of three axes pass with caveats / gaps and one fails (axis c). ' +
       'The honest overall verdict is unification-holds-partially. Anything ' +
       'else would either understate (failing on c without admitting the ' +
       'structural unification is real) or overstate (full pass without ' +
       'admitting the Phi-non-circularity obstruction is unchanged).',
-    holds: () =>
-      IMP_1245_CDB_EXIST_STRESS_TEST.overall.finalVerdict ===
-      'unification-holds-partially',
-  },
+  ),
   {
     id: 'imp1245-three-axes-tracked',
     why:
@@ -476,19 +482,16 @@ export const IMP_1245_ASSERTIONS = [
       );
     },
   },
-  {
-    id: 'imp1245-axis-a-flags-arov-nudelman-missing-citation',
-    why:
-      'A central content finding of axis (a) is that imp-1241 cited only ' +
+  makeStringContainsTripwire(
+    'imp1245-axis-a-flags-arov-nudelman-missing-citation',
+    JSON.stringify(AXIS_A),
+    /Arov-Nudelman.*1996|1996.*Arov-Nudelman/s,
+    'A central content finding of axis (a) is that imp-1241 cited only ' +
       'Anderson-Vongpanitlerd 1973 / classical KYP, missing Arov-Nudelman ' +
       '1996, which is the infinite-dimensional bridge needed for the ' +
       'KYP <-> de Branges identification. The caveat list must mention ' +
       'Arov-Nudelman 1996.',
-    holds: () => {
-      const txt = JSON.stringify(AXIS_A);
-      return /Arov-Nudelman/.test(txt) && /1996/.test(txt);
-    },
-  },
+  ),
   {
     id: 'imp1245-axis-b-flags-outer-factor-rigidity-gap',
     why:
@@ -550,14 +553,11 @@ export const IMP_1245_ASSERTIONS = [
       );
     },
   },
-  {
-    id: 'imp1245-cross-references-include-imp-1241',
-    why:
-      'The stress-test must cross-reference its parent imp-1241 to make ' +
+  makeStringContainsTripwire(
+    'imp1245-cross-references-include-imp-1241',
+    IMP_1245_CDB_EXIST_STRESS_TEST.crossReferences.join(' | '),
+    'imp-1241',
+    'The stress-test must cross-reference its parent imp-1241 to make ' +
       'the audit chain navigable.',
-    holds: () => {
-      const refs = IMP_1245_CDB_EXIST_STRESS_TEST.crossReferences.join(' | ');
-      return refs.includes('imp-1241');
-    },
-  },
+  ),
 ];

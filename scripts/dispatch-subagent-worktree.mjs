@@ -85,10 +85,13 @@ function run(cmd, opts = {}) {
  * same script bursts higher on a beefy laptop / cloud instance without
  * code changes.
  *
- * Formula: min(floor(ncpu / 2), floor(free_ram_gb / 3), 8)
+ * Formula: min(floor(ncpu / 2), floor(free_ram_gb / 3), 10)
  *   - /2 on CPU leaves headroom for the parent session + system processes.
  *   - /3 on RAM (GB) keeps each subagent under a 3GB working-set budget.
- *   - hard ceiling of 8 because git/file-IO contention dominates past that.
+ *   - hard ceiling of 10 (imp-1284, was 8 from imp-1172). imp-1143 worktree
+ *     isolation removed the shared-file-write race that motivated the 8;
+ *     imp-1143 JSDoc declares 10-15 safe under worktrees. +2 is conservative —
+ *     re-measure peak parallel + throttle events for a week before considering 12.
  *
  * Env override SUBAGENT_MAX_PARALLEL=N short-circuits detection.
  * Falls back to 3 if any probe fails (safe default matching the old single-thread CI path).
@@ -97,7 +100,7 @@ function run(cmd, opts = {}) {
  */
 export function detectMaxParallel({ silent = false } = {}) {
   const FALLBACK = 3;
-  const HARD_CEILING = 8;
+  const HARD_CEILING = 10;
 
   // 1. Env override wins
   const envRaw = process.env.SUBAGENT_MAX_PARALLEL;

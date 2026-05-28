@@ -7,7 +7,7 @@ import {
   VERIFICATION_EFFORTS,
   OPEN_GAPS,
 } from '../data/lambda-roadmap.js';
-import { PAPER_PUBLICATION } from '../data/paper-publication-2026-05.js';
+import { PAPER_PUBLICATION_META as PAPER_PUBLICATION } from '../data/paper-publication-meta.js';
 
 // Lambda Bounds & RH Roadmap — the plan, the status, the verification.
 // Read interface for src/data/lambda-roadmap.js.

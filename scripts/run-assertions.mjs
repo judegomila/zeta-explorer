@@ -377,6 +377,10 @@ const DATA_MODULES = [
   '/src/data/imp-1203-conjecture-18-2-pilot.js',
   // imp-1219: hidden-square program §25+26+27 — commutator → measure dom → endpoint-Hankel.
   '/src/data/hidden-square-program-section.js',
+  // imp-1240: empirical Volterra-norm pilot for §27 Conj 27.2 (‖V_{a,Phi}‖ ≤ 1).
+  // 25 rows from 5x5 sweep (U ∈ {1,2,5,10,20} x a ∈ {0.5,0.2,0.1,0.05,0.025});
+  // verdict 'norms-all-below-one' — all rows give ||V|| <= 1.86e-4 << 1.
+  '/src/data/imp-1240-volterra-norm-pilot.js',
 ];
 
 const ALL_MODULES = FAST_MODE

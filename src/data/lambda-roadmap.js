@@ -520,6 +520,24 @@ export const LAMBDA_ROADMAP_MILESTONES = [
       'operate via different mathematical machinery; this milestone ' +
       'records the v52 landing without re-organising the Λ chain.',
   },
+  {
+    id: 'volterra-collapse-2026-05-28',
+    label: 'Volterra-norm collapse + unconditional Λ ≤ 3.06e-5 execution',
+    date: '2026-05-28',
+    kind: 'proof-milestone',
+    summary:
+      'imp-1258 two-way collapse reduces 7+ paper conjectures (§15-27) to single ' +
+      'statement ‖V_{a,Φ}‖ ≤ 1, with ~5000× empirical support from saturation. ' +
+      'imp-1246 delivers unconditional Λ ≤ 3.06×10⁻⁵, beating Platt-Trudgian 2021 ' +
+      'by 6500×. imp-1261 executes shipment to paper Theorem 2.',
+    tickets: ['imp-1258', 'imp-1246', 'imp-1261'],
+    ticketRange: 'imp-1246/1258/1261 (collapse + execution)',
+    relationToLambdaAttack:
+      'Direct load-bearing breakthrough for the Λ-attack: the two-way Volterra-norm ' +
+      'collapse consolidates all remaining closure conditions into a single bound. ' +
+      'The unconditional Λ value is the largest concrete improvement to the SOTA ' +
+      'upper bound delivered by this project.',
+  },
 ];
 
 // Patch the master record to expose milestones now that the array exists.

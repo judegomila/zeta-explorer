@@ -174,8 +174,14 @@ import IMP1166_CONREY_SNAITH_CORRECTION from './imp-1166-conrey-snaith-correctio
 // imp-1147 OLS interval refit.
 const C_HO            = KOKSMA_HLAWKA_2ND_MOMENT.constants.CHO_composed_const;
 const E_TRUNC_PT      = ASYMPTOTIC_LAMBDA_BOUND_2026_05_20.composition.eTruncPtIngham;
-const A_HI_IMP1147    = ASYMPTOTIC_LAMBDA_BOUND_2026_05_20.composition.a_hi;
-const LAMBDA_IMP1147  = ASYMPTOTIC_LAMBDA_BOUND_2026_05_20.composition.lambdaAsymptoticUpper;
+// NOTE (post imp-1261): the imp-1147 composition file was rewritten by
+// imp-1261 to use the imp-1246 redirect path directly. The OLS-conditional
+// a_hi = 7.673e-4 and conditional Lambda = 7.98e-4 are now archived under
+// historicalConditionalReference; we read from there so this recheck
+// continues to compute the same historical tightening-factor numerics
+// against the (now-archived) imp-1147 conditional bound.
+const A_HI_IMP1147    = ASYMPTOTIC_LAMBDA_BOUND_2026_05_20.historicalConditionalReference.a_hi;
+const LAMBDA_IMP1147  = ASYMPTOTIC_LAMBDA_BOUND_2026_05_20.historicalConditionalReference.lambdaConditionalUpper;
 
 // imp-1149 / Theorem 3 explicit K_1 strip constant (M_inf(N) >= K_1 (L - log 4pi) sqrt(N))
 const K1_M_INF        = KOKSMA_HLAWKA_2ND_MOMENT.constants.K1_M_infty_strip_const;

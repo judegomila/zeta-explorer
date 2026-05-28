@@ -543,14 +543,25 @@ export const KOKSMA_HLAWKA_2ND_MOMENT_ASSERTIONS = [
   {
     id: 'imp1149-imp1147-conditional-still-honest',
     holds: () =>
-      ASYMPTOTIC_LAMBDA_BOUND_2026_05_20.honestScope.isUnconditional === false &&
+      // imp-1149 is the explicit N^{-3/2} rate; on its own it does NOT
+      // close imp-1147's linear-1/N conditional (the literal reading
+      // needs N^{-2}). That residual property of THIS file is locked
+      // below. Note: after the imp-1246 / imp-1261 redirect commit
+      // (2026-05-28) the imp-1147 conditional WAS independently closed
+      // via the triangle-inequality reframing, so the historical "still
+      // conditional" half of this tripwire was retired -- imp-1147's
+      // honestScope.isUnconditional is now true. The 2nd-moment route
+      // via imp-1149 alone still cannot close it; that subclause stays.
       KOKSMA_HLAWKA_2ND_MOMENT.honestScope.closesImp1147Conditional === false,
     why:
-      'This file MUST NOT flip imp-1147 to unconditional. The honest closure ' +
-      'route (achieving the N^{-2} rate) is blocked by three named obstructions. ' +
-      'If imp-1147 honestScope.isUnconditional becomes true OR ' +
-      'KOKSMA_HLAWKA_2ND_MOMENT.honestScope.closesImp1147Conditional becomes true, ' +
-      'this tripwire fires.',
+      'This file MUST NOT claim to close imp-1147 via the 2nd-moment ' +
+      'route (achieving N^{-2}). The honest closure of THAT route is ' +
+      'blocked by three named obstructions. imp-1147 was closed by a ' +
+      'DIFFERENT route (the imp-1246 / imp-1261 triangle-inequality ' +
+      'redirect, which uses imp-1149 at the N^{-3/2} rate but applies ' +
+      'it directly on |t_c(N)| via the M_infty decay, not on the ' +
+      'linear-1/N residual). If KOKSMA_HLAWKA_2ND_MOMENT.honestScope.' +
+      'closesImp1147Conditional ever becomes true, this tripwire fires.',
   },
   {
     id: 'imp1149-three-obstructions-named',

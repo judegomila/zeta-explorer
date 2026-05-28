@@ -71,7 +71,13 @@ import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 const PT_BOUND       = 0.2;                      // Platt-Trudgian 2021 SOTA Lambda <= 0.2
 const T_PT           = 3e12;                     // Platt-Trudgian 2021 verified height (RH below)
 const LAMBDA_TARGET  = ASYMPTOTIC_LAMBDA_BOUND_2026_05_20.composition.lambdaAsymptoticUpper;
-const A_HI_COMPOSED  = ASYMPTOTIC_LAMBDA_BOUND_2026_05_20.composition.a_hi;
+// NOTE (post imp-1261): the imp-1147 file was rewritten to use the imp-1246
+// redirect; the OLS-conditional a_hi is now archived under
+// historicalConditionalReference. This ghost-margin audit operates on the
+// HISTORICAL composition (the imp-1136 plateau sweep + OLS a_hi) because the
+// per-plateau ghost-margin reasoning is about the bracketed |t_c(N)| values
+// from the BH sweep, not about the new triangle-inequality bound.
+const A_HI_COMPOSED  = ASYMPTOTIC_LAMBDA_BOUND_2026_05_20.historicalConditionalReference.a_hi;
 const SWEEP_ROWS     = ASYMPTOTIC_LAMBDA_BOUND_2026_05_20.sweepRows;
 
 // ── Per-plateau ghost-margin computation ─────────────────────────────────

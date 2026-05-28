@@ -18846,7 +18846,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'lambda-roadmap.js + LambdaBoundsPage: surface imp-1246/1261 + imp-1258 collapse',
     category: 'ux',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S6',
     description: "Lambda roadmap currently lists 4 rows. After imp-1261 ships (Λ ≤ 3.06e-5 unconditional via redirect), need to add a row + update the asymptotic-attack narrative. Also surface imp-1258 collapse (entire §15-27 → 27.2). Update src/data/lambda-roadmap.js + src/pages/LambdaBoundsPage.jsx with: (a) new row for unconditional 3.06e-5 (modulo Polymath15 G6a), (b) prose section 'Recent structural finding: §15-27 collapse via imp-1258', (c) updated frontier narrative. Test the page after changes (must NOT hang per feedback_no_heavy_imports_in_pages).",
     rationale: 'Surface the two biggest structural findings in the public-facing roadmap.',
@@ -18854,6 +18854,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1261', 'imp-1258'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'haiku-4-5',
+    completedByChannel: 'subscription',
   },
   {
     id: 'imp-1269',

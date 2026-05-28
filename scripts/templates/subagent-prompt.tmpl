@@ -1,0 +1,55 @@
+{{HEADER_BLOCK}}
+
+Your task is ticket {{TICKET_ID}} from src/data/improvement-queue.js — {{TICKET_TITLE}}.
+
+## Ticket details
+
+- id: {{TICKET_ID}}
+- priority: {{TICKET_PRIORITY}}
+- estimatedComplexity: {{TICKET_COMPLEXITY}}
+- model: {{TICKET_MODEL}}  ({{MODEL_PERSONA_HINT}})
+
+## Description
+
+{{TICKET_DESCRIPTION}}
+
+## Rationale
+
+{{TICKET_RATIONALE}}
+
+## Dependencies (already completed, for context only)
+
+{{DEPENDS_ON_DESCRIPTIONS}}
+
+## Reference tickets (related work — read for context, do NOT modify)
+
+{{REFS_DESCRIPTIONS}}
+
+## Common files worth reading first
+
+{{COMMON_FILES_TO_READ}}
+
+{{BG_REMINDER}}
+
+## What to do
+
+1. Read the ticket description above and the referenced context files.
+2. Implement the work described. If the ticket calls for a new
+   src/data/imp-{{TICKET_NUM}}-*.js data module, create it and add the
+   path to the DATA_MODULES array near the top of scripts/run-assertions.mjs
+   (append at the end of the array; the salvage CLI auto-resolves additive
+   conflicts in that block).
+3. Embed tripwires in your data module if the ticket calls for empirical
+   work — frozen constants, monotonicity checks, threshold bounds.
+4. Mark {{TICKET_ID}} completed in src/data/improvement-queue.js with:
+     status: 'completed'
+     completedByModel: 'subagent-worktree'
+     completedByChannel: '{{TICKET_CHANNEL_HINT}}'
+     completedAt: '<ISO timestamp at commit time>'
+     closureNote: '<one-paragraph summary of what was actually done>'
+5. Run `npm run build` and confirm green.
+6. Create a single atomic commit on the worktree branch. DO NOT push.
+
+{{REPORT_BACK_BLOCK}}
+
+{{HARD_RULES_BLOCK}}

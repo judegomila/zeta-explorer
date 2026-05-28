@@ -48,6 +48,58 @@ On any condition outside the policy the script prints
 `MANUAL RESOLUTION NEEDED in <file>`, exits 2, and leaves the cherry-pick
 on disk for `git cherry-pick --continue` after manual resolve.
 
+## dispatch-subagent.mjs (imp-1273)
+
+Subagent dispatch prompt-template generator. Each Agent() dispatch the
+orchestrator makes is ~300-500 words, ~80% of which is repeated boilerplate
+(worktree setup, build-green, single atomic commit, mark queue completed,
+do-not-push, report-back format). This CLI takes a ticket-id from
+`src/data/improvement-queue.js`, loads the template at
+`scripts/templates/subagent-prompt.tmpl`, and emits a fully-formed prompt
+to stdout that the orchestrator copies straight into the Agent() call.
+
+```
+node scripts/dispatch-subagent.mjs --ticket imp-NNNN
+node scripts/dispatch-subagent.mjs --ticket imp-NNNN --refs imp-XXX,imp-YYY
+node scripts/dispatch-subagent.mjs --ticket imp-NNNN --bg
+node scripts/dispatch-subagent.mjs --ticket imp-NNNN --template <path>
+```
+
+The CLI:
+
+- Validates the ticket id is `imp-NNNN` format.
+- Loads `src/data/improvement-queue.js` via dynamic import; refuses to
+  dispatch on a ticket already `status='completed'` (prevents duplicate
+  runs that overwrite finished work).
+- Resolves one-line summaries for every ticket in `dependsOn` and for
+  every ticket in `--refs`.
+- Auto-detects context files: any `src/data/<ticket-id>*.js` (WIP or
+  completed data module) and the five most recent
+  `thinking/decisions/*.md` files mentioning the ticket id.
+- Maps `model` to a subagent persona hint and a `completedByChannel`
+  string convention (`opus-4-8-worktree`, `sonnet-4-6-worktree`,
+  `haiku-4-5-worktree`).
+- `--bg` injects the background-mode reminder block.
+- Template uses Mustache-style `{{placeholders}}` resolved by plain
+  `String.prototype.replaceAll` — no Mustache / Handlebars dependency.
+
+This is a prompt GENERATOR. It never invokes `Agent()` itself.
+
+Exit codes:
+
+| code | meaning |
+| ---- | ------- |
+| 0    | prompt rendered to stdout |
+| 1    | usage error: bad flag, missing ticket, malformed id, or ticket already completed |
+| 2    | template malformed: file missing, missing required placeholders, or unresolved placeholders after render |
+| 3    | internal error (queue import failure, fs error) |
+
+Test invocation:
+
+```
+node scripts/dispatch-subagent.mjs --ticket imp-1281 --refs imp-1240,imp-1258 > /tmp/prompt-test.txt
+```
+
 ## run-assertions.mjs
 
 Build-time assertion sweep. See top-of-file comment block.

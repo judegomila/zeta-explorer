@@ -359,6 +359,10 @@ const DATA_MODULES = [
   '/src/data/imp-1229-conjecture-15-2-audit.js',
   // imp-1232: Literature audit Conjectures 17.3 + 18.4 (ghost-absence) -- both SUBSUMED-BY-RH.
   '/src/data/imp-1232-conjectures-17-3-18-4-audit.js',
+  // imp-1233: Literature audit Conjectures 18.1 (kernel/passivity closure) + 18.2
+  // (prime-delay domination closure) -- both PARTIALLY-RELATED to KYP / de Branges-Krein
+  // and Bombieri-Iwaniec / Vinogradov-Korobov / Weil-positivity literature respectively.
+  '/src/data/imp-1233-conjectures-18-1-18-2-audit.js',
   // imp-1234: ZPO model (/oscillators, /hamiltonian, /modes, /twin-ladder) vs
   // twin-ladder v52 §15 shift-bridge crosswalk -- 12 entries with honest
   // verdict vocabulary (identical / related / distinct / not-yet-identified).

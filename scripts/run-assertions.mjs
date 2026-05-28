@@ -398,6 +398,10 @@ const DATA_MODULES = [
   // and unique entries (Path D Nyman-Beurling, Path E Li, Route A Schur, Route C
   // hidden-square).
   '/src/data/imp-1236-attack-route-crosswalk.js',
+  // imp-1238: EXTENDED 3-point correlation empirical -- 25 grid points + M_BULK=10000
+  // (vs imp-1183's 7 / M=1000). Pearson 0.9828 (tightened by +0.005 from imp-1183's 0.978);
+  // ticket-spec target of >0.995 NOT met due to systematic bin-convention residual.
+  '/src/data/imp-1238-3point-correlation-extended.js',
 ];
 
 const ALL_MODULES = FAST_MODE

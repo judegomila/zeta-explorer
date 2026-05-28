@@ -371,6 +371,17 @@ const DATA_MODULES = [
   // sec24-gap / confirmed-by-v52). Identifies §24 open targets absent from lambda-roadmap
   // and lambda-roadmap items absent from §24. Name-collision warning for Routes A/B/C.
   '/src/data/imp-1235-lambda-roadmap-vs-paper-sec-24-crosswalk.js',
+  // imp-1215: Insight DAG additions for the twin-ladder v52 layer
+  // (shift-bridge-positivity, four-route-equivalence, inverse-Blaschke-ghosts,
+  // reciprocal-program, KYP-bounded-real). Tripwires lock DAG acyclicity +
+  // reachability of every new node to the rh target.
+  '/src/data/insight-dag.js',
+  // imp-1236: /rh-attack 5 classical attacks vs /closure-routes 4 routes (§16) vs
+  // /three-attacks 3 direct attacks (§18). 12-row crosswalk identifying duplicates
+  // (Path C = Route D; Attack III = §17 ghosts), complements (Path A/B ↔ KYP/Route B),
+  // and unique entries (Path D Nyman-Beurling, Path E Li, Route A Schur, Route C
+  // hidden-square).
+  '/src/data/imp-1236-attack-route-crosswalk.js',
 ];
 
 const ALL_MODULES = FAST_MODE

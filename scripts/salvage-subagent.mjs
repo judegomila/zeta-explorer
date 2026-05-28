@@ -16,6 +16,8 @@
 //   node scripts/salvage-subagent.mjs --worktree <path>
 //   node scripts/salvage-subagent.mjs --task <id> --dry-run
 //   node scripts/salvage-subagent.mjs --task <id> --push
+//   node scripts/salvage-subagent.mjs --task <id> --wip-fallback           (imp-1274)
+//   node scripts/salvage-subagent.mjs --task <id> --wip-fallback --dry-run (imp-1274)
 //
 // Exit codes:
 //   0 -- salvage succeeded (or dry-run completed) and main is clean
@@ -48,6 +50,24 @@
 //     # ... resolve ...
 //     git cherry-pick --continue
 //   exactly as they would have done by hand.
+//
+// WIP fallback (imp-1274, OPT-IN via --wip-fallback):
+//   Some subagents hit their duration / token limit *before* landing a
+//   commit -- the work product is a single untracked imp-NNNN-*.js file in
+//   the worktree's src/data/. The normal cherry-pick flow has nothing to
+//   grab in that case (no commit on the branch newer than the last clean
+//   one). With --wip-fallback ON, the script:
+//     (a) Detects "no new commit on the worktree branch since main" OR an
+//         exit-2 manual-resolve refusal AND at least one untracked
+//         src/data/imp-*.js file is present in the worktree;
+//     (b) Copies those files to main's src/data/ (unless --dry-run);
+//     (c) Prints a "next step" prompt suggesting the orchestrator manually
+//         edit src/data/improvement-queue.js to mark the ticket completed;
+//     (d) Exits 0 with a "[wip-salvage]" note in the final summary so
+//         downstream automation can distinguish this from a clean
+//         cherry-pick.
+//   --wip-fallback is OFF by default so the exit-2 manual-resolve semantics
+//   used by every existing caller are preserved exactly.
 
 import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -67,6 +87,7 @@ function parseArgs(argv) {
     worktree: null,
     dryRun: false,
     push: false,
+    wipFallback: false,
     help: false,
   };
   for (let i = 0; i < argv.length; i++) {
@@ -77,6 +98,7 @@ function parseArgs(argv) {
       case '--worktree': out.worktree = argv[++i]; break;
       case '--dry-run':  out.dryRun   = true;      break;
       case '--push':     out.push     = true;      break;
+      case '--wip-fallback': out.wipFallback = true; break;
       case '-h':
       case '--help':     out.help     = true;      break;
       default:
@@ -98,9 +120,10 @@ function usage() {
   node scripts/salvage-subagent.mjs --worktree <path>
   node scripts/salvage-subagent.mjs --task <id> --dry-run
   node scripts/salvage-subagent.mjs --task <id> --push
+  node scripts/salvage-subagent.mjs --task <id> --wip-fallback           (imp-1274)
 
 Exit codes: 0 ok | 1 usage | 2 manual-needed | 3 internal-error
-See top-of-file comment for auto-resolution policy.`;
+See top-of-file comment for auto-resolution policy and --wip-fallback semantics.`;
 }
 
 function fail(code, msg) {
@@ -302,6 +325,125 @@ function tryAutoResolveDataModules() {
   return { ok: true, ourCount: ourLines.length, theirCount: theirLines.length };
 }
 
+// ── WIP fallback (imp-1274) ──────────────────────────────────────────────────
+//
+// When the subagent never landed a commit (or when auto-resolve refuses and
+// the operator opted in via --wip-fallback), we treat the worktree as a
+// file-drop: scoop untracked imp-*.js files out of <worktree>/src/data/ and
+// drop them into main's src/data/. We deliberately do NOT touch tracked-file
+// modifications (e.g. ` M src/data/improvement-queue.js`) because folding
+// those back is exactly the conflict the cherry-pick auto-resolver exists to
+// handle -- if cherry-pick failed, the safe fallback is "rescue the new
+// file, leave the queue edit to the operator."
+
+const DATA_REL = path.join('src', 'data');
+const DATA_ABS_MAIN = path.join(REPO_ROOT, DATA_REL);
+
+function listUntrackedWipFiles(worktreePath) {
+  // Returns [{ rel, absSrc, absDst, sizeBytes }] for every untracked
+  // src/data/imp-*.js file in the worktree.
+  if (!worktreePath || !fs.existsSync(worktreePath)) return [];
+  const status = gitSafe(['-C', worktreePath, 'status', '--porcelain']);
+  const out = [];
+  for (const line of status.stdout.split('\n')) {
+    if (!line.startsWith('?? ')) continue;
+    const rel = line.slice(3);
+    if (!rel.startsWith('src/data/')) continue;
+    if (!/imp-\d+/.test(rel)) continue;
+    if (!rel.endsWith('.js') && !rel.endsWith('.mjs')) continue;
+    const absSrc = path.join(worktreePath, rel);
+    const absDst = path.join(REPO_ROOT, rel);
+    let sizeBytes = 0;
+    try { sizeBytes = fs.statSync(absSrc).size; } catch (_) { continue; }
+    out.push({ rel, absSrc, absDst, sizeBytes });
+  }
+  return out;
+}
+
+function branchAlreadyMerged(src) {
+  // Returns true iff the worktree's tip commit is already reachable from
+  // HEAD on main -- i.e. there is genuinely nothing for cherry-pick to grab.
+  if (!src.commit) return false;
+  const r = gitSafe(['merge-base', '--is-ancestor', src.commit, 'HEAD']);
+  return r.status === 0;
+}
+
+function runWipFallback({ src, dryRun, reason }) {
+  // Emits the WIP-salvage report and copies files (unless --dry-run).
+  // Always exits the process (0 ok / 3 fs error / 1 if no WIP files found).
+  const wipFiles = listUntrackedWipFiles(src.worktreePath);
+  if (wipFiles.length === 0) {
+    console.error(`salvage-subagent: --wip-fallback ${reason}, but no untracked src/data/imp-*.js files in ${src.worktreePath || '(no worktree)'}.`);
+    console.error('Nothing to salvage. Exiting 1.');
+    process.exit(1);
+  }
+
+  console.log(`salvage-subagent: --wip-fallback (${reason}); scooping ${wipFiles.length} WIP file(s):`);
+  for (const f of wipFiles) {
+    const kb = (f.sizeBytes / 1024).toFixed(1);
+    console.log(`  ${f.rel}  (${kb}KB)`);
+  }
+
+  if (dryRun) {
+    console.log('salvage-subagent: --dry-run, NOT copying. Plan:');
+    for (const f of wipFiles) {
+      console.log(`  cp ${path.relative(REPO_ROOT, f.absSrc)} ${f.rel}`);
+    }
+    console.log('');
+    console.log('Next-step (after running for real):');
+    console.log('  1. Verify the copied file(s) look complete (>5KB is the heuristic).');
+    console.log(`  2. Edit ${path.join(DATA_REL, 'improvement-queue.js')} to mark the ticket completed:`);
+    if (src.taskId) console.log(`       (orchestrator: ticket-id for agent-${src.taskId} is whatever imp-NNNN the WIP file references)`);
+    console.log('       status: \'completed\', completedByModel/Channel, completedAt, closureNote.');
+    console.log('  3. Wire the new module into scripts/run-assertions.mjs DATA_MODULES if applicable.');
+    console.log('  4. npm run build && git add + commit.');
+    console.log('');
+    console.log(`dry-run: wip-salvage ${src.taskId || src.commit.slice(0,12)} [${wipFiles.length} file(s) would be copied]`);
+    process.exit(0);
+  }
+
+  // Live copy. Refuse to clobber files that already exist on main with a
+  // *different* size -- it's almost always operator error and copying over
+  // would silently destroy a landed-and-edited file. Same-size is allowed
+  // (idempotent re-run).
+  const copied = [];
+  for (const f of wipFiles) {
+    if (fs.existsSync(f.absDst)) {
+      let dstSize = -1;
+      try { dstSize = fs.statSync(f.absDst).size; } catch (_) { /* ignore */ }
+      if (dstSize !== f.sizeBytes) {
+        console.error(`salvage-subagent: refusing to overwrite ${f.rel} (main has ${dstSize}B, worktree has ${f.sizeBytes}B).`);
+        console.error('Resolve by hand: either diff the two files, or pass --dry-run to inspect the plan.');
+        process.exit(3);
+      }
+    }
+    try {
+      fs.mkdirSync(path.dirname(f.absDst), { recursive: true });
+      fs.copyFileSync(f.absSrc, f.absDst);
+      copied.push(f);
+    } catch (e) {
+      console.error(`salvage-subagent: copy failed for ${f.rel}: ${e.message}`);
+      process.exit(3);
+    }
+  }
+
+  console.log('');
+  console.log('salvage-subagent: copied:');
+  for (const f of copied) {
+    console.log(`  ${f.rel}  (${(f.sizeBytes / 1024).toFixed(1)}KB)`);
+  }
+  console.log('');
+  console.log('Next-step prompt for the orchestrator:');
+  console.log(`  1. Verify the copied file(s) look complete (>5KB heuristic).`);
+  console.log(`  2. Edit ${path.join(DATA_REL, 'improvement-queue.js')} to mark the ticket completed:`);
+  console.log(`       status: 'completed', completedByModel/Channel, completedAt, closureNote`);
+  console.log(`  3. Wire the new module into scripts/run-assertions.mjs DATA_MODULES if applicable.`);
+  console.log(`  4. npm run build && git add + commit.`);
+  console.log('');
+  console.log(`salvaged ${src.taskId || src.commit.slice(0,12)} [wip-salvage, ${copied.length} file(s)]`);
+  process.exit(0);
+}
+
 // ── Main flow ────────────────────────────────────────────────────────────────
 
 function main() {
@@ -349,13 +491,21 @@ function main() {
     log.stdout.split('\n').forEach((l) => console.log('  ' + l));
   }
 
+  // WIP-fallback pre-check (imp-1274): if --wip-fallback is on AND the
+  // worktree branch has no new commit relative to HEAD, divert immediately
+  // to the file-copy path. Avoids the noise of "cherry-pick: nothing to do."
+  if (args.wipFallback && src.worktreePath && branchAlreadyMerged(src)) {
+    runWipFallback({ src, dryRun: args.dryRun, reason: 'no new commit on worktree branch' });
+    return;
+  }
+
   if (args.dryRun) {
     console.log('salvage-subagent: --dry-run, no changes made.');
     console.log(`dry-run plan:
   git fetch . ${src.branch || src.commit}:${tmpBranch}
   git cherry-pick ${src.commit}
   # if conflict in ${RUN_ASSERTIONS_REL} only -> auto-resolve DATA_MODULES concat
-  # if any other conflict -> exit 2 with 'MANUAL RESOLUTION NEEDED'
+  # if any other conflict -> exit 2 with 'MANUAL RESOLUTION NEEDED'${args.wipFallback ? '\n  # ...UNLESS --wip-fallback is on, in which case copy WIP files instead' : ''}
   git branch -D ${tmpBranch}
   ${args.push ? `git push origin HEAD` : '# (no push; pass --push to enable)'}`);
     console.log(`dry-run: salvaged ${src.taskId || src.commit.slice(0,12)} as <would-be-sha> [${args.push ? 'pushed' : 'local'}]`);
@@ -399,19 +549,37 @@ function main() {
   // Auto-resolve policy: ONLY if conflicts.length === 1 and that file is
   // scripts/run-assertions.mjs.
   if (conflicts.length !== 1 || conflicts[0] !== RUN_ASSERTIONS_REL) {
+    if (args.wipFallback) {
+      // Tear down the in-progress cherry-pick before scooping WIP files --
+      // otherwise the working tree stays half-merged and confusing.
+      gitSafe(['cherry-pick', '--abort']);
+      gitSafe(['branch', '-D', tmpBranch]);
+      console.error(`salvage-subagent: cherry-pick had ${conflicts.length} conflicted file(s); --wip-fallback ON, diverting.`);
+      runWipFallback({ src, dryRun: args.dryRun, reason: 'multi-file conflict, --wip-fallback ON' });
+      return;
+    }
     console.error(`salvage-subagent: ${conflicts.length} conflicted file(s):`);
     conflicts.forEach((f) => console.error('  ' + f));
     console.error('MANUAL RESOLUTION NEEDED in ' + conflicts.join(', '));
     console.error('Cherry-pick left in progress. Resolve and run `git cherry-pick --continue`.');
     console.error(`(temp branch '${tmpBranch}' is still set; delete with 'git branch -D ${tmpBranch}' after.)`);
+    console.error('(Hint: re-run with --wip-fallback to scoop untracked src/data/imp-*.js files instead.)');
     process.exit(2);
   }
 
   const resolve = tryAutoResolveDataModules();
   if (!resolve.ok) {
+    if (args.wipFallback) {
+      gitSafe(['cherry-pick', '--abort']);
+      gitSafe(['branch', '-D', tmpBranch]);
+      console.error(`salvage-subagent: auto-resolution refused (${resolve.reason}); --wip-fallback ON, diverting.`);
+      runWipFallback({ src, dryRun: args.dryRun, reason: `auto-resolve refused: ${resolve.reason}` });
+      return;
+    }
     console.error(`salvage-subagent: auto-resolution refused: ${resolve.reason}`);
     console.error('MANUAL RESOLUTION NEEDED in ' + RUN_ASSERTIONS_REL);
     console.error('Cherry-pick left in progress. Resolve and run `git cherry-pick --continue`.');
+    console.error('(Hint: re-run with --wip-fallback to scoop untracked src/data/imp-*.js files instead.)');
     process.exit(2);
   }
   console.log(`salvage-subagent: auto-resolved DATA_MODULES conflict (kept ${resolve.ourCount} + ${resolve.theirCount} lines).`);

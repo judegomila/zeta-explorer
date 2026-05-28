@@ -18398,7 +18398,7 @@ export const IMPROVEMENT_QUEUE = [
            'negative-index identity at all the imp-1136 plateau brackets?',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Per §17.4 of the v52 paper: ind_-(K_R_a) = #{lambda : X(lambda) = 0, Re(lambda) > a}. imp-1147 used 9 plateau brackets at N up to 1e6 to derive Lambda <= 7.98e-4 ASSUMING no off-critical zeros (since PT 2021 verified RH up to T_PT = 3e12). The §17.4 identity says even a single off-critical zero with Re(rho) - 1/2 > a would add a negative square. Cross-check: at each of the 9 imp-1136 plateau brackets, is there room for a hypothetical off-critical zero that would invalidate the Lambda <= 7.98e-4 composition? Build src/data/imp-1243-imp1147-ghost-margin-audit.js with per-plateau margin computation + verdict 'composition-robust' / 'composition-marginal' / 'composition-broken'. 5+ tripwires.",
     rationale: 'Audit of the headline Lambda <= 7.98e-4 claim against the v52 §17.4 identity. Either strengthens the result with explicit margin (publishable) or surfaces a tightness that needs addressing.',
@@ -18406,5 +18406,9 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1147', 'imp-1198'],
     model: 'opus-4-7',
     channel: 'subscription',
+    completedByModel: 'subagent-worktree',
+    completedByChannel: 'opus-4-7-worktree',
+    completedAt: '2026-05-28T00:00:00Z',
+    completionNote: 'composition-robust-at-all-plateaus-with-4-tight-brackets verdict. All 9 imp-1136 plateaus sit below T_PT = 3e12 (largest effective height T_0(1e6) ~ 6.0e5 << 3e12), so PT 2021 forces delta_max = 0 for any hypothetical off-critical zero in the plateau height range; ghost-margin = a_i > 0 at every plateau on the optimistic (a_i = t_hi) side. Four plateaus (N in {500000, 600000, 800000, 1000000}) have t_lo = 0 yielding conservative margin = 0 (tight), but this does not invalidate the composition: (i) imp-1147 OLS uses t_hi as the upper bracket, (ii) PT 2021 continues to forbid off-critical zeros at all t in [t_lo, t_hi], (iii) composed-level bridge thickness a_compose = a_hi = 7.673e-4 strictly dominates. Composed-level margin = 7.673e-4 > 0. Min optimistic margin across plateaus = 2.0e-4 (N = 20000 row). Audit ships at src/data/imp-1243-imp1147-ghost-margin-audit.js with 8 tripwires (all green). Honest scope: does NOT promote imp-1147 to unconditional; the two named imp-1147 residual obstructions (linear-1/N OLS asymptotic model deviation; Polymath15 bridge step 4 G6a_shock_lipschitz rigor gate) remain open and are independent of this ghost-margin audit.',
   },
 ];

@@ -373,6 +373,11 @@ const DATA_MODULES = [
   // 16.4 + 16.6 + 18.1 PARTIALLY-RELATED, unified under CDB-Exist. 18.2
   // SUBSUMED-BY-RH (same logic as 15.4: paired Hadamard).
   '/src/data/imp-1241-unified-existence-conjecture.js',
+  // imp-1244: Opus 4.8 second-pass re-audit of all 7 SUBSUMED-BY-RH verdicts
+  // (15.2, 15.3, 15.4, 17.3, 18.2, 18.4, 22.4) as a single group.
+  // Result: 0 reclassifications -- all 7 CONFIRMED-SUBSUMED-BY-RH. The
+  // §15-§22 cluster is a taxonomy of 7 RH-equivalent reformulations.
+  '/src/data/imp-1244-subsumed-rh-second-pass.js',
   // imp-1234: ZPO model (/oscillators, /hamiltonian, /modes, /twin-ladder) vs
   // twin-ladder v52 §15 shift-bridge crosswalk -- 12 entries with honest
   // verdict vocabulary (identical / related / distinct / not-yet-identified).

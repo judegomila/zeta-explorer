@@ -649,27 +649,18 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     },
   },
   {
-    id: 'paper-audit-two-unaudited-conjectures',
+    id: 'paper-audit-zero-unaudited-after-imp-1231-and-imp-1233',
     why:
-      'Of 13 conjectures, exactly 2 remain UNAUDITED (18.1, 18.2) after ' +
-      'imp-1231 confirmed 16.4 and 16.6 PARTIALLY-RELATED. Each UNAUDITED ' +
-      'entry must carry auditTicket null and auditDate null -- inventing an ' +
-      'audit ticket for a conjecture we have not actually audited would overclaim.',
-      'Of 13 conjectures, exactly 2 remain UNAUDITED (16.4, 16.6) after ' +
-      'imp-1233 confirmed 18.1 and 18.2 PARTIALLY-RELATED. Each UNAUDITED ' +
-      'audit ticket for a conjecture we have not actually audited would ' +
-      'overclaim.',
+      'After imp-1231 (Conj 16.4 + 16.6 PARTIALLY-RELATED) and imp-1233 ' +
+      '(Conj 18.1 + 18.2 PARTIALLY-RELATED), ALL 13 named conjectures from ' +
+      'paper Sections 15-22 are audited. Zero remain UNAUDITED. This pins ' +
+      'the milestone and prevents regression: if the dashboard ever drifts ' +
+      'back to any UNAUDITED entry, the tripwire fires.',
     holds: () => {
       const unaudited = PAPER_AUDIT_DASHBOARD.conjectures.filter(
         (c) => c.auditStatus === 'UNAUDITED',
       );
-      if (unaudited.length !== 2) return false;
-      const expected = new Set(['18.1', '18.2']);
-      const expected = new Set(['16.4', '16.6']);
-      return unaudited.every(
-        (c) => expected.has(c.id) && c.auditTicket === null &&
-          c.auditDate === null,
-      );
+      return unaudited.length === 0;
     },
   },
   {

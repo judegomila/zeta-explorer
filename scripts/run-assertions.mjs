@@ -469,6 +469,18 @@ const DATA_MODULES = [
   // STRONGER claim ||V|| <= 1e-3 also holds. U=50, U=100 rows reproduce
   // imp-1248 to 16 decimal digits (clean determinism check).
   '/src/data/imp-1262-volterra-extended-sweep.js',
+  // imp-1265: OPUS-4.8 ADVERSARIAL RECHECK of the §27 paper-construct identity
+  // ([[I, V_{a,Φ}], [V_{a,Φ}*, I]] ⪰ 0 ⇔ K_a ⪰ 0) on which the imp-1258 two-
+  // way collapse rests. Five axes (a) K_a construction + A_a/B_a gauges, (b)
+  // operator class, (c) boundary + Wiener-Hopf at finite [0, U], (d)
+  // bidirectionality, (e) unstated regularity. Verdict: collapse-with-caveats
+  // (2 pass / 3 pass-with-caveats / 0 fails). Central finding: §27 identity
+  // is ASYMMETRIC — only the FORWARD direction (‖V‖ ≤ 1 ⇒ K_a ⪰ 0) is argued
+  // in the paper; the reverse direction is salvaged via Arov-Nudelman 1996
+  // passive realization, not by §27 itself. The imp-1258 two-way collapse
+  // verdict SURVIVES this audit with one additional citation caveat for the
+  // reverse chain. 12 tripwires.
+  '/src/data/imp-1265-section27-identity-recheck.js',
 ];
 
 const ALL_MODULES = FAST_MODE

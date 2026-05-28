@@ -526,10 +526,8 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
     'Sections 15-22, with per-conjecture verdict in {SUBSUMED-BY-RH, ' +
     'SUBSUMED-BY-LITERATURE, PARTIALLY-RELATED, INDEPENDENT-NOVEL, ' +
     'UNAUDITED}. 13 conjectures total: 6 SUBSUMED-BY-RH (15.2, 15.3, 15.4, 17.3, ' +
-    '18.4, 22.4), 4 PARTIALLY-RELATED (16.4, 16.6, 22.2, 22.3), 1 INDEPENDENT-NOVEL ' +
-    '(22.1), 2 UNAUDITED (18.1, 18.2). Drives /paper-audit-dashboard page.',
-    '18.4, 22.4), 4 PARTIALLY-RELATED (18.1, 18.2, 22.2, 22.3), 1 INDEPENDENT-NOVEL ' +
-    '(22.1), 2 UNAUDITED (16.4, 16.6). Drives /paper-audit-dashboard page.',
+    '18.4, 22.4), 6 PARTIALLY-RELATED (16.4, 16.6, 18.1, 18.2, 22.2, 22.3), ' +
+    '1 INDEPENDENT-NOVEL (22.1), 0 UNAUDITED. Drives /paper-audit-dashboard page.',
 });
 
 export default PAPER_AUDIT_DASHBOARD;

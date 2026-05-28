@@ -68,7 +68,7 @@ function simpson(g, L, nIntervals) {
 
 // -- central-band patch Gram matrix M_a (size (d+1) x (d+1)) ------------------
 const L_BAND = 1.0;      // central-band half-width on which Phi is fit
-const DEGREE = 5;        // basis f_k = (sinh(a t))^k, k = 0..DEGREE
+const DEGREE = 2;        // basis f_k = (sinh(a t))^k, k = 0..DEGREE
 const N_QUAD = 2000;     // Simpson intervals
 function buildGram(a) {
   const D = DEGREE + 1;

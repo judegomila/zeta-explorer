@@ -700,6 +700,17 @@ const DATA_MODULES = [
   // family (Connes-Bost, Berry-Keating, novel sieve, or alternative §15-27
   // closure pathways that decouple from sigma > 1). 12 tripwires.
   '/src/data/imp-1305-goldston-yildirim-mean-square.js',
+  // imp-1301: NOVEL follow-up to imp-1296 — TRUE windowed λ_max via the
+  // Christoffel-Darboux sine-kernel restriction (100×100 edge block of the
+  // unfolded zeros) compared to TW2 with Soshnikov 2000 centering+rescaling.
+  // KS_matched at W=10000 = 0.4021 vs imp-1296 s_max baseline 0.4744 — modest
+  // improvement (Δ = +0.07) consistent with imp-1296.honestScope.sMaxNotLambdaMax,
+  // but well above the 0.10 success threshold. Raw Soshnikov μ_W = sqrt(2W)
+  // centering fails (KS_raw = 1.0) because the 100×100 sub-block does not
+  // reach the asymptotic regime — λ_max stays in [1.8, 2.5] regardless of W.
+  // Verdict: discretization-too-coarse. Recommended follow-up: Bornemann 2010
+  // Airy-kernel quadrature on 200+ Chebyshev nodes. 12 tripwires.
+  '/src/data/imp-1301-true-tw-edge-statistic.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -568,6 +568,12 @@ const DATA_MODULES = [
   // to a ∈ (0, ~37.66] by imp-1260), the union covers ALL a > 0 by two
   // independent analytical routes. 13 tripwires.
   '/src/data/imp-1287-volterra-wiener-hopf.js',
+  // imp-1290: §18.3 Weil/Pontryagin explicit-formula attack on Λ. Beurling-
+  // Selberg / Vaaler 1985 majorant at width W = 1 yields Λ ≤ ~0.80, ~26,000x
+  // LOOSER than imp-1261's 3.06e-5. Soundararajan-Granville 1998 has the
+  // wrong sign to tighten this route. Verdict: weil-too-loose-as-attack.
+  // 12 tripwires.
+  '/src/data/imp-1290-weil-explicit-formula-attack.js',
 ];
 
 const ALL_MODULES = FAST_MODE

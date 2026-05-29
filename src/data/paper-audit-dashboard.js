@@ -221,11 +221,14 @@ const CONJECTURE_ENTRIES = [
     auditDate: '2026-05-28',
     recommendationForPaper:
       'PARTIALLY-RELATED via Krein-de Branges canonical-system bijection + ' +
-      'classical KYP / passive realization (Anderson-Vongpanitlerd 1973, ' +
-      'Yakubovich-Kalman-Popov) per imp-1241. Identical TYPE of existence ' +
-      'as 16.4 and 16.6. Reframe as a corollary of the UNIFIED CDB-Exist ' +
-      'conjecture. Disambiguate the B_a notation (Fourier sine channel here, ' +
-      'reproducing-kernel evaluation in 16.4).',
+      'infinite-dimensional passivity (Arov-Nudelman 1996, Brodskii 1971, ' +
+      'Sz.-Nagy-Foias 1970) + classical KYP (Anderson-Vongpanitlerd 1973, ' +
+      'Yakubovich-Kalman-Popov) per imp-1241 + imp-1272. Identical TYPE of ' +
+      'existence as 16.4 and 16.6. Reframe as a corollary of the UNIFIED ' +
+      'CDB-Exist conjecture. Disambiguate the B_a notation (Fourier sine ' +
+      'channel here, reproducing-kernel evaluation in 16.4). NOTE: the ' +
+      'Schur-to-passive bridge for infinite-dim H(E_a) state-space requires ' +
+      'Arov-Nudelman 1996 (not just finite-dim KYP) -- cite explicitly.',
   },
   {
     id: '18.2',

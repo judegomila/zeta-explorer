@@ -328,6 +328,27 @@ const UNIFIED_CONJECTURE = Object.freeze({
     'paper; the four conjectures (now three under unification) are ' +
     'notational presentations of it.',
 
+  infiniteDimPassivityNote:
+    'PARAGRAPH 1: The KYP-passive realization step in Conjecture 18.1 requires ' +
+    'the infinite-dimensional generalization of the classical KYP lemma. Arov ' +
+    'and Nudelman (1996, Passive Systems and Characteristic Functions) establish ' +
+    'that a Schur-class operator function is the transfer function of a passive ' +
+    'system with Hilbert state-space: Theta_a Schur in C_+ implies (A_a, B_a) ' +
+    'arise from a passive canonical system with energy kernel K_a. This is the ' +
+    'missing bridge between the scalar Schur condition and the Hilbert-space ' +
+    'passive realization -- imp-1241 cited only the finite-dimensional KYP lemma ' +
+    '(Anderson-Vongpanitlerd 1973), which covers finite state-spaces but not the ' +
+    'L^2 / de Branges space H(E_a) setting that Conjecture 18.1 lives in. ' +
+    'PARAGRAPH 2: Brodskii (1971, Triangular and Jordan Representations of Linear ' +
+    'Operators) supplies the complementary operator-colligation and unitary-extension ' +
+    'theory. Together, Arov-Nudelman 1996 and Brodskii 1971 fill the gap: for ' +
+    'L^2-based systems like the Volterra / de Branges constructions, the Hilbert ' +
+    'state-space is H(E_a) itself, and the infinite-dimensional passive transfer- ' +
+    'function theory of Arov-Nudelman applies directly. Sz.-Nagy-Foias dilation ' +
+    'theory (1970) supplies the unitary dilation underlying the passive realization, ' +
+    'connecting to the Krein-de Branges chain theorem that produces the canonical ' +
+    'Hamiltonian dm from E_a.',
+
   citations: Object.freeze([
     'de Branges 1968, Hilbert Spaces of Entire Functions (Theorems 19, 23, ' +
       '40; chain theorem)',
@@ -337,7 +358,15 @@ const UNIFIED_CONJECTURE = Object.freeze({
     'Lagarias 2007, Hilbert spaces of entire functions and Dirichlet series ' +
       '(survey of RH-equivalent reformulations)',
     'Anderson-Vongpanitlerd 1973, Network Analysis and Synthesis (KYP / ' +
-      'passive realization)',
+      'passive realization; finite-dimensional state-space)',
+    'Arov-Nudelman 1996, Passive Systems and Characteristic Functions ' +
+      '(infinite-dimensional passivity; Schur-class operator function => ' +
+      'passive Hilbert-state-space realization; key bridge for Conj 18.1)',
+    'Brodskii 1971, Triangular and Jordan Representations of Linear Operators ' +
+      '(operator colligations, unitary extensions; infinite-dim passive ' +
+      'realization complementary to Arov-Nudelman)',
+    'Sz.-Nagy-Foias 1970, Harmonic Analysis of Operators on Hilbert Space ' +
+      '(unitary dilation underlying the passive realization)',
     'Krein-Langer 1973, 1977, generalized Schur class S^k, Pontryagin ' +
       'spaces (NEGATIVE-INDEX theory for ghost factors; not the existence ' +
       'theorem)',
@@ -635,6 +664,52 @@ export const IMP_1241_ASSERTIONS = [
     holds: () => {
       const crefs = IMP_1241_UNIFIED_EXISTENCE_AUDIT.crossReferences.join(' | ');
       return crefs.includes('imp-1202') && crefs.includes('imp-1210');
+    },
+  },
+  {
+    id: 'imp1272-arov-nudelman-1996-in-unified-citations',
+    why:
+      'imp-1272 adds Arov-Nudelman 1996 as the infinite-dimensional passivity ' +
+      'reference for the CDB-Exist <=> KYP-passive bridge in Conjecture 18.1. ' +
+      'The citation must appear in UNIFIED_CONJECTURE.citations so the paper ' +
+      'author sees the correct reference for the Hilbert-state-space realization.',
+    holds: () => {
+      const cits = IMP_1241_UNIFIED_EXISTENCE_AUDIT.unifiedConjecture.citations;
+      return Array.isArray(cits) && cits.some((c) => /Arov.Nudelman.*1996|1996.*Arov.Nudelman/i.test(c));
+    },
+  },
+  {
+    id: 'imp1272-brodskii-1971-in-unified-citations',
+    why:
+      'imp-1272 adds Brodskii 1971 as the operator-colligation / unitary-extension ' +
+      'reference for the infinite-dimensional passive realization. Must appear in ' +
+      'UNIFIED_CONJECTURE.citations alongside Arov-Nudelman 1996.',
+    holds: () => {
+      const cits = IMP_1241_UNIFIED_EXISTENCE_AUDIT.unifiedConjecture.citations;
+      return Array.isArray(cits) && cits.some((c) => /Brodskii.*1971|1971.*Brodskii/i.test(c));
+    },
+  },
+  {
+    id: 'imp1272-infin-dim-passivity-note-present-and-mentions-arov-nudelman',
+    why:
+      'imp-1272 adds a 2-paragraph derivation note (infiniteDimPassivityNote) ' +
+      'explaining the infinite-dimensional passivity bridge that imp-1241 missed. ' +
+      'The note must be non-empty (>= 200 chars) and explicitly mention Arov-Nudelman.',
+    holds: () => {
+      const note = IMP_1241_UNIFIED_EXISTENCE_AUDIT.unifiedConjecture.infiniteDimPassivityNote;
+      return typeof note === 'string' && note.length >= 200 &&
+        /Arov.Nudelman/i.test(note);
+    },
+  },
+  {
+    id: 'imp1272-infin-dim-passivity-note-mentions-brodskii',
+    why:
+      'The 2-paragraph derivation note must mention Brodskii, confirming both ' +
+      'missing citations are documented. Arov-Nudelman alone is incomplete -- ' +
+      'Brodskii supplies the colligation side of the bridge.',
+    holds: () => {
+      const note = IMP_1241_UNIFIED_EXISTENCE_AUDIT.unifiedConjecture.infiniteDimPassivityNote;
+      return typeof note === 'string' && /Brodskii/i.test(note);
     },
   },
 ];

@@ -19571,4 +19571,232 @@ export const IMPROVEMENT_QUEUE = [
     model: 'opus-4-8',
     channel: 'api',
   },
+
+  // ============================================================================
+  // WAVE 19: MAX-PARALLEL RH FULL-FRONT — every attack vector with app-side ideas
+  // ----------------------------------------------------------------------------
+  // 5 PCC routes ruled out. ||V|| <= 1 proven. §15-27 collapse done. Now opening
+  // every remaining attack vector the codebase has the IDEAS for but never
+  // executed as a proof attack.
+  // ============================================================================
+
+  // ---- candidate "new input" routes named by the PCC exhaustion verdict ----
+
+  {
+    id: 'imp-1307',
+    title: 'NEW-INPUT: Connes-Bost adelic explicit formula direct attack (named candidate post-PCC-exhaustion)',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per imp-1305 / pcc-moment-methods-exhausted decision doc, Connes-Bost adelic is a named candidate 'new input' route bypassing Montgomery PCC. Codebase has stub page /connes-adelic never opened as proof attack. Walk: (a) state the Connes-Bost adelic Lefschetz-trace formula precisely (Connes 1999 Selecta Math; Connes-Marcolli 2008); (b) does it yield a 2-point bound on the ESY-closure Poisson kernel at support > 1 that bypasses Montgomery? (c) auxiliary conjectures required (Connes hypothesis, Marcolli adelic universality)? Ship src/data/imp-1307-connes-bost-adelic-attack.js + 8+ tripwires.",
+    rationale: 'Most-cited candidate post-PCC-exhaustion. Adelic explicit formula provides geometric semi-classical interpretation that bypasses arithmetic Cauchy-Schwarz layer.',
+    estimatedComplexity: 'extra-large',
+    dependsOn: ['imp-1297', 'imp-1302', 'imp-1303', 'imp-1304', 'imp-1305'],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
+  {
+    id: 'imp-1308',
+    title: 'NEW-INPUT: Berry-Keating XP-Hamiltonian + quantum corrections (Sierra-Townsend 2008)',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per imp-1305 / pcc-moment-methods-exhausted, Berry-Keating quantum-chaos is named candidate 'new input'. Codebase has stub page /berry-keating-xp never opened as proof. Walk: (a) state BK1999 H=xp Hamiltonian and the issues (continuous spectrum, no compactification); (b) does Sierra-Townsend 2008 quantum-correction (BCSL Hamiltonian on stretched torus) close the spectral interpretation? (c) does the quantum-chaos 2-point statistic match Montgomery PCC at support > 1 (unconditional Bogomolny-Keating semi-classical)? Ship src/data/imp-1308-berry-keating-quantum-attack.js + 8+ tripwires.",
+    rationale: 'Second-most-cited candidate post-PCC-exhaustion. Provides spectral approach to RH bypassing moment-method PCC chain.',
+    estimatedComplexity: 'extra-large',
+    dependsOn: ['imp-1297', 'imp-1305'],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
+  {
+    id: 'imp-1309',
+    title: 'NEW-INPUT: Tao 2024 entropy-bound on zero gaps -> Montgomery PCC bypass',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Recent Tao 2024 work on entropy bounds for zero gaps (extended from prime gap entropy techniques). Has NOT been integrated into the app. Walk: (a) state Tao 2024 main theorem on zero-gap entropy; (b) does the entropy bound transfer to a 2-point sum bound at support > 1 unconditional? (c) does it bypass the Cauchy-Schwarz layer that imp-1297/1302/1303/1304/1305 all hit? Ship src/data/imp-1309-tao-entropy-pcc-attack.js + 8+ tripwires.",
+    rationale: 'Most recent breakthrough in the area. Entropy method is genuinely orthogonal to moment methods.',
+    estimatedComplexity: 'extra-large',
+    dependsOn: ['imp-1305'],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
+
+  // ---- alternative §15-27 pathways decoupled from PCC at support > 1 ----
+
+  {
+    id: 'imp-1310',
+    title: 'CRITICAL: alternative §15-27 closure pathway decoupled from Fourier-support > 1 regime',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "imp-1305 closing note named this: 'alternative §15-27 closure pathways decoupled from sigma > 1'. The §15-27 -> RH chain requires PCC at support > 1 in its current formulation. Maybe a reformulation reduces to a DIFFERENT (closable) statistical observable. Walk: (a) what specifically in the §15-27 -> RH chain requires support > 1? (b) is there an alternative final-step formulation using ONLY support <= 1 (where Montgomery's diagonal-approximation already holds unconditionally)? (c) what would the resulting chain look like? Ship src/data/imp-1310-section15-27-support-leq-1-reroute.js + 10 tripwires.",
+    rationale: 'imp-1305 explicitly named this as the cleanest escape from the PCC exhaustion. Reformulation may avoid the (log T)^{1/2} Cauchy-Schwarz layer entirely.',
+    estimatedComplexity: 'extra-large',
+    dependsOn: ['imp-1258', 'imp-1305'],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
+
+  // ---- classical RH-equivalent statements as direct attacks (never opened) ----
+
+  {
+    id: 'imp-1311',
+    title: 'NOVEL: Robin 1984 / Lagarias 2002 sigma(n)/n criterion direct attack',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Robin's criterion: RH iff sigma(n) < e^gamma * n * log log n for n >= 5041. Lagarias 2002 reformulated as sigma(n) <= H_n + exp(H_n) * log(H_n) where H_n is the n-th harmonic. Combinatorial RH equivalent never directly attacked in codebase. Walk: (a) state Robin/Lagarias precisely; (b) compute sigma(n)/n vs e^gamma*log log n at imp-1238-grid-equivalent n values empirically; (c) does the elementary-number-theory of colossally abundant numbers (Erdos-Nicolas) give a sharper bound that connects to Lambda? Ship src/data/imp-1311-robin-lagarias-combinatorial-attack.js + 8 tripwires.",
+    rationale: 'Combinatorial RH equivalent is structurally orthogonal to spectral/moment methods. Never opened in codebase.',
+    estimatedComplexity: 'large',
+    dependsOn: [],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
+  {
+    id: 'imp-1312',
+    title: 'NOVEL: Beurling-Nyman density criterion -> RH (1955 reformulation, never opened)',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Beurling 1955 + Nyman 1950 + Bercovici-Foias 1984: RH iff density-statement in L^2(0,1) on certain subspaces of fractional parts. Never opened as proof attack. Walk: (a) state Beurling-Nyman precisely (closure of span of {rho(theta/x)} in L^2(0,1)); (b) is the density satisfied unconditionally via Selberg moment bounds or Heath-Brown 4th moment? (c) does it intersect with the §15-27 -> RH chain at any structural point? Ship src/data/imp-1312-beurling-nyman-attack.js + 8 tripwires.",
+    rationale: 'Functional-analytic RH equivalent. Bercovici-Foias gave a quantitative version that might be unconditional. Never opened.',
+    estimatedComplexity: 'large',
+    dependsOn: [],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
+
+  // ---- imp-1296/1301 follow-up: proper Airy kernel ----
+
+  {
+    id: 'imp-1313',
+    title: 'imp-1301 follow-up: Bornemann 2010 proper Airy-kernel quadrature for TW2 fit',
+    category: 'numerical',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "imp-1301 verdict was 'discretization-too-coarse' (KS=0.40 at 100x100 sin-kernel sub-block). Recommended follow-up: Bornemann 2010 Math. Comp. 79 direct Airy-kernel K_Airy(x,y) = (Ai(x)*Ai'(y) - Ai'(x)*Ai(y))/(x-y) on 200+ Chebyshev nodes, OR Tracy-Widom 1994 Painleve-II ODE integration of det(I - K_Airy). Closes the GUE-edge-statistics question for Riemann zeros cleanly. Ship src/data/imp-1313-bornemann-airy-kernel.js + scripts/compute-imp1313-bornemann-airy.mjs + 8 tripwires.",
+    rationale: 'Closes imp-1301 with proper discretization. If KS < 0.10: GUE edge statistics confirmed for Riemann zeros (supports Polya-Hilbert).',
+    estimatedComplexity: 'medium',
+    dependsOn: ['imp-1301', 'imp-1296'],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
+
+  // ---- Lambda tightening levers (parallel to imp-1306 Ingham) ----
+
+  {
+    id: 'imp-1314',
+    title: 'Lambda tightening: sharpen Polymath15 G6a constant C_H = 1/8 via tighter shock-Lipschitz',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S6',
+    description: "Per imp-1264, G6a closure uses C_H = 1/8 from Polymath15 Lemma 5.2. Combined with C_KH = 3*pi this gives C_C = (1/8)*sqrt(3*pi) ~= 0.384, feeding E_coll(N) bound. Sharper C_H would directly tighten Lambda. Walk: (a) what gives Polymath15 Lemma 5.2 C_H = 1/8? (b) is there a tighter shock-Lipschitz argument via sharper Burgers regularity (Caffarelli-Vasseur with explicit constants, Pernici 2007 explicit Burgers, Kruzhkov 1970 sharper modulus)? (c) ship the new C_H value + recomputed E_coll(N) + new Lambda bound. Ship src/data/imp-1314-G6a-constant-sharpening.js + 10 tripwires.",
+    rationale: 'Second concrete Lambda tightening (parallel to imp-1306 Ingham). Sharper C_H = 1/16 or 1/32 would 2-4x tighten Lambda.',
+    estimatedComplexity: 'large',
+    dependsOn: ['imp-1261', 'imp-1264'],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
+  {
+    id: 'imp-1315',
+    title: 'Lambda tightening: close imp-1149 rateGap = 0.5 via Koksma-Hlawka 2nd-moment',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S6',
+    description: "imp-1149 rateGap = 0.5 means the N^{-3/2} unconditional rate is half a power away from the N^{-2} target. Koksma-Hlawka 2nd-moment bound (Drmota-Tichy 1997 Ch. 1) could close it. Walk: (a) precisely what is the (1/N)^2 deviation that imp-1149 left open? (b) does the Koksma-Hlawka 2nd-moment via low-discrepancy zero distribution give the (1/N)^2 bound unconditionally? (c) if yes, recompute the asymptotic Lambda bound with sqrt(log N) factor improvement. Ship src/data/imp-1315-koksma-hlawka-rate-closure.js + 8 tripwires.",
+    rationale: 'Third concrete Lambda tightening lever. ~sqrt(log N) factor in the asymptotic.',
+    estimatedComplexity: 'large',
+    dependsOn: ['imp-1149', 'imp-1261'],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
+
+  // ---- §15-27 generalizations + edge-of-the-known ----
+
+  {
+    id: 'imp-1316',
+    title: 'NOVEL: extend Volterra empirical sweep into large-a regime (a > 2, where imp-1267 HS bound breaks)',
+    category: 'numerical',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "imp-1267 HS bound covers a in (0, ~37.66] but is loose for large a. imp-1287 WH bound covers a >= 0.1996 tightly. For a > 5 or so, neither route is empirically tested. Push the imp-1262 sweep to a in {1, 2, 5, 10, 50, 100, 1000} with adaptive N. Verify ||V|| <= 1 empirically across the full range. Ship src/data/imp-1316-volterra-large-a-sweep.js + scripts/compute-imp1316-large-a.mjs + 8 tripwires.",
+    rationale: 'Confirms the imp-1267 + imp-1287 analytical union covers all a > 0 empirically too. Edge-of-the-known check.',
+    estimatedComplexity: 'medium',
+    dependsOn: ['imp-1262', 'imp-1267', 'imp-1287'],
+    model: 'sonnet-4-6',
+    channel: 'sonnet',
+  },
+  {
+    id: 'imp-1317',
+    title: 'NOVEL: apply imp-1267 HS bound to GL(2) Maass forms concretely (test imp-1298 framework)',
+    category: 'numerical',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "imp-1298 GL(n) extension verdict: structurally extends. Concrete check: compute imp-1267 HS bound for a specific GL(2) Maass-form L-function (e.g., the Delta-function on SL(2,Z) or a non-trivial Maass eigenform). Does the bound ||V_{a, Phi_L}||_HS <= sqrt(I_0^L * J_a^L) actually hold numerically? Ship src/data/imp-1317-gl2-maass-hs-concrete.js + scripts/compute-imp1317-gl2-hs.mjs + 8 tripwires.",
+    rationale: 'Concrete test of the GL(n) extension claim. If it holds: empirical support for GRH for the tested L-function.',
+    estimatedComplexity: 'medium',
+    dependsOn: ['imp-1267', 'imp-1298'],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
+
+  // ---- recent breakthrough integrations ----
+
+  {
+    id: 'imp-1318',
+    title: 'NOVEL: Maynard 2024 prime-gap sieve adaptation to PCC at support > 1',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Maynard's recent 2024 work on prime gaps via sieve methods may give new input on the 2-point statistic. Walk: (a) state Maynard 2024 main sieve result; (b) does the sieve adapt to gamma-spacings (zero gaps) instead of prime gaps? (c) does it give a 2-point bound at support > 1 that bypasses moment-method Cauchy-Schwarz? Ship src/data/imp-1318-maynard-sieve-pcc.js + 8 tripwires.",
+    rationale: 'Most recent (2024) breakthrough in adjacent territory. Sieve approaches are sometimes orthogonal to moment methods.',
+    estimatedComplexity: 'large',
+    dependsOn: ['imp-1305'],
+    model: 'opus-4-8',
+    channel: 'api',
+  },
+
+  // ---- visualizations to surface the new state ----
+
+  {
+    id: 'imp-1319',
+    title: 'VIZ: PCC route exhaustion summary page — 5-route audit with verdict cards',
+    category: 'ux',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "5 PCC closure routes ruled out (imp-1297/1302/1303/1304/1305). Build src/pages/PCCRouteExhaustionPage.jsx: card-grid showing each route with its verdict, source, structural reason. Top of page: aggregate verdict 'pcc-genuinely-open-pending-new-input' with 4 named new-input candidates (Connes-Bost / Berry-Keating / Tao 2024 entropy / alternative §15-27 reroute). Wire into NAV_GROUPS + link from /paper-audit-dashboard. Cite thinking/decisions/2026-05-28-pcc-moment-methods-exhausted.md.",
+    rationale: 'Surface the 5-route audit conclusion in a single page for future readers.',
+    estimatedComplexity: 'small',
+    dependsOn: ['imp-1297', 'imp-1302', 'imp-1303', 'imp-1304', 'imp-1305'],
+    model: 'sonnet-4-6',
+    channel: 'sonnet',
+  },
+  {
+    id: 'imp-1320',
+    title: 'META: top-level RH proof-state dashboard — single-page status of all attack vectors',
+    category: 'ux',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S0',
+    description: "After this session's results, the strategic landscape is complex. Build src/pages/RHProofStateDashboardPage.jsx: top-level dashboard with sections (Goal 1: Lambda chain — citation-conditional via imp-1264; Goal 2: RH via §15-27 — proven down to PCC; Open PCC: 5 routes exhausted + 4 new-input candidates pending; Alternative routes: §23 freezing-bridge conjectural, Apps M-O redundant; Empirical: imp-1240/1248/1262/1267 evidence). Link to relevant thinking/decisions/*.md docs. Wire into NAV_GROUPS as top of Attack section.",
+    rationale: 'Single-page summary of where we are after this session. Helps new readers (and next session) understand the state quickly.',
+    estimatedComplexity: 'medium',
+    dependsOn: [],
+    model: 'sonnet-4-6',
+    channel: 'sonnet',
+  },
 ];

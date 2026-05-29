@@ -186,6 +186,7 @@ print(m.group(1) if m else 'not-found')" 2>/dev/null || echo "error")
 }
 EOF
         echo "RATE LIMIT (api) on run #$run_count. Backing off ${backoff_s}s (sentinel: $BACKOFF_STATE_FILE)" | tee -a "$log_file"
+        printf '{"event":"rate_limit","engine":"api","run":%d,"ts":"%s","backoff_s":%d}\n' "$run_count" "$timestamp" "$backoff_s" | tee -a "$log_file"
       else
         if [ -f "$BACKOFF_STATE_FILE" ]; then
           rm -f "$BACKOFF_STATE_FILE"

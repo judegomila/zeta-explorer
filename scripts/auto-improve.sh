@@ -253,6 +253,7 @@ print(m.group(1) if m else 'not-found')" 2>/dev/null || echo "error")
 }
 EOF
         echo "RATE LIMIT DETECTED on run #$run_count. Backing off ${backoff_s}s (sentinel: $BACKOFF_STATE_FILE)" | tee -a "$log_file"
+        printf '{"event":"rate_limit","engine":"opus","run":%d,"ts":"%s","backoff_s":%d}\n' "$run_count" "$timestamp" "$backoff_s" | tee -a "$log_file"
       else
         # Clean run — reset backoff and clear sentinel.
         if [ -f "$BACKOFF_STATE_FILE" ]; then

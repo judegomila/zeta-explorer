@@ -601,6 +601,22 @@ const DATA_MODULES = [
   // (imp-1184 D3). Extends imp-1297 negative conclusion to the second-moment
   // candidate route. 11 tripwires.
   '/src/data/imp-1302-goldston-gonek-pcc-attack.js',
+  // imp-1303: CRITICAL classification — does Heath-Brown 1979 unconditional
+  // 4th-moment of zeta (Proc. LMS (3) 38 (1979) 385-422), possibly with
+  // Selberg 1944 mean-square / Iwaniec-Sarnak 2000 1-level density /
+  // Conrey 1989 mollifier sieve, close Montgomery PCC at 2-point for Fourier
+  // support sigma > 1 unconditionally? Verdict:
+  // heath-brown-improves-but-pcc-remains-open. HB1979 gives a 2-point bound
+  // matching PCC main term but WEAKER by (log T)^{1/2} in sigma in (1, 5/4);
+  // above sigma = 5/4 no unconditional bound. The (log T)^{1/2} gap is
+  // intrinsic to the 4th-moment Cauchy-Schwarz layer in the secondary
+  // off-diagonal explicit-formula term. Sub-routes (a) Selberg 1944 (2nd
+  // moment same layer, cannot improve rate), (b) IS2000 (1-level density
+  // != 2-level in families, single-zeta has no horizontal-vertical transfer),
+  // (c) Conrey 1989 mollifier (theta_C ~ 0.572-0.583 < 1, never reaches
+  // theta > 1) all fail to close. Extends imp-1297 + imp-1302 negative
+  // pattern; PCC for support > 1 remains binding obstruction. 12 tripwires.
+  '/src/data/imp-1303-heath-brown-pcc-route.js',
   // imp-1300: NOVEL higher-N GUE statistics push (target rate gap). Ticket
   // asked for empirical M_∞(N) at N up to 10^8 to verify the imp-1149
   // N^{-3/2} deviation bound on 100× larger data. Bundle only carries

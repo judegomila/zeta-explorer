@@ -880,6 +880,11 @@ const DATA_MODULES = [
   // imp-1305. Second geometric route after Connes-Bost (imp-1307), also NOT
   // RIGOROUS. 12 tripwires.
   '/src/data/imp-1308-berry-keating-quantum-attack.js',
+  // imp-1323: literature audit for T_PT = 3e12 successor (Platt 2023 continuation,
+  // Johnston 2025 extensions). Verdict: no-peer-reviewed-successor-found; E_trunc_pt
+  // unchanged at 3.06e-5; tightening factor 1.0. Hypothetical scenarios at 1e13, 3e13,
+  // 1e14 computed. 6 tripwires.
+  '/src/data/imp-1323-T-PT-successor-audit.js',
 ];
 
 const ALL_MODULES = FAST_MODE

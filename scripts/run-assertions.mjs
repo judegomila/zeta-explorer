@@ -423,6 +423,12 @@ const DATA_MODULES = [
   // 25 rows from 5x5 sweep (U ∈ {1,2,5,10,20} x a ∈ {0.5,0.2,0.1,0.05,0.025});
   // verdict 'norms-all-below-one' — all rows give ||V|| <= 1.86e-4 << 1.
   '/src/data/imp-1240-volterra-norm-pilot.js',
+  // imp-1299: AUTO-CONJECTURE symbolic-fit survey over 3 frozen empirical targets
+  // (imp-1238 plateau offset, imp-1240 Volterra norm scaling, imp-1243 ghost margin).
+  // One clean structurally-backed identity (||V_{a,Phi}|| ~ a^1 sinh linearization);
+  // one candidate-within-noise (~0.86 offset, artifact not identity); one negative
+  // result (ghost margin is a discrete 3-value bracket sequence). Reads sources live.
+  '/src/data/imp-1299-symbolic-regression-survey.js',
   // imp-1242: sensitivity of 3-point GUE empirical R_3 to bridge perturbation a > 0.
   // 3 levels a in {0.001, 0.01, 0.05} on the imp-1183 7-point grid. Pearson stays
   // > 0.96 for all a <= 0.05 -- GUE robustness verdict: robust-subcritical.

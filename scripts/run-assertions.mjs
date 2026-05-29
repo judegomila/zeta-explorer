@@ -797,6 +797,76 @@ const DATA_MODULES = [
   // weaker than Platt-Trudgian 2021's verification up to T = 3 * 10^12).
   // 12 tripwires.
   '/src/data/imp-1311-robin-lagarias-combinatorial-attack.js',
+  // imp-1310: CRITICAL classification — is there an alternative §15-27 → RH
+  // closure pathway whose final step requires ONLY Fourier support ≤ 1 (where
+  // Montgomery 1973 is unconditional), thereby DECOUPLING the chain from the
+  // support > 1 PCC regime that imp-1297 + imp-1302 + imp-1303 + imp-1304 +
+  // imp-1305 collectively ruled out? Verdict:
+  // reroute-eliminated-support-greater-1-is-intrinsic. Support > 1 enters at
+  // imp-1184 STEP D3 (Selberg PCC fixed-x fluctuation rate 1/sqrt(N) vs
+  // optimistic 1/N) and STEP D5 (rho_3 / second-order discrepancy for sup-
+  // improvement), both via Poisson kernel P_{y_micro} with Fourier tail
+  // extending to log γ_N / (2π) at the unfolded microscopic scale y_micro =
+  // 2 π / log γ_N — vastly exceeding Montgomery's [-1, 1] unconditional window
+  // and Rudnick-Sarnak 1996's (-2/3, 2/3) rho_3 window. The three named
+  // reroute candidates all collapse: (a) wavelet decomposition fails by
+  // Plancherel invariance + Heisenberg uncertainty (Fourier support is a
+  // property of the function not the basis; reproducing P_{y_micro} via
+  // support ≤ 1 wavelet basis requires reaching scale j ≈ log_2(log γ_N) where
+  // dyadic band exceeds support 1); (b) Mellin-truncation via short-interval
+  // second moments fails because the observable swap loses pointwise content
+  // needed by bridge-threshold theorem AND reproduces the existing
+  // (log γ_N)² / N baseline — the (log γ_N) gap resurfaces as support > 1
+  // requirement in the Mellin observable per Iwaniec-Kowalski 2004 §25
+  // Plancherel rigidity; (c) direct §15-27 reformulation fails because Mellin
+  // diagonalization of V_{a,Φ} is structurally blocked per imp-1266 (kernel
+  // additive not multiplicative + Φ-modulation breaks scaling + sinh(at)
+  // Mellin transform does not exist) and de Branges H(E_a) direct route per
+  // Romanov-Woracek-Pruss 2024 territory requires open imp-1241 unified
+  // existence + still hits support > 1 at the unfolded scale + the bridge-
+  // threshold theorem is rigidly attached to y_micro (raising y to fixed scale
+  // gives only macroscopic law). All three failures share the same Plancherel /
+  // Heisenberg root: the support > 1 requirement is INTRINSIC to the
+  // microscopic scale y_micro = 2 π / log γ_N. SIXTH consecutive negative
+  // classification in PCC-attack series (imp-1297 + imp-1302 + imp-1303 +
+  // imp-1304 + imp-1305 + imp-1310). The (log T)^{1/2} Cauchy-Schwarz layer
+  // obstruction (imp-1303 / imp-1305) and the support > 1 transcription
+  // obstruction (imp-1184 / imp-1310) are facets of the same Plancherel /
+  // Heisenberg intrinsic constraint. Aggregate verdict:
+  // pcc-genuinely-open-pending-new-input-geometric-or-adelic. Engine pivots to
+  // imp-1307 (Connes-Bost adelic), imp-1308 (Berry-Keating H = xp), Hecke
+  // triangle Selberg trace, or closing imp-1241 to enable de Branges direct
+  // route. 12 tripwires.
+  '/src/data/imp-1310-section15-27-support-leq-1-reroute.js',
+  // imp-1309: NEW-INPUT CRITICAL classification — does Tao 2024 (or the
+  // closest-known: Bloom-Maynard-Sisask 2020 entropy / additive-energy bounds +
+  // Tao 2014 entropy compression + Tao-Vu 2011-2017 Wigner universality)
+  // entropy-bound on zero gaps provide a genuinely NEW input that bypasses the
+  // Montgomery PCC obstruction at Fourier support > 1 that imp-1297 + imp-1302 +
+  // imp-1303 + imp-1304 + imp-1305 (moment-method family) all hit? Verdict:
+  // tao-entropy-not-applicable-to-single-zeta-2-point. The entropy method is
+  // GENUINELY ORTHOGONAL to moment methods in its primary domain (additive
+  // combinatorics on integers, prime-gap statistics) but the orthogonality
+  // does NOT transfer to the single-zeta 2-point PCC observable at sigma > 1
+  // for three independent structural reasons: (R1) domain mismatch (entropy
+  // bounds spacings, PCC bounds Fourier-pair-correlation, translation passes
+  // through Pinsker + Cauchy-Schwarz + Parseval); (R2) absence of additive-
+  // combinatorial structure on zeros (conjectural GUE is locally repulsive,
+  // OPPOSITE of additive); (R3) linear-statistic vs set-count mismatch
+  // (entropy outputs first-moment / concentration, PCC needs second-moment).
+  // The entropy method SHIFTS the Cauchy-Schwarz step from input stage to
+  // output stage but does not eliminate it; the (log T)^{1/2} slack is a
+  // property of the L^1 / L^2 Hölder boundary not of any specific input.
+  // Honest training-time uncertainty acknowledged: exact "T. Tao, Entropy
+  // bounds on zero gaps, 2024" reference uncertain at January 2026 cutoff;
+  // classification uses closest-known form (BMS2020 + Tao 2014 + Tao-Vu).
+  // Aggregate verdict EXTENDED: imp-1297+1302+1303+1304+1305 (moment family)
+  // + imp-1309 (entropy family) all negative -> pcc-genuinely-open-pending-
+  // new-input remains; standard analytic-number-theory toolkit EXHAUSTED for
+  // PCC at 2-point with support > 1. Remaining candidates: Connes-Bost
+  // (imp-1307), Berry-Keating (imp-1308), imp-1310 alternative §15-27 pathway
+  // with sigma <= 1. 12 tripwires.
+  '/src/data/imp-1309-tao-entropy-pcc-attack.js',
 ];
 
 const ALL_MODULES = FAST_MODE

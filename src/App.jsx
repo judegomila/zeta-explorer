@@ -71,6 +71,7 @@ const FreezingBridgePage = lazy(() => import('./pages/FreezingBridgePage.jsx'));
 const RigorousNumericsStagesPage = lazy(() => import('./pages/RigorousNumericsStagesPage.jsx'));
 const TwinLadderPaperRoadmapPage = lazy(() => import('./pages/TwinLadderPaperRoadmapPage.jsx'));
 const PaperAuditDashboardPage = lazy(() => import('./pages/PaperAuditDashboardPage.jsx'));
+const PCCRouteExhaustionPage = lazy(() => import('./pages/PCCRouteExhaustionPage.jsx'));
 const VizHyperbolicPrimeSpiralPage = lazy(() => import('./pages/VizHyperbolicPrimeSpiralPage.jsx'));
 const HiddenSquareProgramPage = lazy(() => import('./pages/HiddenSquareProgramPage.jsx'));
 const ReciprocalProgramPage = lazy(() => import('./pages/ReciprocalProgramPage.jsx'));
@@ -135,6 +136,7 @@ const NAV_GROUPS = [
       { to: '/twin-ladder-paper-roadmap', label: 'Paper Roadmap' },
       { to: '/rigorous-numerics-stages', label: 'Rigorous Numerics (§20)' },
       { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard' },
+      { to: '/pcc-route-exhaustion', label: 'PCC Route Exhaustion' },
       { to: '/collapse-chain', label: 'Collapse Chain: ‖V‖ ≤ 1 ⇔ CDB-Exist' },
       { to: '/hidden-square-program', label: 'Hidden-Square Program (§25–27)' },
       { to: '/reciprocal-program', label: 'Reciprocal Program (Apps B–G)' },
@@ -518,6 +520,7 @@ function AppShell() {
           <Route path="/rigorous-numerics-stages" element={<RigorousNumericsStagesPage />} />
           <Route path="/twin-ladder-paper-roadmap" element={<TwinLadderPaperRoadmapPage />} />
           <Route path="/paper-audit-dashboard" element={<PaperAuditDashboardPage />} />
+          <Route path="/pcc-route-exhaustion" element={<PCCRouteExhaustionPage />} />
           <Route path="/viz-hyperbolic-prime-spiral" element={<VizHyperbolicPrimeSpiralPage />} />
           <Route path="/hidden-square-program" element={<HiddenSquareProgramPage />} />
           <Route path="/reciprocal-program" element={<ReciprocalProgramPage />} />

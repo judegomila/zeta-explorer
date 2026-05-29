@@ -717,6 +717,23 @@ const DATA_MODULES = [
   // Verdict: discretization-too-coarse. Recommended follow-up: Bornemann 2010
   // Airy-kernel quadrature on 200+ Chebyshev nodes. 12 tripwires.
   '/src/data/imp-1301-true-tw-edge-statistic.js',
+  // imp-1306: CRITICAL audit — can the Ingham 1940 effective constant feeding
+  // E_trunc_pt = 3.06e-5 in the imp-1261 unconditional asymptotic Lambda
+  // composition be sharpened by substituting modern explicit-NT alternatives
+  // (Trudgian 2014, Cheng-Graham 2001, Hiary 2016, Platt-Trudgian 2020)?
+  // Verdict: modern-constants-do-not-apply. The four ticket-named references
+  // bound DIFFERENT analytic objects (N(T) counting, |zeta| pointwise,
+  // Riemann-Siegel evaluation, verified zero-strip height) than the zero-density
+  // N(sigma, T) estimate fed by Ingham 1940 into the imp-447 / imp-459 chain.
+  // The single drop-in modern alternative (Bui-Soundararajan 2008, J. London
+  // Math. Soc. 78) yields formal 2.04e6x tightening (3.06e-5 -> 1.51e-11) but
+  // is RESEARCH-GRADE BLOCKED with four obstructions (O-BS-A through O-BS-D)
+  // per imp-1123; rigorous tightening factor today = 1.0. Within Ingham
+  // itself, sigma re-optimisation 0.75 -> 0.99 would tighten 6.4e8x formally
+  // but inherits the same rigor obstructions imp-459 ducked. Recommended
+  // follow-ups seed BS rigorous port revival + Kadiri effective-Ingham audit
+  // + sigma re-optimisation port. 12 tripwires (10+ required).
+  '/src/data/imp-1306-ingham-sharpening.js',
 ];
 
 const ALL_MODULES = FAST_MODE

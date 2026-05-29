@@ -574,6 +574,20 @@ const DATA_MODULES = [
   // wrong sign to tighten this route. Verdict: weil-too-loose-as-attack.
   // 12 tripwires.
   '/src/data/imp-1290-weil-explicit-formula-attack.js',
+  // imp-1288: §23 freezing-bridge direct attack. Quotes §23.1-§23.7 from
+  // imp-1221 (paper pp. 32-36). Three routes: (a) direct paper argument
+  // (Conj 23.5 passive frozen-bridge closure — OPEN, no K^pass_{a,U}
+  // construction in §23); (b) HJB regularity Bourgain-Sinai 2009 /
+  // Caffarelli-Vasseur 2010 (NOT APPLICABLE: §23 object is operator-
+  // positivity on a reproducing kernel, not a PDE solution — total
+  // category mismatch); (c) §23.6 5-step numerical bracket (finite-window
+  // FALSIFIER protocol, not a proof). Verdict on §23 ↔ G6a (imp-1264):
+  // independent-from-G6a — §23 controls ind_-(K_a) = 0 on the shifted
+  // bridge R_a = X(w−a)/X(w+a) (operator / reproducing-kernel layer);
+  // G6a controls a Hölder-1/2 modulus of τ_c on real Dyson empirical
+  // measures (PDE / empirical-measure layer). Different objects, different
+  // tools, different layers. 11 tripwires.
+  '/src/data/imp-1288-section23-freezing-bridge.js',
 ];
 
 const ALL_MODULES = FAST_MODE

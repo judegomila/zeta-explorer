@@ -74,6 +74,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+// imp-1285 coordination layer — post-cherry-pick unlock helper.
+import { inspectTicket, flipTicketStatus } from './_queue-status-edit.mjs';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const REPO_ROOT  = path.resolve(__dirname, '..');
@@ -613,6 +616,14 @@ function finalize({ src, tmpBranch, push, conflictResolved }) {
   // Drop temp branch.
   gitSafe(['branch', '-D', tmpBranch]);
 
+  // imp-1285 unlock-on-completion. Extract imp-NNNN ticket id from the
+  // commit message (subagents conventionally lead the commit subject with
+  // the ticket id, e.g. "imp-1285 (meta, medium): ..."). If the queue entry
+  // is still status='in-progress-subagent' the subagent forgot to flip it
+  // to 'completed' — we do it here as a fallback. If already 'completed'
+  // (subagent did the right thing) this is a no-op. Idempotent.
+  const unlockReport = unlockTicketsFromCommit(newSha);
+
   let pushedTag = 'local';
   if (push) {
     const p = gitSafe(['push', 'origin', 'HEAD']);
@@ -626,8 +637,58 @@ function finalize({ src, tmpBranch, push, conflictResolved }) {
 
   const id = src.taskId || src.commit.slice(0, 12);
   console.log(`new commit: ${newSha}${conflictResolved ? ' (DATA_MODULES auto-resolved)' : ''}`);
+  if (unlockReport.length > 0) {
+    for (const r of unlockReport) {
+      console.log(`unlock: ${r.ticketId} ${r.action}${r.detail ? ' — ' + r.detail : ''}`);
+    }
+  }
   console.log(`salvaged ${id} as ${newSha.slice(0, 12)} [${pushedTag}]`);
   process.exit(0);
+}
+
+// imp-1285: extract imp-NNNN ticket ids from a commit's subject + body and,
+// for each, flip status='in-progress-subagent' -> 'completed' if needed.
+// Returns a report array (always; empty if no ids found or no flip needed).
+function unlockTicketsFromCommit(sha) {
+  const subject = gitSafe(['log', '-1', '--format=%s%n%b', sha]).stdout;
+  if (!subject) return [];
+  const ids = new Set();
+  for (const m of subject.matchAll(/\bimp-(\d{1,5})\b/g)) {
+    ids.add(`imp-${m[1]}`);
+  }
+  const report = [];
+  for (const ticketId of ids) {
+    const inspect = inspectTicket(ticketId);
+    if (!inspect.found) continue;
+    if (inspect.status === 'in-progress-subagent') {
+      // Subagent forgot to flip. Salvage takes over.
+      const flip = flipTicketStatus({
+        ticketId,
+        to: 'completed',
+        from: 'in-progress-subagent',
+        inflightTaskId: null, // strip the field
+      });
+      if (flip.changed) {
+        report.push({ ticketId, action: 'flipped to completed', detail: 'was in-progress-subagent' });
+      } else {
+        report.push({ ticketId, action: 'flip refused', detail: flip.reason });
+      }
+    }
+    // status === 'completed' — subagent did it. Strip stale inflightTaskId
+    // if any. Cheap and idempotent.
+    else if (inspect.status === 'completed' && inspect.inflightTaskId) {
+      const flip = flipTicketStatus({
+        ticketId,
+        to: 'completed',
+        from: 'completed',
+        inflightTaskId: null,
+      });
+      if (flip.changed) {
+        report.push({ ticketId, action: 'stripped stale inflightTaskId' });
+      }
+    }
+  }
+  return report;
 }
 
 main();

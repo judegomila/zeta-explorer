@@ -14,6 +14,9 @@
 //   node scripts/dispatch-subagent.mjs --ticket imp-NNNN --refs imp-XXX,imp-YYY
 //   node scripts/dispatch-subagent.mjs --ticket imp-NNNN --bg
 //   node scripts/dispatch-subagent.mjs --ticket imp-NNNN --template <path>
+//   node scripts/dispatch-subagent.mjs --ticket imp-NNNN --lock                  (imp-1285)
+//   node scripts/dispatch-subagent.mjs --ticket imp-NNNN --lock --task <id>      (imp-1285)
+//   node scripts/dispatch-subagent.mjs --ticket imp-NNNN --lock --dry-run        (imp-1285)
 //
 // Exit codes:
 //   0 -- prompt rendered to stdout
@@ -21,6 +24,8 @@
 //   2 -- template malformed (unresolved {{placeholders}} after render, or
 //        template file missing)
 //   3 -- internal error (queue parse failure, fs error)
+//   4 -- --lock flip failed (mtime race, status mismatch, parse failure);
+//        the prompt is NOT emitted because dispatching would be unsafe
 //
 // Design notes:
 // - Uses simple String.prototype.replaceAll for {{var}} substitution; NO
@@ -30,11 +35,25 @@
 // - Auto-detects (a) src/data/imp-NNNN*.js WIP files, (b) recent
 //   thinking/decisions/*.md mentioning the ticket id.
 // - This is a prompt GENERATOR. It does NOT invoke Agent() itself.
+//
+// imp-1285 --lock OPT-IN:
+// - Default behavior (no --lock) is UNCHANGED: the CLI just renders a prompt.
+// - With --lock the CLI ALSO atomically flips the ticket's status from
+//   'pending' to 'in-progress-subagent' in src/data/improvement-queue.js
+//   and (optionally) records --task as inflightTaskId. The build-queue-index
+//   tracker then excludes the ticket from pending buckets, so the engine
+//   ticket-picker won't double-dispatch it. salvage-subagent.mjs flips the
+//   status back to 'completed' on a successful cherry-pick, OR the operator
+//   can use scripts/unlock-ticket.mjs to flip it back to 'pending' on a
+//   subagent timeout. See src/data/imp-1285-engine-subagent-coordination.js
+//   for the full protocol + failure modes.
 
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+
+import { flipTicketStatus } from './_queue-status-edit.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -49,6 +68,10 @@ function parseArgs(argv) {
     bg: false,
     template: null,
     help: false,
+    // imp-1285 coordination layer (OPT-IN — default behavior unchanged).
+    lock: false,
+    task: null,
+    dryRun: false,
   };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -57,12 +80,16 @@ function parseArgs(argv) {
       case '--refs':     out.refs = parseRefs(argv[++i]); break;
       case '--bg':       out.bg = true; break;
       case '--template': out.template = argv[++i]; break;
+      case '--lock':     out.lock = true; break;
+      case '--task':     out.task = argv[++i]; break;
+      case '--dry-run':  out.dryRun = true; break;
       case '-h':
       case '--help':     out.help = true; break;
       default:
         if (a.startsWith('--ticket='))   out.ticket   = a.slice('--ticket='.length);
         else if (a.startsWith('--refs=')) out.refs    = parseRefs(a.slice('--refs='.length));
         else if (a.startsWith('--template=')) out.template = a.slice('--template='.length);
+        else if (a.startsWith('--task=')) out.task = a.slice('--task='.length);
         else fail(1, `Unknown argument: ${a}`);
     }
   }
@@ -80,12 +107,20 @@ function usage() {
   node scripts/dispatch-subagent.mjs --ticket imp-NNNN --refs imp-XXX,imp-YYY
   node scripts/dispatch-subagent.mjs --ticket imp-NNNN --bg
   node scripts/dispatch-subagent.mjs --ticket imp-NNNN --template <path>
+  node scripts/dispatch-subagent.mjs --ticket imp-NNNN --lock                  (imp-1285 OPT-IN)
+  node scripts/dispatch-subagent.mjs --ticket imp-NNNN --lock --task <id>      (imp-1285 OPT-IN)
+  node scripts/dispatch-subagent.mjs --ticket imp-NNNN --lock --dry-run        (imp-1285 OPT-IN)
 
 Exit codes:
   0 ok | 1 usage/missing-ticket | 2 template malformed | 3 internal error
+  4 --lock flip failed (mtime race, status mismatch, ticket already locked)
 
 Emits a fully-formed subagent prompt to stdout. Copy the stdout into
-your Agent() dispatch call. Does NOT invoke Agent() itself.`;
+your Agent() dispatch call. Does NOT invoke Agent() itself.
+
+With --lock the CLI additionally flips the queue entry from 'pending' to
+'in-progress-subagent' to prevent engine ticket-pickers from racing. The
+flip is atomic and idempotent. See src/data/imp-1285-engine-subagent-coordination.js.`;
 }
 
 function fail(code, msg) {
@@ -375,6 +410,37 @@ async function main() {
 
   const rendered = renderTemplate(tmpl, vars);
   validateRender(rendered);
+
+  // imp-1285 OPT-IN: flip the queue entry to 'in-progress-subagent' BEFORE
+  // we emit the prompt. If the flip fails (mtime race, status already
+  // 'in-progress-subagent' = double-dispatch attempt, status already
+  // 'completed' = already caught above), we exit 4 WITHOUT emitting the
+  // prompt — the orchestrator should not dispatch a subagent against a
+  // ticket someone else is already working.
+  if (args.lock) {
+    const expectedFrom = ticket.status === 'in-progress-subagent'
+      ? 'in-progress-subagent'      // already locked — allow re-lock by same caller
+      : 'pending';
+    const flipResult = flipTicketStatus({
+      ticketId: ticket.id,
+      to: 'in-progress-subagent',
+      from: expectedFrom,
+      inflightTaskId: args.task || `dispatch-${Date.now()}`,
+      dryRun: args.dryRun,
+    });
+    if (!flipResult.changed && flipResult.reason !== 'already-at-target' && flipResult.reason !== 'dry-run') {
+      // Hard fail — don't emit the prompt.
+      process.stderr.write(`--lock failed: ${flipResult.reason}${flipResult.error ? ': ' + flipResult.error : ''}\n`);
+      process.stderr.write(`Hint: if a previous --lock was abandoned, run:\n`);
+      process.stderr.write(`  node scripts/unlock-ticket.mjs --ticket ${ticket.id} --to pending\n`);
+      process.exit(4);
+    }
+    // Emit a marker to stderr (so it does NOT pollute the prompt stdout
+    // that the orchestrator copies into Agent()).
+    const tag = args.dryRun ? '[dry-run]' : '[live]';
+    process.stderr.write(`--lock ${tag} ${ticket.id}: status='in-progress-subagent' (was '${flipResult.currentStatus || ticket.status}')\n`);
+  }
+
   process.stdout.write(rendered);
   if (!rendered.endsWith('\n')) process.stdout.write('\n');
 }

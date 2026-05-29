@@ -502,6 +502,21 @@ const DATA_MODULES = [
   // Worst HS_bound across the imp-1240 grid is 2.94e-4 (a=0.5), more than
   // 3000x below the Conj 27.2 threshold of 1. 10 tripwires.
   '/src/data/imp-1267-volterra-hs-bound.js',
+  // imp-1260 (PARTIAL): large-a crossover analysis for Conj 27.2. Corrects the
+  // imp-1267 "(0, ~2]" coverage claim — the CS-HS bound sqrt(I_0 J_a) crosses 1
+  // at a* ~= 34.98 (NOT ~2), because J_a grows far slower than e^{4a} (Phi² is
+  // concentrated on [0, ~0.3]). exact-HS extends the closed range to (0, ~37.66];
+  // Schur ~35.86. Open sub-gap of imp-1260 shrinks from a>2 to a>~37.66. 9
+  // tripwires. imp-1260 stays OPEN for all a > 0.
+  '/src/data/imp-1260-largea-crossover.js',
+  // imp-1286: RIGOROUS tail-bound transfer L²([0, U]) → L²([0, ∞)) for the
+  // imp-1267 HS bound. Closed-form T_a(U) ≤ I_0 · (π³/8) · e^{(4+2a)U} ·
+  // exp(-2π e^{4U}); at U=4 this is ≤ 10^{-24,247,990} for the App-S grid
+  // (a ≤ 0.5) — twenty-four million decimal places below the main term.
+  // Cross-window numerical identity J_a(U=4) ≡ J_a(U=8) ≡ J_a(U=12) confirms
+  // fp-zero tail. Combined HS bound on L²([0, ∞)) ≤ 2.94e-4 across the
+  // App-S range. Closes imp-1265 caveat (c) for a ≤ 0.5. 13 tripwires.
+  '/src/data/imp-1286-tail-bound-transfer.js',
   // imp-1261: EXECUTION RECORD for the imp-1246 redirect -- shipped the
   // unconditional Lambda <= 3.06e-5 asymptotic bound (modulo Polymath15
   // G6a) via composition rewrite of asymptotic-lambda-bound-2026-05-20.js.
@@ -509,6 +524,16 @@ const DATA_MODULES = [
   // strip-Jacobian decay; ~26x tighter than imp-1147 conditional 7.98e-4
   // AND removes the linear-1/N conditional dependence. 10 tripwires.
   '/src/data/imp-1261-asymptotic-lambda-redirect-shipped.js',
+  // imp-1264: OPUS-4.8 DEEP review of the Polymath15 G6a shock-Lipschitz
+  // bridge -- the remaining Lambda conditional on the post-imp-1261 bound.
+  // Three routes: (a) direct Polymath15 Lemma 5.2 cite (CLOSED via imp-366
+  // / imp-394 / imp-395 with C_H = 1/8 from rigorous Dyson tangency); (b)
+  // HJB regularity Bourgain-Sinai / Caffarelli-Vasseur (ELIMINATED: wrong
+  // exponent or requires viscosity); (c) numerical bracket C_C ~ 0.384
+  // (CLOSURE-ROUTE-IDENTIFIED). Overall verdict: closure-via-multiple-routes,
+  // honest residual is CITATION-CONDITIONAL not mathematically-open.
+  // 13 tripwires.
+  '/src/data/imp-1264-polymath15-g6a-bridge-review.js',
 ];
 
 const ALL_MODULES = FAST_MODE

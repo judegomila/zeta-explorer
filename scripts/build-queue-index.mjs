@@ -269,10 +269,19 @@ function main() {
   };
   const byChannel = { local: [], subscription: [], api: [], untagged: [] };
 
+  let totalInProgressSubagent = 0;
   for (const chunk of items) {
     const status = field(chunk, 'status');
     if (status === 'completed') {
       totalCompleted++;
+      continue;
+    }
+    // imp-1285: tickets locked by a dispatched subagent must NOT appear in
+    // any pending bucket — engines read these buckets and would otherwise
+    // race the subagent. We count them so the operator can see how many
+    // are in-flight at any given moment, but we don't surface their ids.
+    if (status === 'in-progress-subagent') {
+      totalInProgressSubagent++;
       continue;
     }
     if (status !== 'pending') continue;
@@ -320,6 +329,7 @@ function main() {
     improvementsTotal,
     totalPending,
     totalCompleted,
+    totalInProgressSubagent,
     criticalPending: byPriority.critical,
     highPending: byPriority.high,
     mediumPending: byPriority.medium,

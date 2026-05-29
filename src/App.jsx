@@ -80,6 +80,7 @@ const VizTwinLadderTomographyPage = lazy(() => import('./pages/VizTwinLadderTomo
 const VizPrimeCausticPage = lazy(() => import('./pages/VizPrimeCausticPage.jsx'));
 const VizPrimePhaseCrystalPage = lazy(() => import('./pages/VizPrimePhaseCrystalPage.jsx'));
 const VisualizationsIndexPage = lazy(() => import('./pages/VisualizationsIndexPage.jsx'));
+const VolterraKernelHeatmapPage = lazy(() => import('./pages/VolterraKernelHeatmapPage.jsx'));
 
 function PageLoader() {
   return (
@@ -142,6 +143,7 @@ const NAV_GROUPS = [
       { to: '/viz-hyperbolic-prime-spiral', label: 'Hyperbolic Prime Spiral' },
       { to: '/viz-log-phase-spiral', label: 'Log-Phase Spiral' },
       { to: '/viz-euler-transport-flow', label: 'Euler Transport Flow' },
+      { to: '/viz-volterra-kernel-heatmap', label: 'Volterra Kernel Heatmap' },
       { to: '/viz-twin-ladder-tomography', label: 'Twin-Ladder Tomography' },
       { to: '/viz-prime-caustic', label: 'Prime Caustic' },
       { to: '/viz-prime-phase-crystal', label: 'Prime Phase Crystal' },
@@ -515,6 +517,7 @@ function AppShell() {
           <Route path="/reciprocal-program" element={<ReciprocalProgramPage />} />
           <Route path="/viz-log-phase-spiral" element={<VizLogPhaseSpiralPage />} />
           <Route path="/viz-euler-transport-flow" element={<VizEulerTransportFlowPage />} />
+          <Route path="/viz-volterra-kernel-heatmap" element={<VolterraKernelHeatmapPage />} />
           <Route path="/viz-twin-ladder-tomography" element={<VizTwinLadderTomographyPage />} />
           <Route path="/viz-prime-caustic" element={<VizPrimeCausticPage />} />
           <Route path="/viz-prime-phase-crystal" element={<VizPrimePhaseCrystalPage />} />

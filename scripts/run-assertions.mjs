@@ -534,6 +534,32 @@ const DATA_MODULES = [
   // honest residual is CITATION-CONDITIONAL not mathematically-open.
   // 13 tripwires.
   '/src/data/imp-1264-polymath15-g6a-bridge-review.js',
+  // imp-1289: §17.4 Krein-Langer negative-index identity direct attack.
+  // Verdict: recovers-de-branges-not-new — the κ = 0 specialization of the
+  // Krein-Langer S^κ class is EQUIVALENT to the de Branges H(E_a) positivity
+  // already used in the imp-1258 §15-27 collapse. NOT a 4th independent route
+  // alongside imp-1267 HS / imp-1287 WH; remaining content is RH (Conj 17.3
+  // SUBSUMED-BY-RH per imp-1232). 12 tripwires.
+  '/src/data/imp-1289-section17-4-krein-langer-attack.js',
+  // imp-1297: NOVEL classification — does Selberg's trace formula on
+  // SL(2, Z) \ H bypass Montgomery PCC at 2-point for the ESY-closure
+  // Poisson kernel? Verdict: selberg-requires-cuspidal-density-conjecture.
+  // Route requires (a) Selberg eigenvalue conjecture (open, only 7/64 known
+  // via Kim-Sarnak 2003), (b) Phillips-Sarnak full cuspidal density (open;
+  // only deformation theorem rigorous), (c) Sarnak arithmetic-quantum-chaos
+  // GUE 2-point conjecture (the EXACT ANALOGUE of Montgomery PCC on Maass
+  // eigenvalues, not a substitute). Even granting all three, the trace-
+  // formula 2-point bound on the (sigma > 1) regime where the ESY Poisson
+  // kernel sits is STRICTLY WEAKER than PCC by a (log T)^(1/2) factor
+  // (Iwaniec-Sarnak 2000). Extends imp-1247 negative conclusion to a 5th
+  // candidate route. 10 tripwires.
+  '/src/data/imp-1297-selberg-trace-pcc-route.js',
+  // imp-1296: NOVEL Tracy-Widom β=2 edge-statistics empirical pilot on Riemann
+  // ξ zeros. Sliding-window max-spacing s_max compared to TW2 via Prähofer-Spohn
+  // 30-point lookup. KS = (0.40, 0.39, 0.47) at W ∈ (100, 1000, 10000); verdict
+  // systematic-deviation-above-0.10 with honest interpretation that s_max is
+  // NOT the right TW2 proxy (lambda_max would be — future ticket).
+  '/src/data/imp-1296-tracy-widom-edge.js',
 ];
 
 const ALL_MODULES = FAST_MODE

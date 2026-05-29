@@ -1,0 +1,336 @@
+// CollapseChainPage.jsx — imp-1293 (WAVE 19)
+//
+// Interactive visualization of the imp-1258 two-way collapse chain.
+//
+// The entire §15-27 program (7+ named conjectures) reduces to ONE operator-norm statement:
+// ‖V_{a,Φ}‖ ≤ 1 for every a > 0.
+//
+// This page displays:
+// - 7-step forward chain: ||V|| ≤ 1 ⇒ CDB-Exist
+// - 5-step reverse chain: CDB-Exist ⇒ ||V|| ≤ 1
+// - Load-bearing §27 identity highlighted: block-positivity ⇔ K_a ⪰ 0
+
+import React, { useState } from 'react';
+import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
+import { Link } from 'react-router-dom';
+import '../styles/collapse-chain.css';
+
+const collapseChain = [
+  {
+    id: 'forward-1',
+    direction: 'forward',
+    step: 1,
+    title: '‖V‖ ≤ 1 ⇔ Block Positivity',
+    statement: String.raw`\begin{bmatrix} I & V \\ V^* & I \end{bmatrix} \succeq 0`,
+    reference: 'Schur Complement (Bhatia 1997)',
+    description: 'The operator norm bound is equivalent to the Schur complement of the block matrix being positive semidefinite.',
+    color: '#2166ac'
+  },
+  {
+    id: 'forward-2',
+    direction: 'forward',
+    step: 2,
+    title: 'Block Positivity ⇔ K_a ⪰ 0',
+    statement: String.raw`K_a \succeq 0`,
+    reference: '§27 Paper Construct (LOAD-BEARING)',
+    description: 'The unique load-bearing step internal to the paper. Block positivity is equivalent to the kernel operator K_a being positive semidefinite.',
+    color: '#d62728',
+    isLoadBearing: true
+  },
+  {
+    id: 'forward-3',
+    direction: 'forward',
+    step: 3,
+    title: 'K_a ⪰ 0 ⇔ E_a Hermite-Biehler',
+    statement: String.raw`E_a \text{ is Hermite-Biehler}`,
+    reference: 'de Branges 1968, Thm 23',
+    description: 'If K_a is positive semidefinite, then the entire function E_a satisfies the Hermite-Biehler property (non-real zeros in upper half-plane only).',
+    color: '#2166ac'
+  },
+  {
+    id: 'forward-4',
+    direction: 'forward',
+    step: 4,
+    title: 'E_a Hermite-Biehler ⇒ H(E_a) de Branges Space',
+    statement: String.raw`H(E_a) \text{ is a de Branges space}`,
+    reference: 'de Branges 1968, Thm 19',
+    description: 'Every Hermite-Biehler entire function generates a unique de Branges reproducing kernel Hilbert space with kernel K_E(z,w) = (E_a(z)E_a(w)^* - E_a(w)E_a(z)^*) / (2πi(w^* - z)).',
+    color: '#2166ac'
+  },
+  {
+    id: 'forward-5',
+    direction: 'forward',
+    step: 5,
+    title: 'H(E_a) ⇒ Canonical-System dm_a with Cayley(Θ_a)',
+    statement: String.raw`\exists \text{ canonical-system } dm_a, \quad \Theta_a = \text{Cayley}(m_a)`,
+    reference: 'de Branges 1968, Thm 40 / Krein 1955 / Romanov 2010',
+    description: 'The de Branges space determines a canonical (Hamiltonian) system with Weyl m-function m_a. The Cayley transform of m_a yields the Schur function Θ_a in the unit disk.',
+    color: '#2166ac'
+  },
+  {
+    id: 'forward-6',
+    direction: 'forward',
+    step: 6,
+    title: 'canonical-system ⇒ CDB-Exist (Non-Circularity Check)',
+    statement: String.raw`\exists \text{ de Branges-Krein canonical system with } \Phi\text{-built } dm_a`,
+    reference: 'Non-Circularity Audit (imp-1258)',
+    description: 'The canonical system dm_a and all intermediate objects (V, K_a, E_a, H(E_a)) are constructed entirely from Φ via integrals. None reference the zero set of ξ. The chain is non-circular.',
+    color: '#2166ac'
+  },
+  {
+    id: 'midpoint',
+    direction: 'center',
+    step: 0,
+    title: '‖V_{a,Φ}‖ ≤ 1',
+    statement: String.raw`\|V_{a,\Phi}\|_{L^2([0,\infty))} \le 1 \quad \forall a > 0`,
+    reference: 'Conj 27.2 — The Central Load-Bearing Claim',
+    description: 'The entire §15-27 program (7+ conjectures: 16.4, 16.6, 17.3, 18.1, 25.2, 25.3, 26.3, 26.4, 27.2) reduces to a single operator-norm statement. Empirical support from imp-1240: 25 norms all >5000× below 1.',
+    color: '#000'
+  },
+  {
+    id: 'reverse-1',
+    direction: 'reverse',
+    step: 1,
+    title: 'CDB-Exist ⇒ canonical-system dm_a exists',
+    statement: String.raw`\text{de Branges-Krein: } \Theta_a = m_a \text{ Cayley}^{-1}`,
+    reference: 'de Branges–Krein Bijection (Reverse)',
+    description: 'Starting from the de Branges–Krein canonical system with Φ-built measure dm_a, the bijection runs backward.',
+    color: '#1f77b4'
+  },
+  {
+    id: 'reverse-2',
+    direction: 'reverse',
+    step: 2,
+    title: 'canonical-system ⇒ H(E_a) de Branges Space',
+    statement: String.raw`H(E_a) = \text{Image of de Branges-Krein bijection}`,
+    reference: 'Krein 1955 / Romanov 2010',
+    description: 'The reverse of the de Branges space construction yields the Hermite-Biehler entire function E_a.',
+    color: '#1f77b4'
+  },
+  {
+    id: 'reverse-3',
+    direction: 'reverse',
+    step: 3,
+    title: 'H(E_a) ⇒ E_a Hermite-Biehler',
+    statement: String.raw`E_a \text{ is Hermite-Biehler}`,
+    reference: 'de Branges 1968, Thm 19 (Reverse)',
+    description: 'Every de Branges space is generated by exactly one Hermite-Biehler entire function.',
+    color: '#1f77b4'
+  },
+  {
+    id: 'reverse-4',
+    direction: 'reverse',
+    step: 4,
+    title: 'E_a Hermite-Biehler ⇔ K_a ⪰ 0',
+    statement: String.raw`K_a \succeq 0`,
+    reference: '§27 Paper Construct (LOAD-BEARING)',
+    description: 'Reverse direction: if E_a is Hermite-Biehler, the kernel K_a is positive semidefinite. This is the same load-bearing §27 identity.',
+    color: '#d62728',
+    isLoadBearing: true
+  },
+  {
+    id: 'reverse-5',
+    direction: 'reverse',
+    step: 5,
+    title: 'K_a ⪰ 0 ⇒ ‖V‖ ≤ 1 (Complete Reverse)',
+    statement: String.raw`\|V_{a,\Phi}\| \le 1`,
+    reference: 'Schur Complement (Bhatia 1997, Reverse)',
+    description: 'Positive semidefiniteness of K_a implies block positivity, which is equivalent to ‖V‖ ≤ 1, completing the reverse chain.',
+    color: '#1f77b4'
+  }
+];
+
+function ChainNode({ node, isExpanded, onToggle }) {
+  const getNodeStyle = () => {
+    const baseStyle = {
+      padding: '16px',
+      marginBottom: '16px',
+      borderRadius: '8px',
+      border: `2px solid ${node.color}`,
+      backgroundColor: node.color === '#000' ? '#fff3cd' : '#f8f9fa',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      position: 'relative'
+    };
+
+    if (node.isLoadBearing) {
+      baseStyle.borderWidth = '3px';
+      baseStyle.boxShadow = `0 0 0 3px ${node.color}33`;
+      baseStyle.backgroundColor = '#fff5e6';
+    }
+
+    if (isExpanded) {
+      baseStyle.boxShadow = `0 4px 12px ${node.color}44`;
+    }
+
+    return baseStyle;
+  };
+
+  return (
+    <div
+      style={getNodeStyle()}
+      onClick={onToggle}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === 'Enter' && onToggle()}
+    >
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <div style={{ flex: 1 }}>
+          {node.direction === 'forward' && (
+            <div style={{ fontSize: '12px', color: '#666', marginBottom: '6px' }}>↓ FORWARD {node.step}/6</div>
+          )}
+          {node.direction === 'reverse' && (
+            <div style={{ fontSize: '12px', color: '#666', marginBottom: '6px' }}>↑ REVERSE {node.step}/5</div>
+          )}
+          {node.direction === 'center' && (
+            <div style={{ fontSize: '12px', color: '#666', marginBottom: '6px', fontWeight: 'bold' }}>⇔ CENTRAL CLAIM</div>
+          )}
+          <h3 style={{ margin: '0 0 8px 0', color: node.color, fontSize: '16px', fontWeight: 600 }}>
+            {node.title}
+          </h3>
+        </div>
+        <div style={{ marginLeft: '16px', fontSize: '20px', color: '#999' }}>
+          {isExpanded ? '−' : '+'}
+        </div>
+      </div>
+
+      {isExpanded && (
+        <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: `1px solid ${node.color}33` }}>
+          <div style={{ marginBottom: '12px', padding: '8px', backgroundColor: '#fff', borderRadius: '4px', fontSize: '13px', fontFamily: 'var(--font-mono)' }}>
+            <BlockMath math={node.statement} />
+          </div>
+          <p style={{ margin: '8px 0', fontSize: '13px', color: '#555' }}>
+            <strong style={{ color: node.color }}>Reference:</strong> {node.reference}
+            {node.isLoadBearing && <span style={{ color: '#d62728', fontWeight: 'bold' }}> ★ LOAD-BEARING</span>}
+          </p>
+          <p style={{ margin: '8px 0', fontSize: '13px', color: '#666', fontStyle: 'italic' }}>
+            {node.description}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Arrow({ direction }) {
+  const arrowStyle = {
+    textAlign: 'center',
+    fontSize: '24px',
+    color: '#999',
+    margin: '8px 0',
+    fontWeight: 'bold',
+    height: '24px',
+    lineHeight: '24px'
+  };
+
+  if (direction === 'forward') return <div style={arrowStyle}>↓</div>;
+  if (direction === 'reverse') return <div style={arrowStyle}>↑</div>;
+  return null;
+}
+
+export default function CollapseChainPage() {
+  const [expandedNodes, setExpandedNodes] = useState(new Set(['midpoint']));
+
+  const toggleNode = (nodeId) => {
+    const newExpanded = new Set(expandedNodes);
+    if (newExpanded.has(nodeId)) {
+      newExpanded.delete(nodeId);
+    } else {
+      newExpanded.add(nodeId);
+    }
+    setExpandedNodes(newExpanded);
+  };
+
+  const forwardChain = collapseChain.filter(n => n.direction === 'forward');
+  const reverseChain = collapseChain.filter(n => n.direction === 'reverse');
+  const midpoint = collapseChain.find(n => n.direction === 'center');
+
+  return (
+    <div style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}>
+      <h1>The imp-1258 Collapse Chain: ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist</h1>
+
+      <div style={{ backgroundColor: '#f0f7ff', padding: '16px', borderRadius: '8px', marginBottom: '20px', borderLeft: '4px solid #2166ac' }}>
+        <p style={{ margin: '0 0 8px 0', fontSize: '14px' }}>
+          <strong>Summary:</strong> The entire §15-27 program of the Twin-Ladder paper reduces to a single operator-norm statement.
+          Seven conjectures (16.4, 16.6, 17.3, 18.1, 25.2, 25.3, 26.3, 26.4, 27.2) collapse into the claim that
+          {' '}<InlineMath math="\|V_{a,\Phi}\|_{L^2([0,\infty))} \le 1" /> for every <InlineMath math="a > 0" />.
+        </p>
+        <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#555' }}>
+          Empirical support from imp-1240: 25 truncated operator norms all &gt;5000× below the threshold 1.
+          The chain is non-circular: every object is constructed from <InlineMath math="\Phi" /> via integrals, with no reference to the zero set of <InlineMath math="\xi" />.
+        </p>
+      </div>
+
+      <div style={{ marginBottom: '30px' }}>
+        <h2 style={{ fontSize: '18px', color: '#2166ac', marginBottom: '12px' }}>Forward Chain: ‖V‖ ≤ 1 ⇒ CDB-Exist</h2>
+        {forwardChain.map((node, idx) => (
+          <div key={node.id}>
+            <ChainNode
+              node={node}
+              isExpanded={expandedNodes.has(node.id)}
+              onToggle={() => toggleNode(node.id)}
+            />
+            {idx < forwardChain.length - 1 && <Arrow direction="forward" />}
+          </div>
+        ))}
+      </div>
+
+      <div style={{
+        padding: '20px',
+        backgroundColor: '#fffacd',
+        borderRadius: '8px',
+        marginBottom: '30px',
+        border: '2px solid #ffd700',
+        textAlign: 'center'
+      }}>
+        <ChainNode
+          node={midpoint}
+          isExpanded={expandedNodes.has('midpoint')}
+          onToggle={() => toggleNode('midpoint')}
+        />
+      </div>
+
+      <div>
+        <h2 style={{ fontSize: '18px', color: '#1f77b4', marginBottom: '12px' }}>Reverse Chain: CDB-Exist ⇒ ‖V‖ ≤ 1</h2>
+        {reverseChain.map((node, idx) => (
+          <div key={node.id}>
+            <ChainNode
+              node={node}
+              isExpanded={expandedNodes.has(node.id)}
+              onToggle={() => toggleNode(node.id)}
+            />
+            {idx < reverseChain.length - 1 && <Arrow direction="reverse" />}
+          </div>
+        ))}
+      </div>
+
+      <div style={{ marginTop: '40px', padding: '20px', backgroundColor: '#f5f5f5', borderRadius: '8px' }}>
+        <h3 style={{ fontSize: '14px', marginTop: '0' }}>Honest Scope & Risk</h3>
+        <ul style={{ fontSize: '13px', color: '#555', margin: '8px 0' }}>
+          <li>
+            <strong>§27 construct identity is load-bearing.</strong> If §25-26-27 has a gap in the identity
+            {' '}<InlineMath math="\text{block positivity} \Leftrightarrow K_a \succeq 0" />, one direction loses.
+          </li>
+          <li>
+            <strong>Montgomery PCC obstruction persists (imp-1184).</strong> An unconditional proof of ‖V‖ ≤ 1 still requires Montgomery PCC at 2-point.
+          </li>
+          <li>
+            <strong>Empirical pilot at finite window.</strong> imp-1240's data (U ≤ 20, a ≥ 0.025) shows norms well below 1, not yet a proof.
+          </li>
+        </ul>
+      </div>
+
+      <div style={{ marginTop: '30px', fontSize: '13px', color: '#555', borderTop: '1px solid #ddd', paddingTop: '20px' }}>
+        <p>
+          <strong>References:</strong>{' '}
+          <Link to="/viz-volterra-norm-curve" style={{ color: '#0066cc' }}>Volterra Norm Curve</Link> (imp-1292) •
+          {' '}<Link to="/paper-audit-dashboard" style={{ color: '#0066cc' }}>Paper Audit Dashboard</Link> (imp-1265) •
+          {' '}<Link to="/twin-ladder" style={{ color: '#0066cc' }}>Twin-Ladder Paper Roadmap</Link>
+        </p>
+        <p style={{ margin: '8px 0 0 0' }}>
+          Decision doc: <code>/thinking/decisions/2026-05-28-volterra-cdb-two-way-collapse.md</code> (imp-1258)
+        </p>
+      </div>
+    </div>
+  );
+}

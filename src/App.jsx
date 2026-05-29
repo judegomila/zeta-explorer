@@ -82,6 +82,7 @@ const VizPrimePhaseCrystalPage = lazy(() => import('./pages/VizPrimePhaseCrystal
 const VisualizationsIndexPage = lazy(() => import('./pages/VisualizationsIndexPage.jsx'));
 const VolterraKernelHeatmapPage = lazy(() => import('./pages/VolterraKernelHeatmapPage.jsx'));
 const VolterraNormCurvePage = lazy(() => import('./pages/VolterraNormCurvePage.jsx'));
+const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
 
 function PageLoader() {
   return (
@@ -133,6 +134,7 @@ const NAV_GROUPS = [
       { to: '/twin-ladder-paper-roadmap', label: 'Paper Roadmap' },
       { to: '/rigorous-numerics-stages', label: 'Rigorous Numerics (§20)' },
       { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard' },
+      { to: '/collapse-chain', label: 'Collapse Chain: ‖V‖ ≤ 1 ⇔ CDB-Exist' },
       { to: '/hidden-square-program', label: 'Hidden-Square Program (§25–27)' },
       { to: '/reciprocal-program', label: 'Reciprocal Program (Apps B–G)' },
     ],
@@ -521,6 +523,7 @@ function AppShell() {
           <Route path="/viz-euler-transport-flow" element={<VizEulerTransportFlowPage />} />
           <Route path="/viz-volterra-kernel-heatmap" element={<VolterraKernelHeatmapPage />} />
           <Route path="/viz-volterra-norm-curve" element={<VolterraNormCurvePage />} />
+          <Route path="/collapse-chain" element={<CollapseChainPage />} />
           <Route path="/viz-twin-ladder-tomography" element={<VizTwinLadderTomographyPage />} />
           <Route path="/viz-prime-caustic" element={<VizPrimeCausticPage />} />
           <Route path="/viz-prime-phase-crystal" element={<VizPrimePhaseCrystalPage />} />

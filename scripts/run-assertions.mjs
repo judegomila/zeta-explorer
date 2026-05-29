@@ -637,6 +637,20 @@ const DATA_MODULES = [
   // for q-a). Signed-Mobius argument-principle route is closest-to-novel sub-
   // claim, flagged as follow-up sub-gap. 12 tripwires.
   '/src/data/imp-1271-apps-MNO-audit.js',
+  // imp-1298: NOVEL structural classification — does the imp-1258 collapse
+  // (||V_{a,Φ}|| ≤ 1 ⇔ CDB-Exist ⇔ RH for ζ) extend from the scalar Riemann ξ
+  // to GL(n) automorphic L-functions in the Selberg class? Verdict:
+  // collapse-extends-with-matrix-norm-bound-1. Forward chain extends via
+  // matrix Schur-complement + matrix de Branges (Brodskii 1971 / Alpay-Dym
+  // 1990) + matrix canonical-system theory (Sakhnovich 1999); reverse via
+  // Arov-Nudelman 1996 Thm 4.1 matrix-Schur passive-realization theorem;
+  // Φ_L super-exponentially decays at rate exp(-c e^{4u/n}); imp-1267 HS
+  // bound extends with matrix trace norm I_0^L = tr ∫ Φ_L* Φ_L,
+  // J_a^L = tr ∫ Φ_L* Φ_L sinh²(ax). Single load-bearing open item: matrix
+  // §27 paper-construct re-derivation (block positivity ⇔ K_a^L ⪰ 0). PCC
+  // obstruction (imp-1184) persists in GL(n) case as the Rudnick-Sarnak /
+  // Iwaniec-Sarnak matrix-PCC analog. 10 tripwires.
+  '/src/data/imp-1298-gl-n-selberg-extension.js',
 ];
 
 const ALL_MODULES = FAST_MODE

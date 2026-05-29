@@ -1,0 +1,4 @@
+{
+  "model": "claude-opus-4-8",
+  "_comment": "Single source of truth for the Opus/API engine model string (imp-1280). Bump this ONE field instead of sed-ing the model string across the engine scripts. Consumers: engine-api-cycle.mjs (wired). SUB-GAP: scripts/auto-improve.sh and scripts/auto-improve-api.sh still hold their own default 'claude-opus-4-8' literals and are not yet wired to this file (deferred: 'never modify this auto-improve script' rule + avoiding edits to live shell engines mid-run). Note: env API_ENGINE_MODEL still overrides this file."
+}

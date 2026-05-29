@@ -39,7 +39,17 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const PROJECT_DIR = path.dirname(__dirname);
 
-const MODEL = process.env.API_ENGINE_MODEL || 'claude-opus-4-8';
+// imp-1280: single source of truth for the engine model string. Precedence:
+// env API_ENGINE_MODEL > scripts/engine-model.json > hardcoded default.
+function readConfiguredModel() {
+  try {
+    const cfg = JSON.parse(fs.readFileSync(path.join(__dirname, 'engine-model.json'), 'utf8'));
+    return typeof cfg.model === 'string' && cfg.model.trim() ? cfg.model.trim() : null;
+  } catch {
+    return null;
+  }
+}
+const MODEL = process.env.API_ENGINE_MODEL || readConfiguredModel() || 'claude-opus-4-8';
 const PREFLIGHT_MARKER = path.join(__dirname, '.api-engine-preflighted');
 const MAX_TOKENS = parseInt(process.env.API_ENGINE_MAX_TOKENS || '4096', 10);
 

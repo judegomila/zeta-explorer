@@ -19097,7 +19097,9 @@ export const IMPROVEMENT_QUEUE = [
     title: 'META-HARNESS: single MODEL config — kill the 3-file sed dance',
     category: 'meta',
     priority: 'medium',
-    status: 'pending',
+    status: 'partial',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
     proofSection: 'S0',
     description: "Engine model strings live in scripts/auto-improve.sh, scripts/auto-improve-api.sh, scripts/engine-api-cycle.mjs. Bumping (e.g., 4.7 -> 4.8) requires a 3-file sed. Build scripts/config.json (or .env.engine) with a single MODEL field; have all 3 files read it. Add a CLI scripts/bump-model.sh new-model that updates the config + restarts engines. Saves ~2 min per model bump + eliminates a class of out-of-sync bug. Test by bumping 4.7 -> 4.8 -> 4.7 -> 4.8 cleanly.",
     rationale: 'Eliminates a known-painful manual operation.',
@@ -19105,6 +19107,7 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'haiku-4-5',
     channel: 'subscription',
+    closureNote: "PARTIAL (opus-4-7). Shipped the single source of truth: scripts/engine-model.json holding one { model } field, and wired the pure-Node consumer scripts/engine-api-cycle.mjs to read it (precedence: env API_ENGINE_MODEL > engine-model.json > hardcoded 'claude-opus-4-8' default). Additive + reversible: env override preserved so the live API engine sees zero behavior change; verified MODEL resolves to claude-opus-4-8 via the config fallback and `node --check` passes; vite build green (4.74s). NAMED SUB-GAP (deferred, NOT done): the two SHELL consumers scripts/auto-improve.sh (line ~168 `--model claude-opus-4-8`) and scripts/auto-improve-api.sh (line ~73/318 `${API_ENGINE_MODEL:-claude-opus-4-8}`) still hold their own literals, and the scripts/bump-model.sh CLI was not created. Deferred on purpose: (1) the 'never modify this auto-improve script' RULE forbids touching auto-improve.sh, and (2) editing live multi-engine shell harness scripts mid-run is high blast-radius. Until the shell wiring lands, a model bump still touches 2 shell files (down from 3), so the sed-dance is reduced, not yet eliminated. Recommend the haiku engine (this ticket's tagged owner) finish the shell-side wiring + bump-model.sh."
   },
   {
     id: 'imp-1281',

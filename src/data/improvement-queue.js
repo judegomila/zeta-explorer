@@ -18995,7 +18995,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'META-HARNESS: ticket-seeding CLI for programmatic queue additions',
     category: 'meta',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S0',
     description: "Adding a ticket to src/data/improvement-queue.js currently requires hand-editing a JS object inside an exported const. Build scripts/seed-ticket.mjs taking flags --id imp-NNNN --title '...' --priority critical|high|medium|low --category proof|content|ux|meta --proof-section S0..S7 --description '...' --rationale '...' --depends-on imp-XXX,imp-YYY --model opus-4-8|sonnet-4-6|haiku-4-5 --channel api|subscription|sonnet. Validates ID is next available, ID format is imp-NNNN, no duplicate IDs. AST-parses the file via @babel/parser, finds end of array, inserts new entry preserving formatting. Dry-run flag. Saves ~1-2 min per ticket * many tickets per wave.",
     rationale: 'Wave seeding (often 10+ tickets at a time) is currently a 10-15 min manual block. CLI cuts that to 2-3 min.',
@@ -19003,6 +19003,9 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
+    completedAt: '2026-05-29T05:10:00Z',
   },
   {
     id: 'imp-1276',

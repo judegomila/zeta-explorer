@@ -867,6 +867,19 @@ const DATA_MODULES = [
   // (imp-1307), Berry-Keating (imp-1308), imp-1310 alternative §15-27 pathway
   // with sigma <= 1. 12 tripwires.
   '/src/data/imp-1309-tao-entropy-pcc-attack.js',
+  // imp-1308: NEW-INPUT CRITICAL classification — does the Berry-Keating H = xp
+  // semiclassical Hamiltonian (BK1999) + Sierra-Townsend 2008 Landau-level
+  // quantum correction provide a new input bypassing the Montgomery PCC
+  // obstruction at support > 1? Verdict: berry-keating-program-not-rigorous-
+  // as-published. (B1) no self-adjoint operator / reproduces only the smooth
+  // counting function, not the zeros (Hilbert-Polya unconstructed); (B2) the
+  // Bogomolny-Keating 1996 semiclassical PCC at support > 1 is CONDITIONAL on
+  // Hardy-Littlewood (equivalent to PCC via Goldston-Montgomery 1987, circular);
+  // (B3) the off-diagonal periodic-orbit sum IS the explicit-formula off-diagonal
+  // correction, hitting the same (log T)^{1/2} Cauchy-Schwarz slack as imp-1303 /
+  // imp-1305. Second geometric route after Connes-Bost (imp-1307), also NOT
+  // RIGOROUS. 12 tripwires.
+  '/src/data/imp-1308-berry-keating-quantum-attack.js',
 ];
 
 const ALL_MODULES = FAST_MODE

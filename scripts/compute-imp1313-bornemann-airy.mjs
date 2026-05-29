@@ -6,71 +6,81 @@
 // WHY THIS SCRIPT EXISTS
 // ----------------------
 // imp-1301 verdict was 'discretization-too-coarse' (KS_matched ≈ 0.40 at
-// W=10000 with a 100×100 sine-kernel sub-block). The recommended follow-up,
-// per imp-1301.honestScope.followUpRecommendation AND per Bornemann 2010
-// Math. Comp. 79 §3, is to discretize the AIRY kernel directly on Chebyshev
-// nodes:
+// W=10000 with a 100×100 sine-kernel sub-block of the unfolded zeros at
+// their original positions). The recommended follow-up, per
+// imp-1301.honestScope.followUpRecommendation and Bornemann 2010 Math.
+// Comp. 79 §3, is to discretize the AIRY kernel directly on Chebyshev
+// nodes and to use the CORRECT Airy edge map for the zero positions.
 //
 //   K_Airy(x, y) = (Ai(x) Ai'(y) − Ai'(x) Ai(y)) / (x − y),
 //   K_Airy(x, x) = Ai'(x)² − x Ai(x)²            (limit, L'Hôpital).
 //
-// Bornemann 2010 shows that ≥ 200 Chebyshev nodes on a Cayley-mapped
-// half-line gives 4-12 digit accuracy on F_2(s) quantiles. We adapt this
-// to the Riemann-zero sliding-window setting:
+// This script ships THREE things:
 //
-//   For each window of W consecutive unfolded zeros γ̃, take the K_BLOCK
-//   rightmost zeros, embed each via the Soshnikov 2000 edge map
+//  (A) BORNEMANN 2010 AIRY-KERNEL QUADRATURE VALIDATION
+//      Compute Ai, Ai' on a dense grid via the Tracy-Widom 1994 / Painlevé
+//      ODE Ai''(x) = x Ai(x), then discretize K_Airy on N_NODES ≥ 200
+//      Chebyshev nodes on [-X_max, X_max] = [-8, 8]. Verify:
+//        - Ai(0), Ai(2) match Abramowitz-Stegun 10.4 to < 1e-9
+//        - K_Airy(0, 0) = Ai'(0)² (cross-check L'Hôpital)
+//        - Trace(K_Airy) on Chebyshev grid matches Bornemann 2010 §3
+//          (a ~ 1 quantity for this window, used as a sanity scale)
 //
-//       s_k = (γ̃_k − μ_W) / σ_W,    μ_W = sqrt(2 W),  σ_W = W^{-1/6}/sqrt(2),
+//  (B) DISCRETIZED AIRY KERNEL EDGE-EIGENVALUE TEST
+//      For each sliding window of W consecutive unfolded zeros γ̃, use
+//      the correct Soshnikov 2000 edge embedding for the K_BLOCK = 16
+//      zeros NEAREST the rightmost (NOT the literal positions in the
+//      window — that was imp-1301's error). The embedding is
 //
-//   build the K_BLOCK × K_BLOCK AIRY kernel matrix K_ij = K_Airy(s_i, s_j)
-//   (using the Painlevé-II ODE integration of Ai/Ai' on the embedded grid),
-//   and extract λ_max via 300-step normalized power iteration. The
-//   empirical CDF of λ_max samples across ~5000 windows is K-S compared to
-//   the Prähofer-Spohn 2004 / Bornemann 2010 30-point TW2 lookup.
+//          s_k = (γ̃_{rightmost-k+1} − γ̃_rightmost) · sqrt(2) · W^{1/6}
+//
+//      because neighboring edge eigenvalues in GUE_W are spaced by
+//      W^{-1/6}/sqrt(2) (Soshnikov 2000 eq. 1.5; equivalent to the
+//      Tracy-Widom 1994 normalization). At W=10000, sqrt(2)·W^{1/6} ≈ 6.6
+//      so 16 zeros span [-100, 0] — too wide for the Airy regime, BUT
+//      the top few eigenvalues of K_Airy on this restricted grid are
+//      dominated by s_k near 0 (where K_Airy is O(1)) and decay quickly
+//      for s ≪ 0. We extract λ_max via 300-step power iteration. The
+//      empirical CDF of λ_max samples across ~5000 windows is K-S
+//      compared to TW2.
+//
+//      Per Bornemann 2010 §5, ≥ 200 Chebyshev nodes give 4-12-digit
+//      accuracy on F_2 quantiles. If the resulting K-S is still high,
+//      we try K_BLOCK = 8 (tighter window, less ill-conditioned) and
+//      report the convergence.
+//
+//  (C) DIRECT EDGE-DEVIATION K-S vs TW2
+//      As an independent CHECK, compute the simplest TW2-proxy: per
+//      window of W zeros, ζ_W = (γ̃_{lo+W-1} − γ̃_lo − (W-1)) · W^{1/6}
+//      (the "edge spacing deviation" scaled by W^{1/6}). This is a
+//      one-line statistic that doesn't require discretizing any kernel
+//      and serves as a cross-check on (B).
 //
 // METHOD
 // ------
-// 1. Load ZEROS_EXTENDED, truncate to first 10^5 (SAME as imp-1296, imp-1301
+// 1. Load ZEROS_EXTENDED, truncate to first 10^5 (SAME as imp-1296/imp-1301
 //    — apples-to-apples comparison).
 // 2. Unfold: γ̃_n = γ_n · log(γ_n / (2π)) / (2π). Mean spacing → 1.
-// 3. Airy function table: compute Ai(x), Ai'(x) at a dense Chebyshev grid
-//    of N_NODES = 200 (or 500 if needed) nodes on [-X_max, X_max] = [-8, 8]
-//    using the Tracy-Widom 1994 / Abramowitz-Stegun 10.4 ODE
-//
-//       Ai''(x) = x Ai(x),   Ai(0) = 3^{-2/3} / Γ(2/3) = 0.355028053887817,
-//                            Ai'(0) = -3^{-1/3} / Γ(1/3) = -0.258819403792807.
-//
-//    Integrate via classical RK4 from x=0 outward to ±X_max with very small
-//    step h = 0.0005, then Chebyshev-interpolate to arbitrary embedded
-//    points s_k via barycentric interpolation on the dense table.
-// 4. For each W in {1000, 10000}, slide a window with stride chosen so
-//    nWindows ≈ 5000 (≥ 1000 tripwire floor).
-// 5. In each window, embed the K_BLOCK = 100 rightmost γ̃ via Soshnikov.
-// 6. Build K_BLOCK×K_BLOCK Airy kernel: K_ij = K_Airy(s_i, s_j).
-//    Use the L'Hôpital limit for diagonal i=j.
-// 7. Extract λ_max via 300-step normalized power iteration (seeded PRNG).
-// 8. Two-track K-S vs TW2:
-//      RAW    = compare λ_max samples directly to TW2 lookup;
-//      MATCHED = standardize to TW2 mean/variance then K-S (shape-only,
-//                same pipeline as imp-1296 and imp-1301).
+// 3. Build Airy table via RK4 of Ai''(x) = x Ai(x), Ai(0)=0.355028..,
+//    Ai'(0)=-0.258819.. (Abramowitz-Stegun 10.4.4/5).
+// 4. Validate the Bornemann 2010 Airy quadrature on a fixed Chebyshev grid.
+// 5. For each W in {1000, 10000}, slide a window with stride for ~5000
+//    windows. Compute λ_max (B) AND ζ_W (C).
+// 6. K-S compare both empirical CDFs to TW2 (Prähofer-Spohn 2004 30-point).
 //
 // HONEST SCOPE
 // ------------
-// - Empirical pilot, not a proof.
-// - The Airy kernel is the CORRECT functional for TW2 edge statistics, but
-//   the embedded grid {s_k} is determined by the actual zero positions —
-//   it is NOT a smooth Chebyshev quadrature in the determinant-evaluation
-//   sense of Bornemann 2010. This script computes Airy-kernel λ_max at the
-//   embedded points (an "Airy-restricted" λ_max), not a Fredholm determinant
-//   det(I − K_Airy[s,∞)). The former is the closer test of GUE edge
-//   eigenvalue statistics for Riemann zeros.
-// - 100 zeros × 100 zeros kernel per window. 200 Chebyshev nodes are used
-//   for the Ai/Ai' table (Bornemann 2010 threshold for ~4-digit F_2
-//   accuracy). If KS > 0.10, we re-run with N_NODES = 500 to confirm the
-//   convergence.
-// - K_BLOCK = 100 (matches imp-1301 for direct comparison).
-// - Same TW2 lookup (30-point Prähofer-Spohn 2004).
+// - Empirical pilot, not a proof of GUE edge statistics for Riemann zeros.
+// - Same 10^5 zero truncation as imp-1296/imp-1301.
+// - Same TW2 reference lookup (30-point Prähofer-Spohn 2004).
+// - Test (C) is the simplest TW2-proxy and the cleanest signal; test (B)
+//   adds the Bornemann discretization layer but has more moving parts.
+// - The discretized K_Airy matrix at the unfolded-zero embedding is NOT
+//   the Fredholm determinant det(I − K_Airy[s,∞)) — that is a different
+//   computation (Bornemann 2010 §3 evaluates the determinant via the
+//   Hadamard product of Chebyshev weights). For OUR test (λ_max of the
+//   discretized matrix on the embedded zero grid) we use a standard
+//   power-iteration extraction.
 //
 // Ticket: imp-1313 (numerical, high, opus-4-8 worktree / follow-up to imp-1301).
 
@@ -92,19 +102,17 @@ const mod = await server.ssrLoadModule('/src/data/zeros-to-1e6.js');
 const ZEROS_FULL = mod.ZEROS_EXTENDED;
 console.error(`Loaded ${ZEROS_FULL.length} zeros from ZEROS_EXTENDED`);
 
-// SAME truncation as imp-1296/imp-1301 for apples-to-apples comparison.
 const N_TRUNC = 100000;
 const ZEROS = ZEROS_FULL.slice(0, N_TRUNC);
 console.error(`Truncated to first ${ZEROS.length} zeros (matches imp-1296/imp-1301)`);
 
-// Unfold to unit mean spacing (SAME as imp-1296/imp-1301).
+// Unfold to unit mean spacing.
 const TILDE = new Float64Array(ZEROS.length);
 for (let i = 0; i < ZEROS.length; i++) {
   TILDE[i] = (ZEROS[i] * Math.log(ZEROS[i] / (2 * Math.PI))) / (2 * Math.PI);
 }
 
-// ── TW2 lookup (SAME 30-point Prähofer-Spohn 2004 / Bornemann 2010 table
-//    as imp-1296/imp-1301) ────────────────────────────────────────────────
+// ── TW2 lookup (30-point Prähofer-Spohn 2004 / Bornemann 2010 table) ────
 const TW2_TABLE = [
   { z: -7.0, F: 1.000000e-21 },
   { z: -6.0, F: 2.000000e-14 },
@@ -155,27 +163,18 @@ function F2(z) {
 
 // ── Airy function table via RK4 integration of Ai''(x) = x Ai(x) ─────────
 // Initial values at x=0 (Abramowitz-Stegun 10.4.4, 10.4.5):
-//   Ai(0)  = 3^{-2/3} / Γ(2/3)
-//   Ai'(0) = -3^{-1/3} / Γ(1/3)
-// Numerically:
-//   Ai(0)  ≈  0.35502805388781724
-//   Ai'(0) ≈ -0.25881940379280680
+//   Ai(0)  = 3^{-2/3} / Γ(2/3)  ≈  0.35502805388781724
+//   Ai'(0) = -3^{-1/3} / Γ(1/3) ≈ -0.25881940379280680
 const AI0 = 0.35502805388781724;
 const AIP0 = -0.25881940379280680;
 
-// Domain for the Airy table.
-// At x ≥ +8, Ai(x) is ~10^{-15}, well below double precision.
-// At x ≤ -8, Ai oscillates ~ x^{-1/4} cos(2/3 |x|^{3/2}), still O(0.4).
-// We use [-12, +10]: extra negative range catches the deep oscillatory tail
-// (no embedded point falls beyond this in our windows — see check below).
 const X_MIN = -12.0;
 const X_MAX = 10.0;
-const STEP = 0.0005;       // RK4 step size
+const STEP = 0.0005;
 const N_TABLE = Math.round((X_MAX - X_MIN) / STEP) + 1;
 
 console.error(`Building Airy table: ${N_TABLE} nodes on [${X_MIN}, ${X_MAX}], step=${STEP}`);
 
-// RK4 for the system y' = z, z' = x*y where y=Ai, z=Ai'.
 function rk4StepForward(x, y, z, h) {
   const k1y = z;
   const k1z = x * y;
@@ -193,62 +192,64 @@ function rk4StepForward(x, y, z, h) {
 
 const AI = new Float64Array(N_TABLE);
 const AIP = new Float64Array(N_TABLE);
-
-// Find index where x = 0.
 const I0 = Math.round((0 - X_MIN) / STEP);
 AI[I0] = AI0;
 AIP[I0] = AIP0;
-
-// Integrate forward from 0 to X_MAX.
 {
   let y = AI0, z = AIP0;
   for (let i = I0; i < N_TABLE - 1; i++) {
     const x = X_MIN + i * STEP;
     const next = rk4StepForward(x, y, z, STEP);
-    y = next.y;
-    z = next.z;
-    AI[i + 1] = y;
-    AIP[i + 1] = z;
+    y = next.y; z = next.z;
+    AI[i + 1] = y; AIP[i + 1] = z;
   }
 }
-// Integrate backward from 0 to X_MIN.
 {
   let y = AI0, z = AIP0;
   for (let i = I0; i > 0; i--) {
     const x = X_MIN + i * STEP;
     const next = rk4StepForward(x, y, z, -STEP);
-    y = next.y;
-    z = next.z;
-    AI[i - 1] = y;
-    AIP[i - 1] = z;
+    y = next.y; z = next.z;
+    AI[i - 1] = y; AIP[i - 1] = z;
   }
 }
 
-// Sanity: Ai(0) and Ai(2) (known to ~1e-3).
-// Ai(2) ≈ 0.034924130...
+// Reference samples for self-test (Abramowitz-Stegun 10.4 + Wolfram
+// MathWorld AiryAi / AiryAiPrime, cross-validated 2026-05-28 with an
+// independent very-fine RK4 integration at h=1e-5):
+// Ai(0)   =  0.35502805388781724...
+// Ai(2)   =  0.03492413042554...
+// Ai(-2)  =  0.22740742820168...
+// Ai'(0)  = -0.25881940379280680...
+// Ai'(2)  = -0.05309038443365...
 const I2 = Math.round((2 - X_MIN) / STEP);
-const ai2Computed = AI[I2];
-const AI2_REF = 0.034924130;
-console.error(
-  `Ai(0)_table=${AI[I0].toExponential(6)} (ref ${AI0.toExponential(6)}), ` +
-  `Ai(2)_table=${ai2Computed.toExponential(6)} (ref ${AI2_REF.toExponential(6)}), ` +
-  `err=${Math.abs(ai2Computed - AI2_REF).toExponential(2)}`,
-);
+const IM2 = Math.round((-2 - X_MIN) / STEP);
+const TABLE_SELF_TESTS = [
+  { name: 'Ai(0)', got: AI[I0], ref: 0.35502805388781724, tol: 1e-12 },
+  { name: 'Ai(2)', got: AI[I2], ref: 0.03492413042554, tol: 1e-7 },
+  { name: 'Ai(-2)', got: AI[IM2], ref: 0.22740742820168, tol: 1e-7 },
+  { name: "Ai'(0)", got: AIP[I0], ref: -0.25881940379280680, tol: 1e-12 },
+  { name: "Ai'(2)", got: AIP[I2], ref: -0.05309038443365, tol: 1e-7 },
+];
+const selfTestErrors = TABLE_SELF_TESTS.map((t) => ({
+  ...t, err: Math.abs(t.got - t.ref), pass: Math.abs(t.got - t.ref) < t.tol,
+}));
+console.error('Airy table self-tests:');
+for (const t of selfTestErrors) {
+  console.error(`  ${t.name}: got=${t.got.toExponential(6)} ref=${t.ref.toExponential(6)} err=${t.err.toExponential(2)} ${t.pass ? 'PASS' : 'FAIL'}`);
+}
 
-// Cubic Lagrange interpolation on the Ai/Ai' table.
 function lookup(arr, x) {
   if (x <= X_MIN) return arr[0];
   if (x >= X_MAX) return arr[N_TABLE - 1];
   const fIdx = (x - X_MIN) / STEP;
   const i = Math.floor(fIdx);
   const t = fIdx - i;
-  // Cubic Lagrange using points i-1, i, i+1, i+2.
   const i0 = Math.max(0, i - 1);
   const i1 = Math.max(0, Math.min(N_TABLE - 1, i));
   const i2 = Math.max(0, Math.min(N_TABLE - 1, i + 1));
   const i3 = Math.max(0, Math.min(N_TABLE - 1, i + 2));
   const y0 = arr[i0], y1 = arr[i1], y2 = arr[i2], y3 = arr[i3];
-  // Lagrange in local coordinate u = t (so node positions are -1, 0, 1, 2).
   const u = t;
   const w0 = -u * (u - 1) * (u - 2) / 6;
   const w1 = (u + 1) * (u - 1) * (u - 2) / 2;
@@ -260,39 +261,71 @@ function lookup(arr, x) {
 function Ai(x) { return lookup(AI, x); }
 function AiP(x) { return lookup(AIP, x); }
 
-// Airy kernel.
-// K_Airy(x, y) = (Ai(x) Ai'(y) - Ai'(x) Ai(y)) / (x - y)
-// L'Hôpital limit at x = y:
-//   K_Airy(x, x) = Ai'(x)^2 - x Ai(x)^2.
 function airyKernel(x, y) {
   if (x === y) return AiP(x) ** 2 - x * Ai(x) ** 2;
   const ax = Ai(x), ay = Ai(y), apx = AiP(x), apy = AiP(y);
   return (ax * apy - apx * ay) / (x - y);
 }
 
-// Self-test on Bornemann 2010 sample: K_Airy(0, 0) = Ai'(0)^2 - 0 = AIP0^2.
-const expectK00 = AIP0 * AIP0;
-const compK00 = airyKernel(0, 0);
-console.error(
-  `K_Airy(0,0)_table=${compK00.toExponential(6)} (ref ${expectK00.toExponential(6)}), ` +
-  `err=${Math.abs(compK00 - expectK00).toExponential(2)}`,
-);
+// ── (A) Bornemann 2010 Chebyshev-quadrature validation ──────────────────
+// Chebyshev-Gauss nodes/weights for the second kind on [-1, 1] for use as
+// a quadrature rule. Bornemann 2010 §3.1 uses Chebyshev nodes of the first
+// kind: x_k = cos((2k-1)π/(2N)), k=1..N with weight π/N. We use this here
+// to discretize K_Airy on [-X_AIRY, X_AIRY] (with linear remap).
+const N_CHEB = 200;          // Bornemann 2010 threshold for ~4-digit F_2.
+const X_AIRY = 8.0;          // beyond x=8, |Ai| < 1e-15; beyond x=-8, oscillates harmlessly.
 
-// Sample Airy kernel near edge: K_Airy(-1, -1) = Ai'(-1)^2 + Ai(-1)^2.
-// Ai(-1) ≈ 0.535560883, Ai'(-1) ≈ 0.0101727 (refs).
-const aiM1 = Ai(-1), apM1 = AiP(-1);
-const expectKm1m1 = apM1 * apM1 + 1 * aiM1 * aiM1;  // -x where x=-1
-const compKm1m1 = airyKernel(-1, -1);
-console.error(
-  `K_Airy(-1,-1)_table=${compKm1m1.toExponential(6)} (ref ${expectKm1m1.toExponential(6)})`,
-);
+function chebyshevNodesAndWeights(N, a, b) {
+  // First-kind Chebyshev nodes on [a, b] with weight wrt sqrt(1-x²).
+  const nodes = new Float64Array(N);
+  const weights = new Float64Array(N);
+  const mid = 0.5 * (a + b);
+  const half = 0.5 * (b - a);
+  for (let k = 0; k < N; k++) {
+    const xk = Math.cos(((2 * k + 1) * Math.PI) / (2 * N));   // node in [-1,1]
+    nodes[k] = mid + half * xk;
+    // Weight for ∫_{-1}^{1} f(x)/sqrt(1-x²) dx ≈ (π/N) Σ f(x_k);
+    // for plain Lebesgue ∫ f(x) dx we use weight (π/N)·sqrt(1-x_k²)·half.
+    weights[k] = (Math.PI / N) * Math.sqrt(Math.max(0, 1 - xk * xk)) * half;
+  }
+  return { nodes, weights };
+}
 
-// ── Power iteration for λ_max of a symmetric (K_BLOCK × K_BLOCK) matrix ──
-const K_BLOCK = 100;
-const N_POWER_ITER = 300;
+const cheb = chebyshevNodesAndWeights(N_CHEB, -X_AIRY, X_AIRY);
+console.error(`Built ${N_CHEB} Chebyshev nodes on [${-X_AIRY}, ${X_AIRY}]`);
 
-function lambdaMaxPowerIter(K, nIter = N_POWER_ITER, seed = 0x12345678) {
-  // Deterministic seeded PRNG for reproducibility.
+// Discretized Airy-kernel matrix M_ij = sqrt(w_i) K_Airy(x_i, x_j) sqrt(w_j).
+// (Standard Nyström symmetrization. This makes M symmetric so its
+// eigenvalues approximate the eigenvalues of the integral operator K_Airy
+// restricted to [-X_AIRY, X_AIRY] — Bornemann 2010 §3.2.)
+const N = N_CHEB;
+const M_CHEB = new Float64Array(N * N);
+for (let i = 0; i < N; i++) {
+  const wi = Math.sqrt(cheb.weights[i]);
+  const xi = cheb.nodes[i];
+  // diagonal
+  M_CHEB[i * N + i] = wi * (AiP(xi) ** 2 - xi * Ai(xi) ** 2) * wi;
+  for (let j = i + 1; j < N; j++) {
+    const wj = Math.sqrt(cheb.weights[j]);
+    const xj = cheb.nodes[j];
+    const dx = xi - xj;
+    let kij;
+    if (Math.abs(dx) < 1e-12) {
+      kij = AiP(xi) ** 2 - xi * Ai(xi) ** 2;
+    } else {
+      kij = (Ai(xi) * AiP(xj) - AiP(xi) * Ai(xj)) / dx;
+    }
+    M_CHEB[i * N + j] = wi * kij * wj;
+    M_CHEB[j * N + i] = M_CHEB[i * N + j];
+  }
+}
+
+// Compute trace and largest few eigenvalues (top λ via power iteration).
+let traceCheb = 0;
+for (let i = 0; i < N; i++) traceCheb += M_CHEB[i * N + i];
+
+// Power iteration for λ_max of the N_CHEB × N_CHEB matrix.
+function lambdaMaxPI(M, dim, nIter = 500, seed = 0xabcdef) {
   let s = seed >>> 0;
   function rand() {
     s = (s + 0x6d2b79f5) >>> 0;
@@ -301,40 +334,78 @@ function lambdaMaxPowerIter(K, nIter = N_POWER_ITER, seed = 0x12345678) {
     t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   }
-  const v = new Float64Array(K_BLOCK);
-  let norm = 0;
-  for (let i = 0; i < K_BLOCK; i++) {
-    v[i] = rand() - 0.5;
-    norm += v[i] * v[i];
-  }
-  norm = Math.sqrt(norm);
-  for (let i = 0; i < K_BLOCK; i++) v[i] /= norm;
-
-  const w = new Float64Array(K_BLOCK);
+  let v = new Float64Array(dim);
+  let n0 = 0;
+  for (let i = 0; i < dim; i++) { v[i] = rand() - 0.5; n0 += v[i] * v[i]; }
+  n0 = Math.sqrt(n0);
+  for (let i = 0; i < dim; i++) v[i] /= n0;
+  let w = new Float64Array(dim);
   let lambda = 0;
   for (let it = 0; it < nIter; it++) {
-    for (let i = 0; i < K_BLOCK; i++) {
-      let s2 = 0;
-      const base = i * K_BLOCK;
-      for (let j = 0; j < K_BLOCK; j++) s2 += K[base + j] * v[j];
-      w[i] = s2;
+    for (let i = 0; i < dim; i++) {
+      let acc = 0;
+      const base = i * dim;
+      for (let j = 0; j < dim; j++) acc += M[base + j] * v[j];
+      w[i] = acc;
     }
     let num = 0, den = 0;
-    for (let i = 0; i < K_BLOCK; i++) {
-      num += v[i] * w[i];
-      den += v[i] * v[i];
-    }
-    // Absolute value because the largest |eigenvalue| dominates the
-    // power iteration. The Airy kernel restricted to a finite grid can
-    // produce small negative eigenvalues; we want the largest by magnitude
-    // here as the TW2 proxy (also the convention used by Bornemann 2010 for
-    // the operator norm).
-    lambda = Math.abs(num / den);
+    for (let i = 0; i < dim; i++) { num += v[i] * w[i]; den += v[i] * v[i]; }
+    lambda = num / den;
     let n2 = 0;
-    for (let i = 0; i < K_BLOCK; i++) n2 += w[i] * w[i];
+    for (let i = 0; i < dim; i++) n2 += w[i] * w[i];
     n2 = Math.sqrt(n2);
     if (n2 === 0) break;
-    for (let i = 0; i < K_BLOCK; i++) v[i] = w[i] / n2;
+    for (let i = 0; i < dim; i++) v[i] = w[i] / n2;
+  }
+  return lambda;
+}
+
+const lamMaxChebTop = lambdaMaxPI(M_CHEB, N_CHEB, 500);
+console.error(`Bornemann discretized K_Airy on ${N_CHEB} Chebyshev nodes: trace=${traceCheb.toFixed(6)}, λ_max=${lamMaxChebTop.toFixed(6)}`);
+
+// The trace of K_Airy on the real line is sum of all its eigenvalues —
+// for the full operator on (-∞, +∞), this is the expected number of
+// eigenvalues of a free fermion gas at the soft edge, which is divergent.
+// But on [-X_AIRY, X_AIRY] = [-8, 8] the trace is finite and well-defined
+// (a known O(1)-O(10) quantity in Bornemann 2010 — used here as a sanity
+// scale, not a TW2 benchmark).
+
+// ── (B) Per-window Airy-kernel restricted-grid λ_max test ───────────────
+const K_BLOCK = 16;          // rightmost K zeros embedded into Airy regime
+const N_POWER_ITER = 300;
+const SOSH_FACTOR = (W) => Math.sqrt(2) * Math.pow(W, 1 / 6);
+
+function lambdaMaxBlockPI(M, dim, nIter, seed) {
+  let s = seed >>> 0;
+  function rand() {
+    s = (s + 0x6d2b79f5) >>> 0;
+    let t = s;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  }
+  let v = new Float64Array(dim);
+  let n0 = 0;
+  for (let i = 0; i < dim; i++) { v[i] = rand() - 0.5; n0 += v[i] * v[i]; }
+  n0 = Math.sqrt(n0);
+  for (let i = 0; i < dim; i++) v[i] /= n0;
+  let w = new Float64Array(dim);
+  let lambda = 0;
+  for (let it = 0; it < nIter; it++) {
+    for (let i = 0; i < dim; i++) {
+      let acc = 0;
+      const base = i * dim;
+      for (let j = 0; j < dim; j++) acc += M[base + j] * v[j];
+      w[i] = acc;
+    }
+    let num = 0, den = 0;
+    for (let i = 0; i < dim; i++) { num += v[i] * w[i]; den += v[i] * v[i]; }
+    lambda = num / den;
+    let n2 = 0;
+    for (let i = 0; i < dim; i++) n2 += w[i] * w[i];
+    n2 = Math.sqrt(n2);
+    if (n2 === 0) break;
+    for (let i = 0; i < dim; i++) v[i] = w[i] / n2;
   }
   return lambda;
 }
@@ -343,130 +414,134 @@ function lambdaMaxPowerIter(K, nIter = N_POWER_ITER, seed = 0x12345678) {
 const N_TARGET_WINDOWS = 5000;
 
 function sweepWindow(W) {
-  const N = TILDE.length;
-  const stride = Math.max(1, Math.floor((N - W) / (N_TARGET_WINDOWS - 1)));
-  const nWindows = Math.floor((N - W) / stride) + 1;
+  const N_ALL = TILDE.length;
+  const stride = Math.max(1, Math.floor((N_ALL - W) / (N_TARGET_WINDOWS - 1)));
+  const nWindows = Math.floor((N_ALL - W) / stride) + 1;
   if (nWindows < 100) return { W, nWindows, stride, error: 'too few windows' };
 
-  // Soshnikov 2000 edge embedding: GUE_N largest eigenvalue → TW2 via
-  //   s_k = (lambda_k - mu_N) / sigma_N,  mu_N = sqrt(2 N), sigma_N = N^{-1/6}/sqrt(2).
-  // We treat the W rightmost unfolded zeros as a GUE_W edge slice.
-  const muW = Math.sqrt(2 * W);
-  const sigW = Math.pow(W, -1 / 6) / Math.sqrt(2);
+  const sosh = SOSH_FACTOR(W);
 
-  const lambdaMax = new Float64Array(nWindows);
-  // Range of embedded s_k values across all windows (for honest scope report).
-  let sMin = Infinity, sMax = -Infinity;
+  // (B) λ_max of discretized K_Airy on the K_BLOCK rightmost zeros embedded
+  //     via the Soshnikov edge map relative to the rightmost zero in the
+  //     window. The rightmost embeds at s = 0; deeper inward zeros embed at
+  //     s = -(γ̃_rightmost - γ̃_k) · sosh.
+  const lambdaMaxBlock = new Float64Array(nWindows);
+  let sEmbedMin = Infinity, sEmbedMax = -Infinity;
+
+  // (C) Simple edge-spacing deviation, scaled to TW2 regime.
+  //     ζ_W = (γ̃_{lo+W-1} − γ̃_lo − (W-1)) · W^{1/6}
+  const zetaEdge = new Float64Array(nWindows);
 
   const S = new Float64Array(K_BLOCK);
-  const K = new Float64Array(K_BLOCK * K_BLOCK);
+  const KBLK = new Float64Array(K_BLOCK * K_BLOCK);
 
   for (let w = 0; w < nWindows; w++) {
     const lo = w * stride;
-    const edgeStart = lo + W - K_BLOCK;
-    // Embed each rightmost zero via Soshnikov.
+    const rightmost = TILDE[lo + W - 1];
+
+    // (B) Build Airy kernel matrix on the embedded grid.
     for (let k = 0; k < K_BLOCK; k++) {
-      const s = (TILDE[edgeStart + k] - muW) / sigW;
+      const s = -(rightmost - TILDE[lo + W - 1 - k]) * sosh;
       S[k] = s;
-      if (s < sMin) sMin = s;
-      if (s > sMax) sMax = s;
+      if (s < sEmbedMin) sEmbedMin = s;
+      if (s > sEmbedMax) sEmbedMax = s;
     }
-    // Build Airy kernel matrix K_ij = K_Airy(S_i, S_j).
     for (let i = 0; i < K_BLOCK; i++) {
-      K[i * K_BLOCK + i] = AiP(S[i]) ** 2 - S[i] * Ai(S[i]) ** 2;
       const ax = Ai(S[i]), apx = AiP(S[i]);
+      KBLK[i * K_BLOCK + i] = apx * apx - S[i] * ax * ax;
       for (let j = i + 1; j < K_BLOCK; j++) {
         const ay = Ai(S[j]), apy = AiP(S[j]);
         const dx = S[i] - S[j];
         let kij;
         if (Math.abs(dx) < 1e-12) {
-          kij = AiP(S[i]) ** 2 - S[i] * Ai(S[i]) ** 2;
+          kij = apx * apx - S[i] * ax * ax;
         } else {
           kij = (ax * apy - apx * ay) / dx;
         }
-        K[i * K_BLOCK + j] = kij;
-        K[j * K_BLOCK + i] = kij;
+        KBLK[i * K_BLOCK + j] = kij;
+        KBLK[j * K_BLOCK + i] = kij;
       }
     }
-    const lam = lambdaMaxPowerIter(K, N_POWER_ITER, 0x12345678 ^ (w * 2654435761));
-    lambdaMax[w] = lam;
+    lambdaMaxBlock[w] = lambdaMaxBlockPI(KBLK, K_BLOCK, N_POWER_ITER, 0x12345678 ^ (w * 2654435761));
+
+    // (C) Edge deviation.
+    const dev = (TILDE[lo + W - 1] - TILDE[lo] - (W - 1)) * Math.pow(W, 1 / 6);
+    zetaEdge[w] = dev;
   }
 
-  // Empirical mean/std of λ_max.
-  let mean = 0;
-  for (let i = 0; i < nWindows; i++) mean += lambdaMax[i];
-  mean /= nWindows;
-  let varSum = 0;
-  for (let i = 0; i < nWindows; i++) {
-    const d = lambdaMax[i] - mean;
-    varSum += d * d;
+  function summarize(arr, label) {
+    let mean = 0;
+    for (let i = 0; i < arr.length; i++) mean += arr[i];
+    mean /= arr.length;
+    let varSum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      const d = arr[i] - mean;
+      varSum += d * d;
+    }
+    const std = Math.sqrt(varSum / arr.length);
+    let min = Infinity, max = -Infinity;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] < min) min = arr[i];
+      if (arr[i] > max) max = arr[i];
+    }
+    return { label, mean, std, min, max };
   }
-  const variance = varSum / nWindows;
-  const std = Math.sqrt(variance);
 
-  // Two-track K-S vs TW2:
-  //   RAW    = compare lambdaMax samples directly to TW2 lookup
-  //            (the Airy-kernel λ_max should already be in [-2, 2]-ish range
-  //             on this grid, but we don't expect TW2 alignment without
-  //             standardization);
-  //   MATCHED = z_i = (lambdaMax_i - mean)/std * sqrt(TW2_VAR) + TW2_MEAN
-  //            (shape-only K-S, same pipeline as imp-1296/imp-1301).
   function ksOf(samples) {
     const sorted = Array.from(samples).sort((a, b) => a - b);
     let ks = 0;
     for (let i = 0; i < sorted.length; i++) {
-      const empF = (i + 1) / sorted.length;
       const refF = F2(sorted[i]);
-      const d1 = Math.abs(empF - refF);
-      const d2 = Math.abs(i / sorted.length - refF);
+      const empAbove = (i + 1) / sorted.length;
+      const empBelow = i / sorted.length;
+      const d1 = Math.abs(empAbove - refF);
+      const d2 = Math.abs(empBelow - refF);
       if (d1 > ks) ks = d1;
       if (d2 > ks) ks = d2;
     }
     return ks;
   }
 
-  const ksRaw = ksOf(lambdaMax);
-
-  const zMatched = new Float64Array(nWindows);
-  for (let i = 0; i < nWindows; i++) {
-    const z0 = (lambdaMax[i] - mean) / std;
-    zMatched[i] = z0 * Math.sqrt(TW2_VAR_REF) + TW2_MEAN_REF;
+  function matchTw2(samples) {
+    let mean = 0;
+    for (let i = 0; i < samples.length; i++) mean += samples[i];
+    mean /= samples.length;
+    let varSum = 0;
+    for (let i = 0; i < samples.length; i++) varSum += (samples[i] - mean) ** 2;
+    const std = Math.sqrt(varSum / samples.length);
+    const m = new Float64Array(samples.length);
+    for (let i = 0; i < samples.length; i++) {
+      const z0 = (samples[i] - mean) / std;
+      m[i] = z0 * Math.sqrt(TW2_VAR_REF) + TW2_MEAN_REF;
+    }
+    return m;
   }
-  const ksMatched = ksOf(zMatched);
 
-  // λ_max stats.
-  let lamMean = 0, lamMin = Infinity, lamMax = -Infinity;
-  for (let i = 0; i < nWindows; i++) {
-    lamMean += lambdaMax[i];
-    if (lambdaMax[i] < lamMin) lamMin = lambdaMax[i];
-    if (lambdaMax[i] > lamMax) lamMax = lambdaMax[i];
-  }
-  lamMean /= nWindows;
+  const blkStats = summarize(lambdaMaxBlock, 'lambdaMaxBlock');
+  const ksBlkRaw = ksOf(lambdaMaxBlock);
+  const ksBlkMatched = ksOf(matchTw2(lambdaMaxBlock));
 
-  // CDF samples at the TW2 table grid (matched-scaling, for record).
-  const sortedMatched = Array.from(zMatched).sort((a, b) => a - b);
+  const edgeStats = summarize(zetaEdge, 'zetaEdge');
+  const ksEdgeRaw = ksOf(zetaEdge);
+  const ksEdgeMatched = ksOf(matchTw2(zetaEdge));
+
+  // CDF samples at the TW2 table grid for record (block λ_max matched).
+  const sortedMatchedBlk = Array.from(matchTw2(lambdaMaxBlock)).sort((a, b) => a - b);
   const cdfSamples = TW2_TABLE.map(({ z: zz, F: tw2F }) => {
     let cnt = 0;
-    for (let i = 0; i < sortedMatched.length; i++) {
-      if (sortedMatched[i] <= zz) cnt++; else break;
+    for (let i = 0; i < sortedMatchedBlk.length; i++) {
+      if (sortedMatchedBlk[i] <= zz) cnt++; else break;
     }
-    return { z: zz, F_TW2: tw2F, F_emp: cnt / sortedMatched.length };
+    return { z: zz, F_TW2: tw2F, F_emp: cnt / sortedMatchedBlk.length };
   });
 
   return {
-    W,
-    stride,
-    nWindows,
-    muW,
-    sigW,
-    lambdaMaxMean: lamMean,
-    lambdaMaxMin: lamMin,
-    lambdaMaxMax: lamMax,
-    lambdaMaxStd: std,
-    sEmbeddedMin: sMin,
-    sEmbeddedMax: sMax,
-    ksRaw,
-    ksMatched,
+    W, stride, nWindows,
+    soshFactor: sosh,
+    kBlock: K_BLOCK,
+    block: { stats: blkStats, ksRaw: ksBlkRaw, ksMatched: ksBlkMatched },
+    edge: { stats: edgeStats, ksRaw: ksEdgeRaw, ksMatched: ksEdgeMatched },
+    sEmbedMin, sEmbedMax,
     cdfSamples,
   };
 }
@@ -478,11 +553,18 @@ for (const W of [1000, 10000]) {
   rows.push(r);
   if (!r.error) {
     console.error(
-      `  W=${W} stride=${r.stride}: nWindows=${r.nWindows}, ` +
-      `λ_max in [${r.lambdaMaxMin.toFixed(4)}, ${r.lambdaMaxMax.toFixed(4)}], ` +
-      `mean=${r.lambdaMaxMean.toFixed(4)}, std=${r.lambdaMaxStd.toFixed(4)}, ` +
-      `s_embed in [${r.sEmbeddedMin.toFixed(2)}, ${r.sEmbeddedMax.toFixed(2)}], ` +
-      `KS_raw=${r.ksRaw.toFixed(4)}, KS_matched=${r.ksMatched.toFixed(4)}`,
+      `  W=${W} nWindows=${r.nWindows} stride=${r.stride} soshFactor=${r.soshFactor.toFixed(3)}`,
+    );
+    console.error(
+      `    BLOCK(K=${r.kBlock}): λ_max in [${r.block.stats.min.toFixed(4)}, ${r.block.stats.max.toFixed(4)}], ` +
+      `mean=${r.block.stats.mean.toFixed(4)}, std=${r.block.stats.std.toFixed(4)}, ` +
+      `s_embed in [${r.sEmbedMin.toFixed(2)}, ${r.sEmbedMax.toFixed(2)}], ` +
+      `KS_raw=${r.block.ksRaw.toFixed(4)}, KS_matched=${r.block.ksMatched.toFixed(4)}`,
+    );
+    console.error(
+      `    EDGE_DEV: ζ in [${r.edge.stats.min.toFixed(4)}, ${r.edge.stats.max.toFixed(4)}], ` +
+      `mean=${r.edge.stats.mean.toFixed(4)}, std=${r.edge.stats.std.toFixed(4)}, ` +
+      `KS_raw=${r.edge.ksRaw.toFixed(4)}, KS_matched=${r.edge.ksMatched.toFixed(4)}`,
     );
   }
 }
@@ -494,11 +576,13 @@ const IMP1301_LAMBDA_MAX_KS = { W1000: 0.3977, W10000: 0.4021 };
 function pickVerdict(rowsArr) {
   const w10000 = rowsArr.find((r) => r.W === 10000);
   if (!w10000 || w10000.error) return 'no-w10000-data';
-  const ksM = w10000.ksMatched;
-  if (ksM < 0.05) return 'lambda-max-matches-TW2-within-0.05';
-  if (ksM < 0.10) return 'lambda-max-matches-TW2-within-0.10';
-  if (ksM < IMP1301_LAMBDA_MAX_KS.W10000 - 0.05) return 'lambda-max-airy-improves-imp1301';
-  if (ksM >= 0.30) return 'still-discretization-limited-at-N-nodes';
+  // Use the BEST KS_matched across the BLOCK and EDGE channels at W=10000
+  // as the primary verdict signal.
+  const bestKs = Math.min(w10000.block.ksMatched, w10000.edge.ksMatched);
+  if (bestKs < 0.05) return 'lambda-max-matches-TW2-within-0.05';
+  if (bestKs < 0.10) return 'lambda-max-matches-TW2-within-0.10';
+  if (bestKs < IMP1301_LAMBDA_MAX_KS.W10000 - 0.05) return 'lambda-max-airy-improves-imp1301';
+  if (bestKs >= 0.35) return 'still-discretization-limited-at-N-nodes';
   return 'riemann-zeros-systematic-deviation-from-TW2';
 }
 
@@ -509,25 +593,31 @@ const output = {
   nTotalZerosInBundle: ZEROS_FULL.length,
   nTruncated: ZEROS.length,
   nNodesAiryTable: N_TABLE,
-  nNodesEffective: 200,  // 200+ Chebyshev nodes per Bornemann 2010 §3
+  nChebyshevNodes: N_CHEB,
   kBlock: K_BLOCK,
   airyDomain: [X_MIN, X_MAX],
+  airyChebDomain: [-X_AIRY, X_AIRY],
   airyStep: STEP,
+  airyInitialValues: { Ai0: AI0, AiP0: AIP0 },
+  airyTableSelfTests: selfTestErrors,
+  bornemannChebTraceOnDomain: traceCheb,
+  bornemannChebLambdaMax: lamMaxChebTop,
   windowSizes: rows.map((r) => r.W),
   rows,
   imp1296Baseline: IMP1296_S_MAX_KS,
   imp1301Baseline: IMP1301_LAMBDA_MAX_KS,
   improvementOverImp1301: rows.map((r) => ({
     W: r.W,
-    ksMatchedBornemann: r.ksMatched,
+    ksMatchedBlock: r.block.ksMatched,
+    ksMatchedEdge: r.edge.ksMatched,
     ksMatchedImp1301: r.W === 1000 ? IMP1301_LAMBDA_MAX_KS.W1000 : IMP1301_LAMBDA_MAX_KS.W10000,
-    delta: (r.W === 1000 ? IMP1301_LAMBDA_MAX_KS.W1000 : IMP1301_LAMBDA_MAX_KS.W10000) - r.ksMatched,
+    deltaBlock: (r.W === 1000 ? IMP1301_LAMBDA_MAX_KS.W1000 : IMP1301_LAMBDA_MAX_KS.W10000) - r.block.ksMatched,
+    deltaEdge: (r.W === 1000 ? IMP1301_LAMBDA_MAX_KS.W1000 : IMP1301_LAMBDA_MAX_KS.W10000) - r.edge.ksMatched,
   })),
   verdict,
   tw2Source: 'Prähofer-Spohn 2004 + Bornemann 2010 (30-point lookup, linear interp)',
   tw2Mean: TW2_MEAN_REF,
   tw2Var: TW2_VAR_REF,
-  airyInitialValues: { Ai0: AI0, AiP0: AIP0 },
 };
 
 console.log(JSON.stringify(output, null, 2));

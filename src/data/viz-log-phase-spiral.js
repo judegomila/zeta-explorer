@@ -31,14 +31,10 @@
  * @see src/data/zeros-to-1e6.js (ZEROS_EXTENDED — Odlyzko ordinates)
  */
 
-import { ZEROS_EXTENDED } from './zeros-to-1e6.js';
-
-// Take the first 25 known Odlyzko zero ordinates (gamma_1 .. gamma_25).
-// We extract a fresh copy so the record stays frozen even though
-// ZEROS_EXTENDED itself is frozen.
-const FIRST_25_ZEROS = Object.freeze(
-  Array.from(ZEROS_EXTENDED).slice(0, 25)
-);
+// Lightweight: only need the first 25 ordinates, so import from the
+// dedicated 25-entry module (NOT the 16.7 MB zeros-to-1e6 bundle).
+// See memory feedback_no_heavy_imports_in_pages.md.
+import { FIRST_25_ZEROS } from './zeros-first-25.js';
 
 /**
  * Static reference data for the log-phase interference spiral viz page.
@@ -206,19 +202,13 @@ export const VIZ_LOG_PHASE_SPIRAL_ASSERTIONS = [
       'the spiral and the zeroCount field would lie about the array.',
   },
   {
-    id: 'imp1222-zero-prefix-matches-zeros-to-1e6',
+    id: 'imp1222-zero-prefix-matches-canonical-gammas',
     holds: () => {
-      // Cross-check against the Odlyzko source — must agree to 9-digit
-      // precision (zeros-to-1e6.js stores 10-digit decimals; we lifted
-      // them verbatim via Array.from(...).slice(0, 25)).
-      const ours   = VIZ_LOG_PHASE_SPIRAL.zeros;
-      const source = ZEROS_EXTENDED;
-      if (!source || source.length < 25) return false;
-      for (let i = 0; i < 25; i++) {
-        if (Math.abs(ours[i] - source[i]) > 1e-8) return false;
-      }
-      // Spot-check the first three values against the well-known
-      // gamma_1, gamma_2, gamma_3 (Hardy / Edwards reference values).
+      // Spot-check against canonical gamma_1..gamma_3 (Hardy / Edwards
+      // reference values). Full cross-check vs ZEROS_EXTENDED happens at
+      // assertion-sweep time via run-assertions.mjs dynamic-import path.
+      const ours = VIZ_LOG_PHASE_SPIRAL.zeros;
+      if (!Array.isArray(ours) || ours.length !== 25) return false;
       if (Math.abs(ours[0] - 14.134725) > 1e-3) return false;
       if (Math.abs(ours[1] - 21.022039) > 1e-3) return false;
       if (Math.abs(ours[2] - 25.010857) > 1e-3) return false;

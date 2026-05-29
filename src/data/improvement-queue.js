@@ -19012,7 +19012,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'META-HARNESS: in-flight visibility dashboard CLI',
     category: 'meta',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S0',
     description: "Orchestrator currently relies on system-reminder task notifications to track in-flight subagents + engines. Build scripts/inflight.mjs that scans (a) /private/tmp/claude-501/.../tasks/*.output for running task IDs (non-zero size, recent mtime), (b) scripts/.auto-improve*.pid for running engines, (c) ps -ef | grep claude for daemon supervisors. Output table: [PID|task-id, kind, started, duration, model, status]. Optional --watch flag re-renders every 5s. Optional --since N filters last N min. Reduces orchestrator memory load + ramp-up time after context-compaction.",
     rationale: 'Visibility primitive — knowing exactly what is running enables better parallelism decisions.',
@@ -19020,6 +19020,9 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
+    completedAt: '2026-05-29T04:48:30Z',
   },
   {
     id: 'imp-1277',

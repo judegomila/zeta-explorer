@@ -611,6 +611,16 @@ const DATA_MODULES = [
   // larger dynamic range or a tighter M_∞ reference). Verdict:
   // data-limited-at-N=1000000-cannot-push-further. 11 tripwires.
   '/src/data/imp-1300-higher-N-empirical.js',
+  // imp-1271: OPUS-4.8 DEEP audit of v52 Appendices M-O (KYP bounded-real /
+  // positive-real / delay-Gram). Last paper section never directly audited
+  // (referenced by imp-1233 + imp-1245 but never opened). 9 claims classified
+  // against the 13-conjecture audit taxonomy. Verdict: redundant-with-1244+
+  // 1245+1258 — Apps M-O is a control-theoretic re-paraphrase of CDB-Exist /
+  // §27 with no NEW closure path to Λ. Three structural questions (standalone
+  // / block-extension / new-closure-paths) all answer NO (or no-modulo-smobius
+  // for q-a). Signed-Mobius argument-principle route is closest-to-novel sub-
+  // claim, flagged as follow-up sub-gap. 12 tripwires.
+  '/src/data/imp-1271-apps-MNO-audit.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -1,4 +1,7 @@
 /**
+ * @module imp-911-per-plateau-gronwall-certs
+ * @fileoverview Per-plateau interior interval-RK4 Gronwall certificates (N in [100, 10^4]).
+ *
  * imp-933: per-plateau interior interval-RK4 certificates.
  *
  * Aggregates the results of the imp-933 sweep (one interior N per

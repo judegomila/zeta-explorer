@@ -1,4 +1,7 @@
 /**
+ * @module imp-962-per-plateau-gronwall-certs-N10k-to-N1e6
+ * @fileoverview Per-plateau interval-RK4 Gronwall certificates for N in (10^4, 10^6].
+ *
  * imp-962: per-plateau interval-RK4 certificates for N ∈ (10⁴, 10⁶].
  *
  * Sibling of imp-911-per-plateau-gronwall-certs.js (which covers N ∈ [100, 10⁴]).

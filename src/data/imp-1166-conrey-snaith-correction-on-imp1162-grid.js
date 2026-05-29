@@ -1,3 +1,7 @@
+/**
+ * @module imp-1166-conrey-snaith-correction-on-imp1162-grid
+ * @fileoverview Conrey-Snaith 2008 arithmetic-factor numerical computation on the imp-1162 13-point grid.
+ */
 // imp-1166 — Conrey-Snaith 2008 arithmetic factor numerical computation on
 // the imp-1162 13-point linear-statistics extended grid.
 //

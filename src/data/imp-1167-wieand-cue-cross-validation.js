@@ -1,3 +1,7 @@
+/**
+ * @module imp-1167-wieand-cue-cross-validation
+ * @fileoverview Wieand 1999 CUE bulk linear-statistics analog port cross-validating Hughes-Rudnick on the imp-1162 grid.
+ */
 // imp-1167 — Wieand 1999 CUE bulk linear-statistics analog port for
 // cross-validation of the Hughes-Rudnick universality on the imp-1162 grid.
 //

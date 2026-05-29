@@ -18646,7 +18646,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'META-script: scripts/queue-triage.mjs -- weight by 4.8-capable vs 4.7-only when ranking',
     category: 'meta',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'meta-harness',
     description: "scripts/queue-triage.mjs (from imp-1173) ranks tickets. Add a weighting: tickets that benefit from 4.8-grade reasoning (priority=critical or category=proof with estimatedComplexity=large) get a x2 ranking multiplier. Atomic change.",
     rationale: '4.8 deserves the heavy work. Routing nudge.',
@@ -18654,6 +18654,9 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1173'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'subscription',
+    completedAt: '2026-05-29T05:20:09Z',
   },
   {
     id: 'imp-1256',

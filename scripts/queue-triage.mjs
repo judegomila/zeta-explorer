@@ -7,11 +7,13 @@
 //   # Prints to stdout + writes scripts/.queue-triage-state.json
 //
 // Scoring:
-//   priorityWeight: critical=4, high=3, medium=2, low=1
-//   depDepth:       1 / (1 + #unresolved deps)
-//   ageDays:        days since createdAt (else proxy from id ordering;
-//                   lower id = older = larger age)
-//   score = priorityWeight * depDepth * log(1 + ageDays)
+//   priorityWeight:   critical=4, high=3, medium=2, low=1
+//   modelTierBoost:   2 if ticket warrants 4.8-grade reasoning
+//                     (priority=critical OR category=proof+complexity=large/extra-large), else 1
+//   depDepth:         1 / (1 + #unresolved deps)
+//   ageDays:          days since createdAt (else proxy from id ordering;
+//                     lower id = older = larger age)
+//   score = priorityWeight * modelTierBoost * depDepth * log(1 + ageDays)
 //
 // Also flags:
 //   STALLED:          pending with id <= 1100 (legacy, likely stuck)
@@ -33,6 +35,13 @@ const OUT_PATH = path.join(__dirname, '.queue-triage-state.json');
 
 const PRIORITY_WEIGHT = { critical: 4, high: 3, medium: 2, low: 1 };
 const STALLED_ID_CUTOFF = 1100;
+const LARGE_COMPLEXITY = new Set(['large', 'extra-large']);
+
+function modelTierBoostFor(t) {
+  if (t.priority === 'critical') return 2;
+  if (t.category === 'proof' && LARGE_COMPLEXITY.has(t.estimatedComplexity)) return 2;
+  return 1;
+}
 
 function parseIdNumber(id) {
   // ids look like 'imp-001', 'imp-1173', 'imp-407' — extract trailing integer
@@ -93,6 +102,7 @@ async function main() {
   const scored = pending.map(t => {
     const priority = t.priority || 'low';
     const pw = PRIORITY_WEIGHT[priority] ?? 1;
+    const tierBoost = modelTierBoostFor(t);
     const deps = Array.isArray(t.dependsOn) ? t.dependsOn : [];
     const unresolvedDeps = deps.filter(depId => {
       const dep = idIndex.get(depId);
@@ -100,7 +110,7 @@ async function main() {
     });
     const depDepth = 1 / (1 + unresolvedDeps.length);
     const ageDays = ageDaysFromTicket(t, maxIdSeen);
-    const score = pw * depDepth * Math.log(1 + ageDays);
+    const score = pw * tierBoost * depDepth * Math.log(1 + ageDays);
 
     // Broken deps: dependsOn pointing at a missing id
     const brokenDeps = deps.filter(depId => !idIndex.has(depId));
@@ -110,6 +120,7 @@ async function main() {
       title: t.title || '',
       priority,
       priorityWeight: pw,
+      modelTierBoost: tierBoost,
       category: t.category || null,
       proofSection: t.proofSection || null,
       model: t.model || null,
@@ -185,6 +196,7 @@ async function main() {
       title: s.title,
       priority: s.priority,
       priorityWeight: s.priorityWeight,
+      modelTierBoost: s.modelTierBoost,
       category: s.category,
       proofSection: s.proofSection,
       model: s.model,

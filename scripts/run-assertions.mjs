@@ -560,6 +560,14 @@ const DATA_MODULES = [
   // systematic-deviation-above-0.10 with honest interpretation that s_max is
   // NOT the right TW2 proxy (lambda_max would be — future ticket).
   '/src/data/imp-1296-tracy-widom-edge.js',
+  // imp-1287: route-4 Wiener-Hopf factorization for ‖V_{a,Φ}‖ ≤ 1. Uses the
+  // imp-1266 Laplace symbol L[k_a](z) = a/(z²-a²). Bare half-line convolution
+  // K_a has WH bound ‖K_a‖ ≤ sup_t |a/((it)²-a²)| = 1/a. With the Φ twist:
+  // ‖V_{a,Φ}‖ ≤ ‖Φ‖²_∞/a = 0.1996/a (Φ(0)=0.4467 from imp-1266). WH closes
+  // Conj 27.2 for a ≥ ‖Φ‖²_∞ ≈ 0.1996; combined with imp-1267 HS (sharpened
+  // to a ∈ (0, ~37.66] by imp-1260), the union covers ALL a > 0 by two
+  // independent analytical routes. 13 tripwires.
+  '/src/data/imp-1287-volterra-wiener-hopf.js',
 ];
 
 const ALL_MODULES = FAST_MODE

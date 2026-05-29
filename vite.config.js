@@ -7,10 +7,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-three': ['three', '@react-three/fiber', '@react-three/drei'],
-          'vendor-d3': ['d3'],
-          'vendor-katex': ['katex'],
+        manualChunks(id) {
+          if (id.includes('zeros-to-1e6')) return 'data-zeros';
+          if (id.includes('node_modules/three') || id.includes('@react-three')) return 'vendor-three';
+          if (id.includes('node_modules/d3') || id.includes('node_modules/d3-')) return 'vendor-d3';
+          if (id.includes('node_modules/katex')) return 'vendor-katex';
         },
       },
     },

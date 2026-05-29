@@ -617,6 +617,29 @@ const DATA_MODULES = [
   // theta > 1) all fail to close. Extends imp-1297 + imp-1302 negative
   // pattern; PCC for support > 1 remains binding obstruction. 12 tripwires.
   '/src/data/imp-1303-heath-brown-pcc-route.js',
+  // imp-1304: CRITICAL classification — does Iwaniec-Sarnak 2000 Annals
+  // "The non-vanishing of central values of automorphic L-functions and
+  // Landau-Siegel zeros" (Annals of Math. 151 (2000) 1175-1216) bypass
+  // Montgomery PCC at 2-point for the §15-27 ESY-closure single-zeta
+  // statistic WITHOUT PCC input? Verdict:
+  // iwaniec-sarnak-bypasses-pcc-for-family-not-single-zeta. IS2000-Annals
+  // genuinely bypasses PCC for the FAMILY {L(s, f x chi_d) : |d| ~ D, d
+  // fundamental} via amplified second moment + Heath-Brown 1995 quadratic
+  // large sieve + Iwaniec 1997 Petersson trace formula + Kim-Sarnak 2003
+  // theta_2 <= 7/64 (all theorems). But the family-averaging bypass does
+  // NOT transfer to single zeta: the horizontal-vertical Plancherel formula
+  // (Iwaniec-Kowalski 2004 §25.1) is CONJECTURAL and equivalent to the
+  // Sarnak 1995 arithmetic-quantum-chaos conjecture which is itself the
+  // quantum-chaos analogue of Montgomery PCC at 2-point — so the single-
+  // zeta route is CIRCULAR. Auxiliary status CLEANER than imp-1297
+  // (no full Selberg eigenvalue / Phillips-Sarnak density / GRH needed).
+  // Architecturally distinct from imp-1303 sub-route (b) which addressed
+  // the GAFA 1-level density companion paper. Extends imp-1297 + imp-1302 +
+  // imp-1303 negative pattern to the family-averaging surface; PCC for
+  // single zeta with support > 1 remains binding obstruction. Remaining
+  // candidate lever is imp-1305 (Goldston-Yildirim 2003 absolutization).
+  // 12 tripwires.
+  '/src/data/imp-1304-iwaniec-sarnak-no-pcc.js',
   // imp-1300: NOVEL higher-N GUE statistics push (target rate gap). Ticket
   // asked for empirical M_∞(N) at N up to 10^8 to verify the imp-1149
   // N^{-3/2} deviation bound on 100× larger data. Bundle only carries
@@ -651,6 +674,32 @@ const DATA_MODULES = [
   // obstruction (imp-1184) persists in GL(n) case as the Rudnick-Sarnak /
   // Iwaniec-Sarnak matrix-PCC analog. 10 tripwires.
   '/src/data/imp-1298-gl-n-selberg-extension.js',
+  // imp-1259: Survey -- non-Twin-Ladder RH-equivalents not yet in the main
+  // rh-equivalents-reference.js 12-entry catalog. Verdict: Speiser PRESENT;
+  // Davenport-Heilbronn NOT-AN-EQUIVALENT (anti-example, correctly absent);
+  // THREE MISSING GAPS identified: Weil-Bombieri explicit-formula positivity
+  // (1952/1992), Connes adelic spectral triple (Selecta Math. 5, 1999),
+  // Baez-Duarte Ramanujan-Nyman criterion (2003/2005). Adding all three would
+  // bring the catalog to 15 (the imp-1119 spec upper bound). 8 tripwires.
+  '/src/data/imp-1259-rh-equivalents-completeness-audit.js',
+  // imp-1305: CRITICAL classification — can Goldston-Yildirim 2003 (Acta Math
+  // 192 (2004) 95-148, "Higher correlations of divisor sums related to primes
+  // I: Triple correlations") conditional-on-GRH triple-correlation be
+  // ABSOLUTIZED via a Selberg 1944 / Heath-Brown 1979 / Hooley 1965 mean-square
+  // substitute for the GRH input, yielding an unconditional Montgomery PCC
+  // 2-point bound at Fourier support sigma > 1? Verdict:
+  // goldston-yildirim-essentially-same-as-prior-routes. Absolutized GY2003
+  // reduces to the SAME Cauchy-Schwarz / explicit-formula layer as imp-1303
+  // (Heath-Brown 1979) with IDENTICAL (log T)^{1/2} slack in support (1, 5/4)
+  // and no unconditional bound for sigma > 5/4. The Lambda_R divisor-sum
+  // smoothing provides sharper polynomial constants but does not change the
+  // Cauchy-Schwarz rate at the off-diagonal explicit-formula step. Aggregate
+  // verdict across imp-1297 + imp-1302 + imp-1303 + imp-1305: the standard
+  // moment-method toolkit is EXHAUSTED for PCC at 2-point with support > 1;
+  // RH via §15-27 requires GENUINELY NEW INPUT outside the moment-method
+  // family (Connes-Bost, Berry-Keating, novel sieve, or alternative §15-27
+  // closure pathways that decouple from sigma > 1). 12 tripwires.
+  '/src/data/imp-1305-goldston-yildirim-mean-square.js',
 ];
 
 const ALL_MODULES = FAST_MODE

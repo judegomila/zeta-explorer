@@ -19314,7 +19314,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'VIZ: Cayley-Schur Theta_a(z) trajectory in the disk + canonical-system m-function',
     category: 'ux',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "imp-1241/1258 CDB-Exist statement says Theta_a(z) = E_a^#(z) / E_a(z) with E_a(z) = X(a - iz). Build src/pages/CayleySchurTrajectoryPage.jsx: animated unit-disk plot of Theta_a(it) for t in [0, 100], a in {0.001, 0.05, 0.5}. The Cayley transform converts the C_+ canonical-system m-function to a Schur function in the unit disk -- visualizing the trajectory makes Conj 27.2 'Schur class membership' tangible. Cite Krein 1955 + de Branges 1968 Thm 40. Wire into NAV_GROUPS.",
     rationale: 'No visualization of the canonical-system Schur function exists. Helps readers understand the CDB-Exist statement geometrically.',
@@ -19322,6 +19322,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1241'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'haiku-4-5',
+    completedByChannel: 'subscription',
   },
   {
     id: 'imp-1295',

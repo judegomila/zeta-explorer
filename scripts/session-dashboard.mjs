@@ -149,6 +149,28 @@ function lambdaBounds() {
   } catch { return 'see src/data/lambda-roadmap.js'; }
 }
 
+// ── (7) paper audit state ─────────────────────────────────────────────────────
+
+function auditState() {
+  try {
+    const auditFile = path.join(PROJECT_DIR, 'src/data/paper-audit-dashboard.js');
+    const total = parseInt(
+      execSync(`grep -c "auditStatus:" ${JSON.stringify(auditFile)}`,
+        { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] }).trim(),
+      10
+    );
+    let unaudited = 0;
+    try {
+      unaudited = parseInt(
+        execSync(`grep -c "auditStatus: 'UNAUDITED'" ${JSON.stringify(auditFile)}`,
+          { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] }).trim(),
+        10
+      );
+    } catch { /* grep exits 1 when no matches */ }
+    return { audited: total - unaudited, total };
+  } catch { return null; }
+}
+
 // ── render ────────────────────────────────────────────────────────────────────
 
 const W = 68;
@@ -211,5 +233,15 @@ if (hits.length) {
 // (6) lambda
 console.log('\n  LAMBDA BOUNDS');
 console.log(`  ${lambdaBounds()}`);
+
+// (7) audit state
+console.log('\n  PAPER AUDIT STATE');
+const audit = auditState();
+if (audit) {
+  const bar = audit.audited === audit.total ? 'ALL DONE' : `${audit.audited}/${audit.total}`;
+  console.log(`  ${bar} conjectures audited  (${audit.total - audit.audited} UNAUDITED remaining)`);
+} else {
+  console.log('  (paper-audit-dashboard.js unreadable)');
+}
 
 console.log('\n' + HR + '\n');

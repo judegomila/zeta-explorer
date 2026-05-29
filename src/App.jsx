@@ -85,6 +85,7 @@ const VolterraKernelHeatmapPage = lazy(() => import('./pages/VolterraKernelHeatm
 const VolterraNormCurvePage = lazy(() => import('./pages/VolterraNormCurvePage.jsx'));
 const CayleySchurTrajectoryPage = lazy(() => import('./pages/CayleySchurTrajectoryPage.jsx'));
 const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
+const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboardPage.jsx'));
 
 function PageLoader() {
   return (
@@ -504,6 +505,7 @@ function AppShell() {
           <Route path="/lambda-timeline" element={<LambdaTimelinePage />} />
           <Route path="/rh-dag" element={<RhDagPage />} />
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />
+          <Route path="/rh-proof-state" element={<RHProofStateDashboardPage />} />
           <Route path="/dyson-verifier" element={<DysonVerifierPage />} />
           <Route path="/health" element={<HealthPage />} />
           <Route path="/full-story" element={<FullStoryPage />} />

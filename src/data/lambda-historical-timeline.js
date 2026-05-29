@@ -127,6 +127,24 @@ export const LAMBDA_TIMELINE = [
     citation: 'mathexplorer auto-improvement engine, imp-962 / imp-1110 (2026). Internal result, not yet submitted.',
     notes: 'Finite-N result: Lambda(N=1e4) <= 0.02 unconditionally, not the full infinite-N Lambda. Represents a 10x tightening over Platt-Trudgian 2021 for the finite approximant. Full unconditional Lambda <= 0.02 requires closing the remaining sub-gaps in Routes A, B-rate, or C.',
   },
+  {
+    year: 2026,
+    authors: ['ZPO Engine (mathexplorer project)'],
+    bound: 7.98e-4,
+    direction: 'upper',
+    method: 'Conditional on linear-1/N asymptotic model: asymptotic bound Lambda <= 7.98e-4 via composition of interval-arithmetic OLS enclosure on the Dyson collision-time asymptote (a <= 7.673e-4) and the Ingham truncation error (E_trunc_pt = 3.06e-5). Rigorously derived via imp-341 (lim sup property) composed with imp-1149 (explicit N^{-3/2} rate on |t_c(N) - 1/(2 M_infty(N))|), but read through the OLS framework rather than the triangle-inequality direct path.',
+    citation: 'mathexplorer auto-improvement engine, imp-1147 / imp-1162 (2026-05-20). Internal development result.',
+    notes: 'Asymptotic bound: Lambda <= 7.98e-4 conditional on the assumed linear-1/N expansion |t_c(N)| = a + b/N + o(1/N). The o(1/N) residual is not rigorously bounded in this formulation. This bound was later re-examined in imp-1246 (2026-05-28) and improved by dropping the OLS framework and using the imp-341/imp-1149 chain directly.',
+  },
+  {
+    year: 2026,
+    authors: ['ZPO Engine (mathexplorer project)'],
+    bound: 3.06e-5,
+    direction: 'upper',
+    method: 'Unconditional asymptotic bound (modulo Polymath15 bridge G6a): Lambda <= 3.06e-5 via the triangle inequality applied directly to |t_c(N)|. Composes imp-341 (lim sup_N |t_c(N)| = 0 unconditional), imp-1149 (explicit N^{-3/2} rate on |t_c(N) - 1/(2 M_infty(N))|), and the K_1 strip-Jacobian lower bound M_infty(N) >= K_1 (L - log 4 pi) sqrt(N), yielding |t_c(N)| <= 1/(2 K_1 (L - log 4 pi) sqrt(N)) + C_HO / (L * N^{3/2}) -> 0. Combined with Polymath15 bridge (Ingham truncation E_trunc_pt = 3.06e-5 at sigma_opt = 0.75), gives Lambda <= 0 + 3.06e-5.',
+    citation: 'mathexplorer auto-improvement engine, imp-1246 (recheck, 2026-05-28) / imp-1261 (execution, 2026-05-28). Internal development result.',
+    notes: 'Asymptotic unconditional bound modulo the Polymath15 bridge G6a_shock_lipschitz step. Tightens the imp-1147 conditional 7.98e-4 by a factor of approximately 26 by eliminating the linear-1/N conditional dependence via direct composition of three already-shipped rigorous results. The conditional dependence persists only on the Polymath15 bridge, an independent obstruction (sub-tracked as imp-1264).',
+  },
 ];
 
 /**

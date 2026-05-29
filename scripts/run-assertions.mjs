@@ -706,6 +706,32 @@ const DATA_MODULES = [
   // family (Connes-Bost, Berry-Keating, novel sieve, or alternative §15-27
   // closure pathways that decouple from sigma > 1). 12 tripwires.
   '/src/data/imp-1305-goldston-yildirim-mean-square.js',
+  // imp-1307: NEW-INPUT classification — can the Connes-Bost adelic Lefschetz-
+  // trace approach (Connes 1999 Selecta Math. 5, 29-106; Connes-Marcolli 2008
+  // "Noncommutative Geometry, Quantum Fields and Motives", AMS Colloquium
+  // Publications Vol. 55) yield a 2-point bound on the §15-27 ESY-closure
+  // Poisson kernel at Fourier support sigma > 1 that BYPASSES the Montgomery
+  // PCC obstruction documented in imp-1297/1302/1303/1304/1305? Verdict:
+  // connes-bost-program-not-rigorous-as-published. The UNCONDITIONAL absorption
+  // identity Connes 1999 Thm III.1 IS the Weil 1952 explicit formula in adelic
+  // coordinates — same content as the classical explicit formula used by all
+  // five moment-method routes, with the same (log T)^{1/2} Cauchy-Schwarz
+  // obstruction at the off-diagonal prime-power correction. The CONJECTURAL
+  // Lefschetz-trace interpretation Thm III.5 requires unproven type-II_1 trace
+  // positivity on the adele class von Neumann algebra L(Y_Q), local positivity
+  // at every place (equivalent to RH via Weil positivity), and additional
+  // auxiliary inputs (Marcolli adelic universality, Meyer 2005 partial
+  // absorption, Connes-Consani 2014 hyperring approach). 27 years since Connes
+  // 1999 and 18 since Connes-Marcolli 2008 without the load-bearing positivity
+  // being established. Tao 2008 review (MR2371808) explicitly identifies the
+  // program as "suggestive framework rather than proof strategy with clear
+  // endgame". First NEW-INPUT route audited after pcc-moment-methods-exhausted
+  // verdict; aggregate pattern: moment-method family EXHAUSTED + Connes-Bost
+  // NOT RIGOROUS. Engine planning: audit imp-1308 (Berry-Keating + Sierra-
+  // Townsend 2008) next; in parallel DECOUPLE §15-27 closure from PCC at
+  // support > 1 via test-function reformulation inside sigma <= 1 (lambda-
+  // attack reformulation track). 12 tripwires.
+  '/src/data/imp-1307-connes-bost-adelic-attack.js',
   // imp-1301: NOVEL follow-up to imp-1296 — TRUE windowed λ_max via the
   // Christoffel-Darboux sine-kernel restriction (100×100 edge block of the
   // unfolded zeros) compared to TW2 with Soshnikov 2000 centering+rescaling.
@@ -734,6 +760,43 @@ const DATA_MODULES = [
   // follow-ups seed BS rigorous port revival + Kadiri effective-Ingham audit
   // + sigma re-optimisation port. 12 tripwires (10+ required).
   '/src/data/imp-1306-ingham-sharpening.js',
+  // imp-1314: Lambda tightening lever -- can the Polymath15 G6a Holder constant
+  // C_H = 1/8 in the shock-Lipschitz modulus be sharpened by substituting
+  // modern alternatives (Pernici 2007, Caffarelli-Vasseur 2010, Kruzhkov 1970,
+  // Bourgain-Sinai 2009, Deift-Zhou 1993 / Trogdon 2015)? Verdict: G6a-constant-
+  // 1/8-is-already-optimal-via-Dyson-rigidity. The 8 in d(g_min^2)/dt = -8
+  // factors as 2 (chain rule, immutable) * 4 (beta=2 GUE short-range Coulomb
+  // coefficient, fixed by Hermitian conjugation symmetry; Mehta 2004 / Dyson
+  // 1962). Sharpening would require switching ensembles (GSE beta=4 gives
+  // 1/16) which is a category error for the GUE Riemann-zeros conjecture
+  // (Montgomery 1973). All 7 modern alternatives surveyed either bound the
+  // wrong observable (Pernici / Kruzhkov), require viscosity (Caffarelli-
+  // Vasseur, wrong PDE class), give the wrong exponent (Bourgain-Sinai
+  // KPZ 2/3 vs 1/2), or recover the same -4/g_min coefficient without
+  // sharpening (Deift-Zhou / Trogdon / Erdos-Schlein-Yau). Lambda bound
+  // unchanged at 3.06e-5; tightening factor on Lambda = 1.0. The C_H lever
+  // does NOT gate Lambda (E_trunc_pt is the bottleneck; see imp-1306 also
+  // producing tightening factor 1.0). 13 tripwires (8+ required).
+  '/src/data/imp-1314-G6a-constant-sharpening.js',
+  // imp-1311: NOVEL CLASSIFICATION — direct attack on RH and a numerical Lambda
+  // bound via the Robin 1984 (J. Math. Pures Appl. (9) 63 (1984) 187-213) +
+  // Lagarias 2002 (Amer. Math. Monthly 109 (2002) 534-543) sigma(n)/n elementary
+  // RH-equivalent criteria, structurally orthogonal to spectral/moment/explicit-
+  // formula attacks. Verdict: robin-criterion-RH-equivalent-only-not-numerical.
+  // Robin and Lagarias are STRICT RH equivalences (RH iff sigma(n) < e^gamma*n*
+  // log log n for n >= 5041; RH iff sigma(n) <= H_n + exp(H_n)*log(H_n) for
+  // n >= 1) — by Newman 1976 + de Bruijn 1950 this gives Lambda <= 0 IFF RH,
+  // qualitative only. The CA-number asymptotic G(N_k) = sigma(N_k)/(N_k log log
+  // N_k) -> e^gamma along the colossally-abundant sequence (Erdős-Nicolas 1981,
+  // Nicolas 1983, Caveney-Nicolas-Sondow 2011) is governed by Mertens 3rd
+  // theorem with the Mertens constant C_M as the leading correction — NOT a
+  // Lambda-related constant. Empirical evaluation on the first 14 CA numbers +
+  // the known n = 5040 exception recovers the classical Robin failures at
+  // {2, 6, 12, 60, 120, 360, 2520, 5040} and confirms Robin holds at all
+  // sampled n >= 5041 (restating empirical RH on the tested range, strictly
+  // weaker than Platt-Trudgian 2021's verification up to T = 3 * 10^12).
+  // 12 tripwires.
+  '/src/data/imp-1311-robin-lagarias-combinatorial-attack.js',
 ];
 
 const ALL_MODULES = FAST_MODE

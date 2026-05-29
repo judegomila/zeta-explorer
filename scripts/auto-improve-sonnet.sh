@@ -243,7 +243,25 @@ EOF
 
       if [ "$run_count" -lt "$MAX_RUNS" ]; then
         sleep_total=$((INTERVAL + backoff_s))
-        sleep "$sleep_total"
+        # Chunked sleep: poll every 30s so that if another engine clears the
+        # rate-limit sentinel (or an operator deletes it manually), this engine
+        # wakes early instead of sleeping through the full backoff window.
+        elapsed=0
+        while [ "$elapsed" -lt "$sleep_total" ]; do
+          remaining=$(( sleep_total - elapsed ))
+          if [ "$remaining" -gt 30 ]; then
+            sleep 30
+            elapsed=$(( elapsed + 30 ))
+          else
+            sleep "$remaining"
+            elapsed=$(( elapsed + remaining ))
+          fi
+          if [ "$backoff_s" -gt 0 ] && [ ! -f "$BACKOFF_STATE_FILE" ]; then
+            echo "RATE-LIMIT SENTINEL CLEARED externally — resuming early after ${elapsed}s of ${sleep_total}s backoff" | tee -a "$log_file"
+            backoff_s=0
+            break
+          fi
+        done
       fi
     done
 

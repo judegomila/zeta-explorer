@@ -588,6 +588,29 @@ const DATA_MODULES = [
   // measures (PDE / empirical-measure layer). Different objects, different
   // tools, different layers. 11 tripwires.
   '/src/data/imp-1288-section23-freezing-bridge.js',
+  // imp-1302: CRITICAL classification — does Goldston-Gonek 1998 (Annals 148)
+  // + Conrey-Snaith 2008 close Montgomery PCC at 2-point unconditionally?
+  // Verdict: goldston-gonek-improves-but-pcc-remains-open. GG1998 is a
+  // theorem (unconditional, Annals 148, range theta < 1) but its (log T)^2
+  // error prevents extension to theta = 1, let alone sigma > 1. CS2008 is a
+  // CONJECTURE conditional on Conrey-Farmer-Zirnbauer ratios (unproven for
+  // zeta). Combined: closes only the lower-order arithmetic correction
+  // INSIDE Montgomery 1973's already-proven Fourier-support < 1 range; does
+  // NOT extend the support range. Residual gap = PCC for support > 1 where
+  // §15-27 ESY-closure Poisson kernel needs the diagonal-approx step
+  // (imp-1184 D3). Extends imp-1297 negative conclusion to the second-moment
+  // candidate route. 11 tripwires.
+  '/src/data/imp-1302-goldston-gonek-pcc-attack.js',
+  // imp-1300: NOVEL higher-N GUE statistics push (target rate gap). Ticket
+  // asked for empirical M_∞(N) at N up to 10^8 to verify the imp-1149
+  // N^{-3/2} deviation bound on 100× larger data. Bundle only carries
+  // zeros-to-1e6 → script ran at the data ceiling N=10^6 with 3 log-spaced
+  // N values; primary OLS fit α_tc = 0.4808 ± 0.0035 (R^2 = 0.99995) is
+  // the LEADING t_c power-law (t_c ~ 1/(2 M_N), M_N ~ √N at the imp-341
+  // strip), NOT the imp-1149 deviation rate (which would need a much
+  // larger dynamic range or a tighter M_∞ reference). Verdict:
+  // data-limited-at-N=1000000-cannot-push-further. 11 tripwires.
+  '/src/data/imp-1300-higher-N-empirical.js',
 ];
 
 const ALL_MODULES = FAST_MODE

@@ -217,7 +217,7 @@ export default function CayleySchurTrajectoryPage() {
     }
   }, [samples, frame]);
 
-  const currentSample = frame < samples.length ? samples[frame] : null;
+  const currentSample = samples && frame < samples.length ? samples[frame] : null;
 
   return (
     <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>

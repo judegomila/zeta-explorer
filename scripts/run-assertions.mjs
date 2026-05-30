@@ -797,6 +797,34 @@ const DATA_MODULES = [
   // weaker than Platt-Trudgian 2021's verification up to T = 3 * 10^12).
   // 12 tripwires.
   '/src/data/imp-1311-robin-lagarias-combinatorial-attack.js',
+  // imp-1312: NOVEL CLASSIFICATION — direct attack on RH and a numerical Lambda
+  // bound via the Beurling 1955 (Proc. Nat. Acad. Sci. USA 41 (1955) 312-314) +
+  // Nyman 1950 (Uppsala PhD) + Bercovici-Foias 1984 (J. Funct. Anal. 56 (1984)
+  // 168-182) functional-analytic RH-equivalent criterion + the BBLS-05
+  // quantitative form (Balazard-Saias 2005 J. Number Theory 115 234-260).
+  // Verdict: beurling-nyman-RH-equivalent-only-not-numerical. Beurling-Nyman:
+  // RH iff L^2(0,1)-closure of span{rho(theta/x) - theta*rho(1/x) : 0 < theta
+  // < 1} contains 1, where rho(y) = y - floor(y) is the fractional-part
+  // function. BBLS-05 quantitative: d_N^2 := inf integral_0^1 |1 - sum a_k
+  // rho(1/(kx))|^2 dx satisfies d_N -> 0 iff RH, with conjectured asymptotic
+  // d_N^2 ~ C^2/log N where C^2 = sum_{rho} |rho zeta'(rho)|^{-2} is the
+  // Baez-Duarte constant (a zero-side moment, NOT a heat-flow constant). By
+  // Newman 1976 + de Bruijn 1950 the implication is qualitative only — Lambda
+  // <= 0 IFF RH. All three BBLS sub-questions answered NO: finite-N d_N does
+  // not give Lambda bound; conjectured asymptotic does not give Lambda bound;
+  // Baez-Duarte constant does not connect to Lambda (it is a Selberg/
+  // Soundararajan-style zero-side moment). Section §15-27 intersection (per
+  // ticket item 3, imp-1258 two-way collapse ||V_{a,Phi}|| <= 1 ⇔ RH modulo
+  // Montgomery PCC): BN and §27 Volterra are ORTHOGONAL operator-theoretic
+  // families — different Hilbert spaces (L^2(0,1) multiplicative vs L^2([0,
+  // infinity)) sinh-additive), different category (density vs norm-
+  // contraction), Mellin bridge blocked at §27 side by imp-1266 (sinh(at)
+  // kernel additive not multiplicative, Phi-modulation breaks scaling,
+  // sinh(at) no L^2(R_+) Mellin transform). Shared only via trivial RH-
+  // equivalence relation. THIRD orthogonal RH-equivalent family classified
+  // negative (joining elementary-NT imp-1311 Robin/Lagarias and spectral/
+  // moment imp-1297+imp-1302+imp-1303+imp-1305+imp-1309). 12 tripwires.
+  '/src/data/imp-1312-beurling-nyman-attack.js',
   // imp-1310: CRITICAL classification — is there an alternative §15-27 → RH
   // closure pathway whose final step requires ONLY Fourier support ≤ 1 (where
   // Montgomery 1973 is unconditional), thereby DECOUPLING the chain from the
@@ -885,6 +913,113 @@ const DATA_MODULES = [
   // unchanged at 3.06e-5; tightening factor 1.0. Hypothetical scenarios at 1e13, 3e13,
   // 1e14 computed. 6 tripwires.
   '/src/data/imp-1323-T-PT-successor-audit.js',
+  // imp-1324: rigor-honesty audit of the imp-459 implicit-constant-1 assumption at
+  // sigma_opt = 0.75 against the Kadiri family of effective-Ingham bounds (Kadiri
+  // 2013 / KLN 2018 / Simonič 2020) plus mitigating evidence (Heath-Brown 1979,
+  // Ramare 2016). VERDICT: implicit-constant-borderline-needs-paper-grade-uniformity.
+  // The 3.06e-5 headline is defensible at the boundary case sigma = 3/4 via
+  // Heath-Brown 1979, but strict KLN 2018 substitution would push the bound to
+  // ~ 0.253 (just over Polymath15 0.2). Recommended: keep 3.06e-5 with paper-grade
+  // footnote; defensible-conservative bound 1.76e-3 (Ramare); worst-case 0.253 (KLN).
+  // Definitive close via imp-1322 sigma re-optimisation (sigma -> 0.99). 14 tripwires.
+  '/src/data/imp-1324-kadiri-effective-ingham-audit.js',
+  // imp-1321: Bui-Soundararajan 2008 rigor port -- map closability of imp-1123 obstructions
+  // O-BS-A through O-BS-D. Verdict: 2-of-4-closable-rest-need-new-input. O-BS-A (effective
+  // C_BS) closable via Kadiri 2013 / KLN 2018 / Simonic 2020 / Johnston-Yang 2023 explicit-
+  // constants tradition (4-8 weeks); O-BS-D engine-closable (mechanical grep); O-BS-B (pin
+  // A in (log T)^A) closable via paper-walk but LIKELY-BINDING: at central A_BS = 6 the
+  // (log T_PT)^6 ~ 5.6e8 multiplier DESTROYS the formal 2.04e6 tightening; only A_BS <= 4
+  // preserves a 3x rigorous gain (requires Heath-Brown 2008 / Soundararajan-Tao 2024
+  // sharper mollifier); O-BS-C (edge behaviour sigma -> 1) needs new input. Honest bottom
+  // line: closing all 4 yields at most a 3-30x rigorous tightening, NOT the 6 orders of
+  // magnitude claimed by formal substitution. Dedicated explicit-constants paper outlined
+  // (9 sections, 8 lemmas, 40-60 pages, Acta Arith / Math. Comp. venue). 12 tripwires.
+  '/src/data/imp-1321-bui-soundararajan-rigor-port.js',
+  // imp-1322: Lambda tightening -- sigma-reoptimize within Ingham 1940 itself (0.75 -> 0.99,
+  // 6.4e8 formal factor). Verdict: sigma-reopt-needs-new-uniformity-lemma (secondary:
+  // sigma-reopt-equivalent-effort-to-BS-port). The formal 6.4e8 tightening (3.06e-5 ->
+  // 4.79e-14) is exact under C_I = 1, A_I = 0; but the Kadiri 2013 / Kadiri-Lumley-Ng 2018
+  // family worst-case A_I = 6 gives (log T_PT)^6 ~ 5.7e8 loosening that CANCELS the formal
+  // gain pound for pound. The closing lemma needed (A_I = 0 sigma-uniformly as sigma -> 1
+  // with C_I = O(1)) is NOT published in the literature; closing requires a dedicated 1-2
+  // month explicit-constants paper sharing a candidate technique (BFI 1986 mean-value) with
+  // imp-1321. Payoff ratio imp-1322 / imp-1321 ~ 314x IF closable. Parallel attack
+  // recommended. Paper outline shipped (6 sections, principal Lemma 3.1 sigma-uniform
+  // Ingham, 20-30 pages, J. Number Theory / Math. Comp. venue). Closes the imp-1324
+  // "definitive close via imp-1322" requirement. 13 tripwires.
+  '/src/data/imp-1322-ingham-sigma-reopt.js',
+  // imp-1317: CONCRETE empirical test of the imp-1298 GL(n) HS-bound extension
+  // on a specific GL(2) L-function -- the modular discriminant L(s, Delta)
+  // (Ramanujan tau coefficients, weight 12, level 1, self-dual). Computes
+  // Phi_Delta(u) = e^{6u} sum_n tau(n) exp(-2 pi n e^u) on [0, 2] via
+  // truncated series (N_TAU=20; tail < 5e-50 at u=0), evaluates I_0^L,
+  // J_a^L at a in {0.01, 0.05, 0.2}, and compares to Galerkin op_norm via
+  // power iteration on V[i][j] = h * Phi(t_i) Phi(t_j) sinh(a(t_j-t_i)).
+  // VERDICT: gl2-maass-HS-bound-holds. All 3 rows have hs_bound >= op_norm
+  // with consistent 1.71x Cauchy-Schwarz slack (same regime as imp-1267
+  // scalar xi case). Both HS bound (max 4.84e-8) and op_norm (max 2.83e-8)
+  // more than 8 orders below Conj 27.2 threshold of 1. Linearity-in-a
+  // matches expected ratios (5.0 and 4.0) to 0.1%. First concrete empirical
+  // validation of the imp-1298 structural extension. NOT a proof of GRH for
+  // L(s, Delta). Honest scope flags: Delta is HOLOMORPHIC (not Maass per
+  // se), matrix Phi_L of imp-1298 collapses to scalar in weight-12
+  // holomorphic case (true GL(2) Maass test with 2x2 matrix is OPEN). 11
+  // tripwires (8+ required).
+  '/src/data/imp-1317-gl2-maass-hs-concrete.js',
+  // imp-1315: Lambda tightening audit -- can the Drmota-Tichy 1997 Ch. 1
+  // L^2 / 2nd-moment Koksma-Hlawka inequality close the imp-1149 rateGap = 0.5
+  // unconditionally (push |t_c(N) - 1/(2 M_infty(N))| from N^{-3/2} to N^{-2})?
+  // Verdict: koksma-hlawka-needs-RH-input. Two legs traced: (A) square the
+  // sup-norm star-discrepancy and feed through Sobolev -- gain sqrt(N) by
+  // squaring, lose N^{1/4} by H^{1/2} -> L^infty (Stein 1970 Ch. V), net rate
+  // N^{-7/4} (UNCONDITIONAL intermediate, halves residual gap 0.5 -> 0.25
+  // but does NOT close); (B) use Drmota-Tichy L^2 KH with D_N^{*, L^2} = O(1/N)
+  // directly -- this hypothesis is equivalent (Goldston-Montgomery 1987,
+  // Analysis at Urbana Vol. I) to Montgomery PCC at unrestricted Fourier
+  // support, which is OPEN per imp-1297 + imp-1302..1310 exhaustion and is
+  // RH-tier (under RH Lambda = 0 trivially -- circular). Selberg 1944 +
+  // Beck-Chen 1987 + Schmidt 1972 cited for the LDS hypothesis. Drmota-Tichy
+  // 1997 LNM 1651 ISBN 978-3-540-62606-7 Theorem 1.21 + Cor. 1.22 pinned.
+  // Lambda unchanged at 3.06e-5 (E_trunc_pt gates Lambda per imp-1306 audit;
+  // imp-1149 link is asymptotically subdominant). Third Lambda lever audited
+  // and exhausted after imp-1306 (Ingham) and imp-1314 (G6a C_H). 11 tripwires
+  // (8+ required).
+  '/src/data/imp-1315-koksma-hlawka-rate-closure.js',
+  // imp-1318: NEW-INPUT HIGH classification — does Maynard 2024 (closest-known:
+  // Guth-Maynard 2024 zero-density arXiv:2405.20552 + Maynard 2013/2015 GPY-style
+  // small-gap sieve + Maynard 2019 primes-in-AP) sieve method provide a new
+  // input bypassing the Montgomery PCC obstruction at support > 1 that imp-1297 +
+  // imp-1302 + imp-1303 + imp-1304 + imp-1305 (moment family) + imp-1309 (entropy
+  // family) all hit? Verdict: maynard-sieve-applies-only-to-arithmetic-not-spectral.
+  // The sieve method is GENUINELY ORTHOGONAL to BOTH moment AND entropy methods
+  // in its primary domain (multiplicative structure on integers, admissible-tuple
+  // combinatorics, Bombieri-Vinogradov level of distribution) but the orthogonality
+  // does NOT transfer to the single-zeta 2-point PCC observable at sigma > 1 for
+  // three independent structural reasons (parallel to imp-1309 R1/R2/R3):
+  // (S1) arithmetic-to-spectral domain mismatch (sieve on integers Z with Mobius/
+  // divisor/BV; zeros have no multiplicative structure on spacings; translation
+  // via explicit formula Weil/Guinand hits Cauchy-Schwarz at off-diagonal prime-
+  // power sum); (S2) admissible-tuple structure absent from zeros (conjectural
+  // GUE is locally repulsive Wigner-surmise P(s) ~ s^2 e^{-cs^2}, OPPOSITE of
+  // admissible-tuple near-coincidence pattern); (S3) sieve-weight L^1 first-
+  // moment output vs PCC L^2 second-moment input mismatch (sieve gives weighted
+  // counts; PCC needs Fourier-L^2 on second-moment; translation via Cauchy-
+  // Schwarz re-introduces the layer). The sieve method shifts Cauchy-Schwarz
+  // from input stage (on primes) to output stage (in arithmetic-to-spectral
+  // translation via explicit formula OR Pinsker-Parseval) but does not eliminate
+  // it; (log T)^{1/2} slack is a property of the L^1 / L^2 Hölder boundary not
+  // of any specific input. Honest training-time uncertainty: well-attested
+  // Guth-Maynard 2024 is a ZERO-DENSITY bound NOT a pair-correlation bound;
+  // specific Maynard 2024 sieve refinement targeting 2-point uncertain at
+  // January 2026 cutoff. AGGREGATE PATTERN EXTENDED: imp-1297+1302+1303+1304+1305
+  // (moment family) + imp-1309 (entropy family) + imp-1318 (sieve family) all
+  // negative -> pcc-genuinely-open-pending-new-input remains; the THREE major
+  // orthogonal families of modern analytic-NT (moment + entropy + sieve) are
+  // EXHAUSTED for PCC at 2-point with support > 1. Remaining candidates: Connes-
+  // Bost (imp-1307), Berry-Keating (imp-1308), Hecke-triangle Selberg trace,
+  // de Branges (imp-1241), imp-1310 alternative §15-27 pathway (also exhausted).
+  // 13 tripwires.
+  '/src/data/imp-1318-maynard-sieve-pcc.js',
 ];
 
 const ALL_MODULES = FAST_MODE

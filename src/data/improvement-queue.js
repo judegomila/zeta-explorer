@@ -19687,7 +19687,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'NOVEL: Beurling-Nyman density criterion -> RH (1955 reformulation, never opened)',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Beurling 1955 + Nyman 1950 + Bercovici-Foias 1984: RH iff density-statement in L^2(0,1) on certain subspaces of fractional parts. Never opened as proof attack. Walk: (a) state Beurling-Nyman precisely (closure of span of {rho(theta/x)} in L^2(0,1)); (b) is the density satisfied unconditionally via Selberg moment bounds or Heath-Brown 4th moment? (c) does it intersect with the §15-27 -> RH chain at any structural point? Ship src/data/imp-1312-beurling-nyman-attack.js + 8 tripwires.",
     rationale: 'Functional-analytic RH equivalent. Bercovici-Foias gave a quantitative version that might be unconditional. Never opened.',
@@ -19695,6 +19695,10 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'opus-4-8',
     channel: 'api',
+    completedAt: '2026-05-29T00:00:00Z',
+    completedByModel: 'subagent-worktree',
+    completedByChannel: 'opus-4-8-worktree',
+    closureNote: "Shipped src/data/imp-1312-beurling-nyman-attack.js (~640 LOC) classifying Beurling 1955 (PNAS USA 41 1955 312-314) + Nyman 1950 (Uppsala PhD) + Bercovici-Foias 1984 (J. Funct. Anal. 56 168-182) functional-analytic RH-equivalent + BBLS-05 quantitative form (Balazard-Saias 2005 J. Number Theory 115 234-260). VERDICT: beurling-nyman-RH-equivalent-only-not-numerical. BN 1955: RH iff closed L^2(0,1) linear span of { rho(theta/x) - theta*rho(1/x) : 0 < theta < 1 } contains constant 1 (rho = fractional part). BBLS-05 quantitative: d_N^2 := inf integral_0^1 |1 - sum a_k rho(1/(kx))|^2 dx; d_N -> 0 iff RH; Conj 1 under RH d_N^2 ~ C^2/log N with C^2 = sum_{rho} |rho zeta'(rho)|^{-2} (Baez-Duarte constant, a zero-side moment NOT a heat-flow constant). By Newman 1976 + de Bruijn 1950 qualitative only: BN/d_N hold iff RH iff Lambda <= 0. All 3 BBLS sub-questions answered NO (finite-N d_N; conjectured asymptotic; Baez-Duarte constant) -- C^2 is Selberg-style zero-density constant (Soundararajan 2009 convergence under zero-density input), shape parameter of zero set on critical line, NT-side not de Bruijn-flow. Section §15-27 intersection (imp-1258 collapse ||V_{a,Phi}|| <= 1 iff RH modulo Montgomery PCC): BN and §27 Volterra ORTHOGONAL -- different Hilbert spaces (L^2(0,1) multiplicative vs L^2([0, infinity)) sinh-additive), different category (density vs norm-contraction), Mellin bridge blocked at §27 side by imp-1266 (sinh additive not multiplicative, Phi breaks scaling, sinh has no L^2(R_+) Mellin transform), shared only via trivial RH-equivalence. THIRD orthogonal RH-equivalent family classified negative for numerical Lambda joining elementary-NT (imp-1311 Robin/Lagarias) and spectral/moment (imp-1297+1302+1303+1305+1309). NO empirical d_N recomputation -- Burnol 2005 cited (d_N at N <= 5000, ~ 0.05, BBLS Conj. 1 consistent) but not re-derived; classification negative independent of empirical values (subsumed by Platt-Trudgian 2021 RH up to T = 3e12). 12 build-time tripwires (beurling-1955 + bercovici-foias-1984 + BBLS-05 stated precisely; BBLS-quantitative-audit all 3 NO; section15-27-orthogonal X1/X2/X3/X4; lambda-no-quantitative-bridge; verdict-allowed-strings; required-citations Beurling 1955 + Nyman 1950 + Bercovici-Foias 1984 + BBLS-05 + de Bruijn 1950 + Newman 1976 + Platt-Trudgian 2021; cross-references imp-1235/1258/1259/1261/1311; semantic-baez-duarte-zero-side-moment-NOT-heat-flow; semantic-rho-fractional-part-not-zeta-zero; semantic-three-orthogonal-families-pattern). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append after imp-1311.",
   },
 
   // ---- imp-1296/1301 follow-up: proper Airy kernel ----

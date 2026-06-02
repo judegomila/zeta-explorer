@@ -1115,6 +1115,11 @@ const DATA_MODULES = [
   // HS coverage a in (0, 37.66]. RH/Lambda application is unaffected (App-S uses
   // a <= 0.5, Lambda <= 0.2). Sub-gap WH-KA-UNBOUNDED. 10 tripwires.
   '/src/data/imp-1342-large-a-WH-bound-investigation.js',
+  // imp-2337: Interval-arithmetic certification of Ingham E_trunc_pt = 3.06e-5
+  // on a 21-point fine sigma grid. Certifies E_trunc_pt(0.75) as a tight IEEE 754
+  // interval, verifies monotone decreasing structure, and confirms sigma = 0.75 is
+  // the argmin within the rigorous range [0.50, 0.75]. 10 tripwires.
+  '/src/data/imp-2337-ingham-sigma-certification.js',
 ];
 
 const ALL_MODULES = FAST_MODE

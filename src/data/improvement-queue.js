@@ -20383,7 +20383,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'imp-1342 numerical companion: Richardson-extrapolate large-a ||V_{a,Phi}|| under grid refinement to decide artifact vs real',
     category: 'numerical',
     priority: 'high',
-    status: 'pending',
+    status: 'completed', completedByModel: 'sonnet-4-6', completedByChannel: 'sonnet',
     proofSection: 'S-volterra',
     description: "imp-1316/1342 report an empirical ||V_{a,Phi}|| > 1 at large a. Determine whether this is a discretization artifact: recompute the operator 2-norm at the offending a-values across an increasing grid-resolution ladder N (e.g. 256, 512, 1024, 2048, 4096), Richardson-extrapolate norm(N) -> norm(infinity), and report whether the extrapolated limit crosses 1. Emit a data module with the N-ladder, extrapolated limit, and an artifact/real verdict. Feeds the rigorous investigation in imp-1342.",
     rationale: 'Concrete runnable numerical diagnostic that de-risks the paper-grade imp-1342 investigation; executable on a cheap/local lane, not Opus-bound.',

@@ -124,6 +124,7 @@ const NAV_GROUPS = [
       { to: '/twin-ladder', label: 'Twin Ladder' },
       { to: '/calabi-yau', label: 'Calabi-Yau' },
       { to: '/gram-points', label: 'Gram Points' },
+      { to: '/schatten-trace-norm', label: 'Schatten Trace Norm' },
     ],
   },
   {
@@ -204,6 +205,7 @@ const NAV_GROUPS = [
       { to: '/literature', label: 'Literature' },
       { to: '/paper', label: 'Paper' },
       { to: '/papers', label: 'Papers' },
+      { to: '/papers-download', label: 'Papers Download' },
       { to: '/paper-upload', label: 'Upload' },
       { to: '/blog', label: 'Blog' },
       { to: '/wiki', label: 'Wiki' },

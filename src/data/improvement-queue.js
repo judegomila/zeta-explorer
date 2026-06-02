@@ -20714,7 +20714,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Surface orphaned routes in NAV_GROUPS: roughly 50 routable pages have no nav entry',
     category: 'ux',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'frontend',
     description: "Audit App.jsx routes versus NAV_GROUPS and add nav entries or a section index for orphaned pages such as schatten-trace-norm, collapse-chain, hidden-square-program, break-it.",
     rationale: 'Many built pages are reachable only by typing the URL; surfacing them recovers a large amount of already-built work.',
@@ -20722,6 +20722,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'haiku-4-5',
+    completedByChannel: 'subscription',
   },
   {
     id: 'imp-2351',

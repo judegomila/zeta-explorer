@@ -1020,6 +1020,20 @@ const DATA_MODULES = [
   // de Branges (imp-1241), imp-1310 alternative §15-27 pathway (also exhausted).
   // 13 tripwires.
   '/src/data/imp-1318-maynard-sieve-pcc.js',
+  // imp-1325: A=0 sieve breakthrough attempt -- can the Maynard 2013/2024 sieve
+  // be applied directly to the (log T)^A factor in N(sigma, T) that blocked
+  // imp-1321 + imp-1322? VERDICT maynard-sieve-does-not-transfer-to-density-log-
+  // factor. The GPY-Maynard SIEVE produces prime-tuple results, NOT zero-density
+  // bounds; the Guth-Maynard 2024 result that DOES improve the density exponent
+  // (30/13 coefficient, ~1.94x at sigma=0.75) is a large-values method, not a
+  // sieve, and carries an unquantified T^{o(1)} rather than a bounded (log T)^A.
+  // Sieve-route tightening = 1.0 (none). Named sub-gap routes the A factor to a
+  // large-values / explicit-Ingham problem (imp-1332). 10 tripwires.
+  '/src/data/imp-1325-maynard-sieve-zero-density.js',
+  // imp-2323: finer-grid super-critical-strip sigma in (1/2,1) phase / winding survey.
+  // 11 sigma slices {0.51..0.99} x t in [0.5, 200] (2001 pts/slice).
+  // Sign-change rate monotone 90->78; near-zero approaches drop to 0 at sigma>=0.85.
+  '/src/data/imp-2323-supercrit-phase-fine.js',
 ];
 
 const ALL_MODULES = FAST_MODE

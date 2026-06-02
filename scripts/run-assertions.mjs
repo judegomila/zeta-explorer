@@ -1101,6 +1101,20 @@ const DATA_MODULES = [
   // RH-equivalence (zeta self-approximates iff RH), bridging into imp-1333.
   // Sub-gap VU-EFFECTIVE-DENSITY. 10 tripwires.
   '/src/data/imp-1334-voronin-universality-quantitative.js',
+  // imp-1342: rigor-honesty audit of the imp-1316 large-a empirical violation
+  // of Conj 27.2 (||V_{a,Phi}|| <= 1) vs the imp-1287 Wiener-Hopf bound that
+  // claimed coverage for a >= 0.1996. Verdict
+  // wh-bound-invalid-Ka-unbounded-conj272-false-for-large-a: the WH step
+  // ||K_a|| <= 1/a is FALSE (the causal sinh(a tau) convolution kernel is
+  // unbounded on L^2; its Laplace transform converges only for Re(z) > a, so
+  // the imaginary-axis symbol -a/(t^2+a^2) is an analytic continuation, NOT a
+  // genuine bounded Fourier symbol, and the Krein/Gohberg-Krein Toeplitz
+  // estimate does not apply). imp-1316 Galerkin values are rigorous lower
+  // bounds (||A_N|| <= ||V||), so the violation is robust (case i, not ii/iii).
+  // Conj 27.2 is therefore FALSE for large a; the only rigorous statement is the
+  // HS coverage a in (0, 37.66]. RH/Lambda application is unaffected (App-S uses
+  // a <= 0.5, Lambda <= 0.2). Sub-gap WH-KA-UNBOUNDED. 10 tripwires.
+  '/src/data/imp-1342-large-a-WH-bound-investigation.js',
 ];
 
 const ALL_MODULES = FAST_MODE

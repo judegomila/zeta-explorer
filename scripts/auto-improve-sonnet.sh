@@ -190,9 +190,28 @@ print(m.group(1) if m else 'not-found')" 2>/dev/null || echo "error")
           if [ "$flip_status" = "completed" ]; then
             echo "STATUS-FLIP VERIFIED: $commit_imp -> completed" | tee -a "$log_file"
           else
-            drift_msg="HAIKU RUN #$run_count ($timestamp): $commit_imp committed (queue-status=$flip_status) but NOT flipped to completed. Commit: $last_commit_msg"
+            drift_msg="SONNET RUN #$run_count ($timestamp): $commit_imp committed (queue-status=$flip_status) but NOT flipped to completed. Commit: $last_commit_msg"
             echo "STATUS-FLIP WARN: $drift_msg" | tee -a "$log_file"
             echo "$drift_msg" >> "$SCRIPT_DIR/status-flip-drift.log"
+            echo "STATUS-FLIP AUTO-REMEDIATE: flipping $commit_imp -> completed..." | tee -a "$log_file"
+            python3 - "$PROJECT_DIR/src/data/improvement-queue.js" "$commit_imp" >> "$log_file" 2>&1 << 'PYEOF'
+import sys
+f_path, tid = sys.argv[1], sys.argv[2]
+text = open(f_path).read()
+i = text.find("id: '" + tid + "'")
+if i < 0:
+    print("remediate: not found: " + tid)
+else:
+    chunk = text[i:i+600]
+    nc = chunk.replace("status: 'pending'", "status: 'completed'", 1)
+    if nc == chunk:
+        print("remediate: status not pending for " + tid)
+    else:
+        open(f_path, 'w').write(text[:i] + nc + text[i+600:])
+        print("remediate: flipped " + tid + " to completed")
+PYEOF
+            git -C "$PROJECT_DIR" add src/data/improvement-queue.js >> "$log_file" 2>&1 || true
+            git -C "$PROJECT_DIR" diff --cached --quiet || git -C "$PROJECT_DIR" commit -m "fix(meta): auto-remediate status-flip drift for $commit_imp" >> "$log_file" 2>&1 || true
           fi
         fi
       fi

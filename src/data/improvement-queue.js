@@ -20600,7 +20600,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'FIX status-flip drift: engines commit ticket work without flipping status to completed, leaving finished tickets pending and invisible',
     category: 'meta',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'harness',
     description: "Add a post-commit verification gate that detects a commit referencing imp-NNNN whose queue status is still pending and auto-flips it or hard-fails the run.",
     rationale: 'Done tickets marked pending get silently reworked or block the queue; a recurring consistency leak across engines.',
@@ -20608,6 +20608,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-2343',

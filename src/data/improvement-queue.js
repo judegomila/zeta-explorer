@@ -20544,7 +20544,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Interval-arithmetic certification of the Volterra norm bound ||V_{a,Phi}|| <= 1 on an extended (U,a) grid via Krawczyk/Taylor-ball methods',
     category: 'numerical',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'lambda-numerics',
     description: "The ||V||<=1 contraction claim has approx 5000x empirical margin on a finite grid but no error bars; certify it with interval methods across a wider (U,a) grid.",
     rationale: 'imp-1258 chains ||V||<=1 to CDB-Exist to RH, but the premise is floating-point-only; interval certification upgrades the two-way collapse to certified-at-a-grid.',
@@ -20552,6 +20552,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1240', 'imp-1258'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-2339',

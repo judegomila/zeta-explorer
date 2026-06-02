@@ -20636,7 +20636,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Dependency-aware ticket selection: engines must skip tickets whose dependsOn ids are still pending',
     category: 'meta',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'harness',
     description: "Teach the engine ticket-picker to filter out any ticket with an unclosed dependsOn id so it cannot waste a run on a blocked ticket before its prerequisites close.",
     rationale: 'The current picker only sorts by priority and ignores dependsOn, so blocked tickets can be picked before prerequisites.',
@@ -20644,6 +20644,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-2345',

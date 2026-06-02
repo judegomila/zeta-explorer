@@ -319,6 +319,15 @@ function main() {
     else byChannel.untagged.push(row);
   }
 
+  // Annotate each row with blocked=true when any dependsOn id is still pending.
+  // Engines must skip blocked tickets — their prerequisites haven't shipped yet.
+  const allPendingSet = new Set(allPendingIds);
+  for (const arr of Object.values(byPriority)) {
+    for (const row of arr) {
+      row.blocked = row.dependsOn.some((dep) => allPendingSet.has(dep));
+    }
+  }
+
   const { total: improvementsTotal, maxId } = parseImprovementsStats(
     improvementsText,
   );

@@ -1071,6 +1071,18 @@ const DATA_MODULES = [
   // continuation is RH-gated -- sub-gap STC-1. S(T) moments are the phase-dual
   // of the imp-1183/1238/1257 n-point correlations. 10 tripwires.
   '/src/data/imp-1333-selberg-S-T-super-critical.js',
+  // imp-1334: Voronin 1975 universality of zeta on the super-critical strip
+  // (1/2, 1), quantitative version. Verdict
+  // voronin-bagchi-equivalent-and-rigidity-obstruction-no-direct-lever:
+  // catalogues the quantitative state (qualitative positive density d(eps) > 0
+  // with NO effective lower bound; only doubly-exponential-in-1/eps effective
+  // first-shift bounds, Good 1981 / Garunkstis 2003; strict strip (1/2,1)).
+  // Universality gives NO direct Lambda lever (no height-decaying inequality
+  // for the imp-1261 T_PT^{-0.4} chain) and is a rigidity OBSTRUCTION to local-
+  // value RH attacks. Genuine payload: Bagchi 1981 strong-recurrence
+  // RH-equivalence (zeta self-approximates iff RH), bridging into imp-1333.
+  // Sub-gap VU-EFFECTIVE-DENSITY. 10 tripwires.
+  '/src/data/imp-1334-voronin-universality-quantitative.js',
 ];
 
 const ALL_MODULES = FAST_MODE

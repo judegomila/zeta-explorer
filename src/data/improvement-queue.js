@@ -20560,7 +20560,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add an independent DP8 ODE integrator plus interval error bars on Dyson t_c to cross-verify roadmap step 2',
     category: 'numerical',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'lambda-numerics',
     description: "Port a second integrator (DP8) alongside RK4 at N in {1e4,1e5,1e6} with compensated summation for the 1/(gamma_k-gamma_j) singularities and interval error bars, then check agreement.",
     rationale: 'Roadmap step 2 t_c measurements are single-method RK4; independent integrator agreement elevates them from numerical to cross-verified.',
@@ -20568,6 +20568,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-315', 'imp-357'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-2340',

@@ -23,6 +23,9 @@ const BUCKET_ACCENTS = Object.freeze({
   'caustic':      '#f59e0b', // amber
   'hyperbolic':   '#ec4899', // pink
   'crystal':      '#3b82f6', // blue
+  'schur':        '#8b5cf6', // violet
+  'kernel':       '#6366f1', // indigo
+  'bound':        '#10b981', // emerald
 });
 
 // ── Tiny inline-SVG previews ────────────────────────────────────────────
@@ -159,6 +162,64 @@ function PreviewCrystal({ stroke }) {
   );
 }
 
+function PreviewSchur({ stroke }) {
+  // Unit disk with trajectory spiral inside.
+  const pts = [];
+  for (let i = 0; i <= 80; i++) {
+    const t = i / 80;
+    const theta = t * Math.PI * 4;
+    const r = 30 * t;
+    const x = 50 + r * Math.cos(theta);
+    const y = 50 + r * Math.sin(theta);
+    pts.push(`${x.toFixed(2)},${y.toFixed(2)}`);
+  }
+  return (
+    <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true">
+      <circle cx="50" cy="50" r="35" fill="none" stroke={stroke} strokeWidth="1" opacity="0.5" />
+      <polyline points={pts.join(' ')} fill="none" stroke={stroke} strokeWidth="1.2" />
+    </svg>
+  );
+}
+
+function PreviewKernel({ stroke }) {
+  // Diagonal heatmap pattern showing kernel concentration.
+  const cells = [];
+  for (let i = 0; i < 6; i++) {
+    for (let j = 0; j < 6; j++) {
+      const d = Math.abs(i - j);
+      const alpha = (1 - d / 5).toFixed(2);
+      cells.push(
+        <rect key={`${i}-${j}`} x={10 + i * 14} y={10 + j * 14} width="13" height="13"
+              fill={stroke} opacity={alpha} />
+      );
+    }
+  }
+  return (
+    <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true">
+      {cells}
+      <line x1="10" y1="80" x2="80" y2="10" stroke="#f8fafc" strokeWidth="0.8" />
+    </svg>
+  );
+}
+
+function PreviewBound({ stroke }) {
+  // Exponential-looking curve going upward.
+  const pts = [];
+  for (let i = 0; i <= 100; i++) {
+    const t = i / 100;
+    const x = 10 + t * 80;
+    const y = 80 - t * t * 60;
+    pts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+  }
+  return (
+    <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true">
+      <polyline points={pts.join(' ')} fill="none" stroke={stroke} strokeWidth="1.5" />
+      <line x1="10" y1="85" x2="90" y2="85" stroke={stroke} strokeWidth="0.6" opacity="0.3" />
+      <line x1="10" y1="10" x2="10" y2="85" stroke={stroke} strokeWidth="0.6" opacity="0.3" />
+    </svg>
+  );
+}
+
 const PREVIEWS = Object.freeze({
   'phase-spiral': PreviewPhaseSpiral,
   'tomography':   PreviewTomography,
@@ -166,6 +227,9 @@ const PREVIEWS = Object.freeze({
   'caustic':      PreviewCaustic,
   'hyperbolic':   PreviewHyperbolic,
   'crystal':      PreviewCrystal,
+  'schur':        PreviewSchur,
+  'kernel':       PreviewKernel,
+  'bound':        PreviewBound,
 });
 
 // ── Card component ─────────────────────────────────────────────────────

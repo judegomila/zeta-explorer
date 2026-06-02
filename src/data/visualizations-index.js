@@ -45,6 +45,9 @@ export const VIZ_MATH_BUCKETS = Object.freeze([
   'caustic',
   'hyperbolic',
   'crystal',
+  'schur',
+  'kernel',
+  'bound',
 ]);
 
 /**
@@ -157,6 +160,42 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-1227',
       pedagogicalStep: 6,
     }),
+    Object.freeze({
+      route: '/cayley-schur-trajectory',
+      title: 'Cayley-Schur Trajectory',
+      oneLine:
+        'Unit-disk trajectory of Schur function Θ_a(it) via Cayley transform of the canonical-system m-function; membership in the disk is Conjecture 27.2.',
+      mathBucket: 'schur',
+      dataModule: null,
+      paperSourcePath:
+        'research-inputs/twin_ladder_consolidated_v52.pdf §27 (de Branges-Krein)',
+      ticket: 'imp-1294',
+      pedagogicalStep: 7,
+    }),
+    Object.freeze({
+      route: '/viz-volterra-kernel-heatmap',
+      title: 'Volterra Kernel Heatmap',
+      oneLine:
+        'Interactive heatmap of |k_{a,Φ}(x,y)|^2 showing rank-1-like concentration along the diagonal and off-diagonal decay of the Volterra operator.',
+      mathBucket: 'kernel',
+      dataModule: null,
+      paperSourcePath:
+        'research-inputs/twin_ladder_consolidated_v52.pdf §19 (rigorous Volterra bounds)',
+      ticket: 'imp-1291',
+      pedagogicalStep: 8,
+    }),
+    Object.freeze({
+      route: '/viz-volterra-norm-curve',
+      title: 'Volterra Norm Curve',
+      oneLine:
+        'Log-scale empirical op-norm ‖V_{a,Φ}‖ and rigorous HS bound ‖V‖_HS vs parameter a; exponential growth beyond a ≈ 2.3 is open.',
+      mathBucket: 'bound',
+      dataModule: null,
+      paperSourcePath:
+        'research-inputs/twin_ladder_consolidated_v52.pdf §20 (HS bound saturation)',
+      ticket: 'imp-1292',
+      pedagogicalStep: 9,
+    }),
   ]),
 });
 
@@ -173,10 +212,14 @@ const EXPECTED_ROUTES = Object.freeze([
   '/viz-prime-caustic',
   '/viz-hyperbolic-prime-spiral',
   '/viz-prime-phase-crystal',
+  '/cayley-schur-trajectory',
+  '/viz-volterra-kernel-heatmap',
+  '/viz-volterra-norm-curve',
 ]);
 
 const EXPECTED_TICKETS = Object.freeze([
   'imp-1222', 'imp-1223', 'imp-1224', 'imp-1225', 'imp-1226', 'imp-1227',
+  'imp-1291', 'imp-1292', 'imp-1294',
 ]);
 
 export const VISUALIZATIONS_INDEX_ASSERTIONS = [
@@ -200,11 +243,11 @@ export const VISUALIZATIONS_INDEX_ASSERTIONS = [
       'nav-link wired into App.jsx.',
   },
   {
-    id: 'imp1228-exactly-six-entries-present',
+    id: 'imp1228-exactly-nine-entries-present',
     holds: () => {
       const e = VISUALIZATIONS_INDEX.entries;
       if (!Array.isArray(e) && !(e && typeof e.length === 'number')) return false;
-      if (e.length !== 6) return false;
+      if (e.length !== 9) return false;
       for (const entry of e) {
         if (!entry || !Object.isFrozen(entry)) return false;
         if (typeof entry.route !== 'string' || !entry.route.startsWith('/viz-')) return false;
@@ -226,13 +269,12 @@ export const VISUALIZATIONS_INDEX_ASSERTIONS = [
       'the card grid the index renders.',
   },
   {
-    id: 'imp1228-six-routes-unique-and-match-wave13',
+    id: 'imp1228-nine-routes-unique-and-expected',
     holds: () => {
       const routes = VISUALIZATIONS_INDEX.entries.map((e) => e.route);
       const uniq = new Set(routes);
-      if (uniq.size !== 6) return false;
-      // All six expected WAVE 13 routes must be present (any order — we
-      // re-check pedagogical ordering in a dedicated tripwire).
+      if (uniq.size !== 9) return false;
+      // All nine expected routes must be present.
       for (const r of EXPECTED_ROUTES) {
         if (!uniq.has(r)) return false;
       }
@@ -243,16 +285,15 @@ export const VISUALIZATIONS_INDEX_ASSERTIONS = [
       return true;
     },
     why:
-      'The 6 entry routes must be unique AND must equal the six WAVE 13 ' +
-      'visualization routes (no extras, no missing). Any divergence here ' +
+      'The 9 entry routes must be unique AND must equal the expected ' +
+      'routes (WAVE 13 plus WAVE 18 operator visualizations). Any divergence ' +
       'would silently fork the master-index from the actual viz pages.',
   },
   {
-    id: 'imp1228-pedagogical-step-is-1-through-6-in-order',
+    id: 'imp1228-pedagogical-step-is-1-through-9-in-order',
     holds: () => {
       const e = VISUALIZATIONS_INDEX.entries;
-      // entries must be ordered by pedagogicalStep 1, 2, 3, 4, 5, 6 with
-      // the specific route at each step pinned to the spec.
+      // entries must be ordered by pedagogicalStep 1..9 monotonically.
       const expectedAtStep = [
         '/viz-log-phase-spiral',
         '/viz-twin-ladder-tomography',
@@ -260,56 +301,59 @@ export const VISUALIZATIONS_INDEX_ASSERTIONS = [
         '/viz-prime-caustic',
         '/viz-hyperbolic-prime-spiral',
         '/viz-prime-phase-crystal',
+        '/cayley-schur-trajectory',
+        '/viz-volterra-kernel-heatmap',
+        '/viz-volterra-norm-curve',
       ];
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 9; i++) {
         if (e[i].pedagogicalStep !== i + 1) return false;
         if (e[i].route !== expectedAtStep[i]) return false;
       }
       return true;
     },
     why:
-      'pedagogicalStep must be 1..6 monotonically with the route at each ' +
-      'step pinned: 1=log-phase-spiral, 2=twin-ladder-tomography, ' +
-      '3=euler-transport-flow, 4=prime-caustic, 5=hyperbolic-prime-spiral, ' +
-      '6=prime-phase-crystal. This is the contract the spec calls out as ' +
-      'the pedagogical flow.',
+      'pedagogicalStep must be 1..9 monotonically with the route at each ' +
+      'step pinned to the spec. The sequence progresses from WAVE 13 ' +
+      'geometric visualizations (steps 1-6) through operator-theoretic ' +
+      'visualizations (steps 7-9): Schur functions, Volterra kernel ' +
+      'structure, and norm bounds.',
   },
   {
     id: 'imp1228-math-bucket-is-from-closed-set',
     holds: () => {
       const buckets = new Set(VIZ_MATH_BUCKETS);
-      if (buckets.size !== 6) return false;
+      if (buckets.size !== 9) return false;
       // Each entry's bucket must come from the closed VIZ_MATH_BUCKETS set.
       for (const e of VISUALIZATIONS_INDEX.entries) {
         if (!buckets.has(e.mathBucket)) return false;
       }
       // And the buckets must be pairwise distinct (one per viz).
       const used = new Set(VISUALIZATIONS_INDEX.entries.map((e) => e.mathBucket));
-      if (used.size !== 6) return false;
+      if (used.size !== 9) return false;
       return Object.isFrozen(VIZ_MATH_BUCKETS);
     },
     why:
       'mathBucket on every entry must come from the closed VIZ_MATH_BUCKETS ' +
-      'set (frozen, exactly 6 buckets) and each bucket must be used once. ' +
+      'set (frozen, exactly 9 buckets) and each bucket must be used once. ' +
       'This is what the per-card badge color mapping keys off — an unknown ' +
       'bucket renders an uncolored badge and a duplicate bucket would tie ' +
       'two cards to the same color.',
   },
   {
-    id: 'imp1228-every-ticket-from-wave13-present',
+    id: 'imp1228-every-ticket-present',
     holds: () => {
       const tickets = VISUALIZATIONS_INDEX.entries.map((e) => e.ticket);
       const uniq = new Set(tickets);
-      if (uniq.size !== 6) return false;
+      if (uniq.size !== 9) return false;
       for (const t of EXPECTED_TICKETS) {
         if (!uniq.has(t)) return false;
       }
       return true;
     },
     why:
-      'Each WAVE 13 viz ticket (imp-1222..imp-1227) must appear exactly ' +
-      'once across the six entries. A missing or duplicate ticket means ' +
-      'the index lost provenance for one of the pages.',
+      'All visualization tickets (WAVE 13 imp-1222..1227 and WAVE 18 ' +
+      'imp-1291..1292, imp-1294) must appear exactly once. A missing or ' +
+      'duplicate ticket means the index lost provenance for one of the pages.',
   },
   {
     id: 'imp1228-data-modules-pin-to-viz-files',
@@ -324,16 +368,20 @@ export const VISUALIZATIONS_INDEX_ASSERTIONS = [
       ]);
       const seen = new Set();
       for (const e of VISUALIZATIONS_INDEX.entries) {
-        if (!expected.has(e.dataModule)) return false;
-        if (seen.has(e.dataModule)) return false;
-        seen.add(e.dataModule);
+        // Entries may have null dataModule (computed visualizations).
+        if (e.dataModule !== null && !expected.has(e.dataModule)) return false;
+        if (e.dataModule !== null) {
+          if (seen.has(e.dataModule)) return false;
+          seen.add(e.dataModule);
+        }
       }
       return seen.size === 6;
     },
     why:
-      'Each entry.dataModule must be one of the six known WAVE 13 viz ' +
-      'data files and they must be pairwise distinct. A drift here would ' +
-      'point a card at a non-existent or wrong data module.',
+      'WAVE 13 entries (steps 1-6) must have dataModule pinned to one of six ' +
+      'known data files (pairwise distinct). WAVE 18 entries (steps 7-9) may ' +
+      'have null dataModule (computed dynamically). A wrong dataModule would ' +
+      'point a card at a non-existent file.',
   },
   {
     id: 'imp1228-paper-source-and-intro-pin-v52',

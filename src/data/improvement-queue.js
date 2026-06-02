@@ -20734,7 +20734,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Build a unified Visualizations Index gallery page listing every visualization with a description and one-click nav',
     category: 'ux',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'frontend',
     description: "Create a gallery page enumerating all visualization pages with a short description and link, wired into the main menu.",
     rationale: 'Visualizations are scattered and partly orphaned; a single gallery makes the built viz discoverable.',
@@ -20742,6 +20742,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'haiku-4-5',
+    completedByChannel: 'subscription',
   },
   {
     id: 'imp-2352',

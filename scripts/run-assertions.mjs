@@ -1034,6 +1034,18 @@ const DATA_MODULES = [
   // 11 sigma slices {0.51..0.99} x t in [0.5, 200] (2001 pts/slice).
   // Sign-change rate monotone 90->78; near-zero approaches drop to 0 at sigma>=0.85.
   '/src/data/imp-2323-supercrit-phase-fine.js',
+  // imp-1329: BFI 1986 mean-value scoping -- paper outline for a sigma-uniform
+  // effective Ingham bound with A = 0. imp-1321 + imp-1322 both named
+  // Bombieri-Friedlander-Iwaniec 1986 mean-value as the shared candidate to close
+  // the (log T)^A binding that cancels the formal 6.4e8 sigma-reopt tightening.
+  // VERDICT bfi-not-direct-residual-large-values-lemma-needed: BFI 1986 is a
+  // dispersion/bilinear mean value over MODULI q (error term Delta(x;q,a)), not a
+  // large-values count over the height t, so it does NOT directly give A = 0. The
+  // binding (log T)^A lives in the Halasz-Montgomery large-values lemma; residual
+  // Lemma R1 (explicit A = 0 sigma-uniform large-values) IS the paper, BFI can
+  // only enter via residual transfer lemma R3. Coherent with imp-1325. Paper
+  // outline shipped (6 sections + appendix, principal Lemma 3.1). 11 tripwires.
+  '/src/data/imp-1329-BFI-1986-mean-value-scoping.js',
 ];
 
 const ALL_MODULES = FAST_MODE

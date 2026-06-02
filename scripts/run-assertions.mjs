@@ -1046,6 +1046,12 @@ const DATA_MODULES = [
   // only enter via residual transfer lemma R3. Coherent with imp-1325. Paper
   // outline shipped (6 sections + appendix, principal Lemma 3.1). 11 tripwires.
   '/src/data/imp-1329-BFI-1986-mean-value-scoping.js',
+  // imp-2326: Explicit-constant ledger -- machine-checkable table of every
+  // numerical constant in the imp-1261 Lambda <= 3.06e-5 derivation chain.
+  // One row per constant {symbol, value, sourceCitation, loadBearing, whereUsed}.
+  // Chain re-multiplication asserts (2 e_I / kappa) * T_PT^{-kappa} = 3.06e-5.
+  // 10 tripwires; feeds imp-1327 explicit-constant audit.
+  '/src/data/imp-2326-explicit-constant-ledger.js',
 ];
 
 const ALL_MODULES = FAST_MODE

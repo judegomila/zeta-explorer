@@ -1052,6 +1052,14 @@ const DATA_MODULES = [
   // Chain re-multiplication asserts (2 e_I / kappa) * T_PT^{-kappa} = 3.06e-5.
   // 10 tripwires; feeds imp-1327 explicit-constant audit.
   '/src/data/imp-2326-explicit-constant-ledger.js',
+  // imp-1332: does Guth-Maynard 2024 (arXiv:2405.20552) substitute for Ingham
+  // 1940 in the imp-1261 E_trunc_pt composition? Verdict
+  // gm-substitutes-formally-but-o1-factor-blocks-rigor: GM bounds the SAME
+  // N(sigma,T) object and binds at sigma_opt=0.75 (> the 7/10 crossover),
+  // giving a FORMAL ~2.13x tightening (3.06e-5 -> 1.44e-5); but the T^{o(1)} /
+  // (log T)^A factor is uneffective in the paper, so rigorous tightening today
+  // is 1.0 and the headline 3.06e-5 stands. Single sub-gap GM-O1. 10 tripwires.
+  '/src/data/imp-1332-guth-maynard-2024-substitution.js',
 ];
 
 const ALL_MODULES = FAST_MODE

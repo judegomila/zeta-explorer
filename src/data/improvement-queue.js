@@ -20576,7 +20576,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Bootstrap 95-percent confidence intervals on the empirical saturation margins (Volterra 5000x, K_PLATEAU 45.83x, E_coll)',
     category: 'numerical',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'lambda-numerics',
     description: "Several headline margins are quoted as bare multipliers; compute bootstrap confidence intervals so each is stated as e.g. margin greater than 5000 with 95-percent confidence.",
     rationale: 'If any margin assumption drifts, multiple downstream bounds collapse; CIs quantify the actual safety buffer.',
@@ -20584,6 +20584,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1240', 'imp-1088'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-2341',

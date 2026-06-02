@@ -179,14 +179,8 @@ const NAV_GROUPS = [
       { to: '/proof-planner', label: 'Proof Planner' },
       { to: '/proof-overview', label: 'Proof Overview' },
       { to: '/proof-explorer', label: 'Proof Explorer' },
+      { to: '/rh-proof-state', label: 'RH Proof State' },
       { to: '/break-it', label: 'Break It' },
-    ],
-  },
-  {
-    label: 'Visualizations',
-    items: [
-      { to: '/viz-prime-caustic', label: 'Prime Caustic' },
-      { to: '/viz-prime-phase-crystal', label: 'Prime Phase Crystal' },
     ],
   },
   {
@@ -198,12 +192,6 @@ const NAV_GROUPS = [
       { to: '/improvements', label: 'Improvements Log' },
       { to: '/dashboard', label: 'Dashboard' },
       { to: '/health', label: 'Health Check' },
-    ],
-  },
-  {
-    label: 'Visualizations',
-    items: [
-      { to: '/viz-twin-ladder-tomography', label: 'Twin-Ladder Tomography' },
     ],
   },
   {

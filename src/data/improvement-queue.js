@@ -20401,7 +20401,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Schatten p=1 companion: empirical trace-norm ||V_{a,Phi}||_1 sweep to complement the p=2 HS data feeding imp-1341',
     category: 'numerical',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed', completedByModel: 'sonnet-4-6', completedByChannel: 'sonnet',
     proofSection: 'S-volterra',
     description: "imp-1341 needs to bridge the proven p=2 (Hilbert-Schmidt) Volterra-norm bound to p=1 (trace class). Provide the missing empirical input: compute the Schatten-1 (nuclear/trace) norm of the discretized V_{a,Phi} via its singular values across the established a-grid, tabulate ||V||_1 vs ||V||_2 vs ||V||_op, and report the empirical p=1/p=2 ratio. Emit a data module. Numerical companion to imp-1341's analytic bridge.",
     rationale: 'Supplies concrete empirical p=1 data the analytic Schatten bridge (imp-1341) currently lacks; cheap-lane numerical work, additive to the proof stack.',

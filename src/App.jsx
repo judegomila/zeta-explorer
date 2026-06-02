@@ -83,6 +83,7 @@ const VizPrimePhaseCrystalPage = lazy(() => import('./pages/VizPrimePhaseCrystal
 const VisualizationsIndexPage = lazy(() => import('./pages/VisualizationsIndexPage.jsx'));
 const VolterraKernelHeatmapPage = lazy(() => import('./pages/VolterraKernelHeatmapPage.jsx'));
 const VolterraNormCurvePage = lazy(() => import('./pages/VolterraNormCurvePage.jsx'));
+const SchattenTraceNormPage = lazy(() => import('./pages/SchattenTraceNormPage.jsx'));
 const CayleySchurTrajectoryPage = lazy(() => import('./pages/CayleySchurTrajectoryPage.jsx'));
 const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
 const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboardPage.jsx'));
@@ -518,6 +519,7 @@ function AppShell() {
           <Route path="/viz-euler-transport-flow" element={<VizEulerTransportFlowPage />} />
           <Route path="/viz-volterra-kernel-heatmap" element={<VolterraKernelHeatmapPage />} />
           <Route path="/viz-volterra-norm-curve" element={<VolterraNormCurvePage />} />
+          <Route path="/schatten-trace-norm" element={<SchattenTraceNormPage />} />
           <Route path="/collapse-chain" element={<CollapseChainPage />} />
           <Route path="/cayley-schur-trajectory" element={<CayleySchurTrajectoryPage />} />
           <Route path="/viz-twin-ladder-tomography" element={<VizTwinLadderTomographyPage />} />

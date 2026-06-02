@@ -20303,7 +20303,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Surface state: PCC route exhaustion summary page (5+5 = 10 routes, 4 NT families)',
     category: 'ux',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S0',
     description: "Wave-19 established 10 PCC closure routes ruled out across 4 orthogonal NT families. Build src/pages/PCCRouteExhaustionPage.jsx: card grid showing each route + verdict + structural reason + 4-family classification + the (log T)^{1/2} Plancherel barrier explanation. Link from /paper-audit-dashboard. Cite thinking/decisions/*.md. Wire into NAV_GROUPS.",
     rationale: 'Surface the wave-19 finding for future readers. Pedagogically valuable.',
@@ -20311,6 +20311,9 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-1297', 'imp-1302', 'imp-1303', 'imp-1304', 'imp-1305', 'imp-1307', 'imp-1308', 'imp-1309', 'imp-1311', 'imp-1312', 'imp-1318'],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedAt: '2026-06-02T04:27:55Z',
+    completedByModel: 'haiku-4-5',
+    completedByChannel: 'subscription',
   },
 
   // ---- (E) Auto-ticket-producer: prevent queue-drained idle time ----

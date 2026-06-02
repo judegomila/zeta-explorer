@@ -23,6 +23,57 @@ MAX_RUNS=500
 PUSH_EVERY=5
 IDLE_THRESHOLD=10
 
+# The prompt given to Claude Code CLI on each iteration. This engine runs the
+# FULL read/edit/bash tool loop on the API channel (ANTHROPIC_API_KEY billing),
+# so unlike the old planning-only engine-api-cycle.mjs it actually mutates files
+# and closes tickets. It owns the byModel["opus-4-8"] bucket so it does not race
+# the subscription engine (which owns byModel["opus-4-7"]).
+IMPROVE_PROMPT_API='You are improving the ZPO Explorer / RH-attack project on the API channel. Your task:
+
+0. TOKEN BUDGET DISCIPLINE: never read these monolithic files in full unless you are editing them:
+   - src/data/improvements.js (~280K tokens)
+   - src/data/improvement-queue.js (~87K tokens)
+   - IMPROVEMENTS.md (~60K tokens)
+   INSTEAD read scripts/queue-index.json (~4 KB) for nextImprovementId, the byModel buckets, criticalPending/highPending/mediumPending arrays, and totalPending/totalCompleted. The harness regenerates it before each run, so it is fresh.
+
+1. MANDATORY FIRST STEP: read scripts/queue-index.json and look at byModel["opus-4-8"] bucket -- these are this engine'\''s tickets. If non-empty, pick the highest-priority ticket from that bucket. If byModel["opus-4-8"] is empty, fall through and pick any opus-eligible pending ticket from categories {proof, feature, content, meta, numerical} by priority. Do NOT pick from byModel["opus-4-7"] (subscription engine), byModel["sonnet-4-6"], or byModel["haiku-4-5"] -- those belong to other engines.
+
+2. PRIORITY ORDER IS ABSOLUTE: critical > high > medium > low. Within the same priority, pick the lowest imp-NNN id (oldest first).
+
+3. IF ANY ELIGIBLE PENDING TICKET EXISTS: you MUST work one. If it is research-grade and you cannot fully close it, deliver an HONEST PARTIAL closure with a clearly-named sub-gap -- that is valuable work. Do not fabricate results.
+
+4. IF ZERO eligible tickets remain: state exactly "API: no eligible tickets" and STOP cleanly. Do NOT invent categories or pick another engine'\''s bucket.
+
+5. At the START of your response state the path: "QUEUE: imp-NNN (priority X)" or "API: no eligible tickets".
+
+6. Read the relevant source files before changing anything.
+
+7. Make exactly ONE small, atomic change. Do not refactor or restructure.
+
+8. After your change run: npm run build. If it fails, fix it before finishing.
+
+9. Log the improvement in TWO places:
+   a) Append a row to IMPROVEMENTS.md: | # | TIMESTAMP | one-line summary | files changed |  (next sequential number, current UTC timestamp).
+   b) Append an entry to src/data/improvements.js before the closing ];  using the tail-append pattern (read only the LAST ~30 lines via offset, verify the last line is `];`, then Edit `];` -> `  { id: NEXT, ... },\n];`). Use scripts/queue-index.json nextImprovementId as the id. Format:
+      { id: NEXT_NUMBER, timestamp: "UTC_TIMESTAMP", category: "bug|accuracy|ux|visual|performance|content|proof|feature|meta|numerical", summary: "one-line summary", files: ["file1.js"], detail: "2-3 sentence description", model: "opus-4-8", channel: "api" },
+
+9b. SYSTEM OF RECORD -- when flipping a ticket from pending to completed in src/data/improvement-queue.js, ALSO add:
+    completedByModel: "opus-4-8",
+    completedByChannel: "api",
+    LEAVE any predicted model/channel fields ALONE.
+
+10. Create a git commit with a descriptive message mentioning the imp-NNN id.
+
+SYNTAX GOTCHAS (mandatory):
+- DO NOT write "*/" inside a JSDoc comment (it closes the comment). Use "dg_{k*}/dt" form in comments.
+- DO NOT use apostrophes inside single-quoted JS strings.
+
+RULES:
+- Never install new packages or rename/restructure files.
+- Never modify this script or the IMPROVEMENTS.md header.
+- One logical change per run. Never delete features or pages. Focus on src/.
+- TICKET-ID CLAIM PROTOCOL: before opening a NEW ticket, run `node scripts/claim-ticket-id.mjs <proposed-id>` and use the printed id.'
+
 # Optional .env file (gitignored) sets ANTHROPIC_API_KEY for this subshell.
 if [ -f "$SCRIPT_DIR/.env" ]; then
   set -a
@@ -110,9 +161,22 @@ do_start() {
         fi
       fi
 
-      cd "$PROJECT_DIR"
-      node "$SCRIPT_DIR/engine-api-cycle.mjs" >> "$log_file" 2>&1
-      exit_code=$?
+      # Invoke the full Claude Code CLI on the API channel. ANTHROPIC_API_KEY is
+      # already exported (sourced from scripts/.env at script top), so the CLI
+      # bills to API rather than the Max subscription. unset CLAUDECODE so the
+      # child is not treated as a nested session. This runs the REAL read/edit/
+      # bash tool loop -- it actually mutates files and commits, unlike the old
+      # planning-only engine-api-cycle.mjs.
+      if command -v claude &>/dev/null; then
+        cd "$PROJECT_DIR"
+        unset CLAUDECODE
+        claude --print --model "${API_ENGINE_MODEL:-claude-opus-4-8}" --dangerously-skip-permissions "$IMPROVE_PROMPT_API" \
+          >> "$log_file" 2>&1
+        exit_code=$?
+      else
+        echo "ERROR: 'claude' CLI not found in PATH" >> "$log_file"
+        exit_code=79
+      fi
 
       echo "=== API Run #$run_count complete (exit=$exit_code) ===" >> "$log_file"
       echo "API Run #$run_count complete (exit=$exit_code). Log: $log_file"

@@ -20616,7 +20616,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add atomic write/locking (CAS sentinel or os.replace) for concurrent edits to improvement-queue.js and improvements.js',
     category: 'meta',
     priority: 'critical',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'harness',
     description: "Wrap all writers of the shared aggregate files in a lock plus atomic os.replace so two concurrent engines cannot both append to a stale tail and corrupt the file.",
     rationale: 'Five engines edit these files; the current read-tail-then-Edit pattern has no CAS and can corrupt under concurrency.',
@@ -20624,6 +20624,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-2344',

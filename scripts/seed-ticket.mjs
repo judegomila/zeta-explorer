@@ -141,9 +141,11 @@ validateArgs(args);
 const ticketId = args.id;
 const isDryRun = args['dry-run'] === true;
 
-// Load queue file
+// Load queue file (snapshot mtime for concurrent-write race detection)
 let queueText;
+let snapMtime;
 try {
+  snapMtime = fs.statSync(QUEUE_FILE).mtimeMs;
   queueText = fs.readFileSync(QUEUE_FILE, 'utf8');
 } catch (e) {
   console.error(`Cannot read queue file: ${e.message}`);
@@ -191,8 +193,16 @@ if (isDryRun) {
   process.exit(0);
 }
 
-// Write updated queue
-fs.writeFileSync(QUEUE_FILE, updatedText, 'utf8');
+// Atomic write: re-check mtime then rename from tmp (same pattern as _queue-status-edit.mjs).
+// If another process wrote the file between our read and now, bail rather than clobber.
+const reMtime = fs.statSync(QUEUE_FILE).mtimeMs;
+if (reMtime !== snapMtime) {
+  console.error(`seed-ticket: queue file modified concurrently (mtime ${snapMtime} -> ${reMtime}); aborting to avoid clobber`);
+  process.exit(1);
+}
+const tmpPath = QUEUE_FILE + '.seed-tmp-' + process.pid;
+fs.writeFileSync(tmpPath, updatedText, 'utf8');
+fs.renameSync(tmpPath, QUEUE_FILE);
 console.log(`Inserted ${ticketId} into improvement-queue.js`);
 
 // Regenerate queue-index.json

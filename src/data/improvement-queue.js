@@ -20668,7 +20668,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Build a compute-script to data-file lineage manifest for the 73 compute scripts',
     category: 'meta',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'harness',
     description: "Generate a registry mapping each scripts compute-*.mjs to the src data output file it produces, so stale or corrupt data files can be traced to their regenerator.",
     rationale: '73 compute scripts have no link to their outputs, making reproducibility and staleness audits impossible.',
@@ -20676,6 +20676,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-2347',

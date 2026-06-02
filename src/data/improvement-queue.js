@@ -20750,7 +20750,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add axis labels, legends, and units to the bare SVG and Canvas visualizations',
     category: 'ux',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'frontend',
     description: "Audit visualization components such as GramPoints, RigorDashboard, and HiddenSquareProgram and add axis labels, legends, and units so charts are interpretable standalone.",
     rationale: 'Several charts render without axes or units, making them hard to read or cite.',
@@ -20758,6 +20758,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'haiku-4-5',
+    completedByChannel: 'subscription',
   },
   {
     id: 'imp-2353',

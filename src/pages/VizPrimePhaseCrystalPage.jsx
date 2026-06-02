@@ -100,16 +100,40 @@ export default function VizPrimePhaseCrystalPage() {
     }
     ctx.putImageData(imgData, 0, 0);
 
-    // Axis labels.
-    ctx.font = '11px "JetBrains Mono", monospace';
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+    // Axis labels with units and tick marks within canvas bounds.
+    ctx.font = '10px "JetBrains Mono", monospace';
+    ctx.fillStyle = 'rgba(220, 220, 220, 0.95)';
     ctx.textAlign = 'left';
-    ctx.fillText('j = 0', 4, H - 6);
-    ctx.fillText('k = 0', 4, 14);
+    ctx.fillText('j=' + 0, 6, 14);
+    ctx.fillText('k=' + 0, 6, H - 6);
     ctx.textAlign = 'right';
-    ctx.fillText('j = ' + jMax, W - 4, H - 6);
+    ctx.fillText('j=' + jMax.toFixed(1), W - 6, 14);
     ctx.textAlign = 'left';
-    ctx.fillText('k = ' + kMax, 4, H - 22);
+    ctx.fillText('k=' + kMax.toFixed(0), 6, H - 22);
+
+    // Axis tick marks (4 evenly-spaced ticks per axis, excluding edges).
+    ctx.strokeStyle = 'rgba(160, 160, 160, 0.5)';
+    ctx.lineWidth = 1;
+    for (let i = 1; i < 4; i++) {
+      const x = (i / 4) * W;
+      ctx.beginPath();
+      ctx.moveTo(x, H - 3);
+      ctx.lineTo(x, H);
+      ctx.stroke();
+    }
+    for (let i = 1; i < 4; i++) {
+      const y = (i / 4) * H;
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(3, y);
+      ctx.stroke();
+    }
+
+    // Legend text overlay (bottom-right corner).
+    ctx.font = '8px "JetBrains Mono", monospace';
+    ctx.fillStyle = 'rgba(120, 120, 120, 0.85)';
+    ctx.textAlign = 'right';
+    ctx.fillText('F = |sum_p cos(j*log p + k*t_0)| (magnitude)', W - 4, H - 9);
 
     setRenderInfo({
       ms: +(performance.now() - start).toFixed(1),
@@ -177,11 +201,32 @@ export default function VizPrimePhaseCrystalPage() {
       </div>
 
       <div style={{ marginTop: 16, background: 'var(--bg-panel)', border: '1px solid var(--border)',
-                    borderRadius: 8, padding: 12, display: 'flex', justifyContent: 'center' }}>
-        <canvas ref={canvasRef}
-                style={{ width: '100%', maxWidth: W, height: 'auto',
-                         border: '1px solid #1e293b', borderRadius: 4,
-                         imageRendering: 'pixelated' }} />
+                    borderRadius: 8, padding: 12, display: 'flex', gap: 12, justifyContent: 'center', alignItems: 'flex-start' }}>
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+          <canvas ref={canvasRef}
+                  style={{ width: '100%', maxWidth: W, height: 'auto',
+                           border: '1px solid #1e293b', borderRadius: 4,
+                           imageRendering: 'pixelated', display: 'block' }} />
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minWidth: 80 }}>
+          <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.4 }}>
+            magnitude
+          </div>
+          <div style={{
+            width: 24, height: W, background: 'linear-gradient(to top, '
+              + '#000000, #330000, #660000, #990000, #cc0000, #ff0000, #ff3300, #ff6600, #ff9900, #ffcc00, #ffff00, #ffffff)',
+            border: '1px solid #1e293b', borderRadius: 2,
+          }} />
+          <div style={{ fontSize: 9, color: 'var(--text-muted)', textAlign: 'center', paddingTop: 4 }}>
+            <div style={{ fontSize: 8, color: '#cbd5e1' }}>max</div>
+            <div style={{ fontSize: 8, color: '#cbd5e1', marginTop: 4 }}>{renderInfo.max}</div>
+            <div style={{ fontSize: 8, color: '#64748b', marginTop: 12 }}>0</div>
+          </div>
+          <div style={{ fontSize: 8, color: 'var(--text-muted)', textAlign: 'center', marginTop: 8, lineHeight: 1.4 }}>
+            hot colormap sqrt(norm)
+          </div>
+        </div>
       </div>
 
       <div className="card" style={{ marginTop: 14, padding: 14 }}>

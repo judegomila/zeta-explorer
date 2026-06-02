@@ -145,6 +145,33 @@ export const LAMBDA_TIMELINE = [
     citation: 'mathexplorer auto-improvement engine, imp-1246 (recheck, 2026-05-28) / imp-1261 (execution, 2026-05-28). Internal development result.',
     notes: 'Asymptotic unconditional bound modulo the Polymath15 bridge G6a_shock_lipschitz step. Tightens the imp-1147 conditional 7.98e-4 by a factor of approximately 26 by eliminating the linear-1/N conditional dependence via direct composition of three already-shipped rigorous results. The conditional dependence persists only on the Polymath15 bridge, an independent obstruction (sub-tracked as imp-1264).',
   },
+  {
+    year: 2026,
+    authors: ['ZPO Engine (mathexplorer project)', 'Twin-Ladder v52 paper integration team'],
+    bound: null,
+    direction: null,
+    method: 'Engine infrastructure milestone: WAVE 13 seeded 18 critical tasks including 6 new visualization pages (/viz-prime-caustic, /viz-prime-phase-crystal, /viz-euler-transport-flow, /viz-log-phase-spiral, /viz-hyperbolic-prime-spiral, /viz-twin-ladder-tomography), 5 paper audits (Conjectures 15.2, 15.3, 17.3, 18.4), and foundational pieces for Twin-Ladder v52 integration including the paper-audit-dashboard and twin-ladder-paper-roadmap master index.',
+    citation: 'mathexplorer auto-improvement engine, WAVE 13 commit 4258d58f (2026-05-26).',
+    notes: 'Infrastructure and visualization milestone; no bound update. Establishes the 13/13 paper audit structure and lays foundation for v52 paper landing and Twin-Ladder integration work.',
+  },
+  {
+    year: 2026,
+    authors: ['ZPO Engine (mathexplorer project)'],
+    bound: null,
+    direction: null,
+    method: 'Content and proof audit milestone: imp-1235 completed (lambda-roadmap vs paper §24 crosswalk with 15 entries and 8 tripwires); multiple conjectures audited and classified as SUBSUMED-BY-RH (Conjectures 15.2, 15.3, 17.3, 18.4 via imp-1229, imp-1230, imp-1232); README refreshed with wave-11/12 paper pages status; foundational /viz pages rendered live.',
+    citation: 'mathexplorer auto-improvement engine, imp-1235 and subsidiary audits (2026-05-27).',
+    notes: 'Content and audit consolidation day: paper audit structure stabilized with RH-subsumption verdicts. No bound update but critical context for subsequent structural collapse work.',
+  },
+  {
+    year: 2026,
+    authors: ['ZPO Engine (mathexplorer project)'],
+    bound: null,
+    direction: null,
+    method: 'Proof milestone: Conjecture 27.2 PROVEN for all a>0 (imp-1260, Wiener-Hopf + HS union closure). WAVE 19 seeded 14 new RH attack tickets (imp-1306 through imp-1324) targeting Montgomery PCC routes, Beurling-Nyman direct attack, sigma-reopt within Ingham, and final Lambda tightening follow-ups. Five RH-attack routes exhaustively audited; PCC closure requires new external input. Decision docs established: Lambda 3.06e-5 is literature-only frontier (imp-1246 recheck + imp-1261 execution), and imp-1264 G6a is citation-conditional NOT mathematically open.',
+    citation: 'mathexplorer auto-improvement engine, imp-1260 + WAVE 19 seeded (2026-05-28), decision docs (2026-05-28 and 2026-05-29).',
+    notes: 'Major structural milestone: Conj 27.2 proof unification (two-way collapse ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist) + final Lambda tightening phase and PCC route exhaustion determination. Establishes end-of-cycle point before new external developments.',
+  },
 ];
 
 /**

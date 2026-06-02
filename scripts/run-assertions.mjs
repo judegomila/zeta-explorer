@@ -908,6 +908,24 @@ const DATA_MODULES = [
   // imp-1305. Second geometric route after Connes-Bost (imp-1307), also NOT
   // RIGOROUS. 12 tripwires.
   '/src/data/imp-1308-berry-keating-quantum-attack.js',
+  // imp-1339: CRITICAL classification — do the Hecke triangle groups
+  // G_q = Delta(2, q, infinity) have a different spectral structure giving a
+  // single-zeta 2-point bound at support > 1 bypassing the SL(2, Z) Sarnak AQC
+  // equivalence of imp-1297? Verdict: hecke-triangle-no-bypass-arithmetic-
+  // dichotomy. zeta enters a Selberg trace formula ONLY via the Eisenstein
+  // scattering determinant phi(s), whose closed zeta / L form is a consequence
+  // of ARITHMETICITY. By Takeuchi 1977 the arithmetic (2,q,infinity) triangle
+  // groups are exactly q = 3, 4, 6, infinity. The bypass needs both a
+  // zeta-bearing scattering determinant (P-zeta) and non-AQC statistics
+  // (P-nonAQC), but these are mutually exclusive: arithmetic q in {3,4,6} have
+  // P-zeta yet obey AQC (re-encode imp-1297); non-arithmetic q are plausibly
+  // non-AQC but their scattering determinant is not zeta-bearing so the trace
+  // formula carries no info about the zeros. Rigidity obstruction of the
+  // imp-1334 family. Fourth spectral / trace-formula route after Selberg
+  // (imp-1297), Connes-Bost (imp-1307), Berry-Keating (imp-1308), all NEGATIVE
+  // -> spectral family EXHAUSTED for a zeta 2-point bypass at support > 1.
+  // 10 tripwires.
+  '/src/data/imp-1339-hecke-triangle-selberg-trace.js',
   // imp-1323: literature audit for T_PT = 3e12 successor (Platt 2023 continuation,
   // Johnston 2025 extensions). Verdict: no-peer-reviewed-successor-found; E_trunc_pt
   // unchanged at 3.06e-5; tightening factor 1.0. Hypothetical scenarios at 1e13, 3e13,

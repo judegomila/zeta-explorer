@@ -164,6 +164,7 @@ else
     install_one com.mathexplorer.auto-improve
     install_one com.mathexplorer.daily-health
     install_one com.mathexplorer.engine-watchdog
+    install_one com.mathexplorer.ticket-producer
 fi
 echo
 

@@ -87,6 +87,7 @@ const SchattenTraceNormPage = lazy(() => import('./pages/SchattenTraceNormPage.j
 const CayleySchurTrajectoryPage = lazy(() => import('./pages/CayleySchurTrajectoryPage.jsx'));
 const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
 const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboardPage.jsx'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
   return (
@@ -528,6 +529,7 @@ function AppShell() {
           <Route path="/viz-prime-caustic" element={<VizPrimeCausticPage />} />
           <Route path="/viz-prime-phase-crystal" element={<VizPrimePhaseCrystalPage />} />
           <Route path="/visualizations" element={<VisualizationsIndexPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>
         </RouteErrorBoundary>

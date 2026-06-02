@@ -1060,6 +1060,17 @@ const DATA_MODULES = [
   // (log T)^A factor is uneffective in the paper, so rigorous tightening today
   // is 1.0 and the headline 3.06e-5 stands. Single sub-gap GM-O1. 10 tripwires.
   '/src/data/imp-1332-guth-maynard-2024-substitution.js',
+  // imp-1333: Selberg S(T) = (1/pi) arg zeta(1/2+iT) modern explicit constants
+  // as the super-critical phase entry point. Verdict
+  // s-t-catalogued-but-lambda-link-circular-on-critical-line: catalogues the
+  // best explicit bounds (Trudgian 2014 unconditional 0.111 logT + ...; CCM
+  // 2013 RH constant 1/4, 2x over Goldston-Gonek; Selberg CLT variance
+  // 1/(2pi^2) loglogT; Bondarenko-Seip Omega-result), but S(T) on sigma=1/2 is
+  // a functional of the zeros Lambda governs so it gives NO independent Lambda
+  // constraint (bracket 0 <= Lambda <= 0.2 unmoved); the genuine super-critical
+  // continuation is RH-gated -- sub-gap STC-1. S(T) moments are the phase-dual
+  // of the imp-1183/1238/1257 n-point correlations. 10 tripwires.
+  '/src/data/imp-1333-selberg-S-T-super-critical.js',
 ];
 
 const ALL_MODULES = FAST_MODE

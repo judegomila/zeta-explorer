@@ -20652,7 +20652,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'DRY the engine prompts: extract the shared IMPROVE_PROMPT into one sourced file used by all 5 engine variants',
     category: 'meta',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'harness',
     description: "Move the duplicated ~65-line IMPROVE_PROMPT out of the five engine scripts into a single sourced template with per-engine model and bucket variables.",
     rationale: 'The prompt is copy-pasted in 5 places; any edit must be replicated or the harness drifts.',
@@ -20660,6 +20660,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-2346',

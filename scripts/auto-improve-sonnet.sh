@@ -20,22 +20,13 @@ INTERVAL=120  # 2 minutes — slower cadence so the parallel Opus engine
               # does not push us over the Tier 1 RPM ceiling.
 MAX_RUNS=500
 
-# The prompt given to Claude Sonnet on each iteration. Restricted to
-# mechanical categories; if none are pending we exit cleanly instead of
-# stealing proof tickets from the Opus engine.
-IMPROVE_PROMPT='You are the SONNET tier of the ZPO Explorer / RH-attack auto-improvement engine. Your task:
+# The prompt given to Claude Sonnet on each iteration. Assembled from
+# engine-prompt-shared.sh (TOKEN BUDGET, SYNTAX GOTCHAS, COMMON RULES)
+# plus the sonnet-specific steps and tier rule.
+# shellcheck disable=SC1091
+. "$SCRIPT_DIR/engine-prompt-shared.sh"
 
-0. TOKEN BUDGET DISCIPLINE: the project has three HUGE monolithic files that you MUST NOT read in full unless you are editing them:
-   - src/data/improvements.js (~280K tokens)
-   - src/data/improvement-queue.js (~87K tokens)
-   - IMPROVEMENTS.md (~60K tokens)
-   Reading any of these in full blows the per-minute API tier budget.
-   INSTEAD, read the pre-generated cache at scripts/queue-index.json (~4 KB) for:
-   - nextImprovementId (use this for the improvements.js append id, no scan needed)
-   - criticalPending / highPending / mediumPending / lowPending arrays
-   - totalPending / totalCompleted counts
-
-1. MANDATORY FIRST STEP: read scripts/queue-index.json and collect every pending ticket assigned to the sonnet-4-6 tier in scripts/queue-index.json byModel["sonnet-4-6"] bucket. Read queue-index.json.byModel["sonnet-4-6"] — if non-empty, pick the highest-priority ticket in that bucket. IGNORE all other buckets — those belong to other engines and picking them here would waste the wrong model on research work.
+_SONNET_STEPS='1. MANDATORY FIRST STEP: read scripts/queue-index.json and collect every pending ticket assigned to the sonnet-4-6 tier in scripts/queue-index.json byModel["sonnet-4-6"] bucket. Read queue-index.json.byModel["sonnet-4-6"] — if non-empty, pick the highest-priority ticket in that bucket. IGNORE all other buckets — those belong to other engines and picking them here would waste the wrong model on research work.
 
 2. PRIORITY ORDER within the sonnet-tier subset: critical > high > medium > low. Within the same priority, pick the lowest imp-NNN id (oldest first).
 
@@ -57,34 +48,31 @@ IMPROVE_PROMPT='You are the SONNET tier of the ZPO Explorer / RH-attack auto-imp
       Use the next sequential number and current UTC timestamp.
 
    b) Add an entry to src/data/improvements.js by appending to the array before the closing ];
-      Format (NOTE the NEW model + channel fields — your runtime is "haiku-4-5" on "subscription"):
-      { id: NEXT_NUMBER, timestamp: "UTC_TIMESTAMP", category: "bug|ux|visual|performance|accuracy", summary: "one-line summary", files: ["file1.jsx", "file2.js"], detail: "2-3 sentence description of what was changed and why", model: "haiku-4-5", channel: "subscription" },
+      Format (NOTE the NEW model + channel fields — your runtime is "sonnet-4-6" on "sonnet"):
+      { id: NEXT_NUMBER, timestamp: "UTC_TIMESTAMP", category: "bug|ux|visual|performance|accuracy|meta|numerical", summary: "one-line summary", files: ["file1.jsx", "file2.js"], detail: "2-3 sentence description of what was changed and why", model: "sonnet-4-6", channel: "sonnet" },
 
       TOKEN BUDGET: do NOT read src/data/improvements.js to find the next id — it is ~280K tokens. Instead:
         - Use scripts/queue-index.json nextImprovementId as the next id
         - Use the tail-append pattern: read only the LAST ~30 lines of improvements.js via offset, verify the last line is `];`, then use Edit with old_string `];` and new_string `  { id: NEXT, ... },\n];`.
 
    c) Flip the ticket status in src/data/improvement-queue.js from "pending" to "completed" using a targeted Grep + Edit (do NOT read the file in full). Also add two new fields on the ticket:
-      completedByModel: "haiku-4-5",
-      completedByChannel: "subscription",
+      completedByModel: "sonnet-4-6",
+      completedByChannel: "sonnet",
       The ticket may already have predicted "model" and "channel" fields — LEAVE THOSE ALONE. completedBy* records actuals for routing-accuracy analysis.
 
-9. Create a git commit with a descriptive message.
+9. Create a git commit with a descriptive message.'
 
-SYNTAX GOTCHAS (mandatory):
-- DO NOT write "dg_k*/dt" or similar inside JSDoc comments — the "*/" prematurely closes the comment. Use "dg_{k*}/dt" in comments.
-- DO NOT use apostrophes inside single-quoted JS strings — they close the string. Use double-quoted strings or rewrite.
-- The "*/" sequence anywhere inside a JSDoc comment ends the comment.
+IMPROVE_PROMPT="You are the SONNET tier of the ZPO Explorer / RH-attack auto-improvement engine. Your task:
+
+$PROMPT_TOKEN_BUDGET
+
+$_SONNET_STEPS
+
+$PROMPT_SYNTAX_GOTCHAS
 
 RULES:
-- Never install new packages or dependencies
-- Never restructure the project or rename files
-- Never modify this auto-improve script or IMPROVEMENTS.md format header
-- Never make more than one logical change per run
-- Never delete features or pages
 - Never pick tickets outside the sonnet-4-6 tier — other engines handle those
-- Always verify the build passes before committing
-- Focus on the src/ directory only'
+$PROMPT_COMMON_RULES_SUFFIX"
 
 mkdir -p "$LOG_DIR"
 

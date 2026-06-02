@@ -265,6 +265,7 @@ function main() {
     'sonnet-4-6': [],
     'opus-4-6': [],
     'opus-4-7': [],
+    'opus-4-8': [],
     untagged: [],
   };
   const byChannel = { local: [], subscription: [], api: [], untagged: [] };

@@ -498,7 +498,7 @@ function AppShell() {
           <Route path="/dyson-verifier" element={<DysonVerifierPage />} />
           <Route path="/health" element={<HealthPage />} />
           <Route path="/full-story" element={<FullStoryPage />} />
-          <Route path="/papers" element={<PapersDownloadPage />} />
+          <Route path="/papers-download" element={<PapersDownloadPage />} />
           <Route path="/gram-points" element={<GramPointsPage />} />
           <Route path="/selberg-trace" element={<SelbergTracePage />} />
           <Route path="/rh-equivalents" element={<RHEquivalentsPage />} />

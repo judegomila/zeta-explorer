@@ -68,8 +68,8 @@ if [ -f "$SCRIPT_DIR/auto-improve-opus46.sh" ]; then
 fi
 
 # ── 3. Dev server ───────────────────────────────────────────────────────
-if curl -s --connect-timeout 5 http://localhost:3002 > /dev/null 2>&1; then
-  echo "$LOG_PREFIX Dev server: OK (http://localhost:3002)"
+if curl -s --connect-timeout 5 http://localhost:3003 > /dev/null 2>&1; then
+  echo "$LOG_PREFIX Dev server: OK (http://localhost:3003)"
 else
   echo "$LOG_PREFIX Dev server: DOWN — not auto-starting (manual intervention needed)"
 fi

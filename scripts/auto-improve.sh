@@ -185,10 +185,11 @@ do_start() {
       date +%s > "$HEARTBEAT_FILE"
 
       # ── Dev-server liveness check (imp-313) ──────────────────────────────
-      # After each run, confirm the dev server on :3002 still responds HTTP 200.
+      # After each run, confirm the dev server on :3003 still responds HTTP 200.
       # A bad improvement can break the server silently; catching it here stops
-      # the engine from compounding the damage.
-      DEV_SERVER_URL="http://localhost:3002"
+      # the engine from compounding the damage. Port moved 3002 -> 3003 in
+      # 20161ef7; the stale :3002 check was self-halting the engine every turn.
+      DEV_SERVER_URL="${DEV_SERVER_URL:-http://localhost:3003}"
       http_status=$(curl -sfo /dev/null -w "%{http_code}" --connect-timeout 5 "$DEV_SERVER_URL" 2>/dev/null || echo "000")
       if [ "$http_status" = "200" ]; then
         echo "DEV-SERVER OK: $DEV_SERVER_URL returned 200" | tee -a "$log_file"

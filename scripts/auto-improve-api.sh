@@ -18,7 +18,7 @@ PID_FILE="$SCRIPT_DIR/.auto-improve-api.pid"
 LOG_DIR="$SCRIPT_DIR/logs"
 IMPROVEMENTS_FILE="$PROJECT_DIR/IMPROVEMENTS.md"
 HEARTBEAT_FILE="$SCRIPT_DIR/.heartbeat-api"
-INTERVAL=120          # 2 minutes -- conservative API cadence
+INTERVAL=${INTERVAL:-20}   # inter-turn idle. Turns are serialized and minutes-long; a single worker uses <1% of the API rate ceiling (10M in/800K out TPM, 20K RPM), so the old 120s was pure dead time. Override via env.
 MAX_RUNS=500
 PUSH_EVERY=5
 IDLE_THRESHOLD=10
@@ -313,8 +313,13 @@ do_stop() {
   pid=$(cat "$PID_FILE")
   if kill -0 "$pid" 2>/dev/null; then
     echo "Stopping auto-improve API (PID $pid)..."
-    kill "$pid" 2>/dev/null || true
+    # Kill the child claude turn FIRST, while $pid is still alive so the child
+    # is still matchable as its child. Killing the supervisor first lets the
+    # in-flight claude reparent to launchd and survive as a token-burning
+    # orphan that commits uncoordinated work and collides on tickets (observed
+    # 2026-06-03 — five concurrent orphaned opus-4-8 turns after restarts).
     pkill -P "$pid" 2>/dev/null || true
+    kill "$pid" 2>/dev/null || true
     rm -f "$PID_FILE"
     echo "Stopped."
   else

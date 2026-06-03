@@ -292,8 +292,13 @@ do_stop() {
   pid=$(cat "$PID_FILE")
   if kill -0 "$pid" 2>/dev/null; then
     echo "Stopping auto-improve HAIKU (PID $pid)..."
-    kill "$pid" 2>/dev/null || true
+    # Kill the child claude turn FIRST, while $pid is still alive so the child
+    # is still matchable as its child. Killing the supervisor first lets the
+    # in-flight claude reparent to launchd and survive as a token-burning
+    # orphan that commits uncoordinated work and collides on tickets (observed
+    # 2026-06-03).
     pkill -P "$pid" 2>/dev/null || true
+    kill "$pid" 2>/dev/null || true
     rm -f "$PID_FILE"
     echo "Stopped."
   else

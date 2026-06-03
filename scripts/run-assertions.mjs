@@ -1157,6 +1157,60 @@ const DATA_MODULES = [
   // RH-equivalence (zeta self-approximates iff RH), bridging into imp-1333.
   // Sub-gap VU-EFFECTIVE-DENSITY. 10 tripwires.
   '/src/data/imp-1334-voronin-universality-quantitative.js',
+  // imp-1336: can the Levinson-Conrey mollified-moment method (which proves a
+  // positive proportion of zeros lie ON sigma = 1/2: Levinson 1974 = 1/3,
+  // Conrey 1989 = 2/5, Bui-Conrey-Young 2011 = 0.4105, Feng 2012 = 0.4128,
+  // PRZZ 2020 record = 5/12) be re-pointed to CONFINE a positive proportion of
+  // zeros to a strip |sigma - 1/2| < eps? Verdict
+  // mollifier-method-symmetry-locked-to-line-strip-confinement-needs-zero-
+  // density-no-new-lambda-bound: NO -- Levinson`s lemma counts real zeros of the
+  // real Hardy function Z(t), which is real only on the functional-equation
+  // fixed line, so there is no off-line analogue (sub-gap LCS-1). Strip
+  // confinement is the separate zero-density technology (Bohr-Landau 1914 gives
+  // 100% density confinement, stronger than any proportion; Ingham 1940 +
+  // Guth-Maynard 2024 quantitative, already in imp-1322/1325/1332). Bracket
+  // 0 <= Lambda <= 0.2 unmoved (a proportion leaves 7/12 unlocalized; Lambda is
+  // the extreme zero). 8 tripwires.
+  '/src/data/imp-1336-levinson-conrey-super-critical-extension.js',
+  // imp-1338: NOVEL zeta phase tomography via twin-ladder + Hardy Z. Verdict
+  // phase-tomography-circular-and-ladder-axis-transverse-to-lambda: reality of
+  // the Hardy function Z(t) = exp(i theta) zeta(1/2+it) pins the observable
+  // theta(t) - arg zeta to 2 theta (mod pi), so it recovers only the smooth
+  // ladder theta plus the integer zero count -- a re-coordinatisation of
+  // existing zero data. No Lambda lever for two independent reasons: (W1)
+  // critical-line circularity (same wall as imp-1333 STC-1) and (W2)
+  // ladder/heat-flow transversality (de Bruijn defines Lambda along d/dt while
+  // the twin-ladder deforms along the shift axis d/da). Small-a empirical: the
+  // ladder winding contribution a(b(t1)-b(t0))/pi is a vanishing fraction of
+  // the smooth count, no new zeros. Bracket 0 <= Lambda <= 0.2 unmoved. Sub-gap
+  // PT-LAMBDA-TRANSVERSE (mix d/da into d/dt). 8 tripwires.
+  '/src/data/imp-1338-zeta-phase-tomography.js',
+  // imp-1337: Backlund 1918 first-method S(t) argument-principle jump argument,
+  // modernized (Trudgian 2014), tested as a Lambda lever and an E_trunc_pt
+  // attack. Verdict backlund-counts-not-locates-decoupled-from-flow-and-routes-
+  // back-to-zero-density: the rectangle count is a COUNTING / VERIFICATION tool
+  // (engine of Platt-Trudgian finite-height RH verification), not a Lambda flow
+  // estimate. (a) it counts the zeros of the static H_0 and supplies no flow
+  // t-derivative, so it is DECOUPLED from the Polymath15 backward-uniqueness
+  // mechanism that fixes Lambda -- bracket 0 <= Lambda <= 0.2 unmoved, sub-gap
+  // BK-1. (b) a rectangle right edge at sigma > 1/2 needs the super-critical
+  // phase S(sigma,T), whose unconditional control is itself an Ingham-type
+  // N(sigma,T) zero-density estimate (and is RH-gated, the imp-1333 STC-1 wall),
+  // so no Backlund bypass of Ingham for E_trunc_pt = 3.06e-5, sub-gap BK-2.
+  // 8 tripwires.
+  '/src/data/imp-1337-backlund-method-modern.js',
+  // imp-1335: the IMAGE of zeta on the super-critical strip (1/2, 1) as a
+  // topological / measure-theoretic object. Verdict
+  // closure-is-all-of-C-zero-in-closure-obstruction-no-lever: for every fixed
+  // sigma in (1/2, 1) the value set { zeta(sigma + iT) } is dense in C
+  // (Bohr-Courant 1914), so its closure is the whole plane and contains 0
+  // unconditionally -- the naive "0 not in closure => RH" route is dead, the same
+  // rigidity obstruction as imp-1334. The Bohr-Jessen limiting distribution has a
+  // smooth positive density but a strip zero is a measure-ZERO event, so density
+  // at 0 does not separate RH either. Real zero-count info lives in the boundary
+  // log|zeta| Littlewood-lemma argument integral (imp-1333 phase track), not the
+  // value-set topology. No Lambda lever; sub-gap SCS-BOUNDARY-LOGZETA. 10 tripwires.
+  '/src/data/imp-1335-super-critical-strip-topology.js',
   // imp-1342: rigor-honesty audit of the imp-1316 large-a empirical violation
   // of Conj 27.2 (||V_{a,Phi}|| <= 1) vs the imp-1287 Wiener-Hopf bound that
   // claimed coverage for a >= 0.1996. Verdict
@@ -1189,6 +1243,18 @@ const DATA_MODULES = [
   // stays a 4-8 week paper-walk. O-BS-B + O-BS-C OUT OF SCOPE; rigorous Lambda
   // UNCHANGED at 3.06e-5 (both worked obstructions are no-gain). 8 tripwires.
   '/src/data/imp-1330-BS-port-partial-closure.js',
+  // imp-1331: does the imp-1321 candidate 'Soundararajan-Tao 2024' close
+  // O-BS-B (the binding (log T)^A obstruction)? Verdict
+  // o-bs-b-not-closed-candidate-wrong-object-A-lives-in-large-values: (a) no
+  // verifiable joint Soundararajan-Tao 2024 zero-density result exists; the
+  // strongest verifiable referent is Soundararajan 2009 (Annals 170), a moment
+  // bound ON the line. (b) object mismatch (coherent with imp-1329
+  // SUBGAP-1329-A) -- A_BS lives in the Halasz-Montgomery large-values lemma +
+  // Selberg mollifier, not in a moment object; a moment input sharpens only
+  // the O-BS-A constant C_4. (c) A_BS stays at the imp-1179 / imp-1182 central
+  // 6 > crossover A* ~ 4.33, so the formal 2.04e6 tightening is NOT rigorous
+  // (net ~275x loosening at A_BS = 6). O-BS-B remains paper-grade. 8 tripwires.
+  '/src/data/imp-1331-soundararajan-tao-2024-application.js',
 ];
 
 const ALL_MODULES = FAST_MODE

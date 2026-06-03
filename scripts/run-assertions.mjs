@@ -1176,6 +1176,19 @@ const DATA_MODULES = [
   // interval, verifies monotone decreasing structure, and confirms sigma = 0.75 is
   // the argmin within the rigorous range [0.50, 0.75]. 10 tripwires.
   '/src/data/imp-2337-ingham-sigma-certification.js',
+  // imp-1330: Path C via Bui-Soundararajan 2008 -- PARTIAL closure of the two
+  // engine-closable obstructions per imp-1321 (O-BS-A + O-BS-D). Verdict
+  // O-BS-D-fully-closed-O-BS-A-ledger-shipped-paper-grade: O-BS-D (downstream
+  // chain audit) FULLY CLOSED -- 5 of 6 imp-1321 consumers use only the scalar
+  // E_trunc_pt = 3.06e-5; the algebraic e_I form + monotone-argmin assumption
+  // are confined to the single producer finite-height-beats-platt-trudgian.js,
+  // and the monotonicity transfers to BS (d/dsigma e_BS = -100/(11+1.5sigma)^2
+  // < 0), so a BS substitution is downstream-safe. O-BS-A (effective C_BS)
+  // ships a 4-kernel constant LEDGER (HB 4th moment + BMMV + Selberg mollifier
+  // + amplifier; central C_BS ~ 13.5, realistic [1,50]) but the exact constant
+  // stays a 4-8 week paper-walk. O-BS-B + O-BS-C OUT OF SCOPE; rigorous Lambda
+  // UNCHANGED at 3.06e-5 (both worked obstructions are no-gain). 8 tripwires.
+  '/src/data/imp-1330-BS-port-partial-closure.js',
 ];
 
 const ALL_MODULES = FAST_MODE

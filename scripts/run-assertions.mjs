@@ -987,6 +987,15 @@ const DATA_MODULES = [
   // correctness risk). tighteningFactorRigorous stays 1.0; E_trunc_pt stays
   // 3.06e-5. T=1e14 payoff if a future campaign succeeds: ~4.07x. 8 tripwires.
   '/src/data/imp-1328-T_PT-compute-design.js',
+  // imp-2322: Lambda audit. Re-derives E_trunc_pt as an explicit power law in the
+  // verified zero-strip height T_PT (E = 3.0 * T^{-0.4} at sigma_opt = 0.75) and
+  // tabulates the bound at every candidate height. Key findings: the sensitivity is
+  // an EXACT constant elasticity d log E / d log T = -kappa = -0.4 (10^{0.4} ~ 2.512x
+  // per decade), and the single LOAD-BEARING height is Platt-Trudgian 2021 (3e12),
+  // the only peer-reviewed all-zeros-in-strip verification -- individual-zero heights
+  // (Gourdon 2.5e12, Odlyzko/LMFDB to 1e22) are loadBearingEligible = false.
+  // tighteningFactorRigorous stays 1.0; E_trunc_pt stays 3.06e-5. 10 tripwires.
+  '/src/data/imp-2322-etrunc-pt-T_PT-sensitivity.js',
   // imp-1324: rigor-honesty audit of the imp-459 implicit-constant-1 assumption at
   // sigma_opt = 0.75 against the Kadiri family of effective-Ingham bounds (Kadiri
   // 2013 / KLN 2018 / Simonič 2020) plus mitigating evidence (Heath-Brown 1979,

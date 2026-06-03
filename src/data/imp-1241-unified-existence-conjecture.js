@@ -349,6 +349,35 @@ const UNIFIED_CONJECTURE = Object.freeze({
     'connecting to the Krein-de Branges chain theorem that produces the canonical ' +
     'Hamiltonian dm from E_a.',
 
+  conservativeClassAndRegularityNote:
+    'PARAGRAPH 1 (simple-conservative class disambiguation): Arov-Nudelman 1996 ' +
+    'guarantee a passive Hilbert-state-space realization of a Schur Theta_a, but ' +
+    'the passive realization is NOT unique -- minimal-passive, Pontryagin-passive ' +
+    '(Krein-Langer S^k), and simple-conservative realizations all coexist for the ' +
+    'same transfer function. Identifying the state space with the de Branges space ' +
+    'H(E_a) (so that K_a is literally its reproducing kernel) requires the SIMPLE ' +
+    'CONSERVATIVE class: the colligation must be lossless (unitary, |Theta_a| = 1 ' +
+    'on R, matching the Hermite-Biehler boundary modulus of E_a) AND simple (no ' +
+    'reducing subspace on which the main operator acts unitarily, i.e. no decoupled ' +
+    'unitary part). Within the simple-conservative class the realization is UNIQUE ' +
+    'up to unitary equivalence, which is what pins (A_a, B_a) to the de Branges ' +
+    'A/B channels rather than to some other passive model. imp-1241 cited only the ' +
+    'finite-dim KYP lemma, which does not make this class selection explicit; the ' +
+    'assumption must be stated as a hypothesis of the unified CDB-Exist conjecture. ' +
+    'PARAGRAPH 2 (right-endpoint limit-point regularity): the de Branges chain / ' +
+    'Krein bijection produces a canonical Hamiltonian dm_a on a half-line whose ' +
+    'structure function at the right endpoint is E_a ONLY when that endpoint is in ' +
+    'the LIMIT-POINT case (de Branges 1968 Theorem XII; limit-point-at-infinity). ' +
+    'In the limit-circle case the Weyl m-function lies on a non-degenerate Weyl ' +
+    'disk and E_a is not uniquely determined, so the corollary 18.1 identification ' +
+    'would be ambiguous. For E_a(z) = X(a - iz) the relevant check is that the ' +
+    'completed-kernel Hamiltonian has non-integrable trace toward the singular ' +
+    'endpoint (equivalently, the de Branges space chain is unbounded), placing it ' +
+    'in the limit-point case. This regularity check is an additional hypothesis ' +
+    'imp-1241 left implicit; it is flagged here per imp-1245 axis a, and its ' +
+    'rigorous verification for the Phi-built E_a is left as a named sub-gap ' +
+    '(CDB-Exist-regularity) rather than asserted.',
+
   citations: Object.freeze([
     'de Branges 1968, Hilbert Spaces of Entire Functions (Theorems 19, 23, ' +
       '40; chain theorem)',
@@ -710,6 +739,21 @@ export const IMP_1241_ASSERTIONS = [
     holds: () => {
       const note = IMP_1241_UNIFIED_EXISTENCE_AUDIT.unifiedConjecture.infiniteDimPassivityNote;
       return typeof note === 'string' && /Brodskii/i.test(note);
+    },
+  },
+  {
+    id: 'imp2334-conservative-class-and-regularity-note-present',
+    why:
+      'imp-2334 closes the imp-1245 axis-a gap by adding an explicit ' +
+      'simple-conservative class disambiguation and a de Branges 1968 ' +
+      'right-endpoint limit-point regularity check. The note must be present ' +
+      '(>= 200 chars) and name BOTH the simple-conservative class and the ' +
+      'limit-point case so the paper author sees the two extra hypotheses the ' +
+      'unification rests on.',
+    holds: () => {
+      const note = IMP_1241_UNIFIED_EXISTENCE_AUDIT.unifiedConjecture.conservativeClassAndRegularityNote;
+      return typeof note === 'string' && note.length >= 200 &&
+        /simple.conservative/i.test(note) && /limit.point/i.test(note);
     },
   },
 ];

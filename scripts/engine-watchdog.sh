@@ -40,10 +40,12 @@ CIRCUIT_BREAKER_WINDOW_SEC=1800   # 30 min
 
 mkdir -p "$SCRIPT_DIR/logs" "$STATE_DIR"
 
-# Ordered list of engines this watchdog supervises.
+# Ordered list of engines this watchdog supervises. The single auto-improve-api.sh
+# was replaced by the parallel pool (auto-improve-api-pool.sh): N workers claim
+# distinct tickets via claim-next-api-ticket.mjs, so they no longer collide.
 ENGINES=(
   "auto-improve.sh"
-  "auto-improve-api.sh"
+  "auto-improve-api-pool.sh"
   "auto-improve-sonnet.sh"
   "auto-improve-haiku.sh"
 )
@@ -90,6 +92,12 @@ heartbeat_file_for() {
   case "$1" in
     auto-improve.sh)     echo "$SCRIPT_DIR/.heartbeat" ;;
     auto-improve-api.sh) echo "$SCRIPT_DIR/.heartbeat-api" ;;
+    # The pool has one heartbeat per worker (.heartbeat-api-pool-w<N>). Report the
+    # FRESHEST one: if even the most-recently-active worker is >30 min stale, the
+    # whole pool is wedged. A single slow worker won't trip it (another worker's
+    # heartbeat stays fresh), so we only force-restart on a genuine full hang.
+    auto-improve-api-pool.sh)
+      ls -t "$SCRIPT_DIR"/.heartbeat-api-pool-w* 2>/dev/null | head -1 ;;
     *)                   echo "" ;;
   esac
 }

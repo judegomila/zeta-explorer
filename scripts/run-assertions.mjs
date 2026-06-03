@@ -540,6 +540,14 @@ const DATA_MODULES = [
   // honest residual is CITATION-CONDITIONAL not mathematically-open.
   // 13 tripwires.
   '/src/data/imp-1264-polymath15-g6a-bridge-review.js',
+  // imp-2332: HONEST NEGATIVE RESULT — feasibility assessment of removing the
+  // Polymath15 Lemma 5.2 citation via a self-contained G6a re-derivation.
+  // Verdict: NOT achievable as a "200-line port" (corrects imp-1264). Reduces
+  // Lemma 5.2 to two un-discharged research-grade sub-claims: R1 uniform
+  // Gronwall flow-Lipschitz AT the collision singularity, R2 cusp-density
+  // W_1^{1/2} concentration. Holder-1/2 EXPONENT rigorous; uniform CONSTANT
+  // citation-conditional. Bound stays "modulo Polymath15 Lemma 5.2". 7 tripwires.
+  '/src/data/imp-2332-g6a-self-containment-assessment.js',
   // imp-1289: §17.4 Krein-Langer negative-index identity direct attack.
   // Verdict: recovers-de-branges-not-new — the κ = 0 specialization of the
   // Krein-Langer S^κ class is EQUIVALENT to the de Branges H(E_a) positivity
@@ -778,6 +786,23 @@ const DATA_MODULES = [
   // does NOT gate Lambda (E_trunc_pt is the bottleneck; see imp-1306 also
   // producing tightening factor 1.0). 13 tripwires (8+ required).
   '/src/data/imp-1314-G6a-constant-sharpening.js',
+  // imp-1327: Polymath15 -> imp-1261 chain explicit-constant audit. Systematic
+  // walk of all seven chain constants (C_Selberg, C_KH, K_0, K_1, C_HO, C_H,
+  // E_trunc_pt), classifying each as rigor-frontier vs has-headroom and
+  // gating vs non-gating on the headline Lambda <= 3.06e-5. Verdict: chain-
+  // headroom-is-non-gating-bottleneck-is-E_trunc_pt. Three are rigor frontier
+  // (C_H = 1/8 Dyson rigidity per imp-1314; E_trunc_pt = 3.06e-5 Ingham per
+  // imp-1306; K_1 = 1/(2 sqrt(2 pi)) sharp strip-Jacobian geometric coeff).
+  // Four carry ~2x headroom (C_Selberg = 3.0 convention value propagating to
+  // C_KH = pi C_Selberg, K_0 = pi C_Selberg / sqrt(2 pi), C_HO = 2 K_0 / K_1^2)
+  // but ALL live in the |t_c(N)| -> 0 rate, not the E_trunc_pt anchor. Since
+  // lim sup |t_c(N)| = 0 exactly (imp-341), collapsing the rate headroom gives
+  // a ~2x finite-N speedup (helps imp-440 / imp-1088 witnesses) but leaves the
+  // headline 3.06e-5 unchanged (tightening factor on Lambda = 1.0). The sole
+  // gating constant is E_trunc_pt; the only Lambda-moving lever is raising
+  // T_PT past 3e12 (imp-1328) or a uniform-in-sigma A=0 Ingham (imp-1329).
+  // 12 tripwires (one+ per audited constant). No false QED.
+  '/src/data/imp-1327-polymath15-chain-constant-audit.js',
   // imp-1311: NOVEL CLASSIFICATION — direct attack on RH and a numerical Lambda
   // bound via the Robin 1984 (J. Math. Pures Appl. (9) 63 (1984) 187-213) +
   // Lagarias 2002 (Amer. Math. Monthly 109 (2002) 534-543) sigma(n)/n elementary
@@ -926,11 +951,42 @@ const DATA_MODULES = [
   // -> spectral family EXHAUSTED for a zeta 2-point bypass at support > 1.
   // 10 tripwires.
   '/src/data/imp-1339-hecke-triangle-selberg-trace.js',
+  // imp-1340: CRITICAL structural reduction — can a DIRECT construction of the
+  // de Branges space H(E_a) from Phi close CDB-Exist (imp-1241) unconditionally
+  // and thereby close §15-27 -> RH WITHOUT routing through ||V_{a,Phi}|| <= 1 ->
+  // CDB-Exist -> PCC? Verdict: cdb-exist-direct-construction-reduces-to-
+  // hermite-biehler-positivity-rh-equivalent. The construction factors into a
+  // FORMAL layer (Aronszajn 1950 RKHS factorization + Arov-Nudelman 1996 passive
+  // realization — both unconditional and zero-set-free) and a POSITIVITY layer
+  // (E_a = X(a - iz) Hermite-Biehler / Theta_a = E_a^#/E_a Schur, from Phi). By
+  // the change of variable s = a - iz, E_a Hermite-Biehler iff X has no zeros in
+  // Re(s) > a; quantified over all a > 0 this is RH, and the de Branges 1986
+  // chain-ordering theorem makes it TWO-WAY (RH-equivalent, sharpening the
+  // imp-1245 axis-(b) inner-factor rigidity gap from RH-sufficient). Arov-Nudelman
+  // gives NO Riemann-special-case unconditional bypass — its input hypothesis is
+  // the RH-equivalent positivity. NAMED RESIDUAL SUB-GAP GAP-HB-POS: prove E_a
+  // Hermite-Biehler for all a > 0 directly from Phi without the zero set or RH.
+  // So the imp-1310 "cleanest remaining structural lever" (de Branges direct
+  // route) is NOT a PCC bypass; it relocates the difficulty into GAP-HB-POS = RH.
+  // 10 tripwires.
+  '/src/data/imp-1340-CDB-Exist-direct-construction.js',
   // imp-1323: literature audit for T_PT = 3e12 successor (Platt 2023 continuation,
   // Johnston 2025 extensions). Verdict: no-peer-reviewed-successor-found; E_trunc_pt
   // unchanged at 3.06e-5; tightening factor 1.0. Hypothetical scenarios at 1e13, 3e13,
   // 1e14 computed. 6 tripwires.
   '/src/data/imp-1323-T-PT-successor-audit.js',
+  // imp-1328: GPU-accelerated zero-verification COMPUTE DESIGN to push T_PT = 3e12
+  // toward 1e14 (engineering design only, NO execution). Method stack:
+  // Riemann-Siegel-Gourdon fast eval + Odlyzko-Schonhage / Platt-FFT amortization
+  // + Booker-Trudgian-Platt Turing counting + Platt interval-arithmetic rigor.
+  // Naive RS-only is ~1.8e21 ops (infeasible); amortization drops it to ~1e17-1e18
+  // effective ops (multi-month GPU-cluster campaign). Verdict
+  // feasible-with-amortization-two-engineering-risks-named. Sub-gap SUBGAP-1328:
+  // R-AMORT (amortization constant is the dominant cost uncertainty) and R-RIGOR
+  // (certified GPU enclosure + deterministic reduction unsolved -- the binding
+  // correctness risk). tighteningFactorRigorous stays 1.0; E_trunc_pt stays
+  // 3.06e-5. T=1e14 payoff if a future campaign succeeds: ~4.07x. 8 tripwires.
+  '/src/data/imp-1328-T_PT-compute-design.js',
   // imp-1324: rigor-honesty audit of the imp-459 implicit-constant-1 assumption at
   // sigma_opt = 0.75 against the Kadiri family of effective-Ingham bounds (Kadiri
   // 2013 / KLN 2018 / Simonič 2020) plus mitigating evidence (Heath-Brown 1979,

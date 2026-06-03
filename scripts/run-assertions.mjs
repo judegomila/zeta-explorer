@@ -548,6 +548,14 @@ const DATA_MODULES = [
   // W_1^{1/2} concentration. Holder-1/2 EXPONENT rigorous; uniform CONSTANT
   // citation-conditional. Bound stays "modulo Polymath15 Lemma 5.2". 7 tripwires.
   '/src/data/imp-2332-g6a-self-containment-assessment.js',
+  // imp-2333: FORMAL DOWNGRADE — Route 3 (higher-cumulant ESY closure) is
+  // restated as CONDITIONAL on the Rudnick-Sarnak three-point conjecture for
+  // GENERAL (full-Fourier-support) test functions. Confirms the imp-1247
+  // correction: the load-bearing Route 3 gap is general rho_3, NOT Montgomery
+  // PCC. Restriction-method candidate (alternative A) surveyed and shown
+  // structurally unable to reach full support unconditionally. Named residual
+  // GAP-RS3PT-FULL-SUPPORT. No Lambda bound moves; SOTA stays <= 0.2. 6 tripwires.
+  '/src/data/imp-2333-route3-rs3pt-conditional-downgrade.js',
   // imp-1289: §17.4 Krein-Langer negative-index identity direct attack.
   // Verdict: recovers-de-branges-not-new — the κ = 0 specialization of the
   // Krein-Langer S^κ class is EQUIVALENT to the de Branges H(E_a) positivity

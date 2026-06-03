@@ -70,6 +70,59 @@ is_engine_running() {
   echo "$out" | grep -qE "is RUNNING"
 }
 
+# An engine can be RUNNING (supervisor alive) yet wedged: its `claude --print`
+# child is socket-blocked, so the heartbeat goes stale and no tickets advance
+# (this caused a 26h API idle on 2026-06-02). Plain death-detection misses it.
+#
+# We do NOT use the engine's own "STALL DETECTED" line: it fires at 2 ticks
+# (240s for the API), but the heartbeat is written only AFTER each claude turn
+# completes, so a healthy multi-minute research turn legitimately looks "stale"
+# mid-flight. Restarting on that signal would kill healthy long turns in a loop.
+#
+# Instead we read the heartbeat file directly against a conservative absolute
+# threshold (HANG_THRESHOLD_SEC). No healthy turn runs anywhere near 30 min,
+# while the real hang ran 26 HOURS — so this catches genuine hangs without ever
+# interrupting a working turn. Only api + subscription emit heartbeats; the
+# sonnet/haiku engines have none, so they are skipped (return non-stalled).
+HANG_THRESHOLD_SEC="${WATCHDOG_HANG_THRESHOLD_SEC:-1800}"
+
+heartbeat_file_for() {
+  case "$1" in
+    auto-improve.sh)     echo "$SCRIPT_DIR/.heartbeat" ;;
+    auto-improve-api.sh) echo "$SCRIPT_DIR/.heartbeat-api" ;;
+    *)                   echo "" ;;
+  esac
+}
+
+is_engine_stalled() {
+  local script=$1
+  local hb
+  hb=$(heartbeat_file_for "$script")
+  [ -z "$hb" ] && return 1          # no heartbeat (sonnet/haiku) → can't judge
+  [ ! -f "$hb" ] && return 1        # not written yet (just starting) → not a hang
+  local beat age
+  beat=$(stat -f %m "$hb" 2>/dev/null || echo 0)
+  age=$(( $(now_epoch) - beat ))
+  [ "$age" -gt "$HANG_THRESHOLD_SEC" ]
+}
+
+# Force-restart clears a wedged engine: do_stop kills the supervisor AND its
+# direct children (the hung claude), then start spawns a fresh turn. A plain
+# `start` no-ops while the stale supervisor is still alive, so stop first.
+force_restart_engine() {
+  local script=$1
+  local count
+  count=$(restart_count_in_window "$script")
+  if [ "$count" -ge "$CIRCUIT_BREAKER_LIMIT" ]; then
+    echo "[$(iso_utc)] CIRCUIT_BREAKER: $script stalled but restarted $count times in last ${CIRCUIT_BREAKER_WINDOW_SEC}s, suppressing" >> "$LOG_FILE"
+    return
+  fi
+  echo "[$(iso_utc)] STALLED: $script — force-restart (stop+start, restart #$((count+1)) in window)" >> "$LOG_FILE"
+  "$SCRIPT_DIR/$script" stop  >> "$LOG_FILE" 2>&1 || true
+  "$SCRIPT_DIR/$script" start >> "$LOG_FILE" 2>&1 || true
+  record_restart "$script"
+}
+
 # Circuit-breaker bookkeeping: store epoch timestamps of recent restarts,
 # one engine per file. Trim entries older than CIRCUIT_BREAKER_WINDOW_SEC.
 restart_count_in_window() {
@@ -111,7 +164,9 @@ case "${1:-status}" in
     while true; do
       for script in "${ENGINES[@]}"; do
         if is_engine_running "$script"; then
-          :
+          if is_engine_stalled "$script"; then
+            force_restart_engine "$script"
+          fi
         else
           echo "[$(iso_utc)] DEAD: $script" >> "$LOG_FILE"
           restart_engine "$script"

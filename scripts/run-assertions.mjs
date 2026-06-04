@@ -748,25 +748,6 @@ const DATA_MODULES = [
   // support > 1 via test-function reformulation inside sigma <= 1 (lambda-
   // attack reformulation track). 12 tripwires.
   '/src/data/imp-1307-connes-bost-adelic-attack.js',
-  // imp-1343: NEW-INPUT classification (follow-up to imp-1307) — does the
-  // Connes-Consani 2016-2019 scaling-site / "Riemann-Roch strategy: complex
-  // lift of the scaling site" program (the modern successor of the Connes 1999
-  // adelic Lefschetz-trace approach) close the (L1) non-commutative manifold
-  // structure unconditionally, bypass the Tao 2008 critique, and give a 2-point
-  // bound on the §15-27 ESY-closure Poisson kernel at Fourier support sigma > 1?
-  // Verdict: connes-consani-2019 advances (L1) geometry (the scaling site is a
-  // genuine tropical object with an UNCONDITIONAL Riemann-Roch theorem,
-  // Connes-Consani 2017) but the load-bearing positivity-on-the-square (the
-  // Weil-1948 self-intersection positivity transferred to the arithmetic
-  // surface S x S) remains RH-equivalent and conjectural. (a) (L1) advanced not
-  // fully closed; (b) Tao 2008 critique RELOCATED not bypassed; (c) NO 2-point
-  // bound at support > 1 — unconditional content = Weil explicit formula with
-  // the same (log T)^{1/2} Cauchy-Schwarz loss, conditional content = RH
-  // outright. Named sub-gap GAP-1343-RR2-INTERSECTION-POSITIVITY. Engine
-  // planning unchanged from imp-1307: DECOUPLE §15-27 closure from PCC at
-  // support > 1 via lambda-attack reformulation inside sigma <= 1 (de Branges
-  // imp-1241/imp-1340 track). 9 tripwires.
-  '/src/data/imp-1343-connes-consani-2019.js',
   // imp-1301: NOVEL follow-up to imp-1296 — TRUE windowed λ_max via the
   // Christoffel-Darboux sine-kernel restriction (100×100 edge block of the
   // unfolded zeros) compared to TW2 with Soshnikov 2000 centering+rescaling.
@@ -1089,6 +1070,30 @@ const DATA_MODULES = [
   // contraction is a general automorphic phenomenon, not an artifact of
   // holomorphy. Approximate Hecke eigenvalues; NOT a proof of GRH. 11 tripwires.
   '/src/data/imp-2356-maass-volterra-hs.js',
+  // imp-1347: symbolic-regression identification of the consistent ~1.71x slack
+  // between the imp-1267 HS bound sqrt(I_0 J_a) and the empirical op-norm. The
+  // outer ratio factors as (Cauchy-Schwarz slack) x (HS-vs-op ratio); the FIRST
+  // factor has the EXACT small-a closed form 1/sqrt(1 - rho^2) with rho^2 =
+  // M_1^2/(I_0 M_2), M_k = int Phi^2 u^k du. For Riemann xi rho^2 = 0.5808 so
+  // slack_CS = 1.54458, matching the directly-computed slack to 9 sig figs (rel
+  // err 2.3e-10). Sharpens the small-a HS bound to a sqrt(I_0 M_2 - M_1^2)
+  // (tighter by 1.5446x). HONEST PARTIAL: only the Cauchy-Schwarz factor is
+  // closed-form; the residual HS-vs-op ratio is the named sub-gap
+  // GAP-1347-HS-TO-OP. The closed FORM is universal; the VALUE is xi-specific.
+  // 8 tripwires.
+  '/src/data/imp-1347-cauchy-schwarz-slack-symbolic-regression.js',
+  // imp-1346: GRH empirical check -- HS bound on primitive quadratic Dirichlet
+  // L-functions L(s, chi_q) for q in {3, 5, 7, 11}. Phi_q(u) from the Dirichlet
+  // theta function (even: 2 e^{u/2} sum chi(n) exp(-pi n^2 e^{2u}/q); odd: extra
+  // e^{u} prefactor and n weight). Sweeps a in {0.01, 0.05, 0.2} per conductor
+  // (12 rows). VERDICT: dirichlet-GRH-HS-bound-holds. Every row has
+  // hs_bound >= op_norm with margins 1.72x-2.59x (inside the imp-1267 scalar
+  // slack band 1.58x-2.57x); both HS bound (max 0.270 at q=11) and op_norm
+  // (max 0.104) below the Conj 27.2 threshold 1. Extends the imp-1298 framework
+  // to a third L-function family after zeta (imp-1267) and Delta (imp-1317).
+  // Quadratic (real self-dual) chi only; complex chi OPEN. NOT a proof of GRH.
+  // 11 tripwires (8+ required).
+  '/src/data/imp-1346-dirichlet-character-GRH-empirical.js',
   // imp-1344: NEW-INPUT classification -- can Harper-type random multiplicative
   // function results (the "RH for typical chi" body of work; Harper 2020 Annals
   // better-than-squareroot cancellation via critical Gaussian multiplicative

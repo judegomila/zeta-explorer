@@ -1,5 +1,38 @@
 // SPDX-License-Identifier: MIT
-//
+
+/**
+ * @fileoverview Bootstrap 95 percent confidence interval on the OLS log-log
+ * slope (point estimate -0.949) for the Erdos-Schlein-Yau linear-statistics
+ * variance regime at eta = N^{-1}. Promotes the imp-1149-sub-ESY headline
+ * point estimate to a bootstrapped candidate-weak band via two independently
+ * seeded resampling strategies (gamma-resample-then-dedupe as primary,
+ * test-point-bootstrap-on-fixed-zeros as cross-check).
+ *
+ * @module esy-lin-stat-slope-bootstrap-CI-2026-05
+ *
+ * Proof-chain step: empirical-evidence / ESY-residual numerics. Downstream of
+ * the imp-1149 Erdos-Schlein-Yau port; a sibling of the imp-1161 rigorous
+ * bridge and imp-1162 wider-grid attempts. Does NOT prove the ESY rate -- it
+ * only reports whether the data are statistically compatible with slope -1.
+ *
+ * Exports:
+ *   - ESY_LIN_STAT_BOOTSTRAP_CI: frozen record carrying the primary and
+ *     secondary slope/intercept/R^2 percentile CIs, the verdict, the honest
+ *     scope caveats, and provenance back to imp-1149-sub-ESY.
+ *   - ESY_LIN_STAT_BOOTSTRAP_CI_ASSERTIONS: build-time tripwires pinning the
+ *     method tag, replicate count, grid, CI sanity, ESY-target containment,
+ *     cross-check consistency, and the live zeros import.
+ *
+ * Key assertions: method tag is exactly bootstrap; both strategies run >= 1000
+ * finite replicates; grid is exactly {100, 500, 1000, 5000, 10000}; the
+ * ci_contains_minus_1 flag matches numerical containment and the statusVerdict
+ * follows the documented policy; primary and secondary slope CIs overlap with
+ * medians within 0.30.
+ *
+ * Tickets: created by imp-1160; upstream imp-1149-sub-erdos-schlein-yau-port-
+ * residual; parallel imp-1161, imp-1162, imp-1163; JSDoc added by imp-2418.
+ */
+
 // imp-1160 — bootstrap 95 percent CI on the slope -0.949 reported by
 // imp-1149-sub-erdos-schlein-yau-port-residual for the linear-statistics
 // variance regime at eta = N^{-1}.

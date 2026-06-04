@@ -1,3 +1,39 @@
+/**
+ * @module data/lin-stat-riemann-literature-survey-2026-05
+ * @fileoverview Literature survey deciding whether paper Section 4.5
+ * Conjecture 1 (microscopic-scale linear-statistics variance of Riemann zeros)
+ * is genuinely novel or already implicit in the published CUE / sine-kernel /
+ * zeta-zero-CLT literature.
+ *
+ * Exports:
+ *   - LIN_STAT_LITERATURE_SURVEY (also the default export) — frozen record
+ *     (id imp-1163) holding the conjecture_under_test, papersReviewed (>=9
+ *     anchor papers each scored on mainResult / assumptions / overlapWithConj1),
+ *     novelty_verdict, if_subsumed derivation sketch, recommendation_for_paper /
+ *     recommendation_detail, honestScope caveats, and parallelTickets.
+ *   - LIN_STAT_LITERATURE_SURVEY_ASSERTIONS — checkable no-arg holds() tripwires
+ *     guarding the survey shape and its recorded verdict.
+ *
+ * Proof-chain role: literature audit / paper-claim governance, not a
+ * mathematical step in the analytic Lambda argument. It exists to stop an
+ * overclaim shipping in main.tex Section 4.5 (sec:esy-positive) before public
+ * release.
+ *
+ * Key assertions: at least 9 anchor papers are reviewed (Wieand, Hughes-Rudnick,
+ * Conrey-Snaith, Bourgade, Rodgers-Tao, Costin-Lebowitz, Soshnikov,
+ * Diaconis-Shahshahani, Killip-Kozhasov-Marzo); the novelty_verdict is NOT
+ * genuinely-novel (it is subsumed-by-hughes-rudnick-2003-and-bourgade-2010);
+ * Hughes-Rudnick and Bourgade are both present; Soshnikov 2000 is classified
+ * SUBSUMES; the recommendation is NOT keep-as-novel; the if_subsumed derivation
+ * sketch is >=400 chars; and the proposed citations mention Hughes-Rudnick. The
+ * honest read is that the SCALING LAW is established and the novel part is only
+ * the EMPIRICAL DATA POINT (slope -0.949 / -0.849) on the imp-407 / imp-508
+ * ESY-closure observable, with the subsuming transfer resting on the unproven
+ * Montgomery PCC (sine-kernel) hypothesis.
+ *
+ * Tickets: created by imp-1163 (parallel imp-1149, imp-1147, imp-407, imp-508);
+ * module doc added by imp-2449.
+ */
 // imp-1163: Literature survey for paper Section 4.5 Conjecture 1
 // (linear-statistics variance of Riemann zeros at the microscopic scale).
 //

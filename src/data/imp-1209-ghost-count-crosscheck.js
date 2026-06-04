@@ -1,3 +1,26 @@
+/**
+ * @fileoverview Cross-check audit: paper para 17 ghost negative-square count vs
+ * the imp-1147 conditional Lambda <= 7.98e-4 bound. Confirms imp-1147's implicit
+ * zero-ghost-count assumption is identical to the §17 Blaschke-ghost / Krein-Langer
+ * condition (ind_- = 0), expressed in a different notation.
+ *
+ * @module data/imp-1209-ghost-count-crosscheck
+ *
+ * Proof-chain step: audit/consistency layer on the asymptotic Lambda-bound route
+ * (imp-1147 -> §17 Pontryagin framework). Not a new proof; strengthens the scope
+ * framing of the existing conditional bound.
+ *
+ * Exports:
+ *  - GHOST_COUNT_CROSSCHECK            frozen record of the cross-check facts
+ *  - GHOST_COUNT_CROSSCHECK_ASSERTIONS tripwire assertions (6) guarding the audit
+ *
+ * Key assertions: assumed ghost count = 0; negative-square count = ghost count;
+ * predicted Pontryagin index = ghost count; consistency flag = true; imp-1147
+ * Lambda bound in (0, 0.2); empirical-only scope above T_PT named honestly.
+ *
+ * Tickets: created by imp-1209; audits imp-1147
+ * (asymptotic-lambda-bound-2026-05-20.js). Module JSDoc added by imp-2416.
+ */
 // imp-1209: Cross-check — paper para 17 ghost negative-square count
 // vs the imp-1147 conditional Lambda <= 7.98e-4 bound.
 //

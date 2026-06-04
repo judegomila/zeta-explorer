@@ -1,3 +1,41 @@
+/**
+ * @fileoverview Literature audit of paper Conjectures 17.3 and 18.4 (the
+ * ghost-absence theorem in two notational forms). Exports CONJ_17_3_AUDIT and
+ * CONJ_18_4_AUDIT (frozen per-conjecture verdict records), IMP_1232_AUDIT_SUMMARY
+ * (the combined verdict + cross-references), and IMP_1232_ASSERTIONS (7
+ * build-time tripwires).
+ *
+ * PROOF-CHAIN STEP: paper-audit leg of the v52 conjecture classification pass.
+ * Both conjectures are graded SUBSUMED-BY-RH: each asserts the right-half-plane
+ * ghost Blaschke product B_a^+(w) is identically 1, which unwinds by definition
+ * to "xi has no zeros with Re(s) > 1/2 + a for all a > 0" -- exactly RH via the
+ * functional equation. The para 17.4 Krein-Langer negative-index identity
+ * ind_-(K_{R_a}) = #{off-critical zeros with Re(lambda) > a} is the load-bearing
+ * bridge. Conjecture 18.4 restates 17.3 in four equivalent languages (Schur
+ * class, K_a PSD, zero Weil-form negative index, RH) and the paper itself states
+ * "equivalently RH holds".
+ *
+ * KEY ASSERTIONS: both verdicts equal SUBSUMED-BY-RH; each equivalencePath spells
+ * out at least 5 auditable steps; Krein-Langer is cited in the 17.3 prior-art;
+ * the paper sections are pinned (17.6 for 17.3, 18.4 for 18.4); both entries point
+ * at audit ticket imp-1232; both recommendations foreground the genuinely open
+ * non-circular para 18.1-18.3 programs.
+ *
+ * HONEST SCOPE: this file classifies the conjectures as RH restatements; it does
+ * NOT advance the three genuinely open closure programs (kernel/passivity,
+ * prime-delay domination, Weil-Pontryagin duality) in para 18.1-18.3, which
+ * remain the real research targets.
+ *
+ * TICKETS: created by imp-1232; structurally identical audits in imp-1210 (22.4),
+ * imp-1229 (15.2), imp-1202 (15.4); references imp-1198 (blaschke-ghosts) and
+ * imp-1199 (ThreeAttacksPage non-circular programs).
+ *
+ * @module imp-1232-conjectures-17-3-18-4-audit
+ * @see imp-1232
+ * @see src/data/paper-audit-dashboard.js
+ * @see src/data/blaschke-ghosts-section.js
+ */
+
 // imp-1232: Literature audit for paper Conjectures 17.3 and 18.4
 //           (ghost-absence theorem -- SUBSUMED-BY-RH like 22.4).
 //

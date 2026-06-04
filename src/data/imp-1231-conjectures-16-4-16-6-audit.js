@@ -1,3 +1,37 @@
+/**
+ * @fileoverview Literature audit of paper Conjectures 16.4 (shift-bridge square /
+ * hidden-square kernel factorization) and 16.6 (canonical-system closure).
+ * Exports CONJ_16_4_AUDIT and CONJ_16_6_AUDIT (frozen per-conjecture verdict
+ * records), IMP_1231_AUDIT_SUMMARY (the combined summary), and
+ * IMP_1231_ASSERTIONS (10 build-time tripwires).
+ *
+ * PROOF-CHAIN STEP: paper-audit leg for the v52 paper. It classifies the two
+ * §16 constructive-existence conjectures against the established five-element
+ * audit vocabulary. Both land at PARTIALLY-RELATED: each bundles an
+ * RH-equivalent existence/Schur claim (SUBSUMED-BY-RH in isolation via the
+ * shift-bridge threshold theorem Thm 15.1 and standard de Branges-space
+ * machinery) with a genuinely-open non-circular construction constraint
+ * (build H_a / B_a or the passive canonical-system Hamiltonian directly from
+ * the completed Riemann kernel Phi, not from the zero set). The verdict
+ * formalizes the paper own framing (lines 1630-1631 and 1722-1723).
+ *
+ * KEY ASSERTIONS: both verdicts equal PARTIALLY-RELATED; each equivalencePath
+ * spells out at least 5 steps; de Branges (1968) cited for both; the Krein /
+ * Romanov / Remling canonical-systems literature cited for 16.6; paper sections
+ * pinned (§16.4, §16.7); audit ticket is imp-1231; a two-part reading and a
+ * circularity test are present for each; the summary records the paper own
+ * non-circular-construction framing.
+ *
+ * TICKETS: created by imp-1231; cross-references imp-1210, imp-1229, imp-1230,
+ * imp-1232, imp-1184; verdict tracker in paper-audit-dashboard.js.
+ *
+ * @module imp-1231-conjectures-16-4-16-6-audit
+ * @see imp-1231
+ * @see imp-1210
+ * @see imp-1229
+ * @see imp-1230
+ */
+
 // imp-1231: Literature audit for paper Conjectures 16.4 (shift-bridge square)
 //           and 16.6 (canonical-system closure).
 //

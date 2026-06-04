@@ -605,15 +605,29 @@ export const BS_PLUS_POLYMATH_HYBRID_ASSERTIONS = [
       if (!Array.isArray(o.engineClosableConsumed) || o.engineClosableConsumed.length < 1) return false;
       if (!Array.isArray(o.researchGradeFeasibleConsumed) || o.researchGradeFeasibleConsumed.length < 1) return false;
       if (typeof o.headlineMessage !== 'string' || o.headlineMessage.length < 100) return false;
+      // imp-2366: the four categories must be DISJOINT. A refinement id that
+      // appears in two categories (e.g. both research-grade-hard AND
+      // already-near-optimal) is exactly the un-separated, paper-misleading
+      // survey this tripwire claims to forbid. Non-emptiness alone did not
+      // enforce that; disjointness does.
+      const categorised = [
+        ...o.researchGradeHardBlockers,
+        ...o.alreadyNearOptimal,
+        ...o.engineClosableConsumed,
+        ...o.researchGradeFeasibleConsumed,
+      ];
+      if (new Set(categorised).size !== categorised.length) return false;
       return true;
     },
     why:
       'namedObstructions must carry at least one research-grade-hard blocker, ' +
       'one already-near-optimal candidate, one engine-closable consumed ' +
       'refinement, one research-grade-feasible consumed refinement, plus a ' +
-      'non-trivial headline message. A naive obstruction survey that does ' +
-      'not separate these categories would be paper-misleading; tripwire ' +
-      'forces explicit categorisation.',
+      'non-trivial headline message, AND the four categories must be pairwise ' +
+      'disjoint (no refinement id double-counted). A naive obstruction survey ' +
+      'that does not cleanly separate these categories would be ' +
+      'paper-misleading; the tripwire forces explicit, non-overlapping ' +
+      'categorisation.',
   },
   {
     id: 'imp1127-lpt-n1e4-hybrid-below-baseline',

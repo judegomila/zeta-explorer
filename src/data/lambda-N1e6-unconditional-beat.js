@@ -1,5 +1,25 @@
 /**
- * imp-470 (partial): Near-unconditional L_pt beat payoff record — Phase 33-35 assembly
+ * @module data/lambda-N1e6-unconditional-beat
+ * @fileoverview imp-470 (partial): Near-unconditional L_pt beat payoff record — Phase 33-35 assembly
+ *
+ * Navigation (imp-2443)
+ * ---------------------
+ * Exports:
+ *   LAMBDA_N1E6_UNCONDITIONAL_BEAT   payoff record object (headline beat + condition summary + closures)
+ *   UNCONDITIONAL_BEAT_ASSERTIONS    build-time assertion list (delegates LAMBDA_N1E6_ASSEMBLY_ASSERTIONS)
+ *
+ * Proof-chain step:
+ *   Final payoff assembly for the finite-height Lambda <= L_pt ~ 0.121 < 0.2 beat
+ *   (Platt-Trudgian 2021). Sits downstream of lambda-N1e6-final-assembly.js (imp-452)
+ *   and aggregates the Phase 33-35 closures B1, B2/M, C3-pt, NoSwap.
+ *
+ * Key assertions:
+ *   openCount === 0, conditionalCount === 0, closedCount === 4, L_pt < 0.2,
+ *   NoSwap numerically-closed, rigorStatus leads with GUE-CONDITIONAL (imp-583).
+ *
+ * Tickets that created/modified this file:
+ *   imp-470 (created), imp-471 (M closure), imp-477/imp-583 (GUE-conditional re-grading),
+ *   imp-501 (NoSwap honest gap), imp-2443 (this navigation block).
  *
  * Purpose
  * -------

@@ -1,3 +1,27 @@
+/**
+ * @module data/paper-audit-dashboard
+ * @fileoverview Single source of truth for the v52-paper conjecture audit verdicts.
+ *
+ * Exports:
+ *   - PAPER_AUDIT_DASHBOARD (also the default export) — frozen object holding the
+ *     verdict vocabulary, the per-conjecture entry table, status counts, the
+ *     central collapse target (27.2), and the completed-audit ticket log.
+ *   - PAPER_AUDIT_DASHBOARD_ASSERTIONS — checkable claims the dashboard makes,
+ *     consumable by tripwires that re-verify audit bookkeeping.
+ *
+ * Proof-chain role: audit/bookkeeping, not a mathematical step. It tracks how
+ * each numbered conjecture from twin_ladder_consolidated_v52.pdf (Sections
+ * 15, 16, 17, 18, 22) relates to RH or the literature; it does not itself
+ * advance the analytic Lambda argument.
+ *
+ * Key assertions: each conjecture carries one verdict from the controlled
+ * vocabulary (SUBSUMED-BY-RH, SUBSUMED-BY-LITERATURE, PARTIALLY-RELATED,
+ * INDEPENDENT-NOVEL, UNAUDITED); several Section 15/22 conjectures are
+ * SUBSUMED-BY-RH, and the whole §15-27 program collapses to conjecture 27.2.
+ *
+ * Tickets: created by imp-1218; verdict entries maintained by imp-1163,
+ * imp-1202, imp-1210, imp-1229, imp-1258; module doc added by imp-2447.
+ */
 // imp-1218: Paper Audit Dashboard.
 //
 // PURPOSE

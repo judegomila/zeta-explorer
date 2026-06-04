@@ -1494,6 +1494,16 @@ const DATA_MODULES = [
   // ladder on measured |t_c(N)| at tractable N<=800; literal {1e4,1e5,1e6}
   // ladder deferred to imp-1090 (GAP-2466-LARGE-N-OFFLINE). 6 tripwires.
   '/src/data/imp-2466-dyson-tc-interval-ladder.js',
+  // imp-2453: genuine many-body Calogero-Moser Hessian at the Hermite argmin
+  // (Wave-4 follow-on to imp-2439 sub-gap imp-2439-true-CM-Hessian). Replaces the
+  // fitted scalar kappa ~ 0.895 with the exact second-derivative matrix H_ii = 1 +
+  // sum 1/(x_i-x_j)^2, H_ij = -1/(x_i-x_j)^2; diagonalized spectrum = {1..N}
+  // (Calogero) to ~1e-12 up to N=128. tr(H^-1)=H_N gives c_det=H_N/log N -> 1
+  // (derived, not assumed); genuine coupling rho_CM = max/mean site compliance >= 1
+  // identically and grows ~0.545 N^0.40. Edge escape (rho <= N^-1/3) excluded with
+  // widening margin; corrected alpha_c_p50 = 1.06 at rho_CM(64)=2.86. Sub-gap
+  // imp-2453-compliance-to-rigidity-map (imp-486 GUE obstruction). 8 tripwires.
+  '/src/data/imp-2453-true-cm-hessian.js',
 ];
 
 const ALL_MODULES = FAST_MODE

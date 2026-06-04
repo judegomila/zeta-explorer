@@ -1,3 +1,48 @@
+/**
+ * @fileoverview Unified de Branges canonical-system existence audit for paper
+ *   Conjectures 16.4, 16.6, 18.1, 18.2 (the CDB-Exist unification,
+ *   twin_ladder_consolidated_v52.pdf).
+ * @module data/imp-1241-unified-existence-conjecture
+ *
+ * Exports
+ * -------
+ *   IMP_1241_UNIFIED_EXISTENCE_AUDIT (also the default export) — the assembled
+ *     audit record: per-conjecture verdicts, the unified CDB-Exist statement
+ *     with its three corollaries and named sub-gaps, the reference-framework
+ *     survey, the honest-scope disclosures, and the cross-references.
+ *   IMP_1241_ASSERTIONS — build-time tripwires pinning the verdict
+ *     (three-of-four-unified), the conjecture roster, the canonical-system
+ *     classification, and the required citations/derivation notes.
+ *
+ * Proof-chain step
+ * ----------------
+ * A PAPER-AUDIT node (not a proof node) sitting under the imp-1218
+ * paper-audit-dashboard. It classifies four UNAUDITED constructive-existence
+ * conjectures and collapses three of them (16.4 + 16.6 + 18.1) into a single
+ * de Branges / Krein canonical-system existence statement (CDB-Exist), while
+ * routing the fourth (18.2) to the Hadamard logarithmic-derivative side
+ * alongside Conjecture 15.4.
+ *
+ * Key assertions
+ * --------------
+ *   finalVerdict = "three-of-four-unified": 16.4/16.6/18.1 unify under
+ *     CDB-Exist; 18.2 does not (it is a Re(X-prime/X) scalar inequality,
+ *     SUBSUMED-BY-RH via paired Hadamard, same logic as 15.4).
+ *   CDB-Exist is RH-equivalent; existence given Hermite-Biehler E_a is
+ *     automatic by de Branges 1968, so the genuine open content is the
+ *     NON-CIRCULAR construction of dm_a from Phi (not from the zero set).
+ *     Named sub-gaps CDB-Exist-regularity and CDB-Exist-no-inner-factor are
+ *     both honestly flagged as RH-equivalent.
+ *
+ * Tickets that created or modified this file
+ * ------------------------------------------
+ *   Created: imp-1241. Major edits: imp-1272 (Arov-Nudelman 1996 + Brodskii
+ *   1971 infinite-dimensional passivity bridge for Conj 18.1), imp-2334
+ *   (simple-conservative class + limit-point regularity note, imp-1245 axis a),
+ *   imp-2335 (outer-factor rigidity note, imp-1245 axis b). Module-doc tags
+ *   added by imp-2407.
+ */
+
 // imp-1241: Unified de Branges canonical-system existence audit for paper
 //           Conjectures 16.4, 16.6, 18.1, 18.2.
 //

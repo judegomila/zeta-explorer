@@ -1,5 +1,24 @@
 /**
+ * @fileoverview Voronin universality theorem -- numerical exploration data.
+ * @module data/voronin-universality-numerical
+ *
  * imp-1100: Voronin universality theorem -- numerical exploration data.
+ *
+ * PROOF-CHAIN STEP
+ *   Exploratory / contextual. This file does NOT feed the RH-attack
+ *   proof chain; it is a standalone numerical witness illustrating the
+ *   value-distribution behaviour of zeta in the critical strip. It is
+ *   surfaced for readers exploring zeta universality, separate from the
+ *   ESY / Volterra closure lines.
+ *
+ * KEY ASSERTIONS
+ *   VORONIN_UNIVERSALITY_ASSERTIONS -- 7 build-time tripwires guarding
+ *   target nonvanishing on K, grid/sweep shape, and the reported
+ *   epsilonAchieved best-approximation value.
+ *
+ * TICKETS
+ *   imp-1100 created this module; imp-2415 added this @fileoverview/@module
+ *   header.
  *
  * Voronin (1975): for any nonvanishing analytic function f on a compact
  * subset K of the strip 1/2 < Re(s) < 1, and for any epsilon > 0, the

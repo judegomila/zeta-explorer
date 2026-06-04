@@ -1070,6 +1070,19 @@ const DATA_MODULES = [
   // contraction is a general automorphic phenomenon, not an artifact of
   // holomorphy. Approximate Hecke eigenvalues; NOT a proof of GRH. 11 tripwires.
   '/src/data/imp-2356-maass-volterra-hs.js',
+  // imp-2402: HS-bound spot-check on a SECOND holomorphic GL(2) family after
+  // Delta -- the weight-16 level-1 newform F = Delta * E4 (LMFDB 1.16.a.a).
+  // Coefficients a(n) computed EXACTLY from the q-expansions of Delta and E4
+  // (a(1)=1, a(2)=216). Phi_F(u) = e^{8u} sum a(n) exp(-2 pi n e^u) (gamma
+  // center s = k/2 = 8, vs 6 for Delta). Sweeps a in {0.01,0.05,0.2}. VERDICT:
+  // gl2-weight16-HS-bound-holds. All 3 rows have hs_bound >= op_norm with a
+  // CONSTANT 1.82x Cauchy-Schwarz slack (inside the imp-1267 band 1.58x-2.57x,
+  // close to Delta weight-12 1.71x); both HS bound (max 2.14e-7) and op_norm
+  // (max 1.18e-7) >6 orders below the threshold 1; linearity-in-a to <0.2%.
+  // Evidence the HS contraction persists across holomorphic cusp forms of
+  // varying weight. Scalar reduction (single Gamma factor); NOT a GRH proof.
+  // 10 tripwires.
+  '/src/data/imp-2402-gl2-weight16-hs.js',
   // imp-1347: symbolic-regression identification of the consistent ~1.71x slack
   // between the imp-1267 HS bound sqrt(I_0 J_a) and the empirical op-norm. The
   // outer ratio factors as (Cauchy-Schwarz slack) x (HS-vs-op ratio); the FIRST
@@ -1397,6 +1410,12 @@ const DATA_MODULES = [
   // via a second RH-equivalence. Named sub-gap GAP-2390-NO-FLOW-TIME-IN-PHI-
   // MARGIN. RH NOT asserted. 9 tripwires.
   '/src/data/imp-2390-nicolas-primorial-margin-no-lambda-bridge.js',
+  // imp-2404: register imp-2401 dense Volterra-crossover sweep so its 7
+  // already-shipped tripwires actually run -- frozen row-count (17), op_norm
+  // monotonicity in a, headline crossing bracket a in [37.5, 40], Galerkin-vs-HS
+  // threshold agreement (37.659 vs 37.66, < 0.05), and bit-for-bit imp-1316
+  // cross-check at a=10 and a=50. Previously dormant (module not in DATA_MODULES).
+  '/src/data/imp-2401-volterra-crossover-sweep.js',
 ];
 
 const ALL_MODULES = FAST_MODE

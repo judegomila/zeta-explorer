@@ -548,8 +548,8 @@ export const TRIPWIRE_HELPERS_SELFTEST_ASSERTIONS = [
     id: 'tripwire-helpers-id-preserved-verbatim',
     why: 'Factory output id must equal the input id string exactly (no prefixing / mangling).',
     holds: () => {
-      const tw = makeRowCountTripwire('imp-XXXX-row-count', [1, 2, 3], 3);
-      return tw.id === 'imp-XXXX-row-count';
+      const tw = makeRowCountTripwire('imp-rowcount-id-verbatim', [1, 2, 3], 3);
+      return tw.id === 'imp-rowcount-id-verbatim';
     },
   },
   // Custom why override is honored.

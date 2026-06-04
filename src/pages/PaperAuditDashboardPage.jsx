@@ -501,6 +501,9 @@ export default function PaperAuditDashboardPage() {
           <Link to="/kyp-bounded-real" style={{ color: '#7dd3fc' }}>
             KYP / Bounded-Real
           </Link>
+          <Link to="/volterra-bound" style={{ color: '#7dd3fc' }}>
+            Volterra Norm Bound (§15-27 collapse)
+          </Link>
           <Link to="/improvement-queue" style={{ color: '#7dd3fc' }}>
             Improvement Queue
           </Link>

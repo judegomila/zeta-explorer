@@ -15076,6 +15076,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended a tagged @fileoverview/@module JSDoc block to esy-lin-stat-extended-sweep-2026-05.js naming the two exports (ESY_LIN_STAT_EXTENDED_SWEEP, ESY_LIN_STAT_EXTENDED_SWEEP_ASSERTIONS), the proof-chain step (empirical support for the imp-1149-sub-ESY linear-statistics residual at alpha=1, eta=N^{-1}, extended to N=1e6), the key assertions (combined 13-point OLS slope on real-zero rows plus the imp1162-original-rows-match-imp1149 tripwire), the honest scope (N=1e6 ceiling not 1e7), and the creating/related tickets. Docs-only; no data or logic change. npm run build green.',
   },
 
+  
+  // ── Auto-seeded batch (2026-06-04) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2412',
+    title: "Add JSDoc module documentation to viz-twin-ladder-tomography.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'docs',
+    description: "src/data/viz-twin-ladder-tomography.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-06-04T07:32:01Z',
+    closureNote: 'Prepended a @fileoverview/@module JSDoc block to the existing doc comment in src/data/viz-twin-ladder-tomography.js, naming the module path, the P(sigma,t) interference-tomography reading, the proof-chain step (visualization/diagnostic for the critical-line symmetry, not a proof step), and the tickets (created by imp-1223, JSDoc by imp-2412). Docs-only; npm run build green.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

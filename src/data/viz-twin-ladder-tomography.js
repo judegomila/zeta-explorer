@@ -1,4 +1,17 @@
 /**
+ * @fileoverview Twin-Ladder Interference Tomography VIZ data module: the
+ * heatmap of P(sigma, t) = |zeta(sigma + i t)| * |zeta((1 - sigma) + i t)|
+ * that reads the critical line sigma = 1/2 as a functional-equation
+ * interference trough, with zeta zeros as pinpoint nulls.
+ *
+ * @module data/viz-twin-ladder-tomography
+ *
+ * Proof-chain step: visualization/diagnostic support for the critical-line
+ * symmetry reading (functional equation zeta(s) = chi(s) zeta(1 - s) with
+ * |chi(1/2 + i t)| = 1). Not a proof step; an illustrative tomography view.
+ *
+ * Tickets: created by imp-1223; module-level JSDoc added by imp-2412.
+ *
  * imp-1223: Twin-Ladder Interference Tomography (VIZ data module).
  *
  * MATH

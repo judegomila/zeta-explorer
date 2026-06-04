@@ -15401,6 +15401,26 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
   },
 
+  
+  // ── Auto-seeded batch (2026-06-04) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2467',
+    title: "Upgrade partial/conditional status in imp-2466-dyson-tc-interval-ladder.js:267",
+    category: 'proof',
+    priority: 'medium',
+    status: 'completed',
+    proofSection: 'S10',
+    description: "Found \"status: 'partial',\" at src/data/imp-2466-dyson-tc-interval-ladder.js:267. Investigate whether the partial closure can be upgraded to full based on recent proof chain closures (imp-462/463/464/471). If the upgrade is blocked, document why.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-06-04T21:30:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Upgrade BLOCKED, documented in imp-2466-dyson-tc-interval-ladder.js via new upgradeAssessment field. imp-462/463/464/471 closed the ANALYTIC Route-A monotonicity/no-swap/many-body conditions of the finite-height Lambda<=0.121 beat; they are orthogonal to imp-2466. imp-2466 is an integrator cross-verification whose sole open blocker (GAP-2466-fresh-N1e4-1e6) is a DATA/COMPUTE availability issue: fresh measured rows at N in {1e4,1e5,1e6} need the 16.7MB Odlyzko table + offline O(N^2) engine, infeasible at Vite build time. Status correctly stays partial; status-is-partial tripwire assertion enforces it. Build passed.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',
@@ -22398,7 +22418,8 @@ export const IMPROVEMENT_QUEUE = [
     title: "Uniform-in-m sym^m Rankin-Selberg 2nd-moment via the imp-2437 residue identity",
     category: 'proof',
     priority: 'medium',
-    status: 'pending',
+    status: 'in-progress-subagent',
+    inflightTaskId: 'api-pool-w3-1780607603732',
     completedByModel: null,
     completedByChannel: null,
     proofSection: null,
@@ -22414,7 +22435,8 @@ export const IMPROVEMENT_QUEUE = [
     title: "Wider-band ESY variance gap: fit the exp(-4 pi W) closure law vs the Bogomolny-Keating limit",
     category: 'numerical',
     priority: 'medium',
-    status: 'pending',
+    status: 'in-progress-subagent',
+    inflightTaskId: 'api-pool-w1-1780607813348',
     completedByModel: null,
     completedByChannel: null,
     proofSection: null,

@@ -15052,7 +15052,8 @@ export const IMPROVEMENT_QUEUE = [
     description: "src/data/g6a-sub-hyperbolic-closure.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-06-04T06:20:00Z',
+    closureNote: 'JSDoc @fileoverview/@module block already delivered to src/data/g6a-sub-hyperbolic-closure.js (header names both exports, the G6a-sub-hyperbolic proof-chain step under imp-394, the CLOSED verdict and Whitham/Stieltjes reasoning). Ticket was status:completed but completedAt was null, so the queue index kept flagging it pending and re-scanning it every run. Set completedAt to un-strand it; docs already in place, no source change needed.',
   },
 
     {

@@ -1,3 +1,27 @@
+/**
+ * @fileoverview Build-time structural validation for
+ * src/pages/LambdaTimelinePage.jsx. Reads the page source from disk and asserts
+ * that the /lambda-timeline route exists, exceeds a minimum size, cites its
+ * provenance tickets, and uses d3-scale for the log-N axis.
+ *
+ * @module data/lambda-timeline-page-validation
+ *
+ * Proof-chain step: presentation/audit layer for the finite-height Lambda
+ * timeline. The page itself visualizes the measured/carryforward/GUE-conditional
+ * regimes from the unconditional Lambda-bound route (imp-440 measured beat at
+ * N = 1e4, imp-1088 carryforward extension at N = 1e6). This file does not add a
+ * proof; it is a tripwire that the visualization artifact stays intact.
+ *
+ * Exports:
+ *  - LAMBDA_TIMELINE_PAGE_VALIDATION            frozen record of page metadata
+ *  - LAMBDA_TIMELINE_PAGE_VALIDATION_ASSERTIONS tripwire assertions (3)
+ *
+ * Key assertions: page renders (exists, non-empty, exports
+ * LambdaTimelinePage); cites both imp-440 and imp-1088; imports from d3-scale.
+ *
+ * Tickets: created by imp-1093; validates src/pages/LambdaTimelinePage.jsx.
+ * Module JSDoc added by imp-2417.
+ */
 // imp-1093 build-time validation for src/pages/LambdaTimelinePage.jsx.
 //
 // Three tripwires:

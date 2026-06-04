@@ -15268,6 +15268,25 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Added @module data/lambda-N1e6-unconditional-beat + @fileoverview header block documenting the two exports (LAMBDA_N1E6_UNCONDITIONAL_BEAT, UNCONDITIONAL_BEAT_ASSERTIONS), the proof-chain step (final payoff assembly for the finite-height Lambda<=L_pt~0.121<0.2 Platt-Trudgian beat, downstream of lambda-N1e6-final-assembly.js imp-452), the key build-time assertions, and the tickets that created/modified the file (imp-470/471/477/583/501/2443). Pure documentation, no semantic change. npm run build green.',
   },
 
+  
+  // ── Auto-seeded batch (2026-06-04) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2444',
+    title: "Add JSDoc module documentation to imp-1126-auto-tripwires.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'docs',
+    description: "src/data/imp-1126-auto-tripwires.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-06-04T16:03:17Z',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

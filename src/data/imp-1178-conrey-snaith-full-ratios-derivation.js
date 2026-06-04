@@ -1,3 +1,39 @@
+/**
+ * @fileoverview Refine the imp-1166 simplified leading-order correction
+ * A(N) = log N to a best-available Conrey-Snaith 2008 ratios-conjecture
+ * variance formula A_full(N) = 2 (S_leading - S_NLO) summed over primes
+ * p <= N with Fourier weight w_p(N) = pi^2 p^{-2/N}, matching the imp-1162
+ * Lorentzian linear-statistics observable at eta = 1/N. Re-fits the OLS
+ * log-log slope and a bootstrap CI on the imp-1162 13-point grid and
+ * compares the headline against imp-1166.
+ *
+ * @module imp-1178-conrey-snaith-full-ratios-derivation
+ *
+ * Proof-chain step: empirical-evidence / ESY linear-statistics numerics. A
+ * refinement layer downstream of imp-1162 (13-point Lorentzian grid) and
+ * imp-1166 (simplified log N correction); cites imp-1163. HONEST SCOPE TAG is
+ * best-available-formula, NOT literal-port -- three Conrey-Snaith ingredients
+ * are approximated rather than computed exactly (see the file header).
+ *
+ * Exports:
+ *   - IMP1178_CONREY_SNAITH_FULL (also default): frozen record carrying the
+ *     correction formula, scope tag, empirical/corrected OLS fits, corrected
+ *     13-point grid, bootstrap CI, and provenance back to imp-1162/imp-1166.
+ *   - IMP1178_CONREY_SNAITH_FULL_ASSERTIONS: build-time tripwires pinning the
+ *     mirrored grid, empirical baseline, scope tag, A_full positivity /
+ *     monotonicity / growth band, corrected slope and R^2, bootstrap CI
+ *     ordering and replicate count, and the permitted verdict labels.
+ *
+ * Key assertions: the 13 mirrored variance rows match imp-1162 bit-for-bit;
+ * the scope tag is exactly best-available-formula; A_full(N) is positive,
+ * finite, monotone increasing, and grows slower than N but faster than a
+ * constant; the bootstrap CI is finite and ordered with >= spec replicates;
+ * the verdict label is permitted and consistent with the delta thresholds.
+ *
+ * Tickets: created by imp-1178; upstream imp-1162 / imp-1166; cites imp-1163;
+ * JSDoc added by imp-2419.
+ */
+
 // imp-1178 — Refine imp-1166 simplified-correction to FULL Conrey-Snaith
 // 2008 ratios-conjecture variance formula. Apply the refined formula to
 // the imp-1162 13-point linear-statistics grid and compare to imp-1166.

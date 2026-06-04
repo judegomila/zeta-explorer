@@ -1174,6 +1174,26 @@ const IMP_2355_DN_HEATFLOW_BRIDGE = Object.freeze({
     'equivalent to RH. The reweighting route faces an obstruction of its own; this ' +
     'ticket documents the tension but does NOT claim to rule the route out.',
   openSubGapIsClosed: false,
+  // imp-2400 NARROWING (partial, NOT a full closure): the polynomial-weight
+  // regime of this sub-gap is now ruled out by a Sobolev-exponent cap. See
+  // IMP_2400_REWEIGHTING_SOBOLEV_CAP below.
+  openSubGapNarrowedBy: 'imp-2400',
+  openSubGapResidualAfterNarrowing:
+    'After the imp-2400 Sobolev cap, the residual open sub-gap is confined to ' +
+    'NON-polynomial weights (e.g. weights supported on a sparse high-height set, ' +
+    'or growing slower than any t^epsilon yet still summing the high zeros) for ' +
+    'which the H^s jump-regularity obstruction does not directly apply.',
+  closureNote:
+    'imp-2400: the sub-gap is NARROWED, not closed. For a polynomial reweighting ' +
+    'w(t)(1/4+t^2) ~ t^{2s} the reweighted distance D_N(w) is the Mellin-side ' +
+    'Sobolev H^s norm; the Nyman-Beurling building blocks rho(theta/x) carry jump ' +
+    'discontinuities and hence lie in H^s only for s < 1/2, so for s >= 1/2 the ' +
+    'distance is identically +infinity and the "vanishes IFF RH" property is ' +
+    'vacuously destroyed. But making d_N Lambda-sensitive needs m(t)=w(t)(1/4+t^2) ' +
+    'to GROW like t^2 (s ~ 1) to cancel the intrinsic 1/t^2 high-zero decay. The ' +
+    'admissible band 0 < s < 1/2 and the required s ~ 1 are disjoint, so no ' +
+    'polynomial reweighting can satisfy (a) and (b) simultaneously. openSubGapIsClosed ' +
+    'stays false because non-polynomial / sparse-support weights remain open.',
 
   references: Object.freeze({
     baezDuarte2003:
@@ -1302,6 +1322,178 @@ export const IMP_2355_DN_HEATFLOW_BRIDGE_ASSERTIONS = [
         /2020/.test(r.rodgersTao2020 || '') &&
         /Polymath/.test(r.polymath15 || '') &&
         /imp-1312/.test(r.imp1312 || '')
+      );
+    },
+  },
+];
+
+// =========================================================================
+// imp-2400 — NARROWING the imp-2355 reweighting sub-gap via a Sobolev cap.
+//
+// The intrinsic Nyman-Beurling weight W(t) = 1/(1/4 + t^2) is exactly the
+// square modulus of the Mellin transform 1/s of the constant 1 on (0,1).
+// By Mellin-Plancherel this gives the ISOMETRY L^2((0,1), dx) <-> L^2(line,
+// W(t) dt / 2 pi), which is what makes d_N -> 0 EQUIVALENT to RH.
+//
+// Replace W by a reweighting w(t) with m(t) := w(t)(1/4 + t^2) -> infinity.
+// Take the canonical polynomial family m(t) ~ |1/2 + it|^{2s} ~ t^{2s} (s>0).
+// Under the SAME Mellin-Plancherel isometry, multiplying the line-weight by
+// m(t) ~ t^{2s} is the homogeneous Sobolev H^s norm in the multiplicative
+// (log) variable u = log(1/x). So D_N(w) is a Mellin-side Sobolev-H^s
+// distance.
+//
+// REGULARITY CEILING. The Nyman-Beurling building blocks are the dilated
+// fractional parts rho(theta/x) = {theta/x}, which have JUMP discontinuities.
+// A jump (Heaviside step) lies in H^s_loc iff s < 1/2. Hence rho(theta/x) and
+// every finite combination Delta_N built from them have FINITE H^s norm only
+// for s < 1/2; for s >= 1/2 their reweighted norm is +infinity, so D_N(w) is
+// identically +infinity and "vanishes IFF RH" is VACUOUSLY destroyed.
+//
+// LAMBDA-SENSITIVITY DEMAND. By the imp-2355 mechanism, a high zero at height
+// T contributes O(1/T^2) to the intrinsic d_N. To make that contribution
+// NON-decaying (the precondition for d_N to "see" the large-height tail that
+// fixes Lambda), the reweighting must supply m(t) growing like t^2, i.e.
+// s ~ 1.
+//
+// DISJOINT BANDS. Admissible reweightings need 0 < s < 1/2; Lambda-
+// sensitivity needs s ~ 1. These bands are disjoint, so NO polynomial
+// reweighting can satisfy BOTH (a) vanishes IFF RH and (b) bounds Lambda.
+// This NARROWS the imp-2355 sub-gap from "open structural tension" to a
+// concrete exponent inequality. It does NOT fully close it: non-polynomial
+// or sparse-support weights (where the jump-regularity argument does not
+// directly bite) remain open. Honest partial.
+// =========================================================================
+
+const IMP_2400_REWEIGHTING_SOBOLEV_CAP = Object.freeze({
+  ticket: 'imp-2400',
+  narrows: 'imp-2355-subgap-reweighting',
+  parent: 'imp-1312',
+  isHonestPartial: true,
+  fullyClosesSubGap: false,
+
+  isometry:
+    'W(t) = 1/(1/4+t^2) = |1/s|^2 on the critical line is the Mellin-Plancherel ' +
+    'isometry L^2((0,1),dx) <-> L^2(line, W dt/2pi); this isometry is what makes ' +
+    'd_N -> 0 EQUIVALENT to RH.',
+  reweightingMultiplier:
+    'A reweighting w(t) with m(t) := w(t)(1/4+t^2) -> infinity. Canonical ' +
+    'polynomial family: m(t) ~ |1/2+it|^{2s} ~ t^{2s}, s > 0.',
+  reweightedNormIsSobolev:
+    'Under the same Mellin-Plancherel isometry, multiplying the line-weight by ' +
+    'm(t) ~ t^{2s} yields the homogeneous Sobolev H^s norm in the log variable ' +
+    'u = log(1/x); so D_N(w) is a Mellin-side Sobolev-H^s distance.',
+
+  buildingBlocksHaveJumps:
+    'The Nyman-Beurling building blocks rho(theta/x) = {theta/x} have jump ' +
+    'discontinuities.',
+  jumpRegularityCeiling: 'a jump (Heaviside step) lies in H^s_loc iff s < 1/2',
+  admissibleBand: '0 < s < 1/2',
+  admissibleReason:
+    'For s >= 1/2 the building blocks have INFINITE H^s norm, so D_N(w) is ' +
+    'identically +infinity and "vanishes IFF RH" is vacuously destroyed.',
+
+  lambdaSensitivityDemand:
+    'A high zero at height T contributes O(1/T^2) to the intrinsic d_N; to make ' +
+    'that non-decaying (so d_N can see the large-height tail fixing Lambda) the ' +
+    'reweighting must supply m(t) ~ t^2, i.e. s ~ 1.',
+  requiredBand: 's ~ 1',
+
+  disjointBandsVerdict:
+    'Admissible 0 < s < 1/2 and Lambda-required s ~ 1 are DISJOINT, so no ' +
+    'polynomial reweighting satisfies both (a) vanishes IFF RH and (b) bounds ' +
+    'Lambda. The sub-gap is narrowed from an open structural tension to a ' +
+    'concrete exponent inequality.',
+  residualOpen:
+    'Non-polynomial / sparse-support weights, where the H^s jump-regularity ' +
+    'argument does not directly bite, remain open. Hence openSubGapIsClosed ' +
+    'stays false.',
+
+  references: Object.freeze({
+    sobolevTrace:
+      'Standard Sobolev trace/embedding fact: a function with a jump ' +
+      'discontinuity belongs to H^s_loc iff s < 1/2 (e.g. the Heaviside step).',
+    mellinPlancherel:
+      'Mellin-Plancherel isometry: L^2((0,1),dx) <-> L^2 of the Mellin ' +
+      'transform on the critical line with weight |1/s|^2.',
+    imp2355:
+      'src/data/imp-1312-beurling-nyman-attack.js — IMP_2355_DN_HEATFLOW_BRIDGE, ' +
+      'the parent sub-gap this narrows.',
+  }),
+});
+
+export { IMP_2400_REWEIGHTING_SOBOLEV_CAP };
+
+export const IMP_2400_REWEIGHTING_SOBOLEV_CAP_ASSERTIONS = [
+  // Tripwire 1: the Sobolev reduction is intact (isometry -> H^s norm).
+  {
+    id: 'imp2400-reweighted-norm-is-sobolev',
+    why:
+      'The whole narrowing rests on m(t) ~ t^{2s} turning the reweighted ' +
+      'distance into a Mellin-side Sobolev H^s norm. If this reduction is ' +
+      'silently dropped the exponent argument has no foundation.',
+    holds: () => {
+      const c = IMP_2400_REWEIGHTING_SOBOLEV_CAP;
+      return (
+        /Mellin-Plancherel/.test(c.isometry) &&
+        /EQUIVALENT to RH/.test(c.isometry) &&
+        /t\^\{2s\}/.test(c.reweightingMultiplier) &&
+        /Sobolev H\^s/.test(c.reweightedNormIsSobolev)
+      );
+    },
+  },
+
+  // Tripwire 2: the jump-regularity ceiling pins the admissible band s < 1/2.
+  {
+    id: 'imp2400-admissible-band-capped-below-one-half',
+    why:
+      'The building blocks rho(theta/x) carry jumps, so they lie in H^s only ' +
+      'for s < 1/2. A flip of the admissible band would erase the cap that ' +
+      'rules out the polynomial route.',
+    holds: () => {
+      const c = IMP_2400_REWEIGHTING_SOBOLEV_CAP;
+      return (
+        /jump discontinuit/.test(c.buildingBlocksHaveJumps) &&
+        /s < 1\/2/.test(c.jumpRegularityCeiling) &&
+        c.admissibleBand === '0 < s < 1/2' &&
+        /\+infinity/.test(c.admissibleReason)
+      );
+    },
+  },
+
+  // Tripwire 3: Lambda-sensitivity needs s ~ 1, and the two bands are disjoint.
+  {
+    id: 'imp2400-disjoint-bands-no-polynomial-reweighting',
+    why:
+      'The verdict is a NEGATIVE narrowing: admissible s < 1/2 and required ' +
+      's ~ 1 are disjoint. A flip to overlapping bands would be a false QED ' +
+      'claiming the reweighting route works.',
+    holds: () => {
+      const c = IMP_2400_REWEIGHTING_SOBOLEV_CAP;
+      return (
+        /t\^2/.test(c.lambdaSensitivityDemand) &&
+        c.requiredBand === 's ~ 1' &&
+        /DISJOINT/.test(c.disjointBandsVerdict) &&
+        /polynomial reweighting satisfies both/.test(c.disjointBandsVerdict)
+      );
+    },
+  },
+
+  // Tripwire 4: this is an honest partial — NOT a full closure of the sub-gap.
+  {
+    id: 'imp2400-honest-partial-not-full-closure',
+    why:
+      'Non-polynomial / sparse-support weights remain open, so this narrows ' +
+      'but does not close imp-2355. Marking fullyClosesSubGap true would be a ' +
+      'fabricated closure.',
+    holds: () => {
+      const c = IMP_2400_REWEIGHTING_SOBOLEV_CAP;
+      return (
+        c.isHonestPartial === true &&
+        c.fullyClosesSubGap === false &&
+        c.narrows === 'imp-2355-subgap-reweighting' &&
+        /Non-polynomial/.test(c.residualOpen) &&
+        IMP_2355_DN_HEATFLOW_BRIDGE.openSubGapIsClosed === false &&
+        IMP_2355_DN_HEATFLOW_BRIDGE.openSubGapNarrowedBy === 'imp-2400'
       );
     },
   },

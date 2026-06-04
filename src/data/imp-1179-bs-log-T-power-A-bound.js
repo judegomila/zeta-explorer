@@ -367,6 +367,38 @@ export const IMP_1179_BS_LOG_T_POWER_A_BOUND = Object.freeze({
       'rigorous tightening at T_PT is viable.',
   },
 
+  // ── imp-2373 upgrade assessment (partial -> full?): BLOCKED ──────────────
+  // Investigated whether the recent proof-chain closures imp-462/463/464/471
+  // permit upgrading status from "partial" to "full". Verdict: NO.
+  upgradeAssessment: Object.freeze({
+    ticket: 'imp-2373',
+    assessedAt: '2026-06-04T02:00:00Z',
+    verdict: 'remains-partial',
+    citedClosuresReviewed: ['imp-462', 'imp-463', 'imp-464', 'imp-471'],
+    whyCitedClosuresDoNotHelp:
+      'All four cited closures live on the Lambda-side zero-spacing chain ' +
+      '(m-raw-from-umon monotonicity, D-monotone, NoSwap, many-body-correction ' +
+      'that delivered the unconditional Lambda <= 0.121 beat). They operate on ' +
+      'eigenvalue-repulsion arguments for the RvM spacing functional and are ' +
+      'fully disjoint from the BS fourth-moment side analysed here. They give ' +
+      'zero leverage on the A_BS log-power obstruction.',
+    remainingBlocker:
+      'A_BS in [4, 12] (central estimate ~ 8) is a literature/training-time ' +
+      'estimate, not a pinned constant. The status is honestly partial because ' +
+      'honestScope.isRigorous = false: closing requires an external paper-walk ' +
+      'of BS 2008 (Heath-Brown 4th moment, Bombieri-Montgomery MVT, Selberg ' +
+      'mollifier, amplifier sum) to pin A_BS at <= 6, which is out of scope for ' +
+      'code-only work.',
+    relatedBsSideWork:
+      'imp-2367 sharpened the O-BS-A sub-gap into the concrete break-even budget ' +
+      'C_BS * (log T)^A < 2.04e6, but that budget still cannot be tested without ' +
+      'pinning A_BS, so it confirms rather than removes the obstruction.',
+    productionImpact:
+      'None. The headline E_trunc_pt = 3.06e-5 (Ingham baseline at sigma = 0.75) ' +
+      'stands regardless; this ticket is informational and does not gate the ' +
+      'production Lambda bound.',
+  }),
+
   references: {
     imp1123: 'src/data/bui-soundararajan-rigorous-port-2026-05.js (PRIMARY BS port; obstruction O-BS-B is what this ticket refines)',
     imp1164: 'src/data/imp-1164-bui-sound-rigorous-port.js (50-point sigma sweep on [0.5, 0.75])',

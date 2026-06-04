@@ -1456,6 +1456,31 @@ const DATA_MODULES = [
   // incompatible with the kappa=0 twin-ladder realization; sub-gap
   // GAP-2442-GENUINE-M-IS-N0 (genuine m in N_0 = RH). 6 tripwires.
   '/src/data/imp-2442-offline-finite-kappa-pontryagin-2026-06.js',
+  // imp-2451: scale-normalized dBN deformation, closing sub-gap B of imp-2435
+  // (scale/zero confound). V is quadratic in Phi, so renormalizing
+  // |Phi_t|_2 = 1 before assembly divides the exp(t u^2) L^2 scale out exactly.
+  // The ~5x scale swing collapses to a ~0.9% residual spread, the t<0 vs t>=0
+  // means differ by only ~0.47% (< 1%), and the residue is still monotone
+  // increasing in t -- confirmed null, the norm sees no off-line zeros even
+  // scale-out. 7 tripwires.
+  '/src/data/imp-2451-scale-normalized-dbn-deformation.js',
+  // imp-2454: off-line zero injected into the imp-2438 explicit N_0 de Branges /
+  // Jacobi chain (Wave-4 follow-on to imp-2442 sub-gap GAP-2442-GENUINE-M-IS-N0).
+  // The imp-2438 baseline point-measure m-function is ordinary Nevanlinna N_0
+  // (Pick negative index 0, Hilbert, ind_-(K_a)=0). A genuine off-line zero is
+  // injected as a NEGATIVE point mass + y^2/(z-x) (Herglotz measure term of the
+  // wrong sign; off-line zero pair x +/- i*y of the Hermite-Biehler factor
+  // (z-x)^2+y^2). Verifies the Pick negative index JUMPS to exactly kappa and
+  // saturates across four node sets (Pontryagin Pi_kappa) for kappa=1,2,3, while
+  // the imp-2430 naive pole-in-C+ perturbation of the same baseline does NOT
+  // saturate. Verdict: an off-line zero forces ind_-(K_a)>=1, incompatible with
+  // the kappa=0 Hilbert realization; sub-gap GAP-2454-GENUINE-M-IS-N0 (genuine m
+  // in N_0 = RH). 6 tripwires.
+  '/src/data/imp-2454-offline-zero-pick-index-jump-2026-06.js',
+  // imp-2466: Lambda-chain step 2 -- triple-integrator (RK4/DP45/DP8) interval
+  // ladder on measured |t_c(N)| at tractable N<=800; literal {1e4,1e5,1e6}
+  // ladder deferred to imp-1090 (GAP-2466-LARGE-N-OFFLINE). 6 tripwires.
+  '/src/data/imp-2466-dyson-tc-interval-ladder.js',
 ];
 
 const ALL_MODULES = FAST_MODE

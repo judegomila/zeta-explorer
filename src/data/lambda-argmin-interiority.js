@@ -1,5 +1,27 @@
 /**
- * imp-368: partial closure of G1_argmin_interiority (imp-336 sub-gap)
+ * @fileoverview imp-368: partial closure of G1_argmin_interiority (imp-336 sub-gap).
+ *
+ * @module data/lambda-argmin-interiority
+ *
+ * Exports:
+ *   - LAMBDA_ARGMIN_INTERIORITY: the lemma record carrying the trivial
+ *     unconditional bound k*_N in {1, ..., N-1} plus the conditional uniform
+ *     margin c = alpha (under the open G1-sub-extremal premise), with the
+ *     per-baseline Weyl-density witness rows.
+ *   - LAMBDA_ARGMIN_INTERIORITY_ASSERTIONS: build-time tripwires guarding the
+ *     citation chain, the witness-row validity, and the intentional
+ *     "open/partial" scope (sub-gap, imp-336 G1 gap, null marginConstant).
+ *
+ * Proof-chain step: lives in the imp-336 Path-A monotonicity (M) chain. It
+ * partially closes the G1 argmin-interiority sub-gap that the imp-336
+ * ANALYTIC_SKETCH sign-reinforcement step consumes, transporting the imp-343
+ * bulk-confinement conditional into the G1 slot.
+ *
+ * Key assertions: imp368-citation-chain-resolves, imp368-witness-rows-non-empty-
+ * and-conditional-windows-valid, imp368-sub-gap-open-and-tripwire-intentionally-untouched.
+ *
+ * Tickets: created by imp-368; consumes imp-322, imp-327, imp-336, imp-343;
+ * @fileoverview/@module JSDoc added by imp-2398.
  *
  * Problem
  * -------

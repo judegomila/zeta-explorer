@@ -1,4 +1,31 @@
-// @module data/blaschke-ghosts-section
+/**
+ * @module data/blaschke-ghosts-section
+ * @fileoverview Structured source-of-truth for §17 of the research paper
+ * (twin_ladder_consolidated_v52.pdf, pp 22-26): "Attack on the Wall: Inverse
+ * Blaschke Ghosts and the Pontryagin Decomposition". Backs the /blaschke-ghosts
+ * app page (imp-1198). It records the paper claims so the page can render them;
+ * it does NOT prove anything new.
+ *
+ * Exports:
+ *   - BLASCHKE_GHOSTS_SECTION — frozen record (ticket imp-1198) of the §17
+ *     content: the shifted scattering ratio R_a, the inverse Blaschke ghost
+ *     factor and pole-clearing, the single-ghost-equals-single-negative-square
+ *     headline, the generalized-Schur / Krein-Langer negative-index identity,
+ *     the four-route consequences (A, B, C, D), Conjecture 17.3, the three
+ *     attempted non-circular closures, and the interactive demo parameters.
+ *   - BLASCHKE_GHOSTS_SECTION_ASSERTIONS — 7 build-time tripwires re-checking
+ *     paper-source path, the negative-square headline, the four-route list, the
+ *     negative-index identity, Conjecture 17.3 wording, the three named attacks,
+ *     and the demo parameter ranges.
+ *
+ * Proof-chain role: reference / QA data file, not a step in the analytic Lambda
+ * argument. §17 sharpens the no-ghost statement (each off-critical zeta zero is
+ * an explicit inverse Blaschke factor contributing one rank-one negative square),
+ * making the RH obstruction localised to identifiable ghost channels rather than
+ * diffuse.
+ *
+ * Tickets: created by imp-1198; module-doc navigation block added by this audit.
+ */
 // imp-1198: structured record of §17 "Attack on the Wall: Inverse Blaschke
 // Ghosts and the Pontryagin Decomposition" from the user's paper at
 // research-inputs/twin_ladder_consolidated_v52.pdf (pages 22-26).

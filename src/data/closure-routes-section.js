@@ -275,6 +275,59 @@ export const CLOSURE_ROUTES = Object.freeze({
       'without using the zero set.',
   }),
 
+  // imp-2362 -- numerical contractivity sweep for Route A.
+  // Source: scripts/compute-imp-2362-route-a-schur.mjs (run 2026-06-03).
+  // Tests |xi(s-a)| < |xi(s+a)| for Re(s) > 1/2, a > 0 over a grid; this is
+  // numerical EVIDENCE for Conjecture 16.4 / 16.6, not a proof.
+  routeANumericalEvidence: Object.freeze({
+    ticketId: 'imp-2362',
+    claim: '|xi(s-a)| < |xi(s+a)| for Re(s) > 1/2 and a > 0 (Route A Schur contractivity)',
+    grid: Object.freeze({
+      sigmaGrid: Object.freeze([0.51, 0.55, 0.6, 0.75, 1.0, 1.5, 2.0, 3.0]),
+      aGrid: Object.freeze([0.1, 0.25, 0.5, 1.0, 2.0, 5.0, 10.0]),
+      tRange: Object.freeze([0.0, 50.0]),
+      tStep: 0.5,
+      gridPoints: 5656,
+    }),
+    xiEvaluator:
+      'log-modulus xi = 0.5 s(s-1) pi^{-s/2} Gamma(s/2) zeta(s); zeta via ' +
+      'Borwein/Knopp-Hasse n=50 (matches src/math/zeta.js zetaCriticalStrip), ' +
+      'logGamma via Lanczos g=7, folded to Re>=1/2 by xi(s)=xi(1-s). The ' +
+      'eta-representation denominator (1 - 2^{1-s}) vanishes at s = 1 + 2pi i k / ln2 ' +
+      '(true pole s=1 for k=0, removable spurious zeros otherwise); xi is entire ' +
+      'there, so those evaluations are regularized by a 1e-6 imaginary nudge.',
+    contractivityHolds: true,
+    maxRatioObserved: 0.99990759,
+    maxRatioAt: Object.freeze({ sigma: 0.51, a: 0.1, t: 0 }),
+    failureCount: 0,
+    supMonotoneDecreasingInSigma: true,
+    perSigmaMaxRatio: Object.freeze([
+      Object.freeze({ sigma: 0.51, maxRatio: 0.99990759 }),
+      Object.freeze({ sigma: 0.55, maxRatio: 0.99953802 }),
+      Object.freeze({ sigma: 0.6, maxRatio: 0.99907626 }),
+      Object.freeze({ sigma: 0.75, maxRatio: 0.99769244 }),
+      Object.freeze({ sigma: 1.0, maxRatio: 0.99539158 }),
+      Object.freeze({ sigma: 1.5, maxRatio: 0.9908154 }),
+      Object.freeze({ sigma: 2.0, maxRatio: 0.98628193 }),
+      Object.freeze({ sigma: 3.0, maxRatio: 0.97738192 }),
+    ]),
+    interpretation:
+      'Contractivity held at all 5656 grid points with no failures. The ' +
+      'supremum of the ratio is largest near the critical line (0.99991 at ' +
+      'sigma=0.51) and shrinks monotonically as sigma grows (0.97738 at ' +
+      'sigma=3.0); within each sigma slice the maximum is attained at the ' +
+      'smallest shift a=0.1 and t=0. This matches the analytic picture: the ' +
+      'boundary modulus |Theta_a| = 1 on Re(s) = 1/2, with strict contraction ' +
+      'in the open half-plane that deepens with both a and distance from the line.',
+    caveat:
+      'This SUPPORTS but does not prove Conjecture 16.4 / 16.6. The sweep ' +
+      'samples a region that is empirically zero-free (RH holds far past these ' +
+      'heights), so it confirms the behaviour expected under RH; it cannot probe ' +
+      'the hypothetical 0 < a < Delta regime, which is exactly the circular ' +
+      'dependency flagged in Principle 16.2. A contractivity sweep can falsify ' +
+      'the conjecture but cannot close the non-circular gap.',
+  }),
+
   routeLetters: Object.freeze(['A', 'B', 'C', 'D']),
 });
 
@@ -456,5 +509,31 @@ export const CLOSURE_ROUTES_ASSERTIONS = [
       '(A_infty). The Weil-route obstacle is exactly that the archimedean ' +
       'side must dominate every coherent prime-delay autocorrelation -- ' +
       'see Principle 16.5.',
+  },
+  {
+    id: 'imp2362-route-a-numerical-evidence-coherent',
+    holds: () => {
+      const e = CLOSURE_ROUTES.routeANumericalEvidence;
+      if (!e || e.ticketId !== 'imp-2362') return false;
+      // Contractivity must hold with no failures and a max ratio strictly
+      // below 1 but close to it (boundary modulus -> 1), and the per-sigma
+      // maxima must decrease monotonically as sigma moves off the line.
+      if (e.contractivityHolds !== true || e.failureCount !== 0) return false;
+      if (!(e.maxRatioObserved < 1) || !(e.maxRatioObserved > 0.99)) return false;
+      const ps = e.perSigmaMaxRatio;
+      if (!Array.isArray(ps) || ps.length < 2) return false;
+      return ps.every(
+        (p, i) =>
+          typeof p.maxRatio === 'number' &&
+          p.maxRatio < 1 &&
+          (i === 0 || p.maxRatio <= ps[i - 1].maxRatio + 1e-9)
+      );
+    },
+    why:
+      'The imp-2362 Route A contractivity sweep must report no failures, a ' +
+      'max ratio strictly below 1 yet within 0.01 of it (boundary modulus = 1 ' +
+      'at Re(s)=1/2), and per-sigma maxima that decrease monotonically away ' +
+      'from the critical line. A regression here would silently misstate the ' +
+      'numerical evidence for Conjecture 16.4 / 16.6.',
   },
 ];

@@ -6,13 +6,13 @@
 
 export const weakEntryPoints = {
   zeroIncoming: [
-    { route: '/break', file: 'BreakItPage.jsx' },
+    { route: '/break-it', file: 'BreakItPage.jsx' },
     { route: '/health', file: 'HealthPage.jsx' },
-    { route: '/historical-reasoning', file: 'HistoricalReasoningPage.jsx' },
-    { route: '/queue', file: 'ImprovementQueuePage.jsx' },
-    { route: '/project-index', file: 'ProjectIndexPage.jsx' },
-    { route: '/journal', file: 'ResearchJournalPage.jsx' },
-    { route: '/sim', file: 'SimulatorPage.jsx' },
+    { route: '/reasoning', file: 'HistoricalReasoningPage.jsx' },
+    { route: '/improvement-queue', file: 'ImprovementQueuePage.jsx' },
+    { route: '/index', file: 'ProjectIndexPage.jsx' },
+    { route: '/research-journal', file: 'ResearchJournalPage.jsx' },
+    { route: '/simulator', file: 'SimulatorPage.jsx' },
     { route: '/gue-comparison', file: 'GueComparisonPage.jsx' },
     { route: '/voronin-universality', file: 'VoroninUniversalityPage.jsx' },
     { route: '/pair-correlation', file: 'PairCorrelationPage.jsx' },

@@ -15016,6 +15016,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended a JSDoc @fileoverview/@module block to the existing prose header: names the two exports (ESY_RESIDUAL_ATTEMPT, ESY_RESIDUAL_ATTEMPT_ASSERTIONS), the residual-narrowing proof-chain role under imp-1149 (imp-407/imp-508 ESY closure C_poly 1->0), the key assertions (R1/R2 psi_N all ESY-INCOMPATIBLE; R3 lin-stat alpha=1 slope approx -0.85, residual NARROWED not closed), and the creating/related tickets. Docs-only; no data or logic changed. npm run build green.',
   },
 
+  
+  // ── Auto-seeded batch (2026-06-04) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2409',
+    title: "Add JSDoc module documentation to imp-1210-conjecture-22-literature-audit.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'docs',
+    description: "src/data/imp-1210-conjecture-22-literature-audit.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-06-04T05:48:59Z',
+    closureNote: 'Prepended a JSDoc @fileoverview/@module block to the existing prose header: names the exports (IMP_1210_CONJECTURE_22_LITERATURE_AUDIT default+named record, IMP_1210_CONJECTURE_22_LITERATURE_AUDIT_ASSERTIONS tripwires), the imp-1163-precedent paper-hygiene proof-chain role (SUBSUMED/PARTIALLY-RELATED/INDEPENDENT-NOVEL classification of Section 22 Conjectures 22.1-22.4), the headline overall_verdict (reframe 22.4 as RH-equivalent, cite existing literature for 22.2/22.3), and the creating/parallel tickets (imp-1210, imp-1163, imp-1197, imp-1212). Docs-only; no data or logic changed. npm run build green.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

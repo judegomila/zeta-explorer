@@ -1,3 +1,26 @@
+/**
+ * @fileoverview Literature audit for twin_ladder_consolidated_v52.pdf Section 22
+ * Conjectures 22.1-22.4, classifying each against published prior work.
+ *
+ * @module data/imp-1210-conjecture-22-literature-audit
+ *
+ * Exports:
+ *  - IMP_1210_CONJECTURE_22_LITERATURE_AUDIT (default + named): frozen audit
+ *    record with the four conjectures, their related_work citations, per-
+ *    conjecture verdicts, an overall_verdict, and an honestScope disclaimer.
+ *  - IMP_1210_CONJECTURE_22_LITERATURE_AUDIT_ASSERTIONS: build-time tripwires
+ *    consumed by run-assertions.mjs to keep the audit structurally honest.
+ *
+ * Proof-chain role: a documentation / paper-hygiene step (not a numerical proof
+ * link). Following the imp-1163 precedent it walks each Section 22 target
+ * through training-time literature to decide SUBSUMED / PARTIALLY-RELATED /
+ * INDEPENDENT-NOVEL before the paper ships. Key verdict: reframe 22.4 as an
+ * RH-equivalent and cite existing literature for 22.2/22.3.
+ *
+ * Tickets: created by imp-1210; parallel audits imp-1163, imp-1197, imp-1212;
+ * module-doc added by imp-2409.
+ */
+
 // imp-1210: Literature audit for paper Section 22 Conjectures 22.1-22.4.
 //
 // PURPOSE

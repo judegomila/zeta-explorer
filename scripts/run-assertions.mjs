@@ -1348,6 +1348,17 @@ const DATA_MODULES = [
   // variance ~ 2.16e-3), so the regularization cannot give an asymptotic ESY
   // closure. Named gap GAP-2354-SUPNORM-RESIDUAL-TRANSFER. 7 tripwires.
   '/src/data/imp-2354-unrestricted-3point-esy-attempt.js',
+  // imp-2422: Quantify the achievable ESY bound under the RS bandwidth-2/n
+  // restriction and deliver the gap to closure as a number (fan-out of imp-2354).
+  // The RS96 3-point regime certifies the in-band projection L_N(phi^{(W)}),
+  // W = 2/3, capturing 1 - 2.16e-3 of the variance form factor; the gap to
+  // closing the full Poisson-kernel observable is the N-INDEPENDENT high-pass
+  // residual (variance form ~ 2.16e-3, plain L2 ~ 2.30e-4 = exp(-4 pi * 2/3)).
+  // Absolute gap ~6.2e-7 (1e6), ~8.4e-8 (1e7); relative gap fixed at 0.216%.
+  // This is exactly what an unrestricted rho_3 (Bogomolny-Keating) must buy.
+  // Named gap GAP-2422-HIGHPASS-FORMFACTOR-RESIDUAL = GAP-2354-SUPNORM-RESIDUAL-
+  // TRANSFER, now quantified. 7 tripwires.
+  '/src/data/imp-2422-bandwidth-restricted-esy-gap.js',
   // imp-1343: NEW-INPUT classification (modern update of imp-1307) -- does the
   // Connes-Consani Riemann-Roch / scaling-site program (2016 Arithmetic Site,
   // 2017 Scaling Site Riemann-Roch, 2019 "complex lift of the scaling site")

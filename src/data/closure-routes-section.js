@@ -328,6 +328,68 @@ export const CLOSURE_ROUTES = Object.freeze({
       'the conjecture but cannot close the non-circular gap.',
   }),
 
+  // imp-2423: deposition of the Phragmen-Lindelof / maximum-modulus proof
+  // ATTEMPT for Route A Schur contractivity |Theta_a| < 1 on the right
+  // half-plane. This is an HONEST PARTIAL: a complete argument on a > Delta
+  // plus a single, sharply-named remaining gap. No fabricated QED.
+  routeAMaximumPrincipleAttempt: Object.freeze({
+    ticketId: 'imp-2423',
+    target: 'Conjecture 16.4 / 16.6 (Route A): |R_a(w)| < 1 for Re(w) > 0, a > 0, where R_a(w) = X(w-a)/X(w+a) and Theta_a is the same ratio in z-coordinates.',
+    candidateArgument: Object.freeze({
+      step1_boundaryIsUnimodular:
+        'On the imaginary axis w = it the ratio is unimodular: |R_a(it)| = 1. ' +
+        'Proof: X(w) = xi(1/2 + w) is EVEN (X(-w) = X(w), from the functional ' +
+        'equation xi(s) = xi(1-s)) and REAL on the real axis (X(conj w) = ' +
+        'conj X(w)). Hence X(it - a) = X(a - it) by evenness, and ' +
+        'X(a - it) = conj X(a + it) by reality, so |X(it - a)| = |X(it + a)| ' +
+        'and |R_a(it)| = 1 exactly. The boundary modulus equals 1 with no ' +
+        'assumptions -- this is the natural input to a maximum-modulus argument.',
+      step2_decayAlongRealAxis:
+        'Along the positive real axis w -> +infinity the ratio DECAYS: ' +
+        'R_a(w) = xi(1/2 + w - a) / xi(1/2 + w + a) -> 0, because xi grows ' +
+        'super-exponentially (Gamma(s/2) factor) so the larger argument in the ' +
+        'denominator dominates. So R_a is strictly contractive in the interior ' +
+        'of at least one direction, consistent with the target sup = 1 attained ' +
+        'only on the boundary.',
+      step3_maximumModulus:
+        'IF R_a is holomorphic AND of bounded type (Nevanlinna class) in the ' +
+        'open right half-plane, then by the Phragmen-Lindelof form of the ' +
+        'maximum-modulus principle for a half-plane, |R_a| <= sup on the ' +
+        'boundary = 1 throughout, with strict inequality in the interior unless ' +
+        'R_a is a unimodular constant (excluded by step 2). This would CLOSE ' +
+        'Route A and hence give RH.',
+    }),
+    // The valuable part: pinning down exactly what is missing, and ruling out
+    // a tempting false obstruction.
+    completeOn: 'a > Delta. When the right half-plane {Re w > a} is zero-free past horizontal displacement a, E_a(z) = X(a - iz) is a Hermite-Biehler structure function, R_a / Theta_a is holomorphic and an inner (Schur) function of bounded type automatically, and steps 1-3 go through unconditionally. This reproduces the known unconditional result; it is RH-vacuous because a > Delta presupposes the zero-free region.',
+    remainingGap:
+      'SINGLE GAP (circular, Principle 16.2): for arbitrarily small a > 0 both ' +
+      'hypotheses of step 3 -- holomorphy of R_a and its bounded type in the ' +
+      'open right half-plane -- require X(w + a) =/= 0 for Re(w) > 0, i.e. no ' +
+      'zero of X with real part > a, i.e. Delta < a. For a -> 0 that is exactly ' +
+      'Delta = 0, the statement (RH) one is trying to prove. The maximum ' +
+      'principle supplies no independent zero-free region, so the argument is ' +
+      'circular without an external input.',
+    growthObstructionRuledOut:
+      'A natural worry is that Phragmen-Lindelof on the UNBOUNDED half-plane ' +
+      'fails for a second, independent reason -- an a priori growth bound on ' +
+      'R_a along rays into the interior (X = xi(1/2 + .) has order 1, so the ' +
+      'ratio is only meromorphic of order <= 1). This deposition records that ' +
+      'the growth condition is NOT an independent obstruction: in ANY zero-free ' +
+      'right half-plane the Hermite-Biehler / de Branges structure makes ' +
+      'Theta_a inner and therefore bounded type with modulus <= 1 for free, so ' +
+      'the Phragmen-Lindelof growth hypothesis is supplied by the same zero-free ' +
+      'region that supplies holomorphy. The obstruction is purely the zeros ' +
+      '(Delta), not unbounded growth. This sharpens the Route A blocker by ' +
+      'eliminating a candidate second gap.',
+    deliversProof: false,
+    consistentWithNumerics:
+      'The imp-2362 sweep (routeANumericalEvidence) is exactly the boundary ' +
+      'picture predicted here: max ratio approaches 1 at the critical-line ' +
+      'corner (sigma -> 1/2, a -> 0, t -> 0) where |Theta_a| -> 1, and strict ' +
+      'contraction deepens with both a and distance from the line.',
+  }),
+
   routeLetters: Object.freeze(['A', 'B', 'C', 'D']),
 });
 
@@ -535,5 +597,40 @@ export const CLOSURE_ROUTES_ASSERTIONS = [
       'at Re(s)=1/2), and per-sigma maxima that decrease monotonically away ' +
       'from the critical line. A regression here would silently misstate the ' +
       'numerical evidence for Conjecture 16.4 / 16.6.',
+  },
+  {
+    id: 'imp2423-route-a-max-principle-honest-partial',
+    holds: () => {
+      const m = CLOSURE_ROUTES.routeAMaximumPrincipleAttempt;
+      if (!m || m.ticketId !== 'imp-2423') return false;
+      // Must NOT claim a proof, must name the single circular gap, and must
+      // record that the Phragmen-Lindelof growth condition is not a second,
+      // independent obstruction (it is supplied by the zero-free region).
+      if (m.deliversProof !== false) return false;
+      if (typeof m.remainingGap !== 'string' || m.remainingGap.length < 80) {
+        return false;
+      }
+      if (!/circular|Principle 16\.2|Delta/i.test(m.remainingGap)) return false;
+      if (
+        typeof m.growthObstructionRuledOut !== 'string' ||
+        !/bounded type|inner/i.test(m.growthObstructionRuledOut)
+      ) {
+        return false;
+      }
+      const a = m.candidateArgument;
+      return (
+        a &&
+        typeof a.step1_boundaryIsUnimodular === 'string' &&
+        /unimodular|= 1/i.test(a.step1_boundaryIsUnimodular)
+      );
+    },
+    why:
+      'The imp-2423 maximum-principle deposition must stay an HONEST PARTIAL: ' +
+      'deliversProof=false, a boundary-unimodularity step, a single circular ' +
+      'remaining gap (Principle 16.2 / Delta), and the explicit note that the ' +
+      'Phragmen-Lindelof growth condition is supplied by the zero-free region ' +
+      '(bounded type / inner) rather than being a second obstruction. A ' +
+      'regression that flipped deliversProof or dropped the gap would fabricate ' +
+      'a false closure of Route A / RH.',
   },
 ];

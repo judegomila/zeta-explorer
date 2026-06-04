@@ -1427,6 +1427,13 @@ const DATA_MODULES = [
   // threshold agreement (37.659 vs 37.66, < 0.05), and bit-for-bit imp-1316
   // cross-check at a=10 and a=50. Previously dormant (module not in DATA_MODULES).
   '/src/data/imp-2401-volterra-crossover-sweep.js',
+  // imp-2435: Beurling / RH-violation stress test of the §27 Volterra
+  // contraction. Generic Beurling systems lack a self-dual kernel so V_{a,Phi}
+  // is inapplicable; the computable surrogate is the de Bruijn-Newman
+  // deformation Phi_t = exp(t u^2) Phi (off-line zeros provably for t<0). All
+  // 14 norms stay << 1 and rise with t -- the norm tracks kernel L^2 scale,
+  // not zero location, so it is NOT a stand-alone zero detector. 6 tripwires.
+  '/src/data/imp-2435-beurling-volterra-stress-test.js',
 ];
 
 const ALL_MODULES = FAST_MODE

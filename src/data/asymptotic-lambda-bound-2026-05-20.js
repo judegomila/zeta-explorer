@@ -204,6 +204,7 @@ export const ASYMPTOTIC_LAMBDA_BOUND_2026_05_20 = Object.freeze({
   builtAt: '2026-05-20T07:40:00Z',
   rewrittenAt: '2026-05-28T00:00:00Z',
   rewrittenBy: 'imp-1261',
+  verifiedAt: '2026-06-03T00:00:00Z', // imp-2392: all 10 exported assertions re-verified, build clean
 
   sweepRows: SWEEP_ROWS,
   sweepSummary: {

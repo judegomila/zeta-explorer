@@ -14793,6 +14793,52 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: "False-positive duplicate of imp-2374. The placeholder-looking literal imp-XXXX-row-count no longer exists in _tripwire-helpers.js; line 552 now reads tw.id === imp-rowcount-id-verbatim (renamed by imp-2374). Verified via grep for XXXX/TODO/FIXME in the file: zero matches. No code change required; closing to stop the gap-seeder from re-queuing an already-resolved marker.",
   },
 
+  
+  // ── Auto-seeded batch (2026-06-04) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2391',
+    title: "Verify assertions still pass in asymptotic-attack-status-2026-05.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'in-progress-subagent',
+    inflightTaskId: 'api-pool-w3-1780538015420',
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/asymptotic-attack-status-2026-05.js may be stale (not verified in 24h). Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+  {
+    id: 'imp-2392',
+    title: "Verify assertions still pass in asymptotic-lambda-bound-2026-05-20.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/asymptotic-lambda-bound-2026-05-20.js may be stale (not verified in 24h). Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-06-04T01:54:39Z',
+    resolution: "Re-verified npm run build passes cleanly. Ran all 10 exported ASYMPTOTIC_LAMBDA_BOUND_ASSERTIONS in a Node ESM harness -> 10/10 PASS (strictly-less-than-PT, improvement-factor>100x, nine sweep rows, historical 7.98e-4 conditional reachable, honestScope unconditional-on-linear-model + Polymath15-G6a-still-conditional, two named residual obstructions, PT+Rodgers-Tao refs, composition arithmetic, triangle-inequality-not-OLS). No stale counts or references; headline Lambda <= 3.06e-5 unchanged. Added a verifiedAt: 2026-06-03 stamp to ASYMPTOTIC_LAMBDA_BOUND_2026_05_20 per the imp-717/imp-718 convention.",
+  },
+  {
+    id: 'imp-2393',
+    title: "Add JSDoc module documentation to imp-1185-block-bootstrap-cross-validation.js",
+    category: 'content',
+    priority: 'low',
+    status: 'in-progress-subagent',
+    inflightTaskId: 'api-pool-w2-1780538084315',
+    proofSection: 'docs',
+    description: "src/data/imp-1185-block-bootstrap-cross-validation.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

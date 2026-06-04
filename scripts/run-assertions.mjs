@@ -1477,6 +1477,19 @@ const DATA_MODULES = [
   // the kappa=0 Hilbert realization; sub-gap GAP-2454-GENUINE-M-IS-N0 (genuine m
   // in N_0 = RH). 6 tripwires.
   '/src/data/imp-2454-offline-zero-pick-index-jump-2026-06.js',
+  // imp-2452: ABSOLUTE Birman-Krein SSF of the genuine twin-ladder operator
+  // (Wave-4 follow-on to imp-2425). imp-2425 read ind_-(K_a) from the RELATIVE
+  // SSF xi_a = (1/pi) arg [X_1/X_0], where the degree-N background cancels against
+  // the RH-true reference X_0 -- a cross-check, not an operator-intrinsic input.
+  // Here the negative index is read DIRECTLY off the imp-2438 genuine self-adjoint
+  // de Branges / Jacobi operator J: (1) absolute SSF xi_abs = N_J - N_free against
+  // an operator-intrinsic free Jacobi background with NONZERO DOS (no relative
+  // cancellation); (2) reference-free index = argument-principle winding of
+  // det(J - z) over the open upper half-plane. Genuine operator: all eigenvalues
+  // real -> winding 0 -> ind_-(K_a) = 0 with NO reference subtraction; off-line
+  // controls (1,2,3 conjugate pairs off-axis) wind 1,2,3. Sub-gap
+  // GAP-2452-FINITE-POINT-MEASURE (inherited imp-2430 G2). 6 tripwires.
+  '/src/data/imp-2452-absolute-birman-krein-ssf-2026-06.js',
   // imp-2466: Lambda-chain step 2 -- triple-integrator (RK4/DP45/DP8) interval
   // ladder on measured |t_c(N)| at tractable N<=800; literal {1e4,1e5,1e6}
   // ladder deferred to imp-1090 (GAP-2466-LARGE-N-OFFLINE). 6 tripwires.

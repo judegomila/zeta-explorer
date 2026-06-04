@@ -103,7 +103,11 @@ echo
 # ── 3b. Claude conversational memory ─────────────────────────────────────
 echo "[3b/5] Claude conversational memory"
 MEMORY_SRC="$REPO_DIR/.claude-memory"
-MEMORY_DST="$HOME/.claude/projects/-Users-USER-Code-Experiments-mathexplorer/memory"
+# Claude derives the project dir name from the absolute repo path with every
+# "/" replaced by "-". Derive it from $REPO_DIR so restore works for any user
+# and any clone location (not the old hardcoded Code-Experiments path).
+PROJECT_SLUG="$(printf '%s' "$REPO_DIR" | sed 's|/|-|g')"
+MEMORY_DST="$HOME/.claude/projects/${PROJECT_SLUG}/memory"
 if [ ! -d "$MEMORY_SRC" ]; then
     color_yellow "  - $MEMORY_SRC not present in repo; skipping memory restore."
 elif [ "$CHECK_ONLY" -eq 1 ]; then

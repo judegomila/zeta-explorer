@@ -1,3 +1,42 @@
+/**
+ * @fileoverview Rigorous Costin-Lebowitz / Soshnikov fluctuation-argument port
+ * attempt for the Riemann-zero microscopic-scale linear-statistics observable.
+ *
+ * @module imp-1161-costin-lebowitz-port-attempt
+ *
+ * EXPORTS
+ *   - IMP1161_COSTIN_LEBOWITZ_PORT_ATTEMPT (default + named): frozen record
+ *     holding the CUE/Soshnikov theorem statement, the unconditional Selberg
+ *     pair-correlation input, the sine-kernel input gap, the per-step attempted
+ *     port (S1-S5), the explicit variance upper bound + constant, the five
+ *     named obstructions (O-CL-A..E), and the honest verdict/scope blocks.
+ *   - IMP1161_COSTIN_LEBOWITZ_PORT_ATTEMPT_ASSERTIONS: build-time tripwires
+ *     guarding the verdict, the FAIL status of steps S4/S5, the PASS-LOOSE
+ *     status of S2, and the numerical coherence of the headline constant.
+ *
+ * PROOF-CHAIN STEP
+ *   Sits under imp-1149 (Erdos-Schlein-Yau port residual). It attempts the
+ *   Costin-Lebowitz 1995 + Soshnikov 2000 CLT port for the imp-407 / imp-508
+ *   attack-chain linear-statistics observable using ONLY unconditional inputs
+ *   (Selberg 1944 second moment), avoiding Montgomery PCC / RH / sine-kernel
+ *   determinantal hypotheses.
+ *
+ * KEY ASSERTIONS (HONEST OUTCOME)
+ *   Verdict is rigorous-partial-variance-upper-bound: an unconditional bound
+ *   Var(L_N(f)) <= C_var(f, A) * (log log N) / N survives (publishable as
+ *   Proposition 4.5b), but the Gaussian limit (Theorem 4) does NOT -- it is
+ *   blocked at obstruction O-CL-B (triple-correlation Rudnick-Sarnak input is
+ *   conjectural). elevatesToTheorem4 stays false; elevatesToProposition45b is
+ *   true.
+ *
+ * TICKETS
+ *   Created by imp-1161 (2026-05-22). Related: imp-1149 (parent residual),
+ *   imp-1162 / imp-1166 (empirical sweeps), imp-1163 (literature survey),
+ *   imp-1165 / imp-1167 (parallel). Documentation added by imp-2394.
+ *
+ * SYNTAX SAFETY: no star-slash sequences inside this JSDoc; single quotes
+ * throughout; no apostrophes inside single-quoted strings.
+ */
 // imp-1161 -- Rigorous Costin-Lebowitz / Soshnikov fluctuation argument port
 // attempt for the Riemann-zero linear-statistics observable.
 //

@@ -457,6 +457,11 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
   auditedCount: AUDITED_COUNT,
   totalCount: CONJECTURE_ENTRIES.length,
 
+  // The single conjecture to which the entire Sections 15-27 program reduces
+  // (imp-1258 two-way collapse). Surfaced as a first-class field so downstream
+  // consumers can route to the live front without re-deriving it from prose.
+  centralCollapseTarget: '27.2',
+
   completedAuditTickets: Object.freeze([
     Object.freeze({
       ticket: 'imp-1163',
@@ -706,6 +711,23 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       const scope = PAPER_AUDIT_DASHBOARD.honestScope;
       return Array.isArray(scope) && scope.length >= 4 &&
         scope.some((s) => /UNAUDITED|prediction|indicative/i.test(s));
+    },
+  },
+  {
+    id: 'paper-audit-central-collapse-target-is-27-2',
+    why:
+      'Per imp-1258 two-way collapse, Conjecture 27.2 (‖V_{a,Phi}‖ ≤ 1) is THE ' +
+      'single central load-bearing claim to which the entire Sections 15-27 ' +
+      'program reduces. The dashboard must surface this as a first-class ' +
+      'centralCollapseTarget field pointing at 27.2, and that conjecture must ' +
+      'carry the INDEPENDENT-NOVEL verdict from imp-1258. Drift here would hide ' +
+      'the most significant finding of the audit campaign (imp-1269 sub-d).',
+    holds: () => {
+      const target = PAPER_AUDIT_DASHBOARD.centralCollapseTarget;
+      if (target !== '27.2') return false;
+      const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === target);
+      return !!c && c.auditStatus === 'INDEPENDENT-NOVEL' &&
+        c.auditTicket === 'imp-1258';
     },
   },
 ];

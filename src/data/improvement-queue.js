@@ -14782,12 +14782,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Fix _tripwire-helpers.js:552 — return tw.id === 'imp-XXXX-row-count';",
     category: 'meta',
     priority: 'medium',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'meta',
     description: "Found TODO/FIXME at src/data/_tripwire-helpers.js:552: \"return tw.id === 'imp-XXXX-row-count';\". Investigate and resolve or remove the marker if already done.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-06-04T01:50:00Z',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    closureNote: "False-positive duplicate of imp-2374. The placeholder-looking literal imp-XXXX-row-count no longer exists in _tripwire-helpers.js; line 552 now reads tw.id === imp-rowcount-id-verbatim (renamed by imp-2374). Verified via grep for XXXX/TODO/FIXME in the file: zero matches. No code change required; closing to stop the gap-seeder from re-queuing an already-resolved marker.",
   },
 
     {

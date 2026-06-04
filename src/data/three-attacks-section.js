@@ -168,6 +168,54 @@ const ATTACK_I = Object.freeze({
     ),
     namedGap: 'off-diagonal total-positivity remainder (u != v, mismatched cosh/sinh weights)',
   }),
+  // imp-2424: explicit numerical total-positivity / PSD certificate on finite
+  // truncations of K_a (script scripts/compute-imp-2424-Ka-tp-certificate.mjs).
+  // Numerical evidence toward B_a^+ = 1, NOT a proof.
+  truncationCertificate: Object.freeze({
+    ticket: 'imp-2424',
+    verdict: 'NO-STABLE-CERTIFICATE (marginal indefiniteness, shrinking margin)',
+    method: (
+      'Sample the de Branges Wronskian kernel K_a(w,z) = (A_a(z)B_a(w) - ' +
+      'B_a(z)A_a(w)) / (pi(w - z)) on n symmetric real grid points in ' +
+      '[-8, 8] (diagonal via the phase-Wronskian limit (B_a-prime A_a - ' +
+      'A_a-prime B_a)/pi), then certify the n x n Gram matrix by symmetric ' +
+      'LDL factorization: the leading principal minors are products of the ' +
+      'pivots, so by Sylvester the kernel is positive definite iff every ' +
+      'pivot is > 0. A_a, B_a and their z-derivatives use composite Simpson ' +
+      '(4000 nodes, u in [0,2]) against the de Bruijn-Newman kernel Phi ' +
+      '(N=10). Pivots are also read off the diagonal-normalized correlation ' +
+      'matrix to separate genuine indefiniteness from mere ill-conditioning.'
+    ),
+    control: (
+      'The identical pipeline applied to the genuine Hermite-Biehler function ' +
+      'E = exp(-iz) (A = cos, B = sin, the Paley-Wiener sinc kernel) returns ' +
+      'all-positive pivots at every n, with the smallest pivot decaying to 0 ' +
+      'from above as the Gram matrix becomes rank-deficient. So a real-axis ' +
+      'grid sample faithfully preserves positive definiteness for a true de ' +
+      'Branges kernel; the test discriminates.'
+    ),
+    finding: (
+      'For the shifted kernel K_a the certificate FAILS: across a in {0.1, ' +
+      '0.25, 0.5, 1, 2} and n in {4, 8, 16, 24, 32} the Gram matrix is ' +
+      'indefinite, with roughly n/2 negative pivots. The smallest ' +
+      'normalized pivot is negative at the order 1e-2 level (e.g. -8.9e-3 at ' +
+      'n=4, a=1) — far above rounding — so the indefiniteness is genuine, ' +
+      'not a precision artifact. Its magnitude SHRINKS as the truncation ' +
+      'refines, scaling like n^{-1.7} (log-log slope approx -1.72, stable ' +
+      'across a), reaching about -2.5e-4 at n=32.'
+    ),
+    interpretation: (
+      'The negative margin shrinking toward 0 like n^{-1.7} means K_a sits on ' +
+      'the boundary of the PSD cone: it approaches positivity in the ' +
+      'continuum limit but never yields a clean, stable total-positivity ' +
+      'certificate at finite truncation — the smallest minor stays negative ' +
+      'and does not settle to a positive value. This concretely exhibits, at ' +
+      'the level of explicit minors, the same off-diagonal indefiniteness ' +
+      'named in totalPositivityAssessment (imp-2363), and explains why the ' +
+      'analytic de Branges argument is delicate: there is no margin to spare.'
+    ),
+    subGap: 'positive lower bound on the smallest truncated minor (the margin is negative and only o(1), so no n-uniform positive certificate is available)',
+  }),
 });
 
 // ── Attack II: prime-delay domination (Conjecture 18.2) ─────────────────────

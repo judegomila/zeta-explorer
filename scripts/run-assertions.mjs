@@ -748,6 +748,25 @@ const DATA_MODULES = [
   // support > 1 via test-function reformulation inside sigma <= 1 (lambda-
   // attack reformulation track). 12 tripwires.
   '/src/data/imp-1307-connes-bost-adelic-attack.js',
+  // imp-1343: NEW-INPUT classification (follow-up to imp-1307) — does the
+  // Connes-Consani 2016-2019 scaling-site / "Riemann-Roch strategy: complex
+  // lift of the scaling site" program (the modern successor of the Connes 1999
+  // adelic Lefschetz-trace approach) close the (L1) non-commutative manifold
+  // structure unconditionally, bypass the Tao 2008 critique, and give a 2-point
+  // bound on the §15-27 ESY-closure Poisson kernel at Fourier support sigma > 1?
+  // Verdict: connes-consani-2019 advances (L1) geometry (the scaling site is a
+  // genuine tropical object with an UNCONDITIONAL Riemann-Roch theorem,
+  // Connes-Consani 2017) but the load-bearing positivity-on-the-square (the
+  // Weil-1948 self-intersection positivity transferred to the arithmetic
+  // surface S x S) remains RH-equivalent and conjectural. (a) (L1) advanced not
+  // fully closed; (b) Tao 2008 critique RELOCATED not bypassed; (c) NO 2-point
+  // bound at support > 1 — unconditional content = Weil explicit formula with
+  // the same (log T)^{1/2} Cauchy-Schwarz loss, conditional content = RH
+  // outright. Named sub-gap GAP-1343-RR2-INTERSECTION-POSITIVITY. Engine
+  // planning unchanged from imp-1307: DECOUPLE §15-27 closure from PCC at
+  // support > 1 via lambda-attack reformulation inside sigma <= 1 (de Branges
+  // imp-1241/imp-1340 track). 9 tripwires.
+  '/src/data/imp-1343-connes-consani-2019.js',
   // imp-1301: NOVEL follow-up to imp-1296 — TRUE windowed λ_max via the
   // Christoffel-Darboux sine-kernel restriction (100×100 edge block of the
   // unfolded zeros) compared to TW2 with Soshnikov 2000 centering+rescaling.
@@ -1070,6 +1089,24 @@ const DATA_MODULES = [
   // contraction is a general automorphic phenomenon, not an artifact of
   // holomorphy. Approximate Hecke eigenvalues; NOT a proof of GRH. 11 tripwires.
   '/src/data/imp-2356-maass-volterra-hs.js',
+  // imp-1344: NEW-INPUT classification -- can Harper-type random multiplicative
+  // function results (the "RH for typical chi" body of work; Harper 2020 Annals
+  // better-than-squareroot cancellation via critical Gaussian multiplicative
+  // chaos; random-Euler-product almost-sure analogue) be DERANDOMIZED to the
+  // single deterministic Riemann zeta? VERDICT:
+  // harper-random-not-derandomizable-to-deterministic-riemann. Premise
+  // corrected first (no literal "Harper 2017 RH for random chi" theorem at
+  // training-cutoff). Four independent obstructions: (D1) ensemble-vs-
+  // realization (typical-realization statements are silent on a fixed
+  // probability-zero realization); (D2) the load-bearing INDEPENDENCE of {f(p)}
+  // is false for the deterministic phases p^{-it} (rigidly correlated,
+  // Kronecker-Weyl); (D3) wrong observable (partial-sum SIZE vs ZERO location;
+  // random zero-free regions use Borel-Cantelli + second moment); (D4) Voronin
+  // universality runs the wrong way (proved from zero-distribution inputs, only
+  // approximates zero-free targets, cannot certify zero-freeness). Random model
+  // stays VALUABLE as a heuristic (Keating-Snaith 2000) but is a MODEL not a
+  // proof input; shared meta-pattern with imp-1309. 8 tripwires.
+  '/src/data/imp-1344-harper-2017-derandomization.js',
   // imp-1315: Lambda tightening audit -- can the Drmota-Tichy 1997 Ch. 1
   // L^2 / 2nd-moment Koksma-Hlawka inequality close the imp-1149 rateGap = 0.5
   // unconditionally (push |t_c(N) - 1/(2 M_infty(N))| from N^{-3/2} to N^{-2})?
@@ -1293,6 +1330,25 @@ const DATA_MODULES = [
   // variance ~ 2.16e-3), so the regularization cannot give an asymptotic ESY
   // closure. Named gap GAP-2354-SUPNORM-RESIDUAL-TRANSFER. 7 tripwires.
   '/src/data/imp-2354-unrestricted-3point-esy-attempt.js',
+  // imp-1343: NEW-INPUT classification (modern update of imp-1307) -- does the
+  // Connes-Consani Riemann-Roch / scaling-site program (2016 Arithmetic Site,
+  // 2017 Scaling Site Riemann-Roch, 2019 "complex lift of the scaling site")
+  // close the (L1)-(L3) gap of imp-1307, bypass Tao 2008, or give a 2-point
+  // bound at support > 1? Verdict connes-consani-2019-advances-L1-geometry-but-
+  // positivity-on-the-square-remains-rh-equivalent: (a) (L1) ADVANCED -- the
+  // scaling site is a constructed geometry with an UNCONDITIONAL Riemann-Roch,
+  // replacing the un-constructed 1999 type-II_1 von Neumann algebra -- but not
+  // fully closed (the square S x S is not constructed as an algebraic surface,
+  // RR1). (b) Tao 2008 critique NOT bypassed but relocated/sharpened: the
+  // endgame RR2 (intersection positivity on the square, a char-0 Castelnuovo-
+  // Severi / Hodge index modeled on Weil 1948) is precise but RH-EQUIVALENT.
+  // (c) NO 2-point bound: unconditional content = explicit formula (same
+  // (log T)^{1/2} Cauchy-Schwarz obstruction as the moment routes and imp-1307);
+  // conditional content (RR2) gives RH outright. Geometric/NCG family (imp-1307
+  // Connes-Bost, imp-1308 Berry-Keating, imp-1339 Hecke-triangle, this) supplies
+  // no support > 1 2-point bound. Sub-gap GAP-1343-RR2-INTERSECTION-POSITIVITY.
+  // 9 tripwires.
+  '/src/data/imp-1343-connes-consani-2019.js',
 ];
 
 const ALL_MODULES = FAST_MODE

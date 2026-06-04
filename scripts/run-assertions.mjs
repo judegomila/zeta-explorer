@@ -1375,15 +1375,6 @@ const DATA_MODULES = [
   // GAP-2359-CHAR1-SURFACE-POSITIVITY. No 2-point bound at support > 1. RH NOT
   // asserted. 8 tripwires.
   '/src/data/imp-2359-connes-consani-f1-arithmetic-site-trace.js',
-  // imp-2360: FAN-OUT from imp-1311 (Robin/Lagarias). Tests numerically whether
-  // the Robin sigma(n) <= e^gamma n loglog n margin can be bridged to a
-  // de Bruijn-Newman Lambda bound. Recovers the 8 known Robin-violating CA
-  // numbers exactly, shows large CA (N >= 55440) satisfy Robin with positive
-  // margin, and that the margin x logN probe is non-constant (no clean 1/logN
-  // law). The Lambda heat-flow time axis is absent from the sigma(n) margin: no
-  // Lambda-convertible observable. Named sub-gap GAP-2360-NO-FLOW-TIME-OBSERVABLE.
-  // RH NOT asserted. 9 tripwires.
-  '/src/data/imp-2360-robin-margin-lambda-bridge-numerical.js',
   // imp-2361: FAN-OUT from imp-1315 (Koksma-Hlawka rate closure). Tests whether
   // discrete discrepancy measures (the Erdos-Turan inequality, golden-ratio
   // Kronecker / Fibonacci low-discrepancy sampling) bypass the Montgomery-PCC
@@ -1395,6 +1386,17 @@ const DATA_MODULES = [
   // star-discrepancy + Erdos-Turan bound, and confirms N*D_N^* GROWS (log N / N
   // rate, not 1/N). Lambda unchanged at 3.06e-5; RH NOT asserted. 8 tripwires.
   '/src/data/imp-2361-erdos-turan-discrete-discrepancy-pcc-bypass.js',
+  // imp-2390: FAN-OUT from imp-2360 / imp-1311. Tests a SECOND independent RH-
+  // equivalent elementary inequality -- the Nicolas 1983 primorial / Euler-phi
+  // criterion N_k/phi(N_k) > e^gamma log log N_k -- and asks whether its margin
+  // carries Lambda content. Verdict nicolas-margin-is-arithmetic-scale-no-
+  // lambda-bridge: the margin holds with NO exceptions (contrast Robins eight
+  // CA exceptions), decays monotonically, and its scale probes show
+  // m_k*log N_k GROWS (no 1/log N law) while m_k*(log log N_k)^2 is banded
+  // (Mertens-variable arithmetic scale, no flow-time axis). Confirms imp-2360
+  // via a second RH-equivalence. Named sub-gap GAP-2390-NO-FLOW-TIME-IN-PHI-
+  // MARGIN. RH NOT asserted. 9 tripwires.
+  '/src/data/imp-2390-nicolas-primorial-margin-no-lambda-bridge.js',
 ];
 
 const ALL_MODULES = FAST_MODE

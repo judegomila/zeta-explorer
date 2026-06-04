@@ -1443,6 +1443,19 @@ const DATA_MODULES = [
   // 14 norms stay << 1 and rise with t -- the norm tracks kernel L^2 scale,
   // not zero location, so it is NOT a stand-alone zero detector. 6 tripwires.
   '/src/data/imp-2435-beurling-volterra-stress-test.js',
+  // imp-2442: off-line finite-kappa structure of the de Branges / Pontryagin
+  // canonical-system realization (Wave-3 follow-on to imp-2430). A hypothetical
+  // off-line zero must be modelled by a GENUINE generalized-Nevanlinna function
+  // N_kappa (Pick kernel with exactly kappa negative squares), NOT by a pole in
+  // C+ (the imp-2430 naive surrogate, which does not saturate). Verifies the
+  // canonical family N_k(z)=z^(2k+1) in N_k has Pick negative index exactly k,
+  // saturating across four node sets (Pontryagin Pi_kappa fingerprint), and
+  // reproduces the non-saturating pole-in-C+ contrast. Bookkeeping: on-line N_0
+  // (Hilbert, ind_-(K_a)=0) vs off-line N_kappa (Pontryagin Pi_kappa,
+  // ind_-(K_a)=kappa). Verdict: off-line zeros admissible only in Pi_kappa,
+  // incompatible with the kappa=0 twin-ladder realization; sub-gap
+  // GAP-2442-GENUINE-M-IS-N0 (genuine m in N_0 = RH). 6 tripwires.
+  '/src/data/imp-2442-offline-finite-kappa-pontryagin-2026-06.js',
 ];
 
 const ALL_MODULES = FAST_MODE

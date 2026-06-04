@@ -321,6 +321,73 @@ const DERIVATION_STEPS = [
     'RESEARCH_GRADE_FEASIBLE) and the imp-1123 ticket honest-scope clause.',
 ];
 
+// ── imp-2457: two-parameter (C_BS, A) break-even surface ─────────────────────
+//
+// The imp-2367 sharpening reduced the O-BS-A/O-BS-B pair to the single budget
+//   C_BS * (log T_PT)^A < tighteningFactorFormal (~2.04e6)
+// at T_PT = 3e12 (log T_PT ~ 28.73). This section TABULATES the admissibility
+// region by inverting the inequality: for each integer A the largest implied
+// constant that still beats Ingham is
+//   C_BS_max(A) = tighteningFactorFormal / (log T_PT)^A.
+// We then ask which A admit a literature-citable C_BS and pin the largest such
+// A. NO new rigor: the surface is an exact rearrangement of the imp-2367
+// inequality and does NOT make C_BS effective or pin A.
+
+const LN_T_PT = Math.log(T_PT);
+
+// Literature anchors for "citable" implied constants. BS 2008 / Heath-Brown
+// 4th-moment density bounds carry ABSOLUTE but NON-EFFECTIVE implied constants.
+// Comparable EFFECTIVE zero-density constants in the explicit-constants
+// literature (Kadiri-Ng-style density estimates) sit in the single- to
+// low-double-digit range, so C_BS = 10 is a generous upper anchor for "a
+// constant a follow-up paper could plausibly cite"; C_BS = 1 is the weakest
+// floor (any absolute constant is at least order 1).
+const C_BS_CITABLE_ANCHOR = 10;
+const C_BS_FLOOR = 1;
+
+const BS_BREAK_EVEN_SURFACE = [0, 1, 2, 3, 4, 5, 6].map((A) => {
+  const logPow = Math.pow(LN_T_PT, A);
+  const cbsMax = TIGHTENING_FACTOR_FORMAL / logPow;
+  return {
+    A,
+    logTptPowA: +logPow.toPrecision(6),
+    cbsMaxBeforeBreakEven: +cbsMax.toPrecision(6),
+    admitsFloorCbs: cbsMax >= C_BS_FLOOR,
+    admitsCitableAnchorCbs: cbsMax >= C_BS_CITABLE_ANCHOR,
+  };
+});
+
+// Largest A for which the citable anchor C_BS = 10 still fits the budget, and
+// the weaker largest A for which ANY C_BS >= 1 fits.
+const LARGEST_A_FOR_CITABLE_CBS = BS_BREAK_EVEN_SURFACE
+  .filter((r) => r.admitsCitableAnchorCbs)
+  .reduce((m, r) => Math.max(m, r.A), -1);
+const LARGEST_A_FOR_FLOOR_CBS = BS_BREAK_EVEN_SURFACE
+  .filter((r) => r.admitsFloorCbs)
+  .reduce((m, r) => Math.max(m, r.A), -1);
+
+const BS_BREAK_EVEN_VERDICT = {
+  budget: 'C_BS * (log T_PT)^A < tighteningFactorFormal (~2.04e6) at T_PT = 3e12',
+  lnTpt: +LN_T_PT.toPrecision(6),
+  citableAnchorCbs: C_BS_CITABLE_ANCHOR,
+  largestAForCitableCbs: LARGEST_A_FOR_CITABLE_CBS,
+  largestAForFloorCbs: LARGEST_A_FOR_FLOOR_CBS,
+  publishedEffectiveConstantClosesIt: false,
+  missingEffectiveInput:
+    'NO published EFFECTIVE Buchstab/BS implied constant closes the budget. ' +
+    'BS 2008 (J. London Math. Soc. (2) 78, 597-606) states the density bound ' +
+    'with an absolute but non-effective C_BS and an unspecified log-power A, ' +
+    'so neither factor can be substituted into the budget. The precise missing ' +
+    'input is a Heath-Brown style EFFECTIVE version of the BS zero-density ' +
+    'estimate that delivers BOTH a numerical C_BS AND a numerical A jointly ' +
+    'satisfying C_BS * 28.73^A < 2.04e6. The surface shows the admissibility ' +
+    'window is narrow: a citable C_BS = 10 needs A <= ' + LARGEST_A_FOR_CITABLE_CBS +
+    ', and even the weakest C_BS >= 1 floor needs A <= ' + LARGEST_A_FOR_FLOOR_CBS +
+    ' (A = 5 already costs ~1.96e7 > 2.04e6 for any C_BS >= 1). Until such an ' +
+    'effective estimate exists, O-BS-A and O-BS-B remain research-grade open; ' +
+    'this tabulation pins the target an effective input must hit, not a proof.',
+};
+
 // ── Build-time sanity numbers used by tripwires ──────────────────────────────
 
 const SANITY = {
@@ -397,6 +464,10 @@ export const BUI_SOUND_RIGOROUS_PORT = {
 
   sigmaSweep: SIGMA_SWEEP,
   bsBeatsInghamAtEverySigmaAbove0p65: BS_BEATS_INGHAM_AT_EVERY_SIGMA_ABOVE_0P65,
+
+  // imp-2457: (C_BS, A) break-even surface + reduction-to-known-input verdict.
+  bsBreakEvenSurface: BS_BREAK_EVEN_SURFACE,
+  bsBreakEvenVerdict: BS_BREAK_EVEN_VERDICT,
 
   ptAsymptoticBaseline: PT_ASYMPTOTIC,
   ptComputationHeight: T_PT,

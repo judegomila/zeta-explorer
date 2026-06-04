@@ -1,3 +1,48 @@
+/**
+ * @fileoverview Alternative-scaling-regime sweep for the Erdos-Schlein-Yau
+ *   (ESY) rigidity analog on Riemann zeros: searches 13 scaling regimes for
+ *   ANY observable where psi_N decays at the ESY 1/N rate, to narrow the
+ *   imp-1149 residual of the imp-407 / imp-508 honest-partial ESY closure
+ *   (driving C_poly from 1 toward 0).
+ * @module data/esy-residual-alternative-regimes-2026-05
+ *
+ * Exports
+ * -------
+ *   ESY_RESIDUAL_ATTEMPT — frozen attempt record: goal, the 13 tested regimes
+ *     (R1 psi_N at eta = N^{-alpha} over a 5-point alpha grid, R2 Tracy-Widom
+ *     near-edge probe at gamma_1, R3 linear-statistics variance over a 5-point
+ *     grid plus two extended alpha grids), the best surviving regime, named
+ *     obstructions to rigorous closure, the ESY slope/R^2 prediction, raw
+ *     sweeps, and the partial-or-failed status.
+ *   ESY_RESIDUAL_ATTEMPT_ASSERTIONS — build-time tripwires pinning the
+ *     headline: status must stay partial/failed (no silent overclaim), at
+ *     least 5 regimes reported, the R3 alpha = 1 linear-statistics slope must
+ *     sit in (-1.3, -0.7) with R^2 >= 0.85, and every R1 psi_N alpha must be
+ *     ESY-INCOMPATIBLE or INCONCLUSIVE (never ESY-COMPATIBLE).
+ *
+ * Proof-chain step
+ * ----------------
+ * A RESIDUAL-NARROWING node under imp-1149-sub-erdos-schlein-yau-port-residual,
+ * the open sub-gap of the imp-407 / imp-508 unconditional ESY rigidity port
+ * (src/math/esy-o1-closure.js). It extends the imp-1108 (bulk) and imp-1128
+ * (edge) falsifications to a comprehensive orthogonal sweep, ruling out
+ * alternative regimes rather than closing the residual.
+ *
+ * Key assertions
+ * --------------
+ *   - R1/R2 psi_N: NO scaling alpha gives ESY-rate decay -- confirms and
+ *     generalizes imp-1108 / imp-1128 (ESY-INCOMPATIBLE).
+ *   - R3 linear-statistics variance at alpha = 1: slope approx -0.85, R^2
+ *     approx 0.96 -- the only regime showing near-1/N-rate behavior, still
+ *     short of the ESY target and blocked by named analytic-bridge
+ *     obstructions; the residual is NARROWED, NOT closed.
+ *
+ * Tickets
+ * -------
+ * Created by imp-1149-sub-erdos-schlein-yau-port-residual; parallel/related
+ * tickets imp-407, imp-508, imp-1108, imp-1128, imp-1147. JSDoc header added
+ * by imp-2408.
+ */
 // imp-1149-sub-erdos-schlein-yau-port-residual -- attack on the imp-407 /
 // imp-508 honest-partial ESY closure C_poly = 1 residual.
 //

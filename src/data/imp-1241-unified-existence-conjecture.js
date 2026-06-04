@@ -378,6 +378,42 @@ const UNIFIED_CONJECTURE = Object.freeze({
     'rigorous verification for the Phi-built E_a is left as a named sub-gap ' +
     '(CDB-Exist-regularity) rather than asserted.',
 
+  outerFactorRigidityNote:
+    'PARAGRAPH 1 (what no-inner-factor means): The CDB-Exist => 16.4 ' +
+    'corollary identifies H_a with the de Branges space H(E_a) for E_a(z) = ' +
+    'X(a - iz). This identification is EXACT only if E_a carries no inner ' +
+    'factor, i.e. E_a is an OUTER structure function. In the Krein inner- ' +
+    'outer factorization of a bounded-type function in C_+, E_a = B * S * O ' +
+    'where B is a Blaschke product over the zeros of E_a in the open upper ' +
+    'half-plane, S is a singular inner factor, and O is outer. A nontrivial ' +
+    'B or singular S would make H(E_a) a proper isometric subspace of the ' +
+    'space attached to the outer part O, breaking the precise H_a = H(E_a) ' +
+    'identity that 16.4 needs. ' +
+    'PARAGRAPH 2 (mean-type term is benign): E_a inherits the genus-1 ' +
+    'Hadamard structure of X, so its only exponential factor is the mean- ' +
+    'type term exp(alpha + beta z). In de Branges theory this exponential ' +
+    'type is a LEGITIMATE feature of the structure function (it fixes the ' +
+    'length of the canonical-system base interval) and is NOT an inner-factor ' +
+    'obstruction. Rigidity therefore concerns only the Blaschke part B and ' +
+    'the singular-measure content of S, not the exponential type. ' +
+    'PARAGRAPH 3 (Blaschke half is exactly RH): E_a has a zero in the open ' +
+    'upper half-plane iff X has an off-critical zero, because the Hermite- ' +
+    'Biehler / shift-bridge threshold sends the critical-line zeros of X to ' +
+    'the lower half-plane in the z variable. Hence B is trivial iff X has no ' +
+    'off-critical zeros iff RH. The no-Blaschke-inner-factor half of outer- ' +
+    'factor rigidity is therefore EXACTLY RH, not a sub-problem dischargeable ' +
+    'separately from RH. ' +
+    'PARAGRAPH 4 (singular half and honest verdict): absence of a singular- ' +
+    'measure inner factor for X is tied to Polya-class membership of X, which ' +
+    'is itself classically RH-equivalent (Polya 1927; de Branges 1968), so it ' +
+    'likewise yields no unconditional reduction. NET: outer-factor rigidity ' +
+    'of the Phi-built E_a is RH-EQUIVALENT, confirming the imp-1245 axis-b ' +
+    'flag; the contribution here is to LOCALIZE the obstruction precisely as ' +
+    'off-critical zeros (Blaschke) plus Polya-class regularity (singular) and ' +
+    'to identify the mean-type exponential as benign. A rigorous UNCONDITIONAL ' +
+    'proof is impossible (it would prove RH); this is left as the named sub- ' +
+    'gap CDB-Exist-no-inner-factor (honest partial).',
+
   citations: Object.freeze([
     'de Branges 1968, Hilbert Spaces of Entire Functions (Theorems 19, 23, ' +
       '40; chain theorem)',
@@ -754,6 +790,23 @@ export const IMP_1241_ASSERTIONS = [
       const note = IMP_1241_UNIFIED_EXISTENCE_AUDIT.unifiedConjecture.conservativeClassAndRegularityNote;
       return typeof note === 'string' && note.length >= 200 &&
         /simple.conservative/i.test(note) && /limit.point/i.test(note);
+    },
+  },
+  {
+    id: 'imp2335-outer-factor-rigidity-note-present',
+    why:
+      'imp-2335 addresses the imp-1245 axis-b 16.4-implication gap: the ' +
+      'CDB-Exist => 16.4 identification H_a = H(E_a) is exact only if E_a ' +
+      'carries no inner factor (outer-factor rigidity). The note must be ' +
+      'present (>= 200 chars), localize the obstruction into a Blaschke part ' +
+      'and a singular part, identify the Blaschke part with off-critical zeros, ' +
+      'and honestly flag the overall result as RH-equivalent rather than an ' +
+      'unconditional closure (a rigorous proof would prove RH).',
+    holds: () => {
+      const note = IMP_1241_UNIFIED_EXISTENCE_AUDIT.unifiedConjecture.outerFactorRigidityNote;
+      return typeof note === 'string' && note.length >= 200 &&
+        /Blaschke/.test(note) && /off-critical/i.test(note) &&
+        /RH-EQUIVALENT|RH-equivalent/.test(note);
     },
   },
 ];

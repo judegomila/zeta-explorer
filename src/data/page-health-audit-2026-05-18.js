@@ -1,3 +1,24 @@
+/**
+ * @module data/page-health-audit-2026-05-18
+ * @fileoverview Snapshot record of the imp-1096 page-health sweep (2026-05-18).
+ *
+ * Exports:
+ *   - PAGE_HEALTH_AUDIT — the structured audit object (ticket, audit timestamp,
+ *     tooling chain, per-route pass/fail results, the /full-story fix record,
+ *     and the residual /lambda-timeline blocker owned by imp-1093).
+ *   - PAGE_HEALTH_AUDIT_ASSERTIONS — the checkable claims this audit makes,
+ *     consumable by tripwires that re-verify route health.
+ *
+ * Proof-chain role: infrastructure/QA, not a mathematical step. It guards the
+ * static-site delivery layer so the published RH-attack pages stay loadable;
+ * it does not bear on the analytic Lambda argument itself.
+ *
+ * Key assertions: every registered App.jsx route returned HTTP 200 with zero
+ * console errors except /lambda-timeline, and the /full-story lazy-load fix
+ * (commits 3766a0a9 + 5bc0868a) is confirmed restored.
+ *
+ * Tickets: created by imp-1096; documented by imp-2446.
+ */
 // imp-1096 — Page health audit (USER-REPORTED CRITICAL, 2026-05-18).
 //
 // User reported that http://localhost:3002/#/full-story did not load. This

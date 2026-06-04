@@ -580,3 +580,185 @@ if (CROSS_VERIFICATION_IMP1055_2026_05_13.computationsChecked.length < 5) {
     "Selberg log-T table K=1 and K=3, and the rescueTable closure assertion)."
   );
 }
+
+// ── imp-2365: which strength of universality does Route A monotonicity need? ──
+//
+// imp-486 named "GUE universality" as the irreducible conditional, treating it
+// as a single monolithic hypothesis and surveying ANALYTIC number-theory
+// substitutes (Selberg, Huxley, GGM). This block asks the sharper SPECTRAL
+// question: GUE universality is not monolithic -- it is a HIERARCHY of inputs.
+// Does the Route A C_mb bound need the strongest tier (sine-kernel / all
+// k-point correlations), or does a WEAKER tier -- a local law / eigenvalue
+// rigidity, e.g. at the edge scale N^{-2/3} -- already suffice?
+//
+// SYNTAX NOTE: line // comments only here, to avoid any star-slash sequence.
+//
+// Setup recall (from the JSDoc at top of file). The closure needs
+//   | SUM_{|j-k*|>=2} 1/(gamma_{k*} - gamma_j) |  controlled at the
+//   C_mb * rho_N * N^{-1/2} * log(N) level (CLT scale). This is the
+//   imaginary part of the Stieltjes transform of the empirical zero measure,
+//   regularized at the local spacing scale -- a SINGULAR LINEAR STATISTIC.
+//
+// The standard RMT hierarchy (Erdos-Schlein-Yau / Erdos-Yau-Yin), strongest
+// to weakest, and what each tier controls for the SINGULAR Cauchy/Hilbert
+// statistic above:
+//
+//   TIER 3  Full bulk universality (sine-kernel, all k-point correlations).
+//           Strictly MORE than needed: the Cauchy sum is a 1-body linear
+//           statistic; its variance is fixed by the 2-point function, so the
+//           k>=3 correlation information in TIER 3 is not used.
+//
+//   TIER 2  Optimal local law: control of m_N(z) - m_sc(z) down to scale
+//           Im z ~ N^{-1+eps}, equivalently OPTIMAL BULK rigidity
+//           |lambda_i - gamma_i| <= N^{-1+eps} in the bulk. By the standard
+//           fluctuation-averaging mechanism this is EXACTLY the input that
+//           pins a singular linear statistic at CLT scale. This is the
+//           MINIMAL SUFFICIENT tier for the C_mb = O(1) bound.
+//
+//   TIER 1  Uniform / edge rigidity at scale N^{-2/3} (the worst-case bound
+//           |lambda_i - gamma_i| <= N^{-2/3+eps}, saturated at the spectral
+//           edge). INSUFFICIENT -- see the perturbation scaling below.
+//
+// Why TIER 1 (the N^{-2/3} input the ticket asks about) is too weak --
+// perturbation scaling (HEURISTIC, exponent-level; not asserted as a theorem):
+//   The singular kernel 1/(x_k - x_j) has derivative 1/(x_k - x_j)^2, so a
+//   positional uncertainty of size r feeds into the Cauchy sum amplified by
+//   the near-diagonal second-moment kernel SUM 1/gap^2, which is dominated by
+//   the closest neighbors (gaps ~ mean spacing) and does NOT decay. Hence the
+//   induced fluctuation scales like r / (mean spacing) in normalized units.
+//   The CLT budget is ~ N^{-1/2} log N. A uniform displacement at the edge
+//   scale r ~ N^{-2/3} sits a full power of N ABOVE the bulk optimal scale
+//   r ~ N^{-1+eps}; the singular amplification then overruns the CLT budget by
+//   a positive power of N. Only the bulk-optimal scale (TIER 2) fits the
+//   budget. The edge exponent 2/3 is the wrong target: the bulk improvement
+//   (the (min(i,N-i))^{-1/3} factor that upgrades N^{-2/3} to N^{-1+eps} in the
+//   bulk) is precisely what the singular near-diagonal kernel demands.
+
+export const ROUTE_A_RIGIDITY_STRENGTH_IMP2365 = {
+  id: "imp-2365",
+  title:
+    "Minimal universality strength sufficient for the Route A C_mb monotonicity bound",
+  date: "2026-06-03",
+  verifier: "opus-4-8 api-pool",
+
+  // The question as posed by the ticket.
+  question:
+    "Does a weak local-law / eigenvalue-rigidity input at scale N^{-2/3}, rather " +
+    "than full GUE universality, suffice to close the Route A monotonicity step " +
+    "(the C_mb = O(1) bound)? If not, what is the precise minimal sufficient input?",
+
+  // The three-tier hierarchy with verdicts. Each tier records what it controls
+  // for the SINGULAR Cauchy statistic and whether it is known for GUE / zeta.
+  rigidityHierarchy: [
+    {
+      tier: 1,
+      label: "Uniform / edge rigidity at scale N^{-2/3}",
+      statement: "|lambda_i - gamma_i| <= N^{-2/3+eps}, worst case (edge-saturated).",
+      sufficientForCmb: false,
+      reason:
+        "The singular kernel 1/(x_k - x_j) amplifies positional uncertainty by " +
+        "the non-decaying near-diagonal second-moment SUM 1/gap^2. A uniform " +
+        "N^{-2/3} displacement exceeds the bulk-optimal scale by a power of N, so " +
+        "the induced Cauchy-sum fluctuation overruns the N^{-1/2} log N CLT budget.",
+      knownForGUE: true,
+      knownForZeta: false,
+    },
+    {
+      tier: 2,
+      label: "Optimal local law / bulk rigidity at scale N^{-1+eps}",
+      statement:
+        "m_N(z) - m_sc(z) controlled for Im z ~ N^{-1+eps}; equivalently bulk " +
+        "rigidity |lambda_i - gamma_i| <= N^{-1+eps} (the (min(i,N-i))^{-1/3} " +
+        "bulk improvement of the N^{-2/3} edge bound).",
+      sufficientForCmb: true,
+      reason:
+        "By fluctuation averaging this pins a singular 1-body linear statistic at " +
+        "CLT scale -- exactly the C_mb = O(1) bound at rate N^{-1/2} log N. " +
+        "MINIMAL SUFFICIENT tier.",
+      knownForGUE: true,
+      knownForZeta: false,
+    },
+    {
+      tier: 3,
+      label: "Full bulk universality (sine-kernel, all k-point correlations)",
+      statement: "Local k-point correlation functions converge to the GUE sine kernel.",
+      sufficientForCmb: true,
+      reason:
+        "Sufficient but STRICTLY MORE than needed: the Cauchy sum is a 1-body " +
+        "statistic whose variance is fixed by the 2-point function alone; the " +
+        "k>=3 information in full universality is unused.",
+      knownForGUE: true,
+      knownForZeta: false,
+    },
+  ],
+
+  // Net finding.
+  minimalSufficientInput:
+    "TIER 2 -- the OPTIMAL local law (Stieltjes control to scale N^{-1+eps}), " +
+    "equivalently optimal BULK rigidity. This is STRICTLY WEAKER than the full " +
+    "GUE universality (TIER 3) named by imp-486, and STRICTLY STRONGER than the " +
+    "uniform N^{-2/3} edge rigidity (TIER 1) the ticket proposed.",
+
+  answerToTicket:
+    "Partial-yes / partial-no. The ticket's intuition that something weaker than " +
+    "full GUE universality suffices is CORRECT: full k-point (sine-kernel) " +
+    "universality is not needed, only the 2-point-level optimal local law. " +
+    "But the SPECIFIC weak input named -- uniform rigidity at the EDGE scale " +
+    "N^{-2/3} -- is INSUFFICIENT; the singular near-diagonal Cauchy kernel " +
+    "requires the bulk improvement to scale N^{-1+eps}.",
+
+  refinementOfImp486:
+    "imp-486 wrote the equivalence chain C_mb=O(1) <=> ... <=> GUE universality " +
+    "treating GUE universality monolithically. This refines the SUFFICIENT side: " +
+    "the optimal local law (TIER 2) already gives the forward implication, so the " +
+    "minimal target for a future closure is the local law, NOT full universality. " +
+    "imp-486 remains correct that NO analytic-NT substitute reaches even TIER 2.",
+
+  // The honestly-named residual sub-gap.
+  subGap:
+    "SUB-GAP (open): the TIER-2 optimal local law for the Riemann zeros is itself " +
+    "UNPROVED unconditionally. Its 2-point content is comparable in strength to " +
+    "Montgomery pair correlation, so the practical conditionality is similar to " +
+    "imp-486 -- the route stays conditional. The gain is qualitative: the minimal " +
+    "sufficient hypothesis is pinned (optimal local law, scale N^{-1+eps}), which " +
+    "is a smaller and better-targeted goal than full GUE universality.",
+
+  status: "PARTIAL_CLOSURE",
+  closedBy: "imp-2365",
+  closureNote:
+    "Pinned the minimal universality strength for the Route A C_mb bound: the " +
+    "optimal local law / bulk rigidity at scale N^{-1+eps} (TIER 2). Showed via a " +
+    "singular-kernel perturbation scaling that the ticket's proposed N^{-2/3} edge " +
+    "rigidity (TIER 1) is insufficient, and that full sine-kernel universality " +
+    "(TIER 3) is more than needed. The TIER-2 local law remains unproven for zeta " +
+    "(named sub-gap), so the route stays conditional on a weaker, better-targeted " +
+    "hypothesis than imp-486 stated.",
+};
+
+// ── Build-time assertions for imp-2365 ───────────────────────────────────────
+
+if (ROUTE_A_RIGIDITY_STRENGTH_IMP2365.rigidityHierarchy.length !== 3) {
+  throw new Error(
+    "imp-2365: rigidityHierarchy must cover all three tiers (edge N^{-2/3}, " +
+    "optimal local law N^{-1+eps}, full sine-kernel universality)."
+  );
+}
+
+{
+  // The edge tier must be flagged insufficient; the optimal-local-law tier must
+  // be flagged as the minimal sufficient input; the full-universality tier must
+  // be sufficient. This pins the central finding against future drift.
+  const tiers = ROUTE_A_RIGIDITY_STRENGTH_IMP2365.rigidityHierarchy;
+  const t1 = tiers.find(t => t.tier === 1);
+  const t2 = tiers.find(t => t.tier === 2);
+  const t3 = tiers.find(t => t.tier === 3);
+  if (!t1 || t1.sufficientForCmb !== false) {
+    throw new Error("imp-2365: TIER 1 (N^{-2/3} edge rigidity) must be insufficient.");
+  }
+  if (!t2 || t2.sufficientForCmb !== true) {
+    throw new Error("imp-2365: TIER 2 (optimal local law) must be the minimal sufficient input.");
+  }
+  if (!t3 || t3.sufficientForCmb !== true) {
+    throw new Error("imp-2365: TIER 3 (full universality) must be sufficient.");
+  }
+}

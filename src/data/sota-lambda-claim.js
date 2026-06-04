@@ -1,4 +1,37 @@
 /**
+ * @fileoverview SOTA de Bruijn-Newman Lambda upper-bound claim assembly.
+ * @module data/sota-lambda-claim
+ *
+ * Exports
+ * -------
+ *   SOTA_LAMBDA_CLAIM            — the assembled headline record (route
+ *                                  breakdown, rigor chain, cross-checks,
+ *                                  Platt-Trudgian comparison, open work,
+ *                                  adversarial-review audit trail).
+ *   SOTA_LAMBDA_CLAIM_ASSERTIONS — machine-checkable invariants that pin
+ *                                  the reported numbers and rigor level.
+ *
+ * Proof-chain step
+ * ----------------
+ * This is the TERMINAL assembly node of the Lambda-upper-bound route. It
+ * consumes the structural records from the imp-327/328/338/341/344/345/
+ * 354/356/366 chain (and later imp-387/397/398/399 constant pins) and
+ * collapses them into one reported number plus an honest rigor level.
+ *
+ * Key assertions
+ * --------------
+ *   Asymptotic (unconditional): Lambda = 0 via Route B (imp-341 lim-sup
+ *     + imp-387 G6 bridge + Rodgers-Tao 2020), all bridge constants pinned.
+ *   Finite-height (unconditional on N in [100, 10^4]): Lambda <= 0.121 < 0.2
+ *     (Platt-Trudgian) at N*=1e6 with ~24.9x margin.
+ *
+ * Tickets that created or modified this file
+ * ------------------------------------------
+ *   Created: imp-375. Major edits: imp-401 (Lambda = 0 capstone),
+ *   imp-428 (adversarial-review audit trail), imp-453 (latest closures
+ *   registry), and the imp-963/933/911 finite-K certificate updates.
+ *   Module-doc tags added by imp-2406.
+ *
  * imp-375: SOTA Lambda claim — final upper bound with full rigor chain
  *
  * Scope

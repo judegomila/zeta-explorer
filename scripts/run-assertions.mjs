@@ -1359,6 +1359,15 @@ const DATA_MODULES = [
   // Named gap GAP-2422-HIGHPASS-FORMFACTOR-RESIDUAL = GAP-2354-SUPNORM-RESIDUAL-
   // TRANSFER, now quantified. 7 tripwires.
   '/src/data/imp-2422-bandwidth-restricted-esy-gap.js',
+  // imp-2441: minimal input to close the N-independent 2.153e-3 ESY variance
+  // gap (Wave-3 follow-on to imp-2422). Scores three candidates against the
+  // exact form-factor integral: (A) wider band shrinks ~ exp(-4 pi W) but every
+  // finite W leaves a residual > 0 (full support = Bogomolny-Keating; extending
+  // RS96 support is open); (B) a 4-point input is an orthogonal cumulant on the
+  // narrower 1/2 band and makes the gap WORSE; (C) the W = 1 win is Montgomery
+  // pair-correlation, RH-conditional. Verdict: residual is STRUCTURAL (PCC),
+  // no realistic unconditional input closes it. 7 tripwires.
+  '/src/data/imp-2441-minimal-input-to-close-esy-gap.js',
   // imp-1343: NEW-INPUT classification (modern update of imp-1307) -- does the
   // Connes-Consani Riemann-Roch / scaling-site program (2016 Arithmetic Site,
   // 2017 Scaling Site Riemann-Roch, 2019 "complex lift of the scaling site")

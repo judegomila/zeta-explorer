@@ -1,3 +1,33 @@
+/**
+ * @fileoverview Structured single-source-of-truth data for the Lambda-attack
+ * roadmap rendered by LambdaBoundsPage.jsx: the bounds ladder from verified
+ * Riemann zeros toward an unconditional RH statement, the proof-chain steps,
+ * the parallel closure routes, the verification efforts, the open gaps, and a
+ * dependency matrix with topological-order / transitive-closure helpers.
+ *
+ * @module lambda-roadmap
+ *
+ * Proof-chain step: roadmap / orchestration layer (not itself a proof). It
+ * indexes the de Bruijn-Newman Lambda program -- RH is equivalent to Lambda = 0
+ * given the Rodgers-Tao 2020 lower bound -- and keeps the plan, the work, and
+ * the status synchronized by citing improvement-queue.js ticket ids on every
+ * entry. Verification-level legend: unverified, numerical, cross-verified,
+ * rigorous.
+ *
+ * Exports:
+ *   - LAMBDA_BOUNDS: the bounds ladder (lower/upper/numerical estimates).
+ *   - LAMBDA_CHAIN_STEPS: ordered steps from zeros to an RH statement.
+ *   - VERIFICATION_EFFORTS: numerical / cross-verification campaigns.
+ *   - OPEN_GAPS: named unresolved obstructions blocking closure.
+ *   - LAMBDA_DEPENDENCY_MATRIX: node -> dependency edges across the program.
+ *   - lambdaDepMatrixTopoOrder, lambdaDepMatrixClosure: matrix traversal helpers.
+ *   - LAMBDA_ROADMAP, LAMBDA_ROADMAP_MILESTONES: assembled roadmap + milestones.
+ *   - LAMBDA_ROADMAP_ASSERTIONS: build-time tripwires pinning the data shape.
+ *
+ * Tickets: created/maintained alongside the Lambda program; documented by
+ * imp-2420. Individual entries cite their own originating tickets inline.
+ */
+
 // Lambda Bounds & RH Roadmap — structured data for LambdaBoundsPage.jsx
 //
 // This file is the single source of truth for the Λ-attack plan: the

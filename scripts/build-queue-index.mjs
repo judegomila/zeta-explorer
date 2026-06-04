@@ -328,6 +328,20 @@ function main() {
     }
   }
 
+  // imp-2403: surface tickets stranded in an "untagged" bucket — their model
+  // or channel string is not one any per-tier engine reads, so the ticket can
+  // starve even though work exists. byModel.untagged is the dangerous case:
+  // model-keyed engines never read it. A non-null channel value that is not a
+  // recognized bucket key is flagged too, since channel-keyed pickers miss it.
+  const stranded = {
+    knownModels: Object.keys(byModel).filter((k) => k !== 'untagged'),
+    knownChannels: Object.keys(byChannel).filter((k) => k !== 'untagged'),
+    byModel: byModel.untagged.map((r) => r.id),
+    byChannel: byChannel.untagged
+      .filter((r) => r.channel && !Object.prototype.hasOwnProperty.call(byChannel, r.channel))
+      .map((r) => ({ id: r.id, channel: r.channel })),
+  };
+
   const { total: improvementsTotal, maxId } = parseImprovementsStats(
     improvementsText,
   );
@@ -347,6 +361,7 @@ function main() {
     metaPending: metaItems,
     byModel,
     byChannel,
+    stranded,
     allPendingIds,
     hotFiles: {
       'src/data/improvements.js': tokenEstimate(IMPROVEMENTS_FILE),
@@ -375,6 +390,13 @@ function main() {
       `MD ${index.hotFiles['IMPROVEMENTS.md']}`,
   );
   console.log(`  queue-index.json size: ${fs.statSync(OUTPUT_FILE).size} bytes`);
+  if (index.stranded.byModel.length || index.stranded.byChannel.length) {
+    console.warn(
+      `  WARNING stranded tickets (no per-tier engine reads them): ` +
+        `byModel=${JSON.stringify(index.stranded.byModel)} ` +
+        `byChannel=${JSON.stringify(index.stranded.byChannel)}`,
+    );
+  }
 }
 
 main();

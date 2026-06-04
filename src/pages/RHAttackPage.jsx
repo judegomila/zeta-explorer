@@ -493,6 +493,10 @@ export default function RHAttackPage() {
           <Link to="/proof-checker" style={{ color: '#ef4444', fontSize: 13 }}>Proof Checker (adversarial)</Link>
           <span style={{ color: '#334155' }}>|</span>
           <Link to="/rigor" style={{ color: '#f59e0b', fontSize: 13 }}>Rigor (criticisms)</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/cross-attack" style={{ color: '#06b6d4', fontSize: 13 }}>Cross-Attack Efficiency (dashboard)</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/rigorous-numerics-stages" style={{ color: '#06b6d4', fontSize: 13 }}>Rigorous Numerics Stages (&sect;20)</Link>
         </div>
       </div>
     </div>

@@ -1,3 +1,47 @@
+/**
+ * @fileoverview Adversarial stress-test of the imp-1241 CDB-Exist three-of-four
+ * unification claim. Exports IMP_1245_CDB_EXIST_STRESS_TEST (the frozen
+ * three-axis audit record with per-axis verdicts, overall verdict, and an
+ * updated paper recommendation relative to imp-1241) and IMP_1245_ASSERTIONS
+ * (build-time tripwires guarding the audit conclusions).
+ *
+ * PROOF-CHAIN STEP: paper-audit / consolidation leg. imp-1241 proposed folding
+ * paper Conjectures 16.4 + 16.6 + 18.1 into one Canonical de Branges Existence
+ * statement (CDB-Exist: a positive Hamiltonian canonical system built directly
+ * from Phi whose Cayley-transformed Krein-Weyl transfer function equals
+ * Theta_a). This file reviews that unification along three axes before the
+ * recommendation reaches the paper author.
+ *
+ * THREE AXES: (a) does Conjecture 18.1 actually reduce to canonical-system
+ * existence, or is it a different KYP-passivity problem -- verdict
+ * pass-with-caveats (the reduction holds via the Arov-Nudelman 1996
+ * infinite-dimensional bridge, a citation imp-1241 missed); (b) is CDB-Exist
+ * strong enough to imply all three corollaries without hidden gaps -- verdict
+ * pass-with-gaps (16.6 clean; 16.4 needs outer-factor rigidity; 18.1 needs
+ * limit-point-at-infinity plus the Arov-Nudelman bridge); (c) does CDB-Exist
+ * bypass the Phi-non-circularity obstruction -- verdict fail (it inherits the
+ * same obstruction since the Krein-de Branges bijection direction E to dm
+ * requires Hermite-Biehler input, which for Riemann E_a is RH-equivalent).
+ *
+ * KEY ASSERTIONS: overall verdict is unification-holds-partially; exactly the
+ * three named axes are tracked in order; axis-c is the failing axis with axes
+ * a/b passing with caveats/gaps; axis-a flags the missing Arov-Nudelman 1996
+ * citation; axis-b names the outer-factor rigidity gap; axis-c names the
+ * bijection circularity; the recommendation keeps the unification but denies a
+ * strategic win; honestScope discloses training-time-only method and at least
+ * one considered counterargument; crossReferences include parent imp-1241.
+ *
+ * TICKETS: created by imp-1245; audits parent imp-1241; partially related to
+ * imp-1231 (16.4/16.6) and imp-1233 (18.1/18.2); future cross-bridge imp-1258.
+ *
+ * @module imp-1245-cdb-exist-stress-test
+ * @see imp-1245
+ * @see imp-1241
+ * @see imp-1231
+ * @see imp-1233
+ * @see imp-1258
+ */
+
 // imp-1245: OPUS-4.8 adversarial stress-test of the imp-1241 CDB-Exist
 //           three-of-four unification claim.
 //

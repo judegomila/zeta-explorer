@@ -1,3 +1,34 @@
+/**
+ * @fileoverview ESY linear-statistics variance sweep, extended to N = 1e6.
+ * @module esy-lin-stat-extended-sweep-2026-05
+ *
+ * Proof-chain step: empirical support for the Erdos-Schlein-Yau (ESY) port
+ * residual analysis (imp-1149-sub-ESY). This file extends the linear-statistics
+ * variance sweep at the candidate ESY-surviving regime alpha = 1, eta = N^{-1}
+ * from the original 9-point grid ceiling (N = 5e4) up to N = 1e6, using the
+ * bundled verified Riemann-zero table.
+ *
+ * Exports:
+ *   - ESY_LIN_STAT_EXTENDED_SWEEP (frozen): the combined 13-point grid, the
+ *     extended-only and combined OLS log-log fits, the comparison to the
+ *     imp-1149 reference slopes, the status verdict, and the honest-scope notes.
+ *   - ESY_LIN_STAT_EXTENDED_SWEEP_ASSERTIONS: machine-checkable assertions over
+ *     the sweep (including the imp1162-original-rows-match-imp1149 tripwire).
+ *
+ * Key assertions: the combined-grid OLS slope is reported (not extrapolated)
+ * against rows actually computed on real zeros; the original 9 rows are
+ * mirrored verbatim from imp-1149 and a tripwire fires if they ever disagree.
+ *
+ * Honest scope: the ticket nominally asked for N up to 1e7, but the bundled
+ * Odlyzko table has exactly 1e6 entries, so the sweep ships at the N = 1e6
+ * ceiling rather than extrapolating beyond the available data.
+ *
+ * @see imp-1162 (created this file)
+ * @see imp-1149-sub-erdos-schlein-yau-port-residual
+ * @see src/data/esy-residual-alternative-regimes-2026-05.js (original 9-point)
+ * @see src/data/zeros-to-1e6.js (verified zero source)
+ */
+
 // imp-1162 — extend the imp-1149-sub-ESY linear-statistics empirical sweep
 // at the candidate ESY-surviving regime (alpha = 1, eta = N^{-1}) from the
 // 9-point grid ceiling N = 5e4 up to N = 1e6 using the bundled

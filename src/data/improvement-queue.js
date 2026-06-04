@@ -15056,6 +15056,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'JSDoc @fileoverview/@module block already delivered to src/data/g6a-sub-hyperbolic-closure.js (header names both exports, the G6a-sub-hyperbolic proof-chain step under imp-394, the CLOSED verdict and Whitham/Stieltjes reasoning). Ticket was status:completed but completedAt was null, so the queue index kept flagging it pending and re-scanning it every run. Set completedAt to un-strand it; docs already in place, no source change needed.',
   },
 
+  
+  // ── Auto-seeded batch (2026-06-04) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2411',
+    title: "Add JSDoc module documentation to esy-lin-stat-extended-sweep-2026-05.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'docs',
+    description: "src/data/esy-lin-stat-extended-sweep-2026-05.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-06-04T06:34:43Z',
+    closureNote: 'Prepended a tagged @fileoverview/@module JSDoc block to esy-lin-stat-extended-sweep-2026-05.js naming the two exports (ESY_LIN_STAT_EXTENDED_SWEEP, ESY_LIN_STAT_EXTENDED_SWEEP_ASSERTIONS), the proof-chain step (empirical support for the imp-1149-sub-ESY linear-statistics residual at alpha=1, eta=N^{-1}, extended to N=1e6), the key assertions (combined 13-point OLS slope on real-zero rows plus the imp1162-original-rows-match-imp1149 tripwire), the honest scope (N=1e6 ceiling not 1e7), and the creating/related tickets. Docs-only; no data or logic change. npm run build green.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

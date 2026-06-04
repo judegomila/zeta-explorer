@@ -1057,6 +1057,19 @@ const DATA_MODULES = [
   // holomorphic case (true GL(2) Maass test with 2x2 matrix is OPEN). 11
   // tripwires (8+ required).
   '/src/data/imp-1317-gl2-maass-hs-concrete.js',
+  // imp-2356: companion to imp-1317 -- Volterra HS-bound test on a REAL-ANALYTIC
+  // MAASS cusp form (first even SL(2,Z) eigenform, spectral parameter R=9.5337).
+  // Kernel g(u) = 2 e^{u/2} sum a(n) K_{iR}(2 pi n e^u) via the K-Bessel of
+  // imaginary order K_{iR}(x) = int cos(R t) exp(-x cosh t) dt. The self-dual
+  // Maass kernel is a SINGLE REAL scalar (K_{iR} encodes the product gamma
+  // factor), resolving imp-1317 caveat #5. VERDICT: maass-HS-bound-holds. All 3
+  // rows (a in {0.01,0.05,0.2}) have hs_bound >= op_norm with a CONSTANT 2.34x
+  // Cauchy-Schwarz slack (within the imp-1267 scalar-xi range 1.58x-2.57x);
+  // both HS bound (max 1.095e-14) and op_norm (max 4.679e-15) are >13 orders
+  // below the threshold 1; linearity-in-a to 0.1%. Evidence the Volterra
+  // contraction is a general automorphic phenomenon, not an artifact of
+  // holomorphy. Approximate Hecke eigenvalues; NOT a proof of GRH. 11 tripwires.
+  '/src/data/imp-2356-maass-volterra-hs.js',
   // imp-1315: Lambda tightening audit -- can the Drmota-Tichy 1997 Ch. 1
   // L^2 / 2nd-moment Koksma-Hlawka inequality close the imp-1149 rateGap = 0.5
   // unconditionally (push |t_c(N) - 1/(2 M_infty(N))| from N^{-3/2} to N^{-2})?

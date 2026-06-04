@@ -175,6 +175,21 @@ const NAMED_OBSTRUCTIONS = [
     blocker:
       'Without an effective C_BS, the integral 2 * INT_{T_PT}^inf dN_off/dT * 1/T dT ' +
       'cannot be evaluated to a concrete number; the bound is asymptotic only.',
+    quantifiedConditional:
+      'PARTIAL SHARPENING (engine-closable, does NOT make C_BS effective): the ' +
+      'integrand is LINEAR in the implied constant C_BS and carries the O-BS-B ' +
+      'multiplier (log T_PT)^A, so the rigorous truncation error is exactly ' +
+      'E_trunc_bs_rigorous(C_BS, A) = C_BS * (log T_PT)^A * E_trunc_bs_formal with ' +
+      'E_trunc_bs_formal ~ 1.505e-11. Hence the qualitative blocker reduces to a ' +
+      'SINGLE break-even budget: the BS substitution beats the Ingham value ' +
+      'E_trunc_pt_ingham ~ 3.064e-5 iff the joint unknown product satisfies ' +
+      'C_BS * (log T_PT)^A < tighteningFactorFormal ~ 2.04e6. At T_PT = 3e12, ' +
+      'log T_PT ~ 28.73, so the budget is C_BS * 28.73^A < 2.04e6. This forces ' +
+      'A <= 4 (28.73^4 ~ 6.8e5, leaving C_BS headroom of ~3.0 below break-even); ' +
+      'A = 5 already costs ~1.96e7 > 2.04e6 and A >= 5 fails for any C_BS >= 1. ' +
+      'The asymptotic-only blocker is therefore now a CONCRETE two-parameter ' +
+      'inequality jointly pinning O-BS-A and O-BS-B; it remains open only because ' +
+      'neither C_BS nor A is pinned by the BS 2008 paper (still research-grade).',
     closureRoute:
       'Heath-Brown style explicit-constants follow-up paper, similar to the ' +
       'Cheng-Graham 2004 explicit version of the Vinogradov-Korobov bound. ' +

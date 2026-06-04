@@ -1,4 +1,36 @@
 /**
+ * @fileoverview Pins the Holder-1/2 constant C_H in the first-collision-time
+ * modulus |tau_c(mu_1) - tau_c(mu_2)| <= C_H * W_1^{1/2} to the specific value
+ * C_H = 1/8, replacing the order-unity placeholder C_H = 1 from imp-366. Shows
+ * the classical Whitham fold formula fails at the boundary shock and derives
+ * the replacement from the rigorous Dyson two-particle collision constant.
+ *
+ * @module data/g6a-sub-constant-value
+ *
+ * Proof-chain step: G6a-sub-constant, a sub-gap refinement under
+ * G6a_shock_lipschitz (closed by imp-366). Refines the Holder constant in the
+ * shock-Lipschitz closure; does NOT reopen the parent gap.
+ *
+ * Exports:
+ *   - C_H_REGULARIZED: the regularized Holder constant = C_Lip^2 / C_collision
+ *     -> 1/8 = 0.125 (asymptotic, valid for N >= N_0 = 37).
+ *   - G6A_SUB_CONSTANT_CLOSURE: frozen closure record (Whitham failure analysis,
+ *     replacement regularization derivation, E_coll comparison, consequences).
+ *   - G6A_SUB_CONSTANT_ASSERTIONS: 6 build-time tripwires (Whitham constant
+ *     vanishes, C_H equals 1/8, improvement factor is exactly 8, regularized
+ *     E_coll positive-finite, status closed, parent gap still closed).
+ *
+ * Key assertion: C_H = 1/C_collision = 1/8 is rigorous modulo the Gronwall
+ * factor C_Lip -> 1, giving an E_coll bound 8x tighter than the placeholder.
+ *
+ * Created by imp-395; module JSDoc added by imp-2414.
+ *
+ * @see imp-395
+ * @see imp-366
+ * @see src/data/polymath15-lemma52-shock-holder.js (G6A_SHOCK_LIPSCHITZ_CLOSURE)
+ */
+
+/**
  * imp-395: G6a-sub-constant — pin down the numerical value of C_H in the
  * Holder-1/2 modulus of the first-collision time functional tau_c.
  *

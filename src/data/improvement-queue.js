@@ -14976,6 +14976,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended @fileoverview/@module JSDoc tags and a structured summary to the existing prose header: names the two exports (SOTA_LAMBDA_CLAIM, SOTA_LAMBDA_CLAIM_ASSERTIONS), the terminal-assembly proof-chain position, the two key assertions (Lambda = 0 asymptotic, Lambda <= 0.121 finite-height), and the creating/modifying tickets. No data or logic changed; npm run build green.',
   },
 
+  
+  // ── Auto-seeded batch (2026-06-04) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2407',
+    title: "Add JSDoc module documentation to imp-1241-unified-existence-conjecture.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'docs',
+    description: "src/data/imp-1241-unified-existence-conjecture.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-06-04T05:09:53Z',
+    closureNote: 'Prepended a JSDoc @fileoverview/@module block to imp-1241-unified-existence-conjecture.js naming the two exports (IMP_1241_UNIFIED_EXISTENCE_AUDIT + default, IMP_1241_ASSERTIONS), the paper-audit proof-chain role under imp-1218, the two key assertions (three-of-four-unified CDB-Exist verdict; RH-equivalence with non-circular dm_a from Phi as the open content), and the creating/modifying tickets (imp-1241/1272/2334/2335). Docs-only; no data or logic change. npm run build green.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

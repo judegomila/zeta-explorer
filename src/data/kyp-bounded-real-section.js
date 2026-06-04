@@ -1,3 +1,31 @@
+/**
+ * @module data/kyp-bounded-real-section
+ * @fileoverview Reference data for Appendices M, N, O of the research paper
+ * (twin_ladder_consolidated_v52.pdf, pp 97-110): KYP state-space passive lifts,
+ * bounded-real delay lifts with the signed-Mobius barrier, and delay-Gram
+ * bounded-real certificates.
+ *
+ * Exports:
+ *   - KYP_BOUNDED_REAL — frozen record (id imp-1201) holding the shared bridge
+ *     setup, the App M/N/O certificate data, and supporting numerical pilots.
+ *   - KYP_ASSERTIONS — build-time tripwires (at least 8 no-arg holds() checks)
+ *     that re-verify the record shape and the recorded certificate values.
+ *
+ * Proof-chain role: computational certification supporting the bridge-ratio
+ * Schur condition (sup over the imaginary axis of |Theta_a| at most 1), which is
+ * the losslessness statement equivalent to RH along these appendix routes. It is
+ * a reference/QA data file, not itself a mathematical step in the analytic
+ * Lambda argument.
+ *
+ * Key assertions: the bridge ratio E_a / Theta_a setup matches the paper, the
+ * KYP LMI / delay bounded-real / delay-Gram Cholesky pilots are recorded with
+ * their numerical certificates, and at least eight tripwires re-check the data.
+ *
+ * Tickets: created by imp-1201; module-doc navigation block added by imp-2450.
+ *
+ * (No apostrophes in single-quoted strings. No star-then-slash sequence inside
+ * comments — written as "dg_{k asterisk}/dt" style where needed.)
+ */
 // kyp-bounded-real-section.js -- imp-1201
 // Reference data for Appendices M, N, O of the research paper
 // (research-inputs/twin_ladder_consolidated_v52.pdf, pages 97-110):

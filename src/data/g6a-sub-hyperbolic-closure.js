@@ -1,4 +1,31 @@
 /**
+ * @fileoverview Closure record for the G6a-sub-hyperbolic gap: whether the
+ * Whitham 1974 fold-catastrophe argument transplants from real Burgers to the
+ * complex Stieltjes transform used in the Holder-1/2 modulus of tau_c.
+ *
+ * @module data/g6a-sub-hyperbolic-closure
+ *
+ * Exports:
+ *   - G6A_SUB_HYPERBOLIC_CLOSURE   the structured closure record (verdict,
+ *     reasoning, dependencies) for parent gap G6a_shock_lipschitz.
+ *   - G6A_SUB_HYPERBOLIC_ASSERTIONS  the machine-checkable assertion list
+ *     backing the closure.
+ *
+ * Proof-chain step: G6a-sub-hyperbolic, a sub-gap of G6a_shock_lipschitz on
+ * the shock Lipschitz/Holder regularity route. Feeds the imp-366 Holder-1/2
+ * modulus of tau_c.
+ *
+ * Key assertions: the Whitham argument does NOT carry through verbatim to the
+ * complex interior (the fold critical point lives in C+, shock image is
+ * complex), but this obstruction does NOT block the tau_c Holder-1/2 modulus
+ * because tau_c is a real functional on real Dyson configurations where Whitham
+ * applies verbatim; the real-boundary fold step follows from Stieltjes
+ * inversion plus the Privalov-Sokhotski theorem. Verdict: CLOSED.
+ *
+ * Tickets: created and closed by imp-394; module doc added by imp-2410.
+ */
+
+/**
  * imp-394: G6a-sub-hyperbolic — Whitham fold-catastrophe from real Burgers
  * to complex Stieltjes. Analysis of whether the argument carries through
  * verbatim, and if not, which step requires new work.

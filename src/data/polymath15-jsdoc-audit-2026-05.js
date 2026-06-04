@@ -1,4 +1,30 @@
 /**
+ * @module data/polymath15-jsdoc-audit-2026-05
+ * @fileoverview Audit record for the JSDoc star-then-slash bug class across the
+ * Polymath15 constant files and their consumers.
+ *
+ * Exports:
+ *   - POLYMATH_JSDOC_AUDIT — frozen record (id imp-1131) holding auditedFiles,
+ *     perFileResults (pre-computed SSR-load statuses), fixesApplied, the
+ *     regressionTestSnippet shell command, and a scopeNote/parallelTickets list.
+ *   - POLYMATH15_JSDOC_AUDIT_ASSERTIONS — checkable no-arg holds() tripwires
+ *     that re-verify the audit record shape and the recorded per-file fixes.
+ *
+ * Proof-chain role: build-hygiene/QA, not a mathematical step in the analytic
+ * Lambda argument. It guards SSR loadability of the Polymath15 constant modules
+ * (C-F, C-T, GMP/MPFR checks, lemma52, finite-height, sota-lambda-claim) so the
+ * downstream constant exports those proofs depend on stay importable.
+ *
+ * Key assertions: the audit covers at least the seven canonical constant files,
+ * each must SSR-load cleanly under Vite and direct ESM, and the C-F JSDoc fix
+ * (brace-asterisk k_{ asterisk } notation) is recorded in fixesApplied. The C-C
+ * and lemma52 cluster fail under a separate property-access regression scoped to
+ * imp-1135, not the JSDoc bug class fixed here.
+ *
+ * Tickets: created by imp-1131 (with parallel imp-1132, imp-1133, imp-1134,
+ * imp-1135); module doc added by imp-2448.
+ */
+/**
  * imp-1131: JSDoc star-slash audit for Polymath15 constant files and consumers
  *
  * BUG CLASS

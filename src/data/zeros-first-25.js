@@ -1,12 +1,28 @@
-// Lightweight metadata-only file containing the first 25 Odlyzko zero
-// ordinates (gamma_1 .. gamma_25). Used by viz pages that only need the
-// first handful of zeros so they DON'T transitively pull the 16.7 MB
-// zeros-to-1e6.js bundle.
-//
-// Same pattern as src/data/paper-publication-meta.js — see memory file
-// feedback_no_heavy_imports_in_pages.md.
-//
-// Values match ZEROS_EXTENDED.slice(0, 25) from zeros-to-1e6.js exactly.
+/**
+ * @fileoverview Lightweight, metadata-only list of the first 25 Odlyzko zero
+ * ordinates of the Riemann zeta function (gamma_1 .. gamma_25, the imaginary
+ * parts of the first 25 non-trivial zeros on the critical line).
+ *
+ * @module data/zeros-first-25
+ *
+ * Exports:
+ *   - FIRST_25_ZEROS (named + default): a frozen array of 25 numbers, the
+ *     positive ordinates gamma_k in increasing order.
+ *
+ * Proof-chain role: this is a data leaf, not a derivation. It exists purely as
+ * a bundle-size optimization for visualization pages that need only the first
+ * handful of zeros. Importing it lets those pages avoid transitively pulling
+ * the 16.7 MB zeros-to-1e6.js bundle (the full zero database used by the
+ * spectral / pair-correlation proof-attack code). Same split pattern as
+ * src/data/paper-publication-meta.js -- see memory feedback_no_heavy_imports_in_pages.md.
+ *
+ * Key assertion: these values match ZEROS_EXTENDED.slice(0, 25) from
+ * zeros-to-1e6.js exactly; the two sources must stay in sync. The array is
+ * Object.freeze-d so consumers cannot mutate the shared zero data.
+ *
+ * Tickets: created/maintained under the no-heavy-imports-in-pages effort;
+ * module-level JSDoc added by imp-2468.
+ */
 
 export const FIRST_25_ZEROS = Object.freeze([
   14.134725141734693790,

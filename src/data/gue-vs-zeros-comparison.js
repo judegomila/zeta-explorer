@@ -1,3 +1,34 @@
+/**
+ * @fileoverview GUE random-matrix vs Riemann zero nearest-neighbor spacing
+ * comparison. Unfolds the first 10000 Odlyzko zeros via Riemann-von Mangoldt
+ * density, bins their spacings, overlays the GUE Wigner surmise, and quantifies
+ * the fit with KL divergence and Hellinger distance.
+ *
+ * @module data/gue-vs-zeros-comparison
+ *
+ * Proof-chain step: descriptive / exploratory evidence layer (Montgomery
+ * pair-correlation neighborhood). NOT part of any rigorous proof chain --
+ * GUE universality of the zeros remains conjectural, so this module closes
+ * no pending proof ticket.
+ *
+ * Exports:
+ *   - GUE_VS_ZEROS_COMPARISON: frozen record (unfolded spacings, histogram,
+ *     GUE Wigner curve, empirical pdf, residuals, KL divergence, Hellinger
+ *     distance, honest-scope notes).
+ *   - GUE_VS_ZEROS_COMPARISON_ASSERTIONS: 7 build-time tripwires (50-bin
+ *     histogram over [0,4], mean spacing near 1, KL below 0.05, Hellinger
+ *     below 0.15, bounded residuals, full in-range capture, GUE-curve mass
+ *     normalization).
+ *
+ * Key assertion: the empirical spacing distribution agrees with the GUE
+ * Wigner surmise to KL ~ 0.008 and Hellinger ~ 0.048 at N = 10000 zeros.
+ *
+ * Created by imp-1099; module JSDoc added by imp-2413.
+ *
+ * @see imp-1099
+ * @see src/data/zeros-to-1e6.js (ZEROS_EXTENDED, source of gamma_k)
+ */
+
 // imp-1099 — GUE random matrix vs Riemann zero spacings statistical comparison.
 //
 // Computes the empirical nearest-neighbor spacing distribution of the first

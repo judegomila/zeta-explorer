@@ -7,7 +7,6 @@
 export const weakEntryPoints = {
   zeroIncoming: [
     { route: '/break', file: 'BreakItPage.jsx' },
-    { route: '/cross-attack', file: 'CrossAttackPage.jsx' },
     { route: '/health', file: 'HealthPage.jsx' },
     { route: '/historical-reasoning', file: 'HistoricalReasoningPage.jsx' },
     { route: '/queue', file: 'ImprovementQueuePage.jsx' },
@@ -24,7 +23,6 @@ export const weakEntryPoints = {
     { route: '/lmfdb-cross-reference', file: 'LmfdbCrossReferencePage.jsx' },
     { route: '/edge-rigidity', file: 'EdgeRigidityPage.jsx' },
     { route: '/papers-download', file: 'PapersDownloadPage.jsx' },
-    { route: '/rigorous-numerics-stages', file: 'RigorousNumericsStagesPage.jsx' },
     { route: '/paper-audit-dashboard', file: 'PaperAuditDashboardPage.jsx' },
     { route: '/viz-hyperbolic-prime-spiral', file: 'VizHyperbolicPrimeSpiralPage.jsx' },
     { route: '/visualizations', file: 'VisualizationsIndexPage.jsx' },
@@ -44,6 +42,8 @@ export const weakEntryPoints = {
     { route: '/viz-euler-transport-flow', file: 'VizEulerTransportFlowPage.jsx' },
     { route: '/viz-twin-ladder-tomography', file: 'VizTwinLadderTomographyPage.jsx' },
     { route: '/hidden-square-program', file: 'HiddenSquareProgramPage.jsx' },
+    { route: '/cross-attack', file: 'CrossAttackPage.jsx' },
+    { route: '/rigorous-numerics-stages', file: 'RigorousNumericsStagesPage.jsx' },
   ],
 };
 

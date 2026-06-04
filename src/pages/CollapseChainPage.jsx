@@ -247,7 +247,7 @@ export default function CollapseChainPage() {
 
   return (
     <div style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}>
-      <h1>The imp-1258 Collapse Chain: ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist</h1>
+      <h1>{'The imp-1258 Collapse Chain: ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist'}</h1>
 
       <div style={{ backgroundColor: '#f0f7ff', padding: '16px', borderRadius: '8px', marginBottom: '20px', borderLeft: '4px solid #2166ac' }}>
         <p style={{ margin: '0 0 8px 0', fontSize: '14px' }}>

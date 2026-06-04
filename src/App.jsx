@@ -77,6 +77,7 @@ const HiddenSquareProgramPage = lazy(() => import('./pages/HiddenSquareProgramPa
 const ReciprocalProgramPage = lazy(() => import('./pages/ReciprocalProgramPage.jsx'));
 const VizLogPhaseSpiralPage = lazy(() => import('./pages/VizLogPhaseSpiralPage.jsx'));
 const VizEulerTransportFlowPage = lazy(() => import('./pages/VizEulerTransportFlowPage.jsx'));
+const HardyZPage = lazy(() => import('./pages/HardyZPage.jsx'));
 const VizTwinLadderTomographyPage = lazy(() => import('./pages/VizTwinLadderTomographyPage.jsx'));
 const VizPrimeCausticPage = lazy(() => import('./pages/VizPrimeCausticPage.jsx'));
 const VizPrimePhaseCrystalPage = lazy(() => import('./pages/VizPrimePhaseCrystalPage.jsx'));
@@ -155,6 +156,7 @@ const NAV_GROUPS = [
       { to: '/viz-hyperbolic-prime-spiral', label: 'Hyperbolic Prime Spiral' },
       { to: '/viz-log-phase-spiral', label: 'Log-Phase Spiral' },
       { to: '/viz-euler-transport-flow', label: 'Euler Transport Flow' },
+      { to: '/hardy-z', label: 'Hardy Z-Function' },
       { to: '/viz-volterra-kernel-heatmap', label: 'Volterra Kernel Heatmap' },
       { to: '/viz-volterra-norm-curve', label: 'Volterra Norm Curve' },
       { to: '/viz-twin-ladder-tomography', label: 'Twin-Ladder Tomography' },
@@ -521,6 +523,7 @@ function AppShell() {
           <Route path="/reciprocal-program" element={<ReciprocalProgramPage />} />
           <Route path="/viz-log-phase-spiral" element={<VizLogPhaseSpiralPage />} />
           <Route path="/viz-euler-transport-flow" element={<VizEulerTransportFlowPage />} />
+          <Route path="/hardy-z" element={<HardyZPage />} />
           <Route path="/viz-volterra-kernel-heatmap" element={<VolterraKernelHeatmapPage />} />
           <Route path="/viz-volterra-norm-curve" element={<VolterraNormCurvePage />} />
           <Route path="/volterra-bound" element={<VolterraBoundPage />} />

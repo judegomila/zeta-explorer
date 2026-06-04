@@ -8,8 +8,8 @@
 // src/App.jsx, collects runtime errors, writes a markdown report.
 //
 // Usage:
-//   node scripts/check-page-health.mjs          # run against localhost:3002
-//   node scripts/check-page-health.mjs --base http://localhost:3002
+//   node scripts/check-page-health.mjs          # run against localhost:3003
+//   node scripts/check-page-health.mjs --base http://localhost:3003
 //   node scripts/check-page-health.mjs --route /meta-acceleration   # one route
 //
 // Exit code:
@@ -40,7 +40,7 @@ function argValue(flag, def) {
   const i = args.indexOf(flag);
   return i >= 0 && i + 1 < args.length ? args[i + 1] : def;
 }
-const BASE = argValue('--base', 'http://localhost:3002');
+const BASE = argValue('--base', 'http://localhost:3003');
 const SINGLE_ROUTE = argValue('--route', null);
 const TIMEOUT_MS = parseInt(argValue('--timeout', '12000'), 10);
 const WAIT_AFTER_LOAD_MS = 800;

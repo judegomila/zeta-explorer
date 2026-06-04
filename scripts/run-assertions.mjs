@@ -1354,6 +1354,27 @@ const DATA_MODULES = [
   // no support > 1 2-point bound. Sub-gap GAP-1343-RR2-INTERSECTION-POSITIVITY.
   // 9 tripwires.
   '/src/data/imp-1343-connes-consani-2019.js',
+  // imp-2358: FAN-OUT from imp-1308 (Berry-Keating H = xp). Assesses the
+  // Bender-Brody-Mueller 2017 PT-symmetric Hamiltonian (PRL 118, 130201) and
+  // the Sierra 2019 review family, which imp-1308 flagged as not-yet-assessed.
+  // Verdict bbm-2017-pt-symmetric-not-rigorous-unbroken-pt-equals-rh: (P1) the
+  // positive metric operator (unbroken-PT certificate) is NOT constructed, so
+  // reality of the spectrum is only formal; (P2) for this operator unbroken-PT
+  // is EQUIVALENT to RH, so the step is renamed not removed (circular); (P3)
+  // discreteness is imposed by a boundary condition that is the zeta secular
+  // condition in disguise. Sierra 2019 falls under the same obstruction. Named
+  // sub-gap GAP-2358-BBM-METRIC-OPERATOR. RH explicitly NOT asserted. 8 tripwires.
+  '/src/data/imp-2358-bbm-pt-symmetric-self-adjointness.js',
+  // imp-2359: FAN-OUT from imp-1307 (Connes-Bost adelic). Reviews the EARLIER
+  // Connes-Consani 2010-2014 F1 geometry (Compositio 146, 1383-1415) and
+  // Arithmetic-Site cohomology (CR 2014; Adv. Math. 291, 274-329), plus Meyer
+  // 2005 partial absorption (Crelle 587, 89-116). Verdict: none yields a
+  // rigorous unconditional trace realizing the zeros -- each reproduces the
+  // Weil explicit formula but the forcing positivity / self-adjointness is the
+  // missing ingredient and is RH-equivalent. Named sub-gap
+  // GAP-2359-CHAR1-SURFACE-POSITIVITY. No 2-point bound at support > 1. RH NOT
+  // asserted. 8 tripwires.
+  '/src/data/imp-2359-connes-consani-f1-arithmetic-site-trace.js',
 ];
 
 const ALL_MODULES = FAST_MODE

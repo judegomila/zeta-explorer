@@ -1368,6 +1368,16 @@ const DATA_MODULES = [
   // pair-correlation, RH-conditional. Verdict: residual is STRUCTURAL (PCC),
   // no realistic unconditional input closes it. 7 tripwires.
   '/src/data/imp-2441-minimal-input-to-close-esy-gap.js',
+  // imp-2460: wider-band ESY variance gap -- fit the exp(-4 pi W) closure law
+  // and pin the Bogomolny-Keating-limit distance as a concrete number (Wave-4
+  // follow-on to imp-2441). Closed-form gap g(W) = C exp(-4 pi W), C ~ 12.566,
+  // tabulated over W in {1,2,4,8,16}; a log-linear fit recovers the rate 4 pi to
+  // machine precision. BK-limit band-distance is INFINITE (residual 0 needs
+  // W -> infinity), but each RS96-band of extra unconditional 3-point support
+  // cuts the gap by exp(-8 pi / 3) ~ 2.30e-4 (~4351x); reaching 1e-6 takes ~1.95x
+  // RS96 support (factor grows only logarithmically). Named gap
+  // GAP-2460-BK-LIMIT-IS-INFINITE-SUPPORT-WIDENING = GAP-2441. 7 tripwires.
+  '/src/data/imp-2460-esy-gap-bandwidth-fit-bk-distance.js',
   // imp-1343: NEW-INPUT classification (modern update of imp-1307) -- does the
   // Connes-Consani Riemann-Roch / scaling-site program (2016 Arithmetic Site,
   // 2017 Scaling Site Riemann-Roch, 2019 "complex lift of the scaling site")
@@ -1504,6 +1514,13 @@ const DATA_MODULES = [
   // widening margin; corrected alpha_c_p50 = 1.06 at rho_CM(64)=2.86. Sub-gap
   // imp-2453-compliance-to-rigidity-map (imp-486 GUE obstruction). 8 tripwires.
   '/src/data/imp-2453-true-cm-hessian.js',
+  // imp-2461: Maass Rankin-Selberg V-margin -- settles imp-2421 sub-gap (i). The
+  // Maass x Maass RS four-gamma factor inverts to the SCALAR product of two
+  // imaginary-order K-Bessels K_{iR1} K_{iR2} (Gradshteyn-Ryzhik 6.576.4). The
+  // arithmetic anchor (self-RS f x f, R=9.5337) has margin 1.4738x with op_norm
+  // ~34 orders below 1; the pure K_{iR}^2 archimedean envelope crosses margin 2
+  // at spectral parameter R* ~ 15.35, above the first Maass eigenvalue. 9 tripwires.
+  '/src/data/imp-2461-maass-rankin-selberg-margin.js',
 ];
 
 const ALL_MODULES = FAST_MODE

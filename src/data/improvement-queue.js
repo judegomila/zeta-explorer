@@ -14831,13 +14831,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Add JSDoc module documentation to imp-1185-block-bootstrap-cross-validation.js",
     category: 'content',
     priority: 'low',
-    status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w2-1780538084315',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
     proofSection: 'docs',
     description: "src/data/imp-1185-block-bootstrap-cross-validation.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-06-04T01:55:22Z',
+    closureNote: 'Prepended a module-level JSDoc block (@fileoverview + @module + @see) to imp-1185-block-bootstrap-cross-validation.js documenting the two exports (the frozen cross-validation record and the 10 build-time tripwires), its ESY linear-statistics slope-corroboration proof-chain role, the moving-block bootstrap method, the key assertions, and the originating tickets (1185/1166/1162/1160). Brace literal escaped as HTML entities to avoid a JSDoc close-comment hazard. No data/logic change. npm run build green.',
   },
 
     {

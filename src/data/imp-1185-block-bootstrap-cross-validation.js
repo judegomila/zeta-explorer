@@ -1,3 +1,34 @@
+/**
+ * @fileoverview Block-bootstrap cross-validation of the Conrey-Snaith corrected
+ * variance slope. Exports IMP1185_BLOCK_BOOTSTRAP_CROSS_VALIDATION (the frozen
+ * result record + comparison verdict) and
+ * IMP1185_BLOCK_BOOTSTRAP_CROSS_VALIDATION_ASSERTIONS (10 build-time tripwires).
+ *
+ * PROOF-CHAIN STEP: corroboration leg of the ESY linear-statistics slope
+ * argument. It re-estimates the 95 pct CI on the corrected OLS slope using a
+ * moving-block bootstrap (Kunsch 1989, B = ceil(13^&#123;1/3&#125;) = 3) and
+ * cross-validates it against the imp-1166 i.i.d. percentile-bootstrap CI
+ * [-1.029, -0.949]. Two methodologically independent CIs agreeing within ~0.02
+ * is a stronger empirical signal supporting the Hughes-Rudnick universality
+ * slope of -1 than either bootstrap alone.
+ *
+ * KEY ASSERTIONS: mirrored corrected-variance grid matches the imp-1166
+ * raw/log(N) construction bit-for-bit; block size equals the ceil(n^1/3) rule;
+ * 500-2000 replicates with at least 1500 finite fits; block CI finite and
+ * ordered; imp-1166 mirror matches source; verdict re-derivable from the gap
+ * numbers; both bootstraps containment of -1 flagged honestly; block median
+ * near the imp-1166 OLS point slope; R^2 coherence; comparison gaps finite.
+ *
+ * TICKETS: created by imp-1185; cross-validates imp-1166; upstream grid from
+ * imp-1162; related secondary-bootstrap regime imp-1160.
+ *
+ * @module imp-1185-block-bootstrap-cross-validation
+ * @see imp-1185
+ * @see imp-1166
+ * @see imp-1162
+ * @see imp-1160
+ */
+
 // imp-1185 — Block-bootstrap CI on the Conrey-Snaith corrected slope
 // (cross-validates the imp-1166 percentile-bootstrap result with a
 // methodologically independent resampling scheme).

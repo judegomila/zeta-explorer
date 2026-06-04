@@ -287,15 +287,27 @@ do_stop() {
       kill "$root" 2>/dev/null || true
     }
     kill_tree "$pid"
+    sweep_orphan_turns
     rm -f "$PID_FILE"
     # Release every pool claim so nothing is stranded in in-progress-subagent.
     node --no-warnings "$CLAIM_CLI" --reap-all >/dev/null 2>&1 || true
     echo "Stopped. Pool claims released."
   else
     echo "Supervisor $pid not found. Cleaning up PID file and reaping claims."
+    sweep_orphan_turns
     rm -f "$PID_FILE"
     node --no-warnings "$CLAIM_CLI" --reap-all >/dev/null 2>&1 || true
   fi
+}
+
+# kill_tree walks ppid links, but a claude child can reparent to launchd (ppid=1)
+# mid-walk and escape, leaving a token-burning orphan (observed three such orphans
+# alive 13-14 HOURS after pool restarts on 2026-06-04). This sweep kills any
+# surviving pool turn by its unique prompt signature, regardless of parentage.
+# Safe: the signature appears only in pool claude turns' argv, not in the
+# supervisor/worker scripts (whose argv is just the script path + subcommand).
+sweep_orphan_turns() {
+  pkill -9 -f "worker in the parallel API pool" 2>/dev/null || true
 }
 
 do_status() {

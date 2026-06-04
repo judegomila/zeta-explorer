@@ -459,6 +459,215 @@ export const OPEN_GAPS = [
   },
 ];
 
+// ── Dependency matrix (imp-2336) ───────────────────────────────────────────
+//
+// imp-2336: a single explicit DAG tracing every Lambda bound back through its
+// building blocks to the axioms / external inputs / modulo-X conditionals it
+// rests on. The goal is to make hidden CIRCULAR or PREMATURE dependencies
+// visible: a circular dependency would be a bound that (transitively) depends
+// on itself; a premature dependency would be an "unconditional" bound that
+// secretly pulls in a conditional axiom. Both are caught by the assertions
+// below (acyclicity via Kahn topological sort + a conditional-closure check).
+//
+// Node kinds:
+//   'literature' — a cited theorem taken as given (Rodgers-Tao, de Bruijn).
+//   'external'   — an external data input (Platt verified zeros to T = 3e12).
+//   'conditional'— a modulo-X conditional / named open hypothesis (leaf axiom).
+//   'block'      — a project-internal building block (a shipped lemma/constant).
+//   'bound'      — one of the five enumerated Lambda bounds.
+//
+// Edges are dependsOn: an edge A -> B means "A requires B". Every edge points
+// UPSTREAM toward axioms, so a correct matrix is a DAG. The only bound-to-bound
+// edge is imp-1088 -> imp-440 (carryforward extends the finite-N* beat).
+
+export const LAMBDA_DEPENDENCY_MATRIX = {
+  nodes: [
+    // ── Axioms / external inputs / conditionals (leaves) ──
+    {
+      id: 'lit-rodgers-tao',
+      label: 'Rodgers-Tao 2020 (Lambda >= 0)',
+      kind: 'literature',
+      dependsOn: [],
+      note: 'Unconditional lower bound, taken as a cited theorem.',
+    },
+    {
+      id: 'ext-verified-zeros-T3e12',
+      label: 'Platt verified Riemann zeros to T = 3e12',
+      kind: 'external',
+      dependsOn: [],
+      note: 'External certified zero data; the common upstream input.',
+    },
+    {
+      id: 'cond-polymath15-G6a',
+      label: 'Polymath15 bridge G6a (Holder-1/2 shock modulus)',
+      kind: 'conditional',
+      dependsOn: [],
+      note:
+        'Modulo conditional of the imp-1261 asymptotic bound. Closed in the ' +
+        'OPEN_GAPS ledger by imp-366, but the asymptotic bound entry still ' +
+        'carries it as its sole stated modulo, so it is modelled as a leaf ' +
+        'conditional here.',
+    },
+    {
+      id: 'cond-gue-universality',
+      label: 'GUE universality (Erdos-Schlein-Yau local law)',
+      kind: 'conditional',
+      dependsOn: [],
+      note:
+        'Irreducible conditional for the Route-A asymptotic many-body C_mb ' +
+        '(imp-486). NOTE: no bound node depends on this — the finite-N* bounds ' +
+        'use the MEASURED C_mb (imp-963), which is why they are unconditional.',
+    },
+    // ── Project building blocks ──
+    {
+      id: 'blk-imp-341',
+      label: 'imp-341 lim sup |t_c(N)| = 0 (unconditional)',
+      kind: 'block',
+      dependsOn: [],
+      note: 'Koksma-Hlawka uniformity + Selberg S(T); no GUE input.',
+    },
+    {
+      id: 'blk-imp-1149',
+      label: 'imp-1149 / Theorem 3 N^{-3/2} rate',
+      kind: 'block',
+      dependsOn: [],
+      note: 'Explicit unconditional rate on |t_c(N) - 1/(2 M_inf(N))|.',
+    },
+    {
+      id: 'blk-imp-963',
+      label: 'imp-963 measured C_mb on [100, 1e4]',
+      kind: 'block',
+      dependsOn: ['ext-verified-zeros-T3e12'],
+      note: 'Measured many-body constant; NOT the GUE-conditional bound.',
+    },
+    {
+      id: 'blk-ingham-447-459',
+      label: 'imp-447 / imp-459 E_trunc_pt = 3.06e-5 (Ingham at T_PT)',
+      kind: 'block',
+      dependsOn: ['ext-verified-zeros-T3e12'],
+      note: 'Ingham truncation constant evaluated at T_PT = 3e12.',
+    },
+    {
+      id: 'blk-imp-398',
+      label: 'imp-398 E_flow term',
+      kind: 'block',
+      dependsOn: [],
+      note: 'Flow-error term of the 6-link rigor chain.',
+    },
+    {
+      id: 'blk-imp-399',
+      label: 'imp-399 E_coll term',
+      kind: 'block',
+      dependsOn: [],
+      note: 'Collision-error term of the 6-link rigor chain.',
+    },
+    {
+      id: 'blk-imp-469',
+      label: 'imp-469 rho_min positivity',
+      kind: 'block',
+      dependsOn: [],
+      note: 'RvM Jacobian floor used in the finite-N composition.',
+    },
+    // ── The five enumerated bounds ──
+    {
+      id: 'bound-rodgers-tao-2020',
+      label: 'Lambda >= 0',
+      kind: 'bound',
+      dependsOn: ['lit-rodgers-tao'],
+      note: 'Lower bound; rests only on the cited theorem.',
+    },
+    {
+      id: 'bound-platt-trudgian-2021',
+      label: 'Lambda <= 0.2 (SOTA)',
+      kind: 'bound',
+      dependsOn: ['ext-verified-zeros-T3e12'],
+      note: 'Heat-flow barrier on verified zeros; unconditional.',
+    },
+    {
+      id: 'bound-imp-1261-asymptotic',
+      label: 'Lambda <= 3.06e-5 asymptotic (modulo Polymath15 G6a)',
+      kind: 'bound',
+      dependsOn: [
+        'blk-imp-341',
+        'blk-imp-1149',
+        'blk-ingham-447-459',
+        'cond-polymath15-G6a',
+      ],
+      note: 'Sole modulo conditional: cond-polymath15-G6a.',
+    },
+    {
+      id: 'bound-imp-440-finite-1e4',
+      label: 'Lambda(1e4) <= 0.02 rigorous unconditional (measured)',
+      kind: 'bound',
+      dependsOn: [
+        'blk-imp-963',
+        'blk-ingham-447-459',
+        'blk-imp-398',
+        'blk-imp-399',
+        'blk-imp-469',
+      ],
+      note: 'No conditional in its closure — unconditional finite-N* beat.',
+    },
+    {
+      id: 'bound-imp-1088-finite-1e6',
+      label: 'Lambda(1e6) <= 0.2 rigorous unconditional (carryforward)',
+      kind: 'bound',
+      dependsOn: ['bound-imp-440-finite-1e4', 'blk-imp-963'],
+      note: 'Only bound-to-bound edge: carryforward extension of imp-440.',
+    },
+  ],
+};
+
+// Pure helpers (module scope so the assertions stay declarative).
+
+// Kahn topological sort. Returns an ordering of node ids if the matrix is a
+// DAG, or null if a cycle is present.
+export function lambdaDepMatrixTopoOrder(matrix = LAMBDA_DEPENDENCY_MATRIX) {
+  const nodes = matrix.nodes;
+  const ids = new Set(nodes.map((n) => n.id));
+  // indegree[x] = number of unresolved prerequisites of x.
+  const indeg = new Map(nodes.map((n) => [n.id, n.dependsOn.length]));
+  // dependents[y] = nodes that list y as a prerequisite.
+  const dependents = new Map(nodes.map((n) => [n.id, []]));
+  for (const n of nodes) {
+    for (const dep of n.dependsOn) {
+      if (!ids.has(dep)) return null; // dangling edge -> treat as malformed
+      dependents.get(dep).push(n.id);
+    }
+  }
+  const queue = nodes.filter((n) => indeg.get(n.id) === 0).map((n) => n.id);
+  const order = [];
+  while (queue.length) {
+    const x = queue.shift();
+    order.push(x);
+    for (const child of dependents.get(x)) {
+      indeg.set(child, indeg.get(child) - 1);
+      if (indeg.get(child) === 0) queue.push(child);
+    }
+  }
+  return order.length === nodes.length ? order : null;
+}
+
+// Transitive prerequisite closure of a node id (the set of every node it
+// ultimately rests on). Used to detect PREMATURE dependencies.
+export function lambdaDepMatrixClosure(startId, matrix = LAMBDA_DEPENDENCY_MATRIX) {
+  const byId = new Map(matrix.nodes.map((n) => [n.id, n]));
+  const seen = new Set();
+  const stack = [startId];
+  while (stack.length) {
+    const cur = stack.pop();
+    const node = byId.get(cur);
+    if (!node) continue;
+    for (const dep of node.dependsOn) {
+      if (!seen.has(dep)) {
+        seen.add(dep);
+        stack.push(dep);
+      }
+    }
+  }
+  return seen;
+}
+
 // ── The master record ──────────────────────────────────────────────────────
 
 export const LAMBDA_ROADMAP = {
@@ -494,6 +703,7 @@ export const LAMBDA_ROADMAP = {
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,
   openGaps: OPEN_GAPS,
+  dependencyMatrix: LAMBDA_DEPENDENCY_MATRIX,
   milestones: undefined, // populated below to avoid forward-ref
 };
 
@@ -664,5 +874,57 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'LAMBDA_ROADMAP.milestones must be wired to LAMBDA_ROADMAP_MILESTONES so ' +
       'page consumers reading the master record see the same data as direct ' +
       'importers. A forgotten patch leaves the master record stale.',
+  },
+  {
+    id: 'lambda-dep-matrix-acyclic',
+    holds: () => lambdaDepMatrixTopoOrder() !== null,
+    why:
+      'imp-2336: the Lambda-bounds dependency matrix must be a DAG. A null ' +
+      'topological order means a CIRCULAR dependency (some bound transitively ' +
+      'requires itself) or a dangling edge. Both would invalidate the chain, ' +
+      'so any future edit that introduces a cycle must fail the build here.',
+  },
+  {
+    id: 'lambda-dep-matrix-finite-N-unconditional',
+    holds: () => {
+      const conditionalIds = new Set(
+        LAMBDA_DEPENDENCY_MATRIX.nodes
+          .filter((n) => n.kind === 'conditional')
+          .map((n) => n.id)
+      );
+      // The two finite-N* beats are claimed UNCONDITIONAL, so no node in their
+      // transitive closure may be a conditional axiom (no premature dependency).
+      return ['bound-imp-440-finite-1e4', 'bound-imp-1088-finite-1e6'].every(
+        (boundId) => {
+          const closure = lambdaDepMatrixClosure(boundId);
+          for (const id of closure) if (conditionalIds.has(id)) return false;
+          return true;
+        }
+      );
+    },
+    why:
+      'imp-2336: the imp-440 (N=1e4) and imp-1088 (N=1e6) finite-height beats ' +
+      'are advertised as rigorous UNCONDITIONAL. This guards the PREMATURE-' +
+      'dependency failure mode: if a future edit routes either bound through a ' +
+      'conditional axiom (e.g. GUE universality or Polymath15 G6a), its ' +
+      'transitive closure would contain a conditional node and this fails, ' +
+      'flagging that the unconditional claim has silently been weakened.',
+  },
+  {
+    id: 'lambda-dep-matrix-asymptotic-modulo-polymath15',
+    holds: () => {
+      const closure = lambdaDepMatrixClosure('bound-imp-1261-asymptotic');
+      // The asymptotic 3.06e-5 bound is modulo Polymath15 G6a and nothing else:
+      // its closure must contain that conditional and NOT GUE universality.
+      return (
+        closure.has('cond-polymath15-G6a') &&
+        !closure.has('cond-gue-universality')
+      );
+    },
+    why:
+      'imp-2336: the imp-1261 asymptotic Lambda <= 3.06e-5 bound carries exactly ' +
+      'one modulo conditional (Polymath15 G6a) and explicitly does NOT depend on ' +
+      'GUE universality. This pins both facts structurally so a future edit ' +
+      'cannot quietly add a second conditional or drop the stated one.',
   },
 ];

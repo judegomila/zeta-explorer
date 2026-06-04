@@ -1040,3 +1040,269 @@ export const IMP_1312_BEURLING_NYMAN_ATTACK_ASSERTIONS = [
     },
   },
 ];
+
+// =========================================================================
+// imp-2355 — FAN-OUT FROM imp-1312: can the BBLS-05 quantitative d_N decay be
+// translated into a de Bruijn-Newman heat-flow MONOTONICITY statement, or is
+// the L^2 metric structurally incompatible with the Lambda heat-flow metric?
+// =========================================================================
+//
+// imp-1312 established only the COARSE obstruction: BN / BBLS-05 are strict
+// RH-equivalents living on a different Hilbert space, "decoupled" from Lambda
+// (SECTION D + LAMBDA_CONNECTION_AUDIT). imp-2355 sharpens this into a
+// QUANTITATIVE spectral-region disjointness and names the precise open
+// sub-gap. Honest partial: no fabricated proof; the negative classification
+// of imp-1312 stands, now with a concrete mechanism rather than a "different
+// Hilbert space" remark.
+//
+// STEP 1 — the Baez-Duarte 2003 / Vasyunin critical-line representation of
+//   d_N. Via Mellin-Plancherel the Nyman-Beurling residual is a weighted L^2
+//   integral ON the critical line Re(s) = 1/2. The Mellin transform of the
+//   constant 1 on (0,1) is 1/s, and the Mellin transform of rho(1/x) on (0,1)
+//   is -zeta(s)/s, so the residual 1 - sum_{k<=N} a_k rho(1/(kx)) has Mellin
+//   transform (1/s) * (1 - zeta(s) Delta_N(s)) with Dirichlet polynomial
+//   Delta_N(s) = sum_{k<=N} a_k k^{-s}. Plancherel then gives, with
+//   s = 1/2 + i t,
+//
+//      d_N^2  =  inf_{Delta_N} (1 / (2 pi)) integral_{-inf}^{inf}
+//                  | 1 - zeta(1/2 + i t) Delta_N(1/2 + i t) |^2
+//                  * W(t) d t,   W(t) = 1 / |1/2 + i t|^2 = 1 / (1/4 + t^2).
+//
+//   The WEIGHT W(t) = 1/(1/4 + t^2) is intrinsic: it is the square modulus of
+//   the Mellin transform 1/s of the constant function. W(t) decays like
+//   1/t^2, so d_N is DOMINATED by the LOW-height part of the critical line
+//   (t = O(1)). A zero or near-zero of zeta at height T enters d_N only at
+//   order O(1/T^2).
+//
+// STEP 2 — what fixes Lambda is the LARGE-height zero behaviour. Rodgers-Tao
+//   2020 (Forum Math. Pi 8, "The de Bruijn-Newman constant is non-negative")
+//   proved Lambda >= 0 by showing Lambda < 0 would force the zeros at
+//   ARBITRARILY LARGE height to be too regularly spaced, contradicting their
+//   known fluctuation / pair-correlation statistics. The Polymath15 2019
+//   upper bound (Lambda <= 0.22) likewise reduces to controlling the
+//   heat-flow H_t zeros up to LARGE height X, where Lehmer-pair near-
+//   collisions are the binding constraint. In both the lower and the upper
+//   bound, Lambda is determined by the t -> infinity tail of the zero
+//   spectrum.
+//
+// STEP 3 — the sharp incompatibility (NEW relative to imp-1312). d_N (weight
+//   1/(1/4 + t^2), low-height dominated) and Lambda (large-height / Lehmer-
+//   pair dominated) probe ASYMPTOTICALLY OPPOSITE ends of the SAME zero
+//   spectrum. Refining d_N (increasing N) improves the low-height Dirichlet-
+//   polynomial approximation of 1/zeta, but the 1/t^2 weight makes the
+//   contribution of the Lambda-relevant high zeros decay like 1/T^2. Hence NO
+//   monotone-in-N functional of d_N can certify the large-height zero
+//   realness that Lambda <= 0 requires: the d_N metric is structurally blind
+//   to exactly the spectral region that fixes Lambda. This upgrades the
+//   imp-1312 "different Hilbert space" observation to a quantitative
+//   statement about WHERE on the critical line each metric concentrates its
+//   sensitivity.
+//
+// STEP 4 — honest remaining sub-gap (NOT closed here). The argument pins the
+//   STANDARD Nyman-Beurling weight W(t) = 1/(1/4 + t^2). It does NOT prove
+//   that no REWEIGHTED Nyman-Beurling functional could be Lambda-sensitive.
+//   NAMED OPEN SUB-GAP (imp-2355-subgap-reweighting): does there exist a
+//   weight w(t) with w(t) (1/4 + t^2) -> infinity such that the reweighted
+//   distance D_N(w)^2 = inf integral |1 - zeta Delta_N|^2 w(t) dt still
+//   (a) vanishes as N -> infinity IFF RH and (b) emphasises large height
+//   enough to bound Lambda? There is a structural tension working against it:
+//   a high-height-emphasising weight breaks the L^2(0,1) interpretation (the
+//   constant 1 is no longer the W-image of an L^2(0,1) function once W is
+//   replaced by a t-growing weight), and that L^2(0,1) interpretation is
+//   exactly what makes d_N -> 0 EQUIVALENT to RH. So the reweighting route
+//   faces an obstruction of its own; imp-2355 documents the tension but does
+//   NOT claim to have ruled the route out. This is the honestly-named open
+//   sub-gap.
+
+const IMP_2355_DN_HEATFLOW_BRIDGE = Object.freeze({
+  ticket: 'imp-2355',
+  fanOutFrom: 'imp-1312',
+  question:
+    'Can the BBLS-05 quantitative d_N decay be translated into a de Bruijn-' +
+    'Newman heat-flow monotonicity statement, or is the L^2 metric structurally ' +
+    'incompatible with the Lambda heat-flow metric?',
+  verdict: 'structurally-incompatible-opposite-ends-of-zero-spectrum',
+  isHonestPartial: true,
+  sharpensImp1312FromCoarseToQuantitative: true,
+
+  // STEP 1 — critical-line representation with the intrinsic 1/(1/4+t^2) weight.
+  baezDuarteVasyuninRepresentation:
+    'd_N^2 = inf_{Delta_N} (1/(2 pi)) integral |1 - zeta(1/2+it) Delta_N(1/2+it)|^2 ' +
+    'W(t) dt, where Delta_N(s) = sum_{k<=N} a_k k^{-s} is a Dirichlet polynomial ' +
+    '(Mellin of the dilated fractional parts) and W(t) = 1/|1/2+it|^2 = 1/(1/4+t^2) ' +
+    'is the square modulus of the Mellin transform 1/s of the constant 1 on (0,1).',
+  weightFormula: 'W(t) = 1 / (1/4 + t^2)',
+  weightDecaysLike: '1/t^2 at large height',
+  dNDominatedBy: 'low-height part of the critical line (t = O(1))',
+  highZeroContributionToDN: 'O(1/T^2) for a zero at height T',
+  mellinTransformOfFractionalPart: 'Mellin of rho(1/x) on (0,1) is -zeta(s)/s',
+  mellinTransformOfConstant: 'Mellin of 1 on (0,1) is 1/s',
+
+  // STEP 2 — Lambda is fixed by the large-height tail.
+  lambdaLowerBoundMechanism:
+    'Rodgers-Tao 2020 (Forum Math. Pi 8): Lambda >= 0 because Lambda < 0 would ' +
+    'force the zeros at ARBITRARILY LARGE height to be too regularly spaced, ' +
+    'contradicting their known fluctuation / pair-correlation statistics.',
+  lambdaUpperBoundMechanism:
+    'Polymath15 2019: Lambda <= 0.22 reduces to controlling the heat-flow H_t ' +
+    'zeros up to LARGE height X, where Lehmer-pair near-collisions are binding.',
+  lambdaDeterminedBy: 't -> infinity tail of the zero spectrum',
+
+  // STEP 3 — the sharp incompatibility.
+  incompatibilityStatement:
+    'd_N (weight 1/(1/4+t^2), low-height dominated) and Lambda (large-height / ' +
+    'Lehmer-pair dominated) probe asymptotically OPPOSITE ends of the same zero ' +
+    'spectrum. The 1/t^2 weight makes the Lambda-relevant high-zero contribution ' +
+    'to d_N decay like 1/T^2, so no monotone-in-N functional of d_N can certify ' +
+    'the large-height zero realness that Lambda <= 0 requires.',
+  upgradesImp1312Remark:
+    'Upgrades the imp-1312 "different Hilbert space / decoupled" remark to a ' +
+    'quantitative statement about WHERE on the critical line each metric ' +
+    'concentrates its sensitivity (low height for d_N, large height for Lambda).',
+
+  // STEP 4 — named open sub-gap.
+  openSubGapId: 'imp-2355-subgap-reweighting',
+  openSubGap:
+    'Does there exist a weight w(t) with w(t)(1/4+t^2) -> infinity such that the ' +
+    'reweighted distance D_N(w)^2 = inf integral |1 - zeta Delta_N|^2 w(t) dt still ' +
+    '(a) vanishes as N -> infinity IFF RH and (b) emphasises large height enough to ' +
+    'bound Lambda?',
+  openSubGapTension:
+    'A high-height-emphasising weight breaks the L^2(0,1) interpretation (the ' +
+    'constant 1 is no longer the W-image of an L^2(0,1) function once W is replaced ' +
+    'by a t-growing weight), and that interpretation is exactly what makes d_N -> 0 ' +
+    'equivalent to RH. The reweighting route faces an obstruction of its own; this ' +
+    'ticket documents the tension but does NOT claim to rule the route out.',
+  openSubGapIsClosed: false,
+
+  references: Object.freeze({
+    baezDuarte2003:
+      'Baez-Duarte, L., "A strengthening of the Nyman-Beurling criterion for the ' +
+      'Riemann hypothesis", Atti Accad. Naz. Lincei Rend. Lincei Mat. Appl. 14 ' +
+      '(2003), 5-11 (critical-line / Mellin representation of the NB distance)',
+    vasyunin:
+      'Vasyunin, V. I., "On a biorthogonal system associated with the Riemann ' +
+      'hypothesis", Algebra i Analiz 7 (1995), 118-135 (explicit matrix entries ' +
+      'for the d_N least-squares problem)',
+    rodgersTao2020:
+      'Rodgers, B., Tao, T., "The de Bruijn-Newman constant is non-negative", ' +
+      'Forum Math. Pi 8 (2020), e6 (Lambda >= 0 via large-height zero statistics)',
+    polymath15:
+      'Polymath, D. H. J., "Effective approximation of heat flow evolution of ' +
+      'the Riemann xi function, and a new upper bound for the de Bruijn-Newman ' +
+      'constant", Res. Math. Sci. 6 (2019), Paper No. 31 (Lambda <= 0.22)',
+    imp1312: 'src/data/imp-1312-beurling-nyman-attack.js — parent classification',
+  }),
+});
+
+export { IMP_2355_DN_HEATFLOW_BRIDGE };
+
+// =========================================================================
+// imp-2355 BUILD-TIME TRIPWIRES (auto-run: this module is registered in
+// scripts/run-assertions.mjs and any export ending in _ASSERTIONS is swept).
+// =========================================================================
+
+export const IMP_2355_DN_HEATFLOW_BRIDGE_ASSERTIONS = [
+  // Tripwire 1: the intrinsic 1/(1/4+t^2) weight and its 1/t^2 decay are pinned.
+  {
+    id: 'imp2355-weight-is-low-height-dominated',
+    why:
+      'The Baez-Duarte / Vasyunin critical-line representation of d_N carries the ' +
+      'intrinsic weight W(t) = 1/(1/4+t^2) (square modulus of the Mellin transform ' +
+      '1/s of the constant 1). It decays like 1/t^2, so d_N is dominated by low ' +
+      'height. A silent flip away from this weight would erase the load-bearing ' +
+      'incompatibility mechanism.',
+    holds: () => {
+      const b = IMP_2355_DN_HEATFLOW_BRIDGE;
+      return (
+        /1\/4 \+ t\^2/.test(b.weightFormula) &&
+        /1\/t\^2/.test(b.weightDecaysLike) &&
+        /low-height/.test(b.dNDominatedBy) &&
+        /O\(1\/T\^2\)/.test(b.highZeroContributionToDN) &&
+        /-zeta\(s\)\/s/.test(b.mellinTransformOfFractionalPart) &&
+        /1\/s/.test(b.mellinTransformOfConstant)
+      );
+    },
+  },
+
+  // Tripwire 2: Lambda is fixed by the large-height tail (Rodgers-Tao + Polymath15).
+  {
+    id: 'imp2355-lambda-is-large-height-dominated',
+    why:
+      'Lambda is determined by the t -> infinity tail: Rodgers-Tao 2020 (Lambda >= 0 ' +
+      'via large-height zero statistics) and Polymath15 2019 (Lambda <= 0.22 via ' +
+      'large-height heat-flow control / Lehmer pairs). If this flipped to "Lambda is ' +
+      'low-height" the opposite-ends argument would collapse.',
+    holds: () => {
+      const b = IMP_2355_DN_HEATFLOW_BRIDGE;
+      return (
+        /Rodgers-Tao 2020/.test(b.lambdaLowerBoundMechanism) &&
+        /(LARGE|large)/.test(b.lambdaLowerBoundMechanism) &&
+        /Polymath15/.test(b.lambdaUpperBoundMechanism) &&
+        /(Lehmer|LARGE|large)/.test(b.lambdaUpperBoundMechanism) &&
+        /infinity tail/.test(b.lambdaDeterminedBy)
+      );
+    },
+  },
+
+  // Tripwire 3: the incompatibility is "opposite ends of the same spectrum", and
+  // it is a SHARPENING of imp-1312 (not a new Lambda bound).
+  {
+    id: 'imp2355-opposite-ends-sharpens-imp1312',
+    why:
+      'The verdict must remain a NEGATIVE structural-incompatibility classification ' +
+      '(opposite ends of the zero spectrum) that SHARPENS imp-1312, not a fabricated ' +
+      'numerical Lambda bound. A flip to "d_N bounds Lambda" would be a false QED.',
+    holds: () => {
+      const b = IMP_2355_DN_HEATFLOW_BRIDGE;
+      return (
+        b.verdict === 'structurally-incompatible-opposite-ends-of-zero-spectrum' &&
+        b.fanOutFrom === 'imp-1312' &&
+        b.sharpensImp1312FromCoarseToQuantitative === true &&
+        /OPPOSITE ends/.test(b.incompatibilityStatement) &&
+        /no monotone-in-N functional of d_N can certify/.test(b.incompatibilityStatement) &&
+        /quantitative statement about WHERE/.test(b.upgradesImp1312Remark)
+      );
+    },
+  },
+
+  // Tripwire 4: the open sub-gap is named and explicitly NOT closed (honest partial).
+  {
+    id: 'imp2355-open-subgap-named-and-not-closed',
+    why:
+      'This is an honest partial: the reweighting sub-gap must be named ' +
+      '(imp-2355-subgap-reweighting), its tension documented, and openSubGapIsClosed ' +
+      'must be false. Marking it closed would be a fabricated closure.',
+    holds: () => {
+      const b = IMP_2355_DN_HEATFLOW_BRIDGE;
+      return (
+        b.openSubGapId === 'imp-2355-subgap-reweighting' &&
+        b.openSubGapIsClosed === false &&
+        b.isHonestPartial === true &&
+        /w\(t\)\(1\/4\+t\^2\) -> infinity/.test(b.openSubGap) &&
+        /IFF RH/.test(b.openSubGap) &&
+        /breaks the L\^2\(0,1\) interpretation/.test(b.openSubGapTension)
+      );
+    },
+  },
+
+  // Tripwire 5: required new citations present (Baez-Duarte 2003, Rodgers-Tao 2020).
+  {
+    id: 'imp2355-required-citations-present',
+    why:
+      'The sharpening relies on the Baez-Duarte 2003 critical-line representation ' +
+      'and the Rodgers-Tao 2020 large-height lower bound. Both must be cited so the ' +
+      'mechanism is checkable, alongside Vasyunin and Polymath15.',
+    holds: () => {
+      const r = IMP_2355_DN_HEATFLOW_BRIDGE.references;
+      return (
+        /Baez-Duarte/.test(r.baezDuarte2003 || '') && /2003/.test(r.baezDuarte2003 || '') &&
+        /Vasyunin/.test(r.vasyunin || '') &&
+        /Rodgers/.test(r.rodgersTao2020 || '') && /Tao/.test(r.rodgersTao2020 || '') &&
+        /2020/.test(r.rodgersTao2020 || '') &&
+        /Polymath/.test(r.polymath15 || '') &&
+        /imp-1312/.test(r.imp1312 || '')
+      );
+    },
+  },
+];

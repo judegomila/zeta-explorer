@@ -1,3 +1,40 @@
+/**
+ * @module imp-1193-ssr-pool-validation
+ * @fileoverview imp-1193 — build-time tripwire suite that locks down the
+ *   OPTIONAL in-process Vite SSR pool (scripts/lib/ssr-pool.mjs, wired into
+ *   scripts/run-assertions.mjs via --ssr-pool=N). This is a HARNESS-INFRA data
+ *   file, not part of the RH proof chain — it guards the assertion-runner
+ *   fast-path so a regression in the pool cannot silently slow or break the
+ *   build-time assertion sweep.
+ *
+ *   EXPORTS
+ *   -------
+ *   - SELFTEST_RESULT (const): frozen record of the measured reuse/timing
+ *     self-test numbers (source: scripts/imp-1193-quick-reuse-test.mjs). May be
+ *     marked NEGATIVE_RESULT so an honest-partial timing claim still passes.
+ *   - IMP_1193_SSR_POOL_VALIDATION_ASSERTIONS (const + default export): the
+ *     array of tripwire assertion objects consumed by the assertion runner.
+ *
+ *   KEY ASSERTIONS (7 tripwires)
+ *   ----------------------------
+ *   1. ssr-pool-module-loads      : ssr-pool.mjs on disk, exports createPool().
+ *   2. ssr-pool-api-shape         : createPool returns acquire/release/drain/stats
+ *                                   and acquire/release round-trips a slot.
+ *   3. ssr-pool-reuse-counter     : N+1 acquires at cap=2 yield reuseCount > 0.
+ *   4. ssr-pool-drain-no-leak     : handle delta after drain() within
+ *                                   SSR_POOL_LEAK_BUDGET (Vite watcher leak).
+ *   5. ssr-pool-no-flag-regression: default no-flag single-createServer path
+ *                                   unchanged.
+ *   6. ssr-pool-cap-validation    : createPool({cap:0|-1}) throws.
+ *   7. ssr-pool-measured-numbers  : recorded timing satisfies ratio < 0.95 OR
+ *                                   is explicitly marked NEGATIVE_RESULT.
+ *
+ *   PROOF-CHAIN STEP: none (test/infra). See the inline notes below for the
+ *   measure-then-record honesty contract on tripwire 7.
+ *
+ *   TICKETS: created/scoped by imp-1193; @module navigation block added by
+ *   imp-2445.
+ */
 // imp-1193 build-time validation for the in-process Vite SSR pool shipped in
 // scripts/lib/ssr-pool.mjs and wired into scripts/run-assertions.mjs.
 //

@@ -1272,6 +1272,14 @@ const DATA_MODULES = [
   // 6 > crossover A* ~ 4.33, so the formal 2.04e6 tightening is NOT rigorous
   // (net ~275x loosening at A_BS = 6). O-BS-B remains paper-grade. 8 tripwires.
   '/src/data/imp-1331-soundararajan-tao-2024-application.js',
+  // imp-2354: unrestricted-support 3-point ESY attempt -- HONEST PARTIAL.
+  // Both ticket sub-directions blocked (unrestricted rho_3 = GAP-RS3PT-FULL-
+  // SUPPORT / Bogomolny-Keating; log-free 4-point = intrinsic explicit-formula
+  // log, O-HOC-B). NEW: quantifies imp-1180 O-HOC-E -- the bandwidth-truncated
+  // Poisson kernel penalty is N-INDEPENDENT (y_unfolded = 1; L2 ~ 2.30e-4,
+  // variance ~ 2.16e-3), so the regularization cannot give an asymptotic ESY
+  // closure. Named gap GAP-2354-SUPNORM-RESIDUAL-TRANSFER. 7 tripwires.
+  '/src/data/imp-2354-unrestricted-3point-esy-attempt.js',
 ];
 
 const ALL_MODULES = FAST_MODE

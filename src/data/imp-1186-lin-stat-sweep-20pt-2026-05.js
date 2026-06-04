@@ -1,3 +1,38 @@
+/**
+ * @fileoverview Twenty-point densification of the ESY linear-statistics variance
+ * sweep. Exports IMP1186_LIN_STAT_SWEEP_20PT (the frozen grid + OLS fit record +
+ * status verdict) and IMP1186_LIN_STAT_SWEEP_20PT_ASSERTIONS (8 build-time
+ * tripwires).
+ *
+ * PROOF-CHAIN STEP: empirical slope-estimation leg of the ESY linear-statistics
+ * argument. It extends the imp-1162 13-point log(variance)-vs-log(N) grid to 20
+ * points by computing 7 intermediate N values (30000, 70000, 150000, 300000,
+ * 400000, 600000, 900000) within the 1e6 Odlyzko zero-table ceiling, densifying
+ * the grid to sharpen the OLS power-law slope estimate. Variance is the lin-stat
+ * estimator at eta = N to the minus one with M_BULK = 80 bulk test points.
+ *
+ * KEY ASSERTIONS: combined grid has exactly 20 rows (9 original + 4 imp-1162 +
+ * 7 new); imp-1186 contributes exactly 7 new rows; combined OLS slope stays in
+ * the ESY-compatible band (-1.5, -0.5) with R^2 at least 0.85; no new row
+ * exceeds the bundled 1e6 zero-table (no silent extrapolation); every new
+ * (N, eta, variance, sampleSize) is finite and strictly positive; the grid is
+ * strictly increasing in N; the status verdict is one of the permitted values;
+ * the 9 mirrored original rows match the imp-1149 / imp-1162 published literals.
+ *
+ * HONEST SCOPE: the ticket asked for N in 2e6..1e7, but the bundled zero table
+ * caps at 1e6, so those points remain an open sub-gap (needs zeros-to-2e6.js or
+ * larger). Variance is not expected to be monotone in N at this resolution.
+ *
+ * TICKETS: created by imp-1186; extends imp-1162; upstream 9-point grid from
+ * imp-1149-sub-ESY; predecessor 13-point file esy-lin-stat-extended-sweep-2026-05.
+ *
+ * @module imp-1186-lin-stat-sweep-20pt-2026-05
+ * @see imp-1186
+ * @see imp-1162
+ * @see src/data/esy-lin-stat-extended-sweep-2026-05.js
+ * @see src/data/zeros-to-1e6.js
+ */
+
 // imp-1186 -- extend the imp-1162 lin-stat empirical sweep from 13 to 20 grid
 // points by computing 7 intermediate N values {30000, 70000, 150000, 300000,
 // 400000, 600000, 900000} within the 1e6 Odlyzko zero-table ceiling.

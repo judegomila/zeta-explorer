@@ -1,3 +1,35 @@
+/**
+ * @fileoverview Canonical reference for the engine + subagent collision
+ * detector (the "in-flight ticket lock").
+ * @module imp-1285-engine-subagent-coordination
+ *
+ * EXPORTS
+ *   - STATUSES: frozen list of the five legal queue statuses.
+ *   - FAILURE_MODES: frozen catalog of flip-failure reasons, their errno,
+ *     meaning, and prescribed caller handling.
+ *   - EDGE_CASES: frozen list of explicitly-handled lock edge cases.
+ *   - default: { STATUSES, FAILURE_MODES, EDGE_CASES }.
+ *
+ * PROOF-CHAIN STEP
+ *   Pure harness/meta documentation -- it belongs to the engine-coordination
+ *   (dispatch/salvage/unlock) tooling, NOT to any mathematical proof section.
+ *   It carries no numerical assertions; its "assertions" are the protocol
+ *   invariants enumerated below.
+ *
+ * KEY INVARIANTS (the assertions this file pins down)
+ *   - A ticket dispatched to a subagent is flipped to "in-progress-subagent"
+ *     and is thereafter HIDDEN from every engine ticket-picker until released.
+ *   - All flips are mtime-guarded: a concurrent write aborts the loser via
+ *     "mtime-race-detected" rather than clobbering, so no double-claim escapes.
+ *   - salvage/unlock are idempotent ("already-at-target" is a benign no-op),
+ *     making re-runs safe.
+ *   - Every manual unlock strips inflightTaskId (hygiene invariant).
+ *
+ * TICKETS THAT CREATED / MODIFIED THIS FILE
+ *   - imp-1285: created the file as the canonical lock-protocol reference,
+ *     after imp-1257 shipped twice (engine + subagent) on 2026-05-28.
+ *   - imp-2469: added this module-level JSDoc header.
+ */
 // src/data/imp-1285-engine-subagent-coordination.js
 //
 // imp-1285: canonical reference for the engine + subagent collision detector

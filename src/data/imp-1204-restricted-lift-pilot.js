@@ -1,3 +1,28 @@
+/**
+ * @fileoverview App H restricted reciprocal Mobius-delay lift -- first floating-point pilot.
+ *
+ * Exports two frozen bindings:
+ *   - RESTRICTED_LIFT_PILOT: the pilot record (setup, two runs at a=0.025 and
+ *     a=0.010, and an interpretation block).
+ *   - RESTRICTED_LIFT_ASSERTIONS: 7 build-time tripwires guarding the record.
+ *
+ * Proof-chain step: degree-2 self-reciprocal-polynomial proxy Theta_a^{lift}
+ * for the full prime-delay bridge ratio Theta_a. Certifying bounded-real
+ * (sup-norm <= 1) for the restricted lift is a finite-dimensional feasibility
+ * probe toward the Schur conjecture for Theta_a, which would give K_a >= 0
+ * and hence RH.
+ *
+ * Key assertions: the a=0.025 run PASSES bounded-real on the N=5, 8-point
+ * coarse mesh (well-conditioned Gram, cond ~ 342); the a=0.010 run hits a
+ * central-band conditioning BARRIER at omega=0.1 (cond ~ 82 400) that no
+ * single degree of freedom c can resolve.
+ *
+ * Tickets: created by imp-1204 (App H pilot); stress-tested by imp-1207
+ * (App S adaptive patch refinement); module JSDoc added by imp-2470.
+ *
+ * @module imp-1204-restricted-lift-pilot
+ */
+
 // imp-1204-restricted-lift-pilot.js
 // App H: restricted reciprocal Mobius-delay lift -- first floating-point pilot
 //

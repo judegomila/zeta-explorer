@@ -15459,6 +15459,26 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
   },
 
+  
+  // ── Auto-seeded batch (2026-06-05) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2470',
+    title: "Add JSDoc module documentation to imp-1204-restricted-lift-pilot.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'docs',
+    description: "src/data/imp-1204-restricted-lift-pilot.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-06-05T03:48:48Z',
+    closureNote: 'Added a structured @fileoverview/@module JSDoc header to src/data/imp-1204-restricted-lift-pilot.js documenting the two frozen exports (RESTRICTED_LIFT_PILOT and the 7 RESTRICTED_LIFT_ASSERTIONS tripwires), the App H proof-chain role (degree-2 self-reciprocal-polynomial proxy Theta_a^{lift} for the prime-delay bridge ratio; bounded-real feasibility probe toward K_a >= 0 / RH), the key assertions (a=0.025 PASS, a=0.010 central-band BARRIER), and the creating/modifying tickets (imp-1204, imp-1207, imp-2470). Pure documentation; npm run build green.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

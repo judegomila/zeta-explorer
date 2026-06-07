@@ -197,7 +197,7 @@ const C_LIP_ASYMPTOTIC = 1.0;
 export const C_H_REGULARIZED = C_LIP_ASYMPTOTIC * C_LIP_ASYMPTOTIC / C_COLLISION;
 
 // N_0 beyond which W_1(mu_N, rho_inf) <= 1 is guaranteed by the KH bound.
-const C_SELBERG = LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.deterministic.constants.C_Selberg;
+const C_SELBERG = LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.lemma.constants.C_Selberg;
 const C_KH = Math.PI * C_SELBERG;
 // W_1 <= C_KH * log(gamma_N) / N <= 1 iff N >= C_KH * log(gamma_N).
 // For N=10: log(gamma_10) ~ log(49.77) ~ 3.91, C_KH*3.91 ~ 9.42*3.91 ~ 36.8.

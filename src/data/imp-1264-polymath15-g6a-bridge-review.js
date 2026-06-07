@@ -159,7 +159,7 @@ import { IMP_1261_REDIRECT_SHIPPED } from './imp-1261-asymptotic-lambda-redirect
 // ── Numerical anchors ──────────────────────────────────────────────────────
 
 // Selberg / Koksma-Hlawka constant pipeline (from imp-341).
-const C_SELBERG = LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.deterministic.constants.C_Selberg;
+const C_SELBERG = LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.lemma.constants.C_Selberg;
 const C_KH = Math.PI * C_SELBERG; // ~ 9.4248
 // Effective bridge Lipschitz constant: C_C = C_H * sqrt(C_KH).
 // With C_H = 1/8 (imp-395, rigorous from Dyson -8 constant):

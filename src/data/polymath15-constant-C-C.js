@@ -125,7 +125,7 @@ const C_H_PINNED = C_H_REGULARIZED; // = 1/8 = 0.125
 
 // ── C_KH from imp-341 / imp-366 ───────────────────────────────────────────────
 // W_1(mu_N, rho_inf) <= C_KH * log(gamma_N) / N   with  C_KH = pi * C_Selberg = 3*pi.
-const C_SELBERG = LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.deterministic.constants.C_Selberg;
+const C_SELBERG = LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.lemma.constants.C_Selberg;
 const C_KH = Math.PI * C_SELBERG;
 
 // ── The pinned collision constant C_C = C_H * sqrt(C_KH) ────────────────────

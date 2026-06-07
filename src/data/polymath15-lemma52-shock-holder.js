@@ -201,7 +201,7 @@ const C_H_HOLDER = 1.0;
 //   W_1(mu_N, rho_inf)  <=  C_KH * log(gamma_N) / N
 //   C_KH = pi * C_Selberg = pi * 3 ≈ 9.42
 // We import the Selberg constant from imp-341 via the Burgers uniformity export.
-const C_SELBERG = LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.deterministic.constants.C_Selberg;
+const C_SELBERG = LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.lemma.constants.C_Selberg;
 const C_KH = Math.PI * C_SELBERG;
 
 // Combined E_coll constant: C_C = C_H * sqrt(C_KH)

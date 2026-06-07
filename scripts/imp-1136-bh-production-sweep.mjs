@@ -134,7 +134,12 @@ async function runOneN({ N, dt, maxSteps, tolerance }) {
 
   const perNTimeoutMs = N >= SHORT_FOR_N_AT_OR_ABOVE ? SHORT_BUDGET_MS : LONG_BUDGET_MS;
   return new Promise((resolve) => {
-    const child = spawn(RUST_CLI, ['--drift-mode', 'bh_multipole', '--theta', '0.1'], { stdio: ['pipe', 'pipe', 'pipe'] });
+    // imp-1136 (api-pool): pass the SAME theta we record in each result row
+    // (DEFAULT_THETA) so the artifact provenance matches the CLI invocation.
+    // The original hardcoded 0.1 disagreed with the recorded theta=0.05,
+    // making the measured-row theta field dishonest. The BH path is now live
+    // in the CLI via imp-1145 (--drift-mode bh_multipole --theta).
+    const child = spawn(RUST_CLI, ['--drift-mode', 'bh_multipole', '--theta', String(DEFAULT_THETA)], { stdio: ['pipe', 'pipe', 'pipe'] });
     let stdout = '';
     let stderr = '';
     let killed = false;

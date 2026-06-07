@@ -1733,12 +1733,13 @@ async function main() {
     await Promise.all(Array.from({ length: PARALLEL }, () => worker()));
   }
 
-  await finalize({ passed, failed, loadErrors, failures, lines, startMs }, server);
+  await finalize({ passed, failed, loadErrors, failures, lines, startMs }, server, pool);
 }
 
 // imp-1193: shared end-of-sweep handler used by both the cold-start and the
-// pool-delegate paths. `server` is optional (the pool path does not own one).
-async function finalize(state, server) {
+// pool-delegate paths. `server` is optional (the pool path does not own one);
+// `pool` is non-null only on the --ssr-pool=N path.
+async function finalize(state, server, pool) {
   const { passed, failed, loadErrors, failures, lines, startMs } = state;
   const log = (msg) => { console.log(msg); lines.push(msg); };
   const elapsed = ((Date.now() - startMs) / 1000).toFixed(1);

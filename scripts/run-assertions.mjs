@@ -316,6 +316,10 @@ const DATA_MODULES = [
   '/src/data/imp-2492-esy-o2-backward-flow-illposedness-audit.js',
   // imp-2493: ESY obstacle-O3 audit (ticket imp-370) — a high-probability ensemble bound mu(G_N)=1-N^{-c} does NOT derandomize to the single fixed zero sequence; a measure-1 set can exclude any named point (irrationals miss 1/2), so closing O3 needs quantitative GUE equidistribution (Montgomery-Dyson/Bourgade/Rudnick-Sarnak), which is open. Refines esy-rigidity-port.js obstacle3; O3 stays research-grade open.
   '/src/data/imp-2493-esy-o3-derandomization-audit.js',
+  // imp-2491: ESY obstacle-coupling-matrix synthesis (ticket imp-370) — joins the three isolated obstacle audits (O1/imp-508, O2/imp-2492, O3/imp-2493). O1+O3 share an arithmetic/equidistribution axis (one GUE-equidistribution input spans both); O2 is the unique PDE-axis obstacle (only a backward-stability input reaches it). Hence no single input closes all three, and angle (b) needs >= 2 independent inputs across 2 orthogonal axes; highest leverage = the GUE-equidistribution input (O1+O3). Synthesis only; imp-370 stays research-grade open.
+  '/src/data/imp-2491-esy-obstacle-coupling-matrix.js',
+  // imp-2497: ESY highest-leverage-input availability audit (ticket imp-370) — decomposes the GUE-equidistribution input that imp-2491 names the top lever (closes O1 partial + O3 full). What is proven today (Montgomery 2-level, support < 1, RH; Rudnick-Sarnak n-level, restricted support, GRH) is BOTH support-restricted AND conditional, whereas ESY needs unrestricted all-scales n-level rigidity UNCONDITIONALLY. So the top lever is not available today; refines (does not contradict) imp-2491. imp-370 stays research-grade open.
+  '/src/data/imp-2497-esy-highest-leverage-input-availability-audit.js',
   // imp-1178: refines imp-1166 simplified-correction to best-available Conrey-Snaith 2008 ratios-conjecture formula on the imp-1162 13-point grid.
   '/src/data/imp-1178-conrey-snaith-full-ratios-derivation.js',
   // imp-1186: extends imp-1162 13-point lin-stat grid to 20 points (interior fill + zeros6-based extension to N=2e6); reports 20-point OLS slope + 2000-replicate percentile-bootstrap CI.

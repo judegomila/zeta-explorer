@@ -338,6 +338,69 @@ const A_KAPPA_COUPLING_CAVEAT = Object.freeze({
     'achieved A_BS, leaving the obstruction binding.',
 });
 
+// ── imp-2496 matched-sigma refinement of the BS-favorable scenario ──────────
+// imp-1179 honestScope.notDoneList named an open audit: "whether the imp-447 /
+// imp-459 chain pins sigma at 0.75 for BS-side too". imp-1239
+// (imp-1239-imp447-sigma-shift-audit.js) ANSWERED it: the Ingham E_trunc_pt
+// chain has NO algebraic constraint pinning sigma at 0.75 -- the log-free bound
+// is monotone decreasing in sigma on (1/2, 1), so the Ingham side can ALSO shift
+// to sigma = 0.99 at zero cost. Consequence: the asymmetric BS-favorable
+// scenario above (SCENARIO_BS_SHIFTS_TO_0_99: BS at 0.99 while Ingham stays at
+// 0.75, crossover A* ~ 6.70) is NOT the operative baseline -- it silently
+// freezes a lever the Ingham side is free to pull. The correct MATCHED-sigma
+// comparison puts BOTH bounds at sigma = 0.99 and restores BOTH log-power
+// factors: BS wins iff (log T)^{A_BS} * BS_formal < (log T)^{A_Ingham} *
+// Ingham_formal, i.e. iff A_BS - A_Ingham < crossover(both at 0.99) ~ 0.66, with
+// A_Ingham = 5 PINNED by Ingham 1940. So the binding quantity is the DIFFERENCE
+// A_BS - A_Ingham against ~0.66, not A_BS against ~6.70. At the central
+// literature estimate A_BS = 8 the difference is 3 >> 0.66, so the BS tightening
+// is BLOCKED at matched sigma; it survives only in the optimistic corner
+// A_BS <= 5. This SHARPENS (honestly tightens) REFINED_OBSTRUCTION_O_BS_B: the
+// earlier "A_BS <= 6 under sigma-shift" survival window was an artifact of the
+// frozen-Ingham asymmetric baseline and shrinks to "A_BS <= 5 at matched sigma"
+// once the Ingham side takes its own (free) sigma shift. Comparison-framework
+// refinement consuming the imp-1239 verdict; does NOT pin A_BS (still a
+// literature estimate) and does NOT change the production headline (Ingham
+// 3.06e-5 at sigma = 0.75). isRigorous = false.
+
+const A_INGHAM_PINNED = 5; // Ingham 1940 (log T)^5 factor; PINNED (imp-1239)
+
+const MATCHED_SIGMA_REFINEMENT = Object.freeze({
+  consumesAudit: 'imp-1239-imp447-sigma-shift-audit.js',
+  consumesVerdict:
+    'imp-1239 established the imp-447 / imp-459 Ingham chain admits any sigma in ' +
+    '(1/2, 1) with no algebraic obstruction, so the Ingham side can shift to ' +
+    'sigma = 0.99 at zero cost (log-free bound monotone decreasing in sigma).',
+  aInghamPinned: A_INGHAM_PINNED,
+  asymmetricScenarioSuperseded: 'bsShiftsTo099',
+  asymmetricCrossoverAStar: SCENARIO_BS_SHIFTS_TO_0_99.crossoverAStar,
+  matchedScenario: 'bothAt099',
+  matchedFormalRatio: SCENARIO_BOTH_AT_0_99.formalRatio,
+  // At matched sigma BOTH log powers are present, so the crossover is on the
+  // DIFFERENCE A_BS - A_Ingham, not on A_BS alone.
+  matchedCrossoverOnLogPowerDifference: SCENARIO_BOTH_AT_0_99.crossoverAStar,
+  bsWinsAtMatchedSigmaIff:
+    'A_BS - A_Ingham < ' +
+    (+SCENARIO_BOTH_AT_0_99.crossoverAStar.toFixed(4)) +
+    ' (with A_Ingham = 5), i.e. A_BS < ' +
+    (+(A_INGHAM_PINNED + SCENARIO_BOTH_AT_0_99.crossoverAStar).toFixed(4)),
+  aBsSurvivalCeilingMatched:
+    +(A_INGHAM_PINNED + SCENARIO_BOTH_AT_0_99.crossoverAStar).toFixed(4),
+  verdictAtCentralABS:
+    A_BS_BOUNDS.centralEstimate - A_INGHAM_PINNED < SCENARIO_BOTH_AT_0_99.crossoverAStar
+      ? 'bs-wins-at-matched-sigma'
+      : 'bs-blocked-at-matched-sigma',
+  consequence:
+    'The asymmetric BS-favorable survival window A_BS <= 6 (crossover ~ 6.70) ' +
+    'is an artifact of freezing the Ingham side at sigma = 0.75. Once the ' +
+    'Ingham side takes its own free sigma shift to 0.99 (imp-1239), the survival ' +
+    'window shrinks to A_BS <= 5 at matched sigma. At the central literature ' +
+    'estimate A_BS = 8 the BS tightening is BLOCKED (8 - 5 = 3 >> 0.66).',
+  isRigorous: false,
+  doesNotPinABs: true,
+  doesNotChangeProductionHeadline: true,
+});
+
 // ── Headline payload ────────────────────────────────────────────────────
 
 export const IMP_1179_BS_LOG_T_POWER_A_BOUND = Object.freeze({
@@ -378,6 +441,7 @@ export const IMP_1179_BS_LOG_T_POWER_A_BOUND = Object.freeze({
 
   refinedObstruction: REFINED_OBSTRUCTION_O_BS_B,
   aKappaCouplingCaveat: A_KAPPA_COUPLING_CAVEAT,
+  matchedSigmaRefinement: MATCHED_SIGMA_REFINEMENT,
 
   // Replication of the ticket-description arithmetic check:
   //   at A = 6: (log T_PT)^6 * BS_formal(0.75) = 5.6e8 * 1.51e-11 = 8.5e-3
@@ -559,6 +623,30 @@ export const IMP_1179_ASSERTIONS = [
       const baselineOk = s[0].crossoverAStar > 4.0 && s[0].crossoverAStar < 4.7;
       const erodes = s[2].crossoverAStar < s[0].crossoverAStar;
       return monotone && baselineOk && erodes;
+    },
+  },
+  {
+    id: 'imp2496-matched-sigma-supersedes-asymmetric-bs-favorable',
+    why:
+      'imp-2496 (consuming imp-1239): the imp-447 / imp-459 Ingham chain can ' +
+      'shift to sigma = 0.99 at zero cost, so the asymmetric BS-favorable ' +
+      'scenario (BS at 0.99, Ingham frozen at 0.75; crossover A* ~ 6.70) is NOT ' +
+      'the operative baseline. At matched sigma = 0.99 both log powers are ' +
+      'present, so BS wins iff A_BS - A_Ingham < crossover_both_099 ~ 0.66 with ' +
+      'A_Ingham = 5 pinned. The matched survival ceiling (A_Ingham + crossover) ' +
+      'must therefore sit in (5, 6) and strictly below the asymmetric crossover ' +
+      '~ 6.70, and the central estimate A_BS = 8 must be BLOCKED. Flipping these ' +
+      'or marking the refinement rigorous would re-inflate the BS survival ' +
+      'window beyond what the matched-sigma comparison honestly supports.',
+    holds: () => {
+      const m = IMP_1179_BS_LOG_T_POWER_A_BOUND.matchedSigmaRefinement;
+      if (!m || m.isRigorous !== false) return false;
+      const ceil = m.aBsSurvivalCeilingMatched;
+      return (
+        ceil > 5.0 && ceil < 6.0 &&
+        ceil < m.asymmetricCrossoverAStar &&
+        m.verdictAtCentralABS === 'bs-blocked-at-matched-sigma'
+      );
     },
   },
 ];

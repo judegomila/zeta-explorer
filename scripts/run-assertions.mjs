@@ -314,6 +314,8 @@ const DATA_MODULES = [
   '/src/data/imp-2481-esy-determinantal-clt-audit.js',
   // imp-2492: ESY obstacle-O2 audit (ticket imp-370) — forward dissipative DBM rigidity does NOT transfer to the backward de Bruijn collision flow; reversal is the ill-posed backward heat equation exp(+t k^2), maximal at the microscopic scale the rigidity bound controls. Refines esy-rigidity-port.js obstacle2; O2 stays research-grade open.
   '/src/data/imp-2492-esy-o2-backward-flow-illposedness-audit.js',
+  // imp-2493: ESY obstacle-O3 audit (ticket imp-370) — a high-probability ensemble bound mu(G_N)=1-N^{-c} does NOT derandomize to the single fixed zero sequence; a measure-1 set can exclude any named point (irrationals miss 1/2), so closing O3 needs quantitative GUE equidistribution (Montgomery-Dyson/Bourgade/Rudnick-Sarnak), which is open. Refines esy-rigidity-port.js obstacle3; O3 stays research-grade open.
+  '/src/data/imp-2493-esy-o3-derandomization-audit.js',
   // imp-1178: refines imp-1166 simplified-correction to best-available Conrey-Snaith 2008 ratios-conjecture formula on the imp-1162 13-point grid.
   '/src/data/imp-1178-conrey-snaith-full-ratios-derivation.js',
   // imp-1186: extends imp-1162 13-point lin-stat grid to 20 points (interior fill + zeros6-based extension to N=2e6); reports 20-point OLS slope + 2000-replicate percentile-bootstrap CI.

@@ -518,6 +518,39 @@ const EXPLICIT_NUMERICAL_BOUND_AT_N_1E6 = Object.freeze({
   looseness_factor_max: 100,
 });
 
+// -------------------------------------------------------------------------
+// SHARPENED-CONSTANT VARIANT (Goldston-Gonek 1998) -- refines O-CL-D.
+// -------------------------------------------------------------------------
+// The headline upper bound above uses the CONSERVATIVE Selberg-Titchmarsh
+// constant C_Selberg <= 23. Goldston-Gonek 1998 sharpen the second-moment
+// constant for S(t) in the short-interval regime covering this application
+// to C_Selberg <= 11.5, which HALVES the headline prefactor without changing
+// the log log N / N rate. We record the sharpened variant SEPARATELY rather
+// than flipping the pinned headline (tripwire imp1161-selberg-constant-
+// conservative-value keeps 23 advertised), so the conservative re-derived
+// bound stays the published value and the sharper cited-not-re-derived bound
+// is available as an explicit refinement of obstruction O-CL-D.
+//
+//   C_var_sharp(f, A=1, |f-prime|=1) = 8 * 1 * 1 * 11.5 = 92
+//   upper bound at N = 1e6: 92 * log log(1e6) / 1e6 ~= 2.42e-4
+//   looseness vs imp-1162 empirical 1.64e-5: ~14.7x (vs ~29.5x conservative).
+const C_SELBERG_GOLDSTON_GONEK = 11.5; // Goldston-Gonek 1998 sharpened second-moment constant.
+const GOLDSTON_GONEK_SHARPENED_BOUND = Object.freeze({
+  source: 'Goldston-Gonek 1998 sharpened Selberg second-moment constant for S(t)',
+  C_Selberg_sharpened: C_SELBERG_GOLDSTON_GONEK,
+  C_var_at_unit_f: 8 * 1 * 1 * C_SELBERG_GOLDSTON_GONEK, // = 92
+  upperBoundOnVariance:
+    8 * 1 * 1 * C_SELBERG_GOLDSTON_GONEK * Math.log(Math.log(1e6)) / 1e6,
+  empiricalFromImp1162: EXPLICIT_NUMERICAL_BOUND_AT_N_1E6.empiricalFromImp1162,
+  conservativeUpperBound: EXPLICIT_NUMERICAL_BOUND_AT_N_1E6.upperBoundOnVariance,
+  tighteningFactorVsConservative: C_SELBERG / C_SELBERG_GOLDSTON_GONEK, // = 2.0
+  refinesObstruction: 'O-CL-D',
+  status:
+    'cited-not-re-derived: the headline conservative constant 23 remains the ' +
+    'advertised value; this sharper 11.5 variant refines O-CL-D and is gated ' +
+    'on inlining the Goldston-Gonek derivation before paper use.',
+});
+
 // =========================================================================
 // SECTION (f) -- NAMED OBSTRUCTIONS (research-grade-open).
 // =========================================================================
@@ -655,6 +688,7 @@ export const IMP1161_COSTIN_LEBOWITZ_PORT_ATTEMPT = Object.freeze({
     C_var_multiplier_on_Aprime: C_VAR_MULTIPLIER, // 4 = 2 * 2 (diagonal*Goldston-Gonek)
     factors: VARIANCE_UPPER_BOUND_FACTORS,
     explicitNumericalAtN1e6: EXPLICIT_NUMERICAL_BOUND_AT_N_1E6,
+    sharpenedVariantGoldstonGonek: GOLDSTON_GONEK_SHARPENED_BOUND,
     rate_matches_empirical: true,
     constant_loose_factor_at_N_1e6: 30, // upper bound / empirical ~ 30x
   }),
@@ -918,5 +952,33 @@ export const IMP1161_COSTIN_LEBOWITZ_PORT_ATTEMPT_ASSERTIONS = [
       'Snaith correction slope -0.997). The flag rate_matches_empirical must ' +
       'remain true. Flipping it to false would contradict the explicit ' +
       'numerical comparison in Section (e) and the imp-1162 / imp-1166 data.',
+  },
+  {
+    id: 'imp1161-goldston-gonek-sharpened-variant-coherent',
+    holds: () => {
+      const s =
+        IMP1161_COSTIN_LEBOWITZ_PORT_ATTEMPT.varianceUpperBound.sharpenedVariantGoldstonGonek;
+      if (!s) return false;
+      if (s.C_Selberg_sharpened !== 11.5) return false;
+      if (s.C_var_at_unit_f !== 92) return false;
+      const expected = 92 * Math.log(Math.log(1e6)) / 1e6;
+      const rel = Math.abs(s.upperBoundOnVariance - expected) / expected;
+      if (rel > 1e-10) return false;
+      // Sharpened bound must still DOMINATE the empirical (it is an upper
+      // bound) yet be STRICTLY TIGHTER than the conservative headline.
+      if (!(s.upperBoundOnVariance > s.empiricalFromImp1162)) return false;
+      if (!(s.upperBoundOnVariance < s.conservativeUpperBound)) return false;
+      const ratio = s.upperBoundOnVariance / s.empiricalFromImp1162;
+      return ratio > 1 && ratio < 20;
+    },
+    why:
+      'The Goldston-Gonek 1998 sharpened-constant variant must use C_Selberg = ' +
+      '11.5, giving C_var = 92 and an upper bound 92 * log log(1e6) / 1e6 to ' +
+      'relative tolerance 1e-10. It must still dominate the imp-1162 empirical ' +
+      '(it is an upper bound) while being strictly tighter than the conservative ' +
+      'headline (23 -> 11.5 halves the prefactor), with looseness ~14.7x (< 20x). ' +
+      'This refines obstruction O-CL-D WITHOUT altering the pinned headline ' +
+      'constant 23; the separate-record design keeps the advertised re-derived ' +
+      'bound conservative while exposing the sharper cited bound for paper use.',
   },
 ];

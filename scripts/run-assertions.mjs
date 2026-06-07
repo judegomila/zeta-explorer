@@ -312,6 +312,8 @@ const DATA_MODULES = [
   '/src/data/imp-1184-direct-selberg-esy-route-audit.js',
   // imp-2481: ESY determinantal-CLT audit — Soshnikov 2000 hypotheses fail on the singular C_mb test function 1/x (infinite H^{1/2} seminorm); determinantal CLT is NOT a weaker citable input, only the 2-point/TIER-2 level is needed (refines imp-486, complements imp-2365).
   '/src/data/imp-2481-esy-determinantal-clt-audit.js',
+  // imp-2492: ESY obstacle-O2 audit (ticket imp-370) — forward dissipative DBM rigidity does NOT transfer to the backward de Bruijn collision flow; reversal is the ill-posed backward heat equation exp(+t k^2), maximal at the microscopic scale the rigidity bound controls. Refines esy-rigidity-port.js obstacle2; O2 stays research-grade open.
+  '/src/data/imp-2492-esy-o2-backward-flow-illposedness-audit.js',
   // imp-1178: refines imp-1166 simplified-correction to best-available Conrey-Snaith 2008 ratios-conjecture formula on the imp-1162 13-point grid.
   '/src/data/imp-1178-conrey-snaith-full-ratios-derivation.js',
   // imp-1186: extends imp-1162 13-point lin-stat grid to 20 points (interior fill + zeros6-based extension to N=2e6); reports 20-point OLS slope + 2000-replicate percentile-bootstrap CI.

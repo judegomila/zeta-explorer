@@ -1,0 +1,23 @@
+# Keep the Vercel upload to just what `vite build` needs.
+# Everything below is local-only engine/harness state or build artifacts.
+
+.claude/
+scripts/
+rust/
+thinking/
+node_modules/
+dist/
+.vite/
+
+# Local dev server (Vercel serves dist/ statically — server.js is unused there)
+server.js
+
+# Misc local artifacts
+*.log
+*.tar.gz
+*.bak
+-Users-USER-Code-Experiments-mathexplorer/
+
+# Probes / scratch
+probe-*.mjs
+zprobe*.mjs

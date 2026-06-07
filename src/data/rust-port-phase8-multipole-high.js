@@ -271,6 +271,43 @@ export const PHASE8_MULTIPOLE_HIGH = Object.freeze({
     momentsCarriedSoFar: 4,
     momentsRemaining: 8,
   }),
+  // imp-1158 (moment5plus sub-gap, first step): carry M_5 (the
+  // DOTRIACONTAPOLE / 32-pole) in addition to M_0..M_4. This pushes the
+  // far-field truncation envelope from O((extent/dist)^5) to
+  // O((extent/dist)^6) -- one extra theta factor per far-field cell.
+  // MEASURED (release, Apple M-series, single-thread, lattice spacing
+  // 1.3): adding M_5 leaves the worst-k MIDPOINT disagreement essentially
+  // unchanged (theta = 0.5 N = 5000: 7.197e-3, vs 7.20e-3 with M_4 only)
+  // because the symmetric arithmetic lattice has a negligible odd-moment
+  // center contribution -- but it tightens the CERTIFIED INTERVAL WIDTH
+  // (the soundness-bearing half-width that downstream rigorous bounds
+  // actually consume) from 6.99e-1 to 3.23e-1 at theta = 0.5 N = 5000
+  // (a 2.16x narrowing, matching the extra (extent/dist) ~ theta = 0.5
+  // envelope factor). Soundness preserved: zero violations across every
+  // tested (N, theta). The strict 1e-4 MIDPOINT target at theta = 0.5
+  // remains open (midpoint-limited, not width-limited, for this lattice);
+  // the residual sub-gap is now imp-1132-sub-multipole-moment6plus.
+  moment5ExtensionImp1158: Object.freeze({
+    momentAdded: 'M_5 (dotriacontapole / 32-pole)',
+    envelopeBefore: '(mass * extent^5) / (dist^5 * (dist - extent))',
+    envelopeAfter: '(mass * extent^6) / (dist^6 * (dist - extent))',
+    parallelAxisM5:
+      'M_5 = M_5_L + 5 d_L M_4_L + 10 d_L^2 M_3_L + 10 d_L^3 M_2_L + ' +
+      '5 d_L^4 M_1_L + mass_L d_L^5   [C(5,q) = 1, 5, 10, 10, 5, 1]',
+    widthTheta0p5N5000Before: 6.99e-1,
+    widthTheta0p5N5000After: 3.23e-1,
+    widthNarrowingX: Math.round((6.99e-1 / 3.23e-1) * 100) / 100, // 2.16x
+    widthTheta0p5N1000Before: 5.04e-1,
+    widthTheta0p5N1000After: 2.39e-1,
+    midDiffTheta0p5N5000: 7.197e-3, // unchanged vs M_4-only 7.20e-3.
+    midDiffUnchangedReason:
+      'Symmetric arithmetic lattice: the M_5 center contribution is ' +
+      'negligible so the midpoint barely moves; the gain is entirely in ' +
+      'the rigorous certified half-width (the load-bearing quantity).',
+    soundnessViolations: 0,
+    strict1eMinus4MidpointTheta0p5Met: false,
+    residualSubGap: 'imp-1132-sub-multipole-moment6plus',
+  }),
   honestScope: Object.freeze({
     whatWasShipped: Object.freeze([
       'Sound high-order multipole (monopole + dipole + quadrupole + ' +

@@ -160,6 +160,12 @@ pub struct MultipoleNodeHigh {
     /// Fourth centered moment M_4 = sum_j (gamma_j - com)^4 (the
     /// HEXADECAPOLE -- new vs imp-1139).
     pub moment_4: Interval,
+    /// Fifth centered moment M_5 = sum_j (gamma_j - com)^5 (the
+    /// DOTRIACONTAPOLE / 32-pole -- imp-1158 moment5plus extension).
+    /// Carrying it pushes the residual envelope from O((extent/dist)^5)
+    /// to O((extent/dist)^6), an extra theta factor of tightening per
+    /// far-field cell.
+    pub moment_5: Interval,
     pub left: Option<usize>,
     pub right: Option<usize>,
 }
@@ -254,7 +260,8 @@ impl BHTreeMultipoleHigh {
             //   quadrupole   = M_2     * (g_k - com)^{-3}
             //   octupole     = M_3     * (g_k - com)^{-4}
             //   hexadecapole = M_4     * (g_k - com)^{-5}
-            // residual envelope = mass * extent^5 / (dist^5 *
+            //   dotriaconta. = M_5     * (g_k - com)^{-6}   [imp-1158]
+            // residual envelope = mass * extent^6 / (dist^6 *
             //                                        (dist - extent))
             let inv_diff = diff.recip();
             if !inv_diff.inf().is_finite() || !inv_diff.sup().is_finite() {
@@ -270,21 +277,24 @@ impl BHTreeMultipoleHigh {
             let inv_diff_3 = inv_diff_2 * inv_diff;
             let inv_diff_4 = inv_diff_3 * inv_diff;
             let inv_diff_5 = inv_diff_4 * inv_diff;
+            let inv_diff_6 = inv_diff_5 * inv_diff;
             let monopole = node.mass * inv_diff;
             let dipole = node.moment_1 * inv_diff_2;
             let quadrupole = node.moment_2 * inv_diff_3;
             let octupole = node.moment_3 * inv_diff_4;
             let hexadecapole = node.moment_4 * inv_diff_5;
-            let center = monopole + dipole + quadrupole + octupole + hexadecapole;
-            // Residual envelope: (mass * extent^5) / (dist_lo^5 *
+            let dotriacontapole = node.moment_5 * inv_diff_6;
+            let center =
+                monopole + dipole + quadrupole + octupole + hexadecapole + dotriacontapole;
+            // Residual envelope: (mass * extent^6) / (dist_lo^6 *
             // (dist_lo - extent_sup)). All terms are floats here so
             // we compute the bound in plain f64; the inflation slack
             // (a few ULPs) is harmless given the magnitude of the
             // bound.
             let dist_lo_2 = dist_lo * dist_lo;
             let dist_lo_4 = dist_lo_2 * dist_lo_2;
-            let dist_lo_5 = dist_lo_4 * dist_lo;
-            let denom = dist_lo_5 * (dist_lo - extent_sup);
+            let dist_lo_6 = dist_lo_4 * dist_lo_2;
+            let denom = dist_lo_6 * (dist_lo - extent_sup);
             if denom <= 0.0 || !denom.is_finite() {
                 if let Some(l) = node.left {
                     stack.push(l);
@@ -297,8 +307,8 @@ impl BHTreeMultipoleHigh {
             let mass_pt = node.mass.sup(); // mass is a point integer.
             let extent2 = extent_sup * extent_sup;
             let extent4 = extent2 * extent2;
-            let extent5 = extent4 * extent_sup;
-            let eps_mag = (mass_pt * extent5) / denom;
+            let extent6 = extent4 * extent2;
+            let eps_mag = (mass_pt * extent6) / denom;
             // Inflate the center +/- eps. If the inflation fails
             // (NaN/Inf input to Interval::try_from) we recurse.
             let inflated = Interval::try_from((
@@ -337,7 +347,7 @@ fn build_recursive(
     let len = hi - lo;
     debug_assert!(len > 0, "empty range in high-order multipole tree build");
     if len <= LEAF_SIZE {
-        let (com, extent, m1, m2, m3, m4) = leaf_summary(gammas, lo, hi);
+        let (com, extent, m1, m2, m3, m4, m5) = leaf_summary(gammas, lo, hi);
         let mass = as_interval(len as f64);
         let id = nodes.len();
         nodes.push(MultipoleNodeHigh {
@@ -350,6 +360,7 @@ fn build_recursive(
             moment_2: m2,
             moment_3: m3,
             moment_4: m4,
+            moment_5: m5,
             left: None,
             right: None,
         });
@@ -358,7 +369,7 @@ fn build_recursive(
     let mid = lo + len / 2;
     let l = build_recursive(gammas, lo, mid, nodes);
     let r = build_recursive(gammas, mid, hi, nodes);
-    let (l_lo, l_hi, l_com, l_mass, l_extent, l_m1, l_m2, l_m3, l_m4) = {
+    let (l_lo, l_hi, l_com, l_mass, l_extent, l_m1, l_m2, l_m3, l_m4, l_m5) = {
         let n = &nodes[l];
         (
             n.lo,
@@ -370,9 +381,10 @@ fn build_recursive(
             n.moment_2,
             n.moment_3,
             n.moment_4,
+            n.moment_5,
         )
     };
-    let (r_lo, r_hi, r_com, r_mass, r_extent, r_m1, r_m2, r_m3, r_m4) = {
+    let (r_lo, r_hi, r_com, r_mass, r_extent, r_m1, r_m2, r_m3, r_m4, r_m5) = {
         let n = &nodes[r];
         (
             n.lo,
@@ -384,6 +396,7 @@ fn build_recursive(
             n.moment_2,
             n.moment_3,
             n.moment_4,
+            n.moment_5,
         )
     };
     debug_assert_eq!(l_hi, r_lo, "child ranges must be adjacent");
@@ -401,13 +414,17 @@ fn build_recursive(
     let two = as_interval(2.0);
     let three = as_interval(3.0);
     let four = as_interval(4.0);
+    let five = as_interval(5.0);
     let six = as_interval(6.0);
+    let ten = as_interval(10.0);
     let dl2 = dl * dl;
     let dl3 = dl2 * dl;
     let dl4 = dl3 * dl;
+    let dl5 = dl4 * dl;
     let dr2 = dr * dr;
     let dr3 = dr2 * dr;
     let dr4 = dr3 * dr;
+    let dr5 = dr4 * dr;
     // M_1^{L at p} = M_1^L + mass_L * d_L
     // M_1^{R at p} = M_1^R + mass_R * d_R
     let moment_1 = l_m1 + l_mass * dl + r_m1 + r_mass * dr;
@@ -440,6 +457,21 @@ fn build_recursive(
         + six * dr2 * r_m2
         + four * dr3 * r_m1
         + r_mass * dr4;
+    // M_5^{L at p} = M_5^L + 5 d_L M_4^L + 10 d_L^2 M_3^L
+    //                       + 10 d_L^3 M_2^L + 5 d_L^4 M_1^L
+    //                       + mass_L d_L^5     [C(5,q) = 1,5,10,10,5,1]
+    let moment_5 = l_m5
+        + five * dl * l_m4
+        + ten * dl2 * l_m3
+        + ten * dl3 * l_m2
+        + five * dl4 * l_m1
+        + l_mass * dl5
+        + r_m5
+        + five * dr * r_m4
+        + ten * dr2 * r_m3
+        + ten * dr3 * r_m2
+        + five * dr4 * r_m1
+        + r_mass * dr5;
     // Cell extent: max corner displacement from parent com over the
     // four corner intervals of the two children.
     let l_lo_disp = (l_com - l_extent) - com;
@@ -464,18 +496,27 @@ fn build_recursive(
         moment_2,
         moment_3,
         moment_4,
+        moment_5,
         left: Some(l),
         right: Some(r),
     });
     id
 }
 
-/// Per-leaf summary: com, extent, M_1, M_2, M_3, M_4.
+/// Per-leaf summary: com, extent, M_1, M_2, M_3, M_4, M_5.
 fn leaf_summary(
     gammas: &[Interval],
     lo: usize,
     hi: usize,
-) -> (Interval, Interval, Interval, Interval, Interval, Interval) {
+) -> (
+    Interval,
+    Interval,
+    Interval,
+    Interval,
+    Interval,
+    Interval,
+    Interval,
+) {
     let len = (hi - lo) as f64;
     let inv_len = as_interval(1.0 / len);
     let mut sum = as_interval(0.0);
@@ -488,6 +529,7 @@ fn leaf_summary(
     let mut m2 = as_interval(0.0);
     let mut m3 = as_interval(0.0);
     let mut m4 = as_interval(0.0);
+    let mut m5 = as_interval(0.0);
     for j in lo..hi {
         let d = gammas[j] - com;
         let m = d.abs().sup();
@@ -497,13 +539,15 @@ fn leaf_summary(
         let d2 = d * d;
         let d3 = d2 * d;
         let d4 = d3 * d;
+        let d5 = d4 * d;
         m1 = m1 + d;
         m2 = m2 + d2;
         m3 = m3 + d3;
         m4 = m4 + d4;
+        m5 = m5 + d5;
     }
     let extent = Interval::try_from((0.0, max_abs)).unwrap_or_else(|_| as_interval(0.0));
-    (com, extent, m1, m2, m3, m4)
+    (com, extent, m1, m2, m3, m4, m5)
 }
 
 /// Dense leaf sum: contributes sum_{j in [lo, hi), j != k} 1 / (gk -

@@ -6042,7 +6042,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close imp-348 angle (b) rate upgrade via local-law rigidity',
     category: 'proof',
     priority: 'high',
-    status: 'pending', model: 'opus-4-7', channel: 'subscription',
+    status: 'completed', model: 'opus-4-7', channel: 'subscription',
     proofSection: 'S7',
     description: 'imp-348 delivered angle (a) microscopic-strip rate; angle (b) was flagged as research-grade open (port Erdős-Schlein-Yau Wigner-matrix local semicircle law rigidity to Riemann-zero initial data). Port the ESY 2011 / Erdős-Yau 2017 rigidity estimate to the Dyson beta=2 flow on the Riemann zeros. Gives ψ_N ~ 1/N unconditionally, which in turn gives an explicit per-N bound r(N) on |t_c(N)| via imp-341 without imp-336 monotonicity.',
     rationale: 'Alternative to Route A: if ESY port works, per-N translation is free via imp-341 + imp-348 + this ticket, no monotonicity conjecture needed.',

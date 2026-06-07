@@ -639,6 +639,29 @@ export const FINITE_K_C_MB_UNCONDITIONAL_ASSERTIONS = [
       '{2e5, 3e5, 5e5}); imp-1088 batch-3 brings the total to 9. A length ' +
       'below 6 means a batch was dropped.',
   },
+  {
+    id: 'imp1087-batch2-rescue-margin-monotone-increasing',
+    holds: () => {
+      const rows = FINITE_K_C_MB_UNCONDITIONAL.kPlateauLadder
+        .filter((r) => [200000, 300000, 500000].includes(r.N))
+        .sort((a, b) => a.N - b.N);
+      if (rows.length !== 3) return false;
+      return (
+        rows[0].rescue_margin_factor < rows[1].rescue_margin_factor &&
+        rows[1].rescue_margin_factor < rows[2].rescue_margin_factor
+      );
+    },
+    why:
+      'Within batch-2 the rescue margin factor (0.12751 / rescue_lhs) must ' +
+      'increase strictly with N: under the FIXED K = 0.2014 carryforward, ' +
+      'rescue_lhs = K * log(N) / sqrt(N) is monotone decreasing in N on this ' +
+      'range, so the margin is monotone increasing (23.20x at N=2e5, 27.50x ' +
+      'at N=3e5, 34.12x at N=5e5). This pins the BINDING (least-slack) plateau ' +
+      'at the smallest N = 2e5: the conservative carryforward is most-stressed ' +
+      'there, not at N = 5e5 where the prose quotes the best-case ~34x margin. ' +
+      'A non-monotone result would mean the carryforward K stopped being a ' +
+      'single fixed constant or the rescue_lhs computation regressed.',
+  },
   // ── imp-1088 batch-3 CAPSTONE K_PLATEAU_LADDER tripwires ────────────────
   {
     id: 'imp1088-k-plateau-ladder-has-three-batch3-rows',

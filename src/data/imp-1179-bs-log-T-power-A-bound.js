@@ -290,6 +290,54 @@ const REFINED_OBSTRUCTION_O_BS_B = Object.freeze({
   crossoverAStarUnderBsFavorableConvention: SCENARIO_BS_SHIFTS_TO_0_99.crossoverAStar,
 });
 
+// ── A-kappa coupling caveat (imp-2494 sharpening of O-BS-B) ──────────────
+// REFINED_OBSTRUCTION_O_BS_B treats the log-power A_BS and the density exponent
+// kappa_BS as INDEPENDENT levers: it asks for a paper-walk pinning A_BS <= 6
+// while leaving kappa_BS = 1 - 8(1-sigma)/(11+1.5*sigma) fixed. But in the
+// Selberg-mollifier zero-density method the two are COUPLED through the
+// mollifier length theta: a longer mollifier sharpens the exponent (better
+// kappa) at the cost of more divisor / amplifier log factors (larger a_mol +
+// a_amp, hence larger A); a shorter mollifier lowers A but DEGRADES kappa. So
+// buying A_BS down toward 6 by shortening the mollifier simultaneously raises
+// BS_formal = (2 e / kappa) * T_PT^{-kappa} (kappa shrinks, T_PT^{-kappa}
+// grows), eroding the very crossover budget A* that A_BS must beat. This caveat
+// WITNESSES that erosion with an illustrative kappa-degradation sweep at the
+// production sigma = 0.75; the exact dA/dtheta and dkappa/dtheta relation is
+// the content of the paper-walk and is NOT pinned here (isRigorous = false).
+const A_KAPPA_COUPLING_DELTAS = [0, 0.025, 0.05]; // illustrative kappa losses
+const A_KAPPA_COUPLING_CAVEAT = Object.freeze({
+  claim:
+    'A_BS and kappa_BS are not independent levers: both are set by the ' +
+    'Selberg-mollifier length theta, so reducing A_BS by shortening the ' +
+    'mollifier degrades kappa_BS and lowers the crossover budget A* that A_BS ' +
+    'must beat.',
+  isStructuralHeuristic: true, // flags the coupling; NOT a rigorous derivation
+  isRigorous: false,
+  sigma: SIGMA_OPT_PRODUCTION,
+  inghamFormalAt075: etruncFormalFromExponent(inghamExponent(SIGMA_OPT_PRODUCTION)),
+  bsFormalAt075: etruncFormalFromExponent(buiSoundExponent(SIGMA_OPT_PRODUCTION)),
+  // Each row degrades kappa_BS by delta (mollifier shortened), multiplying
+  // BS_formal by exp(delta * log T_PT) = T_PT^{delta}, then recomputes the
+  // log-free crossover A* against the fixed Ingham baseline.
+  degradationSweep: A_KAPPA_COUPLING_DELTAS.map((delta) => {
+    const inghamFormal = etruncFormalFromExponent(inghamExponent(SIGMA_OPT_PRODUCTION));
+    const bsFormal = etruncFormalFromExponent(buiSoundExponent(SIGMA_OPT_PRODUCTION));
+    const bsFormalDegraded = bsFormal * Math.exp(delta * LOG_T_PT);
+    return {
+      deltaKappa: delta,
+      bsFormalDegraded,
+      ratioIoverBs: inghamFormal / bsFormalDegraded,
+      crossoverAStar: crossoverAStar(inghamFormal, bsFormalDegraded),
+    };
+  }),
+  consequence:
+    'The REFINED_OBSTRUCTION_O_BS_B closure path "pin A_BS <= 6" is NOT a free ' +
+    'lever: a rigorous BS paper-walk must track A_BS and kappa_BS JOINTLY as ' +
+    'functions of the mollifier length, because a mollifier short enough to ' +
+    'force A_BS <= 6 can simultaneously lower the crossover A* below the ' +
+    'achieved A_BS, leaving the obstruction binding.',
+});
+
 // ── Headline payload ────────────────────────────────────────────────────
 
 export const IMP_1179_BS_LOG_T_POWER_A_BOUND = Object.freeze({
@@ -329,6 +377,7 @@ export const IMP_1179_BS_LOG_T_POWER_A_BOUND = Object.freeze({
   verdictAtUpper: VERDICT_AT_UPPER,
 
   refinedObstruction: REFINED_OBSTRUCTION_O_BS_B,
+  aKappaCouplingCaveat: A_KAPPA_COUPLING_CAVEAT,
 
   // Replication of the ticket-description arithmetic check:
   //   at A = 6: (log T_PT)^6 * BS_formal(0.75) = 5.6e8 * 1.51e-11 = 8.5e-3
@@ -496,5 +545,20 @@ export const IMP_1179_ASSERTIONS = [
     why: 'Per ticket atomicity, this file MUST NOT silently update src/data/asymptotic-lambda-bound-2026-05-20.js. The headline E_trunc_pt = 3.06e-5 stays at the Ingham baseline; this ticket only REFINES the named obstruction.',
     holds: () => IMP_1179_BS_LOG_T_POWER_A_BOUND.honestScope.notDoneList
       .some((s) => s.includes('asymptotic-lambda-bound')),
+  },
+  {
+    id: 'imp1179-a-kappa-coupling-erodes-crossover',
+    why: 'imp-2494 sharpening: A_BS and kappa_BS are coupled through the Selberg-mollifier length, so shortening the mollifier to reduce A_BS degrades kappa_BS and LOWERS the crossover budget A*. The degradation sweep must show crossover A* STRICTLY DECREASING as the illustrative kappa-loss grows (baseline ~ 4.32 at delta = 0, eroded below it at delta = 0.05), and the caveat must stay flagged non-rigorous. Flipping isRigorous to true or breaking the monotone erosion would falsely present the "pin A_BS <= 6" path as a free, independent lever.',
+    holds: () => {
+      const c = IMP_1179_BS_LOG_T_POWER_A_BOUND.aKappaCouplingCaveat;
+      if (!c || c.isRigorous !== false || c.isStructuralHeuristic !== true) return false;
+      const s = c.degradationSweep;
+      if (!Array.isArray(s) || s.length !== 3) return false;
+      const monotone = s[0].crossoverAStar > s[1].crossoverAStar
+        && s[1].crossoverAStar > s[2].crossoverAStar;
+      const baselineOk = s[0].crossoverAStar > 4.0 && s[0].crossoverAStar < 4.7;
+      const erodes = s[2].crossoverAStar < s[0].crossoverAStar;
+      return monotone && baselineOk && erodes;
+    },
   },
 ];

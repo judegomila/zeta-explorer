@@ -18210,7 +18210,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Higher-order correlation alternative route for ESY closure (per imp-1165 verdict)',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     completedAt: '2026-05-22T17:50:00Z',
     completedByModel: 'opus-4-7',
     completedByChannel: 'subscription',

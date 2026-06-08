@@ -89,6 +89,8 @@ const SchattenTraceNormPage = lazy(() => import('./pages/SchattenTraceNormPage.j
 const CayleySchurTrajectoryPage = lazy(() => import('./pages/CayleySchurTrajectoryPage.jsx'));
 const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
 const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboardPage.jsx'));
+const MillsTheoremPage = lazy(() => import('./pages/MillsTheoremPage.jsx'));
+const GilbreathObservationPage = lazy(() => import('./pages/GilbreathObservationPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -125,6 +127,8 @@ const NAV_GROUPS = [
       { to: '/pascal', label: 'Pascal' },
       { to: '/odd-zeta', label: 'Odd Zeta' },
       { to: '/twin-ladder', label: 'Twin Ladder' },
+      { to: '/mills-theorem', label: "Mills' Theorem" },
+      { to: '/gilbreath', label: 'Gilbreath Observation' },
       { to: '/calabi-yau', label: 'Calabi-Yau' },
       { to: '/gram-points', label: 'Gram Points' },
       { to: '/schatten-trace-norm', label: 'Schatten Trace Norm' },
@@ -483,6 +487,8 @@ function AppShell() {
           <Route path="/papers" element={<PapersListPage />} />
           <Route path="/paper-upload" element={<PaperUploadPage />} />
           <Route path="/twin-ladder" element={<TwinLadderPage />} />
+          <Route path="/mills-theorem" element={<MillsTheoremPage />} />
+          <Route path="/gilbreath" element={<GilbreathObservationPage />} />
           <Route path="/calabi-yau" element={<CalabiYauPage />} />
           <Route path="/cross-attack" element={<CrossAttackPage />} />
           <Route path="/proof-planner" element={<ProofPlannerPage />} />

@@ -1627,6 +1627,30 @@ async function sweepViaPool(sockPath, modules, parallel, fastMode) {
   return { passed, failed, loadErrors, failures, lines, startMs };
 }
 
+// imp-2483: Vite's in-process SSR transport can spuriously emit
+// "transport invoke timed out after 60000ms" under heavy CPU contention even
+// when the module evaluates fine — these false-positive load timeouts pollute
+// the assertion log and can mask real regressions (notably for the heavy
+// c-mb-alternative-angles-eval.js / paper-skeptic-review-7b-phase51.js modules).
+// Retry the load a bounded number of times on transient timeout errors only;
+// the Vite cache stays warm from the prior attempt so the retry is cheap and
+// usually succeeds once the contention spike passes. Non-timeout errors (real
+// load failures) still throw immediately, preserving the original behavior.
+async function loadModuleWithRetry(target, modPath) {
+  const MAX_LOAD_ATTEMPTS = 3;
+  let lastErr;
+  for (let attempt = 1; attempt <= MAX_LOAD_ATTEMPTS; attempt++) {
+    try {
+      return await target.ssrLoadModule(modPath);
+    } catch (e) {
+      lastErr = e;
+      const transient = /invoke timed out|transport.*timed out|timed out after \d+ms/i.test(e.message || '');
+      if (!transient || attempt === MAX_LOAD_ATTEMPTS) throw e;
+    }
+  }
+  throw lastErr;
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -1691,10 +1715,10 @@ async function main() {
     try {
       if (pool) {
         slot = await pool.acquire();
-        mod  = await slot.server.ssrLoadModule(modPath);
+        mod  = await loadModuleWithRetry(slot.server, modPath);
         pool.release(slot);
       } else {
-        mod = await server.ssrLoadModule(modPath);
+        mod = await loadModuleWithRetry(server, modPath);
       }
     } catch (e) {
       if (slot && pool) pool.release(slot);

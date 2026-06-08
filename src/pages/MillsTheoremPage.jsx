@@ -60,10 +60,13 @@ export default function MillsTheoremPage() {
           Mills' theorem itself is <strong style={{ color: '#22c55e' }}>unconditional</strong>:
           the constant <InlineMath tex="A" /> provably exists. But the <em>specific</em> value
           <InlineMath tex={"A \\approx 1.3063778838\\ldots"} /> shown here is the smallest such
-          constant <em>only if the Riemann Hypothesis holds</em>. Under RH the prime gaps near{' '}
-          <InlineMath tex="x" /> are small enough (a result of Cramér-type strength) to make the
-          "least prime above each cube" recurrence the optimal one. Without RH we still know{' '}
-          <em>a</em> Mills constant exists; we just cannot prove these are its leading digits.
+          constant <em>only if the Riemann Hypothesis holds</em>. RH gives the conditional prime-gap
+          bound <InlineMath tex={"g(x) = O(\\sqrt{x}\\,\\log x)"} /> (Cramér, 1920) — far weaker than
+          Cramér's <em>conjectured</em> <InlineMath tex={"O((\\log x)^2)"} />, but already tiny next to the
+          gap <InlineMath tex={"(x+1)^3 - x^3 \\approx 3x^2"} /> between consecutive cubes. That margin
+          is what lets one prove the "least prime above each cube" recurrence yields the minimal
+          constant. Without RH we still know <em>a</em> Mills constant exists; we just cannot prove
+          these are its leading digits.
           The constant is also believed to be irrational and transcendental, though neither is
           proven.
         </p>

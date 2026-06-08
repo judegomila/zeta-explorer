@@ -12,15 +12,20 @@
 //
 // Pure SVG + React. d3-scale used for the log-N axis.
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { scaleLog, scaleLinear } from 'd3-scale';
 import { LAMBDA_BOUNDS } from '../data/lambda-roadmap.js';
-// K_PLATEAU_LADDER (from finite-k-c-mb-unconditional.js) and
-// FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN (from finite-height-beats-platt-trudgian.js)
-// are LAZY-LOADED via dynamic import to avoid bundling the ~16MB
-// finite-k-c-mb-unconditional chunk synchronously into the page chunk.
-// (Same pattern imp-1096 applied to FullStoryPage for /#/full-story.)
+// IMPORTANT: do NOT import (statically OR via dynamic import()) the modules
+// finite-k-c-mb-unconditional.js or finite-height-beats-platt-trudgian.js
+// here. Both transitively import imp-962-plateau-structure-N10k-to-N1e6.js,
+// which imports ZEROS_EXTENDED from zeros-to-1e6.js — the ~16.7 MB data-zeros
+// bundle. Pulling that in (even lazily) forces the browser to download +
+// parse + evaluate 16.7 MB of array literals on the main thread, which wedges
+// the renderer (the page goes blank / unresponsive with no JS error). See
+// MEMORY: "No heavy imports in pages". The two small pieces of data this chart
+// needs (the 9-row K_PLATEAU_LADDER rescue margins and the two beats-PT
+// L_star values) are deterministic published constants and are inlined below.
 
 // PT 2021 SOTA upper bound.
 const PT_BOUND = 0.2;
@@ -101,6 +106,38 @@ function fmtN(n) {
   return String(n);
 }
 
+// ── Inlined K_PLATEAU_LADDER rescue margins (imp-1082/1087/1088) ─────────────
+// Mirrors finite-k-c-mb-unconditional.js K_PLATEAU_LADDER, but computed inline
+// from the published rescue formula so this page never imports that module
+// (which drags in the 16.7 MB zeros bundle — see note at top of file).
+//   rescue_margin_factor(N) = RESCUE_THRESHOLD / (K * ln(N) / sqrt(N))
+// with the imp-963-headline carryforward K = 0.2014 and the imp-486 rescue
+// threshold 0.12751. The 9 ladder N values are the batch-1/2/3 plateau
+// interiors. Verified to match the module's emitted rescue_margin_factor
+// values (e.g. 45.83 at N = 1e6, 34.12 at N = 5e5, 9.04 at N = 2e4).
+const RESCUE_THRESHOLD = 0.12751;
+const CARRYFORWARD_K = 0.2014;
+const K_PLATEAU_LADDER_NS = [
+  20000, 50000, 100000, 200000, 300000, 500000, 600000, 800000, 1000000,
+];
+const K_PLATEAU_LADDER = K_PLATEAU_LADDER_NS.map((N) => {
+  const lhs = (CARRYFORWARD_K * Math.log(N)) / Math.sqrt(N);
+  return {
+    N,
+    rescue_margin_factor: lhs > 0 ? +(RESCUE_THRESHOLD / lhs).toFixed(2) : null,
+  };
+});
+
+// ── Inlined beats-Platt-Trudgian L_star values ──────────────────────────────
+// Mirrors finite-height-beats-platt-trudgian.js rigorousUnconditionalBeat
+// (.L_star at N = 1e4) and rigorousUnconditionalBeatCarryforwardN1e6 (.L_star
+// at N = 1e6). These are the published MEASURED (0.02, imp-440+imp-963) and
+// CARRYFORWARD (0.121, imp-1088) Lambda upper bounds used as the two regime-
+// transition dots. Inlined to avoid importing that module (it imports
+// finite-k-c-mb-unconditional.js → the 16.7 MB zeros bundle).
+const LAMBDA_1E4_MEASURED = 0.02;
+const LAMBDA_1E6_CARRYFORWARD = 0.121;
+
 // Reference card chip.
 function pill(color, text) {
   return (
@@ -127,37 +164,12 @@ export default function LambdaTimelinePage() {
   const yTicks = [0, 0.05, 0.1, 0.15, 0.2, 0.25];
   const yMarginTicks = [0, 10, 20, 30, 40, 50];
 
-  // Lazy-load the heavy data modules. The page renders immediately with
-  // placeholder values lifted from the published bounds (0.02 measured at
-  // N=1e4 per imp-440 + imp-963, 0.121 carryforward at N=1e6 per imp-1088).
-  const [heavyData, setHeavyData] = useState(null);
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const [kp, fh] = await Promise.all([
-          import('../data/finite-k-c-mb-unconditional.js'),
-          import('../data/finite-height-beats-platt-trudgian.js'),
-        ]);
-        if (cancelled) return;
-        setHeavyData({
-          ladder: kp.K_PLATEAU_LADDER,
-          beat: fh.FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN,
-        });
-      } catch (err) {
-        if (cancelled) return;
-        setHeavyData({ error: String(err && err.message ? err.message : err) });
-      }
-    })();
-    return () => { cancelled = true; };
-  }, []);
-
-  const ladderRows = (heavyData && heavyData.ladder) ? heavyData.ladder : [];
-  const beat = (heavyData && heavyData.beat) ? heavyData.beat : null;
-  const beat1e4 = beat ? beat.rigorousUnconditionalBeat : null;
-  const beat1e6 = beat ? beat.rigorousUnconditionalBeatCarryforwardN1e6 : null;
-  const lambda1e4 = (beat1e4 && beat1e4.available) ? beat1e4.L_star : 0.02;
-  const lambda1e6 = (beat1e6 && beat1e6.available) ? beat1e6.L_star : 0.121;
+  // Ladder rescue-margin markers and the two regime-transition Lambda dots are
+  // sourced from the inlined published constants above (NOT from a dynamic
+  // import — that pulled the 16.7 MB zeros bundle and wedged the renderer).
+  const ladderRows = K_PLATEAU_LADDER;
+  const lambda1e4 = LAMBDA_1E4_MEASURED;
+  const lambda1e6 = LAMBDA_1E6_CARRYFORWARD;
 
   // Helper for plotting Lambda dot at (N, value).
   function dotL(N, val, color, label) {

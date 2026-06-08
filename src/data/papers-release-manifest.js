@@ -28,7 +28,35 @@
  *       via Polymath15 bridge step 4 G6a_shock_lipschitz closure).
  */
 
-import { PAPER_PUBLICATION } from './paper-publication-2026-05.js';
+// IMPORTANT: import ONLY the lightweight metadata mirror, never the full
+// PAPER_PUBLICATION from paper-publication-2026-05.js. That module pulls a
+// heavy transitive chain (… → zeros-to-1e6.js, a 16.7 MB blob) which, when
+// dragged into this manifest, gets bundled into the lazy PapersDownloadPage
+// chunk. The browser then spends so long parsing/executing the 16.7 MB chunk
+// that React never mounts before the page-health checker samples it, so the
+// page reads as "0 chars" with no error (same failure mode fixed for
+// LambdaBoundsPage in 49f8d10f). The meta mirror carries every field this
+// page actually renders.
+import { PAPER_PUBLICATION_META } from './paper-publication-meta.js';
+
+// sectionsIncluded is NOT mirrored in the meta module; keep it here as a
+// static literal (kept in sync with SECTIONS_INCLUDED in
+// paper-publication-2026-05.js). This is display-only and load-bearing for
+// nothing beyond the collapsible "Sections" list on the page.
+const V1_SECTIONS_INCLUDED = Object.freeze([
+  'Abstract',
+  'Section 1. Introduction',
+  'Section 2. Background',
+  'Section 3. Main result (Theorem 1 + Corollary 1 + 6-link proof sketch)',
+  'Section 4. Conclusion and open problems',
+  'Appendix C. Six-link rigor chain',
+  'Appendix C-prime. Hybrid factor table (2026-05-19 refresh, imp-1127)',
+  'Section 4. Asymptotic bound via Barnes-Hut multipole sweep (imp-1147, NEW 2026-05-20)',
+  'Appendix D. Refresh log 2026-05-19 (imp-1123 + imp-1125 + imp-1127 + imp-1128)',
+  'Bibliography (8 entries: de Bruijn 1950, Newman 1976, Ingham 1940, ' +
+    'Iwaniec-Kowalski 2004, ESY 2011, Polymath15 2018, Rodgers-Tao 2020, ' +
+    'Platt-Trudgian 2021)',
+]);
 
 export const PAPERS_RELEASE_MANIFEST = Object.freeze([
   Object.freeze({
@@ -48,11 +76,11 @@ export const PAPERS_RELEASE_MANIFEST = Object.freeze([
       'improvement over imp-341). Plus a candidate ESY-positive empirical ' +
       'observable identified for follow-up.',
     pdfPath: '/papers/gomila-finite-height-beat-2026-05.pdf',
-    fileSizeBytes: PAPER_PUBLICATION.fileSizeBytes,
-    pageCount: PAPER_PUBLICATION.pageCount,
-    builtAt: PAPER_PUBLICATION.builtAt,
-    latexCompilerUsed: PAPER_PUBLICATION.latexCompilerUsed,
-    sectionsIncluded: PAPER_PUBLICATION.sectionsIncluded,
+    fileSizeBytes: PAPER_PUBLICATION_META.fileSizeBytes,
+    pageCount: PAPER_PUBLICATION_META.pageCount,
+    builtAt: PAPER_PUBLICATION_META.builtAt,
+    latexCompilerUsed: PAPER_PUBLICATION_META.latexCompilerUsed,
+    sectionsIncluded: V1_SECTIONS_INCLUDED,
     citationKey: 'gomila2026',
     bibtexSuggestion:
       '@unpublished{gomila2026,\n' +

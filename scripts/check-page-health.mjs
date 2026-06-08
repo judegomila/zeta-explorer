@@ -122,35 +122,52 @@ async function checkRoute(browser, route) {
     navError = e.message;
   }
 
-  // Read full rendered text to catch silent failures (pages stuck on "Loading..."
-  // or blank #root without a JS error). Two signals:
-  //   (1) full length — anything under MIN_RENDER_CHARS is suspicious
-  //   (2) stuck-loading — "Loading..." as the only visible content is a fail
-  let fullText = '';
+  // Read a richer render signal to catch silent failures (pages stuck on
+  // "Loading..." or a blank #root without a JS error) WITHOUT false-positiving
+  // on pure-SVG pages. innerText omits SVG <text>, so we evaluate in-browser:
+  //   - textContentLen: document.body.textContent length (INCLUDES svg text)
+  //   - rootEls: count of rendered element nodes under #root (collapsed tree → ~0)
+  //   - svgTextNodes: count of `svg text` nodes (a chart-only page still renders)
+  //   - visibleText: innerText snippet (for the report) plus stuck-loading check
+  let metrics = {
+    textContentLen: 0,
+    rootEls: 0,
+    svgTextNodes: 0,
+    visibleText: '',
+  };
   try {
-    fullText = await page
-      .locator('body')
-      .first()
-      .innerText({ timeout: 2000 })
-      .catch(() => '');
+    metrics = await page.evaluate(() => {
+      const body = document.body;
+      const root = document.querySelector('#root');
+      return {
+        textContentLen: (body?.textContent || '').trim().length,
+        rootEls: root ? root.querySelectorAll('*').length : 0,
+        svgTextNodes: document.querySelectorAll('svg text').length,
+        visibleText: (body?.innerText || '').trim(),
+      };
+    });
   } catch {
-    // no-op
+    // no-op — leave defaults, which will read as effectively empty
   }
-  const trimmed = (fullText || '').trim();
-  // Two render-failure signals:
-  //   (1) stuck-loading: body is short AND contains "loading" (Suspense fallback
-  //       or a manual loading spinner that never resolves)
-  //   (2) effectively empty: body is very short AND has no nav text (the #root
-  //       tree collapsed, e.g. ErrorBoundary with blank fallback, or component
-  //       returned null on the top level). Normal empty-state pages still have
-  //       the nav menu text (~150 chars), so 50 is a safe floor.
+  const trimmed = (metrics.visibleText || '').trim();
+  // Render-failure signals:
+  //   (1) stuck-loading: visible text is short AND contains "loading" (Suspense
+  //       fallback or a spinner that never resolves).
+  //   (2) effectively empty: ALL of — textContent tiny (< 40), #root has almost
+  //       no element nodes (< 5), AND no svg text nodes. This means the tree
+  //       genuinely collapsed (blank ErrorBoundary, top-level null). A pure-SVG
+  //       chart page (e.g. /lambda-timeline) has many root els + svg text, so it
+  //       passes even though innerText reports ~0 chars.
   const stuckLoading =
     trimmed.length > 0 && trimmed.length < 80 && /loading/i.test(trimmed);
-  const effectivelyEmpty = trimmed.length < 50;
+  const effectivelyEmpty =
+    metrics.textContentLen < 40 &&
+    metrics.rootEls < 5 &&
+    metrics.svgTextNodes === 0;
   const renderError = stuckLoading
     ? `page stuck on loading state (${trimmed.length} chars: "${trimmed.slice(0, 80)}")`
     : effectivelyEmpty
-      ? `rendered body effectively empty (${trimmed.length} chars)`
+      ? `rendered body effectively empty (textContent=${metrics.textContentLen} chars, rootEls=${metrics.rootEls}, svgText=${metrics.svgTextNodes})`
       : null;
   const visibleText = trimmed.slice(0, 120).replace(/\n+/g, ' ');
 

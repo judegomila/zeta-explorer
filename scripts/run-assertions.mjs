@@ -1652,6 +1652,9 @@ const DATA_MODULES = [
   '/src/data/three-attacks-section.js',
   '/src/data/turing-zero-count-verification.js',
   '/src/data/zero-free-region-from-lambda.js',
+  // imp-2518: imp-897 sub-gap RESOLVED-PARTIAL sync tripwires (same-step
+  // collision bracket + Richardson-vs-single-point sharpness re-derivation).
+  '/src/data/imp-857-phased-forcing-sweep.js',
 ];
 
 const ALL_MODULES = FAST_MODE

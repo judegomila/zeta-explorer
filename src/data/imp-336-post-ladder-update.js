@@ -199,7 +199,13 @@ const ROUTE_A_STATUS = {
         'Montgomery 1973 pair-correlation hypothesis.',
       status:
         'open — conditional on GUE pair-correlation / Ben Arous-Bourgade port ' +
-        'to Riemann zeros',
+        'to Riemann zeros. REFINED by imp-2515 ' +
+        '(imp-2515-g1-sub-extremal-bulk-witness.js): the uniform-in-N reading ' +
+        '(k*_N in W(alpha, N) for all large N) is FALSE unconditionally — at ' +
+        'every strict min-gap record N_r the argmin is the newest gap ' +
+        'k*_{N_r} = N_r - 1 (record-time lemma; 36 records verified up to ' +
+        'N = 10^6). The surviving open target is the density form (D), named ' +
+        'G1-sub-extremal-density-form, empirically supported at 10^6 zeros.',
     },
   },
 };
@@ -304,7 +310,16 @@ export const IMP336_POST_LADDER_UPDATE = {
     'propagation gap but did not assign it a stable id. A build-time assertion ' +
     '(imp409-trajectory-subgap-named) now pins the id so future references stay anchored. ' +
     'The mathematical closure of trajectory monotonicity remains open research; this is a ' +
-    'cataloguing/structural improvement, not a proof.',
+    'cataloguing/structural improvement, not a proof. ' +
+    'imp-2515 (api-pool, opus-4-8): honest-partial REFINEMENT of G1-sub-extremal. The new ' +
+    'witness module imp-2515-g1-sub-extremal-bulk-witness.js proves the record-time lemma ' +
+    '(unconditional): B_N -> 0 forces infinitely many strict min-gap records, and at every ' +
+    'record N_r the argmin is the newest gap k*_{N_r} = N_r - 1, so the uniform-in-N reading ' +
+    'of bulk confinement is FALSE for every fixed alpha. A 10^6-zero sweep confirms 36 records, ' +
+    'measures the edge-violation density profile (approximately linear in alpha, -> 0 as ' +
+    'alpha -> 0), and finds 8.76 percent raw-vs-unfolded argmin divergence. The surviving open ' +
+    'target is the density form G1-sub-extremal-density-form; Route A drift-sign work must ' +
+    'handle edge-argmin record times or restrict to non-record N. Not a closure of (D).',
   consumes: [
     'imp-360/imp-405 DYSON_LADDER_MEASURED (dyson-ladder-measured.js) — ' +
       MEASURED_ROWS.length +

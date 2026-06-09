@@ -39,7 +39,10 @@
  *   forcing prototype).
  * Modified by: imp-1000 (canonical sub-gap surfacing under id
  *   imp-893-sub-large-N-rerun + 8th assertion); imp-1041 (added @module /
- *   @fileoverview JSDoc header for navigation).
+ *   @fileoverview JSDoc header for navigation); imp-2518 (imp-897 sub-gap
+ *   synced to RESOLVED-PARTIAL per imp-857-phased-forcing-richardson.js +
+ *   exported IMP_857_PHASED_FORCING_SWEEP_ASSERTIONS tripwires, registered
+ *   with run-assertions.mjs).
  *
  * Upstream deps:
  *   - src/math/imp-857-phase-locked-dyson.mjs (prototype the rows measure)
@@ -369,7 +372,10 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
 
   status:
     'PARTIAL (6 of 20 grid cells measured; {5000, 10000} x all eps and ' +
-    '{0.02, 0.1} x {1000, 2000} deferred to imp-896 pending imp-894 retuning)',
+    '{0.02, 0.1} x {1000, 2000} deferred to imp-896 pending imp-894 retuning; ' +
+    'sub-gap imp-897 RESOLVED-PARTIAL via ' +
+    'src/math/imp-857-phased-forcing-richardson.js, residual under ' +
+    'imp-917 + imp-898)',
 
   prototypeFile: 'src/math/imp-857-phase-locked-dyson.mjs',
   upstreamMemo: 'src/math/imp-857-phased-forcing-memo.js',
@@ -446,11 +452,35 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
         'Richardson-extrapolated certified upper bound on C_mb_empirical(N) ' +
         'via the {eps_1, eps_2} -> eps = 0 extrapolation at each N.',
       blocker:
-        'Requires all five eps-grid points per N (currently have only three), ' +
-        'and requires a formal bound on the Richardson residual R(eps_1, ' +
-        'eps_2) that turns the two-point extrapolation into an interval. ' +
-        'Naturally batches after imp-896.',
+        '(historical, pre-resolution) Requires all five eps-grid points per ' +
+        'N (currently have only three), and requires a formal bound on the ' +
+        'Richardson residual R(eps_1, eps_2) that turns the two-point ' +
+        'extrapolation into an interval. Naturally batches after imp-896.',
       prerequisite: 'imp-896',
+      status: 'RESOLVED-PARTIAL (synced by imp-2518; see resolvedBy)',
+      resolvedBy: 'src/math/imp-857-phased-forcing-richardson.js',
+      resolution:
+        'imp-897 was implemented as an HONEST-PARTIAL closure in ' +
+        'src/math/imp-857-phased-forcing-richardson.js (registered with ' +
+        'scripts/run-assertions.mjs): (1) the two-point Richardson scheme ' +
+        'is formalized with an imp-892-derived residual bound delta_R = ' +
+        'eps_1 * eps_2 * H_0^2 / (2 * (eps_2 - eps_1)); (2) under the raw ' +
+        'imp-892 bound the Richardson enclosure is ALWAYS strictly wider ' +
+        'than the minimum-eps single-point enclosure (closed-form ratio ' +
+        '2 * eps_2 / (eps_2 - eps_1) = 2.5 at the measured pair (0.01, ' +
+        '0.05); imp-981 audit corrected the original threshold prose), so ' +
+        'the CERTIFIED bound uses the single-point intersected enclosure ' +
+        '(E2 / E*), not Richardson; (3) applied to the six measured rows ' +
+        'in this file it extends the certified C_mb frontier to N in ' +
+        '{1000, 2000}, where no prior certified row existed (contingent ' +
+        'on imp-892). Residual research is promoted to imp-917 (14-cell ' +
+        'grid execution at N in {5000, 10000} and the missing eps values) ' +
+        'and imp-898 (sub-step collision-time resolution, without which ' +
+        'the Richardson numerator vanishes at dt granularity). The five- ' +
+        'eps-grid blocker named above is therefore NOT what resolution ' +
+        'looked like: the certified-choice analysis showed Richardson is ' +
+        'dominated by the single-point scheme until imp-898 lands, ' +
+        'independent of grid completion.',
     },
     {
       id: 'imp-898',
@@ -503,6 +533,26 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
     'change.',
   openSubGap: PHASED_FORCING_SWEEP_SUB_GAP,
 
+  closureNoteImp2518:
+    'imp-2518 (api-pool, opus-4-8): sub-gap SYNC, no new math claimed. The ' +
+    'auto-seeded ticket asked to close named sub-gap imp-897 (Richardson- ' +
+    'extrapolated certified upper bound on C_mb_empirical(N)) declared in ' +
+    'this file. The named work had ALREADY been implemented as an honest- ' +
+    'partial closure in src/math/imp-857-phased-forcing-richardson.js ' +
+    '(scheme formalized; certified single-point intersected enclosure ' +
+    'extends the certified C_mb frontier to N in {1000, 2000}; Richardson ' +
+    'shown strictly wider than single-point under the raw imp-892 bound, ' +
+    'ratio 2 * eps_2 / (eps_2 - eps_1) = 2.5 at (0.01, 0.05); residual ' +
+    'promoted to imp-917 + imp-898), but the openSubGaps entry here was ' +
+    'never updated, so the harvester re-seeded the gap as still-open ' +
+    '(seeding imp-2518 itself). This change marks the imp-897 entry ' +
+    'RESOLVED-PARTIAL with the decisive facts, and ships build-time ' +
+    'tripwires (IMP_857_PHASED_FORCING_SWEEP_ASSERTIONS, registered with ' +
+    'scripts/run-assertions.mjs) that re-derive the same-step collision ' +
+    'bracket and the Richardson-vs-single-point sharpness fact from the ' +
+    'measured rows in this file, independently of the richardson module ' +
+    '(which imports this file; importing it back would be circular).',
+
   headline:
     'PARTIAL: phased-forcing wrapper-width reduction factor decays with N ' +
     'at fixed (k0, omega). Measured: 1.19x / 2.25x at N=1000, 1.05x / 1.05x ' +
@@ -544,5 +594,89 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
       'the run-assertions.mjs assertion harness in this atomic change.',
   ],
 };
+
+// ── imp-2518 build-time tripwires (run by scripts/run-assertions.mjs) ───────
+//
+// These re-derive the decisive facts behind the imp-897 RESOLVED-PARTIAL
+// sync from the measured rows IN THIS FILE, deliberately without importing
+// src/math/imp-857-phased-forcing-richardson.js (that module imports this
+// one; importing it back would create a cycle).
+
+export const IMP_857_PHASED_FORCING_SWEEP_ASSERTIONS = [
+  {
+    id: 'imp2518-imp897-subgap-resolved-partial-synced',
+    holds: () => {
+      const g = IMP_857_PHASED_FORCING_SWEEP.openSubGaps.find(
+        (s) => s.id === 'imp-897',
+      );
+      return (
+        !!g &&
+        typeof g.status === 'string' &&
+        g.status.startsWith('RESOLVED-PARTIAL') &&
+        typeof g.resolvedBy === 'string' &&
+        g.resolvedBy.includes('imp-857-phased-forcing-richardson') &&
+        typeof g.resolution === 'string' &&
+        g.resolution.includes('imp-917') &&
+        g.resolution.includes('imp-898')
+      );
+    },
+    why:
+      'The imp-897 sub-gap entry in this file must reflect the honest- ' +
+      'partial closure shipped in imp-857-phased-forcing-richardson.js and ' +
+      'name the promoted residual ids (imp-917, imp-898); a silently still- ' +
+      'open entry re-seeds duplicate harvester tickets (imp-2518 was itself ' +
+      'seeded from the stale entry).',
+  },
+  {
+    id: 'imp2518-same-step-collision-bracket',
+    holds: () =>
+      [1000, 2000].every((N) => {
+        const baseline = MEASURED_ROWS.find((r) => r.N === N && r.eps === 0);
+        const forced = MEASURED_ROWS.filter((r) => r.N === N && r.eps > 0);
+        return (
+          !!baseline &&
+          forced.length >= 2 &&
+          forced.every(
+            (r) => r.collisionStep === baseline.collisionStep && r.dt === baseline.dt,
+          )
+        );
+      }),
+    why:
+      'Every forced row collides at the SAME RK4 step as its eps = 0 ' +
+      'baseline, so the detection-time shift |tau_det(eps) - tau_det(0)| is ' +
+      'bracketed by dt = 1e-4. This dt floor is what makes the certified ' +
+      'imp-897 enclosure single-point-dominated (the Richardson numerator ' +
+      'vanishes at step granularity) and is the quantitative reason the ' +
+      'residual is imp-898 (sub-step resolution), not more eps points.',
+  },
+  {
+    id: 'imp2518-richardson-strictly-wider-at-measured-pair',
+    holds: () => {
+      const eps1 = 0.01;
+      const eps2 = 0.05;
+      // H_0 cancels in the ratio; probe with H = 1.
+      const H = 1;
+      const singlePointHalf = (eps1 * H * H) / 4;
+      const richardsonHalf = (eps1 * eps2 * H * H) / (2 * (eps2 - eps1));
+      const ratio = richardsonHalf / singlePointHalf;
+      const closedForm = (2 * eps2) / (eps2 - eps1);
+      return (
+        Math.abs(ratio - closedForm) < 1e-12 &&
+        Math.abs(ratio - 2.5) < 1e-12 &&
+        ratio > 1
+      );
+    },
+    why:
+      'Decisive sharpness fact of the imp-897 closure, re-derived here from ' +
+      'the imp-892 residual formula alone: under the raw bound |tau_c(eps) - ' +
+      'tau_c(0)| <= eps * H_0^2 / 4, the two-point Richardson enclosure is ' +
+      'strictly wider than the minimum-eps single-point enclosure by the ' +
+      'H_0-invariant factor 2 * eps_2 / (eps_2 - eps_1) = 2.5 at the ' +
+      'measured pair (0.01, 0.05) (always > 1 for 0 < eps_1 < eps_2, per ' +
+      'the imp-981 audit correction). Hence the CERTIFIED bound is the ' +
+      'single-point intersected enclosure, and Richardson only becomes ' +
+      'useful after imp-898 sub-step resolution.',
+  },
+];
 
 export default IMP_857_PHASED_FORCING_SWEEP;

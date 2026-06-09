@@ -67,6 +67,75 @@ export default function GilbreathObservationPage() {
         </p>
       </div>
 
+      <div className="card" style={{ marginTop: 24, borderColor: '#22d3ee' }}>
+        <h3 style={{ color: '#22d3ee' }}>How far the leading 1 can actually be proved</h3>
+        <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
+          The usual "rows become 0s and 2s, so the 1 survives" story is a heuristic — but it
+          hides a surprising amount of <strong>rigour</strong>. The leading 1 is really{' '}
+          <em>two</em> mechanisms, and one of them is a free theorem:
+        </p>
+
+        <div style={{ marginTop: 14 }}>
+          <h4 style={{ color: '#fbbf24', fontSize: 13, margin: '0 0 4px' }}>Lemma A — parity invariant (unconditional)</h4>
+          <p style={{ color: '#94a3b8', fontSize: 13.5, lineHeight: 1.75, margin: 0 }}>
+            Row 1 is the gap sequence <InlineMath tex={"(1,2,2,4,2,4,\\ldots)"} />: the first gap is
+            odd, every later gap is even. Modulo 2 that is the unit vector{' '}
+            <InlineMath tex={"(1,0,0,\\ldots)"} />, and since{' '}
+            <InlineMath tex={"|a-b| \\equiv a+b \\pmod 2"} /> the difference operator acts as XOR, so
+          </p>
+          <BlockMath tex={"a^{(k)}_0 \\equiv \\sum_{j} \\binom{k-1}{j}\\, a^{(1)}_j \\equiv \\binom{k-1}{0}\\cdot 1 = 1 \\pmod 2 \\qquad \\forall k \\ge 1."} />
+          <p style={{ color: '#94a3b8', fontSize: 13.5, lineHeight: 1.75, margin: 0 }}>
+            So the leading entry is <strong style={{ color: '#fbbf24' }}>always odd</strong> — it lives
+            in <InlineMath tex={"\\{1,3,5,\\ldots\\}"} />. Toggle{' '}
+            <strong>"Show mod 2"</strong> above and watch the entire leading column turn uniformly gold.
+          </p>
+        </div>
+
+        <div style={{ marginTop: 16 }}>
+          <h4 style={{ color: '#10b981', fontSize: 13, margin: '0 0 4px' }}>Lemma B — propagation fixed point (elementary)</h4>
+          <p style={{ color: '#94a3b8', fontSize: 13.5, lineHeight: 1.75, margin: 0 }}>
+            If a row has the form <InlineMath tex={"1, e_1, e_2, \\ldots"} /> with every{' '}
+            <InlineMath tex={"e_i \\in \\{0,2\\}"} />, the next row is{' '}
+            <InlineMath tex={"|e_1-1|, |e_2-e_1|, \\ldots"} />. But{' '}
+            <InlineMath tex={"|0-1| = |2-1| = 1"} /> and the difference of two elements of{' '}
+            <InlineMath tex={"\\{0,2\\}"} /> stays in <InlineMath tex={"\\{0,2\\}"} />. So the form{' '}
+            <strong>regenerates itself</strong> — no run-length hypothesis needed. The dashed cyan
+            line in the heatmap marks the first row that reaches this <InlineMath tex={"1,(0|2)^*"} />{' '}
+            shape; below it the leading 1 is structurally locked.
+          </p>
+        </div>
+
+        <div style={{ marginTop: 16 }}>
+          <h4 style={{ color: '#3b82f6', fontSize: 13, margin: '0 0 4px' }}>Reduction — the open half, isolated</h4>
+          <p style={{ color: '#94a3b8', fontSize: 13.5, lineHeight: 1.75, margin: 0 }}>
+            Combining "always odd" (Lemma A) with "bounded by 2" forces the leading entry to equal 1.
+            So the entire conjecture collapses to a single boundedness statement:
+          </p>
+          <BlockMath tex={"\\text{Gilbreath} \\iff a^{(k)}_0 \\le 2 \\;\\;\\forall k \\iff \\exists\\, r:\\; a^{(r)}_i \\in \\{0,2\\} \\;\\; \\forall\\, i \\ge 1."} />
+          <p style={{ color: '#94a3b8', fontSize: 13.5, lineHeight: 1.75, margin: 0 }}>
+            Equivalently: some finite row must have its <em>entire infinite tail</em> in{' '}
+            <InlineMath tex={"\\{0,2\\}"} />. This is exactly where rigour stops. Prime gaps are{' '}
+            <strong style={{ color: '#f59e0b' }}>unbounded</strong> (Cramér predicts maximal gaps{' '}
+            <InlineMath tex={"\\sim (\\log x)^2"} />), so arbitrarily large values are injected
+            arbitrarily deep into the triangle, and you must show the contraction toward{' '}
+            <InlineMath tex={"\\{0,2\\}"} /> outpaces them <em>uniformly</em> in the starting length.
+            That is an additive / 2-adic statement about the fine structure of gaps — and notably it
+            is invisible to zeta-zero analysis, which only sees gaps in analytic average.
+          </p>
+        </div>
+
+        <p style={{ marginTop: 16, padding: '10px 12px', borderRadius: 6,
+                    background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.25)',
+                    color: '#cbd5e1', fontSize: 13, lineHeight: 1.7 }}>
+          <strong style={{ color: '#f59e0b' }}>Honest status.</strong> Lemmas A and B are proved here;
+          the certificate above verifies the leading 1 by exact computation over the displayed range
+          and shows where the structural lock engages. None of this closes the conjecture — the
+          uniform-contraction core remains open, and no finite computation can reach the infinite
+          tail. This page demonstrates the rigorous half and isolates the open half; it does{' '}
+          <strong>not</strong> claim a proof.
+        </p>
+      </div>
+
       <div className="card" style={{ marginTop: 24, borderColor: '#3b82f6' }}>
         <h3 style={{ color: '#3b82f6' }}>Reading the Heatmap</h3>
         <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>

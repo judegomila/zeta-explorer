@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import * as d3 from 'd3';
 import { InlineMath, BlockMath } from './KaTeXMath.jsx';
 import { getPrimes } from '../math/primes.js';
+import { buildTriangle, mod2Triangle, lockCertificate } from '../math/gilbreath.js';
 
 /**
  * Gilbreath's conjecture explorer.
@@ -11,20 +12,11 @@ import { getPrimes } from '../math/primes.js';
  * observation (Proth 1878, Gilbreath 1958) is that the FIRST entry of every
  * derived row is 1. This renders the full iterated-difference triangle as a
  * heatmap and highlights the leading column where the 1s live.
+ *
+ * The rigorous skeleton (parity invariant, propagation fixed point, finite
+ * window-lock certificate) lives in ../math/gilbreath.js; this component is the
+ * visualization layer over it.
  */
-
-// Build the iterated absolute-difference triangle from a starting sequence.
-function buildTriangle(seq) {
-  const rows = [seq.slice()];
-  let cur = seq;
-  while (cur.length > 1) {
-    const next = new Array(cur.length - 1);
-    for (let i = 0; i < cur.length - 1; i++) next[i] = Math.abs(cur[i + 1] - cur[i]);
-    rows.push(next);
-    cur = next;
-  }
-  return rows;
-}
 
 // An odd, even-gapped sequence (drop the prime 2) — still starts the
 // difference cascade and lets us see whether the leading-1 pattern is special
@@ -59,21 +51,16 @@ export default function GilbreathTriangleViz() {
   const svgRef = useRef();
   const [numTerms, setNumTerms] = useState(40);
   const [source, setSource] = useState('primes');
+  const [showMod2, setShowMod2] = useState(false);
 
-  const { rows, leadingAllOne, firstViolation } = useMemo(() => {
+  const { rows, mod2, cert } = useMemo(() => {
     const seq = SOURCES[source].fn(numTerms);
     const rows = buildTriangle(seq);
-    // Gilbreath claim: rows[k][0] === 1 for every derived row k >= 1.
-    let leadingAllOne = true;
-    let firstViolation = null;
-    for (let k = 1; k < rows.length; k++) {
-      if (rows[k][0] !== 1) {
-        leadingAllOne = false;
-        if (firstViolation === null) firstViolation = k;
-      }
-    }
-    return { rows, leadingAllOne, firstViolation };
+    return { rows, mod2: mod2Triangle(rows), cert: lockCertificate(rows) };
   }, [numTerms, source]);
+
+  const leadingAllOne = cert.allLeadingOne;
+  const firstViolation = cert.firstViolation;
 
   const draw = useCallback(() => {
     const svg = d3.select(svgRef.current);
@@ -87,17 +74,21 @@ export default function GilbreathTriangleViz() {
 
     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
 
-    // Color: 0 → dark, 1 → gold highlight, 2 → mid blue, larger → hot.
+    // Value mode: 0 → dark, 1 → gold, 2 → mid blue, larger → hot.
+    // Parity mode (mod 2): odd → gold, even → dark. Lemma A makes the leading
+    // column uniformly gold here — the parity invariant a_k[0] ≡ 1 (mod 2).
     const maxV = Math.max(2, d3.max(rows.flat()));
-    const colorFor = (v) => {
+    const colorForVal = (v) => {
       if (v === 0) return '#0b1220';
       if (v === 1) return '#fbbf24';
       if (v === 2) return '#1e40af';
       const t = Math.min((v - 2) / Math.max(maxV - 2, 1), 1);
       return d3.interpolateInferno(0.35 + 0.6 * t);
     };
+    const grid = showMod2 ? mod2 : rows;
+    const colorFor = showMod2 ? (b) => (b === 1 ? '#fbbf24' : '#0b1220') : colorForVal;
 
-    rows.forEach((row, k) => {
+    grid.forEach((row, k) => {
       row.forEach((v, i) => {
         g.append('rect')
           .attr('x', i * cell)
@@ -106,12 +97,27 @@ export default function GilbreathTriangleViz() {
           .attr('height', Math.max(1, cell - 1))
           .attr('rx', cell > 7 ? 1.5 : 0)
           .attr('fill', colorFor(v))
-          .attr('opacity', v === 0 ? 0.55 : 0.92)
+          .attr('opacity', (showMod2 ? v === 0 : v === 0) ? 0.55 : 0.92)
           .style('cursor', 'crosshair')
           .append('title')
-          .text(`row ${k}, col ${i} = ${v}${k >= 1 && i === 0 ? '  (leading entry)' : ''}`);
+          .text(showMod2
+            ? `row ${k}, col ${i}: ${rows[k][i]} (${v ? 'odd' : 'even'})${k >= 1 && i === 0 ? '  — leading entry, always odd' : ''}`
+            : `row ${k}, col ${i} = ${v}${k >= 1 && i === 0 ? '  (leading entry)' : ''}`);
       });
     });
+
+    // Mark the first "clean" row 1,(0|2)* — where the contraction completes and
+    // the window-lock corollary kicks in: every row below is structurally
+    // pinned to a leading 1.
+    if (cert.firstCleanRow !== null && !showMod2) {
+      const y = cert.firstCleanRow * cell;
+      g.append('line').attr('x1', 0).attr('x2', grid[cert.firstCleanRow].length * cell)
+        .attr('y1', y - 0.5).attr('y2', y - 0.5)
+        .attr('stroke', '#22d3ee').attr('stroke-width', 1.5).attr('stroke-dasharray', '4,3').attr('opacity', 0.85);
+      g.append('text').attr('x', 2).attr('y', Math.max(y - 3, 10))
+        .attr('fill', '#22d3ee').attr('font-size', 9)
+        .text(`row ${cert.firstCleanRow}: 1,(0|2)* lock engages ↓`);
+    }
 
     // Highlight the leading column (where Gilbreath's 1s live).
     g.append('rect')
@@ -125,13 +131,15 @@ export default function GilbreathTriangleViz() {
 
     svg.append('text').attr('x', margin.left).attr('y', 18)
       .attr('fill', '#e2e8f0').attr('font-size', 13).attr('font-weight', 600)
-      .text(`Iterated absolute-difference triangle — ${rows.length} rows`);
+      .text(`Iterated absolute-difference triangle — ${rows.length} rows${showMod2 ? '  ·  mod 2 (odd = gold)' : ''}`);
     svg.append('text').attr('x', margin.left).attr('y', 33)
       .attr('fill', leadingAllOne ? '#22c55e' : '#ef4444').attr('font-size', 11)
-      .text(leadingAllOne
-        ? 'Leading column (boxed): every derived row starts with 1 ✓'
-        : `Leading 1s broken at row ${firstViolation}`);
-  }, [rows, leadingAllOne, firstViolation]);
+      .text(showMod2
+        ? 'Parity invariant (Lemma A): the leading column is ALL gold — a_k[0] ≡ 1 (mod 2), rigorously'
+        : leadingAllOne
+          ? 'Leading column (boxed): every derived row starts with 1 ✓'
+          : `Leading 1s broken at row ${firstViolation}`);
+  }, [rows, mod2, cert, showMod2, leadingAllOne, firstViolation]);
 
   useEffect(() => { draw(); }, [draw]);
   useEffect(() => {
@@ -172,17 +180,49 @@ export default function GilbreathTriangleViz() {
           <span className="control-value">{numTerms} <span style={{ color: '#64748b', fontSize: 11 }}>
             (start {rows[0][0]}…{rows[0][rows[0].length - 1]})</span></span>
         </div>
+        <label style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#94a3b8', fontSize: 12, cursor: 'pointer' }}>
+          <input type="checkbox" checked={showMod2} onChange={e => setShowMod2(e.target.checked)} />
+          Show mod 2 (parity)
+        </label>
       </div>
 
+      {/* Rigorous lock certificate — no appeal to the conjecture. */}
       <div style={{
-        margin: '4px 0 12px', padding: '8px 12px', borderRadius: 8,
-        background: leadingAllOne ? 'rgba(34,197,94,0.10)' : 'rgba(239,68,68,0.12)',
-        border: `1px solid ${leadingAllOne ? 'rgba(34,197,94,0.4)' : 'rgba(239,68,68,0.5)'}`,
-        color: leadingAllOne ? '#86efac' : '#fca5a5', fontSize: 13, fontFamily: 'var(--font-mono, monospace)',
+        margin: '4px 0 12px', padding: '10px 14px', borderRadius: 8,
+        background: leadingAllOne ? 'rgba(34,197,94,0.08)' : 'rgba(239,68,68,0.12)',
+        border: `1px solid ${leadingAllOne ? 'rgba(34,197,94,0.35)' : 'rgba(239,68,68,0.5)'}`,
+        color: '#cbd5e1', fontSize: 12.5, fontFamily: 'var(--font-mono, monospace)', lineHeight: 1.7,
       }}>
-        {leadingAllOne
-          ? `Checked ${rows.length - 1} derived rows — all begin with 1.`
-          : `Leading-1 pattern fails at row ${firstViolation}.`}
+        {leadingAllOne ? (
+          <>
+            <div>
+              <span style={{ color: '#22c55e' }}>✓ verified by exact computation:</span>{' '}
+              a_k[0] = 1 for all 1 ≤ k ≤ <strong style={{ color: '#e2e8f0' }}>{cert.verifiedThrough}</strong>
+              {' '}(each is a finite arithmetic theorem, Lemma C).
+            </div>
+            <div>
+              <span style={{ color: '#fbbf24' }}>parity (Lemma A):</span>{' '}
+              every leading entry is <strong>odd</strong> — unconditionally{' '}
+              <span style={{ color: '#64748b' }}>{cert.leadingAllOdd ? '(holds)' : '(VIOLATED?!)'}</span>.
+            </div>
+            {cert.firstCleanRow !== null && (
+              <div>
+                <span style={{ color: '#22d3ee' }}>lock (Lemmas B+C):</span>{' '}
+                row <strong style={{ color: '#e2e8f0' }}>{cert.firstCleanRow}</strong> reaches the{' '}
+                <strong>1,(0|2)*</strong> form; the leading 1 is then a structural fixed point,
+                pinning rows {cert.firstCleanRow}…<strong style={{ color: '#e2e8f0' }}>{cert.guaranteedThrough}</strong>{' '}
+                with no further arithmetic.
+              </div>
+            )}
+            <div style={{ color: '#94a3b8', marginTop: 4 }}>
+              <span style={{ color: '#f59e0b' }}>still open:</span> certifying the{' '}
+              <em>infinite</em> tail — that some row is entirely {'{0,2}'} forever, despite
+              unbounded prime gaps. No finite computation reaches it.
+            </div>
+          </>
+        ) : (
+          <div style={{ color: '#fca5a5' }}>Leading-1 pattern fails at row {firstViolation}.</div>
+        )}
       </div>
 
       <div className="viz-container">

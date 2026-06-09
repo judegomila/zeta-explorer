@@ -42,7 +42,9 @@
  *   @fileoverview JSDoc header for navigation); imp-2518 (imp-897 sub-gap
  *   synced to RESOLVED-PARTIAL per imp-857-phased-forcing-richardson.js +
  *   exported IMP_857_PHASED_FORCING_SWEEP_ASSERTIONS tripwires, registered
- *   with run-assertions.mjs).
+ *   with run-assertions.mjs); imp-2517 (imp-896 sub-gap synced to
+ *   RESOLVED-INFRASTRUCTURE per imp-896-retuning-calibration.js +
+ *   imp-917-run-cell.mjs, residual imp-917; two more tripwires).
  *
  * Upstream deps:
  *   - src/math/imp-857-phase-locked-dyson.mjs (prototype the rows measure)
@@ -371,8 +373,9 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
     'imp-857-sub-phased-forcing: scale prototype across N (partial — N in {1000, 2000} measured; {5000, 10000} deferred to imp-896)',
 
   status:
-    'PARTIAL (6 of 20 grid cells measured; {5000, 10000} x all eps and ' +
-    '{0.02, 0.1} x {1000, 2000} deferred to imp-896 pending imp-894 retuning; ' +
+    'PARTIAL (6 of 20 grid cells measured; sub-gap imp-896 ' +
+    'RESOLVED-INFRASTRUCTURE via src/data/imp-896-retuning-calibration.js + ' +
+    'scripts/imp-917-run-cell.mjs, 14-cell execution residual under imp-917; ' +
     'sub-gap imp-897 RESOLVED-PARTIAL via ' +
     'src/math/imp-857-phased-forcing-richardson.js, residual under ' +
     'imp-917 + imp-898)',
@@ -438,13 +441,36 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
         'Complete the imp-893 grid: (N in {5000, 10000}) x (eps in {0, 0.01, ' +
         '0.02, 0.05, 0.1}) AND (N in {1000, 2000}) x (eps in {0.02, 0.1}).',
       blocker:
-        'Prototype drift_vector is O(N^2) per RK4 stage; N = 10000 three-way ' +
+        '(historical, pre-resolution) Prototype drift_vector is O(N^2) per RK4 ' +
+        'stage; N = 10000 three-way ' +
         'run is ~60 minutes wall-time in Node. Must be executed via the ' +
         'scripts/ offline worker path (analogous to imp-860-sub-extend-to-N10k) ' +
         'or via adaptive step-size driver. Also requires the retuned ' +
         '(k0*, omega*) from imp-894 since the fixed resonance is known to ' +
         'decay with N (see headlineFinding).',
       prerequisite: 'imp-894',
+      status: 'RESOLVED-INFRASTRUCTURE (synced by imp-2517; see resolvedBy)',
+      resolvedBy:
+        'src/data/imp-896-retuning-calibration.js + scripts/imp-917-run-cell.mjs',
+      resolution:
+        'imp-896 was closed as an INFRASTRUCTURE-COMPLETE honest-partial in ' +
+        'src/data/imp-896-retuning-calibration.js: (1) the imp-894 ' +
+        'prerequisite is discharged by a per-N retuning calibration table ' +
+        'RETUNING_CALIBRATION (k0_star = 2*pi/min_gap(N), phaseVel_star) ' +
+        'covering N in {500, 1000, 2000, 5000, 10000}; (2) the execution ' +
+        'path blocker is discharged by the per-cell offline-worker driver ' +
+        'scripts/imp-917-run-cell.mjs (env-var recipe, --plan-table, ' +
+        '--dry-run, --progress accounting), which reads the calibration by ' +
+        'N and spawns the prototype with retuned IMP857_K0 / ' +
+        'IMP857_PHASEVEL; (3) the residual is therefore CPU-budget-only and ' +
+        'is promoted to imp-917 (canonical id imp-917-exec in the ' +
+        'calibration file): the ~51-CPU-hour execution of the 14 missing ' +
+        'cells as 6 batched triple-runs (0 of 14 measured at sync time, ' +
+        'per --progress). Until those rows land, the canonical sub-gap ' +
+        'imp-893-sub-large-N-rerun above correctly stays open. This entry ' +
+        'was never updated when the calibration shipped, so the harvester ' +
+        're-seeded the gap as still-open (seeding imp-2517 itself); this ' +
+        'sync is the same stale-entry repair imp-2518 made for imp-897.',
     },
     {
       id: 'imp-897',
@@ -552,6 +578,28 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
     'bracket and the Richardson-vs-single-point sharpness fact from the ' +
     'measured rows in this file, independently of the richardson module ' +
     '(which imports this file; importing it back would be circular).',
+
+  closureNoteImp2517:
+    'imp-2517 (api-pool, opus-4-8): sub-gap SYNC, no new math claimed. The ' +
+    'auto-seeded ticket asked to close named sub-gap imp-896 (complete the ' +
+    'imp-893 grid at N in {5000, 10000} x five eps plus N in {1000, 2000} ' +
+    'x eps in {0.02, 0.1}) declared in this file. The named work had ' +
+    'ALREADY been closed as INFRASTRUCTURE-COMPLETE in ' +
+    'src/data/imp-896-retuning-calibration.js (per-N retuning table ' +
+    'discharging the imp-894 prerequisite; per-cell offline-worker driver ' +
+    'scripts/imp-917-run-cell.mjs discharging the execution-path blocker; ' +
+    'residual promoted to imp-917 / imp-917-exec, the CPU-budget-only ' +
+    '~51-hour 14-cell execution), but the openSubGaps entry here was never ' +
+    'updated, so the harvester re-seeded the gap as still-open (seeding ' +
+    'imp-2517 itself) — the same stale-entry failure mode imp-2518 ' +
+    'repaired for imp-897. This change marks the imp-896 entry ' +
+    'RESOLVED-INFRASTRUCTURE with the decisive facts and ships two ' +
+    'build-time tripwires: one pinning the synced status fields, and one ' +
+    're-deriving the 14-cell residual arithmetic from the in-file config ' +
+    'and MEASURED_ROWS (so the residual count cannot silently drift from ' +
+    'the measured data). The grid cells themselves remain unexecuted ' +
+    '(0 of 14 at sync time) and the canonical sub-gap ' +
+    'imp-893-sub-large-N-rerun correctly remains open under imp-917.',
 
   headline:
     'PARTIAL: phased-forcing wrapper-width reduction factor decays with N ' +
@@ -676,6 +724,61 @@ export const IMP_857_PHASED_FORCING_SWEEP_ASSERTIONS = [
       'the imp-981 audit correction). Hence the CERTIFIED bound is the ' +
       'single-point intersected enclosure, and Richardson only becomes ' +
       'useful after imp-898 sub-step resolution.',
+  },
+  {
+    id: 'imp2517-imp896-subgap-resolved-infrastructure-synced',
+    holds: () => {
+      const g = IMP_857_PHASED_FORCING_SWEEP.openSubGaps.find(
+        (s) => s.id === 'imp-896',
+      );
+      return (
+        !!g &&
+        typeof g.status === 'string' &&
+        g.status.startsWith('RESOLVED-INFRASTRUCTURE') &&
+        typeof g.resolvedBy === 'string' &&
+        g.resolvedBy.includes('imp-896-retuning-calibration') &&
+        g.resolvedBy.includes('imp-917-run-cell') &&
+        typeof g.resolution === 'string' &&
+        g.resolution.includes('imp-917') &&
+        g.blocker.startsWith('(historical')
+      );
+    },
+    why:
+      'The imp-896 sub-gap entry in this file must reflect the ' +
+      'infrastructure-complete closure shipped in ' +
+      'imp-896-retuning-calibration.js + scripts/imp-917-run-cell.mjs and ' +
+      'name the promoted residual id (imp-917); a silently still-open ' +
+      'entry re-seeds duplicate harvester tickets (imp-2517 was itself ' +
+      'seeded from the stale entry, exactly as imp-2518 was from the ' +
+      'stale imp-897 entry).',
+  },
+  {
+    id: 'imp2517-residual-cell-count-is-fourteen',
+    holds: () => {
+      const cfg = IMP_857_PHASED_FORCING_SWEEP.config;
+      const measured = new Set(
+        MEASURED_ROWS.map((r) => `${r.N}|${r.eps}`),
+      );
+      let missing = 0;
+      for (const N of cfg.N_ticket) {
+        for (const eps of cfg.eps_ticket) {
+          if (!measured.has(`${N}|${eps}`)) missing += 1;
+        }
+      }
+      return (
+        cfg.N_ticket.length * cfg.eps_ticket.length === 20 &&
+        measured.size === 6 &&
+        missing === 14
+      );
+    },
+    why:
+      'Re-derives the imp-917 residual arithmetic from in-file data alone: ' +
+      'the 4 x 5 ticket grid minus the 6 measured (N, eps) rows leaves ' +
+      'exactly 14 unexecuted cells — the number the imp-896 resolution and ' +
+      'the imp-917 batch plan both quote. If rows are later appended (or ' +
+      'the ticket grid edited) without updating the resolution prose and ' +
+      'sub-gap statuses, this tripwire fires rather than letting the ' +
+      'residual count silently drift.',
   },
 ];
 

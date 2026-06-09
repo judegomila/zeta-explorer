@@ -178,8 +178,27 @@ const G3A_CLOSURE_STATUS = {
     possibleRoute:
       'Selberg integral methods for GUE, or direct Calogero-Moser dynamics analysis ' +
       'in the thermodynamic limit, may produce a lower bound ~ C/B^2 with C bounded ' +
-      'away from 0 as B -> 0. This is the open research content for Route C closure.',
-    status: 'open',
+      'away from 0 as B -> 0. (REFUTED -- see resolution below.)',
+    status: 'resolved-negative',
+    resolvedBy: 'imp-507 (src/math/g3a-fullsum-closure.js) + imp-2514 (status sync + assertion)',
+    resolution:
+      'NEGATIVE RESOLUTION. The full many-body sum was analysed in g3a-fullsum-closure.js ' +
+      '(imp-507) and admits NO lower bound of the form S_{k_star} >= C/B^2 with C bounded ' +
+      'away from 0, so the possibleRoute above cannot succeed. Three unconditional facts ' +
+      'decide it. (1) POSITIVITY: the excluded indices {k_star, k_star+1} are exactly the ' +
+      'two zeros bracketing the minimum gap, so every surviving gamma_j lies strictly ' +
+      'outside the open interval (gamma_{k_star}, gamma_{k_star+1}); both factors then ' +
+      'share a sign and every term is strictly positive. (2) NO 1/B SINGULARITY: the only ' +
+      'denominators that could approach 0 as B -> 0 sit at j in {k_star, k_star+1} -- ' +
+      'precisely the excluded terms. The nearest surviving denominators are the flanking ' +
+      'bulk gaps, which stay O(1) (Ben Arous-Bourgade: only the argmin gap is extreme), so ' +
+      'S_{k_star} = Theta(1), NOT Omega(1/B^2). (3) EQUIDISTANT CEILING (imp-507): for ANY ' +
+      'configuration with strict minimum gap B, S_{k_star} * B^2 < 2 unconditionally. ' +
+      'Hence c(N) = S_{k_star} * B^2 -> 0 and the Route C requirement c(N) > 2 is ' +
+      'unreachable via the static full sum. The residual research content moves to the ' +
+      'named successor sub-gap G3a_sub_fullsum_dynamical (g3a-fullsum-closure.js), which ' +
+      'needs a DYNAMICAL Dyson-ODE argument rather than any static lower bound on S_{k_star}.',
+    successorSubGap: 'G3a_sub_fullsum_dynamical (in src/math/g3a-fullsum-closure.js, imp-507)',
   },
   priorSubGaps: {
     G3a_sub_sound: {
@@ -230,7 +249,9 @@ export const G3A_EXTREMAL_CLOSURE = {
       'New primary open ticket G3a_sub_fullsum: full many-body S_{k_star} lower bound',
     ],
     whatRemains: [
-      'G3a_sub_fullsum: full-sum lower bound on S_{k_star} not using the near+tail split',
+      'G3a_sub_fullsum: RESOLVED-NEGATIVE (imp-507/imp-2514) -- full sum is Theta(1) with ' +
+      'S_{k_star}*B^2 < 2 always, so no C/B^2 lower bound exists; residual moves to ' +
+      'G3a_sub_fullsum_dynamical (needs a Dyson-ODE argument)',
       'G3a_sub_ratio_unconditional (imp-396): consecutive ratio C_SB <= 1.251 for any k',
       'G3a_sub_argmin_exceptional (imp-396): argmin site not in density-0 exceptional set',
       'Route C density squeeze: remains OPEN until G3a_sub_fullsum is closed',
@@ -275,11 +296,47 @@ export const G3A_EXTREMAL_CLOSURE_ASSERTIONS = [
       'G3a_sub_fullsum many-body bound would silently claim Route C is done -- it is not.',
   },
   {
-    id: 'imp451-g3a-sub-fullsum-still-open',
-    holds: () => G3A_CLOSURE_STATUS.openSubGap.status === 'open',
+    id: 'imp2514-g3a-sub-fullsum-resolved-negative',
+    holds: () => {
+      // G3a_sub_fullsum is resolved NEGATIVELY: the full many-body sum S_{k_star}
+      // admits no lower bound C/B^2 with C bounded away from 0. Self-contained
+      // re-derivation on a representative ordered configuration whose strict minimum
+      // gap is B at the argmin site (index kStar). Confirms (a) every term is strictly
+      // positive, (b) the equidistant ceiling S_{k_star}*B^2 < 2 (imp-507), (c) S stays
+      // O(1) as B shrinks 1000x (no 1/B^2 blow-up), and (d) c = S*B^2 -> 0 << 2.
+      const build = (B) => {
+        const g = [0, 1, 2, 3, 4, 4 + B, 5 + B, 6 + B, 7 + B];
+        const kStar = 4; // strict minimum gap B between g[kStar] and g[kStar+1]
+        let S = 0;
+        let allPositive = true;
+        for (let j = 0; j < g.length; j++) {
+          if (j === kStar || j === kStar + 1) continue;
+          const term = 1 / ((g[kStar + 1] - g[j]) * (g[kStar] - g[j]));
+          if (!(term > 0)) allPositive = false;
+          S += term;
+        }
+        return { S, SB2: S * B * B, allPositive };
+      };
+      const big = build(1e-2);
+      const small = build(1e-5);
+      return (
+        G3A_CLOSURE_STATUS.openSubGap.status === 'resolved-negative' &&
+        big.allPositive && small.allPositive &&
+        big.SB2 < 2 && small.SB2 < 2 &&
+        Math.abs(small.S - big.S) / big.S < 0.05 &&
+        small.SB2 < 1e-6
+      );
+    },
     why:
-      'G3a_sub_fullsum is the primary remaining research content of G3a. A future edit ' +
-      'that marks it closed must coordinate the Route C full assembly flip.',
+      'G3a_sub_fullsum asked for a full-many-body lower bound S_{k_star} >= C/B^2 with ' +
+      'C bounded away from 0. imp-507 (g3a-fullsum-closure.js) proved this impossible ' +
+      '(equidistant ceiling S_{k_star}*B^2 < 2 unconditional) and imp-2514 syncs the ' +
+      'status here to resolved-negative. This assertion re-derives the decisive facts ' +
+      '(positivity, the ceiling, O(1) scaling, c -> 0) on a synthetic configuration so the ' +
+      'negative resolution cannot silently regress. The residual research lives in the ' +
+      'successor sub-gap G3a_sub_fullsum_dynamical. NOTE: Route C still REMAINS OPEN (see ' +
+      'imp451-route-c-remains-open) -- a negative resolution of the static-sum sub-gap is ' +
+      'not a closure of Route C.',
   },
   {
     id: 'imp451-sb-threshold-consistent-with-imp396',

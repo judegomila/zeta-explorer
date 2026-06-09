@@ -302,7 +302,9 @@ export const VERIFICATION_EFFORTS = [
     claim:
       'If |t_c(N+1)| ≤ |t_c(N)| for all N ≥ N_0, then a := lim sup_N |t_c(N)| ' +
       '= inf_N |t_c(N)|, so a ≤ |t_c(N_max)| for every recorded N_max.',
-    status: 'rigorous',
+    // imp-2519: status reconciled with the progress field below, which ends
+    // "no unconditional bound exists" — Route A is conditional on GUE, not rigorous.
+    status: 'conditional-on-gue-universality',
     progress:
       'CLOSED MODULO GUE UNIVERSALITY: imp-456 proved UMon unconditionally in ' +
       'unfolded coordinates (H_{N+1} <= H_N). imp-462 bridged M_raw <==> M_uf ' +
@@ -548,6 +550,19 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
         '(imp-486). NOTE: no bound node depends on this — the finite-N* bounds ' +
         'use the MEASURED C_mb (imp-963), which is why they are unconditional.',
     },
+    {
+      id: 'cond-fmb-nonregression-above-1e4',
+      label: 'F_mb does not regress unexpectedly above N = 1e4',
+      kind: 'conditional',
+      dependsOn: [],
+      note:
+        'Hypothesis underlying the imp-1088 carryforward to N = 1e6. The ' +
+        'K_PLATEAU_LADDER uses the measured imp-963 K_max = 0.2014 from [100, 1e4] ' +
+        'as a conservative upper bound at larger N, valid modulo this non-regression ' +
+        'hypothesis (maxSmoothScaleRatio = 2.15 from imp-962 plateau scan) plus the ' +
+        'unproved expectation that K_paper_cert decreases with N. Measurement at ' +
+        'larger N (imp-1082/1087/1088 sub-measurement gaps) will retire this conditional.',
+    },
     // ── Project building blocks ──
     {
       id: 'blk-imp-341',
@@ -640,10 +655,10 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
     },
     {
       id: 'bound-imp-1088-finite-1e6',
-      label: 'Lambda(1e6) <= 0.2 rigorous unconditional (carryforward)',
+      label: 'Lambda(1e6) <= 0.2 rigorous conditional (carryforward modulo F_mb non-regression)',
       kind: 'bound',
-      dependsOn: ['bound-imp-440-finite-1e4', 'blk-imp-963'],
-      note: 'Only bound-to-bound edge: carryforward extension of imp-440.',
+      dependsOn: ['bound-imp-440-finite-1e4', 'blk-imp-963', 'cond-fmb-nonregression-above-1e4'],
+      note: 'Carryforward extension of imp-440; modulo the F_mb non-regression hypothesis above N = 1e4.',
     },
   ],
 };
@@ -704,17 +719,23 @@ export const LAMBDA_ROADMAP = {
   id: 'lambda-roadmap',
   targetSOTA: 'Λ ≤ 0.02 unconditional, beating Platt-Trudgian 2021 Λ ≤ 0.2 by 10x',
   currentStatus:
-    'CLOSED MODULO GUE UNIVERSALITY (Phase 37 final): Steps 1-4 rigorous unconditionally ' +
-    '(imp-387 closed G6_polymath15_bridge; imp-341 lim-sup = 0 + Rodgers-Tao Lambda >= 0 ' +
-    'give Lambda = 0 asymptotically). FINITE-HEIGHT BEAT (imp-452/459): L_pt ~ 0.121 < 0.2, ' +
+    'CLOSED MODULO GUE UNIVERSALITY (Phase 37 final): per LAMBDA_CHAIN_STEPS, Steps 1 and 3 ' +
+    'are rigorous (Step 1 zero-verification; Step 3 imp-341 lim-sup |t_c(N)| = 0 + Rodgers-Tao ' +
+    'Lambda >= 0 give the asymptotic statement lim sup t_c(N) = 0 UNCONDITIONALLY), while ' +
+    'Step 2 (backward Dyson ODE) and Step 4 (Polymath15 bridge, open sub-gap ' +
+    'G6a_shock_lipschitz) are graded NUMERICAL and Step 5 (final RH combination) is ' +
+    'UNVERIFIED -- so the chain is NOT yet a complete unconditional proof. FINITE-HEIGHT ' +
+    'BEAT (imp-452/459): L_pt ~ 0.121 < 0.2, ' +
     'beating Platt-Trudgian 2021. Route A closed modulo GUE: G1 CLOSED (imp-450), G2 CLOSED ' +
     '(imp-450), N-coverage extended to 9999 (imp-476), Bridge M_raw <==> M_uf via RvM ' +
     'Jacobian (imp-462), B1 unconditional (imp-470). Route B rigorous unconditionally (imp-341 ' +
     '+ imp-344). Route C all sub-gaps closed (G3a diagnostic imp-451, G3b imp-342, G4 imp-343). ' +
     'SOLE IRREDUCIBLE CONDITIONAL: many-body CM correction constant C_mb requires GUE ' +
     'universality (Erdos-Schlein-Yau local law). imp-486 exhaustive search confirmed no ' +
-    'unconditional C_mb bound exists — GUE universality is irreducible. RH follows ' +
-    'unconditionally from Routes B+C; Route A requires the named GUE conditional. ' +
+    'unconditional C_mb bound exists — GUE universality is irreducible. Routes B+C close the ' +
+    'Step-3 lim-sup UNCONDITIONALLY, but the per-N translation and the Step-4 Polymath15 ' +
+    'bridge (G6a_shock_lipschitz) remain open, so RH does NOT yet follow unconditionally; ' +
+    'Route A additionally requires the named GUE conditional. ' +
     'PHASE 51 (2026-04-19): three-path UNCOND-Λ sequence delivered, extended to 10^6. ' +
     'PATH 1 (imp-833 + imp-858): empirical floor widened 870 -> 1,000,000 via direct sweep ' +
     'on Odlyzko zeros6 combined file (1,149x original); both predicates (E1 rho ' +
@@ -792,14 +813,15 @@ export const LAMBDA_ROADMAP_MILESTONES = [
   },
   {
     id: 'volterra-collapse-2026-05-28',
-    label: 'Volterra-norm collapse + unconditional Λ ≤ 3.06e-5 execution',
+    label: 'Volterra-norm collapse + Λ ≤ 3.06e-5 (modulo Polymath15 G6a) execution',
     date: '2026-05-28',
     kind: 'proof-milestone',
     summary:
       'imp-1258 two-way collapse reduces 7+ paper conjectures (§15-27) to single ' +
       'statement ‖V_{a,Φ}‖ ≤ 1, with ~5000× empirical support from saturation. ' +
-      'imp-1246 delivers unconditional Λ ≤ 3.06×10⁻⁵, beating Platt-Trudgian 2021 ' +
-      'by 6500×. imp-1261 executes shipment to paper Theorem 2.',
+      'imp-1246 delivers Λ ≤ 3.06×10⁻⁵ modulo Polymath15 G6a (matching the ' +
+      'rigorous-modulo-polymath15-G6a grade of the LAMBDA_BOUNDS asymptotic entry), ' +
+      'beating Platt-Trudgian 2021 by 6500×. imp-1261 executes shipment to paper Theorem 2.',
     tickets: ['imp-1258', 'imp-1246', 'imp-1261'],
     ticketRange: 'imp-1246/1258/1261 (collapse + execution)',
     relationToLambdaAttack:
@@ -906,6 +928,17 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'importers. A forgotten patch leaves the master record stale.',
   },
   {
+    id: 'roadmap-no-unconditional-RH-overclaim',
+    holds: () =>
+      !/RH follows\s+unconditionally/i.test(LAMBDA_ROADMAP.currentStatus),
+    why:
+      'imp-2519 overclaim repair: currentStatus must NEVER contain the phrase ' +
+      '"RH follows unconditionally". The chain still has open sub-gaps (Step-4 ' +
+      'G6a_shock_lipschitz, the per-N translation, and the GUE-conditional C_mb), ' +
+      'so any edit reintroducing an unconditional RH claim is a false QED and ' +
+      'must fail the build. Standing project rule: no false QEDs.',
+  },
+  {
     id: 'lambda-dep-matrix-acyclic',
     holds: () => lambdaDepMatrixTopoOrder() !== null,
     why:
@@ -922,23 +955,21 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
           .filter((n) => n.kind === 'conditional')
           .map((n) => n.id)
       );
-      // The two finite-N* beats are claimed UNCONDITIONAL, so no node in their
+      // imp-440 (N=1e4) is genuinely UNCONDITIONAL, so no node in its
       // transitive closure may be a conditional axiom (no premature dependency).
-      return ['bound-imp-440-finite-1e4', 'bound-imp-1088-finite-1e6'].every(
-        (boundId) => {
-          const closure = lambdaDepMatrixClosure(boundId);
-          for (const id of closure) if (conditionalIds.has(id)) return false;
-          return true;
-        }
-      );
+      // imp-1088 (N=1e6) is conditional on the F_mb non-regression hypothesis,
+      // so we only guard the imp-440 bound here.
+      const closure = lambdaDepMatrixClosure('bound-imp-440-finite-1e4');
+      for (const id of closure) if (conditionalIds.has(id)) return false;
+      return true;
     },
     why:
-      'imp-2336: the imp-440 (N=1e4) and imp-1088 (N=1e6) finite-height beats ' +
-      'are advertised as rigorous UNCONDITIONAL. This guards the PREMATURE-' +
-      'dependency failure mode: if a future edit routes either bound through a ' +
-      'conditional axiom (e.g. GUE universality or Polymath15 G6a), its ' +
-      'transitive closure would contain a conditional node and this fails, ' +
-      'flagging that the unconditional claim has silently been weakened.',
+      'imp-2360 / imp-2522: the imp-440 (N=1e4) finite-height beat is genuinely ' +
+      'UNCONDITIONAL, while the imp-1088 (N=1e6) carryforward is conditional on ' +
+      'the F_mb non-regression hypothesis. This guards the PREMATURE-dependency ' +
+      'failure mode for the unconditional 1e4 bound: if a future edit routes it ' +
+      'through a conditional axiom (e.g. GUE universality), the transitive closure ' +
+      'would contain a conditional and this fails, flagging the weakening.',
   },
   {
     id: 'lambda-dep-matrix-asymptotic-modulo-polymath15',

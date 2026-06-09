@@ -1,0 +1,100 @@
+{
+  "generatedBy": "scripts/compute-imp2485-dp8-rk4-N1e4.mjs",
+  "generatedAtUtc": "2026-06-09T22:28:18.235Z",
+  "smoke": false,
+  "N": 10000,
+  "zeroSource": "src/data/zeros-to-1e6.js (Odlyzko, imp-359)",
+  "tableau": {
+    "name": "Dormand-Prince DOP853 propagating pair, 12 stages, order 8",
+    "provenance": "scipy v1.13.0 scipy/integrate/_ivp/dop853_coefficients.py",
+    "maxRowSumResidual": 6.106226635438361e-15,
+    "maxQuadratureResidual": 4.440892098500626e-16
+  },
+  "convergence": {
+    "description": "Self-convergence on the N=50 backward Dyson system over T=0.08, max-abs errors vs a dt=6.25e-4 DP8 reference; observed order between successive dt halvings, for BOTH integrators on the same grid.",
+    "dts": [
+      0.02,
+      0.01,
+      0.005
+    ],
+    "dp8MaxAbsErrors": [
+      2.4498802986272494e-8,
+      2.537348109399318e-10,
+      1.6200374375330284e-12
+    ],
+    "rk4MaxAbsErrors": [
+      0.00003688197810447491,
+      0.00000394341644494034,
+      3.185102031011411e-7
+    ],
+    "dp8ObservedOrders": [
+      6.593245988167489,
+      7.291150499308686
+    ],
+    "rk4ObservedOrders": [
+      3.2253980548504515,
+      3.6300345810846837
+    ]
+  },
+  "ladderRow": {
+    "dt": 0.0001,
+    "maxSteps": 120,
+    "rk4": {
+      "t_c": -0.00030000000000000003,
+      "steps": 3,
+      "minSpacing": -0.019247807454121357,
+      "wallMs": 2602
+    },
+    "dp8": {
+      "t_c": -0.00030000000000000003,
+      "steps": 3,
+      "minSpacing": -0.14513137434914825,
+      "wallMs": 8179
+    }
+  },
+  "refinedRow": {
+    "dt": 0.00002,
+    "maxSteps": 600,
+    "rk4": {
+      "t_c": -0.00018,
+      "steps": 9,
+      "minSpacing": -0.010346292267058743,
+      "wallMs": 8411
+    },
+    "dp8": {
+      "t_c": -0.00018,
+      "steps": 9,
+      "minSpacing": -0.0008803273140074452,
+      "wallMs": 25488
+    }
+  },
+  "pairBound": {
+    "description": "Tightest zero pair in the first N ordinates; isolated Calogero-Moser pair collapses at t_pair = H_min^2 / 8.",
+    "hMin": 0.03769849900072586,
+    "pairIdx": 6708,
+    "tPair": 0.00017764710336346608
+  },
+  "interval": {
+    "backend": "rust",
+    "dt": 0.0001,
+    "t_c_lo": 0.0002,
+    "t_c_hi": 0.00030000000000000003,
+    "maxIntervalWidth": 8.849383448250592e-10,
+    "stepsTaken": 3,
+    "reason": "gap-lower-bound-nonpositive",
+    "wallMs": 71619
+  },
+  "intervalFine": {
+    "backend": "rust",
+    "dt": 0.00002,
+    "t_c_lo": 0.00016,
+    "t_c_hi": 0.00018,
+    "maxIntervalWidth": 2.254637365695089e-9,
+    "stepsTaken": 9,
+    "reason": "gap-lower-bound-nonpositive",
+    "wallMs": 207672
+  },
+  "remainingGaps": [
+    "GAP-2485-N1e5-N1e6: fresh dual-integrator rows at N in {1e5, 1e6} need the same offline harness at ~100x and ~10000x this runtime (O(N^2) per stage); N=1e6 additionally needs zeros beyond the bundled table."
+  ]
+}

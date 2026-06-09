@@ -164,10 +164,10 @@ export const LAMBDA_BOUNDS = [
   },
   {
     id: 'our-finite-N-1e6-via-imp-1088',
-    label: 'Λ(1e6) ≤ 0.2 rigorous unconditional (carryforward)',
-    kind: 'upper-rigorous-finite-N',
+    label: 'Λ(1e6) ≤ 0.2 conditional carryforward (K rows projected, not measured)',
+    kind: 'upper-conditional-finite-N',
     value: 0.2,
-    status: 'rigorous-via-carryforward',
+    status: 'conditional-carryforward-projected-not-measured',
     source: 'imp-1088 capstone via imp-963 rescue formula',
     note:
       'Conservative-carryforward extension of the imp-440 / imp-963 ' +
@@ -179,8 +179,15 @@ export const LAMBDA_BOUNDS = [
       '{2e4..1e6} is deferred to imp-1082/imp-1087/imp-1088 sub-measurement ' +
       'sub-gaps (named upgrade path for the batch-3 ceiling: imp-1090 Rust ' +
       'interval-RK4 port Phase 1 MVP, src/rust/interval-rk4/). The bound ' +
-      'matches PT 2021 numerically (0.2) but is rigorous-finite-N rather ' +
-      'than asymptotic.',
+      'matches PT 2021 numerically (0.2) but is finite-N rather than ' +
+      'asymptotic. RELABELED by imp-2519 (referee audit 2026-06-09): ' +
+      'finite-k-c-mb-unconditional.js marks every underlying K row on ' +
+      '(1e4, 1e6] as projected-not-measured, so the former kind ' +
+      'upper-rigorous-finite-N / status rigorous-via-carryforward ' +
+      'overclaimed; the honest grade is conditional on the F_mb ' +
+      'non-regression hypothesis (dependency-matrix leaf ' +
+      'cond-fmb-nonregression-above-1e4, added by imp-2522). Upgrades ' +
+      'back to rigorous when the imp-1090 interval-RK4 measurements land.',
   },
 ];
 

@@ -552,8 +552,15 @@ export const SOTA_LAMBDA_CLAIM = {
 
   asymptoticResult: {
     claim:
-      'Lambda = 0 asymptotically — RIGOROUS (C_T, C_F, C_C all pinned ' +
-      'numerically by imp-397/398/399; no symbolic placeholders remain)',
+      'lim sup_{N -> infinity} |t_c(N)| = 0 with bridge error E(N) -> 0 ' +
+      '(C_T, C_F, C_C all pinned numerically by imp-397/398/399; no ' +
+      'symbolic placeholders remain). REPHRASED by imp-2519 (referee audit ' +
+      '2026-06-09): the former wording "Lambda = 0 asymptotically — ' +
+      'RIGOROUS" was a category error, since the de Bruijn-Newman constant ' +
+      'Lambda is a single real number and does not depend on N. The honest ' +
+      'content is the lim-sup statement about the finite-N collision times ' +
+      't_c(N); it yields a bound on Lambda itself only once the per-N ' +
+      'translation (Route A-prime) closes.',
     via: [
       'imp-341 Koksma-Hlawka: lim sup_N |t_c(N)| = 0 UNCONDITIONALLY',
       'imp-387 G6_polymath15_bridge closure: |Lambda - (-t_c(N))| <= E(N) -> 0 unconditionally',

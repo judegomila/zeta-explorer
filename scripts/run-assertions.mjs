@@ -1541,6 +1541,12 @@ const DATA_MODULES = [
   // ~34 orders below 1; the pure K_{iR}^2 archimedean envelope crosses margin 2
   // at spectral parameter R* ~ 15.35, above the first Maass eigenvalue. 9 tripwires.
   '/src/data/imp-2461-maass-rankin-selberg-margin.js',
+  // imp-2486: Step 4 E(N) assembly verification — tabulates the assembled
+  // E(N) = E_trunc + E_flow + E_shock (rigorous kappa_T from imp-317, imp-838
+  // pinned C_F, post-imp-366 Holder-1/2 E_shock) at all seven imp-321 ladder
+  // rows; bridge margin E(N) - |t_c(N)| positive everywhere incl. the measured
+  // N = 2458 anchor; binding scale ~10^24.5 under unit constants. 11 tripwires.
+  '/src/data/imp-2486-en-ladder-assembly-verification.js',
 ];
 
 const ALL_MODULES = FAST_MODE

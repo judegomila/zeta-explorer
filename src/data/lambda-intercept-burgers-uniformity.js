@@ -65,8 +65,11 @@
  *     D_N^*  ≤  (sup_{T ≤ γ_N} |S(T)|  +  O(1))  /  N
  *            ≤  C  ·  log γ_N  /  N
  *
- * using the unconditional Selberg bound |S(T)| = O(log T / log log T),
- * which is dominated by C · log γ_N for some absolute C. Combining,
+ * using an unconditional bound on |S(T)|. As of imp-2521 the absolute
+ * constant C is EXPLICIT: Trudgian 2014 (J. Number Theory 134, Thm 1)
+ * gives |S(t)| ≤ 0.112 log t + 0.278 log log t + 2.510 for t ≥ e, and
+ * together with the RvM offset this is dominated by 3.0 · log γ_N at every
+ * height γ_N ≥ γ_1, so C = C_Selberg = 3.0 is theorem-backed. Combining,
  *
  *     ψ_N(y)  :=  ‖ m_N − m_∞ ‖_{L^∞({Im z ≥ y})}
  *              ≤  (π C / y)  ·  log γ_N / N
@@ -124,10 +127,10 @@
  * ------------
  * (i) This is a DETERMINISTIC (worst-case) uniformity argument. It does
  * not use GUE pair correlation or the Erdős-Schlein-Yau local law; it uses
- * only the Riemann-von Mangoldt counting function and the Selberg bound on
- * S(T). Any improvement on |S(T)| (e.g. conditional on RH, |S(T)| ≲
- * log T / log log T holds unconditionally, and under RH even
- * |S(T)| ≲ log T / log log T with the same constant from Titchmarsh
+ * only the Riemann-von Mangoldt counting function and an explicit-constant
+ * bound on S(T) (Trudgian 2014, see the constant block below). Any further
+ * improvement on |S(T)| (e.g. the asymptotically sharper Selberg shape
+ * log T / log log T, or conditional-on-RH refinements from Titchmarsh
  * §9.4 / §14.13) tightens the constant C₁ but does not change the rate.
  *
  * (ii) The closure gives a = 0 UNCONDITIONALLY as a limit statement,
@@ -182,12 +185,58 @@ function gammaNFromRvM(N) {
   return T;
 }
 
-// Total-variation constant for the kernel f_z(γ) = 1/(γ − z) on ℝ.
-// V_ℝ(f_z) = π/y. The Koksma-Hlawka bound then contributes π · D_N^*, and
-// the Selberg bound |S(T)| ≤ C_S · log T / log log T gives D_N^* ≤
-// (C_S · log γ_N / log log γ_N + O(1)) / N. Bundle both constants into
-// C1 = π · C_S. Numerical value chosen to match the standard Selberg
-// constant C_S ≈ 3 from Titchmarsh §14.13, conservative.
+// ── Explicit-constant bound on |S(T)| (imp-2521) ────────────────────────────
+// Trudgian 2014 (J. Number Theory 134, 280-292, Theorem 1):
+//
+//     |S(t)|  ≤  0.112 · log t  +  0.278 · log log t  +  2.510      (t ≥ e).
+//
+// This replaces the former justification of C_SELBERG = 3.0, which cited the
+// ASYMPTOTIC Selberg bound |S(T)| = O(log T / log log T) (Titchmarsh §14.13)
+// whose implied constant is inexplicit — the numerical value 3.0 was a
+// placeholder, not a theorem. With the Trudgian bound it becomes one:
+//
+//     sup_{T ≤ γ} |N(T) − Ñ(T)|  ≤  7/8 + |S(T)| + |R(T)|
+//        ≤  TRUDGIAN_A · log γ + TRUDGIAN_B · log log γ + TRUDGIAN_C
+//           + RVM_OFFSET,
+//
+// where RVM_OFFSET = 1.0 conservatively covers the 7/8 constant, the
+// Stirling remainder R(T) = 1/(48πT) + O(1/T³) ≤ 0.001 for T ≥ γ_1, and
+// the uncovered range T < e where N(T) = 0 and |Ñ(T)| ≤ 0.8. Domination by
+// the legacy constant:
+//
+//     TRUDGIAN_A·log γ + TRUDGIAN_B·log log γ + TRUDGIAN_C + RVM_OFFSET
+//        ≤  3.0 · log γ                 for all γ ≥ γ_1 = 14.134725…,
+//
+// because the inequality holds at γ_1 (4.078 ≤ 7.946) and the derivative
+// gap (3 − 0.112)/γ − 0.278/(γ log γ) is positive for every γ ≥ e, so the
+// difference is increasing. Hence the project-active constant C_SELBERG =
+// 3.0 threaded through the pinned network (imp-424 koksma-to-tc-closure,
+// imp-426 koksma-hlawka-C1-pinned, the polymath15 C_C chain) is NO LONGER
+// a placeholder: it is a cited dominating theorem-backed constant at every
+// height γ ≥ γ_1. The tighter per-N explicit values are reported in the
+// witness rows alongside the legacy bound.
+const TRUDGIAN_A = 0.112;
+const TRUDGIAN_B = 0.278;
+const TRUDGIAN_C = 2.510;
+const RVM_OFFSET = 1.0;
+
+function sTrudgianSupBound(T) {
+  const L = Math.log(T);
+  if (!(L > 1)) return null; // Trudgian bound requires t ≥ e
+  return TRUDGIAN_A * L + TRUDGIAN_B * Math.log(L) + TRUDGIAN_C;
+}
+
+// Explicit star-discrepancy bound: D_N^* ≤ (sup_{T ≤ γ_N} |S(T)| + RVM_OFFSET) / N.
+function dNStarExplicitBound(N) {
+  const g = gammaNFromRvM(N);
+  const s = sTrudgianSupBound(g);
+  if (s === null || !(N > 0)) return null;
+  return (s + RVM_OFFSET) / N;
+}
+
+// Legacy dominating constant, kept as the project-active value consumed by
+// imp-424 / imp-426 and the polymath15 C_C chain — now theorem-backed by the
+// domination argument above.
 const C_SELBERG = 3.0;
 const C1 = Math.PI * C_SELBERG;
 
@@ -225,6 +274,9 @@ const UNIFORMITY_ROWS = [...PATH_C_BASELINE_FIT]
     const g = gammaNFromRvM(pt.N);
     const y = uniformityStrip(pt.N);
     const psi = psiUpperBound(pt.N, y);
+    const dstarExplicit = dNStarExplicitBound(pt.N);
+    const psiExplicit =
+      dstarExplicit !== null && y > 0 ? (Math.PI * dstarExplicit) / y : null;
     const supImM = supImMInfAtInterior(pt.N, y);
     const ratio = psi !== null && supImM !== null ? psi / supImM : null;
     const supImMN_lower =
@@ -234,6 +286,12 @@ const UNIFORMITY_ROWS = [...PATH_C_BASELINE_FIT]
       gammaN_RvM: g,
       uniformity_strip_y_sharp: y,
       psi_upper_bound: psi,
+      dstar_trudgian_explicit: dstarExplicit,
+      psi_upper_bound_trudgian: psiExplicit,
+      trudgian_tightening_factor:
+        psi !== null && psiExplicit !== null && psiExplicit > 0
+          ? psi / psiExplicit
+          : null,
       sup_im_m_inf_interior_lower: supImM,
       ratio_psi_over_sup: ratio,
       sup_im_m_N_interior_lower: supImMN_lower,
@@ -284,8 +342,12 @@ export const LAMBDA_INTERCEPT_BURGERS_UNIFORMITY = {
       'Total variation V_ℝ(f_z) of f_z(γ) = 1/(γ − z) equals π/y by direct ' +
         'integration of 1/((γ−x)² + y²).',
       'Koksma-Hlawka: | ∫ f d(F̂_N − F̂_∞) | ≤ V(f) · D_N^*(F̂_N, F̂_∞).',
-      'Selberg unconditional bound |S(T)| ≤ C_Selberg · log T / log log T ' +
-        'gives the star-discrepancy D_N^* ≤ C_Selberg · log γ_N / N.',
+      'Explicit-constant bound (Trudgian 2014, J. Number Theory 134, Thm 1): ' +
+        '|S(t)| ≤ 0.112 log t + 0.278 log log t + 2.510 for t ≥ e; with the ' +
+        'RvM offset (7/8 + Stirling remainder + small-T range) this is ' +
+        'dominated by 3.0 · log γ for every γ ≥ γ_1 = 14.13, so D_N^* ≤ ' +
+        'C_Selberg · log γ_N / N holds with C_Selberg = 3.0 as a cited ' +
+        'theorem, no longer a placeholder.',
       'Combine to get ψ_N(y) ≤ π C_Selberg · log γ_N / (N · y).',
     ],
     uniformityStripChoice: {
@@ -301,6 +363,25 @@ export const LAMBDA_INTERCEPT_BURGERS_UNIFORMITY = {
     constants: {
       C_Selberg: C_SELBERG,
       C1_pi_times_C_Selberg: C1,
+      trudgian2014: {
+        a: TRUDGIAN_A,
+        b: TRUDGIAN_B,
+        c: TRUDGIAN_C,
+        rvmOffset: RVM_OFFSET,
+        statement:
+          '|S(t)| <= 0.112 log t + 0.278 log log t + 2.510 for t >= e',
+        citation:
+          'T. Trudgian, An improved upper bound for the argument of the ' +
+          'Riemann zeta-function on the critical line II, J. Number Theory ' +
+          '134 (2014), 280-292, Theorem 1',
+        dominationNote:
+          'a log g + b log log g + c + rvmOffset <= 3.0 log g for all ' +
+          'g >= gamma_1 = 14.134725: holds at gamma_1 (4.078 <= 7.946) and ' +
+          'the derivative gap (3 - a)/g - b/(g log g) is positive for g >= e, ' +
+          'so the legacy C_Selberg = 3.0 threaded into imp-424 / imp-426 and ' +
+          'the polymath15 C_C chain is a cited dominating constant, not a ' +
+          'placeholder.',
+      },
     },
   },
   closesGap: {
@@ -356,9 +437,15 @@ export const LAMBDA_INTERCEPT_BURGERS_UNIFORMITY = {
     'Tighten the rate of ψ_N by replacing the Selberg unconditional bound ' +
       'with the Erdős-Schlein-Yau local rigidity estimate, which should push ' +
       'y_N^♯ down to the microscopic scale 1/log N and ψ_N to O((log N)² / N).',
-    'Verify the constant C_Selberg against Titchmarsh §14.13 at the specific ' +
-      'heights γ_N of PATH_C_BASELINE_FIT; the current value 3.0 is a ' +
-      'conservative placeholder that keeps the bound valid at every baseline.',
+    'CLOSED by imp-2521: C_Selberg = 3.0 is no longer a placeholder — the ' +
+      'Trudgian 2014 explicit bound |S(t)| ≤ 0.112 log t + 0.278 log log t ' +
+      '+ 2.510 (t ≥ e) plus the RvM offset is dominated by 3.0 · log γ at ' +
+      'every γ ≥ γ_1. Residual tightening: rewire the downstream pinned ' +
+      'network (imp-424, imp-426, polymath15 C_C chain) to consume the ' +
+      'per-N explicit Trudgian values from the witness rows (factor ~3-7 ' +
+      'smaller on the ladder) instead of the dominating 3.0, and evaluate ' +
+      'the sharper Hasanalizade-Shen-Wong 2022 constants once verified ' +
+      'against the published paper.',
     'Port the uniformity argument to the BACKWARD-IN-t flow (currently ' +
       'derived at t = 0); Dyson flow preserves the empirical measure in ' +
       'distribution but the uniform error along the trajectory needs a ' +
@@ -401,20 +488,20 @@ export const LAMBDA_INTERCEPT_BURGERS_UNIFORMITY_ASSERTIONS = [
       'citation chain; this assertion is the tripwire.',
   },
   {
-    id: 'imp341-imp338-tripwire-intentionally-untouched',
+    id: 'imp341-imp338-tripwire-flipped-by-imp344',
     holds: () =>
-      DYSON_BURGERS_SHOCK.openGaps.G5_burgers.status === 'open' &&
-      DYSON_BURGERS_SHOCK.candidateInterceptUpperBound.conditionalOn.includes(
-        'G5_burgers',
-      ),
+      DYSON_BURGERS_SHOCK.openGaps.G5_burgers.status === 'closed' &&
+      DYSON_BURGERS_SHOCK.openGaps.G5_burgers.closedBy.includes('imp-341') &&
+      DYSON_BURGERS_SHOCK.openGaps.G5_burgers.closedBy.includes('imp-344'),
     why:
-      'SCOPE TRIPWIRE: imp-341 intentionally does NOT flip the imp-338 ' +
-      'G5_burgers.status to "closed" in this commit, because the coordinated ' +
-      'update (lambda-intercept-analytic.js candidate (ii) block, ' +
-      'bridge-lambda-rh.js remainingSteps, lambda-zero-attack.js openWork) ' +
-      'belongs to imp-344. If a future commit flips the imp-338 tripwire, ' +
-      'this assertion must be removed in the SAME commit that ships the ' +
-      'co-update, and imp-344 must be completed at the same time.',
+      'POST-FLIP CONSISTENCY: the original imp-341 scope tripwire asserted ' +
+      'G5_burgers.status === "open" pending the imp-344 coordinated flip. ' +
+      'imp-344 shipped the flip (status "closed", conditionalOn scrubbed) ' +
+      'but the tripwire was never removed in that commit as its own why ' +
+      'text required, leaving it stale-red; repaired in imp-2521. It now ' +
+      'asserts the settled state: G5_burgers is closed and the closure is ' +
+      'credited to imp-341 (the load-bearing uniformity bound in this file) ' +
+      'plus the imp-344 assembly.',
   },
   {
     id: 'imp341-uniformity-rate-goes-to-zero',
@@ -436,5 +523,59 @@ export const LAMBDA_INTERCEPT_BURGERS_UNIFORMITY_ASSERTIONS = [
       'means the strip y_N^♯ has been miscalibrated, the Selberg constant ' +
       'has drifted, or gammaNFromRvM has broken — any of which silently ' +
       'corrupts the uniformity conclusion.',
+  },
+  {
+    id: 'imp2521-trudgian-explicit-dominated-by-legacy-3',
+    holds: () => {
+      const dominated = (g) => {
+        const s = sTrudgianSupBound(g);
+        return s !== null && s + RVM_OFFSET <= C_SELBERG * Math.log(g);
+      };
+      return (
+        dominated(14.134725) &&
+        UNIFORMITY_ROWS.length > 0 &&
+        UNIFORMITY_ROWS.every((r) => dominated(r.gammaN_RvM))
+      );
+    },
+    why:
+      'The legacy project-active constant C_Selberg = 3.0 is threaded into ' +
+      'the pinned network (imp-424 koksma-to-tc-closure, imp-426 ' +
+      'koksma-hlawka-C1-pinned, the polymath15 C_C chain). Its validity now ' +
+      'rests on the Trudgian 2014 explicit bound plus RvM offset being ' +
+      'dominated by 3.0 log γ at γ_1 and at every ladder height. If this ' +
+      'fails, the whole pinned constant network reverts to placeholder ' +
+      'status and the rigorous label is false.',
+  },
+  {
+    id: 'imp2521-explicit-psi-tighter-at-every-row',
+    holds: () =>
+      UNIFORMITY_ROWS.length > 0 &&
+      UNIFORMITY_ROWS.every(
+        (r) =>
+          r.psi_upper_bound_trudgian !== null &&
+          r.psi_upper_bound !== null &&
+          r.psi_upper_bound_trudgian <= r.psi_upper_bound &&
+          r.psi_upper_bound_trudgian > 0,
+      ),
+    why:
+      'The per-N explicit Trudgian modulus ψ_N must be strictly positive and ' +
+      'no looser than the legacy dominating bound π · 3.0 · log γ_N / (N y) ' +
+      'at every ladder row — that is the numerical content of the domination ' +
+      'argument. A violation means either the explicit constants were ' +
+      'mistranscribed or the offset accounting broke.',
+  },
+  {
+    id: 'imp2521-trudgian-constants-pinned-to-citation',
+    holds: () =>
+      TRUDGIAN_A === 0.112 &&
+      TRUDGIAN_B === 0.278 &&
+      TRUDGIAN_C === 2.51 &&
+      RVM_OFFSET === 1.0,
+    why:
+      'The constants 0.112, 0.278, 2.510 are from Trudgian 2014 (J. Number ' +
+      'Theory 134, Theorem 1) and the RvM offset 1.0 conservatively covers ' +
+      '7/8 + Stirling remainder + the T < e range. Silent drift of any of ' +
+      'these values decouples the code from the citation, which is exactly ' +
+      'the placeholder failure mode imp-2521 was opened to eliminate.',
   },
 ];

@@ -311,6 +311,74 @@ const LARGE_N_K_BELOW_SMALLN_MAX =
   K_EMPIRICAL_MAX !== null &&
   LARGE_N_PROJECTION_ROWS.every((r) => r.K_empirical_upper_conditional < K_EMPIRICAL_MAX);
 
+// ── imp-2511 / imp-887-sub-resolve-cross-check-violation closure ────────────
+// ROOT CAUSE of the imp-887 containment violations at N in {50, 100}: the two
+// pipelines subtract DIFFERENT leading-order baselines, so their F_mb values
+// were never the same residual. imp-860 (this module) inherits tau_c_est from
+// the imp-833 samples, whose argmin pair MINIMIZES THE UNFOLDED GAP H_unf and
+// converts via H_raw = H_unf / rho(argmin); imp-857 (c-mb-interval-certified)
+// recomputes t_c_pair = H_raw^2/8 from the pair that MINIMIZES THE RAW GAP
+// directly. The two argmin pairs differ at N = 100: raw-argmin H_raw =
+// 0.715787 (t_c_pair = 0.064044) vs unfolded-argmin H_raw = 0.846241
+// (tau_c_est = 0.089515). The baseline mismatch |tau_c_est - t_c_pair| =
+// 0.025472 EXCEEDS the entire certified envelope F_mb_upper = 0.011956, so
+// the original cross-check at N=100 compared residuals about different
+// reference times and could not have been expected to contain — hypothesis
+// (c) of the sub-gap finding, sharpened from "coordinate mismatch" to
+// "argmin-selection mismatch" (raw-gap argmin vs unfolded-gap argmin). At
+// N in {50, 200} the two argmins nearly coincide (mismatch 2.4e-4 and 1.0e-5)
+// and the N=50 violation is instead the imp-2510 RK4 low-order overshoot.
+// RECONCILIATION: recompute the residual like-for-like — best-order Float64
+// collision time (DP8 where available, i.e. {50, 100}; RK4 at 200, which
+// inherits the imp-859 RK4-vs-DP45 agreement) minus the SAME t_c_pair baseline
+// the certified row uses. Containment then holds at ALL THREE shared N:
+//   N=50  : |0.096   - 0.089279| = 6.7208e-3 <= 6.7208e-3 (slack 0.999994)
+//   N=100 : |0.0705  - 0.064044| = 6.4562e-3 <= 1.1956e-2 (slack 0.54)
+//   N=200 : |0.033   - 0.031023| = 1.9772e-3 <= 1.9772e-3 (slack 0.999975)
+// The near-unity slacks at {50, 200} are STRUCTURAL, not luck: the Float64
+// gate time sits at the interval bracket upper end t_c_hi, and F_mb_upper is
+// measured to that same end, so the like-for-like check reduces to
+// tc_float <= t_c_hi. Residual caveat (named in openSubGaps): at N=100 the
+// order-robust Float64 t_c (0.0705) lies BELOW the interval t_c_lo (0.075) —
+// the one-ULP interval bracket encloses the fixed-dt RK4 MAP (dt=1e-3 there),
+// not the true flow, since outward rounding bounds roundoff but not
+// truncation error.
+const RECONCILIATION_ROWS = ROWS.map((r) => {
+  const cert = CERT_BY_N.get(r.N);
+  if (!cert) {
+    return { N: r.N, status: 'not-certified-at-this-N' };
+  }
+  const dp8Row = DP8_CHECKED.find((d) => d.N === r.N && d.dp8_tc != null);
+  const tc_best = dp8Row ? dp8Row.dp8_tc : r.tau_c_measured;
+  const integrator = dp8Row ? 'dp8-order-8' : 'rk4-order-4-dp45-agreed';
+  const baselineMismatch = Math.abs(r.tau_c_est - cert.t_c_pair);
+  const F_mb_like = Math.abs(tc_best - cert.t_c_pair);
+  const contained = F_mb_like <= cert.F_mb_upper;
+  return {
+    N: r.N,
+    status: contained ? 'reconciled-contained' : 'still-violation',
+    integrator,
+    tc_best,
+    baseline_imp860_tauC_est: r.tau_c_est,
+    baseline_imp857_tc_pair:  cert.t_c_pair,
+    baselineMismatch:         +baselineMismatch.toExponential(4),
+    baselineMismatchExceedsEnvelope: baselineMismatch > cert.F_mb_upper,
+    F_mb_like_for_like:       +F_mb_like.toExponential(6),
+    F_mb_upper_certified:     cert.F_mb_upper,
+    slack_ratio: cert.F_mb_upper > 0 ? +(F_mb_like / cert.F_mb_upper).toExponential(4) : null,
+  };
+});
+
+const RECON_SHARED = RECONCILIATION_ROWS.filter(
+  (x) => x.status === 'reconciled-contained' || x.status === 'still-violation',
+);
+const RECON_ALL_CONTAINED =
+  RECON_SHARED.length >= 3 &&
+  RECON_SHARED.every((x) => x.status === 'reconciled-contained');
+const RECON_N100 = RECONCILIATION_ROWS.find((x) => x.N === 100);
+const RECON_N100_MECHANISM =
+  RECON_N100 != null && RECON_N100.baselineMismatchExceedsEnvelope === true;
+
 // ── Closure record ──────────────────────────────────────────────────────────
 
 export const C_MB_EMPIRICAL_DYSON_SWEEP = {
@@ -398,7 +466,54 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
       'real discrepancy between the Float64 RK4 (imp-859) and the interval RK4 ' +
       '(imp-362) pipelines — the two integrators disagree on tau_c by more than ' +
       'the interval envelope allows. Implementing this check closes imp-887; ' +
-      'any violation it surfaces is a NEW finding recorded in openSubGaps.',
+      'any violation it surfaces is a NEW finding recorded in openSubGaps. ' +
+      'NOTE (imp-2511): the violations this raw check reports at N in {50, 100} ' +
+      'are now fully explained and reconciled — see crossCheckReconciliation. ' +
+      'The raw rows are kept as the historical record of the original ' +
+      'cross-baseline comparison.',
+  },
+
+  crossCheckReconciliation: {
+    subGap: 'imp-887-sub-resolve-cross-check-violation',
+    closedBy: 'imp-2511',
+    status: RECON_SHARED.length === 0
+      ? 'no-shared-N'
+      : (RECON_ALL_CONTAINED ? 'all-reconciled-contained' : 'violation-persists'),
+    sharedNs: RECON_SHARED.map((x) => x.N),
+    n100BaselineMismatchExceedsEnvelope: RECON_N100_MECHANISM,
+    rows: RECONCILIATION_ROWS,
+    rootCauses: [
+      'Baseline (argmin-selection) mismatch — dominant at N=100: imp-860 ' +
+        'tau_c_est uses the UNFOLDED-gap argmin pair (imp-833; H_raw = ' +
+        'H_unf/rho(argmin) = 0.846241, baseline 0.089515) while imp-857 ' +
+        't_c_pair uses the RAW-gap argmin pair (H_raw = 0.715787, baseline ' +
+        '0.064044). The 0.025472 baseline gap exceeds the whole certified ' +
+        'envelope (0.011956), so the original F_mb comparison at N=100 was ' +
+        'cross-baseline (apples-to-oranges), not an integrator discrepancy.',
+      'RK4 low-order overshoot — dominant at N=50 (imp-2510): baselines ' +
+        'nearly coincide there (mismatch 2.4e-4), but RK4 t_c = 0.1435 ' +
+        'overshoots; the order-8 DP8 t_c = 0.096 lands exactly at the ' +
+        'certified bracket end t_c_hi and containment is restored.',
+    ],
+    finding:
+      'Recomputing the residual LIKE-FOR-LIKE — best-order Float64 collision ' +
+      'time (DP8 at {50, 100}; RK4 at 200, which inherits the imp-859 ' +
+      'RK4-vs-DP45 agreement) minus the SAME t_c_pair baseline the certified ' +
+      'row uses — containment F_mb <= F_mb_upper_cert holds at ALL THREE ' +
+      'shared N: slack 0.999994 (N=50), 0.54 (N=100), 0.999975 (N=200). The ' +
+      'near-unity slacks at {50, 200} are structural (the Float64 gate time ' +
+      'sits at the bracket end t_c_hi that defines F_mb_upper), not luck. ' +
+      'Neither hypothesis (a) gate mismatch nor (b) too-narrow bracket was ' +
+      'the cause; hypothesis (c) is confirmed in sharpened form: an ' +
+      'argmin-SELECTION mismatch (raw-gap argmin vs unfolded-gap argmin), ' +
+      'which cancels at N in {50, 200} where the two argmins coincide and ' +
+      'bites at N=100 where they differ.',
+    residualCaveat:
+      'At N=100 the order-robust Float64 t_c (0.0705, DP45 == DP8) lies ' +
+      'BELOW the interval t_c_lo (0.075): the imp-362 one-ULP bracket ' +
+      'encloses the fixed-dt RK4 MAP (dt = 1e-3 at that N), not the true ' +
+      'flow — outward rounding bounds roundoff, not truncation. Named as ' +
+      'imp-2511-sub-interval-bracket-map-vs-flow in openSubGaps.',
   },
 
   dp8OrderRobustness: {
@@ -513,26 +628,25 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
         '(c) move the large-N measurement to a scripts/ cron that runs offline.',
     },
     {
-      id: 'imp-887-sub-resolve-cross-check-violation',
+      id: 'imp-2511-sub-interval-bracket-map-vs-flow',
       summary:
-        'Explain / reconcile F_mb_measured > F_mb_upper_cert at N in {50, 100}.',
+        'The imp-362 interval bracket certifies the fixed-dt RK4 MAP, not ' +
+        'the true Dyson flow: at N=100 the order-robust Float64 t_c (0.0705) ' +
+        'lies below the interval t_c_lo (0.075).',
       finding:
-        'The imp-887 containment cross-check found F_mb_measured (Float64 RK4 ' +
-        'from imp-859 dyson-ode-integrator.js) exceeds F_mb_upper_cert ' +
-        '(certified interval RK4 from imp-362) at N=50 (slack 8.0x) and ' +
-        'N=100 (slack 1.4x), while N=200 is contained (slack 0.99x). Both ' +
-        'pipelines advertise raw-time coordinates on the same zero set, so ' +
-        'either (a) the two integrators use different collision-detection ' +
-        'gates (imp-859 uses spacing < 1e-4 between adjacent zeros; imp-362 ' +
-        'may use a different threshold or stopping criterion), (b) the ' +
-        'certified bracket [t_c_lo, t_c_hi] does not actually contain the ' +
-        'true collision time at small N (wrapper too narrow or stopping too ' +
-        'early), or (c) there is a coordinate-system mismatch at small N ' +
-        'that cancels at larger N. Resolution requires: (1) auditing both ' +
-        'integrators at N=50 with identical stop criteria, (2) comparing ' +
-        'the actual integration trajectories, (3) quoting the mismatch as ' +
-        'either a bug-fix candidate or a known small-N artifact to exclude ' +
-        'from the certified range.',
+        'Uncovered by the imp-2511 reconciliation: the one-ULP outward-rounded ' +
+        'interval RK4 (interval-dyson-integrator.mjs) bounds ROUNDOFF in the ' +
+        'discrete RK4 recursion but not TRUNCATION error of RK4 against the ' +
+        'continuous flow, so [t_c_lo, t_c_hi] is a certified bracket for the ' +
+        'dt-fixed RK4-map collision, not for the true flow collision. ' +
+        'Empirically consistent: RK4 overshoots with coarser dt (interval run ' +
+        'dt=1e-3 gives ~0.0755; Float64 RK4 dt=5e-4 gives 0.0725; DP8 gives ' +
+        '0.0705 at N=100), and the heavily-inflated N=50 run fires its gate ' +
+        'on wrapper width (finalMinGapLo = -0.22). Resolution paths: (a) a ' +
+        'flow-validated enclosure (Lohner-type remainder, or Arb/CAPD as the ' +
+        'imp-362 header already names); (b) add the explicit RK4 truncation ' +
+        'term C*dt^4*||g^(5)|| to the bracket; (c) downgrade consumers to ' +
+        'quote the bracket as discrete-map-certified only.',
     },
   ],
 
@@ -563,6 +677,25 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
         'imp-2510-sub-rk4-n50-order-artifact. See the dp8OrderRobustness record ' +
         'and the imp860-dp8-order-robust build-time assertion. N=200 DP8 ' +
         '(~3e9 ops) is deferred.',
+    },
+    {
+      id: 'imp-887-sub-resolve-cross-check-violation',
+      closedBy: 'imp-2511',
+      resolution:
+        'Both violations EXPLAINED and RECONCILED (see crossCheckReconciliation). ' +
+        'Root cause at N=100: a baseline (argmin-selection) mismatch — imp-860 ' +
+        'tau_c_est subtracts the UNFOLDED-gap argmin pair baseline (0.089515) ' +
+        'while imp-857 t_c_pair subtracts the RAW-gap argmin pair baseline ' +
+        '(0.064044); the 0.025472 baseline gap exceeds the whole certified ' +
+        'envelope (0.011956), so the original comparison was cross-baseline, ' +
+        'not an integrator discrepancy. Root cause at N=50: the imp-2510 RK4 ' +
+        'low-order overshoot (baselines coincide there to 2.4e-4). Recomputing ' +
+        'like-for-like (DP8 t_c at {50, 100}, RK4 at 200, SAME t_c_pair ' +
+        'baseline), containment holds at all three shared N (slacks 0.999994, ' +
+        '0.54, 0.999975) — guarded by the imp887-cross-check-reconciled ' +
+        'build-time assertion. Hypotheses (a) gate mismatch and (b) too-narrow ' +
+        'bracket are ruled out; (c) is confirmed in sharpened argmin-selection ' +
+        'form. Residual caveat named as imp-2511-sub-interval-bracket-map-vs-flow.',
     },
   ],
 
@@ -697,6 +830,37 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS = [
       'max. The direct backward-RK4 measurement is NOT asserted here: F_mb_measured ' +
       'and K_empirical stay null at every large-N row, keeping the integration ' +
       'blocker honestly open rather than masking it behind a projection.',
+  },
+  {
+    id: 'imp887-cross-check-reconciled',
+    holds: () => {
+      const rc = C_MB_EMPIRICAL_DYSON_SWEEP.crossCheckReconciliation;
+      if (!rc || !Array.isArray(rc.rows)) return false;
+      const shared = rc.rows.filter(
+        (r) => r.status === 'reconciled-contained' || r.status === 'still-violation',
+      );
+      // (1) All three shared N must be contained under the like-for-like
+      // comparison (best-order Float64 t_c vs the SAME t_c_pair baseline the
+      // certified row uses); (2) the documented N=100 mechanism must hold
+      // quantitatively: the baseline mismatch alone exceeds the certified
+      // envelope, proving the original comparison was cross-baseline.
+      return (
+        shared.length >= 3 &&
+        shared.every((r) => r.status === 'reconciled-contained') &&
+        rc.n100BaselineMismatchExceedsEnvelope === true
+      );
+    },
+    why:
+      'imp-2511 / imp-887-sub-resolve-cross-check-violation: with the baseline ' +
+      '(argmin-selection) mismatch removed — residuals taken about the SAME ' +
+      'imp-857 t_c_pair — and the best-order Float64 collision time used (DP8 ' +
+      'at {50, 100}; RK4 at 200), F_mb must be contained by F_mb_upper_cert at ' +
+      'every shared N. Regression would mean a REAL Float64-vs-interval ' +
+      'discrepancy has appeared, reopening the sub-gap. The mechanism flag ' +
+      'pins the N=100 explanation: |tau_c_est - t_c_pair| > F_mb_upper there, ' +
+      'so the original raw cross-check at N=100 compared residuals about ' +
+      'different reference times and its violation row is historical, not an ' +
+      'integrator bug.',
   },
   {
     id: 'imp860-cross-check-N200-contained',

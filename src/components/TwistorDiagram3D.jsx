@@ -1,6 +1,7 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Text, Line, Html } from '@react-three/drei';
+import SafeCanvas from './SafeCanvas.jsx';
 import * as THREE from 'three';
 import {
   twistorFromS, dualTwistorFromS, incidenceRelation,
@@ -338,9 +339,9 @@ export default function TwistorDiagram3D() {
         background: '#080b1a',
         border: '1px solid rgba(99,102,241,0.2)',
       }}>
-        <Canvas camera={{ position: [3, 2, 3], fov: 50 }} dpr={[1, 2]}>
+        <SafeCanvas camera={{ position: [3, 2, 3], fov: 50 }} dpr={[1, 2]}>
           <TwistorScene sigma={sigma} t={t} animate={animate} />
-        </Canvas>
+        </SafeCanvas>
       </div>
 
       <div className="card" style={{ marginTop: 16, padding: '14px 18px', fontSize: 13, color: '#94a3b8' }}>

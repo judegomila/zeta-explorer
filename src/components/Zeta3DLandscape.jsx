@@ -1,6 +1,7 @@
 import React, { useRef, useMemo, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
+import SafeCanvas from './SafeCanvas.jsx';
 import * as THREE from 'three';
 import { zetaCriticalStrip, ZETA_ZEROS } from '../math/zeta.js';
 
@@ -197,7 +198,7 @@ export default function Zeta3DLandscape() {
         border: '1px solid #1e293b', overflow: 'hidden',
         background: '#060a14',
       }}>
-        <Canvas
+        <SafeCanvas
           camera={{ position: [8, 6, 8], fov: 50 }}
           gl={{ antialias: true }}
           style={{ background: '#060a14' }}
@@ -209,7 +210,7 @@ export default function Zeta3DLandscape() {
             showCriticalLine={showCritLine}
             showZeros={showZeros}
           />
-        </Canvas>
+        </SafeCanvas>
       </div>
 
       <div style={{ display: 'flex', gap: 12, marginTop: 12, flexWrap: 'wrap' }}>

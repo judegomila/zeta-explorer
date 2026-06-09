@@ -1,0 +1,50 @@
+{
+  "src/data/imp-1312-beurling-nyman-attack.js#Does there exist a weight w(t) with w(t)(1/4+t^2) -> infinity such that the": {
+    "impId": "pre-ledger",
+    "seededAt": "2026-06-09T22:13:32.813Z"
+  },
+  "src/data/imp-904-dense-grid-analysis.js#imp-904-sub-run-missing": {
+    "impId": "pre-ledger",
+    "seededAt": "2026-06-09T22:13:32.818Z"
+  },
+  "src/data/c-mb-empirical-dyson-sweep.js#imp-860-sub-extend-to-N10k": {
+    "impId": "imp-2509",
+    "seededAt": "2026-06-09T22:13:33.048Z"
+  },
+  "src/data/c-mb-empirical-dyson-sweep.js#imp-860-sub-use-DP8": {
+    "impId": "imp-2510",
+    "seededAt": "2026-06-09T22:13:33.222Z"
+  },
+  "src/data/c-mb-empirical-dyson-sweep.js#imp-887-sub-resolve-cross-check-violation": {
+    "impId": "imp-2511",
+    "seededAt": "2026-06-09T22:13:33.396Z"
+  },
+  "src/data/esy-rigidity-port.js#esy-rigidity-port-sub-rate": {
+    "impId": "imp-2512",
+    "seededAt": "2026-06-09T22:13:33.567Z"
+  },
+  "src/data/g1-g2-closure.js#g1-uniform-margin": {
+    "impId": "imp-2513",
+    "seededAt": "2026-06-09T22:13:33.745Z"
+  },
+  "src/data/g3a-extremal-closure.js#G3a_sub_fullsum": {
+    "impId": "imp-2514",
+    "seededAt": "2026-06-09T22:13:33.925Z"
+  },
+  "src/data/imp-336-post-ladder-update.js#G1-sub-extremal": {
+    "impId": "imp-2515",
+    "seededAt": "2026-06-09T22:13:35.293Z"
+  },
+  "src/data/imp-336-post-ladder-update.js#imp-336-sub-monotonicity-on-trajectory": {
+    "impId": "imp-2516",
+    "seededAt": "2026-06-09T22:13:35.479Z"
+  },
+  "src/data/imp-857-phased-forcing-sweep.js#imp-896": {
+    "impId": "imp-2517",
+    "seededAt": "2026-06-09T22:13:35.658Z"
+  },
+  "src/data/imp-857-phased-forcing-sweep.js#imp-897": {
+    "impId": "imp-2518",
+    "seededAt": "2026-06-09T22:13:35.842Z"
+  }
+}

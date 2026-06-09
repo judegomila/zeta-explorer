@@ -26,7 +26,7 @@
 //   --interval SEC   daemon sleep between passes             (default 14400 = 4h)
 //   --dry-run        print what would be seeded, write nothing
 
-import { readFileSync, readdirSync, appendFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, readdirSync, appendFileSync, mkdirSync, writeFileSync, renameSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -72,37 +72,106 @@ function existingState() {
   return { titles };
 }
 
+// ── Seeded-gap ledger (imp-2489 producer upgrade) ────────────────────────────
+// Persistent dedupe keyed by `sourceFile#gapKey` -> { impId, seededAt }. This
+// survives title rewording (the old title-only dedupe permanently blocked
+// re-evaluation and made the template bank a one-shot source). Also enforces
+// a max-per-day guard across all passes.
+const LEDGER = join(ROOT, 'scripts/seeded-gaps.json');
+const MAX_PER_DAY = 12;
+function readLedger() {
+  try { return JSON.parse(readFileSync(LEDGER, 'utf8')); } catch (_) { return {}; }
+}
+function writeLedger(ledger) {
+  const tmp = LEDGER + '.tmp';
+  writeFileSync(tmp, JSON.stringify(ledger, null, 2) + '\n');
+  renameSync(tmp, LEDGER);
+}
+function seededToday(ledger) {
+  const today = new Date().toISOString().slice(0, 10);
+  return Object.values(ledger).filter(v => String(v.seededAt || '').slice(0, 10) === today).length;
+}
+
+// Extract a balanced {...} or [...] block starting at text[start].
+function balancedBlock(text, start) {
+  const open = text[start];
+  const close = open === '{' ? '}' : ']';
+  let d = 0, i = start;
+  for (; i < text.length; i++) {
+    if (text[i] === open) d++;
+    else if (text[i] === close) { d--; if (d === 0) return text.slice(start, i + 1); }
+  }
+  return null;
+}
+
 // ── Harvest openSubGap markers not yet ticketed ──────────────────────────────
-function harvestSubGaps(existing) {
+// Two shapes (imp-2489): string-valued `openSubGap: '...'` (original), and
+// object/array-valued `openSubGap: {id, statement, status}` / `openSubGaps: [...]`
+// which the original regex was blind to — the cause of the 2026-06-09 queue
+// starvation while 21 data files carried live object-shaped residuals.
+function harvestSubGaps(existing, ledger) {
   const out = [];
   const dirs = ['src/data', 'src/math'];
+  const pushCandidate = (d, f, gapKey, label) => {
+    const ledgerKey = `${d}/${f}#${gapKey}`;
+    if (ledger[ledgerKey]) return;
+    const title = `Close named open sub-gap ${label} (in ${d}/${f})`;
+    if (existing.titles.has(normalize(title))) { ledger[ledgerKey] = { impId: 'pre-ledger', seededAt: new Date().toISOString() }; return; }
+    const labelNorm = normalize(label);
+    for (const t of existing.titles) { if (labelNorm.length > 6 && t.includes(labelNorm)) return; }
+    out.push({
+      ledgerKey,
+      title,
+      priority: 'high',
+      category: 'proof',
+      section: 'S-subgap-followup',
+      description: `${d}/${f} declares an open sub-gap "${label}". Read the file's openSubGap field, implement the named work, update the file's status + closureNote, and ship a build-time assertion confirming the gap is closed.`,
+      rationale: 'Harvested open sub-gap — a previously-identified, concrete follow-on task. Auto-produced to keep the queue from draining.',
+    });
+    existing.titles.add(normalize(title)); // avoid dupes within this run
+  };
   for (const d of dirs) {
     let files = [];
     try { files = readdirSync(join(ROOT, d)).filter(f => f.endsWith('.js')); } catch (_) { continue; }
     for (const f of files) {
       let txt;
       try { txt = readFileSync(join(ROOT, d, f), 'utf8'); } catch (_) { continue; }
-      const re = /openSubGap:\s*(?:"((?:[^"\\]|\\.)*)"|'((?:[^'\\]|\\.)*)')/g;
+      // Shape 1: string-valued openSubGap
+      const reStr = /openSubGap:\s*(?:"((?:[^"\\]|\\.)*)"|'((?:[^'\\]|\\.)*)')/g;
       let m;
-      while ((m = re.exec(txt))) {
+      while ((m = reStr.exec(txt))) {
         const label = (m[1] ?? m[2] ?? '').trim();
         if (!label) continue;
-        const title = `Close named open sub-gap ${label} (in ${d}/${f})`;
-        if (existing.titles.has(normalize(title))) continue;
-        // also skip if the label itself already appears in some pending title
-        const labelNorm = normalize(label);
-        let dup = false;
-        for (const t of existing.titles) { if (labelNorm.length > 6 && t.includes(labelNorm)) { dup = true; break; } }
-        if (dup) continue;
-        out.push({
-          title,
-          priority: 'high',
-          category: 'proof',
-          section: 'S-subgap-followup',
-          description: `${d}/${f} declares an open sub-gap "${label}". Read the file's openSubGap field, implement the named work, update the file's status + closureNote, and ship a build-time assertion confirming the gap is closed.`,
-          rationale: 'Harvested open sub-gap — a previously-identified, concrete follow-on task. Auto-produced to keep the queue from draining.',
-        });
-        existing.titles.add(normalize(title)); // avoid dupes within this run
+        pushCandidate(d, f, label.slice(0, 80), label);
+      }
+      // Shape 2: object/array-valued openSubGap(s)
+      const reObj = /openSubGaps?:\s*(?=[{[])/g;
+      while ((m = reObj.exec(txt))) {
+        const block = balancedBlock(txt, m.index + m[0].length);
+        if (!block) continue;
+        // Split arrays into per-entry objects; a bare object is one entry.
+        const entries = [];
+        if (block[0] === '[') {
+          let i = 0;
+          while (i < block.length) {
+            if (block[i] === '{') { const b = balancedBlock(block, i); if (!b) break; entries.push(b); i += b.length; }
+            else i++;
+          }
+        } else entries.push(block);
+        for (const entry of entries) {
+          // Closed entries are not candidates. Treat as open when an explicit
+          // open marker exists, or when no closed marker exists at all.
+          const closed = /status(?:OfRemaining)?:\s*['"]closed['"]/i.test(entry) || /(?:isClosed|openSubGapIsClosed):\s*true/.test(entry);
+          const open = /status(?:OfRemaining)?:\s*['"]open['"]/i.test(entry) || /(?:isClosed|openSubGapIsClosed):\s*false/.test(entry);
+          if (closed && !open) continue;
+          const idM = entry.match(/\bid:\s*(?:"([^"]+)"|'([^']+)')/);
+          const stM = entry.match(/\b(?:statement|label|summary):\s*(?:"((?:[^"\\]|\\.)*)"|'((?:[^'\\]|\\.)*)')/);
+          const gapId = (idM && (idM[1] ?? idM[2])) || null;
+          const statement = (stM && (stM[1] ?? stM[2])) || null;
+          if (!gapId && !statement) continue;
+          const label = gapId ? (statement ? `${gapId}: ${statement.slice(0, 120)}` : gapId) : statement.slice(0, 140);
+          pushCandidate(d, f, gapId || statement.slice(0, 80), label);
+        }
       }
     }
   }
@@ -140,8 +209,17 @@ function templateBank(existing) {
 function readPending() {
   // refresh index first so the count is current
   try { execFileSync('node', [join(ROOT, 'scripts/build-queue-index.mjs')], { cwd: ROOT, stdio: 'ignore' }); } catch (_) {}
-  try { return JSON.parse(readFileSync(INDEX, 'utf8')).totalPending ?? 0; }
-  catch (_) { return 0; }
+  // imp-2489: the low-water mark is the PRODUCER'S OWN bucket (opus-4-8 — the
+  // bucket the api pool drains), not totalPending. The 2026-06-09 starvation
+  // happened because 3 pending haiku tickets kept totalPending nonzero while
+  // byModel['opus-4-8'] sat at 0 and all four pool workers idled.
+  try {
+    const idx = JSON.parse(readFileSync(INDEX, 'utf8'));
+    const bucket = idx.byModel?.['opus-4-8'];
+    if (Array.isArray(bucket)) return bucket.length;
+    if (typeof bucket === 'number') return bucket;
+    return idx.totalPending ?? 0;
+  } catch (_) { return 0; }
 }
 
 function claimId() {
@@ -177,11 +255,14 @@ function seed(id, t, dry) {
 
 function topUp() {
   const pending = readPending();
-  if (pending >= args.threshold) { log(`queue healthy (${pending} pending >= threshold ${args.threshold}); no top-up`); return; }
-  const need = Math.min(args.target - pending, args['max-per-run']);
+  if (pending >= args.threshold) { log(`queue healthy (opus-4-8 bucket ${pending} pending >= threshold ${args.threshold}); no top-up`); return; }
+  const ledger = readLedger();
+  const todayCount = seededToday(ledger);
+  if (todayCount >= MAX_PER_DAY) { log(`daily cap reached (${todayCount}/${MAX_PER_DAY} seeded today); no top-up`); return; }
+  const need = Math.min(args.target - pending, args['max-per-run'], MAX_PER_DAY - todayCount);
   const existing = existingState();
-  const candidates = [...harvestSubGaps(existing), ...templateBank(existing)].slice(0, need);
-  log(`pending=${pending} < threshold=${args.threshold}; seeding ${candidates.length}/${need} (harvest+template)${args['dry-run'] ? ' [DRY-RUN]' : ''}`);
+  const candidates = [...harvestSubGaps(existing, ledger), ...templateBank(existing)].slice(0, need);
+  log(`opus-4-8 pending=${pending} < threshold=${args.threshold}; seeding ${candidates.length}/${need} (harvest+template, ${todayCount}/${MAX_PER_DAY} today)${args['dry-run'] ? ' [DRY-RUN]' : ''}`);
   let made = 0;
   for (const t of candidates) {
     try {
@@ -193,11 +274,13 @@ function topUp() {
       const id = claimId();
       seed(id, t, false);
       made++;
+      if (t.ledgerKey) ledger[t.ledgerKey] = { impId: id, seededAt: new Date().toISOString() };
       log(`  + ${id}  [${t.priority}] ${t.title}`);
     } catch (e) {
       log(`  ! failed to seed "${t.title}": ${String(e.message || e).split('\n')[0]}`);
     }
   }
+  if (!args['dry-run'] && made > 0) { try { writeLedger(ledger); } catch (e) { log(`  ! ledger write failed: ${e.message}`); } }
   log(`top-up complete: ${made} ticket(s) ${args['dry-run'] ? 'would be ' : ''}created`);
 }
 

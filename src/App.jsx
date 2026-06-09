@@ -91,6 +91,15 @@ const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
 const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboardPage.jsx'));
 const MillsTheoremPage = lazy(() => import('./pages/MillsTheoremPage.jsx'));
 const GilbreathObservationPage = lazy(() => import('./pages/GilbreathObservationPage.jsx'));
+const BerryKeatingXpPage = lazy(() => import('./pages/BerryKeatingXpPage.jsx'));
+const ConnesAdelicPage = lazy(() => import('./pages/ConnesAdelicPage.jsx'));
+const EdgeRigidityPage = lazy(() => import('./pages/EdgeRigidityPage.jsx'));
+const EsyRigidityEmpiricalPage = lazy(() => import('./pages/EsyRigidityEmpiricalPage.jsx'));
+const GueComparisonPage = lazy(() => import('./pages/GueComparisonPage.jsx'));
+const LmfdbCrossReferencePage = lazy(() => import('./pages/LmfdbCrossReferencePage.jsx'));
+const PairCorrelationPage = lazy(() => import('./pages/PairCorrelationPage.jsx'));
+const RiemannSiegelZPage = lazy(() => import('./pages/RiemannSiegelZPage.jsx'));
+const VoroninUniversalityPage = lazy(() => import('./pages/VoroninUniversalityPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -540,6 +549,15 @@ function AppShell() {
           <Route path="/viz-prime-caustic" element={<VizPrimeCausticPage />} />
           <Route path="/viz-prime-phase-crystal" element={<VizPrimePhaseCrystalPage />} />
           <Route path="/visualizations" element={<VisualizationsIndexPage />} />
+          <Route path="/berry-keating-xp" element={<BerryKeatingXpPage />} />
+          <Route path="/connes-adelic" element={<ConnesAdelicPage />} />
+          <Route path="/edge-rigidity" element={<EdgeRigidityPage />} />
+          <Route path="/esy-rigidity-empirical" element={<EsyRigidityEmpiricalPage />} />
+          <Route path="/gue-comparison" element={<GueComparisonPage />} />
+          <Route path="/lmfdb-cross-reference" element={<LmfdbCrossReferencePage />} />
+          <Route path="/pair-correlation" element={<PairCorrelationPage />} />
+          <Route path="/riemann-siegel-z" element={<RiemannSiegelZPage />} />
+          <Route path="/voronin-universality" element={<VoroninUniversalityPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

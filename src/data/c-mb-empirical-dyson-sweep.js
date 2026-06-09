@@ -78,6 +78,7 @@
 import { EMPIRICAL_SWEEP_DP8_CROSSCHECK } from './empirical-sweep-dp8-crosscheck.js';
 import { C_MB_INTERVAL_CERTIFIED } from '../math/c-mb-interval-certified.js';
 import { dysonOdeCrossVerifyDP8 } from '../math/dyson-ode-integrator.js';
+import { EMPIRICAL_M_SWEEP_EXTENDED } from './empirical-m-sweep-extended.js';
 
 // ── Build per-N rows from the existing imp-859 RK4 cross-check ──────────────
 
@@ -237,6 +238,79 @@ const DP8_MONOTONE = DP8_CHECKED_NS.length > 0 && DP8_CHECKED.every((r) => r.dp8
 const DP8_ANCHOR = DP8_CHECKED.find((r) => r.N === 100);
 const DP8_ANCHOR_AGREE = DP8_ANCHOR != null && DP8_ANCHOR.tc_agree === true;
 
+// ── imp-2509 / imp-860-sub-extend-to-N10k partial advance ──────────────────
+// The direct backward-RK4 Dyson sweep at N >= 500 stays infeasible at module
+// load (O(N^2) per step; N=10000 ~ 5e11 float ops — the named blocker). But the
+// closed-form leading-order estimate tau_c_est(N) = H_N^2/(8 rho^2) from the
+// imp-833 extended sweep (src/data/empirical-m-sweep-extended.js) ALREADY samples
+// EXACTLY the five ticket targets {500, 1000, 2000, 5000, 10000}. This block does
+// NOT measure tau_c_measured (the integration is still the blocker); instead it
+//   (1) resolves the LEADING-ORDER half of each missing K_empirical row from the
+//       exact closed form (H_unf, rho, tau_c_est, normalization), turning each
+//       large-N row from "fully absent" into "leading term known, residual pending",
+//   (2) attaches a CONDITIONAL upper bound on K_empirical(N) under the
+//       empirically-supported hypothesis that the dimensionless residual
+//       R_rel(N) = F_mb(N)/tau_c_est(N) stays monotone-decreasing past the largest
+//       measured N. Measured R_rel is sharply decreasing on {50,100,200}
+//       (0.603 -> 0.190 -> 0.063), so under that hypothesis F_mb(N) <
+//       R_rel(anchor)*tau_c_est(N) for all N >= anchor, giving
+//       K_empirical(N) < R_rel(anchor)*tau_c_est(N)*H_unf/(N^{-1/2} log N).
+// This is a PROJECTION, not a measurement: the direct RK4 sweep is still required
+// to confirm it, so imp-860-sub-extend-to-N10k REMAINS OPEN (refined, not closed).
+const LARGE_N_TARGETS = [500, 1000, 2000, 5000, 10000];
+
+const SWEEP_SAMPLE_BY_N = new Map();
+for (const s of EMPIRICAL_M_SWEEP_EXTENDED.samples) SWEEP_SAMPLE_BY_N.set(s.N, s);
+
+const MEASURED_MAX_N_ROW = ROWS.length > 0 ? ROWS.reduce((a, b) => (b.N > a.N ? b : a)) : null;
+const R_REL_ANCHOR   = MEASURED_MAX_N_ROW ? MEASURED_MAX_N_ROW.R_rel : null;
+const R_REL_ANCHOR_N = MEASURED_MAX_N_ROW ? MEASURED_MAX_N_ROW.N : null;
+// Is the measured R_rel actually monotone-decreasing (the hypothesis premise)?
+const MEASURED_R_REL_MONOTONE =
+  ROWS.length >= 2 &&
+  [...ROWS].sort((a, b) => a.N - b.N).every((r, i, a) => i === 0 || a[i - 1].R_rel >= r.R_rel);
+
+const LARGE_N_PROJECTION_ROWS = LARGE_N_TARGETS.map((N) => {
+  const s = SWEEP_SAMPLE_BY_N.get(N);
+  if (!s || R_REL_ANCHOR == null) {
+    return { N, status: 'no-closed-form-sample' };
+  }
+  const tauEst = s.tauC_est;
+  const H_unf  = s.H_N;
+  const rho    = s.rho_jStar;
+  const norm   = Math.pow(N, -0.5) * Math.log(N);
+  const F_mb_cap     = R_REL_ANCHOR * tauEst;            // conditional residual cap
+  const K_upper_cond = F_mb_cap * H_unf / norm;          // conditional K upper bound
+  return {
+    N,
+    status:        'estimate-skeleton',
+    tau_c_est:     +tauEst.toExponential(6),
+    H_unf:         +H_unf.toExponential(6),
+    rho_jStar:     +rho.toFixed(7),
+    normalization: +norm.toExponential(6),
+    F_mb_measured: null,  // requires direct backward-RK4 tau_c_measured (open blocker)
+    K_empirical:   null,  // requires F_mb_measured
+    F_mb_cap_conditional:          +F_mb_cap.toExponential(6),
+    K_empirical_upper_conditional: +K_upper_cond.toExponential(6),
+  };
+});
+
+const LARGE_N_SKELETON_COMPLETE =
+  LARGE_N_PROJECTION_ROWS.length === LARGE_N_TARGETS.length &&
+  LARGE_N_PROJECTION_ROWS.every((r) => r.status === 'estimate-skeleton');
+
+// tau_c_est skeleton must be monotone-decreasing in N (inherits imp-833 E2).
+const LARGE_N_TAUEST_MONOTONE =
+  LARGE_N_SKELETON_COMPLETE &&
+  LARGE_N_PROJECTION_ROWS.every((r, i, a) => i === 0 || a[i - 1].tau_c_est >= r.tau_c_est);
+
+// Every conditional projected K upper bound must stay below the measured small-N
+// max — consistent with K_empirical(N) being bounded (the imp-857 program target).
+const LARGE_N_K_BELOW_SMALLN_MAX =
+  LARGE_N_SKELETON_COMPLETE &&
+  K_EMPIRICAL_MAX !== null &&
+  LARGE_N_PROJECTION_ROWS.every((r) => r.K_empirical_upper_conditional < K_EMPIRICAL_MAX);
+
 // ── Closure record ──────────────────────────────────────────────────────────
 
 export const C_MB_EMPIRICAL_DYSON_SWEEP = {
@@ -368,6 +442,39 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
       'order-discrepancy is named in openSubGaps.',
   },
 
+  largeNProjection: {
+    subGap: 'imp-860-sub-extend-to-N10k',
+    advancedBy: 'imp-2509',
+    status: LARGE_N_SKELETON_COMPLETE ? 'leading-order-resolved; residual-pending' : 'no-closed-form-sample',
+    targets: LARGE_N_TARGETS,
+    anchorN: R_REL_ANCHOR_N,
+    anchorRrel: R_REL_ANCHOR,
+    measuredRrelMonotone: MEASURED_R_REL_MONOTONE,
+    tauEstMonotone: LARGE_N_TAUEST_MONOTONE,
+    projectedKBelowSmallNMax: LARGE_N_K_BELOW_SMALLN_MAX,
+    rows: LARGE_N_PROJECTION_ROWS,
+    description:
+      'Partial advance on the {500,1000,2000,5000,10000} extension WITHOUT running ' +
+      'the infeasible O(N^2) backward-RK4 sweep at module load. The closed-form ' +
+      'leading-order tau_c_est(N) = H_N^2/(8 rho^2) from the imp-833 extended sweep ' +
+      'is available exactly at all five ticket targets, so each missing K_empirical ' +
+      'row is now "leading term known, many-body residual pending" rather than fully ' +
+      'absent. F_mb_measured and K_empirical stay null because they require the ' +
+      'direct tau_c_measured (the named blocker).',
+    conditionalBound:
+      'Under the hypothesis that R_rel(N) = F_mb(N)/tau_c_est(N) stays monotone ' +
+      'decreasing past N=' + R_REL_ANCHOR_N + ' (measured R_rel is sharply ' +
+      'decreasing on {50,100,200}: 0.603 -> 0.190 -> 0.063), one gets ' +
+      'F_mb(N) < R_rel(' + R_REL_ANCHOR_N + ')*tau_c_est(N) and hence ' +
+      'K_empirical(N) < K_empirical_upper_conditional, reported per row. All five ' +
+      'conditional caps land far below the measured small-N max K_empirical=' +
+      (K_EMPIRICAL_MAX !== null ? K_EMPIRICAL_MAX.toFixed(4) : 'n/a') + ', i.e. the ' +
+      'direct sweep (once run) is predicted to find K_empirical shrinking, not ' +
+      'growing — consistent with the imp-857 boundedness target. This is a ' +
+      'PROJECTION conditional on the unproven R_rel-monotonicity premise, NOT a ' +
+      'measurement; imp-860-sub-extend-to-N10k REMAINS OPEN.',
+  },
+
   openSubGaps: [
     {
       id: 'imp-2510-sub-rk4-n50-order-artifact',
@@ -389,6 +496,13 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
       id: 'imp-860-sub-extend-to-N10k',
       summary:
         'Extend the direct RK4 sweep to N in {500, 1000, 2000, 5000, 10000}.',
+      partialAdvance:
+        'imp-2509 resolved the LEADING-ORDER half of all five missing rows from ' +
+        'the exact closed-form tau_c_est(N) (imp-833 extended sweep samples those ' +
+        'N exactly) and attached a conditional K_empirical upper bound per row ' +
+        '(under R_rel monotone-decreasing past N=200). See the largeNProjection ' +
+        'record. Still MISSING and still the blocker: the direct backward-RK4 ' +
+        'tau_c_measured, hence F_mb_measured and the measured K_empirical.',
       blocker:
         'RK4+Kahan backward pass at N >= 500 at dt = 5e-4, maxSteps = 800 is ' +
         '~10^9 float ops per integrator at N = 500 and scales as N^2; N = 10000 ' +
@@ -554,6 +668,35 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS = [
       'Romberg ladder. The N=50 RK4 outlier is deliberately quarantined as a ' +
       'named open sub-gap (it explains the imp-887 N=50 containment violation) ' +
       'rather than masked by this assertion.',
+  },
+  {
+    id: 'imp860-largeN-projection-skeleton',
+    holds: () => {
+      const lp = C_MB_EMPIRICAL_DYSON_SWEEP.largeNProjection;
+      if (!lp || !Array.isArray(lp.rows)) return false;
+      // All five ticket targets must have an exact closed-form leading-order
+      // skeleton, the tau_c_est skeleton must be monotone-decreasing (inherits
+      // imp-833 E2), and every conditional projected K upper bound must stay
+      // below the measured small-N max (consistent with K being bounded). This
+      // asserts the imp-2509 PARTIAL ADVANCE only; it does NOT assert any direct
+      // measurement — imp-860-sub-extend-to-N10k stays open with F_mb_measured
+      // null at every large-N row.
+      const skeleton = lp.rows.filter((r) => r.status === 'estimate-skeleton');
+      return (
+        skeleton.length === 5 &&
+        lp.tauEstMonotone === true &&
+        lp.projectedKBelowSmallNMax === true &&
+        lp.rows.every((r) => r.F_mb_measured === null && r.K_empirical === null)
+      );
+    },
+    why:
+      'imp-2509 / imp-860-sub-extend-to-N10k partial advance: the closed-form ' +
+      'leading-order tau_c_est(N) skeleton must be present for all five ticket ' +
+      'targets {500,1000,2000,5000,10000}, monotone-decreasing in N (imp-833 E2), ' +
+      'with every conditional K_empirical upper bound below the measured small-N ' +
+      'max. The direct backward-RK4 measurement is NOT asserted here: F_mb_measured ' +
+      'and K_empirical stay null at every large-N row, keeping the integration ' +
+      'blocker honestly open rather than masking it behind a projection.',
   },
   {
     id: 'imp860-cross-check-N200-contained',

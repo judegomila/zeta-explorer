@@ -278,6 +278,58 @@ export const G1_G2_CLOSURE_ASSEMBLY = {
         'inhomogeneous (varying density) case, absorbing the RvM density-gradient ' +
         'correction in the BABL CLT error term',
     ],
+    directionalDecomposition: {
+      id: 'g1-uniform-margin-two-sided',
+      rationale:
+        'The uniform-margin requirement alpha*N <= k*_N <= (1 - alpha)*N is a ' +
+        'TWO-SIDED PROPORTIONAL confinement. Splitting it by edge and by margin ' +
+        'type isolates which half actually carries the research-grade barrier, ' +
+        'so future work targets the real obstruction rather than the already-' +
+        'unconditional part.',
+      lowerEdgeAbsolute: {
+        statement:
+          'For any fixed absolute constant K_0, k*_N >= K_0 for all ' +
+          'N >= N_1(K_0), unconditionally.',
+        mechanism:
+          'The first K_0 - 1 consecutive zero gaps g_1, ..., g_{K_0 - 1} are ' +
+          'explicit fixed positive numbers (g_1 = gamma_2 - gamma_1 ~ 6.89, ' +
+          'g_2 ~ 3.99, g_3 ~ 5.41, g_4 ~ 2.51, ...). Once N is large enough ' +
+          'that a single explicitly exhibited later gap g_j is strictly smaller ' +
+          'than min(g_1, ..., g_{K_0 - 1}), the argmin cannot land on any of the ' +
+          'first K_0 - 1 sites. This is a finite-exhibition argument: it cites ' +
+          'finitely many explicit zero ordinates and needs NO spacing hypothesis ' +
+          '(no Montgomery pair-correlation, no GUE port).',
+        marginType:
+          'absolute constant K_0 -- still vanishes relative to N since ' +
+          'K_0 / N -> 0; this is strictly stronger than the imp-368 (L-triv) ' +
+          'margin 1/N at the lower edge but remains non-proportional',
+        closureLevel: 'unconditional-but-non-proportional',
+      },
+      proportionalContent: {
+        statement:
+          'The PROPORTIONAL bound alpha*N <= k*_N <= (1 - alpha)*N (margin ' +
+          'alpha uniform in N) on BOTH edges -- the version the imp-336 ' +
+          'sign-reinforcement step actually consumes.',
+        closureLevel:
+          'conditional on H1 (Montgomery pair-correlation) + H2 (RvM ' +
+          'density-gradient absorption), via imp-455 G1_SUB_EXTREMAL_CLOSURE',
+        barrier:
+          'The proportional confinement -- not the absolute-constant lower ' +
+          'margin -- is the genuine research-grade content. The finite-' +
+          'exhibition argument controls only finitely many edge sites and ' +
+          'cannot be bootstrapped to a positive fraction alpha*N of sites: ' +
+          'covering alpha*N -> infinity sites would require a uniform ' +
+          'minimum-gap-location bound, i.e. exactly the deterministic ' +
+          'bulk-confinement statement named in statusOfRemaining. No ' +
+          'unconditional path exists in current technology.',
+      },
+      netEffect:
+        'Sharpens the open problem from "prove the uniform two-sided margin" ' +
+        'to the precise residual "upgrade the unconditional absolute-constant ' +
+        'lower-edge confinement to an unconditional PROPORTIONAL two-sided ' +
+        'confinement." No new unconditional proportional content is claimed; ' +
+        'the parent g1-uniform-margin status remains open.',
+    },
   },
   closureNote:
     'imp-1004 honest-partial: when picked up, src/data/g1-g2-closure.js had no ' +
@@ -305,7 +357,20 @@ export const G1_G2_CLOSURE_ASSEMBLY = {
     'The mathematical work of pushing uniform alpha-margin to unconditional ' +
     'remains open and is now tracked under the canonical id g1-uniform-margin. ' +
     'Build passes (vite green; 6 G1_G2_CLOSURE_ASSERTIONS resolve true). ' +
-    'One atomic structural change; no math claimed.',
+    'One atomic structural change; no math claimed. ' +
+    'imp-2513 honest-partial follow-up: the sub-gap is decomposed under ' +
+    'directionalDecomposition (id g1-uniform-margin-two-sided) into ' +
+    '(i) an UNCONDITIONAL absolute-constant lower-edge confinement ' +
+    'k*_N >= K_0 for N >= N_1(K_0) via a finite-exhibition argument citing ' +
+    'only finitely many explicit zero ordinates (no spacing hypothesis), and ' +
+    '(ii) the PROPORTIONAL two-sided confinement alpha*N <= k*_N <= ' +
+    '(1 - alpha)*N, which is the part the imp-336 sign-reinforcement step ' +
+    'consumes and which remains conditional on H1+H2 via imp-455. The ' +
+    'research-grade barrier is isolated in (ii); (i) cannot be bootstrapped ' +
+    'to a positive fraction of sites. Assertion ' +
+    'imp2513-directional-decomposition-honest-partial pins the labels. ' +
+    'The parent g1-uniform-margin sub-gap REMAINS OPEN; no unconditional ' +
+    'proportional content is claimed.',
 };
 
 // ── Build-time assertions ────────────────────────────────────────────────────
@@ -403,5 +468,29 @@ export const G1_G2_CLOSURE_ASSERTIONS = [
       'G1-sub-extremal-raw-vs-unfolded density-gradient remainder pointer. ' +
       'If a future commit closes the gap unconditionally, it MUST update the ' +
       'status fields and remove this assertion in the same commit.',
+  },
+  {
+    id: 'imp2513-directional-decomposition-honest-partial',
+    holds: () => {
+      const dd = G1_G2_CLOSURE_ASSEMBLY.openSubGap.directionalDecomposition;
+      return (
+        dd !== undefined &&
+        dd.id === 'g1-uniform-margin-two-sided' &&
+        dd.lowerEdgeAbsolute.closureLevel === 'unconditional-but-non-proportional' &&
+        dd.proportionalContent.closureLevel.startsWith('conditional') &&
+        G1_G2_CLOSURE_ASSEMBLY.openSubGap.statusOfRemaining.startsWith('open')
+      );
+    },
+    why:
+      'imp-2513 honest-partial: decomposes g1-uniform-margin into an ' +
+      'unconditional absolute-constant lower-edge margin (finite-exhibition ' +
+      'argument, no spacing hypothesis) and the conditional PROPORTIONAL ' +
+      'two-sided margin that carries the research-grade barrier. This ' +
+      'assertion pins that the unconditional half stays labelled ' +
+      'non-proportional and the proportional half stays conditional, so the ' +
+      'decomposition cannot be silently misread as a full unconditional ' +
+      'closure. The parent g1-uniform-margin remains open. If a future commit ' +
+      'upgrades the proportional content to unconditional, it MUST flip these ' +
+      'labels and remove this assertion in the same commit.',
   },
 ];

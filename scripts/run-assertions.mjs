@@ -133,6 +133,8 @@ const MATH_MODULES = [
   // Tripwires keep the residual O1-remaining-concentration sub-gap honest
   // and prevent a silent flip to "closed".
   '/src/math/esy-o1-closure.js',
+  // imp-2548: matched-N cross-validation of kernel-hack vs Path C collision time.
+  '/src/math/imp-2548-kernel-pathc-matched-n.js',
 ];
 
 // ── Data module registrations for imp-857 baseline sweep result. ──
@@ -1491,6 +1493,11 @@ const DATA_MODULES = [
   // incompatible with the kappa=0 twin-ladder realization; sub-gap
   // GAP-2442-GENUINE-M-IS-N0 (genuine m in N_0 = RH). 6 tripwires.
   '/src/data/imp-2442-offline-finite-kappa-pontryagin-2026-06.js',
+  '/src/data/imp-2562-g6a-tangency-dejure.js',
+  // imp-2563 (S4): discriminant characterization of t_c -- d/ds log Disc =
+  // -8 sum (x_i-x_j)^-2, heat-semigroup non-dynamical ladder t_c = smallest
+  // root of strictly decreasing Disc. Cross-checked heat-vs-RK4 to 7+ digits.
+  '/src/data/imp-2563-discriminant-tc-characterization.js',
   // imp-2451: scale-normalized dBN deformation, closing sub-gap B of imp-2435
   // (scale/zero confound). V is quadratic in Phi, so renormalizing
   // |Phi_t|_2 = 1 before assembly divides the exp(t u^2) L^2 scale out exactly.
@@ -1563,7 +1570,9 @@ const DATA_MODULES = [
   '/src/data/b1-slope-conditional-upper-bound.js',
   '/src/data/b2-intercept-analytic-bound.js',
   '/src/data/backward-flow-stability-gronwall.js',
+  '/src/data/imp-2564-lambda-chain-direction-audit.js',
   '/src/data/sg1-theta-contraction.js',
+  '/src/data/imp-2563-zeta-zeros-corruption-audit.js',
   '/src/data/barrier-extrapolation-imp371.js',
   '/src/data/barrier-extrapolation-v2.js',
   '/src/data/bridge-lambda-rh.js',
@@ -1585,6 +1594,7 @@ const DATA_MODULES = [
   '/src/data/g6a-sub-constant-value.js',
   '/src/data/gram-points-numerical.js',
   '/src/data/heat-flow-cross-validation-imp372.js',
+  '/src/data/heat-flow-pathc-ladder-imp2547.js',
   '/src/data/holder-modulus-verification.js',
   '/src/data/imp371-barrier-cross-validation.js',
   '/src/data/imp-1166-conrey-snaith-correction-on-imp1162-grid.js',

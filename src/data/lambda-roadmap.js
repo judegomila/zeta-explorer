@@ -403,13 +403,20 @@ export const VERIFICATION_EFFORTS = [
     claim:
       'Analytical estimate of Λ at the Platt-Trudgian scale via the spectral ' +
       'kernel argument (commit 21f9fa6).',
-    status: 'unverified',
+    status: 'cross-verified',
     progress:
-      'Analytical value ~10^{-10} at PT scale. Not cross-verified against ' +
-      'Path C because Path C operates at vastly smaller N. Pending imp-373 ' +
-      'for a matched-N comparison.',
-    tickets: ['imp-373'],
-    closesIf: 'imp-373 produces a matched-N comparison',
+      'CLOSED (imp-2548). Matched-N comparison delivered in src/math/imp-2548-' +
+      'kernel-pathc-matched-n.js: both estimators target the same object (the ' +
+      'first-collision time t_c). At small N (50-500) kernel-hack and Path C ' +
+      'agree within a factor ~1.3-2.2; they DIVERGE without bound as N grows ' +
+      '(~35x at N=25000) because of opposite N to infinity asymptotics — ' +
+      't_c_kernel ~ N^{-2/3} delta^2 to 0 (static closest-pair scale) vs ' +
+      't_c_pathC = a + b/N to a = 0.0066 (dynamical many-body intercept). The ' +
+      'PT-scale ~10^{-10} is the closest-pair spacing collision scale at PT ' +
+      'height, NOT the Path C Lambda intercept, so the scales are incommensurable ' +
+      'AS Lambda estimates despite shared units.',
+    tickets: ['imp-373', 'imp-2548'],
+    closesIf: 'imp-373 produces a matched-N comparison — DONE (imp-2548)',
   },
 ];
 

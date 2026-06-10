@@ -254,6 +254,77 @@ export const EQUIDISTANT_CEILING = {
   ceilingVerified: EQUIDISTANT_CEILING_SAMPLES.every((r) => r.belowCeiling),
 };
 
+// ── (3b) DYNAMICAL RATE BRACKET (imp-2551, partial advance on G3a_sub_fullsum_dynamical) ──
+//
+// The equidistant ceiling 0 < S_{k_star} * B^2 < 2 does more than rule out the
+// STATIC Route C condition c(N) > 2: it converts the stated collision ODE into a
+// rigorous TWO-SIDED bracket on the instantaneous gap-closing rate.
+//
+// Stated ODE (openSubGap, de Bruijn-Newman flow, rho = local mean density > 0):
+//     dB/dtau = 4 rho^2 / B  +  rho^2 * B * S_{k_star}
+// Both terms are strictly positive (S_{k_star} > 0 by the positivity lemma), so B
+// is strictly increasing in tau and DECREASES as tau runs backward toward the
+// collision. Writing R2 = 4 rho^2 / B for the pure two-body (repulsive) rate and
+// factoring out rho^2 / B:
+//     dB/dtau = (rho^2 / B) * (4 + S_{k_star} * B^2) = R2 * (1 + (S_{k_star} B^2)/4).
+// Since 0 < S_{k_star} B^2 < 2 the inflation factor 1 + (S_{k_star}B^2)/4 lies
+// strictly in (1, 3/2), hence  R2 < dB/dtau < (3/2) R2  UNCONDITIONALLY (rho cancels).
+// In the squared-gap variable d(B^2)/dtau = 2 B dB/dtau = rho^2 (8 + 2 S_{k_star}B^2)
+// lies in (8 rho^2, 12 rho^2): B^2 decreases LINEARLY going backward at a rate pinned
+// to within a factor 3/2. The repulsion is the FLOOR of the closing rate, not an
+// obstruction; the equidistant ceiling is its CEILING.
+
+function dynamicalRateBracketAt(sample) {
+  const sb2 = sample.SB2; // S_{k_star} * B^2, in (0, 2) by the ceiling
+  const factor = 1 + sb2 / 4; // (dB/dtau) / R2, must lie in (1, 3/2)
+  return {
+    N: sample.N,
+    SB2: sb2,
+    rateFactorOverTwoBody: +factor.toFixed(8), // in (1, 1.5)
+    dB2dtau_coeff_over_rho2: +(8 + 2 * sb2).toFixed(8), // in (8, 12)
+    bracketHolds: sb2 > 0 && sb2 < 2 && factor > 1 && factor < 1.5,
+  };
+}
+
+const DYNAMICAL_RATE_BRACKET_SAMPLES = EQUIDISTANT_CEILING_SAMPLES.map(
+  dynamicalRateBracketAt,
+);
+
+export const DYNAMICAL_RATE_BRACKET = {
+  id: 'imp-2551',
+  partialAdvanceOn: 'G3a_sub_fullsum_dynamical',
+  theorem:
+    'Given the stated collision ODE dB/dtau = 4 rho^2/B + rho^2 B S_{k_star} ' +
+    '(rho > 0) and the equidistant ceiling 0 < S_{k_star} B^2 < 2, the instantaneous ' +
+    'gap-closing rate is rigorously bracketed 4 rho^2/B < dB/dtau < 6 rho^2/B; ' +
+    'equivalently dB/dtau = R2 (1 + S_{k_star}B^2/4) with the many-body inflation ' +
+    'factor strictly in (1, 3/2). In the squared-gap variable d(B^2)/dtau lies in ' +
+    '(8 rho^2, 12 rho^2). The rho^2 factor is common to both terms and cancels, so ' +
+    'the bracket is independent of the local density.',
+  unconditional: true,
+  whatThisSettles:
+    'The dynamical sub-gap framing "show the collision is driven DESPITE the ' +
+    'repulsive 4 rho^2/B term" is answered at the rate level: both ODE terms are ' +
+    'positive, so B^2 decreases linearly going backward and reaches 0 in finite ' +
+    'flow-time; the equidistant ceiling bounds the many-body contribution to the ' +
+    'rate by a factor 3/2, NOT to zero. The ceiling is therefore not an obstruction ' +
+    'to collision -- it is a quantitative two-sided control on the closing rate.',
+  frozenCoefficientCorollary:
+    'Freezing rho and S_{k_star} at their collision-site values gives the indicative ' +
+    'collision-time bracket Delta_tau_c = B0^2 / (2 kappa rho^2) with kappa in (4, 6), ' +
+    'i.e. B0^2/(12 rho^2) <= Delta_tau_c <= B0^2/(8 rho^2). This is INDICATIVE only: ' +
+    'rho(tau) and S_{k_star}(tau) evolve along the flow, so the rigorous statement is ' +
+    'the instantaneous rate bracket above, not the frozen-coefficient time.',
+  residual:
+    'Full Route C closure (c(N) > 2, beating Platt-Trudgian) still requires the ' +
+    'tau-integrated evolution of rho(tau) and S_{k_star}(tau) to the collision, which ' +
+    'needs GUE-level local statistics near k_star (Montgomery pair-correlation / ' +
+    'Ben Arous-Bourgade extremal conditioning). That stays the open sub-gap ' +
+    'G3a_sub_fullsum_dynamical.',
+  numericalVerification: DYNAMICAL_RATE_BRACKET_SAMPLES,
+  bracketVerified: DYNAMICAL_RATE_BRACKET_SAMPLES.every((r) => r.bracketHolds),
+};
+
 // ── (4) GGM 2001 analysis ──────────────────────────────────────────────────────
 
 export const GGM_ANALYSIS = {
@@ -392,6 +463,15 @@ export const G3A_FULLSUM_ANALYSIS = {
       'Likely requires GUE universality (Montgomery pair-correlation) or at minimum ' +
       'the unconditional part of Montgomery 1973 (Fourier support [-1,1]) applied ' +
       'to the local statistics near k_star at the timescale of the collision.',
+    progressNoteImp2551:
+      'imp-2551 (rigorous partial, unconditional): the equidistant ceiling converts ' +
+      'the stated ODE into the rate bracket 4 rho^2/B < dB/dtau < 6 rho^2/B, i.e. the ' +
+      'many-body inflation factor 1 + S_{k_star}B^2/4 lies in (1, 3/2) -- see ' +
+      'DYNAMICAL_RATE_BRACKET. Consequence: both ODE terms are positive, B^2 decreases ' +
+      'linearly going backward and reaches 0 in finite flow-time, so the repulsion is ' +
+      'the rate FLOOR rather than an obstruction. The residual narrows from "overcome ' +
+      'the repulsion" to "integrate rho(tau), S_{k_star}(tau) to the collision" ' +
+      '(GUE-level local statistics); sub-gap stays open.',
     status: 'open',
   },
 
@@ -451,6 +531,27 @@ export const G3A_FULLSUM_ASSERTIONS = [
       'SCOPE TRIPWIRE: the remaining sub-gap G3a_sub_fullsum_dynamical must remain ' +
       'flagged as open until a dynamical Dyson ODE argument closes Route C. ' +
       'Any change to id or status here must coordinate with lambda-roadmap.js.',
+  },
+  {
+    id: 'imp2551-rate-bracket-holds-at-all-sample-N',
+    holds: () => DYNAMICAL_RATE_BRACKET_SAMPLES.every((r) => r.bracketHolds),
+    why:
+      'imp-2551 rate bracket: from 0 < S_{k_star} B^2 < 2 the many-body inflation ' +
+      'factor 1 + S_{k_star}B^2/4 lies strictly in (1, 3/2) at every sample N, so the ' +
+      'stated collision ODE obeys 4 rho^2/B < dB/dtau < 6 rho^2/B. A violation would ' +
+      'mean the equidistant ceiling failed (SB2 >= 2) or S turned nonpositive.',
+  },
+  {
+    id: 'imp2551-rate-bracket-unconditional-and-partial',
+    holds: () =>
+      DYNAMICAL_RATE_BRACKET.bracketVerified === true &&
+      DYNAMICAL_RATE_BRACKET.unconditional === true &&
+      G3A_FULLSUM_ANALYSIS.openSubGap.status === 'open',
+    why:
+      'HONEST-PARTIAL TRIPWIRE: the rate-bracket advance is unconditional and ' +
+      'verified at every sample, yet it ADVANCES (does not close) ' +
+      'G3a_sub_fullsum_dynamical -- the sub-gap status must stay open. Guards against ' +
+      'a later false QED that flips the sub-gap on the strength of this partial.',
   },
   {
     id: 'imp507-ggm-failure-consistent-with-imp486',

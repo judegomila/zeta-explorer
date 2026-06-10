@@ -74,6 +74,7 @@ const HEAVY_MODULES = [
 // that re-import them.
 const MATH_MODULES = [
   '/src/math/g1-sub-extremal-closure.js',
+  '/src/math/g3a-fullsum-closure.js',
   '/src/math/path-g-cauchy-rigorous.js',
   '/src/math/m-raw-from-umon-bridge.js',
   '/src/math/rvm-jacobian-lower-bound.js',

@@ -104,14 +104,19 @@
  * still needs the mesoscopic upper density to bound E for the produced pair.
  * The parent sg1d-pigeonhole-theta-control REMAINS OPEN (Theta half only).
  *
- * REDUCTION (honest bookkeeping): SG1c + SG1d imply the SG1-VARIANT
+ * REDUCTION (honest bookkeeping per imp-2564): SG1c + SG1d imply the SG1-VARIANT
  *     t_c <= c1^2 / (8 (1 - Theta*) V^2)        [T ~ 1/V^2, not 1/V]
- * which feeds the gronwall-module corollary identically -- the per-N
- * collision bound it yields still decays like 1/(log gamma_N)^2 -> 0, so
- * the asymptotic consequence (per-N handle -> Lambda = 0 modulo the
- * step-4 bridge) is UNCHANGED. Nothing here claims SG1, SG1c, or SG1d:
- * the contribution is the exact identity, the sharp conditional bound,
- * the closed-form Theta calibration, and the 9/9 empirical trap.
+ * which feeds the BRIDGE CONSTANTS E(N) in the canonical bracket
+ * |Lambda - (-t_c(N))| <= E(N), not the headline Lambda inequality itself.
+ * Per imp-2564 direction audit, the per-N collision bound is fidelity control
+ * for the connection: it controls E(N) precision, while the headline attack
+ * needs only t_c >= 0 (trivial) plus the bridge to drive E(N) -> 0.
+ * The asymptotic consequence (per-N handle) decays like 1/(log gamma_N)^2 -> 0,
+ * which tightens E(N) but does not establish the inequality Lambda <= E(N)
+ * unconditionally — that comes from Step 4 (Polymath15 bridge closure).
+ * Nothing here claims SG1, SG1c, or SG1d: the contribution is the exact
+ * identity, the sharp conditional bound, the closed-form Theta calibration,
+ * and the 9/9 empirical trap.
  */
 
 // ── Closed-form calibration constants (Lemma E) ────────────────────────────

@@ -1971,7 +1971,13 @@ async function finalize(state, server, pool) {
   }
 
   if (failed > 0) {
-    console.error('\nASSERTION SWEEP FAILED: ' + failed + ' failures');
+    const assertFails = failed - loadErrors;
+    if (assertFails === 0) {
+      console.error('\nASSERTION SWEEP CRASHED: ' + loadErrors + ' load errors, 0 assertion failures');
+    } else {
+      const errSuffix = loadErrors > 0 ? ' + ' + loadErrors + ' load errors' : '';
+      console.error('\nASSERTION SWEEP FAILED: ' + assertFails + ' assertion failures' + errSuffix);
+    }
     process.exit(1);
   } else {
     console.log('\nAll assertions pass.');

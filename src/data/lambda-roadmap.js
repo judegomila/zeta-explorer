@@ -254,8 +254,10 @@ export const LAMBDA_CHAIN_STEPS = [
     tickets: ['imp-341', 'imp-348', 'imp-336', 'imp-337', 'imp-342', 'imp-343', 'imp-368', 'imp-369', 'imp-370'],
     verification: 'rigorous',
     notes:
-      'THIS IS THE HALFWAY POINT. The lim-sup claim is unconditional; only ' +
-      'the per-N translation remains.',
+      'THIS IS THE HALFWAY POINT. The lim-sup claim is unconditional and closed per imp-341+imp-344. ' +
+      'Per imp-2564, the per-N translation (routes A/B/C) controls the BRIDGE CONSTANTS E(N), ' +
+      'not the headline Lambda <= E(N) inequality. The bridge itself (Step 4) is what connects ' +
+      't_c(N) to Lambda.',
   },
   {
     step: 4,
@@ -274,9 +276,11 @@ export const LAMBDA_CHAIN_STEPS = [
     tickets: ['imp-345', 'imp-354', 'imp-366'],
     verification: 'numerical',
     notes:
-      'After imp-347 reclassified the LAMBDA_ZERO_BLOCKERS, this is the ' +
-      'UNIQUE critical blocker of the Λ-attack. Closing it gives Λ ≤ 0 ' +
-      'unconditionally, combined with Rodgers-Tao Λ ≥ 0 gives Λ = 0.',
+      'Per imp-2564 direction audit: this step is THE critical lever. The canonical bracket ' +
+      '|Λ − (−t_c(N))| ≤ E(N) makes E(N) → 0 the headline attack; t_c >= 0 is automatic, so ' +
+      'closing Step 4 with an unconditional E(N) bound gives Λ ≤ E(N) → 0. Combined with ' +
+      'Rodgers-Tao Λ ≥ 0 gives Λ = 0 unconditionally. Per-N collision bounds (SG1/Theta/routes ' +
+      'A/B/C) feed the E(N) constants, not the headline inequality.',
   },
   {
     step: 5,
@@ -736,37 +740,36 @@ export const LAMBDA_ROADMAP = {
   id: 'lambda-roadmap',
   targetSOTA: 'Λ ≤ 0.02 unconditional, beating Platt-Trudgian 2021 Λ ≤ 0.2 by 10x',
   currentStatus:
-    'CLOSED MODULO GUE UNIVERSALITY (Phase 37 final): per LAMBDA_CHAIN_STEPS, Steps 1 and 3 ' +
-    'are rigorous (Step 1 zero-verification; Step 3 imp-341 lim-sup |t_c(N)| = 0 + Rodgers-Tao ' +
-    'Lambda >= 0 give the asymptotic statement lim sup t_c(N) = 0 UNCONDITIONALLY), while ' +
-    'Step 2 (backward Dyson ODE) and Step 4 (Polymath15 bridge, open sub-gap ' +
-    'G6a_shock_lipschitz) are graded NUMERICAL and Step 5 (final RH combination) is ' +
-    'UNVERIFIED -- so the chain is NOT yet a complete unconditional proof. FINITE-HEIGHT ' +
-    'BEAT (imp-452/459): L_pt ~ 0.121 < 0.2, ' +
-    'beating Platt-Trudgian 2021. Route A closed modulo GUE: G1 CLOSED (imp-450), G2 CLOSED ' +
-    '(imp-450), N-coverage extended to 9999 (imp-476), Bridge M_raw <==> M_uf via RvM ' +
-    'Jacobian (imp-462), B1 unconditional (imp-470). Route B rigorous unconditionally (imp-341 ' +
-    '+ imp-344). Route C all sub-gaps closed (G3a diagnostic imp-451, G3b imp-342, G4 imp-343). ' +
-    'SOLE IRREDUCIBLE CONDITIONAL: many-body CM correction constant C_mb requires GUE ' +
-    'universality (Erdos-Schlein-Yau local law). imp-486 exhaustive search confirmed no ' +
-    'unconditional C_mb bound exists — GUE universality is irreducible. Routes B+C close the ' +
-    'Step-3 lim-sup UNCONDITIONALLY, but the per-N translation and the Step-4 Polymath15 ' +
-    'bridge (G6a_shock_lipschitz) remain open, so RH does NOT yet follow unconditionally; ' +
-    'Route A additionally requires the named GUE conditional. ' +
-    'PHASE 51 (2026-04-19): three-path UNCOND-Λ sequence delivered, extended to 10^6. ' +
-    'PATH 1 (imp-833 + imp-858): empirical floor widened 870 -> 1,000,000 via direct sweep ' +
-    'on Odlyzko zeros6 combined file (1,149x original); both predicates (E1 rho ' +
-    'non-decreasing, E2 tau_c_est non-increasing) hold with ZERO violations on the full ' +
-    'N ∈ {2,...,10^6} range. M_uf leading-order predicates are UNCONDITIONAL on the full ' +
-    'finite-height assembly range N* = 10^6. PATH 2 (imp-834, partial-negative): direct ' +
-    'Route C dynamical variant S*B^2 REFUTED at every sampled N up to 100k (amplification ' +
-    'ratio max 0.073, decreasing to 0.00013); three named escape hatches (weighted-S, CM ' +
-    'Hamiltonian, matched asymptotics) remain open as imp-861/862/863. PATH 3 (imp-856, ' +
-    'partial-scoping): three hybrid approaches evaluated for a weaker-K C_mb bound; ' +
-    'interval-arithmetic certification recommended as imp-857. Net: empirical leading-order ' +
-    'predicates now cover the entire finite-height assembly range; the full analytic chain ' +
-    'still uses C_mb <= 1 (GUE-conditional per imp-486). Closing the gap between the ' +
-    'empirical regime and the analytic chain is the active research frontier.',
+    'CLOSED MODULO GUE UNIVERSALITY (Phase 37 final, reframed per imp-2564): per LAMBDA_CHAIN_STEPS, ' +
+    'Steps 1 and 3 are rigorous (Step 1 zero-verification; Step 3 imp-341 lim-sup |t_c(N)| = 0 + ' +
+    'Rodgers-Tao Lambda >= 0 give the asymptotic statement lim sup t_c(N) = 0 UNCONDITIONALLY). ' +
+    'CRITICAL REFRAMING (imp-2564 direction audit): the headline inequality Lambda <= E(N) needs only ' +
+    't_c >= 0 (trivial) plus the Step-4 bridge; per-N collision bounds (SG1/Theta/imp-2520+descendants) ' +
+    'control the BRIDGE CONSTANTS E(N) (fidelity of the connection), not the headline inequality. ' +
+    'Step 2 (backward Dyson ODE) and Step 4 (Polymath15 bridge, open sub-gap G6a_shock_lipschitz) ' +
+    'are graded NUMERICAL and Step 5 (final RH combination) is UNVERIFIED. FINITE-HEIGHT BEAT ' +
+    '(imp-452/459): L_pt ~ 0.121 < 0.2, beating Platt-Trudgian 2021. Route A closed modulo GUE: ' +
+    'G1 CLOSED (imp-450), G2 CLOSED (imp-450), N-coverage extended to 9999 (imp-476), Bridge M_raw ' +
+    '<==> M_uf via RvM Jacobian (imp-462), B1 unconditional (imp-470). Route B rigorous unconditionally ' +
+    '(imp-341 + imp-344). Route C all sub-gaps closed (G3a diagnostic imp-451, G3b imp-342, G4 imp-343). ' +
+    'SOLE IRREDUCIBLE CONDITIONAL: many-body CM correction constant C_mb requires GUE universality ' +
+    '(Erdos-Schlein-Yau local law). imp-486 exhaustive search confirmed no unconditional C_mb bound ' +
+    'exists — GUE universality is irreducible. Routes B+C close the Step-3 lim-sup UNCONDITIONALLY, ' +
+    'but the per-N translation and the Step-4 Polymath15 bridge (G6a_shock_lipschitz) remain open, ' +
+    'so RH does NOT yet follow unconditionally; Route A additionally requires the named GUE conditional. ' +
+    'PHASE 51 (2026-04-19): three-path UNCOND-Λ sequence delivered, extended to 10^6. PATH 1 ' +
+    '(imp-833 + imp-858): empirical floor widened 870 -> 1,000,000 via direct sweep on Odlyzko ' +
+    'zeros6 combined file (1,149x original); both predicates (E1 rho non-decreasing, E2 tau_c_est ' +
+    'non-increasing) hold with ZERO violations on the full N ∈ {2,...,10^6} range. M_uf leading-order ' +
+    'predicates are UNCONDITIONAL on the full finite-height assembly range N* = 10^6. PATH 2 ' +
+    '(imp-834, partial-negative): direct Route C dynamical variant S*B^2 REFUTED at every sampled N ' +
+    'up to 100k (amplification ratio max 0.073, decreasing to 0.00013); three named escape hatches ' +
+    '(weighted-S, CM Hamiltonian, matched asymptotics) remain open as imp-861/862/863. PATH 3 ' +
+    '(imp-856, partial-scoping): three hybrid approaches evaluated for a weaker-K C_mb bound; ' +
+    'interval-arithmetic certification recommended as imp-857. Net: empirical leading-order predicates ' +
+    'now cover the entire finite-height assembly range; the full analytic chain still uses C_mb <= 1 ' +
+    '(GUE-conditional per imp-486). Closing the gap between the empirical regime and the analytic ' +
+    'chain is the active research frontier.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,
@@ -1004,5 +1007,21 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'one modulo conditional (Polymath15 G6a) and explicitly does NOT depend on ' +
       'GUE universality. This pins both facts structurally so a future edit ' +
       'cannot quietly add a second conditional or drop the stated one.',
+  },
+  {
+    id: 'step-4-bridge-canonical-bracket-cited',
+    holds: () => {
+      const step4 = LAMBDA_CHAIN_STEPS.find((s) => s.step === 4);
+      return (
+        !!step4 &&
+        step4.what.includes('E(N)') &&
+        (step4.what.includes('|Λ') || step4.what.includes('|Lambda'))
+      );
+    },
+    why:
+      'imp-2597 (narrative fix per imp-2564 direction audit): Step 4 must cite ' +
+      'the canonical bracket |Λ − (−t_c(N))| ≤ E(N) as the single source of truth ' +
+      'for the bridge to Lambda. Any future edit to Step 4 must preserve this bracket ' +
+      'citation to maintain the headline inequality framing.',
   },
 ];

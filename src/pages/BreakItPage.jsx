@@ -68,12 +68,14 @@ function UnitarityChallenge() {
         <div className="control-group">
           <label>Primes</label>
           <input type="range" min="5" max="200" step="5" value={numPrimes}
+            aria-label={`Number of primes: ${numPrimes}`}
             onChange={e => setNumPrimes(+e.target.value)} />
           <span className="control-value">{numPrimes}</span>
         </div>
         <div className="control-group">
           <label>t value</label>
           <input type="range" min="5" max="500" step="0.5" value={tValue}
+            aria-label={`t value: ${tValue.toFixed(1)}`}
             onChange={e => setTValue(+e.target.value)} />
           <span className="control-value">{tValue.toFixed(1)}</span>
         </div>
@@ -109,12 +111,14 @@ function LiChallenge() {
         <div className="control-group">
           <label>Max n</label>
           <input type="range" min="5" max="50" step="1" value={maxN}
+            aria-label={`Maximum n: ${maxN}`}
             onChange={e => setMaxN(+e.target.value)} />
           <span className="control-value">{maxN}</span>
         </div>
         <div className="control-group">
           <label>Zeros used</label>
           <input type="range" min="10" max="500" step="10" value={numZeros}
+            aria-label={`Number of zeros used: ${numZeros}`}
             onChange={e => setNumZeros(+e.target.value)} />
           <span className="control-value">{numZeros}</span>
         </div>
@@ -175,12 +179,14 @@ function ConvexityChallenge() {
         <div className="control-group">
           <label>σ</label>
           <input type="range" min="0.1" max="0.9" step="0.01" value={sigma}
+            aria-label={`sigma value: ${sigma.toFixed(2)}`}
             onChange={e => setSigma(+e.target.value)} />
           <span className="control-value">{sigma.toFixed(2)}</span>
         </div>
         <div className="control-group">
           <label>t</label>
           <input type="range" min="5" max="200" step="0.5" value={t}
+            aria-label={`t value: ${t.toFixed(1)}`}
             onChange={e => setT(+e.target.value)} />
           <span className="control-value">{t.toFixed(1)}</span>
         </div>

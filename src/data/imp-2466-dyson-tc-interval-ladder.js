@@ -316,10 +316,14 @@ export const DYSON_DP5_RK4_CROSSVERIFY = {
   // ── imp-2467 upgrade assessment (partial -> full?): BLOCKED ────────────────
   // The imp-2467 ticket asks whether this partial can be upgraded to full given
   // the recent Route-A proof-chain closures imp-462/463/464/471. Conclusion:
-  // it cannot, and the blocker is orthogonal to those closures.
+  // it cannot, and the blocker is orthogonal to those closures. The autofill
+  // seeder re-raised the identical question as imp-2572 (same file:line, same
+  // reviewed closures); the re-investigation reaches the same verdict, so the
+  // ticket is recorded here as reconfirmed-blocked rather than re-litigated.
   upgradeAssessment: {
     canUpgrade: false,
     reviewedClosures: ['imp-462', 'imp-463', 'imp-464', 'imp-471'],
+    reconfirmedByTickets: ['imp-2467', 'imp-2572'],
     finding:
       'imp-462 (M_raw <==> M_uf bridge), imp-463 (D-monotone), imp-464 (NoSwap) and ' +
       'imp-471 (many-body correction) together unconditionalise the Route-A ' +

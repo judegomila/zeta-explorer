@@ -241,6 +241,65 @@ const LINEARITY_CHECK = (() => {
   return out;
 })();
 
+// --- Quadratic-in-eps per-cell response fit ---------------------------------
+//
+// The bilinear fit above is a LINEAR-regime (single-eps) model and the
+// keyFindings flag that it cannot see the saturation visible between
+// eps = 0.01 and eps = 0.05. We now extract the MAXIMUM additional analytic
+// information the pilot carries: each cell has TWO measured eps points
+// (0.01 and 0.05) plus the exact anchor ratio(0) = 1. Fitting
+//
+//   ratio(eps) = 1 + a*eps + b*eps^2
+//
+// to the two measured points is EXACTLY DETERMINED per cell (2 unknowns,
+// 2 equations), with the anchor ratio(0) = 1 enforced by construction. The
+// second-order coefficient b quantifies the curvature (saturation or
+// turnaround) that the linear fit misses, and the model yields a CONCRETE,
+// FALSIFIABLE extrapolation to eps = 0.1 — an eps value the dense
+// nSteps = 200 grid (imp-899-sub-nstep200-grid) is scheduled to measure.
+//
+// This is a zero-compute closure of the "extract all analytic structure
+// from the existing two-eps pilot" portion of imp-899-sub-nstep200-grid.
+// It does NOT replace the dense-grid measurement (the named sub-gap below
+// remains open): like the bilinear fit, this is an nSteps = 30 model and
+// the prototype sign-flip caveat still forbids extrapolating it to the
+// nSteps = 200 resonance peak.
+
+function quadFitCell(ratio01, ratio05) {
+  const eps1 = 0.01;
+  const eps5 = 0.05;
+  const d1 = ratio01 - 1;
+  const d5 = ratio05 - 1;
+  // Solve [eps1, eps1^2; eps5, eps5^2] [a; b] = [d1; d5] by Cramer.
+  const det = eps1 * eps5 * eps5 - eps5 * eps1 * eps1; // eps1*eps5*(eps5-eps1)
+  const a = (d1 * eps5 * eps5 - d5 * eps1 * eps1) / det;
+  const b = (eps1 * d5 - eps5 * d1) / det;
+  // Falsifiable extrapolation to eps = 0.1 (inside the dense-grid eps set).
+  const ratioAtEps0p1 = 1 + a * 0.1 + b * 0.01;
+  return { a, b, ratioAtEps0p1 };
+}
+
+const QUADRATIC_RESPONSE_FIT = (() => {
+  const out = [];
+  for (let i = 0; i < 2; i++) {
+    for (let j = 0; j < 2; j++) {
+      const fit = quadFitCell(HM1.ratios[i][j], HM5.ratios[i][j]);
+      out.push({
+        k0: K0_GRID[i],
+        phaseVel: PV_GRID[j],
+        linearCoeff_a: fit.a,
+        quadraticCoeff_b: fit.b,
+        // Sign of b: > 0 means the response curves UPWARD (the beneficial
+        // reduction saturates and may turn into amplification as eps grows);
+        // < 0 means it curves further downward (reduction accelerates).
+        curvature: fit.b > 0 ? 'upward (saturating/turnaround)' : 'downward (accelerating)',
+        predictedRatio_eps_0p1: fit.ratioAtEps0p1,
+      });
+    }
+  }
+  return out;
+})();
+
 // --- Module-level export ----------------------------------------------------
 
 export const IMP_899_LINEAR_RESPONSE_FIT = {
@@ -285,6 +344,18 @@ export const IMP_899_LINEAR_RESPONSE_FIT = {
 
   linearityCheck: LINEARITY_CHECK,
 
+  quadraticResponseFit: {
+    model: 'ratio(eps) = 1 + a*eps + b*eps^2, exactly determined per cell ' +
+      'from the two pilot eps points (0.01, 0.05) with anchor ratio(0) = 1',
+    perCell: QUADRATIC_RESPONSE_FIT,
+    description:
+      'Per-cell curvature (second-order response coefficient b) extracted ' +
+      'from the two-eps pilot, plus a falsifiable ratio(eps=0.1) ' +
+      'extrapolation. b > 0 flags saturation/turnaround the linear ' +
+      'bilinear fit cannot see. nSteps = 30 model only; does NOT predict ' +
+      'the nSteps = 200 resonance peak (see non-extrapolation caveat).',
+  },
+
   keyFindings: [
     'Bilinear fit to the 2x2 pilot has a saddle-point stationary ' +
       'structure (Hessian eigenvalues +D and -D, always opposite sign). ' +
@@ -322,6 +393,24 @@ export const IMP_899_LINEAR_RESPONSE_FIT = {
       'peak location or magnitude; it only characterizes the nSteps = ' +
       '30 linear-response landscape. Dense nSteps = 200 grid ' +
       '(imp-899-sub-nstep200-grid) remains required.',
+  ],
+
+  keyFindingsQuadratic: [
+    'Per-cell quadratic-in-eps response fit (ratio = 1 + a*eps + b*eps^2) ' +
+      'extracts the curvature the linear bilinear fit cannot see: the ' +
+      'eigenmode/low-phaseVel cell (k0 = ' +
+      QUADRATIC_RESPONSE_FIT[2].k0.toFixed(2) +
+      ', phaseVel = ' +
+      QUADRATIC_RESPONSE_FIT[2].phaseVel.toFixed(3) +
+      ') has a strongly POSITIVE second-order coefficient b, i.e. its ' +
+      'beneficial wrapper-width reduction SATURATES and turns around as ' +
+      'eps grows — quantifying the saturation flagged by linearityCheck.',
+    'The quadratic model gives a concrete, FALSIFIABLE extrapolation to ' +
+      'eps = 0.1 (an eps value in the dense-grid schedule): the best ' +
+      'pilot cell, beneficial at eps = 0.01, is predicted to AMPLIFY ' +
+      '(ratio > 1) by eps = 0.1. The dense nSteps = 200 grid can falsify ' +
+      'this. As an nSteps = 30 model it still CANNOT predict the ' +
+      'nSteps = 200 resonance peak (the prototype sign-flip caveat holds).',
   ],
 
   openSubGaps: [
@@ -482,6 +571,32 @@ export const IMP_899_LINEAR_RESPONSE_FIT_ASSERTIONS = [
       '(slope(eps=0.05) materially smaller than slope(eps=0.01)). If NO ' +
       'cell shows saturation, the non-extrapolation caveat in keyFindings ' +
       'overstates the nonlinearity of the regime and needs rewording.',
+  },
+  {
+    id: 'imp899-quadratic-fit-reproduces-both-pilot-points',
+    holds: () => {
+      // Each per-cell quadratic ratio(eps) = 1 + a*eps + b*eps^2 must
+      // reproduce BOTH measured pilot eps points (0.01 and 0.05) to
+      // machine precision — the 2-point fit is exactly determined.
+      let idx = 0;
+      for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < 2; j++) {
+          const { linearCoeff_a: a, quadraticCoeff_b: b } =
+            QUADRATIC_RESPONSE_FIT[idx++];
+          const pred01 = 1 + a * 0.01 + b * 0.01 * 0.01;
+          const pred05 = 1 + a * 0.05 + b * 0.05 * 0.05;
+          if (Math.abs(pred01 - HM1.ratios[i][j]) > 1e-9) return false;
+          if (Math.abs(pred05 - HM5.ratios[i][j]) > 1e-9) return false;
+        }
+      }
+      return true;
+    },
+    why:
+      'The per-cell quadratic-in-eps response fit is exactly determined by ' +
+      'the two pilot eps points (with anchor ratio(0) = 1). If it does not ' +
+      'reproduce both measured ratios to machine precision, the Cramer ' +
+      'solution for (a, b) is wrong and the curvature/extrapolation are ' +
+      'meaningless.',
   },
   {
     id: 'imp899-open-sub-gap-named',

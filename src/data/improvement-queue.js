@@ -15855,6 +15855,38 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
   },
 
+  
+  // ── Auto-seeded batch (2026-06-10) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2584',
+    title: "CRITICAL CHAIN: cross-verify noswap-closure.js",
+    category: 'proof',
+    priority: 'high',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'S10-verify',
+    description: "noswap-closure.js is in the critical proof chain but has NOT been independently cross-verified. Given the bug discovery rate in verified modules, this is high priority. Read src/math/noswap-closure.js, verify all formulas vs cited references, check edge cases, confirm reference values.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: '2026-06-10T09:19:45Z',
+    closureNote: 'Cross-verified. Crossing-rate formulas (dg_k/dtau = 4/g_k - 2 g_k S_k; gap-diff rate 2 B (S_{k_star}-S_j)) re-derived CORRECT; reference values reproduced exactly (minExcess -0.2907 at N=50, etc.). FOUND AND CORRECTED an error: the near-collision step_b claim S_{k_star} ~ 1/B_x diverges is FALSE — S_{k_star} excludes indices {k_star,k_star+1} so the argmin gap never enters a denominator; a 1e4-fold gap shrink leaves S_{k_star} bounded (0.3696 -> 0.3464 at N=50), so the crossing rate -> 0 not +inf. Added crossVerification record, corrected step_b VALID->REFUTED, opened sub-gap skp-imp2584-nearcollision, and a passing machine-checked assertion. Status unchanged (numerically-closed). Build green.',
+  },
+  {
+    id: 'imp-2585',
+    title: "Verify assertions still pass in bui-sound-plus-polymath-bridge-2026-05.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'pending',
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/bui-sound-plus-polymath-bridge-2026-05.js may be stale (not verified in 24h). Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: null,
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

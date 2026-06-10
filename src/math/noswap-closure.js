@@ -201,6 +201,40 @@ function verifyInitialSuperiority(N) {
 
 const INITIAL_SUPERIORITY_CHECKS = [50, 100, 200, 500].map(verifyInitialSuperiority);
 
+// ── imp-2584 cross-verification: near-collision S_{k_star} scaling check ───────
+// The JSDoc narrative and step_b claim S_{k_star} ~ 1/B_x diverges as the argmin
+// gap B_x -> 0. Direct computation REFUTES this: S_{k_star} omits indices
+// {k_star, k_star+1}, so the shrinking gap B_x = g_{k_star} never enters any
+// denominator of S_{k_star}. Hence S_{k_star} stays O(1) (in fact converges) as
+// B_x -> 0, and the gap-difference crossing rate 2 B_x (S_{k_star} - S_j) -> 0,
+// NOT +infinity. The genuine CM repulsion is the self-term 4/g_k in dg_k/dtau,
+// which CANCELS in the difference dg_j/dtau - dg_kstar/dtau. See crossVerification.
+function nearCollisionScaling(N, shrink) {
+  const gammas = Array.from(ZETA_ZEROS.slice(0, N));
+  let kStar = 0;
+  let Bmin  = gammas[1] - gammas[0];
+  for (let k = 1; k < N - 1; k++) {
+    const g = gammas[k + 1] - gammas[k];
+    if (g < Bmin) { Bmin = g; kStar = k; }
+  }
+  const Sfull = computeSk(gammas, kStar);
+  const g2 = gammas.slice();
+  g2[kStar + 1] = gammas[kStar] + Bmin * shrink;   // shrink the argmin gap toward 0
+  const Sshrunk = computeSk(g2, kStar);
+  return {
+    N,
+    kStar,
+    Bfull:    +Bmin.toFixed(8),
+    Bshrunk:  Bmin * shrink,
+    SkFull:   +Sfull.toFixed(6),
+    SkShrunk: +Sshrunk.toFixed(6),
+    ratio:    +(Sshrunk / Sfull).toFixed(4),
+    diverges: Sshrunk > 10 * Sfull,
+  };
+}
+
+const NEAR_COLLISION_SCALING = nearCollisionScaling(50, 1e-4);
+
 // ── Mid-trajectory S-comparison lemma (imp-472) ──────────────────────────────
 // PARTIAL CLOSURE: sub-gap skp-imp468-mid-traj remains open at step (a).
 //
@@ -261,8 +295,13 @@ const MID_TRAJECTORY_LEMMA = {
       'at all tested N: minExcess is negative (e.g. -0.29 at N=50). ' +
       'S_{k_star}(0) is NOT the global maximum of S_j(0). Gap is unresolved.',
     step_b:
-      'VALID: tau -> tau_c (near-collision): S_{k_star} ~ 1/B_{k_star} -> +inf; ' +
-      'S_j = O(1) since pair j has no colliding neighbour. D_j -> +inf.',
+      'REFUTED (imp-2584): the claim S_{k_star} ~ 1/B_{k_star} -> +inf is FALSE. ' +
+      'S_{k_star} excludes indices {k_star, k_star+1}, so the argmin gap B_{k_star} ' +
+      'never enters a denominator; S_{k_star} stays bounded as B_{k_star} -> 0 ' +
+      '(0.3696 -> 0.3464 at N=50 under a 1e4-fold gap shrink). The gap-difference ' +
+      'rate 2 B (S_{k_star} - S_j) -> 0, not +inf. Near-collision analytic repulsion ' +
+      'is NOT established. See crossVerification.nearCollisionCorrection ' +
+      '(new sub-gap skp-imp2584-nearcollision).',
     step_c:
       'VALID: Continuity: CM flow is a smooth ODE on [0,tau_c); S terms are rational ' +
       'in particle positions (denominators nonzero while B_{k_star} > 0). ' +
@@ -380,6 +419,36 @@ export const NOSWAP_CLOSURE = {
     'step (d) monotone comparison is blocked by the step (a) gap. ' +
     'Sub-gap skp-imp468-mid-traj: PARTIAL (step-a-open-gap). ' +
     'NoSwap is NUMERICALLY-CLOSED. Analytical closure requires resolving imp-584.',
+
+  crossVerification: {
+    ticket: 'imp-2584',
+    date:   '2026-06-10',
+    formulasVerified:
+      'Crossing-rate algebra re-derived and CONFIRMED: with the CM flow ' +
+      'd gamma_i/dtau = 2 Sum_{m!=i} 1/(gamma_i - gamma_m), one gets ' +
+      'dg_k/dtau = 4/g_k - 2 g_k S_k, and at a touching g_j = g_{k_star} = B the ' +
+      'gap-difference rate is exactly 2 B (S_{k_star} - S_j). S_k matches computeSk.',
+    referenceValuesConfirmed:
+      'INITIAL_SUPERIORITY_CHECKS reproduced exactly: minExcess = -0.2907 (N=50), ' +
+      '-0.3610 (N=100), -0.8428 (N=200), -1.5775 (N=500); allSuperior=false at ' +
+      'every tested N. The cited "-0.29 at N=50" is accurate.',
+    nearCollisionCorrection:
+      'CORRECTION (supersedes the JSDoc divergence narrative and the old step_b ' +
+      '"VALID" label): the claim S_{k_star} ~ 1/B_x -> +inf as B_x -> 0 is FALSE. ' +
+      'S_{k_star} excludes indices {k_star, k_star+1}, so the argmin gap ' +
+      'B_x = g_{k_star} never appears in a denominator; numerically S_{k_star} ' +
+      'stays bounded (0.3696 -> 0.3464 as B_x shrinks 1e4-fold at N=50). The ' +
+      'gap-difference crossing rate 2 B_x (S_{k_star} - S_j) -> 0, NOT +infinity. ' +
+      'The genuine CM repulsion is the self-term 4/g_k, which CANCELS in the ' +
+      'difference dg_j/dtau - dg_kstar/dtau. The near-collision analytic leg does ' +
+      'NOT establish NoSwap; only the numerical evidence does. ' +
+      'New open sub-gap: skp-imp2584-nearcollision.',
+    scaling: NEAR_COLLISION_SCALING,
+    netEffect:
+      'Bottom-line status UNCHANGED (numerically-closed): the initial-config gap ' +
+      '(imp-584) already blocked analytic closure. This audit additionally ' +
+      'invalidates the near-collision leg that step_b had marked VALID.',
+  },
 };
 
 // ── Build-time assertions ─────────────────────────────────────────────────────
@@ -470,6 +539,22 @@ export const NOSWAP_CLOSURE_ASSERTIONS = [
       '(minExcess is negative, e.g. -0.29 at N=50). The analytical initial-config ' +
       'superiority argument (imp-468) has a genuine gap. This assertion verifies ' +
       'that the checks ran for all 4 N values with finite SkStar; the gap is tracked.',
+  },
+  {
+    id: 'imp2584-near-collision-Sk-bounded',
+    holds: () =>
+      !NEAR_COLLISION_SCALING.diverges &&
+      NEAR_COLLISION_SCALING.ratio < 2 &&
+      Number.isFinite(NEAR_COLLISION_SCALING.SkShrunk),
+    why:
+      'imp-2584 cross-verification: REFUTES the step_b near-collision claim that ' +
+      'S_{k_star} ~ 1/B_x diverges as the argmin gap B_x -> 0. Shrinking the N=50 ' +
+      'argmin gap 1e4-fold leaves S_{k_star} essentially unchanged (ratio < 2, ' +
+      'here ~0.94, SkFull 0.3696 -> SkShrunk 0.3464) because indices ' +
+      '{k_star, k_star+1} are excluded from the S_{k_star} sum, so B_x never ' +
+      'enters a denominator. The gap-difference crossing rate 2 B_x (S_{k_star} - ' +
+      'S_j) therefore -> 0, not +infinity. NoSwap rests on the numerical evidence ' +
+      'only; the near-collision analytic leg does not hold (skp-imp2584-nearcollision).',
   },
   {
     id: 'imp464-prior-verification-available',

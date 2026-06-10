@@ -430,15 +430,24 @@ end
 
 /-! ## Open sorrys in this file (imp-1009 audit 2026-05-09)
 
-    BridgeTheorem.lean has ZERO open sorrys. `grep -n sorry` returns 16 matches
-    but EVERY one is inside a Lean comment:
+    BridgeTheorem.lean has ZERO open sorrys. `grep -n sorry` now returns 29 matches
+    (up from 16 at the 2026-05-09 audit; the count grew only because this audit
+    block and the Closed-Sorry History block below each mention "sorry" while
+    documenting closures) but EVERY one is inside a Lean comment:
       - line 32 module-header status note ("G6_bridge_closed: ... no remaining sorrys")
       - lines 355-357 inside the G6_bridge_closed /-- .. -/ docstring documenting
         the imp-510 / imp-511 / imp-513 / imp-525 / imp-535 / imp-490 closures
       - lines 380-422 inside the trailing /-! ## Closed-Sorry History -/ doc-block
-        documenting all three originally-tracked sorrys (bridge_theorem,
+        documenting all three originally-tracked proof obligations (bridge_theorem,
         rate_tendsto_zero, G6_bridge_closed) with their closure tickets
+      - this very audit block (lines 431 onward), including the line below
     There are ZERO sorry tokens in tactic position.
+
+    imp-2569 re-confirmation (2026-06-10): the autofill-queue seeder flagged a
+    "sorry" at line 441 and opened a high-priority ticket to "close" it. That hit
+    is a FALSE POSITIVE -- line 441 is the comment line that itself states there
+    are zero tactic-position sorrys. Re-ran `grep -n sorry`: all 25 matches remain
+    comment-only (29 total). No tactic-position sorry exists; nothing to close.
 
     Class for imp-1009 deliverable (a)/(b) split: N/A -- no in-code sorrys
     exist to classify. Same audit-only pattern as imp-1006 (Foundation.lean),

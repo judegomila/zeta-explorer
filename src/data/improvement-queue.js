@@ -15936,6 +15936,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Re-verified all five BUI_SOUND_DENSITY_NUMERICAL_ASSERTIONS tripwires under plain node (light-import module, no zeros bundle): 5/5 PASS. Documented headline values reproduce exactly — E_trunc_Ingham=3.06e-5, E_trunc_BS=1.51e-11 at sigma_opt=0.75, L_pt_Ingham=0.019521, L_pt_BS=0.019490, margins 10.246x/10.262x. Added verifiedAt freshness stamp to the record (imp-2590). Build green.',
   },
 
+  
+  // ── Auto-seeded batch (2026-06-10) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2588',
+    title: "Add JSDoc module documentation to lambda-intercept-unconditional.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'docs',
+    description: "src/data/lambda-intercept-unconditional.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-06-10T10:09:56Z',
+    closureNote: 'Prepended a formal @module/@fileoverview JSDoc block above the existing prose comment documenting the two exports (LAMBDA_INTERCEPT_UNCONDITIONAL record + LAMBDA_INTERCEPT_UNCONDITIONAL_ASSERTIONS tripwires), the proof-chain step (capstone consuming imp-341/336/337/342/343/338 + B(t) monotonicity + N-T* map), the key build-time assertions (id-drift, G5_burgers coordinated flip, G6-closed, route-B UNCONDITIONALLY wording, finite-height NONE-yet honesty), and the tickets that created/modified the file (imp-344 created it, imp-387 closed G6). Doc-only; no logic changed. Build green.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

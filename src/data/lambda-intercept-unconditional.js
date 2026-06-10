@@ -1,4 +1,34 @@
 /**
+ * @module lambda-intercept-unconditional
+ * @fileoverview Master-assembly status record for the Λ-intercept attack
+ * (capstone of Phases 7–11). It does NOT re-prove anything: it imports the
+ * existing route records, states the combined unconditional claim, enumerates
+ * the three finite-height routes (A monotonicity / B Burgers uniformity /
+ * C density squeeze), and tracks the bridge gap G6.
+ *
+ * Proof-chain step
+ *   Sits at the top of the Λ-intercept sub-tree. Consumes imp-341 (route B),
+ *   imp-336 (route A), imp-337/342/343 (route C), imp-338 (continuum shock),
+ *   the B(t) monotonicity theorem, and the finite-height N↔T* map.
+ *
+ * Exports
+ *   - LAMBDA_INTERCEPT_UNCONDITIONAL — the assembly record (routes, G6 status,
+ *     currentStrongestUnconditional claim, coordinated-flip log, openWork).
+ *   - LAMBDA_INTERCEPT_UNCONDITIONAL_ASSERTIONS — build-time tripwires.
+ *
+ * Key assertions
+ *   id-drift tripwires on every consumed module id; a G5_burgers coordinated-
+ *   flip check (status closed AND conditionalOn scrubbed must track together);
+ *   a G6 closed-by-imp-387 check; a route-B "UNCONDITIONALLY" wording guard;
+ *   and a finiteHeightCorollaryRH "NONE yet" honesty guard (we have NOT beaten
+ *   Platt-Trudgian at finite height).
+ *
+ * Tickets that created/modified this file
+ *   imp-344 (created the assembly + coordinated G5_burgers flip),
+ *   imp-387 (flipped G6_polymath15_bridge to closed).
+ */
+
+/**
  * imp-344: Master assembly — unconditional a ≤ 0 at finite N, honest state
  *
  * Context

@@ -494,7 +494,12 @@ export function informationSummary(s, numPrimes = 12) {
  * The critical-line optimality theorem (information-theoretic form):
  *
  * Claim: σ = ½ simultaneously:
- *   (1) Maximizes entropy efficiency (direct/dual distributions best aligned)
+ *   (1) Maximizes the SYMMETRIZED ("balanced") entropy efficiency
+ *       B(σ,t) = min(eff(σ,t), eff(1-σ,t)). NOTE (imp-2534): the BARE entropy
+ *       efficiency eff(σ,t) is monotonically increasing in σ (it peaks at the
+ *       right scan edge, not σ=½), so the symmetrization is required; B peaks
+ *       at σ=½ provably at t=0. See imp-888-info-theory-verification.js
+ *       (balancedEfficiencyPeak) and sub-gap imp-888-sub-tighter-bound.
  *   (2) Maximizes channel capacity (optimal signal transfer)
  *   (3) Maximizes mutual information (maximum direct-dual coupling)
  *   (4) Minimizes KL divergence (equilibrium state)

@@ -1462,7 +1462,12 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS = [
             Number.isFinite(r.K_empirical_hi) &&
             r.K_empirical_lo <= r.K_empirical &&
             r.K_empirical <= r.K_empirical_hi &&
-            Math.abs(r.F_mb_hi - r.F_mb_measured - r.dt) <= 1e-9 * r.F_mb_hi &&
+            // band width is one full step: F_mb_hi = F_mb + dt. F_mb_hi and
+            // F_mb_measured are stored at 7 significant figures (toExponential(6))
+            // while dt is full precision, so after the imp-2539 refinement (where
+            // F_mb and dt now differ by ~24x in magnitude) the reconstruction
+            // floor is the 7-sig-fig storage relative error ~1e-6, not 1e-9.
+            Math.abs(r.F_mb_hi - r.F_mb_measured - r.dt) <= 1e-6 * r.F_mb_hi &&
             r.F_mb_lo >= 0,
         ) &&
         ld.K_band_below_small_n_max === true &&

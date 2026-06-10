@@ -304,6 +304,49 @@ export const G1_G2_CLOSURE_ASSEMBLY = {
           'K_0 / N -> 0; this is strictly stronger than the imp-368 (L-triv) ' +
           'margin 1/N at the lower edge but remains non-proportional',
         closureLevel: 'unconditional-but-non-proportional',
+        explicitSchedule: {
+          impId: 'imp-2549',
+          claim:
+            'imp-2513 left the threshold N_1(K_0) qualitative ("for all ' +
+            'N >= N_1(K_0)"). This run makes N_1(K_0) an EXPLICIT ' +
+            'unconditional schedule from Riemann-von Mangoldt counting, with ' +
+            'no spacing hypothesis.',
+          deltaDef:
+            'delta_{K_0} := min(g_1, ..., g_{K_0 - 1}), the minimum of the ' +
+            'first K_0 - 1 explicit fixed zero gaps -- a deterministic ' +
+            'positive constant for each fixed K_0.',
+          mechanism:
+            'The minimum gap over the TAIL sites {K_0, ..., N - 1} is at most ' +
+            'the tail average (gamma_N - gamma_{K_0}) / (N - K_0). By the ' +
+            'Riemann-von Mangoldt formula N(T) = (T / 2pi) log(T / 2pi) - ' +
+            'T / 2pi + O(log T), the n-th ordinate satisfies gamma_N ~ ' +
+            '2pi N / log N, so the tail average tends to 0 unconditionally. ' +
+            'Hence some site m in {K_0, ..., N - 1} has g_m <= ' +
+            '(gamma_N - gamma_{K_0}) / (N - K_0); once that bound drops below ' +
+            'delta_{K_0}, the argmin k*_N cannot land on any of the first ' +
+            'K_0 - 1 sites, giving k*_N >= K_0.',
+          schedule:
+            'N_1(K_0) = least N with (gamma_N - gamma_{K_0}) / (N - K_0) < ' +
+            'delta_{K_0}. Substituting gamma_N ~ 2pi N / log N (so the tail ' +
+            'average ~ 2pi / log gamma_N) yields the closed-form estimate ' +
+            'N_1(K_0) ~ exp(2pi / delta_{K_0}): the confinement k*_N >= K_0 ' +
+            'holds unconditionally for every N >= exp(2pi / delta_{K_0}).',
+          whyNotProportional:
+            'The schedule depends ONLY on delta_{K_0}, deterministic data. ' +
+            'But delta_{K_0} is non-increasing in K_0 and has no unconditional ' +
+            'proportional lower bound delta_{K_0} >= c > 0; so N_1(K_0) = ' +
+            'exp(2pi / delta_{K_0}) blows up faster than any polynomial in ' +
+            'K_0 and CANNOT be inverted to a proportional margin K_0 = ' +
+            'alpha * N. This pins exactly why branch (i) cannot be ' +
+            'bootstrapped to the proportional content of branch (ii): the ' +
+            'obstruction is the absence of an unconditional lower bound on ' +
+            'the minimum gap, i.e. the deterministic bulk-confinement ' +
+            'statement named in statusOfRemaining.',
+          closureLevel:
+            'unconditional explicit schedule for the absolute-constant ' +
+            'lower-edge margin; the parent g1-uniform-margin (proportional ' +
+            'two-sided) remains open',
+        },
       },
       proportionalContent: {
         statement:
@@ -370,7 +413,20 @@ export const G1_G2_CLOSURE_ASSEMBLY = {
     'to a positive fraction of sites. Assertion ' +
     'imp2513-directional-decomposition-honest-partial pins the labels. ' +
     'The parent g1-uniform-margin sub-gap REMAINS OPEN; no unconditional ' +
-    'proportional content is claimed.',
+    'proportional content is claimed. ' +
+    'imp-2549 honest-partial follow-up: the lowerEdgeAbsolute branch now ' +
+    'carries an explicitSchedule field that upgrades the imp-2513 qualitative ' +
+    'threshold N_1(K_0) into an EXPLICIT unconditional Riemann-von Mangoldt ' +
+    'schedule N_1(K_0) ~ exp(2pi / delta_{K_0}) (delta_{K_0} = min of the ' +
+    'first K_0 - 1 fixed zero gaps): k*_N >= K_0 holds unconditionally for ' +
+    'every N >= exp(2pi / delta_{K_0}), since the minimum tail gap is at most ' +
+    'the tail average (gamma_N - gamma_{K_0}) / (N - K_0) -> 0 by RvM with no ' +
+    'spacing hypothesis. The whyNotProportional field pins that this cannot ' +
+    'be inverted to a proportional margin K_0 = alpha * N (delta_{K_0} has no ' +
+    'unconditional proportional lower bound), so the obstruction is exactly ' +
+    'the deterministic minimum-gap bulk-confinement statement in ' +
+    'statusOfRemaining. Assertion imp2549-rvm-explicit-schedule-honest-partial ' +
+    'pins the schedule. The parent g1-uniform-margin REMAINS OPEN.',
 };
 
 // ── Build-time assertions ────────────────────────────────────────────────────
@@ -492,5 +548,34 @@ export const G1_G2_CLOSURE_ASSERTIONS = [
       'closure. The parent g1-uniform-margin remains open. If a future commit ' +
       'upgrades the proportional content to unconditional, it MUST flip these ' +
       'labels and remove this assertion in the same commit.',
+  },
+  {
+    id: 'imp2549-rvm-explicit-schedule-honest-partial',
+    holds: () => {
+      const es =
+        G1_G2_CLOSURE_ASSEMBLY.openSubGap.directionalDecomposition
+          .lowerEdgeAbsolute.explicitSchedule;
+      return (
+        es !== undefined &&
+        es.impId === 'imp-2549' &&
+        typeof es.schedule === 'string' &&
+        es.schedule.includes('exp(2pi / delta_{K_0})') &&
+        typeof es.whyNotProportional === 'string' &&
+        es.whyNotProportional.includes('CANNOT be inverted') &&
+        G1_G2_CLOSURE_ASSEMBLY.openSubGap.statusOfRemaining.startsWith('open')
+      );
+    },
+    why:
+      'imp-2549 honest-partial: sharpens the imp-2513 lower-edge branch from ' +
+      'a qualitative threshold ("for N >= N_1(K_0)") into an EXPLICIT ' +
+      'unconditional Riemann-von Mangoldt schedule N_1(K_0) ~ ' +
+      'exp(2pi / delta_{K_0}), where delta_{K_0} is the minimum of the first ' +
+      'K_0 - 1 fixed zero gaps. The schedule is genuinely unconditional (min ' +
+      'tail gap <= tail average -> 0 by RvM, no spacing hypothesis) but the ' +
+      'whyNotProportional field pins that it cannot be inverted to a ' +
+      'proportional margin K_0 = alpha * N, so the parent g1-uniform-margin ' +
+      'remains open. If a future commit makes the proportional content ' +
+      'unconditional, it MUST update statusOfRemaining and remove this ' +
+      'assertion in the same commit.',
   },
 ];

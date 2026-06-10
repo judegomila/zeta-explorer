@@ -1585,6 +1585,7 @@ const DATA_MODULES = [
   '/src/data/gram-points-numerical.js',
   '/src/data/heat-flow-cross-validation-imp372.js',
   '/src/data/holder-modulus-verification.js',
+  '/src/data/imp371-barrier-cross-validation.js',
   '/src/data/imp-1166-conrey-snaith-correction-on-imp1162-grid.js',
   '/src/data/imp-1182-bs-2008-paper-walk-A-bound.js',
   '/src/data/imp-1186-lin-stat-sweep-20pt-2026-05.js',
@@ -1671,6 +1672,11 @@ const DATA_MODULES = [
   // (resolved negatively by imp-2516, successor closed by imp-2530) and the
   // whole queue is re-scanned each build for any open re-declaration of the id.
   '/src/data/improvement-queue.js',
+  // imp-2546: cross-validation of the imp-299/imp-371 barrier extrapolation
+  // (t_c = H_raw^2/8) against the Path C measured interval-RK4 ladder on the
+  // extended N-to-1e6 Dyson ladder; per-rung bracket containment + Lambda
+  // intercept agreement within the +/-0.01 error bar.
+  '/src/data/imp371-barrier-cross-validation.js',
 ];
 
 const ALL_MODULES = FAST_MODE

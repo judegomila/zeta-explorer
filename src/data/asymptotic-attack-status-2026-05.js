@@ -219,12 +219,13 @@ export const ASYMPTOTIC_ATTACK_STATUS_2026_05 = {
   id: 'imp-1089',
   title: 'Honest asymptotic attack status: document why ESY port is not engine-closable',
   generatedAt: '2026-05-20T00:00:00Z',
-  lastVerifiedAt: '2026-06-03T00:00:00Z',
+  lastVerifiedAt: '2026-06-10T00:00:00Z',
   lastVerifiedNote:
-    'imp-2391: re-verified all 3 build-time assertions hold against current ' +
+    'imp-2574: re-verified all 3 build-time assertions hold against current ' +
     'state -- PT bound 0.2 still SOTA (not beaten), finite-N ceiling N* = 1e6 ' +
     'with imp-486 barrier not engine-closable, and ESY_RIGIDITY_PORT.status ' +
-    'still "partial" with 3 open sub-gaps (O1/O2/O3). No stale counts found.',
+    'still "partial" with exactly 3 open sub-gaps (O1/O2/O3, openSubGaps.length = 3). ' +
+    'No stale counts or references found; build green.',
   status: 'honest-partial',
 
   // (A) Asymptotic SOTA

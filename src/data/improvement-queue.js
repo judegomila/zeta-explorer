@@ -15710,13 +15710,15 @@ export const IMPROVEMENT_QUEUE = [
     title: "Verify assertions still pass in asymptotic-attack-status-2026-05.js",
     category: 'proof',
     priority: 'low',
-    status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w4-1781080186353',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
     proofSection: 'S11-verify',
     description: "Dated assertion file src/data/asymptotic-attack-status-2026-05.js may be stale (not verified in 24h). Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-06-10T08:31:00Z',
+    closureNote: 'Re-verified all 3 build-time assertions hold: PT bound 0.2 still SOTA (isEngineBeaten=false), finite-N ceiling N*=1e6 with imp-486 barrier not engine-closable, and ESY_RIGIDITY_PORT.status still "partial" with exactly 3 open sub-gaps (O1/O2/O3, openSubGaps.length=3). No stale counts or references found. Refreshed lastVerifiedAt 2026-06-03 -> 2026-06-10. Build green.',
   },
 
     {

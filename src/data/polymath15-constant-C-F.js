@@ -1,4 +1,35 @@
 /**
+ * @module polymath15-constant-C-F
+ * @fileoverview Pins the flow constant C_F(N) in the Polymath15 bridge E_flow term.
+ *
+ * Proof-chain step: Polymath15 bridge / "docs" — flow-error (E_flow) constant.
+ *   This file sits between imp-345 (lambda-polymath15-bridge.js, which uses C_F
+ *   as an order-unity ANSATZ placeholder) and the assembled bridge E(N) bound.
+ *   It replaces the placeholder with a derived, citable constant.
+ *
+ * Exports:
+ *   - POLYMATH15_CONSTANT_C_F            the record: formula, derivation summary,
+ *                                        per-ladder numerical values, open work.
+ *   - POLYMATH15_CONSTANT_C_F_ASSERTIONS array of self-checking assertion objects.
+ *
+ * Key assertions (see POLYMATH15_CONSTANT_C_F_ASSERTIONS):
+ *   - imp398-Soff-integral-identity        closed form matches rectangle-rule integral to 1%.
+ *   - imp398-CF-order-unity-at-baseline    C_F at N=2458 lies in [1, 2] (approx 1.14).
+ *   - imp398-CF-strictly-positive-all-ladder / imp398-CF-increasing-along-ladder.
+ *   - imp398-CF-grows-logarithmically      C_F unbounded, unlike the bounded C_T.
+ *   - imp398-CF-matches-CT-at-baseline     C_F and C_T agree within 5% at baseline.
+ *   - imp398-Soff-smaller-than-on-ladder-Sk / imp398-off-ladder-dgdt-correction-decays.
+ *
+ * Provenance — tickets that created/modified this file:
+ *   imp-398 (created this file, pins C_F). Builds on imp-322 (boundary identity),
+ *   imp-345 (E_flow formula, C_F placeholder), imp-397 (analogous C_T derivation).
+ *
+ * @see ./lambda-polymath15-bridge.js  (imp-345, consumer of C_F)
+ * @see ./polymath15-constant-C-T.js   (imp-397, analogous bounded constant)
+ * @see ./dyson-monotonicity-proof.js  (imp-322, boundary identity)
+ *
+ * ---------------------------------------------------------------------------
+ *
  * imp-398: Pin C_F (flow constant) in the Polymath15 bridge E_flow term
  *
  * Deliverable: explicit derivation of C_F from the imp-322 boundary identity

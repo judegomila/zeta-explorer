@@ -355,14 +355,17 @@ const LARGE_N_DIRECT_ROWS = LARGE_N_TARGETS.map((N) => {
   const condCap = proj && typeof proj.K_empirical_upper_conditional === 'number'
     ? proj.K_empirical_upper_conditional
     : null;
-  // imp-2509 follow-up (honest-partial): the offline cache carries NO `resolved`
-  // flag, so derive it from the data — a row clears the strict resolution bar only
-  // when F_mb exceeds 5*dt. At dt = tauC_est(N)/100 the collision fires just 1-4
-  // steps past the tauC_est step at every target (F_mb = k*dt, k in {1,2,3,4}), so
-  // NO row clears 5*dt: the direct large-N F_mb is dt-QUANTIZATION-LIMITED, named as
-  // imp-2509-sub-large-n-dt-quantization (closed by imp-2529 below). The dt/2 re-run (where the
-  // cache supplies one, N <= 2000) still agrees to within one step, so the small
-  // residual is convergent, not noise.
+  // imp-2509 follow-up, SHARPENED by imp-2539: derive the strict resolution
+  // flag from the data — a row clears the bar only when F_mb exceeds 5*dt. The
+  // cache now also carries its own `resolved` flag (the dtRule x10 refinement
+  // engaged in imp-2539), and the two agree. After refinement the three targets
+  // N in {500, 1000, 2000} CLEAR 5*dt with real (sharper, smaller) F_mb, so
+  // imp-2509-sub-large-n-dt-quantization is closed at those N; the two expensive
+  // targets N in {5000, 10000} still sit ~1-3 steps past tauC_est (F_mb = k*dt)
+  // under the 1-pass refinement cap and remain dt-QUANTIZATION-LIMITED, named as
+  // the successor imp-2539-sub-resolve-5k-10k. The dt/2 re-run (where the cache
+  // supplies one, N <= 2000) still agrees to within one step, so every residual
+  // is convergent, not noise.
   const resolvedAbove5dt = F_mb > 5 * c.dt;
   const dtHalfConverged  = half ? Math.abs(half.t_c - c.t_c) <= 2 * c.dt : null;
   // imp-2529 / imp-2509-sub-large-n-dt-quantization closure (paths b + c):
@@ -1147,26 +1150,34 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
       residual:
         'Path (a) — regenerating the offline cache with the dtRule x10 ' +
         'auto-refinement actually applied (and a per-row resolved flag) so ' +
-        'F_mb > 5*dt pointwise, which would also give N in {5000, 10000} ' +
-        'their missing dt/2 re-runs — remains open as the named successor ' +
-        'imp-2529-sub-rerun-dtrule-x10 (CPU-budget-only: rerun ' +
-        'scripts/imp-2509-dyson-large-n-sweep.mjs offline).',
+        'F_mb > 5*dt pointwise — was PARTIALLY DELIVERED by imp-2539: the cache ' +
+        'is regenerated, the refinement engaged, and N in {500, 1000, 2000} now ' +
+        'clear 5*dt. The two expensive targets N in {5000, 10000} still sit just ' +
+        'under the bar (1-pass refinement cap) and lack their dt/2 re-runs, ' +
+        'tracked as the narrowed successor imp-2539-sub-resolve-5k-10k under the ' +
+        'still-open imp-2529-sub-rerun-dtrule-x10 (CPU-budget-only: a 2nd x10 ' +
+        'refinement at N >= 5000 is ~17-65 min offline).',
     },
     quantizationCaveat:
-      'HONEST STATUS (imp-2509): the direct backward-RK4 sweep IS extended to and ' +
-      'collides at all five targets {500,1000,2000,5000,10000} (the literal ' +
-      'sub-gap ask), and the N=10000 row matches the independent imp-2485 DOP853 ' +
-      'anchor on the same argmin pair (index 6708). But at dt = tauC_est(N)/100 the ' +
-      'collision fires only 1-4 steps past the tauC_est step, so F_mb = k*dt with k ' +
-      'in {1,2,3,4} and NO row clears the strict F_mb > 5*dt resolution bar: the ' +
-      'absolute F_mb (hence K_empirical) is dt-QUANTIZATION-LIMITED, not yet ' +
-      'sharply resolved. The dt/2 re-run (N <= 2000) agrees to within one step, so ' +
-      'the residual is convergent. The named residual ' +
-      'imp-2509-sub-large-n-dt-quantization was CLOSED by imp-2529 via paths (b)+(c) ' +
-      '(see dtQuantizationClosure): F_mb is quoted as a +/- dt band, Richardson ' +
-      'extrapolation sharpens N <= 2000, and both consumed statements are ' +
-      'band-robust; only the path-(a) offline cache regeneration ' +
-      '(imp-2529-sub-rerun-dtrule-x10) is still pending for sub-dt point values.',
+      'HONEST STATUS (imp-2509, SHARPENED by imp-2539): the direct backward-RK4 ' +
+      'sweep IS extended to and collides at all five targets ' +
+      '{500,1000,2000,5000,10000} (the literal sub-gap ask), and the N=10000 row ' +
+      'matches the independent imp-2485 DOP853 anchor on the same argmin pair ' +
+      '(index 6708). After the imp-2539 cache regeneration with the dtRule x10 ' +
+      'refinement engaged, the three targets N in {500, 1000, 2000} now CLEAR the ' +
+      'strict F_mb > 5*dt resolution bar (sub-dt point values delivered; the ' +
+      'N=2000 residual is a real 4.04e-6). The two expensive targets ' +
+      'N in {5000, 10000} still fire just 1-3 steps past the tauC_est step ' +
+      '(F_mb = k*dt) and remain dt-QUANTIZATION-LIMITED under the 1-pass ' +
+      'refinement cap, not yet sharply resolved. The dt/2 re-run (N <= 2000) ' +
+      'agrees to within one step, so every residual is convergent. The named ' +
+      'residual imp-2509-sub-large-n-dt-quantization was CLOSED by imp-2529 via ' +
+      'paths (b)+(c) (see dtQuantizationClosure): F_mb is quoted as a +/- dt band, ' +
+      'Richardson extrapolation sharpens N <= 2000, and both consumed statements ' +
+      'are band-robust; the path-(a) offline cache regeneration ' +
+      '(imp-2529-sub-rerun-dtrule-x10) is now partially delivered, with only ' +
+      'N in {5000, 10000} sub-dt point values still pending ' +
+      '(imp-2539-sub-resolve-5k-10k).',
     description:
       'CLOSES imp-860-sub-extend-to-N10k via the named resolution path (a)+(c): ' +
       'the direct backward-RK4 sweep at N in {500, 1000, 2000, 5000, 10000} is ' +
@@ -1233,27 +1244,30 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
       id: 'imp-2529-sub-rerun-dtrule-x10',
       successorOf: 'imp-2509-sub-large-n-dt-quantization',
       summary:
-        'Sub-dt POINT values of F_mb at the five large-N targets are still ' +
-        'undelivered: the offline cache rows sit at the initial coarse ' +
-        'dt = tauC_est(N)/100 and the dtRule x10 auto-refinement was never ' +
-        'actually applied, so no row clears F_mb > 5*dt pointwise and ' +
-        'N in {5000, 10000} lack a dt/2 re-run entirely.',
+        'Path (a) PARTIALLY DELIVERED by imp-2539: the offline cache has been ' +
+        'regenerated with the dtRule x10 auto-refinement actually engaged and a ' +
+        'per-row resolved flag + passes ledger emitted, so the three targets ' +
+        'N in {500, 1000, 2000} now CLEAR F_mb > 5*dt pointwise (sub-dt POINT ' +
+        'values delivered). The residual is now narrowed to the two expensive ' +
+        'targets N in {5000, 10000}, which stay quantization-limited under the ' +
+        '1-pass refinement cap and still lack a dt/2 re-run (the script gates ' +
+        'the half-dt check at N <= 2000).',
       finding:
-        'imp-2529 closed the predecessor via paths (b)+(c): every consumed ' +
-        'statement (K boundedness below the small-N max, imp-2509 conditional ' +
-        'caps) is now BAND-ROBUST at the +/- dt band top, and first-order ' +
-        'Richardson at N <= 2000 lands on the band lower edge (F_rich = ' +
-        'F_mb - dt; = 0 at N = 2000), so the quantization blur is quantified ' +
-        'and contained — but it is bounded, not removed. What remains is ' +
-        'CPU-budget-only path (a): rerun ' +
-        'scripts/imp-2509-dyson-large-n-sweep.mjs offline with the x10 ' +
-        'dt-refinement loop actually engaging (and emit a per-row resolved ' +
-        'flag plus dt/2 checks at N in {5000, 10000}), regenerating ' +
-        'src/data/c-mb-dyson-large-n-cache.js so F_mb > 5*dt at every ' +
-        'target and the band collapses toward the Richardson edge. ' +
-        'Wall-clock estimate from the cached wall_ms: the N = 10000 row cost ' +
-        '~40 s at ~100 steps, so a x10-refined run is ~minutes-to-hours, ' +
-        'fine offline, impossible at module load. ' +
+        'imp-2539 ran scripts/imp-2509-dyson-large-n-sweep.mjs across all five ' +
+        'targets with the x10 refinement loop ENGAGING (N=500/1000 resolve at ' +
+        'one refinement, N=2000 at two: dt = 1.19e-7, 10034 steps, F_mb = ' +
+        '4.04e-6 > 5*dt). DECISIVE side-finding: the refinement REFUTES the ' +
+        'earlier coarse-data inference that the N=2000 residual sat below the ' +
+        'dt floor (F_rich = 0) — the sharpened residual is a REAL many-body ' +
+        '4.04e-6, and its Richardson extrapolation 3.92e-6 stays well inside the ' +
+        'one-step band. Every refined F_mb is SMALLER than the old coarse point ' +
+        'value, so the K-boundedness picture (every large-N K below the small-N ' +
+        'max) only strengthens. What remains is CPU-budget-only: a SECOND x10 ' +
+        'refinement at N in {5000, 10000} (their F_mb = 7.0e-7 / 1.78e-7 still ' +
+        'sit at 3.0 / 1.0 steps past tauC_est, just under the 5*dt bar) plus ' +
+        'their dt/2 checks; the N=10000 first refinement already cost 390 s, so ' +
+        'a 2nd pass is ~17-65 min offline — the named successor ' +
+        'imp-2539-sub-resolve-5k-10k. ' +
         'Linked: imp-2509-sub-large-n-dt-quantization (closed).',
     },
   ],
@@ -1458,7 +1472,20 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS = [
         ld.richardson_all_in_band === true &&
         rich.every((r) => r.richardson_within_band === true) &&
         r2000 != null &&
-        r2000.richardson_below_dt_floor === true &&
+        // imp-2539 (imp-2529-sub-rerun-dtrule-x10 advance): the dtRule x10
+        // refinement is now genuinely engaged (cache regenerated with a per-row
+        // resolved flag + passes ledger), so all three N <= 2000 targets now
+        // CLEAR the strict F_mb > 5*dt bar and the N = 2000 residual is a REAL
+        // many-body 4.04e-6 — REFUTING the earlier coarse-data inference that it
+        // sat below the dt floor (Richardson then merely confirmed quantization).
+        // The two expensive targets N in {5000, 10000} stay quantization-limited
+        // under the 1-pass refinement cap (a 2nd x10 is ~17-65 min offline).
+        measured
+          .filter((r) => r.N <= 2000)
+          .every((r) => r.F_mb_resolved_above_5dt === true) &&
+        measured
+          .filter((r) => r.N >= 5000)
+          .every((r) => r.status === 'measured-quantization-limited') &&
         closed &&
         successor &&
         !stillOpen
@@ -1471,13 +1498,16 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS = [
       'exactly one step above the point value), the band TOP must stay below ' +
       'both the small-N K max and the per-N imp-2509 conditional cap (the ' +
       'band-robustness that makes the quantization blur harmless to the ' +
-      'program), every cached dt/2 re-run must yield a Richardson ' +
-      'extrapolation inside the band, and the N = 2000 extrapolation must sit ' +
-      'below the dt floor (the fact showing the coarse point value there was ' +
-      'pure grid quantization). Failure means the cache was regenerated with ' +
-      'different geometry (re-derive the bands before trusting them), the ' +
-      'band-robust boundedness reversed (a real finding — reopen the gap), or ' +
-      'the sub-gap bookkeeping was edited inconsistently.',
+      'program), and every cached dt/2 re-run must yield a Richardson ' +
+      'extrapolation inside the band. UPDATED by imp-2539: the offline cache has ' +
+      'now been regenerated with the dtRule x10 refinement actually engaged, so ' +
+      'the three N <= 2000 targets CLEAR the strict F_mb > 5*dt resolution bar ' +
+      '(the N = 2000 residual is a real 4.04e-6, not the below-floor quantization ' +
+      'the coarse run had suggested), while N in {5000, 10000} stay ' +
+      'quantization-limited under the 1-pass refinement cap. Failure means the ' +
+      'cache was regenerated with different geometry (re-derive the bands before ' +
+      'trusting them), the band-robust boundedness reversed (a real finding — ' +
+      'reopen the gap), or the sub-gap bookkeeping was edited inconsistently.',
   },
   {
     id: 'imp2527-rk4-n50-order-artifact-closed',

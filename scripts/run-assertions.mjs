@@ -119,6 +119,8 @@ const MATH_MODULES = [
   '/src/math/imp-911-sharper-cumulative-lipschitz.js',
   // imp-911: formal Lipschitz bound on plateau F_mb growth (step 3 upgrade).
   '/src/math/imp-903-F-mb-plateau-lipschitz-proof.js',
+  // imp-2554: honest partial on the open sub-gap imp-911-sub-gronwall-interval — proves the saturation identity E_j = K_J*tau_c_pair = h_j^2/H_0^2 = 1 on every one of the 27 plateaus (binding-pair gap equals plateau scale by the H_raw-plateau definition), so the originally-proposed interval-RK4 rescaling of K_J at the plateau gap scale CANNOT push exp(E_j) below exp(1). Re-scopes the residual slack onto the pre-Gronwall pre-factor (g_new > h_j) and delta_config geometry. Documents the obstruction; does NOT close the sub-gap (imp-903 keeps its openSubGap pointer).
+  '/src/math/imp-2554-imp911-gronwall-interval-saturation.js',
   // imp-897: Richardson-extrapolated certified C_mb_empirical interval bound
   // from the phased-forcing grid, closed against the imp-892 residual.
   '/src/math/imp-857-phased-forcing-richardson.js',

@@ -308,6 +308,92 @@ const RESONANCE_SWEEP_SUB_GAP = {
   ],
 };
 
+// --- imp-2532: deterministic dense-heatmap batch plan (imp-899 exec path) ----
+//
+// imp-899 / imp-894-sub-resonance-sweep was blocked ONLY on an execution path:
+// the dense 5 x 4 (k0, phaseVel) grid at nSteps = 200 is ~8 CPU-hours, which
+// does not fit an engine turn. This block converts that open path into a
+// fully-enumerated, ready-to-run batch plan derived deterministically from
+// CALIBRATION_N500. It carries ONLY input tuples, per-cell env-var
+// invocations, and wall-time estimates — NO fabricated reduction ratios.
+// Running the plan and transcribing the resulting ratios is the named
+// successor imp-899-sub-batch-execution.
+const DENSE_K0_GRID = [
+  { label: 'pi/2', k0: Math.PI / 2 },
+  { label: 'pi', k0: Math.PI },
+  { label: '2*pi', k0: 2 * Math.PI },
+  { label: 'pi/min_gap', k0: Math.PI / CALIBRATION_N500.minGap },
+  { label: '2*pi/min_gap', k0: (2 * Math.PI) / CALIBRATION_N500.minGap },
+];
+const DENSE_PHASEVEL_GRID = [
+  { label: 'pi*rho_min', phaseVel: Math.PI * CALIBRATION_N500.rhoMin },
+  { label: 'pi*rho_mean', phaseVel: Math.PI * CALIBRATION_N500.rhoMean },
+  { label: 'pi*rho_max/2', phaseVel: (Math.PI * CALIBRATION_N500.rhoMax) / 2 },
+  { label: 'pi*rho_max', phaseVel: Math.PI * CALIBRATION_N500.rhoMax },
+];
+const DENSE_EPS_GRID = [0.01, 0.02, 0.05, 0.1];
+
+const DENSE_HEATMAP_BATCH_PLAN = {
+  description:
+    'Ready-to-run batch plan for the imp-899 dense heatmap: 5 k0 values x 4 ' +
+    'phaseVel values = 20 cells at N = 500, nSteps = 200, each a multi-eps run ' +
+    'over {0.01, 0.02, 0.05, 0.1}. Each cell carries a complete env-var ' +
+    'invocation for the imp-857 prototype; outputs are NOT included (open).',
+  N: 500,
+  nSteps: 200,
+  dt: 0.0003,
+  epsGrid: DENSE_EPS_GRID,
+  k0Axis: DENSE_K0_GRID.map((r) => r.label),
+  phaseVelAxis: DENSE_PHASEVEL_GRID.map((r) => r.label),
+  estTotalWallHours: 20 * (20 / 60), // 20 cells x ~20 min each ~= 6.7 h
+  cells: (() => {
+    const cells = [];
+    for (const kr of DENSE_K0_GRID) {
+      for (const pr of DENSE_PHASEVEL_GRID) {
+        cells.push({
+          k0: kr.k0,
+          k0Label: kr.label,
+          phaseVel: pr.phaseVel,
+          phaseVelLabel: pr.label,
+          // ready-to-run worker invocation (the prototype loops eps internally)
+          env: {
+            IMP857_N: '500',
+            IMP857_NSTEPS: '200',
+            IMP857_DT: '0.0003',
+            IMP857_K0: String(kr.k0),
+            IMP857_PHASEVEL: String(pr.phaseVel),
+          },
+          estWallMinutes: 20,
+          ratios: null, // OPEN — filled by imp-899-sub-batch-execution
+        });
+      }
+    }
+    return cells;
+  })(),
+};
+
+// imp-2532: names the residual execution as a stable successor sub-gap so the
+// queue stays anchored after the batch plan is delivered. No new math claimed.
+const BATCH_EXECUTION_SUCCESSOR = {
+  id: 'imp-899-sub-batch-execution',
+  statement:
+    'Execute DENSE_HEATMAP_BATCH_PLAN (20 (k0, phaseVel) cells x 4 eps at ' +
+    'N = 500, nSteps = 200) on an offline scripts/ worker, transcribe the ' +
+    'per-cell reduction ratios into a dense heatmap, and read off the true ' +
+    '(k0(star), omega(star)). The plan is fully enumerated and ready to run; ' +
+    'only the ~7 CPU-hours of offline execution remain.',
+  statusOfPriorWork:
+    'PARTIAL+ — imp-2532 converted the imp-899 open execution path into a ' +
+    'deterministic, fully-enumerated batch plan (DENSE_HEATMAP_BATCH_PLAN: ' +
+    '20 cells derived from CALIBRATION_N500, each with a ready-to-run env-var ' +
+    'invocation and a ~20 min wall-time estimate). No reduction ratios were ' +
+    'fabricated — every cell ratios field is null (open).',
+  statusOfRemaining:
+    'open — the 20-cell grid has not been executed (~7 CPU-hours offline). ' +
+    'Run the plan, transcribe ratios, extract the resonance peak.',
+  dependsOn: ['imp-899', 'imp-894-sub-resonance-sweep'],
+};
+
 // --- Closure record ---------------------------------------------------------
 
 export const IMP_857_RESONANCE_TUNING_SWEEP = {
@@ -317,8 +403,9 @@ export const IMP_857_RESONANCE_TUNING_SWEEP = {
 
   status:
     'PARTIAL (enabling infrastructure + 4-cell 2x2 pilot grid delivered; ' +
-    'dense 4-5 x 4-5 heatmap at nSteps = 200 deferred to imp-899 pending an ' +
-    'offline scripts/ worker path or a quiet CPU window)',
+    'imp-2532 added a deterministic ready-to-run 20-cell batch plan for the ' +
+    'dense 5x4 heatmap at nSteps = 200; the ~7 CPU-hour offline execution ' +
+    'remains, tracked as successor imp-899-sub-batch-execution)',
 
   prototypeFile: 'src/math/imp-857-phase-locked-dyson.mjs',
   upstreamSweep: 'src/data/imp-857-phased-forcing-sweep.js',
@@ -444,6 +531,12 @@ export const IMP_857_RESONANCE_TUNING_SWEEP = {
     'atomic structural change.',
   openSubGap: RESONANCE_SWEEP_SUB_GAP,
 
+  // imp-2532: deterministic, ready-to-run batch plan for the imp-899 dense
+  // heatmap (inputs + env invocations only; outputs open). Execution residual
+  // tracked as the named successor below.
+  denseHeatmapBatchPlan: DENSE_HEATMAP_BATCH_PLAN,
+  batchExecutionSuccessor: BATCH_EXECUTION_SUCCESSOR,
+
   headline:
     'PARTIAL: 2x2 pilot at N=500, nSteps=30 picks out (k0*, omega*/k0*) = ' +
     '(20.24, 1.97) (eigenmode k0 at prototype phase velocity) as the ' +
@@ -469,6 +562,22 @@ export const IMP_857_RESONANCE_TUNING_SWEEP = {
       RESONANCE_SWEEP_SUB_GAP.statusOfPriorWork.startsWith('PARTIAL') &&
       typeof RESONANCE_SWEEP_SUB_GAP.statusOfRemaining === 'string' &&
       RESONANCE_SWEEP_SUB_GAP.statusOfRemaining.startsWith('open'),
+    // imp-2532: dense-heatmap batch plan (imp-899 execution path) is fully
+    // enumerated (20 cells), spans the full 5x4 predicted grid, includes the
+    // eigenmode corner, carries NO fabricated outputs, and names a successor.
+    'imp2532-batch-plan-twenty-cells': DENSE_HEATMAP_BATCH_PLAN.cells.length === 20,
+    'imp2532-batch-plan-axes-covered':
+      new Set(DENSE_HEATMAP_BATCH_PLAN.cells.map((c) => c.k0Label)).size === 5 &&
+      new Set(DENSE_HEATMAP_BATCH_PLAN.cells.map((c) => c.phaseVelLabel)).size === 4,
+    'imp2532-batch-plan-eigenmode-included':
+      DENSE_HEATMAP_BATCH_PLAN.cells.some(
+        (c) => c.k0Label === '2*pi/min_gap' && c.phaseVelLabel === 'pi*rho_mean'
+      ),
+    'imp2532-batch-plan-outputs-open':
+      DENSE_HEATMAP_BATCH_PLAN.cells.every((c) => c.ratios === null),
+    'imp2532-batch-successor-named':
+      BATCH_EXECUTION_SUCCESSOR.id === 'imp-899-sub-batch-execution' &&
+      BATCH_EXECUTION_SUCCESSOR.statusOfRemaining.startsWith('open'),
   },
 
   notes: [

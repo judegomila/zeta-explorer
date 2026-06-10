@@ -473,6 +473,27 @@ end
     a Lean comment; there are ZERO sorry tokens in tactic position at line 431 or
     anywhere in this file. Nothing to close.
 
+    imp-2575 re-confirmation (2026-06-10): the seeder flagged a "sorry" at line 437
+    and opened a high-priority ticket to "close" it. FALSE POSITIVE for the same
+    reason as imp-2569 / imp-2566 / imp-2567 / imp-2565 -- line 437 is the audit-block
+    bullet that itself reads "line 32 module-header status note (...no remaining
+    sorrys)" (the word "sorrys" is what the regex matched). It lives inside this
+    `/-! ... -/` doc comment, not tactic position. Re-ran `grep -nc sorry` (40, all
+    comment-only) and a tactic-position grep for `:= sorry` / `by sorry` / leading
+    `sorry`: the only hit is line 463, itself comment text quoting the word. There
+    are ZERO sorry tokens in tactic position at line 437 or anywhere in this file.
+    Nothing to close.
+
+    imp-2577 re-confirmation (2026-06-10): the seeder flagged a "sorry" at line 447
+    and opened a high-priority ticket to "close" it. FALSE POSITIVE for the same
+    reason as imp-2569 / imp-2566 / imp-2567 / imp-2565 / imp-2575 -- line 447 is
+    the imp-2569 re-confirmation comment line above, whose text reads
+    `"sorry" at line 441 and opened a high-priority ticket` (the quoted word is what
+    the regex matched). It lives inside this `/-! ... -/` doc comment, not tactic
+    position. Re-ran the tactic-position grep for `:= sorry` / `by sorry` / leading
+    `sorry`: zero hits outside comment text. There are ZERO sorry tokens in tactic
+    position at line 447 or anywhere in this file. Nothing to close.
+
     Class for imp-1009 deliverable (a)/(b) split: N/A -- no in-code sorrys
     exist to classify. Same audit-only pattern as imp-1006 (Foundation.lean),
     imp-1007 (ManyBody.lean), imp-1008 (Capstone.lean), and imp-1012

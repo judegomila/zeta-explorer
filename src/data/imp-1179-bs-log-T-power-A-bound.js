@@ -512,6 +512,27 @@ export const IMP_1179_BS_LOG_T_POWER_A_BOUND = Object.freeze({
       'production Lambda bound.',
   }),
 
+  // ── imp-2571 re-assessment (re-seeded duplicate of imp-2373): BLOCKED ────
+  // imp-2571 was auto-seeded asking the SAME question imp-2373 already answered
+  // above (upgrade partial -> full on the strength of imp-462/463/464/471).
+  // The cited closures are identical and nothing on the BS fourth-moment side
+  // has changed since 2026-06-04, so the verdict is unchanged.
+  upgradeReassessmentImp2571: Object.freeze({
+    ticket: 'imp-2571',
+    assessedAt: '2026-06-10T00:00:00Z',
+    verdict: 'remains-partial',
+    duplicateOf: 'imp-2373 upgradeAssessment (see field above)',
+    citedClosuresReviewed: ['imp-462', 'imp-463', 'imp-464', 'imp-471'],
+    whyUnchanged:
+      'Re-seeded ticket cites the exact same Lambda-side spacing closures ' +
+      '(imp-462/463/464/471) already reviewed by imp-2373. Those closures are ' +
+      'disjoint from the BS fourth-moment side and give zero leverage on the ' +
+      'A_BS log-power obstruction. No new BS-side result has landed since ' +
+      '2026-06-04, so the documented blocker (A_BS is an unpinned literature ' +
+      'estimate requiring an external BS-2008 paper-walk, out of code scope) ' +
+      'still holds. Status stays honestly partial.',
+  }),
+
   references: {
     imp1123: 'src/data/bui-soundararajan-rigorous-port-2026-05.js (PRIMARY BS port; obstruction O-BS-B is what this ticket refines)',
     imp1164: 'src/data/imp-1164-bui-sound-rigorous-port.js (50-point sigma sweep on [0.5, 0.75])',

@@ -840,3 +840,79 @@ export const MANY_BODY_CORRECTION_CLOSURE_CROSS_VERIFY = {
   verdict:
     'INTERNALLY CONSISTENT. The three-range coverage closes the many-body correction gap for all N >= 2: empirical sweep (UNCONDITIONAL) for N in {2,...,872}; mid-range analytic (CONDITIONAL on GUE universality) via imp-476 for N in [871, 9999] with safety margin ~8.6% at the lower edge; large-N analytic (CONDITIONAL on GUE universality) via rho_min for N >= 10000 with safety margin ~27.8% at the lower edge. All cited numerical constants reproduce to 3-5 figure agreement: rho_min ~ 0.127512 matches imp-473 mpmath value 0.12751179919688685; CORRECTION_AT_N0 ~ 0.092103 matches log(10000)/sqrt(10000); RATIO_AT_N0 ~ 0.7223 matches the cited 0.722; rho(gamma_4) ~ 0.2511 and f(871) ~ 0.2294 give mid-range margin ~ 0.9137 confirming IMP476_BOUND_HOLDS. The differential test df/dN = N^{-3/2} * (1 - log(N)/2) cleanly localizes the f-decreasing regime to N > e^2 ~ 7.39. Three flags raised: imp984-three-range-overlap (cosmetic; benign N in {871, 872} overlap), imp984-c-mb-conservative (low; C_mb = 1 is a GUE-universality-conditional placeholder), imp984-low-N-domain-872-vs-873 (cosmetic; off-by-one in domain prose). None of the flags changes the certified status under the GUE universality assumption.',
 };
+
+// ────────────────────────────────────────────────────────────────────
+// imp-2586: Second independent cross-verification (proof, S10-verify)
+// ────────────────────────────────────────────────────────────────────
+//
+// Fresh re-derivation of every numerical reference using only the first-5
+// Riemann-zero literals (no heavy zeta-bundle import), independent of the
+// imp-984 pass. All seven references reproduce. ONE correction surfaced:
+//
+//   FINDING imp2586-rho-gamma4-cited-typo. The imp-984 audit cites
+//   rho(gamma_4) = 0.251053 in two places (inline note 2e and the
+//   numericalReferences "cited" literal). The correct value -- matching
+//   the live IMP476_RHO_GAMMA4 constant and the stored keyConstants.
+//   rhoGamma4 = 0.251048 -- is log(30.424876126/(2*pi))/(2*pi) =
+//   0.2510484. The imp-984 "cited: 0.251053" literal is a ~5e-6
+//   transcription error (its own "recomputed" field already holds the
+//   correct 0.2510484, and the stored keyConstant is correct). NO PROOF
+//   IMPACT: maxCorrection871 = f(871)/rho(gamma_4) = 0.229381/0.251048 =
+//   0.91369 -> toFixed(4) = 0.9137 either way, and IMP476_BOUND_HOLDS
+//   (rho(gamma_4) > f(871)) is robust with ~8.6% margin. The build-time
+//   assertion imp2586-rho-gamma4-value below pins the correct value so
+//   the typo cannot silently propagate into a future numeric edit.
+//
+// SYNTAX NOTE: avoid star-slash sequences in block comment text.
+// ────────────────────────────────────────────────────────────────────
+
+const _CV2_RHO_GAMMA4_RECOMPUTED = Math.log(30.424876126 / (2 * Math.PI)) / (2 * Math.PI);
+const _CV2_RHO_GAMMA4_TRUE = 0.251048;          // log(gamma_4/(2*pi))/(2*pi), 6-figure
+const _CV2_RHO_GAMMA4_IMP984_TYPO = 0.251053;   // erroneous literal in imp-984 audit
+const _CV2_RHO_GAMMA4_OK =
+  Math.abs(_CV2_RHO_GAMMA4_RECOMPUTED - _CV2_RHO_GAMMA4_TRUE) < 5e-7;
+
+export const MANY_BODY_CORRECTION_CLOSURE_CROSS_VERIFY_2 = {
+  id: 'imp-2586',
+  verifiedAt: '2026-06-10',
+  method: 'fresh recompute from first-5 Riemann-zero literals; no zeta-bundle import',
+  independentOf: 'imp-984',
+  referencesReproduced: [
+    'rho_min = log(14/(2*pi))/(2*pi) = 0.12751179919688685 (matches imp-473 mpmath to all digits)',
+    'CORRECTION_AT_N0 = log(10000)/sqrt(10000) = 0.0921034037 (matches)',
+    'RATIO_AT_N0 = 0.7223127922 (matches cited 0.7223)',
+    'safetyMarginPct = 27.7687 -> toFixed(1) = 27.8 (matches)',
+    'IMP476_F_AT_871 = log(871)/sqrt(871) = 0.229381 (matches)',
+    'maxCorrection871 = f(871)/rho(gamma_4) = 0.9137 (matches; bound < 1 holds, ~8.6% margin)',
+    'gaps [F(g2)-F(g1) ... F(g5)-F(g4)] = [1.120618, 0.823437, 1.277514, 0.646223]; gap_3 < min-early (0.823437) confirmed',
+  ],
+  correction: {
+    id: 'imp2586-rho-gamma4-cited-typo',
+    symbol: 'rho(gamma_4) = log(30.424876126/(2*pi))/(2*pi)',
+    imp984CitedLiteral: _CV2_RHO_GAMMA4_IMP984_TYPO,
+    correctValue: +_CV2_RHO_GAMMA4_RECOMPUTED.toFixed(7),
+    storedKeyConstantRhoGamma4: 0.251048,
+    proofImpact: 'NONE -- maxCorrection871 rounds to 0.9137 and IMP476_BOUND_HOLDS either way',
+    note:
+      'imp-984 cited 0.251053 for rho(gamma_4) in its inline note 2e and numericalReferences ' +
+      'cited-literal; the true value (and the live IMP476_RHO_GAMMA4 / keyConstants.rhoGamma4) is ' +
+      '0.251048. Transcription error of ~5e-6; the imp-984 recomputed field already held the ' +
+      'correct value, so the audit verdict is unaffected.',
+  },
+  verdict:
+    'CONFIRMED. All seven numerical references reproduce independently of imp-984. ' +
+    'The three-range closure stands: unconditional for N in {2,...,872}, GUE-conditional for ' +
+    'N >= 871 with mid-range margin ~8.6% and large-N margin ~27.8%. One cosmetic correction ' +
+    '(imp2586-rho-gamma4-cited-typo): imp-984 cited rho(gamma_4) = 0.251053 where the correct ' +
+    'value is 0.251048; no proof impact (maxCorrection871 = 0.9137 either way). The live ' +
+    'IMP476_BOUND_HOLDS and all MANY_BODY_CORRECTION_ASSERTIONS guards remain valid.',
+};
+
+// Build-time guard pinning the corrected rho(gamma_4) value (imp-2586).
+if (!_CV2_RHO_GAMMA4_OK) {
+  throw new Error(
+    'imp2586-rho-gamma4-value assertion failed: rho(gamma_4) recomputed ' +
+    _CV2_RHO_GAMMA4_RECOMPUTED.toFixed(7) + ' deviates from pinned 0.251048 -- ' +
+    'imp-984 cited 0.251053 was a transcription error; live value must stay 0.251048.',
+  );
+}

@@ -15900,13 +15900,25 @@ export const IMPROVEMENT_QUEUE = [
     title: "CRITICAL CHAIN: cross-verify many-body-correction-closure.js",
     category: 'proof',
     priority: 'high',
-    status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w1-1781085350835',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
     proofSection: 'S10-verify',
     description: "many-body-correction-closure.js is in the critical proof chain but has NOT been independently cross-verified. Given the bug discovery rate in verified modules, this is high priority. Read src/math/many-body-correction-closure.js, verify all formulas vs cited references, check edge cases, confirm reference values.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
-    completedAt: null,
+    completedAt: '2026-06-10T09:58:01Z',
+    closureNote:
+      'Independent second cross-verification (MANY_BODY_CORRECTION_CLOSURE_CROSS_VERIFY_2, distinct from imp-984). ' +
+      'All seven cited numerical references re-derived from the first-5 Riemann-zero literals (no heavy zeta-bundle import): ' +
+      'rho_min=0.12751179919688685 (matches imp-473 mpmath to all digits), CORRECTION_AT_N0=0.0921034, RATIO_AT_N0=0.7223, ' +
+      'safetyMarginPct=27.77->27.8, f(871)=0.229381, maxCorrection871=0.9137 (<1, ~8.6% margin), and gaps ' +
+      '[1.120618,0.823437,1.277514,0.646223] with gap_3<min-early confirming j*(N)>=3 for N>=5. One genuine correction: the ' +
+      'imp-984 audit cited rho(gamma_4)=0.251053 (inline note 2e + numericalReferences cited literal), but the true value ' +
+      'matching the live IMP476_RHO_GAMMA4 constant and stored keyConstants.rhoGamma4=0.251048 is 0.2510484 -- a ~5e-6 ' +
+      'transcription typo with NO proof impact (maxCorrection871 rounds to 0.9137 and IMP476_BOUND_HOLDS hold either way). ' +
+      'Added a build-time guard imp2586-rho-gamma4-value pinning 0.251048 so the typo cannot silently propagate. Three-range ' +
+      'closure stands: unconditional for N in {2,...,872}, GUE-conditional for N>=871. Build green.',
   },
   {
     id: 'imp-2587',

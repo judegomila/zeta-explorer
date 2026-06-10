@@ -449,6 +449,30 @@ end
     are zero tactic-position sorrys. Re-ran `grep -n sorry`: all 25 matches remain
     comment-only (29 total). No tactic-position sorry exists; nothing to close.
 
+    imp-2566 re-confirmation (2026-06-10): the same seeder flagged a "sorry" at
+    line 433 and opened a high-priority ticket to "close" it. Also a FALSE
+    POSITIVE -- line 433 is the audit header line above, whose text literally reads
+    "BridgeTheorem.lean has ZERO open sorrys" (the word "sorrys" is what the
+    regex matched). Re-ran `grep -nc sorry`: still 29, all comment-only. There is
+    no tactic-position sorry at line 433 or anywhere in this file; nothing to close.
+
+    imp-2567 re-confirmation (2026-06-10): the seeder flagged a "sorry" at line 435
+    and opened a high-priority ticket to "close" it. FALSE POSITIVE for the same
+    reason as imp-2569 / imp-2566 -- line 435 is the audit-block comment line that
+    itself reads "block and the Closed-Sorry History block below each mention
+    sorry while" (the word the regex matched). Re-ran `grep -n sorry`: every match
+    is inside a Lean comment; there are ZERO sorry tokens in tactic position at
+    line 435 or anywhere in this file. Nothing to close.
+
+    imp-2565 re-confirmation (2026-06-10): the seeder flagged a "sorry" at line 431
+    and opened a high-priority ticket to "close" it. FALSE POSITIVE for the same
+    reason as imp-2569 / imp-2566 / imp-2567 -- line 431 is the audit-block header
+    that opens this very comment, whose text reads "## Open sorrys in this file"
+    (the word "sorrys" is what the regex matched). It lives inside a `/-! ... -/`
+    doc comment, not tactic position. Re-ran `grep -n sorry`: every match is inside
+    a Lean comment; there are ZERO sorry tokens in tactic position at line 431 or
+    anywhere in this file. Nothing to close.
+
     Class for imp-1009 deliverable (a)/(b) split: N/A -- no in-code sorrys
     exist to classify. Same audit-only pattern as imp-1006 (Foundation.lean),
     imp-1007 (ManyBody.lean), imp-1008 (Capstone.lean), and imp-1012

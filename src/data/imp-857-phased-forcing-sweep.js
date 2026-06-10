@@ -231,21 +231,90 @@ const MEASURED_ROWS = [
     maxWidth: 2.394e-10,
     minGapLo: -0.007244,
   },
+  // N = 1000 RETUNED cohort (imp-917-exec batch 1 of 6, 2026-06-10 UTC) ------
+  //
+  // First executed batch of the imp-917 14-cell grid: one triple run of the
+  // prototype via scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1
+  // (460 s wall) under the imp-894/imp-896 retuned resonance
+  // k0_star = 2*pi/min_gap(1000) = 38.90498235326948,
+  // phaseVel_star = pi*rho_mean(1000) = 2.2333155953106685,
+  // omega_star = k0_star * phaseVel_star. Covers MISSING_CELLS rows
+  // (1000, 0.02) and (1000, 0.1); the eps = 0 baseline is re-run for
+  // internal cohort consistency and exactly reproduces the fixed-resonance
+  // baseline above (forcing vanishes at eps = 0, so the resonance
+  // parameters are inert there) — maxWidth 3.359e-8, minGapLo -0.09845.
+  // subStepTauC is the imp-898 14-iteration bisection refinement of the
+  // collision time inside the failing RK4 step. NOTE the eps = 0.1 run is
+  // the FIRST row in this table to collide at a different RK4 step than
+  // its baseline (35 vs 34) — the collision-time shift 1.741e-4 exceeds
+  // dt = 1e-4, resolved here at sub-step precision.
+  {
+    N: 1000,
+    dt: 1e-4,
+    nSteps: 40,
+    retuned: true,
+    k0: 38.90498235326948,
+    phaseVel: 2.2333155953106685,
+    rho_mean: 0.7109,
+    omega: 38.90498235326948 * 2.2333155953106685,
+    eps: 0,
+    collisionStep: 34,
+    tAbs_at_collision: 0.0034,
+    maxWidth: 3.359e-8,
+    minGapLo: -0.09845,
+    subStepTauC: 0.0033034576,
+  },
+  {
+    N: 1000,
+    dt: 1e-4,
+    nSteps: 40,
+    retuned: true,
+    k0: 38.90498235326948,
+    phaseVel: 2.2333155953106685,
+    rho_mean: 0.7109,
+    omega: 38.90498235326948 * 2.2333155953106685,
+    eps: 0.02,
+    collisionStep: 34,
+    tAbs_at_collision: 0.0034,
+    maxWidth: 5.284e-9,
+    minGapLo: -0.03594,
+    subStepTauC: 0.003319162,
+  },
+  {
+    N: 1000,
+    dt: 1e-4,
+    nSteps: 40,
+    retuned: true,
+    k0: 38.90498235326948,
+    phaseVel: 2.2333155953106685,
+    rho_mean: 0.7109,
+    omega: 38.90498235326948 * 2.2333155953106685,
+    eps: 0.1,
+    collisionStep: 35,
+    tAbs_at_collision: 0.0035,
+    maxWidth: 1.049e-8,
+    minGapLo: -0.005672,
+    subStepTauC: 0.0034775909,
+  },
 ];
 
 // ── Derive per-N reduction table from the measured rows ─────────────────────
 
 function reductionTable(rows) {
+  // Cohort key includes the resonance regime (fixed vs retuned) so the
+  // imp-917 retuned rows keep their own eps = 0 baseline instead of
+  // overwriting the fixed-resonance baseline at the same N.
   const byN = new Map();
   for (const r of rows) {
-    if (!byN.has(r.N)) byN.set(r.N, new Map());
-    byN.get(r.N).set(r.eps, r);
+    const key = `${r.N}|${r.retuned ? 'retuned' : 'fixed'}`;
+    if (!byN.has(key)) byN.set(key, { N: r.N, retuned: !!r.retuned, byEps: new Map() });
+    byN.get(key).byEps.set(r.eps, r);
   }
   const out = [];
-  for (const [N, byEps] of byN) {
+  for (const { N, retuned, byEps } of byN.values()) {
     const baseline = byEps.get(0);
     if (!baseline) continue;
-    const entry = { N, baseline_maxWidth: baseline.maxWidth, reductions: {} };
+    const entry = { N, resonance: retuned ? 'retuned' : 'fixed', baseline_maxWidth: baseline.maxWidth, reductions: {} };
     for (const [eps, row] of byEps) {
       if (eps === 0) continue;
       const ratio = baseline.maxWidth > 0 ? row.maxWidth / baseline.maxWidth : null;
@@ -657,11 +726,42 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
     'execution (the prototype must be re-run to capture subStepTauC per ' +
     'cell), so it stays promoted to imp-917; the resolver itself is closed.',
 
+  closureNoteImp2537:
+    'imp-2537 (api-pool, opus-4-8): FIRST EXECUTED BATCH of the imp-917-exec ' +
+    '14-cell grid — real measurements, honest partial (2 of 14 cells). One ' +
+    'triple run of scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1 ' +
+    '(460 s wall, 2026-06-10 UTC) at the imp-894/imp-896 retuned resonance ' +
+    'k0_star = 38.90498235326948, phaseVel_star = 2.2333155953106685. ' +
+    'DECISIVE POSITIVE RESULT: retuning RESTORES the wrapper-width ' +
+    'reduction that the fixed resonance loses with N — final-step ratios ' +
+    '0.157 at eps = 0.02 (6.4x reduction) and 0.312 at eps = 0.1 (3.2x), ' +
+    'versus 0.839 / 0.444 for the fixed-resonance cohort at the same ' +
+    'N = 1000. This is the gating signal the imp-917-exec ' +
+    'approachSuggestions called for before paying the N in {5000, 10000} ' +
+    'CPU budget. Two further firsts: the retuned eps = 0 baseline exactly ' +
+    'reproduces the fixed-resonance baseline (maxWidth 3.359e-8, minGapLo ' +
+    '-0.09845 — internal consistency, since forcing vanishes at eps = 0), ' +
+    'and the eps = 0.1 run is the first row to collide at a DIFFERENT RK4 ' +
+    'step than its baseline (35 vs 34), with the imp-898 sub-step ' +
+    'bisection resolving the shift at 1.741e-4 > dt (eps = 0.02 shift ' +
+    '1.570e-5 < dt) — both shifts far inside the imp-892 bound. Cells ' +
+    '(1000, 0.02) and (1000, 0.1) transcribed into MEASURED_ROWS as the ' +
+    'retuned: true cohort (own baseline, cohort-keyed reductionTable); ' +
+    'residual arithmetic tripwire coordinately re-pinned 6/14 -> 8/12; new ' +
+    'imp2537-retuned-N1000-cohort-transcribed tripwire re-derives the ' +
+    'batch-1 facts each build. The remaining 12 cells stay OPEN under ' +
+    'imp-917-exec (N=2000 triple ~27 min; N=5000 2 triples ~85 min each; ' +
+    'N=10000 2 triples ~170 min each, now UNGATED by the positive N=1000 ' +
+    'retuning signal at the cheap end — re-probe at N=2000 before the ' +
+    'N >= 5000 spend per the staging suggestion).',
+
   headline:
     'PARTIAL: phased-forcing wrapper-width reduction factor decays with N ' +
     'at fixed (k0, omega). Measured: 1.19x / 2.25x at N=1000, 1.05x / 1.05x ' +
-    'at N=2000 (vs prototype 1114x / 185x at N=500). N in {5000, 10000} ' +
-    'deferred to imp-896 pending imp-894 retuning.',
+    'at N=2000 (vs prototype 1114x / 185x at N=500). RETUNED resonance ' +
+    '(imp-2537 batch 1): reduction RESTORED at N=1000 — 6.4x at eps=0.02, ' +
+    '3.2x at eps=0.1. N in {2000, 5000, 10000} retuned cells remain on ' +
+    'imp-917-exec (12 of 14 open).',
 
   assertions: {
     'imp893-at-least-six-measured-rows': MEASURED_ROWS.length >= 6,
@@ -735,8 +835,15 @@ export const IMP_857_PHASED_FORCING_SWEEP_ASSERTIONS = [
     id: 'imp2518-same-step-collision-bracket',
     holds: () =>
       [1000, 2000].every((N) => {
-        const baseline = MEASURED_ROWS.find((r) => r.N === N && r.eps === 0);
-        const forced = MEASURED_ROWS.filter((r) => r.N === N && r.eps > 0);
+        // Scoped to the fixed-resonance cohort: the imp-917 retuned rows
+        // (retuned: true) have their own baseline and need not collide at
+        // the same step as the fixed-resonance baseline.
+        const baseline = MEASURED_ROWS.find(
+          (r) => r.N === N && r.eps === 0 && !r.retuned,
+        );
+        const forced = MEASURED_ROWS.filter(
+          (r) => r.N === N && r.eps > 0 && !r.retuned,
+        );
         return (
           !!baseline &&
           forced.length >= 2 &&
@@ -809,7 +916,7 @@ export const IMP_857_PHASED_FORCING_SWEEP_ASSERTIONS = [
       'stale imp-897 entry).',
   },
   {
-    id: 'imp2517-residual-cell-count-is-fourteen',
+    id: 'imp2537-residual-cell-count-is-twelve',
     holds: () => {
       const cfg = IMP_857_PHASED_FORCING_SWEEP.config;
       const measured = new Set(
@@ -823,18 +930,75 @@ export const IMP_857_PHASED_FORCING_SWEEP_ASSERTIONS = [
       }
       return (
         cfg.N_ticket.length * cfg.eps_ticket.length === 20 &&
-        measured.size === 6 &&
-        missing === 14
+        measured.size === 8 &&
+        missing === 12
       );
     },
     why:
       'Re-derives the imp-917 residual arithmetic from in-file data alone: ' +
-      'the 4 x 5 ticket grid minus the 6 measured (N, eps) rows leaves ' +
-      'exactly 14 unexecuted cells — the number the imp-896 resolution and ' +
-      'the imp-917 batch plan both quote. If rows are later appended (or ' +
-      'the ticket grid edited) without updating the resolution prose and ' +
-      'sub-gap statuses, this tripwire fires rather than letting the ' +
-      'residual count silently drift.',
+      'the 4 x 5 ticket grid minus the 8 measured (N, eps) keys (6 fixed- ' +
+      'resonance rows from imp-893 plus the (1000, 0.02) and (1000, 0.1) ' +
+      'cells landed by the imp-2537 retuned batch; the retuned eps = 0 ' +
+      'baseline shares the 1000|0 key) leaves exactly 12 unexecuted cells ' +
+      '— the count the imp-917-exec statusOfRemaining now quotes. This is ' +
+      'the imp-2537 coordinated update of the imp-2517 tripwire (which ' +
+      'pinned 6/14 and was DESIGNED to fire when rows append without a ' +
+      'prose sync). If rows are later appended (or the ticket grid edited) ' +
+      'without updating the resolution prose and sub-gap statuses, this ' +
+      'tripwire fires rather than letting the residual count silently drift.',
+  },
+  {
+    id: 'imp2537-retuned-N1000-cohort-transcribed',
+    holds: () => {
+      const cohort = MEASURED_ROWS.filter(
+        (r) => r.N === 1000 && r.retuned === true,
+      );
+      const baseline = cohort.find((r) => r.eps === 0);
+      const e002 = cohort.find((r) => r.eps === 0.02);
+      const e01 = cohort.find((r) => r.eps === 0.1);
+      const fixedBaseline = MEASURED_ROWS.find(
+        (r) => r.N === 1000 && r.eps === 0 && !r.retuned,
+      );
+      const red = REDUCTION_TABLE.find(
+        (e) => e.N === 1000 && e.resonance === 'retuned',
+      );
+      return (
+        cohort.length === 3 &&
+        !!baseline && !!e002 && !!e01 && !!fixedBaseline &&
+        // eps = 0 makes the forcing vanish, so the retuned baseline must
+        // exactly reproduce the fixed-resonance baseline measurement.
+        baseline.maxWidth === fixedBaseline.maxWidth &&
+        baseline.minGapLo === fixedBaseline.minGapLo &&
+        baseline.collisionStep === fixedBaseline.collisionStep &&
+        // Headline imp-2537 finding: retuning RESTORES wrapper-width
+        // reduction at N = 1000 (ratios well below the fixed-resonance
+        // 0.839 at the same N).
+        !!red &&
+        red.reductions['0.02'].ratio < 0.2 &&
+        red.reductions['0.1'].ratio < 0.35 &&
+        // First step-level collision shift in the table: the eps = 0.1
+        // run collides one RK4 step later than its baseline, and the
+        // sub-step bisection resolves the shift above dt.
+        e01.collisionStep === baseline.collisionStep + 1 &&
+        e01.subStepTauC - baseline.subStepTauC > 1e-4 &&
+        // eps = 0.02 shift stays below dt, consistent with same-step.
+        e002.collisionStep === baseline.collisionStep &&
+        e002.subStepTauC - baseline.subStepTauC < 1e-4
+      );
+    },
+    why:
+      'Pins the imp-2537 batch-1 transcription (imp-917-exec cells ' +
+      '(1000, 0.02) and (1000, 0.1), run 2026-06-10 via ' +
+      'scripts/imp-917-run-cell.mjs, 460 s wall): the retuned cohort must ' +
+      'keep its own eps = 0 baseline that exactly reproduces the fixed- ' +
+      'resonance baseline (forcing vanishes at eps = 0 — internal ' +
+      'consistency check), the reductionTable retuned cohort must show the ' +
+      'restored wrapper-width reduction (0.157 at eps = 0.02, 0.312 at ' +
+      'eps = 0.1 — vs 0.839/0.444 fixed at the same N, the decisive ' +
+      'positive signal gating the larger-N batches), and the eps = 0.1 ' +
+      'collision-step shift (+1 step, sub-step shift 1.741e-4 > dt) must ' +
+      'stay recorded. If a later edit drops the retuned flag, the cohort ' +
+      'baseline, or the measured values, this fires.',
   },
   {
     id: 'imp2531-imp898-subgap-resolved-synced',

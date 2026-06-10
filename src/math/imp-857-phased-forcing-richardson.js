@@ -323,8 +323,17 @@ function cMbFromTauC(N, tauLo, tauHi, H_raw) {
 
 function perNReport(N) {
   const calib = IMP_896_RETUNING_CALIBRATION.calibration[N];
+  // Scoped to the fixed-resonance cohort: the imp-2537 retuned rows
+  // (retuned: true) are excluded pending an explicit cross-cohort
+  // treatment. The imp-892 residual R(eps) is uniform in (k0, omega), so
+  // retuned rows COULD legitimately tighten the tau_c(0) intersection,
+  // but this module's prose, sharpness proposition, and certified
+  // enclosures were all derived on the fixed cohort's same-step
+  // observation; silently mixing cohorts would strengthen the certified
+  // bound without an audit. Conservative under-claim, not a correctness
+  // requirement.
   const rows = IMP_857_PHASED_FORCING_SWEEP.measuredRows.filter(
-    (r) => r.N === N && r.eps > 0,
+    (r) => r.N === N && r.eps > 0 && !r.retuned,
   );
   if (!calib || rows.length === 0) {
     return {

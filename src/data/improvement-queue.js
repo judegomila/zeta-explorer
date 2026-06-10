@@ -23197,9 +23197,36 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close named open sub-gap imp-917-exec: Run the 6 batch-plan invocations (~20 CPU-hours total) on an offline worker, transcribe resulting maxIntervalWidth rows  (in src/data/improvement-queue.js)',
     category: 'proof',
     priority: 'high',
-    status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w3-1781058962489',
+    status: 'completed',
+    completedAt: '2026-06-10',
+    completedByModel: 'opus-4-8',
+    completedByChannel: 'api-pool',
     proofSection: 'S-subgap-followup',
+    closureNote:
+      'imp-2537 HONEST-PARTIAL closure with REAL EXECUTION: batch 1 of the ' +
+      '6 batch-plan invocations was run inside the pool turn (the only one ' +
+      'that fits: scripts/imp-917-run-cell.mjs --N 1000 --eps 0,0.02,0.1, ' +
+      '460 s wall, 2026-06-10), closing 2 of the 14 imp-917-exec cells. ' +
+      'DECISIVE POSITIVE RESULT: the retuned resonance (k0_star = ' +
+      '38.90498235326948, phaseVel_star = 2.2333155953106685 from ' +
+      'RETUNING_CALIBRATION) RESTORES the wrapper-width reduction the ' +
+      'fixed resonance loses with N — final-step ratios 0.157 at ' +
+      'eps = 0.02 and 0.312 at eps = 0.1, vs 0.839/0.444 fixed at the ' +
+      'same N = 1000 — answering the gating question the imp-917-exec ' +
+      'approachSuggestions posed before the large-N spend. Also first ' +
+      'step-level collision shift observed (eps = 0.1 collides at step 35 ' +
+      'vs baseline 34; imp-898 sub-step bisection resolves the shift at ' +
+      '1.741e-4 > dt), and the retuned eps = 0 baseline exactly ' +
+      'reproduces the fixed baseline (internal consistency). Three rows ' +
+      'transcribed into MEASURED_ROWS (retuned: true cohort) in ' +
+      'src/data/imp-857-phased-forcing-sweep.js; residual tripwire ' +
+      'coordinately re-pinned 6/14 -> 8/12 plus new ' +
+      'imp2537-retuned-N1000-cohort-transcribed tripwire; richardson ' +
+      'module scoped to the fixed cohort (conservative under-claim); ' +
+      'canonical imp-917-exec record updated to open: 12 of 14 remaining ' +
+      'with progressNoteImp2537. The remaining ~19 CPU-hours (N=2000 ' +
+      'triple ~27 min — fits one pool turn; N=5000 ~2.8 h; N=10000 ' +
+      '~5.7 h) stay OPEN under imp-917-exec for the harvester to re-seed.',
     description: "src/data/improvement-queue.js declares an open sub-gap \"imp-917-exec: Run the 6 batch-plan invocations (~20 CPU-hours total) on an offline worker, transcribe resulting maxIntervalWidth rows \". Read the file's openSubGap field, implement the named work, update the file's status + closureNote, and ship a build-time assertion confirming the gap is closed.",
     rationale: 'Harvested open sub-gap — a previously-identified, concrete follow-on task. Auto-produced to keep the queue from draining.',
     estimatedComplexity: 'medium',

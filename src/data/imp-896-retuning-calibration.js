@@ -235,13 +235,29 @@ const RETUNING_CALIBRATION_SUB_GAP = {
     'scripts/imp-917-run-cell.mjs implemented with --plan-table, ' +
     '--missing-cells, --batch-plan-cost, --remaining-cells progress flags.',
   statusOfRemaining:
-    'open: 14-cell measurement execution requires ~20 CPU-hours of ' +
-    'wall-time (~13 min per N=1000 triple, ~27 min per N=2000 triple, ~85 ' +
-    'min per N=5000 triple, ~170 min per N=10000 triple) on 2024-era Apple ' +
-    'Silicon under concurrent engine load. Cannot run inside an engine ' +
-    'turn; must be scheduled on an idle scripts/ offline worker. Output ' +
+    'open: 12 of 14 cells remaining after the imp-2537 batch 1 of 6 ' +
+    '(2026-06-10: N=1000 triple at eps {0, 0.02, 0.1}, 460 s wall, cells ' +
+    '(1000, 0.02) and (1000, 0.1) transcribed into MEASURED_ROWS as the ' +
+    'retuned cohort). Remaining: N=2000 x {0.02, 0.1} (1 triple, ~27 min), ' +
+    'N=5000 x {0, 0.01, 0.02, 0.05, 0.1} (2 triples, ~85 min each), ' +
+    'N=10000 x {0, 0.01, 0.02, 0.05, 0.1} (2 triples, ~170 min each) on ' +
+    '2024-era Apple Silicon under concurrent engine load. Cannot all run ' +
+    'inside one engine turn; schedule on an idle scripts/ offline worker ' +
+    '(the N=2000 triple DOES fit a single pool turn, per batch 1). Output ' +
     'rows must merge into src/data/imp-857-phased-forcing-sweep.js ' +
     'MEASURED_ROWS to close the imp-893 grid completion downstream.',
+  progressNoteImp2537:
+    'Batch 1 of 6 EXECUTED (imp-2537, api-pool, 2026-06-10): the gating ' +
+    'question this record posed — does the retuned (k0_star, ' +
+    'phaseVel_star) restore wrapper-width reduction? — is answered YES at ' +
+    'N=1000: final-step ratios 0.157 (eps=0.02) and 0.312 (eps=0.1) vs ' +
+    '0.839/0.444 for the fixed resonance at the same N. The retuned eps=0 ' +
+    'baseline exactly reproduces the fixed-resonance baseline (consistency ' +
+    'check), and the eps=0.1 run shows the first step-level collision ' +
+    'shift (+1 step; sub-step bisection resolves 1.741e-4 > dt = 1e-4), ' +
+    'inside the imp-892 bound. Per the staging approachSuggestion, the ' +
+    'next batch is the N=2000 triple (~27 min); re-confirm reduction there ' +
+    'before committing the ~2.8 h N=5000 + ~5.7 h N=10000 spend.',
   dependsOn: [
     'imp-917 -- same 14-cell execution, originally entered into the ' +
       'openSubGaps array on this file. imp-917-exec is the canonical name ' +

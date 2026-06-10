@@ -15976,6 +15976,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended a structured @module/@fileoverview JSDoc block above the existing prose in src/data/empirical-m-sweep-extended-summary.js: documents the single export EMPIRICAL_M_SWEEP_EXTENDED_SUMMARY, the empirical-floor proof-chain step (read-side projection of the extended E1/E2 m-sweep consumed by dashboard/full-story/blog), the no-assertions-here note (drift caught at runtime by daily-health-check.sh / imp-877), and the creating tickets (imp-833, imp-858, Batch A bundle split A1). Doc-only; no logic changed. Build green.',
   },
 
+  
+  // ── Auto-seeded batch (2026-06-10) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2590',
+    title: "Add JSDoc module documentation to imp-1186-lin-stat-20point-sweep.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'docs',
+    description: "src/data/imp-1186-lin-stat-20point-sweep.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-06-10T13:11:53Z',
+    closureNote: 'Prepended a structured @module/@fileoverview JSDoc block above the existing line-comment prose, documenting the two exports (IMP1186_LIN_STAT_20POINT_SWEEP record + _ASSERTIONS), the linear-statistics variance-scaling proof-chain role, the honest N=2e6 Odlyzko zeros6 cap, the key assertions (combined OLS slope/R^2, percentile-bootstrap 95% slope CI, imp-1162 row-drift tripwire), and the upstream tickets imp-1149/1162/1166/1185/1186. Doc-only; no logic changed. Build green.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

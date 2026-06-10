@@ -1,3 +1,29 @@
+/**
+ * @module imp-1186-lin-stat-20point-sweep
+ * @fileoverview Frozen 20-point linear-statistics variance sweep for the
+ * GUE/RH spectral-statistics chain (imp-1149 -> imp-1162 -> imp-1186).
+ *
+ * Exports:
+ *   - IMP1186_LIN_STAT_20POINT_SWEEP: frozen record holding the 13 verbatim
+ *     imp-1162 rows, the 7 new imp-1186 rows, the combined 20-point grid, the
+ *     OLS slope/R^2 refits (combined, new-only, beyond-1e6), and the
+ *     deterministic percentile-bootstrap 95% CI on the slope.
+ *   - IMP1186_LIN_STAT_20POINT_SWEEP_ASSERTIONS: self-check assertions
+ *     (including the imp1186-original-rows-match-imp1162 drift tripwire).
+ *
+ * Proof-chain role: empirical-numerics support for the linear-statistics
+ * variance scaling Var ~ N^{slope}. Extends the imp-1162 13-point grid to 20
+ * points (N up to 2e6, the honest Odlyzko zeros6 cap -- NOT 1e7; see HONEST
+ * SCOPE below) and reports whether the bootstrap CI tightens. Belongs to the
+ * spectral linear-statistics docs section, not a Lean-formalized lemma.
+ *
+ * Key assertions: combined 20-point OLS slope/R^2 (COMBINED_OLS_20), the
+ * percentile-bootstrap 95% slope CI, and the imp-1162 row-mirroring tripwire.
+ *
+ * Created/modified by: imp-1186 (this file). Upstream: imp-1149, imp-1162,
+ * imp-1166 (bootstrap methodology), imp-1185 (block-bootstrap sibling).
+ * Documentation pass: imp-2590.
+ */
 // imp-1186 -- Extend the imp-1162 linear-statistics variance sweep grid from
 // 13 to 20 points by adding 7 new N values (5 interior fill + 2 beyond 1e6).
 // Refit the OLS slope on the combined 20-point grid, compute a deterministic

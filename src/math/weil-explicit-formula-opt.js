@@ -151,7 +151,15 @@ export function weilExplicitFormulaTest() {
 
   const results = sigmas.map(sigma => {
     const LHS = zeroSum(sigma, zeros);
-    const A = archimedeanTerm(sigma);
+    // imp-2536 / imp-901-sub-tighter-bound: adaptive integration cutoff. The
+    // archimedean integrand is dominated by h(r)=exp(-r^2/(2 sigma^2)), so a
+    // fixed rMax=500 leaves a non-negligible Gaussian tail h(500)=exp(-12.5)=
+    // 3.73e-6 at sigma=100 — the sole source of the residual LHS-RHS=5e-5 there.
+    // Extending the cutoff to rMax = max(500, 8*sigma) puts h(rMax) <= exp(-32)
+    // ~ 1.3e-14 uniformly (the truncated tail falls below Float64 relevance),
+    // collapsing the sigma=100 row to machine zero while leaving sigma <= 62.5
+    // (rMax stays 500) bit-for-bit unchanged.
+    const A = archimedeanTerm(sigma, Math.max(500, 8 * sigma));
     const primes = primeSum(sigma, N_max, Lambda);
     const RHS = A - primes;
     const diff = LHS - RHS;

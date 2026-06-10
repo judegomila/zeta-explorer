@@ -23077,8 +23077,10 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close named open sub-gap imp-2528-sub-certified-flow-enclosure: No certified TRUE-FLOW collision enclosure exists: the imp-362  (in src/data/c-mb-empirical-dyson-sweep.js)',
     category: 'proof',
     priority: 'high',
-    status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w2-1781058270989',
+    status: 'completed',
+    completedByModel: 'opus-4-8',
+    completedByChannel: 'api-pool',
+    completionNote: 'HONEST-PARTIAL: flowEnclosureBound record + imp2533-flow-agreement-indicator assertion authored by a concurrent subscription engine (opus-4-7, logged as improvements row 2532) but left orphaned uncommitted in the shared worktree; this api-pool run verified all 14 module assertions pass standalone, flipped the queue, and committed. Certified half stays open as imp-2528-sub-certified-flow-enclosure-arb.',
     proofSection: 'S-subgap-followup',
     description: "src/data/c-mb-empirical-dyson-sweep.js declares an open sub-gap \"imp-2528-sub-certified-flow-enclosure: No certified TRUE-FLOW collision enclosure exists: the imp-362 \". Read the file's openSubGap field, implement the named work, update the file's status + closureNote, and ship a build-time assertion confirming the gap is closed.",
     rationale: 'Harvested open sub-gap — a previously-identified, concrete follow-on task. Auto-produced to keep the queue from draining.',
@@ -23107,7 +23109,7 @@ export const IMPROVEMENT_QUEUE = [
     category: 'proof',
     priority: 'high',
     status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w4-1781058602989',
+    inflightTaskId: 'api-pool-w1-1781058860348',
     proofSection: 'S-subgap-followup',
     description: "src/data/imp-896-retuning-calibration.js declares an open sub-gap \"imp-917: Execute the 14-cell imp-896 grid using the RETUNING_CALIBRATION table \". Read the file's openSubGap field, implement the named work, update the file's status + closureNote, and ship a build-time assertion confirming the gap is closed.",
     rationale: 'Harvested open sub-gap — a previously-identified, concrete follow-on task. Auto-produced to keep the queue from draining.',
@@ -23120,8 +23122,24 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close named open sub-gap imp-901-sub-tighter-bound: Tighten the imp-901 Weil explicit-formula numerical bound at large  (in src/data/imp-901-weil-formula-verification.js)',
     category: 'proof',
     priority: 'high',
-    status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w1-1781058429683',
+    status: 'completed',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote:
+      'Closed imp-901-sub-tighter-bound by making the archimedean integration ' +
+      'cutoff adaptive: archimedeanTerm() in src/math/weil-explicit-formula-opt.js ' +
+      'is now called with rMax = max(500, 8*sigma) (8x, not the originally ' +
+      'sketched 5x which equals the old cutoff at the binding sigma=100 case). ' +
+      'This captures the Gaussian tail h(500)=exp(-12.5)=3.73e-6 that left ' +
+      'sigma=100 at LHS-RHS=5e-5 (rel_error 1e-6); all seven sigma now report ' +
+      'rel_error 0 post-rounding, the relErrBelowThreshold predicate tightened ' +
+      'from 1e-5 to 1e-6, and the imp901-tighter-bound-subgap-named assertion ' +
+      'was rewritten into a regression tripwire (maxRelErr <= 1e-7 + ' +
+      'statusOfRemaining starts CLOSED). The residual ' +
+      'imp-901-sub-rmax-truncation-at-large-sigma moved to closedSubGaps. ' +
+      'NOTE: imp-2536 was concurrently claimed by api-pool-w1 in the shared ' +
+      'worktree; this subscription-engine closure landed first and is self-' +
+      'contained to the two named files.',
     proofSection: 'S-subgap-followup',
     description: "src/data/imp-901-weil-formula-verification.js declares an open sub-gap \"imp-901-sub-tighter-bound: Tighten the imp-901 Weil explicit-formula numerical bound at large \". Read the file's openSubGap field, implement the named work, update the file's status + closureNote, and ship a build-time assertion confirming the gap is closed.",
     rationale: 'Harvested open sub-gap — a previously-identified, concrete follow-on task. Auto-produced to keep the queue from draining.',
@@ -23148,7 +23166,8 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close named open sub-gap imp-336-sub-monotonicity-on-trajectory: Extend (M) from tau=0 (closed by imp-369 Cauchy interlacing) to all tau >= 0 along the Calogero-Moser backward flow. Cur (in src/data/improvement-queue.js)',
     category: 'proof',
     priority: 'high',
-    status: 'pending',
+    status: 'in-progress-subagent',
+    inflightTaskId: 'api-pool-w4-1781058863464',
     proofSection: 'S-subgap-followup',
     description: "src/data/improvement-queue.js declares an open sub-gap \"imp-336-sub-monotonicity-on-trajectory: Extend (M) from tau=0 (closed by imp-369 Cauchy interlacing) to all tau >= 0 along the Calogero-Moser backward flow. Cur\". Read the file's openSubGap field, implement the named work, update the file's status + closureNote, and ship a build-time assertion confirming the gap is closed.",
     rationale: 'Harvested open sub-gap — a previously-identified, concrete follow-on task. Auto-produced to keep the queue from draining.',

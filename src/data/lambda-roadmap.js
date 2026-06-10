@@ -373,8 +373,11 @@ export const VERIFICATION_EFFORTS = [
     progress:
       'imp-299 delivered the barrier extrapolation method giving Λ ≈ 0.011. ' +
       'Agreement with Path C Hybrid Λ ≈ 0.0066 is within the ±0.01 error bar. ' +
-      'Pending: rerun on the extended ladder after imp-360 measurements.',
-    tickets: ['imp-299', 'imp-371'],
+      'imp-2546 reran the barrier estimate t_c = H_raw²/8 on the imp-360 ' +
+      'extended ladder (N to 1e6): it lands inside the certified interval-RK4 ' +
+      'bracket on every closed rung (25k/50k/100k) and ≥ the certified floor ' +
+      'on every budget-exhausted rung. See imp371-barrier-cross-validation.js.',
+    tickets: ['imp-299', 'imp-371', 'imp-2546'],
     closesIf: 'imp-371 rerun confirms agreement on extended ladder',
   },
   {

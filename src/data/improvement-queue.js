@@ -17439,7 +17439,30 @@ export const IMPROVEMENT_QUEUE = [
     openSubGap: {
       id: 'imp-336-sub-monotonicity-on-trajectory',
       file: 'src/data/imp-336-post-ladder-update.js',
+      status: 'closed',
+      resolvedBy: 'imp-2516',
+      resolution:
+        'RESOLVED NEGATIVELY by imp-2516 (src/data/imp-336-sub-monotonicity-trajectory.js): ' +
+        'both pointwise trajectory domination (M-traj) and the universally quantified ' +
+        'monotonicity conjecture (M) |t_c(N+1)| <= |t_c(N)| are REFUTED at small N — 12 of ' +
+        '18 consecutive pairs in N in [2, 20] are certified violations ' +
+        '(t_c_lo(N+1) > t_c_hi(N)) at the imp-362 interval-integrator evidentiary standard, ' +
+        'and the imp-336 drift-sign sketch is unsound as stated (the appended rightmost ' +
+        'particle OPENS every existing gap at tau = 0+). The successor sub-gap ' +
+        'imp-336-sub-monotonicity-restatement was itself closed positively by imp-2530 ' +
+        '(envelope form E(N) = min over M <= N of |t_c(M)| non-increasing, proved ' +
+        'unconditionally, with the imp-328 sufficiency audit), so nothing remains tracked ' +
+        'under this id.',
       summary: 'Extend (M) from tau=0 (closed by imp-369 Cauchy interlacing) to all tau >= 0 along the Calogero-Moser backward flow. Currently held by the imp-336 drift-sign sketch, which must be promoted to a rigorous proof; depends on G1-sub-extremal closure for argmin bulk-confinement on the trajectory.',
+      closureNoteImp2538:
+        'Stale-entry sync (same repair shape as imp-2517/imp-896, imp-2518/imp-897, ' +
+        'imp-2531/imp-898): the gap was resolved by imp-2516 and its successor closed by ' +
+        'imp-2530, but this queue-side openSubGap block was never updated, so the ' +
+        'auto-ticket harvester re-seeded it as duplicate ticket imp-2538. The summary field ' +
+        'above is preserved verbatim as the historical research statement; it no longer ' +
+        'describes live work. No new mathematics in this sync — the imp2516-*/imp2530-* ' +
+        'build-time assertions carry the mathematical content; the sync shape itself is ' +
+        'pinned by IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS at the bottom of this file.',
     },
   },
   {
@@ -23108,8 +23131,30 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close named open sub-gap imp-917: Execute the 14-cell imp-896 grid using the RETUNING_CALIBRATION table  (in src/data/imp-896-retuning-calibration.js)',
     category: 'proof',
     priority: 'high',
-    status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w1-1781058860348',
+    status: 'completed',
+    completedByModel: 'opus-4-8',
+    completedByChannel: 'api-pool',
+    closureNote:
+      'HONEST-PARTIAL structural closure (dual-id residual dedupe, NO ' +
+      'execution claimed). The named sub-gap imp-917 (openSubGaps array ' +
+      'entry in imp-896-retuning-calibration.js) and the canonical singular ' +
+      'openSubGap record imp-917-exec in the SAME file name the SAME ' +
+      '~20-CPU-hour 14-cell offline execution; the harvester seeded both ' +
+      'ids as concurrent tickets (imp-2535 from the array entry, imp-2537 ' +
+      'from the canonical record), dispatching two pool workers onto one ' +
+      'residual. At closure time the imp-2537 worker (api-pool-w3) held ' +
+      'the execution in flight and had already cohort-keyed the sweep-file ' +
+      'reductionTable for the retuned rows -- executing cells here would ' +
+      'duplicate the CPU budget and race MEASURED_ROWS. The array entry is ' +
+      'now CONSOLIDATED-INTO-IMP-917-EXEC (status/consolidatedInto/' +
+      'resolvedBy/resolutionImp2535), closureNoteImp2535 added, and 3 new ' +
+      'tripwires (IMP_896_RETUNING_CALIBRATION_ASSERTIONS, registered with ' +
+      'run-assertions.mjs) pin the consolidation: canonical pointer + ' +
+      'canonical record still open, residual tracked exactly once with the ' +
+      'dependsOn back-pointer intact, and no MISSING_CELLS row carries a ' +
+      'measured flag. The 14-cell measurement remains OPEN solely under ' +
+      'imp-917-exec / queue ticket imp-2537. Same stale-or-duplicate-entry ' +
+      'repair pattern as imp-2517/imp-2518/imp-2531.',
     proofSection: 'S-subgap-followup',
     description: "src/data/imp-896-retuning-calibration.js declares an open sub-gap \"imp-917: Execute the 14-cell imp-896 grid using the RETUNING_CALIBRATION table \". Read the file's openSubGap field, implement the named work, update the file's status + closureNote, and ship a build-time assertion confirming the gap is closed.",
     rationale: 'Harvested open sub-gap — a previously-identified, concrete follow-on task. Auto-produced to keep the queue from draining.',
@@ -23153,7 +23198,7 @@ export const IMPROVEMENT_QUEUE = [
     category: 'proof',
     priority: 'high',
     status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w3-1781058481804',
+    inflightTaskId: 'api-pool-w3-1781058962489',
     proofSection: 'S-subgap-followup',
     description: "src/data/improvement-queue.js declares an open sub-gap \"imp-917-exec: Run the 6 batch-plan invocations (~20 CPU-hours total) on an offline worker, transcribe resulting maxIntervalWidth rows \". Read the file's openSubGap field, implement the named work, update the file's status + closureNote, and ship a build-time assertion confirming the gap is closed.",
     rationale: 'Harvested open sub-gap — a previously-identified, concrete follow-on task. Auto-produced to keep the queue from draining.',
@@ -23166,13 +23211,86 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Close named open sub-gap imp-336-sub-monotonicity-on-trajectory: Extend (M) from tau=0 (closed by imp-369 Cauchy interlacing) to all tau >= 0 along the Calogero-Moser backward flow. Cur (in src/data/improvement-queue.js)',
     category: 'proof',
     priority: 'high',
-    status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w4-1781058863464',
+    status: 'completed',
+    completedAt: '2026-06-10',
+    completedByModel: 'opus-4-8',
+    completedByChannel: 'api-pool',
     proofSection: 'S-subgap-followup',
     description: "src/data/improvement-queue.js declares an open sub-gap \"imp-336-sub-monotonicity-on-trajectory: Extend (M) from tau=0 (closed by imp-369 Cauchy interlacing) to all tau >= 0 along the Calogero-Moser backward flow. Cur\". Read the file's openSubGap field, implement the named work, update the file's status + closureNote, and ship a build-time assertion confirming the gap is closed.",
     rationale: 'Harvested open sub-gap — a previously-identified, concrete follow-on task. Auto-produced to keep the queue from draining.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
+    closureNote:
+      'imp-2538 stale-entry sync, NOT new mathematics. The named sub-gap ' +
+      'imp-336-sub-monotonicity-on-trajectory was already RESOLVED NEGATIVELY by imp-2516 ' +
+      '(certified refutation of (M) at 12 of 18 consecutive pairs in N in [2, 20], module ' +
+      'src/data/imp-336-sub-monotonicity-trajectory.js), and its successor ' +
+      'imp-336-sub-monotonicity-restatement was closed positively by imp-2530 (unconditional ' +
+      'envelope theorem). The only live defect was the queue-side openSubGap block on ticket ' +
+      'imp-997, which still carried the canonical id with no status marker — exactly the ' +
+      'stale-entry failure mode imp-2517/imp-2518/imp-2531 repaired for imp-896/897/898 — so ' +
+      'the auto-ticket harvester re-seeded the duplicate ticket imp-2538. This run marks that ' +
+      'block status closed with resolvedBy imp-2516 + resolution + closureNoteImp2538 ' +
+      '(summary preserved verbatim as history), and ships ' +
+      'IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS (registered in scripts/run-assertions.mjs ' +
+      'DATA_MODULES): one tripwire pins the synced shape on imp-997, a second re-scans EVERY ' +
+      'queue entry openSubGap/openSubGaps block each build and fails if any block anywhere ' +
+      'carries this canonical id without status closed, so the harvester can never be ' +
+      're-seeded from this file for this gap again.',
+  },
+];
+
+// ── imp-2538: queue-side sub-gap sync tripwires ──────────────────────────────
+// The imp-997 openSubGap block carried the canonical id
+// imp-336-sub-monotonicity-on-trajectory with no status field long after the
+// gap was resolved negatively by imp-2516 (and its successor closed positively
+// by imp-2530), which is exactly how the auto-ticket harvester re-seeded the
+// duplicate ticket imp-2538. These tripwires pin the synced shape so a future
+// edit cannot silently reopen the entry and re-trigger the harvester.
+export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
+  {
+    id: 'imp2538-queue-trajectory-subgap-synced-closed',
+    holds: () => {
+      const t = IMPROVEMENT_QUEUE.find((x) => x.id === 'imp-997');
+      return (
+        !!t &&
+        !!t.openSubGap &&
+        t.openSubGap.id === 'imp-336-sub-monotonicity-on-trajectory' &&
+        t.openSubGap.status === 'closed' &&
+        t.openSubGap.resolvedBy === 'imp-2516' &&
+        typeof t.openSubGap.resolution === 'string' &&
+        t.openSubGap.resolution.includes('RESOLVED NEGATIVELY') &&
+        t.openSubGap.resolution.includes('imp-2530')
+      );
+    },
+    why:
+      'The imp-997 openSubGap block must stay synced to the imp-2516 negative resolution ' +
+      '(refutation of (M) at small N) and must keep citing the imp-2530 positive closure of ' +
+      'the successor restatement. If this fails, the entry has been reopened or rewritten ' +
+      'and the auto-ticket harvester will re-seed a duplicate ticket for an already-resolved ' +
+      'gap, repeating the imp-2538 duplication.',
+  },
+  {
+    id: 'imp2538-no-queue-block-reopens-the-trajectory-id',
+    holds: () =>
+      IMPROVEMENT_QUEUE.every((t) => {
+        const gaps = []
+          .concat(t.openSubGap ? [t.openSubGap] : [])
+          .concat(Array.isArray(t.openSubGaps) ? t.openSubGaps : []);
+        return gaps.every(
+          (g) =>
+            !g ||
+            typeof g !== 'object' ||
+            g.id !== 'imp-336-sub-monotonicity-on-trajectory' ||
+            g.status === 'closed'
+        );
+      }),
+    why:
+      'Re-derived each build over the whole queue: no openSubGap or openSubGaps block on any ' +
+      'ticket may carry the canonical id imp-336-sub-monotonicity-on-trajectory without ' +
+      'status closed. The gap is settled (refuted by imp-2516; viable restatement proved by ' +
+      'imp-2530), so any open-looking re-declaration anywhere in this file is a regression ' +
+      'that would re-trigger the harvester.',
   },
 ];

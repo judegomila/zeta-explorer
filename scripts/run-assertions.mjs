@@ -1658,6 +1658,14 @@ const DATA_MODULES = [
   // imp-2530: (M-restated) = envelope form closure of the imp-2516 successor
   // sub-gap (certified flat-iff-violation trichotomy + imp-328 sufficiency audit).
   '/src/data/imp-2530-monotonicity-restatement.js',
+  // imp-2535: imp-917 dual-id residual dedupe tripwires (consolidated into
+  // the canonical imp-917-exec record; no execution claimed).
+  '/src/data/imp-896-retuning-calibration.js',
+  // imp-2538: queue-side sub-gap sync tripwires — the imp-997 openSubGap block
+  // (canonical id imp-336-sub-monotonicity-on-trajectory) is pinned closed
+  // (resolved negatively by imp-2516, successor closed by imp-2530) and the
+  // whole queue is re-scanned each build for any open re-declaration of the id.
+  '/src/data/improvement-queue.js',
 ];
 
 const ALL_MODULES = FAST_MODE

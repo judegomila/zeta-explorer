@@ -284,6 +284,53 @@ const RETUNING_CALIBRATION_SUB_GAP = {
   ],
 };
 
+// --- imp-2535 consolidation: dedupe the dual-id residual ---------------------
+//
+// The 14-cell execution residual was tracked under TWO ids in this file:
+// "imp-917" (the openSubGaps array entry below, original promotion) and
+// "imp-917-exec" (the canonical singular openSubGap record above, added by
+// imp-1001). The sub-gap harvester seeded BOTH as concurrent queue tickets
+// (imp-2535 from this entry, imp-2537 from the canonical record), dispatching
+// two pool workers onto the same ~20-CPU-hour execution. This entry is
+// therefore marked CONSOLIDATED into the canonical id so the residual is
+// seeded exactly once; the execution itself remains OPEN under imp-917-exec.
+// No cell was executed by this consolidation and no measurement is claimed.
+const IMP_917_OPEN_SUB_GAP_ENTRY = {
+  id: 'imp-917',
+  status:
+    'CONSOLIDATED-INTO-IMP-917-EXEC (structural dedupe only; the 14-cell ' +
+    'execution itself remains open and no cells are claimed measured by ' +
+    'this entry)',
+  consolidatedInto: 'imp-917-exec',
+  resolvedBy: 'imp-2535 (api-pool dual-id dedupe; see resolutionImp2535)',
+  resolutionImp2535:
+    'Dual-id dedupe (queue ticket imp-2535): this entry and the canonical ' +
+    'singular openSubGap record (id imp-917-exec, surfaced by imp-1001) ' +
+    'named the SAME 14-cell ~20-CPU-hour execution, and the sub-gap ' +
+    'harvester seeded BOTH ids as concurrent queue tickets -- imp-2535 from ' +
+    'this array entry and imp-2537 from the canonical record -- dispatching ' +
+    'two pool workers onto one residual. Consolidated so the residual is ' +
+    'tracked exactly once under imp-917-exec, whose execution was in flight ' +
+    'under queue ticket imp-2537 (api-pool-w3) at consolidation time, with ' +
+    'the sweep-file reductionTable already cohort-keyed (fixed vs retuned ' +
+    'resonance) to receive the output rows. The execution itself remains ' +
+    'OPEN: 0 of 14 cells are claimed by this consolidation, the canonical ' +
+    'record statusOfRemaining is unchanged, and the imp2535 tripwires fail ' +
+    'the build if this entry ever claims measurement or the canonical ' +
+    'record silently flips away from open.',
+  summary:
+    'Execute the 14-cell imp-896 grid using the RETUNING_CALIBRATION table ' +
+    'and executionRecipe above. Pure CPU-budget ticket; no further design ' +
+    'needed.',
+  blocker:
+    'Wall-time budget. Estimated total ~20 CPU-hours across 14 cells on ' +
+    'current hardware under concurrent engine load. Must run on an idle ' +
+    'scripts/ offline worker, not inside an engine turn. Output rows ' +
+    'append to MEASURED_ROWS in src/data/imp-857-phased-forcing-sweep.js. ' +
+    '(Blocker now carried by the canonical imp-917-exec record above.)',
+  prerequisite: null,
+};
+
 // --- Closure record ---------------------------------------------------------
 
 export const IMP_896_RETUNING_CALIBRATION = {
@@ -347,21 +394,7 @@ export const IMP_896_RETUNING_CALIBRATION = {
     'more steps rather than a linear-response coefficient, and with the imp-894 ' +
     'finding that the fixed resonance does not scale in the linear regime.',
 
-  openSubGaps: [
-    {
-      id: 'imp-917',
-      summary:
-        'Execute the 14-cell imp-896 grid using the RETUNING_CALIBRATION table ' +
-        'and executionRecipe above. Pure CPU-budget ticket; no further design ' +
-        'needed.',
-      blocker:
-        'Wall-time budget. Estimated total ~20 CPU-hours across 14 cells on ' +
-        'current hardware under concurrent engine load. Must run on an idle ' +
-        'scripts/ offline worker, not inside an engine turn. Output rows ' +
-        'append to MEASURED_ROWS in src/data/imp-857-phased-forcing-sweep.js.',
-      prerequisite: null,
-    },
-  ],
+  openSubGaps: [IMP_917_OPEN_SUB_GAP_ENTRY],
 
   // imp-1001 canonicalization: surfaces a singular openSubGap field with the
   // canonical id "imp-917-exec" so cross-file references in the queue and
@@ -395,6 +428,29 @@ export const IMP_896_RETUNING_CALIBRATION = {
     'research and is now tracked under the canonical id imp-917-exec. No new ' +
     'math claimed; one atomic structural change.',
   openSubGap: RETUNING_CALIBRATION_SUB_GAP,
+
+  closureNoteImp2535:
+    'imp-2535 (api-pool, opus-4-8): honest-partial structural closure -- ' +
+    'dual-id residual dedupe, NO execution claimed. The harvested ticket ' +
+    'asked to close the openSubGaps entry imp-917 (execute the 14-cell ' +
+    'grid), but that entry and the canonical openSubGap record imp-917-exec ' +
+    'name the SAME ~20-CPU-hour offline execution, and the harvester seeded ' +
+    'both as concurrent queue tickets (imp-2535 here, imp-2537 from the ' +
+    'canonical record) -- two pool workers dispatched onto one residual. ' +
+    'At consolidation time the imp-2537 worker (api-pool-w3) held the ' +
+    'execution in flight and had already cohort-keyed the sweep-file ' +
+    'reductionTable for the retuned rows; running the cells here would ' +
+    'duplicate ~20 CPU-hours and race the same MEASURED_ROWS table. This ' +
+    'change marks the array entry CONSOLIDATED-INTO-IMP-917-EXEC with ' +
+    'status/consolidatedInto/resolvedBy/resolution so the harvester seeds ' +
+    'the residual exactly once, and ships three build-time tripwires ' +
+    '(IMP_896_RETUNING_CALIBRATION_ASSERTIONS, registered with ' +
+    'run-assertions.mjs): consolidation points at the canonical id while ' +
+    'the canonical record stays open; the residual is tracked exactly once ' +
+    'with the canonical dependsOn back-pointer intact; and no MISSING_CELLS ' +
+    'row carries a measured flag, so this consolidation can never silently ' +
+    'masquerade as execution. The 14-cell measurement remains OPEN under ' +
+    'imp-917-exec / queue ticket imp-2537.',
 
   headline:
     'INFRASTRUCTURE-COMPLETE: per-N retuning calibration (k0*, omega*) ' +
@@ -442,5 +498,55 @@ export const IMP_896_RETUNING_CALIBRATION = {
       'the full CPU budget.',
   ],
 };
+
+// --- imp-2535 build-time tripwires (run-assertions.mjs) ----------------------
+//
+// Pin the consolidation shape so the dual-id dedupe cannot silently decay:
+// the array entry must keep pointing at the canonical id, the canonical
+// record must stay honestly open until cells actually land, and no
+// MISSING_CELLS row may claim measurement without a prose update.
+
+export const IMP_896_RETUNING_CALIBRATION_ASSERTIONS = [
+  {
+    id: 'imp2535-imp917-consolidated-into-canonical',
+    why:
+      'openSubGaps entry imp-917 must be CONSOLIDATED into the canonical ' +
+      'imp-917-exec record, and that record must still report the 14-cell ' +
+      'execution as open (no execution was performed by the consolidation)',
+    holds: () =>
+      IMP_917_OPEN_SUB_GAP_ENTRY.id === 'imp-917' &&
+      IMP_917_OPEN_SUB_GAP_ENTRY.status.startsWith(
+        'CONSOLIDATED-INTO-IMP-917-EXEC',
+      ) &&
+      IMP_917_OPEN_SUB_GAP_ENTRY.consolidatedInto ===
+        RETUNING_CALIBRATION_SUB_GAP.id &&
+      RETUNING_CALIBRATION_SUB_GAP.id === 'imp-917-exec' &&
+      RETUNING_CALIBRATION_SUB_GAP.statusOfRemaining.startsWith('open'),
+  },
+  {
+    id: 'imp2535-residual-tracked-exactly-once',
+    why:
+      'after the dedupe the 14-cell residual must be tracked exactly once: ' +
+      'a single openSubGaps entry (the consolidated one), the canonical ' +
+      'singular openSubGap, and the canonical dependsOn back-pointer to ' +
+      'imp-917 intact so the id mapping stays resolvable both ways',
+    holds: () =>
+      IMP_896_RETUNING_CALIBRATION.openSubGaps.length === 1 &&
+      IMP_896_RETUNING_CALIBRATION.openSubGaps[0] ===
+        IMP_917_OPEN_SUB_GAP_ENTRY &&
+      IMP_896_RETUNING_CALIBRATION.openSubGap === RETUNING_CALIBRATION_SUB_GAP &&
+      RETUNING_CALIBRATION_SUB_GAP.dependsOn[0].startsWith('imp-917 '),
+  },
+  {
+    id: 'imp2535-no-execution-claimed',
+    why:
+      'the consolidation is structural only: all 14 missing cells must ' +
+      'remain in MISSING_CELLS with no measured flag, so the dedupe can ' +
+      'never read as if the grid was executed',
+    holds: () =>
+      MISSING_CELLS.length === 14 &&
+      MISSING_CELLS.every((c) => c.measured === undefined),
+  },
+];
 
 export default IMP_896_RETUNING_CALIBRATION;

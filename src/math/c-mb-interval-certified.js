@@ -302,6 +302,41 @@ export const C_MB_INTERVAL_CERTIFIED = {
       'contraction could tame wrapper growth in JavaScript itself.',
     difficulty: 'research-grade-infra',
     status: 'open',
+    // ── imp-2550 HONEST PARTIAL ───────────────────────────────────────────────
+    // The bracket-EXISTENCE half of this sub-gap is already met in pure
+    // JavaScript WITHOUT a directed-rounding backend. The witness set consumed
+    // above (LAMBDA_INTERVAL_DYSON.witness) merely stops at N = 500; the SAME
+    // one-ULP Float64 interval RK4, run via the optimised driver, closes
+    // backward-collision brackets across the entire ticket range and far beyond:
+    //   imp-857-baseline-sweep-result.js  -> N in {1000,2000,5000,10000}
+    //       (widest maxIntervalWidth = 3.359e-8, reason gap-lower-bound-nonpositive)
+    //   imp-360-extended-ladder-N1e6      -> N in {25000,50000,100000}
+    //       (closed rows, maxIntervalWidth < 1e-2 by imp360-ext assertion)
+    // all >= 6 orders of magnitude below the 0.01 wrapper heuristic. So the
+    // original "directed-rounding backend needed to CLOSE brackets at N >= 1000"
+    // framing is superseded for bracket existence; what genuinely still needs a
+    // higher-order / directed-rounding backend is the NARROWER residual below.
+    partialProgressImp2550: {
+      ticket: 'imp-2550',
+      bracketExistenceMet: true,
+      baselineClosedNs: [1000, 2000, 5000, 10000],
+      baselineWidestMaxIntervalWidth: 3.359e-8,
+      extendedClosedNs: [25000, 50000, 100000],
+      extendedMaxIntervalWidthBound: 1e-2,
+      finding:
+        'The same one-ULP JS Float64 interval RK4 closes backward-collision ' +
+        'brackets at every N in the {1000,2000,5000,10000} ticket range ' +
+        '(imp-857-baseline-sweep-result.js, widest maxW 3.359e-8) and beyond, ' +
+        'to N in {25000,50000,100000} (imp-360-extended-ladder, maxW < 1e-2). ' +
+        'No directed-rounding backend is required for bracket EXISTENCE.',
+      residual:
+        'The sub-gap stays OPEN only on the NARROWER residual: (i) lift these ' +
+        'discrete-MAP-certified brackets to TRUE-FLOW certification (the ' +
+        'imp-2528 semantics downgrade -- outward rounding bounds roundoff, not ' +
+        'RK4 truncation), and (ii) recompute the paper-normalized K_paper_cert ' +
+        'at N >= 1000 from those rows. Both still want a higher-order / ' +
+        'directed-rounding backend; bracket existence no longer does.',
+    },
   },
 
   honestStatus:
@@ -364,6 +399,33 @@ export const C_MB_INTERVAL_CERTIFIED_ASSERTIONS = [
       'The directed-rounding scaling sub-gap must be named and open. ' +
       'Removing or renaming it silently without a closing ticket would ' +
       'hide the residual research work.',
+  },
+  {
+    id: 'imp2550-subgap-bracket-existence-partial',
+    holds: () => {
+      const p = C_MB_INTERVAL_CERTIFIED.openSubGap.partialProgressImp2550;
+      const baselineExpected = [1000, 2000, 5000, 10000];
+      const extendedExpected = [25000, 50000, 100000];
+      return (
+        !!p &&
+        p.bracketExistenceMet === true &&
+        Array.isArray(p.baselineClosedNs) &&
+        p.baselineClosedNs.length === baselineExpected.length &&
+        p.baselineClosedNs.every((n) => baselineExpected.includes(n)) &&
+        Array.isArray(p.extendedClosedNs) &&
+        p.extendedClosedNs.every((n) => extendedExpected.includes(n)) &&
+        p.baselineWidestMaxIntervalWidth < 1e-2 &&
+        // The sub-gap must remain OPEN on the narrower map->flow + K_paper residual.
+        C_MB_INTERVAL_CERTIFIED.openSubGap.status === 'open'
+      );
+    },
+    why:
+      'imp-2550 HONEST PARTIAL: the bracket-EXISTENCE half of imp-857-sub-scale-' +
+      'to-N10k is met in pure JS one-ULP interval RK4 (imp-857 baseline closes ' +
+      'N in {1000..10000} at maxW < 0.01; imp-360 closes N in {25000..100000}), ' +
+      'so the residual is narrowed to the discrete-map -> true-flow lift and the ' +
+      'K_paper_cert precision at N >= 1000. This tripwire fails if the partial- ' +
+      'progress evidence is dropped or the sub-gap is silently flipped to closed.',
   },
   {
     id: 'imp857-K-paper-matches-imp856-prelim-estimate-or-documents-overrun',

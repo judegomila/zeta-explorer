@@ -46,5 +46,29 @@
   "src/data/imp-857-phased-forcing-sweep.js#imp-897": {
     "impId": "imp-2518",
     "seededAt": "2026-06-09T22:13:35.842Z"
+  },
+  "src/data/c-mb-empirical-dyson-sweep.js#imp-2510-sub-rk4-n50-order-artifact": {
+    "impId": "imp-2527",
+    "seededAt": "2026-06-10T02:00:06.650Z"
+  },
+  "src/data/c-mb-empirical-dyson-sweep.js#imp-2511-sub-interval-bracket-map-vs-flow": {
+    "impId": "imp-2528",
+    "seededAt": "2026-06-10T02:00:06.832Z"
+  },
+  "src/data/c-mb-empirical-dyson-sweep.js#imp-2509-sub-large-n-dt-quantization": {
+    "impId": "imp-2529",
+    "seededAt": "2026-06-10T02:00:07.019Z"
+  },
+  "src/data/imp-336-sub-monotonicity-trajectory.js#imp-336-sub-monotonicity-restatement": {
+    "impId": "imp-2530",
+    "seededAt": "2026-06-10T02:00:07.206Z"
+  },
+  "src/data/imp-857-phased-forcing-sweep.js#imp-898": {
+    "impId": "imp-2531",
+    "seededAt": "2026-06-10T02:00:07.390Z"
+  },
+  "src/data/imp-857-resonance-tuning-sweep.js#imp-899": {
+    "impId": "imp-2532",
+    "seededAt": "2026-06-10T02:00:07.573Z"
   }
 }

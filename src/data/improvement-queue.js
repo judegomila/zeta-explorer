@@ -15956,6 +15956,26 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Prepended a formal @module/@fileoverview JSDoc block above the existing prose comment documenting the two exports (LAMBDA_INTERCEPT_UNCONDITIONAL record + LAMBDA_INTERCEPT_UNCONDITIONAL_ASSERTIONS tripwires), the proof-chain step (capstone consuming imp-341/336/337/342/343/338 + B(t) monotonicity + N-T* map), the key build-time assertions (id-drift, G5_burgers coordinated flip, G6-closed, route-B UNCONDITIONALLY wording, finite-height NONE-yet honesty), and the tickets that created/modified the file (imp-344 created it, imp-387 closed G6). Doc-only; no logic changed. Build green.',
   },
 
+  
+  // ── Auto-seeded batch (2026-06-10) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2589',
+    title: "Add JSDoc module documentation to empirical-m-sweep-extended-summary.js",
+    category: 'content',
+    priority: 'low',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'docs',
+    description: "src/data/empirical-m-sweep-extended-summary.js is >1KB but has no @module or @fileoverview JSDoc. Add a module-level doc comment explaining: what the file exports, what proof chain step it belongs to, what its key assertions are, and what tickets created/modified it. This helps external readers navigate the 50+ data files.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-06-10T11:43:04Z',
+    closureNote: 'Prepended a structured @module/@fileoverview JSDoc block above the existing prose in src/data/empirical-m-sweep-extended-summary.js: documents the single export EMPIRICAL_M_SWEEP_EXTENDED_SUMMARY, the empirical-floor proof-chain step (read-side projection of the extended E1/E2 m-sweep consumed by dashboard/full-story/blog), the no-assertions-here note (drift caught at runtime by daily-health-check.sh / imp-877), and the creating tickets (imp-833, imp-858, Batch A bundle split A1). Doc-only; no logic changed. Build green.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

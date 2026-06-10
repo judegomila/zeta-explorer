@@ -162,5 +162,13 @@
   "src/data/sg1-theta-contraction.js#sg1d-pigeonhole-theta-control": {
     "impId": "imp-2559",
     "seededAt": "2026-06-10T05:44:34.230Z"
+  },
+  "src/data/sg1c-theta-trap-theorems.js#sg1c-r1-excursion-cap": {
+    "impId": "imp-2595",
+    "seededAt": "2026-06-10T18:23:21.234Z"
+  },
+  "src/data/sg1c-theta-trap-theorems.js#sg1c-r2-isolation-persistence": {
+    "impId": "imp-2596",
+    "seededAt": "2026-06-10T18:23:21.453Z"
   }
 }

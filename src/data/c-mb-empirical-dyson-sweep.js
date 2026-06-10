@@ -77,6 +77,7 @@
 
 import { EMPIRICAL_SWEEP_DP8_CROSSCHECK } from './empirical-sweep-dp8-crosscheck.js';
 import { C_MB_INTERVAL_CERTIFIED } from '../math/c-mb-interval-certified.js';
+import { LAMBDA_INTERVAL_DYSON } from '../math/interval-dyson-integrator.mjs';
 import { dysonOdeCrossVerifyDP8 } from '../math/dyson-ode-integrator.js';
 import { EMPIRICAL_M_SWEEP_EXTENDED } from './empirical-m-sweep-extended.js';
 import { C_MB_DYSON_LARGE_N_CACHE } from './c-mb-dyson-large-n-cache.js';
@@ -235,7 +236,9 @@ const DP8_ALL_AGREE = DP8_CHECKED_NS.length > 0 && DP8_CHECKED.every((r) => r.tc
 const DP8_MONOTONE = DP8_CHECKED_NS.length > 0 && DP8_CHECKED.every((r) => r.dp8_tc <= r.rk4_tc);
 // N=100 is the anchor: the largest N in this tractable order-cross-check
 // subset where RK4 and DP8 agree within tolerance (N=50 is a known RK4
-// small-N artifact — see openSubGaps imp-2510-sub-rk4-n50-order-artifact).
+// small-N artifact — named imp-2510-sub-rk4-n50-order-artifact, closed by
+// imp-2527, which promotes DP8 to the primary integrator at N=50; see the
+// n50OrderArtifact record).
 const DP8_ANCHOR = DP8_CHECKED.find((r) => r.N === 100);
 const DP8_ANCHOR_AGREE = DP8_ANCHOR != null && DP8_ANCHOR.tc_agree === true;
 
@@ -436,7 +439,8 @@ const LARGE_N_CAPS_VALIDATED =
 // The near-unity slacks at {50, 200} are STRUCTURAL, not luck: the Float64
 // gate time sits at the interval bracket upper end t_c_hi, and F_mb_upper is
 // measured to that same end, so the like-for-like check reduces to
-// tc_float <= t_c_hi. Residual caveat (named in openSubGaps): at N=100 the
+// tc_float <= t_c_hi. Residual caveat (was imp-2511-sub-interval-bracket-
+// map-vs-flow; closed by imp-2528 — see the MVF block below): at N=100 the
 // order-robust Float64 t_c (0.0705) lies BELOW the interval t_c_lo (0.075) —
 // the one-ULP interval bracket encloses the fixed-dt RK4 MAP (dt=1e-3 there),
 // not the true flow, since outward rounding bounds roundoff but not
@@ -476,6 +480,166 @@ const RECON_ALL_CONTAINED =
 const RECON_N100 = RECONCILIATION_ROWS.find((x) => x.N === 100);
 const RECON_N100_MECHANISM =
   RECON_N100 != null && RECON_N100.baselineMismatchExceedsEnvelope === true;
+
+// ── imp-2527 / imp-2510-sub-rk4-n50-order-artifact closure ──────────────────
+// Resolution path (a) of the sub-gap, delivered: promote the order-8 DP8
+// collision time to PRIMARY wherever the module-load order-cross-check
+// computed one (N in {50, 100}; N=200 keeps RK4, which inherits the imp-859
+// RK4-vs-DP45 agreement). The DP8 run already executes at module load at the
+// exact imp-859 config (same dt = 5e-4, maxSteps, spacing gate), so the
+// sub-gap ask "re-run the N=50 measurement with DP8 as the PRIMARY
+// integrator" reduces to recomputing F_mb / K_empirical / R_rel from dp8_tc
+// instead of rk4_tc — no new integration needed. DECISIVE numerical fact:
+// at N=50 the order-corrected residual F_mb = |0.096 - 0.0895154| =
+// 6.48457e-3 lands INSIDE the imp-857 certified envelope F_mb_upper =
+// 6.7208e-3 (slack 0.965) against this module OWN tau_c_est baseline — no
+// baseline swap needed, since the raw-gap and unfolded-gap argmins coincide
+// at N=50 to 2.4e-4 (imp-2511). The imp-887 N=50 containment violation was
+// therefore ENTIRELY the RK4 4th-order overshoot, now removed from the
+// primary view. Paths (b) (shrink dt until RK4 converges) and (c) (exclude
+// N=50 from the certified range) become unnecessary. The historical RK4
+// rows are RETAINED above (rows / K_empirical_max = 0.037743, which stays
+// the quoted conservative headline since the corrected max 0.015972 is
+// smaller); the order-corrected primary view lives on n50OrderArtifact.
+const ROWS_ORDER_CORRECTED = ROWS.map((r) => {
+  const dp8Row = DP8_CHECKED.find((d) => d.N === r.N && d.dp8_tc != null) || null;
+  if (!dp8Row) {
+    return { ...r, integrator: 'rk4-order-4-dp45-agreed', rk4_tc_superseded: null };
+  }
+  const sweep  = SWEEP_BY_N.get(r.N);
+  const tauEst = sweep.sweep_tauC_est;
+  const H_unf  = sweep.H_N;
+  const rho    = sweep.rho_argmin;
+  const H_raw  = H_unf / rho;
+  const F_mb   = Math.abs(dp8Row.dp8_tc - tauEst);
+  const norm   = Math.pow(r.N, -0.5) * Math.log(r.N);
+  return {
+    N: r.N,
+    integrator:     'dp8-order-8',
+    tau_c_measured: +dp8Row.dp8_tc.toExponential(6),
+    tau_c_est:      +tauEst.toExponential(6),
+    H_unf:          +H_unf.toExponential(6),
+    H_raw:          +H_raw.toExponential(6),
+    rho_argmin:     +rho.toFixed(7),
+    F_mb:           +F_mb.toExponential(6),
+    normalization:  +norm.toExponential(6),
+    K_empirical:    +(F_mb * H_unf / norm).toFixed(6),
+    K_raw_check:    +(F_mb * H_raw / norm).toFixed(6),
+    R_rel:          +(F_mb / tauEst).toFixed(6),
+    rk4_tc_superseded: r.tau_c_measured,
+  };
+});
+
+const K_EMPIRICAL_MAX_ORDER_CORRECTED = ROWS_ORDER_CORRECTED.length > 0
+  ? Math.max(...ROWS_ORDER_CORRECTED.map((r) => r.K_empirical))
+  : null;
+const R_REL_MAX_ORDER_CORRECTED = ROWS_ORDER_CORRECTED.length > 0
+  ? Math.max(...ROWS_ORDER_CORRECTED.map((r) => r.R_rel))
+  : null;
+
+// N=50 containment against this module own tau_c_est baseline, computed from
+// UNROUNDED values (the record rows carry toExponential(6) rounding).
+const N50_SWEEP_SAMPLE = SWEEP_BY_N.get(50) || null;
+const N50_DP8_CHECKED  = DP8_CHECKED.find((r) => r.N === 50) || null;
+const N50_CERT_ROW     = CERT_BY_N.get(50) || null;
+const N50_F_MB_DP8_RAW =
+  N50_SWEEP_SAMPLE != null && N50_DP8_CHECKED != null && N50_DP8_CHECKED.dp8_tc != null
+    ? Math.abs(N50_DP8_CHECKED.dp8_tc - N50_SWEEP_SAMPLE.sweep_tauC_est)
+    : null;
+const N50_CONTAINED_OWN_BASELINE =
+  N50_F_MB_DP8_RAW != null &&
+  N50_CERT_ROW != null &&
+  N50_F_MB_DP8_RAW <= N50_CERT_ROW.F_mb_upper;
+
+// ── imp-2528 / imp-2511-sub-interval-bracket-map-vs-flow closure ────────────
+// The sub-gap named three resolution paths: (a) a flow-validated enclosure
+// (Lohner-type remainder, or Arb/CAPD), (b) an explicit rigorous RK4
+// truncation term C*dt^4*||g^(5)|| added to the bracket, (c) downgrade
+// consumers to quote the bracket as discrete-map-certified only. Paths (a)
+// and (b) both require certified bounds on high derivatives of the singular
+// Dyson field along the enclosure — machinery the repo does not have — so
+// they stay open as the named successor sub-gap
+// imp-2528-sub-certified-flow-enclosure. DELIVERED here is path (c) in full,
+// plus an EMPIRICAL (non-certified) quantification showing RK4 truncation
+// accounts for the below-bracket flow time, so the reclassification is the
+// mechanistically correct one and not just a label change.
+//
+// MECHANISM: backward RK4 underestimates the diverging attraction as the
+// minimum gap sharpens, so the fixed-dt RK4 MAP collides LATER than the true
+// flow; refining dt or raising the order moves t_c monotonically DOWN onto
+// the flow value (at N=100: interval RK4 dt=1e-3 bracket [0.075, 0.076] ->
+// Float64 RK4 dt=5e-4: 0.0725 -> DP8: 0.0705). The one-ULP outward rounding
+// of the interval recursion bounds ROUNDOFF of that map, not its TRUNCATION
+// against the flow. Consequences quantified below at the N=100 witness point
+// (the one N with map bracket + fine-dt RK4 + order-robust DP8 all present):
+//   1. flowBelowMapBracket: the DP8 flow reference lies strictly BELOW the
+//      map bracket lower end t_c_lo — the original finding; reproducing it
+//      at build time proves the downgrade is genuinely needed.
+//   2. oneSidedFlowBoundHolds: t_c_flow <= t_c_hi survives, because the
+//      truncation error has a definite SIGN (overshoot; the imp-2510
+//      dp8_tc <= rk4_tc direction check) — an empirical directional claim,
+//      NOT a certified one.
+//   3. Richardson dt->0 extrapolation of the RK4 map from the two available
+//      step sizes (dt = 1e-3 via the bracket midpoint, dt = 5e-4 via the
+//      imp-859 Float64 run; effective FIRST-order extrapolation 2*t(dt/2)
+//      - t(dt)) lands on the DP8 flow reference within 3*dt_fine — the
+//      map-vs-flow deficit is quantitatively explained by truncation alone.
+//   4. effectiveOrder: log2 of the deficit ratio is ~1.3, far below RK4's
+//      nominal order 4 — collision-TIME convergence degrades to ~first order
+//      at the singular endpoint, which is WHY a naive C*dt^4 truncation term
+//      (path b) would be unsound without derivative blow-up control.
+const MVF_N = 100;
+const MVF_WITNESS =
+  (LAMBDA_INTERVAL_DYSON.witness ?? []).find(
+    (w) => w.N === MVF_N && typeof w.t_c_lo === 'number' && typeof w.t_c_hi === 'number',
+  ) ?? null;
+const MVF_RK4_ROW = ROW_BY_N.get(MVF_N) ?? null; // Float64 RK4 at the imp-859 dt
+const MVF_DP8_ROW = DP8_CHECKED.find((r) => r.N === MVF_N && r.dp8_tc != null) ?? null;
+const MVF_DT_COARSE = MVF_WITNESS ? MVF_WITNESS.dt : null; // interval-map dt (1e-3)
+const MVF_DT_FINE = EMPIRICAL_SWEEP_DP8_CROSSCHECK.config.dt; // Float64 dt (5e-4)
+
+const MVF_INPUTS_COMPLETE =
+  MVF_WITNESS != null &&
+  MVF_RK4_ROW != null &&
+  MVF_DP8_ROW != null &&
+  typeof MVF_DT_COARSE === 'number' &&
+  typeof MVF_DT_FINE === 'number' &&
+  Math.abs(MVF_DT_COARSE - 2 * MVF_DT_FINE) < 1e-12; // ratio 2 needed for Richardson
+
+const MVF_QUANT = (() => {
+  if (!MVF_INPUTS_COMPLETE) return null;
+  const tcMapCoarse = (MVF_WITNESS.t_c_lo + MVF_WITNESS.t_c_hi) / 2; // mid, +-dt/2
+  const tcMapFine   = MVF_RK4_ROW.tau_c_measured;
+  const tcFlowRef   = MVF_DP8_ROW.dp8_tc; // order-robust there (DP45 == DP8)
+  const tcRichardson = 2 * tcMapFine - tcMapCoarse; // first-order, dt ratio 2
+  const deficitCoarse = tcMapCoarse - tcFlowRef;
+  const deficitFine   = tcMapFine - tcFlowRef;
+  const effectiveOrder =
+    deficitCoarse > 0 && deficitFine > 0
+      ? Math.log2(deficitCoarse / deficitFine)
+      : null;
+  return {
+    tc_map_coarse_mid:  +tcMapCoarse.toExponential(6),
+    tc_map_fine:        +tcMapFine.toExponential(6),
+    tc_flow_ref_dp8:    +tcFlowRef.toExponential(6),
+    tc_richardson_extrap: +tcRichardson.toExponential(6),
+    truncation_deficit_coarse: +deficitCoarse.toExponential(4),
+    truncation_deficit_fine:   +deficitFine.toExponential(4),
+    effectiveOrder: effectiveOrder !== null ? +effectiveOrder.toFixed(3) : null,
+    flowBelowMapBracket:  tcFlowRef < MVF_WITNESS.t_c_lo,
+    oneSidedFlowBoundHolds: tcFlowRef <= MVF_WITNESS.t_c_hi,
+    richardsonConsistentWithDp8:
+      Math.abs(tcRichardson - tcFlowRef) <= 3 * MVF_DT_FINE,
+  };
+})();
+
+const MVF_QUANTIFIED =
+  MVF_QUANT != null &&
+  MVF_QUANT.flowBelowMapBracket === true &&
+  MVF_QUANT.oneSidedFlowBoundHolds === true &&
+  MVF_QUANT.richardsonConsistentWithDp8 === true &&
+  MVF_QUANT.effectiveOrder !== null &&
+  MVF_QUANT.effectiveOrder <= 2;
 
 // ── Closure record ──────────────────────────────────────────────────────────
 
@@ -615,8 +779,65 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
       'At N=100 the order-robust Float64 t_c (0.0705, DP45 == DP8) lies ' +
       'BELOW the interval t_c_lo (0.075): the imp-362 one-ULP bracket ' +
       'encloses the fixed-dt RK4 MAP (dt = 1e-3 at that N), not the true ' +
-      'flow — outward rounding bounds roundoff, not truncation. Named as ' +
-      'imp-2511-sub-interval-bracket-map-vs-flow in openSubGaps.',
+      'flow — outward rounding bounds roundoff, not truncation. Was named ' +
+      'as imp-2511-sub-interval-bracket-map-vs-flow; CLOSED by imp-2528 ' +
+      'via reclassification to discrete-map-certified semantics — see ' +
+      'mapVsFlowSemantics. The certified FLOW enclosure stays open as ' +
+      'imp-2528-sub-certified-flow-enclosure.',
+  },
+
+  mapVsFlowSemantics: {
+    subGap: 'imp-2511-sub-interval-bracket-map-vs-flow',
+    closedBy: 'imp-2528',
+    resolutionPath:
+      'path (c) of the sub-gap finding — downgrade the imp-362 bracket to ' +
+      'discrete-map-certified semantics — plus an empirical Richardson ' +
+      'quantification of the map-vs-flow truncation deficit at N=100; ' +
+      'paths (a) Lohner-type flow enclosure and (b) rigorous C*dt^4 ' +
+      'truncation term remain open as imp-2528-sub-certified-flow-enclosure.',
+    certifiedSemantics: 'discrete-map-certified',
+    status: MVF_INPUTS_COMPLETE
+      ? (MVF_QUANTIFIED ? 'reclassified-and-quantified' : 'quantification-failed')
+      : 'witness-incomplete',
+    n: MVF_N,
+    intervalMapBracket: MVF_WITNESS
+      ? { t_c_lo: MVF_WITNESS.t_c_lo, t_c_hi: MVF_WITNESS.t_c_hi, dt: MVF_DT_COARSE }
+      : null,
+    dt_fine: MVF_DT_FINE,
+    quantification: MVF_QUANT,
+    downgradedClaims: [
+      'imp-362 interval-dyson-integrator.mjs [t_c_lo, t_c_hi]: certified ' +
+        'bracket for the FIXED-dt RK4-map collision time (roundoff rigorous ' +
+        'via one-ULP outward rounding); NOT a certified bracket for the true ' +
+        'Dyson-flow collision time.',
+      'imp-857 c-mb-interval-certified.js F_mb_upper / K_raw_cert / ' +
+        'K_paper_cert: certified for the RK4-map collision residual; as ' +
+        'flow statements they are EMPIRICALLY supported (one-sided ' +
+        't_c_flow <= t_c_hi via the imp-2510 overshoot direction) but not ' +
+        'interval-certified. Mirrored at the producer as ' +
+        'bracketSemanticsImp2528 on C_MB_INTERVAL_CERTIFIED.',
+      'crossCheckWithImp857 / crossCheckReconciliation in this module: ' +
+        'containment checks against F_mb_upper compare Float64 measurements ' +
+        'to a MAP-certified envelope.',
+    ],
+    finding:
+      'Reclassification is mechanistically correct, not cosmetic: the RK4 ' +
+      'map collides LATE (truncation has a definite overshoot sign), and a ' +
+      'first-order Richardson dt->0 extrapolation of the map collision time ' +
+      'from the two available step sizes (bracket midpoint at dt=1e-3, ' +
+      'Float64 run at dt=5e-4) lands on the order-robust DP8 flow reference ' +
+      'within 3*dt_fine, so RK4 truncation alone quantitatively accounts ' +
+      'for the flow time sitting below the map bracket. Measured effective ' +
+      'order of the collision-TIME error is ~1.3 (far below nominal RK4 ' +
+      'order 4): convergence degrades at the singular endpoint, which is ' +
+      'why the path-(b) naive C*dt^4 truncation term would be unsound ' +
+      'without certified control of derivative blow-up near collision.',
+    residual:
+      'A certified TRUE-FLOW enclosure (Lohner-type remainder term, or ' +
+      'Arb/CAPD as the imp-362 header names) is not delivered; the ' +
+      'one-sided bound t_c_flow <= t_c_hi rests on the empirical overshoot ' +
+      'direction, not interval arithmetic. Named successor: ' +
+      'imp-2528-sub-certified-flow-enclosure in openSubGaps.',
   },
 
   dp8OrderRobustness: {
@@ -657,7 +878,67 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
       'F_mb_measured = |tau_c_measured - tau_c_est| beyond the imp-857 certified ' +
       'bound. The cause is an RK4 low-order overshoot at small N, NOT a ' +
       'coordinate mismatch or a too-narrow certified bracket. The residual N=50 ' +
-      'order-discrepancy is named in openSubGaps.',
+      'order-discrepancy was named as imp-2510-sub-rk4-n50-order-artifact, ' +
+      'since CLOSED by imp-2527: DP8 is promoted to the primary integrator ' +
+      'at N=50 (see n50OrderArtifact and closedSubGaps).',
+  },
+
+  n50OrderArtifact: {
+    subGap: 'imp-2510-sub-rk4-n50-order-artifact',
+    closedBy: 'imp-2527',
+    resolutionPath:
+      'a — DP8 promoted to PRIMARY integrator at N=50 (and N=100, the other ' +
+      'N where the module-load order-cross-check runs); paths b and c unnecessary',
+    status: N50_CONTAINED_OWN_BASELINE
+      ? 'closed-dp8-primary; N=50 certified containment restored against own baseline'
+      : 'violation-persists',
+    rowsOrderCorrected: ROWS_ORDER_CORRECTED,
+    K_empirical_max_order_corrected: K_EMPIRICAL_MAX_ORDER_CORRECTED !== null
+      ? +K_EMPIRICAL_MAX_ORDER_CORRECTED.toFixed(6) : null,
+    R_rel_max_order_corrected: R_REL_MAX_ORDER_CORRECTED !== null
+      ? +R_REL_MAX_ORDER_CORRECTED.toFixed(6) : null,
+    n50: {
+      rk4_tc_superseded: N50_DP8_CHECKED ? N50_DP8_CHECKED.rk4_tc  : null,
+      dp45_tc:           N50_DP8_CHECKED ? N50_DP8_CHECKED.dp45_tc : null,
+      dp8_tc_primary:    N50_DP8_CHECKED ? N50_DP8_CHECKED.dp8_tc  : null,
+      F_mb_rk4_superseded: ROW_BY_N.get(50) ? ROW_BY_N.get(50).F_mb : null,
+      F_mb_dp8: N50_F_MB_DP8_RAW !== null ? +N50_F_MB_DP8_RAW.toExponential(6) : null,
+      F_mb_upper_certified: N50_CERT_ROW ? N50_CERT_ROW.F_mb_upper : null,
+      slack_ratio:
+        N50_F_MB_DP8_RAW !== null && N50_CERT_ROW && N50_CERT_ROW.F_mb_upper > 0
+          ? +(N50_F_MB_DP8_RAW / N50_CERT_ROW.F_mb_upper).toExponential(4)
+          : null,
+      containedOwnBaseline: N50_CONTAINED_OWN_BASELINE,
+    },
+    description:
+      'CLOSES imp-2510-sub-rk4-n50-order-artifact via its named resolution ' +
+      'path (a): the order-8 DP8 collision time — already computed at module ' +
+      'load by the imp-2510 cross-check at the exact imp-859 config (same ' +
+      'dt, maxSteps, spacing gate) — is promoted to the PRIMARY measurement ' +
+      'at N=50, so F_mb_measured and K_empirical there use the 8th-order ' +
+      't_c = 0.096 instead of the RK4 overshoot 0.1435. rowsOrderCorrected ' +
+      'is the order-corrected primary view (DP8 at {50, 100}; RK4 at 200, ' +
+      'which inherits the imp-859 RK4-vs-DP45 agreement); the historical ' +
+      'RK4 rows above are retained frozen, and the quoted headline keeps ' +
+      'the LARGER RK4-based K_empirical_max as the conservative maximum.',
+    finding:
+      'DECISIVE: with DP8 primary, the N=50 residual F_mb = 6.48457e-3 ' +
+      'lands INSIDE the imp-857 certified envelope F_mb_upper = 6.7208e-3 ' +
+      '(slack 0.965) against this module own tau_c_est baseline — no ' +
+      'baseline swap needed, since the raw-gap and unfolded-gap argmins ' +
+      'coincide at N=50 to 2.4e-4 (imp-2511). The imp-887 N=50 containment ' +
+      'violation was therefore ENTIRELY the RK4 4th-order overshoot ' +
+      '(inflating F_mb 8.3x, R_rel 0.603 -> 0.0724), and paths (b) ' +
+      'shrink-dt-until-RK4-converges and (c) exclude-N50 are unnecessary. ' +
+      'Corrected K_empirical_max = 0.015972 (now attained at N=100) vs the ' +
+      'retained conservative RK4-based 0.037743.',
+    residual:
+      'N=200 DP8 (~3e9 ops at dt = 5e-4) remains deferred — that row keeps ' +
+      'the RK4 t_c, backed by the imp-859 RK4-vs-DP45 agreement at N=200. ' +
+      'At N=100 the corrected F_mb (1.901543e-2) still exceeds the ' +
+      'certified envelope against the imp-860 baseline, but that is the ' +
+      'imp-2511 argmin-selection baseline mismatch, already reconciled ' +
+      'like-for-like (slack 0.54) — not an integrator artifact.',
   },
 
   largeNProjection: {
@@ -757,41 +1038,32 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
 
   openSubGaps: [
     {
-      id: 'imp-2510-sub-rk4-n50-order-artifact',
+      id: 'imp-2528-sub-certified-flow-enclosure',
+      successorOf: 'imp-2511-sub-interval-bracket-map-vs-flow',
       summary:
-        'RK4 backward-Dyson t_c at N=50 (0.1435) disagrees with the 8th-order ' +
-        'DP8 t_c (0.096) by ~0.047, far above the max(5*dt, 1e-3) tolerance.',
+        'No certified TRUE-FLOW collision enclosure exists: the imp-362 ' +
+        'bracket is discrete-map-certified only (imp-2528 reclassification), ' +
+        'and the surviving flow claim t_c_flow <= t_c_hi rests on the ' +
+        'empirical overshoot direction, not interval arithmetic.',
       finding:
-        'The imp-2510 DP8 order-cross-check shows RK4 is a high outlier at N=50 ' +
-        'while DP45 (0.100) and DP8 (0.096) agree; this is the integration-order ' +
-        'mechanism behind the imp-887 N=50 containment violation. Resolution ' +
-        'paths: (a) re-run the imp-859/imp-860 N=50 measurement with DP8 as the ' +
-        'PRIMARY integrator (not just a cross-check) so F_mb_measured and ' +
-        'K_empirical use the order-8 t_c; (b) shrink dt at N=50 until RK4 ' +
-        'converges to the DP8 value, quantifying the step-size floor; ' +
-        '(c) exclude N=50 from the certified-comparison range as a documented ' +
-        'small-N integration artifact. Linked: imp-887-sub-resolve-cross-check-violation.',
-    },
-    {
-      id: 'imp-2511-sub-interval-bracket-map-vs-flow',
-      summary:
-        'The imp-362 interval bracket certifies the fixed-dt RK4 MAP, not ' +
-        'the true Dyson flow: at N=100 the order-robust Float64 t_c (0.0705) ' +
-        'lies below the interval t_c_lo (0.075).',
-      finding:
-        'Uncovered by the imp-2511 reconciliation: the one-ULP outward-rounded ' +
-        'interval RK4 (interval-dyson-integrator.mjs) bounds ROUNDOFF in the ' +
-        'discrete RK4 recursion but not TRUNCATION error of RK4 against the ' +
-        'continuous flow, so [t_c_lo, t_c_hi] is a certified bracket for the ' +
-        'dt-fixed RK4-map collision, not for the true flow collision. ' +
-        'Empirically consistent: RK4 overshoots with coarser dt (interval run ' +
-        'dt=1e-3 gives ~0.0755; Float64 RK4 dt=5e-4 gives 0.0725; DP8 gives ' +
-        '0.0705 at N=100), and the heavily-inflated N=50 run fires its gate ' +
-        'on wrapper width (finalMinGapLo = -0.22). Resolution paths: (a) a ' +
-        'flow-validated enclosure (Lohner-type remainder, or Arb/CAPD as the ' +
-        'imp-362 header already names); (b) add the explicit RK4 truncation ' +
-        'term C*dt^4*||g^(5)|| to the bracket; (c) downgrade consumers to ' +
-        'quote the bracket as discrete-map-certified only.',
+        'imp-2528 closed the predecessor via path (c): consumers now quote ' +
+        'the bracket as discrete-map-certified, and the map-vs-flow deficit ' +
+        'is quantitatively explained as RK4 truncation (Richardson dt->0 ' +
+        'extrapolation of the map lands on the DP8 flow reference within ' +
+        '3*dt_fine; see mapVsFlowSemantics). What remains is the HARD half: ' +
+        'a flow-validated enclosure needs certified control of the Dyson ' +
+        'field derivatives along the enclosure tube, and the measured ' +
+        'effective order ~1.3 of the collision-time error (vs nominal 4) ' +
+        'shows derivative blow-up near the singular endpoint is REAL, so a ' +
+        'naive C*dt^4*||g^(5)|| term is unsound there. Resolution paths: ' +
+        '(a) Lohner/Taylor-model integrator with rigorous remainder (or ' +
+        'Arb/CAPD offline, imported as a cached witness like imp-2509 did); ' +
+        '(b) stop the certified enclosure strictly BEFORE collision at a ' +
+        'positive gap floor where derivatives are controlled, and certify ' +
+        'only a one-sided t_c lower bound for the flow; (c) prove the ' +
+        'overshoot direction (map collides no earlier than flow) as a ' +
+        'THEOREM for backward RK4 on the attractive Dyson field, upgrading ' +
+        't_c_flow <= t_c_hi from empirical to rigorous.',
     },
     {
       id: 'imp-2509-sub-large-n-dt-quantization',
@@ -824,6 +1096,27 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
   ],
 
   closedSubGaps: [
+    {
+      id: 'imp-2510-sub-rk4-n50-order-artifact',
+      closedBy: 'imp-2527',
+      resolution:
+        'Resolution path (a) delivered: the order-8 DP8 collision time ' +
+        '(already computed at module load by the imp-2510 cross-check at ' +
+        'the exact imp-859 config) is promoted to PRIMARY at N=50, so ' +
+        'F_mb_measured and K_empirical use the 8th-order t_c = 0.096 ' +
+        'instead of the RK4 overshoot 0.1435. Decisive: the corrected N=50 ' +
+        'residual F_mb = 6.48457e-3 lands INSIDE the imp-857 certified ' +
+        'envelope 6.7208e-3 (slack 0.965) against this module own ' +
+        'tau_c_est baseline (the two argmins coincide at N=50 to 2.4e-4), ' +
+        'so the imp-887 N=50 violation was entirely the RK4 low-order ' +
+        'overshoot — paths (b) shrink-dt and (c) exclude-N50 are ' +
+        'unnecessary. Corrected K_empirical_max drops 0.037743 -> 0.015972 ' +
+        '(the larger RK4 value is retained as the quoted conservative ' +
+        'maximum). See n50OrderArtifact and the ' +
+        'imp2527-rk4-n50-order-artifact-closed build-time assertion. ' +
+        'Residual: N=200 DP8 (~3e9 ops) remains deferred and keeps the ' +
+        'imp-859 RK4-vs-DP45-agreed RK4 value.',
+    },
     {
       id: 'imp-860-sub-cross-check-with-imp-857',
       closedBy: 'imp-887',
@@ -889,7 +1182,30 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
         '0.54, 0.999975) — guarded by the imp887-cross-check-reconciled ' +
         'build-time assertion. Hypotheses (a) gate mismatch and (b) too-narrow ' +
         'bracket are ruled out; (c) is confirmed in sharpened argmin-selection ' +
-        'form. Residual caveat named as imp-2511-sub-interval-bracket-map-vs-flow.',
+        'form. Residual caveat named as imp-2511-sub-interval-bracket-map-vs-flow ' +
+        '(since closed by imp-2528 — see mapVsFlowSemantics).',
+    },
+    {
+      id: 'imp-2511-sub-interval-bracket-map-vs-flow',
+      closedBy: 'imp-2528',
+      resolution:
+        'Closed via resolution path (c) of its own finding, plus an empirical ' +
+        'truncation quantification (see mapVsFlowSemantics). The imp-362 ' +
+        'bracket [t_c_lo, t_c_hi] is now quoted everywhere as ' +
+        'DISCRETE-MAP-certified — a rigorous roundoff enclosure of the ' +
+        'fixed-dt RK4-map collision, not of the true flow — and the producer ' +
+        'record C_MB_INTERVAL_CERTIFIED carries the matching ' +
+        'bracketSemanticsImp2528 caveat. The reclassification is shown to be ' +
+        'mechanistically correct at the N=100 witness point: first-order ' +
+        'Richardson dt->0 extrapolation of the RK4 map (bracket midpoint at ' +
+        'dt=1e-3, Float64 run at dt=5e-4) lands on the order-robust DP8 flow ' +
+        'reference within 3*dt_fine, and the measured effective order ~1.3 ' +
+        'pins the deficit as truncation with degraded endpoint convergence. ' +
+        'The flow inherits only the one-sided EMPIRICAL bound t_c_flow <= ' +
+        't_c_hi (imp-2510 overshoot direction). Guarded by the ' +
+        'imp2528-map-vs-flow-reclassified build-time assertion. The certified ' +
+        'flow enclosure itself is NOT delivered — named successor ' +
+        'imp-2528-sub-certified-flow-enclosure.',
     },
   ],
 
@@ -904,6 +1220,58 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
 // ── Build-time assertions ───────────────────────────────────────────────────
 
 export const C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS = [
+  {
+    id: 'imp2527-rk4-n50-order-artifact-closed',
+    holds: () => {
+      const oa = C_MB_EMPIRICAL_DYSON_SWEEP.n50OrderArtifact;
+      if (!oa || !Array.isArray(oa.rowsOrderCorrected)) return false;
+      const r50 = oa.rowsOrderCorrected.find((r) => r.N === 50);
+      const dp8 = C_MB_EMPIRICAL_DYSON_SWEEP.dp8OrderRobustness.rows.find(
+        (r) => r.N === 50 && r.status === 'checked',
+      );
+      const rk4 = C_MB_EMPIRICAL_DYSON_SWEEP.rows.find((r) => r.N === 50);
+      if (!r50 || !dp8 || !rk4) return false;
+      // (1) the order-corrected primary view covers every measured N with a
+      //     finite positive K_empirical;
+      // (2) the N=50 primary collision time IS the order-8 DP8 value;
+      // (3) the artifact is pinned quantitatively: RK4 deviates from DP8 by
+      //     more than 10x the agreement tolerance while DP45 clusters with
+      //     DP8 within 2x of it — RK4 is the lone outlier;
+      // (4) the overshoot inflated the N=50 residual at least 5x
+      //     (R_rel 0.603 -> 0.0724 corrected);
+      // (5) DECISIVE: the corrected N=50 F_mb is contained by the imp-857
+      //     certified envelope against this module own tau_c_est baseline,
+      //     discharging the imp-887 N=50 violation without a baseline swap;
+      // (6) the quoted headline stays conservative: the corrected max never
+      //     exceeds the retained RK4-based K_empirical_max.
+      return (
+        oa.rowsOrderCorrected.length === C_MB_EMPIRICAL_DYSON_SWEEP.rows.length &&
+        oa.rowsOrderCorrected.every(
+          (r) => Number.isFinite(r.K_empirical) && r.K_empirical > 0,
+        ) &&
+        r50.integrator === 'dp8-order-8' &&
+        Math.abs(r50.tau_c_measured - dp8.dp8_tc) <= 1e-6 &&
+        Math.abs(dp8.rk4_tc - dp8.dp8_tc) > 10 * DP8_TOL &&
+        Math.abs(dp8.dp45_tc - dp8.dp8_tc) <= 2 * DP8_TOL &&
+        r50.R_rel < rk4.R_rel / 5 &&
+        oa.n50.containedOwnBaseline === true &&
+        oa.n50.F_mb_dp8 <= oa.n50.F_mb_upper_certified &&
+        oa.K_empirical_max_order_corrected <= C_MB_EMPIRICAL_DYSON_SWEEP.K_empirical_max
+      );
+    },
+    why:
+      'imp-2527 / imp-2510-sub-rk4-n50-order-artifact: promoting the order-8 ' +
+      'DP8 collision time to PRIMARY at N=50 must (1-2) actually produce an ' +
+      'order-corrected row set whose N=50 t_c is the DP8 value, (3) reproduce ' +
+      'the pinned artifact geometry (RK4 a lone greater-than-10x-tolerance ' +
+      'outlier vs a tight DP45-DP8 cluster), (4) deflate the N=50 residual at ' +
+      'least 5x, (5) restore certified containment at N=50 against this ' +
+      'module own tau_c_est baseline — the decisive fact showing the imp-887 ' +
+      'N=50 violation was purely the RK4 4th-order overshoot — and (6) keep ' +
+      'the quoted RK4-based headline conservative. Failure means the DP8 ' +
+      'integrator regressed, the certified envelope moved, or the artifact ' +
+      'geometry changed — any of which reopens the sub-gap.',
+  },
   {
     id: 'imp860-rows-nonempty',
     holds: () => C_MB_EMPIRICAL_DYSON_SWEEP.rows.length >= 3,
@@ -1126,5 +1494,66 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS = [
       'here would invalidate the shared proof-chain story, whereas the ' +
       'small-N discrepancy at N in {50, 100} is quarantined as an open ' +
       'sub-gap pending investigation.',
+  },
+  {
+    id: 'imp2528-map-vs-flow-reclassified',
+    holds: () => {
+      const mv = C_MB_EMPIRICAL_DYSON_SWEEP.mapVsFlowSemantics;
+      if (!mv || !mv.quantification) return false;
+      const q = mv.quantification;
+      // (1) Reclassification shipped with all three N=100 inputs present
+      //     (interval-map bracket, fine-dt Float64 RK4, DP8 flow reference)
+      //     and the producer caveat mirrored on C_MB_INTERVAL_CERTIFIED.
+      // (2) The original finding still reproduces (DP8 flow ref strictly
+      //     below map t_c_lo) — if it ever stops reproducing, the downgrade
+      //     premise is gone and this closure must be revisited, so we FAIL
+      //     rather than silently keep the weaker semantics.
+      // (3) The surviving one-sided claim t_c_flow <= t_c_hi holds.
+      // (4) First-order Richardson dt->0 extrapolation of the RK4 map lands
+      //     on the DP8 flow reference within 3*dt_fine — truncation alone
+      //     explains the deficit (re-derived from in-file values each build).
+      // (5) Effective order of the collision-time error stays <= 2 — the
+      //     deficit is order-degraded truncation, not roundoff; this is the
+      //     fact that makes the naive path-(b) C*dt^4 term unsound.
+      // (6) Bookkeeping: predecessor in closedSubGaps, successor in
+      //     openSubGaps.
+      const closed = C_MB_EMPIRICAL_DYSON_SWEEP.closedSubGaps.some(
+        (g) =>
+          g.id === 'imp-2511-sub-interval-bracket-map-vs-flow' &&
+          g.closedBy === 'imp-2528',
+      );
+      const successor = C_MB_EMPIRICAL_DYSON_SWEEP.openSubGaps.some(
+        (g) => g.id === 'imp-2528-sub-certified-flow-enclosure',
+      );
+      const producerCaveat =
+        typeof C_MB_INTERVAL_CERTIFIED.bracketSemanticsImp2528 === 'string' &&
+        C_MB_INTERVAL_CERTIFIED.bracketSemanticsImp2528.includes('discrete-map');
+      return (
+        mv.certifiedSemantics === 'discrete-map-certified' &&
+        mv.status === 'reclassified-and-quantified' &&
+        q.flowBelowMapBracket === true &&
+        q.oneSidedFlowBoundHolds === true &&
+        q.richardsonConsistentWithDp8 === true &&
+        q.effectiveOrder !== null &&
+        q.effectiveOrder <= 2 &&
+        producerCaveat &&
+        closed &&
+        successor
+      );
+    },
+    why:
+      'imp-2528 / imp-2511-sub-interval-bracket-map-vs-flow: the imp-362 ' +
+      'interval bracket must be quoted as DISCRETE-MAP-certified (path c of ' +
+      'the sub-gap finding), with the producer record carrying the matching ' +
+      'caveat, and the reclassification must stay mechanistically justified ' +
+      'at the N=100 witness point: the DP8 flow reference below the map ' +
+      'bracket (the motivating finding), the one-sided empirical bound ' +
+      't_c_flow <= t_c_hi, the Richardson dt->0 map extrapolation agreeing ' +
+      'with DP8 within 3*dt_fine, and effective order <= 2. Failure modes ' +
+      'this guards: the witness or DP8 run changing so the finding no longer ' +
+      'reproduces (closure premise gone), the Richardson check breaking (the ' +
+      'deficit would no longer be explained by truncation — a NEW integrator ' +
+      'discrepancy), or the sub-gap bookkeeping (closed predecessor + open ' +
+      'successor imp-2528-sub-certified-flow-enclosure) being lost.',
   },
 ];

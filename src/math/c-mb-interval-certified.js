@@ -226,6 +226,21 @@ export const C_MB_INTERVAL_CERTIFIED = {
     'K_paper_cert(N) = K_raw_cert(N) / rho_N converts to the paper-standard C_mb ' +
     'normalization (dividing by either the exact rho_N or the analytic floor 0.12751).',
 
+  bracketSemanticsImp2528:
+    'SEMANTICS DOWNGRADE (imp-2528, closing ' +
+    'imp-2511-sub-interval-bracket-map-vs-flow): the imp-362 interval ' +
+    '[t_c_lo, t_c_hi] consumed here is discrete-map-certified ONLY — a ' +
+    'rigorous one-ULP roundoff enclosure of the FIXED-dt RK4-map collision ' +
+    'time, not of the true Dyson-flow collision time (outward rounding ' +
+    'bounds roundoff, not RK4 truncation; at N=100 the order-robust DP8 ' +
+    'flow time 0.0705 sits below t_c_lo 0.075). Every certified quantity ' +
+    'derived below (F_mb_upper, K_raw_cert, K_paper_cert) inherits the same ' +
+    'map-level semantics; as TRUE-FLOW statements they are empirically ' +
+    'supported via the one-sided overshoot direction t_c_flow <= t_c_hi ' +
+    '(imp-2510) but not interval-certified. See mapVsFlowSemantics on ' +
+    'C_MB_EMPIRICAL_DYSON_SWEEP (src/data/c-mb-empirical-dyson-sweep.js) ' +
+    'and the open successor sub-gap imp-2528-sub-certified-flow-enclosure.',
+
   requestedRange:    [100, 200, 500, 1000, 2000, 5000, 10000],
   certifiedRange:    CLOSED_ROWS.map((r) => r.N),
   notCertifiedRange: CERTIFIED_ROWS

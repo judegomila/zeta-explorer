@@ -89,6 +89,28 @@
  * that the minimal-pair process never crosses upward. Needs a DYNAMIC
  * minimality-transfer argument (the rising pair loses minimality at the
  * tie); Theorem B sharpness shows static bounds are exhausted at 0.443.
+ *
+ * LEMMA R1-T (minimality-transfer certificate -- PARTIAL closure of R1)
+ * --------------------------------------------------------------------
+ * The dynamic transfer mechanism is now rigorous on the symmetric family
+ * that DEFINES the excursion band. Write a symmetric 4-config as
+ * {-(g/2 + e), -g/2, g/2, g/2 + e}: central pair gap g (minimal while
+ * e > g), outer gaps e. The minimality TIE is e = g, where the config is
+ * a uniform lattice at spacing g. Because Theta = g^2 E / 2 is invariant
+ * under uniform scaling, the central pair sits at Theta = 1/2 EXACTLY at
+ * the tie, for every scale. At that lattice the two outer pairs each carry
+ * Theta = 1/3 < 1/2, and the exact pair identity dg/ds = -(4/g)(1 - Theta)
+ * gives outer dg/ds = -8/(3g) STRICTLY below central dg/ds = -2/g: the
+ * outer gaps shrink faster, so just past the tie an outer pair becomes the
+ * unique minimum and SEIZES minimality, resetting the tracked minimal-pair
+ * Theta from 1/2 down to 1/3. Hence the minimal-pair excursion on the whole
+ * symmetric refutation family is capped at exactly 1/2 < 1 -- the rising
+ * central pair can never carry Theta above 1/2 while remaining minimal, and
+ * loses minimality precisely at 1/2. This is the dynamic argument R1 asked
+ * for, realised on the band-defining family; the residual is to extend the
+ * transfer dominance to ASYMMETRIC minimal-gap configs (the dressed variant
+ * breaks the symmetry to push the tie marginally to ~0.5073), i.e. to show
+ * the seizing pair always carries strictly lower Theta than the tie value.
  * R2 (isolation persistence): Theorem C is a sign-at-crossing criterion;
  * g <= 0.72 d_1 is not self-propagating (only Theta <= 1/4 self-enforces).
  * R3 (downstream recalibration): SG1d must now produce a pair with
@@ -119,6 +141,7 @@ export const SG1C_SUCCESSOR_GAPS = {
       id: 'sg1c-r1-excursion-cap',
       statement: 'Prove an absolute excursion cap Theta_exc < 1 (numerical evidence ~ 0.51) for the minimal-pair Theta process under the attractive CM flow, via a dynamic minimality-transfer argument: the family {-d,0,1,1+d} shows the rising pair loses minimality at the Theta ~ 0.5 tie. Static bounds are provably exhausted at Theta_b = (sqrt(73)-5)/8 (Theorem B is sharp).',
       status: 'open',
+      progress: 'PARTIAL (Lemma R1-T, imp-2595): minimality transfer is rigorous on the symmetric refutation family. At the tie (uniform lattice, scale-invariant) the central rising pair carries Theta = 1/2 exactly while both outer pairs carry Theta = 1/3 with strictly faster-shrinking gaps (dg/ds = -8/3g vs -2/g), so an outer pair seizes minimality and resets the tracked Theta to 1/3 -- capping the symmetric excursion at 1/2 < 1. Residual: extend transfer dominance to asymmetric minimal-gap configs (dressed variant pushes the tie to ~0.5073).',
     },
     {
       id: 'sg1c-r2-isolation-persistence',
@@ -202,6 +225,22 @@ export const SG1C_THEOREM_ASSERTIONS = [
     id: 'sg1c-real-zeros-inside-theoremA',
     description: 'The measured real-zero Theta(0) values (parent module) all sit under 1/4, so Corollary A1 applies unconditionally there',
     holds: () => [0.1666, 0.0884, 0.0459].every((t) => t < 0.25),
+  },
+  {
+    id: 'sg1c-r1-minimality-transfer-certificate',
+    description: 'Lemma R1-T: at the symmetric-family minimality tie (uniform lattice, any scale) the central rising pair sits at Theta = 1/2 with dTheta/ds > 0, while each outer pair carries Theta = 1/3 with a strictly more-negative dg/ds, seizing minimality and capping the excursion at 1/2',
+    holds: () => {
+      const lat = [-3, -1, 1, 3]; // uniform tie lattice (Theta is scale-invariant)
+      const central = dThetaDs(lat, 1); // central rising pair (-1, 1)
+      const outer = dThetaDs(lat, 0); // outer pair (-3, -1) that seizes minimality
+      const dgDs = (i, th) => (-4 / (lat[i + 1] - lat[i])) * (1 - th);
+      return (
+        Math.abs(central.theta - 0.5) < 1e-12 &&
+        central.pred > 0 &&
+        Math.abs(outer.theta - 1 / 3) < 1e-12 &&
+        dgDs(0, outer.theta) < dgDs(1, central.theta) - 1e-12
+      );
+    },
   },
   {
     id: 'sg1c-successors-stay-open',

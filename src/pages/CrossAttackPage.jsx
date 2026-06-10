@@ -115,6 +115,15 @@ export default function CrossAttackPage() {
             { to: '/gap-closing', label: 'Gap Closing', color: '#f59e0b' },
             { to: '/proof-checker', label: 'Proof Checker', color: '#3b82f6' },
             { to: '/rigor', label: 'Rigor Analysis', color: '#10b981' },
+            { to: '/gue-comparison', label: 'GUE Comparison', color: '#a855f7' },
+            { to: '/pair-correlation', label: 'Pair Correlation', color: '#06b6d4' },
+            { to: '/berry-keating-xp', label: 'Berry-Keating xp', color: '#f97316' },
+            { to: '/connes-adelic', label: 'Connes Adelic', color: '#84cc16' },
+            { to: '/voronin-universality', label: 'Voronin Universality', color: '#ec4899' },
+            { to: '/riemann-siegel-z', label: 'Riemann-Siegel Z', color: '#22d3ee' },
+            { to: '/edge-rigidity', label: 'Edge Rigidity', color: '#eab308' },
+            { to: '/esy-rigidity-empirical', label: 'ESY Rigidity', color: '#f59e0b' },
+            { to: '/lmfdb-cross-reference', label: 'LMFDB Cross-Reference', color: '#8b5cf6' },
           ].map(({ to, label, color }) => (
             <Link
               key={to}

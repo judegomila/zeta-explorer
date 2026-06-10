@@ -13,15 +13,6 @@ export const weakEntryPoints = {
     { route: '/index', file: 'ProjectIndexPage.jsx' },
     { route: '/research-journal', file: 'ResearchJournalPage.jsx' },
     { route: '/simulator', file: 'SimulatorPage.jsx' },
-    { route: '/gue-comparison', file: 'GueComparisonPage.jsx' },
-    { route: '/voronin-universality', file: 'VoroninUniversalityPage.jsx' },
-    { route: '/pair-correlation', file: 'PairCorrelationPage.jsx' },
-    { route: '/riemann-siegel-z', file: 'RiemannSiegelZPage.jsx' },
-    { route: '/berry-keating-xp', file: 'BerryKeatingXpPage.jsx' },
-    { route: '/connes-adelic', file: 'ConnesAdelicPage.jsx' },
-    { route: '/esy-rigidity-empirical', file: 'EsyRigidityEmpiricalPage.jsx' },
-    { route: '/lmfdb-cross-reference', file: 'LmfdbCrossReferencePage.jsx' },
-    { route: '/edge-rigidity', file: 'EdgeRigidityPage.jsx' },
     { route: '/papers-download', file: 'PapersDownloadPage.jsx' },
     { route: '/paper-audit-dashboard', file: 'PaperAuditDashboardPage.jsx' },
     { route: '/viz-hyperbolic-prime-spiral', file: 'VizHyperbolicPrimeSpiralPage.jsx' },
@@ -44,6 +35,19 @@ export const weakEntryPoints = {
     { route: '/hidden-square-program', file: 'HiddenSquareProgramPage.jsx' },
     { route: '/cross-attack', file: 'CrossAttackPage.jsx' },
     { route: '/rigorous-numerics-stages', file: 'RigorousNumericsStagesPage.jsx' },
+    // imp-1269 sub-(a) / imp-2587: now reachable via CrossAttackPage "Related Pages"
+    // (these were mis-labeled "genuinely routeless" by imp-2457 — verified all 9 are
+    //  registered <Route>s in App.jsx:552-560 with live page files, so they are real
+    //  zero-incoming orphans, now cross-linked rather than deleted).
+    { route: '/gue-comparison', file: 'GueComparisonPage.jsx' },
+    { route: '/voronin-universality', file: 'VoroninUniversalityPage.jsx' },
+    { route: '/pair-correlation', file: 'PairCorrelationPage.jsx' },
+    { route: '/riemann-siegel-z', file: 'RiemannSiegelZPage.jsx' },
+    { route: '/berry-keating-xp', file: 'BerryKeatingXpPage.jsx' },
+    { route: '/connes-adelic', file: 'ConnesAdelicPage.jsx' },
+    { route: '/esy-rigidity-empirical', file: 'EsyRigidityEmpiricalPage.jsx' },
+    { route: '/lmfdb-cross-reference', file: 'LmfdbCrossReferencePage.jsx' },
+    { route: '/edge-rigidity', file: 'EdgeRigidityPage.jsx' },
   ],
 };
 

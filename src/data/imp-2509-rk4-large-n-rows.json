@@ -1,0 +1,30 @@
+{
+  "id": "imp-2509",
+  "closesSubGap": "imp-860-sub-extend-to-N10k",
+  "generatedBy": "scripts/compute-imp-2509-rk4-large-n.mjs",
+  "generatedAtUtc": "2026-06-09T22:19:34.733Z",
+  "smoke": true,
+  "zeroSource": "src/data/zeros-to-1e6.js (Odlyzko, imp-359)",
+  "integrator": "RK4 + Kahan-Neumaier backward Dyson (verbatim replica of src/math/dyson-ode-integrator.js rk4StepKahan, imp-306/imp-363); collision gate raw spacing < 1e-4; t_c = step * dt at first sub-gate step",
+  "dtPolicy": "dt = min(5e-4, tau_c_est(N) / 300) — the imp-859 fixed dt = 5e-4 exceeds tau_c_est(N) near N = 10^4, so a per-N dt is physically required; each N re-run at dt/2 as a step-halving self-consistency check",
+  "rows": [
+    {
+      "N": 500,
+      "dt": 0.00004015648,
+      "maxSteps": 1200,
+      "tc_measured": 0.0123682,
+      "steps_to_collision": 308,
+      "pair_index": 452,
+      "tc_dt_half": 0.01232804,
+      "halving_agrees_within_2dt": true,
+      "tau_c_est": 0.01204694,
+      "H_unf": 0.2363254,
+      "H_raw": 0.3104441,
+      "rho_argmin": 0.7612493,
+      "jStar_1indexed": 453,
+      "gamma_jStar": 750.656,
+      "sweep_sample_consistent": true,
+      "wall_ms": 903
+    }
+  ]
+}

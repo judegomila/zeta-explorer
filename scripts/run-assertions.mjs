@@ -731,6 +731,13 @@ const DATA_MODULES = [
   // Baez-Duarte Ramanujan-Nyman criterion (2003/2005). Adding all three would
   // bring the catalog to 15 (the imp-1119 spec upper bound). 8 tripwires.
   '/src/data/imp-1259-rh-equivalents-completeness-audit.js',
+  // imp-1269 sub-(e): closureNote well-formedness mini-audit. The "wave-15"
+  // label is stale (no such grouping exists), so scoped to the real invariant:
+  // every completed ticket bearing a closureNote carries a non-empty string.
+  // Finding: malformedClosureNoteCount === 0 across all 1454 completions —
+  // clean. Tripwires assert the snapshot's internal consistency (drift-free).
+  // 4 tripwires.
+  '/src/data/imp-1269-wave15-closurenote-audit.js',
   // imp-1305: CRITICAL classification — can Goldston-Yildirim 2003 (Acta Math
   // 192 (2004) 95-148, "Higher correlations of divisor sums related to primes
   // I: Triple correlations") conditional-on-GRH triple-correlation be

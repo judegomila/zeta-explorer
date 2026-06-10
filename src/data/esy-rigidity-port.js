@@ -11,9 +11,12 @@
  *   imp407-witness-consistent-with-measured,
  *   imp407-esy-opt-strictly-better-than-angle-a,
  *   imp407-consumes-imp348-angle-b-open,
- *   imp407-open-sub-gaps-named
+ *   imp407-open-sub-gaps-named,
+ *   imp2512-rh-conditional-subselberg-rung
  * Tickets: created=imp-407, modified=imp-508 (O1 partial close),
- *   investigated=imp-650 (upgrade investigation: cannot-upgrade)
+ *   investigated=imp-650 (upgrade investigation: cannot-upgrade),
+ *   modified=imp-2512 (RH-conditional sub-Selberg rung on the
+ *   esy-rigidity-port-sub-rate sub-gap; gap remains open unconditionally)
  *
  * imp-407: Port Erdos-Schlein-Yau local semicircle rigidity to Dyson beta=2
  *          on Riemann zeros
@@ -252,6 +255,55 @@ function tauCUpperESY(N, cPoly) {
   return 1 / (2 * gap);
 }
 
+// ── RH-conditional sub-Selberg rung (imp-2512) ──────────────────────────────
+//
+// Under RH, Littlewood (1924) proved S(T) = O(log T / log log T), and
+// Carneiro-Chandee-Milinovich 2013 ("Bounding S(t) and S_1(t) on the
+// Riemann hypothesis", Math. Ann. 356) made the constant explicit:
+//   |S(T)| <= (1/4 + o(1)) * log T / log log T   (under RH).
+// Feeding this into the same Erdos-Turan / Koksma-Hlawka chain that produces
+// the unconditional Selberg-level discrepancy D_N^* <= C * log gamma_N / N
+// yields the RH-CONDITIONAL discrepancy
+//   D_N^* <= C * log gamma_N / (log log gamma_N * N),
+// i.e. a genuine sub-Selberg saving of a full factor log log gamma_N. The
+// effective exponent c_eff(N) = 1 - log(log log gamma_N) / log(log gamma_N)
+// is strictly below 1 at every ladder row (gamma_N > e^e for all N >= 2),
+// although c_eff -> 1 as N -> infinity: this is a loglog saving, NOT a
+// power saving, and so does not reach the GUE-matched C_poly = 0 scenario.
+//
+// CIRCULARITY CAVEAT (honest scope): Lambda <= 0 is EQUIVALENT to RH
+// (Newman / Rodgers-Tao), so an RH-conditional rate bound is circular as
+// progress toward proving Lambda <= 0. Its value is structural: it shows the
+// sub-Selberg half of the esy-rigidity-port-sub-rate sub-gap is TRUE on the
+// RH side of the equivalence with an explicit constant, isolating the
+// unconditional sup-norm bound on S(T) as the sole remaining obstruction on
+// closure path (a). The sub-gap therefore stays OPEN.
+//
+// We conservatively keep the same prefactor C_ESY_RIG = 3.0 as the
+// unconditional Selberg chain (the true CCM prefactor is ~1/4, so the bound
+// below is weaker than what RH actually gives).
+
+function psiESYCondRH(N) {
+  const g = gammaNFromRvM(N);
+  const L = Math.log(g);
+  const LL = Math.log(L);
+  const y = microStrip(N);
+  if (!(L > 0) || !(LL > 0) || y === null) return null;
+  // Koksma-Hlawka at y_micro with the RH-conditional CCM discrepancy bound:
+  //   psi <= pi * D_N^* / y_micro = pi * C_ESY_RIG * (L / LL) / (N * y)
+  //        = (C_ESY_RIG / 2) * L^2 / (LL * N)
+  return (Math.PI * C_ESY_RIG * (L / LL)) / (N * y);
+}
+
+function tauCUpperESYCondRH(N) {
+  const supInf = supImMInfMicro(N);
+  const psi = psiESYCondRH(N);
+  if (supInf === null || psi === null) return null;
+  const gap = supInf - psi;
+  if (!(gap > 0)) return null;
+  return 1 / (2 * gap);
+}
+
 const CONDITIONAL_DERIVATION = {
   hypothesis:
     'CONDITIONAL: D_N^*(mu_N^{zeros}, mu_RvM) <= C_ESY_RIG * (log gamma_N)^{C_poly} / N',
@@ -333,15 +385,18 @@ const ESY_WITNESS_ROWS = V2_POINTS.map((pt) => {
   const psiA = angleAPsiMicro(N);      // angle (a), unconditional
   const psiOpt = psiESY(N, 0);         // ESY optimistic, C_poly = 0
   const psiCons = psiESY(N, 1);        // ESY conservative, C_poly = 1
+  const psiRH = psiESYCondRH(N);       // RH-conditional CCM loglog rung (imp-2512)
 
   const ratioA = supInf !== null && psiA !== null ? psiA / supInf : null;
   const ratioOpt = supInf !== null && psiOpt !== null ? psiOpt / supInf : null;
   const ratioCons = supInf !== null && psiCons !== null ? psiCons / supInf : null;
+  const ratioRH = supInf !== null && psiRH !== null ? psiRH / supInf : null;
 
   const tauA = supInf !== null && psiA !== null && supInf > psiA
     ? 1 / (2 * (supInf - psiA)) : null;
   const tauOpt = tauCUpperESY(N, 0);
   const tauCons = tauCUpperESY(N, 1);
+  const tauRH = tauCUpperESYCondRH(N);
 
   // Consistency check: tau_c_upper (upper bound) must be >= tc_measured (lower bound estimate)
   // If tau_c_upper < tc_measured, the scenario is contradicted by the measurement.
@@ -351,6 +406,8 @@ const ESY_WITNESS_ROWS = V2_POINTS.map((pt) => {
     ? tauCons >= tc_measured : null;
   const consistentA = tauA !== null && tc_measured > 0
     ? tauA >= tc_measured : null;
+  const consistentRH = tauRH !== null && tc_measured > 0
+    ? tauRH >= tc_measured : null;
 
   return {
     N,
@@ -371,6 +428,14 @@ const ESY_WITNESS_ROWS = V2_POINTS.map((pt) => {
     esy_cons_ratio: ratioCons,
     esy_cons_tau_upper: tauCons,
     esy_cons_consistent: consistentCons,
+    // RH-conditional sub-Selberg rung (Littlewood / CCM loglog saving, imp-2512)
+    esy_rh_psi: psiRH,
+    esy_rh_ratio: ratioRH,
+    esy_rh_tau_upper: tauRH,
+    esy_rh_consistent: consistentRH,
+    // Saving over the unconditional C_poly = 1 baseline: equals log log gamma_N
+    rhSavingFactorOverCons: psiCons !== null && psiRH !== null && psiRH > 0
+      ? psiCons / psiRH : null,
     // Improvement factor: angle (a) psi / ESY opt psi
     psiImprovementFactor: psiA !== null && psiOpt !== null && psiOpt > 0
       ? psiA / psiOpt : null,
@@ -396,6 +461,23 @@ const ALL_CONS_CONSISTENT = ESY_WITNESS_ROWS.every(
 );
 const OPT_IMPROVEMENT_POSITIVE = ESY_WITNESS_ROWS.every(
   (r) => r.psiImprovementFactor !== null && r.psiImprovementFactor > 1,
+);
+
+// imp-2512 RH-conditional rung aggregates
+const ALL_RH_RATIOS_BELOW_1 = ESY_WITNESS_ROWS.every(
+  (r) => r.esy_rh_ratio !== null && r.esy_rh_ratio < 1,
+);
+const ALL_RH_CONSISTENT = ESY_WITNESS_ROWS.every(
+  (r) => r.esy_rh_consistent === true,
+);
+// Strict sandwich psi_opt < psi_RH < psi_cons at every row: the RH rung must
+// genuinely beat the unconditional C_poly = 1 baseline (loglog saving > 1)
+// while remaining strictly weaker than the GUE-matched C_poly = 0 scenario
+// (a loglog saving is not a power saving).
+const RH_RUNG_STRICTLY_SANDWICHED = ESY_WITNESS_ROWS.every(
+  (r) =>
+    r.esy_opt_psi !== null && r.esy_rh_psi !== null && r.esy_cons_psi !== null &&
+    r.esy_opt_psi < r.esy_rh_psi && r.esy_rh_psi < r.esy_cons_psi,
 );
 
 // ── Open sub-gaps identified by this port attempt ─────────────────────────────
@@ -500,6 +582,9 @@ export const ESY_RIGIDITY_PORT = {
     allOptConsistentWithMeasured: ALL_OPT_CONSISTENT,
     allConsConsistentWithMeasured: ALL_CONS_CONSISTENT,
     optImprovesOverAngleA: OPT_IMPROVEMENT_POSITIVE,
+    allRhRatiosStrictlyBelowOne: ALL_RH_RATIOS_BELOW_1,
+    allRhConsistentWithMeasured: ALL_RH_CONSISTENT,
+    rhRungStrictlySandwiched: RH_RUNG_STRICTLY_SANDWICHED,
     interpretation:
       'allOptConsistentWithMeasured = true means: at no measured N does the ' +
       'ESY optimistic tau_c upper bound fall below the measured t_c estimate. ' +
@@ -585,7 +670,22 @@ export const ESY_RIGIDITY_PORT = {
     'derandomization) remains open and is now tracked under the canonical id ' +
     'esy-rigidity-port-sub-rate. This is a cataloguing/structural ' +
     'improvement, not a numerical re-derivation; ESY_RIGIDITY_PORT.status ' +
-    'remains "partial".',
+    'remains "partial". ' +
+    'imp-2512 (2026-06-09, api-pool, opus-4-8): honest partial ADVANCE on ' +
+    'the esy-rigidity-port-sub-rate sub-gap, not a closure. Added the ' +
+    'RH-conditional sub-Selberg rung: Littlewood 1924 plus the explicit ' +
+    'Carneiro-Chandee-Milinovich 2013 constant give, under RH, ' +
+    '|S(T)| <= (1/4 + o(1)) log T / log log T, hence D_N^* <= ' +
+    'C * log gamma_N / (log log gamma_N * N) -- a genuine loglog saving over ' +
+    'the unconditional C_poly = 1 Selberg baseline on closure path (a). ' +
+    'Carried as openSubGap.conditionalAdvance with per-row witness columns ' +
+    '(esy_rh_psi etc.) verifying the strict sandwich psi_opt < psi_RH < ' +
+    'psi_cons and measurement consistency on all ladder rows, pinned by the ' +
+    'new tripwire imp2512-rh-conditional-subselberg-rung. The sub-gap ' +
+    'REMAINS OPEN: Lambda <= 0 is equivalent to RH, so the rung is circular ' +
+    'for the Lambda goal; what it buys is isolating an unconditional ' +
+    'o(log T) sup-norm bound on S(T) -- itself a long-standing open ' +
+    'problem -- as the sole remaining obstruction on path (a).',
 
   openSubGap: {
     id: 'esy-rigidity-port-sub-rate',
@@ -625,7 +725,19 @@ export const ESY_RIGIDITY_PORT = {
       'the rigidity port, returning conclusion cannot-upgrade and pinning ' +
       'ESY_RIGIDITY_PORT.status at "partial". The angle-b open status in ' +
       'LAMBDA_BURGERS_RATE_UPGRADE is preserved by the existing ' +
-      'imp407-consumes-imp348-angle-b-open tripwire.',
+      'imp407-consumes-imp348-angle-b-open tripwire. imp-2512 (api-pool, ' +
+      'opus-4-8) added the RH-CONDITIONAL sub-Selberg rung: under RH, ' +
+      'Littlewood 1924 gives S(T) = O(log T / log log T) and ' +
+      'Carneiro-Chandee-Milinovich 2013 makes the constant explicit ' +
+      '(|S(T)| <= (1/4 + o(1)) log T / log log T), so closure path (a) ' +
+      'sub-Selberg discrepancy HOLDS conditionally on RH with a full ' +
+      'log log gamma_N saving over the C_poly = 1 baseline; the per-row ' +
+      'witness (esy_rh_psi columns) verifies the strict sandwich ' +
+      'psi_opt < psi_RH < psi_cons and measurement consistency on every ' +
+      'ladder row. Because Lambda <= 0 is equivalent to RH, this rung is ' +
+      'circular as progress toward the Lambda goal and the sub-gap stays ' +
+      'open; its value is isolating the unconditional sup-norm bound on ' +
+      'S(T) as the sole remaining obstruction on path (a).',
     statusOfRemaining:
       'open -- pushing C_poly strictly below 1 (sharper rate, optimistic ' +
       'GUE-matched scenario) is research-grade and currently has no ' +
@@ -646,7 +758,12 @@ export const ESY_RIGIDITY_PORT = {
       'esy-rigidity-port-sub-rate consolidates that residual under a stable ' +
       'cross-file handle. No code change in src/math/ would close this ' +
       'sub-gap: it is a mathematical-research gap, not an implementation ' +
-      'gap.',
+      'gap. After imp-2512 the remaining gap is sharpened: path (a) is now ' +
+      'known to hold CONDITIONALLY on RH (Littlewood / CCM loglog rung), so ' +
+      'what remains open is precisely an UNCONDITIONAL sup-norm bound on ' +
+      'S(T) that is o(log T) -- which is itself a long-standing open problem ' +
+      'in analytic number theory (no unconditional improvement over Selberg-' +
+      'von Mangoldt O(log T) is known).',
     dependsOn: [
       'esy-port-O1-unconditional-rigidity -- existing OPEN_SUB_GAPS entry; ' +
         'partial-closed at C_poly = 1 by imp-508 (KH + Cauchy interlacing); ' +
@@ -680,6 +797,55 @@ export const ESY_RIGIDITY_PORT = {
         'directly and would let the existing OPEN_SUB_GAPS narrative drop ' +
         'the forward / backward asymmetry caveat.',
     ],
+    conditionalAdvance: {
+      id: 'esy-rigidity-port-sub-rate-rh-conditional',
+      ticket: 'imp-2512',
+      statement:
+        'Under RH, closure path (a) of esy-rigidity-port-sub-rate holds with ' +
+        'a full log log gamma_N saving: Littlewood 1924 proved ' +
+        'S(T) = O(log T / log log T) on RH, and Carneiro-Chandee-Milinovich ' +
+        '2013 (Math. Ann. 356) made the constant explicit, ' +
+        '|S(T)| <= (1/4 + o(1)) log T / log log T. Through the same ' +
+        'Erdos-Turan / Koksma-Hlawka chain as the unconditional Selberg ' +
+        'baseline this gives D_N^* <= C * log gamma_N / (log log gamma_N * N) ' +
+        'and hence psi_N(y_micro) <= (C_ESY_RIG / 2) * (log gamma_N)^2 / ' +
+        '(log log gamma_N * N) -- effective exponent c_eff(N) = 1 - ' +
+        'log(log log gamma_N) / log(log gamma_N), strictly below 1 at every ' +
+        'ladder row but tending to 1: a loglog saving, not a power saving, ' +
+        'so the GUE-matched C_poly = 0 scenario is NOT reached.',
+      circularityCaveat:
+        'Lambda <= 0 is EQUIVALENT to RH (Newman conjecture direction plus ' +
+        'Rodgers-Tao), so an RH-conditional rate bound is circular as ' +
+        'progress toward proving Lambda <= 0 and does NOT close the sub-gap. ' +
+        'Its structural value: the sub-Selberg half of the sub-gap is true ' +
+        'on the RH side of the equivalence with an explicit constant, ' +
+        'isolating an unconditional o(log T) sup-norm bound on S(T) as the ' +
+        'sole remaining obstruction on closure path (a). No unconditional ' +
+        'improvement over the Selberg-von Mangoldt O(log T) sup-norm bound ' +
+        'is currently known.',
+      references: [
+        'Littlewood 1924, "On the zeros of the Riemann zeta-function," ' +
+          'Proc. Camb. Phil. Soc. 22: S(T) = O(log T / log log T) under RH',
+        'Carneiro-Chandee-Milinovich 2013, "Bounding S(t) and S_1(t) on ' +
+          'the Riemann hypothesis," Math. Ann. 356(3-4):939-968: ' +
+          '|S(T)| <= (1/4 + o(1)) log T / log log T under RH',
+        'Goldston-Gonek 2007, "A note on S(t) and the zeros of the Riemann ' +
+          'zeta-function," Bull. LMS 39: |S(T)| <= (1/2 + o(1)) log T / ' +
+          'log log T under RH (superseded by CCM 2013)',
+      ],
+      witnessSummary: {
+        allRhRatiosStrictlyBelowOne: ALL_RH_RATIOS_BELOW_1,
+        allRhConsistentWithMeasured: ALL_RH_CONSISTENT,
+        rhRungStrictlySandwiched: RH_RUNG_STRICTLY_SANDWICHED,
+        note:
+          'Per-row columns esy_rh_psi / esy_rh_ratio / esy_rh_tau_upper / ' +
+          'esy_rh_consistent / rhSavingFactorOverCons live in ' +
+          'numericalWitness.rows. rhSavingFactorOverCons equals ' +
+          'log log gamma_N exactly and exceeds 1 at every measured row ' +
+          '(smallest ladder N = 50 has gamma_N ~ 143, loglog ~ 1.6).',
+      },
+      subGapRemainsOpen: true,
+    },
   },
 };
 
@@ -784,5 +950,34 @@ export const ESY_RIGIDITY_PORT_ASSERTIONS = [
       'with a coordinated update of this assertion and of the ' +
       'imp407-consumes-imp348-angle-b-open tripwire, preventing silent ' +
       'overclaim.',
+  },
+  {
+    id: 'imp2512-rh-conditional-subselberg-rung',
+    holds: () =>
+      ESY_RIGIDITY_PORT.openSubGap?.conditionalAdvance?.id ===
+        'esy-rigidity-port-sub-rate-rh-conditional' &&
+      ESY_RIGIDITY_PORT.openSubGap.conditionalAdvance.subGapRemainsOpen === true &&
+      ESY_RIGIDITY_PORT.openSubGap.statusOfRemaining.startsWith('open') &&
+      ESY_WITNESS_ROWS.length > 0 &&
+      ALL_RH_RATIOS_BELOW_1 &&
+      ALL_RH_CONSISTENT &&
+      RH_RUNG_STRICTLY_SANDWICHED,
+    why:
+      'imp-2512 honest partial advance: the RH-conditional sub-Selberg rung ' +
+      '(Littlewood 1924 / Carneiro-Chandee-Milinovich 2013: under RH, ' +
+      '|S(T)| <= (1/4 + o(1)) log T / log log T, giving D_N^* <= C * ' +
+      'log gamma_N / (log log gamma_N * N)) must (1) keep its canonical id ' +
+      'and subGapRemainsOpen = true -- the rung is RH-conditional and ' +
+      'Lambda <= 0 is equivalent to RH, so flipping the sub-gap closed on ' +
+      'this basis would be a circular overclaim; (2) keep statusOfRemaining ' +
+      'open for the same reason; (3) numerically realize the strict sandwich ' +
+      'psi_opt < psi_RH < psi_cons at every ladder row -- the rung must ' +
+      'genuinely beat the unconditional C_poly = 1 baseline (the loglog ' +
+      'saving exceeds 1 since gamma_N > e^e at all measured N) while ' +
+      'staying strictly weaker than the GUE-matched C_poly = 0 scenario ' +
+      '(a loglog saving is not a power saving); and (4) stay consistent ' +
+      'with the measured t_c ladder. A failure of (3) or (4) signals an ' +
+      'implementation error in psiESYCondRH or a ladder regression; a ' +
+      'failure of (1) or (2) signals a silent overclaim.',
   },
 ];

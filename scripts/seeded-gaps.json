@@ -70,5 +70,53 @@
   "src/data/imp-857-resonance-tuning-sweep.js#imp-899": {
     "impId": "imp-2532",
     "seededAt": "2026-06-10T02:00:07.573Z"
+  },
+  "src/data/c-mb-empirical-dyson-sweep.js#imp-2528-sub-certified-flow-enclosure": {
+    "impId": "imp-2533",
+    "seededAt": "2026-06-10T02:13:36.282Z"
+  },
+  "src/data/imp-888-info-theory-verification.js#imp-888-sub-tighter-bound": {
+    "impId": "imp-2534",
+    "seededAt": "2026-06-10T02:13:36.483Z"
+  },
+  "src/data/imp-896-retuning-calibration.js#imp-917": {
+    "impId": "imp-2535",
+    "seededAt": "2026-06-10T02:13:36.697Z"
+  },
+  "src/data/imp-901-weil-formula-verification.js#imp-901-sub-tighter-bound": {
+    "impId": "imp-2536",
+    "seededAt": "2026-06-10T02:13:36.905Z"
+  },
+  "src/data/improvement-queue.js#imp-917-exec": {
+    "impId": "imp-2537",
+    "seededAt": "2026-06-10T02:13:37.114Z"
+  },
+  "src/data/improvement-queue.js#imp-336-sub-monotonicity-on-trajectory": {
+    "impId": "imp-2538",
+    "seededAt": "2026-06-10T02:13:37.322Z"
+  },
+  "src/data/c-mb-empirical-dyson-sweep.js#imp-2529-sub-rerun-dtrule-x10": {
+    "impId": "imp-2539",
+    "seededAt": "2026-06-10T04:29:30.414Z"
+  },
+  "src/data/improvement-queue.js#imp-888-sub-tighter-bound": {
+    "impId": "imp-2540",
+    "seededAt": "2026-06-10T04:29:30.604Z"
+  },
+  "src/data/improvement-queue.js#imp-894-sub-resonance-sweep": {
+    "impId": "imp-2541",
+    "seededAt": "2026-06-10T04:29:30.788Z"
+  },
+  "src/data/improvement-queue.js#imp-893-sub-large-N-rerun": {
+    "impId": "imp-2542",
+    "seededAt": "2026-06-10T04:29:30.979Z"
+  },
+  "src/data/improvement-queue.js#imp-901-sub-tighter-bound": {
+    "impId": "imp-2543",
+    "seededAt": "2026-06-10T04:29:31.166Z"
+  },
+  "src/data/improvement-queue.js#esy-rigidity-port-sub-rate": {
+    "impId": "imp-2544",
+    "seededAt": "2026-06-10T04:29:31.354Z"
   }
 }

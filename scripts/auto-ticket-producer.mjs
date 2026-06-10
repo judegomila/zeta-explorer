@@ -78,7 +78,10 @@ function existingState() {
 // re-evaluation and made the template bank a one-shot source). Also enforces
 // a max-per-day guard across all passes.
 const LEDGER = join(ROOT, 'scripts/seeded-gaps.json');
-const MAX_PER_DAY = 12;
+// 2026-06-10: raised 12 -> 48 (user-authorized overnight throughput). Tonight's
+// measured drain rate was ~6.5 tickets/hr sustained; 12/day capped the pool to
+// under 2 hours of work. 48/day ~= the pool's actual overnight capacity.
+const MAX_PER_DAY = 48;
 function readLedger() {
   try { return JSON.parse(readFileSync(LEDGER, 'utf8')); } catch (_) { return {}; }
 }
@@ -130,9 +133,13 @@ function harvestSubGaps(existing, ledger) {
     });
     existing.titles.add(normalize(title)); // avoid dupes within this run
   };
+  // NEVER harvest from the queue/history files themselves: ticket descriptions
+  // quote openSubGap markers verbatim, so scanning them re-mints gaps that are
+  // already ticketed or closed (2026-06-10 incident: imp-2540..2544 dupes).
+  const EXCLUDE = new Set(['improvement-queue.js', 'improvements.js']);
   for (const d of dirs) {
     let files = [];
-    try { files = readdirSync(join(ROOT, d)).filter(f => f.endsWith('.js')); } catch (_) { continue; }
+    try { files = readdirSync(join(ROOT, d)).filter(f => f.endsWith('.js') && !EXCLUDE.has(f)); } catch (_) { continue; }
     for (const f of files) {
       let txt;
       try { txt = readFileSync(join(ROOT, d, f), 'utf8'); } catch (_) { continue; }

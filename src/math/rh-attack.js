@@ -1832,7 +1832,7 @@ export function montgomeryOdlyzko(numZeros = null, numBins = 50) {
 
   // ── Number variance Σ²(L) ──
   // Σ²(L) = variance of #{zeros in interval of length L}
-  // GUE: Σ²(L) ~ (2/π²)·log(2πL) + const  for large L
+  // GUE (β=2): Σ²(L) ~ (1/π²)·(log(2πL) + γ + 1)  for large L
   // Poisson: Σ²(L) = L
   const numberVariance = [];
   const lvValues = [0.5, 1, 2, 3, 5, 8, 10, 15, 20];
@@ -1850,7 +1850,10 @@ export function montgomeryOdlyzko(numZeros = null, numBins = 50) {
     if (counts.length < 2) continue;
     const mean = counts.reduce((a, b) => a + b, 0) / counts.length;
     const variance = counts.reduce((a, b) => a + (b - mean) ** 2, 0) / (counts.length - 1);
-    const gueVariance = (2 / (Math.PI * Math.PI)) * Math.log(2 * Math.PI * L) + 0.44;
+    // GUE (β=2) large-L number variance (Montgomery 1973; Mehta, Random Matrices).
+    // The 2/π² coefficient is the GOE (β=1) value; Riemann zeros follow GUE, so the
+    // correct leading coefficient is 1/π², with constant (γ+1)/π² [γ = Euler-Mascheroni].
+    const gueVariance = (1 / (Math.PI * Math.PI)) * (Math.log(2 * Math.PI * L) + 0.5772156649 + 1);
     numberVariance.push({
       L, variance, gueExpected: gueVariance, poissonExpected: L,
       gueRatio: variance / Math.max(gueVariance, 0.01),

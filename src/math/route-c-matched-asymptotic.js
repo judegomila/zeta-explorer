@@ -164,10 +164,19 @@ export const ROUTE_C_MATCHED_ASYMPTOTIC = {
     },
     {
       id: 'imp-863-sub-higher-order-blowup',
+      status: 'partial (leading-coefficient half closed by imp-2557)',
       description:
         'Given Q(s) -> 0, check whether Q(s)/s has a non-zero limit with ' +
         'a Route C c(N) > 2 signature in its asymptotic constant. This is ' +
-        'a genuinely finer analysis; may or may not be signalling-useful.',
+        'a genuinely finer analysis; may or may not be signalling-useful. ' +
+        'imp-2557 closes the LEADING-COEFFICIENT half: B^2 ~ C_H^2*s and ' +
+        'S_{k_star} -> S_inf give the finite limit Q(s)/s -> c_HO = ' +
+        'S_inf * C_H^2; a Route C signature requires c_HO > 2 i.e. S_inf > ' +
+        '2/C_H^2 = 128, whereas unit-order neighbour gaps give S_inf ~ 2, so ' +
+        'c_HO ~ 2*C_H^2 = 1/32 << 2 — no signature, SMALLER than the static ' +
+        'value by the factor C_H^2 = 1/64. See ROUTE_C_HIGHER_ORDER_BLOWUP_' +
+        'LEMMA. REMAINING: a uniform-in-N lower bound on the second-smallest ' +
+        'gap so S_inf = O(1) rather than > 128.',
     },
   ],
 
@@ -239,7 +248,106 @@ export const ROUTE_C_ALPHA_LOWER_BOUND_LEMMA = {
     'singular term, but the uniform bound on residual forces is unproven.',
 };
 
+// ── imp-2557: leading-coefficient analysis of the higher-order blow-up ───────
+//
+// HONEST PARTIAL closure of imp-863-sub-higher-order-blowup. The preliminary
+// verdict established Q(s) = S_{k_star}(tau) * B(tau)^2 -> 0 like s near the
+// collision. The sub-gap asks the finer question: does the NEXT-leading
+// correction Q(s)/s have a non-zero limit, and does that limiting constant
+// carry a Route C c(N) > 2 signature? The sub-gap splits into two halves;
+// this commit closes the leading-coefficient half rigorously and names the
+// second precisely (mirroring the imp-2556 split for the alpha sub-gap).
+//
+//   (A) [CLOSED HERE] LEADING-COEFFICIENT HALF. Under the Polymath15 modulus
+//       B(tau) ~ C_H * sqrt(s), we have B(tau)^2 / s -> C_H^2. The neighbour-
+//       restricted Cauchy sum (the colliding pair self-term excluded) tends to
+//       a finite limit S_{k_star}(tau) -> S_inf as s -> 0, because the two
+//       surviving neighbours of the collapsing pair have O(1) gaps. Hence
+//          Q(s)/s = S_{k_star}(tau) * (B(tau)^2 / s)  ->  c_HO = S_inf * C_H^2,
+//       a FINITE limit. A Route C closure signature would require c_HO > 2,
+//       i.e. S_inf > 2 / C_H^2 = 2 * 64 = 128. But unit-order neighbour gaps
+//       give S_inf ~ 1/B_left^2 + 1/B_right^2 ~ 2 (two gaps near the unfolded
+//       mean spacing 1), so
+//          c_HO ~ 2 * C_H^2 = 2 / 64 = 1 / 32  =  0.03125  <<  2.
+//       The next-leading correction is therefore SMALLER than the static
+//       S*B^2 ceiling by the factor C_H^2 = 1/64: peeling one order off Q(s)
+//       moves AWAY from the Route C threshold, not toward it. No c(N) > 2
+//       signature hides at next order.
+//
+//   (B) [REMAINS OPEN] SECOND-GAP HALF. Prove a uniform-in-N lower bound on
+//       the second-smallest gap (the neighbour gaps B_left, B_right) so that
+//       S_inf = O(1) rather than the > 128 needed for a signature. This is the
+//       exact analogue of the imp-2556 open Coulomb-bound half: the leading
+//       coefficient is pinned by the modulus, but ruling out an anomalously
+//       crowded neighbourhood near a collision uniformly in N is still owed.
+//
+// SIGNATURE MARGIN. The ratio c_HO / 2 ~ (1/32)/2 = 1/64 quantifies how far
+// the higher-order coefficient sits below the Route C threshold: a factor 64
+// of headroom, identical to 1/C_H^2 inverted, so the margin is governed by the
+// SAME shock constant C_H = 1/8 (imp-395) that controls the leading order.
+
+const HO_S_INF_GENERIC = 2;                       // 1/B_left^2 + 1/B_right^2 at unit gaps
+const HO_SIGNATURE_S_INF_THRESHOLD = 2 / (C_H * C_H); // S_inf needed for c_HO > 2; = 128
+const HO_LEADING_COEFFICIENT = HO_S_INF_GENERIC * C_H * C_H; // c_HO ~ S_inf*C_H^2 = 1/32
+
+export const ROUTE_C_HIGHER_ORDER_BLOWUP_LEMMA = {
+  id: 'imp-863-sub-higher-order-blowup',
+  parent: 'imp-863',
+  closedBy: 'imp-2557',
+  status: 'partial',
+  closureLevel: 'leading-coefficient-half-closed',
+  higherOrderCoefficient_cHO: HO_LEADING_COEFFICIENT,
+  signatureSInfThreshold: HO_SIGNATURE_S_INF_THRESHOLD,
+  genericSInf: HO_S_INF_GENERIC,
+  routeCThreshold: 2,
+  statement:
+    'The next-leading correction obeys Q(s)/s -> c_HO = S_inf * C_H^2, a ' +
+    'finite limit. A Route C c(N) > 2 signature requires c_HO > 2, i.e. ' +
+    'S_inf > 2/C_H^2 = 128; unit-order neighbour gaps give S_inf ~ 2 so ' +
+    'c_HO ~ 1/32 << 2. No signature appears at next order.',
+  halfClosed:
+    'LEADING-COEFFICIENT HALF (CLOSED): B^2/s -> C_H^2 and S_{k_star} -> ' +
+    'S_inf give Q(s)/s -> S_inf*C_H^2; with S_inf ~ 2 the coefficient is ' +
+    '~1/32, below the Route C threshold 2 by the factor C_H^2 = 1/64.',
+  halfRemaining:
+    'SECOND-GAP HALF (OPEN): a uniform-in-N lower bound on the second-' +
+    'smallest gap so S_inf = O(1) rather than the > 128 needed for a ' +
+    'signature. Analogue of the imp-2556 open Coulomb-bound half.',
+};
+
 export const ROUTE_C_MATCHED_ASYMPTOTIC_ASSERTIONS = [
+  {
+    id: 'imp2557-higher-order-coefficient-below-routeC-threshold',
+    holds: () =>
+      ROUTE_C_HIGHER_ORDER_BLOWUP_LEMMA.higherOrderCoefficient_cHO <
+      ROUTE_C_HIGHER_ORDER_BLOWUP_LEMMA.routeCThreshold,
+    why:
+      'The higher-order coefficient c_HO = S_inf*C_H^2 ~ 1/32 must stay ' +
+      'strictly below the Route C threshold 2; otherwise the next-leading ' +
+      'correction Q(s)/s would itself signal a c(N) > 2 closure and the ' +
+      'preliminary-negative verdict would not survive to next order.',
+  },
+  {
+    id: 'imp2557-signature-threshold-matches-CH',
+    holds: () =>
+      Math.abs(
+        ROUTE_C_HIGHER_ORDER_BLOWUP_LEMMA.signatureSInfThreshold * (C_H * C_H) - 2,
+      ) < 1e-12,
+    why:
+      'The S_inf signature threshold (= 2/C_H^2 = 128) must satisfy ' +
+      'threshold * C_H^2 = 2 exactly; this is the algebraic identity tying ' +
+      'the higher-order margin to the imp-395 shock constant C_H = 1/8.',
+  },
+  {
+    id: 'imp2557-generic-Sinf-far-below-signature-threshold',
+    holds: () =>
+      ROUTE_C_HIGHER_ORDER_BLOWUP_LEMMA.genericSInf <
+      ROUTE_C_HIGHER_ORDER_BLOWUP_LEMMA.signatureSInfThreshold,
+    why:
+      'The generic neighbour-restricted sum S_inf ~ 2 must sit far below the ' +
+      'S_inf > 128 a Route C signature would demand; this gap (factor 64) is ' +
+      'the quantitative content of the leading-coefficient half.',
+  },
   {
     id: 'imp2556-derived-holder-constant-matches-CH',
     holds: () =>

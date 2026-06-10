@@ -221,6 +221,19 @@ export const HEAT_FLOW_PATHC_LADDER_IMP2547 = {
     'H_t-trajectory three-way agreement (sub-gaps imp372-Ht-full / ' +
     'imp372-three-way) is the deferred gold standard and is NOT closed here.',
 
+  upgradeAudit:
+    'imp-2570 audit: partial status is RETAINED (cannot be upgraded to full). ' +
+    'The autofill seeder cited imp-462/463/464/471 as recent proof-chain ' +
+    'closures, but those are unrelated UI/visual tickets (FourierDomainViz ' +
+    'dual-energy sign, PascalZetaViz/OddZetaViz/InformationTheoryViz axis ' +
+    'markers) and do not touch the heat-flow vs Path C ladder. The genuine ' +
+    'blocker is unchanged: this file delivers only the analytical ' +
+    'initial-slope heat-flow leg (a LOWER bound, one-sided agreement) vs the ' +
+    'Path C OLS fit. Full closure requires the deferred gold standard -- the ' +
+    'full H_t-trajectory three-way agreement (sub-gaps imp372-Ht-full / ' +
+    'imp372-three-way), which is not provided by any closed ticket to date. ' +
+    'Until that three-way trajectory leg lands, partial is the honest status.',
+
   sources: [
     'imp-292: polymath15-lambda-barrier.js (heat-flow H_t barrier method)',
     'imp-372: heat-flow-cross-validation-imp372.js (heat-flow tc_dyson_initial)',

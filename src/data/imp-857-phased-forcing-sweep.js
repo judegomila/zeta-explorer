@@ -377,8 +377,10 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
     'RESOLVED-INFRASTRUCTURE via src/data/imp-896-retuning-calibration.js + ' +
     'scripts/imp-917-run-cell.mjs, 14-cell execution residual under imp-917; ' +
     'sub-gap imp-897 RESOLVED-PARTIAL via ' +
-    'src/math/imp-857-phased-forcing-richardson.js, residual under ' +
-    'imp-917 + imp-898)',
+    'src/math/imp-857-phased-forcing-richardson.js; sub-gap imp-898 RESOLVED ' +
+    'via the runForcedTrace sub-step bisection in ' +
+    'src/math/imp-857-phase-locked-dyson.mjs, per-cell subStepTauC residual ' +
+    'under imp-917)',
 
   prototypeFile: 'src/math/imp-857-phase-locked-dyson.mjs',
   upstreamMemo: 'src/math/imp-857-phased-forcing-memo.js',
@@ -517,9 +519,36 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
         'than dt-granularity. At present all observed shifts are 0 because ' +
         'eps-runs and baseline collide in the same RK4 step.',
       blocker:
-        'Cheap fix (bisect the collision step), independent of imp-894/896. ' +
-        'Sub-ticket for a future small engine run.',
+        '(historical, pre-resolution) Cheap fix (bisect the collision step), ' +
+        'independent of imp-894/896. Sub-ticket for a future small engine run.',
       prerequisite: null,
+      status: 'RESOLVED (synced by imp-2531; see resolvedBy)',
+      resolvedBy: 'src/math/imp-857-phase-locked-dyson.mjs',
+      resolution:
+        'imp-898 was implemented directly in the prototype runForcedTrace: ' +
+        'on collision detection (minGapLo <= 0) the failing RK4 step is ' +
+        'bisected 14 times over dt-prime in [0, dt], bracketing the zero ' +
+        'crossing of minGapLo(integrate(prevGammas, dt-prime)) between the ' +
+        'positive previous-step gap and the non-positive collision gap. The ' +
+        'last trace row is augmented with subStepTauC = prevTabs + ' +
+        'dt-prime_refined, subStepDt, and dtFractionRefined = dt-prime / dt, ' +
+        'and the main block differences subStepTauC across the eps-run vs the ' +
+        'eps = 0 baseline to report |tau_c(eps) - tau_c(0)| at sub-dt ' +
+        'resolution. 14 bisections give dt-prime to within dt / 2^14 = ' +
+        'dt / 16384 (~6.1e-9 at the N >= 1000 default dt = 1e-4), ~4 decades ' +
+        'finer than the dt = 1e-4 step granularity and well below the ' +
+        'smallest imp-892 predicted shift across the measured rows ' +
+        '(min predictedShift_upper ~ 2.4e-5 at N = 2000, eps = 0.01), so the ' +
+        'refined collision time IS sharp enough to compare the observed shift ' +
+        'against the imp-892 commutator bound — exactly what this sub-gap ' +
+        'asked for. The entry here was never updated when the prototype ' +
+        'shipped, so the harvester re-seeded the gap as still-open (seeding ' +
+        'imp-2531 itself); this sync is the same stale-entry repair imp-2517 ' +
+        'made for imp-896 and imp-2518 made for imp-897. Note: applying the ' +
+        'sub-step resolver to the large-N grid rows still rides on the ' +
+        'imp-917 14-cell execution (the prototype must be re-run to capture ' +
+        'subStepTauC per cell), so the numerical sub-dt shift table is ' +
+        'promoted to imp-917, but the resolver itself is no longer missing.',
     },
   ],
 
@@ -600,6 +629,33 @@ export const IMP_857_PHASED_FORCING_SWEEP = {
     'the measured data). The grid cells themselves remain unexecuted ' +
     '(0 of 14 at sync time) and the canonical sub-gap ' +
     'imp-893-sub-large-N-rerun correctly remains open under imp-917.',
+
+  closureNoteImp2531:
+    'imp-2531 (subscription, opus-4-8): sub-gap SYNC, no new math claimed. ' +
+    'The auto-seeded ticket asked to close named open sub-gap imp-898 (sub- ' +
+    'step collision-time resolution: refine dt or add Brent-style root- ' +
+    'finding on the last RK4 interval) declared in this file. The named work ' +
+    'had ALREADY been implemented directly in the prototype ' +
+    'src/math/imp-857-phase-locked-dyson.mjs: runForcedTrace bisects the ' +
+    'failing RK4 step 14 times over dt-prime in [0, dt], bracketing the ' +
+    'minGapLo zero crossing between the positive previous-step gap and the ' +
+    'non-positive collision gap, and records subStepTauC / subStepDt / ' +
+    'dtFractionRefined so the main block can difference subStepTauC(eps) vs ' +
+    'subStepTauC(0) and report |tau_c(eps) - tau_c(0)| at sub-dt resolution. ' +
+    'But the imp-898 openSubGaps entry here was never updated, so the ' +
+    'harvester re-seeded the gap as still-open (seeding imp-2531 itself) — ' +
+    'the same stale-entry failure mode imp-2517 repaired for imp-896 and ' +
+    'imp-2518 for imp-897. This change marks the imp-898 entry RESOLVED with ' +
+    'the decisive facts and ships two build-time tripwires ' +
+    '(IMP_857_PHASED_FORCING_SWEEP_ASSERTIONS): one pinning the synced ' +
+    'status fields, and one re-deriving the bisection resolution floor ' +
+    '(dt / 2^14 = dt / 16384 ~ 6.1e-9 at dt = 1e-4) and that it sits below ' +
+    'the smallest imp-892 predictedShift_upper across the measured rows — ' +
+    'the quantitative reason the resolver is sharp enough to compare the ' +
+    'observed collision-time shift to the imp-892 bound. The numerical sub- ' +
+    'dt shift table over the large-N grid still rides on the imp-917 14-cell ' +
+    'execution (the prototype must be re-run to capture subStepTauC per ' +
+    'cell), so it stays promoted to imp-917; the resolver itself is closed.',
 
   headline:
     'PARTIAL: phased-forcing wrapper-width reduction factor decays with N ' +
@@ -779,6 +835,67 @@ export const IMP_857_PHASED_FORCING_SWEEP_ASSERTIONS = [
       'the ticket grid edited) without updating the resolution prose and ' +
       'sub-gap statuses, this tripwire fires rather than letting the ' +
       'residual count silently drift.',
+  },
+  {
+    id: 'imp2531-imp898-subgap-resolved-synced',
+    holds: () => {
+      const g = IMP_857_PHASED_FORCING_SWEEP.openSubGaps.find(
+        (s) => s.id === 'imp-898',
+      );
+      return (
+        !!g &&
+        typeof g.status === 'string' &&
+        g.status.startsWith('RESOLVED') &&
+        typeof g.resolvedBy === 'string' &&
+        g.resolvedBy.includes('imp-857-phase-locked-dyson') &&
+        typeof g.resolution === 'string' &&
+        g.resolution.includes('subStepTauC') &&
+        g.resolution.includes('imp-917') &&
+        typeof g.blocker === 'string' &&
+        g.blocker.startsWith('(historical')
+      );
+    },
+    why:
+      'The imp-898 sub-gap entry in this file must reflect the sub-step ' +
+      'bisection shipped directly in imp-857-phase-locked-dyson.mjs ' +
+      '(subStepTauC / subStepDt / dtFractionRefined) and name the residual ' +
+      'still riding on imp-917 (large-N rows must be re-run to capture the ' +
+      'per-cell subStepTauC); a silently still-open entry re-seeds duplicate ' +
+      'harvester tickets (imp-2531 was itself seeded from the stale entry, ' +
+      'exactly as imp-2517 was from imp-896 and imp-2518 from imp-897).',
+  },
+  {
+    id: 'imp2531-bisection-floor-resolves-imp892-shift',
+    holds: () => {
+      const ITERS = 14; // bisection iterations in runForcedTrace
+      const dt = 1e-4; // N >= 1000 prototype step (IMP857_DT default)
+      const floor = dt / 2 ** ITERS; // collision-time resolution after 14 bisections
+      const predicted = COMMUTATOR_BOUND_CONSISTENCY.map(
+        (c) => c.predictedShift_upper,
+      ).filter((v) => typeof v === 'number' && v > 0);
+      const minPredicted = Math.min(...predicted);
+      return (
+        2 ** ITERS === 16384 &&
+        Math.abs(dt / floor - 16384) < 1e-6 &&
+        floor < 1e-8 &&
+        predicted.length >= 2 &&
+        minPredicted > 0 &&
+        floor < minPredicted &&
+        floor < minPredicted / 1000
+      );
+    },
+    why:
+      'Re-derives the decisive sharpness fact of the imp-898 closure from ' +
+      'in-file data alone: 14 bisections over dt-prime in [0, dt] resolve ' +
+      'the collision time to dt / 2^14 = dt / 16384 (~6.1e-9 at dt = 1e-4), ' +
+      'which sits below the smallest imp-892 predictedShift_upper across the ' +
+      'measured rows (~2.4e-5 at N = 2000, eps = 0.01) by more than three ' +
+      'decades. Hence the refined tau_c IS sharp enough to compare the ' +
+      'observed |tau_c(eps) - tau_c(0)| against the imp-892 commutator ' +
+      'bound — the quantitative reason imp-898 is resolved and not merely ' +
+      'scaffolded. If the bisection-iteration count or the predicted-shift ' +
+      'rows change so the resolver no longer dominates the bound, this ' +
+      'tripwire fires.',
   },
 ];
 

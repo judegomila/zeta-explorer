@@ -118,5 +118,49 @@
   "src/data/improvement-queue.js#esy-rigidity-port-sub-rate": {
     "impId": "imp-2544",
     "seededAt": "2026-06-10T04:29:31.354Z"
+  },
+  "src/data/improvement-queue.js#g1-uniform-margin": {
+    "impId": "imp-2549",
+    "seededAt": "2026-06-10T04:44:31.667Z"
+  },
+  "src/math/c-mb-interval-certified.js#imp-857-sub-scale-to-N10k": {
+    "impId": "imp-2550",
+    "seededAt": "2026-06-10T04:44:31.849Z"
+  },
+  "src/math/g3a-fullsum-closure.js#G3a_sub_fullsum_dynamical": {
+    "impId": "imp-2551",
+    "seededAt": "2026-06-10T04:44:32.033Z"
+  },
+  "src/math/imp-857-twin-ladder-symmetric-forcing.js#imp-895-sub-fraction": {
+    "impId": "imp-2552",
+    "seededAt": "2026-06-10T04:44:32.217Z"
+  },
+  "src/math/imp-899-linear-response-bilinear-fit.js#imp-899-sub-nstep200-grid": {
+    "impId": "imp-2553",
+    "seededAt": "2026-06-10T04:44:32.406Z"
+  },
+  "src/math/imp-903-F-mb-plateau-lipschitz-proof.js#imp-911-sub-gronwall-interval": {
+    "impId": "imp-2554",
+    "seededAt": "2026-06-10T04:44:32.596Z"
+  },
+  "src/math/route-c-dynamical-analysis.js#G3a_sub_fullsum_dynamical_routeC": {
+    "impId": "imp-2555",
+    "seededAt": "2026-06-10T04:59:32.974Z"
+  },
+  "src/math/route-c-matched-asymptotic.js#imp-863-sub-alpha-below-half": {
+    "impId": "imp-2556",
+    "seededAt": "2026-06-10T04:59:33.204Z"
+  },
+  "src/math/route-c-matched-asymptotic.js#imp-863-sub-higher-order-blowup": {
+    "impId": "imp-2557",
+    "seededAt": "2026-06-10T04:59:33.435Z"
+  },
+  "src/data/sg1-theta-contraction.js#sg1c-theta-trap-persistence": {
+    "impId": "imp-2558",
+    "seededAt": "2026-06-10T05:44:33.982Z"
+  },
+  "src/data/sg1-theta-contraction.js#sg1d-pigeonhole-theta-control": {
+    "impId": "imp-2559",
+    "seededAt": "2026-06-10T05:44:34.230Z"
   }
 }

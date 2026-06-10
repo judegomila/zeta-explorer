@@ -234,6 +234,69 @@ async function main() {
   });
 
   console.log('');
+
+  // ── src/math/class-number-formula.js ──────────────────────────────────────────
+  // imp-2579: smoke coverage for Dirichlet analytic class number formula. Verifies
+  // L(1, chi_D) special values recover the known class numbers h(K) for imaginary
+  // quadratic fields — a deterministic, import-free arithmetic check.
+  console.log('## class-number-formula.js');
+  const classNum = await server.ssrLoadModule('/src/math/class-number-formula.js');
+
+  ok('classNumberFormulaTest: return shape has results + summary', () => {
+    const r = classNum.classNumberFormulaTest();
+    assert.ok(Array.isArray(r.results), 'results must be an array');
+    assert.strictEqual(r.results.length, 10, 'ten imaginary quadratic fields tested');
+    assert.ok(r.summary && typeof r.summary === 'object', 'summary object present');
+  });
+
+  ok('classNumberFormulaTest: all class numbers recovered, errors < 0.001', () => {
+    const r = classNum.classNumberFormulaTest();
+    assert.strictEqual(r.summary.all_class_numbers_recovered, true, 'every h(K) recovered');
+    assert.strictEqual(r.summary.all_errors_below_0_001, true, 'all L-value errors < 0.001');
+  });
+
+  ok('classNumberFormulaTest: L(1, chi_{-4}) = pi/4 ~ 0.7854', () => {
+    const r = classNum.classNumberFormulaTest();
+    const Dm4 = r.results.find(x => x.D === -4);
+    assert.ok(Dm4, 'D=-4 field present');
+    assert.ok(Math.abs(Dm4.L_1_computed - Math.PI / 4) < 1e-3,
+      'L(1, chi_{-4}) ' + Dm4.L_1_computed + ' should be ~pi/4 = ' + (Math.PI / 4).toFixed(5));
+  });
+
+  console.log('');
+
+  // ── src/math/chebyshev-bias.js ────────────────────────────────────────────────
+  // imp-2579: smoke coverage for prime-race / Chebyshev-bias computation. Sieves to
+  // 10^6 and checks the residue split is exhaustive and the documented first sign
+  // change of pi(x;4,3) - pi(x;4,1) at x=26861 (Leech 1957) is reproduced.
+  console.log('## chebyshev-bias.js');
+  const cheby = await server.ssrLoadModule('/src/math/chebyshev-bias.js');
+
+  ok('chebyshevBiasTest: residue counts partition the 78497 odd primes <= 10^6', () => {
+    const r = cheby.chebyshevBiasTest();
+    const pi3 = r.race_mod4.pi_3_at_10_6;
+    const pi1 = r.race_mod4.pi_1_at_10_6;
+    assert.ok(pi3 > 0 && pi1 > 0, 'both residue counts positive');
+    // pi(10^6) = 78498; subtracting the single prime 2 leaves 78497 odd primes,
+    // each congruent to 1 or 3 mod 4.
+    assert.strictEqual(pi3 + pi1, 78497, 'mod-4 residues must cover all odd primes <= 10^6');
+  });
+
+  ok('chebyshevBiasTest: first sign change reproduced at x=26861 (Leech 1957)', () => {
+    const r = cheby.chebyshevBiasTest();
+    assert.strictEqual(r.historicalVerification.verified, true, 'documented sign change confirmed');
+    assert.strictEqual(r.race_mod4.first_few_sign_changes[0].x, 26861,
+      'first sign change should occur at x=26861');
+  });
+
+  ok('chebyshevBiasTest: 3-residue log-density in (0.9, 1) [Rubinstein-Sarnak ~0.9959]', () => {
+    const r = cheby.chebyshevBiasTest();
+    const dens = r.logarithmicDensity['3_residues_lead_fraction'];
+    assert.ok(dens > 0.9 && dens < 1.0,
+      '3-residue lead log-density ' + dens + ' should sit in (0.9, 1.0)');
+  });
+
+  console.log('');
   console.log('---');
   console.log('Passed : ' + passed);
   console.log('Failed : ' + failed);

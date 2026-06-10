@@ -277,6 +277,15 @@ export const IMP2485_DP8_RK4_N1E4_ASSERTIONS = [
     why:
       'imp-2485 stays partial until N in {1e5, 1e6} rows exist and the truncation ' +
       'certification gap is closed. Flipping to full before then would overclaim ' +
-      'a cross-verified ladder the repo does not have.',
+      'a cross-verified ladder the repo does not have. imp-2573 investigated ' +
+      'whether the recent proof-chain closures imp-462/463/464/471 permit the ' +
+      'upgrade: they do NOT. Those closures establish the Route-A RAW monotonicity ' +
+      'chain (conditions M, D-monotone, NoSwap on the finite-height L_pt beat) — an ' +
+      'unrelated object. Both open sub-gaps here are numerical/infrastructure, not ' +
+      'proof-chain: GAP-2485-N1e5-N1e6 needs the native compute backend ' +
+      '(skp-imp423-compute) to produce fresh high-N dual-integrator rows, and ' +
+      'GAP-2485-truncation-certification needs a Taylor-model/CAPD truncation-aware ' +
+      'interval enclosure. Neither is touched by the monotonicity proofs, so the ' +
+      'partial status is correct and the tripwire stands.',
   },
 ];

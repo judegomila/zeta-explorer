@@ -87,6 +87,23 @@
  * Theta bound additionally needs a mesoscopic UPPER density bound
  * (Trudgian S(T) supplies it at s = 0; its propagation is the S1 strand).
  *
+ * imp-2559 honest-partial: the GAP HALF of SG1d is now closed rigorously and
+ * unconditionally given only the s = 0 upper density rho (which Riemann-von
+ * Mangoldt / Trudgian supply, rho ~ log(gamma_N)/2pi). LEMMA P (pigeonhole
+ * gap, partialClosure.gapHalf below): from Im M(x0+iy) = sum_k y/((x0-x_k)^2
+ * + y^2) >= V, shell-decompose the tail |x0 - x_k| > y into annuli of width
+ * y; each particle in shell j contributes <= 1/(j^2 y) and a width-y interval
+ * holds <= rho*y + 1 particles, so the tail is <= (pi^2/3)(rho + 1/y) and the
+ * window count obeys n0 >= yV - (pi^2/3)(rho*y + 1). Hence for V >= V* :=
+ * (2pi^2/3)(rho + 1/y) one gets n0 >= yV/2, and the n0 particles sitting in
+ * the width-2y window force a minimal adjacent gap g <= 2y/(n0 - 1) <= 8/V.
+ * So c1 = 8 with explicit threshold V*. The residual is now ONLY the Theta
+ * half: the SAME clustering that yields the gap drives the environment
+ * functional E up (a dense interior pair tends to the Theta = 1 bi-infinite
+ * marginal), so g <= 8/V does NOT by itself give Theta <= Theta* < 1 -- that
+ * still needs the mesoscopic upper density to bound E for the produced pair.
+ * The parent sg1d-pigeonhole-theta-control REMAINS OPEN (Theta half only).
+ *
  * REDUCTION (honest bookkeeping): SG1c + SG1d imply the SG1-VARIANT
  *     t_c <= c1^2 / (8 (1 - Theta*) V^2)        [T ~ 1/V^2, not 1/V]
  * which feeds the gronwall-module corollary identically -- the per-N
@@ -137,6 +154,23 @@ export const SG1_THETA_REDUCTION = {
       id: 'sg1d-pigeonhole-theta-control',
       statement: 'From sup_{Im z >= y} Im M >= V (mesoscopic strip), produce an adjacent pair with gap g <= c1/V AND Theta <= Theta* < 1. Pigeonhole gives the gap; the Theta bound needs the mesoscopic upper density bound (Trudgian S(T) at s = 0; propagation is the S1-density-propagation strand).',
       status: 'open',
+      partialClosure: {
+        impId: 'imp-2559',
+        gapHalf: {
+          status: 'closed-given-s0-upper-density',
+          lemma: 'LEMMA P (pigeonhole gap). With upper density rho (#{x_k in J} <= rho|J| + 1 for every interval J), Im M(x0+iy) >= V forces a window count n0 := #{k: |x0 - x_k| <= y} >= yV - (pi^2/3)(rho*y + 1). For V >= V* := (2pi^2/3)(rho + 1/y) this gives n0 >= yV/2, and the n0 ordered particles in the width-2y window have minimal adjacent gap g <= 2y/(n0 - 1) <= 8/V. So c1 = 8 with explicit threshold V*.',
+          tailBound: 'Tail |x0-x_k| > y shell-decomposed into width-y annuli: shell j (j>=1) contributes <= 1/(j^2 y) per particle, <= rho*y + 1 particles per width-y interval, two sides; total tail <= (2(rho*y+1)/y)(pi^2/6) = (pi^2/3)(rho + 1/y).',
+          c1: 8,
+          thresholdVstar: '(2pi^2/3)(rho + 1/y)',
+          unconditionalInput: 's = 0 upper density rho ~ log(gamma_N)/2pi from Riemann-von Mangoldt / Trudgian S(T); no spacing or pair-correlation hypothesis used',
+          verifiedBy: 'assertion sg1d-pigeonhole-gap-half-rigorous (numerical witness: dense cluster in a unit-lattice tail)',
+        },
+        thetaHalf: {
+          status: 'open',
+          obstruction: 'The clustering that produces g <= 8/V drives the environment functional E = sum_{j not in pair} 1/((x_k-x_j)(x_{k+1}-x_j)) upward: a dense interior pair approaches the Theta = 1 bi-infinite-lattice marginal. So the gap bound does NOT by itself yield Theta <= Theta* < 1. Bounding Theta away from 1 for the produced pair needs the mesoscopic UPPER density to cap E -- exactly the S1-density-propagation strand.',
+        },
+        netEffect: 'sg1d sharpened from "gap AND Theta both open" to "gap half closed (unconditional given s=0 density), only the Theta half open". The parent sg1d-pigeonhole-theta-control status stays open.',
+      },
     },
   ],
 };
@@ -211,6 +245,34 @@ function pairIdentityCheck() {
   return Math.abs(lhsPred - lhsDirect) / Math.abs(lhsDirect);
 }
 
+function pigeonholeGapCheck() {
+  // LEMMA P witness (imp-2559): a dense cluster embedded in a unit lattice.
+  // Tail is the unit lattice (upper density rho = 1); the cluster lives inside
+  // the half-width-y window and spikes Im M(x0+iy). Verify, on this concrete
+  // configuration, the three quantitative claims of Lemma P:
+  //   (a) window count n0 >= yV - (pi^2/3)(rho*y + 1),
+  //   (b) above-threshold V >= V* = (2pi^2/3)(rho + 1/y) gives n0 >= yV/2,
+  //   (c) the realized minimal adjacent gap in the window is <= c1/V, c1 = 8.
+  const y = 1.0;
+  const x0 = 0.0;
+  const rho = 1.0;
+  const xs = [];
+  for (let i = -40; i <= 40; i++) if (Math.abs(i) > 0.5) xs.push(i); // tail
+  const M = 30;
+  for (let j = 0; j < M; j++) xs.push(-0.5 + (j + 0.5) / M); // cluster, spacing 1/M
+  xs.sort((a, b) => a - b);
+  let ImM = 0;
+  for (const xk of xs) ImM += y / ((x0 - xk) ** 2 + y * y);
+  const V = ImM;
+  const win = xs.filter((xk) => Math.abs(xk - x0) <= y).sort((a, b) => a - b);
+  const n0 = win.length;
+  let g = Infinity;
+  for (let i = 1; i < win.length; i++) g = Math.min(g, win[i] - win[i - 1]);
+  const lowerBoundN0 = y * V - (Math.PI ** 2 / 3) * (rho * y + 1);
+  const Vstar = (2 * Math.PI ** 2 / 3) * (rho + 1 / y);
+  return { V, n0, lowerBoundN0, Vstar, aboveThreshold: V >= Vstar, n0AtLeastHalf: n0 >= (y * V) / 2, minGap: g, gapBound: 8 / V };
+}
+
 export const SG1_THETA_ASSERTIONS = [
   {
     id: 'sg1theta-exact-pair-identity',
@@ -254,6 +316,26 @@ export const SG1_THETA_ASSERTIONS = [
       return Math.abs(THETA_CALIBRATION.symmetricTriplet - 0.25) < 1e-15 &&
         Math.abs(edge / 2 - THETA_CALIBRATION.semiInfiniteLatticeEdge) < 1e-4 &&
         THETA_CALIBRATION.biInfiniteLatticeInterior === 1;
+    },
+  },
+  {
+    id: 'sg1d-pigeonhole-gap-half-rigorous',
+    description: 'LEMMA P (imp-2559): on a dense-cluster-in-unit-lattice witness, Im M >= V is above threshold V*, the window count obeys n0 >= yV - (pi^2/3)(rho*y+1) and n0 >= yV/2, and the realized minimal adjacent gap is <= 8/V — the unconditional gap half of sg1d',
+    holds: () => {
+      const r = pigeonholeGapCheck();
+      return r.aboveThreshold && r.n0 >= r.lowerBoundN0 && r.n0AtLeastHalf && r.minGap <= r.gapBound;
+    },
+  },
+  {
+    id: 'sg1d-partial-closure-named',
+    description: 'sg1d carries a partialClosure: gap half closed-given-s0-upper-density (c1 = 8), Theta half still open, parent sub-gap status stays open',
+    holds: () => {
+      const sg = SG1_THETA_REDUCTION.openSubGaps.find((g) => g.id === 'sg1d-pigeonhole-theta-control');
+      return !!sg && sg.status === 'open' && !!sg.partialClosure &&
+        sg.partialClosure.impId === 'imp-2559' &&
+        sg.partialClosure.gapHalf.status === 'closed-given-s0-upper-density' &&
+        sg.partialClosure.gapHalf.c1 === 8 &&
+        sg.partialClosure.thetaHalf.status === 'open';
     },
   },
   {

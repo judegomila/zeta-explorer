@@ -1562,6 +1562,7 @@ const DATA_MODULES = [
   '/src/data/b1-slope-conditional-upper-bound.js',
   '/src/data/b2-intercept-analytic-bound.js',
   '/src/data/backward-flow-stability-gronwall.js',
+  '/src/data/sg1-theta-contraction.js',
   '/src/data/barrier-extrapolation-imp371.js',
   '/src/data/barrier-extrapolation-v2.js',
   '/src/data/bridge-lambda-rh.js',

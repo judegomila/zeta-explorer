@@ -1579,6 +1579,7 @@ const DATA_MODULES = [
   '/src/data/backward-flow-stability-gronwall.js',
   '/src/data/imp-2564-lambda-chain-direction-audit.js',
   '/src/data/sg1-theta-contraction.js',
+  '/src/data/sg1c-theta-trap-theorems.js',
   '/src/data/imp-2563-zeta-zeros-corruption-audit.js',
   '/src/data/barrier-extrapolation-imp371.js',
   '/src/data/barrier-extrapolation-v2.js',

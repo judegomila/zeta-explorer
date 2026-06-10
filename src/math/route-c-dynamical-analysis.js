@@ -400,6 +400,22 @@ export const ROUTE_C_DYNAMICAL_ANALYSIS = {
       'quantity, or (c) a matched asymptotic expansion near the first collision.',
     difficulty: 'research-grade',
     status: 'open',
+    // imp-2555 HONEST PARTIAL: escape hatch (a) had two sub-variants — a
+    // TIME-integrated/averaged variant and a SPATIALLY rho-weighted-sum
+    // variant. The TIME-integrated sub-variant is now closed NEGATIVELY (see
+    // ROUTE_C_INTEGRATED_VARIANT below): a time-average of a non-increasing
+    // integrand cannot exceed its initial value, and S_{k_star}*B^2(0) < 2 at
+    // every sampled N, so neither (1/tau_c) INT_0^{tau_c} S*B^2 dt nor the
+    // bare integral / tau_c can reach the Route C threshold 2. This leaves
+    // hatch (a) reduced to the SPATIALLY-weighted sum only; hatches (b) and
+    // (c) untouched. The parent sub-gap status stays open.
+    partialClosure: {
+      impId: 'imp-2555',
+      closes: 'time-integrated / time-averaged sub-variant of escape hatch (a)',
+      conditionalOn: 'routeC-monotonicity-persistence (S_{k_star}*B^2 non-increasing on [0, tau_c), established at leading order at tau=0 and in the equidistant limit; numerically rho_amp < 1 and decreasing in N at every sampled N)',
+      reducesHatchAtoTo: 'spatially rho-weighted sum variant only',
+      stillOpen: ['weighted-S (spatial)', 'CM-Hamiltonian-constraint', 'regularization-near-collision'],
+    },
   },
 
   deliverables: [
@@ -419,9 +435,77 @@ export const ROUTE_C_DYNAMICAL_ANALYSIS = {
     'unconditionally, the imp-486 rescue table delivers the closure.',
 };
 
+// ── imp-2555: time-integrated sub-variant of escape hatch (a) — CLOSED ──────
+//
+// Escape hatch (a) proposed that a time-INTEGRATED or rho-weighted variant of
+// S_{k_star}*B^2 might still reach the Route C threshold c(N) > 2 even though
+// the bare product is monotone decreasing. We close the TIME-integrated half:
+//
+//   LEMMA (time-average ceiling). Let f(t) = S_{k_star}(t)*B(t)^2 on [0, tau_c).
+//   If f is non-increasing (monotonicity M, established at leading order at
+//   t = 0 via d(S*B^2)/dtau = 8 S (rho_amp - 1) < 0 since rho_amp < 1, and
+//   exactly in the equidistant limit where T_regular = 0), then for every
+//   tau in (0, tau_c]:
+//       (1/tau) INT_0^{tau} f(t) dt  <=  f(0)  =  S_{k_star}(0)*B(0)^2  <  2,
+//   the last inequality being the imp-507 static ceiling. Hence the time-
+//   average — and therefore INT_0^{tau} f dt / tau, the natural time-weighted
+//   Route C quantity — CANNOT exceed 2. The bare integral INT_0^{tau_c} f dt
+//   is likewise < 2*tau_c. So NO time-weighting of the product reaches the
+//   threshold; only a SPATIAL re-weighting (sum over sites) remains a live
+//   escape hatch.
+//
+// The premise f(0) < 2 holds at every sampled N (ALL_SB2_BELOW_STATIC_CEILING),
+// and the leading-order monotonicity premise rho_amp < 1 holds at every sampled
+// N (ALL_RHO_AMP_BELOW_ONE), so the time-average ceiling 2 is met with the
+// margin (2 - max_N f(0)) at the sampled rungs. The sole residual is the
+// PERSISTENCE of monotonicity to t -> tau_c (named routeC-monotonicity-
+// persistence): the regular term T_regular is not yet sign-controlled away
+// from the equidistant limit, so M is leading-order + numerical, not yet a
+// theorem on [0, tau_c).
+
+const MAX_SB2_OBSERVED = Math.max(...SAMPLES.map((s) => s.SB2));
+const TIME_AVG_CEILING_MARGIN = 2 - MAX_SB2_OBSERVED; // > 0 at sampled rungs
+
+export const ROUTE_C_INTEGRATED_VARIANT = {
+  id: 'imp-2555',
+  title: 'Time-integrated sub-variant of Route C escape hatch (a): negative closure',
+  closes: 'time-integrated / time-averaged variant of S_{k_star}*B^2 (escape hatch a, time half)',
+  lemma:
+    'For non-increasing f(t) = S_{k_star}(t)*B(t)^2 on [0, tau_c), the time-average ' +
+    '(1/tau) INT_0^{tau} f dt <= f(0) for all tau in (0, tau_c]. With f(0) < 2 (imp-507 ' +
+    'static ceiling), the time-averaged and time-integrated/tau variants cannot reach 2.',
+  monotonicityPremise:
+    'd(S_{k_star}*B^2)/dtau = 8 S (rho_amp - 1) < 0 at leading order since rho_amp < 1 ' +
+    '(numerically true and decreasing in N at every sampled N); exact in the equidistant ' +
+    'limit (T_regular = 0).',
+  staticCeilingPremise: 'S_{k_star}(0)*B(0)^2 < 2 at every sampled N (imp-507 equidistant ceiling).',
+  maxSB2Observed: +MAX_SB2_OBSERVED.toFixed(6),
+  timeAverageCeiling: 2,
+  ceilingMarginAtSamples: +TIME_AVG_CEILING_MARGIN.toFixed(6),
+  verdict:
+    'Time-weighting CANNOT rescue Route C dynamical: every time-average of the product is ' +
+    'bounded by its initial value < 2. Escape hatch (a) is reduced from {time-integrated OR ' +
+    'spatially-weighted} to {spatially-weighted only}.',
+  residual: 'routeC-monotonicity-persistence — extend the leading-order monotonicity to the full [0, tau_c) by sign-controlling T_regular off the equidistant limit.',
+  stillOpenHatches: ['weighted-S (spatial)', 'CM-Hamiltonian-constraint', 'regularization-near-collision'],
+};
+
 // ── Build-time assertions ─────────────────────────────────────────────────
 
 export const ROUTE_C_DYNAMICAL_ANALYSIS_ASSERTIONS = [
+  {
+    id: 'imp2555-time-average-ceiling-holds',
+    holds: () =>
+      ALL_SB2_BELOW_STATIC_CEILING &&
+      ALL_RHO_AMP_BELOW_ONE &&
+      TIME_AVG_CEILING_MARGIN > 0 &&
+      ROUTE_C_INTEGRATED_VARIANT.timeAverageCeiling === 2,
+    why:
+      'The time-integrated sub-variant of escape hatch (a) is closed by: (i) f(0) = ' +
+      'S_{k_star}*B^2 < 2 at every sample (static ceiling, the time-average upper bound under ' +
+      'monotonicity), and (ii) rho_amp < 1 at every sample (leading-order monotonicity premise). ' +
+      'A regression flipping either premise would silently reopen the time-weighted route.',
+  },
   {
     id: 'imp834-t-singular-positive-at-samples',
     holds: () => ROUTE_C_DYNAMICAL_ANALYSIS.numericalEvidence.allTSingularPositive,

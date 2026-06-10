@@ -8,7 +8,8 @@
 //
 // Source repo: ~/Downloads/twin_ladder_rh_repo, branch exp/corridor-audit-v0.
 // Key commits: 4fb32e2 (direct E bound), 234139e (normalization fix),
-//              167ae80 (corrected sweep results).
+//              aa2cbd5 (surrogate-consistency fix + rigorous winding),
+//              b095214 (25x fast evaluators), 253eb57 (final 8/8 table).
 // Key docs:    docs/ht_corrected_sweep_results.md,
 //              docs/M4_rigorous_V1_landing.md,
 //              docs/theorem_ht_exterior_tail_plan.md.
@@ -27,21 +28,23 @@ export const htCorridorMeta = {
     'Each PIN is unconditional modulo: (i) python-flint arb/acb ball arithmetic, ' +
     '(ii) closed-form Φ-derivative formulas (cross-checked vs finite differences ' +
     'and mpmath), (iii) the quintic-Hermite value-error formula with the ' +
-    'Peano-verified constant 1/46080. No GRH. No sampling.',
+    'Peano-verified constant 1/46080, with E and m referring to the SAME ' +
+    'quintic surrogate and the winding of the surrogate rigorously ' +
+    'certified by the discrete argument principle. No GRH. No sampling.',
 };
 
 // Certified corridor cells: H_{0.18} has exactly one zero in each
 // conjugation-symmetric rectangle |Re x − x_n| ≤ h, |Im x| ≤ η, and by
 // Schwarz symmetry that zero is real.
 export const htCorridorCells = [
-  { cell: 1, x: 28.1652, mesh: 0.0125,    nSeg: 4096,   E: 1.522e-10, m: 1.249e-5,  V: 1.218e-5, status: 'PIN',  runtime: '24 s' },
-  { cell: 2, x: 41.9084, mesh: 0.0125,    nSeg: 4096,   E: 1.522e-10, m: 1.634e-7,  V: 9.315e-4, status: 'PIN',  runtime: '23 s' },
-  { cell: 3, x: 49.9162, mesh: 0.0125,    nSeg: 4096,   E: 1.522e-10, m: 1.148e-8,  V: 1.326e-2, status: 'PIN',  runtime: '23 s' },
-  { cell: 4, x: 60.6787, mesh: 0.00625,   nSeg: 16384,  E: 1.433e-12, m: 2.199e-10, V: 6.518e-3, status: 'PIN',  runtime: '187 s' },
-  { cell: 5, x: 65.7855, mesh: 0.00625,   nSeg: 16384,  E: 1.433e-12, m: 2.899e-11, V: 4.945e-2, status: 'PIN',  runtime: '194 s' },
-  { cell: 6, x: 75.0217, mesh: 0.00625,   nSeg: 131072, E: 1.433e-12, m: 1.646e-12, V: 8.710e-1, status: 'PIN',  runtime: '28 min' },
-  { cell: 7, x: 81.6838, mesh: 0.003125,  nSeg: 262144, E: 1.519e-14, m: 6.437e-14, V: 2.359e-1, status: 'PIN',  runtime: '101 min' },
-  { cell: 8, x: 86.5723, mesh: 0.0015625, nSeg: 524288, E: 1.816e-16, m: null,      V: null,     status: 'RETRY IN FLIGHT (predicted V ≈ 0.016)', runtime: '~7 h' },
+  { cell: 1, x: 28.1652, mesh: 0.0125,    nSeg: 4096,   E: 1.522e-10, m: 1.249e-5,  V: 1.218e-5, winding: 1, status: 'PIN', runtime: '2 s (fast)' },
+  { cell: 2, x: 41.9084, mesh: 0.0125,    nSeg: 4096,   E: 1.522e-10, m: 1.634e-7,  V: 9.314e-4, winding: 1, status: 'PIN', runtime: '2 s (fast)' },
+  { cell: 3, x: 49.9162, mesh: 0.0125,    nSeg: 4096,   E: 1.522e-10, m: 1.148e-8,  V: 1.326e-2, winding: 1, status: 'PIN', runtime: '2 s (fast)' },
+  { cell: 4, x: 60.6787, mesh: 0.00625,   nSeg: 16384,  E: 1.433e-12, m: 2.199e-10, V: 6.519e-3, winding: 1, status: 'PIN', runtime: '~30 s (fast)' },
+  { cell: 5, x: 65.7855, mesh: 0.00625,   nSeg: 16384,  E: 1.433e-12, m: 2.897e-11, V: 4.947e-2, winding: 1, status: 'PIN', runtime: '~30 s (fast)' },
+  { cell: 6, x: 75.0217, mesh: 0.00625,   nSeg: 131072, E: 1.433e-12, m: 1.763e-12, V: 0.813,    winding: 1, status: 'PIN', runtime: '138 s (fast)' },
+  { cell: 7, x: 81.6838, mesh: 0.003125,  nSeg: 262144, E: 1.519e-14, m: 1.170e-13, V: 0.130,    winding: 1, status: 'PIN', runtime: '535 s (fast)' },
+  { cell: 8, x: 86.5723, mesh: 0.003125,  nSeg: 524288, E: 8.761e-15, m: 2.339e-14, V: 0.375,    winding: 1, status: 'PIN', runtime: '1089 s (fast)' },
 ];
 
 // The verified error-bound toolkit behind the certificates.
@@ -107,7 +110,14 @@ export const normalizationPostMortem = {
     'c′ = 4c), a regression-guard test added asserting H_0 does NOT vanish at ' +
     'the raw ordinate, and the full sweep re-run in the correct normalization ' +
     'the same day. Lesson: normalization conventions are load-bearing; audit ' +
-    'against the literature BEFORE quoting Λ-relevant numbers.',
+    'against the literature BEFORE quoting Λ-relevant numbers. A second ' +
+    'audit catch followed: the E bounds referenced the quintic bridge ' +
+    'while m was computed for the cubic bridge — mixed surrogates are ' +
+    'not a valid Rouché pair — and the winding of the surrogate had ' +
+    'never been rigorously certified. Both were fixed in one pass ' +
+    '(consistent quintic m + discrete-argument-principle winding) and ' +
+    'the full table re-certified. Two pre-publication catches; both ' +
+    'found by internal cross-audit, both strengthened the result.',
 };
 
 // Honest scope assessment (from the exterior-tail research memo).

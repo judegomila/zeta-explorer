@@ -58,7 +58,7 @@ export default function HtCorridorCertificatesPage() {
               <tr>
                 <th>cell</th><th>xₙ(t)</th><th>u-mesh</th><th>boundary segs</th>
                 <th>E (rigorous ≥ sup|H−G|)</th><th>m (rigorous ≤ inf|G|)</th>
-                <th>V = E/m</th><th>status</th><th>runtime</th>
+                <th>winding(G)</th><th>V = E/m</th><th>status</th><th>runtime</th>
               </tr>
             </thead>
             <tbody>
@@ -70,6 +70,7 @@ export default function HtCorridorCertificatesPage() {
                   <td>{c.nSeg.toLocaleString()}</td>
                   <td>{fmt(c.E)}</td>
                   <td>{fmt(c.m)}</td>
+                  <td>{c.winding ?? '—'}</td>
                   <td>{c.V === null ? '—' : fmt(c.V)}</td>
                   <td>{c.status}</td>
                   <td>{c.runtime}</td>

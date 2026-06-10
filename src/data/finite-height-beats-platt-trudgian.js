@@ -322,7 +322,8 @@ function evaluateAtN(N) {
 // imp-2580: added 3e4 to fill the 10x-ratio gap between 1e4 and 1e5 -- the
 //   largest remaining grid gap. 3e4 ~ sqrt(1e4 * 1e5) is the geometric center
 //   and probes the small-N regime where the b/N slope and E_coll terms are
-//   largest. L_pt(3e4) remains < 0.2 with the conditional margin still > 20x.
+//   largest. L_pt(3e4) remains < 0.2 with conditional margin ~14x (between
+//   ~10x at 1e4 and ~18x at 1e5 -- the L_cond(N) curve is monotone decreasing).
 const TARGET_NS = [1e4, 3e4, 1e5, 2e5, 5e5, 1e6, 2e6, 5e6, 1e7, 2e7, 5e7, 1e8, 2e8, 5e8, 1e9];
 const LADDER = TARGET_NS.map(evaluateAtN);
 

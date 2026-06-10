@@ -494,6 +494,16 @@ end
     `sorry`: zero hits outside comment text. There are ZERO sorry tokens in tactic
     position at line 447 or anywhere in this file. Nothing to close.
 
+    imp-2576 re-confirmation (2026-06-10): the seeder flagged a "sorry" at line 444
+    and opened a high-priority ticket to "close" it. FALSE POSITIVE for the same
+    reason as imp-2569 / imp-2566 / imp-2567 / imp-2565 / imp-2575 / imp-2577 --
+    line 444 is the audit-block line that itself reads "There are ZERO sorry tokens
+    in tactic position." (the word the regex matched). It lives inside this
+    `/-! ... -/` doc comment, not tactic position. Re-ran `grep -nc sorry` (50, all
+    comment-only) and a tactic-position grep for `:= sorry` / `by sorry` / leading
+    `sorry`: the only hits are comment lines quoting the word. There are ZERO sorry
+    tokens in tactic position at line 444 or anywhere in this file. Nothing to close.
+
     Class for imp-1009 deliverable (a)/(b) split: N/A -- no in-code sorrys
     exist to classify. Same audit-only pattern as imp-1006 (Foundation.lean),
     imp-1007 (ManyBody.lean), imp-1008 (Capstone.lean), and imp-1012

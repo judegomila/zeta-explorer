@@ -79,6 +79,11 @@ import { DYSON_LADDER_MEASURED } from './dyson-ladder-measured.js';
 import { LAMBDA_ARGMIN_INTERIORITY } from './lambda-argmin-interiority.js';
 import { LAMBDA_ARGMIN_JUMPS } from './lambda-argmin-jumps.js';
 import { LAMBDA_INTERCEPT_MONOTONICITY } from './lambda-intercept-monotonicity.js';
+import { IMP336_TRAJECTORY_REFUTATION } from './imp-336-sub-monotonicity-trajectory.js';
+
+// imp-2516: re-export so the run-assertions sweep (which registers this module
+// in DATA_MODULES) also picks up the refutation-record assertions.
+export { IMP336_TRAJECTORY_REFUTATION_ASSERTIONS } from './imp-336-sub-monotonicity-trajectory.js';
 
 // ── Measured rows sorted by N ─────────────────────────────────────────────────
 
@@ -294,10 +299,13 @@ export const IMP336_POST_LADDER_UPDATE = {
     MEASURED_ROWS.length +
     '-point measured Dyson ladder',
   status:
-    'partial — (M) empirically unfalsified on ' +
+    'partial — (M) empirically unfalsified on the ' +
     MEASURED_ROWS.length +
-    '-point measured ladder; analytical gaps G1-sub-extremal (bulk-confinement) ' +
-    'and imp-336-sub-monotonicity-on-trajectory (tau > 0 propagation) remain',
+    '-point measured ladder (sparse N >= 50), but imp-2516 REFUTED the per-N ' +
+    'universal form of (M) and the trajectory sub-gap at small N (12 certified ' +
+    'consecutive-pair violations in N in [2, 20]); analytical gap ' +
+    'G1-sub-extremal (bulk-confinement) remains, and the trajectory sub-gap is ' +
+    'superseded by imp-336-sub-monotonicity-restatement',
   closureNote:
     'imp-997 (auto-improve imp-2073, opus-4-7 subscription): honest-partial structural ' +
     'closure. The ticket asked to close named sub-gap "imp-336 monotonicity-on-trajectory" ' +
@@ -319,7 +327,25 @@ export const IMP336_POST_LADDER_UPDATE = {
     'measures the edge-violation density profile (approximately linear in alpha, -> 0 as ' +
     'alpha -> 0), and finds 8.76 percent raw-vs-unfolded argmin divergence. The surviving open ' +
     'target is the density form G1-sub-extremal-density-form; Route A drift-sign work must ' +
-    'handle edge-argmin record times or restrict to non-record N. Not a closure of (D).',
+    'handle edge-argmin record times or restrict to non-record N. Not a closure of (D). ' +
+    'imp-2516 (api-pool, opus-4-8): the trajectory sub-gap is RESOLVED NEGATIVELY. A prior ' +
+    'interrupted run of this ticket contributed the trajectoryReduction entry (Danskin ' +
+    'right-derivative + first-up-crossing: trajectory domination reduces to a STRICT ' +
+    'drift-sign inequality at crossings); this run REFUTES the reduced inequality and with ' +
+    'it both (M-traj) pointwise trajectory domination and the universally quantified (M) ' +
+    'itself at small N. Mechanism (closed form, rigorous): tau = 0 is a crossing whenever ' +
+    'the appended zero does not relocate the argmin (the generic case), and there the ' +
+    'appended rightmost particle OPENS every existing gap — ' +
+    'd/dtau [g_k^(N+1) - g_k^(N)](0+) = 2 (1/(z_{N+1} - z_{k+1}) - 1/(z_{N+1} - z_k)) > 0 — ' +
+    'so the strict crossing inequality holds with the OPPOSITE sign. Certified by the ' +
+    'imp-362 interval integrator and the imp-409 CERT-VIOL criterion at 12 of 18 ' +
+    'consecutive pairs in N in [2, 20] (margins 0.2501 down to 0.0008, decaying with N; ' +
+    'step-size stable; violation occurs exactly iff the argmin is unchanged). Full record, ' +
+    'scan table, live build-time interval recheck of the N = 8 -> 9 pair, and the successor ' +
+    'sub-gap imp-336-sub-monotonicity-restatement live in ' +
+    'imp-336-sub-monotonicity-trajectory.js. The measured sparse ladder (N >= 50) is ' +
+    'unaffected: argmin relocation dominates across sparse jumps, which is why no measured ' +
+    'pair violates.',
   consumes: [
     'imp-360/imp-405 DYSON_LADDER_MEASURED (dyson-ladder-measured.js) — ' +
       MEASURED_ROWS.length +
@@ -358,12 +384,15 @@ export const IMP336_POST_LADDER_UPDATE = {
       'interlacing: B_{N+1}(0) = min(B_N(0), g_N) <= B_N(0) for any strictly ' +
       'ordered sequence of zeros.',
     statusOnTrajectory:
-      'open — currently held by the imp-336 drift-sign analytic sketch, not a ' +
-      'rigorous proof. Requires (i) G1-sub-extremal closure (argmin interior ' +
-      'with uniform margin) so the argmin does not exit the bulk along the ' +
-      'flow, and (ii) a rigorous drift-sign argument that the difference ' +
-      'B_{N+1}(tau) - B_N(tau) cannot turn positive while both argmins stay ' +
-      'in the bulk.',
+      'refuted at small N (imp-2516, imp-336-sub-monotonicity-trajectory.js, ' +
+      'certified at the imp-362 evidentiary standard) — the trajectoryReduction ' +
+      'below localises the obligation to a STRICT drift-sign inequality at ' +
+      'crossings, and that inequality FAILS with the opposite strict sign at ' +
+      'the tau = 0 crossing whenever the appended zero does not relocate the ' +
+      'argmin (closed-form appended-particle gap-opening drift). 12 of 18 ' +
+      'consecutive pairs in N in [2, 20] are certified CERT-VIOL violations of ' +
+      '(M) itself. Successor sub-gap: imp-336-sub-monotonicity-restatement ' +
+      '(find the weakest true restatement still sufficient for imp-328).',
     dependsOn: [
       'G1-sub-extremal (= imp-343 G4a_bulk_confinement): without bulk ' +
         'confinement of the argmin k*_N along the trajectory, the drift-sign ' +
@@ -385,6 +414,53 @@ export const IMP336_POST_LADDER_UPDATE = {
         'monotonicity, leaving this sub-gap as an alternative-route ' +
         'strengthening rather than a critical-path blocker.',
     ],
+    trajectoryReduction: {
+      id: 'imp-2516-drift-sign-at-crossings',
+      reducedFrom:
+        'the full trajectory inequality D(tau) := B_{N+1}(tau) - B_N(tau) <= 0 ' +
+        'for all tau >= 0',
+      reducedTo:
+        'a STRICT one-sided derivative inequality at argmin-crossing ' +
+        'configurations only',
+      method:
+        "B_N(tau) = min_k g_k^{(N)}(tau) is a minimum of C^1 gap functions, hence " +
+        "right-differentiable with right-derivative (B_N)_+'(tau) = " +
+        "min over the active set A_N(tau) = { k : g_k^{(N)}(tau) = B_N(tau) } of " +
+        "(g_k^{(N)})'(tau) (Danskin/min-of-smooth rule: inactive indices are " +
+        "strictly larger and stay larger for small h > 0, so only the active gap " +
+        "with smallest forward slope governs the right derivative). D(tau) is " +
+        "continuous and D(0) <= 0 (imp-369 Cauchy interlacing). If D(tau) > 0 for " +
+        "some tau, set tau_c = inf{ tau >= 0 : D(tau) > 0 }; continuity gives " +
+        "D(tau_c) = 0 approached from below, which forces the right derivative " +
+        "D_+'(tau_c) >= 0. A strict reverse inequality at every crossing therefore " +
+        "contradicts the up-crossing and yields D(tau) <= 0 for all tau >= 0.",
+      reducedStatement:
+        "At every crossing time tau (where B_{N+1}(tau) = B_N(tau)) the active " +
+        "argmin sets satisfy the STRICT drift-sign inequality " +
+        "min over A_{N+1}(tau) of (g_k^{(N+1)})'(tau)  <  " +
+        "min over A_N(tau) of (g_j^{(N)})'(tau).",
+      whyStrict:
+        "A first up-crossing forces only D_+'(tau_c) >= 0 (non-strict), so the " +
+        "STRICT reverse inequality is exactly what contradicts it. The non-strict " +
+        "boundary case where the two active-set minimal slopes are equal requires " +
+        "a second-order (curvature) argument and is left as the residual of this " +
+        "reduction.",
+      stillOpen:
+        'RESOLVED NEGATIVELY by the second imp-2516 pass: the reduced strict ' +
+        'drift-sign inequality is FALSE at the tau = 0 crossing in the generic ' +
+        'shared-argmin case — the appended rightmost particle gives the active ' +
+        'gap of the (N+1)-system the LARGER slope (closed-form positive ' +
+        'differential pull), the opposite strict sign. See ' +
+        'IMP336_TRAJECTORY_REFUTATION.derivativeObstruction and the certified ' +
+        '12-of-18 consecutive-pair scan. The reduction itself remains valid ' +
+        'logic and is what localised the refutation to a single closed-form ' +
+        'derivative at the crossing.',
+      supersedesApproach:
+        'Promotes approachSuggestions[1] (the continuity/contradiction sketch) to a ' +
+        'rigorous reduction with the explicit Danskin right-derivative formula for ' +
+        'the argmin drift, narrowing the open obligation from a whole-trajectory ' +
+        'inequality to a one-sided slope comparison at crossing configurations.',
+    },
   },
 };
 
@@ -449,15 +525,43 @@ export const IMP336_POST_LADDER_UPDATE_ASSERTIONS = [
         'imp-336-sub-monotonicity-on-trajectory' &&
       typeof IMP336_POST_LADDER_UPDATE.openSubGap.statusAtTau0 === 'string' &&
       typeof IMP336_POST_LADDER_UPDATE.openSubGap.statusOnTrajectory === 'string' &&
-      IMP336_POST_LADDER_UPDATE.openSubGap.statusOnTrajectory.startsWith('open'),
+      IMP336_POST_LADDER_UPDATE.openSubGap.statusOnTrajectory.startsWith('refuted'),
     why:
-      'imp-997 honest-partial: the trajectory-monotonicity gap (extending (M) ' +
-      'from tau = 0 to tau > 0 along the Calogero-Moser backward flow) must ' +
-      'carry a stable named id (imp-336-sub-monotonicity-on-trajectory) and ' +
-      'an explicit open status on the trajectory. Hiding it under G2.openRemainder ' +
-      'without a top-level id loses the cross-file reference handle and lets ' +
-      'follow-up tickets drift. If a future commit rigorises the imp-336 ' +
-      'drift-sign sketch into a proof, statusOnTrajectory must flip from ' +
-      '"open" together with a coordinated update of this assertion.',
+      'imp-997 pinned the trajectory-monotonicity gap with a stable id; ' +
+      'imp-2516 resolved it NEGATIVELY (certified small-N counterexamples to ' +
+      'both the trajectory domination and (M) itself), so statusOnTrajectory ' +
+      'must now start with "refuted" and stay anchored to the refutation ' +
+      'record in imp-336-sub-monotonicity-trajectory.js. If a future commit ' +
+      'overturns the refutation (e.g. an integrator-convention error is ' +
+      'found), this assertion and the status must flip together with a ' +
+      're-audit of the imp-2516 record.',
+  },
+  {
+    id: 'imp2516-trajectory-reduction-to-drift-sign',
+    holds: () =>
+      IMP336_POST_LADDER_UPDATE.openSubGap?.trajectoryReduction?.id ===
+        'imp-2516-drift-sign-at-crossings' &&
+      typeof IMP336_POST_LADDER_UPDATE.openSubGap.trajectoryReduction
+        .reducedStatement === 'string' &&
+      /strict/i.test(
+        IMP336_POST_LADDER_UPDATE.openSubGap.trajectoryReduction.reducedStatement,
+      ) &&
+      IMP336_POST_LADDER_UPDATE.openSubGap.statusOnTrajectory.startsWith('refuted') &&
+      IMP336_POST_LADDER_UPDATE.openSubGap.trajectoryReduction.stillOpen.startsWith(
+        'RESOLVED NEGATIVELY',
+      ) &&
+      IMP336_TRAJECTORY_REFUTATION.resolves ===
+        'imp-336-sub-monotonicity-on-trajectory' &&
+      IMP336_TRAJECTORY_REFUTATION.derivativeObstruction.dDdtau0 > 0,
+    why:
+      'imp-2516 (two passes): the trajectory-monotonicity sub-gap was first ' +
+      'REDUCED to a STRICT one-sided drift-sign inequality at argmin-crossing ' +
+      'configurations (first-up-crossing + Danskin right-derivative), and the ' +
+      'reduced inequality was then REFUTED in closed form at the tau = 0 ' +
+      'shared-argmin crossing (appended-particle gap-opening drift, certified ' +
+      'by 12 of 18 consecutive-pair CERT-VIOL violations of (M) in N in ' +
+      '[2, 20]). Both the reduction and the refutation record must stay ' +
+      'pinned and consistent: the reduction is the logic that localised the ' +
+      'refutation, and the refutation is why statusOnTrajectory says refuted.',
   },
 ];

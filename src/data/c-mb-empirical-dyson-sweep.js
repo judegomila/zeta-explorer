@@ -359,12 +359,38 @@ const LARGE_N_DIRECT_ROWS = LARGE_N_TARGETS.map((N) => {
   // flag, so derive it from the data — a row clears the strict resolution bar only
   // when F_mb exceeds 5*dt. At dt = tauC_est(N)/100 the collision fires just 1-4
   // steps past the tauC_est step at every target (F_mb = k*dt, k in {1,2,3,4}), so
-  // NO row clears 5*dt: the direct large-N F_mb is dt-QUANTIZATION-LIMITED, named in
-  // openSubGaps as imp-2509-sub-large-n-dt-quantization. The dt/2 re-run (where the
+  // NO row clears 5*dt: the direct large-N F_mb is dt-QUANTIZATION-LIMITED, named as
+  // imp-2509-sub-large-n-dt-quantization (closed by imp-2529 below). The dt/2 re-run (where the
   // cache supplies one, N <= 2000) still agrees to within one step, so the small
   // residual is convergent, not noise.
   const resolvedAbove5dt = F_mb > 5 * c.dt;
   const dtHalfConverged  = half ? Math.abs(half.t_c - c.t_c) <= 2 * c.dt : null;
+  // imp-2529 / imp-2509-sub-large-n-dt-quantization closure (paths b + c):
+  // (c) BAND: the collision gate fires at the first grid step whose spacing
+  // is below the threshold, so the detected t_c carries at most one full step
+  // of grid quantization in either direction once RK4 truncation is folded
+  // in; F_mb is therefore quoted as the explicit one-step interval
+  // [max(0, F_mb - dt), F_mb + dt] and K_empirical inherits the band.
+  // (b) RICHARDSON: where the cache carries a dt/2 re-run (N <= 2000), the
+  // collision-time error is quantization-dominated (effective order ~1, see
+  // mapVsFlowSemantics for why nominal order 4 is lost at the singular
+  // endpoint), so the first-order extrapolation t_rich = 2*t(dt/2) - t(dt)
+  // cancels the leading one-step bias. Measured outcome on all three
+  // half-checked rows: t(dt/2) = t(dt) - dt/2 exactly, hence
+  // F_rich = F_mb - dt — the extrapolation lands ON the band lower edge,
+  // independently confirming the band construction; at N = 2000 F_rich = 0
+  // to Float64, i.e. the many-body residual there is BELOW the dt
+  // resolution floor and the coarse point value was pure quantization.
+  const F_mb_lo = Math.max(0, F_mb - c.dt);
+  const F_mb_hi = F_mb + c.dt;
+  const K_lo = F_mb_lo * H_unf / norm;
+  const K_hi = F_mb_hi * H_unf / norm;
+  const t_rich  = half ? 2 * half.t_c - c.t_c : null;
+  const F_rich  = half ? Math.abs(t_rich - tauEst) : null;
+  const K_rich  = half ? F_rich * H_unf / norm : null;
+  const richInBand = half
+    ? F_rich >= F_mb_lo - 1e-12 && F_rich <= F_mb_hi + 1e-12
+    : null;
   return {
     N,
     status: resolvedAbove5dt ? 'measured-resolved' : 'measured-quantization-limited',
@@ -387,6 +413,16 @@ const LARGE_N_DIRECT_ROWS = LARGE_N_TARGETS.map((N) => {
     dt_half_converged:   dtHalfConverged,
     K_upper_conditional_imp2509: condCap,
     below_conditional_cap: condCap !== null ? K_empirical <= condCap : null,
+    F_mb_lo:        +F_mb_lo.toExponential(6),
+    F_mb_hi:        +F_mb_hi.toExponential(6),
+    K_empirical_lo: +K_lo.toExponential(6),
+    K_empirical_hi: +K_hi.toExponential(6),
+    below_conditional_cap_band: condCap !== null ? K_hi <= condCap : null,
+    tau_c_richardson:      t_rich !== null ? +t_rich.toExponential(6) : null,
+    F_mb_richardson:       F_rich !== null ? +F_rich.toExponential(6) : null,
+    K_empirical_richardson: K_rich !== null ? +K_rich.toExponential(6) : null,
+    richardson_within_band: richInBand,
+    richardson_below_dt_floor: F_rich !== null ? F_rich < c.dt : null,
   };
 });
 
@@ -411,6 +447,25 @@ const LARGE_N_DIRECT_K_BELOW_SMALLN_MAX =
 const LARGE_N_CAPS_VALIDATED =
   LARGE_N_ALL_MEASURED &&
   LARGE_N_MEASURED.every((r) => r.below_conditional_cap !== false);
+// imp-2529 band-robust upgrades: the boundedness picture and the imp-2509
+// conditional caps must hold not just at the quantization-limited point
+// values but at the TOP of the one-step band — i.e. they are insensitive to
+// the entire dt-quantization uncertainty this sub-gap named.
+const LARGE_N_BAND_K_BELOW_SMALLN_MAX =
+  LARGE_N_ALL_MEASURED &&
+  K_EMPIRICAL_MAX !== null &&
+  LARGE_N_MEASURED.every((r) => r.K_empirical_hi < K_EMPIRICAL_MAX);
+const LARGE_N_BAND_CAPS_VALIDATED =
+  LARGE_N_ALL_MEASURED &&
+  LARGE_N_MEASURED.every((r) => r.below_conditional_cap_band !== false);
+// Richardson rows: every cached dt/2 re-run must yield an extrapolated F_mb
+// inside the one-step band (it lands exactly on the lower edge F_mb - dt).
+const LARGE_N_RICHARDSON_ROWS = LARGE_N_MEASURED.filter(
+  (r) => r.F_mb_richardson !== null,
+);
+const LARGE_N_RICHARDSON_ALL_IN_BAND =
+  LARGE_N_RICHARDSON_ROWS.length > 0 &&
+  LARGE_N_RICHARDSON_ROWS.every((r) => r.richardson_within_band === true);
 
 // ── imp-2511 / imp-887-sub-resolve-cross-check-violation closure ────────────
 // ROOT CAUSE of the imp-887 containment violations at N in {50, 100}: the two
@@ -641,6 +696,44 @@ const MVF_QUANTIFIED =
   MVF_QUANT.effectiveOrder !== null &&
   MVF_QUANT.effectiveOrder <= 2;
 
+// ── imp-2533 / imp-2528-sub-certified-flow-enclosure (HONEST PARTIAL) ────────
+// The certified TRUE-FLOW enclosure stays open: paths (a) Lohner/Arb-CAPD and
+// (b) a gap-floor one-sided lower bound both need certified control of the
+// singular Dyson field's high derivatives near collision, which the repo does
+// not have, and the measured effective order ~1.3 confirms the derivative
+// blow-up is REAL (so no naive remainder term is sound there). What CAN be
+// shipped in-build WITHOUT overclaiming is an a-posteriori, multi-ORDER
+// flow-agreement enclosure at the N=100 witness: two INDEPENDENT flow
+// estimators of different order -- the order-8 DP8 reference and the
+// first-order Richardson dt->0 extrapolation of the RK4 map -- bracket the
+// true-flow collision time, and their spread is a concrete (but NOT
+// interval-arithmetic-certified) error indicator that the consuming program
+// can quote as a two-sided FLOW interval in place of the bare empirical
+// one-sided t_c_flow <= t_c_hi. This SHARPENS the residual: what remains is
+// strictly the certified (interval-arithmetic) half, renamed
+// imp-2528-sub-certified-flow-enclosure-arb.
+const FLOW_ENCLOSURE = (() => {
+  if (MVF_QUANT == null) return null;
+  const dp8  = MVF_QUANT.tc_flow_ref_dp8;       // order-8 flow reference
+  const rich = MVF_QUANT.tc_richardson_extrap;  // first-order dt->0 map extrap
+  if (typeof dp8 !== 'number' || typeof rich !== 'number') return null;
+  const lo  = Math.min(dp8, rich);
+  const hi  = Math.max(dp8, rich);
+  const width = hi - lo;
+  const tol = 3 * MVF_DT_FINE; // same gate as richardsonConsistentWithDp8
+  return {
+    lo:    +lo.toExponential(6),
+    hi:    +hi.toExponential(6),
+    width: +width.toExponential(4),
+    tol:   +tol.toExponential(4),
+    widthWithinTol: width <= tol,
+    estimators: {
+      dp8_order8:        dp8,
+      richardson_rk4_o1: rich,
+    },
+  };
+})();
+
 // ── Closure record ──────────────────────────────────────────────────────────
 
 export const C_MB_EMPIRICAL_DYSON_SWEEP = {
@@ -840,6 +933,32 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
       'imp-2528-sub-certified-flow-enclosure in openSubGaps.',
   },
 
+  flowEnclosureBound: {
+    subGap:      'imp-2528-sub-certified-flow-enclosure',
+    addressedBy: 'imp-2533',
+    closure:     'HONEST-PARTIAL',
+    n:           MVF_N,
+    semantics:
+      'a-posteriori multi-order flow-agreement indicator -- NOT an ' +
+      'interval-arithmetic certificate. Two INDEPENDENT flow estimators of ' +
+      'different order (order-8 DP8 reference; first-order Richardson dt->0 ' +
+      'extrapolation of the RK4 map) bracket the true-flow collision time at ' +
+      'the N=100 witness; the bracket width is a numerical error indicator, ' +
+      'not a rigorous enclosure of the flow.',
+    enclosure: FLOW_ENCLOSURE,
+    delivers:
+      'A concrete two-sided FLOW t_c interval [lo, hi] at N=100 (re-derived ' +
+      'each build) that consumers can quote in place of the bare one-sided ' +
+      'empirical bound t_c_flow <= t_c_hi, with the two distinct-order ' +
+      'estimators agreeing to within 3*dt_fine.',
+    notDelivered:
+      'A certified (interval-arithmetic) true-flow enclosure. Both estimators ' +
+      'are floating-point integrators, so the bracket carries no rigorous ' +
+      'guarantee near the singular endpoint where the measured effective ' +
+      'order ~1.3 shows derivative blow-up is real.',
+    residualSuccessor: 'imp-2528-sub-certified-flow-enclosure-arb',
+  },
+
   dp8OrderRobustness: {
     subGap: 'imp-860-sub-use-DP8',
     closedBy: 'imp-2510',
@@ -982,7 +1101,8 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
     subGap: 'imp-860-sub-extend-to-N10k',
     closedBy: 'imp-2509',
     status: LARGE_N_ALL_MEASURED
-      ? 'measured-at-all-five-targets (offline cache; F_mb dt-quantization-limited)'
+      ? 'measured-at-all-five-targets (offline cache; F_mb quoted as +/- dt one-step band, ' +
+        'Richardson-sharpened at N <= 2000 — imp-2529)'
       : 'cache-incomplete',
     targets: LARGE_N_TARGETS,
     cacheProvenance: {
@@ -1001,6 +1121,37 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
       ? +LARGE_N_DIRECT_R_REL_MAX.toFixed(6) : null,
     K_below_small_n_max:        LARGE_N_DIRECT_K_BELOW_SMALLN_MAX,
     conditional_caps_validated: LARGE_N_CAPS_VALIDATED,
+    K_band_below_small_n_max:        LARGE_N_BAND_K_BELOW_SMALLN_MAX,
+    conditional_caps_validated_band: LARGE_N_BAND_CAPS_VALIDATED,
+    richardson_all_in_band:          LARGE_N_RICHARDSON_ALL_IN_BAND,
+    dtQuantizationClosure: {
+      subGap: 'imp-2509-sub-large-n-dt-quantization',
+      closedBy: 'imp-2529',
+      resolutionPath:
+        'b + c — (c) every large-N row now quotes F_mb and K_empirical as an ' +
+        'explicit +/- dt one-step band [F_mb_lo, F_mb_hi] / [K_empirical_lo, ' +
+        'K_empirical_hi] instead of a bare quantization-limited point value, ' +
+        'and (b) the cached dt and dt/2 collision times at N <= 2000 are ' +
+        'first-order Richardson-extrapolated (t_rich = 2*t_half - t_full), ' +
+        'which on all three half-checked rows lands exactly on the band ' +
+        'lower edge F_mb - dt and at N = 2000 on tauC_est itself (F_rich = 0 ' +
+        'to Float64): the residual there is below the dt resolution floor.',
+      decisiveFacts:
+        'The two statements the program actually consumes are BAND-ROBUST: ' +
+        'every K_empirical_hi (band TOP, worst case over the entire ' +
+        'quantization uncertainty) stays below the small-N max 0.0377 with ' +
+        '>= 90x margin AND below its per-N imp-2509 conditional cap at all ' +
+        'five targets. The dt-quantization limitation therefore cannot flip ' +
+        'either the boundedness picture or the cap validation — it only ' +
+        'blurs the last digit of a point value no consumer needs.',
+      residual:
+        'Path (a) — regenerating the offline cache with the dtRule x10 ' +
+        'auto-refinement actually applied (and a per-row resolved flag) so ' +
+        'F_mb > 5*dt pointwise, which would also give N in {5000, 10000} ' +
+        'their missing dt/2 re-runs — remains open as the named successor ' +
+        'imp-2529-sub-rerun-dtrule-x10 (CPU-budget-only: rerun ' +
+        'scripts/imp-2509-dyson-large-n-sweep.mjs offline).',
+    },
     quantizationCaveat:
       'HONEST STATUS (imp-2509): the direct backward-RK4 sweep IS extended to and ' +
       'collides at all five targets {500,1000,2000,5000,10000} (the literal ' +
@@ -1010,9 +1161,12 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
       'in {1,2,3,4} and NO row clears the strict F_mb > 5*dt resolution bar: the ' +
       'absolute F_mb (hence K_empirical) is dt-QUANTIZATION-LIMITED, not yet ' +
       'sharply resolved. The dt/2 re-run (N <= 2000) agrees to within one step, so ' +
-      'the residual is convergent. Refining dt per N until F_mb > 5*dt is the named ' +
-      'residual imp-2509-sub-large-n-dt-quantization (the offline worker dtRule was ' +
-      'meant to auto-refine x10 but the cached rows sit at the initial coarse dt).',
+      'the residual is convergent. The named residual ' +
+      'imp-2509-sub-large-n-dt-quantization was CLOSED by imp-2529 via paths (b)+(c) ' +
+      '(see dtQuantizationClosure): F_mb is quoted as a +/- dt band, Richardson ' +
+      'extrapolation sharpens N <= 2000, and both consumed statements are ' +
+      'band-robust; only the path-(a) offline cache regeneration ' +
+      '(imp-2529-sub-rerun-dtrule-x10) is still pending for sub-dt point values.',
     description:
       'CLOSES imp-860-sub-extend-to-N10k via the named resolution path (a)+(c): ' +
       'the direct backward-RK4 sweep at N in {500, 1000, 2000, 5000, 10000} is ' +
@@ -1064,38 +1218,72 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
         'overshoot direction (map collides no earlier than flow) as a ' +
         'THEOREM for backward RK4 on the attractive Dyson field, upgrading ' +
         't_c_flow <= t_c_hi from empirical to rigorous.',
+      progressNote:
+        'imp-2533 HONEST-PARTIAL: an a-posteriori multi-order flow-agreement ' +
+        'enclosure is now shipped (see flowEnclosureBound) -- the order-8 DP8 ' +
+        'reference and the first-order Richardson(RK4) extrapolation bracket ' +
+        'the N=100 flow t_c to within 3*dt_fine, giving consumers a two-sided ' +
+        'FLOW interval instead of the bare empirical t_c_flow <= t_c_hi. This ' +
+        'is an error INDICATOR, not an interval-arithmetic certificate; the ' +
+        'certified half (paths (a) Lohner/Arb-CAPD, (b) gap-floor lower bound, ' +
+        '(c) overshoot theorem) stays open as the sharpened successor ' +
+        'imp-2528-sub-certified-flow-enclosure-arb.',
     },
     {
-      id: 'imp-2509-sub-large-n-dt-quantization',
+      id: 'imp-2529-sub-rerun-dtrule-x10',
+      successorOf: 'imp-2509-sub-large-n-dt-quantization',
       summary:
-        'The direct large-N backward-RK4 sweep collides at all five targets ' +
-        '{500..10000}, but at dt = tauC_est(N)/100 the collision fires only 1-4 ' +
-        'steps past the tauC_est step, so F_mb = k*dt (k in {1,2,3,4}) and no ' +
-        'row clears the strict F_mb > 5*dt resolution bar — the absolute F_mb ' +
-        '(hence K_empirical) is dt-quantization-limited.',
+        'Sub-dt POINT values of F_mb at the five large-N targets are still ' +
+        'undelivered: the offline cache rows sit at the initial coarse ' +
+        'dt = tauC_est(N)/100 and the dtRule x10 auto-refinement was never ' +
+        'actually applied, so no row clears F_mb > 5*dt pointwise and ' +
+        'N in {5000, 10000} lack a dt/2 re-run entirely.',
       finding:
-        'Uncovered while finalizing imp-2509: the offline cache ' +
-        '(src/data/c-mb-dyson-large-n-cache.js) carries no `resolved` flag and ' +
-        'its rows sit at the initial coarse dt = tauC_est(N)/100, even though the ' +
-        'worker dtRule was meant to auto-refine x10 until F_mb > 5*dt. Because ' +
-        'the many-body residual shrinks at large N (measured R_rel falls to ' +
-        '~0.01-0.04 on {500..10000}), the collision lands just past the ' +
-        'leading-order step and F_mb is resolved only to one-step precision. The ' +
-        'measurement is still CONVERGENT — the dt/2 re-run (N <= 2000) agrees to ' +
-        'within one step and the N=10000 row matches the imp-2485 DOP853 anchor ' +
-        '(index 6708) — and the boundedness picture (every large-N K below the ' +
-        'small-N max) and the imp-2509 conditional caps both hold, so the literal ' +
-        '"extend the direct sweep" ask is delivered. What remains: sharpen the ' +
-        'ABSOLUTE F_mb. Resolution paths: (a) regenerate the cache actually ' +
-        'running the dtRule x10 auto-refinement (and emit a per-row `resolved` ' +
-        'flag) so F_mb > 5*dt at every target; (b) Richardson-extrapolate F_mb ' +
-        'from the dt and dt/2 collision times already cached at N <= 2000; ' +
-        '(c) quote K_empirical(N) at large N with an explicit +/- dt one-step ' +
-        'band rather than a point value. Linked: imp-860-sub-extend-to-N10k.',
+        'imp-2529 closed the predecessor via paths (b)+(c): every consumed ' +
+        'statement (K boundedness below the small-N max, imp-2509 conditional ' +
+        'caps) is now BAND-ROBUST at the +/- dt band top, and first-order ' +
+        'Richardson at N <= 2000 lands on the band lower edge (F_rich = ' +
+        'F_mb - dt; = 0 at N = 2000), so the quantization blur is quantified ' +
+        'and contained — but it is bounded, not removed. What remains is ' +
+        'CPU-budget-only path (a): rerun ' +
+        'scripts/imp-2509-dyson-large-n-sweep.mjs offline with the x10 ' +
+        'dt-refinement loop actually engaging (and emit a per-row resolved ' +
+        'flag plus dt/2 checks at N in {5000, 10000}), regenerating ' +
+        'src/data/c-mb-dyson-large-n-cache.js so F_mb > 5*dt at every ' +
+        'target and the band collapses toward the Richardson edge. ' +
+        'Wall-clock estimate from the cached wall_ms: the N = 10000 row cost ' +
+        '~40 s at ~100 steps, so a x10-refined run is ~minutes-to-hours, ' +
+        'fine offline, impossible at module load. ' +
+        'Linked: imp-2509-sub-large-n-dt-quantization (closed).',
     },
   ],
 
   closedSubGaps: [
+    {
+      id: 'imp-2509-sub-large-n-dt-quantization',
+      closedBy: 'imp-2529',
+      resolution:
+        'Closed via its own named resolution paths (b)+(c), entirely from ' +
+        'data already in the offline cache. (c) Every large-N row now quotes ' +
+        'F_mb and K_empirical as an explicit +/- dt one-step band (F_mb_lo / ' +
+        'F_mb_hi, K_empirical_lo / K_empirical_hi) instead of a bare ' +
+        'quantization-limited point value, and the two statements the ' +
+        'program consumes are BAND-ROBUST: K_empirical_hi (band TOP) stays ' +
+        'below the small-N max with >= 90x margin AND below the per-N ' +
+        'imp-2509 conditional cap at all five targets, so the quantization ' +
+        'uncertainty cannot flip the boundedness picture or the cap ' +
+        'validation. (b) The cached dt and dt/2 collision times at ' +
+        'N <= 2000 are first-order Richardson-extrapolated (collision-time ' +
+        'error is quantization-dominated, effective order ~1): on all three ' +
+        'half-checked rows t_half = t_full - dt/2 exactly, so F_rich = ' +
+        'F_mb - dt lands ON the band lower edge, and at N = 2000 F_rich = 0 ' +
+        'to Float64 — the many-body residual there is below the dt ' +
+        'resolution floor. See dtQuantizationClosure on largeNDirect and ' +
+        'the imp2529-dt-quantization-band-closure build-time assertion. ' +
+        'Residual: path (a) offline cache regeneration with the x10 ' +
+        'dt-refinement engaged is the named successor ' +
+        'imp-2529-sub-rerun-dtrule-x10 (CPU-budget-only).',
+    },
     {
       id: 'imp-2510-sub-rk4-n50-order-artifact',
       closedBy: 'imp-2527',
@@ -1220,6 +1408,77 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
 // ── Build-time assertions ───────────────────────────────────────────────────
 
 export const C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS = [
+  {
+    id: 'imp2529-dt-quantization-band-closure',
+    holds: () => {
+      const ld = C_MB_EMPIRICAL_DYSON_SWEEP.largeNDirect;
+      if (!ld || !Array.isArray(ld.rows) || !ld.dtQuantizationClosure) return false;
+      const measured = ld.rows.filter((r) => r.status !== 'no-cached-measurement');
+      const rich = measured.filter((r) => r.F_mb_richardson !== null);
+      // (1) all five targets carry full band fields with a consistent
+      //     ordering K_lo <= K <= K_hi and a band width of exactly one step
+      //     on each side (re-derived from the row's own dt and norm);
+      // (2) path (c) decisive facts: the band TOP stays below the small-N
+      //     max AND below the per-N conditional cap at every target — the
+      //     two consumed statements are robust to the entire quantization
+      //     uncertainty;
+      // (3) path (b): a Richardson row exists for every cached dt/2 re-run
+      //     (the three N <= 2000 targets), each extrapolated F_mb lands
+      //     inside the one-step band, and the N = 2000 extrapolation drops
+      //     below the dt floor (the residual there was pure quantization);
+      // (4) bookkeeping: predecessor in closedSubGaps (closedBy imp-2529),
+      //     path-(a) successor named in openSubGaps.
+      const closed = C_MB_EMPIRICAL_DYSON_SWEEP.closedSubGaps.some(
+        (g) =>
+          g.id === 'imp-2509-sub-large-n-dt-quantization' &&
+          g.closedBy === 'imp-2529',
+      );
+      const successor = C_MB_EMPIRICAL_DYSON_SWEEP.openSubGaps.some(
+        (g) => g.id === 'imp-2529-sub-rerun-dtrule-x10',
+      );
+      const stillOpen = C_MB_EMPIRICAL_DYSON_SWEEP.openSubGaps.some(
+        (g) => g.id === 'imp-2509-sub-large-n-dt-quantization',
+      );
+      const r2000 = rich.find((r) => r.N === 2000);
+      return (
+        measured.length === 5 &&
+        measured.every(
+          (r) =>
+            Number.isFinite(r.K_empirical_lo) &&
+            Number.isFinite(r.K_empirical_hi) &&
+            r.K_empirical_lo <= r.K_empirical &&
+            r.K_empirical <= r.K_empirical_hi &&
+            Math.abs(r.F_mb_hi - r.F_mb_measured - r.dt) <= 1e-9 * r.F_mb_hi &&
+            r.F_mb_lo >= 0,
+        ) &&
+        ld.K_band_below_small_n_max === true &&
+        ld.conditional_caps_validated_band === true &&
+        measured.every((r) => r.below_conditional_cap_band !== false) &&
+        rich.length === 3 &&
+        ld.richardson_all_in_band === true &&
+        rich.every((r) => r.richardson_within_band === true) &&
+        r2000 != null &&
+        r2000.richardson_below_dt_floor === true &&
+        closed &&
+        successor &&
+        !stillOpen
+      );
+    },
+    why:
+      'imp-2529 / imp-2509-sub-large-n-dt-quantization: the dt-quantization ' +
+      'sub-gap is closed via its own paths (b)+(c), so every large-N row must ' +
+      'carry a coherent +/- dt one-step band (K_lo <= K <= K_hi, upper edge ' +
+      'exactly one step above the point value), the band TOP must stay below ' +
+      'both the small-N K max and the per-N imp-2509 conditional cap (the ' +
+      'band-robustness that makes the quantization blur harmless to the ' +
+      'program), every cached dt/2 re-run must yield a Richardson ' +
+      'extrapolation inside the band, and the N = 2000 extrapolation must sit ' +
+      'below the dt floor (the fact showing the coarse point value there was ' +
+      'pure grid quantization). Failure means the cache was regenerated with ' +
+      'different geometry (re-derive the bands before trusting them), the ' +
+      'band-robust boundedness reversed (a real finding — reopen the gap), or ' +
+      'the sub-gap bookkeeping was edited inconsistently.',
+  },
   {
     id: 'imp2527-rk4-n50-order-artifact-closed',
     holds: () => {
@@ -1442,8 +1701,9 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS = [
       'K_empirical below the measured small-N max and every row respecting its ' +
       'imp-2509 conditional cap. It deliberately does NOT assert the strict ' +
       'F_mb > 5*dt resolution bar: at dt = tauC_est(N)/100 no large-N row clears ' +
-      'it (F_mb = 1-4 dt), so the absolute F_mb is dt-quantization-limited — the ' +
-      'named residual imp-2509-sub-large-n-dt-quantization, not a closure. ' +
+      'it (F_mb = 1-4 dt), so the absolute F_mb is dt-quantization-limited — that ' +
+      'was named imp-2509-sub-large-n-dt-quantization, since closed by imp-2529 ' +
+      'via the band + Richardson quote (imp2529-dt-quantization-band-closure). ' +
       'Failure here means the cache was regenerated with a broken integrator/gate, ' +
       'the boundedness picture reversed (a finding that reopens the sub-gap), the ' +
       'dt/2 convergence broke, or the conditional-projection premise was falsified.',
@@ -1555,5 +1815,55 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP_ASSERTIONS = [
       'deficit would no longer be explained by truncation — a NEW integrator ' +
       'discrepancy), or the sub-gap bookkeeping (closed predecessor + open ' +
       'successor imp-2528-sub-certified-flow-enclosure) being lost.',
+  },
+  {
+    id: 'imp2533-flow-agreement-indicator',
+    holds: () => {
+      const fe = C_MB_EMPIRICAL_DYSON_SWEEP.flowEnclosureBound;
+      if (!fe || !fe.enclosure) return false;
+      const e = fe.enclosure;
+      // (1) Two INDEPENDENT different-order flow estimators (order-8 DP8 and
+      //     first-order Richardson of the RK4 map) both lie inside [lo, hi]
+      //     and agree within 3*dt_fine -- an a-posteriori indicator, NOT a
+      //     certified enclosure.
+      const dp8  = e.estimators.dp8_order8;
+      const rich = e.estimators.richardson_rk4_o1;
+      const bracketsBoth =
+        e.lo <= dp8 && dp8 <= e.hi && e.lo <= rich && rich <= e.hi;
+      // (2) The record stays HONESTLY labelled: closure is partial and the
+      //     semantics string disclaims interval-arithmetic certification, so
+      //     the gap is NOT silently marked closed, and the certified half is
+      //     named as the sharpened successor.
+      const honest =
+        fe.closure === 'HONEST-PARTIAL' &&
+        typeof fe.semantics === 'string' &&
+        fe.semantics.includes('NOT an') &&
+        fe.residualSuccessor === 'imp-2528-sub-certified-flow-enclosure-arb';
+      // (3) The original gap stays OPEN with the imp-2533 progress note.
+      const stillOpen = C_MB_EMPIRICAL_DYSON_SWEEP.openSubGaps.some(
+        (g) =>
+          g.id === 'imp-2528-sub-certified-flow-enclosure' &&
+          typeof g.progressNote === 'string',
+      );
+      return (
+        bracketsBoth &&
+        e.widthWithinTol === true &&
+        e.width <= e.tol &&
+        e.lo <= e.hi &&
+        honest &&
+        stillOpen
+      );
+    },
+    why:
+      'imp-2533 / imp-2528-sub-certified-flow-enclosure (HONEST PARTIAL): the ' +
+      'multi-order flow-agreement enclosure must keep bracketing the N=100 ' +
+      'flow t_c with BOTH independent estimators (order-8 DP8 and first-order ' +
+      'Richardson of the RK4 map) inside [lo, hi] and agreeing within ' +
+      '3*dt_fine, and must stay HONESTLY labelled as an a-posteriori indicator ' +
+      '(not an interval-arithmetic certificate) with the certified half left ' +
+      'open as imp-2528-sub-certified-flow-enclosure-arb. Guards against the ' +
+      'indicator being silently upgraded to a certificate it has not earned, ' +
+      'or the two estimators diverging (which would signal a NEW integrator ' +
+      'discrepancy rather than mere truncation).',
   },
 ];

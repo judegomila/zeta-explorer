@@ -1655,6 +1655,9 @@ const DATA_MODULES = [
   // imp-2518: imp-897 sub-gap RESOLVED-PARTIAL sync tripwires (same-step
   // collision bracket + Richardson-vs-single-point sharpness re-derivation).
   '/src/data/imp-857-phased-forcing-sweep.js',
+  // imp-2530: (M-restated) = envelope form closure of the imp-2516 successor
+  // sub-gap (certified flat-iff-violation trichotomy + imp-328 sufficiency audit).
+  '/src/data/imp-2530-monotonicity-restatement.js',
 ];
 
 const ALL_MODULES = FAST_MODE

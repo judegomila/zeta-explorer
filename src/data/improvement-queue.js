@@ -15891,6 +15891,39 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Loaded bui-sound-plus-polymath-bridge-2026-05.js via Vite ssrLoadModule (light imports, no heavy zeros bundle) and ran all ten BS_PLUS_POLYMATH_HYBRID_ASSERTIONS tripwires: 10/10 PASS, 0 fail. Fixed a stale count in the @fileoverview reading-order header (item 6 said "nine build-time tripwires"; the array has held ten since the imp-2366 disjointness addition). Comment-only correction; no formula/constant/assertion changed. NOTE: this ticket carried inflightTaskId api-pool-w2-1781083290111 (concurrent api-pool claim after the queue-index snapshot); the stale-header-count fix is the distinct deliverable here. See improvements.js id 2586. npm run build exit 0.',
   },
 
+  
+  // ── Auto-seeded batch (2026-06-10) ──
+  // Scanned: Lean sorrys, TODO/FIXME, partial statuses, open sub-gaps,
+  // dashboard bugs, harness improvements, stale assertions.
+  {
+    id: 'imp-2586',
+    title: "CRITICAL CHAIN: cross-verify many-body-correction-closure.js",
+    category: 'proof',
+    priority: 'high',
+    status: 'in-progress-subagent',
+    inflightTaskId: 'api-pool-w1-1781085350835',
+    proofSection: 'S10-verify',
+    description: "many-body-correction-closure.js is in the critical proof chain but has NOT been independently cross-verified. Given the bug discovery rate in verified modules, this is high priority. Read src/math/many-body-correction-closure.js, verify all formulas vs cited references, check edge cases, confirm reference values.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'medium',
+    completedAt: null,
+  },
+  {
+    id: 'imp-2587',
+    title: "Verify assertions still pass in bui-soundararajan-density-numerical-2026-05.js",
+    category: 'proof',
+    priority: 'low',
+    status: 'completed',
+    completedByModel: "opus-4-8",
+    completedByChannel: "api-pool",
+    proofSection: 'S11-verify',
+    description: "Dated assertion file src/data/bui-soundararajan-density-numerical-2026-05.js may be stale (not verified in 24h). Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
+    rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
+    estimatedComplexity: 'small',
+    completedAt: '2026-06-10T09:57:00Z',
+    closureNote: 'Re-verified all five BUI_SOUND_DENSITY_NUMERICAL_ASSERTIONS tripwires under plain node (light-import module, no zeros bundle): 5/5 PASS. Documented headline values reproduce exactly — E_trunc_Ingham=3.06e-5, E_trunc_BS=1.51e-11 at sigma_opt=0.75, L_pt_Ingham=0.019521, L_pt_BS=0.019490, margins 10.246x/10.262x. Added verifiedAt freshness stamp to the record (imp-2590). Build green.',
+  },
+
     {
     id: 'imp-442',
     title: 'META: Auto-push every N engine runs so local commits do not strand',

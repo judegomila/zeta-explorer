@@ -176,6 +176,10 @@ export const BUI_SOUND_DENSITY_NUMERICAL = Object.freeze({
     'Bui-Soundararajan density numerical projection: E_trunc_BS + L_pt headline ' +
     'at sigma in {0.7, 0.75, 0.8, 0.85}, T_PT = 3e12',
   status: 'completed-numerical-projection',
+  // imp-2587 freshness re-verification: all 5 assertions re-run and PASS;
+  // headline values confirmed (Etrunc_I=3.06e-5, Etrunc_BS=1.51e-11,
+  // L_pt_I=0.019521, L_pt_BS=0.019490, margins 10.246x/10.262x).
+  verifiedAt: '2026-06-10T00:00:00Z',
   scopeNote:
     'NUMERICAL projection only. The implicit constant C_BS in the BS density ' +
     'bound is treated as 1; the rigorous port that audits C_BS explicitly is ' +

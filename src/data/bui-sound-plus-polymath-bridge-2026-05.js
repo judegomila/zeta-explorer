@@ -33,7 +33,7 @@
  *     4. combined                        -- product of the two effects per E-term
  *     5. namedObstructions               -- which constants are research-grade
  *                                            vs engine-closable
- *     6. BS_PLUS_POLYMATH_HYBRID_ASSERTIONS  -- nine build-time tripwires
+ *     6. BS_PLUS_POLYMATH_HYBRID_ASSERTIONS  -- ten build-time tripwires
  *
  *   Honest scope
  *   ------------
@@ -305,6 +305,8 @@ export const BS_PLUS_POLYMATH_HYBRID = Object.freeze({
     'E_trunc / E_flow / E_coll.',
   status: 'shipped-projection',
   surveyDate: '2026-05-19',
+  verifiedAt: '2026-06-10T09:22:21Z', // imp-2585: all 10 exported assertions re-verified (esbuild bundle + node eval), build clean; bundle 87KB confirms no heavy imports; counts/refs unchanged
+
   ptBound: L_ASYMPTOTIC_BASELINE_PT,
   tPtVerified: T_PT,
   sigmaOpt:   SIGMA_OPT,

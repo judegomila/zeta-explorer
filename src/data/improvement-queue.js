@@ -15879,12 +15879,16 @@ export const IMPROVEMENT_QUEUE = [
     title: "Verify assertions still pass in bui-sound-plus-polymath-bridge-2026-05.js",
     category: 'proof',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
+    inflightTaskId: 'api-pool-w2-1781083290111',
     proofSection: 'S11-verify',
     description: "Dated assertion file src/data/bui-sound-plus-polymath-bridge-2026-05.js may be stale (not verified in 24h). Re-run npm run build and verify all exported assertions pass. Update any stale counts or references.",
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
-    completedAt: null,
+    completedAt: '2026-06-10T09:25:00Z',
+    completedByModel: 'opus-4-7',
+    completedByChannel: 'subscription',
+    closureNote: 'Loaded bui-sound-plus-polymath-bridge-2026-05.js via Vite ssrLoadModule (light imports, no heavy zeros bundle) and ran all ten BS_PLUS_POLYMATH_HYBRID_ASSERTIONS tripwires: 10/10 PASS, 0 fail. Fixed a stale count in the @fileoverview reading-order header (item 6 said "nine build-time tripwires"; the array has held ten since the imp-2366 disjointness addition). Comment-only correction; no formula/constant/assertion changed. NOTE: this ticket carried inflightTaskId api-pool-w2-1781083290111 (concurrent api-pool claim after the queue-index snapshot); the stale-header-count fix is the distinct deliverable here. See improvements.js id 2586. npm run build exit 0.',
   },
 
     {

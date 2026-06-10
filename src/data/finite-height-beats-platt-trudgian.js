@@ -319,7 +319,11 @@ function evaluateAtN(N) {
 // Target range: {1e4, 1e5, 1e6, 1e7, 5e7, 1e8, 5e8, 1e9}.
 // imp-716: extended with intermediate points 2e5,5e5,2e6,5e6,2e7 to fill grid gaps.
 // imp-812: added 2e8 to fill the remaining 5x-ratio gap between 1e8 and 5e8.
-const TARGET_NS = [1e4, 1e5, 2e5, 5e5, 1e6, 2e6, 5e6, 1e7, 2e7, 5e7, 1e8, 2e8, 5e8, 1e9];
+// imp-2580: added 3e4 to fill the 10x-ratio gap between 1e4 and 1e5 -- the
+//   largest remaining grid gap. 3e4 ~ sqrt(1e4 * 1e5) is the geometric center
+//   and probes the small-N regime where the b/N slope and E_coll terms are
+//   largest. L_pt(3e4) remains < 0.2 with the conditional margin still > 20x.
+const TARGET_NS = [1e4, 3e4, 1e5, 2e5, 5e5, 1e6, 2e6, 5e6, 1e7, 2e7, 5e7, 1e8, 2e8, 5e8, 1e9];
 const LADDER = TARGET_NS.map(evaluateAtN);
 
 // Primary target: N* = 1e6 (within imp-423 extended projection range)
@@ -895,10 +899,10 @@ export const FINITE_HEIGHT_BEATS_PT_ASSERTIONS = [
   },
   {
     id: "imp440-ladder-has-five-rows",
-    holds: () => LADDER.length === 14 && LADDER.every((r) => r.available),
+    holds: () => LADDER.length === 15 && LADDER.every((r) => r.available),
     why:
-      "The sweep must have exactly 14 rows (N in {1e4,1e5,2e5,5e5,1e6,2e6,5e6,1e7,2e7,5e7,1e8,2e8,5e8,1e9}) all available. " +
-      "Extended from 8 to 13 rows by imp-716 (intermediate points 2e5,5e5,2e6,5e6,2e7); extended to 14 by imp-812 (added 2e8 to fill 1e8->5e8 gap).",
+      "The sweep must have exactly 15 rows (N in {1e4,3e4,1e5,2e5,5e5,1e6,2e6,5e6,1e7,2e7,5e7,1e8,2e8,5e8,1e9}) all available. " +
+      "Extended from 8 to 13 rows by imp-716 (intermediate points 2e5,5e5,2e6,5e6,2e7); extended to 14 by imp-812 (added 2e8 to fill 1e8->5e8 gap); extended to 15 by imp-2580 (added 3e4 to fill the 1e4->1e5 gap).",
   },
   // ── imp-440 closure assertion (added 2026-05-18): the rigorous unconditional
   // finite-N* beat-PT-2021 statement at N* = 1e4. THIS is the load-bearing

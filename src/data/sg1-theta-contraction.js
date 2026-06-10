@@ -149,6 +149,22 @@ export const SG1_THETA_REDUCTION = {
       id: 'sg1c-theta-trap-persistence',
       statement: 'Prove the minimal-pair Theta process cannot cross an absolute Theta* < 1 upward along the attractive CM flow, under an explicit environment-speed bound. Empirics: Theta was non-increasing in 9/9 integrated runs (real zeros N in {100,300,870} + 5 adversarial lattice configs). Proof skeleton: dTheta/ds = -8 Theta (1-Theta)/g^2 + (g^2/2) dE/ds with restoring term ~ 1/g^2 vs drift ~ g^2 x environment speeds; quantify the speed bound.',
       status: 'open',
+      partialClosure: {
+        impId: 'imp-2558',
+        barrierCriterionHalf: {
+          status: 'closed-sharp-criterion',
+          lemma: 'LEMMA B (sharp Theta-barrier criterion). Differentiating Theta = g^2 E / 2 along the flow and substituting d(g^2)/ds = -8(1-Theta) (Lemma E) gives the EXACT decomposition dTheta/ds = -8 Theta (1-Theta) / g^2 + (g^2/2) dE/ds, where dE/ds = -sum_{j not in pair} (a_j_dot b_j + a_j b_j_dot)/(a_j b_j)^2 with a_j = x_k - x_j, b_j = x_{k+1} - x_j and dots the CM velocities. Hence at the candidate barrier level Theta = Theta*, the process is repelled downward (dTheta/ds <= 0, so Theta cannot cross Theta* upward) IF AND ONLY IF the environment functional obeys the sharp speed bound dE/ds <= 16 Theta* (1 - Theta*) / g^4, equivalently dE/ds <= 8 (1 - Theta*) E / g^2.',
+          sharpConstant: '16 Theta*(1-Theta*)/g^4 — exact, not order-of-magnitude; the restoring term -8 Theta(1-Theta)/g^2 is the unique competitor',
+          reductionAchieved: 'replaces the vague "explicit environment-speed bound" of the open statement with the EXACT inequality dE/ds <= 16 Theta*(1-Theta*)/g^4 that future work must establish; the barrier is sharpest at Theta* = 1/2 (max restoring budget 4/g^2) and degenerates as Theta* -> 1 (budget -> 0, consistent with the bi-infinite marginal being the only Theta = 1 case)',
+          empiricalConsequence: 'the trap measured in 9/9 + 25/25 integrated runs (Theta non-increasing throughout) is exactly the statement that this criterion held a.e. along every flow tested',
+          verifiedBy: 'assertion sg1c-theta-barrier-criterion-exact (closed-form dE/ds cross-checked against a finite-difference of Theta along an Euler step of the CM flow on a 7-particle asymmetric configuration)',
+        },
+        remainingOpen: {
+          status: 'open',
+          obstruction: 'The criterion dE/ds <= 16 Theta*(1-Theta*)/g^4 must be PROVEN from configuration geometry. dE/ds is a signed sum of pair-velocity products scaling like (environment speeds)/g; the local speeds are 1/gap sums that the upper density controls only at s = 0. Propagating that control forward (so the bound holds a.e., not just initially) is the same mesoscopic-density-propagation strand (S1) that blocks the Theta half of sg1d.',
+        },
+        netEffect: 'sg1c sharpened from "find an explicit environment-speed bound" to "prove the EXACT sharp bound dE/ds <= 16 Theta*(1-Theta*)/g^4 holds a.e.". The parent sub-gap status stays open.',
+      },
     },
     {
       id: 'sg1d-pigeonhole-theta-control',
@@ -273,6 +289,57 @@ function pigeonholeGapCheck() {
   return { V, n0, lowerBoundN0, Vstar, aboveThreshold: V >= Vstar, n0AtLeastHalf: n0 >= (y * V) / 2, minGap: g, gapBound: 8 / V };
 }
 
+function thetaBarrierCriterionCheck() {
+  // LEMMA B witness (imp-2558): asymmetric 7-particle configuration, pair (k,k+1).
+  // Verify the closed-form dE/ds and the resulting exact dTheta/ds decomposition
+  // against a finite-difference of Theta along one Euler step of the CM flow, and
+  // confirm the sharp barrier criterion dTheta/ds <= 0  iff  dE/ds <= 16 T(1-T)/g^4.
+  const x = [-3.1, -1.7, 0, 0.6, 2.2, 3.9, 5.0];
+  const k = 2; // pair (0, 0.6)
+  const g = x[k + 1] - x[k];
+  let E = 0;
+  for (let j = 0; j < x.length; j++) {
+    if (j === k || j === k + 1) continue;
+    E += 1 / ((x[k] - x[j]) * (x[k + 1] - x[j]));
+  }
+  const theta = (g * g * E) / 2;
+  // CM velocities v_i = -2 sum_{m != i} 1/(x_i - x_m)
+  const v = x.map((_, i) => {
+    let s = 0;
+    for (let m = 0; m < x.length; m++) if (m !== i) s += 1 / (x[i] - x[m]);
+    return -2 * s;
+  });
+  // closed-form dE/ds = -sum (a_dot b + a b_dot)/(a b)^2, a = x_k - x_j, b = x_{k+1} - x_j
+  let dEds = 0;
+  for (let j = 0; j < x.length; j++) {
+    if (j === k || j === k + 1) continue;
+    const a = x[k] - x[j], b = x[k + 1] - x[j];
+    const aDot = v[k] - v[j], bDot = v[k + 1] - v[j];
+    dEds += -(aDot * b + a * bDot) / ((a * b) * (a * b));
+  }
+  const dThetaIdentity = -8 * theta * (1 - theta) / (g * g) + (g * g / 2) * dEds;
+  // finite-difference dTheta/ds via an Euler step of the flow
+  const ds = 1e-6;
+  const xn = x.map((xi, i) => xi + ds * v[i]);
+  const gn = xn[k + 1] - xn[k];
+  let En = 0;
+  for (let j = 0; j < xn.length; j++) {
+    if (j === k || j === k + 1) continue;
+    En += 1 / ((xn[k] - xn[j]) * (xn[k + 1] - xn[j]));
+  }
+  const dThetaFD = ((gn * gn * En / 2) - theta) / ds;
+  const barrierRHS = 16 * theta * (1 - theta) / (g * g * g * g);
+  return {
+    theta,
+    dEds,
+    dThetaIdentity,
+    dThetaFD,
+    barrierRHS,
+    idMatchesFD: Math.abs(dThetaIdentity - dThetaFD) <= 1e-4 * (1 + Math.abs(dThetaIdentity)),
+    criterionEquiv: (dThetaIdentity <= 0) === (dEds <= barrierRHS),
+  };
+}
+
 export const SG1_THETA_ASSERTIONS = [
   {
     id: 'sg1theta-exact-pair-identity',
@@ -336,6 +403,25 @@ export const SG1_THETA_ASSERTIONS = [
         sg.partialClosure.gapHalf.status === 'closed-given-s0-upper-density' &&
         sg.partialClosure.gapHalf.c1 === 8 &&
         sg.partialClosure.thetaHalf.status === 'open';
+    },
+  },
+  {
+    id: 'sg1c-theta-barrier-criterion-exact',
+    description: 'LEMMA B (imp-2558): the closed-form dE/ds yields a dTheta/ds decomposition matching a finite-difference of Theta along the CM flow, and the sharp barrier criterion dTheta/ds <= 0 iff dE/ds <= 16 Theta(1-Theta)/g^4 holds as an exact equivalence — the barrier-criterion half of sg1c',
+    holds: () => {
+      const r = thetaBarrierCriterionCheck();
+      return r.theta > 0 && r.theta < 1 && r.idMatchesFD && r.criterionEquiv && Number.isFinite(r.dEds);
+    },
+  },
+  {
+    id: 'sg1c-partial-closure-named',
+    description: 'sg1c carries a partialClosure: barrier-criterion half closed (sharp constant 16 Theta*(1-Theta*)/g^4), the geometric proof of that bound still open, parent sub-gap status stays open',
+    holds: () => {
+      const sg = SG1_THETA_REDUCTION.openSubGaps.find((g) => g.id === 'sg1c-theta-trap-persistence');
+      return !!sg && sg.status === 'open' && !!sg.partialClosure &&
+        sg.partialClosure.impId === 'imp-2558' &&
+        sg.partialClosure.barrierCriterionHalf.status === 'closed-sharp-criterion' &&
+        sg.partialClosure.remainingOpen.status === 'open';
     },
   },
   {

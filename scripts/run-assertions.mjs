@@ -1584,6 +1584,7 @@ const DATA_MODULES = [
   '/src/data/b2-intercept-analytic-bound.js',
   '/src/data/backward-flow-stability-gronwall.js',
   '/src/data/imp-2564-lambda-chain-direction-audit.js',
+  '/src/data/imp-2603-imp1149-meanfield-proxy-regrade.js',
   '/src/data/sg1-theta-contraction.js',
   '/src/data/sg1c-theta-trap-theorems.js',
   '/src/data/imp-2563-zeta-zeros-corruption-audit.js',

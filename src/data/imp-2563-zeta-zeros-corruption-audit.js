@@ -177,7 +177,8 @@ export const ZETA_ZEROS_CORRUPTION_AUDIT = {
     {
       id: 'imp-2563-sub-imp1149-recalibrate',
       title: 'Re-grade the imp-1149 Theorem-3 N^{-3/2} bridge as a mean-field-proxy statement; name the particle-vs-proxy E(N) gap',
-      status: 'open',
+      status: 'closed',
+      closureNote: '2026-06-11 (imp-2603): imp-1149 Theorem 3 re-graded as a mean-field-proxy statement (bounds | t_c^MF - 1/(2 M_inf) |, silent on the particle t_c = g_min^2/8) and the particle-vs-proxy gap E_pp(N) := | t_c^part - t_c^MF | named, with an N=2458 lower witness showing E_pp dominates the Theorem-3 envelope. See src/data/imp-2603-imp1149-meanfield-proxy-regrade.js. SIZING of E_pp(N) stays open as imp-2564-sub-R2-particle-vs-proxy-EN.',
     },
     {
       id: 'imp-2563-sub-sandwich-theorem',

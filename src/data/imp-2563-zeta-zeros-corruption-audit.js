@@ -183,7 +183,17 @@ export const ZETA_ZEROS_CORRUPTION_AUDIT = {
     {
       id: 'imp-2563-sub-sandwich-theorem',
       title: 'imp-2563 deliverable B: backward-flow-min-gap-sandwich theorem module (referee must-fixes)',
-      status: 'open',
+      status: 'closed',
+      closureNote:
+        '2026-06-11 (imp-2604): shipped src/data/imp-2563-min-gap-sandwich-theorem.js. ' +
+        'The exact gap ODE dr/ds = -4/r + 2 r B(s) linearises under u = r^2 to ' +
+        'du/ds = -8 + 4 B(s) u; bounding |B| <= beta sandwiches the first-collision ' +
+        'time as T_-(g,beta) <= t_c(N) <= T_+(g,beta) with T_-/+ = (1/4beta) log(1 + ' +
+        'beta g^2/2) and (1/4beta) log(2/(2 - beta g^2)). Both bounds are unconditional ' +
+        '(upper: min-gap-pair comparison; lower: global-min-gap Dini inequality) and ' +
+        'collapse to (g^2/8)(1 +/- beta g^2/4 + O(g^4)). T_+ never exceeds the imp-2561/' +
+        '2562 one-sided pinch (S := beta), so Theorem B reproduces the known upper pinch ' +
+        'and ADDS the matched lower bound. 4 tripwires (two controlled small-gap configs).',
     },
   ],
 

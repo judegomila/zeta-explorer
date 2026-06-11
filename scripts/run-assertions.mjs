@@ -1505,6 +1505,12 @@ const DATA_MODULES = [
   // -8 sum (x_i-x_j)^-2, heat-semigroup non-dynamical ladder t_c = smallest
   // root of strictly decreasing Disc. Cross-checked heat-vs-RK4 to 7+ digits.
   '/src/data/imp-2563-discriminant-tc-characterization.js',
+  // imp-2604: closes imp-2563 deliverable B / R_B -- the per-N min-gap SANDWICH
+  // theorem. Gap ODE dr/ds = -4/r + 2 r B linearises (u = r^2) to du/ds =
+  // -8 + 4 B u; |B| <= beta brackets t_c as T_-(g,beta) <= t_c <= T_+(g,beta),
+  // both unconditional, collapsing to (g^2/8)(1 +/- beta g^2/4). T_+ refines the
+  // imp-2561/2562 one-sided pinch and adds the matched lower bound. 4 tripwires.
+  '/src/data/imp-2563-min-gap-sandwich-theorem.js',
   // imp-2451: scale-normalized dBN deformation, closing sub-gap B of imp-2435
   // (scale/zero confound). V is quadratic in Phi, so renormalizing
   // |Phi_t|_2 = 1 before assembly divides the exp(t u^2) L^2 scale out exactly.

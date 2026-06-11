@@ -151,8 +151,9 @@ function harvestSubGaps(existing, ledger) {
         if (!label) continue;
         pushCandidate(d, f, label.slice(0, 80), label);
       }
-      // Shape 2: object/array-valued openSubGap(s)
-      const reObj = /openSubGaps?:\s*(?=[{[])/g;
+      // Shape 2: object/array-valued openSubGap(s) — also openResiduals arrays
+      // (audit modules record named residuals under that key; same shape).
+      const reObj = /(?:openSubGaps?|openResiduals):\s*(?=[{[])/g;
       while ((m = reObj.exec(txt))) {
         const block = balancedBlock(txt, m.index + m[0].length);
         if (!block) continue;

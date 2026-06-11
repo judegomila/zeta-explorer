@@ -170,5 +170,17 @@
   "src/data/sg1c-theta-trap-theorems.js#sg1c-r2-isolation-persistence": {
     "impId": "imp-2596",
     "seededAt": "2026-06-10T18:23:21.453Z"
+  },
+  "src/data/imp-2563-zeta-zeros-corruption-audit.js#imp-2563-sub-pathc-ladder-replace": {
+    "impId": "imp-2602",
+    "seededAt": "2026-06-11T21:51:33.327Z"
+  },
+  "src/data/imp-2563-zeta-zeros-corruption-audit.js#imp-2563-sub-imp1149-recalibrate": {
+    "impId": "imp-2603",
+    "seededAt": "2026-06-11T21:51:33.530Z"
+  },
+  "src/data/imp-2563-zeta-zeros-corruption-audit.js#imp-2563-sub-sandwich-theorem": {
+    "impId": "imp-2604",
+    "seededAt": "2026-06-11T21:51:33.736Z"
   }
 }

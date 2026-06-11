@@ -1566,6 +1566,12 @@ const DATA_MODULES = [
   // rows; bridge margin E(N) - |t_c(N)| positive everywhere incl. the measured
   // N = 2458 anchor; binding scale ~10^24.5 under unit constants. 11 tripwires.
   '/src/data/imp-2486-en-ladder-assembly-verification.js',
+  // imp-2598: E(N) decomposition bottleneck attack — re-scopes imp-2486 to rank
+  // the three named components by decay exponent (kappa_T ~ 0.182 < 1/2 < 1),
+  // identifying E_trunc as the unambiguous bottleneck at every imp-321 ladder row
+  // and asymptotically, and naming the imp-317 thin-strip density exponent as the
+  // sole rate lever. Scoping/attack module, no closure claimed. 7 tripwires.
+  '/src/data/imp-2598-en-bottleneck-attack.js',
   // imp-2485: Step 2 cross-verification at N = 1e4 — true order-8 DOP853 +
   // RK4 dual-integrator agreement on |t_c| from the Odlyzko zeros (offline
   // sidecar; nothing heavy at build time), interval-RK4 brackets at two step

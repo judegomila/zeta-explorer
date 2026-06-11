@@ -135,7 +135,12 @@ export const THETA_CALIBRATION = {
 export const THETA_TRAP_RUNS = [
   { id: 'zeros-N100', kind: 'riemann-zeros', N: 100, g0: 0.7158, theta0: 0.1666, thetaMax: 0.1666, tc: 7.0118e-2, lowerD: 6.4044e-2, boundE1: 7.6843e-2, trapHeld: true, boundHeld: true },
   { id: 'zeros-N300', kind: 'riemann-zeros', N: 300, g0: 0.4182, theta0: 0.0884, thetaMax: 0.0884, tc: 2.2908e-2, lowerD: 2.1864e-2, boundE1: 2.3984e-2, trapHeld: true, boundHeld: true },
-  { id: 'zeros-N870', kind: 'riemann-zeros', N: 870, g0: 0.3104, theta0: 0.0459, thetaMax: 0.0459, tc: 1.2331e-2, lowerD: 1.2046e-2, boundE1: 1.2626e-2, trapHeld: true, boundHeld: true },
+  // zeros-N870 re-measured 2026-06-11 after the ZETA_ZEROS[650..869] repair
+  // (imp-2563-sub-data-audit-fix): the true minimal pair sits at index 692,
+  // INSIDE the formerly-corrupt range (pre-repair row had g0 = 0.3104 at pair
+  // 452 from wrong ordinates). All conclusions strengthen: smaller Theta(0),
+  // tighter squeeze (1.0175). N=100/300 rows are below index 650 (unaffected).
+  { id: 'zeros-N870', kind: 'riemann-zeros', N: 870, g0: 0.2211, theta0: 0.0342, thetaMax: 0.0342, tc: 6.2180e-3, lowerD: 6.1110e-3, boundE1: 6.3277e-3, trapHeld: true, boundHeld: true },
   { id: 'lattice41-shortgap-0.5', kind: 'adversarial', N: 41, g0: 0.5, theta0: 0.2945, thetaMax: 0.2945, tc: 3.707e-2, lowerD: 3.125e-2, boundE1: 4.429e-2, trapHeld: true, boundHeld: true },
   { id: 'lattice41-shortgap-0.8', kind: 'adversarial', N: 41, g0: 0.8, theta0: 0.6584, thetaMax: 0.6584, tc: 1.322e-1, lowerD: 8.0e-2, boundE1: 2.342e-1, trapHeld: true, boundHeld: true },
   { id: 'lattice41-shortgap-0.95', kind: 'adversarial', N: 41, g0: 0.95, theta0: 0.8748, thetaMax: 0.8748, tc: 1.846e-1, lowerD: 1.128e-1, boundE1: 9.009e-1, trapHeld: true, boundHeld: true },

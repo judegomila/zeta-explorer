@@ -85,6 +85,12 @@ const CORRUPTION_ONSET_INDEX = 650;
 const MATCH_TOL = 1e-6;   // ZETA_ZEROS is quoted to 9 digits; truth agrees to < 1e-6 when correct
 const DIVERGE_MIN = 1e-3; // corrupt rows are off by >= ~0.07, far above this floor
 
+// REPAIRED 2026-06-11 (imp-2563-sub-data-audit-fix): ZETA_ZEROS[650..869] was
+// replaced with the canonical ZEROS_EXTENDED slice in src/math/zeta.js. The
+// tripwire below now pins the REPAIR: every audited index must MATCH truth.
+// The corruption history above is kept as the record of the original bug.
+const TABLE_REPAIRED = true;
+
 // ── Build the audit window ───────────────────────────────────────────────────
 const WINDOW = Object.keys(AUTHORITATIVE)
   .map((k) => Number(k))
@@ -93,7 +99,7 @@ const WINDOW = Object.keys(AUTHORITATIVE)
     const zeta = ZETA_ZEROS[i];
     const truth = AUTHORITATIVE[i];
     const diff = typeof zeta === 'number' ? Math.abs(zeta - truth) : null;
-    const shouldMatch = i <= LAST_GOOD_INDEX;
+    const shouldMatch = TABLE_REPAIRED || i <= LAST_GOOD_INDEX;
     const matches = diff !== null && diff <= MATCH_TOL;
     const diverges = diff !== null && diff >= DIVERGE_MIN;
     return {
@@ -160,7 +166,8 @@ export const ZETA_ZEROS_CORRUPTION_AUDIT = {
     {
       id: 'imp-2563-sub-data-audit-fix',
       title: 'Repair ZETA_ZEROS[650..869] (replace with the ZEROS_EXTENDED slice) or re-point consumers',
-      status: 'open',
+      status: 'closed',
+      closureNote: '2026-06-11: ZETA_ZEROS[650..869] replaced in src/math/zeta.js with the canonical ZEROS_EXTENDED slice (220 ordinates, 9-decimal format preserved, length 870 unchanged); tripwire flipped to repaired mode (all audited rows must match). Downstream consumers re-verified via full assertion sweep in the same session.',
     },
     {
       id: 'imp-2563-sub-pathc-ladder-replace',
@@ -199,17 +206,18 @@ export const ZETA_ZEROS_CORRUPTION_AUDIT_ASSERTIONS = [
       'way the corruption boundary moved and this audit must be re-derived.',
   },
   {
-    id: 'imp2563-zeta-zeros-corruption-onset-at-650',
+    id: 'imp2563-zeta-zeros-repaired-tail-matches-odlyzko',
     holds: () =>
+      TABLE_REPAIRED === true &&
       ONSET_ROW !== null &&
-      ONSET_ROW.verdict === 'corrupt-as-expected' &&
-      ALL_CORRUPT_DIVERGE === true,
+      ONSET_ROW.verdict === 'ok-match' &&
+      CORRUPT_ROWS.every((r) => r.verdict === 'ok-match'),
     why:
-      'ZETA_ZEROS must diverge from the Odlyzko truth by >= 1e-3 at every ' +
-      'audited index >= 650 (corruption onset). This pins the KNOWN bug so it ' +
-      'cannot silently regress. If this fails because the rows now MATCH, the ' +
-      'table was repaired (close imp-2563-sub-data-audit-fix and retire this ' +
-      'tripwire); if it fails for another reason, the corruption pattern changed.',
+      'REPAIRED MODE (2026-06-11, imp-2563-sub-data-audit-fix closed): every ' +
+      'audited index including the former corruption window [650, 662] must now ' +
+      'MATCH the canonical Odlyzko truth to 1e-6. This pins the repair so the ' +
+      'corrupt block can never silently return. The original corruption record ' +
+      'is preserved in the header for provenance.',
   },
   {
     id: 'imp2563-zeta-zeros-length-unchanged',

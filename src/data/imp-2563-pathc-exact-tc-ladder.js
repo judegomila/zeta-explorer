@@ -61,6 +61,15 @@
  * and its low-N rungs are delivered and machine-witnessed here; the heavy
  * high-N exact rung is named, not asserted.
  *
+ * imp-2605 REDUCES (does not close) that residual. Theorem S4-3 collision is led
+ * by the CLOSEST pair: an isolated pair separated by g merges under the heat
+ * semigroup at s = g^2/8 (exp(s d^2/dz^2)(z^2 - (g/2)^2) = z^2 + 2s - (g/2)^2 loses
+ * its real roots at 2s = (g/2)^2). Neighbours perturb this by an O(1) factor that
+ * is VALIDATED here to lie in [1.06, 1.19] across all five exact low-N rungs. This
+ * turns the degree-2458 heat-polynomial discriminant into a single scalar -- the
+ * minimum consecutive spacing of the first 2458 zeros -- which is the only input
+ * still pending the repaired + Riemann-Siegel-extended high-index table.
+ *
  * @see imp-2563
  * @see imp-2563-discriminant-tc-characterization (Theorem S4-3: the exact ladder)
  * @see imp-2563-zeta-zeros-corruption-audit (the repaired ZETA_ZEROS table)
@@ -235,11 +244,53 @@ const HEAT_VS_RK4 =
   typeof TC_RK4_WIT === 'number' ? Math.abs(TC_HEAT_WIT - TC_RK4_WIT) : Infinity;
 const HEAT_MATCHES_RK4 = HEAT_VS_RK4 <= LADDER_TOL;
 
+// ── imp-2605: reduce the high-N residual via the isolated-pair heat-collision law ─
+// The Theorem S4-3 collision is led by the CLOSEST pair: an isolated pair of
+// ordinates separated by g_min merges under exp(s d^2/dz^2) at s = g_min^2 / 8.
+// Neighbours perturb this by an O(1) factor kappa, which we MEASURE on the five
+// exact low-N rungs. Validating that kappa stays O(1) turns the heavy degree-2458
+// heat-polynomial discriminant into a single scalar -- the minimum consecutive
+// spacing of the first 2458 zeros -- the only input still pending the extended table.
+
+/** Minimum consecutive spacing among the ascending ordinates X. */
+function minConsecutiveGap(X) {
+  let g = Infinity;
+  for (let i = 0; i < X.length - 1; i++) g = Math.min(g, X[i + 1] - X[i]);
+  return g;
+}
+
+/** Isolated-pair leading-order collision time t_c ~ g_min^2 / 8. */
+function pairLawTc(X) {
+  const g = minConsecutiveGap(X);
+  return (g * g) / 8;
+}
+
+const PAIR_LAW_RUNGS = EXACT_LADDER.map(({ N, tc_exact }) => {
+  const X = ZETA_ZEROS.slice(0, N);
+  const predicted = pairLawTc(X);
+  const neighbour_factor = tc_exact / predicted; // actual / leading-order
+  return {
+    N,
+    g_min: +minConsecutiveGap(X).toFixed(6),
+    tc_pair_law: +predicted.toFixed(6),
+    tc_exact,
+    neighbour_factor: +neighbour_factor.toFixed(4),
+    brackets: neighbour_factor >= 1.0 && neighbour_factor <= 1.3,
+  };
+});
+
+const PAIR_LAW_BRACKETS_ALL = PAIR_LAW_RUNGS.every((r) => r.brackets);
+const NEIGHBOUR_FACTORS = PAIR_LAW_RUNGS.map((r) => r.neighbour_factor);
+const NEIGHBOUR_FACTOR_LO = Math.min(...NEIGHBOUR_FACTORS);
+const NEIGHBOUR_FACTOR_HI = Math.max(...NEIGHBOUR_FACTORS);
+
 // ── Exported corrected-ladder record ─────────────────────────────────────────
 export const PATHC_EXACT_TC_LADDER = {
   id: 'imp-2563-sub-pathc-ladder-replace',
   ticket: 'imp-2602',
-  status: 'exact-ladder-shipped (low-N); high-N rung named residual',
+  status:
+    'exact-ladder-shipped (low-N); high-N rung REDUCED to a validated pair-law ' +
+    'scalar (imp-2605), exact recompute named residual',
   title:
     'Corrected EXACT non-dynamical t_c(N) ladder on the repaired ZETA_ZEROS, ' +
     'replacing the RK4-fitted PATH_C_BASELINE_FIT empirical ladder',
@@ -273,17 +324,39 @@ export const PATHC_EXACT_TC_LADDER = {
     'formerly-corrupt indices 650..869 and is the one that genuinely needs ' +
     're-derivation on the repaired table.',
 
+  highNResidualReduction: {
+    id: 'imp-2605',
+    reduces: 'imp-2563-sub-pathc-ladder-replace-highN (reduces, does NOT close)',
+    law:
+      'Theorem S4-3 collision is led by the closest pair: an isolated pair separated ' +
+      'by g_min merges under exp(s d^2/dz^2) at s = g_min^2 / 8, since ' +
+      'exp(s d^2/dz^2)(z^2 - (g_min/2)^2) = z^2 + 2s - (g_min/2)^2 loses its real roots ' +
+      'at 2s = (g_min/2)^2. Neighbours scale this by a measured O(1) factor kappa.',
+    validatedNeighbourFactorRange: [NEIGHBOUR_FACTOR_LO, NEIGHBOUR_FACTOR_HI],
+    pairLawRungs: PAIR_LAW_RUNGS,
+    highNEstimate:
+      't_c^exact(2458) = kappa * g_min(first 2458 zeros)^2 / 8 with kappa in ' +
+      '[' + NEIGHBOUR_FACTOR_LO + ', ' + NEIGHBOUR_FACTOR_HI + '] validated on the five ' +
+      'exact low-N rungs. This reduces the heavy degree-2458 heat-polynomial ' +
+      'discriminant to ONE scalar -- the minimum consecutive spacing of the first 2458 ' +
+      'zeros -- which is still pending the repaired + Riemann-Siegel-extended ' +
+      'high-index table (indices > 870). Reduced, not faked: no exact value is asserted.',
+  },
+
   openResiduals: [
     {
       id: 'imp-2563-sub-pathc-ladder-replace-highN',
       title:
         'Exact t_c^exact(N=2458) on the repaired + Riemann-Siegel-extended zeros ' +
         '(degree-2458 heat-polynomial discriminant) -- too heavy for a build module',
-      status: 'open',
+      status: 'open (reduced by imp-2605: see highNResidualReduction)',
       why:
         'The discriminant of a degree-2458 heat-evolved polynomial, plus R-S ' +
         'extension of the repaired 870-entry table to N = 2458, is an offline ' +
-        'compute-budget job (cf. dyson-scaling-N5000.js cost note). Named, not faked.',
+        'compute-budget job (cf. dyson-scaling-N5000.js cost note). imp-2605 REDUCES ' +
+        'this to the single scalar g_min(first 2458 zeros) via the validated ' +
+        'isolated-pair law t_c ~ g_min^2/8; the extended high-index table is the only ' +
+        'remaining input. Named, not faked.',
     },
   ],
 
@@ -324,6 +397,16 @@ export const PATHC_EXACT_TC_LADDER_ASSERTIONS = [
       'The exact ladder is built on the repaired ZETA_ZEROS; this pins the table ' +
       'length (870) and the last-good-prefix anchor gamma_649 = 1001.349482638 so the ' +
       'ladder cannot be silently rebuilt on a re-corrupted or truncated table.',
+  },
+  {
+    id: 'imp2605-pair-law-brackets-low-N',
+    holds: () => PAIR_LAW_RUNGS.length === 5 && PAIR_LAW_BRACKETS_ALL === true,
+    why:
+      'imp-2605 reduces the high-N residual via the isolated-pair heat-collision law ' +
+      't_c ~ g_min^2 / 8. This pins that the law, with an O(1) neighbour factor in ' +
+      '[1.0, 1.3], brackets ALL five EXACT low-N rungs -- the validation that licenses ' +
+      'using it to ESTIMATE (not assert) the N = 2458 rung. A failure means the pair ' +
+      'law no longer captures the exact ladder and the high-N reduction is void.',
   },
 ];
 

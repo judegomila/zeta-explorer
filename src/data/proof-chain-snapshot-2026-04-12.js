@@ -577,7 +577,13 @@ export const PROOF_CHAIN_SNAPSHOT = {
     throw new Error('proof-chain-snapshot routeA: closesIf names the open GUE-universality ' +
       'conjecture; executable/unconditionalClosure must remain false (imp-2618)');
   }
-  if (!/CONDITIONAL/i.test(r.status)) {
+  // Accept either explicit "CONDITIONAL" or the roadmap-consistent
+  // "MODULO GUE" phrasing — both convey the GUE conditional. The original
+  // /CONDITIONAL/i literal never matched the actual status string
+  // 'CLOSED MODULO GUE UNIVERSALITY' and threw at module load, taking down
+  // /rigor-dashboard (found 2026-06-12; the tripwire shipped while the
+  // assertion sweep was hung, so it was never executed before landing).
+  if (!/CONDITIONAL|MODULO\s+GUE/i.test(r.status)) {
     throw new Error('proof-chain-snapshot routeA: status must remain GUE-conditional (imp-2618)');
   }
 })();

@@ -213,5 +213,29 @@
   },
   "__meta": {
     "dryStreak": 0
+  },
+  "src/data/lambda-roadmap.js#closesIf:imp-371 rerun confirms agreement on extended ladder": {
+    "impId": "imp-2615",
+    "seededAt": "2026-06-12T18:24:47.756Z"
+  },
+  "src/data/lambda-roadmap.js#closesIf:imp-372 tabulates both on the same ladder with ε-tolerance": {
+    "impId": "imp-2616",
+    "seededAt": "2026-06-12T18:24:47.946Z"
+  },
+  "src/data/lambda-roadmap.js#closesIf:imp-373 produces a matched-N comparison — DONE (imp-2548)": {
+    "impId": "imp-2617",
+    "seededAt": "2026-06-12T18:24:48.132Z"
+  },
+  "src/data/proof-chain-snapshot-2026-04-12.js#closesIf:GUE universality (Erdos-Schlein-Yau local law) established f": {
+    "impId": "imp-2618",
+    "seededAt": "2026-06-12T18:24:48.322Z"
+  },
+  "src/data/proof-chain-snapshot-2026-04-12.js#closesIf:Already closed for the asymptotic claim.": {
+    "impId": "imp-2619",
+    "seededAt": "2026-06-12T18:24:48.511Z"
+  },
+  "src/data/proof-chain-snapshot-2026-04-12.js#closesIf:G3a_sub_fullsum: a rigorous lower bound S_{k*}(t) >= c(N)/B(": {
+    "impId": "imp-2620",
+    "seededAt": "2026-06-12T18:24:48.700Z"
   }
 }

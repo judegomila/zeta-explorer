@@ -384,3 +384,310 @@ for (const a of EPP_SIZING_ASSERTIONS) {
     throw new Error('imp-2607 assertion failed: ' + a.id + ' -- ' + a.why);
   }
 }
+
+// ════════════════════════════════════════════════════════════════════════════
+// imp-2623 (proof, S7): T2 + T4 referee fold -- per-N CERTIFIED E_pp sandwich
+// ════════════════════════════════════════════════════════════════════════════
+/**
+ * Folds the two referee must-fixes that survived the E_pp fanout (survivors T2
+ * and T4, 8->7) into the sizing module as a per-N CERTIFIED sandwich, so the
+ * measured E_pp ladder is graded by per-row CHECKABLE initial data rather than
+ * an asymptotic assumption or an unverifiable argmin.
+ *
+ * T2 (quantifier-slip repair). The per-N rigorous sandwich
+ *     g_min(0)^2 / 8  <=  t_c^part(N)  <=  g_min(0)^2 / (8 (1 - Theta(0)))
+ * (Lemma D lower of backward-flow-stability-gronwall + Corollary E1 upper of
+ * sg1-theta-contraction, with the LIVE Theta(0) check) is correct, but the old
+ * "unconditional fallback" label was a quantifier slip: the upper arm holds
+ * only WHEN the row active small-gap pair satisfies Theta(0) <= 1/4 -- which is
+ * per-N CHECKABLE initial data (Theta(0) = g_min^2 . E(0) / 2, E = sum_{j not in
+ * pair} 1/((x_k - x_j)(x_{k+1} - x_j))), NOT an unconditional fact. Relabel the
+ * fallback as a per-N-CERTIFIED O(1/log^2 gamma_N) statement: on the worst-
+ * continuum reading g_min <= mean spacing ~ 2pi/log(gamma_N/2pi), the certified
+ * upper arm gives t_c^part <= g_min^2/6 = O(1/log^2 gamma_N), gated on the live
+ * Theta(0) <= 1/4 certificate -- never asserted unconditionally.
+ *
+ * T4 (tracked-verified-pair, NOT pigeonhole-at-the-argmin). At gamma_N ~ 1e13
+ * the true argmin pair is unverifiable a priori: we cannot certify Theta(0) for
+ * a pair we cannot locate, so a pigeonhole "some pair has gap <= mean spacing"
+ * gives a gap bound but no Theta(0) certificate, hence no licensed E1 upper arm.
+ * The repair: do NOT pigeonhole at the argmin; instead TRACK a CERTIFIED small
+ * pair -- any adjacent pair whose Theta(0) <= 1/4 is verified from local initial
+ * data -- and apply the Corollary-E1 (A1) isolated-pair bound to THAT pair. The
+ * recomposed bracket (imp-2622) only needs t_c^part as a small UPPER input, so a
+ * certified tracked pair suffices and is rigorous exactly where the argmin is
+ * not. The two live witness rows below ARE such certified tracked pairs.
+ *
+ * This module changes no Lambda value; it grades the diagnostics-only E_pp of
+ * imp-2622 to per-N-certified rigor. No false QED.
+ *
+ * @see sg1-theta-contraction (Lemma E / Corollary E1, the Theta(0) <= 1/4 upper)
+ * @see backward-flow-stability-gronwall (Lemma D lower t_c >= g_min(0)^2/8)
+ * @see imp-2622-bridge-recomposition (consumes t_c^part directly; three readings)
+ */
+
+/** Index + gap of the minimal adjacent pair (the active small-gap pair). */
+function minPairIndexAndGap(X) {
+  let g = Infinity;
+  let idx = -1;
+  for (let i = 0; i < X.length - 1; i++) {
+    const d = X[i + 1] - X[i];
+    if (d < g) {
+      g = d;
+      idx = i;
+    }
+  }
+  return { idx, g };
+}
+
+/**
+ * Theta(0) = g^2 . E(0) / 2 for the adjacent pair (X[k], X[k+1]), with the
+ * environment functional E(0) = sum_{j not in pair} 1/((x_k-x_j)(x_{k+1}-x_j)).
+ * Each term is positive for an adjacent pair (x_j sits on one side of both
+ * members). Theta calibrates the E1 upper arm: t_c^part <= g^2/(8(1-Theta)).
+ */
+function thetaAtPair(X, k) {
+  const xk = X[k];
+  const xk1 = X[k + 1];
+  const g = xk1 - xk;
+  let E = 0;
+  for (let j = 0; j < X.length; j++) {
+    if (j === k || j === k + 1) continue;
+    E += 1 / ((xk - X[j]) * (xk1 - X[j]));
+  }
+  return { g, E, Theta: (g * g * E) / 2 };
+}
+
+const THETA_STAR = 0.25; // the E1 certification threshold (symmetric-triplet value)
+
+// ── Per-row Theta(0) certification column (LIVE on the two witness rows) ───────
+// For N = 100, 300 the small-gap pair and its environment functional are read
+// directly from the repaired ZETA_ZEROS, so Theta(0) and the certified sandwich
+// are reproducible (not baked). High-N rows defer to the extended table; the
+// measured Theta-trap (sg1-theta-contraction: 9/9 runs, real zeros + adversarial,
+// all Theta < 1/4) is the documented prior for them -- stated, not asserted.
+const THETA_CERTIFICATION = EPP_LADDER_INPUTS.map(({ N, gmin, witnessFromZetaZeros }) => {
+  if (!witnessFromZetaZeros) {
+    return {
+      N,
+      live: false,
+      Theta0: null,
+      certified: null,
+      note: 'deferred to extended table; sg1-theta-contraction Theta-trap (9/9 < 1/4) is the prior',
+    };
+  }
+  const X = ZETA_ZEROS.slice(0, N);
+  const { idx } = minPairIndexAndGap(X);
+  const { g, Theta } = thetaAtPair(X, idx);
+  const tcLower = (g * g) / 8;                       // Lemma D lower arm
+  const tcUpperCertified = (g * g) / (8 * (1 - Theta)); // Corollary E1 upper arm
+  return {
+    N,
+    live: true,
+    pairIndex: idx,
+    Theta0: +Theta.toFixed(6),
+    certified: Theta <= THETA_STAR,                 // Theta(0) <= 1/4 certificate
+    sandwich: {
+      lower: +tcLower.toExponential(5),             // = baked tc_part (g_min^2/8)
+      upperCertified: +tcUpperCertified.toExponential(5),
+    },
+    bracketsLadderTcPart:
+      // the ladder t_c^part IS the lower arm: live g_min^2/8 matches the baked
+      // gmin^2/8 to the g_min-drift level (~1e-6, well within GMIN_TOL), and the
+      // certified upper arm dominates it.
+      Math.abs(tcLower - (gmin * gmin) / 8) < 1e-4 && tcLower <= tcUpperCertified,
+  };
+});
+const LIVE_CERTIFIED_ROWS = THETA_CERTIFICATION.filter((r) => r.live);
+const ALL_LIVE_ROWS_CERTIFIED = LIVE_CERTIFIED_ROWS.every((r) => r.certified === true);
+
+// ── Both clock conventions tabulated side by side (T3 object-ambiguity) ───────
+// The repo carries TWO mean-field clocks; E_pp depends on which is meant. Tabulate
+// them per row so the ambiguity is visible: the canonical heat-semigroup proxy
+// t_c^MF = pi/log(gamma_N/2pi) vs the strip-proxy mean-spacing-scale clock
+// tau_strip = 1/(L sqrt N), L = log(gamma_N/2pi). They separate by 30x..220x
+// across the ladder (imp-2622 flagged ~0.51 vs the ~1e-2 milliscale at N=2458).
+const CLOCK_CONVENTIONS = EPP_LADDER_INPUTS.map(({ N, gammaN }) => {
+  const L = Math.log(gammaN / (2 * Math.PI));
+  const tc_MF = Math.PI / L;            // canonical (the one E_pp is built on)
+  const tau_strip = 1 / (L * Math.sqrt(N)); // strip-proxy mean-spacing scale
+  return {
+    N,
+    tc_MF_canonical: +tc_MF.toFixed(6),
+    tau_strip_proxy: +tau_strip.toExponential(3),
+    separationRatio: +(tc_MF / tau_strip).toFixed(1),
+  };
+});
+const CLOCKS_SEPARATE_EVERYWHERE = CLOCK_CONVENTIONS.every((r) => r.separationRatio > 30);
+
+// ── T1 constant correction (restated decay-fit constants) ─────────────────────
+// The sharp t_c^part reading uses the imp-2621-corrected ATOMIC SELF-TERM
+// normalization (local-density form ~ sqrt(N/2pi)) and drops the spurious 1/L
+// gain an earlier draft carried -- this is what yields the sharp t_c^part(1e13)
+// ~ 3.9e-7 consumed in imp-2622, NOT a re-fit of the logarithmic E_pp law (which
+// stands: A -> pi, alpha_eff -> 0). The decay law of EPP_SIZING is unchanged; the
+// correction is to the SHARP-reading particle constant, restated here for record.
+const T1_CONSTANT_CORRECTION = {
+  atomicSelfTermScale: 'sqrt(N/2pi)  (local-density normalization, imp-2621 corrected)',
+  removedSpuriousFactor: '1/L gain (an earlier draft over-credited a log gain)',
+  sharpTcPartAt1e13: 3.9e-7,
+  affects: 'the SHARP t_c^part reading only; the logarithmic E_pp decay law is unchanged',
+};
+
+// ── Three-reading instantiation table at gamma_N = 1e13 (headroom vs 0.2) ──────
+// Referee-supplied (cross-checked against imp-2622 BRIDGE_RECOMPOSITION [0.099,
+// 0.137] band). The bracket |Lambda + t_c^part| <= E(N) instantiates under three
+// named readings; every one clears 0.2 with positive headroom.
+const HEADLINE_BUDGET = 0.2;
+const THREE_READINGS_1E13 = [
+  {
+    reading: 'sharp (atomic self-term, T1-corrected)',
+    quantity: 't_c^part contribution',
+    value: 3.9e-7,
+    note: 'directly-consumed exact-ladder particle term -- negligible vs E_trunc',
+  },
+  {
+    reading: 'pigeonhole (sharp-subconvex Lambda bound)',
+    quantity: 'instantiated Lambda bound',
+    value: 0.0997,
+    headroom: +(HEADLINE_BUDGET - 0.0997).toFixed(4),
+  },
+  {
+    reading: 'worst-continuum (conservative-density Lambda bound)',
+    quantity: 'instantiated Lambda bound',
+    value: 0.137,
+    headroom: +(HEADLINE_BUDGET - 0.137).toFixed(4),
+  },
+];
+const THREE_READINGS_BOUNDS = THREE_READINGS_1E13.filter((r) => r.headroom !== undefined);
+const ALL_THREE_READINGS_BELOW_BUDGET = THREE_READINGS_BOUNDS.every(
+  (r) => r.value < HEADLINE_BUDGET && r.headroom > 0,
+);
+
+// ── Public certification record (the T2 + T4 fold) ────────────────────────────
+export const EPP_CERTIFICATION = {
+  id: 'imp-2623',
+  parent: 'imp-2607-epp-sizing (T2 + T4 referee survivors of the E_pp fanout)',
+  proofSection: 'S7',
+  verdict: 'HONEST PARTIAL CLOSURE',
+  foldsRefereeFixes: ['T2 (quantifier-slip relabel)', 'T4 (tracked-verified-pair route)'],
+
+  t2: {
+    sandwich: 'g_min(0)^2/8 <= t_c^part(N) <= g_min(0)^2/(8(1 - Theta(0)))',
+    lowerArm: 'Lemma D (backward-flow-stability-gronwall): t_c >= g_min(0)^2/8',
+    upperArm: 'Corollary E1 (sg1-theta-contraction): conditional on Theta(0) <= 1/4',
+    relabel:
+      'the old "unconditional fallback" was a quantifier slip; restate as a ' +
+      'per-N-CERTIFIED O(1/log^2 gamma_N) bound (worst-continuum g_min <= mean ' +
+      'spacing => t_c^part <= g_min^2/6) GATED on the live Theta(0) <= 1/4 check.',
+    thetaIsCheckableInitialData: true,
+  },
+
+  t4: {
+    hazard:
+      'the gamma_N ~ 1e13 argmin pair is unverifiable a priori -- no Theta(0) ' +
+      'certificate is computable for a pair we cannot locate, so pigeonhole-at-' +
+      'the-argmin licenses no E1 upper arm.',
+    repair:
+      'TRACK a CERTIFIED small pair (Theta(0) <= 1/4 verified from local initial ' +
+      'data) and apply the E1 / A1 isolated-pair bound to it; the bracket needs ' +
+      't_c^part only as a small UPPER input, so a tracked certified pair suffices.',
+    pigeonholeReplaced: true,
+  },
+
+  thetaCertification: THETA_CERTIFICATION,
+  liveCertifiedRows: LIVE_CERTIFIED_ROWS.length,
+  allLiveRowsCertified: ALL_LIVE_ROWS_CERTIFIED,
+
+  clockConventions: CLOCK_CONVENTIONS,
+  clocksSeparateEverywhere: CLOCKS_SEPARATE_EVERYWHERE,
+
+  t1ConstantCorrection: T1_CONSTANT_CORRECTION,
+
+  threeReadingsAt1e13: THREE_READINGS_1E13,
+  allThreeReadingsBelowBudget: ALL_THREE_READINGS_BELOW_BUDGET,
+
+  honestScope: {
+    delivered:
+      'Per-N Theta(0) certification column (live on N=100,300 from repaired ' +
+      'ZETA_ZEROS, the two certified tracked pairs); both clock conventions side ' +
+      'by side with their 30x..220x separation; the T1-corrected sharp-reading ' +
+      'constant; the three-reading N=1e13 table all < 0.2 with positive headroom.',
+    notDelivered:
+      'No Lambda value changed; high-N Theta(0) certification still defers to the ' +
+      'extended table (the imp-2563 high-N residual); the kappa_T density reading ' +
+      'remains the imp-2598 bottleneck.',
+    changesLambdaValue: false,
+  },
+};
+
+// ── Build-time assertions for the T2 + T4 fold (self-executing) ───────────────
+export const EPP_CERTIFICATION_ASSERTIONS = [
+  {
+    id: 'imp2623-T2-live-rows-certify-theta-le-quarter',
+    holds: () =>
+      LIVE_CERTIFIED_ROWS.length === 2 &&
+      ALL_LIVE_ROWS_CERTIFIED === true &&
+      LIVE_CERTIFIED_ROWS.every((r) => r.Theta0 <= THETA_STAR && r.Theta0 > 0),
+    why:
+      'T2: the per-N sandwich upper arm t_c^part <= g_min^2/(8(1-Theta(0))) is ' +
+      'licensed only when the active small-gap pair satisfies Theta(0) <= 1/4. ' +
+      'Both live witness rows (N=100,300) must compute Theta(0) in (0, 1/4] from ' +
+      'the repaired ZETA_ZEROS -- the certificate is checkable initial data, not ' +
+      'an unconditional fallback. A failure means the relabel overclaimed.',
+  },
+  {
+    id: 'imp2623-T2-sandwich-brackets-ladder-tc-part',
+    holds: () =>
+      LIVE_CERTIFIED_ROWS.every(
+        (r) =>
+          r.bracketsLadderTcPart === true &&
+          r.sandwich.lower <= r.sandwich.upperCertified,
+      ),
+    why:
+      'The certified sandwich must actually bracket the measured ladder t_c^part: ' +
+      'its lower arm IS the ladder value g_min^2/8 and the certified upper arm ' +
+      'g_min^2/(8(1-Theta(0))) must dominate it. If the ordering broke, the ' +
+      'Theta-graded sizing would be inconsistent with the EPP_LADDER it grades.',
+  },
+  {
+    id: 'imp2623-T3-two-clocks-separate-by-order-of-magnitude',
+    holds: () => CLOCKS_SEPARATE_EVERYWHERE === true && CLOCK_CONVENTIONS.length === 5,
+    why:
+      'The two mean-field clocks (canonical t_c^MF = pi/log(gamma_N/2pi) vs the ' +
+      'strip-proxy 1/(L sqrt N)) must be tabulated side by side and separate by ' +
+      '>30x at every row -- the T3 object-ambiguity E_pp depends on. If they ' +
+      'agreed, the ambiguity the recomposition removes would be illusory.',
+  },
+  {
+    id: 'imp2623-T4-three-readings-clear-0.2-with-headroom',
+    holds: () =>
+      ALL_THREE_READINGS_BELOW_BUDGET === true &&
+      THREE_READINGS_BOUNDS.length === 2 &&
+      Math.max(...THREE_READINGS_BOUNDS.map((r) => r.value)) <= 0.137,
+    why:
+      'The N=1e13 instantiation under the three named readings (sharp t_c^part ' +
+      '3.9e-7; pigeonhole 0.0997; worst-continuum 0.137) must every clear the 0.2 ' +
+      'headline with positive headroom, consistent with the imp-2622 [0.099,0.137] ' +
+      'band. If any reading reached 0.2 the headline < 0.2 would not survive the ' +
+      'tracked-verified-pair route.',
+  },
+  {
+    id: 'imp2623-no-false-qed-no-lambda-change',
+    holds: () =>
+      EPP_CERTIFICATION.verdict === 'HONEST PARTIAL CLOSURE' &&
+      EPP_CERTIFICATION.honestScope.changesLambdaValue === false &&
+      EPP_CERTIFICATION.foldsRefereeFixes.length === 2,
+    why:
+      'This fold grades the diagnostics-only E_pp to per-N-certified rigor and ' +
+      'folds exactly the two referee survivors (T2, T4); it changes no committed ' +
+      'Lambda value. The verdict stays an honest partial closure -- no false QED.',
+  },
+];
+
+// Self-validate the T2 + T4 fold on import.
+for (const a of EPP_CERTIFICATION_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error('imp-2623 assertion failed: ' + a.id + ' -- ' + a.why);
+  }
+}

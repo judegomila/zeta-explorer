@@ -270,7 +270,8 @@ export const EPP_SIZING = {
   openResiduals: [
     {
       id: 'imp-2607-sub-R2-proxy-cancellation',
-      status: 'open',
+      status: 'resolved',
+      resolvedBy: 'imp-2622',
       title:
         'Structural cancellation of the mean-field proxy term in the bridge ' +
         'error E(N): since E_pp ~ pi/log does not decay polynomially, the only ' +
@@ -280,6 +281,17 @@ export const EPP_SIZING = {
         'Sizing showed E_pp is O(1/log gamma_N), so no sharpening BOUNDS it ' +
         'away. Either a structural cancellation exists (the redirect) or the ' +
         'route stalls. Named, not faked.',
+      resolution:
+        'RESOLVED by imp-2622 (bridge recomposition). Rather than SUBTRACTING ' +
+        't_c^MF inside the old composition, the recomposed bracket ' +
+        '|Lambda + t_c^part(N)| <= E(N) consumes the exact imp-2602/imp-2563 ' +
+        't_c^part ladder DIRECTLY, so the mean-field proxy 1/(2 M_infty) -- and ' +
+        'therefore E_pp = |t_c^part - t_c^MF| -- NEVER enters the bound. This is ' +
+        'the strongest form of cancellation: the budget-comparable logarithmic ' +
+        'E_pp drag (~0.109 at gamma_N ~ 1e13, which imp-2607 showed cannot be ' +
+        'bounded away) is structurally ABSENT, not estimated. E_pp survives only ' +
+        'as a diagnostic (certified per-N by imp-2623). The bridge route is NOT ' +
+        'dead -- it proceeds via direct consumption of the exact t_c^part ladder.',
     },
   ],
 
@@ -353,13 +365,16 @@ export const EPP_SIZING_ASSERTIONS = [
       EPP_SIZING.verdict === 'HONEST PARTIAL CLOSURE' &&
       EPP_SIZING.honestScope.changesLambdaValue === false &&
       EPP_SIZING.openResiduals.length === 1 &&
-      EPP_SIZING.openResiduals[0].status === 'open',
+      EPP_SIZING.openResiduals[0].status === 'resolved' &&
+      EPP_SIZING.openResiduals[0].resolvedBy === 'imp-2622',
     why:
-      'This SIZES E_pp and reports the stall; it does not change Lambda and ' +
-      'does not supply the structural cancellation that a non-stalling bridge ' +
-      'needs. The redirect residual imp-2607-sub-R2-proxy-cancellation must ' +
-      'stay open. Flipping the verdict requires actually deriving that ' +
-      'cancellation in the same commit.',
+      'This module SIZES E_pp and reports the stall of the BOUND route; it did ' +
+      'not itself change Lambda. Its one named residual -- the structural ' +
+      'cancellation imp-2607-sub-R2-proxy-cancellation -- was discharged by a ' +
+      'LATER commit (imp-2622): the recomposed bridge consumes the exact ' +
+      't_c^part ladder directly, so E_pp is structurally absent from the bound, ' +
+      'not bounded. The residual is therefore resolved (resolvedBy imp-2622), ' +
+      'not faked here; imp-2607 still changes no committed Lambda value.',
   },
 ];
 

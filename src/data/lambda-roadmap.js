@@ -391,16 +391,38 @@ export const VERIFICATION_EFFORTS = [
       'Independent computation of |t_c(N)| via direct numerical barrier ' +
       'extrapolation on the Path C baseline. If the two methods agree within ' +
       'their error bars, the central value is cross-verified.',
-    status: 'numerical',
+    status: 'cross-verified',
     progress:
-      'imp-299 delivered the barrier extrapolation method giving Λ ≈ 0.011. ' +
-      'Agreement with Path C Hybrid Λ ≈ 0.0066 is within the ±0.01 error bar. ' +
-      'imp-2546 reran the barrier estimate t_c = H_raw²/8 on the imp-360 ' +
-      'extended ladder (N to 1e6): it lands inside the certified interval-RK4 ' +
-      'bracket on every closed rung (25k/50k/100k) and ≥ the certified floor ' +
-      'on every budget-exhausted rung. See imp371-barrier-cross-validation.js.',
+      'CLOSED (imp-2546). imp-299 delivered the barrier extrapolation method ' +
+      'giving Λ ≈ 0.011. Agreement with Path C Hybrid Λ ≈ 0.0066 is within the ' +
+      '±0.01 error bar. imp-2546 reran the barrier estimate t_c = H_raw²/8 on ' +
+      'the imp-360 extended ladder (N to 1e6): it lands inside the certified ' +
+      'interval-RK4 bracket on every closed rung (25k/50k/100k) and ≥ the ' +
+      'certified floor on every budget-exhausted rung. See ' +
+      'imp371-barrier-cross-validation.js (6/6 build-time tripwires green, ' +
+      'wired into scripts/run-assertions.mjs).',
     tickets: ['imp-299', 'imp-371', 'imp-2546'],
-    closesIf: 'imp-371 rerun confirms agreement on extended ladder',
+    closesIf: 'imp-371 rerun confirms agreement on extended ladder — DONE (imp-2546)',
+    // imp-2615: harvested closesIf resolved as a CONFIRMED POSITIVE. The named
+    // action — rerunning the imp-299/imp-371 effective-barrier estimate on the
+    // imp-360 extended ladder — was executed by imp-2546 in
+    // imp371-barrier-cross-validation.js, which verifies the analytic barrier
+    // t_c = H_raw²/8 lands inside the certified interval-RK4 bracket on every
+    // closed rung and ≥ the certified floor on every budget-exhausted rung, with
+    // all 6 module tripwires green and wired into the build assertion harness.
+    // The status therefore flips numerical → cross-verified.
+    closesIfResolution: {
+      status: 'met-confirmed-positive',
+      executable: true,
+      agreementConfirmed: true,
+      reason:
+        'imp-2546 reran the barrier extrapolation on the imp-360 extended ' +
+        'ladder and confirmed per-rung agreement with the certified Path C ' +
+        'bracket (inside bracket on closed rungs, ≥ floor on budget-exhausted ' +
+        'rungs) plus Λ-intercept agreement within ±0.01; 6/6 tripwires green in ' +
+        'imp371-barrier-cross-validation.js, wired into run-assertions.mjs.',
+      resolvedBy: 'imp-2615',
+    },
   },
   {
     id: 'cross-validation-heat-flow',
@@ -1068,5 +1090,33 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'not an executable step. This pins Route A as conditional and the closesIf ' +
       'as a not-met conditional-negative so a future edit cannot silently flip ' +
       'Route A to rigorous without exhibiting GUE universality.',
+  },
+  {
+    id: 'cross-validation-barrier-closesif-confirmed-imp2615',
+    holds: () => {
+      const entry = VERIFICATION_EFFORTS.find(
+        (e) => e.id === 'cross-validation-barrier'
+      );
+      if (!entry || !entry.closesIfResolution) return false;
+      const r = entry.closesIfResolution;
+      // Tripwire: the cross-validation-barrier closesIf is closed only because
+      // imp-2546 reran the barrier estimate and confirmed agreement. Pin the
+      // entry as cross-verified with a met-confirmed-positive resolution so a
+      // future edit cannot silently keep it open or downgrade the closure.
+      return (
+        entry.status === 'cross-verified' &&
+        r.status === 'met-confirmed-positive' &&
+        r.executable === true &&
+        r.agreementConfirmed === true
+      );
+    },
+    why:
+      'imp-2615: the harvested closesIf of cross-validation-barrier ("imp-371 ' +
+      'rerun confirms agreement on extended ladder") was executed by imp-2546 ' +
+      'in imp371-barrier-cross-validation.js (barrier estimate inside the ' +
+      'certified bracket on every closed rung, ≥ floor on budget-exhausted ' +
+      'rungs, 6/6 tripwires green). This pins the entry as cross-verified with a ' +
+      'met-confirmed-positive resolution so the closure is recorded as actuals, ' +
+      'not silently reverted.',
   },
 ];

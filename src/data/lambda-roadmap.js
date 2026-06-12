@@ -330,6 +330,24 @@ export const VERIFICATION_EFFORTS = [
       'GUE universality (Erdos-Schlein-Yau local law) established for the ' +
       'empirical spectral measure of the Calogero-Moser particle system — ' +
       'this is the irreducible named conditional per imp-486.',
+    // imp-2614: harvested closesIf resolved as a CONDITIONAL-NEGATIVE. The named
+    // closure action — establishing GUE universality (Erdos-Schlein-Yau local
+    // law) for the Calogero-Moser empirical spectral measure — is itself the open
+    // conjecture, not an executable step. imp-486 proved the many-body C_mb
+    // reduction is irreducible, so no unconditional input discharges it. Route A
+    // therefore stays conditional; the UNCONDITIONAL lim-sup closure is carried by
+    // Routes B (imp-341 Burgers) + C, not by Route A.
+    closesIfResolution: {
+      status: 'not-met-conditional-negative',
+      executable: false,
+      unconditionalClosure: false,
+      reason:
+        'GUE universality (ESY local law) for the Calogero-Moser empirical ' +
+        'spectral measure is the open conjecture named by closesIf, not an ' +
+        'executable action; imp-486 confirmed the C_mb reduction is irreducible, ' +
+        'so Route A cannot be discharged unconditionally.',
+      resolvedBy: 'imp-2614',
+    },
   },
   {
     id: 'route-B-burgers',
@@ -1023,5 +1041,32 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'the canonical bracket |Λ − (−t_c(N))| ≤ E(N) as the single source of truth ' +
       'for the bridge to Lambda. Any future edit to Step 4 must preserve this bracket ' +
       'citation to maintain the headline inequality framing.',
+  },
+  {
+    id: 'route-A-closesif-conditional-negative-imp2614',
+    holds: () => {
+      const routeA = VERIFICATION_EFFORTS.find(
+        (e) => e.id === 'route-A-monotonicity'
+      );
+      if (!routeA || !routeA.closesIfResolution) return false;
+      const r = routeA.closesIfResolution;
+      // Tripwire: Route A must stay conditional on GUE and its closesIf must
+      // remain recorded as a not-met conditional-negative. A future edit that
+      // flips Route A to a rigorous/unconditional status WITHOUT exhibiting GUE
+      // universality (i.e. leaving executable:false) trips this assertion.
+      return (
+        routeA.status === 'conditional-on-gue-universality' &&
+        r.status === 'not-met-conditional-negative' &&
+        r.executable === false &&
+        r.unconditionalClosure === false
+      );
+    },
+    why:
+      'imp-2614: the harvested closesIf of route-A names GUE universality (ESY ' +
+      'local law) for the Calogero-Moser empirical spectral measure as the ' +
+      'closure action, but that IS the open conjecture (irreducible per imp-486), ' +
+      'not an executable step. This pins Route A as conditional and the closesIf ' +
+      'as a not-met conditional-negative so a future edit cannot silently flip ' +
+      'Route A to rigorous without exhibiting GUE universality.',
   },
 ];

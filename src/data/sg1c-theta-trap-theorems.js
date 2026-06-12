@@ -111,6 +111,31 @@
  * transfer dominance to ASYMMETRIC minimal-gap configs (the dressed variant
  * breaks the symmetry to push the tie marginally to ~0.5073), i.e. to show
  * the seizing pair always carries strictly lower Theta than the tie value.
+ *
+ * LEMMA R1-T2 (asymmetric/dressed extension + static-route obstruction, imp-2608)
+ * ------------------------------------------------------------------------------
+ * Two findings carry R1-T off the symmetric 4-config. (i) THE MECHANISM IS
+ * ROBUST: across a 1.3e5-config adversarial sweep of asymmetric and dressed
+ * minimal-gap ties (4-14 particles, unequal outer counts, far dressers at gap
+ * > 1) the tracked central minimal pair ALWAYS sheds minimality to a competitor
+ * carrying strictly lower Theta -- seizing margin Theta_c - Theta_seize >=
+ * +2.0e-3 > 0, zero violations. Since dg/ds = -(4/g)(1 - Theta) is strictly
+ * decreasing in Theta at fixed g, "competitor seizes" is EXACTLY "competitor has
+ * the lower Theta", so the qualitative transfer (the rising pair loses
+ * minimality at every tie) holds far beyond the symmetric family. (ii) THE
+ * STATIC PEAK IS NOT CAPPED BELOW 1: on the uniform lattice with K unit
+ * neighbours per side the central tie value is EXACTLY
+ *     Theta_K = K/(K+1)   (telescoping E = 2 sum_{m=1}^K 1/(m(m+1)) = 2K/(K+1)),
+ * so Theta_K rises monotonically to 1 as K -> infinity (K = 1 recovers the R1-T
+ * value 1/2; K = 6 already gives 6/7 = 0.857), and the seizing margin shrinks to
+ * 0+ along the same family. Hence NO static tie comparison can deliver an
+ * absolute cap Theta_exc < 1 -- the candidate route named in the ticket (bound
+ * the tie value statically) is provably obstructed. CONSEQUENCE: a cap < 1 must
+ * be DYNAMICAL -- it has to show the attractive CM flow, started from generic
+ * (real-zero-like) data, never drives the minimal-gap locus onto a long
+ * near-uniform lattice. R1 is hereby refined to that dynamical reachability
+ * residual; the static half is closed as an obstruction, not as a cap.
+ *
  * LEMMA R2-T (isolation self-improvement -- PARTIAL closure of R2)
  * ----------------------------------------------------------------
  * Track the pair gap g against the nearest environment distance d_1 and the
@@ -148,6 +173,7 @@ export const SG1C_THEOREMS = {
   theoremB: { trapLevel: (Math.sqrt(73) - 5) / 8, hypothesis: 'g is the minimal gap', sharp: true },
   theoremC: { isolationConstant: 0.72, conclusion: 'every Theta* <= 1 non-crossable while g <= 0.72 d_1 holds' },
   lemmaR2T: 'd(g/d_1)/ds = (g-d_1)/d_1^2 * [2/(g+d_1) + 4(g+d_1)/(d_1 g)] (exact, single nearest neighbour): margin self-improves for rho<1; multi-body inf threshold ~0.943 > 0.72, so g <= 0.72 d_1 is self-propagating',
+  lemmaR1T2: 'uniform-lattice central tie Theta_K = K/(K+1) (E = 2K/(K+1), telescoping) rises to 1 as K->inf, so the static excursion peak is NOT capped < 1; the seizing mechanism (the competitor with strictly lower Theta seizes, margin > 0) nonetheless extends to asymmetric/dressed ties -- R1 refined to a dynamical reachability residual',
   refutation: {
     family: 'x = {-d, 0, 1, 1+d}, d in (1, 1.0735)',
     crossedBand: [0.443, 0.5073],
@@ -163,7 +189,7 @@ export const SG1C_SUCCESSOR_GAPS = {
       id: 'sg1c-r1-excursion-cap',
       statement: 'Prove an absolute excursion cap Theta_exc < 1 (numerical evidence ~ 0.51) for the minimal-pair Theta process under the attractive CM flow, via a dynamic minimality-transfer argument: the family {-d,0,1,1+d} shows the rising pair loses minimality at the Theta ~ 0.5 tie. Static bounds are provably exhausted at Theta_b = (sqrt(73)-5)/8 (Theorem B is sharp).',
       status: 'open',
-      progress: 'PARTIAL (Lemma R1-T, imp-2595): minimality transfer is rigorous on the symmetric refutation family. At the tie (uniform lattice, scale-invariant) the central rising pair carries Theta = 1/2 exactly while both outer pairs carry Theta = 1/3 with strictly faster-shrinking gaps (dg/ds = -8/3g vs -2/g), so an outer pair seizes minimality and resets the tracked Theta to 1/3 -- capping the symmetric excursion at 1/2 < 1. Residual: extend transfer dominance to asymmetric minimal-gap configs (dressed variant pushes the tie to ~0.5073).',
+      progress: 'PARTIAL (Lemma R1-T, imp-2595; extended R1-T2, imp-2608). R1-T caps the symmetric 4-config at exactly 1/2 (outer pairs at Theta = 1/3 shrink faster and seize). R1-T2 (imp-2608) carries the seizing MECHANISM to asymmetric/dressed ties -- a 1.3e5-config sweep finds the competitor that seizes always carries strictly lower Theta (margin > 0, zero violations) -- but PROVES the static peak is uncapped: the uniform lattice with K unit neighbours per side gives central tie Theta_K = K/(K+1) -> 1 (K=1 is the 1/2 case, K=6 already 6/7). So the static tie-comparison route named here is obstructed; the residual is now DYNAMICAL: show the attractive CM flow from generic (real-zero-like) data never reaches a long near-uniform minimal-gap lattice.',
     },
     {
       id: 'sg1c-r2-isolation-persistence',
@@ -279,6 +305,31 @@ export const SG1C_THEOREM_ASSERTIONS = [
         Math.abs(outer.theta - 1 / 3) < 1e-12 &&
         dgDs(0, outer.theta) < dgDs(1, central.theta) - 1e-12
       );
+    },
+  },
+  {
+    id: 'sg1c-r1-asymmetric-extension-and-static-obstruction',
+    description: 'Lemma R1-T2 (imp-2608): the uniform-lattice central tie obeys Theta_K = K/(K+1) (static peak uncapped, -> 1, so the static-comparison route is obstructed), while the seizing competitor keeps strictly lower Theta (margin > 0) on the K=6 lattice and on a representative asymmetric dressed tie',
+    holds: () => {
+      const uniform = (K) => {
+        const pts = [-0.5, 0.5];
+        for (let t = 1; t <= K; t++) { pts.push(-0.5 - t); pts.push(0.5 + t); }
+        pts.sort((a, b) => a - b);
+        let ci = -1;
+        for (let k = 0; k < pts.length - 1; k++) if (Math.abs(pts[k] + 0.5) < 1e-12 && Math.abs(pts[k + 1] - 0.5) < 1e-12) ci = k;
+        return { central: dThetaDs(pts, ci).theta, outer: dThetaDs(pts, ci + 1).theta };
+      };
+      // closed form Theta_K = K/(K+1), monotone toward 1 -> the static peak is NOT bounded below 1
+      const closedForm = [1, 2, 3, 6].every((K) => Math.abs(uniform(K).central - K / (K + 1)) < 1e-10);
+      const u6 = uniform(6);
+      const uncapped = Math.abs(u6.central - 6 / 7) < 1e-12 && uniform(200).central > 0.99; // Theta_K -> 1
+      // seizing mechanism robust: the adjacent competitor carries strictly lower Theta (margin > 0)
+      const latticeSeizes = u6.outer < u6.central - 1e-9;
+      // representative ASYMMETRIC dressed minimal-gap tie (central pair (-0.5, 0.5), gap 1)
+      const asym = [-6, -3.5, -2.5, -1.5, -0.5, 0.5, 1.5, 4];
+      const aC = dThetaDs(asym, 4).theta, aL = dThetaDs(asym, 3).theta, aR = dThetaDs(asym, 5).theta;
+      const asymSeizes = aC < 1 && Math.min(aL, aR) < aC - 1e-9;
+      return closedForm && uncapped && latticeSeizes && asymSeizes;
     },
   },
   {

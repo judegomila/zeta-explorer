@@ -347,3 +347,121 @@ export const IMP2492_ESY_O2_BACKWARD_FLOW_ILLPOSEDNESS_AUDIT_ASSERTIONS = [
       'reversal is benign and the port goes through.',
   },
 ];
+
+// =========================================================================
+// SECTION (e) -- imp-2611: formal resolution of the harvested closesIf field.
+// =========================================================================
+//
+// imp-2611 (ticket harvested from NAMED_SUBGAP.closesIf above) asks whether the
+// named closure action -- "A backward-stability estimate (logarithmic convexity
+// / Carleman / Tao-Vu time-reversal coupling) for the de Bruijn-Newman heat flow
+// is established on the relevant frequency band, taming the exp(+t k^2) reversal
+// growth" -- can be EXECUTED, or whether it stays open.
+//
+// RESOLUTION: CONDITIONAL NEGATIVE. The closesIf is NOT satisfied. The sibling
+// availability audit imp-2498 already decomposed every mechanism the closesIf
+// names and found each one strictly short of the O2 requirement (an
+// UNCONDITIONAL, POWER-LAW-strength transfer at the microscopic scale k_{max}):
+//   - logarithmic convexity (Agmon-Nirenberg) delivers backward UNIQUENESS only,
+//     with no quantitative transfer of a fluctuation bound (modulus strength 0);
+//   - Carleman / John prescribed-bound theory delivers CONDITIONAL stability, but
+//     with a LOGARITHMIC modulus (strength 1) and an a priori microscopic bound
+//     that is exactly the rigidity O2 wants (circular);
+//   - an UNCONDITIONAL continuous-dependence estimate is Hadamard-FALSE, so the
+//     unconditional version the closesIf would need does not exist;
+//   - the Tao-Vu time-reversal coupling that could in principle supply it is NOT
+//     established for the de Bruijn-Newman flow on the zeta zeros.
+// None of these establishes a backward-stability estimate that tames exp(+t k^2)
+// on the relevant frequency band, so the closesIf trigger does not fire and the
+// O2 sub-gap stays research-grade open. This records the honest negative in the
+// source entry, as the ticket instructs when the named action is not available.
+
+const IMP2611_CLOSESIF_MECHANISMS = Object.freeze({
+  logarithmicConvexity: {
+    name: 'logarithmic convexity (Agmon-Nirenberg backward uniqueness)',
+    delivers: 'uniqueness',
+    establishesBackwardStability: false,
+    why: 'Backward uniqueness only; no quantitative transfer of a rigidity bound (modulus strength 0).',
+  },
+  carlemanJohn: {
+    name: 'Carleman / John prescribed-bound conditional stability',
+    delivers: 'conditional-stability',
+    establishesBackwardStability: false,
+    why: 'Conditional on a circular a priori microscopic bound, and only logarithmic modulus (strength 1) vs the power-law strength O2 needs.',
+  },
+  taoVuTimeReversal: {
+    name: 'Tao-Vu time-reversal coupling',
+    delivers: 'not-established',
+    establishesBackwardStability: false,
+    why: 'Would in principle supply the unconditional transfer, but is not established for the de Bruijn-Newman flow on the zeta zeros.',
+  },
+});
+
+export const IMP2611_O2_CLOSESIF_RESOLUTION = Object.freeze({
+  id: 'imp-2611',
+  ticket: 'imp-370',
+  resolvesClosesIfOf: 'imp-2492-sub-backward-heat-illposedness',
+  closesIfText: NAMED_SUBGAP.closesIf,
+  // The named action cannot be executed: no listed mechanism establishes the
+  // backward-stability estimate, so the closesIf trigger does not fire.
+  closesIfSatisfied: false,
+  verdict: 'closesif-conditional-negative-backward-stability-not-established',
+  mechanisms: IMP2611_CLOSESIF_MECHANISMS,
+  citesAvailabilityAudit: 'imp-2498-esy-o2-backward-stability-availability-audit',
+  o2StaysOpen: true,
+  honestNegative:
+    'Recorded per ticket instruction: the harvested closesIf names a backward-' +
+    'stability estimate (log convexity / Carleman / Tao-Vu) that is NOT available ' +
+    'today -- log convexity gives uniqueness only, Carleman / John gives ' +
+    'conditional logarithmic-modulus stability on a circular a priori bound, the ' +
+    'unconditional version is Hadamard-false, and the Tao-Vu coupling is not ' +
+    'established for the de Bruijn-Newman flow. So exp(+t k^2) reversal growth is ' +
+    'not tamed on the relevant frequency band and obstacle O2 stays research-grade ' +
+    'open. Decomposition detail lives in imp-2498.',
+});
+
+export const IMP2611_O2_CLOSESIF_RESOLUTION_ASSERTIONS = [
+  {
+    id: 'imp2611-closesif-stays-unsatisfied',
+    holds: () =>
+      IMP2611_O2_CLOSESIF_RESOLUTION.closesIfSatisfied === false &&
+      IMP2611_O2_CLOSESIF_RESOLUTION.o2StaysOpen === true &&
+      IMP2611_O2_CLOSESIF_RESOLUTION.verdict ===
+        'closesif-conditional-negative-backward-stability-not-established',
+    why:
+      'imp-2611 resolves the harvested closesIf as a conditional negative: no ' +
+      'named mechanism establishes the backward-stability estimate, so the ' +
+      'trigger does not fire and O2 stays open. Flipping closesIfSatisfied or ' +
+      'o2StaysOpen would silently claim a closure of O2 that does not exist.',
+  },
+  {
+    id: 'imp2611-no-mechanism-establishes-backward-stability',
+    holds: () => {
+      const m = IMP2611_O2_CLOSESIF_RESOLUTION.mechanisms;
+      return (
+        m.logarithmicConvexity.establishesBackwardStability === false &&
+        m.carlemanJohn.establishesBackwardStability === false &&
+        m.taoVuTimeReversal.establishesBackwardStability === false
+      );
+    },
+    why:
+      'Each mechanism the closesIf names (log convexity, Carleman / John, Tao-Vu ' +
+      'time-reversal) was found short by imp-2498; marking any of them as ' +
+      'establishing a backward-stability estimate would overclaim availability ' +
+      'the underlying audit does not support.',
+  },
+  {
+    id: 'imp2611-anchors-imp2492-subgap-and-imp2498',
+    holds: () =>
+      IMP2611_O2_CLOSESIF_RESOLUTION.resolvesClosesIfOf ===
+        'imp-2492-sub-backward-heat-illposedness' &&
+      IMP2611_O2_CLOSESIF_RESOLUTION.closesIfText === NAMED_SUBGAP.closesIf &&
+      IMP2611_O2_CLOSESIF_RESOLUTION.citesAvailabilityAudit ===
+        'imp-2498-esy-o2-backward-stability-availability-audit',
+    why:
+      'The resolution must stay anchored to the imp-2492 sub-gap whose closesIf it ' +
+      'resolves and cite the imp-2498 availability audit that did the mechanism ' +
+      'decomposition; severing either link would detach the negative from the ' +
+      'obstacle and audit it refines.',
+  },
+];

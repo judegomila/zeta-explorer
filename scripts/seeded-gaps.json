@@ -182,5 +182,9 @@
   "src/data/imp-2563-zeta-zeros-corruption-audit.js#imp-2563-sub-sandwich-theorem": {
     "impId": "imp-2604",
     "seededAt": "2026-06-11T21:51:33.736Z"
+  },
+  "src/data/imp-2563-pathc-exact-tc-ladder.js#imp-2563-sub-pathc-ladder-replace-highN": {
+    "impId": "imp-2605",
+    "seededAt": "2026-06-11T22:06:35.234Z"
   }
 }

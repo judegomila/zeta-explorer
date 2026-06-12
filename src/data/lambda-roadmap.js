@@ -495,6 +495,24 @@ export const VERIFICATION_EFFORTS = [
       'AS Lambda estimates despite shared units.',
     tickets: ['imp-373', 'imp-2548'],
     closesIf: 'imp-373 produces a matched-N comparison — DONE (imp-2548)',
+    closesIfResolution: {
+      status: 'met-confirmed-positive',
+      executable: true,
+      agreementConfirmed: 'small-N-commensurable-large-N-incommensurable',
+      twoSidedEpsilonMatch: false,
+      reason:
+        'imp-373 (delivered as src/math/imp-2548-kernel-pathc-matched-n.js) ships ' +
+        'the matched-N comparison: an 8-row table of t_c_pathC(N) = a + b/N vs ' +
+        't_c_kernel(N) = (C_GUE*N^{-1/3}*delta)^2/8 on a shared collision-time scale. ' +
+        'KERNEL_PATHC_MATCHED_N_ASSERTIONS pass — the PT-anchor reproduces ' +
+        'kernel-hack LAMBDA_CENTRAL = 3.726e-10 within 2%, the N=50 ratio is ' +
+        'commensurable (in (1,3)), and the N=25000 ratio diverges (>10x). The ' +
+        'closure condition (produce a matched-N comparison) is MET; its outcome is ' +
+        'that the two estimators agree in order at small N but have opposite ' +
+        'N-to-infinity asymptotics, so the PT-scale kernel value is NOT a Path C ' +
+        'Lambda prediction — incommensurable AS Lambda estimates despite shared units.',
+      resolvedBy: 'imp-2617',
+    },
   },
 ];
 

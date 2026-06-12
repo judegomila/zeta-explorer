@@ -292,6 +292,31 @@ export const ROUTE_STATUS = {
       'G3a diagnostic (imp-451): near+tail decomposition is definitively insufficient; ' +
       'G3a_sub_fullsum (full many-body S_{k*} lower bound) is the structural blocker.',
     closesIf: 'G3a_sub_fullsum: a rigorous lower bound S_{k*}(t) >= c(N)/B(t)^2 with c(N) > 2.',
+    // imp-2620: harvested closesIf resolved as NOT-MET — STATIC PATH REFUTED,
+    // dynamical sub-gap open. The named action asks for a static full-sum lower
+    // bound S_{k*}(t) >= c(N)/B(t)^2 with c(N) > 2. imp-507 (g3a-fullsum-closure.js)
+    // proves the EQUIDISTANT CEILING theorem: at the minimum-gap site the full sum
+    // obeys S_{k*} * B^2 < 2 ALWAYS (strict, supremum 2 achieved only in the
+    // degenerate equidistant limit). So c(N) > 2 is UNREACHABLE via the static full
+    // sum alone — the closesIf as literally stated has no executable closure. What
+    // remains is the renamed dynamical sub-gap G3a_sub_fullsum_dynamical: the
+    // de Bruijn-Newman ODE evolution dB/dtau = (rho^2/B)(4 + S_{k*} B^2) must supply
+    // the missing factor, requiring a Dyson-ODE argument, not a static bound. This
+    // mirrors the C_mb irreducibility (imp-486): static/CLT control of the full sum
+    // cannot close it. Route C therefore stays PARTIALLY CLOSED with an open
+    // dynamical blocker.
+    closesIfResolution: {
+      status: 'not-met-static-refuted-dynamical-open',
+      executable: false,
+      unconditionalClosure: false,
+      staticCeiling: 2,
+      openSubGap: 'G3a_sub_fullsum_dynamical',
+      reason: 'Equidistant ceiling theorem (imp-507) gives S_{k*} * B^2 < 2 always ' +
+        'at the minimum-gap site, so the static condition c(N) > 2 is unreachable ' +
+        'via the full sum alone; closure now requires the open dynamical sub-gap ' +
+        'G3a_sub_fullsum_dynamical (de Bruijn-Newman ODE argument), not a static bound.',
+      resolvedBy: 'imp-2620',
+    },
   },
 };
 
@@ -579,5 +604,35 @@ export const PROOF_CHAIN_SNAPSHOT = {
   if (res.finiteHeightConditional !== true || res.finiteHeightExecutable !== false) {
     throw new Error('proof-chain-snapshot routeB: finite-height beat must remain ' +
       'GUE-conditional and non-executable until ESY universality is exhibited (imp-2619)');
+  }
+})();
+
+// imp-2620: build-time tripwire — freezes the Route C closesIf resolution. The
+// static condition c(N) > 2 is provably unreachable via the full sum alone
+// (equidistant ceiling S_{k*} * B^2 < 2, imp-507); closure requires the open
+// dynamical sub-gap G3a_sub_fullsum_dynamical. A future edit cannot silently flip
+// Route C to a met/unconditional static closure without contradicting the ceiling.
+(function assertRouteCClosesIfStaticRefutedImp2620() {
+  const r = ROUTE_STATUS.routeC;
+  const res = r && r.closesIfResolution;
+  if (!res) {
+    throw new Error('proof-chain-snapshot routeC: closesIfResolution missing (imp-2620)');
+  }
+  if (res.status !== 'not-met-static-refuted-dynamical-open') {
+    throw new Error('proof-chain-snapshot routeC: closesIfResolution.status must stay ' +
+      'not-met-static-refuted-dynamical-open while the equidistant ceiling holds (imp-2620)');
+  }
+  if (res.executable !== false || res.unconditionalClosure !== false) {
+    throw new Error('proof-chain-snapshot routeC: static condition c(N) > 2 is unreachable ' +
+      'via the full sum (ceiling S_{k*} B^2 < 2); executable/unconditionalClosure must ' +
+      'remain false (imp-2620)');
+  }
+  if (res.staticCeiling !== 2 || res.openSubGap !== 'G3a_sub_fullsum_dynamical') {
+    throw new Error('proof-chain-snapshot routeC: staticCeiling must stay 2 and the open ' +
+      'blocker must remain G3a_sub_fullsum_dynamical (imp-2620)');
+  }
+  if (!/PARTIALLY CLOSED/i.test(r.status)) {
+    throw new Error('proof-chain-snapshot routeC: status must remain PARTIALLY CLOSED ' +
+      'with the dynamical sub-gap open (imp-2620)');
   }
 })();

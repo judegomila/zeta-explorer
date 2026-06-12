@@ -1,3 +1,37 @@
+/**
+ * @module ht-corridor-certificates-2026-06
+ * @fileoverview
+ * Data backing the "H_t Corridor Certificates" page (route /ht-corridor-certificates).
+ *
+ * Proof-chain step: Twin-Ladder v52 program, §14.18–14.19 (Lyapunov/Rouché
+ * corridor stage of the de Bruijn–Newman heat-flow attack). These are the
+ * interval-rigorous zero-localization certificates for H_t at t = 0.18,
+ * η = 0.14142 (conditional config target Λ ≤ t + η²/2 = 0.19).
+ *
+ * Exports:
+ *   - htCorridorMeta        — config (t, η, h, target Λ), literature
+ *                             normalization, and the unconditional-modulo
+ *                             engine-trust statement.
+ *   - htCorridorCells       — the 8 certified corridor cells (E, m, V,
+ *                             winding, status); all 8 PIN.
+ *   - boundToolkit          — the verified error-bound machinery (Peano
+ *                             Hermite constants, by-parts regime map,
+ *                             Lipschitz-net m bound, dependency-problem note).
+ *   - normalizationPostMortem — the factor-4 kernel-bug post-mortem.
+ *   - scopeAssessment       — honest does / does-not-mean-for-Λ assessment.
+ *   - crossLinks            — in-app navigation links.
+ *
+ * Key assertion: each cell certifies that H_{0.18} has exactly one zero in
+ * the conjugation-symmetric rectangle |Re x − x_n| ≤ h, |Im x| ≤ η, and by
+ * Schwarz symmetry that zero is real — unconditional modulo the arb/acb
+ * ball arithmetic and closed-form Φ-derivative formulas (no GRH, no sampling).
+ * Does NOT establish Λ ≤ 0.19 (see scopeAssessment).
+ *
+ * Provenance: created by the H_t Corridor Certificates feature section
+ * (commit ea4e3e6e, finalized 0b03b0d1) from the sister twin_ladder_rh_repo
+ * engine; module documentation added by imp-2606.
+ */
+
 // ht-corridor-certificates-2026-06.js
 //
 // Rigorous interval-certified Rouché corridor certificates on the

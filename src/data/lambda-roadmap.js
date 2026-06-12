@@ -431,15 +431,49 @@ export const VERIFICATION_EFFORTS = [
       'Independent Λ computation via the Polymath15 heat-flow barrier method ' +
       '(not the Dyson ODE). Different numerical pipeline, different error ' +
       'sources.',
-    status: 'numerical',
+    status: 'partial',
     progress:
-      'imp-292 shipped the heat-flow Λ methodology. Numerical value not yet ' +
-      'reconciled with the Path C Hybrid central value on the same ladder. ' +
-      'Pending: imp-372 cross-validation table.',
+      'CROSS-VALIDATION PARTIAL (imp-372). The tabulation named by closesIf ' +
+      'was shipped in src/data/heat-flow-cross-validation-imp372.js: it tabulates ' +
+      'the heat-flow estimator (factor-1 H_t convention) against the Path C / RK4 ' +
+      'baseline (imp-400 PATH_C_BASELINE_FIT_V2) on the SAME imp-360 measured ' +
+      'ladder {50,100,200,500,870}, with three build-time agreement tripwires ' +
+      '(imp372-ols-valid, imp372-intercept-positive, imp372-majority-consistent) ' +
+      'all green. The agreement is ONE-SIDED lower-bound consistency — ' +
+      'a_hf_initial/2 ≤ a_rk4 + 2σ — because the analytical initial-slope ' +
+      'estimate is a lower bound on the true t_c; a two-sided ε-tolerance EQUALITY ' +
+      'still needs the deferred full H_t trajectory (sub-gaps imp372-Ht-full / ' +
+      'imp372-three-way).',
     tickets: ['imp-292', 'imp-372'],
     closesIf:
       'imp-372 tabulates both on the same ladder with ε-tolerance ' +
       'agreement assertions',
+    // imp-2616: harvested closesIf resolved as a MET-PARTIAL POSITIVE. The named
+    // action — imp-372 tabulating the heat-flow estimator against the Path C / RK4
+    // baseline on the same imp-360 ladder with agreement assertions — WAS executed
+    // in heat-flow-cross-validation-imp372.js (HF_IMP372_ASSERTIONS: 3/3 tripwires
+    // green, wired into the build sweep). The tabulation + agreement-assertion
+    // form of the closure condition is therefore satisfied, advancing the entry
+    // numerical → partial. It does NOT advance to cross-verified because the
+    // agreement is one-sided lower-bound consistency (a_hf_initial/2 ≤ a_rk4 + 2σ),
+    // not a two-sided ε-tolerance equality; that requires the deferred full H_t
+    // trajectory computation (imp372-Ht-full, infeasible at Vite build time).
+    closesIfResolution: {
+      status: 'met-partial-positive',
+      executable: true,
+      agreementConfirmed: 'one-sided-lower-bound',
+      twoSidedEpsilonMatch: false,
+      reason:
+        'imp-372 (heat-flow-cross-validation-imp372.js) tabulates the heat-flow ' +
+        'initial-slope t_c estimator and the Path C / RK4 baseline on the same ' +
+        'imp-360 ladder {50,100,200,500,870}; HF_IMP372_ASSERTIONS (ols-valid, ' +
+        'intercept-positive, majority-consistent) pass and lambdaConvergenceVerdict ' +
+        'reports CONSISTENT (a_hf_initial/2 ≤ a_rk4 + 2*seA). The closure condition ' +
+        '(tabulation + agreement assertions on the same ladder) is met as a ' +
+        'one-sided lower-bound check; a two-sided ε-tolerance equality is blocked ' +
+        'on the deferred full H_t trajectory (imp372-Ht-full / imp372-three-way).',
+      resolvedBy: 'imp-2616',
+    },
   },
   {
     id: 'cross-validation-kernel',
@@ -1118,5 +1152,35 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'rungs, 6/6 tripwires green). This pins the entry as cross-verified with a ' +
       'met-confirmed-positive resolution so the closure is recorded as actuals, ' +
       'not silently reverted.',
+  },
+  {
+    id: 'cross-validation-heat-flow-closesif-partial-imp2616',
+    holds: () => {
+      const entry = VERIFICATION_EFFORTS.find(
+        (e) => e.id === 'cross-validation-heat-flow'
+      );
+      if (!entry || !entry.closesIfResolution) return false;
+      const r = entry.closesIfResolution;
+      // Tripwire: the cross-validation-heat-flow closesIf is met only in its
+      // tabulation + one-sided-agreement form (imp-372 shipped the table with
+      // green assertions), so the entry sits at partial — NOT cross-verified.
+      // A future edit that flips it to cross-verified WITHOUT a two-sided
+      // ε-tolerance match (twoSidedEpsilonMatch:false) trips this assertion.
+      return (
+        entry.status === 'partial' &&
+        r.status === 'met-partial-positive' &&
+        r.executable === true &&
+        r.twoSidedEpsilonMatch === false
+      );
+    },
+    why:
+      'imp-2616: the harvested closesIf of cross-validation-heat-flow ("imp-372 ' +
+      'tabulates both on the same ladder with ε-tolerance agreement assertions") ' +
+      'was executed by imp-372 in heat-flow-cross-validation-imp372.js (both ' +
+      'estimators tabulated on the imp-360 ladder, HF_IMP372_ASSERTIONS green). ' +
+      'The agreement is one-sided lower-bound consistency, not a two-sided ' +
+      'ε-equality, so this pins the entry at partial with a met-partial-positive ' +
+      'resolution — a future edit cannot silently promote it to cross-verified ' +
+      'without supplying the deferred full H_t trajectory (imp372-Ht-full).',
   },
 ];

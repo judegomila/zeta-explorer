@@ -232,6 +232,24 @@ export const ROUTE_STATUS = {
       '(confirmed irreducible by imp-486 exhaustive search).',
     closesIf: 'GUE universality (Erdos-Schlein-Yau local law) established for the ' +
       'Calogero-Moser empirical spectral measure.',
+    // imp-2618: harvested closesIf resolved as CONDITIONAL NEGATIVE. The named
+    // action — establishing GUE universality (ESY local law) for the
+    // Calogero-Moser empirical spectral measure — is the open conjecture itself,
+    // not an executable step. imp-486 proved the sole remaining gap (the C_mb
+    // many-body correction) requires GUE universality and that the reduction is
+    // IRREDUCIBLE (no unconditional bound exists). Route A therefore stays
+    // conditional; the unconditional lim-sup closure is carried by Routes B
+    // (imp-341 Burgers) + C. Mirrors the lambda-roadmap resolution imp-2614.
+    closesIfResolution: {
+      status: 'not-met-conditional-negative',
+      executable: false,
+      unconditionalClosure: false,
+      reason: 'Named action is the open GUE-universality (ESY local law) conjecture ' +
+        'for the Calogero-Moser empirical spectral measure; imp-486 confirmed the ' +
+        'C_mb reduction is irreducible, so no executable step closes it. Route A ' +
+        'stays conditional.',
+      resolvedBy: 'imp-2618',
+    },
   },
   routeB: {
     name: 'Route B — Burgers uniformity (PRIMARY)',
@@ -491,3 +509,27 @@ export const PROOF_CHAIN_SNAPSHOT = {
     'Full roadmap: read src/data/lambda-roadmap.js and src/data/sota-lambda-claim.js',
   ],
 };
+
+// imp-2618: build-time tripwire — freezes the Route A closesIf resolution so a
+// future edit cannot silently flip Route A to rigorous/unconditional without
+// exhibiting GUE universality (ESY local law) for the Calogero-Moser empirical
+// spectral measure. The named action remains the open conjecture (irreducible
+// per imp-486); Route A is and stays CONDITIONAL.
+(function assertRouteAClosesIfConditionalNegativeImp2618() {
+  const r = ROUTE_STATUS.routeA;
+  const res = r && r.closesIfResolution;
+  if (!res) {
+    throw new Error('proof-chain-snapshot routeA: closesIfResolution missing (imp-2618)');
+  }
+  if (res.status !== 'not-met-conditional-negative') {
+    throw new Error('proof-chain-snapshot routeA: closesIfResolution.status must stay ' +
+      'not-met-conditional-negative until GUE universality is exhibited (imp-2618)');
+  }
+  if (res.executable !== false || res.unconditionalClosure !== false) {
+    throw new Error('proof-chain-snapshot routeA: closesIf names the open GUE-universality ' +
+      'conjecture; executable/unconditionalClosure must remain false (imp-2618)');
+  }
+  if (!/CONDITIONAL/i.test(r.status)) {
+    throw new Error('proof-chain-snapshot routeA: status must remain GUE-conditional (imp-2618)');
+  }
+})();

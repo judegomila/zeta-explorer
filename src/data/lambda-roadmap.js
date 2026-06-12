@@ -422,6 +422,20 @@ export const VERIFICATION_EFFORTS = [
         'rungs) plus Λ-intercept agreement within ±0.01; 6/6 tripwires green in ' +
         'imp371-barrier-cross-validation.js, wired into run-assertions.mjs.',
       resolvedBy: 'imp-2615',
+      reHarvest: {
+        ticket: 'imp-2624',
+        cause:
+          'imp-2615 appended "— DONE (imp-2546)" to the closesIf string itself, ' +
+          'which shifted the producer harvest key (action.slice(0,60)) and the ' +
+          'derived title, so auto-ticket-producer.mjs re-seeded the same ' +
+          'already-met closesIf as imp-2624. No new proof work was needed: the ' +
+          'named action (rerun the imp-299/imp-371 barrier estimate on the ' +
+          'imp-360 extended ladder) was executed by imp-2546 and is already ' +
+          'recorded here, and imp371-barrier-cross-validation.js stays 6/6 ' +
+          'tripwires green. imp-2624 now lives in the queue, so title-dedup in ' +
+          'existingState() blocks any third harvest of this closure.',
+        confirmedStillMet: true,
+      },
     },
   },
   {
@@ -1200,5 +1214,35 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'ε-equality, so this pins the entry at partial with a met-partial-positive ' +
       'resolution — a future edit cannot silently promote it to cross-verified ' +
       'without supplying the deferred full H_t trajectory (imp372-Ht-full).',
+  },
+  {
+    id: 'cross-validation-barrier-reharvest-sealed-imp2624',
+    holds: () => {
+      const entry = VERIFICATION_EFFORTS.find(
+        (e) => e.id === 'cross-validation-barrier'
+      );
+      if (!entry || !entry.closesIfResolution) return false;
+      const rh = entry.closesIfResolution.reHarvest;
+      // Tripwire: imp-2624 is a re-harvest of the SAME already-met closesIf
+      // (imp-2615 appended "— DONE (imp-2546)" to the string, which shifted the
+      // producer harvest key). No new proof work exists; the named action was
+      // executed by imp-2546. Pin the reHarvest record so the duplicate stays
+      // sealed and a future edit cannot reopen it as fresh proof work.
+      return (
+        !!rh &&
+        rh.ticket === 'imp-2624' &&
+        rh.confirmedStillMet === true &&
+        entry.status === 'cross-verified'
+      );
+    },
+    why:
+      'imp-2624: the harvested closesIf of cross-validation-barrier was re-seeded ' +
+      'a second time because imp-2615 appended "— DONE (imp-2546)" to the closesIf ' +
+      'string, shifting auto-ticket-producer.mjs harvest key (action.slice(0,60)). ' +
+      'The named action — rerunning the imp-299/imp-371 barrier estimate on the ' +
+      'imp-360 extended ladder — was already executed by imp-2546 ' +
+      '(imp371-barrier-cross-validation.js, 6/6 tripwires green), so imp-2624 ' +
+      'needed no new proof work. This pins the reHarvest record as confirmed-still-met ' +
+      'so the duplicate closure stays sealed and cannot be reopened as fresh work.',
   },
 ];

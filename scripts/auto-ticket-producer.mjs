@@ -261,6 +261,69 @@ function seed(id, t, dry) {
   execFileSync('node', a, { cwd: ROOT, stdio: 'pipe' });
 }
 
+// ── closesIf harvester (anti-starvation layer 2, 2026-06-12) ────────────────
+// VERIFICATION_EFFORTS entries and audit modules carry `closesIf: '...'`
+// fields naming the exact action that would close them. Harvest any whose
+// surrounding object is not already closed/completed.
+function harvestClosesIf(existing, ledger) {
+  const out = [];
+  const dirs = ['src/data'];
+  for (const d of dirs) {
+    let files = [];
+    try { files = readdirSync(join(ROOT, d)).filter(f => f.endsWith('.js') && !['improvement-queue.js', 'improvements.js'].includes(f)); } catch (_) { continue; }
+    for (const f of files) {
+      let txt;
+      try { txt = readFileSync(join(ROOT, d, f), 'utf8'); } catch (_) { continue; }
+      const re = /closesIf:\s*\n?\s*(?:"((?:[^"\\]|\\.)*)"|'((?:[^'\\]|\\.)*)')/g;
+      let m;
+      while ((m = re.exec(txt))) {
+        const action = (m[1] ?? m[2] ?? '').trim();
+        if (!action || action.length < 20) continue;
+        // skip if the enclosing ~600 chars show a closed/completed status
+        const ctx = txt.slice(Math.max(0, m.index - 600), m.index);
+        if (/status:\s*['"](closed|completed|rigorous)['"]/.test(ctx)) continue;
+        const ledgerKey = `${d}/${f}#closesIf:${action.slice(0, 60)}`;
+        if (ledger[ledgerKey]) continue;
+        const title = `closesIf: ${action.slice(0, 110)} (${f})`;
+        if (existing.titles.has(normalize(title))) { ledger[ledgerKey] = { impId: 'pre-ledger', seededAt: new Date().toISOString() }; continue; }
+        out.push({
+          ledgerKey, title, priority: 'high', category: 'proof', section: 'S-closesif',
+          description: `${d}/${f} names a closure condition: "${action}". Execute the named action, update the source entry status, and ship a build-time assertion. If the action turns out refuted or ill-posed, record the honest negative in the source entry instead.`,
+          rationale: 'Harvested closesIf field — the module itself names this as the action that closes it. Auto-produced anti-starvation layer 2.',
+        });
+        existing.titles.add(normalize(title));
+      }
+    }
+  }
+  return out;
+}
+
+// ── Frontier-scout escalation (anti-starvation layer 3, 2026-06-12) ─────────
+// When every deterministic source is dry for STARVE_TRIGGER consecutive
+// passes AND the bucket is empty, spawn a one-shot model pass (fable) that
+// reads the live research state and mints new grounded tickets itself.
+// Fire-and-forget, rate-limited via the ledger, never blocks the daemon.
+const STARVE_TRIGGER = 2;             // consecutive zero-seed passes
+const SCOUT_COOLDOWN_MS = 6 * 3600 * 1000; // at most one scout per 6h
+function maybeEscalateFrontierScout(ledger, pending, made) {
+  const meta = ledger['__meta'] || (ledger['__meta'] = {});
+  if (made > 0 || pending > 0) { meta.dryStreak = 0; return; }
+  meta.dryStreak = (meta.dryStreak || 0) + 1;
+  if (meta.dryStreak < STARVE_TRIGGER) { log(`dry pass ${meta.dryStreak}/${STARVE_TRIGGER} (scout arms at ${STARVE_TRIGGER})`); return; }
+  const last = meta.lastScoutAt ? Date.parse(meta.lastScoutAt) : 0;
+  if (Date.now() - last < SCOUT_COOLDOWN_MS) { log('scout in cooldown; skipping'); return; }
+  meta.lastScoutAt = new Date().toISOString();
+  meta.dryStreak = 0;
+  // The producer does NOT spawn the scout itself (a producer-spawned
+  // permission-less model agent is an unsupervised autonomy escalation).
+  // It raises a flag file; the frontier-scout daemon — started BY THE USER
+  // like the other engines — polls the flag and runs the model pass.
+  try {
+    writeFileSync(join(ROOT, 'scripts/.starvation-flag'), new Date().toISOString() + '\n');
+    log('STARVATION: all deterministic sources dry — flag raised for the user-launched frontier-scout daemon');
+  } catch (e) { log(`  ! starvation flag write failed: ${e.message}`); }
+}
+
 function topUp() {
   const pending = readPending();
   if (pending >= args.threshold) { log(`queue healthy (opus-4-8 bucket ${pending} pending >= threshold ${args.threshold}); no top-up`); return; }
@@ -269,7 +332,7 @@ function topUp() {
   if (todayCount >= MAX_PER_DAY) { log(`daily cap reached (${todayCount}/${MAX_PER_DAY} seeded today); no top-up`); return; }
   const need = Math.min(args.target - pending, args['max-per-run'], MAX_PER_DAY - todayCount);
   const existing = existingState();
-  const candidates = [...harvestSubGaps(existing, ledger), ...templateBank(existing)].slice(0, need);
+  const candidates = [...harvestSubGaps(existing, ledger), ...harvestClosesIf(existing, ledger), ...templateBank(existing)].slice(0, need);
   log(`opus-4-8 pending=${pending} < threshold=${args.threshold}; seeding ${candidates.length}/${need} (harvest+template, ${todayCount}/${MAX_PER_DAY} today)${args['dry-run'] ? ' [DRY-RUN]' : ''}`);
   let made = 0;
   for (const t of candidates) {
@@ -288,7 +351,8 @@ function topUp() {
       log(`  ! failed to seed "${t.title}": ${String(e.message || e).split('\n')[0]}`);
     }
   }
-  if (!args['dry-run'] && made > 0) { try { writeLedger(ledger); } catch (e) { log(`  ! ledger write failed: ${e.message}`); } }
+  if (!args['dry-run']) maybeEscalateFrontierScout(ledger, pending, made);
+  if (!args['dry-run']) { try { writeLedger(ledger); } catch (e) { log(`  ! ledger write failed: ${e.message}`); } }
   log(`top-up complete: ${made} ticket(s) ${args['dry-run'] ? 'would be ' : ''}created`);
 }
 

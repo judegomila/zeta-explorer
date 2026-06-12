@@ -186,5 +186,32 @@
   "src/data/imp-2563-pathc-exact-tc-ladder.js#imp-2563-sub-pathc-ladder-replace-highN": {
     "impId": "imp-2605",
     "seededAt": "2026-06-11T22:06:35.234Z"
+  },
+  "src/data/imp-2607-epp-sizing.js#imp-2607-sub-R2-proxy-cancellation": {
+    "impId": "imp-2609",
+    "seededAt": "2026-06-12T18:24:45.375Z"
+  },
+  "src/data/imp-2481-esy-determinantal-clt-audit.js#closesIf:A singular-linear-statistics determinantal CLT for the Hilbe": {
+    "impId": "imp-2610",
+    "seededAt": "2026-06-12T18:24:45.569Z"
+  },
+  "src/data/imp-2492-esy-o2-backward-flow-illposedness-audit.js#closesIf:A backward-stability estimate (logarithmic convexity / Carle": {
+    "impId": "imp-2611",
+    "seededAt": "2026-06-12T18:24:45.762Z"
+  },
+  "src/data/imp-2493-esy-o3-derandomization-audit.js#closesIf:A quantitative equidistribution theorem placing the determin": {
+    "impId": "imp-2612",
+    "seededAt": "2026-06-12T18:24:45.952Z"
+  },
+  "src/data/imp-2497-esy-highest-leverage-input-availability-audit.js#closesIf:An unconditional, unrestricted-support n-level correlation /": {
+    "impId": "imp-2613",
+    "seededAt": "2026-06-12T18:24:46.140Z"
+  },
+  "src/data/lambda-roadmap.js#closesIf:GUE universality (Erdos-Schlein-Yau local law) established f": {
+    "impId": "imp-2614",
+    "seededAt": "2026-06-12T18:24:46.330Z"
+  },
+  "__meta": {
+    "dryStreak": 0
   }
 }

@@ -220,6 +220,33 @@ const NAMED_SUBGAP = Object.freeze({
     'unconditionally -- i.e. the imp-2365 TIER-2 local law. Both remain open.',
 });
 
+// imp-2610 (closesIf harvest): the harvester named the sub-gap closesIf text as
+// an action to execute. It is NOT executable: the named closure decomposes into
+// two SEPARATELY-OPEN research inputs, neither currently establishable. So the
+// honest resolution is a CONDITIONAL NEGATIVE -- the closesIf is recorded as
+// not-met (no unconditional closure), preventing a future re-harvest from
+// treating it as actionable.
+const CLOSESIF_RESOLUTION = Object.freeze({
+  ticket: 'imp-2610',
+  closesIfText:
+    'A singular-linear-statistics determinantal CLT for the Hilbert kernel is ' +
+    'established for the zero process AND the sine 2-point asymptotic is proven ' +
+    'unconditionally (the imp-2365 TIER-2 optimal local law).',
+  status: 'not-met-conditional-negative',
+  requiredOpenInputs: Object.freeze([
+    'A singular-linear-statistics determinantal CLT covering the Hilbert kernel ' +
+      'f(x) = 1/x (infinite H^{1/2} seminorm) for the Riemann zero process -- ' +
+      'open, and strictly harder than the smooth-test-function Soshnikov 2000 CLT.',
+    'An unconditional sine 2-point asymptotic for the zeta zeros (Montgomery PCC ' +
+      '/ the imp-2365 TIER-2 optimal local law) -- open.',
+  ]),
+  unconditionalClosure: false,
+  note:
+    'Both conjuncts remain open inputs, so the named action cannot be executed; ' +
+    'the honest negative is recorded instead. This refines (does not remove) the ' +
+    'imp-486 condition and matches the imp-2365 TIER-2 minimal-input finding.',
+});
+
 const VERDICT = 'determinantal-clt-not-a-weaker-citable-input-for-C_mb';
 
 // =========================================================================
@@ -241,6 +268,7 @@ export const IMP2481_ESY_DETERMINANTAL_CLT_AUDIT = Object.freeze({
   seminormWitnesses: SEMINORM_WITNESSES,
   cumulantAxis: CUMULANT_AXIS,
   namedSubGap: NAMED_SUBGAP,
+  closesIfResolution: CLOSESIF_RESOLUTION,
   verdict: VERDICT,
   determinantalCltIsWeakerInput: false,
   fullGueUniversalityRequired: false, // only the 2-point level (TIER-2) is needed
@@ -360,6 +388,27 @@ export const IMP2481_ESY_DETERMINANTAL_CLT_AUDIT_ASSERTIONS = [
       '(all rho_m, m >= 3) is unused. Marking cmbIsDistributional or ' +
       'higherCumulantsUsed true would wrongly imply C_mb needs the full ' +
       'sine-kernel ladder, contradicting the imp-2365 TIER-2 finding.',
+  },
+  {
+    id: 'imp2610-closesif-recorded-as-conditional-negative',
+    holds: () => {
+      const r = IMP2481_ESY_DETERMINANTAL_CLT_AUDIT.closesIfResolution;
+      return (
+        Boolean(r) &&
+        r.status === 'not-met-conditional-negative' &&
+        r.unconditionalClosure === false &&
+        Array.isArray(r.requiredOpenInputs) &&
+        r.requiredOpenInputs.length === 2
+      );
+    },
+    why:
+      'The imp-2610 closesIf harvest names an action that is NOT executable: it ' +
+      'decomposes into two separately-open inputs (a singular-statistic ' +
+      'determinantal CLT for the Hilbert kernel, and an unconditional sine ' +
+      '2-point asymptotic). Recording status not-met-conditional-negative with ' +
+      'unconditionalClosure false is the honest resolution. Flipping the status ' +
+      'or unconditionalClosure to claim closure -- or dropping either open input ' +
+      '-- would advertise an unconditional Route A closure that does not exist.',
   },
   {
     id: 'imp2481-full-gue-not-required-but-route-conditional',

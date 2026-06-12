@@ -176,6 +176,36 @@ const NAMED_SUBGAP = Object.freeze({
     'RH-level difficulty.',
 });
 
+// imp-2613 (closesIf harvest): the harvester named NAMED_SUBGAP.closesIf as an
+// action to execute. It is NOT executable: the named closure IS the open
+// quantitative GUE-equidistribution conjecture for the zeros -- an unconditional,
+// unrestricted-support n-level correlation theorem that removes BOTH the support
+// restriction (Montgomery half-width up to 1; Rudnick-Sarnak below 1) AND the
+// RH / GRH hypothesis from every currently-proven input. No such theorem exists;
+// the source itself flags it at RH-level difficulty. So the honest resolution is
+// a CONDITIONAL NEGATIVE -- the closesIf is recorded as not-met (no unconditional
+// unrestricted-support input), preventing a future re-harvest from treating it as
+// actionable, and the audit verdict (highest-leverage input unavailable today) is
+// unchanged.
+const CLOSESIF_RESOLUTION = Object.freeze({
+  ticket: 'imp-2613',
+  closesIfText: NAMED_SUBGAP.closesIf,
+  status: 'not-met-conditional-negative',
+  requiredOpenInput:
+    'An unconditional, unrestricted-support n-level correlation / equidistribution ' +
+    'theorem for {gamma_k} -- the quantitative GUE-equidistribution conjecture, ' +
+    'removing the support restriction AND the RH / GRH hypothesis from Montgomery / ' +
+    'Rudnick-Sarnak simultaneously. Open; flagged at RH-level difficulty.',
+  removesSupportRestriction: true,
+  removesConditionality: true,
+  unconditionalClosure: false,
+  note:
+    'The named action is the single open input the audit already identifies, not ' +
+    'a separable executable step; recording the honest negative keeps the imp-370 ' +
+    'distance-to-closure on the arithmetic axis strictly positive. No Lambda value ' +
+    'changes; O1 residual / O3 stay research-grade open.',
+});
+
 const VERDICT = 'highest-leverage-input-only-available-restricted-support-conditional';
 
 // =========================================================================
@@ -196,6 +226,7 @@ export const IMP2497_ESY_HIGHEST_LEVERAGE_INPUT_AVAILABILITY_AUDIT = Object.free
   neededInput: NEEDED_INPUT,
   availabilityGap: AVAILABILITY_GAP,
   namedSubGap: NAMED_SUBGAP,
+  closesIfResolution: CLOSESIF_RESOLUTION,
   verdict: VERDICT,
   highestLeverageInputAvailableToday: false,
   refinesCouplingMatrix:
@@ -239,6 +270,30 @@ export default IMP2497_ESY_HIGHEST_LEVERAGE_INPUT_AVAILABILITY_AUDIT;
 // =========================================================================
 
 export const IMP2497_ESY_HIGHEST_LEVERAGE_INPUT_AVAILABILITY_AUDIT_ASSERTIONS = [
+  {
+    id: 'imp2613-closesif-recorded-as-conditional-negative',
+    holds: () => {
+      const r = IMP2497_ESY_HIGHEST_LEVERAGE_INPUT_AVAILABILITY_AUDIT.closesIfResolution;
+      return (
+        Boolean(r) &&
+        r.status === 'not-met-conditional-negative' &&
+        r.unconditionalClosure === false &&
+        r.removesSupportRestriction === true &&
+        r.removesConditionality === true &&
+        r.closesIfText === IMP2497_ESY_HIGHEST_LEVERAGE_INPUT_AVAILABILITY_AUDIT.namedSubGap.closesIf
+      );
+    },
+    why:
+      'The imp-2613 closesIf harvest names an action that is NOT executable: it IS ' +
+      'the open quantitative GUE-equidistribution conjecture -- an unconditional, ' +
+      'unrestricted-support n-level theorem removing both the support restriction ' +
+      'and the RH / GRH hypothesis from Montgomery / Rudnick-Sarnak. Recording ' +
+      'status not-met-conditional-negative with unconditionalClosure false is the ' +
+      'honest resolution. Flipping the status / unconditionalClosure to claim ' +
+      'closure, or dropping either removal flag, would advertise an unconditional ' +
+      'unrestricted-support input that does not exist and collapse the imp-370 ' +
+      'distance-to-closure.',
+  },
   {
     id: 'imp2497-verdict-input-not-available-today',
     holds: () =>

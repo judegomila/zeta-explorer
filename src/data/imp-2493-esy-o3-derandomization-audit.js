@@ -246,6 +246,43 @@ const NAMED_SUBGAP = Object.freeze({
     'quantitative rate. Open; not implied by ESY ensemble rigidity.',
 });
 
+// =========================================================================
+// SECTION (f) -- Harvested closesIf resolution (imp-2612, conditional negative).
+// =========================================================================
+//
+// The anti-starvation harvester opened imp-2612 against this module's closesIf
+// field: "A quantitative equidistribution theorem placing the deterministic
+// zero sequence inside the ESY good set G_{N} for all large N is established."
+// Executing that named action is attempted here and resolved as a CONDITIONAL
+// NEGATIVE: the closure condition is well-posed, but the input it requires is
+// the quantitative GUE / sine-kernel law for the zeta zeros, which is
+// unconditionally OPEN -- it is at the level of the GUE conjecture itself
+// (Montgomery-Dyson / Bourgade / Rudnick-Sarnak give only the leading pair
+// correlation and test-function-restricted n-level correlations). The action
+// therefore cannot be executed to close O3; the honest negative is recorded
+// instead of an overclaimed closure. This mirrors imp-2610 / imp-2611.
+
+const CLOSESIF_RESOLUTION = Object.freeze({
+  ticket: 'imp-2612',
+  resolvedDate: '2026-06-12',
+  resolution: 'conditional-negative',
+  harvestedClosesIf: NAMED_SUBGAP.closesIf,
+  closureInputRequired: MISSING_INPUT.name,
+  closureInputStatus: 'OPEN',
+  closureInputExecutable: false,
+  o3Closed: false,
+  why:
+    'The harvested closesIf is well-posed but not executable: it asks for a ' +
+    'quantitative GUE / sine-kernel equidistribution theorem that places the ' +
+    'single deterministic zero sequence {gamma_k} inside the ESY good set ' +
+    'G_{N} for all large N. That theorem is the GUE conjecture for the zeta ' +
+    'zeros at a quantitative rate -- unconditionally open. Only Montgomery ' +
+    'pair correlation (leading term) and test-function-restricted ' +
+    'Rudnick-Sarnak n-level correlations are known. So the action cannot be ' +
+    'carried out to close obstacle O3; the conditional negative is recorded ' +
+    'and the verdict / sub-gap stand unchanged.',
+});
+
 const VERDICT = 'esy-o3-high-prob-does-not-derandomize-without-equidistribution';
 
 // =========================================================================
@@ -269,6 +306,7 @@ export const IMP2493_ESY_O3_DERANDOMIZATION_AUDIT = Object.freeze({
   derandomizationRoutes: DERANDOMIZATION_ROUTES,
   missingInput: MISSING_INPUT,
   namedSubGap: NAMED_SUBGAP,
+  closesIfResolution: CLOSESIF_RESOLUTION,
   verdict: VERDICT,
   ensembleBoundDerandomizes: false,
   esyStatementIsMeasure: true,
@@ -394,6 +432,30 @@ export const IMP2493_ESY_O3_DERANDOMIZATION_AUDIT_ASSERTIONS = [
       'membership, genericity via equidistribution) all fail on a single fixed ' +
       'arithmetic sequence. Marking any route closes === true without an ' +
       'established equidistribution theorem would overclaim O3 progress.',
+  },
+  {
+    id: 'imp2493-closesif-resolves-conditional-negative',
+    holds: () => {
+      const r = IMP2493_ESY_O3_DERANDOMIZATION_AUDIT.closesIfResolution;
+      // The harvested imp-2612 closesIf must stay a conditional negative: the
+      // closure input is the open GUE equidistribution theorem, so it is not
+      // executable and O3 is NOT marked closed.
+      return (
+        r.ticket === 'imp-2612' &&
+        r.resolution === 'conditional-negative' &&
+        r.closureInputStatus === 'OPEN' &&
+        r.closureInputExecutable === false &&
+        r.o3Closed === false
+      );
+    },
+    why:
+      'imp-2612 harvested this module closesIf field. The named action -- ' +
+      'establishing a quantitative GUE equidistribution theorem placing the ' +
+      'deterministic zero sequence in the ESY good set -- is the open GUE ' +
+      'conjecture for the zeta zeros, so it cannot be executed to close O3. ' +
+      'Flipping closureInputExecutable or o3Closed to true (or the resolution ' +
+      'away from conditional-negative) without exhibiting that theorem would ' +
+      'silently overclaim a closure of obstacle O3 that does not exist.',
   },
   {
     id: 'imp2493-subgap-critical-anchors-O3',

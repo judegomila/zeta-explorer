@@ -260,6 +260,29 @@ export const ROUTE_STATUS = {
       'Asymptotic lim-sup closed unconditionally; per-N finite-height beat is GUE-CONDITIONAL (C_mb <= 1 requires ESY 2011 universality; see closesIf and imp-583).',
     closesIf: 'Already closed for the asymptotic claim. ' +
       'Finite-height beat GUE-CONDITIONAL (C_mb <= 1 requires ESY 2011 universality; confirmed irreducible by imp-486). Asymptotic lim-sup is closed unconditionally.',
+    // imp-2619: harvested closesIf resolved as a SPLIT verdict — the named
+    // condition is itself two statements with opposite rigor status. (1) The
+    // asymptotic lim-sup claim lim sup_{N to inf} |t_c(N)| = 0 is ALREADY CLOSED
+    // unconditionally (imp-341 Burgers + imp-344, no GUE input) — the closesIf
+    // text states this outright, so the asymptotic half is met-confirmed-positive
+    // with nothing left to execute. (2) The per-N finite-height beat (L_pt ~ 0.121,
+    // imp-452) remains GUE-CONDITIONAL: it needs C_mb <= 1, which requires the
+    // Erdos-Schlein-Yau 2011 local law, the same open conjecture imp-486 confirmed
+    // is irreducible. So the finite-height half is not-met-conditional-negative.
+    // Mirrors the routeA resolution (imp-2618) on its conditional half, but routeB
+    // keeps the unconditional asymptotic closure that routeA never had.
+    closesIfResolution: {
+      status: 'split-asymptotic-met-finite-conditional-negative',
+      asymptoticClosed: true,
+      asymptoticUnconditional: true,
+      finiteHeightConditional: true,
+      finiteHeightExecutable: false,
+      reason: 'Asymptotic lim-sup |t_c(N)| -> 0 already closed unconditionally ' +
+        '(imp-341 + imp-344, Burgers, no GUE input); per-N finite-height beat ' +
+        '(L_pt ~ 0.121, imp-452) stays GUE-conditional because C_mb <= 1 needs the ' +
+        'open ESY 2011 local law, confirmed irreducible by imp-486.',
+      resolvedBy: 'imp-2619',
+    },
   },
   routeC: {
     name: 'Route C — density squeeze',
@@ -531,5 +554,30 @@ export const PROOF_CHAIN_SNAPSHOT = {
   }
   if (!/CONDITIONAL/i.test(r.status)) {
     throw new Error('proof-chain-snapshot routeA: status must remain GUE-conditional (imp-2618)');
+  }
+})();
+
+// imp-2619: build-time tripwire — freezes the Route B closesIf split resolution.
+// The asymptotic lim-sup is closed unconditionally and must stay so; the per-N
+// finite-height beat must stay GUE-conditional (ESY 2011 local law, irreducible
+// per imp-486). A future edit cannot silently promote the finite-height beat to
+// unconditional, nor demote the asymptotic closure to conditional, without tripping.
+(function assertRouteBClosesIfSplitResolutionImp2619() {
+  const r = ROUTE_STATUS.routeB;
+  const res = r && r.closesIfResolution;
+  if (!res) {
+    throw new Error('proof-chain-snapshot routeB: closesIfResolution missing (imp-2619)');
+  }
+  if (res.status !== 'split-asymptotic-met-finite-conditional-negative') {
+    throw new Error('proof-chain-snapshot routeB: closesIfResolution.status must stay ' +
+      'split-asymptotic-met-finite-conditional-negative (imp-2619)');
+  }
+  if (res.asymptoticClosed !== true || res.asymptoticUnconditional !== true) {
+    throw new Error('proof-chain-snapshot routeB: asymptotic lim-sup closure must remain ' +
+      'unconditional (imp-341 + imp-344) (imp-2619)');
+  }
+  if (res.finiteHeightConditional !== true || res.finiteHeightExecutable !== false) {
+    throw new Error('proof-chain-snapshot routeB: finite-height beat must remain ' +
+      'GUE-conditional and non-executable until ESY universality is exhibited (imp-2619)');
   }
 })();

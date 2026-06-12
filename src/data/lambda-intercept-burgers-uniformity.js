@@ -101,27 +101,47 @@
  *                 =  (C₁ / √(2π))  ·  log γ_N  /  √N
  *                 →  0.
  *
- * At the same time, sup_{y ≥ y_N^♯} Im m_∞(·, y) ≥ π · ρ_∞(x) / y_N^♯ at
- * any interior point x of the support, so
+ * ┌─ imp-2621 REGRADE — the continuum 1/y amplification step is FALSIFIED ────┐
+ * As ORIGINALLY written this file next claimed
  *
- *     sup Im m_∞   ≥   (π log(γ_N/2π) / (2π)) / √(2π/N)
- *                  =   (log(γ_N/2π) / 2) · √(N / (2π))
- *                  →   ∞
+ *     sup_{y ≥ y_N^♯} Im m_∞(·, y) ≥ π · ρ_∞(x) / y_N^♯
+ *                  =   (log(γ_N/2π) / 2) · √(N / (2π))   →   ∞
  *
- * FASTER than ψ_N → 0 (ψ_N ~ log γ_N / √N while sup Im m_∞ ~ √N · log γ_N,
- * so their ratio is ~ 1/N → 0). Hence
+ * — a 1/y amplification of the CONTINUUM transform. The E_pp fanout referee
+ * (T1) refuted this on ground-truth zeros. For the Stieltjes transform of a
+ * BOUNDED density the Poisson-kernel identity ∫_ℝ y/((γ−x)² + y²) dγ = π gives
  *
- *     sup_{y ≥ y_N^♯} Im m_N  ≥  sup Im m_∞  −  ψ_N  →  ∞,
+ *     Im m_∞(x + i y)  =  ∫ ρ_∞(γ) · y/((γ−x)² + y²) dγ   ≤   π · sup ρ_∞
  *
- * and the backward collision time formula
+ * UNIFORMLY in y. So sup_{y ≥ y_N^♯} Im m_∞ is CAPPED at π ρ_max =
+ * log(γ_N/2π)/2 (it grows, but only LOGARITHMICALLY, driven by the rising mean
+ * density — NOT the spurious √N · log of the deleted claim). The 1/y_N^♯
+ * blow-up does not exist for the continuum mean-field object.
  *
- *     τ_c(m_N)  =  1 / (2 · sup_{y ≥ y_N^♯} Im m_N(·, y)  +  o(1))
- *               →  0
+ * The genuine divergence is the ATOMIC self-term of the EMPIRICAL transform
+ * m_N(z) = Σ_k 1/(γ_k − z): at z = γ_j + i y_N^♯ the diagonal pole alone gives
  *
- * as N → ∞. This IS the closure of G5_burgers: the uniformity strip y_N^♯
- * shrinks slower than the mean spacing so both sides of the Koksma-Hlawka
- * bound are well-defined, and yet the sup of Im m_∞ over the strip diverges
- * faster than ψ_N vanishes, forcing sup Im m_N → ∞ as well.
+ *     M_N := sup_x Σ_k y_N^♯/((γ_k−x)² + y_N^♯²)  ≥  1/y_N^♯  =  √(N / 2π),
+ *
+ * polynomial in N but WITHOUT the 1/log γ_N gain the false continuum claim
+ * supplied. Ground truth at N=2458: the false bound forces M ≥ 54.1, the
+ * measured strip sup is 24.0 (atomic self-term 19.8 + neighbours), continuum
+ * cap π ρ_max = 3.08; the deficit (false / atomic) = π ρ_interior(x) =
+ * (L − log 4π)/2 with L = log γ_N, growing ~13× by N = 1e13.
+ *
+ * NET EFFECT on the closure: sup Im m_N → ∞ still holds — but via the atomic
+ * self-term √(N/2π) (which dominates the bounded ψ_N and the bounded continuum
+ * cap), so the backward-collision formula τ_c(m_N) = 1/(2 sup Im m_N) still
+ * gives a := lim sup_N |t_c(N)| = 0. What CHANGES is the RATE: τ_c is now only
+ * ≤ 1/(2√(N/2π)) = O(y_N^♯), i.e. the 1/L (1/log γ_N) enhancement is GONE.
+ * Any quantitative composition that consumed the enhanced rate must be
+ * recomputed off the bare atomic constant √(N/2π). See
+ * LAMBDA_INTERCEPT_BURGERS_UNIFORMITY.regradeImp2621 for the structured
+ * regrade and the build assertion pinning the corrected inequality against the
+ * live ladder. SUB-GAP imp-2621-sub-propagation (other files, NOT closed here):
+ * imp-1149 Steps 1+5 and the C_HO ~ 189 envelope still cite the deleted 1/L
+ * gain and must be re-derived off √(N/2π).
+ * └──────────────────────────────────────────────────────────────────────────┘
  *
  * Honest scope
  * ------------
@@ -268,6 +288,28 @@ function supImMInfAtInterior(N, y) {
   return (Math.PI * rhoInterior) / y;
 }
 
+// ── imp-2621 corrected quantities (the regrade) ─────────────────────────────
+// supImMInfAtInterior above is the FALSIFIED 1/y continuum amplification, kept
+// only so the regrade can exhibit the exact deficit factor. The two functions
+// below are the TRUE statements: (1) the uniform-in-y continuum cap, and (2)
+// the atomic self-term that is the genuine (1/L-gain-free) source of divergence.
+
+// TRUE continuum cap: Im m_∞(x + i y) ≤ π sup ρ_∞ = log(γ_N/2π)/2 for every y > 0
+// (Poisson identity ∫ y/((γ−x)²+y²) dγ = π applied to the bounded density ρ_∞).
+function continuumCapImMInf(N) {
+  const g = gammaNFromRvM(N);
+  const rhoMax = Math.log(g / (2 * Math.PI)) / (2 * Math.PI);
+  return rhoMax > 0 ? Math.PI * rhoMax : null; // = log(g/2π)/2
+}
+
+// TRUE atomic self-term lower bound: M_N ≥ 1/y_N^♯ = √(N/2π) — polynomial in N,
+// WITHOUT the spurious 1/log γ_N gain. This is what actually forces
+// sup Im m_N → ∞ and τ_c(m_N) ≤ 1/(2√(N/2π)) → 0.
+function atomicSelfTermLower(N) {
+  const y = uniformityStrip(N);
+  return y > 0 ? 1 / y : null;
+}
+
 const UNIFORMITY_ROWS = [...PATH_C_BASELINE_FIT]
   .sort((a, b) => a.N - b.N)
   .map((pt) => {
@@ -313,12 +355,78 @@ const ALL_SIGNS_POSITIVE = UNIFORMITY_ROWS.every(
 // √(N / (2π)). Ratio → 2 π C_SELBERG / N → 0 as N → ∞.
 const RATIO_LIMIT_RATE = '2 π C_Selberg / N → 0';
 
+// ── imp-2621 regrade witness: false vs corrected sup, per baseline N ─────────
+const REGRADE_ROWS = UNIFORMITY_ROWS.map((r) => {
+  const cap = continuumCapImMInf(r.N); // π ρ_max = log(γ_N/2π)/2, bounded
+  const atomic = atomicSelfTermLower(r.N); // 1/y_N^♯ = √(N/2π)
+  const falseClaim = r.sup_im_m_inf_interior_lower; // π ρ_interior/y, FALSIFIED
+  const deficit =
+    falseClaim !== null && atomic !== null && atomic > 0
+      ? falseClaim / atomic
+      : null;
+  return {
+    N: r.N,
+    gammaN_RvM: r.gammaN_RvM,
+    continuum_cap_pi_rho_max: cap,
+    atomic_self_term_lower_sqrt_N_over_2pi: atomic,
+    falsified_1_over_y_claim: falseClaim,
+    deficit_false_over_atomic: deficit, // = (L − log 4π)/2
+    tau_c_upper_corrected: atomic !== null && atomic > 0 ? 1 / (2 * atomic) : null,
+    tau_c_upper_false: falseClaim !== null && falseClaim > 0 ? 1 / (2 * falseClaim) : null,
+  };
+});
+
 // ── The record ──────────────────────────────────────────────────────────────
 
 export const LAMBDA_INTERCEPT_BURGERS_UNIFORMITY = {
   id: 'imp-341',
   blocker: 'G5_burgers in dyson-burgers-shock.js (imp-338)',
+  regradeImp2621: {
+    falsifiedClaim:
+      'sup_{y ≥ y_N^♯} Im m_∞ ≥ π ρ_∞(x)/y_N^♯ ~ √N·log γ_N (the 1/y ' +
+      'amplification of the CONTINUUM transform, prose lines ~104+ and the ' +
+      'supImMInfAtInterior helper). Refuted by the E_pp fanout referee (T1) ' +
+      'on ground-truth zeros at N=2458: forces M ≥ 54.1 but the measured ' +
+      'strip sup is 24.0.',
+    correctedContinuumCap:
+      'Im m_∞(x+iy) ≤ π sup ρ_∞ = log(γ_N/2π)/2 UNIFORMLY in y (Poisson ' +
+      'identity ∫ y/((γ−x)²+y²) dγ = π on the bounded density). The strip sup ' +
+      'of the continuum object grows only LOGARITHMICALLY, not as √N·log.',
+    correctedAtomicLower:
+      'The genuine divergence is the atomic self-term of the EMPIRICAL ' +
+      'transform: M_N := sup_x Σ_k y_N^♯/((γ_k−x)²+y_N^♯²) ≥ 1/y_N^♯ = ' +
+      '√(N/2π) — polynomial in N but WITHOUT the 1/log γ_N gain.',
+    netEffect:
+      'a := lim sup_N |t_c(N)| = 0 SURVIVES (sup Im m_N → ∞ via the atomic ' +
+      'self-term, which dominates the bounded ψ_N and the bounded continuum ' +
+      'cap, so τ_c ≤ 1/(2√(N/2π)) → 0). The RATE loses the 1/L enhancement: ' +
+      'τ_c = O(y_N^♯) = O(1/√N) with no extra 1/log γ_N factor.',
+    groundTruthN2458: {
+      false_bound_M: 54.1,
+      measured_strip_sup: 24.0,
+      atomic_self_term: 19.8,
+      continuum_cap_pi_rho_max: 3.08,
+      deficit_factor_false_over_atomic: '(L − log 4π)/2',
+      deficit_at_1e13: '~13×',
+    },
+    rows: REGRADE_ROWS,
+    subGap: {
+      id: 'imp-2621-sub-propagation',
+      status: 'open',
+      where: 'imp-1149 Steps 1+5 and the C_HO ~ 189 envelope (their own files)',
+      need:
+        'Re-derive every composition that consumed the deleted 1/L gain off ' +
+        'the bare atomic constant √(N/2π); the polynomial a = 0 limit is ' +
+        'unaffected but the quantitative envelope grows by the (L−log 4π)/2 ' +
+        'deficit factor and must be recomputed there.',
+    },
+  },
   status:
+    'imp-2621 REGRADE: the continuum 1/y amplification sub-step is FALSIFIED ' +
+    '(Im m_∞ ≤ π sup ρ_∞ = log(γ_N/2π)/2 uniformly in y; no √N·log blow-up). ' +
+    'a := lim sup|t_c| = 0 still holds via the ATOMIC self-term √(N/2π), but ' +
+    'WITHOUT the 1/L rate gain — downstream quantitative envelopes (imp-1149 ' +
+    'Steps 1+5, C_HO) flagged in sub-gap imp-2621-sub-propagation. — ORIGINAL: ' +
     'STRUCTURAL CLOSURE of G5_burgers via deterministic Koksma-Hlawka ' +
     'discrepancy bound: ‖m_N − m_∞‖_∞ on {Im z ≥ y_N^♯} ≤ π C_Selberg · ' +
     'log γ_N / (N · y_N^♯), with y_N^♯ = √(2π/N) making ψ_N ~ log γ_N / √N ' +
@@ -434,6 +542,13 @@ export const LAMBDA_INTERCEPT_BURGERS_UNIFORMITY = {
     '(or with the imp-337/342/343 candidate (i) route) into an unconditional ' +
     'per-N upper bound on |t_c(N)|.',
   openWork: [
+    'SUB-GAP imp-2621-sub-propagation (OPEN, other files): the imp-2621 ' +
+      'regrade deleted the false 1/y continuum amplification and replaced it ' +
+      'with the atomic self-term √(N/2π) (no 1/L gain). Every downstream ' +
+      'composition that consumed the enhanced rate — imp-1149 Steps 1+5 and ' +
+      'the C_HO ~ 189 envelope — must be re-derived off √(N/2π) in their own ' +
+      'files; the polynomial a = 0 limit is unaffected but the quantitative ' +
+      'envelope grows by the (L − log 4π)/2 deficit factor.',
     'Tighten the rate of ψ_N by replacing the Selberg unconditional bound ' +
       'with the Erdős-Schlein-Yau local rigidity estimate, which should push ' +
       'y_N^♯ down to the microscopic scale 1/log N and ψ_N to O((log N)² / N).',
@@ -577,5 +692,53 @@ export const LAMBDA_INTERCEPT_BURGERS_UNIFORMITY_ASSERTIONS = [
       '7/8 + Stirling remainder + the T < e range. Silent drift of any of ' +
       'these values decouples the code from the citation, which is exactly ' +
       'the placeholder failure mode imp-2521 was opened to eliminate.',
+  },
+  {
+    id: 'imp2621-continuum-cap-bounded-and-atomic-self-term-is-true-divergence',
+    holds: () => {
+      if (REGRADE_ROWS.length === 0) return false;
+      return REGRADE_ROWS.every((r) => {
+        const cap = r.continuum_cap_pi_rho_max; // log(γ_N/2π)/2, the TRUE cap
+        const atomic = r.atomic_self_term_lower_sqrt_N_over_2pi; // 1/y_N^♯
+        const falseClaim = r.falsified_1_over_y_claim;
+        if (!(cap > 0) || !(atomic > 0) || !(falseClaim > 0)) return false;
+        // (a) the continuum object is bounded by π ρ_max and is DOMINATED by
+        //     the atomic self-term — divergence is atomic, not continuum:
+        const continuumDominatedByAtomic = cap < atomic;
+        // (b) the atomic lower bound equals √(N/2π) exactly:
+        const atomicEqualsSqrt =
+          Math.abs(atomic - Math.sqrt(r.N / (2 * Math.PI))) <= 1e-9 * atomic;
+        // (c) the deleted false claim is exactly the atomic term inflated by
+        //     the spurious gain π ρ_interior = (L − log 4π)/2:
+        const predictedDeficit = (Math.log(r.gammaN_RvM) - Math.log(4 * Math.PI)) / 2;
+        const deficitMatches =
+          Math.abs(r.deficit_false_over_atomic - predictedDeficit) <=
+          1e-9 * predictedDeficit;
+        // (d) the corrected τ_c upper bound is finite, positive, and LOOSER
+        //     than the (optimistic) false one — the regrade only weakens:
+        const correctedNoTighterThanFalse =
+          r.tau_c_upper_corrected >= r.tau_c_upper_false &&
+          r.tau_c_upper_corrected > 0;
+        return (
+          continuumDominatedByAtomic &&
+          atomicEqualsSqrt &&
+          deficitMatches &&
+          correctedNoTighterThanFalse
+        );
+      });
+    },
+    why:
+      'imp-2621 REGRADE: the in-repo claim sup Im m_∞ ≥ π ρ_∞/y_N^♯ (a 1/y ' +
+      'amplification of the CONTINUUM transform) is numerically false on ' +
+      'ground-truth zeros — the Stieltjes transform of a bounded density obeys ' +
+      'Im m_∞ ≤ π sup ρ_∞ = log(γ_N/2π)/2 uniformly in y. This assertion pins ' +
+      'the corrected picture at every ladder row: the continuum cap is finite ' +
+      'and DOMINATED by the atomic self-term √(N/2π) (so the divergence is an ' +
+      'atomic / strip-cutoff artifact, not a continuum mean-field fact); the ' +
+      'deleted false claim is exactly that atomic term inflated by the spurious ' +
+      '(L − log 4π)/2 gain; and the corrected τ_c upper bound is no tighter ' +
+      'than the false one (the regrade only weakens the envelope, never ' +
+      'strengthens it). If this fails, either the falsified gain has crept ' +
+      'back into the witness or the atomic constant √(N/2π) drifted.',
   },
 ];

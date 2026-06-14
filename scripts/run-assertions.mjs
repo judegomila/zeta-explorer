@@ -1579,6 +1579,12 @@ const DATA_MODULES = [
   // sole rate lever. Scoping/attack module, no closure claimed. 7 tripwires.
   '/src/data/imp-2598-en-bottleneck-attack.js',
   '/src/data/imp-2622-height-mismatch-refutation.js',
+  // imp-2629: matched-height cross-validation of the recomposed bridge against the
+  // repo's independent Lambda estimators. HONEST RESULT: no estimator reaches the
+  // 1e13 headline height, and the height-consistent recomposed value (E_trunc ~7.65)
+  // diverges ~63x from the finite-height estimator cluster (<= 0.121) -- the
+  // cross-check CONFIRMS the imp-2630 withdrawal, not the headline. 5 tripwires.
+  '/src/data/imp-2629-recomposed-bridge-cross-validation.js',
   // imp-2631: HONEST NEGATIVE — no truncation-error route improves on the
   // referee-passed finite-N*=1e4 beat. E_trunc_pt ~ 3.1e-5 is ~261x below the
   // binding L_cond ~ 8e-3 there, so truncation is not the bottleneck; the three

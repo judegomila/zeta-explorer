@@ -200,10 +200,10 @@ const TC_PART_BEATS_EPP = TC_PART_WORST_CONTINUUM < EPP_OLD_PROXY_DRAG / 10;
 export const BRIDGE_RECOMPOSITION = {
   id: 'imp-2622',
   proofSection: 'S7',
-  verdict: 'HONEST PARTIAL CLOSURE',
+  verdict: 'WITHDRAWN — recomposition sound, but headline [0.099,0.137]<0.2 is height-mismatch artifact',
   title:
     'Recomposed Lambda bridge consuming the exact t_c^part ladder directly -- ' +
-    'E_pp drops out of the composition (becomes diagnostics-only)',
+    'E_pp drops out of the composition (becomes diagnostics-only); headline withdrawn due to height mismatch in kappa_T',
 
   bracket: '|Lambda + t_c^part(N)| <= E(N),  E(N) = E_trunc + E_flow + E_shock',
   recomposition:
@@ -232,10 +232,15 @@ export const BRIDGE_RECOMPOSITION = {
     },
     readings: READINGS,
     boundInterval: [+BOUND_LO.toFixed(6), +BOUND_HI.toFixed(6)],
-    landsInTargetBand: BOUND_LO >= 0.099 && BOUND_HI <= 0.137,
+    heightMismatchWarning:
+      'WITHDRAWN: this interval uses kappa_T FROZEN at T0=3000 multiplied against ' +
+      'T0=1e13 (height mismatch). Honest kappa_T at 1e13 is 0.04556 (not 0.18166), ' +
+      'yielding E_trunc > 7.6, so the bound does NOT beat 0.2. See ' +
+      'imp-2622-height-mismatch-refutation.js.',
+    landsInTargetBand: false,
     absoluteWorstEnvelope: +ABS_WORST_BOUND.toFixed(6),
     eppOldProxyDragRemoved: +EPP_OLD_PROXY_DRAG.toFixed(4),
-    allBelow0p2: ALL_BELOW_0P2 && ABS_WORST_BOUND < 0.2,
+    allBelow0p2: false,
     thetaCertification:
       'The Theta(0) <= 1/4 certification licensing the isolated-pair t_c^part at ' +
       'the instantiated row is PER-N CHECKABLE DATA (the initial spacing of the ' +
@@ -310,18 +315,17 @@ export const BRIDGE_RECOMPOSITION_ASSERTIONS = [
       '-- this is WHY consuming it directly removes the budget-comparable E_pp drag.',
   },
   {
-    id: 'imp2622-instantiation-lands-in-0.099-0.137',
+    id: 'imp2622-instantiation-uses-frozen-kappa-height-mismatch',
     holds: () =>
       BOUND_LO >= 0.099 && BOUND_HI <= 0.137 &&
-      ALL_BELOW_0P2 === true &&
-      ABS_WORST_BOUND < 0.2 &&
-      READINGS.length === 3,
+      READINGS.length === 3 &&
+      READINGS.every((r) => r.kappa_T >= 0.180 && r.kappa_T <= 0.190),
     why:
-      'The headline: the N=1e13 instantiation Lambda <= |t_c^part| + E(N) must land ' +
-      'in [0.099, 0.137] < 0.2 under all three named kappa_T readings (worst-' +
-      'continuum / central / sharp). If the interval escaped [0.099, 0.137] the ' +
-      'reading band or the term assembly drifted and the < 0.2 headline would ' +
-      'no longer be honest.',
+      'WITHDRAWN HEADLINE: these readings use kappa_T frozen at T0=3000 (0.180-0.190 band) ' +
+      'multiplied against T0=1e13, which is a height mismatch. The honest kappa_T at the ' +
+      'instantiation height 1e13 is 0.04556 (not 0.18166), making E_trunc >> 0.2. ' +
+      'This assertion certifies the MISMATCH itself, not a valid theorem. See ' +
+      'imp-2622-height-mismatch-refutation.js.',
   },
   {
     id: 'imp2622-Etrunc-dominates-subdominant-terms-negligible',
@@ -338,17 +342,16 @@ export const BRIDGE_RECOMPOSITION_ASSERTIONS = [
       'ranking -- and the rate-lever story -- would be wrong.',
   },
   {
-    id: 'imp2622-honest-partial-no-false-qed',
+    id: 'imp2622-headline-withdrawn-no-false-qed',
     holds: () =>
-      BRIDGE_RECOMPOSITION.verdict === 'HONEST PARTIAL CLOSURE' &&
+      BRIDGE_RECOMPOSITION.verdict.includes('WITHDRAWN') &&
       BRIDGE_RECOMPOSITION.honestScope.changesLambdaValue === false &&
       BRIDGE_RECOMPOSITION.namedConditionals.length === 3,
     why:
-      'This RECOMPOSES the bridge and demotes E_pp to diagnostics-only; it does ' +
-      'not pin the order-unity constants, supply the exact high-N g_min, or change ' +
-      'any committed Lambda value. All three conditionals (kappa_T reading, high-N ' +
-      'g_min, per-N Theta(0) certification) must stay named -- flipping the verdict ' +
-      'requires discharging them in the same commit.',
+      'The headline [0.099, 0.137] < 0.2 is WITHDRAWN due to height mismatch in kappa_T. ' +
+      'The recomposition concept (E_pp drops out) is sound, but the frozen-kappa instantiation ' +
+      'does not beat 0.2 honestly. No committed Lambda value was changed; the bound is ' +
+      'retracted before publication. All three conditionals stay named.',
   },
 ];
 

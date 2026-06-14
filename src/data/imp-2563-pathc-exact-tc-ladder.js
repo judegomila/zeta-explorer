@@ -284,6 +284,39 @@ const NEIGHBOUR_FACTORS = PAIR_LAW_RUNGS.map((r) => r.neighbour_factor);
 const NEIGHBOUR_FACTOR_LO = Math.min(...NEIGHBOUR_FACTORS);
 const NEIGHBOUR_FACTOR_HI = Math.max(...NEIGHBOUR_FACTORS);
 
+// ── imp-2626: extend the t_c^part ladder to the instantiation height gamma=1e13 ─
+// WHY THE EXACT RUNGS CANNOT BE MARCHED UP. The Theorem S4-3 exact ladder is a
+// float64 heat-polynomial discriminant; polyFromRoots on N ordinates of size
+// ~10..60 produces coefficients that overflow the conditioning of evalPoly past
+// N ~ 12 (recomputing rungs at N >= 14 returns spurious collision times orders of
+// magnitude off the low-N trend). So the high-N value is NOT obtainable from the
+// degree-N discriminant -- it MUST come from the single pair-law scalar g_min,
+// which is exactly the imp-2605 reduction. This block ships the gamma=1e13
+// extrapolation as a RIGOROUS CEILING, not an exact rung, and cross-checks the
+// three readings the recomposed bridge (imp-2622) consumes.
+//
+// THE CEILING. The minimum consecutive gap can never exceed the mean spacing, so
+//   g_min <= delta(gamma) = 2pi / log(gamma / 2pi)
+// and therefore, with kappa <= kappa_hi certified on the five exact low-N rungs,
+//   t_c^part(gamma) = kappa . g_min^2 / 8  <=  kappa_hi . delta(gamma)^2 / 8.
+// This is a genuine upper bound CONDITIONAL only on kappa staying in the validated
+// band at the instantiation height -- the named high-N residual, NOT closed here.
+const GAMMA_INSTANTIATION = 1e13;          // the headline instantiation height
+const TWO_PI_LADDER = 2 * Math.PI;
+const MEAN_SPACING_AT_GAMMA = TWO_PI_LADDER / Math.log(GAMMA_INSTANTIATION / TWO_PI_LADDER);
+const KAPPA_CEILING = NEIGHBOUR_FACTOR_HI; // ~1.19, the certified upper neighbour factor
+const TC_PART_CEILING = (KAPPA_CEILING * MEAN_SPACING_AT_GAMMA * MEAN_SPACING_AT_GAMMA) / 8;
+const TC_PART_SHARP_BRIDGE = 3.9e-7;       // bridge sharp atomic self-term (imp-2621 corrected)
+const EXACT_LADDER_NUMERICAL_CAP_N = 12;   // float64 heat-discriminant conditioning limit
+
+// Cross-check the three readings the bridge uses: the ceiling this module derives
+// must reproduce the bridge's worst-continuum reading (~7.4e-3), the sharp atomic
+// reading must sit strictly below the ceiling, and the ceiling must stay negligible
+// against the headline budget (<< 0.2) so t_c^part is never the binding term.
+const CEILING_MATCHES_BRIDGE_WORST_CONTINUUM = Math.abs(TC_PART_CEILING - 7.44e-3) < 5e-4;
+const SHARP_BELOW_CEILING = TC_PART_SHARP_BRIDGE < TC_PART_CEILING;
+const CEILING_NEGLIGIBLE = TC_PART_CEILING < 0.008;
+
 // ── Exported corrected-ladder record ─────────────────────────────────────────
 export const PATHC_EXACT_TC_LADDER = {
   id: 'imp-2563-sub-pathc-ladder-replace',
@@ -341,6 +374,45 @@ export const PATHC_EXACT_TC_LADDER = {
       'discriminant to ONE scalar -- the minimum consecutive spacing of the first 2458 ' +
       'zeros -- which is still pending the repaired + Riemann-Siegel-extended ' +
       'high-index table (indices > 870). Reduced, not faked: no exact value is asserted.',
+  },
+
+  highNExtrapolation: {
+    id: 'imp-2626',
+    purpose:
+      'Extend t_c^part to the headline instantiation height gamma = 1e13 as a ' +
+      'RIGOROUS CEILING via the isolated-pair scalar, and cross-check the three ' +
+      'readings the recomposed bridge (imp-2622) consumes.',
+    exactLadderNumericalCapN: EXACT_LADDER_NUMERICAL_CAP_N,
+    whyCeilingNotExactRung:
+      'The Theorem S4-3 exact ladder is a float64 heat-polynomial discriminant; ' +
+      'beyond N ~ ' + EXACT_LADDER_NUMERICAL_CAP_N + ' the monic coefficients of a ' +
+      'degree-N polynomial over ordinates ~10..60 exceed evalPoly conditioning and ' +
+      'recomputed rungs go spurious (orders of magnitude off the low-N trend). The ' +
+      'high-N value is therefore NOT obtainable from the degree-N discriminant -- it ' +
+      'must come from the single pair-law scalar g_min (the imp-2605 reduction).',
+    ceilingLaw:
+      'g_min <= mean spacing delta(gamma) = 2pi/log(gamma/2pi) always, so with kappa ' +
+      '<= kappa_hi certified on the five exact low-N rungs, t_c^part(gamma) = ' +
+      'kappa . g_min^2/8 <= kappa_hi . delta(gamma)^2/8. Conditional ONLY on kappa ' +
+      'staying in the validated band at the instantiation height (the named high-N residual).',
+    gamma: GAMMA_INSTANTIATION,
+    meanSpacing: +MEAN_SPACING_AT_GAMMA.toFixed(6),
+    kappaCeiling: +KAPPA_CEILING.toFixed(4),
+    tcPartCeilingWorstContinuum: +TC_PART_CEILING.toExponential(3),
+    tcPartSharpBridge: TC_PART_SHARP_BRIDGE,
+    crossCheck: {
+      ceilingReproducesBridgeWorstContinuum: CEILING_MATCHES_BRIDGE_WORST_CONTINUUM,
+      sharpBelowCeiling: SHARP_BELOW_CEILING,
+      ceilingNegligibleVsBudget: CEILING_NEGLIGIBLE,
+      note:
+        'The module-derived ceiling kappa_hi . delta(1e13)^2/8 ~ 7.4e-3 matches the ' +
+        'bridge TC_PART_WORST_CONTINUUM, and the bridge sharp atomic reading 3.9e-7 ' +
+        'sits far below it -- both negligible (< 0.008) against the < 0.2 headline budget.',
+    },
+    honest:
+      'Ships the gamma=1e13 ceiling as an upper bound, NOT an exact rung; the exact ' +
+      'high-N g_min still needs the Riemann-Siegel-extended table (open residual below). ' +
+      'No exact high-N value is asserted -- only the rigorous ceiling and the cross-check.',
   },
 
   openResiduals: [
@@ -407,6 +479,21 @@ export const PATHC_EXACT_TC_LADDER_ASSERTIONS = [
       '[1.0, 1.3], brackets ALL five EXACT low-N rungs -- the validation that licenses ' +
       'using it to ESTIMATE (not assert) the N = 2458 rung. A failure means the pair ' +
       'law no longer captures the exact ladder and the high-N reduction is void.',
+  },
+  {
+    id: 'imp2626-highN-ceiling-crosschecks-bridge-readings',
+    holds: () =>
+      CEILING_MATCHES_BRIDGE_WORST_CONTINUUM === true &&
+      SHARP_BELOW_CEILING === true &&
+      CEILING_NEGLIGIBLE === true &&
+      NEIGHBOUR_FACTOR_HI <= 1.19 + 1e-9,
+    why:
+      'imp-2626 extends the ladder to gamma=1e13 as the rigorous ceiling ' +
+      'kappa_hi . delta(gamma)^2/8 (g_min <= mean spacing). It must reproduce the ' +
+      'bridge (imp-2622) worst-continuum reading ~7.4e-3, keep the bridge sharp ' +
+      'atomic reading 3.9e-7 strictly below the ceiling, stay negligible (< 0.008) ' +
+      'against the < 0.2 budget, and use a certified neighbour factor <= 1.19. A ' +
+      'failure means the ladder no longer agrees with the bound it feeds.',
   },
 ];
 

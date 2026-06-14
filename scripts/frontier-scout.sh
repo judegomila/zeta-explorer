@@ -6,7 +6,7 @@
 # scripts/.starvation-flag, which auto-ticket-producer.mjs raises when every
 # deterministic ticket source (sub-gap harvesters, closesIf harvester,
 # template bank) has been dry for consecutive passes and the opus-4-8 bucket
-# is empty. On the flag, it runs ONE claude-fable-5 pass that reads the live
+# is empty. On the flag, it runs ONE claude-opus-4-8 pass that reads the live
 # research state and mints 4-6 new grounded tickets via seed-ticket.mjs,
 # then clears the flag.
 #
@@ -48,8 +48,8 @@ MANDATORY PROCESS:
 HARD RULES: NO false QED framing — descriptions must say assess/derive/measure/close, never claim results. NO duplicate of any pending or completed ticket title (grep improvement-queue.js for keywords first). NO package installs. NO edits to any file except via seed-ticket.mjs. Maximum 6 tickets. If you genuinely find nothing groundable, print "SCOUT: no groundable frontier found" and exit — that itself is signal.'
 
 run_pass() {
-  echo "[$(date -u +%FT%TZ)] frontier-scout pass starting (model claude-fable-5)" >> "$LOG"
-  timeout 900 claude --print --model claude-fable-5 --dangerously-skip-permissions "$SCOUT_PROMPT" >> "$LOG" 2>&1
+  echo "[$(date -u +%FT%TZ)] frontier-scout pass starting (model claude-opus-4-8)" >> "$LOG"
+  timeout 900 claude --print --model claude-opus-4-8 --dangerously-skip-permissions "$SCOUT_PROMPT" >> "$LOG" 2>&1
   rc=$?
   echo "[$(date -u +%FT%TZ)] frontier-scout pass done (rc=$rc)" >> "$LOG"
   rm -f "$FLAG"

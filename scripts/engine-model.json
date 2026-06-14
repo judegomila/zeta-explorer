@@ -1,4 +1,4 @@
 {
-  "model": "claude-fable-5",
-  "_comment": "Single source of truth for the Opus/API engine model string (imp-1280). Bump this ONE field instead of sed-ing the model string across the engine scripts. Consumers: engine-api-cycle.mjs (wired). 2026-06-09: bumped to claude-fable-5 (preflighted OK via countTokens; $10/$50 per MTok, 2x opus-4-8 — authorized for hardest tickets). Fable rejects explicit thinking:{type:'disabled'} with a 400 — omit the thinking param entirely (engine-api-cycle.mjs already sends no thinking/sampling params). SUB-GAP: scripts/auto-improve.sh and scripts/auto-improve-api.sh still hold their own default 'claude-opus-4-8' literals and are not yet wired to this file (deferred: 'never modify this auto-improve script' rule + avoiding edits to live shell engines mid-run); pool shells take API_ENGINE_MODEL env instead. Note: env API_ENGINE_MODEL still overrides this file."
+  "model": "claude-opus-4-8",
+  "_comment": "Single source of truth for the Opus/API engine model string (imp-1280). 2026-06-13: reverted fable-5 -> opus-4-8 (Claude Fable 5 was removed from the API, now 404s). The shell pool already defaults to claude-opus-4-8 via ${API_ENGINE_MODEL:-...}; this file feeds engine-api-cycle.mjs. Bump this ONE field to change the engine model."
 }

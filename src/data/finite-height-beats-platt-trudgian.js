@@ -249,7 +249,7 @@ function evaluateAtN(N) {
     tcProjection: {
       value:       +tcProj.toFixed(7),
       slopeContrib: +slopeContr.toExponential(4),
-      note:        "OLS point estimate a + b/N from PATH_C_BASELINE_FIT_V2 (imp-400)",
+      note:        "OLS point estimate a + b/N from PATH_C_BASELINE_FIT_V2 (imp-400) — NOT a rigorous upper bound, requires imp-2632 audit",
     },
 
     errorTerms: {
@@ -543,6 +543,102 @@ const RIGOR_CHAIN = {
   ],
 };
 
+// ── imp-2632 stress-test: is |t_c_proj| in L_cond rigorous or projected? ─────
+// Apply the same adversarial scrutiny that forced the imp-2630 height-mismatch
+// withdrawal to the DOMINANT sub-term of the SURVIVING finite-N*=1e4 beat.
+// L_cond = |t_c_proj| + E_flow + E_coll, and imp-2631 showed L_cond (not E_trunc)
+// is the BINDING term of L_pt at N*=1e4.
+//
+// VERDICT (1) -- PROJECTED, NOT RIGOROUS: |t_c_proj| is the OLS POINT ESTIMATE
+// a + b/N from PATH_C_BASELINE_FIT_V2 (imp-400), read off at the line
+// `tcProj = A_INTERCEPT + slopeContr` above, whose own note already labels it
+// "OLS point estimate". A regression point estimate is NOT a rigorous upper bound
+// -- it carries a standard error, not a certified envelope -- so this sub-term of
+// L_cond is PROJECTED, not proved. Exactly the OLS-projected-t_c soft spot the
+// referee flagged in imp-2519/imp-2520. Theorem-grade |t_c| needs B1 (analytic
+// slope upper bound) + B2 (analytic intercept upper bound); both are listed in
+// conditionalBound.conditions and both carry their own model/GUE conditions
+// (B1 closed only under the CM model by the imp-470 wave; B2/M closed only
+// GUE-conditionally by imp-471).
+//
+// VERDICT (2) -- THE TICKET'S "DOMINANT SUB-TERM" PREMISE IS N-DEPENDENT AND FALSE
+// AT N*=1e4: the imp-2632 premise (and the honestSummary's "L_cond ~ 0.008") is
+// the N*=1e6 picture, where tcProj ~ 0.0066 is ~82% of L_cond ~ 0.0080. But the
+// SURVIVING UNCONDITIONAL beat lives at N*=1e4, and there E_coll = C_C*sqrt(L/N)
+// grows ~10x (sqrt(N) scaling): L_cond(1e4) ~ 0.020 with E_coll ~ 0.0116 (~58%)
+// the LARGEST term and tcProj ~ 0.0071 (~35%) only the SECOND. So at the actual
+// surviving N*, the projection soft spot sits in the #2 sub-term, behind the
+// rigorously-pinned collision constant E_coll (imp-399). Honest correction logged
+// so the "|t_c_proj| dominates" framing is not reused at N*=1e4.
+//
+// VERDICT (3) -- RIGOROUS REPLACEMENT CANDIDATE: the t_c^part one-sided pinch of
+// imp-2561/imp-2562,  t_c(N) <= g_min(N)^2 / (8 (1 - S g_min(N)^2 / 2)),  IS a
+// genuine upper bound (imp-2563). But evaluating it at N*=1e4 needs a CERTIFIED
+// value for the minimal normalized gap g_min(1e4); that small-gap input is named
+// RH-conditional in imp-2563 residual R_C. So the pinch does NOT currently
+// discharge |t_c_proj| to a rigorous unconditional number below budget at N*=1e4
+// -- it RELOCATES the projection into g_min(1e4). NO false QED.
+const TC_PROJ_STRESS_TEST = (() => {
+  const row       = UNCOND_PRIMARY;  // N* = 1e4
+  const tcProjVal = (row && row.available) ? row.tcProjection.value     : null;
+  const lCond     = (row && row.available) ? row.conditionalBound.L_cond : null;
+  const eFlow     = (row && row.available) ? row.errorTerms.E_flow       : null;
+  const eColl     = (row && row.available) ? row.errorTerms.E_coll       : null;
+  const tcShare   = (tcProjVal !== null && lCond) ? +(tcProjVal / lCond).toFixed(4) : null;
+  // Identify which of the three L_cond sub-terms is largest at N* = 1e4.
+  const parts = [
+    { name: "tcProj", value: tcProjVal },
+    { name: "E_flow", value: eFlow },
+    { name: "E_coll", value: eColl },
+  ].filter((p) => typeof p.value === "number");
+  const dominant = parts.length
+    ? parts.reduce((a, b) => (b.value > a.value ? b : a)).name
+    : null;
+  return {
+    N_star:                 1e4,
+    classification:         "OLS-PROJECTION-NOT-RIGOROUS-BOUND",
+    tcProj_value:           tcProjVal,
+    tcProj_source:          "A_INTERCEPT + B_SLOPE/N = PATH_C_BASELINE_FIT_V2.fit (imp-400 OLS V2 fit)",
+    isRigorousUpperBound:   false,
+    L_cond:                 lCond,
+    subterms:               { tcProj: tcProjVal, E_flow: eFlow, E_coll: eColl },
+    tcProj_share_of_L_cond: tcShare,
+    dominantSubtermAtNstar: dominant,                       // E_coll at N*=1e4 (NOT tcProj)
+    tcProjIsDominant:       dominant === "tcProj",          // false at N*=1e4
+    premiseRevision:
+      "imp-2632 assumed |t_c_proj| is L_cond's dominant sub-term; that holds at " +
+      "N*=1e6 (~82%) but NOT at the surviving N*=1e4, where E_coll (~58%, rigorously " +
+      "pinned by imp-399) dominates and tcProj (~35%) is the second term. L_cond(1e4) " +
+      "~ 0.020 (the ~0.008 quoted elsewhere is the N*=1e6 value).",
+    rigorousReplacement: {
+      candidate:
+        "t_c(N) <= g_min(N)^2 / (8 (1 - S g_min(N)^2 / 2))  " +
+        "(imp-2561/imp-2562 one-sided pinch; imp-2563 discriminant char.)",
+      isGenuineUpperBound:             true,
+      landsBelowBudgetUnconditionally: false,
+      blocker:
+        "needs a CERTIFIED g_min(N*=1e4) (minimal normalized gap); that small-gap " +
+        "input is RH-conditional per imp-2563 residual R_C, so the pinch relocates " +
+        "the projection into g_min rather than discharging it unconditionally",
+    },
+    theoremGradeConditions: [
+      "B1: analytic upper bound on slope b (imp-363/imp-370; closed only under the CM model by the imp-470 wave)",
+      "B2: analytic upper bound on intercept a (lambda-zero-attack.js; closed only GUE-conditionally by imp-471)",
+    ],
+    honestVerdict:
+      "|t_c_proj| is an OLS POINT ESTIMATE, not a rigorous upper bound, so the " +
+      "L_cond < 0.2 claim is PROJECTION-conditional on B1+B2 exactly as recorded in " +
+      "conditionalBound.conditions -- not a standalone unconditional theorem. Two " +
+      "honest mitigations the stress-test surfaced at the surviving N*=1e4: (a) the " +
+      "projected term is the #2 sub-term there, behind the rigorously-pinned E_coll " +
+      "(imp-399), not the dominant one as the ticket assumed; (b) a genuine rigorous " +
+      "replacement exists (the imp-2563 t_c^part pinch) but its g_min(1e4) input is " +
+      "itself RH-conditional, so it relocates rather than removes the projection. " +
+      "Same scrutiny that forced the imp-2630 withdrawal: a real soft spot remains, " +
+      "now named so no future text can promote the OLS center to a proved bound.",
+  };
+})();
+
 // ── Exported record ───────────────────────────────────────────────────────────
 export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
   id: "imp-440",
@@ -767,6 +863,8 @@ export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
 
   rigorChain: RIGOR_CHAIN,
 
+  tcProjStressTest: TC_PROJ_STRESS_TEST,
+
   honestSummary:
     "CURRENT STATUS (imp-963 closure, 2026-05-18). " +
     "The imp-440 ticket asked: name a CONCRETE finite N* < 10^8 with a rigorous Lambda " +
@@ -966,5 +1064,41 @@ export const FINITE_HEIGHT_BEATS_PT_ASSERTIONS = [
       "named in the upgradePath. A failure means either the carryforward " +
       "row was dropped, the rescue margin regressed, or the upgrade-path " +
       "cross-reference to imp-1090 was lost.",
+  },
+  // ── imp-2632 stress-test guardrail: |t_c_proj| must stay classified as an
+  // OLS projection (NOT a rigorous upper bound); the surviving N*=1e4 beat's
+  // dominant L_cond sub-term must be recorded as E_coll (NOT tcProj, correcting
+  // the ticket premise); and the t_c^part pinch replacement must be recorded as
+  // a genuine upper bound that nonetheless does NOT discharge tcProj
+  // unconditionally below budget at N*=1e4. Pins the honest finding so no future
+  // text can silently promote the OLS center to a proved bound.
+  {
+    id: "imp2632-tc-proj-classified-projection-not-rigorous",
+    holds: () => {
+      const s = FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN.tcProjStressTest;
+      return (
+        s !== undefined &&
+        s.classification === "OLS-PROJECTION-NOT-RIGOROUS-BOUND" &&
+        s.isRigorousUpperBound === false &&
+        s.tcProj_value !== null &&
+        s.L_cond !== null &&
+        s.tcProj_share_of_L_cond !== null &&
+        s.dominantSubtermAtNstar === "E_coll" &&   // ticket premise corrected: NOT tcProj at N*=1e4
+        s.tcProjIsDominant === false &&
+        s.rigorousReplacement &&
+        s.rigorousReplacement.isGenuineUpperBound === true &&
+        s.rigorousReplacement.landsBelowBudgetUnconditionally === false
+      );
+    },
+    why:
+      "imp-2632 stress-test: |t_c_proj| of the surviving finite-N*=1e4 conditional " +
+      "beat must be recorded as an OLS projection (NOT a rigorous upper bound). The " +
+      "ticket assumed it dominates L_cond, but at N*=1e4 the dominant sub-term is " +
+      "E_coll (~58%, rigorously pinned by imp-399) with tcProj (~35%) second -- so " +
+      "dominantSubtermAtNstar must read E_coll. The t_c^part pinch replacement " +
+      "(imp-2561/2562/2563) must be a genuine upper bound that nonetheless does NOT " +
+      "discharge tcProj unconditionally below budget at N*=1e4 (g_min(1e4) input is " +
+      "RH-conditional, imp-2563 R_C). A failure means the projection soft spot was " +
+      "silently re-blurred into a theorem.",
   },
 ];

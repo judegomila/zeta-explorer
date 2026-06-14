@@ -1579,6 +1579,13 @@ const DATA_MODULES = [
   // sole rate lever. Scoping/attack module, no closure claimed. 7 tripwires.
   '/src/data/imp-2598-en-bottleneck-attack.js',
   '/src/data/imp-2622-height-mismatch-refutation.js',
+  // imp-2631: HONEST NEGATIVE — no truncation-error route improves on the
+  // referee-passed finite-N*=1e4 beat. E_trunc_pt ~ 3.1e-5 is ~261x below the
+  // binding L_cond ~ 8e-3 there, so truncation is not the bottleneck; the three
+  // candidate routes (fixed verified height, fixed strip sigma>=0.62, GM 2024)
+  // all fail to beat it. The only lever (higher instantiation height) is killed
+  // by the imp-2622 thin-strip ceiling. 5 tripwires.
+  '/src/data/imp-2631-honest-truncation-route-assessment.js',
   // imp-2625: pins the two E_trunc order-unity constants — kappa_T to the exact
   // rigorous Ingham/GM closed form 4 delta/(3-2 delta)=0.18166 (unconditional
   // floor 0.180 securing bound <= 0.137) and C_T reduced to the sharp checkable

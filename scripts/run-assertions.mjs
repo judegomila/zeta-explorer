@@ -1610,6 +1610,8 @@ const DATA_MODULES = [
   '/src/data/sg1c-theta-trap-theorems.js',
   '/src/data/imp-2563-zeta-zeros-corruption-audit.js',
   '/src/data/imp-2563-pathc-exact-tc-ladder.js',
+  // imp-2627: automated per-N Theta(0) <= 1/4 certification on every ladder rung.
+  '/src/data/imp-2627-theta-certification.js',
   '/src/data/barrier-extrapolation-imp371.js',
   '/src/data/barrier-extrapolation-v2.js',
   '/src/data/bridge-lambda-rh.js',

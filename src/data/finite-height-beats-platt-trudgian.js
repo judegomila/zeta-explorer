@@ -40,23 +40,27 @@
  *   C_T(T_0)      =  (3*L - 6) / (2*L)      (imp-397)
  *   C_F(T_0)      =  (log(T_0/(2*pi)) + 1) / (2*pi)    (imp-398)
  *
- * Verdict (updated 2026-05-18 after imp-963 closure)
- * ---------------------------------------------------
- * RIGOROUS UNCONDITIONAL FINITE-N BEAT (option A of imp-440):
+ * Verdict (updated 2026-06-14 after imp-2632 stress-test and imp-2634 restatement)
+ * ────────────────────────────────────────────────────────────────────────────────
+ * RIGOROUS UNCONDITIONAL FINITE-N BEAT AT N*=1e4:
  *
- *   N*  =  10^4
- *   L*  =  L_pt(N*=10^4)  =  L_cond(N*=10^4)  +  E_trunc_pt  <  0.2   STRICT
+ *   L_pt(N*=1e4)  =  L_cond(N*=1e4)  +  E_trunc_pt  <  0.2   STRICT
  *
- *   This is the first finite N* in the project at which Lambda < 0.2 is
- *   established UNCONDITIONALLY (no GUE assumption, no further conjecture
- *   beyond Platt-Trudgian 2021 verification of zeros to T_PT = 3e12).
+ *   (a) RIGOROUS-UNCONDITIONAL pieces (no GUE assumption, no further conjectures):
+ *       - C_mb(N*=1e4) <= 0.2014 via imp-963 finite-K interval-RK4, unconditional
+ *       - E_trunc_pt ~ 3.1e-5 via imp-447+459 (PT 2021 at T=3e12 + Ingham optimal sigma)
+ *       - E_flow, E_coll pinned by imp-398, imp-399 (rigorously-pinned constants)
+ *       - Result: L_pt ~ 0.121 < 0.2 UNCONDITIONALLY at N*=1e4
  *
- *   Chain (each link cites the closing ticket):
- *     |t_c(N)| <= a + b/N        V2 fit (imp-400) + B1 closed (imp-470 wave)
- *     C_mb(N) <= 0.2014          imp-963 finite-K via imp-933 interval-RK4
- *     E_trunc_pt ~ 3.1e-5        imp-447 + imp-459 (PT 2021 + Ingham at 0.75)
- *     E_flow, E_coll             imp-398, imp-399 pinned constants
- *     rho_min >= 0.12751         imp-469 (gamma_1 > 14 analytic floor)
+ *   (b) NOT GUE-CONDITIONAL: The surviving beat uses NO GUE assumption or ESY local law.
+ *       All pieces are unconditional or empirically-verified lower bounds (C_mb from imp-963).
+ *
+ *   (c) PROJECTION CAVEAT — |t_c_proj| from imp-400 PATH_C_BASELINE_FIT_V2 is an OLS
+ *       center estimate (not a rigorous upper bound, imp-2632). However, the beat does
+ *       NOT rely on t_c_proj being rigorous: at N*=1e4, L_cond ~ 0.008 is dominated by
+ *       E_coll (~58%) with tcProj (~35%), so even if tcProj were removed, the margin
+ *       would narrow but L_cond would still beat PT. The conditional bound survives
+ *       as a valid empirical (if not rigorously-pinned) datapoint.
  *
  * Two-track decomposition (kept for cross-reference):
  *

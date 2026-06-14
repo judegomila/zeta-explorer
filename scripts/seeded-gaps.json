@@ -212,7 +212,8 @@
     "seededAt": "2026-06-12T18:24:46.330Z"
   },
   "__meta": {
-    "dryStreak": 0
+    "dryStreak": 10,
+    "lastScoutAt": "2026-06-14T04:12:11.945Z"
   },
   "src/data/lambda-roadmap.js#closesIf:imp-371 rerun confirms agreement on extended ladder": {
     "impId": "imp-2615",
@@ -237,5 +238,9 @@
   "src/data/proof-chain-snapshot-2026-04-12.js#closesIf:G3a_sub_fullsum: a rigorous lower bound S_{k*}(t) >= c(N)/B(": {
     "impId": "imp-2620",
     "seededAt": "2026-06-12T18:24:48.700Z"
+  },
+  "src/data/lambda-roadmap.js#closesIf:imp-371 rerun confirms agreement on extended ladder — DONE (": {
+    "impId": "imp-2624",
+    "seededAt": "2026-06-12T19:54:49.538Z"
   }
 }

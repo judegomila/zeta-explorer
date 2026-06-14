@@ -212,8 +212,8 @@
     "seededAt": "2026-06-12T18:24:46.330Z"
   },
   "__meta": {
-    "dryStreak": 0,
-    "lastScoutAt": "2026-06-14T04:12:11.945Z"
+    "dryStreak": 2,
+    "lastScoutAt": "2026-06-14T16:12:19.730Z"
   },
   "src/data/lambda-roadmap.js#closesIf:imp-371 rerun confirms agreement on extended ladder": {
     "impId": "imp-2615",

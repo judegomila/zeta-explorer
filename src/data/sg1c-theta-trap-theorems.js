@@ -136,6 +136,34 @@
  * near-uniform lattice. R1 is hereby refined to that dynamical reachability
  * residual; the static half is closed as an obstruction, not as a cap.
  *
+ * LEMMA R1-T3 (asymmetric 4-tie: exact closed-form seizing margin, imp-2628)
+ * --------------------------------------------------------------------------
+ * R1-T2 carried the seizing MECHANISM to asymmetric ties only numerically
+ * (1.3e5-config sweep, margin >= 2e-3). Here the band-defining asymmetric
+ * minimal-gap 4-tie is closed in EXACT CLOSED FORM. Scale to central gap 1 and
+ * write the one-sided asymmetric tie {-1, 0, 1, 1+b}: central pair (0,1) gap 1;
+ * the left outer pair (-1,0) is the gap-1 competitor TIED for minimal; the
+ * right gap b >= 1 is the asymmetry parameter (b = 1 is the symmetric uniform
+ * lattice). Direct evaluation of Theta = g^2 E / 2 gives
+ *     Theta_central(b) = 1/4 + 1 / (2 b (b+1)),
+ *     Theta_seize(b)   = 1/4 + 1 / (2 (b+1)(b+2)),
+ * so the seizing margin is the EXACT rational
+ *     Theta_central - Theta_seize = 1 / ( b (b+1) (b+2) )  >  0   for all b >= 1.
+ * Three consequences, all honest: (i) the tied competitor carries STRICTLY
+ * lower Theta across the entire asymmetric family, the asymmetry penalty now
+ * quantified in closed form -- the margin falls monotonically from 1/6 at b=1
+ * (recovering R1-T) toward 0+ as b -> infinity; (ii) the central tie value
+ * Theta_central(b) is MAXIMISED at b=1 (the symmetric point) where it equals
+ * 1/2, and asymmetry only LOWERS it, so the excursion peak on the asymmetric
+ * 4-tie family is still exactly 1/2; (iii) the margin -> 0+ limit is benign
+ * here -- as b -> infinity the far neighbour recedes and Theta_central -> 1/4,
+ * i.e. the tie falls INTO the unconditional Theorem-A trap, not above it. So
+ * the static seizing argument is fully closed for the 4-particle asymmetric
+ * tie. RESIDUAL (unchanged): the multi-body near-uniform lattice R1-T2 found
+ * (Theta_K = K/(K+1) -> 1) packs many neighbours so the margin -> 0+ WHILE the
+ * tie value rises -- that is the dynamical reachability residual, not a static
+ * 4-tie gap.
+ *
  * LEMMA R2-T (isolation self-improvement -- PARTIAL closure of R2)
  * ----------------------------------------------------------------
  * Track the pair gap g against the nearest environment distance d_1 and the
@@ -174,6 +202,7 @@ export const SG1C_THEOREMS = {
   theoremC: { isolationConstant: 0.72, conclusion: 'every Theta* <= 1 non-crossable while g <= 0.72 d_1 holds' },
   lemmaR2T: 'd(g/d_1)/ds = (g-d_1)/d_1^2 * [2/(g+d_1) + 4(g+d_1)/(d_1 g)] (exact, single nearest neighbour): margin self-improves for rho<1; multi-body inf threshold ~0.943 > 0.72, so g <= 0.72 d_1 is self-propagating',
   lemmaR1T2: 'uniform-lattice central tie Theta_K = K/(K+1) (E = 2K/(K+1), telescoping) rises to 1 as K->inf, so the static excursion peak is NOT capped < 1; the seizing mechanism (the competitor with strictly lower Theta seizes, margin > 0) nonetheless extends to asymmetric/dressed ties -- R1 refined to a dynamical reachability residual',
+  lemmaR1T3: 'asymmetric minimal-gap 4-tie {-1,0,1,1+b} (b>=1): EXACT seizing margin Theta_central - Theta_seize = 1/(b(b+1)(b+2)) > 0, recovering 1/6 at the symmetric b=1; Theta_central(b) = 1/4 + 1/(2b(b+1)) is maximised at b=1 (=1/2) so asymmetry only lowers the tie and the 4-tie excursion peak stays exactly 1/2 (and Theta_central -> 1/4 into the Theorem-A trap as b->inf); closes the static asymmetric 4-tie case in closed form, leaving the multi-body near-uniform lattice as the dynamical residual',
   refutation: {
     family: 'x = {-d, 0, 1, 1+d}, d in (1, 1.0735)',
     crossedBand: [0.443, 0.5073],
@@ -189,7 +218,7 @@ export const SG1C_SUCCESSOR_GAPS = {
       id: 'sg1c-r1-excursion-cap',
       statement: 'Prove an absolute excursion cap Theta_exc < 1 (numerical evidence ~ 0.51) for the minimal-pair Theta process under the attractive CM flow, via a dynamic minimality-transfer argument: the family {-d,0,1,1+d} shows the rising pair loses minimality at the Theta ~ 0.5 tie. Static bounds are provably exhausted at Theta_b = (sqrt(73)-5)/8 (Theorem B is sharp).',
       status: 'open',
-      progress: 'PARTIAL (Lemma R1-T, imp-2595; extended R1-T2, imp-2608). R1-T caps the symmetric 4-config at exactly 1/2 (outer pairs at Theta = 1/3 shrink faster and seize). R1-T2 (imp-2608) carries the seizing MECHANISM to asymmetric/dressed ties -- a 1.3e5-config sweep finds the competitor that seizes always carries strictly lower Theta (margin > 0, zero violations) -- but PROVES the static peak is uncapped: the uniform lattice with K unit neighbours per side gives central tie Theta_K = K/(K+1) -> 1 (K=1 is the 1/2 case, K=6 already 6/7). So the static tie-comparison route named here is obstructed; the residual is now DYNAMICAL: show the attractive CM flow from generic (real-zero-like) data never reaches a long near-uniform minimal-gap lattice.',
+      progress: 'PARTIAL (Lemma R1-T, imp-2595; extended R1-T2, imp-2608). R1-T caps the symmetric 4-config at exactly 1/2 (outer pairs at Theta = 1/3 shrink faster and seize). R1-T2 (imp-2608) carries the seizing MECHANISM to asymmetric/dressed ties -- a 1.3e5-config sweep finds the competitor that seizes always carries strictly lower Theta (margin > 0, zero violations) -- but PROVES the static peak is uncapped: the uniform lattice with K unit neighbours per side gives central tie Theta_K = K/(K+1) -> 1 (K=1 is the 1/2 case, K=6 already 6/7). So the static tie-comparison route named here is obstructed; the residual is now DYNAMICAL: show the attractive CM flow from generic (real-zero-like) data never reaches a long near-uniform minimal-gap lattice. R1-T3 (imp-2628) closes the asymmetric 4-particle tie {-1,0,1,1+b} IN EXACT CLOSED FORM: the tied competitor seizing margin is 1/(b(b+1)(b+2)) > 0 for all b >= 1 (=1/6 at the symmetric b=1), Theta_central = 1/4 + 1/(2b(b+1)) is maximised at b=1 (=1/2) so asymmetry only lowers the peak, and Theta_central -> 1/4 (the Theorem-A trap) as the far neighbour recedes -- the margin -> 0+ limit is benign on this family. Only the multi-body near-uniform lattice (margin -> 0+ while the tie value rises) remains, the same dynamical residual.',
     },
     {
       id: 'sg1c-r2-isolation-persistence',
@@ -330,6 +359,31 @@ export const SG1C_THEOREM_ASSERTIONS = [
       const aC = dThetaDs(asym, 4).theta, aL = dThetaDs(asym, 3).theta, aR = dThetaDs(asym, 5).theta;
       const asymSeizes = aC < 1 && Math.min(aL, aR) < aC - 1e-9;
       return closedForm && uncapped && latticeSeizes && asymSeizes;
+    },
+  },
+  {
+    id: 'sg1c-r1-asymmetric-4tie-closed-form-margin',
+    description: 'Lemma R1-T3 (imp-2628): on the asymmetric minimal-gap 4-tie {-1,0,1,1+b} the tied left-outer competitor carries strictly lower Theta than the central pair, with EXACT closed forms Theta_central = 1/4 + 1/(2b(b+1)), Theta_seize = 1/4 + 1/(2(b+1)(b+2)) and margin 1/(b(b+1)(b+2)) > 0 (recovering 1/6 at the symmetric b=1); Theta_central is maximised at b=1 (=1/2), so asymmetry only lowers the excursion peak',
+    holds: () => {
+      const closedMarginAt1 = 1 / (1 * 2 * 3);
+      return (
+        Math.abs(closedMarginAt1 - 1 / 6) < 1e-15 &&
+        [1, 1.05, 1.5, 2, 3, 10].every((b) => {
+          const x = [-1, 0, 1, 1 + b];
+          const tc = dThetaDs(x, 1).theta; // central pair (0,1)
+          const ts = dThetaDs(x, 0).theta; // tied left-outer competitor (-1,0)
+          const cC = 0.25 + 1 / (2 * b * (b + 1));
+          const cS = 0.25 + 1 / (2 * (b + 1) * (b + 2));
+          const cMargin = 1 / (b * (b + 1) * (b + 2));
+          return (
+            Math.abs(tc - cC) < 1e-12 &&
+            Math.abs(ts - cS) < 1e-12 &&
+            Math.abs(tc - ts - cMargin) < 1e-12 &&
+            tc - ts > 0 &&
+            tc <= 0.5 + 1e-12
+          );
+        })
+      );
     },
   },
   {

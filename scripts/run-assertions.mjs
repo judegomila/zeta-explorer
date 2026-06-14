@@ -1578,6 +1578,7 @@ const DATA_MODULES = [
   // and asymptotically, and naming the imp-317 thin-strip density exponent as the
   // sole rate lever. Scoping/attack module, no closure claimed. 7 tripwires.
   '/src/data/imp-2598-en-bottleneck-attack.js',
+  '/src/data/imp-2622-height-mismatch-refutation.js',
   // imp-2625: pins the two E_trunc order-unity constants — kappa_T to the exact
   // rigorous Ingham/GM closed form 4 delta/(3-2 delta)=0.18166 (unconditional
   // floor 0.180 securing bound <= 0.137) and C_T reduced to the sharp checkable

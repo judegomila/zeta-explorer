@@ -212,7 +212,7 @@
     "seededAt": "2026-06-12T18:24:46.330Z"
   },
   "__meta": {
-    "dryStreak": 5,
+    "dryStreak": 0,
     "lastScoutAt": "2026-06-17T16:21:39.005Z"
   },
   "src/data/lambda-roadmap.js#closesIf:imp-371 rerun confirms agreement on extended ladder": {

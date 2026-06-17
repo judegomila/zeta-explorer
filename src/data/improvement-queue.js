@@ -25065,7 +25065,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     category: 'accuracy',
     priority: 'critical',
     status: 'completed',
-    completedByModel: 'opus-4-8',
+    completedByModel: 'haiku-4-5',
     completedByChannel: 'subscription',
     proofSection: 'S7',
     description: "Per strategic-reframe-pcc-free-volterra-2026-06-17.js. (a) imp-1258-volterra-cdb-bridge.js: the 'conditional on Montgomery PCC (imp-1184)' caveat (lines ~72, 84-86, 371-375, 433-436, cross-ref ~398) is FALSE/mis-attributed — proven 3 ways (chain-walk has no pair-correlation step; imp-1184 grep = 0 hits for any 27.2-chain object; the file's own non-circularity audit contradicts it). Replace with: '27.2 => RH is PCC-FREE; imp-1184 PCC lives in Stream A psi_N only and never touches this chain; the residual gap is NOT PCC but (i) the L^2([0,inf)) norm bound 27.2 and (ii) the Section-27 block-positivity<=>K_a-PSD identity (imp-1265 caveats).' Add a tripwire asserting honestScope has NO PCC-conditionality; fix the imp-1184 cross-ref role string. (b) imp-1302-goldston-gonek-pcc-attack.js: change the source from 'Annals of Math 148 (1998) 945-958' to 'Acta Arithmetica 84 (1998) 155-192' everywhere; rewrite tripwire-2 regex to /Acta Arithmetica/+/1998/+/155/, flip isAnnalsOfMath; downgrade the Montgomery-1973 'proven UNCONDITIONALLY' to 'unconditional for |supp|<1'. Verify build green.",

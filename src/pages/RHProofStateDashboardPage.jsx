@@ -4,6 +4,7 @@ import { InlineMath } from '../components/KaTeXMath.jsx';
 import { IMP2633_L_COND_CONSTANT_DISCHARGE } from '../data/imp-2633-l-cond-constant-discharge.js';
 import { TC_PART_VS_MF_LINCHPIN } from '../data/tc-part-vs-mf-linchpin-finding.js';
 import { IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE } from '../data/imp-2641-c-selberg-trudgian-discharge.js';
+import { IMP2644_EFLOW_GRONWALL_CG_DISCHARGE } from '../data/imp-2644-eflow-gronwall-cg-discharge.js';
 
 // Status Badge
 function StatusBadge({ status, label }) {
@@ -345,7 +346,7 @@ export default function RHProofStateDashboardPage() {
             </div>
             <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>
               C_F = {IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.C_F.toFixed(4)} RIGOROUS (imp-398).
-              C_G = 1.0 PLACEHOLDER, non-binding (Gronwall factor ≈1.007 at N*=10⁴)
+              C_G = 2/y_star² ≤ {IMP2644_EFLOW_GRONWALL_CG_DISCHARGE.cG.gronwallExplicit} explicit (Gronwall Lemma B); E_flow ≤ 1.3×10⁻³ for all C_G ≤ {IMP2644_EFLOW_GRONWALL_CG_DISCHARGE.cG.C_G_max_A1} on the A1 |t_c| bound — discharged imp-2644
             </div>
           </div>
 

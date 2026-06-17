@@ -1,7 +1,156 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import SpectralAttackViz from '../components/SpectralAttackViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import { ZETA_ZEROS } from '../math/zeta.js';
+
+// Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
+const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
+const TRAP_B = (Math.sqrt(73) - 5) / 8;   // minimal-gap trap: sharp threshold ~0.443
+
+function computeThetaData(N) {
+  const zs = ZETA_ZEROS.slice(0, N);
+  const pairs = [];
+  for (let k = 0; k < N - 1; k++) {
+    const g = zs[k + 1] - zs[k];
+    let E = 0;
+    for (let j = 0; j < N; j++) {
+      if (j === k || j === k + 1) continue;
+      E += 1 / ((zs[k] - zs[j]) * (zs[k + 1] - zs[j]));
+    }
+    const theta = (g * g * E) / 2;
+    pairs.push({ k, g, theta });
+  }
+  let minIdx = 0;
+  for (let i = 1; i < pairs.length; i++) {
+    if (pairs[i].theta < pairs[minIdx].theta) minIdx = i;
+  }
+  const minPair = pairs[minIdx];
+  const tcBound = (minPair.g * minPair.g) / 6;
+  return { pairs, minIdx, minPair, tcBound };
+}
+
+function ThetaTrapSection() {
+  const [N, setN] = useState(20);
+  const { pairs, minIdx, minPair, tcBound } = useMemo(() => computeThetaData(N), [N]);
+
+  const svgW = 520, svgH = 160, padL = 34, padR = 8, padT = 10, padB = 24;
+  const chartW = svgW - padL - padR;
+  const chartH = svgH - padT - padB;
+  const yMax = 0.55;
+  const yScale = (v) => padT + chartH * (1 - v / yMax);
+  const bw = Math.max(1, chartW / pairs.length - 1);
+  const belowA = pairs.filter((p) => p.theta < TRAP_A).length;
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #06b6d4' }}>
+      <h3 style={{ color: '#06b6d4', fontSize: 16, marginBottom: 12 }}>
+        Theta-Trap Explorer: A1 Collision-Time Bound
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        For the first <strong style={{ color: '#e2e8f0' }}>N</strong> zeta zeros,
+        compute <InlineMath tex={"\\Theta(0) = g^2 E/2"} /> for every adjacent pair.{' '}
+        <strong style={{ color: '#ef4444' }}>Theorem A</strong> (1/4-trap, unconditional): any pair with{' '}
+        <InlineMath tex={"\\Theta \\leq 1/4"} /> stays trapped forever.{' '}
+        <strong style={{ color: '#06b6d4' }}>Corollary A1</strong>: the minimal pair then satisfies{' '}
+        <InlineMath tex={"t_c \\leq g_{\\min}^2/6"} />.
+      </p>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+        <label style={{ color: '#94a3b8', fontSize: 13, whiteSpace: 'nowrap' }}>
+          N = <strong style={{ color: '#e2e8f0' }}>{N}</strong> zeros
+        </label>
+        <input
+          type="range" min={5} max={50} value={N}
+          onChange={(e) => setN(Number(e.target.value))}
+          style={{ flex: 1 }}
+        />
+      </div>
+
+      <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+        {pairs.map((p, i) => {
+          const barH = Math.max(1, chartH - (yScale(Math.min(p.theta, yMax)) - padT));
+          const color = i === minIdx ? '#f59e0b' : p.theta < TRAP_A ? '#10b981' : p.theta < TRAP_B ? '#3b82f6' : '#ef4444';
+          return (
+            <rect key={i}
+              x={padL + i * (bw + 1)} y={yScale(Math.min(p.theta, yMax))}
+              width={bw} height={barH}
+              fill={color} opacity={0.8}
+            />
+          );
+        })}
+        {/* Theorem A threshold line */}
+        <line x1={padL} y1={yScale(TRAP_A)} x2={svgW - padR} y2={yScale(TRAP_A)}
+          stroke="#ef4444" strokeWidth={1.5} strokeDasharray="4 2" />
+        <text x={svgW - padR - 2} y={yScale(TRAP_A) - 3} fill="#ef4444" fontSize={9} textAnchor="end">
+          Thm A: 1/4
+        </text>
+        {/* Theorem B threshold line */}
+        <line x1={padL} y1={yScale(TRAP_B)} x2={svgW - padR} y2={yScale(TRAP_B)}
+          stroke="#f59e0b" strokeWidth={1} strokeDasharray="3 2" />
+        <text x={svgW - padR - 2} y={yScale(TRAP_B) - 3} fill="#f59e0b" fontSize={9} textAnchor="end">
+          Thm B: {TRAP_B.toFixed(3)}
+        </text>
+        {/* y-axis labels */}
+        {[0, 0.1, 0.2, 0.3, 0.4, 0.5].map((v) => (
+          <g key={v}>
+            <text x={padL - 3} y={yScale(v) + 3} fill="#475569" fontSize={8} textAnchor="end">
+              {v.toFixed(1)}
+            </text>
+            <line x1={padL - 2} y1={yScale(v)} x2={padL} y2={yScale(v)} stroke="#334155" />
+          </g>
+        ))}
+        <text x={10} y={padT + chartH / 2} fill="#94a3b8" fontSize={10} textAnchor="middle"
+          transform={`rotate(-90, 10, ${padT + chartH / 2})`}>
+          {'Θ(0)'}
+        </text>
+        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#334155" />
+        <text x={padL + chartW / 2} y={svgH - 4} fill="#94a3b8" fontSize={10} textAnchor="middle">
+          pair index k
+        </text>
+      </svg>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 8, marginTop: 12 }}>
+        <div style={{ padding: '8px 12px', background: 'rgba(30,41,59,0.5)', borderRadius: 6, borderTop: '2px solid #f59e0b' }}>
+          <div style={{ color: '#f59e0b', fontSize: 11, fontWeight: 700 }}>Minimal pair (k={minIdx})</div>
+          <div style={{ color: '#e2e8f0', fontSize: 12 }}>
+            <InlineMath tex={"\\Theta(0) = " + minPair.theta.toFixed(4)} />
+          </div>
+          <div style={{ color: '#64748b', fontSize: 10 }}>g_min = {minPair.g.toFixed(4)}</div>
+        </div>
+        <div style={{ padding: '8px 12px', background: 'rgba(30,41,59,0.5)', borderRadius: 6, borderTop: '2px solid #06b6d4' }}>
+          <div style={{ color: '#06b6d4', fontSize: 11, fontWeight: 700 }}>Corollary A1 bound</div>
+          <div style={{ color: '#e2e8f0', fontSize: 12 }}>
+            <InlineMath tex={"t_c \\leq " + tcBound.toFixed(4)} />
+          </div>
+          <div style={{ color: '#64748b', fontSize: 10 }}>= g_min² / 6</div>
+        </div>
+        <div style={{ padding: '8px 12px', background: 'rgba(30,41,59,0.5)', borderRadius: 6, borderTop: '2px solid #ef4444' }}>
+          <div style={{ color: '#ef4444', fontSize: 11, fontWeight: 700 }}>Theorem A status</div>
+          <div style={{ color: minPair.theta < TRAP_A ? '#10b981' : '#ef4444', fontSize: 12 }}>
+            {minPair.theta < TRAP_A ? 'A1 APPLIES' : 'above 1/4-trap'}
+          </div>
+          <div style={{ color: '#64748b', fontSize: 10 }}>threshold: 1/4 = 0.25</div>
+        </div>
+        <div style={{ padding: '8px 12px', background: 'rgba(30,41,59,0.5)', borderRadius: 6, borderTop: '2px solid #10b981' }}>
+          <div style={{ color: '#10b981', fontSize: 11, fontWeight: 700 }}>Trap coverage</div>
+          <div style={{ color: '#e2e8f0', fontSize: 12 }}>{belowA}/{pairs.length} pairs</div>
+          <div style={{ color: '#64748b', fontSize: 10 }}>below 1/4 (Thm A)</div>
+        </div>
+      </div>
+
+      <p style={{ color: '#64748b', fontSize: 12, marginTop: 12, lineHeight: 1.7 }}>
+        <span style={{ color: '#10b981', fontWeight: 600 }}>Green</span>: pairs with
+        {' '}<InlineMath tex={"\\Theta < 1/4"} /> (Theorem A applies unconditionally).{' '}
+        <span style={{ color: '#f59e0b', fontWeight: 600 }}>Orange</span>: the minimal-gap pair (A1 source).{' '}
+        <span style={{ color: '#3b82f6', fontWeight: 600 }}>Blue</span>: between the two thresholds (Theorem B
+        applies if this is the minimal gap).{' '}
+        On the measured real-zero rows <InlineMath tex={"\\Theta(0) \\in \\{0.167, 0.088, 0.046\\}"} />,
+        all well under 1/4 — A1 applies unconditionally to actual zero configurations.
+      </p>
+    </div>
+  );
+}
 
 export default function SpectralAttackPage() {
   return (
@@ -314,6 +463,9 @@ export default function SpectralAttackPage() {
       <div style={{ marginTop: 24 }}>
         <SpectralAttackViz />
       </div>
+
+      {/* ─── Theta-Trap Explorer ─── */}
+      <ThetaTrapSection />
 
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>

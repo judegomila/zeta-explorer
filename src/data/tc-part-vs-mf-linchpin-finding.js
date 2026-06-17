@@ -80,7 +80,13 @@ export const TC_PART_VS_MF_LINCHPIN = {
   },
   pictureA: 'Lehmer-pair/CSV: Lambda pinned by closest pair -> bridge wants t_c^part -> A1 gives a rigorous 30x-tighter binding term',
   pictureB: 'imp-2564/Polymath15 Thm3: bridge wants the mean-field shock t_c^MF -> A1 bounds the wrong object, E_pp re-enters',
-  status: 'UNRESOLVED — gates imp-2635/2636/2638; resolve before consuming either t_c value (no 30x over/under-claim)',
+  status: 'RESOLVED 2026-06-17 (tc-linchpin-resolve workflow, 3 routes + adversarial synthesis): PICTURE A on route-selection, NEGATIVE on the rigorous beat. See resolution below.',
+  resolution: {
+    routeSelection: 'PICTURE A — the bridge consumes t_c^part, the truncated-flow FIRST-collision time. There is only ONE truncated-flow object: imp-341 tau_c = 1/(2 sup Im m_N) and imp-2563 discriminant smallest-root are the SAME first-collision time, and the OLS ladder measures it. A1 (t_c^part(1e4) <= g_min^2/6 = 2.37e-4) bounds the RIGHT object.',
+    theOLSartifact: 'The 0.0071 "t_c_proj" is NOT a distinct mean-field object: it is the y-intercept of a linear-in-1/N fit to small-N rows whose true decay is sub-linear, and the deep gamma~7005 Lehmer pair only enters the first-N list at N>=6710, so small-N rows have large g_min and manufacture a spurious positive intercept. imp-2621 proves the true object is O(1/sqrt N) -> 0, not 0.0066. imp-2564 said B only because imp-1149 Theorem 3 bounds a SEPARATE mean-field proxy 1/(2 M_inf), not the bridge.',
+    rigorousBeatConsequence: 'NEGATIVE. A1 is an UPPER bound on t_c; by the imp-2564 sign algebra an upper bound feeds the Rodgers-Tao-dominated LOWER face (Lambda >= -U - E <= 0) and buys nothing on the headline. The headline face Lambda <= -t_c + E(N), with t_c >= 0, reads Lambda <= E(N). So the binding quantity is the BRIDGE ERROR E(N), dominated at N=1e4 by E_coll ~ 9e-2 (C_H=1 placeholder). Route-selection does NOT yield a rigorous Lambda < 0.2; Platt-Trudgian Lambda <= 0.2 remains rigorous SOTA.',
+    whatA1buys: 'The |t_c| sub-term becomes rigorous and ~30x smaller (2.37e-4, unconditional via Theta(0)=0.0017<1/4), removing it as the binding obstruction and shifting the ENTIRE remaining burden onto E(N) — consistent with imp-2564 residual R1. The genuine headline lever is now sizing E(N), above all discharging C_H in E_coll.',
+  },
 };
 
 export const TC_LINCHPIN_ASSERTIONS = [
@@ -91,11 +97,19 @@ export const TC_LINCHPIN_ASSERTIONS = [
   },
   {
     id: 'tc-linchpin-30x-gap-is-epp-not-units',
-    description: 'The t_c^part A1 bound is ~30x below the OLS t_c_proj — recorded as the E_pp gap, the linchpin stays UNRESOLVED',
+    description: 'The t_c^part A1 bound is ~30x below the OLS t_c_proj — the OLS value is now resolved as a linear-fit intercept artifact, not a distinct object',
     holds: () => {
       const c = TC_PART_VS_MF_LINCHPIN.computedAtN1e4;
       const r = c.tcProjOLS / c.tcPartUpperBound_g2over6;
-      return r > 20 && r < 40 && /UNRESOLVED/.test(TC_PART_VS_MF_LINCHPIN.status);
+      return r > 20 && r < 40 && /RESOLVED/.test(TC_PART_VS_MF_LINCHPIN.status);
+    },
+  },
+  {
+    id: 'tc-linchpin-resolved-picture-A-negative-beat',
+    description: 'Resolution recorded: PICTURE A on route-selection, NEGATIVE on the rigorous beat (binding quantity is E(N), not t_c)',
+    holds: () => {
+      const r = TC_PART_VS_MF_LINCHPIN.resolution;
+      return !!r && /PICTURE A/.test(r.routeSelection) && /NEGATIVE/.test(r.rigorousBeatConsequence) && /E_coll|C_H/.test(r.whatA1buys);
     },
   },
 ];

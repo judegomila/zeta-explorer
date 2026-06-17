@@ -24798,4 +24798,17 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     dependsOn: [],
     model: 'opus-4-8',
   },
+  {
+    id: 'imp-2640',
+    title: 'HEADLINE LEVER: discharge C_H in E_coll (dominant bridge-error term) to an explicit theorem-backed constant at N*=1e4',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "RESOLVED upstream (tc-part-vs-mf-linchpin-finding.js, tc-linchpin-resolve workflow): the bridge consumes t_c^part (A1 bounds it rigorously, 2.37e-4), so the |t_c| sub-term is no longer the obstruction — the rigorous Lambda bound is now gated ENTIRELY by the bridge error E(N) = E_trunc + E_flow + E_coll, dominated at N*=1e4 by E_coll ~ 9e-2 with C_H = 1 a PLACEHOLDER. E_coll = C_H * W_1(mu_N, rho_inf)^{1/2} from polymath15-lemma52-shock-holder.js (imp-366 Holder-1/2 shock modulus). DELIVERABLE: discharge C_H to the explicit value the imp-366 Steps 1-3 / Polymath15 Lemma 5.2 proof actually yields (replace the order-unity Gronwall gap-Lipschitz constant with its theorem-backed number), recompute E_coll at N*=1e4, and report the fully-sized rigorous Lambda <= E_trunc + E_flow + E_coll. State plainly whether it is < 0.2 (a rigorous finite-height beat) or not. GUARDRAILS: (1) do NOT re-open the t_c^part-vs-MF question — RESOLVED, bridge consumes t_c^part, the 0.0066 OLS intercept is a linear-extrapolation artifact not a limit; (2) do NOT claim a rigorous beat until C_H is an explicit theorem-backed constant; (3) if the imp-366 proof only yields C_H as order-unity-but-not-explicit, name the exact step blocking the explicit constant. NO false QED.",
+    rationale: 'The linchpin resolution shifted the ENTIRE rigorous-beat burden onto E(N); C_H in the dominant E_coll term is now the single highest-leverage constant on the roadmap (imp-2564 residual R1, synthesis nextTicket).',
+    estimatedComplexity: 'medium',
+    dependsOn: [],
+    model: 'opus-4-8',
+  },
 ];

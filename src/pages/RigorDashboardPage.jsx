@@ -6,6 +6,7 @@ import {
   ROUTE_STATUS,
   CONDITIONS,
 } from '../data/proof-chain-snapshot-2026-04-12.js';
+import ConstantDischargeTracker from '../components/ConstantDischargeTracker.jsx';
 
 // ── Rigor color-coding ──────────────────────────────────────────────────────
 // GREEN  = unconditional analytical proof
@@ -300,6 +301,9 @@ export default function RigorDashboardPage() {
           {HEADLINE.condition}
         </div>
       </div>
+
+      {/* E(N) constant-discharge tracker */}
+      <ConstantDischargeTracker />
 
       {/* Summary counts */}
       <div style={{

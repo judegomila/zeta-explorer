@@ -492,6 +492,12 @@ const DATA_MODULES = [
   // bottlenecks (Conrey-Snaith stronger than PCC, Heath-Brown 4th moment too
   // weak, Riemann-Hilbert spectral requires universality).
   '/src/data/imp-1247-shared-pcc-obstruction-recheck.js',
+  // imp-2656: CURRENT strategic map for the direct-RH stream. Synthesizes the
+  // v52 audit (7 SUBSUMED-BY-RH, 5 PARTIALLY-RELATED, 2 INDEPENDENT-NOVEL, 1
+  // SUBSUMED-BY-LITERATURE), states the Montgomery PCC obstruction precisely,
+  // and ranks the INDEPENDENT-NOVEL targets by closeness to proof (27.2 closest,
+  // PCC-independent; 22.1 far). Orients the effort onto Conjecture 27.2.
+  '/src/data/imp-2656-direct-rh-conjecture-map.js',
   // imp-1248: OPUS-4.8 RECHECK of imp-1240 Volterra-norm pilot. Adaptive-N
   // rescan (N = 100*U + 100) with U in {1, 2, 5, 10, 20, 50, 100}; 35 rows.
   // All norms <= 1.86e-4 << 1. imp-1240 U=20 artifact (ratio 1.62) resolved.

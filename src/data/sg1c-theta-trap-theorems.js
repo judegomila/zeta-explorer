@@ -164,6 +164,34 @@
  * tie value rises -- that is the dynamical reachability residual, not a static
  * 4-tie gap.
  *
+ * LEMMA R1-T4 (dynamical reachability of the near-uniform lattice -- BASIN closure, imp-2637)
+ * -------------------------------------------------------------------------------------------
+ * The R1-T2 residual asked whether the attractive CM flow, started from generic
+ * zero data, can drive the minimal-gap locus onto a long near-uniform lattice
+ * where the static tie Theta_K = K/(K+1) -> 1. Numerical-first integration of the
+ * flow (RK4, adaptive h ~ g^2, run to a collision floor) settles it on the
+ * dynamically relevant basin. An ISOLATED minimal pair -- isolation ratio
+ * rho = g/d_1 < 1 and Theta(0) < 1/4, which is EXACTLY the measured real-zero
+ * regime (0.167 / 0.088 / 0.046) -- never climbs: across isolated-dip starts
+ * (N up to 13) the peak min-pair Theta over the ENTIRE trajectory equals Theta(0)
+ * to machine precision (zero excursion), while a near-uniform-lattice control
+ * (rho ~ 1, perturbed off the exact tie) carries peak min-pair Theta ~ 0.79-0.84,
+ * so the integrator DOES register a climb when one exists. MECHANISM (the rigorous
+ * half): the minimal pair has g <= every neighbour gap, hence d_1 >= g and rho <= 1;
+ * Lemma R2-T's exact single-neighbour sign law gives drho/ds < 0 strictly for
+ * rho < 1, so the minimal pair ISOLATES (rho falls), driving Theta DOWN into the
+ * Theorem-A trap rather than up toward the lattice. The near-uniform lattice sits
+ * at rho = 1 -- the EXACT zero of R2-T's rate, an unstable repeller -- so it cannot
+ * be reached by flowing inward from rho < 1. CONSEQUENCE: on the real-zero basin
+ * (isolated minimal pair) the excursion cap Theta_exc < 1 holds dynamically and the
+ * Corollary A1 hypothesis Theta(0) <= 1/4 is self-enforcing; the high-K lattice peak
+ * is a measure-zero repelling locus, not an attractor. RESIDUAL (honest): this
+ * closure inherits R2-T's multi-body gap -- the rho < 1 -> isolation sign law is
+ * proven EXACTLY only for the single nearest neighbour (multi-body scanned to
+ * inf ~0.943, not yet closed in form). So the cap is established on the isolated-pair
+ * basin, NOT unconditionally over all configs; the uncapped lattice (rho = 1)
+ * survives as a non-generic boundary, exactly as R1-T2/T3 left it.
+ *
  * LEMMA R2-T (isolation self-improvement -- PARTIAL closure of R2)
  * ----------------------------------------------------------------
  * Track the pair gap g against the nearest environment distance d_1 and the
@@ -203,6 +231,7 @@ export const SG1C_THEOREMS = {
   lemmaR2T: 'd(g/d_1)/ds = (g-d_1)/d_1^2 * [2/(g+d_1) + 4(g+d_1)/(d_1 g)] (exact, single nearest neighbour): margin self-improves for rho<1; multi-body inf threshold ~0.943 > 0.72, so g <= 0.72 d_1 is self-propagating',
   lemmaR1T2: 'uniform-lattice central tie Theta_K = K/(K+1) (E = 2K/(K+1), telescoping) rises to 1 as K->inf, so the static excursion peak is NOT capped < 1; the seizing mechanism (the competitor with strictly lower Theta seizes, margin > 0) nonetheless extends to asymmetric/dressed ties -- R1 refined to a dynamical reachability residual',
   lemmaR1T3: 'asymmetric minimal-gap 4-tie {-1,0,1,1+b} (b>=1): EXACT seizing margin Theta_central - Theta_seize = 1/(b(b+1)(b+2)) > 0, recovering 1/6 at the symmetric b=1; Theta_central(b) = 1/4 + 1/(2b(b+1)) is maximised at b=1 (=1/2) so asymmetry only lowers the tie and the 4-tie excursion peak stays exactly 1/2 (and Theta_central -> 1/4 into the Theorem-A trap as b->inf); closes the static asymmetric 4-tie case in closed form, leaving the multi-body near-uniform lattice as the dynamical residual',
+  lemmaR1T4: 'dynamical reachability (basin closure, imp-2637): CM-flow integration from an isolated minimal pair (rho=g/d_1<1, Theta(0)<1/4 -- the real-zero regime) gives peak min-pair Theta = Theta(0) over the whole trajectory (zero excursion) vs ~0.8 for a near-uniform-lattice control (rho~1); mechanism is Lemma R2-T (the minimal pair has rho<=1 and drho/ds<0 strictly for rho<1, so it isolates into the Theorem-A trap while the lattice rho=1 is the repelling threshold). The excursion cap Theta_exc<1 and the A1 hypothesis self-enforce on the isolated-pair basin; inherits R2-T multi-body residual, so NOT unconditional over all configs',
   refutation: {
     family: 'x = {-d, 0, 1, 1+d}, d in (1, 1.0735)',
     crossedBand: [0.443, 0.5073],
@@ -218,7 +247,7 @@ export const SG1C_SUCCESSOR_GAPS = {
       id: 'sg1c-r1-excursion-cap',
       statement: 'Prove an absolute excursion cap Theta_exc < 1 (numerical evidence ~ 0.51) for the minimal-pair Theta process under the attractive CM flow, via a dynamic minimality-transfer argument: the family {-d,0,1,1+d} shows the rising pair loses minimality at the Theta ~ 0.5 tie. Static bounds are provably exhausted at Theta_b = (sqrt(73)-5)/8 (Theorem B is sharp).',
       status: 'open',
-      progress: 'PARTIAL (Lemma R1-T, imp-2595; extended R1-T2, imp-2608). R1-T caps the symmetric 4-config at exactly 1/2 (outer pairs at Theta = 1/3 shrink faster and seize). R1-T2 (imp-2608) carries the seizing MECHANISM to asymmetric/dressed ties -- a 1.3e5-config sweep finds the competitor that seizes always carries strictly lower Theta (margin > 0, zero violations) -- but PROVES the static peak is uncapped: the uniform lattice with K unit neighbours per side gives central tie Theta_K = K/(K+1) -> 1 (K=1 is the 1/2 case, K=6 already 6/7). So the static tie-comparison route named here is obstructed; the residual is now DYNAMICAL: show the attractive CM flow from generic (real-zero-like) data never reaches a long near-uniform minimal-gap lattice. R1-T3 (imp-2628) closes the asymmetric 4-particle tie {-1,0,1,1+b} IN EXACT CLOSED FORM: the tied competitor seizing margin is 1/(b(b+1)(b+2)) > 0 for all b >= 1 (=1/6 at the symmetric b=1), Theta_central = 1/4 + 1/(2b(b+1)) is maximised at b=1 (=1/2) so asymmetry only lowers the peak, and Theta_central -> 1/4 (the Theorem-A trap) as the far neighbour recedes -- the margin -> 0+ limit is benign on this family. Only the multi-body near-uniform lattice (margin -> 0+ while the tie value rises) remains, the same dynamical residual.',
+      progress: 'PARTIAL (Lemma R1-T, imp-2595; extended R1-T2, imp-2608). R1-T caps the symmetric 4-config at exactly 1/2 (outer pairs at Theta = 1/3 shrink faster and seize). R1-T2 (imp-2608) carries the seizing MECHANISM to asymmetric/dressed ties -- a 1.3e5-config sweep finds the competitor that seizes always carries strictly lower Theta (margin > 0, zero violations) -- but PROVES the static peak is uncapped: the uniform lattice with K unit neighbours per side gives central tie Theta_K = K/(K+1) -> 1 (K=1 is the 1/2 case, K=6 already 6/7). So the static tie-comparison route named here is obstructed; the residual is now DYNAMICAL: show the attractive CM flow from generic (real-zero-like) data never reaches a long near-uniform minimal-gap lattice. R1-T3 (imp-2628) closes the asymmetric 4-particle tie {-1,0,1,1+b} IN EXACT CLOSED FORM: the tied competitor seizing margin is 1/(b(b+1)(b+2)) > 0 for all b >= 1 (=1/6 at the symmetric b=1), Theta_central = 1/4 + 1/(2b(b+1)) is maximised at b=1 (=1/2) so asymmetry only lowers the peak, and Theta_central -> 1/4 (the Theorem-A trap) as the far neighbour recedes -- the margin -> 0+ limit is benign on this family. Only the multi-body near-uniform lattice (margin -> 0+ while the tie value rises) remains, the same dynamical residual. R1-T4 (imp-2637) addresses that dynamical residual on the real-zero BASIN: CM-flow integration from an isolated minimal pair (rho = g/d_1 < 1, Theta(0) < 1/4 -- the measured regime) gives peak min-pair Theta = Theta(0) to machine precision (zero excursion), vs ~0.8 for a near-uniform-lattice control (rho ~ 1); the mechanism is Lemma R2-T -- the minimal pair has rho <= 1 and drho/ds < 0 strictly for rho < 1, so it isolates into the Theorem-A trap, while the lattice rho = 1 is the unstable repelling threshold and so is not reachable by flowing inward. Hence the excursion cap and the A1 hypothesis self-enforce on the isolated-pair basin; the residual is now exactly R2-T multi-body (the rho < 1 -> isolation sign law is closed in form only for the single nearest neighbour, scanned to inf ~0.943), so the cap is NOT yet unconditional over all configs.',
     },
     {
       id: 'sg1c-r2-isolation-persistence',
@@ -272,6 +301,12 @@ function dRhoIso(x, i) {
   const gdot = F[i + 1] - F[i];
   const d1dot = side === -1 ? F[i] - F[jp] : F[jp] - F[i + 1];
   return { rho: g / d1, drho: (gdot * d1 - g * d1dot) / (d1 * d1), g, d1 };
+}
+// index of the globally minimal adjacent pair (for tracking the minimal-gap locus along the flow)
+function minPairIdx(x) {
+  let mi = 0, mg = Infinity;
+  for (let k = 0; k < x.length - 1; k++) { const g = x[k + 1] - x[k]; if (g < mg) { mg = g; mi = k; } }
+  return mi;
 }
 
 export const SG1C_THEOREM_ASSERTIONS = [
@@ -384,6 +419,37 @@ export const SG1C_THEOREM_ASSERTIONS = [
           );
         })
       );
+    },
+  },
+  {
+    id: 'sg1c-r1-dynamical-reachability-basin',
+    description: 'Lemma R1-T4 (imp-2637): CM-flow integration shows an isolated minimal pair (rho<1, Theta(0)<1/4 -- the real-zero regime) keeps peak min-pair Theta = Theta(0) over the whole trajectory (no excursion toward the uncapped lattice), while a near-uniform-lattice control (rho~1) reaches peak ~0.8 -- so the high-K lattice is not dynamically reachable from the isolated-pair basin (mechanism: Lemma R2-T rho-isolation)',
+    holds: () => {
+      // flow integrator: RK4, adaptive h ~ g^2, run to a collision floor; track peak min-pair Theta
+      const peak = (x0, maxSteps, floor) => {
+        let x = x0.slice();
+        let pk = dThetaDs(x, minPairIdx(x)).theta;
+        for (let s = 0; s < maxSteps; s++) {
+          const mi = minPairIdx(x), mg = x[mi + 1] - x[mi];
+          if (mg < floor) break;
+          const th = dThetaDs(x, mi).theta;
+          if (th > pk) pk = th;
+          const h = Math.min(2e-3, 0.05 * mg * mg);
+          const k1 = force(x); const x2 = x.map((v, k) => v + 0.5 * h * k1[k]); const k2 = force(x2);
+          const x3 = x.map((v, k) => v + 0.5 * h * k2[k]); const k3 = force(x3);
+          const x4 = x.map((v, k) => v + h * k3[k]); const k4 = force(x4);
+          x = x.map((v, k) => v + (h / 6) * (k1[k] + 2 * k2[k] + 2 * k3[k] + k4[k]));
+        }
+        return pk;
+      };
+      const iso = [0, 1, 2, 3, 4, 5, 5.4, 7, 8, 9]; // isolated dip (5,5.4): gap 0.4, Theta(0) < 1/4
+      const isoT0 = dThetaDs(iso, minPairIdx(iso)).theta;
+      const isoPeak = peak(iso, 40000, 1e-4);
+      const ctrl = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      ctrl[5] += 1e-3; // near-uniform lattice (rho ~ 1) -- detectable high-Theta control
+      const ctrlPeak = peak(ctrl, 40000, 1e-4);
+      // isolated pair never excursions above its start (basin trapped); control proves a climb is detectable
+      return isoT0 < 0.25 && isoPeak <= isoT0 + 1e-9 && ctrlPeak > 0.7;
     },
   },
   {

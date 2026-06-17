@@ -112,6 +112,30 @@ export const TC_LINCHPIN_ASSERTIONS = [
       return !!r && /PICTURE A/.test(r.routeSelection) && /NEGATIVE/.test(r.rigorousBeatConsequence) && /E_coll|C_H/.test(r.whatA1buys);
     },
   },
+  {
+    // The single most consequential step of the resolution: A1 supplies an UPPER
+    // bound on t_c, which only tightens the Rodgers-Tao LOWER face; the headline
+    // upper face Lambda <= -t_c + E(N) is tightened only by a LOWER bound on t_c,
+    // and with t_c >= 0 it reduces to Lambda <= E(N). This locks that sign-algebra
+    // so no future edit can silently flip NEGATIVE into a claimed rigorous beat.
+    id: 'tc-linchpin-headline-sign-algebra-no-false-beat',
+    description: 'Headline sign algebra locked: an UPPER bound on t_c feeds the LOWER face and buys nothing; t_c>=0 reduces the headline to Lambda <= E(N); no rigorous beat is claimed and Platt-Trudgian 0.2 remains SOTA',
+    holds: () => {
+      const r = TC_PART_VS_MF_LINCHPIN.resolution;
+      if (!r) return false;
+      const c = r.rigorousBeatConsequence;
+      const signAlgebraStated =
+        /UPPER bound on t_c/.test(c) &&
+        /LOWER face/.test(c) &&
+        /buys nothing/.test(c) &&
+        /Lambda <= E\(N\)/.test(c) &&
+        /(remains rigorous SOTA|Platt-Trudgian)/.test(c);
+      // The A1 object must genuinely be the microscopic t_c sub-term (not E(N)):
+      // if it were O(1) it could not be a mere sub-term, and the logic would not apply.
+      const tcIsMicroscopicSubterm = TC_PART_VS_MF_LINCHPIN.computedAtN1e4.tcPartUpperBound_g2over6 < 1e-3;
+      return signAlgebraStated && tcIsMicroscopicSubterm;
+    },
+  },
 ];
 
 for (const a of TC_LINCHPIN_ASSERTIONS) {

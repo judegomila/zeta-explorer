@@ -1614,6 +1614,205 @@ const IMP_2458_MULTIPLIER_CLASS_INDEPENDENCE = Object.freeze({
 
 export { IMP_2458_MULTIPLIER_CLASS_INDEPENDENCE };
 
+// =========================================================================
+// SECTION I — imp-2655: CURRENT-BEST RIGOROUS d_N STATUS AND NEXT LEVER.
+// =========================================================================
+//
+// DELIVERABLE (ticket imp-2655): (1) report the current best RIGOROUS bound
+// on the Beurling-Nyman approximation distance d_N held by this module; (2)
+// any rigorous d_N -> 0 sub-result; (3) the highest-leverage next step; and
+// (4) an honest live-vs-subsumed assessment for the direct-RH program.
+//
+// (1) BEST RIGOROUS BOUND. The strongest UNCONDITIONAL result is a LOWER
+//     bound (Baez-Duarte-Balazard-Landreau-Saias, "Notes 3", Adv. Math. 149
+//     (2000) 130-144):
+//
+//         liminf_{N -> infinity} (log N) * d_N^2  >=  sum_{rho} m_rho^2 / |rho|^2
+//
+//     over distinct non-trivial zeros rho (multiplicity m_rho). The right
+//     side is strictly positive, so UNCONDITIONALLY d_N >= c / sqrt(log N)
+//     infinitely often: d_N cannot decay faster than 1/sqrt(log N), and no
+//     unconditional UPPER bound forcing d_N -> 0 is known (such a bound would
+//     prove RH). Under RH + simple zeros the conjectured matching constant is
+//     sum_{rho} 1/|rho|^2 = 2 + gamma - log(4 pi) ~ 0.0462 (since under RH
+//     |rho|^2 = rho(1-rho) and sum 1/(rho(1-rho)) = 2 + gamma - log 4pi).
+//
+// (2) RIGOROUS d_N -> 0 SUB-RESULT. NONE unconditional: d_N -> 0 IFF RH, so
+//     any unconditional proof is RH itself. The rigorous content available is
+//     the criterion (Beurling 1955) plus the monotone numerical decrease of
+//     d_N for N <= ~5000 (Burnol 2005 / Vasyunin Gram-matrix; this repo
+//     reaches N=50 in src/math/vasyunin-beurling-nyman.js, d_N^2 = 1 -
+//     b^T G^{-1} b). That finite-N decrease confirms RH only on the
+//     corresponding zero-height window and is STRICTLY SUBSUMED by the
+//     Platt-Trudgian 2021 verification (RH to T = 3e12). Baez-Duarte 2003
+//     ("A strengthening of the Nyman-Beurling criterion", Atti Lincei)
+//     sharpens WHICH dilations suffice (arithmetic 1/(k x), k in N) but is
+//     still strictly RH-equivalent.
+//
+// (3) HIGHEST-LEVERAGE NEXT STEP. The Vasyunin explicit-formula route
+//     (Gram entries = Vasyunin cotangent sums; d_N^2 = 1 - b^T G^{-1} b) is
+//     the only computational lever that touches d_N rigorously. The lever
+//     would be a rigorous control of the small-eigenvalue / outer-positivity
+//     structure of the Gram matrix to certify a decay RATE; but per
+//     IMP_2458 (band-disjointness multiplier-class independence) that route
+//     to a numerical Lambda bound is STRUCTURALLY CLOSED. The Volterra
+//     connection is a NON-lever: BN lives on L^2(0,1) with the multiplicative
+//     dilation semigroup, the S15-27 contraction ||V_{a,Phi}|| <= 1 lives on
+//     L^2([0,infinity)) with the Phi-modulated sinh-Volterra kernel; no
+//     published bridge identifies the two contractions (obstruction 4 above).
+//
+// (4) HONEST ASSESSMENT. BN is LIVE as a classical RH equivalence and the
+//     unconditional liminf lower bound is genuine, but for the Lambda-bound /
+//     direct-RH program it is SUBSUMED: quantitatively decoupled from Lambda
+//     and from the Volterra chain, and its finite-N evidence is weaker than
+//     existing zero-verification. Not a productive direct lever.
+
+const IMP_2655_BN_RIGOROUS_STATUS = Object.freeze({
+  id: 'imp-2655',
+  parent: 'imp-1312',
+  proofSection: 'S7',
+  isHonestPartial: true,
+  question:
+    'Current best RIGOROUS bound on the Beurling-Nyman distance d_N, any ' +
+    'rigorous d_N -> 0 sub-result, the highest-leverage next step, and an ' +
+    'honest live-vs-subsumed verdict for the direct-RH program.',
+
+  bestRigorousBound:
+    'UNCONDITIONAL lower bound (BBLS "Notes 3", Adv. Math. 149 (2000) 130-144): ' +
+    'liminf_{N->infinity} (log N) d_N^2 >= sum_{rho} m_rho^2/|rho|^2 > 0. Hence ' +
+    'd_N >= c/sqrt(log N) infinitely often; no unconditional upper bound forcing ' +
+    'd_N -> 0 is known (it would prove RH).',
+  bestRigorousBoundIsLowerBound: true,
+  conjecturedMatchingConstant: '2 + gamma - log(4 pi)',
+  conjecturedMatchingConstantValue: 0.0462,
+  conjecturedMatchingConstantBasis:
+    'Under RH + simple zeros, BBLS Conj. 1 gives lim (log N) d_N^2 = ' +
+    'sum_{rho} 1/|rho|^2 = 2 + gamma - log(4 pi) ~ 0.0462, using |rho|^2 = ' +
+    'rho(1-rho) under RH and sum 1/(rho(1-rho)) = 2 + gamma - log 4pi.',
+
+  rigorousDNtoZeroSubResult:
+    'NONE unconditional: d_N -> 0 IFF RH. Rigorous content = the criterion ' +
+    '(Beurling 1955) plus monotone numerical decrease of d_N for N <= ~5000 ' +
+    '(this repo: N=50, vasyunin-beurling-nyman.js, d_N^2 = 1 - b^T G^{-1} b), ' +
+    'which confirms RH only on a bounded zero-height window and is strictly ' +
+    'subsumed by Platt-Trudgian 2021 (RH to T = 3e12).',
+  baezDuarte2003StrongForm:
+    'Baez-Duarte 2003 (Atti Lincei) sharpens WHICH dilations suffice ' +
+    '(arithmetic 1/(k x), k in N) but remains strictly RH-equivalent.',
+
+  highestLeverageNextStep:
+    'Vasyunin explicit-formula route: rigorously control the Gram-matrix ' +
+    'small-eigenvalue / outer-positivity structure to certify a decay RATE. ' +
+    'Per IMP_2458 this route to a numerical Lambda bound is STRUCTURALLY ' +
+    'CLOSED. The Volterra ||V_{a,Phi}|| <= 1 contraction is a NON-lever: ' +
+    'different Hilbert space (L^2(0,1) dilation semigroup vs L^2([0,inf)) ' +
+    'sinh-Volterra), no published bridge.',
+  volterraConnectionIsLever: false,
+
+  verdict:
+    'BN is LIVE as a classical RH equivalence with a genuine unconditional ' +
+    'liminf lower bound, but SUBSUMED for the Lambda-bound / direct-RH ' +
+    'program: quantitatively decoupled from Lambda and from the Volterra ' +
+    'chain, with finite-N evidence weaker than existing zero-verification. ' +
+    'Not a productive direct lever.',
+  isLiveAsRHEquivalence: true,
+  isSubsumedForLambdaProgram: true,
+
+  references: Object.freeze({
+    bbls2000:
+      'Baez-Duarte, Balazard, Landreau, Saias, "Notes sur la fonction zeta ' +
+      'de Riemann, 3", Adv. Math. 149 (2000) 130-144 — unconditional liminf ' +
+      'lower bound on (log N) d_N^2.',
+    vasyunin:
+      'src/math/vasyunin-beurling-nyman.js — d_N^2 = 1 - b^T G^{-1} b via ' +
+      'Vasyunin cotangent-sum Gram matrix, computed to N=50.',
+    imp2458:
+      'IMP_2458_MULTIPLIER_CLASS_INDEPENDENCE (this module) — the BN ' +
+      'reweighting route to a numerical Lambda bound is structurally closed.',
+    plattTrudgian:
+      'Platt, Trudgian 2021 — RH verified to height T = 3e12; subsumes the ' +
+      'finite-N BN numerical confirmation.',
+  }),
+});
+
+export { IMP_2655_BN_RIGOROUS_STATUS };
+
+export const IMP_2655_BN_RIGOROUS_STATUS_ASSERTIONS = [
+  // Tripwire 1: the best rigorous bound is a LOWER bound (not an upper bound
+  // that would prove d_N -> 0 and hence RH).
+  {
+    id: 'imp2655-best-bound-is-unconditional-lower-bound',
+    why:
+      'The honest status hinges on the strongest rigorous fact being a ' +
+      'positive LOWER bound on (log N) d_N^2. Mis-stating it as an upper ' +
+      'bound forcing d_N -> 0 would silently claim RH.',
+    holds: () => {
+      const c = IMP_2655_BN_RIGOROUS_STATUS;
+      return (
+        c.bestRigorousBoundIsLowerBound === true &&
+        /liminf/.test(c.bestRigorousBound) &&
+        />= sum_\{rho\} m_rho\^2\/\|rho\|\^2/.test(c.bestRigorousBound) &&
+        /would prove RH/.test(c.bestRigorousBound)
+      );
+    },
+  },
+
+  // Tripwire 2: no unconditional d_N -> 0 sub-result; it is RH-equivalent and
+  // the finite-N evidence is subsumed by Platt-Trudgian.
+  {
+    id: 'imp2655-no-unconditional-dn-to-zero',
+    why:
+      'd_N -> 0 IFF RH, so any claimed unconditional d_N -> 0 sub-result is ' +
+      'RH itself. The finite-N decrease must be flagged as subsumed by ' +
+      'zero-verification, not as independent progress.',
+    holds: () => {
+      const c = IMP_2655_BN_RIGOROUS_STATUS;
+      return (
+        /NONE unconditional/.test(c.rigorousDNtoZeroSubResult) &&
+        /d_N -> 0 IFF RH/.test(c.rigorousDNtoZeroSubResult) &&
+        /subsumed by Platt-Trudgian/.test(c.rigorousDNtoZeroSubResult)
+      );
+    },
+  },
+
+  // Tripwire 3: the Volterra norm is NOT a lever (orthogonal Hilbert spaces),
+  // and the reweighting route is structurally closed.
+  {
+    id: 'imp2655-volterra-is-not-a-lever',
+    why:
+      'A tempting false bridge is "use ||V|| <= 1 to bound d_N". The verdict ' +
+      'depends on keeping these as orthogonal Hilbert-space families with no ' +
+      'published bridge, and on IMP_2458 closing the reweighting route.',
+    holds: () => {
+      const c = IMP_2655_BN_RIGOROUS_STATUS;
+      return (
+        c.volterraConnectionIsLever === false &&
+        /STRUCTURALLY\s+CLOSED/.test(c.highestLeverageNextStep) &&
+        /no published bridge/.test(c.highestLeverageNextStep)
+      );
+    },
+  },
+
+  // Tripwire 4: honest verdict — LIVE as an RH equivalence but SUBSUMED for
+  // the Lambda program. Both halves must hold to avoid over/under-claiming.
+  {
+    id: 'imp2655-verdict-live-but-subsumed',
+    why:
+      'The calibrated verdict is two-sided: genuine as a classical RH ' +
+      'equivalence, but not a productive direct Lambda lever. Dropping ' +
+      'either half mis-states the strategic status.',
+    holds: () => {
+      const c = IMP_2655_BN_RIGOROUS_STATUS;
+      return (
+        c.isLiveAsRHEquivalence === true &&
+        c.isSubsumedForLambdaProgram === true &&
+        c.isHonestPartial === true &&
+        /Not a productive direct lever/.test(c.verdict)
+      );
+    },
+  },
+];
+
 export const IMP_2458_MULTIPLIER_CLASS_INDEPENDENCE_ASSERTIONS = [
   // Tripwire 1: the obstruction is stated as a multiplier-class-free integral
   // contradiction, NOT a polynomial exponent inequality.

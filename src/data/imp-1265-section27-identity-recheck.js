@@ -77,24 +77,18 @@ const AXIS_A = Object.freeze({
 
   wronskianIdentityCheck:
     'Wronskian ⇔ standard form: starting from E_a = A_a − i B_a, E_a^# = ' +
-    'A_a + i B_a, one computes E_a(z) E_a(w̄) − E_a^#(z) E_a^#(w̄) ' +
-    '= (A_a(z) − i B_a(z))(A_a(w̄) − i B_a(w̄)) − (A_a(z) + i B_a(z))(A_a(w̄) + i B_a(w̄)) ' +
-    '= − 2i (A_a(z) B_a(w̄) + B_a(z) A_a(w̄)) + 2i (A_a(z) B_a(w̄) + B_a(z) A_a(w̄))? ' +
-    'Wait — expanding carefully: (A−iB)(A−iB) − (A+iB)(A+iB) where here the ' +
-    'second factor uses w̄ argument. Let α = A_a(z), β = B_a(z), γ = A_a(w̄), ' +
-    'δ = B_a(w̄). Then E_a(z) E_a(w̄) = (α − iβ)(γ − iδ) = αγ − iαδ − iβγ − βδ ' +
-    'and E_a^#(z) E_a^#(w̄) = (α + iβ)(γ + iδ) = αγ + iαδ + iβγ − βδ. ' +
-    'Difference: −2i(αδ + βγ). Dividing by 2πi (w̄ − z) gives ' +
-    '−(αδ + βγ) / (π (w̄ − z)). Hmm — sign discrepancy vs ' +
-    'the paper Wronskian (A_a(z) B_a(w̄) − B_a(z) A_a(w̄)) / (π (w̄ − z)) = ' +
-    '(αδ − βγ) / (π (w̄ − z)). The two differ. NOTE: the standard de Branges ' +
-    'kernel uses E#(w̄) not E#(w), and the conjugate-on-w sign convention ' +
-    'flips one of the two products. Under the de Branges convention K(w,z) ' +
-    '= (B(z) A(w̄) − A(z) B(w̄)) / (π (z − w̄)) (de Branges 1968 eq (1) in §2.1), ' +
-    'one recovers the Wronskian form ONCE the sign of (z − w̄) is taken into ' +
-    'account. The §25 paper Wronskian and the standard de Branges Wronskian ' +
-    'AGREE up to the (z − w̄) vs (w̄ − z) sign convention, which is a ' +
-    'cosmetic difference (consistent across both factors of the formula).',
+    'A_a + i B_a, one computes E_a(z) E_a^#(w̄) − E_a^#(z) E_a(w̄) ' +
+    '= (A_a(z) − i B_a(z))(A_a(w̄) + i B_a(w̄)) − (A_a(z) + i B_a(z))(A_a(w̄) − i B_a(w̄)). ' +
+    'Expanding carefully: let α = A_a(z), β = B_a(z), γ = A_a(w̄), δ = B_a(w̄). ' +
+    'Then E_a(z) E_a^#(w̄) = (α − iβ)(γ + iδ) = αγ + iαδ − iβγ + βδ ' +
+    'and E_a^#(z) E_a(w̄) = (α + iβ)(γ − iδ) = αγ − iαδ + iβγ + βδ. ' +
+    'Difference: 2i(αδ − βγ) = 2i(A_a(z) B_a(w̄) − B_a(z) A_a(w̄)). Dividing by 2πi (w̄ − z) gives ' +
+    '(A_a(z) B_a(w̄) − B_a(z) A_a(w̄)) / (π (w̄ − z)), which is the correct antisymmetric ' +
+    'de Branges Wronskian. The numerator formula E_a(z) E_a(w̄) − E_a^#(z) E_a^#(w̄) ' +
+    'is INCORRECT — it expands to the symmetric form −2i(A_a(z) B_a(w̄) + B_a(z) A_a(w̄)) ' +
+    'which is NOT the Wronskian. The correct formula uses the conjugate on the ' +
+    'SECOND z variable only: E_a(z) E_a^#(w̄) − E_a^#(z) E_a(w̄). This is the standard ' +
+    'de Branges kernel definition and produces the antisymmetric Wronskian identity.',
 
   hiddenAssumptions: Object.freeze([
     'Φ-INTEGRABILITY: A_a, B_a are defined as improper integrals. Convergence ' +

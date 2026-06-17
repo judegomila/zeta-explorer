@@ -42,7 +42,7 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
     title: 'Off-Diagonal Commutator and the Hidden-Square Attempt',
     pages: '37-42',
     setup: 'X(w) = ξ(1/2 + w); E_a(z) = X(a − iz); E_a^#(z) = X(−a − iz)',
-    kernel: 'K_a(w, z) = (E_a(z) E_a(w̄) − E_a^#(z) E_a^#(w̄)) / (2πi (w̄ − z))',
+    kernel: 'K_a(w, z) = (E_a(z) E_a^#(w̄) − E_a^#(z) E_a(w̄)) / (2πi (w̄ − z))',
     cosineSineDecomposition: Object.freeze({
       A_a: 'A_a(z) := ∫_0^∞ Φ(u) cosh(au) cos(zu) du',
       B_a: 'B_a(z) := ∫_0^∞ Φ(u) sinh(au) sin(zu) du',

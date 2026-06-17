@@ -267,7 +267,7 @@ const NON_CIRCULARITY_AUDIT = Object.freeze({
     }),
     Object.freeze({
       object: 'K_a(w, z)',
-      definition: '(E_a(z) E_a(w̄) − E_a^#(z) E_a^#(w̄)) / (2πi (w̄ − z))',
+      definition: '(E_a(z) E_a^#(w̄) − E_a^#(z) E_a(w̄)) / (2πi (w̄ − z))',
       builtFrom: 'Phi (through E_a)',
       circular: false,
       note:

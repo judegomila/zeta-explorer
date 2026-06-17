@@ -643,6 +643,128 @@ const TC_PROJ_STRESS_TEST = (() => {
   };
 })();
 
+// ── imp-2635: recompose the finite-N*=1e4 beat with the RIGOROUS t_c^part bound ──
+// The imp-2632 stress-test (TC_PROJ_STRESS_TEST above) named the projection soft
+// spot: |t_c_proj| is an OLS POINT ESTIMATE, not a rigorous upper bound. The
+// sg1c Theta machinery supplies a genuine rigorous replacement: Corollary E1 /
+// Corollary A1 (sg1-theta-contraction.js) gives, when the minimal-pair contraction
+// functional satisfies Theta(0) <= 1/4 (the unconditional excursion-cap trap of
+// sg1c, certified at the ladder rows by imp-2627),
+//
+//     t_c^part(N)  <=  g_min(N)^2 / (8 (1 - 1/4))  =  g_min(N)^2 / 6.
+//
+// At N* = 1e4 the minimal RAW ordinate gap over the first 1e4 Odlyzko zeros is the
+// Lehmer pair (pair index 6708, gamma ~ 7005): g_min = 0.0376985, certified as a
+// finite computation over the Platt-Trudgian-verified-on-line zero list (height
+// ~9878 << T_PT = 3e12), so it is NOT RH-conditional at THIS finite N. Hence
+//
+//     t_c^part(1e4)  <=  0.0376985^2 / 6  =  2.369e-4,    ~30x BELOW the OLS 0.0071.
+//
+// UNITS GUARDRAIL (1) — discharged numerically by imp-2485. The mandatory worry
+// (imp-2636) is whether the sg1c CM-flow t_c (dx_k/ds = -2 sum 1/(x_k-x_j), s=-t,
+// UNNORMALIZED transform) is in the SAME de Bruijn-Newman units as the bridge
+// t_c_proj. backward-flow-stability-gronwall.js pins exactly this: the unnormalized
+// flow IS de Bruijn-Newman time (the factor-N gap is between m_N = M/N and M, and
+// neither A1 nor the bridge use the normalized transform). imp-2485-dp8-rk4-N1e4.js
+// CONFIRMS this numerically: a direct backward-Dyson integration on the first 1e4
+// zeros, by THREE independent witnesses (RK4, DOP853, exact two-particle collapse),
+// reads the first-collision time as |t_c(1e4)| ~ 1.78e-4 -- which equals the
+// Lemma-D lower constant g_min^2/8 = 1.776e-4, sits below the A1 upper constant
+// g_min^2/6 = 2.369e-4, and is ~40x below the OLS projection 0.0071, all in the
+// SAME units the ladder t_c_proj is quoted in. So the ~30x ratio is the GENUINE
+// pair-vs-funnel (t_c^part vs t_c^MF / E_pp) gap, NOT a normalization artifact: the
+// OLS extrapolation over-predicts at N*=1e4 because it assumes funnel domination,
+// while the actual collision is pair-dominated (Lehmer pair).
+//
+// GUARDRAIL (2) — the bridge bracket |Lambda + t_c| <= E(N) wants the PARTICLE
+// collision time t_c^part at this N (imp-2564 direction audit), and E_pp does not
+// re-enter L_cond (it was the very gap being closed by switching off the mean-field
+// extrapolation). GUARDRAIL (3) — recomputed below: L_cond_rig replaces tcProj with
+// t_c^part, lowering L_cond at N*=1e4 from ~0.0200 to ~0.0131 and L_pt accordingly.
+//
+// NO FALSE QED — residuals that keep this a CONDITIONAL recomposition, not a
+// standalone theorem: (a) A1 needs Theta(s) <= 1/4 for a.e. s in [0, t_c), the
+// Theta-trap persistence SG1c is MEASURED 9/9 (Theta non-increasing) but not yet
+// proven (open; imp-2637 hardens the excursion cap that licenses A1); (b) the units
+// identification, though confirmed by imp-2485 to read-off precision, is the formal
+// deliverable of imp-2636 (the de Bruijn-Newman heat-flow normalization factor in
+// the backward integration). Conditional on (a)+(b) -- both substantially supported
+// -- the rigorous t_c^part discharges the imp-2632 OLS soft spot AND lowers the beat.
+const TC_PART_RIGOROUS_RECOMPOSITION = (() => {
+  const row = UNCOND_PRIMARY;  // N* = 1e4
+  if (!row || !row.available || !ETRUNC_PT_BOUND) {
+    return { available: false, reason: "no N=1e4 ladder row or E_trunc_pt unavailable" };
+  }
+  const N_star      = 1e4;
+  const G_MIN_N1E4  = 0.0376985;                       // Lehmer pair raw gap (idx 6708, gamma~7005), Odlyzko-certified
+  const tcPartBound = (G_MIN_N1E4 * G_MIN_N1E4) / 6;   // A1: Theta(0)<=1/4 => t_c <= g_min^2/6
+  const tcPartLower = (G_MIN_N1E4 * G_MIN_N1E4) / 8;   // Lemma D lower bound; the imp-2485 measured t_c lands here
+
+  // Recompute E_flow with the SMALLER rigorous t_c (exp(|t_c|) factor); E_coll is
+  // t_c-independent so reuse the row value. Pull the unrounded T0 for E_flow.
+  const T0          = effectiveHeightForN(N_star);
+  const flowRig     = eflowAtT0(T0, tcPartBound);
+  const E_flow_rig  = flowRig ? flowRig.eflow : row.errorTerms.E_flow;
+  const E_coll      = row.errorTerms.E_coll;
+
+  const tcProj      = row.tcProjection.value;
+  const L_cond_proj = row.conditionalBound.L_cond;
+  const L_cond_rig  = tcPartBound + E_flow_rig + E_coll;
+  const L_pt_rig    = L_cond_rig + ETRUNC_PT_BOUND.bound;
+
+  return {
+    available:            true,
+    N_star,
+    classification:       "RIGOROUS-TC-PART-VIA-SG1C-A1 (conditional on SG1c Theta-trap + imp-2636 units)",
+    g_min:                G_MIN_N1E4,
+    g_min_source:         "Lehmer pair, raw ordinate gap over first 1e4 Odlyzko zeros (pair index 6708, gamma~7005); certified finite computation on PT-verified-on-line zeros",
+    tcPart_bound:         +tcPartBound.toExponential(4),   // g_min^2/6 = 2.369e-4
+    tcPart_lower_LemmaD:  +tcPartLower.toExponential(4),   // g_min^2/8 = 1.776e-4
+    A1_constant:          "1/6 = 1/(8(1 - 1/4)), Theta(0) <= 1/4 (sg1c Corollary A1; imp-2627 certified)",
+    isRigorousUpperBound: true,                            // genuine bound (vs OLS point estimate), modulo residuals
+    tcProj_replaced:      tcProj,
+    ratio_proj_to_part:   +(tcProj / tcPartBound).toFixed(1),  // ~30x: the E_pp / pair-vs-funnel gap
+
+    unitsVerification: {
+      measured_tc_imp2485:  1.78e-4,
+      witnesses:            ["RK4", "DOP853", "exact two-particle Calogero-Moser collapse"],
+      lowerConst_match:     +tcPartLower.toExponential(4),   // measured ~ g_min^2/8
+      upperConst_bound:     +tcPartBound.toExponential(4),   // measured < g_min^2/6
+      sameUnitsAsLadder:    true,
+      verdict:              "30-40x ratio is the GENUINE pair-vs-funnel (t_c^part vs t_c^MF) gap, NOT a normalization artifact -- backward CM flow s=-t unnormalized = de Bruijn-Newman units = t_c_proj units (gronwall conventions + imp-2485 three-witness integration)",
+    },
+
+    recomposedBound: {
+      tcPart:       +tcPartBound.toExponential(4),
+      E_flow:       E_flow_rig !== null ? +E_flow_rig.toExponential(4) : null,
+      E_coll:       E_coll,
+      L_cond_rig:   +L_cond_rig.toFixed(7),
+      L_cond_proj:  L_cond_proj,                              // ~0.0200 (OLS, imp-2632)
+      L_cond_drop:  (L_cond_proj !== null) ? +(L_cond_proj - L_cond_rig).toFixed(7) : null,
+      E_trunc_pt:   ETRUNC_PT_BOUND.bound,
+      L_pt_rig:     +L_pt_rig.toFixed(7),
+      beatsPT:      L_pt_rig < PT_BOUND,
+      marginFactor: +(PT_BOUND / L_pt_rig).toFixed(2),       // ~15x (up from ~10x with the OLS L_cond)
+    },
+
+    residualsNoFalseQED: [
+      "SG1c Theta-trap persistence: A1 needs Theta(s) <= 1/4 for a.e. s in [0, t_c); MEASURED 9/9 (Theta non-increasing on real-zero + adversarial runs) but not yet proven. imp-2637 hardens the excursion cap that licenses A1.",
+      "imp-2636 units audit: the de Bruijn-Newman heat-flow normalization factor in the backward integration is confirmed numerically by imp-2485 to read-off precision but is the formal deliverable of imp-2636.",
+      "E_coll (imp-399, rigorously pinned) is now the DOMINANT L_cond sub-term at N*=1e4 (~89% of L_cond_rig); the recomposition removes the projection soft spot but the beat margin is now set by the pinned collision constant, not a projection.",
+    ],
+
+    honestVerdict:
+      "imp-2635 recomposition: replacing the OLS tcProj (0.0071, projected) with the " +
+      "rigorous sg1c A1 bound t_c^part <= g_min^2/6 = 2.369e-4 (g_min = Lehmer-pair gap) " +
+      "lowers L_cond(1e4) from ~0.0200 to ~0.0131 and L_pt from ~0.0200 to ~0.0131, " +
+      "raising the PT margin from ~10x to ~15x. The units match (imp-2485 three-witness " +
+      "backward-CM integration reads |t_c(1e4)| ~ 1.78e-4 = g_min^2/8 < g_min^2/6, same " +
+      "units as t_c_proj), so the ~30x gap is the genuine pair-vs-funnel E_pp gap not a " +
+      "normalization artifact. CONDITIONAL on SG1c Theta-trap persistence (measured 9/9, " +
+      "imp-2637) and the imp-2636 formal units audit. NO false QED -- both residuals named.",
+  };
+})();
+
 // ── Exported record ───────────────────────────────────────────────────────────
 export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
   id: "imp-440",
@@ -868,6 +990,8 @@ export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
   rigorChain: RIGOR_CHAIN,
 
   tcProjStressTest: TC_PROJ_STRESS_TEST,
+
+  tcPartRigorousRecomposition: TC_PART_RIGOROUS_RECOMPOSITION,
 
   honestSummary:
     "CURRENT STATUS (imp-963 closure, 2026-05-18). " +
@@ -1104,5 +1228,177 @@ export const FINITE_HEIGHT_BEATS_PT_ASSERTIONS = [
       "discharge tcProj unconditionally below budget at N*=1e4 (g_min(1e4) input is " +
       "RH-conditional, imp-2563 R_C). A failure means the projection soft spot was " +
       "silently re-blurred into a theorem.",
+  },
+];
+
+// ── imp-2633: discharge the E_flow Gronwall constant (C_G) and the E_coll
+// collision constant (C_C) to EXPLICIT rigorous numeric values at N* = 1e4, and
+// report the honest L_cond = |t_c_proj| + E_flow + E_coll total with each
+// error-term sub-constant pinned. This is the "mechanical-hard half" of making
+// L_cond rigorous; the remaining |t_c_proj| OLS-projection caveat is tracked
+// separately by imp-2632 / imp-2634 and is out of scope here.
+//
+// Status of the two error-term constants at N* = 1e4
+// ---------------------------------------------------
+//   C_C (E_coll): RIGOROUSLY PINNED to (1/8)*sqrt(3*pi) ~ 0.3837 by imp-399
+//     (Holder-1/2 modulus C_H = 1/8 from the Dyson quadratic-tangency ODE
+//      d(g_min^2)/dt = -8, times sqrt(C_KH) with C_KH = 3*pi from imp-341). The
+//      finite-N correction to C_H is < 0.2% for N >= 2458, so at N* = 1e4 the
+//      pinned value is rigorous to better than 0.2%.
+//   C_G (E_flow Gronwall rate): DISCHARGED to a rigorous N-dependent UPPER BOUND
+//      C_G <= 4 / B(0)^2 = (log T_0)^2 / pi^2, where B(0) = 2*pi/log(T_0) is the
+//      mean zero spacing and 4/B^2 is the Lipschitz constant of the Calogero-Moser
+//      drift 4/B in the imp-322 boundary identity dg_{k_*}/dt = 4/B - 2B*S. This
+//      replaces the implicit C_G = 1 that the ladder eflowAtT0 used. It is an
+//      UPPER BOUND, not a single N-independent pinned number: the imp-322
+//      backward-time monotonicity B(s) <= B(0) makes 4/B(s)^2 GROW, so a clean
+//      uniform C_G is the named blocking refinement (Calogero-Moser global
+//      Lipschitz lemma). Harmless at N* = 1e4: |t_c| ~ 0.007 so exp(C_G*|t_c|) < 1.07.
+const LCOND_N_STAR = 1e4;
+const LCOND_DISCHARGE = (() => {
+  const T0     = effectiveHeightForN(LCOND_N_STAR);
+  const L      = Math.log(T0);
+  const tcProj = A_INTERCEPT + B_SLOPE / LCOND_N_STAR;
+
+  // E_coll with the rigorously pinned C_C (imp-399).
+  const E_coll = C_C_PINNED * Math.sqrt(L / LCOND_N_STAR);
+
+  // C_F flow prefactor (imp-398), pinned analytically.
+  const C_F = (Math.log(T0 / (2 * Math.PI)) + 1) / (2 * Math.PI);
+
+  // Gronwall rate: rigorous upper bound C_G <= 4/B(0)^2 = (log T_0)^2 / pi^2.
+  const B0        = (2 * Math.PI) / L;       // mean zero spacing (Riemann-von Mangoldt)
+  const C_G_bound = 4 / (B0 * B0);           // = (log T_0)^2 / pi^2
+  const gronwallFactor = Math.exp(C_G_bound * Math.abs(tcProj));
+
+  // E_flow with the discharged (rigorous-bound) Gronwall factor, plus the
+  // ladder's implicit C_G = 1 reading so the cost of the honest discharge is explicit.
+  const E_flow_rigorous = C_F * (L / T0) * gronwallFactor;
+  const E_flow_cg1      = C_F * (L / T0) * Math.exp(Math.abs(tcProj)); // C_G = 1 (ladder)
+
+  const L_cond = tcProj + E_flow_rigorous + E_coll;
+
+  const dominant =
+    E_coll >= E_flow_rigorous && E_coll >= Math.abs(tcProj) ? "E_coll"
+    : Math.abs(tcProj) >= E_flow_rigorous ? "tcProj" : "E_flow";
+
+  return {
+    N_star:  LCOND_N_STAR,
+    T0:      +T0.toExponential(4),
+    log_T0:  +L.toFixed(4),
+    subTerms: {
+      tcProj: {
+        value:  +tcProj.toFixed(7),
+        pinned: false,
+        status: "OLS projection a + b/N (imp-400) -- NOT a rigorous upper bound; see imp-2632/imp-2634",
+      },
+      E_flow: {
+        value:          +E_flow_rigorous.toExponential(4),
+        C_F:            +C_F.toFixed(5),
+        C_G_bound:      +C_G_bound.toFixed(4),
+        gronwallFactor: +gronwallFactor.toFixed(5),
+        pinned:         true,
+        status: "C_F pinned (imp-398); C_G discharged to rigorous bound 4/B(0)^2 = (log T_0)^2/pi^2",
+      },
+      E_coll: {
+        value:  +E_coll.toFixed(7),
+        C_C:    +C_C_PINNED.toFixed(6),
+        pinned: true,
+        status: "C_C = (1/8)*sqrt(3*pi) rigorously pinned (imp-399)",
+      },
+    },
+    E_flow_cg1_comparison:       +E_flow_cg1.toExponential(4),
+    gronwallDischargeCostFactor: +(E_flow_rigorous / E_flow_cg1).toFixed(5),
+    L_cond:        +L_cond.toFixed(7),
+    beatsPT:       L_cond < PT_BOUND,
+    marginFactor:  +(PT_BOUND / L_cond).toFixed(2),
+    dominantSubterm: dominant,
+    openRefinement:
+      "Pinning C_G to an N-INDEPENDENT constant (rather than the N-dependent bound " +
+      "(log T_0)^2/pi^2) requires the Calogero-Moser global Lipschitz lemma: the " +
+      "imp-322 backward-time monotonicity B(s) <= B(0) makes 4/B(s)^2 grow, so a " +
+      "clean uniform C_G is the named blocking refinement. Harmless at N* = 1e4.",
+    note:
+      "Both E_flow and E_coll sub-constants of L_cond are now explicit rigorous " +
+      "numeric values at N* = 1e4. The only non-rigorous L_cond piece is |t_c_proj| " +
+      "(OLS projection), tracked by imp-2632 / imp-2634.",
+  };
+})();
+
+export const L_COND_CONSTANT_DISCHARGE = {
+  id: "imp-2633",
+  proofSection: "S7",
+  title:
+    "Discharge E_flow Gronwall (C_G) and E_coll (C_C) constants in L_cond to " +
+    "explicit values at N* = 1e4",
+  ...LCOND_DISCHARGE,
+};
+
+export const L_COND_CONSTANT_DISCHARGE_ASSERTIONS = [
+  {
+    id: "imp2633-C_C-rigorously-pinned-one-eighth-sqrt-3pi",
+    holds: () => Math.abs(C_C_PINNED - (1 / 8) * Math.sqrt(3 * Math.PI)) < 1e-12,
+    why:
+      "E_coll's collision constant must be the imp-399 rigorously-pinned " +
+      "C_C = (1/8)*sqrt(3*pi) ~ 0.3837 (C_H = 1/8 from the Dyson quadratic-tangency " +
+      "ODE, C_KH = 3*pi from imp-341). Deviation means E_coll is no longer consuming " +
+      "the pinned constant.",
+  },
+  {
+    id: "imp2633-C_G-bound-equals-Calogero-Moser-Lipschitz",
+    holds: () => {
+      const T0 = effectiveHeightForN(LCOND_N_STAR);
+      const L  = Math.log(T0);
+      const B0 = (2 * Math.PI) / L;
+      const expected = (L * L) / (Math.PI * Math.PI);
+      return Math.abs(4 / (B0 * B0) - expected) < 1e-9 * expected;
+    },
+    why:
+      "The discharged Gronwall-rate bound C_G <= 4/B(0)^2 must equal " +
+      "(log T_0)^2/pi^2 (since B(0) = 2*pi/log T_0). This is the Lipschitz constant " +
+      "of the 4/B drift in the imp-322 boundary identity. A mismatch means the bound " +
+      "formula drifted from its derivation.",
+  },
+  {
+    id: "imp2633-gronwall-factor-harmless-at-N1e4",
+    holds: () => {
+      const gf = L_COND_CONSTANT_DISCHARGE.subTerms.E_flow.gronwallFactor;
+      return gf >= 1 && gf < 1.1;
+    },
+    why:
+      "At N* = 1e4, |t_c| ~ 0.007 so exp(C_G*|t_c|) with the rigorous C_G bound " +
+      "(~8.6) must stay in [1, 1.1) -- the Gronwall discharge is harmless here. A " +
+      "factor >= 1.1 would mean either |t_c| or C_G regressed upward.",
+  },
+  {
+    id: "imp2633-both-error-constants-pinned",
+    holds: () =>
+      L_COND_CONSTANT_DISCHARGE.subTerms.E_flow.pinned === true &&
+      L_COND_CONSTANT_DISCHARGE.subTerms.E_coll.pinned === true,
+    why:
+      "The deliverable is that BOTH E_flow and E_coll carry explicit pinned/discharged " +
+      "constants at N* = 1e4. If either flips to pinned=false the discharge regressed.",
+  },
+  {
+    id: "imp2633-L_cond-beats-PT-with-rigorous-constants",
+    holds: () =>
+      L_COND_CONSTANT_DISCHARGE.L_cond < PT_BOUND &&
+      L_COND_CONSTANT_DISCHARGE.beatsPT === true,
+    why:
+      "With C_C pinned and C_G discharged to its rigorous bound, the honest L_cond at " +
+      "N* = 1e4 (~0.020) must still beat PT = 0.2. A failure means the Gronwall " +
+      "discharge inflated E_flow enough to break the margin.",
+  },
+  {
+    id: "imp2633-E_coll-dominates-pinned-error-terms",
+    holds: () => {
+      const s = L_COND_CONSTANT_DISCHARGE.subTerms;
+      return s.E_coll.value > s.E_flow.value &&
+             L_COND_CONSTANT_DISCHARGE.dominantSubterm === "E_coll";
+    },
+    why:
+      "Consistent with the imp-2632 finding, E_coll (~0.012) must remain the larger " +
+      "of the two pinned error terms at N* = 1e4 (E_flow ~ 1.3e-3) and the overall " +
+      "dominant sub-term. If E_flow exceeds E_coll the Gronwall discharge has blown up.",
   },
 ];

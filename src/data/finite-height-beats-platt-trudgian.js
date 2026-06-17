@@ -765,6 +765,125 @@ const TC_PART_RIGOROUS_RECOMPOSITION = (() => {
   };
 })();
 
+// ── imp-2638: tabulate the RIGOROUS-t_c^part L_pt across the ladder ──────────────
+// imp-2635 (TC_PART_RIGOROUS_RECOMPOSITION above) replaced the OLS t_c_proj with the
+// rigorous sg1c Corollary-A1 bound t_c^part(N) <= g_min(N)^2/6 (valid when Theta(0)
+// <= 1/4, certified per rung by imp-2627) at the single rung N* = 1e4. This ticket
+// pushes that rigorous recomposition to HIGHER N: for every ladder rung where the
+// minimal raw ordinate gap g_min(N) is a certified finite computation over the
+// ZEROS_EXTENDED Odlyzko list (available to N = 1e6), tabulate
+//
+//     L_pt_rig(N)  =  t_c^part(N)  +  E_flow(N)  +  E_coll(N)  +  E_trunc_pt
+//                  =  g_min(N)^2/6  +  E_flow(N)  +  E_coll(N)  +  3.06e-5,
+//
+// and find where the rigorous bound is minimized.
+//
+// g_min(N) certified table (H_raw from imp-360-extended-ladder-N1e6-rows.json, the
+// one-ULP interval-RK4 / honest-partial H_raw certs over the first N Odlyzko
+// ordinates; the N=1e4 value is the Lehmer-pair gap from the imp-2485 / dyson-ladder
+// cache). g_min SHRINKS with N (denser zeros pull the minimal pair tighter), so the
+// rigorous t_c^part = g_min^2/6 term shrinks too -- and E_coll = C_C*sqrt(logT0/N)
+// shrinks as ~1/sqrt(N) while E_trunc_pt is N-independent. The net L_pt_rig(N) is
+// therefore MONOTONE DECREASING across the certified rungs: higher N gives the
+// tighter rigorous bound, with the binding constraint being the N <= 1e6 ceiling of
+// BOTH the certified g_min input (ZEROS_EXTENDED) AND the imp-963/imp-1088
+// unconditional C_mb conservative-carryforward range. The sweet spot is exactly that
+// shared ceiling N* = 1e6.
+//
+// NO FALSE QED -- residuals inherited from imp-2635 (all CONDITIONAL, not theorems):
+//   (a) SG1c Theta-trap persistence Theta(s) <= 1/4 a.e. on [0, t_c) -- MEASURED 9/9,
+//       hardened by imp-2637, not yet proven;
+//   (b) imp-2636 de Bruijn-Newman units identification -- confirmed numerically by the
+//       imp-2485 three-witness backward-CM integration, formal audit is imp-2636;
+//   (c) above N = 1e6 g_min is NOT in ZEROS_EXTENDED, so the rigorous t_c^part term
+//       cannot be evaluated -- the TARGET_NS rungs {2e6..1e9} are OMITTED from this
+//       rigorous tabulation (named sub-gap: certified g_min beyond 1e6 needs a native
+//       backend, same blocker as the imp-360 honest-partial rows). At those rungs only
+//       the OLS-projected ladder (LADDER above) is available, NOT a rigorous bound.
+const TC_PART_LADDER_RIGOROUS = (() => {
+  if (!ETRUNC_PT_BOUND) return { available: false, reason: "E_trunc_pt unavailable" };
+  // Certified g_min(N) per rung (raw ordinate gap, ZEROS_EXTENDED / imp-360 H_raw).
+  const GMIN_CERTIFIED = [
+    { N: 1e4,    g_min: 0.0376985, source: "Lehmer pair idx 6708, gamma~7005 (imp-2485 / dyson cache)" },
+    { N: 2.5e4,  g_min: 0.0353073, source: "imp-360 H_raw cert (one-ULP interval-RK4)" },
+    { N: 5e4,    g_min: 0.0295376, source: "imp-360 H_raw cert (one-ULP interval-RK4)" },
+    { N: 1e5,    g_min: 0.0147015, source: "imp-360 H_raw cert (one-ULP interval-RK4)" },
+    { N: 2.5e5,  g_min: 0.0147015, source: "imp-360 H_raw cert (pair idx 95248)" },
+    { N: 4e5,    g_min: 0.0130532, source: "imp-360 H_raw cert (pair idx 354768)" },
+    { N: 5e5,    g_min: 0.0057037, source: "imp-360 H_raw cert (pair idx 420891)" },
+    { N: 1e6,    g_min: 0.0057037, source: "imp-360 H_raw cert (pair idx 420891)" },
+  ];
+  const rungs = GMIN_CERTIFIED.map((row) => {
+    const T0       = effectiveHeightForN(row.N);
+    const tcPart   = (row.g_min * row.g_min) / 6;          // A1: Theta(0)<=1/4 => t_c <= g_min^2/6
+    const flowData = eflowAtT0(T0, tcPart);
+    const collData = ecollAtNAndT0(row.N, T0);
+    const E_flow   = flowData ? flowData.eflow : null;
+    const E_coll   = collData ? collData.ecoll : null;
+    const L_cond_rig = (E_flow !== null && E_coll !== null) ? tcPart + E_flow + E_coll : null;
+    const L_pt_rig   = (L_cond_rig !== null) ? L_cond_rig + ETRUNC_PT_BOUND.bound : null;
+    return {
+      N:            row.N,
+      g_min:        row.g_min,
+      g_min_source: row.source,
+      tcPart:       +tcPart.toExponential(4),
+      E_flow:       E_flow  !== null ? +E_flow.toExponential(4)  : null,
+      E_coll:       E_coll  !== null ? +E_coll.toExponential(4)  : null,
+      L_cond_rig:   L_cond_rig !== null ? +L_cond_rig.toFixed(7) : null,
+      L_pt_rig:     L_pt_rig   !== null ? +L_pt_rig.toFixed(7)   : null,
+      beatsPT:      L_pt_rig !== null && L_pt_rig < PT_BOUND,
+      marginFactor: (L_pt_rig !== null && L_pt_rig > 0) ? +(PT_BOUND / L_pt_rig).toFixed(2) : null,
+    };
+  });
+  const best = rungs
+    .filter((r) => r.L_pt_rig !== null)
+    .reduce((a, b) => (b.L_pt_rig < a.L_pt_rig ? b : a));
+  return {
+    available:       true,
+    classification:  "RIGOROUS-TC-PART-LADDER (conditional on SG1c Theta-trap + imp-2636 units)",
+    E_trunc_pt:      ETRUNC_PT_BOUND.bound,
+    rungs,
+    minRung: {
+      N:            best.N,
+      L_pt_rig:     best.L_pt_rig,
+      marginFactor: best.marginFactor,
+      tcPart:       best.tcPart,
+      E_coll:       best.E_coll,
+    },
+    dominantTermAtMin:
+      "E_coll (imp-399 rigorously-pinned C_C = (1/8)*sqrt(3*pi)); t_c^part = g_min^2/6 " +
+      "is now negligible at every rung (< 0.4% of L_pt_rig at the minimum)",
+    sweetSpot:
+      "N* = 1e6: the SHARED ceiling of (i) the certified g_min input (ZEROS_EXTENDED " +
+      "Odlyzko list, imp-360 H_raw certs) and (ii) the imp-963/imp-1088 unconditional " +
+      "C_mb conservative-carryforward range. L_pt_rig is monotone decreasing in N, so " +
+      "1e6 is the tightest rigorous finite-height bound this route reaches.",
+    bestRigorousLambdaBound: best.L_pt_rig,
+    omittedRungsAboveCeiling: {
+      Ns:     [2e6, 5e6, 1e7, 2e7, 5e7, 1e8, 2e8, 5e8, 1e9],
+      reason:
+        "g_min(N) not in ZEROS_EXTENDED above N = 1e6, so t_c^part = g_min^2/6 cannot " +
+        "be evaluated rigorously -- certified g_min beyond 1e6 needs a native backend " +
+        "(same blocker as the imp-360 honest-partial rows). At these rungs only the " +
+        "OLS-projected LADDER bound is available, NOT a rigorous one.",
+    },
+    residualsNoFalseQED: [
+      "SG1c Theta-trap persistence Theta(s) <= 1/4 a.e. on [0, t_c): MEASURED 9/9, hardened by imp-2637, not yet proven.",
+      "imp-2636 de Bruijn-Newman units identification: confirmed numerically (imp-2485 three-witness backward-CM integration), formal audit is imp-2636.",
+      "Certified g_min capped at N = 1e6 (ZEROS_EXTENDED ceiling); rungs above are omitted from the rigorous tabulation.",
+    ],
+    honestVerdict:
+      "imp-2638: across the ladder rungs with a certified g_min (N in {1e4..1e6}), the " +
+      "rigorous-t_c^part bound L_pt_rig = g_min^2/6 + E_flow + E_coll + E_trunc_pt is " +
+      "MONOTONE DECREASING and is minimized at N* = 1e6 with L_pt_rig ~ " +
+      best.L_pt_rig.toFixed(5) + " (~" + best.marginFactor + "x below PT 0.2). The shrinking " +
+      "g_min makes t_c^part negligible; the binding term is the rigorously-pinned E_coll, " +
+      "and the binding CONSTRAINT is the shared N <= 1e6 ceiling of the certified g_min " +
+      "input and the unconditional C_mb carryforward. CONDITIONAL on the imp-2635 " +
+      "residuals (SG1c Theta-trap + imp-2636 units); NO false QED.",
+  };
+})();
+
 // ── Exported record ───────────────────────────────────────────────────────────
 export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
   id: "imp-440",
@@ -992,6 +1111,8 @@ export const FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN = {
   tcProjStressTest: TC_PROJ_STRESS_TEST,
 
   tcPartRigorousRecomposition: TC_PART_RIGOROUS_RECOMPOSITION,
+
+  tcPartLadderRigorous: TC_PART_LADDER_RIGOROUS,
 
   honestSummary:
     "CURRENT STATUS (imp-963 closure, 2026-05-18). " +
@@ -1228,6 +1349,39 @@ export const FINITE_HEIGHT_BEATS_PT_ASSERTIONS = [
       "discharge tcProj unconditionally below budget at N*=1e4 (g_min(1e4) input is " +
       "RH-conditional, imp-2563 R_C). A failure means the projection soft spot was " +
       "silently re-blurred into a theorem.",
+  },
+  // ── imp-2638: the rigorous-t_c^part ladder must be monotone decreasing in N and
+  // minimized at the certified-g_min / C_mb-carryforward ceiling N* = 1e6, with the
+  // best rigorous L_pt strictly below PT 0.2.
+  {
+    id: "imp2638-tc-part-ladder-min-at-N1e6-beats-pt",
+    holds: () => {
+      const t = FINITE_HEIGHT_BEATS_PLATT_TRUDGIAN.tcPartLadderRigorous;
+      if (!t || t.available !== true || !Array.isArray(t.rungs) || t.rungs.length < 2) return false;
+      // every certified rung beats PT, and L_pt_rig is monotone decreasing in N
+      let monotone = true;
+      for (let i = 1; i < t.rungs.length; i++) {
+        if (!(t.rungs[i].L_pt_rig <= t.rungs[i - 1].L_pt_rig)) monotone = false;
+        if (t.rungs[i].beatsPT !== true) monotone = false;
+      }
+      return (
+        monotone &&
+        t.rungs[0].beatsPT === true &&
+        t.minRung &&
+        t.minRung.N === 1e6 &&
+        t.bestRigorousLambdaBound !== null &&
+        t.bestRigorousLambdaBound < 0.2 &&         // STRICT vs PT 2021
+        t.minRung.marginFactor > 100
+      );
+    },
+    why:
+      "imp-2638: tabulating the rigorous sg1c-A1 bound L_pt_rig = g_min^2/6 + E_flow + " +
+      "E_coll + E_trunc_pt across the certified-g_min rungs (N in {1e4..1e6}, H_raw from " +
+      "imp-360 / ZEROS_EXTENDED) must be MONOTONE DECREASING in N (both g_min and E_coll " +
+      "shrink, E_trunc_pt is N-independent) and minimized at N* = 1e6 -- the shared ceiling " +
+      "of the certified g_min input and the imp-963/imp-1088 unconditional C_mb carryforward " +
+      "-- with the best rigorous bound ~0.0015 (>100x below PT 0.2). A failure means the " +
+      "g_min certified table, the E-term formulas, or the ladder monotonicity regressed.",
   },
 ];
 

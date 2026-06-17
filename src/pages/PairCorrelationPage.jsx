@@ -14,6 +14,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
 import { PAIR_CORRELATION_MONTGOMERY } from '../data/pair-correlation-montgomery-numerical.js';
+import { IMP_2656_DIRECT_RH_CONJECTURE_MAP } from '../data/imp-2656-direct-rh-conjecture-map.js';
 
 // Geometry.
 const W = 920;
@@ -136,6 +137,23 @@ export default function PairCorrelationPage() {
         <div style={{ overflowX: 'auto' }}>
           <svg width={W} height={H_TOP} role="img" aria-label="Empirical pair correlation vs GUE">
             <g transform={'translate(' + M.left + ',' + M.top + ')'}>
+              {/* Montgomery PCC obstruction band: |alpha| > 1. Montgomery 1973
+                  proved the form factor only for Fourier support in (-1, 1)
+                  (i.e. |alpha| < 1); the pointwise sine-kernel needed by ESY
+                  Route 1 lives at |alpha| ~ log N >> 1, where it is OPEN. The
+                  shaded wings are exactly where the obstruction bites. */}
+              <rect x={0} y={0} width={xTop(-1)} height={IH_TOP}
+                    fill="rgba(239, 68, 68, 0.10)" />
+              <rect x={xTop(1)} y={0} width={IW - xTop(1)} height={IH_TOP}
+                    fill="rgba(239, 68, 68, 0.10)" />
+              <text x={xTop(2)} y={IH_TOP - 8} textAnchor="middle"
+                    style={{ ...tickStyle, fill: '#f87171', fontSize: 9 }}>
+                PCC obstruction (Route 1, OPEN)
+              </text>
+              <text x={xTop(-2)} y={IH_TOP - 8} textAnchor="middle"
+                    style={{ ...tickStyle, fill: '#f87171', fontSize: 9 }}>
+                PCC obstruction (Route 1, OPEN)
+              </text>
               {/* Background grid (horizontal). */}
               {yTopTicks.map((t) => (
                 <line key={'gT-' + t}
@@ -319,6 +337,61 @@ export default function PairCorrelationPage() {
             <li key={'ref-' + i} style={{ marginBottom: 6 }}>{ref}</li>
           ))}
         </ul>
+      </div>
+
+      {/* Strategic obstruction panel: WHERE the shared PCC blocker bites and
+          which direct-RH stream it does (and does not) stall. Grounds the
+          imp-2656 conjecture-map visually against the shaded |alpha| > 1 band
+          above. */}
+      <div style={{
+        marginTop: 16,
+        background: 'var(--bg-panel)',
+        border: '1px solid var(--border)',
+        borderRadius: 8,
+        padding: 14,
+      }}>
+        <h3 style={{ marginTop: 0, color: '#f87171', fontFamily: 'var(--font-mono)', fontSize: 14 }}>
+          Where the Montgomery PCC obstruction bites (imp-2656)
+        </h3>
+        <p style={{ fontSize: 13, color: COLORS.text, lineHeight: 1.55 }}>
+          The shaded wings <code>|alpha| &gt; 1</code> mark the
+          {' '}<strong>Montgomery PCC obstruction region</strong>. Montgomery
+          1973 proved the form factor only for Fourier support in
+          {' '}<code>(-1, 1)</code>; the pointwise sine-kernel
+          {' '}<code>rho_2 = 1 - K_sin^2</code> needed by ESY Route 1 lives at
+          microscopic Fourier extent <code>~ log N &gt;&gt; 1</code>, deep in
+          the shaded band, where the identity remains OPEN.
+        </p>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+          gap: 12,
+          marginTop: 10,
+        }}>
+          <div style={{ padding: 10, background: 'rgba(239, 68, 68, 0.06)', borderRadius: 6, border: '1px solid rgba(239,68,68,0.3)' }}>
+            <div style={{ fontSize: 11, color: '#f87171', fontFamily: 'var(--font-mono)', fontWeight: 700, marginBottom: 4 }}>
+              Stream A — Lambda-bound (PCC-BLOCKED)
+            </div>
+            <div style={{ fontSize: 12, color: COLORS.text, lineHeight: 1.5 }}>
+              {IMP_2656_DIRECT_RH_CONJECTURE_MAP.montgomeryPccObstruction.scopeOfBlock}
+            </div>
+          </div>
+          <div style={{ padding: 10, background: 'rgba(34, 197, 94, 0.06)', borderRadius: 6, border: '1px solid rgba(34,197,94,0.3)' }}>
+            <div style={{ fontSize: 11, color: '#34d399', fontFamily: 'var(--font-mono)', fontWeight: 700, marginBottom: 4 }}>
+              Stream B — direct-RH via 27.2 (PCC-INDEPENDENT)
+            </div>
+            <div style={{ fontSize: 12, color: COLORS.text, lineHeight: 1.5 }}>
+              {IMP_2656_DIRECT_RH_CONJECTURE_MAP.strategicRecommendation.streamSeparation}
+            </div>
+          </div>
+        </div>
+        <p style={{ fontSize: 11, color: COLORS.axis, lineHeight: 1.5, marginTop: 12, marginBottom: 0, fontFamily: 'var(--font-mono)' }}>
+          Closest novel target:
+          {' '}{IMP_2656_DIRECT_RH_CONJECTURE_MAP.independentNovelRanking[0].shortName}
+          {' '}(closeness {IMP_2656_DIRECT_RH_CONJECTURE_MAP.independentNovelRanking[0].closenessScore.toFixed(2)},
+          PCC-blocked = {String(IMP_2656_DIRECT_RH_CONJECTURE_MAP.independentNovelRanking[0].blockedByMontgomeryPCC)}).
+          Source: IMP_2656_DIRECT_RH_CONJECTURE_MAP (src/data/imp-2656-direct-rh-conjecture-map.js).
+        </p>
       </div>
     </div>
   );

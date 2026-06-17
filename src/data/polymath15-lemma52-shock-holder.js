@@ -479,9 +479,138 @@ export const C_H_DISCHARGE_ATTEMPT_IMP2640 = (() => {
   };
 })();
 
+// ── imp-2642: is C_H = 1/8 a rigorous UPPER bound on the Holder modulus? ──────
+//
+// The assembled E_coll constant C_C = (1/8) * sqrt(3 pi) (lambda-sota-assembly /
+// lambda-polymath15-bridge) takes C_H = 1/8 from the imp-395 quadratic-tangency
+// regularization d(g^2)/dt = -8, i.e. C_H = 1 / C_QUADRATIC_TANGENCY. The
+// finite-N beat's rigor needs C_H = 1/8 to be a PROVEN UPPER BOUND on the
+// Holder-1/2 modulus constant C_shock * C_Lip / 4 (Steps 1-3 above), not merely
+// the leading-order coefficient of the gap-to-time map.
+//
+// VERDICT: NEGATIVE. 1/8 is the EXACT leading-order coefficient of the gap-to-
+// collision-time map |tau_c| = g_min(0)^2 / 8 + O(g_min^3) (rigorous for the pure
+// two-particle dynamics, R = 0). It is NOT the Holder modulus. The actual modulus
+// in |Delta tau_c| <= C_H * W_1^{1/2} is C_H = C_shock * C_Lip / 4 (Step combine).
+// Setting C_H = 1/8 silently asserts C_shock * C_Lip = 1/2, which is UNPROVEN:
+//
+//   - The 1/8 lives only in Step 2 as the coefficient of |g_1^2 - g_2^2|. The map
+//     from W_1 to the gap difference (the constant C_Lip) and the cusp scaling
+//     g_min ~ C_shock * W_1^{1/2} (the constant C_shock) are SEPARATE factors that
+//     1/8 does not bound. The product C_shock * C_Lip is the load-bearing quantity.
+//   - C_Lip is, per imp-2640, NOT a finite N-uniform constant by the only available
+//     (Gronwall flow-Jacobian) route: int_0^{t_c} 2/g(t)^2 dt diverges
+//     logarithmically as g -> 0 up to the collision time. So C_shock * C_Lip / 4
+//     is not even known to be finite-and-N-uniform, let alone <= 1/8.
+//   - The O(g_min^3) remainder R(t) = O(1) in d(g^2)/dt = -8 + O(g_min) has
+//     INDETERMINATE sign. A remainder that pushes the colliding gap open (R > 0)
+//     delays the collision, making the effective coefficient |tau_c| / g_min(0)^2
+//     STRICTLY GREATER than 1/8 at finite g_min — so 1/8 is a leading-order value,
+//     not a supremum. The numeric stress test below exhibits this violation.
+//
+// AUXILIARY LEMMA THAT MUST BE CARRIED THROUGH: a rigorous C_H requires the
+// Polymath15 Lemma 5.2 cusp-density constant C_cusp (fixing C_shock) AND a non-
+// Gronwall microscopic gap-stability modulus valid UP TO the collision time
+// (fixing a finite N-uniform C_Lip) — exactly the imp-2640 "whatWouldUnblock".
+// Until both are supplied, C_H = 1/8 is an OPTIMISTIC ESTIMATE, not a rigorous sup.
+
+export const C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642 = (() => {
+  const C_H_CANDIDATE = 1 / C_QUADRATIC_TANGENCY; // = 0.125, the 1/8 in C_C
+
+  // Numeric stress test of the gap-to-collision-time coefficient. The colliding
+  // pair obeys d(g^2)/dt = -8 + R(t) with R = O(1) the drift of all other
+  // particles. Model R as a representative constant remainder cRemainder * g
+  // (R ~ 4 * sum_{j} 1/|gap_j| is O(1) and, when the neighbours repel the pair
+  // apart, POSITIVE). Integrate h = g^2 forward from h(0) = g0^2 to the collision
+  // h = 0 and read off the effective coefficient |tau_c| / g0^2. For R = 0 this is
+  // exactly 1/8; for R > 0 the collision is delayed and the coefficient exceeds 1/8.
+  function effectiveTangencyCoeff(g0, cRemainder) {
+    let h = g0 * g0;
+    let t = 0;
+    const dt = 1e-7;
+    const maxSteps = 5_000_000;
+    let steps = 0;
+    while (h > 0 && steps < maxSteps) {
+      const dh = -C_QUADRATIC_TANGENCY + cRemainder * Math.sqrt(h > 0 ? h : 0);
+      h += dh * dt;
+      t += dt;
+      steps++;
+    }
+    return t / (g0 * g0);
+  }
+
+  const g0 = 0.037698; // N*=1e4 minimal pair (tc-part-vs-mf-linchpin-finding.js)
+  const coeffNoRemainder = effectiveTangencyCoeff(g0, 0); // ~ 0.125 baseline
+  const coeffPositiveRemainder = effectiveTangencyCoeff(g0, 4); // R > 0 -> > 1/8
+  const upperBoundViolated = coeffPositiveRemainder > C_H_CANDIDATE;
+
+  return {
+    ticket: 'imp-2642',
+    goal:
+      'Decide whether C_H = 1/8 (the quadratic-tangency coefficient 1/C_QUADRATIC_TANGENCY) ' +
+      'is a rigorous UPPER bound on the Holder-1/2 modulus C_H = C_shock * C_Lip / 4, or only ' +
+      'a leading-order estimate.',
+    verdict:
+      'NEGATIVE — 1/8 is the EXACT leading-order gap-to-time coefficient (rigorous for R = 0), ' +
+      'NOT a proven upper bound on the Holder modulus C_shock * C_Lip / 4.',
+    isRigorousUpperBound: false,
+    whatOneEighthActuallyIs:
+      'The coefficient of |g_1^2 - g_2^2| in |tau_c| = g_min(0)^2 / 8 + O(g_min^3) ' +
+      '(Step 2). Rigorous as the leading-order two-particle coefficient (R = 0).',
+    whatTheHolderModulusActuallyIs:
+      'C_H = C_shock * C_Lip / 4 (Steps 2+3 combined). Equating it to 1/8 silently ' +
+      'asserts C_shock * C_Lip = 1/2, which is unproven; C_Lip is moreover non-N-uniform (imp-2640).',
+    blockingConstants: ['C_shock (cusp density C_cusp, not pinned)', 'C_Lip (W_1-to-gap, non-N-uniform per imp-2640)'],
+    auxiliaryLemmaNeeded:
+      'Polymath15 Lemma 5.2 cusp-density constant C_cusp to fix C_shock, plus a non-Gronwall ' +
+      'microscopic gap-stability modulus valid up to the collision time to fix a finite ' +
+      'N-uniform C_Lip (the imp-2640 whatWouldUnblock).',
+    stressTest: {
+      method:
+        'Integrate d(g^2)/dt = -8 + R*sqrt(g^2) forward to collision at g0 = 0.037698 ' +
+        '(N*=1e4 minimal pair); read effective coefficient |tau_c| / g0^2.',
+      g0,
+      C_H_CANDIDATE,
+      coeffNoRemainder, // R = 0 -> 1/8 to integrator precision
+      coeffPositiveRemainder, // R > 0 -> exceeds 1/8 (collision delayed)
+      upperBoundViolated,
+      interpretation:
+        'With a positive O(1) remainder the effective coefficient exceeds 1/8, ' +
+        'confirming 1/8 is a leading-order value, not a supremum over configurations.',
+    },
+    impactOnBeat:
+      'C_C = (1/8) * sqrt(3 pi) is an ANSATZ value, not a rigorous E_coll constant. The ' +
+      'finite-height beat does not follow from C_H = 1/8. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+  };
+})();
+
 // ── Build-time assertions ──────────────────────────────────────────────────────
 
 export const POLYMATH15_LEMMA_52_ASSERTIONS = [
+  {
+    id: 'imp2642-CH-one-eighth-not-rigorous-upper-bound',
+    holds: () => {
+      const c = C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642;
+      // Tripwire: 1/8 is only the leading-order quadratic-tangency coefficient, NOT
+      // a proven upper bound on the Holder modulus C_shock * C_Lip / 4. The R = 0
+      // integrator must reproduce 1/8 (coarse tolerance for the explicit Euler step),
+      // a positive remainder must push the effective coefficient strictly above 1/8,
+      // and the verdict must stay NEGATIVE so no edit silently promotes 1/8 to a sup.
+      return (
+        c.isRigorousUpperBound === false &&
+        /NEGATIVE/.test(c.verdict) &&
+        Math.abs(c.stressTest.coeffNoRemainder - 0.125) < 1e-3 &&
+        c.stressTest.coeffPositiveRemainder > c.stressTest.C_H_CANDIDATE &&
+        c.stressTest.upperBoundViolated === true
+      );
+    },
+    why:
+      'imp-2642 verdict lock: C_H = 1/8 is the rigorous leading-order gap-to-time ' +
+      'coefficient (R = 0) but NOT a proven upper bound on the Holder modulus ' +
+      'C_shock * C_Lip / 4. The positive-remainder stress test exceeds 1/8, and C_Lip ' +
+      'is non-N-uniform (imp-2640). This assertion blocks any future edit from treating ' +
+      'C_C = (1/8)*sqrt(3 pi) as a rigorous constant and claiming a finite-height beat.',
+  },
   {
     id: 'imp2640-CH-discharge-negative-no-false-beat',
     holds: () => {

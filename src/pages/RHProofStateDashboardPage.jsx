@@ -280,87 +280,106 @@ export default function RHProofStateDashboardPage() {
       </Section>
 
       {/* E(N) Breakdown and Constants */}
-      <Section title="E(N)/Lambda-Bound Status: Constant Discharge at N*=1e4" borderColor="#3b82f6">
-        <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
-          The binding term of the finite-N*=1e4 beat: Lambda {'{'}={'}'}  t_c^part + E_flow + E_coll.
-          The t_c linchpin (2026-06-17) resolves that the bridge consumes the rigorous first-collision bound.
-          Here: honest status of each sub-term and their constants.
-        </p>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 12 }}>
-          {/* t_c sub-term */}
-          <div style={{
-            padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8,
-            border: '1px solid #10b98144',
-          }}>
-            <div style={{ fontSize: 12, color: '#10b981', fontWeight: 700, marginBottom: 4 }}>
-              t_c^part {'('}FIRST COLLISION{')'}
+      <Section title="E(N) / Lambda-Bound Status at N* = 10⁴" borderColor="#38bdf8">
+        {/* Two-level headline: rigorous SOTA vs numerical estimate */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+          <div style={{ padding: 12, background: 'rgba(16,185,129,0.08)', borderRadius: 8, border: '1px solid rgba(16,185,129,0.3)' }}>
+            <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4, fontFamily: 'var(--font-mono)' }}>RIGOROUS SOTA</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)' }}>Λ ≤ 0.2</div>
+            <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>Platt–Trudgian 2021 — unconditional</div>
+          </div>
+          <div style={{ padding: 12, background: 'rgba(245,158,11,0.08)', borderRadius: 8, border: '1px solid rgba(245,158,11,0.3)' }}>
+            <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4, fontFamily: 'var(--font-mono)' }}>NUMERICAL ONLY (rigor gated)</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>
+              Λ ≤ E(N) ≈ {(IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous + IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value + 3.1e-5).toFixed(4)}
             </div>
-            <div style={{ fontSize: 13, color: '#e2e8f0', marginBottom: 8 }}>
-              {(TC_PART_VS_MF_LINCHPIN.computedAtN1e4.tcPartUpperBound_g2over6 * 1e4).toFixed(2)} × 10⁻⁴
+            <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>C_H = 1/8 PENDING rigorous upper-bound (imp-2642)</div>
+          </div>
+        </div>
+
+        {/* Linchpin resolved info box */}
+        <div style={{ padding: 12, background: 'rgba(59,130,246,0.08)', borderRadius: 8, border: '1px solid rgba(59,130,246,0.25)', marginBottom: 16 }}>
+          <div style={{ fontSize: 11, color: '#3b82f6', fontWeight: 700, marginBottom: 6, fontFamily: 'var(--font-mono)' }}>
+            t_c LINCHPIN RESOLVED 2026-06-17 — Picture A + NEGATIVE on rigorous beat
+          </div>
+          <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6 }}>
+            Bridge consumes t_c^part (first truncated-flow collision). A1 gives t_c^part ≤{' '}
+            {TC_PART_VS_MF_LINCHPIN.computedAtN1e4.tcPartUpperBound_g2over6.toExponential(2)}{' '}
+            (Theta(0) = {TC_PART_VS_MF_LINCHPIN.computedAtN1e4.theta0} ≪ 1/4, unconditional). Sign
+            algebra: Λ ≤ −t_c + E(N), t_c ≥ 0 ⟹{' '}
+            <strong style={{ color: '#e2e8f0' }}>Λ ≤ E(N)</strong>. The A1 bound enters the{' '}
+            <em>lower</em> face only — no rigorous beat over Platt–Trudgian.
+          </div>
+        </div>
+
+        {/* E(N) = E_trunc + E_flow + E_coll sub-term breakdown */}
+        <div style={{ fontSize: 11, color: '#64748b', marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
+          E(N) = E_trunc + E_flow + E_coll at N* = 10⁴
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 4 }}>
+          {/* E_trunc */}
+          <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)', alignItems: 'flex-start' }}>
+            <div style={{ flexShrink: 0, width: 80 }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0', fontFamily: 'var(--font-mono)' }}>E_trunc</div>
+              <div style={{ fontSize: 11, color: '#10b981', fontFamily: 'var(--font-mono)' }}>3.1×10⁻⁵</div>
             </div>
-            <ConstantBadge status="RIGOROUSLY-PINNED" />
-            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 6, lineHeight: 1.5 }}>
-              A1 bound from Theta(0)={TC_PART_VS_MF_LINCHPIN.computedAtN1e4.theta0.toFixed(4)}{' '}
-              &lt;&lt; 1/4 (rigorous, unconditional)
+            <div style={{ flexShrink: 0 }}>
+              <ConstantBadge status="RIGOROUSLY-PINNED" />
+            </div>
+            <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>
+              PT 2021 + Ingham optimal σ=0.75 at T_PT=3×10¹² (imp-447/459) — unconditional, &lt;1% of E(N)
             </div>
           </div>
 
-          {/* E_flow sub-term */}
-          <div style={{
-            padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8,
-            border: '1px solid #f59e0b44',
-          }}>
-            <div style={{ fontSize: 12, color: '#f59e0b', fontWeight: 700, marginBottom: 4 }}>
-              E_flow
+          {/* E_flow */}
+          <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', alignItems: 'flex-start' }}>
+            <div style={{ flexShrink: 0, width: 80 }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0', fontFamily: 'var(--font-mono)' }}>E_flow</div>
+              <div style={{ fontSize: 11, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>
+                {(IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value * 1e3).toFixed(2)}×10⁻³
+              </div>
             </div>
-            <div style={{ fontSize: 13, color: '#e2e8f0', marginBottom: 8 }}>
-              {(IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value * 1e3).toFixed(2)} × 10⁻³
-            </div>
-            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 6 }}>
+            <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 3 }}>
               <ConstantBadge status="RIGOROUSLY-PINNED" />
               <ConstantBadge status="ORDER-UNITY-PLACEHOLDER" />
             </div>
-            <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.5 }}>
-              C_F pinned ({IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.C_F.toFixed(4)}).
-              C_G placeholder; Gronwall factor ≈1.007 (non-binding at N*=1e4).
+            <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>
+              C_F = {IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.C_F.toFixed(4)} RIGOROUS (imp-398).
+              C_G = 1.0 PLACEHOLDER, non-binding (Gronwall factor ≈1.007 at N*=10⁴)
             </div>
           </div>
 
-          {/* E_coll sub-term */}
-          <div style={{
-            padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8,
-            border: '1px solid #10b98144',
-          }}>
-            <div style={{ fontSize: 12, color: '#10b981', fontWeight: 700, marginBottom: 4 }}>
-              E_coll
+          {/* E_coll — PARTIAL, not RIGOROUSLY-PINNED: C_H pending (imp-2642) */}
+          <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', alignItems: 'flex-start' }}>
+            <div style={{ flexShrink: 0, width: 80 }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0', fontFamily: 'var(--font-mono)' }}>E_coll</div>
+              <div style={{ fontSize: 11, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>
+                {IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous.toFixed(4)}
+              </div>
             </div>
-            <div style={{ fontSize: 13, color: '#e2e8f0', marginBottom: 8 }}>
-              {(IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_coll.value * 1e2).toFixed(2)} × 10⁻²
+            <div style={{ flexShrink: 0 }}>
+              <ConstantBadge status="ORDER-UNITY-PLACEHOLDER" />
             </div>
-            <ConstantBadge status="RIGOROUSLY-PINNED" />
-            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 6, lineHeight: 1.5 }}>
-              C_C = (1/8) √{'{'}3π{'}'} = {IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_coll.C_C.toFixed(4)} (rigorous, imp-399).
-              Dominant sub-term at N*=1e4 ({(IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_coll.value / IMP2633_L_COND_CONSTANT_DISCHARGE.L_cond * 100).toFixed(0)}%).
+            <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>
+              C_Selberg discharged → {IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.C_Selberg.rigorousExplicit} (Trudgian 2014, imp-2641; E-T bridge O(1) residual).
+              C_H = 1/8 PENDING rigorous upper-bound verification (imp-2642). Dominant sub-term ~90% of E(N).
             </div>
           </div>
 
-          {/* L_cond Total */}
-          <div style={{
-            padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8,
-            border: '2px solid #3b82f6',
-          }}>
-            <div style={{ fontSize: 12, color: '#3b82f6', fontWeight: 700, marginBottom: 4 }}>
-              L_cond TOTAL
+          {/* E(N) total */}
+          <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.2)', alignItems: 'center' }}>
+            <div style={{ flexShrink: 0, width: 80 }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0', fontFamily: 'var(--font-mono)' }}>E(N)</div>
+              <div style={{ fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)' }}>
+                ≈ {(IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous + IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value + 3.1e-5).toFixed(4)}
+              </div>
             </div>
-            <div style={{ fontSize: 13, color: '#e2e8f0', marginBottom: 8 }}>
-              {IMP2633_L_COND_CONSTANT_DISCHARGE.L_cond.toFixed(4)}
-            </div>
-            <div style={{ fontSize: 11, color: '#10b981', fontWeight: 600, marginBottom: 4 }}>
-              ✓ Beats PT_BOUND = 0.2 by {IMP2633_L_COND_CONSTANT_DISCHARGE.marginFactor}×
-            </div>
-            <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.5 }}>
-              E_coll gated by discharge of C_H (Selberg/Koksma-Hlawka). Binding residual: |t_c_proj|
-              placeholders B1/B2 (CM-model + GUE-conditional).
+            <div style={{ color: '#94a3b8', fontSize: 12 }}>
+              <strong style={{ color: '#e2e8f0' }}>
+                {(0.2 / (IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous + IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value + 3.1e-5)).toFixed(0)}×
+              </strong>{' '}
+              below Platt–Trudgian 0.2 — not yet rigorous (C_H + E-T bridge constant pending). Rigorous SOTA unchanged:{' '}
+              <strong style={{ color: '#10b981' }}>Λ ≤ 0.2</strong>.
             </div>
           </div>
         </div>

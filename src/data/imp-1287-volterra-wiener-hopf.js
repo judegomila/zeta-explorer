@@ -1,7 +1,11 @@
 /**
  * @module imp-1287-volterra-wiener-hopf
- * @fileoverview imp-1287 — Wiener-Hopf factorization (route 4 of imp-1260) for
- *   the §27 endpoint-Hankel Volterra-Hankel operator V_{a,Φ} on L²([0, ∞)).
+ * @fileoverview imp-1287 — RETRACTED (imp-2660) — Wiener-Hopf factorization attempt
+ *   on V_{a,Φ}. Ticket imp-2660 refuted the core claim: causal sinh-convolution K_a
+ *   is NOT a Toeplitz/Wiener-Hopf operator. Laplace symbol a/(z^2-a^2) has a pole
+ *   at z=a INSIDE Re(z)>0. Measured growth ||K_a|| ~ e^{aT} (exponential at a=0.5:
+ *   [3.0, 9.53, 26.97, 74.02] at T=[4,6,8,10]), NOT the claimed 1/a = 2.0. This
+ *   file is kept for historical audit but its main assertions are disabled.
  *
  *   PARENT-TICKET CONTEXT
  *   ---------------------
@@ -14,17 +18,10 @@
  *     route 1: Hilbert-Schmidt              (imp-1267, closed for a ∈ (0, ~37.66])
  *     route 2: Carleson-Volterra-Hardy      (open)
  *     route 3: Mellin diagonalization       (imp-1266, STRUCTURALLY BLOCKED)
- *     route 4: Wiener-Hopf factorization    <- THIS TICKET
- *
- *   imp-1266 shipped the closed-form Laplace symbol
- *
- *       L[k_a](z) = a / (z² − a²),   Re(z) > a                  (LS-1266)
- *
- *   and EXPLICITLY flagged route 4 (Wiener-Hopf) as the unopened second
- *   analytical route. This file carries it out.
+ *     route 4: Wiener-Hopf factorization    <- THIS TICKET (RETRACTED by imp-2660)
  *
  *   ════════════════════════════════════════════════════════════════════════
- *   HEADLINE VERDICT.  Wiener-Hopf closes Conj 27.2 for a ≥ ‖Φ‖²_∞ ≈ 0.1996.
+ *   HEADLINE VERDICT (REFUTED).  ‖K_a‖ ≤ 1/a is FALSE.
  *   ════════════════════════════════════════════════════════════════════════
  *   The WH bound on the BARE half-line convolution K_a is sharp:
  *
@@ -305,12 +302,12 @@ const COMBINED_COVERAGE = Object.freeze({
     role: 'double-coverage; cross-check between two independent routes',
   }),
   union: Object.freeze({
-    range: '(0, ∞)',
-    closesConj272ForAllA: true,
+    range: '(0, ~37.66]  (HS only; WH retracted)',
+    closesConj272ForAllA: false, // RETRACTED: WH bound is invalid (imp-2660)
     note:
-      'HS + WH together cover ALL a > 0 with no gap. Conj 27.2 is proven by ' +
-      'two INDEPENDENT analytical routes — one a Cauchy-Schwarz / kernel-' +
-      'pointwise majorant (HS), one a Fourier-Laplace symbol estimate (WH).',
+      'WH route is INVALID (imp-2660): ||K_a|| ~ e^{aT}, NOT ≤ 1/a. HS covers ' +
+      'only a in (0, ~37.66] — below this, rigorous. Above a ~37.66, Conj 27.2 ' +
+      'is FALSE: ||V_{{a,Φ}}||_op > 1 and grows unbounded (imp-2660).',
   }),
   crossoverPoint: Object.freeze({
     a_eq: 23.16,
@@ -334,41 +331,42 @@ const COMBINED_COVERAGE = Object.freeze({
 
 // ── Summary / verdict ────────────────────────────────────────────────────────
 const SUMMARY = Object.freeze({
-  routeOpened: 'route-4-wiener-hopf',
-  closedFormBound: '‖V_{a,Φ}‖ ≤ ‖Φ‖²_∞ / a',
+  routeOpened: 'route-4-wiener-hopf (RETRACTED by imp-2660)',
+  closedFormBound: '‖V_{a,Φ}‖ ≤ ‖Φ‖²_∞ / a  (INVALID — imp-2660)',
   phiSupNorm: PHI_SUP_NORM,
   phiSupNormSquared: PHI_SUP_NORM_SQUARED,
-  K_a_bound: '1/a',
+  K_a_bound: '1/a  (FALSE — measured ||K_a|| ~ e^{aT})',
   thresholdForClosure: PHI_SUP_NORM_SQUARED,
-  closesConj272ForAGeq: PHI_SUP_NORM_SQUARED, // ≈ 0.1996
-  combinedWithHS_coversAllA: true,
+  closesConj272ForAGeq: null, // RETRACTED
+  combinedWithHS_coversAllA: false, // RETRACTED: WH is invalid
   numRowsBelowOne: WH_ROWS_CLEAN.filter((r) => r.belowOne).length,
   numRowsAtOrAboveThreshold: WH_ROWS_CLEAN.filter((r) => r.atOrAboveThreshold).length,
-  verdict: 'WH-closes-for-a-geq-phi-supnorm-squared (a ≥ 0.1996)',
+  verdict: 'RETRACTED by imp-2660: WH bound is FALSE; causal sinh-convolution is non-Toeplitz; ||K_a|| ~ e^{aT}',
 });
 
 // ── Main export ──────────────────────────────────────────────────────────────
 export const IMP1287_VOLTERRA_WIENER_HOPF = Object.freeze({
   id: 'imp-1287-volterra-wiener-hopf',
   ticket: 'imp-1287',
+  status: 'RETRACTED by imp-2660',
   generatedAt: '2026-05-28T23:55:00Z',
+  retractionDate: '2026-06-17',
+  retractionReason: 'Bound ||K_a|| <= 1/a is FALSE. Causal sinh-convolution is non-Toeplitz (pole at z=a in RHP). Measured ||K_a|| ~ e^{aT} (3.0, 9.53, 26.97, 74.02 at T=4,6,8,10 for a=0.5).',
   paperSourcePath: PAPER_REF,
   paperSections: ['§25', '§26', '§27'],
   parentTicket: 'imp-1260',
-  relatedTickets: ['imp-1258', 'imp-1260', 'imp-1266', 'imp-1267', 'imp-1286'],
-  route: 'route-4-wiener-hopf',
+  relatedTickets: ['imp-1258', 'imp-1260', 'imp-1266', 'imp-1267', 'imp-1286', 'imp-2660'],
+  route: 'route-4-wiener-hopf  (INVALID)',
   verdict: SUMMARY.verdict,
 
   summary:
-    'imp-1287 opens route 4 of imp-1260: Wiener-Hopf factorization of the ' +
-    'Laplace symbol L[k_a](z) = a/(z²-a²) (from imp-1266) into ±-analytic ' +
-    'halves. The bare half-line sinh-convolution K_a has Wiener-Hopf bound ' +
-    '‖K_a‖ ≤ 1/a (sup of |symbol| on imaginary axis, achieved at t=0). With ' +
-    'the Φ twist: ‖V_{a,Φ}‖ ≤ ‖Φ‖²_∞ / a = 0.1996/a using ‖Φ‖_∞ = 0.4467 from ' +
-    'imp-1266 PHI_NORMS. WH closes Conj 27.2 for a ≥ ‖Φ‖²_∞ ≈ 0.1996. Combined ' +
-    'with the imp-1267 / imp-1260 HS bound (coverage a ∈ (0, ~37.66]), the ' +
-    'union covers ALL a > 0 with overlap [0.1996, 37.66] — Conj 27.2 is now ' +
-    'proven by TWO independent analytical routes for every a > 0.',
+    'RETRACTED (imp-2660). Attempted route 4 of imp-1260 via Wiener-Hopf ' +
+    'factorization of Laplace symbol L[k_a](z) = a/(z²-a²). FLAW: causal ' +
+    'sinh-convolution K_a is NOT a Toeplitz/Wiener-Hopf operator. Pole at ' +
+    'z = a lies INSIDE Re(z) > 0 (not just on boundary). Bound ‖K_a‖ ≤ 1/a ' +
+    'is FALSE. Measured ‖K_a‖ ~ e^{aT} (exp growth; 3.0→74 at T=4→10 for a=0.5). ' +
+    'Conj 27.2 is FALSE for a > ~37.66 (||V||_op > 1). HS (imp-1267) remains ' +
+    'the valid rigorous Volterra route on the physical band (0, ~37.66].',
 
   conjectureTarget: Object.freeze({
     label: 'Conjecture 27.2 (Endpoint-Hankel Volterra contraction)',
@@ -416,16 +414,16 @@ export const IMP1287_VOLTERRA_WIENER_HOPF = Object.freeze({
   summary_stats: SUMMARY,
 
   honestScope: Object.freeze({
-    isAnalyticalBound: true,
-    isProof: true,
-    isClosedForm: true,
-    isProofOfConj27_2: false, // not by WH ALONE — only for a ≥ 0.1996
-    isProofOfConj27_2_combinedWithHS: true, // YES — HS+WH covers all a > 0
-    coverageRange: 'a ≥ ‖Φ‖²_∞ ≈ 0.1996',
-    coverageGap_singleRoute: 'a ∈ (0, 0.1996) — closed by imp-1267 HS',
-    coverageGap_combined: 'none — HS+WH covers all a > 0',
+    isAnalyticalBound: false, // RETRACTED by imp-2660: ‖K_a‖ ≤ 1/a is FALSE
+    isProof: false, // RETRACTED by imp-2660: bound is invalid
+    isClosedForm: false, // RETRACTED
+    isProofOfConj27_2: false,
+    isProofOfConj27_2_combinedWithHS: false, // HS ALONE does NOT cover all a > 0; Conj 27.2 is FALSE for a > ~37.66
+    coverageRange: 'INVALID — retracted by imp-2660',
+    coverageGap_singleRoute: 'N/A — route is invalid',
+    coverageGap_combined: 'HS covers a in (0, ~37.66]; Conj 27.2 is FALSE for a > ~37.66',
     notACompletedProofOfConj272_byThisRouteAlone: true,
-    notACompletedProofOfConj272_HS_WH_union: false, // HS+WH IS the completed proof
+    notACompletedProofOfConj272_HS_WH_union: true, // HS ALONE does not cover all a
     krein_classical_invocation:
       'The Toeplitz-on-H²(C_+) norm estimate ‖T_φ‖ ≤ ‖φ‖_∞ is Krein 1958 / ' +
       'Gohberg-Krein 1958 — classical, not re-derived here.',

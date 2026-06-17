@@ -1,7 +1,7 @@
 /**
  * @module imp-1302-goldston-gonek-pcc-attack
  * @fileoverview imp-1302 - CRITICAL classification: does the Goldston-Gonek
- *   1998 (Annals of Math) second-moment refinement of zeta on the critical
+ *   1998 (Acta Arithmetica) second-moment refinement of zeta on the critical
  *   line, possibly combined with the Conrey-Snaith 2008 CUE-arithmetic
  *   correction conjecture, close Montgomery's pair-correlation conjecture
  *   (PCC) at 2-point UNCONDITIONALLY, thereby completing the §15-27
@@ -20,7 +20,7 @@
  *
  *   imp-1297 ruled out the Selberg-trace route (verdict
  *   `selberg-requires-cuspidal-density-conjecture`) and named the productive
- *   direct lever: Goldston-Gonek 1998 (Annals of Math 148 (1998) 945-958)
+ *   direct lever: Goldston-Gonek 1998 (Acta Arithmetica 84 (1998) 155-192)
  *   second-moment refinements of zeta on the critical line.
  *
  *   HEADLINE VERDICT
@@ -54,7 +54,7 @@
  *   -------------
  *   - Precise statement of Montgomery 1973 PCC at 2-point in the test-
  *     function form needed for the §15-27 closure.
- *   - Precise statement of Goldston-Gonek 1998 (Annals 148) and the
+ *   - Precise statement of Goldston-Gonek 1998 (Acta Arithmetica 84) and the
  *     Fourier-support window in which it applies.
  *   - Status classification of Conrey-Snaith 2008: CONJECTURE (not theorem)
  *     based on the conjectural ratios theorem of Conrey-Farmer-Zirnbauer.
@@ -100,7 +100,7 @@ const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
 //
 //   where N(T) ~ (T/(2 pi)) log(T/(2 pi)) is Riemann-von Mangoldt.
 //
-// MONTGOMERY 1973 PROVES this UNCONDITIONALLY for f-hat supported in (-1, 1)
+// MONTGOMERY 1973 PROVES this unconditionally ONLY for |support| < 1 (f-hat in (-1, 1))
 // (the diagonal-approximation argument via the explicit formula handles the
 // off-diagonal sum exactly in this range). Montgomery CONJECTURED the same
 // identity holds for all Schwartz f.
@@ -140,12 +140,12 @@ const MONTGOMERY_PCC_STATEMENT = Object.freeze({
 });
 
 // =========================================================================
-// SECTION B - GOLDSTON-GONEK 1998 (Annals 148).
+// SECTION B - GOLDSTON-GONEK 1998 (Acta Arithmetica 84).
 // =========================================================================
 //
 // Goldston, Gonek 1998 "Mean Value Theorems for Long Dirichlet Polynomials
-// and Tails of Dirichlet Coefficients" (Annals of Mathematics, second
-// series, Vol. 148, No. 3 (1998), pp. 945-958).
+// and Tails of Dirichlet Coefficients" (Acta Arithmetica 84 (1998),
+// pp. 155-192).
 //
 // Headline result: for a Dirichlet polynomial A(t) = sum_{n <= N} a_n n^{-it}
 // with N = T^theta and arbitrary complex coefficients a_n, GG1998 proves
@@ -173,18 +173,18 @@ const MONTGOMERY_PCC_STATEMENT = Object.freeze({
 // argument is essentially Heath-Brown 1979 sharpened, and the (log T)^2
 // loss is intrinsic to the smoothing-by-zeros step).
 //
-// CRITICAL: GG1998 is a THEOREM (Annals of Math) and is UNCONDITIONAL,
+// CRITICAL: GG1998 is a THEOREM (Acta Arithmetica 84) and is UNCONDITIONAL,
 // but its range theta < 1 stops STRICTLY SHORT of the sigma > 1 regime
 // where Montgomery PCC is conjectural.
 
 const GOLDSTON_GONEK_1998_STATEMENT = Object.freeze({
   source:
     'Goldston, Gonek 1998, "Mean Value Theorems for Long Dirichlet Polynomials ' +
-    'and Tails of Dirichlet Coefficients", Annals of Mathematics, second series, ' +
-    'Vol. 148, No. 3 (1998), pp. 945-958',
+    'and Tails of Dirichlet Coefficients", Acta Arithmetica 84 (1998), ' +
+    'pp. 155-192',
   isTheorem: true,
   isUnconditional: true,
-  isAnnalsOfMath: true,
+  isAnnalsOfMath: false,
   headlineTheorem:
     'integral_0^T |A(t)|^2 dt = (T + O(N (log T)^2)) sum_{n <= N} |a_n|^2 ' +
     'for A(t) = sum_{n <= N} a_n n^{-it} a Dirichlet polynomial of length N = T^theta',
@@ -559,7 +559,7 @@ export const IMP_1302_GOLDSTON_GONEK_PCC_ATTACK = Object.freeze({
     'do NOT extend the support range to sigma > 1 where the §15-27 ESY-closure Poisson ' +
     'kernel binds.',
 
-    'GG1998 is a THEOREM (Annals of Math 148 (1998) 945-958), unconditional, with ' +
+    'GG1998 is a THEOREM (Acta Arithmetica 84 (1998) 155-192), unconditional, with ' +
     'range strictly theta < 1. CS2008 is a CONJECTURE conditional on the Conrey-Farmer-' +
     'Zirnbauer ratios conjecture for zeta. Neither alone nor combined closes PCC at 2-point.',
 
@@ -586,8 +586,7 @@ export const IMP_1302_GOLDSTON_GONEK_PCC_ATTACK = Object.freeze({
       'Pure Math. XXIV (1973), 181-193',
     goldstonGonek1998:
       'Goldston, Gonek, "Mean Value Theorems for Long Dirichlet Polynomials and Tails ' +
-      'of Dirichlet Coefficients", Annals of Mathematics, second series, Vol. 148, ' +
-      'No. 3 (1998), pp. 945-958',
+      'of Dirichlet Coefficients", Acta Arithmetica 84 (1998), pp. 155-192',
     conreySnaith2008:
       'Conrey, Snaith, "Triple correlation of the Riemann zeros", J. Theor. Nombres ' +
       'Bordeaux 20 (2008), 61-106 (and the related moments paper, Comm. Math. Phys. ' +
@@ -645,23 +644,25 @@ export const IMP_1302_GOLDSTON_GONEK_PCC_ATTACK_ASSERTIONS = [
     },
   },
 
-  // Tripwire 2: Goldston-Gonek 1998 stated as Annals theorem with precise range.
+  // Tripwire 2: Goldston-Gonek 1998 stated as the Acta Arithmetica 84 theorem
+  // with precise range. (imp-2663: corrected from the fabricated Annals 148 citation.)
   {
     id: 'imp1302-goldston-gonek-1998-stated-precisely',
     why:
-      'GG1998 must be stated as the Annals 148 theorem with (i) the headline mean-' +
-      'value formula, (ii) the precise range theta < 1, (iii) the error term ' +
-      '(log T)^2, (iv) the intrinsic obstruction that prevents extension to theta = 1. ' +
-      'Any silent drift to "GG1998 reaches sigma > 1" would falsely overstate the input.',
+      'GG1998 must be stated as the Acta Arithmetica 84 (1998) 155-192 theorem with ' +
+      '(i) the headline mean-value formula, (ii) the precise range theta < 1, (iii) ' +
+      'the error term (log T)^2, (iv) the intrinsic obstruction that prevents ' +
+      'extension to theta = 1. Any silent drift to "GG1998 reaches sigma > 1" would ' +
+      'falsely overstate the input. The journal is Acta Arithmetica, NOT Annals of Math.',
     holds: () => {
       const g = IMP_1302_GOLDSTON_GONEK_PCC_ATTACK.goldstonGonek1998Statement;
       return (
-        typeof g.source === 'string' && /Annals of Math/.test(g.source) &&
+        typeof g.source === 'string' && /Acta Arithmetica/.test(g.source) &&
         /1998/.test(g.source) &&
-        /148/.test(g.source) &&
+        /155/.test(g.source) &&
         g.isTheorem === true &&
         g.isUnconditional === true &&
-        g.isAnnalsOfMath === true &&
+        g.isAnnalsOfMath === false &&
         typeof g.headlineTheorem === 'string' && /Dirichlet polynomial/.test(g.headlineTheorem) &&
         typeof g.rangeOfValidity === 'string' && /theta < 1/.test(g.rangeOfValidity) &&
         typeof g.errorTerm === 'string' && /\(log T\)\^2/.test(g.errorTerm) &&
@@ -723,7 +724,7 @@ export const IMP_1302_GOLDSTON_GONEK_PCC_ATTACK_ASSERTIONS = [
         /1973/.test(r.montgomery1973 || '') &&
         /Goldston/.test(r.goldstonGonek1998 || '') &&
         /Gonek/.test(r.goldstonGonek1998 || '') &&
-        /Annals/.test(r.goldstonGonek1998 || '') &&
+        /Acta Arithmetica/.test(r.goldstonGonek1998 || '') &&
         /1998/.test(r.goldstonGonek1998 || '') &&
         /Conrey/.test(r.conreySnaith2008 || '') &&
         /Snaith/.test(r.conreySnaith2008 || '') &&

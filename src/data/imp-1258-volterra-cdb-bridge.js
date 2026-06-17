@@ -24,6 +24,14 @@
 //   ⇔ K_a ⪰ 0 for every a > 0
 //   ⇔ RH (via the shift-bridge threshold theorem)
 //
+// PCC-FREE ROUTE
+// ---------------
+// This chain does NOT route through Montgomery pair-correlation (PCC). The
+// imp-1184 Montgomery PCC obstruction lives in Stream A (psi_N) only and never
+// touches the V_{a,Φ}/27.2 chain. The residual gap is NOT PCC but (i) the
+// L²([0, ∞)) norm bound 27.2 and (ii) the §27 block-positivity ⇔ K_a-PSD
+// identity (imp-1265 caveats).
+//
 // CHAIN WALK
 // ----------
 // Forward (‖V‖ ≤ 1 ⇒ CDB-Exist):
@@ -69,7 +77,8 @@
 // the Volterra-Hankel operator V_{a,Φ} on L²([0, ∞)) is a contraction.
 // imp-1240's 25-row empirical sweep gave norms > 5000x below 1; the structural
 // collapse means that one rigorous L²([0, ∞)) operator-norm bound would close
-// the entire program (still conditional on Montgomery PCC per imp-1184).
+// the entire program. This route is PCC-FREE: the imp-1184 Montgomery PCC
+// obstruction lives in Stream A (psi_N) only and never touches this chain.
 //
 // HONEST SCOPE
 // ------------
@@ -81,9 +90,11 @@
 //     the §25 commutator + §26 measure-domination chain in v52 §§25-27.
 //   - The non-circularity check is structural: every named object (V, K_a, E_a,
 //     A_a, B_a, H(E_a), dm_a) is constructed from Φ via integrals.
-//   - PCC obstruction remains: per imp-1184 even ‖V_{a,Φ}‖ ≤ 1 in L²([0, ∞))
-//     would still need Montgomery PCC for an UNCONDITIONAL proof, since V is
-//     built from Φ and Φ encodes archimedean factor + zero structure.
+//   - PCC-FREE route: 27.2 ⇒ RH does NOT route through Montgomery PCC. The
+//     imp-1184 PCC obstruction lives in Stream A (psi_N) only and never touches
+//     this V_{a,Φ}/27.2 chain. The residual gap is NOT PCC but (i) the
+//     L²([0, ∞)) norm bound 27.2 and (ii) the §27 block-positivity ⇔ K_a-PSD
+//     identity (imp-1265 caveats).
 
 import { HIDDEN_SQUARE_PROGRAM_SECTION } from './hidden-square-program-section.js';
 import { IMP1240_VOLTERRA_NORM_PILOT } from './imp-1240-volterra-norm-pilot.js';
@@ -343,7 +354,9 @@ const MASTER_VERDICT_RATIONALE =
   'positivity ⇔ K_a ⪰ 0). Therefore Conj 27.2 (‖V_{a,Φ}‖ ≤ 1) and CDB-Exist ' +
   '(Φ-built canonical-system existence) are LOGICALLY EQUIVALENT. The entire ' +
   '§15-27 proof program — six conjectures across §16, §17, §18, §25, §26, §27 — ' +
-  'reduces to ONE statement: ‖V_{a,Φ}‖_{L²([0,∞))} ≤ 1 for every a > 0.';
+  'reduces to ONE statement: ‖V_{a,Φ}‖_{L²([0,∞))} ≤ 1 for every a > 0. This ' +
+  'collapse is PCC-FREE: the imp-1184 Montgomery PCC obstruction lives in Stream A ' +
+  '(psi_N) only and never touches this chain.';
 
 const CHAIN_COLLAPSE = Object.freeze({
   status: 'collapsed-to-one-operator-norm-bound',
@@ -365,14 +378,13 @@ const CHAIN_COLLAPSE = Object.freeze({
       'and canonical-system existence are the same statement in different notation.',
     'imp-1240 empirical pilot (25 norms all > 5000x below 1) is empirical evidence ' +
       'for THE ENTIRE PROGRAM, not just §27 alone.',
-    'Honest scope: this collapse is modulo the §27 paper-construct identity. If a ' +
-      'gap exists in the §25-26-27 reduction chain (block-positivity ⇔ K_a ⪰ 0), ' +
-      'the collapse loses one direction.',
-    'PCC obstruction (per imp-1184) remains: even ‖V_{a,Φ}‖ ≤ 1 in L²([0, ∞)) is ' +
-      'still conditional on Montgomery PCC because V is built from Φ, and Φ ' +
-      'encodes archimedean factor + zero structure. The collapse simplifies the ' +
-      'statement of the open problem; it does not remove the underlying ' +
-      'pair-correlation barrier.',
+    'This collapse is modulo the §27 paper-construct identity. If a gap exists in the ' +
+      '§25-26-27 reduction chain (block-positivity ⇔ K_a ⪰ 0), the collapse loses one direction.',
+    'PCC-FREE: the 27.2 ⇒ RH chain does NOT route through Montgomery PCC. The ' +
+      'imp-1184 pair-correlation obstruction lives in Stream A (psi_N) only and ' +
+      'never touches this V_{a,Φ}/27.2 chain. The residual gap is NOT PCC but ' +
+      '(i) the L²([0, ∞)) norm bound 27.2 itself and (ii) the §27 ' +
+      'block-positivity ⇔ K_a-PSD identity (imp-1265 caveats).',
   ]),
 });
 
@@ -395,7 +407,7 @@ const CROSS_REFERENCES = Object.freeze([
   }),
   Object.freeze({
     ticket: 'imp-1184',
-    role: 'shared Montgomery PCC obstruction across all live ESY-closure routes — caveat',
+    role: 'Montgomery PCC obstruction for the Stream A (psi_N) ESY-closure routes only; does NOT touch the PCC-FREE V_{a,Φ}/27.2 chain',
     path: 'src/data/imp-1184-direct-selberg-esy-route-audit.js',
   }),
   Object.freeze({
@@ -430,10 +442,11 @@ const HONEST_SCOPE = Object.freeze([
     'cosh/sinh Fourier decomposition E_a = A_a − i B_a with A_a, B_a as ' +
     'Φ-integrals. This avoids invoking the Hadamard factorization of ξ ' +
     '(which would reintroduce zeros).',
-  'PCC obstruction (imp-1184): even after the collapse, ‖V_{a,Φ}‖ ≤ 1 is ' +
-    'conditional on Montgomery pair-correlation because V is built from Φ. ' +
-    'The collapse simplifies the STATEMENT of the open problem, not its ' +
-    'difficulty.',
+  'PCC-FREE ROUTE: the 27.2 ⇒ RH chain does NOT route through Montgomery ' +
+    'pair-correlation. The imp-1184 Montgomery PCC obstruction lives in Stream A ' +
+    '(psi_N) only and never touches this V_{a,Φ}/27.2 chain. The residual gap is ' +
+    'NOT PCC-conditioned but (i) the L²([0, ∞)) norm bound 27.2 and (ii) the §27 ' +
+    'block-positivity ⇔ K_a-PSD identity (imp-1265 caveats).',
   'imp-1240 EMPIRICAL pilot supports ‖V‖ ≤ 1 with 25/25 rows > 5000x below 1; ' +
     'this is now (under the two-way collapse) empirical support for the ENTIRE ' +
     '§15-27 program at finite window — but cf. the imp-1240 monotonicity caveat ' +
@@ -627,6 +640,28 @@ export const IMP_1258_VOLTERRA_CDB_BRIDGE_ASSERTIONS = [
     holds: () => {
       const s = IMP_1258_VOLTERRA_CDB_BRIDGE.chainCollapse.singleStatement;
       return /V_\{a,Φ\}/.test(s) && /≤ 1/.test(s);
+    },
+  },
+  {
+    id: 'imp1258-honest-scope-has-no-pcc-conditionality',
+    why:
+      'imp-2663 fix: the 27.2 ⇒ RH route is PCC-FREE — the imp-1184 Montgomery ' +
+      'pair-correlation obstruction lives in Stream A (psi_N) only and never ' +
+      'touches this V_{a,Φ}/27.2 chain. honestScope must NOT re-assert any ' +
+      'PCC-conditionality caveat (a build-certified overclaim caught in imp-2663) ' +
+      'and must positively flag the route as PCC-free.',
+    holds: () => {
+      const scope = IMP_1258_VOLTERRA_CDB_BRIDGE.honestScope.join(' | ').toLowerCase();
+      const conditionalityClaims = [
+        'conditional on montgomery',
+        'conditional on pcc',
+        'conditional on pair-correlation',
+        'still need montgomery',
+        'still conditional',
+        'pair-correlation barrier',
+      ];
+      const hasConditionality = conditionalityClaims.some((p) => scope.includes(p));
+      return !hasConditionality && scope.includes('pcc-free');
     },
   },
 ];

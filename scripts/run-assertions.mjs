@@ -1630,6 +1630,13 @@ const DATA_MODULES = [
   // degree-counting no-go, and reframes it to the degree-consistent K_a <-> Im V
   // identification (which stays open). Honest partial; collapse stays conditional.
   '/src/data/imp-2668-section27-renormalization-nogo.js',
+  // imp-2665: GAP-2 of the PCC-free Volterra route -- a truncation-uniform CS-HS
+  // bound. Lemma A (d/da sinh^2(au) = u sinh(2au) >= 0) makes B(a)=sqrt(I_0 J_a)
+  // monotone with B->0 as a->0 (controls the a->0 limit); Lemma B gives an
+  // explicit doubly-exp tail T_I,T_J <= prefactor.exp(-2 pi e^{4U}), <exp(-5e7)
+  // at U=4, making the imp-1267/2654 window numerics rigorously truncation-exact.
+  // Honest partial: window integrals still need interval certification.
+  '/src/data/imp-2665-volterra-truncation-uniform.js',
   '/src/data/imp-2636-units-audit.js',
   '/src/data/imp-2603-imp1149-meanfield-proxy-regrade.js',
   '/src/data/imp-2607-epp-sizing.js',

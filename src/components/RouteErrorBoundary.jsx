@@ -1,5 +1,33 @@
 import React from 'react';
 
+// A failed lazy-route chunk import (stale session behind the auth middleware,
+// or a stale deploy whose chunk hashes changed) throws into this boundary as a
+// ChunkLoadError. That is a transient infra condition, not a code bug, so we
+// recover by reloading once — on reload the app or the login form serves
+// cleanly — rather than showing the red crash card. See src/main.jsx for the
+// full explanation and the matching window-level handlers.
+const CHUNK_ERR_RE =
+  /(Failed to fetch dynamically imported module|error loading dynamically imported module|Importing a module script failed|expected a JavaScript module|ChunkLoadError|Loading chunk \d+ failed)/i;
+const CHUNK_RELOAD_KEY = 'me_chunk_reload_ts';
+
+function isChunkLoadError(error) {
+  const msg = `${error?.name || ''} ${error?.message || error || ''}`;
+  return CHUNK_ERR_RE.test(msg);
+}
+function reloadOnceForChunkFailure() {
+  try {
+    const last = Number(sessionStorage.getItem(CHUNK_RELOAD_KEY) || 0);
+    if (Date.now() - last > 10000) {
+      sessionStorage.setItem(CHUNK_RELOAD_KEY, String(Date.now()));
+      window.location.reload();
+      return true;
+    }
+  } catch {
+    // sessionStorage blocked (private mode etc.) — fall through to the card.
+  }
+  return false;
+}
+
 /**
  * RouteErrorBoundary — React class component error boundary that catches
  * crashes in any lazy-loaded page and surfaces the error + stack in-page
@@ -7,19 +35,25 @@ import React from 'react';
  *
  * Wraps the Suspense + Routes block in App.jsx so a crash on one route
  * (e.g. /lambda-bounds) shows a readable error card rather than just
- * "nothing loads" — operator can paste the stack into a ticket.
+ * "nothing loads" — operator can paste the stack into a ticket. Chunk-load
+ * failures are treated as transient and recovered by reloading (see above).
  */
 export default class RouteErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { error: null, errorInfo: null };
+    this.state = { error: null, errorInfo: null, recovering: false };
   }
 
   static getDerivedStateFromError(error) {
+    // Transient chunk-load failure → reload once instead of showing the card.
+    if (isChunkLoadError(error) && reloadOnceForChunkFailure()) {
+      return { error, recovering: true };
+    }
     return { error };
   }
 
   componentDidCatch(error, errorInfo) {
+    if (isChunkLoadError(error)) return; // recovering via reload; don't log noise
     // Surface in console for DevTools as well as in the in-page card.
     // eslint-disable-next-line no-console
     console.error('[RouteErrorBoundary]', error, errorInfo);
@@ -32,6 +66,21 @@ export default class RouteErrorBoundary extends React.Component {
 
   render() {
     if (!this.state.error) return this.props.children;
+
+    // Chunk-load failure: a reload is in flight (or just throttled). Show a
+    // minimal neutral message, never the red crash card.
+    if (this.state.recovering || isChunkLoadError(this.state.error)) {
+      return (
+        <main style={{ maxWidth: 420, margin: '80px auto', padding: 24, textAlign: 'center',
+          fontFamily: 'var(--font-mono, monospace)', color: '#94a3b8' }}>
+          <div style={{ fontSize: 14 }}>Refreshing…</div>
+          <div style={{ marginTop: 10, fontSize: 12 }}>
+            Your session or a cached file expired. <a href="#/" onClick={() => window.location.reload()}
+              style={{ color: '#60a5fa' }}>Reload</a> if this does not clear on its own.
+          </div>
+        </main>
+      );
+    }
 
     const { error, errorInfo } = this.state;
     const message = error?.message || String(error);

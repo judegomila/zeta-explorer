@@ -1619,6 +1619,7 @@ const DATA_MODULES = [
   '/src/data/tc-part-vs-mf-linchpin-finding.js',
   '/src/data/maxfanout-honest-status-2026-06-17.js',
   '/src/data/strategic-reframe-pcc-free-volterra-2026-06-17.js',
+  '/src/data/section27-identity-refutation-2026-06-17.js',
   '/src/data/imp-2636-units-audit.js',
   '/src/data/imp-2603-imp1149-meanfield-proxy-regrade.js',
   '/src/data/imp-2607-epp-sizing.js',

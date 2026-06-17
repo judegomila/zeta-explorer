@@ -35,19 +35,33 @@
  *     ~7%, so the C_G placeholder is NOT a binding obstruction to L_cond rigor
  *     at this N*. The two residual placeholders it does carry are named below.
  *
- * (3) E_coll collision constant C_C -- RIGOROUSLY PINNED (imp-399).
- *     C_C = C_H . sqrt(C_KH) = (1/8) . sqrt(3 pi) = 0.383748, with C_H = 1/8 from
- *     the quadratic-tangency regularization (imp-395) and C_KH = pi . C_Selberg =
- *     3 pi from the Koksma-Hlawka / Selberg uniformity (imp-341/imp-366). At
- *     N* = 1e4 this gives E_coll = 0.0116385. No placeholder.
+ * (3) E_coll collision constant C_C -- NUMERICAL ESTIMATE, NOT rigorously pinned
+ *     (CORRECTED by imp-2661, reconciling with imp-2640 NEGATIVE).
+ *     C_C = C_H . sqrt(C_KH) = (1/8) . sqrt(3 pi) = 0.383748 factors into:
+ *       - C_KH = pi . C_Selberg = 3 pi (C_Selberg = 3.0) -- GENUINELY RIGOROUS but
+ *         loose, from the Koksma-Hlawka / Selberg uniformity (imp-341/imp-366);
+ *       - C_H = 1/8 -- a NUMERICAL PLACEHOLDER. imp-2640 (polymath15-lemma52-
+ *         shock-holder.js l.404-457) proved C_H = C_shock . C_Lip / 4 is
+ *         UNDISCHARGEABLE to an explicit N-uniform constant: the only bound on the
+ *         gap-Lipschitz modulus C_Lip is the backward-flow Gronwall Jacobian
+ *         ||DM|| <= 2/g^2, whose integral int 2/g^2 dt diverges logarithmically as
+ *         g -> 0 at the microscopic collision scale g_min ~ sqrt(2 pi / N).
+ *     The earlier "C_H = 1/8 from the quadratic-tangency regularization (imp-395)"
+ *     reading is a numerical/heuristic value, NOT a theorem-backed N-uniform
+ *     constant. So at N* = 1e4 E_coll = 0.0116385 is a NUMERICAL ESTIMATE
+ *     contingent on the undischargeable C_H placeholder, not a rigorous value.
  *
  * HONEST L_cond TOTAL AT N* = 1e4
  * -------------------------------
  *     |t_c_proj|  approx 0.0071     (PROJECTED -- OLS point estimate, imp-2632)
  *     E_flow      approx 1.248e-3   (C_F pinned; Gronwall factor approx 1.007)
- *     E_coll      approx 1.164e-2   (RIGOROUSLY pinned, imp-399)
+ *     E_coll      approx 1.164e-2   (NUMERICAL -- C_H contingent on the
+ *                                    undischargeable C_Lip, imp-2640)
  *     ---------------------------------------------------------------
  *     L_cond      approx 0.0200 < PT_BOUND = 0.2     (margin factor approx 10x)
+ * NOTE (imp-2661): because E_coll carries the undischargeable C_H placeholder and
+ * |t_c_proj| is an OLS projection, this L_cond is a NUMERICAL ESTIMATE, not a
+ * rigorous value -- it does not yield a rigorous Lambda < 0.2. No false QED.
  * E_coll is the largest sub-term (~58%), confirming the imp-2632 correction that
  * E_coll -- not |t_c_proj| -- dominates L_cond at the surviving N* = 1e4.
  *
@@ -66,10 +80,19 @@
  *      (factor <= 1.074 for any C_G <= 10), but it must be pinned for the
  *      theorem to be unconditional in C_G as well.
  *
- * NET: of the two sub-terms this ticket targets, E_coll is FULLY discharged to a
- * rigorous explicit value, and E_flow is discharged up to its |t_c| exponent
- * input (C_F pinned, Gronwall factor harmlessly bounded near 1). The only binding
- * residual in all of L_cond is |t_c_proj| (P1), exactly as imp-2632 localized.
+ *   P3 (binding for E_coll rigor). C_H = 1/8 in C_C = C_H . sqrt(C_KH) is a
+ *      NUMERICAL placeholder. Blocking lemma: imp-2640 -- C_H = C_shock . C_Lip / 4
+ *      is undischargeable to an explicit N-uniform constant because the only bound
+ *      on the gap-Lipschitz C_Lip (the backward-flow Gronwall Jacobian 2/g^2)
+ *      diverges at the microscopic collision scale. Only the C_KH = 3 pi factor
+ *      (C_Selberg = 3.0, imp-341/366) is genuinely rigorous (and loose).
+ *
+ * NET (CORRECTED by imp-2661): of the two sub-terms this ticket targets, E_coll is
+ * a NUMERICAL ESTIMATE -- its C_KH factor is rigorous (loose) but its C_H factor is
+ * the undischargeable placeholder of imp-2640 -- and E_flow is discharged up to its
+ * |t_c| exponent input (C_F pinned, Gronwall factor harmlessly bounded near 1).
+ * L_cond therefore has TWO binding residuals: |t_c_proj| (P1, OLS projection) and
+ * C_H inside E_coll (P3). The honest L_cond is a numerical estimate, not a theorem.
  *
  * @see finite-height-beats-platt-trudgian (the N* = 1e4 beat; evaluateAtN formulas)
  * @see polymath15-constant-C-F (imp-398, C_F prefactor)
@@ -155,8 +178,14 @@ export const IMP2633_L_COND_CONSTANT_DISCHARGE = {
     E_coll: {
       value: +E_COLL_N1E4.toFixed(7),
       C_C: +C_C_PINNED.toFixed(6),
-      C_C_status: 'RIGOROUSLY-PINNED (imp-399)',
+      C_C_status:
+        'NUMERICAL-ESTIMATE (corrected by imp-2661); contingent on the undischargeable C_H placeholder (imp-2640)',
       C_C_formula: 'C_H * sqrt(C_KH) = (1/8) * sqrt(3 pi)',
+      C_KH_status: 'RIGOROUS-BUT-LOOSE: C_KH = pi * C_Selberg = 3 pi, C_Selberg = 3.0 (imp-341/366)',
+      C_H_status:
+        'NUMERICAL-PLACEHOLDER: C_H = C_shock * C_Lip / 4 is UNDISCHARGEABLE to an N-uniform constant (imp-2640) -- the gap-Lipschitz C_Lip only has the Gronwall 2/g^2 bound, which diverges at the microscopic collision scale',
+      C_H_blockingLemma:
+        'imp-2640 polymath15-lemma52-shock-holder.js l.404-457 (int 2/g^2 dt diverges as g -> 0 at g_min ~ sqrt(2 pi / N))',
     },
   },
   L_cond: +L_COND_N1E4.toFixed(7),
@@ -164,13 +193,20 @@ export const IMP2633_L_COND_CONSTANT_DISCHARGE = {
   marginFactor: +(PT_BOUND / L_COND_N1E4).toFixed(2),
   dominantSubterm: 'E_coll',  // confirms imp-2632 correction at N* = 1e4
   honestVerdict:
-    'Of the two targeted constants: E_coll is FULLY discharged to the rigorous ' +
-    'explicit value 0.0116385 (C_C = (1/8) sqrt(3 pi), imp-399); E_flow is ' +
-    'discharged up to its |t_c| exponent input (prefactor C_F = 1.330578 pinned ' +
-    'by imp-398, Gronwall factor approx 1.007 and non-binding for any reasonable ' +
-    'C_G). The only BINDING residual placeholder in L_cond is |t_c_proj| (the OLS ' +
-    'projection, imp-2632); the C_G amplification constant is a secondary, ' +
-    'non-binding placeholder named for completeness. L_cond approx 0.0200 < 0.2.',
+    'CORRECTED by imp-2661 (reconciling with imp-2640 NEGATIVE): E_coll = 0.0116385 ' +
+    'is a NUMERICAL ESTIMATE, not a rigorous value. Its C_C = (1/8) sqrt(3 pi) factors ' +
+    'into a genuinely-rigorous-but-loose C_KH = 3 pi (C_Selberg = 3.0, imp-341/366) ' +
+    'and a C_H = 1/8 placeholder that imp-2640 proved UNDISCHARGEABLE (C_H = C_shock . ' +
+    'C_Lip / 4; the gap-Lipschitz C_Lip only has the Gronwall 2/g^2 bound, which ' +
+    'diverges at the collision scale). E_flow is discharged up to its |t_c| exponent ' +
+    'input (C_F = 1.330578 pinned by imp-398, Gronwall factor approx 1.007 non-binding ' +
+    'for any reasonable C_G). L_cond approx 0.0200 < 0.2 therefore holds NUMERICALLY ' +
+    'but is NOT a rigorous bound: it carries TWO binding placeholders, |t_c_proj| (the ' +
+    'OLS projection, imp-2632) and C_H inside E_coll (imp-2640). No false QED.',
+  reconciliation:
+    'imp-2661: previously this module classified E_coll / C_C as RIGOROUSLY-PINNED, ' +
+    'contradicting imp-2640 (C_H undischargeable). Corrected here to NUMERICAL-ESTIMATE; ' +
+    'only the C_KH = 3 pi (C_Selberg = 3.0) factor remains genuinely rigorous (loose).',
   citation:
     'imp-398 polymath15-constant-C-F.js (C_F); imp-399 polymath15-constant-C-C.js (C_C); imp-2622-bridge-recomposition.js (C_G placeholder); imp-2632 finite-height-beats-platt-trudgian.js (|t_c_proj| OLS stress-test)',
 };
@@ -182,9 +218,17 @@ export const IMP2633_L_COND_CONSTANT_DISCHARGE_ASSERTIONS = [
     holds: () => Math.abs(C_F_N1E4 - 1.330578) < 1e-4,
   },
   {
-    id: 'imp2633-CC-pinned-explicit',
-    description: 'E_coll collision constant C_C is the rigorously pinned (1/8) sqrt(3 pi) approx 0.38375 (imp-399)',
+    id: 'imp2633-CC-numerical-value',
+    description: 'E_coll collision constant C_C evaluates to the numerical value (1/8) sqrt(3 pi) approx 0.38375; its C_H = 1/8 factor is a placeholder (imp-2640), NOT rigorously pinned',
     holds: () => Math.abs(C_C_PINNED - (1 / 8) * Math.sqrt(3 * Math.PI)) < 1e-12,
+  },
+  {
+    id: 'imp2661-ecoll-classified-numerical',
+    description: 'imp-2661 reconciliation: E_coll C_C_status is downgraded to NUMERICAL-ESTIMATE (no longer claims RIGOROUSLY-PINNED), matching the imp-2640 NEGATIVE verdict on C_H',
+    holds: () => {
+      const s = IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_coll.C_C_status;
+      return s.includes('NUMERICAL-ESTIMATE') && !s.includes('RIGOROUSLY-PINNED');
+    },
   },
   {
     id: 'imp2633-gronwall-factor-nonbinding',
@@ -197,12 +241,12 @@ export const IMP2633_L_COND_CONSTANT_DISCHARGE_ASSERTIONS = [
   },
   {
     id: 'imp2633-ecoll-explicit-value',
-    description: 'E_coll discharges to the explicit rigorous value approx 0.01164 at N*=1e4',
+    description: 'E_coll evaluates to the numerical value approx 0.01164 at N*=1e4 (contingent on the C_H placeholder, imp-2640)',
     holds: () => Math.abs(E_COLL_N1E4 - 0.0116385) < 1e-5,
   },
   {
     id: 'imp2633-L-cond-total-beats-PT',
-    description: 'Honest L_cond total at N*=1e4 is approx 0.020 and beats PT_BOUND = 0.2 by ~10x',
+    description: 'L_cond numerical estimate at N*=1e4 is approx 0.020 and numerically beats PT_BOUND = 0.2 by ~10x (NOT a rigorous bound: carries the |t_c_proj| and C_H placeholders)',
     holds: () =>
       L_COND_N1E4 > 0.019 &&
       L_COND_N1E4 < 0.021 &&

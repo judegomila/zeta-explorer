@@ -26,7 +26,7 @@
  *     int_0^{t_c} 2/g(t)^2 dt = (1/4) log(g0^2/(g0^2 - 8 t_c)) DIVERGES
  *     logarithmically as g -> 0 at the microscopic collision scale.
  *   - C_F (E_flow): rigorous closed form 1.330578 ONLY modulo a certified bound
- *     on the argmin position alpha = gamma_k*/T0 (bulk regime); uncarried.
+ *     on the argmin position alpha = gamma_{k*}/T0 (bulk regime); uncarried.
  * INTERNAL CONTRADICTION caught: imp-2633-l-cond-constant-discharge.js still
  * declares "(3) E_coll collision constant C_C -- RIGOROUSLY PINNED ... No
  * placeholder", which DIRECTLY contradicts imp-2640's NEGATIVE verdict in the

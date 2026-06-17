@@ -347,16 +347,24 @@ const REVERSE_VERDICT = Object.freeze({
 });
 
 // ── Master verdict ─────────────────────────────────────────────────────────
-const MASTER_VERDICT = 'two-way-collapse';
+const MASTER_VERDICT = 'two-way-collapse-CONDITIONAL-link-B-refuted';
 
 const MASTER_VERDICT_RATIONALE =
-  'Both directions hold modulo the SAME §27 paper-construct identity (block ' +
-  'positivity ⇔ K_a ⪰ 0). Therefore Conj 27.2 (‖V_{a,Φ}‖ ≤ 1) and CDB-Exist ' +
-  '(Φ-built canonical-system existence) are LOGICALLY EQUIVALENT. The entire ' +
-  '§15-27 proof program — six conjectures across §16, §17, §18, §25, §26, §27 — ' +
-  'reduces to ONE statement: ‖V_{a,Φ}‖_{L²([0,∞))} ≤ 1 for every a > 0. This ' +
-  'collapse is PCC-FREE: the imp-1184 Montgomery PCC obstruction lives in Stream A ' +
-  '(psi_N) only and never touches this chain.';
+  'DOWNGRADED (imp-2666, per the §27 identity refutation 2026-06-17, 6th overclaim). ' +
+  'The two-way collapse is CONDITIONAL on the unproven §25-26-27 reduction chain — ' +
+  'it is NOT established. The SOLE load-bearing construct, LINK B (block positivity ' +
+  '⇔ K_a ⪰ 0, equivalently ‖V_{a,Φ}‖ ≤ 1 ⇔ K_a ⪰ 0), is REFUTED as a Φ-uniform ' +
+  'equivalence by a scale-invariance obstruction: K_a is degree-2 homogeneous so ' +
+  '{Φ : K_a ⪰ 0} is a scale-closed CONE, whereas ‖V‖ scales as c² so {Φ : ‖V‖ ≤ 1} ' +
+  'is a scale-bounded SUBLEVEL SET — different sets, and BOTH arrows fail with ' +
+  'explicit counterexamples (reverse: Gaussian Φ, a=0.3, scaled up keeps K_a ⪰ 0 ' +
+  'while ‖V‖ crosses 1; forward: Φ=exp(-u), a=0.3). Only LINK A (block positivity ' +
+  '⇔ ‖V‖ ≤ 1, the Bhatia/Schur step) is textbook and survives. The PCC-FREE ' +
+  'reframe still stands (the imp-1184 Montgomery PCC obstruction lives in Stream A ' +
+  '(psi_N) only and never touches this chain); what FALLS is the claim that this ' +
+  'route collapses 7+ conjectures to one operator-norm bound. The genuine open ' +
+  'problem is now imp-2668 (THE_REAL_GAP: derive the Riemann-Φ normalization that ' +
+  'makes LINK B scale-consistent).';
 
 const CHAIN_COLLAPSE = Object.freeze({
   status: 'collapsed-to-one-operator-norm-bound',
@@ -466,8 +474,11 @@ export const IMP_1258_VOLTERRA_CDB_BRIDGE = Object.freeze({
     'de Branges canonical-system existence)? And conversely?',
 
   oneLine:
-    'TWO-WAY COLLAPSE: ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist modulo §27 paper-construct ' +
-    'identity. The entire §15-27 proof program reduces to ONE operator-norm bound.',
+    'TWO-WAY COLLAPSE — CONDITIONAL, NOT ESTABLISHED (imp-2666 downgrade): the ' +
+    '‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist equivalence rests on §27 LINK B, which is REFUTED ' +
+    'as a Φ-uniform biconditional (scale-invariance obstruction). Only LINK A ' +
+    '(block positivity ⇔ ‖V‖ ≤ 1) is textbook; the program does NOT yet reduce ' +
+    'to one operator-norm bound (open problem: imp-2668).',
 
   // chains
   forwardChain: FORWARD_CHAIN,
@@ -512,13 +523,17 @@ import {
 
 export const IMP_1258_VOLTERRA_CDB_BRIDGE_ASSERTIONS = [
   makeFrozenObjectTripwire(
-    'imp1258-master-verdict-is-two-way-collapse',
+    'imp1258-master-verdict-is-two-way-collapse-CONDITIONAL',
     IMP_1258_VOLTERRA_CDB_BRIDGE,
     'masterVerdict',
-    'two-way-collapse',
-    'The ticket asks whether ‖V‖ ≤ 1 implies CDB-Exist. The derivation found ' +
-      'BOTH directions hold modulo the §27 paper-construct identity, giving a ' +
-      'two-way collapse. Master verdict must record this.',
+    'two-way-collapse-CONDITIONAL-link-B-refuted',
+    'imp-2666 downgrade: the §27 identity refutation (2026-06-17) showed LINK B ' +
+      '(block positivity ⇔ K_a ⪰ 0 ⇔ ‖V‖ ≤ 1) is REFUTED as a Φ-uniform ' +
+      'equivalence (scale-invariance: K_a degree-2 homogeneous = scale-closed cone, ' +
+      '‖V‖ ≤ 1 = scale-bounded sublevel set; both arrows broken by explicit ' +
+      'counterexamples). The collapse is therefore CONDITIONAL on the unproven ' +
+      '§25-26-27 chain, NOT established. Master verdict must record this downgrade ' +
+      'so the build cannot re-assert the refuted as-stated collapse.',
   ),
   makeRowCountTripwire(
     'imp1258-forward-chain-has-seven-steps',

@@ -50,7 +50,7 @@ export function zetaExtended(s, N = 300) {
 /**
  * Compute |ζ(s)| over an extended sigma range for fixed t
  */
-export function zetaMagnitudeScan(t, sigmaRange = [-4, 6], steps = 200) {
+export function zetaMagnitudeScan(t, sigmaRange = [-4, 6], steps = 500) {
   const points = [];
   const ds = (sigmaRange[1] - sigmaRange[0]) / steps;
   for (let i = 0; i <= steps; i++) {
@@ -165,7 +165,7 @@ export function thermodynamicState(sigma, t, numPrimes = 20) {
 /**
  * Scan thermodynamic quantities across sigma
  */
-export function thermodynamicScan(t, sigmaRange = [-2, 4], steps = 100, numPrimes = 15) {
+export function thermodynamicScan(t, sigmaRange = [-2, 4], steps = 200, numPrimes = 15) {
   const points = [];
   const ds = (sigmaRange[1] - sigmaRange[0]) / steps;
   for (let i = 0; i <= steps; i++) {
@@ -466,7 +466,7 @@ export function vonMangoldtSpectrum(maxN = 500, numFreqs = 200, freqRange = [0, 
  * For σ < 1: product diverges (factors grow).
  * The transition is the phase boundary.
  */
-export function eulerProductPhaseAnalysis(t, sigmaRange = [-1, 3], steps = 100, numPrimes = 20) {
+export function eulerProductPhaseAnalysis(t, sigmaRange = [-1, 3], steps = 200, numPrimes = 20) {
   const primes = getPrimes(numPrimes);
   const points = [];
   const ds = (sigmaRange[1] - sigmaRange[0]) / steps;

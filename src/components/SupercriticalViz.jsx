@@ -61,7 +61,7 @@ function ExtendedLandscapeTab() {
   const [sigmaMin, setSigmaMin] = useState(-3);
   const [sigmaMax, setSigmaMax] = useState(5);
 
-  const scan = useMemo(() => zetaMagnitudeScan(tValue, [sigmaMin, sigmaMax], 300), [tValue, sigmaMin, sigmaMax]);
+  const scan = useMemo(() => zetaMagnitudeScan(tValue, [sigmaMin, sigmaMax], 500), [tValue, sigmaMin, sigmaMax]);
   const nearest = useMemo(() => findNearestZetaZero(tValue), [tValue]);
 
   const draw = useCallback(() => {
@@ -395,7 +395,7 @@ function ThermodynamicsTab() {
   const [numPrimes, setNumPrimes] = useState(12);
   const [hoverPoint, setHoverPoint] = useState(null);
 
-  const thermoData = useMemo(() => thermodynamicScan(tValue, [-1, 3], 120, numPrimes), [tValue, numPrimes]);
+  const thermoData = useMemo(() => thermodynamicScan(tValue, [-1, 3], 200, numPrimes), [tValue, numPrimes]);
   const nearest = useMemo(() => findNearestZetaZero(tValue), [tValue]);
 
   const draw = useCallback(() => {
@@ -804,7 +804,7 @@ function EulerPhaseTab() {
   const [tValue, setTValue] = useState(14.13);
   const [numPrimes, setNumPrimes] = useState(15);
 
-  const data = useMemo(() => eulerProductPhaseAnalysis(tValue, [-1, 3], 150, numPrimes), [tValue, numPrimes]);
+  const data = useMemo(() => eulerProductPhaseAnalysis(tValue, [-1, 3], 200, numPrimes), [tValue, numPrimes]);
   const nearest = useMemo(() => findNearestZetaZero(tValue), [tValue]);
 
   const draw = useCallback(() => {

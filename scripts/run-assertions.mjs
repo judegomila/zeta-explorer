@@ -1624,6 +1624,12 @@ const DATA_MODULES = [
   // (Schur LINK A proved; Phi-uniform LINK B refuted robustly; scale-normalized form
   // reduced -- both directions -- to one open characteristic-function identification).
   '/src/data/imp-2664-section27-identity-rederivation.js',
+  // imp-2668: attack on THE_REAL_GAP -- makes the Section-25 commutator decomposition
+  // explicit (V-V^# = p(x)q^* - q(x)p^*, p=Phi*sinh, q=Phi*cosh, rank 2), shows the
+  // crux as posed (identify Schur complement I-V^#V with K_a Gram) is IMPOSSIBLE by a
+  // degree-counting no-go, and reframes it to the degree-consistent K_a <-> Im V
+  // identification (which stays open). Honest partial; collapse stays conditional.
+  '/src/data/imp-2668-section27-renormalization-nogo.js',
   '/src/data/imp-2636-units-audit.js',
   '/src/data/imp-2603-imp1149-meanfield-proxy-regrade.js',
   '/src/data/imp-2607-epp-sizing.js',

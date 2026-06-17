@@ -390,9 +390,124 @@ export const POLYMATH15_LEMMA_52 = {
   ],
 };
 
+// ── imp-2640: attempt to discharge C_H to an explicit theorem-backed constant ──
+//
+// HEADLINE LEVER. The tc-part-vs-mf linchpin resolution (tc-part-vs-mf-linchpin-
+// finding.js) shifted the ENTIRE rigorous-beat burden onto the bridge error
+// E(N) = E_trunc + E_flow + E_coll, dominated at N*=1e4 by
+//     E_coll = C_H * W_1(mu_N, rho_inf)^{1/2},   C_H = C_shock * C_Lip / 4,
+// with C_H = 1 a PLACEHOLDER. This record attempts to replace C_H with the
+// explicit value the Steps 1-3 proof above actually yields, recomputes E_coll
+// and the full E(N) at N*=1e4, and states plainly whether a rigorous Lambda < 0.2
+// follows.
+//
+// OUTCOME: NEGATIVE. C_H cannot be discharged to an explicit N-independent
+// constant by the imp-366 Gronwall route. The blocking step is Step 1/Step 2:
+// the gap-Lipschitz constant C_Lip on |g_min(mu_1) - g_min(mu_2)| <= C_Lip * W_1
+// has only ONE available bound — the Gronwall bound on the backward-Dyson flow
+// Jacobian ||DM|| <= 2 / y_star^2 (backward-flow-stability-gronwall.js, the
+// d(Im M)/ds >= -(2/y_star^2) Im M inequality, integrating to a factor
+// exp(2 S / y_star^2)). That factor is uniform in N ONLY on MESOSCOPIC strips
+// y_star >> sqrt(2 S); at the microscopic gap scale where the first collision
+// actually lives (g_min ~ y_N_sharp = sqrt(2 pi / N)) the e-fold count
+// 2 S / y_star^2 = S * N / pi GROWS with N (imp-2520 HONEST NEGATIVE FINDING 1:
+// ~64 at N = 1e6, S ~ 1.9e-4). Equivalently, ||DM|| ~ 2/g(t)^2 with the
+// quadratic-tangency law g(t)^2 = g(0)^2 - 8t makes the Gronwall integral
+// int_0^{t_c} 2/g(t)^2 dt = (1/4) log(g(0)^2 / (g(0)^2 - 8 t_c)) diverge
+// logarithmically as t -> t_c (g -> 0). Hence C_Lip, and therefore C_H, is NOT a
+// finite N-uniform constant via this route. Discharging C_H needs a non-Gronwall
+// microscopic gap-stability estimate valid UP TO the collision time, which the
+// imp-366 port (good only "away from the collision singularity") does not supply.
+//
+// NO FALSE QED: even though the all-ones ansatz gives a numerical E(N) ~ 0.187
+// < 0.2 at N*=1e4 (rows below), that is an ANSATZ estimate, not a theorem — it is
+// contingent on C_T = C_F = C_H = 1, and C_H specifically is the placeholder this
+// ticket could NOT discharge. Platt-Trudgian Lambda <= 0.2 remains rigorous SOTA.
+
+const N_STAR_IMP2640 = 10000;
+
+export const C_H_DISCHARGE_ATTEMPT_IMP2640 = (() => {
+  const gammaN = effectiveHeightForN(N_STAR_IMP2640);
+  // E_coll via the Holder-1/2 modulus with the C_H = 1 placeholder.
+  const eCollPlaceholder = eCollHolderAtN(N_STAR_IMP2640);
+  // E_trunc, E_flow under the lambda-polymath15-bridge.js all-ones ANSATZ
+  // (C_T = C_F = C_G = 1, kappa_T = 1/2, |t_c| <= 0.01) so the three terms are
+  // sized on a common footing at N*.
+  const eTrunc = Math.pow(gammaN, -0.5) * Math.log(gammaN);
+  const eFlow = (Math.log(gammaN) / gammaN) * Math.exp(0.01);
+  const eTotalAnsatz = eTrunc + eFlow + eCollPlaceholder;
+  // Gronwall e-fold at the microscopic collision scale, two equivalent forms.
+  const gMinStar = 0.037698; // N*=1e4 minimal pair (tc-part-vs-mf-linchpin-finding.js)
+  const tcStar = (gMinStar * gMinStar) / C_QUADRATIC_TANGENCY;
+  const yMicro = Math.sqrt((2 * Math.PI) / N_STAR_IMP2640);
+  const gronwallEfoldMicro = (2 * tcStar) / (yMicro * yMicro); // = t_c * N / pi
+  return {
+    ticket: 'imp-2640',
+    goal:
+      'Discharge C_H = C_shock * C_Lip / 4 in E_coll to an explicit theorem-backed ' +
+      'constant at N*=1e4 and report the fully-sized rigorous Lambda <= E_trunc + E_flow + E_coll.',
+    verdict: 'NEGATIVE — C_H NOT discharged to an explicit N-uniform constant; no rigorous beat claimed.',
+    blockingStep:
+      'Step 1/Step 2 gap-Lipschitz constant C_Lip. Its only bound is the Gronwall ' +
+      'flow-Jacobian bound ||DM|| <= 2/y_star^2 (backward-flow-stability-gronwall.js), ' +
+      'whose factor exp(2 S / y_star^2) is N-uniform only on mesoscopic strips ' +
+      'y_star >> sqrt(2 S). At the microscopic collision scale g_min ~ sqrt(2 pi / N) ' +
+      'the e-fold count = S * N / pi grows with N (imp-2520 Negative Finding 1), and ' +
+      'int_0^{t_c} 2/g^2 dt diverges logarithmically as g -> 0. So C_Lip, hence C_H, ' +
+      'is not a finite N-uniform constant by this route.',
+    whatWouldUnblock:
+      'A non-Gronwall microscopic gap-stability estimate (a uniform-in-N modulus for ' +
+      'the first-collision functional valid UP TO the collision time, not merely away ' +
+      'from the singularity), e.g. via the imp-348 local-law microscopic-rate upgrade.',
+    nStar: N_STAR_IMP2640,
+    gammaNStar: gammaN,
+    gMinStar,
+    tcStar,
+    yMicro,
+    gronwallEfoldMicro,
+    cLipMicroFactor: Math.exp(gronwallEfoldMicro),
+    eCollPlaceholderCH1: eCollPlaceholder,
+    eTruncAnsatz: eTrunc,
+    eFlowAnsatz: eFlow,
+    eTotalAnsatz,
+    eTotalAnsatzBelowPlattTrudgian: eTotalAnsatz < 0.2,
+    rigorousBeat: false,
+    honestNote:
+      'The all-ones-ansatz E(N) ~ ' + eTotalAnsatz.toFixed(4) + ' < 0.2 at N*=1e4 is an ' +
+      'ESTIMATE contingent on the unproven placeholders C_T = C_F = C_H = 1, not a theorem. ' +
+      'C_H is the one this ticket could not discharge. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+  };
+})();
+
 // ── Build-time assertions ──────────────────────────────────────────────────────
 
 export const POLYMATH15_LEMMA_52_ASSERTIONS = [
+  {
+    id: 'imp2640-CH-discharge-negative-no-false-beat',
+    holds: () => {
+      const d = C_H_DISCHARGE_ATTEMPT_IMP2640;
+      // Tripwire: C_H is NOT discharged (placeholder still 1), the verdict is
+      // NEGATIVE, no rigorous beat is claimed, and the blocking step is the
+      // Gronwall gap-Lipschitz C_Lip. The microscopic e-fold must be the
+      // honestly-computed O(1)-at-N* value (it is the GROWTH IN N, not the
+      // N*=1e4 value, that is vacuous), and the ansatz total stays finite.
+      return (
+        C_H_HOLDER === 1.0 &&
+        d.rigorousBeat === false &&
+        /NEGATIVE/.test(d.verdict) &&
+        /C_Lip/.test(d.blockingStep) &&
+        Number.isFinite(d.eTotalAnsatz) &&
+        d.eCollPlaceholderCH1 > 0.05 &&
+        Math.abs(d.gronwallEfoldMicro - (d.tcStar * d.nStar) / Math.PI) < 1e-9
+      );
+    },
+    why:
+      'imp-2640 HEADLINE LEVER tripwire: C_H in the dominant E_coll term could NOT ' +
+      'be discharged to an explicit N-uniform constant (the gap-Lipschitz C_Lip is ' +
+      'only Gronwall-bounded, non-uniform in N at the microscopic collision scale). ' +
+      'This assertion locks the NEGATIVE verdict so no future edit can silently flip ' +
+      'the all-ones-ansatz E(N) < 0.2 ESTIMATE into a claimed rigorous Lambda < 0.2 beat.',
+  },
   {
     id: 'imp366-g6a-status-closed',
     holds: () => G6A_SHOCK_LIPSCHITZ_CLOSURE.status === 'closed',

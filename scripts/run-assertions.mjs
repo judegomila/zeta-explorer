@@ -1611,6 +1611,7 @@ const DATA_MODULES = [
   '/src/data/backward-flow-stability-gronwall.js',
   '/src/data/imp-2564-lambda-chain-direction-audit.js',
   '/src/data/tc-part-vs-mf-linchpin-finding.js',
+  '/src/data/imp-2636-units-audit.js',
   '/src/data/imp-2603-imp1149-meanfield-proxy-regrade.js',
   '/src/data/imp-2607-epp-sizing.js',
   '/src/data/sg1-theta-contraction.js',

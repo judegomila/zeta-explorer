@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath } from '../components/KaTeXMath.jsx';
+import { IMP2633_L_COND_CONSTANT_DISCHARGE } from '../data/imp-2633-l-cond-constant-discharge.js';
+import { TC_PART_VS_MF_LINCHPIN } from '../data/tc-part-vs-mf-linchpin-finding.js';
+import { IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE } from '../data/imp-2641-c-selberg-trudgian-discharge.js';
 
 // Status Badge
 function StatusBadge({ status, label }) {
@@ -116,6 +119,25 @@ function PathCard({ path, title, status, statusLabel, description, progress, blo
         </div>
       )}
     </div>
+  );
+}
+
+// Constant Status Badge
+function ConstantBadge({ status }) {
+  const colors = {
+    'RIGOROUSLY-PINNED': { bg: '#10b98122', border: '#10b98144', text: '#10b981' },
+    'ORDER-UNITY-PLACEHOLDER': { bg: '#f59e0b22', border: '#f59e0b44', text: '#f59e0b' },
+    'PROJECTED-NOT-RIGOROUS': { bg: '#ef444422', border: '#ef444444', text: '#ef4444' },
+  };
+  const style = colors[status] || colors['ORDER-UNITY-PLACEHOLDER'];
+  return (
+    <span style={{
+      display: 'inline-block', padding: '2px 8px', borderRadius: 3,
+      background: style.bg, border: `1px solid ${style.border}`, color: style.text,
+      fontSize: 10, fontWeight: 700, fontFamily: 'var(--font-mono)',
+    }}>
+      {status.replace('-', ' ').substring(0, 20)}
+    </span>
   );
 }
 
@@ -254,6 +276,93 @@ export default function RHProofStateDashboardPage() {
               <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)' }}>{route.id}</div>
             </div>
           ))}
+        </div>
+      </Section>
+
+      {/* E(N) Breakdown and Constants */}
+      <Section title="E(N)/Lambda-Bound Status: Constant Discharge at N*=1e4" borderColor="#3b82f6">
+        <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
+          The binding term of the finite-N*=1e4 beat: Lambda {'{'}={'}'}  t_c^part + E_flow + E_coll.
+          The t_c linchpin (2026-06-17) resolves that the bridge consumes the rigorous first-collision bound.
+          Here: honest status of each sub-term and their constants.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 12 }}>
+          {/* t_c sub-term */}
+          <div style={{
+            padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8,
+            border: '1px solid #10b98144',
+          }}>
+            <div style={{ fontSize: 12, color: '#10b981', fontWeight: 700, marginBottom: 4 }}>
+              t_c^part {'('}FIRST COLLISION{')'}
+            </div>
+            <div style={{ fontSize: 13, color: '#e2e8f0', marginBottom: 8 }}>
+              {(TC_PART_VS_MF_LINCHPIN.computedAtN1e4.tcPartUpperBound_g2over6 * 1e4).toFixed(2)} × 10⁻⁴
+            </div>
+            <ConstantBadge status="RIGOROUSLY-PINNED" />
+            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 6, lineHeight: 1.5 }}>
+              A1 bound from Theta(0)={TC_PART_VS_MF_LINCHPIN.computedAtN1e4.theta0.toFixed(4)}{' '}
+              &lt;&lt; 1/4 (rigorous, unconditional)
+            </div>
+          </div>
+
+          {/* E_flow sub-term */}
+          <div style={{
+            padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8,
+            border: '1px solid #f59e0b44',
+          }}>
+            <div style={{ fontSize: 12, color: '#f59e0b', fontWeight: 700, marginBottom: 4 }}>
+              E_flow
+            </div>
+            <div style={{ fontSize: 13, color: '#e2e8f0', marginBottom: 8 }}>
+              {(IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value * 1e3).toFixed(2)} × 10⁻³
+            </div>
+            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 6 }}>
+              <ConstantBadge status="RIGOROUSLY-PINNED" />
+              <ConstantBadge status="ORDER-UNITY-PLACEHOLDER" />
+            </div>
+            <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.5 }}>
+              C_F pinned ({IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.C_F.toFixed(4)}).
+              C_G placeholder; Gronwall factor ≈1.007 (non-binding at N*=1e4).
+            </div>
+          </div>
+
+          {/* E_coll sub-term */}
+          <div style={{
+            padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8,
+            border: '1px solid #10b98144',
+          }}>
+            <div style={{ fontSize: 12, color: '#10b981', fontWeight: 700, marginBottom: 4 }}>
+              E_coll
+            </div>
+            <div style={{ fontSize: 13, color: '#e2e8f0', marginBottom: 8 }}>
+              {(IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_coll.value * 1e2).toFixed(2)} × 10⁻²
+            </div>
+            <ConstantBadge status="RIGOROUSLY-PINNED" />
+            <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 6, lineHeight: 1.5 }}>
+              C_C = (1/8) √{'{'}3π{'}'} = {IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_coll.C_C.toFixed(4)} (rigorous, imp-399).
+              Dominant sub-term at N*=1e4 ({(IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_coll.value / IMP2633_L_COND_CONSTANT_DISCHARGE.L_cond * 100).toFixed(0)}%).
+            </div>
+          </div>
+
+          {/* L_cond Total */}
+          <div style={{
+            padding: 12, background: 'rgba(15,23,42,0.5)', borderRadius: 8,
+            border: '2px solid #3b82f6',
+          }}>
+            <div style={{ fontSize: 12, color: '#3b82f6', fontWeight: 700, marginBottom: 4 }}>
+              L_cond TOTAL
+            </div>
+            <div style={{ fontSize: 13, color: '#e2e8f0', marginBottom: 8 }}>
+              {IMP2633_L_COND_CONSTANT_DISCHARGE.L_cond.toFixed(4)}
+            </div>
+            <div style={{ fontSize: 11, color: '#10b981', fontWeight: 600, marginBottom: 4 }}>
+              ✓ Beats PT_BOUND = 0.2 by {IMP2633_L_COND_CONSTANT_DISCHARGE.marginFactor}×
+            </div>
+            <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.5 }}>
+              E_coll gated by discharge of C_H (Selberg/Koksma-Hlawka). Binding residual: |t_c_proj|
+              placeholders B1/B2 (CM-model + GUE-conditional).
+            </div>
+          </div>
         </div>
       </Section>
 

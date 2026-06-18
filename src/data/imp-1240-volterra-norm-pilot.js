@@ -158,8 +158,10 @@ export const IMP1240_VOLTERRA_NORM_PILOT = Object.freeze({
   summary:
     'Empirical operator-norm pilot for V_{a,Phi} on truncated windows ' +
     'U in {1, 2, 5, 10, 20} and a in {0.5, 0.2, 0.1, 0.05, 0.025}. ' +
-    'All 25 (U, a) tuples give ||V|| <= 1.86e-4 << 1 — strongly consistent ' +
-    'with Conj 27.2 (‖V_{a,Phi}‖ ≤ 1) in the swept regime.',
+    'All 25 (U, a) tuples give ||V|| <= 1.86e-4. DOWNGRADED (imp-2671): the ' +
+    '"5000x below 1" margin is a HOMOGENEITY ARTIFACT — ||V|| ~ c^2 with c ' +
+    'silently absorbing Phi\'s super-exponentially-small scale — NOT empirical ' +
+    'support for Conj 27.2. See programLedgerStatus.',
 
   conjectureTarget: Object.freeze({
     label: 'Conjecture 27.2 (Endpoint-Hankel Volterra contraction)',
@@ -213,6 +215,37 @@ export const IMP1240_VOLTERRA_NORM_PILOT = Object.freeze({
       'This pilot uses the de Bruijn-Newman Phi kernel directly, not the ' +
       'Riemann-zeros lin-stat data of imp-1162. The §27 reduction names ' +
       'Phi as the canonical kernel; using zero data is the next refinement.',
+  }),
+
+  // ── imp-2671 PROGRAM-LEDGER DOWNGRADE (2026-06-18) ──────────────────────────
+  // Per section26-verdict-volterra-not-a-reduction-2026-06-18.js. The "25 norms
+  // all >5000x below 1" result MUST NOT be cited as empirical support for Conj
+  // 27.2 or for the §25-27 "collapse". ||V|| is exactly degree-2 homogeneous
+  // (measured exponent 2.0000 at the genuine Riemann Phi across c in
+  // {1,3,10,100,1000}); the bare operator silently absorbs Phi's super-
+  // exponentially-small scale into c, so the margin measures the WRONG object.
+  // K_a >= 0 is scale-invariant; ||V|| <= 1 is a scale-bounded sublevel set —
+  // the two positivity conditions provably DECOUPLE (min-eig of I-VV* crosses
+  // zero while K_a stays PSD). The bare biconditional is therefore dead, and the
+  // surviving target is the degree-0 normalized R = Gpass^{-1/2} Gshear
+  // Gpass^{-1/2}, which is RH-EQUIVALENT (a faithful restatement, NOT a cheaper
+  // reduction). Do NOT re-run the bare-V pilot.
+  programLedgerStatus: Object.freeze({
+    downgradedBy: 'imp-2671',
+    downgradedOn: '2026-06-18',
+    citableAsConj272Support: false,
+    fiveThousandXIsHomogeneityArtifact: true,
+    reason:
+      '||V|| ~ c^2 (degree-2 homogeneous, measured exponent 2.0000 at the ' +
+      'genuine Riemann Phi); the "5000x margin" measures the bare scale-' +
+      'miscalibrated operator, not the §27 contraction. K_a >= 0 is scale-' +
+      'invariant while ||V|| <= 1 is scale-bounded; they provably decouple.',
+    survivingTarget:
+      'degree-0 normalized R = Gpass^{-1/2} Gshear Gpass^{-1/2}; proving ' +
+      '||R|| <= 1 <=> K_a >= 0 is RH-EQUIVALENT (faithful restatement, NOT a ' +
+      'reduction below RH).',
+    doNotRerunBarePilot: true,
+    see: 'section26-verdict-volterra-not-a-reduction-2026-06-18.js (THE_REAL_GAP_REVISED)',
   }),
 
   references: Object.freeze({
@@ -331,5 +364,22 @@ export const IMP1240_VOLTERRA_NORM_PILOT_ASSERTIONS = [
     holds: () =>
       IMP1240_VOLTERRA_NORM_PILOT.paperSourcePath === PAPER_REF &&
       IMP1240_VOLTERRA_NORM_PILOT.paperSections.includes('§27'),
+  },
+  {
+    id: 'imp1240-downgraded-as-homogeneity-artifact',
+    why: 'imp-2671: the "5000x below 1" margin must be permanently flagged as ' +
+         'a HOMOGENEITY ARTIFACT and NOT citable as empirical support for Conj ' +
+         '27.2. If this record flips, a module could again cite the bare-V ' +
+         'pilot as evidence for the (dead) §25-27 collapse.',
+    holds: () => {
+      const p = IMP1240_VOLTERRA_NORM_PILOT.programLedgerStatus;
+      return (
+        !!p &&
+        p.citableAsConj272Support === false &&
+        p.fiveThousandXIsHomogeneityArtifact === true &&
+        p.doNotRerunBarePilot === true &&
+        p.downgradedBy === 'imp-2671'
+      );
+    },
   },
 ];

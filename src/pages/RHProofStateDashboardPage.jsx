@@ -519,6 +519,100 @@ export default function RHProofStateDashboardPage() {
         </div>
       </Section>
 
+      {/* Transparency Ledger + Honest Gap-Map */}
+      <Section title={`Transparency Ledger: ${SECTION27_REFUTATION.overclaimNumberThisSession} Caught Overclaims`} borderColor="#ef4444">
+        <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
+          Six overclaims caught and corrected this session. Verification discipline is the asset.
+          Rigorous SOTA unchanged: <strong style={{ color: '#10b981' }}>Λ ≤ 0.2 (Platt–Trudgian 2021)</strong>.
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
+          {[
+            {
+              n: 1,
+              claim: '1e13 height: Lambda headline',
+              caughtBy: 'imp-2630 WITHDRAWN',
+              correction: 'kappa_T frozen at T0=3000 used at T0=1e13; height-consistent E_trunc=7.65>>0.2; thin-strip structurally dead',
+            },
+            {
+              n: 2,
+              claim: 'kappa_T rigorously pinned as height-uniform',
+              caughtBy: 'imp-2625 CORRECTED',
+              correction: 'kappa_T=4delta/(3-2delta) degrades with height; not a uniform constant across the full height range',
+            },
+            {
+              n: 3,
+              claim: 'sup Im-m = pi rigorous (1/y amplification)',
+              caughtBy: 'imp-2621 REGRADED',
+              correction: 'True divergence is atomic sqrt(N/2pi) with no 1/log gain; a=0 endpoint regime survives',
+            },
+            {
+              n: 4,
+              claim: 'imp-1287: ‖K_a‖ ≤ 1/a (Wiener-Hopf closes Conj 27.2)',
+              caughtBy: 'imp-2660 RETRACTED',
+              correction: MAXFANOUT_STATUS.imp2633Contradiction.startsWith('imp-2633') ? 'Causal sinh-convolution is non-Toeplitz (pole z=a inside RHP); ‖K_a‖ ~ e^{aT}, measured 3.0/9.53/26.97/74.02 at T=4/6/8/10 for a=0.5 (37x over claimed bound 2)' : '',
+            },
+            {
+              n: 5,
+              claim: 'imp-2633: E_coll RIGOROUSLY-PINNED',
+              caughtBy: 'imp-2661 CORRECTED',
+              correction: MAXFANOUT_STATUS.imp2633Contradiction,
+            },
+            {
+              n: 6,
+              claim: 'Section-27 LINK B: ‖V‖≤1 ⟺ K_a≥0 (Phi-uniform two-way collapse)',
+              caughtBy: 'imp-2666 DOWNGRADED',
+              correction: SECTION27_REFUTATION.scaleObstruction + '. ' + SECTION27_REFUTATION.collapseConsequence,
+            },
+          ].map((oc) => (
+            <div key={oc.n} style={{
+              display: 'flex', gap: 12, padding: '10px 14px', borderRadius: 6,
+              background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.18)',
+            }}>
+              <div style={{
+                flexShrink: 0, width: 22, height: 22, borderRadius: '50%',
+                background: 'rgba(239,68,68,0.18)', color: '#ef4444',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono)', marginTop: 1,
+              }}>{oc.n}</div>
+              <div style={{ minWidth: 0 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 3 }}>
+                  <span style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 600 }}>{oc.claim}</span>
+                  <span style={{
+                    padding: '1px 7px', borderRadius: 3,
+                    background: 'rgba(239,68,68,0.18)', color: '#ef4444',
+                    fontSize: 10, fontWeight: 700, fontFamily: 'var(--font-mono)',
+                  }}>{oc.caughtBy}</span>
+                </div>
+                <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>{oc.correction}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h3 style={{ color: '#e2e8f0', fontSize: 14, marginBottom: 10, fontFamily: 'var(--font-mono)' }}>Honest Gap-Map</h3>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
+          <div style={{ padding: 12, borderRadius: 8, background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.28)' }}>
+            <div style={{ fontSize: 10, color: '#10b981', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>RIGOROUS SOTA</div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>Λ ≤ 0.2</div>
+            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>{MAXFANOUT_STATUS.rigorousSOTA}</div>
+          </div>
+          <div style={{ padding: 12, borderRadius: 8, background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.28)' }}>
+            <div style={{ fontSize: 10, color: '#f59e0b', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>NUMERICAL ESTIMATE — NOT RIGOROUS</div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: '#f59e0b', fontFamily: 'var(--font-mono)', marginBottom: 6 }}>Λ ≤ E(N) ≈ 0.013</div>
+            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>{MAXFANOUT_STATUS.finiteNbeat}</div>
+          </div>
+          <div style={{ padding: 12, borderRadius: 8, background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.28)' }}>
+            <div style={{ fontSize: 10, color: '#3b82f6', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 6 }}>VOLTERRA: PCC-FREE — COLLAPSE REFUTED</div>
+            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5, marginBottom: 6 }}>
+              <strong style={{ color: '#3b82f6' }}>PCC-free:</strong> {STRATEGIC_REFRAME.honestGuard}
+            </div>
+            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>
+              <strong style={{ color: '#ef4444' }}>Real gap:</strong> {SECTION27_REFUTATION.rigorStatus}
+            </div>
+          </div>
+        </div>
+      </Section>
+
       {/* Recommended Reading */}
       <Section title="Navigate the Proof Landscape" borderColor="#64748b">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>

@@ -341,6 +341,82 @@ function TransparencyLedger() {
   );
 }
 
+// ── Honest SOTA banner (imp-2670) ────────────────────────────────────────────
+// Three-tier hierarchy so no visitor inherits a withdrawn claim. Light: reads
+// only the OVERCLAIMS literal above; no module imports.
+const SOTA_TIERS = [
+  {
+    key: 'rigorous',
+    label: 'RIGOROUS',
+    color: '#10b981',
+    bg: 'rgba(16,185,129,0.08)',
+    items: [
+      'Rodgers–Tao (2020): Λ ≥ 0 — unconditional.',
+      'Platt–Trudgian (2021): Λ ≤ 0.2 — current SOTA upper bound, unconditional.',
+    ],
+  },
+  {
+    key: 'estimate',
+    label: 'ESTIMATE — NOT RIGOROUS',
+    color: '#f59e0b',
+    bg: 'rgba(245,158,11,0.08)',
+    items: [
+      'Finite-N* = 1e4 self-consistent estimate Λ ≈ 0.013.',
+      'Gated by the undischargeable constant C_H (imp-2640 NEGATIVE); a heuristic target, NOT a proof.',
+    ],
+  },
+  {
+    key: 'refuted',
+    label: 'REFUTED THIS SESSION',
+    color: '#ef4444',
+    bg: 'rgba(239,68,68,0.07)',
+    items: [
+      OVERCLAIMS.length + ' overclaims withdrawn/corrected by adversarial verification (see Transparency Ledger below).',
+      'No live claim beats Platt–Trudgian Λ ≤ 0.2; the thin-strip "beats P–T" framing is structurally dead (imp-2630).',
+    ],
+  },
+];
+
+function HonestSOTABanner() {
+  return (
+    <div style={{
+      border: '1px solid #334155', borderRadius: 10,
+      background: 'rgba(15,23,42,0.6)', padding: '14px 18px', marginBottom: 24,
+    }}>
+      <div style={{ fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)', marginBottom: 12, letterSpacing: 0.5 }}>
+        HONEST RIGOR HIERARCHY &mdash; WHAT IS PROVED vs ESTIMATED vs REFUTED
+      </div>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+        gap: 12,
+      }}>
+        {SOTA_TIERS.map(tier => (
+          <div key={tier.key} style={{
+            border: `1px solid ${tier.color}`, borderRadius: 8,
+            background: tier.bg, padding: '10px 13px',
+          }}>
+            <div style={{
+              fontSize: 12, fontWeight: 700, fontFamily: 'var(--font-mono)',
+              color: tier.color, marginBottom: 8,
+            }}>
+              {tier.label}
+            </div>
+            {tier.items.map((text, i) => (
+              <div key={i} style={{
+                fontSize: 12, color: '#cbd5e1', lineHeight: 1.5,
+                marginBottom: i < tier.items.length - 1 ? 6 : 0,
+              }}>
+                {text}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function RigorDashboardPage() {
   const [expandedStep, setExpandedStep] = useState(null);
 
@@ -363,6 +439,9 @@ export default function RigorDashboardPage() {
           Click any step to expand the full claim.
         </p>
       </div>
+
+      {/* Honest SOTA banner (imp-2670) */}
+      <HonestSOTABanner />
 
       {/* Headline claim */}
       <div style={{

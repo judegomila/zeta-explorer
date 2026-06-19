@@ -1621,6 +1621,7 @@ const DATA_MODULES = [
   '/src/data/strategic-reframe-pcc-free-volterra-2026-06-17.js',
   '/src/data/section27-identity-refutation-2026-06-17.js',
   '/src/data/section26-verdict-volterra-not-a-reduction-2026-06-18.js',
+  '/src/data/full-route-map-2026-06-19.js',
   // imp-2664: independent operator-algebra re-derivation of the Section-27 identity
   // (Schur LINK A proved; Phi-uniform LINK B refuted robustly; scale-normalized form
   // reduced -- both directions -- to one open characteristic-function identification).

@@ -25223,4 +25223,17 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     dependsOn: [],
     model: 'opus-4-8',
   },
+  {
+    id: 'imp-2674',
+    title: 'Reconcile the DAG with the route map: finite-N*=1e4 node is ESTIMATE (C_H), not \'rigorous unconditional\'',
+    category: 'accuracy',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per full-route-map-2026-06-19.js ROUTE_MAP_CROSS_CHECK. LAMBDA_DEPENDENCY_MATRIX in lambda-roadmap.js still labels node bound-imp-440-finite-1e4 'Lambda(1e4) <= 0.02 rigorous unconditional (measured)' with note 'No conditional in its closure -- unconditional finite-N* beat'. This contradicts imp-2640 (C_H undischargeable, Gronwall diverges at collision) and imp-2632 (t_c_proj is OLS not a rigorous bound). FIX: (a) relabel the node to ESTIMATE / 'rigorous-modulo-C_H'; (b) add a cond-CH (Holder-modulus) conditional leaf that bound-imp-440-finite-1e4 depends on, so its conditional closure is NOT empty; (c) annotate cond-polymath15-G6a with the imp-2640 NEGATIVE status so the DAG does not read as 'one small lemma away'. After: all views (DAG, roadmap, route-map) agree the finite-N beat is an ESTIMATE gated on C_H. Keep the existing currentStatus tripwire (no 'RH follows unconditionally'). Build green.",
+    rationale: 'The /rh-dag view is the one stale artifact still presenting the finite-N beat as rigorous-unconditional; reconciling it stops the dashboards contradicting the honest map.',
+    estimatedComplexity: 'medium',
+    dependsOn: [],
+    model: 'opus-4-8',
+  },
 ];

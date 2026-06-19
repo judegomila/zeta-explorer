@@ -89,6 +89,35 @@ export const RANKED_OPPORTUNITIES = [
   { rank: 5, target: 'Supercritical-fluid quantized-winding-under-heat-flow experiment', why: 'The one genuinely under-explored original idea: is d(winding(arg H_tau))/d(tau) a monotone Lyapunov quantity? Realistic ceiling = a topological re-derivation of Lambda>=0; will NOT beat PT. Worth ONE time-boxed pass.' },
 ];
 
+// Cross-check of the route map against the project's other views (DAG, roadmap).
+// Flags where an older view still asserts something the map's verdicts refute.
+export const ROUTE_MAP_CROSS_CHECK = {
+  date: '2026-06-19',
+  checkedAgainst: ['LAMBDA_DEPENDENCY_MATRIX (the /rh-dag DAG)', 'lambda-roadmap OPEN_GAPS + currentStatus'],
+  inconsistencies: [
+    {
+      view: 'DAG: LAMBDA_DEPENDENCY_MATRIX node bound-imp-440-finite-1e4',
+      asserts: '"Lambda(1e4) <= 0.02 rigorous unconditional (measured)" with note "No conditional in its closure -- unconditional finite-N* beat"',
+      mapVerdict: 'ESTIMATE-not-rigorous: E_coll constant C_H is undischargeable (imp-2640 NEGATIVE, Gronwall diverges at collision); |t_c_proj| is OLS not rigorous (imp-2632)',
+      fix: 'relabel the DAG node to ESTIMATE / rigorous-modulo-C_H, and add a cond-CH (Holder-modulus) conditional leaf the node depends on -- it does NOT have an empty conditional closure',
+      severity: 'high',
+    },
+    {
+      view: 'DAG: bound-imp-1261-asymptotic note "Sole modulo conditional: cond-polymath15-G6a"',
+      asserts: 'G6a modelled as a single closable leaf conditional',
+      mapVerdict: 'G6a = C_H is RH-hard at the modulus; the obvious Gronwall discharge route is REFUTED (imp-2640) -- not a routinely closable leaf',
+      fix: 'annotate cond-polymath15-G6a with the imp-2640 NEGATIVE status so the DAG does not read as "one small lemma away"',
+      severity: 'medium',
+    },
+  ],
+  consistent: [
+    'roadmap currentStatus tripwire already forbids "RH follows unconditionally" (imp-2519) -- consistent with the map',
+    'roadmap asymptotic bound is labelled "rigorous-modulo-polymath15-G6a" -- consistent (modulo wording), though the map sharpens G6a to RH-hard',
+    'Rodgers-Tao Lambda>=0 and PT Lambda<=0.2 as the rigorous floor -- consistent across DAG, roadmap, and map',
+  ],
+  netVerdict: 'The DAG is the one stale view: it still presents the finite-N*=1e4 beat as rigorous-unconditional with an empty conditional closure, contradicting the C_H finding. Reconcile it (imp ticket) so all views agree the finite-N beat is an ESTIMATE gated on C_H.',
+};
+
 export const FULL_ROUTE_MAP_NEXT_MOVE = {
   primary: 'Focused adversarially-refereed assault on C_H, framed as "sharpen E(N) toward a CONDITIONAL rigorous beat" (NOT "prove Lambda<0.2"): can the Theta/isolation machinery + exact discriminant ladder supply a COLLISION-REGULARIZED replacement for the divergent Gronwall integral, bounding the shock modulus near the collision where Gronwall blows up? Fails cleanly -> definitively retires the finite-N beat to ESTIMATE.',
   secondary: 'Time-boxed supercritical-fluid winding-under-heat-flow numerical experiment (d(winding)/d(tau) monotonicity).',

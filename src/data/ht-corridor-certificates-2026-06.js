@@ -179,6 +179,7 @@ export const scopeAssessment = {
 };
 
 export const crossLinks = [
+  { label: 'H_t Finite-Window Census (exactly 8 zeros)', to: '/ht-window-census' },
   { label: 'Twin-ladder paper §14.18 (Lyapunov barrier)', to: '/paper' },
   { label: 'Rigorous Numerics stages (§20)', to: '/rigorous-numerics-stages' },
   { label: 'Twin Ladder overview', to: '/twin-ladder' },

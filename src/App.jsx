@@ -73,6 +73,7 @@ const TwinLadderPaperRoadmapPage = lazy(() => import('./pages/TwinLadderPaperRoa
 const PaperAuditDashboardPage = lazy(() => import('./pages/PaperAuditDashboardPage.jsx'));
 const PCCRouteExhaustionPage = lazy(() => import('./pages/PCCRouteExhaustionPage.jsx'));
 const HtCorridorCertificatesPage = lazy(() => import('./pages/HtCorridorCertificatesPage.jsx'));
+const HtFiniteWindowPage = lazy(() => import('./pages/HtFiniteWindowPage.jsx'));
 const VizHyperbolicPrimeSpiralPage = lazy(() => import('./pages/VizHyperbolicPrimeSpiralPage.jsx'));
 const HiddenSquareProgramPage = lazy(() => import('./pages/HiddenSquareProgramPage.jsx'));
 const ReciprocalProgramPage = lazy(() => import('./pages/ReciprocalProgramPage.jsx'));
@@ -158,6 +159,7 @@ const NAV_GROUPS = [
       { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard' },
       { to: '/pcc-route-exhaustion', label: 'PCC Route Exhaustion' },
       { to: '/ht-corridor-certificates', label: 'H_t Corridor Certificates (rigorous)' },
+      { to: '/ht-window-census', label: 'H_t Finite-Window Census (exactly 8)' },
       { to: '/collapse-chain', label: 'Collapse Chain: ‖V‖ ≤ 1 ⇔ CDB-Exist' },
       { to: '/hidden-square-program', label: 'Hidden-Square Program (§25–27)' },
       { to: '/reciprocal-program', label: 'Reciprocal Program (Apps B–G)' },
@@ -536,6 +538,7 @@ function AppShell() {
           <Route path="/paper-audit-dashboard" element={<PaperAuditDashboardPage />} />
           <Route path="/pcc-route-exhaustion" element={<PCCRouteExhaustionPage />} />
           <Route path="/ht-corridor-certificates" element={<HtCorridorCertificatesPage />} />
+          <Route path="/ht-window-census" element={<HtFiniteWindowPage />} />
           <Route path="/viz-hyperbolic-prime-spiral" element={<VizHyperbolicPrimeSpiralPage />} />
           <Route path="/hidden-square-program" element={<HiddenSquareProgramPage />} />
           <Route path="/reciprocal-program" element={<ReciprocalProgramPage />} />

@@ -31,7 +31,12 @@ LOG_DIR="$SCRIPT_DIR/logs"
 IMPROVEMENTS_FILE="$PROJECT_DIR/IMPROVEMENTS.md"
 CLAIM_CLI="$SCRIPT_DIR/claim-next-api-ticket.mjs"
 
-N_WORKERS=${API_POOL_WORKERS:-4}
+# 2026-06-19: default lowered 4 -> 2 to cap concurrent API consumers and stop
+# self-inflicted rate limiting (maximum EFFECTIVE throughput). The watchdog
+# restarts this pool with a bare `start`, so the THROTTLE MUST LIVE IN THIS
+# DEFAULT, not just an env var (an env-only override is silently undone on the
+# next watchdog restart). Raise API_POOL_WORKERS for a mechanical backlog.
+N_WORKERS=${API_POOL_WORKERS:-2}
 INTERVAL=${INTERVAL:-20}          # inter-turn idle per worker
 IDLE_SLEEP=${IDLE_SLEEP:-90}      # sleep when a worker claims NONE (queue drained)
 MAX_RUNS=${MAX_RUNS:-500}         # per-worker run cap

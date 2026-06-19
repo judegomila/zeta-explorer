@@ -43,11 +43,12 @@ mkdir -p "$SCRIPT_DIR/logs" "$STATE_DIR"
 # Ordered list of engines this watchdog supervises. The single auto-improve-api.sh
 # was replaced by the parallel pool (auto-improve-api-pool.sh): N workers claim
 # distinct tickets via claim-next-api-ticket.mjs, so they no longer collide.
+# 2026-06-19: right-sized to ONLY the api-pool to cap concurrent API consumers
+# and stop self-inflicted rate limiting (maximum EFFECTIVE throughput). The
+# subscription/sonnet/haiku engines are intentionally NOT watched so they stay
+# paused; re-add them here to scale the fleet back up for a mechanical backlog.
 ENGINES=(
-  "auto-improve.sh"
   "auto-improve-api-pool.sh"
-  "auto-improve-sonnet.sh"
-  "auto-improve-haiku.sh"
 )
 
 # ── helpers ─────────────────────────────────────────────────────────────────

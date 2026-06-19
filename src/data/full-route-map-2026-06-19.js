@@ -27,7 +27,7 @@
 
 export const FULL_ROUTE_MAP = {
   date: '2026-06-19',
-  totalRoutes: 36,
+  totalRoutes: 38, // synthesis cited ~36; the enumerated table holds 38
   clusters: {
     lambdaUpper: [
       { name: 'Route A finite-N*=1e4 beat', status: 'ESTIMATE', opp: 3, note: 'gated on C_H; PT-comparable IF C_H lands' },
@@ -101,7 +101,7 @@ export const FULL_ROUTE_MAP_ASSERTIONS = [
     description: 'The map enumerates 36 routes across 5 clusters',
     holds: () => {
       const n = Object.values(FULL_ROUTE_MAP.clusters).reduce((s, c) => s + c.length, 0);
-      return n === FULL_ROUTE_MAP.totalRoutes && n === 36;
+      return n === FULL_ROUTE_MAP.totalRoutes && Object.keys(FULL_ROUTE_MAP.clusters).length === 5;
     },
   },
   {

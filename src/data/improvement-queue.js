@@ -25215,7 +25215,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     title: 'Original-idea pass: supercritical-fluid quantized-winding-under-heat-flow Lyapunov experiment (time-boxed)',
     category: 'numerical',
     priority: 'high',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S7',
     description: "Per full-route-map RANKED_OPPORTUNITIES #5 — the ONE genuinely under-explored original idea (zeta-as-supercritical-fluid). The bulk thermodynamics is dead (imp-2323 found no order-parameter transition in (1/2,1)), but the TOPOLOGICAL surface tension = quantized winding (argument principle, 2pi per zero, integer-valued deformation-stable) was only measured on static sigma-slices, never swept over de Bruijn-Newman heat-flow tau. DELIVERABLE (strictly time-boxed numerical experiment): using heatEvolvedXi / heatFlowZeros in supercritical.js, compute the winding number of arg H_tau(t) as a function of heat-flow tau and test whether d(winding)/d(tau) is a MONOTONE Lyapunov quantity (zeros leaving the line = winding change). HONEST CEILING stated up front: the best realistic outcome is a clean TOPOLOGICAL re-derivation of 'forward heat keeps zeros real' = Lambda>=0 (Rodgers-Tao); it will almost certainly NOT beat PT Lambda<=0.2 and may collapse to merely re-proving Rodgers-Tao. Report what the winding-vs-tau experiment actually shows; retire the frame to exposition if no Lyapunov structure emerges.",
     rationale: 'User explicitly wants the original ideas (esp. supercritical fluid) explored not forgotten; this is the single thread the map found genuinely under-developed, worth one honest time-boxed pass.',

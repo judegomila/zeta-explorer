@@ -1,305 +1,171 @@
 /**
- * @fileoverview Insight DAG: proof-chain knowledge graph for the ZPO Explorer / RH-attack project.
- *
- * Exports four symbols:
- *   - INSIGHT_NODES   — 30+ nodes spanning five layers: foundation, model, analysis, gap, target.
- *     Each node carries { id, label, category, status, page, description } and maps to a
- *     specific explorer page where its mathematics is developed.
- *   - INSIGHT_EDGES   — 60+ directed edges of types {derives, composes, inspires, analogous,
- *     supports, requires, proves, equivalent, extends} encoding the logical dependency
- *     structure from Euler-product / functional-equation axioms through to the Riemann Hypothesis.
- *   - STATUS_COLORS   — { proven, conditional, gap, open } → hex colour map used by InsightGraph.
- *   - CATEGORY_COLORS — { foundation, model, analysis, gap, target } → hex colour map.
- *
- * Proof-chain role (Visualization layer):
- *   Single source of truth for the insight graph rendered by the InsightGraph component.
- *   The layer structure reflects the ZPO / RH-attack proof architecture: classical
- *   foundations (Euler product, functional equation, analytic continuation) flow through
- *   circuit-theoretic models (single oscillator, twin ladder) into spectral and analytic
- *   arguments (KL Lyapunov, Weil positivity, Connes trace), then into open gaps (S4, S5,
- *   S7) that must be closed before RH can be claimed.
- *
- * Key structural assertions:
- *   1. Every gap node (status: 'gap') has at least one incoming 'requires' edge, making
- *      its prerequisites explicit in the graph.
- *   2. The two nodes with 'equivalent' edges to 'rh' (li-criterion, nyman-beurling) are
- *      exact logical equivalences to RH, not merely supporting heuristics.
- *   3. 'monotone-contraction' is the only node with a direct 'proves' edge to 'rh' that
- *      is still open — it is the frontier conjecture of the ZPO programme.
- *
- * Ticket history:
- *   - imp-741 (content, 2026-04-15): added this @fileoverview JSDoc block.
- *
  * @module insight-dag
+ *
+ * The Connected Insights DAG (HomePage). Fine-grained 2026-06-21 (Opus 4.8
+ * insight-dag-finegrain fan-out, 5 layer-mappers + synthesis): 52 nodes / 86 edges
+ * across 5 layers (FOUNDATION/MODEL/ANALYSIS/GAPS/TARGET). Each node carries its
+ * own `layer` (0-4) so the renderer no longer drops nodes missing from a
+ * hardcoded map. Statuses now include refuted/estimate/rh-equivalent and edges
+ * include refutes/reformulates to carry the session's honest verdicts: the C_H
+ * shock-Holder modulus is THE wall every Lambda route funnels into; the Volterra
+ * collapse is PCC-FREE but RH-EQUIVALENT (its Sec-27 LINK B identity REFUTED);
+ * PT Lambda<=0.2 is the standing rigorous SOTA. No false QED.
  */
+
 export const INSIGHT_NODES = [
-  // Foundation layer
-  { id: 'euler-product', label: 'Euler Product', category: 'foundation', status: 'proven', page: '/oscillators',
-    description: '\u03b6(s) = \u220f(1-p^{-s})^{-1} \u2014 each factor is a transfer function' },
-  { id: 'functional-eq', label: 'Functional Equation', category: 'foundation', status: 'proven', page: '/hamiltonian',
-    description: '\u03be(s) = \u03be(1-s) \u2014 direct/dual symmetry' },
-  { id: 'analytic-cont', label: 'Analytic Continuation', category: 'foundation', status: 'proven', page: '/zeta',
-    description: '\u03b6(s) defined for all s \u2260 1 via eta relation' },
-
-  // Model layer
-  { id: 'single-oscillator', label: 'Single Oscillator', category: 'model', status: 'proven', page: '/oscillators',
-    description: 'H_p(s) = 1/(1-p^{-s}) as LC resonator' },
-  { id: 'ladder-chain', label: 'Ladder Chain', category: 'model', status: 'proven', page: '/oscillators',
-    description: 'Cascade of prime oscillators = Euler product' },
-  { id: 'twin-ladder', label: 'Twin Ladder', category: 'model', status: 'proven', page: '/waves',
-    description: 'Direct + Dual ladders coupled by bridge \u03c7(s)' },
-  { id: 'bridge-unitarity', label: 'Bridge Unitarity', category: 'model', status: 'proven', page: '/control',
-    description: '|\u03c7(\u00bd+it)| = 1 \u2014 lossless on critical line' },
-  { id: 'hamiltonian', label: 'Hamiltonian', category: 'model', status: 'conditional', page: '/hamiltonian',
-    description: 'H(\u03c3,t) minimized at \u03c3=\u00bd \u2014 conditional on operator construction' },
-
-  // Analysis layer
-  { id: 'kl-lyapunov', label: 'KL Lyapunov', category: 'analysis', status: 'conditional', page: '/spectral-attack',
-    description: 'D_KL \u2192 0 at \u03c3=\u00bd as Lyapunov stability function' },
-  { id: 'fisher-info', label: 'Fisher Information', category: 'analysis', status: 'conditional', page: '/spectral-attack',
-    description: 'Fisher information diverges at zeros \u2014 confinement wall' },
-  { id: 'unified-potential', label: 'Unified Potential', category: 'analysis', status: 'conditional', page: '/spectral-attack',
-    description: '\u03a6(\u03c3,t) = weighted sum of 6 measures, minimum at \u03c3=\u00bd' },
-  { id: 'gue-statistics', label: 'GUE Statistics', category: 'analysis', status: 'proven', page: '/statistics',
-    description: 'Zero spacing matches Gaussian Unitary Ensemble' },
-  { id: 'li-criterion', label: 'Li Criterion', category: 'analysis', status: 'conditional', page: '/statistics',
-    description: '\u03bb_n \u2265 0 for all n \u27fa RH' },
-  { id: 'weil-form', label: 'Weil Quadratic Form', category: 'analysis', status: 'conditional', page: '/spectral-attack',
-    description: 'Extremizing W finds zeros using only small primes (Connes 2026)' },
-  { id: 'twistor-incidence', label: 'Twistor Incidence', category: 'analysis', status: 'conditional', page: '/twistor',
-    description: 'Z\u00b7W = 0 \u27fa \u03c3 = \u00bd \u2014 incidence relation' },
-  { id: 'info-entropy', label: 'Information Entropy', category: 'analysis', status: 'conditional', page: '/info-theory',
-    description: 'Shannon entropy maximized at \u03c3=\u00bd' },
-  { id: 'chaitin-complexity', label: 'Chaitin Complexity', category: 'analysis', status: 'conditional', page: '/odd-zeta',
-    description: 'Kolmogorov complexity bounds for \u03b6(odd) irrationality' },
-
-  // Gap layer
-  { id: 'gap-s4', label: 'S4: Regularization', category: 'gap', status: 'gap', page: '/gap-closing',
-    description: 'Extend Euler product to critical strip via eta relation' },
-  { id: 'gap-s5', label: 'S5: Hilbert-P\u00f3lya', category: 'gap', status: 'gap', page: '/gap-closing',
-    description: 'Construct self-adjoint operator with spectrum = zeros' },
-  { id: 'gap-s7', label: 'S7: Darlington', category: 'gap', status: 'gap', page: '/gap-closing',
-    description: 'Prove infinite twin-ladder satisfies Darlington losslessness' },
-
-  // Deep analysis layer
-  { id: 'weil-positivity', label: 'Weil Positivity', category: 'analysis', status: 'conditional', page: '/spectral-attack',
-    description: 'W[f] \u2265 0 \u21d4 H_ZPO positive semi-definite \u2014 Connes energy minimization' },
-  { id: 'davenport-heilbronn', label: 'Davenport-Heilbronn', category: 'analysis', status: 'proven', page: '/gap-closing',
-    description: 'Evil twin counterexample: functional eq without Euler product \u21d2 off-line zeros' },
-  { id: 'berry-keating', label: 'Berry-Keating xp', category: 'model', status: 'conditional', page: '/hamiltonian',
-    description: 'H = xp semiclassical quantization: prime orbits with period log p' },
-  { id: 'bost-connes', label: 'Bost-Connes System', category: 'analysis', status: 'proven', page: '/statistics',
-    description: 'Primon gas phase transition at \u03c3 = 1, supercritical equilibrium at \u03c3 = \u00bd' },
-  { id: 'selberg-trace', label: 'Selberg Trace', category: 'analysis', status: 'proven', page: '/statistics',
-    description: 'Spectral = geometric: eigenvalue sum = prime orbit sum' },
-  { id: 'nyman-beurling', label: 'Nyman-Beurling', category: 'analysis', status: 'conditional', page: '/spectral-attack',
-    description: 'RH \u21d4 density of fractional parts in L\u00b2(0,1)' },
-  { id: 'spectral-form-factor', label: 'Spectral Form Factor', category: 'analysis', status: 'proven', page: '/statistics',
-    description: 'K(\u03c4) dip-ramp-plateau confirms GUE quantum chaos' },
-  { id: 'connes-trace', label: 'Connes Trace Formula', category: 'analysis', status: 'conditional', page: '/spectral-attack',
-    description: 'Adele class space: zeros = eigenvalues of scaling flow' },
-
-  // Frontier layer (2024-2026 research)
-  { id: 'zeta-spectral-triple', label: 'Zeta Spectral Triple', category: 'analysis', status: 'conditional', page: '/reasoning',
-    description: 'Connes 2025: rank-one perturbation of scaling operator. Self-adjoint for finite truncations.' },
-  { id: 'guth-maynard', label: 'Guth-Maynard', category: 'analysis', status: 'proven', page: '/reasoning',
-    description: 'Zero-density exponent 0.6 \u2192 0.52 via Dirichlet polynomial large value estimates (2024)' },
-  { id: 'monotone-contraction', label: 'Monotone Contraction', category: 'gap', status: 'gap', page: '/reasoning',
-    description: '\u2016\u0394_{N+1}\u2016 \u2264 \u2016\u0394_N\u2016\u00b7(1-c/p_{N+1}) \u2192 geometric convergence to unitarity' },
-  { id: 'caratheodory-fejer', label: 'Carath\u00e9odory-Fej\u00e9r', category: 'analysis', status: 'proven', page: '/reasoning',
-    description: 'Toeplitz PSD \u21d4 trigonometric polynomial \u2265 0 \u2014 guarantees self-adjointness' },
-
-  // Twin-ladder v52 layer (wave-11/12, paper landing 2026-05-26)
-  { id: 'shift-bridge-positivity', label: 'Shift-Bridge Positivity', category: 'analysis', status: 'conditional', page: '/shift-bridge-positivity',
-    description: 'Para 15: shifted bridge K_a positive definite \u21d4 RH (Theorem 15.1).' },
-  { id: 'four-route-equivalence', label: 'Four-Route Equivalence', category: 'analysis', status: 'conditional', page: '/closure-routes',
-    description: 'Para 16: Schur / de Branges / hidden-square / Weil routes all RH-equivalent.' },
-  { id: 'inverse-Blaschke-ghosts', label: 'Inverse Blaschke Ghosts', category: 'gap', status: 'gap', page: '/blaschke-ghosts',
-    description: 'Para 17: B_a^+ = 1 \u21d4 RH; ghost poles = off-critical zeros (Krein-Langer/Pontryagin).' },
-  { id: 'reciprocal-program', label: 'Reciprocal Program', category: 'analysis', status: 'conditional', page: '/three-attacks',
-    description: 'Para 18: three direct attacks (kernel/passivity, prime-delay, Weil/Pontryagin) on B_a^+ = 1.' },
-  { id: 'KYP-bounded-real', label: 'KYP / Bounded-Real Lemma', category: 'model', status: 'conditional', page: '/kyp-bounded-real',
-    description: 'App M-O: KYP state-space, bounded-real delay, delay-Gram positivity certificates.' },
-
-  // Target
-  { id: 'rh', label: 'Riemann Hypothesis', category: 'target', status: 'open', page: '/formal-proof',
-    description: 'All nontrivial zeros have Re(\u03c1) = \u00bd' },
+  { id: 'euler-product', label: 'Euler Product', layer: 0, category: 'foundation', status: 'proven', page: '/zeta', description: 'zeta(s)=prod_p (1-p^-s)^-1 on Re s>1 — encodes the primes' },
+  { id: 'analytic-cont', label: 'Analytic Continuation', layer: 0, category: 'foundation', status: 'proven', page: '/zeta', description: 'zeta continues meromorphically, sole pole at s=1' },
+  { id: 'functional-eq', label: 'Functional Equation', layer: 0, category: 'foundation', status: 'proven', page: '/hamiltonian', description: 'xi(s)=xi(1-s): completed zeta entire and symmetric about Re s=1/2' },
+  { id: 'phi-test-function', label: 'Phi(u) Test Function', layer: 0, category: 'foundation', status: 'proven', page: '/lambda-bounds', description: 'Even super-exponentially decaying Phi(u) built from theta terms' },
+  { id: 'xi-fourier-pair', label: 'Xi Fourier Transform', layer: 0, category: 'foundation', status: 'proven', page: '/lambda-bounds', description: 'xi(1/2+iz)=int Phi(u) e^{izu} du — Xi is Fourier transform of Phi' },
+  { id: 'ht-heat-flow', label: 'H_t Heat-Flow Family', layer: 0, category: 'foundation', status: 'proven', page: '/lambda-bounds', description: 'H_t(z)=int e^{tu^2}Phi(u)cos(zu)du — backward heat evolution, H_0=Xi/8' },
+  { id: 'lambda-def', label: 'Lambda := inf{t}', layer: 0, category: 'foundation', status: 'proven', page: '/lambda-bounds', description: 'de Bruijn-Newman Lambda=inf{t: H_t has only real zeros}' },
+  { id: 'rh-iff-lambda-zero', label: 'RH <=> Lambda=0', layer: 0, category: 'foundation', status: 'proven', page: '/route-map', description: 'RH iff Lambda<=0; with Newman Lambda>=0 gives RH <=> Lambda=0' },
+  { id: 'single-oscillator', label: 'Single Oscillator', layer: 1, category: 'model', status: 'proven', page: '/oscillators', description: 'H_p(s)=1/(1-p^-s) as a lossless LC resonator per prime' },
+  { id: 'ladder-chain', label: 'Ladder Chain', layer: 1, category: 'model', status: 'proven', page: '/oscillators', description: 'Cascade of prime oscillators reproduces the Euler product' },
+  { id: 'twin-ladder', label: 'Twin Ladder', layer: 1, category: 'model', status: 'proven', page: '/twin-ladder', description: 'Direct + dual ladders coupled by the bridge chi(s)' },
+  { id: 'bridge-unitarity', label: 'Bridge Unitarity', layer: 1, category: 'model', status: 'proven', page: '/control', description: '|chi(1/2+it)|=1: the bridge is lossless on the critical line' },
+  { id: 'hamiltonian', label: 'Hamiltonian H', layer: 1, category: 'model', status: 'conditional', page: '/hamiltonian', description: 'Candidate H minimized at sigma=1/2, conditional on operator construction' },
+  { id: 'berry-keating', label: 'Berry-Keating xp', layer: 1, category: 'model', status: 'conditional', page: '/berry-keating-xp', description: 'H=xp semiclassical model: prime orbits with period log p' },
+  { id: 'dyson-cm-flow', label: 'Dyson / CM Flow', layer: 1, category: 'model', status: 'proven', page: '/dyson-verifier', description: 'Zeros as particles under attractive Calogero-Moser flow' },
+  { id: 'dyson-burgers-pde', label: 'Dyson-Burgers PDE', layer: 1, category: 'model', status: 'proven', page: '/viz-euler-transport-flow', description: 'Stieltjes transform obeys inviscid complex Burgers u_t+u u_z=0' },
+  { id: 'gap-dynamics', label: 'Gap Dynamics dg/ds', layer: 1, category: 'model', status: 'proven', page: '/dyson-verifier', description: 'Exact pair identity dg/ds=-(4/g)(1-Theta) (sg1 Lemma E)' },
+  { id: 'theta-functional', label: 'Theta Functional', layer: 1, category: 'model', status: 'proven', page: '/dyson-verifier', description: 'Dimensionless Theta=g^2 E/2 with exact dE/ds env identity' },
+  { id: 'volterra-operator', label: 'Volterra V_{a,Phi}', layer: 1, category: 'model', status: 'proven', page: '/volterra-bound', description: 'Endpoint-Hankel Volterra operator on L^2[0,U]; well-defined and PCC-free' },
+  { id: 'debranges-canonical', label: 'de Branges E_a', layer: 1, category: 'model', status: 'conditional', page: '/three-attacks', description: 'E_a=A_a-iB_a / canonical system; trace-normed H exists only abstractly' },
+  { id: 'ka-reproducing-kernel', label: 'K_a Reproducing Kernel', layer: 1, category: 'model', status: 'conditional', page: '/shift-bridge-positivity', description: 'K_a of H(E_a); K_a>=0 is RH-equivalent, not a model fact' },
+  { id: 'KYP-bounded-real', label: 'KYP / Bounded-Real', layer: 1, category: 'model', status: 'conditional', page: '/kyp-bounded-real', description: 'App M-O: state-space KYP, bounded-real delay, delay-Gram positivity certs' },
+  { id: 'gue-statistics', label: 'GUE Statistics', layer: 2, category: 'analysis', status: 'proven', page: '/statistics', description: 'Zero spacings match GUE (pair correlation, form factor) — empirical instrument' },
+  { id: 'theta-trap-thmA', label: 'Theta-Trap Thm A', layer: 2, category: 'analysis', status: 'proven', page: '/dyson-verifier', description: 'Theta<=1/4 is an unconditional forward-invariant trap of the CM-flow' },
+  { id: 'corollary-a1-tc-part', label: 'Corollary A1 t_c^part', layer: 2, category: 'analysis', status: 'proven', page: '/dyson-verifier', description: 'Theta(0)<=1/4 gives unconditional t_c<=g_min^2/6 — on PARTICLE flow' },
+  { id: 'burgers-limsup-tc', label: 'Burgers lim-sup t_c->0', layer: 2, category: 'analysis', status: 'proven', page: '/dyson-verifier', description: 'Route B deterministic lim-sup|t_c(N)|->0, PCC/GUE-free; particle flow not Lambda' },
+  { id: 'heat-discriminant-tc', label: 'Heat-Discriminant t_c', layer: 2, category: 'analysis', status: 'proven', page: '/collapse-chain', description: 'Exact collision time via heat-flow discriminant — non-dynamical instrument' },
+  { id: 'hs-bound-IJ', label: 'HS bound sqrt(I0 Ja)', layer: 2, category: 'analysis', status: 'proven', page: '/viz-volterra-kernel-heatmap', description: 'Rigorous ||V||<=sqrt(I0 Ja)~2.94e-4; but bounds an RH-equivalent object' },
+  { id: 'EN-decomposition', label: 'E(N) Decomposition', layer: 2, category: 'analysis', status: 'conditional', page: '/lambda-bounds', description: '|Lambda+t_c(N)|<=E_trunc+E_flow+E_coll; E_coll funnels into C_H wall' },
+  { id: 'spectral-form-factor', label: 'Spectral Form Factor', layer: 2, category: 'analysis', status: 'proven', page: '/statistics', description: 'K(tau) dip-ramp-plateau confirms GUE quantum chaos' },
+  { id: 'four-route-equivalence', label: 'Four-Route Equivalence', layer: 2, category: 'analysis', status: 'rh-equivalent', page: '/closure-routes', description: 'Schur / de Branges / hidden-square / Weil routes all RH-equivalent' },
+  { id: 'weil-positivity-equiv', label: 'Weil Positivity = RH', layer: 2, category: 'analysis', status: 'rh-equivalent', page: '/spectral-attack', description: 'Weil explicit-formula positivity is RH across Connes sub-routes; not a shortcut' },
+  { id: 'connes-spectral-triple', label: 'Connes Spectral Triple', layer: 2, category: 'analysis', status: 'rh-equivalent', page: '/connes-adelic', description: 'Adelic/Weil-positivity realization renames RH; missing piece is the PCC wall' },
+  { id: 'beurling-nyman', label: 'Beurling-Nyman', layer: 2, category: 'analysis', status: 'rh-equivalent', page: '/closure-routes', description: 'Strict RH equivalence; d_N~1/sqrt(log N) astronomically slow — a rename' },
+  { id: 'guth-maynard-2024', label: 'Guth-Maynard 2024', layer: 2, category: 'analysis', status: 'estimate', page: '/route-map', description: 'Zero-density 0.6->0.52 rigorous but NON-binding: E_trunc sits 261x below L_cond' },
+  { id: 'montgomery-pcc', label: 'Montgomery PCC', layer: 3, category: 'gap', status: 'open', page: '/pcc-route-exhaustion', description: 'Pair-correlation support>1 is the 50-yr wall every PCC zero-statistic route hits' },
+  { id: 'selberg-trace-pcc', label: 'Selberg-Trace PCC', layer: 3, category: 'gap', status: 'refuted', page: '/pcc-route-exhaustion', description: 'ESY/Selberg-trace closure DEAD: arithmetic dichotomy funnels into Montgomery PCC' },
+  { id: 'goldston-gonek-pcc', label: 'Goldston-Gonek 2pt', layer: 3, category: 'gap', status: 'refuted', page: '/pcc-route-exhaustion', description: 'Goldston-Gonek/Maynard 2-point PCC attack DEAD; one citation flagged fabricated' },
+  { id: 'gap-CH-shock-holder', label: 'C_H Shock-Holder', layer: 3, category: 'gap', status: 'gap', page: '/rigor-dashboard', description: 'THE wall: N-uniform Holder-1/2 shock modulus C_H; naive Gronwall refuted (imp-2640)' },
+  { id: 'gap-s27-blockpos-identity', label: 'S27 Block-Pos Identity', layer: 3, category: 'gap', status: 'refuted', page: '/route-map', description: 'LINK B: claimed block-positivity<=>K_a-PSD identity REFUTED (2026-06-17)' },
+  { id: 'gap-volterra-L2-norm', label: 'L2 Volterra Norm 27.2', layer: 3, category: 'gap', status: 'rh-equivalent', page: '/route-map', description: '||V||<=1 collapse KILLED as a reduction; 5000x margin was a homogeneity artifact' },
+  { id: 'gap-s26-normalized-R', label: 'S26 Normalized-R', layer: 3, category: 'gap', status: 'rh-equivalent', page: '/route-map', description: 'Conj-26.3: least-ruled-out direct target but information-preservingly RH-equivalent' },
+  { id: 'gap-s5', label: 'S5: Hilbert-Polya', layer: 3, category: 'gap', status: 'gap', page: '/gap-closing', description: 'Construct self-adjoint operator with spectrum = zeros' },
+  { id: 'gap-s7', label: 'S7: Darlington', layer: 3, category: 'gap', status: 'gap', page: '/gap-closing', description: 'Prove infinite twin-ladder satisfies Darlington losslessness' },
+  { id: 'inverse-Blaschke-ghosts', label: 'Inverse Blaschke Ghosts', layer: 3, category: 'gap', status: 'rh-equivalent', page: '/blaschke-ghosts', description: 'B_a^+=1 <=> RH; ghost poles = off-critical zeros (Krein-Langer/Pontryagin)' },
+  { id: 'target-route-map-hub', label: 'Full Route Map (38)', layer: 4, category: 'target', status: 'open', page: '/route-map', description: 'Orientation hub: all 38 routes classified; everything funnels into C_H, no shortcut' },
+  { id: 'target-lambda-RT', label: 'Lambda>=0 Rodgers-Tao', layer: 4, category: 'target', status: 'proven', page: '/lambda-bounds', description: 'Rigorous floor Lambda>=0 (Rodgers-Tao); sharp under RH, closes the lower side' },
+  { id: 'target-lambda-PT', label: 'Lambda<=0.2 Platt-Trudg', layer: 4, category: 'target', status: 'proven', page: '/lambda-bounds', description: 'Rigorous SOTA upper bound Lambda<=0.2 (Platt-Trudgian); not beaten' },
+  { id: 'target-finite-1e4-beat', label: 'Finite-N*=1e4 Beat', layer: 4, category: 'target', status: 'estimate', page: '/lambda-bounds', description: 'PT-comparable finite beat but ESTIMATE: gated on undischargeable C_H (imp-2640)' },
+  { id: 'rh', label: 'Riemann Hypothesis', layer: 4, category: 'target', status: 'open', page: '/formal-proof', description: 'All nontrivial zeros have Re(rho)=1/2' },
+  { id: 'shift-bridge-positivity', label: 'Shift-Bridge Positivity', layer: 2, category: 'analysis', status: 'rh-equivalent', page: '/shift-bridge-positivity', description: 'v52 App: shift-bridge positivity certificate; equivalent to the four-route closure' },
+  { id: 'reciprocal-program', label: 'Reciprocal Program', layer: 2, category: 'analysis', status: 'rh-equivalent', page: '/closure-routes', description: 'v52 reciprocal / inverse-Blaschke program; an RH-equivalent closure route' },
 ];
 
 export const INSIGHT_EDGES = [
-  // Foundation -> Model
+  { from: 'euler-product', to: 'analytic-cont', type: 'extends' },
+  { from: 'analytic-cont', to: 'functional-eq', type: 'derives' },
+  { from: 'functional-eq', to: 'xi-fourier-pair', type: 'derives' },
+  { from: 'phi-test-function', to: 'xi-fourier-pair', type: 'composes' },
+  { from: 'xi-fourier-pair', to: 'ht-heat-flow', type: 'derives' },
+  { from: 'phi-test-function', to: 'ht-heat-flow', type: 'composes' },
+  { from: 'ht-heat-flow', to: 'lambda-def', type: 'derives' },
+  { from: 'lambda-def', to: 'rh-iff-lambda-zero', type: 'derives' },
+  { from: 'functional-eq', to: 'rh-iff-lambda-zero', type: 'supports' },
   { from: 'euler-product', to: 'single-oscillator', type: 'derives' },
   { from: 'single-oscillator', to: 'ladder-chain', type: 'composes' },
-  { from: 'functional-eq', to: 'twin-ladder', type: 'derives' },
   { from: 'ladder-chain', to: 'twin-ladder', type: 'composes' },
-  { from: 'functional-eq', to: 'bridge-unitarity', type: 'derives' },
+  { from: 'twin-ladder', to: 'bridge-unitarity', type: 'composes' },
   { from: 'twin-ladder', to: 'hamiltonian', type: 'derives' },
-  { from: 'analytic-cont', to: 'gap-s4', type: 'requires' },
-
-  // Model -> Analysis
-  { from: 'bridge-unitarity', to: 'kl-lyapunov', type: 'inspires' },
-  { from: 'ladder-chain', to: 'fisher-info', type: 'inspires' },
-  { from: 'kl-lyapunov', to: 'unified-potential', type: 'composes' },
-  { from: 'fisher-info', to: 'unified-potential', type: 'composes' },
-  { from: 'bridge-unitarity', to: 'twistor-incidence', type: 'analogous' },
-  { from: 'twin-ladder', to: 'info-entropy', type: 'inspires' },
-  { from: 'info-entropy', to: 'chaitin-complexity', type: 'extends' },
-  { from: 'euler-product', to: 'weil-form', type: 'derives' },
-  { from: 'functional-eq', to: 'weil-form', type: 'derives' },
-  { from: 'gue-statistics', to: 'gap-s5', type: 'supports' },
-  { from: 'li-criterion', to: 'rh', type: 'equivalent' },
-
-  // Analysis -> Gaps
-  { from: 'hamiltonian', to: 'gap-s5', type: 'requires' },
-  { from: 'unified-potential', to: 'gap-s5', type: 'supports' },
-  { from: 'twin-ladder', to: 'gap-s7', type: 'requires' },
-  { from: 'weil-form', to: 'gap-s5', type: 'supports' },
-  { from: 'twistor-incidence', to: 'gap-s7', type: 'supports' },
-
-  // Gaps -> RH
-  { from: 'gap-s4', to: 'gap-s5', type: 'requires' },
-  { from: 'gap-s4', to: 'gap-s7', type: 'requires' },
-  { from: 'gap-s5', to: 'rh', type: 'proves' },
-  { from: 'gap-s7', to: 'rh', type: 'proves' },
-
-  // Creative cross-connections
-  { from: 'weil-form', to: 'info-entropy', type: 'inspires' },
-  { from: 'gue-statistics', to: 'unified-potential', type: 'supports' },
-  { from: 'li-criterion', to: 'bridge-unitarity', type: 'derives' },
-  { from: 'weil-form', to: 'chaitin-complexity', type: 'inspires' },
-  { from: 'analytic-cont', to: 'twin-ladder', type: 'requires' },
-
-  // Weil positivity connections
-  { from: 'weil-form', to: 'weil-positivity', type: 'derives' },
-  { from: 'hamiltonian', to: 'weil-positivity', type: 'inspires' },
-  { from: 'weil-positivity', to: 'rh', type: 'supports' },
-  { from: 'weil-positivity', to: 'gap-s5', type: 'supports' },
-
-  // Davenport-Heilbronn connections
-  { from: 'functional-eq', to: 'davenport-heilbronn', type: 'derives' },
-  { from: 'davenport-heilbronn', to: 'euler-product', type: 'supports' },
-  { from: 'davenport-heilbronn', to: 'gap-s7', type: 'supports' },
-  { from: 'bridge-unitarity', to: 'davenport-heilbronn', type: 'inspires' },
-
-  // Berry-Keating connections
   { from: 'berry-keating', to: 'hamiltonian', type: 'derives' },
   { from: 'single-oscillator', to: 'berry-keating', type: 'inspires' },
-  { from: 'berry-keating', to: 'gap-s5', type: 'supports' },
-  { from: 'berry-keating', to: 'gue-statistics', type: 'supports' },
-
-  // Bost-Connes connections
-  { from: 'euler-product', to: 'bost-connes', type: 'derives' },
-  { from: 'analytic-cont', to: 'bost-connes', type: 'requires' },
-  { from: 'bost-connes', to: 'unified-potential', type: 'inspires' },
-  { from: 'bost-connes', to: 'gap-s4', type: 'supports' },
-
-  // Deep cross-layer connections
-  { from: 'davenport-heilbronn', to: 'weil-positivity', type: 'supports' }, // D-H shows Weil positivity fails without Euler product
-  { from: 'twistor-incidence', to: 'weil-positivity', type: 'analogous' }, // Both encode sigma=1/2 as geometric condition
-  { from: 'bost-connes', to: 'berry-keating', type: 'inspires' }, // Partition function connects to xp quantization
-  { from: 'info-entropy', to: 'unified-potential', type: 'composes' }, // Shannon entropy is one of the 6 measures
-
-  // Selberg trace connections
-  { from: 'euler-product', to: 'selberg-trace', type: 'derives' },
-  { from: 'selberg-trace', to: 'gue-statistics', type: 'derives' },
-  { from: 'selberg-trace', to: 'berry-keating', type: 'inspires' },
-  { from: 'ladder-chain', to: 'selberg-trace', type: 'analogous' }, // Ladder harmonics = geodesic lengths
-
-  // Nyman-Beurling connections
-  { from: 'analytic-cont', to: 'nyman-beurling', type: 'requires' },
-  { from: 'nyman-beurling', to: 'rh', type: 'equivalent' },
-  { from: 'ladder-chain', to: 'nyman-beurling', type: 'analogous' }, // Sub-ladder approximation = L² density
-  { from: 'nyman-beurling', to: 'unified-potential', type: 'inspires' },
-
-  // Spectral form factor connections
-  { from: 'gue-statistics', to: 'spectral-form-factor', type: 'derives' },
-  { from: 'spectral-form-factor', to: 'gap-s5', type: 'supports' },
-  { from: 'berry-keating', to: 'spectral-form-factor', type: 'inspires' },
-
-  // Connes trace formula connections
-  { from: 'euler-product', to: 'connes-trace', type: 'derives' },
-  { from: 'functional-eq', to: 'connes-trace', type: 'derives' },
-  { from: 'connes-trace', to: 'weil-positivity', type: 'derives' },
-  { from: 'connes-trace', to: 'gap-s5', type: 'supports' },
-  { from: 'twin-ladder', to: 'connes-trace', type: 'analogous' }, // Twin ladder = archimedean/p-adic decomposition
-
-  // Cross-cutting connections between new and old nodes
-  { from: 'nyman-beurling', to: 'li-criterion', type: 'analogous' }, // Both are RH equivalences from different angles
-  { from: 'selberg-trace', to: 'connes-trace', type: 'inspires' }, // Selberg trace generalizes to Connes trace
-  { from: 'spectral-form-factor', to: 'bost-connes', type: 'inspires' }, // Both connect to thermodynamic ensembles
-  { from: 'connes-trace', to: 'nyman-beurling', type: 'inspires' }, // Adelic framework contextualizes L² criterion
-
-  // Zeta Spectral Triple connections (Connes 2025)
-  { from: 'connes-trace', to: 'zeta-spectral-triple', type: 'derives' },
-  { from: 'euler-product', to: 'zeta-spectral-triple', type: 'derives' },
-  { from: 'bridge-unitarity', to: 'zeta-spectral-triple', type: 'analogous' }, // Bridge = rank-one perturbation
-  { from: 'zeta-spectral-triple', to: 'gap-s5', type: 'supports' }, // Self-adjointness proven for finite case
-  { from: 'zeta-spectral-triple', to: 'rh', type: 'supports' },
-  { from: 'caratheodory-fejer', to: 'zeta-spectral-triple', type: 'derives' }, // C-F guarantees self-adjointness
-
-  // Carathéodory-Fejér connections
-  { from: 'weil-positivity', to: 'caratheodory-fejer', type: 'analogous' }, // Both are positivity conditions
-  { from: 'caratheodory-fejer', to: 'gap-s7', type: 'supports' }, // C-F positivity ↔ Darlington losslessness
-
-  // Guth-Maynard connections
-  { from: 'euler-product', to: 'guth-maynard', type: 'derives' },
-  { from: 'ladder-chain', to: 'guth-maynard', type: 'analogous' }, // Dirichlet polynomials = sub-ladders
-  { from: 'guth-maynard', to: 'gap-s7', type: 'supports' }, // Tighter zero-density → tighter unitarity bounds
-
-  // Monotone contraction connections
-  { from: 'gap-s7', to: 'monotone-contraction', type: 'requires' },
-  { from: 'davenport-heilbronn', to: 'monotone-contraction', type: 'supports' }, // D-H shows Euler product is essential
-  { from: 'monotone-contraction', to: 'rh', type: 'proves' }, // If proven, RH follows
-  { from: 'bost-connes', to: 'monotone-contraction', type: 'inspires' }, // Phase transition structure
-
-  // ── Twin-ladder v52 layer edges (imp-1215, paper landing 2026-05-26) ──
-  // All edges flow from existing nodes INTO the new layer, then from the new
-  // layer forward to rh / gap-s5 / gap-s7 — preserving the DAG acyclicity
-  // invariant. The reverse direction is forbidden.
-
-  // Shift-bridge positivity (para 15): twin-ladder + functional-eq derive it,
-  // and it supplies a route into the RH target.
-  { from: 'twin-ladder', to: 'shift-bridge-positivity', type: 'derives' },
-  { from: 'functional-eq', to: 'shift-bridge-positivity', type: 'derives' },
-  { from: 'bridge-unitarity', to: 'shift-bridge-positivity', type: 'composes' },
-  { from: 'shift-bridge-positivity', to: 'rh', type: 'equivalent' }, // Thm 15.1 RH ⇔ K_a ⪰ 0
-
-  // Four-route equivalence (para 16): four classical routes meet here, and
-  // any one of them closing implies RH.
-  { from: 'weil-form', to: 'four-route-equivalence', type: 'composes' },
-  { from: 'weil-positivity', to: 'four-route-equivalence', type: 'composes' },
-  { from: 'shift-bridge-positivity', to: 'four-route-equivalence', type: 'composes' },
-  { from: 'four-route-equivalence', to: 'rh', type: 'proves' }, // Any route → RH
-
-  // Inverse Blaschke ghosts (para 17): the obstruction node. Off-critical
-  // zeros materialize as Pontryagin negative-index ghost poles.
-  { from: 'shift-bridge-positivity', to: 'inverse-Blaschke-ghosts', type: 'requires' },
-  { from: 'davenport-heilbronn', to: 'inverse-Blaschke-ghosts', type: 'supports' }, // D-H exhibits the ghost mechanism
-  { from: 'inverse-Blaschke-ghosts', to: 'rh', type: 'equivalent' }, // B_a^+ ≡ 1 ⇔ RH
-
-  // Reciprocal program (para 18): three direct attacks on B_a^+ = 1.
-  { from: 'inverse-Blaschke-ghosts', to: 'reciprocal-program', type: 'requires' },
-  { from: 'four-route-equivalence', to: 'reciprocal-program', type: 'composes' },
-  { from: 'reciprocal-program', to: 'rh', type: 'proves' }, // Any of the 3 attacks → RH
-
-  // KYP / Bounded-Real (App M-O): operator-theoretic certificates for the
-  // shift-bridge positivity. Feeds shift-bridge-positivity numerically, and
-  // composes with hamiltonian / berry-keating on the model side.
-  { from: 'hamiltonian', to: 'KYP-bounded-real', type: 'analogous' },
+  { from: 'hamiltonian', to: 'dyson-cm-flow', type: 'analogous' },
+  { from: 'dyson-cm-flow', to: 'gap-dynamics', type: 'derives' },
+  { from: 'dyson-cm-flow', to: 'dyson-burgers-pde', type: 'derives' },
+  { from: 'gap-dynamics', to: 'theta-functional', type: 'composes' },
+  { from: 'twin-ladder', to: 'debranges-canonical', type: 'derives' },
+  { from: 'bridge-unitarity', to: 'debranges-canonical', type: 'composes' },
+  { from: 'debranges-canonical', to: 'ka-reproducing-kernel', type: 'derives' },
+  { from: 'bridge-unitarity', to: 'ka-reproducing-kernel', type: 'composes' },
+  { from: 'twin-ladder', to: 'volterra-operator', type: 'derives' },
+  { from: 'volterra-operator', to: 'ka-reproducing-kernel', type: 'analogous' },
   { from: 'twin-ladder', to: 'KYP-bounded-real', type: 'derives' },
-  { from: 'KYP-bounded-real', to: 'shift-bridge-positivity', type: 'supports' },
-  { from: 'KYP-bounded-real', to: 'gap-s7', type: 'supports' }, // KYP gives Darlington-style certs
+  { from: 'hamiltonian', to: 'KYP-bounded-real', type: 'analogous' },
+  { from: 'KYP-bounded-real', to: 'ka-reproducing-kernel', type: 'supports' },
+  { from: 'functional-eq', to: 'gue-statistics', type: 'supports' },
+  { from: 'gue-statistics', to: 'spectral-form-factor', type: 'derives' },
+  { from: 'gue-statistics', to: 'burgers-limsup-tc', type: 'supports' },
+  { from: 'theta-functional', to: 'theta-trap-thmA', type: 'derives' },
+  { from: 'theta-trap-thmA', to: 'corollary-a1-tc-part', type: 'derives' },
+  { from: 'corollary-a1-tc-part', to: 'burgers-limsup-tc', type: 'supports' },
+  { from: 'dyson-burgers-pde', to: 'burgers-limsup-tc', type: 'derives' },
+  { from: 'ht-heat-flow', to: 'heat-discriminant-tc', type: 'derives' },
+  { from: 'heat-discriminant-tc', to: 'corollary-a1-tc-part', type: 'supports' },
+  { from: 'volterra-operator', to: 'hs-bound-IJ', type: 'derives' },
+  { from: 'heat-discriminant-tc', to: 'EN-decomposition', type: 'supports' },
+  { from: 'burgers-limsup-tc', to: 'EN-decomposition', type: 'supports' },
+  { from: 'theta-trap-thmA', to: 'EN-decomposition', type: 'supports' },
+  { from: 'EN-decomposition', to: 'gap-CH-shock-holder', type: 'requires' },
+  { from: 'ka-reproducing-kernel', to: 'four-route-equivalence', type: 'composes' },
+  { from: 'weil-positivity-equiv', to: 'four-route-equivalence', type: 'composes' },
+  { from: 'hs-bound-IJ', to: 'four-route-equivalence', type: 'supports' },
+  { from: 'connes-spectral-triple', to: 'weil-positivity-equiv', type: 'composes' },
+  { from: 'euler-product', to: 'connes-spectral-triple', type: 'derives' },
+  { from: 'euler-product', to: 'guth-maynard-2024', type: 'derives' },
+  { from: 'analytic-cont', to: 'beurling-nyman', type: 'requires' },
+  { from: 'selberg-trace-pcc', to: 'montgomery-pcc', type: 'requires' },
+  { from: 'goldston-gonek-pcc', to: 'montgomery-pcc', type: 'requires' },
+  { from: 'connes-spectral-triple', to: 'montgomery-pcc', type: 'requires' },
+  { from: 'weil-positivity-equiv', to: 'montgomery-pcc', type: 'requires' },
+  { from: 'guth-maynard-2024', to: 'montgomery-pcc', type: 'supports' },
+  { from: 'four-route-equivalence', to: 'gap-volterra-L2-norm', type: 'reformulates' },
+  { from: 'gap-s27-blockpos-identity', to: 'gap-volterra-L2-norm', type: 'refutes' },
+  { from: 'gap-s26-normalized-R', to: 'gap-volterra-L2-norm', type: 'requires' },
+  { from: 'hamiltonian', to: 'gap-s5', type: 'requires' },
+  { from: 'connes-spectral-triple', to: 'gap-s5', type: 'supports' },
+  { from: 'twin-ladder', to: 'gap-s7', type: 'requires' },
+  { from: 'KYP-bounded-real', to: 'gap-s7', type: 'supports' },
+  { from: 'ka-reproducing-kernel', to: 'inverse-Blaschke-ghosts', type: 'requires' },
+  { from: 'EN-decomposition', to: 'gap-s7', type: 'supports' },
+  { from: 'gap-CH-shock-holder', to: 'target-finite-1e4-beat', type: 'requires' },
+  { from: 'gap-CH-shock-holder', to: 'target-lambda-PT', type: 'requires' },
+  { from: 'gap-CH-shock-holder', to: 'rh', type: 'requires' },
+  { from: 'target-route-map-hub', to: 'gap-CH-shock-holder', type: 'requires' },
+  { from: 'target-route-map-hub', to: 'rh', type: 'supports' },
+  { from: 'target-lambda-PT', to: 'rh', type: 'supports' },
+  { from: 'target-lambda-RT', to: 'rh', type: 'supports' },
+  { from: 'target-finite-1e4-beat', to: 'target-lambda-PT', type: 'analogous' },
+  { from: 'rh-iff-lambda-zero', to: 'target-lambda-PT', type: 'supports' },
+  { from: 'rh-iff-lambda-zero', to: 'target-lambda-RT', type: 'supports' },
+  { from: 'beurling-nyman', to: 'rh', type: 'equivalent' },
+  { from: 'weil-positivity-equiv', to: 'rh', type: 'equivalent' },
+  { from: 'four-route-equivalence', to: 'rh', type: 'equivalent' },
+  { from: 'connes-spectral-triple', to: 'rh', type: 'reformulates' },
+  { from: 'gap-volterra-L2-norm', to: 'rh', type: 'reformulates' },
+  { from: 'gap-s26-normalized-R', to: 'rh', type: 'reformulates' },
+  { from: 'inverse-Blaschke-ghosts', to: 'rh', type: 'equivalent' },
+  { from: 'gap-s5', to: 'rh', type: 'proves' },
+  { from: 'gap-s7', to: 'rh', type: 'proves' },
+  { from: 'montgomery-pcc', to: 'rh', type: 'requires' },
+  { from: 'shift-bridge-positivity', to: 'four-route-equivalence', type: 'supports' },
+  { from: 'reciprocal-program', to: 'four-route-equivalence', type: 'supports' },
 ];
 
-// Status colors
 export const STATUS_COLORS = {
   proven: '#10b981',
   conditional: '#f59e0b',
   gap: '#f97316',
   open: '#ef4444',
+  refuted: '#b91c1c',
+  estimate: '#3b82f6',
+  'rh-equivalent': '#94a3b8',
 };
 
-// Category colors
 export const CATEGORY_COLORS = {
   foundation: '#3b82f6',
   model: '#8b5cf6',

@@ -9,34 +9,29 @@ import {
 
 /* ─── Layout constants ──────────────────────────────────────────────────── */
 
-const LAYER_Y = [0, 130, 270, 400, 500];
-const SVG_WIDTH = 1100;
+const LAYER_Y = [0, 180, 370, 560, 720];
+const SVG_WIDTH = 1280;
 const NODE_W = 110;
 const NODE_H = 42;
 const NODE_RX = 8;
 const PADDING_X = 60;
 const PADDING_TOP = 30;
-const PADDING_BOTTOM = 80;
-
-/* ─── Layer assignments ─────────────────────────────────────────────────── */
-
-const LAYER_MAP = {
-  'euler-product': 0, 'functional-eq': 0, 'analytic-cont': 0,
-  'single-oscillator': 1, 'ladder-chain': 1, 'twin-ladder': 1, 'bridge-unitarity': 1, 'hamiltonian': 1,
-  'kl-lyapunov': 2, 'fisher-info': 2, 'unified-potential': 2, 'gue-statistics': 2,
-  'li-criterion': 2, 'weil-form': 2, 'twistor-incidence': 2, 'info-entropy': 2, 'chaitin-complexity': 2,
-  'gap-s4': 3, 'gap-s5': 3, 'gap-s7': 3,
-  'rh': 4,
-};
+const PADDING_BOTTOM = 100;
+const STAGGER_Y = 58;     // vertical offset for odd nodes in crowded layers
+const STAGGER_THRESHOLD = 6; // layers with more nodes than this are staggered
 
 /* ─── Compute positioned nodes ──────────────────────────────────────────── */
+//
+// Each node carries its own `layer` (0-4) in the data, so the renderer no
+// longer drops nodes missing from a hardcoded id->layer map (the previous
+// LAYER_MAP silently hid every node it didn't list). Crowded layers are
+// staggered into two rows so 110px labels don't collide.
 
 function computeNodePositions() {
-  // Group by layer
   const layers = [[], [], [], [], []];
   INSIGHT_NODES.forEach((n) => {
-    const layer = LAYER_MAP[n.id];
-    if (layer !== undefined) layers[layer].push(n);
+    const layer = typeof n.layer === 'number' ? n.layer : 2;
+    if (layer >= 0 && layer < layers.length) layers[layer].push(n);
   });
 
   const positioned = {};
@@ -45,10 +40,11 @@ function computeNodePositions() {
     const availableW = SVG_WIDTH - PADDING_X * 2;
     const spacing = count > 1 ? availableW / (count - 1) : 0;
     const startX = count > 1 ? PADDING_X : SVG_WIDTH / 2;
+    const stagger = count > STAGGER_THRESHOLD;
 
     nodesInLayer.forEach((node, i) => {
       const cx = count > 1 ? startX + i * spacing : startX;
-      const cy = PADDING_TOP + LAYER_Y[layerIdx];
+      const cy = PADDING_TOP + LAYER_Y[layerIdx] + (stagger ? (i % 2) * STAGGER_Y : 0);
       positioned[node.id] = {
         ...node,
         cx,
@@ -84,6 +80,10 @@ function edgeStyle(type) {
       return { stroke: '#94a3b8', strokeWidth: 1, strokeDasharray: '4,3' };
     case 'extends':
       return { stroke: '#a78bfa', strokeWidth: 1.2, strokeDasharray: 'none' };
+    case 'refutes':
+      return { stroke: '#ef4444', strokeWidth: 2, strokeDasharray: '5,4', marker: true };
+    case 'reformulates':
+      return { stroke: '#fbbf24', strokeWidth: 1.6, strokeDasharray: '1,5' };
     default:
       return { stroke: '#475569', strokeWidth: 1, strokeDasharray: 'none' };
   }
@@ -99,6 +99,9 @@ function MarkerDefs() {
       </marker>
       <marker id="dag-arrow-proves" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
         <path d="M0,0 L10,3.5 L0,7 Z" fill="#10b981" />
+      </marker>
+      <marker id="dag-arrow-refutes" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L8,3 L0,6 Z" fill="#ef4444" />
       </marker>
       <filter id="dag-glow">
         <feGaussianBlur stdDeviation="3" result="blur" />
@@ -290,20 +293,25 @@ function Legend() {
   const statusItems = [
     { label: 'Proven', color: STATUS_COLORS.proven },
     { label: 'Conditional', color: STATUS_COLORS.conditional },
+    { label: 'Estimate', color: STATUS_COLORS.estimate },
     { label: 'Gap', color: STATUS_COLORS.gap },
     { label: 'Open', color: STATUS_COLORS.open },
+    { label: 'RH-equiv', color: STATUS_COLORS['rh-equivalent'] },
+    { label: 'Refuted', color: STATUS_COLORS.refuted },
   ];
 
   const edgeItems = [
     { label: 'Derives', stroke: '#64748b', dash: '' },
     { label: 'Composes', stroke: '#8b5cf6', dash: '', thick: true },
-    { label: 'Inspires', stroke: '#06b6d4', dash: '6,4' },
-    { label: 'Analogous', stroke: '#ec4899', dash: '2,3' },
     { label: 'Requires', stroke: '#f97316', dash: '', arrow: true },
     { label: 'Proves', stroke: '#10b981', dash: '', thick: true },
     { label: 'Equivalent', stroke: '#ef4444', dash: '', double: true },
+    { label: 'Reformulates', stroke: '#fbbf24', dash: '1,5' },
+    { label: 'Refutes', stroke: '#ef4444', dash: '5,4', arrow: true },
     { label: 'Supports', stroke: '#94a3b8', dash: '4,3' },
     { label: 'Extends', stroke: '#a78bfa', dash: '' },
+    { label: 'Inspires', stroke: '#06b6d4', dash: '6,4' },
+    { label: 'Analogous', stroke: '#ec4899', dash: '2,3' },
   ];
 
   const baseY = PADDING_TOP + LAYER_Y[4] + NODE_H / 2 + 30;
@@ -328,7 +336,7 @@ function Legend() {
         EDGES:
       </text>
       {edgeItems.map((item, i) => {
-        const lx = PADDING_X + 55 + i * 108;
+        const lx = PADDING_X + 50 + i * 104;
         return (
           <g key={item.label}>
             {item.double ? (

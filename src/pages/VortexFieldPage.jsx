@@ -35,16 +35,24 @@ const GAMMAS = [
 const PX = 460;          // canvas pixel buffer (square)
 const HALF_T = 9;        // half-window in t (imaginary direction)
 
-function VortexCanvas({ centerIdx, offAxisSigma, magContours }) {
+function VortexCanvas({ centerIdx, tau, magContours, showStreamlines }) {
   const ref = useRef(null);
 
-  // zeros in the window around the chosen central zero, as {sigma, gamma}
+  // Vortex set. Under the de Bruijn-Newman flow, for heat-time tau >= Lambda all
+  // vortices sit on Re s = 1/2; below Lambda (here Lambda_model = 0) the central
+  // one is an OFF-AXIS conjugate pair sigma = 1/2 +- |tau| (an RH violation that
+  // forward heat would coalesce onto the line). All others stay on the line.
   const zeros = useMemo(() => {
     const gc = GAMMAS[centerIdx];
-    return GAMMAS
-      .filter((g) => Math.abs(g - gc) <= HALF_T + 3)
-      .map((g, i, arr) => ({ gamma: g, sigma: 0.5, isCentral: Math.abs(g - gc) < 1e-9 }));
-  }, [centerIdx]);
+    const others = GAMMAS
+      .filter((g) => Math.abs(g - gc) <= HALF_T + 4 && Math.abs(g - gc) > 1e-9)
+      .map((g) => ({ sigma: 0.5, gamma: g, role: 'other' }));
+    const delta = tau < 0 ? -tau : 0;
+    const central = delta > 1e-6
+      ? [{ sigma: 0.5 + delta, gamma: gc, role: 'off' }, { sigma: 0.5 - delta, gamma: gc, role: 'off' }]
+      : [{ sigma: 0.5, gamma: gc, role: 'central' }];
+    return [...central, ...others];
+  }, [centerIdx, tau]);
 
   useEffect(() => {
     const cv = ref.current;
@@ -53,17 +61,12 @@ function VortexCanvas({ centerIdx, offAxisSigma, magContours }) {
     const img = ctx.createImageData(PX, PX);
     const data = img.data;
     const gc = GAMMAS[centerIdx];
-    const sigMin = 0.5 - HALF_T, sigMax = 0.5 + HALF_T; // square aspect in s
+    const sigMin = 0.5 - HALF_T, sigMax = 0.5 + HALF_T;
     const tMin = gc - HALF_T, tMax = gc + HALF_T;
-
-    // apply the off-axis perturbation to the central zero
-    const zs = zeros.map((z) => ({
-      sigma: z.isCentral ? 0.5 + offAxisSigma : z.sigma,
-      gamma: z.gamma,
-    }));
+    const zs = zeros;
 
     for (let py = 0; py < PX; py++) {
-      const t = tMax - (py / (PX - 1)) * (tMax - tMin); // top = high t
+      const t = tMax - (py / (PX - 1)) * (tMax - tMin);
       for (let px = 0; px < PX; px++) {
         const sig = sigMin + (px / (PX - 1)) * (sigMax - sigMin);
         let phase = 0, logmag = 0;
@@ -73,15 +76,13 @@ function VortexCanvas({ centerIdx, offAxisSigma, magContours }) {
           phase += Math.atan2(dy, dx);
           logmag += 0.5 * Math.log(dx * dx + dy * dy + 1e-12);
         }
-        // hue from phase
         let ph = phase % (2 * Math.PI);
         if (ph < 0) ph += 2 * Math.PI;
         const hue = (ph / (2 * Math.PI)) * 360;
-        // subtle |H| level-contour banding via fractional log-magnitude
         let light = 0.5;
         if (magContours) {
           const frac = logmag - Math.floor(logmag);
-          light = 0.34 + 0.30 * frac; // bands -> the |H| level contours
+          light = 0.34 + 0.30 * frac;
         }
         const [r, g, b] = hsl2rgb(hue, 0.85, light);
         const o = (py * PX + px) * 4;
@@ -90,30 +91,69 @@ function VortexCanvas({ centerIdx, offAxisSigma, magContours }) {
     }
     ctx.putImageData(img, 0, 0);
 
-    // overlay: critical line Re s = 1/2 (vertical), vortex markers
     const toPx = (sig, t) => [
       ((sig - sigMin) / (sigMax - sigMin)) * (PX - 1),
       ((tMax - t) / (tMax - tMin)) * (PX - 1),
     ];
-    ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+    const sigPerPx = (sigMax - sigMin) / (PX - 1);
+    const tPerPx = (tMax - tMin) / (PX - 1);
+
+    // V(s) = sum_k 1/(s - rho_k); draw its Polya vector field (Re V, -Im V)
+    // streamlines (the Newman flow), seeded on a coarse grid.
+    if (showStreamlines) {
+      const polya = (sig, t) => {
+        let vx = 0, vy = 0;
+        for (let k = 0; k < zs.length; k++) {
+          const dx = sig - zs[k].sigma, dy = t - zs[k].gamma;
+          const D = dx * dx + dy * dy + 1e-6;
+          vx += dx / D; vy += dy / D; // Polya field of 1/(s-rho)
+        }
+        return [vx, vy];
+      };
+      ctx.strokeStyle = 'rgba(255,255,255,0.42)';
+      ctx.lineWidth = 1;
+      const SEED = 13, STEPS = 22, hstep = 0.5;
+      for (let i = 1; i < SEED; i++) {
+        for (let j = 1; j < SEED; j++) {
+          let sig = sigMin + (i / SEED) * (sigMax - sigMin);
+          let t = tMin + (j / SEED) * (tMax - tMin);
+          ctx.beginPath();
+          let [sx, sy] = toPx(sig, t); ctx.moveTo(sx, sy);
+          for (let st = 0; st < STEPS; st++) {
+            const [vx, vy] = polya(sig, t);
+            const mag = Math.hypot(vx, vy) + 1e-9;
+            sig += (vx / mag) * hstep * sigPerPx * 4;
+            t += (vy / mag) * hstep * tPerPx * 4;
+            if (sig < sigMin || sig > sigMax || t < tMin || t > tMax) break;
+            [sx, sy] = toPx(sig, t); ctx.lineTo(sx, sy);
+          }
+          ctx.stroke();
+        }
+      }
+    }
+
+    // critical line Re s = 1/2
+    ctx.strokeStyle = 'rgba(255,255,255,0.6)';
     ctx.setLineDash([6, 5]);
     ctx.lineWidth = 1.5;
     const [lx] = toPx(0.5, 0);
     ctx.beginPath(); ctx.moveTo(lx, 0); ctx.lineTo(lx, PX); ctx.stroke();
     ctx.setLineDash([]);
-    zs.forEach((z, k) => {
+
+    // vortex markers
+    zs.forEach((z) => {
       const [vx, vy] = toPx(z.sigma, z.gamma);
       if (vy < -10 || vy > PX + 10) return;
-      const central = zeros[k].isCentral;
-      const offAxis = Math.abs(z.sigma - 0.5) > 1e-6;
+      const central = z.role === 'central';
+      const off = z.role === 'off';
       ctx.beginPath();
-      ctx.arc(vx, vy, central ? 8 : 5.5, 0, 2 * Math.PI);
-      ctx.lineWidth = central ? 3 : 2;
-      ctx.strokeStyle = offAxis ? '#ef4444' : central ? '#fde047' : '#ffffff';
+      ctx.arc(vx, vy, central || off ? 7.5 : 5.5, 0, 2 * Math.PI);
+      ctx.lineWidth = central || off ? 3 : 2;
+      ctx.strokeStyle = off ? '#ef4444' : central ? '#fde047' : '#ffffff';
       ctx.fillStyle = 'rgba(0,0,0,0.55)';
       ctx.fill(); ctx.stroke();
     });
-  }, [centerIdx, offAxisSigma, magContours, zeros]);
+  }, [centerIdx, tau, magContours, showStreamlines, zeros]);
 
   return <canvas ref={ref} width={PX} height={PX} style={{ width: '100%', maxWidth: 560, borderRadius: 10, border: '1px solid #1e293b', display: 'block' }} />;
 }
@@ -151,10 +191,11 @@ function PhaseWheel() {
 
 export default function VortexFieldPage() {
   const [centerIdx, setCenterIdx] = useState(9); // gamma ~ 49.77 (matches the poster)
-  const [offAxisSigma, setOffAxisSigma] = useState(0);
+  const [tau, setTau] = useState(0);
   const [magContours, setMagContours] = useState(true);
+  const [showStreamlines, setShowStreamlines] = useState(true);
   const gc = GAMMAS[centerIdx];
-  const offAxis = Math.abs(offAxisSigma) > 1e-6;
+  const offAxis = tau < -1e-6;
 
   return (
     <div className="page">
@@ -174,7 +215,7 @@ export default function VortexFieldPage() {
 
       <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'flex-start' }}>
         <div style={{ flex: '1 1 480px' }}>
-          <VortexCanvas centerIdx={centerIdx} offAxisSigma={offAxisSigma} magContours={magContours} />
+          <VortexCanvas centerIdx={centerIdx} tau={tau} magContours={magContours} showStreamlines={showStreamlines} />
           <div style={{ fontSize: 11, color: '#64748b', marginTop: 6, fontFamily: 'var(--font-mono)' }}>
             window: Re s ∈ [½−{HALF_T}, ½+{HALF_T}], Im s ∈ [{(gc - HALF_T).toFixed(1)}, {(gc + HALF_T).toFixed(1)}] · central zero γ ≈ {gc.toFixed(4)}
           </div>
@@ -196,17 +237,21 @@ export default function VortexFieldPage() {
 
           <div className="card" style={{ borderLeft: `3px solid ${offAxis ? '#ef4444' : '#22c55e'}` }}>
             <label style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
-              Central vortex offset from Re s = ½: <strong style={{ color: offAxis ? '#ef4444' : '#22c55e' }}>{offAxisSigma >= 0 ? '+' : ''}{offAxisSigma.toFixed(2)}</strong>
-              <input type="range" min={-4} max={4} step={0.1} value={offAxisSigma}
-                     onChange={(e) => setOffAxisSigma(+e.target.value)} style={{ width: '100%', marginTop: 6 }} />
+              Heat-flow t (de Bruijn–Newman): <strong style={{ color: offAxis ? '#ef4444' : '#22c55e' }}>{tau >= 0 ? '+' : ''}{tau.toFixed(2)}</strong>
+              <input type="range" min={-4} max={4} step={0.1} value={tau}
+                     onChange={(e) => setTau(+e.target.value)} style={{ width: '100%', marginTop: 6 }} />
             </label>
             <div style={{ fontSize: 11, color: offAxis ? '#fca5a5' : '#86efac', marginTop: 6 }}>
               {offAxis
-                ? 'OFF-AXIS vortex → an off-axis zero → RH would be FALSE here.'
-                : 'On the critical line — RH-consistent. Winding +1, vortex excluded from off-axis.'}
+                ? 'BELOW Λ: the central vortex is an OFF-AXIS conjugate pair (σ = ½ ± |t|) — an RH violation.'
+                : 'At/above Λ (t ≥ 0): every vortex on Re s = ½. Forward heat coalesces off-axis vortices onto the line.'}
             </div>
           </div>
 
+          <label style={{ fontSize: 12, color: 'var(--text-secondary)', display: 'flex', gap: 8, alignItems: 'center' }}>
+            <input type="checkbox" checked={showStreamlines} onChange={(e) => setShowStreamlines(e.target.checked)} />
+            V<sub>t</sub> flow streamlines (Newman flow)
+          </label>
           <label style={{ fontSize: 12, color: 'var(--text-secondary)', display: 'flex', gap: 8, alignItems: 'center' }}>
             <input type="checkbox" checked={magContours} onChange={(e) => setMagContours(e.target.checked)} />
             |H(s)| level-contour banding

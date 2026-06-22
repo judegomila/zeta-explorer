@@ -92,6 +92,7 @@ const CayleySchurTrajectoryPage = lazy(() => import('./pages/CayleySchurTrajecto
 const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
 const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboardPage.jsx'));
 const RouteMapPage = lazy(() => import('./pages/RouteMapPage.jsx'));
+const VortexFieldPage = lazy(() => import('./pages/VortexFieldPage.jsx'));
 const MillsTheoremPage = lazy(() => import('./pages/MillsTheoremPage.jsx'));
 const GilbreathObservationPage = lazy(() => import('./pages/GilbreathObservationPage.jsx'));
 const BerryKeatingXpPage = lazy(() => import('./pages/BerryKeatingXpPage.jsx'));
@@ -189,6 +190,7 @@ const NAV_GROUPS = [
       { to: '/lambda-timeline', label: 'Λ Timeline' },
       { to: '/rh-dag', label: 'RH Dependency DAG' },
       { to: '/route-map', label: 'Route Map' },
+      { to: '/vortex-field', label: 'Vortex Field' },
       { to: '/rh-attack', label: 'RH Attack' },
       { to: '/spectral-attack', label: 'Spectral' },
       { to: '/gap-closing', label: 'Gap Closing' },
@@ -523,6 +525,7 @@ function AppShell() {
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />
           <Route path="/rh-proof-state" element={<RHProofStateDashboardPage />} />
           <Route path="/route-map" element={<RouteMapPage />} />
+          <Route path="/vortex-field" element={<VortexFieldPage />} />
           <Route path="/dyson-verifier" element={<DysonVerifierPage />} />
           <Route path="/health" element={<HealthPage />} />
           <Route path="/full-story" element={<FullStoryPage />} />

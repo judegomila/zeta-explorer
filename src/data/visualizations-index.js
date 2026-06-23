@@ -196,6 +196,39 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       ticket: 'imp-1292',
       pedagogicalStep: 9,
     }),
+    Object.freeze({
+      route: '/vortex-field',
+      title: 'Prime-Log Vortex Field',
+      oneLine:
+        'Domain-colored arg H(s): zeros render as phase vortices on Re s=½ (winding ±1); V_t=H_t′/H_t Newman-flow streamlines + a de Bruijn–Newman heat-flow slider.',
+      mathBucket: 'flow-field',
+      dataModule: null,
+      paperSourcePath: 'user image: Prime-Log Vortex Field Near a Zeta Zero',
+      ticket: 'imp-2673',
+      pedagogicalStep: 10,
+    }),
+    Object.freeze({
+      route: '/prime-rigidity',
+      title: 'Prime Rigidity — True vs Perturbed',
+      oneLine:
+        'Caustic field θ=t·log n (mod 2π) for true integers vs a randomized set; the coherent bands dissolve under randomization — the structure is arithmetic, not random.',
+      mathBucket: 'caustic',
+      dataModule: null,
+      paperSourcePath: 'user image: Twin-Ladder Visual Geometries (panel 11, true-vs-perturbed)',
+      ticket: 'imp-2673',
+      pedagogicalStep: 11,
+    }),
+    Object.freeze({
+      route: '/visual-geometries',
+      title: 'Visual Geometries of ζ(s) — gallery',
+      oneLine:
+        'Master gallery tying every log-phase view of ζ into one poster: spiral, caustics, crystal, hyperbolic spiral, vortices, rigidity.',
+      mathBucket: 'phase-spiral',
+      dataModule: null,
+      paperSourcePath: 'user image: Twin-Ladder Visual Geometries of ζ(s)',
+      ticket: 'imp-2673',
+      pedagogicalStep: 12,
+    }),
   ]),
 });
 

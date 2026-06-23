@@ -19,7 +19,7 @@
 //   B_a(z)      = ∫_0^∞ Φ(u) sinh(au) sin(zu) du              (§25 sine gauge — ODD in a)
 //   E_a(z)      = A_a(z) − i B_a(z),   E_a^#(z) = A_a(z) + i B_a(z)
 //
-//   K_a(w, z)   = (E_a(z) E_a(w̄) − E_a^#(z) E_a^#(w̄)) / (2πi (w̄ − z))
+//   K_a(w, z)   = (E_a(z) E_a^#(w̄) − E_a^#(z) E_a(w̄)) / (2πi (w̄ − z))
 //              = (A_a(z) B_a(w̄) − B_a(z) A_a(w̄)) / (π (w̄ − z))      (Wronskian form)
 //
 //   V_{a,Φ}     (V f)(t) = ∫_0^t Φ(t) Φ(s) sinh(a(t − s)) f(s) ds      [past-future Volterra]
@@ -44,7 +44,7 @@ const AXIS_A = Object.freeze({
     'What is the K_a construction in §27 and what gauges of A_a / B_a does ' +
     'it use? Are the gauges consistent with the V_{a,Φ} sinh-kernel? Is the ' +
     'Wronskian form (A_a B_a − B_a A_a) / (π (w̄ − z)) actually identical to ' +
-    'the standard de Branges form (E_a E_a − E_a^# E_a^#) / (2πi (w̄ − z))?',
+    'the standard de Branges form (E_a E_a^# − E_a^# E_a) / (2πi (w̄ − z))?',
 
   paperConstruction:
     'Per §25 (hidden-square-program-section.js): K_a is the de Branges ' +

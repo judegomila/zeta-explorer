@@ -146,7 +146,7 @@ const FORWARD_CHAIN = Object.freeze([
     justification:
       'de Branges 1968, Hilbert Spaces of Entire Functions, Theorem 23: an entire ' +
       'function E of exponential type satisfies |E(z)| > |E#(z)| in C_+ (Hermite-Biehler ' +
-      'condition) if and only if the kernel K(w, z) = (E(z)E(w̄) − E#(z)E#(w̄))/(2πi(w̄−z)) ' +
+      'condition) if and only if the kernel K(w, z) = (E(z)E#(w̄) − E#(z)E(w̄))/(2πi(w̄−z)) ' +
       'is positive semidefinite. Applied here: K_a is exactly this kernel for E_a, so ' +
       'K_a ⪰ 0 ⇔ E_a HB.',
     citation: 'de Branges 1968 Thm 23',

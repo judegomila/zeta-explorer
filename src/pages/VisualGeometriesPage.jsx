@@ -29,7 +29,7 @@ const PANELS = [
     blurb: 'Zeros as phase vortices (winding ±1); vortex exclusion from off-axis ⟺ RH.', color: '#ec4899' },
   { n: 7, title: 'Near a Zeta Zero', tex: '\\rho=\\tfrac12+i\\gamma', to: '/viz-near-zero',
     blurb: 'Rings, nodal lines and vortex creation as the interference reorganizes near a zero.', color: '#06b6d4' },
-  { n: 8, title: 'Angular-Spacing Statistics', tex: '\\Delta_k=\\theta_{k+1}-\\theta_k', to: '/statistics',
+  { n: 8, title: 'Angular-Spacing Statistics', tex: '\\Delta_k=\\theta_{k+1}-\\theta_k', to: '/gue-comparison',
     blurb: 'GUE spacing of the zeros; the log-phase spacings show hidden rigidity vs random.', color: '#8b5cf6' },
   { n: 9, title: 'Twin-Ladder Tomography', tex: '\\prod_p(1-p^{-s})^{-1}', to: '/viz-twin-ladder-tomography',
     blurb: 'Slices through the dual ladders that enforce the functional equation ζ(s)=χ(s)ζ(1−s).', color: '#14b8a6' },

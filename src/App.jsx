@@ -94,6 +94,7 @@ const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
 const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboardPage.jsx'));
 const RouteMapPage = lazy(() => import('./pages/RouteMapPage.jsx'));
 const VortexFieldPage = lazy(() => import('./pages/VortexFieldPage.jsx'));
+const VizWindingDysonFlowPage = lazy(() => import('./pages/VizWindingDysonFlowPage.jsx'));
 const VizNearZeroPage = lazy(() => import('./pages/VizNearZeroPage.jsx'));
 const VisualGeometriesPage = lazy(() => import('./pages/VisualGeometriesPage.jsx'));
 const PrimeRigidityPage = lazy(() => import('./pages/PrimeRigidityPage.jsx'));
@@ -195,6 +196,7 @@ const NAV_GROUPS = [
       { to: '/viz-prime-phase-crystal', label: 'Prime Phase Crystal' },
       { to: '/visual-geometries', label: 'Visual Geometries (gallery)' },
       { to: '/vortex-field', label: 'Vortex Field' },
+      { to: '/viz-winding-dyson-flow', label: 'Winding under Dyson/Newman Flow' },
       { to: '/prime-rigidity', label: 'Prime Rigidity' },
       { to: '/viz-euler-product', label: 'True vs Perturbed Euler Product' },
       { to: '/riemann-siegel-z', label: 'Riemann-Siegel Z(t)' },
@@ -547,6 +549,7 @@ function AppShell() {
           <Route path="/rh-proof-state" element={<RHProofStateDashboardPage />} />
           <Route path="/route-map" element={<RouteMapPage />} />
           <Route path="/vortex-field" element={<VortexFieldPage />} />
+          <Route path="/viz-winding-dyson-flow" element={<VizWindingDysonFlowPage />} />
           <Route path="/viz-near-zero" element={<VizNearZeroPage />} />
           <Route path="/visual-geometries" element={<VisualGeometriesPage />} />
           <Route path="/prime-rigidity" element={<PrimeRigidityPage />} />

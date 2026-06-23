@@ -1768,6 +1768,8 @@ const DATA_MODULES = [
   // extended N-to-1e6 Dyson ladder; per-rung bracket containment + Lambda
   // intercept agreement within the +/-0.01 error bar.
   '/src/data/imp371-barrier-cross-validation.js',
+  // imp-2713: named-gap registry for the E(N) = E_trunc + E_flow + E_coll program.
+  '/src/data/imp-2713-en-named-gap-registry.js',
 ];
 
 const ALL_MODULES = FAST_MODE

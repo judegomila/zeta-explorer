@@ -37,6 +37,8 @@ const PANELS = [
     blurb: 'Perturbing primes destroys the caustics — the structure is ARITHMETIC, not random.', color: '#ef4444' },
   { n: 5, title: 'Euler Transport Flow', tex: 'u_t+u\\,u_z=0', to: '/viz-euler-transport-flow',
     blurb: 'The Dyson–Burgers transport the Stieltjes field obeys under the Newman heat flow.', color: '#eab308' },
+  { n: 14, title: 'True vs Perturbed Euler Product', tex: '\\log|\\Pi_p(1-p^{-s})^{-1}|', to: '/viz-euler-product',
+    blurb: 'Partial Euler product on the critical line: true primes dip at zero heights; perturbed log p smears them.', color: '#60a5fa' },
   { n: 12, title: 'Supercritical Landscape', tex: '|\\zeta(\\sigma+it)|', to: '/supercritical',
     blurb: 'Zeta as a partition function; zeros as vapor bubbles in the |ζ| thermodynamic landscape.', color: '#f97316' },
 ];

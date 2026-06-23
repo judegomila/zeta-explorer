@@ -96,6 +96,7 @@ const RouteMapPage = lazy(() => import('./pages/RouteMapPage.jsx'));
 const VortexFieldPage = lazy(() => import('./pages/VortexFieldPage.jsx'));
 const VisualGeometriesPage = lazy(() => import('./pages/VisualGeometriesPage.jsx'));
 const PrimeRigidityPage = lazy(() => import('./pages/PrimeRigidityPage.jsx'));
+const VizEulerProductPage = lazy(() => import('./pages/VizEulerProductPage.jsx'));
 const MillsTheoremPage = lazy(() => import('./pages/MillsTheoremPage.jsx'));
 const GilbreathObservationPage = lazy(() => import('./pages/GilbreathObservationPage.jsx'));
 const BerryKeatingXpPage = lazy(() => import('./pages/BerryKeatingXpPage.jsx'));
@@ -192,6 +193,7 @@ const NAV_GROUPS = [
       { to: '/visual-geometries', label: 'Visual Geometries (gallery)' },
       { to: '/vortex-field', label: 'Vortex Field' },
       { to: '/prime-rigidity', label: 'Prime Rigidity' },
+      { to: '/viz-euler-product', label: 'True vs Perturbed Euler Product' },
       { to: '/riemann-siegel-z', label: 'Riemann-Siegel Z(t)' },
       { to: '/gue-comparison', label: 'GUE vs Zeros' },
     ],
@@ -544,6 +546,7 @@ function AppShell() {
           <Route path="/vortex-field" element={<VortexFieldPage />} />
           <Route path="/visual-geometries" element={<VisualGeometriesPage />} />
           <Route path="/prime-rigidity" element={<PrimeRigidityPage />} />
+          <Route path="/viz-euler-product" element={<VizEulerProductPage />} />
           <Route path="/dyson-verifier" element={<DysonVerifierPage />} />
           <Route path="/health" element={<HealthPage />} />
           <Route path="/full-story" element={<FullStoryPage />} />

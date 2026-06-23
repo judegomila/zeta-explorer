@@ -98,6 +98,7 @@ const VizNearZeroPage = lazy(() => import('./pages/VizNearZeroPage.jsx'));
 const VisualGeometriesPage = lazy(() => import('./pages/VisualGeometriesPage.jsx'));
 const PrimeRigidityPage = lazy(() => import('./pages/PrimeRigidityPage.jsx'));
 const VizEulerProductPage = lazy(() => import('./pages/VizEulerProductPage.jsx'));
+const VizCausticResonancePage = lazy(() => import('./pages/VizCausticResonancePage.jsx'));
 const MillsTheoremPage = lazy(() => import('./pages/MillsTheoremPage.jsx'));
 const GilbreathObservationPage = lazy(() => import('./pages/GilbreathObservationPage.jsx'));
 const BerryKeatingXpPage = lazy(() => import('./pages/BerryKeatingXpPage.jsx'));
@@ -190,6 +191,7 @@ const NAV_GROUPS = [
       { to: '/viz-twin-ladder-tomography', label: 'Twin-Ladder Tomography' },
       { to: '/viz-prime-caustic', label: 'Prime Caustic' },
       { to: '/viz-prime-density-caustic', label: 'Prime Density on Caustics' },
+      { to: '/viz-caustic-resonance', label: 'Caustic Resonance Overlay' },
       { to: '/viz-prime-phase-crystal', label: 'Prime Phase Crystal' },
       { to: '/visual-geometries', label: 'Visual Geometries (gallery)' },
       { to: '/vortex-field', label: 'Vortex Field' },
@@ -583,6 +585,7 @@ function AppShell() {
           <Route path="/viz-twin-ladder-tomography" element={<VizTwinLadderTomographyPage />} />
           <Route path="/viz-prime-caustic" element={<VizPrimeCausticPage />} />
           <Route path="/viz-prime-density-caustic" element={<VizPrimeDensityOnCausticPage />} />
+          <Route path="/viz-caustic-resonance" element={<VizCausticResonancePage />} />
           <Route path="/viz-prime-phase-crystal" element={<VizPrimePhaseCrystalPage />} />
           <Route path="/visualizations" element={<VisualizationsIndexPage />} />
           <Route path="/berry-keating-xp" element={<BerryKeatingXpPage />} />

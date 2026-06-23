@@ -25365,7 +25365,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "section27-identity-refutation (src/data/section27-identity-refutation-2026-06-17.js, signBug field) found a CONCRETE BUG in 3 files: the kernel numerator as written E(z)E(w-bar) - E#(z)E#(w-bar) expands to the SYMMETRIC -2i(A B + B A), NOT the antisymmetric de Branges Wronskian. Correct numerator: E(z)E#(w-bar) - E#(z)E(w-bar) = 2i(A(z)B(w-bar) - B(z)A(w-bar)). Deliverable: correct the numerator in (a) imp-1258-volterra-cdb-bridge.js (~l.259), (b) imp-1265-section27-identity-recheck.js (axis-a ~l.78-97), (c) hidden-square-program-section.js (~l.45), and add a build-time assertion in each that the kernel is antisymmetric under z<->w (K(z,w) = -conj(K(w,z)) for the de Branges structure). HONEST: this does NOT revive LINK B (still REFUTED as a Phi-uniform equivalence per the scale-invariance obstruction); it only repairs the kernel definition so the modules state the correct object.",
     rationale: 'A named arithmetic bug in the load-bearing kernel definition across 3 modules; fixing it stops the code from asserting a symmetric object as the de Branges Wronskian. (area: proofs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2686',
@@ -25552,7 +25552,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "assertion-sweep-2026-04-12.js documents that twelve build-time assertions are only active because of four side-effect imports keeping their parent modules in the production graph. The newer discharge modules (imp-2641, imp-2643, imp-2644, imp-2633) ship top-level throws too. Deliverable: audit whether imp-2641/2643/2644/2633 are reachable from rh-attack.js; if any sits outside the import graph, add the side-effect import to assertion-sweep-2026-04-12.js, extend the ASSERTION_SWEEP PASS matrix with the new ticket ids, and add a meta-assertion counting that the documented assertion total matches the live count. Verify with the existing esbuild+node assertion path (per MEMORY: do not ssrLoadModule the heavy zeros bundle).",
     rationale: 'Per the codebase\'s own audit pattern, top-level throws become dead code if their module leaves the import graph; the constant-discharge assertions must stay wired. (area: rigor)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2703',
@@ -25673,7 +25673,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "The honest ledger names several distinct gap constants: C_H (undischargeable, imp-2642/2640 C_Lip non-N-uniform), C_T (residual effective-Ingham, imp-2625), C_G (order-unity, non-binding), the Erdos-Turan bridge (imp-2641 residual). These are scattered across modules. Deliverable: create a single NAMED_GAP_REGISTRY module listing each gap with {constant, status: rigorous|conditional|undischargeable, blockingLemma, binding: bool, citation}, and a build assertion that C_H is the unique binding-undischargeable entry (matching the imp-2643 verdict 'single constant that blocks'). If a future edit adds/removes a binding gap, the assertion forces the capstone verdict to be updated in lockstep.",
     rationale: 'Centralizes the honest gap taxonomy so the \'single blocking constant C_H\' claim cannot silently desync from the underlying module classifications. (area: rigor)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2714',
@@ -25717,7 +25717,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Create src/pages/VizPrimeDensityCausticsPage.jsx (+ route /viz-prime-density-caustics, add to App.jsx + visualizations-index.js). Reuse the caustic field θ=t·log p (mod 2π) from VizPrimeCausticPage but overlay, per caustic band, the running count and density of phase-coherent primes π_coh(t)/π(N) as a side line-plot keyed to the same t-axis. Goal: show the bright bands ARE prime alignments, not artifacts. Honest ceiling box: this is descriptive (which primes align at which t), no Λ claim; cross-link the explicit-formula x^ρ kernel as the analogue.",
     rationale: 'Gallery panel for prime density on caustics is named in the poster spec but unbuilt; ties brightness to an actual prime count. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2718',
@@ -25728,7 +25728,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Create src/pages/VizEulerProductTrueVsPerturbedPage.jsx (route /viz-euler-product-perturbed). Render partial Euler product Π_{p<N}(1−p^{−s})^{−1} along the critical line for TRUE primes vs a perturbed prime set (jitter each log p by ±ε, slider ε). Plot |product| and arg side-by-side; show that zero locations (sign/phase reorganizations) smear out under perturbation. Honest ceiling: demonstrates arithmetic rigidity of zeros vs random, NOT a bound on Λ. Add to visualizations-index.js with mathBucket reuse.",
     rationale: 'Poster spec lists \'true-vs-perturbed Euler product\' as a remaining panel; complements prime-rigidity caustic view with the product-side view. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2719',
@@ -25739,7 +25739,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Create src/pages/VizNearZetaZeroPage.jsx (route /viz-near-zeta-zero). Domain-color |H(s)| (not just arg) in a tight window around a single chosen zero ρ=½+iγ (γ slider over GAMMAS), drawing the concentric magnitude rings + nodal lines + the vortex at center. Currently VisualGeometriesPage panel #7 'Near a Zeta Zero' just re-points to /vortex-field — give it its own page. Honest ceiling: local interference picture, re-derives argument principle only, no Λ claim.",
     rationale: 'Two gallery panels (#6 and #7) collide on /vortex-field; panel #7 needs its own deliverable per the poster spec. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2720',
@@ -25750,7 +25750,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In src/pages/VortexFieldPage.jsx add a Play/Pause animation that sweeps the existing tau (heat-time) slider over a loop, with requestAnimationFrame, showing off-axis conjugate vortices coalescing onto Re s=½ as tau increases through Λ_model=0. Add a frame-rate guard and a 'reduce motion' fallback. Keep the existing honest ceiling note (re-derives Λ≥0, not a new bound).",
     rationale: 'Poster spec asks for a defect/vortex map animation; the static slider already exists so this is a single-run upgrade. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2721',
@@ -25761,7 +25761,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In src/pages/VizPrimeCausticPage.jsx add an onMouseMove handler on the canvas that maps cursor px→(σ,t), recomputes the coherent-prime count/amplitude at that point, and shows a small fixed readout panel: σ, t, coherent count, brightness, and the nearest resonance log(p_i/p_j)≈2πk/t. No viz page currently has hover readouts (verified by grep). Pure additive, no math claim.",
     rationale: 'Hover readouts are entirely absent across all viz pages; caustic is the most information-dense and benefits most. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2722',
@@ -25772,7 +25772,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In src/pages/VortexFieldPage.jsx add cursor→(σ,t) hover readout showing arg H, |H|, and winding contribution, plus distance to the nearest vortex (zero). Reuse the domain-coloring math already in VortexCanvas. Additive only; keep honest ceiling note.",
     rationale: 'The vortex field is the centerpiece RH-visible panel but gives no numeric feedback on hover. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2723',
@@ -25783,7 +25783,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In src/pages/VizLogPhaseSpiralPage.jsx add wheel-zoom and drag-pan over the polar log-phase field (transform the canvas coordinate window, re-render at the new scale), with a reset button and a min/max zoom clamp. Show current r,θ window in a readout. Keep the existing zero-cusp annotations aligned under zoom.",
     rationale: 'Spiral filaments need zoom to resolve; no existing viz supports interactive zoom. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2724',
@@ -25794,7 +25794,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Create src/pages/VizCausticResonancePage.jsx (route /viz-caustic-resonance). For a chosen t-band, draw the explicit resonance loci where log(p_i/p_j)=2πk/t for small prime pairs (p_i,p_j) and integer k, overlaid on the caustic heatmap, so the user sees WHY a band is bright (which prime ratios resonate there). Sliders: prime-pair cap, |k| cap. Honest ceiling: makes the resonance condition explicit, descriptive only, no Λ claim.",
     rationale: 'Poster spec names the resonance-condition overlay as a new exploratory angle; it explains caustic brightness mechanistically. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2725',
@@ -25805,7 +25805,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Create src/pages/VizPhaseCylinderPage.jsx (route /viz-phase-cylinder). Unwrap the log-phase field θ=t·log n into straight rays on a cylinder (θ mod 2π around the circumference, t along the axis), so the spiral becomes parallel helical rays per prime and caustics become axial alignments. Provide a 2D unrolled view + an isometric cylinder view toggle. Honest ceiling: geometric re-parameterization, exploratory, no Λ claim.",
     rationale: 'Poster spec lists \'unwrapped-rays + phase-cylinder\' as a new angle; it is the natural unrolling of the existing spiral. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2726',
@@ -25816,7 +25816,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Create src/pages/VizWindingDysonFlowPage.jsx (route /viz-winding-dyson-flow). Plot the total winding number (vortices enclosed) of V_t=H_t'/H_t in a fixed window as heat-time tau evolves under the de Bruijn–Newman/Dyson dynamics; show winding is conserved while vortices migrate onto Re s=½. Tie to the supercritical-winding thread (route-map id route-map-supercritical-winding-is-the-original-thread). Honest ceiling: re-derives Λ≥0 (Rodgers–Tao), explicitly NOT a new bound.",
     rationale: 'Poster spec names winding-under-real-Dyson-flow; the route map flags supercritical-winding as the original thread, so this is the canonical exploratory angle. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2727',
@@ -25849,7 +25849,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In src/pages/VisualGeometriesPage.jsx panel #8 'Angular-Spacing Statistics' links to /statistics. Verify that route exists in App.jsx; if it is actually /gue-statistics or similar, repoint it. If no dedicated angular-spacing page exists, create a minimal VizAngularSpacingPage.jsx (route /viz-angular-spacing) plotting Δ_k=θ_{k+1}−θ_k spacings vs the GUE distribution. Honest: descriptive spacing statistics, not a Λ claim.",
     rationale: 'Gallery panel may route to a non-existent page; broken nav in the master poster is a visible defect. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2730',
@@ -25860,7 +25860,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In src/pages/VizHyperbolicPrimeSpiralPage.jsx add sliders for number of primes plotted and hyperbolic-radius scale (radius ∝ c·log p_n with slider c), plus a toggle to highlight geodesic networks through prime points. Keep golden-angle θ default. Additive interactivity; no math claim.",
     rationale: 'The hyperbolic spiral is static; interactivity lets users probe the geodesic-translation structure of multiplication. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2731',
@@ -25871,7 +25871,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In src/pages/VizPrimePhaseCrystalPage.jsx add a resolution control (1/2/4 downsample like the caustic page) and a render-time readout, and memoize the prime-phase inner loop so high-N renders stay interactive. Verify no transitive import of the 16.7MB zeros bundle (per project memory). Pure performance/UX.",
     rationale: 'The Bragg-style crystal is the heaviest per-pixel computation; a resolution control keeps it usable on lower-end machines. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2732',
@@ -25882,7 +25882,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In src/pages/VizTwinLadderTomographyPage.jsx add a draggable horizontal σ-slice line that, on move, plots the 1D cross-section |ζ(σ+it)·ζ((1−σ)+it)| along t beneath the heatmap, making the σ=½ tomographic seam quantitatively visible. Add a t-window range slider. Honest ceiling: visualizes the functional-equation symmetry, NOT a rigorous route (twin-ladder geometry is a dead end per route map).",
     rationale: 'Tomography page is a static heatmap; a movable slice makes the σ=½ seam measurable and reinforces the honest dead-end ceiling. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2733',
@@ -25893,7 +25893,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Create src/utils/vizCanvasAxes.js providing drawAxisGrid(ctx, {sigMin,sigMax,tMin,tMax,px}) and pxToData/dataToPx helpers, then adopt it in VortexFieldPage and VizPrimeCausticPage so both render labeled σ and t tick axes (currently the heatmaps have no numeric axes). This also unblocks the hover-readout tickets by centralizing the pixel↔data mapping.",
     rationale: 'None of the heatmap viz pages draw labeled axes, so users cannot read off (σ,t); a shared helper fixes it everywhere and de-duplicates coordinate math. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2734',
@@ -25904,7 +25904,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Add a consistent footer to each Viz*Page.jsx and VortexFieldPage/PrimeRigidityPage: 'Part of Visual Geometries of ζ(s)' linking to /visual-geometries, plus a link to /route-map for the honest ceiling. Audit which pages already have it (caustic/vortex import Link) and add where missing. Pure navigation/content.",
     rationale: 'Panels are reachable from the gallery but most do not link back, breaking the one-poster-many-views narrative. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2735',
@@ -25926,7 +25926,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Add a small vertical colorbar (min→max with numeric ticks) to VizPrimeCausticPage (brightness/amplitude) and a phase wheel legend (0→2π hue) to VortexFieldPage, rendered next to each canvas. Reuse the existing COLORMAP Uint8Array in the caustic page. Pure UX/readability.",
     rationale: 'Both heatmaps render color with no legend, so the encoded quantity is unreadable; a colorbar is a cheap, high-value addition. (area: viz)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2737',
@@ -25937,7 +25937,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In scripts/run-assertions.mjs, wrap each ssrLoadModule(p) call (the module-load loop ~lines 47 and 81) in a Promise.race against a configurable per-module timeout (env ASSERT_MODULE_TIMEOUT_MS, default 60000). On timeout, log 'HUNG MODULE: <path> exceeded Nms' to the assertions-<ISO>.md log, mark that module FAILED, and continue the sweep (do not silently stall). Exit non-zero (new code 4 = hang) if any module timed out. This converts the current opaque whole-sweep stall (the 16.7MB zeros-bundle hang documented in MEMORY.md) into a named, actionable failure.",
     rationale: 'Today a single hung heavy module stalls the entire sweep with no diagnostic and a bare catch swallows the error; CI cannot distinguish hang from pass. (area: checks)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2738',
@@ -26025,7 +26025,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Add scripts/run-assertions-selftest.mjs (or a --self-test flag) that injects a synthetic module exporting one always-false assertion and confirms run-assertions.mjs exits non-zero and names it in the log. Also assert that a module which THROWS at import (not a returned false) is reported as load-failure, distinct from an assertion failure. This pins the runner's own contract so a future refactor that accidentally swallows failures (e.g. the bare catch on ssrLoadModule) is itself caught.",
     rationale: 'The runner swallows ssrLoadModule errors with a bare catch; there is no test proving a failing assertion actually fails the build versus being silently skipped. (area: checks)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2746',
@@ -26036,7 +26036,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Add a meta-assertion in run-assertions.mjs (or a sibling) that, for every path in DATA_MODULES/MATH_MODULES, verifies the loaded module exports at least one non-empty *_ASSERTIONS array (or is explicitly allow-listed as a pure-data registration). The imp-2404 / imp-2523 history shows modules were wired into the list but their tripwires never ran (dormant). Fail the build (or warn-list) on any silently dormant module so registered checks are guaranteed live.",
     rationale: 'imp-2404 found shipped tripwires that never ran because the module was registered but its assertions weren\'t being executed; nothing guards against recurrence. (area: checks)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2747',
@@ -26069,7 +26069,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Add a --since-changed[=<git-ref>] flag to scripts/run-assertions.mjs that loads only modules whose files (or whose direct importers) changed vs the ref, using a lightweight static import-graph walk, falling back to the full sweep if the graph is incomplete. Logs which modules were skipped and why. This makes the per-commit verify pass fast on a 425-file data dir without sacrificing the full-sweep safety net (still default).",
     rationale: 'The full sweep over ~370 registered modules is slow; engines need a fast incremental verify that still cannot silently skip a changed module\'s assertions. (area: checks)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2750',
@@ -26113,7 +26113,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Wire a post-build hook (npm 'build' currently = 'vite build' only) so that a fast assertion pass (assert:fast) runs after vite build and the combined command exits non-zero if any tripwire fails. Document the exit-code contract (0 pass / 1 assertion-fail / 2 setup / 4 hang) in package.json scripts. Ensures a red tripwire actually blocks a deploy rather than only failing when 'npm run assert' is run manually.",
     rationale: 'build = \'vite build\' with no assertion gate; a failing tripwire does not currently block the build/deploy path, so regressions can ship. (area: checks)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2754',
@@ -26135,7 +26135,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Extend scripts/auto-generate-tripwires.mjs (or add scripts/tripwire-coverage.mjs) to emit a report of all src/data/*.js modules that export NO *_ASSERTIONS array and are not in DATA_MODULES, ranked by file size / load-bearing-ness (modules referencing headline numbers first). Output scripts/logs/tripwire-coverage-<ISO>.md. Gives the engine a prioritized backlog of unverified modules and prevents new data files from shipping check-free.",
     rationale: 'There are 425 data files but only ~330 are wired into the sweep; nothing reports which load-bearing modules currently have no machine-checkable invariants. (area: checks)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2756',
@@ -26168,7 +26168,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "OddZetaPage.jsx is 574 lines of fully static prose with zero useState/inputs. Add one small interactive component (new src/components/OddZetaIrrationalityViz.jsx, imported into the page) that, given a slider for n (zeta(3),zeta(5),zeta(7)...), computes and plots the partial linear-form / continued-fraction convergents and the running irrationality-measure estimate from a small baked coefficient table, with an honest caption that only zeta(3) is proven irrational (Apery 1979) and the Ball-Rivoal result (infinitely many odd zetas irrational) is non-constructive. Keep imports light (no zeros bundle).",
     rationale: 'The page is the only Analysis tab with no interactivity at all; an irrationality-measure widget is the natural concrete computation it is missing. (area: analysis-model)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2759',
@@ -26190,7 +26190,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "MillsTheoremPage.jsx caps the in-browser Miller-Rabin recurrence at n=6 (~87 digits) for responsiveness. Add a baked data table (new src/data/mills-sequence.js) holding p_7..p_10 (digit counts + A_n convergents, sourced/cited) and render them in the existing 'Recovering the Constant' card as a read-only continuation, so the A_n -> A convergence is shown to more digits than the live compute can reach. Label clearly which rows are live-computed vs precomputed.",
     rationale: 'Convergence is the page\'s whole point but it visually stops at n=6; a cited continuation table strengthens the demonstration without heavy compute. (area: analysis-model)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2761',
@@ -26212,7 +26212,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "ControlTheoryPage.jsx narrates 'drag sigma away from 0.5 and watch the contour encircle -1' but the page itself exposes no controls outside the embedded NyquistBodeViz/ScatteringMatrixViz. Add a small shared sigma slider + numeric t input at page level that drives a live readout panel (|chi(sigma+it)|, |L(s)|, encirclement count Z-P) computed from a light helper, so the Nyquist/Davenport-Heilbronn discussion is something the reader can actually steer. Verify the Davenport-Heilbronn warning card stays prominent.",
     rationale: 'The page promises interactivity in prose but only the inner vizzes are interactive; a page-level readout makes the stability story concrete. (area: analysis-model)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2763',
@@ -26223,7 +26223,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "GramPointsPage.jsx visualizes Gram-law violations (first at n=126) but does not link to the closely-related /hardy-z and /riemann-siegel-z pages that compute the very Z(g_n) it plots, and lacks an explicit statement that Gram's law is an empirical RULE OF THUMB (violations are infinite, Titchmarsh) not a theorem. Add a Related Pages block with both links and a one-line honest note that Gram's law failing infinitely often is exactly why zero-counting needs Turing's method, not Gram blocks alone.",
     rationale: 'Orphaned high-value numerical page; the Hardy-Z / Riemann-Siegel computation pages are its natural neighbors and currently unlinked. (area: analysis-model)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2764',
@@ -26234,7 +26234,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "InformationTheoryPage.jsx calls D_KL(P_sigma||P_{1/2}) 'a natural distance-from-RH measure' but never lets the reader compute it. Add a tiny interactive (extend InfoTheoryExperimentsViz or a new light component) with a sigma slider that plots D_KL(P_sigma||P_{1/2}) over sigma in (0,1), showing the zero at sigma=1/2 and growth away from it, with an honest caption that this is a model-distribution divergence (direct vs dual ladder weights), NOT a metric on the actual zeros.",
     rationale: 'The page repeatedly invokes a KL \'distance from RH\' it never visualizes; making it a slider turns prose into an explorable, honestly-scoped widget. (area: analysis-model)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2765',
@@ -26245,7 +26245,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "SupercriticalPage.jsx discusses free energy F, entropy S, specific heat C_v, pressure P and the de Bruijn-Newman heat flow but the thermodynamic quantities live only inside SupercriticalViz with no numeric readout, and the de Bruijn-Newman discussion never links to the rigorous-SOTA PT Lambda<=0.2 bound. Add (a) a small computed table of F/S/C_v/P at user-chosen sigma, and (b) a one-line honest cross-link to /lambda-bounds noting PT Lambda<=0.2 is the rigorous upper bound while RH needs Lambda=0.",
     rationale: 'Connects the thermodynamic heat-flow narrative to the repo\'s actual rigorous Lambda SOTA, which is currently absent from this page. (area: analysis-model)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2766',
@@ -26267,7 +26267,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "GilbreathObservationPage.jsx mentions a 'random even-gap sequence' source toggle and Odlyzko's 1993 verification depth, but the page text references controls ('Show mod 2', source toggle, dashed cyan lock line) that live in GilbreathTriangleViz. Add a page-level readout showing, for the current source and term count, the deepest row whose leading entry is verified = 1 and whether the {0,2}-lock (Lemma B) has engaged, so the rigorous-half / open-half split described in prose is backed by a live number the user changes.",
     rationale: 'The page makes a strong rigour claim (Lemmas A/B proved here) but the supporting verification depth is not surfaced as a checkable live figure. (area: analysis-model)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2768',
@@ -26311,7 +26311,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "PascalPage.jsx (426 lines) sits in the Analysis group adjacent to the difference-triangle (Gilbreath) and binomial-coefficient (Apery/odd-zeta) material but check shows it likely lacks cross-links to those structurally-related pages. Add a Related Pages block linking /gilbreath (iterated differences = signed binomial sums mod 2, the exact Lemma A mechanism) and /odd-zeta (Apery's binomial linear forms), plus a one-line honest note distinguishing the genuine combinatorial identities shown from any RH-suggestive framing on the page.",
     rationale: 'Pascal/binomial structure literally underlies Gilbreath\'s Lemma A and Apery\'s irrationality forms; the connection is currently unlinked. (area: analysis-model)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2772',
@@ -26333,7 +26333,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In src/data/rh-dag.js the node imp-356 (SOTA assembly capstone) has status:'completed', so criticalPathTo('imp-356') and frontierSchedule('imp-356') both return [] (verified by node run). RhDagPage.jsx (lines 200-292) therefore renders 'No rounds — target imp-356 is either reachable already or fully blocked' which reads like a failure. Either (a) repoint the DAG default target to the genuine open frontier capstone (the C_H/G6a conditional-beat node) and update the imp-356 references in RhDagPage.jsx, or (b) add an explicit 'target already completed — critical path is empty by construction' branch so the empty result is shown as expected, not as a bug. Pick (a) since the honest SOTA frontier is C_H, not the withdrawn finite beat.",
     rationale: 'The flagship proof-DAG page shows a broken/empty critical path; the visible target imp-356 is already completed so the algorithm can never produce a path. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2774',
@@ -26366,7 +26366,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "RigorDashboardPage.jsx imports from src/data/proof-chain-snapshot-2026-04-12.js (dated 2026-04-12, >2 months stale) while the sibling RHProofStateDashboardPage.jsx already uses current 2026-06-17 data (maxfanout-honest-status, strategic-reframe-pcc-free-volterra, section27-identity-refutation). Migrate RigorDashboardPage to the current data modules (or refresh proof-chain-snapshot with a 2026-06 snapshot) so both dashboards agree on the finite-N beat = ESTIMATE-gated-on-C_H and the Volterra-refuted status. Add a visible 'snapshot date' line.",
     rationale: 'Two proof-status dashboards disagree because one reads April data; users see contradictory rigor verdicts. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2777',
@@ -26377,7 +26377,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "The caught-overclaim ledger is duplicated as inline literals across three pages: RHProofStateDashboardPage.jsx (6 occurrences), RigorDashboardPage.jsx (5), MetaAccelerationPage.jsx (1) — there is no shared module (verified: no overclaim/caught-claim file in src/data). Create src/data/caught-overclaims-ledger.js as the single source of truth for the 6 withdrawn claims (each with id, claim, why-withdrawn, date, refuting-ticket), and have all three pages import it. Include the section26 Volterra-reduction withdrawal and the imp-2633 'E_coll rigorously pinned' contradiction (imp-2640).",
     rationale: 'Three pages maintain divergent inline overclaim lists; consolidation prevents drift and ensures every page shows the full honest ledger. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2778',
@@ -26388,7 +26388,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "RouteMapPage.jsx renders ROUTE_MAP_CROSS_CHECK.netVerdict ('The DAG is the one stale view... still presents the finite-N beat as rigorous-unconditional with an empty conditional closure... Reconcile it') but shows no resolution state. Add a per-discrepancy 'status' field to the cross-check entries in src/data/full-route-map-2026-06-19.js (e.g. OPEN / RECONCILED + ticket ref) and render a colored badge in RouteMapPage so a reader can see which cross-check items are still unreconciled vs fixed. Wire the DAG-reconcile and §27-refutation tickets as the resolving refs.",
     rationale: 'The cross-check correctly flags the DAG as stale but gives no way to track whether the discrepancy has since been resolved. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2779',
@@ -26399,7 +26399,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/data/paper-audit-dashboard.js entries carry auditDate fields (2026-05-26..28) but the 'HONEST READ AS OF IMP-1229' header text is hard-coded and the dashboard does not surface how many of the 13 conjectures remain UNAUDITED nor the latest auditDate. Add to PaperAuditDashboardPage a freshness header that computes max(auditDate) and counts entries by verdict (including UNAUDITED), so the audit-coverage gap (of 13, how many audited) is visible at a glance instead of buried in a stale comment.",
     rationale: 'The audit-coverage fraction and last-audit date are buried in a fixed comment, making the dashboard look more complete than it is. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2780',
@@ -26421,7 +26421,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "ThreeAttacksPage.jsx uses status strings ('conditional','numerical pilot','open') and three-attacks-section.js carries verdicts ('DOCUMENTED-OBSTRUCTION','NO-STABLE-CERTIFICATE (marginal indefiniteness, shrinking margin)','RESEARCH-OPEN') but the page renders them as plain labels with no legend mapping to the route-map STATUS LEGEND (RIGOROUS-SOTA/CONDITIONAL/ESTIMATE/OPEN-HARD/REFUTED). Add the shared status legend and color-coded badges, and reconcile the page labels with the controlled vocabulary in full-route-map-2026-06-19.js so all v52 pages use one status taxonomy.",
     rationale: 'Three-attacks uses an ad-hoc status vocabulary divergent from the canonical route-map legend, undermining cross-page consistency. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2782',
@@ -26432,7 +26432,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "The route-map STATUS LEGEND (RIGOROUS-SOTA, CONDITIONAL, ESTIMATE, OPEN-HARD, RH-EQUIVALENT, DEAD-END, REFUTED, UNDER-EXPLORED) is documented only in the full-route-map-2026-06-19.js module header. Export it as a structured const and create src/components/StatusLegend.jsx + a status->color map, then adopt it on /route-map, /closure-routes, /three-attacks, /pcc-route-exhaustion so every Twin-Ladder page renders identical badges/colors for the same verdict.",
     rationale: 'Each v52 page invents its own status colors/labels; a shared legend eliminates the inconsistency and is reusable by future tickets. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2783',
@@ -26443,7 +26443,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "HtCorridorCertificatesPage reads ht-corridor-certificates-2026-06.js (date:'2026-06-09', sister-repo provenance) and HtFiniteWindowPage reads ht-finite-window-census-2026-06.js, but neither page surfaces the computation date, the sister-repo source, or that these are CERTIFIED exact-zero-count results (the rigorous corner of the program). Add a footer block showing date, source repo, and a one-line 'this IS rigorous (certified interval arithmetic)' note so the genuinely-rigorous HT corridor results are clearly distinguished from the ESTIMATE finite-N beat.",
     rationale: 'The certified HT corridor census is one of the few rigorous results; its provenance and date should be visible, not implicit. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2784',
@@ -26476,7 +26476,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "RhDagPage.jsx hard-codes criticalPathTo('imp-356') and frontierSchedule('imp-356',10). After the target is repointed (companion ticket), add a small dropdown bound to RH_DAG_NODES (filtered to status!=='completed') letting the user choose the target node, recomputing critPath/frontierSchedule via useMemo on the selection. This makes the DAG page robust to capstone nodes flipping to completed in future and turns the empty-path failure mode into a discoverable feature.",
     rationale: 'Hard-coding a single target is brittle; a selector prevents the same empty-path regression when nodes complete. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2787',
@@ -26487,7 +26487,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "full-route-map-2026-06-19.js cross-check entries reference DAG nodes (e.g. the finite-beat node) and assert the DAG mislabels them. Add a runtime assertion module (or extend RH_DAG ASSERTIONS) that, for each cross-check discrepancy, verifies the referenced node id exists in RH_DAG_NODES and that its current status still matches the discrepancy premise — so when the DAG-reconcile ticket lands, the stale cross-check entry auto-flags as RESOLVED rather than silently lying. Deliverable: a tripwire in src/data that fails the build if a cross-check premise no longer holds.",
     rationale: 'Cross-check premises can go stale silently; an assertion ties them to live DAG state so reconciliation is detectable. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2788',
@@ -26498,7 +26498,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "PCCRouteExhaustionPage.jsx lists per-route verdicts ('Equi-difficult to Montgomery', 'Range stops inside Montgomery's diagonal', 'Reduces to same Cauchy-Schwarz layer', 'single-zeta transfer = Sarnak 1995 AQC = circular') but each is a bare string. Add a structural-reason citation/link per verdict to the underlying obstruction module(s) (imp-1297 selberg-trace-pcc, imp-1303 heath-brown-pcc, imp-1309 tao-entropy-pcc) so a reader can trace each 'genuinely-open' claim to its supporting analysis, reinforcing the honest 'PCC genuinely open, no shortcut' aggregate.",
     rationale: 'The exhaustion verdicts are asserted without traceable provenance to the per-route obstruction analyses. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2789',
@@ -26509,7 +26509,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "closure-routes-section.js correctly labels four routes 'RH-equivalent and open' (lines ~102,133,163,195) but ClosureRoutesPage shows no review date or any indication these verdicts reflect the post-section26 honest state. Add a lastReviewed date field per route and a compact badge so the 'RH-equivalent, open for arbitrarily small a>0' verdicts are visibly current, and add the standard RH-EQUIVALENT status badge from the shared legend.",
     rationale: 'The honest RH-equivalent verdicts carry no freshness signal, making it unclear they reflect the current refuted-collapse picture. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2790',
@@ -26520,7 +26520,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "section26-verdict-volterra-not-a-reduction-2026-06-18.js is currently orphaned from the page layer (only improvements.js/queue import it). After wiring it into /collapse-chain (companion ticket), add a tripwire assertion (in the verdict module's exported ASSERTIONS or a meta test) that fails if no file under src/pages imports the module — preventing the definitive refutation from silently becoming page-orphaned again.",
     rationale: 'The most important honesty verdict was invisible to users; an import-presence tripwire guarantees it stays surfaced. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2791',
@@ -26531,7 +26531,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Both dashboards now need to communicate the same three-tier honest picture: (1) RIGOROUS-SOTA floor = PT Lambda<=0.2 + Route B Burgers lim-sup + HT certified census; (2) ESTIMATE = finite-N*=1e4 beat gated on C_H; (3) RH-EQUIVALENT/REFUTED = Volterra collapse. Build one shared ProofTierSummary.jsx panel fed by a single data const and render it on both /rh-proof-state and /rigor-dashboard so the two-rigorous-islands-plus-one-estimate framing is identical across dashboards.",
     rationale: 'A single shared tier panel guarantees both dashboards tell the same honest story instead of two hand-maintained versions. (area: twin-ladder-v52)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2792',
@@ -26542,7 +26542,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In src/data/glossary.js add 5-6 new entries with definitions and relatedTerms: (1) 'C_H / G6a shock modulus wall' — the Holder-1/2 modulus into which every below-RH Lambda route funnels; RH-hard at the modulus; Gronwall attack refuted (imp-2640). (2) 'RH-equivalent (reformulation)' — a faithful renaming of RH that preserves information and yields no shortcut (Volterra collapse, Beurling-Nyman, de Branges, Connes-Weil). (3) 'PCC-free / GUE-free' — results not gated on the Montgomery pair-correlation conjecture (e.g. Route B Burgers lim-sup). (4) 'Phase vortex / vortex exclusion' — zeros as winding-+1 vortices of V=xi'/xi; off-axis vortex = RH violation; re-derives Lambda>=0 only. (5) 'Finite-N* beat (ESTIMATE)' — the N*=1e4 Route-A estimate gated on C_H, NOT a rigorous bound. Each entry: term, category, definition, firstUsed, relatedTerms. Honest framing per route map — no false QED.",
     rationale: 'Glossary (326 lines) has zero coverage of this session\'s core vocabulary; readers cannot look up the terms that dominate the current honest state. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2793',
@@ -26553,7 +26553,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/data/sessions.js has only ONE entry, last dated 2026-04-10, while the app date is 2026-06-23 — the Research Journal page is ~2 months stale. Append a new SESSIONS object summarizing the recent wave: the visual-geometries gallery + vortex-field viz shipped, the full-route-map-2026-06-19 consolidation (38 routes, 6 caught overclaims), the C_H wall finding, and that PT Lambda<=0.2 remains the rigorous SOTA. Include date, title, seededTickets count, shippedFiles list, and a 2-3 sentence honest summary. Keep SESSIONS.md write-through in sync (the page notes SESSIONS.md is the source of truth).",
     rationale: 'The Progress/Research-Journal page is the project\'s narrative log and is 2 months out of date with the most consequential session. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2794',
@@ -26575,7 +26575,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "In src/pages/DocsPage.jsx the /pages and /viz-components sections omit ALL viz routes shipped this session: /vortex-field, /visual-geometries, /viz-log-phase-spiral, /viz-prime-caustic, /viz-prime-phase-crystal, /viz-hyperbolic-prime-spiral, /viz-euler-transport-flow, /viz-twin-ladder-tomography, /viz-volterra-kernel-heatmap, /viz-volterra-norm-curve. Add rows (route, name, desc) for each, with the honest one-liner that these are exact exploratory visualizations / pedagogy, NOT a rigorous Lambda route (twin-ladder geometry is a DEAD END per the route map).",
     rationale: 'The Docs page route catalog is the canonical map of the app and is missing the entire Visualizations nav group, leaving ~10 routes undocumented. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2796',
@@ -26586,7 +26586,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/pages/ConceptsPage.jsx CONCEPTS array (categories: foundations/zeta/primes/analysis/physics/rmt/quantum/thermo/info/geometry/proof) lacks this session's ideas. Add to category 'proof': (a) 'C_H / shock-modulus wall' concept card; (b) 'RH-equivalence vs reduction' card explaining why renaming RH buys nothing. Add to 'geometry': (c) 'phase vortex / vortex exclusion' card linking to /vortex-field and /visual-geometries. Each card: id, category, title, short body, and an honest ceiling line. Match the existing card schema.",
     rationale: 'Concepts page is the pedagogical concept index; it omits the geometric and obstruction concepts that the new viz pages assume the reader already knows. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2797',
@@ -26597,7 +26597,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/data/literature.js has 145 entries but only 5 from 2024-2026. Add the genuinely-relevant recent references the route map already cites or relies on: Platt-Trudgian (Lambda<=0.2, the rigorous SOTA), Rodgers-Tao (Lambda>=0), Guth-Maynard 2024 large-values (cited imp-1332 as E_trunc non-binding), Polymath15/Tao de Bruijn-Newman upper bound. CRITICAL honesty constraint: the route map flags Soundararajan-Tao 2024 as a PHANTOM/fabricated citation and Goldston-Gonek as fabricated — do NOT add those; instead add a note. Verify each DOI/arXiv id before adding. Tag each with how it bears on the project (binding / non-binding / SOTA).",
     rationale: 'The literature layer is stale (96% pre-2024) and the route map shows the field\'s decisive recent results (PT bound, Guth-Maynard) are under-represented; honesty requires excluding the two flagged fabricated citations. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2798',
@@ -26619,7 +26619,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "The /route-map page (RouteMapPage.jsx, backed by full-route-map-2026-06-19.js) is the honest consolidation of all 38 routes but may not be surfaced in the Reference nav group. Verify it appears in the Reference nav (check the nav config / sidebar component). Add a prominent cross-link from src/pages/LiteraturePage.jsx and from the Concepts/Glossary pages to /route-map, framed as 'the honest map of what every route can and cannot deliver'. Deliverable: nav entry + cross-links.",
     rationale: 'The route map is the single most important honesty artifact this session produced; if it is not discoverable from the Reference group, readers miss the corrective context. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2800',
@@ -26630,7 +26630,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Extend scripts/diagnose-toc-and-audit-clicks.mjs (or write a focused node script) to crawl <Link to=> and href targets in the Reference pages (Concepts, History, Explorations, Literature, Paper, Papers, Blog, Wiki, Docs, LmfdbCrossReference) and Progress pages (MetaAcceleration, ResearchJournal, Dashboard, Health) and assert every internal target resolves to a registered route in src/App.jsx (103 routes). Output the list of dead links. Fix or remove each dead link found. Deliverable: audit report inline + fixes committed.",
     rationale: 'With ~100 routes and frequent renames, internal links rot; the Reference group is exactly where a dead link most damages trust. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2801',
@@ -26652,7 +26652,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Add a dedicated doc section (either a new id-anchored section in src/pages/DocsPage.jsx TOC or a small VortexFieldDocsPage.jsx) explaining the math the VortexFieldPage renders: V(s)=xi'(s)/xi(s) has a simple pole (phase vortex) at each zero; winding number (1/2pi)oint V.ds = +1 is the argument principle; under RH all vortices sit on Re s=1/2; the slider demonstrates an off-axis (RH-violating) vortex. State the hardcoded 25-gamma table avoids the 16.7MB zeros bundle. Include the honest ceiling. Use KaTeX. Do NOT import the zeros bundle.",
     rationale: 'The vortex-field viz ships with rich math only in a source comment; a reader-facing doc page makes the construction and its honest scope inspectable. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2803',
@@ -26663,7 +26663,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/data/papers.js has `const builtinPapers = []` — the Papers list shows nothing committed. There is a papers-release-manifest.js and paper-publication-meta.js. Without importing any heavy bundle, populate builtinPapers (or have getAllPapers merge from paper-publication-meta.js) so the released ZPO/twin-ladder manuscript appears with correct {id,title,authors,date,abstract,source}. Ensure the abstract reflects the HONEST framing (estimate, RH-equivalent collapse, PT SOTA) per the 2026-05 abstract rewrite, not a withdrawn-claim abstract. Verify the page renders.",
     rationale: 'The Papers reference surface is empty despite a release manifest existing; readers land on a blank list, and any backfilled abstract must use the corrected honest text. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2804',
@@ -26674,7 +26674,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Add a computed 'last updated' / freshness indicator to the Progress pages so staleness is visible. For ResearchJournal, derive from the latest SESSIONS date and show an amber banner if older than N days (the current 2026-04-10 vs 2026-06-23 gap would have flagged this). For Dashboard/Health/MetaAcceleration, surface the date of the data they read. Implement a small shared <FreshnessStamp date=...> component in src/components and wire it into the 4 pages.",
     rationale: 'The 2-month-stale journal went unnoticed precisely because no page advertises its own freshness; a stamp turns silent rot into a visible signal. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2805',
@@ -26696,7 +26696,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "After the new glossary entries land, add per-entry 'see' links rendered on the Glossary/Wiki page so each new term routes to its canonical page: 'phase vortex' → /vortex-field and /visual-geometries; 'RH-equivalent' / 'C_H wall' / 'finite-N* beat' → /route-map; 'PCC-free' → the relevant Burgers/PCC-exhaustion page (PCCRouteExhaustionPage). Verify the glossary rendering component (WikiPage.jsx / ConceptsPage) supports a link field; add it if absent.",
     rationale: 'Definitions without a path to the live artifact strand the reader; the new vocabulary should funnel into the pages that demonstrate it. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2807',
@@ -26718,7 +26718,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "The DocsPage /pages section manually lists routes and is already missing the viz group. Write a small node script (scripts/) that parses path=\"...\" from src/App.jsx (103 routes) and diffs against the routes enumerated in DocsPage.jsx, printing missing + orphaned entries. Either (a) regenerate the Docs catalog from that list, or (b) add an assertion to the build/verify step that fails when DocsPage drifts from App.jsx. Deliverable: the diff script + the missing routes added.",
     rationale: 'A hand-maintained route catalog inevitably drifts from the router; making parity machine-checked stops the Docs reference from silently lying about which pages exist. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2809',
@@ -26729,7 +26729,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/pages/ExplorationsPage.jsx (252 lines) curates exploratory threads. Add entries for the visual-geometries gallery and the vortex-field exploration with the honest tag that these are exact exploratory visualizations (pedagogy), per the route map twin-ladder geometry = DEAD END as a rigorous route. Match the existing card schema; link to /visual-geometries and /vortex-field.",
     rationale: 'The new exploratory viz are not surfaced in the page whose entire purpose is to index explorations. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2810',
@@ -26740,7 +26740,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/pages/MetaAccelerationPage.jsx (843 lines) tracks meta-progress. Add a section that pulls the highest-opportunity, NON-refuted, NON-RH-equivalent threads from full-route-map-2026-06-19.js (e.g. C_H/G6a opp=4 OPEN-HARD #1 wall, topological surface-tension winding opp=5 UNDER-EXPLORED, theta-trap/heat-discriminant RIGOROUS-SOTA instruments) as a ranked 'where genuine work remains' digest. Source by reading FULL_ROUTE_MAP.clusters and sorting by opp among status in {OPEN-HARD, UNDER-EXPLORED}. Honest: label that none of these is below RH.",
     rationale: 'The progress page should point engines/readers at the genuinely open frontier rather than RH-equivalent renames; the route map already ranks it and just needs surfacing. (area: reference-docs)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2811',
@@ -26762,7 +26762,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Create src/components/PageHeader.jsx (h1 + optional subtitle + optional eyebrow/section tag) and refactor at least the Model + Analysis nav-group pages (OscillatorsPage, HamiltonianPage, ZetaPage, ModesPage, FourierPage, StatisticsPage, SupercriticalPage, etc.) to use it. Today 80 pages hand-roll <div className=\"page-header\"><h1>… inline; 22 do not even use the page-header class, so heading sizing/spacing is inconsistent. Single source of truth for the page title block.",
     rationale: '80/102 pages duplicate the header markup and 22 diverge; one component makes titles consistent and editable in one place. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2813',
@@ -26773,7 +26773,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Create src/components/RelatedLinks.jsx (takes an array of {to,label,color}) replacing the hand-rolled 'Related Pages' card that is copy-pasted into 49 pages (e.g. MillsTheoremPage.jsx lines 90-99, TwinLadderPage.jsx lines 118-132). Then add RelatedLinks to the 46 pages that currently have NO related-links section at all (grep -L 'Related' src/pages). Pick 2-4 genuinely related routes per page.",
     rationale: 'Cross-linking is duplicated 49x and entirely absent on 46 pages, leaving ~45% of pages as dead-ends with no onward navigation. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2814',
@@ -26806,7 +26806,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Create src/components/CommandPalette.jsx opened with Cmd/Ctrl+K (and a '/' shortcut), fuzzy-matching the NAV_GROUPS items by label + path and navigating on Enter. Derive the dataset from a single exported NAV_GROUPS (see the nav-export ticket) so it stays in sync. There is no search anywhere today and the Attack dropdown alone has 24 items.",
     rationale: 'With ~96 routes and one 24-item dropdown, there is no way to jump to a page by name; a Cmd+K palette is the standard fix. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2817',
@@ -26817,7 +26817,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Move the NAV_GROUPS array out of src/App.jsx (lines 121-257) into src/data/nav-groups.js and import it in App.jsx. This lets the command palette, a future /sitemap page, and any link-audit script consume one canonical list instead of regex-scraping App.jsx. Keep the App.jsx route table as-is.",
     rationale: 'Nav structure is locked inside App.jsx; extracting it unblocks search, sitemap, and automated dead-link checks without duplication. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2818',
@@ -26828,7 +26828,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "The Attack group in src/App.jsx NAV_GROUPS (lines 197-225) has 24 items in one flat dropdown — too tall to scan. Either split into two groups (e.g. 'Attack' = roadmaps/DAG/route-map/bounds, 'Proof Tools' = formal-proof, proof-checker, proof-planner, proof-explorer, proof-overview, dyson-verifier, rigor*, rh-proof-state) or add labeled sub-headers inside the dropdown menu. Update CSS in app.css for the taller menu if needed.",
     rationale: 'A 24-entry single dropdown is hard to scan and overflows on shorter viewports; grouping makes the attack surface navigable. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2819',
@@ -26839,7 +26839,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/App.jsx renders nav-mobile-flat as one long flat list of all ~96 links under 7 section headers (lines 460-469). On a phone this is an enormous scroll. Make each NAV_GROUPS section a collapsible <details>/accordion (collapsed by default, auto-expanding the group containing the active route). Style in src/styles/app.css under the max-width:768px block (line 956).",
     rationale: 'The mobile menu is a single ~96-item scroll; collapsible sections cut it to 7 tappable groups. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2820',
@@ -26850,7 +26850,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/pages/NotFoundPage.jsx (64 lines) only offers a 'Go Home' button. Add a short list of the most-useful destination links (Home, Λ Bounds, Route Map, Visualizations index, Concepts) and, once a nav-groups data module exists, a small search/typeahead so a mistyped hash route can recover to the intended page.",
     rationale: 'The 404 page is a dead-end with a single button; offering popular links + search recovers lost users from bad hash routes. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2821',
@@ -26861,7 +26861,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "KEYBOARD_SHORTCUTS in src/App.jsx (lines 301-311) maps 1-9 to a fixed set of routes; verify every path still exists and matches current page labels (e.g. '/spectral-attack', '/cross-attack', '/proof-planner' are present, but the list predates many new pages). Consider surfacing the same map in the '?' overlay it already feeds, and adding 'g h' style hints. Confirm the keys do not collide with input typing (handler already guards INPUT/TEXTAREA — keep that).",
     rationale: 'Hard-coded numeric shortcuts drift as pages are added/renamed; an audit keeps the documented \'?\' overlay truthful. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2822',
@@ -26872,7 +26872,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/pages/NotFoundPage.jsx (lines 51-58) mutates e.target.style on mouse events for its button hover. Replace with a CSS class + :hover in app.css. Grep for other pages using onMouseEnter/onMouseLeave to set element.style and migrate them; inline style mutation breaks on keyboard focus and is not reusable.",
     rationale: 'JS-driven hover via e.target.style.background ignores keyboard focus states and duplicates styling logic that belongs in CSS. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2823',
@@ -26883,7 +26883,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/App.jsx PageLoader (lines 111-119) shows a bare 'Loading...' centered text for every lazy chunk. Add a short delay (e.g. only show after 200ms to avoid flash) and a lightweight skeleton/spinner consistent with the dark theme. This is the fallback for all 95 lazy routes and the chunk-load recovery path.",
     rationale: 'Every code-split route flashes a bare \'Loading...\'; a delayed skeleton avoids flicker and feels polished. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2824',
@@ -26905,7 +26905,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Review NavLink usage in src/App.jsx NavDropdown and nav-mobile-flat (lines 288, 465). The hasActive check uses location.pathname === item.to (exact, good), but the rendered NavLinks rely on react-router default partial matching. Confirm no route prefix collisions cause two items to light up simultaneously, and add `end` where a path is a prefix of another. Document the rule.",
     rationale: 'Partial NavLink matching can highlight multiple nav items at once when one route path is a prefix of another. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2826',
@@ -26916,7 +26916,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "src/components/RouteErrorBoundary.jsx recovers from chunk-load failures by reloading once within a 10s window (lines 9-29, 47-53). Add a small assertion/test (under src/math or a __tests__ harness consistent with the repo's assertion style) that feeds each CHUNK_ERR_RE-matching message and a non-matching message through isChunkLoadError, and verifies the 10s throttle key logic, so the resilience path can't silently regress.",
     rationale: 'The auth-middleware chunk-load resilience is load-bearing for prod but currently has no test guarding the regex/throttle. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2827',
@@ -26927,7 +26927,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Long pages like src/pages/RHProofStateDashboardPage.jsx (~460+ lines), LiteraturePage, ConceptsPage, and the Twin-Ladder §-pages render as one long scroll with multiple <h2>/<h3> sections and no jump nav. Add a reusable <TableOfContents> (sticky on desktop, anchors to section ids) and apply it to the 4-5 longest reference/dashboard pages.",
     rationale: 'The longest pages are a single uninterrupted scroll with no section jump-links, hurting orientation on dense math content. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2828',
@@ -26938,7 +26938,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Pages encode rigor honestly but inconsistently: RHProofStateDashboardPage.jsx defines its own ConstantBadge with statuses like 'ORDER-UNITY-PLACEHOLDER' (lines 133-136), while other pages (MillsTheoremPage caveat card, VisualGeometriesPage 'dead end' note) hand-style colored callouts. Extract a shared <StatusBadge level=\"rigorous|conditional|estimate|dead-end\"> + <HonestCallout> so the anti-overclaim framing reads uniformly across pages.",
     rationale: 'Honest rigor labeling is duplicated per-page with ad-hoc colors; a shared badge keeps the anti-overclaim signal consistent and unmissable. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2829',
@@ -26949,7 +26949,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Many pages use <div className=\"two-col\"> with two .card children (e.g. TwinLadderPage.jsx lines 51, 77; MillsTheoremPage.jsx line 28). Verify src/styles/app.css collapses .two-col to a single column under ~640px (check the @media blocks at lines 808/956) and that BlockMath formulas inside cards scroll horizontally rather than overflow the viewport. Add overflow-x:auto to KaTeX display blocks if needed.",
     rationale: 'Wide BlockMath formulas inside two-col cards can overflow on phones if .two-col or KaTeX display blocks aren\'t constrained. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2830',
@@ -26960,7 +26960,7 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "The footer in src/App.jsx (lines 594-604) is just a copyright line. Add a thin footer with grouped quick-links (Home, Route Map, Concepts, Λ Bounds, Health) and a 'Found a bug? paste the error card' note that ties into the RouteErrorBoundary message. Keep it lightweight and theme-consistent.",
     rationale: 'The single-line footer wastes a global surface that could provide consistent secondary navigation and a bug-report path. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
   {
     id: 'imp-2831',
@@ -26971,6 +26971,6 @@ export const IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS = [
     proofSection: 'S7',
     description: "Add/refresh a script (there is already src/data/imp-1249-nav-link-audit.js) that diffs the nav 'to' paths against the <Route path> table in App.jsx and fails on any mismatch, then run it in the verify pass. Current manual diff shows 0 dead links and 0 nav-unreachable routes, but renames will silently break this without a guard.",
     rationale: 'Nav/route parity is correct today but unguarded; a CI-style audit prevents future dead links when routes are renamed. (area: app-ui)',
-    model: 'opus-4-8',
+    model: 'sonnet-4-6',
   },
 ];

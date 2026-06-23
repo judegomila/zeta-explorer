@@ -19,6 +19,8 @@ const PANELS = [
     blurb: 'Integers in polar log-phase coords; primes form spiral rays and interference filaments.', color: '#a855f7' },
   { n: 2, title: 'Prime Caustic Geometry', tex: '\\theta=t\\log p\\ (\\mathrm{mod}\\ 2\\pi)', to: '/viz-prime-caustic',
     blurb: 'Bright caustic bands where many primes align: log(p_i/p_j) ≈ 2πk/t — multiplicative resonances.', color: '#f59e0b' },
+  { n: 13, title: 'Prime Density on Caustics', tex: 'k/N\\ \\text{vs}\\ t', to: '/viz-prime-density-caustic',
+    blurb: 'Which primes (by index) contribute to the caustic at each height t — density overlay vs PNT baseline.', color: '#fb923c' },
   { n: 3, title: 'Prime Phase Crystal', tex: 'C_t(n)=e^{-it\\log n}', to: '/viz-prime-phase-crystal',
     blurb: 'Contours of constant complex phase; a multiplicative diffraction lattice with Δn ≈ (2π/t)n.', color: '#22c55e' },
   { n: 4, title: 'Hyperbolic Prime Spiral', tex: '\\text{Poincaré disk}', to: '/viz-hyperbolic-prime-spiral',

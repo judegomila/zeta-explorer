@@ -82,6 +82,7 @@ const VizEulerTransportFlowPage = lazy(() => import('./pages/VizEulerTransportFl
 const HardyZPage = lazy(() => import('./pages/HardyZPage.jsx'));
 const VizTwinLadderTomographyPage = lazy(() => import('./pages/VizTwinLadderTomographyPage.jsx'));
 const VizPrimeCausticPage = lazy(() => import('./pages/VizPrimeCausticPage.jsx'));
+const VizPrimeDensityOnCausticPage = lazy(() => import('./pages/VizPrimeDensityOnCausticPage.jsx'));
 const VizPrimePhaseCrystalPage = lazy(() => import('./pages/VizPrimePhaseCrystalPage.jsx'));
 const VisualizationsIndexPage = lazy(() => import('./pages/VisualizationsIndexPage.jsx'));
 const VolterraKernelHeatmapPage = lazy(() => import('./pages/VolterraKernelHeatmapPage.jsx'));
@@ -186,6 +187,7 @@ const NAV_GROUPS = [
       { to: '/viz-volterra-norm-curve', label: 'Volterra Norm Curve' },
       { to: '/viz-twin-ladder-tomography', label: 'Twin-Ladder Tomography' },
       { to: '/viz-prime-caustic', label: 'Prime Caustic' },
+      { to: '/viz-prime-density-caustic', label: 'Prime Density on Caustics' },
       { to: '/viz-prime-phase-crystal', label: 'Prime Phase Crystal' },
       { to: '/visual-geometries', label: 'Visual Geometries (gallery)' },
       { to: '/vortex-field', label: 'Vortex Field' },
@@ -575,6 +577,7 @@ function AppShell() {
           <Route path="/cayley-schur-trajectory" element={<CayleySchurTrajectoryPage />} />
           <Route path="/viz-twin-ladder-tomography" element={<VizTwinLadderTomographyPage />} />
           <Route path="/viz-prime-caustic" element={<VizPrimeCausticPage />} />
+          <Route path="/viz-prime-density-caustic" element={<VizPrimeDensityOnCausticPage />} />
           <Route path="/viz-prime-phase-crystal" element={<VizPrimePhaseCrystalPage />} />
           <Route path="/visualizations" element={<VisualizationsIndexPage />} />
           <Route path="/berry-keating-xp" element={<BerryKeatingXpPage />} />

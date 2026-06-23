@@ -191,11 +191,35 @@ function PhaseWheel() {
 
 export default function VortexFieldPage() {
   const [centerIdx, setCenterIdx] = useState(9); // gamma ~ 49.77 (matches the poster)
-  const [tau, setTau] = useState(0);
+  const [tau, setTau] = useState(-4);
   const [magContours, setMagContours] = useState(true);
   const [showStreamlines, setShowStreamlines] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const animRef = useRef(null);
   const gc = GAMMAS[centerIdx];
   const offAxis = tau < -1e-6;
+
+  useEffect(() => {
+    if (!isPlaying) {
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+      return;
+    }
+    let last = null;
+    const TAU_MIN = -4, TAU_MAX = 0, DURATION_MS = 6000;
+    const step = (ts) => {
+      if (last === null) last = ts;
+      const elapsed = ts - last;
+      last = ts;
+      setTau((prev) => {
+        const next = prev + (elapsed / DURATION_MS) * (TAU_MAX - TAU_MIN);
+        if (next >= TAU_MAX) { setIsPlaying(false); return TAU_MAX; }
+        return next;
+      });
+      animRef.current = requestAnimationFrame(step);
+    };
+    animRef.current = requestAnimationFrame(step);
+    return () => { if (animRef.current) cancelAnimationFrame(animRef.current); };
+  }, [isPlaying]);
 
   return (
     <div className="page">
@@ -238,9 +262,26 @@ export default function VortexFieldPage() {
           <div className="card" style={{ borderLeft: `3px solid ${offAxis ? '#ef4444' : '#22c55e'}` }}>
             <label style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
               Heat-flow t (de Bruijn–Newman): <strong style={{ color: offAxis ? '#ef4444' : '#22c55e' }}>{tau >= 0 ? '+' : ''}{tau.toFixed(2)}</strong>
-              <input type="range" min={-4} max={4} step={0.1} value={tau}
-                     onChange={(e) => setTau(+e.target.value)} style={{ width: '100%', marginTop: 6 }} />
+              <input type="range" min={-4} max={4} step={0.05} value={tau}
+                     onChange={(e) => { setIsPlaying(false); setTau(+e.target.value); }} style={{ width: '100%', marginTop: 6 }} />
             </label>
+            <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+              <button
+                onClick={() => {
+                  if (tau >= 0) setTau(-4);
+                  setIsPlaying((p) => !p);
+                }}
+                style={{ flex: 1, padding: '5px 0', fontSize: 12, background: isPlaying ? '#475569' : '#3b82f6', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}
+              >
+                {isPlaying ? '⏸ Pause' : tau >= 0 ? '↺ Replay' : '▶ Animate'}
+              </button>
+              <button
+                onClick={() => { setIsPlaying(false); setTau(-4); }}
+                style={{ padding: '5px 10px', fontSize: 12, background: '#1e293b', color: '#94a3b8', border: '1px solid #334155', borderRadius: 6, cursor: 'pointer' }}
+              >
+                ↺
+              </button>
+            </div>
             <div style={{ fontSize: 11, color: offAxis ? '#fca5a5' : '#86efac', marginTop: 6 }}>
               {offAxis
                 ? 'BELOW Λ: the central vortex is an OFF-AXIS conjugate pair (σ = ½ ± |t|) — an RH violation.'

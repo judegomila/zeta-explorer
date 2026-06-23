@@ -27,7 +27,7 @@ const PANELS = [
     blurb: 'Multiplication becomes geodesic translation; primes lie on special geodesic networks.', color: '#3b82f6' },
   { n: 6, title: 'Vortex / Defect Map', tex: 'V_t=H_t^{\\prime}/H_t', to: '/vortex-field',
     blurb: 'Zeros as phase vortices (winding ±1); vortex exclusion from off-axis ⟺ RH.', color: '#ec4899' },
-  { n: 7, title: 'Near a Zeta Zero', tex: '\\rho=\\tfrac12+i\\gamma', to: '/vortex-field',
+  { n: 7, title: 'Near a Zeta Zero', tex: '\\rho=\\tfrac12+i\\gamma', to: '/viz-near-zero',
     blurb: 'Rings, nodal lines and vortex creation as the interference reorganizes near a zero.', color: '#06b6d4' },
   { n: 8, title: 'Angular-Spacing Statistics', tex: '\\Delta_k=\\theta_{k+1}-\\theta_k', to: '/statistics',
     blurb: 'GUE spacing of the zeros; the log-phase spacings show hidden rigidity vs random.', color: '#8b5cf6' },

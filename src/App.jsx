@@ -94,6 +94,7 @@ const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
 const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboardPage.jsx'));
 const RouteMapPage = lazy(() => import('./pages/RouteMapPage.jsx'));
 const VortexFieldPage = lazy(() => import('./pages/VortexFieldPage.jsx'));
+const VizNearZeroPage = lazy(() => import('./pages/VizNearZeroPage.jsx'));
 const VisualGeometriesPage = lazy(() => import('./pages/VisualGeometriesPage.jsx'));
 const PrimeRigidityPage = lazy(() => import('./pages/PrimeRigidityPage.jsx'));
 const VizEulerProductPage = lazy(() => import('./pages/VizEulerProductPage.jsx'));
@@ -544,6 +545,7 @@ function AppShell() {
           <Route path="/rh-proof-state" element={<RHProofStateDashboardPage />} />
           <Route path="/route-map" element={<RouteMapPage />} />
           <Route path="/vortex-field" element={<VortexFieldPage />} />
+          <Route path="/viz-near-zero" element={<VizNearZeroPage />} />
           <Route path="/visual-geometries" element={<VisualGeometriesPage />} />
           <Route path="/prime-rigidity" element={<PrimeRigidityPage />} />
           <Route path="/viz-euler-product" element={<VizEulerProductPage />} />

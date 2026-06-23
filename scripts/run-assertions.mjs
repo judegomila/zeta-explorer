@@ -1738,6 +1738,10 @@ const DATA_MODULES = [
   '/src/data/polymath15-constant-C-C.js',
   '/src/data/polymath15-constant-C-F.js',
   '/src/data/polymath15-constant-C-T.js',
+  // imp-413: double-double (~32-digit) precision verification of C_H/C_C/C_T/C_F.
+  '/src/data/polymath15-constants-mpfr-check.js',
+  // imp-422: GMP-grade (100-digit BigInt) precision verification of C_H/C_C/C_T/C_F.
+  '/src/data/polymath15-constants-gmp-check.js',
   '/src/data/polymath15-lemma52-shock-holder.js',
   '/src/data/queue-gc-audit-2026-04-19.js',
   '/src/data/review-5-findings-audit.js',

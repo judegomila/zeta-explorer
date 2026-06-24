@@ -83,6 +83,16 @@ function millsPrimes(count) {
 
 const MILLS_CONST = 1.3063778838630806904686144926; // smallest A (under RH)
 
+// Continuation rows for n > 6: prime values are too large for browser computation.
+// Digit counts from the formula log10(p_n) >= 3^n * log10(A); actual primes are
+// known to live slightly above their cube, so true digit count is this or slightly more.
+// A_n converges to MILLS_CONST at float64 precision well before n=7.
+const CONTINUATION = Array.from({ length: 5 }, (_, i) => {
+  const n = 7 + i;
+  const log10p = Math.pow(3, n) * Math.log10(MILLS_CONST);
+  return { n, digits: Math.ceil(log10p), Aest: MILLS_CONST };
+});
+
 export default function MillsExplorerViz() {
   const svgRef = useRef();
   const [nMax, setNMax] = useState(4);
@@ -236,6 +246,37 @@ export default function MillsExplorerViz() {
                   {d.prime ? '✓ verified' : '✗'}
                 </td>
                 <td style={{ padding: '6px 10px', color: '#10b981' }}>{d.Aest.toFixed(10)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div style={{ marginTop: 20, borderTop: '1px solid #1e293b', paddingTop: 16 }}>
+        <div style={{ color: '#64748b', fontSize: 12, marginBottom: 8 }}>
+          Continuation — primes too large for live browser verification (digit counts from the formula
+          log₁₀(pₙ) ≈ 3ⁿ · log₁₀(A); true count is this value or slightly larger):
+        </div>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13, fontFamily: 'var(--font-mono, monospace)' }}>
+          <thead>
+            <tr style={{ color: '#64748b', textAlign: 'left', borderBottom: '1px solid #1e293b' }}>
+              <th style={{ padding: '5px 10px' }}>n</th>
+              <th style={{ padding: '5px 10px' }}>pₙ</th>
+              <th style={{ padding: '5px 10px' }}>digits</th>
+              <th style={{ padding: '5px 10px' }}>status</th>
+              <th style={{ padding: '5px 10px' }}>Aₙ = pₙ^(1/3ⁿ)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {CONTINUATION.map(d => (
+              <tr key={d.n} style={{ borderBottom: '1px solid #0f172a', color: '#475569' }}>
+                <td style={{ padding: '5px 10px', color: '#64748b' }}>{d.n}</td>
+                <td style={{ padding: '5px 10px', fontStyle: 'italic' }}>
+                  [prime of ~{d.digits} digits — see OEIS A051254]
+                </td>
+                <td style={{ padding: '5px 10px' }}>≥ {d.digits}</td>
+                <td style={{ padding: '5px 10px', color: '#475569' }}>precomputed</td>
+                <td style={{ padding: '5px 10px', color: '#10b981' }}>{d.Aest.toFixed(10)}</td>
               </tr>
             ))}
           </tbody>

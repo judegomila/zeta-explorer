@@ -652,6 +652,32 @@ const CONCEPTS = [
     formula: 'M_{jk} = \\gamma_j \\delta_{jk} + \\sum_p \\frac{\\log p}{p} \\cos((\\gamma_j - \\gamma_k)\\log p)',
     intuition: 'The ZPO matrix uses prime-indexed coupling to approximate the infinite-dimensional Connes operator. As the matrix grows, its eigenvalues converge to the actual zeta zeros.',
   },
+
+  // ── New Proof-Status Concepts ──
+  {
+    id: 'c-h-wall',
+    category: 'proof',
+    term: 'C_H Wall (Gronwall Obstruction)',
+    definition: "The unresolved Gronwall amplification constant C_H that bounds backward heat-flow in the ZPO collision analysis. C_H exists (the flow is bounded) but pinning its numerical value is as hard as RH itself — making it an \"RH-hard\" obstruction. This wall is the primary gap blocking a fully rigorous E_flow bound.",
+    formula: 'E_{\\text{flow}} \\leq C_H \\cdot |t_c|^{1/2}, \\quad C_H \\text{ finite} \\Longleftrightarrow \\text{RH}',
+    intuition: "Like a speed limit that exists but whose exact value requires solving RH to certify — the wall that currently blocks unconditional rigor in the backward-flow analysis.",
+  },
+  {
+    id: 'phase-vortex-rh',
+    category: 'proof',
+    term: 'Phase Vortex & RH',
+    definition: "The argument of zeta(s) defines a phase field (vector field of constant-argument curves) in the complex plane. At each zero rho, the phase winds by 2pi around a vortex center. RH asserts all vortex centers lie on the critical line sigma = 1/2. The /vortex-field visualization shows this flow directly.",
+    formula: '\\arg\\zeta(\\sigma+it) \\text{ winds } 2\\pi \\text{ around } \\rho \\;\\Longleftrightarrow\\; \\zeta(\\rho) = 0',
+    intuition: "Zeros are hurricanes in the phase landscape of zeta. RH says all the hurricanes form a single straight line. Vortices off the critical line would mean an off-line zero.",
+  },
+  {
+    id: 'rh-equivalence',
+    category: 'proof',
+    term: 'RH-Equivalent Statement',
+    definition: "A proposition S is RH-equivalent if S is provably equivalent to the Riemann Hypothesis (S iff RH). There are hundreds of such reformulations: Li's criterion (all lambda_n >= 0), Weil positivity, explicit PNT error bounds, and the Volterra operator norm ||V_{a,Phi}|| <= 1. Proving any one unconditionally proves RH.",
+    formula: 'S \\Longleftrightarrow \\text{RH}, \\quad \\text{e.g., } \\lambda_n \\geq 0 \\;\\forall n,\\; \\|V\\|_{op} \\leq 1,\\; W(g) \\geq 0',
+    intuition: "Different faces of the same crystal. Each RH-equivalent statement is a new attack surface. The ZPO program contributes several new equivalences through the oscillator-chain collapse theorems.",
+  },
 ];
 
 export default function ConceptsPage() {

@@ -2581,3 +2581,4 @@ below are the engine contract — do not rename or reorder.
 | 2689 | 2026-06-24T09:00:00Z | imp-2816 (ux, high): Add global command-palette / search over all 96 routes — Ctrl+K opens fuzzy-search modal with keyboard navigation | src/App.jsx |
 | 2690 | 2026-06-24T10:00:00Z | imp-2721 (ux, medium): Add hover-readout overlay to VizPrimeCausticPage — floating tooltip shows sigma, t, count, amp at the hovered pixel | src/pages/VizPrimeCausticPage.jsx |
 | 2691 | 2026-06-24T11:00:00Z | imp-2722 (ux, medium): Add hover-readout overlay to VortexFieldPage — mousing over canvas shows sigma, Im s coordinates and arg H(s) phase angle | src/pages/VortexFieldPage.jsx |
+| 2692 | 2026-06-24T12:00:00Z | imp-2723 (ux, medium): Add zoom + pan to VizLogPhaseSpiralPage — scroll-wheel zooms toward cursor, drag pans, Reset View button, zoom readout in controls | src/pages/VizLogPhaseSpiralPage.jsx |

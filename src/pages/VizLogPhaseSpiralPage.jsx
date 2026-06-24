@@ -82,6 +82,9 @@ export default function VizLogPhaseSpiralPage() {
   // UI state.
   const [tMax, setTMax] = useState(V.parameterRanges.defaultTMaxPreset);
   const [showZeros, setShowZeros] = useState(true);
+  const [view, setView] = useState({ zoom: 1, panX: 0, panY: 0 });
+  const isDragging = useRef(false);
+  const dragStart = useRef(null);
 
   // Sampling state — one shot per tMax change. We sample at the LARGEST
   // requested tMax (the spec says 50/100/200); since recomputation costs
@@ -110,6 +113,33 @@ export default function VizLogPhaseSpiralPage() {
       clearTimeout(handle);
     };
   }, [tMax, N]);
+
+  // Wheel zoom — non-passive so preventDefault blocks page scroll.
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const W = V.canvasSize.width;
+    const H = V.canvasSize.height;
+    const onWheel = (e) => {
+      e.preventDefault();
+      setView(prev => {
+        const rect = canvas.getBoundingClientRect();
+        const mx = (e.clientX - rect.left) * (W / rect.width);
+        const my = (e.clientY - rect.top) * (H / rect.height);
+        const cxW = W / 2;
+        const cyH = H / 2;
+        const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+        const newZoom = Math.max(0.2, Math.min(20, prev.zoom * factor));
+        return {
+          zoom: newZoom,
+          panX: mx - cxW - (mx - cxW - prev.panX) * (newZoom / prev.zoom),
+          panY: my - cyH - (my - cyH - prev.panY) * (newZoom / prev.zoom),
+        };
+      });
+    };
+    canvas.addEventListener('wheel', onWheel, { passive: false });
+    return () => canvas.removeEventListener('wheel', onWheel);
+  }, [V.canvasSize.width, V.canvasSize.height]);
 
   // log10|zeta| range — used for color normalisation.
   const colorRange = useMemo(() => {
@@ -150,6 +180,12 @@ export default function VizLogPhaseSpiralPage() {
     const rMax = Math.log(tMax + Math.E); // r at the largest t shown
     const padPx = 40;
     const scale = (Math.min(W, H) / 2 - padPx) / rMax;
+
+    // Zoom + pan transform — wraps all geometry; footer label stays in screen space.
+    ctx.save();
+    ctx.translate(cx + view.panX, cy + view.panY);
+    ctx.scale(view.zoom, view.zoom);
+    ctx.translate(-cx, -cy);
 
     // Radial reference circles (every integer log(t+e)).
     ctx.strokeStyle = '#1e293b';
@@ -245,17 +281,37 @@ export default function VizLogPhaseSpiralPage() {
       }
     }
 
-    // Footer label.
+    ctx.restore();
+
+    // Footer label — drawn in screen space, outside zoom+pan transform.
     ctx.fillStyle = '#64748b';
     ctx.font = '11px "JetBrains Mono", monospace';
     ctx.textAlign = 'left';
     ctx.fillText('r = log(t+e) · θ = arg ζ(½+it)', 12, H - 12);
     ctx.textAlign = 'right';
     ctx.fillText('t ∈ [0, ' + tMax + '] · N = ' + N, W - 12, H - 12);
-  }, [samples, showZeros, colorRange, tMax, N, V.canvasSize.width, V.canvasSize.height, V.zeros]);
+  }, [samples, showZeros, colorRange, tMax, N, V.canvasSize.width, V.canvasSize.height, V.zeros, view]);
 
   // How many zeros are visible at the current tMax (purely informational).
   const visibleZeroCount = V.zeros.filter((g) => g <= tMax).length;
+
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    dragStart.current = { x: e.clientX, y: e.clientY, panX: view.panX, panY: view.panY };
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current || !dragStart.current) return;
+    const canvas = canvasRef.current;
+    const rect = canvas.getBoundingClientRect();
+    const sx = V.canvasSize.width / rect.width;
+    const sy = V.canvasSize.height / rect.height;
+    const dx = (e.clientX - dragStart.current.x) * sx;
+    const dy = (e.clientY - dragStart.current.y) * sy;
+    setView(prev => ({ ...prev, panX: dragStart.current.panX + dx, panY: dragStart.current.panY + dy }));
+  };
+
+  const handleMouseUp = () => { isDragging.current = false; };
 
   return (
     <div className="page">
@@ -380,6 +436,24 @@ export default function VizLogPhaseSpiralPage() {
         >
           status: {sampleStatus} ({N} samples)
         </span>
+        <span style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: '#64748b' }}>
+          zoom: {view.zoom.toFixed(2)}×
+        </span>
+        <button
+          onClick={() => setView({ zoom: 1, panX: 0, panY: 0 })}
+          style={{
+            padding: '4px 10px',
+            background: '#1e293b',
+            color: '#cbd5e1',
+            border: '1px solid #334155',
+            borderRadius: 4,
+            fontFamily: 'var(--font-mono)',
+            fontSize: 11,
+            cursor: 'pointer',
+          }}
+        >
+          reset view
+        </button>
       </div>
 
       {/* Canvas */}
@@ -405,9 +479,15 @@ export default function VizLogPhaseSpiralPage() {
             display: 'block',
             background: '#0a0e1a',
             borderRadius: 6,
+            cursor: 'grab',
+            touchAction: 'none',
           }}
           aria-label="Log-phase interference spiral of zeta(1/2 + it)"
           role="img"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
         />
       </div>
 

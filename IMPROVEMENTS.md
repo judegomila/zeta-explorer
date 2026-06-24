@@ -2630,3 +2630,4 @@ below are the engine contract — do not rename or reorder.
 | 2738 | 2026-06-24T19:00:00Z | imp-2809 (content, low): Add exp-087 and exp-088 to explorations.js for /visual-geometries and /vortex-field with honest exploratory-only framing | src/data/explorations.js |
 | 2739 | 2026-06-24T20:00:00Z | imp-2820 (ux, low): Add popular quick links + random-page button to NotFoundPage | src/pages/NotFoundPage.jsx |
 | 2740 | 2026-06-24T18:05:00Z | imp-2821 (ux, low): De-stale KEYBOARD_SHORTCUTS — replace 6 stale entries (Oscillators, RH Attack, Gap Closing, Spectral Attack, Cross-Attack, Proof Planner) with current project-central pages (Lambda Bounds, Route Map, Engine Room, RH Proof State, Improvement Queue, RH DAG) | src/App.jsx |
+| 2741 | 2026-06-24T22:30:00Z | imp-2822 (ux, low): Replace inline onMouseEnter/onMouseLeave style hacks with CSS :hover in NotFoundPage | src/pages/NotFoundPage.jsx, src/styles/app.css |

@@ -49,30 +49,7 @@ export default function NotFoundPage() {
       }}>
         The route you're looking for doesn't exist. Check the navigation or return home.
       </p>
-      <Link
-        to="/"
-        style={{
-          display: 'inline-block',
-          padding: '10px 20px',
-          background: '#334155',
-          border: '1px solid #475569',
-          borderRadius: '6px',
-          color: '#e2e8f0',
-          textDecoration: 'none',
-          fontSize: '14px',
-          fontFamily: 'var(--font-mono)',
-          cursor: 'pointer',
-          transition: 'all 200ms ease',
-        }}
-        onMouseEnter={(e) => {
-          e.target.style.background = '#475569';
-          e.target.style.borderColor = '#64748b';
-        }}
-        onMouseLeave={(e) => {
-          e.target.style.background = '#334155';
-          e.target.style.borderColor = '#475569';
-        }}
-      >
+      <Link to="/" className="not-found-home-btn">
         Go Home
       </Link>
 
@@ -92,25 +69,7 @@ export default function NotFoundPage() {
           <Link
             key={path}
             to={path}
-            style={{
-              padding: '6px 14px',
-              background: '#1e293b',
-              border: '1px solid #334155',
-              borderRadius: '4px',
-              color: '#94a3b8',
-              textDecoration: 'none',
-              fontSize: '13px',
-              fontFamily: 'var(--font-mono)',
-              transition: 'color 150ms ease, border-color 150ms ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = '#e2e8f0';
-              e.currentTarget.style.borderColor = '#475569';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = '#94a3b8';
-              e.currentTarget.style.borderColor = '#334155';
-            }}
+            className="not-found-nav-link"
           >
             {label}
           </Link>
@@ -119,25 +78,7 @@ export default function NotFoundPage() {
 
       <button
         onClick={goToRandomPage}
-        style={{
-          padding: '6px 14px',
-          background: 'transparent',
-          border: '1px dashed #334155',
-          borderRadius: '4px',
-          color: '#64748b',
-          fontSize: '13px',
-          fontFamily: 'var(--font-mono)',
-          cursor: 'pointer',
-          transition: 'color 150ms ease, border-color 150ms ease',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = '#94a3b8';
-          e.currentTarget.style.borderColor = '#475569';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = '#64748b';
-          e.currentTarget.style.borderColor = '#334155';
-        }}
+        className="not-found-random-btn"
       >
         Go to a random page
       </button>

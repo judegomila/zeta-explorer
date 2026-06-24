@@ -1328,3 +1328,54 @@ input[type="range"]:disabled {
   .latex-textarea { min-height: 300px; }
   .paper-preview-panel { max-height: 500px; }
 }
+
+/* NotFoundPage buttons */
+.not-found-home-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+.not-found-home-btn:hover {
+  background: #475569;
+  border-color: #64748b;
+}
+
+.not-found-nav-link {
+  padding: 6px 14px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  transition: color 150ms ease, border-color 150ms ease;
+}
+.not-found-nav-link:hover {
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+.not-found-random-btn {
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px dashed #334155;
+  border-radius: 4px;
+  color: #64748b;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+.not-found-random-btn:hover {
+  color: #94a3b8;
+  border-color: #475569;
+}

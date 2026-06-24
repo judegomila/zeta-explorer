@@ -2604,3 +2604,4 @@ below are the engine contract — do not rename or reorder.
 | 2712 | 2026-06-25T12:00:00Z | imp-2791 (content, medium): Add shared ProofTierSummary component — two rigorous islands + one estimate framing on /rh-proof-state and /rigor-dashboard | src/components/ProofTierSummary.jsx, src/pages/RHProofStateDashboardPage.jsx, src/pages/RigorDashboardPage.jsx |
 | 2713 | 2026-06-25T13:00:00Z | imp-2795 (content, medium): Add doc-page entries for /vortex-field and /visual-geometries to DocsPage.jsx Pages section | src/pages/DocsPage.jsx |
 | 2714 | 2026-06-24T14:00:00Z | imp-2796 (content, medium): Add concept cards for C_H wall, phase-vortex/RH, and RH-equivalence to ConceptsPage.jsx | src/pages/ConceptsPage.jsx |
+| 2715 | 2026-06-24T15:00:00Z | imp-2799 (ux, medium): Add Route Map to Reference nav group in App.jsx and cross-link LiteraturePage Related Pages to /route-map | src/App.jsx, src/pages/LiteraturePage.jsx |

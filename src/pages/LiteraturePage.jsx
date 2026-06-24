@@ -292,7 +292,10 @@ export default function LiteraturePage() {
           <a href="#/rh-equivalents" style={{ color: '#ec4899', fontSize: 13 }}>RH Equivalents</a>
           <span style={{ color: '#334155' }}>|</span>
           <a href="#/closure-routes" style={{ color: '#a855f7', fontSize: 13 }}>Closure Routes (§16)</a>
+          <span style={{ color: '#334155' }}>|</span>
           <a href="#/shift-bridge-positivity" style={{ color: '#10b981', fontSize: 13 }}>Shift-Bridge Positivity (§15)</a>
+          <span style={{ color: '#334155' }}>|</span>
+          <a href="#/route-map" style={{ color: '#22d3ee', fontSize: 13 }}>Full Route Map</a>
         </div>
       </div>
     </div>

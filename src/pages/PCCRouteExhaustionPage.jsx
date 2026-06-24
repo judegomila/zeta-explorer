@@ -47,6 +47,7 @@ const PCC_ROUTES = [
     verdict: 'Equi-difficult to Montgomery',
     reason: 'Sarnak 1995 AQC shows trace approach reduces to PCC itself',
     structural: 'Circular: same Cauchy-Schwarz bottleneck',
+    provenanceRef: 'imp-1297-selberg-trace-pcc-route.js',
     color: { fg: '#fbbf24', bg: 'rgba(251,191,36,0.10)', border: '#fbbf24' },
   },
   {
@@ -57,6 +58,7 @@ const PCC_ROUTES = [
     verdict: 'Range stops inside Montgomery\'s diagonal',
     reason: 'Second moment gives 2-point in diagonal region only; support > 1 requires off-diagonal',
     structural: 'Incomplete coverage: off-diagonal = new problem',
+    provenanceRef: 'imp-1302-goldston-gonek-pcc-attack.js',
     color: { fg: '#f97316', bg: 'rgba(249,115,22,0.10)', border: '#f97316' },
   },
   {
@@ -67,6 +69,7 @@ const PCC_ROUTES = [
     verdict: '(log T)^{1/2} gap intrinsic to Cauchy-Schwarz',
     reason: 'Fourth moment gains nothing over second moment at support > 1; Cauchy-Schwarz error is structural',
     structural: 'Intrinsic slack: Cauchy-Schwarz ≤ PCC at support > 1',
+    provenanceRef: 'imp-1303-heath-brown-pcc-route.js',
     color: { fg: '#eab308', bg: 'rgba(234,179,8,0.10)', border: '#eab308' },
   },
   {
@@ -77,6 +80,7 @@ const PCC_ROUTES = [
     verdict: 'Bypasses only for tuples; single-zeta transfer = Sarnak 1995 AQC = circular',
     reason: 'Family-averaging (amplifier) closes PCC for families but single-ζ reduction is Sarnak 1995 = circular',
     structural: 'Circular: family result → single-ζ transfer is PCC',
+    provenanceRef: 'imp-1304-iwaniec-sarnak-no-pcc.js',
     color: { fg: '#84cc16', bg: 'rgba(132,204,22,0.10)', border: '#84cc16' },
   },
   {
@@ -87,6 +91,7 @@ const PCC_ROUTES = [
     verdict: 'Reduces to same Cauchy-Schwarz layer as others',
     reason: 'Absolutization strategy lands on same arithmetic Cauchy-Schwarz step as all five routes',
     structural: 'Convergence: all 5 routes → single Cauchy-Schwarz bottleneck',
+    provenanceRef: 'imp-1305-goldston-yildirim-mean-square.js',
     color: { fg: '#06b6d4', bg: 'rgba(6,182,212,0.10)', border: '#06b6d4' },
   },
 
@@ -99,6 +104,7 @@ const PCC_ROUTES = [
     verdict: 'Reduces to same Cauchy-Schwarz layer at the critical bottleneck',
     reason: 'Adelic Lefschetz trace maps to arithmetic Cauchy-Schwarz step; Connes hypothesis required',
     structural: 'Geometric repackaging without structural bypass: Cauchy-Schwarz intrinsic',
+    provenanceRef: 'imp-1307-connes-bost-adelic-attack.js',
     color: { fg: '#0ea5e9', bg: 'rgba(14,165,233,0.10)', border: '#0ea5e9' },
   },
   {
@@ -109,6 +115,7 @@ const PCC_ROUTES = [
     verdict: 'Continuous spectrum & compactification issues unresolved; BCSL correction incomplete',
     reason: 'Quantum corrections (Sierra-Townsend) address spectrum but miss semi-classical gap at support > 1',
     structural: 'Spectral approach hits same (log T)^{1/2} Plancherel barrier as moment methods',
+    provenanceRef: 'imp-1308-berry-keating-quantum-attack.js',
     color: { fg: '#06b6d4', bg: 'rgba(6,182,212,0.10)', border: '#06b6d4' },
   },
   {
@@ -119,6 +126,7 @@ const PCC_ROUTES = [
     verdict: 'Entropy bound exists but does NOT transfer to support > 1 PCC unconditionally',
     reason: 'Entropy-entropy transfer requires auxiliary hypotheses; zero-gap entropy ≠ 2-point bound at support > 1',
     structural: 'Orthogonal method, same intrinsic Plancherel gap: (log T)^{1/2}',
+    provenanceRef: 'imp-1309-tao-entropy-pcc-attack.js',
     color: { fg: '#10b981', bg: 'rgba(16,185,129,0.10)', border: '#10b981' },
   },
 
@@ -131,6 +139,7 @@ const PCC_ROUTES = [
     verdict: 'Combinatorial bound verified numerically; colossally-abundant structure gives no RH proof',
     reason: 'Elementary number theory on σ(n) does not connect to spectral zeta methods or Plancherel',
     structural: 'Orthogonal but unproductive: combinatorics-to-spectrum gap remains open',
+    provenanceRef: 'imp-1311-robin-lagarias-combinatorial-attack.js',
     color: { fg: '#a78bfa', bg: 'rgba(167,139,250,0.10)', border: '#a78bfa' },
   },
   {
@@ -141,6 +150,7 @@ const PCC_ROUTES = [
     verdict: 'Density reformulation exact; quantitative version incomplete for unconditional proof',
     reason: 'Bercovici-Foias quantitative version requires auxiliary moment bounds; circular with PCC at critical step',
     structural: 'Functional-analytic repackaging; inner product closure = same Cauchy-Schwarz layer',
+    provenanceRef: 'imp-1312-beurling-nyman-attack.js',
     color: { fg: '#ec4899', bg: 'rgba(236,72,153,0.10)', border: '#ec4899' },
   },
 
@@ -153,6 +163,7 @@ const PCC_ROUTES = [
     verdict: 'Sieve methods give zero-gap statistics; transfer to single-ζ support > 1 requires new machinery',
     reason: 'Sieve-theory does not directly target PCC 2-point at support > 1; auxiliary analytic step remains',
     structural: 'Genuine breakthrough but stops short: Plancherel barrier (log T)^{1/2} intrinsic to zero-gap sieve also',
+    provenanceRef: 'imp-1318-maynard-sieve-pcc.js',
     color: { fg: '#10b981', bg: 'rgba(16,185,129,0.10)', border: '#10b981' },
   },
 ];
@@ -258,6 +269,12 @@ function RouteCard({ route }) {
           {route.structural}
         </p>
       </div>
+      {route.provenanceRef && (
+        <p style={{ margin: '8px 0 0 0', color: '#475569', fontSize: 11, lineHeight: 1.5 }}>
+          <span style={{ color: '#64748b' }}>Provenance:</span>{' '}
+          <span style={{ fontFamily: mono, color: '#64748b' }}>{route.provenanceRef}</span>
+        </p>
+      )}
     </div>
   );
 }

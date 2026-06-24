@@ -1944,6 +1944,8 @@ async function main() {
   let loadErrors = 0;
   const failures = [];
   const lines    = [];
+  // imp-2746: track DATA_MODULES entries that export no *_ASSERTIONS arrays
+  const dormantDataModules = [];
 
   function log(msg) { console.log(msg); lines.push(msg); }
 
@@ -1977,7 +1979,11 @@ async function main() {
     const arrays = Object.entries(mod).filter(
       ([k, v]) => k.endsWith('_ASSERTIONS') && Array.isArray(v)
     );
-    if (arrays.length === 0) return;
+    // imp-2746: flag DATA_MODULES entries with no *_ASSERTIONS array
+    if (arrays.length === 0) {
+      if (DATA_MODULES.includes(modPath)) dormantDataModules.push(modPath);
+      return;
+    }
 
     for (const [name, arr] of arrays) {
       let modPass = 0, modFail = 0;
@@ -2019,6 +2025,15 @@ async function main() {
       }
     }
     await Promise.all(Array.from({ length: PARALLEL }, () => worker()));
+  }
+
+  // imp-2746: report dormant DATA_MODULES entries after sweep
+  if (dormantDataModules.length > 0) {
+    log('');
+    log('## Dormant DATA_MODULES (no *_ASSERTIONS exported): ' + dormantDataModules.length);
+    for (const m of dormantDataModules) {
+      log('  DORMANT: ' + m);
+    }
   }
 
   await finalize({ passed, failed, loadErrors, failures, lines, startMs }, server, pool);

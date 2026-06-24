@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 import { liCoefficients } from '../math/rh-attack.js';
 import { ZETA_ZEROS, zetaCriticalStrip, cAbs } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
@@ -206,14 +207,13 @@ function ConvexityChallenge() {
 export default function BreakItPage() {
   return (
     <div className="page">
-      <div className="page-header">
-        <h1>Try to Break the Proof</h1>
+      <PageHeader title="Try to Break the Proof">
         <p>
           The best way to strengthen a proof is to attack it. Each challenge below presents a
           ZPO claim with interactive controls. Your goal: find parameters that make it FAIL.
           If you succeed, you've found a genuine flaw. If you can't — that's evidence it's correct.
         </p>
-      </div>
+      </PageHeader>
 
       <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #f59e0b', background: 'rgba(245,158,11,0.04)' }}>
         <p style={{ color: '#fbbf24', fontSize: 13, fontWeight: 600, margin: 0 }}>

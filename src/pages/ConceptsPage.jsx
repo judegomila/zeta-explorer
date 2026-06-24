@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 
 const CATEGORIES = [
   { id: 'foundations', label: 'Foundations', color: '#3b82f6' },
@@ -668,13 +669,12 @@ export default function ConceptsPage() {
 
   return (
     <div className="page">
-      <div className="page-header">
-        <h1>Key Concepts & Definitions</h1>
+      <PageHeader title="Key Concepts & Definitions">
         <p>
           A reference guide to the mathematical ideas behind the Riemann Hypothesis and the
           Zeta Prime Oscillator model. Start with Foundations and work your way through.
         </p>
-      </div>
+      </PageHeader>
 
       <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 16, flexWrap: 'wrap' }}>
         <input

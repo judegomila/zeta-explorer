@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { useAsyncMetric } from '../hooks/useAsyncMetric.js';
+import PageHeader from '../components/PageHeader.jsx';
 // A1 fix: use the precomputed ~6 KB summary instead of the full 16 MB sweep
 // module. The full module (which transitively imports 10^6 Odlyzko zeros)
 // is still used by daily-health-check.sh for drift detection.
@@ -329,14 +330,13 @@ export default function DashboardPage() {
         }
       `}</style>
 
-      <div className="page-header">
-        <h1>RH Proof Dashboard -- Live Metrics</h1>
+      <PageHeader title="RH Proof Dashboard -- Live Metrics">
         <p>
           Real-time computation of key Riemann Hypothesis proof metrics from the ZPO
           oscillator framework. Each card runs an independent computation and reports
           pass/fail status with numerical values.
         </p>
-      </div>
+      </PageHeader>
 
       {/* 2x3 metric grid */}
       <div style={{

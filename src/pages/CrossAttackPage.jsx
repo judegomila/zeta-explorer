@@ -2,18 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CrossAttackViz from '../components/CrossAttackViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 
 export default function CrossAttackPage() {
   return (
     <div className="page">
-      <div className="page-header">
-        <h1>Cross-Attack Efficiency Dashboard</h1>
+      <PageHeader title="Cross-Attack Efficiency Dashboard">
         <p>
           A unified dashboard that runs <strong>all nine attack vectors</strong> side-by-side,
           measures their cross-correlations, and combines them into a single confinement potential
           that is more constraining than any individual attack alone.
         </p>
-      </div>
+      </PageHeader>
 
       <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #8b5cf6' }}>
         <h3 style={{ color: '#8b5cf6', fontSize: 14, marginBottom: 8 }}>The Multi-Pronged Approach</h3>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import FormalProofViz from '../components/FormalProofViz.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 import { PROOF_SECTIONS, overallProofStatus } from '../math/formal-proof.js';
 
 const STATUS_COLORS = {
@@ -25,14 +26,13 @@ export default function FormalProofPage() {
   return (
     <div className="page">
       {/* ── Header ── */}
-      <div className="page-header">
-        <h1>Formal Proof Attempt</h1>
+      <PageHeader title="Formal Proof Attempt">
         <p>
           A structured attempt to prove the Riemann Hypothesis through the Zero-Point Oscillator
           (ZPO) framework. This page lays out every step of the argument, identifies exactly
           where the gaps lie, and provides computational verification of each claim.
         </p>
-      </div>
+      </PageHeader>
 
       {/* ── Honesty Statement ── */}
       <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #ef4444' }}>

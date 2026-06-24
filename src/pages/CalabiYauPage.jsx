@@ -2,19 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CalabiYauViz from '../components/CalabiYauViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 
 export default function CalabiYauPage() {
   return (
     <div className="page">
-      <div className="page-header">
-        <h1>Calabi-Yau Manifold Attack</h1>
+      <PageHeader title="Calabi-Yau Manifold Attack">
         <p>
           Attacking the Riemann Hypothesis from the geometry of 6-dimensional Calabi-Yau manifolds.
           The Weil conjectures — proved by Deligne for varieties over finite fields — are the
           closest existing analog of RH. This page explores whether the same cohomological
           machinery can be lifted to ζ(s) over ℚ.
         </p>
-      </div>
+      </PageHeader>
 
       <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #8b5cf6' }}>
         <h3 style={{ color: '#8b5cf6', fontSize: 14, marginBottom: 8 }}>The Core Idea</h3>

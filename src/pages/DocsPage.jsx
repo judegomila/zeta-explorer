@@ -1,6 +1,7 @@
 import React from 'react';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import SystemArchitectureDiagram from '../components/SystemArchitectureDiagram.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 
 const TOC = [
   { id: 'overview', label: 'Overview' },
@@ -33,13 +34,12 @@ export default function DocsPage() {
 
   return (
     <div className="page">
-      <div className="page-header">
-        <h1>Documentation</h1>
+      <PageHeader title="Documentation">
         <p>
           Complete technical reference for the ZPO Explorer app: mathematical model,
           architecture, algorithms, and every module and component documented.
         </p>
-      </div>
+      </PageHeader>
 
       {/* Table of Contents */}
       <div className="docs-toc">

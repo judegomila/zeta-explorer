@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import NyquistBodeViz from '../components/NyquistBodeViz.jsx';
 import ScatteringMatrixViz from '../components/ScatteringMatrixViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 
 export default function ControlTheoryPage() {
   return (
     <div className="page">
-      <div className="page-header">
-        <h1>Control Theory & Scattering</h1>
+      <PageHeader title="Control Theory & Scattering">
         <p>
           An exploratory reformulation of the Riemann Hypothesis as a stability criterion in feedback
           control theory. The Nyquist plot, Bode diagram, and scattering matrix of the ladder-bridge
           system provide suggestive analogies for understanding the locations of zeta zeros.
         </p>
-      </div>
+      </PageHeader>
 
       <BlockMath tex={"L(s) = \\chi(s) \\cdot \\frac{\\zeta(1-s)}{\\zeta(s)}, \\quad \\zeta(s) = 0 \\iff 1 + L(s) = 0"} />
 

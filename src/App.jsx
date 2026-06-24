@@ -117,11 +117,23 @@ const VoroninUniversalityPage = lazy(() => import('./pages/VoroninUniversalityPa
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setShow(true), 150);
+    return () => clearTimeout(t);
+  }, []);
+
+  if (!show) return null;
+
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '40vh', color: '#64748b' }}>
-      <div style={{ textAlign: 'center' }}>
-        <div style={{ fontSize: 24, marginBottom: 8, fontFamily: 'var(--font-mono)' }}>Loading...</div>
-      </div>
+    <div style={{ padding: '2rem 1.5rem', maxWidth: 900, margin: '0 auto' }}>
+      <div style={{ height: 26, width: '50%', borderRadius: 6, background: 'var(--color-border, #e2e8f0)', marginBottom: 24, animation: 'pulse 1.6s ease-in-out infinite' }} />
+      {[100, 88, 94].map((w, i) => (
+        <div key={i} style={{ marginBottom: 12 }}>
+          <div style={{ height: 13, width: w + '%', borderRadius: 4, background: 'var(--color-border, #e2e8f0)', animation: 'pulse 1.6s ease-in-out infinite' }} />
+        </div>
+      ))}
+      <div style={{ height: 13, width: '60%', borderRadius: 4, background: 'var(--color-border, #e2e8f0)', marginTop: 24, animation: 'pulse 1.6s ease-in-out infinite' }} />
     </div>
   );
 }

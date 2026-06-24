@@ -195,15 +195,21 @@ function DagGraph({ nodes, layer, critSet, frontierSet }) {
 
 export default function RhDagPage() {
   const nodes = RH_DAG_NODES;
+  const [targetId, setTargetId] = useState('imp-356');
   const layer = useMemo(() => topoLayers(nodes), [nodes]);
   const frontier = useMemo(() => RH_DAG.unblockedFrontier(), []);
-  const critPath = useMemo(() => RH_DAG.criticalPathTo('imp-356'), []);
+  const critPath = useMemo(() => RH_DAG.criticalPathTo(targetId), [targetId]);
   const schedule = useMemo(
-    () => RH_DAG.frontierSchedule('imp-356', 10),
-    [],
+    () => RH_DAG.frontierSchedule(targetId, 10),
+    [targetId],
   );
 
-  const targetNode = useMemo(() => nodes.find((n) => n.id === 'imp-356'), [nodes]);
+  const availableTargets = useMemo(
+    () => nodes.filter((n) => n.status !== 'completed').sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true })),
+    [nodes],
+  );
+
+  const targetNode = useMemo(() => nodes.find((n) => n.id === targetId), [nodes, targetId]);
   const targetDone = targetNode && (targetNode.status === 'completed' || targetNode.status === 'partial');
 
   const layerMap = {};
@@ -261,7 +267,7 @@ export default function RhDagPage() {
         </div>
         <div className="card" style={{ borderLeftWidth: 3, borderLeftColor: targetDone ? '#22c55e' : '#facc15' }}>
           <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)' }}>
-            Critical path to imp-356
+            Critical path to {targetId}
           </div>
           {targetDone ? (
             <>
@@ -269,7 +275,7 @@ export default function RhDagPage() {
                 ✓ DONE
               </div>
               <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>
-                imp-356 is already {targetNode.status} — no remaining steps
+                {targetId} is already {targetNode.status} — no remaining steps
               </div>
             </>
           ) : (
@@ -278,15 +284,47 @@ export default function RhDagPage() {
                 {critPath.length}
               </div>
               <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>
-                sequential steps to the SOTA capstone
+                sequential steps to target
               </div>
             </>
           )}
         </div>
       </div>
 
+      {/* ── Target selector ─────────────────────────────────────────── */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, padding: '10px 14px', background: 'var(--bg-primary)', borderRadius: 8, border: '1px solid var(--border)' }}>
+        <label htmlFor="dag-target-select" style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5, flexShrink: 0 }}>
+          Critical-path target
+        </label>
+        <select
+          id="dag-target-select"
+          value={targetId}
+          onChange={(e) => setTargetId(e.target.value)}
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 12,
+            padding: '4px 8px',
+            borderRadius: 5,
+            border: '1px solid var(--border)',
+            background: 'var(--bg-secondary)',
+            color: 'var(--text-primary)',
+            cursor: 'pointer',
+            flex: '0 1 220px',
+          }}
+        >
+          {availableTargets.map((n) => (
+            <option key={n.id} value={n.id}>{n.id}</option>
+          ))}
+        </select>
+        {targetNode && (
+          <span style={{ fontSize: 11, color: 'var(--text-muted)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            {(targetNode.title || '').slice(0, 80)}
+          </span>
+        )}
+      </div>
+
       {/* ── Frontier schedule (future fanout rounds) ──────────────── */}
-      <h2 style={{ marginBottom: 12 }}>Parallel schedule to imp-356</h2>
+      <h2 style={{ marginBottom: 12 }}>Parallel schedule to {targetId}</h2>
       <div
         style={{
           fontSize: 11,
@@ -306,8 +344,8 @@ export default function RhDagPage() {
         {schedule.length === 0 ? (
           <div className="card" style={{ fontSize: 12, color: 'var(--text-muted)' }}>
             {targetDone
-              ? 'imp-356 is already completed — no further rounds needed.'
-              : 'No rounds — target imp-356 is fully blocked (check for missing dependency nodes).'}
+              ? `${targetId} is already completed — no further rounds needed.`
+              : `No rounds — target ${targetId} is fully blocked (check for missing dependency nodes).`}
           </div>
         ) : (
           schedule.map((roundIds, idx) => (
@@ -349,7 +387,7 @@ export default function RhDagPage() {
         dependencies), and each arrow points from a prerequisite ticket to the one
         that needs it (drawn from <code>dependsOn</code>). Hover any node to trace
         its dependencies and dependents. <strong style={{ color: '#facc15' }}>★</strong>{' '}
-        marks the critical path to <code>imp-356</code>;{' '}
+        marks the critical path to <code>{targetId}</code>;{' '}
         <strong style={{ color: '#06b6d4' }}>⬤</strong> marks the unblocked frontier.
       </div>
       <DagGraph nodes={nodes} layer={layer} critSet={critSet} frontierSet={frontierSet} />
@@ -363,7 +401,7 @@ export default function RhDagPage() {
           <span><span style={statusChipStyle('completed')}>completed</span> fully closed</span>
           <span><span style={statusChipStyle('partial')}>partial</span> partial with named sub-gap</span>
           <span><span style={statusChipStyle('pending')}>pending</span> not started</span>
-          <span><strong style={{ color: '#facc15' }}>★</strong> on critical path to imp-356</span>
+          <span><strong style={{ color: '#facc15' }}>★</strong> on critical path to {targetId}</span>
           <span><strong style={{ color: '#06b6d4' }}>⬤</strong> in unblocked frontier</span>
         </div>
       </div>

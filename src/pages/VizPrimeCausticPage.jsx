@@ -306,6 +306,7 @@ export default function VizPrimeCausticPage() {
             <div><span style={{ color: '#86efac' }}>amp:</span> {hoverInfo.amp.toFixed(4)}</div>
           </div>
         )}
+        <ColormapLegend maxVal={renderInfo.maxVal} mode={mode} />
       </div>
 
       <div className="card" style={{ marginTop: 14, padding: 14 }}>
@@ -350,6 +351,53 @@ export default function VizPrimeCausticPage() {
         contrast leftward. Count mode is sigma-independent. The render uses a single
         putImageData of a {D.bbox.gridW} x {D.bbox.gridH} buffer -- no per-pixel
         fillRect calls.
+      </div>
+    </div>
+  );
+}
+
+function ColormapLegend({ maxVal, mode }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const cv = ref.current;
+    if (!cv) return;
+    const ctx = cv.getContext('2d');
+    const W = cv.width, H = cv.height;
+    const img = ctx.createImageData(W, H);
+    const d = img.data;
+    for (let px = 0; px < W; px++) {
+      const idx256 = Math.min(255, Math.floor((px / (W - 1)) * 255));
+      const r = COLORMAP[idx256 * 3];
+      const g = COLORMAP[idx256 * 3 + 1];
+      const b = COLORMAP[idx256 * 3 + 2];
+      for (let py = 0; py < H; py++) {
+        const o = (py * W + px) * 4;
+        d[o] = r; d[o + 1] = g; d[o + 2] = b; d[o + 3] = 255;
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+    ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 4; i++) {
+      const x = Math.round((i / 4) * (W - 1));
+      ctx.beginPath(); ctx.moveTo(x, H - 5); ctx.lineTo(x, H); ctx.stroke();
+    }
+  }, []);
+
+  const label = mode === 'count' ? 'coherent count' : 'amplitude';
+  const ticks = [0, 0.25, 0.5, 0.75, 1.0];
+
+  return (
+    <div style={{ marginTop: 8, fontFamily: mono, fontSize: 10, color: '#94a3b8' }}>
+      <div style={{ marginBottom: 3, textTransform: 'uppercase', letterSpacing: 0.5, fontSize: 9, color: 'var(--text-muted)' }}>
+        {label} scale (sqrt-gamma mapped to hue)
+      </div>
+      <canvas ref={ref} width={256} height={14}
+        style={{ width: '100%', maxWidth: 320, height: 14, display: 'block', borderRadius: 2 }} />
+      <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 320, marginTop: 2 }}>
+        {ticks.map((f, i) => (
+          <span key={i}>{(f * maxVal).toFixed(mode === 'count' ? 0 : 2)}</span>
+        ))}
       </div>
     </div>
   );

@@ -170,14 +170,14 @@ function ScrollToTop() {
 
 const KEYBOARD_SHORTCUTS = [
   { key: '1', label: 'Home', path: '/' },
-  { key: '2', label: 'Oscillators', path: '/oscillators' },
+  { key: '2', label: 'Lambda Bounds', path: '/lambda-bounds' },
   { key: '3', label: 'Zeta', path: '/zeta' },
-  { key: '4', label: 'RH Attack', path: '/rh-attack' },
-  { key: '5', label: 'Gap Closing', path: '/gap-closing' },
+  { key: '4', label: 'Route Map', path: '/route-map' },
+  { key: '5', label: 'Engine Room', path: '/engine-room' },
   { key: '6', label: 'Statistics', path: '/statistics' },
-  { key: '7', label: 'Spectral Attack', path: '/spectral-attack' },
-  { key: '8', label: 'Cross-Attack', path: '/cross-attack' },
-  { key: '9', label: 'Proof Planner', path: '/proof-planner' },
+  { key: '7', label: 'RH Proof State', path: '/rh-proof-state' },
+  { key: '8', label: 'Improvement Queue', path: '/improvement-queue' },
+  { key: '9', label: 'RH DAG', path: '/rh-dag' },
 ];
 
 function KeyboardShortcutOverlay({ show, onClose }) {

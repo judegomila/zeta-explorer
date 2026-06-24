@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import GilbreathTriangleViz from '../components/GilbreathTriangleViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
 export default function GilbreathObservationPage() {
+  const [liveCert, setLiveCert] = useState(null);
+  const handleCertUpdate = useCallback((data) => setLiveCert(data), []);
+
   return (
     <div className="page">
       <div className="page-header">
@@ -22,8 +25,23 @@ export default function GilbreathObservationPage() {
       <BlockMath tex={"a^{(0)}_i = p_{i+1}, \\qquad a^{(k)}_i = \\bigl| a^{(k-1)}_{i+1} - a^{(k-1)}_{i} \\bigr|, \\qquad a^{(k)}_0 \\stackrel{?}{=} 1 \\;\\; \\forall k \\ge 1"} />
 
       <div style={{ marginTop: 32 }}>
-        <GilbreathTriangleViz />
+        <GilbreathTriangleViz onCertUpdate={handleCertUpdate} />
       </div>
+
+      {liveCert && (
+        <div style={{
+          margin: '8px 0 0', padding: '8px 14px', borderRadius: 6,
+          background: 'rgba(34,197,94,0.05)', border: '1px solid rgba(34,197,94,0.2)',
+          fontSize: 12, fontFamily: 'var(--font-mono, monospace)', color: '#94a3b8', lineHeight: 1.9,
+        }}>
+          <strong style={{ color: '#22c55e' }}>Live verification</strong>
+          {' '}({liveCert.sourceLabel}, {liveCert.numTerms} terms):{' '}
+          rows 1–<strong style={{ color: '#e2e8f0' }}>{liveCert.cert.verifiedThrough}</strong> verified, a_k[0] = 1.{' '}
+          {liveCert.cert.firstCleanRow !== null
+            ? <>{'{0,2}'}-lock engaged at row <strong style={{ color: '#22d3ee' }}>{liveCert.cert.firstCleanRow}</strong>; rows {liveCert.cert.firstCleanRow}–{liveCert.cert.guaranteedThrough} pinned structurally (Lemma B).</>
+            : <span style={{ color: '#64748b' }}>{'{0,2}'}-lock not yet engaged in this range.</span>}
+        </div>
+      )}
 
       <div className="two-col" style={{ marginTop: 32 }}>
         <div className="card">

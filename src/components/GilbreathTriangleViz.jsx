@@ -47,7 +47,7 @@ const SOURCES = {
   even: { label: 'Random even-gap seq', fn: evenGapSequence, accent: 'accent-green' },
 };
 
-export default function GilbreathTriangleViz() {
+export default function GilbreathTriangleViz({ onCertUpdate }) {
   const svgRef = useRef();
   const [numTerms, setNumTerms] = useState(40);
   const [source, setSource] = useState('primes');
@@ -58,6 +58,10 @@ export default function GilbreathTriangleViz() {
     const rows = buildTriangle(seq);
     return { rows, mod2: mod2Triangle(rows), cert: lockCertificate(rows) };
   }, [numTerms, source]);
+
+  useEffect(() => {
+    if (onCertUpdate) onCertUpdate({ cert, sourceLabel: SOURCES[source].label, numTerms });
+  }, [cert, source, numTerms, onCertUpdate]);
 
   const leadingAllOne = cert.allLeadingOne;
   const firstViolation = cert.firstViolation;

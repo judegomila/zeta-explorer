@@ -395,6 +395,36 @@ function useKeyboardShortcuts(navigate) {
   return { showHelp, setShowHelp, showPalette, setShowPalette };
 }
 
+function MobileNavSection({ label, items }) {
+  const location = useLocation();
+  const hasActive = items.some(item => location.pathname === item.to);
+  const [collapsed, setCollapsed] = useState(!hasActive);
+  return (
+    <div className="nav-mobile-section">
+      <button
+        className={`nav-mobile-section-header${hasActive ? ' nav-mobile-section-active' : ''}`}
+        onClick={() => setCollapsed(c => !c)}
+        aria-expanded={!collapsed}
+      >
+        <span>{label}</span>
+        <svg
+          className={`nav-mobile-chevron${collapsed ? '' : ' nav-mobile-chevron-open'}`}
+          width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"
+        >
+          <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
+      <div className={`nav-mobile-section-items${collapsed ? '' : ' nav-mobile-section-items-open'}`}>
+        <div className="nav-mobile-section-inner">
+          {items.map(item => (
+            <NavLink key={item.to} to={item.to}>{item.label}</NavLink>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function NavBar({ onShowShortcuts, onShowPalette }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef();
@@ -462,15 +492,10 @@ function NavBar({ onShowShortcuts, onShowPalette }) {
             <NavDropdown key={group.label} label={group.label} items={group.items} />
           ))}
         </div>
-        {/* Mobile: flat list with section headers */}
+        {/* Mobile: collapsible sections */}
         <div className="nav-mobile-flat">
           {NAV_GROUPS.map(group => (
-            <React.Fragment key={group.label}>
-              <div className="nav-mobile-header">{group.label}</div>
-              {group.items.map(item => (
-                <NavLink key={item.to} to={item.to}>{item.label}</NavLink>
-              ))}
-            </React.Fragment>
+            <MobileNavSection key={group.label} label={group.label} items={group.items} />
           ))}
         </div>
       </nav>

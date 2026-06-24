@@ -2634,3 +2634,4 @@ below are the engine contract — do not rename or reorder.
 | 2742 | 2026-06-24T19:45:00Z | imp-2823 (ux, low): Replace static Loading... text in PageLoader with a 150ms-delayed skeleton placeholder using the existing pulse CSS animation | src/App.jsx |
 | 2743 | 2026-06-24T18:54:00Z | imp-2825 (bug, low): Add end prop to NavLink in NavDropdown and mobile nav — all nav items are non-root flat paths; prevents false-active if a nested route is ever added under the same slug | src/App.jsx |
 | 2744 | 2026-06-25T00:00:00Z | imp-2827 (ux, low): Create reusable TableOfContents component and integrate into DocsPage | src/components/TableOfContents.jsx, src/pages/DocsPage.jsx |
+| 2745 | 2026-06-25T01:00:00Z | imp-2830 (ux, low): Replace bare copyright footer with quick-nav links and bug-report note | src/App.jsx |

@@ -645,7 +645,6 @@ function AppShell() {
         </RouteErrorBoundary>
       </div>
       <footer style={{
-        textAlign: 'center',
         padding: '24px 16px',
         color: '#475569',
         fontSize: 13,
@@ -653,7 +652,40 @@ function AppShell() {
         marginTop: 48,
         fontFamily: 'var(--font-mono)',
       }}>
-        &copy; Jude Gomila 2026-onwards
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 20px', marginBottom: 10 }}>
+          {[
+            { to: '/', label: 'Home' },
+            { to: '/route-map', label: 'Route Map' },
+            { to: '/concepts', label: 'Concepts' },
+            { to: '/lambda-bounds', label: 'Λ Bounds' },
+            { to: '/health', label: 'Health' },
+          ].map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              style={({ isActive }) => ({
+                color: isActive ? '#94a3b8' : '#475569',
+                textDecoration: 'none',
+              })}
+              onMouseEnter={e => { e.currentTarget.style.color = '#94a3b8'; }}
+              onMouseLeave={e => { e.currentTarget.style.color = e.currentTarget.classList.contains('active') ? '#94a3b8' : '#475569'; }}
+            >
+              {label}
+            </NavLink>
+          ))}
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          Found a bug? Copy the error card text and{' '}
+          <a
+            href="https://github.com/judegomila/mathexplorer/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#475569', textDecoration: 'underline' }}
+          >
+            paste it in a new issue
+          </a>
+          {' '}&mdash; &copy; Jude Gomila 2026-onwards
+        </div>
       </footer>
     </>
   );

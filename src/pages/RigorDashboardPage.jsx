@@ -7,6 +7,7 @@ import {
   CONDITIONS,
 } from '../data/proof-chain-snapshot-2026-06-23.js';
 import ConstantDischargeTracker from '../components/ConstantDischargeTracker.jsx';
+import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
 
 // ── Rigor color-coding ──────────────────────────────────────────────────────
 // GREEN  = unconditional analytical proof
@@ -257,36 +258,6 @@ function ConditionBadge({ cond, color }) {
   );
 }
 
-const OVERCLAIMS = [
-  {
-    id: 'imp-2630',
-    claim: 'Lambda in [0.099, 0.137] < 0.2 at height gamma = 1e13 (imp-2622 headline)',
-    caughtBy: '4-route adversarial fanout (etrunc-kappa-pinning workflow), 2026-06-14, unanimous',
-    correction: 'kappa_T frozen at T0=3000 (0.182) but multiplied against T0=1e13; height-consistent kappa_T=0.046 gives E_trunc=7.65 >> 0.2; thin-strip route grows with height, never drops below 0.2 at scale',
-    status: 'WITHDRAWN — headline retracted; recomposition (E_pp drops out) survives; thin-strip route is structurally dead',
-  },
-  {
-    id: 'imp-2625 / imp-2633',
-    claim: 'kappa_T pinned to exact 0.182 is valid at all instantiation heights; E_coll RIGOROUSLY PINNED (imp-2633)',
-    caughtBy: 'Height-mismatch audit (imp-2622-height-mismatch-refutation.js) + imp-2640 NEGATIVE verdict on C_H',
-    correction: '0.182 is only valid at T0=3000; kappa_T = (4/3)/log T0 -> 0 as T0 -> infinity; C_H undischargeable because gap-Lipschitz C_Lip is only Gronwall-bounded and the integral diverges at the collision scale',
-    status: 'CORRECTED — kappa_T formula stands but rate degrades with height; E_coll NOT rigorously pinned (imp-2640 NEGATIVE)',
-  },
-  {
-    id: 'imp-2621',
-    claim: 'sup Im m_inf(x+iy) >= pi * rho_inf / y_N_sharp ~ sqrt(N) * log gamma_N (1/y continuum amplification)',
-    caughtBy: 'E_pp fanout referee T1, 2026-06-12',
-    correction: 'For bounded density, Im m_inf <= pi * sup rho uniformly in y — no 1/y blow-up for the continuum transform; true divergence is the atomic self-term sqrt(N/2pi) with no 1/log gain',
-    status: 'REGRADED — a=0 survives via atomic term; rate loses the 1/L enhancement (tau_c <= 1/(2 sqrt(N/2pi)) -> 0)',
-  },
-  {
-    id: 'imp-2660',
-    claim: '||K_a|| <= 1/a (Wiener-Hopf bound) closes Conj 27.2 for every a >= 0.1996 (imp-1287)',
-    caughtBy: 'Adversarial Volterra workflow, 2026-06-17; measured ||K_{0.5}|| = 3.0 / 9.5 / 27 / 74 at T=4/6/8/10',
-    correction: 'Causal sinh-convolution is non-Toeplitz; Laplace symbol a/(z^2-a^2) has a pole at z=a in Re(z)>0; ||K_a|| ~ e^{aT} (unbounded); claimed 1/a bound is 37x wrong at T=10',
-    status: 'RETRACTED — imp-1287 isProof/all-a flags set false; HS bound is the rigorous Volterra route on the physical band (a <= ~35)',
-  },
-];
 
 function TransparencyLedger() {
   return (
@@ -299,7 +270,7 @@ function TransparencyLedger() {
         Format: claim made &rarr; how caught &rarr; correction &rarr; current honest status.
         This record is a credibility asset: the verification discipline that catches errors is the same discipline that will confirm any genuine proof.
       </p>
-      {OVERCLAIMS.map((entry, i) => (
+      {CAUGHT_OVERCLAIMS.map((entry, i) => (
         <div
           key={entry.id}
           style={{
@@ -342,8 +313,6 @@ function TransparencyLedger() {
 }
 
 // ── Honest SOTA banner (imp-2670) ────────────────────────────────────────────
-// Three-tier hierarchy so no visitor inherits a withdrawn claim. Light: reads
-// only the OVERCLAIMS literal above; no module imports.
 const SOTA_TIERS = [
   {
     key: 'rigorous',
@@ -371,7 +340,7 @@ const SOTA_TIERS = [
     color: '#ef4444',
     bg: 'rgba(239,68,68,0.07)',
     items: [
-      OVERCLAIMS.length + ' overclaims withdrawn/corrected by adversarial verification (see Transparency Ledger below).',
+      CAUGHT_OVERCLAIMS.length + ' overclaims withdrawn/corrected by adversarial verification (see Transparency Ledger below).',
       'No live claim beats Platt–Trudgian Λ ≤ 0.2; the thin-strip "beats P–T" framing is structurally dead (imp-2630).',
     ],
   },

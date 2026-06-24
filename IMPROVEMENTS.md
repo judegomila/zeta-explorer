@@ -2580,3 +2580,4 @@ below are the engine contract — do not rename or reorder.
 | 2688 | 2026-06-24T08:00:00Z | imp-2813 (ux, high): Add shared RelatedLinks component and adopt across GramPointsPage, HardyZPage, RiemannSiegelZPage | src/components/RelatedLinks.jsx, src/pages/GramPointsPage.jsx, src/pages/HardyZPage.jsx, src/pages/RiemannSiegelZPage.jsx |
 | 2689 | 2026-06-24T09:00:00Z | imp-2816 (ux, high): Add global command-palette / search over all 96 routes — Ctrl+K opens fuzzy-search modal with keyboard navigation | src/App.jsx |
 | 2690 | 2026-06-24T10:00:00Z | imp-2721 (ux, medium): Add hover-readout overlay to VizPrimeCausticPage — floating tooltip shows sigma, t, count, amp at the hovered pixel | src/pages/VizPrimeCausticPage.jsx |
+| 2691 | 2026-06-24T11:00:00Z | imp-2722 (ux, medium): Add hover-readout overlay to VortexFieldPage — mousing over canvas shows sigma, Im s coordinates and arg H(s) phase angle | src/pages/VortexFieldPage.jsx |

@@ -35,7 +35,7 @@ const GAMMAS = [
 const PX = 460;          // canvas pixel buffer (square)
 const HALF_T = 9;        // half-window in t (imaginary direction)
 
-function VortexCanvas({ centerIdx, tau, magContours, showStreamlines }) {
+function VortexCanvas({ centerIdx, tau, magContours, showStreamlines, onHoverData }) {
   const ref = useRef(null);
 
   // Vortex set. Under the de Bruijn-Newman flow, for heat-time tau >= Lambda all
@@ -155,7 +155,31 @@ function VortexCanvas({ centerIdx, tau, magContours, showStreamlines }) {
     });
   }, [centerIdx, tau, magContours, showStreamlines, zeros]);
 
-  return <canvas ref={ref} width={PX} height={PX} style={{ width: '100%', maxWidth: 560, borderRadius: 10, border: '1px solid #1e293b', display: 'block' }} />;
+  const handleMouseMove = (e) => {
+    if (!onHoverData) return;
+    const cv = ref.current;
+    if (!cv) return;
+    const rect = cv.getBoundingClientRect();
+    const cx = (e.clientX - rect.left) * (PX / rect.width);
+    const cy = (e.clientY - rect.top) * (PX / rect.height);
+    const gc = GAMMAS[centerIdx];
+    const sigMin = 0.5 - HALF_T, sigMax = 0.5 + HALF_T;
+    const tMax = gc + HALF_T, tMin = gc - HALF_T;
+    const sig = sigMin + (cx / (PX - 1)) * (sigMax - sigMin);
+    const t = tMax - (cy / (PX - 1)) * (tMax - tMin);
+    let phase = 0;
+    for (let k = 0; k < zeros.length; k++) {
+      phase += Math.atan2(t - zeros[k].gamma, sig - zeros[k].sigma);
+    }
+    let ph = phase % (2 * Math.PI);
+    if (ph < 0) ph += 2 * Math.PI;
+    onHoverData({ sig, t, phase: ph });
+  };
+
+  return <canvas ref={ref} width={PX} height={PX}
+    onMouseMove={handleMouseMove}
+    onMouseLeave={() => onHoverData && onHoverData(null)}
+    style={{ width: '100%', maxWidth: 560, borderRadius: 10, border: '1px solid #1e293b', display: 'block', cursor: 'crosshair' }} />;
 }
 
 function hsl2rgb(h, s, l) {
@@ -195,6 +219,7 @@ export default function VortexFieldPage() {
   const [magContours, setMagContours] = useState(true);
   const [showStreamlines, setShowStreamlines] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [hoverData, setHoverData] = useState(null);
   const animRef = useRef(null);
   const gc = GAMMAS[centerIdx];
   const offAxis = tau < -1e-6;
@@ -239,9 +264,18 @@ export default function VortexFieldPage() {
 
       <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'flex-start' }}>
         <div style={{ flex: '1 1 480px' }}>
-          <VortexCanvas centerIdx={centerIdx} tau={tau} magContours={magContours} showStreamlines={showStreamlines} />
+          <VortexCanvas centerIdx={centerIdx} tau={tau} magContours={magContours} showStreamlines={showStreamlines} onHoverData={setHoverData} />
           <div style={{ fontSize: 11, color: '#64748b', marginTop: 6, fontFamily: 'var(--font-mono)' }}>
             window: Re s ∈ [½−{HALF_T}, ½+{HALF_T}], Im s ∈ [{(gc - HALF_T).toFixed(1)}, {(gc + HALF_T).toFixed(1)}] · central zero γ ≈ {gc.toFixed(4)}
+          </div>
+          <div style={{ height: 22, marginTop: 4 }}>
+            {hoverData ? (
+              <div style={{ fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)', background: 'rgba(15,23,42,0.85)', padding: '3px 8px', borderRadius: 4, display: 'inline-block' }}>
+                σ = {hoverData.sig.toFixed(4)} · Im s = {hoverData.t.toFixed(4)} · arg H = {((hoverData.phase / (2 * Math.PI)) * 360).toFixed(1)}°
+              </div>
+            ) : (
+              <div style={{ fontSize: 11, color: '#334155', fontFamily: 'var(--font-mono)' }}>hover canvas to read σ, Im s, arg H(s)</div>
+            )}
           </div>
         </div>
 

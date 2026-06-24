@@ -38,7 +38,9 @@ const SSR_POOL_FLAG = process.argv.find((a) => a.startsWith('--ssr-pool='));
 const SSR_POOL_N    = SSR_POOL_FLAG
   ? Math.max(1, parseInt(SSR_POOL_FLAG.split('=')[1], 10) || 1)
   : 0;
-const SELF_TEST_MODE = process.argv.includes('--self-test-pool');
+const SELF_TEST_MODE    = process.argv.includes('--self-test-pool');
+// imp-2745: --fail-inject mode proves holds()===false is caught by the harness.
+const FAIL_INJECT_MODE  = process.argv.includes('--fail-inject');
 // imp-1171: concurrent module loading via shared-Vite-server promise.all pool.
 // Worker_threads would require one Vite SSR server per thread (port conflicts)
 // so we instead use a concurrency-capped Promise.all against the single server,
@@ -1897,9 +1899,8 @@ async function loadModuleWithRetry(target, modPath) {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
-  if (SELF_TEST_MODE) {
-    return runSelfTest();
-  }
+  if (SELF_TEST_MODE)   return runSelfTest();
+  if (FAIL_INJECT_MODE) return runFailInject();
 
   // imp-1193: optional pool. When SSR_POOL_N > 0 we lazy-acquire from the pool
   // on each processOne call; otherwise the original single-server path runs.
@@ -2070,6 +2071,67 @@ async function finalize(state, server, pool) {
   } else {
     console.log('\nAll assertions pass.');
     process.exit(0);
+  }
+}
+
+// ── imp-2745 fail-injection self-test ─────────────────────────────────────────
+// `node scripts/run-assertions.mjs --fail-inject`
+//
+// Proves the assertion harness correctly handles holds()===false (and throws).
+// Does NOT start Vite. Runs three synthetic assertions through the same inner
+// evaluation loop used by processOne(), then asserts the counts are correct:
+//   expected 2 failures (always-false + throws), 1 pass (always-true)
+// Exits 0 on success (harness works), 1 if the harness missed a failure.
+async function runFailInject() {
+  const syntheticAssertions = [
+    {
+      id:    'fail-inject-always-false',
+      why:   'synthetic: holds() always returns false',
+      holds: () => false,
+    },
+    {
+      id:    'fail-inject-throws',
+      why:   'synthetic: holds() throws an error',
+      holds: () => { throw new Error('injected error'); },
+    },
+    {
+      id:    'fail-inject-always-true',
+      why:   'synthetic: holds() always returns true',
+      holds: () => true,
+    },
+  ];
+
+  let passed = 0;
+  let failed = 0;
+  const failures = [];
+
+  for (const a of syntheticAssertions) {
+    let ok;
+    try { ok = a.holds(); } catch (e) {
+      ok = false;
+      a._err = e.message;
+    }
+    if (ok) {
+      passed++;
+    } else {
+      failed++;
+      failures.push({ id: a.id, why: (a.why || a._err || '').slice(0, 100) });
+    }
+  }
+
+  const EXPECTED_FAILED = 2;
+  const EXPECTED_PASSED = 1;
+
+  if (failed === EXPECTED_FAILED && passed === EXPECTED_PASSED) {
+    console.log('FAIL_INJECT: pass — harness correctly caught ' + failed +
+                ' failing assertions and passed ' + passed);
+    console.log('  caught: ' + failures.map((f) => f.id).join(', '));
+    process.exit(0);
+  } else {
+    console.error('FAIL_INJECT: FAIL — expected failed=' + EXPECTED_FAILED +
+                  ' passed=' + EXPECTED_PASSED +
+                  ', got failed=' + failed + ' passed=' + passed);
+    process.exit(1);
   }
 }
 

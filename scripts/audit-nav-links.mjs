@@ -44,11 +44,12 @@ function extractRoutes(src) {
   return routes;
 }
 
-// ── 2. Extract NAV_GROUPS to: '...' entries from App.jsx ─────────────────────
+// ── 2. Extract NAV_GROUPS to: '...' entries from nav-groups.js + App.jsx ──────
 
 function extractNavLinks(src) {
   const links = [];
-  const re = /to:\s*'([^']+)'/g;
+  // match both single and double quoted to: '...' / to: "..."
+  const re = /to:\s*['"]([^'"]+)['"]/g;
   let m;
   while ((m = re.exec(src)) !== null) {
     if (m[1].startsWith('/')) links.push(m[1]);
@@ -89,8 +90,10 @@ function extractPageLinks(src, filePath) {
 // ── Main ─────────────────────────────────────────────────────────────────────
 
 const appSrc = readFile('src/App.jsx');
+const navGroupsSrc = readFile('src/data/nav-groups.js');
 const routes = extractRoutes(appSrc);
-const navLinks = extractNavLinks(appSrc);
+// Extract nav links from both nav-groups.js (primary) and App.jsx (footer/sidebar inline links)
+const navLinks = [...extractNavLinks(navGroupsSrc), ...extractNavLinks(appSrc)];
 
 const broken = [];
 const warnings = [];

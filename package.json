@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite build && node server.js",
-    "build": "node scripts/run-assertions.mjs --fast && vite build",
+    "build": "node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast && vite build",
     "preview": "vite preview",
-    "assert": "node scripts/run-assertions.mjs",
-    "assert:fast": "node scripts/run-assertions.mjs --fast",
+    "assert": "node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs",
+    "assert:fast": "node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast",
     "test": "node scripts/smoke-tests.mjs",
     "test:pages": "node scripts/check-page-health.mjs",
     "test:buttons": "node scripts/test-buttons.mjs",

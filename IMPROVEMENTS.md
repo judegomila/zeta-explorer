@@ -2628,3 +2628,4 @@ below are the engine contract — do not rename or reorder.
 | 2736 | 2026-06-24T17:30:00Z | imp-2789 (content, low): Add lastReviewed field to all 4 closure-routes and render freshness badge in At-a-glance table RH-equivalent column | src/data/closure-routes-section.js, src/pages/ClosureRoutesPage.jsx |
 | 2737 | 2026-06-24T18:00:00Z | imp-2806 (ux, low): Cross-link Glossary terms to their authoritative page — add link field to 4 entries (Vortex field, RH-equivalent, C_H wall, PCC-free) and render as See page arrow in WikiPage | src/data/glossary.js, src/pages/WikiPage.jsx |
 | 2738 | 2026-06-24T19:00:00Z | imp-2809 (content, low): Add exp-087 and exp-088 to explorations.js for /visual-geometries and /vortex-field with honest exploratory-only framing | src/data/explorations.js |
+| 2739 | 2026-06-24T20:00:00Z | imp-2820 (ux, low): Add popular quick links + random-page button to NotFoundPage | src/pages/NotFoundPage.jsx |

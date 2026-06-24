@@ -1,7 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+const POPULAR_PAGES = [
+  { label: 'Home', path: '/' },
+  { label: 'Λ Bounds', path: '/lambda-bounds' },
+  { label: 'Route Map', path: '/route-map' },
+  { label: 'Visualizations', path: '/visualizations' },
+  { label: 'Concepts', path: '/concepts' },
+  { label: 'Statistics', path: '/statistics' },
+];
 
 export default function NotFoundPage() {
+  const navigate = useNavigate();
+
+  function goToRandomPage() {
+    const pick = POPULAR_PAGES[Math.floor(Math.random() * POPULAR_PAGES.length)];
+    navigate(pick.path);
+  }
+
   return (
     <div style={{
       display: 'flex',
@@ -59,6 +75,72 @@ export default function NotFoundPage() {
       >
         Go Home
       </Link>
+
+      <div style={{ margin: '32px 0 16px 0', color: '#64748b', fontSize: '13px' }}>
+        — or go somewhere useful —
+      </div>
+
+      <div style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '8px',
+        justifyContent: 'center',
+        maxWidth: '420px',
+        marginBottom: '16px',
+      }}>
+        {POPULAR_PAGES.map(({ label, path }) => (
+          <Link
+            key={path}
+            to={path}
+            style={{
+              padding: '6px 14px',
+              background: '#1e293b',
+              border: '1px solid #334155',
+              borderRadius: '4px',
+              color: '#94a3b8',
+              textDecoration: 'none',
+              fontSize: '13px',
+              fontFamily: 'var(--font-mono)',
+              transition: 'color 150ms ease, border-color 150ms ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#e2e8f0';
+              e.currentTarget.style.borderColor = '#475569';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#94a3b8';
+              e.currentTarget.style.borderColor = '#334155';
+            }}
+          >
+            {label}
+          </Link>
+        ))}
+      </div>
+
+      <button
+        onClick={goToRandomPage}
+        style={{
+          padding: '6px 14px',
+          background: 'transparent',
+          border: '1px dashed #334155',
+          borderRadius: '4px',
+          color: '#64748b',
+          fontSize: '13px',
+          fontFamily: 'var(--font-mono)',
+          cursor: 'pointer',
+          transition: 'color 150ms ease, border-color 150ms ease',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = '#94a3b8';
+          e.currentTarget.style.borderColor = '#475569';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color = '#64748b';
+          e.currentTarget.style.borderColor = '#334155';
+        }}
+      >
+        Go to a random page
+      </button>
     </div>
   );
 }

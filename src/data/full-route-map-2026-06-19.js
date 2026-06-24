@@ -25,6 +25,8 @@
  *   UNDER-EXPLORED - genuine unexploited thread remains
  */
 
+import { LAMBDA_DEPENDENCY_MATRIX } from './lambda-roadmap.js';
+
 export const FULL_ROUTE_MAP = {
   date: '2026-06-19',
   totalRoutes: 38, // synthesis cited ~36; the enumerated table holds 38
@@ -149,6 +151,18 @@ export const FULL_ROUTE_MAP_ASSERTIONS = [
     id: 'route-map-no-shortcut-pt-sota',
     description: 'No shortcut below RH; PT 0.2 remains SOTA (recorded in the next-move discipline)',
     holds: () => /CONDITIONAL rigorous beat/.test(FULL_ROUTE_MAP_NEXT_MOVE.primary) && /non-binding/.test(FULL_ROUTE_MAP_NEXT_MOVE.doNotInvest),
+  },
+  {
+    id: 'route-map-cross-check-dag-nodes-exist',
+    description: 'Every DAG node ID referenced in ROUTE_MAP_CROSS_CHECK.inconsistencies exists in LAMBDA_DEPENDENCY_MATRIX',
+    holds: () => {
+      const nodeIds = new Set(LAMBDA_DEPENDENCY_MATRIX.nodes.map((n) => n.id));
+      return (
+        nodeIds.has('bound-imp-440-finite-1e4') &&
+        nodeIds.has('bound-imp-1261-asymptotic') &&
+        nodeIds.has('cond-polymath15-G6a')
+      );
+    },
   },
 ];
 

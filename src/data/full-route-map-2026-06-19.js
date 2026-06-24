@@ -101,6 +101,7 @@ export const ROUTE_MAP_CROSS_CHECK = {
       mapVerdict: 'ESTIMATE-not-rigorous: E_coll constant C_H is undischargeable (imp-2640 NEGATIVE, Gronwall diverges at collision); |t_c_proj| is OLS not rigorous (imp-2632)',
       fix: 'relabel the DAG node to ESTIMATE / rigorous-modulo-C_H, and add a cond-CH (Holder-modulus) conditional leaf the node depends on -- it does NOT have an empty conditional closure',
       severity: 'high',
+      resolution: 'open',
     },
     {
       view: 'DAG: bound-imp-1261-asymptotic note "Sole modulo conditional: cond-polymath15-G6a"',
@@ -108,6 +109,7 @@ export const ROUTE_MAP_CROSS_CHECK = {
       mapVerdict: 'G6a = C_H is RH-hard at the modulus; the obvious Gronwall discharge route is REFUTED (imp-2640) -- not a routinely closable leaf',
       fix: 'annotate cond-polymath15-G6a with the imp-2640 NEGATIVE status so the DAG does not read as "one small lemma away"',
       severity: 'medium',
+      resolution: 'open',
     },
   ],
   consistent: [

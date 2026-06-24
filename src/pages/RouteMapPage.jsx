@@ -129,7 +129,17 @@ export default function RouteMapPage() {
         <p style={{ fontSize: 12.5, color: '#94a3b8', marginTop: 0 }}>{ROUTE_MAP_CROSS_CHECK.netVerdict}</p>
         {ROUTE_MAP_CROSS_CHECK.inconsistencies.map((x, i) => (
           <div key={i} style={{ marginTop: 10, padding: '8px 10px', borderRadius: 6, background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)' }}>
-            <div style={{ fontSize: 12.5, color: '#fbbf24', fontWeight: 600 }}>{x.view} <StatusTag status={x.severity === 'high' ? 'DEAD-END' : 'CONDITIONAL'} /></div>
+            <div style={{ fontSize: 12.5, color: '#fbbf24', fontWeight: 600, display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 6 }}>
+              <span>{x.view}</span>
+              <StatusTag status={x.severity === 'high' ? 'DEAD-END' : 'CONDITIONAL'} />
+              <span style={{
+                display: 'inline-block', padding: '2px 7px', borderRadius: 4, fontSize: 10.5, fontWeight: 700,
+                fontFamily: 'var(--font-mono, monospace)', letterSpacing: '0.02em', whiteSpace: 'nowrap',
+                background: x.resolution === 'reconciled' ? 'rgba(16,185,129,0.13)' : 'rgba(239,68,68,0.12)',
+                border: x.resolution === 'reconciled' ? '1px solid rgba(16,185,129,0.45)' : '1px solid rgba(239,68,68,0.35)',
+                color: x.resolution === 'reconciled' ? '#10b981' : '#f87171',
+              }}>{x.resolution === 'reconciled' ? 'RECONCILED' : 'OPEN'}</span>
+            </div>
             <div style={{ fontSize: 12, color: '#cbd5e1', marginTop: 3 }}><strong>asserts:</strong> {x.asserts}</div>
             <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 2 }}><strong>map says:</strong> {x.mapVerdict}</div>
             <div style={{ fontSize: 12, color: '#22d3ee', marginTop: 2 }}><strong>fix:</strong> {x.fix}</div>

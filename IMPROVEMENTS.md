@@ -2614,3 +2614,4 @@ below are the engine contract — do not rename or reorder.
 | 2722 | 2026-06-24T17:00:00Z | imp-2817 (meta, medium): Extract NAV_GROUPS from App.jsx into src/data/nav-groups.js so nav, sitemap, and search share one source of truth | src/data/nav-groups.js, src/App.jsx |
 | 2723 | 2026-06-24T18:00:00Z | imp-2818 (ux, medium): Split 24-item Attack nav dropdown into Attack (14 items) and Proof Tools (10 items) groups | src/data/nav-groups.js |
 | 2724 | 2026-06-24T19:00:00Z | imp-2819 (ux, medium): Add smooth CSS grid-template-rows transition to mobile nav collapsible sections | src/App.jsx, src/styles/app.css |
+| 2725 | 2026-06-24T13:45:00Z | imp-2826 (bug, medium): Build-time assertions for RouteErrorBoundary ChunkLoadError detection — 16 assertions verifying the CHUNK_ERR_RE pattern catches all known vendor messages and rejects non-chunk errors | src/data/imp-2826-chunk-load-error-assertions.js, scripts/run-assertions.mjs |

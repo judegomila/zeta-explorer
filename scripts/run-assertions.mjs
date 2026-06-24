@@ -1780,6 +1780,8 @@ const DATA_MODULES = [
   '/src/data/imp371-barrier-cross-validation.js',
   // imp-2713: named-gap registry for the E(N) = E_trunc + E_flow + E_coll program.
   '/src/data/imp-2713-en-named-gap-registry.js',
+  // imp-2826: build-time assertions for RouteErrorBoundary ChunkLoadError detection.
+  '/src/data/imp-2826-chunk-load-error-assertions.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -290,7 +290,29 @@ export default function GramPointsPage() {
         </div>
       </div>
 
-      <div style={{ marginTop: 14, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6 }}>
+      <div style={{
+        marginTop: 14,
+        padding: '10px 14px',
+        background: '#1c1917',
+        border: '1px solid #78350f',
+        borderRadius: 6,
+        fontSize: 11,
+        fontFamily: mono,
+        color: '#fbbf24',
+        lineHeight: 1.7,
+      }}>
+        <strong>Gram&apos;s law is an empirical rule of thumb, NOT a theorem.</strong>
+        {' '}Titchmarsh (1935) proved violations occur infinitely often, and the violation
+        rate grows without bound. Rigorous zero-counting therefore requires Turing&apos;s
+        method (1953) — which uses Gram blocks plus explicit error terms — rather than
+        relying on Gram&apos;s law alone. The Hardy Z-function values plotted above are
+        exactly the Z(g_n) inputs that Turing&apos;s method needs; see{' '}
+        <Link to="/hardy-z" style={{ color: '#fbbf24', textDecoration: 'underline' }}>/hardy-z</Link>
+        {' '}and{' '}
+        <Link to="/riemann-siegel-z" style={{ color: '#fbbf24', textDecoration: 'underline' }}>/riemann-siegel-z</Link>.
+      </div>
+
+      <div style={{ marginTop: 10, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6 }}>
         Notes: Gram points g_n are defined by theta(g_n) = n*pi where theta is the
         Riemann-Siegel theta function. Gram's law states sgn Z(g_n) = (-1)^n. Violations
         are expected (~27% in this range). The violation rate increases slowly with height.

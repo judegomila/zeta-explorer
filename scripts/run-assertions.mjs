@@ -59,6 +59,9 @@ const POOL_SOCK = POOL_SOCK_FLAG
   ? POOL_SOCK_FLAG.slice('--pool-sock='.length)
   : (process.env.POOL_SOCK || '');
 const POOL_PROBE_MS = 250;
+// imp-2737: per-module watchdog — abort any ssrLoadModule that hangs past this
+// threshold and surface it as a LOAD_ERR instead of blocking the whole sweep.
+const MODULE_WATCHDOG_MS = 30000;
 
 // ── Module lists ──────────────────────────────────────────────────────────────
 
@@ -1870,7 +1873,18 @@ async function loadModuleWithRetry(target, modPath) {
   let lastErr;
   for (let attempt = 1; attempt <= MAX_LOAD_ATTEMPTS; attempt++) {
     try {
-      return await target.ssrLoadModule(modPath);
+      // imp-2737: race each load attempt against a per-module watchdog so that
+      // modules that hang (e.g. large bundle imports under Vite SSR) surface as
+      // LOAD_ERR instead of blocking the entire sweep indefinitely. Watchdog
+      // timeouts are NOT retried — only Vite transport transients are.
+      const watchdog = new Promise((_, reject) => {
+        const t = setTimeout(
+          () => reject(new Error('module watchdog timeout after ' + MODULE_WATCHDOG_MS + 'ms')),
+          MODULE_WATCHDOG_MS
+        );
+        if (t.unref) t.unref();
+      });
+      return await Promise.race([target.ssrLoadModule(modPath), watchdog]);
     } catch (e) {
       lastErr = e;
       const transient = /invoke timed out|transport.*timed out|timed out after \d+ms/i.test(e.message || '');

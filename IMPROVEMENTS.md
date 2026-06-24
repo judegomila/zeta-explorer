@@ -2607,3 +2607,4 @@ below are the engine contract — do not rename or reorder.
 | 2715 | 2026-06-24T15:00:00Z | imp-2799 (ux, medium): Add Route Map to Reference nav group in App.jsx and cross-link LiteraturePage Related Pages to /route-map | src/App.jsx, src/pages/LiteraturePage.jsx |
 | 2716 | 2026-06-24T16:00:00Z | imp-2800 (bug, medium): Add scripts/audit-nav-links.mjs — static broken-link / route-existence audit checking NAV_GROUPS and page links vs App.jsx routes | scripts/audit-nav-links.mjs |
 | 2717 | 2026-06-24T11:30:00Z | imp-2802 (content, medium): Add Docs link from VortexFieldPage Related section to the /docs vortex-field documentation | src/pages/VortexFieldPage.jsx |
+| 2718 | 2026-06-24T12:00:00Z | imp-2803 (content, medium): Populate builtinPapers in papers.js with the released manuscript — imports from lightweight paper-publication-meta.js, honest abstract flags ESTIMATE + RH-equivalent Volterra + PT SOTA | src/data/papers.js |

@@ -3685,6 +3685,72 @@ The method has been pushed to verify RH for the first $10^{13}$ zeros (Platt, 20
     references: ['turing-1953', 'platt-2021', 'edwards-1974', 'odlyzko-1987'],
     nextSteps: [],
   },
+  {
+    id: 'exp-087',
+    timestamp: '2026-06-24T00:00:00Z',
+    title: 'Visual Geometries of the Zeta Function: One Field, Many Views',
+    category: 'geometry',
+    depth: 2,
+    status: 'complete',
+    date: '2026-06-24',
+    summary: 'A gallery of 13 interactive panels (at /visual-geometries) showing how the log-phase field theta = t log n generates caustics, spirals, crystals and phase vortices. Honest framing: exact exploratory visualizations — the twin-ladder geometry is a DEAD END as a rigorous Lambda route.',
+    content: `The **log-phase field** $\\theta = t \\log n$ is a single arithmetic object that generates a rich visual geometry. The gallery at /visual-geometries collects 13 interactive panels, each a different window onto the same structure:
+
+- **Log-Phase Interference Spiral**: integers in polar log-phase coordinates; primes form spiral rays and interference filaments.
+- **Prime Caustic Geometry**: bright bands where many primes phase-align — multiplicative resonances $\\log(p_i/p_j) \\approx 2\\pi k/t$.
+- **Prime Phase Crystal**: contours of constant complex phase; a multiplicative diffraction lattice.
+- **Vortex / Defect Map**: zeros as phase vortices of $V_t = H_t'/H_t$; vortex exclusion from off-axis = RH.
+- **Hyperbolic Prime Spiral**, **Twin-Ladder Tomography**, **Supercritical Landscape**, and more.
+
+**Honest ceiling**: these are exact, exploratory visualizations of real arithmetic structure. Per the project route map, the twin-ladder geometry is a **DEAD END as a rigorous $\\Lambda$ route** — the visual patterns are genuine but do not supply a new proof path. The vortex-exclusion picture recovers $\\Lambda \\geq 0$ (Rodgers-Tao) but does not beat the Platt-Trudgian $\\Lambda \\leq 0.2$ SOTA. This is pedagogy and exploration, not a proof.`,
+    latex: [
+      '\\theta = t \\log n \\pmod{2\\pi} \\quad \\text{(log-phase field)}',
+      'V_t = H_t^{\\prime}(z)/H_t(z) \\quad \\text{(Newman flow phase gradient; pole at each zero)}',
+      '\\text{Vortex exclusion: no off-axis vortices} \\iff \\text{RH}',
+    ],
+    insights: [
+      'All 13 panels visualize the same arithmetic object: the log-phase field theta = t log n',
+      'Caustics appear where many primes multiplicatively resonate at a given height t',
+      'Phase vortices of V_t are exactly the zeros of zeta — one unit of winding per zero (argument principle)',
+      'Honest label: twin-ladder geometry = DEAD END as rigorous route; no new Lambda bound from visual structure alone',
+      'Interactive gallery lives at /visual-geometries and cross-links to each sub-panel page',
+    ],
+    nextSteps: ['exp-088'],
+  },
+  {
+    id: 'exp-088',
+    timestamp: '2026-06-24T00:00:00Z',
+    title: 'Phase Vortex Field: Zeta Zeros as Topological Defects',
+    category: 'geometry',
+    depth: 3,
+    status: 'complete',
+    date: '2026-06-24',
+    summary: 'The logarithmic derivative V(s) = xi\'(s)/xi(s) has a simple pole (phase vortex, winding +1) at every zero. Domain-coloring arg H(s) makes zeros visible as vortex centres. Pushing a zero off the critical line (the RH-violation slider) creates an off-axis conjugate pair. Honest: this is an exact exploratory visualization; it does not produce a new rigorous Lambda bound.',
+    content: `The **logarithmic derivative** $V(s) = \\xi'(s)/\\xi(s)$ — the Newman flow phase gradient — has a **simple pole** at every zero $\\rho_k$ of $\\xi$. Around each pole, the winding number is exactly $+1$ by the argument principle:
+
+$$\\frac{1}{2\\pi} \\oint_\\gamma V(s)\\,ds = +1 \\quad (\\text{one enclosed zero})$$
+
+Domain-colouring $\\arg H(s)$ for a local product $H(s) = \\prod_k (s - \\rho_k)$ over nearby zeros makes this vivid: **phase wraps once around each vortex centre**, which is exactly the zero location. The zeros ARE the vortices.
+
+Under RH every zero is $\\rho_k = \\tfrac{1}{2} + i\\gamma_k$, so every vortex sits on the critical line $\\operatorname{Re} s = \\tfrac{1}{2}$ — a vertical column. The interactive page (/vortex-field) lets you drag a zero off the line (negative de Bruijn-Newman heat time $\\tau < 0$): the central vortex splits into an off-axis conjugate pair $\\tfrac{1}{2} \\pm |\\tau|$, visualizing an RH violation. **Vortex exclusion** — no off-axis vortices — is geometrically equivalent to RH.
+
+**Honest ceiling**: the winding/vortex picture re-derives $\\Lambda \\geq 0$ (Rodgers-Tao 2020) and makes RH intuitively vivid, but it is **not a new rigorous $\\Lambda$ bound** and does not beat the Platt-Trudgian SOTA $\\Lambda \\leq 0.2$. This is an exact, exploratory visualization — pedagogy and geometric insight, not a proof path.`,
+    latex: [
+      'V(s) = \\frac{\\xi^{\\prime}(s)}{\\xi(s)}, \\quad \\text{simple pole at each zero } \\rho_k',
+      '\\frac{1}{2\\pi} \\oint_\\gamma V(s)\\,ds = +1 \\iff \\text{one zero inside } \\gamma',
+      '\\text{RH} \\iff \\text{no off-axis vortices: all } \\rho_k \\text{ have } \\operatorname{Re}\\rho_k = 1/2',
+      '\\tau < 0 \\Rightarrow \\rho_{\\text{central}} = 1/2 \\pm |\\tau| \\quad (\\text{off-axis pair = RH violation})',
+    ],
+    insights: [
+      'Zeros of zeta are topological defects (phase vortices, winding +1) of the logarithmic derivative V(s)',
+      'RH is geometrically equivalent to vortex exclusion: all vortices confined to Re s = 1/2',
+      'The RH-violation slider (negative heat-time tau) creates off-axis vortex pairs, making violations visually concrete',
+      'The argument principle is the mathematical backbone: winding number = zero count',
+      'Honest: recovers Lambda >= 0 (Rodgers-Tao) but provides no new rigorous upper bound on Lambda',
+      'Interactive visualization at /vortex-field; part of the /visual-geometries gallery (panel 6)',
+    ],
+    nextSteps: [],
+  },
 ];
 export function getAllExplorations() {
   return explorations;

@@ -300,6 +300,59 @@ export const glossary = [
     firstUsed: 'imp-108',
     relatedTerms: ['honesty', 'self-correction', 'withdrawal'],
   },
+  // ═══════════════════════════════════════════════════════════════════════
+  // SESSION-FINDINGS (visual-geometries + honest-SOTA wave)
+  // ═══════════════════════════════════════════════════════════════════════
+  {
+    term: 'PCC-free',
+    category: 'proof-status',
+    definition:
+      'Describes a route or argument that avoids the Montgomery Pair-Correlation Conjecture (PCC) ' +
+      'as a hypothesis. Because PCC itself is an open conjecture, any proof of RH that assumes PCC ' +
+      'is only a conditional result. PCC-free routes are strictly stronger: they close without ' +
+      'invoking random-matrix universality or pair-correlation statistics. All surviving ' +
+      'RH-equivalent routes in the current route map are required to be PCC-free.',
+    firstUsed: 'v52 audit (2026)',
+    relatedTerms: ['RH-equivalent', 'Montgomery PCC obstruction', 'closure routes'],
+  },
+  {
+    term: 'RH-equivalent',
+    category: 'proof-status',
+    definition:
+      'A statement that has been proved (unconditionally) to hold if and only if RH holds. ' +
+      'An RH-equivalent is NOT a proof of RH; it merely transforms the problem. The Volterra ' +
+      'norm collapse ||V_{a,Phi}|| <= 1 (imp-1258) and the Apéry-style irrationality-measure ' +
+      'bracket for odd zeta values are canonical examples in this project. Contrast with ' +
+      'ESTIMATE (numerical only) and CONDITIONAL (assumes an open hypothesis other than RH).',
+    firstUsed: 'imp-1258',
+    relatedTerms: ['PCC-free', 'C_H wall', 'Volterra norm', 'CONDITIONAL'],
+  },
+  {
+    term: 'C_H wall',
+    category: 'constant',
+    definition:
+      'The undischarged Gronwall-amplification constant C_H that appears in the collision-energy ' +
+      'bound E_coll of the ZPO heat-flow route. C_H is the dominant obstacle to closing the ' +
+      'route rigorously: it is an estimate (not a proved upper bound) because bounding it ' +
+      'unconditionally requires controlling the Lipschitz modulus of the Calogero-Moser flow ' +
+      'near particle collisions, which reduces back to RH-hardness. Until C_H is discharged, ' +
+      'the heat-flow route remains CONDITIONAL-on-C_H rather than a full proof.',
+    firstUsed: 'imp-2672 (2026)',
+    relatedTerms: ['RH-equivalent', 'E_coll', 'Gronwall', 'heat flow', 'collision regularization'],
+  },
+  {
+    term: 'Vortex field',
+    category: 'visualization',
+    definition:
+      'A 2-D vector field derived from the gradient of arg zeta(sigma + it): each point ' +
+      '(sigma, t) in the critical strip is assigned a velocity proportional to the local ' +
+      'winding-rate of the Riemann zeta phase. Zeros of zeta appear as phase-vortex centres ' +
+      'where the field rotates by 2pi. The /vortex-field visualization renders this flow; ' +
+      'the RH connection is that all vortex centres on the physical strip should lie on sigma=1/2. ' +
+      'This is an exploratory/geometric tool, NOT a proof method.',
+    firstUsed: 'imp-2677 (2026)',
+    relatedTerms: ['phase', 'arg zeta', 'critical line', 'PCC-free'],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

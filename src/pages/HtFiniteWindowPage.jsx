@@ -174,6 +174,16 @@ export default function HtFiniteWindowPage() {
           ))}
         </ul>
       </section>
+
+      <footer style={{ marginTop: '2em', paddingTop: '1em', borderTop: '1px solid rgba(128,128,128,0.3)', fontSize: '0.85em', opacity: 0.75 }}>
+        <strong>Provenance:</strong> Computed {censusMeta.date} by the sister{' '}
+        <code>twin_ladder_rh_repo</code> certification engine (branch{' '}
+        <code>exp/corridor-audit-v0</code>).{' '}
+        <strong>These results are RIGOROUS</strong> — certified interval arithmetic
+        (python-flint arb/acb ball arithmetic), no floating-point sampling, no GRH input.
+        Unlike the finite-N beat (ESTIMATE, gated on C_H), this exact zero count is an
+        unconditional theorem.
+      </footer>
     </div>
   );
 }

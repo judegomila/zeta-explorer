@@ -320,12 +320,24 @@ export default function VizLogPhaseSpiralPage() {
         <p className="page-subtitle">
           {V.description}
         </p>
-        <div style={{ marginTop: 10 }}>
+        <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
           <Link
             to="/explorations"
             style={{ color: '#a855f7', fontFamily: 'var(--font-mono)', fontSize: 12 }}
           >
             &larr; back to Explorations
+          </Link>
+          <Link
+            to="/visualizations"
+            style={{ color: '#64748b', fontFamily: 'var(--font-mono)', fontSize: 12 }}
+          >
+            &larr; Visualizations gallery
+          </Link>
+          <Link
+            to="/route-map"
+            style={{ color: '#64748b', fontFamily: 'var(--font-mono)', fontSize: 12 }}
+          >
+            &larr; Route Map
           </Link>
         </div>
       </div>

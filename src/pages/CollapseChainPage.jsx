@@ -14,6 +14,7 @@ import React, { useState } from 'react';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { Link } from 'react-router-dom';
 import '../styles/collapse-chain.css';
+import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-reduction-2026-06-18.js';
 
 const collapseChain = [
   {
@@ -304,7 +305,21 @@ export default function CollapseChainPage() {
         ))}
       </div>
 
-      <div style={{ marginTop: '40px', padding: '20px', backgroundColor: '#f5f5f5', borderRadius: '8px' }}>
+      <div style={{ marginTop: '40px', padding: '20px', backgroundColor: '#fff3cd', borderRadius: '8px', border: '1px solid #ffc107' }}>
+        <h3 style={{ fontSize: '14px', marginTop: '0', color: '#856404' }}>§26 Verdict (2026-06-18): Route Killed as a Reduction</h3>
+        <p style={{ fontSize: '13px', color: '#555', margin: '4px 0' }}>
+          <strong>{SECTION26_VERDICT.verdict}</strong>
+        </p>
+        <p style={{ fontSize: '13px', color: '#555', margin: '4px 0' }}>
+          SOTA: {SECTION26_VERDICT.sota}
+        </p>
+        <p style={{ fontSize: '12px', color: '#856404', margin: '8px 0 0 0' }}>
+          The &ldquo;5000x from saturation&rdquo; result was a homogeneity artifact — imp-1240 measured the wrong (scale-miscalibrated) operator.
+          The surviving target (normalized relative operator R) is RH-equivalent, not a shortcut.
+        </p>
+      </div>
+
+      <div style={{ marginTop: '20px', padding: '20px', backgroundColor: '#f5f5f5', borderRadius: '8px' }}>
         <h3 style={{ fontSize: '14px', marginTop: '0' }}>Honest Scope & Risk</h3>
         <ul style={{ fontSize: '13px', color: '#555', margin: '8px 0' }}>
           <li>

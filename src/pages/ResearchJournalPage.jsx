@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SESSIONS } from '../data/sessions.js';
+import FreshnessBanner from '../components/FreshnessBanner.jsx';
 
 // Research Journal — coarse-grained session narratives of the RH Λ attack.
 // Read interface for src/data/sessions.js (SESSIONS.md is the write-through).
@@ -88,6 +89,8 @@ export default function ResearchJournalPage() {
           .
         </p>
       </div>
+
+      <FreshnessBanner date={reversed[0].date} note="latest session date; build-time snapshot" />
 
       <div
         style={{

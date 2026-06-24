@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SESSIONS } from '../data/sessions.js';
+import FreshnessBanner from '../components/FreshnessBanner.jsx';
 import { LAMBDA_INTERCEPT_UNCONDITIONAL } from '../data/lambda-intercept-unconditional.js';
 // imp-1013: improvement-queue.js (~1.8 MB) and improvements.js (~3.3 MB) are
 // dynamic-imported below so opening this page does not block on a 5 MB chunk
@@ -223,6 +224,8 @@ export default function MetaAccelerationPage() {
           a finite-height Riemann Hypothesis statement.
         </p>
       </div>
+
+      <FreshnessBanner date={latestSession.date} note="latest research session; queue loaded dynamically" />
 
       {/* ── Headline Λ claim ──────────────────────────────────────────── */}
       <div

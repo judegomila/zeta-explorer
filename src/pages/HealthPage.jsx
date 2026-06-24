@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAsyncMetric } from '../hooks/useAsyncMetric.js';
+import FreshnessBanner from '../components/FreshnessBanner.jsx';
 import {
   HEADLINE,
   PROOF_CHAIN,
@@ -402,6 +403,8 @@ export default function HealthPage() {
           </div>
         </div>
       </div>
+
+      <FreshnessBanner date="2026-04-12" note="proof-chain snapshot; live metrics recompute on load" />
 
       {/* Toolbar */}
       <div style={{

@@ -235,6 +235,8 @@ export default function DocsPage() {
             { route: '/paper-upload', name: 'Paper Upload', desc: 'LaTeX paper upload and parsing tool with live preview' },
             { route: '/twin-ladder', name: 'Twin Ladder', desc: 'TwinLadderViz — 5-tab (anatomy, pressure/temperature, freezing, collapse, phase diagram)' },
             { route: '/calabi-yau', name: 'Calabi-Yau', desc: 'CalabiYauViz — Calabi-Yau manifold attack on RH via Weil conjecture cohomological machinery' },
+            { route: '/vortex-field', name: 'Vortex Field', desc: 'Domain-colored phase portrait of V(s) = xi\'(s)/xi(s): zeros appear as phase vortices with winding ±1 (argument principle). Interactive off-axis vortex slider shows what an RH violation would look like. Honest ceiling: exact exploratory visualization, not a new rigorous Lambda bound.' },
+            { route: '/visual-geometries', name: 'Visual Geometries', desc: 'Master gallery of 13 visualization panels — log-phase interference spiral, prime caustic geometry, phase crystal, hyperbolic prime spiral, vortex/defect map, near-zero rings, twin-ladder tomography, and more. Honest framing: exploratory pedagogy; twin-ladder geometry is a dead-end as a rigorous proof route.' },
           ].map(p => (
             <div key={p.route} className="card">
               <h3><span style={{ color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)', fontSize: 13 }}>{p.route}</span> {p.name}</h3>

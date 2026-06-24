@@ -125,7 +125,7 @@ export default function WikiPage() {
             <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.7, marginBottom: 8 }}>
               {entry.definition}
             </p>
-            <div style={{ display: 'flex', gap: 16, fontSize: 11, color: '#64748b' }}>
+            <div style={{ display: 'flex', gap: 16, fontSize: 11, color: '#64748b', flexWrap: 'wrap', alignItems: 'center' }}>
               <span>First used: <span style={{ color: '#94a3b8' }}>{entry.firstUsed}</span></span>
               {entry.relatedTerms && entry.relatedTerms.length > 0 && (
                 <span>Related:{' '}
@@ -136,6 +136,11 @@ export default function WikiPage() {
                     </span>
                   ))}
                 </span>
+              )}
+              {entry.link && (
+                <Link to={entry.link} style={{ color: '#34d399', fontWeight: 600 }}>
+                  See page →
+                </Link>
               )}
             </div>
           </div>

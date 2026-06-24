@@ -314,6 +314,7 @@ export const glossary = [
       'RH-equivalent routes in the current route map are required to be PCC-free.',
     firstUsed: 'v52 audit (2026)',
     relatedTerms: ['RH-equivalent', 'Montgomery PCC obstruction', 'closure routes'],
+    link: '/pcc-route-exhaustion',
   },
   {
     term: 'RH-equivalent',
@@ -326,6 +327,7 @@ export const glossary = [
       'ESTIMATE (numerical only) and CONDITIONAL (assumes an open hypothesis other than RH).',
     firstUsed: 'imp-1258',
     relatedTerms: ['PCC-free', 'C_H wall', 'Volterra norm', 'CONDITIONAL'],
+    link: '/route-map',
   },
   {
     term: 'C_H wall',
@@ -339,6 +341,7 @@ export const glossary = [
       'the heat-flow route remains CONDITIONAL-on-C_H rather than a full proof.',
     firstUsed: 'imp-2672 (2026)',
     relatedTerms: ['RH-equivalent', 'E_coll', 'Gronwall', 'heat flow', 'collision regularization'],
+    link: '/route-map',
   },
   {
     term: 'Vortex field',
@@ -352,6 +355,7 @@ export const glossary = [
       'This is an exploratory/geometric tool, NOT a proof method.',
     firstUsed: 'imp-2677 (2026)',
     relatedTerms: ['phase', 'arg zeta', 'critical line', 'PCC-free'],
+    link: '/vortex-field',
   },
 ];
 

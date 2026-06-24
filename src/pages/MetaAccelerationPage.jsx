@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SESSIONS } from '../data/sessions.js';
 import FreshnessBanner from '../components/FreshnessBanner.jsx';
 import { LAMBDA_INTERCEPT_UNCONDITIONAL } from '../data/lambda-intercept-unconditional.js';
+import { RANKED_OPPORTUNITIES } from '../data/full-route-map-2026-06-19.js';
 // imp-1013: improvement-queue.js (~1.8 MB) and improvements.js (~3.3 MB) are
 // dynamic-imported below so opening this page does not block on a 5 MB chunk
 // download. Both files are also dynamic-imported by their primary pages
@@ -440,6 +441,49 @@ git log --oneline -10                    # engine commits`}
                 >
                   {g.closed ? 'closed' : g.newlySurfaced ? 'new — open' : 'open'}
                 </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Genuine remaining opportunities ──────────────────────── */}
+      <h2 style={{ marginTop: 24, marginBottom: 12 }}>Genuine remaining opportunities</h2>
+      <div className="card" style={{ marginBottom: 24, borderLeftWidth: 3, borderLeftColor: '#f59e0b' }}>
+        <div style={{ fontSize: 11, color: '#f59e0b', marginBottom: 10 }}>
+          Ranked by actionability. None of these routes bypasses RH — the honest ceiling is Platt-Trudgian
+          Lambda &le; 0.2. All entries below are NON-refuted and NOT RH-reformulations.
+        </div>
+        <div style={{ display: 'grid', gap: 10 }}>
+          {RANKED_OPPORTUNITIES.map((opp) => (
+            <div
+              key={opp.rank}
+              style={{
+                padding: '10px 14px',
+                background: 'var(--bg-primary)',
+                borderRadius: 6,
+                border: '1px solid var(--border)',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 11,
+                    fontWeight: 700,
+                    padding: '1px 6px',
+                    borderRadius: 4,
+                    background: 'rgba(245,158,11,0.12)',
+                    color: '#f59e0b',
+                    border: '1px solid rgba(245,158,11,0.3)',
+                  }}
+                >
+                  #{opp.rank}
+                </span>
+                <span style={{ fontWeight: 600, fontSize: 12 }}>{opp.target}</span>
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                {opp.why}
               </div>
             </div>
           ))}

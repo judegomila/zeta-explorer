@@ -345,7 +345,8 @@ export default function VortexFieldPage() {
         <div style={{ fontSize: 12, marginTop: 8 }}>
           Related: <Link to="/statistics" style={{ color: '#3b82f6' }}>Zero Statistics</Link> ·{' '}
           <Link to="/viz-prime-caustic" style={{ color: '#3b82f6' }}>Prime Caustics</Link> ·{' '}
-          <Link to="/route-map" style={{ color: '#3b82f6' }}>Route Map</Link>
+          <Link to="/route-map" style={{ color: '#3b82f6' }}>Route Map</Link> ·{' '}
+          <Link to="/docs" style={{ color: '#3b82f6' }}>Docs (Vortex Field §)</Link>
         </div>
       </div>
     </div>

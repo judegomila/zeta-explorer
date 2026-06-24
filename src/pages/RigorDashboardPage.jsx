@@ -8,6 +8,7 @@ import {
 } from '../data/proof-chain-snapshot-2026-06-23.js';
 import ConstantDischargeTracker from '../components/ConstantDischargeTracker.jsx';
 import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
+import ProofTierSummary from '../components/ProofTierSummary.jsx';
 
 // ── Rigor color-coding ──────────────────────────────────────────────────────
 // GREEN  = unconditional analytical proof
@@ -408,6 +409,9 @@ export default function RigorDashboardPage() {
           Click any step to expand the full claim.
         </p>
       </div>
+
+      {/* Shared two-rigorous-islands + one-estimate tier panel (imp-2791) */}
+      <ProofTierSummary />
 
       {/* Honest SOTA banner (imp-2670) */}
       <HonestSOTABanner />

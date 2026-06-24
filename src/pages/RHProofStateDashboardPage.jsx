@@ -8,6 +8,7 @@ import { IMP2644_EFLOW_GRONWALL_CG_DISCHARGE } from '../data/imp-2644-eflow-gron
 import { MAXFANOUT_STATUS } from '../data/maxfanout-honest-status-2026-06-17.js';
 import { STRATEGIC_REFRAME } from '../data/strategic-reframe-pcc-free-volterra-2026-06-17.js';
 import { SECTION27_REFUTATION, THE_REAL_GAP } from '../data/section27-identity-refutation-2026-06-17.js';
+import ProofTierSummary from '../components/ProofTierSummary.jsx';
 
 // Status Badge
 function StatusBadge({ status, label }) {
@@ -168,6 +169,8 @@ export default function RHProofStateDashboardPage() {
           fundamental approaches.
         </p>
       </div>
+
+      <ProofTierSummary />
 
       {/* Headline metrics */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginBottom: 24 }}>

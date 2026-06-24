@@ -218,6 +218,7 @@ html, body, #root {
   border-radius: 12px;
   padding: 24px;
   transition: all 0.2s;
+  min-width: 0;
 }
 
 .card:hover {

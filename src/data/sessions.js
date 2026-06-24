@@ -115,4 +115,74 @@ export const SESSIONS = [
       'improvement-queue.js is 4300+ lines. Future sessions should consider pagination or archive pruning (tracked as imp-312, pending medium).',
     ],
   },
+  {
+    id: 'session-2026-06-23',
+    date: '2026-06-23',
+    title: 'Visual-geometries gallery + honest-SOTA wave',
+    engineStateStart:
+      'Multi-channel engine pool: opus-4-8 on api-pool bucket, sonnet-4-6 on sonnet bucket, fable-5 on fable bucket. ~159 pending tickets seeded in the giant backlog upgrade. Queue-index cache driving model routing.',
+    engineStateEnd:
+      'Pool running. ~143 pending. 32 tickets completed in the past 24 h. Overclaim ledger consolidated; assertion sweep gated into npm run build; visual-geometries gallery fully wired with 10 panels.',
+    lambdaHeadline: {
+      start: 'Λ = 0.0066 ± 0.01 (Path C Hybrid, N=2458)',
+      end: 'Λ = 0.0066 ± 0.01 (unchanged — no new ODE data)',
+      provenance:
+        'Headline unchanged; session focused on visualization, honest-ceiling labeling, and build-hardening rather than numerical tightening.',
+      note:
+        'C_H wall confirmed RH-HARD (not rigorous-upper-bound). All consumers now carry isRigorousUpperBound=false. Overclaim ledger consolidated in src/data/overclaim-ledger.js.',
+    },
+    seededTickets: [
+      {
+        phase: 'Visual geometries wave',
+        ids: ['imp-2717', 'imp-2718', 'imp-2719', 'imp-2720', 'imp-2724', 'imp-2726'],
+        summary:
+          'six new viz panels: prime-density-caustic, euler-product, near-a-zeta-zero, vortex-field animation, caustic-resonance overlay, winding-under-dyson-flow',
+        status: 'all completed by engine',
+      },
+      {
+        phase: 'Honest-SOTA / overclaim wave',
+        ids: ['imp-2776', 'imp-2777', 'imp-2792'],
+        summary:
+          'rigor-dashboard pointer fix, overclaim-ledger consolidation, glossary entries for PCC-free/RH-equivalent/C_H wall/vortex-field',
+        status: 'all completed by engine',
+      },
+      {
+        phase: 'Build hardening',
+        ids: ['imp-2737', 'imp-2745', 'imp-2753'],
+        summary:
+          'per-module watchdog timeout, fail-inject self-test mode, assertion sweep gated into npm run build',
+        status: 'all completed by engine',
+      },
+    ],
+    shippedFiles: [
+      { path: 'src/pages/VizPrimeDensityCausticPage.jsx', ticket: 'imp-2717' },
+      { path: 'src/pages/VizEulerProductPage.jsx', ticket: 'imp-2718' },
+      { path: 'src/pages/VizNearZeroPage.jsx', ticket: 'imp-2719' },
+      { path: 'src/pages/VortexFieldPage.jsx', ticket: 'imp-2720', note: 'animated heat-flow sweep tau -4→0' },
+      { path: 'src/pages/VizCausticResonancePage.jsx', ticket: 'imp-2724' },
+      { path: 'src/pages/VizWindingDysonFlowPage.jsx', ticket: 'imp-2726' },
+      { path: 'src/data/overclaim-ledger.js', ticket: 'imp-2777', note: 'shared overclaim-status registry' },
+      { path: 'scripts/run-assertions.mjs', ticket: 'imp-2737 / imp-2745 / imp-2753', note: 'watchdog + fail-inject + build gate' },
+    ],
+    keyFinding:
+      'The C_H wall is rigorously RH-HARD: the Gronwall backward-flow integral diverges and no known technique closes it without first proving RH. All pages that previously implied C_H was a rigorous upper bound now carry an honest-ceiling label. The overclaim-ledger.js module is the canonical registry for this status and is imported by all affected consumers.',
+    mainLineBlocker: {
+      label: 'C_H closure',
+      description:
+        'C_H = C_shock * C_Lip / 4 requires bounding C_Lip from the backward Gronwall flow integral. The integral diverges without an a-priori RH assumption, making C_H RH-equivalent at best. The highest-leverage open theorem is the Gronwall backward-flow stability bound (imp-2520).',
+      ticket: 'imp-2520',
+    },
+    openQuestions: [
+      'Can the Theta-trap + discriminant ladder replace the divergent Gronwall integral for C_H? (imp-2672 — critical)',
+      'Is the Theta-trap W_1 Lipschitz modulus N-independent at the microscopic collision scale? (imp-2680 — high)',
+      'Does the collision-regularized C_H route survive the Polymath15 C_shock/C_cusp analysis? (imp-2681 — medium)',
+      'Can a 2024-2026 literature pass surface a tighter effective coefficient than Heath-Brown 1979 for C_T? (imp-2698 — high)',
+    ],
+    metaObservations: [
+      'Queue-index cache (scripts/queue-index.json) eliminates the need to read 280K-token improvements.js; all engines now read the index first.',
+      'Fable-5 model routes to claude-fable-5 via engine-model.json; pool is three-channel (opus / sonnet / fable) with separate buckets.',
+      'The honest-SOTA wave (overclaim ledger + honest-ceiling banners) is a standing project: new pages must declare isRigorousUpperBound status on any C_H-derived constant.',
+      'Assertion sweep gated into build (npm run build calls node scripts/run-assertions.mjs --fast) catches silent assertion failures before deploy.',
+    ],
+  },
 ];

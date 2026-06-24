@@ -57,8 +57,8 @@ const ATTACKS = [
     id: 'prime-delay',
     label: 'II. Prime-Delay Domination',
     color: '#10b981',
-    status: 'numerical',
-    statusLabel: 'numerical pilot',
+    status: 'estimate',
+    statusLabel: 'ESTIMATE',
     headline: 'Arithmetic spacing of prime-power log-delays dominates any hypothetical off-critical zero.',
     summary: [
       'Each prime p contributes a ladder of delays {log p, 2 log p, 3 log p, ...} to the twin-ladder ' +
@@ -145,9 +145,44 @@ const ATTACKS = [
 
 const STATUS_STYLE = {
   conditional: { color: '#f59e0b', bg: 'rgba(245,158,11,0.10)', border: 'rgba(245,158,11,0.35)' },
+  estimate: { color: '#3b82f6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.35)' },
   numerical: { color: '#3b82f6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.35)' },
   open: { color: '#ef4444', bg: 'rgba(239,68,68,0.10)', border: 'rgba(239,68,68,0.35)' },
 };
+
+const STATUS_LEGEND = [
+  { key: 'CONDITIONAL', color: '#f59e0b', desc: 'Rigorous modulo a named unproven input — gap is identified' },
+  { key: 'ESTIMATE', color: '#3b82f6', desc: 'Numerical pilot only — not a rigorous bound; cross-check evidence' },
+  { key: 'RESEARCH-OPEN', color: '#ef4444', desc: 'No reduction known; proof strategy not yet fully scoped' },
+];
+
+function StatusLegend() {
+  return (
+    <div style={{
+      display: 'flex', flexWrap: 'wrap', gap: 10,
+      padding: '10px 14px',
+      background: 'rgba(15,23,42,0.6)',
+      border: '1px solid var(--border, #1e293b)',
+      borderRadius: 8,
+      marginTop: 16,
+    }}>
+      <span style={{ fontFamily: mono, fontSize: 11, color: '#64748b', alignSelf: 'center', marginRight: 4 }}>
+        STATUS LEGEND:
+      </span>
+      {STATUS_LEGEND.map(item => (
+        <span key={item.key} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span style={{
+            fontFamily: mono, fontSize: 11, fontWeight: 700, color: item.color,
+            padding: '1px 8px', borderRadius: 99,
+            background: item.color + '1a',
+            border: '1px solid ' + item.color + '55',
+          }}>{item.key}</span>
+          <span style={{ fontSize: 11, color: '#64748b' }}>{item.desc}</span>
+        </span>
+      ))}
+    </div>
+  );
+}
 
 function StatusChip({ status, label }) {
   const s = STATUS_STYLE[status] || STATUS_STYLE.open;
@@ -270,6 +305,8 @@ export default function ThreeAttacksPage() {
           Para 18 -- twin-ladder v52: kernel-passivity, prime-delay domination, Weil-Pontryagin (imp-1199)
         </p>
       </div>
+
+      <StatusLegend />
 
       {/* ─── Overview card ─── */}
       <div className="card" style={{ marginTop: 12 }}>

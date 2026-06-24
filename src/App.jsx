@@ -388,18 +388,137 @@ function KeyboardShortcutOverlay({ show, onClose }) {
   );
 }
 
+const ALL_ROUTES = [
+  { to: '/', label: 'Home', group: 'Home' },
+  ...NAV_GROUPS.flatMap(g => g.items.map(item => ({ ...item, group: g.label }))),
+];
+
+function CommandPalette({ show, onClose, navigate }) {
+  const [query, setQuery] = useState('');
+  const [activeIndex, setActiveIndex] = useState(0);
+  const inputRef = useRef();
+
+  const results = query.trim() === ''
+    ? ALL_ROUTES.slice(0, 12)
+    : ALL_ROUTES.filter(r =>
+        r.label.toLowerCase().includes(query.toLowerCase()) ||
+        r.to.toLowerCase().includes(query.toLowerCase())
+      ).slice(0, 12);
+
+  useEffect(() => {
+    if (show) {
+      setQuery('');
+      setActiveIndex(0);
+      setTimeout(() => inputRef.current && inputRef.current.focus(), 50);
+    }
+  }, [show]);
+
+  useEffect(() => { setActiveIndex(0); }, [query]);
+
+  if (!show) return null;
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); setActiveIndex(i => Math.min(i + 1, results.length - 1)); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); setActiveIndex(i => Math.max(i - 1, 0)); }
+    else if (e.key === 'Enter') {
+      if (results[activeIndex]) { navigate(results[activeIndex].to); onClose(); }
+    } else if (e.key === 'Escape') { onClose(); }
+  };
+
+  return (
+    <div
+      style={{
+        position: 'fixed', inset: 0, zIndex: 10000,
+        background: 'rgba(0,0,0,0.75)', display: 'flex',
+        justifyContent: 'center', alignItems: 'flex-start',
+        paddingTop: '15vh',
+      }}
+      onClick={onClose}
+    >
+      <div
+        style={{
+          background: '#1e293b', border: '1px solid #334155',
+          borderRadius: 12, width: '90%', maxWidth: 560,
+          boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
+          overflow: 'hidden',
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', padding: '12px 16px', borderBottom: '1px solid #334155', gap: 10 }}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ color: '#64748b', flexShrink: 0 }}>
+            <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+          <input
+            ref={inputRef}
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Search pages..."
+            style={{
+              flex: 1, background: 'none', border: 'none', outline: 'none',
+              color: '#f1f5f9', fontSize: 16, fontFamily: 'var(--font-mono)',
+            }}
+          />
+          <kbd style={{
+            background: '#334155', border: '1px solid #475569', borderRadius: 4,
+            padding: '1px 6px', fontSize: 11, color: '#94a3b8', flexShrink: 0,
+          }}>Esc</kbd>
+        </div>
+        <div style={{ maxHeight: 360, overflowY: 'auto' }}>
+          {results.length === 0 ? (
+            <div style={{ padding: '24px 16px', color: '#64748b', textAlign: 'center', fontSize: 14 }}>
+              No pages match
+            </div>
+          ) : results.map((r, i) => (
+            <div
+              key={r.to}
+              onClick={() => { navigate(r.to); onClose(); }}
+              style={{
+                display: 'flex', alignItems: 'center', gap: 12,
+                padding: '10px 16px', cursor: 'pointer',
+                background: i === activeIndex ? '#1d3557' : 'transparent',
+                borderLeft: i === activeIndex ? '2px solid #3b82f6' : '2px solid transparent',
+              }}
+              onMouseEnter={() => setActiveIndex(i)}
+            >
+              <span style={{ color: '#64748b', fontSize: 11, fontFamily: 'var(--font-mono)', minWidth: 80, flexShrink: 0 }}>{r.group}</span>
+              <span style={{ color: i === activeIndex ? '#f1f5f9' : '#cbd5e1', fontSize: 14 }}>{r.label}</span>
+              <span style={{ marginLeft: 'auto', color: '#475569', fontSize: 12, fontFamily: 'var(--font-mono)' }}>{r.to}</span>
+            </div>
+          ))}
+        </div>
+        <div style={{ padding: '8px 16px', borderTop: '1px solid #334155', display: 'flex', gap: 16, fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)' }}>
+          <span>up/down navigate</span>
+          <span>enter go</span>
+          <span>esc close</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function useKeyboardShortcuts(navigate) {
   const [showHelp, setShowHelp] = useState(false);
+  const [showPalette, setShowPalette] = useState(false);
 
   useEffect(() => {
     const handler = (e) => {
-      // Don't fire when typing in inputs
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT' || e.target.isContentEditable) return;
-
-      if (e.key === 'Escape') {
+      // Cmd+K / Ctrl+K opens command palette from anywhere
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setShowPalette(prev => !prev);
         setShowHelp(false);
         return;
       }
+      if (e.key === 'Escape') {
+        setShowHelp(false);
+        setShowPalette(false);
+        return;
+      }
+      // Don't fire when typing in inputs
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT' || e.target.isContentEditable) return;
+
       if (e.key === '?') {
         setShowHelp(prev => !prev);
         return;
@@ -414,10 +533,10 @@ function useKeyboardShortcuts(navigate) {
     return () => window.removeEventListener('keydown', handler);
   }, [navigate]);
 
-  return { showHelp, setShowHelp };
+  return { showHelp, setShowHelp, showPalette, setShowPalette };
 }
 
-function NavBar({ onShowShortcuts }) {
+function NavBar({ onShowShortcuts, onShowPalette }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef();
   const location = useLocation();
@@ -441,6 +560,24 @@ function NavBar({ onShowShortcuts }) {
         ZPO<span className="nav-logo-text"> Explorer</span>
       </NavLink>
       <button
+        onClick={onShowPalette}
+        aria-label="Search pages"
+        title="Search pages (Ctrl+K)"
+        style={{
+          background: '#1e293b', border: '1px solid #334155',
+          borderRadius: 6, color: '#94a3b8', fontSize: 14,
+          height: 28, cursor: 'pointer', display: 'flex',
+          alignItems: 'center', justifyContent: 'center', gap: 5,
+          marginLeft: 'auto', flexShrink: 0, padding: '0 8px',
+        }}
+      >
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+          <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.5"/>
+          <path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        </svg>
+        <span style={{ fontSize: 11, fontFamily: 'var(--font-mono)' }}>Search</span>
+      </button>
+      <button
         onClick={onShowShortcuts}
         aria-label="Keyboard shortcuts"
         title="Keyboard shortcuts (?)"
@@ -449,8 +586,7 @@ function NavBar({ onShowShortcuts }) {
           borderRadius: 6, color: '#94a3b8', fontSize: 14,
           width: 28, height: 28, cursor: 'pointer', display: 'flex',
           alignItems: 'center', justifyContent: 'center',
-          fontFamily: 'var(--font-mono)', marginLeft: 'auto',
-          flexShrink: 0,
+          fontFamily: 'var(--font-mono)', flexShrink: 0,
         }}
       >?</button>
       <button
@@ -485,13 +621,14 @@ function NavBar({ onShowShortcuts }) {
 
 function AppShell() {
   const navigate = useNavigate();
-  const { showHelp, setShowHelp } = useKeyboardShortcuts(navigate);
+  const { showHelp, setShowHelp, showPalette, setShowPalette } = useKeyboardShortcuts(navigate);
 
   return (
     <>
       <ScrollToTop />
-      <NavBar onShowShortcuts={() => setShowHelp(true)} />
+      <NavBar onShowShortcuts={() => setShowHelp(true)} onShowPalette={() => setShowPalette(true)} />
       <KeyboardShortcutOverlay show={showHelp} onClose={() => setShowHelp(false)} />
+      <CommandPalette show={showPalette} onClose={() => setShowPalette(false)} navigate={navigate} />
       <div className="app-content">
         <RouteErrorBoundary>
         <Suspense fallback={<PageLoader />}>

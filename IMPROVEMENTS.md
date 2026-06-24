@@ -2612,3 +2612,4 @@ below are the engine contract — do not rename or reorder.
 | 2720 | 2026-06-24T14:30:00Z | imp-2808 (meta, medium): Reconcile DocsPage route catalog against App.jsx — add 41 missing routes to the Pages section | src/pages/DocsPage.jsx |
 | 2721 | 2026-06-24T15:00:00Z | imp-2810 (content, medium): Add genuine-remaining-opportunities digest to MetaAccelerationPage — ranked 5-item list from RANKED_OPPORTUNITIES with honest non-RH ceiling note | src/pages/MetaAccelerationPage.jsx |
 | 2722 | 2026-06-24T17:00:00Z | imp-2817 (meta, medium): Extract NAV_GROUPS from App.jsx into src/data/nav-groups.js so nav, sitemap, and search share one source of truth | src/data/nav-groups.js, src/App.jsx |
+| 2723 | 2026-06-24T18:00:00Z | imp-2818 (ux, medium): Split 24-item Attack nav dropdown into Attack (14 items) and Proof Tools (10 items) groups | src/data/nav-groups.js |

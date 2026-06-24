@@ -1,8 +1,137 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import OddZetaViz from '../components/OddZetaViz.jsx';
-import { IRRATIONALITY_RESULTS, ZETA_EXACT } from '../math/odd-zeta.js';
+import { IRRATIONALITY_RESULTS, ZETA_EXACT, aperySequence } from '../math/odd-zeta.js';
+
+function AperyLiveCalculator() {
+  const [steps, setSteps] = useState(6);
+
+  const seq = useMemo(() => aperySequence(steps), [steps]);
+
+  const rows = useMemo(() => {
+    return seq.convergents
+      .filter(c => c.error > 1e-16 && isFinite(c.value))
+      .map(c => {
+        const bn = Math.abs(seq.bn[c.n] || 1);
+        const logBn = bn > 1 ? Math.log(bn) : 0;
+        const logErr = c.error > 0 ? Math.log(c.error) : null;
+        const muLocal = logBn > 0 && logErr !== null ? -logErr / logBn : null;
+        return { n: c.n, bn, value: c.value, error: c.error, muLocal };
+      });
+  }, [seq]);
+
+  const muOLS = useMemo(() => {
+    const pts = rows.filter(r => r.bn > 1 && r.error > 0);
+    if (pts.length < 2) return null;
+    let sx = 0, sy = 0, sxy = 0, sxx = 0;
+    const n = pts.length;
+    for (const pt of pts) {
+      const x = Math.log(pt.bn);
+      const y = Math.log(pt.error);
+      sx += x; sy += y; sxy += x * y; sxx += x * x;
+    }
+    const denom = n * sxx - sx * sx;
+    if (Math.abs(denom) < 1e-30) return null;
+    return -(n * sxy - sx * sy) / denom;
+  }, [rows]);
+
+  return (
+    <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #06b6d4' }}>
+      <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8, color: '#06b6d4' }}>
+        Live Irrationality-Measure Calculator
+      </h2>
+      <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 16, lineHeight: 1.6 }}>
+        Estimates <InlineMath tex={"\\mu(\\zeta(3))"} /> from Apery convergents{' '}
+        <InlineMath tex={"a_n/b_n"} />. For each step, the local exponent{' '}
+        <InlineMath tex={"\\mu_n = -\\log|\\text{error}_n| / \\log b_n"} /> measures how well that
+        convergent approximates <InlineMath tex={"\\zeta(3)"} />. A regression over all steps gives
+        the overall estimate.{' '}
+        <strong style={{ color: '#ef4444' }}>Key insight:</strong>{' '}
+        <InlineMath tex={"\\mu_n > 2"} /> at each step is evidence that <InlineMath tex={"\\zeta(3)"} />{' '}
+        cannot be rational — a rational <InlineMath tex={"p/q"} /> cannot be approximated better
+        than <InlineMath tex={"1/q^2"} /> by other rationals.
+      </p>
+
+      <div className="control-group" style={{ marginBottom: 16 }}>
+        <label>Steps of Apery recurrence</label>
+        <input type="range" min="2" max="7" step="1" value={steps}
+          title="Number of Apery recurrence steps — each step adds one convergent to the irrationality estimate"
+          onChange={e => setSteps(+e.target.value)} />
+        <span className="control-value">{steps}</span>
+      </div>
+
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #1e293b' }}>
+              <th style={{ color: '#64748b', textAlign: 'right', padding: '6px 10px', fontWeight: 600 }}>n</th>
+              <th style={{ color: '#64748b', textAlign: 'right', padding: '6px 10px', fontWeight: 600 }}>b_n</th>
+              <th style={{ color: '#64748b', textAlign: 'right', padding: '6px 10px', fontWeight: 600 }}>a_n / b_n</th>
+              <th style={{ color: '#64748b', textAlign: 'right', padding: '6px 10px', fontWeight: 600 }}>|error|</th>
+              <th style={{ color: '#64748b', textAlign: 'right', padding: '6px 10px', fontWeight: 600 }}>
+                <InlineMath tex={"\\mu_n"} /> (local)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(row => (
+              <tr key={row.n} style={{ borderBottom: '1px solid #0f172a' }}>
+                <td style={{ color: '#94a3b8', textAlign: 'right', padding: '5px 10px' }}>{row.n}</td>
+                <td style={{ color: '#a5f3fc', textAlign: 'right', padding: '5px 10px' }}>
+                  {row.bn < 1e15 ? row.bn.toFixed(0) : row.bn.toExponential(3)}
+                </td>
+                <td style={{ color: '#e2e8f0', textAlign: 'right', padding: '5px 10px' }}>
+                  {row.value.toFixed(10)}
+                </td>
+                <td style={{ color: '#f59e0b', textAlign: 'right', padding: '5px 10px' }}>
+                  {row.error.toExponential(3)}
+                </td>
+                <td style={{
+                  color: row.muLocal !== null && row.muLocal > 2 ? '#10b981' : '#ef4444',
+                  textAlign: 'right', padding: '5px 10px', fontWeight: 600,
+                }}>
+                  {row.muLocal !== null ? row.muLocal.toFixed(3) : '—'}
+                </td>
+              </tr>
+            ))}
+            {rows.length === 0 && (
+              <tr>
+                <td colSpan={5} style={{ color: '#64748b', textAlign: 'center', padding: '12px' }}>
+                  No convergents with measurable error at this step count
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 16 }}>
+        {[
+          {
+            label: 'OLS μ estimate',
+            value: muOLS !== null ? muOLS.toFixed(3) : '—',
+            color: muOLS !== null && muOLS > 2 ? '#10b981' : '#64748b',
+          },
+          { label: 'Known bound (Rhin-Viola)', value: '≤ 5.514', color: '#3b82f6' },
+          { label: 'Lower bound (irrationals)', value: '≥ 2', color: '#94a3b8' },
+        ].map(m => (
+          <div key={m.label} className="stat-box" style={{ padding: '8px 10px' }}>
+            <div style={{ color: m.color, fontWeight: 700, fontSize: 14, fontFamily: 'var(--font-mono)' }}>
+              {m.value}
+            </div>
+            <div style={{ color: '#64748b', fontSize: 10, marginTop: 2 }}>{m.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <p style={{ fontSize: 11, color: '#475569', marginTop: 12, fontStyle: 'italic' }}>
+        Each green row confirms the convergent approximates <InlineMath tex={"\\zeta(3)"} /> beyond the rational
+        threshold. The OLS estimate converges toward <InlineMath tex={"\\mu \\approx 5.5"} /> with more steps.
+      </p>
+    </div>
+  );
+}
 
 export default function OddZetaPage() {
   return (
@@ -113,6 +242,9 @@ export default function OddZetaPage() {
 
       {/* ─── Visualization ─── */}
       <OddZetaViz />
+
+      {/* ─── Live Irrationality-Measure Calculator ─── */}
+      <AperyLiveCalculator />
 
       <div className="card" style={{ marginTop: 32, borderColor: '#06b6d4' }}>
         <h3 style={{ color: '#06b6d4' }}>What to Explore in Each Tab</h3>

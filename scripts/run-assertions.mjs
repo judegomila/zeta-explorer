@@ -8,8 +8,9 @@
 // middlewareMode so it does not bind a port.
 //
 // Usage:
-//   node scripts/run-assertions.mjs              # full sweep
-//   node scripts/run-assertions.mjs --fast       # skip modules known to be slow
+//   node scripts/run-assertions.mjs                   # full sweep
+//   node scripts/run-assertions.mjs --fast            # skip modules known to be slow
+//   node scripts/run-assertions.mjs --since-changed   # only changed files (fast pre-commit)
 //
 // Exit codes:
 //   0 -- all assertions pass
@@ -19,6 +20,7 @@
 // Output:
 //   scripts/logs/assertions-<ISO>.md
 
+import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import net from 'node:net';
 import path from 'node:path';
@@ -41,6 +43,9 @@ const SSR_POOL_N    = SSR_POOL_FLAG
 const SELF_TEST_MODE    = process.argv.includes('--self-test-pool');
 // imp-2745: --fail-inject mode proves holds()===false is caught by the harness.
 const FAIL_INJECT_MODE  = process.argv.includes('--fail-inject');
+// imp-2749: --since-changed restricts the sweep to modules whose source files
+// have changed vs HEAD (staged + unstaged). Useful as a fast pre-commit check.
+const SINCE_CHANGED = process.argv.includes('--since-changed');
 // imp-1171: concurrent module loading via shared-Vite-server promise.all pool.
 // Worker_threads would require one Vite SSR server per thread (port conflicts)
 // so we instead use a concurrency-capped Promise.all against the single server,
@@ -1777,9 +1782,23 @@ const DATA_MODULES = [
   '/src/data/imp-2713-en-named-gap-registry.js',
 ];
 
-const ALL_MODULES = FAST_MODE
+let ALL_MODULES = FAST_MODE
   ? [...MATH_MODULES, ...DATA_MODULES].filter((m) => !HEAVY_MODULES.includes(m))
   : [...MATH_MODULES, ...DATA_MODULES];
+
+// imp-2749: --since-changed incremental mode — restrict sweep to modules whose
+// source files are changed vs HEAD (both staged and unstaged). One cheap git
+// call at startup; falls back to full sweep if git is unavailable or returns
+// no matches (so the flag is always safe to pass).
+if (SINCE_CHANGED) {
+  try {
+    const out = execSync('git diff --name-only HEAD', { cwd: ROOT, encoding: 'utf8' });
+    const changedSet = new Set(out.trim().split('\n').filter(Boolean));
+    // Module paths carry a leading '/' (e.g. '/src/data/foo.js'); git paths don't.
+    const filtered = ALL_MODULES.filter((m) => changedSet.has(m.slice(1)));
+    if (filtered.length > 0) ALL_MODULES = filtered;
+  } catch { /* git unavailable — run full sweep */ }
+}
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -1951,6 +1970,7 @@ async function main() {
 
   log('# Assertion sweep — ' + new Date().toISOString());
   log('Mode: ' + (FAST_MODE ? 'fast (heavy modules skipped)' : 'full') +
+      (SINCE_CHANGED ? ' · since-changed (' + ALL_MODULES.length + ' modules)' : '') +
       ' · parallel: ' + PARALLEL +
       (pool ? ' · ssr-pool: ' + SSR_POOL_N : ''));
   log('');

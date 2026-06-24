@@ -203,6 +203,9 @@ export default function RhDagPage() {
     [],
   );
 
+  const targetNode = useMemo(() => nodes.find((n) => n.id === 'imp-356'), [nodes]);
+  const targetDone = targetNode && (targetNode.status === 'completed' || targetNode.status === 'partial');
+
   const layerMap = {};
   for (const n of nodes) {
     const k = layer[n.id] || 0;
@@ -256,16 +259,29 @@ export default function RhDagPage() {
             {frontier.map((n) => n.id).join(', ') || '(none)'}
           </div>
         </div>
-        <div className="card" style={{ borderLeftWidth: 3, borderLeftColor: '#facc15' }}>
+        <div className="card" style={{ borderLeftWidth: 3, borderLeftColor: targetDone ? '#22c55e' : '#facc15' }}>
           <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)' }}>
             Critical path to imp-356
           </div>
-          <div style={{ fontSize: 32, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
-            {critPath.length}
-          </div>
-          <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>
-            sequential steps to the SOTA capstone
-          </div>
+          {targetDone ? (
+            <>
+              <div style={{ fontSize: 28, fontWeight: 700, fontFamily: 'var(--font-mono)', color: '#22c55e' }}>
+                ✓ DONE
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>
+                imp-356 is already {targetNode.status} — no remaining steps
+              </div>
+            </>
+          ) : (
+            <>
+              <div style={{ fontSize: 32, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+                {critPath.length}
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>
+                sequential steps to the SOTA capstone
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -289,7 +305,9 @@ export default function RhDagPage() {
       <div style={{ display: 'grid', gap: 10, marginBottom: 24 }}>
         {schedule.length === 0 ? (
           <div className="card" style={{ fontSize: 12, color: 'var(--text-muted)' }}>
-            No rounds — target imp-356 is either reachable already or fully blocked.
+            {targetDone
+              ? 'imp-356 is already completed — no further rounds needed.'
+              : 'No rounds — target imp-356 is fully blocked (check for missing dependency nodes).'}
           </div>
         ) : (
           schedule.map((roundIds, idx) => (

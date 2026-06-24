@@ -101,6 +101,7 @@ const VisualGeometriesPage = lazy(() => import('./pages/VisualGeometriesPage.jsx
 const PrimeRigidityPage = lazy(() => import('./pages/PrimeRigidityPage.jsx'));
 const VizEulerProductPage = lazy(() => import('./pages/VizEulerProductPage.jsx'));
 const VizCausticResonancePage = lazy(() => import('./pages/VizCausticResonancePage.jsx'));
+const VizPhaseCylinderPage = lazy(() => import('./pages/VizPhaseCylinderPage.jsx'));
 const MillsTheoremPage = lazy(() => import('./pages/MillsTheoremPage.jsx'));
 const GilbreathObservationPage = lazy(() => import('./pages/GilbreathObservationPage.jsx'));
 const BerryKeatingXpPage = lazy(() => import('./pages/BerryKeatingXpPage.jsx'));
@@ -198,6 +199,7 @@ const NAV_GROUPS = [
       { to: '/visual-geometries', label: 'Visual Geometries (gallery)' },
       { to: '/vortex-field', label: 'Vortex Field' },
       { to: '/viz-winding-dyson-flow', label: 'Winding under Dyson/Newman Flow' },
+      { to: '/viz-phase-cylinder', label: 'Phase Cylinder: Unwrapped Rays' },
       { to: '/prime-rigidity', label: 'Prime Rigidity' },
       { to: '/viz-euler-product', label: 'True vs Perturbed Euler Product' },
       { to: '/riemann-siegel-z', label: 'Riemann-Siegel Z(t)' },
@@ -729,6 +731,7 @@ function AppShell() {
           <Route path="/viz-prime-caustic" element={<VizPrimeCausticPage />} />
           <Route path="/viz-prime-density-caustic" element={<VizPrimeDensityOnCausticPage />} />
           <Route path="/viz-caustic-resonance" element={<VizCausticResonancePage />} />
+          <Route path="/viz-phase-cylinder" element={<VizPhaseCylinderPage />} />
           <Route path="/viz-prime-phase-crystal" element={<VizPrimePhaseCrystalPage />} />
           <Route path="/visualizations" element={<VisualizationsIndexPage />} />
           <Route path="/berry-keating-xp" element={<BerryKeatingXpPage />} />

@@ -4,6 +4,30 @@ import SupercriticalViz from '../components/SupercriticalViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
 export default function SupercriticalPage() {
+  const [numSigma, setNumSigma] = React.useState(1.5);
+
+  function computeThermo(sigma) {
+    const PRIMES = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,
+      101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199];
+    function logZ(s) {
+      return PRIMES.reduce((acc, p) => acc - Math.log(1 - Math.pow(p, -s)), 0);
+    }
+    const h = 1e-3;
+    const lz = logZ(sigma);
+    const lz1 = logZ(sigma + h);
+    const lz2 = logZ(sigma - h);
+    const dlz = (lz1 - lz2) / (2 * h);
+    const d2lz = (lz1 - 2 * lz + lz2) / (h * h);
+    return {
+      F: (-lz / sigma).toFixed(4),
+      S: (lz - sigma * dlz).toFixed(4),
+      Cv: (sigma * sigma * d2lz).toFixed(4),
+      P: (lz / PRIMES.length).toFixed(4),
+    };
+  }
+
+  const thermo = computeThermo(numSigma);
+
   return (
     <div className="page">
       <div className="page-header">
@@ -292,6 +316,56 @@ export default function SupercriticalPage() {
           them. The system is at the <strong style={{ color: '#a855f7' }}>critical threshold
           of resonance sharpness</strong>.
         </div>
+        <p style={{ marginTop: 10, fontSize: 12, color: '#94a3b8', lineHeight: 1.7 }}>
+          Rigorous bound: <strong style={{ color: '#22c55e' }}>Λ ≤ 0.2</strong> (Polymath15, 2019),
+          so <InlineMath tex={"0 \\leq \\Lambda \\leq 0.2"} />. RH requires Λ = 0.{' '}
+          <Link to="/lambda-bounds" style={{ color: '#a855f7' }}>Λ Bounds &amp; RH Roadmap →</Link>
+        </p>
+      </div>
+
+      {/* ── Numeric Thermodynamic Panel ── */}
+      <div className="card" style={{ marginTop: 24, borderColor: '#10b981' }}>
+        <h3 style={{ color: '#10b981' }}>Numeric Values at σ = {numSigma.toFixed(2)}</h3>
+        <p style={{ fontSize: 12, color: '#64748b', marginTop: 4, marginBottom: 12 }}>
+          Partial Euler product over primes ≤ 199 (valid for σ &gt; 1)
+        </p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+          <span style={{ fontSize: 12, color: '#94a3b8' }}>σ = 1.01</span>
+          <input
+            type="range" min={1.01} max={3.0} step={0.01}
+            value={numSigma}
+            onChange={e => setNumSigma(Number(e.target.value))}
+            style={{ flex: 1 }}
+          />
+          <span style={{ fontSize: 12, color: '#94a3b8' }}>σ = 3.00</span>
+        </div>
+        <table style={{ width: '100%', fontSize: 13, borderCollapse: 'collapse' }}>
+          <thead>
+            <tr>
+              <th style={{ color: '#64748b', textAlign: 'left', paddingBottom: 6 }}>Quantity</th>
+              <th style={{ color: '#64748b', textAlign: 'left', paddingBottom: 6, fontSize: 11 }}>Formula</th>
+              <th style={{ color: '#10b981', textAlign: 'right', paddingBottom: 6 }}>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { label: 'Free energy F', formula: '−(1/σ) log ζ(σ)', val: thermo.F, color: '#3b82f6' },
+              { label: 'Entropy S', formula: 'log ζ − σ · d/dσ log ζ', val: thermo.S, color: '#8b5cf6' },
+              { label: 'Specific heat Cv', formula: 'σ² · d²/dσ² log ζ', val: thermo.Cv, color: '#10b981' },
+              { label: 'Pressure P (per prime)', formula: '(1/N) Σ_p log(1/(1−p^{−σ}))', val: thermo.P, color: '#f59e0b' },
+            ].map(row => (
+              <tr key={row.label} style={{ borderTop: '1px solid #1e293b' }}>
+                <td style={{ color: row.color, padding: '5px 0' }}>{row.label}</td>
+                <td style={{ color: '#64748b', fontSize: 11, padding: '5px 8px' }}>{row.formula}</td>
+                <td style={{ color: '#e2e8f0', fontFamily: 'monospace', textAlign: 'right', padding: '5px 0' }}>{row.val}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p style={{ marginTop: 10, fontSize: 12, color: '#475569', lineHeight: 1.6 }}>
+          Divergence as σ → 1⁺ reflects the Bost-Connes phase transition (pole of ζ).
+          The specific heat spike near σ = 1 signals critical fluctuations.
+        </p>
       </div>
 
       {/* Related Pages */}

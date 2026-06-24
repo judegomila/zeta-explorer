@@ -494,6 +494,20 @@ export default function ClosureRoutesPage() {
                   </td>
                   <td style={{ padding: '10px 6px', color: '#10b981', fontFamily: mono }}>
                     yes
+                    {route.lastReviewed && (
+                      <span style={{
+                        marginLeft: 8,
+                        fontSize: 10,
+                        padding: '1px 6px',
+                        borderRadius: 3,
+                        color: '#6ee7b7',
+                        background: 'rgba(16,185,129,0.08)',
+                        border: '1px solid rgba(16,185,129,0.25)',
+                        whiteSpace: 'nowrap',
+                      }}>
+                        rev. {route.lastReviewed}
+                      </span>
+                    )}
                   </td>
                 </tr>
               );

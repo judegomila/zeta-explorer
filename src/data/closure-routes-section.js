@@ -117,6 +117,7 @@ export const CLOSURE_ROUTES = Object.freeze({
         'half-plane. To turn it into a proof of RH one must obtain ' +
         'contractivity without first assuming the zero-free region that ' +
         'contractivity would imply.',
+      lastReviewed: '2026-06-24',
     }),
     Object.freeze({
       letter: 'B',
@@ -146,6 +147,7 @@ export const CLOSURE_ROUTES = Object.freeze({
         'Principle 16.3: A shifted de Branges space exists unconditionally ' +
         'outside the critical strip, but extending the construction to every ' +
         'positive shift is equivalent to RH.',
+      lastReviewed: '2026-06-24',
     }),
     Object.freeze({
       letter: 'C',
@@ -177,6 +179,7 @@ export const CLOSURE_ROUTES = Object.freeze({
       principle:
         'Conjecture 16.4 (Shift-bridge square): The hidden square exists and ' +
         'is built directly from the completed Riemann kernel.',
+      lastReviewed: '2026-06-24',
     }),
     Object.freeze({
       letter: 'D',
@@ -209,6 +212,7 @@ export const CLOSURE_ROUTES = Object.freeze({
         'prime-delay arithmetic. The missing step is proving that the ' +
         'completed archimedean / kernel contribution dominates every coherent ' +
         'prime-delay autocorrelation.',
+      lastReviewed: '2026-06-24',
     }),
   ]),
 

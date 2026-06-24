@@ -2625,3 +2625,4 @@ below are the engine contract — do not rename or reorder.
 | 2733 | 2026-06-24T16:00:00Z | imp-2771 (content, low): Add /gilbreath cross-link and honest binomial-heuristic-only note to PascalPage Related Pages block | src/pages/PascalPage.jsx |
 | 2734 | 2026-06-24T16:20:00Z | imp-2786 (ux, low): Add interactive target dropdown to /rh-dag critical-path UI — useState for targetId, recompute critPath/schedule via useMemo on selection | src/pages/RhDagPage.jsx |
 | 2735 | 2026-06-24T16:50:00Z | imp-2788 (content, low): Add provenanceRef field to all 11 PCC_ROUTES entries + render provenance citation in RouteCard so each verdict traces to its analysis module | src/pages/PCCRouteExhaustionPage.jsx |
+| 2736 | 2026-06-24T17:30:00Z | imp-2789 (content, low): Add lastReviewed field to all 4 closure-routes and render freshness badge in At-a-glance table RH-equivalent column | src/data/closure-routes-section.js, src/pages/ClosureRoutesPage.jsx |

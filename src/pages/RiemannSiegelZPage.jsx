@@ -17,6 +17,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import RelatedLinks from '../components/RelatedLinks.jsx';
 import { scaleLinear } from 'd3-scale';
 import {
   RIEMANN_SIEGEL_Z_EXPLORER,
@@ -355,6 +356,13 @@ export default function RiemannSiegelZPage() {
         Data source: src/data/riemann-siegel-z-explorer.js (1000 sample
         grid pre-computed at module load via src/math/zeta.js riemannSiegelZ).
       </div>
+
+      <RelatedLinks links={[
+        { to: '/hardy-z', label: 'Hardy Z-Function' },
+        { to: '/gram-points', label: 'Gram Points' },
+        { to: '/zeta', label: 'Zeta Landscape' },
+        { to: '/statistics', label: 'Zero Statistics' },
+      ]} />
     </div>
   );
 }

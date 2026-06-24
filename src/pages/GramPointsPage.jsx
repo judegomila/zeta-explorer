@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import RelatedLinks from '../components/RelatedLinks.jsx';
 import { scaleLinear } from 'd3-scale';
 import { GRAM_POINTS_DATA } from '../data/gram-points-numerical.js';
 
@@ -297,6 +298,14 @@ export default function GramPointsPage() {
         Rosser's rule uses blocks of consecutive Gram intervals to certify zero counts
         rigorously. Data from imp-1122 (src/data/gram-points-numerical.js).
       </div>
+
+      <RelatedLinks links={[
+        { to: '/hardy-z', label: 'Hardy Z-Function' },
+        { to: '/riemann-siegel-z', label: 'Riemann-Siegel Z(t)' },
+        { to: '/zeta', label: 'Zeta Landscape' },
+        { to: '/statistics', label: 'Zero Statistics' },
+        { to: '/pair-correlation', label: 'Pair Correlation' },
+      ]} />
     </div>
   );
 }

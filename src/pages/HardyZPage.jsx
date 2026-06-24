@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import RelatedLinks from '../components/RelatedLinks.jsx';
 import { scaleLinear, scaleBand } from 'd3-scale';
 import { HARDY_Z_ASYMPTOTIC } from '../data/hardy-z-asymptotic-comparison.js';
 
@@ -265,6 +266,13 @@ export default function HardyZPage() {
         O(t^-1/4) to O(t^-5/4). The relBound column (|diff|/tFactor) stays below 2.0
         by assertion. Data from imp-1102 (src/data/hardy-z-asymptotic-comparison.js).
       </div>
+
+      <RelatedLinks links={[
+        { to: '/gram-points', label: 'Gram Points' },
+        { to: '/riemann-siegel-z', label: 'Riemann-Siegel Z(t)' },
+        { to: '/zeta', label: 'Zeta Landscape' },
+        { to: '/statistics', label: 'Zero Statistics' },
+      ]} />
     </div>
   );
 }

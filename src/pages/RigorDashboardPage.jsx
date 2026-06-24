@@ -5,7 +5,7 @@ import {
   PROOF_CHAIN,
   ROUTE_STATUS,
   CONDITIONS,
-} from '../data/proof-chain-snapshot-2026-04-12.js';
+} from '../data/proof-chain-snapshot-2026-06-23.js';
 import ConstantDischargeTracker from '../components/ConstantDischargeTracker.jsx';
 
 // ── Rigor color-coding ──────────────────────────────────────────────────────

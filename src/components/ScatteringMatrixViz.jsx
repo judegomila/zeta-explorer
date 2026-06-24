@@ -14,8 +14,11 @@ export default function ScatteringMatrixViz() {
   const svgRef = useRef();
   const canvasRef = useRef();
   const [tValue, setTValue] = useState(14.13);
+  const [sigmaValue, setSigmaValue] = useState(0.5);
   const [mode, setMode] = useState('magnitude');
   const [hoverPoint, setHoverPoint] = useState(null);
+
+  const chiAtPoint = useMemo(() => losslessBridge([sigmaValue, tValue]), [sigmaValue, tValue]);
 
   // Memoize expensive bridge data: 101 losslessBridge calls depend only on tValue,
   // not on mode or viewport size, so avoid recomputing on mode switch or window resize
@@ -332,6 +335,17 @@ export default function ScatteringMatrixViz() {
       yAccessor = d => d.chiPhase * 180 / Math.PI;
     }
 
+    // Sigma probe marker — pinned to the sigmaValue slider
+    const closestToSigma = data.reduce((best, d) =>
+      Math.abs(d.sigma - sigmaValue) < Math.abs(best.sigma - sigmaValue) ? d : best, data[0]);
+    g.append('line')
+      .attr('x1', x(sigmaValue)).attr('y1', 0).attr('x2', x(sigmaValue)).attr('y2', h)
+      .attr('stroke', '#f97316').attr('stroke-width', 1.5).attr('stroke-dasharray', '5,3')
+      .attr('opacity', 0.75);
+    g.append('circle')
+      .attr('cx', x(sigmaValue)).attr('cy', yScale(yAccessor(closestToSigma))).attr('r', 5)
+      .attr('fill', '#f97316').attr('stroke', '#0a0e1a').attr('stroke-width', 2);
+
     const setHP = setHoverPoint;
     hoverOverlay.on('mousemove', (event) => {
       const [mx] = d3.pointer(event);
@@ -349,7 +363,7 @@ export default function ScatteringMatrixViz() {
       setHP(null);
     });
 
-  }, [data, tValue, mode]);
+  }, [data, tValue, mode, sigmaValue]);
 
   useEffect(() => { drawMagnitude(); }, [drawMagnitude]);
   useEffect(() => {
@@ -430,6 +444,12 @@ export default function ScatteringMatrixViz() {
             ) : null;
           })()}
         </div>
+        <div className="control-group">
+          <label><InlineMath tex={"\\sigma = \\operatorname{Re}(s)"} /></label>
+          <input type="range" min="0.01" max="0.99" step="0.01" value={sigmaValue}
+            onChange={e => setSigmaValue(+e.target.value)} />
+          <span className="control-value">{sigmaValue.toFixed(2)}</span>
+        </div>
         {hoverPoint ? (
           <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, color: '#06b6d4' }}>
             σ={hoverPoint.sigma.toFixed(3)} |
@@ -442,6 +462,12 @@ export default function ScatteringMatrixViz() {
             Hover over chart to inspect values
           </div>
         )}
+      </div>
+      <div style={{ marginBottom: 8, padding: '6px 14px', background: 'rgba(249,115,22,0.08)', border: '1px solid rgba(249,115,22,0.25)', borderRadius: 6, fontFamily: 'var(--font-mono)', fontSize: 12, display: 'flex', flexWrap: 'wrap', gap: 20, alignItems: 'center' }}>
+        <span style={{ color: '#fb923c' }}>|χ({sigmaValue.toFixed(2)} + {tValue.toFixed(1)}i)| = {chiAtPoint.magnitude.toFixed(6)}</span>
+        <span style={{ color: '#94a3b8' }}>Γ = {((1 - chiAtPoint.magnitude) / (1 + chiAtPoint.magnitude)).toFixed(4)}</span>
+        <span style={{ color: '#94a3b8' }}>arg = {(chiAtPoint.phase * 180 / Math.PI).toFixed(1)}°</span>
+        {Math.abs(chiAtPoint.magnitude - 1) < 0.0001 && <span style={{ color: '#10b981' }}>lossless</span>}
       </div>
       <div className="viz-container">
         <svg ref={svgRef} style={{ width: '100%', height: 380 }} />

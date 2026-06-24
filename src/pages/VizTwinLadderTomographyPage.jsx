@@ -118,6 +118,8 @@ export default function VizTwinLadderTomographyPage() {
   const [vMin, setVMin] = useState(null);
   const [vMax, setVMax] = useState(null);
   const abortRef = useRef(0); // bump to cancel an in-flight compute
+  const pBufRef = useRef(null);
+  const [hoverInfo, setHoverInfo] = useState(null);
 
   // -------------------------------------------------------------------------
   // Compute the full RES x RES P-array on mount / when tMax changes.
@@ -210,6 +212,7 @@ export default function VizTwinLadderTomographyPage() {
           }
         }
         ctx.putImageData(imgData, 0, 0);
+        pBufRef.current = pBuf;
         setProgress(1);
         setComputeMs(performance.now() - t0);
         setVMin(gMin);
@@ -257,22 +260,37 @@ export default function VizTwinLadderTomographyPage() {
     ctx.lineTo(xMid, CANVAS_DISPLAY);
     ctx.stroke();
 
-    if (!showZerosOverlay) return;
-
-    const zeros = VIZ_TWIN_LADDER_TOMOGRAPHY.knownZerosOverlay.values;
-    ctx.fillStyle = '#ef4444';
-    ctx.strokeStyle = 'rgba(255,255,255,0.55)';
-    ctx.lineWidth = 0.75;
-    for (const gamma of zeros) {
-      if (gamma < T_MIN || gamma > tMax) continue;
-      const px = sigmaToDisplayX(0.5);
-      const py = tToDisplayY(gamma, tMax);
-      ctx.beginPath();
-      ctx.arc(px, py, 3.5, 0, 2 * Math.PI);
-      ctx.fill();
-      ctx.stroke();
+    if (showZerosOverlay) {
+      const zeros = VIZ_TWIN_LADDER_TOMOGRAPHY.knownZerosOverlay.values;
+      ctx.fillStyle = '#ef4444';
+      ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+      ctx.lineWidth = 0.75;
+      for (const gamma of zeros) {
+        if (gamma < T_MIN || gamma > tMax) continue;
+        const px = sigmaToDisplayX(0.5);
+        const py = tToDisplayY(gamma, tMax);
+        ctx.beginPath();
+        ctx.arc(px, py, 3.5, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+      }
     }
-  }, [showZerosOverlay, tMax, progress]);
+
+    if (hoverInfo) {
+      ctx.strokeStyle = 'rgba(255, 255, 100, 0.65)';
+      ctx.lineWidth = 0.75;
+      ctx.setLineDash([4, 3]);
+      ctx.beginPath();
+      ctx.moveTo(hoverInfo.px, 0);
+      ctx.lineTo(hoverInfo.px, CANVAS_DISPLAY);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(0, hoverInfo.py);
+      ctx.lineTo(CANVAS_DISPLAY, hoverInfo.py);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+  }, [showZerosOverlay, tMax, progress, hoverInfo]);
 
   // -------------------------------------------------------------------------
   // Static derived display values.
@@ -289,6 +307,30 @@ export default function VizTwinLadderTomographyPage() {
   }, [tMax]);
 
   const sigmaTicks = [0.1, 0.25, 0.5, 0.75, 0.9];
+
+  const handleCanvasMouseMove = useCallback((e) => {
+    if (!pBufRef.current || progress < 1) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    if (mx < 0 || my < 0 || mx > CANVAS_DISPLAY || my > CANVAS_DISPLAY) {
+      setHoverInfo(null);
+      return;
+    }
+    const col = Math.min(RES - 1, Math.max(0, Math.floor(mx / CANVAS_DISPLAY * RES)));
+    const row = Math.min(RES - 1, Math.max(0, Math.floor(my / CANVAS_DISPLAY * RES)));
+    setHoverInfo({
+      sigma: colToSigma(col),
+      t: rowToT(row, tMax),
+      p: pBufRef.current[row * RES + col],
+      px: mx,
+      py: my,
+    });
+  }, [progress, tMax]);
+
+  const handleCanvasMouseLeave = useCallback(() => setHoverInfo(null), []);
 
   return (
     <div className="page">
@@ -365,6 +407,12 @@ export default function VizTwinLadderTomographyPage() {
         <div style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: '#94a3b8' }}>
           {progress < 1 ? (
             <span>computing... {Math.round(progress * 100)}%</span>
+          ) : hoverInfo ? (
+            <span>
+              <strong style={{ color: '#fef08a' }}>sigma</strong> = {hoverInfo.sigma.toFixed(3)}
+              {' '}&middot; <strong style={{ color: '#fef08a' }}>t</strong> = {hoverInfo.t.toFixed(3)}
+              {' '}&middot; <strong style={{ color: '#fef08a' }}>P</strong> = {hoverInfo.p.toExponential(3)}
+            </span>
           ) : (
             <span>
               compute: <strong style={{ color: '#86efac' }}>{computeMs != null ? (computeMs / 1000).toFixed(1) : '-'} s</strong>
@@ -398,7 +446,11 @@ export default function VizTwinLadderTomographyPage() {
           })}
         </div>
 
-        <div style={{ position: 'relative', width: CANVAS_DISPLAY, height: CANVAS_DISPLAY }}>
+        <div
+          style={{ position: 'relative', width: CANVAS_DISPLAY, height: CANVAS_DISPLAY }}
+          onMouseMove={handleCanvasMouseMove}
+          onMouseLeave={handleCanvasMouseLeave}
+        >
           <canvas
             ref={canvasRef}
             width={RES}

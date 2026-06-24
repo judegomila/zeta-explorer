@@ -14,6 +14,7 @@ const TOC = [
   { id: 'data-model', label: 'Data Model' },
   { id: 'algorithms', label: 'Algorithms' },
   { id: 'limitations', label: 'Limitations' },
+  { id: 'vortex-field', label: 'Vortex Field' },
 ];
 
 function Fn({ name, params, desc }) {
@@ -237,6 +238,78 @@ export default function DocsPage() {
             { route: '/calabi-yau', name: 'Calabi-Yau', desc: 'CalabiYauViz — Calabi-Yau manifold attack on RH via Weil conjecture cohomological machinery' },
             { route: '/vortex-field', name: 'Vortex Field', desc: 'Domain-colored phase portrait of V(s) = xi\'(s)/xi(s): zeros appear as phase vortices with winding ±1 (argument principle). Interactive off-axis vortex slider shows what an RH violation would look like. Honest ceiling: exact exploratory visualization, not a new rigorous Lambda bound.' },
             { route: '/visual-geometries', name: 'Visual Geometries', desc: 'Master gallery of 13 visualization panels — log-phase interference spiral, prime caustic geometry, phase crystal, hyperbolic prime spiral, vortex/defect map, near-zero rings, twin-ladder tomography, and more. Honest framing: exploratory pedagogy; twin-ladder geometry is a dead-end as a rigorous proof route.' },
+            { route: '/mills-theorem', name: 'Mills Theorem', desc: 'Mills constant A ≈ 1.3064 where the floor of A^(3^n) is prime for all n ≥ 1. Live primality recurrence table with precomputed continuation.' },
+            { route: '/gilbreath', name: 'Gilbreath Observation', desc: 'Gilbreath conjecture: iterated differences of the prime sequence always begin with 1. Difference triangle with Croft-generalization toggle and depth-of-verification readout.' },
+            { route: '/berry-keating-xp', name: 'Berry-Keating XP', desc: 'Berry-Keating xp operator as conjectured quantum Hamiltonian for RH — spectral analysis with honest non-match banner.' },
+            { route: '/connes-adelic', name: 'Connes Adèlic', desc: 'Connes adèlic approach to RH via the trace formula on the idèle class group. Spectral operator construction and open gaps.' },
+            { route: '/gram-points', name: 'Gram Points', desc: 'Points where the Riemann-Siegel theta function equals nπ; Gram law, Gram block exceptions, and Backlund counting.' },
+            { route: '/selberg-trace', name: 'Selberg Trace', desc: 'Selberg trace formula analog — geometric vs spectral side comparison with prime geodesics mapped to zeta zeros.' },
+            { route: '/rh-equivalents', name: 'RH Equivalents', desc: 'Compendium of conditions equivalent to the Riemann Hypothesis: Li criterion, Mertens bound, Robin inequality, and more.' },
+            { route: '/three-attacks', name: 'Three Attacks', desc: 'Three independent proof strategies: Theta-trap, discriminant ladder, and Volterra norm bound, with honest-status per attack.' },
+            { route: '/blaschke-ghosts', name: 'Blaschke Ghosts', desc: 'Blaschke product construction probing off-critical zero hypotheses; §27 refutation result and honest §27-refuted verdict.' },
+            { route: '/closure-routes', name: 'Closure Routes', desc: 'Systematic map of routes to closing the RH proof — RH-equivalent candidates, refuted routes, and open paths with freshness badges.' },
+            { route: '/volterra-bound', name: 'Volterra Bound', desc: 'Volterra operator norm bound ||V|| ≤ 1 — the central RH-equivalent target (Conjecture 26.3), with rigorous vs estimated status.' },
+            { route: '/collapse-chain', name: 'Collapse Chain', desc: '§15-27 program collapse: 7+ paper conjectures reduce to ||V|| ≤ 1 via a single obstruction chain; provenance and open gaps.' },
+            { route: '/hardy-z', name: 'Hardy Z', desc: 'Hardy Z function — real-valued on the critical line; sign changes locate nontrivial zeros via Riemann-Siegel formula.' },
+            { route: '/pair-correlation', name: 'Pair Correlation', desc: 'Montgomery pair correlation conjecture: zero pair densities match GUE 1 − (sin(πu)/(πu))² with empirical verification.' },
+            { route: '/riemann-siegel-z', name: 'Riemann-Siegel Z', desc: 'Extended Riemann-Siegel Z function analysis with Gram block statistics and zero-counting.' },
+            { route: '/voronin-universality', name: 'Voronin Universality', desc: 'Voronin universality theorem: ζ(s) approximates any non-vanishing analytic function in any compact sub-strip.' },
+            { route: '/pcc-route-exhaustion', name: 'PCC Route Exhaustion', desc: 'Systematic exhaustion of Montgomery PCC-based routes to RH — each route examined, verdict (open/refuted/RH-equivalent) recorded.' },
+            { route: '/hidden-square-program', name: 'Hidden Square Program', desc: '§26 hidden square program — the surviving RH-equivalent route after §27 reciprocal refutation; current status and open gaps.' },
+            { route: '/reciprocal-program', name: 'Reciprocal Program', desc: '§27 reciprocal program — refuted as a standalone RH proof route; Blaschke ghost obstruction and §27-refuted verdict.' },
+            { route: '/visualizations', name: 'Visualizations', desc: 'Auto-generated index of all visualization panels — phase portraits, caustic geometry, Dyson flow, Volterra heatmaps, and more.' },
+            { route: '/lambda-bounds', name: 'Lambda Bounds', desc: 'Historical and current upper bounds on the de Bruijn-Newman constant Λ — from 0.5 (Ki-Kim-Tao) to 0.2 (Platt-Trudgian).' },
+            { route: '/lambda-timeline', name: 'Lambda Timeline', desc: 'Timeline of Λ bound improvements with key papers, current best 0.2 (Platt-Trudgian), and the RH target Λ ≤ 0.' },
+            { route: '/rigor-dashboard', name: 'Rigor Dashboard', desc: 'Dashboard tracking which ZPO claims have rigorous status vs numerical estimates — per-module certification ledger.' },
+            { route: '/rh-proof-state', name: 'RH Proof State', desc: 'Live dashboard of the RH proof attempt: honest assessment per step, unresolved gaps, and finite-beat counts.' },
+            { route: '/route-map', name: 'Route Map', desc: 'Full interactive map of proof routes — DAG with status (rigorous, RH-equivalent, estimate, refuted) and open gaps highlighted.' },
+            { route: '/twin-ladder-paper-roadmap', name: 'Twin Ladder Roadmap', desc: 'Roadmap toward a rigorous twin-ladder paper — certified lemmas, open gaps, and next publication milestones.' },
+            { route: '/paper-audit-dashboard', name: 'Paper Audit', desc: 'Dashboard auditing paper claims — each assertion cross-checked against source code and literature with overclaim flags.' },
+            { route: '/gue-comparison', name: 'GUE Comparison', desc: 'Empirical GUE vs zeta zero spacing comparison: KS statistics, Wigner surmise fit, and honest-status annotation.' },
+            { route: '/lmfdb-cross-reference', name: 'LMFDB Cross-Reference', desc: 'Cross-reference of computed zero data against LMFDB tables; integrity check and citation freshness badge.' },
+            { route: '/edge-rigidity', name: 'Edge Rigidity', desc: 'ESY-style edge rigidity analysis for the Dyson gas model of zeta zeros — concentration inequalities at band edges.' },
+            { route: '/esy-rigidity-empirical', name: 'ESY Rigidity Empirical', desc: 'Empirical tests of the Erdos-Schlein-Yau rigidity estimate for zeta zero spacings at finite N.' },
+            { route: '/cross-attack', name: 'Cross-Attack', desc: 'Cross-attack efficiency dashboard — cross-validates multiple RH attack strategies against each other to surface consistent results.' },
+            { route: '/proof-planner', name: 'Proof Planner', desc: 'Interactive proof planning tool — organise and sequence proof steps with dependency tracking and milestone markers.' },
+            { route: '/improvement-queue', name: 'Improvement Queue', desc: 'Live view of the auto-improvement engine queue — pending, in-progress, and completed tickets with priority and model routing.' },
+            { route: '/proof-overview', name: 'Proof Overview', desc: 'High-level 8-step proof outline: Euler product transfer function, bridge unitarity, Hamiltonian minimisation, Darlington synthesis, and spectral confinement paths.' },
+            { route: '/dashboard', name: 'Dashboard', desc: 'Project-level status dashboard — key metrics, recent auto-improvement activity, and open gaps at a glance.' },
+            { route: '/proof-explorer', name: 'Proof Explorer', desc: 'Interactive exploration of the proof graph — browse lemmas, dependencies, and status for each step in the ZPO proof attempt.' },
+            { route: '/blog', name: 'Blog', desc: 'Article-style posts on ZPO research progress, key results, and mathematical commentary.' },
+            { route: '/wiki', name: 'Wiki', desc: 'Project knowledge-base wiki — definitions, conventions, and narrative explanations supplementing the formal docs.' },
+            { route: '/index', name: 'Project Index', desc: 'Master sitemap / project index — flat list of all pages organised by category for quick navigation.' },
+            { route: '/break-it', name: 'Break It', desc: 'Adversarial stress-test suite — deliberately exercises model edge cases and invariant violations to surface hidden failure modes.' },
+            { route: '/research-journal', name: 'Research Journal', desc: 'Chronological research journal — dated entries recording hypotheses tested, numerical experiments run, and conclusions drawn.' },
+            { route: '/meta-acceleration', name: 'Meta Acceleration', desc: 'Meta-acceleration strategy dashboard — tracks harness throughput, routing accuracy, and auto-improvement velocity over time.' },
+            { route: '/rh-dag', name: 'RH DAG', desc: 'RH dependency DAG — directed acyclic graph of all theorems, lemmas, and conjectures with status and proof-route provenance.' },
+            { route: '/engine-room', name: 'Engine Room', desc: 'Auto-improvement engine status — live view of running agents, commit cadence, API pool health, and queue depth.' },
+            { route: '/viz-winding-dyson-flow', name: 'Winding Dyson Flow', desc: 'Animated winding-number readout of the Dyson Brownian-motion zero flow — tracks total winding as zeros collide and separate.' },
+            { route: '/viz-near-zero', name: 'Near-Zero Visualization', desc: 'High-resolution phase portrait in the near-zero neighbourhood — magnified domain coloring around a selected nontrivial zeta zero.' },
+            { route: '/prime-rigidity', name: 'Prime Rigidity', desc: 'True vs perturbed prime spacing rigidity — compares empirical zero spacing against the Dyson rigid prediction with error bands.' },
+            { route: '/viz-euler-product', name: 'Euler Product Viz', desc: 'Step-by-step animated Euler product convergence — watch partial products converge to zeta as each prime factor is added.' },
+            { route: '/dyson-verifier', name: 'Dyson Verifier', desc: 'Dyson collision verifier — checks the collision-avoidance ODE conditions for the Dyson Brownian-motion model of zeta zeros.' },
+            { route: '/health', name: 'Health', desc: 'Application health check — confirms all lazy chunks load, build constants are reachable, and key data modules parse correctly.' },
+            { route: '/full-story', name: 'Full Story', desc: 'Complete narrative of the ZPO project — from the initial oscillator analogy through every major result, refutation, and open question.' },
+            { route: '/papers-download', name: 'Papers Download', desc: 'Bulk download page for all uploaded LaTeX papers — zip archive and individual PDF/source links.' },
+            { route: '/kyp-bounded-real', name: 'KYP Bounded Real', desc: 'Kalman-Yakubovich-Popov bounded-real lemma applied to the twin-ladder transfer function — LMI conditions for passivity and RH.' },
+            { route: '/shift-bridge-positivity', name: 'Shift Bridge Positivity', desc: 'Positivity analysis of the shift bridge operator — conditions under which the Toeplitz-like bridge kernel is positive semi-definite.' },
+            { route: '/freezing-bridge', name: 'Freezing Bridge', desc: 'Freezing-bridge phase transition — models the sharp freeze of the twin-ladder potential as temperature is lowered to the critical line.' },
+            { route: '/rigorous-numerics-stages', name: 'Rigorous Numerics Stages', desc: 'Certification pipeline for rigorous numerics (§20) — interval-arithmetic stages, error bounds, and current certification status per sub-term.' },
+            { route: '/schatten-trace-norm', name: 'Schatten Trace Norm', desc: 'Schatten p-norm and trace-norm analysis of the Volterra operator — bounds feeding into the ||V|| <= 1 RH-equivalent target.' },
+            { route: '/cayley-schur-trajectory', name: 'Cayley-Schur Trajectory', desc: 'Cayley-Schur transform: unit-disk trajectory of the ladder impedance — passivity certificates and Schur-stable zone boundaries.' },
+            { route: '/ht-corridor-certificates', name: 'HT Corridor Certificates', desc: 'Height-T corridor interval certificates — rigorous lower bounds on the zero-free corridor width at finite heights T.' },
+            { route: '/ht-window-census', name: 'HT Window Census', desc: 'Finite-window census at height T — counts zeros, checks Gram-block exceptions, and reports Backlund-formula residuals.' },
+            { route: '/viz-hyperbolic-prime-spiral', name: 'Hyperbolic Prime Spiral', desc: 'Hyperbolic prime spiral visualization — primes plotted on the Poincare disk with geodesic arcs tracing the log-phase winding.' },
+            { route: '/viz-log-phase-spiral', name: 'Log-Phase Spiral', desc: 'Log-phase interference spiral — cumulative Euler-product phase plotted as a spiral; zero locations appear as tight spiral loops.' },
+            { route: '/viz-euler-transport-flow', name: 'Euler Transport Flow', desc: 'Euler transport flow animation — tracks how a test mass injected into the Euler product cascade moves under the ZPO vector field.' },
+            { route: '/viz-volterra-kernel-heatmap', name: 'Volterra Kernel Heatmap', desc: 'Heatmap of the Volterra integral operator kernel K(a,b) — colour-codes kernel magnitude across the physical band, highlights CS-slack sliver.' },
+            { route: '/viz-volterra-norm-curve', name: 'Volterra Norm Curve', desc: 'Curve of the Volterra operator norm ||V_{a,Phi}|| vs parameter a — shows the approach to the ||V|| <= 1 target across the band.' },
+            { route: '/viz-caustic-resonance', name: 'Caustic Resonance', desc: 'Caustic resonance condition visualization — identifies parameter values where the Euler-product phase accumulates coherently, forming prime caustics.' },
+            { route: '/viz-phase-cylinder', name: 'Phase Cylinder', desc: 'Phase cylinder projection — wraps the critical-strip phase portrait onto a cylinder to expose periodicity and the zero vortex lattice.' },
+            { route: '/viz-prime-caustic', name: 'Prime Caustic', desc: 'Prime caustic geometry — rays from each prime Euler factor interfere constructively along caustic curves, visualised in the s-plane.' },
+            { route: '/viz-prime-density-caustic', name: 'Prime Density on Caustic', desc: 'Prime density distribution on the caustic — histogram of how many primes contribute to the caustic fold at each imaginary height.' },
+            { route: '/viz-prime-phase-crystal', name: 'Prime Phase Crystal', desc: 'Prime phase crystal — discrete Fourier crystal formed by superimposing Euler-factor phases; zero locations appear as Bragg-diffraction nodes.' },
+            { route: '/viz-twin-ladder-tomography', name: 'Twin Ladder Tomography', desc: 'Twin-ladder tomography — cross-sectional slices through the twin-ladder wavefunction at varying sigma, showing the critical-line pinch.' },
           ].map(p => (
             <div key={p.route} className="card">
               <h3><span style={{ color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)', fontSize: 13 }}>{p.route}</span> {p.name}</h3>
@@ -666,6 +739,63 @@ export default function DocsPage() {
               <p style={{ fontSize: 13 }}>{item.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* 10. Vortex Field */}
+      <section id="vortex-field" className="docs-section">
+        <h2>Vortex Field Visualization</h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
+          The <strong>Vortex Field</strong> page (<a href="#/vortex-field" style={{ color: 'var(--accent-blue)' }}>/vortex-field</a>) domain-colors
+          the phase of a local model for <InlineMath tex={"\\xi(s)"} /> near a selected zeta zero.
+        </p>
+
+        <h3>Mathematical Construction</h3>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
+          The logarithmic derivative of <InlineMath tex={"\\xi(s)"} />, the <em>vortex field</em>, is:
+        </p>
+        <BlockMath tex={"V(s) = \\frac{\\xi'(s)}{\\xi(s)}"} />
+        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
+          This field has a <strong>simple pole</strong> (phase vortex) at each zero <InlineMath tex={"\\rho_k"} /> of <InlineMath tex={"\\xi"} />.
+          The argument principle gives the winding number around a contour <InlineMath tex={"\\gamma"} /> enclosing one zero:
+        </p>
+        <BlockMath tex={"\\frac{1}{2\\pi i} \\oint_{\\gamma} V(s)\\,ds = +1"} />
+        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
+          The visualization uses the local product model over a window of nearby zeros:
+        </p>
+        <BlockMath tex={"H(s) = \\prod_{k} (s - \\rho_k)"} />
+        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
+          and domain-colors <InlineMath tex={"\\arg H(s)"} />. Each zero becomes a visible vortex — the phase wraps once around each singularity.
+        </p>
+
+        <h3>RH and Vortex Exclusion</h3>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
+          Under RH every <InlineMath tex={"\\rho_k = \\tfrac{1}{2} + i\\gamma_k"} />, so every vortex sits on the critical line <InlineMath tex={"\\text{Re}(s) = \\tfrac{1}{2}"} />.
+          The slider shifts the central zero off the line:
+        </p>
+        <BlockMath tex={"\\rho_{\\text{central}} = \\tfrac{1}{2} + \\delta + i\\gamma_c, \\quad \\delta > 0"} />
+        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
+          producing an off-axis conjugate pair <InlineMath tex={"\\tfrac{1}{2} \\pm \\delta + i\\gamma_c"} /> — an RH violation made geometrically visible.
+          <em>Vortex exclusion</em> (no off-axis vortices) is exactly RH.
+        </p>
+
+        <h3>Implementation Notes</h3>
+        <ul style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8, marginLeft: 20, marginBottom: 12 }}>
+          <li>Rendered on a 460 &times; 460 Canvas element with per-pixel <InlineMath tex={"\\arg H(s)"} /> evaluation.</li>
+          <li>Uses the first 25 nontrivial zeta zeros (hardcoded imaginary parts) — avoids importing the 16.7 MB zeros bundle.</li>
+          <li>Window spans <InlineMath tex={"\\pm 9"} /> units in the imaginary direction from the selected zero.</li>
+          <li>Optional magnitude contours and streamlines overlaid via a second Canvas pass.</li>
+        </ul>
+
+        <div className="card" style={{ marginTop: 16, borderColor: 'var(--accent-orange)' }}>
+          <p style={{ color: 'var(--accent-orange)', fontSize: 13, fontWeight: 600, marginBottom: 4 }}>
+            Honest ceiling
+          </p>
+          <p style={{ fontSize: 13 }}>
+            The vortex / winding-number picture re-derives <InlineMath tex={"\\Lambda \\geq 0"} /> (Rodgers–Tao) and makes RH geometrically visible,
+            but it is <strong>not</strong> a new rigorous bound on <InlineMath tex={"\\Lambda"} /> and does not beat
+            the Platt–Trudgian result <InlineMath tex={"\\Lambda \\leq 0.2"} />. This is an exact, exploratory visualization.
+          </p>
         </div>
       </section>
     </div>

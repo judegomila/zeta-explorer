@@ -2618,3 +2618,4 @@ below are the engine contract — do not rename or reorder.
 | 2726 | 2026-06-24T14:15:00Z | imp-2828 (content, medium): Create shared StatusBadge and HonestCallout components for uniform honest-rigor labeling across pages | src/components/StatusBadge.jsx |
 | 2727 | 2026-06-24T20:00:00Z | imp-2829 (ux, medium): Add min-width:0 to .card so grid items shrink to column width and overflow-x:auto on .math-block scrolls wide KaTeX formulas on narrow viewports | src/styles/app.css |
 | 2728 | 2026-06-24T21:00:00Z | imp-2734 (ux, low): Add /visualizations gallery and /route-map cross-links to VizLogPhaseSpiralPage header alongside existing back-to-Explorations link | src/pages/VizLogPhaseSpiralPage.jsx |
+| 2729 | 2026-06-24T22:00:00Z | imp-2755 (meta, low): Add scripts/assertion-coverage.mjs — coverage report listing every src/data module with zero assertions | scripts/assertion-coverage.mjs |

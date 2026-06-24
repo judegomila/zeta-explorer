@@ -2,6 +2,7 @@ import React from 'react';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import SystemArchitectureDiagram from '../components/SystemArchitectureDiagram.jsx';
 import PageHeader from '../components/PageHeader.jsx';
+import TableOfContents from '../components/TableOfContents.jsx';
 
 const TOC = [
   { id: 'overview', label: 'Overview' },
@@ -28,11 +29,6 @@ function Fn({ name, params, desc }) {
 }
 
 export default function DocsPage() {
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="page">
       <PageHeader title="Documentation">
@@ -42,15 +38,7 @@ export default function DocsPage() {
         </p>
       </PageHeader>
 
-      {/* Table of Contents */}
-      <div className="docs-toc">
-        <h3>Contents</h3>
-        <div className="docs-toc-links">
-          {TOC.map(t => (
-            <a key={t.id} onClick={() => scrollTo(t.id)} style={{ cursor: 'pointer' }}>{t.label}</a>
-          ))}
-        </div>
-      </div>
+      <TableOfContents sections={TOC} />
 
       {/* 1. Overview */}
       <section id="overview" className="docs-section">

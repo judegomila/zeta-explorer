@@ -93,6 +93,7 @@ const CayleySchurTrajectoryPage = lazy(() => import('./pages/CayleySchurTrajecto
 const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
 const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboardPage.jsx'));
 const RouteMapPage = lazy(() => import('./pages/RouteMapPage.jsx'));
+const EngineRoomPage = lazy(() => import('./pages/EngineRoomPage.jsx'));
 const VortexFieldPage = lazy(() => import('./pages/VortexFieldPage.jsx'));
 const VizWindingDysonFlowPage = lazy(() => import('./pages/VizWindingDysonFlowPage.jsx'));
 const VizNearZeroPage = lazy(() => import('./pages/VizNearZeroPage.jsx'));
@@ -235,6 +236,7 @@ const NAV_GROUPS = [
   {
     label: 'Progress',
     items: [
+      { to: '/engine-room', label: 'Engine Room (live)' },
       { to: '/meta-acceleration', label: 'Meta Acceleration' },
       { to: '/research-journal', label: 'Research Journal' },
       { to: '/improvement-queue', label: 'Improvement Queue' },
@@ -548,6 +550,7 @@ function AppShell() {
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />
           <Route path="/rh-proof-state" element={<RHProofStateDashboardPage />} />
           <Route path="/route-map" element={<RouteMapPage />} />
+          <Route path="/engine-room" element={<EngineRoomPage />} />
           <Route path="/vortex-field" element={<VortexFieldPage />} />
           <Route path="/viz-winding-dyson-flow" element={<VizWindingDysonFlowPage />} />
           <Route path="/viz-near-zero" element={<VizNearZeroPage />} />

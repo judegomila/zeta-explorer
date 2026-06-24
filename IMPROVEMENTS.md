@@ -2583,3 +2583,4 @@ below are the engine contract — do not rename or reorder.
 | 2691 | 2026-06-24T11:00:00Z | imp-2722 (ux, medium): Add hover-readout overlay to VortexFieldPage — mousing over canvas shows sigma, Im s coordinates and arg H(s) phase angle | src/pages/VortexFieldPage.jsx |
 | 2692 | 2026-06-24T12:00:00Z | imp-2723 (ux, medium): Add zoom + pan to VizLogPhaseSpiralPage — scroll-wheel zooms toward cursor, drag pans, Reset View button, zoom readout in controls | src/pages/VizLogPhaseSpiralPage.jsx |
 | 2693 | 2026-06-24T13:00:00Z | imp-2725 (content, medium): New viz page VizPhaseCylinderPage — unwrapped-rays heatmap + isometric cylinder toggle showing prime phase helices | src/pages/VizPhaseCylinderPage.jsx, src/App.jsx |
+| 2694 | 2026-06-24T21:40:00Z | imp-2730 (ux, medium): Add radial-exponent amplitude slider to VizHyperbolicPrimeSpiralPage — r(p)=(log p/log p_max)^alpha with alpha in [0.2,3.0] | src/pages/VizHyperbolicPrimeSpiralPage.jsx |

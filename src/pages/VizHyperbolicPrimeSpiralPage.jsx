@@ -20,7 +20,7 @@ function colorForPrime(p) {
   return '#ef4444';                    // red (3 mod 4)
 }
 
-function PrimeDisk({ maxPrime, phase, showGeodesic }) {
+function PrimeDisk({ maxPrime, phase, amplitude, showGeodesic }) {
   const SIZE = 700;
   const R = 320;                       // disk radius in pixels
   const CX = SIZE / 2;
@@ -30,13 +30,13 @@ function PrimeDisk({ maxPrime, phase, showGeodesic }) {
     const primes = sieveOfEratosthenes(maxPrime);
     const logMax = Math.log(maxPrime);
     return primes.map((p) => {
-      const r = Math.log(p) / logMax;      // ∈ [0, 1]
+      const r = Math.pow(Math.log(p) / logMax, amplitude);  // radial exponent spreads or compresses distribution
       const theta = (phase * Math.log(p)) % (2 * Math.PI);
       const x = CX + R * r * Math.cos(theta);
       const y = CY + R * r * Math.sin(theta);
       return { p, x, y, color: colorForPrime(p) };
     });
-  }, [maxPrime, phase]);
+  }, [maxPrime, phase, amplitude]);
 
   return (
     <svg width="100%" viewBox={`0 0 ${SIZE} ${SIZE}`} style={{ background: 'rgba(15,23,42,0.7)', borderRadius: 8 }}>
@@ -99,6 +99,7 @@ function PrimeDisk({ maxPrime, phase, showGeodesic }) {
 export default function VizHyperbolicPrimeSpiralPage() {
   const [maxPrime, setMaxPrime] = useState(5000);
   const [phase, setPhase] = useState(1.0);
+  const [amplitude, setAmplitude] = useState(1.0);
   const [showGeodesic, setShowGeodesic] = useState(true);
 
   return (
@@ -132,13 +133,19 @@ export default function VizHyperbolicPrimeSpiralPage() {
                 onChange={(e) => setPhase(parseFloat(e.target.value))}
                 style={{ width: '100%', marginTop: 6 }} />
             </label>
+            <label style={{ color: '#94a3b8', fontSize: 13, fontFamily: 'var(--font-mono, monospace)' }}>
+              radial exponent α: {amplitude.toFixed(2)}
+              <input type="range" min="0.2" max="3.0" step="0.05" value={amplitude}
+                onChange={(e) => setAmplitude(parseFloat(e.target.value))}
+                style={{ width: '100%', marginTop: 6 }} />
+            </label>
             <label style={{ color: '#94a3b8', fontSize: 13, fontFamily: 'var(--font-mono, monospace)', alignSelf: 'end' }}>
               <input type="checkbox" checked={showGeodesic}
                 onChange={(e) => setShowGeodesic(e.target.checked)} style={{ marginRight: 8 }} />
               show critical-line geodesic
             </label>
           </div>
-          <PrimeDisk maxPrime={maxPrime} phase={phase} showGeodesic={showGeodesic} />
+          <PrimeDisk maxPrime={maxPrime} phase={phase} amplitude={amplitude} showGeodesic={showGeodesic} />
         </div>
 
         {/* Math + interpretation */}

@@ -167,7 +167,8 @@ function NavDropdown({ label, items }) {
       </button>
       <div className="nav-dropdown-menu">
         {items.map(item => (
-          <NavLink key={item.to} to={item.to}>{item.label}</NavLink>
+          // end: all nav items are non-root flat paths; prevents false-active if a nested route is ever added under the same slug
+          <NavLink key={item.to} to={item.to} end>{item.label}</NavLink>
         ))}
       </div>
     </div>
@@ -429,7 +430,8 @@ function MobileNavSection({ label, items }) {
       <div className={`nav-mobile-section-items${collapsed ? '' : ' nav-mobile-section-items-open'}`}>
         <div className="nav-mobile-section-inner">
           {items.map(item => (
-            <NavLink key={item.to} to={item.to}>{item.label}</NavLink>
+            // end: all nav items are non-root flat paths; prevents false-active if a nested route is ever added under the same slug
+            <NavLink key={item.to} to={item.to} end>{item.label}</NavLink>
           ))}
         </div>
       </div>

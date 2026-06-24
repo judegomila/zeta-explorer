@@ -45,6 +45,7 @@ export default function VizPrimePhaseCrystalPage() {
   const canvasRef = useRef(null);
   const [zeroIdx, setZeroIdx] = useState(0);   // index into D.zeros
   const [renderInfo, setRenderInfo] = useState({ ms: 0, dc: 0, max: 0, mean: 0 });
+  const [resolution, setResolution] = useState(300);
 
   const t0 = D.zeros[zeroIdx];
 
@@ -52,43 +53,44 @@ export default function VizPrimePhaseCrystalPage() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const start = performance.now();
-    canvas.width = W;
-    canvas.height = H;
+    const res = resolution;
+    canvas.width = res;
+    canvas.height = res;
     const ctx = canvas.getContext('2d');
 
     // Compute the crystal directly into a Float32 buffer at the canvas
-    // resolution.  Each pixel is a sum of N_PRIMES cosines -- the inner loop
-    // hits ~50,000,000 ops for 500x500x200 so we hoist log p outside.
+    // resolution.  Each pixel is a sum of N_PRIMES cosines -- inner loop is
+    // O(res*res*N); lower resolution trades quality for speed.
     const N = D.logPrimes.length;
     const logP = D.logPrimes;
-    const buf = new Float32Array(W * H);
+    const buf = new Float32Array(res * res);
     let maxV = 0;
     let sumV = 0;
     const jMax = D.bbox.jMax;
     const kMax = D.bbox.kMax;
-    for (let py = 0; py < H; py++) {
-      const k = (py / (H - 1)) * kMax;
+    for (let py = 0; py < res; py++) {
+      const k = (py / (res - 1)) * kMax;
       const ktt = k * t0;
-      for (let px = 0; px < W; px++) {
-        const j = (px / (W - 1)) * jMax;
+      for (let px = 0; px < res; px++) {
+        const j = (px / (res - 1)) * jMax;
         let s = 0;
         for (let i = 0; i < N; i++) {
           s += Math.cos(j * logP[i] + ktt);
         }
         const v = Math.abs(s);
-        buf[py * W + px] = v;
+        buf[py * res + px] = v;
         if (v > maxV) maxV = v;
         sumV += v;
       }
     }
-    const meanV = sumV / (W * H);
+    const meanV = sumV / (res * res);
     const dc    = buf[0];
 
     // Render into ImageData.  Use sqrt scaling for visual punch.
-    const imgData = ctx.createImageData(W, H);
+    const imgData = ctx.createImageData(res, res);
     const data    = imgData.data;
     const invMax  = maxV > 0 ? 1 / maxV : 0;
-    for (let i = 0; i < W * H; i++) {
+    for (let i = 0; i < res * res; i++) {
       const norm = Math.min(1, buf[i] * invMax);
       const idx256 = Math.min(255, Math.floor(Math.sqrt(norm) * 255));
       const cmIdx = idx256 * 3;
@@ -105,24 +107,24 @@ export default function VizPrimePhaseCrystalPage() {
     ctx.fillStyle = 'rgba(220, 220, 220, 0.95)';
     ctx.textAlign = 'left';
     ctx.fillText('j=' + 0, 6, 14);
-    ctx.fillText('k=' + 0, 6, H - 6);
+    ctx.fillText('k=' + 0, 6, res - 6);
     ctx.textAlign = 'right';
-    ctx.fillText('j=' + jMax.toFixed(1), W - 6, 14);
+    ctx.fillText('j=' + jMax.toFixed(1), res - 6, 14);
     ctx.textAlign = 'left';
-    ctx.fillText('k=' + kMax.toFixed(0), 6, H - 22);
+    ctx.fillText('k=' + kMax.toFixed(0), 6, res - 22);
 
     // Axis tick marks (4 evenly-spaced ticks per axis, excluding edges).
     ctx.strokeStyle = 'rgba(160, 160, 160, 0.5)';
     ctx.lineWidth = 1;
     for (let i = 1; i < 4; i++) {
-      const x = (i / 4) * W;
+      const x = (i / 4) * res;
       ctx.beginPath();
-      ctx.moveTo(x, H - 3);
-      ctx.lineTo(x, H);
+      ctx.moveTo(x, res - 3);
+      ctx.lineTo(x, res);
       ctx.stroke();
     }
     for (let i = 1; i < 4; i++) {
-      const y = (i / 4) * H;
+      const y = (i / 4) * res;
       ctx.beginPath();
       ctx.moveTo(0, y);
       ctx.lineTo(3, y);
@@ -133,7 +135,7 @@ export default function VizPrimePhaseCrystalPage() {
     ctx.font = '8px "JetBrains Mono", monospace';
     ctx.fillStyle = 'rgba(120, 120, 120, 0.85)';
     ctx.textAlign = 'right';
-    ctx.fillText('F = |sum_p cos(j*log p + k*t_0)| (magnitude)', W - 4, H - 9);
+    ctx.fillText('F = |sum_p cos(j*log p + k*t_0)| (magnitude)', res - 4, res - 9);
 
     setRenderInfo({
       ms: +(performance.now() - start).toFixed(1),
@@ -141,7 +143,7 @@ export default function VizPrimePhaseCrystalPage() {
       max: +maxV.toFixed(4),
       mean: +meanV.toFixed(4),
     });
-  }, [t0]);
+  }, [t0, resolution]);
 
   // Re-render whenever t0 changes.  Heavy compute is ~150ms-300ms in dev so
   // we defer via requestAnimationFrame to keep slider interactions snappy.
@@ -197,6 +199,12 @@ export default function VizPrimePhaseCrystalPage() {
           <input type="range" min="0" max={D.zeros.length - 1} step="1" value={zeroIdx}
                  onChange={e => setZeroIdx(+e.target.value)} />
           <span className="control-value">{t0.toFixed(4)}</span>
+        </div>
+        <div className="control-group" style={{ minWidth: 280 }}>
+          <label>Resolution: {resolution} x {resolution} px ({((resolution * resolution * D.logPrimes.length) / 1e6).toFixed(1)}M ops)</label>
+          <input type="range" min="100" max="500" step="50" value={resolution}
+                 onChange={e => setResolution(+e.target.value)} />
+          <span className="control-value">{renderInfo.ms} ms</span>
         </div>
       </div>
 

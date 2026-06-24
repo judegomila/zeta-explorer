@@ -6,18 +6,7 @@ import {
   FULL_ROUTE_MAP_NEXT_MOVE,
   ROUTE_MAP_CROSS_CHECK,
 } from '../data/full-route-map-2026-06-19.js';
-
-// Status -> color. Ordered by "how alive" the route is.
-const STATUS_COLOR = {
-  'RIGOROUS-SOTA':  { bg: 'rgba(16,185,129,0.13)',  bd: 'rgba(16,185,129,0.45)',  fg: '#10b981' },
-  'UNDER-EXPLORED': { bg: 'rgba(34,211,238,0.13)',  bd: 'rgba(34,211,238,0.5)',   fg: '#22d3ee' },
-  'OPEN-HARD':      { bg: 'rgba(139,92,246,0.13)',  bd: 'rgba(139,92,246,0.45)',  fg: '#a78bfa' },
-  'CONDITIONAL':    { bg: 'rgba(245,158,11,0.13)',  bd: 'rgba(245,158,11,0.45)',  fg: '#f59e0b' },
-  'ESTIMATE':       { bg: 'rgba(59,130,246,0.13)',  bd: 'rgba(59,130,246,0.4)',   fg: '#60a5fa' },
-  'RH-EQUIVALENT':  { bg: 'rgba(148,163,184,0.12)', bd: 'rgba(148,163,184,0.35)', fg: '#94a3b8' },
-  'DEAD-END':       { bg: 'rgba(239,68,68,0.10)',   bd: 'rgba(239,68,68,0.35)',   fg: '#f87171' },
-  'REFUTED':        { bg: 'rgba(127,29,29,0.25)',   bd: 'rgba(239,68,68,0.5)',    fg: '#fca5a5' },
-};
+import { STATUS_COLOR, StatusTag, StatusLegend } from '../components/StatusLegend.jsx';
 
 const CLUSTER_TITLES = {
   lambdaUpper: 'Λ Upper-Bound Routes',
@@ -26,18 +15,6 @@ const CLUSTER_TITLES = {
   literaturePCC: 'Literature Ports & the Montgomery-PCC Surface',
   originalIdeas: 'Original / Novel-Angle Ideas',
 };
-
-function StatusTag({ status }) {
-  const c = STATUS_COLOR[status] || STATUS_COLOR['ESTIMATE'];
-  return (
-    <span style={{
-      display: 'inline-block', padding: '2px 8px', borderRadius: 4,
-      background: c.bg, border: `1px solid ${c.bd}`, color: c.fg,
-      fontSize: 10.5, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)',
-      letterSpacing: '0.02em', whiteSpace: 'nowrap',
-    }}>{status}</span>
-  );
-}
 
 function OppDots({ score }) {
   return (
@@ -65,9 +42,8 @@ export default function RouteMapPage() {
       </div>
 
       {/* Legend */}
-      <div className="card" style={{ marginBottom: 20, display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'center' }}>
-        <span style={{ fontSize: 12, color: '#94a3b8', marginRight: 4 }}>Legend:</span>
-        {Object.keys(STATUS_COLOR).map((s) => <StatusTag key={s} status={s} />)}
+      <div className="card" style={{ marginBottom: 20 }}>
+        <StatusLegend />
       </div>
 
       {/* Ranked opportunities — the actionable part */}

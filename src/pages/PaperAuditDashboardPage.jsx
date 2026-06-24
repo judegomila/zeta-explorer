@@ -248,6 +248,11 @@ export default function PaperAuditDashboardPage() {
   const [sortDir, setSortDir] = useState('asc');
   const [expandedId, setExpandedId] = useState(null);
 
+  const maxAuditDate = useMemo(() => {
+    const dates = D.conjectures.map((c) => c.auditDate).filter(Boolean);
+    return dates.length ? [...dates].sort().at(-1) : null;
+  }, []);
+
   const onSort = (key) => {
     if (sortBy === key) {
       setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'));
@@ -307,7 +312,21 @@ export default function PaperAuditDashboardPage() {
           Sections {D.paperSectionsCovered.join(', ')} with its audit verdict.
         </div>
         <div style={{ color: '#64748b', fontSize: 13, marginTop: 6, fontFamily: mono }}>
-          {D.auditedCount} of {D.totalCount} audited · {D.completedAuditTickets.length} audit tickets shipped · ticket {D.ticket}
+          {D.auditedCount} of {D.totalCount} audited
+          {' · '}
+          <span style={{ color: STATUS_COLORS.UNAUDITED.fg }}>
+            {D.statusCounts['UNAUDITED'] || 0} unaudited
+          </span>
+          {' · '}
+          {D.completedAuditTickets.length} audit tickets shipped
+          {maxAuditDate && (
+            <>
+              {' · '}
+              <span title="Most recent auditDate across all conjecture entries">
+                data as of {maxAuditDate}
+              </span>
+            </>
+          )}
         </div>
       </header>
 

@@ -2620,3 +2620,4 @@ below are the engine contract — do not rename or reorder.
 | 2728 | 2026-06-24T21:00:00Z | imp-2734 (ux, low): Add /visualizations gallery and /route-map cross-links to VizLogPhaseSpiralPage header alongside existing back-to-Explorations link | src/pages/VizLogPhaseSpiralPage.jsx |
 | 2730 | 2026-06-24T23:00:00Z | imp-2760 (content, low): Add precomputed continuation table to /mills-theorem showing n=7..11 with approximate digit counts and A_n = Mills constant | src/components/MillsExplorerViz.jsx |
 | 2729 | 2026-06-24T22:00:00Z | imp-2755 (meta, low): Add scripts/assertion-coverage.mjs — coverage report listing every src/data module with zero assertions | scripts/assertion-coverage.mjs |
+| 2731 | 2026-06-24T23:30:00Z | imp-2764 (content, low): Add interactive KL-divergence sigma slider to /info-theory showing D_KL(P_sigma||P_{1/2}) curve with honest model-distribution caption | src/pages/InformationTheoryPage.jsx |

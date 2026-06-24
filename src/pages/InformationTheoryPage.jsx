@@ -1,8 +1,79 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import InformationTheoryViz from '../components/InformationTheoryViz.jsx';
 import InfoTheoryExperimentsViz from '../components/InfoTheoryExperimentsViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+
+const SMALL_PRIMES = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71];
+
+function klWeights(s) {
+  const raw = SMALL_PRIMES.map(p => Math.pow(p, -s));
+  const total = raw.reduce((a, b) => a + b, 0);
+  return raw.map(w => w / total);
+}
+
+function computeKLFromHalf(s) {
+  const wS = klWeights(s);
+  const wH = klWeights(0.5);
+  let kl = 0;
+  for (let i = 0; i < SMALL_PRIMES.length; i++) {
+    if (wS[i] > 1e-20 && wH[i] > 1e-20) kl += wS[i] * Math.log2(wS[i] / wH[i]);
+  }
+  return Math.max(0, kl);
+}
+
+function KLDivergenceSlider() {
+  const [sigma, setSigma] = useState(0.5);
+  const currentKL = computeKLFromHalf(sigma);
+
+  const curve = useMemo(() => {
+    const pts = [];
+    for (let i = 0; i <= 120; i++) {
+      const s = 0.01 + (i / 120) * 0.98;
+      pts.push([s, computeKLFromHalf(s)]);
+    }
+    return pts;
+  }, []);
+
+  const W = 400, H = 110;
+  const maxKL = Math.max(...curve.map(pt => pt[1])) * 1.05 + 1e-10;
+  const toX = s => ((s - 0.01) / 0.98) * W;
+  const toY = kl => H - (kl / maxKL) * (H - 6) - 3;
+  const pathD = curve.map((pt, i) =>
+    (i === 0 ? "M" : "L") + " " + toX(pt[0]).toFixed(1) + " " + toY(pt[1]).toFixed(1)
+  ).join(" ");
+  const cx = toX(sigma), cy = toY(currentKL);
+
+  return (
+    <div style={{ marginTop: 16, padding: 12, background: "rgba(239,68,68,0.05)", borderRadius: 8, border: "1px solid rgba(239,68,68,0.2)" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+        <span style={{ color: "#94a3b8", fontSize: 12 }}>σ =</span>
+        <input
+          type="range" min="0.01" max="0.99" step="0.01"
+          value={sigma}
+          onChange={e => setSigma(parseFloat(e.target.value))}
+          style={{ flex: 1 }}
+        />
+        <span style={{ color: "#f87171", fontSize: 13, fontWeight: 600, minWidth: 36 }}>{sigma.toFixed(2)}</span>
+      </div>
+      <svg width="100%" viewBox={"0 0 " + W + " " + H} style={{ display: "block", marginBottom: 6 }}>
+        <line x1="0" y1={H - 3} x2={W} y2={H - 3} stroke="#334155" strokeWidth="1" />
+        <line x1="0" y1="0" x2="0" y2={H - 3} stroke="#334155" strokeWidth="1" />
+        <line x1={toX(0.5)} y1="0" x2={toX(0.5)} y2={H - 3} stroke="#10b981" strokeWidth="1" strokeDasharray="4,3" />
+        <path d={pathD} fill="none" stroke="#ef4444" strokeWidth="1.5" />
+        <circle cx={cx} cy={cy} r="4" fill="#f87171" />
+        <text x={toX(0.5) + 3} y="12" fill="#10b981" fontSize="9">σ=1/2 (zero)</text>
+      </svg>
+      <div style={{ color: "#ef4444", fontSize: 13, textAlign: "center" }}>
+        D<sub>KL</sub>(P<sub>{sigma.toFixed(2)}</sub> &#x2016; P<sub>1/2</sub>) = <strong>{currentKL.toFixed(4)}</strong> bits
+      </div>
+      <p style={{ fontSize: 11, color: "#64748b", marginTop: 8, lineHeight: 1.6 }}>
+        Model divergence computed over the first 20 primes with weights p<sup>-σ</sup>. This is a divergence on the
+        model prime-oscillator weight distribution, not a metric on the actual Riemann zeros. Zero at σ=1/2 by symmetry.
+      </p>
+    </div>
+  );
+}
 
 export default function InformationTheoryPage() {
   return (
@@ -342,6 +413,7 @@ export default function InformationTheoryPage() {
           </p>
         </div>
         <BlockMath tex={"D_{\\text{KL}}(P \\| Q) = 0 \\;\\Longleftrightarrow\\; P = Q \\;\\Longleftrightarrow\\; \\sigma = \\tfrac{1}{2} \\;\\Longleftrightarrow\\; \\chi(s) \\text{ is unitary}"} />
+        <KLDivergenceSlider />
       </div>
 
       {/* Related Pages */}

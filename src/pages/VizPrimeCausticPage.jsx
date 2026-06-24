@@ -50,6 +50,33 @@ export default function VizPrimeCausticPage() {
   const [mode, setMode]       = useState('amplitude');     // 'count' or 'amplitude'
   const [resolution, setRes]  = useState(1);                // 1=full 300x300, 2=half, 4=coarse
   const [renderInfo, setRenderInfo] = useState({ ms: 0, maxVal: 0 });
+  const [hoverInfo, setHoverInfo] = useState(null);
+
+  const handleMouseMove = useCallback((e) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const W = D.bbox.gridW;
+    const H = D.bbox.gridH;
+    const scaleX = W / rect.width;
+    const scaleY = H / rect.height;
+    const px = (e.clientX - rect.left) * scaleX;
+    const py = (e.clientY - rect.top) * scaleY;
+    const sMin = D.bbox.sigmaMin, sMax = D.bbox.sigmaMax;
+    const tMin = D.bbox.tMin, tMax = D.bbox.tMax;
+    const sigma = sMin + (px / (W - 1)) * (sMax - sMin);
+    const t = tMax - (py / (H - 1)) * (tMax - tMin);
+    if (t < tMin || t > tMax || sigma < sMin || sigma > sMax) { setHoverInfo(null); return; }
+    const M = logPrimes.length;
+    let count = 0, amp = 0;
+    for (let i = 0; i < M; i++) {
+      const r = wrap(t * logPrimes[i]);
+      if (Math.abs(r) < eps) { count++; amp += Math.exp(-sigma * logPrimes[i]); }
+    }
+    setHoverInfo({ clientX: e.clientX, clientY: e.clientY, sigma, t, count, amp });
+  }, [logPrimes, eps]);
+
+  const handleMouseLeave = useCallback(() => setHoverInfo(null), []);
 
   // Pre-slice the prime list to the active count.
   const logPrimes = useMemo(() => {
@@ -248,11 +275,37 @@ export default function VizPrimeCausticPage() {
       </div>
 
       <div style={{ marginTop: 16, background: 'var(--bg-panel)', border: '1px solid var(--border)',
-                    borderRadius: 8, padding: 12, display: 'flex', justifyContent: 'center' }}>
+                    borderRadius: 8, padding: 12, display: 'flex', justifyContent: 'center',
+                    position: 'relative' }}>
         <canvas ref={canvasRef}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
                 style={{ width: '100%', maxWidth: D.bbox.gridW, height: 'auto',
                          border: '1px solid #1e293b', borderRadius: 4,
-                         imageRendering: 'pixelated' }} />
+                         imageRendering: 'pixelated', cursor: 'crosshair' }} />
+        {hoverInfo && (
+          <div style={{
+            position: 'fixed',
+            left: hoverInfo.clientX + 14,
+            top: hoverInfo.clientY - 10,
+            background: 'rgba(15, 23, 42, 0.96)',
+            border: '1px solid #334155',
+            borderRadius: 6,
+            padding: '7px 10px',
+            fontFamily: mono,
+            fontSize: 11,
+            color: '#e2e8f0',
+            pointerEvents: 'none',
+            zIndex: 1000,
+            lineHeight: 1.7,
+            whiteSpace: 'nowrap',
+          }}>
+            <div><span style={{ color: '#94a3b8' }}>sigma:</span> {hoverInfo.sigma.toFixed(4)}</div>
+            <div><span style={{ color: '#94a3b8' }}>t:</span> {hoverInfo.t.toFixed(4)}</div>
+            <div><span style={{ color: '#94a3b8' }}>count:</span> {hoverInfo.count}</div>
+            <div><span style={{ color: '#86efac' }}>amp:</span> {hoverInfo.amp.toFixed(4)}</div>
+          </div>
+        )}
       </div>
 
       <div className="card" style={{ marginTop: 14, padding: 14 }}>

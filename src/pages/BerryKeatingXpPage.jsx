@@ -335,17 +335,23 @@ export default function BerryKeatingXpPage() {
         fontSize: 12,
         lineHeight: 1.55,
       }}>
-        <strong>Honest scope.</strong>{' '}
+        <strong>Honest scope -- this page exhibits a GAP, not a success.</strong>{' '}
         Berry-Keating is a <em>conjecture</em>. The eigenvalues of the truncated
-        symmetrized xp on the Hermite basis do NOT equal the Riemann zero
-        ordinates. The true Hilbert-Polya operator -- if it exists -- would
-        require prime-dependent boundary conditions (Connes adelic / Sierra-
-        Rodriguez-Lagares regularization). The point of this page is to make
-        the <em>scale</em> and <em>density</em> of the naive spectrum visible,
-        and to report the per-N RMS residual without obfuscation. The RMS values
-        you see (~{rmsByN[50].toFixed(0)} for N=50, ~{rmsByN[200].toFixed(0)} for
-        N=200) are bounded by the order-of-magnitude tripwire (RMS &lt; 150)
-        rather than driven to zero.
+        symmetrized H = (xp + px)/2 on the Hermite basis do NOT reproduce the
+        Riemann zero ordinates, and the per-N RMS residual does NOT shrink toward
+        zero as N grows (~{rmsByN[50].toFixed(0)} at N=50, ~{rmsByN[200].toFixed(0)} at
+        N=200) -- so the scatter below is a <em>failure-to-match</em> exhibit, not a
+        Hilbert-Polya realization. The true Hilbert-Polya operator -- if it exists
+        -- would require a still-unknown prime-dependent boundary condition /
+        regularization (Connes adelic / Sierra-Rodriguez-Lagares). The point of
+        this page is to make the <em>scale</em> and <em>density</em> of the naive
+        spectrum visible and to report the RMS residual without obfuscation; the
+        values stay bounded by the order-of-magnitude tripwire (RMS &lt; 150)
+        rather than being driven to zero. See{' '}
+        <Link to="/hamiltonian" style={{ color: '#fca5a5', fontWeight: 700 }}>/hamiltonian</Link>
+        {' '}for the operator-construction context and{' '}
+        <Link to="/gap-closing" style={{ color: '#fca5a5', fontWeight: 700 }}>/gap-closing</Link>
+        {' '}for the open Gap S5 (self-adjoint operator) this failure illustrates.
       </div>
 
       <div style={{

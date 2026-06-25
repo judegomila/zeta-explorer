@@ -31,6 +31,26 @@
  * Tickets: created in early bootstrap commits; imp-776 added this @module doc.
  */
 
+// === DO-NOT-CITE GUARD (imp-2798 literature audit, 2026-06-25) ===
+// The full route map (src/data/full-route-map-2026-06-19.js, lines 64 & 66)
+// flags two citations as fabricated/phantom. Audit result: NEITHER appears as
+// an entry in this file or in scattering-literature.js / the lin-stat survey,
+// so the reference data layer is CLEAN. This guard records the finding so the
+// flagged citations are never silently (re-)added to `literature` below.
+// Any seeder or contributor adding a reference MUST NOT introduce these:
+export const FLAGGED_FABRICATED_CITATIONS = [
+  {
+    label: 'Soundararajan-Tao 2024',
+    verdict: 'PHANTOM citation; wrong object (REFUTED)',
+    routeMapRef: 'full-route-map-2026-06-19.js:64 (imp-1331)',
+  },
+  {
+    label: 'Goldston-Gonek 2pt PCC',
+    verdict: 'fabricated citation flagged; 50-year wall (DEAD-END)',
+    routeMapRef: 'full-route-map-2026-06-19.js:66 (imp-1302, corrected in imp-2663)',
+  },
+];
+
 const literature = [
   // === Hilbert-Polya & Hamiltonian approaches ===
   {

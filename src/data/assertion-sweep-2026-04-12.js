@@ -126,6 +126,7 @@ import './polymath15-constants-mpfr-check.js';   // imp-413: 4 assertions (C_H/C
 import './polymath15-constants-gmp-check.js';    // imp-422: 4 assertions (C_H/C_C/C_T/C_F relErr < 1e-14)
 import './submission-ready-2026-04-12.js';       // imp-500: 2 assertions (fatalCount===0, criticalPending===0)
 import '../math/c-mb-unconditional-bound.js';    // imp-486: 2 assertions (searchComplete, approachesExamined>=3)
+import './imp-2701-ch-rigor-lock.js';            // imp-2701: 3 assertions (C_H not rigorous, finite-N no rigorous beat, verdict NO-GO/stays SOTA)
 
 // NOTE: imp469-cross-verification.js is already live via m-raw-from-umon-bridge.js (imp-473: 5 assertions).
 
@@ -138,10 +139,10 @@ export const ASSERTION_SWEEP_2026_04_12 = {
 
   buildPassed:      true,
   verifiedAt:       '2026-04-15T23:00:00.000Z',  // imp-806: re-verified all 17 assertions still pass; build clean (npm run build: ✓ built in ~4s)
-  totalAssertions:    17,
+  totalAssertions:    20,  // imp-2701: +3 (C_H rigor lock) on top of the original 17
   deadBeforeSweep:    12,  // polymath15-mpfr(4)+polymath15-gmp(4)+submission-ready(2)+c-mb(2)
   liveBeforeSweep:     5,  // imp469-cross-verification via m-raw-from-umon-bridge.js
-  deadAfterSweep:      0,  // all 4 dead-assertion files activated by side-effect imports above
+  deadAfterSweep:      0,  // all dead-assertion files (incl. imp-2701) activated by side-effect imports above
 
   assertions: [
     {
@@ -200,6 +201,20 @@ export const ASSERTION_SWEEP_2026_04_12 = {
       nowLive: true,
       pass:    true,
       note:    'GUE universality irreducibility proof; three approaches (Selberg/Huxley/GGM) documented',
+    },
+    {
+      file:    'src/data/imp-2701-ch-rigor-lock.js',
+      ticket:  'imp-2701',
+      count:   3,
+      checks:  [
+        'C_H isRigorousUpperBound === false',
+        'finite-N rigorousBeat === false on C_C ansatz',
+        'verdict contains NO-GO and stays SOTA',
+      ],
+      wasLive: false,
+      nowLive: true,
+      pass:    true,
+      note:    'Honest-classification lock: fails build if the withdrawn finite-N C_H=1/8 beat overclaim is re-introduced (imp-2642/imp-2643)',
     },
   ],
 };

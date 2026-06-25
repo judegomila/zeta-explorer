@@ -372,3 +372,85 @@ export const IMP_2326_ASSERTIONS = [
       'the ledger constants are inconsistent with the reported bound.',
   },
 ];
+
+// ── imp-2710: reconcile the imp-2326 higher-order ledger against the imp-2643 capstone ──
+// Two parallel constant ledgers survive the discharge effort:
+//   - imp-2326 (this module): the asymptotic N -> inf chain at fixed PT height T_PT = 3e12.
+//   - imp-2643 (honest-assembled-EN): the finite-N* = 1e4 mean-field budget E(N).
+// They share two named constants whose values must be reconciled, not allowed to drift.
+// Reference literals are baked from imp-2643 (not imported) to keep this module light
+// per the no-heavy-imports rule; both are stable headline constants of the capstone.
+
+const E_TRUNC_PT_IMP2643 = 3.1e-5;             // imp-2643 E_TRUNC_PT (sigma_opt = 0.75, rigorous-modulo-C_T)
+const C_SELBERG_DISCHARGED_TRUDGIAN = 2.622;   // imp-2641: explicit Trudgian 2014 coefficient
+
+export const IMP_2710_LEDGER_RECONCILIATION = Object.freeze({
+  id: 'imp-2710',
+  title: 'Reconcile the imp-2326 C_HO/K_0/K_1 chain against the post-discharge imp-2643 E(N) ledger',
+  sharedConstants: Object.freeze([
+    Object.freeze({
+      symbol: 'E_trunc_pt',
+      imp2326Value: E_TRUNC_PT_HEADLINE,            // 3.06e-5 headline (derived 3.064e-5)
+      imp2643Value: E_TRUNC_PT_IMP2643,             // 3.1e-5
+      agreesWithinTolerance: Math.abs(E_TRUNC_PT_HEADLINE - E_TRUNC_PT_IMP2643) < 1e-6,
+      note:
+        'Both ledgers carry the Ingham truncation term at sigma_opt = 0.75. imp-2326 reports ' +
+        'the headline 3.06e-5 (derived 3.064e-5 from (2 e_I/kappa) T_PT^{-kappa}); imp-2643 ' +
+        'rounds to 3.1e-5. Agree to within 4e-7 < 1e-6. Same constant, no divergence.',
+    }),
+    Object.freeze({
+      symbol: 'C_Selberg',
+      imp2326Value: C_SELBERG,                      // 3.0 placeholder
+      imp2643Value: C_SELBERG_DISCHARGED_TRUDGIAN,  // 2.622 discharged
+      divergent: true,
+      reconciledConservative: C_SELBERG >= C_SELBERG_DISCHARGED_TRUDGIAN,
+      note:
+        'KNOWN divergence, reconciled as CONSERVATIVE. imp-2326 uses C_Selberg = 3.0; imp-2641 ' +
+        'discharged it to the explicit Trudgian 2014 coefficient 2.622. C_Selberg enters C_HO ' +
+        'monotonically via K_0 = pi C_Selberg / sqrt(2 pi), so the placeholder 3.0 OVER-estimates ' +
+        'C_HO (a rate constant on the N^{-3/2} term that decays to 0). The 3.0 ledger value is ' +
+        'therefore a conservative upper bound; citing 2.622 would only tighten C_HO. No correction ' +
+        'required to the headline, but the discharged 2.622 is now the rigorous source value.',
+    }),
+  ]),
+  heightRoleNote:
+    'T_PT = 3e12 (imp-2326, PT verified height) and T0 = effectiveHeightForN(1e4) approx 9.879e3 ' +
+    '(imp-2643, finite-N* mean-field height) are DIFFERENT heights playing DIFFERENT roles ' +
+    '(asymptotic-fixed-T_PT route vs finite-N* route), not a divergent value of one constant.',
+  verdict:
+    'Ledgers consistent. E_trunc_pt agrees across both within 1e-6; the only divergent shared ' +
+    'constant is C_Selberg (3.0 vs discharged 2.622), which is conservative in the imp-2326 chain.',
+});
+
+export const IMP_2710_RECONCILIATION_ASSERTIONS = [
+  {
+    id: 'imp2710-Etrunc-cross-ledger-match',
+    holds: () => Math.abs(E_TRUNC_PT_HEADLINE - E_TRUNC_PT_IMP2643) < 1e-6,
+    why:
+      'imp-2326 headline E_trunc_pt = 3.06e-5 must match imp-2643 E_TRUNC_PT = 3.1e-5 within 1e-6 ' +
+      '(actual gap 4e-7). Both are the same Ingham truncation term at sigma_opt = 0.75; a wider ' +
+      'gap would mean the two surviving ledgers disagree on the sole non-zero asymptotic budget term.',
+  },
+  {
+    id: 'imp2710-derived-Etrunc-matches-2643',
+    holds: () => Math.abs(E_TRUNC_PT_DERIVED - E_TRUNC_PT_IMP2643) < 1e-6,
+    why:
+      'The first-principles re-derivation (2 e_I/kappa) T_PT^{-kappa} = 3.064e-5 must also match ' +
+      'imp-2643 3.1e-5 within 1e-6, closing the loop from raw constants through to the capstone ledger.',
+  },
+  {
+    id: 'imp2710-CSelberg-placeholder-conservative',
+    holds: () => C_SELBERG >= C_SELBERG_DISCHARGED_TRUDGIAN,
+    why:
+      'imp-2326 uses C_Selberg = 3.0; imp-2641 discharged it to 2.622. Because C_HO grows ' +
+      'monotonically in C_Selberg via K_0, the 3.0 placeholder must stay >= the discharged 2.622 ' +
+      'for the imp-2326 C_HO to remain a conservative over-estimate. If a future edit drops ' +
+      'imp-2326 below 2.622 the conservative-direction claim breaks and this tripwire fires.',
+  },
+];
+
+for (const a of IMP_2710_RECONCILIATION_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error(`imp-2326 / imp-2710 reconciliation assertion failed: ${a.id}`);
+  }
+}

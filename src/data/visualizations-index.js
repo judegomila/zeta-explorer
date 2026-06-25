@@ -99,6 +99,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'research-inputs/twin_ladder_consolidated_v52.pdf §16 (closure routes)',
       ticket: 'imp-1222',
       pedagogicalStep: 1,
+      honestCeiling:
+        'Descriptive phase-portrait of zeta on the critical line; zeros render as cusps. Makes no Lambda bound or RH claim.',
     }),
     Object.freeze({
       route: '/viz-twin-ladder-tomography',
@@ -111,6 +113,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'research-inputs/twin_ladder_consolidated_v52.pdf §15 (shift-bridge)',
       ticket: 'imp-1223',
       pedagogicalStep: 2,
+      honestCeiling:
+        'Descriptive |zeta(s)*zeta(1-s)| heatmap; the sigma=1/2 seam is shown, not proven. No Lambda claim.',
     }),
     Object.freeze({
       route: '/viz-euler-transport-flow',
@@ -123,6 +127,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'research-inputs/twin_ladder_consolidated_v52.pdf §17 (Blaschke ghosts)',
       ticket: 'imp-1224',
       pedagogicalStep: 3,
+      honestCeiling:
+        'Descriptive streamline portrait of the logarithmic-derivative flow; zeros appear as sources. No Lambda claim.',
     }),
     Object.freeze({
       route: '/viz-prime-caustic',
@@ -135,6 +141,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three attacks)',
       ticket: 'imp-1225',
       pedagogicalStep: 4,
+      honestCeiling:
+        'Descriptive phase-coherence density map of primes; shows arithmetic structure only. No Lambda claim.',
     }),
     Object.freeze({
       route: '/viz-hyperbolic-prime-spiral',
@@ -147,6 +155,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'research-inputs/twin_ladder_consolidated_v52.pdf §20 (rigorous numerics)',
       ticket: 'imp-1226',
       pedagogicalStep: 5,
+      honestCeiling:
+        'Descriptive Poincare-disk embedding of primes; aesthetic and structural only. No Lambda claim.',
     }),
     Object.freeze({
       route: '/viz-prime-phase-crystal',
@@ -159,6 +169,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'research-inputs/twin_ladder_consolidated_v52.pdf §23 (freezing bridge)',
       ticket: 'imp-1227',
       pedagogicalStep: 6,
+      honestCeiling:
+        'Descriptive Bragg-style diffraction of prime phases; peaks track known zeros. No Lambda claim.',
     }),
     Object.freeze({
       route: '/cayley-schur-trajectory',
@@ -171,6 +183,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'research-inputs/twin_ladder_consolidated_v52.pdf §27 (de Branges-Krein)',
       ticket: 'imp-1294',
       pedagogicalStep: 7,
+      honestCeiling:
+        'Illustrates Conjecture 27.2 unit-disk membership; the membership is conjectural, not proven. No Lambda claim.',
     }),
     Object.freeze({
       route: '/viz-volterra-kernel-heatmap',
@@ -183,6 +197,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'research-inputs/twin_ladder_consolidated_v52.pdf §19 (rigorous Volterra bounds)',
       ticket: 'imp-1291',
       pedagogicalStep: 8,
+      honestCeiling:
+        'Descriptive |k(x,y)|^2 kernel-concentration heatmap; suggests rank-1-like structure. No operator bound is proven.',
     }),
     Object.freeze({
       route: '/viz-volterra-norm-curve',
@@ -195,6 +211,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'research-inputs/twin_ladder_consolidated_v52.pdf §20 (HS bound saturation)',
       ticket: 'imp-1292',
       pedagogicalStep: 9,
+      honestCeiling:
+        'Plots the rigorous HS upper bound and empirical op-norm only; growth beyond a around 2.3 is open. No Lambda claim.',
     }),
     Object.freeze({
       route: '/vortex-field',
@@ -206,6 +224,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       paperSourcePath: 'user image: Prime-Log Vortex Field Near a Zeta Zero',
       ticket: 'imp-2673',
       pedagogicalStep: 10,
+      honestCeiling:
+        'Re-derives the Lambda >= 0 sign only via winding; the domain-coloring is descriptive. No upper Lambda bound.',
     }),
     Object.freeze({
       route: '/prime-rigidity',
@@ -217,6 +237,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       paperSourcePath: 'user image: Twin-Ladder Visual Geometries (panel 11, true-vs-perturbed)',
       ticket: 'imp-2673',
       pedagogicalStep: 11,
+      honestCeiling:
+        'Descriptive true-vs-perturbed caustic contrast; demonstrates arithmetic rigidity qualitatively. No Lambda claim.',
     }),
     Object.freeze({
       route: '/visual-geometries',
@@ -228,6 +250,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       paperSourcePath: 'user image: Twin-Ladder Visual Geometries of ζ(s)',
       ticket: 'imp-2673',
       pedagogicalStep: 12,
+      honestCeiling:
+        'Descriptive master gallery; aggregates the other views and asserts no Lambda bound of its own.',
     }),
   ]),
 });
@@ -435,5 +459,21 @@ export const VISUALIZATIONS_INDEX_ASSERTIONS = [
       'with a substantive note, and every entry.paperSourcePath must ' +
       'reference that same PDF (with section). This pins provenance back ' +
       'to the canonical v52 paper.',
+  },
+  {
+    id: 'imp2728-every-entry-has-honest-ceiling',
+    holds: () => {
+      for (const e of VISUALIZATIONS_INDEX.entries) {
+        if (typeof e.honestCeiling !== 'string') return false;
+        if (e.honestCeiling.length < 20) return false;
+      }
+      return true;
+    },
+    why:
+      'imp-2728: every index entry must carry an honestCeiling string ' +
+      '(>= 20 chars) naming the honest mathematical ceiling of that panel ' +
+      '(descriptive map / re-derives sign only / conjecture-illustration). ' +
+      'This is rendered as a muted footer on each card so a reader cannot ' +
+      'infer an unearned Lambda or RH claim from any single visualization.',
   },
 ];

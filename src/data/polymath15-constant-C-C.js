@@ -132,6 +132,38 @@ const C_KH = Math.PI * C_SELBERG;
 // E_coll(N) <= C_C * sqrt(log(gamma_N) / N)
 export const C_C_PINNED = C_H_PINNED * Math.sqrt(C_KH);
 
+// ── imp-2714: top-level throw-on-failure guard + honest ANSATZ label ─────────
+// Re-multiply the LITERAL (1/8) * sqrt(3*pi) at module-load time and throw if
+// the exported C_C_PINNED has drifted from it (tol 1e-12). This makes the file
+// self-checking at import, independent of the downstream assertion runner that
+// consumes POLYMATH15_CONSTANT_C_C_ASSERTIONS.
+//
+// HONEST CLASSIFICATION (imp-2642): the 1/8 factor inside C_C is an ANSATZ, NOT
+// a rigorous upper bound on the Holder-1/2 modulus. 1/8 is the EXACT leading-
+// order quadratic-tangency coefficient (rigorous only for the R = 0 two-particle
+// dynamics), not C_shock * C_Lip/4; a positive O(1) tangency remainder pushes the
+// effective coefficient to ~0.127 > 1/8 (imp-2643). So C_C = (1/8)*sqrt(3*pi)
+// sits on the DOMINANT E_coll term as an ansatz, and Lambda <= E(N) is NOT a
+// rigorous unconditional bound (imp-2643 NO-GO; imp-2701 lock). Older comments in
+// this file that call only the bridge C_C = 1 the "ansatz" predate imp-2642; the
+// authoritative classification is that the 1/8 itself is the ansatz.
+const C_C_LITERAL_REMULT = (1 / 8) * Math.sqrt(3 * Math.PI);
+if (!(Math.abs(C_C_PINNED - C_C_LITERAL_REMULT) < 1e-12)) {
+  throw new Error(
+    'polymath15-constant-C-C.js (imp-2714 guard): C_C_PINNED drifted from the ' +
+    'literal (1/8)*sqrt(3*pi) ansatz value ~0.3837. Got ' + C_C_PINNED +
+    ' vs ' + C_C_LITERAL_REMULT + ' (tol 1e-12).',
+  );
+}
+// The 1/8 is an unproven ansatz (imp-2642); flag it at the source, not only
+// downstream in imp-2643.
+export const C_C_IS_ANSATZ = true;
+export const C_C_ANSATZ_NOTE =
+  'C_H = 1/8 is NOT a rigorous Holder-1/2 modulus upper bound (imp-2642); it is ' +
+  'the exact leading-order quadratic-tangency coefficient. C_C = (1/8)*sqrt(3*pi) ' +
+  'is therefore an ansatz on the dominant E_coll term, so Lambda <= E(N) is not ' +
+  'rigorous (imp-2643 NO-GO).';
+
 // ── Placeholder from imp-366 (C_H = 1.0) ─────────────────────────────────────
 const C_C_PLACEHOLDER = 1.0 * Math.sqrt(C_KH);
 
@@ -214,6 +246,19 @@ export const POLYMATH15_CONSTANT_C_C_ASSERTIONS = [
       'constant C_Selberg = 3 is the bound used in the Koksma-Hlawka discrepancy ' +
       'estimate W_1 <= pi * C_Selberg * log(gamma_N) / N from lambda-intercept-' +
       'burgers-uniformity.js. Any deviation signals a changed C_Selberg value.',
+  },
+  {
+    id: 'imp2714-C_C-literal-remult-and-ansatz-label',
+    holds: () =>
+      Math.abs(C_C_PINNED - (1 / 8) * Math.sqrt(3 * Math.PI)) < 1e-12 &&
+      C_C_IS_ANSATZ === true,
+    why:
+      'imp-2714: C_C_PINNED must reproduce the LITERAL (1/8)*sqrt(3*pi) ~ 0.3837 ' +
+      'to 1e-12 (a module-load throw-guard enforces this independently), AND the ' +
+      'file must carry the honest classification at the source: the 1/8 factor is ' +
+      'an ANSATZ (imp-2642), not a rigorous Holder-1/2 modulus upper bound, so C_C ' +
+      'on the dominant E_coll term is non-rigorous and Lambda <= E(N) is NOT a ' +
+      'rigorous beat (imp-2643 NO-GO). Previously this label lived only downstream.',
   },
   {
     id: 'imp399-C_C-equals-C_H-times-sqrt-C_KH',

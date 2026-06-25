@@ -1527,6 +1527,14 @@ const DATA_MODULES = [
   // both unconditional, collapsing to (g^2/8)(1 +/- beta g^2/4). T_+ refines the
   // imp-2561/2562 one-sided pinch and adds the matched lower bound. 4 tripwires.
   '/src/data/imp-2563-min-gap-sandwich-theorem.js',
+  // imp-2683: attacks beta, the gating field bound of the sandwich Theorem B.
+  // B_p is a sum of POSITIVE terms; with G = global min gap the k-th flank
+  // particle is at distance >= kG, giving the telescope bound B_p G^2 <=
+  // 2(1 - 1/(K+1)) < 2 (sum 1/(k(k+1)) = 1) -- so beta_0 g^2 < 2 RIGOROUSLY and
+  // N-uniformly at s=0 (bracket unconditional there). RvM ladder {1e3,1e4,1e5}:
+  // beta g^2 ~ (pi^2/3)(g/l)^2 -> 0, margin grows. sup_s upgrade conditional on
+  // the named punctured-min-gap residual (h(s) >= c g). 5 tripwires.
+  '/src/data/imp-2683-sandwich-beta-field-bound.js',
   // imp-2451: scale-normalized dBN deformation, closing sub-gap B of imp-2435
   // (scale/zero confound). V is quadratic in Phi, so renormalizing
   // |Phi_t|_2 = 1 before assembly divides the exp(t u^2) L^2 scale out exactly.
@@ -1782,6 +1790,8 @@ const DATA_MODULES = [
   '/src/data/imp-2713-en-named-gap-registry.js',
   // imp-2826: build-time assertions for RouteErrorBoundary ChunkLoadError detection.
   '/src/data/imp-2826-chunk-load-error-assertions.js',
+  // imp-2739: single-source headline-number registry + cross-file consistency tripwire.
+  '/src/data/headline-numbers-registry.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -1570,6 +1570,11 @@ const DATA_MODULES = [
   // positive-remainder mechanism (|tau_c|/g0^2 above 1/8): 1/8 is NOT a Holder
   // sup, C_H NOT discharged. Validity window g <= 2 sqrt(eps/beta). 6 tripwires.
   '/src/data/imp-2690-tangency-remainder-sign.js',
+  // imp-2697: cross-verify the imp-1149 / Thm 3 N^{-3/2} rate constant C_HO
+  // and the M_inf(N) >= K_1 (L - log4pi) sqrt(N) lower bound that the
+  // asymptotic Lambda <= 3.06e-5 headline triangle-composes; monotone-to-0 on
+  // the imp-321 ladder. Unconditional skeleton only; G6a stays open modulo.
+  '/src/data/imp-2697-theorem3-rate-crossverify.js',
   // imp-2451: scale-normalized dBN deformation, closing sub-gap B of imp-2435
   // (scale/zero confound). V is quadratic in Phi, so renormalizing
   // |Phi_t|_2 = 1 before assembly divides the exp(t u^2) L^2 scale out exactly.

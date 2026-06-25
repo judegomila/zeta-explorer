@@ -229,7 +229,37 @@ const C_H_PASS = C_H_REL_ERR < THRESHOLD;
 const C_C_PASS = C_C_REL_ERR < THRESHOLD;
 const C_T_PASS = C_T_GMP_ROWS.every(r => r.relErr < THRESHOLD);
 const C_F_PASS = C_F_GMP_ROWS.every(r => r.relErr < THRESHOLD);
-const ALL_PASS  = C_H_PASS && C_C_PASS && C_T_PASS && C_F_PASS;
+
+// ── imp-2705: post-imp-2641 rigorous constants (Trudgian C_Selberg = 2.622) ──
+// imp-422 above predates the imp-2641 discharge of the C_Selberg = 3.0 PLACEHOLDER
+// to the explicit Trudgian 2014 uniform-over-[e,T0] coefficient 2.622. The C_C_GMP
+// computed above is exactly C_C_PINNED = (1/8)*sqrt(3*pi) (the placeholder reading).
+// Here we extend the 100-digit BigInt ladder to the recomposed rigorous constants
+//   C_Selberg_rigorous = 2.622,  C_KH_rigorous = pi*2.622,  C_C_rigorous = (1/8)*sqrt(C_KH_rigorous)
+// and certify at full precision that the placeholder is conservative: C_C_rigorous < C_C_PINNED.
+const C_SELBERG_RIGOROUS_F64 = 2.622;                              // Trudgian 2014 uniform coeff (imp-2641)
+const C_SELBERG_RIGOROUS_GMP = 2622n * D / 1000n;                  // exact decimal 2.622 at 100 digits
+const C_KH_RIGOROUS_GMP = mpMul(MP_PI, C_SELBERG_RIGOROUS_GMP);    // pi * 2.622
+const C_C_RIGOROUS_GMP  = mpMul(D / 8n, mpSqrt(C_KH_RIGOROUS_GMP)); // (1/8)*sqrt(pi*2.622)
+const C_C_PINNED_GMP    = C_C_GMP;                                  // (1/8)*sqrt(3*pi), C_Selberg=3.0 placeholder
+
+const C_KH_RIGOROUS_F64 = Math.PI * C_SELBERG_RIGOROUS_F64;
+const C_C_RIGOROUS_F64  = (1 / 8) * Math.sqrt(C_KH_RIGOROUS_F64);
+
+const C_SELBERG_RIG_REL_ERR = relErr(C_SELBERG_RIGOROUS_F64, C_SELBERG_RIGOROUS_GMP);
+const C_KH_RIGOROUS_REL_ERR = relErr(C_KH_RIGOROUS_F64, C_KH_RIGOROUS_GMP);
+const C_C_RIGOROUS_REL_ERR  = relErr(C_C_RIGOROUS_F64, C_C_RIGOROUS_GMP);
+
+// Full-precision (direct BigInt) confirmation the 3.0 placeholder is conservative.
+const C_C_PLACEHOLDER_CONSERVATIVE_GMP = C_C_RIGOROUS_GMP < C_C_PINNED_GMP;
+
+const C_SELBERG_RIG_PASS = C_SELBERG_RIG_REL_ERR < THRESHOLD;
+const C_KH_RIGOROUS_PASS = C_KH_RIGOROUS_REL_ERR < THRESHOLD;
+const C_C_RIGOROUS_PASS  = C_C_RIGOROUS_REL_ERR < THRESHOLD;
+const RIGOROUS_LADDER_PASS =
+  C_SELBERG_RIG_PASS && C_KH_RIGOROUS_PASS && C_C_RIGOROUS_PASS && C_C_PLACEHOLDER_CONSERVATIVE_GMP;
+
+const ALL_PASS  = C_H_PASS && C_C_PASS && C_T_PASS && C_F_PASS && RIGOROUS_LADDER_PASS;
 
 // ── Build-time assertions ─────────────────────────────────────────────────────
 if (!C_H_PASS) {
@@ -254,6 +284,30 @@ if (!C_F_PASS) {
   throw new Error(
     "imp-422 FAIL: C_F GMP mismatch at T0=" + worst.T0 +
     ", relErr=" + worst.relErr.toExponential(3)
+  );
+}
+if (!C_SELBERG_RIG_PASS) {
+  throw new Error(
+    "imp-2705 FAIL: C_Selberg=2.622 GMP mismatch, relErr=" +
+    C_SELBERG_RIG_REL_ERR.toExponential(3)
+  );
+}
+if (!C_KH_RIGOROUS_PASS) {
+  throw new Error(
+    "imp-2705 FAIL: C_KH_rigorous=pi*2.622 GMP mismatch, relErr=" +
+    C_KH_RIGOROUS_REL_ERR.toExponential(3)
+  );
+}
+if (!C_C_RIGOROUS_PASS) {
+  throw new Error(
+    "imp-2705 FAIL: C_C_rigorous=(1/8)sqrt(pi*2.622) GMP mismatch, relErr=" +
+    C_C_RIGOROUS_REL_ERR.toExponential(3)
+  );
+}
+if (!C_C_PLACEHOLDER_CONSERVATIVE_GMP) {
+  throw new Error(
+    "imp-2705 FAIL: at 100-digit precision C_C_rigorous (C_Selberg=2.622) is NOT below " +
+    "C_C_PINNED (C_Selberg=3.0); the placeholder is not conservative as claimed."
   );
 }
 
@@ -294,6 +348,41 @@ export const GMP_CONSTANTS_VERIFY = {
     rows: C_F_GMP_ROWS,
     pass: C_F_PASS,
     note: "C_F(T0) = (log(T0/(2*pi))+1)/(2*pi); log(pi) via log(2)+2*atanh((pi/2-1)/(pi/2+1))",
+  },
+
+  // imp-2705: post-imp-2641 rigorous-recomposition ladder (Trudgian C_Selberg = 2.622)
+  rigorousRecomposition: {
+    C_Selberg_rigorous: {
+      float64: C_SELBERG_RIGOROUS_F64,
+      gmpStr: mpStr(C_SELBERG_RIGOROUS_GMP).slice(0, 30),
+      relErr: C_SELBERG_RIG_REL_ERR,
+      pass: C_SELBERG_RIG_PASS,
+      note: "Trudgian 2014 uniform-over-[e,T0] S(T) coefficient (imp-2641); exact decimal 2.622 = 2622*D/1000",
+    },
+    C_KH_rigorous: {
+      float64: C_KH_RIGOROUS_F64,
+      gmpStr: mpStr(C_KH_RIGOROUS_GMP).slice(0, 30),
+      relErr: C_KH_RIGOROUS_REL_ERR,
+      pass: C_KH_RIGOROUS_PASS,
+      note: "C_KH_rigorous = pi * 2.622 ~ 8.2373 (was 3*pi ~ 9.4248)",
+    },
+    C_C_rigorous: {
+      float64: C_C_RIGOROUS_F64,
+      gmpStr: mpStr(C_C_RIGOROUS_GMP).slice(0, 30),
+      relErr: C_C_RIGOROUS_REL_ERR,
+      pass: C_C_RIGOROUS_PASS,
+      note: "C_C_rigorous = (1/8)*sqrt(pi*2.622) ~ 0.358758 (was (1/8)*sqrt(3*pi) ~ 0.383748)",
+    },
+    C_C_pinned: {
+      float64: (1 / 8) * Math.sqrt(3 * Math.PI),
+      gmpStr: mpStr(C_C_PINNED_GMP).slice(0, 30),
+      note: "C_C_PINNED = (1/8)*sqrt(3*pi), the C_Selberg=3.0 placeholder reading",
+    },
+    placeholderConservativeAtFullPrecision: C_C_PLACEHOLDER_CONSERVATIVE_GMP,
+    pass: RIGOROUS_LADDER_PASS,
+    note: "At 100-digit precision C_C_rigorous (2.622) < C_C_PINNED (3.0): the placeholder is " +
+      "confirmed a conservative over-estimate. Discharge half is imp-2641; residual Erdos-Turan " +
+      "bridge gap is NOT closed here (numerical-precision check only).",
   },
 
   allPass: ALL_PASS,

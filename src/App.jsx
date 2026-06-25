@@ -94,6 +94,7 @@ const CayleySchurTrajectoryPage = lazy(() => import('./pages/CayleySchurTrajecto
 const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
 const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboardPage.jsx'));
 const RouteMapPage = lazy(() => import('./pages/RouteMapPage.jsx'));
+const StateOfProgramPage = lazy(() => import('./pages/StateOfProgramPage.jsx'));
 const EngineRoomPage = lazy(() => import('./pages/EngineRoomPage.jsx'));
 const VortexFieldPage = lazy(() => import('./pages/VortexFieldPage.jsx'));
 const VizWindingDysonFlowPage = lazy(() => import('./pages/VizWindingDysonFlowPage.jsx'));
@@ -585,6 +586,7 @@ function AppShell() {
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />
           <Route path="/rh-proof-state" element={<RHProofStateDashboardPage />} />
           <Route path="/route-map" element={<RouteMapPage />} />
+          <Route path="/state-of-program" element={<StateOfProgramPage />} />
           <Route path="/engine-room" element={<EngineRoomPage />} />
           <Route path="/vortex-field" element={<VortexFieldPage />} />
           <Route path="/viz-winding-dyson-flow" element={<VizWindingDysonFlowPage />} />

@@ -41,6 +41,19 @@ export default function PapersListPage() {
         </p>
       </div>
 
+      {/* Honest standing disclaimer — prevents withdrawn-claim re-leak when screenshotted out of context (imp-2807) */}
+      <div style={{ margin: '0 0 24px', padding: '14px 18px', border: '1px solid rgba(245,158,11,0.4)', background: 'rgba(245,158,11,0.07)', borderRadius: 10 }}>
+        <strong style={{ color: '#fbbf24', fontSize: 12, textTransform: 'uppercase', letterSpacing: '1px' }}>Honest scope — read first</strong>
+        <p style={{ marginTop: 8, marginBottom: 0, fontSize: 13.5, lineHeight: 1.75, color: '#fcd34d' }}>
+          Nothing in this collection proves the Riemann Hypothesis. The rigorous unconditional state of the
+          art remains the zero-free certificate of Platt &amp; Trudgian (2021), &Lambda;&nbsp;&le;&nbsp;0.2 — a
+          bound this project did not produce. Any finite-N &ldquo;beat&rdquo; of that bound is an estimate, not a
+          theorem: it rests on a many-body constant C_H that remains undischarged (no rigorous upper bound). The
+          Volterra-operator collapse (&#8741;V&#8741;&nbsp;&le;&nbsp;1) is equivalent to RH, not a proof of it.
+          Treat saved papers as expository or conditional unless explicitly marked rigorous.
+        </p>
+      </div>
+
       {papers.length === 0 ? (
         <div style={{
           textAlign: 'center',

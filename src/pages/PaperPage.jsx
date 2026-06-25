@@ -62,6 +62,22 @@ export default function PaperPage() {
         </p>
       </div>
 
+      {/* Honest standing disclaimer — prevents withdrawn-claim re-leak when screenshotted out of context (imp-2807) */}
+      <div style={{ marginBottom: 32, padding: '14px 18px', border: '1px solid rgba(245,158,11,0.4)', background: 'rgba(245,158,11,0.07)', borderRadius: 10 }}>
+        <strong style={{ color: '#fbbf24', fontSize: 12, textTransform: 'uppercase', letterSpacing: '1px' }}>Honest scope — read first</strong>
+        <p style={{ marginTop: 8, marginBottom: 0, fontSize: 13.5, lineHeight: 1.75, color: '#fcd34d' }}>
+          This work does <strong>not</strong> prove the Riemann Hypothesis. The rigorous unconditional
+          state of the art remains the zero-free certificate of Platt &amp; Trudgian (2021),
+          <InlineMath tex={"\\Lambda \\le 0.2"} /> — a bound this project did not produce. The
+          project&rsquo;s finite-<InlineMath tex="N" /> &ldquo;beat&rdquo; of that bound is an
+          <em> estimate</em>, not a theorem: it rests on a many-body constant <InlineMath tex={"C_H"} /> that
+          remains <strong>undischarged</strong> (no rigorous upper bound). The Volterra-operator collapse
+          (<InlineMath tex={"\\lVert V_{a,\\Phi}\\rVert \\le 1"} />) is shown to be <em>equivalent</em> to RH,
+          not a proof of it. Treat every framing below as expository or conditional unless it is explicitly
+          marked rigorous.
+        </p>
+      </div>
+
       {/* Abstract */}
       <div className="card" style={{ borderColor: '#3b82f6', marginBottom: 32 }}>
         <h3 style={{ color: '#3b82f6', marginTop: 0, fontSize: 16, textTransform: 'uppercase', letterSpacing: '1px' }}>Abstract</h3>

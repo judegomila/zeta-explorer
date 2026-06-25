@@ -1851,6 +1851,9 @@ const DATA_MODULES = [
   // the explicit mesoscopic Trudgian density-floor strip (N-uniform), distinct
   // from the imp-2640 microscopic 2/g^2 wall.
   '/src/data/imp-2688-c-g-loglipschitz-bound.js',
+  // imp-2735: numerical tripwires for the caustic resonance condition asserted
+  // in prose by VizCausticResonancePage (bright-band / resonance correspondence).
+  '/src/data/viz-caustic-resonance-checks.js',
 ];
 
 let ALL_MODULES = FAST_MODE

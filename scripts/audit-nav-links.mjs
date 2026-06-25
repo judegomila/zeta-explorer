@@ -130,12 +130,81 @@ for (const dir of ['src/pages', 'src/components']) {
   }
 }
 
+// ── 4. imp-2675: viz-route <-> /visualizations index coverage cross-check ─────
+//
+// The /visualizations "All Visualizations" page is driven by the registry in
+// src/data/visualizations-index.js. New viz pages must be hand-added there or
+// they silently drop off the index (as happened with vortex-field /
+// prime-rigidity). This cross-check makes the coverage self-enforcing:
+//   - every registry card route must resolve to a real App.jsx route (else the
+//     card 404s)                                   -> hard fail (build breaks)
+//   - every live visualization route in App.jsx must have a registry entry,
+//     so brand-new viz pages cannot land unregistered -> hard fail, EXCEPT
+//     routes on the documented EXEMPT_FROM_INDEX backlog, which warn instead.
+
+const vizIndexSrc = readFile('src/data/visualizations-index.js');
+const registryRoutes = new Set();
+{
+  const re = /route:\s*['"]([^'"]+)['"]/g;
+  let rm;
+  while ((rm = re.exec(vizIndexSrc)) !== null) registryRoutes.add(rm[1]);
+}
+
+// Non-"/viz-" routes that ARE visualization pages and belong in the registry.
+const EXPLICIT_VIZ_ROUTES = new Set([
+  '/vortex-field',
+  '/prime-rigidity',
+  '/visual-geometries',
+  '/cayley-schur-trajectory',
+]);
+
+// Known viz routes not yet carried in the index (drift backlog). These WARN
+// rather than fail the build; delete a route from this set once it gets a
+// visualizations-index.js entry so the hard check covers it again.
+const EXEMPT_FROM_INDEX = new Set([
+  '/viz-caustic-resonance',
+  '/viz-euler-product',
+  '/viz-near-zero',
+  '/viz-phase-cylinder',
+  '/viz-prime-density-caustic',
+  '/viz-winding-dyson-flow',
+]);
+
+const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);
+
+// Direction A: every registry card must point at a defined route.
+for (const r of registryRoutes) {
+  if (!routes.has(r)) {
+    broken.push({ source: 'visualizations-index.js registry card', link: r });
+  }
+}
+
+// Direction B: every live viz route must be registered in the index.
+let vizRouteCount = 0;
+for (const r of routes) {
+  if (!isVizRoute(r)) continue;
+  vizRouteCount += 1;
+  if (registryRoutes.has(r)) continue;
+  if (EXEMPT_FROM_INDEX.has(r)) {
+    warnings.push(
+      `viz route "${r}" is not in visualizations-index.js ` +
+        '(known drift backlog; add a registry entry and drop it from EXEMPT_FROM_INDEX)',
+    );
+  } else {
+    broken.push({
+      source: 'visualizations-index.js missing registry entry',
+      link: r,
+    });
+  }
+}
+
 // ── Report ────────────────────────────────────────────────────────────────────
 
 const timestamp = new Date().toISOString();
 console.log(`\nNav link audit  ${timestamp}`);
 console.log(`Routes defined in App.jsx: ${routes.size}`);
 console.log(`NAV_GROUPS entries checked: ${navLinks.length}`);
+console.log(`Viz routes checked vs index: ${vizRouteCount} (registry entries: ${registryRoutes.size})`);
 
 if (warnings.length > 0) {
   console.log('\nWarnings:');

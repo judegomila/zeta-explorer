@@ -258,6 +258,18 @@ export default function InformationTheoryPage() {
           </p>
         </div>
         <BlockMath tex={"W(g * \\tilde{g}) \\geq 0 \\;\\Longleftrightarrow\\; \\text{RH} \\;\\Longleftrightarrow\\; \\max_\\sigma H(\\sigma) \\text{ at } \\sigma = \\tfrac{1}{2} \\;\\Longleftrightarrow\\; D_{\\text{KL}} = 0 \\text{ only at } \\sigma = \\tfrac{1}{2}"} />
+        <div style={{ marginTop: 16, padding: 12, background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.35)', borderRadius: 8 }}>
+          <p style={{ fontSize: 12.5, color: '#fbbf24', lineHeight: 1.7, margin: 0 }}>
+            <strong>Honest status:</strong> The phrase "master inequality" and the iff-chain above are
+            illustrative, not a theorem. The six measures all peaking at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> are
+            PROPERTIES of the engineered channel model defined on this page, not independently established
+            facts about <InlineMath tex={"\\zeta"} />. Only <InlineMath tex={"W(g * \\tilde{g}) \\geq 0 \\Leftrightarrow \\text{RH}"} /> (Weil
+            positivity) is a genuine equivalence; the remaining links in the chain are heuristic correspondences
+            within the model. The real open gap is <strong>Step 2</strong> (flagged above as "Plausible but
+            unproven"): showing the zeros of <InlineMath tex={"\\zeta"} /> coincide with the channel-capacity
+            maxima is not delivered by any of these information measures.
+          </p>
+        </div>
       </div>
 
       {/* Chaitin's Constant and Zeta: Incompressibility as Irrationality */}

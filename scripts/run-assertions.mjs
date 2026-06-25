@@ -1644,6 +1644,10 @@ const DATA_MODULES = [
   // finite-N*=1e4 beat DAG node re-acquires a rigorous-unconditional framing
   // with an empty conditional closure, contradicting the route-map ESTIMATE/C_H verdict.
   '/src/data/imp-2750-dag-routemap-status-consistency.js',
+  // imp-2784: v52 dashboard finite-beat wording tripwire — fails if RHProofState
+  // or Rigor dashboard pages call the finite-N*=1e4 beat rigorous/unconditional
+  // without a downgrade qualifier, contradicting the route-map ESTIMATE/C_H label.
+  '/src/data/imp-2784-dashboard-finite-beat-wording-consistency.js',
   '/src/data/supercritical-winding-experiment-2026-06-19.js',
   // imp-2664: independent operator-algebra re-derivation of the Section-27 identity
   // (Schur LINK A proved; Phi-uniform LINK B refuted robustly; scale-normalized form

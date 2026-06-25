@@ -665,7 +665,10 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
         'Modulo conditional of the imp-1261 asymptotic bound. Closed in the ' +
         'OPEN_GAPS ledger by imp-366, but the asymptotic bound entry still ' +
         'carries it as its sole stated modulo, so it is modelled as a leaf ' +
-        'conditional here.',
+        'conditional here. imp-2674/imp-2640 NEGATIVE: the SAME imp-366 Holder-1/2 ' +
+        'shock modulus supplies C_H in E_coll, and C_H is an undischargeable ' +
+        'order-unity placeholder (gap-Lipschitz Gronwall diverges at the collision). ' +
+        'So this leaf is NOT one-small-lemma-away from discharge — see cond-CH.',
     },
     {
       id: 'cond-gue-universality',
@@ -689,6 +692,21 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
         'hypothesis (maxSmoothScaleRatio = 2.15 from imp-962 plateau scan) plus the ' +
         'unproved expectation that K_paper_cert decreases with N. Measurement at ' +
         'larger N (imp-1082/1087/1088 sub-measurement gaps) will retire this conditional.',
+    },
+    {
+      id: 'cond-CH',
+      label: 'C_H Holder-modulus constant in E_coll is O(1) (imp-2640 NEGATIVE: undischargeable)',
+      kind: 'conditional',
+      dependsOn: [],
+      note:
+        'imp-2674 reconciliation. imp-2640 found C_H in E_coll = C_H * ' +
+        'W_1(mu_N, rho_inf)^(1/2) (imp-366 Holder-1/2 shock modulus) is an ' +
+        'order-unity PLACEHOLDER, NOT a theorem-backed explicit constant: the ' +
+        'gap-Lipschitz Gronwall constant DIVERGES at the collision, so the imp-366 ' +
+        'proof yields no explicit value. The finite-N* = 1e4 beat therefore rests on ' +
+        'the unproved expectation C_H = O(1) and is an ESTIMATE, not a rigorous ' +
+        'unconditional bound. Companion soft spot: imp-2632 classified |t_c_proj| in ' +
+        'L_cond as an OLS projection, not a rigorous upper bound on t_c(1e4).',
     },
     // ── Project building blocks ──
     {
@@ -769,7 +787,7 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
     },
     {
       id: 'bound-imp-440-finite-1e4',
-      label: 'Lambda(1e4) <= 0.02 rigorous unconditional (measured)',
+      label: 'Lambda(1e4) <= 0.02 ESTIMATE (rigorous-modulo-C_H, measured)',
       kind: 'bound',
       dependsOn: [
         'blk-imp-963',
@@ -777,8 +795,13 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
         'blk-imp-398',
         'blk-imp-399',
         'blk-imp-469',
+        'cond-CH',
       ],
-      note: 'No conditional in its closure — unconditional finite-N* beat.',
+      note:
+        'imp-2674: DOWNGRADED from rigorous-unconditional to an ESTIMATE gated on ' +
+        'cond-CH. The dominant bridge-error term E_coll carries the undischarged ' +
+        'C_H Holder-modulus placeholder (imp-2640 NEGATIVE), so the finite-N* beat ' +
+        'is rigorous-modulo-C_H = O(1), not unconditional.',
     },
     {
       id: 'bound-imp-1088-finite-1e6',
@@ -1074,28 +1097,26 @@ export const LAMBDA_ROADMAP_ASSERTIONS = [
       'so any future edit that introduces a cycle must fail the build here.',
   },
   {
-    id: 'lambda-dep-matrix-finite-N-unconditional',
+    id: 'lambda-dep-matrix-finite-N-modulo-C_H',
     holds: () => {
-      const conditionalIds = new Set(
-        LAMBDA_DEPENDENCY_MATRIX.nodes
-          .filter((n) => n.kind === 'conditional')
-          .map((n) => n.id)
-      );
-      // imp-440 (N=1e4) is genuinely UNCONDITIONAL, so no node in its
-      // transitive closure may be a conditional axiom (no premature dependency).
-      // imp-1088 (N=1e6) is conditional on the F_mb non-regression hypothesis,
-      // so we only guard the imp-440 bound here.
+      // imp-2674 reconciliation: imp-2640 (C_H undischargeable, gap-Lipschitz
+      // Gronwall diverges at the collision) + imp-2632 (t_c_proj is an OLS
+      // projection, not a rigorous bound) downgraded the N=1e4 beat from
+      // rigorous-unconditional to an ESTIMATE gated on C_H. Its closure MUST now
+      // contain the cond-CH Holder-modulus conditional, and must still NOT route
+      // through GUE universality (that stays a Route-A-only asymptotic conditional).
       const closure = lambdaDepMatrixClosure('bound-imp-440-finite-1e4');
-      for (const id of closure) if (conditionalIds.has(id)) return false;
-      return true;
+      return closure.has('cond-CH') && !closure.has('cond-gue-universality');
     },
     why:
-      'imp-2360 / imp-2522: the imp-440 (N=1e4) finite-height beat is genuinely ' +
-      'UNCONDITIONAL, while the imp-1088 (N=1e6) carryforward is conditional on ' +
-      'the F_mb non-regression hypothesis. This guards the PREMATURE-dependency ' +
-      'failure mode for the unconditional 1e4 bound: if a future edit routes it ' +
-      'through a conditional axiom (e.g. GUE universality), the transitive closure ' +
-      'would contain a conditional and this fails, flagging the weakening.',
+      'imp-2674 (supersedes imp-2360 / imp-2522): the imp-440 (N=1e4) finite-height ' +
+      'beat is an ESTIMATE gated on the C_H Holder-modulus constant being O(1) ' +
+      '(imp-2640 NEGATIVE: C_H is an order-unity placeholder, the gap-Lipschitz ' +
+      'Gronwall constant diverges at the collision). This pins that honest state: ' +
+      'cond-CH MUST stay in the closure so a future edit cannot quietly re-promote ' +
+      'the beat to rigorous-unconditional, while GUE universality must stay OUT (it ' +
+      'is the Route-A asymptotic conditional, not a dependency of the measured ' +
+      'finite-N bound).',
   },
   {
     id: 'lambda-dep-matrix-asymptotic-modulo-polymath15',

@@ -164,6 +164,35 @@ export const FULL_ROUTE_MAP_ASSERTIONS = [
       );
     },
   },
+  {
+    // Regression tripwire (imp-2738): the 6 caught overclaims must keep their
+    // honest withdrawn status. A silent regrade to a false rigorous/reduction
+    // status (the exact failure mode that produced these overclaims) fails the
+    // build. Each row is found by name-regex across all clusters; its .status
+    // must sit in the allowed honest set -- never 'RIGOROUS' or 'REDUCTION'.
+    id: 'route-map-caught-overclaims-stay-honest',
+    description: 'The 6 caught overclaims keep their honest withdrawn status (no silent re-promotion to RIGOROUS/REDUCTION)',
+    holds: () => {
+      const FORBIDDEN = new Set(['RIGOROUS', 'REDUCTION']);
+      const PINS = [
+        { nameRe: /thin-strip|kappa_T/i, allowed: ['REFUTED'], who: 'imp-2622 thin-strip kappa_T' },
+        { nameRe: /Soundararajan-Tao/i, allowed: ['REFUTED'], who: 'imp-1331 Soundararajan-Tao' },
+        { nameRe: /Volterra/i, allowed: ['RH-EQUIVALENT'], who: 'imp-1258 Volterra collapse' },
+        { nameRe: /Beurling-Nyman/i, allowed: ['RH-EQUIVALENT'], who: 'Beurling-Nyman' },
+        { nameRe: /de Branges|CDB-Exist/i, allowed: ['RH-EQUIVALENT'], who: 'de Branges / CDB-Exist' },
+        { nameRe: /Hidden-square|15-27/i, allowed: ['RH-EQUIVALENT'], who: 'hidden-square 15-27 program' },
+      ];
+      const allRows = Object.values(FULL_ROUTE_MAP.clusters).flat();
+      for (const pin of PINS) {
+        const row = allRows.find((r) => pin.nameRe.test(r.name));
+        if (!row) throw new Error(`overclaim pin row not found: ${pin.who}`);
+        if (FORBIDDEN.has(row.status) || !pin.allowed.includes(row.status)) {
+          throw new Error(`caught overclaim re-promoted: ${pin.who} is now '${row.status}', expected one of [${pin.allowed.join(', ')}]`);
+        }
+      }
+      return true;
+    },
+  },
 ];
 
 for (const a of FULL_ROUTE_MAP_ASSERTIONS) {

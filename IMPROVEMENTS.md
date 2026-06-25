@@ -2636,3 +2636,4 @@ below are the engine contract — do not rename or reorder.
 | 2744 | 2026-06-25T00:00:00Z | imp-2827 (ux, low): Create reusable TableOfContents component and integrate into DocsPage | src/components/TableOfContents.jsx, src/pages/DocsPage.jsx |
 | 2745 | 2026-06-25T01:00:00Z | imp-2830 (ux, low): Replace bare copyright footer with quick-nav links and bug-report note | src/App.jsx |
 | 2746 | 2026-06-24T19:27:00Z | imp-2831 (meta, low): Fix nav link audit to read src/data/nav-groups.js and wire into build/assert scripts | scripts/audit-nav-links.mjs, package.json |
+| 2747 | 2026-06-25T22:31:20Z | imp-2738 (accuracy, critical): Regression tripwire pinning the 6 caught-overclaim statuses in full-route-map | src/data/full-route-map-2026-06-19.js |

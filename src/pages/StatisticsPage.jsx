@@ -16,6 +16,38 @@ export default function StatisticsPage() {
         </p>
       </div>
 
+      <div className="card" style={{ marginTop: 24, borderColor: '#f59e0b', background: 'rgba(245,158,11,0.05)' }}>
+        <h3 style={{ color: '#f59e0b' }}>Proven vs. Conditional vs. Conjectural — read this first</h3>
+        <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.7 }}>
+          This page blends results of very different logical status. To keep the framing honest:
+        </p>
+        <ul style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8, paddingLeft: 20 }}>
+          <li>
+            <strong style={{ color: '#10b981' }}>PROVEN (unconditional):</strong> Montgomery (1973) established the pair-correlation
+            asymptotic <InlineMath tex={"R_2(x) = 1 - (\\sin\\pi x/\\pi x)^2"} /> only for test functions whose Fourier transform
+            is supported in <InlineMath tex={"(-1,1)"} /> — and even that is <em>conditional on RH</em>. The Rodgers-Tao theorem
+            <InlineMath tex={"\\Lambda \\ge 0"} /> (de Bruijn-Newman constant non-negative) is fully proven, unconditionally.
+          </li>
+          <li>
+            <strong style={{ color: '#f59e0b' }}>CONDITIONAL on RH:</strong> Montgomery's restricted pair-correlation result, the Hilbert-Polya
+            spectral picture, and most spacing statements assume RH as a hypothesis. They do not prove it.
+          </li>
+          <li>
+            <strong style={{ color: '#ef4444' }}>CONJECTURAL / NUMERICAL only:</strong> full GUE universality for <em>all</em> test functions is the
+            Montgomery-Odlyzko conjecture — Odlyzko's millions-of-zeros computations near the <InlineMath tex={"10^{20}"} />-th zero
+            are overwhelming numerical evidence, not a proof.
+          </li>
+          <li>
+            <strong style={{ color: '#8b5cf6' }}>OPEN:</strong> RH itself is equivalent to <InlineMath tex={"\\Lambda \\le 0"} /> (hence
+            <InlineMath tex={"\\Lambda = 0"} />) and to all Li coefficients <InlineMath tex={"\\lambda_n \\ge 0"} />. The rigorous SOTA upper
+            bound is Platt-Trudgian <InlineMath tex={"\\Lambda \\le 0.2"} /> (2020), still far from <InlineMath tex={"0"} />.
+          </li>
+        </ul>
+        <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 13, fontStyle: 'italic' }}>
+          The model-side "GUE emerges from the PT-structure" claims below are heuristic/illustrative, not theorems.
+        </p>
+      </div>
+
       <BlockMath tex={"P_{\\text{GUE}}(s) = \\frac{32}{\\pi^2} s^2 e^{-4s^2/\\pi} \\quad \\text{(Wigner surmise for nearest-neighbor spacing)}"} />
 
       <div style={{ marginTop: 24 }}>

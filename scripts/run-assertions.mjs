@@ -1640,6 +1640,10 @@ const DATA_MODULES = [
   '/src/data/section27-identity-refutation-2026-06-17.js',
   '/src/data/section26-verdict-volterra-not-a-reduction-2026-06-18.js',
   '/src/data/full-route-map-2026-06-19.js',
+  // imp-2750: DAG/route-map status-consistency cross-tripwire — fails if the
+  // finite-N*=1e4 beat DAG node re-acquires a rigorous-unconditional framing
+  // with an empty conditional closure, contradicting the route-map ESTIMATE/C_H verdict.
+  '/src/data/imp-2750-dag-routemap-status-consistency.js',
   '/src/data/supercritical-winding-experiment-2026-06-19.js',
   // imp-2664: independent operator-algebra re-derivation of the Section-27 identity
   // (Schur LINK A proved; Phi-uniform LINK B refuted robustly; scale-normalized form
@@ -1792,6 +1796,8 @@ const DATA_MODULES = [
   '/src/data/imp-2826-chunk-load-error-assertions.js',
   // imp-2739: single-source headline-number registry + cross-file consistency tripwire.
   '/src/data/headline-numbers-registry.js',
+  // imp-2740: tripwire forbidding NEW rigorous/unconditional adjacency to the finite-N*=1e4 beat.
+  '/src/data/anti-overclaim-finite-beat-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

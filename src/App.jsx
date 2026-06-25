@@ -104,6 +104,8 @@ const PrimeRigidityPage = lazy(() => import('./pages/PrimeRigidityPage.jsx'));
 const VizEulerProductPage = lazy(() => import('./pages/VizEulerProductPage.jsx'));
 const VizCausticResonancePage = lazy(() => import('./pages/VizCausticResonancePage.jsx'));
 const VizPhaseCylinderPage = lazy(() => import('./pages/VizPhaseCylinderPage.jsx'));
+const VizZoomHierarchyPage = lazy(() => import('./pages/VizZoomHierarchyPage.jsx'));
+const AngularSpacingStatsPage = lazy(() => import('./pages/AngularSpacingStatsPage.jsx'));
 const MillsTheoremPage = lazy(() => import('./pages/MillsTheoremPage.jsx'));
 const GilbreathObservationPage = lazy(() => import('./pages/GilbreathObservationPage.jsx'));
 const BerryKeatingXpPage = lazy(() => import('./pages/BerryKeatingXpPage.jsx'));
@@ -631,6 +633,8 @@ function AppShell() {
           <Route path="/viz-prime-density-caustic" element={<VizPrimeDensityOnCausticPage />} />
           <Route path="/viz-caustic-resonance" element={<VizCausticResonancePage />} />
           <Route path="/viz-phase-cylinder" element={<VizPhaseCylinderPage />} />
+          <Route path="/zoom-hierarchy" element={<VizZoomHierarchyPage />} />
+          <Route path="/angular-spacing-stats" element={<AngularSpacingStatsPage />} />
           <Route path="/viz-prime-phase-crystal" element={<VizPrimePhaseCrystalPage />} />
           <Route path="/visualizations" element={<VisualizationsIndexPage />} />
           <Route path="/berry-keating-xp" element={<BerryKeatingXpPage />} />

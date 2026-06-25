@@ -1379,3 +1379,23 @@ input[type="range"]:disabled {
   color: #94a3b8;
   border-color: #475569;
 }
+
+/* Accessibility: skip-to-content link, off-screen until keyboard-focused */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  padding: 10px 16px;
+  background: #0f172a;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+  border-radius: 0 0 6px 0;
+  font-size: 14px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 0;
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}

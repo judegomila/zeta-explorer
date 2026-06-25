@@ -525,10 +525,11 @@ function AppShell() {
   return (
     <>
       <ScrollToTop />
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <NavBar onShowShortcuts={() => setShowHelp(true)} onShowPalette={() => setShowPalette(true)} />
       <KeyboardShortcutOverlay show={showHelp} onClose={() => setShowHelp(false)} />
       <CommandPalette show={showPalette} onClose={() => setShowPalette(false)} navigate={navigate} />
-      <div className="app-content">
+      <main id="main-content" className="app-content">
         <RouteErrorBoundary>
         <Suspense fallback={<PageLoader />}>
         <Routes>
@@ -645,7 +646,7 @@ function AppShell() {
         </Routes>
         </Suspense>
         </RouteErrorBoundary>
-      </div>
+      </main>
       <footer style={{
         padding: '24px 16px',
         color: '#475569',

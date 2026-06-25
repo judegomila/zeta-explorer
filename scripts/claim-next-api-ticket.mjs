@@ -58,11 +58,25 @@ function fail(code, msg) {
 // ESM module cache with a query param so successive imports in one long-lived
 // process would see fresh data -- harmless for the short-lived CLI case.
 async function loadQueue() {
-  const url = pathToFileURL(QUEUE_PATH).href + `?t=${Date.now()}`;
-  const mod = await import(url);
-  const q = mod.IMPROVEMENT_QUEUE || mod.default;
-  if (!Array.isArray(q)) fail(3, 'improvement-queue.js does not export IMPROVEMENT_QUEUE array');
-  return q;
+  // improvement-queue.js is a 3MB file edited concurrently by N pool workers; a
+  // read landing mid-write yields a transient parse error. Treating that as a
+  // failed claim makes the worker idle for IDLE_SLEEP (90s) -- a huge throughput
+  // loss. Retry the import a few times with small backoff so transient races
+  // self-heal instead of false-idling the worker.
+  let lastErr;
+  for (let attempt = 0; attempt < 5; attempt++) {
+    try {
+      const url = pathToFileURL(QUEUE_PATH).href + `?t=${Date.now()}_${attempt}`;
+      const mod = await import(url);
+      const q = mod.IMPROVEMENT_QUEUE || mod.default;
+      if (!Array.isArray(q)) throw new Error('IMPROVEMENT_QUEUE is not an array');
+      return q;
+    } catch (e) {
+      lastErr = e;
+      await new Promise((r) => setTimeout(r, 130 + attempt * 90));
+    }
+  }
+  fail(3, 'improvement-queue.js failed to import after retries: ' + (lastErr && lastErr.message));
 }
 
 function isBlocked(ticket, byId) {

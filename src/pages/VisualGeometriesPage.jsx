@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath } from '../components/KaTeXMath.jsx';
+import VizCeilingNote from '../components/VizCeilingNote.jsx';
 
 /*
  * Visual Geometries of zeta(s) — the master gallery.
@@ -80,7 +81,7 @@ export default function VisualGeometriesPage() {
           <li><strong>Caustics = multiplicative resonances.</strong> Bright bands form where <InlineMath tex={'\\log(p_i/p_j)\\approx 2\\pi k/t'} /> — the same oscillatory structure as the explicit formula's <InlineMath tex={'x^{\\rho}'} /> kernel.</li>
           <li><strong>Vortices = zeros.</strong> <InlineMath tex={'\\tfrac1{2\\pi}\\oint V_t\\cdot dz = \\pm 1'} /> is the argument principle; off-axis vortices would be off-axis zeros (RH false).</li>
           <li><strong>Rigidity is the real content.</strong> Real primes give coherent caustics; randomized primes wash them out — the structure is arithmetic, not random.</li>
-          <li style={{ color: '#94a3b8' }}><strong>Ceiling:</strong> per the <Link to="/route-map">route map</Link>, the twin-ladder geometry is a dead end as a rigorous Λ route, and the vortex/winding thread re-derives only Λ ≥ 0. These are exact <em>exploratory</em> visualizations — not a path to beating Platt–Trudgian or proving RH.</li>
+          <VizCeilingNote claim="Λ ≥ 0 (vortex/winding thread)" ceiling="the twin-ladder geometry is a dead end as a rigorous Λ route" />
         </ul>
       </div>
     </div>

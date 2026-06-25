@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import VizCeilingNote from '../components/VizCeilingNote.jsx';
 
 /*
  * Prime-Log Vortex Field Near a Zeta Zero.
@@ -426,7 +427,7 @@ export default function VortexFieldPage() {
           <li><strong>Vortices = zeros.</strong> Each colored singularity where all hues meet is a zero ρ of ξ; the phase winds +1 around it (the argument principle).</li>
           <li><strong>Vortex exclusion ⟺ RH.</strong> Under RH every vortex lies on the dashed line Re s = ½. An off-axis vortex (red) is an off-axis zero — exactly an RH violation.</li>
           <li><strong>Heat flow.</strong> The de Bruijn–Newman flow <code>H_t</code> drags vortices toward the line as t increases; Λ is the time below which off-axis vortices first appear. This is the same winding order parameter as the <Link to="/route-map">route map</Link>'s supercritical-winding thread.</li>
-          <li style={{ color: '#94a3b8' }}><strong>Honest ceiling:</strong> this picture re-derives Λ ≥ 0 and makes RH visible, but it is <em>not</em> a new rigorous bound and does not beat Platt–Trudgian Λ ≤ 0.2. It's an exact, exploratory visualization — no false QED.</li>
+          <VizCeilingNote claim="Λ ≥ 0 (and makes RH visible)" />
         </ul>
         <div style={{ fontSize: 12, marginTop: 8 }}>
           Related: <Link to="/statistics" style={{ color: '#3b82f6' }}>Zero Statistics</Link> ·{' '}

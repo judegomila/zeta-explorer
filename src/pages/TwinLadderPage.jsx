@@ -18,6 +18,23 @@ export default function TwinLadderPage() {
         </p>
       </div>
 
+      <div className="card" style={{ marginTop: 24, borderColor: '#f59e0b' }}>
+        <h3 style={{ color: '#f59e0b' }}>Important Caveat</h3>
+        <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.7 }}>
+          <InlineMath tex="Z_{TL}" /> is an <em>engineered</em> deformation of a <strong>finite</strong> prime
+          sum — capped at <InlineMath tex="M" /> rungs over a finite set of <InlineMath tex="N" /> primes — not
+          a genuine analytic continuation of <InlineMath tex={"\\zeta"} />. Its zero structure is a{' '}
+          <strong>model artifact</strong> of the chosen weights and truncation; it does <strong>not</strong> track
+          the nontrivial zeros of the Riemann zeta function, and nothing on this page constrains where those zeros lie.
+          The page is a pedagogical tool for visualizing how thermodynamic weighting reshapes a prime-ladder phasor sum.
+        </p>
+        <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.7 }}>
+          The <InlineMath tex={"\\lVert V_{a,\\Phi}\\rVert \\le 1"} /> collapse this construction gestures toward
+          is <strong>RH-equivalent</strong>, not a reduction: proving it would be exactly as hard as proving the
+          Riemann Hypothesis, so the deformation reformulates the problem rather than making progress on it.
+        </p>
+      </div>
+
       <BlockMath tex={"Z_{TL}\\bigl(\\tfrac{1}{2}+iT;\\,\\beta,P\\bigr) = \\sum_p \\sum_{m=0}^{M} p^{-m/2}\\, e^{-imT\\log p}\\, e^{-\\beta\\, m\\log p \\;-\\; P\\,\\psi(m\\log p)}"} />
 
       <div style={{ marginTop: 8 }}>

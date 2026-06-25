@@ -198,6 +198,23 @@ export const IMP2643_HONEST_ASSEMBLED_EN_ASSERTIONS = [
       RIGOROUS_BEAT === false,
   },
   {
+    // STORAGE-PRECISION TOLERANCE FLOOR (imp-2703 audit). E_N and its sub-terms are
+    // cached for display at toFixed(7) / toExponential(4) granularity (T0, E_flow ->
+    // toExponential(4); E_coll, E_N -> toFixed(7)). The reconstruct-from-storage floor
+    // is 5e-8 (half a unit in the last toFixed(7) place). Every downstream assertion
+    // here compares a LIVE full-precision value against a rounded literal and uses a
+    // tolerance >= this floor (1e-5 on E_N, 1e-5 on E_coll in imp-2633, 1e-6/1e-7 on the
+    // toExponential(4) fields in imp-2644), so no 7-sig-fig rounding artifact can flip a
+    // result -- this is the named recurring red-build trap of imp-2546/imp-2539. This
+    // guard verifies the stored E_N reconstructs to live E_N within the 5e-8 floor and
+    // that the headline 1e-5 tolerance stays above it.
+    id: 'imp2643-storage-tolerance-floor',
+    description: 'Stored E_N (toFixed(7)) reconstructs to live E_N within the 5e-8 storage floor, and the headline 1e-5 tolerance exceeds that floor (imp-2703)',
+    holds: () =>
+      Math.abs(IMP2643_HONEST_ASSEMBLED_EN.E_N - E_N) <= 5e-8 &&
+      1e-5 >= 5e-8,
+  },
+  {
     id: 'imp2643-c-selberg-discharged-conservative',
     description: 'C_Selberg is discharged to the conservative explicit Trudgian value (secondary, non-binding gap)',
     holds: () => C_SELBERG_DISCHARGED === true,

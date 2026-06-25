@@ -98,6 +98,9 @@
  */
 
 import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
+// imp-2699: machine-checked interval certificate for the TC_A1 = g_min^2/6 trap
+// literal used below; side-effect import keeps its build assertions live.
+import './imp-2762-tc-a1-trap-interval.js';
 
 const TWO_PI = 2 * Math.PI;
 const N_STAR = 1e4;

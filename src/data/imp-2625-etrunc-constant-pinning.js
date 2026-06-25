@@ -237,8 +237,68 @@ export const ETRUNC_CONSTANT_PINNING = {
   ],
 };
 
+// ── imp-2698: CERTIFIED-RESIDUAL record for C_T ───────────────────────────────
+// The ticket asks to EITHER pin an explicit numerical C_T <= 1.46 from the
+// Heath-Brown 1979 / Kadiri effective zero-density constant on the strip
+// sigma = 1/2 + 1/log T_0, OR -- if the literature genuinely gives only O(1)
+// uniformly -- record a CERTIFIED-RESIDUAL naming the exact missing constant and
+// the margin. The imp-1324 audit settles which branch: Heath-Brown 1979 and the
+// tightest modern pin (Ramare 2016, A_R = 1) give an EXPLICIT O(1) constant only
+// AT the boundary sigma = 3/4, NOT certified <= 1.46 UNIFORMLY down to the thin
+// strip sigma = 1/2 + 1/log T_0. So the honest branch is the certified residual,
+// not a (false) explicit pin. The threshold the headline needs is reproduced and
+// locked below to 1.4617 +/- 1e-4.
+const C_T_HEADROOM_OVER_UNITY = C_T_THRESHOLD_FOR_0P2 - C_T_CENTRAL; // 0.4617 = 46%
+export const C_T_CERTIFIED_RESIDUAL_IMP2698 = {
+  id: 'imp-2698',
+  proofSection: 'S7',
+  verdict: 'CERTIFIED-RESIDUAL (literature gives only O(1) uniformly; threshold locked)',
+  branchChosen:
+    'CERTIFIED-RESIDUAL. The imp-1324 audit shows Heath-Brown 1979 and Ramare 2016 ' +
+    'supply an EXPLICIT O(1) effective constant only AT the boundary sigma = 3/4, ' +
+    'not certified <= 1.46 uniformly down to the thin strip sigma = 1/2 + 1/log T_0. ' +
+    'No false explicit C_T is asserted.',
+  exactMissingConstant:
+    'An effective Heath-Brown 1979 / Ramare 2016 zero-density constant C_HB(sigma) ' +
+    '(with its (log T)^{B_HB} power) in N(sigma,T) <= C_HB sigma T^{(3-3 sigma)/(2-sigma)} ' +
+    '(log T)^{B_HB}, valid UNIFORMLY on sigma in [1/2 + 1/log T_0, 3/4], composed with ' +
+    'the Polymath15 Lemma 3.3 truncation constant, certified to give C_T <= 1.46. The ' +
+    'literature pins C_HB(3/4) = O(1), B_HB(3/4) = 0 (boundary case) but NOT the ' +
+    'uniform-down-to-thin-strip value. That uniformity is the exact residual.',
+  closestLiteraturePin:
+    'Ramare 2016 (Math. Comp. 85, Thm 1): A_R = 1, C_R(0.75) = O(1) at sigma = 3/4 ' +
+    '-- a single log power, the tightest explicit modern reference, but still only AT ' +
+    'sigma = 3/4, not uniform to the thin strip.',
+  thresholdFor_0p2: +C_T_THRESHOLD_FOR_0P2.toFixed(4), // 1.4617
+  centralReading_C_T: C_T_CENTRAL, // 1.0 placeholder
+  headroomOverUnity: +C_T_HEADROOM_OVER_UNITY.toFixed(4), // 0.4617 = ~46%
+  headroomPercent: +(100 * C_T_HEADROOM_OVER_UNITY).toFixed(1), // 46.2
+  marginFractionUnderThreshold: +C_T_MARGIN_FRACTION.toFixed(4), // 0.3159 (1 - 1/1.4617)
+  upgradesEtruncToFullyRigorous: false,
+  sources: [
+    'Heath-Brown, Zero-density estimates for the Riemann zeta-function, Bull. LMS 11 (1979) 191-196',
+    'Ramare, An explicit density estimate for Dirichlet L-series, Math. Comp. 85 (2016) 325-356',
+    'src/data/imp-1324-kadiri-effective-ingham-audit.js (the effective-constant audit)',
+  ],
+};
+
 // ── Build-time assertions (self-executing) ────────────────────────────────────
 export const ETRUNC_CONSTANT_PINNING_ASSERTIONS = [
+  {
+    id: 'imp2698-CT-threshold-reproduces-1.4617',
+    holds: () =>
+      Math.abs(C_T_THRESHOLD_FOR_0P2 - 1.4617) < 1e-4 &&
+      C_T_CERTIFIED_RESIDUAL_IMP2698.verdict.startsWith('CERTIFIED-RESIDUAL') &&
+      C_T_CERTIFIED_RESIDUAL_IMP2698.upgradesEtruncToFullyRigorous === false &&
+      C_T_CERTIFIED_RESIDUAL_IMP2698.headroomPercent > 45,
+    why:
+      'imp-2698: the < 0.2 headline threshold C_T = 0.2 / (gamma^{-kappa_T} log gamma) ' +
+      'at the conservative kappa_T = 0.180 must reproduce 1.4617 to 1e-4, and -- ' +
+      'because Heath-Brown 1979 / Ramare 2016 certify only an O(1) constant at the ' +
+      'sigma = 3/4 boundary, not <= 1.46 uniformly down to the thin strip -- the C_T ' +
+      'record must stay a CERTIFIED-RESIDUAL (not a false explicit pin) with the ~46% ' +
+      'headroom over the C_T = 1.0 placeholder named explicitly.',
+  },
   {
     id: 'imp2625-kappaT-closed-form-equals-binding',
     holds: () =>

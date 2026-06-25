@@ -584,9 +584,197 @@ export const C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642 = (() => {
   };
 })();
 
+// ── imp-2672: can the discriminant ladder REGULARIZE the divergent Gronwall? ──
+//
+// TOP OPPORTUNITY assessment. imp-2640 / imp-2642 retired the finite-N beat to
+// ESTIMATE because the ONLY available bound on the gap-Lipschitz constant C_Lip
+// (Step 1 of the Holder modulus) is the backward-flow Jacobian bound
+// ||DM|| <= 2/y_star^2 ~ 2/g(t)^2, whose collision integral
+//     int_0^{t_c} 2/g(t)^2 dt = (1/4) log( g(0)^2 / (g(0)^2 - 8 t_c) )
+// DIVERGES logarithmically as g -> 0 (the quadratic tangency g^2 = g(0)^2 - 8t
+// drives the integrand to 1/(t_c - t)). This ticket asks whether the Theta-trap
+// (sg1c Theorem A: Theta(0) <= 1/4) plus the exact heat-discriminant ladder
+// (imp-2563 Lemma S4-1) can supply a COLLISION-REGULARIZED replacement.
+//
+// FINDING (TWO PARTS, both honest):
+//
+// PART 1 -- the Theta-trap alone does NOT regularize.
+//   The exact pair identity dg/ds = -(4/g)(1 - Theta) only multiplies the gap
+//   velocity by the bounded factor (1 - Theta) in [3/4, 1] inside the trap.
+//   Then g^2 = 8 (1 - Theta_avg)(t_c - s)(1 + o(1)), so 1/g^2 ~ 1/(t_c - s) STILL
+//   blows up and int 2/g^2 ds STILL diverges. The trap sharpens the O(1) constant
+//   but the divergence is structural to the square-root vanishing of the gap.
+//   So the Theta-trap, a single-pair-local instrument, cannot regularize the
+//   flow-Jacobian route -- this confirms (does not beat) imp-2640.
+//
+// PART 2 -- the DISCRIMINANT ladder DOES regularize the collision (the new gain).
+//   Replace "follow the flow Jacobian to the collision" by the NON-DYNAMICAL
+//   characterization of imp-2563: t_c = smallest positive root of Disc(s), where
+//   Disc(s) = Disc(exp(s d_z^2) P_0) is a polynomial-in-s functional of the
+//   initial data. Then the sensitivity of t_c to the initial measure is the
+//   IMPLICIT-FUNCTION-THEOREM ratio
+//       d t_c / d mu = - (dDisc/d mu) / (dDisc/ds)   evaluated at s = t_c,
+//   NOT a flow integral. The denominator is, by Lemma S4-1,
+//       dDisc/ds = Disc * (d/ds log Disc) = Disc * ( -8 sum_{i<j} 1/(x_i-x_j)^2 ).
+//   At the first collision EXACTLY ONE squared gap vanishes, and by quadratic
+//   tangency it vanishes LINEARLY in time: g^2 ~ 8 (t_c - s). Hence Disc has a
+//   SIMPLE (first-order) zero in s, and the colliding-pair Coulomb term
+//   1/g^2 ~ 1/(8(t_c - s)) that DROVE the Gronwall divergence is exactly
+//   CANCELLED against the Disc -> 0 prefactor:
+//       dDisc/ds  ->  -8 * D_rest(t_c)   (FINITE and NONZERO),
+//   where D_rest = prod over the NON-colliding pairs of (x_i - x_j)^2 is the
+//   surviving discriminant cofactor. The 1/g^2 collision singularity is GONE
+//   from the sensitivity formula. (Witness below: as (t_c - s) -> 0, the ratio
+//   Disc/(t_c - s) and the exact derivative -8 Disc sum 1/gap^2 both converge to
+//   the same finite limit, WHILE sum 1/gap^2 itself diverges -- a genuine
+//   cancellation, not a coincidence.)
+//
+// VERDICT: CONDITIONAL SHARPENING, NOT A BEAT. The discriminant route removes the
+// LOCAL 1/g^2 blowup that refuted the Gronwall attack, but it does not produce an
+// N-uniform C_H: the difficulty is TRANSFERRED to a uniform LOWER bound on the
+// surviving cofactor D_rest(t_c) = prod_{non-colliding} (gap)^2, a product over
+// ~N^2/2 factors whose N-uniform control is exactly the global gap-statistics
+// (GUE / pair-correlation) content -- RH-hard, and NOT supplied by the
+// single-pair-local Theta-trap. So the finite-N*=1e4 beat stays an ESTIMATE
+// (consistent with imp-2640 / imp-2642 / imp-2701), but the open sub-gap is now
+// SHARPER and better-named than "Gronwall diverges at the collision":
+//     cond-Drest := an N-uniform lower bound on the first-collision discriminant
+//                   cofactor D_rest(t_c), equivalently inf_N 8 |dDisc/ds|_{s=t_c}.
+// This is a more tractable-looking (still RH-hard) reformulation of the modulus
+// obstruction. NO FALSE QED: no rigorous Lambda < 0.2 is claimed; Platt-Trudgian
+// Lambda <= 0.2 remains SOTA.
+
+export const C_H_DISCRIMINANT_REGULARIZATION_IMP2672 = (() => {
+  // Self-contained finite-N heat-discriminant machinery (no heavy imports; the
+  // conventions match imp-2563-discriminant-tc-characterization.js).
+  const polyFromRoots = (r) => {
+    let c = [1];
+    for (const root of r) {
+      const nc = new Array(c.length + 1).fill(0);
+      for (let i = 0; i < c.length; i++) { nc[i] += -root * c[i]; nc[i + 1] += c[i]; }
+      c = nc;
+    }
+    return c;
+  };
+  const dCoeffs = (c) => { const d = new Array(c.length - 1); for (let i = 1; i < c.length; i++) d[i - 1] = i * c[i]; return d; };
+  const heatEvolve = (c, s) => {
+    const total = c.slice();
+    let term = c.slice(); let m = 1; let fact = 1;
+    while (term.length > 2) { term = dCoeffs(dCoeffs(term)); fact *= m; const sm = Math.pow(s, m) / fact; for (let i = 0; i < term.length; i++) total[i] += sm * term[i]; m++; }
+    return total;
+  };
+  const evalPoly = (c, z) => { let v = 0; for (let i = c.length - 1; i >= 0; i--) v = v * z + c[i]; return v; };
+  const realRoots = (c, lo, hi, grid) => {
+    const roots = []; let pz = evalPoly(c, lo); let pv = lo;
+    for (let i = 1; i <= grid; i++) {
+      const z = lo + ((hi - lo) * i) / grid; const cz = evalPoly(c, z);
+      if (pz * cz < 0) { let a = pv; let b = z; for (let k = 0; k < 70; k++) { const mid = (a + b) / 2; if (evalPoly(c, a) * evalPoly(c, mid) <= 0) b = mid; else a = mid; } roots.push((a + b) / 2); }
+      pz = cz; pv = z;
+    }
+    return roots;
+  };
+  const gapsOf = (r) => { const g = []; for (let i = 0; i < r.length - 1; i++) g.push(r[i + 1] - r[i]); return g; };
+  const logDiscOf = (r) => { let s = 0; for (let i = 0; i < r.length; i++) for (let j = i + 1; j < r.length; j++) s += 2 * Math.log(Math.abs(r[i] - r[j])); return s; };
+  const sumInvSqOf = (r) => { let s = 0; for (let i = 0; i < r.length; i++) for (let j = i + 1; j < r.length; j++) { const d = r[i] - r[j]; s += 1 / (d * d); } return s; };
+
+  const X = [0, 1.0, 2.3, 3.1, 5.0, 6.2];
+  const P0 = polyFromRoots(X);
+  const LO = -2, HI = 8, GRID = 12000;
+  const rootsAt = (s) => realRoots(heatEvolve(P0, s), LO, HI, GRID).sort((a, b) => a - b);
+
+  // t_c = first s where the minimal heat-root gap collapses (bisection).
+  let loS = 0, hiS = 1.5;
+  for (let it = 0; it < 56; it++) {
+    const m = (loS + hiS) / 2; const rt = rootsAt(m);
+    if (rt.length < X.length || Math.min(...gapsOf(rt)) < 1e-7) hiS = m; else loS = m;
+  }
+  const tc = (loS + hiS) / 2;
+
+  // Probe two epsilons inside the collision approach. The ratio Disc/(t_c - s)
+  // estimates the simple-zero slope; the exact identity -8 Disc sum 1/gap^2 is
+  // dDisc/ds; both converge to -8 D_rest while sum 1/gap^2 diverges.
+  const probe = (eps) => {
+    const s = tc - eps; const rt = rootsAt(s);
+    const disc = Math.exp(logDiscOf(rt));
+    const sInv = sumInvSqOf(rt);
+    return { eps, minGap: Math.min(...gapsOf(rt)), disc, sumInvSq: sInv, ratio: disc / eps, dDiscExact: -8 * disc * sInv };
+  };
+  const p1 = probe(0.002);
+  const p2 = probe(0.001);
+
+  const ratioConvergence = Math.abs(p2.ratio - p1.ratio) / Math.abs(p1.ratio); // -> 0 (simple zero)
+  const sumInvSqBlowupFactor = p2.sumInvSq / p1.sumInvSq;                       // -> 2 (1/(t_c - s) growth)
+  // simple-zero slope (Disc/eps) vs exact derivative magnitude (8 Disc sumInvSq)
+  // must agree: both estimate 8 D_rest, the finite nonzero IFT denominator.
+  const denomAgreement = Math.abs(p2.ratio - Math.abs(p2.dDiscExact)) / Math.abs(p2.ratio);
+  const dRestLimit = Math.abs(p2.dDiscExact) / 8; // surviving cofactor at t_c
+
+  return {
+    ticket: 'imp-2672',
+    title: 'Collision-regularized C_H: Theta-trap + discriminant ladder vs the divergent Gronwall integral',
+    verdict: 'CONDITIONAL SHARPENING -- the discriminant ladder regularizes the collision singularity but does NOT yield an N-uniform C_H; finite-N beat stays ESTIMATE. No rigorous Lambda < 0.2.',
+    rigorousBeat: false,
+    part1ThetaTrap:
+      'NEGATIVE for regularization: dg/ds = -(4/g)(1 - Theta) multiplies by a bounded factor in [3/4, 1]; ' +
+      'g^2 ~ 8(1 - Theta)(t_c - s) keeps 1/g^2 ~ 1/(t_c - s), so int 2/g^2 ds still diverges. The trap is single-pair-local.',
+    part2Discriminant:
+      'POSITIVE structural gain: via imp-2563, t_c = smallest root of Disc(s); the IFT sensitivity ' +
+      'd t_c/d mu = -(dDisc/d mu)/(dDisc/ds) has denominator dDisc/ds = -8 Disc sum 1/gap^2. Quadratic tangency makes ' +
+      'g^2 ~ 8(t_c - s) a SIMPLE zero of Disc, so the colliding 1/g^2 cancels the Disc -> 0 prefactor and dDisc/ds -> -8 D_rest, ' +
+      'FINITE and NONZERO. The local 1/g^2 blowup that refuted the Gronwall route is removed.',
+    transferredSubGap:
+      'cond-Drest: an N-uniform LOWER bound on the first-collision discriminant cofactor D_rest(t_c) = ' +
+      'prod over non-colliding pairs of (x_i - x_j)^2 (equivalently inf_N 8|dDisc/ds| at s=t_c). A product over ~N^2/2 ' +
+      'gaps; N-uniform control is the global GUE / pair-correlation content -- RH-hard, NOT supplied by the Theta-trap.',
+    witness: {
+      config: X,
+      tc,
+      probeCoarse: p1,
+      probeFine: p2,
+      ratioConvergence,          // small => Disc is a simple zero in s
+      sumInvSqBlowupFactor,      // ~2 => the per-gap Coulomb term genuinely diverges
+      denomAgreement,            // small => simple-zero slope == exact derivative (the cancellation)
+      dRestLimit,                // the finite nonzero surviving cofactor 8 D_rest / 8
+    },
+    honestNote:
+      'The discriminant route is a SHARPER reformulation of the modulus obstruction than imp-2640 (it removes the ' +
+      'local collision singularity), but it is not a beat: cond-Drest is RH-hard. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
+  };
+})();
+
 // ── Build-time assertions ──────────────────────────────────────────────────────
 
 export const POLYMATH15_LEMMA_52_ASSERTIONS = [
+  {
+    id: 'imp2672-discriminant-regularizes-collision-no-beat',
+    holds: () => {
+      const r = C_H_DISCRIMINANT_REGULARIZATION_IMP2672;
+      const w = r.witness;
+      // Tripwire: (i) no beat claimed; (ii) the discriminant has a SIMPLE zero in
+      // time -- the ratio Disc/(t_c - s) has converged between the two probes; (iii)
+      // the per-gap Coulomb sum genuinely BLOWS UP (so the finiteness of dDisc/ds is
+      // a real cancellation, not a flat curve); (iv) the simple-zero slope agrees
+      // with the exact derivative identity (the collision cancellation), giving a
+      // FINITE NONZERO IFT denominator; (v) the verdict stays a conditional
+      // sharpening so no future edit promotes it to a rigorous beat.
+      return (
+        r.rigorousBeat === false &&
+        /CONDITIONAL SHARPENING/.test(r.verdict) &&
+        Number.isFinite(w.tc) && w.tc > 0 &&
+        w.ratioConvergence < 0.12 &&
+        w.sumInvSqBlowupFactor > 1.5 &&
+        w.denomAgreement < 0.15 &&
+        Number.isFinite(w.dRestLimit) && w.dRestLimit > 0
+      );
+    },
+    why:
+      'imp-2672 verdict lock: the heat-discriminant ladder REGULARIZES the first-collision ' +
+      'singularity (Disc has a simple zero in s by quadratic tangency, so the IFT denominator ' +
+      'dDisc/ds = -8 D_rest is finite nonzero even as sum 1/gap^2 diverges) -- a sharper modulus ' +
+      'reformulation than the refuted Gronwall route (imp-2640), but NOT an N-uniform C_H: the ' +
+      'open sub-gap cond-Drest (uniform lower bound on the collision cofactor) is RH-hard. This ' +
+      'assertion blocks any edit from flipping the conditional sharpening into a claimed beat.',
+  },
   {
     id: 'imp2642-CH-one-eighth-not-rigorous-upper-bound',
     holds: () => {

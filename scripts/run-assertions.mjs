@@ -573,6 +573,16 @@ const DATA_MODULES = [
   // Schur ~35.86. Open sub-gap of imp-1260 shrinks from a>2 to a>~37.66. 9
   // tripwires. imp-1260 stays OPEN for all a > 0.
   '/src/data/imp-1260-largea-crossover.js',
+  // imp-2684 (PARTIAL): cosh-addition reduction collapsing the exact-HS DOUBLE
+  // integral E(a) to a SINGLE O(N) integral E(a) = (1/2) int Phi² [cosh(2ax)C -
+  // sinh(2ax)S - P] dx, the analytic prerequisite that turns the sliver
+  // (34.98, 37.66] certification (imp-2654 single obstruction) from a 2D into a
+  // 1D validated-quadrature problem. Verified to match the direct 2D quadrature
+  // and the frozen exact-HS crossover 37.66224030 to 8+ sig figs. HONEST: no
+  // validated enclosure produced yet (naive separable split is lossy by ~3
+  // orders of magnitude); residual sub-gap is a cancellation-preserving cell-wise
+  // enclosure in d = x-y. RH-EQUIVALENT route, no QED. 6 tripwires.
+  '/src/data/imp-2684-volterra-sliver-interval.js',
   // imp-1286: RIGOROUS tail-bound transfer L²([0, U]) → L²([0, ∞)) for the
   // imp-1267 HS bound. Closed-form T_a(U) ≤ I_0 · (π³/8) · e^{(4+2a)U} ·
   // exp(-2π e^{4U}); at U=4 this is ≤ 10^{-24,247,990} for the App-S grid
@@ -1817,6 +1827,9 @@ const DATA_MODULES = [
   '/src/data/headline-numbers-registry.js',
   // imp-2740: tripwire forbidding NEW rigorous/unconditional adjacency to the finite-N*=1e4 beat.
   '/src/data/anti-overclaim-finite-beat-guard.js',
+  // imp-2681: pin C_shock from the cusp-density C_cusp via the quantile-spacing
+  // identity — bounded/pinnable, isolating the C_H obstruction to C_Lip alone.
+  '/src/data/imp-2786-c-shock-cusp-constant.js',
 ];
 
 let ALL_MODULES = FAST_MODE

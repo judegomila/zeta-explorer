@@ -185,6 +185,20 @@ export const IMP2643_HONEST_ASSEMBLED_EN_ASSERTIONS = [
     holds: () => E_COLL / E_N > 0.88 && E_COLL / E_N < 0.92,
   },
   {
+    // STRUCTURAL DOMINANCE GUARD (imp-2708). The (0.88, 0.92) window above is a frozen
+    // numeric band; this sibling instead enforces the qualitative claim that makes the
+    // verdict logic valid -- E_coll genuinely EXCEEDS the combined rigorous tail
+    // (E_flow + E_trunc) -- as an inequality on the three sub-terms re-derived live from
+    // their defining constants (C_C_PINNED via E_COLL; C_F, T0, N_STAR via E_FLOW; the
+    // pinned E_TRUNC_PT), not from the rounded toFixed display fields. So long as
+    // E_coll > E_flow + E_trunc, the non-rigorous term outweighs the rigorous remainder
+    // and "its rigor governs the verdict" holds structurally, independent of the exact
+    // share. At N*=1e4: E_coll approx 1.164e-2 > E_flow + E_trunc approx 1.27e-3 (~9x).
+    id: 'imp2643-ecoll-strictly-dominates',
+    description: 'E_coll (re-derived from C_C, full float64) strictly exceeds E_flow + E_trunc, so the non-rigorous term governs the verdict structurally (imp-2708)',
+    holds: () => E_COLL > E_FLOW + E_TRUNC_PT,
+  },
+  {
     id: 'imp2643-clears-PT-numerically',
     description: 'Numerically E(N) clears the Platt-Trudgian PT_BOUND=0.2 by >10x',
     holds: () => E_N < PT_BOUND && PT_BOUND / E_N > 10,

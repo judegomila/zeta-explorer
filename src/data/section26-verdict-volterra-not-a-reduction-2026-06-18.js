@@ -61,6 +61,8 @@
  * @see imp-1240-volterra-norm-pilot (the 5000x margin -- now a flagged artifact)
  */
 
+import { IMP_1258_VOLTERRA_CDB_BRIDGE } from './imp-1258-volterra-cdb-bridge.js';
+
 export const SECTION26_VERDICT = {
   date: '2026-06-18',
   verdict: 'KILLED AS A REDUCTION; residual OPEN sub-problem is RH-EQUIVALENT, not a shortcut',
@@ -95,6 +97,19 @@ export const SECTION26_VERDICT_ASSERTIONS = [
     id: 'sec26-surviving-target-rh-equivalent-sota-unchanged',
     description: 'Surviving target recorded as RH-equivalent (not a shortcut); PT 0.2 remains SOTA',
     holds: () => /RH-EQUIVALENT|RH-equivalent|restatement/.test(THE_REAL_GAP_REVISED.honestCaveat) && /Platt-Trudgian/.test(SECTION26_VERDICT.sota),
+  },
+  {
+    id: 'sec26-cross-bridge-cannot-regrade-to-reduction',
+    description: 'Cross-file tripwire (imp-2748): the imp-1258 Volterra-CDB bridge and this verdict module cannot diverge. The bridge masterVerdict must stay the downgraded CONDITIONAL / link-B-refuted value (NOT a clean reduction), the bridge one-liner must record NOT ESTABLISHED and never re-assert a shortcut, this verdict must stay RH-EQUIVALENT, and the withdrawn 5000x margin must stay flagged as an artifact (NOT evidence of progress) in both. Fails if either file regrades the collapse to a cheaper-than-RH reduction.',
+    holds: () => {
+      const mv = IMP_1258_VOLTERRA_CDB_BRIDGE.masterVerdict;
+      const bridgeStaysDowngraded = /CONDITIONAL/.test(mv) && /refuted/i.test(mv);
+      const oneLine = IMP_1258_VOLTERRA_CDB_BRIDGE.oneLine.toLowerCase();
+      const noCheapClaim = oneLine.includes('not established') && !/\bshortcut\b/.test(oneLine);
+      const sec26RhEquiv = /RH-EQUIVALENT|RH-equivalent|restatement/.test(THE_REAL_GAP_REVISED.honestCaveat) && /KILLED AS A REDUCTION/.test(SECTION26_VERDICT.verdict);
+      const artifactFlagged = /artifact|scale-miscalibrated/.test(SECTION26_VERDICT.fiveThousandXArtifact) && /NOT evidence/.test(SECTION26_VERDICT.fiveThousandXArtifact);
+      return bridgeStaysDowngraded && noCheapClaim && sec26RhEquiv && artifactFlagged;
+    },
   },
 ];
 

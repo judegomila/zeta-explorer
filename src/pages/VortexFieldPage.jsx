@@ -13,9 +13,10 @@ import { Link } from 'react-router-dom';
  * We domain-color arg H(s) for the faithful local model H(s) = prod_k (s - rho_k)
  * over a window of nearby zeros: the phase wraps once around each vortex, so the
  * zeros ARE the vortices. Under RH every rho_k = 1/2 + i gamma_k, so every vortex
- * sits on the critical line Re s = 1/2 -- a vertical row. Push one off the line
- * (the slider) and you get an OFF-AXIS VORTEX: an off-axis zero, i.e. an RH
- * violation. "Vortex exclusion" (no off-axis vortices) is exactly RH.
+ * sits on the critical line Re s = 1/2 -- a vertical row. Lower the heat-time
+ * (the slider) and the real backward Dyson/Calogero-Moser flow attracts the
+ * closest pair until it COLLIDES and leaves the line: an OFF-AXIS VORTEX, i.e.
+ * an off-axis zero -- an RH violation. "Vortex exclusion" is exactly RH.
  *
  * HONEST CEILING (per the project's route map + supercritical-winding-experiment):
  * the winding / vortex-exclusion picture re-derives Lambda >= 0 (Rodgers-Tao) and
@@ -35,24 +36,104 @@ const GAMMAS = [
 const PX = 460;          // canvas pixel buffer (square)
 const HALF_T = 9;        // half-window in t (imaginary direction)
 
+// ── Real backward Dyson / Calogero-Moser zero flow ────────────────────────────
+// Self-contained mirror of src/math/dyson-zero-flow.js (kept light: pages must
+// not import the heavy zeros bundle). The local zero heights gamma_n on the
+// critical line evolve under the Calogero-Moser / Dyson ODE
+//   dg_{n}/dt = 2 * sum_{k != n} 1/(gamma_n - gamma_k).
+// Heat-time t increasing => repulsion (zeros stay real, on the line); t
+// decreasing => attraction => the closest pair merges and LEAVES the line as an
+// off-axis conjugate pair. Local truncated window (distant + mirror terms
+// dropped); re-derives Lambda >= 0, NOT a new rigorous bound.
+function dysonDeriv(g) {
+  const N = g.length;
+  const d = new Array(N).fill(0);
+  for (let n = 0; n < N; n++) {
+    let s = 0;
+    for (let k = 0; k < N; k++) {
+      if (k === n) continue;
+      const diff = g[n] - g[k];
+      if (Math.abs(diff) > 1e-9) s += 1 / diff;
+    }
+    d[n] = 2 * s;
+  }
+  return d;
+}
+
+function dysonStep(g, dt) {
+  const k1 = dysonDeriv(g);
+  const y1 = g.map((v, i) => v + (dt / 2) * k1[i]);
+  const k2 = dysonDeriv(y1);
+  const y2 = g.map((v, i) => v + (dt / 2) * k2[i]);
+  const k3 = dysonDeriv(y2);
+  const y3 = g.map((v, i) => v + dt * k3[i]);
+  const k4 = dysonDeriv(y3);
+  return g.map((v, i) => v + (dt / 6) * (k1[i] + 2 * k2[i] + 2 * k3[i] + k4[i]));
+}
+
+const COLLISION_GAP = 0.18; // truncated-window collision scale
+
+// Evolve the local window from heat-time 0 to tau and return the vortex set.
+// tau > 0: forward (repulsion, all on line). tau < 0: backward (attraction);
+// at the first collision the colliding pair is frozen and split off the line by
+// the square-root departure law delta ~ (t_c - t)^{1/2}.
+function computeVortexFlow(centerIdx, tau) {
+  const gc = GAMMAS[centerIdx];
+  let g = GAMMAS
+    .filter((gg) => Math.abs(gg - gc) <= HALF_T + 4)
+    .sort((a, b) => a - b);
+  const STEPS = 200;
+  let collisionT = null, collIdx = -1;
+  if (Math.abs(tau) > 1e-6) {
+    const dt = tau / STEPS; // sign follows tau: <0 backward, >0 forward
+    for (let st = 0; st < STEPS; st++) {
+      g = dysonStep(g, dt);
+      let m = Infinity, mi = -1;
+      for (let n = 0; n < g.length - 1; n++) {
+        const gap = g[n + 1] - g[n];
+        if (gap < m) { m = gap; mi = n; }
+      }
+      if (dt < 0 && m < COLLISION_GAP) {
+        collisionT = (st + 1) * dt; // first collision => pair leaves the line
+        collIdx = mi;
+        break;                      // freeze spectators at the collision time
+      }
+    }
+  }
+  let minGapNow = Infinity;
+  for (let n = 0; n < g.length - 1; n++) {
+    const gap = g[n + 1] - g[n];
+    if (gap < minGapNow) minGapNow = gap;
+  }
+  let zeros;
+  if (collisionT !== null) {
+    const H = (g[collIdx] + g[collIdx + 1]) / 2;
+    const delta = Math.min(HALF_T * 0.85, 2.0 * Math.sqrt(Math.max(0, collisionT - tau)));
+    zeros = [];
+    for (let n = 0; n < g.length; n++) {
+      if (n === collIdx || n === collIdx + 1) continue;
+      zeros.push({ sigma: 0.5, gamma: g[n], role: 'other' });
+    }
+    zeros.push({ sigma: 0.5 + delta, gamma: H, role: 'off' });
+    zeros.push({ sigma: 0.5 - delta, gamma: H, role: 'off' });
+  } else {
+    let m = Infinity, mi = -1;
+    for (let n = 0; n < g.length - 1; n++) {
+      const gap = g[n + 1] - g[n];
+      if (gap < m) { m = gap; mi = n; }
+    }
+    zeros = g.map((h, n) => ({ sigma: 0.5, gamma: h, role: (n === mi || n === mi + 1) ? 'central' : 'other' }));
+  }
+  return { zeros, gc, collisionT, minGapNow };
+}
+
 function VortexCanvas({ centerIdx, tau, magContours, showStreamlines, onHoverData }) {
   const ref = useRef(null);
 
-  // Vortex set. Under the de Bruijn-Newman flow, for heat-time tau >= Lambda all
-  // vortices sit on Re s = 1/2; below Lambda (here Lambda_model = 0) the central
-  // one is an OFF-AXIS conjugate pair sigma = 1/2 +- |tau| (an RH violation that
-  // forward heat would coalesce onto the line). All others stay on the line.
-  const zeros = useMemo(() => {
-    const gc = GAMMAS[centerIdx];
-    const others = GAMMAS
-      .filter((g) => Math.abs(g - gc) <= HALF_T + 4 && Math.abs(g - gc) > 1e-9)
-      .map((g) => ({ sigma: 0.5, gamma: g, role: 'other' }));
-    const delta = tau < 0 ? -tau : 0;
-    const central = delta > 1e-6
-      ? [{ sigma: 0.5 + delta, gamma: gc, role: 'off' }, { sigma: 0.5 - delta, gamma: gc, role: 'off' }]
-      : [{ sigma: 0.5, gamma: gc, role: 'central' }];
-    return [...central, ...others];
-  }, [centerIdx, tau]);
+  // Vortex set driven by the REAL backward Dyson/Calogero-Moser zero flow
+  // (computeVortexFlow): as heat-time tau decreases the local zeros attract and
+  // a near-collision pair genuinely leaves the critical line. No model split.
+  const { zeros } = useMemo(() => computeVortexFlow(centerIdx, tau), [centerIdx, tau]);
 
   useEffect(() => {
     const cv = ref.current;
@@ -222,7 +303,8 @@ export default function VortexFieldPage() {
   const [hoverData, setHoverData] = useState(null);
   const animRef = useRef(null);
   const gc = GAMMAS[centerIdx];
-  const offAxis = tau < -1e-6;
+  const flow = useMemo(() => computeVortexFlow(centerIdx, tau), [centerIdx, tau]);
+  const offAxis = flow.collisionT !== null;
 
   useEffect(() => {
     if (!isPlaying) {
@@ -257,8 +339,9 @@ export default function VortexFieldPage() {
           <code>arg H(s)</code> winds once around each, so{' '}
           <strong>zeros ⟷ vortices</strong> with winding{' '}
           <code>(1/2π)∮V·ds = +1</code>. Under RH every vortex sits on the critical
-          line <code>Re s = ½</code>. Push the central one off the line to see what an{' '}
-          <em>off-axis zero</em> (an RH violation) would look like.
+          line <code>Re s = ½</code>. Lower the heat-time and the real backward
+          Dyson/Calogero-Moser flow attracts the closest pair until it collides and
+          leaves the line — an <em>off-axis zero</em> (an RH violation).
         </p>
       </div>
 
@@ -318,8 +401,11 @@ export default function VortexFieldPage() {
             </div>
             <div style={{ fontSize: 11, color: offAxis ? '#fca5a5' : '#86efac', marginTop: 6 }}>
               {offAxis
-                ? 'BELOW Λ: the central vortex is an OFF-AXIS conjugate pair (σ = ½ ± |t|) — an RH violation.'
-                : 'At/above Λ (t ≥ 0): every vortex on Re s = ½. Forward heat coalesces off-axis vortices onto the line.'}
+                ? `Backward Dyson flow: the closest pair COLLIDED at local heat-time t_c ≈ ${flow.collisionT.toFixed(3)} and left the line as an off-axis conjugate pair (σ = ½ ± δ) — an RH violation.`
+                : `Forward Dyson flow: every zero on Re s = ½ (min height-gap ${flow.minGapNow.toFixed(3)}). Lower t to attract the closest (yellow) pair toward collision.`}
+            </div>
+            <div style={{ fontSize: 10.5, color: '#94a3b8', marginTop: 5, fontFamily: 'var(--font-mono)' }}>
+              Λ_local ≈ {offAxis ? Math.abs(flow.collisionT).toFixed(3) : '0 (no collision yet)'} · truncated-window estimate, NOT a bound (true Λ ∈ [0, 0.2])
             </div>
           </div>
 

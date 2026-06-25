@@ -144,6 +144,7 @@ export default function EngineRoomPage() {
 
           <div style={{ fontSize: 10, color: '#475569', marginTop: 10, fontFamily: 'var(--font-mono)' }}>
             snapshot {ago(data.generatedAt)} · auto-refresh 25s{fetchedAt ? ` · last fetch ${ago(new Date(fetchedAt).toISOString())}` : ''}
+            <br />live when run locally (regenerated per request, zero commits) · deployed shows the last snapshot
           </div>
         </>
       )}

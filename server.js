@@ -19,7 +19,25 @@ const MIME = {
 const server = http.createServer((req, res) => {
   let filePath = req.url.split('?')[0];
   if (filePath === '/' || filePath === '') filePath = '/index.html';
-  
+
+  // LOCAL live status: regenerate the snapshot into dist (gitignored) on request,
+  // at most ~8s, so the Engine Room page is live with ZERO git commits / zero
+  // working-tree churn. Falls through to the normal static serve below. Deployed
+  // prod instead serves the committed public/fleet-status.json snapshot.
+  if (filePath === '/fleet-status.json') {
+    try {
+      const liveOut = path.join(DIST, 'fleet-status.json');
+      let age = Infinity;
+      try { age = Date.now() - fs.statSync(liveOut).mtimeMs; } catch (_) {}
+      if (age > 8000) {
+        require('child_process').execSync('node scripts/fleet-status-writer.mjs', {
+          cwd: __dirname, stdio: 'ignore', timeout: 6000,
+          env: { ...process.env, FLEET_STATUS_OUT: liveOut },
+        });
+      }
+    } catch (_) { /* never block the response */ }
+  }
+
   const fullPath = path.join(DIST, filePath);
   
   // Security: prevent path traversal

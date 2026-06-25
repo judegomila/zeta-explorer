@@ -9,16 +9,23 @@ import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = path.join(ROOT, 'public', 'fleet-status.json');
+// FLEET_STATUS_OUT lets the local dev server regenerate into a gitignored path
+// (dist/) so the Engine Room is live WITHOUT touching the tracked snapshot or
+// creating any commits. Default = the committed public/ snapshot (deployed fallback).
+const OUT = process.env.FLEET_STATUS_OUT || path.join(ROOT, 'public', 'fleet-status.json');
 const sh = (cmd) => { try { return execSync(cmd, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim(); } catch { return ''; } };
 const now = Date.now();
 
 // ── git: check-in activity ──────────────────────────────────────────────────
-const lastSha = sh('git rev-parse --short HEAD');
-const lastMsg = sh('git log -1 --format=%s');
-const lastAt = sh('git log -1 --format=%cI');
-const commitsLastHour = parseInt(sh('git log --since="1 hour ago" --oneline | wc -l') || '0', 10);
-const commits24h = parseInt(sh('git log --since="24 hours ago" --oneline | wc -l') || '0', 10);
+// latest REAL (non-status) commit, so the page shows actual work, not a snapshot bump
+const lastReal = sh('git log -1 --invert-grep --grep="chore(status)" --format=%h%x1f%s%x1f%cI').split('\x1f');
+const lastSha = lastReal[0] || sh('git rev-parse --short HEAD');
+const lastMsg = lastReal[1] || sh('git log -1 --format=%s');
+const lastAt = lastReal[2] || sh('git log -1 --format=%cI');
+// exclude the status snapshot's own commits so counts reflect REAL work (no self-loop)
+const NOSTATUS = '--invert-grep --grep="chore(status)"';
+const commitsLastHour = parseInt(sh(`git log --since="1 hour ago" ${NOSTATUS} --oneline | wc -l`) || '0', 10);
+const commits24h = parseInt(sh(`git log --since="24 hours ago" ${NOSTATUS} --oneline | wc -l`) || '0', 10);
 const localHead = sh('git rev-parse HEAD');
 const originHead = sh('git rev-parse origin/main 2>/dev/null');
 const ahead = parseInt(sh('git rev-list --count origin/main..HEAD 2>/dev/null') || '0', 10);

@@ -70,6 +70,21 @@ const POOL_PROBE_MS = 250;
 // threshold and surface it as a LOAD_ERR instead of blocking the whole sweep.
 const MODULE_WATCHDOG_MS = 30000;
 
+// imp-2832: overall wall-clock watchdog. A green-build gate that can HANG is
+// worse than no gate — heavy modules importing the 16.7MB zeros bundle can wedge
+// the sweep (and any caller that verifies via it) indefinitely. The per-module
+// watchdog above bounds a single load; this is the outer backstop that bounds the
+// whole run. On expiry we name the still-in-flight modules (the stall suspects)
+// and exit non-zero — fail fast, not hang. Override with
+// ASSERT_OVERALL_TIMEOUT_MS (ms); set it to 0 to disable.
+const OVERALL_TIMEOUT_MS = (() => {
+  const raw = process.env.ASSERT_OVERALL_TIMEOUT_MS;
+  if (raw === undefined || raw === '') return 600000; // 10 min default
+  const n = Number(raw);
+  return Number.isFinite(n) && n >= 0 ? n : 600000;
+})();
+const inFlightModules = new Set();
+
 // ── Module lists ──────────────────────────────────────────────────────────────
 
 // Modules with CPU-heavy top-level computations (backward CM simulation etc.).
@@ -1943,6 +1958,26 @@ async function main() {
   if (SELF_TEST_MODE)   return runSelfTest();
   if (FAIL_INJECT_MODE) return runFailInject();
 
+  // imp-2832: arm the overall wall-clock watchdog before any heavy work so the
+  // sweep can never wedge the gate. On expiry, name the still-in-flight modules
+  // (stall suspects) and exit non-zero. unref() so a clean finish is never held
+  // open by the pending timer.
+  if (OVERALL_TIMEOUT_MS > 0) {
+    const watchdog = setTimeout(() => {
+      const stalled = [...inFlightModules];
+      console.error('\nASSERTION SWEEP TIMEOUT: overall wall-clock budget of '
+        + OVERALL_TIMEOUT_MS + 'ms exceeded — failing fast instead of hanging.');
+      if (stalled.length > 0) {
+        console.error('  Still-in-flight modules (stall suspects):');
+        for (const m of stalled) console.error('    STALLED ' + m);
+      } else {
+        console.error('  No modules in flight — stall is outside module loading.');
+      }
+      process.exit(124);
+    }, OVERALL_TIMEOUT_MS);
+    watchdog.unref();
+  }
+
   // imp-1193: optional pool. When SSR_POOL_N > 0 we lazy-acquire from the pool
   // on each processOne call; otherwise the original single-server path runs.
   let server;        // single-server fallback (default behavior)
@@ -2000,6 +2035,7 @@ async function main() {
   async function processOne(modPath) {
     let mod;
     let slot;
+    inFlightModules.add(modPath); // imp-2832: overall-watchdog stall report
     try {
       if (pool) {
         slot = await pool.acquire();
@@ -2010,6 +2046,7 @@ async function main() {
       }
     } catch (e) {
       if (slot && pool) pool.release(slot);
+      inFlightModules.delete(modPath);
       const msg = 'LOAD_ERR ' + modPath + ': ' + e.message.slice(0, 120);
       log('  ' + msg);
       loadErrors++;
@@ -2017,6 +2054,7 @@ async function main() {
       failures.push({ id: modPath, why: 'module load error: ' + e.message.slice(0, 80) });
       return;
     }
+    inFlightModules.delete(modPath);
 
     const arrays = Object.entries(mod).filter(
       ([k, v]) => k.endsWith('_ASSERTIONS') && Array.isArray(v)

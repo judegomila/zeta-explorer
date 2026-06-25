@@ -104,6 +104,10 @@ import './imp-2762-tc-a1-trap-interval.js';
 // imp-2704: machine-checked interval certificate for the C_F prefactor literal
 // used below (1.330578); side-effect import keeps its build assertions live.
 import './imp-2704-cf-interval-certificate.js';
+// imp-2716: regression lock pinning the two C_G_max thresholds (203.24 A1 /
+// 6.78 OLS) re-derived below to their stored literals; side-effect import keeps
+// its build assertions live so a silent T0/tc/C_F edit trips the build.
+import './imp-2716-cgmax-threshold-regression.js';
 
 const TWO_PI = 2 * Math.PI;
 const N_STAR = 1e4;

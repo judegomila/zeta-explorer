@@ -127,6 +127,8 @@ import './polymath15-constants-gmp-check.js';    // imp-422: 4 assertions (C_H/C
 import './submission-ready-2026-04-12.js';       // imp-500: 2 assertions (fatalCount===0, criticalPending===0)
 import '../math/c-mb-unconditional-bound.js';    // imp-486: 2 assertions (searchComplete, approachesExamined>=3)
 import './imp-2701-ch-rigor-lock.js';            // imp-2701: 3 assertions (C_H not rigorous, finite-N no rigorous beat, verdict NO-GO/stays SOTA)
+import './imp-2706-ecoll-conditional-modulo-ch.js'; // imp-2706: 6 assertions (E_coll conditional-modulo-C_H bound; C_H still unproven)
+import './imp-2711-pt-bound-sota-tripwire.js';      // imp-2711: 3 assertions (every E(N)<0.2 numeric clearance carries honesty qualifier + cites PT as SOTA)
 
 // NOTE: imp469-cross-verification.js is already live via m-raw-from-umon-bridge.js (imp-473: 5 assertions).
 

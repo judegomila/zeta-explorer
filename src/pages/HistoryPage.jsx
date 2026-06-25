@@ -379,6 +379,46 @@ const ERAS = [
   { id: 'recent', label: 'Recent', color: '#ec4899' },
 ];
 
+// ─── Withdrawn claims: the project's caught overclaims (honest accountability record) ───
+// Sourced from the REFUTED / RH-EQUIVALENT / DEAD-END rows of full-route-map-2026-06-19.js.
+const WITHDRAWN_CLAIMS = [
+  {
+    title: 'Volterra collapse 5000x margin',
+    status: 'RH-EQUIVALENT',
+    ticket: 'imp-1258',
+    claimed: 'The Volterra operator bound ||V|| <= 1 held with a ~5000x numerical margin, suggesting a comfortable cushion toward a reduction of RH.',
+    why: 'The apparent 5000x margin was a homogeneity artifact of the test functional, not a real cushion. The collapse was reclassified as RH-EQUIVALENT (it does not advance past RH) and killed as a reduction route.',
+  },
+  {
+    title: 'Thin-strip E_trunc / kappa_T bound',
+    status: 'REFUTED',
+    ticket: 'imp-2622 / imp-2630',
+    claimed: 'A thin-strip truncation-error estimate E_trunc controlled by kappa_T closed a step in the finite-N argument.',
+    why: 'A frozen-kappa height-mismatch artifact: the kappa_T used did not match the strip height it was applied at, so the bound was non-binding. Refuted in imp-2630.',
+  },
+  {
+    title: 'Soundararajan-Tao 2024 citation',
+    status: 'REFUTED',
+    ticket: 'imp-1331',
+    claimed: 'A 2024 Soundararajan-Tao result was cited as supplying a needed estimate.',
+    why: 'Phantom citation -- the referenced result either does not exist as described or governs the wrong object. Removed as unsupported.',
+  },
+  {
+    title: 'Goldston-Gonek 2-point PCC route',
+    status: 'DEAD-END',
+    ticket: 'imp-1302',
+    claimed: 'A Goldston-Gonek two-point pair-correlation estimate would discharge an obstruction.',
+    why: 'The route hits the same ~50-year pair-correlation wall and a fabricated citation was flagged in the supporting text. Marked as a dead end, not a closure.',
+  },
+  {
+    title: 'C_H Gronwall discharge',
+    status: 'REFUTED',
+    ticket: 'imp-2640',
+    claimed: 'The constant C_H in the finite-N* beat could be discharged by a routine Gronwall backward-flow argument.',
+    why: 'C_H is RH-hard at the modulus; the obvious Gronwall discharge does not close it. The finite-N beat remains an estimate with C_H undischargeable, not a proof.',
+  },
+];
+
 const TIMELINE = [
   {
     year: 1650,
@@ -1134,6 +1174,53 @@ export default function HistoryPage() {
           continue to tighten, and connections to random matrix theory, quantum mechanics, and
           dynamical systems grow deeper each decade. The prize remains $1,000,000.
         </p>
+      </div>
+
+      {/* ─── Withdrawn Claims (honest accountability record) ─── */}
+      <div className="card" style={{ marginTop: 32, borderColor: '#b91c1c', background: 'rgba(185,28,28,0.05)' }}>
+        <h2 style={{ color: '#fca5a5', marginTop: 0, fontSize: 20, display: 'flex', alignItems: 'center', gap: 10 }}>
+          Withdrawn Claims
+          <span style={{
+            fontSize: 10, padding: '2px 8px', borderRadius: 4,
+            background: 'rgba(185,28,28,0.25)', color: '#fca5a5',
+            fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px',
+          }}>
+            Honest history
+          </span>
+        </h2>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginTop: 6 }}>
+          Accountability requires that caught overclaims be recorded as durably as the wins. The
+          following results were once asserted in the project and have since been refuted, withdrawn,
+          or reclassified by its own adversarial review. Each entry lists what was claimed, why it
+          failed, and the corrective ticket. Source: the REFUTED / RH-EQUIVALENT / DEAD-END rows of
+          the full route map (2026-06-19).
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 14 }}>
+          {WITHDRAWN_CLAIMS.map((w, i) => (
+            <div key={i} style={{
+              padding: '12px 16px', borderRadius: 8,
+              background: 'rgba(15,23,42,0.5)', border: '1px solid rgba(185,28,28,0.3)',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                <h3 style={{ margin: 0, fontSize: 14, color: '#e2e8f0' }}>{w.title}</h3>
+                <span style={{
+                  fontSize: 10, padding: '2px 6px', borderRadius: 4,
+                  background: 'rgba(185,28,28,0.2)', color: '#fca5a5',
+                  fontWeight: 700, fontFamily: 'var(--font-mono)', letterSpacing: '0.5px',
+                }}>
+                  {w.status}
+                </span>
+                <span style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)' }}>{w.ticket}</span>
+              </div>
+              <p style={{ margin: '6px 0 0', fontSize: 12.5, color: '#94a3b8', lineHeight: 1.6 }}>
+                <strong style={{ color: '#cbd5e1' }}>Claimed:</strong> {w.claimed}
+              </p>
+              <p style={{ margin: '4px 0 0', fontSize: 12.5, color: '#94a3b8', lineHeight: 1.6 }}>
+                <strong style={{ color: '#cbd5e1' }}>Why it failed:</strong> {w.why}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>

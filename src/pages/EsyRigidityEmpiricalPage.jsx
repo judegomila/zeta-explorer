@@ -302,6 +302,40 @@ export default function EsyRigidityEmpiricalPage() {
         </div>
       </div>
 
+      {/* Honest-status caveat (amber). What this measurement is and is NOT. */}
+      <div
+        style={{
+          marginTop: 12,
+          padding: 12,
+          background: 'rgba(250, 204, 21, 0.06)',
+          border: '1px solid rgba(250, 204, 21, 0.4)',
+          borderLeft: '3px solid #facc15',
+          borderRadius: 8,
+        }}
+      >
+        <div style={{ fontSize: 11, color: '#facc15', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 'bold' }}>
+          Honest status -- what this verdict is and is NOT
+        </div>
+        <p style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.55, marginTop: 8, marginBottom: 0 }}>
+          This page reports an <strong>empirical measurement</strong> of the
+          fluctuation quantity <code>psi_N</code> at <strong>finite N</strong>
+          {' '}(at most 10,000 unfolded Odlyzko zeros). A favourable slope shows
+          the measured scaling is <strong>CONSISTENT WITH</strong> ESY-class
+          rigidity for the Riemann zeros; it is <strong>NOT a proof</strong> of
+          rigidity and closes <strong>none</strong> of the rigorous obstacles
+          O1-O3. In particular the ESY local-law constant
+          {' '}<code>C_H</code> (the <code>polylog(N)^A</code> prefactor) remains
+          <strong> undischargeable</strong> by any finite-N fit -- it is the
+          repo&apos;s #1 wall, the same constant that blocks turning this
+          empirical consistency into an asymptotic improvement of the
+          Polymath15 Lambda bound. See{' '}
+          <Link to="/lambda-bounds" style={{ color: '#60a5fa' }}>
+            /lambda-bounds
+          </Link>{' '}
+          for where this evidence sits in the overall RH-attack ledger.
+        </p>
+      </div>
+
       {/* Numeric summary cards. */}
       <div
         className="card-grid"

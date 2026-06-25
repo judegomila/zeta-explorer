@@ -171,11 +171,16 @@ if (nextIdHint !== null && proposedNum < nextIdHint - 50) {
   console.warn(`Warning: proposed ${ticketId} is much lower than expected next id imp-${nextIdHint}`);
 }
 
-// Find insertion point: last `\n];` in the file
+// Find insertion point: the close of the IMPROVEMENT_QUEUE array specifically.
+// NOT the file's LAST `\n];` — there are OTHER exported arrays after
+// IMPROVEMENT_QUEUE (e.g. IMP2538_QUEUE_SUBGAP_SYNC_ASSERTIONS), and inserting
+// at the last `];` silently files tickets into the wrong array, where the claim
+// CLI (which reads IMPROVEMENT_QUEUE) can never see them -> the fleet starves.
 const SUFFIX = '\n];';
-const insertIdx = queueText.lastIndexOf(SUFFIX);
+const iqStart = queueText.indexOf('export const IMPROVEMENT_QUEUE');
+const insertIdx = iqStart === -1 ? -1 : queueText.indexOf(SUFFIX, iqStart);
 if (insertIdx === -1) {
-  console.error('Cannot find closing `];` in improvement-queue.js — file may be malformed');
+  console.error('Cannot find the IMPROVEMENT_QUEUE array close in improvement-queue.js — file may be malformed');
   process.exit(1);
 }
 

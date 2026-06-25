@@ -70,9 +70,13 @@ console.log(`prepared ${entries.length} tickets (skipped ${skipped} dup/empty); 
 if (!entries.length) process.exit(0);
 if (dryRun) { console.log(entries.slice(0, 2).join('\n')); console.log('--- DRY RUN, no write ---'); process.exit(0); }
 
+// Insert at the IMPROVEMENT_QUEUE array close, NOT the file's last `\n];` (other
+// exported arrays follow it; the last-`];` insert misfiles tickets into the wrong
+// array where the claim CLI can't see them -> fleet starves).
 const SUFFIX = '\n];';
-const insertIdx = queueText.lastIndexOf(SUFFIX);
-if (insertIdx === -1) { console.error('cannot find closing `];`'); process.exit(1); }
+const iqStart = queueText.indexOf('export const IMPROVEMENT_QUEUE');
+const insertIdx = iqStart === -1 ? -1 : queueText.indexOf(SUFFIX, iqStart);
+if (insertIdx === -1) { console.error('cannot find IMPROVEMENT_QUEUE array close'); process.exit(1); }
 const updated = queueText.slice(0, insertIdx) + '\n' + entries.join('\n') + queueText.slice(insertIdx);
 
 const reMtime = fs.statSync(QUEUE_FILE).mtimeMs;

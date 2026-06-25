@@ -1560,6 +1560,16 @@ const DATA_MODULES = [
   // beta g^2 ~ (pi^2/3)(g/l)^2 -> 0, margin grows. sup_s upgrade conditional on
   // the named punctured-min-gap residual (h(s) >= c g). 5 tripwires.
   '/src/data/imp-2683-sandwich-beta-field-bound.js',
+  // imp-2690: verifies coefficient 8 (sharp; B=0 pure 2-particle => du/ds=-8
+  // exact, t_c=g^2/8) and reconciles imp-366 "-8+O(g_min)" with imp-2563 exact
+  // "-8+4 B u". The adjacent-gap background drift telescopes to 2 r B, so the
+  // d(g^2)/ds remainder is 4 B g^2 = O(g^2) and imp-366 O(g_min) is its loose
+  // envelope; integrated this upgrades O(g_min^3) -> exact O(g_min^4). Sign
+  // lemma: every other particle is outside [a,b] => B>0 strictly, so 4 B u>=0,
+  // t_c(N) >= g^2/8 (background only DELAYS collision). This is the imp-2642
+  // positive-remainder mechanism (|tau_c|/g0^2 above 1/8): 1/8 is NOT a Holder
+  // sup, C_H NOT discharged. Validity window g <= 2 sqrt(eps/beta). 6 tripwires.
+  '/src/data/imp-2690-tangency-remainder-sign.js',
   // imp-2451: scale-normalized dBN deformation, closing sub-gap B of imp-2435
   // (scale/zero confound). V is quadratic in Phi, so renormalizing
   // |Phi_t|_2 = 1 before assembly divides the exp(t u^2) L^2 scale out exactly.
@@ -1664,6 +1674,8 @@ const DATA_MODULES = [
   '/src/data/strategic-reframe-pcc-free-volterra-2026-06-17.js',
   '/src/data/section27-identity-refutation-2026-06-17.js',
   '/src/data/section26-verdict-volterra-not-a-reduction-2026-06-18.js',
+  // imp-2686: endpoint-bridge-enriched mu^pass construction (the surviving RH-equivalent Volterra target).
+  '/src/data/imp-2686-mupass-construction.js',
   '/src/data/full-route-map-2026-06-19.js',
   // imp-2750: DAG/route-map status-consistency cross-tripwire — fails if the
   // finite-N*=1e4 beat DAG node re-acquires a rigorous-unconditional framing
@@ -1830,6 +1842,10 @@ const DATA_MODULES = [
   // imp-2681: pin C_shock from the cusp-density C_cusp via the quantile-spacing
   // identity — bounded/pinnable, isolating the C_H obstruction to C_Lip alone.
   '/src/data/imp-2786-c-shock-cusp-constant.js',
+  // imp-2688: pin the E_flow Gronwall amplification constant C_G = 2/y_star^2 on
+  // the explicit mesoscopic Trudgian density-floor strip (N-uniform), distinct
+  // from the imp-2640 microscopic 2/g^2 wall.
+  '/src/data/imp-2688-c-g-loglipschitz-bound.js',
 ];
 
 let ALL_MODULES = FAST_MODE

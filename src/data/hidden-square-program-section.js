@@ -124,12 +124,20 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
       'block-positivity condition, hence equivalent to K_a ⪰ 0.',
     finiteWindowDiagnostic:
       'For each finite window U, build the truncated V_{a,Φ,U} on L²([0, U]) and compute its operator norm. ' +
-      'Conjecture 27.2 predicts ‖V_{a,Φ,U}‖ ↗ 1 as U → ∞ but never exceeds 1. Numerical verification at ' +
-      'increasing U is a concrete test of the chain of reductions.',
+      'CAVEAT (section26-verdict-volterra-not-a-reduction-2026-06-18): the bare ‖V_{a,Φ,U}‖ is scale-' +
+      'miscalibrated (‖V‖ ~ c² with c silently absorbing Φ’s super-exponentially-small scale), so the ' +
+      'imp-1240 “5000× below 1” margin measures the WRONG object and is NOT empirical evidence for ' +
+      'Conj 27.2. The ‖V‖≤1 finite-window number is a diagnostic of a refuted biconditional, not a test ' +
+      'of the chain of reductions.',
     verdict:
-      'The CONCRETE COMPUTATIONAL TARGET. Three reductions in: a single operator-norm bound on a ' +
-      'Volterra-Hankel operator is the entire content of no-ghost = RH. Numerically tractable; ' +
-      'the rigorous proof is the remaining research-grade work.',
+      'REFUTED AS A REDUCTION (section26-verdict-volterra-not-a-reduction-2026-06-18, 2026-06-18). ' +
+      'The claimed biconditional ‖V_{a,Φ}‖ ≤ 1 ⇔ K_a ⪰ 0 is FALSE: at the genuine Riemann Φ the two ' +
+      'positivity conditions PROVABLY DECOUPLE, and the bare biconditional cannot be revived by any ' +
+      'scalar normalization. So ‖V‖ ≤ 1 is NOT the entire content of no-ghost = RH. The only surviving ' +
+      'target is the degree-0, scale-invariant relative bound ‖R‖ ≤ 1 ⇔ K_a ⪰ 0 for ' +
+      'R = G_pass^{−1/2} G_shear G_pass^{−1/2} — and that is RH-EQUIVALENT: a faithful, information-' +
+      'preserving restatement of K_a ⪰ 0, not a reduction to something cheaper. Platt–Trudgian Λ ≤ 0.2 ' +
+      'remains the rigorous SOTA.',
   }),
 
   // ── Synthesis: the chain of reductions ────────────────────────────────

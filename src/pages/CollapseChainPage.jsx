@@ -250,6 +250,21 @@ export default function CollapseChainPage() {
     <div style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}>
       <h1>{'The imp-1258 Collapse Chain: ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist'}</h1>
 
+      <div style={{ backgroundColor: '#fdecea', padding: '16px', borderRadius: '8px', marginBottom: '20px', border: '2px solid #d62728' }}>
+        <p style={{ margin: '0 0 6px 0', fontSize: '15px', fontWeight: 'bold', color: '#a01818' }}>
+          ⚠ REFUTED AS A REDUCTION (§26 verdict, {SECTION26_VERDICT.date})
+        </p>
+        <p style={{ margin: '0 0 6px 0', fontSize: '13px', color: '#7a1414' }}>
+          The bare-Volterra biconditional <InlineMath math="\|V_{a,\Phi}\| \le 1 \Leftrightarrow K_a \succeq 0" /> is
+          {' '}<strong>{SECTION26_VERDICT.bareBiconditional}</strong>. The chain below is <strong>RH-equivalent, not a shortcut</strong>:
+          the surviving sub-problem faithfully restates <InlineMath math="K_a \succeq 0" /> and does not collapse the difficulty below RH.
+        </p>
+        <p style={{ margin: '0', fontSize: '12px', color: '#7a1414' }}>
+          The historical &ldquo;5000× below 1&rdquo; margin (imp-1240) is a homogeneity artifact measuring the scale-miscalibrated bare operator — NOT evidence for Conj 27.2.
+          See the full §26 verdict at the foot of this page.
+        </p>
+      </div>
+
       <div style={{ backgroundColor: '#f0f7ff', padding: '16px', borderRadius: '8px', marginBottom: '20px', borderLeft: '4px solid #2166ac' }}>
         <p style={{ margin: '0 0 8px 0', fontSize: '14px' }}>
           <strong>Summary:</strong> The entire §15-27 program of the Twin-Ladder paper reduces to a single operator-norm statement.

@@ -2637,3 +2637,5 @@ below are the engine contract — do not rename or reorder.
 | 2745 | 2026-06-25T01:00:00Z | imp-2830 (ux, low): Replace bare copyright footer with quick-nav links and bug-report note | src/App.jsx |
 | 2746 | 2026-06-24T19:27:00Z | imp-2831 (meta, low): Fix nav link audit to read src/data/nav-groups.js and wire into build/assert scripts | scripts/audit-nav-links.mjs, package.json |
 | 2747 | 2026-06-25T22:31:20Z | imp-2738 (accuracy, critical): Regression tripwire pinning the 6 caught-overclaim statuses in full-route-map | src/data/full-route-map-2026-06-19.js |
+| 2748 | 2026-06-25T22:31:13Z | imp-2774 (accuracy, critical): Add a prominent top banner to CollapseChainPage surfacing the section26 REFUTED-AS-REDUCTION verdict (RH-equivalent, not a shortcut) | src/pages/CollapseChainPage.jsx |
+| 2749 | 2026-06-25T22:33:00Z | imp-2701 (accuracy, critical): Add C_H honest-classification tripwire lock asserting C_H not rigorous + finite-N rigorousBeat false + verdict NO-GO/stays-SOTA; wired into assertion-sweep | src/data/imp-2701-ch-rigor-lock.js, src/data/assertion-sweep-2026-04-12.js |

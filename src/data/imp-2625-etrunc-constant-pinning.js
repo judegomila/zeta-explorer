@@ -91,6 +91,9 @@
  */
 
 import { GUTH_MAYNARD_TAIL_BOUND } from './guth-maynard-tail-bound.js';
+// imp-2709: machine-checked interval certificate upgrading the kappa_T floor 0.180
+// below from a rounded literal to an outward-rounded bracket of 4 delta/(3-2 delta).
+import './imp-2709-kappa-t-interval-certificate.js';
 
 const TWO_PI = 2 * Math.PI;
 

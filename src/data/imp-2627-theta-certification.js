@@ -71,6 +71,24 @@ function minimalGapIndex(x) {
   return bi;
 }
 
+// ── Outward-rounded interval arithmetic (certified enclosures) ────────────────
+// Float64 unit roundoff is 2^-53; inflating each endpoint by the full machine
+// epsilon 2^-52 (plus one denormal) per flop conservatively absorbs the directed
+// rounding, so [lo, hi] is a guaranteed enclosure of the exact real result. This
+// mirrors the verified-arithmetic tier used in ht-corridor-certificates.
+const IV_U = Number.EPSILON;          // 2^-52, conservative per-op relative inflation
+const IV_TINY = Number.MIN_VALUE;     // guards values that round to or through zero
+const rdn = (v) => v - Math.abs(v) * IV_U - IV_TINY;   // round toward -infinity
+const rup = (v) => v + Math.abs(v) * IV_U + IV_TINY;   // round toward +infinity
+const ivPt = (v) => ({ lo: v, hi: v });
+const ivAdd = (a, b) => ({ lo: rdn(a.lo + b.lo), hi: rup(a.hi + b.hi) });
+const ivSub = (a, b) => ({ lo: rdn(a.lo - b.hi), hi: rup(a.hi - b.lo) });
+const ivMul = (a, b) => {
+  const p = [a.lo * b.lo, a.lo * b.hi, a.hi * b.lo, a.hi * b.hi];
+  return { lo: rdn(Math.min(...p)), hi: rup(Math.max(...p)) };
+};
+const ivRecip = (a) => ({ lo: rdn(1 / a.hi), hi: rup(1 / a.lo) }); // a must be strictly one-signed
+
 const THETA_A_LEVEL = SG1C_THEOREMS.theoremA.trapLevel;   // 1/4 (unconditional Corollary A1)
 const THETA_B_LEVEL = SG1C_THEOREMS.theoremB.trapLevel;   // (sqrt(73)-5)/8 (minimal-gap trap)
 const LADDER_NS = [4, 6, 8, 10, 12];                      // PATHC_EXACT_TC_LADDER rungs
@@ -86,17 +104,40 @@ function certifyRung(N) {
   const T = envProducts(x, i);
   const E = T.reduce((a, b) => a + b, 0);
   const theta0 = (g * g * E) / 2;
+
+  // Certified outward-rounded UPPER bracket for Theta(0) = g^2 E / 2. Each adjacent
+  // environment product (x_i - x_j)(x_{i+1} - x_j) is strictly one-signed (no zero
+  // lies between the adjacent pair), so the reciprocal interval is well-defined.
+  const gIv = ivSub(ivPt(x[i + 1]), ivPt(x[i]));
+  let eIv = ivPt(0);
+  for (let j = 0; j < x.length; j++) {
+    if (j === i || j === i + 1) continue;
+    const d1 = ivSub(ivPt(x[i]), ivPt(x[j]));
+    const d2 = ivSub(ivPt(x[i + 1]), ivPt(x[j]));
+    eIv = ivAdd(eIv, ivRecip(ivMul(d1, d2)));
+  }
+  const thetaIv = ivMul(ivMul(ivMul(gIv, gIv), eIv), ivPt(0.5));
+  const theta0_hi = thetaIv.hi;   // certified Theta(0) <= theta0_hi
+
   return {
     N,
     pairIndex: i,
     g_min: +g.toFixed(6),
     theta0: +theta0.toFixed(6),
+    // Certified outward-rounded UPPER bracket: the exact real Theta(0) is <= theta0_hi.
+    theta0_hi: +theta0_hi.toFixed(9),
     // Unconditional Corollary A1 (level 1/4): the per-row conditional being mechanized.
     passUnconditional: theta0 <= THETA_A_LEVEL,
+    // Rounding-rigorous version: the certified upper bracket itself clears 1/4.
+    passUnconditionalCertified: theta0_hi < THETA_A_LEVEL,
     marginToQuarter: +(THETA_A_LEVEL - theta0).toFixed(6),
+    // Certified margin from the UPPER bracket to 1/4 (positive => rounding-rigorous clearance).
+    marginToQuarterCertified: +(THETA_A_LEVEL - theta0_hi).toFixed(9),
     // Minimal-gap Theorem B (level 0.443): hypothesis holds by construction (we tracked g_min).
     passMinGapTrap: theta0 <= THETA_B_LEVEL,
+    passMinGapTrapCertified: theta0_hi < THETA_B_LEVEL,
     marginToThetaB: +(THETA_B_LEVEL - theta0).toFixed(6),
+    marginToThetaBCertified: +(THETA_B_LEVEL - theta0_hi).toFixed(9),
   };
 }
 
@@ -179,6 +220,25 @@ export const IMP2627_THETA_CERTIFICATION_ASSERTIONS = [
       'for N >= 6 and NOT for N=4 (Theta(0) = 0.2625 > 1/4), while N=4 still clears ' +
       'the minimal-gap level. Pinning this split prevents a silent flip that would ' +
       'falsely promote the N=4 rung to the unconditional bound.',
+  },
+  {
+    id: 'imp2627-certified-upper-brackets-clear-traps',
+    holds: () =>
+      CERTIFICATES.every((c) =>
+        c.marginToThetaBCertified > 0 &&           // certified clearance of the 0.443 trap on every rung
+        c.passMinGapTrapCertified === true) &&
+      CERTIFICATES.filter((c) => c.N >= 6).every((c) =>
+        c.marginToQuarterCertified > 0 &&          // certified clearance of the 1/4 bar for N >= 6
+        c.passUnconditionalCertified === true) &&
+      CERTIFICATES.find((c) => c.N === 4).passUnconditionalCertified === false,
+    why:
+      'Each Theta(0) certificate must carry an outward-rounded interval UPPER bracket ' +
+      'theta0_hi (an upper bound on the exact Theta(0) by construction) whose ' +
+      'certified margin to the minimal-gap level 0.443 is ' +
+      'positive on every rung, and whose certified margin to 1/4 is positive exactly ' +
+      'for N >= 6 (the N=4 bracket stays above 1/4). This upgrades the trap clearance ' +
+      'from a float64 point comparison to a rounding-rigorous interval bracket, ' +
+      'matching the verified-arithmetic tier of ht-corridor-certificates.',
   },
 ];
 

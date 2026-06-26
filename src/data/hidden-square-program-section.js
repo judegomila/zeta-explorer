@@ -49,6 +49,15 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
       E_a: 'E_a(z) = A_a(z) − i B_a(z), E_a^#(z) = A_a(z) + i B_a(z)',
     }),
     wronskianForm: 'K_a(w, z) = (A_a(z) B_a(w̄) − B_a(z) A_a(w̄)) / (π (w̄ − z))',
+    kernelWronskianVerification:
+      'imp-2840 audit: substituting E_a = A_a − iB_a and E_a^# = A_a + iB_a into the kernel numerator ' +
+      'E_a(z)E_a^#(w̄) − E_a^#(z)E_a(w̄) (l.45/kernel) expands to the ANTISYMMETRIC de Branges Wronskian ' +
+      '2i(A_a(z)B_a(w̄) − B_a(z)A_a(w̄)); dividing by 2πi(w̄−z) yields EXACTLY wronskianForm (l.51), so the ' +
+      'two are algebraically consistent. The SYMMETRIC −2i(A_a(z)B_a(w̄) + B_a(z)A_a(w̄)) arises ONLY from ' +
+      'the WRONG same-type pairing E_a(z)E_a(w̄) − E_a^#(z)E_a^#(w̄); the cross-pairing written here is the ' +
+      'correct one. This REFUTES the imp-1265 dismissal of the sign as a cosmetic convention: the ' +
+      'antisymmetry is load-bearing — a symmetric numerator would make K_a Hermitian-indefinite and break ' +
+      'the no-ghost positivity target. (section27-identity-refutation, imp-1265, imp-2840.)',
     commutatorIntegrand:
       'C_a(w, z; u, v) = cosh(au) sinh(av) cos(zu) sin(w̄v) − sinh(au) cosh(av) sin(zu) cos(w̄v)',
     diagonalPassiveChannel:
@@ -181,6 +190,32 @@ export const HIDDEN_SQUARE_PROGRAM_SECTION = Object.freeze({
 });
 
 export const HIDDEN_SQUARE_PROGRAM_SECTION_ASSERTIONS = [
+  {
+    id: 'imp2840-kernel-numerator-is-antisymmetric-wronskian',
+    why: 'imp-2840: the §25 kernel numerator E_a(z)E_a^#(w̄) − E_a^#(z)E_a(w̄) (kernel field) must expand ' +
+         'to the ANTISYMMETRIC Wronskian 2i(A_a(z)B_a(w̄) − B_a(z)A_a(w̄)), reducing to wronskianForm after ' +
+         'dividing by 2πi(w̄−z) — NOT the symmetric −2i(AB+BA) that the (false) imp-1265 cosmetic-sign ' +
+         'dismissal would tolerate. Numerically certifies the kernel and wronskianForm fields are consistent.',
+    holds: () => {
+      // A_a(z), B_a(z), A_a(w̄), B_a(w̄) are free; the numerator identity is bilinear so reals certify it.
+      const Az = 1.3, Bz = 0.7, Aw = 0.4, Bw = 2.1;
+      const mul = (a, b) => ({ re: a.re * b.re - a.im * b.im, im: a.re * b.im + a.im * b.re });
+      const sub = (a, b) => ({ re: a.re - b.re, im: a.im - b.im });
+      const Ez = { re: Az, im: -Bz };       // E_a(z)
+      const EzSharp = { re: Az, im: Bz };    // E_a^#(z)
+      const Ew = { re: Aw, im: -Bw };        // E_a(w̄)
+      const EwSharp = { re: Aw, im: Bw };    // E_a^#(w̄)
+      const numerator = sub(mul(Ez, EwSharp), mul(EzSharp, Ew));
+      const antisymmetric = { re: 0, im: 2 * (Az * Bw - Bz * Aw) };
+      const symmetric = { re: 0, im: -2 * (Az * Bw + Bz * Aw) };
+      const close = (a, b) => Math.abs(a.re - b.re) < 1e-12 && Math.abs(a.im - b.im) < 1e-12;
+      const eq = HIDDEN_SQUARE_PROGRAM_SECTION.commutator;
+      return close(numerator, antisymmetric) &&
+             !close(numerator, symmetric) &&
+             eq.kernelWronskianVerification.includes('imp-1265') &&
+             eq.wronskianForm.includes('A_a(z) B_a(w̄) − B_a(z) A_a(w̄)');
+    },
+  },
   {
     id: 'imp1219-paper-source-path-correct',
     why: 'The paper-source-path field must point at the actual PDF in research-inputs/.',

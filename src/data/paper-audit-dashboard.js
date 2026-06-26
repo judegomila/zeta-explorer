@@ -404,13 +404,23 @@ const CONJECTURE_ENTRIES = [
     auditTicket: 'imp-1258',
     auditDate: '2026-05-28',
     recommendationForPaper:
-      'ELEVATE to the paper as the CENTRAL LOAD-BEARING CLAIM of Sections 15-27. ' +
       'Per imp-1258, conjectures 15.2, 15.3, 15.4, 17.3, 18.2, 18.4, 22.4 are ' +
-      'RH-equivalents that follow trivially from 27.2; conjectures 16.4, 16.6, ' +
-      '18.1 unify under CDB-Exist which is implied by 27.2. The entire proof ' +
-      'program §15-27 reduces to proving ‖V_{a,Phi}‖ ≤ 1. Empirically ‖V_{a,Phi}‖ ~ 10^{-4}, ' +
-      'so the bound is not tight. Recommend rewriting the paper §15-27 as a SINGLE ' +
-      'unifying program with 27.2 as the headline target.',
+      'RH-equivalents that link to 27.2; conjectures 16.4, 16.6, ' +
+      '18.1 unify under CDB-Exist which connects to 27.2. The §15-27 proof ' +
+      'program is information-preservingly RH-equivalent to ‖V_{a,Phi}‖ ≤ 1 — ' +
+      'NOT a strict reduction to an easier object (see refutedAsReduction below). ' +
+      'The empirical ‖V_{a,Phi}‖ ~ 10^{-4} margin is a homogeneity artifact and is NOT ' +
+      'evidence the bound is loose. Recommend presenting §15-27 as a SINGLE ' +
+      'unifying RH-EQUIVALENT reformulation, NOT as a reduction shortcut to a proof.',
+    refutedAsReduction:
+      'REFUTED AS A REDUCTION (section26-verdict-volterra-not-a-reduction-2026-06-18). ' +
+      'The §15-27 collapse is information-preservingly RH-EQUIVALENT, not a reduction ' +
+      'to a strictly easier statement: the claimed biconditional ‖V_{a,Phi}‖ ≤ 1 ⇔ K_a ⪰ 0 ' +
+      'is FALSE because at the genuine Riemann Phi the two positivity conditions ' +
+      'PROVABLY DECOUPLE. The imp-1240 "5000x below 1" margin is a scale/homogeneity ' +
+      'artifact (the bare Volterra norm silently absorbs Phi super-exponentially-small ' +
+      'scale) measuring the WRONG object, so it is NOT empirical evidence for Conj 27.2. ' +
+      'The only surviving target is the degree-0 scale-invariant relative bound ‖R‖ ≤ 1.',
   },
 ];
 
@@ -441,11 +451,21 @@ const HONEST_SCOPE = Object.freeze([
     'because Section 4 is not covered -- verdict (SUBSUMED-BY-LITERATURE ' +
     'via Hughes-Rudnick 2003 + Bourgade 2010) is in imp-1163 and IMPROVEMENTS.md.',
   'As of imp-1258, a CENTRAL COLLAPSE was discovered: the entire §15-27 ' +
-    'proof program (7+ named conjectures spanning 13 entries) reduces to a ' +
-    'SINGLE central claim: Conjecture 27.2 (Volterra-norm ‖V_{a,Phi}‖ ≤ 1). ' +
+    'proof program (7+ named conjectures spanning 13 entries) is ' +
+    'information-preservingly RH-EQUIVALENT to a SINGLE claim, Conjecture 27.2 ' +
+    '(Volterra-norm ‖V_{a,Phi}‖ ≤ 1). ' +
     'All other conjectures in §15-22 are either RH-equivalents (7 total) or ' +
-    'intermediate existence problems (5 PARTIALLY-RELATED) that follow from 27.2. ' +
-    'This restructuring is the most significant finding of the entire audit campaign.',
+    'intermediate existence problems (5 PARTIALLY-RELATED) that link to 27.2. ' +
+    'This restructuring unifies the audit but is a reformulation, NOT a reduction ' +
+    'to an easier object (see next bullet).',
+  'CAVEAT (section26-verdict-volterra-not-a-reduction-2026-06-18, supersedes ' +
+    'the imp-1258 framing above): the §15-27 collapse is NOT a reduction. The ' +
+    'biconditional ‖V_{a,Phi}‖ ≤ 1 ⇔ K_a ⪰ 0 is FALSE — at the genuine Riemann Phi ' +
+    'the two positivity conditions PROVABLY DECOUPLE, so 27.2 is RH-EQUIVALENT, ' +
+    'not a proof shortcut. The imp-1240 "5000x below 1" margin is a scale/homogeneity ' +
+    'artifact measuring the WRONG (scale-miscalibrated) object and is NOT empirical ' +
+    'evidence for Conj 27.2. The only surviving target is the degree-0 scale-invariant ' +
+    'relative bound ‖R‖ ≤ 1. Do NOT elevate 27.2 to the paper headline as a reduction.',
   'All 14 conjectures have now received a verdict: 7 SUBSUMED-BY-RH, 5 ' +
     'PARTIALLY-RELATED, 2 INDEPENDENT-NOVEL (22.1 and 27.2), 0 UNAUDITED.',
   'The verdicts SUBSUMED-BY-RH on 15.4 (imp-1202) and 22.4 (imp-1210) are ' +

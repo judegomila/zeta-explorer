@@ -171,11 +171,6 @@ const EXPLICIT_VIZ_ROUTES = new Set([
 // rather than fail the build; delete a route from this set once it gets a
 // visualizations-index.js entry so the hard check covers it again.
 const EXEMPT_FROM_INDEX = new Set([
-  '/viz-caustic-resonance',
-  '/viz-euler-product',
-  '/viz-near-zero',
-  '/viz-phase-cylinder',
-  '/viz-prime-density-caustic',
   '/viz-unwrapped-rays',
   '/viz-winding-dyson-flow',
 ]);

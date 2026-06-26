@@ -266,6 +266,62 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Exact exploratory visualization of local vortex structure at a zero; no Lambda bound or RH claim.',
     }),
+    Object.freeze({
+      route: '/viz-euler-product',
+      title: 'True vs Perturbed Euler Product',
+      oneLine:
+        'True vs perturbed log|∏_{p≤P}(1-p^{-s})^{-1}| on the critical line; shifting each log p smears the near-zeros, demonstrating arithmetic rigidity.',
+      mathBucket: 'caustic',
+      dataModule: null,
+      paperSourcePath:
+        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three attacks: arithmetic rigidity)',
+      ticket: 'imp-2718',
+      pedagogicalStep: 14,
+      honestCeiling:
+        'Descriptive Euler product comparison; near-zeros match known zeta zeros qualitatively. No Lambda bound or RH claim.',
+    }),
+    Object.freeze({
+      route: '/viz-prime-density-caustic',
+      title: 'Prime-Density-on-Caustic Heatmap',
+      oneLine:
+        'Heatmap of which prime index k is coherent at each height t — bright where |(t log p_k) mod 2π| < ε; profile shows coherent fraction vs PNT baseline.',
+      mathBucket: 'tomography',
+      dataModule: null,
+      paperSourcePath:
+        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (caustic density)',
+      ticket: 'imp-2717',
+      pedagogicalStep: 15,
+      honestCeiling:
+        'Descriptive prime-density-on-caustic heatmap; bright pixels mark phase-coherent primes at each height. No Lambda bound or RH claim.',
+    }),
+    Object.freeze({
+      route: '/viz-caustic-resonance',
+      title: 'Caustic Resonance Condition Overlay',
+      oneLine:
+        'Waveform of coherent-prime count vs t with resonance ticks at t=2πk/log(p_j/p_i); ticks identify where two primes phase-lock, amplifying each caustic spike.',
+      mathBucket: 'crystal',
+      dataModule: null,
+      paperSourcePath:
+        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three attacks: caustic resonance)',
+      ticket: 'imp-2724',
+      pedagogicalStep: 16,
+      honestCeiling:
+        'Descriptive resonance-condition overlay; ticks identify prime-pair beat frequencies. No Lambda bound or RH claim.',
+    }),
+    Object.freeze({
+      route: '/viz-phase-cylinder',
+      title: 'Log-Phase Cylinder / Flat Rectangle',
+      oneLine:
+        'Flat-rectangle or cylinder view of θ=t·log(n) mod 2π; primes become diagonal rays, caustics become vertical alignment columns, cylinder wrapping reveals helical structure.',
+      mathBucket: 'phase-spiral',
+      dataModule: null,
+      paperSourcePath:
+        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three attacks: phase geometry)',
+      ticket: 'imp-2725',
+      pedagogicalStep: 17,
+      honestCeiling:
+        'Geometric re-parameterisation of the log-phase field; descriptive and exploratory, no Lambda or RH claim.',
+    }),
   ]),
 });
 

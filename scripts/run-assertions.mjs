@@ -1685,6 +1685,12 @@ const DATA_MODULES = [
   // (ladder-only; dt/5 fine pass documented-skipped since t_pair << dt). N = 1e6
   // stays open (GAP-2485-N1e6).
   '/src/data/imp-2485-dp8-rk4-N1e5.js',
+  // imp-3001: independent-instrument cross-validation -- the exact imp-2563
+  // heat-discriminant t_c (closed-form heat-evolved polynomial root) vs the
+  // imp-2881 dynamical DP8/RK4 ladder t_c at N = 1e5. Bracket-containment check
+  // (exact t_c ~ 2.70e-5 sits inside the dual-integrator (0, dt] and interval
+  // brackets); the heat instrument reproduces the sidecar pair-collapse time.
+  '/src/data/imp-3001-heat-discriminant-vs-dyson-N1e5.js',
   // imp-2523: batch-wired previously unregistered data modules (97 files).
   '/src/data/asymptotic-attack-status-2026-05.js',
   '/src/data/b1-slope-conditional-upper-bound.js',

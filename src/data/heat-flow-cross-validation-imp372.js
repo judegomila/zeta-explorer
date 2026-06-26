@@ -157,6 +157,7 @@
 import { ZEROS_EXTENDED } from './zeros-to-1e6.js';
 import { PATH_C_BASELINE_FIT_V2 } from './path-c-baseline-fit-v2.js';
 import { DYSON_LADDER_MEASURED } from './dyson-ladder-measured.js';
+import { BARRIER_EXTRAPOLATION_V2 } from './barrier-extrapolation-v2.js';
 
 // ── N values to analyse (matching the imp-360 measured block) ────────────────
 const TARGET_NS = [50, 100, 200, 500, 870];
@@ -251,6 +252,14 @@ const HF_OLS = olsFit(HF_TABLE);
 // ── Reference: RK4 OLS from PATH_C_BASELINE_FIT_V2 ───────────────────────────
 const RK4_FIT = PATH_C_BASELINE_FIT_V2.fit;
 const A_RK4   = RK4_FIT ? RK4_FIT.intercept_a : null;
+
+// ── Reference: barrier-extrapolation OLS intercept from BARRIER_EXTRAPOLATION_V2
+// (imp-404, src/data/barrier-extrapolation-v2.js). Both A_RK4 and A_BARRIER are
+// in the factor-2 backward-Dyson convention, so they are compared against the
+// normalized heat-flow intercept a_hf_initial / 2 (the factor-2 correction).
+// ESTIMATE / cross-check-only -- not a rigorous bound.
+const BARRIER_OLS_V2 = BARRIER_EXTRAPOLATION_V2.barrierOls;
+const A_BARRIER      = BARRIER_OLS_V2 ? BARRIER_OLS_V2.intercept_a : null;
 
 // ── Per-N comparison: tc_dyson_initial vs measured t_c from imp-360 ──────────
 // tc_dyson_initial is a LOWER BOUND on the actual Dyson ODE t_c because the
@@ -476,5 +485,34 @@ export const HF_IMP372_ASSERTIONS = [
       'agreement between tc_dyson_initial and the measured t_c_lo from imp-360. ' +
       'Fewer than 2 consistent rows would indicate the initial-slope formula is ' +
       'not in the right ballpark, suggesting a bug in the computation.',
+  },
+  {
+    // imp-2747: closes open sub-gaps imp372-three-way and imp372-ode-norm at the
+    // ANALYTICAL / initial-slope level. The normalized heat-flow intercept
+    // a_hf_initial / 2 (the explicit factor-2 ODE-normalization correction:
+    // imp-292 H_t zeros ODE is factor-1, barrier-extrapolation-v2.js and
+    // PATH_C_BASELINE_FIT_V2 are factor-2) must agree with BOTH reference
+    // intercepts -- the barrier-extrapolation intercept (A_BARRIER, imp-404) and
+    // the RK4 baseline intercept (A_RK4, imp-400) -- within the documented
+    // 2-sigma heat-flow OLS standard error. ESTIMATE / cross-check-only, NOT a
+    // rigorous bound: this is the three-way agreement at the initial-slope
+    // (analytical) level; the conclusive full H_t-trajectory three-way check
+    // remains open as sub-gap imp372-Ht-full.
+    id:    'imp372-three-way',
+    holds: () => {
+      if (!HF_OLS || A_RK4 === null || A_BARRIER === null) return false;
+      const aHfNorm  = HF_OLS.intercept_a / 2;
+      const twoSigma = 2 * HF_OLS.seA;
+      return Math.abs(aHfNorm - A_RK4) <= twoSigma
+          && Math.abs(aHfNorm - A_BARRIER) <= twoSigma;
+    },
+    why:
+      'Three-way cross-check (ESTIMATE-only, not rigorous): the factor-2-normalized ' +
+      'heat-flow intercept a_hf_initial / 2 must agree with both the barrier-extrapolation ' +
+      'intercept (BARRIER_EXTRAPOLATION_V2.barrierOls, imp-404) and the RK4 baseline ' +
+      'intercept (PATH_C_BASELINE_FIT_V2, imp-400) within 2 * seA_hf (the documented ' +
+      'heat-flow OLS standard error). Disagreement on either leg would indicate a ' +
+      'factor-1-vs-factor-2 normalization error or a bias in the initial-slope estimate. ' +
+      'The conclusive full H_t-trajectory three-way comparison remains open (imp372-Ht-full).',
   },
 ];

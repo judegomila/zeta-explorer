@@ -193,6 +193,40 @@ export const FULL_ROUTE_MAP_ASSERTIONS = [
       return true;
     },
   },
+  {
+    // Overclaim tripwire (imp-2754): the three heuristic Lambda cross-checks --
+    // heat-flow (imp-292), barrier extrapolation (imp-299), kernel-hack (imp-360)
+    // -- are EXPLICITLY estimates, not bounds. Each must keep status 'ESTIMATE'
+    // and a 'cross-check' note, and must NOT acquire a rigorous / bound /
+    // proves-Lambda framing in its name, status, or note. This blocks a future
+    // edit silently promoting a cross-validation estimator into a load-bearing
+    // rigorous claim (a classic overclaim vector).
+    id: 'route-map-estimator-crosschecks-stay-estimate',
+    description: 'The 3 heuristic cross-checks (heat-flow imp-292, barrier imp-299, kernel-hack imp-360) stay status ESTIMATE / cross-check only (no promotion to a rigorous bound)',
+    holds: () => {
+      const FORBIDDEN = /\b(rigorous|RIGOROUS|bound|BOUND|proves[- ]?Lambda)\b/;
+      const PINS = [
+        { nameRe: /Heat-flow.*imp-292/i, who: 'heat-flow Lambda cross-val (imp-292)' },
+        { nameRe: /Barrier extrapolation.*imp-299/i, who: 'barrier extrapolation (imp-299)' },
+        { nameRe: /Kernel-hack.*imp-360/i, who: 'kernel-hack analytical (imp-360)' },
+      ];
+      const allRows = Object.values(FULL_ROUTE_MAP.clusters).flat();
+      for (const pin of PINS) {
+        const row = allRows.find((r) => pin.nameRe.test(r.name));
+        if (!row) throw new Error(`estimator cross-check pin row not found: ${pin.who}`);
+        if (row.status !== 'ESTIMATE') {
+          throw new Error(`estimator cross-check promoted: ${pin.who} is now status '${row.status}', expected 'ESTIMATE'`);
+        }
+        if (!/cross-check/i.test(row.note || '')) {
+          throw new Error(`estimator cross-check lost its cross-check note: ${pin.who} note='${row.note}'`);
+        }
+        if (FORBIDDEN.test(row.name) || FORBIDDEN.test(row.status) || FORBIDDEN.test(row.note || '')) {
+          throw new Error(`estimator cross-check acquired a rigorous/bound framing: ${pin.who}`);
+        }
+      }
+      return true;
+    },
+  },
 ];
 
 for (const a of FULL_ROUTE_MAP_ASSERTIONS) {

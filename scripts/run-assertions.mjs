@@ -1728,6 +1728,10 @@ const DATA_MODULES = [
   '/src/data/sg1c-theta-trap-theorems.js',
   '/src/data/imp-2563-zeta-zeros-corruption-audit.js',
   '/src/data/imp-2563-pathc-exact-tc-ladder.js',
+  // imp-2848: redirect the heat-discriminant t_c ladder at the E_coll collision
+  // constant -- two-sided rigorous bracket via the exact discriminant sign flip,
+  // propagated into the E_coll Wasserstein input W_1(mu_N, rho_inf).
+  '/src/data/imp-discriminant-at-Ecoll.js',
   // imp-2627: automated per-N Theta(0) <= 1/4 certification on every ladder rung.
   '/src/data/imp-2627-theta-certification.js',
   '/src/data/barrier-extrapolation-imp371.js',
@@ -1876,6 +1880,10 @@ const DATA_MODULES = [
   // sweep, triggers their self-executing assertions, and asserts each
   // *_ASSERTIONS array is non-empty to guard against silent array clearing.
   '/src/data/imp-2870-en-cert-liveness-tripwire.js',
+  // imp-2865: cross-module storage-precision tolerance audit -- asserts every
+  // E(N)-ledger comparison of a live value against a toFixed/toExponential
+  // literal uses a tolerance >= the field's half-ULP floor (imp-2546/2539 trap).
+  '/src/data/imp-2865-en-ledger-storage-tolerance-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -524,6 +524,27 @@ export default function OddZetaPage() {
         <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: '#06b6d4' }}>
           Chaitin's Constant &amp; Algorithmic Information Theory
         </h2>
+
+        <div style={{ marginBottom: 16, padding: 12, background: 'rgba(239,68,68,0.08)', borderRadius: 6, border: '1px solid #ef444455' }}>
+          <h4 style={{ color: '#ef4444', fontSize: 12, marginBottom: 6 }}>
+            Heuristic analogy &mdash; not a theorem
+          </h4>
+          <p style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.7 }}>
+            Everything in this section and the next (the Kolmogorov-complexity &ldquo;proof strategy,&rdquo;
+            the <InlineMath tex={"K(\\zeta(2k+1)\\!\\mid\\! N) \\geq c_k N^{\\alpha_k}"} /> growth conjecture, and the
+            generating-function &ldquo;fundamental obstruction&rdquo;) is a <strong style={{ color: '#e2e8f0' }}>speculative
+            ZPO-flavored analogy, not a proof or a near-complete route</strong>. No step here is a theorem about odd
+            zeta values: the key claim that computing <InlineMath tex={"N"} /> digits forces information from all
+            primes up to <InlineMath tex={"\\sim 10^{N/(2n+1)}"} /> is unproven (and as stated is heuristic &mdash;
+            fast-converging series exist), and Chaitin&rsquo;s rational/<InlineMath tex={"O(\\log N)"} /> dichotomy does
+            not by itself yield any lower bound on <InlineMath tex={"K(\\zeta(2k+1)\\!\\mid\\! N)"} />. The genuine
+            theorems &mdash; Ap&eacute;ry (<InlineMath tex={"\\zeta(3)"} /> irrational), Ball&ndash;Rivoal
+            (infinitely many <InlineMath tex={"\\zeta(2k+1)"} /> irrational), and Zudilin (one of
+            <InlineMath tex={"\\zeta(5),\\zeta(7),\\zeta(9),\\zeta(11)"} /> irrational) &mdash; are stated separately
+            below and do not depend on any of this.
+          </p>
+        </div>
+
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 16 }}>
           Gregory Chaitin's work on algorithmic information theory provides a fundamentally different
           angle on irrationality. His halting probability <InlineMath tex={"\\Omega = \\sum_{p \\text{ halts}} 2^{-|p|}"} />{' '}

@@ -4,10 +4,22 @@ import NyquistBodeViz from '../components/NyquistBodeViz.jsx';
 import ScatteringMatrixViz from '../components/ScatteringMatrixViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import PageHeader from '../components/PageHeader.jsx';
+import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
 export default function ControlTheoryPage() {
   return (
     <div className="page">
+      <HonestCeilingBanner
+        variant="RH-EQUIVALENT"
+        title="The Nyquist stability reformulation IS RH restated — not an independent route to it"
+        body={
+          'The loop-gain factorization L(s) = chi(s)*zeta(1-s)/zeta(s) is an EXACT identity (the functional ' +
+          'equation), so zeros of zeta are exactly the points where 1 + L(s) = 0. But the statement "the Nyquist ' +
+          'contour never encircles -1 off the critical line" IS the Riemann Hypothesis itself, merely restated in ' +
+          'control-theory language — no new math is gained. Treat this page as a pedagogical analogy, not an attack ' +
+          'vector. The rigorous SOTA remains the cited Platt-Trudgian bound Lambda <= 0.2.'
+        }
+      />
       <PageHeader title="Control Theory & Scattering">
         <p>
           An exploratory reformulation of the Riemann Hypothesis as a stability criterion in feedback

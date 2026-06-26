@@ -13,6 +13,7 @@
 import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { VIZ_PRIME_CAUSTIC } from '../data/viz-prime-caustic.js';
+import VizCeilingNote from '../components/VizCeilingNote.jsx';
 
 const D = VIZ_PRIME_CAUSTIC;
 const TWO_PI = 2 * Math.PI;
@@ -352,6 +353,11 @@ export default function VizPrimeCausticPage() {
         putImageData of a {D.bbox.gridW} x {D.bbox.gridH} buffer -- no per-pixel
         fillRect calls.
       </div>
+
+      <VizCeilingNote
+        as="div"
+        claim="prime-caustic intensity re-derives the Riemann-Siegel coherent-sum dips near the zero heights γ_n"
+      />
     </div>
   );
 }

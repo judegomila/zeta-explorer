@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { sieveOfEratosthenes } from '../math/primes.js';
 import { VIZ_HYPERBOLIC_PRIME_SPIRAL } from '../data/viz-hyperbolic-prime-spiral.js';
+import VizCeilingNote from '../components/VizCeilingNote.jsx';
 
 /**
  * VizHyperbolicPrimeSpiralPage — primes embedded in the Poincaré disk via
@@ -211,6 +212,11 @@ export default function VizHyperbolicPrimeSpiralPage() {
           <Link to="/viz-prime-phase-crystal" style={{ color: '#60a5fa', fontSize: 13 }}>/viz-prime-phase-crystal</Link>
         </div>
       </footer>
+
+      <VizCeilingNote
+        as="div"
+        claim="prime positions on a log-spiral re-derive the multiplicative resonance angle θ = t·log p"
+      />
     </main>
   );
 }

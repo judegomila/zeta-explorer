@@ -11,6 +11,7 @@
 import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { getPrimes } from '../math/primes.js';
+import VizCeilingNote from '../components/VizCeilingNote.jsx';
 
 const TWO_PI = 2 * Math.PI;
 const mono = 'var(--font-mono)';
@@ -326,6 +327,11 @@ export default function VizCausticResonancePage() {
         spike can be decomposed into contributions from a small number of
         nearby resonance ticks -- the primes are not truly random at these t.
       </div>
+
+      <VizCeilingNote
+        as="div"
+        claim="caustics = multiplicative resonances log(p_i/p_j) ≈ 2πk/t"
+      />
     </div>
   );
 }

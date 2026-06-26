@@ -11,6 +11,7 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { VIZ_PRIME_PHASE_CRYSTAL } from '../data/viz-prime-phase-crystal.js';
+import VizCeilingNote from '../components/VizCeilingNote.jsx';
 
 const D = VIZ_PRIME_PHASE_CRYSTAL;
 const mono = 'var(--font-mono)';
@@ -311,6 +312,11 @@ export default function VizPrimePhaseCrystalPage() {
         by the inner sum: O(W * H * N) = O(500 * 500 * 200) = ~50M cosines per redraw,
         held to ~100-300 ms in dev via a tight hoisted loop.
       </div>
+
+      <VizCeilingNote
+        as="div"
+        claim="the Bragg-like peaks re-derive the Δn ≈ (2π/t)·n diffraction lattice of prime phases"
+      />
     </div>
   );
 }

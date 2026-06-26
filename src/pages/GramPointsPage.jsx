@@ -106,6 +106,26 @@ export default function GramPointsPage() {
         <Stat label="1-zero intervals" value={IA.gramLawIntervalPct + '%'} accent={IA.gramLawIntervalPct > 50 ? '#86efac' : '#fca5a5'} />
       </div>
 
+      {/* Finite-window provenance: scope the violation-rate number */}
+      <div style={{
+        marginTop: 10,
+        fontSize: 11.5,
+        lineHeight: 1.5,
+        color: 'var(--text-muted)',
+        fontFamily: mono,
+        background: 'var(--bg-panel)',
+        border: '1px solid var(--border)',
+        borderLeft: '3px solid #64748b',
+        borderRadius: 6,
+        padding: '8px 10px',
+      }}>
+        Provenance: the first {D.totalComputed} Gram points from{' '}
+        <code>src/data/gram-points-numerical.js</code>, each computed via the Riemann-Siegel
+        theta function. The {D.violationRate}% violation rate is a <strong>finite-window</strong>{' '}
+        figure specific to this low height range &mdash; it is not a universal constant and grows
+        without bound as t&rarr;&infin; (Titchmarsh 1935). Read it as a local sample, not a limit.
+      </div>
+
       {/* Panel 1: Z(g_n) scatter */}
       <div style={{ marginTop: 18, background: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: 8, padding: 12, overflowX: 'auto' }}>
         <div style={{ fontSize: 11, color: 'var(--text-muted)', fontFamily: mono, marginBottom: 4 }}>

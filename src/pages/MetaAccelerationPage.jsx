@@ -622,8 +622,9 @@ git log --oneline -10                    # engine commits`}
               desc: 'Opus-tier auto-improve.sh runs claude --print on each ticket. Makes one atomic change per run, commits, pushes.',
               features: [
                 { name: 'Priority queue', status: 'active', detail: 'critical > high > medium > low' },
-                { name: 'Category routing', status: 'active', detail: 'Opus: proof/feature/content/meta; Haiku: bug/ux/visual' },
-                { name: 'Token budget discipline', status: 'active', detail: 'queue-index.json cache (4KB) avoids 280KB improvements.js reads' },
+                { name: 'Category routing', status: 'active', detail: 'Opus: proof/feature/content/meta; Sonnet: content/ux; Haiku: bug/ux/visual' },
+                { name: 'Three-channel model pool', status: 'active', detail: 'opus/sonnet/fable tiers via engine-model.json; each tier picks only its byModel bucket from queue-index.json' },
+                { name: 'Token budget discipline', status: 'active', detail: 'queue-index.json cache (4KB) avoids reading 280K-token improvements.js; nextImprovementId, byModel buckets, criticalPending served directly' },
                 { name: 'Build verification', status: 'active', detail: 'npm run build after every change; rollback on failure' },
                 { name: 'Git commit + auto-push', status: 'active', detail: 'Every 5 runs pushes to origin/main (imp-442)' },
               ],
@@ -638,6 +639,7 @@ git log --oneline -10                    # engine commits`}
                 { name: 'Rate-limit backoff', status: 'active', detail: 'Sentinel file + exponential backoff on 429 errors' },
                 { name: 'Dev server health check', status: 'active', detail: 'HTTP 200 check on localhost:3002 each run (imp-313)' },
                 { name: 'Idle detection', status: 'active', detail: 'Auto-stop after 10 consecutive empty-queue runs (imp-518)' },
+                { name: 'Build-gated assertion sweep', status: 'active', detail: 'npm run build triggers run-assertions.mjs --fast; cross-checks StateOfProgram TRUTHS vs overclaim-ledger; fails build on mismatch (imp-2967)' },
               ],
             },
             {
@@ -674,6 +676,7 @@ git log --oneline -10                    # engine commits`}
                 { name: 'Route B separation', status: 'shipped', detail: 'Standalone unconditional paper for genuinely proved result (imp-585)' },
                 { name: 'Paper reframing', status: 'shipped', detail: 'Conditional computational verification framing (imp-590)' },
                 { name: 'Selberg rescue path', status: 'shipped', detail: 'Unconditional C_mb = O(log T) closes at finite N_0* (imp-586)' },
+                { name: 'Overclaim-ledger discipline', status: 'shipped', detail: 'src/data/overclaim-ledger.js logs all withdrawn claims with WITHDRAWN/REFUTED status; StateOfProgram TRUTHS cross-checked at build time to prevent honesty drift' },
               ],
             },
           ].map((layer) => (

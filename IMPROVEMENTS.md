@@ -2874,3 +2874,4 @@ below are the engine contract — do not rename or reorder.
 | 2987 | 2026-06-27T01:20:00Z | imp-2928 (content, low): add real-vs-shuffled-primes A/B toggle to VizPrimeCausticPage — shuffled log-spacings erase caustic bands, demonstrating structure is arithmetic not random | src/pages/VizPrimeCausticPage.jsx |
 | 2988 | 2026-06-26T08:00:00Z | imp-2946 (content, low): add structural/illustrative honest framing line and /statistics cross-link to PascalPage | src/pages/PascalPage.jsx |
 | 2989 | 2026-06-27T02:00:00Z | imp-2960 (content, low): add Honest State of the Program section to WikiPage with links to /state-of-program, /route-map, C_H Wall, Overclaim Ledger, and inline glossary term links | src/pages/WikiPage.jsx |
+| 2990 | 2026-06-27T03:00:00Z | imp-2965 (content, low): add three-channel pool, build-gated assertion sweep, and overclaim-ledger discipline entries to MetaAccelerationPage pipeline visualization | src/pages/MetaAccelerationPage.jsx |

@@ -128,6 +128,7 @@ import './submission-ready-2026-04-12.js';       // imp-500: 2 assertions (fatal
 import '../math/c-mb-unconditional-bound.js';    // imp-486: 2 assertions (searchComplete, approachesExamined>=3)
 import './imp-2701-ch-rigor-lock.js';            // imp-2701: 3 assertions (C_H not rigorous, finite-N no rigorous beat, verdict NO-GO/stays SOTA)
 import './imp-2706-ecoll-conditional-modulo-ch.js'; // imp-2706: 6 assertions (E_coll conditional-modulo-C_H bound; C_H still unproven)
+import './imp-2869-ecoll-rigorous-modulo-ch.js';    // imp-2869: 6 assertions (E_coll rigorous-modulo-C_H at the bare ansatz C_H<=0.125 -> E_coll<=0.01164; every OTHER chain input discharged, gap isolated to the single C_H inequality)
 import './imp-2711-pt-bound-sota-tripwire.js';      // imp-2711: 3 assertions (every E(N)<0.2 numeric clearance carries honesty qualifier + cites PT as SOTA)
 import './imp-2694-ecoll-rate-reconciliation.js';   // imp-2694: 5 assertions (N^-3/2 bounds t_c deviation not E_coll; binding E_coll rate = Holder N^-1/2; headline uses it; no overclaim)
 import './imp-routeB-flow-vs-lambda-firewall.js';   // imp-2854: 5 assertions (Route B imp-341 bounds the PARTICLE FLOW not Lambda; every t_c->Lambda edge passes through C_H/G6a; no leak)

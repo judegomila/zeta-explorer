@@ -171,6 +171,7 @@ export const ROUTE_STATUS = {
     status: 'DEAD-END',
     summary: 'Montgomery PCC 50-year wall. All sub-routes terminate here.',
     closesIf: 'Would require a genuine breakthrough on the Montgomery PCC conjecture.',
+    imp2838: 'HONEST NEGATIVE: the closesIf names NO executable action — it names the Montgomery pair-correlation conjecture (PCC), a 50-year open wall, as the closure condition. Proving PCC is a structural breakthrough that lies entirely outside this project, not a step that can be executed here. The route stays DEAD-END; PCC stays in CONDITIONS.open as the critical structural blocker for all ESY/Selberg-trace/PCC-adjacent routes. No Lambda claim is made and the rigorous headline stays at the Platt-Trudgian Lambda <= 0.2 SOTA. Locked against a false revival by IMP_2838_ESY_PCC_DEADEND_ASSERTIONS.',
   },
 };
 
@@ -481,6 +482,57 @@ export const IMP_2837_THETATRAP_BRACKET_CONDITIONAL_ASSERTIONS = [
   {
     id: 'imp-2837/no-false-lambda-improvement-from-thetatrap',
     why: 'A still-conditional t_c bracket must not move the rigorous headline below the Platt-Trudgian 0.2 SOTA.',
+    holds: () =>
+      HEADLINE.baseline.includes('0.2') && HEADLINE.bound.includes('0.2'),
+  },
+];
+
+// ── 10. imp-2838 BUILD-TIME ASSERTIONS ───────────────────────────────────────
+//
+// closesIf for the ESY / Selberg-trace PCC closure route reads: "Would require a
+// genuine breakthrough on the Montgomery PCC conjecture." This names NO
+// executable action — the Montgomery pair-correlation conjecture (PCC) is a
+// 50-year open wall, and proving it is a structural breakthrough that lies
+// entirely outside this project, not a step that can be executed here. The only
+// honest move is to record that negative and lock the DEAD-END status so a
+// future drift cannot silently promote an ESY/Selberg-trace/PCC-adjacent route
+// to a live Lambda claim below the Platt-Trudgian 0.2 SOTA while PCC stays open.
+// No new mathematical claim is made.
+
+export const IMP_2838_ESY_PCC_DEADEND_ASSERTIONS = [
+  {
+    id: 'imp-2838/esy-stays-dead-end',
+    why: 'The ESY / Selberg-trace PCC closure route must stay DEAD-END — its closesIf names no executable action (a 50-year open conjecture).',
+    holds: () => ROUTE_STATUS.esy.status === 'DEAD-END',
+  },
+  {
+    id: 'imp-2838/closesif-still-names-pcc-breakthrough',
+    why: 'The closesIf must still record that closure would require a genuine breakthrough on the Montgomery PCC conjecture.',
+    holds: () =>
+      typeof ROUTE_STATUS.esy.closesIf === 'string' &&
+      ROUTE_STATUS.esy.closesIf.includes('genuine breakthrough') &&
+      ROUTE_STATUS.esy.closesIf.includes('Montgomery PCC'),
+  },
+  {
+    id: 'imp-2838/honest-negative-recorded',
+    why: 'The honest-negative provenance must record that no executable closure action exists, not a false revival.',
+    holds: () =>
+      typeof ROUTE_STATUS.esy.imp2838 === 'string' &&
+      ROUTE_STATUS.esy.imp2838.includes('HONEST NEGATIVE') &&
+      /NO executable action/.test(ROUTE_STATUS.esy.imp2838),
+  },
+  {
+    id: 'imp-2838/pcc-stays-open-structural-blocker',
+    why: 'The Montgomery PCC condition must remain in CONDITIONS.open as the structural blocker for all ESY/Selberg-trace/PCC-adjacent routes — it must not migrate to established.',
+    holds: () =>
+      CONDITIONS.open.some(
+        (c) => c.id === 'PCC' && /50-year open/.test(c.description),
+      ) &&
+      !CONDITIONS.established.some((c) => c.id === 'PCC'),
+  },
+  {
+    id: 'imp-2838/no-false-lambda-improvement-from-esy',
+    why: 'A DEAD-END route behind the open PCC wall must not move the rigorous headline below the Platt-Trudgian 0.2 SOTA.',
     holds: () =>
       HEADLINE.baseline.includes('0.2') && HEADLINE.bound.includes('0.2'),
   },

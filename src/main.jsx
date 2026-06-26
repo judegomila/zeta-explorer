@@ -22,10 +22,15 @@ import App from './App.jsx';
 // login form (cookie expired) — never a half-broken error box. A sessionStorage
 // guard prevents a reload loop if the reload itself can't recover.
 const CHUNK_RELOAD_KEY = 'me_chunk_reload_ts';
+const CHUNK_RELOAD_COUNT_KEY = 'me_chunk_reload_n';
+const MAX_CHUNK_RELOADS = 3;
 function reloadOnceForChunkFailure() {
   const last = Number(sessionStorage.getItem(CHUNK_RELOAD_KEY) || 0);
+  const count = Number(sessionStorage.getItem(CHUNK_RELOAD_COUNT_KEY) || 0);
+  if (count >= MAX_CHUNK_RELOADS) return false; // permanently broken — give up, show error
   if (Date.now() - last > 10000) {
     sessionStorage.setItem(CHUNK_RELOAD_KEY, String(Date.now()));
+    sessionStorage.setItem(CHUNK_RELOAD_COUNT_KEY, String(count + 1));
     window.location.reload();
     return true;
   }

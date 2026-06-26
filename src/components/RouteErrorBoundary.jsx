@@ -9,6 +9,8 @@ import React from 'react';
 const CHUNK_ERR_RE =
   /(Failed to fetch dynamically imported module|error loading dynamically imported module|Importing a module script failed|expected a JavaScript module|ChunkLoadError|Loading chunk \d+ failed)/i;
 const CHUNK_RELOAD_KEY = 'me_chunk_reload_ts';
+const CHUNK_RELOAD_COUNT_KEY = 'me_chunk_reload_n';
+const MAX_CHUNK_RELOADS = 3;
 
 function isChunkLoadError(error) {
   const msg = `${error?.name || ''} ${error?.message || error || ''}`;
@@ -17,8 +19,11 @@ function isChunkLoadError(error) {
 function reloadOnceForChunkFailure() {
   try {
     const last = Number(sessionStorage.getItem(CHUNK_RELOAD_KEY) || 0);
+    const count = Number(sessionStorage.getItem(CHUNK_RELOAD_COUNT_KEY) || 0);
+    if (count >= MAX_CHUNK_RELOADS) return false; // permanently broken — give up, show error
     if (Date.now() - last > 10000) {
       sessionStorage.setItem(CHUNK_RELOAD_KEY, String(Date.now()));
+      sessionStorage.setItem(CHUNK_RELOAD_COUNT_KEY, String(count + 1));
       window.location.reload();
       return true;
     }

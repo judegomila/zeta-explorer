@@ -1679,6 +1679,12 @@ const DATA_MODULES = [
   // sizes, exact pair-collapse anchor t_pair = H_min^2/8 inside the fine
   // bracket. Closes GAP-2466-dp8-upgrade; N = 1e4 slice of fresh-rows gap.
   '/src/data/imp-2485-dp8-rk4-N1e4.js',
+  // imp-2881: the N = 1e5 slice of GAP-2485-N1e5-N1e6 — same dual-integrator
+  // (order-8 DOP853 + RK4) harness as imp-2485, freshly measured offline from
+  // the first 100 000 Odlyzko ordinates with a bounded interval-RK4 bracket
+  // (ladder-only; dt/5 fine pass documented-skipped since t_pair << dt). N = 1e6
+  // stays open (GAP-2485-N1e6).
+  '/src/data/imp-2485-dp8-rk4-N1e5.js',
   // imp-2523: batch-wired previously unregistered data modules (97 files).
   '/src/data/asymptotic-attack-status-2026-05.js',
   '/src/data/b1-slope-conditional-upper-bound.js',
@@ -1928,6 +1934,11 @@ const DATA_MODULES = [
   // date, and pins lmfdbUrl() to the current LMFDB /L/<path> URL scheme so a
   // stale or schema-drifted external cross-reference fails the build sweep.
   '/src/data/lmfdb-l-function-cross-reference.js',
+  // imp-2967: freshness/consistency cross-check between StateOfProgram TRUTHS
+  // and overclaim-ledger -- RIGOROUS SOTA badge must still name Platt-Trudgian
+  // Lambda<=0.2; every imp-id in the REFUTED TRUTHS entry must exist in
+  // CAUGHT_OVERCLAIMS with an addressed status. Light (no zeros-bundle import).
+  '/src/data/imp-2967-state-of-program-overclaim-cross-check.js',
 ];
 
 let ALL_MODULES = FAST_MODE

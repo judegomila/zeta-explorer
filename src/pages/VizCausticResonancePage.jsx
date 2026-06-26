@@ -270,17 +270,43 @@ export default function VizCausticResonancePage() {
         />
       </div>
 
-      {hovered && (
-        <div className="card" style={{ marginTop: 10, padding: 12 }}>
-          <span style={{ fontFamily: mono, fontSize: 12, color: '#f0abfc' }}>
-            Resonance: p<sub>i</sub> = {hovered.pi}, p<sub>j</sub> = {hovered.pj},
-            k = {hovered.k},
-            t = {hovered.t.toFixed(4)},
-            log(p<sub>j</sub>/p<sub>i</sub>) = {(Math.log(hovered.pj / hovered.pi)).toFixed(6)},
-            2&pi;k / log(p<sub>j</sub>/p<sub>i</sub>) = {((TWO_PI * hovered.k) / Math.log(hovered.pj / hovered.pi)).toFixed(4)}
-          </span>
-        </div>
-      )}
+      {hovered && (() => {
+        const coherentPrimes = ALL_PRIMES.slice(0, profileN).filter((p, i) => {
+          let phase = hovered.t * logSlice[i];
+          phase = phase - TWO_PI * Math.round(phase / TWO_PI);
+          return Math.abs(phase) < eps;
+        });
+        return (
+          <div className="card" style={{ marginTop: 10, padding: 12 }}>
+            <div style={{ fontFamily: mono, fontSize: 12, color: '#f0abfc', marginBottom: 8 }}>
+              Resonance: p<sub>i</sub> = {hovered.pi}, p<sub>j</sub> = {hovered.pj},
+              k = {hovered.k},
+              t = {hovered.t.toFixed(4)},
+              log(p<sub>j</sub>/p<sub>i</sub>) = {(Math.log(hovered.pj / hovered.pi)).toFixed(6)},
+              2&pi;k / log(p<sub>j</sub>/p<sub>i</sub>) = {((TWO_PI * hovered.k) / Math.log(hovered.pj / hovered.pi)).toFixed(4)}
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+              <span style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: 0.5 }}>
+                coherent primes at t ({coherentPrimes.length}):
+              </span>
+              {coherentPrimes.length === 0
+                ? <span style={{ fontFamily: mono, fontSize: 11, color: '#64748b' }}>none</span>
+                : coherentPrimes.map(p => (
+                    <span key={p} style={{
+                      background: '#1e293b',
+                      border: '1px solid #334155',
+                      borderRadius: 4,
+                      padding: '2px 6px',
+                      fontFamily: mono,
+                      fontSize: 11,
+                      color: '#86efac',
+                    }}>{p}</span>
+                  ))
+              }
+            </div>
+          </div>
+        );
+      })()}
 
       <div className="card" style={{ marginTop: 14, padding: 14 }}>
         <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--text-muted)',

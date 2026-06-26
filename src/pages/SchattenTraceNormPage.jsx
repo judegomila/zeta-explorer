@@ -290,6 +290,7 @@ export default function SchattenTraceNormPage() {
                 <th style={th}><InlineMath math="\|V\|_{HS}" /></th>
                 <th style={th}><InlineMath math="\|V\|_{\mathrm{op}}" /></th>
                 <th style={th}><InlineMath math="\|V\|_1 / \|V\|_{HS}" /></th>
+                <th style={th}>sat. margin <InlineMath math="1-\|V\|_{\mathrm{op}}" /></th>
                 <th style={th}>status</th>
               </tr>
             </thead>
@@ -301,6 +302,9 @@ export default function SchattenTraceNormPage() {
                   <td style={td}>{r.hsNorm.toExponential(4)}</td>
                   <td style={td}>{r.opNorm.toExponential(4)}</td>
                   <td style={td}>{r.ratio.toFixed(4)}</td>
+                  <td style={{ ...td, color: r.opNorm < 1 ? '#2a7a2a' : '#c0392b' }}>
+                    {(1 - r.opNorm).toExponential(3)}
+                  </td>
                   <td style={{ ...td, color: r.traceNorm < 1 ? '#2a7a2a' : '#c0392b', fontWeight: 'bold' }}>
                     {r.traceNorm < 1 ? '< 1 ✓' : '> 1 !'}
                   </td>
@@ -308,8 +312,31 @@ export default function SchattenTraceNormPage() {
               ))}
             </tbody>
           </table>
+          <p style={{ marginTop: 10, fontSize: 12, color: '#666' }}>
+            Saturation margin <InlineMath math="1-\|V\|_{\mathrm{op}}" /> measures how
+            far the (Galerkin-truncated, <InlineMath math={`N=${GRID_N}`} />) operator
+            norm sits below the collapse threshold 1; a positive margin means{' '}
+            <InlineMath math="\|V\|_{\mathrm{op}} < 1" /> at this truncation.
+          </p>
         </div>
       )}
+
+      <div style={{
+        marginTop: 20, padding: '12px 16px', border: '1px solid #e0c060',
+        backgroundColor: '#fdf8e8', borderRadius: 6, fontSize: 13, lineHeight: 1.6
+      }}>
+        <strong>Honest status — equivalence, not reduction.</strong>{' '}
+        The Volterra collapse (imp-1258) makes{' '}
+        <InlineMath math="\|V_{a,\Phi}\| \le 1" /> <em>RH-equivalent</em>: it is a
+        two-way bi-conditional, not a one-way reduction of RH to a simpler problem.
+        A measured norm strictly below 1 at finite truncation{' '}
+        <InlineMath math={`N=${GRID_N}`} /> is therefore <em>supporting numerical
+        evidence</em> for a quantity equivalent to RH — it is not partial progress
+        toward a proof, and the positive saturation margins above do not discharge any
+        proof obligation. Each value is a Galerkin lower bound on the true operator
+        norm, so a finite-dimensional margin cannot certify the infinite-dimensional
+        bound.
+      </div>
 
       <div style={{
         marginTop: 28, padding: '14px 18px',

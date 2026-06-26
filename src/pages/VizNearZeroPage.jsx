@@ -146,7 +146,28 @@ export default function VizNearZeroPage() {
   const [centerIdx, setCenterIdx] = useState(9);
   const [halfWin, setHalfWin] = useState(3);
   const [showNodal, setShowNodal] = useState(true);
+  const [playing, setPlaying] = useState(false);
+  const [animSpeed, setAnimSpeed] = useState(700);
+  const animRef = useRef(null);
   const gc = GAMMAS[centerIdx];
+
+  useEffect(() => {
+    if (!playing) {
+      clearInterval(animRef.current);
+      return;
+    }
+    animRef.current = setInterval(() => {
+      setCenterIdx((prev) => {
+        const next = prev + 1;
+        if (next >= GAMMAS.length - 2) {
+          setPlaying(false);
+          return prev;
+        }
+        return next;
+      });
+    }, animSpeed);
+    return () => clearInterval(animRef.current);
+  }, [playing, animSpeed]);
 
   const zoomLabel = halfWin <= 1.5
     ? 'Tight: pure local ring + nodal cross'
@@ -180,6 +201,32 @@ export default function VizNearZeroPage() {
 
         <div style={{ flex: '0 1 280px', display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div className="card">
+            <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8 }}>Animate Sweep</div>
+            <button
+              onClick={() => {
+                if (!playing && centerIdx >= GAMMAS.length - 2) setCenterIdx(1);
+                setPlaying((p) => !p);
+              }}
+              style={{
+                padding: '5px 14px', fontSize: 12, borderRadius: 6, cursor: 'pointer',
+                background: playing ? '#1e40af' : '#3b82f6', color: '#fff',
+                border: 'none', fontWeight: 600, letterSpacing: 0.3,
+              }}
+            >
+              {playing ? '⏸ Pause' : '▶ Play'}
+            </button>
+            <label style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 8, display: 'block' }}>
+              Speed (slower ← → faster)
+              <input
+                type="range" min={200} max={1500} step={100}
+                value={1700 - animSpeed}
+                onChange={(e) => setAnimSpeed(1700 - +e.target.value)}
+                style={{ width: '100%', marginTop: 4 }}
+              />
+            </label>
+          </div>
+
+          <div className="card">
             <label style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
               Zero: γ ≈ {gc.toFixed(3)}
               <input
@@ -187,7 +234,7 @@ export default function VizNearZeroPage() {
                 min={1}
                 max={GAMMAS.length - 2}
                 value={centerIdx}
-                onChange={(e) => setCenterIdx(+e.target.value)}
+                onChange={(e) => { setPlaying(false); setCenterIdx(+e.target.value); }}
                 style={{ width: '100%', marginTop: 6 }}
               />
             </label>

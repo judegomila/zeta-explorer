@@ -18,6 +18,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { SHIFT_BRIDGE_POSITIVITY } from '../data/shift-bridge-positivity-section.js';
+import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
 const S = SHIFT_BRIDGE_POSITIVITY;
 const mono = 'var(--font-mono)';
@@ -111,6 +112,11 @@ export default function ShiftBridgePositivityPage() {
           <code style={{ color: '#93c5fd' }}>{S.ticketId}</code>
         </p>
       </div>
+
+      {/* ─── Honest verdict (imp-2987): the finite-N* "beat" infrastructure on
+           this page is an ESTIMATE gated on the undischargeable C_H, never an
+           unconditional finite-N rigorous beat. ─── */}
+      <HonestCeilingBanner variant="ESTIMATE" />
 
       {/* ─── Summary ─── */}
       <div

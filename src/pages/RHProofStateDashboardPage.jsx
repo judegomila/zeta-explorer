@@ -8,6 +8,7 @@ import { IMP2644_EFLOW_GRONWALL_CG_DISCHARGE } from '../data/imp-2644-eflow-gron
 import { MAXFANOUT_STATUS } from '../data/maxfanout-honest-status-2026-06-17.js';
 import { STRATEGIC_REFRAME } from '../data/strategic-reframe-pcc-free-volterra-2026-06-17.js';
 import { SECTION27_REFUTATION, THE_REAL_GAP } from '../data/section27-identity-refutation-2026-06-17.js';
+import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-reduction-2026-06-18.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
 
 // Status Badge
@@ -299,7 +300,7 @@ export default function RHProofStateDashboardPage() {
           title="Weil Positivity"
           status="active"
           statusLabel="IN DEVELOPMENT"
-          description="The de Branges-Romanov formalism reduces RH to positivity of a kernel operator on L². The §15-27 hidden-square program focuses on proving ‖V_{'{a,Φ}'}‖ ≤ 1, which implies the kernel is non-negative. Empirical support is ~5000× from saturation."
+          description="The de Branges-Romanov formalism reduces RH to positivity of a kernel operator on L². The §15-27 hidden-square program studies ‖V_{'{a,Φ}'}‖ ≤ 1, but the §27 LINK B biconditional (overclaim #6, REFUTED) is FALSE as a Φ-uniform equivalence — so this is information-preservingly RH-equivalent, NOT a shortcut. The ~5000× margin is a homogeneity artifact (imp-1240 measured the scale-miscalibrated bare operator), NOT evidence for Conj 27.2."
           progress={45}
           blockedBy={['S4']}
           links={[{ label: 'Hidden Square Program', to: '/hidden-square-program' }, { label: 'Closure Routes', to: '/closure-routes' }]}
@@ -485,8 +486,9 @@ export default function RHProofStateDashboardPage() {
               </div>
             </div>
             <p style={{ color: '#64748b', fontSize: 12, lineHeight: 1.6 }}>
-              This operator-norm bound is both necessary and sufficient for the full §15-27
-              closure via de Branges-Romanov positivity.
+              The §27 LINK B biconditional that would make this bound sufficient is{' '}
+              <strong style={{ color: '#ef4444' }}>REFUTED</strong> (overclaim #6): {SECTION27_REFUTATION.collapseConsequence}.
+              The surviving target is RH-EQUIVALENT, not a reduction — {SECTION26_VERDICT.verdict}.
             </p>
           </div>
 
@@ -504,9 +506,11 @@ export default function RHProofStateDashboardPage() {
               </div>
             </div>
             <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.6 }}>
-              <strong>Distance to saturation:</strong> ~5000×. The empirical bound is
-              extraordinarily tight with no sign of growth, suggesting an unconditional proof
-              may be within reach.
+              <strong>Distance to saturation:</strong> ~5000× — but this is a{' '}
+              <strong style={{ color: '#f59e0b' }}>homogeneity artifact, NOT evidence for Conj 27.2</strong>:{' '}
+              {SECTION26_VERDICT.fiveThousandXArtifact}. The bare V is degree-2 homogeneous, so the
+              margin scales with the (arbitrary) Φ normalization; it does not indicate proximity to an
+              unconditional proof. {SECTION26_VERDICT.sota}.
             </div>
           </div>
         </div>

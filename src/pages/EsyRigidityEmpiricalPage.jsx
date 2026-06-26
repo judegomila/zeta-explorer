@@ -263,6 +263,43 @@ export default function EsyRigidityEmpiricalPage() {
         </div>
       </div>
 
+      {/* Rigorous-vs-empirical status legend (imp-2943). Separates the three
+          logical tiers this page touches so the empirical measurements below
+          are never read as discharging the ESY closure. */}
+      <div
+        style={{
+          marginTop: 16,
+          padding: 12,
+          background: 'rgba(15, 23, 42, 0.4)',
+          border: '1px solid var(--border)',
+          borderRadius: 8,
+        }}
+      >
+        <div style={{ fontSize: 11, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>
+          Status legend &mdash; what is proven vs measured
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 8 }}>
+          <div style={{ borderLeft: '3px solid #22c55e', padding: '6px 10px', background: 'rgba(34, 197, 94, 0.05)', borderRadius: 4 }}>
+            <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: '#22c55e', fontWeight: 'bold' }}>RIGOROUS-UNCONDITIONAL</div>
+            <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 3, lineHeight: 1.4 }}>
+              Theorems proven with no hypothesis, e.g. the Rodgers-Tao result <code>Lambda &gt;= 0</code>.
+            </div>
+          </div>
+          <div style={{ borderLeft: '3px solid #facc15', padding: '6px 10px', background: 'rgba(250, 204, 21, 0.05)', borderRadius: 4 }}>
+            <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: '#facc15', fontWeight: 'bold' }}>GUE-CONDITIONAL</div>
+            <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 3, lineHeight: 1.4 }}>
+              ESY-style rigidity statements that <em>assume</em> GUE / Montgomery pair-correlation. True only if the conjectured statistics hold.
+            </div>
+          </div>
+          <div style={{ borderLeft: '3px solid #38bdf8', padding: '6px 10px', background: 'rgba(56, 189, 248, 0.05)', borderRadius: 4 }}>
+            <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: '#38bdf8', fontWeight: 'bold' }}>EMPIRICAL / NUMERICAL</div>
+            <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 3, lineHeight: 1.4 }}>
+              The finite-N rigidity measurements shown on this page. Evidence at fixed truncation only &mdash; it does <strong>not</strong> discharge the ESY closure or prove RH.
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Verdict banner. */}
       <div
         style={{

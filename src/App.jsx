@@ -728,6 +728,8 @@ function AppShell() {
             { to: '/concepts', label: 'Concepts' },
             { to: '/lambda-bounds', label: 'Λ Bounds' },
             { to: '/health', label: 'Health' },
+            { to: '/state-of-program', label: 'State of Program' },
+            { to: '/proof-overview', label: 'Proof Overview' },
           ].map(({ to, label }) => (
             <NavLink
               key={to}

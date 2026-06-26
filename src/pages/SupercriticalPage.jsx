@@ -43,6 +43,26 @@ export default function SupercriticalPage() {
           'an interpretive lens, not a route below the rigorous SOTA.'
         }
       />
+      <div className="card" style={{ marginTop: 16, borderColor: '#ef4444', background: 'rgba(239,68,68,0.06)' }}>
+        <span style={{
+          display: 'inline-block', padding: '2px 8px', borderRadius: 4,
+          background: '#ef444420', color: '#ef4444', fontSize: 10, fontWeight: 700,
+          letterSpacing: 1, marginBottom: 8,
+        }}>ROUTE STATUS: EMPIRICALLY DEAD</span>
+        <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.7, marginTop: 4 }}>
+          The <strong style={{ color: '#ef4444' }}>bulk order-parameter route</strong> — seeking a
+          spontaneous symmetry-breaking transition inside{' '}
+          <InlineMath tex={"(\\tfrac{1}{2}, 1)"} /> as a route to RH — is{' '}
+          <strong style={{ color: '#ef4444' }}>empirically killed</strong>: systematic numerics found
+          no such transition anywhere in the strip. The thermodynamic framework on this page remains
+          a valid interpretive lens (primon gas, Bost-Connes), but it does not supply a proof route.
+          The live proof thread is{' '}
+          <strong style={{ color: '#10b981' }}>topological winding</strong> (ZPO winding number /
+          Cauchy-index approach). See the{' '}
+          <Link to="/route-map" style={{ color: '#3b82f6' }}>route map</Link> for the live program state.
+        </p>
+      </div>
+
       <div className="page-header">
         <h1>Supercritical Phase Explorer</h1>
         <p>

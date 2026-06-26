@@ -372,7 +372,8 @@ export default function PaperAuditDashboardPage() {
             background: 'rgba(15,23,42,0.55)',
           }}
         >
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 530 }}>
             <thead>
               <tr>
                 <HeaderRow label="ID" sortKey="id" sortBy={sortBy} sortDir={sortDir} onSort={onSort} width={90} />
@@ -411,6 +412,7 @@ export default function PaperAuditDashboardPage() {
               )}
             </tbody>
           </table>
+          </div>
         </div>
         <div style={{ color: '#64748b', fontSize: 12, marginTop: 8, fontFamily: mono }}>
           Click a row to expand statement + audit + recommendation. Click a column header to sort.

@@ -244,4 +244,20 @@ export const KERNEL_VS_DYSON_ASSERTIONS = [
       'Triangulation: a discretization bug shared by only two routes cannot survive a third ' +
       'from a different method family. (imp-2743)',
   },
+  {
+    id:    'imp2878-three-integrator-any-pairwise-1pct',
+    holds: () =>
+      REL_ERR        !== null && REL_ERR        < 0.01   // PATH A vs PATH B
+      && REL_ERR_C_RK4  !== null && REL_ERR_C_RK4  < 0.01 // PATH C vs PATH B
+      && REL_ERR_C_PAIR !== null && REL_ERR_C_PAIR < 0.01, // PATH C vs PATH A
+    why:
+      'Single self-contained tripwire reading the three baked t_c literals (TC_PAIR=PATH A, ' +
+      'TC_MEAS=PATH B, TC_THIRD_10K=PATH C) and failing if ANY of the three pairwise relErrs ' +
+      'exceeds the published 1% agreement tolerance. Complements imp2743-three-way-agree-1pct ' +
+      '(which guards only A-B and C-B) by also pinning the C-vs-A pair at the 1% level -- the ' +
+      'C-A pair is otherwise only checked at machine precision (1e-12), which guards a ' +
+      'different property and would behave wrongly if PATH C legitimately drifted toward ' +
+      'PATH B. This consolidated any-pairwise guard survives refactors of the individual ' +
+      'derived-quantity assertions. (imp-2878)',
+  },
 ];

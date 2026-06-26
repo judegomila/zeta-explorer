@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { RECIPROCAL_PROGRAM_SECTION } from '../data/reciprocal-program-section.js';
+import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 /**
  * ReciprocalProgramPage — renders Apps B–G of the v52 paper as the CORRECTED
@@ -85,6 +86,8 @@ export default function ReciprocalProgramPage() {
         <h1 style={{ fontSize: 26, fontWeight: 700, color: '#e2e8f0', margin: '8px 0 4px 0' }}>{S.title}</h1>
         <p style={{ color: '#94a3b8', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>{S.oneLine}</p>
       </header>
+
+      <DownstreamVerdictCallout />
 
       {/* Synthesis diagram up top */}
       <Card accent="#7c3aed">

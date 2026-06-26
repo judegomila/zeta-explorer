@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { BLASCHKE_GHOSTS_SECTION } from '../data/blaschke-ghosts-section.js';
+import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 /**
  * BlaschkeGhostsPage — renders §17 "Attack on the Wall: Inverse Blaschke
@@ -141,6 +142,8 @@ export default function BlaschkeGhostsPage() {
           {S.oneLine}
         </p>
       </header>
+
+      <DownstreamVerdictCallout />
 
       {/* Shifted scattering ratio */}
       <Card>

@@ -407,6 +407,39 @@ export default function VizWindingDysonFlowPage() {
         </div>
       </div>
 
+      <div style={{ marginTop: 28 }}>
+        <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 10, fontFamily: 'var(--font-mono)' }}>
+          Before / after flow comparison — tau=0 (real flow endpoint) vs tau={tau.toFixed(2)}
+        </div>
+        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'flex-start' }}>
+          <div style={{ flex: '1 1 300px' }}>
+            <div style={{ fontSize: 11, color: '#60a5fa', marginBottom: 6, fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
+              BEFORE flow (tau = 0) — all zeros on Re s = ½
+            </div>
+            <PhaseCanvas centerIdx={centerIdx} tau={0} />
+          </div>
+          <div style={{ flex: '1 1 300px' }}>
+            <div style={{ fontSize: 11, color: offAxis ? '#ef4444' : '#60a5fa', marginBottom: 6, fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
+              {offAxis
+                ? `AFTER seeding off-axis pair (tau = ${tau.toFixed(2)}) — red vortices at sigma = ½ ± ${(-tau).toFixed(2)}`
+                : `tau = 0 — drag the slider above to seed an off-axis pair`}
+            </div>
+            <PhaseCanvas centerIdx={centerIdx} tau={tau} />
+          </div>
+        </div>
+        <div className="card" style={{ marginTop: 12, background: 'rgba(96,165,250,0.06)', borderLeft: '3px solid #3b82f6', fontSize: 12 }}>
+          <strong>What the comparison shows:</strong>{' '}
+          At τ=0 (left) all zeros sit on Re s=½ — one vortex swirl per zero, centred on the critical line.
+          At τ&lt;0 (right) the central zero bifurcates into a conjugate off-axis pair (red markers), splitting
+          its single vortex into two; yet the winding count W inside the yellow contour is <em>unchanged</em> while
+          both members of the pair remain inside.
+          The forward heat-flow (τ: negative → 0) collapses any such pair back onto the critical line, re-deriving
+          Rodgers–Tao Λ ≥ 0 visually. <span style={{ color: '#94a3b8' }}>
+            Honest ceiling: this is Λ ≥ 0 only — no new upper bound.
+          </span>
+        </div>
+      </div>
+
       <div style={{ marginTop: 20 }}>
         <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
           W(tau) conservation chart — zero gamma = {gc.toFixed(3)}

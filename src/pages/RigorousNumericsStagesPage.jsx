@@ -390,6 +390,24 @@ export default function RigorousNumericsStagesPage() {
                     {s.rigorTier && (
                       <StatusTag status={RIGOR_TIER_STATUS[s.rigorTier] || 'ESTIMATE'} />
                     )}
+                    {s.c_h_blocker && (
+                      <span
+                        style={{
+                          display: 'block',
+                          marginTop: 4,
+                          fontFamily: mono,
+                          fontSize: 10,
+                          color: '#f59e0b',
+                          background: 'rgba(245,158,11,0.07)',
+                          border: '1px solid #f59e0b',
+                          borderRadius: 3,
+                          padding: '1px 6px',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        C_H BLOCKED
+                      </span>
+                    )}
                   </td>
                 </tr>
               );

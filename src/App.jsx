@@ -778,31 +778,6 @@ function AppShell() {
         marginTop: 48,
         fontFamily: 'var(--font-mono)',
       }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 20px', marginBottom: 10 }}>
-          {[
-            { to: '/', label: 'Home' },
-            { to: '/visualizations', label: 'All Visualizations' },
-            { to: '/route-map', label: 'Route Map' },
-            { to: '/concepts', label: 'Concepts' },
-            { to: '/lambda-bounds', label: 'Λ Bounds' },
-            { to: '/health', label: 'Health' },
-            { to: '/state-of-program', label: 'State of Program' },
-            { to: '/proof-overview', label: 'Proof Overview' },
-          ].map(({ to, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              style={({ isActive }) => ({
-                color: isActive ? '#94a3b8' : '#475569',
-                textDecoration: 'none',
-              })}
-              onMouseEnter={e => { e.currentTarget.style.color = '#94a3b8'; }}
-              onMouseLeave={e => { e.currentTarget.style.color = e.currentTarget.classList.contains('active') ? '#94a3b8' : '#475569'; }}
-            >
-              {label}
-            </NavLink>
-          ))}
-        </div>
         <div style={{ textAlign: 'center' }}>
           Found a bug? Copy the error card text and{' '}
           <a

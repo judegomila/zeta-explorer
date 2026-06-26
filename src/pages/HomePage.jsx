@@ -617,6 +617,49 @@ export default function HomePage() {
 
       <HeroSignalFlow />
 
+      {/* ── State of the Program ── */}
+      <div style={{
+        marginTop: 24, marginBottom: 24, padding: '20px 24px',
+        background: 'rgba(30,58,95,0.4)',
+        border: '1px solid rgba(59,130,246,0.3)',
+        borderRadius: 12,
+      }}>
+        <div style={{ fontSize: 11, color: '#64748b', fontWeight: 700, letterSpacing: '0.1em', marginBottom: 10, fontFamily: 'var(--font-mono)' }}>
+          STATE OF THE PROGRAM — 2026
+        </div>
+        <h2 style={{ fontSize: 18, fontWeight: 800, color: '#e2e8f0', margin: '0 0 10px' }}>
+          RH-HARD-CONFIRMED: one deterministic blocker remains
+        </h2>
+        <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.7, marginBottom: 14 }}>
+          Rigorous SOTA: Platt-Trudgian <strong style={{ color: '#f59e0b' }}>Λ ≤ 0.2</strong>.
+          The C_H constant (multi-body isolation in the sg1c R2-T sector) is the sole open gap —
+          13 paper conjectures fully audited, five subsumed by RH equivalence, three independent
+          closure routes live but all terminate at C_H.
+        </p>
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+          <Link to="/route-map" style={{
+            padding: '6px 14px', borderRadius: 6, fontSize: 12, fontWeight: 600,
+            background: 'rgba(59,130,246,0.15)', color: '#60a5fa',
+            textDecoration: 'none', border: '1px solid rgba(59,130,246,0.35)',
+          }}>Route Map</Link>
+          <Link to="/rigor-dashboard" style={{
+            padding: '6px 14px', borderRadius: 6, fontSize: 12, fontWeight: 600,
+            background: 'rgba(16,185,129,0.15)', color: '#10b981',
+            textDecoration: 'none', border: '1px solid rgba(16,185,129,0.35)',
+          }}>Rigor Dashboard</Link>
+          <Link to="/engine-room" style={{
+            padding: '6px 14px', borderRadius: 6, fontSize: 12, fontWeight: 600,
+            background: 'rgba(139,92,246,0.15)', color: '#a78bfa',
+            textDecoration: 'none', border: '1px solid rgba(139,92,246,0.35)',
+          }}>Engine Room</Link>
+          <Link to="/rh-proof-state" style={{
+            padding: '6px 14px', borderRadius: 6, fontSize: 12, fontWeight: 600,
+            background: 'rgba(245,158,11,0.12)', color: '#f59e0b',
+            textDecoration: 'none', border: '1px solid rgba(245,158,11,0.3)',
+          }}>RH Proof State</Link>
+        </div>
+      </div>
+
       {/* ── Paper Audit Milestone ── */}
       <div style={{
         marginTop: 32, marginBottom: 24, padding: '24px 28px',

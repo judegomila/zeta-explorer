@@ -78,6 +78,8 @@
 //   completed — fully closed
 //   deferred  — deliberately skipped; may unblock on policy change
 
+import { QUEUE_STATUS_BY_ID } from './rh-dag-queue-status.js';
+
 export const RH_DAG_NODES = [
   // ─── LEAF: current unconditional claim (route B) ───
 
@@ -144,7 +146,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-337',
     title: 'Route C density squeeze landing site',
-    status: 'partial',
+    status: 'completed',
     complexity: 'high',
     category: 'proof',
     dependsOn: ['imp-322'],
@@ -156,7 +158,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-336',
     title: 'Monotonicity conjecture (M): |t_c(N+1)| ≤ |t_c(N)|',
-    status: 'partial',
+    status: 'completed',
     complexity: 'high',
     category: 'proof',
     dependsOn: ['imp-322', 'imp-328'],
@@ -189,7 +191,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-342',
     title: 'G3b_weyl_tail closure + G3a_max_gap sub-gap surfaced',
-    status: 'partial',
+    status: 'completed',
     complexity: 'high',
     category: 'proof',
     dependsOn: ['imp-337', 'imp-322'],
@@ -200,7 +202,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-345',
     title: 'G6_polymath15_bridge partial closure (E_trunc + E_flow)',
-    status: 'partial',
+    status: 'completed',
     complexity: 'high',
     category: 'proof',
     dependsOn: ['imp-344', 'imp-317'],
@@ -224,7 +226,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-354',
     title: 'G6a Hölder-1/2 closure via Whitham fold-catastrophe (partial)',
-    status: 'partial',
+    status: 'completed',
     complexity: 'research',
     category: 'proof',
     dependsOn: ['imp-345', 'imp-341'],
@@ -236,7 +238,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-368',
     title: 'G1 argmin interiority — trivial + conditional',
-    status: 'partial',
+    status: 'completed',
     complexity: 'medium',
     category: 'proof',
     dependsOn: ['imp-336', 'imp-343'],
@@ -290,7 +292,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-360',
     title: 'Measured Dyson backward ODE at N ∈ {10^4..10^6}',
-    status: 'partial',
+    status: 'completed',
     complexity: 'high',
     category: 'proof',
     dependsOn: ['imp-359', 'imp-362'],
@@ -302,7 +304,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-361',
     title: 'Turing-method zero count verification',
-    status: 'pending',
+    status: 'completed',
     complexity: 'medium',
     category: 'proof',
     dependsOn: ['imp-359'],
@@ -320,7 +322,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-363',
     title: 'Compensated Kahan-Neumaier summation for pole terms',
-    status: 'pending',
+    status: 'completed',
     complexity: 'small',
     category: 'proof',
     dependsOn: ['imp-362'],
@@ -329,7 +331,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-353',
     title: 'Extend Path C ladder N ∈ {10^4, 10^5} (measured)',
-    status: 'partial',
+    status: 'completed',
     complexity: 'high',
     category: 'proof',
     dependsOn: ['imp-360'],
@@ -351,7 +353,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-370',
     title: 'Rate upgrade imp-348 angle (b) via local-law rigidity',
-    status: 'pending',
+    status: 'completed',
     complexity: 'research',
     category: 'proof',
     dependsOn: ['imp-348', 'imp-341'],
@@ -463,7 +465,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-371',
     title: 'Rerun imp-299 barrier extrapolation on extended ladder',
-    status: 'pending',
+    status: 'completed',
     complexity: 'medium',
     category: 'proof',
     dependsOn: ['imp-360'],
@@ -472,7 +474,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-372',
     title: 'Rerun imp-292 heat-flow Λ on extended ladder',
-    status: 'pending',
+    status: 'completed',
     complexity: 'medium',
     category: 'proof',
     dependsOn: ['imp-360'],
@@ -480,7 +482,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-373',
     title: 'Kernel-hack analytical Λ at matched N',
-    status: 'pending',
+    status: 'completed',
     complexity: 'small',
     category: 'proof',
     dependsOn: [],
@@ -491,7 +493,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-355',
     title: 'Close G3a_max_gap (extremal max-gap statistics)',
-    status: 'partial',
+    status: 'completed',
     complexity: 'research',
     category: 'proof',
     dependsOn: ['imp-342'],
@@ -501,7 +503,7 @@ export const RH_DAG_NODES = [
   {
     id: 'imp-366',
     title: 'Polymath15 Lemma 5.2 direct port (closes G6a)',
-    status: 'partial',
+    status: 'completed',
     complexity: 'research',
     category: 'proof',
     dependsOn: ['imp-354', 'imp-345'],
@@ -982,5 +984,26 @@ export const RH_DAG_ASSERTIONS = [
       'As long as imp-376 is pending, there must be at least one unblocked ' +
       'ticket to work on. A zero frontier with a pending target means ' +
       'progress is impossible — a hard alarm.',
+  },
+  {
+    id: 'dag-status-matches-queue',
+    holds: () => {
+      // imp-376 in the DAG is a synthetic proof-capstone node; imp-376 in
+      // improvement-queue.js is a different ticket (LambdaBoundsPage feature).
+      // Skip it to avoid a false ID collision.
+      const SKIP = new Set(['imp-376']);
+      for (const node of RH_DAG_NODES) {
+        if (SKIP.has(node.id)) continue;
+        const queueStatus = QUEUE_STATUS_BY_ID[node.id];
+        if (!queueStatus) continue;
+        if (queueStatus === 'completed' && node.status !== 'completed') return false;
+      }
+      return true;
+    },
+    why:
+      'Each RH_DAG node whose ID appears in the improvement-queue must have ' +
+      'status=completed when the queue has completed it. A divergence means ' +
+      'the DAG is frozen at a stale state and mis-reports the frontier and ' +
+      'critical path. (imp-2979)',
   },
 ];

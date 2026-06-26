@@ -1869,6 +1869,11 @@ const DATA_MODULES = [
   // imp-2751: denylist tripwire forbidding NEW load-bearing use of a REFUTED
   // phantom citation (seed: Soundararajan-Tao 2024, imp-1331 wrong object).
   '/src/data/phantom-citation-guard.js',
+  // imp-2870: liveness tripwire — imports all 7 E(N) sub-cert modules
+  // (imp-2641/2644/2700/2704/2709/2715/2762) not previously wired into the
+  // sweep, triggers their self-executing assertions, and asserts each
+  // *_ASSERTIONS array is non-empty to guard against silent array clearing.
+  '/src/data/imp-2870-en-cert-liveness-tripwire.js',
 ];
 
 let ALL_MODULES = FAST_MODE

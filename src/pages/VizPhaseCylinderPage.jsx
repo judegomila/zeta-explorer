@@ -225,6 +225,9 @@ export default function VizPhaseCylinderPage() {
           <Link to="/viz-log-phase-spiral" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
             &larr; Log-Phase Spiral
           </Link>
+          <Link to="/viz-unwrapped-rays" style={{ color: '#818cf8', fontFamily: mono, fontSize: 12 }}>
+            &#x21C4; Unwrapped Rays (unfolded view)
+          </Link>
           <Link to="/viz-prime-caustic" style={{ color: '#a855f7', fontFamily: mono, fontSize: 12 }}>
             Prime Caustic &rarr;
           </Link>
@@ -323,6 +326,14 @@ export default function VizPhaseCylinderPage() {
         Each helix represents one prime; the colors cycle through the prime list.
         Front-facing portions are bright; rear-facing portions are dimmed.
         A caustic on the cylinder is a vertical column of helix crossings.
+      </div>
+      <div style={{ marginTop: 6, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.85 }}>
+        <strong style={{ color: '#818cf8' }}>Relationship to Unwrapped Rays.</strong>{' '}
+        This cylinder is the mod-2&pi; fold of the flat{' '}
+        <Link to="/viz-unwrapped-rays" style={{ color: '#818cf8' }}>unwrapped-rays</Link>{' '}
+        strip: rolling that flat strip into a tube produces exactly this cylinder.
+        Set N&thinsp;=&thinsp;{N} on both pages to align the two views and compare caustic columns
+        to caustic-crossing ticks directly.
       </div>
       <div className="card" style={{ marginTop: 10, padding: 12 }}>
         <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)',

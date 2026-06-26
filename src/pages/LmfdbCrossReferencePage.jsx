@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import lmfdbCrossReference, { assertIntegrity } from '../data/lmfdb-l-function-cross-reference.js';
+import lmfdbCrossReference, { assertIntegrity, DATA_AS_OF, lmfdbUrl } from '../data/lmfdb-l-function-cross-reference.js';
 
 const SORT_KEYS = [
   { key: 'degree', label: 'Degree' },
@@ -84,13 +84,27 @@ function DetailCard({ entry, onClose }) {
             {entry.lFunction}
           </div>
         </div>
-        <button onClick={onClose} style={{
-          background: 'none', border: '1px solid var(--border)', borderRadius: 6,
-          color: 'var(--text-muted)', cursor: 'pointer', padding: '4px 10px',
-          fontFamily: 'var(--font-mono)', fontSize: 11,
-        }}>
-          close
-        </button>
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <a
+            href={lmfdbUrl(entry.label)}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              border: '1px solid rgba(6,182,212,0.4)', borderRadius: 6,
+              color: '#67e8f9', textDecoration: 'none', padding: '4px 10px',
+              fontFamily: 'var(--font-mono)', fontSize: 11,
+            }}
+          >
+            View on LMFDB &#8599;
+          </a>
+          <button onClick={onClose} style={{
+            background: 'none', border: '1px solid var(--border)', borderRadius: 6,
+            color: 'var(--text-muted)', cursor: 'pointer', padding: '4px 10px',
+            fontFamily: 'var(--font-mono)', fontSize: 11,
+          }}>
+            close
+          </button>
+        </div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 12, marginBottom: 16 }}>
@@ -149,6 +163,17 @@ function IntegrityPanel() {
         {result.ok
           ? `Integrity OK: ${result.checked} entries, ${result.assertions} assertions passed`
           : `Integrity FAILED: ${result.error}`}
+      </span>
+      <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-muted)' }}>
+        Data verified as of {DATA_AS_OF} &middot;{' '}
+        <a
+          href="https://www.lmfdb.org/L"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: '#67e8f9', textDecoration: 'none' }}
+        >
+          LMFDB L-functions &#8599;
+        </a>
       </span>
     </div>
   );

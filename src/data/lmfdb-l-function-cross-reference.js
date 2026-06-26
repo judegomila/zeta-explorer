@@ -18,6 +18,8 @@
  *   - getByLabel(label) -- lookup by LMFDB label
  *   - getByDegree(d) -- filter by degree
  *   - assertIntegrity() -- 5 structural checks
+ *   - DATA_AS_OF -- provenance stamp (last verified against LMFDB)
+ *   - lmfdbUrl(label) -- canonical LMFDB deep link for a label
  *
  * @see imp-1103
  */
@@ -242,6 +244,20 @@ const lmfdbCrossReference = [
     zpoConnection: 'Product of two single-rung ladders: the trivial character ladder (zeta) and the chi_5-twist ladder.',
   },
 ];
+
+// Provenance stamp: the date on which the curated values (labels, conductors,
+// degrees, and first-zero tables) were last verified against the LMFDB
+// (https://www.lmfdb.org/L) and the published Odlyzko/Rubinstein zero tables.
+// The underlying values are stable published constants, so this records the
+// confirmation date rather than a volatile snapshot.
+export const DATA_AS_OF = '2026-06-25';
+
+// Build the canonical LMFDB L-function URL for a Bober-Sutherland label.
+// LMFDB serves each L-function at /L/<label-fields-as-path>, i.e. the dash
+// separators of the label become path separators.
+export function lmfdbUrl(label) {
+  return `https://www.lmfdb.org/L/${label.split('-').join('/')}`;
+}
 
 export function getByLabel(label) {
   return lmfdbCrossReference.find(e => e.label === label) || null;

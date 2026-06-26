@@ -105,6 +105,16 @@ export default function HamiltonianPage() {
             Blue staircase: actual <InlineMath tex={"\\psi(x)"} />. Gold curve: reconstruction from zeta zeros via the
             explicit formula. Dashed: the asymptote x (PNT). Add more zeros for better fit.
           </div>
+          <div className="card" style={{ marginTop: 12, marginBottom: 12, borderLeft: '3px solid #f59e0b', background: 'rgba(245,158,11,0.04)', padding: '10px 14px' }}>
+            <span style={{ color: '#f59e0b', fontWeight: 700, fontSize: 12 }}>Honest note: </span>
+            <span style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.6 }}>
+              The explicit formula is a proven identity — it holds unconditionally. The zeros used here
+              are tabulated values with <InlineMath tex={"\\sigma = 1/2"} /> as an <strong style={{ color: '#e2e8f0' }}>input assumption</strong>, not
+              a consequence of the Hamiltonian construction. Placing zeros on the critical line is
+              assumed from numerical tables (Odlyzko et al.), not derived from the ZPO model.
+              Adding more zeros shows convergence of the known explicit formula, not evidence for RH.
+            </span>
+          </div>
           <ExplicitFormulaViz />
         </div>
       </div>

@@ -83,7 +83,7 @@ case "${1:-}" in
     ;;
   status)
     if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
-      echo "frontier-scout RUNNING (pid $(cat "$PIDFILE"))"
+      echo "frontier-scout is RUNNING (pid $(cat "$PIDFILE"))"
     else
       echo "frontier-scout NOT running"
     fi

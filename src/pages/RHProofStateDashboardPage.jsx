@@ -162,6 +162,8 @@ function Section({ title, children, borderColor = '#334155' }) {
 }
 
 export default function RHProofStateDashboardPage() {
+  const dashboardDate = [SECTION26_VERDICT.date, MAXFANOUT_STATUS.date, STRATEGIC_REFRAME.date, SECTION27_REFUTATION.date]
+    .filter(Boolean).sort().pop() || '2026-06-18';
   return (
     <div className="page">
       <HonestCeilingBanner variant="ESTIMATE" />
@@ -629,7 +631,7 @@ export default function RHProofStateDashboardPage() {
         border: '1px solid #334155',
       }}>
         <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.6, margin: 0 }}>
-          This dashboard reflects the state as of <strong>2026-05-28</strong>. The five proof paths
+          This dashboard reflects the state as of <strong>{dashboardDate}</strong>. The five proof paths
           represent the full landscape of approaches being pursued. Updates to this dashboard are
           logged via the improvements engine. For the latest session activity, see the{' '}
           <Link to="/improvements" style={{ color: '#38bdf8', textDecoration: 'none' }}>improvements log</Link>.

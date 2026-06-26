@@ -16,6 +16,50 @@ export default function CalabiYauPage() {
         </p>
       </PageHeader>
 
+      <div
+        role="note"
+        style={{
+          marginBottom: 24,
+          padding: '12px 16px',
+          borderRadius: 8,
+          background: 'rgba(245,158,11,0.08)',
+          border: '1px solid #f59e0b',
+          borderLeft: '4px solid #f59e0b',
+        }}
+      >
+        <span
+          style={{
+            display: 'inline-block',
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: 0.5,
+            color: '#f59e0b',
+            border: '1px solid #f59e0b',
+            borderRadius: 4,
+            padding: '1px 6px',
+            marginRight: 8,
+          }}
+        >
+          HONEST STATUS · NO-REALIZATION
+        </span>
+        <strong style={{ color: '#e2e8f0', fontSize: 13 }}>
+          All five strategies below are speculative — none is an active route to RH.
+        </strong>
+        <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.7, margin: '8px 0 0' }}>
+          The central obstruction: there is <strong>no known variety (or motive) over{' '}
+          <InlineMath tex="\mathbb{Q}" /> whose L-function <em>is</em> <InlineMath tex="\zeta(s)" /></strong>.
+          The function-field / finite-field analog of RH is proven (Deligne) precisely because étale
+          cohomology and Frobenius eigenvalues exist there; over <InlineMath tex="\mathbb{Q}" /> no such
+          finite-dimensional Galois-cohomology realization of <InlineMath tex="\zeta(s)" /> is known. Each
+          strategy here therefore relies on a realization step that does not exist, so all five are
+          best read as <strong>speculative / no-realization</strong> rather than genuine opportunities.
+          For where real progress sits, see the{' '}
+          <Link to="/route-map" style={{ color: '#f59e0b', fontWeight: 600 }}>
+            full route map
+          </Link>.
+        </p>
+      </div>
+
       <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #8b5cf6' }}>
         <h3 style={{ color: '#8b5cf6', fontSize: 14, marginBottom: 8 }}>The Core Idea</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>

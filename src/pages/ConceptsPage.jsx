@@ -686,6 +686,22 @@ const CONCEPTS = [
     formula: '\\text{PCC: } \\int_\\alpha^\\beta \\!\\left(1 - \\tfrac{\\sin^2(\\pi u)}{(\\pi u)^2}\\right)du \\;\\Longleftrightarrow\\; \\text{GUE statistics for zeros}',
     intuition: "PCC-free does NOT mean RH-free: the Riemann Hypothesis is still the target. It only means the proof route does not secretly lean on unproven pair-correlation statistics. Five ZPO routes share a single PCC wall — a PCC-free route must find a path that avoids this shared obstruction entirely.",
   },
+  {
+    id: 'ch-wall',
+    category: 'proof',
+    term: 'C_H Wall',
+    symbol: 'C_H',
+    definition: "The principal unresolved constant barrier in the ZPO program. C_H = C_shock * C_Lip / 4 enters the Gronwall backward-flow integral, which diverges at the eigenvalue collision time t_c, making the C_H discharge RH-equivalent and unconditionally undischargeable by the current route. imp-2640 confirmed the Gronwall discharge fails; imp-2632 showed the OLS-fitted t_c is not rigorous. See /state-of-program and the overclaim-ledger for full C_H-pending status.",
+    formula: 'C_H = \\frac{C_{\\mathrm{shock}} \\cdot C_{\\mathrm{Lip}}}{4}',
+    intuition: "C_H is the #1 named wall in the route map. Every integral certificate bounding the backward Gronwall flow must ultimately pin C_H to an explicit value — and no unconditional bound exists yet. Until C_H is certified, every beat estimate is an honest ceiling only.",
+  },
+  {
+    id: 'honest-ceiling',
+    category: 'proof',
+    term: 'Honest Ceiling',
+    definition: "Project-standard label for a constant or estimate that is numerically consistent with being an upper bound across all tested N, but is NOT a rigorous unconditional upper bound. Honest-ceiling results are reported with explicit disclaimers and recorded in the overclaim-ledger. The canonical example is the finite-N* beat: empirically below threshold but blocked by C_H. See /state-of-program.",
+    intuition: "A ceiling you can measure but not yet prove. The value never exceeds the threshold in experiments, but an undischarged constant (like C_H) means the ceiling could in principle be higher. Honest-ceiling is the opposite of a certified interval-arithmetic bound.",
+  },
 ];
 
 export default function ConceptsPage() {

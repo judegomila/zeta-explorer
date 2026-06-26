@@ -6,7 +6,29 @@ import EnergyLandscapeViz from '../components/EnergyLandscapeViz.jsx';
 import ExplorationGraphViz from '../components/ExplorationGraphViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
+// First 50 primes, used to tabulate the energy-valley curvature proxy
+// d2H/dsigma2 ~ sum_{p<=p_N} (log p)^2 / p (the same quantity SimulatorPage cites).
+const FIRST_50_PRIMES = [
+  2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
+  73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
+  157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229,
+];
+
+function curvatureProxy(N) {
+  let sum = 0;
+  for (let i = 0; i < N; i++) {
+    const lp = Math.log(FIRST_50_PRIMES[i]);
+    sum += (lp * lp) / FIRST_50_PRIMES[i];
+  }
+  return sum;
+}
+
 export default function ModesPage() {
+  const curvatureRows = [5, 10, 25, 50].map((N) => ({
+    N,
+    pN: FIRST_50_PRIMES[N - 1],
+    value: curvatureProxy(N),
+  }));
   return (
     <div className="page">
       <div className="page-header">
@@ -122,6 +144,42 @@ export default function ModesPage() {
           and individual ladder magnitudes. White circles mark known zeta zeros.
         </div>
         <EnergyLandscapeViz />
+      </div>
+
+      {/* Valley-curvature readout: anchors the "more primes -> sharper valley" claim */}
+      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #8b5cf6' }}>
+        <h3 style={{ color: '#8b5cf6', fontSize: 14, marginBottom: 8 }}>How Sharp Is the Valley? (curvature vs. prime count)</h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
+          The energy valley along <InlineMath tex={"\\sigma = 1/2"} /> gets sharper as more primes enter the chain.
+          Its curvature is proxied by <InlineMath tex={"\\partial^2\\mathcal{H}/\\partial\\sigma^2 \\sim \\sum_{p \\leq p_N} (\\log p)^2 / p"} /> —
+          the same quantity the <Link to="/simulator" style={{ color: '#f59e0b' }}>Simulator</Link> cites for prime sensitivity.
+          The table below evaluates it directly over the first <InlineMath tex={"N"} /> primes.
+        </p>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 10, fontSize: 13 }}>
+            <thead>
+              <tr style={{ color: '#64748b', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+                <th style={{ padding: '6px 10px' }}><InlineMath tex={"N"} /> (primes)</th>
+                <th style={{ padding: '6px 10px' }}><InlineMath tex={"p_N"} /></th>
+                <th style={{ padding: '6px 10px' }}><InlineMath tex={"\\sum_{p \\leq p_N} (\\log p)^2 / p"} /></th>
+              </tr>
+            </thead>
+            <tbody>
+              {curvatureRows.map((row) => (
+                <tr key={row.N} style={{ borderBottom: '1px solid rgba(51,65,85,0.4)' }}>
+                  <td style={{ padding: '6px 10px', color: '#e2e8f0' }}>{row.N}</td>
+                  <td style={{ padding: '6px 10px', color: '#94a3b8' }}>{row.pN}</td>
+                  <td style={{ padding: '6px 10px', color: '#a855f7', fontVariantNumeric: 'tabular-nums' }}>{row.value.toFixed(4)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, lineHeight: 1.6 }}>
+          The proxy grows monotonically (~2.22 to ~12.84 from 5 to 50 primes), so the valley curvature increases with
+          prime count — confirming the "more primes &rarr; sharper minimum" claim numerically. The full series
+          <InlineMath tex={"\\sum_p (\\log p)^2 / p"} /> diverges, so curvature is unbounded as <InlineMath tex={"N \\to \\infty"} />.
+        </p>
       </div>
 
       <div style={{ marginTop: 48 }}>

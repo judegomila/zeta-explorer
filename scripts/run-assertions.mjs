@@ -1681,6 +1681,8 @@ const DATA_MODULES = [
   '/src/data/section26-verdict-volterra-not-a-reduction-2026-06-18.js',
   // imp-2686: endpoint-bridge-enriched mu^pass construction (the surviving RH-equivalent Volterra target).
   '/src/data/imp-2686-mupass-construction.js',
+  // imp-2841: degree-0 deficit profile quantifying the section26-verdict "~64% of tau" overflow.
+  '/src/data/imp-mu-pass-overflow-quantification.js',
   '/src/data/full-route-map-2026-06-19.js',
   // imp-2833: lock Route B closure invariant — closesIf says it is already
   // closed unconditionally; tripwires guard against a false promotion that

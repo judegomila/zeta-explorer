@@ -2,18 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ProofCheckerViz from '../components/ProofCheckerViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 
 export default function ProofCheckerPage() {
   return (
     <div className="page">
-      <div className="page-header">
-        <h1>Proof Checker</h1>
+      <PageHeader title="Proof Checker">
         <p>
           A skeptical verification engine that tests every claim in the ZPO framework.
           Includes the Davenport-Heilbronn counterexample — a function that satisfies
           most ZPO properties but violates RH, identifying exactly which arguments are valid.
         </p>
-      </div>
+      </PageHeader>
 
       <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #ef4444' }}>
         <h3 style={{ color: '#ef4444', fontSize: 14, marginBottom: 8 }}>Adversarial Testing Philosophy</h3>

@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import WaveSimViz from '../components/WaveSimViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 
 export default function WaveSimPage() {
   return (
     <div className="page">
-      <div className="page-header">
-        <h1>Wave & Energy Flow Simulator</h1>
+      <PageHeader title="Wave & Energy Flow Simulator">
         <p>
           Visualize how energy and waves propagate through the prime oscillator ladder network.
           The key control is <InlineMath tex={"\\sigma = \\operatorname{Re}(s)"} />: at <InlineMath tex={"\\sigma = 0.5"} /> the
@@ -15,7 +15,7 @@ export default function WaveSimPage() {
           with minimum reflection. Move <InlineMath tex={"\\sigma"} /> away from 0.5 to see energy reflecting off the
           bridge, waves decohering, and delays becoming asymmetric.
         </p>
-      </div>
+      </PageHeader>
 
       <BlockMath tex={"\\text{Bridge pressure: } P(\\sigma, t) = \\bigl(1 - |\\chi(\\sigma + it)|\\bigr)^2 = 0 \\iff \\sigma = \\tfrac{1}{2}"} />
 

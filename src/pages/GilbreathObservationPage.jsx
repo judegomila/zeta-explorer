@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import GilbreathTriangleViz from '../components/GilbreathTriangleViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 
 export default function GilbreathObservationPage() {
   const [liveCert, setLiveCert] = useState(null);
@@ -9,8 +10,7 @@ export default function GilbreathObservationPage() {
 
   return (
     <div className="page">
-      <div className="page-header">
-        <h1>Gilbreath's Observation Explorer</h1>
+      <PageHeader title="Gilbreath's Observation Explorer">
         <p>
           Write out the primes <InlineMath tex={"2, 3, 5, 7, 11, 13, \\ldots"} />, take the
           absolute differences of consecutive terms to form a new row, then repeat on that row,
@@ -20,7 +20,7 @@ export default function GilbreathObservationPage() {
           explorer builds the iterated-difference triangle and boxes the leading column where the
           1s live.
         </p>
-      </div>
+      </PageHeader>
 
       <BlockMath tex={"a^{(0)}_i = p_{i+1}, \\qquad a^{(k)}_i = \\bigl| a^{(k-1)}_{i+1} - a^{(k-1)}_{i} \\bigr|, \\qquad a^{(k)}_0 \\stackrel{?}{=} 1 \\;\\; \\forall k \\ge 1"} />
 

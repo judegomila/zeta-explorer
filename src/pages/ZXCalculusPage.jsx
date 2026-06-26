@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ZXCalculusViz from '../components/ZXCalculusViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 
 export default function ZXCalculusPage() {
   return (
     <div className="page">
-      <div className="page-header">
-        <h1>ZX-Calculus Framework</h1>
+      <PageHeader title="ZX-Calculus Framework">
         <p>
           Map the ZPO oscillator cascade into the ZX-calculus diagrammatic language.
           Each prime Euler factor becomes a <strong style={{ color: '#10b981' }}>Z-spider</strong> (green),
@@ -15,7 +15,7 @@ export default function ZXCalculusPage() {
           the functional equation bridge is a <strong style={{ color: '#f59e0b' }}>Hadamard box</strong>.
           The ZX rewrite rules correspond to identities of the zeta function.
         </p>
-      </div>
+      </PageHeader>
 
       <BlockMath tex={"\\underbrace{Z_2 - Z_3 - Z_5 - \\cdots - Z_p}_{\\text{Direct ladder (green)}} \\;\\;\\overset{\\chi(s)}{\\longleftrightarrow}\\;\\; \\underbrace{X_2 - X_3 - X_5 - \\cdots - X_p}_{\\text{Dual ladder (red)}}"} />
 

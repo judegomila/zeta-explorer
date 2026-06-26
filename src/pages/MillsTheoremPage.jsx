@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MillsExplorerViz from '../components/MillsExplorerViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+import PageHeader from '../components/PageHeader.jsx';
 
 // A_n = p_n^(1/3^n) and |A_n - A| for the live Mills primes p_1..p_6, computed
 // in float64 from the in-browser recurrence (BigInt + deterministic Miller-Rabin),
@@ -19,8 +20,7 @@ const AN_ERROR_ROWS = [
 export default function MillsTheoremPage() {
   return (
     <div className="page">
-      <div className="page-header">
-        <h1>Mills' Theorem Explorer</h1>
+      <PageHeader title="Mills' Theorem Explorer">
         <p>
           In 1947 W. H. Mills proved there exists a real constant{' '}
           <InlineMath tex="A > 1" /> — now called <strong>Mills' constant</strong> — such that{' '}
@@ -30,7 +30,7 @@ export default function MillsTheoremPage() {
           above the cube of the previous one. This explorer reconstructs that sequence{' '}
           <strong>live in your browser</strong> and watches the constant emerge.
         </p>
-      </div>
+      </PageHeader>
 
       <BlockMath tex={"\\lfloor A^{3^{n}} \\rfloor \\text{ is prime for all } n \\ge 1, \\qquad A = \\lim_{n\\to\\infty} p_n^{\\,1/3^{n}} \\approx 1.30637788\\ldots"} />
 

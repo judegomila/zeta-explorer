@@ -164,6 +164,7 @@ export const ROUTE_STATUS = {
     status: 'CONDITIONAL',
     summary: 'Rigorous but NEGATIVE for the headline (sign algebra). Provides t_c bounds useful for E(N) machinery. Min-gap sandwich has an unproven field bound beta.',
     closesIf: 'Field bound beta proved (imp-2683) would close the two-sided t_c bracket.',
+    imp2837: 'HONEST PARTIAL (imp-2683): the closesIf action — prove field bound beta — was executed only at the INITIAL INSTANT. beta_0 g^2 < 2 now holds RIGOROUSLY and N-uniformly at s=0 (B_p is a sum of POSITIVE terms; telescope B_p G^2 <= 2(1 - 1/(K+1)) < 2; the gate margin GROWS up the verified-zero ladder, 1.9997 at N*=1e4). But the sup over 0<=s<t_c with the FIXED initial g stays CONDITIONAL on a named punctured-min-gap residual (h(s) >= c*g uniformly), so the two-sided t_c bracket is NOT closed unconditionally. thetaTrap stays CONDITIONAL; no rigorous Lambda improvement is claimed. Locked by IMP_2837_THETATRAP_BRACKET_CONDITIONAL_ASSERTIONS.',
   },
   esy: {
     name: 'ESY / Selberg-trace PCC closure',
@@ -424,5 +425,63 @@ export const IMP_2836_VOLTERRA_RH_EQUIVALENT_ASSERTIONS = [
       HEADLINE.baseline.includes('0.2') &&
       HEADLINE.bound.includes('0.2') &&
       ROUTE_STATUS.volterra.summary.includes('reformulation of RH'),
+  },
+];
+
+// ── 9. imp-2837 BUILD-TIME ASSERTIONS ────────────────────────────────────────
+//
+// closesIf for the Theta-trap / Min-gap sandwich route reads: "Field bound beta
+// proved (imp-2683) would close the two-sided t_c bracket." imp-2683 executed
+// that action only PARTIALLY: the gate beta_0 g^2 < 2 is now unconditional and
+// N-uniform at the INITIAL INSTANT s=0 (B_p a sum of positive terms; telescope
+// B_p G^2 <= 2(1 - 1/(K+1)) < 2; margin grows up the verified-zero ladder), but
+// the sup over 0<=s<t_c with the FIXED initial g stays CONDITIONAL on a named
+// punctured-min-gap residual (h(s) >= c*g uniformly). So the two-sided t_c
+// bracket is NOT closed unconditionally and the route stays CONDITIONAL. These
+// tripwires lock that honest partial against a false promotion to closed/
+// unconditional. No rigorous Lambda improvement is claimed.
+
+export const IMP_2837_THETATRAP_BRACKET_CONDITIONAL_ASSERTIONS = [
+  {
+    id: 'imp-2837/thetatrap-stays-conditional',
+    why: 'The two-sided t_c bracket stays CONDITIONAL — imp-2683 proved field bound beta only at the initial instant, not over the full collision interval.',
+    holds: () => ROUTE_STATUS.thetaTrap.status === 'CONDITIONAL',
+  },
+  {
+    id: 'imp-2837/closesif-still-names-the-beta-action',
+    why: 'The closesIf must still name field bound beta (imp-2683) as the action that would close the two-sided t_c bracket.',
+    holds: () =>
+      typeof ROUTE_STATUS.thetaTrap.closesIf === 'string' &&
+      ROUTE_STATUS.thetaTrap.closesIf.includes('Field bound beta') &&
+      ROUTE_STATUS.thetaTrap.closesIf.includes('imp-2683') &&
+      ROUTE_STATUS.thetaTrap.closesIf.includes('two-sided t_c bracket'),
+  },
+  {
+    id: 'imp-2837/honest-partial-recorded',
+    why: 'The honest-partial provenance must record that imp-2683 closed the gate only at the initial instant, with the sup over the interval still conditional.',
+    holds: () =>
+      typeof ROUTE_STATUS.thetaTrap.imp2837 === 'string' &&
+      ROUTE_STATUS.thetaTrap.imp2837.includes('HONEST PARTIAL') &&
+      ROUTE_STATUS.thetaTrap.imp2837.includes('INITIAL INSTANT') &&
+      ROUTE_STATUS.thetaTrap.imp2837.includes('punctured-min-gap residual') &&
+      ROUTE_STATUS.thetaTrap.imp2837.includes('NOT closed unconditionally'),
+  },
+  {
+    id: 'imp-2837/beta-condition-stays-conditional-in-conditions',
+    why: 'The C_beta condition must remain in establishedConditional with its unproven field-bound-beta gate — it must not migrate to established.',
+    holds: () =>
+      CONDITIONS.establishedConditional.some(
+        (c) =>
+          c.id === 'C_beta' &&
+          c.ticket === 'imp-2683' &&
+          /unproven/.test(c.condition),
+      ) &&
+      !CONDITIONS.established.some((c) => c.id === 'C_beta'),
+  },
+  {
+    id: 'imp-2837/no-false-lambda-improvement-from-thetatrap',
+    why: 'A still-conditional t_c bracket must not move the rigorous headline below the Platt-Trudgian 0.2 SOTA.',
+    holds: () =>
+      HEADLINE.baseline.includes('0.2') && HEADLINE.bound.includes('0.2'),
   },
 ];

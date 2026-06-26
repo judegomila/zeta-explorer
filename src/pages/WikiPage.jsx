@@ -147,6 +147,24 @@ export default function WikiPage() {
         ))}
       </div>
 
+      {/* Honest State of the Program */}
+      <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #f59e0b' }}>
+        <h3 style={{ color: '#f59e0b', fontSize: 14, marginBottom: 8 }}>Honest State of the Program</h3>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+          The project maintains a precise distinction between honest-ceiling estimates and
+          unconditional results. Key concepts:{' '}
+          <Link to="/concepts#pcc-free" style={{ color: '#38bdf8' }}>PCC-free</Link>,{' '}
+          <Link to="/concepts#rh-equivalence" style={{ color: '#38bdf8' }}>RH-equivalent</Link>, and{' '}
+          <Link to="/concepts#honest-ceiling" style={{ color: '#38bdf8' }}>Honest Ceiling</Link>.
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+          <Link to="/state-of-program" style={{ color: '#f59e0b', fontSize: 12 }}>State of the Program</Link>
+          <Link to="/route-map" style={{ color: '#f59e0b', fontSize: 12 }}>Route Map</Link>
+          <Link to="/concepts#ch-wall" style={{ color: '#f59e0b', fontSize: 12 }}>C_H Wall</Link>
+          <Link to="/concepts#overclaim-ledger" style={{ color: '#f59e0b', fontSize: 12 }}>Overclaim Ledger</Link>
+        </div>
+      </div>
+
       {/* Navigation */}
       <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #3b82f6' }}>
         <h3 style={{ color: '#3b82f6', fontSize: 14, marginBottom: 8 }}>Related Pages</h3>

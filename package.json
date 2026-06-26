@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "assert": "node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs",
     "assert:fast": "node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast",
+    "reproduce": "node scripts/reproduce-headline-numbers.mjs",
     "test": "node scripts/smoke-tests.mjs",
     "test:pages": "node scripts/check-page-health.mjs",
     "test:buttons": "node scripts/test-buttons.mjs",

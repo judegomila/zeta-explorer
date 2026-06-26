@@ -217,8 +217,43 @@ export default function KypBoundedRealPage() {
         </p>
       </div>
 
+      {/* ─── Honest verdict banner (imp-2785) ─── */}
+      <div
+        className="card"
+        style={{
+          marginTop: 12,
+          borderLeft: '4px solid #fbbf24',
+          background: 'rgba(251,191,36,0.06)',
+        }}
+        role="note"
+        aria-label="Honest verdict: RH-equivalent, not a reduction"
+      >
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontFamily: mono, fontSize: 11, padding: '2px 8px', borderRadius: 4,
+              color: '#fbbf24', background: 'rgba(251,191,36,0.12)', border: '1px solid #fbbf24',
+            }}
+          >
+            VERDICT: RH-EQUIVALENT, NOT A REDUCTION
+          </span>
+        </div>
+        <p style={{ marginTop: 10, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+          The passivity / bounded-real condition on the prime-delay system
+          <InlineMath tex="\;\Sigma_a\;" /> is <strong style={{ color: '#fbbf24' }}>equivalent to
+          RH in the infinite-dimensional limit</strong>, not a reduction of it. The finite-N
+          KYP/delay-LMI/Cholesky certificates below establish positivity unconditionally only for
+          each truncated system; that positivity <strong>does not transfer to the limit without a
+          uniform-convergence (uniform spectral-gap) bound</strong>, which remains open for all
+          <InlineMath tex="\;a>0" />. So this page documents a control-theoretic restatement of RH
+          and its numerical support &mdash; it is <strong>not a near-complete proof step</strong>.
+          This mirrors the &ldquo;RH-equivalent and open&rdquo; framing of the
+          {' '}<Link to="/closure-routes" style={{ color: '#06b6d4' }}>four closure routes</Link>.
+        </p>
+      </div>
+
       {/* ─── Intro ─── */}
-      <div className="card" style={{ marginTop: 12 }}>
+      <div className="card" style={{ marginTop: 16 }}>
         <h3 style={{ color: '#06b6d4', marginBottom: 8 }}>Control-theoretic bridge to no-ghost</h3>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.75 }}>
           Appendices M, N, and O translate the bridge-kernel positivity condition

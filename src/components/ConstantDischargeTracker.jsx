@@ -2,6 +2,7 @@ import React from 'react';
 import { IMP2643_HONEST_ASSEMBLED_EN } from '../data/imp-2643-honest-assembled-EN.js';
 import { IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE } from '../data/imp-2641-c-selberg-trudgian-discharge.js';
 import { C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642 } from '../data/polymath15-lemma52-shock-holder.js';
+import { IMP2715_WORST_CASE_EN_HEADROOM } from '../data/imp-2715-worst-case-EN-headroom-audit.js';
 
 function statusColor(status) {
   const s = status.toLowerCase();
@@ -24,6 +25,7 @@ export default function ConstantDischargeTracker() {
   const data = IMP2643_HONEST_ASSEMBLED_EN;
   const C_Selberg_data = IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE;
   const C_H_data = C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642;
+  const worst = IMP2715_WORST_CASE_EN_HEADROOM;
 
   const constants = [
     {
@@ -285,6 +287,46 @@ export default function ConstantDischargeTracker() {
               {(data.subterms.E_coll.shareOfEN * 100).toFixed(1)}%
             </span>
           </div>
+        </div>
+      </div>
+
+      {/* Worst-case constant-bracket robustness (imp-2715, numerical headroom NOT rigorous) */}
+      <div style={{
+        fontSize: 11,
+        color: '#94a3b8',
+        fontFamily: 'var(--font-mono)',
+        marginTop: 12,
+        paddingTop: 12,
+        borderTop: '1px solid #334155',
+      }}>
+        <div style={{ marginBottom: 6, fontWeight: 600 }}>
+          WORST-CASE BRACKET ROBUSTNESS (imp-2715, numerical headroom — not rigorous)
+        </div>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: 8,
+        }}>
+          <div>
+            <span style={{ color: '#475569' }}>E(N) worst:</span>{' '}
+            <span style={{ color: '#f1f5f9', fontWeight: 700 }}>{worst.E_N_worst}</span>
+          </div>
+          <div>
+            <span style={{ color: '#475569' }}>vs central:</span>{' '}
+            <span style={{ color: '#f1f5f9' }}>{worst.E_N_central}</span>
+          </div>
+          <div>
+            <span style={{ color: '#475569' }}>margin:</span>{' '}
+            <span style={{ color: worst.clearsPTNumerically ? '#10b981' : '#ef4444', fontWeight: 700 }}>
+              ~{worst.worstMarginFactor}× below PT
+            </span>
+          </div>
+        </div>
+        <div style={{ fontSize: 10, color: '#64748b', lineHeight: 1.3, marginTop: 6 }}>
+          C_H = {worst.worstCaseBrackets.E_coll.C_H_worst}, C_Selberg = {worst.worstCaseBrackets.E_coll.C_Selberg_worst},
+          {' '}C_G = {worst.worstCaseBrackets.E_flow.C_G_worst} pessimized at N* = {worst.N_star}; the ~15× clearance
+          survives because E_coll dominates and inflates only ~{((worst.E_coll_inflation_factor - 1) * 100).toFixed(1)}%.
+          C_H stays an ansatz, so Λ ≤ E(N) remains non-rigorous.
         </div>
       </div>
     </div>

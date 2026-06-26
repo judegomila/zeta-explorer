@@ -130,6 +130,8 @@ import './imp-2701-ch-rigor-lock.js';            // imp-2701: 3 assertions (C_H 
 import './imp-2706-ecoll-conditional-modulo-ch.js'; // imp-2706: 6 assertions (E_coll conditional-modulo-C_H bound; C_H still unproven)
 import './imp-2711-pt-bound-sota-tripwire.js';      // imp-2711: 3 assertions (every E(N)<0.2 numeric clearance carries honesty qualifier + cites PT as SOTA)
 import './imp-2694-ecoll-rate-reconciliation.js';   // imp-2694: 5 assertions (N^-3/2 bounds t_c deviation not E_coll; binding E_coll rate = Holder N^-1/2; headline uses it; no overclaim)
+import './imp-routeB-flow-vs-lambda-firewall.js';   // imp-2854: 5 assertions (Route B imp-341 bounds the PARTICLE FLOW not Lambda; every t_c->Lambda edge passes through C_H/G6a; no leak)
+import './imp-2860-en-assembled-interval-certificate.js'; // imp-2860: 6 assertions (outward-rounded bracket for the ASSEMBLED E(N) at N*=1e4; E_N_hi < 0.2; NUMERIC clearance only, C_H ansatz, NO-GO/SOTA retained)
 
 // NOTE: imp469-cross-verification.js is already live via m-raw-from-umon-bridge.js (imp-473: 5 assertions).
 

@@ -3,6 +3,19 @@ import { Link } from 'react-router-dom';
 import MillsExplorerViz from '../components/MillsExplorerViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
+// A_n = p_n^(1/3^n) and |A_n - A| for the live Mills primes p_1..p_6, computed
+// in float64 from the in-browser recurrence (BigInt + deterministic Miller-Rabin),
+// against the RH-conditional reference A = 1.3063778838630807 (OEIS A051021).
+// The error column makes the doubly-exponential convergence numerically tangible.
+const AN_ERROR_ROWS = [
+  { n: 1, A: '1.259921049895', err: '4.6e-2' },
+  { n: 2, A: '1.305299880795', err: '1.1e-3' },
+  { n: 3, A: '1.306377883825', err: '3.8e-11' },
+  { n: 4, A: '1.306377883863', err: '< 1e-15 (float64 floor)' },
+  { n: 5, A: '1.306377883863', err: '< 1e-15 (float64 floor)' },
+  { n: 6, A: '1.306377883863', err: '< 1e-15 (float64 floor)' },
+];
+
 export default function MillsTheoremPage() {
   return (
     <div className="page">
@@ -48,6 +61,32 @@ export default function MillsTheoremPage() {
             constant. The convergence is extremely fast — doubly exponentially — so just a
             handful of primes already pin down many decimal digits. The green curve in the
             chart above shows <InlineMath tex="A_n" /> settling onto the dashed reference line.
+          </p>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, fontFamily: 'var(--font-mono, monospace)', marginTop: 12 }}>
+            <thead>
+              <tr style={{ color: '#64748b', textAlign: 'left', borderBottom: '1px solid #1e293b' }}>
+                <th style={{ padding: '5px 8px' }}>n</th>
+                <th style={{ padding: '5px 8px' }}>Aₙ = pₙ^(1/3ⁿ)</th>
+                <th style={{ padding: '5px 8px' }}>|Aₙ − A|</th>
+              </tr>
+            </thead>
+            <tbody>
+              {AN_ERROR_ROWS.map(r => (
+                <tr key={r.n} style={{ borderBottom: '1px solid #0f172a', color: '#cbd5e1' }}>
+                  <td style={{ padding: '5px 8px', color: '#64748b' }}>{r.n}</td>
+                  <td style={{ padding: '5px 8px', color: '#10b981' }}>{r.A}</td>
+                  <td style={{ padding: '5px 8px', color: '#f59e0b' }}>{r.err}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, lineHeight: 1.6 }}>
+            Each <InlineMath tex="A_n" /> is the in-browser recurrence value (BigInt + Miller–Rabin)
+            evaluated in float64; the error against{' '}
+            <InlineMath tex={"A \\approx 1.3063778838"} /> drops doubly exponentially —
+            <InlineMath tex={"4.6\\times10^{-2} \\to 1.1\\times10^{-3} \\to 3.8\\times10^{-11}"} /> —
+            reaching the float64 floor by <InlineMath tex="n = 4" />. Reference value: OEIS A051021
+            (Mills' constant), the RH-conditional least-prime digits flagged in the amber caveat below.
           </p>
         </div>
       </div>

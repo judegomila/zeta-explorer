@@ -51,6 +51,7 @@ mkdir -p "$SCRIPT_DIR/logs" "$STATE_DIR"
 ENGINES=(
   "auto-improve-api-pool.sh"
   "auto-improve-sonnet.sh"
+  "frontier-scout.sh"
 )
 
 # ── helpers ─────────────────────────────────────────────────────────────────

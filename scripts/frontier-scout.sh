@@ -40,12 +40,13 @@ MANDATORY PROCESS:
 1. Read scripts/queue-index.json (small) for queue state.
 2. Read src/data/lambda-roadmap.js currentStatus + LAMBDA_CHAIN_STEPS verification grades (use Grep/head — do not read the whole file).
 3. Read the WHAT REMAINS / openSubGaps / verdict sections of the 6 most recently committed src/data modules (git log --name-only -15 -- src/data | grep "^src/data" | head -12, then head -100 each).
-4. Identify 4-6 NEW work items, each grounded in a NAMED artifact you actually read (a verdict field, a residual the modules discuss but never formalized as a gap object, a cross-validation never tabulated, a constant never discharged, a consumer never re-pointed). Frontier directions are allowed (new attack angles on the E(N) bottleneck, the excursion cap, kappa_T literature) but each must cite the repo artifact that motivates it.
-5. For each, run: node scripts/claim-ticket-id.mjs <next-number> to get an id, then node scripts/seed-ticket.mjs --id <id> --title "..." --priority high --category proof --proof-section S-frontier --description "..." --rationale "Frontier scout: <grounding artifact>" --model opus-4-8
+4. Identify 18-25 NEW work items, each grounded in a NAMED artifact you actually read (a verdict field, a residual the modules discuss but never formalized as a gap object, a cross-validation never tabulated, a constant never discharged, a consumer never re-pointed, a thin/stub page, a missing honest-status banner, a viz follow-up). Span ALL domains: proofs/rigor, checks, app/UI, visualizations, analysis tabs, docs. Frontier directions allowed (E(N) bottleneck, excursion cap, kappa_T literature) but each must cite the repo artifact that motivates it.
+5. For each, run: node scripts/claim-ticket-id.mjs <next-number> to get an id, then node scripts/seed-ticket.mjs --id <id> --title "..." --priority <high|medium|low> --category <proof|accuracy|numerical|content|ux|meta|bug> --proof-section S-frontier --description "..." --rationale "Frontier scout: <grounding artifact>" --model <MODEL>
    (derive <next-number> by grepping the max imp-NNNN in src/data/improvement-queue.js and adding 1; the claim script is race-safe.)
+   MODEL TIERING (feed BOTH engine channels): use --model opus-4-8 for category proof|numerical|accuracy (the API-key channel); use --model sonnet-4-6 for category content|ux|meta|bug (the sonnet channel). Aim for a ROUGHLY EVEN split so neither channel starves.
 6. Print a summary line per minted ticket.
 
-HARD RULES: NO false QED framing — descriptions must say assess/derive/measure/close, never claim results. NO duplicate of any pending or completed ticket title (grep improvement-queue.js for keywords first). NO package installs. NO edits to any file except via seed-ticket.mjs. Maximum 6 tickets. If you genuinely find nothing groundable, print "SCOUT: no groundable frontier found" and exit — that itself is signal.'
+HARD RULES: NO false QED framing — descriptions must say assess/derive/measure/close, never claim results. NO duplicate of any pending or completed ticket title (grep improvement-queue.js for keywords first). NO package installs. NO edits to any file except via seed-ticket.mjs. Maximum 25 tickets. If you genuinely find nothing groundable, print "SCOUT: no groundable frontier found" and exit — that itself is signal.'
 
 run_pass() {
   echo "[$(date -u +%FT%TZ)] frontier-scout pass starting (model claude-opus-4-8)" >> "$LOG"
@@ -65,10 +66,19 @@ case "${1:-}" in
       echo "frontier-scout already running (pid $(cat "$PIDFILE"))"; exit 0
     fi
     echo $$ > "$PIDFILE"; trap 'rm -f "$PIDFILE"' EXIT
-    echo "[$(date -u +%FT%TZ)] frontier-scout daemon started (poll 300s)" >> "$LOG"
+    REFILL_THRESHOLD=${REFILL_THRESHOLD:-40}
+    echo "[$(date -u +%FT%TZ)] frontier-scout daemon started (poll 120s, refill when pending<$REFILL_THRESHOLD)" >> "$LOG"
     while true; do
-      if [ -f "$FLAG" ]; then run_pass; fi
-      sleep 300
+      # Proactive, high-throughput auto-refill: run a pass when the queue is low
+      # (the fleet drains ~240/day, far faster than the legacy 6h-flag cadence) OR
+      # when the producer raised the explicit starvation flag.
+      node "$ROOT/scripts/build-queue-index.mjs" >/dev/null 2>&1 || true
+      pending=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('$ROOT/scripts/queue-index.json','utf8')).totalPending||0)}catch(e){console.log(999)}" 2>/dev/null)
+      if [ -f "$FLAG" ] || [ "${pending:-999}" -lt "$REFILL_THRESHOLD" ] 2>/dev/null; then
+        echo "[$(date -u +%FT%TZ)] refill trigger: pending=$pending (threshold $REFILL_THRESHOLD)" >> "$LOG"
+        run_pass
+      fi
+      sleep 120
     done
     ;;
   status)

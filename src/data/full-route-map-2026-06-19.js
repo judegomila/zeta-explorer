@@ -103,7 +103,8 @@ export const ROUTE_MAP_CROSS_CHECK = {
       mapVerdict: 'ESTIMATE-not-rigorous: E_coll constant C_H is undischargeable (imp-2640 NEGATIVE, Gronwall diverges at collision); |t_c_proj| is OLS not rigorous (imp-2632)',
       fix: 'relabel the DAG node to ESTIMATE / rigorous-modulo-C_H, and add a cond-CH (Holder-modulus) conditional leaf the node depends on -- it does NOT have an empty conditional closure',
       severity: 'high',
-      resolution: 'open',
+      resolution: 'reconciled',
+      resolvedBy: 'imp-2674 + imp-2750',
     },
     {
       view: 'DAG: bound-imp-1261-asymptotic note "Sole modulo conditional: cond-polymath15-G6a"',
@@ -111,7 +112,8 @@ export const ROUTE_MAP_CROSS_CHECK = {
       mapVerdict: 'G6a = C_H is RH-hard at the modulus; the obvious Gronwall discharge route is REFUTED (imp-2640) -- not a routinely closable leaf',
       fix: 'annotate cond-polymath15-G6a with the imp-2640 NEGATIVE status so the DAG does not read as "one small lemma away"',
       severity: 'medium',
-      resolution: 'open',
+      resolution: 'reconciled',
+      resolvedBy: 'imp-2674 + imp-2750',
     },
   ],
   consistent: [
@@ -119,7 +121,7 @@ export const ROUTE_MAP_CROSS_CHECK = {
     'roadmap asymptotic bound is labelled "rigorous-modulo-polymath15-G6a" -- consistent (modulo wording), though the map sharpens G6a to RH-hard',
     'Rodgers-Tao Lambda>=0 and PT Lambda<=0.2 as the rigorous floor -- consistent across DAG, roadmap, and map',
   ],
-  netVerdict: 'The DAG is the one stale view: it still presents the finite-N*=1e4 beat as rigorous-unconditional with an empty conditional closure, contradicting the C_H finding. Reconcile it (imp ticket) so all views agree the finite-N beat is an ESTIMATE gated on C_H.',
+  netVerdict: 'The DAG finite-beat node WAS the stale view; reconciled by imp-2674/imp-2750 — all views now agree the finite-N*=1e4 beat is an ESTIMATE gated on C_H, not a rigorous-unconditional result.',
 };
 
 export const FULL_ROUTE_MAP_NEXT_MOVE = {

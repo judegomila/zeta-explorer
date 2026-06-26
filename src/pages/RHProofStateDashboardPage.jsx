@@ -335,17 +335,19 @@ export default function RHProofStateDashboardPage() {
       <Section title="Montgomery Pair Correlation Conjecture (PCC) Routes" borderColor="#3b82f6">
         <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
           Five distinct analytical routes toward proving Montgomery PCC at 2-point, which is
-          required for paths B and (conditionally) C. Recent work shows these 5 routes may
-          be related via a hidden symmetry.
+          required for paths B and (conditionally) C. The 2026-05-28 exhaustion audit found all
+          five equi-difficult to Montgomery PCC itself: they converge on the same arithmetic
+          Cauchy-Schwarz bottleneck — a shared wall, not a shortcut. All five are classified
+          DEAD-END (see /pcc-route-exhaustion).
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
           {[
-            { name: 'Hilbert-Schmidt Sufficient Condition', status: 'active', id: 'imp-1267' },
-            { name: 'Mellin Diagonalization Route', status: 'research', id: 'imp-1266' },
+            { name: 'Hilbert-Schmidt Sufficient Condition', status: 'blocked', id: 'imp-1267' },
+            { name: 'Mellin Diagonalization Route', status: 'blocked', id: 'imp-1266' },
             { name: 'Koksma-Hlawka 2nd Moment', status: 'blocked', id: 'imp-1315' },
-            { name: 'GUE-free Deep Regime', status: 'research', id: 'imp-1185' },
-            { name: 'Bui-Soundararajan Density Attack', status: 'active', id: 'imp-1261' },
+            { name: 'GUE-free Deep Regime', status: 'blocked', id: 'imp-1185' },
+            { name: 'Bui-Soundararajan Density Attack', status: 'blocked', id: 'imp-1261' },
           ].map((route) => (
             <div key={route.id} style={{
               padding: 12, borderRadius: 8, background: 'rgba(15,23,42,0.5)',

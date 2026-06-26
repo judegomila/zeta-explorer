@@ -363,6 +363,9 @@ function CommandPalette({ show, onClose, navigate }) {
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Page navigation"
       style={{
         position: 'fixed', inset: 0, zIndex: 10000,
         background: 'rgba(0,0,0,0.75)', display: 'flex',
@@ -381,12 +384,19 @@ function CommandPalette({ show, onClose, navigate }) {
         onClick={e => e.stopPropagation()}
       >
         <div style={{ display: 'flex', alignItems: 'center', padding: '12px 16px', borderBottom: '1px solid #334155', gap: 10 }}>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ color: '#64748b', flexShrink: 0 }}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ color: '#64748b', flexShrink: 0 }} aria-hidden="true">
             <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.5"/>
             <path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
           </svg>
           <input
             ref={inputRef}
+            role="combobox"
+            aria-label="Search pages"
+            aria-expanded={results.length > 0}
+            aria-haspopup="listbox"
+            aria-controls="cmd-palette-listbox"
+            aria-activedescendant={results[activeIndex] ? `cmd-palette-option-${activeIndex}` : undefined}
+            aria-autocomplete="list"
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -401,14 +411,23 @@ function CommandPalette({ show, onClose, navigate }) {
             padding: '1px 6px', fontSize: 11, color: '#94a3b8', flexShrink: 0,
           }}>Esc</kbd>
         </div>
-        <div style={{ maxHeight: 360, overflowY: 'auto' }}>
+        <div
+          id="cmd-palette-listbox"
+          role="listbox"
+          aria-label="Page results"
+          style={{ maxHeight: 360, overflowY: 'auto' }}
+        >
           {results.length === 0 ? (
-            <div style={{ padding: '24px 16px', color: '#64748b', textAlign: 'center', fontSize: 14 }}>
+            <div role="status" style={{ padding: '24px 16px', color: '#64748b', textAlign: 'center', fontSize: 14 }}>
               No pages match
             </div>
           ) : results.map((r, i) => (
             <div
               key={r.to}
+              id={`cmd-palette-option-${i}`}
+              role="option"
+              aria-selected={i === activeIndex}
+              aria-label={`${r.label} — ${r.group} — ${r.to}`}
               onClick={() => { navigate(r.to); onClose(); }}
               style={{
                 display: 'flex', alignItems: 'center', gap: 12,

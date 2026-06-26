@@ -16,6 +16,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
+import RelatedLinks from '../components/RelatedLinks.jsx';
 
 const THREADS = [
   {
@@ -132,6 +133,13 @@ export default function VolterraBoundPage() {
           (imp-1292)
         </p>
       </div>
+
+      <RelatedLinks links={[
+        { to: '/collapse-chain', label: 'Collapse Chain', color: '#8b5cf6' },
+        { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard' },
+        { to: '/twin-ladder', label: 'Twin-Ladder Roadmap' },
+        { to: '/viz-volterra-norm-curve', label: 'Volterra Norm Curve', color: '#22c55e' },
+      ]} />
     </div>
   );
 }

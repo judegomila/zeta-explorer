@@ -20,6 +20,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
 import { GUE_VS_ZEROS_COMPARISON } from '../data/gue-vs-zeros-comparison.js';
+import RelatedLinks from '../components/RelatedLinks.jsx';
 
 // ── SVG geometry for the histogram + GUE overlay ────────────────────────────
 
@@ -394,6 +395,13 @@ export default function GueComparisonPage() {
         Build-time tripwires: GUE_VS_ZEROS_COMPARISON_ASSERTIONS (7 checks,
         wired into scripts/run-assertions.mjs). Ticket: imp-1099.
       </div>
+
+      <RelatedLinks links={[
+        { to: '/pair-correlation', label: 'Pair Correlation' },
+        { to: '/statistics', label: 'Zero Statistics' },
+        { to: '/edge-rigidity', label: 'Edge Rigidity' },
+        { to: '/angular-spacing-stats', label: 'Angular Spacing', color: '#06b6d4' },
+      ]} />
     </div>
   );
 }

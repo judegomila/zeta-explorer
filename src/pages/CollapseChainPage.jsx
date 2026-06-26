@@ -16,6 +16,8 @@ import { Link } from 'react-router-dom';
 import '../styles/collapse-chain.css';
 import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-reduction-2026-06-18.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
+import EquivalenceVsReductionCallout from '../components/EquivalenceVsReductionCallout.jsx';
+import RelatedLinks from '../components/RelatedLinks.jsx';
 
 const collapseChain = [
   {
@@ -267,6 +269,8 @@ export default function CollapseChainPage() {
         </p>
       </div>
 
+      <EquivalenceVsReductionCallout />
+
       <div style={{ backgroundColor: '#f0f7ff', padding: '16px', borderRadius: '8px', marginBottom: '20px', borderLeft: '4px solid #2166ac' }}>
         <p style={{ margin: '0 0 8px 0', fontSize: '14px' }}>
           <strong>Summary:</strong> The entire §15-27 program of the Twin-Ladder paper reduces to a single operator-norm statement.
@@ -363,6 +367,13 @@ export default function CollapseChainPage() {
           Decision doc: <code>/thinking/decisions/2026-05-28-volterra-cdb-two-way-collapse.md</code> (imp-1258)
         </p>
       </div>
+
+      <RelatedLinks links={[
+        { to: '/volterra-bound', label: 'Volterra Bound Hub', color: '#8b5cf6' },
+        { to: '/route-map', label: 'Route Map' },
+        { to: '/twin-ladder', label: 'Twin-Ladder Roadmap' },
+        { to: '/paper-audit-dashboard', label: 'Paper Audit Dashboard' },
+      ]} />
     </div>
   );
 }

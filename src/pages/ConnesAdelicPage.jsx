@@ -30,6 +30,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { CONNES_ADELIC_LAMBDA } from '../data/connes-adelic-lambda-2026-05.js';
+import RelatedLinks from '../components/RelatedLinks.jsx';
 
 // ── Style helpers (matching the rest of the explorer pages). ──────────
 
@@ -384,6 +385,13 @@ export default function ConnesAdelicPage() {
           ))}
         </ul>
       </div>
+
+      <RelatedLinks links={[
+        { to: '/spectral-attack', label: 'Spectral Attack', color: '#f97316' },
+        { to: '/rh-equivalents', label: 'RH Equivalents' },
+        { to: '/route-map', label: 'Route Map' },
+        { to: '/state-of-program', label: 'State of Program' },
+      ]} />
     </div>
   );
 }

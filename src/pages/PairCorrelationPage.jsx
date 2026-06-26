@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
 import { PAIR_CORRELATION_MONTGOMERY } from '../data/pair-correlation-montgomery-numerical.js';
 import { IMP_2656_DIRECT_RH_CONJECTURE_MAP } from '../data/imp-2656-direct-rh-conjecture-map.js';
+import RelatedLinks from '../components/RelatedLinks.jsx';
 
 // Geometry.
 const W = 920;
@@ -393,6 +394,13 @@ export default function PairCorrelationPage() {
           Source: IMP_2656_DIRECT_RH_CONJECTURE_MAP (src/data/imp-2656-direct-rh-conjecture-map.js).
         </p>
       </div>
+
+      <RelatedLinks links={[
+        { to: '/statistics', label: 'Zero Statistics' },
+        { to: '/gue-comparison', label: 'GUE Comparison' },
+        { to: '/edge-rigidity', label: 'Edge Rigidity' },
+        { to: '/gram-points', label: 'Gram Points' },
+      ]} />
     </div>
   );
 }

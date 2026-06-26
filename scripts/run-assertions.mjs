@@ -1749,6 +1749,9 @@ const DATA_MODULES = [
   '/src/data/imp-discriminant-at-Ecoll.js',
   // imp-2627: automated per-N Theta(0) <= 1/4 certification on every ladder rung.
   '/src/data/imp-2627-theta-certification.js',
+  // imp-2858: explicit N-uniform bound (<= 28) on the Theta-trap CONTRACTION
+  // constant C_Theta (Theorem A), distinct from the divergent W_1 modulus (imp-2680).
+  '/src/data/imp-ctheta-uniform-bound.js',
   '/src/data/barrier-extrapolation-imp371.js',
   '/src/data/barrier-extrapolation-v2.js',
   '/src/data/bridge-lambda-rh.js',
@@ -1899,6 +1902,11 @@ const DATA_MODULES = [
   // E(N)-ledger comparison of a live value against a toFixed/toExponential
   // literal uses a tolerance >= the field's half-ULP floor (imp-2546/2539 trap).
   '/src/data/imp-2865-en-ledger-storage-tolerance-audit.js',
+  // imp-2871: domain-validity audit for the elementary exp(x) <= 1+x+x^2
+  // Gronwall tail bound -- enumerates every call site (imp-2704, imp-2762),
+  // asserts each argument stays inside the proven 0<=x<=1 domain, and pins the
+  // true crossing x* ~ 1.7932821 where the bound first fails.
+  '/src/data/imp-2871-exp-tail-bound-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

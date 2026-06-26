@@ -11,6 +11,40 @@ import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { RANKED_OPPORTUNITIES } from '../data/full-route-map-2026-06-19.js';
+import { ASSERTION_FRESHNESS } from '../data/assertion-freshness.js';
+
+// ── Assertion freshness stamp (imp-2999) ─────────────────────────────────────
+function FreshnessStamp() {
+  const { timestamp, passed, failed } = ASSERTION_FRESHNESS;
+  const ok = failed === 0;
+  const color = ok ? '#10b981' : '#ef4444';
+  const label = ok ? 'PASS' : 'FAIL';
+  // Format: "2026-06-26 02:08 UTC"
+  const dt = timestamp.replace('T', ' ').replace('Z', '').slice(0, 16) + ' UTC';
+  return (
+    <div style={{
+      display: 'inline-flex', alignItems: 'center', gap: 8,
+      background: ok ? 'rgba(16,185,129,0.07)' : 'rgba(239,68,68,0.07)',
+      border: `1px solid ${color}40`,
+      borderRadius: 6, padding: '4px 10px',
+      marginBottom: 20,
+    }}>
+      <span style={{
+        fontSize: 10, fontWeight: 700, fontFamily: 'var(--font-mono)',
+        color, background: `${color}20`, borderRadius: 3,
+        padding: '1px 5px',
+      }}>
+        {label}
+      </span>
+      <span style={{ fontSize: 12, color: '#94a3b8', fontFamily: 'var(--font-mono)' }}>
+        Assertions last verified: {dt}
+      </span>
+      <span style={{ fontSize: 11, color: '#475569', fontFamily: 'var(--font-mono)' }}>
+        ({passed} passed)
+      </span>
+    </div>
+  );
+}
 
 // ── Rigor color-coding ──────────────────────────────────────────────────────
 // GREEN  = unconditional analytical proof
@@ -449,6 +483,7 @@ export default function RigorDashboardPage() {
       <HonestCeilingBanner variant="ESTIMATE" />
       <div className="page-header">
         <h1>Rigor Dashboard</h1>
+        <FreshnessStamp />
         <p>
           Interactive proof-chain visualization with honest rigor-level coloring.
           Every step is either unconditionally proved (green), conditional on a named

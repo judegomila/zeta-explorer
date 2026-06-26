@@ -530,6 +530,7 @@ function MobileNavSection({ label, items }) {
 function NavBar({ onShowShortcuts, onShowPalette }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef();
+  const hamburgerRef = useRef();
   const location = useLocation();
 
   // Close menu on route change
@@ -543,6 +544,33 @@ function NavBar({ onShowShortcuts, onShowPalette }) {
     };
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
+  }, [menuOpen]);
+
+  // Escape to close + focus trap (mobile a11y)
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        hamburgerRef.current?.focus();
+        return;
+      }
+      if (e.key === 'Tab') {
+        const focusable = navRef.current?.querySelectorAll(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusable || focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [menuOpen]);
 
   return (
@@ -581,13 +609,16 @@ function NavBar({ onShowShortcuts, onShowPalette }) {
         }}
       >?</button>
       <button
+        ref={hamburgerRef}
         className={`hamburger-btn ${menuOpen ? 'hamburger-open' : ''}`}
         onClick={() => setMenuOpen(o => !o)}
         aria-label="Toggle navigation"
+        aria-expanded={menuOpen}
+        aria-controls="mobile-nav"
       >
         <span /><span /><span />
       </button>
-      <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
+      <nav id="mobile-nav" className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
         {/* Desktop: grouped dropdowns */}
         <div className="nav-desktop-groups">
           {NAV_GROUPS.map(group => (

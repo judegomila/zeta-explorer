@@ -86,6 +86,7 @@ export default function VizEulerProductPage() {
   const [epsVal, setEpsVal] = useState(0.3);
   const [seed, setSeed] = useState(42);
   const [renderMs, setRenderMs] = useState(0);
+  const [hoverInfo, setHoverInfo] = useState(null);
 
   const logPrimes = useMemo(() => ALL_LOG_P.slice(0, nPrimes), [nPrimes]);
 
@@ -157,6 +158,23 @@ export default function VizEulerProductPage() {
   }, [trueVals, pertVals]);
 
   useEffect(() => { draw(); }, [draw]);
+
+  const handleMouseMove = useCallback((e) => {
+    const cv = canvasRef.current;
+    if (!cv) return;
+    const rect = cv.getBoundingClientRect();
+    const fracX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const t = T_MIN + fracX * (T_MAX - T_MIN);
+    const idx = Math.max(0, Math.min(N_STEPS - 1, Math.round(fracX * (N_STEPS - 1))));
+    const logZ = trueVals[idx];
+    let nearestZero = KNOWN_ZEROS[0];
+    let minDist = Infinity;
+    for (const z of KNOWN_ZEROS) {
+      const d = Math.abs(z - t);
+      if (d < minDist) { minDist = d; nearestZero = z; }
+    }
+    setHoverInfo({ t, logZ, nearestZero, dist: minDist });
+  }, [trueVals]);
 
   const pMax = ALL_PRIMES[nPrimes - 1] || 0;
 
@@ -231,9 +249,23 @@ export default function VizEulerProductPage() {
           log|Z(1/2 + it)| &mdash; blue = true primes, red = perturbed, yellow = known &zeta; zeros
         </div>
         <canvas ref={canvasRef}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={() => setHoverInfo(null)}
                 style={{ width: '100%', maxWidth: CW, height: 'auto', display: 'block',
                          border: '1px solid #1e293b', borderRadius: 4,
-                         imageRendering: 'auto' }} />
+                         imageRendering: 'auto', cursor: 'crosshair' }} />
+        {hoverInfo ? (
+          <div style={{ marginTop: 6, fontFamily: mono, fontSize: 11, color: '#94a3b8',
+                        display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <span style={{ color: '#e2e8f0' }}>t = {hoverInfo.t.toFixed(3)}</span>
+            <span style={{ color: '#63b3ed' }}>log|Z| = {hoverInfo.logZ.toFixed(4)}</span>
+            <span style={{ color: '#fac832' }}>nearest zero: {hoverInfo.nearestZero.toFixed(2)} (&Delta;={hoverInfo.dist.toFixed(2)})</span>
+          </div>
+        ) : (
+          <div style={{ marginTop: 6, fontFamily: mono, fontSize: 11, color: 'var(--text-muted)' }}>
+            hover canvas to read t, log|Z|, nearest zero
+          </div>
+        )}
       </div>
 
       <div style={{ marginTop: 12, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.7 }}>

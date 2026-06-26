@@ -127,12 +127,15 @@ import './polymath15-constants-gmp-check.js';    // imp-422: 4 assertions (C_H/C
 import './submission-ready-2026-04-12.js';       // imp-500: 2 assertions (fatalCount===0, criticalPending===0)
 import '../math/c-mb-unconditional-bound.js';    // imp-486: 2 assertions (searchComplete, approachesExamined>=3)
 import './imp-2701-ch-rigor-lock.js';            // imp-2701: 3 assertions (C_H not rigorous, finite-N no rigorous beat, verdict NO-GO/stays SOTA)
+import './imp-2863-c-selberg-conservative-lock.js'; // imp-2863: 3 assertions (C_Selberg_rigorous 2.622 < placeholder 3.0, Trudgian point value ~4.157, coeff ordering 0.452<1.162<2.622<3.0 -- guards E_coll conservative-upper-bound validity)
 import './imp-2706-ecoll-conditional-modulo-ch.js'; // imp-2706: 6 assertions (E_coll conditional-modulo-C_H bound; C_H still unproven)
 import './imp-2869-ecoll-rigorous-modulo-ch.js';    // imp-2869: 6 assertions (E_coll rigorous-modulo-C_H at the bare ansatz C_H<=0.125 -> E_coll<=0.01164; every OTHER chain input discharged, gap isolated to the single C_H inequality)
 import './imp-2711-pt-bound-sota-tripwire.js';      // imp-2711: 3 assertions (every E(N)<0.2 numeric clearance carries honesty qualifier + cites PT as SOTA)
 import './imp-2694-ecoll-rate-reconciliation.js';   // imp-2694: 5 assertions (N^-3/2 bounds t_c deviation not E_coll; binding E_coll rate = Holder N^-1/2; headline uses it; no overclaim)
 import './imp-routeB-flow-vs-lambda-firewall.js';   // imp-2854: 5 assertions (Route B imp-341 bounds the PARTICLE FLOW not Lambda; every t_c->Lambda edge passes through C_H/G6a; no leak)
 import './imp-2860-en-assembled-interval-certificate.js'; // imp-2860: 6 assertions (outward-rounded bracket for the ASSEMBLED E(N) at N*=1e4; E_N_hi < 0.2; NUMERIC clearance only, C_H ansatz, NO-GO/SOTA retained)
+import './imp-2861-c-t-explicit-pinning.js';        // imp-2861: 5 assertions (explicit clean-count C_T < 3/2 outward-rounded bracket at N*=1e4; E_trunc negligible <1% of E(N) at the ceiling; GAP-E-TRUNC-C-T stays MINOR-OPEN, no false discharge)
+import './imp-2862-ckh-cc-interval-certificate.js'; // imp-2862: 5 assertions (outward-rounded brackets for C_KH=pi.C_Selberg and C_C=C_H.sqrt(C_KH) over C_Selberg in [2.622,3.0]; pinned values at conservative UPPER endpoint; C_H=1/8 stays NOT-rigorous ansatz, C_H gap NOT discharged)
 import './imp-2866-en-classification-consistency.js'; // imp-2866: 4 assertions (cross-module single-source-of-truth audit: C_H-rigor flag, PT_BOUND=0.2, single binding-blocker, no rigorous-beat verdict all agree across imp-2643/2701/2711/2713/2715)
 
 // NOTE: imp469-cross-verification.js is already live via m-raw-from-umon-bridge.js (imp-473: 5 assertions).

@@ -13,7 +13,8 @@
     "test": "node scripts/smoke-tests.mjs",
     "test:pages": "node scripts/check-page-health.mjs",
     "test:buttons": "node scripts/test-buttons.mjs",
-    "test:all": "node scripts/smoke-tests.mjs && node scripts/check-page-health.mjs && node scripts/test-buttons.mjs"
+    "test:all": "node scripts/smoke-tests.mjs && node scripts/check-page-health.mjs && node scripts/test-buttons.mjs",
+    "verify:heavy-imports": "node scripts/verify-no-heavy-page-imports.mjs"
   },
   "repository": {
     "type": "git",

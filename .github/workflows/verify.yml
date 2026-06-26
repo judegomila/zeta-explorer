@@ -26,3 +26,6 @@ jobs:
 
       - name: Assert (fail-inject self-test + assertion sweep + reproduce headline numbers)
         run: npm run assert
+
+      - name: Heavy-import tripwire (pages must not import zeros-to-1e6.js)
+        run: npm run verify:heavy-imports

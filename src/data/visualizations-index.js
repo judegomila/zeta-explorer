@@ -558,4 +558,29 @@ export const VISUALIZATIONS_INDEX_ASSERTIONS = [
       'This is rendered as a muted footer on each card so a reader cannot ' +
       'infer an unearned Lambda or RH claim from any single visualization.',
   },
+  {
+    id: 'imp2992-every-ceiling-has-denial-marker',
+    holds: () => {
+      const DENIAL_PHRASES = [
+        'no lambda',
+        'no rh claim',
+        'not proven',
+        'does not',
+        'no operator',
+        'no upper',
+      ];
+      for (const e of VISUALIZATIONS_INDEX.entries) {
+        const lower = (e.honestCeiling || '').toLowerCase();
+        const hasDenial = DENIAL_PHRASES.some((p) => lower.includes(p));
+        if (!hasDenial) return false;
+      }
+      return true;
+    },
+    why:
+      'imp-2992: every honestCeiling must contain at least one denial marker ' +
+      '("no lambda", "no rh claim", "not proven", "does not", "no operator", ' +
+      '"no upper") so no future visualization can silently overclaim a Lambda ' +
+      'bound or RH result. This tripwire fires if a new entry is added with a ' +
+      'ceiling that describes only positive results without an explicit denial.',
+  },
 ];

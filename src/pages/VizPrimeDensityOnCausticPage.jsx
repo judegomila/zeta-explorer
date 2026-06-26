@@ -7,14 +7,13 @@
 //   Y  -- prime index k in [0, N-1], scaled 0..1 (top = p_1 = 2, bottom = p_N)
 //
 // Color: a pixel at (t, k) is bright when prime p_k satisfies
-//   |(t * log p_k) mod 2pi| < eps,
-// i.e. when p_k lies inside the caustic window at height t.
-// The sigma-weighted amplitude sum_k' p_k'^{-sigma} (over all coherent k' in
-// the same t-column) is blended as a second hue channel so larger-prime
-// contributions are visible.
+//   |(t * log p_k) mod 2pi| < eps.
+// The sigma-weighted amplitude is blended as a brightness channel.
 //
-// Side panel: per-column "coherent fraction" vs the PNT baseline eps/pi,
-// showing where the prime distribution creates above-average resonance.
+// Profile chart: per-column "coherent fraction" vs the PNT baseline eps/pi,
+// with an orange excess curve showing (profile - baseline) above zero.
+//
+// Zoom + pan: mouse-wheel to zoom around the cursor; drag to pan.
 
 import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
@@ -61,13 +60,75 @@ export default function VizPrimeDensityOnCausticPage() {
   const [sigma, setSigma]     = useState(0.5);
   const [nPrimes, setNPrimes] = useState(300);
   const [renderMs, setRenderMs] = useState(0);
+  const [tViewMin, setTViewMin] = useState(T_MIN);
+  const [tViewMax, setTViewMax] = useState(T_MAX);
 
-  // Build per-column coherent-fraction profile (length = GRID_W).
+  // Keep a ref with the current view range so the wheel listener (non-React closure)
+  // can always read the latest values without being stale.
+  const viewRef = useRef({ tMin: T_MIN, tMax: T_MAX });
+  useEffect(() => { viewRef.current = { tMin: tViewMin, tMax: tViewMax }; }, [tViewMin, tViewMax]);
+
+  // Wheel zoom: zoom around the horizontal cursor position on the t-axis.
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const onWheel = (e) => {
+      e.preventDefault();
+      const rect = canvas.getBoundingClientRect();
+      const frac = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      const { tMin, tMax } = viewRef.current;
+      const tFocus = tMin + frac * (tMax - tMin);
+      const factor = e.deltaY > 0 ? 1.3 : 0.77;
+      const span = Math.max(5, (tMax - tMin) * factor);
+      let newMin = tFocus - frac * span;
+      let newMax = tFocus + (1 - frac) * span;
+      if (newMin < T_MIN) { newMax += (T_MIN - newMin); newMin = T_MIN; }
+      if (newMax > T_MAX) { newMin -= (newMax - T_MAX); newMax = T_MAX; }
+      setTViewMin(Math.max(T_MIN, newMin));
+      setTViewMax(Math.min(T_MAX, newMax));
+    };
+    canvas.addEventListener('wheel', onWheel, { passive: false });
+    return () => canvas.removeEventListener('wheel', onWheel);
+  }, []);
+
+  // Drag-pan state stored in a ref to avoid stale closures in mousemove.
+  const dragRef = useRef({ active: false, startX: 0, tMinAtStart: 0, tMaxAtStart: 0 });
+
+  const handleMouseDown = useCallback((e) => {
+    dragRef.current = {
+      active: true,
+      startX: e.clientX,
+      tMinAtStart: viewRef.current.tMin,
+      tMaxAtStart: viewRef.current.tMax,
+    };
+  }, []);
+
+  const handleMouseMove = useCallback((e) => {
+    if (!dragRef.current.active) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const dx = (e.clientX - dragRef.current.startX) / rect.width;
+    const span = dragRef.current.tMaxAtStart - dragRef.current.tMinAtStart;
+    const shift = -dx * span;
+    let newMin = dragRef.current.tMinAtStart + shift;
+    let newMax = dragRef.current.tMaxAtStart + shift;
+    if (newMin < T_MIN) { newMax += (T_MIN - newMin); newMin = T_MIN; }
+    if (newMax > T_MAX) { newMin -= (newMax - T_MAX); newMax = T_MAX; }
+    setTViewMin(Math.max(T_MIN, newMin));
+    setTViewMax(Math.min(T_MAX, newMax));
+  }, []);
+
+  const handleMouseUp = useCallback(() => {
+    dragRef.current.active = false;
+  }, []);
+
+  // Build per-column coherent-fraction profile for the current t-view.
   const profile = useMemo(() => {
     const N = Math.min(nPrimes, PRIMES.length);
     const out = new Float64Array(GRID_W);
     for (let px = 0; px < GRID_W; px++) {
-      const t = T_MIN + (px / (GRID_W - 1)) * (T_MAX - T_MIN);
+      const t = tViewMin + (px / (GRID_W - 1)) * (tViewMax - tViewMin);
       let count = 0;
       for (let k = 0; k < N; k++) {
         if (Math.abs(wrap(t * LOG_PRIMES[k])) < eps) count++;
@@ -75,7 +136,7 @@ export default function VizPrimeDensityOnCausticPage() {
       out[px] = count / N;
     }
     return out;
-  }, [eps, nPrimes]);
+  }, [eps, nPrimes, tViewMin, tViewMax]);
 
   const pntBaseline = (eps / Math.PI);  // expected fraction under uniform distribution
 
@@ -91,11 +152,11 @@ export default function VizPrimeDensityOnCausticPage() {
     const imgData = ctx.createImageData(GRID_W, GRID_H);
     const data = imgData.data;
 
-    // For each (px, py): px -> t, py -> prime index k (top = small primes).
+    // For each (px, py): px -> t (within current view), py -> prime index k.
     for (let px = 0; px < GRID_W; px++) {
-      const t = T_MIN + (px / (GRID_W - 1)) * (T_MAX - T_MIN);
+      const t = tViewMin + (px / (GRID_W - 1)) * (tViewMax - tViewMin);
 
-      // Total amplitude sum (all coherent primes in column) for normalization.
+      // Total amplitude sum for normalization within this column.
       let ampSum = 0;
       let coherentCount = 0;
       for (let k = 0; k < N; k++) {
@@ -112,9 +173,7 @@ export default function VizPrimeDensityOnCausticPage() {
 
         let r = 0, g = 0, b = 0;
         if (inCaustic) {
-          // Brightness encodes sigma-weighted amplitude contribution of this prime.
           const amp = Math.exp(-sigma * LOG_PRIMES[k]);
-          // Normalise against column max (avoid 0/0 when no coherent primes).
           const norm = ampSum > 0 ? Math.min(1, amp / (ampSum / Math.max(1, coherentCount))) : 0.5;
           const idx256 = Math.min(255, Math.floor(Math.sqrt(norm) * 255));
           r = COLORMAP[idx256 * 3 + 0];
@@ -152,18 +211,18 @@ export default function VizPrimeDensityOnCausticPage() {
     }
     ctx.setLineDash([]);
 
-    // Axis labels.
+    // Axis labels showing current t-view range.
     ctx.font = '10px monospace';
     ctx.fillStyle = 'rgba(255,255,255,0.6)';
     ctx.textAlign = 'left';
-    ctx.fillText('t=' + T_MIN, 3, GRID_H - 4);
+    ctx.fillText('t=' + tViewMin.toFixed(1), 3, GRID_H - 4);
     ctx.textAlign = 'right';
-    ctx.fillText('t=' + T_MAX, GRID_W - 3, GRID_H - 4);
+    ctx.fillText('t=' + tViewMax.toFixed(1), GRID_W - 3, GRID_H - 4);
 
     setRenderMs(+(performance.now() - t0).toFixed(1));
-  }, [eps, sigma, nPrimes]);
+  }, [eps, sigma, nPrimes, tViewMin, tViewMax]);
 
-  // Draw coherent-fraction profile chart.
+  // Draw coherent-fraction profile chart with PNT difference curve overlay.
   const drawProfile = useCallback(() => {
     const canvas = profileRef.current;
     if (!canvas || !profile) return;
@@ -173,6 +232,8 @@ export default function VizPrimeDensityOnCausticPage() {
     ctx.clearRect(0, 0, GRID_W, 80);
     ctx.fillStyle = '#0f172a';
     ctx.fillRect(0, 0, GRID_W, 80);
+
+    const maxFrac = Math.max(...profile, pntBaseline * 2);
 
     // Baseline (PNT expected fraction).
     const baseY = 80 - Math.min(79, Math.round(pntBaseline * 3 * 80));
@@ -186,13 +247,32 @@ export default function VizPrimeDensityOnCausticPage() {
     ctx.fillStyle = '#94a3b8';
     ctx.fillText('PNT baseline', 3, baseY - 2);
 
-    // Profile bars.
-    const maxFrac = Math.max(...profile, pntBaseline * 2);
+    // Profile bars (purple).
     ctx.fillStyle = '#a855f7';
     for (let px = 0; px < GRID_W; px++) {
       const h = Math.round((profile[px] / maxFrac) * 78);
       if (h > 0) ctx.fillRect(px, 80 - h, 1, h);
     }
+
+    // PNT difference curve: clamp(profile[px] - pntBaseline, 0, inf) as orange polyline.
+    // y=79 = zero excess; excess rises proportionally to maxFrac over 78 pixels.
+    const diffScale = maxFrac > 0 ? 78 / maxFrac : 0;
+    ctx.strokeStyle = '#f97316';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    for (let px = 0; px < GRID_W; px++) {
+      const diff = Math.max(0, profile[px] - pntBaseline);
+      const y = 79 - Math.round(diff * diffScale);
+      if (px === 0) ctx.moveTo(px + 0.5, y); else ctx.lineTo(px + 0.5, y);
+    }
+    ctx.stroke();
+    ctx.lineWidth = 1;
+
+    ctx.font = '9px monospace';
+    ctx.fillStyle = '#f97316';
+    ctx.textAlign = 'right';
+    ctx.fillText('excess (orange)', GRID_W - 3, 78);
+    ctx.textAlign = 'left';
   }, [profile, pntBaseline]);
 
   useEffect(() => { draw(); }, [draw]);
@@ -202,6 +282,8 @@ export default function VizPrimeDensityOnCausticPage() {
     ? Array.from(profile).filter(v => v > pntBaseline).length
     : 0;
 
+  const isZoomed = tViewMin > T_MIN + 0.5 || tViewMax < T_MAX - 0.5;
+
   return (
     <div className="page">
       <div className="page-header">
@@ -209,10 +291,12 @@ export default function VizPrimeDensityOnCausticPage() {
         <p className="page-subtitle">
           Each pixel (t, k) is bright when prime p_k lies inside the caustic
           window at height t: |t&thinsp;log&thinsp;p_k mod 2pi| &lt; eps.
-          The X-axis scans t in [{T_MIN}, {T_MAX}]; the Y-axis scans prime index
-          from p_1 = 2 (top) to p_N (bottom). Brightness encodes the
-          sigma-weighted amplitude p_k^(-sigma). The lower chart shows
-          the coherent fraction per t-column vs the PNT baseline eps/pi.
+          X-axis: t in [{tViewMin.toFixed(1)}, {tViewMax.toFixed(1)}]; Y-axis: prime index
+          from p_1 = 2 (top) to p_N (bottom). Brightness encodes
+          sigma-weighted amplitude p_k^(-sigma). Lower chart: coherent fraction
+          per t-column (purple bars) vs PNT baseline (grey dashed) and excess
+          above baseline (orange curve).{' '}
+          <strong style={{ color: '#94a3b8' }}>Scroll to zoom, drag to pan.</strong>
         </p>
         <div style={{ marginTop: 10, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
           <Link to="/visual-geometries" style={{ color: '#64748b', fontFamily: mono, fontSize: 12 }}>
@@ -241,7 +325,7 @@ export default function VizPrimeDensityOnCausticPage() {
         <Stat label="render (ms)"      value={String(renderMs)} />
       </div>
 
-      <div style={{ display: 'flex', gap: 16, marginTop: 14, flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: 16, marginTop: 14, flexWrap: 'wrap', alignItems: 'center' }}>
         <div className="control-group">
           <label>N primes</label>
           <input type="range" min="50" max={PRIMES.length} step="50" value={nPrimes}
@@ -260,6 +344,17 @@ export default function VizPrimeDensityOnCausticPage() {
                  onChange={e => setSigma(+e.target.value)} />
           <span className="control-value">{sigma.toFixed(2)}</span>
         </div>
+        {isZoomed && (
+          <button
+            onClick={() => { setTViewMin(T_MIN); setTViewMax(T_MAX); }}
+            style={{
+              padding: '4px 10px', fontSize: 11, cursor: 'pointer',
+              background: 'var(--bg-panel)', border: '1px solid var(--border)',
+              borderRadius: 6, color: '#94a3b8', fontFamily: mono,
+            }}>
+            Reset zoom
+          </button>
+        )}
       </div>
 
       <div style={{ marginTop: 14, background: 'var(--bg-panel)', border: '1px solid var(--border)',
@@ -267,18 +362,27 @@ export default function VizPrimeDensityOnCausticPage() {
         <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)',
                       letterSpacing: 0.5, marginBottom: 6, fontFamily: mono }}>
           Prime index (Y) vs t (X) &mdash; bright = in caustic window
+          {isZoomed && (
+            <span style={{ color: '#f97316', marginLeft: 8 }}>
+              t=[{tViewMin.toFixed(1)}, {tViewMax.toFixed(1)}]
+            </span>
+          )}
         </div>
         <canvas ref={canvasRef}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseUp}
                 style={{ width: '100%', maxWidth: GRID_W, height: 'auto', display: 'block',
                          border: '1px solid #1e293b', borderRadius: 4,
-                         imageRendering: 'pixelated' }} />
+                         imageRendering: 'pixelated', cursor: 'grab' }} />
       </div>
 
       <div style={{ marginTop: 10, background: 'var(--bg-panel)', border: '1px solid var(--border)',
                     borderRadius: 8, padding: 10 }}>
         <div style={{ fontSize: 10, textTransform: 'uppercase', color: 'var(--text-muted)',
                       letterSpacing: 0.5, marginBottom: 6, fontFamily: mono }}>
-          Coherent prime fraction per t-column (purple) vs PNT baseline eps/pi (grey dashed)
+          Coherent prime fraction per t-column: purple bars, PNT baseline (grey dashed), excess (orange)
         </div>
         <canvas ref={profileRef}
                 style={{ width: '100%', maxWidth: GRID_W, height: 'auto', display: 'block',
@@ -291,18 +395,19 @@ export default function VizPrimeDensityOnCausticPage() {
         Vertical streaks indicate heights t where many primes align simultaneously
         (caustic bands). Horizontal structure shows which primes (small vs large)
         are most resonant: the top rows (small primes, large log p) have wider
-        resonance windows at any t because their log p spacing is irregular and
-        denser; the bottom rows (large primes) form thinner arcs because their
-        log p values are more uniformly spread. The lower profile chart compares
-        the fraction of primes inside the caustic window to the PNT baseline
-        eps/pi; peaks above the dashed line mark genuine multiplicative resonances
-        (log(p_i/p_j) = 2pi*k/t for small k).
+        resonance windows at any t; the bottom rows (large primes) form thinner
+        arcs because their log p values are more uniformly spread. The lower
+        profile chart compares the fraction of primes inside the caustic window
+        to the PNT baseline eps/pi; peaks above the dashed line mark genuine
+        multiplicative resonances (log(p_i/p_j) = 2pi*k/t for small k). The
+        orange difference curve isolates the excess above the PNT baseline.
+        Use the mouse wheel to zoom into any interesting band; drag to pan.
         <br /><br />
         <strong style={{ color: '#94a3b8' }}>Honest scope:</strong> this is an
         exploratory geometric visualization. The caustic structure is real and
         arithmetic, but per the{' '}
         <Link to="/route-map" style={{ color: '#64748b' }}>route map</Link>{' '}
-        it does not provide a rigorous bound on Lambda beyond the known Λ &ge; 0.
+        it does not provide a rigorous bound on Lambda beyond the known &Lambda; &ge; 0.
       </div>
     </div>
   );

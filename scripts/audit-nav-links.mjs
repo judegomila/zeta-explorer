@@ -70,19 +70,28 @@ function* walkJsx(dir) {
 
 function extractPageLinks(src, filePath) {
   const links = [];
-  // to="..." (React Router Link / NavLink)
-  const toRe = /to="([^"]+)"/g;
+  const rel = path.relative(ROOT, filePath);
+  // to="..." (double-quoted React Router Link / NavLink)
+  const toDouble = /to="([^"]+)"/g;
   let m;
-  while ((m = toRe.exec(src)) !== null) {
+  while ((m = toDouble.exec(src)) !== null) {
     const link = m[1];
     if (link.startsWith('/') && !link.includes('#')) {
-      links.push({ link, file: path.relative(ROOT, filePath) });
+      links.push({ link, file: rel });
+    }
+  }
+  // to={'...'} or to={"..."} (JSX expression, single or double quoted)
+  const toJsx = /to=\{['"]([^'"]+)['"]\}/g;
+  while ((m = toJsx.exec(src)) !== null) {
+    const link = m[1];
+    if (link.startsWith('/') && !link.includes('#')) {
+      links.push({ link, file: rel });
     }
   }
   // href="#/..." (HashRouter-style internal anchors)
   const hrefRe = /href="#(\/[^"]+)"/g;
   while ((m = hrefRe.exec(src)) !== null) {
-    links.push({ link: m[1], file: path.relative(ROOT, filePath) });
+    links.push({ link: m[1], file: rel });
   }
   return links;
 }

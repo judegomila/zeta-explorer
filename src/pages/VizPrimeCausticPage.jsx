@@ -58,6 +58,7 @@ export default function VizPrimeCausticPage() {
   const [renderInfo, setRenderInfo] = useState({ ms: 0, maxVal: 0 });
   const [hoverInfo, setHoverInfo] = useState(null);
   const [showZeroOverlay, setShowZeroOverlay] = useState(true);
+  const [shufflePrimes, setShufflePrimes]     = useState(false);
 
   const handleMouseMove = useCallback((e) => {
     const canvas = canvasRef.current;
@@ -74,14 +75,14 @@ export default function VizPrimeCausticPage() {
     const sigma = sMin + (px / (W - 1)) * (sMax - sMin);
     const t = tMax - (py / (H - 1)) * (tMax - tMin);
     if (t < tMin || t > tMax || sigma < sMin || sigma > sMax) { setHoverInfo(null); return; }
-    const M = logPrimes.length;
+    const M = activeLogPrimes.length;
     let count = 0, amp = 0;
     for (let i = 0; i < M; i++) {
-      const r = wrap(t * logPrimes[i]);
-      if (Math.abs(r) < eps) { count++; amp += Math.exp(-sigma * logPrimes[i]); }
+      const r = wrap(t * activeLogPrimes[i]);
+      if (Math.abs(r) < eps) { count++; amp += Math.exp(-sigma * activeLogPrimes[i]); }
     }
     setHoverInfo({ clientX: e.clientX, clientY: e.clientY, sigma, t, count, amp });
-  }, [logPrimes, eps]);
+  }, [activeLogPrimes, eps]);
 
   const handleMouseLeave = useCallback(() => setHoverInfo(null), []);
 
@@ -90,6 +91,22 @@ export default function VizPrimeCausticPage() {
     const N = Math.min(nPrimes, D.primes.length);
     return D.logPrimes.slice(0, N);
   }, [nPrimes]);
+
+  // Shuffles log-spacings to destroy arithmetic phase structure while preserving
+  // the spacing distribution. Re-randomizes whenever the toggle flips or N changes.
+  const activeLogPrimes = useMemo(() => {
+    if (!shufflePrimes) return logPrimes;
+    const diffs = new Float64Array(logPrimes.length - 1);
+    for (let i = 0; i < diffs.length; i++) diffs[i] = logPrimes[i + 1] - logPrimes[i];
+    for (let i = diffs.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = diffs[i]; diffs[i] = diffs[j]; diffs[j] = tmp;
+    }
+    const out = new Float64Array(logPrimes.length);
+    out[0] = logPrimes[0];
+    for (let i = 1; i < out.length; i++) out[i] = out[i - 1] + diffs[i - 1];
+    return out;
+  }, [shufflePrimes, logPrimes]);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -105,7 +122,7 @@ export default function VizPrimeCausticPage() {
     const step = resolution;
     const sMin = D.bbox.sigmaMin, sMax = D.bbox.sigmaMax;
     const tMin = D.bbox.tMin,     tMax = D.bbox.tMax;
-    const M = logPrimes.length;
+    const M = activeLogPrimes.length;
 
     // Step 1: compute the row-only count once per scanline (sigma-independent).
     const rowCounts = new Uint16Array(H);
@@ -119,8 +136,8 @@ export default function VizPrimeCausticPage() {
       let c = 0;
       const tmp = new Float64Array(M);
       for (let i = 0; i < M; i++) {
-        const r = wrap(t * logPrimes[i]);
-        if (Math.abs(r) < eps) tmp[c++] = logPrimes[i];
+        const r = wrap(t * activeLogPrimes[i]);
+        if (Math.abs(r) < eps) tmp[c++] = activeLogPrimes[i];
       }
       coherentByRow[py] = tmp.slice(0, c);
       rowCounts[py] = c;
@@ -226,7 +243,7 @@ export default function VizPrimeCausticPage() {
     }
 
     setRenderInfo({ ms: +(performance.now() - t0).toFixed(1), maxVal: +maxVal.toFixed(2) });
-  }, [logPrimes, eps, mode, resolution, showZeroOverlay]);
+  }, [activeLogPrimes, eps, mode, resolution, showZeroOverlay]);
 
   useEffect(() => { draw(); }, [draw]);
 
@@ -310,7 +327,25 @@ export default function VizPrimeCausticPage() {
             <option value="off">off</option>
           </select>
         </div>
+        <div className="control-group">
+          <label>prime source</label>
+          <select value={shufflePrimes ? 'shuffled' : 'real'}
+                  onChange={e => setShufflePrimes(e.target.value === 'shuffled')}
+                  style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155',
+                           borderRadius: 4, padding: '4px 8px', fontFamily: mono, fontSize: 12 }}>
+            <option value="real">real primes</option>
+            <option value="shuffled">shuffled log-spacings</option>
+          </select>
+        </div>
       </div>
+      {shufflePrimes && (
+        <div style={{ marginTop: 8, padding: '6px 12px', background: 'rgba(234, 179, 8, 0.08)',
+                      border: '1px solid rgba(234, 179, 8, 0.35)', borderRadius: 6,
+                      fontSize: 11, color: '#fef08a', fontFamily: mono }}>
+          Structure is arithmetic, not random: shuffling the log(p) spacings erases the caustic bands.
+          The coherent pattern is a property of prime arithmetic, not of the spacing distribution alone.
+        </div>
+      )}
 
       <div style={{ marginTop: 16, background: 'var(--bg-panel)', border: '1px solid var(--border)',
                     borderRadius: 8, padding: 12, display: 'flex', justifyContent: 'center',

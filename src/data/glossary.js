@@ -357,6 +357,22 @@ export const glossary = [
     relatedTerms: ['phase', 'arg zeta', 'critical line', 'PCC-free'],
     link: '/vortex-field',
   },
+  {
+    term: 'Vortex Exclusion (RH-equivalent)',
+    category: 'proof-status',
+    definition:
+      'The statement that all phase-vortex centres of zeta(s) lie on the critical line sigma=1/2 ' +
+      'is equivalent to RH by the argument principle: every zero rho contributes a 2pi winding, ' +
+      'so an off-axis zero is an off-axis vortex and vice versa. ' +
+      'This equivalence re-derives Lambda >= 0 (Rodgers-Tao 2020) from the winding geometry, ' +
+      'but does NOT improve on the rigorous upper bound Lambda <= 0.2 (Platt-Trudgian). ' +
+      'Vortex exclusion is an RH-equivalent reformulation — a proof that all vortex centres ' +
+      'are on sigma=1/2 would unconditionally prove RH, but the exclusion argument itself ' +
+      'cannot be certified without discharging the same obstacles.',
+    firstUsed: 'imp-2677 (2026)',
+    relatedTerms: ['Vortex field', 'RH-equivalent', 'PCC-free', 'de Bruijn-Newman Constant Λ'],
+    link: '/vortex-field',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

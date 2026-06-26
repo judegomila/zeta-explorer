@@ -145,6 +145,27 @@ export const HOLDER_EXPONENT_SHARPNESS = (() => {
   // (5) Density-to-CDF exponent law: density ~ |x|^{-beta} => increment ~ |x|^{1-beta}.
   const cdfExponentFromLaw = 1 - CUSP_DENSITY_EXPONENT; // = 0.5
 
+  // (6) imp-2988 -- PARTIAL closure of subgap-tau-c-saturating-family at the
+  // continuum (limiting shock-measure / CDF) level. Exhibit the EXPLICIT sequence
+  // gamma_n = -1/n^2 -> gamma_star. Each member realizes the Holder-1/2 modulus
+  // with EQUALITY (the constant is exactly 1, not merely bounded near 1):
+  //   |F(gamma_n) - F(0)| = sqrt(1/n^2) = 1/n = |gamma_n - gamma_star|^{1/2},
+  // so R_{1/2}(gamma_n) == 1 for every n. This is the rigorous lower-bound (worst-
+  // case-attaining) half of the saturating-family question -- a concrete family
+  // meeting the modulus with matching constant -- at the level of the limiting
+  // measure. What stays OPEN is the LIFT to N-particle empirical configurations
+  // mu_N with an N-uniform matching constant (RH-hard microscopic gap stability,
+  // imp-2640 / imp-2672); the sub-gap therefore remains named, now narrowed to
+  // exactly that lift rather than the full continuum+discrete statement.
+  const SATURATING_NS = [1, 2, 4, 8, 16, 64, 256, 1024];
+  const continuumSaturatingFamily = SATURATING_NS.map((n) => {
+    const gamma = -1 / (n * n);
+    return { n, gamma, holderRatioAtHalf: holderRatio(gamma, 0.5) };
+  });
+  const familyRealizesEquality = continuumSaturatingFamily.every(
+    (m) => m.holderRatioAtHalf !== null && Math.abs(m.holderRatioAtHalf - 1) < 1e-9,
+  );
+
   return {
     ticket: 'imp-2855',
     claim:
@@ -178,9 +199,18 @@ export const HOLDER_EXPONENT_SHARPNESS = (() => {
     halfStaysBounded,
     sixTenthsDiverges,
     lipschitzDiverges,
+    continuumSaturatingFamily,
+    familyRealizesEquality,
     rigorousBeat: false,
     chDischarged: false,
     openSubGap: 'subgap-tau-c-saturating-family',
+    subGapPartialClosure:
+      'imp-2988: the saturating family is now CLOSED at the continuum (limiting ' +
+      'shock-measure / CDF) level -- the explicit sequence gamma_n = -1/n^2 meets the ' +
+      'Holder-1/2 modulus with EQUALITY (constant exactly 1) at every member. The ' +
+      'residual open part is strictly the N-particle lift: empirical configurations ' +
+      'mu_N with an N-uniform matching constant (RH-hard microscopic gap stability, ' +
+      'imp-2640 / imp-2672). No beat, no C_H discharge.',
     groundsImp2640:
       'The cusp CDF has no Lipschitz constant (R_1 ~ (-gamma)^{-1/2} -> infinity), ' +
       'the analytic shadow of int_0^{t_c} 2/g(t)^2 dt -> infinity. Hence the only ' +
@@ -269,5 +299,44 @@ export const HOLDER_EXPONENT_SHARPNESS_ASSERTIONS = [
       'density-to-CDF law 1 - beta with beta = 1/2 gives 1/2. Improving to alpha > 1/2 ' +
       'would require a milder cusp (beta < 1/2), contradicting the established ' +
       'inverse-square-root density. The honest open sub-gap stays named.',
+  },
+  {
+    id: 'imp2988-continuum-saturating-family-realizes-equality',
+    holds: () => {
+      const r = HOLDER_EXPONENT_SHARPNESS;
+      const fam = r.continuumSaturatingFamily;
+      // imp-2988 partial closure: the explicit sequence gamma_n = -1/n^2 meets the
+      // Holder-1/2 modulus with EQUALITY (ratio identically 1) at every member -- a
+      // rigorous saturating family at the continuum (CDF / limiting-measure) level.
+      return (
+        Array.isArray(fam) &&
+        fam.length >= 4 &&
+        r.familyRealizesEquality === true &&
+        fam.every(
+          (m) =>
+            m.holderRatioAtHalf !== null &&
+            Number.isFinite(m.holderRatioAtHalf) &&
+            Math.abs(m.holderRatioAtHalf - 1) < 1e-9 &&
+            m.gamma < 0,
+        ) &&
+        // Strictly approaching the shock so the family is genuinely a sequence.
+        fam[fam.length - 1].gamma > fam[0].gamma &&
+        // Sub-gap stays honestly named (only the N-particle lift remains open) and
+        // no beat / no C_H discharge is claimed.
+        r.openSubGap === 'subgap-tau-c-saturating-family' &&
+        typeof r.subGapPartialClosure === 'string' &&
+        /N-particle lift/.test(r.subGapPartialClosure) &&
+        r.rigorousBeat === false &&
+        r.chDischarged === false
+      );
+    },
+    why:
+      'imp-2988: closes the saturating-family sub-gap at the continuum (limiting ' +
+      'shock-measure / CDF) level by exhibiting gamma_n = -1/n^2, which realizes the ' +
+      'Holder-1/2 modulus with EQUALITY (constant exactly 1) -- the rigorous worst-case- ' +
+      'attaining half of the question. Locks that the residual is strictly the ' +
+      'N-particle lift with N-uniform constant (RH-hard, imp-2640 / imp-2672); blocks ' +
+      'any edit from over-claiming a full discrete saturating family, a beat, or a C_H ' +
+      'discharge.',
   },
 ];

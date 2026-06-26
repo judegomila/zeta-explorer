@@ -195,7 +195,10 @@ function DagGraph({ nodes, layer, critSet, frontierSet }) {
 
 export default function RhDagPage() {
   const nodes = RH_DAG_NODES;
-  const [targetId, setTargetId] = useState('imp-356');
+  const [targetId, setTargetId] = useState(() => {
+    const first = nodes.find((n) => n.status !== 'completed');
+    return first ? first.id : nodes[0]?.id || 'imp-356';
+  });
   const layer = useMemo(() => topoLayers(nodes), [nodes]);
   const frontier = useMemo(() => RH_DAG.unblockedFrontier(), []);
   const critPath = useMemo(() => RH_DAG.criticalPathTo(targetId), [targetId]);
@@ -322,6 +325,14 @@ export default function RhDagPage() {
           </span>
         )}
       </div>
+
+      {/* ── Completed-target warning ──────────────────────────────── */}
+      {targetNode?.status === 'completed' && (
+        <div style={{ marginBottom: 16, padding: '8px 14px', background: '#22c55e11', borderRadius: 6, border: '1px solid #22c55e44', fontSize: 11, color: '#86efac' }}>
+          {targetId} is already completed. Switch the target above to a live pending node, or view{' '}
+          <Link to="/improvement-queue" style={{ color: '#22c55e' }}>all frontier tickets</Link>.
+        </div>
+      )}
 
       {/* ── Frontier schedule (future fanout rounds) ──────────────── */}
       <h2 style={{ marginBottom: 12 }}>Parallel schedule to {targetId}</h2>

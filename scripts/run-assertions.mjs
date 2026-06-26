@@ -1560,6 +1560,17 @@ const DATA_MODULES = [
   // beta g^2 ~ (pi^2/3)(g/l)^2 -> 0, margin grows. sup_s upgrade conditional on
   // the named punctured-min-gap residual (h(s) >= c g). 5 tripwires.
   '/src/data/imp-2683-sandwich-beta-field-bound.js',
+  // imp-2849: SUFFICIENCY side of beta. Writes the sandwich bracket as a
+  // function of beta at the verified gap g_min(1e4)=0.0376985 and marks which
+  // beta make the conditional upper bound T_+ BEAT the unconditional A1 trap
+  // t_c <= g^2/6. With x=beta g^2, T_+ < A1 iff F(x)=log(2/(2-x))-2x/3 < 0, whose
+  // nontrivial root is x*=0.90879 -- so the sandwich beats A1 iff beta g^2 < x*
+  // (beta < 639.46 at g_min(1e4)), STRICTLY inside the existence gate beta g^2<2
+  // (beta<1407). A beta in (639,1407) keeps the bracket well-defined but looser
+  // than the free A1; its only asset there is the lower bound T_-. RvM density
+  // beta over heights [100,1e4] gives beta g^2 ~ 6e-3 << x* (beats A1 on the
+  // MODEL), but stays CONDITIONAL on the punctured-min-gap residual. 4 tripwires.
+  '/src/data/imp-mingap-beta-bound.js',
   // imp-2690: verifies coefficient 8 (sharp; B=0 pure 2-particle => du/ds=-8
   // exact, t_c=g^2/8) and reconciles imp-366 "-8+O(g_min)" with imp-2563 exact
   // "-8+4 B u". The adjacent-gap background drift telescopes to 2 r B, so the
@@ -1693,6 +1704,10 @@ const DATA_MODULES = [
   // finite-N*=1e4 beat DAG node re-acquires a rigorous-unconditional framing
   // with an empty conditional closure, contradicting the route-map ESTIMATE/C_H verdict.
   '/src/data/imp-2750-dag-routemap-status-consistency.js',
+  // imp-2857: cond-polymath15-G6a EQUALS cond-CH — proves the two conditional
+  // leaves are the SAME imp-366 Holder-1/2 shock modulus C_H (asymptotic bridge
+  // and finite-N* E_coll funnel through one object, not two independent paths).
+  '/src/data/imp-g6a-equals-CH.js',
   // imp-2784: v52 dashboard finite-beat wording tripwire — fails if RHProofState
   // or Rigor dashboard pages call the finite-N*=1e4 beat rigorous/unconditional
   // without a downgrade qualifier, contradicting the route-map ESTIMATE/C_H label.

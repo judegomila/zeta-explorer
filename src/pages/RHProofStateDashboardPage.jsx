@@ -7,7 +7,7 @@ import { IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE } from '../data/imp-2641-c-selberg
 import { IMP2644_EFLOW_GRONWALL_CG_DISCHARGE } from '../data/imp-2644-eflow-gronwall-cg-discharge.js';
 import { MAXFANOUT_STATUS } from '../data/maxfanout-honest-status-2026-06-17.js';
 import { STRATEGIC_REFRAME } from '../data/strategic-reframe-pcc-free-volterra-2026-06-17.js';
-import { SECTION27_REFUTATION, THE_REAL_GAP } from '../data/section27-identity-refutation-2026-06-17.js';
+import { SECTION27_REFUTATION } from '../data/section27-identity-refutation-2026-06-17.js';
 import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-reduction-2026-06-18.js';
 import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
@@ -196,73 +196,6 @@ export default function RHProofStateDashboardPage() {
           <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>§15-27 collapse target</div>
         </div>
       </div>
-
-      {/* Transparency ledger: the 6 caught overclaims + honest gap-map (imp-2669) */}
-      <Section title="Honest Status: Transparency Ledger & Gap-Map" borderColor="#ef4444">
-        <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
-          The verification discipline IS the asset. This session caught{' '}
-          <strong style={{ color: '#ef4444' }}>six overclaims</strong> and re-mapped the two
-          live routes honestly. Bottom line: <strong style={{ color: '#10b981' }}>Platt–Trudgian
-          Λ ≤ 0.2 remains the rigorous SOTA</strong> — no false QED.
-        </p>
-
-        {/* The six caught overclaims */}
-        <div style={{ fontSize: 11, color: '#64748b', marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
-          SIX CAUGHT OVERCLAIMS (each independently re-verified, then retracted)
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 20 }}>
-          {CAUGHT_OVERCLAIMS.map((oc, i) => (
-            <div key={i} style={{
-              display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6,
-              background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)',
-              alignItems: 'flex-start',
-            }}>
-              <div style={{
-                flexShrink: 0, width: 22, height: 22, borderRadius: '50%',
-                background: 'rgba(239,68,68,0.18)', color: '#ef4444',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono)',
-              }}>{i + 1}</div>
-              <div style={{ minWidth: 0 }}>
-                <div style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 600, marginBottom: 2 }}>{oc.tag}</div>
-                <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>{oc.correction}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Honest gap-map */}
-        <div style={{ fontSize: 11, color: '#64748b', marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
-          HONEST GAP-MAP — where each route actually stands
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
-          <div style={{ padding: 12, borderRadius: 8, background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.3)' }}>
-            <div style={{ fontSize: 11, color: '#10b981', fontWeight: 700, marginBottom: 4, fontFamily: 'var(--font-mono)' }}>RIGOROUS SOTA</div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: '#e2e8f0', marginBottom: 4 }}>Λ ≤ 0.2</div>
-            <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>{MAXFANOUT_STATUS.rigorousSOTA}</div>
-          </div>
-          <div style={{ padding: 12, borderRadius: 8, background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.3)' }}>
-            <div style={{ fontSize: 11, color: '#f59e0b', fontWeight: 700, marginBottom: 4, fontFamily: 'var(--font-mono)' }}>NUMERICAL ESTIMATE (not rigorous)</div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: '#e2e8f0', marginBottom: 4 }}>finite-N* = 10⁴ beat</div>
-            <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>{MAXFANOUT_STATUS.finiteNbeat}</div>
-          </div>
-          <div style={{ padding: 12, borderRadius: 8, background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.3)' }}>
-            <div style={{ fontSize: 11, color: '#3b82f6', fontWeight: 700, marginBottom: 4, fontFamily: 'var(--font-mono)' }}>VOLTERRA — PCC-FREE, collapse refuted</div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: '#e2e8f0', marginBottom: 4 }}>Conj 27.2</div>
-            <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>
-              {STRATEGIC_REFRAME.finding} {SECTION27_REFUTATION.collapseConsequence}
-            </div>
-          </div>
-        </div>
-
-        {/* The real gap */}
-        <div style={{ marginTop: 12, padding: 12, background: 'rgba(139,92,246,0.08)', borderRadius: 8, border: '1px solid rgba(139,92,246,0.3)' }}>
-          <div style={{ fontSize: 11, color: '#8b5cf6', fontWeight: 700, marginBottom: 6, fontFamily: 'var(--font-mono)' }}>
-            THE REAL GAP (§26 Conj 26.3 renormalization) — {THE_REAL_GAP.status}
-          </div>
-          <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.6 }}>{THE_REAL_GAP.statement}</div>
-        </div>
-      </Section>
 
       {/* Proof Paths Section */}
       <Section title="Five Attack Paths" borderColor="#8b5cf6">

@@ -296,6 +296,129 @@ function RmsResidual() {
   );
 }
 
+// ── Panel D: sigma=1/2 counting-function comparison (interactive). ─────
+
+function CountingFunctionDemo() {
+  const zeros = BERRY_KEATING_XP.riemannZerosFirstK;
+  const E_CHART_MIN = zeros[0] - 2;
+  const E_CHART_MAX = zeros[zeros.length - 1] + 2;
+  const [eVal, setEVal] = React.useState(Math.round((E_CHART_MIN + E_CHART_MAX) / 2));
+
+  function nSmooth(E) {
+    if (E < 2) return 0;
+    const t = E / (2 * Math.PI);
+    if (t <= 0) return 0;
+    return Math.max(0, t * (Math.log(t) - 1) + 7 / 8);
+  }
+
+  function nActual(E) {
+    let count = 0;
+    for (const z of zeros) if (z <= E) count++;
+    return count;
+  }
+
+  const ns = nSmooth(eVal);
+  const na = nActual(eVal);
+  const residual = na - ns;
+
+  const N_SAMP = 100;
+  const pts = [];
+  for (let i = 0; i <= N_SAMP; i++) {
+    const E = E_CHART_MIN + (E_CHART_MAX - E_CHART_MIN) * i / N_SAMP;
+    pts.push({ E, smooth: nSmooth(E), actual: nActual(E) });
+  }
+
+  let maxN = 1;
+  for (const p of pts) {
+    if (p.smooth > maxN) maxN = p.smooth;
+    if (p.actual > maxN) maxN = p.actual;
+  }
+  maxN = Math.ceil(maxN) + 2;
+
+  const xS = linearScale(E_CHART_MIN, E_CHART_MAX, 0, IW);
+  const yS = linearScale(0, maxN, IH, 0);
+
+  const smoothPath = pts.map((p, i) =>
+    (i === 0 ? 'M' : 'L') + xS(p.E).toFixed(2) + ' ' + yS(p.smooth).toFixed(2)
+  ).join(' ');
+  const actualPath = pts.map((p, i) =>
+    (i === 0 ? 'M' : 'L') + xS(p.E).toFixed(2) + ' ' + yS(p.actual).toFixed(2)
+  ).join(' ');
+
+  const xCur = xS(eVal);
+  const eTicks = [20, 30, 40, 50, 60, 70, 80, 90, 100].filter(
+    (t) => t >= Math.ceil(E_CHART_MIN) && t <= Math.floor(E_CHART_MAX)
+  );
+  const nTicks = [];
+  for (let t = 0; t <= maxN; t += 5) nTicks.push(t);
+
+  return (
+    <div>
+      <svg width={PANEL_W} height={PANEL_H} role="img" aria-label="counting function N(E) comparison">
+        <g transform={'translate(' + PAD.left + ',' + PAD.top + ')'}>
+          <rect x={0} y={0} width={IW} height={IH} fill="rgba(15, 23, 42, 0.55)" stroke="#1e293b" />
+          {nTicks.map((t) => (
+            <g key={'yt-' + t}>
+              <line x1={0} y1={yS(t)} x2={IW} y2={yS(t)} stroke="#1e293b" strokeWidth={0.5} />
+              <text x={-6} y={yS(t) + 3} textAnchor="end" style={tickStyle}>{t}</text>
+            </g>
+          ))}
+          {eTicks.map((t) => (
+            <g key={'xt-' + t}>
+              <line x1={xS(t)} y1={IH} x2={xS(t)} y2={IH + 3} stroke="#64748b" />
+              <text x={xS(t)} y={IH + 14} textAnchor="middle" style={tickStyle}>{t}</text>
+            </g>
+          ))}
+          <path d={smoothPath} fill="none" stroke="#60a5fa" strokeWidth={2} />
+          <path d={actualPath} fill="none" stroke="#22c55e" strokeWidth={1.5} />
+          <line x1={xCur} y1={0} x2={xCur} y2={IH} stroke="#facc15" strokeWidth={1} strokeDasharray="3,2" />
+          <text x={IW / 2} y={IH + 30} textAnchor="middle" style={labelStyle}>E (imaginary part)</text>
+          <text x={-IH / 2} y={-36} textAnchor="middle" transform={'rotate(-90)'} style={labelStyle}>N(E)</text>
+          <text x={IW / 2} y={-10} textAnchor="middle" style={{ ...labelStyle, fill: '#cbd5e1', fontWeight: 700 }}>
+            sigma = 1/2 counting function
+          </text>
+          <line x1={6} y1={16} x2={26} y2={16} stroke="#60a5fa" strokeWidth={2} />
+          <text x={30} y={19} style={{ ...labelStyle, fill: '#60a5fa' }}>N_smooth</text>
+          <line x1={6} y1={30} x2={26} y2={30} stroke="#22c55e" strokeWidth={1.5} />
+          <text x={30} y={33} style={{ ...labelStyle, fill: '#22c55e' }}>N_actual</text>
+        </g>
+      </svg>
+      <div style={{ marginTop: 10, fontFamily: 'var(--font-mono, monospace)', fontSize: 12 }}>
+        <label style={{ color: '#94a3b8' }}>
+          {'E = '}
+          <strong style={{ color: '#facc15' }}>{eVal.toFixed(1)}</strong>
+          <input
+            type="range"
+            min={Math.ceil(E_CHART_MIN)}
+            max={Math.floor(E_CHART_MAX)}
+            step={1}
+            value={eVal}
+            onChange={(ev) => setEVal(parseFloat(ev.target.value))}
+            style={{ marginLeft: 10, verticalAlign: 'middle', width: 200 }}
+          />
+        </label>
+        <div style={{ marginTop: 8, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+          <div style={{ padding: '6px 8px', background: 'rgba(96, 165, 250, 0.1)', border: '1px solid rgba(96, 165, 250, 0.3)', borderRadius: 4 }}>
+            <div style={{ color: '#60a5fa', fontSize: 10 }}>N_smooth(E)</div>
+            <div style={{ color: '#e2e8f0', fontSize: 14, fontWeight: 700 }}>{ns.toFixed(3)}</div>
+            <div style={{ color: '#64748b', fontSize: 9, marginTop: 2 }}>(E/2pi)(ln(E/2pi)-1)+7/8</div>
+          </div>
+          <div style={{ padding: '6px 8px', background: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.3)', borderRadius: 4 }}>
+            <div style={{ color: '#22c55e', fontSize: 10 }}>N_actual(E)</div>
+            <div style={{ color: '#e2e8f0', fontSize: 14, fontWeight: 700 }}>{na}</div>
+            <div style={{ color: '#64748b', fontSize: 9, marginTop: 2 }}>counted from Odlyzko data</div>
+          </div>
+          <div style={{ padding: '6px 8px', background: 'rgba(250, 204, 21, 0.1)', border: '1px solid rgba(250, 204, 21, 0.3)', borderRadius: 4 }}>
+            <div style={{ color: '#facc15', fontSize: 10 }}>residual S(E)</div>
+            <div style={{ color: '#e2e8f0', fontSize: 14, fontWeight: 700 }}>{(residual >= 0 ? '+' : '') + residual.toFixed(3)}</div>
+            <div style={{ color: '#64748b', fontSize: 9, marginTop: 2 }}>N_actual - N_smooth</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Page shell. ────────────────────────────────────────────────────────
 
 export default function BerryKeatingXpPage() {
@@ -410,6 +533,38 @@ export default function BerryKeatingXpPage() {
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div style={{ marginTop: 28, ...sectionStyle }}>
+        <h2 style={h2Style}>sigma = 1/2 counting-function comparison (interactive)</h2>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.6, marginTop: 0, marginBottom: 16 }}>
+          The semiclassical smooth counting formula N_smooth(E) = (E/2pi)(ln(E/2pi)-1)+7/8
+          assumes all nontrivial zeros lie on sigma = 1/2. It captures the average growth
+          rate but misses the oscillating residual S(E) = N_actual - N_smooth, which encodes
+          prime-number fluctuations. The Berry-Keating xp operator only reproduces N_smooth;
+          the oscillating part is the unresolved gap (see{' '}
+          <Link to="/gap-closing" style={{ color: '#a855f7' }}>/gap-closing</Link>).
+        </p>
+        <div style={{ maxWidth: PANEL_W + 60 }}>
+          <CountingFunctionDemo />
+        </div>
+        <div style={{
+          marginTop: 12,
+          padding: 10,
+          background: 'rgba(239, 68, 68, 0.06)',
+          border: '1px solid rgba(239, 68, 68, 0.25)',
+          borderRadius: 6,
+          color: '#fca5a5',
+          fontSize: 11,
+          fontFamily: 'var(--font-mono, monospace)',
+          lineHeight: 1.5,
+        }}>
+          The sigma = 1/2 input: the smooth formula is derived under the assumption that zeros
+          are on the critical line. This is self-referential -- it assumes RH to count the zeros.
+          The Berry-Keating conjecture suggests the xp Hamiltonian explains WHY sigma = 1/2,
+          but as shown above the naive truncated operator does not reproduce the zero ordinates.
+          N_smooth is an output of RH-assumed asymptotics, not a proof of it.
+        </div>
       </div>
 
       <div style={{ marginTop: 28, ...sectionStyle }}>

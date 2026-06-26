@@ -678,6 +678,14 @@ const CONCEPTS = [
     formula: 'S \\Longleftrightarrow \\text{RH}, \\quad \\text{e.g., } \\lambda_n \\geq 0 \\;\\forall n,\\; \\|V\\|_{op} \\leq 1,\\; W(g) \\geq 0',
     intuition: "Different faces of the same crystal. Each RH-equivalent statement is a new attack surface. The ZPO program contributes several new equivalences through the oscillator-chain collapse theorems.",
   },
+  {
+    id: 'pcc-free',
+    category: 'proof',
+    term: 'PCC-Free Route',
+    definition: "A proof strategy is PCC-free if it avoids assuming the Montgomery Pair-Correlation Conjecture (PCC). Of the 13 primary ZPO paper conjectures, 5 are SUBSUMED-BY-RH through a shared Montgomery PCC obstruction across all live ESY-closure routes — meaning any route through these conjectures implicitly depends on PCC. A PCC-free route navigates around this obstruction without invoking pair-correlation statistics. See /route-map and /pcc-route-exhaustion.",
+    formula: '\\text{PCC: } \\int_\\alpha^\\beta \\!\\left(1 - \\tfrac{\\sin^2(\\pi u)}{(\\pi u)^2}\\right)du \\;\\Longleftrightarrow\\; \\text{GUE statistics for zeros}',
+    intuition: "PCC-free does NOT mean RH-free: the Riemann Hypothesis is still the target. It only means the proof route does not secretly lean on unproven pair-correlation statistics. Five ZPO routes share a single PCC wall — a PCC-free route must find a path that avoids this shared obstruction entirely.",
+  },
 ];
 
 export default function ConceptsPage() {

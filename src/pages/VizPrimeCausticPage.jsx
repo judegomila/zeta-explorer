@@ -19,6 +19,11 @@ const D = VIZ_PRIME_CAUSTIC;
 const TWO_PI = 2 * Math.PI;
 const mono = 'var(--font-mono)';
 
+// Imaginary parts of the first 10 nontrivial zeros of zeta(s).
+// At these t values the explicit-formula x^rho kernel e^{i*gamma*log x}
+// produces destructive interference across primes, so the caustic is dark.
+const ZERO_HEIGHTS = [14.134, 21.022, 25.011, 30.425, 32.935, 37.586, 40.919, 43.327, 48.005, 49.774];
+
 // 256-entry viridis-like colormap as a flat Uint8Array (R, G, B per entry).
 // Pre-computed once at module load.
 const COLORMAP = (() => {
@@ -52,6 +57,7 @@ export default function VizPrimeCausticPage() {
   const [resolution, setRes]  = useState(1);                // 1=full 300x300, 2=half, 4=coarse
   const [renderInfo, setRenderInfo] = useState({ ms: 0, maxVal: 0 });
   const [hoverInfo, setHoverInfo] = useState(null);
+  const [showZeroOverlay, setShowZeroOverlay] = useState(true);
 
   const handleMouseMove = useCallback((e) => {
     const canvas = canvasRef.current;
@@ -198,8 +204,29 @@ export default function VizPrimeCausticPage() {
     ctx.fillText('t = ' + tMax.toFixed(0), 4, 14);
     ctx.fillText('t = ' + tMin.toFixed(0), 4, H - 22);
 
+    // Overlay horizontal lines at each nontrivial zero height gamma_n.
+    // At t = gamma_n the explicit-formula kernel x^rho = x^{1/2}*e^{i*gamma_n*log x}
+    // interferes destructively, making the caustic locally dark.
+    if (showZeroOverlay) {
+      ctx.strokeStyle = 'rgba(251, 146, 60, 0.60)';
+      ctx.setLineDash([3, 5]);
+      ctx.lineWidth = 1;
+      ctx.font = '9px "JetBrains Mono", monospace';
+      ctx.fillStyle = 'rgba(251, 146, 60, 0.85)';
+      ZERO_HEIGHTS.forEach((gamma, idx) => {
+        if (gamma < tMin || gamma > tMax) return;
+        const py = Math.round(((tMax - gamma) / (tMax - tMin)) * (H - 1));
+        ctx.beginPath();
+        ctx.moveTo(0, py); ctx.lineTo(W, py);
+        ctx.stroke();
+        ctx.textAlign = 'right';
+        ctx.fillText('γ' + (idx + 1), W - 4, py - 2);
+      });
+      ctx.setLineDash([]);
+    }
+
     setRenderInfo({ ms: +(performance.now() - t0).toFixed(1), maxVal: +maxVal.toFixed(2) });
-  }, [logPrimes, eps, mode, resolution]);
+  }, [logPrimes, eps, mode, resolution, showZeroOverlay]);
 
   useEffect(() => { draw(); }, [draw]);
 
@@ -271,6 +298,16 @@ export default function VizPrimeCausticPage() {
                            borderRadius: 4, padding: '4px 8px', fontFamily: mono, fontSize: 12 }}>
             <option value="amplitude">amplitude (sigma-weighted)</option>
             <option value="count">count (sigma-independent)</option>
+          </select>
+        </div>
+        <div className="control-group">
+          <label>γ_n overlay</label>
+          <select value={showZeroOverlay ? 'on' : 'off'}
+                  onChange={e => setShowZeroOverlay(e.target.value === 'on')}
+                  style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155',
+                           borderRadius: 4, padding: '4px 8px', fontFamily: mono, fontSize: 12 }}>
+            <option value="on">on (explicit-formula zeros)</option>
+            <option value="off">off</option>
           </select>
         </div>
       </div>
@@ -352,6 +389,16 @@ export default function VizPrimeCausticPage() {
         contrast leftward. Count mode is sigma-independent. The render uses a single
         putImageData of a {D.bbox.gridW} x {D.bbox.gridH} buffer -- no per-pixel
         fillRect calls.
+      </div>
+
+      <div className="card" style={{ marginTop: 14, padding: 14, borderLeft: '3px solid rgba(251, 146, 60, 0.6)' }}>
+        <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--text-muted)',
+                      letterSpacing: 0.5, marginBottom: 8 }}>
+          Connection: x^ρ explicit-formula kernel
+        </div>
+        <div style={{ fontSize: 12, lineHeight: 1.7, color: '#cbd5e1', fontFamily: mono }}>
+          {"The Riemann explicit formula writes ψ(x) = x − Σ_ρ x^ρ/ρ − log(2π) + …  where the sum runs over nontrivial zeros ρ = 1/2 + iγ_n.  Each term x^ρ = x^{1/2} · e^{iγ_n · log x} is an oscillation at frequency γ_n in log x.  In the (sigma, t) plane the same kernel appears as the Euler-product phase e^{it · log p} = p^{it}: the caustic is bright when many primes' phases align (coherent sum ≫ 1) and dark when they cancel.  The orange lines mark t = γ_n — at these heights the full Riemann zeta sum goes to zero precisely because phase alignment collapses to destructive interference, so the caustic dips.  Turning off the zero overlay and comparing the dark horizontal bands to the orange lines confirms the connection."}
+        </div>
       </div>
 
       <VizCeilingNote

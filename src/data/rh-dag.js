@@ -28,8 +28,8 @@
  *
  *   dag-no-missing-deps   — every dependsOn edge resolves to a known node
  *   dag-no-cycles         — Kahn topo-sort visits all N nodes (acyclicity check)
- *   dag-target-exists     — imp-356 (SOTA assembly capstone) must be present
- *   dag-frontier-nonempty-while-target-pending — while imp-356 is open,
+ *   dag-target-exists     — imp-376 (rigorous sub-gap closure capstone) must be present
+ *   dag-frontier-nonempty-while-target-pending — while imp-376 is open,
  *       at least one unblocked ticket exists to make progress
  *
  * ## Tickets that created / modified this file
@@ -507,6 +507,19 @@ export const RH_DAG_NODES = [
     dependsOn: ['imp-354', 'imp-345'],
     claim: 'Full rigorous closure of G6a_shock_lipschitz.',
   },
+
+  // ─── New capstone: replaces completed imp-356 ───
+
+  {
+    id: 'imp-376',
+    title: 'Rigorous C_H Holder-1/2 shock modulus => rigorous finite E(N) beat',
+    status: 'pending',
+    complexity: 'research',
+    category: 'proof',
+    dependsOn: ['imp-354', 'imp-355', 'imp-361', 'imp-363', 'imp-366', 'imp-370', 'imp-371', 'imp-372', 'imp-373'],
+    claim: 'All remaining pending proof sub-gaps closed: interval cert for N=1e4 T0 enclosure, Kahan precision, local-law rate, two independent Lambda remeasurements, and G6a/G3a closure.',
+    notes: 'New capstone replacing imp-356 (completed). Routes 6 orphaned pending tickets (imp-361, imp-363, imp-370, imp-371, imp-372, imp-373) plus G6a/G3a partials (imp-354, imp-355, imp-366) to a live pending target.',
+  },
 ];
 
 // ── PERT triangular distributions (/btw stochastic upgrade recommendation) ─
@@ -634,7 +647,7 @@ export function unblockedFrontier() {
  * estimated complexity (i.e. the slowest step is the critical path by
  * CPM convention), then break ties by imp-NNN order.
  */
-export function criticalPathTo(targetId = 'imp-356') {
+export function criticalPathTo(targetId = 'imp-376') {
   const target = NODE_BY_ID[targetId];
   if (!target) return [];
 
@@ -691,7 +704,7 @@ export function criticalPathTo(targetId = 'imp-356') {
  * Returns all unblocked parallel frontiers in sequence — at each step, every
  * pending node whose deps are all closed. Useful for planning a fanout.
  */
-export function frontierSchedule(targetId = 'imp-356', maxRounds = 8) {
+export function frontierSchedule(targetId = 'imp-376', maxRounds = 8) {
   const target = NODE_BY_ID[targetId];
   if (!target) return [];
   const ancestorsPending = new Set();
@@ -733,7 +746,7 @@ export function frontierSchedule(targetId = 'imp-356', maxRounds = 8) {
  * chain of dependencies whose total expected duration dominates all
  * alternatives. Sibling branches run in parallel and the max wins.
  */
-export function longestPathExpectedRounds(targetId = 'imp-356') {
+export function longestPathExpectedRounds(targetId = 'imp-376') {
   const target = NODE_BY_ID[targetId];
   if (!target) return { path: [], sumExpected: 0 };
 
@@ -796,7 +809,7 @@ export function longestPathExpectedRounds(targetId = 'imp-356') {
  * @deprecated — use longestPathExpectedRounds. criticalPathTo is kept for
  * the sequential "work next" listing; it over-counts for ETA purposes.
  */
-export function criticalPathExpectedRounds(targetId = 'imp-356') {
+export function criticalPathExpectedRounds(targetId = 'imp-376') {
   const path = criticalPathTo(targetId);
   let sum = 0;
   for (const id of path) {
@@ -820,7 +833,7 @@ export function criticalPathExpectedRounds(targetId = 'imp-356') {
  * is the dominant cost and the project needs to either reduce research-
  * grade ticket counts or increase parallelism.
  */
-export function expectedPathLength(targetId = 'imp-356', samples = 1000) {
+export function expectedPathLength(targetId = 'imp-376', samples = 1000) {
   const target = NODE_BY_ID[targetId];
   if (!target) return null;
 
@@ -897,7 +910,7 @@ export function expectedPathLength(targetId = 'imp-356', samples = 1000) {
 
 export const RH_DAG = {
   id: 'rh-dag',
-  target: 'imp-356',
+  target: 'imp-376',
   nodes: RH_DAG_NODES,
   nodeCount: RH_DAG_NODES.length,
   closedCount: RH_DAG_NODES.filter((n) => isClosedForDependents(n)).length,
@@ -953,20 +966,20 @@ export const RH_DAG_ASSERTIONS = [
   },
   {
     id: 'dag-target-exists',
-    holds: () => !!NODE_BY_ID['imp-356'],
+    holds: () => !!NODE_BY_ID['imp-376'],
     why:
-      'The target of the critical path (imp-356 SOTA assembly) must exist ' +
+      'The target of the critical path (imp-376 rigorous sub-gap closure capstone) must exist ' +
       'in the DAG.',
   },
   {
     id: 'dag-frontier-nonempty-while-target-pending',
     holds: () => {
-      const target = NODE_BY_ID['imp-356'];
+      const target = NODE_BY_ID['imp-376'];
       if (!target || target.status !== 'pending') return true;
       return unblockedFrontier().length > 0;
     },
     why:
-      'As long as imp-356 is pending, there must be at least one unblocked ' +
+      'As long as imp-376 is pending, there must be at least one unblocked ' +
       'ticket to work on. A zero frontier with a pending target means ' +
       'progress is impossible — a hard alarm.',
   },

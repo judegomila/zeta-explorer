@@ -8,6 +8,7 @@ import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { RH_EQUIVALENTS } from '../data/rh-equivalents-reference.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
+import EquivalenceVsReductionCallout from '../components/EquivalenceVsReductionCallout.jsx';
 
 const mono = 'var(--font-mono)';
 
@@ -79,6 +80,8 @@ export default function RHEquivalentsPage() {
           Λ ≤ 0 unconditionally, which combined with Rodgers–Tao 2020 (Λ ≥ 0) yields RH.
         </p>
       </div>
+
+      <EquivalenceVsReductionCallout />
 
       {/* ─── Filter / sort bar ─── */}
       <div

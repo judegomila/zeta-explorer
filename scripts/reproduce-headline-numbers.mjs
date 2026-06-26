@@ -67,6 +67,13 @@ const FROZEN = {
   finiteBeat_estimate: 0.121,  // headline-numbers-registry finiteBeatEstimate (C_H-gated ESTIMATE)
   intercept_hist: 7.98e-4,     // headline-numbers-registry intercept7e4 (linear-1/N CONDITIONAL, historical)
   asymptotic_cond: 3.06e-5,    // headline-numbers-registry asymptoticConditional (modulo Polymath15 G6a)
+  // imp-2887: pin the N=10000 cache-row INPUTS (provenance floor). Checks 1+3
+  // recompute t_c FROM these two raw fields, so a silently-regenerated-but-wrong
+  // cache would still self-consistently 'reproduce' a matching number. Pinning the
+  // raw source row to its published literals distinguishes 'cache was regenerated'
+  // from 'arithmetic regressed'.
+  cache_dMin: 0.0376985,    // dyson-ladder-extended-cache N=10000 initialMinGap (published)
+  cache_tcMeas: 0.00017772, // dyson-ladder-extended-cache N=10000 measured Dyson t_c (published)
 };
 
 // imp-2876: published conditional-bound literal L_cond(1e6) ~ 0.00803 (imp-449
@@ -110,6 +117,17 @@ if (row10k.reason !== 'gap-nonpositive') {
 }
 const dMin = row10k.initialMinGap;
 const tcMeas = row10k.t_c;
+// ── imp-2887: cache-provenance floor (BEFORE recompute). Checks 1+3 derive t_c
+// from dMin/tcMeas, so a regenerated-but-wrong cache row would still reproduce a
+// self-consistent number and stay green. Pin the RAW source-row inputs to their
+// published literals here as an independent sanity floor; a drifted cache row now
+// fails loudly and is distinguished from an arithmetic regression.
+record('imp-2887 cache provenance: N=10K initialMinGap pinned to published literal',
+  dMin, FROZEN.cache_dMin, 1e-7,
+  'raw dyson-ladder-extended-cache.json N=10000 initialMinGap must equal published 0.0376985');
+record('imp-2887 cache provenance: N=10K measured t_c pinned to published literal',
+  tcMeas, FROZEN.cache_tcMeas, 1e-8,
+  'raw dyson-ladder-extended-cache.json N=10000 t_c must equal published 0.00017772');
 const tcPair = (dMin * dMin) / 8.0; // backward CM pair flow: |tau_c| = d_min^2 / 8
 const tcPairPublished = +tcPair.toPrecision(7); // same rounding the module publishes
 record('kernel-hack pair-ODE t_c = d_min^2/8 (N=10K)', tcPairPublished, FROZEN.pairODE_tc, TOL,

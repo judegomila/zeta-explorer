@@ -253,6 +253,11 @@ export default function CollapseChainPage() {
     <div style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}>
       <HonestCeilingBanner variant="RH-EQUIVALENT" />
       <h1>{'The imp-1258 Collapse Chain: ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist'}</h1>
+      <p style={{ color: 'var(--text-secondary, #94a3b8)', fontSize: 14, maxWidth: 720, marginBottom: 16, lineHeight: 1.6 }}>
+        The entire §15-27 program (7+ named conjectures) is RH-equivalent to one operator-norm
+        statement: <strong>‖V&#x200B;_{'{'}a,Φ{'}'}</strong> &le; 1 for every a &gt; 0.
+        Interactive forward (7-step) and reverse (5-step) chains shown below.
+      </p>
 
       <div style={{ backgroundColor: '#fdecea', padding: '16px', borderRadius: '8px', marginBottom: '20px', border: '2px solid #d62728' }}>
         <p style={{ margin: '0 0 6px 0', fontSize: '15px', fontWeight: 'bold', color: '#a01818' }}>

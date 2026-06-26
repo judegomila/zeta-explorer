@@ -1854,6 +1854,9 @@ const DATA_MODULES = [
   // imp-2735: numerical tripwires for the caustic resonance condition asserted
   // in prose by VizCausticResonancePage (bright-band / resonance correspondence).
   '/src/data/viz-caustic-resonance-checks.js',
+  // imp-2751: denylist tripwire forbidding NEW load-bearing use of a REFUTED
+  // phantom citation (seed: Soundararajan-Tao 2024, imp-1331 wrong object).
+  '/src/data/phantom-citation-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

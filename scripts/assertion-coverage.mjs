@@ -1,15 +1,23 @@
 #!/usr/bin/env node
 // scripts/assertion-coverage.mjs
 // imp-2755: Coverage report — list every src/data module with ZERO assertions.
-// Usage: node scripts/assertion-coverage.mjs
-// Exit 0 always (diagnostic reporter, not a gate).
+// imp-2883: --gate mode fails on NEW zero-assertion modules (not in baseline).
+// Usage:
+//   node scripts/assertion-coverage.mjs               # diagnostic reporter, exit 0
+//   node scripts/assertion-coverage.mjs --gate        # exit 1 if new zero-assertion modules appear
+//   node scripts/assertion-coverage.mjs --save-baseline  # write current zero-assertion set as baseline
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_DIR  = path.resolve(__dirname, '../src/data');
+const __dirname   = path.dirname(fileURLToPath(import.meta.url));
+const DATA_DIR    = path.resolve(__dirname, '../src/data');
+const BASELINE_FILE = path.resolve(__dirname, 'assertion-coverage-baseline.json');
+
+const args = process.argv.slice(2);
+const gateMode         = args.includes('--gate');
+const saveBaselineMode = args.includes('--save-baseline');
 
 const allFiles = fs.readdirSync(DATA_DIR)
   .filter(f => f.endsWith('.js'))
@@ -41,5 +49,40 @@ if (withoutAssertions.length === 0) {
   console.log('## Modules with ZERO assertions:\n');
   for (const file of withoutAssertions) {
     console.log(`  - ${file}`);
+  }
+}
+
+// --save-baseline: record current zero-assertion set as the allowed baseline
+if (saveBaselineMode) {
+  fs.writeFileSync(BASELINE_FILE, JSON.stringify(withoutAssertions, null, 2) + '\n');
+  console.log(`\nBaseline saved: ${withoutAssertions.length} module(s) → ${BASELINE_FILE}`);
+  process.exit(0);
+}
+
+// --gate: fail if any module not in the baseline has zero assertions
+if (gateMode) {
+  let baseline = [];
+  if (fs.existsSync(BASELINE_FILE)) {
+    baseline = JSON.parse(fs.readFileSync(BASELINE_FILE, 'utf8'));
+  } else {
+    // First run with no baseline: bootstrap it and exit 0
+    fs.writeFileSync(BASELINE_FILE, JSON.stringify(withoutAssertions, null, 2) + '\n');
+    console.log(`\n[gate] No baseline found — initialized with ${withoutAssertions.length} module(s). Re-run to enforce.`);
+    process.exit(0);
+  }
+
+  const baselineSet = new Set(baseline);
+  const newViolations = withoutAssertions.filter(f => !baselineSet.has(f));
+
+  if (newViolations.length === 0) {
+    console.log('\n[gate] PASS — no new zero-assertion modules since baseline.');
+    process.exit(0);
+  } else {
+    console.error(`\n[gate] FAIL — ${newViolations.length} new zero-assertion module(s) not in baseline:`);
+    for (const f of newViolations) {
+      console.error(`  + ${f}`);
+    }
+    console.error('\nAdd assertions or run --save-baseline to grandfather them.');
+    process.exit(1);
   }
 }

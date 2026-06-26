@@ -7,6 +7,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { RH_EQUIVALENTS } from '../data/rh-equivalents-reference.js';
+import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
 const mono = 'var(--font-mono)';
 
@@ -39,6 +40,7 @@ export default function RHEquivalentsPage() {
 
   return (
     <div className="page">
+      <HonestCeilingBanner variant="RH-EQUIVALENT" />
       <div className="page-header">
         <h1>RH Equivalents — Catalog</h1>
         <p

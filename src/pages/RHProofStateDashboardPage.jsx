@@ -10,6 +10,7 @@ import { STRATEGIC_REFRAME } from '../data/strategic-reframe-pcc-free-volterra-2
 import { SECTION27_REFUTATION, THE_REAL_GAP } from '../data/section27-identity-refutation-2026-06-17.js';
 import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-reduction-2026-06-18.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
+import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
 // Status Badge
 function StatusBadge({ status, label }) {
@@ -162,6 +163,7 @@ function Section({ title, children, borderColor = '#334155' }) {
 export default function RHProofStateDashboardPage() {
   return (
     <div className="page">
+      <HonestCeilingBanner variant="ESTIMATE" />
       <div className="page-header">
         <h1>RH Proof State Dashboard</h1>
         <p>

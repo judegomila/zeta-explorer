@@ -15,6 +15,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
+import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
 const THREADS = [
   {
@@ -63,6 +64,7 @@ const THREADS = [
 export default function VolterraBoundPage() {
   return (
     <div style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto' }}>
+      <HonestCeilingBanner variant="RH-EQUIVALENT" />
       <h1>The Volterra Norm Bound: One Statement for §15-27</h1>
 
       <p>

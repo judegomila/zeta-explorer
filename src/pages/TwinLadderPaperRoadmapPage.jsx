@@ -21,6 +21,7 @@ import {
   getCoverageCounts,
   getAuditCounts,
 } from '../data/twin-ladder-paper-roadmap.js';
+import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
 const R = PAPER_ROADMAP;
 const mono = 'var(--font-mono, monospace)';
@@ -320,6 +321,7 @@ export default function TwinLadderPaperRoadmapPage() {
 
   return (
     <div className="page">
+      <HonestCeilingBanner variant="ESTIMATE" />
       <div className="page-header">
         <h1>Twin-Ladder Paper Roadmap (v52)</h1>
         <p className="page-subtitle" style={{ fontFamily: mono, color: 'var(--text-secondary)' }}>

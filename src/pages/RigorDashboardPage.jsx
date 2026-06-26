@@ -9,6 +9,7 @@ import {
 import ConstantDischargeTracker from '../components/ConstantDischargeTracker.jsx';
 import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
+import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
 // ── Rigor color-coding ──────────────────────────────────────────────────────
 // GREEN  = unconditional analytical proof
@@ -400,6 +401,7 @@ export default function RigorDashboardPage() {
 
   return (
     <div className="page">
+      <HonestCeilingBanner variant="ESTIMATE" />
       <div className="page-header">
         <h1>Rigor Dashboard</h1>
         <p>

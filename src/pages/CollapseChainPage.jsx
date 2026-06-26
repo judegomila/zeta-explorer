@@ -15,6 +15,7 @@ import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { Link } from 'react-router-dom';
 import '../styles/collapse-chain.css';
 import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-reduction-2026-06-18.js';
+import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
 const collapseChain = [
   {
@@ -248,6 +249,7 @@ export default function CollapseChainPage() {
 
   return (
     <div style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}>
+      <HonestCeilingBanner variant="RH-EQUIVALENT" />
       <h1>{'The imp-1258 Collapse Chain: ‖V_{a,Φ}‖ ≤ 1 ⇔ CDB-Exist'}</h1>
 
       <div style={{ backgroundColor: '#fdecea', padding: '16px', borderRadius: '8px', marginBottom: '20px', border: '2px solid #d62728' }}>

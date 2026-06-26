@@ -178,6 +178,18 @@ export const scopeAssessment = {
   ],
 };
 
+// imp-2981: explicit honest-status stamp so the per-cell certificates are never
+// read as a global Lambda bound. Rendered on /ht-corridor-certificates and gated
+// by the imp-2981 sibling tripwire (ht-window-honest-status-tripwire).
+export const honestStatus = Object.freeze({
+  tier: 'FINITE-WINDOW NUMERICAL CERTIFICATE',
+  label: 'Finite-window NUMERICAL certificate — not a rigorous unconditional Λ bound',
+  body:
+    'Each cell is an unconditional interval theorem about a bounded corridor of H_{0.18}, ' +
+    'but the page as a whole is a finite-window NUMERICAL certificate, not a global Lambda bound: it does not yield Λ ≤ 0.19 and is not a rigorous unconditional Λ < 0.2 claim. ' +
+    'The Newman flow needs ALL x out to x ≈ 2×10¹³ beyond this window.',
+});
+
 export const crossLinks = [
   { label: 'H_t Finite-Window Census (exactly 8 zeros)', to: '/ht-window-census' },
   { label: 'Twin-ladder paper §14.18 (Lyapunov barrier)', to: '/paper' },

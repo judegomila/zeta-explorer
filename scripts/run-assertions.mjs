@@ -1883,6 +1883,9 @@ const DATA_MODULES = [
   '/src/data/headline-numbers-registry.js',
   // imp-2740: tripwire forbidding NEW rigorous/unconditional adjacency to the finite-N*=1e4 beat.
   '/src/data/anti-overclaim-finite-beat-guard.js',
+  // imp-2981: tripwire forbidding a rigorous/unconditional global Lambda<0.2 claim
+  // in the two H_t finite-window (census + corridor) data files.
+  '/src/data/imp-2981-ht-window-honest-status-tripwire.js',
   // imp-2681: pin C_shock from the cusp-density C_cusp via the quantile-spacing
   // identity — bounded/pinnable, isolating the C_H obstruction to C_Lip alone.
   '/src/data/imp-2786-c-shock-cusp-constant.js',

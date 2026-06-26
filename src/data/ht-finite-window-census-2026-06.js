@@ -169,6 +169,20 @@ export const scopeAssessment = Object.freeze({
     'the only identified path beyond a finite window.',
 });
 
+// imp-2981: explicit honest-status stamp so a finite-window census is never
+// read as a global Lambda bound. Rendered on /ht-window-census and gated by the
+// imp-2981 sibling tripwire (ht-window-honest-status-tripwire).
+export const honestStatus = Object.freeze({
+  tier: 'FINITE-WINDOW NUMERICAL CERTIFICATE',
+  label: 'Finite-window NUMERICAL certificate — not a rigorous unconditional Λ bound',
+  body:
+    'This census exactly counts the zeros of H_{0.18} in the bounded window ' +
+    '[0, 86.792] × [−η, η] (8 zeros, all real), unconditional modulo the engine trust statement. ' +
+    'It is a finite-window NUMERICAL certificate, not a global Lambda bound: it does not establish Λ ≤ 0.19 and is not a rigorous unconditional Λ < 0.2 claim. ' +
+    'The Newman-flow conclusion needs the strip certified for ALL x out to ' +
+    'x ≈ 2×10¹³ — eleven orders of magnitude beyond this window.',
+});
+
 export const crossLinks = Object.freeze([
   { label: 'H_t Corridor Certificates (the per-cell certificates)', to: '/ht-corridor-certificates' },
   { label: 'Λ Bounds & RH Roadmap', to: '/lambda-bounds' },

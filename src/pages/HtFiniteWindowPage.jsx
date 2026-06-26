@@ -17,6 +17,7 @@ import {
   negativeResults,
   vTrueScaling,
   scopeAssessment,
+  honestStatus,
   crossLinks,
 } from '../data/ht-finite-window-census-2026-06.js';
 
@@ -42,6 +43,19 @@ export default function HtFiniteWindowPage() {
           tex={String.raw`H_t(x) = \int_0^\infty e^{tu^2}\,\Phi(u)\cos(xu)\,du`}
         />
         <p style={{ fontSize: '0.9em', opacity: 0.8 }}>{censusMeta.engineModulus}</p>
+        <div
+          style={{
+            marginTop: '1em',
+            padding: '0.75em 1em',
+            border: '1px solid rgba(180,140,0,0.55)',
+            borderRadius: '6px',
+            background: 'rgba(180,140,0,0.10)',
+          }}
+        >
+          <strong style={{ letterSpacing: '0.03em' }}>{honestStatus.tier}</strong>
+          <div style={{ fontWeight: 600, margin: '0.25em 0' }}>{honestStatus.label}</div>
+          <div style={{ fontSize: '0.9em', opacity: 0.85 }}>{honestStatus.body}</div>
+        </div>
       </div>
 
       <section>

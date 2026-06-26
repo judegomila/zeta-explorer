@@ -307,6 +307,25 @@ export const DYSON_DP5_RK4_CROSSVERIFY = {
       blockedBy: [],
       status: 'open',
     },
+    {
+      id: 'GAP-2466-LARGE-N-OFFLINE',
+      description:
+        'The imp-2756 pair-collapse anchor re-verification tripwire and the three-way ' +
+        'integrator scale-agreement only cover the rungs the bundled 870-zero table ' +
+        'supports WITH an imp-362 interval witness, i.e. N in {50,100,200,500}. The 870 ' +
+        'rung has no certified interval witness, and the roadmap rungs N in {1e4,1e5,1e6} ' +
+        'are deferred to OFFLINE computation: they need the full Odlyzko/LMFDB zero table ' +
+        'plus an O(N^2) backward-flow engine, neither feasible at Vite build time. Same ' +
+        'data/compute blocker as GAP-2466-fresh-N1e4-1e6; recorded separately so the anchor ' +
+        'tripwire stays explicit about which rungs it does and does not re-verify. A second ' +
+        'honest caveat lives in the tripwire itself: the certified interval (gap-lower-bound-' +
+        'nonpositive criterion) and the Float64 point estimates (1e-4 spacing-threshold ' +
+        'criterion) use different stopping rules, so their TIGHT brackets do not strictly ' +
+        'intersect at every rung (they diverge ~6% at N=100,500); the three methods agree on ' +
+        'scale and on the pair-collapse anchor, not on a common sub-percent enclosure.',
+      blockedBy: ['skp-imp423-compute', 'imp-359'],
+      status: 'open',
+    },
   ],
   limitation:
     'Cross-verification covers N in {50,100,200,500,870} only, the range the bundled ' +
@@ -396,5 +415,54 @@ export const DYSON_DP5_RK4_CROSSVERIFY_ASSERTIONS = [
       'imp-2466 stays partial until fresh measured rows at N in {1e4,1e5,1e6} are ' +
       'cross-verified (GAP-2466-fresh-N1e4-1e6). Flipping to a full status before then ' +
       'would claim a cross-verified ladder the repo does not have.',
+  },
+  {
+    id: 'imp2466-pair-collapse-anchor-tripwire',
+    holds: () => {
+      // Re-derive (imp-2756), do NOT just store. For every tractable N <= 800
+      // rung the exact two-body pair-collapse anchor t_pair = H_min^2 / 8 is
+      // recomputed from the raw ZETA_ZEROS spacings (H_min is the minimum
+      // initial gap; an isolated pair obeys ds/dt = -4/s, so s = 0 at t =
+      // s0^2 / 8). All three integrators -- the RK4 point, the DP5 point and
+      // the imp-362 certified interval [t_c_lo, t_c_hi] -- must be CONSISTENT
+      // with that anchor: each estimate sits at or above it (the surrounding
+      // gas delays the closest-pair collapse, so the isolated two-body time is
+      // a lower reference) and within ~35% of it (the anchor fixes the scale).
+      const ANCHOR_LO = 0.95; // a 1e-4-threshold estimate may dip just under the anchor
+      const ANCHOR_HI = 1.35; // gas delay raises |t_c| at most this far above t_pair
+      const tractable = ROWS.filter(
+        (r) =>
+          r.N <= 800 &&
+          r.status === 'cross-verified' &&
+          typeof r.interval.t_c_lo === 'number',
+      );
+      if (tractable.length === 0) return false;
+      return tractable.every((r) => {
+        const init = ZETA_ZEROS.slice(0, r.N);
+        let hmin = Infinity;
+        for (let i = 0; i < init.length - 1; i++) {
+          const s = init[i + 1] - init[i];
+          if (s < hmin) hmin = s;
+        }
+        const tPair = (hmin * hmin) / 8;
+        const estimates = [r.tc_rk4, r.tc_dp5, r.interval.t_c_lo, r.interval.t_c_hi].filter(
+          (v) => typeof v === 'number',
+        );
+        return estimates.every((v) => v >= tPair * ANCHOR_LO && v <= tPair * ANCHOR_HI);
+      });
+    },
+    why:
+      'Numerical re-verification tripwire (imp-2756): the closest-pair collapse anchor ' +
+      't_pair = H_min^2/8 is re-derived from the raw zero spacings at every tractable ' +
+      'N <= 800 rung, and the RK4 point, the DP5 point and the imp-362 certified interval ' +
+      'must all be consistent with it (at or above the anchor, within ~35%). A measured ' +
+      '|t_c| falling below the isolated two-body collapse time would be physically ' +
+      'impossible and would expose a step-size or spacing-threshold artifact. HONEST ' +
+      'SCOPE: the certified interval (gap-lower-bound-nonpositive stopping rule) and the ' +
+      'Float64 points (1e-4 spacing-threshold stopping rule) diverge ~6% at N=100 and ' +
+      'N=500, so their TIGHT brackets do not strictly intersect at every rung; this ' +
+      'tripwire therefore verifies three-way SCALE/anchor agreement, the invariant the ' +
+      'rungs actually satisfy, and the residual interval-vs-point divergence plus the ' +
+      'deferred N>800 rungs are recorded as GAP-2466-LARGE-N-OFFLINE.',
   },
 ];

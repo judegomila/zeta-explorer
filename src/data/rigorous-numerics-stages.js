@@ -132,6 +132,8 @@ export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
           'sensitivity) is open: K_PLATEAU_LADDER bounds H_t = Lambda only.',
       ]),
       status: 'stage-partial',
+      rigorTier: 'conditional',
+      c_h_blocker: "BLOCKED: the finite-height beat E(N) contains E_coll which depends on C_H being a rigorous upper bound on the Holder-1/2 modulus. imp-2642 NEGATIVE: C_H = 1/8 is NOT a proved bound (tangency coefficient ~0.127 > 1/8 in the stress test). imp-2640 NEGATIVE. Stage I is CONDITIONAL until C_H <= C_H_HYP is discharged; Platt-Trudgian remains the rigorous SOTA.",
     }),
 
     Object.freeze({
@@ -183,6 +185,7 @@ export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
           'function is wired, not the paper\'s broader psi family.',
       ]),
       status: 'stage-partial',
+      rigorTier: 'estimate',
     }),
 
     Object.freeze({
@@ -257,6 +260,7 @@ export const RIGOROUS_NUMERICS_STAGES = Object.freeze({
           'interval-arithmetic runtime ledger.',
       ]),
       status: 'stage-partial',
+      rigorTier: 'conditional',
     }),
   ]),
 

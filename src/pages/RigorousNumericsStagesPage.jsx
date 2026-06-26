@@ -19,9 +19,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { RIGOROUS_NUMERICS_STAGES, findStage } from '../data/rigorous-numerics-stages.js';
+import { StatusTag } from '../components/StatusLegend.jsx';
 
 const R = RIGOROUS_NUMERICS_STAGES;
 const mono = 'var(--font-mono)';
+
+const RIGOR_TIER_STATUS = {
+  rigorous:    'RIGOROUS-SOTA',
+  conditional: 'CONDITIONAL',
+  estimate:    'ESTIMATE',
+};
 
 // Color theme per stage -- I = emerald (classical baseline), II = cyan
 // (exploration), III = violet (certification).
@@ -89,6 +96,9 @@ function StageCard({ stage }) {
           {stage.sectionRef}
         </span>
         <StatusBadge status={stage.status} />
+        {stage.rigorTier && (
+          <StatusTag status={RIGOR_TIER_STATUS[stage.rigorTier] || 'ESTIMATE'} />
+        )}
       </div>
 
       {/* ─── Paper description (prose) ─── */}
@@ -190,6 +200,24 @@ function StageCard({ stage }) {
           </tbody>
         </table>
       </div>
+
+      {/* ─── C_H blocker note ─── */}
+      {stage.c_h_blocker && (
+        <div style={{
+          marginTop: 14,
+          padding: '10px 14px',
+          borderLeft: '3px solid #f59e0b',
+          background: 'rgba(245,158,11,0.07)',
+          fontSize: 13,
+          color: '#fbbf24',
+          lineHeight: 1.65,
+        }}>
+          <span style={{ fontFamily: mono, fontWeight: 700, marginRight: 6 }}>
+            C_H BLOCKER:
+          </span>
+          {stage.c_h_blocker}
+        </div>
+      )}
 
       {/* ─── Gaps ─── */}
       <div
@@ -304,6 +332,7 @@ export default function RigorousNumericsStagesPage() {
               </th>
               <th style={{ padding: '8px 6px', fontFamily: mono }}>Gaps</th>
               <th style={{ padding: '8px 6px', fontFamily: mono }}>Status</th>
+              <th style={{ padding: '8px 6px', fontFamily: mono }}>Rigor tier</th>
             </tr>
           </thead>
           <tbody>
@@ -356,6 +385,11 @@ export default function RigorousNumericsStagesPage() {
                   </td>
                   <td style={{ padding: '10px 6px' }}>
                     <StatusBadge status={s.status} />
+                  </td>
+                  <td style={{ padding: '10px 6px' }}>
+                    {s.rigorTier && (
+                      <StatusTag status={RIGOR_TIER_STATUS[s.rigorTier] || 'ESTIMATE'} />
+                    )}
                   </td>
                 </tr>
               );

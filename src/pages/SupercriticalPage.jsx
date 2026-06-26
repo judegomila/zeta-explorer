@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SupercriticalViz from '../components/SupercriticalViz.jsx';
+import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 
 export default function SupercriticalPage() {
@@ -30,6 +31,18 @@ export default function SupercriticalPage() {
 
   return (
     <div className="page">
+      <HonestCeilingBanner
+        variant="ESTIMATE"
+        title="Honest scope: this page shows a finite-prime ESTIMATE and quotes cited Λ bounds — it produces neither"
+        body={
+          'Two honesty flags for this page. (a) The numeric thermodynamic panel uses a partial Euler product ' +
+          'truncated at primes ≤ 199; that finite-N sum is an ESTIMATE of the primon-gas quantities (and only ' +
+          'genuinely convergent for σ > 1), never a rigorous bound on ζ. (b) The de Bruijn-Newman bound ' +
+          'Λ ≤ 0.2 (Platt-Trudgian/Polymath15) and Λ ≥ 0 (Rodgers-Tao) shown below are CITED state-of-the-art ' +
+          'results — see /lambda-bounds and the /route-map — not outputs of this thermodynamic picture, which is ' +
+          'an interpretive lens, not a route below the rigorous SOTA.'
+        }
+      />
       <div className="page-header">
         <h1>Supercritical Phase Explorer</h1>
         <p>

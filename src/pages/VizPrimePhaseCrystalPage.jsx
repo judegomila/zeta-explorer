@@ -18,6 +18,17 @@ const mono = 'var(--font-mono)';
 const W = 500;
 const H = 500;
 
+// Fixed per-prime random shifts in [-1, 1] for the rigidity perturbation demo.
+// Seeded deterministically so the smearing is reproducible across renders.
+const PERTURB_SHIFTS = (() => {
+  const N = D.logPrimes.length;
+  const out = new Float32Array(N);
+  for (let i = 0; i < N; i++) {
+    out[i] = ((Math.sin(i * 127.1 + 311.7) * 43758.5453) % 1 + 1) % 1 * 2 - 1;
+  }
+  return out;
+})();
+
 // 256-entry "hot" colormap: black -> red -> yellow -> white.
 const COLORMAP = (() => {
   const out = new Uint8Array(256 * 3);
@@ -47,6 +58,8 @@ export default function VizPrimePhaseCrystalPage() {
   const [zeroIdx, setZeroIdx] = useState(0);   // index into D.zeros
   const [renderInfo, setRenderInfo] = useState({ ms: 0, dc: 0, max: 0, mean: 0 });
   const [resolution, setResolution] = useState(300);
+  const [perturbEnabled, setPerturbEnabled] = useState(false);
+  const [perturbEps, setPerturbEps] = useState(0.02);
 
   const t0 = D.zeros[zeroIdx];
 
@@ -63,7 +76,11 @@ export default function VizPrimePhaseCrystalPage() {
     // resolution.  Each pixel is a sum of N_PRIMES cosines -- inner loop is
     // O(res*res*N); lower resolution trades quality for speed.
     const N = D.logPrimes.length;
-    const logP = D.logPrimes;
+    // When perturbed, replace log(p_i) with log(p_i) + eps * shift_i so that
+    // Bragg peaks smear: arithmetic structure is broken and incoherent sums dominate.
+    const logP = perturbEnabled && perturbEps > 0
+      ? Float32Array.from(D.logPrimes, (lp, i) => lp + perturbEps * PERTURB_SHIFTS[i])
+      : D.logPrimes;
     const buf = new Float32Array(res * res);
     let maxV = 0;
     let sumV = 0;
@@ -136,7 +153,7 @@ export default function VizPrimePhaseCrystalPage() {
     ctx.font = '8px "JetBrains Mono", monospace';
     ctx.fillStyle = 'rgba(120, 120, 120, 0.85)';
     ctx.textAlign = 'right';
-    ctx.fillText('F = |sum_p cos(j*log p + k*t_0)| (magnitude)', res - 4, res - 9);
+    ctx.fillText(perturbEnabled ? ('F perturbed eps=' + perturbEps.toFixed(3)) : 'F = |sum_p cos(j*log p + k*t_0)|', res - 4, res - 9);
 
     setRenderInfo({
       ms: +(performance.now() - start).toFixed(1),
@@ -144,7 +161,7 @@ export default function VizPrimePhaseCrystalPage() {
       max: +maxV.toFixed(4),
       mean: +meanV.toFixed(4),
     });
-  }, [t0, resolution]);
+  }, [t0, resolution, perturbEnabled, perturbEps]);
 
   // Re-render whenever t0 changes.  Heavy compute is ~150ms-300ms in dev so
   // we defer via requestAnimationFrame to keep slider interactions snappy.
@@ -206,6 +223,20 @@ export default function VizPrimePhaseCrystalPage() {
           <input type="range" min="100" max="500" step="50" value={resolution}
                  onChange={e => setResolution(+e.target.value)} />
           <span className="control-value">{renderInfo.ms} ms</span>
+        </div>
+        <div className="control-group" style={{ minWidth: 340, borderLeft: '2px solid ' + (perturbEnabled ? '#f97316' : '#334155'), paddingLeft: 10 }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <input type="checkbox" checked={perturbEnabled} onChange={e => setPerturbEnabled(e.target.checked)} />
+            <span style={{ color: perturbEnabled ? '#f97316' : 'var(--text-muted)' }}>
+              Rigidity toggle: perturb primes p &rarr; p&middot;(1+&epsilon;&middot;&xi;)
+            </span>
+          </label>
+          <input type="range" min="0" max="0.1" step="0.001" value={perturbEps}
+                 disabled={!perturbEnabled}
+                 onChange={e => setPerturbEps(+e.target.value)} />
+          <span className="control-value" style={{ color: perturbEnabled ? '#f97316' : 'var(--text-muted)' }}>
+            &epsilon; = {perturbEps.toFixed(3)} {perturbEnabled ? '(peaks smearing)' : '(disabled)'}
+          </span>
         </div>
       </div>
 

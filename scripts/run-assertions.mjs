@@ -1777,6 +1777,7 @@ const DATA_MODULES = [
   '/src/data/imp-2462-tier2-local-law-dependency-audit.js',
   '/src/data/imp-2464-volterra-hs-vs-opnorm-slack.js',
   '/src/data/imp-2488-partition-parity-assessment.js',
+  '/src/data/imp-2752-bootstrap-determinism-crosscheck.js',
   '/src/data/imp-408-audit.js',
   '/src/data/imp-441-lean-import-graph.js',
   '/src/data/imp-888-info-theory-verification.js',

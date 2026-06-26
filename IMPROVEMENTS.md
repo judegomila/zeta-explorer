@@ -2888,3 +2888,4 @@ below are the engine contract — do not rename or reorder.
 | 3001 | 2026-06-26T23:10:00Z | imp-3003 (bug, medium): fix stale '36 routes' in route-map assertion description — actual count is 38; verified all 4 RouteMapPage Related Views links resolve to live routes | src/data/full-route-map-2026-06-19.js |
 | 3002 | 2026-06-27T00:00:00Z | imp-2994 (ux, low): add page-subtitle to CollapseChainPage — §15-27 program collapses to single operator-norm statement ‖V‖ ≤ 1 | src/pages/CollapseChainPage.jsx |
 | 3003 | 2026-06-27T00:30:00Z | imp-2997 (content, low): add Vortex Exclusion (RH-equivalent) glossary entry — frames vortex-centre exclusion from off-axis as RH-equivalent, re-deriving Lambda>=0 but not beating PT 0.2 | src/data/glossary.js |
+| 3004 | 2026-06-27T01:00:00Z | imp-2998 (ux, low): add real-vs-shuffled toggle to PrimeRigidityPage — view select (both/real/shuffled) matching VizPrimeCausticPage parity | src/pages/PrimeRigidityPage.jsx |

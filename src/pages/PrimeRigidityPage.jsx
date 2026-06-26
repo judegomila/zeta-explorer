@@ -77,6 +77,7 @@ function CausticCanvas({ logs, accent }) {
 export default function PrimeRigidityPage() {
   const [limit, setLimit] = useState(600);
   const [eps, setEps] = useState(0.7);
+  const [view, setView] = useState('both');
 
   const primes = useMemo(() => sievePrimes(limit), [limit]);
   // The caustic field uses EVERY integer n in [2, limit] (theta = t log n), the
@@ -110,28 +111,32 @@ export default function PrimeRigidityPage() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginBottom: 18 }}>
-        <div>
-          <div style={{ fontSize: 12, fontWeight: 700, color: '#22c55e', marginBottom: 6 }}>
-            TRUE PRIMES — coherent caustics
+      <div style={{ display: 'grid', gridTemplateColumns: view === 'both' ? '1fr 1fr' : '1fr', gap: 18, marginBottom: 18 }}>
+        {(view === 'both' || view === 'real') && (
+          <div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#22c55e', marginBottom: 6 }}>
+              TRUE PRIMES — coherent caustics
+            </div>
+            <CausticCanvas logs={trueLogs} accent="#22c55e" />
+            <div style={{ fontSize: 11, color: '#64748b', marginTop: 4, fontFamily: 'var(--font-mono)' }}>
+              {trueLogs.length} integers ≤ {limit} · sharp resonance bands
+            </div>
           </div>
-          <CausticCanvas logs={trueLogs} accent="#22c55e" />
-          <div style={{ fontSize: 11, color: '#64748b', marginTop: 4, fontFamily: 'var(--font-mono)' }}>
-            {trueLogs.length} integers ≤ {limit} · sharp resonance bands
+        )}
+        {(view === 'both' || view === 'shuffled') && (
+          <div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#ef4444', marginBottom: 6 }}>
+              PERTURBED (log p → random, ε = {eps.toFixed(2)}) — coherence destroyed
+            </div>
+            <CausticCanvas logs={pertLogs} accent="#ef4444" />
+            <div style={{ fontSize: 11, color: '#64748b', marginTop: 4, fontFamily: 'var(--font-mono)' }}>
+              same integers, randomized logs · washed-out noise
+            </div>
           </div>
-        </div>
-        <div>
-          <div style={{ fontSize: 12, fontWeight: 700, color: '#ef4444', marginBottom: 6 }}>
-            PERTURBED (log p → random, ε = {eps.toFixed(2)}) — coherence destroyed
-          </div>
-          <CausticCanvas logs={pertLogs} accent="#ef4444" />
-          <div style={{ fontSize: 11, color: '#64748b', marginTop: 4, fontFamily: 'var(--font-mono)' }}>
-            same integers, randomized logs · washed-out noise
-          </div>
-        </div>
+        )}
       </div>
 
-      <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 18 }}>
+      <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 18, alignItems: 'flex-end' }}>
         <label style={{ fontSize: 12, color: 'var(--text-secondary)', flex: '1 1 220px' }}>
           Integer cutoff: {limit} ({trueLogs.length} integers)
           <input type="range" min={100} max={2000} step={50} value={limit}
@@ -141,6 +146,18 @@ export default function PrimeRigidityPage() {
           Randomization ε: {eps.toFixed(2)} <span style={{ color: '#475569' }}>(0 = true primes · 1 = random set)</span>
           <input type="range" min={0} max={1} step={0.05} value={eps}
                  onChange={(e) => setEps(+e.target.value)} style={{ width: '100%', marginTop: 6 }} />
+        </label>
+        <label style={{ fontSize: 12, color: 'var(--text-secondary)', flex: '0 0 auto' }}>
+          prime source
+          <div style={{ marginTop: 6 }}>
+            <select value={view} onChange={(e) => setView(e.target.value)}
+                    style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155',
+                             borderRadius: 4, padding: '4px 8px', fontFamily: 'var(--font-mono)', fontSize: 12 }}>
+              <option value="both">both (side-by-side)</option>
+              <option value="real">real primes only</option>
+              <option value="shuffled">shuffled logs only</option>
+            </select>
+          </div>
         </label>
       </div>
 

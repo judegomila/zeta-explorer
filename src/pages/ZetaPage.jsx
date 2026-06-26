@@ -28,6 +28,20 @@ export default function ZetaPage() {
 
       <BlockMath tex={"Z(t) = e^{i\\theta(t)} \\zeta(1/2 + it), \\quad Z(t) \\in \\mathbb{R}"} />
 
+      <div className="card" style={{ marginTop: 16, marginBottom: 8, borderLeft: '3px solid #f59e0b', background: 'rgba(245,158,11,0.06)' }}>
+        <h3 style={{ color: '#f59e0b', fontSize: 14, marginBottom: 6 }}>Honest status: verified computation, not a proof</h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
+          This page plots <InlineMath tex={"|\\zeta|"} /> and the Hardy <InlineMath tex={"Z(t)"} /> function on and off
+          the critical line over a <strong>finite t-window</strong> built from a table of known zeros. Every zero shown
+          lying on <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> reflects <strong>verified numerical computation</strong> up
+          to a bounded height (e.g. Platt's rigorously verified range) — it is <em>not</em> evidence for the Riemann
+          Hypothesis. RH asserts <em>all</em> nontrivial zeros lie on the line, including infinitely many beyond any
+          computed window; no finite plot can establish that. For how zeros are rigorously counted and located, see{' '}
+          <Link to="/gram-points" style={{ color: '#f59e0b' }}>Gram points</Link> and{' '}
+          <Link to="/hardy-z" style={{ color: '#f59e0b' }}>Hardy Z</Link> (Turing's method).
+        </p>
+      </div>
+
       <ZetaLandscapeViz />
 
       <div style={{ marginTop: 32 }}>

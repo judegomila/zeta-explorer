@@ -43,6 +43,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { HEADLINE_NUMBERS } from '../src/data/headline-numbers-registry.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, '..', 'src', 'data');
@@ -80,6 +81,24 @@ function record(name, recomputed, frozen, tol, extra) {
   const diff = Math.abs(recomputed - frozen);
   const pass = diff <= tol;
   checks.push({ name, recomputed, frozen, diff, tol, pass, extra: extra || '' });
+}
+
+// ── 0. imp-2882: cross-pin the FROZEN registry-mirroring literals to the
+// headline-numbers-registry single source of truth. Four FROZEN entries here
+// (kBound_registry, finiteBeat_estimate, intercept_hist, asymptotic_cond) are
+// independent copies of registry values. If the registry is corrected but a
+// FROZEN literal is not updated, this driver would keep validating recomputes
+// against a stale frozen number and stay green -- defeating the reproducibility
+// check itself. These exact-equality pins (tol 1e-12) fail loudly on drift.
+const REGISTRY_PINS = [
+  ['FROZEN.kBound_registry == registry kBound.value', FROZEN.kBound_registry, HEADLINE_NUMBERS.kBound.value],
+  ['FROZEN.finiteBeat_estimate == registry finiteBeatEstimate.value', FROZEN.finiteBeat_estimate, HEADLINE_NUMBERS.finiteBeatEstimate.value],
+  ['FROZEN.intercept_hist == registry intercept7e4.value', FROZEN.intercept_hist, HEADLINE_NUMBERS.intercept7e4.value],
+  ['FROZEN.asymptotic_cond == registry asymptoticConditional.value', FROZEN.asymptotic_cond, HEADLINE_NUMBERS.asymptoticConditional.value],
+];
+for (const [name, frozenVal, regVal] of REGISTRY_PINS) {
+  record('imp-2882 FROZEN<->registry pin: ' + name, frozenVal, regVal, 1e-12,
+    'reproduce FROZEN literal must equal headline-numbers-registry source-of-truth (' + regVal + ')');
 }
 
 // ── 1+3. kernel-hack pair-ODE t_c and the N=10K agreement ────────────────────

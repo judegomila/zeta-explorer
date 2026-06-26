@@ -340,17 +340,21 @@ export default function PaperUploadPage() {
         <div id="panel-pdf" role="tabpanel" aria-labelledby="tab-pdf">
           {/* Drop zone */}
           <div
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-            onClick={() => fileInputRef.current?.click()}
+            onDrop={pdfLoading ? undefined : handleDrop}
+            onDragOver={pdfLoading ? undefined : handleDragOver}
+            onDragLeave={pdfLoading ? undefined : handleDragLeave}
+            onClick={pdfLoading ? undefined : () => fileInputRef.current?.click()}
+            aria-busy={pdfLoading}
+            aria-label={pdfLoading ? 'Processing PDF, please wait' : 'PDF upload drop zone'}
             style={{
               ...cardStyle,
               border: dragOver ? '2px dashed #6366f1' : '2px dashed rgba(99,102,241,0.3)',
               background: dragOver ? 'rgba(99,102,241,0.08)' : '#0d1220',
               textAlign: 'center',
               padding: '48px 20px',
-              cursor: 'pointer',
+              cursor: pdfLoading ? 'not-allowed' : 'pointer',
+              opacity: pdfLoading ? 0.7 : 1,
+              pointerEvents: pdfLoading ? 'none' : 'auto',
               transition: 'all 0.2s',
             }}
           >

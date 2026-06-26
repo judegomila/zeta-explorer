@@ -114,6 +114,12 @@ const PANELS = [
   { n: 13, title: 'Supercritical Landscape', tex: '|\\zeta(\\sigma+it)|', to: '/supercritical',
     blurb: 'Zeta as a partition function; zeros as vapor bubbles in the |ζ| thermodynamic landscape.', color: '#f97316',
     ceiling: 'Thermodynamic |ζ| analogy; a descriptive visualization only — establishes no rigorous bound on Λ.' },
+  { n: 14, title: 'Winding under Dyson/Newman Flow', tex: 'W=\\tfrac{1}{2\\pi}\\oint V_t\\cdot dz', to: '/viz-winding-dyson-flow',
+    blurb: 'Topological winding count of zeros under the de Bruijn-Newman heat flow; off-axis pairs preserve W but exit the contour when Λ < 0.', color: '#818cf8',
+    ceiling: 'Re-derives Λ ≥ 0 (Rodgers–Tao 2020) via the argument principle; does not produce a new upper bound and does not beat Platt–Trudgian Λ ≤ 0.2.' },
+  { n: 15, title: 'Caustic Resonance Condition Overlay', tex: 't=2\\pi k/\\log(p_j/p_i)', to: '/viz-caustic-resonance',
+    blurb: 'Coherent-prime count vs t with resonance ticks at t=2πk/log(p_j/p_i); identifies prime-pair beat frequencies that amplify each caustic spike.', color: '#34d399',
+    ceiling: 'Descriptive resonance-condition overlay; ticks identify prime-pair beat frequencies. No Λ bound or RH claim.' },
 ];
 
 export default function VisualGeometriesPage() {

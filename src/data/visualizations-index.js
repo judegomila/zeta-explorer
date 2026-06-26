@@ -309,6 +309,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive resonance-condition overlay; ticks identify prime-pair beat frequencies. No Lambda bound or RH claim.',
     }),
     Object.freeze({
+      route: '/viz-winding-dyson-flow',
+      title: 'Winding under Dyson/Newman Flow',
+      oneLine:
+        'Topological winding count W=(1/2pi) oint V_t dz of zeros under the de Bruijn-Newman heat flow; off-axis pairs preserve W but exit the contour when Lambda < 0.',
+      mathBucket: 'flow-field',
+      dataModule: null,
+      paperSourcePath: 'VizWindingDysonFlowPage: panel 14 of Visual Geometries gallery',
+      ticket: 'imp-2990',
+      pedagogicalStep: 18,
+      honestCeiling:
+        'Re-derives Lambda >= 0 (Rodgers-Tao 2020) via the argument principle; does not produce a new upper bound and does not beat Platt-Trudgian Lambda <= 0.2.',
+    }),
+    Object.freeze({
       route: '/viz-phase-cylinder',
       title: 'Log-Phase Cylinder / Flat Rectangle',
       oneLine:

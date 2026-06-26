@@ -133,7 +133,7 @@ export const FULL_ROUTE_MAP_NEXT_MOVE = {
 export const FULL_ROUTE_MAP_ASSERTIONS = [
   {
     id: 'route-map-36-routes-5-clusters',
-    description: 'The map enumerates 36 routes across 5 clusters',
+    description: 'The map enumerates 38 routes across 5 clusters',
     holds: () => {
       const n = Object.values(FULL_ROUTE_MAP.clusters).reduce((s, c) => s + c.length, 0);
       return n === FULL_ROUTE_MAP.totalRoutes && Object.keys(FULL_ROUTE_MAP.clusters).length === 5;

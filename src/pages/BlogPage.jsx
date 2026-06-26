@@ -235,6 +235,86 @@ export default function BlogPage() {
         </p>
       </Section>
 
+      {/* ── Honesty Audit (2026-06-19) ────────────────────────── */}
+      <Section title="What the Honesty Audit Changed (June 2026)" color="#f97316">
+        <p>
+          In June 2026 we conducted a systematic honesty audit of every claim on this
+          site. Six statements were found to overreach the evidence and were withdrawn
+          or demoted. This post explains what changed and why.
+        </p>
+
+        <h3 style={{ color: '#f97316', fontSize: 15, margin: '16px 0 8px' }}>
+          1. The finite-N* beat is an estimate, not a theorem
+        </h3>
+        <p>
+          The sweep in "How 870 became 1,000,000" above confirmed that both
+          monotonicity predicates hold for every N up to 1,000,000 verified zeros.
+          That floor is real. What was overclaimed: the phrase "unconditional up to
+          N = 1,000,000" implies we have a proof for that exact range; what we
+          actually have is a numerical verification. An empirical lower bound on
+          N* is not the same as an analytic bound. The distinction matters — a
+          future counterexample at N = 1,000,001 would be missed by the current sweep.
+        </p>
+
+        <h3 style={{ color: '#f97316', fontSize: 15, margin: '16px 0 8px' }}>
+          2. The Volterra collapse renames RH, it does not reduce it
+        </h3>
+        <p>
+          The "Volterra collapse" showed that proving the Volterra operator norm
+          satisfies ||V|| &le; 1 is logically equivalent to proving RH — they are the
+          same statement in different notation. Earlier versions of this site described
+          this as "reducing RH to a functional-analysis problem," implying the functional-
+          analysis version is easier. It is not; it is identical. Calling it a reduction
+          suggests progress we have not made. The correct description is: it is a
+          reformulation.
+        </p>
+
+        <h3 style={{ color: '#f97316', fontSize: 15, margin: '16px 0 8px' }}>
+          3. What the rigorous SOTA actually is
+        </h3>
+        <p>
+          The rigorous state-of-the-art on the de Bruijn-Newman constant is{' '}
+          <strong>&Lambda; &le; 0.2</strong>, established by Polymath 15 (2019).
+          This explorer did not produce that bound and does not improve on it.
+          Earlier text that described our empirical &Lambda; estimates as "rigorous"
+          was inaccurate; those estimates are numerical, not certified.
+        </p>
+
+        <h3 style={{ color: '#f97316', fontSize: 15, margin: '16px 0 8px' }}>
+          4. The six withdrawn overclaims
+        </h3>
+        <p>The following statements were removed or corrected during the audit:</p>
+        <ol style={{ marginLeft: 20 }}>
+          <li>
+            "Unconditional for N &le; N*" — demoted to "empirically verified for N &le; 1,000,000."
+          </li>
+          <li>
+            "The Volterra collapse reduces RH" — corrected to "reformulates RH."
+          </li>
+          <li>
+            "~5000x margin from saturation" — this was a homogeneity artifact of the
+            normalization; the true margin is not independently meaningful.
+          </li>
+          <li>
+            "Rigorous &Lambda; estimate" — corrected to "numerical estimate, not certified."
+          </li>
+          <li>
+            "Darlington synthesis immediately gives QED" — removed; the losslessness
+            step requires the limit N &rarr; &infin;, which is the unresolved crux.
+          </li>
+          <li>
+            "Each paper conjecture was independently verified" — several conjectures
+            are subsumed by assuming RH, making the verification circular.
+          </li>
+        </ol>
+
+        <p style={{ marginTop: 16, fontStyle: 'italic', color: '#fbbf24' }}>
+          The audit did not change the mathematical content of the investigation. It
+          changed how that content is described. Honest framing is not a retreat — it
+          is the only way to make genuine progress visible when it does arrive.
+        </p>
+      </Section>
+
       {/* ── Links ─────────────────────────────────────────────── */}
       <div className="card" style={{ marginTop: 32, borderLeft: '3px solid #3b82f6' }}>
         <h3 style={{ color: '#3b82f6', fontSize: 14, marginBottom: 8 }}>Explore Further</h3>

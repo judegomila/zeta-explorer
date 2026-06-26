@@ -702,6 +702,22 @@ const CONCEPTS = [
     definition: "Project-standard label for a constant or estimate that is numerically consistent with being an upper bound across all tested N, but is NOT a rigorous unconditional upper bound. Honest-ceiling results are reported with explicit disclaimers and recorded in the overclaim-ledger. The canonical example is the finite-N* beat: empirically below threshold but blocked by C_H. See /state-of-program.",
     intuition: "A ceiling you can measure but not yet prove. The value never exceeds the threshold in experiments, but an undischarged constant (like C_H) means the ceiling could in principle be higher. Honest-ceiling is the opposite of a certified interval-arithmetic bound.",
   },
+  {
+    id: 'overclaim-ledger',
+    category: 'proof',
+    term: 'Overclaim Ledger',
+    definition: "The canonical registry of claims caught and corrected during development (src/data/overclaim-ledger.js). Records 6 overclaims with status labels: WITHDRAWN (thin-strip E_trunc/kappa_T height mismatch, imp-2630), CORRECTED (kappa_T height-uniformity, imp-2625; E_coll placeholder constants, imp-2661), REGRADED (1/y continuum amplification, imp-2621), RETRACTED (Volterra K_a norm collapse, imp-2660), and DOWNGRADED (Section-27 LINK B two-way collapse, imp-2666). Each page citing a corrected claim must import from this shared registry and render a consistent transparency ledger.",
+    intuition: "An honest project keeps a public log of its mistakes. The Overclaim Ledger records every claim that turned out to be wrong, overstated, or based on a flawed argument — along with how it was caught and what the correction is. Not a sign of failure but of rigour.",
+  },
+  {
+    id: 'finite-n-beat',
+    category: 'proof',
+    term: "Finite-N* Beat (Estimate)",
+    symbol: 'E_{\\text{coll}}(N^*) < 0.2',
+    definition: "The observation that at N*=1e4 the computed eigenvalue-collision energy E_coll falls below the Lambda <= 0 threshold (~0.2). This is a numerical estimate, not a rigorous unconditional result. The beat is rigorous-modulo-C_H: if the undischarged constant C_H were certified from above, the estimate would become unconditional. Until C_H is certified, the N* beat is an honest-ceiling result, never a QED finite-N beat. The claim of a rigorously-pinned E_coll (imp-2633) was corrected and logged in the overclaim-ledger. See /state-of-program.",
+    formula: 'E_{\\text{coll}}(N^*) < 0.2 \\;(\\text{numerical, rigorous-modulo-}C_H)',
+    intuition: "The computation says below threshold at N=10000, but the proof says we cannot yet certify this unconditionally because C_H is unknown. Like a measurement with an unresolved systematic error — the central value looks good, but the error bar has no certified bound until C_H is discharged.",
+  },
 ];
 
 export default function ConceptsPage() {

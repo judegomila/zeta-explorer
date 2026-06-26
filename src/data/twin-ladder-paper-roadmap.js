@@ -58,7 +58,7 @@ export const PAPER_ROADMAP = Object.freeze({
   paperDate: '2026-05-10',
   paperTotalPages: 191,
   paperMainSectionCount: 29,
-  generatedAt: '2026-05-26T18:00:00Z',
+  generatedAt: '2026-06-25T00:00:00Z',
 
   // ── §1..§29 main sections ────────────────────────────────────────────
   mainSections: Object.freeze([
@@ -364,6 +364,11 @@ export const PAPER_ROADMAP = Object.freeze({
       summary:
         'Difference-frequency positivity, exact shear representation, ' +
         'scalar domination + Volterra absorption target.',
+      honestVerdict:
+        'CAVEAT (section26-verdict-volterra-not-a-reduction-2026-06-18): the scalar-domination ' +
+        'step feeds the §27 Volterra-contraction target, which is REFUTED AS A REDUCTION. The bare ' +
+        'biconditional that the §26-§27 chain relies on is RH-equivalent, not a shortcut. See the ' +
+        'matching verdict on hidden-square-program-section.js and full-route-map.',
     }),
     Object.freeze({
       id: 's27-endpoint-hankel-renormalization',
@@ -376,6 +381,14 @@ export const PAPER_ROADMAP = Object.freeze({
       summary:
         'Endpoint-Hankel Volterra reduction of the shear bound + finite-window ' +
         'numerical diagnostic.',
+      honestVerdict:
+        'REFUTED AS A REDUCTION; RH-equivalent (section26-verdict-volterra-not-a-reduction-2026-06-18, ' +
+        'full-route-map). The claimed biconditional ‖V_{a,Φ}‖ ≤ 1 ⇔ K_a ⪰ 0 is FALSE: at the genuine ' +
+        'Riemann Φ the two positivity conditions provably decouple and cannot be revived by any scalar ' +
+        'normalization. The bare ‖V‖ ≤ 1 finite-window number is scale-miscalibrated (the imp-1240 ' +
+        '“5000× below 1” margin measures the WRONG object). The only surviving target is the degree-0, ' +
+        'scale-invariant relative bound ‖R‖ ≤ 1 ⇔ K_a ⪰ 0, which is RH-EQUIVALENT — a faithful ' +
+        'restatement, not a reduction to something cheaper. Platt–Trudgian Λ ≤ 0.2 remains rigorous SOTA.',
     }),
     Object.freeze({
       id: 's28-discussion',

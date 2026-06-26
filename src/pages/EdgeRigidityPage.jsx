@@ -22,6 +22,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
 import { EDGE_RIGIDITY_EMPIRICAL } from '../data/edge-rigidity-empirical-2026-05.js';
+import RelatedLinks from '../components/RelatedLinks.jsx';
 
 // -- SVG geometry ---------------------------------------------------------
 
@@ -587,6 +588,13 @@ export default function EdgeRigidityPage() {
       <div style={{ marginTop: 16, fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)' }}>
         parallel-agent batch: {D.parallelTickets.join(' | ')}
       </div>
+
+      <RelatedLinks links={[
+        { to: '/statistics', label: 'Zero Statistics' },
+        { to: '/pair-correlation', label: 'Pair Correlation' },
+        { to: '/gue-comparison', label: 'GUE Comparison' },
+        { to: '/gram-points', label: 'Gram Points' },
+      ]} />
     </div>
   );
 }

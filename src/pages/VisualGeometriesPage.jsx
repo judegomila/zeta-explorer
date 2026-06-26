@@ -3,6 +3,65 @@ import { Link } from 'react-router-dom';
 import { InlineMath } from '../components/KaTeXMath.jsx';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
 
+function escapeXml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function downloadPosterSVG(panels) {
+  const W = 1200, COLS = 3, GAP = 16, PAD = 24;
+  const cardW = Math.floor((W - PAD * 2 - GAP * (COLS - 1)) / COLS);
+  const cardH = 160;
+  const titleH = 90;
+  const rows = Math.ceil(panels.length / COLS);
+  const H = titleH + PAD + rows * (cardH + GAP) + PAD;
+
+  const wrapText = (text, maxPx) => {
+    const words = text.split(' ');
+    const lines = [];
+    let line = '';
+    for (const word of words) {
+      const test = line ? line + ' ' + word : word;
+      if (test.length * 6.4 > maxPx && line) { lines.push(line); line = word; }
+      else { line = test; }
+    }
+    if (line) lines.push(line);
+    return lines;
+  };
+
+  let cards = '';
+  panels.forEach((p, i) => {
+    const col = i % COLS;
+    const row = Math.floor(i / COLS);
+    const x = PAD + col * (cardW + GAP);
+    const y = titleH + PAD + row * (cardH + GAP);
+    const blurbLines = wrapText(p.blurb, cardW - 28).slice(0, 4);
+    const textRows = blurbLines.map((ln, li) =>
+      `<text x="${x + 14}" y="${y + 46 + li * 17}" font-family="sans-serif" font-size="11" fill="#94a3b8">${escapeXml(ln)}</text>`
+    ).join('\n  ');
+    cards += `
+  <rect x="${x}" y="${y}" width="${cardW}" height="${cardH}" rx="6" fill="#1e293b"/>
+  <rect x="${x}" y="${y}" width="3" height="${cardH}" rx="1" fill="${p.color}"/>
+  <text x="${x + 14}" y="${y + 25}" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="${p.color}">${escapeXml(p.title)}</text>
+  <text x="${x + cardW - 8}" y="${y + 25}" font-family="monospace" font-size="10" fill="#475569" text-anchor="end">#${p.n}</text>
+  ${textRows}`;
+  });
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <rect width="${W}" height="${H}" fill="#0f172a"/>
+  <text x="${W / 2}" y="50" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#f1f5f9">Visual Geometries of &#950;(s)</text>
+  <text x="${W / 2}" y="74" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#94a3b8">One field, many views &#8212; log-phase &#952; = t log n</text>
+  ${cards}
+</svg>`;
+
+  const blob = new Blob([svg], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'visual-geometries-poster.svg';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 /*
  * Visual Geometries of zeta(s) — the master gallery.
  *
@@ -71,6 +130,12 @@ export default function VisualGeometriesPage() {
           <InlineMath tex={'V_t = H_t^{\\prime}/H_t'} />. From the discrete (numbers) to
           the continuous (geometry), the twin ladder makes the invisible visible.
         </p>
+        <button
+          onClick={() => downloadPosterSVG(PANELS)}
+          style={{ marginTop: 14, padding: '6px 14px', fontSize: 12, cursor: 'pointer', background: 'rgba(99,102,241,0.12)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.28)', borderRadius: 5, letterSpacing: '0.02em' }}
+        >
+          Export poster SVG
+        </button>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>

@@ -597,6 +597,11 @@ export default function RigorDashboardPage() {
           Lambda Bounds
         </Link>
       </div>
+
+      {/* Data provenance footer */}
+      <div style={{ fontSize: 11, color: '#475569', textAlign: 'center', marginTop: 24, paddingTop: 12, borderTop: '1px solid #1e293b' }}>
+        Sourced from <code style={{ color: '#64748b' }}>proof-chain-snapshot-2026-06-23.js</code> · snapshot date {HEADLINE.snapshotDate}
+      </div>
     </div>
   );
 }

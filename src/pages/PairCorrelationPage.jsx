@@ -100,6 +100,23 @@ export default function PairCorrelationPage() {
   const pathGue = buildPath(xs, yGue, xTop, yTop);
   const pathRes = buildPath(xs, yRes, xBot, yBot);
 
+  // imp-2932: residual fit statistics split by the Montgomery-proved band
+  // (|alpha| < 1, where the form factor is a theorem) vs the open band
+  // (|alpha| > 1, finite-N numerical only), plus the global L2 residual norm.
+  let maxResInside = 0;
+  let maxResOutside = 0;
+  let sumSqRes = 0;
+  for (let i = 0; i < xs.length; i++) {
+    const r = Math.abs(yRes[i]);
+    if (Math.abs(xs[i]) < 1) {
+      if (r > maxResInside) maxResInside = r;
+    } else if (r > maxResOutside) {
+      maxResOutside = r;
+    }
+    sumSqRes += yRes[i] * yRes[i];
+  }
+  const l2ResidualNorm = Math.sqrt(sumSqRes);
+
   const metricColor = pcm.agreementMetric === 'matches-montgomery-1973'
     ? '#34d399'
     : (pcm.agreementMetric === 'qualitative-agreement-finite-N' ? '#facc15' : '#f87171');
@@ -312,6 +329,49 @@ export default function PairCorrelationPage() {
             </div>
           </div>
         </div>
+
+        {/* imp-2932: residual-statistics summary split by the Montgomery-proved
+            band (|alpha| < 1) and the open band (|alpha| > 1), plus the global
+            L2 residual norm. Quantifies the fit the shaded wings illustrate. */}
+        <div style={{
+          marginTop: 12,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: 12,
+        }}>
+          <div style={{ padding: 10, background: 'rgba(34, 197, 94, 0.06)', borderRadius: 6, border: '1px solid rgba(34,197,94,0.3)' }}>
+            <div style={{ fontSize: 10, color: COLORS.axis, fontFamily: 'var(--font-mono)' }}>max |residual|, |alpha| &lt; 1</div>
+            <div style={{ fontSize: 22, color: '#34d399', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
+              {maxResInside.toFixed(4)}
+            </div>
+            <div style={{ fontSize: 10, color: COLORS.axis, fontFamily: 'var(--font-mono)' }}>
+              Montgomery-proved regime
+            </div>
+          </div>
+          <div style={{ padding: 10, background: 'rgba(245, 158, 11, 0.06)', borderRadius: 6, border: '1px solid rgba(245,158,11,0.3)' }}>
+            <div style={{ fontSize: 10, color: COLORS.axis, fontFamily: 'var(--font-mono)' }}>max |residual|, |alpha| &gt; 1</div>
+            <div style={{ fontSize: 22, color: '#facc15', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
+              {maxResOutside.toFixed(4)}
+            </div>
+            <div style={{ fontSize: 10, color: COLORS.axis, fontFamily: 'var(--font-mono)' }}>
+              open regime (finite-N only)
+            </div>
+          </div>
+          <div style={{ padding: 10, background: 'rgba(15, 23, 42, 0.5)', borderRadius: 6, border: '1px solid var(--border)' }}>
+            <div style={{ fontSize: 10, color: COLORS.axis, fontFamily: 'var(--font-mono)' }}>L2 residual norm</div>
+            <div style={{ fontSize: 22, color: COLORS.text, fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
+              {l2ResidualNorm.toFixed(4)}
+            </div>
+            <div style={{ fontSize: 10, color: COLORS.axis, fontFamily: 'var(--font-mono)' }}>
+              over full grid [-3, 3]
+            </div>
+          </div>
+        </div>
+        <p style={{ fontSize: 11, color: '#facc15', lineHeight: 1.5, marginTop: 10, marginBottom: 0, fontFamily: 'var(--font-mono)' }}>
+          Note: agreement for |alpha| &gt; 1 is finite-N numerical only
+          (agreementMetric = {pcm.agreementMetric}); Montgomery 1973 proves the
+          form factor identity only for Fourier support |alpha| &lt; 1.
+        </p>
       </div>
 
       <div style={{

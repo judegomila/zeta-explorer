@@ -2875,3 +2875,4 @@ below are the engine contract — do not rename or reorder.
 | 2988 | 2026-06-26T08:00:00Z | imp-2946 (content, low): add structural/illustrative honest framing line and /statistics cross-link to PascalPage | src/pages/PascalPage.jsx |
 | 2989 | 2026-06-27T02:00:00Z | imp-2960 (content, low): add Honest State of the Program section to WikiPage with links to /state-of-program, /route-map, C_H Wall, Overclaim Ledger, and inline glossary term links | src/pages/WikiPage.jsx |
 | 2990 | 2026-06-27T03:00:00Z | imp-2965 (content, low): add three-channel pool, build-gated assertion sweep, and overclaim-ledger discipline entries to MetaAccelerationPage pipeline visualization | src/pages/MetaAccelerationPage.jsx |
+| 2991 | 2026-06-26T20:59:15Z | imp-2996 (numerical, medium): expose the Riemann-von-Mangoldt count N(T_PT)~1.23624e13 as a step + within-tolerance assertion in the E_trunc Ingham recomputation | src/data/imp-etrunc-ingham-recompute.js |

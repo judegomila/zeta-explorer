@@ -103,6 +103,15 @@ function inghamExponent(sigma) {
 function guthMaynardExponent(sigma) {
   return (30 * (1 - sigma)) / 13;
 }
+// Riemann-von-Mangoldt main term: number of nontrivial zeros up to height T,
+// N(T) = (T/2pi)(log(T/2pi) - 1) + 7/8 + S(T), S(T) = O(log T). This is the
+// COUNT N(T) the ticket asks to expose: every one of these ~N(T_PT) zeros is
+// verified on-line by Platt-Trudgian, so the off-line count below T_PT is 0 and
+// only the above-T_PT tail (the Ingham density estimate) can feed E_trunc_pt.
+function riemannVonMangoldtCount(T) {
+  const x = T / (2 * Math.PI);
+  return x * (Math.log(x) - 1) + 7 / 8;
+}
 
 // E_trunc_pt(sigma) = (2 e_I / kappa) . C . T_PT^{-kappa}, with C normalised to 1.
 function eTruncFromExponent(eExp) {
@@ -113,6 +122,7 @@ function eTruncFromExponent(eExp) {
 }
 
 // ── Step-by-step recomputation at sigma_opt = 3/4 (the committed reading) ──────
+const N_TPT = riemannVonMangoldtCount(T_PT); // ~1.23624e13 on-line zeros below T_PT
 const E_I = inghamExponent(SIGMA_OPT); // 0.60 exactly
 const KAPPA = 1 - E_I; // 0.40 exactly
 const FACTOR = (2 * E_I) / KAPPA; // 3.0 exactly
@@ -146,6 +156,7 @@ export const ETRUNC_INGHAM_RECOMPUTE = {
   // Each numeric step exposed (the deliverable).
   steps: {
     T_PT,
+    N_T_PT: +N_TPT.toExponential(5), // 1.23624e13 zeros verified on-line below T_PT
     sigma_opt: SIGMA_OPT,
     e_I: +E_I.toFixed(6), // 0.600000
     kappa: +KAPPA.toFixed(6), // 0.400000
@@ -229,6 +240,17 @@ export const ETRUNC_INGHAM_RECOMPUTE_ASSERTIONS = [
       'ln(3e12) = ln3 + 12 ln10 = 28.7296334 and T_PT^{-0.4} = exp(-11.4918534) = ' +
       '1.0212e-5 are the two transcendental steps; pinning them isolates any ' +
       'rounding drift in the headline 3.06e-5.',
+  },
+  {
+    id: 'imp2996-N-of-TPT-exposed',
+    holds: () =>
+      Math.abs(N_TPT / 1.23624e13 - 1) < 1e-4 && N_TPT > 1.2e13 && N_TPT < 1.3e13,
+    why:
+      'The Riemann-von-Mangoldt count N(T_PT) = (T/2pi)(log(T/2pi)-1)+7/8 at ' +
+      'T_PT = 3e12 is ~1.23624e13 -- the number of nontrivial zeros Platt-Trudgian ' +
+      'verified on-line. Exposing N(T) (the step the imp-2996 ticket names) makes ' +
+      'explicit why the off-line count below T_PT is 0 and only the above-T_PT ' +
+      'Ingham tail can feed E_trunc_pt. A drift means the N(T) arithmetic moved.',
   },
   {
     id: 'imp2844-guth-maynard-tightens-but-immaterial',

@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { waves, keyResults, withdrawn, projectStats } from '../data/wave-index.js';
 
 /**
- * Project Index page: navigable summary of all 149 improvements (imp-149).
+ * Project Index page: navigable summary of all project improvements.
+ * The count is sourced live from projectStats.totalImprovements (wave-index.js);
+ * never inline a frozen literal here so the header cannot drift from the data.
  */
 export default function ProjectIndexPage() {
   const [expandedWave, setExpandedWave] = useState(null);

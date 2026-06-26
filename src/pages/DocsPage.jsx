@@ -486,7 +486,7 @@ export default function DocsPage() {
       <section id="viz-components" className="docs-section">
         <h2>Visualization Components</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14, marginBottom: 16 }}>
-          34 interactive visualization components using D3.js (SVG) and Canvas API.
+          39 interactive visualization components and dedicated visualization pages using D3.js (SVG) and Canvas API.
         </p>
         <table className="docs-table">
           <thead>
@@ -532,6 +532,11 @@ export default function DocsPage() {
               ['InsightDAG', 'Home', 'SVG', 'Interactive DAG of 22+ connected mathematical insights'],
               ['SystemArchitectureDiagram', 'Docs', 'SVG', '5-layer system architecture with hover details'],
               ['ThermoBar', 'Waves', 'SVG', 'Thermodynamic state indicator bar'],
+              ['VortexFieldPage', 'Vortex Field', 'Canvas', 'Domain-colored phase portrait of V(s)=xi\'(s)/xi(s): zeros appear as phase vortices with winding ±1; off-axis slider makes an RH violation geometrically visible. Illustrative — not a new Λ bound.'],
+              ['VizCausticResonancePage', 'Caustic Resonance', 'Canvas', 'Resonance-condition overlay: at each height t plots the coherent-prime count and tick-marks every t satisfying log(p_i/p_j)=2πk/t (prime beat frequencies). Illustrative caustic explorer.'],
+              ['VizWindingDysonFlowPage', 'Winding Dyson Flow', 'Canvas', 'Animated winding-number / domain-color readout of the de Bruijn-Newman zero flow; central zero can be shifted off-axis to show topological change. Honest ceiling: re-derives Λ ≥ 0 only.'],
+              ['VizPrimeDensityOnCausticPage', 'Prime Density on Caustic', 'Canvas', 'Heatmap of which primes (by index) satisfy the caustic phase condition at each imaginary height t; per-column coherent-fraction profile vs PNT baseline. Exploratory illustration.'],
+              ['VisualGeometriesPage', 'Visual Geometries', 'Canvas+SVG', 'Master gallery of 13 visualization panels: log-phase spiral, prime caustic, phase crystal, hyperbolic prime spiral, vortex/defect map, near-zero rings, twin-ladder tomography, and more. Honest framing: pedagogical; twin-ladder geometry is a dead-end as a rigorous proof route.'],
             ].map(([name, page, renderer, purpose]) => (
               <tr key={name}>
                 <td style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-blue)', fontSize: 12 }}>{name}</td>

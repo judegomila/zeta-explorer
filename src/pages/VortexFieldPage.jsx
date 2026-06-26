@@ -299,6 +299,112 @@ function PhaseWheel() {
   return <canvas ref={ref} width={120} height={120} style={{ width: 120, height: 120 }} />;
 }
 
+// ── Vortex trajectory time-lapse (τ, Im s) ────────────────────────────────────
+// Shows the path each zero traces in the (heat-time τ, Im s) plane as τ sweeps
+// from -4 to +4. Central (closest) pair converges in yellow; spectators in blue.
+// After collision the pair freezes at the collision Im s. White cursor = current τ.
+const TRAJ_W = 420, TRAJ_H = 200, TRAJ_SAMPLES = 80;
+
+function VortexTrajectoryMap({ centerIdx, tau }) {
+  const ref = useRef(null);
+
+  // Pre-compute full trajectory for all tau in [-4,4] — only recompute on centerIdx change.
+  const traj = useMemo(() => {
+    const TAU_A = -4, TAU_B = 4;
+    const { zeros: z0 } = computeVortexFlow(centerIdx, 0);
+    const sorted0 = [...z0].sort((a, b) => a.gamma - b.gamma);
+    const nZeros = sorted0.length;
+    const cIdxs = sorted0.reduce((acc, z, i) => { if (z.role === 'central') acc.push(i); return acc; }, []);
+    const centralPairIdx = cIdxs.length >= 2
+      ? [cIdxs[0], cIdxs[1]]
+      : [Math.floor(nZeros / 2) - 1, Math.floor(nZeros / 2)];
+    const snapshots = [];
+    for (let i = 0; i <= TRAJ_SAMPLES; i++) {
+      const tv = TAU_A + (i / TRAJ_SAMPLES) * (TAU_B - TAU_A);
+      const { zeros } = computeVortexFlow(centerIdx, tv);
+      snapshots.push({ tv, zeros: [...zeros].sort((a, b) => a.gamma - b.gamma) });
+    }
+    return { snapshots, nZeros, centralPairIdx };
+  }, [centerIdx]);
+
+  useEffect(() => {
+    const cv = ref.current; if (!cv) return;
+    const ctx = cv.getContext('2d');
+    const W = cv.width, H = cv.height;
+    const { snapshots, nZeros, centralPairIdx } = traj;
+    const gc = GAMMAS[centerIdx];
+    const tMin = gc - HALF_T, tMax = gc + HALF_T;
+    const TAU_A = -4, TAU_B = 4;
+    const ML = 36, MR = 8, MT = 10, MB = 22;
+    const pW = W - ML - MR, pH = H - MT - MB;
+    const toX = (tv) => ML + ((tv - TAU_A) / (TAU_B - TAU_A)) * pW;
+    const toY = (s) => MT + ((tMax - s) / (tMax - tMin)) * pH;
+
+    ctx.fillStyle = '#0f172a'; ctx.fillRect(0, 0, W, H);
+
+    // Draw one path per zero (sorted index stable: Dyson repulsion prevents crossings)
+    for (let idx = 0; idx < nZeros; idx++) {
+      const isCentral = idx === centralPairIdx[0] || idx === centralPairIdx[1];
+      ctx.beginPath();
+      let moved = false;
+      for (const snap of snapshots) {
+        const z = snap.zeros[idx]; if (!z) continue;
+        const x = toX(snap.tv), y = toY(z.gamma);
+        if (!moved) { ctx.moveTo(x, y); moved = true; } else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = isCentral ? '#fde047' : '#3b82f6';
+      ctx.lineWidth = isCentral ? 2 : 1;
+      ctx.globalAlpha = isCentral ? 0.9 : 0.45;
+      ctx.stroke(); ctx.globalAlpha = 1;
+    }
+
+    // tau=0 dashed reference
+    ctx.strokeStyle = 'rgba(148,163,184,0.2)'; ctx.setLineDash([3, 4]); ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(toX(0), MT); ctx.lineTo(toX(0), MT + pH); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Current tau cursor
+    const cx = Math.max(ML, Math.min(ML + pW, toX(tau)));
+    ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(cx, MT); ctx.lineTo(cx, MT + pH); ctx.stroke();
+
+    // Dots marking current zero positions on the cursor
+    const si = Math.max(0, Math.min(TRAJ_SAMPLES, Math.round(((tau - TAU_A) / (TAU_B - TAU_A)) * TRAJ_SAMPLES)));
+    const cur = snapshots[si];
+    if (cur) {
+      cur.zeros.forEach((z, idx) => {
+        const isCentral = idx === centralPairIdx[0] || idx === centralPairIdx[1];
+        const isOff = z.role === 'off';
+        ctx.beginPath();
+        ctx.arc(cx, toY(z.gamma), isOff ? 4.5 : isCentral ? 3.5 : 2.5, 0, 2 * Math.PI);
+        ctx.fillStyle = isOff ? '#ef4444' : isCentral ? '#fde047' : '#93c5fd';
+        ctx.fill();
+      });
+    }
+
+    // Axes
+    ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(ML, MT); ctx.lineTo(ML, MT + pH);
+    ctx.moveTo(ML, MT + pH); ctx.lineTo(ML + pW, MT + pH);
+    ctx.stroke();
+
+    // X tick labels
+    ctx.fillStyle = '#475569'; ctx.font = '9px monospace'; ctx.textAlign = 'center';
+    [-4, -2, 0, 2, 4].forEach((tv) => ctx.fillText(String(tv), toX(tv), MT + pH + 13));
+    ctx.fillStyle = '#374155'; ctx.fillText('heat-time t', ML + pW / 2, H - 3);
+
+    // Y tick labels
+    ctx.fillStyle = '#475569'; ctx.textAlign = 'right';
+    [tMin + 2, gc, tMax - 2].forEach((s) => ctx.fillText(s.toFixed(1), ML - 4, toY(s) + 3));
+  }, [traj, tau, centerIdx]);
+
+  return (
+    <canvas ref={ref} width={TRAJ_W} height={TRAJ_H}
+      style={{ width: '100%', borderRadius: 8, border: '1px solid #1e293b', display: 'block', marginTop: 10 }} />
+  );
+}
+
 export default function VortexFieldPage() {
   const [centerIdx, setCenterIdx] = useState(9); // gamma ~ 49.77 (matches the poster)
   const [tau, setTau] = useState(-4);
@@ -368,6 +474,10 @@ export default function VortexFieldPage() {
             ) : (
               <div style={{ fontSize: 11, color: '#334155', fontFamily: 'var(--font-mono)' }}>hover canvas to read σ, Im s, arg H(s), winding number W</div>
             )}
+          </div>
+          <VortexTrajectoryMap centerIdx={centerIdx} tau={tau} />
+          <div style={{ fontSize: 11, color: '#475569', marginTop: 4, fontFamily: 'var(--font-mono)' }}>
+            Zero trajectories (τ, Im s) — curves trace each zero's Im s under Dyson heat flow; yellow = central pair, white cursor = current τ, red dots = off-axis after collision
           </div>
         </div>
 

@@ -176,6 +176,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-near-zero',
   '/viz-phase-cylinder',
   '/viz-prime-density-caustic',
+  '/viz-unwrapped-rays',
   '/viz-winding-dyson-flow',
 ]);
 

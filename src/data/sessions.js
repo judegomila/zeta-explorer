@@ -185,4 +185,93 @@ export const SESSIONS = [
       'Assertion sweep gated into build (npm run build calls node scripts/run-assertions.mjs --fast) catches silent assertion failures before deploy.',
     ],
   },
+  {
+    id: 'session-2026-06-25',
+    date: '2026-06-25',
+    title: 'Visual-geometries gallery v3 + honest-ceiling audit wave',
+    engineStateStart:
+      'Multi-channel pool (opus-4-8 / sonnet-4-6 / fable-5). ~143 pending tickets. Visual-geometries gallery wired from session-2026-06-23, but VisualGeometriesPage panels lacked per-panel honest-ceiling labels and several new viz pages (angular-spacing, zoom-hierarchy) were still in-flight.',
+    engineStateEnd:
+      'Pool running. ~93 pending. VortexField upgraded to real backward Dyson/CM zero flow (imp-2677). Two new viz pages shipped: AngularSpacingStatsPage (imp-2678) and VizZoomHierarchyPage (imp-2679). All 11 VisualGeometriesPage panels carry explicit honest-ceiling labels. Honest-SOTA audit wave consolidated 30+ banners across ~20 pages. ConceptsPage glossary expanded with C_H Wall, Honest Ceiling, PCC-Free Route, Overclaim Ledger, and Finite-N* Beat.',
+    lambdaHeadline: {
+      start: 'Λ = 0.0066 ± 0.01 (Path C Hybrid, N=2458)',
+      end: 'Λ = 0.0066 ± 0.01 (unchanged — no new ODE data)',
+      provenance:
+        'Headline unchanged; session focused on visualization hardening and honest-scope labeling, not numerical tightening.',
+      note:
+        'VortexField animation upgraded from model split to real backward Dyson/CM zero flow. Mathematically honest, but the animation remains illustrative — it does not change the Λ bound.',
+    },
+    seededTickets: [
+      {
+        phase: 'Visual-geometries v3',
+        ids: ['imp-2677', 'imp-2678', 'imp-2679'],
+        summary:
+          'VortexField redriven from real backward Dyson/CM zero flow; angular-spacing statistics page (/angular-spacing-stats); zoom-hierarchy of the log-phase prime spiral (/zoom-hierarchy)',
+        status: 'all completed by engine',
+      },
+      {
+        phase: 'VisualGeometriesPage honest-ceiling',
+        ids: ['imp-2801', 'imp-2922'],
+        summary:
+          'per-panel honest-ceiling provenance notes added to all 11 VisualGeometriesPage Lambda-claim panels',
+        status: 'all completed by engine',
+      },
+      {
+        phase: 'Honest-SOTA banners',
+        ids: ['imp-2898', 'imp-2893', 'imp-2941', 'imp-2930', 'imp-2929', 'imp-2943', 'imp-2935'],
+        summary:
+          'dismissable HonestCeilingBanner on 6 overclaim-risk pages; RelatedLinks on 6 dead-end hub pages; honest-ceiling/scope banners on /supercritical, /calabi-yau, /control, /esy-rigidity-empirical, /odd-zeta',
+        status: 'all completed by engine',
+      },
+      {
+        phase: 'Glossary expansion',
+        ids: ['imp-2948', 'imp-2949', 'imp-2950'],
+        summary:
+          'PCC-Free Route, C_H Wall, Honest Ceiling, Overclaim Ledger, and Finite-N* Beat entries added to ConceptsPage',
+        status: 'all completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/pages/VortexFieldPage.jsx',
+        ticket: 'imp-2677',
+        note: 'upgraded to real backward Dyson/CM zero flow (vortex-v3)',
+      },
+      {
+        path: 'src/pages/AngularSpacingStatsPage.jsx',
+        ticket: 'imp-2678',
+        note: 'local angular-spacing statistics (/angular-spacing-stats)',
+      },
+      {
+        path: 'src/pages/VizZoomHierarchyPage.jsx',
+        ticket: 'imp-2679',
+        note: 'zoom hierarchy of the log-phase prime spiral (/zoom-hierarchy)',
+      },
+      {
+        path: 'src/pages/VisualGeometriesPage.jsx',
+        ticket: 'imp-2801 / imp-2922',
+        note: 'per-panel honest-ceiling provenance on all 11 Lambda-claim cards',
+      },
+    ],
+    keyFinding:
+      'The visual-geometries gallery and vortex-field animations are visualization and intuition artifacts, not new rigorous bounds. No panel in VisualGeometriesPage and no viz page changes the Λ headline or opens a new proof route. The VortexField upgrade to real backward Dyson/CM flow makes the animation mathematically honest (real zeros, not a model), but the Λ = 0.0066 ± 0.01 bound is unchanged. All 11 gallery panels now carry explicit honest-ceiling labels: these show known structure under RH, they do not prove it.',
+    mainLineBlocker: {
+      label: 'C_H closure',
+      description:
+        'C_H = C_shock * C_Lip / 4 requires bounding C_Lip from the backward Gronwall flow integral. The integral diverges without an a-priori RH assumption. Visualization pages cannot bypass this; the honest-ceiling labels on all panels reflect this blocker.',
+      ticket: 'imp-2520',
+    },
+    openQuestions: [
+      'Can the Theta-trap + discriminant ladder replace the divergent Gronwall integral for C_H? (imp-2672 — critical)',
+      'Is the vortex winding-number change under real backward Dyson/CM flow quantizable as a topological invariant? (no ticket yet)',
+      'Does the angular-spacing CDF of real zeros near a given height match the GUE edge distribution at finite sample size? (no ticket yet)',
+      'Can the zoom-hierarchy visualization surface hidden scale-dependent structure in the log-phase prime spiral relevant to the Theta-trap? (no ticket yet)',
+    ],
+    metaObservations: [
+      'The honest-ceiling audit wave (30+ banners across ~20 pages) is a standing pattern: every new page displaying a Λ or C_H estimate must declare isRigorousUpperBound status.',
+      'VortexField v3 demonstrates that animation quality can improve without changing the proof state — real backward Dyson/CM flow is honest, but still empirical visualization.',
+      'ConceptsPage glossary expansion (C_H Wall, Honest Ceiling, PCC-Free Route, Overclaim Ledger, Finite-N* Beat) establishes shared vocabulary for the honest-SOTA framing project-wide.',
+      'The queue-index.json cache continues to be essential for multi-channel routing; engines read only the 4 KB index rather than the 280 K-token improvements.js.',
+    ],
+  },
 ];

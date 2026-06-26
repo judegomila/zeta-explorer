@@ -2053,6 +2053,7 @@ const literature = [
     summary: 'Proposed quantum algorithms for finding Riemann zeros using quantum phase estimation. The zeros appear as eigenphases of a unitary operator implementable on a quantum computer.',
     keyInsight: 'Finding zeta zeros becomes a quantum phase estimation problem — the oscillator chain\'s resonances can be measured by a quantum computer.',
     relevanceToModel: 'A quantum computer running quantum phase estimation is a physical implementation of the oscillator chain, with the measured phases being the zeta zeros.',
+    verificationNote: "AUDIT imp-2958 (2026-06-25): this entry carries no DOI or URL, the only such gap among the 10 most-recent entries spot-checked, so it violates the file-level assertion that every entry has a primary-source link. The primary-source identifier is UNVERIFIED and is intentionally NOT fabricated here; treat the citation as provisional until a confirmed arXiv id or DOI is supplied.",
   },
   // === Functional Equation and Symmetry ===
   {

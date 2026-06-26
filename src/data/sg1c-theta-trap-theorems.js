@@ -229,6 +229,7 @@ export const SG1C_THEOREMS = {
   theoremB: { trapLevel: (Math.sqrt(73) - 5) / 8, hypothesis: 'g is the minimal gap', sharp: true },
   theoremC: { isolationConstant: 0.72, conclusion: 'every Theta* <= 1 non-crossable while g <= 0.72 d_1 holds' },
   lemmaR2T: 'd(g/d_1)/ds = (g-d_1)/d_1^2 * [2/(g+d_1) + 4(g+d_1)/(d_1 g)] (exact, single nearest neighbour): margin self-improves for rho<1; multi-body inf threshold ~0.943 > 0.72, so g <= 0.72 d_1 is self-propagating',
+  lemmaR2T2: 'symmetric single-shell 4-body {-(g/2+d),-g/2,g/2,g/2+d}, rho=g/d (imp-3005): EXACT rate drho/ds = (1/d^2)[-4/rho + 4rho/(rho+1) + 2rho/(rho+2) + 4rho - 2], whose worsening onset is the unique root in (0,1) of the quartic rho^4+4rho^3+2rho^2-4rho-2 (substitute u=rho^2+2rho => u^2-2u-2=0), giving the CLOSED FORM c* = sqrt(2+sqrt(3))-1 = (1+sqrt(3))/sqrt(2)-1 ~ 0.93185165; within the symmetric K-shell family K=1 is the worst (onset rises with K toward 1). NOT the global multi-body constant: a 2e6-config minimal-pair scan finds asymmetric configs worsening marginally earlier (~0.927 < c*), so the global closed-form c stays OPEN; Theorem C 0.72 is safely below all of them (~0.21 margin)',
   lemmaR1T2: 'uniform-lattice central tie Theta_K = K/(K+1) (E = 2K/(K+1), telescoping) rises to 1 as K->inf, so the static excursion peak is NOT capped < 1; the seizing mechanism (the competitor with strictly lower Theta seizes, margin > 0) nonetheless extends to asymmetric/dressed ties -- R1 refined to a dynamical reachability residual',
   lemmaR1T3: 'asymmetric minimal-gap 4-tie {-1,0,1,1+b} (b>=1): EXACT seizing margin Theta_central - Theta_seize = 1/(b(b+1)(b+2)) > 0, recovering 1/6 at the symmetric b=1; Theta_central(b) = 1/4 + 1/(2b(b+1)) is maximised at b=1 (=1/2) so asymmetry only lowers the tie and the 4-tie excursion peak stays exactly 1/2 (and Theta_central -> 1/4 into the Theorem-A trap as b->inf); closes the static asymmetric 4-tie case in closed form, leaving the multi-body near-uniform lattice as the dynamical residual',
   lemmaR1T4: 'dynamical reachability (basin closure, imp-2637): CM-flow integration from an isolated minimal pair (rho=g/d_1<1, Theta(0)<1/4 -- the real-zero regime) gives peak min-pair Theta = Theta(0) over the whole trajectory (zero excursion) vs ~0.8 for a near-uniform-lattice control (rho~1); mechanism is Lemma R2-T (the minimal pair has rho<=1 and drho/ds<0 strictly for rho<1, so it isolates into the Theorem-A trap while the lattice rho=1 is the repelling threshold). The excursion cap Theta_exc<1 and the A1 hypothesis self-enforce on the isolated-pair basin; inherits R2-T multi-body residual, so NOT unconditional over all configs',
@@ -253,7 +254,7 @@ export const SG1C_SUCCESSOR_GAPS = {
       id: 'sg1c-r2-isolation-persistence',
       statement: 'Theorem C (isolation g <= 0.72 d_1 gives trap at every level <= 1) is a static sign criterion; prove or refute that an initial isolation margin g <= c d_1 with c < 0.72 persists along the flow for some explicit c (only Theta <= 1/4 is known to self-enforce its own hypothesis).',
       status: 'open',
-      progress: 'PARTIAL (Lemma R2-T, imp-2596): the isolation ratio rho = g/d_1 against the nearest environment particle obeys the EXACT single-neighbour identity d(rho)/ds = (g-d_1)/d_1^2 * [2/(g+d_1) + 4(g+d_1)/(d_1 g)]; the bracket is strictly positive, so sign(d rho/ds) = sign(g - d_1) and the margin STRICTLY self-improves for every rho < 1 (threshold exactly 1). So g <= 0.72 d_1 is self-propagating against the nearest neighbour -- it tightens, not merely holds. An adversarial 3e6-config multi-body scan (up to 7 particles, both sides) puts the worsening-onset infimum at rho ~ 0.943 (only near a uniform lattice), 0.22 above c = 0.72. RESIDUAL: a closed-form multi-body constant proving the ~0.943 (or any explicit c in [0.72, 1)) rigorously; only single-neighbour c = 1 and the unconditional Theta <= 1/4 trap are fully closed.',
+      progress: 'PARTIAL (Lemma R2-T, imp-2596): the isolation ratio rho = g/d_1 against the nearest environment particle obeys the EXACT single-neighbour identity d(rho)/ds = (g-d_1)/d_1^2 * [2/(g+d_1) + 4(g+d_1)/(d_1 g)]; the bracket is strictly positive, so sign(d rho/ds) = sign(g - d_1) and the margin STRICTLY self-improves for every rho < 1 (threshold exactly 1). So g <= 0.72 d_1 is self-propagating against the nearest neighbour -- it tightens, not merely holds. An adversarial 3e6-config multi-body scan (up to 7 particles, both sides) puts the worsening-onset infimum at rho ~ 0.943 (only near a uniform lattice), 0.22 above c = 0.72. UPDATE (imp-3005, Lemma R2-T2): the symmetric single-shell 4-body case is now CLOSED IN FORM -- exact rate drho/ds = (1/d^2)[-4/rho + 4rho/(rho+1) + 2rho/(rho+2) + 4rho - 2] worsens only above the unique (0,1) root of rho^4+4rho^3+2rho^2-4rho-2, i.e. c* = sqrt(2+sqrt(3))-1 = (1+sqrt(3))/sqrt(2)-1 ~ 0.93185165 (u=rho^2+2rho => u^2-2u-2=0); within the symmetric K-shell family K=1 is the worst (onset rises with K). RESIDUAL (sharpened, still OPEN): the GLOBAL constant is not closed -- a 2e6-config minimal-pair scan finds asymmetric configs worsening marginally earlier (~0.927 < c*), so the open residual is now precisely an ASYMMETRIC multi-body bound below c*; only single-neighbour c = 1, the symmetric single-shell c* in closed form, and the unconditional Theta <= 1/4 trap are fully closed.',
     },
   ],
 };
@@ -471,6 +472,29 @@ export const SG1C_THEOREM_ASSERTIONS = [
         Math.abs(multi.rho - 0.72) < 1e-12 &&
         multi.drho < 0
       );
+    },
+  },
+  {
+    id: 'sg1c-r2t2-symmetric-single-shell-closed-form',
+    description: 'Lemma R2-T2 (imp-3005): the symmetric single-shell 4-body has an EXACT closed-form isolation-ratio rate matching dRhoIso, with worsening onset = the unique (0,1) root of rho^4+4rho^3+2rho^2-4rho-2, i.e. c* = sqrt(2+sqrt(3))-1 ~ 0.93185 in [0.72,1) (via u=rho^2+2rho => u^2-2u-2=0); the single shell (K=1) is the worst symmetric case, onset rises with added shells',
+    holds: () => {
+      const rate = (rho) => -4 / rho + (4 * rho) / (rho + 1) + (2 * rho) / (rho + 2) + 4 * rho - 2;
+      const Q = (r) => r ** 4 + 4 * r ** 3 + 2 * r * r - 4 * r - 2;
+      // closed-form rate matches the module dRhoIso on the symmetric single-shell config (d = 1, g = rho)
+      const rateOk = [0.5, 0.72, 0.9, 0.95].every((rho) => {
+        const x = [-(rho / 2 + 1), -rho / 2, rho / 2, rho / 2 + 1];
+        return Math.abs(dRhoIso(x, 1).drho - rate(rho)) < 1e-9;
+      });
+      const cStar = Math.sqrt(2 + Math.sqrt(3)) - 1;
+      const rootOk = Math.abs(Q(cStar)) < 1e-9 && Math.abs(cStar - ((1 + Math.sqrt(3)) / Math.sqrt(2) - 1)) < 1e-15;
+      const inBand = cStar >= 0.72 && cStar < 1;
+      // u-substitution: u = rho^2 + 2rho solves u^2 - 2u - 2 = 0 at the root
+      const u = cStar * cStar + 2 * cStar;
+      const subOk = Math.abs(u * u - 2 * u - 2) < 1e-9;
+      // K = 1 single shell is the worst symmetric case: the K = 2 shell at rho = c* is still strictly improving
+      const k2 = dRhoIso([-(cStar / 2 + 2), -(cStar / 2 + 1), -cStar / 2, cStar / 2, cStar / 2 + 1, cStar / 2 + 2], 2);
+      const k1Worst = k2.drho < 0 && Math.abs(k2.rho - cStar) < 1e-12;
+      return rateOk && rootOk && inBand && subOk && k1Worst;
     },
   },
   {

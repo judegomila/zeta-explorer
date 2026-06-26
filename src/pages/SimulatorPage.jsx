@@ -182,9 +182,11 @@ export default function SimulatorPage() {
           <div style={{ padding: '10px 12px', background: 'rgba(245,158,11,0.06)', borderRadius: 8, border: '1px solid rgba(245,158,11,0.2)' }}>
             <div style={{ color: '#f59e0b', fontSize: 12, fontWeight: 700, marginBottom: 4 }}>Basin of Attraction</div>
             <p style={{ color: '#94a3b8', fontSize: 11, lineHeight: 1.6 }}>
-              Every starting point in the critical strip converges
-              to <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />. No local minima exist — the potential is
-              convex along the <InlineMath tex={"\\sigma"} /> axis.
+              Across the tested range, every starting point in the critical strip
+              converges to <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />: for the displayed prime counts the
+              potential is <em>observed</em> to be convex along the <InlineMath tex={"\\sigma"} /> axis with no
+              spurious local minima. This is the empirical behaviour shown in the Convergence tab, not a
+              proof of global convexity for all <InlineMath tex={"t"} /> and all prime counts.
             </p>
           </div>
           <div style={{ padding: '10px 12px', background: 'rgba(239,68,68,0.06)', borderRadius: 8, border: '1px solid rgba(239,68,68,0.2)' }}>

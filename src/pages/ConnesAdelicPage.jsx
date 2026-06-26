@@ -280,7 +280,7 @@ export default function ConnesAdelicPage() {
         color: 'var(--text-primary, #e2e8f0)',
         fontFamily: 'var(--font-mono, monospace)',
       }}>
-        Connes Adelic Spectral Interpretation (imp-1109)
+        Connes Adelic Spectral Interpretation
       </h1>
       <div style={{
         color: 'var(--text-secondary, #94a3b8)',
@@ -288,8 +288,9 @@ export default function ConnesAdelicPage() {
         marginBottom: 20,
         fontFamily: 'var(--font-mono, monospace)',
       }}>
-        SOTA attack #4: survey + small numerical check of the Connes 1999 adelic
-        spectral framework at the imp-440 finite-N Lambda regime (t = 0.02).
+        Weil-positivity RH-equivalent route: survey + small numerical check of the
+        Connes 1999 adelic spectral framework at the imp-440 finite-N Lambda regime
+        (t = 0.02).
       </div>
 
       <VerdictBanner />

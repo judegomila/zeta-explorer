@@ -320,6 +320,15 @@ const ALL_ROUTES = [
   ...NAV_GROUPS.flatMap(g => g.items.map(item => ({ ...item, group: g.label }))),
 ];
 
+function DocumentTitle() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const match = ALL_ROUTES.find(r => r.to === pathname);
+    document.title = match ? `${match.label} | ZPO Explorer` : 'ZPO Explorer';
+  }, [pathname]);
+  return null;
+}
+
 function CommandPalette({ show, onClose, navigate }) {
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
@@ -579,6 +588,7 @@ function AppShell() {
   return (
     <>
       <ScrollToTop />
+      <DocumentTitle />
       <a className="skip-link" href="#main-content">Skip to content</a>
       <NavBar onShowShortcuts={() => setShowHelp(true)} onShowPalette={() => setShowPalette(true)} />
       <KeyboardShortcutOverlay show={showHelp} onClose={() => setShowHelp(false)} />

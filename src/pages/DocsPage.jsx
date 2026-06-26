@@ -772,6 +772,18 @@ export default function DocsPage() {
           <em>Vortex exclusion</em> (no off-axis vortices) is exactly RH.
         </p>
 
+        <h3>Heat-Flow Sweep (τ)</h3>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
+          The trajectory panel sweeps the de Bruijn–Newman heat parameter
+          {' '}<InlineMath tex={"\\tau \\in [-4,\\,4]"} />. Forward flow (<InlineMath tex={"\\tau > 0"} />)
+          repels zeros apart along the imaginary axis; backward flow (<InlineMath tex={"\\tau \\to -4"} />)
+          attracts the nearest pair toward a collision. Such a collision can only occur if the pair lies at
+          symmetric off-axis positions — an RH violation. The page defaults to <InlineMath tex={"\\tau = -4"} /> and
+          animates to <InlineMath tex={"\\tau = 0"} /> (the physical zeta zeros), making the repulsion barrier
+          geometrically visible. Note: this is a local product-model approximation over 25 hardcoded zeros,
+          not the full <InlineMath tex={"H_t(z)"} /> de Bruijn–Newman heat kernel.
+        </p>
+
         <h3>Implementation Notes</h3>
         <ul style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8, marginLeft: 20, marginBottom: 12 }}>
           <li>Rendered on a 460 &times; 460 Canvas element with per-pixel <InlineMath tex={"\\arg H(s)"} /> evaluation.</li>
@@ -784,12 +796,23 @@ export default function DocsPage() {
           <p style={{ color: 'var(--accent-orange)', fontSize: 13, fontWeight: 600, marginBottom: 4 }}>
             Honest ceiling
           </p>
-          <p style={{ fontSize: 13 }}>
+          <p style={{ fontSize: 13, marginBottom: 8 }}>
             The vortex / winding-number picture re-derives <InlineMath tex={"\\Lambda \\geq 0"} /> (Rodgers–Tao) and makes RH geometrically visible,
             but it is <strong>not</strong> a new rigorous bound on <InlineMath tex={"\\Lambda"} /> and does not beat
             the Platt–Trudgian result <InlineMath tex={"\\Lambda \\leq 0.2"} />. This is an exact, exploratory visualization.
           </p>
+          <p style={{ fontSize: 13, color: 'var(--accent-orange)' }}>
+            <strong>Critical caveat:</strong> vortex-center localization on <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> is RH
+            itself — it is the statement being visualized, not independent evidence for it. Observing that all
+            rendered vortices sit on the critical line is circular: the zeros were placed on the line by construction
+            from known zeta data.
+          </p>
         </div>
+
+        <p style={{ color: 'var(--text-secondary)', fontSize: 13, marginTop: 12 }}>
+          See also: <a href="#/concepts" style={{ color: 'var(--accent-blue)' }}>Phase Vortex &amp; RH</a> in
+          the Concepts glossary (search &quot;phase-vortex-rh&quot;) for the mathematical definition and intuition behind the phase-winding picture.
+        </p>
       </section>
     </div>
   );

@@ -26,6 +26,21 @@ for (let L = 0.3; L <= 6; L += 0.05) {
   REF_NUMVAR_GUE.push({ L, s2: Math.max(0, s2) });
 }
 
+// Abramowitz-Stegun 7.1.26 rational approximation to erf (|error| < 1.5e-7),
+// used for the closed-form GUE Wigner-surmise spacing CDF below.
+function erf(x) {
+  const sign = x < 0 ? -1 : 1;
+  const ax = Math.abs(x);
+  const t = 1 / (1 + 0.3275911 * ax);
+  const y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-ax * ax);
+  return sign * y;
+}
+// GUE Wigner-surmise spacing CDF: integrating P(s) = (32/pi^2) s^2 e^{-4s^2/pi}
+// gives F(s) = erf(2s/sqrt(pi)) - (4/pi) s e^{-4s^2/pi}.
+function gueWignerCDF(s) {
+  return erf(2 * s / Math.sqrt(Math.PI)) - (4 / Math.PI) * s * Math.exp(-4 * s * s / Math.PI);
+}
+
 /**
  * Compare the spacing distribution of zeta zeros with GUE predictions.
  * Shows histogram of normalized spacings vs the GUE Wigner surmise.
@@ -59,6 +74,19 @@ export default function GUEStatisticsViz() {
       sHist[Math.min(19, Math.floor(s / sBinW))]++;
     }
     const sDensity = sHist.map(c => c / (spacings.length * sBinW));
+
+    // Kolmogorov-Smirnov distance between the empirical spacing CDF and the
+    // GUE Wigner-surmise CDF: D = sup_s |F_emp(s) - F_GUE(s)|.
+    const sortedSp = [...spacings].sort((a, b) => a - b);
+    const nSp = sortedSp.length;
+    let ksDistance = 0;
+    for (let i = 0; i < nSp; i++) {
+      const F = gueWignerCDF(sortedSp[i]);
+      const dPlus = (i + 1) / nSp - F;
+      const dMinus = F - i / nSp;
+      if (dPlus > ksDistance) ksDistance = dPlus;
+      if (dMinus > ksDistance) ksDistance = dMinus;
+    }
 
     // Pair correlation histogram — only distances < 4 matter, and unfolded
     // zeros are sorted, so break the inner loop early to avoid O(n²) work.
@@ -95,7 +123,7 @@ export default function GUEStatisticsViz() {
     }
 
     return {
-      spacing: { density: sDensity, maxS: sMaxS, binWidth: sBinW },
+      spacing: { density: sDensity, maxS: sMaxS, binWidth: sBinW, ks: ksDistance, nSpacings: nSp },
       pair: { density: pDensity, binW: pBinW },
       numVar: { Ls: nvLs, vars: nvVars },
     };
@@ -389,6 +417,18 @@ export default function GUEStatisticsViz() {
           <p style={{ margin: '4px 0 0' }}>
             <strong>Look for:</strong> the zeta zero histogram matching GUE (red), not GOE (amber) or Poisson (gray).
           </p>
+          <div style={{ margin: '10px 0 0', padding: '8px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
+            <div style={{ fontFamily: 'monospace', fontSize: 13, color: '#e2e8f0' }}>
+              KS distance (empirical vs GUE Wigner): <strong>D = {statsData.spacing.ks.toFixed(4)}</strong>
+              {' '}over {statsData.spacing.nSpacings} normalized spacings
+            </div>
+            <div style={{ marginTop: 4, fontSize: 11, color: '#94a3b8' }}>
+              <InlineMath tex={"D = \\sup_s |F_{\\text{emp}}(s) - F_{\\text{GUE}}(s)|"} /> against the closed-form
+              surmise CDF <InlineMath tex={"F_{\\text{GUE}}(s) = \\operatorname{erf}(2s/\\sqrt{\\pi}) - \\tfrac{4}{\\pi} s\\,e^{-4s^2/\\pi}"} />.
+              <strong> Honest scope:</strong> a small, shrinking <InlineMath tex={"D"} /> is strong NUMERICAL evidence
+              the gaps track the Wigner surmise &mdash; it is not a proof of GUE universality for the zeta zeros.
+            </div>
+          </div>
         </div>
       )}
       {mode === 'pair-correlation' && (

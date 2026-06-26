@@ -21,6 +21,15 @@ export default function SimulatorPage() {
 
       <div style={{ marginTop: 8 }}>
         <BlockMath tex={"\\text{Claim: } \\underset{\\sigma}{\\arg\\min}\\;\\mathcal{H}(\\sigma + it) = \\tfrac{1}{2} \\quad \\forall\\; t = \\gamma_n"} />
+        <div style={{ textAlign: 'center', marginTop: 4 }}>
+          <span style={{
+            display: 'inline-block', padding: '4px 12px', borderRadius: 999,
+            background: '#f59e0b18', color: '#f59e0b', fontSize: 12,
+            fontWeight: 600, border: '1px solid #f59e0b40',
+          }}>
+            by construction, not a proof of RH — see caveat below
+          </span>
+        </div>
       </div>
 
       <div style={{ marginTop: 32 }}>

@@ -250,12 +250,16 @@ function VortexCanvas({ centerIdx, tau, magContours, showStreamlines, onHoverDat
     const sig = sigMin + (cx / (PX - 1)) * (sigMax - sigMin);
     const t = tMax - (cy / (PX - 1)) * (tMax - tMin);
     let phase = 0;
+    let windingNum = 0;
+    const WINDING_R = 2.0; // probe radius in (sigma, t) space; enclosed zeros = winding number
     for (let k = 0; k < zeros.length; k++) {
       phase += Math.atan2(t - zeros[k].gamma, sig - zeros[k].sigma);
+      const dx = sig - zeros[k].sigma, dy = t - zeros[k].gamma;
+      if (Math.hypot(dx, dy) < WINDING_R) windingNum++;
     }
     let ph = phase % (2 * Math.PI);
     if (ph < 0) ph += 2 * Math.PI;
-    onHoverData({ sig, t, phase: ph });
+    onHoverData({ sig, t, phase: ph, windingNum });
   };
 
   return <canvas ref={ref} width={PX} height={PX}
@@ -356,9 +360,13 @@ export default function VortexFieldPage() {
             {hoverData ? (
               <div style={{ fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)', background: 'rgba(15,23,42,0.85)', padding: '3px 8px', borderRadius: 4, display: 'inline-block' }}>
                 σ = {hoverData.sig.toFixed(4)} · Im s = {hoverData.t.toFixed(4)} · arg H = {((hoverData.phase / (2 * Math.PI)) * 360).toFixed(1)}°
+                {' '}·{' '}
+                <span style={{ color: hoverData.windingNum > 0 ? '#fde047' : '#475569' }}>
+                  W(r=2) = {hoverData.windingNum}
+                </span>
               </div>
             ) : (
-              <div style={{ fontSize: 11, color: '#334155', fontFamily: 'var(--font-mono)' }}>hover canvas to read σ, Im s, arg H(s)</div>
+              <div style={{ fontSize: 11, color: '#334155', fontFamily: 'var(--font-mono)' }}>hover canvas to read σ, Im s, arg H(s), winding number W</div>
             )}
           </div>
         </div>

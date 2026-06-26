@@ -1695,6 +1695,12 @@ const DATA_MODULES = [
   // (Schur LINK A proved; Phi-uniform LINK B refuted robustly; scale-normalized form
   // reduced -- both directions -- to one open characteristic-function identification).
   '/src/data/imp-2664-section27-identity-rederivation.js',
+  // imp-2695: verify the de Branges Hermite-Biehler DOWNSTREAM chain that survives
+  // the Section-27 LINK B refutation -- K_a >= 0 => E_a HB (Thm 23) => H(E_a) de
+  // Branges space (Thm 19-22) => canonical system (Thm 37-40), as a clean conditional
+  // theorem with K_a >= 0 as the explicit UNPROVEN (RH-equivalent) antecedent. Tripwire
+  // enforces the module nowhere claims K_a >= 0 itself.
+  '/src/data/imp-2695-debranges-hb-downstream-verify.js',
   // imp-2668: attack on THE_REAL_GAP -- makes the Section-25 commutator decomposition
   // explicit (V-V^# = p(x)q^* - q(x)p^*, p=Phi*sinh, q=Phi*cosh, rank 2), shows the
   // crux as posed (identify Schur complement I-V^#V with K_a Gram) is IMPOSSIBLE by a

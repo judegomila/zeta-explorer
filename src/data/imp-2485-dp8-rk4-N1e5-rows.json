@@ -1,0 +1,87 @@
+{
+  "generatedBy": "scripts/compute-imp2485-dp8-rk4-N1e4.mjs",
+  "generatedAtUtc": "2026-06-26T04:01:06.897Z",
+  "smoke": false,
+  "N": 100000,
+  "zeroSource": "src/data/zeros-to-1e6.js (Odlyzko, imp-359)",
+  "tableau": {
+    "name": "Dormand-Prince DOP853 propagating pair, 12 stages, order 8",
+    "provenance": "scipy v1.13.0 scipy/integrate/_ivp/dop853_coefficients.py",
+    "maxRowSumResidual": 6.106226635438361e-15,
+    "maxQuadratureResidual": 4.440892098500626e-16
+  },
+  "convergence": {
+    "description": "Self-convergence on the N=50 backward Dyson system over T=0.08, max-abs errors vs a dt=6.25e-4 DP8 reference; observed order between successive dt halvings, for BOTH integrators on the same grid.",
+    "dts": [
+      0.02,
+      0.01,
+      0.005
+    ],
+    "dp8MaxAbsErrors": [
+      2.4498802986272494e-8,
+      2.537348109399318e-10,
+      1.6200374375330284e-12
+    ],
+    "rk4MaxAbsErrors": [
+      0.00003688197810447491,
+      0.00000394341644494034,
+      3.185102031011411e-7
+    ],
+    "dp8ObservedOrders": [
+      6.593245988167489,
+      7.291150499308686
+    ],
+    "rk4ObservedOrders": [
+      3.2253980548504515,
+      3.6300345810846837
+    ]
+  },
+  "ladderRow": {
+    "dt": 0.0001,
+    "maxSteps": 120,
+    "rk4": {
+      "t_c": -0.0001,
+      "steps": 1,
+      "minSpacing": -0.11375920491991565,
+      "wallMs": 89574
+    },
+    "dp8": {
+      "t_c": -0.0001,
+      "steps": 1,
+      "minSpacing": -0.028864611471362878,
+      "wallMs": 265709
+    }
+  },
+  "refinedRow": {
+    "dt": 0.00002,
+    "maxSteps": 600,
+    "skipped": true,
+    "skipReason": "At N>=1e5 the tightest-pair time t_pair << ladder dt, so the collision is resolved inside the first ladder step and the ladder bracket (0, dt] already contains t_pair; the dt/5 refinement adds no information at ~5x the O(N^2)-per-step cost and is intentionally not run.",
+    "rk4": null,
+    "dp8": null
+  },
+  "pairBound": {
+    "description": "Tightest zero pair in the first N ordinates; isolated Calogero-Moser pair collapses at t_pair = H_min^2 / 8.",
+    "hMin": 0.014701476000482216,
+    "pairIdx": 95247,
+    "tPair": 0.000027016674574094324
+  },
+  "interval": {
+    "backend": "rust",
+    "dt": 0.0001,
+    "t_c_lo": 0,
+    "t_c_hi": 0.0001,
+    "maxIntervalWidth": 3.259629011154175e-9,
+    "stepsTaken": 1,
+    "reason": "gap-lower-bound-nonpositive",
+    "wallMs": 2257106
+  },
+  "intervalFine": {
+    "dt": 0.00002,
+    "skipped": true,
+    "wallMs": null
+  },
+  "remainingGaps": [
+    "GAP-2485-N1e6: a fresh dual-integrator row at N = 1e6 needs ~100x this runtime (O(N^2) per stage, ~22 s per derivative eval already at N = 1e5) and consumes the entire bundled 1e6 Odlyzko table with no headroom; the native compute backend (skp-imp423-compute) is required."
+  ]
+}

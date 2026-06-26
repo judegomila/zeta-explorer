@@ -1774,6 +1774,9 @@ const DATA_MODULES = [
   '/src/data/gram-points-numerical.js',
   '/src/data/heat-flow-cross-validation-imp372.js',
   '/src/data/heat-flow-pathc-ladder-imp2547.js',
+  // imp-2884: triangulates heat-flow + barrier + Path-C/RK4 intercepts. Listed
+  // after its heat-flow/barrier deps so the heavy zeros bundle loads first.
+  '/src/data/cross-estimator-agreement-imp2884.js',
   '/src/data/holder-modulus-verification.js',
   '/src/data/imp371-barrier-cross-validation.js',
   '/src/data/imp-1166-conrey-snaith-correction-on-imp1162-grid.js',
@@ -1907,6 +1910,11 @@ const DATA_MODULES = [
   // asserts each argument stays inside the proven 0<=x<=1 domain, and pins the
   // true crossing x* ~ 1.7932821 where the bound first fails.
   '/src/data/imp-2871-exp-tail-bound-audit.js',
+  // imp-2962: gates the LMFDB L-function cross-reference table -- runs
+  // assertIntegrity(), checks the DATA_AS_OF provenance stamp is a valid ISO
+  // date, and pins lmfdbUrl() to the current LMFDB /L/<path> URL scheme so a
+  // stale or schema-drifted external cross-reference fails the build sweep.
+  '/src/data/lmfdb-l-function-cross-reference.js',
 ];
 
 let ALL_MODULES = FAST_MODE

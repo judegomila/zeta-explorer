@@ -321,4 +321,26 @@ export function assertIntegrity() {
   return { ok: true, checked: lmfdbCrossReference.length, assertions: 6 };
 }
 
+// imp-2962: build-gated integrity + freshness assertions. Wired into
+// scripts/run-assertions.mjs (DATA_MODULES) so a corrupted, undated, or
+// schema-drifted cross-reference table fails the assertion sweep -- not only
+// the in-page IntegrityPanel. Light module (no heavy imports), safe to sweep.
+export const LMFDB_CROSS_REFERENCE_ASSERTIONS = [
+  {
+    id: 'imp-2962-lmfdb-integrity',
+    holds: () => assertIntegrity().ok === true,
+    why: 'assertIntegrity() must pass: labels, degrees, conductors, zero-counts, signs, and gammaShifts all structurally consistent',
+  },
+  {
+    id: 'imp-2962-lmfdb-freshness',
+    holds: () => /^\d{4}-\d{2}-\d{2}$/.test(DATA_AS_OF) && !Number.isNaN(Date.parse(DATA_AS_OF)),
+    why: 'DATA_AS_OF provenance stamp must be a valid ISO yyyy-mm-dd date',
+  },
+  {
+    id: 'imp-2962-lmfdb-url-scheme',
+    holds: () => lmfdbUrl('1-1-1.1-r0-0-0') === 'https://www.lmfdb.org/L/1/1/1.1/r0/0/0',
+    why: 'lmfdbUrl() must map dash-separated label fields to the current LMFDB /L/<path> URL scheme',
+  },
+];
+
 export default lmfdbCrossReference;

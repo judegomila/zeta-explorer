@@ -1,10 +1,107 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import NyquistBodeViz from '../components/NyquistBodeViz.jsx';
 import ScatteringMatrixViz from '../components/ScatteringMatrixViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import PageHeader from '../components/PageHeader.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
+import { zetaCriticalStrip, cMul, cDiv, cAbs, ZETA_ZEROS } from '../math/zeta.js';
+import { losslessBridge } from '../math/oscillators.js';
+
+const LOW_ZEROS = ZETA_ZEROS.slice(0, 8);
+
+function NyquistReadoutPanel() {
+  const [sigma, setSigma] = useState(0.5);
+  const [zeroIdx, setZeroIdx] = useState(0);
+
+  const metrics = useMemo(() => {
+    const gamma = LOW_ZEROS[zeroIdx];
+    const tMin = 1;
+    const tMax = Math.max(60, gamma + 10);
+    const N = 200;
+    const dt = (tMax - tMin) / N;
+    let minDist = Infinity;
+    let totalArgChange = 0;
+    let prevArg = null;
+    for (let i = 0; i <= N; i++) {
+      const t = tMin + i * dt;
+      const s = [sigma, t];
+      const zetaS = zetaCriticalStrip(s);
+      if (cAbs(zetaS) < 1e-6) continue;
+      const zeta1mS = zetaCriticalStrip([1 - sigma, -t]);
+      const bridge = losslessBridge(s);
+      const ratio = cDiv(zeta1mS, zetaS);
+      const L = cMul(bridge.chi, ratio);
+      const dx = L[0] + 1;
+      const d = Math.sqrt(dx * dx + L[1] * L[1]);
+      if (d < minDist) minDist = d;
+      const argVal = Math.atan2(L[1], dx);
+      if (prevArg !== null) {
+        let delta = argVal - prevArg;
+        if (delta > Math.PI) delta -= 2 * Math.PI;
+        if (delta < -Math.PI) delta += 2 * Math.PI;
+        totalArgChange += delta;
+      }
+      prevArg = argVal;
+    }
+    const windingNumber = Math.round(totalArgChange / Math.PI);
+    return { minDist: minDist === Infinity ? NaN : minDist, windingNumber, gamma };
+  }, [sigma, zeroIdx]);
+
+  const dev = Math.abs(sigma - 0.5);
+  const sigmaColor = dev < 0.02 ? '#10b981' : dev < 0.15 ? '#f59e0b' : '#ef4444';
+
+  return (
+    <div className="card" style={{ marginTop: 32, borderColor: '#3b82f6' }}>
+      <h3 style={{ color: '#3b82f6' }}>Nyquist Sigma-Sweep Readout</h3>
+      <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 4, marginBottom: 12 }}>
+        Illustrative, not a zero-search. Samples L(s) at 200 points over t from 1 to
+        max(60, {"γ"}+10), computing winding number (argument accumulation) and
+        minimum approach distance to &minus;1.
+      </p>
+      <div className="controls">
+        <div className="control-group">
+          <label style={{ color: sigmaColor, fontWeight: 600 }}>
+            <InlineMath tex={"\\sigma"} />
+          </label>
+          <input type="range" min="0.3" max="0.7" step="0.01" value={sigma}
+            onChange={e => setSigma(+e.target.value)}
+            style={{ accentColor: sigmaColor }} />
+          <span className="control-value" style={{ color: sigmaColor }}>{sigma.toFixed(2)}</span>
+        </div>
+        <div className="control-group">
+          <label>Near zero</label>
+          <select value={zeroIdx} onChange={e => setZeroIdx(+e.target.value)}
+            style={{ background: '#1e293b', color: '#e2e8f0', border: '1px solid #334155', borderRadius: 4, padding: '2px 6px', fontSize: 13 }}>
+            {LOW_ZEROS.map((g, i) => (
+              <option key={i} value={i}>{"γ"}{i + 1}{" ≈ "}{g.toFixed(2)}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <div style={{ display: 'flex', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
+        <div style={{ flex: 1, minWidth: 140, textAlign: 'center', padding: '12px 16px', background: 'rgba(59,130,246,0.08)', borderRadius: 8, border: '1px solid rgba(59,130,246,0.3)' }}>
+          <div style={{ fontSize: 11, color: '#64748b', marginBottom: 6, textTransform: 'uppercase', letterSpacing: 1 }}>Winding Number N</div>
+          <div style={{ fontSize: 32, fontWeight: 700, fontFamily: 'var(--font-mono)', color: metrics.windingNumber === 0 ? '#10b981' : '#ef4444' }}>
+            {metrics.windingNumber}
+          </div>
+          <div style={{ fontSize: 11, color: '#64748b', marginTop: 6 }}>
+            {metrics.windingNumber === 0 ? 'No encirclements (RH-consistent)' : 'Encirclements detected (off-axis)'}
+          </div>
+        </div>
+        <div style={{ flex: 1, minWidth: 140, textAlign: 'center', padding: '12px 16px', background: 'rgba(59,130,246,0.08)', borderRadius: 8, border: '1px solid rgba(59,130,246,0.3)' }}>
+          <div style={{ fontSize: 11, color: '#64748b', marginBottom: 6, textTransform: 'uppercase', letterSpacing: 1 }}>Min |L+1| near &minus;1</div>
+          <div style={{ fontSize: 32, fontWeight: 700, fontFamily: 'var(--font-mono)', color: '#3b82f6' }}>
+            {isNaN(metrics.minDist) ? '—' : metrics.minDist.toFixed(3)}
+          </div>
+          <div style={{ fontSize: 11, color: '#64748b', marginTop: 6 }}>
+            {!isNaN(metrics.minDist) && (metrics.minDist < 0.5 ? 'Close approach to −1' : 'Safely clear of −1')}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function ControlTheoryPage() {
   return (
@@ -99,6 +196,8 @@ export default function ControlTheoryPage() {
           </li>
         </ul>
       </div>
+
+      <NyquistReadoutPanel />
 
       <div style={{ marginTop: 32 }}>
         <div className="viz-title">Nyquist Plot & Bode Diagram</div>

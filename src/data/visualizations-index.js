@@ -253,6 +253,19 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive master gallery; aggregates the other views and asserts no Lambda bound of its own.',
     }),
+    Object.freeze({
+      route: '/viz-near-zero',
+      title: 'Near a Zeta Zero — Rings, Nodal Lines & Vortex',
+      oneLine:
+        'Amplitude rings, Re/Im nodal-line cross, and phase-winding vortex structure around a chosen Riemann zero gamma_n on the critical line.',
+      mathBucket: 'flow-field',
+      dataModule: null,
+      paperSourcePath: 'VizNearZeroPage: panel 7 of Visual Geometries gallery',
+      ticket: 'imp-2892',
+      pedagogicalStep: 13,
+      honestCeiling:
+        'Exact exploratory visualization of local vortex structure at a zero; no Lambda bound or RH claim.',
+    }),
   ]),
 });
 

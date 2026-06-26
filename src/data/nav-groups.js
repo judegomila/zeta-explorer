@@ -70,6 +70,7 @@ export const NAV_GROUPS = [
       { to: '/viz-caustic-resonance', label: 'Caustic Resonance Overlay' },
       { to: '/viz-prime-phase-crystal', label: 'Prime Phase Crystal' },
       { to: '/visual-geometries', label: 'Visual Geometries (gallery)' },
+      { to: '/viz-near-zero', label: 'Near a Zeta Zero' },
       { to: '/vortex-field', label: 'Vortex Field' },
       { to: '/viz-winding-dyson-flow', label: 'Winding under Dyson/Newman Flow' },
       { to: '/viz-phase-cylinder', label: 'Phase Cylinder: Unwrapped Rays' },

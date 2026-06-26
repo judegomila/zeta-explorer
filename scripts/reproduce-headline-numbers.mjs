@@ -20,6 +20,20 @@
  *      t_c and pathB measured Dyson RK4 t_c, vs the published 4.101e-4 and the
  *      headline "< 1%" agreement claim.
  *
+ * imp-2876 extends coverage to the remaining 3 of the 4 headline-numbers-registry
+ * constants, which previously had NO from-source leg (each recomputed as an
+ * ESTIMATE with an explicit honest-scope label, NOT promoted to a bound):
+ *
+ *   4a. 7.98e-4 HISTORICAL imp-1147 intercept = a_hi + E_trunc_pt, recomposed
+ *       from the two pinned constants in asymptotic-lambda-bound-2026-05-20.js
+ *       (CONDITIONAL on the linear-1/N OLS model, superseded by imp-1261).
+ *   4b. 3.06e-5 asymptotic-conditional E_trunc_pt, recomputed from the imp-459
+ *       closed form at sigma_opt = 0.75 (modulo Polymath15 G6a).
+ *   4c. 0.121 finite-beat ESTIMATE = L_cond(1e6) + E_trunc_PT(sigma=0.61), the
+ *       imp-447 historical assembly; E_trunc_PT recomputed from the closed form,
+ *       L_cond read as the imp-449-cross-verified literal (C_H-gated ESTIMATE;
+ *       sub-gap reproduce-0121-Lcond-needs-assembly-import).
+ *
  * Emits scripts/logs/reproduce-<ISO>.md and exits non-zero on any
  * out-of-tolerance mismatch. NEVER mutates source -- read-only recompute.
  *
@@ -48,7 +62,18 @@ const FROZEN = {
   dyson_relErr: 4.101e-4,   // kernel-vs-dyson-crossverify agreement.relErr (toExponential 3)
   kBound_precise: 0.2014118, // finite-k-c-mb-crosscheck IMP963_HEADLINE_K (N=113, plateau 12)
   kBound_registry: 0.2014,  // headline-numbers-registry kBound.value (4-figure)
+  // imp-2876: the remaining 3 registry constants that previously had NO from-source leg.
+  finiteBeat_estimate: 0.121,  // headline-numbers-registry finiteBeatEstimate (C_H-gated ESTIMATE)
+  intercept_hist: 7.98e-4,     // headline-numbers-registry intercept7e4 (linear-1/N CONDITIONAL, historical)
+  asymptotic_cond: 3.06e-5,    // headline-numbers-registry asymptoticConditional (modulo Polymath15 G6a)
 };
+
+// imp-2876: published conditional-bound literal L_cond(1e6) ~ 0.00803 (imp-449
+// alt-path cross-verified). Read as a literal here -- its full re-derivation
+// requires the import-gated t_c_proj + E_flow + E_coll height/flow assembly
+// (plain-node import of those source modules is blocked by their transitive JSON
+// imports). Tracked sub-gap: reproduce-0121-Lcond-needs-assembly-import.
+const L_COND_1E6_LITERAL = 0.00803;
 
 const checks = [];
 function record(name, recomputed, frozen, tol, extra) {
@@ -93,6 +118,66 @@ record('imp-963 K plateau cert (max rk4 K_paper_cert_floor)', kMax, FROZEN.kBoun
 record('imp-963 K rounds to registry headline 0.2014', +kMax.toFixed(4), FROZEN.kBound_registry, TOL,
   'precise=' + kMax + ' -> toFixed(4)=' + kMax.toFixed(4));
 
+// ── 4. imp-2876: the remaining 3 registry constants (0.121, 7.98e-4, 3.06e-5) ──
+// The headline-numbers-registry declares 4 canonical constants; checks 1-3 above
+// cover only the pair-ODE / Dyson / K=0.2014 numbers. The finite-beat ESTIMATE
+// 0.121, the HISTORICAL imp-1147 intercept 7.98e-4 and the asymptotic-conditional
+// 3.06e-5 had NO from-source reproducibility leg. We add them here, recomputing
+// each ESTIMATE value (NOT promoting any to a rigorous bound) with explicit
+// honest-scope labels and the same TOL=1e-6 storage-precision tolerance.
+function readText(rel) {
+  return fs.readFileSync(path.join(DATA_DIR, rel), 'utf-8');
+}
+function extractConst(src, name) {
+  const m = src.match(new RegExp('const\\s+' + name + '\\s*=\\s*([0-9.eE+-]+)'));
+  if (!m) throw new Error('[imp-2876] could not extract const ' + name + ' from source');
+  return parseFloat(m[1]);
+}
+
+// 4a. HISTORICAL intercept 7.98e-4 = a_hi + E_trunc_pt, recomposed from the two
+// pinned constants in the canonical source asymptotic-lambda-bound-2026-05-20.js.
+// HONEST SCOPE: CONDITIONAL on the (superseded) linear-1/N OLS model -- imp-1261
+// removed this dependence, so the value survives only as a labelled historical
+// reference, NOT a live bound.
+const asySrc = readText('asymptotic-lambda-bound-2026-05-20.js');
+const aHi = extractConst(asySrc, 'HISTORICAL_A_HI_IMP1147');     // 7.673e-4 interval-OLS a_hi
+const eTruncIngham = extractConst(asySrc, 'E_TRUNC_PT_INGHAM');  // 3.06e-5 Polymath15 Ingham tail
+const interceptComposed = +(aHi + eTruncIngham).toPrecision(3);  // module publishes toPrecision(3)
+record('imp-1147 HISTORICAL intercept 7.98e-4 = a_hi + E_trunc_pt (linear-1/N CONDITIONAL)',
+  interceptComposed, FROZEN.intercept_hist, TOL,
+  'a_hi=' + aHi + ' + E_trunc_pt=' + eTruncIngham + ' = ' + (aHi + eTruncIngham) +
+  ' [ESTIMATE, OLS-superseded by imp-1261]');
+
+// 4b+4c. E_trunc_PT(sigma) closed form (imp-459): faithful port of
+// etruncPTOptimalBound in finite-height-beats-platt-trudgian.js --
+//   E_trunc_PT(sigma) = (2 e_I / kappa_T) * T_PT^{-kappa_T},  e_I = 3(1-sigma)/(2-sigma),
+//   kappa_T = 1 - e_I,  T_PT = 3e12 (Platt-Trudgian 2021 verified height).
+const T_PT = 3e12;
+function etruncPT(sigma) {
+  const eI = 3 * (1 - sigma) / (2 - sigma); // Ingham exponent
+  const kappa = 1 - eI;
+  return ((2 * eI) / kappa) * Math.pow(T_PT, -kappa);
+}
+
+// 4b. asymptotic-conditional 3.06e-5 at the variational optimum sigma_opt = 0.75
+// (Ingham boundary sigma = 3/4). HONEST SCOPE: asymptotic, modulo Polymath15 G6a.
+const eTruncOpt = +etruncPT(0.75).toExponential(2); // registry publishes 3.06e-5 (3 sig fig)
+record('asymptotic-conditional E_trunc_pt 3.06e-5 (closed form, sigma_opt=0.75)',
+  eTruncOpt, FROZEN.asymptotic_cond, TOL,
+  'E_trunc_PT(0.75)=' + etruncPT(0.75).toExponential(4) + ' modulo Polymath15 G6a');
+
+// 4c. finite-beat ESTIMATE 0.121 = L_cond(1e6) + E_trunc_PT(sigma=0.61), the
+// imp-447 historical assembly (sigma=0.61 gives E_trunc_PT ~ 0.1127). E_trunc_PT
+// is recomputed from the same closed form; L_cond(1e6) is the published literal
+// (sub-gap above). HONEST SCOPE: ESTIMATE gated on the symbolic constant C_H --
+// recompute the ESTIMATE, do NOT read it as a rigorous unconditional bound.
+const eTrunc061 = etruncPT(0.61);                      // ~0.1127 imp-447 historical E_trunc_pt
+const lambdaFiniteBeat = +(L_COND_1E6_LITERAL + eTrunc061).toFixed(3);
+record('finite-beat ESTIMATE 0.121 = L_cond + E_trunc_PT(0.61) [C_H-gated ESTIMATE]',
+  lambdaFiniteBeat, FROZEN.finiteBeat_estimate, TOL,
+  'L_cond(1e6)=' + L_COND_1E6_LITERAL + ' (literal, imp-449 xverify) + E_trunc_PT(0.61)=' +
+  eTrunc061.toFixed(5) + ' = ' + (L_COND_1E6_LITERAL + eTrunc061).toFixed(5));
+
 // ── Report ────────────────────────────────────────────────────────────────────
 const iso = new Date().toISOString().replace(/[:.]/g, '-');
 const allPass = checks.every((c) => c.pass);
@@ -114,7 +199,7 @@ for (const c of checks) {
   lines.push('- **' + c.name + '** -- ' + c.extra);
 }
 lines.push('');
-lines.push('Sources: dyson-ladder-extended-cache.json (imp-514), imp-1086-crosscheck-rows.json (imp-933 RK4).');
+lines.push('Sources: dyson-ladder-extended-cache.json (imp-514), imp-1086-crosscheck-rows.json (imp-933 RK4), asymptotic-lambda-bound-2026-05-20.js (imp-1147 a_hi/E_trunc_pt literals), E_trunc_PT(sigma) closed form (imp-447/imp-459).');
 
 if (!fs.existsSync(LOG_DIR)) fs.mkdirSync(LOG_DIR, { recursive: true });
 const outPath = path.join(LOG_DIR, 'reproduce-' + iso + '.md');

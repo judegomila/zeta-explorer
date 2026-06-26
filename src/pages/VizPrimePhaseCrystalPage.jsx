@@ -238,6 +238,36 @@ export default function VizPrimePhaseCrystalPage() {
         </div>
       </div>
 
+      {/* Live numerical self-check: the rendered (0,0) DC term must equal
+          N_PRIMES exactly (every cosine is 1 at the origin).  Read back the
+          measured value and assert PASS/FAIL within float tolerance. */}
+      {(() => {
+        const N = D.bbox.nPrimes;
+        const dcErr = Math.abs(renderInfo.dc - N);
+        const pass = dcErr < 1e-6;
+        return (
+          <div style={{
+            marginTop: 10,
+            fontFamily: mono,
+            fontSize: 11,
+            padding: '7px 10px',
+            borderRadius: 6,
+            border: '1px solid ' + (pass ? '#15803d' : '#b91c1c'),
+            background: pass ? 'rgba(22, 101, 52, 0.14)' : 'rgba(185, 28, 28, 0.14)',
+            color: pass ? '#86efac' : '#fca5a5',
+            display: 'flex',
+            gap: 12,
+            flexWrap: 'wrap',
+            alignItems: 'center',
+          }}>
+            <strong>{pass ? 'PASS' : 'FAIL'}</strong>
+            <span>DC F(0,0) = {renderInfo.dc.toFixed(6)} vs N_PRIMES = {N} (|err| = {dcErr.toExponential(2)}, tol 1e-6)</span>
+            <span style={{ color: 'var(--text-muted)' }}>max = {renderInfo.max.toFixed(4)}</span>
+            <span style={{ color: 'var(--text-muted)' }}>mean = {renderInfo.mean.toFixed(4)}</span>
+          </div>
+        );
+      })()}
+
       <div className="card" style={{ marginTop: 14, padding: 14 }}>
         <div style={{ fontSize: 11, textTransform: 'uppercase', color: 'var(--text-muted)',
                       letterSpacing: 0.5, marginBottom: 8 }}>

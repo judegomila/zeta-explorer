@@ -1934,6 +1934,20 @@ let ALL_MODULES = FAST_MODE
   ? [...MATH_MODULES, ...DATA_MODULES].filter((m) => !HEAVY_MODULES.includes(m))
   : [...MATH_MODULES, ...DATA_MODULES];
 
+// imp-2885: module-count floor tripwire — fail fast if the registered module
+// list drops below the current floor (catches accidental list truncation).
+// Update MODULE_COUNT_FLOOR when new modules are intentionally added; never
+// lower it silently.
+const MODULE_COUNT_FLOOR = 200;
+if (MATH_MODULES.length + DATA_MODULES.length < MODULE_COUNT_FLOOR) {
+  console.error(
+    'MODULE COUNT REGRESSION: ' +
+    (MATH_MODULES.length + DATA_MODULES.length) + ' modules registered, floor is ' +
+    MODULE_COUNT_FLOOR + '. Update MODULE_COUNT_FLOOR in run-assertions.mjs if this is intentional.'
+  );
+  process.exit(2);
+}
+
 // imp-2749: --since-changed incremental mode — restrict sweep to modules whose
 // source files are changed vs HEAD (both staged and unstaged). One cheap git
 // call at startup; falls back to full sweep if git is unavailable or returns

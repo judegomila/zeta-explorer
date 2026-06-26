@@ -22,6 +22,7 @@ import {
   getAuditCounts,
 } from '../data/twin-ladder-paper-roadmap.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
+import FreshnessStamp from '../components/FreshnessStamp.jsx';
 
 const R = PAPER_ROADMAP;
 const mono = 'var(--font-mono, monospace)';
@@ -323,7 +324,7 @@ export default function TwinLadderPaperRoadmapPage() {
     <div className="page">
       <HonestCeilingBanner variant="ESTIMATE" />
       <div className="page-header">
-        <h1>Twin-Ladder Paper Roadmap (v52)</h1>
+        <h1>Twin-Ladder Paper Roadmap (v52) <FreshnessStamp date={R.generatedAt.slice(0, 10)} note="roadmap index" /></h1>
         <p className="page-subtitle" style={{ fontFamily: mono, color: 'var(--text-secondary)' }}>
           {R.paperTitle} — {R.paperSubtitle}
         </p>

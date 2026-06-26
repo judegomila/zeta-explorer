@@ -26,6 +26,7 @@ import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react'
 import { Link } from 'react-router-dom';
 import { VIZ_TWIN_LADDER_TOMOGRAPHY } from '../data/viz-twin-ladder-tomography.js';
 import { zetaCriticalStrip } from '../math/zeta.js';
+import FreshnessStamp from '../components/FreshnessStamp.jsx';
 
 // ---------------------------------------------------------------------------
 // Geometry / compute parameters (must match the data-module record).
@@ -335,7 +336,7 @@ export default function VizTwinLadderTomographyPage() {
   return (
     <div className="page">
       <div className="page-header">
-        <h1>{VIZ_TWIN_LADDER_TOMOGRAPHY.title}</h1>
+        <h1>{VIZ_TWIN_LADDER_TOMOGRAPHY.title} <FreshnessStamp date="2026-06-25" /></h1>
         <p className="page-subtitle">
           A 2D Canvas heatmap of the twin-ladder product{' '}
           <code style={{ color: '#a5b4fc' }}>P(sigma, t) = |zeta(sigma + i t)| * |zeta((1 - sigma) + i t)|</code>{' '}

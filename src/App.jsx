@@ -465,8 +465,13 @@ function useKeyboardShortcuts(navigate) {
         navigate(shortcut.path);
       }
     };
+    const paletteHandler = () => setShowPalette(true);
     window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
+    window.addEventListener('open-command-palette', paletteHandler);
+    return () => {
+      window.removeEventListener('keydown', handler);
+      window.removeEventListener('open-command-palette', paletteHandler);
+    };
   }, [navigate]);
 
   return { showHelp, setShowHelp, showPalette, setShowPalette };

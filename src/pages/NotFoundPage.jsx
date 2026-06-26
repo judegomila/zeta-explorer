@@ -1,23 +1,11 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const POPULAR_PAGES = [
-  { label: 'Home', path: '/' },
-  { label: 'Λ Bounds', path: '/lambda-bounds' },
-  { label: 'Route Map', path: '/route-map' },
-  { label: 'Visualizations', path: '/visualizations' },
-  { label: 'Concepts', path: '/concepts' },
-  { label: 'Statistics', path: '/statistics' },
-];
+function openCommandPalette() {
+  window.dispatchEvent(new CustomEvent('open-command-palette'));
+}
 
 export default function NotFoundPage() {
-  const navigate = useNavigate();
-
-  function goToRandomPage() {
-    const pick = POPULAR_PAGES[Math.floor(Math.random() * POPULAR_PAGES.length)];
-    navigate(pick.path);
-  }
-
   return (
     <div style={{
       display: 'flex',
@@ -47,41 +35,24 @@ export default function NotFoundPage() {
         color: '#94a3b8',
         maxWidth: '400px',
       }}>
-        The route you're looking for doesn't exist. Check the navigation or return home.
+        The route you&#39;re looking for doesn&#39;t exist. Search all pages or return home.
       </p>
-      <Link to="/" className="not-found-home-btn">
+
+      <button
+        onClick={openCommandPalette}
+        className="not-found-home-btn"
+        style={{ marginBottom: '16px' }}
+      >
+        Search all pages
+      </button>
+
+      <Link to="/" className="not-found-nav-link" style={{ fontSize: '13px' }}>
         Go Home
       </Link>
 
-      <div style={{ margin: '32px 0 16px 0', color: '#64748b', fontSize: '13px' }}>
-        — or go somewhere useful —
-      </div>
-
-      <div style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '8px',
-        justifyContent: 'center',
-        maxWidth: '420px',
-        marginBottom: '16px',
-      }}>
-        {POPULAR_PAGES.map(({ label, path }) => (
-          <Link
-            key={path}
-            to={path}
-            className="not-found-nav-link"
-          >
-            {label}
-          </Link>
-        ))}
-      </div>
-
-      <button
-        onClick={goToRandomPage}
-        className="not-found-random-btn"
-      >
-        Go to a random page
-      </button>
+      <p style={{ marginTop: '24px', fontSize: '12px', color: '#475569', fontFamily: 'var(--font-mono)' }}>
+        tip: press Cmd+K / Ctrl+K to search from anywhere
+      </p>
     </div>
   );
 }

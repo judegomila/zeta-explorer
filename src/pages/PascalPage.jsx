@@ -412,8 +412,9 @@ export default function PascalPage() {
       <div className="card" style={{ marginTop: 24, background: 'rgba(245,158,11,0.04)' }}>
         <p style={{ fontSize: 12, color: '#64748b', marginBottom: 10, fontStyle: 'italic' }}>
           Note: the combinatorial identities on this page (Hasse–Sondow, Lucas, Kummer) are
-          rigorous theorems. The ZPO oscillator-chain framing connecting binomial structure to
-          RH via zero-coupling is a heuristic model, not a proof of RH.
+          rigorous theorems. The Pascal/binomial-to-zeta connections shown here are structural
+          and illustrative — they are not a route to RH. The ZPO oscillator-chain framing
+          connecting binomial structure to RH via zero-coupling is a heuristic model, not a proof of RH.
         </p>
         <h3 style={{ color: '#64748b', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -426,6 +427,8 @@ export default function PascalPage() {
           <Link to="/odd-zeta" style={{ color: '#f59e0b', fontSize: 13 }}>Odd Zeta Values</Link>
           <span style={{ color: '#334155' }}>|</span>
           <Link to="/gilbreath" style={{ color: '#f59e0b', fontSize: 13 }}>Gilbreath Differences</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/statistics" style={{ color: '#f59e0b', fontSize: 13 }}>Statistics &amp; GUE</Link>
         </div>
       </div>
     </div>

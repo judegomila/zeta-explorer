@@ -2872,3 +2872,4 @@ below are the engine contract — do not rename or reorder.
 | 2985 | 2026-06-27T00:30:00Z | imp-2926 (content, low): add phase-cylinder <-> unwrapped-rays cross-link and mod-2pi fold note to VizPhaseCylinderPage | src/pages/VizPhaseCylinderPage.jsx |
 | 2986 | 2026-06-27T01:00:00Z | imp-2927 (ux, low): add coherent-primes chip list to hovered resonance tick card on VizCausticResonancePage | src/pages/VizCausticResonancePage.jsx |
 | 2987 | 2026-06-27T01:20:00Z | imp-2928 (content, low): add real-vs-shuffled-primes A/B toggle to VizPrimeCausticPage — shuffled log-spacings erase caustic bands, demonstrating structure is arithmetic not random | src/pages/VizPrimeCausticPage.jsx |
+| 2988 | 2026-06-26T08:00:00Z | imp-2946 (content, low): add structural/illustrative honest framing line and /statistics cross-link to PascalPage | src/pages/PascalPage.jsx |

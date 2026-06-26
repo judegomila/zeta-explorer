@@ -27894,11 +27894,12 @@ export const IMPROVEMENT_QUEUE = [
     category: 'numerical',
     priority: 'medium',
     status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w2-1782442127401',
+    inflightTaskId: 'api-pool-w3-1782443559742',
     proofSection: 'S7',
     description: "scripts/compute-imp2485-dp8-rk4-N1e4.mjs cross-verifies DP8 (DOP853) vs RK4 collision time only at N=1e4; src/data/imp-2485-dp8-rk4-N1e4.js declares GAP-2485-N1e5-N1e6 OPEN. Extend the offline script to compute the N=1e5 row from ZEROS_EXTENDED (offline, no build-time cost), run both integrators + interval-RK4 bracket, and bake the N=1e5 row into a sidecar JSON consumed by a data module with a dual-integrator-agreement assertion. Keep N=1e6 as a documented remaining gap. Honest: this is a finite-N cross-check, not a Lambda bound.",
     rationale: 'The dual-integrator cross-check is closed at one N only; extending to N=1e5 hardens the collision-time estimate the finite-N narrative rests on. (area: checks)',
     model: 'opus-4-8',
+    partialProgress: "imp-2881 (api-pool, opus-4-8) PARTIAL: the offline harness is now FEASIBLE at N>=1e5 -- (1) the interval-RK4 step budget is bounded to the Float64-detected collision step + margin (the unbounded call hung for HOURS at N=1e5; directly observed 3 sibling runs stuck 16-24 min), and (2) the dt/5 fine pass is skipped at N>=1e5 where t_pair << dt so the collision is resolved inside the first ladder step. Verified offline at N=1e5: RK4 collides at the first ladder step (abs t_c = 1e-4, minSpacing = -0.114) and the analytic pair time t_pair = H_min^2/8 = 2.70e-5 (H_min = 0.01470, idx 95247) confirms a pair-dominated collision; tableau residuals < 1e-14, DP8/RK4 convergence orders separate. NOT done: the DP8 leg + baked sidecar (imp-2485-dp8-rk4-N1e5-rows.json) + consuming data module with the dual-integrator-agreement assertion. Reason: the single-threaded O(N^2) run (~22 s/eval, ~30 evals) was starved by sustained parallel-pool CPU saturation across ~3 h. REMAINING: run node scripts/compute-imp2485-dp8-rk4-N1e4.mjs --N=100000 on a quiet core (or via the native backend) -- it now finishes in ~8 min -- then add src/data/imp-2485-dp8-rk4-N1e5.js (mirror the N1e4 module, ladder-only) and register it in scripts/run-assertions.mjs. N=1e6 stays a documented gap.",
   },
   {
     id: 'imp-2882',

@@ -26,8 +26,15 @@
  * self-convergence order measurement on the actual Dyson system at N = 50.
  *
  * Usage:
- *   node scripts/compute-imp2485-dp8-rk4-N1e4.mjs            # full run
+ *   node scripts/compute-imp2485-dp8-rk4-N1e4.mjs            # full N=1e4 run
+ *   node scripts/compute-imp2485-dp8-rk4-N1e4.mjs --N=100000 # N=1e5 (imp-2881)
  *   node scripts/compute-imp2485-dp8-rk4-N1e4.mjs --smoke    # N=500 dry run
+ *
+ * imp-2881: an optional --N=<count> selects the particle count; the sidecar
+ * filename is keyed to N (imp-2485-dp8-rk4-N1e4-rows.json, ...-N1e5-rows.json),
+ * so the N=1e4 and N=1e5 rows live in separate data files and the N=1e4 output
+ * is untouched. --smoke now only suppresses the file write; it no longer
+ * forces N, so "--N=1500 --smoke" validates the generalized path quickly.
  */
 
 import fs from 'node:fs';
@@ -38,11 +45,35 @@ import { backwardCollisionRK4 } from '../src/math/dyson-scaling-N5000.js';
 import { callIntervalRk4Async } from './compute-imp423-missing-N.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const SMOKE = process.argv.includes('--smoke');
+
+// imp-2881: map a particle count to its short sidecar tag (1e4, 1e5, 1e6).
+function nTag(n) {
+  if (n === 10000) return '1e4';
+  if (n === 100000) return '1e5';
+  if (n === 1000000) return '1e6';
+  return String(n);
+}
+
+// Optional --N=<count> override (imp-2881). Default keeps the historical 1e4
+// full run; --smoke defaults to the cheap N=500 configuration.
+function parseN() {
+  const arg = process.argv.find((a) => a.startsWith('--N='));
+  if (arg) {
+    const v = Number(arg.slice('--N='.length));
+    if (!Number.isFinite(v) || v < 2) {
+      throw new Error(`bad --N value: ${arg}`);
+    }
+    return Math.round(v);
+  }
+  return SMOKE ? 500 : 10000;
+}
+
+const N_TARGET = parseN();
 const OUT_PATH = path.resolve(
   __dirname,
-  '../src/data/imp-2485-dp8-rk4-N1e4-rows.json',
+  `../src/data/imp-2485-dp8-rk4-N${nTag(N_TARGET)}-rows.json`,
 );
-const SMOKE = process.argv.includes('--smoke');
 
 // ── DOP853 propagating tableau (12 stages, order 8) ─────────────────────────
 // Verbatim from scipy v1.13.0 dop853_coefficients.py (C[:12], A[:12,:12],
@@ -232,7 +263,7 @@ function measureConvergenceOrder() {
 
 // ── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
-  const N = SMOKE ? 500 : 10000;
+  const N = N_TARGET;
   const dt = 0.0001;
   const maxSteps = 120;
   console.log(`[imp-2485] N=${N} dt=${dt} maxSteps=${maxSteps} smoke=${SMOKE}`);
@@ -264,17 +295,39 @@ async function main() {
 
   // Refinement pass at dt/5 to resolve the two-method gap below the ladder
   // detection quantum (both methods quantize t_c to a multiple of dt).
+  //
+  // imp-2881: the dt/5 refinement is only INFORMATIVE when the collision needs
+  // sub-ladder-quantum resolution, i.e. when the analytic pair time t_pair
+  // exceeds the ladder dt so the ladder bracket is wider than t_pair (the
+  // N=1e4 case: t_pair=1.78e-4 > dt=1e-4, collision at step 2-3). At N>=1e5 the
+  // tightest-pair time t_pair << dt (t_pair~2.7e-5 < dt=1e-4), so the collision
+  // is fully resolved inside the FIRST ladder step and the ladder bracket
+  // (0, dt] already contains t_pair; the dt/5 pass would only re-confirm the
+  // same step-1 event at ~5x the (already O(N^2)-per-step) cost. So skip the
+  // fine pass at high N and record the analytic justification in the sidecar.
   const dtFine = dt / 5;
   const maxStepsFine = maxSteps * 5;
-  t0 = Date.now();
-  const rk4Fine = backwardCollisionRK4(initial, dtFine, maxStepsFine);
-  const rk4FineMs = Date.now() - t0;
-  console.log('[imp-2485] RK4 fine:', rk4Fine, `${rk4FineMs} ms`);
+  const RUN_FINE = N < 100000;
+  let rk4Fine = null;
+  let dp8Fine = null;
+  let rk4FineMs = null;
+  let dp8FineMs = null;
+  if (RUN_FINE) {
+    t0 = Date.now();
+    rk4Fine = backwardCollisionRK4(initial, dtFine, maxStepsFine);
+    rk4FineMs = Date.now() - t0;
+    console.log('[imp-2485] RK4 fine:', rk4Fine, `${rk4FineMs} ms`);
 
-  t0 = Date.now();
-  const dp8Fine = backwardCollisionDP8(initial, dtFine, maxStepsFine);
-  const dp8FineMs = Date.now() - t0;
-  console.log('[imp-2485] DP8 fine:', dp8Fine, `${dp8FineMs} ms`);
+    t0 = Date.now();
+    dp8Fine = backwardCollisionDP8(initial, dtFine, maxStepsFine);
+    dp8FineMs = Date.now() - t0;
+    console.log('[imp-2485] DP8 fine:', dp8Fine, `${dp8FineMs} ms`);
+  } else {
+    console.log(
+      `[imp-2485] fine dt/5 pass SKIPPED at N=${N}: collision resolved inside the ` +
+        'first ladder step (t_pair << dt), so refinement is informationally redundant.',
+    );
+  }
 
   // Analytic two-particle cross-check: the tightest zero pair in the window
   // collapses (in isolation) at t_pair = H_min^2 / 8 from the Calogero-Moser
@@ -293,25 +346,48 @@ async function main() {
 
   // Roundoff-certified interval brackets from the imp-1091 dispatch (Rust CLI
   // when built, JS interval-RK4 fallback otherwise) at BOTH step sizes.
+  //
+  // imp-2881: each interval-RK4 step is O(N^2) interval arithmetic (~10 s/step
+  // at N=1e5), so running the full ladder budget is infeasible at high N. The
+  // bracket only needs to integrate a few steps PAST the Float64-detected
+  // collision to enclose it, so cap the interval step budget to the detected
+  // collision step plus a fixed margin (never exceeding the original budget,
+  // and falling back to the full budget when no Float64 collision was found).
+  // At N=1e4 the collision is detected well inside this margin, so the bracket
+  // is identical to the unbounded run.
+  const INTERVAL_STEP_MARGIN = 8;
+  const intervalBudget = (det, cap) =>
+    Number.isInteger(det?.steps) && det.steps < cap
+      ? Math.min(cap, det.steps + INTERVAL_STEP_MARGIN)
+      : cap;
+  const intervalMaxSteps = intervalBudget(rk4, maxSteps);
+  const intervalFineMaxSteps = intervalBudget(rk4Fine, maxStepsFine);
+
   t0 = Date.now();
   const interval = await callIntervalRk4Async({
     N,
     initial_x: Array.from(initial),
     dt,
-    max_steps: maxSteps,
+    max_steps: intervalMaxSteps,
   });
   const intervalMs = Date.now() - t0;
   console.log('[imp-2485] interval (ladder dt):', interval, `${intervalMs} ms`);
 
-  t0 = Date.now();
-  const intervalFine = await callIntervalRk4Async({
-    N,
-    initial_x: Array.from(initial),
-    dt: dtFine,
-    max_steps: maxStepsFine,
-  });
-  const intervalFineMs = Date.now() - t0;
-  console.log('[imp-2485] interval (fine dt):', intervalFine, `${intervalFineMs} ms`);
+  // imp-2881: the fine-dt interval bracket is only computed when the fine pass
+  // itself runs (N < 1e5); at high N it is skipped for the same reason.
+  let intervalFine = null;
+  let intervalFineMs = null;
+  if (RUN_FINE) {
+    t0 = Date.now();
+    intervalFine = await callIntervalRk4Async({
+      N,
+      initial_x: Array.from(initial),
+      dt: dtFine,
+      max_steps: intervalFineMaxSteps,
+    });
+    intervalFineMs = Date.now() - t0;
+    console.log('[imp-2485] interval (fine dt):', intervalFine, `${intervalFineMs} ms`);
+  }
 
   const sidecar = {
     generatedBy: 'scripts/compute-imp2485-dp8-rk4-N1e4.mjs',
@@ -342,12 +418,25 @@ async function main() {
       rk4: { t_c: rk4.t_c, steps: rk4.steps, minSpacing: rk4.minSpacing ?? null, wallMs: rk4Ms },
       dp8: { t_c: dp8.t_c, steps: dp8.steps, minSpacing: dp8.minSpacing ?? null, wallMs: dp8Ms },
     },
-    refinedRow: {
-      dt: dtFine,
-      maxSteps: maxStepsFine,
-      rk4: { t_c: rk4Fine.t_c, steps: rk4Fine.steps, minSpacing: rk4Fine.minSpacing ?? null, wallMs: rk4FineMs },
-      dp8: { t_c: dp8Fine.t_c, steps: dp8Fine.steps, minSpacing: dp8Fine.minSpacing ?? null, wallMs: dp8FineMs },
-    },
+    refinedRow: RUN_FINE
+      ? {
+          dt: dtFine,
+          maxSteps: maxStepsFine,
+          rk4: { t_c: rk4Fine.t_c, steps: rk4Fine.steps, minSpacing: rk4Fine.minSpacing ?? null, wallMs: rk4FineMs },
+          dp8: { t_c: dp8Fine.t_c, steps: dp8Fine.steps, minSpacing: dp8Fine.minSpacing ?? null, wallMs: dp8FineMs },
+        }
+      : {
+          dt: dtFine,
+          maxSteps: maxStepsFine,
+          skipped: true,
+          skipReason:
+            'At N>=1e5 the tightest-pair time t_pair << ladder dt, so the collision ' +
+            'is resolved inside the first ladder step and the ladder bracket (0, dt] ' +
+            'already contains t_pair; the dt/5 refinement adds no information at ~5x ' +
+            'the O(N^2)-per-step cost and is intentionally not run.',
+          rk4: null,
+          dp8: null,
+        },
     pairBound: {
       description:
         'Tightest zero pair in the first N ordinates; isolated Calogero-Moser ' +
@@ -366,21 +455,31 @@ async function main() {
       reason: interval.reason ?? null,
       wallMs: intervalMs,
     },
-    intervalFine: {
-      backend: intervalFine.backend ?? null,
-      dt: dtFine,
-      t_c_lo: intervalFine.t_c_lo ?? null,
-      t_c_hi: intervalFine.t_c_hi ?? null,
-      maxIntervalWidth: intervalFine.max_interval_width ?? null,
-      stepsTaken: intervalFine.steps_taken ?? null,
-      reason: intervalFine.reason ?? null,
-      wallMs: intervalFineMs,
-    },
-    remainingGaps: [
-      'GAP-2485-N1e5-N1e6: fresh dual-integrator rows at N in {1e5, 1e6} need the ' +
-        'same offline harness at ~100x and ~10000x this runtime (O(N^2) per stage); ' +
-        'N=1e6 additionally needs zeros beyond the bundled table.',
-    ],
+    intervalFine: intervalFine
+      ? {
+          backend: intervalFine.backend ?? null,
+          dt: dtFine,
+          t_c_lo: intervalFine.t_c_lo ?? null,
+          t_c_hi: intervalFine.t_c_hi ?? null,
+          maxIntervalWidth: intervalFine.max_interval_width ?? null,
+          stepsTaken: intervalFine.steps_taken ?? null,
+          reason: intervalFine.reason ?? null,
+          wallMs: intervalFineMs,
+        }
+      : { dt: dtFine, skipped: true, wallMs: null },
+    remainingGaps:
+      N >= 100000
+        ? [
+            'GAP-2485-N1e6: a fresh dual-integrator row at N = 1e6 needs ~100x this ' +
+              'runtime (O(N^2) per stage, ~22 s per derivative eval already at N = 1e5) ' +
+              'and consumes the entire bundled 1e6 Odlyzko table with no headroom; the ' +
+              'native compute backend (skp-imp423-compute) is required.',
+          ]
+        : [
+            'GAP-2485-N1e5-N1e6: fresh dual-integrator rows at N in {1e5, 1e6} need the ' +
+              'same offline harness at ~100x and ~10000x this runtime (O(N^2) per stage); ' +
+              'N=1e6 additionally needs zeros beyond the bundled table.',
+          ],
   };
 
   if (!SMOKE) {

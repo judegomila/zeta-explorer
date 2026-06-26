@@ -12,6 +12,7 @@ import ProofTierSummary from '../components/ProofTierSummary.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { RANKED_OPPORTUNITIES } from '../data/full-route-map-2026-06-19.js';
 import { ASSERTION_FRESHNESS } from '../data/assertion-freshness.js';
+import { LAMBDA_ESTIMATOR_TRIPTYCH_IMP2991 } from '../data/lambda-estimator-triptych-imp2991.js';
 
 // ── Assertion freshness stamp (imp-2999) ─────────────────────────────────────
 function FreshnessStamp() {
@@ -423,6 +424,67 @@ function HonestSOTABanner() {
   );
 }
 
+function EstimatorTriptych() {
+  const t = LAMBDA_ESTIMATOR_TRIPTYCH_IMP2991;
+  return (
+    <div style={{
+      border: '1px solid #334155', borderRadius: 10,
+      background: 'rgba(15,23,42,0.6)', padding: '14px 18px', marginBottom: 24,
+    }}>
+      <div style={{ fontSize: 11, color: '#94a3b8', fontFamily: 'var(--font-mono)', marginBottom: 6, letterSpacing: 0.5 }}>
+        LAMBDA CROSS-VALIDATION &mdash; THREE INDEPENDENT ESTIMATORS (imp-2991)
+      </div>
+      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, marginBottom: 12 }}>
+        {t.subtitle}
+      </div>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+        gap: 12,
+      }}>
+        {t.estimators.map(e => (
+          <div key={e.key} style={{
+            border: '1px solid #f59e0b', borderRadius: 8,
+            background: 'rgba(245,158,11,0.07)', padding: '11px 13px',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 6 }}>
+              <span style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9' }}>{e.label}</span>
+              <span style={{ fontSize: 10, color: '#64748b', fontFamily: 'var(--font-mono)', marginLeft: 'auto' }}>
+                {e.ticket}
+              </span>
+            </div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: '#fbbf24', fontFamily: 'var(--font-mono)', marginBottom: 4 }}>
+              {'Λ ' + e.representativeLambda}
+            </div>
+            <div style={{ fontSize: 11, color: '#94a3b8', marginBottom: 6 }}>
+              {e.scope}
+            </div>
+            <span style={{
+              display: 'inline-block', fontSize: 10, fontFamily: 'var(--font-mono)',
+              color: '#f59e0b', border: '1px solid #f59e0b80', borderRadius: 4,
+              padding: '1px 6px', marginBottom: 8,
+            }}>
+              {e.status + ' · ' + e.kind}
+            </span>
+            <div style={{ fontSize: 11, color: '#cbd5e1', lineHeight: 1.5 }}>
+              {e.honestLimit}
+            </div>
+            <div style={{ fontSize: 10, color: '#475569', fontFamily: 'var(--font-mono)', marginTop: 6 }}>
+              {e.ownerModule}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, marginTop: 12 }}>
+        {t.crossValidation}
+      </div>
+      <div style={{ fontSize: 11, color: '#f59e0b', lineHeight: 1.6, marginTop: 8, fontFamily: 'var(--font-mono)' }}>
+        {t.honestCeiling}
+      </div>
+    </div>
+  );
+}
+
 function CHWallCallout() {
   const opp = RANKED_OPPORTUNITIES[0];
   return (
@@ -497,6 +559,9 @@ export default function RigorDashboardPage() {
 
       {/* Honest SOTA banner (imp-2670) */}
       <HonestSOTABanner />
+
+      {/* Three Lambda cross-validation estimators side by side (imp-2991) */}
+      <EstimatorTriptych />
 
       {/* Headline claim */}
       <div style={{

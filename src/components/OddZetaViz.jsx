@@ -744,6 +744,101 @@ function TransferTab({ selectedN, numPrimes }) {
   );
 }
 
+// ─── Integer Relation Search panel (rendered inside Tab 4) ─────────────────
+
+function IntegerRelationPanel({ data }) {
+  const results = useMemo(() => {
+    const vals = data.values.map(v => v.value);
+    const labels = data.indices.map(k => k === 1 ? '1' : `ζ(${k})`);
+    const maxDim = Math.min(vals.length, 6);
+    const rows = [];
+    for (let dim = 2; dim <= maxDim; dim++) {
+      const v = vals.slice(0, dim);
+      const lbs = labels.slice(0, dim);
+      const bound = dim <= 2 ? 10 : dim === 3 ? 7 : dim === 4 ? 4 : dim === 5 ? 3 : 2;
+      let minResidual = Infinity;
+      let bestCoeffs = new Array(dim).fill(0);
+      const counts = new Array(dim).fill(-bound);
+      const total = Math.pow(2 * bound + 1, dim);
+      for (let iter = 0; iter < total; iter++) {
+        if (counts.some(c => c !== 0)) {
+          let sum = 0;
+          for (let i = 0; i < dim; i++) sum += counts[i] * v[i];
+          const residual = Math.abs(sum);
+          if (residual < minResidual) {
+            minResidual = residual;
+            bestCoeffs = [...counts];
+          }
+        }
+        for (let d = 0; d < dim; d++) {
+          counts[d]++;
+          if (counts[d] <= bound) break;
+          counts[d] = -bound;
+        }
+      }
+      rows.push({ dim, labels: lbs, minResidual, bestCoeffs, bound });
+    }
+    return rows;
+  }, [data]);
+
+  return (
+    <div style={{ marginTop: 16, padding: '12px 14px', background: '#0f1225', borderRadius: 8, border: '1px solid #1e293b' }}>
+      <h4 style={{ fontSize: 13, fontWeight: 700, color: '#f59e0b', marginBottom: 6 }}>
+        Integer Relation Search
+      </h4>
+      <p style={{ fontSize: 11, color: '#64748b', marginBottom: 10, lineHeight: 1.5 }}>
+        Searches for the smallest nonzero integer combination{' '}
+        <InlineMath tex={"c_0 \\cdot 1 + c_1 \\cdot \\zeta(3) + \\cdots + c_k \\cdot \\zeta(2k+1)"} />.
+        A growing minimum residual as dimension increases is evidence of{' '}
+        <InlineMath tex={"\\mathbb{Q}"} />-linear independence.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-mono)', fontSize: 11 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #1e293b' }}>
+              <th style={{ color: '#64748b', textAlign: 'left', padding: '4px 8px', fontWeight: 600 }}>Basis</th>
+              <th style={{ color: '#64748b', textAlign: 'center', padding: '4px 8px', fontWeight: 600 }}>Bound</th>
+              <th style={{ color: '#64748b', textAlign: 'right', padding: '4px 8px', fontWeight: 600 }}>Min residual</th>
+              <th style={{ color: '#64748b', textAlign: 'left', padding: '4px 8px', fontWeight: 600 }}>Best coefficients</th>
+            </tr>
+          </thead>
+          <tbody>
+            {results.map((row, i) => (
+              <tr key={i} style={{ borderBottom: '1px solid #0f172a' }}>
+                <td style={{ color: '#a5f3fc', padding: '4px 8px' }}>
+                  {'{' + row.labels.join(', ') + '}'}
+                </td>
+                <td style={{ color: '#64748b', textAlign: 'center', padding: '4px 8px' }}>
+                  {"±"}{row.bound}
+                </td>
+                <td style={{
+                  color: row.minResidual < 1e-12 ? '#ef4444' : '#10b981',
+                  textAlign: 'right', padding: '4px 8px', fontWeight: 600,
+                }}>
+                  {row.minResidual < 1e-15 ? '0 (dependent!)' : row.minResidual.toExponential(3)}
+                </td>
+                <td style={{ color: '#94a3b8', padding: '4px 8px' }}>
+                  {'[' + row.bestCoeffs.join(', ') + ']'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {data.values.length > 6 && (
+        <p style={{ fontSize: 10, color: '#475569', marginTop: 6, fontStyle: 'italic' }}>
+          Search limited to first 6 basis elements (higher dims exceed browser limits at this bound).
+        </p>
+      )}
+      <p style={{ fontSize: 10, color: '#475569', marginTop: 6, fontStyle: 'italic' }}>
+        No zero residual found = no integer relation within this bound.
+        Ball-Rivoal proves infinitely many{' '}<InlineMath tex={"\\zeta(2k+1)"} /> are{' '}
+        <InlineMath tex={"\\mathbb{Q}"} />-linearly independent.
+      </p>
+    </div>
+  );
+}
+
 // ─── Tab 4: Linear Independence ─────────────────────────────────────────────
 
 function LinearIndependenceTab({ maxOdd, numPrimes }) {
@@ -918,6 +1013,7 @@ function LinearIndependenceTab({ maxOdd, numPrimes }) {
           Ball-Rivoal proved <InlineMath tex={"\\dim \\geq c \\cdot \\log s"} />.
         </p>
       </div>
+      <IntegerRelationPanel data={data} />
     </div>
   );
 }

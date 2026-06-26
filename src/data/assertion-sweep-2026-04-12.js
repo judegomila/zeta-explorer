@@ -132,6 +132,7 @@ import './imp-2711-pt-bound-sota-tripwire.js';      // imp-2711: 3 assertions (e
 import './imp-2694-ecoll-rate-reconciliation.js';   // imp-2694: 5 assertions (N^-3/2 bounds t_c deviation not E_coll; binding E_coll rate = Holder N^-1/2; headline uses it; no overclaim)
 import './imp-routeB-flow-vs-lambda-firewall.js';   // imp-2854: 5 assertions (Route B imp-341 bounds the PARTICLE FLOW not Lambda; every t_c->Lambda edge passes through C_H/G6a; no leak)
 import './imp-2860-en-assembled-interval-certificate.js'; // imp-2860: 6 assertions (outward-rounded bracket for the ASSEMBLED E(N) at N*=1e4; E_N_hi < 0.2; NUMERIC clearance only, C_H ansatz, NO-GO/SOTA retained)
+import './imp-2866-en-classification-consistency.js'; // imp-2866: 4 assertions (cross-module single-source-of-truth audit: C_H-rigor flag, PT_BOUND=0.2, single binding-blocker, no rigorous-beat verdict all agree across imp-2643/2701/2711/2713/2715)
 
 // NOTE: imp469-cross-verification.js is already live via m-raw-from-umon-bridge.js (imp-473: 5 assertions).
 

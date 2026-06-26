@@ -310,6 +310,51 @@ export const CROSS_VALIDATION_ASSERTIONS = [
       'central value and error bar. A silent edit in one without the other ' +
       'would indicate drift.',
   },
+  {
+    id: 'same-scope-checks-only-compare-same-scope',
+    holds: () => {
+      const scopeOf = (id) => {
+        const e = LAMBDA_CROSS_VALIDATION.estimates.find((x) => x.id === id);
+        return e ? e.scope : null;
+      };
+      // Every declared same-scope pair must reference two real estimates
+      // whose scope strings are identical. If the gating mis-buckets a
+      // cross-scope pair into this list, two numbers that are not about the
+      // same object would be compared and the build verdict would be a lie.
+      return LAMBDA_CROSS_VALIDATION.sameScopeChecks.every((p) => {
+        const sa = scopeOf(p.a);
+        const sb = scopeOf(p.b);
+        return sa !== null && sb !== null && sa === sb;
+      });
+    },
+    why:
+      'imp-2744 (a): the same-scope compatibility checks must only ever ' +
+      'pair estimates that share an identical scope string. A cross-scope ' +
+      'pair landing in sameScopeChecks would let the gating mis-bucket two ' +
+      'numbers that live in different regimes, making any interval overlap ' +
+      '(or lack of it) meaningless.',
+  },
+  {
+    id: 'gating-detector-flags-incompatible-same-scope-pair',
+    holds: () => {
+      // Deliberate-mismatch self-test: two synthetic estimates in the SAME
+      // scope class whose symmetric error intervals do NOT intersect. The
+      // live |a - b| <= da + db detector MUST flag them, otherwise the whole
+      // same-scope cross-validation could be passing vacuously.
+      const incompatibleFlagged = !intervalsIntersect(0.5, 0.01, 0.9, 0.01);
+      // Control: a genuinely compatible synthetic pair must still pass, so
+      // the detector is discriminating rather than rejecting everything.
+      const compatiblePasses = intervalsIntersect(0.5, 0.05, 0.52, 0.05);
+      return incompatibleFlagged && compatiblePasses;
+    },
+    why:
+      'imp-2744 (b): proves the intervalsIntersect compatibility detector ' +
+      'is live and discriminating, not vacuously true. A known-incompatible ' +
+      'same-scope synthetic pair (0.5 +/- 0.01 vs 0.9 +/- 0.01) must be ' +
+      'flagged as a mismatch, and a known-compatible pair (0.5 +/- 0.05 vs ' +
+      '0.52 +/- 0.05) must pass. Without this self-test a detector that ' +
+      'always returned true would silently neuter every same-scope check.',
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────

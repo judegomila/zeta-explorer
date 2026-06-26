@@ -190,6 +190,30 @@ export default function HiddenSquareProgramPage() {
             {S.endpointHankel.finiteWindowDiagnostic}
           </p>
         </div>
+
+        {/* §27 verdict: refuted-as-reduction / RH-equivalent surviving target */}
+        <div style={{ marginTop: 14, display: 'grid', gap: 10 }}>
+          <div style={{ padding: 12, background: 'rgba(220, 38, 38, 0.1)', border: '1px solid rgba(220, 38, 38, 0.4)', borderLeft: '3px solid #dc2626', borderRadius: 6 }}>
+            <div style={{ color: '#fca5a5', fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)', marginBottom: 6 }}>§27 VERDICT: REFUTED AS A REDUCTION</div>
+            <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
+              The claimed biconditional <InlineMath math="\|V_{a,\Phi}\| \le 1 \iff K_a \succeq 0" /> is{' '}
+              <strong style={{ color: '#fca5a5' }}>FALSE</strong> at the genuine Riemann <InlineMath math="\Phi" />:
+              the two positivity conditions provably decouple and the bare biconditional cannot be revived
+              by any scalar normalization. So <InlineMath math="\|V\| \le 1" /> is not the entire content of no-ghost = RH.
+            </p>
+          </div>
+          <div style={{ padding: 12, background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.4)', borderLeft: '3px solid #10b981', borderRadius: 6 }}>
+            <div style={{ color: '#86efac', fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono, monospace)', marginBottom: 6 }}>SURVIVING TARGET: RH-EQUIVALENT</div>
+            <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
+              The degree-0 scale-invariant relative bound{' '}
+              <InlineMath math="\|R\| \le 1 \iff K_a \succeq 0" /> for{' '}
+              <InlineMath math="R = G_{\rm pass}^{-1/2} G_{\rm shear} G_{\rm pass}^{-1/2}" /> is
+              RH-equivalent: a faithful, information-preserving restatement of <InlineMath math="K_a \succeq 0" />,
+              not a reduction to something cheaper. Platt{'–'}Trudgian{' '}
+              <InlineMath math="\Lambda \le 0.2" /> remains the rigorous SOTA.
+            </p>
+          </div>
+        </div>
       </Card>
 
       {/* Implications */}

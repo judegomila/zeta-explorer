@@ -729,6 +729,7 @@ function AppShell() {
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 20px', marginBottom: 10 }}>
           {[
             { to: '/', label: 'Home' },
+            { to: '/visualizations', label: 'All Visualizations' },
             { to: '/route-map', label: 'Route Map' },
             { to: '/concepts', label: 'Concepts' },
             { to: '/lambda-bounds', label: 'Λ Bounds' },

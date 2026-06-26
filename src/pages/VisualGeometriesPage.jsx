@@ -27,9 +27,11 @@ const PANELS = [
   { n: 4, title: 'Hyperbolic Prime Spiral', tex: '\\text{Poincaré disk}', to: '/viz-hyperbolic-prime-spiral',
     blurb: 'Multiplication becomes geodesic translation; primes lie on special geodesic networks.', color: '#3b82f6' },
   { n: 6, title: 'Vortex / Defect Map', tex: 'V_t=H_t^{\\prime}/H_t', to: '/vortex-field',
-    blurb: 'Zeros as phase vortices (winding ±1); vortex exclusion from off-axis ⟺ RH.', color: '#ec4899' },
+    blurb: 'Zeros as phase vortices (winding ±1); vortex exclusion from off-axis ⟺ RH.', color: '#ec4899',
+    ceiling: 'Vortex exclusion re-derives Λ ≥ 0 (Rodgers–Tao) and makes RH visible — NOT a new rigorous bound; does not beat Platt–Trudgian Λ ≤ 0.2.' },
   { n: 7, title: 'Near a Zeta Zero', tex: '\\rho=\\tfrac12+i\\gamma', to: '/viz-near-zero',
-    blurb: 'Rings, nodal lines and vortex creation as the interference reorganizes near a zero.', color: '#06b6d4' },
+    blurb: 'Rings, nodal lines and vortex creation as the interference reorganizes near a zero.', color: '#06b6d4',
+    ceiling: 'Exact, exploratory view of the vortex thread — re-derives Λ ≥ 0 only; not a rigorous bound and does not beat Platt–Trudgian Λ ≤ 0.2.' },
   { n: 8, title: 'Angular-Spacing Statistics', tex: '\\Delta_k=\\theta_{k+1}-\\theta_k', to: '/gue-comparison',
     blurb: 'GUE spacing of the zeros; the log-phase spacings show hidden rigidity vs random.', color: '#8b5cf6' },
   { n: 9, title: 'Twin-Ladder Tomography', tex: '\\prod_p(1-p^{-s})^{-1}', to: '/viz-twin-ladder-tomography',
@@ -70,6 +72,11 @@ export default function VisualGeometriesPage() {
               </div>
               <div style={{ margin: '8px 0', fontSize: 13 }}><InlineMath tex={p.tex} /></div>
               <p style={{ fontSize: 12.5, color: 'var(--text-secondary)', lineHeight: 1.55, margin: 0 }}>{p.blurb}</p>
+              {p.ceiling ? (
+                <p style={{ fontSize: 11, color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.5, margin: '8px 0 0', paddingTop: 6, borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+                  <strong style={{ fontStyle: 'normal' }}>Honest ceiling:</strong> {p.ceiling}
+                </p>
+              ) : null}
             </div>
           </Link>
         ))}

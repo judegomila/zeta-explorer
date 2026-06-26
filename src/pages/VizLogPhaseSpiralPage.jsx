@@ -21,6 +21,7 @@ import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { VIZ_LOG_PHASE_SPIRAL } from '../data/viz-log-phase-spiral.js';
 import { zetaCriticalStrip, cAbs } from '../math/zeta.js';
+import { getPrimes } from '../math/primes.js';
 
 // ── Viridis-style color ramp ─────────────────────────────────────────────
 // Five canonical viridis stops (Smith / Matplotlib). We sample by linearly
@@ -73,6 +74,28 @@ function sampleSpiral(tMax, N) {
   return { tGrid, reArr, imArr, magArr, argArr };
 }
 
+// ── Resonance-condition overlay helpers ──────────────────────────────────
+// Returns spiral t-values satisfying log(p_j/p_i) = 2*pi*k/t.
+const _TWO_PI = 2 * Math.PI;
+const _RES_PRIMES = getPrimes(8);
+const _RES_LOG_PRIMES = _RES_PRIMES.map(p => Math.log(p));
+
+function buildResonanceTicks(kMax, tMax) {
+  const ticks = [];
+  for (let j = 1; j < _RES_PRIMES.length; j++) {
+    for (let i = 0; i < j; i++) {
+      const logRatio = _RES_LOG_PRIMES[j] - _RES_LOG_PRIMES[i];
+      for (let k = 1; k <= kMax; k++) {
+        const t = (_TWO_PI * k) / logRatio;
+        if (t > 0.1 && t <= tMax) {
+          ticks.push({ t, pi: _RES_PRIMES[i], pj: _RES_PRIMES[j], k });
+        }
+      }
+    }
+  }
+  return ticks;
+}
+
 // ── Page component ─────────────────────────────────────────────────────
 export default function VizLogPhaseSpiralPage() {
   const V = VIZ_LOG_PHASE_SPIRAL;
@@ -82,6 +105,7 @@ export default function VizLogPhaseSpiralPage() {
   // UI state.
   const [tMax, setTMax] = useState(V.parameterRanges.defaultTMaxPreset);
   const [showZeros, setShowZeros] = useState(true);
+  const [showResonance, setShowResonance] = useState(false);
   const [view, setView] = useState({ zoom: 1, panX: 0, panY: 0 });
   const isDragging = useRef(false);
   const dragStart = useRef(null);
@@ -140,6 +164,9 @@ export default function VizLogPhaseSpiralPage() {
     canvas.addEventListener('wheel', onWheel, { passive: false });
     return () => canvas.removeEventListener('wheel', onWheel);
   }, [V.canvasSize.width, V.canvasSize.height]);
+
+  // Resonance ticks — recomputed only when tMax changes.
+  const resonanceTicks = useMemo(() => buildResonanceTicks(3, tMax), [tMax]);
 
   // log10|zeta| range — used for color normalisation.
   const colorRange = useMemo(() => {
@@ -281,6 +308,33 @@ export default function VizLogPhaseSpiralPage() {
       }
     }
 
+    // Resonance markers — spiral positions where log(p_j/p_i) = 2*pi*k/t.
+    if (showResonance) {
+      for (let ri = 0; ri < resonanceTicks.length; ri++) {
+        const tRes = resonanceTicks[ri].t;
+        if (tRes > tMax) continue;
+        const idxFloat = (tRes / tMax) * (tGrid.length - 1);
+        const i0 = Math.floor(idxFloat);
+        const i1 = Math.min(tGrid.length - 1, i0 + 1);
+        const wt = idxFloat - i0;
+        const cos0 = Math.cos(argArr[i0]);
+        const sin0 = Math.sin(argArr[i0]);
+        const cos1 = Math.cos(argArr[i1]);
+        const sin1 = Math.sin(argArr[i1]);
+        const cosI = cos0 * (1 - wt) + cos1 * wt;
+        const sinI = sin0 * (1 - wt) + sin1 * wt;
+        const norm = Math.hypot(cosI, sinI) || 1;
+        const thetaR = Math.atan2(sinI / norm, cosI / norm);
+        const rR = Math.log(tRes + Math.E) * scale;
+        const xR = cx + rR * Math.cos(thetaR);
+        const yR = cy - rR * Math.sin(thetaR);
+        ctx.fillStyle = 'rgba(20,184,166,0.55)';
+        ctx.beginPath();
+        ctx.arc(xR, yR, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
     ctx.restore();
 
     // Footer label — drawn in screen space, outside zoom+pan transform.
@@ -290,7 +344,7 @@ export default function VizLogPhaseSpiralPage() {
     ctx.fillText('r = log(t+e) · θ = arg ζ(½+it)', 12, H - 12);
     ctx.textAlign = 'right';
     ctx.fillText('t ∈ [0, ' + tMax + '] · N = ' + N, W - 12, H - 12);
-  }, [samples, showZeros, colorRange, tMax, N, V.canvasSize.width, V.canvasSize.height, V.zeros, view]);
+  }, [samples, showZeros, showResonance, resonanceTicks, colorRange, tMax, N, V.canvasSize.width, V.canvasSize.height, V.zeros, view]);
 
   // How many zeros are visible at the current tMax (purely informational).
   const visibleZeroCount = V.zeros.filter((g) => g <= tMax).length;
@@ -432,6 +486,21 @@ export default function VizLogPhaseSpiralPage() {
           />
           show first 25 Odlyzko zero markers ({visibleZeroCount} visible at t≤{tMax})
         </label>
+        <label
+          style={{
+            fontSize: 11,
+            fontFamily: 'var(--font-mono)',
+            color: 'var(--text-secondary)',
+          }}
+        >
+          <input
+            type="checkbox"
+            checked={showResonance}
+            onChange={(e) => setShowResonance(e.target.checked)}
+            style={{ verticalAlign: 'middle', marginRight: 6 }}
+          />
+          resonance overlay log(p_j/p_i)=2πk/t, k≤3
+        </label>
         <span
           style={{
             fontSize: 11,
@@ -521,6 +590,11 @@ export default function VizLogPhaseSpiralPage() {
         <span>
           <span style={{ color: '#ef4444' }}>●</span> γ<sub>n</sub> = nontrivial zero ordinate
         </span>
+        {showResonance && (
+          <span>
+            <span style={{ color: '#14b8a6' }}>●</span> resonance tick t = 2πk/log(p_j/p_i)
+          </span>
+        )}
         <span>{V.colorScaleNote}</span>
       </div>
 

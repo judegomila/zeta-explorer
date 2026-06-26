@@ -2867,3 +2867,4 @@ below are the engine contract — do not rename or reorder.
 | 2980 | 2026-06-26T23:00:00Z | imp-2904 (ux, low): add prefers-reduced-motion CSS guard to pause pulse animation and all CSS transitions for users with reduced-motion OS setting | src/styles/app.css |
 | 2981 | 2026-06-26T23:30:00Z | imp-2907 (content, low): add data-provenance footer to RigorDashboardPage — "Sourced from proof-chain-snapshot-2026-06-23.js · snapshot date {HEADLINE.snapshotDate}" | src/pages/RigorDashboardPage.jsx |
 | 2982 | 2026-06-26T23:45:00Z | imp-2910 (ux, low): add empty/loading state and graceful fallback to ResearchJournalPage and ImprovementQueuePage | src/pages/ResearchJournalPage.jsx, src/pages/ImprovementQueuePage.jsx |
+| 2983 | 2026-06-26T23:59:00Z | imp-2919 (content, low): add caustic-resonance condition overlay toggle to VizLogPhaseSpiralPage — checkbox reveals teal dots at spiral positions satisfying log(p_j/p_i)=2πk/t | src/pages/VizLogPhaseSpiralPage.jsx |

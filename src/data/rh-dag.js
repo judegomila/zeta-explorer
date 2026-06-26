@@ -442,9 +442,9 @@ export const RH_DAG_NODES = [
       'imp-327', // height mapping
     ],
     claim:
-      'THE final deliverable: rigorous unconditional Λ ≤ target beating PT 0.2.',
+      'SOTA assembly file recording PT Λ ≤ 0.2 as the rigorous floor; the finite-N*=1e4 beat is a NUMERICAL ESTIMATE gated on C_H, not a rigorous bound.',
     notes:
-      'Capstone — needs EITHER imp-354 full closure (G6a) OR (imp-368+imp-369+imp-336 route A) OR (imp-342+imp-337 route C).',
+      'HONEST FRAMING (imp-2969): the earlier "rigorous unconditional Λ ≤ target beating PT 0.2" wording was a WITHDRAWN overclaim. Per imp-2640 NEGATIVE, C_H (the Holder-1/2 shock modulus) is undischargeable, so the finite-N beat stays an ESTIMATE. The rigorous deliverable is only PT 0.2 as the floor. Routes that could upgrade it: imp-354 full closure (G6a) OR (imp-368+imp-369+imp-336 route A) OR (imp-342+imp-337 route C) — all still open.',
   },
   {
     id: 'imp-356',
@@ -453,7 +453,9 @@ export const RH_DAG_NODES = [
     complexity: 'high',
     category: 'proof',
     dependsOn: ['imp-375', 'imp-371', 'imp-372'],
-    claim: 'Final SOTA file with cross-check agreement across 3+ methods.',
+    claim: 'SOTA assembly file: PT Λ ≤ 0.2 as the rigorous floor, with the finite-N*=1e4 beat recorded as a NUMERICAL ESTIMATE gated on C_H and cross-checked across 3+ measurement methods.',
+    notes:
+      'HONEST FRAMING (imp-2969): the cross-check agreement is across the ESTIMATE values, not a rigorous-unconditional QED. Per imp-2640 NEGATIVE the C_H discharge is unavailable, so no finite-N beat is rigorous; the only rigorous statement is the PT 0.2 floor.',
   },
 
   // ─── Cross-validation efforts ───

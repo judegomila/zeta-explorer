@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ZeroStepper from '../components/ZeroStepper.jsx';
 
 /*
  * Near a Zeta Zero: rings, nodal lines, and vortex structure.
@@ -227,17 +228,20 @@ export default function VizNearZeroPage() {
           </div>
 
           <div className="card">
-            <label style={{ fontSize: 12, color: 'var(--text-secondary)' }}>
-              Zero: γ ≈ {gc.toFixed(3)}
-              <input
-                type="range"
-                min={1}
-                max={GAMMAS.length - 2}
-                value={centerIdx}
-                onChange={(e) => { setPlaying(false); setCenterIdx(+e.target.value); }}
-                style={{ width: '100%', marginTop: 6 }}
-              />
-            </label>
+            <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8 }}>Select Zero</div>
+            <ZeroStepper
+              gammas={GAMMAS}
+              idx={centerIdx}
+              onChange={(n) => { setPlaying(false); setCenterIdx(n); }}
+            />
+            <input
+              type="range"
+              min={0}
+              max={GAMMAS.length - 1}
+              value={centerIdx}
+              onChange={(e) => { setPlaying(false); setCenterIdx(+e.target.value); }}
+              style={{ width: '100%', marginTop: 8 }}
+            />
           </div>
 
           <div className="card">

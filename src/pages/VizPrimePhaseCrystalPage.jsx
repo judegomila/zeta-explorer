@@ -12,6 +12,7 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { VIZ_PRIME_PHASE_CRYSTAL } from '../data/viz-prime-phase-crystal.js';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
+import ZeroStepper from '../components/ZeroStepper.jsx';
 
 const D = VIZ_PRIME_PHASE_CRYSTAL;
 const mono = 'var(--font-mono)';
@@ -213,10 +214,8 @@ export default function VizPrimePhaseCrystalPage() {
 
       <div style={{ display: 'flex', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
         <div className="control-group" style={{ minWidth: 360 }}>
-          <label>Riemann zero t_0 = gamma_{zeroIdx + 1}</label>
-          <input type="range" min="0" max={D.zeros.length - 1} step="1" value={zeroIdx}
-                 onChange={e => setZeroIdx(+e.target.value)} />
-          <span className="control-value">{t0.toFixed(4)}</span>
+          <label>Riemann zero t_0</label>
+          <ZeroStepper gammas={D.zeros} idx={zeroIdx} onChange={setZeroIdx} />
         </div>
         <div className="control-group" style={{ minWidth: 280 }}>
           <label>Resolution: {resolution} x {resolution} px ({((resolution * resolution * D.logPrimes.length) / 1e6).toFixed(1)}M ops)</label>

@@ -8,6 +8,7 @@
 
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import ZeroStepper from '../components/ZeroStepper.jsx';
 
 const mono = 'var(--font-mono)';
 const T_MIN = 10;
@@ -87,6 +88,7 @@ export default function VizEulerProductPage() {
   const [seed, setSeed] = useState(42);
   const [renderMs, setRenderMs] = useState(0);
   const [hoverInfo, setHoverInfo] = useState(null);
+  const [focusedZeroIdx, setFocusedZeroIdx] = useState(0);
 
   const logPrimes = useMemo(() => ALL_LOG_P.slice(0, nPrimes), [nPrimes]);
 
@@ -125,18 +127,19 @@ export default function VizEulerProductPage() {
     ctx.beginPath(); ctx.moveTo(0, zeroY); ctx.lineTo(CW, zeroY); ctx.stroke();
     ctx.setLineDash([]);
 
-    // Known zero vertical markers.
-    ctx.strokeStyle = 'rgba(250,200,50,0.35)';
-    ctx.lineWidth = 1;
+    // Known zero vertical markers; focused zero is rendered brighter.
     ctx.setLineDash([3, 5]);
     ctx.font = '9px monospace';
-    ctx.fillStyle = 'rgba(250,200,50,0.55)';
-    for (const z of KNOWN_ZEROS) {
-      if (z < T_MIN || z > T_MAX) continue;
+    KNOWN_ZEROS.forEach((z, i) => {
+      if (z < T_MIN || z > T_MAX) return;
+      const focused = i === focusedZeroIdx;
+      ctx.strokeStyle = focused ? 'rgba(250,200,50,0.9)' : 'rgba(250,200,50,0.35)';
+      ctx.lineWidth = focused ? 2 : 1;
+      ctx.fillStyle = focused ? 'rgba(250,200,50,0.95)' : 'rgba(250,200,50,0.55)';
       const x = ((z - T_MIN) / (T_MAX - T_MIN)) * CW;
       ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, CH); ctx.stroke();
       ctx.fillText(z.toFixed(0), x + 2, 12);
-    }
+    });
     ctx.setLineDash([]);
 
     // Perturbed curve (red, drawn first so true overlaps it).
@@ -155,7 +158,7 @@ export default function VizEulerProductPage() {
     ctx.fillText('log|Z|', 3, 20);
 
     setRenderMs(+(performance.now() - t0).toFixed(1));
-  }, [trueVals, pertVals]);
+  }, [trueVals, pertVals, focusedZeroIdx]);
 
   useEffect(() => { draw(); }, [draw]);
 
@@ -217,7 +220,11 @@ export default function VizEulerProductPage() {
         <Stat label="render (ms)" value={String(renderMs)} />
       </div>
 
-      <div style={{ display: 'flex', gap: 16, marginTop: 14, flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: 16, marginTop: 14, flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className="control-group" style={{ minWidth: 260 }}>
+          <label>Focus zero (← / → keys)</label>
+          <ZeroStepper gammas={KNOWN_ZEROS} idx={focusedZeroIdx} onChange={setFocusedZeroIdx} />
+        </div>
         <div className="control-group">
           <label>N primes</label>
           <input type="range" min="20" max={Math.min(200, ALL_PRIMES.length)} step="10" value={nPrimes}

@@ -10,6 +10,7 @@ import ConstantDischargeTracker from '../components/ConstantDischargeTracker.jsx
 import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
+import { RANKED_OPPORTUNITIES } from '../data/full-route-map-2026-06-19.js';
 
 // ── Rigor color-coding ──────────────────────────────────────────────────────
 // GREEN  = unconditional analytical proof
@@ -388,6 +389,50 @@ function HonestSOTABanner() {
   );
 }
 
+function CHWallCallout() {
+  const opp = RANKED_OPPORTUNITIES[0];
+  return (
+    <div style={{
+      border: '2px solid #ef4444',
+      borderRadius: 10,
+      background: 'rgba(239,68,68,0.06)',
+      padding: '14px 18px',
+      marginBottom: 24,
+    }}>
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10,
+      }}>
+        <span style={{
+          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
+          color: '#ef4444', background: 'rgba(239,68,68,0.14)',
+          border: '1px solid rgba(239,68,68,0.4)',
+          borderRadius: 4, padding: '2px 8px', flexShrink: 0,
+        }}>
+          {'#' + opp.rank + ' OPPORTUNITY — LOAD-BEARING WALL'}
+        </span>
+        <Link to="/route-map" style={{
+          fontSize: 11, fontFamily: 'var(--font-mono)', color: '#94a3b8',
+          textDecoration: 'none', marginLeft: 'auto',
+        }}>
+          Route Map →
+        </Link>
+        <Link to="/rh-dag" style={{
+          fontSize: 11, fontFamily: 'var(--font-mono)', color: '#94a3b8',
+          textDecoration: 'none',
+        }}>
+          DAG →
+        </Link>
+      </div>
+      <div style={{ fontSize: 15, fontWeight: 700, color: '#f1f5f9', marginBottom: 8 }}>
+        {opp.target}
+      </div>
+      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.65 }}>
+        {opp.why}
+      </div>
+    </div>
+  );
+}
+
 export default function RigorDashboardPage() {
   const [expandedStep, setExpandedStep] = useState(null);
 
@@ -442,6 +487,9 @@ export default function RigorDashboardPage() {
 
       {/* E(N) constant-discharge tracker */}
       <ConstantDischargeTracker />
+
+      {/* C_H Wall — #1 named opportunity (imp-2980) */}
+      <CHWallCallout />
 
       {/* Summary counts */}
       <div style={{
@@ -538,6 +586,9 @@ export default function RigorDashboardPage() {
         </Link>
         <Link to="/rh-dag" className="button-secondary" style={{ fontSize: 13 }}>
           Dependency DAG
+        </Link>
+        <Link to="/route-map" className="button-secondary" style={{ fontSize: 13 }}>
+          Route Map
         </Link>
         <Link to="/proof-overview" className="button-secondary" style={{ fontSize: 13 }}>
           Proof Overview

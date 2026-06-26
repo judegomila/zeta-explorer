@@ -56,6 +56,19 @@ function fileTag(path) {
 export default function ResearchJournalPage() {
   const reversed = [...SESSIONS].reverse();
 
+  if (reversed.length === 0) {
+    return (
+      <div className="page">
+        <div className="page-header">
+          <h1>Research Journal</h1>
+        </div>
+        <div style={{ color: 'var(--text-muted)', textAlign: 'center', padding: '60px 0', fontFamily: 'var(--font-mono)', fontSize: 14 }}>
+          No sessions recorded yet. Add entries to <code>src/data/sessions.js</code>.
+        </div>
+      </div>
+    );
+  }
+
   const totalSeededTickets = SESSIONS.reduce((acc, s) => {
     if (!s.seededTickets) return acc;
     return acc + s.seededTickets.reduce((a, p) => a + p.ids.length, 0);

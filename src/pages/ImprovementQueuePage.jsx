@@ -170,7 +170,13 @@ function NextSteps({ items }) {
       <h2 style={{ color: '#e2e8f0', fontSize: 18, marginBottom: 12, borderBottom: '1px solid #1e293b', paddingBottom: 8 }}>
         Next Steps — Top 5 Priority
       </h2>
-      {top5.map(item => <QueueCard key={item.id} item={item} />)}
+      {top5.length === 0 ? (
+        <div style={{ color: '#475569', textAlign: 'center', padding: '32px 0', fontFamily: 'var(--font-mono)', fontSize: 13 }}>
+          No pending items match the current filters.
+        </div>
+      ) : (
+        top5.map(item => <QueueCard key={item.id} item={item} />)
+      )}
     </div>
   );
 }

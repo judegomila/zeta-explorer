@@ -18,11 +18,36 @@
 // @see imp-1128
 // @see imp-1108 (sibling bulk measurement)
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
 import { EDGE_RIGIDITY_EMPIRICAL } from '../data/edge-rigidity-empirical-2026-05.js';
 import RelatedLinks from '../components/RelatedLinks.jsx';
+
+// OLS log-log refit on a subset of rows (for the interactive slider).
+function olsLogLog(rows) {
+  if (rows.length < 2) return null;
+  const xs = rows.map((r) => Math.log(r.N));
+  const ys = rows.map((r) => Math.log(r.psiRMS));
+  const n = xs.length;
+  let xMean = 0, yMean = 0;
+  for (let i = 0; i < n; i++) { xMean += xs[i]; yMean += ys[i]; }
+  xMean /= n; yMean /= n;
+  let num = 0, den = 0;
+  for (let i = 0; i < n; i++) {
+    num += (xs[i] - xMean) * (ys[i] - yMean);
+    den += (xs[i] - xMean) * (xs[i] - xMean);
+  }
+  const slope = num / den;
+  const intercept = yMean - slope * xMean;
+  let ssRes = 0, ssTot = 0;
+  for (let i = 0; i < n; i++) {
+    const pred = intercept + slope * xs[i];
+    ssRes += (ys[i] - pred) * (ys[i] - pred);
+    ssTot += (ys[i] - yMean) * (ys[i] - yMean);
+  }
+  return { slope, intercept, R2: ssTot === 0 ? 1 : 1 - ssRes / ssTot };
+}
 
 // -- SVG geometry ---------------------------------------------------------
 
@@ -79,7 +104,7 @@ function SummaryCard({ label, value, tone, hint }) {
 
 // -- Log-log scatter SVG with bulk-comparison overlay ---------------------
 
-function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color }) {
+function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color, highlightN }) {
   const logNs = edgeRows.map((r) => Math.log10(r.N));
   const logPsis = edgeRows.map((r) => Math.log10(r.psiRMS));
 
@@ -110,6 +135,10 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color }) {
   // ESY target line (slope = -1) anchored at smallest-N edge point.
   const targetY1 = logPsis[0];
   const targetY2 = logPsis[0] + (-1) * (fitX2 - fitX1);
+
+  // Tracy-Widom edge target line: Wigner edge fluctuations scale as N^{-2/3}.
+  const twY1 = logPsis[0];
+  const twY2 = logPsis[0] + (-2 / 3) * (fitX2 - fitX1);
 
   const xTicks = [];
   for (let v = Math.ceil(minLogN); v <= Math.floor(maxLogN); v += 1) xTicks.push(v);
@@ -170,6 +199,17 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color }) {
             stroke="#22c55e"
             strokeWidth={1.5}
             strokeDasharray="6,4"
+          />
+
+          {/* Tracy-Widom edge target slope = -2/3 (Wigner edge N^{-2/3} scale). */}
+          <line
+            x1={x(fitX1)}
+            x2={x(fitX2)}
+            y1={y(twY1)}
+            y2={y(twY2)}
+            stroke="#f97316"
+            strokeWidth={1.5}
+            strokeDasharray="4,2"
           />
 
           {/* Bulk fit slope (overlaid for comparison). */}
@@ -259,7 +299,7 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color }) {
               x={-6}
               y={-4}
               width={256}
-              height={74}
+              height={92}
               rx={6}
               fill="rgba(15,23,42,0.7)"
               stroke="rgba(148,163,184,0.35)"
@@ -284,7 +324,19 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color }) {
             <text x={20} y={44} style={{ ...labelStyle, fontSize: 10, fill: '#cbd5e1' }}>
               ESY target slope = -1
             </text>
-            <text x={0} y={62} style={{ ...labelStyle, fontSize: 9, fill: '#94a3b8' }}>
+            <line
+              x1={0}
+              x2={14}
+              y1={56}
+              y2={56}
+              stroke="#f97316"
+              strokeWidth={1.5}
+              strokeDasharray="4,2"
+            />
+            <text x={20} y={60} style={{ ...labelStyle, fontSize: 10, fill: '#cbd5e1' }}>
+              Tracy-Widom target slope = -2/3
+            </text>
+            <text x={0} y={80} style={{ ...labelStyle, fontSize: 9, fill: '#94a3b8' }}>
               bulk overlay anchored at smallest-N edge point
             </text>
           </g>
@@ -294,6 +346,9 @@ function LogLogScatterEdgeVsBulk({ title, edgeRows, edgeFit, bulkFit, color }) {
   );
 }
 
+// All 5 N values in the dataset, in ascending order.
+const ALL_N_LABELS = [100, 500, 1000, 5000, 10000];
+
 // -- Page component -------------------------------------------------------
 
 export default function EdgeRigidityPage() {
@@ -301,6 +356,15 @@ export default function EdgeRigidityPage() {
   const compat = D.edgeCompatibleWithESY;
   const tone = compatibilityTone(compat);
   const edgeBeatsBulk = D.bulkComparison.edgeBeatsBulkSlope;
+
+  // Interactive sample-size control: limit to first `numPoints` N values.
+  // Default = 5 (all points). Min = 2 (need at least two for OLS).
+  const [numPoints, setNumPoints] = useState(5);
+
+  const macroRows = D.measuredPsiNEdgeMacro.slice(0, numPoints);
+  const microRows = D.measuredPsiNEdge.slice(0, numPoints);
+  const activeMacroFit = olsLogLog(macroRows) || D.fittedSlopeEdge;
+  const activeMicroFit = olsLogLog(microRows) || D.fittedSlopeEdgeMicro;
 
   return (
     <div className="page">
@@ -373,6 +437,46 @@ export default function EdgeRigidityPage() {
         </div>
       </div>
 
+      {/* Interactive sample-size control. */}
+      <div
+        style={{
+          marginTop: 16,
+          background: 'var(--bg-panel)',
+          border: '1px solid var(--border)',
+          borderRadius: 8,
+          padding: '12px 16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 16,
+          flexWrap: 'wrap',
+        }}
+      >
+        <div style={{ fontSize: 11, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em', minWidth: 120 }}>
+          Sample size (N values)
+        </div>
+        <input
+          type="range"
+          min={2}
+          max={5}
+          step={1}
+          value={numPoints}
+          onChange={(e) => setNumPoints(Number(e.target.value))}
+          style={{ flex: 1, minWidth: 140, maxWidth: 260, accentColor: '#a855f7', cursor: 'pointer' }}
+        />
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#cbd5e1', minWidth: 200 }}>
+          N &isin; &#123;{ALL_N_LABELS.slice(0, numPoints).join(', ')}&#125;
+        </div>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#a855f7' }}>
+          live edge slope: <strong>{activeMacroFit.slope.toFixed(4)}</strong>
+          <span style={{ color: '#94a3b8', marginLeft: 8 }}>
+            R&sup2; = {activeMacroFit.R2.toFixed(3)}
+          </span>
+        </div>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#64748b' }}>
+          TW target = -0.667 | ESY target = -1.000
+        </div>
+      </div>
+
       {/* Numeric summary cards. */}
       <div
         className="card-grid"
@@ -421,18 +525,18 @@ export default function EdgeRigidityPage() {
         />
       </div>
 
-      {/* Scatter plots. */}
+      {/* Scatter plots (rows filtered by numPoints slider; fits recomputed live). */}
       <LogLogScatterEdgeVsBulk
         title="Macroscopic scale (eta = c) -- well-posed ESY regime; ESY predicts slope = -1"
-        edgeRows={D.measuredPsiNEdgeMacro}
-        edgeFit={D.fittedSlopeEdge}
+        edgeRows={macroRows}
+        edgeFit={activeMacroFit}
         bulkFit={D.fittedSlopeBulk}
         color="#a855f7"
       />
       <LogLogScatterEdgeVsBulk
         title="Microscopic scale (eta = c/N) -- bounded-not-decay expected at corrected ESY scale"
-        edgeRows={D.measuredPsiNEdge}
-        edgeFit={D.fittedSlopeEdgeMicro}
+        edgeRows={microRows}
+        edgeFit={activeMicroFit}
         bulkFit={D.fittedSlopeBulkMicro}
         color="#3b82f6"
       />

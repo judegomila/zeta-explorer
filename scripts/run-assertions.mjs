@@ -1682,6 +1682,11 @@ const DATA_MODULES = [
   // imp-2686: endpoint-bridge-enriched mu^pass construction (the surviving RH-equivalent Volterra target).
   '/src/data/imp-2686-mupass-construction.js',
   '/src/data/full-route-map-2026-06-19.js',
+  // imp-2833: lock Route B closure invariant — closesIf says it is already
+  // closed unconditionally; tripwires guard against a false promotion that
+  // would read Route B closing as closing the Lambda chain (E(N) feed stays
+  // gated on C_H, which must remain OPEN). 5 tripwires.
+  '/src/data/proof-chain-snapshot-2026-06-23.js',
   // imp-2750: DAG/route-map status-consistency cross-tripwire — fails if the
   // finite-N*=1e4 beat DAG node re-acquires a rigorous-unconditional framing
   // with an empty conditional closure, contradicting the route-map ESTIMATE/C_H verdict.

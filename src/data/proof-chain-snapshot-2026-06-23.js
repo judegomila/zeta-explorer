@@ -136,12 +136,14 @@ export const ROUTE_STATUS = {
     status: 'RIGOROUS-SOTA',
     summary: 'Unconditional lim sup |t_c(N)| = 0 via Koksma-Hlawka. Rigorous crown jewel. About the PARTICLE FLOW, not directly Lambda.',
     closesIf: 'Already closed unconditionally. Feeds E(N) chain if C_H can be discharged.',
+    imp2833: 'Closure verified and locked by build-time tripwires (IMP_2833_ROUTEB_CLOSURE_ASSERTIONS): Route B stays RIGOROUS-SOTA, and the E(N) onward feed stays gated on C_H (OPEN). No false Lambda improvement claimed.',
   },
   routeA: {
     name: 'Route A — Finite-N* = 1e4 estimate',
     status: 'ESTIMATE',
     summary: 'Self-consistent numerical estimate Lambda ~= 0.013 at N*=1e4. Gated on C_H (undischargeable). Heuristic target only.',
     closesIf: 'C_H Holder-1/2 shock modulus bounded unconditionally (imp-2672, currently RH-hard).',
+    imp2834: 'HONEST NEGATIVE: the named closure action (bound C_H Holder-1/2 shock modulus UNCONDITIONALLY) is NOT executable. C_H is RH-hard / undischargeable — the Gronwall backward-flow amplification diverges at the collision scale (imp-2640 returned NEGATIVE). Route A therefore stays an ESTIMATE gated on C_H; no rigorous Lambda below the Platt-Trudgian 0.2 SOTA is claimed. Locked against drift by IMP_2834_ROUTEA_GATE_ASSERTIONS.',
   },
   thinStrip: {
     name: 'Route Thin-strip / kappa_T (imp-2622)',
@@ -223,3 +225,49 @@ export const CONDITIONS = {
     },
   ],
 };
+
+// ── 5. imp-2833 BUILD-TIME ASSERTIONS ────────────────────────────────────────
+//
+// closesIf for Route B reads: "Already closed unconditionally. Feeds E(N)
+// chain if C_H can be discharged." The named closure condition is therefore
+// self-satisfied (Route B is the rigorous crown jewel), and the ONLY honest
+// action is to lock that status against drift while guarding against a false
+// promotion: Route B closing must NOT be read as closing the Lambda chain,
+// because the onward E(N) feed stays gated on C_H, which remains OPEN.
+// These tripwires assert the snapshot stays internally consistent on that
+// exact point. No new mathematical claim is made.
+
+export const IMP_2833_ROUTEB_CLOSURE_ASSERTIONS = [
+  {
+    id: 'imp-2833/routeB-rigorous-sota',
+    why: 'Route B must stay RIGOROUS-SOTA — the closesIf says it is already closed unconditionally.',
+    holds: () => ROUTE_STATUS.routeB.status === 'RIGOROUS-SOTA',
+  },
+  {
+    id: 'imp-2833/routeB-closesif-self-satisfied',
+    why: 'Route B closesIf must still record that it is already closed unconditionally.',
+    holds: () =>
+      typeof ROUTE_STATUS.routeB.closesIf === 'string' &&
+      ROUTE_STATUS.routeB.closesIf.includes('Already closed unconditionally'),
+  },
+  {
+    id: 'imp-2833/eN-feed-gated-on-C_H',
+    why: 'The E(N) onward feed from Route B must stay conditional on C_H — closesIf names exactly that gate.',
+    holds: () =>
+      ROUTE_STATUS.routeB.closesIf.includes('C_H') &&
+      CONDITIONS.establishedConditional.some(
+        (c) => c.id === 'C_G6a' && /C_H/.test(c.condition),
+      ),
+  },
+  {
+    id: 'imp-2833/C_H-still-open',
+    why: 'C_H must remain in the OPEN bucket; if it migrated the Route B E(N) feed would no longer be honestly gated.',
+    holds: () => CONDITIONS.open.some((c) => c.id === 'C_H'),
+  },
+  {
+    id: 'imp-2833/no-false-lambda-improvement-from-routeB',
+    why: 'Closing Route B must not move the headline below the Platt-Trudgian 0.2 SOTA — Route B is about the particle flow, not directly Lambda.',
+    holds: () =>
+      HEADLINE.baseline.includes('0.2') && HEADLINE.bound.includes('0.2'),
+  },
+];

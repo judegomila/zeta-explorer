@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import RelatedLinks from '../components/RelatedLinks.jsx';
 import { STATE_OF_PROGRAM_TRUTHS } from '../data/state-of-program-truths.js';
+import { CAUGHT_OVERCLAIMS, OVERCLAIM_COUNT } from '../data/overclaim-ledger.js';
 
 // The honest, single canonical top-of-funnel summary. Facts are sourced from
 // the shared STATE_OF_PROGRAM_TRUTHS data module (mirroring FULL_ROUTE_MAP,
@@ -48,6 +49,69 @@ export default function StateOfProgramPage() {
           <div style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.6 }}>{t.body}</div>
         </div>
       ))}
+
+      <div className="card" style={{ marginTop: 8 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono, monospace)',
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: 0.5,
+              color: '#ef4444',
+              border: '1px solid #ef4444',
+              borderRadius: 4,
+              padding: '2px 7px',
+            }}
+          >
+            OVERCLAIM LEDGER
+          </span>
+          <strong style={{ color: '#e2e8f0', fontSize: 14.5 }}>
+            {OVERCLAIM_COUNT} claims caught and withdrawn
+          </strong>
+        </div>
+        <p style={{ fontSize: 12.5, color: '#94a3b8', lineHeight: 1.6, marginTop: 0 }}>
+          Bound directly to the canonical <code>overclaim-ledger.js</code> registry (not duplicated prose), so
+          this honesty record cannot drift from the source of truth.
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {CAUGHT_OVERCLAIMS.map((o) => (
+            <div
+              key={o.id}
+              style={{
+                borderLeft: '2px solid #ef4444',
+                paddingLeft: 10,
+                fontSize: 12.5,
+                color: '#94a3b8',
+                lineHeight: 1.55,
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 2 }}>
+                <span style={{ fontFamily: 'var(--font-mono, monospace)', color: '#cbd5e1' }}>
+                  #{o.n} · {o.id}
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono, monospace)',
+                    fontSize: 10.5,
+                    fontWeight: 700,
+                    color: '#ef4444',
+                    border: '1px solid #ef4444',
+                    borderRadius: 3,
+                    padding: '1px 5px',
+                  }}
+                >
+                  {o.status}
+                </span>
+              </div>
+              <div style={{ color: '#cbd5e1' }}>{o.claim}</div>
+              <div style={{ fontSize: 11.5, marginTop: 2 }}>
+                <em>Caught by:</em> {o.caughtBy}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div className="card" style={{ marginTop: 8 }}>
         <p style={{ fontSize: 13, color: '#94a3b8', margin: 0 }}>

@@ -7,6 +7,9 @@ import FreshnessBanner from '../components/FreshnessBanner.jsx';
 // module. The full module (which transitively imports 10^6 Odlyzko zeros)
 // is still used by daily-health-check.sh for drift detection.
 import { EMPIRICAL_M_SWEEP_EXTENDED_SUMMARY as EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended-summary.js';
+// imp-2956: honest top-line status, sourced from the same canonical data module
+// as /state-of-program so the two surfaces cannot drift. Light, no heavy imports.
+import { STATE_OF_PROGRAM_TRUTHS } from '../data/state-of-program-truths.js';
 
 const ProofStatusCard = lazy(() => import('../components/ProofStatusCard.jsx'));
 
@@ -340,6 +343,40 @@ export default function DashboardPage() {
       </PageHeader>
 
       <FreshnessBanner date="2026-06-23" note="latest research session; metrics computed live on load" />
+
+      {/* imp-2956: honest "state of the program" summary, sourced from the
+          canonical STATE_OF_PROGRAM_TRUTHS data module (same facts as
+          /state-of-program) so the top-line status cannot drift. */}
+      <div
+        className="card"
+        style={{ marginBottom: 24, borderLeft: '3px solid #94a3b8' }}
+      >
+        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', marginBottom: 10 }}>
+          <strong style={{ color: '#e2e8f0', fontSize: 15 }}>Honest state of the program</strong>
+          <Link to="/state-of-program" style={{ fontSize: 12.5 }}>Full state of the program →</Link>
+        </div>
+        <p style={{ fontSize: 12.5, color: '#94a3b8', lineHeight: 1.55, margin: '0 0 12px' }}>
+          Top-line status before reading any single metric below: there is no shortcut below RH anywhere in the map.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 10 }}>
+          {STATE_OF_PROGRAM_TRUTHS.map((t) => (
+            <div key={t.badge} style={{ border: `1px solid ${t.color}`, borderRadius: 6, padding: '8px 10px' }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono, monospace)',
+                  fontSize: 10,
+                  fontWeight: 700,
+                  letterSpacing: 0.5,
+                  color: t.color,
+                }}
+              >
+                {t.badge}
+              </span>
+              <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.45, marginTop: 4 }}>{t.title}</div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* 2x3 metric grid */}
       <div style={{

@@ -161,17 +161,28 @@ function NavDropdown({ label, items }) {
   }, [isOpen]);
 
   return (
-    <div ref={dropdownRef} className={`nav-dropdown ${hasActive ? 'nav-dropdown-active' : ''} ${isOpen ? 'nav-dropdown-open' : ''}`}>
-      <button className="nav-dropdown-trigger" onClick={() => setIsOpen(o => !o)} aria-expanded={isOpen}>
+    <div
+      ref={dropdownRef}
+      className={`nav-dropdown ${hasActive ? 'nav-dropdown-active' : ''} ${isOpen ? 'nav-dropdown-open' : ''}`}
+      onKeyDown={e => { if (e.key === 'Escape' && isOpen) setIsOpen(false); }}
+    >
+      <button
+        className="nav-dropdown-trigger"
+        onClick={() => setIsOpen(o => !o)}
+        aria-expanded={isOpen}
+        aria-haspopup="menu"
+        aria-label={`${label} menu`}
+      >
         {label}
-        <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" style={{ marginLeft: 4 }}>
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" style={{ marginLeft: 4 }} aria-hidden="true">
           <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
         </svg>
       </button>
-      <div className="nav-dropdown-menu">
+      <div className="nav-dropdown-menu" role="menu" aria-label={`${label} navigation`}>
         {items.map(item => (
           // end: all nav items are non-root flat paths; prevents false-active if a nested route is ever added under the same slug
-          <NavLink key={item.to} to={item.to} end>{item.label}</NavLink>
+          // NavLink auto-applies aria-current="page" on the active route; role=menuitem completes the menu pattern
+          <NavLink key={item.to} to={item.to} end role="menuitem">{item.label}</NavLink>
         ))}
       </div>
     </div>
@@ -197,7 +208,42 @@ const KEYBOARD_SHORTCUTS = [
 ];
 
 function KeyboardShortcutOverlay({ show, onClose }) {
+  const dialogRef = useRef(null);
+  const previousFocusRef = useRef(null);
+
+  useEffect(() => {
+    if (!show) return undefined;
+    previousFocusRef.current = document.activeElement;
+    const node = dialogRef.current;
+    if (node) {
+      const firstFocusable = node.querySelector('button, [href], input, [tabindex]:not([tabindex="-1"])');
+      (firstFocusable || node).focus();
+    }
+    return () => {
+      const trigger = previousFocusRef.current;
+      if (trigger && typeof trigger.focus === 'function') trigger.focus();
+    };
+  }, [show]);
+
   if (!show) return null;
+
+  const handleKeyDown = (e) => {
+    if (e.key !== 'Tab') return;
+    const node = dialogRef.current;
+    if (!node) return;
+    const focusable = Array.from(
+      node.querySelectorAll('button, [href], input, [tabindex]:not([tabindex="-1"])')
+    ).filter(el => !el.disabled);
+    if (focusable.length === 0) { e.preventDefault(); return; }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  };
+
   return (
     <div
       style={{
@@ -208,15 +254,21 @@ function KeyboardShortcutOverlay({ show, onClose }) {
       onClick={onClose}
     >
       <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="kbd-shortcuts-title"
+        tabIndex={-1}
+        onKeyDown={handleKeyDown}
         style={{
           background: '#1e293b', border: '1px solid #334155',
           borderRadius: 12, padding: '28px 36px', maxWidth: 420, width: '90%',
-          color: '#e2e8f0', fontFamily: 'var(--font-mono)',
+          color: '#e2e8f0', fontFamily: 'var(--font-mono)', outline: 'none',
         }}
         onClick={e => e.stopPropagation()}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
-          <h3 style={{ margin: 0, fontSize: 18, color: '#f8fafc' }}>Keyboard Shortcuts</h3>
+          <h3 id="kbd-shortcuts-title" style={{ margin: 0, fontSize: 18, color: '#f8fafc' }}>Keyboard Shortcuts</h3>
           <button
             onClick={onClose}
             style={{

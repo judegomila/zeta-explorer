@@ -9,6 +9,7 @@ import { MAXFANOUT_STATUS } from '../data/maxfanout-honest-status-2026-06-17.js'
 import { STRATEGIC_REFRAME } from '../data/strategic-reframe-pcc-free-volterra-2026-06-17.js';
 import { SECTION27_REFUTATION, THE_REAL_GAP } from '../data/section27-identity-refutation-2026-06-17.js';
 import { SECTION26_VERDICT } from '../data/section26-verdict-volterra-not-a-reduction-2026-06-18.js';
+import { CAUGHT_OVERCLAIMS } from '../data/overclaim-ledger.js';
 import ProofTierSummary from '../components/ProofTierSummary.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
@@ -208,14 +209,7 @@ export default function RHProofStateDashboardPage() {
           SIX CAUGHT OVERCLAIMS (each independently re-verified, then retracted)
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 20 }}>
-          {[
-            { tag: '1e13 height-mismatch', detail: 'Λ-bound quoted at the wrong verification height; corrected against the actual Platt–Trudgian T_PT = 3×10¹².' },
-            { tag: 'κ_T constant', detail: 'A κ_T factor asserted rigorous was an order-unity placeholder; not an N-uniform proven bound.' },
-            { tag: 'sup |Im m| bound', detail: 'ψ_N = sup|Im m_N − π| (Stream A Stieltjes transform) over-claimed; the sine-kernel input is exactly where Montgomery PCC enters.' },
-            { tag: 'imp-1287 Wiener–Hopf', detail: '‖K_a‖ ≤ 1/a is FALSE: the causal sinh-convolution is non-Toeplitz; measured ‖K_a‖ ~ e^{aT} (37× over the claimed bound at T=10). WH symbol is the wrong object.' },
-            { tag: 'imp-2633 E_coll “rigorously pinned”', detail: 'Contradicts imp-2640 NEGATIVE in its own dependency: C_H = 1/8 is undischargeable (∫₀^{t_c} 2/g² dt diverges at the collision scale).' },
-            { tag: '§27 LINK B (‖V‖≤1 ⇔ K_a≥0)', detail: 'REFUTED as a Φ-uniform equivalence: K_a is degree-2 homogeneous (scale-invariant inertia) while ‖V‖ scales as c² — different sets; both arrows have explicit counterexamples.' },
-          ].map((row, i) => (
+          {CAUGHT_OVERCLAIMS.map((oc, i) => (
             <div key={i} style={{
               display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6,
               background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)',
@@ -228,8 +222,8 @@ export default function RHProofStateDashboardPage() {
                 fontSize: 11, fontWeight: 700, fontFamily: 'var(--font-mono)',
               }}>{i + 1}</div>
               <div style={{ minWidth: 0 }}>
-                <div style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 600, marginBottom: 2 }}>{row.tag}</div>
-                <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>{row.detail}</div>
+                <div style={{ fontSize: 13, color: '#e2e8f0', fontWeight: 600, marginBottom: 2 }}>{oc.tag}</div>
+                <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.5 }}>{oc.correction}</div>
               </div>
             </div>
           ))}
@@ -537,44 +531,7 @@ export default function RHProofStateDashboardPage() {
           Rigorous SOTA unchanged: <strong style={{ color: '#10b981' }}>Λ ≤ 0.2 (Platt–Trudgian 2021)</strong>.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
-          {[
-            {
-              n: 1,
-              claim: '1e13 height: Lambda headline',
-              caughtBy: 'imp-2630 WITHDRAWN',
-              correction: 'kappa_T frozen at T0=3000 used at T0=1e13; height-consistent E_trunc=7.65>>0.2; thin-strip structurally dead',
-            },
-            {
-              n: 2,
-              claim: 'kappa_T rigorously pinned as height-uniform',
-              caughtBy: 'imp-2625 CORRECTED',
-              correction: 'kappa_T=4delta/(3-2delta) degrades with height; not a uniform constant across the full height range',
-            },
-            {
-              n: 3,
-              claim: 'sup Im-m = pi rigorous (1/y amplification)',
-              caughtBy: 'imp-2621 REGRADED',
-              correction: 'True divergence is atomic sqrt(N/2pi) with no 1/log gain; a=0 endpoint regime survives',
-            },
-            {
-              n: 4,
-              claim: 'imp-1287: ‖K_a‖ ≤ 1/a (Wiener-Hopf closes Conj 27.2)',
-              caughtBy: 'imp-2660 RETRACTED',
-              correction: MAXFANOUT_STATUS.imp2633Contradiction.startsWith('imp-2633') ? 'Causal sinh-convolution is non-Toeplitz (pole z=a inside RHP); ‖K_a‖ ~ e^{aT}, measured 3.0/9.53/26.97/74.02 at T=4/6/8/10 for a=0.5 (37x over claimed bound 2)' : '',
-            },
-            {
-              n: 5,
-              claim: 'imp-2633: E_coll RIGOROUSLY-PINNED',
-              caughtBy: 'imp-2661 CORRECTED',
-              correction: MAXFANOUT_STATUS.imp2633Contradiction,
-            },
-            {
-              n: 6,
-              claim: 'Section-27 LINK B: ‖V‖≤1 ⟺ K_a≥0 (Phi-uniform two-way collapse)',
-              caughtBy: 'imp-2666 DOWNGRADED',
-              correction: SECTION27_REFUTATION.scaleObstruction + '. ' + SECTION27_REFUTATION.collapseConsequence,
-            },
-          ].map((oc) => (
+          {CAUGHT_OVERCLAIMS.map((oc) => (
             <div key={oc.n} style={{
               display: 'flex', gap: 12, padding: '10px 14px', borderRadius: 6,
               background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.18)',
@@ -592,7 +549,7 @@ export default function RHProofStateDashboardPage() {
                     padding: '1px 7px', borderRadius: 3,
                     background: 'rgba(239,68,68,0.18)', color: '#ef4444',
                     fontSize: 10, fontWeight: 700, fontFamily: 'var(--font-mono)',
-                  }}>{oc.caughtBy}</span>
+                  }}>{oc.badge}</span>
                 </div>
                 <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.5 }}>{oc.correction}</div>
               </div>

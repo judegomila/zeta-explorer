@@ -18,6 +18,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { CLOSURE_ROUTES, findRoute } from '../data/closure-routes-section.js';
+import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -344,6 +345,8 @@ export default function ClosureRoutesPage() {
           {R.title} — {R.paperRef}
         </p>
       </div>
+
+      <DownstreamVerdictCallout />
 
       {/* ─── Intro ─── */}
       <div className="card" style={{ marginTop: 12 }}>

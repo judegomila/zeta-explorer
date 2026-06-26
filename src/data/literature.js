@@ -2283,6 +2283,24 @@ const literature = [
     keyInsight: 'RH reduces to the positivity of a single quadratic form — a concrete, checkable condition.',
     relevanceToModel: 'The Weil formula is the mathematical dual of the twin ladder: primes ↔ oscillators on the geometric/prime side, zeros ↔ resonances on the spectral side. The positivity condition maps to the Hamiltonian being bounded below.',
   },
+
+  // === Effective Ingham Zero-Density Constants (C_T frontier) ===
+  {
+    id: 'heath-brown-1979-zero-density',
+    title: 'Zero-density estimates for the Riemann zeta-function',
+    authors: ['D.R. Heath-Brown'],
+    year: 1979,
+    journal: 'Bulletin of the London Mathematical Society',
+    volume: '11',
+    pages: '191-196',
+    doi: '10.1112/blms/11.2.191',
+    url: 'https://doi.org/10.1112/blms/11.2.191',
+    category: 'analytic',
+    tags: ['zero-density', 'Ingham exponent', 'effective constants', 'C_T baseline', 'explicit constant', 'sigma=3/4'],
+    summary: 'Proves N(sigma, T) << T^{(3-3sigma)/(2-sigma)} for sigma in [1/2, 3/4] with an O(1) implicit constant and no logarithmic factor at the boundary sigma = 3/4. This is the key effective-constant reference for the C_T truncation-error baseline in the Polymath15 bridge analysis (imp-1324). Distinct from Heath-Brown 1979 (Proc. LMS, fourth moment of zeta): both are 1979 papers by the same author. At the boundary point sigma = 3/4, the log power is absent and the implicit constant is genuinely O(1); this is sharper than the modern Kadiri 2013 / KLN 2018 explicit bounds which carry a (log T)^A factor for uniform coverage over an interval of sigma. A tighter 2024-2026 result pinning C_T to an explicit numerical value has not been verified in the literature as of this writing.',
+    keyInsight: 'At the boundary sigma = 3/4, the Ingham zero-density exponent is realized with an explicit O(1) implicit constant and no logarithmic overhead — validating the C(sigma)=1 assumption in the Polymath15 E_trunc formula, modulo an O(1) factor still to be numerically pinned.',
+    relevanceToModel: 'The E_trunc(N) term in the Polymath15 bridge uses the zero-density bound N(sigma, T) evaluated at sigma_opt = 3/4. This paper is the load-bearing reference for the C_T effective constant: it converts the asymptotic Ingham 1940 bound into a boundary-case effective result. The open gap: C_T <= 1.46 (imp-2625 threshold) is defensible via this lemma but a paper-grade explicit numerical pin remains an open task (imp-2698).',
+  },
 ];
 
 export function getAllReferences() {

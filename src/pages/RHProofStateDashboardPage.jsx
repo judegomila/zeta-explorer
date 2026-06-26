@@ -176,6 +176,47 @@ export default function RHProofStateDashboardPage() {
         </p>
       </div>
 
+      {/* Honest Frontier Status — at-a-glance card surfaced as #1 per imp-2993 */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        gap: 12,
+        marginBottom: 24,
+        padding: 16,
+        background: 'rgba(15,23,42,0.6)',
+        borderRadius: 8,
+        border: '1px solid #334155',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+          <div>
+            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>RIGOROUS SOTA</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: '#10b981', fontFamily: 'var(--font-mono)' }}>&#923; &le; 0.2</div>
+            <div style={{ fontSize: 11, color: '#94a3b8' }}>Platt&#8211;Trudgian 2021 &#8212; unconditional</div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+          <div>
+            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>#1 BLOCKER</div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: '#ef4444', fontFamily: 'var(--font-mono)' }}>C_H wall</div>
+            <div style={{ fontSize: 11, color: '#94a3b8' }}>Rigorous upper-bound pending (imp-2642) &#8212; gates E_coll</div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+          <div>
+            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>&#167;15&#8211;27 STATUS</div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: '#3b82f6', fontFamily: 'var(--font-mono)' }}>RH-equivalent</div>
+            <div style={{ fontSize: 11, color: '#94a3b8' }}>Not a reduction &#8212; &#167;27 LINK B refuted</div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+          <div>
+            <div style={{ fontSize: 11, color: '#64748b', fontFamily: 'var(--font-mono)', marginBottom: 2 }}>OVERCLAIMS</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: '#f59e0b', fontFamily: 'var(--font-mono)' }}>{CAUGHT_OVERCLAIMS.length} caught</div>
+            <div style={{ fontSize: 11, color: '#94a3b8' }}>Self-corrected &#8212; verification is the asset</div>
+          </div>
+        </div>
+      </div>
+
       <ProofTierSummary />
 
       {/* Headline metrics */}

@@ -267,6 +267,38 @@ export const IMP1188_BOOTSTRAP_CI_HELPER_DIAGNOSTIC_ASSERTIONS = [
     },
   },
   {
+    id: 'imp2889-helper-default-path-golden-vector-pinned',
+    why:
+      'imp-2889 -- A self-contained golden-vector regression pin for the ' +
+      'DEFAULT bootstrapSlopeCI path (percentile method, floor-index ' +
+      'percentile, mulberry32) on a tiny fixed (x,y) grid + fixed seed, ' +
+      'independent of any external data module. The existing imp-1188 ' +
+      'tripwires pin equivalence only on the imp-1166 derived grid (whose ' +
+      'literals come from upstream variance sweeps); this pin freezes the ' +
+      'raw kernel output {slope, ci_lo, ci_hi, median} for x = 1..10, ' +
+      'y = [0.5,1.4,2.1,3.3,3.9,5.2,5.8,7.1,7.9,9.3], seed 0x6F1D2E3A, ' +
+      '1000 replicates, to 1e-9. A change to the RNG, the resampling ' +
+      'order, the OLS fit, or the percentile-index convention would shift ' +
+      'these and fire this tripwire BEFORE any consumer CI silently moves. ' +
+      'Values captured by running the helper at file-build time.',
+    holds: () => {
+      const r = bootstrapSlopeCI({
+        x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        y: [0.5, 1.4, 2.1, 3.3, 3.9, 5.2, 5.8, 7.1, 7.9, 9.3],
+        replicates: 1000,
+        confidence: 0.95,
+        method: 'percentile',
+        seed: 0x6F1D2E3A,
+      });
+      return (
+        Math.abs(r.slope  - 0.9606060606060606) < 1e-9 &&
+        Math.abs(r.ci_lo  - 0.9071542130365658) < 1e-9 &&
+        Math.abs(r.ci_hi  - 1.0153846153846153) < 1e-9 &&
+        Math.abs(r.median - 0.9607883817427387) < 1e-9
+      );
+    },
+  },
+  {
     id: 'imp1188-helper-rejects-bad-inputs',
     why:
       'The helper must reject malformed input (mismatched x/y lengths, ' +

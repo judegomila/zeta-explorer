@@ -239,6 +239,23 @@ function eCollHolderAtN(N) {
   return C_H_HOLDER * Math.sqrt(w1Bound);
 }
 
+// imp-2995: per-N cusp-scaling constant C_shock of the Holder modulus
+// C_H = C_shock * C_Lip / 4 (Step 3). With the microscopic gap scale
+// g_min ~ sqrt(2 pi / N) and W_1 <= C_KH log(gamma_N)/N, the cusp factor is the
+// explicit ratio C_shock(N) = sqrt(2 pi / N) / sqrt(W_1) = sqrt(2 pi / (C_KH log gamma_N)),
+// i.e. the closed form pinned in imp-2786-c-shock-cusp-constant.js (single source
+// of truth). The 1/N cancels, so C_shock is N-uniform up to the slow sqrt(1/log)
+// decay and stays < 1/3 along the whole ladder — cementing that C_shock is NOT the
+// RH-hard factor of C_H (the wall is C_Lip, the non-N-uniform Gronwall constant).
+function shockConstantAtN(N) {
+  if (!(N > 1)) return null;
+  const gammaN = effectiveHeightForN(N);
+  if (!(gammaN > Math.E)) return null;
+  const w1 = C_KH * Math.log(gammaN) / N;
+  if (!(w1 > 0)) return null;
+  return Math.sqrt((2 * Math.PI) / N) / Math.sqrt(w1);
+}
+
 const LADDER_ROWS = LADDER_N.map((N) => {
   const gammaN = effectiveHeightForN(N);
   const w1 = C_KH * Math.log(gammaN) / N;
@@ -249,6 +266,7 @@ const LADDER_ROWS = LADDER_N.map((N) => {
     W_1_bound: w1,
     E_coll_holder: eColl,
     log10_E_coll: eColl !== null && eColl > 0 ? Math.log10(eColl) : null,
+    C_shock: shockConstantAtN(N),
   };
 });
 
@@ -260,6 +278,22 @@ const ROWS_STRICTLY_DECREASING = (() => {
   for (let i = 1; i < LADDER_ROWS.length; i++) {
     const prev = LADDER_ROWS[i - 1].E_coll_holder;
     const curr = LADDER_ROWS[i].E_coll_holder;
+    if (prev === null || curr === null) return false;
+    if (!(curr < prev)) return false;
+  }
+  return true;
+})();
+
+// imp-2995: ladder-wide tripwire on the cusp factor C_shock. Every per-N value
+// must stay strictly below 1/3 (and decrease) — the explicit certificate that the
+// cusp factor of C_H is bounded, so the RH-hardness of C_H lives entirely in C_Lip.
+const C_SHOCK_LADDER_UNDER_THIRD = LADDER_ROWS.every(
+  (r) => r.C_shock !== null && Number.isFinite(r.C_shock) && r.C_shock > 0 && r.C_shock < 1 / 3,
+);
+const C_SHOCK_LADDER_DECREASING = (() => {
+  for (let i = 1; i < LADDER_ROWS.length; i++) {
+    const prev = LADDER_ROWS[i - 1].C_shock;
+    const curr = LADDER_ROWS[i].C_shock;
     if (prev === null || curr === null) return false;
     if (!(curr < prev)) return false;
   }
@@ -311,6 +345,9 @@ export const G6A_SHOCK_LIPSCHITZ_CLOSURE = {
   ecollAtLadder: LADDER_ROWS,
   allRowsFinitePositive: ALL_ROWS_FINITE,
   rowsStrictlyDecreasing: ROWS_STRICTLY_DECREASING,
+  // imp-2995: per-N C_shock column verified < 1/3 and decreasing along the ladder.
+  cShockLadderUnderThird: C_SHOCK_LADDER_UNDER_THIRD,
+  cShockLadderDecreasing: C_SHOCK_LADDER_DECREASING,
 };
 
 // ── The imp-366 record ────────────────────────────────────────────────────────
@@ -876,6 +913,20 @@ export const POLYMATH15_LEMMA_52_ASSERTIONS = [
       'At N = 10^6 the Holder-1/2 E_coll bound must be below 0.1 (i.e., ' +
       'well below the Platt-Trudgian bound of 0.2). This is a sanity check ' +
       'that the E_coll formula gives a non-trivial bound at large N.',
+  },
+  {
+    id: 'imp2995-c-shock-ladder-under-third',
+    holds: () =>
+      C_SHOCK_LADDER_UNDER_THIRD &&
+      C_SHOCK_LADDER_DECREASING &&
+      LADDER_ROWS.length === 7,
+    why:
+      'imp-2995 TRIPWIRE: the per-N cusp factor C_shock(N) = sqrt(2 pi / (C_KH log gamma_N)) ' +
+      'must stay strictly below 1/3 and decrease across the FULL Holder-chain ladder ' +
+      '(N = 2458 .. 1e8). This is the explicit certificate that the cusp factor of ' +
+      'C_H = C_shock * C_Lip / 4 is BOUNDED, so C_shock is NOT the obstruction — the ' +
+      'RH-hardness of C_H lives entirely in C_Lip (the non-N-uniform Gronwall constant, ' +
+      'imp-2640). If a future edit pushed any ladder C_shock past 1/3, this fails loudly.',
   },
   {
     id: 'imp366-status-closed',

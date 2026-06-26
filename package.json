@@ -7,7 +7,7 @@
     "dev": "vite build && node server.js",
     "build": "node scripts/audit-nav-links.mjs && vite build",
     "preview": "vite preview",
-    "assert": "node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs",
+    "assert": "node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs && node scripts/reproduce-headline-numbers.mjs",
     "assert:fast": "node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast",
     "reproduce": "node scripts/reproduce-headline-numbers.mjs",
     "test": "node scripts/smoke-tests.mjs",

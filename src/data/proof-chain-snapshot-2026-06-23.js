@@ -150,12 +150,14 @@ export const ROUTE_STATUS = {
     status: 'REFUTED',
     summary: 'Claimed Lambda in [0.099, 0.137] at height 1e13. WITHDRAWN. Frozen-kappa height mismatch artifact (imp-2630).',
     closesIf: 'N/A — structurally dead. Thin-strip route grows with height.',
+    imp2835: 'HONEST NEGATIVE: the closesIf names NO executable action — the route is structurally dead. The withdrawn Lambda in [0.099, 0.137] used kappa_T = 0.182 frozen at T0=3000; the height-consistent kappa_T = 0.046 at gamma = 1e13 recomposes to E_trunc ~= 7.65 >> 0.2, and E_trunc grows with height, so the thin-strip route can never drop below the Platt-Trudgian 0.2 SOTA (imp-2630). Route stays REFUTED; no Lambda claim is made. Locked against revival by IMP_2835_THINSTRIP_REFUTED_ASSERTIONS.',
   },
   volterra: {
     name: 'Volterra ||V||<=1 collapse (imp-1258)',
     status: 'RH-EQUIVALENT',
     summary: 'A faithful reformulation of RH, not a shortcut. 5000x empirical margin was a homogeneity artifact (Wiener-Hopf 1/a bound retracted, imp-2660).',
     closesIf: 'Only if RH is proved; this is RH-EQUIVALENT, not a route to Lambda.',
+    imp2836: 'Honest negative recorded and locked by build-time tripwires (IMP_2836_VOLTERRA_RH_EQUIVALENT_ASSERTIONS): the Volterra ||V||<=1 collapse stays RH-EQUIVALENT (a faithful reformulation of RH, not a shortcut), the retracted 5000x margin stays retracted, and it must NEVER move the Platt-Trudgian Lambda<=0.2 headline. No route-to-Lambda is claimed.',
   },
   thetaTrap: {
     name: 'Theta-trap / Min-gap sandwich (imp-2563)',
@@ -269,5 +271,158 @@ export const IMP_2833_ROUTEB_CLOSURE_ASSERTIONS = [
     why: 'Closing Route B must not move the headline below the Platt-Trudgian 0.2 SOTA — Route B is about the particle flow, not directly Lambda.',
     holds: () =>
       HEADLINE.baseline.includes('0.2') && HEADLINE.bound.includes('0.2'),
+  },
+];
+
+// ── 6. imp-2834 BUILD-TIME ASSERTIONS ────────────────────────────────────────
+//
+// closesIf for Route A reads: "C_H Holder-1/2 shock modulus bounded
+// unconditionally (imp-2672, currently RH-hard)." The named closure action is
+// NOT executable: C_H is RH-hard / undischargeable (imp-2640 NEGATIVE — the
+// Gronwall backward-flow amplification diverges at the collision scale). The
+// only honest move is to record that negative and lock Route A as a gated
+// ESTIMATE so a future drift cannot silently promote it to a rigorous Lambda
+// improvement below the Platt-Trudgian 0.2 SOTA. No new mathematical claim is
+// made; these tripwires assert the snapshot stays honest on that exact point.
+
+export const IMP_2834_ROUTEA_GATE_ASSERTIONS = [
+  {
+    id: 'imp-2834/routeA-stays-estimate',
+    why: 'Route A must stay an ESTIMATE — its closesIf action (bound C_H unconditionally) is RH-hard and was NOT executed.',
+    holds: () => ROUTE_STATUS.routeA.status === 'ESTIMATE',
+  },
+  {
+    id: 'imp-2834/routeA-closesif-still-names-RH-hard-C_H',
+    why: 'Route A closesIf must still name C_H as RH-hard — the gate has not been discharged.',
+    holds: () =>
+      typeof ROUTE_STATUS.routeA.closesIf === 'string' &&
+      ROUTE_STATUS.routeA.closesIf.includes('C_H') &&
+      ROUTE_STATUS.routeA.closesIf.includes('RH-hard'),
+  },
+  {
+    id: 'imp-2834/honest-negative-recorded',
+    why: 'The honest-negative provenance must record that the C_H discharge is NOT executable, not a false QED.',
+    holds: () =>
+      typeof ROUTE_STATUS.routeA.imp2834 === 'string' &&
+      ROUTE_STATUS.routeA.imp2834.includes('HONEST NEGATIVE') &&
+      /NOT executable/.test(ROUTE_STATUS.routeA.imp2834),
+  },
+  {
+    id: 'imp-2834/C_H-still-open',
+    why: 'C_H must remain in the OPEN bucket — if it migrated, the Route A estimate would no longer be honestly gated.',
+    holds: () => CONDITIONS.open.some((c) => c.id === 'C_H'),
+  },
+  {
+    id: 'imp-2834/no-rigorous-lambda-below-0.2',
+    why: 'Route A staying gated must not move the rigorous headline below the Platt-Trudgian 0.2 SOTA.',
+    holds: () =>
+      HEADLINE.baseline.includes('0.2') && HEADLINE.bound.includes('0.2'),
+  },
+];
+
+// ── 7. imp-2835 BUILD-TIME ASSERTIONS ────────────────────────────────────────
+//
+// closesIf for the Thin-strip / kappa_T route reads: "N/A — structurally dead.
+// Thin-strip route grows with height." There is NO executable closure action:
+// the route was REFUTED (imp-2630) because kappa_T = 0.182 was frozen at
+// T0=3000 and illegitimately multiplied against gamma = 1e13; the
+// height-consistent kappa_T = 0.046 recomposes to E_trunc ~= 7.65 >> 0.2 and
+// E_trunc only grows with height. The only honest move is to record that
+// negative and lock the REFUTED status so a future drift cannot silently
+// revive the withdrawn Lambda in [0.099, 0.137] as a live claim below the
+// Platt-Trudgian 0.2 SOTA. No new mathematical claim is made.
+
+export const IMP_2835_THINSTRIP_REFUTED_ASSERTIONS = [
+  {
+    id: 'imp-2835/thinstrip-stays-refuted',
+    why: 'The Thin-strip route must stay REFUTED — its closesIf names no executable action (structurally dead).',
+    holds: () => ROUTE_STATUS.thinStrip.status === 'REFUTED',
+  },
+  {
+    id: 'imp-2835/closesif-still-records-structural-death',
+    why: 'The closesIf must still record that the route is structurally dead and grows with height.',
+    holds: () =>
+      typeof ROUTE_STATUS.thinStrip.closesIf === 'string' &&
+      /structurally dead/.test(ROUTE_STATUS.thinStrip.closesIf) &&
+      /grows with height/.test(ROUTE_STATUS.thinStrip.closesIf),
+  },
+  {
+    id: 'imp-2835/honest-negative-recorded',
+    why: 'The honest-negative provenance must record that no executable closure action exists, not a false revival.',
+    holds: () =>
+      typeof ROUTE_STATUS.thinStrip.imp2835 === 'string' &&
+      ROUTE_STATUS.thinStrip.imp2835.includes('HONEST NEGATIVE') &&
+      /NO executable action/.test(ROUTE_STATUS.thinStrip.imp2835),
+  },
+  {
+    id: 'imp-2835/withdrawn-lambda-not-revived-in-headline',
+    why: 'The withdrawn Lambda <= 0.121 thin-strip headline must stay withdrawn — the rigorous bound stays at the Platt-Trudgian 0.2 SOTA.',
+    holds: () =>
+      HEADLINE.previousBoundWithdrawn.includes('WITHDRAWN') &&
+      HEADLINE.bound.includes('0.2') &&
+      HEADLINE.baseline.includes('0.2'),
+  },
+  {
+    id: 'imp-2835/refutation-recorded-in-proof-chain',
+    why: 'The proof chain must still carry the imp-2630 REFUTED step for the thin-strip route, naming its grows-with-height failure mode.',
+    holds: () =>
+      PROOF_CHAIN.some(
+        (s) =>
+          s.ticket === 'imp-2630' &&
+          /REFUTED/.test(s.status) &&
+          /grows with height/.test(s.claim),
+      ),
+  },
+];
+
+// ── 8. imp-2836 BUILD-TIME ASSERTIONS ────────────────────────────────────────
+//
+// closesIf for the Volterra route reads: "Only if RH is proved; this is
+// RH-EQUIVALENT, not a route to Lambda." The named closure action is therefore
+// NOT executable as a shortcut: ||V||<=1 is a FAITHFUL REFORMULATION of RH, so
+// proving it is proving RH — it cannot feed a Lambda improvement on its own.
+// The honest move is to record that negative and lock it against drift, in
+// particular against the one false reading: that the RH-EQUIVALENT collapse (or
+// the retracted 5000x empirical margin) could move the rigorous headline.
+// These tripwires assert the snapshot stays internally consistent on that exact
+// point. No new mathematical claim is made.
+
+export const IMP_2836_VOLTERRA_RH_EQUIVALENT_ASSERTIONS = [
+  {
+    id: 'imp-2836/volterra-stays-rh-equivalent',
+    why: 'The Volterra ||V||<=1 collapse must stay RH-EQUIVALENT — its closesIf names RH-equivalence, not an executable route to Lambda.',
+    holds: () => ROUTE_STATUS.volterra.status === 'RH-EQUIVALENT',
+  },
+  {
+    id: 'imp-2836/closesif-still-names-not-a-route',
+    why: 'Volterra closesIf must still record that it closes only if RH is proved and is NOT a route to Lambda.',
+    holds: () =>
+      typeof ROUTE_STATUS.volterra.closesIf === 'string' &&
+      ROUTE_STATUS.volterra.closesIf.includes('RH is proved') &&
+      ROUTE_STATUS.volterra.closesIf.includes('not a route to Lambda'),
+  },
+  {
+    id: 'imp-2836/5000x-margin-stays-retracted',
+    why: 'The 5000x empirical margin was a homogeneity artifact (Wiener-Hopf 1/a bound retracted, imp-2660); the summary must keep recording that retraction.',
+    holds: () =>
+      typeof ROUTE_STATUS.volterra.summary === 'string' &&
+      /retracted/.test(ROUTE_STATUS.volterra.summary) &&
+      ROUTE_STATUS.volterra.summary.includes('not a shortcut'),
+  },
+  {
+    id: 'imp-2836/honest-negative-recorded',
+    why: 'The honest-negative provenance must record that no route-to-Lambda is claimed, not a false QED.',
+    holds: () =>
+      typeof ROUTE_STATUS.volterra.imp2836 === 'string' &&
+      ROUTE_STATUS.volterra.imp2836.includes('RH-EQUIVALENT') &&
+      ROUTE_STATUS.volterra.imp2836.includes('No route-to-Lambda is claimed'),
+  },
+  {
+    id: 'imp-2836/no-false-lambda-improvement-from-volterra',
+    why: 'An RH-EQUIVALENT collapse must not move the rigorous headline below the Platt-Trudgian 0.2 SOTA — proving ||V||<=1 is proving RH, not a Lambda shortcut.',
+    holds: () =>
+      HEADLINE.baseline.includes('0.2') &&
+      HEADLINE.bound.includes('0.2') &&
+      ROUTE_STATUS.volterra.summary.includes('reformulation of RH'),
   },
 ];

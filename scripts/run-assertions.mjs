@@ -1689,6 +1689,12 @@ const DATA_MODULES = [
   '/src/data/maxfanout-honest-status-2026-06-17.js',
   '/src/data/strategic-reframe-pcc-free-volterra-2026-06-17.js',
   '/src/data/section27-identity-refutation-2026-06-17.js',
+  // imp-2856: self-contained Schur-complement verification of the SURVIVING §27
+  // half -- block [[I,V],[V*,I]] >= 0 <=> ||V|| <= 1 (Bhatia 1997 Prop 1.3.2,
+  // D = I > 0, Schur complement I - V V*) -- with a dependency-free Jacobi
+  // eigensolver witnessing both directions plus the exact identity
+  // lambda_min = 1 - ||V||, demarcated from the refuted LINK B.
+  '/src/data/imp-linkA-schur-verification.js',
   '/src/data/section26-verdict-volterra-not-a-reduction-2026-06-18.js',
   // imp-2686: endpoint-bridge-enriched mu^pass construction (the surviving RH-equivalent Volterra target).
   '/src/data/imp-2686-mupass-construction.js',
@@ -1913,6 +1919,10 @@ const DATA_MODULES = [
   // asserts each argument stays inside the proven 0<=x<=1 domain, and pins the
   // true crossing x* ~ 1.7932821 where the bound first fails.
   '/src/data/imp-2871-exp-tail-bound-audit.js',
+  // imp-2867: shared certified T0 enclosure primitive for N*=1e4 -- extracts
+  // the count-monotonicity straddle from imp-2704 into a single exported helper
+  // and asserts consistency with imp-2704/imp-2709 carried values.
+  '/src/data/imp-2867-t0-certified-enclosure.js',
   // imp-2962: gates the LMFDB L-function cross-reference table -- runs
   // assertIntegrity(), checks the DATA_AS_OF provenance stamp is a valid ISO
   // date, and pins lmfdbUrl() to the current LMFDB /L/<path> URL scheme so a

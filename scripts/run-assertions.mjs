@@ -1708,6 +1708,7 @@ const DATA_MODULES = [
   // lambda_min = 1 - ||V||, demarcated from the refuted LINK B.
   '/src/data/imp-linkA-schur-verification.js',
   '/src/data/section26-verdict-volterra-not-a-reduction-2026-06-18.js',
+  '/src/data/ch-wall-frontier-verdict-2026-06-26.js',
   // imp-2686: endpoint-bridge-enriched mu^pass construction (the surviving RH-equivalent Volterra target).
   '/src/data/imp-2686-mupass-construction.js',
   // imp-2841: degree-0 deficit profile quantifying the section26-verdict "~64% of tau" overflow.

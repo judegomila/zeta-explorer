@@ -29484,6 +29484,19 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'makes the rigor frontier legible per stage (area: twin)',
     model: 'sonnet-4-6',
   },
+  {
+    id: 'imp-3005',
+    title: 'Close the closed-form sg1c R2-T multi-body isolation constant c in [0.72,1) — the one DETERMINISTIC C_H forward move',
+    category: 'proof',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per ch-wall-frontier-verdict-2026-06-26.js: the C_H Lipschitz route is RH-HARD-CONFIRMED (provably closed 3 ways), BUT the frontier workflow's local-energy reconditioning collapses the obstruction onto a SINGLE scalar C_Theta that is bounded+vanishing ON the isolated-pair basin. The basin restriction rests on the sg1c R2-T / R1-T4 multi-body isolation sign law (openSubGaps 'sg1c-r2-isolation-persistence' in sg1c-theta-trap-theorems.js): proven EXACTLY only for the single nearest neighbour, numerically scanned to ~0.943, NOT closed in closed form. DELIVERABLE: attempt a closed-form proof that the multi-body isolation constant c in [0.72,1) holds (rho=g0/d1<1 => Theta-isolation persists under the full N-body flow), OR locate the precise sub-configuration where it fails. This is DETERMINISTIC CM-flow algebra (NOT RH-hard pair-correlation). Closing it converts the local-energy C_Lip from PARTIAL to BASIN-CONDITIONAL-Lipschitz (C_Theta bounded; gap channel g_min/(4(1-Theta))~9.4e-3 dominant at N*=1e4). HONEST: this is STILL NOT a global-W_1 rigorous beat (the bridge is fixed to global W_1; off-W_1 re-architecture is foreclosed) — claim only the basin-conditional reconditioning. PT 0.2 stays SOTA. NO false QED.",
+    rationale: 'The single deterministic (non-RH-hard) forward move the C_H frontier assault exposed; everything else off the Lipschitz route is foreclosed.',
+    estimatedComplexity: 'medium',
+    dependsOn: [],
+    model: 'opus-4-8',
+  },
 ];
 
 // ── imp-2538: queue-side sub-gap sync tripwires ──────────────────────────────

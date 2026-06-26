@@ -87,8 +87,8 @@ const collapseChain = [
     step: 0,
     title: '‖V_{a,Φ}‖ ≤ 1',
     statement: String.raw`\|V_{a,\Phi}\|_{L^2([0,\infty))} \le 1 \quad \forall a > 0`,
-    reference: 'Conj 27.2 — The Central Load-Bearing Claim',
-    description: 'The entire §15-27 program (7+ conjectures: 16.4, 16.6, 17.3, 18.1, 25.2, 25.3, 26.3, 26.4, 27.2) reduces to a single operator-norm statement. Empirical support from imp-1240: 25 norms all >5000× below 1.',
+    reference: 'Conj 27.2 — RH-Equivalent (NOT a reduction, §26 verdict)',
+    description: 'The §15-27 program (7+ conjectures: 16.4, 16.6, 17.3, 18.1, 25.2, 25.3, 26.3, 26.4, 27.2) restates as a single operator-norm statement — but per the §26 verdict this is RH-EQUIVALENT, not a shortcut below RH. The imp-1240 "25 norms all >5000× below 1" margin is a homogeneity artifact (scale-miscalibrated bare operator), NOT evidence for Conj 27.2.',
     color: '#000'
   },
   {
@@ -273,13 +273,16 @@ export default function CollapseChainPage() {
 
       <div style={{ backgroundColor: '#f0f7ff', padding: '16px', borderRadius: '8px', marginBottom: '20px', borderLeft: '4px solid #2166ac' }}>
         <p style={{ margin: '0 0 8px 0', fontSize: '14px' }}>
-          <strong>Summary:</strong> The entire §15-27 program of the Twin-Ladder paper reduces to a single operator-norm statement.
-          Seven conjectures (16.4, 16.6, 17.3, 18.1, 25.2, 25.3, 26.3, 26.4, 27.2) collapse into the claim that
+          <strong>Summary (pre-refutation framing — see red banner above):</strong> The §15-27 program of the Twin-Ladder paper
+          restates as a single operator-norm statement. Seven conjectures (16.4, 16.6, 17.3, 18.1, 25.2, 25.3, 26.3, 26.4, 27.2)
+          collapse into the claim that
           {' '}<InlineMath math="\|V_{a,\Phi}\|_{L^2([0,\infty))} \le 1" /> for every <InlineMath math="a > 0" />.
+          {' '}<strong>Per the §26 verdict this restatement is RH-equivalent, not a reduction below RH.</strong>
         </p>
         <p style={{ margin: '8px 0 0 0', fontSize: '13px', color: '#555' }}>
-          Empirical support from imp-1240: 25 truncated operator norms all &gt;5000× below the threshold 1.
-          The chain is non-circular: every object is constructed from <InlineMath math="\Phi" /> via integrals, with no reference to the zero set of <InlineMath math="\xi" />.
+          The imp-1240 figure — 25 truncated operator norms all &gt;5000× below the threshold 1 — is a
+          {' '}<strong>homogeneity artifact</strong> measuring the scale-miscalibrated bare operator, NOT empirical support for Conj 27.2.
+          The chain is non-circular (every object is constructed from <InlineMath math="\Phi" /> via integrals, with no reference to the zero set of <InlineMath math="\xi" />), but non-circularity does not make it a shortcut.
         </p>
       </div>
 

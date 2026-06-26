@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import VizCeilingNote from '../components/VizCeilingNote.jsx';
 
 /*
  * Winding under Dyson/Newman flow.
@@ -478,12 +479,7 @@ export default function VizWindingDysonFlowPage() {
             pair whose collision time Lambda would be strictly positive — contradicting Λ ≥ 0. The
             winding conservation argument is the topological core of this result.
           </li>
-          <li style={{ color: '#94a3b8' }}>
-            <strong>Honest ceiling:</strong> geometric illustration of Λ ≥ 0 only. Does not produce a new
-            upper bound or beat Platt-Trudgian Λ ≤ 0.2. Panel linked from the{' '}
-            <Link to="/visual-geometries">Visual Geometries gallery</Link> and the{' '}
-            <Link to="/route-map">route map</Link> (supercritical-winding thread).
-          </li>
+          <VizCeilingNote claim="Λ ≥ 0 (Rodgers-Tao, winding argument)" />
         </ul>
         <div style={{ fontSize: 12, marginTop: 8 }}>
           Related:{' '}

@@ -130,22 +130,32 @@ function heatmapAt(targetName, tau) {
 export default function VoroninUniversalityPage() {
   const targets = VORONIN_UNIVERSALITY.targetFunctions;
   const [selectedName, setSelectedName] = useState(targets[0].name);
+  const [customTauStr, setCustomTauStr] = useState('');
 
   const sweep = useMemo(() => sweepForTarget(selectedName), [selectedName]);
   const best = VORONIN_UNIVERSALITY.bestApproximation[selectedName];
-  const heat = useMemo(() => heatmapAt(selectedName, best.tauStar), [selectedName, best.tauStar]);
+
+  const tauMin = VORONIN_UNIVERSALITY.tauGrid.min;
+  const tauMax = VORONIN_UNIVERSALITY.tauGrid.max;
+  const parsedCustomTau = customTauStr === '' ? null : parseFloat(customTauStr);
+  const activeTau = (parsedCustomTau !== null && !isNaN(parsedCustomTau) && parsedCustomTau >= tauMin && parsedCustomTau <= tauMax)
+    ? parsedCustomTau
+    : best.tauStar;
+  const isCustomActive = activeTau !== best.tauStar;
+
+  const heat = useMemo(() => heatmapAt(selectedName, activeTau), [selectedName, activeTau]);
 
   // Sweep axes.
   const tauValues = sweep.map((r) => r.tau);
   const infNorms = sweep.map((r) => r.infNorm);
-  const tauMin = Math.min(...tauValues);
-  const tauMax = Math.max(...tauValues);
+  const sweepTauMin = Math.min(...tauValues);
+  const sweepTauMax = Math.max(...tauValues);
   const yMaxRaw = Math.max(...infNorms);
   const yMax = yMaxRaw * 1.08;
   const yMin = 0;
 
   function sx(tau) {
-    return SWEEP_M.left + ((tau - tauMin) / (tauMax - tauMin)) * SWEEP_IW;
+    return SWEEP_M.left + ((tau - sweepTauMin) / (sweepTauMax - sweepTauMin)) * SWEEP_IW;
   }
   function sy(v) {
     return SWEEP_M.top + (1 - (v - yMin) / (yMax - yMin)) * SWEEP_IH;
@@ -213,6 +223,57 @@ export default function VoroninUniversalityPage() {
           tau* = <strong style={{ color: '#86efac' }}>{best.tauStar}</strong>,{' '}
           sup-norm = <strong style={{ color: '#86efac' }}>{best.infNormAchieved.toFixed(4)}</strong>.
         </div>
+        <div style={{ marginTop: 12, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+          <label style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#cbd5e1' }}>
+            Custom tau (heatmap):
+          </label>
+          <input
+            type="number"
+            min={tauMin}
+            max={tauMax}
+            step={VORONIN_UNIVERSALITY.tauGrid.step}
+            value={customTauStr}
+            onChange={(e) => setCustomTauStr(e.target.value)}
+            placeholder={"e.g. " + best.tauStar}
+            style={{
+              width: 110,
+              padding: '4px 8px',
+              fontFamily: 'var(--font-mono)',
+              fontSize: 11,
+              background: 'rgba(255,255,255,0.06)',
+              color: '#e2e8f0',
+              border: '1px solid ' + (isCustomActive ? '#a855f7' : 'var(--border)'),
+              borderRadius: 4,
+            }}
+          />
+          {customTauStr !== '' && (
+            <button
+              onClick={() => setCustomTauStr('')}
+              style={{
+                padding: '4px 8px',
+                fontFamily: 'var(--font-mono)',
+                fontSize: 11,
+                cursor: 'pointer',
+                background: 'rgba(255,255,255,0.04)',
+                color: '#94a3b8',
+                border: '1px solid var(--border)',
+                borderRadius: 4,
+              }}
+            >
+              reset to tau*
+            </button>
+          )}
+          {isCustomActive && (
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#a855f7' }}>
+              showing tau = {activeTau}
+            </span>
+          )}
+          {customTauStr !== '' && parsedCustomTau !== null && !isNaN(parsedCustomTau) && (parsedCustomTau < tauMin || parsedCustomTau > tauMax) && (
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#fb7185' }}>
+              out of range [{tauMin}, {tauMax}] — using tau*
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Sweep plot. */}
@@ -261,13 +322,23 @@ export default function VoroninUniversalityPage() {
               tau* = {best.tauStar}, inf = {best.infNormAchieved.toFixed(3)}
             </text>
           </g>
+
+          {/* Custom-tau marker (only when active). */}
+          {isCustomActive && (
+            <line x1={sx(activeTau)} y1={SWEEP_M.top} x2={sx(activeTau)} y2={SWEEP_M.top + SWEEP_IH} stroke="#a855f7" strokeWidth={1.5} strokeDasharray="6,3" />
+          )}
         </svg>
       </div>
 
-      {/* Heatmap at tau*. */}
+      {/* Heatmap at active tau (optimal tau* or custom input). */}
       <div style={{ marginTop: 18, padding: 12, background: 'var(--bg-panel)', border: '1px solid var(--border)', borderRadius: 8 }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: '#cbd5e1', marginBottom: 6 }}>
-          5x5 grid heatmap of |zeta(s + i*tau*) - f(s)| at tau* = {best.tauStar}
+          5x5 grid heatmap of |zeta(s + i*tau) - f(s)| at tau = {activeTau}
+          {isCustomActive ? (
+            <span style={{ color: '#a855f7', marginLeft: 8 }}>(custom)</span>
+          ) : (
+            <span style={{ color: '#86efac', marginLeft: 8 }}>(optimal tau*)</span>
+          )}
         </div>
         {heat ? (
           <svg width={HEAT_W} height={HEAT_H} role="img" aria-label="Voronin heatmap at optimal tau">

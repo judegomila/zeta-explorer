@@ -93,6 +93,7 @@ const SchattenTraceNormPage = lazy(() => import('./pages/SchattenTraceNormPage.j
 const CayleySchurTrajectoryPage = lazy(() => import('./pages/CayleySchurTrajectoryPage.jsx'));
 const CollapseChainPage = lazy(() => import('./pages/CollapseChainPage.jsx'));
 const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboardPage.jsx'));
+const WhatWeKnowPage = lazy(() => import('./pages/WhatWeKnowPage.jsx'));
 const RouteMapPage = lazy(() => import('./pages/RouteMapPage.jsx'));
 const StateOfProgramPage = lazy(() => import('./pages/StateOfProgramPage.jsx'));
 const EngineRoomPage = lazy(() => import('./pages/EngineRoomPage.jsx'));
@@ -706,6 +707,7 @@ function AppShell() {
           <Route path="/rh-dag" element={<RhDagPage />} />
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />
           <Route path="/rh-proof-state" element={<RHProofStateDashboardPage />} />
+          <Route path="/what-we-know" element={<WhatWeKnowPage />} />
           <Route path="/route-map" element={<RouteMapPage />} />
           <Route path="/state-of-program" element={<StateOfProgramPage />} />
           <Route path="/engine-room" element={<EngineRoomPage />} />

@@ -435,6 +435,95 @@ export const SG1C_R2T2_ASYM_RESIDUAL = (() => {
   };
 })();
 
+// imp-3027: independent reproduction of the Lemma R1-T4 (imp-2637) dynamical
+// reachability / zero-excursion experiment over an EXTENDED grid of real-zero-
+// derived initial windows and N values. The parent assertion
+// sg1c-r1-dynamical-reachability-basin checked a SINGLE isolated start
+// [0,1,2,3,4,5,5.4,7,8,9] and a single near-uniform-lattice control. Here we
+// rebuild the same RK4 CM-flow integrator and sweep a grid: N in {8,10,12} unit
+// lattices each carrying one compressed minimal pair of gap g0 in {0.30,0.40,0.45}
+// (rho = g0 < 1, an isolated minimal pair -- the measured real-zero regime), plus a
+// near-uniform-lattice control per N (rho ~ 1, one site perturbed by 1e-3). For each
+// isolated start we track the peak min-pair Theta over the whole trajectory and the
+// excursion = peakTheta - Theta(0); the basin claim is that this excursion is ZERO to
+// integrator tolerance at every isolated start, while the lattice controls climb to a
+// detectable high peak (so the integrator DOES register a climb when one exists). We
+// report the worst (largest) excursion across the whole grid and any window exceeding
+// Theta(0). HONEST: this strengthens the empirical basin self-enforcement over the
+// extended grid; it does NOT close the unconditional cap (the multi-body R2-T residual
+// stays open) -- PT Lambda <= 0.2 stays SOTA.
+export const SG1C_R1T4_BASIN_GRID = (() => {
+  // RK4 CM-flow peak min-pair Theta integrator (identical scheme to the parent assertion)
+  const peak = (x0, maxSteps, floor) => {
+    let x = x0.slice();
+    let pk = dThetaDs(x, minPairIdx(x)).theta;
+    for (let s = 0; s < maxSteps; s++) {
+      const mi = minPairIdx(x), mg = x[mi + 1] - x[mi];
+      if (mg < floor) break;
+      const th = dThetaDs(x, mi).theta;
+      if (th > pk) pk = th;
+      const h = Math.min(2e-3, 0.05 * mg * mg);
+      const k1 = force(x); const x2 = x.map((v, k) => v + 0.5 * h * k1[k]); const k2 = force(x2);
+      const x3 = x.map((v, k) => v + 0.5 * h * k2[k]); const k3 = force(x3);
+      const x4 = x.map((v, k) => v + h * k3[k]); const k4 = force(x4);
+      x = x.map((v, k) => v + (h / 6) * (k1[k] + 2 * k2[k] + 2 * k3[k] + k4[k]));
+    }
+    return pk;
+  };
+  // isolated-pair start: unit lattice of N points with the central pair compressed to
+  // gap g0 (all other gaps stay 1), so the minimal pair is isolated with rho = g0 < 1
+  const isoCfg = (N, g0) => {
+    const x = [];
+    for (let i = 0; i < N; i++) x.push(i);
+    const c = Math.floor(N / 2) - 1; // compress pair (c, c+1)
+    for (let i = c + 1; i < N; i++) x[i] -= (1 - g0);
+    return { x, idx: c };
+  };
+  const Ns = [8, 10, 12];
+  const gaps = [0.30, 0.40, 0.45];
+  const isolated = [];
+  for (const N of Ns) {
+    for (const g0 of gaps) {
+      const { x, idx } = isoCfg(N, g0);
+      const theta0 = dThetaDs(x, idx).theta;
+      const rho0 = dRhoIso(x, idx).rho;
+      const pk = peak(x, 30000, 1e-4);
+      isolated.push({ N, g0, theta0, rho0, peakTheta: pk, excursion: pk - theta0 });
+    }
+  }
+  // near-uniform-lattice control per N: rho ~ 1, one interior site nudged by 1e-3 to
+  // break the exact tie so the integrator can register the high-Theta climb if present
+  const controls = Ns.map((N) => {
+    const x = [];
+    for (let i = 0; i < N; i++) x.push(i);
+    x[Math.floor(N / 2)] += 1e-3;
+    const idx = minPairIdx(x);
+    const rho0 = dRhoIso(x, idx).rho;
+    const pk = peak(x, 30000, 1e-4);
+    return { N, rho0, peakTheta: pk };
+  });
+  const worstExcursion = isolated.reduce((m, r) => Math.max(m, r.excursion), -Infinity);
+  const violations = isolated.filter((r) => r.excursion > 1e-9 || r.theta0 >= 0.25 || r.rho0 >= 1);
+  const minControlPeak = controls.reduce((m, c) => Math.min(m, c.peakTheta), Infinity);
+  return {
+    isolated,
+    controls,
+    gridSize: isolated.length, // 9 isolated windows (3 N x 3 g0) + 3 lattice controls
+    worstExcursion, // largest peakTheta - Theta(0) over the whole isolated-pair grid (~0, machine-precision)
+    violations, // windows where excursion > 0, or Theta(0) >= 1/4, or rho >= 1 -- expected EMPTY
+    minControlPeak, // smallest near-uniform-lattice control peak (must be high, climb detectable)
+    theoremCConstant: 0.72,
+    summary:
+      'Independent reproduction of the Lemma R1-T4 zero-excursion experiment over an extended grid '
+      + '(N in 8/10/12, isolated-pair gap g0 in 0.30/0.40/0.45, rho = g0 < 1, Theta(0) < 1/4). At every '
+      + 'isolated-pair-basin start the peak min-pair Theta over the whole CM-flow trajectory equals Theta(0) '
+      + 'to integrator tolerance (worst excursion ~0), so no window excursions toward the uncapped lattice; '
+      + 'each near-uniform-lattice control (rho ~ 1) climbs to a high detectable peak, confirming the '
+      + 'integrator registers a climb when one exists. Strengthens the empirical basin self-enforcement; '
+      + 'does NOT close the unconditional cap (multi-body R2-T residual stays open). PT Lambda <= 0.2 stays SOTA.',
+  };
+})();
+
 // imp-3017: numerical sidecar tabulating which Theta thresholds the closed-form
 // static criteria COVER (non-crossable) against the refuted excursion band
 // (0.443, 0.5073). Theorem A covers Theta* <= 1/4 unconditionally; Theorem B
@@ -770,6 +859,18 @@ export const SG1C_THEOREM_ASSERTIONS = [
       const cInverted =
         t.cAtLowerEndpoint > 0.72 && t.cAtLowerEndpoint < 1 && t.cAtUpperEndpoint > 0.72 && t.cAtUpperEndpoint < t.cAtLowerEndpoint;
       return lowerIsThmB && cMapEndpoints && cMapMonotone && ladder && familyCrosses && cInverted;
+    },
+  },
+  {
+    id: 'sg1c-r1t4-basin-grid-zero-excursion',
+    description: 'imp-3027: the Lemma R1-T4 zero-excursion reproduced over an extended grid (N in 8/10/12, isolated-pair gap g0 in 0.30/0.40/0.45) -- every isolated-pair-basin start keeps peak min-pair Theta = Theta(0) (worst excursion ~0, no violating window) while every near-uniform-lattice control (rho ~ 1) climbs to a high detectable peak; strengthens the basin self-enforcement without closing the unconditional cap',
+    holds: () => {
+      const t = SG1C_R1T4_BASIN_GRID;
+      const fullGrid = t.isolated.length === 9 && t.controls.length === 3;
+      const everyStartIsolated = t.isolated.every((r) => r.theta0 < 0.25 && r.rho0 < 1);
+      const zeroExcursion = t.worstExcursion <= 1e-9 && t.violations.length === 0;
+      const controlsClimb = t.minControlPeak > 0.7 && t.controls.every((c) => c.rho0 > 0.9);
+      return fullGrid && everyStartIsolated && zeroExcursion && controlsClimb;
     },
   },
   {

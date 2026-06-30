@@ -31,6 +31,7 @@ import { IMP3065_RESIDUAL_DEFICIT_QUADRATURE } from '../data/imp-3065-residual-d
 import { IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION } from '../data/imp-3066-offdiagonal-hankel-obstruction.js';
 import { IMP3125_ORTHOGONALIZED_RESIDUAL_GAP_DEGREE_SWEEP } from '../data/imp-3125-orthogonalized-residual-gap-degree-sweep.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
+import { asymOnsetDrho, SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -1339,6 +1340,124 @@ function DeficitExcessFractionGridPanel() {
 }
 
 // ── imp-3136: C_shock margin 1/3 - C_shock(N) grows with N (imp-3108 data) ───
+// ── imp-3180: onset derivative drho/ds showing c_asym root vs imp-3045 false onset ──
+function AsymOnsetDerivativeViz() {
+  const CF = SG1C_ASYM_ISOLATION_CLOSED_FORM;
+  const C_ASYM = CF.cAsym;                      // 0.9027902227683418
+  const FALSE_G = CF.scanDiscontinuityValue;     // 0.9032364257812502
+  const FALSE_DRHO = asymOnsetDrho(FALSE_G);     // ~+0.00242
+
+  const G_MIN = 0.68, G_MAX = 0.975;
+  const N_POINTS = 300;
+  const points = [];
+  for (let i = 0; i <= N_POINTS; i++) {
+    const g = G_MIN + (i / N_POINTS) * (G_MAX - G_MIN);
+    points.push({ g, v: asymOnsetDrho(g) });
+  }
+
+  const W = 700, H = 300, ML = 72, MR = 36, MT = 28, MB = 52;
+  const Y_MIN = -1.4, Y_MAX = 0.28;
+
+  const px = (g) => ML + ((g - G_MIN) / (G_MAX - G_MIN)) * (W - ML - MR);
+  const py = (v) => H - MB - ((v - Y_MIN) / (Y_MAX - Y_MIN)) * (H - MT - MB);
+
+  const zeroY = py(0);
+  const cx_root  = px(C_ASYM);
+  const cx_false = px(FALSE_G);
+  const cy_false = py(FALSE_DRHO);
+  const cx_basin = px(0.72);
+  const ycx = (MT + H - MB) / 2;
+
+  // Clip path to display window
+  const clipped = points.filter((p) => p.v >= Y_MIN && p.v <= Y_MAX);
+  const linePath = clipped
+    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${px(p.g).toFixed(1)} ${py(p.v).toFixed(1)}`)
+    .join(' ');
+
+  const yTicks = [-1.2, -0.9, -0.6, -0.3, 0.0];
+  const xTicks = [0.70, 0.75, 0.80, 0.85, 0.90, 0.95];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #10b981', background: 'rgba(16,185,129,0.04)' }}>
+      <h3 style={{ color: '#10b981', marginTop: 0 }}>
+        Onset derivative d&rho;/ds(g) = &psi;(g+1)+&gamma;+2g&minus;2/g&minus;1/(g+1):
+        closed-form root c<sub>asym</sub>=0.90279 vs imp-3045 false onset at 0.9032364 (imp-3170)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The smooth function d&rho;/ds(g) vanishes at exactly one point in (0,1): the
+        transcendental root c<sub>asym</sub>&nbsp;&asymp;&nbsp;0.90279 (emerald circle on the zero line).
+        The imp-3045 bisection reported &asymp;0.9032364 as the onset (amber circle), but
+        d&rho;/ds(0.9032364)&nbsp;=&nbsp;+0.00242&nbsp;&gt;&nbsp;0 &mdash; the bisection locked onto a
+        DISCONTINUITY of the discrete minimal-gap selector, not the smooth zero. The
+        true root c<sub>asym</sub> is 0.000446 lower. The Theorem-C basin boundary 0.72
+        (cyan dashed) sits deep in the self-improving region: d&rho;/ds(0.72)&asymp;&minus;1.12.
+      </p>
+      <div style={{ overflowX: 'auto', marginTop: 10 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {/* y grid + labels */}
+          {yTicks.map((v) => (
+            <g key={"y" + v}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{v.toFixed(1)}</text>
+            </g>
+          ))}
+          {/* x ticks */}
+          {xTicks.map((g) => (
+            <g key={"x" + g}>
+              <line x1={px(g)} y1={H - MB} x2={px(g)} y2={H - MB + 5} stroke="#334155" strokeWidth="1" />
+              <text x={px(g)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{g.toFixed(2)}</text>
+            </g>
+          ))}
+          {/* axes */}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          {/* axis labels */}
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>g (isolation ratio)</text>
+          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>{"drho/ds(g)"}</text>
+          {/* zero line */}
+          <line x1={ML} y1={zeroY} x2={W - MR} y2={zeroY} stroke="#475569" strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={W - MR - 4} y={zeroY - 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>0</text>
+          {/* basin boundary at 0.72 */}
+          <line x1={cx_basin} y1={MT} x2={cx_basin} y2={H - MB} stroke="#06b6d4" strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={cx_basin + 4} y={MT + 12} fontSize="10" fill="#22d3ee" fontFamily={mono}>basin=0.72</text>
+          {/* curve */}
+          <path d={linePath} fill="none" stroke="#10b981" strokeWidth="2.5" />
+          {/* true root: c_asym circle on the zero line */}
+          <circle cx={cx_root} cy={zeroY} r={6} fill="#10b981" stroke="#34d399" strokeWidth="1.5">
+            <title>{"c_asym=" + C_ASYM.toFixed(10) + "  drho/ds=0 (true root)"}</title>
+          </circle>
+          <line x1={cx_root} y1={zeroY - 8} x2={cx_root + 4} y2={zeroY - 32} stroke="#34d399" strokeWidth="1" strokeDasharray="3 2" />
+          <text x={cx_root + 8} y={zeroY - 32} fontSize="10" fill="#34d399" fontFamily={mono}>{"c_asym=0.90279"}</text>
+          <text x={cx_root + 8} y={zeroY - 20} fontSize="10" fill="#94a3b8" fontFamily={mono}>{"drho/ds=0 (true root)"}</text>
+          {/* false-onset: imp-3045 scan lock point */}
+          <circle cx={cx_false} cy={cy_false} r={6} fill="#f59e0b" stroke="#fbbf24" strokeWidth="1.5">
+            <title>{"imp-3045 scan=0.9032364  drho/ds=+0.00242 > 0 (NOT the true zero)"}</title>
+          </circle>
+          <line x1={cx_false} y1={cy_false + 8} x2={cx_false + 4} y2={cy_false + 32} stroke="#fbbf24" strokeWidth="1" strokeDasharray="3 2" />
+          <text x={cx_false + 8} y={cy_false + 42} fontSize="10" fill="#fbbf24" fontFamily={mono}>{"imp-3045: 0.9032364"}</text>
+          <text x={cx_false + 8} y={cy_false + 54} fontSize="10" fill="#94a3b8" fontFamily={mono}>{"drho/ds=+0.00242 (false onset)"}</text>
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          TRANSCENDENTAL CLOSED FORM &mdash; NOT AN RH BEAT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          The root is transcendental (digamma equation); the symmetric single-shell onset
+          c*=0.93185 is algebraic. This closes the asymmetric multi-body class onset for the
+          R&rarr;&infin; opposite-lattice configuration only; whether that class is the GLOBAL
+          infimum remains an open sub-gap. The 0.72 basin is preserved (margin=0.1828).
+          Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: sg1c-asym-isolation-closed-form-2026-06-30.js &mdash;
+        c_asym={C_ASYM.toFixed(10)}, false-onset-drho={FALSE_DRHO.toExponential(3)}, basin-drho={CF.basinDrho.toFixed(4)}.
+      </p>
+    </div>
+  );
+}
+
 function CShockMarginCurveViz() {
   const M = C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108;
   const rows = M.marginCurve;
@@ -2024,6 +2143,12 @@ export default function ClosureRoutesPage() {
         Descending sub-ladder: margin crosses zero at N<sub>*</sub>&asymp;203 (&gamma;<sub>N</sub>=e<sup>6</sup>) (imp-3151)
       </h2>
       <CShockSubMarginCurveViz />
+
+      {/* ─── imp-3180: onset derivative drho/ds showing c_asym root vs imp-3045 false onset ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Asymmetric onset derivative: closed-form root c<sub>asym</sub>=0.90279 corrects imp-3045 false onset (imp-3170)
+      </h2>
+      <AsymOnsetDerivativeViz />
 
       {/* ─── imp-3163: honest-status -- 0.2690 vs 0.2692 near-miss is a NUMERICAL COINCIDENCE ─── */}
       <div style={{

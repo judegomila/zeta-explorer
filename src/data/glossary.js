@@ -684,6 +684,74 @@ export const glossary = [
     relatedTerms: ['Operator-side mu^pass vocabulary (de-homogenized R, endpoint-Hankel gap)', 'a*U scale invariant', 'excess fraction phi'],
     link: '/closure-routes',
   },
+  {
+    term: "onset quadratic-pole divergence",
+    category: 'constant',
+    definition:
+      "The leading behavior of the excess fraction phi(s) = G(s)/F(s) as s -> 0+: " +
+      "phi(s) ~ C / s^2, where C = sqrt(2)(1 - arcsinh(1)) ~ 0.16776 is the onset quadratic-pole constant. " +
+      "The divergence arises because F(s) vanishes cubically near s=0 while G(s) vanishes only quadratically, " +
+      "producing a 1/s^2 pole. Despite this non-integrable pointwise divergence the total mass " +
+      "integral of phi converges because the exponential decay K*e^{-s} (K ~ 1.06568) takes over " +
+      "past the crossover s_cross1. The constant C first appeared in imp-3112 as half of the " +
+      "companion asymptotic pair (C for onset, K for large-s decay).",
+    firstUsed: "imp-3112 (onset/decay asymptotic constants), 2026",
+    relatedTerms: ['excess fraction phi', 'convergent tail mass', 'envelope crossover handoff (s_cross1)', 'a*U scale invariant'],
+    link: '/section26',
+  },
+  {
+    term: "envelope crossover handoff (s_cross1)",
+    category: 'constant',
+    definition:
+      "The value of s = a*U at which the onset quadratic-pole envelope C/s^2 and the " +
+      "exponential-decay envelope K*e^{-s} are equal in magnitude, marking the transition from " +
+      "onset-dominated to decay-dominated behavior in phi(s) = G(s)/F(s). " +
+      "For s < s_cross1 the onset divergence dominates; for s > s_cross1 the exponential tail " +
+      "dominates. The handoff is relevant for numerical quadrature strategies: near s=0 the integrand " +
+      "behaves as C/s^2 and needs special treatment, while large s is exponentially negligible. " +
+      "Constants: C ~ 0.16776 (onset coefficient, imp-3112), K ~ 1.06568 (decay coefficient, imp-3112).",
+    firstUsed: "imp-3112 (onset/decay asymptotic constants), 2026",
+    relatedTerms: ['onset quadratic-pole divergence', 'excess fraction phi', 'convergent tail mass'],
+    link: '/section26',
+  },
+  {
+    term: "convergent tail mass",
+    category: 'method',
+    definition:
+      "The total integral mass of the excess fraction phi(s) = G(s)/F(s) over s in (0, +inf), " +
+      "which converges despite the onset quadratic-pole divergence phi ~ C/s^2 near s=0. " +
+      "Convergence holds because the envelope crossover at s_cross1 transitions the integrand to " +
+      "exponential decay K*e^{-s} before the onset singularity accumulates enough to diverge overall. " +
+      "The tail mass is the resolution-sensitive quantity for computing average operator deficits: " +
+      "the resolved genuine overflow fraction is ~0.209 (imp-3175), larger than the coarse-grid " +
+      "snapshots 0.194 and 0.200 which both under-report the tail contribution at insufficient resolution.",
+    firstUsed: "imp-3112 (onset/decay asymptotic constants) / imp-3175 (overflow fraction resolution), 2026",
+    relatedTerms: ['onset quadratic-pole divergence', 'envelope crossover handoff (s_cross1)', 'excess fraction phi'],
+    link: '/section26',
+  },
+  {
+    term: "section-26-vs-monomial gap (D1-D4)",
+    category: 'proof-status',
+    definition:
+      "The four concrete structural differences between the representative monomial truncation " +
+      "(the numerical toy used in imp-3066 through imp-3086 conditioning studies) and the genuine " +
+      "section-26 Gram, catalogued in imp-3110. " +
+      "D1 BASIS: monomial truncation uses (tau/U)^j for j=0..DEG; section-26 uses the genuine " +
+      "Hardy-space basis from the Xi functional equation -- different spanning sets. " +
+      "D2 WEIGHT: monomial studies use the cosh passive inner product with measure cosh(tau) dtau; " +
+      "section-26 uses the Xi-weighted inner product -- different measures. " +
+      "D3 ENDPOINT: the monomial truncation cuts off sharply at tau = U; section-26 requires a " +
+      "proper extension -- different support. " +
+      "D4 DEHOMOGENIZATION: the toy normalization 1/sqrt(D_jj * D_kk) is a proxy; the genuine " +
+      "section-26 analogue has not been computed. " +
+      "The SURVIVES-swap vs TRUNCATION-ARTIFACT classification (imp-3110) tests which obstruction " +
+      "findings persist under basis-swap (intrinsic) vs which vanish (toy artifact). " +
+      "Honest scope: all numerical results through imp-3110 are on the D1-D4 monomial toy, NOT the " +
+      "section-26 Gram; no RH verdict follows.",
+    firstUsed: "imp-3110 (section-26 vs monomial gap classification), 2026",
+    relatedTerms: ['Operator-side mu^pass vocabulary (de-homogenized R, endpoint-Hankel gap)', 'Orthogonalization vocabulary (Cholesky L, Loewdin P^{-1/2}, pencil identity, basis-invariant norm)', 'excess fraction phi'],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

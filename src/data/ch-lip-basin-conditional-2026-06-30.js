@@ -316,3 +316,78 @@ export const CH_LIP_DIVERGENCE_ASSERTIONS = [
 for (const a of CH_LIP_DIVERGENCE_ASSERTIONS) {
   if (!a.holds()) throw new Error(`ch-lip-divergence-decomposition assertion failed: ${a.id}`);
 }
+
+// imp-3090: PIN the imp-3063 Theta-channel ceiling DIRECTLY. The decomposition
+// asserts the basin removes the 1/(1-Theta) factor by trapping Theta <= 1/4, giving
+// 1/(1-Theta) <= 4/3, but that 4/3 ceiling at the Theta = 1/4 trap was only ever
+// touched at the two endpoints. We certify the elementary ceiling on its own terms:
+//   (a) phi(Theta) = 1/(1-Theta) is STRICTLY INCREASING on [0, 1/4]
+//       -- its derivative dphi/dTheta = 1/(1-Theta)^2 > 0 everywhere on the interval;
+//   (b) it attains EXACTLY 4/3 at the trap Theta = 1/4 (1/(1-1/4) = 1/(3/4) = 4/3,
+//       an exact rational, not a rounded decimal);
+//   (c) the supremum over the trap interval is therefore the right endpoint value 4/3.
+// We tabulate phi and its analytic derivative across [0,1/4] so the removed-channel
+// factor is pinned and a silent edit to thetaFactor or THETA_TRAP cannot drift the
+// 4/3 ceiling unnoticed. Confirms a documented bound on the channel the basin removes;
+// does NOT touch the surviving O(N) norm-mismatch dilution; NO QED. PT Lambda <= 0.2 SOTA.
+const thetaFactorDeriv = (theta) => 1 / ((1 - theta) * (1 - theta));   // dphi/dTheta = 1/(1-Theta)^2 > 0
+const THETA_CEILING_GRID = [0, 1 / 16, 1 / 8, 3 / 16, 1 / 4];          // [0, 1/4] including the exact trap endpoint
+const THETA_CEILING_SWEEP = THETA_CEILING_GRID.map((theta) => ({
+  theta,
+  phi: thetaFactor(theta),                                            // 1/(1-Theta)
+  deriv: thetaFactorDeriv(theta),                                     // analytic slope, strictly positive
+  fractionOfCeiling: thetaFactor(theta) / THETA_FACTOR_BASIN_CEILING, // 1 exactly at the trap
+}));
+const THETA_CEILING_EXACT = 4 / 3;                                     // exact rational ceiling at Theta = 1/4
+
+export const THETA_CHANNEL_CEILING = {
+  ticket: 'imp-3090',
+  date: '2026-06-30',
+  factor: '1/(1-Theta)',
+  derivative: '1/(1-Theta)^2 (strictly positive on [0,1/4] => strictly increasing)',
+  trap: THETA_TRAP,                                                   // 1/4
+  ceiling: THETA_CEILING_EXACT,                                       // exactly 4/3 at the trap
+  ceilingMatchesDecomposition: THETA_FACTOR_BASIN_CEILING,            // pins the imp-3063 basinCeiling value
+  grid: THETA_CEILING_GRID,
+  sweep: THETA_CEILING_SWEEP,
+  supremumOnInterval: thetaFactor(THETA_TRAP),                        // attained at the right endpoint = 4/3
+  honest: 'Elementary ceiling certificate only: 1/(1-Theta) is strictly increasing on [0,1/4] (derivative 1/(1-Theta)^2 > 0) and equals exactly 4/3 at the Theta=1/4 trap, so its supremum on the trap interval is 4/3. This pins the channel the basin reconditioning removes; it does NOT touch the surviving O(N) norm-mismatch dilution and is NOT a global-W_1 beat. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA.',
+};
+
+export const THETA_CHANNEL_CEILING_ASSERTIONS = [
+  {
+    id: 'theta-ceiling-exact-four-thirds-at-trap',
+    description: '1/(1-Theta) equals exactly 4/3 at the Theta=1/4 trap (exact rational, matches the imp-3063 basinCeiling)',
+    holds: () => thetaFactor(THETA_TRAP) === 4 / 3
+      && THETA_CEILING_EXACT === 4 / 3
+      && THETA_FACTOR_BASIN_CEILING === 4 / 3,
+  },
+  {
+    id: 'theta-ceiling-strictly-increasing-on-interval',
+    description: 'phi(Theta)=1/(1-Theta) is strictly increasing across [0,1/4] with a strictly positive analytic derivative at every grid point',
+    holds: () => THETA_CEILING_SWEEP.every((r, i) => r.deriv > 0
+      && (i === 0 || r.phi > THETA_CEILING_SWEEP[i - 1].phi)),
+  },
+  {
+    id: 'theta-ceiling-derivative-is-phi-squared',
+    description: 'the analytic slope 1/(1-Theta)^2 equals phi(Theta)^2 at every grid point (confirms dphi/dTheta = phi^2)',
+    holds: () => THETA_CEILING_SWEEP.every((r) => Math.abs(r.deriv - r.phi * r.phi) < 1e-12),
+  },
+  {
+    id: 'theta-ceiling-supremum-at-right-endpoint',
+    description: 'the supremum of phi on [0,1/4] is the right-endpoint trap value 4/3 (fractionOfCeiling=1 there, < 1 elsewhere)',
+    holds: () => Math.abs(THETA_CHANNEL_CEILING.supremumOnInterval - 4 / 3) < 1e-12
+      && Math.abs(THETA_CEILING_SWEEP[THETA_CEILING_SWEEP.length - 1].fractionOfCeiling - 1) < 1e-12
+      && THETA_CEILING_SWEEP.slice(0, -1).every((r) => r.fractionOfCeiling < 1),
+  },
+  {
+    id: 'theta-ceiling-no-false-qed',
+    description: 'the certificate pins the removed channel only: NOT a global-W_1 beat and PT Lambda <= 0.2 stays SOTA',
+    holds: () => /NOT a global-W_1 beat/.test(THETA_CHANNEL_CEILING.honest)
+      && /Lambda <= 0.2 stays the rigorous SOTA/.test(THETA_CHANNEL_CEILING.honest),
+  },
+];
+
+for (const a of THETA_CHANNEL_CEILING_ASSERTIONS) {
+  if (!a.holds()) throw new Error(`theta-channel-ceiling assertion failed: ${a.id}`);
+}

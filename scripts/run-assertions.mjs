@@ -2135,6 +2135,15 @@ const DATA_MODULES = [
   // ~1e-5; equal-product cells coincide to machine precision. Representative diagnostic; no RH
   // verdict; positivity not attempted; PT 0.2 SOTA.
   '/src/data/imp-3146-residual-gap-limit-aU-grid.js',
+  // imp-3176: CROSS-MODULE tripwire locking the imp-3146 golden-ratio landmark.
+  // Re-derives the maximizer of G(s)=tanh(s)-tanh(s/2) from an INDEPENDENT Newton
+  // solve of the stationarity condition G prime(s)=sech^2(s)-(1/2)sech^2(s/2)=0
+  // (analytic G prime prime, seeded at s=1.6, never Math.acosh), then certifies
+  // cosh(s*)=phi (golden ratio) and G(s*)=phi^{-5/2} to ~1e-9, that the independent
+  // root matches the live imp-3146 sStarClosedForm/gStarClosedForm, and that the
+  // live 24000-point fine-scan recovered the same maximizer/value. Lock only, no
+  // new math, no QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-3146-golden-ratio-maximizer-tripwire-2026-06-30.js',
   // imp-3106: assesses the INTEGRABILITY of the imp-3064 excess fraction phi(s) =
   // G(s)/F(s) over the admissible range (s0, inf). The integral DIVERGES: the
   // imp-3087 onset pole phi ~ C/(s-s0)^2 (C = sqrt(2)*(1-arcsinh(1)) ~ 0.16776) is

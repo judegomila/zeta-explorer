@@ -2528,7 +2528,8 @@ export default function ClosureRoutesPage() {
           (residual-0, necessary). However, the section26-mupass operator audit (imp-3144) measured
           the genuine deg-2 occupation deficit at{' '}
           <span style={{ fontFamily: mono, color: '#fbbf24' }}>9.28e-9</span>{' '}
-          (overflow on 19.4% of tau) — a tiny but strictly nonzero value that scalar domination
+          (overflow on 19.4% of tau — a coarse-grid N=200 snapshot; the resolution-converged genuine
+          fraction is ~0.209 per imp-3175, not 0.194) — a tiny but strictly nonzero value that scalar domination
           never eliminates. This confirms the scalar cover is <em>not sufficient</em>: the
           off-diagonal endpoint-Hankel step remains the lone open obstruction at the operator level
           (K&#x2090;&thinsp;&#x2265;&thinsp;0, RH-equivalent, untouched).

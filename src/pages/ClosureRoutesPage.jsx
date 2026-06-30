@@ -23,6 +23,7 @@ import { IMP3107_DEHOMOGENIZED_OFFDIAG_AU_GRID } from '../data/imp-3107-dehomoge
 import { IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP } from '../data/imp-3084-offdiagonal-gap-degree-sweep.js';
 import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orthogonalized-basis-conditioning.js';
 import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section26-gram-vs-monomial-gap.js';
+import { IMP3105_EXCESS_FRACTION_CROSSOVER_LANDMARKS } from '../data/imp-3105-excess-fraction-crossover-landmarks-2026-06-30.js';
 import { C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108 } from '../data/imp-3108-c-shock-margin-cross-validation.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
@@ -974,10 +975,11 @@ function PhiProfileLogLogViz() {
   const onsetPath = mkPath(onsetPts);
   const decayPath = mkPath(decayPts);
 
-  // imp-3105 interior landmark scales (exact closed-form bisection results)
-  const S_STAR   = 1.488945799;   // phi=1 unique root
-  const S_CROSS1 = 1.915040236;   // envelope onset->decay handoff
-  const S_CROSS2 = 4.317512336;   // algebraic re-crossing
+  // imp-3105 interior landmark scales -- sourced from the data module
+  const _LM3105  = IMP3105_EXCESS_FRACTION_CROSSOVER_LANDMARKS;
+  const S_STAR   = _LM3105.phiEqualsOne.s;               // phi=1 unique root
+  const S_CROSS1 = _LM3105.envelopeCrossover.handoff.s;  // envelope onset->decay handoff
+  const S_CROSS2 = _LM3105.envelopeCrossover.recross.s;  // algebraic re-crossing
   const ENV_C1   = C / ((S_CROSS1 - S0) * (S_CROSS1 - S0)); // envelope value at handoff ~0.157
   const lx_star  = Math.log10(S_STAR   - S0);
   const lx_c1    = Math.log10(S_CROSS1 - S0);

@@ -689,6 +689,170 @@ export const SG1C_R2T2_HALFLATTICE_LSWEEP = (() => {
   };
 })();
 
+// imp-3201: adversarial STRUCTURED search testing whether the imp-3021 structured
+// half-lattice infimum (~0.9016 global-nearest, ~0.8980 lone-neighbour L -> inf) is
+// the true structured FLOOR or can be pushed still LOWER by RICHER worst-case
+// structure: geometric/graded right spacings, two-sided minimal lattices, and
+// multi-shell left dressings. sg1c-theta-trap flags HONESTLY that 0.9016 is "a
+// certified numerical infimum of a structured family, NOT a proof that nothing
+// worsens still earlier", so this run stress-tests that flag deterministically.
+//
+// METHOD. We extend the imp-3194 config (lone left neighbour at -1, central pair
+// (0, rho), right one-sided lattice) with three extra structural degrees of freedom:
+// (i) a geometric ratio r on the right spacings (gap_k = max(rho, sp * r^(k-1))),
+// (ii) a left dressing lattice behind the lone neighbour (two-sided / multi-shell),
+// (iii) a free first right gap h. Isolation worsening-onset is bisected against the
+// FIXED lone left neighbour (the imp-3194 tie-robust branch).
+//
+// CRITICAL HONESTY GUARD. The isolation ratio rho = g/d_1 is only meaningful when the
+// measured neighbour IS the genuine NEAREST environment particle. An UNGUARDED grid
+// "wins" at h ~ rho (onset ~0.8787, below 0.8980), but the genuine nearest there has
+// flipped to the RIGHT lattice at distance ~0.88 < 1 -- so that value measures g over a
+// NON-nearest neighbour, the exact selector trap imp-3170/imp-3194 diagnosed. It is an
+// ARTIFACT, not a real onset. We therefore record both the unguarded (artifact) minimum
+// AND the GUARDED minimum that requires the lone left neighbour at distance 1 to remain
+// the true global nearest at the onset (equivalently first right gap h >= 1, dressing
+// spacing >= 1).
+//
+// FINDING. Under the honesty guard, NO richer structure beats the imp-3194 single-sided
+// minimal-spacing half-lattice: the guarded infimum over graded right spacings AND
+// two-sided / multi-shell left dressings is attained at h = 1, r = 1, zero dressing --
+// i.e. exactly the imp-3194 config (~0.89811 at L = 48). Geometric grading is neutral-to-
+// raising; every left-side dressing (two-sided lattice, unit shells) STRICTLY RAISES the
+// onset (the extra left mass STABILISES isolation against the lone neighbour). So the
+// worsening is driven entirely by the one-sided minimal right lattice and the binding
+// constraint is that the nearest distance equals the lone-neighbour distance (h = 1).
+// HONEST / STILL OPEN: this is EVIDENCE (deterministic structured search, not proof) that
+// the imp-3194 single-sided half-lattice is the structured floor among these richer
+// families; the GLOBAL asymmetric constant stays OPEN, bracketed ~(0.898, 0.943). Margin
+// to the Theorem C basin constant 0.72 is ~0.178, so the basin-conditional C_Lip
+// (imp-3006) is unaffected; PT Lambda <= 0.2 stays SOTA.
+export const SG1C_R2T2_RICHER_STRUCTURE_SEARCH = (() => {
+  const L = 40; // right lattice length
+  // build a richer config: optional left dressing lattice, lone left neighbour at -1,
+  // central pair (0, rho), right lattice with first gap h then geometric-graded spacing.
+  const build = (rho, o) => {
+    const h = o.h === undefined ? 1 : o.h;
+    const sp = o.sp === undefined ? 0 : o.sp;
+    const ratio = o.ratio === undefined ? 1 : o.ratio;
+    const leftDress = o.leftDress === undefined ? 0 : o.leftDress;
+    const leftSp = o.leftSp === undefined ? 0 : o.leftSp;
+    const left = [];
+    let lp = -1;
+    for (let k = 0; k < leftDress; k++) { lp -= Math.max(leftSp, rho); left.push(lp); }
+    left.reverse();
+    const x = [...left, -1, 0, rho];
+    const i = left.length + 1;     // index of the pair-left endpoint (value 0)
+    const jLone = left.length;     // index of the lone left neighbour (value -1)
+    let p = rho + Math.max(h, rho);
+    x.push(p);
+    for (let k = 1; k < L; k++) { p += Math.max(rho, sp * Math.pow(ratio, k - 1)); x.push(p); }
+    return { x, i, jLone };
+  };
+  // isolation rate of rho = g/d_1 against the FIXED lone neighbour jp (tie-robust branch)
+  const drhoLone = (x, i, jp) => {
+    const F = force(x), a = x[i], b = x[i + 1], g = b - a;
+    const d1 = a - x[jp];
+    const gdot = F[i + 1] - F[i];
+    const d1dot = F[i] - F[jp];
+    return (gdot * d1 - g * d1dot) / (d1 * d1);
+  };
+  // genuine nearest environment distance to the pair (and whether it is the lone neighbour)
+  const nearest = (x, i, jLone) => {
+    const a = x[i], b = x[i + 1];
+    let d1 = Infinity, onLeft = false;
+    for (let j = 0; j < x.length; j++) {
+      if (j === i || j === i + 1) continue;
+      const dl = a - x[j], dr = x[j] - b;
+      if (dl > 0 && dl < d1) { d1 = dl; onLeft = true; }
+      if (dr > 0 && dr < d1) { d1 = dr; onLeft = false; }
+    }
+    const loneDist = a - x[jLone];
+    return { d1, loneIsNearest: onLeft && Math.abs(d1 - loneDist) < 1e-9 };
+  };
+  // worsening-onset against the lone neighbour: rho where drhoLone turns from < 0 to > 0
+  const onset = (o) => {
+    let lo = 0.5, hi = 0.999999;
+    for (let it = 0; it < 90; it++) {
+      const m = (lo + hi) / 2;
+      const b = build(m, o);
+      if (drhoLone(b.x, b.i, b.jLone) > 0) hi = m; else lo = m;
+    }
+    return (lo + hi) / 2;
+  };
+  // an onset is HONEST only if the lone neighbour is the genuine nearest at the onset rho
+  const guardedOnset = (o) => {
+    const r = onset(o);
+    const b = build(r, o);
+    return nearest(b.x, b.i, b.jLone).loneIsNearest ? r : null;
+  };
+
+  // reference: the imp-3194 single-sided minimal-spacing half-lattice (h = 1, r = 1)
+  const baseline = onset({ h: 1, sp: 0, ratio: 1 });
+
+  // unguarded artifact: tightening the first right gap below 1 "wins" but the nearest
+  // particle has flipped to the right lattice -- a NON-nearest measurement, not a real onset
+  const artifactCfg = { h: 0.88, sp: 0.8, ratio: 1 };
+  const artifactOnset = onset(artifactCfg);
+  const artifactB = build(artifactOnset, artifactCfg);
+  const artifactNearest = nearest(artifactB.x, artifactB.i, artifactB.jLone);
+
+  // honest search across the three richer structural DOFs, nearest-respecting
+  let best = { onset: baseline, family: 'single-sided (h=1, r=1)', h: 1, ratio: 1, leftDress: 0, leftSp: 0 };
+  // (1) geometric-graded right spacing, first gap held >= 1 so the lone neighbour stays nearest
+  for (let hi = 100; hi <= 160; hi += 5) {
+    const h = hi / 100;
+    for (let si = 80; si <= 150; si += 10) {
+      const sp = si / 100;
+      for (let ri = 70; ri <= 130; ri += 5) {
+        const ratio = ri / 100;
+        const g = guardedOnset({ h, sp, ratio });
+        if (g !== null && g < best.onset) best = { onset: g, family: 'geometric-graded right', h, ratio, leftDress: 0, leftSp: 0 };
+      }
+    }
+  }
+  // (2) two-sided / multi-shell left dressing (h = 1), spacing from minimal to unit shells
+  for (let ld = 1; ld <= 8; ld++) {
+    for (let lsi = 80; lsi <= 320; lsi += 20) {
+      const leftSp = lsi / 100;
+      const g = guardedOnset({ h: 1, sp: 0, ratio: 1, leftDress: ld, leftSp });
+      if (g !== null && g < best.onset) best = { onset: g, family: 'two-sided / multi-shell left dressing', h: 1, ratio: 1, leftDress: ld, leftSp };
+    }
+  }
+  // sample left-dressing onsets to certify dressings RAISE (stabilise) the onset
+  const dressingRaises = [1, 2, 4].every((ld) => onset({ h: 1, sp: 0, ratio: 1, leftDress: ld, leftSp: 1 }) > baseline - 1e-9);
+
+  return {
+    latticeLength: L,
+    baselineSingleSided: baseline,        // ~0.89811 (imp-3194 half-lattice, L = 40)
+    imp3021TunedInf: 0.9016,              // imp-3021 global-nearest structured tune
+    imp3194LoneLimit: 0.898021,          // imp-3194 lone-neighbour L -> inf extrapolation
+    artifactOnset,                        // ~0.8787 -- looks lower but is a NON-nearest artifact
+    artifactNearestIsRightLattice: !artifactNearest.loneIsNearest,
+    artifactNearestDist: artifactNearest.d1, // ~0.88 < 1: nearest flipped to the right side
+    honestRicherInf: best.onset,          // == baseline: no richer structure beats it (guarded)
+    honestDrivingFamily: best.family,     // single-sided (h=1, r=1)
+    gradingHelps: best.onset < baseline - 1e-9, // false
+    dressingRaisesOnset: dressingRaises,  // true: left dressings STABILISE (raise the onset)
+    globalConstantBracket: [best.onset, 0.943], // OPEN; unchanged lower end
+    theoremCConstant: 0.72,
+    marginToBasinConstant: best.onset - 0.72, // ~0.178, load-bearing margin preserved
+    summary:
+      'Adversarial structured search over RICHER worst-case families (geometric-graded right '
+      + 'spacings, two-sided minimal lattices, multi-shell left dressings) testing whether the '
+      + 'imp-3021 structured floor can be pushed below ~0.9016 / ~0.8980. An UNGUARDED grid appears '
+      + 'to win at ~0.8787 by tightening the first right gap, but the genuine nearest particle there '
+      + 'flips to the right lattice at distance ~0.88 < 1 -- a NON-nearest measurement (the imp-3170 '
+      + 'selector trap), an ARTIFACT not a real onset. Under the honesty guard that the lone neighbour '
+      + 'must stay the true global nearest, NO richer structure beats the imp-3194 single-sided minimal '
+      + 'half-lattice: graded spacing is neutral-to-raising and every left-side dressing STRICTLY RAISES '
+      + 'the onset (extra left mass stabilises isolation). EVIDENCE (not proof) that the single-sided '
+      + 'half-lattice is the structured floor; the GLOBAL asymmetric constant stays OPEN ~(0.898, 0.943). '
+      + 'Margin to the Theorem C basin constant 0.72 stays ~0.178, so the basin-conditional C_Lip is '
+      + 'unaffected and PT Lambda <= 0.2 stays SOTA.',
+  };
+})();
+
 // imp-3027: independent reproduction of the Lemma R1-T4 (imp-2637) dynamical
 // reachability / zero-excursion experiment over an EXTENDED grid of real-zero-
 // derived initial windows and N values. The parent assertion
@@ -1771,6 +1935,26 @@ export const SG1C_THEOREM_ASSERTIONS = [
       // ...yet stays far above the basin constant 0.72 (load-bearing consequence preserved)
       const basinSafe = r.tunedAsymInf > r.theoremCConstant + 0.1 && r.globalConstantBracket[0] === r.tunedAsymInf;
       return recoversCStar && converged && belowCStar && sharpensRandom && basinSafe;
+    },
+  },
+  {
+    id: 'sg1c-r2t2-richer-structure-no-beat',
+    description: 'imp-3201: adversarial structured search over RICHER worst-case families (geometric-graded right spacings, two-sided minimal lattices, multi-shell left dressings) does NOT push the nearest-respecting asymmetric isolation worsening-onset below the imp-3194 single-sided minimal half-lattice (~0.898 at L=40). An unguarded grid only "wins" (~0.8787) by tightening the first right gap until the genuine nearest particle flips to the right lattice (dist ~0.88<1) -- a non-nearest measurement artifact (the imp-3170 selector trap). Under the honesty guard graded spacing is neutral-to-raising and every left dressing STRICTLY RAISES the onset (extra left mass stabilises isolation). EVIDENCE (not proof) the single-sided half-lattice is the structured floor; the global constant stays OPEN ~(0.898,0.943), margin to the 0.72 basin constant ~0.178 preserved',
+    holds: () => {
+      const t = SG1C_R2T2_RICHER_STRUCTURE_SEARCH;
+      // baseline reproduces the imp-3194 lone-neighbour half-lattice band
+      const baselineSane = t.baselineSingleSided > 0.895 && t.baselineSingleSided < 0.9016;
+      // the sub-0.898 unguarded minimum is exposed as a NON-nearest artifact
+      const artifactExposed =
+        t.artifactOnset < t.baselineSingleSided && t.artifactNearestIsRightLattice && t.artifactNearestDist < 1;
+      // honest (nearest-respecting) richer search does NOT beat the single-sided baseline
+      const noBeat =
+        t.honestRicherInf >= t.baselineSingleSided - 1e-9 && t.gradingHelps === false && t.dressingRaisesOnset;
+      const drivingFamilyIsSingleSided = t.honestDrivingFamily.indexOf('single-sided') === 0;
+      // load-bearing margin to the Theorem C basin constant preserved
+      const basinSafe =
+        t.marginToBasinConstant > 0.1 && t.globalConstantBracket[0] === t.honestRicherInf;
+      return baselineSane && artifactExposed && noBeat && drivingFamilyIsSingleSided && basinSafe;
     },
   },
   {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SpectralAttackViz from '../components/SpectralAttackViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
-import { SG1C_THEOREMS } from '../data/sg1c-theta-trap-theorems.js';
+import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL } from '../data/sg1c-theta-trap-theorems.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -241,6 +241,89 @@ function ThetaLadderTable() {
           </tbody>
         </table>
       </div>
+    </div>
+  );
+}
+
+function ThetaCoverageLadderSection() {
+  const { theoremCmap, refutedBand, cAtLowerEndpoint, cAtUpperEndpoint } = SG1C_THETA_COVERAGE_INTERVAL;
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #ef4444" }}>
+      <h3 style={{ color: "#ef4444", fontSize: 16, marginBottom: 4 }}>
+        Theorem-C Static-Cover Ladder: Theta_max(c)
+      </h3>
+      <p style={{ color: "#94a3b8", fontSize: 13, marginBottom: 8, lineHeight: 1.7 }}>
+        The Theorem-C isolation-for-cover map trades isolation margin c&nbsp;=&nbsp;g/d&#x2081; for Theta coverage:
+        &nbsp;<code style={{ color: "#e2e8f0", fontSize: 12 }}>Theta_max(c) = 2 - 3c&#xb2;/(1+c) - c&#x2074;/(1+c)&#xb2;</code>.
+        When the isolation ratio satisfies g/d&#x2081;&nbsp;&le;&nbsp;c the pair is provably non-crossing for every
+        Theta*&nbsp;&le;&nbsp;Theta_max(c). At c&nbsp;=&nbsp;0.72 the cover reaches Theta_max&nbsp;&asymp;&nbsp;1.005
+        (full unit cover). At c&nbsp;=&nbsp;1 it degenerates to 1/4&nbsp;=&nbsp;Theorem&nbsp;A.
+      </p>
+      <div style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: 8, padding: "10px 14px", marginBottom: 14 }}>
+        <div style={{ color: "#ef4444", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+          REFUTED BAND ({refutedBand[0].toFixed(3)}, {refutedBand[1].toFixed(4)})
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 12 }}>
+          Every Theta* inside this interval is crossed upward by some minimal-gap config:
+          the symmetric family peaks at exactly 0.5 (R1-T tie) and the dressed variant reaches 0.5073.
+          No absolute static Theta* cover exists in this band. The residual cap above Theta_b must be dynamical.
+        </div>
+      </div>
+      <div style={{ overflowX: "auto" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: "1px solid #334155" }}>
+              {["c = g/d1", "Theta_max(c)", "Full cover (>=1)?", "In refuted band?", "Status"].map((h) => (
+                <th key={h} style={{ color: "#64748b", fontWeight: 600, padding: "6px 10px", textAlign: "left" }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {theoremCmap.map(({ c, thetaMax }) => {
+              const fullCover = thetaMax >= 1;
+              const inBand = thetaMax >= refutedBand[0] && thetaMax <= refutedBand[1];
+              const belowBand = !fullCover && !inBand;
+              const statusColor = fullCover ? "#10b981" : inBand ? "#ef4444" : "#f59e0b";
+              const statusBg = fullCover ? "rgba(16,185,129,0.15)" : inBand ? "rgba(239,68,68,0.15)" : "rgba(245,158,11,0.15)";
+              const statusLabel = fullCover ? "FULL COVER" : inBand ? "IN REFUTED BAND" : "BELOW BAND";
+              return (
+                <tr key={c} style={{ borderBottom: "1px solid #1e293b", background: inBand ? "rgba(239,68,68,0.05)" : undefined }}>
+                  <td style={{ padding: "8px 10px", color: "#e2e8f0", fontFamily: "monospace" }}>
+                    {c.toFixed(2)}
+                  </td>
+                  <td style={{ padding: "8px 10px", color: statusColor, fontFamily: "monospace", fontWeight: fullCover ? 700 : 400 }}>
+                    {thetaMax.toFixed(4)}
+                  </td>
+                  <td style={{ padding: "8px 10px" }}>
+                    {fullCover
+                      ? <span style={{ color: "#10b981", fontWeight: 700 }}>YES (&ge;1)</span>
+                      : <span style={{ color: "#64748b" }}>no</span>}
+                  </td>
+                  <td style={{ padding: "8px 10px" }}>
+                    {inBand
+                      ? <span style={{ color: "#ef4444", fontWeight: 700 }}>YES - REFUTED</span>
+                      : <span style={{ color: "#64748b" }}>no</span>}
+                  </td>
+                  <td style={{ padding: "8px 10px" }}>
+                    <span style={{ background: statusBg, color: statusColor, padding: "2px 6px", borderRadius: 4, fontSize: 10, fontWeight: 700 }}>
+                      {statusLabel}
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p style={{ color: "#64748b", fontSize: 11, marginTop: 12 }}>
+        The Theorem-C map is strictly decreasing on (0,1]. Inversion: cover drops to the lower band endpoint 0.443
+        at c&nbsp;&asymp;&nbsp;{cAtLowerEndpoint.toFixed(3)}, and to the upper endpoint 0.5073 at
+        c&nbsp;&asymp;&nbsp;{cAtUpperEndpoint.toFixed(3)}.
+        Both inversion constants sit above 0.72, consistent with basin certification. Source: imp-3017.
+      </p>
     </div>
   );
 }
@@ -720,6 +803,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Theta-Trap Threshold Ladder Table ─── */}
       <ThetaLadderTable />
+
+      {/* ─── Theorem-C Static-Cover Ladder (imp-3017) ─── */}
+      <ThetaCoverageLadderSection />
 
       {/* ─── Theta-Trap Phase Diagram ─── */}
       <ThetaRhoPhaseDiagram />

@@ -2212,6 +2212,17 @@ const DATA_MODULES = [
   // a false near-identity between the two degree-0 scalars is caught here. Pure
   // cross-validation; NOT an operator step; lock only, no QED; PT 0.2 SOTA.
   '/src/data/imp-3152-c-shock-coincidence-divergence-lock.js',
+  // imp-3156: cross-module tripwire LOCKING the imp-3007 degree-0 scalar-cover
+  // invariants. Independently recomputes, over the sweep a in {0.5,0.2,0.1,0.05} with
+  // U=6 and its OWN Simpson quadrature, the post-bridge residual deficit D_pass(a) =
+  // int max(0, sinh(a*tau) - cosh(a*tau)) and the forced excess E(a) = int [cosh(a*tau)
+  // - max(1, sinh(a*tau))], and certifies D_pass(a) = 0 to machine precision (live
+  // coveredFraction = 1) and E(a) > 0 for every a (closed form and own Simpson agree to
+  // ~1e-6, matching the live imp-3007 excessMass to ~1e-9). A constant edit to the
+  // imp-3007 weights that re-opens the overflow or collapses the forced excess is caught
+  // here. Pure cross-validation of a degree-0 SCALAR cover; NECESSARY but NOT sufficient
+  // for the operator step (imp-3066); lock only, no QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-3156-scalar-cover-invariant-lock.js',
   // imp-3006+3061+3062+3063+3090+3091: basin-conditional local-energy C_Lip assembly
   // (c*=0.93185 closed form, BASIN_RHO=0.72 < ASYM_SCAN_INF=0.927, margin 0.207),
   // margin sensitivity ladder, gap-channel theta-sweep [0,1/4], divergence decomposition

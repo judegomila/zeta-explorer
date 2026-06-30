@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SpectralAttackViz from '../components/SpectralAttackViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
-import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL } from '../data/sg1c-theta-trap-theorems.js';
+import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL, SG1C_R1T4_BASIN_GRID, SG1C_R1T4_RHO1_REPELLER } from '../data/sg1c-theta-trap-theorems.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -648,6 +648,113 @@ function DrhoSelfIsolationPlot() {
   );
 }
 
+// imp-3055: R1-T4 dynamical-reachability basin-closure narrative
+function R1T4BasinClosureSection() {
+  const grid = SG1C_R1T4_BASIN_GRID;
+  const rep = SG1C_R1T4_RHO1_REPELLER;
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #10b981" }}>
+      <h3 style={{ color: "#10b981", fontSize: 16, marginBottom: 8 }}>
+        Lemma R1-T4: Dynamical-Reachability Basin Closure
+      </h3>
+      <p style={{ color: "#94a3b8", fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        Can the attractive CM flow drive an isolated minimal pair toward the uncapped near-uniform
+        lattice configuration? <strong style={{ color: "#e2e8f0" }}>Lemma R1-T4 (imp-2637)</strong> answers
+        no, on the isolated-pair basin: starting from a compressed minimal pair
+        (&rho;&nbsp;=&nbsp;g/d&#x2081;&nbsp;&lt;&nbsp;1, &Theta;(0)&nbsp;&lt;&nbsp;1/4 &mdash; the real-zero
+        regime), the CM flow drives &rho; <em>downward</em> by Lemma R2-T, trapping the pair deeper into
+        the Theorem-A basin rather than allowing excursion toward the lattice. The &rho;&nbsp;=&nbsp;1
+        near-uniform lattice is the <em>unstable repelling threshold</em> of this dynamics and is therefore
+        not reachable by an isolated pair flowing inward.
+      </p>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 14 }}>
+        <div style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.3)", borderRadius: 8, padding: "10px 14px" }}>
+          <div style={{ color: "#10b981", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
+            Isolated-pair basin: {grid.gridSize} starts
+          </div>
+          <div style={{ color: "#e2e8f0", fontSize: 13, marginBottom: 4 }}>
+            Worst excursion = <strong>{grid.worstExcursion < 1e-9 ? "~0 (machine precision)" : grid.worstExcursion.toExponential(2)}</strong>
+          </div>
+          <div style={{ color: "#94a3b8", fontSize: 12 }}>
+            Peak &Theta; stays at &Theta;(0) over the entire CM-flow trajectory.
+            Violations: <strong style={{ color: grid.violations.length === 0 ? "#10b981" : "#ef4444" }}>{grid.violations.length}</strong>
+          </div>
+        </div>
+        <div style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: 8, padding: "10px 14px" }}>
+          <div style={{ color: "#ef4444", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
+            Near-uniform lattice controls (&rho;&nbsp;~&nbsp;1)
+          </div>
+          <div style={{ color: "#e2e8f0", fontSize: 13, marginBottom: 4 }}>
+            Min control peak = <strong>{grid.minControlPeak.toFixed(3)}</strong>
+          </div>
+          <div style={{ color: "#94a3b8", fontSize: 12 }}>
+            Lattice controls climb to high &Theta; (~0.8), proving the integrator
+            detects a climb when one exists.
+          </div>
+        </div>
+      </div>
+
+      <div style={{ overflowX: "auto", marginBottom: 14 }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: "1px solid #334155" }}>
+              {["N", "g0", "rho0", "Theta(0)", "Peak Theta", "Excursion", "Status"].map((h) => (
+                <th key={h} style={{ color: "#64748b", fontWeight: 600, padding: "5px 8px", textAlign: "left" }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {grid.isolated.map((r, i) => (
+              <tr key={i} style={{ borderBottom: "1px solid #1e293b" }}>
+                <td style={{ padding: "6px 8px", color: "#e2e8f0" }}>{r.N}</td>
+                <td style={{ padding: "6px 8px", color: "#e2e8f0", fontFamily: "monospace" }}>{r.g0.toFixed(2)}</td>
+                <td style={{ padding: "6px 8px", color: "#06b6d4", fontFamily: "monospace" }}>{r.rho0.toFixed(4)}</td>
+                <td style={{ padding: "6px 8px", color: "#f59e0b", fontFamily: "monospace" }}>{r.theta0.toFixed(4)}</td>
+                <td style={{ padding: "6px 8px", color: "#10b981", fontFamily: "monospace" }}>{r.peakTheta.toFixed(4)}</td>
+                <td style={{ padding: "6px 8px", color: "#94a3b8", fontFamily: "monospace" }}>{r.excursion < 1e-10 ? "~0" : r.excursion.toExponential(1)}</td>
+                <td style={{ padding: "6px 8px" }}>
+                  <span style={{ background: "rgba(16,185,129,0.15)", color: "#10b981", padding: "2px 6px", borderRadius: 4, fontSize: 10, fontWeight: 700 }}>
+                    BASIN CLOSED
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div style={{ background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.25)", borderRadius: 8, padding: "10px 14px", marginBottom: 12 }}>
+        <div style={{ color: "#ef4444", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+          rho = 1 Lattice: Measure-Zero Unstable Repeller (imp-3048)
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.7 }}>
+          The single-neighbour R2-T rate F(rho) = (rho&minus;1)[2/(rho+1) + 4(rho+1)/rho] has a unique
+          interior fixed point at rho = 1 (F(1) = {rep.fixedPointResidual.toFixed(0)}) with closed-form
+          eigenvalue F&prime;(1) = <strong style={{ color: "#ef4444" }}>{rep.eigenClosed}</strong> &gt; 0.
+          This certifies rho = 1 as a <strong>linearly unstable repeller</strong>: any perturbation away from
+          rho = 1 flows outward, not back. sign(F) = sign(rho&minus;1) on the full grid (holds:{" "}
+          <strong style={{ color: rep.signLawHolds ? "#10b981" : "#ef4444" }}>{rep.signLawHolds ? "YES" : "NO"}</strong>),
+          and perturbed RK4 integration from rho = 1 &plusmn; 1e-3 drifts away on both sides (drifts away:{" "}
+          <strong style={{ color: rep.driftsAway ? "#10b981" : "#ef4444" }}>{rep.driftsAway ? "YES" : "NO"}</strong>).
+          The near-uniform lattice configuration occupies a <em>measure-zero</em> locus in the space of
+          pair configurations and is not accessible from the isolated-pair basin.
+        </div>
+      </div>
+
+      <div style={{ background: "rgba(245,158,11,0.07)", border: "1px solid rgba(245,158,11,0.25)", borderRadius: 8, padding: "10px 14px" }}>
+        <div style={{ color: "#f59e0b", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+          Honest Residual
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.7 }}>
+          {SG1C_THEOREMS.lemmaR1T4}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function SpectralAttackPage() {
   return (
     <div className="page">
@@ -974,6 +1081,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── drho/ds Self-Isolation Line Plot (imp-3053) ─── */}
       <DrhoSelfIsolationPlot />
+
+      {/* ─── R1-T4 Basin Closure Narrative (imp-3055) ─── */}
+      <R1T4BasinClosureSection />
 
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>

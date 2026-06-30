@@ -21,6 +21,7 @@ import { CLOSURE_ROUTES, findRoute } from '../data/closure-routes-section.js';
 import { IMP3085_HANKEL_GAP_AU_GRID } from '../data/imp-3085-hankel-gap-aU-grid.js';
 import { IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP } from '../data/imp-3084-offdiagonal-gap-degree-sweep.js';
 import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orthogonalized-basis-conditioning.js';
+import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section26-gram-vs-monomial-gap.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 const R = CLOSURE_ROUTES;
@@ -530,6 +531,108 @@ function BasisConditioningCorrectionPanel() {
   );
 }
 
+// ── imp-3110 toy-vs-genuine §26 Gram explainer ───────────────────────────────
+// Surfaces the four concrete differences D1-D4 (basis, weight, endpoint,
+// de-homogenization) between the monomial toy and the genuine section-26 Gram,
+// plus the survives-swap vs truncation-artifact split. This is the canonical
+// explainer for why every imp-3066/3084/3085/3086 measurement carries no RH verdict.
+function Section26GapExplainerPanel() {
+  const M = IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP;
+  const D = M.differences;
+  const S = M.survivesSwap;
+
+  const diffRows = [
+    { key: 'D1', label: 'D1 Basis', toy: D.D1_basis.toy, genuine: D.D1_basis.genuine, consequence: D.D1_basis.consequence },
+    { key: 'D2', label: 'D2 Weight', toy: D.D2_weight.toy, genuine: D.D2_weight.genuine, consequence: D.D2_weight.consequence },
+    { key: 'D3', label: 'D3 Endpoint', toy: D.D3_endpointStructure.toy, genuine: D.D3_endpointStructure.genuine, consequence: D.D3_endpointStructure.consequence },
+    { key: 'D4', label: 'D4 De-homog', toy: D.D4_deHomogenization.toy, genuine: D.D4_deHomogenization.genuine, consequence: D.D4_deHomogenization.consequence },
+  ];
+
+  const tdBase = { padding: '9px 10px', fontSize: 12, verticalAlign: 'top', lineHeight: 1.6 };
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #f43f5e', background: 'rgba(244,63,94,0.04)' }}>
+      <h3 style={{ color: '#f43f5e', marginTop: 0 }}>
+        Toy vs. genuine §26 Gram: four concrete differences (imp-3110)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        Every measurement in imp-3066/3084/3085/3086 carries the caveat
+        "representative monomial truncation — NOT the actual §26 Gram."
+        imp-3110 characterizes that gap concretely: four axes on which the toy
+        and the genuine section-26 Gram differ, and what the swap analysis shows
+        survives vs. what is a truncation artifact.
+      </p>
+
+      {/* D1-D4 table */}
+      <div style={{ overflowX: 'auto', marginTop: 12 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8', textAlign: 'left' }}>
+              <th style={{ ...tdBase, fontFamily: mono, width: '8%' }}>Axis</th>
+              <th style={{ ...tdBase, color: '#f59e0b', width: '28%' }}>Toy (imp-3066)</th>
+              <th style={{ ...tdBase, color: '#06b6d4', width: '28%' }}>Genuine §26 object</th>
+              <th style={{ ...tdBase, color: '#94a3b8', width: '36%' }}>Consequence of the gap</th>
+            </tr>
+          </thead>
+          <tbody>
+            {diffRows.map((row) => (
+              <tr key={row.key} style={{ borderBottom: '1px solid #1e293b' }}>
+                <td style={{ ...tdBase, color: '#f43f5e', fontFamily: mono, fontWeight: 700 }}>{row.label}</td>
+                <td style={{ ...tdBase, color: '#fcd34d' }}>{row.toy}</td>
+                <td style={{ ...tdBase, color: '#67e8f9' }}>{row.genuine}</td>
+                <td style={{ ...tdBase, color: '#94a3b8' }}>{row.consequence}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Survives vs Artifacts */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 14 }}>
+        <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.3)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#10b981', letterSpacing: '0.06em', marginBottom: 6 }}>
+            SURVIVES THE SWAP (structural)
+          </div>
+          {S.survives.map((s, i) => (
+            <p key={i} style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.65, margin: i > 0 ? '6px 0 0' : 0 }}>{s}</p>
+          ))}
+        </div>
+        <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.3)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 6 }}>
+            TRUNCATION ARTIFACTS (do not carry over)
+          </div>
+          {S.artifacts.map((a, i) => (
+            <p key={i} style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.65, margin: i > 0 ? '6px 0 0' : 0 }}>{a}</p>
+          ))}
+        </div>
+      </div>
+
+      {/* Open Conjecture 26.3 */}
+      <div style={{ marginTop: 12, padding: '10px 12px', borderRadius: 6, background: 'rgba(168,85,247,0.07)', border: '1px solid rgba(168,85,247,0.3)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#a855f7', letterSpacing: '0.06em', marginBottom: 6 }}>
+          OPEN — CONJECTURE 26.3 (neither survivor nor clean artifact)
+        </div>
+        {S.neitherButOpenConjecture.map((s, i) => (
+          <p key={i} style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.65, margin: 0 }}>{s}</p>
+        ))}
+      </div>
+
+      {/* Honest-status banner */}
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          ASSESSMENT ONLY — NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          {M.honestCaveat.noRHVerdict} {M.honestCaveat.sota}.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3110-section26-gram-vs-monomial-gap.js — self-computing witness included.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3085 operator-gap a*U collapse viz ────────────────────────────────────
 // Operator-side companion to the (pending) imp-3095 scalar-phi collapse: plot the
 // de-homogenized operator/diagonal gap ||R|| - max_j R_jj vs s = a*U and SHOW that
@@ -1031,6 +1134,12 @@ export default function ClosureRoutesPage() {
         The operator obstruction tracks one scale (imp-3085)
       </h2>
       <OperatorGapCollapseViz />
+
+      {/* ─── imp-3110: toy vs genuine §26 Gram explainer ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Why monomial measurements carry no RH verdict: toy vs. genuine §26 Gram (imp-3110)
+      </h2>
+      <Section26GapExplainerPanel />
 
       {/* ─── imp-3087+3088: phi(s) log-log profile ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

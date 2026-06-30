@@ -67,6 +67,8 @@
  * @see full-route-map-2026-06-19 (the route classification)
  */
 
+import { IMP3007_MUPASS_OVERFLOW_COVER } from './imp-3007-mupass-overflow-cover.js';
+
 export const SECTION26_MUPASS_OPERATOR_VERDICT = {
   date: '2026-06-30',
   verdict: 'RESIDUAL-SUBGAP — RH-EQUIVALENT confirmed at the operator level',
@@ -93,6 +95,29 @@ export const SECTION26_MUPASS_OPERATOR_ASSERTIONS = [
     id: 'sec26-mupass-sota-unchanged-no-qed',
     description: 'PT 0.2 remains SOTA; no reduction/beat claimed',
     holds: () => /Platt-Trudgian Lambda <= 0.2 remains/.test(SECTION26_MUPASS_OPERATOR_VERDICT.sota) && /no reduction/.test(SECTION26_MUPASS_OPERATOR_VERDICT.sota),
+  },
+  {
+    // imp-3149: CROSS-MODULE tripwire. The genuine deg-2 operator-order deficit
+    // (9.28e-9, 19.4% of tau) recorded by imp-3144 inside the imp-3007 cover module
+    // must stay STRICTLY POSITIVE and agree with this verdict module. This certifies
+    // that the imp-3007 scalar "residual deficit exactly 0" is necessary-but-NOT-
+    // sufficient at OPERATOR order: a future edit that collapsed the genuine deg-2
+    // deficit to a false 0 (re-reading the scalar cover as sufficient) would break
+    // this cross-file check, not just the in-module imp-3144 tripwire.
+    id: 'sec26-mupass-genuine-deg2-deficit-strictly-positive-cross-module',
+    description: 'the imp-3007 genuine deg-2 operator-order deficit is strictly > 0 (necessary-but-not-sufficient) and matches the verdict 9.28e-9 / 19.4%-of-tau across modules',
+    holds: () => {
+      const g = IMP3007_MUPASS_OVERFLOW_COVER.genuineDensityCorrection;
+      return (
+        g.scalarResidualIsExactZero === true &&
+        g.scalarResidualIsNecessaryNotSufficient === true &&
+        g.genuineDeg2DeficitNonzero > 0 &&
+        Math.abs(g.genuineDeg2DeficitNonzero - 9.28e-9) < 1e-11 &&
+        Math.abs(g.genuineDeg2OverflowFractionOfTau - 0.194) < 1e-9 &&
+        /9\.28e-9/.test(SECTION26_MUPASS_OPERATOR_VERDICT.surrogateCorrection) &&
+        /19\.4% of tau/.test(SECTION26_MUPASS_OPERATOR_VERDICT.surrogateCorrection)
+      );
+    },
   },
 ];
 

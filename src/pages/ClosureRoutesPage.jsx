@@ -25,6 +25,7 @@ import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orth
 import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section26-gram-vs-monomial-gap.js';
 import { IMP3105_EXCESS_FRACTION_CROSSOVER_LANDMARKS } from '../data/imp-3105-excess-fraction-crossover-landmarks-2026-06-30.js';
 import { C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108 } from '../data/imp-3108-c-shock-margin-cross-validation.js';
+import { C_SHOCK_SUBMARGIN_PROFILE_IMP3151 } from '../data/imp-3151-c-shock-submargin-profile.js';
 import { IMP3064_DEFICIT_EXCESS_FRACTION_GRID } from '../data/imp-3064-deficit-excess-fraction-grid.js';
 import { IMP3065_RESIDUAL_DEFICIT_QUADRATURE } from '../data/imp-3065-residual-deficit-quadrature-2026-06-30.js';
 import { IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION } from '../data/imp-3066-offdiagonal-hankel-obstruction.js';
@@ -1435,6 +1436,116 @@ function CShockMarginCurveViz() {
   );
 }
 
+// ── imp-3179: margin curve on descending sub-ladder below N=2458 (imp-3151) ──
+function CShockSubMarginCurveViz() {
+  const M = C_SHOCK_SUBMARGIN_PROFILE_IMP3151;
+  const rows = M.subLadderProfile;
+
+  const W = 700, H = 280, ML = 72, MR = 60, MT = 24, MB = 48;
+  const xMin = 0, xMax = 2600;
+  const yMin = -0.004, yMax = 0.052;
+
+  const px = (N) => ML + ((N - xMin) / (xMax - xMin)) * (W - ML - MR);
+  const py = (m) => H - MB - ((m - yMin) / (yMax - yMin)) * (H - MT - MB);
+
+  const linePath = rows
+    .map((r, i) => `${i === 0 ? 'M' : 'L'} ${px(r.N).toFixed(1)} ${py(r.margin_to_cap).toFixed(1)}`)
+    .join(' ');
+
+  const nStar = M.nStarClosedForm; // ~203.03
+  const physFloor = M.physicalWorstCaseMargin; // ~0.0447
+  const assemblyN = M.nSmallestAssembly; // 2458
+
+  const xTicks = [0, 500, 1000, 1500, 2000, 2458];
+  const yTicks = [0, 0.01, 0.02, 0.03, 0.04, 0.0447];
+
+  const nStarXp = px(nStar);
+  const zeroYp = py(0);
+  const assemblyXp = px(assemblyN);
+  const floorYp = py(physFloor);
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #f59e0b", background: "rgba(245,158,11,0.04)" }}>
+      <h3 style={{ color: "#f59e0b", marginTop: 0 }}>
+        Margin 1/3 &minus; C<sub>shock</sub>(N) on descending sub-ladder: crosses zero at N<sub>*</sub>&asymp;203 (imp-3151)
+      </h3>
+      <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
+        Walking N <em>down</em> from the smallest assembly N=2458, the margin{" "}
+        1/3 &minus; C<sub>shock</sub>(N) decreases monotonically toward zero. The curve crosses
+        zero at the sub-ladder count N<sub>*</sub>&asymp;203.03, where &gamma;<sub>N</sub>=e<sup>6</sup>{" "}
+        (log &gamma;<sub>N</sub>=6, the algebraic boundary of C<sub>shock</sub>&lt;1/3). Below N<sub>*</sub>{" "}
+        the cap is violated; above N<sub>*</sub> it holds. The physical-assembly floor{" "}
+        (margin&asymp;{physFloor.toFixed(4)} at N=2458) sits a factor ~12 above N<sub>*</sub>{" "}
+        in count, confirming every realized assembly clears the e<sup>6</sup> threshold with margin &ge; 0.0447.
+      </p>
+      <div style={{ overflowX: "auto", marginTop: 10 }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
+          {/* zero line */}
+          <line x1={ML} y1={py(0)} x2={W - MR} y2={py(0)} stroke="#ef4444" strokeWidth="1" strokeDasharray="5 3" />
+          <text x={W - MR + 4} y={py(0) + 4} fontSize="10" fill="#ef4444" fontFamily={mono}>0</text>
+          {/* y grid lines */}
+          {yTicks.map((m) => (
+            <g key={"y" + m}>
+              <line x1={ML} y1={py(m)} x2={W - MR} y2={py(m)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(m) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>
+                {m === 0.0447 ? "0.0447" : m.toFixed(2)}
+              </text>
+            </g>
+          ))}
+          {/* x ticks */}
+          {xTicks.map((N) => (
+            <g key={"x" + N}>
+              <line x1={px(N)} y1={H - MB} x2={px(N)} y2={H - MB + 5} stroke="#334155" strokeWidth="1" />
+              <text x={px(N)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>
+                {N === 0 ? "0" : N === 2458 ? "2458" : N.toString()}
+              </text>
+            </g>
+          ))}
+          {/* axes */}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          {/* axis labels */}
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>N  (sub-ladder count)</text>
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}
+            transform={"rotate(-90 14 " + ((MT + H - MB) / 2) + ")"}>1/3 &minus; C_shock</text>
+          {/* margin curve */}
+          <path d={linePath} fill="none" stroke="#f59e0b" strokeWidth="2.5" />
+          {/* data dots */}
+          {rows.map((r, i) => (
+            <circle key={i} cx={px(r.N)} cy={py(r.margin_to_cap)} r={i === 0 ? 5.5 : 3.5}
+              fill={i === 0 ? "#10b981" : "#f59e0b"} stroke={i === 0 ? "#059669" : "#d97706"} strokeWidth="1.2">
+              <title>{"N=" + r.N + "  C_shock=" + r.C_shock.toFixed(5) + "  margin=" + r.margin_to_cap.toFixed(5)}</title>
+            </circle>
+          ))}
+          {/* N_star zero crossing */}
+          <circle cx={nStarXp} cy={zeroYp} r={6} fill="none" stroke="#ef4444" strokeWidth="2" />
+          <line x1={nStarXp} y1={zeroYp - 8} x2={nStarXp + 4} y2={zeroYp - 36} stroke="#ef4444" strokeWidth="1" strokeDasharray="3 2" />
+          <text x={nStarXp + 8} y={zeroYp - 36} fontSize="11" fill="#ef4444" fontFamily={mono}>N*&asymp;203 (&gamma;=e^6)</text>
+          <text x={nStarXp + 8} y={zeroYp - 24} fontSize="10" fill="#f87171" fontFamily={mono}>margin = 0</text>
+          {/* physical floor annotation */}
+          <line x1={assemblyXp - 6} y1={floorYp} x2={assemblyXp - 36} y2={floorYp - 22} stroke="#10b981" strokeWidth="1" strokeDasharray="3 2" />
+          <text x={assemblyXp - 42} y={floorYp - 30} fontSize="11" fill="#10b981" fontFamily={mono} textAnchor="end">N=2458 (assembly floor)</text>
+          <text x={assemblyXp - 42} y={floorYp - 18} fontSize="10" fill="#6ee7b7" fontFamily={mono} textAnchor="end">margin&asymp;{physFloor.toFixed(4)}</text>
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: "8px 12px", borderRadius: 6, background: "rgba(148,163,184,0.06)", border: "1px solid rgba(148,163,184,0.25)" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", letterSpacing: "0.06em", marginBottom: 4 }}>
+          NUMERICAL PROFILE &mdash; NOT A NEW BOUND
+        </div>
+        <p style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Diagnostic of the imp-2786 proven cap. The crossing N<sub>*</sub>&asymp;203 identifies where the closed form
+          fails but physically realized assemblies (N&ge;2458) sit far above it with margin &ge; 0.0447 (imp-3132 floor
+          (2&minus;&radic;3)/6). NOT a new bound; does NOT close C<sub>H</sub>. Platt&ndash;Trudgian &Lambda;&le;0.2 remains SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: "#64748b", fontSize: 11, fontFamily: mono }}>
+        Source: imp-3151-c-shock-submargin-profile.js &mdash; subMarginIsDecreasing: {String(M.subMarginIsDecreasing)},{" "}
+        N*&asymp;{M.nStarClosedForm.toFixed(2)}, safetyFactor&asymp;{M.safetyFactorN.toFixed(1)}x
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3125: residual-gap DEG-saturation curve ──────────────────────────────
 function ResidualGapDegreeSweepViz() {
   const M = IMP3125_ORTHOGONALIZED_RESIDUAL_GAP_DEGREE_SWEEP;
@@ -1907,6 +2018,12 @@ export default function ClosureRoutesPage() {
         Margin to the 1/3 cap grows with N &mdash; worst case at smallest assembly (imp-3108)
       </h2>
       <CShockMarginCurveViz />
+
+      {/* ─── imp-3179: sub-ladder margin curve below N=2458 (imp-3151) ─── */}
+      <h2 style={{ marginTop: 28, color: "#e2e8f0", fontSize: 22, fontFamily: mono }}>
+        Descending sub-ladder: margin crosses zero at N<sub>*</sub>&asymp;203 (&gamma;<sub>N</sub>=e<sup>6</sup>) (imp-3151)
+      </h2>
+      <CShockSubMarginCurveViz />
 
       {/* ─── imp-3163: honest-status -- 0.2690 vs 0.2692 near-miss is a NUMERICAL COINCIDENCE ─── */}
       <div style={{

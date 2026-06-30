@@ -378,6 +378,29 @@ export const IMP3102_ORTHOGONALIZED_GAP_AU_GRID_ASSERTIONS = [
       Math.abs(headlineOpNorm - 0.989) < 5e-3,
   },
   {
+    id: 'imp3102-equal-product-cell-coincidence-locked-1e12',
+    why: 'THE imp-3133 LOCK (mirrors the imp-3085 raw-gap 1e-13 lock for the ORTHOGONALIZED ' +
+         'survivor): rebuild R_orth = L H L^T at two DISTINCT equal-product cells (a,U) = (0.5,6) ' +
+         'and (0.3,10), both s = a*U = 3, and certify the basis-invariant residual-gap scale ' +
+         'invariant to a TIGHT 1e-12: (a) |gap_1 - gap_2| < 1e-12 AND |||R_orth||_1 - ||R_orth||_2| ' +
+         '< 1e-12 (P = U*Pbar, H = U*Hbar => L = U^{-1/2} Lbar => R_orth = Lbar Hbar Lbar^T, so the ' +
+         'U prefactor cancels and both the residual gap AND the operator norm are functions of ' +
+         's = a*U alone), while (b) the RAW min |H_jk| DIFFERS by O(1) between them (it keeps the ' +
+         'dimensionful U scale). This pins the exact pair the orthogonalized s-invariance hangs on, ' +
+         'a few orders looser than the imp-3085 ~1e-15 diagonal-normalized lock because Cholesky ' +
+         'conditioning costs precision. Measured: |dgap| ~ 3.1e-13, |dopnorm| ~ 3.1e-13, raw min ' +
+         '|H_jk| 5.58 vs 9.31.',
+    holds: () => {
+      const c1 = cellMetrics(0.5, 6);
+      const c2 = cellMetrics(0.3, 10);
+      const gapInvariant = Math.abs(c1.residualGap - c2.residualGap) < 1e-12;
+      const opNormInvariant = Math.abs(c1.operatorNorm - c2.operatorNorm) < 1e-12;
+      const rawHankelDiffers =
+        Math.abs(c1.minOffDiagonalHankelCrossTerm - c2.minOffDiagonalHankelCrossTerm) > 1;
+      return gapInvariant && opNormInvariant && rawHankelDiffers;
+    },
+  },
+  {
     id: 'imp3102-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: this is a REPRESENTATIVE diagnostic sweep, the gaps carry no RH ' +
          'verdict, positivity was not attempted, it is not a proof or a reduction, and PT 0.2 stays ' +

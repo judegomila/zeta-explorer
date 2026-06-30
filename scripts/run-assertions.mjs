@@ -2088,6 +2088,15 @@ const DATA_MODULES = [
   // localised ENTIRELY at the onset (I(1e-4) overruns 0.2690 by ~6250x). Divergence
   // characterization, not a value; degree-0 scalar measure; RH-equivalent; PT 0.2 SOTA.
   '/src/data/imp-3106-excess-fraction-integrability.js',
+  // imp-3006+3061+3062+3063+3090+3091: basin-conditional local-energy C_Lip assembly
+  // (c*=0.93185 closed form, BASIN_RHO=0.72 < ASYM_SCAN_INF=0.927, margin 0.207),
+  // margin sensitivity ladder, gap-channel theta-sweep [0,1/4], divergence decomposition
+  // (Theta channel 1/(1-Theta) removed, linear-N factor UNTOUCHED so global C_Lip stays
+  // O(N)), Theta-channel 4/3 ceiling certificate, and off-basin C_Theta crossover scale
+  // (~62.88, ~1668x the operative g_min). Module throws on import if any of its 26
+  // self-executing assertions fail. Basin-conditional ONLY; NOT a global-W_1 beat;
+  // PT Lambda <= 0.2 stays the rigorous SOTA.
+  '/src/data/ch-lip-basin-conditional-2026-06-30.js',
 ];
 
 let ALL_MODULES = FAST_MODE

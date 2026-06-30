@@ -208,6 +208,17 @@ function verify() {
       `sourceQueueSha256 mismatch: index has ${index.sourceQueueSha256.slice(0, 12)}..., source is ${currentHash.slice(0, 12)}...; regenerate via: node scripts/build-queue-index.mjs`,
     );
   }
+  // Also verify improvements.js hash so nextImprovementId staleness is detectable
+  if (index.sourceImprovementsSha256) {
+    const improvText = fs.readFileSync(IMPROVEMENTS_FILE, 'utf8');
+    const currentImprovHash = sha256(improvText);
+    if (index.sourceImprovementsSha256 !== currentImprovHash) {
+      fail(
+        1,
+        `sourceImprovementsSha256 mismatch: index has ${index.sourceImprovementsSha256.slice(0, 12)}..., source is ${currentImprovHash.slice(0, 12)}...; nextImprovementId is stale; regenerate via: node scripts/build-queue-index.mjs`,
+      );
+    }
+  }
   console.log(
     `queue-index.json is fresh (mtime ${new Date(indexMtime).toISOString()}, sha256 ${currentHash.slice(0, 12)}...).`,
   );
@@ -359,6 +370,7 @@ function main() {
   const index = {
     generatedAt: new Date().toISOString(),
     sourceQueueSha256: sha256(queueText),
+    sourceImprovementsSha256: sha256(improvementsText),
     nextImprovementId: maxId + 1,
     improvementsTotal,
     totalPending,

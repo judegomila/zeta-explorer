@@ -1948,6 +1948,13 @@ const DATA_MODULES = [
   // <=> gamma_N > e^6 ~ 403 holds at every assembly N. Numerical cross-check of an
   // already-proven cap, NOT a new bound; surrogate stays refuted, PT 0.2 stays SOTA.
   '/src/data/imp-3108-c-shock-margin-cross-validation.js',
+  // imp-3132: closed-form FLOOR for the worst-case imp-3108 margin 1/3 - C_shock(N)
+  // at the smallest assembly N=2458. Pins gamma_min = effectiveHeightForN(2458) ~ 2990
+  // (log gamma_min > 8, reduced inequality log gamma_N > 6 with ~2.003 headroom) and
+  // derives margin(N) >= 1/3 - 1/(2 sqrt 3) = (2 - sqrt 3)/6 ~ 0.0446582, just below the
+  // exact worst case 0.0447131. Closed-form floor on an already-proven cap, NOT a new
+  // bound; surrogate stays refuted, PT 0.2 stays SOTA.
+  '/src/data/imp-3132-c-shock-worst-case-margin-floor.js',
   // imp-3047: tabulate the route-1 IMPOSSIBILITY lower bound C_Lip >= C_shock/(2 sqrt(W_1))
   // across a decreasing W_1 grid (1e-2 .. 1e-12) on the cusp law g_min = C_shock W_1^{1/2}.
   // The realized Lipschitz quotient reproduces C_shock/(2 sqrt(W_1)) to machine precision,
@@ -2057,6 +2064,16 @@ const DATA_MODULES = [
   // rises monotonically from -infinity at the onset double zero to -1, so the steepest
   // point is the onset boundary itself. Degree-0 scalar measure; RH-equivalent; no RH verdict.
   '/src/data/imp-3105-excess-fraction-crossover-landmarks-2026-06-30.js',
+  // imp-3130: spreads the imp-3105 SINGLE-POINT envelope gap into a full curve --
+  // tabulates the EXACT phi(s)=G(s)/F(s) vs the two rough envelopes ENV_POLE=C/(s-s0)^2
+  // and ENV_DECAY=K e^{-s} (and their max) with signed relative error env/phi-1 across
+  // s in (s0, ~8). Both envelopes UNDERESTIMATE phi over the whole interior, and the
+  // worst under-estimate of the natural ENV_MAX combination is EXACTLY at the imp-3105
+  // handoff s_cross1 ~ 1.91504 (ENV_MAX/phi-1 ~ -0.58481) -- the single point imp-3105
+  // reported is the GLOBAL worst case. Validity windows are two thin tails: ENV_POLE
+  // within 10% only for s < ~0.91647 (never 1%), ENV_DECAY within 10% for s > ~4.40313
+  // and within 1% for s > ~7.21846. Degree-0 scalar measure; RH-equivalent; no RH verdict.
+  '/src/data/imp-3130-envelope-approximation-error-table-2026-06-30.js',
   // imp-3102: sweeps the imp-3086 BASIS-INVARIANT residual gap ||R_orth|| - max_j
   // R_orth_jj (R_orth = L H L^T, L = (Cholesky of the FULL passive cosh Gram)^{-1})
   // across the Cartesian a x U grid and finds the SURVIVING intrinsic obstruction also
@@ -2131,6 +2148,19 @@ const DATA_MODULES = [
   // silent edit to F or G in imp-3105 cannot drift the interior landmarks unnoticed.
   // 6 tripwires; degree-0 scalar measure; RH-equivalent; lock only, no QED; PT 0.2 SOTA.
   '/src/data/imp-3127-interior-landmark-locks.js',
+  // imp-3129: single cross-module build assertion locking the TWO global integrability
+  // signatures of the imp-3064 excess fraction phi(s) = G(s)/F(s) that imp-3106
+  // characterized: the onset divergence rate eps*I(eps) -> C = sqrt(2)*(1 - arcsinh(1))
+  // ~ 0.16776 (pinning the C/eps inverse-square pole) and the convergent tail law
+  // int_S^inf phi ds ~ K e^{-S}, K = 2*(sqrt(2) - arcsinh(1)) ~ 1.06568 (tail ratio -> 1,
+  // 1.0005 at S = 10). Independently recomputes eps*I(eps) at eps = 1e-4 (bounded
+  // v = 1/(s-s0) substitution) and the S = 10 tail ratio from the closed forms F, G,
+  // certifies them against C and 1 to the physically achievable tolerance, and certifies
+  // the live imp-3106 exports (finest onsetRung.epsTimesMass, S = 10 tailRung.ratio) equal
+  // those recomputed values to ~1e-9, so a silent edit to F or G in imp-3106 cannot
+  // rebaseline either divergence signature unnoticed. 5 tripwires; degree-0 scalar
+  // measure; RH-equivalent; lock only, no QED; PT 0.2 SOTA.
+  '/src/data/imp-3129-onset-divergence-tail-locks.js',
   // imp-3126: cross-checks whether the imp-3106 convergent regular tail mass
   // int_{s0+1}^inf phi ds ~0.26900597 is structurally related to the imp-3026/imp-3070
   // cusp constant C_shock = sqrt(2/(3 log gamma_N)) ~0.26922 (which agree to ~2.1e-4 at

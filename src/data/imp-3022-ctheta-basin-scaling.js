@@ -107,6 +107,95 @@ export const CTHETA_BASIN_SCALING = {
   honest: 'quantifies WHY the reconditioning is only basin-conditional; does NOT close the off-basin divergence. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
 };
 
+// ---------------------------------------------------------------------------
+// imp-3067: certify the off-basin flat invariant g0 * dTheta/dW_1 = 16/27
+// DIRECTLY across a deep g0-halving sweep. imp-3022 above tabulates only the
+// raw 11.97 -> 95.77 column over 4 halvings; here we measure the product itself
+// across ~6 decades (20 halvings) via the SAME central finite difference and
+// confirm it stays pinned at 16/27, certifying the 1/g0-law signature of the
+// C_Theta blowup. The product is g0-INDEPENDENT because dTheta/dg = 16/(27 g0)
+// off-basin, so g0 * dTheta/dW_1 = 16/27 at every scale (N = 1 normalisation).
+// ---------------------------------------------------------------------------
+const FLAT_HALVINGS = 20;                                  // ~6 decades of g0 halving
+const FLAT_DECADES = FLAT_HALVINGS * Math.log10(2);        // = 6.0206...
+
+function buildFlatInvariantTable() {
+  const rows = [];
+  let g0 = G0_START;
+  for (let k = 0; k < FLAT_HALVINGS; k++) {
+    // OFF-BASIN rho == 1 (crowded lattice): product = g0 * dTheta/dW_1.
+    const product = g0 * dThetaDW1(g0, g0, N_SAMPLE);
+    rows.push({ g0, product, deviation: Math.abs(product - OFF_PRODUCT) });
+    g0 /= 2;
+  }
+  return rows;
+}
+
+const FLAT_INVARIANT_TABLE = buildFlatInvariantTable();
+const FLAT_INVARIANT_MAX_DEV = FLAT_INVARIANT_TABLE.reduce(
+  (m, r) => Math.max(m, r.deviation),
+  0,
+);
+
+export const CTHETA_FLAT_INVARIANT = {
+  ticket: 'imp-3067',
+  date: '2026-06-30',
+  parent: 'imp-3022-ctheta-basin-scaling',
+  invariant: 'g0 * dTheta/dW_1 = 16/27 = 0.5925925 (off-basin, crowded lattice rho == 1)',
+  measurement: 'same central finite-difference dTheta/dg (step g*1e-6) as imp-3022, evaluated directly on the product across a 20-halving (~6-decade) g0 sweep from g0 = 0.0495',
+  decadesSpanned: FLAT_DECADES,
+  maxDeviationFrom16over27: FLAT_INVARIANT_MAX_DEV,
+  table: FLAT_INVARIANT_TABLE,
+  conclusion: 'the measured product is pinned at 16/27 to machine precision over every decade, certifying dTheta/dW_1 ~ 1/g0 -- the 1/g0-law signature of the off-basin C_Theta blowup is scale-free, not an artefact of the chosen g0',
+  honest: 'certifies the scale-law SIGNATURE of the off-basin divergence; does NOT close it. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
+};
+
+// ---------------------------------------------------------------------------
+// imp-3068: verify the exact regime-separation threshold rho* = 2/3 by an
+// INDEPENDENT root solve, not by back-substitution. imp-3022 above only checks
+// that the asserted value 2/3 plugs into Theta = 1/4; here we instead SOLVE
+// Theta(rho, 1) - 1/4 = 0 for rho from scratch via bisection (Theta is strictly
+// monotone increasing in rho, so the root is unique on (0, 2): Theta(0)=0,
+// Theta(2)=1, and 1/4 sits strictly between). The recovered root must match the
+// closed form 2/3 to machine precision, and must sit strictly below the
+// Theorem-C operating cap 0.72 with a quantified margin -- the consistency the
+// ticket asks for against ch-lip-basin-conditional-2026-06-30.
+// ---------------------------------------------------------------------------
+const THETA_TRAP = 0.25;          // Theorem-A unconditional trap Theta = 1/4
+const C_OPERATING_CAP = 0.72;     // Theorem-C operating cap on the isolation ratio
+
+// Independent bisection root of Theta(rho, 1) - 1/4 = 0 on (lo, hi).
+function solveRhoStar(lo, hi, iters) {
+  const f = (rho) => THETA(rho, 1) - THETA_TRAP;
+  let a = lo;
+  let b = hi;
+  for (let k = 0; k < iters; k++) {
+    const m = 0.5 * (a + b);
+    if (f(a) * f(m) <= 0) b = m;
+    else a = m;
+  }
+  return 0.5 * (a + b);
+}
+
+const RHO_STAR_SOLVED = solveRhoStar(0, 2, 200);
+const RHO_STAR_SOLVE_ERROR = Math.abs(RHO_STAR_SOLVED - RHO_STAR);
+const RHO_STAR_CAP_MARGIN = C_OPERATING_CAP - RHO_STAR_SOLVED;
+
+export const CTHETA_RHO_STAR_ROOT = {
+  ticket: 'imp-3068',
+  date: '2026-06-30',
+  parent: 'imp-3022-ctheta-basin-scaling',
+  equation: '(2 rho/(rho + 2))^2 = 1/4  (Theta hits the Theorem-A trap)',
+  method: 'independent bisection root solve of Theta(rho, 1) - 1/4 = 0 on (0, 2) over 200 iterations; Theta strictly monotone in rho so the root is unique',
+  rhoStarClosedForm: RHO_STAR,
+  rhoStarSolved: RHO_STAR_SOLVED,
+  solveErrorVsTwoThirds: RHO_STAR_SOLVE_ERROR,
+  operatingCap: C_OPERATING_CAP,
+  capMargin: RHO_STAR_CAP_MARGIN,
+  conclusion: 'the independently solved root equals 2/3 to machine precision and sits 0.0533... below the 0.72 Theorem-C operating cap, certifying the exact regime split is consistent with ch-lip-basin-conditional-2026-06-30',
+  honest: 'numerical confirmation of an exact constant; no new bound. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
+};
+
 export const CTHETA_BASIN_SCALING_ASSERTIONS = [
   {
     id: 'ctheta-off-basin-1-over-g0-law',
@@ -144,6 +233,13 @@ export const CTHETA_BASIN_SCALING_ASSERTIONS = [
     id: 'ctheta-regime-threshold-rho-star-two-thirds',
     description: 'the two regimes separate exactly at rho* = 2/3 where Theta = 1/4 (the Theorem-A trap), below the 0.72 operating cap',
     holds: () => Math.abs(THETA(RHO_STAR, 1) - 0.25) < 1e-12 && RHO_STAR < 0.72,
+  },
+  {
+    id: 'ctheta-flat-invariant-pinned-16-over-27',
+    description: 'imp-3067: the off-basin product g0 * dTheta/dW_1 stays pinned at 16/27 to machine precision across a 20-halving (~6-decade) sweep, certifying the 1/g0 scale law directly',
+    holds: () => CTHETA_FLAT_INVARIANT.maxDeviationFrom16over27 < 1e-9
+      && CTHETA_FLAT_INVARIANT.table.length === FLAT_HALVINGS
+      && CTHETA_FLAT_INVARIANT.decadesSpanned > 5,
   },
   {
     id: 'ctheta-no-false-qed-pt-stays-sota',

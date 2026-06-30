@@ -607,14 +607,23 @@ function Section26GapExplainerPanel() {
         </div>
       </div>
 
-      {/* Open Conjecture 26.3 */}
-      <div style={{ marginTop: 12, padding: '10px 12px', borderRadius: 6, background: 'rgba(168,85,247,0.07)', border: '1px solid rgba(168,85,247,0.3)' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#a855f7', letterSpacing: '0.06em', marginBottom: 6 }}>
-          OPEN — CONJECTURE 26.3 (neither survivor nor clean artifact)
+      {/* Open Conjecture 26.3 -- honest-status obstruction banner */}
+      <div style={{ marginTop: 12, padding: '10px 12px', borderRadius: 6, background: 'rgba(168,85,247,0.10)', border: '2px solid rgba(168,85,247,0.55)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#c084fc', letterSpacing: '0.06em', marginBottom: 6 }}>
+          OPEN OBSTRUCTION — CONJECTURE 26.3: pointwise mu&#x1D40F;&#x207B;&#x1D40F; &#x2265; &#x03BD;
         </div>
         {S.neitherButOpenConjecture.map((s, i) => (
           <p key={i} style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.65, margin: 0 }}>{s}</p>
         ))}
+        <div style={{ marginTop: 8, padding: '6px 10px', borderRadius: 4, background: 'rgba(168,85,247,0.12)', border: '1px solid rgba(168,85,247,0.4)' }}>
+          <span style={{ color: '#c084fc', fontSize: 11, fontWeight: 700 }}>HONEST STATUS: </span>
+          <span style={{ color: '#94a3b8', fontSize: 12 }}>
+            Conjecture 26.3 (&#x03BC;<sup>pass</sup>(&#x03C4;) &#x2265; &#x03BD;(&#x03C4;) pointwise) is currently unresolved and governs
+            whether the genuine §26 diagonal is dominated. Toy diagonal dominance is automatic
+            (sinh &lt; cosh pointwise) but does NOT transfer to the genuine object until this
+            conjecture is proved. The genuine section-26 diagonal domination status is unknown.
+          </span>
+        </div>
       </div>
 
       {/* Honest-status banner */}

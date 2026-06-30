@@ -1545,6 +1545,132 @@ function AsymIsolationClosedFormPanel() {
   );
 }
 
+// imp-3205: asymmetric-isolation onset ladder vs Theorem-C basin constant 0.72
+function AsymIsolationOnsetLadderViz() {
+  const ledger = SG1C_ASYM_ONSET_BRACKET_LEDGER;
+
+  const svgW = 600, svgH = 242;
+  const padL = 46, padR = 22, padT = 14, padB = 48;
+  const chartW = svgW - padL - padR;
+  const rhoLo = 0.67, rhoHi = 1.05;
+  const xS = (r) => padL + (r - rhoLo) / (rhoHi - rhoLo) * chartW;
+  const axisY = padT + 90;
+  const xBasin = xS(0.72);
+  const xLo = xS(ledger.openBracket[0]); // certified structured inf ~0.9016
+  const xHi = xS(ledger.openBracket[1]); // c_asym ~0.9028
+  const TICK = 46;
+
+  // Spaced markers (the open-bracket close pair is rendered separately)
+  const spaced = [
+    { val: 0.927, lbl: "0.927", sub: "rand. scan", col: "#f59e0b", above: true, dash: true },
+    { val: Math.sqrt(2 + Math.sqrt(3)) - 1, lbl: "c*=0.93185", sub: "algebraic", col: "#3b82f6", above: false, dash: false },
+    { val: 0.943, lbl: "0.943", sub: "rand. scan", col: "#f59e0b", above: true, dash: true },
+    { val: 1.0, lbl: "c=1", sub: "exact", col: "#10b981", above: false, dash: false },
+  ];
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #06b6d4" }}>
+      <h3 style={{ color: "#06b6d4", fontSize: 16, marginBottom: 4 }}>
+        Asymmetric Isolation Onset Ladder vs Theorem-C Basin (imp-3205)
+      </h3>
+      <p style={{ color: "#94a3b8", fontSize: 13, lineHeight: 1.7, marginBottom: 10 }}>
+        Every located onset (each an upper bound on the still-open global constant c_glob)
+        sits far above the Theorem-C basin cap &rho;&nbsp;=&nbsp;0.72. The tightest ceiling
+        is the certified structured infimum 0.9016 (imp-3172), giving a protective margin of{" "}
+        <strong style={{ color: "#10b981" }}>{ledger.basinMargin.toFixed(4)}&nbsp;&gt;&nbsp;0.18</strong>.
+        The basin-conditional C_Lip never depended on closing c_glob.
+      </p>
+      <svg viewBox={`0 0 ${svgW} ${svgH}`} style={{ width: "100%", maxWidth: svgW, display: "block", marginBottom: 6 }}>
+
+        {/* Basin safe zone shaded */}
+        <rect x={padL} y={padT} width={xBasin - padL} height={svgH - padT - padB} fill="rgba(16,185,129,0.08)" />
+        <text x={padL + (xBasin - padL) / 2} y={padT + 12} fill="#10b981" fontSize={8.5} textAnchor="middle">Theorem-C basin</text>
+        <text x={padL + (xBasin - padL) / 2} y={padT + 23} fill="#10b981" fontSize={8} textAnchor="middle">(&rho;&nbsp;&le;&nbsp;0.72, safe)</text>
+
+        {/* Main axis */}
+        <line x1={padL} y1={axisY} x2={svgW - padR} y2={axisY} stroke="#475569" strokeWidth={1.5} />
+
+        {/* Basin cap vertical */}
+        <line x1={xBasin} y1={padT + 30} x2={xBasin} y2={axisY + 16} stroke="#10b981" strokeWidth={2} />
+        <text x={xBasin - 3} y={padT + 42} fill="#10b981" fontSize={9} textAnchor="end" fontWeight="bold">0.72</text>
+
+        {/* Open bracket region for close pair */}
+        <rect x={xLo - 2} y={axisY - TICK} width={Math.max(xHi - xLo + 4, 12)} height={TICK * 2}
+          fill="rgba(249,115,22,0.1)" rx={3} />
+        {/* Structured inf left edge */}
+        <line x1={xLo} y1={axisY - TICK} x2={xLo} y2={axisY + TICK} stroke="#06b6d4" strokeWidth={2} />
+        {/* c_asym right edge */}
+        <line x1={xHi} y1={axisY - TICK / 2} x2={xHi} y2={axisY + TICK / 2} stroke="#f97316" strokeWidth={1.5} />
+        {/* Struct inf label above */}
+        <text x={xLo - 4} y={axisY - TICK - 11} fill="#06b6d4" fontSize={8} textAnchor="end" fontWeight="700">0.9016</text>
+        <text x={xLo - 4} y={axisY - TICK - 2} fill="#06b6d4" fontSize={7.5} textAnchor="end">struct. inf.</text>
+        {/* c_asym label below */}
+        <text x={xHi + 4} y={axisY + TICK + 12} fill="#f97316" fontSize={8} textAnchor="start" fontWeight="700">c_asym=0.90279</text>
+        <text x={xHi + 4} y={axisY + TICK + 22} fill="#f97316" fontSize={7.5} textAnchor="start">transcendental</text>
+        <text x={(xLo + xHi) / 2} y={axisY + TICK + 32} fill="#f97316" fontSize={7} textAnchor="middle">open bracket c_glob</text>
+
+        {/* Protective margin indicator */}
+        <line x1={xBasin} y1={axisY + 18} x2={xLo} y2={axisY + 18} stroke="#10b981" strokeWidth={1.5} />
+        <line x1={xBasin} y1={axisY + 13} x2={xBasin} y2={axisY + 23} stroke="#10b981" strokeWidth={1.5} />
+        <line x1={xLo} y1={axisY + 13} x2={xLo} y2={axisY + 23} stroke="#10b981" strokeWidth={1.5} />
+        <text x={(xBasin + xLo) / 2} y={axisY + 31} fill="#10b981" fontSize={8.5} textAnchor="middle" fontWeight="600">
+          &gt;0.18 protective margin
+        </text>
+
+        {/* Spaced markers */}
+        {spaced.map(({ val, lbl, sub, col, above, dash }) => {
+          const x = xS(val);
+          const y1 = above ? axisY - TICK : axisY;
+          const y2 = above ? axisY : axisY + TICK;
+          return (
+            <g key={val}>
+              <line x1={x} y1={y1} x2={x} y2={y2} stroke={col} strokeWidth={2}
+                strokeDasharray={dash ? "5 2.5" : undefined} />
+              {above ? (
+                <>
+                  <text x={x} y={y1 - 11} fill={col} fontSize={8.5} textAnchor="middle" fontWeight="700">{lbl}</text>
+                  <text x={x} y={y1 - 1} fill={col} fontSize={7.5} textAnchor="middle">{sub}</text>
+                </>
+              ) : (
+                <>
+                  <text x={x} y={y2 + 12} fill={col} fontSize={8.5} textAnchor="middle" fontWeight="700">{lbl}</text>
+                  <text x={x} y={y2 + 22} fill={col} fontSize={7.5} textAnchor="middle">{sub}</text>
+                </>
+              )}
+            </g>
+          );
+        })}
+
+        {/* X-axis ticks */}
+        {[0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00].map((v) => (
+          <g key={v}>
+            <line x1={xS(v)} y1={axisY} x2={xS(v)} y2={axisY + 5} stroke="#334155" strokeWidth={1} />
+            <text x={xS(v)} y={axisY + 15} fill="#475569" fontSize={8} textAnchor="middle">{v.toFixed(2)}</text>
+          </g>
+        ))}
+        <text x={padL + chartW / 2} y={svgH - 4} fill="#64748b" fontSize={8.5} textAnchor="middle">
+          &rho; (isolation-ratio onset — every tick is an upper bound on the open global constant c_glob)
+        </text>
+      </svg>
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, fontSize: 11, color: "#94a3b8" }}>
+        {[
+          { col: "#10b981", lbl: "c=1 exact (single neighbour)" },
+          { col: "#3b82f6", lbl: "c*=0.93185 algebraic (sym. K=1)" },
+          { col: "#f97316", lbl: "c_asym=0.90279 transcendental" },
+          { col: "#06b6d4", lbl: "0.9016 certified inf. (imp-3172)" },
+          { col: "#f59e0b", lbl: "dashed: random-scan ceilings" },
+        ].map(({ col, lbl }) => (
+          <div key={lbl} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            <div style={{ width: 14, height: 2, background: col, flexShrink: 0 }} />
+            <span>{lbl}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // imp-3203: viz of the imp-3173 minimal-gap selector discontinuity
 function MinGapSelectorDiscontinuityViz() {
   const d = SG1C_MINGAP_SELECTOR_DISCONTINUITY;
@@ -2026,6 +2152,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Asymmetric Multi-Body Isolation Closed Form (imp-3185 surfaces imp-3170) ─── */}
       <AsymIsolationClosedFormPanel />
+
+      {/* ─── Asymmetric Isolation Onset Ladder vs 0.72 Basin (imp-3205) ─── */}
+      <AsymIsolationOnsetLadderViz />
 
       {/* ─── Minimal-Gap Selector Discontinuity Viz (imp-3203 surfaces imp-3173) ─── */}
       <MinGapSelectorDiscontinuityViz />

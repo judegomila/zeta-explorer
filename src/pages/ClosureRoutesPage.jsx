@@ -28,6 +28,7 @@ import { C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108 } from '../data/imp-3108-c-shoc
 import { IMP3064_DEFICIT_EXCESS_FRACTION_GRID } from '../data/imp-3064-deficit-excess-fraction-grid.js';
 import { IMP3065_RESIDUAL_DEFICIT_QUADRATURE } from '../data/imp-3065-residual-deficit-quadrature-2026-06-30.js';
 import { IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION } from '../data/imp-3066-offdiagonal-hankel-obstruction.js';
+import { IMP3125_ORTHOGONALIZED_RESIDUAL_GAP_DEGREE_SWEEP } from '../data/imp-3125-orthogonalized-residual-gap-degree-sweep.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 const R = CLOSURE_ROUTES;
@@ -1434,6 +1435,91 @@ function CShockMarginCurveViz() {
   );
 }
 
+// ── imp-3125: residual-gap DEG-saturation curve ──────────────────────────────
+function ResidualGapDegreeSweepViz() {
+  const M = IMP3125_ORTHOGONALIZED_RESIDUAL_GAP_DEGREE_SWEEP;
+  const sweep = M.measured.sweep;
+  const gapLimit = M.measured.analyticGapLimit;
+  const floorDiag = M.measured.analyticMaxDiagonal;
+
+  const W = 560, H = 260, ML = 68, MR = 28, MT = 22, MB = 50;
+  const yMin = 0.082, yMax = 0.0935;
+  const xMin = 1, xMax = 11;
+
+  const px = (deg) => ML + ((deg - xMin) / (xMax - xMin)) * (W - ML - MR);
+  const py = (g) => H - MB - ((g - yMin) / (yMax - yMin)) * (H - MT - MB);
+
+  const linePath = sweep
+    .map((r, i) => `${i === 0 ? 'M' : 'L'} ${px(r.degree).toFixed(1)} ${py(r.residualGap).toFixed(1)}`)
+    .join(' ');
+
+  const limitY = py(gapLimit);
+  const yTicks = [0.083, 0.085, 0.087, 0.089, 0.091];
+  const ycx = (MT + H - MB) / 2;
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #8b5cf6', background: 'rgba(139,92,246,0.04)' }}>
+      <h3 style={{ color: '#8b5cf6', marginTop: 0 }}>
+        Residual-gap DEG-saturation: ||R<sub>orth</sub>||&minus;max&thinsp;R<sub>orth,jj</sub> converges to tanh(3)&minus;tanh(1.5) (imp-3125)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        After orthogonalizing the FULL passive cosh Gram (R<sub>orth</sub>&nbsp;=&nbsp;LHL<sup>T</sup>),
+        a strictly-positive residual gap survives and rises monotonically with DEG.
+        Two analytic anchors pin the saturation limit: the operator norm climbs toward
+        tanh(aU)&nbsp;=&nbsp;tanh(3)&asymp;0.99505, while the largest diagonal is fixed
+        at the constant-function direction tanh(aU/2)&nbsp;=&nbsp;tanh(1.5)&asymp;{floorDiag.toFixed(5)}
+        (DEG-independent). The surviving gap converges from below to the closed form
+        tanh(3)&minus;tanh(1.5)&asymp;{gapLimit.toFixed(5)}.
+        Measured values: 0.08471&rarr;0.08821&rarr;0.08906&rarr;0.08939&rarr;0.08959 (DEG&nbsp;2,4,6,8,10).
+      </p>
+      <div style={{ overflowX: 'auto', marginTop: 10 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((g) => (
+            <g key={"y" + g}>
+              <line x1={ML} y1={py(g)} x2={W - MR} y2={py(g)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(g) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{g.toFixed(3)}</text>
+            </g>
+          ))}
+          {sweep.map((r) => (
+            <g key={"x" + r.degree}>
+              <line x1={px(r.degree)} y1={H - MB} x2={px(r.degree)} y2={H - MB + 5} stroke="#334155" strokeWidth="1" />
+              <text x={px(r.degree)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{r.degree}</text>
+            </g>
+          ))}
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>DEG (monomial truncation degree)</text>
+          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>{"||R_orth|| - max diag"}</text>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={limitY} x2={W - MR} y2={limitY} stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="6 3" />
+          <text x={W - MR - 4} y={limitY - 5} textAnchor="end" fontSize="10" fill="#fbbf24" fontFamily={mono}>{"tanh(3)-tanh(1.5)~" + gapLimit.toFixed(5)}</text>
+          <path d={linePath} fill="none" stroke="#8b5cf6" strokeWidth="2.5" />
+          {sweep.map((r) => (
+            <circle key={"pt" + r.degree} cx={px(r.degree)} cy={py(r.residualGap)} r={5} fill="#8b5cf6" stroke="#a78bfa" strokeWidth="1.5">
+              <title>{"DEG=" + r.degree + "  gap=" + r.residualGap.toFixed(5) + "  dist-to-limit=" + r.distanceToGapLimit.toExponential(2)}</title>
+            </circle>
+          ))}
+          <line x1={ML} y1={py(floorDiag > yMin ? yMin : floorDiag)} x2={ML} y2={py(floorDiag > yMin ? yMin : floorDiag)} stroke="none" />
+          <text x={ML + 8} y={limitY + 16} fontSize="10" fill="#94a3b8" fontFamily={mono}>{"floor = tanh(1.5) ~ " + floorDiag.toFixed(5) + " (pinned, DEG-indep.)"}</text>
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          REPRESENTATIVE / DIAGNOSTIC &mdash; CARRIES NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Measured on the same monomial-moment truncation as imp-3086/3102/3104; NOT the section-26 Gram.
+          Diagonal floor tanh(aU/2) = tanh(1.5)&asymp;{floorDiag.toFixed(5)} is pinned DEG-independent at
+          the constant direction j=0. A saturating, strictly-positive survivor carries no cover claim.
+          Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3125-orthogonalized-residual-gap-degree-sweep.js &mdash; a=0.5, U=6, NQ=4000, DEG&isin;&#123;2,4,6,8,10&#125;, trend: {M.measured.trend}, shrink&times;: {M.measured.gapDistanceShrinkFactor.toFixed(1)}.
+      </p>
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function ClosureRoutesPage() {
   return (
@@ -1796,6 +1882,12 @@ export default function ClosureRoutesPage() {
         Margin to the 1/3 cap grows with N &mdash; worst case at smallest assembly (imp-3108)
       </h2>
       <CShockMarginCurveViz />
+
+      {/* ─── imp-3125: residual-gap DEG-saturation curve ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Residual-gap DEG-saturation: survives orthogonalization, converges to tanh(3)&minus;tanh(1.5) (imp-3125)
+      </h2>
+      <ResidualGapDegreeSweepViz />
 
       {/* ─── Conjectures ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

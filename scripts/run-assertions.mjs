@@ -2202,6 +2202,19 @@ const DATA_MODULES = [
   // ~3.15e-4 short -- saturation is a limit, not equality). 5 tripwires; representative
   // truncation diagnostic; RH-equivalent; lock only, no QED; PT 0.2 SOTA.
   '/src/data/imp-3147-residual-gap-saturation-lock.js',
+  // imp-3196: measures the DEGREE-CONVERGENCE RATE of the finite-DEG residual gap toward
+  // the analytic limit G(s) = tanh(s) - tanh(s/2). imp-3125 swept the s = 3 cell and
+  // imp-3177 certified saturation FROM BELOW at equal-s cells, but neither quantified HOW
+  // resid(DEG) = G(s) - gap(DEG) decays. Rebuilds R_orth = L H L^T at s = 0.8, 1.2, 2.0, 3.0
+  // (a = 0.5, U = 2s) over DEG in {2,4,6,8,10} and fits resid(DEG) against a power law
+  // resid ~ C DEG^(-p) and a geometric law resid ~ C r^DEG. VERDICT at every cell: ALGEBRAIC
+  // -- the log-log fit (R^2 ~ 0.996..0.999) beats the semi-log fit (R^2 ~ 0.96..0.97) and the
+  // consecutive residual ratio rises toward 1 (~0.40 -> ~0.67), the algebraic-tail signature.
+  // The fitted exponent is p ~ 1.5, rising monotonically with s from ~1.49 (s = 0.8) to ~1.72
+  // (s = 3.0): the rate is s-dependent. The s = 3 cell reproduces the imp-3125 endpoints
+  // (resid(2) ~ 5.20e-3, resid(10) ~ 3.15e-4). Empirical least-squares rate, NOT a proved
+  // asymptotic order; representative diagnostic; RH-equivalent; no positivity; PT 0.2 SOTA.
+  '/src/data/imp-3196-residual-gap-convergence-rate.js',
   // imp-3154: classifies the imp-3144 GENUINE degree-2 (absolute) occupation deficit
   // (recorded 9.28e-9, overflow on 19.4% of tau at the genuine Phi NPHI=10, a=0.5, U=6)
   // vs monomial truncation degree DEG in {2,4,6,8,10}, mirroring the imp-3125 scalar-gap

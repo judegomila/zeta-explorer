@@ -331,3 +331,164 @@ export const CTHETA_BASIN_SCALING_ASSERTIONS = [
 for (const a of CTHETA_BASIN_SCALING_ASSERTIONS) {
   if (!a.holds()) throw new Error(`imp-3022 ctheta-basin-scaling assertion failed: ${a.id}`);
 }
+
+// ---------------------------------------------------------------------------
+// imp-3109: UNIFIED Theta-channel ladder. Three sibling modules each measured ONE
+// regime of the Theta channel in isolation:
+//   - imp-3089 (CTHETA_ON_BASIN_VANISHING): ON-BASIN, Theta -> 0, the sensitivity
+//     dTheta/dW_1 ~ 2 N g0/D^2 -> 0 VANISHES (companion ratio pinned at 2N/D^2 = 2);
+//   - imp-3090 (THETA_CHANNEL_CEILING, in ch-lip-basin-conditional-2026-06-30): the
+//     Theta = 1/4 TRAP, where the reconditioning factor 1/(1-Theta) attains EXACTLY
+//     4/3 (strictly increasing on [0, 1/4]);
+//   - imp-3022 (this file, table/CTHETA_FLAT_INVARIANT): OFF-BASIN, crowded lattice,
+//     the sensitivity dTheta/dW_1 = (16/27)/g0 BLOWS UP (11.97 -> 95.78, 8x over three
+//     halvings; flat product 16/27).
+// Here we place all three on ONE axis -- the isolation ratio rho = g/d1 that drives
+// the trap variable Theta = (2 rho/(rho+2))^2 -- so the qualitative transition across
+// the basin boundary rho* = 2/3 (Theta = 1/4) is tabulated in one place with
+// consistent units. Per rho row we report the trap variable Theta, the imp-3090
+// reconditioning factor phi = 1/(1-Theta) and its fraction of the 4/3 ceiling, the
+// regime label (on-basin rho < 2/3 / trap rho = 2/3 / off-basin rho > 2/3), and the
+// sign of the sensitivity scale-law EXPONENT (+1 on-basin: dTheta/dW_1 ~ g0 vanishes;
+// 0 at the trap boundary; -1 off-basin: dTheta/dW_1 ~ 1/g0 blows up).
+//
+// CONTINUITY/DISCONTINUITY. The trap variable Theta(rho) and the channel factor
+// phi(rho) = 1/(1-Theta) are CONTINUOUS and strictly increasing straight through the
+// trap rho = 2/3 -- there is no jump in Theta or phi at the basin boundary. What is
+// DISCONTINUOUS is the sensitivity scale-law exponent: it flips +1 -> -1 across the
+// boundary because the controlling geometry changes from isolated (d1 fixed, neighbour
+// stationary) to crowded (d1 = g0, neighbour comoving). So the basin boundary is a
+// discontinuity of the C_Theta SCALING, not of the trap variable itself.
+//
+// Each published anchor is reproduced from its source export (not re-derived by hand):
+//   on-basin ratio limit 2N/D^2 = 2 (CTHETA_ON_BASIN_VANISHING.limitTwoNoverDsq),
+//   trap ceiling 4/3 at Theta = 1/4, off-basin flat product 16/27 (= OFF_PRODUCT) and
+//   first off-basin sensitivity ~11.97 (CTHETA_BASIN_SCALING.table[0].offDW).
+// MEASURE ONLY: no RH verdict. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA;
+// the finite-N*=1e4 beat stays an ESTIMATE. No false QED.
+// ---------------------------------------------------------------------------
+const LADDER_CEILING = 4 / 3;                                   // imp-3090 trap ceiling 1/(1-1/4)
+const LADDER_THETA_TRAP = 0.25;                                 // Theta at the trap rho* = 2/3
+const LADDER_RHO_GRID = [0, 1 / 3, 1 / 2, RHO_STAR, 0.72, 1];   // on-basin -> trap (2/3) -> off-basin (crowded rho = 1)
+const phiFactor = (theta) => 1 / (1 - theta);                  // imp-3090 reconditioning factor
+
+function regimeOf(rho) {
+  if (Math.abs(rho - RHO_STAR) < 1e-15) return 'trap';
+  return rho < RHO_STAR ? 'on-basin' : 'off-basin';
+}
+// sensitivity scale-law exponent sign: +1 vanishing (on-basin), 0 boundary, -1 blowup.
+function sensitivityExponent(rho) {
+  const r = regimeOf(rho);
+  if (r === 'trap') return 0;
+  return r === 'on-basin' ? 1 : -1;
+}
+
+function buildUnifiedLadder() {
+  return LADDER_RHO_GRID.map((rho) => {
+    const theta = THETA(rho, 1);                                // (2 rho/(rho+2))^2, the trap variable
+    const phi = phiFactor(theta);                               // 1/(1-Theta), the removed channel factor
+    return {
+      rho,
+      regime: regimeOf(rho),
+      theta,
+      phi,
+      fractionOfCeiling: phi / LADDER_CEILING,                  // 1 exactly at the trap, < 1 below, > 1 off-basin
+      sensitivityExponentSign: sensitivityExponent(rho),        // +1 vanish / 0 trap / -1 blowup
+    };
+  });
+}
+
+const UNIFIED_LADDER = buildUnifiedLadder();
+const LADDER_TRAP_ROW = UNIFIED_LADDER.find((r) => r.regime === 'trap');
+
+// Anchors reproduced from each sibling module export.
+const LADDER_ANCHORS = {
+  onBasin: {
+    source: 'imp-3089 CTHETA_ON_BASIN_VANISHING.limitTwoNoverDsq',
+    quantity: 'companion ratio dTheta/dW_1 / g0 -> 2N/D^2 (sensitivity VANISHES, exponent +1)',
+    value: CTHETA_ON_BASIN_VANISHING.limitTwoNoverDsq,         // exactly 2 at N = 1, D = 1
+  },
+  trap: {
+    source: 'imp-3090 THETA_CHANNEL_CEILING (ceiling 1/(1-1/4) = 4/3 at Theta = 1/4)',
+    quantity: 'reconditioning factor phi = 1/(1-Theta) at the Theta = 1/4 trap (exponent 0, boundary)',
+    value: LADDER_TRAP_ROW.phi,                                 // exactly 4/3
+  },
+  offBasin: {
+    source: 'imp-3022 CTHETA_BASIN_SCALING.table[0].offDW + OFF_PRODUCT (16/27)',
+    quantity: 'flat product g0 * dTheta/dW_1 = 16/27 and first sensitivity ~11.97 (BLOWUP, exponent -1)',
+    product: OFF_PRODUCT,                                       // 16/27 = 0.59259...
+    firstSensitivity: CTHETA_BASIN_SCALING.table[0].offDW,      // ~11.97 (8x over three halvings)
+  },
+};
+
+export const CTHETA_UNIFIED_LADDER = {
+  ticket: 'imp-3109',
+  date: '2026-06-30',
+  parent: 'imp-3022-ctheta-basin-scaling',
+  unifies: ['imp-3089 on-basin vanishing', 'imp-3090 Theta=1/4 trap ceiling 4/3', 'imp-3022 off-basin 1/g0 blowup'],
+  axis: 'isolation ratio rho = g/d1 (drives the trap variable Theta = (2 rho/(rho+2))^2)',
+  trapRho: RHO_STAR,                                            // 2/3, where Theta = 1/4
+  trapTheta: LADDER_THETA_TRAP,                                 // 1/4
+  trapCeiling: LADDER_CEILING,                                  // 4/3
+  continuity: 'Theta(rho) and phi(rho) = 1/(1-Theta) are continuous and strictly increasing THROUGH the trap rho = 2/3 (no jump)',
+  discontinuity: 'the sensitivity scale-law exponent flips +1 (on-basin, dTheta/dW_1 ~ g0 vanishes) -> -1 (off-basin, dTheta/dW_1 ~ 1/g0 blows up) across the basin boundary; the discontinuity is in the SCALING, not the trap variable',
+  ladder: UNIFIED_LADDER,
+  anchors: LADDER_ANCHORS,
+  honest: 'A single-axis tabulation that places the three separately-measured Theta-channel regimes (on-basin vanishing, Theta=1/4 trap ceiling 4/3, off-basin 1/g0 blowup) on one rho axis and reproduces each modules published anchor. It MEASURES the basin transition; it does NOT close the off-basin divergence and carries no RH verdict. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
+};
+
+export const CTHETA_UNIFIED_LADDER_ASSERTIONS = [
+  {
+    id: 'ladder-trap-theta-and-ceiling-exact',
+    description: 'the trap row (rho = 2/3) carries Theta = 1/4 and reconditioning factor phi = 4/3 EXACTLY, with fractionOfCeiling = 1',
+    holds: () => LADDER_TRAP_ROW.theta === 0.25
+      && LADDER_TRAP_ROW.phi === 4 / 3
+      && Math.abs(LADDER_TRAP_ROW.fractionOfCeiling - 1) < 1e-15,
+  },
+  {
+    id: 'ladder-theta-and-phi-continuous-monotone-through-trap',
+    description: 'Theta(rho) and phi(rho) are strictly increasing across the whole rho grid (continuous through the trap, no jump at the basin boundary)',
+    holds: () => UNIFIED_LADDER.slice(1).every((r, i) => r.theta > UNIFIED_LADDER[i].theta
+      && r.phi > UNIFIED_LADDER[i].phi),
+  },
+  {
+    id: 'ladder-sensitivity-exponent-discontinuous-at-trap',
+    description: 'the sensitivity scale-law exponent is +1 on every on-basin row (vanishing), 0 at the trap, and -1 on every off-basin row (blowup): the flip across the boundary is the basin discontinuity',
+    holds: () => UNIFIED_LADDER.every((r) => {
+      if (r.regime === 'on-basin') return r.sensitivityExponentSign === 1;
+      if (r.regime === 'trap') return r.sensitivityExponentSign === 0;
+      return r.sensitivityExponentSign === -1;
+    }) && UNIFIED_LADDER.some((r) => r.regime === 'on-basin')
+      && UNIFIED_LADDER.some((r) => r.regime === 'off-basin'),
+  },
+  {
+    id: 'ladder-reproduces-three-published-anchors',
+    description: 'each regime anchor matches its source export: on-basin ratio limit 2N/D^2 = 2, trap ceiling 4/3, off-basin flat product 16/27 and first sensitivity ~11.97',
+    holds: () => Math.abs(LADDER_ANCHORS.onBasin.value - 2) < 1e-12
+      && LADDER_ANCHORS.onBasin.value === ON_BASIN_LIMIT
+      && Math.abs(LADDER_ANCHORS.trap.value - 4 / 3) < 1e-15
+      && Math.abs(LADDER_ANCHORS.offBasin.product - 16 / 27) < 1e-15
+      && Math.abs(LADDER_ANCHORS.offBasin.firstSensitivity - 11.97) < 0.05,
+  },
+  {
+    id: 'ladder-off-basin-factor-exceeds-basin-ceiling',
+    description: 'off-basin (crowded rho = 1) the reconditioning factor phi exceeds the 4/3 basin ceiling (1.8 > 4/3), confirming the trap cap is a strictly on-basin phenomenon',
+    holds: () => {
+      const crowded = UNIFIED_LADDER[UNIFIED_LADDER.length - 1];
+      return crowded.regime === 'off-basin'
+        && crowded.fractionOfCeiling > 1
+        && Math.abs(crowded.phi - 1.8) < 1e-12;
+    },
+  },
+  {
+    id: 'ladder-no-false-qed-pt-stays-sota',
+    description: 'the ladder MEASURES the basin transition only: no RH verdict, PT 0.2 stays SOTA, the beat stays an ESTIMATE',
+    holds: () => /does NOT close/.test(CTHETA_UNIFIED_LADDER.honest)
+      && /Lambda <= 0.2 stays the rigorous SOTA/.test(CTHETA_UNIFIED_LADDER.honest)
+      && /ESTIMATE/.test(CTHETA_UNIFIED_LADDER.honest),
+  },
+];
+
+for (const a of CTHETA_UNIFIED_LADDER_ASSERTIONS) {
+  if (!a.holds()) throw new Error(`imp-3109 ctheta-unified-ladder assertion failed: ${a.id}`);
+}

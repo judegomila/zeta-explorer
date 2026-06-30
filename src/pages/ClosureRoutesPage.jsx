@@ -34,6 +34,7 @@ import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx
 import { asymOnsetDrho, SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
 import { IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID } from '../data/imp-3146-residual-gap-limit-aU-grid.js';
 import { IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING } from '../data/imp-3153-cosh-monomial-conditioning-ceiling.js';
+import { IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS } from '../data/imp-3155-onset-decay-next-order-corrections.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -2033,6 +2034,150 @@ function CoshMonomialConditioningViz() {
   );
 }
 
+// ── imp-3183: next-order convergence corrections viz (imp-3155) ───────────────
+function NextOrderConvergenceCorrectionViz() {
+  const _D = IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS;
+  const ASINH1 = Math.asinh(1);
+  const SQRT2 = Math.SQRT2;
+  const S0 = ASINH1;
+  const C = SQRT2 * (1 - ASINH1);
+  const K0 = SQRT2 - ASINH1;
+  const K = 2 * K0;
+  const A1 = (SQRT2 - 1) / (1 - ASINH1) - SQRT2 / 6;
+  const D0 = 2 * K0 - 1 / K0;
+
+  const F_s = (s) => Math.cosh(s) - SQRT2 - s + ASINH1;
+  const G_s = (s) => SQRT2 - ASINH1 - Math.exp(-s);
+  const PHI = (s) => G_s(s) / F_s(s);
+
+  const EPS_MIN = 0.02, EPS_MAX = 0.6, N_A = 200;
+  const onsetPts = [];
+  for (let i = 0; i <= N_A; i++) {
+    const eps = EPS_MIN + (i / N_A) * (EPS_MAX - EPS_MIN);
+    onsetPts.push({ eps, ratio: PHI(S0 + eps) * eps * eps / C });
+  }
+
+  const S_B_MIN = 3.0, S_B_MAX = 12.0, N_B = 300;
+  const decayPts = [];
+  for (let i = 0; i <= N_B; i++) {
+    const s = S_B_MIN + (i / N_B) * (S_B_MAX - S_B_MIN);
+    decayPts.push({ s, ratio: PHI(s) * Math.exp(s) / K });
+  }
+
+  const WA = 320, HA = 270, MLA = 52, MRA = 16, MTA = 24, MBA = 46;
+  const Y_A_MIN = 0.9, Y_A_MAX = 3.2;
+  const pxA = (x) => MLA + ((x - EPS_MIN) / (EPS_MAX - EPS_MIN)) * (WA - MLA - MRA);
+  const pyA = (y) => HA - MBA - ((Math.min(Math.max(y, Y_A_MIN), Y_A_MAX) - Y_A_MIN) / (Y_A_MAX - Y_A_MIN)) * (HA - MTA - MBA);
+  const ycA = (MTA + HA - MBA) / 2;
+
+  const pathA = onsetPts.map((p, i) => (i === 0 ? "M" : "L") + " " + pxA(p.eps).toFixed(1) + " " + pyA(p.ratio).toFixed(1)).join(" ");
+  const pathLA = onsetPts.map((p, i) => (i === 0 ? "M" : "L") + " " + pxA(p.eps).toFixed(1) + " " + pyA(1 + A1 * p.eps).toFixed(1)).join(" ");
+  const yA1 = pyA(1.0);
+
+  const WB = 320, HB = 270, MLB = 52, MRB = 16, MTB = 24, MBB = 46;
+  const Y_B_MIN = 0.99, Y_B_MAX = 1.45;
+  const pxB = (s) => MLB + ((s - S_B_MIN) / (S_B_MAX - S_B_MIN)) * (WB - MLB - MRB);
+  const pyB = (y) => HB - MBB - ((Math.min(Math.max(y, Y_B_MIN), Y_B_MAX) - Y_B_MIN) / (Y_B_MAX - Y_B_MIN)) * (HB - MTB - MBB);
+  const ycB = (MTB + HB - MBB) / 2;
+
+  const pathB = decayPts.map((p, i) => (i === 0 ? "M" : "L") + " " + pxB(p.s).toFixed(1) + " " + pyB(p.ratio).toFixed(1)).join(" ");
+  const pathCB = decayPts.map((p, i) => (i === 0 ? "M" : "L") + " " + pxB(p.s).toFixed(1) + " " + pyB(1 + (2 * p.s + D0) * Math.exp(-p.s)).toFixed(1)).join(" ");
+  const yB1 = pyB(1.0);
+
+  const yTicksA = [1.0, 1.5, 2.0, 2.5, 3.0];
+  const xTicksA = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6];
+  const yTicksB = [1.0, 1.1, 1.2, 1.3, 1.4];
+  const xTicksB = [4, 6, 8, 10, 12];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #6366f1", background: "rgba(99,102,241,0.04)" }}>
+      <h3 style={{ color: "#6366f1", marginTop: 0 }}>
+        imp-3155 next-order corrections: onset slope A<sub>1</sub>&asymp;{A1.toFixed(3)} (linear in &epsilon;)
+        and decay correction (2s+D<sub>0</sub>)e<sup>&minus;s</sup>, D<sub>0</sub>&asymp;{D0.toFixed(3)}
+      </h3>
+      <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
+        The imp-3112 onset signature &phi;(s<sub>0</sub>+&epsilon;)&epsilon;<sup>2</sup>/C&rarr;1 converges
+        LINEARLY in &epsilon; with slope A<sub>1</sub>=(&#8730;2&minus;1)/(1&minus;arcsinh1)&minus;&#8730;2/6
+        &asymp;{A1.toFixed(5)} (left panel; dashed: two-term linear 1+A<sub>1</sub>&epsilon;).
+        The decay signature &phi;(s)e<sup>s</sup>/K&rarr;1 carries the leading correction
+        (2s+D<sub>0</sub>)e<sup>&minus;s</sup> with slope&nbsp;2 and constant part
+        D<sub>0</sub>=2K<sub>0</sub>&minus;1/K<sub>0</sub>&asymp;{D0.toFixed(5)} (K<sub>0</sub>=&#8730;2&minus;arcsinh1)
+        (right panel; dashed: 1+(2s+D<sub>0</sub>)e<sup>&minus;s</sup>). Both are closed-form;
+        operator step (imp-3066) untouched.
+      </p>
+      <div style={{ display: "flex", gap: 20, flexWrap: "wrap", marginTop: 10 }}>
+        <div>
+          <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 4, fontFamily: mono, textAlign: "center" }}>
+            Onset: &phi;(s<sub>0</sub>+&epsilon;)&epsilon;<sup>2</sup>/C vs &epsilon; (s<sub>0</sub>=arcsinh1&asymp;{S0.toFixed(4)}, C={C.toFixed(5)})
+          </div>
+          <svg width={WA} height={HA} style={{ display: "block", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
+            {yTicksA.map((v) => (
+              <g key={"ya" + v}>
+                <line x1={MLA} y1={pyA(v)} x2={WA - MRA} y2={pyA(v)} stroke="#1e293b" strokeWidth="1" />
+                <text x={MLA - 6} y={pyA(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{v.toFixed(1)}</text>
+              </g>
+            ))}
+            {xTicksA.map((eps) => (
+              <g key={"xa" + eps}>
+                <line x1={pxA(eps)} y1={HA - MBA} x2={pxA(eps)} y2={HA - MBA + 4} stroke="#334155" strokeWidth="1" />
+                <text x={pxA(eps)} y={HA - MBA + 16} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>{eps.toFixed(1)}</text>
+              </g>
+            ))}
+            <line x1={MLA} y1={MTA} x2={MLA} y2={HA - MBA} stroke="#334155" strokeWidth="1" />
+            <line x1={MLA} y1={HA - MBA} x2={WA - MRA} y2={HA - MBA} stroke="#334155" strokeWidth="1" />
+            <line x1={MLA} y1={yA1} x2={WA - MRA} y2={yA1} stroke="#475569" strokeWidth="1" strokeDasharray="3 2" />
+            <text x={WA - MRA - 4} y={yA1 - 4} textAnchor="end" fontSize="9" fill="#64748b" fontFamily={mono}>1 (limit)</text>
+            <path d={pathLA} fill="none" stroke="#fbbf24" strokeWidth="1.5" strokeDasharray="6 3" />
+            <path d={pathA} fill="none" stroke="#6366f1" strokeWidth="2.5" />
+            <text x={(MLA + WA - MRA) / 2} y={HA - 8} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}>&epsilon; = s &minus; s<tspan baselineShift="sub" fontSize="9">0</tspan></text>
+            <text x={12} y={ycA} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono} transform={"rotate(-90 12 " + ycA + ")"}>ratio</text>
+            <line x1={MLA + 4} y1={HA - MBA - 28} x2={MLA + 18} y2={HA - MBA - 28} stroke="#6366f1" strokeWidth="2.5" />
+            <text x={MLA + 22} y={HA - MBA - 24} fontSize="9" fill="#94a3b8" fontFamily={mono}>actual</text>
+            <line x1={MLA + 4} y1={HA - MBA - 16} x2={MLA + 18} y2={HA - MBA - 16} stroke="#fbbf24" strokeWidth="1.5" strokeDasharray="6 3" />
+            <text x={MLA + 22} y={HA - MBA - 12} fontSize="9" fill="#94a3b8" fontFamily={mono}>1+A1&epsilon;</text>
+          </svg>
+        </div>
+        <div>
+          <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 4, fontFamily: mono, textAlign: "center" }}>
+            Decay: &phi;(s)e<sup>s</sup>/K vs s (K={K.toFixed(5)}, D<sub>0</sub>={D0.toFixed(5)})
+          </div>
+          <svg width={WB} height={HB} style={{ display: "block", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
+            {yTicksB.map((v) => (
+              <g key={"yb" + v}>
+                <line x1={MLB} y1={pyB(v)} x2={WB - MRB} y2={pyB(v)} stroke="#1e293b" strokeWidth="1" />
+                <text x={MLB - 6} y={pyB(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{v.toFixed(1)}</text>
+              </g>
+            ))}
+            {xTicksB.map((s) => (
+              <g key={"xb" + s}>
+                <line x1={pxB(s)} y1={HB - MBB} x2={pxB(s)} y2={HB - MBB + 4} stroke="#334155" strokeWidth="1" />
+                <text x={pxB(s)} y={HB - MBB + 16} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>{s}</text>
+              </g>
+            ))}
+            <line x1={MLB} y1={MTB} x2={MLB} y2={HB - MBB} stroke="#334155" strokeWidth="1" />
+            <line x1={MLB} y1={HB - MBB} x2={WB - MRB} y2={HB - MBB} stroke="#334155" strokeWidth="1" />
+            <line x1={MLB} y1={yB1} x2={WB - MRB} y2={yB1} stroke="#475569" strokeWidth="1" strokeDasharray="3 2" />
+            <text x={WB - MRB - 4} y={yB1 - 4} textAnchor="end" fontSize="9" fill="#64748b" fontFamily={mono}>1 (limit)</text>
+            <path d={pathCB} fill="none" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="6 3" />
+            <path d={pathB} fill="none" stroke="#10b981" strokeWidth="2.5" />
+            <text x={(MLB + WB - MRB) / 2} y={HB - 8} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}>s = a&middot;U</text>
+            <text x={12} y={ycB} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono} transform={"rotate(-90 12 " + ycB + ")"}>ratio</text>
+            <line x1={MLB + 4} y1={HB - MBB - 28} x2={MLB + 18} y2={HB - MBB - 28} stroke="#10b981" strokeWidth="2.5" />
+            <text x={MLB + 22} y={HB - MBB - 24} fontSize="9" fill="#94a3b8" fontFamily={mono}>actual</text>
+            <line x1={MLB + 4} y1={HB - MBB - 16} x2={MLB + 18} y2={HB - MBB - 16} stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="6 3" />
+            <text x={MLB + 22} y={HB - MBB - 12} fontSize="9" fill="#94a3b8" fontFamily={mono}>1+(2s+D0)e^-s</text>
+          </svg>
+        </div>
+      </div>
+      <p style={{ marginTop: 8, color: "#64748b", fontSize: 11, fontFamily: mono }}>
+        Source: imp-3155-onset-decay-next-order-corrections.js &mdash;
+        A1={_D.onsetCorrection.anchor.toFixed(6)}, D0={_D.decayCorrection.constAnchor.toFixed(6)},
+        s0=arcsinh(1)={S0.toFixed(6)}, C={C.toFixed(6)}, K={K.toFixed(6)}.
+      </p>
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function ClosureRoutesPage() {
   return (
@@ -2477,6 +2622,12 @@ export default function ClosureRoutesPage() {
         Cosh-monomial conditioning ceiling: geometric cond(P)/cond(H) growth, trust boundary pinned numerically (imp-3153)
       </h2>
       <CoshMonomialConditioningViz />
+
+      {/* ─── imp-3183: next-order convergence corrections (imp-3155) ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Next-order convergence corrections: onset slope A<sub>1</sub>&asymp;3.256 and decay (2s+D<sub>0</sub>)e<sup>&minus;s</sup> (imp-3155)
+      </h2>
+      <NextOrderConvergenceCorrectionViz />
 
       {/* ─── Conjectures ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

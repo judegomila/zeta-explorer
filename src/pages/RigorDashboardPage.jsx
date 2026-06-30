@@ -16,6 +16,7 @@ import { LAMBDA_ESTIMATOR_TRIPTYCH_IMP2991 } from '../data/lambda-estimator-trip
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
 import { CH_LIP_THREE_PROOFS } from '../data/ch-lip-three-proofs-table-2026-06-30.js';
 import { CH_LIP_BASIN_CONDITIONAL, CH_LIP_DIVERGENCE_DECOMPOSITION } from '../data/ch-lip-basin-conditional-2026-06-30.js';
+import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section26-gram-vs-monomial-gap.js';
 
 // ── Assertion freshness stamp (imp-2999) ─────────────────────────────────────
 function FreshnessStamp() {
@@ -821,6 +822,70 @@ function BasinConditionalLipschitzPanel() {
   );
 }
 
+// ── imp-3110 rigor gap notice: monomial toy vs genuine §26 Gram ───────────────
+function Section26GramGapNotice() {
+  const M = IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP;
+  const D = M.differences;
+  const S = M.survivesSwap;
+  const diffRows = [
+    { key: 'D1', label: 'D1 Basis', toy: D.D1_basis.toy, genuine: D.D1_basis.genuine },
+    { key: 'D2', label: 'D2 Weight', toy: D.D2_weight.toy, genuine: D.D2_weight.genuine },
+    { key: 'D3', label: 'D3 Endpoint', toy: D.D3_endpointStructure.toy, genuine: D.D3_endpointStructure.genuine },
+    { key: 'D4', label: 'D4 De-homog', toy: D.D4_deHomogenization.toy, genuine: D.D4_deHomogenization.genuine },
+  ];
+  const mono = 'var(--font-mono)';
+  return (
+    <div style={{ marginTop: 24, marginBottom: 8, padding: '14px 18px', borderRadius: 8, borderLeft: '4px solid #f43f5e', background: 'rgba(244,63,94,0.05)' }}>
+      <div style={{ fontSize: 11, fontWeight: 700, color: '#f43f5e', letterSpacing: '0.06em', marginBottom: 6, fontFamily: mono }}>
+        RIGOR GAP — MONOMIAL TOY vs. GENUINE §26 GRAM (imp-3110)
+      </div>
+      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, margin: '0 0 10px' }}>
+        Operator measurements in imp-3066/3084/3085/3086 carry the caveat
+        &ldquo;representative monomial truncation — NOT the actual §26 Gram.&rdquo; Four concrete axes
+        separate the toy from the genuine object; none carry an RH verdict until the genuine §26 Gram
+        is computed with the completed Riemann kernel Phi.
+      </p>
+      <div style={{ overflowX: 'auto', marginBottom: 10 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8', textAlign: 'left' }}>
+              <th style={{ padding: '6px 8px', fontFamily: mono, width: '9%' }}>Axis</th>
+              <th style={{ padding: '6px 8px', color: '#f59e0b', width: '38%' }}>Toy (imp-3066 et seq.)</th>
+              <th style={{ padding: '6px 8px', color: '#06b6d4', width: '53%' }}>Genuine §26 object</th>
+            </tr>
+          </thead>
+          <tbody>
+            {diffRows.map((row) => (
+              <tr key={row.key} style={{ borderBottom: '1px solid #1e293b' }}>
+                <td style={{ padding: '7px 8px', color: '#f43f5e', fontFamily: mono, fontWeight: 700, verticalAlign: 'top' }}>{row.label}</td>
+                <td style={{ padding: '7px 8px', color: '#fcd34d', lineHeight: 1.55, verticalAlign: 'top' }}>{row.toy}</td>
+                <td style={{ padding: '7px 8px', color: '#67e8f9', lineHeight: 1.55, verticalAlign: 'top' }}>{row.genuine}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 10 }}>
+        <div style={{ padding: '8px 10px', borderRadius: 5, background: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.3)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#10b981', marginBottom: 5 }}>SURVIVES THE SWAP (structural)</div>
+          {S.survives.map((s, i) => (
+            <p key={i} style={{ margin: i > 0 ? '5px 0 0' : 0, color: '#cbd5e1', fontSize: 12, lineHeight: 1.55 }}>{s}</p>
+          ))}
+        </div>
+        <div style={{ padding: '8px 10px', borderRadius: 5, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.3)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', marginBottom: 5 }}>TRUNCATION ARTIFACTS (do not carry over)</div>
+          {S.artifacts.map((a, i) => (
+            <p key={i} style={{ margin: i > 0 ? '5px 0 0' : 0, color: '#cbd5e1', fontSize: 12, lineHeight: 1.55 }}>{a}</p>
+          ))}
+        </div>
+      </div>
+      <p style={{ margin: 0, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        {M.honestCaveat.sota}. Source: imp-3110-section26-gram-vs-monomial-gap.js
+      </p>
+    </div>
+  );
+}
+
 export default function RigorDashboardPage() {
   const [expandedStep, setExpandedStep] = useState(null);
 
@@ -937,6 +1002,9 @@ export default function RigorDashboardPage() {
           />
         ))}
       </div>
+
+      {/* §26 Gram rigor gap explainer (imp-3110) */}
+      <Section26GramGapNotice />
 
       {/* Route status */}
       <h2 style={{ fontSize: 16, color: '#e2e8f0', marginBottom: 14 }}>

@@ -804,6 +804,10 @@ const TC_PART_LADDER_RIGOROUS = (() => {
   if (!ETRUNC_PT_BOUND) return { available: false, reason: "E_trunc_pt unavailable" };
   // Certified g_min(N) per rung (raw ordinate gap, ZEROS_EXTENDED / imp-360 H_raw).
   const GMIN_CERTIFIED = [
+    // imp-3050 cross-check: independent recompute of the raw minimal consecutive gap over the
+    // first 1e4 Odlyzko zeros (scripts/.zeros-cache/zeros6) returns 0.0376984990 at 0-based pair
+    // index 6708 (gamma_lo=7005.062866175, gamma_hi=7005.100564674); matches 0.0376985 to last
+    // digit (drift -9.99e-10) and confirms the pair index. Certified input verified, no drift.
     { N: 1e4,    g_min: 0.0376985, source: "Lehmer pair idx 6708, gamma~7005 (imp-2485 / dyson cache)" },
     { N: 2.5e4,  g_min: 0.0353073, source: "imp-360 H_raw cert (one-ULP interval-RK4)" },
     { N: 5e4,    g_min: 0.0295376, source: "imp-360 H_raw cert (one-ULP interval-RK4)" },

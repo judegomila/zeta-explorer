@@ -2021,6 +2021,25 @@ const DATA_MODULES = [
   // e^{-s}, so the bare e^{-s} fit relative error decays ~2s*e^{-s} (55% at s=2 to
   // ~8e-8 at s=20). Degree-0 scalar leading asymptotic; no RH verdict.
   '/src/data/imp-3088-excess-fraction-large-s-decay.js',
+  // imp-3102: sweeps the imp-3086 BASIS-INVARIANT residual gap ||R_orth|| - max_j
+  // R_orth_jj (R_orth = L H L^T, L = (Cholesky of the FULL passive cosh Gram)^{-1})
+  // across the Cartesian a x U grid and finds the SURVIVING intrinsic obstruction also
+  // tracks the single product s = a*U: both Gram moments carry the same U prefactor, so
+  // L = U^{-1/2} Lbar(s) and R_orth = Lbar Hbar Lbar^T (U cancels), and equal-product
+  // cells coincide to ~1e-13 -- the survivor SHARES the scalar-side a*U invariant rather
+  // than breaking it, while the RAW |H_jk| keeps the U scale. Representative/diagnostic;
+  // survivor strictly positive on every cell; no positivity; no RH verdict; PT 0.2 SOTA.
+  '/src/data/imp-3102-orthogonalized-gap-aU-grid.js',
+  // imp-3103: sweeps the imp-3086 TRUE basis-invariant operator norm ||R_orth||
+  // (R_orth = L H L^T, L = (Cholesky of the FULL passive cosh Gram)^{-1}) across the
+  // a x U grid and locates the RH-equivalent contraction boundary ||R|| <= 1. ||R_orth||
+  // depends on s = a*U alone (U cancels in R_orth = L1 H1 L1^T, equal-product cells
+  // coincide to ~1e-13) and is < 1 EVERYWHERE admissible -- since sinh < cosh, v^T H v <
+  // v^T P v for all v != 0, so every pencil eigenvalue is strictly below 1: the
+  // representative truncation is a contraction with NO finite-s* crossing, and the margin
+  // 1 - ||R_orth|| shrinks monotonically to 0 from below as s -> inf. Representative/
+  // diagnostic; no RH verdict (degree-dependence is the open imp-3104); PT 0.2 SOTA.
+  '/src/data/imp-3103-orthogonalized-opnorm-aU-grid.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -782,6 +782,33 @@ export const glossary = [
     ],
     link: '/closure-routes',
   },
+  {
+    term: "golden-ratio residual-gap maximum (phi^{-5/2})",
+    category: 'constant',
+    definition:
+      "The maximal value of the basis-invariant saturating gap G_sat = ||R_orth|| - max_j R_orth_jj " +
+      "over all equal-product cells (a, U) with s = aU fixed is phi^{-5/2} (approximately 0.3003), " +
+      "attained exactly on the cell locus cosh(aU) = phi, where phi = (1+sqrt(5))/2 is the golden ratio " +
+      "(imp-3146, imp-3177). " +
+      "The equal-s cell invariance (imp-3177) means G_sat depends only on s = aU, not on a and U " +
+      "individually; the golden-ratio locus cosh(aU) = phi is the unique s-value that maximizes " +
+      "G_sat over all s > 0. " +
+      "Why basis-invariant: G_sat is defined via the Cholesky-Loewner pencil identity and is " +
+      "unchanged by any orthonormal basis change -- it is a spectral invariant of the Gram operator, " +
+      "not a coordinate artifact. " +
+      "Why phi: the optimality condition reduces to a transcendental equation in cosh(s); the " +
+      "golden-ratio root cosh(s) = phi emerges from the fixed-point relation phi^2 = phi + 1. " +
+      "Honest scope: this is the obstruction maximum for the monomial-basis toy (D1-D4 gap from the " +
+      "genuine section-26 Gram remains open); no RH verdict follows from this extremal value alone.",
+    firstUsed: "imp-3146 (golden-ratio residual-gap max), imp-3177 (equal-product-cell invariance), 2026",
+    relatedTerms: [
+      'Orthogonalization vocabulary (Cholesky L, Loewdin P^{-1/2}, pencil identity, basis-invariant norm)',
+      'section-26-vs-monomial gap (D1-D4)',
+      'excess fraction phi',
+      'digamma transcendental isolation onset (c_asym)',
+    ],
+    link: '/section26',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

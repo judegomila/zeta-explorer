@@ -387,3 +387,181 @@ for (const a of HOLDER_HALF_EXPONENT_ASSERTIONS_IMP3069) {
     throw new Error('imp-3069 assertion failed: ' + a.id + ' — ' + a.why);
   }
 }
+
+// ══════════════════════════════════════════════════════════════════════════════
+// imp-3092 — Measure the OFF-CUSP RESIDUAL BAND of the REFUTED squared-gap
+// surrogate. imp-3026 confirmed the dual-appearance identity (cusp-law C_shock
+// equals sqrt(8 * C_shock^2/8) from the squared-gap surrogate) but ONLY along the
+// 1-parameter cusp family, where the self-term dh/dW = 2 g dg/dW is flat = C_shock^2.
+// The ch-wall verdict flags the surrogate REFUTED off the cusp family but the SIZE
+// of that off-cusp residual was never measured. Here we sample configurations at
+// increasing distance from the cusp family and tabulate how fast the surrogate
+// degrades, bounding the neighbourhood where the dual-appearance identity stays
+// numerically faithful.
+//
+// OFF-CUSP DISTANCE = Holder-exponent offset delta. The cusp family is g = C_shock
+// W_1^{1/2} (exponent exactly 1/2). An off-cusp configuration uses exponent
+// p = 1/2 + delta, i.e. g(W) = C_shock W_1^{p}, so h = g^2 = C_shock^2 W_1^{2p} and
+// the TRUE self-term dh/dW = (1 + 2 delta) C_shock^2 W_1^{2 delta}. The surrogate
+// PREDICTS the flat cusp value C_shock^2; the relative residual at each grid point
+// is |dh/dW - C_shock^2| / C_shock^2 (measured by the same central FD imp-3026 uses).
+// delta = 0 reproduces the flat identity; delta != 0 breaks it.
+//
+// RESULT (N* = 1e4, W_1 = 1e-2 .. 1e-10). On cusp the residual is machine zero
+// (~2e-12). Off cusp it grows MONOTONICALLY and is amplified by the 8-decade W_1
+// window: delta = 0.001 (Holder p = 0.501) already gives ~2.5% mean / ~4.3% max
+// residual, delta = 0.005 ~12% / ~20%, and delta = 0.2 saturates near 96%. The
+// neighbourhood where the surrogate stays within a 5% max-residual tolerance is
+// VERY NARROW (|delta| < 0.005): the flat-self-term identity is faithful essentially
+// only on the cusp family itself, because the deep-W_1 tail W_1^{2 delta} drifts to 0
+// for any positive delta.
+//
+// HONEST SCOPE. This MEASURES the off-cusp degradation; it does NOT rehabilitate the
+// surrogate, which stays REFUTED off the cusp family. No new bound, no QED; the
+// dual-appearance identity remains a cusp-family-only coincidence. Platt-Trudgian
+// Lambda <= 0.2 stays the rigorous SOTA.
+
+// Off-cusp distance grid: Holder-exponent offset delta from the cusp value 1/2.
+const OFF_CUSP_DELTAS = [0, 0.001, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2];
+// Faithfulness tolerance on the max relative residual: above this the surrogate
+// flat-self-term identity is judged to have broken off the cusp.
+const OFF_CUSP_FAITHFUL_TOL = 0.05;
+
+// Residual of the squared-gap surrogate at off-cusp exponent p = 1/2 + delta.
+// Predicted (surrogate) self-term = flat cusp value C_shock^2; actual self-term is
+// the central FD of h(W) = (C_shock W^p)^2 over the imp-3026 cusp-family W grid.
+function offCuspResidualRow(cShockTrue, delta) {
+  const P = cShockTrue * cShockTrue; // surrogate flat prediction C_shock^2
+  const p = 0.5 + delta;
+  const h = (W) => {
+    const g = cShockTrue * Math.pow(W, p);
+    return g * g;
+  };
+  const rels = W_GRID.map((W) => {
+    const dW = W * 1e-4;
+    const actual = (h(W + dW) - h(W - dW)) / (2 * dW); // dh/dW
+    return Math.abs(actual - P) / P;
+  });
+  const meanRel = rels.reduce((a, b) => a + b, 0) / rels.length;
+  const maxRel = Math.max(...rels);
+  return {
+    delta,
+    holder_exponent: p,
+    mean_rel_residual: meanRel,
+    max_rel_residual: maxRel,
+    faithful: maxRel < OFF_CUSP_FAITHFUL_TOL,
+  };
+}
+
+const OFF_CUSP_C_SHOCK = cShockClosedForm(N_STAR);
+const OFF_CUSP_RESIDUAL_ROWS = OFF_CUSP_DELTAS.map((d) =>
+  offCuspResidualRow(OFF_CUSP_C_SHOCK, d),
+);
+// Largest off-cusp distance still inside the faithful band.
+const OFF_CUSP_MAX_FAITHFUL_DELTA = Math.max(
+  ...OFF_CUSP_RESIDUAL_ROWS.filter((r) => r.faithful).map((r) => r.delta),
+);
+
+export const OFF_CUSP_RESIDUAL_BAND_IMP3092 = {
+  ticket: 'imp-3092',
+  title:
+    'Measure the off-cusp residual band of the REFUTED squared-gap surrogate (imp-3026 dual-appearance identity)',
+  verdict:
+    'NARROW. On the cusp family the squared-gap self-term equals the flat C_shock^2 to machine precision; ' +
+    'off the cusp (Holder exponent 1/2 + delta) the relative residual grows MONOTONICALLY and is amplified by ' +
+    'the 8-decade W_1 window — delta = 0.001 already gives ~4% max residual and delta = 0.2 saturates near 96%. ' +
+    'The dual-appearance identity stays numerically faithful (max residual < 5%) only for |delta| < 0.005.',
+  nStar: N_STAR,
+  cShock: OFF_CUSP_C_SHOCK,
+  faithfulTol: OFF_CUSP_FAITHFUL_TOL,
+  maxFaithfulDelta: OFF_CUSP_MAX_FAITHFUL_DELTA,
+  onCuspMaxResidual: OFF_CUSP_RESIDUAL_ROWS[0].max_rel_residual, // ~2e-12
+  band: OFF_CUSP_RESIDUAL_ROWS,
+  isNewBound: false,
+  surrogateStillRefuted:
+    'The squared-gap surrogate remains REFUTED off the cusp family. This module only MEASURES the size of the ' +
+    'off-cusp residual; it does NOT rehabilitate the surrogate or revive the dual-appearance identity beyond the ' +
+    '1-parameter cusp family.',
+  honestNote:
+    'No false QED. This is a NUMERICAL measurement of how far off the cusp the squared-gap surrogate degrades; it ' +
+    'is NOT a new bound and does NOT close C_H. The surrogate stays REFUTED and Platt-Trudgian Lambda <= 0.2 ' +
+    'remains the rigorous SOTA.',
+};
+
+export const OFF_CUSP_RESIDUAL_BAND_ASSERTIONS_IMP3092 = [
+  {
+    id: 'imp3092-on-cusp-residual-machine-zero',
+    holds: () => OFF_CUSP_RESIDUAL_ROWS[0].delta === 0 &&
+      OFF_CUSP_RESIDUAL_ROWS[0].max_rel_residual < 1e-9,
+    why:
+      'On the cusp family (delta = 0, Holder exponent exactly 1/2) the squared-gap self-term must equal the flat ' +
+      'C_shock^2 to machine precision (max relative residual < 1e-9), reproducing the imp-3026 flat-identity baseline.',
+  },
+  {
+    id: 'imp3092-residual-monotone-in-distance',
+    holds: () => {
+      for (let i = 1; i < OFF_CUSP_RESIDUAL_ROWS.length; i++) {
+        if (!(OFF_CUSP_RESIDUAL_ROWS[i].mean_rel_residual >
+              OFF_CUSP_RESIDUAL_ROWS[i - 1].mean_rel_residual)) return false;
+        if (!(OFF_CUSP_RESIDUAL_ROWS[i].max_rel_residual >
+              OFF_CUSP_RESIDUAL_ROWS[i - 1].max_rel_residual)) return false;
+      }
+      return true;
+    },
+    why:
+      'Both the mean and max relative residual must increase STRICTLY MONOTONICALLY with the off-cusp distance delta. ' +
+      'A non-monotone band would mean the surrogate degradation is not ordered by distance from the cusp family.',
+  },
+  {
+    id: 'imp3092-smallest-offcusp-already-degraded',
+    holds: () => {
+      const r = OFF_CUSP_RESIDUAL_ROWS.find((x) => x.delta === 0.001);
+      return r && r.mean_rel_residual > 1e-2 && r.mean_rel_residual < 1e-1;
+    },
+    why:
+      'The smallest sampled off-cusp offset delta = 0.001 (Holder p = 0.501) must already produce a NON-TRIVIAL mean ' +
+      'residual in (1%, 10%), demonstrating the 8-decade W_1 window amplifies even a tiny exponent departure from 1/2.',
+  },
+  {
+    id: 'imp3092-residual-saturates-far-offcusp',
+    holds: () => {
+      const r = OFF_CUSP_RESIDUAL_ROWS[OFF_CUSP_RESIDUAL_ROWS.length - 1];
+      return r.delta === 0.2 && r.mean_rel_residual > 0.9;
+    },
+    why:
+      'Far off the cusp (delta = 0.2) the mean relative residual must exceed 90%, confirming the surrogate flat-self-term ' +
+      'prediction C_shock^2 bears essentially no relation to the true squared-gap rate away from the cusp family.',
+  },
+  {
+    id: 'imp3092-faithful-band-is-narrow',
+    holds: () =>
+      OFF_CUSP_MAX_FAITHFUL_DELTA < 0.005 &&
+      OFF_CUSP_RESIDUAL_ROWS.find((r) => r.delta === 0.005).faithful === false,
+    why:
+      'THE BAND BOUND: the neighbourhood where the dual-appearance identity stays faithful (max residual < 5%) must be ' +
+      'NARROW — the largest faithful delta < 0.005, and the delta = 0.005 configuration must already have broken. This is ' +
+      'the measured statement that the identity is a cusp-family-only coincidence.',
+  },
+  {
+    id: 'imp3092-measurement-not-a-beat',
+    holds: () => {
+      const r = OFF_CUSP_RESIDUAL_BAND_IMP3092;
+      return (
+        r.isNewBound === false &&
+        /REFUTED/.test(r.surrogateStillRefuted) &&
+        /SOTA/.test(r.honestNote) &&
+        /NARROW/.test(r.verdict)
+      );
+    },
+    why:
+      'VERDICT LOCK: this MEASURES the off-cusp residual band, it is NOT a new bound and does not rehabilitate the ' +
+      'surrogate. The surrogate stays REFUTED and Platt-Trudgian Lambda <= 0.2 stays SOTA. Blocks any future edit from ' +
+      'flipping this measurement into a claimed surrogate revival or C_H closure.',
+  },
+];
+
+for (const a of OFF_CUSP_RESIDUAL_BAND_ASSERTIONS_IMP3092) {
+  if (!a.holds()) {
+    throw new Error('imp-3092 assertion failed: ' + a.id + ' — ' + a.why);
+  }
+}

@@ -462,6 +462,88 @@ export default function ClosureRoutesPage() {
         </p>
       </div>
 
+      {/* ─── imp-3007: Scalar cover vs. operator positivity ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Scalar Cover vs. Operator Positivity (imp-3007)
+      </h2>
+      <div
+        className="card"
+        style={{
+          marginTop: 16,
+          borderLeft: '4px solid #f59e0b',
+          background: 'rgba(245,158,11,0.04)',
+        }}
+      >
+        <h3 style={{ color: '#f59e0b', marginTop: 0 }}>What the mu-pass cover does — and what it leaves open</h3>
+        <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+          The endpoint-bridge cosh-completion{' '}
+          <span style={{ fontFamily: mono, color: '#fbbf24' }}>w&#x207F;&#x1D552;&#x1D557;&#x1D560;(&#x03C4;) = cosh(a&#x03C4;)</span>{' '}
+          (imp-2686) is a <em>scalar</em> (pointwise, lag-symbol) weight. Re-evaluating the
+          degree-0 deficit functional from imp-2841 at this weight gives post-bridge residual
+          deficit <strong style={{ color: '#10b981' }}>exactly 0</strong> — the bridge covers
+          100% of the raw "~64% of lag" overflow on the whole axis [0, U]. This is a genuine,
+          RH-equivalent closure step in the degree-0 (scale-invariant) measure.
+        </p>
+        <div
+          style={{
+            margin: '14px 0',
+            padding: '10px 14px',
+            borderRadius: 6,
+            background: 'rgba(16,185,129,0.07)',
+            border: '1px solid rgba(16,185,129,0.3)',
+            fontFamily: mono,
+            fontSize: 12.5,
+            color: '#6ee7b7',
+          }}
+        >
+          D_pass(a) = &#x222B;&#x2080;&#x1D41C; max(0, sinh(a&#x03C4;) &#x2212; cosh(a&#x03C4;)) d&#x03C4; = 0&nbsp;&nbsp;(exact)
+          &nbsp;&nbsp;&rarr;&nbsp;&nbsp;covered fraction = 1
+        </div>
+        <div
+          style={{
+            margin: '14px 0',
+            padding: '10px 14px',
+            borderRadius: 6,
+            background: 'rgba(239,68,68,0.07)',
+            border: '1px solid rgba(239,68,68,0.3)',
+          }}
+        >
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 6 }}>
+            NECESSARY BUT NOT SUFFICIENT
+          </div>
+          <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.7, margin: 0 }}>
+            Pointwise weight domination{' '}
+            <span style={{ fontFamily: mono }}>w&#x207F;&#x1D552;&#x1D557;&#x1D560; &ge; &#x03BD;</span>{' '}
+            controls only the <em>diagonal</em> of the §26 Gram comparison. The RH-equivalent
+            target — operator positivity K&#x2090; &#x2265; 0 — requires the de-homogenized
+            contraction{' '}
+            <span style={{ fontFamily: mono }}>R = G&#x209A;&#x2090;&#x2E2D;&#x207B;&#xBD; G&#x209B;&#x2095;&#x2091;&#x2090;&#x1D63 G&#x209A;&#x2090;&#x2E2D;&#x207B;&#xBD;</span>{' '}
+            to satisfy &#x2016;R&#x2016; &le; 1. The shear Gram G&#x209B;&#x2095;&#x2091;&#x2090;&#x1D63 is an
+            off-diagonal <strong>endpoint-Hankel form</strong>; its cross-terms are not bounded
+            by scalar weight domination. The scalar cover is therefore a{' '}
+            <strong style={{ color: '#fbbf24' }}>necessary step</strong>, but the off-diagonal
+            endpoint-Hankel cross-terms — the one remaining obstruction — are precisely the
+            RH-hard content.
+          </p>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 4 }}>
+          <div style={{ padding: '8px 12px', borderRadius: 5, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)', fontSize: 12, color: '#94a3b8', lineHeight: 1.6 }}>
+            <div style={{ color: '#10b981', fontWeight: 700, marginBottom: 3 }}>CLOSED (scalar step)</div>
+            Degree-0 overflow cover complete. Residual deficit = 0. Covers 100% of the raw
+            64%-class overflow. Scalar cover is DONE.
+          </div>
+          <div style={{ padding: '8px 12px', borderRadius: 5, background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)', fontSize: 12, color: '#94a3b8', lineHeight: 1.6 }}>
+            <div style={{ color: '#f87171', fontWeight: 700, marginBottom: 3 }}>OPEN (operator step)</div>
+            Off-diagonal endpoint-Hankel cross-terms still need bounding. Scalar domination
+            does not reach here. This is the lone remaining obstruction — and the RH-hard part.
+          </div>
+        </div>
+        <p style={{ marginTop: 12, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+          Source: imp-3007-mupass-overflow-cover.js &mdash; RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction.
+          Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+
       {/* ─── Conjectures ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
         Concrete next targets

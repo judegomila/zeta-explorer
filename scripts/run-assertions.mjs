@@ -2115,6 +2115,17 @@ const DATA_MODULES = [
   // Intrinsic obstruction neither grows unbounded nor vanishes. Representative diagnostic;
   // no RH verdict; positivity not attempted; DEG inside the imp-3104 trustworthy range; PT 0.2 SOTA.
   '/src/data/imp-3125-orthogonalized-residual-gap-degree-sweep.js',
+  // imp-3146: sweeps the imp-3125 SATURATING residual-gap limit tanh(aU)-tanh(aU/2)
+  // across the FULL A_GRID x U_GRID product (imp-3125 had the DEG sweep at a=0.5,U=6 only).
+  // Inheriting the imp-3102 a*U invariance, the limit is the single-variable closed form
+  // G(s)=tanh(s)-tanh(s/2), s=a*U: strictly positive on every cell, vanishing only as s->0
+  // and s->inf. G prime=0 reduces (c=cosh(s/2)) to 4c^4-6c^2+1=0, so cosh(a*U)=(1+sqrt5)/2=phi
+  // (GOLDEN RATIO): the obstruction is MAXIMIZED on the locus a*U=arccosh(phi)~1.06128 with
+  // closed-form max G(s*)=phi^{-5/2}~0.30028. Per-cell R_orth rebuild confirms the finite-DEG
+  // survivor stays positive and saturates from below; a fine s-scan recovers the maximizer to
+  // ~1e-5; equal-product cells coincide to machine precision. Representative diagnostic; no RH
+  // verdict; positivity not attempted; PT 0.2 SOTA.
+  '/src/data/imp-3146-residual-gap-limit-aU-grid.js',
   // imp-3106: assesses the INTEGRABILITY of the imp-3064 excess fraction phi(s) =
   // G(s)/F(s) over the admissible range (s0, inf). The integral DIVERGES: the
   // imp-3087 onset pole phi ~ C/(s-s0)^2 (C = sqrt(2)*(1-arcsinh(1)) ~ 0.16776) is
@@ -2161,6 +2172,18 @@ const DATA_MODULES = [
   // rebaseline either divergence signature unnoticed. 5 tripwires; degree-0 scalar
   // measure; RH-equivalent; lock only, no QED; PT 0.2 SOTA.
   '/src/data/imp-3129-onset-divergence-tail-locks.js',
+  // imp-3147: single cross-module build assertion locking the imp-3125 SATURATING
+  // surviving residual gap ||R_orth|| - max_j R_orth_jj on the headline cell a = 0.5,
+  // U = 6. Independently rebuilds R_orth = L H L^T at the DEG = 10 sweep top from its own
+  // quadrature + Cholesky code path, extracts the surviving basis-invariant gap, and
+  // certifies: the recomputed DEG = 10 gap, operator norm and max diagonal equal the live
+  // imp-3125 exports to ~1e-9 (drift sentinel); the max diagonal floor stays pinned at
+  // tanh(a*U/2) = (cosh(a*U) - 1)/sinh(a*U) ~ 0.90515; the closed-form saturation limit
+  // tanh(a*U) - tanh(a*U/2) equals the live analyticGapLimit to ~1e-12 and matches the
+  // published 0.08991 anchor; and the DEG = 10 gap saturates that limit FROM BELOW (still
+  // ~3.15e-4 short -- saturation is a limit, not equality). 5 tripwires; representative
+  // truncation diagnostic; RH-equivalent; lock only, no QED; PT 0.2 SOTA.
+  '/src/data/imp-3147-residual-gap-saturation-lock.js',
   // imp-3126: cross-checks whether the imp-3106 convergent regular tail mass
   // int_{s0+1}^inf phi ds ~0.26900597 is structurally related to the imp-3026/imp-3070
   // cusp constant C_shock = sqrt(2/(3 log gamma_N)) ~0.26922 (which agree to ~2.1e-4 at

@@ -14,6 +14,7 @@ import { RANKED_OPPORTUNITIES } from '../data/full-route-map-2026-06-19.js';
 import { ASSERTION_FRESHNESS } from '../data/assertion-freshness.js';
 import { LAMBDA_ESTIMATOR_TRIPTYCH_IMP2991 } from '../data/lambda-estimator-triptych-imp2991.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
+import { CH_LIP_THREE_PROOFS } from '../data/ch-lip-three-proofs-table-2026-06-30.js';
 import { CH_LIP_BASIN_CONDITIONAL, CH_LIP_DIVERGENCE_DECOMPOSITION } from '../data/ch-lip-basin-conditional-2026-06-30.js';
 
 // ── Assertion freshness stamp (imp-2999) ─────────────────────────────────────
@@ -588,6 +589,83 @@ function CHWallFrontierPanel() {
   );
 }
 
+function CHLipThreeProofsPanel() {
+  const t = CH_LIP_THREE_PROOFS;
+  return (
+    <div style={{
+      border: '1px solid rgba(239,68,68,0.4)',
+      borderRadius: 10,
+      background: 'rgba(15,23,42,0.7)',
+      padding: '14px 18px',
+      marginBottom: 24,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+        <span style={{
+          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
+          color: '#ef4444', background: 'rgba(239,68,68,0.14)',
+          border: '1px solid rgba(239,68,68,0.4)',
+          borderRadius: 4, padding: '2px 8px',
+        }}>
+          C_H LIPSCHITZ ROUTE &mdash; CLOSED THREE WAYS &mdash; imp-3010
+        </span>
+        <span style={{
+          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
+          color: '#ef4444', marginLeft: 'auto',
+        }}>
+          {t.verdict}
+        </span>
+      </div>
+      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, marginBottom: 12 }}>
+        {t.claim}
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, marginBottom: 12 }}>
+        {t.proofs.map((p) => (
+          <div key={p.key} style={{
+            border: '1px solid rgba(239,68,68,0.35)',
+            borderRadius: 7, background: 'rgba(239,68,68,0.05)',
+            padding: '10px 12px',
+          }}>
+            <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#fca5a5', marginBottom: 6 }}>
+              {p.n}. {p.name}
+            </div>
+            <div style={{ fontSize: 10, fontFamily: 'var(--font-mono)', color: '#f59e0b', marginBottom: 6, letterSpacing: 0.2 }}>
+              {p.rigor.toUpperCase()}
+            </div>
+            <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.5, marginBottom: 6 }}>
+              {p.mechanism}
+            </div>
+            <div style={{ fontSize: 11, color: '#cbd5e1', lineHeight: 1.5, marginBottom: 6 }}>
+              &rarr; {p.result}
+            </div>
+            <div style={{ fontSize: 10, color: '#64748b', lineHeight: 1.5, marginBottom: 4 }}>
+              {p.witness}
+            </div>
+            <div style={{ fontSize: 10, color: '#64748b', lineHeight: 1.5 }}>
+              Escape: {p.escape}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style={{
+        border: '1px solid rgba(16,185,129,0.3)',
+        borderRadius: 6, background: 'rgba(16,185,129,0.06)',
+        padding: '8px 12px', fontSize: 11, color: '#86efac', lineHeight: 1.6,
+        marginBottom: 8,
+      }}>
+        DETERMINISTIC RESIDUAL: {t.deterministicResidual}
+      </div>
+      <div style={{
+        border: '1px solid rgba(239,68,68,0.3)',
+        borderRadius: 6, background: 'rgba(239,68,68,0.06)',
+        padding: '8px 12px', fontSize: 11, color: '#fca5a5', lineHeight: 1.6,
+        fontFamily: 'var(--font-mono)',
+      }}>
+        HONEST: {t.honest}
+      </div>
+    </div>
+  );
+}
+
 function CLipDivergenceDecompositionPanel() {
   const d = CH_LIP_DIVERGENCE_DECOMPOSITION;
   const tc = d.thetaChannel;
@@ -793,6 +871,9 @@ export default function RigorDashboardPage() {
 
       {/* C_H frontier verdict panel — RH-HARD-CONFIRMED + norm-mismatch diagnosis (imp-3009) */}
       <CHWallFrontierPanel />
+
+      {/* C_H Lipschitz route closed three ways, side by side — impossibility / norm-mismatch / refuted surrogates (imp-3010) */}
+      <CHLipThreeProofsPanel />
 
       {/* Basin-conditional Lipschitz verdict — C_Lip finite on isolated-pair basin (imp-3006/imp-3051) */}
       <BasinConditionalLipschitzPanel />

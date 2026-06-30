@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import SpectralAttackViz from '../components/SpectralAttackViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
+import { SG1C_THEOREMS } from '../data/sg1c-theta-trap-theorems.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
-const TRAP_B = (Math.sqrt(73) - 5) / 8;   // minimal-gap trap: sharp threshold ~0.443
+const TRAP_B = SG1C_THEOREMS.theoremB.trapLevel;  // minimal-gap trap: sharp threshold ~0.443
 const TRAP_CSTAR = Math.sqrt(2 + Math.sqrt(3)) - 1;  // isolation onset ~0.93185 (R2-T2 closed form)
 const EXCURSION_CAP_DRESSED = 0.5073;                 // dressed symmetric excursion peak
 

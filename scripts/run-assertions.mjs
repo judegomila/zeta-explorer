@@ -1930,6 +1930,13 @@ const DATA_MODULES = [
   // W = 1e-2 .. 1e-10 (spread 1.4e-14). Numerical verification + flatness tripwire
   // of the g-coordinate-artifact cancellation; no new bound, PT 0.2 stays SOTA.
   '/src/data/imp-3029-reconditioning-flatness.js',
+  // imp-3047: tabulate the route-1 IMPOSSIBILITY lower bound C_Lip >= C_shock/(2 sqrt(W_1))
+  // across a decreasing W_1 grid (1e-2 .. 1e-12) on the cusp law g_min = C_shock W_1^{1/2}.
+  // The realized Lipschitz quotient reproduces C_shock/(2 sqrt(W_1)) to machine precision,
+  // climbs ~1e5 across ten decades, and the log-log fit pins the divergence exponent at -1/2
+  // — foreclosing a finite N-uniform global-W_1 C_Lip. Impossibility certificate, NOT a beat;
+  // PT 0.2 stays SOTA.
+  '/src/data/ch-lip-impossibility-w1grid-2026-06-30.js',
   // imp-2688: pin the E_flow Gronwall amplification constant C_G = 2/y_star^2 on
   // the explicit mesoscopic Trudgian density-floor strip (N-uniform), distinct
   // from the imp-2640 microscopic 2/g^2 wall.

@@ -372,6 +372,16 @@ export default function RHProofStateDashboardPage() {
         <div style={{ fontSize: 11, color: '#64748b', marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
           E(N) = E_trunc + E_flow + E_coll at N* = 10⁴
         </div>
+        {/* imp-3189: econn-metric-rearchitecture grounded correction */}
+        <div style={{ fontSize: 11, color: '#94a3b8', marginBottom: 10, padding: '6px 10px', borderRadius: 5, background: 'rgba(99,102,241,0.07)', border: '1px solid rgba(99,102,241,0.22)', lineHeight: 1.55 }}>
+          <strong style={{ color: '#a5b4fc' }}>Metric note (econn-rearch, 2026-06-30):</strong>{' '}
+          The bracket |&#x39B;+t_c| &le; E_trunc + E_flow + E_coll is a{' '}
+          <em>scalar additive triangle inequality over collision times</em>, NOT a global W_1-metric
+          statement. E_trunc (height-tail zero-density + Gaussian kernel) and E_flow (per-particle
+          RvM drift-tail + Gronwall) are derived against height and measure control respectively &mdash;{' '}
+          <strong style={{ color: '#e2e8f0' }}>only E_coll uses W_1</strong>. The chain already
+          mixes global-in-height and global-in-measure control; the bracket forces no single metric.
+        </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 4 }}>
           {/* E_trunc */}
           <div style={{ display: 'flex', gap: 12, padding: '9px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)', alignItems: 'flex-start' }}>

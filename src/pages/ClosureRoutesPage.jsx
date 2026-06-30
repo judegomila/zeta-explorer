@@ -35,6 +35,7 @@ import { asymOnsetDrho, SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asy
 import { IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID } from '../data/imp-3146-residual-gap-limit-aU-grid.js';
 import { IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING } from '../data/imp-3153-cosh-monomial-conditioning-ceiling.js';
 import { IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS } from '../data/imp-3155-onset-decay-next-order-corrections.js';
+import { IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE } from '../data/imp-3175-overflow-fraction-resolution-reconcile.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -2178,6 +2179,144 @@ function NextOrderConvergenceCorrectionViz() {
   );
 }
 
+function OverflowFractionResolutionSweepViz() {
+  const M = IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE;
+  const sweep = M.measured.sweep; // [{N, overflowFraction}, ...]
+  const offline = { N: 204800, frac: M.measured.offlineConvergedOverflow }; // ~0.2092
+  const anchor194 = M.measured.recordedImp3144Overflow; // 0.194
+  const anchor200 = M.measured.recordedImp3154Overflow; // 0.200
+  const asymptote = M.measured.offlineConvergedOverflow; // ~0.2092
+
+  const svgW = 520, svgH = 190, padL = 44, padR = 12, padT = 14, padB = 30;
+  const chartW = svgW - padL - padR;
+  const chartH = svgH - padT - padB;
+
+  // Log x-axis: N from 80 to 250000
+  const xMin = Math.log(80), xMax = Math.log(250000);
+  const xScale = (n) => padL + ((Math.log(n) - xMin) / (xMax - xMin)) * chartW;
+
+  // Linear y-axis: 0.184 to 0.214
+  const yMin = 0.184, yMax = 0.214;
+  const yScale = (v) => padT + chartH * (1 - (v - yMin) / (yMax - yMin));
+
+  const allPoints = [...sweep.map((r) => ({ N: r.N, frac: r.overflowFraction })), offline];
+  const polyline = allPoints
+    .map((p) => `${xScale(p.N).toFixed(1)},${yScale(p.frac).toFixed(1)}`)
+    .join(' ');
+
+  const yTicks = [0.185, 0.190, 0.195, 0.200, 0.205, 0.210];
+  const xTickNs = [100, 200, 400, 800, 1600, 3200, 6400, 204800];
+
+  return (
+    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid #06b6d4', background: 'rgba(6,182,212,0.03)' }}>
+      <h3 style={{ color: '#06b6d4', marginTop: 0, fontSize: 15 }}>
+        Overflow Fraction Resolution Sweep (imp-3175): Monotone Convergence to ~0.209
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+        Refining the tau-grid (N panels) moves the overflow fraction{' '}
+        <strong style={{ color: '#e2e8f0' }}>monotonically UP</strong>, converging to ~0.2092 at
+        N&rarr;&infin; — not down to the coarse 0.194 anchor. Both recorded anchors (imp-3144: 0.194;
+        imp-3154: 0.200) under-report the resolution-converged genuine fraction ~0.209.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+          {/* Grid lines */}
+          {yTicks.map((v) => (
+            <line key={v} x1={padL} y1={yScale(v)} x2={svgW - padR} y2={yScale(v)}
+              stroke="#1e293b" strokeWidth={1} />
+          ))}
+
+          {/* Stale anchor: 0.194 */}
+          <line x1={padL} y1={yScale(anchor194)} x2={svgW - padR} y2={yScale(anchor194)}
+            stroke="#ef4444" strokeWidth={1.5} strokeDasharray="5 3" />
+          <text x={padL + 4} y={yScale(anchor194) - 3} fill="#ef4444" fontSize={9}>
+            stale 0.194 (imp-3144)
+          </text>
+
+          {/* Stale anchor: 0.200 */}
+          <line x1={padL} y1={yScale(anchor200)} x2={svgW - padR} y2={yScale(anchor200)}
+            stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="5 3" />
+          <text x={padL + 4} y={yScale(anchor200) - 3} fill="#f59e0b" fontSize={9}>
+            stale 0.200 (imp-3154 N=200)
+          </text>
+
+          {/* Converged asymptote ~0.2092 */}
+          <line x1={padL} y1={yScale(asymptote)} x2={svgW - padR} y2={yScale(asymptote)}
+            stroke="#10b981" strokeWidth={1.5} strokeDasharray="2 2" />
+          <text x={svgW - padR - 2} y={yScale(asymptote) - 3} fill="#10b981" fontSize={9} textAnchor="end">
+            converged ~0.2092
+          </text>
+
+          {/* Main polyline */}
+          <polyline points={polyline} fill="none" stroke="#06b6d4" strokeWidth={2} />
+
+          {/* Live N dots */}
+          {sweep.map((r) => (
+            <circle key={r.N}
+              cx={xScale(r.N)} cy={yScale(r.overflowFraction)} r={4}
+              fill="#06b6d4" stroke="#0e7490" strokeWidth={1} />
+          ))}
+
+          {/* Offline point (diamond) */}
+          {(() => {
+            const cx = xScale(offline.N), cy = yScale(offline.frac), d = 5;
+            return (
+              <polygon
+                points={`${cx},${cy - d} ${cx + d},${cy} ${cx},${cy + d} ${cx - d},${cy}`}
+                fill="#a78bfa" stroke="#7c3aed" strokeWidth={1}
+              />
+            );
+          })()}
+          <text x={xScale(offline.N)} y={yScale(offline.frac) - 8} fill="#a78bfa" fontSize={8} textAnchor="middle">
+            offline
+          </text>
+
+          {/* Y-axis labels */}
+          {yTicks.map((v) => (
+            <text key={v} x={padL - 3} y={yScale(v) + 3.5} fill="#475569" fontSize={8} textAnchor="end">
+              {v.toFixed(3)}
+            </text>
+          ))}
+
+          {/* X-axis ticks */}
+          {xTickNs.map((n) => {
+            const x = xScale(n);
+            const label = n >= 1000 ? `${(n / 1000).toFixed(0)}k` : `${n}`;
+            return (
+              <g key={n}>
+                <line x1={x} y1={svgH - padB} x2={x} y2={svgH - padB + 4} stroke="#475569" />
+                <text x={x} y={svgH - padB + 12} fill="#475569" fontSize={7.5} textAnchor="middle">
+                  {label}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* Axes */}
+          <line x1={padL} y1={padT} x2={padL} y2={svgH - padB} stroke="#334155" />
+          <line x1={padL} y1={svgH - padB} x2={svgW - padR} y2={svgH - padB} stroke="#334155" />
+
+          {/* Axis labels */}
+          <text x={10} y={padT + chartH / 2} fill="#94a3b8" fontSize={9.5} textAnchor="middle"
+            transform={`rotate(-90, 10, ${padT + chartH / 2})`}>
+            overflow fraction
+          </text>
+          <text x={padL + chartW / 2} y={svgH - 2} fill="#94a3b8" fontSize={9.5} textAnchor="middle">
+            N (tau-grid panels, log scale)
+          </text>
+        </svg>
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 10, fontSize: 11, color: '#64748b' }}>
+        <span><span style={{ color: '#06b6d4' }}>&#9679;</span> live N sweep (O(N) factorization)</span>
+        <span><span style={{ color: '#a78bfa' }}>&#9670;</span> offline N=204800</span>
+        <span><span style={{ color: '#ef4444' }}>&#8212;&#8212;</span> stale 0.194 anchor</span>
+        <span><span style={{ color: '#f59e0b' }}>&#8212;&#8212;</span> stale 0.200 anchor</span>
+        <span><span style={{ color: '#10b981' }}>&#8943;</span> converged ~0.2092</span>
+      </div>
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function ClosureRoutesPage() {
   return (
@@ -2411,6 +2550,12 @@ export default function ClosureRoutesPage() {
           Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
         </p>
       </div>
+
+      {/* ─── imp-3175: overflow fraction resolution sweep viz ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Overflow Fraction Resolution Sweep (imp-3175)
+      </h2>
+      <OverflowFractionResolutionSweepViz />
 
       {/* ─── imp-3065: independent quadrature cross-check ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

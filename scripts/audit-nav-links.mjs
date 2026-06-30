@@ -201,6 +201,62 @@ for (const r of routes) {
   }
 }
 
+// ── 5. imp-3014: finding-module coverage check ───────────────────────────────
+//
+// Key honest-status finding modules must be surfaced (imported) on at least
+// one page, otherwise they are "dark data" — research done but never shown.
+//
+// Two tiers:
+//   REQUIRED — currently surfaced; hard-fail if they become un-imported
+//              (regression guard prevents silently dropping live findings).
+//   BACKLOG  — not yet surfaced; warn only (open content tickets exist).
+//
+// To promote a backlog module: move it to REQUIRED once a page imports it.
+// To add a new finding module: decide its tier and add it to the right set.
+
+const FINDING_MODULES_REQUIRED = new Set([
+  'src/data/ch-wall-frontier-verdict-2026-06-26.js',
+  'src/data/maxfanout-honest-status-2026-06-17.js',
+  'src/data/full-route-map-2026-06-19.js',
+  'src/data/proof-chain-snapshot-2026-06-23.js',
+  'src/data/section26-verdict-volterra-not-a-reduction-2026-06-18.js',
+]);
+
+const FINDING_MODULES_BACKLOG = new Set([
+  'src/data/sg1c-theta-trap-theorems.js',
+  'src/data/ch-lip-basin-conditional-2026-06-30.js',
+]);
+
+// Collect every data-module path imported by any page.
+const pageDataImports = new Set();
+for (const filePath of walkJsx(path.join(ROOT, 'src/pages'))) {
+  const src = fs.readFileSync(filePath, 'utf8');
+  const re = /from\s+['"](\.[^'"]*\/data\/[^'"]+)['"]/g;
+  let m2;
+  while ((m2 = re.exec(src)) !== null) {
+    const pageDir = path.dirname(filePath);
+    let resolved = path.resolve(pageDir, m2[1]);
+    if (!path.extname(resolved)) resolved += '.js';
+    pageDataImports.add(path.relative(ROOT, resolved));
+  }
+}
+
+let findingModulesChecked = 0;
+for (const mod of FINDING_MODULES_REQUIRED) {
+  findingModulesChecked += 1;
+  if (!pageDataImports.has(mod)) {
+    broken.push({ source: 'finding-module not surfaced on any page (REQUIRED)', link: mod });
+  }
+}
+for (const mod of FINDING_MODULES_BACKLOG) {
+  findingModulesChecked += 1;
+  if (!pageDataImports.has(mod)) {
+    warnings.push(
+      `finding module not yet surfaced on any page (backlog): "${mod}" — open content ticket to surface it`,
+    );
+  }
+}
+
 // ── Report ────────────────────────────────────────────────────────────────────
 
 const timestamp = new Date().toISOString();
@@ -208,6 +264,7 @@ console.log(`\nNav link audit  ${timestamp}`);
 console.log(`Routes defined in App.jsx: ${routes.size}`);
 console.log(`NAV_GROUPS entries checked: ${navLinks.length}`);
 console.log(`Viz routes checked vs index: ${vizRouteCount} (registry entries: ${registryRoutes.size})`);
+console.log(`Finding modules checked: ${findingModulesChecked} (required: ${FINDING_MODULES_REQUIRED.size}, backlog: ${FINDING_MODULES_BACKLOG.size})`);
 
 if (warnings.length > 0) {
   console.log('\nWarnings:');

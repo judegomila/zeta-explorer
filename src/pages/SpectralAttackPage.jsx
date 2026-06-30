@@ -7,6 +7,7 @@ import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL, SG1C_R1T4_BASIN_GRID, SG1C
 import { CTHETA_FLAT_INVARIANT, CTHETA_ON_BASIN_VANISHING } from '../data/imp-3022-ctheta-basin-scaling.js';
 import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orthogonalized-basis-conditioning.js';
 import { SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
+import { SG1C_MINGAP_SELECTOR_DISCONTINUITY } from '../data/sg1c-mingap-selector-discontinuity-2026-06-30.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -1523,6 +1524,146 @@ function AsymIsolationClosedFormPanel() {
   );
 }
 
+// imp-3203: viz of the imp-3173 minimal-gap selector discontinuity
+function MinGapSelectorDiscontinuityViz() {
+  const d = SG1C_MINGAP_SELECTOR_DISCONTINUITY;
+
+  const data = useMemo(() => {
+    const R = 64;
+    const vel = (x) => x.map((xi, i) => -x.reduce((s, xj, j) => (i === j ? s : s + 1 / (xi - xj)), 0));
+    const gaps = (x) => { const g = []; for (let i = 1; i < x.length; i++) g.push(x[i] - x[i - 1]); return g; };
+    function cfg(g) { const x = [-1, 0, g]; for (let k = 1; k <= R; k++) x.push(g + k); return x.sort((a, b) => a - b); }
+    function leftBranch(g) {
+      const x = cfg(g), G = gaps(x), v = vel(x), gi = 1;
+      const dg = v[gi + 1] - v[gi], d1 = G[gi - 1], near = gi, nbr = gi - 1;
+      return dg / d1 - (g * (v[near] - v[nbr])) / (d1 * d1);
+    }
+    function rightBranch(g) {
+      const x = cfg(g), G = gaps(x), v = vel(x), gi = 1;
+      const dg = v[gi + 1] - v[gi], d1 = G[gi + 1], near = gi + 1, nbr = gi + 2;
+      return dg / d1 - (g * (v[nbr] - v[near])) / (d1 * d1);
+    }
+    function naiveSel(g) {
+      const x = cfg(g), G = gaps(x), gi = G.indexOf(Math.min(...G));
+      const pi = gi, pj = gi + 1;
+      let d1 = Infinity, near = -1, nbr = -1;
+      if (gi - 1 >= 0 && G[gi - 1] < d1) { d1 = G[gi - 1]; near = pi; nbr = gi - 1; }
+      if (gi + 1 < G.length && G[gi + 1] < d1) { d1 = G[gi + 1]; near = pj; nbr = gi + 2; }
+      if (near < 0) return null;
+      const v = vel(x), dg = v[pj] - v[pi];
+      const dd1 = x[nbr] > x[near] ? v[nbr] - v[near] : v[near] - v[nbr];
+      return dg / d1 - (g * dd1) / (d1 * d1);
+    }
+    const N = 280, lo = 0.901, hi = 0.905;
+    const left = [], right = [], naive = [];
+    for (let i = 0; i <= N; i++) {
+      const g = lo + (hi - lo) * i / N;
+      left.push({ g, v: leftBranch(g) });
+      right.push({ g, v: rightBranch(g) });
+      const nv = naiveSel(g);
+      if (nv !== null) naive.push({ g, v: nv });
+    }
+    return { left, right, naive };
+  }, []);
+
+  const svgW = 580, svgH = 210;
+  const padL = 50, padR = 18, padT = 18, padB = 34;
+  const chartW = svgW - padL - padR, chartH = svgH - padT - padB;
+  const gLo = 0.901, gHi = 0.905, vLo = -0.85, vHi = 0.28;
+  const xS = (g) => padL + (g - gLo) / (gHi - gLo) * chartW;
+  const yS = (v) => padT + chartH - (v - vLo) / (vHi - vLo) * chartH;
+  const toPath = (pts) => pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${xS(p.g).toFixed(1)},${yS(p.v).toFixed(1)}`).join(' ');
+
+  const xOnset = xS(d.trueOnsetClosedForm);
+  const xFalse = xS(d.scanFalseOnset);
+  const yZero = yS(0);
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #8b5cf6" }}>
+      <h3 style={{ color: "#8b5cf6", fontSize: 16, marginBottom: 4 }}>
+        Minimal-Gap Selector Discontinuity (imp-3173): LEFT vs RIGHT Branch
+      </h3>
+      <p style={{ color: "#94a3b8", fontSize: 13, lineHeight: 1.7, marginBottom: 12 }}>
+        The imp-3045 bisection was trapped by a discrete-selector round-off artifact.
+        Near g&nbsp;&isin;&nbsp;(0.901,&nbsp;0.905) the naive strict-"&lt;" d<sub>1</sub> tie-break
+        flips <strong style={{ color: "#e2e8f0" }}>{d.selectorFlipsNearOnset.toLocaleString()} times</strong>,
+        switching between two smooth branches:
+        the <strong style={{ color: "#06b6d4" }}>LEFT (correct)</strong> branch that crosses zero at
+        the true c<sub>asym</sub>, and the <strong style={{ color: "#ef4444" }}>RIGHT (spurious)</strong> branch
+        flat at ~&minus;0.59 with no zero near the onset.
+      </p>
+
+      <svg viewBox={`0 0 ${svgW} ${svgH}`} style={{ width: "100%", maxWidth: svgW, display: "block" }}>
+        <line x1={padL} y1={yZero} x2={svgW - padR} y2={yZero} stroke="#334155" strokeWidth={1} />
+
+        {data.naive.map((p, i) => (
+          <circle key={i} cx={xS(p.g).toFixed(1)} cy={yS(p.v).toFixed(1)} r={1.2}
+            fill={p.v > -0.3 ? "#06b6d4" : "#ef4444"} opacity={0.35} />
+        ))}
+
+        <path d={toPath(data.right)} stroke="#ef4444" strokeWidth={1.5} fill="none" strokeDasharray="4 2" opacity={0.85} />
+        <path d={toPath(data.left)} stroke="#06b6d4" strokeWidth={2} fill="none" />
+
+        <line x1={xOnset} y1={padT} x2={xOnset} y2={padT + chartH}
+          stroke="#10b981" strokeWidth={1.5} strokeDasharray="5 3" />
+        <text x={xOnset + 3} y={padT + 13} fill="#10b981" fontSize={8}>c_asym</text>
+        <text x={xOnset + 3} y={padT + 22} fill="#10b981" fontSize={7.5}>{d.trueOnsetClosedForm.toFixed(6)}</text>
+
+        <line x1={xFalse} y1={padT} x2={xFalse} y2={padT + chartH}
+          stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="3 2" />
+        <text x={xFalse + 3} y={padT + 35} fill="#f59e0b" fontSize={8}>imp-3045</text>
+        <text x={xFalse + 3} y={padT + 45} fill="#f59e0b" fontSize={7.5}>{d.scanFalseOnset.toFixed(7)}</text>
+
+        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#334155" strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke="#334155" strokeWidth={1} />
+
+        {[-0.8, -0.6, -0.4, -0.2, 0.0, 0.2].map((v) => (
+          <g key={v}>
+            <text x={padL - 4} y={yS(v) + 3} fill="#475569" fontSize={7.5} textAnchor="end">{v.toFixed(1)}</text>
+            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#334155" />
+          </g>
+        ))}
+        <text x={12} y={padT + chartH / 2} fill="#94a3b8" fontSize={8.5} textAnchor="middle"
+          transform={`rotate(-90, 12, ${padT + chartH / 2})`}>
+          d&rho;/ds
+        </text>
+
+        {[0.901, 0.902, 0.903, 0.904, 0.905].map((v) => (
+          <g key={v}>
+            <text x={xS(v)} y={padT + chartH + 13} fill="#475569" fontSize={7.5} textAnchor="middle">
+              {v.toFixed(3)}
+            </text>
+            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke="#334155" />
+          </g>
+        ))}
+        <text x={padL + chartW / 2} y={svgH - 3} fill="#94a3b8" fontSize={9} textAnchor="middle">
+          g (isolation ratio, R=64 approximation)
+        </text>
+      </svg>
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 8, fontSize: 11 }}>
+        {[
+          { col: "#06b6d4", label: "LEFT branch: smooth, crosses zero at true c_asym (tight -1 neighbour)" },
+          { col: "#ef4444", label: "RIGHT branch: flat ~-0.59, no zero near onset (spurious lattice neighbour)" },
+          { col: "#8b5cf6", label: "Naive selector scatter: chaotic jumps between branches (~1000 flips)" },
+          { col: "#10b981", label: "c_asym = 0.902790 (true continuous onset, imp-3170)" },
+          { col: "#f59e0b", label: "imp-3045 false onset 0.903236 (trapped above by spurious RIGHT negatives)" },
+        ].map(({ col, label }) => (
+          <div key={label} style={{ display: "flex", alignItems: "center", gap: 5 }}>
+            <div style={{ width: 9, height: 9, borderRadius: "50%", background: col, flexShrink: 0 }} />
+            <span style={{ color: "#94a3b8" }}>{label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.25)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
+        <div style={{ color: "#ef4444", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Honest status</div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.7 }}>{d.honest}</div>
+      </div>
+    </div>
+  );
+}
+
 export default function SpectralAttackPage() {
   return (
     <div className="page">
@@ -1864,6 +2005,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Asymmetric Multi-Body Isolation Closed Form (imp-3185 surfaces imp-3170) ─── */}
       <AsymIsolationClosedFormPanel />
+
+      {/* ─── Minimal-Gap Selector Discontinuity Viz (imp-3203 surfaces imp-3173) ─── */}
+      <MinGapSelectorDiscontinuityViz />
 
       {/* ─── Off-Basin C_Theta Flat Invariant 16/27 (imp-3098 surfaces imp-3067) ─── */}
       <CThetaFlatInvariantPanel />

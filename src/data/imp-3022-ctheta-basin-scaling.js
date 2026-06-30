@@ -292,6 +292,14 @@ export const CTHETA_BASIN_SCALING_ASSERTIONS = [
     holds: () => Math.abs(THETA(RHO_STAR, 1) - 0.25) < 1e-12 && RHO_STAR < 0.72,
   },
   {
+    id: 'ctheta-regime-threshold-d1-invariant',
+    description: 'imp-3082: THETA(g,d1) with g=(2/3)*d1 equals exactly 1/4 for any d1 -- the threshold rho*=2/3 is a scale-invariant property of the ratio rho=g/d1, not of absolute values; tested across five decades of d1',
+    holds: () => {
+      const d1Grid = [0.01, 0.1, 1.0, 10.0, 100.0];
+      return d1Grid.every((d1) => Math.abs(THETA((2 / 3) * d1, d1) - 0.25) < 1e-12);
+    },
+  },
+  {
     id: 'ctheta-flat-invariant-pinned-16-over-27',
     description: 'imp-3067: the off-basin product g0 * dTheta/dW_1 stays pinned at 16/27 to machine precision across a 20-halving (~6-decade) sweep, certifying the 1/g0 scale law directly',
     holds: () => CTHETA_FLAT_INVARIANT.maxDeviationFrom16over27 < 1e-9

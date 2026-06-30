@@ -105,3 +105,130 @@ export const CH_LIP_BASIN_ASSERTIONS = [
 for (const a of CH_LIP_BASIN_ASSERTIONS) {
   if (!a.holds()) throw new Error(`ch-lip-basin-conditional assertion failed: ${a.id}`);
 }
+
+// imp-3061: BASIN SAFETY-MARGIN SENSITIVITY to a downward revision of the open
+// global multi-body isolation constant. The basin certification rests ONLY on the
+// strict separation BASIN_RHO < (open constant): the Lemma R2-T sign law gives
+// d(rho)/ds < 0 on the basin so long as the constant stays strictly above 0.72.
+// We quantify how far the open constant (currently bracketed in (0.927, 0.943))
+// could be revised DOWNWARD before that separation -- hence the cap -- fails.
+// This does NOT close the global constant; it only bounds the downward robustness.
+const basinMargin = (floor) => floor - BASIN_RHO;                       // certifies iff > 0
+const BASIN_MARGIN_CRITICAL_FLOOR = BASIN_RHO;                          // 0.72: margin hits exactly 0 here
+const BASIN_MARGIN_ABS_DROP_ROOM = ASYM_SCAN_INF - BASIN_RHO;          // 0.207 absolute headroom from current floor
+const BASIN_MARGIN_REL_DROP_ROOM = BASIN_MARGIN_ABS_DROP_ROOM / ASYM_SCAN_INF; // 0.2233: ~22.33% of current floor
+const BASIN_MARGIN_LADDER = [ASYM_SCAN_INF, 0.90, 0.85, 0.80, 0.75, BASIN_RHO].map((floor) => ({
+  floor,
+  margin: basinMargin(floor),
+  certifies: basinMargin(floor) > 0,
+}));
+
+export const BASIN_MARGIN_SENSITIVITY = {
+  ticket: 'imp-3061',
+  date: '2026-06-30',
+  basinIsolationRatio: BASIN_RHO,                  // 0.72 Theorem-C isolated-pair cap
+  currentBracketFloor: ASYM_SCAN_INF,             // 0.927 current open lower bracket
+  currentMargin: basinMargin(ASYM_SCAN_INF),       // 0.207 (matches basinSafetyMargin)
+  criticalFloor: BASIN_MARGIN_CRITICAL_FLOOR,      // 0.72: the open constant could fall to here before separation vanishes
+  absDropRoom: BASIN_MARGIN_ABS_DROP_ROOM,         // 0.207 absolute downward headroom
+  relDropRoom: BASIN_MARGIN_REL_DROP_ROOM,         // 0.2233 fractional headroom relative to current floor
+  ladder: BASIN_MARGIN_LADDER,                     // margin at hypothetical revised floors down to the critical 0.72
+  honest: 'The critical floor is exactly BASIN_RHO=0.72 where the margin vanishes; the strict separation 0.72 < floor is what certifies the cap. The global multi-body constant stays OPEN in (0.927,0.943) -- this only quantifies the downward robustness of the 0.72 basin separation, it does NOT close that constant.',
+};
+
+export const BASIN_MARGIN_ASSERTIONS = [
+  {
+    id: 'basin-margin-critical-floor-is-rho',
+    description: 'the basin certification fails exactly when a revised floor reaches BASIN_RHO=0.72 (margin 0)',
+    holds: () => BASIN_MARGIN_CRITICAL_FLOOR === BASIN_RHO && Math.abs(basinMargin(BASIN_RHO)) < 1e-12,
+  },
+  {
+    id: 'basin-margin-abs-drop-room-0p207',
+    description: 'absolute drop room from the current 0.927 floor to the 0.72 critical floor is 0.207 (= basinSafetyMargin)',
+    holds: () => Math.abs(BASIN_MARGIN_ABS_DROP_ROOM - 0.207) < 1e-9
+      && Math.abs(BASIN_MARGIN_ABS_DROP_ROOM - CH_LIP_BASIN_CONDITIONAL.basinSafetyMargin) < 1e-12,
+  },
+  {
+    id: 'basin-margin-rel-drop-room-22pct',
+    description: 'the open constant may be revised down ~22.33% of its current floor before the separation vanishes',
+    holds: () => Math.abs(BASIN_MARGIN_REL_DROP_ROOM - 0.2233) < 5e-4,
+  },
+  {
+    id: 'basin-margin-ladder-monotone-and-last-zero',
+    description: 'margin ladder decreases monotonically to exactly 0 at floor=0.72, and only that 0.72 rung fails to certify',
+    holds: () => BASIN_MARGIN_LADDER[BASIN_MARGIN_LADDER.length - 1].margin < 1e-12
+      && BASIN_MARGIN_LADDER[BASIN_MARGIN_LADDER.length - 1].certifies === false
+      && BASIN_MARGIN_LADDER.slice(0, -1).every((r) => r.certifies === true)
+      && BASIN_MARGIN_LADDER.every((r, i) => i === 0 || r.margin < BASIN_MARGIN_LADDER[i - 1].margin),
+  },
+];
+
+for (const a of BASIN_MARGIN_ASSERTIONS) {
+  if (!a.holds()) throw new Error(`basin-margin-sensitivity assertion failed: ${a.id}`);
+}
+
+// imp-3062: TABULATE the gap channel across the trap interval. The module pins
+// only the two endpoints GAP_NOMINAL=gapChannel(0) and GAP_CEILING=gapChannel(1/4)
+// but never reports the intermediate sweep. We tabulate gapChannel(theta) =
+// G_MIN_N1E4 / (4 (1 - theta)) across theta in [0, 1/4] at N* = 1e4 so the full
+// nominal-to-ceiling band of the conservative trapped C_Lip_basin gap channel is
+// bounded explicitly. The function is strictly increasing and convex in theta on
+// [0,1/4] (1/(1-theta) is), so the band is exactly [GAP_NOMINAL, GAP_CEILING] with
+// the worst case at the trap ceiling Theta = 1/4. ESTIMATE only; Platt-Trudgian
+// Lambda <= 0.2 stays the rigorous SOTA, and this does NOT close the global
+// constant or convert the basin cap into a global-W_1 beat.
+const GAP_CHANNEL_THETA_GRID = [0, 0.05, 0.1, 0.15, 0.2, 0.25];
+const GAP_CHANNEL_SWEEP = GAP_CHANNEL_THETA_GRID.map((theta) => ({
+  theta,
+  gapChannel: gapChannel(theta),
+  fractionOfCeiling: gapChannel(theta) / GAP_CEILING,           // 1 at the trap ceiling
+  spreadFromNominal: gapChannel(theta) - GAP_NOMINAL,           // 0 at the basin nominal
+}));
+const GAP_CHANNEL_BAND_WIDTH = GAP_CEILING - GAP_NOMINAL;       // 3.14e-3 absolute nominal-to-ceiling spread
+const GAP_CHANNEL_BAND_REL = GAP_CHANNEL_BAND_WIDTH / GAP_NOMINAL; // 0.3333: the trap inflates the gap channel by exactly 1/3
+
+export const GAP_CHANNEL_SWEEP_TABLE = {
+  ticket: 'imp-3062',
+  date: '2026-06-30',
+  nAst: 1e4,
+  gMin: G_MIN_N1E4,
+  formula: 'gapChannel(theta) = G_MIN_N1E4 / (4 (1 - theta))',
+  thetaGrid: GAP_CHANNEL_THETA_GRID,
+  sweep: GAP_CHANNEL_SWEEP,
+  bandLow: GAP_NOMINAL,                                          // 9.42e-3 basin nominal (Theta -> 0)
+  bandHigh: GAP_CEILING,                                         // 1.257e-2 trapped ceiling (Theta = 1/4)
+  bandWidthAbs: GAP_CHANNEL_BAND_WIDTH,                          // 3.14e-3 absolute spread
+  bandWidthRel: GAP_CHANNEL_BAND_REL,                            // 0.3333 = exactly 1/3 inflation across the trap
+  honest: 'gapChannel is strictly increasing and convex on [0,1/4], so the full nominal-to-ceiling band is [GAP_NOMINAL, GAP_CEILING] with the worst case at the trap ceiling Theta=1/4. This is an ESTIMATE tabulation only -- it does NOT close the global constant nor convert the basin-conditional cap into a global-W_1 beat; Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA.',
+};
+
+export const GAP_CHANNEL_SWEEP_ASSERTIONS = [
+  {
+    id: 'gap-channel-sweep-endpoints-match-pins',
+    description: 'the swept endpoints reproduce the existing GAP_NOMINAL and GAP_CEILING pins exactly',
+    holds: () => Math.abs(GAP_CHANNEL_SWEEP[0].gapChannel - GAP_NOMINAL) < 1e-12
+      && Math.abs(GAP_CHANNEL_SWEEP[GAP_CHANNEL_SWEEP.length - 1].gapChannel - GAP_CEILING) < 1e-12,
+  },
+  {
+    id: 'gap-channel-sweep-strictly-increasing',
+    description: 'gapChannel(theta) is strictly increasing across the theta grid (1/(1-theta) is monotone on [0,1/4])',
+    holds: () => GAP_CHANNEL_SWEEP.every((r, i) => i === 0 || r.gapChannel > GAP_CHANNEL_SWEEP[i - 1].gapChannel),
+  },
+  {
+    id: 'gap-channel-sweep-band-one-third-inflation',
+    description: 'the trap inflates the gap channel by exactly 1/3 from nominal to ceiling (g_min/4 -> g_min/3)',
+    holds: () => Math.abs(GAP_CHANNEL_BAND_REL - 1 / 3) < 1e-9
+      && Math.abs(GAP_CHANNEL_BAND_WIDTH - (G_MIN_N1E4 / 3 - G_MIN_N1E4 / 4)) < 1e-12,
+  },
+  {
+    id: 'gap-channel-sweep-band-contained',
+    description: 'every swept value lies within the [GAP_NOMINAL, GAP_CEILING] band with fractionOfCeiling in (0,1]',
+    holds: () => GAP_CHANNEL_SWEEP.every((r) => r.gapChannel >= GAP_NOMINAL - 1e-12
+      && r.gapChannel <= GAP_CEILING + 1e-12
+      && r.fractionOfCeiling > 0 && r.fractionOfCeiling <= 1 + 1e-12),
+  },
+];
+
+for (const a of GAP_CHANNEL_SWEEP_ASSERTIONS) {
+  if (!a.holds()) throw new Error(`gap-channel-sweep assertion failed: ${a.id}`);
+}

@@ -752,6 +752,36 @@ export const glossary = [
     relatedTerms: ['Operator-side mu^pass vocabulary (de-homogenized R, endpoint-Hankel gap)', 'Orthogonalization vocabulary (Cholesky L, Loewdin P^{-1/2}, pencil identity, basis-invariant norm)', 'excess fraction phi'],
     link: '/closure-routes',
   },
+  {
+    term: "digamma transcendental isolation onset (c_asym)",
+    category: 'constant',
+    definition:
+      "The asymmetric multi-body SG1c isolation onset constant c_asym = 0.90279, defined as the " +
+      "unique root of the equation psi(g+1) + gamma + 2g - 2/g - 1/(g+1) = 0, where psi is the " +
+      "digamma function and gamma is the Euler-Mascheroni constant (imp-3170). " +
+      "Why transcendental: the log-derivative balance equation splits into two sides. " +
+      "The NEAREST-NEIGHBOUR side telescopes to the rational expression v_0-v_{-1} = 1/g - 2, " +
+      "closing algebraically. The OPPOSITE INFINITE UNIFORM LATTICE side does NOT telescope -- " +
+      "its log-derivative sum converges to the digamma value psi(g+1) + gamma = " +
+      "sum_{k>=1}[1/k - 1/(g+k)], an irreducibly transcendental series. " +
+      "This forces the root to be transcendental: no algebraic closed form exists for c_asym, " +
+      "unlike the symmetric single-shell onset c_sym = sqrt(2+sqrt(3)) - 1 (algebraic, one " +
+      "telescoping shell). " +
+      "Corrections from imp-3170: c_asym = 0.90279 corrects the imp-3045 numerical bracket " +
+      "~0.9032-0.9039. The Theorem-C basin constant 0.72 is safely below c_asym with margin " +
+      "c_asym - 0.72 = 0.1828 (drho/ds(0.72) = -1.1177 < 0). " +
+      "Honest scope: this is deterministic CM-flow algebra on the opposite-unit-lattice R->inf " +
+      "class only. The GLOBAL asymmetric isolation constant remains OPEN, bracketed ~(0.9016, 0.9028). " +
+      "Basin preserved; Platt-Trudgian Lambda <= 0.2 stays SOTA. Not RH-hard; no QED.",
+    firstUsed: "imp-3170 (sg1c-asym isolation closed-form), 2026",
+    relatedTerms: [
+      'asymmetric isolation onset (sg1c R2-T)',
+      'symmetric isolation onset (c*)',
+      'Theorem-C basin constant (0.72)',
+      'telescoping sum',
+    ],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -648,6 +648,42 @@ export const glossary = [
     relatedTerms: ['mu^pass overflow-cover vocabulary (D_raw, D_pass, E(a))', 'a*U scale invariant', 'excess fraction phi', 'cosh-completion'],
     link: '/closure-routes',
   },
+  {
+    term: "Orthogonalization vocabulary (Cholesky L, Loewdin P^{-1/2}, pencil identity, basis-invariant norm)",
+    category: 'method',
+    definition:
+      "Four tightly-coupled concepts introduced in imp-3086 (orthogonalized basis conditioning) to " +
+      "assess whether the imp-3066 off-diagonal Hankel obstruction is intrinsic or a basis-conditioning " +
+      "artifact of the ill-conditioned raw monomial basis phi_j = (tau/U)^j in the passive cosh inner product. " +
+      "(1) TRIANGULAR GRAM-SCHMIDT L (Cholesky factor) -- write the full passive cosh Gram as P = G G^T " +
+      "(Cholesky), then set L = G^{-1} (lower-triangular inverse). The rescaled basis psi = L phi is " +
+      "cosh-orthonormal: L P L^T = I exactly. The TRUE de-homogenized pencil operator in this basis is " +
+      "R_orth = L H L^T, where H is the shear sinh Hankel form. Because the passive Gram is now the " +
+      "identity, R_orth is the genuine contraction matrix whose spectral norm decides the RH-equivalent " +
+      "operator inequality -- no residual conditioning from the basis. " +
+      "(2) LOEWDIN (SYMMETRIC) ORTHOGONALIZATION P^{-1/2} -- an independent second witness: diagonalize " +
+      "P = V diag(lambda_i) V^T and form P^{-1/2} = V diag(lambda_i^{-1/2}) V^T. The symmetric " +
+      "de-homogenized operator is R_sym = P^{-1/2} H P^{-1/2}. This is a DIFFERENT orthonormalization " +
+      "of phi in the same cosh inner product (it minimizes the change-of-basis transformation), so the " +
+      "two orthogonalizations together test whether results depend on the choice of orthonormalization. " +
+      "(3) MATRIX-PENCIL IDENTITY -- the key algebraic fact tying (1) and (2): for any invertible L with " +
+      "L P L^T = I, det(L H L^T - lambda I) = det(L)^2 det(H - lambda P). This means R_orth and R_sym " +
+      "share the spectrum of the generalized pencil (H, P), independent of the specific orthonormalization " +
+      "chosen. Both eigenvalue sets and hence both operator norms must be identical up to numerical precision. " +
+      "(4) BASIS-INVARIANT OPERATOR NORM -- the headline finding: ||R_orth|| and ||R_sym|| agree to ~1e-13 " +
+      "(relative difference < 1e-7). The operator norm of the true de-homogenized pencil is a BASIS " +
+      "INVARIANT, not a conditioning artifact of the raw monomial basis. Yet orthogonalizing the FULL " +
+      "passive Gram collapses the imp-3066 diagonal-only numbers dramatically (||R||: 4.62 -> 0.99, " +
+      "operator/diagonal gap: 3.63 -> 0.09, off-diagonal Frobenius: 4.08 -> 0.69): the imp-3066 measured " +
+      "gap was LARGELY a basis-conditioning artifact. A strictly-positive residual gap (~0.088) survives " +
+      "orthogonalization, confirming the off-diagonal endpoint-Hankel obstruction is real but much smaller. " +
+      "Honest scope: this is a STRUCTURAL/DIAGNOSTIC result on the representative monomial truncation (NOT " +
+      "the section-26 Gram); the operator norm carries no RH verdict and positivity was not attempted. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3086 (orthogonalized basis conditioning), 2026",
+    relatedTerms: ['Operator-side mu^pass vocabulary (de-homogenized R, endpoint-Hankel gap)', 'a*U scale invariant', 'excess fraction phi'],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

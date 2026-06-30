@@ -27,6 +27,7 @@ import { IMP3105_EXCESS_FRACTION_CROSSOVER_LANDMARKS } from '../data/imp-3105-ex
 import { C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108 } from '../data/imp-3108-c-shock-margin-cross-validation.js';
 import { IMP3064_DEFICIT_EXCESS_FRACTION_GRID } from '../data/imp-3064-deficit-excess-fraction-grid.js';
 import { IMP3065_RESIDUAL_DEFICIT_QUADRATURE } from '../data/imp-3065-residual-deficit-quadrature-2026-06-30.js';
+import { IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION } from '../data/imp-3066-offdiagonal-hankel-obstruction.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 const R = CLOSURE_ROUTES;
@@ -339,6 +340,136 @@ function ConjectureCard({ conj, accent }) {
 
       <p style={{ marginTop: 10, color: '#94a3b8', fontSize: 12, lineHeight: 1.7 }}>
         <em>{conj.note}</em>
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3066 off-diagonal endpoint-Hankel obstruction card ────────────────────
+// Surfaces the lone operator-positivity obstruction the complete scalar mu^pass
+// cover leaves untouched: the off-diagonal Hankel cross-terms of the shear Gram.
+// Shows diagonal R_jj (scalar cover, all < 1) vs operator norm ||R||, the gap,
+// and all six off-diagonal R entries, all module-sourced from imp-3066.
+function OffDiagHankelObstructionPanel() {
+  const M = IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.measured;
+  const con = IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.construction;
+  const deg = con.degree;
+  const diagR = M.diagonalOfR;
+  const opNorm = M.operatorNorm;
+  const rDiagMax = M.rDiagMax;
+  const gap = M.operatorDiagonalGap;
+
+  const W = 640, H = 260, ML = 52, MR = 24, MT = 22, MB = 44;
+  const n = diagR.length;
+  const yMax = Math.ceil(opNorm * 10) / 10 + 0.05;
+
+  const px = (i) => ML + (i / (n)) * (W - ML - MR);
+  const barW = (W - ML - MR) / n * 0.55;
+  const py = (v) => H - MB - (v / yMax) * (H - MT - MB);
+
+  const yTicks = [0, 0.2, 0.4, 0.6, 0.8, 1.0];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #ef4444', background: 'rgba(239,68,68,0.04)' }}>
+      <h3 style={{ color: '#ef4444', marginTop: 0 }}>
+        Scalar cover pins diagonal below 1 — operator norm overshoots (DEG={deg} monomial truncation)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The imp-3007 scalar cover drives the residual deficit to exactly 0, which is the NECESSARY
+        diagonal condition: every R<sub>jj</sub>&thinsp;=&thinsp;[&#x222B;&thinsp;sinh&thinsp;&phi;<sub>j</sub><sup>2</sup>]/[&#x222B;&thinsp;cosh&thinsp;&phi;<sub>j</sub><sup>2</sup>]
+        sits strictly below 1.
+        But the shear Gram G<sub>shear</sub> is a genuine off-diagonal endpoint-Hankel form whose
+        cross-terms scalar domination never sees. The Perron operator norm &thinsp;&#x2016;R&#x2016;&thinsp; strictly
+        exceeds the largest diagonal: the gap is the off-diagonal Hankel contribution —
+        the obstruction, quantified.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={`yt${v}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily="var(--font-mono)">{v.toFixed(1)}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          {/* ceiling = 1 dashed line */}
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#334155" strokeWidth="1" strokeDasharray="4 3" />
+          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill="#475569" fontFamily="var(--font-mono)">ceiling = 1</text>
+          {/* operator norm line */}
+          <line x1={ML} y1={py(opNorm)} x2={W - MR} y2={py(opNorm)} stroke="#ef4444" strokeWidth="1.5" strokeDasharray="6 3" />
+          <text x={W - MR - 4} y={py(opNorm) - 5} textAnchor="end" fontSize="10" fill="#ef4444" fontFamily="var(--font-mono)">&#x2016;R&#x2016; = {opNorm.toFixed(5)}</text>
+          {/* diagonal bars */}
+          {diagR.map((d, j) => (
+            <g key={`bar${j}`}>
+              <rect
+                x={px(j + 0.2) - barW / 2}
+                y={py(d)}
+                width={barW}
+                height={py(0) - py(d)}
+                fill="#10b981"
+                fillOpacity="0.7"
+              />
+              <text x={px(j + 0.5)} y={H - MB + 16} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="var(--font-mono)">j={j}</text>
+              <title>R_{j}{j} = {d.toFixed(6)}</title>
+            </g>
+          ))}
+          {/* gap annotation arrow */}
+          <line x1={W - MR - 60} y1={py(rDiagMax)} x2={W - MR - 60} y2={py(opNorm)} stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arrow-end)" markerStart="url(#arrow-end)" />
+          <text x={W - MR - 55} y={(py(rDiagMax) + py(opNorm)) / 2 + 4} fontSize="10" fill="#f59e0b" fontFamily="var(--font-mono)">gap {gap.toFixed(4)}</text>
+          <g transform={`translate(${ML + 12}, ${MT + 8})`}>
+            <rect x="0" y="-7" width="14" height="10" fill="#10b981" fillOpacity="0.7" />
+            <text x="18" y="2" fontSize="11" fill="#cbd5e1" fontFamily="var(--font-mono)">R_jj (scalar cover, pinned &lt; 1)</text>
+          </g>
+          <g transform={`translate(${ML + 12}, ${MT + 24})`}>
+            <line x1="0" y1="0" x2="14" y2="0" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="5 2" />
+            <text x="18" y="4" fontSize="11" fill="#cbd5e1" fontFamily="var(--font-mono)">&#x2016;R&#x2016; = Perron eigenvalue (overshoots)</text>
+          </g>
+        </svg>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10, margin: '14px 0' }}>
+        <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.25)', fontSize: 12, color: '#94a3b8', lineHeight: 1.65 }}>
+          <div style={{ color: '#10b981', fontWeight: 700, marginBottom: 3 }}>max diagonal R_jj</div>
+          <span style={{ fontFamily: 'var(--font-mono)', color: '#6ee7b7', fontSize: 13 }}>{rDiagMax.toFixed(6)}</span>
+          <div style={{ marginTop: 4, fontSize: 11 }}>Scalar cover holds — pinned below 1</div>
+        </div>
+        <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.25)', fontSize: 12, color: '#94a3b8', lineHeight: 1.65 }}>
+          <div style={{ color: '#ef4444', fontWeight: 700, marginBottom: 3 }}>operator norm &#x2016;R&#x2016;</div>
+          <span style={{ fontFamily: 'var(--font-mono)', color: '#fca5a5', fontSize: 13 }}>{opNorm.toFixed(6)}</span>
+          <div style={{ marginTop: 4, fontSize: 11 }}>Perron eigenvalue &mdash; exceeds ceiling = 1</div>
+        </div>
+        <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.25)', fontSize: 12, color: '#94a3b8', lineHeight: 1.65 }}>
+          <div style={{ color: '#f59e0b', fontWeight: 700, marginBottom: 3 }}>operator/diagonal gap</div>
+          <span style={{ fontFamily: 'var(--font-mono)', color: '#fde68a', fontSize: 13 }}>{gap.toFixed(6)}</span>
+          <div style={{ marginTop: 4, fontSize: 11 }}>Off-diag contribution: the obstruction</div>
+        </div>
+      </div>
+      <div style={{ margin: '10px 0', padding: '10px 14px', borderRadius: 6, background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(148,163,184,0.2)', fontSize: 12, color: '#94a3b8', lineHeight: 1.65 }}>
+        <span style={{ color: '#e2e8f0', fontWeight: 700 }}>Off-diagonal cross-terms (shear Hankel): </span>
+        min&thinsp;|H<sub>jk</sub>|&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: '#fde68a' }}>{M.minOffDiagonalHankelCrossTerm.toExponential(3)}</span>
+        &nbsp;&mdash;&nbsp;
+        max&thinsp;|H<sub>jk</sub>|&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: '#fde68a' }}>{M.maxOffDiagonalHankelCrossTerm.toExponential(3)}</span>
+        &nbsp;&mdash;&nbsp;
+        min&thinsp;|R<sub>jk</sub>|&thinsp;(j&ne;k)&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: '#fde68a' }}>{M.minOffDiagonalR.toExponential(3)}</span>
+        &nbsp;&mdash;&nbsp;
+        off-diag Frobenius&thinsp;=&thinsp;<span style={{ fontFamily: 'var(--font-mono)', color: '#fde68a' }}>{M.offDiagonalFrobeniusNormOfR.toExponential(3)}</span>.
+        Every off-diagonal entry is <strong>strictly positive</strong> (sinh &gt; 0 on (0, U]), so by
+        Perron-Frobenius &#x2016;R&#x2016; strictly exceeds max&thinsp;R<sub>jj</sub>.
+      </div>
+      <div style={{ padding: '10px 14px', borderRadius: 6, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.3)', fontSize: 12, color: '#cbd5e1', lineHeight: 1.65 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 5 }}>
+          HONEST CAVEAT — REPRESENTATIVE TRUNCATION ONLY, NO RH VERDICT
+        </div>
+        This is a <strong>diagnostic measurement on a representative degree-{deg} monomial-moment
+        truncation</strong> chosen to exhibit the off-diagonal obstruction — NOT the actual section-26
+        Gram. The measured &#x2016;R&#x2016; carries <strong>no RH verdict</strong>: it neither claims the
+        cover fails nor that it holds on the genuine Gram. The deliverable is only the existence and
+        magnitude of the off-diagonal cross-terms and the strictly-positive operator/diagonal gap that
+        scalar domination cannot reach. Positivity was <strong>not attempted</strong>.
+        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
+        Source: imp-3066-offdiagonal-hankel-obstruction.js &mdash; RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction.
       </p>
     </div>
   );
@@ -1588,6 +1719,12 @@ export default function ClosureRoutesPage() {
           Source: imp-3065-residual-deficit-quadrature-2026-06-30.js
         </p>
       </div>
+
+      {/* ─── imp-3066: off-diagonal endpoint-Hankel obstruction ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Off-Diagonal Endpoint-Hankel Obstruction: operator/diagonal gap (imp-3066)
+      </h2>
+      <OffDiagHankelObstructionPanel />
 
       {/* ─── imp-3064: degree-0 excess-fraction grid ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

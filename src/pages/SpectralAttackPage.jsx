@@ -8,6 +8,7 @@ import { CTHETA_FLAT_INVARIANT, CTHETA_ON_BASIN_VANISHING } from '../data/imp-30
 import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orthogonalized-basis-conditioning.js';
 import { SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
 import { SG1C_MINGAP_SELECTOR_DISCONTINUITY } from '../data/sg1c-mingap-selector-discontinuity-2026-06-30.js';
+import { SG1C_ASYM_ONSET_BRACKET_LEDGER } from '../data/sg1c-asym-onset-bracket-ledger-2026-06-30.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -1428,6 +1429,7 @@ function VerifiedAnalyticIdentitiesCard() {
 // imp-3185: asymmetric multi-body isolation closed form (imp-3170)
 function AsymIsolationClosedFormPanel() {
   const d = SG1C_ASYM_ISOLATION_CLOSED_FORM;
+  const ledger = SG1C_ASYM_ONSET_BRACKET_LEDGER;
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #f97316" }}>
       <h3 style={{ color: "#f97316", fontSize: 16, marginBottom: 4 }}>
@@ -1518,6 +1520,25 @@ function AsymIsolationClosedFormPanel() {
         </div>
         <div style={{ color: "#64748b", fontSize: 11, marginTop: 6, lineHeight: 1.6 }}>
           <strong style={{ color: "#f59e0b" }}>Open sub-gap:</strong> {d.openSubGap}
+        </div>
+      </div>
+
+      {/* imp-3204: GLOBAL asymmetric isolation constant OPEN banner */}
+      <div style={{ background: "rgba(245,158,11,0.1)", border: "2px solid rgba(245,158,11,0.5)", borderRadius: 8, padding: "10px 14px", marginTop: 10 }}>
+        <div style={{ color: "#f59e0b", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
+          GLOBAL asymmetric isolation constant: OPEN
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.7 }}>
+          <strong style={{ color: "#e2e8f0" }}>c_asym = {d.cAsym.toFixed(5)}</strong> closes only the{" "}
+          <em>opposite-unit-lattice R&#8594;&#8734; class</em> (Config A: one tight neighbour at d_1 + opposite
+          uniform lattice). The GLOBAL infimum over all asymmetric configurations remains{" "}
+          <strong style={{ color: "#f59e0b" }}>OPEN</strong>, bracketed{" "}
+          <strong style={{ color: "#e2e8f0" }}>
+            ~({ledger.openBracket[0].toFixed(4)},&#8202;{ledger.openBracket[1].toFixed(4)})
+          </strong>{" "}
+          by the certified structured-search infimum (lower end, imp-3172 Config B) and c_asym (upper end).
+          Every located onset is only an upper bound on c_glob; no proven lower bound exists below the
+          Theorem-C basin {ledger.basinConstant}.
         </div>
       </div>
     </div>

@@ -219,13 +219,16 @@ function main() {
     fail(2, `improvements.js missing at ${IMPROVEMENTS_FILE}; refusing to write a stale index`);
   }
 
-  // Staleness check: if queue-index.json is newer than improvement-queue.js,
+  // Staleness check: if queue-index.json is newer than BOTH source files,
   // the cache is still valid — skip the expensive rebuild.
+  // Note: nextImprovementId derives from improvements.js, not queue.js, so
+  // both files must be checked to avoid a stale id after appending an improvement.
   try {
     const indexMtime = fs.statSync(OUTPUT_FILE).mtimeMs;
     const queueMtime = fs.statSync(QUEUE_FILE).mtimeMs;
-    if (indexMtime > queueMtime) {
-      console.log('queue-index.json is up to date (improvement-queue.js unchanged) — skipping rebuild.');
+    const improvMtime = fs.statSync(IMPROVEMENTS_FILE).mtimeMs;
+    if (indexMtime > queueMtime && indexMtime > improvMtime) {
+      console.log('queue-index.json is up to date (both source files unchanged) — skipping rebuild.');
       return;
     }
   } catch {

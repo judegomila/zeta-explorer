@@ -973,6 +973,20 @@ function PhiProfileLogLogViz() {
   const phiPath = mkPath(phiPts);
   const onsetPath = mkPath(onsetPts);
   const decayPath = mkPath(decayPts);
+
+  // imp-3105 interior landmark scales (exact closed-form bisection results)
+  const S_STAR   = 1.488945799;   // phi=1 unique root
+  const S_CROSS1 = 1.915040236;   // envelope onset->decay handoff
+  const S_CROSS2 = 4.317512336;   // algebraic re-crossing
+  const ENV_C1   = C / ((S_CROSS1 - S0) * (S_CROSS1 - S0)); // envelope value at handoff ~0.157
+  const lx_star  = Math.log10(S_STAR   - S0);
+  const lx_c1    = Math.log10(S_CROSS1 - S0);
+  const lx_c2    = Math.log10(S_CROSS2 - S0);
+  const ly_star  = 0;                             // log10(1)=0
+  const ly_c1    = Math.log10(PHI(S_CROSS1));     // exact phi ~0.378
+  const ly_c2    = Math.log10(PHI(S_CROSS2));     // exact phi ~0.016
+  const ly_env1  = Math.log10(ENV_C1);            // envelope value at handoff ~0.157
+
   const xTicks = [-2, -1, 0, 1];
   const yTicks = [-6, -4, -2, 0, 2, 4];
   const slopeAnnotLx = -1.5;
@@ -981,7 +995,7 @@ function PhiProfileLogLogViz() {
   return (
     <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #a855f7", background: "rgba(168,85,247,0.04)" }}>
       <h3 style={{ color: "#a855f7", marginTop: 0 }}>
-        phi(s) log-log profile: onset pole + large-s decay (imp-3087 + imp-3088)
+        phi(s) log-log profile: onset + decay + imp-3105 interior landmarks
       </h3>
       <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
         Log-log plot of the excess fraction{" "}
@@ -993,8 +1007,14 @@ function PhiProfileLogLogViz() {
         Dashed <strong style={{ color: "#f59e0b" }}>amber</strong>: large-s exponential envelope{" "}
         <span style={{ fontFamily: mono }}>K&sdot;e^(-s)</span>.
         The actual phi (white) tracks the slope &minus;2 line near the onset, then peels above both
-        envelopes in the interior before crossing under the onset envelope (~eps 3.5&ndash;4)
-        and following the exponential tail.
+        envelopes before following the exponential tail.{" "}
+        <strong style={{ color: "#10b981" }}>Green</strong>: phi=1 at s*&asymp;1.489 (unique scale
+        where the forced cosh-completion costs as much as the entire kinked cover; transcendental, no closed form).{" "}
+        <strong style={{ color: "#f97316" }}>Orange</strong>: envelope handoff s_c1&asymp;1.915
+        (onset envelope drops below decay envelope); honest gap: exact phi&asymp;0.378 vs common
+        envelope value&asymp;0.157 -- the orange segment shows this gap since neither asymptotic is exact here.{" "}
+        <strong style={{ color: "#a855f7" }}>Purple</strong>: algebraic re-crossing s_c2&asymp;4.318
+        (pole envelope tail rises back above exponential; comparison artifact, NOT a regime boundary). (imp-3105)
       </p>
       <div style={{ overflowX: "auto" }}>
         <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
@@ -1022,6 +1042,23 @@ function PhiProfileLogLogViz() {
           <path d={onsetPath} fill="none" stroke="#06b6d4" strokeWidth="1.5" strokeDasharray="5 3" />
           <path d={decayPath} fill="none" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="5 3" />
           <path d={phiPath} fill="none" stroke="#e2e8f0" strokeWidth="2" />
+          {/* imp-3105 landmark: phi=1 at s*~1.489 */}
+          <line x1={pxFn(lx_star)} y1={MT} x2={pxFn(lx_star)} y2={H - MB} stroke="#10b981" strokeWidth="1" strokeDasharray="3 3" opacity="0.7" />
+          <circle cx={pxFn(lx_star)} cy={pyFn(ly_star)} r={4} fill="#10b981" stroke="#e2e8f0" strokeWidth="1" />
+          <text x={pxFn(lx_star) - 38} y={pyFn(ly_star) - 8} fontSize="9" fill="#10b981" fontFamily={mono}>s*~1.489</text>
+          <text x={pxFn(lx_star) - 28} y={pyFn(ly_star) + 2} fontSize="9" fill="#10b981" fontFamily={mono}>phi=1</text>
+          {/* imp-3105 landmark: envelope handoff s_c1~1.915 with honest env gap */}
+          <line x1={pxFn(lx_c1)} y1={MT} x2={pxFn(lx_c1)} y2={H - MB} stroke="#f97316" strokeWidth="1" strokeDasharray="3 3" opacity="0.7" />
+          <line x1={pxFn(lx_c1)} y1={pyFn(ly_c1)} x2={pxFn(lx_c1)} y2={pyFn(ly_env1)} stroke="#f97316" strokeWidth="2.5" opacity="0.6" />
+          <circle cx={pxFn(lx_c1)} cy={pyFn(ly_c1)} r={4} fill="#f97316" stroke="#e2e8f0" strokeWidth="1" />
+          <circle cx={pxFn(lx_c1)} cy={pyFn(ly_env1)} r={3} fill="none" stroke="#f97316" strokeWidth="1.5" strokeDasharray="2 2" />
+          <text x={pxFn(lx_c1) + 5} y={pyFn(ly_c1) - 8} fontSize="9" fill="#f97316" fontFamily={mono}>s_c1~1.915</text>
+          <text x={pxFn(lx_c1) + 5} y={pyFn(ly_c1) + 2} fontSize="9" fill="#f97316" fontFamily={mono}>handoff</text>
+          {/* imp-3105 landmark: algebraic re-crossing s_c2~4.318 */}
+          <line x1={pxFn(lx_c2)} y1={MT} x2={pxFn(lx_c2)} y2={H - MB} stroke="#a855f7" strokeWidth="1" strokeDasharray="3 3" opacity="0.7" />
+          <circle cx={pxFn(lx_c2)} cy={pyFn(ly_c2)} r={4} fill="#a855f7" stroke="#e2e8f0" strokeWidth="1" />
+          <text x={pxFn(lx_c2) + 5} y={pyFn(ly_c2) - 8} fontSize="9" fill="#a855f7" fontFamily={mono}>s_c2~4.318</text>
+          <text x={pxFn(lx_c2) + 5} y={pyFn(ly_c2) + 2} fontSize="9" fill="#a855f7" fontFamily={mono}>re-cross</text>
           <text x={pxFn(slopeAnnotLx) + 4} y={pyFn(slopeAnnotLy) - 6} fontSize="10" fill="#06b6d4" fontFamily={mono}>
             slope &minus;2
           </text>
@@ -1037,6 +1074,7 @@ function PhiProfileLogLogViz() {
       <p style={{ marginTop: 8, color: "#64748b", fontSize: 11, fontFamily: mono }}>
         C = sqrt(2)*(1 &minus; arcsinh(1)) &asymp; {C.toFixed(5)} (imp-3087 onset pole constant).{" "}
         K = 2*(sqrt(2) &minus; arcsinh(1)) &asymp; {K.toFixed(5)} (imp-3088 large-s decay constant).{" "}
+        imp-3105 landmarks: s*&asymp;1.48895 (phi=1), s_c1&asymp;1.91504 (handoff; exact phi&asymp;0.378 &ne; envelope&asymp;0.157), s_c2&asymp;4.31751 (re-crossing, artifact).{" "}
         Degree-0 scalar measure only; RH-EQUIVALENT; NOT the operator step.{" "}
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </p>

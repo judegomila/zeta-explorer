@@ -2049,6 +2049,17 @@ const DATA_MODULES = [
   // (split 5.58 vs 9.31), and both extremes rise monotonically + saturate below 1 toward the
   // common-exponential Perron limit. Representative/diagnostic; no RH verdict; PT 0.2 SOTA.
   '/src/data/imp-3107-dehomogenized-offdiag-aU-grid.js',
+  // imp-3110: characterizes the standing gap between the imp-3066 representative
+  // monomial-moment truncation and the actual section-26 weighted Gram. Enumerates
+  // FOUR concrete differences (D1 basis: monomials vs Phi-windowed complex channels;
+  // D2 weight: bare cosh/sinh vs integrated Phi^2 densities; D3 endpoint: single-index
+  // Hankel vs 2-variable past-future Volterra block; D4 dehomog: diagonal D vs full
+  // G_pass). DERIVES that the strictly-positive gap EXISTENCE survives the swap
+  // (Perron-Frobenius) while the a*U scale collapse, numerical magnitudes, and toy
+  // diagonal dominance (= open Conj 26.3) are truncation artifacts. Self-computing
+  // witness: toy shear is exactly Hankel; alternate-weight+basis rebuild keeps the
+  // qualitative gap. Assessment only; no RH verdict; PT 0.2 SOTA.
+  '/src/data/imp-3110-section26-gram-vs-monomial-gap.js',
   // imp-3087: characterizes the divergence of the imp-3064 excess fraction
   // phi(s) = G(s)/F(s) at the overflow onset s -> s0+ (s0 = arcsinh(1)). F has a
   // DOUBLE zero there (F(s0) = 0 and F′(s0) = sinh(s0) - 1 = 0, F′′(s0) = sqrt(2))

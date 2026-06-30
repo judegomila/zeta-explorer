@@ -485,6 +485,132 @@ function OperatorGapCollapseViz() {
   );
 }
 
+// ── imp-3087+3088: phi(s) log-log profile viz ──────────────────────────────────
+// Log-log plot of phi(s) = G(s)/F(s) vs eps = s - s0, with the onset quadratic-pole
+// envelope C/(s-s0)^2 (slope -2, dashed cyan) and the large-s exponential-decay
+// envelope K*e^{-s} (dashed amber). 150 log-spaced sample points; no data import
+// needed -- F, G, and both constants are computed directly from closed forms.
+function PhiProfileLogLogViz() {
+  const S0 = Math.asinh(1);
+  const SQRT2 = Math.SQRT2;
+  const F = (s) => Math.cosh(s) - SQRT2 - s + S0;
+  const G = (s) => SQRT2 - S0 - Math.exp(-s);
+  const PHI = (s) => G(s) / F(s);
+  const C = SQRT2 * (1 - S0);   // onset pole constant ~ 0.16776
+  const K = 2 * (SQRT2 - S0);   // large-s decay constant ~ 1.06568
+
+  const W = 680, H = 300, ML = 52, MR = 20, MT = 14, MB = 42;
+  const pw = W - ML - MR, ph = H - MT - MB;
+  const xMin = -2.0, xMax = 1.3;
+  const yMin = -7, yMax = 5;
+
+  const pxFn = (lx) => ML + ((lx - xMin) / (xMax - xMin)) * pw;
+  const pyFn = (ly) => H - MB - ((ly - yMin) / (yMax - yMin)) * ph;
+  const mkPath = (pts) =>
+    pts.map((p, i) => (i === 0 ? "M" : "L") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+
+  const phiPts = [];
+  for (let i = 0; i <= 150; i++) {
+    const lx = xMin + (xMax - xMin) * i / 150;
+    const eps = Math.pow(10, lx);
+    const phi = PHI(S0 + eps);
+    if (phi > 0 && Number.isFinite(phi)) {
+      const ly = Math.log10(phi);
+      if (ly >= yMin - 0.5 && ly <= yMax + 0.5) {
+        phiPts.push([pxFn(lx), pyFn(Math.max(yMin, Math.min(yMax, ly)))]);
+      }
+    }
+  }
+
+  const onsetPts = [];
+  for (let i = 0; i <= 60; i++) {
+    const lx = xMin + (0.6 - xMin) * i / 60;
+    const eps = Math.pow(10, lx);
+    const ly = Math.log10(C / (eps * eps));
+    if (ly >= yMin && ly <= yMax) onsetPts.push([pxFn(lx), pyFn(ly)]);
+  }
+
+  const decayPts = [];
+  for (let i = 0; i <= 60; i++) {
+    const lx = -1 + (xMax + 1) * i / 60;
+    const ly = Math.log10(K * Math.exp(-(S0 + Math.pow(10, lx))));
+    if (ly >= yMin && ly <= yMax) decayPts.push([pxFn(lx), pyFn(ly)]);
+  }
+
+  const phiPath = mkPath(phiPts);
+  const onsetPath = mkPath(onsetPts);
+  const decayPath = mkPath(decayPts);
+  const xTicks = [-2, -1, 0, 1];
+  const yTicks = [-6, -4, -2, 0, 2, 4];
+  const slopeAnnotLx = -1.5;
+  const slopeAnnotLy = Math.log10(C) - 2 * slopeAnnotLx;
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #a855f7", background: "rgba(168,85,247,0.04)" }}>
+      <h3 style={{ color: "#a855f7", marginTop: 0 }}>
+        phi(s) log-log profile: onset pole + large-s decay (imp-3087 + imp-3088)
+      </h3>
+      <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
+        Log-log plot of the excess fraction{" "}
+        <span style={{ fontFamily: mono }}>phi(s) = G(s)/F(s)</span> vs. offset{" "}
+        <span style={{ fontFamily: mono }}>eps = s &minus; s0</span> from the overflow onset{" "}
+        <span style={{ fontFamily: mono }}>s0 = arcsinh(1) &asymp; {S0.toFixed(5)}</span>.
+        Dashed <strong style={{ color: "#06b6d4" }}>cyan</strong>: onset quadratic-pole envelope{" "}
+        <span style={{ fontFamily: mono }}>C/(s&minus;s0)^2</span> (slope &minus;2, exact as s&rarr;s0+).
+        Dashed <strong style={{ color: "#f59e0b" }}>amber</strong>: large-s exponential envelope{" "}
+        <span style={{ fontFamily: mono }}>K&sdot;e^(-s)</span>.
+        The actual phi (white) tracks the slope &minus;2 line near the onset, then peels above both
+        envelopes in the interior before crossing under the onset envelope (~eps 3.5&ndash;4)
+        and following the exponential tail.
+      </p>
+      <div style={{ overflowX: "auto" }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
+          {yTicks.map((y) => (
+            <g key={"yt" + y}>
+              <line x1={ML} y1={pyFn(y)} x2={W - MR} y2={pyFn(y)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 6} y={pyFn(y) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{y}</text>
+            </g>
+          ))}
+          {xTicks.map((x) => (
+            <g key={"xt" + x}>
+              <line x1={pxFn(x)} y1={MT} x2={pxFn(x)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={pxFn(x)} y={H - MB + 15} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>{x}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}>
+            log&#8321;&#8320;(s &minus; s0)
+          </text>
+          <text x={12} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}
+            transform={`rotate(-90 12 ${(MT + H - MB) / 2})`}>
+            log&#8321;&#8320;(phi)
+          </text>
+          <path d={onsetPath} fill="none" stroke="#06b6d4" strokeWidth="1.5" strokeDasharray="5 3" />
+          <path d={decayPath} fill="none" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="5 3" />
+          <path d={phiPath} fill="none" stroke="#e2e8f0" strokeWidth="2" />
+          <text x={pxFn(slopeAnnotLx) + 4} y={pyFn(slopeAnnotLy) - 6} fontSize="10" fill="#06b6d4" fontFamily={mono}>
+            slope &minus;2
+          </text>
+          <rect x={W - MR - 130} y={MT + 2} width={110} height={58} rx={4} fill="rgba(2,6,23,0.7)" />
+          <line x1={W - MR - 122} y1={MT + 14} x2={W - MR - 106} y2={MT + 14} stroke="#e2e8f0" strokeWidth="2" />
+          <text x={W - MR - 102} y={MT + 18} fontSize="10" fill="#e2e8f0" fontFamily={mono}>phi(s)</text>
+          <line x1={W - MR - 122} y1={MT + 30} x2={W - MR - 106} y2={MT + 30} stroke="#06b6d4" strokeWidth="1.5" strokeDasharray="4 2" />
+          <text x={W - MR - 102} y={MT + 34} fontSize="10" fill="#06b6d4" fontFamily={mono}>C/(s-s0)^2</text>
+          <line x1={W - MR - 122} y1={MT + 46} x2={W - MR - 106} y2={MT + 46} stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4 2" />
+          <text x={W - MR - 102} y={MT + 50} fontSize="10" fill="#f59e0b" fontFamily={mono}>K&#x22c5;e^(-s)</text>
+        </svg>
+      </div>
+      <p style={{ marginTop: 8, color: "#64748b", fontSize: 11, fontFamily: mono }}>
+        C = sqrt(2)*(1 &minus; arcsinh(1)) &asymp; {C.toFixed(5)} (imp-3087 onset pole constant).{" "}
+        K = 2*(sqrt(2) &minus; arcsinh(1)) &asymp; {K.toFixed(5)} (imp-3088 large-s decay constant).{" "}
+        Degree-0 scalar measure only; RH-EQUIVALENT; NOT the operator step.{" "}
+        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+      </p>
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function ClosureRoutesPage() {
   return (
@@ -699,6 +825,12 @@ export default function ClosureRoutesPage() {
         The operator obstruction tracks one scale (imp-3085)
       </h2>
       <OperatorGapCollapseViz />
+
+      {/* ─── imp-3087+3088: phi(s) log-log profile ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        The excess fraction phi(s): onset pole to exponential tail (imp-3087 + imp-3088)
+      </h2>
+      <PhiProfileLogLogViz />
 
       {/* ─── Conjectures ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

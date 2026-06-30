@@ -335,6 +335,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Geometric re-parameterisation of the log-phase field; descriptive and exploratory, no Lambda or RH claim.',
     }),
+    Object.freeze({
+      route: '/viz-unwrapped-rays',
+      title: 'Unwrapped Prime Phase Rays',
+      oneLine:
+        'Flat (log p, t) strip of prime phase rays θ=t·log(p) before mod 2π folding; caustic-crossing ticks mark resonance heights t=2πk/log(p_i/p_j).',
+      mathBucket: 'caustic',
+      dataModule: null,
+      paperSourcePath:
+        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three attacks: phase geometry)',
+      ticket: 'imp-2914',
+      pedagogicalStep: 19,
+      honestCeiling:
+        'Exploratory geometric re-parameterisation showing resonance ticks; does not produce a Lambda bound or RH claim.',
+    }),
   ]),
 });
 

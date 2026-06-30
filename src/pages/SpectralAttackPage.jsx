@@ -6,6 +6,7 @@ import { ZETA_ZEROS } from '../math/zeta.js';
 import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL, SG1C_R1T4_BASIN_GRID, SG1C_R1T4_RHO1_REPELLER, SG1C_R2T2_SHELL_CROSSCHECK, SG1C_LEMMA1_CROSS_N, SG1C_LEMMA2_CROSS_N } from '../data/sg1c-theta-trap-theorems.js';
 import { CTHETA_FLAT_INVARIANT, CTHETA_ON_BASIN_VANISHING } from '../data/imp-3022-ctheta-basin-scaling.js';
 import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orthogonalized-basis-conditioning.js';
+import { SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -1423,6 +1424,105 @@ function VerifiedAnalyticIdentitiesCard() {
   );
 }
 
+// imp-3185: asymmetric multi-body isolation closed form (imp-3170)
+function AsymIsolationClosedFormPanel() {
+  const d = SG1C_ASYM_ISOLATION_CLOSED_FORM;
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #f97316" }}>
+      <h3 style={{ color: "#f97316", fontSize: 16, marginBottom: 4 }}>
+        Asymmetric Multi-Body Isolation Onset: Closed Form (imp-3170)
+      </h3>
+      <p style={{ color: "#94a3b8", fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        The multi-body asymmetric worst-case class left open by imp-3045 is now closed in{" "}
+        <strong style={{ color: "#f97316" }}>transcendental</strong> form.
+        The onset c<sub>asym</sub> is the unique root in (0,1) of the transcendental equation:
+      </p>
+
+      <div style={{ background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.3)", borderRadius: 8, padding: "10px 16px", marginBottom: 14 }}>
+        <div style={{ fontFamily: "monospace", color: "#f97316", fontSize: 14, marginBottom: 6 }}>
+          {d.transcendentalEquation}
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 12 }}>
+          Config class: {d.configClass}
+        </div>
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(175px, 1fr))", gap: 10, marginBottom: 16 }}>
+        <div style={{ padding: "10px 12px", background: "rgba(30,41,59,0.6)", borderRadius: 6, borderTop: "2px solid #f97316" }}>
+          <div style={{ color: "#f97316", fontSize: 11, fontWeight: 700, marginBottom: 4 }}>c_asym (transcendental)</div>
+          <div style={{ color: "#e2e8f0", fontFamily: "monospace", fontSize: 13 }}>{d.cAsym.toFixed(10)}</div>
+          <div style={{ color: "#64748b", fontSize: 10, marginTop: 3 }}>digamma root of drho/ds = 0</div>
+        </div>
+        <div style={{ padding: "10px 12px", background: "rgba(30,41,59,0.6)", borderRadius: 6, borderTop: "2px solid #06b6d4" }}>
+          <div style={{ color: "#06b6d4", fontSize: 11, fontWeight: 700, marginBottom: 4 }}>c* symmetric (algebraic)</div>
+          <div style={{ color: "#e2e8f0", fontFamily: "monospace", fontSize: 13 }}>{d.symmetricUpperEnd.toFixed(8)}</div>
+          <div style={{ color: "#64748b", fontSize: 10, marginTop: 3 }}>sqrt(2+sqrt(3))-1, K=1 shell</div>
+        </div>
+        <div style={{ padding: "10px 12px", background: "rgba(30,41,59,0.6)", borderRadius: 6, borderTop: "2px solid #10b981" }}>
+          <div style={{ color: "#10b981", fontSize: 11, fontWeight: 700, marginBottom: 4 }}>Basin margin</div>
+          <div style={{ color: "#e2e8f0", fontFamily: "monospace", fontSize: 13 }}>{d.preservedBasinMargin.toFixed(4)}</div>
+          <div style={{ color: "#64748b", fontSize: 10, marginTop: 3 }}>c_asym - 0.72 = 0.1828 &gt; 0</div>
+        </div>
+        <div style={{ padding: "10px 12px", background: "rgba(30,41,59,0.6)", borderRadius: 6, borderTop: "2px solid #64748b" }}>
+          <div style={{ color: "#94a3b8", fontSize: 11, fontWeight: 700, marginBottom: 4 }}>drho/ds at basin 0.72</div>
+          <div style={{ color: "#e2e8f0", fontFamily: "monospace", fontSize: 13 }}>{d.basinDrho.toFixed(4)}</div>
+          <div style={{ color: "#64748b", fontSize: 10, marginTop: 3 }}>strongly self-improving (&lt; 0)</div>
+        </div>
+      </div>
+
+      <div style={{ background: "rgba(30,41,59,0.5)", border: "1px solid #1e293b", borderRadius: 8, padding: "12px 14px", marginBottom: 14 }}>
+        <div style={{ color: "#e2e8f0", fontWeight: 600, fontSize: 12, marginBottom: 8 }}>
+          Why two different worlds: algebraic d_1 side vs transcendental digamma lattice tail
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.8 }}>
+          <strong style={{ color: "#06b6d4" }}>d_1 side (nearest neighbour) telescopes algebraically:</strong>{" "}
+          <span style={{ fontFamily: "monospace", color: "#e2e8f0" }}>
+            v_0 - v_{"{-1}"} = 1/g - 2
+          </span>{" "}
+          (value at c_asym: {d.d1SideClosedForm.toFixed(6)}). The infinite sum over the left side
+          collapses because every term beyond the nearest neighbour cancels exactly.
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.8, marginTop: 6 }}>
+          <strong style={{ color: "#f97316" }}>Pair-gap side carries the irreducible digamma tail:</strong>{" "}
+          the opposite uniform lattice contributes{" "}
+          <span style={{ fontFamily: "monospace", color: "#e2e8f0" }}>
+            psi(g+1) + gamma = sum_k[1/k - 1/(g+k)]
+          </span>{" "}
+          (value at c_asym: {d.latticeTailDigamma.toFixed(6)}). This sum does NOT telescope -- it
+          converges to the digamma transcendental. That is the precisely-located obstruction to an
+          algebraic closed form beyond the single nearest neighbour.
+        </div>
+      </div>
+
+      <div style={{ background: "rgba(245,158,11,0.07)", border: "1px solid rgba(245,158,11,0.25)", borderRadius: 8, padding: "10px 14px", marginBottom: 14 }}>
+        <div style={{ color: "#f59e0b", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+          Corrects imp-3045 numerical bracket ~0.9032-0.9039
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.7 }}>
+          The imp-3045 bisection locked onto a <strong style={{ color: "#e2e8f0" }}>discontinuity of
+          the discrete minimal-gap selector</strong> near g ~ 0.9029, not onto the smooth drho/ds zero.
+          At g = {d.scanDiscontinuityValue.toFixed(10)}, the true drho/ds is{" "}
+          <strong style={{ color: "#f59e0b" }}>&gt; 0</strong>{" "}
+          ({d.scanWasHigh ? "confirmed HIGH" : "check failed"}), so the genuine continuous onset sits
+          strictly below it. The closed form pins it at c_asym = {d.cAsym.toFixed(10)}.
+        </div>
+      </div>
+
+      <div style={{ background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.25)", borderRadius: 8, padding: "10px 14px" }}>
+        <div style={{ color: "#ef4444", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+          Honest status
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.7 }}>
+          {d.honest}
+        </div>
+        <div style={{ color: "#64748b", fontSize: 11, marginTop: 6, lineHeight: 1.6 }}>
+          <strong style={{ color: "#f59e0b" }}>Open sub-gap:</strong> {d.openSubGap}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function SpectralAttackPage() {
   return (
     <div className="page">
@@ -1761,6 +1861,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Symmetric Shell-Onset Ladder (imp-3060) ─── */}
       <ShellOnsetLadderSection />
+
+      {/* ─── Asymmetric Multi-Body Isolation Closed Form (imp-3185 surfaces imp-3170) ─── */}
+      <AsymIsolationClosedFormPanel />
 
       {/* ─── Off-Basin C_Theta Flat Invariant 16/27 (imp-3098 surfaces imp-3067) ─── */}
       <CThetaFlatInvariantPanel />

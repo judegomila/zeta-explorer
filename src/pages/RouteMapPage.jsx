@@ -8,6 +8,7 @@ import {
 } from '../data/full-route-map-2026-06-19.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
 import { C_SHOCK_CROSS_VALIDATION_IMP3026 } from '../data/imp-3026-c-shock-cross-validation.js';
+import { C_SHOCK_N_DEPENDENCE_IMP3070 } from '../data/imp-3070-c-shock-n-dependence.js';
 import { STATUS_COLOR, StatusTag, StatusLegend } from '../components/StatusLegend.jsx';
 
 const CLUSTER_TITLES = {
@@ -23,6 +24,75 @@ function OppDots({ score }) {
     <span title={`opportunity ${score}/10`} style={{ fontFamily: 'var(--font-mono, monospace)', fontSize: 11, color: score >= 5 ? '#22d3ee' : score >= 3 ? '#94a3b8' : '#475569' }}>
       {score}/10
     </span>
+  );
+}
+
+// imp-3118 — viz of the imp-3070 C_shock(N) monotone decay against the 1/3 cap,
+// with the (1/3 - C_shock) margin band shaded and the worst-case N=2458 marked.
+function CShockDecayViz() {
+  const D = C_SHOCK_N_DEPENDENCE_IMP3070;
+  const rows = D.table;
+  const cap = D.cap;
+  const W = 660, H = 300;
+  const padL = 58, padR = 18, padT = 22, padB = 46;
+  const plotW = W - padL - padR;
+  const plotH = H - padT - padB;
+  // log-x over the assembly N-range, fixed y-window framing both the curve and the cap.
+  const lxMin = Math.log10(D.nMin);
+  const lxMax = Math.log10(D.nMax);
+  const yMin = 0.20, yMax = 0.34;
+  const xOf = (N) => padL + ((Math.log10(N) - lxMin) / (lxMax - lxMin)) * plotW;
+  const yOf = (v) => padT + (1 - (v - yMin) / (yMax - yMin)) * plotH;
+  const curve = rows.map((r) => `${xOf(r.N).toFixed(1)},${yOf(r.C_shock).toFixed(1)}`).join(' ');
+  // Margin band = area between the C_shock(N) curve and the cap line.
+  const bandTop = rows.map((r) => `${xOf(r.N).toFixed(1)},${yOf(cap).toFixed(1)}`);
+  const bandBot = rows.map((r) => `${xOf(r.N).toFixed(1)},${yOf(r.C_shock).toFixed(1)}`).reverse();
+  const bandPts = bandTop.concat(bandBot).join(' ');
+  const worst = rows.find((r) => r.N === D.worstN) || rows[0];
+  const xTicks = [2458, 1e4, 1e5, 1e6];
+  const yTicks = [0.20, 0.24, 0.28, cap, 0.34];
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img"
+      aria-label="C_shock(N) monotone decay against the 1/3 cap with margin band shaded">
+      {/* y grid + labels */}
+      {yTicks.map((t, i) => (
+        <g key={`y${i}`}>
+          <line x1={padL} y1={yOf(t)} x2={W - padR} y2={yOf(t)} stroke="rgba(148,163,184,0.12)" strokeWidth="1" />
+          <text x={padL - 8} y={yOf(t) + 3} textAnchor="end" fontSize="10"
+            fill={Math.abs(t - cap) < 1e-9 ? '#f87171' : '#94a3b8'} fontFamily="var(--font-mono, monospace)">
+            {Math.abs(t - cap) < 1e-9 ? '1/3' : t.toFixed(2)}
+          </text>
+        </g>
+      ))}
+      {/* x labels */}
+      {xTicks.map((t, i) => (
+        <text key={`x${i}`} x={xOf(t)} y={H - padB + 16} textAnchor="middle" fontSize="10"
+          fill="#94a3b8" fontFamily="var(--font-mono, monospace)">
+          {t >= 1e4 ? `${(t / 1000).toFixed(0)}k` : t}
+        </text>
+      ))}
+      <text x={padL + plotW / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="#cbd5e1">
+        assembly level N (log scale)
+      </text>
+      {/* margin band */}
+      <polygon points={bandPts} fill="rgba(34,211,238,0.10)" stroke="none" />
+      {/* cap line */}
+      <line x1={padL} y1={yOf(cap)} x2={W - padR} y2={yOf(cap)} stroke="#f87171" strokeWidth="1.6" strokeDasharray="6 4" />
+      <text x={W - padR} y={yOf(cap) - 5} textAnchor="end" fontSize="10.5" fill="#f87171">
+        imp-2786 cap C_shock &lt; 1/3
+      </text>
+      {/* C_shock(N) curve */}
+      <polyline points={curve} fill="none" stroke="#22d3ee" strokeWidth="2" />
+      {rows.map((r, i) => (
+        <circle key={`p${i}`} cx={xOf(r.N)} cy={yOf(r.C_shock)} r="2.6" fill="#22d3ee" />
+      ))}
+      {/* worst-case marker */}
+      <circle cx={xOf(worst.N)} cy={yOf(worst.C_shock)} r="5.5" fill="none" stroke="#fbbf24" strokeWidth="2" />
+      <text x={xOf(worst.N) + 10} y={yOf(worst.C_shock) - 8} fontSize="10.5" fill="#fbbf24"
+        fontFamily="var(--font-mono, monospace)">
+        worst N={worst.N}: C_shock={worst.C_shock.toFixed(4)} (margin {worst.margin_to_cap.toFixed(4)})
+      </text>
+    </svg>
   );
 }
 
@@ -194,6 +264,38 @@ export default function RouteMapPage() {
           </div>
           <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.6 }}>
             {C_SHOCK_CROSS_VALIDATION_IMP3026.surrogateStillRefuted} {C_SHOCK_CROSS_VALIDATION_IMP3026.honestNote}
+          </div>
+        </div>
+      </div>
+
+      {/* imp-3118 — viz of the imp-3070 C_shock(N) monotone decay vs the 1/3 cap */}
+      <div className="card" style={{ marginBottom: 18, borderColor: 'rgba(34,211,238,0.35)' }}>
+        <h3 style={{ color: '#22d3ee', marginTop: 0 }}>
+          C_shock(N) decay vs the 1/3 cap (imp-3070 uniformity, imp-3118 viz)
+        </h3>
+        <p style={{ fontSize: 12.5, color: '#94a3b8', marginTop: 0, marginBottom: 12 }}>
+          imp-3070 tabulates C_shock(N) = √(2 / (3·log γ<sub>N</sub>)) across a 13-point log-spaced N
+          grid. It is <strong style={{ color: '#e2e8f0' }}>strictly decreasing</strong> in N (the slow
+          1/√(log γ<sub>N</sub>) factor), falling from ≈{C_SHOCK_N_DEPENDENCE_IMP3070.maxCShock.toFixed(4)}{' '}
+          at N={C_SHOCK_N_DEPENDENCE_IMP3070.worstN.toLocaleString()} to ≈
+          {C_SHOCK_N_DEPENDENCE_IMP3070.table[C_SHOCK_N_DEPENDENCE_IMP3070.table.length - 1].C_shock.toFixed(4)}{' '}
+          at N=1e6. The cap C_shock &lt; 1/3 reduces to log γ<sub>N</sub> &gt; 6 ⟺ γ<sub>N</sub> &gt;
+          e<sup>6</sup> ≈ 403, which every assembly height clears by an order of magnitude. The worst
+          case (smallest margin {C_SHOCK_N_DEPENDENCE_IMP3070.minMargin.toFixed(4)}) is the smallest N.
+        </p>
+        <CShockDecayViz />
+        <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 10, marginBottom: 12 }}>
+          Cyan curve: C_shock(N). Red dashed line: the imp-2786 cap 1/3. Shaded band: the margin
+          (1/3 − C_shock), widening monotonically as N grows. Amber ring: the worst-case N=
+          {C_SHOCK_N_DEPENDENCE_IMP3070.worstN.toLocaleString()} point.
+        </div>
+        <div style={{ padding: '9px 11px', borderRadius: 6, background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.3)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', marginBottom: 5, letterSpacing: '0.04em' }}>
+            HONEST SCOPE — NOT A NEW BOUND
+          </div>
+          <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.6 }}>
+            {C_SHOCK_N_DEPENDENCE_IMP3070.honestNote} This viz certifies the uniformity of an
+            already-proven cap; it does NOT close C_H. Platt-Trudgian Λ ≤ 0.2 remains the rigorous SOTA.
           </div>
         </div>
       </div>

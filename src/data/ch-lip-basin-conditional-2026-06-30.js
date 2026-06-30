@@ -100,6 +100,14 @@ export const CH_LIP_BASIN_ASSERTIONS = [
       && /NOT a global-W_1 beat/.test(CH_LIP_BASIN_CONDITIONAL.honest)
       && /Lambda <= 0.2 stays the rigorous SOTA/.test(CH_LIP_BASIN_CONDITIONAL.honest),
   },
+  {
+    id: 'ch-lip-basin-separation-invariant-baked',
+    description: 'basin separation invariant baked: BASIN_RHO === 0.72 and ASYM_SCAN_INF === 0.927, with basinSafetyMargin === ASYM_SCAN_INF - BASIN_RHO === 0.207 to 1e-9, so silent constant edits trip a red build',
+    holds: () => Math.abs(BASIN_RHO - 0.72) < 1e-12
+      && Math.abs(ASYM_SCAN_INF - 0.927) < 1e-12
+      && Math.abs(CH_LIP_BASIN_CONDITIONAL.basinSafetyMargin - (ASYM_SCAN_INF - BASIN_RHO)) < 1e-12
+      && Math.abs(CH_LIP_BASIN_CONDITIONAL.basinSafetyMargin - 0.207) < 1e-9,
+  },
 ];
 
 for (const a of CH_LIP_BASIN_ASSERTIONS) {

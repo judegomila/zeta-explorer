@@ -9,7 +9,7 @@ import {
 
 /* ─── Layout constants ──────────────────────────────────────────────────── */
 
-const LAYER_Y = [0, 180, 370, 560, 720];
+const LAYER_Y = [0, 180, 370, 560, 720, 900, 1080];
 const SVG_WIDTH = 1280;
 const NODE_W = 110;
 const NODE_H = 42;
@@ -28,7 +28,7 @@ const STAGGER_THRESHOLD = 6; // layers with more nodes than this are staggered
 // staggered into two rows so 110px labels don't collide.
 
 function computeNodePositions() {
-  const layers = [[], [], [], [], []];
+  const layers = [[], [], [], [], [], [], []];
   INSIGHT_NODES.forEach((n) => {
     const layer = typeof n.layer === 'number' ? n.layer : 2;
     if (layer >= 0 && layer < layers.length) layers[layer].push(n);
@@ -84,6 +84,10 @@ function edgeStyle(type) {
       return { stroke: '#ef4444', strokeWidth: 2, strokeDasharray: '5,4', marker: true };
     case 'reformulates':
       return { stroke: '#fbbf24', strokeWidth: 1.6, strokeDasharray: '1,5' };
+    case 'illustrates':
+      return { stroke: '#06b6d4', strokeWidth: 1, strokeDasharray: '2,4' };
+    case 'characterizes':
+      return { stroke: '#fbbf24', strokeWidth: 1.4, strokeDasharray: '4,3', marker: true };
     default:
       return { stroke: '#475569', strokeWidth: 1, strokeDasharray: 'none' };
   }
@@ -314,7 +318,7 @@ function Legend() {
     { label: 'Analogous', stroke: '#ec4899', dash: '2,3' },
   ];
 
-  const baseY = PADDING_TOP + LAYER_Y[4] + NODE_H / 2 + 30;
+  const baseY = PADDING_TOP + LAYER_Y[6] + NODE_H / 2 + 30;
 
   return (
     <g>
@@ -380,6 +384,8 @@ function LayerLabels() {
     { label: 'ANALYSIS', y: LAYER_Y[2], color: CATEGORY_COLORS.analysis },
     { label: 'GAPS', y: LAYER_Y[3], color: CATEGORY_COLORS.gap },
     { label: 'TARGET', y: LAYER_Y[4], color: CATEGORY_COLORS.target },
+    { label: 'OBSERVATIONS', y: LAYER_Y[5], color: CATEGORY_COLORS.viz },
+    { label: 'FINDINGS', y: LAYER_Y[6], color: CATEGORY_COLORS.finding },
   ];
 
   return (
@@ -444,7 +450,7 @@ export default function InsightDAG() {
     [navigate]
   );
 
-  const svgHeight = PADDING_TOP + LAYER_Y[4] + NODE_H / 2 + PADDING_BOTTOM;
+  const svgHeight = PADDING_TOP + LAYER_Y[6] + NODE_H / 2 + STAGGER_Y + PADDING_BOTTOM;
 
   return (
     <div style={{ width: '100%', overflowX: 'auto' }}>

@@ -13,6 +13,7 @@ import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { RANKED_OPPORTUNITIES } from '../data/full-route-map-2026-06-19.js';
 import { ASSERTION_FRESHNESS } from '../data/assertion-freshness.js';
 import { LAMBDA_ESTIMATOR_TRIPTYCH_IMP2991 } from '../data/lambda-estimator-triptych-imp2991.js';
+import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
 
 // ── Assertion freshness stamp (imp-2999) ─────────────────────────────────────
 function FreshnessStamp() {
@@ -529,6 +530,63 @@ function CHWallCallout() {
   );
 }
 
+function CHWallFrontierPanel() {
+  const v = CH_WALL_FRONTIER;
+  const rows = [
+    { label: 'VERDICT', value: v.verdict, color: '#ef4444' },
+    { label: 'LIPSCHITZ ROUTE', value: v.lipschitzRouteClosed, color: '#f97316' },
+    { label: 'NORM-MISMATCH', value: v.sharpestDiagnosis, color: '#f59e0b' },
+    { label: 'h=g² RECON', value: v.reconditioning, color: '#a78bfa' },
+    { label: 'C_THETA STATUS', value: v.cThetaStatus, color: '#f59e0b' },
+    { label: 'DETERMINISTIC RESIDUAL', value: v.residual, color: '#10b981' },
+    { label: 'FORECLOSED', value: v.foreclosed, color: '#ef4444' },
+    { label: 'SOTA', value: v.sota, color: '#94a3b8' },
+  ];
+  return (
+    <div style={{
+      border: '1px solid rgba(239,68,68,0.4)',
+      borderRadius: 10,
+      background: 'rgba(15,23,42,0.7)',
+      padding: '14px 18px',
+      marginBottom: 24,
+    }}>
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12,
+      }}>
+        <span style={{
+          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
+          color: '#ef4444', background: 'rgba(239,68,68,0.14)',
+          border: '1px solid rgba(239,68,68,0.4)',
+          borderRadius: 4, padding: '2px 8px',
+        }}>
+          C_H FRONTIER VERDICT &mdash; {v.date}
+        </span>
+        <span style={{
+          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
+          color: '#ef4444', marginLeft: 'auto',
+        }}>
+          {v.verdict}
+        </span>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr', gap: '7px 12px' }}>
+        {rows.map(({ label, value, color }) => (
+          <React.Fragment key={label}>
+            <span style={{
+              fontSize: 11, fontFamily: 'var(--font-mono)', color: '#475569',
+              fontWeight: 600, paddingTop: 2, letterSpacing: 0.3,
+            }}>
+              {label}
+            </span>
+            <span style={{ fontSize: 12, color, lineHeight: 1.55 }}>
+              {value}
+            </span>
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function RigorDashboardPage() {
   const [expandedStep, setExpandedStep] = useState(null);
 
@@ -590,6 +648,9 @@ export default function RigorDashboardPage() {
 
       {/* C_H Wall — #1 named opportunity (imp-2980) */}
       <CHWallCallout />
+
+      {/* C_H frontier verdict panel — RH-HARD-CONFIRMED + norm-mismatch diagnosis (imp-3009) */}
+      <CHWallFrontierPanel />
 
       {/* Summary counts */}
       <div style={{

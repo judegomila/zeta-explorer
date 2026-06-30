@@ -20,6 +20,7 @@ import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { CLOSURE_ROUTES, findRoute } from '../data/closure-routes-section.js';
 import { IMP3085_HANKEL_GAP_AU_GRID } from '../data/imp-3085-hankel-gap-aU-grid.js';
 import { IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP } from '../data/imp-3084-offdiagonal-gap-degree-sweep.js';
+import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orthogonalized-basis-conditioning.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 const R = CLOSURE_ROUTES;
@@ -435,12 +436,95 @@ function RawBasisOpGapDegreeSweepViz() {
         <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Growing &#x2016;R&#x2016; in the raw monomial basis is NOT a claim that the cover fails &mdash; the
           basis is not the section-26 Gram and the divergence is a known monomial-conditioning effect.
-          Whether an orthogonalized basis tames the growth is the separate imp-3086 question.
+          Orthogonalizing the basis DOES tame the gap: imp-3086 (see correction below) finds the gap collapses from ~3.63 to ~0.09 &mdash; largely a basis-conditioning artifact &mdash; while a smaller residual gap survives.
           Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3084-offdiagonal-gap-degree-sweep.js (same a=0.5, U=6 grid as imp-3066; only DEG varies).
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3086 basis-conditioning correction panel ──────────────────────────────
+// The imp-3084 / imp-3066 raw-monomial gap (3.63) was LARGELY a basis-conditioning
+// artifact. Orthogonalizing in the cosh inner product collapses it to 0.09, while a
+// strictly-positive residual obstruction survives. Operator norm is a basis invariant.
+function BasisConditioningCorrectionPanel() {
+  const M = IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING.measured;
+  const rows = [
+    {
+      label: 'Operator norm  ||R||',
+      raw: M.operatorNormImp3066Diagonal,
+      orth: M.operatorNormGramSchmidt,
+      verdict: 'basis invariant (GS = Loewdin to 1e-13)',
+    },
+    {
+      label: 'Operator/diagonal gap',
+      raw: M.operatorDiagonalGapImp3066Diagonal,
+      orth: M.operatorDiagonalGapGramSchmidt,
+      verdict: 'LARGELY artifact — residual gap survives',
+    },
+    {
+      label: 'Off-diagonal Frobenius',
+      raw: M.offDiagonalFrobeniusImp3066Diagonal,
+      orth: M.offDiagonalFrobeniusGramSchmidt,
+      verdict: 'artifact component removed',
+    },
+  ];
+  const tdStyle = { padding: '9px 10px', fontFamily: mono, fontSize: 12, verticalAlign: 'middle' };
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #06b6d4', background: 'rgba(6,182,212,0.04)' }}>
+      <h3 style={{ color: '#06b6d4', marginTop: 0 }}>
+        Honest correction: raw-basis gap was largely a conditioning artifact (imp-3086)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        imp-3066 normalized by only the diagonal of the passive cosh Gram P, dropping its
+        dense positive off-diagonal cross-terms on an ill-conditioned monomial basis.
+        Triangular Gram-Schmidt (<span style={{ fontFamily: mono }}>R_orth = L H L^T</span>, <span style={{ fontFamily: mono }}>L P L^T = I</span>)
+        and symmetric Loewdin orthogonalization (independent witness) both give the same
+        operator norm to ~1e-13: <strong>the operator norm is a basis invariant</strong>.
+        Restoring the full passive Gram collapses the imp-3066 measured numbers (see table).
+        A <strong>strictly-positive residual gap survives</strong> (~{M.operatorDiagonalGapGramSchmidt.toFixed(3)})
+        confirming the off-diagonal endpoint-Hankel obstruction is real, just far smaller than
+        the raw monomial basis advertised.
+      </p>
+      <div style={{ overflowX: 'auto', marginTop: 8 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8', textAlign: 'left' }}>
+              <th style={tdStyle}>Quantity</th>
+              <th style={{ ...tdStyle, color: '#f59e0b' }}>Raw basis (imp-3066)</th>
+              <th style={{ ...tdStyle, color: '#06b6d4' }}>Orthogonalized (imp-3086)</th>
+              <th style={tdStyle}>Interpretation</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.label} style={{ borderBottom: '1px solid #1e293b' }}>
+                <td style={{ ...tdStyle, color: '#cbd5e1' }}>{row.label}</td>
+                <td style={{ ...tdStyle, color: '#f59e0b' }}>{row.raw.toFixed(3)}</td>
+                <td style={{ ...tdStyle, color: '#06b6d4' }}>{row.orth.toFixed(3)}</td>
+                <td style={{ ...tdStyle, color: '#64748b' }}>{row.verdict}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          REPRESENTATIVE DIAGNOSTIC &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Measured on the same representative degree-4 monomial-moment truncation as imp-3066
+          (a=0.5, U=6); NOT the section-26 Gram. The orthogonalized operator norm (~{M.operatorNormGramSchmidt.toFixed(3)})
+          carries no RH verdict. Positivity not attempted; bare-V pilot not re-run.
+          Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3086-orthogonalized-basis-conditioning.js &mdash; a=0.5, U=6, DEG=4, NQ=4000.
       </p>
     </div>
   );
@@ -935,6 +1019,12 @@ export default function ClosureRoutesPage() {
         Raw-basis off-diagonal gap grows with truncation degree (imp-3084)
       </h2>
       <RawBasisOpGapDegreeSweepViz />
+
+      {/* ─── imp-3086: basis-conditioning honest correction ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Orthogonalized basis: gap largely a conditioning artifact, residual survives (imp-3086)
+      </h2>
+      <BasisConditioningCorrectionPanel />
 
       {/* ─── imp-3085: operator-gap a*U collapse viz ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

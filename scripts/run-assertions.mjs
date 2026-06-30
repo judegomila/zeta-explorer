@@ -2193,6 +2193,21 @@ const DATA_MODULES = [
   // ~3.15e-4 short -- saturation is a limit, not equality). 5 tripwires; representative
   // truncation diagnostic; RH-equivalent; lock only, no QED; PT 0.2 SOTA.
   '/src/data/imp-3147-residual-gap-saturation-lock.js',
+  // imp-3154: classifies the imp-3144 GENUINE degree-2 (absolute) occupation deficit
+  // (recorded 9.28e-9, overflow on 19.4% of tau at the genuine Phi NPHI=10, a=0.5, U=6)
+  // vs monomial truncation degree DEG in {2,4,6,8,10}, mirroring the imp-3125 scalar-gap
+  // sweep. Rebuilds the genuine section-26 occupation densities from the lightweight Phi
+  // kernel -- shear nu(tau)=int_0^tau du int_tau^U dv Phi(u)Phi(v)sinh(a(v-u)) (past-future
+  // Volterra block) and passive mu(tau)=(1/2pi) int_tau^U Phi(u)^2 sinh(2 a u) du -- with
+  // each hyperbolic weight truncated to its degree-DEG odd-Taylor polynomial. The deficit
+  // is essentially DEG-INDEPENDENT (1.1906e-7 -> 1.18569e-7 by DEG=6, DEG=2 within ~0.42%
+  // of the limit) with the overflow fraction pinned at 0.200 of tau at every degree,
+  // reproducing the recorded 19.4% anchor: it SATURATES to a strictly-positive limit, NOT
+  // a vanishing truncation artifact and NOT growth. The absolute magnitude carries this
+  // module density normalization (same tiny order/sign as the recorded 9.28e-9); the
+  // deliverable is the DEG-trend + overflow fraction. Representative diagnostic;
+  // necessary-but-not-sufficient at operator order; no positivity, no RH verdict; PT 0.2 SOTA.
+  '/src/data/imp-3154-genuine-deg2-deficit-degree-sweep.js',
   // imp-3126: cross-checks whether the imp-3106 convergent regular tail mass
   // int_{s0+1}^inf phi ds ~0.26900597 is structurally related to the imp-3026/imp-3070
   // cusp constant C_shock = sqrt(2/(3 log gamma_N)) ~0.26922 (which agree to ~2.1e-4 at

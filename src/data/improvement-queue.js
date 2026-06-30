@@ -31467,6 +31467,32 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
   },
+  {
+    id: 'imp-3144',
+    title: 'Correct the surrogate \'exactly zero\' deficit: record genuine deg-2 (9.28e-9, 19.4% tau) + deg-0 (~64%) overflow at the Riemann Phi',
+    category: 'accuracy',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per section26-mupass-operator-verdict-2026-06-30.js: the imp-2841/imp-2686 surrogate (mu_diag=A, nu=sinh*A) FORCES 'residual deficit exactly zero' on A's support -- an artifact. The genuine degree-2 occupation measure gives a tiny NONZERO deficit (9.28e-9, overflow on 19.4% of tau); the genuine degree-0 spectral overflow is ~64%. DELIVERABLE: update imp-2841 / imp-2686 / imp-3007 modules to record the corrected genuine-density overflow fractions, flag the surrogate 'exactly zero' as necessary-but-NOT-sufficient (operator order, not mass order), add a tripwire. NO false QED.",
+    rationale: 'Retires a surrogate artifact that overstated the mu^pass case; the genuine deficit is tiny-but-nonzero.',
+    estimatedComplexity: 'medium',
+    dependsOn: [],
+    model: 'opus-4-8',
+  },
+  {
+    id: 'imp-3145',
+    title: 'Lock: mu^pass / Conj-26.3 target is RH-EQUIVALENT and must specify OPERATOR order (Gpass>=Gshear), never mass order',
+    category: 'meta',
+    priority: 'medium',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per section26-mupass-operator-verdict-2026-06-30.js: mass-feasibility (bridge budget 2400-20000x the deficit) is necessary-but-NOT-binding; the only core that gives ||R||<=1 is the tautological Gpass=|Gshear| partial isometry. Any future row claiming mu^pass 'dominates nu' must specify OPERATOR order (Gpass>=Gshear <=> ||R||<=1 <=> K_a>=0), NOT mass order, and must not regrade to a reduction. DELIVERABLE: extend the existing sec26-cross-bridge-cannot-regrade-to-reduction tripwire to enforce this, citing the operator-verdict module. Meta-lock, no new attack.",
+    rationale: 'Prevents a future mass-feasibility result from being mis-read as a reduction; both mu^pass options are closed.',
+    estimatedComplexity: 'medium',
+    dependsOn: [],
+    model: 'opus-4-8',
+  },
 ];
 
 // ── imp-2538: queue-side sub-gap sync tripwires ──────────────────────────────

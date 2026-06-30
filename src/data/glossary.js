@@ -496,6 +496,34 @@ export const glossary = [
     relatedTerms: ['isolation ratio rho', 'C_H wall', 'C_Lip', 'Theta-trap', 'C_shock'],
     link: '/spectral-attack',
   },
+  {
+    term: "Lipschitz/Gronwall route foreclosure",
+    category: 'proof-status',
+    definition:
+      "FORECLOSED (RH-hard impossibility). The attempt to bound the C_H collision rate " +
+      "via a finite N-uniform global-W_1 Lipschitz constant C_Lip is provably closed, " +
+      "three independent ways: " +
+      "(1) Holder-1/2 impossibility (airtight lower bound, WITNESSED): along the CM-flow cusp " +
+      "family the minimal gap obeys g_min = C_shock * W_1^{1/2} with C_shock < 1/3 " +
+      "(~0.2692 at N*=1e4, pinned by imp-2786). The Lipschitz quotient is therefore " +
+      "C_Lip >= C_shock / (2 sqrt(W_1)) -> inf as W_1 -> 0. " +
+      "Log-log fit across W_1 = 1e-2 .. 1e-12 pins the divergence exponent at exactly -1/2 " +
+      "(imp-3047). The sole escape (cusp family non-realizable) is the RH-hard " +
+      "two-sided spacing content. " +
+      "(2) Norm-mismatch (exact closed form, numerics < 0.2%): the global W_1 = (1/N) Sum|Dx| " +
+      "dilutes a microscopic 1-pair collision move (cost eps/N) across all N particles, " +
+      "giving C_Lip(W_1,N) = N * g0 / (4(1-Theta)) -- linear in N, independent of the cusp. " +
+      "(3) Refuted surrogates: tau_c-direct (object-substitution error, dg_min/dW_1 = 1.449/sqrt(W_1) " +
+      "-> inf) and squared-gap h=g^2 (bounded constant C_shock^2/8 holds ONLY on the 1-parameter " +
+      "cusp family; breaks under any consistent-W_1 rank-1 move or multiplicative fluctuation). " +
+      "The sole surviving deterministic forward move is to close the multi-body isolation " +
+      "constant c in closed form (currently bracketed at [0.927, 0.943], open; see isolation-constant " +
+      "ladder), which would convert the route to a basin-conditional C_Lip bound. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; no QED.",
+    firstUsed: 'imp-3047 (ch-lip-impossibility-w1grid, 2026)',
+    relatedTerms: ['C_Lip', 'C_H wall', 'C_shock', 'Holder-1/2 cusp', 'isolation-constant ladder', 'Theta-trap'],
+    link: '/spectral-attack',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

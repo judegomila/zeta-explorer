@@ -486,6 +486,168 @@ function ThetaRhoPhaseDiagram() {
   );
 }
 
+// imp-3053: drho/ds-vs-rho self-isolation line plot (distinct from the (rho,Theta) scatter above)
+function DrhoSelfIsolationPlot() {
+  // R2-T single-neighbour exact rate (normalised d_1=1, g=rho):
+  //   d(rho)/ds = (rho - 1) * [2/(rho+1) + 4*(rho+1)/rho]
+  // Sign law: strictly negative for rho<1, zero at rho=1, positive above.
+  const drhoSingle = (rho) => (rho - 1) * (2 / (rho + 1) + 4 * (rho + 1) / rho);
+
+  // R2-T2 symmetric 4-body rate (normalised d=1):
+  //   d(rho)/ds = -4/rho + 4*rho/(rho+1) + 2*rho/(rho+2) + 4*rho - 2
+  // Worsening onset at c* = sqrt(2+sqrt(3))-1 ~ 0.93185 (not at rho=1)
+  const drhoSymm = (rho) => -4 / rho + 4 * rho / (rho + 1) + 2 * rho / (rho + 2) + 4 * rho - 2;
+
+  const svgW = 520, svgH = 220, padL = 52, padR = 16, padT = 14, padB = 36;
+  const chartW = svgW - padL - padR;
+  const chartH = svgH - padT - padB;
+  const rhoMin = 0.05, rhoMax = 1.2;
+  const yMin = -22, yMax = 14;
+
+  const xS = (r) => padL + ((r - rhoMin) / (rhoMax - rhoMin)) * chartW;
+  const yS = (v) => padT + chartH * (1 - (Math.max(yMin, Math.min(yMax, v)) - yMin) / (yMax - yMin));
+  const yZero = yS(0);
+
+  const N = 300;
+  const rhos = Array.from({ length: N }, (_, i) => rhoMin + (i / (N - 1)) * (rhoMax - rhoMin));
+
+  const singlePath = rhos.map((r, i) => {
+    const v = drhoSingle(r);
+    return (i === 0 ? 'M' : 'L') + xS(r).toFixed(1) + ',' + yS(v).toFixed(1);
+  }).join(' ');
+
+  const symmPath = rhos.map((r, i) => {
+    const v = drhoSymm(r);
+    return (i === 0 ? 'M' : 'L') + xS(r).toFixed(1) + ',' + yS(v).toFixed(1);
+  }).join(' ');
+
+  const xBasin = xS(BASIN_CAP_RHO);
+  const xCstar = xS(TRAP_CSTAR);
+  const xOne = xS(1.0);
+  const xAsym = xS(0.927);
+
+  const yTicks = [-20, -15, -10, -5, 0, 5, 10];
+  const rhoTicks = [0.25, 0.5, 0.72, 1.0];
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #06b6d4' }}>
+      <h3 style={{ color: '#06b6d4', fontSize: 16, marginBottom: 8 }}>
+        Self-Isolation Rate: d&rho;/ds vs &rho;
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        The R2-T exact rate (cyan) uses the single-nearest-neighbour formula: sign(d&rho;/ds) = sign(&rho;&minus;1).
+        Every pair with &rho;&nbsp;&lt;&nbsp;1 strictly self-isolates — the rate is <em>negative</em>, driving
+        &rho; downward. The &rho;&nbsp;=&nbsp;1 lattice is the unique unstable repeller (rate zero, slope positive).
+        The R2-T2 symmetric 4-body rate (purple) has the same sign law but a later worsening onset c*&nbsp;&asymp;&nbsp;0.932.
+        The Theorem-C basin cap &rho;&nbsp;=&nbsp;0.72 sits comfortably below both onsets.
+      </p>
+      <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+        {/* Shaded self-isolating region rho < 1 */}
+        <rect x={padL} y={padT} width={xOne - padL} height={chartH}
+          fill="rgba(16,185,129,0.07)" />
+        {/* Zero line */}
+        <line x1={padL} y1={yZero} x2={svgW - padR} y2={yZero}
+          stroke="#334155" strokeWidth={1} />
+
+        {/* Rate curves */}
+        <path d={singlePath} stroke="#06b6d4" strokeWidth={2} fill="none" />
+        <path d={symmPath} stroke="#8b5cf6" strokeWidth={1.5} fill="none" strokeDasharray="5 3" />
+
+        {/* rho=1 repeller */}
+        <line x1={xOne} y1={padT} x2={xOne} y2={padT + chartH}
+          stroke="#ef4444" strokeWidth={1.5} strokeDasharray="5 2" />
+        <text x={xOne + 3} y={padT + 11} fill="#ef4444" fontSize={9}>
+          &rho;=1 repeller
+        </text>
+
+        {/* Basin cap */}
+        <line x1={xBasin} y1={padT} x2={xBasin} y2={padT + chartH}
+          stroke="#10b981" strokeWidth={1} strokeDasharray="4 2" />
+        <text x={xBasin + 3} y={padT + chartH - 4} fill="#10b981" fontSize={9}>
+          0.72 basin
+        </text>
+
+        {/* c* onset */}
+        <line x1={xCstar} y1={padT} x2={xCstar} y2={padT + chartH}
+          stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 2" />
+        <text x={xCstar - 3} y={padT + 22} fill="#8b5cf6" fontSize={9} textAnchor="end">
+          c*
+        </text>
+
+        {/* Asymmetric multi-body bracket infimum ~0.927 */}
+        <line x1={xAsym} y1={padT} x2={xAsym} y2={padT + chartH}
+          stroke="#f59e0b" strokeWidth={1} strokeDasharray="2 2" />
+        <text x={xAsym - 3} y={padT + 33} fill="#f59e0b" fontSize={8} textAnchor="end">
+          ~0.927
+        </text>
+
+        {/* "drho/ds < 0" label in shaded zone */}
+        <text x={padL + (xOne - padL) * 0.38} y={yS(-9)} fill="#10b981" fontSize={10} textAnchor="middle">
+          d&rho;/ds &lt; 0
+        </text>
+        <text x={padL + (xOne - padL) * 0.38} y={yS(-9) + 13} fill="#94a3b8" fontSize={9} textAnchor="middle">
+          (self-isolating)
+        </text>
+
+        {/* "drho/ds > 0" label in right zone */}
+        <text x={xOne + (svgW - padR - xOne) * 0.45} y={yS(5)} fill="#ef4444" fontSize={10} textAnchor="middle">
+          d&rho;/ds &gt; 0
+        </text>
+
+        {/* Axes */}
+        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH}
+          stroke="#334155" strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={padT + chartH}
+          stroke="#334155" strokeWidth={1} />
+
+        {/* Y-axis ticks */}
+        {yTicks.map((v) => (
+          <g key={v}>
+            <text x={padL - 4} y={yS(v) + 3} fill="#475569" fontSize={8} textAnchor="end">{v}</text>
+            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#334155" />
+          </g>
+        ))}
+        <text x={14} y={padT + chartH / 2} fill="#94a3b8" fontSize={9} textAnchor="middle"
+          transform={`rotate(-90, 14, ${padT + chartH / 2})`}>
+          d&rho;/ds
+        </text>
+
+        {/* X-axis ticks */}
+        {rhoTicks.map((v) => (
+          <g key={v}>
+            <text x={xS(v)} y={padT + chartH + 14} fill="#475569" fontSize={8} textAnchor="middle">
+              {v.toFixed(2)}
+            </text>
+            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke="#334155" />
+          </g>
+        ))}
+        <text x={padL + chartW / 2} y={svgH - 3} fill="#94a3b8" fontSize={10} textAnchor="middle">
+          {'ρ = g / d₁  (isolation ratio)'}
+        </text>
+      </svg>
+
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 10, fontSize: 11 }}>
+        {[
+          { col: '#06b6d4', label: 'R2-T single-neighbour (exact sign law)' },
+          { col: '#8b5cf6', label: 'R2-T2 symmetric 4-body (c* onset)' },
+          { col: '#10b981', label: 'Self-isolating basin ρ < 1' },
+          { col: '#ef4444', label: 'ρ = 1 repeller' },
+        ].map(({ col, label }) => (
+          <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ width: 10, height: 10, borderRadius: '50%', background: col, flexShrink: 0 }} />
+            <span style={{ color: '#94a3b8' }}>{label}</span>
+          </div>
+        ))}
+      </div>
+      <p style={{ color: '#64748b', fontSize: 12, marginTop: 8, lineHeight: 1.7 }}>
+        Honest residual: the single-neighbour sign law (cyan) is closed in exact form; the multi-body
+        constant remains open between ~0.902 and 0.943. The Theorem-C basin cap 0.72 has a safety margin
+        &ge;0.18 below all known worsening onsets, so basin-conditional self-isolation is unaffected.
+      </p>
+    </div>
+  );
+}
+
 export default function SpectralAttackPage() {
   return (
     <div className="page">
@@ -809,6 +971,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Theta-Trap Phase Diagram ─── */}
       <ThetaRhoPhaseDiagram />
+
+      {/* ─── drho/ds Self-Isolation Line Plot (imp-3053) ─── */}
+      <DrhoSelfIsolationPlot />
 
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>

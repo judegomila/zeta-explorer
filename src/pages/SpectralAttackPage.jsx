@@ -5,6 +5,7 @@ import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL, SG1C_R1T4_BASIN_GRID, SG1C_R1T4_RHO1_REPELLER, SG1C_R2T2_SHELL_CROSSCHECK } from '../data/sg1c-theta-trap-theorems.js';
 import { CTHETA_FLAT_INVARIANT } from '../data/imp-3022-ctheta-basin-scaling.js';
+import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orthogonalized-basis-conditioning.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -649,6 +650,156 @@ function DrhoSelfIsolationPlot() {
   );
 }
 
+// imp-3076: Theta(rho) = (2*rho/(rho+2))^2 phase plot — analytic curve with Theta=1/4 trap crossing and 0.72 basin cap
+function ThetaRhoPhaseFunctionPlot() {
+  const svgW = 520, svgH = 220, padL = 48, padR = 16, padT = 14, padB = 36;
+  const chartW = svgW - padL - padR;
+  const chartH = svgH - padT - padB;
+  const rhoMin = 0, rhoMax = 1.1;
+  const thetaMax = 0.80;
+
+  const xS = (r) => padL + ((r - rhoMin) / (rhoMax - rhoMin)) * chartW;
+  const yS = (t) => padT + chartH * (1 - Math.min(t, thetaMax) / thetaMax);
+
+  // Analytic formula: Theta(rho) = (2*rho / (rho+2))^2
+  const thetaFn = (rho) => { const v = 2 * rho / (rho + 2); return v * v; };
+
+  // rho* where Theta=1/4: (2*rho/(rho+2))^2 = 1/4  =>  2*rho/(rho+2) = 1/2  =>  rho = 2/3
+  const RHO_STAR = 2 / 3;
+  const BASIN_CAP = 0.72;
+  const THETA_QUARTER = 0.25;
+
+  const N = 300;
+  const rhos = Array.from({ length: N }, (_, i) => rhoMin + (i / (N - 1)) * (rhoMax - rhoMin));
+
+  const curvePath = rhos.map((r, i) => {
+    const t = thetaFn(r);
+    return (i === 0 ? 'M' : 'L') + xS(r).toFixed(1) + ',' + yS(t).toFixed(1);
+  }).join(' ');
+
+  // Shaded region rho <= RHO_STAR (trapped zone)
+  const xStar = xS(RHO_STAR);
+  const xBasin = xS(BASIN_CAP);
+  const yTrap = yS(THETA_QUARTER);
+  const yBasinTheta = yS(thetaFn(BASIN_CAP));
+
+  const rhoTicks = [0, 1/3, 2/3, 0.72, 1.0];
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #10b981" }}>
+      <h3 style={{ color: "#10b981", fontSize: 16, marginBottom: 8 }}>
+        &Theta;(&rho;) = (2&rho;/(&rho;+2))&#xb2; Phase Function (imp-3076)
+      </h3>
+      <p style={{ color: "#94a3b8", fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        The <strong style={{ color: "#10b981" }}>analytic Theta-function</strong> for a basin pair
+        under Theorem-C: &Theta;&nbsp;=&nbsp;(2&rho;/(&rho;+2))&#xb2;.
+        The <strong style={{ color: "#ef4444" }}>1/4-trap crossing</strong> occurs exactly at
+        &rho;*&nbsp;=&nbsp;2/3 — on-basin pairs (&rho;&nbsp;&lt;&nbsp;2/3) satisfy Theorem&nbsp;A
+        unconditionally. The <strong style={{ color: "#06b6d4" }}>0.72 Theorem-C cap</strong> sits
+        above the crossing with &Theta;(0.72)&nbsp;&asymp;&nbsp;0.291 (still below the Theorem-B
+        threshold 0.443). Distinct from the d&rho;/ds self-isolation plot (imp-3053).
+      </p>
+      <svg width={svgW} height={svgH} style={{ display: "block", maxWidth: "100%" }}>
+        {/* Shaded trap zone rho < rho* */}
+        <rect x={padL} y={padT} width={Math.max(0, xStar - padL)} height={chartH}
+          fill="rgba(16,185,129,0.10)" />
+
+        {/* Analytic curve */}
+        <path d={curvePath} stroke="#10b981" strokeWidth={2.5} fill="none" />
+
+        {/* Theta=1/4 horizontal trap line */}
+        <line x1={padL} y1={yTrap} x2={svgW - padR} y2={yTrap}
+          stroke="#ef4444" strokeWidth={1.5} strokeDasharray="5 2" />
+        <text x={svgW - padR - 2} y={yTrap - 4} fill="#ef4444" fontSize={9} textAnchor="end">
+          Thm A: &Theta;=1/4
+        </text>
+
+        {/* rho* crossing vertical */}
+        <line x1={xStar} y1={padT} x2={xStar} y2={padT + chartH}
+          stroke="#ef4444" strokeWidth={1.5} strokeDasharray="4 2" />
+        <text x={xStar + 3} y={padT + 12} fill="#ef4444" fontSize={9}>
+          &rho;*=2/3
+        </text>
+        {/* crossing dot */}
+        <circle cx={xStar} cy={yTrap} r={5} fill="#ef4444" />
+        <text x={xStar + 7} y={yTrap + 4} fill="#ef4444" fontSize={9}>
+          crossing
+        </text>
+
+        {/* 0.72 Theorem-C basin cap vertical */}
+        <line x1={xBasin} y1={padT} x2={xBasin} y2={padT + chartH}
+          stroke="#06b6d4" strokeWidth={1.5} strokeDasharray="6 3" />
+        <text x={xBasin + 3} y={padT + 23} fill="#06b6d4" fontSize={9}>
+          0.72 cap
+        </text>
+        {/* basin cap dot on curve */}
+        <circle cx={xBasin} cy={yBasinTheta} r={4} fill="#06b6d4" />
+
+        {/* Axes */}
+        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH}
+          stroke="#334155" strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={padT + chartH}
+          stroke="#334155" strokeWidth={1} />
+
+        {/* Y-axis ticks */}
+        {[0, 0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7].map((v) => (
+          <g key={v}>
+            <text x={padL - 4} y={yS(v) + 3} fill={v === 0.25 ? "#ef4444" : "#475569"} fontSize={8} textAnchor="end">
+              {v === 0.25 ? "1/4" : v.toFixed(1)}
+            </text>
+            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#334155" />
+          </g>
+        ))}
+        <text x={14} y={padT + chartH / 2} fill="#94a3b8" fontSize={9} textAnchor="middle"
+          transform={`rotate(-90, 14, ${padT + chartH / 2})`}>
+          {"Θ(ρ)"}
+        </text>
+
+        {/* X-axis ticks */}
+        {rhoTicks.map((v) => (
+          <g key={v}>
+            <text x={xS(v)} y={padT + chartH + 14} fill={v === 2/3 ? "#ef4444" : v === 0.72 ? "#06b6d4" : "#475569"}
+              fontSize={8} textAnchor="middle">
+              {v === 2/3 ? "2/3" : v.toFixed(2)}
+            </text>
+            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke="#334155" />
+          </g>
+        ))}
+        <text x={padL + chartW / 2} y={svgH - 3} fill="#94a3b8" fontSize={10} textAnchor="middle">
+          {"ρ = g / d₁  (isolation ratio)"}
+        </text>
+      </svg>
+
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))", gap: 8, marginTop: 12 }}>
+        <div style={{ padding: "8px 12px", background: "rgba(30,41,59,0.5)", borderRadius: 6, borderTop: "2px solid #ef4444" }}>
+          <div style={{ color: "#ef4444", fontSize: 11, fontWeight: 700 }}>1/4-trap crossing &rho;*</div>
+          <div style={{ color: "#e2e8f0", fontSize: 12 }}>&rho;* = 2/3 &asymp; 0.667</div>
+          <div style={{ color: "#64748b", fontSize: 10 }}>&Theta;(2/3) = 1/4 exactly</div>
+        </div>
+        <div style={{ padding: "8px 12px", background: "rgba(30,41,59,0.5)", borderRadius: 6, borderTop: "2px solid #06b6d4" }}>
+          <div style={{ color: "#06b6d4", fontSize: 11, fontWeight: 700 }}>Theorem-C basin cap</div>
+          <div style={{ color: "#e2e8f0", fontSize: 12 }}>&rho; = 0.72</div>
+          <div style={{ color: "#64748b", fontSize: 10 }}>&Theta;(0.72) &asymp; {thetaFn(0.72).toFixed(4)}</div>
+        </div>
+        <div style={{ padding: "8px 12px", background: "rgba(30,41,59,0.5)", borderRadius: 6, borderTop: "2px solid #10b981" }}>
+          <div style={{ color: "#10b981", fontSize: 11, fontWeight: 700 }}>On-basin Thm A zone</div>
+          <div style={{ color: "#e2e8f0", fontSize: 12 }}>&rho; &lt; 2/3 (shaded)</div>
+          <div style={{ color: "#64748b", fontSize: 10 }}>&Theta; &lt; 1/4, trap unconditional</div>
+        </div>
+      </div>
+
+      <p style={{ color: "#64748b", fontSize: 12, marginTop: 10, lineHeight: 1.7 }}>
+        The formula &Theta;(&rho;)&nbsp;=&nbsp;(2&rho;/(&rho;+2))&#xb2; is the Theorem-C basin
+        relationship: it maps each isolation ratio to its theoretical &Theta; value under the
+        basin reconditioning. At &rho;*=2/3 the curve crosses the Theorem&nbsp;A threshold
+        (1/4); all pairs with &rho;&nbsp;&lt;&nbsp;2/3 satisfy Theorem&nbsp;A automatically.
+        The cap at 0.72 gives &Theta;&asymp;{thetaFn(0.72).toFixed(3)}, safely below
+        the Theorem-B static ceiling 0.443.
+      </p>
+    </div>
+  );
+}
+
 // imp-3055: R1-T4 dynamical-reachability basin-closure narrative
 function R1T4BasinClosureSection() {
   const grid = SG1C_R1T4_BASIN_GRID;
@@ -856,6 +1007,144 @@ function ShellOnsetLadderSection() {
 // g0-halving sweep). This SURFACES the certified result; it does not recompute
 // it. MANDATORY caveat: scale-law SIGNATURE only -- does NOT close the
 // off-basin divergence; PT Lambda <= 0.2 stays the rigorous SOTA.
+function ConditioningCollapseBars() {
+  const m = IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING.measured;
+  // Three quantities, each measured in the raw diagonal-only (imp-3066) basis vs the
+  // full-passive-Gram orthonormalized basis. The operator/diagonal gap "after" bar carries
+  // the strictly-positive surviving residual gap that is NOT a conditioning artifact.
+  const groups = [
+    {
+      label: 'Operator norm ||R||',
+      before: m.operatorNormImp3066Diagonal,
+      after: m.operatorNormGramSchmidt,
+      residual: false,
+    },
+    {
+      label: 'Operator/diag gap',
+      before: m.operatorDiagonalGapImp3066Diagonal,
+      after: m.operatorDiagonalGapGramSchmidt,
+      residual: true, // the part that SURVIVES orthogonalization
+    },
+    {
+      label: 'Off-diag Frobenius',
+      before: m.offDiagonalFrobeniusImp3066Diagonal,
+      after: m.offDiagonalFrobeniusGramSchmidt,
+      residual: false,
+    },
+  ];
+
+  const svgW = 520, svgH = 270, padL = 44, padR = 16, padT = 16, padB = 60;
+  const chartW = svgW - padL - padR;
+  const chartH = svgH - padT - padB;
+  const yMax = 5; // tallest bar is the raw operator norm ~4.62
+  const yS = (v) => padT + chartH * (1 - Math.min(v, yMax) / yMax);
+  const yBase = padT + chartH;
+
+  const groupW = chartW / groups.length;
+  const barW = 40;
+  const gap = 10; // space between the paired before/after bars
+
+  const yTicks = [0, 1, 2, 3, 4, 5];
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #f472b6' }}>
+      <h3 style={{ color: '#f472b6', fontSize: 16, marginBottom: 8 }}>
+        Conditioning Collapse: Raw Monomial vs Orthonormalized Basis (imp-3086)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        imp-3066 normalized the de-homogenized operator by only the <em>diagonal</em> of the passive
+        cosh Gram, dropping its dense positive off-diagonal cross-terms on an ill-conditioned monomial
+        basis. Restoring the full passive Gram via Gram-Schmidt orthonormalization collapses all three
+        measured quantities &mdash; operator norm{' '}
+        <strong style={{ color: '#e2e8f0', fontFamily: 'monospace' }}>
+          {m.operatorNormImp3066Diagonal.toFixed(2)}&nbsp;&rarr;&nbsp;{m.operatorNormGramSchmidt.toFixed(2)}
+        </strong>
+        , operator/diagonal gap{' '}
+        <strong style={{ color: '#e2e8f0', fontFamily: 'monospace' }}>
+          {m.operatorDiagonalGapImp3066Diagonal.toFixed(2)}&nbsp;&rarr;&nbsp;{m.operatorDiagonalGapGramSchmidt.toFixed(2)}
+        </strong>
+        , off-diag Frobenius{' '}
+        <strong style={{ color: '#e2e8f0', fontFamily: 'monospace' }}>
+          {m.offDiagonalFrobeniusImp3066Diagonal.toFixed(2)}&nbsp;&rarr;&nbsp;{m.offDiagonalFrobeniusGramSchmidt.toFixed(2)}
+        </strong>{' '}
+        &mdash; so the imp-3066 gap was <strong style={{ color: '#e2e8f0' }}>largely a basis-conditioning
+        artifact</strong>. But a strictly-positive residual gap (pink-highlighted bar) of{' '}
+        <strong style={{ color: '#f472b6', fontFamily: 'monospace' }}>
+          {m.operatorDiagonalGapGramSchmidt.toFixed(3)}
+        </strong>{' '}
+        survives: the off-diagonal endpoint-Hankel obstruction is real, just far smaller than the raw
+        basis advertised. The operator norm itself is a <strong style={{ color: '#e2e8f0' }}>basis
+        invariant</strong> &mdash; triangular Gram-Schmidt and symmetric Loewdin orthogonalization agree
+        to{' '}
+        <strong style={{ color: '#10b981', fontFamily: 'monospace' }}>
+          rel-diff {m.operatorNormInvarianceRelDiff.toExponential(1)}
+        </strong>
+        .
+      </p>
+
+      <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+        {/* Y-axis grid + ticks */}
+        {yTicks.map((v) => (
+          <g key={v}>
+            <line x1={padL} y1={yS(v)} x2={svgW - padR} y2={yS(v)} stroke="#1e293b" strokeWidth={1} />
+            <text x={padL - 5} y={yS(v) + 3} fill="#475569" fontSize={8} textAnchor="end">{v}</text>
+          </g>
+        ))}
+
+        {groups.map((g, gi) => {
+          const cx = padL + groupW * (gi + 0.5);
+          const xBefore = cx - barW - gap / 2;
+          const xAfter = cx + gap / 2;
+          return (
+            <g key={g.label}>
+              {/* raw monomial (before) bar */}
+              <rect x={xBefore} y={yS(g.before)} width={barW} height={yBase - yS(g.before)}
+                fill="#64748b" opacity={0.85} />
+              <text x={xBefore + barW / 2} y={yS(g.before) - 4} fill="#94a3b8" fontSize={9}
+                textAnchor="middle">{g.before.toFixed(2)}</text>
+
+              {/* orthonormalized (after) bar; residual gap highlighted pink */}
+              <rect x={xAfter} y={yS(g.after)} width={barW} height={yBase - yS(g.after)}
+                fill={g.residual ? '#f472b6' : '#06b6d4'} opacity={0.9} />
+              <text x={xAfter + barW / 2} y={yS(g.after) - 4}
+                fill={g.residual ? '#f472b6' : '#22d3ee'} fontSize={9}
+                textAnchor="middle">{g.after.toFixed(2)}</text>
+
+              {/* group label */}
+              <text x={cx} y={yBase + 14} fill="#94a3b8" fontSize={9} textAnchor="middle">{g.label}</text>
+            </g>
+          );
+        })}
+
+        {/* Axes */}
+        <line x1={padL} y1={yBase} x2={svgW - padR} y2={yBase} stroke="#334155" strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={yBase} stroke="#334155" strokeWidth={1} />
+
+        {/* Legend */}
+        <rect x={padL + 6} y={svgH - 30} width={12} height={12} fill="#64748b" opacity={0.85} />
+        <text x={padL + 22} y={svgH - 20} fill="#94a3b8" fontSize={9}>raw monomial (diag-only)</text>
+        <rect x={padL + 170} y={svgH - 30} width={12} height={12} fill="#06b6d4" opacity={0.9} />
+        <text x={padL + 186} y={svgH - 20} fill="#94a3b8" fontSize={9}>orthonormalized</text>
+        <rect x={padL + 300} y={svgH - 30} width={12} height={12} fill="#f472b6" opacity={0.9} />
+        <text x={padL + 316} y={svgH - 20} fill="#94a3b8" fontSize={9}>surviving residual</text>
+      </svg>
+
+      <div style={{ background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.25)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
+        <div style={{ color: '#f59e0b', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+          Honest scope: diagnostic on the representative truncation &mdash; no RH verdict
+        </div>
+        <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7 }}>
+          Structural diagnostic on the same representative degree-{IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING.construction.degree}{' '}
+          monomial-moment truncation as imp-3066 &mdash; <strong style={{ color: '#e2e8f0' }}>not</strong> the
+          section-26 Gram. The orthonormalized operator norm ({m.operatorNormGramSchmidt.toFixed(2)}) carries no
+          RH verdict; positivity was not attempted; this is not a proof or reduction. Platt-Trudgian
+          &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function CThetaFlatInvariantPanel() {
   const inv = CTHETA_FLAT_INVARIANT;
   const tbl = inv.table;
@@ -1249,6 +1538,9 @@ export default function SpectralAttackPage() {
       {/* ─── drho/ds Self-Isolation Line Plot (imp-3053) ─── */}
       <DrhoSelfIsolationPlot />
 
+      {/* ─── Theta(rho) = (2*rho/(rho+2))^2 Phase Function Plot (imp-3076) ─── */}
+      <ThetaRhoPhaseFunctionPlot />
+
       {/* ─── R1-T4 Basin Closure Narrative (imp-3055) ─── */}
       <R1T4BasinClosureSection />
 
@@ -1257,6 +1549,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Off-Basin C_Theta Flat Invariant 16/27 (imp-3098 surfaces imp-3067) ─── */}
       <CThetaFlatInvariantPanel />
+
+      {/* ─── Conditioning Collapse before/after bars (imp-3116 surfaces imp-3086) ─── */}
+      <ConditioningCollapseBars />
 
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>

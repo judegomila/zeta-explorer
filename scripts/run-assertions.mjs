@@ -1718,6 +1718,7 @@ const DATA_MODULES = [
   '/src/data/section26-verdict-volterra-not-a-reduction-2026-06-18.js',
   '/src/data/ch-wall-frontier-verdict-2026-06-26.js',
   '/src/data/section26-mupass-operator-verdict-2026-06-30.js',
+  '/src/data/econn-metric-rearchitecture-verdict-2026-06-30.js',
   // imp-2686: endpoint-bridge-enriched mu^pass construction (the surviving RH-equivalent Volterra target).
   '/src/data/imp-2686-mupass-construction.js',
   // imp-2841: degree-0 deficit profile quantifying the section26-verdict "~64% of tau" overflow.

@@ -31835,6 +31835,32 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
   },
+  {
+    id: 'imp-3169',
+    title: 'Correct the \'sup-norm re-architecture foreclosed / global metric fundamental\' overclaim in the C_H verdict + RouteMap foreclosure notice',
+    category: 'accuracy',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per econn-metric-rearchitecture-verdict-2026-06-30.js (adversarial referees caught our own overclaim): ch-wall-frontier-verdict-2026-06-26.js (l.57-59,82) and the RouteMapPage foreclosure notice ('No analytic bypass exists / sup-norm re-architecture foreclosed') are an OVERCLAIM about the C_Lip FACTOR. The W_1 metric is INCIDENTAL, not fundamental: in sup-norm, g_min=min-over-pairs is 1-Lipschitz so C_Lip is N-uniform (~9.4e-3). DELIVERABLE: soften the foreclosure framing in the verdict module's docstring/fields AND the RouteMapPage notice to the corrected 'metric incidental / re-architecturable but FUTILE -- the true wall is the metric-invariant multi-body isolation D_rest, not the metric', citing the new module. PRESERVE the existing cross-bridge tripwires (do not regrade the verdict to a reduction). Keep the bottom line (no beat, PT 0.2 SOTA). Build green.",
+    rationale: 'The verification discipline caught an overclaim in our OWN verdict; the UI/module must reflect the corrected (metric-incidental) framing.',
+    estimatedComplexity: 'medium',
+    dependsOn: [],
+    model: 'opus-4-8',
+  },
+  {
+    id: 'imp-3170',
+    title: 'Close the MULTI-BODY (asymmetric) sg1c R2-T isolation constant c in [0.72,1) — the convergent deterministic residual',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'S7',
+    description: "Per econn-metric-rearchitecture-verdict + ch-wall-frontier-verdict: BOTH frontier assaults (C_H Lipschitz + metric re-architecture) converge on the SAME deterministic residual -- the multi-body isolation constant c. imp-3005 closed the SINGLE-SHELL case in closed form (c*=sqrt(2+sqrt3)-1 ~ 0.9319); the MULTI-BODY (asymmetric) case is numerically scanned to ~0.943 but NOT closed in form. DELIVERABLE: prove (or precisely locate the failure of) the uniform lower bound on the product of non-colliding gaps D_rest(t_c) beyond the single nearest neighbour. This is DETERMINISTIC CM-flow algebra (NOT RH-hard). HONEST: closing it gives only a BASIN-CONDITIONAL Lipschitz C_Lip (the basin restriction rests on the isolation sign law, RH-hard off-basin) -- still NOT an unconditional beat. Companion: audit whether the isolated-pair basin can be discharged unconditionally or is RH-hard off-basin.",
+    rationale: 'The single deterministic forward residual that BOTH frontier assaults converge on; the only non-RH-hard move left.',
+    estimatedComplexity: 'medium',
+    dependsOn: [],
+    model: 'opus-4-8',
+  },
 ];
 
 // ── imp-2538: queue-side sub-gap sync tripwires ──────────────────────────────

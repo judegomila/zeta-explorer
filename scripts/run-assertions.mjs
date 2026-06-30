@@ -1940,6 +1940,13 @@ const DATA_MODULES = [
   // is the smallest N=2458 with C_shock ~ 0.2886, margin ~0.0447. Numerical uniformity
   // certificate of an already-proven cap, NOT a new bound; PT 0.2 stays SOTA.
   '/src/data/imp-3070-c-shock-n-dependence.js',
+  // imp-3108: cross-validate the imp-3070 monotone C_shock(N) curve against the
+  // imp-3026 three ladder values (reproduces them to < 1e-15) and tabulate the
+  // margin 1/3 - C_shock(N) vs N, confirming it GROWS with N (smallest ~0.0447 at
+  // N=2458, largest ~0.1095 at N=1e6) and the reduced inequality log gamma_N > 6
+  // <=> gamma_N > e^6 ~ 403 holds at every assembly N. Numerical cross-check of an
+  // already-proven cap, NOT a new bound; surrogate stays refuted, PT 0.2 stays SOTA.
+  '/src/data/imp-3108-c-shock-margin-cross-validation.js',
   // imp-3047: tabulate the route-1 IMPOSSIBILITY lower bound C_Lip >= C_shock/(2 sqrt(W_1))
   // across a decreasing W_1 grid (1e-2 .. 1e-12) on the cusp law g_min = C_shock W_1^{1/2}.
   // The realized Lipschitz quotient reproduces C_shock/(2 sqrt(W_1)) to machine precision,

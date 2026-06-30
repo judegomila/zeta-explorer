@@ -567,6 +567,128 @@ export const SG1C_R2T2_ASYM_RESIDUAL = (() => {
   };
 })();
 
+// imp-3194: lattice-length L -> infinity convergence of the imp-3021 structured
+// half-lattice isolation worsening-onset. The imp-3021 progress note records that
+// the canonical half-lattice onset "converges to ~0.90625 by 4 lattice particles"
+// and a deterministic tune "pushes the infimum to ~0.9016", but never tabulates the
+// onset-vs-L curve, never measures the convergence order, and never extrapolates the
+// L -> infinity limit. Doing so exposes a measurement artifact AND sharpens the bracket.
+//
+// FINDING 1 (artifact). Re-running the canonical onset with the imp-3021 dRhoIso
+// (isolation measured against the GLOBAL nearest environment particle) saturates
+// BIT-EXACTLY at 0.9062491875 from L = 4 onward (L = 4..256 all identical to 1e-16).
+// That is NOT a smooth onset: the nearest neighbour is a TIE -- the lone left neighbour
+// at -1 and the first right-lattice particle at rho+1 are BOTH at distance exactly 1 --
+// and the two tie members give OPPOSITE rates: the lone-left selection gives drho > 0
+// (worsening) while the right-lattice selection gives drho < 0 (isolating). The FP
+// tie-break flips erratically across the bisection midpoints, so drho at the returned
+// "onset" is +0.01..+0.08 (far from 0), not a smooth zero. This is the SAME minimal-gap
+// selector index-flip discontinuity imp-3170 diagnosed for the imp-3045 value 0.9032364.
+//
+// FINDING 2 (genuine onset + extrapolation). Measuring isolation CONSISTENTLY against
+// the lone far neighbour (the side the half-lattice was constructed to destabilise --
+// the dense right side always isolates, its branch onset -> 1) gives a smooth, strictly
+// decreasing onset(L): 0.93185(L=1) 0.91536 0.90861 0.90516 0.90317 0.90191(L=6)
+// 0.90046(L=8) 0.89924 0.89875 0.89822(L=32) 0.89807 0.89803(L=128) 0.898024(L=256).
+// The doubling ratio (o(L)-o(2L))/(o(2L)-o(4L)) -> 4, i.e. ALGEBRAIC convergence of
+// order p -> 2 (O(1/L^2)). Aitken delta^2 / Richardson on the three largest L give the
+// L -> infinity limit ~0.898021. This SHARPENS the open global-asymmetric lower bracket
+// DOWN to ~0.8980 -- below the imp-3170 opposite-UNIT-lattice closed form c_asym =
+// 0.90279 (a genuinely different, denser class here: the right spacing equals the pair
+// gap rho, not unit), below the imp-3021 tuned 0.9016, and far below the FP-tie 0.90625.
+// HONEST / STILL OPEN: this is a certified numerical infimum of a structured family plus
+// an O(1/L^2) extrapolation, NOT a closed form and NOT proven to be the GLOBAL asymmetric
+// infimum. SUB-GAP (sg1c-halflattice-lone-neighbour-limit): the L -> infinity lone-neighbour
+// half-lattice onset ~0.8980 wants a closed form (the imp-3170 digamma route with the
+// opposite lattice at spacing rho rather than 1). Load-bearing margin unchanged: even
+// ~0.8980 sits ~0.178 above the Theorem C basin constant 0.72, so the basin-conditional
+// C_Lip (imp-3006) is unaffected; PT Lambda <= 0.2 stays SOTA.
+export const SG1C_R2T2_HALFLATTICE_LSWEEP = (() => {
+  const cStar = Math.sqrt(2 + Math.sqrt(3)) - 1; // 0.93185165... symmetric single-shell
+  const cAsymClosedForm = 0.9027902227683418;    // imp-3170 opposite-UNIT-lattice transcendental
+  // canonical half-lattice: lone left neighbour at -1, central pair (0, rho), right
+  // one-sided lattice with first gap 1 then spacing = pair gap rho. Tracked pair idx = 1.
+  const cfg = (rho, L) => {
+    const x = [-1, 0, rho];
+    let p = rho + 1;
+    x.push(p);
+    for (let k = 1; k < L; k++) { p += rho; x.push(p); }
+    return x;
+  };
+  // global-nearest dRhoIso (the imp-3021 measure) -- exposes the d_1 = 1 TIE artifact
+  const drhoTie = (rho, L) => dRhoIso(cfg(rho, L), 1).drho;
+  // isolation rate measured against a FIXED neighbour jp/side (tie-robust branch)
+  const drhoFixed = (x, jp, side) => {
+    const F = force(x), a = x[1], b = x[2], g = b - a;
+    const d1 = side === -1 ? a - x[jp] : x[jp] - b;
+    const gdot = F[2] - F[1];
+    const d1dot = side === -1 ? F[1] - F[jp] : F[jp] - F[1];
+    return (gdot * d1 - g * d1dot) / (d1 * d1);
+  };
+  // lone-neighbour (left, jp = 0) branch onset: smooth worsening crossing for THIS class
+  const onsetLone = (L) => {
+    let lo = 0.5, hi = 0.999999;
+    for (let it = 0; it < 120; it++) {
+      const m = (lo + hi) / 2;
+      if (drhoFixed(cfg(m, L), 0, -1) > 0) hi = m; else lo = m;
+    }
+    return (lo + hi) / 2;
+  };
+  // global-nearest (tie) onset: the artifact value the bisection locks onto
+  const onsetTie = (L) => {
+    let lo = 0.5, hi = 0.999999;
+    for (let it = 0; it < 120; it++) {
+      const m = (lo + hi) / 2;
+      if (drhoTie(m, L) > 0) hi = m; else lo = m;
+    }
+    return (lo + hi) / 2;
+  };
+  const Ls = [1, 2, 3, 4, 5, 6, 8, 12, 16, 24, 32, 64, 128, 256];
+  const lSweep = Ls.map((L) => {
+    const oLone = onsetLone(L), oTie = onsetTie(L);
+    return { latticeCount: L, onsetLone: oLone, onsetTie: oTie, drhoAtTieOnset: drhoTie(oTie, L) };
+  });
+  // tie artifact: onset(L) is bit-identical for all L >= 4 and drho there is NOT ~0
+  const tieRows = lSweep.filter((r) => r.latticeCount >= 4);
+  const tieOnsetSaturated = tieRows[0].onsetTie;
+  const tieSaturatesExactly = tieRows.every((r) => Math.abs(r.onsetTie - tieOnsetSaturated) < 1e-12);
+  const tieOnsetIsDiscontinuity = tieRows.every((r) => Math.abs(r.drhoAtTieOnset) > 1e-3);
+  // lone-branch convergence order via doubling ratio at L = 16, 32, 64, 128, 256
+  const oAt = (L) => lSweep.find((r) => r.latticeCount === L).onsetLone;
+  const doublingRatio = (oAt(16) - oAt(32)) / (oAt(32) - oAt(64));
+  const convergenceOrderP = Math.log2(doublingRatio); // -> ~2 (O(1/L^2))
+  // Aitken delta^2 extrapolation of the L -> infinity limit on the three largest L
+  const aA = oAt(64), aB = oAt(128), aC = oAt(256);
+  const loneLimit = aC - ((aC - aB) * (aC - aB)) / ((aC - aB) - (aB - aA));
+  return {
+    cStarClosed: cStar,
+    cAsymClosedForm,                 // imp-3170 opposite-UNIT-lattice onset 0.90279
+    tunedAsymInf: 0.9016,            // imp-3021 deterministic tune
+    lSweep,
+    tieOnsetSaturated,               // ~0.9062491875 -- the FP-tie artifact
+    tieSaturatesExactly,             // true: bit-identical for all L >= 4
+    tieOnsetIsDiscontinuity,         // true: drho ~ +0.01..0.08 at the "onset", not 0
+    convergenceOrderP,               // ~2: algebraic O(1/L^2)
+    doublingRatio,                   // ~4
+    loneNeighbourLimit: loneLimit,   // ~0.898021 -- extrapolated L -> infinity onset
+    sharpenedBracket: [loneLimit, 0.943], // OPEN; lower end pushed below c_asym = 0.90279
+    theoremCConstant: 0.72,
+    marginToBasinConstant: loneLimit - 0.72, // ~0.178, unchanged load-bearing margin
+    summary:
+      "L-sweep of the imp-3021 half-lattice onset. The canonical global-nearest bisection "
+      + "saturates BIT-EXACTLY at ~0.90625 by L = 4, but that is a d_1 = 1 nearest-neighbour TIE "
+      + "artifact (lone-left selection worsens, right-lattice selection isolates; drho at the "
+      + "returned onset is +0.01..0.08, not a smooth zero) -- the same selector index-flip "
+      + "discontinuity imp-3170 flagged for imp-3045. Measuring isolation consistently against "
+      + "the intended lone far neighbour gives a SMOOTH onset(L) decreasing algebraically at "
+      + "order p -> 2 (O(1/L^2)) to an extrapolated L -> infinity limit ~0.898021, sharpening the "
+      + "OPEN global-asymmetric lower bracket below the imp-3170 unit-lattice c_asym = 0.90279 and "
+      + "below the imp-3021 tuned 0.9016. STILL OPEN: numerical infimum + extrapolation, no closed "
+      + "form, not proven global. Margin to the Theorem C basin constant 0.72 stays ~0.178; PT "
+      + "Lambda <= 0.2 unaffected.",
+  };
+})();
+
 // imp-3027: independent reproduction of the Lemma R1-T4 (imp-2637) dynamical
 // reachability / zero-excursion experiment over an EXTENDED grid of real-zero-
 // derived initial windows and N values. The parent assertion

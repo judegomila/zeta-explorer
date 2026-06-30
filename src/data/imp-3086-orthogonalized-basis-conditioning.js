@@ -399,6 +399,23 @@ export const IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING_ASSERTIONS = [
     holds: () => gapOrth > 1e-9 && opNormOrth > maxDiagOrth,
   },
   {
+    id: 'imp3086-basis-invariance-and-collapse-anchors-pinned',
+    why: 'imp-3111 lock: pin the THREE published headline numbers against silent drift. ' +
+         '(a) ABSOLUTE basis invariance |||R_orth|| - ||R_sym||| < 1e-12 (stronger than the ' +
+         'relative-diff tripwire above; certifies the two distinct orthogonalizations of the ' +
+         'cosh inner product share the pencil operator norm to full double precision). ' +
+         '(b) the residual operator/diagonal gap survives strictly positive. ' +
+         '(c) the published collapse anchors ||R||: 4.62 -> 0.99 and gap: 3.63 -> 0.09 -- a ' +
+         'silent edit to the F,G moment build or the orthogonalization would drift these.',
+    holds: () =>
+      Math.abs(opNormOrth - opNormSym) < 1e-12 &&
+      gapOrth > 0 &&
+      Math.abs(opNormDiag - 4.617) < 5e-3 &&
+      Math.abs(opNormOrth - 0.993) < 5e-3 &&
+      Math.abs(gapDiag - 3.626) < 5e-3 &&
+      Math.abs(gapOrth - 0.088) < 5e-3,
+  },
+  {
     id: 'imp3086-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: REPRESENTATIVE diagnostic truncation, operator norm carries no RH ' +
          'verdict, positivity not attempted, not a proof or reduction, bare pilot not re-run, and ' +

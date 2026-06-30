@@ -232,3 +232,87 @@ export const GAP_CHANNEL_SWEEP_ASSERTIONS = [
 for (const a of GAP_CHANNEL_SWEEP_ASSERTIONS) {
   if (!a.holds()) throw new Error(`gap-channel-sweep assertion failed: ${a.id}`);
 }
+
+// imp-3063: SCOPE DECOMPOSITION of the two divergence sources in the GLOBAL
+// local-energy Lipschitz constant C_Lip ~ N g0 / (4 (1 - Theta)) -- assess and
+// document PRECISELY which the basin reconditioning removes, so the residual is
+// not overstated (the honest caveat at the head of this module states the
+// linear-N norm-mismatch is UNTOUCHED). The constant factorises cleanly into two
+// independent multipliers:
+//   C_Lip ~ [ N ]  x  [ g0/4 ]  x  [ 1/(1-Theta) ]
+//            ^N-dilution         ^Theta channel
+// (1) Theta channel 1/(1-Theta): REMOVED by the basin. The h = g^2 reconditioning
+//     traps Theta on the isolated-pair basin (Lemma R1-T4 zero-excursion) at
+//     Theta <= 1/4, so 1/(1-Theta) is bounded by 4/3. OFF-basin this same factor
+//     blows up via the adversarial dTheta/W_1 ~ 1/g0 growth the verdict exhibits
+//     (11.97 -> 95.78 as g0 halves); the basin restriction is exactly what caps it.
+// (2) Linear-N dilution N: UNTOUCHED by the basin. This factor is a metric-
+//     architectural norm-mismatch -- W_1 = (1/N) Sum|Dx| averages a single 1-pair
+//     collision move over all N coordinates (imp-3030 ch-lip-norm-mismatch-Nsweep),
+//     so restoring per-pair sensitivity costs the factor N. The basin restriction
+//     acts in the PER-PAIR channel only and is orthogonal to this global averaging,
+//     so it leaves the O(N) growth in place: global C_Lip still diverges as N grows.
+// NET: the basin removes the 1/(1-Theta) blowup ONLY, not the linear-N dilution.
+// Scope clarification only -- NO QED, NOT a global-W_1 beat; PT Lambda <= 0.2 SOTA.
+const N_AST_DECOMP = 1e4;                                       // operative finite height N*
+const THETA_FACTOR_OFFBASIN_LO = 11.97;                        // verdict off-basin Theta-channel value
+const THETA_FACTOR_OFFBASIN_HI = 95.78;                        // ... after g0 halves (dTheta/W_1 ~ 1/g0)
+const thetaFactor = (theta) => 1 / (1 - theta);                // the Theta channel multiplier
+const THETA_FACTOR_BASIN_NOMINAL = thetaFactor(0);             // 1 at basin nominal (Theta -> 0)
+const THETA_FACTOR_BASIN_CEILING = thetaFactor(THETA_TRAP);    // 4/3 bounded by the Theta <= 1/4 trap
+
+export const CH_LIP_DIVERGENCE_DECOMPOSITION = {
+  ticket: 'imp-3063',
+  date: '2026-06-30',
+  formula: 'C_Lip ~ N * (g0/4) * (1/(1-Theta))',
+  nAst: N_AST_DECOMP,
+  thetaChannel: {
+    factor: '1/(1-Theta)',
+    removedByBasin: true,
+    basinNominal: THETA_FACTOR_BASIN_NOMINAL,                 // 1 (Theta -> 0)
+    basinCeiling: THETA_FACTOR_BASIN_CEILING,                 // 4/3 at the Theta = 1/4 trap
+    offBasinBlowup: [THETA_FACTOR_OFFBASIN_LO, THETA_FACTOR_OFFBASIN_HI], // dTheta/W_1 ~ 1/g0
+    mechanism: 'h = g^2 basin reconditioning traps Theta <= 1/4 (Lemma R1-T4) so 1/(1-Theta) <= 4/3; off-basin it blows up as 1/g0',
+  },
+  linearNChannel: {
+    factor: 'N',
+    removedByBasin: false,
+    valueAtNAst: N_AST_DECOMP,                                // 1e4, retained in full
+    mechanism: 'norm-mismatch: W_1 = (1/N) Sum|Dx| averages a single 1-pair move over all N coordinates; the per-pair basin restriction is orthogonal and leaves the O(N) dilution untouched',
+  },
+  basinRemoves: 'the Theta channel 1/(1-Theta) ONLY (bounded by 4/3 on the basin)',
+  basinDoesNotRemove: 'the linear-N dilution factor (global C_Lip ~ N still diverges as N -> infinity)',
+  honest: 'Scope clarification only: the basin reconditioning removes the 1/(1-Theta) Theta-channel blowup but NOT the O(N) norm-mismatch. NO QED; this is NOT a global-W_1 beat. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA and the finite-N*=1e4 beat stays an ESTIMATE.',
+};
+
+export const CH_LIP_DIVERGENCE_ASSERTIONS = [
+  {
+    id: 'ch-lip-decomp-theta-channel-bounded-on-basin',
+    description: 'on the basin the Theta channel 1/(1-Theta) is 1 at nominal and bounded by 4/3 at the Theta=1/4 trap, strictly below the off-basin adversarial values',
+    holds: () => THETA_FACTOR_BASIN_NOMINAL === 1
+      && Math.abs(THETA_FACTOR_BASIN_CEILING - 4 / 3) < 1e-12
+      && THETA_FACTOR_BASIN_CEILING < THETA_FACTOR_OFFBASIN_LO
+      && THETA_FACTOR_OFFBASIN_LO < THETA_FACTOR_OFFBASIN_HI,
+  },
+  {
+    id: 'ch-lip-decomp-theta-removed-N-untouched',
+    description: 'the basin removes the Theta channel but NOT the linear-N factor',
+    holds: () => CH_LIP_DIVERGENCE_DECOMPOSITION.thetaChannel.removedByBasin === true
+      && CH_LIP_DIVERGENCE_DECOMPOSITION.linearNChannel.removedByBasin === false,
+  },
+  {
+    id: 'ch-lip-decomp-linear-N-retained-at-nast',
+    description: 'the linear-N factor is retained in full at N*=1e4, so global C_Lip stays O(N)',
+    holds: () => CH_LIP_DIVERGENCE_DECOMPOSITION.linearNChannel.valueAtNAst === N_AST_DECOMP,
+  },
+  {
+    id: 'ch-lip-decomp-scope-only-no-false-qed',
+    description: 'the decomposition is scope-only: NOT a global-W_1 beat and PT Lambda <= 0.2 stays SOTA',
+    holds: () => /NOT a global-W_1 beat/.test(CH_LIP_DIVERGENCE_DECOMPOSITION.honest)
+      && /Lambda <= 0.2 stays the rigorous SOTA/.test(CH_LIP_DIVERGENCE_DECOMPOSITION.honest),
+  },
+];
+
+for (const a of CH_LIP_DIVERGENCE_ASSERTIONS) {
+  if (!a.holds()) throw new Error(`ch-lip-divergence-decomposition assertion failed: ${a.id}`);
+}

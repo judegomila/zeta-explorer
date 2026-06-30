@@ -42,6 +42,38 @@ export default function RouteMapPage() {
         </p>
       </div>
 
+      {/* Foreclosure notice — top-of-page anchor */}
+      <div className="card" style={{ marginBottom: 20, borderColor: 'rgba(239,68,68,0.5)', background: 'rgba(239,68,68,0.04)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.35)' }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 5 }}>
+              FORECLOSED — IMPOSSIBILITY
+            </div>
+            <div style={{ fontSize: 12.5, color: '#e2e8f0', fontWeight: 600, marginBottom: 3 }}>
+              C_H Lipschitz Route
+            </div>
+            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.55 }}>
+              Three independent proofs: (1) Holder-1/2 lower bound C_Lip &ge; C_shock/(2&#x221A;W_1) &rarr; &infin;;
+              (2) linear-N norm-mismatch (exact closed form); (3) all squared-gap surrogates refuted.
+              No analytic bypass exists — the route is permanently closed.
+            </div>
+          </div>
+          <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.35)' }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: '#10b981', letterSpacing: '0.06em', marginBottom: 5 }}>
+              SOLE DETERMINISTIC FORWARD MOVE
+            </div>
+            <div style={{ fontSize: 12.5, color: '#e2e8f0', fontWeight: 600, marginBottom: 3 }}>
+              R2-T Multi-Body Isolation Constant (closed form)
+            </div>
+            <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.55 }}>
+              Single-shell closed form: <em>c</em>* = &#x221A;(2+&#x221A;3)&minus;1 &#x2248; 0.9319 (imp-3005).
+              Global multi-body <em>c</em> not yet in closed form; asymmetric configs worsen to ~0.927.
+              Theorem C holds at <em>c</em> = 0.72. NOT RH-hard — a concrete analytic target.
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Legend */}
       <div className="card" style={{ marginBottom: 20 }}>
         <StatusLegend />

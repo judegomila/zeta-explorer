@@ -1883,6 +1883,33 @@ export default function ClosureRoutesPage() {
       </h2>
       <CShockMarginCurveViz />
 
+      {/* ─── imp-3163: honest-status -- 0.2690 vs 0.2692 near-miss is a NUMERICAL COINCIDENCE ─── */}
+      <div style={{
+        marginTop: 12,
+        padding: '10px 14px',
+        background: 'rgba(180,83,9,0.18)',
+        border: '1px solid #b45309',
+        borderRadius: 6,
+        color: '#fde68a',
+        fontSize: 13,
+        fontFamily: mono,
+        lineHeight: 1.6,
+      }}>
+        <strong style={{ color: '#fbbf24' }}>HONEST STATUS (imp-3126):</strong>{' '}
+        The proximity of the imp-3106 regular tail mass (~0.2690) and the imp-3026/imp-3070 cusp
+        constant C<sub>shock</sub>(N*=10<sup>4</sup>) (~0.2692) is a{' '}
+        <strong>NUMERICAL COINCIDENCE</strong> -- N-fragile and not structural.
+        The regular mass is a FIXED N-independent definite integral;
+        C<sub>shock</sub>(N) = &radic;(2 / (3 log &gamma;<sub>N</sub>)) decays monotonically in N.
+        They agree to ~2e-4 at exactly one ladder point (N*=10<sup>4</sup>) because the
+        slowly-decaying C<sub>shock</sub>(N) slides through the fixed 0.2690 there.
+        The abs difference then <strong>grows ~213x</strong> over two decades (2.1e-4 at N=10<sup>4</sup>
+        {' '}&rarr; 4.5e-2 at N=10<sup>6</sup>).
+        There is no shared arcsinh(1)/sqrt(2) closed form linking the two --
+        only the bare sqrt(2) atom used in unrelated ways.
+        Do NOT read the ~0.269 values as an identity.
+      </div>
+
       {/* ─── imp-3125: residual-gap DEG-saturation curve ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
         Residual-gap DEG-saturation: survives orthogonalization, converges to tanh(3)&minus;tanh(1.5) (imp-3125)

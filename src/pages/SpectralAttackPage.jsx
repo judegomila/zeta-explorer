@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SpectralAttackViz from '../components/SpectralAttackViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
-import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL, SG1C_R1T4_BASIN_GRID, SG1C_R1T4_RHO1_REPELLER, SG1C_R2T2_SHELL_CROSSCHECK } from '../data/sg1c-theta-trap-theorems.js';
+import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL, SG1C_R1T4_BASIN_GRID, SG1C_R1T4_RHO1_REPELLER, SG1C_R2T2_SHELL_CROSSCHECK, SG1C_LEMMA1_CROSS_N, SG1C_LEMMA2_CROSS_N } from '../data/sg1c-theta-trap-theorems.js';
 import { CTHETA_FLAT_INVARIANT } from '../data/imp-3022-ctheta-basin-scaling.js';
 import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orthogonalized-basis-conditioning.js';
 
@@ -931,6 +931,26 @@ function ShellOnsetLadderSection() {
         {cc.theoremCConstant}.
       </p>
 
+      {/* imp-3036: surface the exact defining quartic + u-substitution and the closure-status line */}
+      <div style={{ background: "rgba(6,182,212,0.07)", border: "1px solid rgba(6,182,212,0.25)", borderRadius: 8, padding: "10px 14px", marginBottom: 14 }}>
+        <div style={{ color: "#06b6d4", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+          Closed form (imp-3005, Lemma R2-T2)
+        </div>
+        <div style={{ color: "#e2e8f0", fontSize: 13, lineHeight: 1.8 }}>
+          The K=1 worsening onset is the unique root in (0,1) of the quartic{" "}
+          <span style={{ fontFamily: "monospace", color: "#06b6d4" }}>&rho;&#8308; + 4&rho;&sup3; + 2&rho;&sup2; &minus; 4&rho; &minus; 2 = 0</span>.
+          The substitution <span style={{ fontFamily: "monospace", color: "#e2e8f0" }}>u = &rho;&sup2; + 2&rho;</span> collapses it to the
+          quadratic <span style={{ fontFamily: "monospace", color: "#e2e8f0" }}>u&sup2; &minus; 2u &minus; 2 = 0</span>, giving the radical
+          <strong style={{ color: "#06b6d4" }}> c* = &radic;(2+&radic;3) &minus; 1 = (1+&radic;3)/&radic;2 &minus; 1 &asymp; {cc.cStarClosed.toFixed(8)}</strong>.
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 11, marginTop: 6, lineHeight: 1.7 }}>
+          <strong style={{ color: "#10b981" }}>CLOSED:</strong> single-neighbour onset c = 1, the symmetric
+          single-shell c* (above, in closed form), and the unconditional &Theta; &le; 1/4 trap.{" "}
+          <strong style={{ color: "#f59e0b" }}>OPEN:</strong> the global asymmetric multi-body constant below c*
+          (imp-3021 brackets it in &asymp;(0.90, 0.94); still no closed form).
+        </div>
+      </div>
+
       <div style={{ overflowX: "auto", marginBottom: 14 }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
           <thead>
@@ -1207,6 +1227,83 @@ function CThetaFlatInvariantPanel() {
           {inv.honest}
         </div>
       </div>
+    </div>
+  );
+}
+
+// imp-3038: surface the two EXACT analytic identities (Lemma 1 dE/ds, Lemma 2
+// dTheta/ds) -- the analytic engine of the whole Theta-trap result -- with their
+// independent cross-N re-verification max-rel-err (SG1C_LEMMA1_CROSS_N / _LEMMA2_CROSS_N).
+function VerifiedAnalyticIdentitiesCard() {
+  const l1 = SG1C_LEMMA1_CROSS_N;
+  const l2 = SG1C_LEMMA2_CROSS_N;
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #22d3ee' }}>
+      <h3 style={{ color: '#22d3ee', fontSize: 16, marginBottom: 8 }}>
+        Verified Analytic Identities: the Exact dE/ds &amp; d&#x398;/ds Engine (imp-3038)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 14 }}>
+        Both static closed-form trap thresholds (Theorem A at &#x398;&nbsp;=&nbsp;1/4, Theorem B
+        at &#x398;<sub>b</sub>&nbsp;=&nbsp;0.443) descend from two <strong style={{ color: '#e2e8f0' }}>exact</strong>{' '}
+        rate identities for the tracked adjacent pair, where{' '}
+        <InlineMath tex={"T_j = 1/\\big((x_i - x_j)(x_{i+1} - x_j)\\big)"} />,{' '}
+        <InlineMath tex={"E = \\sum_j T_j"} />, <InlineMath tex={"g = x_{i+1}-x_i"} /> the pair gap,
+        and <InlineMath tex={"\\Theta = g^2 E / 2"} />. They hold for every adjacent pair at every N
+        (no hypothesis):
+      </p>
+
+      <div style={{ marginBottom: 6 }}>
+        <div style={{ color: '#64748b', fontSize: 12, marginBottom: 2 }}>Lemma 1 (environment energy rate):</div>
+        <BlockMath tex={"\\frac{dE}{ds} = -2E^2 + 12\\sum_j T_j^2 + 4g^2\\sum_j T_j^3"} />
+      </div>
+      <div style={{ marginBottom: 14 }}>
+        <div style={{ color: '#64748b', fontSize: 12, marginBottom: 2 }}>Lemma 2 (trap-coordinate rate):</div>
+        <BlockMath tex={"\\frac{d\\Theta}{ds} = -\\frac{4\\,\\Theta(2-\\Theta)}{g^2} + 6g^2\\sum_j T_j^2 + 2g^4\\sum_j T_j^3"} />
+      </div>
+
+      <div style={{ overflowX: 'auto', marginBottom: 12 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #334155' }}>
+              {['Identity', 'Independent reference', 'Max rel err (N-sweep)', 'Worst N'].map((h) => (
+                <th key={h} style={{ color: '#64748b', fontWeight: 600, padding: '5px 8px', textAlign: 'left' }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: '1px solid #1e293b' }}>
+              <td style={{ padding: '6px 8px', color: '#94a3b8' }}>Lemma 1 dE/ds</td>
+              <td style={{ padding: '6px 8px', color: '#94a3b8' }}>chain-rule (algebraically distinct)</td>
+              <td style={{ padding: '6px 8px', color: '#10b981', fontFamily: 'monospace' }}>{l1.worstRelErrChain.toExponential(1)}</td>
+              <td style={{ padding: '6px 8px', color: '#475569', fontFamily: 'monospace' }}>{l1.worstChainRow.N}</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #1e293b' }}>
+              <td style={{ padding: '6px 8px', color: '#94a3b8' }}>Lemma 1 dE/ds</td>
+              <td style={{ padding: '6px 8px', color: '#94a3b8' }}>central finite differences</td>
+              <td style={{ padding: '6px 8px', color: '#10b981', fontFamily: 'monospace' }}>{l1.worstRelErrFd.toExponential(1)}</td>
+              <td style={{ padding: '6px 8px', color: '#475569', fontFamily: 'monospace' }}>{l1.worstFdRow.N}</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #1e293b' }}>
+              <td style={{ padding: '6px 8px', color: '#94a3b8' }}>Lemma 2 d&#x398;/ds</td>
+              <td style={{ padding: '6px 8px', color: '#94a3b8' }}>central finite differences</td>
+              <td style={{ padding: '6px 8px', color: '#10b981', fontFamily: 'monospace' }}>{l2.worstRelErr.toExponential(1)}</td>
+              <td style={{ padding: '6px 8px', color: '#475569', fontFamily: 'monospace' }}>{l2.worstRow.N}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style={{ color: '#475569', fontSize: 11, marginTop: 4 }}>
+          Recomputed live at build over N &#x2208; {'{4,6,8,12,20,50}'}, 8 deterministic configs each
+          (SG1C_LEMMA1_CROSS_N / SG1C_LEMMA2_CROSS_N, imp-3025 / imp-3041).
+        </div>
+      </div>
+
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, margin: 0 }}>
+        The Lemma 1 chain-rule witness &mdash; which never forms{' '}
+        <InlineMath tex={"E^2"} />, <InlineMath tex={"\\sum T^2"} />, or <InlineMath tex={"\\sum T^3"} />{' '}
+        &mdash; agrees to <strong style={{ color: '#e2e8f0' }}>machine precision</strong>, certifying the
+        identity is EXACT rather than merely fit to finite-difference noise; the finite-difference legs
+        sit at the step-roundoff floor (~1e-8). Numerical re-verification of load-bearing algebra; no new claim.
+      </p>
     </div>
   );
 }
@@ -1525,6 +1622,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Theta-Trap Explorer ─── */}
       <ThetaTrapSection />
+
+      {/* ─── Verified Analytic Identities: exact dE/ds & dTheta/ds engine (imp-3038) ─── */}
+      <VerifiedAnalyticIdentitiesCard />
 
       {/* ─── Theta-Trap Threshold Ladder Table ─── */}
       <ThetaLadderTable />

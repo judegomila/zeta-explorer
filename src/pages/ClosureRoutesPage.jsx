@@ -1425,6 +1425,29 @@ export default function ClosureRoutesPage() {
       </h2>
       <PhiProfileLogLogViz />
 
+      {/* ─── imp-3139: honest-status -- phi integral UNBOUNDED, no finite mean ─── */}
+      <div style={{
+        marginTop: 12,
+        padding: '10px 14px',
+        background: 'rgba(180,83,9,0.18)',
+        border: '1px solid #b45309',
+        borderRadius: 6,
+        color: '#fde68a',
+        fontSize: 13,
+        fontFamily: mono,
+        lineHeight: 1.6,
+      }}>
+        <strong style={{ color: '#fbbf24' }}>HONEST STATUS (imp-3106):</strong>{' '}
+        The area-weighted MEAN price of the forced even cosh-completion is{' '}
+        <strong>UNBOUNDED</strong> -- the integral{' '}
+        &int;<sub>s0+&epsilon;</sub><sup>&infin;</sup> &phi;(s) ds diverges as &epsilon;&#8594;0.
+        The onset pole &phi; ~ C/(s&minus;s0)^2 is non-integrable: the cutoff mass I(&epsilon;) ~ C/&epsilon; with no finite limit.
+        This <strong>divergence is a property</strong>, not a number.{' '}
+        The phi integral must <strong>never be quoted as a finite mean</strong>.
+        Only the regular tail beyond the onset window (s &gt; s0+1) carries a finite convergent mass ~0.2690.
+        Degree-0 scalar measure only; RH-EQUIVALENT; NOT the operator step.
+      </div>
+
       {/* ─── imp-3136: C_shock margin grows with N (imp-3108) ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
         Margin to the 1/3 cap grows with N &mdash; worst case at smallest assembly (imp-3108)

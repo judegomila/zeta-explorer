@@ -125,9 +125,13 @@ export default function RouteMapPage() {
               C_H Lipschitz Route
             </div>
             <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.55 }}>
-              Three independent proofs: (1) Holder-1/2 lower bound C_Lip &ge; C_shock/(2&#x221A;W_1) &rarr; &infin;;
+              Three independent proofs that a finite global-W_1 C_Lip is foreclosed within the W_1 bridge:
+              (1) Holder-1/2 lower bound C_Lip &ge; C_shock/(2&#x221A;W_1) &rarr; &infin;;
               (2) linear-N norm-mismatch (exact closed form); (3) all squared-gap surrogates refuted.
-              No analytic bypass exists — the route is permanently closed.
+              CORRECTED (econn-metric-rearchitecture, 2026-06-30): the metric is <em>incidental</em>, not fundamental —
+              a sup-norm re-architecture re-architectures C_Lip to N-uniform ~9.4e-3, so the earlier
+              &ldquo;sup-norm foreclosed&rdquo; was an overclaim. But it is <em>futile</em>: the true wall is metric-invariant —
+              the multi-body isolation D_rest — so swapping the norm relocates the obstruction without removing it.
             </div>
           </div>
           <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.35)' }}>

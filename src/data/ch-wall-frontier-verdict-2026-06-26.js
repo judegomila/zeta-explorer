@@ -53,10 +53,14 @@
  * not closed in form. Closing it converts the local-energy route's PARTIAL into a
  * BASIN-CONDITIONAL Lipschitz C_Lip (C_Theta bounded+vanishing on the basin; gap
  * channel g_min/(4(1-Theta)) ~ 9.4e-3 dominant at N*=1e4). STILL NOT a global-W_1
- * beat -- but it is DETERMINISTIC, not RH-hard. Everything else (a global-W_1
- * C_Lip, a sup-norm re-architecture) is foreclosed: the bridge is FIXED to global
- * W_1 (polymath15-lemma52-shock-holder.js l.105/113-146), and re-deriving E_coll
- * off W_1 is a from-scratch reconstruction, NOT a sub-gap.
+ * beat -- but it is DETERMINISTIC, not RH-hard. A finite global-W_1 C_Lip is
+ * foreclosed within the W_1 bridge (polymath15-lemma52-shock-holder.js
+ * l.105/113-146). NOTE -- CORRECTED 2026-06-30 (econn-metric-rearchitecture-verdict):
+ * the sup-norm re-architecture is NOT foreclosed; that was an OVERCLAIM about the
+ * C_Lip factor. The metric is INCIDENTAL (in sup-norm g_min is 1-Lipschitz, so
+ * C_Lip is N-uniform ~9.4e-3), a norm CHOICE not a wall. But re-architecting it is
+ * FUTILE: the true wall is metric-invariant -- the multi-body isolation D_rest --
+ * so swapping W_1 for sup-norm relocates the obstruction without removing it.
  *
  * CONSEQUENCE: PLATT-TRUDGIAN Lambda <= 0.2 REMAINS the rigorous SOTA. The
  * finite-N*=1e4 beat stays an ESTIMATE (rigorous-modulo-C_H = O(1)); cond-CH must
@@ -79,7 +83,8 @@ export const CH_WALL_FRONTIER = {
   reconditioning: 'imp-2640 int 2/g^2 divergence is a pure g-coordinate artifact; in h=g^2 the self-term cancels exactly (2g*dg/dW = C_shock^2), collapsing the obstruction to a single scalar C_Theta',
   cThetaStatus: 'bounded+vanishing on the isolated-pair basin (real-zero regime); unconditionally FALSE off-basin (crowded lattice, dTheta/W_1 ~ 1/g0)',
   residual: 'close the closed-form multi-body isolation constant c in [0.72,1) of sg1c R2-T (sg1c-r2-isolation-persistence) -- DETERMINISTIC, not RH-hard; scanned to ~0.943, not closed in form',
-  foreclosed: 'a finite global-W_1 C_Lip and a sup-norm re-architecture are both foreclosed (bridge fixed to global W_1; off-W_1 re-derivation is a full reconstruction)',
+  foreclosed: 'a finite global-W_1 C_Lip is foreclosed within the W_1 bridge. CORRECTED (econn-metric-rearchitecture-verdict-2026-06-30): the sup-norm re-architecture is NOT foreclosed -- the metric is INCIDENTAL, not fundamental (in sup-norm g_min=min-over-pairs is 1-Lipschitz, so C_Lip is N-uniform ~9.4e-3). Re-architecting the metric is FUTILE, not impossible: the true wall is metric-invariant (the multi-body isolation D_rest), so swapping W_1 for sup-norm relocates but does not remove it.',
+  metricCorrection: 'the prior blanket "sup-norm re-architecture foreclosed / global metric fundamental" was an OVERCLAIM about the C_Lip factor; W_1 is a norm CHOICE, not a wall (see econn-metric-rearchitecture-verdict-2026-06-30)',
   sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; finite-N beat stays an ESTIMATE (cond-CH = O(1))',
 };
 

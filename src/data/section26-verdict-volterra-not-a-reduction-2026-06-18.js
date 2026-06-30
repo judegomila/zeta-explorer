@@ -62,6 +62,7 @@
  */
 
 import { IMP_1258_VOLTERRA_CDB_BRIDGE } from './imp-1258-volterra-cdb-bridge.js';
+import { SECTION26_MUPASS_OPERATOR_VERDICT } from './section26-mupass-operator-verdict-2026-06-30.js';
 
 export const SECTION26_VERDICT = {
   date: '2026-06-18',
@@ -109,6 +110,18 @@ export const SECTION26_VERDICT_ASSERTIONS = [
       const sec26RhEquiv = /RH-EQUIVALENT|RH-equivalent|restatement/.test(THE_REAL_GAP_REVISED.honestCaveat) && /KILLED AS A REDUCTION/.test(SECTION26_VERDICT.verdict);
       const artifactFlagged = /artifact|scale-miscalibrated/.test(SECTION26_VERDICT.fiveThousandXArtifact) && /NOT evidence/.test(SECTION26_VERDICT.fiveThousandXArtifact);
       return bridgeStaysDowngraded && noCheapClaim && sec26RhEquiv && artifactFlagged;
+    },
+  },
+  {
+    id: 'sec26-mupass-target-is-operator-order-not-mass-order',
+    description: 'Cross-file tripwire (imp-3145), citing section26-mupass-operator-verdict-2026-06-30: the surviving mu^pass / Conj-26.3 target is RH-EQUIVALENT and is governed by OPERATOR order (Gpass >= |Gshear| <=> ||R||<=1 <=> K_a>=0), NEVER by mass order. Mass-feasibility (deficit 2400-20000x below the bridge budget) is necessary-but-NOT-binding, and the only core attaining ||R||<=1 is the tautological Gpass=|Gshear| partial isometry. Fails if the operator-verdict ever drops the RH-EQUIVALENT grade, claims a scalar/diagonal mu^pass dominates Gshear, regrades to a cheaper-than-RH reduction, or asserts mass-feasibility as binding. Any future row claiming mu^pass dominates nu must specify operator order, not mass order.',
+    holds: () => {
+      const ov = SECTION26_MUPASS_OPERATOR_VERDICT;
+      const operatorRhEquiv = /RH-EQUIVALENT/.test(ov.verdict) && /K_a>=0/.test(ov.residualIsKaPositive);
+      const onlyTautologicalCore = /no scalar\/diagonal mu\^pass dominates/.test(ov.noScalarCore) && /only Gpass=\|Gshear\| gives \|\|R\|\|=1/.test(ov.noScalarCore);
+      const massNotBinding = /necessary-but-not-binding/.test(ov.residualIsKaPositive);
+      const operatorNoReduction = /no reduction/.test(ov.sota);
+      return operatorRhEquiv && onlyTautologicalCore && massNotBinding && operatorNoReduction;
     },
   },
 ];

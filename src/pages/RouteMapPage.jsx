@@ -310,6 +310,28 @@ export default function RouteMapPage() {
         <h3 style={{ color: '#fbbf24', marginTop: 0 }}>
           Scalar Cover Route: Operator/Diagonal Gap — the Lone Open Obstruction (imp-3066)
         </h3>
+        {/* imp-3101 — explicit route-step status annotation */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 14 }}>
+          <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.4)' }}>
+            <div style={{ fontSize: 10.5, fontWeight: 700, color: '#10b981', letterSpacing: '0.07em', marginBottom: 4 }}>
+              NECESSARY STEP — CLOSED
+            </div>
+            <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.55 }}>
+              Degree-0 scalar overflow cover: residual deficit D_pass = 0 for all a (imp-3007, imp-3065).
+              The scalar domination condition is fully satisfied.
+            </div>
+          </div>
+          <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(251,191,36,0.07)', border: '1px solid rgba(251,191,36,0.45)' }}>
+            <div style={{ fontSize: 10.5, fontWeight: 700, color: '#fbbf24', letterSpacing: '0.07em', marginBottom: 4 }}>
+              SUFFICIENCY STEP — OPEN
+            </div>
+            <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.55 }}>
+              Operator positivity K_a &ge; 0 not yet established: off-diagonal endpoint-Hankel
+              cross-terms keep &#x2016;R&#x2016; &gt; max R_jj (imp-3066). Route verdict:
+              necessary-step-complete, sufficiency-open.
+            </div>
+          </div>
+        </div>
         <p style={{ fontSize: 12.5, color: '#94a3b8', marginTop: 0, marginBottom: 12 }}>
           The degree-0 scalar mu^pass cover (imp-3007) drives the residual deficit to EXACTLY 0 — a
           necessary condition. But the RH-equivalent target is the OPERATOR positivity K_a &ge; 0,

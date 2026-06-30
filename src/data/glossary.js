@@ -475,6 +475,27 @@ export const glossary = [
     relatedTerms: ['C_Lip', 'C_H wall', 'isolation ratio rho', 'Theta-trap'],
     link: '/spectral-attack',
   },
+  {
+    term: 'isolation-constant ladder',
+    category: 'constant',
+    definition:
+      'The three-rung hierarchy of the isolation constant c governing C_H: ' +
+      '(1) Single nearest-neighbour (R2-T, two-body): c = 1, CLOSED in closed form — ' +
+      'the isolated pair self-isolates exactly at separation rho = 1 (g_min = d_1). ' +
+      '(2) Symmetric single-shell (K=1, one ring of K neighbours): ' +
+      'c* = sqrt(2 + sqrt(3)) - 1 ~ 0.93185, CLOSED (imp-3005, analytic root of ' +
+      'the shell-onset condition). ' +
+      '(3) Global multi-body constant: currently OPEN, bracketed by numerical scan ' +
+      'in (0.927, 0.943) (not yet closed in form). ' +
+      'The open rung (3) is the sole deterministic forward move toward the C_H wall; ' +
+      'closing it in closed form would make the isolation-bound argument unconditional. ' +
+      'All three rungs are DISTINCT: c = 1 applies only to the strict two-body limit; ' +
+      'c* = 0.93185 applies to the symmetric single-shell; the multi-body bracket ' +
+      'applies to general N-body configurations. No QED — rung (3) remains open.',
+    firstUsed: 'imp-3054 (isolation-constant ladder, 2026)',
+    relatedTerms: ['isolation ratio rho', 'C_H wall', 'C_Lip', 'Theta-trap', 'C_shock'],
+    link: '/spectral-attack',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

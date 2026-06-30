@@ -310,6 +310,51 @@ function minPairIdx(x) {
   return mi;
 }
 
+// imp-3008: numerical cross-check of the imp-3005 closed-form symmetric single-shell
+// isolation threshold c* = sqrt(2+sqrt(3))-1 ~ 0.93185 against the multi-body scan.
+// For each shell count K the symmetric 2K+2-body config {-(rho/2+K..1), -rho/2, rho/2,
+// rho/2+1..K} (spacing d = 1) has a worsening-onset rho* (where dRhoIso.drho crosses 0+);
+// we bisect for it and tabulate K = 1..6. K = 1 must reproduce c* to machine precision,
+// onset rises with K toward 1, and the Lemma R2-T adversarial multi-body scan inf (~0.943)
+// sits just above the symmetric worst case c*. Confirms the closed form numerically.
+export const SG1C_R2T2_SHELL_CROSSCHECK = (() => {
+  const cStarClosed = Math.sqrt(2 + Math.sqrt(3)) - 1; // 0.93185165...
+  const shellCfg = (rho, K) => {
+    const a = [];
+    for (let k = K; k >= 1; k--) a.push(-(rho / 2 + k));
+    a.push(-rho / 2);
+    a.push(rho / 2);
+    for (let k = 1; k <= K; k++) a.push(rho / 2 + k);
+    return a; // tracked pair is the central pair at index K
+  };
+  // worsening onset = the rho in (0,1) where dRhoIso.drho turns from <0 (improving) to >0
+  const onset = (K) => {
+    let lo = 0.5, hi = 0.9999;
+    for (let it = 0; it < 200; it++) {
+      const m = (lo + hi) / 2;
+      if (dRhoIso(shellCfg(m, K), K).drho > 0) hi = m; else lo = m;
+    }
+    return (lo + hi) / 2;
+  };
+  const shells = [1, 2, 3, 4, 5, 6].map((K) => {
+    const onsetNumeric = onset(K);
+    return { shellCount: K, onsetNumeric, deltaFromCStar: onsetNumeric - cStarClosed };
+  });
+  return {
+    cStarClosed,
+    scannedMultiBodyInf: 0.943, // Lemma R2-T 3e6-config adversarial multi-body scan inf
+    asymMinPairScan: 0.927, // imp-3005 2e6-config asymmetric minimal-pair scan (just below c*)
+    theoremCConstant: 0.72,
+    shells,
+    agreement:
+      'K=1 numeric worsening-onset reproduces the imp-3005 closed-form c* = sqrt(2+sqrt(3))-1 to <1e-7; '
+      + 'onset rises monotonically with shell count toward 1, so the symmetric single shell (K=1) is the '
+      + 'worst symmetric case and equals c* exactly. The Lemma R2-T adversarial multi-body scan inf ~0.943 '
+      + 'sits just above c*, and the imp-3005 asymmetric minimal-pair scan ~0.927 just below it, bracketing '
+      + 'the symmetric closed form -- the global multi-body constant stays OPEN between ~0.927 and ~0.943.',
+  };
+})();
+
 export const SG1C_THEOREM_ASSERTIONS = [
   {
     id: 'sg1c-lemma1-exact-on-fixed-config',
@@ -501,6 +546,18 @@ export const SG1C_THEOREM_ASSERTIONS = [
     id: 'sg1c-successors-stay-open',
     description: 'Both successor residuals ship with status open — refutation does not claim the cap',
     holds: () => SG1C_SUCCESSOR_GAPS.openSubGaps.length === 2 && SG1C_SUCCESSOR_GAPS.openSubGaps.every((g) => g.status === 'open'),
+  },
+  {
+    id: 'sg1c-r2t2-shell-crosscheck-confirms-closed-form',
+    description: 'imp-3008 tripwire: the numerical symmetric single-shell (K=1) worsening-onset reproduces the imp-3005 closed-form c* to <1e-7, the onset rises monotonically with shell count toward 1 (K=1 is the worst symmetric case), every shell onset sits above the Theorem C 0.72, and the multi-body scan inf ~0.943 brackets just above c*',
+    holds: () => {
+      const t = SG1C_R2T2_SHELL_CROSSCHECK;
+      const k1MatchesClosed = Math.abs(t.shells[0].onsetNumeric - t.cStarClosed) < 1e-7;
+      const monotone = t.shells.every((s, idx) => idx === 0 || s.onsetNumeric > t.shells[idx - 1].onsetNumeric);
+      const allAboveTheoremC = t.shells.every((s) => s.onsetNumeric > t.theoremCConstant && s.onsetNumeric < 1);
+      const scanBrackets = t.scannedMultiBodyInf > t.cStarClosed && t.scannedMultiBodyInf < 1 && t.asymMinPairScan < t.cStarClosed;
+      return k1MatchesClosed && monotone && allAboveTheoremC && scanBrackets;
+    },
   },
 ];
 

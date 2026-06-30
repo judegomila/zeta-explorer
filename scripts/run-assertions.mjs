@@ -1724,6 +1724,9 @@ const DATA_MODULES = [
   // imp-3007: degree-0 cover of that overflow by the cosh-completion mu^pass (residual deficit
   // exactly 0); isolates the off-diagonal endpoint-Hankel operator step as the lone remaining gap.
   '/src/data/imp-3007-mupass-overflow-cover.js',
+  // imp-3064: tabulates D_raw(a,U) and the cosh-over-minimal excess E(a,U) across an a-grid x
+  // U-range, with the excess fraction E/D_raw shown to depend on the product a*U alone.
+  '/src/data/imp-3064-deficit-excess-fraction-grid.js',
   '/src/data/full-route-map-2026-06-19.js',
   // imp-2833: lock Route B closure invariant — closesIf says it is already
   // closed unconditionally; tripwires guard against a false promotion that
@@ -1975,6 +1978,14 @@ const DATA_MODULES = [
   // Lambda<=0.2; every imp-id in the REFUTED TRUTHS entry must exist in
   // CAUGHT_OVERCLAIMS with an addressed status. Light (no zeros-bundle import).
   '/src/data/imp-2967-state-of-program-overclaim-cross-check.js',
+  // imp-3065: INDEPENDENT quadrature cross-check that the degree-0 post-bridge
+  // residual deficit D_pass(a,U) = int_0^U max(0, sinh(a*tau)-cosh(a*tau)) d(tau)
+  // is EXACTLY zero across an a-grid x U-range (28 cells) via composite Simpson
+  // (M=1000, distinct from the imp-3007 midpoint rule), with the rule validated
+  // against the non-zero signed companion -(1-e^{-a*U})/a to < 1e-6 -- certifying
+  // coveredFraction=1. SCALAR cover only; off-diagonal operator step out of scope;
+  // RH-equivalent, structural/diagnostic, PT 0.2 stays SOTA.
+  '/src/data/imp-3065-residual-deficit-quadrature-2026-06-30.js',
 ];
 
 let ALL_MODULES = FAST_MODE

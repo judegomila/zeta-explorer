@@ -331,6 +331,26 @@ export const IMP3085_HANKEL_GAP_AU_GRID_ASSERTIONS = [
     holds: () => Math.abs(headlineGap - 3.6260954) < 1e-4,
   },
   {
+    id: 'imp3085-equal-product-cell-coincidence-locked-1e13',
+    why: 'THE imp-3113 LOCK: rebuild R at two DISTINCT equal-product cells (a,U) = (0.5,6) and ' +
+         '(0.3,10), both s = a*U = 3, and certify the de-homogenized operator-gap scale invariant ' +
+         'to a TIGHTER 1e-13: (a) |gap_1 - gap_2| < 1e-13 AND |||R||_1 - ||R||_2| < 1e-13 (the U ' +
+         'prefactor cancels in R_jk = H_jk/sqrt(D_jj D_kk), so the gap AND the Perron operator norm ' +
+         'are functions of s = a*U alone), while (b) the RAW min |H_jk| DIFFERS by O(1) between them ' +
+         '(it keeps the dimensionful U scale). This pins the exact pair the s-invariance hangs on so ' +
+         'a silent edit to the construction cannot drift it. Measured: |dgap| ~ 1.8e-15, |dopnorm| ~ ' +
+         '8.9e-16, raw min |H_jk| 5.58 vs 9.31.',
+    holds: () => {
+      const c1 = cellMetrics(0.5, 6);
+      const c2 = cellMetrics(0.3, 10);
+      const gapInvariant = Math.abs(c1.operatorDiagonalGap - c2.operatorDiagonalGap) < 1e-13;
+      const opNormInvariant = Math.abs(c1.operatorNorm - c2.operatorNorm) < 1e-13;
+      const rawHankelDiffers =
+        Math.abs(c1.minOffDiagonalHankelCrossTerm - c2.minOffDiagonalHankelCrossTerm) > 1;
+      return gapInvariant && opNormInvariant && rawHankelDiffers;
+    },
+  },
+  {
     id: 'imp3085-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: this is a REPRESENTATIVE diagnostic sweep, the gaps carry no RH ' +
          'verdict, positivity was not attempted, it is not a proof or a reduction, and PT 0.2 stays ' +

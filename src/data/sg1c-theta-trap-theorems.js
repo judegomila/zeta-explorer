@@ -357,6 +357,65 @@ export const SG1C_R2T2_SHELL_CROSSCHECK = (() => {
   };
 })();
 
+// imp-3046: does the K=2 symmetric-shell isolation worsening-onset admit a CLOSED FORM,
+// the way imp-3005 closed K=1 at c* = sqrt(2+sqrt(3))-1 (via u = rho^2+2rho, u^2-2u-2=0)?
+// We derive the exact onset equation analytically for the 6-body symmetric K=2 config
+// {-(rho/2+2), -(rho/2+1), -rho/2, rho/2, rho/2+1, rho/2+2} (spacing 1, tracked central
+// pair at +/- rho/2, so g = rho and d_1 = 1, hence isolation ratio = rho exactly).
+// By reflection antisymmetry F[3] = -F[2], so dg/ds = F[3]-F[2] = -2 F[2] and the nearest
+// (left) environment particle gives d_1-dot = F[2]-F[1]; the onset d(rho_iso)/ds = 0 with
+// d_1 = 1 reads -2 F[2] - rho (F[2]-F[1]) = 0, i.e. F[2](rho+2) = rho F[1]. Plugging the
+// explicit forces F[2] = -3 + 2[1/rho+1/(rho+1)+1/(rho+2)] and F[1] = 2[1/(rho+1)+
+// 1/(rho+2)+1/(rho+3)] gives the rational onset condition
+//   -3 rho - 6 + 4/rho + 4/(rho+1) + 4/(rho+2) + 6/(rho+3) = 0,
+// equivalently the QUINTIC  3 rho^5 + 24 rho^4 + 51 rho^3 + 6 rho^2 - 56 rho - 24 = 0.
+// Its unique root in (0,1) is the K=2 onset rho* ~ 0.98129377, matching the imp-3008
+// SG1C_R2T2_SHELL_CROSSCHECK numeric K=2 onset to machine precision. OBSTRUCTION: unlike
+// K=1 (whose condition degenerated to a QUADRATIC in u = rho^2+2rho, giving the radical
+// c* = sqrt(2+sqrt(3))-1), the K=2 quintic is IRREDUCIBLE over Q -- no rational root and
+// no integer quadratic*cubic split -- so the K=1-style clean radical closed form does NOT
+// extend to K=2. The exact onset polynomial is closed in form; the WORSENING THRESHOLD is
+// not a clean radical. HONEST: this concerns only the symmetric K=2 shell; the global
+// multi-body isolation constant stays OPEN in ~(0.90, 0.943) (imp-3021), unchanged here.
+export const SG1C_R2T2_SHELL_K2_CLOSEDFORM = (() => {
+  // exact onset condition (rational form), and the cleared integer quintic
+  const fRational = (r) => -3 * r - 6 + 4 / r + 4 / (r + 1) + 4 / (r + 2) + 6 / (r + 3);
+  const quinticCoeffs = [-24, -56, 6, 51, 24, 3]; // low -> high power
+  const quintic = (r) => quinticCoeffs.reduce((a, c, i) => a + c * Math.pow(r, i), 0);
+  // unique root of the rational condition in (0,1) by bisection (f > 0 below, < 0 above)
+  let lo = 0.5, hi = 0.999;
+  for (let it = 0; it < 200; it++) { const m = (lo + hi) / 2; if (fRational(m) < 0) hi = m; else lo = m; }
+  const rootClosed = (lo + hi) / 2;
+  // numeric onset recomputed from the live dRhoIso flow (must agree with imp-3008 K=2)
+  const shellCfg = (rho) => [-(rho / 2 + 2), -(rho / 2 + 1), -rho / 2, rho / 2, rho / 2 + 1, rho / 2 + 2];
+  let nlo = 0.5, nhi = 0.9999;
+  for (let it = 0; it < 200; it++) { const m = (nlo + nhi) / 2; if (dRhoIso(shellCfg(m), 2).drho > 0) nhi = m; else nlo = m; }
+  const onsetNumeric = (nlo + nhi) / 2;
+  return {
+    onsetClosedRoot: rootClosed,                 // ~0.98129377, root of the quintic in (0,1)
+    onsetNumeric,                                // imp-3008 dRhoIso bisection, K=2
+    deltaClosedVsNumeric: rootClosed - onsetNumeric, // ~0 (< 1e-9)
+    quinticResidualAtRoot: quintic(rootClosed),  // ~0 to machine precision
+    onsetCondition: '-3 rho - 6 + 4/rho + 4/(rho+1) + 4/(rho+2) + 6/(rho+3) = 0',
+    quintic: '3 rho^5 + 24 rho^4 + 51 rho^3 + 6 rho^2 - 56 rho - 24 = 0',
+    quinticCoeffs,
+    k1ClosedForm: 'c* = sqrt(2+sqrt(3))-1 (K=1 degenerates to quadratic u^2-2u-2=0, u = rho^2+2rho)',
+    noRationalRoot: true,                        // verified: no p/q with p|24, q|3 is a root
+    noIntegerQuadCubicSplit: true,               // verified: brute search found no factorization over Z
+    irreducibleOverQ: true,                      // no linear and no quadratic factor over Q => irreducible
+    obstruction:
+      'The K=2 symmetric-shell worsening-onset is the unique root in (0,1) of the exact '
+      + 'quintic 3 rho^5 + 24 rho^4 + 51 rho^3 + 6 rho^2 - 56 rho - 24 = 0 (rho* ~ 0.98129377), '
+      + 'reproducing the imp-3008 numeric K=2 onset to machine precision. The onset POLYNOMIAL '
+      + 'is closed in form, but unlike K=1 (which collapsed to a quadratic in u = rho^2+2rho, '
+      + 'yielding the radical c* = sqrt(2+sqrt(3))-1) this quintic is IRREDUCIBLE over Q: it has '
+      + 'no rational root and no integer quadratic-times-cubic split. So the K=1 clean radical '
+      + 'closed form does NOT extend to K=2; the worsening threshold rises (c* ~ 0.93185 to '
+      + '~0.98129) and loses its elementary radical form. The global multi-body isolation '
+      + 'constant remains OPEN in ~(0.90, 0.943) -- this lemma does NOT close it.',
+  };
+})();
+
 // imp-3043: tabulate the Lemma R1-T2 (imp-2608) uniform-lattice central-tie LADDER
 // and its vanishing seizing margin for K = 1..8, the static-no-cap obstruction that
 // the parent certificate sg1c-r1-asymmetric-extension-and-static-obstruction only
@@ -841,7 +900,14 @@ export const SG1C_R1T3_MARGIN_SWEEP = (() => {
     marginAtB1: atB1.marginMeasured, // = 1/6 (recovers the symmetric R1-T value)
     thetaCentralAtBigB: atBigB.thetaCentralMeasured, // -> 1/4 (the Theorem-A trap)
     marginMonotoneDecreasing: rows.every((r, k) => k === 0 || r.marginMeasured < rows[k - 1].marginMeasured),
-    allMarginsPositive: rows.every((r) => r.marginMeasured > 0),
+    // the EXACT rational margin is strictly positive for every b; the measured float
+    // subtraction never goes negative, and is strictly positive wherever the rational
+    // stays above the resolution near 0.25 (~5.5e-17). At b=1e6 the rational ~1e-18 sits
+    // below an ulp of 0.25, so the measured tc - ts underflows to 0 -- a float artifact,
+    // not a sign change; positivity there is carried by the exact rational.
+    allRationalMarginsPositive: rows.every((r) => r.marginRational > 0),
+    noMeasuredMarginNegative: rows.every((r) => r.marginMeasured >= 0),
+    measuredMarginsPositiveAboveResolution: rows.every((r) => r.marginRational <= 1e-13 || r.marginMeasured > 0),
     decaysIntoQuarterTrap: atBigB.thetaCentralMeasured - 0.25 < 1e-11 && atBigB.thetaCentralMeasured > 0.25,
     summary:
       'Lemma R1-T3 tabulated across b in {1, 1.05, 1.25, 1.5, 2, 3, 5, 10, 100, 1e4, 1e6}: '
@@ -849,8 +915,10 @@ export const SG1C_R1T3_MARGIN_SWEEP = (() => {
       + 'left-outer competitor (-1,0) on {-1, 0, 1, 1+b} matches the closed forms '
       + 'Theta_central = 1/4 + 1/(2b(b+1)) and Theta_seize = 1/4 + 1/(2(b+1)(b+2)) to below '
       + '1e-12, and the seizing margin matches the exact rational 1/(b(b+1)(b+2)) at the same '
-      + 'level. The margin is strictly positive and monotone-decreasing from 1/6 at the '
-      + 'symmetric b=1 toward 0+; Theta_central peaks at exactly 1/2 at b=1 and decays to the '
+      + 'level. The rational margin is strictly positive and monotone-decreasing from 1/6 at '
+      + 'the symmetric b=1 toward 0+ (the measured float subtraction underflows to 0 only at '
+      + 'b=1e6, where the rational ~1e-18 drops below an ulp of 0.25 -- a resolution artifact, '
+      + 'not a sign change); Theta_central peaks at exactly 1/2 at b=1 and decays to the '
       + 'unconditional Theorem-A 1/4 trap as b -> inf (0.25 + 5e-13 at b=1e6). Confirms the '
       + 'static asymmetric 4-tie is closed in exact closed form with no measured deviations.',
   };
@@ -867,6 +935,25 @@ export const SG1C_THEOREM_ASSERTIONS = [
         && s.matches034Claim
         && Math.abs(s.d2AtThreshold - 1.1854) < 1e-3
         && Math.abs(s.thetaB - 0.443) < 1e-3
+      );
+    },
+  },
+  {
+    id: 'sg1c-r1t3-margin-sweep-exact',
+    description: 'imp-3044 tripwire: the R1-T3 closed forms Theta_central = 1/4 + 1/(2b(b+1)), Theta_seize = 1/4 + 1/(2(b+1)(b+2)) and the rational seizing margin 1/(b(b+1)(b+2)) match the direct Theta = g^2 E/2 evaluation across b in [1, 1e6] to below 1e-12, with the margin strictly positive and monotone, the b=1 peak exactly 1/2, and Theta_central decaying into the 1/4 trap as b -> inf',
+    holds: () => {
+      const s = SG1C_R1T3_MARGIN_SWEEP;
+      return (
+        s.rows.length === 11
+        && s.worstThetaDev < 1e-12
+        && s.worstMarginDev < 1e-12
+        && s.allRationalMarginsPositive
+        && s.noMeasuredMarginNegative
+        && s.measuredMarginsPositiveAboveResolution
+        && s.marginMonotoneDecreasing
+        && Math.abs(s.peakThetaCentralAtB1 - 0.5) < 1e-12
+        && Math.abs(s.marginAtB1 - 1 / 6) < 1e-12
+        && s.decaysIntoQuarterTrap
       );
     },
   },

@@ -394,6 +394,26 @@ export const glossary = [
     link: '/spectral-attack',
   },
   {
+    term: 'h=g^2 reconditioning (squared-gap coordinate)',
+    category: 'method',
+    definition:
+      'The insight that the imp-2640 local collision-energy divergence (the integral of 2/g^2 ' +
+      'blowing up as the pair gap g -> 0) is a PURE COORDINATE ARTIFACT of working in g, not a ' +
+      'genuine obstruction. Passing to the squared gap h = g^2 makes the self-term cancel exactly: ' +
+      'the relevant derivative 2g*(dg/dW) collapses to the flat constant C_shock^2 = 0.071289 ' +
+      '(6 digits, measured flat across the bridge metric W = 1e-2 .. 1e-10), so the whole ' +
+      'obstruction reduces to a SINGLE scalar modulus C_Theta. CAVEAT (why this is reconditioning, ' +
+      'not a closure): the bounded constant C_shock^2/8 holds ONLY along the 1-parameter cusp family ' +
+      'and ON the isolated-pair basin (the measured real-zero regime Theta(0) << 1/4); it breaks ' +
+      'under any consistent-W_1 rank-1 move and is UNCONDITIONALLY FALSE off-basin (crowded ' +
+      'near-uniform lattice: dTheta/dW_1 ~ 1/g0 blowup, adversary-exhibited 11.97 -> 95.78 as g0 ' +
+      'halves). The basin restriction still rests on the unclosed multi-body isolation sign law. ' +
+      'Grounded in ch-wall-frontier-verdict.',
+    firstUsed: 'imp-2640 / ch-wall-frontier-verdict (2026)',
+    relatedTerms: ['C_shock', 'C_H wall', 'C_Theta', 'isolation ratio rho', 'Lipschitz/Gronwall route foreclosure'],
+    link: '/spectral-attack',
+  },
+  {
     term: 'Theta-trap',
     category: 'constant',
     definition:

@@ -1711,6 +1711,31 @@ export default function ClosureRoutesPage() {
             RH-hard content.
           </p>
         </div>
+        {/* imp-3168 honest-status banner: imp-3144 quantitative evidence for NOT SUFFICIENT */}
+        <div
+          style={{
+            margin: '10px 0 8px',
+            padding: '9px 14px',
+            borderRadius: 6,
+            background: 'rgba(251,191,36,0.06)',
+            border: '1px solid rgba(251,191,36,0.28)',
+            fontSize: 12,
+            color: '#94a3b8',
+            lineHeight: 1.7,
+          }}
+        >
+          <div style={{ color: '#fbbf24', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
+            HONEST STATUS (imp-3144): NECESSARY &ne; SUFFICIENT
+          </div>
+          The imp-3007 degree-0 scalar overflow cover drives the residual deficit to exactly 0
+          (residual-0, necessary). However, the section26-mupass operator audit (imp-3144) measured
+          the genuine deg-2 occupation deficit at{' '}
+          <span style={{ fontFamily: mono, color: '#fbbf24' }}>9.28e-9</span>{' '}
+          (overflow on 19.4% of tau) — a tiny but strictly nonzero value that scalar domination
+          never eliminates. This confirms the scalar cover is <em>not sufficient</em>: the
+          off-diagonal endpoint-Hankel step remains the lone open obstruction at the operator level
+          (K&#x2090;&thinsp;&#x2265;&thinsp;0, RH-equivalent, untouched).
+        </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 4 }}>
           <div style={{ padding: '8px 12px', borderRadius: 5, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)', fontSize: 12, color: '#94a3b8', lineHeight: 1.6 }}>
             <div style={{ color: '#10b981', fontWeight: 700, marginBottom: 3 }}>CLOSED (scalar step)</div>

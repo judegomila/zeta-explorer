@@ -2040,6 +2040,18 @@ const DATA_MODULES = [
   // 1 - ||R_orth|| shrinks monotonically to 0 from below as s -> inf. Representative/
   // diagnostic; no RH verdict (degree-dependence is the open imp-3104); PT 0.2 SOTA.
   '/src/data/imp-3103-orthogonalized-opnorm-aU-grid.js',
+  // imp-3104: runs the imp-3084 RAW-basis degree sweep on the ORTHOGONALIZED basis --
+  // measures the TRUE operator norm ||R_orth|| (= ||R_sym||, basis invariant) across
+  // DEG in [2, 12] at a = 0.5, U = 6 (the open imp-3103 degree question). Where the raw
+  // monomial ||R|| DIVERGES (~1.79 -> 10.8, imp-3084), the orthogonalized norm CONVERGES
+  // to the analytic Rayleigh ceiling tanh(a*U) = tanh(3) ~ 0.99505 from below: the
+  // distance shrinks ~16x over DEG [2, 10] (0.98986 -> 0.99474) while GS and Loewdin
+  // agree to ~1e-5, so the raw divergence is ENTIRELY a basis-conditioning artifact --
+  // the intrinsic operator norm is TAMED and bounded below 1. DEG 11, 12 are excluded:
+  // the ill-conditioned cosh-Hankel P makes the orthogonalizer itself break down (GS vs
+  // Loewdin disagree ~6-7%, both overshoot the analytic ceiling). Representative/
+  // diagnostic; no RH verdict; positivity not attempted; PT 0.2 stays SOTA.
+  '/src/data/imp-3104-orthogonalized-opnorm-degree-sweep.js',
 ];
 
 let ALL_MODULES = FAST_MODE

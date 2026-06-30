@@ -32,6 +32,7 @@ import { IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION } from '../data/imp-3066-offdiag
 import { IMP3125_ORTHOGONALIZED_RESIDUAL_GAP_DEGREE_SWEEP } from '../data/imp-3125-orthogonalized-residual-gap-degree-sweep.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 import { asymOnsetDrho, SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
+import { IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID } from '../data/imp-3146-residual-gap-limit-aU-grid.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -1665,6 +1666,123 @@ function CShockSubMarginCurveViz() {
   );
 }
 
+// ── imp-3181: residual-gap limit G(s) = tanh(s) - tanh(s/2) across s=aU ─────
+function ResidualGapLimitCurveViz() {
+  const M = IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID.measured;
+  const PHI = M.goldenRatio;         // (1+sqrt5)/2
+  const S_STAR = M.sStarClosedForm;  // arccosh(phi) ~1.06128
+  const G_STAR = M.gStarClosedForm;  // phi^{-5/2} ~0.30028
+
+  const S_MIN = 0.001, S_MAX = 8.0;
+  const N_POINTS = 500;
+  const points = [];
+  for (let i = 0; i <= N_POINTS; i++) {
+    const s = S_MIN + (i / N_POINTS) * (S_MAX - S_MIN);
+    points.push({ s, v: Math.tanh(s) - Math.tanh(s / 2) });
+  }
+
+  const W = 700, H = 300, ML = 72, MR = 48, MT = 28, MB = 52;
+  const Y_MIN = 0, Y_MAX = 0.36;
+
+  const px = (s) => ML + ((s - S_MIN) / (S_MAX - S_MIN)) * (W - ML - MR);
+  const py = (v) => H - MB - ((v - Y_MIN) / (Y_MAX - Y_MIN)) * (H - MT - MB);
+
+  const linePath = points
+    .map((p, i) => (i === 0 ? "M" : "L") + " " + px(p.s).toFixed(1) + " " + py(p.v).toFixed(1))
+    .join(" ");
+
+  const cx_star = px(S_STAR);
+  const cy_star = py(G_STAR);
+
+  const xTicks = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  const yTicks = [0.0, 0.1, 0.2, 0.3];
+  const ycx = (MT + H - MB) / 2;
+
+  const gridCells = M.grid.slice(0, 8);
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #a855f7", background: "rgba(168,85,247,0.04)" }}>
+      <h3 style={{ color: "#a855f7", marginTop: 0 }}>
+        Residual-gap limit G(s) = tanh(s)&minus;tanh(s/2): golden-ratio maximum
+        &phi;<sup>&minus;5/2</sup>&asymp;0.30028 at cosh(s*)=&phi; (imp-3146)
+      </h3>
+      <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
+        The saturating residual-gap obstruction G(s)=tanh(s)&minus;tanh(s/2) depends only on
+        the product s=a&middot;U (inherited imp-3102 invariance). It vanishes at both ends
+        (s&rarr;0: no shear window; s&rarr;&infin;: both tanh terms saturate to 1) and reaches
+        its unique interior maximum at the golden-ratio locus cosh(s*)=&phi;, where
+        s*=arccosh(&phi;)&asymp;1.06128 and G(s*)=&phi;<sup>&minus;5/2</sup>&asymp;0.30028. Every
+        equal-product (a,U) cell lands on the same curve to machine precision. The headline cell
+        a=0.5, U=6 (s=3) sits on the saturating tail at G(3)&asymp;0.08991, well past the peak.
+      </p>
+      <div style={{ overflowX: "auto", marginTop: 10 }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
+          {/* y grid + labels */}
+          {yTicks.map((v) => (
+            <g key={"y" + v}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{v.toFixed(1)}</text>
+            </g>
+          ))}
+          {/* x ticks */}
+          {xTicks.map((s) => (
+            <g key={"x" + s}>
+              <line x1={px(s)} y1={H - MB} x2={px(s)} y2={H - MB + 5} stroke="#334155" strokeWidth="1" />
+              <text x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{s}</text>
+            </g>
+          ))}
+          {/* axes */}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          {/* axis labels */}
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>s = a&middot;U  (product invariant)</text>
+          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>G(s)</text>
+          {/* s->0 vanishing label */}
+          <text x={ML + 8} y={py(0.022)} fontSize="10" fill="#94a3b8" fontFamily={mono}>G(0)=0</text>
+          {/* s->inf vanishing label */}
+          <text x={W - MR - 56} y={py(0.008)} fontSize="10" fill="#94a3b8" fontFamily={mono}>G(s)&rarr;0</text>
+          {/* golden-ratio maximum vertical dashed */}
+          <line x1={cx_star} y1={cy_star} x2={cx_star} y2={H - MB} stroke="#fbbf24" strokeWidth="1.2" strokeDasharray="4 3" />
+          {/* curve */}
+          <path d={linePath} fill="none" stroke="#a855f7" strokeWidth="2.5" />
+          {/* golden-ratio maximum dot */}
+          <circle cx={cx_star} cy={cy_star} r={7} fill="#f59e0b" stroke="#fbbf24" strokeWidth="1.5">
+            <title>{"s*=arccosh(phi)~1.061  G(s*)=phi^(-5/2)~0.30028  cosh(s*)=phi"}</title>
+          </circle>
+          <line x1={cx_star + 8} y1={cy_star - 4} x2={cx_star + 34} y2={cy_star - 26} stroke="#fbbf24" strokeWidth="1" strokeDasharray="3 2" />
+          <text x={cx_star + 37} y={cy_star - 32} fontSize="10" fill="#fbbf24" fontFamily={mono}>s*&asymp;1.061, cosh(s*)=&phi;</text>
+          <text x={cx_star + 37} y={cy_star - 20} fontSize="10" fill="#fbbf24" fontFamily={mono}>G(s*)=&phi;&#8315;&#8309;&#x2F;&#x2082;&asymp;0.30028</text>
+          {/* grid cell dots */}
+          {gridCells.map((cell, i) => (
+            <circle key={i} cx={px(cell.product)} cy={py(cell.analyticGapLimit)} r={4} fill="#c084fc" stroke="#a855f7" strokeWidth="1">
+              <title>{"a=" + cell.a + " U=" + cell.U + " s=" + cell.product.toFixed(2) + " G=" + cell.analyticGapLimit.toFixed(5)}</title>
+            </circle>
+          ))}
+          {/* PHI label near top */}
+          <text x={cx_star} y={MT + 12} textAnchor="middle" fontSize="10" fill="#fbbf24" fontFamily={mono}>&phi;&#8315;&#8309;&#x2F;&#x2082;</text>
+          <text x={cx_star} y={MT + 24} textAnchor="middle" fontSize="10" fill="#fbbf24" fontFamily={mono}>&asymp;0.300</text>
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: "8px 12px", borderRadius: 6, background: "rgba(148,163,184,0.06)", border: "1px solid rgba(148,163,184,0.25)" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", letterSpacing: "0.06em", marginBottom: 4 }}>
+          REPRESENTATIVE DIAGNOSTIC &mdash; NOT AN RH VERDICT
+        </div>
+        <div style={{ fontSize: 12, color: "#64748b", lineHeight: 1.6 }}>
+          The limit curve G(s)=tanh(s)&minus;tanh(s/2) is on the same representative
+          monomial-moment truncation as imp-3066/imp-3086/imp-3102/imp-3104/imp-3125; NOT the
+          section-26 Gram. A strictly-positive surviving residual gap neither claims the cover
+          holds nor that it fails. Platt&ndash;Trudgian &Lambda;&le;0.2 remains rigorous SOTA.
+        </div>
+      </div>
+      <p style={{ marginTop: 8, color: "#64748b", fontSize: 11, fontFamily: mono }}>
+        Source: imp-3146-residual-gap-limit-aU-grid.js &mdash; limitPositiveEverywhere:{" "}
+        {String(M.limitPositiveEverywhere)}, scanMax&asymp;{M.scanMaxLimit.toFixed(5)},
+        sStarClosedForm&asymp;{S_STAR.toFixed(5)}, &phi;&asymp;{PHI.toFixed(6)}
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3125: residual-gap DEG-saturation curve ──────────────────────────────
 function ResidualGapDegreeSweepViz() {
   const M = IMP3125_ORTHOGONALIZED_RESIDUAL_GAP_DEGREE_SWEEP;
@@ -2149,6 +2267,12 @@ export default function ClosureRoutesPage() {
         Asymmetric onset derivative: closed-form root c<sub>asym</sub>=0.90279 corrects imp-3045 false onset (imp-3170)
       </h2>
       <AsymOnsetDerivativeViz />
+
+      {/* ─── imp-3181: residual-gap limit G(s)=tanh(s)-tanh(s/2) golden-ratio maximum ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Residual-gap limit G(s)=tanh(s)&minus;tanh(s/2): maximum &phi;<sup>&minus;5/2</sup>&asymp;0.300 at cosh(s*)=&phi; (imp-3146)
+      </h2>
+      <ResidualGapLimitCurveViz />
 
       {/* ─── imp-3163: honest-status -- 0.2690 vs 0.2692 near-miss is a NUMERICAL COINCIDENCE ─── */}
       <div style={{

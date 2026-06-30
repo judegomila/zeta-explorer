@@ -7,6 +7,7 @@ import {
   ROUTE_MAP_CROSS_CHECK,
 } from '../data/full-route-map-2026-06-19.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
+import { C_SHOCK_CROSS_VALIDATION_IMP3026 } from '../data/imp-3026-c-shock-cross-validation.js';
 import { STATUS_COLOR, StatusTag, StatusLegend } from '../components/StatusLegend.jsx';
 
 const CLUSTER_TITLES = {
@@ -148,6 +149,52 @@ export default function RouteMapPage() {
         </div>
         <div style={{ marginTop: 10, fontSize: 12, color: '#64748b' }}>
           Sharpest diagnosis: {CH_WALL_FRONTIER.sharpestDiagnosis}
+        </div>
+      </div>
+
+      {/* imp-3026 — C_shock dual-appearance cross-validation (consistency, NOT a bound) */}
+      <div className="card" style={{ marginBottom: 18, borderColor: 'rgba(34,211,238,0.35)' }}>
+        <h3 style={{ color: '#22d3ee', marginTop: 0 }}>
+          C_shock dual-appearance identity (imp-3026 cross-validation)
+        </h3>
+        <p style={{ fontSize: 12.5, color: '#94a3b8', marginTop: 0, marginBottom: 12 }}>
+          The constant <strong style={{ color: '#e2e8f0' }}>C_shock</strong> shows up TWICE in the
+          frontier verdict above — once as the cusp-law prefactor g_min ≈ C_shock·W₁<sup>1/2</sup>{' '}
+          (Hölder-½, capped &lt;&nbsp;1/3 by imp-2786) and once as the squared-gap surrogate
+          constant C_shock²/8. Along the 1-parameter cusp family both appearances recover the SAME
+          number, confirming they are one constant rather than two independently-fitted values.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
+          <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(34,211,238,0.06)', border: '1px solid rgba(34,211,238,0.3)' }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: '#22d3ee', marginBottom: 6, letterSpacing: '0.04em' }}>
+              ROUTE A — cusp law (log-log fit)
+            </div>
+            <div style={{ fontSize: 13, color: '#cbd5e1', fontFamily: 'var(--font-mono, monospace)' }}>
+              C_shock = {C_SHOCK_CROSS_VALIDATION_IMP3026.cShockRouteA_star.toFixed(6)}
+            </div>
+          </div>
+          <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(34,211,238,0.06)', border: '1px solid rgba(34,211,238,0.3)' }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: '#22d3ee', marginBottom: 6, letterSpacing: '0.04em' }}>
+              ROUTE B — √(8·C_shock²/8) from squared gap
+            </div>
+            <div style={{ fontSize: 13, color: '#cbd5e1', fontFamily: 'var(--font-mono, monospace)' }}>
+              C_shock = {C_SHOCK_CROSS_VALIDATION_IMP3026.cShockRouteB_star.toFixed(6)}
+            </div>
+          </div>
+        </div>
+        <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 12 }}>
+          At N* = {C_SHOCK_CROSS_VALIDATION_IMP3026.nStar.toLocaleString()} the two routes agree to{' '}
+          |Δ| = {C_SHOCK_CROSS_VALIDATION_IMP3026.absDiffAB_star.toExponential(1)} (surrogate bounded
+          constant C_shock²/8 ≈ {C_SHOCK_CROSS_VALIDATION_IMP3026.squaredGapBoundedConst_star.toFixed(5)}),
+          both safely under the imp-2786 cap of 1/3.
+        </div>
+        <div style={{ padding: '9px 11px', borderRadius: 6, background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.3)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', marginBottom: 5, letterSpacing: '0.04em' }}>
+            HONEST SCOPE — NOT A BOUND
+          </div>
+          <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.6 }}>
+            {C_SHOCK_CROSS_VALIDATION_IMP3026.surrogateStillRefuted} {C_SHOCK_CROSS_VALIDATION_IMP3026.honestNote}
+          </div>
         </div>
       </div>
 

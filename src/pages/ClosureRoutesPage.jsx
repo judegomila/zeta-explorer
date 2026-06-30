@@ -18,6 +18,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { CLOSURE_ROUTES, findRoute } from '../data/closure-routes-section.js';
+import { IMP3085_HANKEL_GAP_AU_GRID } from '../data/imp-3085-hankel-gap-aU-grid.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 const R = CLOSURE_ROUTES;
@@ -335,6 +336,155 @@ function ConjectureCard({ conj, accent }) {
   );
 }
 
+// ── imp-3085 operator-gap a*U collapse viz ────────────────────────────────────
+// Operator-side companion to the (pending) imp-3095 scalar-phi collapse: plot the
+// de-homogenized operator/diagonal gap ||R|| - max_j R_jj vs s = a*U and SHOW that
+// equal-product (a,U) cells land on the same curve, while the RAW off-diagonal
+// Hankel cross-term does NOT collapse. All values are READ from the imp-3085 module
+// export; no math is recomputed here.
+const A_COLORS = {
+  0.5: '#f59e0b', // amber
+  0.3: '#06b6d4', // cyan
+  0.2: '#a855f7', // purple
+  0.1: '#10b981', // emerald
+};
+
+function OperatorGapCollapseViz() {
+  const M = IMP3085_HANKEL_GAP_AU_GRID.measured;
+  const grid = M.grid;
+  const trend = M.sTrend;
+  // s = 3 equal-product pair: (0.5,6) and (0.3,10) -> gap coincides, raw |H_jk| does not.
+  const headlinePair = M.equalProductPairs.find((p) => Math.abs(p.s - 3) < 1e-9);
+
+  // Plot frame.
+  const W = 720, H = 360, ML = 56, MR = 24, MT = 22, MB = 44;
+  const sMax = 5.2, gapMax = 4.0;
+  const px = (s) => ML + (s / sMax) * (W - ML - MR);
+  const py = (g) => H - MB - (g / gapMax) * (H - MT - MB);
+
+  const sTicks = [0, 1, 2, 3, 4, 5];
+  const gTicks = [0, 1, 2, 3, 4];
+  const aValues = [0.5, 0.3, 0.2, 0.1];
+
+  // Collapsed trend polyline (the single s-curve every cell lands on).
+  const trendPath = trend
+    .map((t, i) => `${i === 0 ? 'M' : 'L'} ${px(t.s).toFixed(1)} ${py(t.operatorDiagonalGap).toFixed(1)}`)
+    .join(' ');
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #06b6d4', background: 'rgba(6,182,212,0.04)' }}>
+      <h3 style={{ color: '#06b6d4', marginTop: 0 }}>
+        Operator/diagonal gap collapses onto s = a&middot;U (imp-3085)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        De-homogenizing the §26 contraction{' '}
+        <span style={{ fontFamily: mono }}>R&#x2C7C;&#x2096; = H&#x2C7C;&#x2096; / &radic;(D&#x2C7C;&#x2C7C; D&#x2096;&#x2096;)</span>{' '}
+        cancels the shared lag-window prefactor U (substitute &#x03C4; = U&middot;x), so the operator
+        norm &#x2016;R&#x2016;, its diagonal, and the obstruction gap{' '}
+        <span style={{ fontFamily: mono }}>&#x2016;R&#x2016; &minus; max&#x2C7C; R&#x2C7C;&#x2C7C;</span>{' '}
+        depend on the single product <strong>s = a&middot;U</strong> alone. Every (a, U) grid cell —
+        colored by the shear weight a — lands on one curve; cells with equal product coincide to{' '}
+        ~{M.maxGapMismatchAcrossEqualProductPairs.toExponential(0)}. This is the operator-side
+        analogue of the degree-0 scalar excess-fraction collapse (imp-3064).
+      </p>
+
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {/* grid + axes */}
+          {gTicks.map((g) => (
+            <g key={`g${g}`}>
+              <line x1={ML} y1={py(g)} x2={W - MR} y2={py(g)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(g) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{g.toFixed(1)}</text>
+            </g>
+          ))}
+          {sTicks.map((s) => (
+            <text key={`s${s}`} x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{s}</text>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>s = a&middot;U  (lag-window &times; shear product)</text>
+          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>operator/diagonal gap</text>
+
+          {/* collapsed trend curve */}
+          <path d={trendPath} fill="none" stroke="#475569" strokeWidth="1.5" strokeDasharray="4 3" />
+
+          {/* per-cell scatter, colored by a */}
+          {grid.map((c, i) => (
+            <circle
+              key={i}
+              cx={px(c.s)}
+              cy={py(c.operatorDiagonalGap)}
+              r="5"
+              fill={A_COLORS[c.a] || '#94a3b8'}
+              fillOpacity="0.55"
+              stroke={A_COLORS[c.a] || '#94a3b8'}
+              strokeWidth="1.2"
+            >
+              <title>{`a=${c.a}, U=${c.U}  ->  s=${c.s}, gap=${c.operatorDiagonalGap.toFixed(5)}, ||R||=${c.operatorNorm.toFixed(4)}`}</title>
+            </circle>
+          ))}
+
+          {/* headline coincidence annotation at s = 3 */}
+          {headlinePair && (
+            <g>
+              <line x1={px(3)} y1={py(headlinePair.cellA.operatorDiagonalGap) - 10} x2={px(3)} y2={MT + 8} stroke="#fbbf24" strokeWidth="1" strokeDasharray="2 2" />
+              <text x={px(3) + 6} y={MT + 16} fontSize="11" fill="#fbbf24" fontFamily={mono}>
+                (0.5,6) &amp; (0.3,10) &rarr; gap {headlinePair.cellA.operatorDiagonalGap.toFixed(4)}
+              </text>
+            </g>
+          )}
+
+          {/* legend */}
+          {aValues.map((a, i) => (
+            <g key={`leg${a}`} transform={`translate(${W - MR - 92}, ${MT + 10 + i * 18})`}>
+              <circle cx="0" cy="-4" r="5" fill={A_COLORS[a]} fillOpacity="0.55" stroke={A_COLORS[a]} strokeWidth="1.2" />
+              <text x="12" y="0" fontSize="11" fill="#cbd5e1" fontFamily={mono}>a = {a}</text>
+            </g>
+          ))}
+        </svg>
+      </div>
+
+      {/* contrast: the RAW Hankel cross-term does NOT collapse */}
+      {headlinePair && (
+        <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.3)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 6 }}>
+            THE RAW GRAM DOES NOT COLLAPSE
+          </div>
+          <p style={{ color: '#cbd5e1', fontSize: 12.5, lineHeight: 1.7, margin: 0 }}>
+            The scale invariance lives in the <em>de-homogenized</em> operator R, not the bare Gram.
+            At the same s = 3 the two equal-product cells give identical gaps but the raw off-diagonal{' '}
+            <span style={{ fontFamily: mono }}>min&#x2C7C;&#x2260;&#x2096; |H&#x2C7C;&#x2096;|</span> still
+            carries the dimensionful U prefactor and differs by O(1):{' '}
+            <span style={{ fontFamily: mono, color: '#fca5a5' }}>
+              {headlinePair.cellA.minOffDiagonalHankelCrossTerm.toFixed(2)} (a=0.5,U=6)
+            </span>{' '}
+            vs{' '}
+            <span style={{ fontFamily: mono, color: '#fca5a5' }}>
+              {headlinePair.cellB.minOffDiagonalHankelCrossTerm.toFixed(2)} (a=0.3,U=10)
+            </span>.
+          </p>
+        </div>
+      )}
+
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          DIAGNOSTIC — NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Measured on the SAME representative degree-4 monomial-moment truncation as imp-3066 (chosen to
+          EXHIBIT the off-diagonal cross-terms), NOT the section-26 Gram. Only the a&middot;U scaling of the
+          obstruction magnitude is asserted — the gap claims neither that the cover fails nor that it holds.
+          Positivity was not attempted. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3085-hankel-gap-aU-grid.js &mdash; operator companion to the imp-3095 scalar-phi collapse.
+      </p>
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function ClosureRoutesPage() {
   return (
@@ -543,6 +693,12 @@ export default function ClosureRoutesPage() {
           Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
         </p>
       </div>
+
+      {/* ─── imp-3085: operator-gap a*U collapse viz ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        The operator obstruction tracks one scale (imp-3085)
+      </h2>
+      <OperatorGapCollapseViz />
 
       {/* ─── Conjectures ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

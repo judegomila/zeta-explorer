@@ -1986,6 +1986,13 @@ const DATA_MODULES = [
   // coveredFraction=1. SCALAR cover only; off-diagonal operator step out of scope;
   // RH-equivalent, structural/diagnostic, PT 0.2 stays SOTA.
   '/src/data/imp-3065-residual-deficit-quadrature-2026-06-30.js',
+  // imp-3066: characterizes -- diagnostically, on a representative degree-4 monomial
+  // truncation -- the off-diagonal endpoint-Hankel cross-terms the COMPLETE scalar
+  // mu^pass cover (imp-3007) leaves untouched. The de-homogenized R = Gpass^{-1/2}
+  // Gshear Gpass^{-1/2} has every diagonal < 1 (the scalar cover) yet a Perron operator
+  // norm strictly above it, the gap fed entirely by the off-diagonal Hankel cross-terms.
+  // Representative/diagnostic: ||R|| carries no RH verdict; positivity not attempted.
+  '/src/data/imp-3066-offdiagonal-hankel-obstruction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

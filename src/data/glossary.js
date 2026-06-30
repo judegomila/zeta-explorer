@@ -589,6 +589,65 @@ export const glossary = [
     relatedTerms: ['Excess-fraction asymptotics (s0, C, K)', 'excess fraction phi', 'cosh-completion', 'overflow onset s0'],
     link: '/closure-routes',
   },
+  {
+    term: 'mu^pass overflow-cover vocabulary (D_raw, D_pass, E(a))',
+    category: 'constant',
+    definition:
+      'The three named functionals of the imp-3007 mu^pass overflow cover, all measured in the degree-0 ' +
+      '(Lebesgue on the lag tau over [0, U]) scale-invariant, RH-equivalent class. nu(tau) = sinh(a*tau) is ' +
+      'the bare overflow profile; w^pass(tau) = cosh(a*tau) is the smooth even cosh-completion; ' +
+      'w^min(tau) = max(1, sinh(a*tau)) is the minimal kinked patch that just dominates nu. ' +
+      '(1) D_raw(a) -- RAW degree-0 deficit mass: the total overshoot of nu over the bare diagonal on the ' +
+      'overflow tail [tau_star, U], tau_star = arcsinh(1)/a, D_raw(a) = int_{tau_star}^{U} [sinh(a*tau) - 1] d(tau) ' +
+      '= [cosh(a*tau)/a - tau]_{tau_star}^{U} (~13.07 at a = 0.5, U = 6; the 64%-class overflow the raw ' +
+      'diagonal cannot dominate). ' +
+      '(2) D_pass(a) -- POST-BRIDGE residual deficit: D_pass(a) = int_0^U [nu(tau) - w^pass(tau)]^+ d(tau) = 0 ' +
+      'EXACTLY, since cosh(a*tau) - sinh(a*tau) = e^{-a*tau} > 0 pointwise, so the cosh-completion covers the ' +
+      'entire degree-0 overflow and coveredFraction = (D_raw - D_pass)/D_raw = 1. ' +
+      '(3) E(a) -- EXCESS passive mass of the cosh over the minimal cover: ' +
+      'E(a) = int_0^U [cosh(a*tau) - max(1, sinh(a*tau))] d(tau) > 0, the quantified price of using the smooth ' +
+      'even completion instead of the minimal kinked patch w^min. ' +
+      'Honest note: this cover is SCALAR/diagnostic (degree-0, pointwise w^pass >= nu) and RH-EQUIVALENT, not an ' +
+      'RH proof -- covering the degree-0 overflow is NECESSARY but NOT SUFFICIENT; the operator (section-26 Gram) ' +
+      'step is open and Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-3007 (mu^pass overflow cover), 2026',
+    relatedTerms: ['a*U scale invariant', 'cosh-completion', 'overflow onset s0', 'Excess-fraction asymptotics (s0, C, K)'],
+    link: '/closure-routes',
+  },
+  {
+    term: 'Operator-side mu^pass vocabulary (de-homogenized R, endpoint-Hankel gap)',
+    category: 'constant',
+    definition:
+      'The operator-step counterpart to the scalar D_raw/D_pass/E cover: the four named objects of the ' +
+      'imp-3007/imp-3066/imp-3084 frontier that decide whether covering the degree-0 overflow actually buys ' +
+      'the RH-equivalent positivity. On the rescaled monomial truncation phi_j(tau) = (tau/U)^j the cover ' +
+      'requires the operator inequality Gpass >= Gshear, equivalently K_a >= 0, equivalently a CONTRACTION. ' +
+      '(1) DE-HOMOGENIZED R CONTRACTION -- R = Gpass^{-1/2} Gshear Gpass^{-1/2}, entrywise ' +
+      'R_jk = H_jk / sqrt(D_jj * D_kk), where D_jj = int_0^U cosh(a*tau) phi_j^2 d(tau) is the passive ' +
+      'diagonal and H_jk = int_0^U sinh(a*tau) phi_j phi_k d(tau) is the shear Hankel form. The cover holds ' +
+      'iff R is a contraction (||R|| <= 1). ' +
+      '(2) OFF-DIAGONAL ENDPOINT-HANKEL OBSTRUCTION -- the shear Gram Gshear is a genuinely OFF-DIAGONAL ' +
+      'endpoint-Hankel form (its cross-terms H_jk, j != k, do not vanish), so the scalar pointwise cover ' +
+      'w^pass >= nu does NOT diagonalize the operator step; the off-diagonal mass is the residual the scalar ' +
+      'argument cannot see. ' +
+      '(3) OPERATOR/DIAGONAL GAP -- the Perron-Frobenius quantity ||R|| - max_j R_jj, the spectral norm ' +
+      '(largest eigenvalue, since R has strictly positive entries) minus the largest diagonal (the ' +
+      'scalar-cover ceiling, always < 1). A strictly positive gap is exactly the amount by which the operator ' +
+      'overshoots the diagonal the scalar cover controls; in the raw monomial basis it GROWS with the ' +
+      'truncation degree (~1.79 at DEG = 2 to ~10.8 at DEG = 12, ill-conditioning artifact, imp-3084) rather ' +
+      'than saturating. ' +
+      '(4) phi = G(s)/F(s) a*U INVARIANT TIE -- de-homogenizing R cancels the shared lag-window U prefactor ' +
+      'through the normalizer sqrt(D_jj * D_kk), so ||R||, its diagonal, and the gap depend on the single ' +
+      'scale invariant s = a*U alone, exactly as the scalar excess fraction phi(a,U) = G(s)/F(s) does -- the ' +
+      'one structural tie between the scalar and operator sides. ' +
+      'Honest scope caveat: the scalar cover is NECESSARY but NOT SUFFICIENT; this operator contraction step is ' +
+      'the RH-hard residual and is OPEN, and these objects live on the representative monomial truncation, NOT ' +
+      'the section-26 Gram -- diagnostic only, no RH verdict. Platt-Trudgian Lambda <= 0.2 remains the rigorous ' +
+      'SOTA.',
+    firstUsed: 'imp-3066 (off-diagonal Hankel obstruction) / imp-3084 (operator/diagonal gap degree sweep), 2026',
+    relatedTerms: ['mu^pass overflow-cover vocabulary (D_raw, D_pass, E(a))', 'a*U scale invariant', 'excess fraction phi', 'cosh-completion'],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

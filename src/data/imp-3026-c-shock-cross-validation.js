@@ -220,6 +220,16 @@ export const C_SHOCK_CROSS_VALIDATION_ASSERTIONS = [
       'Platt-Trudgian Lambda <= 0.2 stays SOTA. Blocks any future edit from flipping this documentation ' +
       'cross-check into a claimed C_H closure or rigorous beat.',
   },
+  {
+    id: 'imp3026-c-shock-value-pinned-at-n-star',
+    holds: () =>
+      Math.abs(STAR_ROW.C_shock_route_A - 0.2692) < 5e-4 &&
+      Math.abs(STAR_ROW.C_shock_route_B - 0.2692) < 5e-4,
+    why:
+      'Pin the absolute C_shock value at N*=1e4 to the documented result ~0.2692 (tolerance 5e-4). ' +
+      'Future edits to effectiveHeightForN or cShockClosedForm that drift the headline number away from ' +
+      '~0.2692 fail loudly here, even if route-A and route-B still agree with each other (imp-3080).',
+  },
 ];
 
 for (const a of C_SHOCK_CROSS_VALIDATION_ASSERTIONS) {

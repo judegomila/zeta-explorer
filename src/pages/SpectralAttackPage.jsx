@@ -4,6 +4,7 @@ import SpectralAttackViz from '../components/SpectralAttackViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL, SG1C_R1T4_BASIN_GRID, SG1C_R1T4_RHO1_REPELLER, SG1C_R2T2_SHELL_CROSSCHECK } from '../data/sg1c-theta-trap-theorems.js';
+import { CTHETA_FLAT_INVARIANT } from '../data/imp-3022-ctheta-basin-scaling.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -850,6 +851,77 @@ function ShellOnsetLadderSection() {
   );
 }
 
+// imp-3098: surface the imp-3067 CTHETA_FLAT_INVARIANT certified export
+// (off-basin g0 * dTheta/dW_1 = 16/27, flat to machine precision over a deep
+// g0-halving sweep). This SURFACES the certified result; it does not recompute
+// it. MANDATORY caveat: scale-law SIGNATURE only -- does NOT close the
+// off-basin divergence; PT Lambda <= 0.2 stays the rigorous SOTA.
+function CThetaFlatInvariantPanel() {
+  const inv = CTHETA_FLAT_INVARIANT;
+  const tbl = inv.table;
+  // Sample first / middle / last rows so the ~6-decade span reads at a glance.
+  const sampled = [tbl[0], tbl[Math.floor(tbl.length / 2)], tbl[tbl.length - 1]];
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #a78bfa" }}>
+      <h3 style={{ color: "#a78bfa", fontSize: 16, marginBottom: 8 }}>
+        Off-Basin C&#x398; Scale-Law Signature: g&#x2080;&middot;d&#x398;/dW&#x2081; = 16/27 (certified flat, imp-3067)
+      </h3>
+      <p style={{ color: "#94a3b8", fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        On the crowded off-basin lattice (&rho;&nbsp;=&nbsp;1) the C&#x398; sensitivity
+        d&#x398;/dW&#x2081; blows up like 1/g&#x2080;, but the{" "}
+        <strong style={{ color: "#e2e8f0" }}>product</strong>{" "}
+        g&#x2080;&middot;d&#x398;/dW&#x2081; is g&#x2080;-independent and pinned at{" "}
+        <strong style={{ color: "#a78bfa", fontFamily: "monospace" }}>
+          16/27 = {(16 / 27).toFixed(7)}
+        </strong>
+        . The imp-3067 export <code style={{ color: "#e2e8f0" }}>CTHETA_FLAT_INVARIANT</code>{" "}
+        certifies this directly: the same central finite-difference measured over a{" "}
+        <strong style={{ color: "#e2e8f0" }}>{tbl.length}-halving</strong>{" "}
+        (~{inv.decadesSpanned.toFixed(2)}-decade) g&#x2080; sweep stays pinned to within{" "}
+        <strong style={{ color: "#10b981", fontFamily: "monospace" }}>
+          max-dev {inv.maxDeviationFrom16over27.toExponential(1)}
+        </strong>{" "}
+        &lt; 1e-9. This is the scale-free signature of the off-basin C&#x398; divergence &mdash; not
+        an artefact of the chosen g&#x2080;.
+      </p>
+
+      <div style={{ overflowX: "auto", marginBottom: 14 }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: "1px solid #334155" }}>
+              {["g₀ (sweep)", "g₀·dΘ/dW₁", "deviation from 16/27"].map((h) => (
+                <th key={h} style={{ color: "#64748b", fontWeight: 600, padding: "5px 8px", textAlign: "left" }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sampled.map((r, i) => (
+              <tr key={i} style={{ borderBottom: "1px solid #1e293b" }}>
+                <td style={{ padding: "6px 8px", color: "#94a3b8", fontFamily: "monospace" }}>{r.g0.toExponential(3)}</td>
+                <td style={{ padding: "6px 8px", color: "#a78bfa", fontFamily: "monospace" }}>{r.product.toFixed(10)}</td>
+                <td style={{ padding: "6px 8px", color: "#10b981", fontFamily: "monospace" }}>{r.deviation.toExponential(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div style={{ color: "#475569", fontSize: 11, marginTop: 4 }}>
+          First / middle / last of {tbl.length} sampled rows; full table in CTHETA_FLAT_INVARIANT (imp-3067).
+        </div>
+      </div>
+
+      <div style={{ background: "rgba(245,158,11,0.07)", border: "1px solid rgba(245,158,11,0.25)", borderRadius: 8, padding: "10px 14px" }}>
+        <div style={{ color: "#f59e0b", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+          Honest scope: scale-law signature only &mdash; does NOT close the off-basin divergence
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.7 }}>
+          {inv.honest}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function SpectralAttackPage() {
   return (
     <div className="page">
@@ -1182,6 +1254,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Symmetric Shell-Onset Ladder (imp-3060) ─── */}
       <ShellOnsetLadderSection />
+
+      {/* ─── Off-Basin C_Theta Flat Invariant 16/27 (imp-3098 surfaces imp-3067) ─── */}
+      <CThetaFlatInvariantPanel />
 
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>

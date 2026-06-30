@@ -60,6 +60,33 @@ export default function VizPrimeCausticPage() {
   const [showZeroOverlay, setShowZeroOverlay] = useState(true);
   const [shufflePrimes, setShufflePrimes]     = useState(false);
 
+  // NOTE: logPrimes / activeLogPrimes are declared BEFORE the handlers that
+  // reference them — a handler's useCallback dependency array is evaluated during
+  // render, so a forward reference here is a temporal-dead-zone crash (imp-2928
+  // regression: "Cannot access activeLogPrimes before initialization").
+
+  // Pre-slice the prime list to the active count.
+  const logPrimes = useMemo(() => {
+    const N = Math.min(nPrimes, D.primes.length);
+    return D.logPrimes.slice(0, N);
+  }, [nPrimes]);
+
+  // Shuffles log-spacings to destroy arithmetic phase structure while preserving
+  // the spacing distribution. Re-randomizes whenever the toggle flips or N changes.
+  const activeLogPrimes = useMemo(() => {
+    if (!shufflePrimes) return logPrimes;
+    const diffs = new Float64Array(logPrimes.length - 1);
+    for (let i = 0; i < diffs.length; i++) diffs[i] = logPrimes[i + 1] - logPrimes[i];
+    for (let i = diffs.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = diffs[i]; diffs[i] = diffs[j]; diffs[j] = tmp;
+    }
+    const out = new Float64Array(logPrimes.length);
+    out[0] = logPrimes[0];
+    for (let i = 1; i < out.length; i++) out[i] = out[i - 1] + diffs[i - 1];
+    return out;
+  }, [shufflePrimes, logPrimes]);
+
   const handleMouseMove = useCallback((e) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -85,28 +112,6 @@ export default function VizPrimeCausticPage() {
   }, [activeLogPrimes, eps]);
 
   const handleMouseLeave = useCallback(() => setHoverInfo(null), []);
-
-  // Pre-slice the prime list to the active count.
-  const logPrimes = useMemo(() => {
-    const N = Math.min(nPrimes, D.primes.length);
-    return D.logPrimes.slice(0, N);
-  }, [nPrimes]);
-
-  // Shuffles log-spacings to destroy arithmetic phase structure while preserving
-  // the spacing distribution. Re-randomizes whenever the toggle flips or N changes.
-  const activeLogPrimes = useMemo(() => {
-    if (!shufflePrimes) return logPrimes;
-    const diffs = new Float64Array(logPrimes.length - 1);
-    for (let i = 0; i < diffs.length; i++) diffs[i] = logPrimes[i + 1] - logPrimes[i];
-    for (let i = diffs.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const tmp = diffs[i]; diffs[i] = diffs[j]; diffs[j] = tmp;
-    }
-    const out = new Float64Array(logPrimes.length);
-    out[0] = logPrimes[0];
-    for (let i = 1; i < out.length; i++) out[i] = out[i - 1] + diffs[i - 1];
-    return out;
-  }, [shufflePrimes, logPrimes]);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;

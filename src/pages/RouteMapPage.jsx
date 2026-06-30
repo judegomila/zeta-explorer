@@ -11,6 +11,8 @@ import { C_SHOCK_CROSS_VALIDATION_IMP3026 } from '../data/imp-3026-c-shock-cross
 import { C_SHOCK_N_DEPENDENCE_IMP3070 } from '../data/imp-3070-c-shock-n-dependence.js';
 import { STATUS_COLOR, StatusTag, StatusLegend } from '../components/StatusLegend.jsx';
 import { IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION } from '../data/imp-3066-offdiagonal-hankel-obstruction.js';
+import { SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
+import { CH_LIP_THREE_PROOFS } from '../data/ch-lip-three-proofs-table-2026-06-30.js';
 
 const CLUSTER_TITLES = {
   lambdaUpper: 'Λ Upper-Bound Routes',
@@ -205,20 +207,25 @@ export default function RouteMapPage() {
           <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.3)' }}>
             <div style={{ fontSize: 12, fontWeight: 700, color: '#10b981', marginBottom: 6, letterSpacing: '0.04em' }}>DETERMINISTIC RESIDUAL</div>
             <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.6 }}>
-              sg1c R2-T multi-body isolation constant <em>c</em>: closed-form symmetric
-              single-shell gives <em>c*</em> = sqrt(2+sqrt(3))-1 ≈ 0.9319 (imp-3005);
-              global multi-body <em>c</em> not yet in closed form (asymmetric configs
-              worsen to ~0.927). Theorem C holds safely at <em>c</em> = 0.72.
+              sg1c R2-T isolation constant: symmetric single-shell{' '}
+              <em>c*</em> = sqrt(2+sqrt(3))&minus;1 &asymp; 0.9319 (algebraic, imp-3005).
+              Asymmetric R&rarr;&infin; class (imp-{SG1C_ASYM_ISOLATION_CLOSED_FORM.ticket.replace('imp-', '')}):
+              transcendental closed form <em>c</em><sub>asym</sub> = {SG1C_ASYM_ISOLATION_CLOSED_FORM.cAsym.toFixed(7)},
+              unique root of &psi;(g+1)+&gamma;+2g&minus;2/g&minus;1/(g+1)=0
+              (digamma lattice tail irreducible; honest: BASIN-CONDITIONAL, not proven global infimum).
+              Theorem C holds at <em>c</em> = {SG1C_ASYM_ISOLATION_CLOSED_FORM.basinIsolationRatio}; margin{' '}
+              &asymp; {SG1C_ASYM_ISOLATION_CLOSED_FORM.preservedBasinMargin.toFixed(4)}.
               <strong style={{ color: '#10b981' }}> NOT RH-hard — a concrete analytic gap.</strong>
             </div>
           </div>
           <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.25)' }}>
             <div style={{ fontSize: 12, fontWeight: 700, color: '#f87171', marginBottom: 6, letterSpacing: '0.04em' }}>RH-HARD WALLS (FORECLOSED)</div>
             <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.6 }}>
-              <strong>Global-W_1 C_Lip:</strong> lower bound C_Lip >= C_shock/(2 sqrt(W_1)) &rarr; &infin; (Holder-1/2 impossibility);
-              linear-N norm-mismatch (exact closed form); both surrogates refuted.
+              <strong>Global-W_1 C_Lip:</strong> {CH_LIP_THREE_PROOFS.proofs.length} independent proofs it is foreclosed
+              ({CH_LIP_THREE_PROOFS.proofs.map((p) => p.name).join('; ')}).
+              Verdict: <em>{CH_LIP_THREE_PROOFS.verdict}</em>.
               <br />
-              <strong>GUE cusp-spacing:</strong> two-sided Montgomery–PCC spacing content; no analytic bypass found.
+              <strong>GUE cusp-spacing:</strong> two-sided Montgomery&ndash;PCC spacing content; no analytic bypass found.
             </div>
           </div>
         </div>

@@ -524,6 +524,26 @@ export const glossary = [
     relatedTerms: ['C_Lip', 'C_H wall', 'C_shock', 'Holder-1/2 cusp', 'isolation-constant ladder', 'Theta-trap'],
     link: '/spectral-attack',
   },
+  {
+    term: 'Excess-fraction asymptotics (s0, C, K)',
+    category: 'constant',
+    definition:
+      'Vocabulary for the relative price of the forced even cosh-completion in the excess-fraction ' +
+      'cover. Let s = a*U be the single scale invariant (the imp-3064 a*U product; the U length scale ' +
+      'cancels under de-homogenization tau = U*x), and let phi(a,U) = G(s)/F(s) be the excess fraction, ' +
+      'the relative price of the forced even cosh-completion. The admissible (overflow) range is s > s0. ' +
+      'Three companion quantities pin its shape: ' +
+      '(1) ONSET s0 = arcsinh(1) ~ 0.881374 -- the overflow onset where F has a DOUBLE zero. ' +
+      '(2) QUADRATIC-POLE onset constant C = sqrt2 * (1 - arcsinh1) ~ 0.167763 -- near onset the ' +
+      'fraction blows up as phi ~ C / (s - s0)^2 (unbounded: the cover is infinitely expensive at onset). ' +
+      '(3) LARGE-s decay constant K = 2 * (sqrt2 - arcsinh1) ~ 1.065680 -- for large overflow ' +
+      'phi ~ K * e^{-s} (exponentially cheap: the cosh-completion costs almost nothing deep in the ' +
+      'admissible range). Honest caveat: phi is a degree-0 SCALAR measure on the representative ' +
+      'truncation -- it carries no RH verdict. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-3087/imp-3088 (excess-fraction phi asymptotics, 2026)',
+    relatedTerms: ['a*U scale invariant', 'excess fraction phi', 'cosh-completion', 'overflow onset s0'],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

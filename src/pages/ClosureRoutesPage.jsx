@@ -25,6 +25,7 @@ import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orth
 import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section26-gram-vs-monomial-gap.js';
 import { IMP3105_EXCESS_FRACTION_CROSSOVER_LANDMARKS } from '../data/imp-3105-excess-fraction-crossover-landmarks-2026-06-30.js';
 import { C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108 } from '../data/imp-3108-c-shock-margin-cross-validation.js';
+import { IMP3064_DEFICIT_EXCESS_FRACTION_GRID } from '../data/imp-3064-deficit-excess-fraction-grid.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 const R = CLOSURE_ROUTES;
@@ -1084,6 +1085,125 @@ function PhiProfileLogLogViz() {
   );
 }
 
+// ── imp-3064: degree-0 deficit/excess-fraction grid ──────────────────────────
+// phi = E/D_raw across the 20 (a,U) cells. Diagnostic finding: phi depends
+// only on s = a*U (equal-product cells coincide). Scalar companion to the
+// imp-3085 operator-gap collapse viz. Surfacing per imp-3157.
+function DeficitExcessFractionGridPanel() {
+  const M = IMP3064_DEFICIT_EXCESS_FRACTION_GRID;
+  const rows = M.rows;
+  const hl = M.headline;
+  const si = M.scaleInvariantFinding;
+
+  const aVals = [0.5, 0.3, 0.2, 0.1, 0.05];
+  const uVals = [4, 6, 8, 10];
+  const cellOf = (a, U) => rows.find((r) => r.a === a && r.U === U);
+  const isEqProduct = (a, U) => { const c = cellOf(a, U); return c && Math.abs(c.s - 3.0) < 1e-6; };
+
+  const phiStyle = (phi) => {
+    if (phi === null) return { color: '#475569', background: 'rgba(71,85,105,0.12)' };
+    if (phi > 5)   return { color: '#f87171', background: 'rgba(248,113,113,0.10)' };
+    if (phi > 1)   return { color: '#f97316', background: 'rgba(249,115,22,0.10)' };
+    if (phi > 0.3) return { color: '#fbbf24', background: 'rgba(251,191,36,0.10)' };
+    if (phi > 0.1) return { color: '#a3e635', background: 'rgba(163,230,53,0.07)' };
+    return { color: '#10b981', background: 'rgba(16,185,129,0.08)' };
+  };
+  const phiFmt = (phi) => {
+    if (phi === null) return '—';
+    if (phi > 1) return phi.toFixed(1) + 'x';
+    return (phi * 100).toFixed(1) + '%';
+  };
+
+  const tdBase = {
+    padding: '8px 8px', fontFamily: mono, fontSize: 12,
+    textAlign: 'center', borderBottom: '1px solid #1e293b', verticalAlign: 'middle',
+  };
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #a855f7', background: 'rgba(168,85,247,0.04)' }}>
+      <h3 style={{ color: '#a855f7', marginTop: 0 }}>
+        Degree-0 excess-fraction grid: phi = E / D_raw depends only on s = a&middot;U (imp-3064)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The cosh-completion{' '}
+        <span style={{ fontFamily: mono }}>w^pass = cosh(a&tau;)</span> covers the raw degree-0
+        overflow completely (imp-3007), but over-supplies the minimal kinked cover{' '}
+        <span style={{ fontFamily: mono }}>w^min = max(1, sinh(a&tau;))</span>. The excess fraction{' '}
+        <span style={{ fontFamily: mono }}>phi = E / D_raw</span> quantifies this relative price across the
+        full (a, U) grid. The diagnostic finding: both masses factor as{' '}
+        <span style={{ fontFamily: mono }}>1/a</span> times a pure function of the product
+        <span style={{ fontFamily: mono }}> s = a*U</span>, so{' '}
+        <span style={{ fontFamily: mono }}>phi = G(s)/F(s)</span> depends on <strong>s = a&middot;U
+        only</strong>. Equal-product cells coincide exactly (gold border below). At the imp-3007
+        headline: phi &asymp; {(hl.excessFraction * 100).toFixed(2)}% at a={hl.a}, U={hl.U}
+        (s={String(hl.a * hl.U)}). As s grows, F(s)&asymp;e^s/2 blows up while G(s) saturates
+        at &radic;2&minus;arcsinh(1)&asymp;{si.saturationCeiling.toFixed(4)}, so phi&rarr;0.
+      </p>
+
+      <div style={{ overflowX: 'auto', marginTop: 12 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #334155', textAlign: 'center', color: '#94a3b8' }}>
+              <th style={{ ...tdBase, textAlign: 'left', color: '#64748b' }}>U \\ a</th>
+              {aVals.map((a) => (
+                <th key={a} style={{ ...tdBase, color: '#a855f7' }}>a={a}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {uVals.map((U) => (
+              <tr key={U}>
+                <td style={{ ...tdBase, textAlign: 'left', color: '#64748b' }}>U={U}</td>
+                {aVals.map((a) => {
+                  const c = cellOf(a, U);
+                  const phi = c ? c.excessFraction : null;
+                  const s = c ? c.s : a * U;
+                  const hilite = isEqProduct(a, U);
+                  const st = phiStyle(phi);
+                  return (
+                    <td
+                      key={a}
+                      style={{
+                        ...tdBase,
+                        color: st.color,
+                        background: st.background,
+                        boxShadow: hilite ? 'inset 0 0 0 2px #fbbf24' : 'none',
+                      }}
+                    >
+                      <div style={{ fontSize: 10, color: '#64748b', marginBottom: 2 }}>s={s.toFixed(1)}</div>
+                      <div style={{ fontWeight: 700 }}>{phiFmt(phi)}</div>
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div style={{ marginTop: 10, padding: '8px 12px', borderRadius: 5, background: 'rgba(251,191,36,0.07)', border: '1px solid rgba(251,191,36,0.3)', fontSize: 12, color: '#cbd5e1', lineHeight: 1.65 }}>
+        <strong style={{ color: '#fbbf24', fontFamily: mono }}>SCALE INVARIANCE: </strong>
+        (a=0.5, U=6) and (a=0.3, U=10) both give s=3, phi&asymp;{(hl.excessFraction * 100).toFixed(2)}%
+        (gold border). phi = G(s)/F(s) where F(s)=cosh(s)&minus;&radic;2&minus;s+arcsinh(1)
+        and G(s)=&radic;2&minus;arcsinh(1)&minus;e^(&minus;s).
+      </div>
+
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          DEGREE-0 SCALAR ONLY &mdash; RH-EQUIVALENT &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          {M.honestCaveat.operatorStepUntouched} {M.honestCaveat.sota}.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3064-deficit-excess-fraction-grid.js &mdash; self-computing;
+        all 20 cells verified via closed-form + midpoint cross-check.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3136: C_shock margin 1/3 - C_shock(N) grows with N (imp-3108 data) ───
 function CShockMarginCurveViz() {
   const M = C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108;
@@ -1390,6 +1510,12 @@ export default function ClosureRoutesPage() {
           Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
         </p>
       </div>
+
+      {/* ─── imp-3064: degree-0 excess-fraction grid ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Scalar cover price: degree-0 excess-fraction grid, phi = E / D_raw (imp-3064)
+      </h2>
+      <DeficitExcessFractionGridPanel />
 
       {/* ─── imp-3084: raw-basis gap grows with DEG ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

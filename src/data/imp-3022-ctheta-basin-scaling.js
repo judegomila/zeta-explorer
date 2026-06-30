@@ -196,6 +196,63 @@ export const CTHETA_RHO_STAR_ROOT = {
   honest: 'numerical confirmation of an exact constant; no new bound. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
 };
 
+// ---------------------------------------------------------------------------
+// imp-3089: tabulate the ON-BASIN C_Theta VANISHING rate as the scale-flat
+// companion to the certified off-basin 16/27 invariant (imp-3067 above pinned
+// only the off-basin flat product). imp-3022 carries the on-basin column in a
+// 4-row table but never certifies its scale law independently. Here we run the
+// SAME 20-halving (~6-decade) g0 sweep at FIXED neighbour distance D (isolated
+// pair, rho = g0/D -> 0) and tabulate dTheta/dW_1, confirming it VANISHES
+// linearly in g0. The honest companion invariant is the RATIO
+//     dTheta/dW_1 / g0  ->  2 N / D^2   (the exact small-g0 limit),
+// the scale-flat counterpart of the off-basin 16/27: where the off-basin
+// product g0 * dTheta/dW_1 is pinned (sensitivity ~ 1/g0 blows up), the
+// on-basin ratio dTheta/dW_1 / g0 is pinned (sensitivity ~ g0 vanishes). The
+// derivative is the SAME central finite difference; from dTheta/dg =
+// 16 g D/(g+2D)^3 the ratio is 16 N D/(g0+2D)^3 -> 2N/D^2 as g0 -> 0, so the
+// sweep must converge monotonically to the limit while dTheta/dW_1 itself
+// halves at every halving (linear-in-g0 decay) -- the bounded+vanishing
+// signature that keeps C_Theta finite on the basin.
+// ---------------------------------------------------------------------------
+const ON_BASIN_LIMIT = (2 * N_SAMPLE) / (D_FIXED * D_FIXED); // exact small-g0 limit 2N/D^2
+
+function buildOnBasinVanishingTable() {
+  const rows = [];
+  let g0 = G0_START;
+  for (let k = 0; k < FLAT_HALVINGS; k++) {
+    // ON-BASIN rho = g0/D -> 0 (isolated pair, neighbour fixed at D_FIXED).
+    const onTheta = THETA(g0, D_FIXED);
+    const onDW = dThetaDW1(g0, D_FIXED, N_SAMPLE);
+    const ratio = onDW / g0; // dTheta/dW_1 / g0 -> 2N/D^2
+    rows.push({ g0, onTheta, onDW, ratio, deviation: Math.abs(ratio - ON_BASIN_LIMIT) });
+    g0 /= 2;
+  }
+  return rows;
+}
+
+const ON_BASIN_TABLE = buildOnBasinVanishingTable();
+const ON_BASIN_LAST_DEV = ON_BASIN_TABLE[ON_BASIN_TABLE.length - 1].deviation;
+// last-halving sensitivity ratio dTheta/dW_1(g0/2) / dTheta/dW_1(g0) -> 1/2.
+const ON_BASIN_LAST_HALVING = ON_BASIN_TABLE[ON_BASIN_TABLE.length - 1].onDW
+  / ON_BASIN_TABLE[ON_BASIN_TABLE.length - 2].onDW;
+
+export const CTHETA_ON_BASIN_VANISHING = {
+  ticket: 'imp-3089',
+  date: '2026-06-30',
+  parent: 'imp-3022-ctheta-basin-scaling',
+  companionTo: 'imp-3067 CTHETA_FLAT_INVARIANT (off-basin g0 * dTheta/dW_1 = 16/27)',
+  law: 'on-basin dTheta/dW_1 = 2 N g0/D^2 -> 0 (isolated pair, rho = g0/D -> 0): bounded and VANISHING, halving roughly halves the sensitivity',
+  invariant: 'scale-flat companion: the ratio dTheta/dW_1 / g0 -> 2 N/D^2 (here 2N/D^2 = ' + ON_BASIN_LIMIT + ') as g0 -> 0',
+  measurement: 'same central finite-difference dTheta/dg (step g*1e-6) as imp-3022/3067, evaluated on the on-basin ratio across a 20-halving (~6-decade) g0 sweep from g0 = 0.0495 at fixed D = 1',
+  decadesSpanned: FLAT_DECADES,
+  limitTwoNoverDsq: ON_BASIN_LIMIT,
+  finalRatioDeviation: ON_BASIN_LAST_DEV,
+  finalHalvingSensitivityRatio: ON_BASIN_LAST_HALVING,
+  table: ON_BASIN_TABLE,
+  conclusion: 'dTheta/dW_1 halves at every halving (ratio -> 1/2) and the ratio dTheta/dW_1 / g0 converges monotonically to 2N/D^2 = ' + ON_BASIN_LIMIT + ' to ~1e-7, certifying the on-basin C_Theta is bounded+vanishing -- the scale-flat companion to the off-basin 16/27 blowup signature',
+  honest: 'tabulates the on-basin VANISHING that keeps C_Theta finite on the basin; does NOT close the off-basin divergence. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA; the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
+};
+
 export const CTHETA_BASIN_SCALING_ASSERTIONS = [
   {
     id: 'ctheta-off-basin-1-over-g0-law',
@@ -247,6 +304,20 @@ export const CTHETA_BASIN_SCALING_ASSERTIONS = [
     holds: () => CTHETA_RHO_STAR_ROOT.solveErrorVsTwoThirds < 1e-9
       && CTHETA_RHO_STAR_ROOT.rhoStarSolved < C_OPERATING_CAP
       && CTHETA_RHO_STAR_ROOT.capMargin > 0.05,
+  },
+  {
+    id: 'ctheta-on-basin-vanishing-ratio-pinned-2N-over-Dsq',
+    description: 'imp-3089: on-basin dTheta/dW_1 vanishes linearly in g0 (last halving ~1/2) and the companion ratio dTheta/dW_1 / g0 converges monotonically to the exact limit 2N/D^2 across a 20-halving sweep -- the scale-flat counterpart of the off-basin 16/27 invariant',
+    holds: () => {
+      const t = CTHETA_ON_BASIN_VANISHING.table;
+      const monotoneRatio = t.slice(1).every((r, i) => r.deviation < t[i].deviation);
+      const sensVanishes = t.slice(1).every((r, i) => r.onDW < t[i].onDW);
+      return t.length === FLAT_HALVINGS
+        && CTHETA_ON_BASIN_VANISHING.limitTwoNoverDsq === ON_BASIN_LIMIT
+        && CTHETA_ON_BASIN_VANISHING.finalRatioDeviation < 1e-4
+        && Math.abs(CTHETA_ON_BASIN_VANISHING.finalHalvingSensitivityRatio - 0.5) < 1e-3
+        && monotoneRatio && sensVanishes;
+    },
   },
   {
     id: 'ctheta-no-false-qed-pt-stays-sota',

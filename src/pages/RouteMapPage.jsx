@@ -6,6 +6,7 @@ import {
   FULL_ROUTE_MAP_NEXT_MOVE,
   ROUTE_MAP_CROSS_CHECK,
 } from '../data/full-route-map-2026-06-19.js';
+import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
 import { STATUS_COLOR, StatusTag, StatusLegend } from '../components/StatusLegend.jsx';
 
 const CLUSTER_TITLES = {
@@ -84,6 +85,39 @@ export default function RouteMapPage() {
           </div>
         </div>
       ))}
+
+      {/* Frontier residuals: deterministic vs RH-hard */}
+      <div className="card" style={{ marginBottom: 18, borderColor: 'rgba(239,68,68,0.35)' }}>
+        <h3 style={{ color: '#f87171', marginTop: 0 }}>Frontier Assault Verdict ({CH_WALL_FRONTIER.date})</h3>
+        <p style={{ fontSize: 12.5, color: '#94a3b8', marginTop: 0, marginBottom: 14 }}>
+          Status: <strong style={{ color: '#f87171' }}>{CH_WALL_FRONTIER.verdict}</strong> — the Lipschitz route is{' '}
+          provably closed three independent ways. The only remaining forward move is deterministic.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.3)' }}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#10b981', marginBottom: 6, letterSpacing: '0.04em' }}>DETERMINISTIC RESIDUAL</div>
+            <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.6 }}>
+              sg1c R2-T multi-body isolation constant <em>c</em>: closed-form symmetric
+              single-shell gives <em>c*</em> = sqrt(2+sqrt(3))-1 ≈ 0.9319 (imp-3005);
+              global multi-body <em>c</em> not yet in closed form (asymmetric configs
+              worsen to ~0.927). Theorem C holds safely at <em>c</em> = 0.72.
+              <strong style={{ color: '#10b981' }}> NOT RH-hard — a concrete analytic gap.</strong>
+            </div>
+          </div>
+          <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.25)' }}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: '#f87171', marginBottom: 6, letterSpacing: '0.04em' }}>RH-HARD WALLS (FORECLOSED)</div>
+            <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.6 }}>
+              <strong>Global-W_1 C_Lip:</strong> lower bound C_Lip >= C_shock/(2 sqrt(W_1)) &rarr; &infin; (Holder-1/2 impossibility);
+              linear-N norm-mismatch (exact closed form); both surrogates refuted.
+              <br />
+              <strong>GUE cusp-spacing:</strong> two-sided Montgomery–PCC spacing content; no analytic bypass found.
+            </div>
+          </div>
+        </div>
+        <div style={{ marginTop: 10, fontSize: 12, color: '#64748b' }}>
+          Sharpest diagnosis: {CH_WALL_FRONTIER.sharpestDiagnosis}
+        </div>
+      </div>
 
       {/* Next move */}
       <div className="card" style={{ marginTop: 8, borderColor: 'rgba(167,139,250,0.4)' }}>

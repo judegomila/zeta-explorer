@@ -10,6 +10,7 @@ import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js
 import { C_SHOCK_CROSS_VALIDATION_IMP3026 } from '../data/imp-3026-c-shock-cross-validation.js';
 import { C_SHOCK_N_DEPENDENCE_IMP3070 } from '../data/imp-3070-c-shock-n-dependence.js';
 import { STATUS_COLOR, StatusTag, StatusLegend } from '../components/StatusLegend.jsx';
+import { IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION } from '../data/imp-3066-offdiagonal-hankel-obstruction.js';
 
 const CLUSTER_TITLES = {
   lambdaUpper: 'Λ Upper-Bound Routes',
@@ -296,6 +297,77 @@ export default function RouteMapPage() {
           <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.6 }}>
             {C_SHOCK_N_DEPENDENCE_IMP3070.honestNote} This viz certifies the uniformity of an
             already-proven cap; it does NOT close C_H. Platt-Trudgian Λ ≤ 0.2 remains the rigorous SOTA.
+          </div>
+        </div>
+      </div>
+
+      {/* imp-3093 / imp-3066 — lone operator-positivity obstruction the scalar cover leaves untouched */}
+      <div className="card" style={{ marginBottom: 18, borderColor: 'rgba(251,191,36,0.45)' }}>
+        <h3 style={{ color: '#fbbf24', marginTop: 0 }}>
+          Scalar Cover Route: Operator/Diagonal Gap — the Lone Open Obstruction (imp-3066)
+        </h3>
+        <p style={{ fontSize: 12.5, color: '#94a3b8', marginTop: 0, marginBottom: 12 }}>
+          The degree-0 scalar mu^pass cover (imp-3007) drives the residual deficit to EXACTLY 0 — a
+          necessary condition. But the RH-equivalent target is the OPERATOR positivity K_a &ge; 0,
+          i.e. de-homogenized R = G_pass^&#x207B;&#xBD; G_shear G_pass^&#x207B;&#xBD; must be a
+          contraction (&#x2016;R&#x2016; &le; 1). Scalar domination bounds only the{' '}
+          <strong style={{ color: '#e2e8f0' }}>diagonal</strong> of R; the shear Gram G_shear is a
+          genuine off-diagonal endpoint-Hankel form with non-zero cross-terms the scalar cover never
+          sees. imp-3066 measures this gap on a degree-{IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.construction.degree} representative truncation:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginBottom: 14 }}>
+          <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.3)' }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: '#10b981', marginBottom: 4, letterSpacing: '0.05em' }}>
+              DIAGONAL max R_jj (scalar cover)
+            </div>
+            <div style={{ fontSize: 15, color: '#e2e8f0', fontFamily: 'var(--font-mono, monospace)', fontWeight: 600 }}>
+              {IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.measured.rDiagMax.toFixed(6)}
+            </div>
+            <div style={{ fontSize: 11, color: '#64748b', marginTop: 3 }}>
+              every diag &lt; 1 &rarr; scalar cover holds
+            </div>
+          </div>
+          <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.3)' }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', marginBottom: 4, letterSpacing: '0.05em' }}>
+              OPERATOR NORM &#x2016;R&#x2016; (Perron)
+            </div>
+            <div style={{ fontSize: 15, color: '#e2e8f0', fontFamily: 'var(--font-mono, monospace)', fontWeight: 600 }}>
+              {IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.measured.operatorNorm.toFixed(6)}
+            </div>
+            <div style={{ fontSize: 11, color: '#64748b', marginTop: 3 }}>
+              strictly exceeds diagonal max
+            </div>
+          </div>
+          <div style={{ padding: '10px 12px', borderRadius: 6, background: 'rgba(251,191,36,0.07)', border: '1px solid rgba(251,191,36,0.35)' }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: '#fbbf24', marginBottom: 4, letterSpacing: '0.05em' }}>
+              OPERATOR/DIAGONAL GAP (Perron-Frobenius)
+            </div>
+            <div style={{ fontSize: 15, color: '#e2e8f0', fontFamily: 'var(--font-mono, monospace)', fontWeight: 600 }}>
+              +{IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.measured.operatorDiagonalGap.toFixed(6)}
+            </div>
+            <div style={{ fontSize: 11, color: '#64748b', marginTop: 3 }}>
+              off-diag Hankel contribution &gt; 0
+            </div>
+          </div>
+        </div>
+        <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, marginBottom: 12 }}>
+          R has strictly positive entries, so by Perron-Frobenius its top eigenvalue strictly exceeds
+          its largest diagonal. The gap (+{IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.measured.operatorDiagonalGap.toExponential(3)}) is fed entirely by the off-diagonal
+          endpoint-Hankel cross-terms (min |H_jk| ={' '}
+          {IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.measured.minOffDiagonalHankelCrossTerm.toExponential(4)},
+          max |H_jk| ={' '}
+          {IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.measured.maxOffDiagonalHankelCrossTerm.toExponential(4)}).
+          This is the <strong style={{ color: '#fbbf24' }}>lone open obstruction</strong>: to close the
+          scalar cover route one must additionally show &#x2016;R&#x2016; &le; 1, which requires
+          bounding precisely these cross-terms.
+        </div>
+        <div style={{ padding: '9px 11px', borderRadius: 6, background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.28)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', marginBottom: 4, letterSpacing: '0.05em' }}>
+            HONEST SCOPE — REPRESENTATIVE TRUNCATION, NO RH VERDICT
+          </div>
+          <div style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.6 }}>
+            {IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.honestCaveat.opNormCarriesNoRHVerdict}{' '}
+            {IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.honestCaveat.sota}.
           </div>
         </div>
       </div>

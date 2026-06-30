@@ -355,6 +355,55 @@ export const SG1C_R2T2_SHELL_CROSSCHECK = (() => {
   };
 })();
 
+// imp-3017: numerical sidecar tabulating which Theta thresholds the closed-form
+// static criteria COVER (non-crossable) against the refuted excursion band
+// (0.443, 0.5073). Theorem A covers Theta* <= 1/4 unconditionally; Theorem B
+// sharpens the minimal-gap cover to Theta_b = (sqrt(73)-5)/8 = 0.443000...; and
+// Theorem C trades isolation for cover via the closed-form map
+//   Theta_max(c) = 2 - 3 c^2/(1+c) - c^4/(1+c)^2
+// which raises the cover to every level <= 1 once g <= 0.72 d_1 (f(0.72) ~ 1.005)
+// and degenerates to Theta_A = 1/4 at c = 1. The band (0.443, 0.5073) is the
+// REFUTED interval: every threshold there is crossed upward by some minimal-gap
+// config (the symmetric family {-d,0,1,1+d} peaks at exactly 1/2; a dressed
+// variant reaches 0.5073), so NO absolute static Theta* cover exists inside it --
+// the residual excursion cap must be dynamical, not static.
+export const SG1C_THETA_COVERAGE_INTERVAL = (() => {
+  const thetaB = (Math.sqrt(73) - 5) / 8; // Theorem B closed form = lower band endpoint
+  const thetaCmap = (c) => 2 - (3 * c * c) / (1 + c) - c ** 4 / (1 + c) ** 2;
+  const theoremCmap = [0.5, 0.6, 0.72, 0.8, 0.9, 0.95, 1].map((c) => ({ c, thetaMax: thetaCmap(c) }));
+  // invert the (decreasing) Theorem C map: the isolation constant c whose static
+  // cover drops exactly to each refuted-band endpoint (lower theta -> higher c)
+  const cAtCover = (target) => {
+    let lo = 0.72, hi = 1;
+    for (let it = 0; it < 200; it++) { const m = (lo + hi) / 2; if (thetaCmap(m) > target) lo = m; else hi = m; }
+    return (lo + hi) / 2;
+  };
+  const refutedBand = SG1C_THEOREMS.refutation.crossedBand; // [0.443, 0.5073]
+  // symmetric refutation family {-d,0,1,1+d}, d in (1, 1.0735): minimal-pair
+  // Theta(0) sits inside the band and dTheta/ds > 0 (crosses the level upward)
+  const symFamily = [1.02, 1.05, 1.07].map((d) => {
+    const r = dThetaDs([-d, 0, 1, 1 + d], 1);
+    return { d, theta0: r.theta, dThetaDs: r.pred };
+  });
+  return {
+    coversUnconditional: 0.25, // Theorem A: every Theta* <= 1/4, no hypothesis
+    coversMinimalGap: thetaB, // Theorem B: sharp closed form, = lower band endpoint
+    theoremCmap, // closed-form isolation-for-cover trade map Theta_max(c)
+    cAtLowerEndpoint: cAtCover(refutedBand[0]), // ~0.934
+    cAtUpperEndpoint: cAtCover(refutedBand[1]), // ~0.911 (< lower-endpoint c, since map decreases)
+    refutedBand, // [0.443, 0.5073]
+    symmetricExcursionPeak: 0.5, // Lemma R1-T: exact symmetric cap (uniform-lattice tie)
+    dressedExcursionPeak: refutedBand[1], // 0.5073 dressed numerical excursion (parent claim)
+    symFamily,
+    summary:
+      'Static cover is exact up to Theta_b = (sqrt(73)-5)/8 = 0.443 (Theorem B, sharp); the Theorem C '
+      + 'isolation map Theta_max(c) = 2 - 3c^2/(1+c) - c^4/(1+c)^2 raises the cover to every level <= 1 once '
+      + 'g <= 0.72 d_1 (f(0.72) ~ 1.005) and degenerates to Theta_A = 1/4 at c = 1. The band (0.443, 0.5073) '
+      + 'is REFUTED: minimal-gap configs cross it upward (symmetric peak exactly 1/2, dressed reaches 0.5073), '
+      + 'so no absolute static Theta* cover lives inside it -- the residual cap must be dynamical.',
+  };
+})();
+
 export const SG1C_THEOREM_ASSERTIONS = [
   {
     id: 'sg1c-lemma1-exact-on-fixed-config',
@@ -557,6 +606,26 @@ export const SG1C_THEOREM_ASSERTIONS = [
       const allAboveTheoremC = t.shells.every((s) => s.onsetNumeric > t.theoremCConstant && s.onsetNumeric < 1);
       const scanBrackets = t.scannedMultiBodyInf > t.cStarClosed && t.scannedMultiBodyInf < 1 && t.asymMinPairScan < t.cStarClosed;
       return k1MatchesClosed && monotone && allAboveTheoremC && scanBrackets;
+    },
+  },
+  {
+    id: 'sg1c-theta-coverage-interval',
+    description: 'imp-3017: the static-cover ladder is Theta_A = 1/4 (uncond) < Theta_b = (sqrt(73)-5)/8 = 0.443 (Theorem B, sharp); the Theorem C isolation map Theta_max(c) = 2 - 3c^2/(1+c) - c^4/(1+c)^2 covers every level <= 1 at c = 0.72 and degenerates to 1/4 at c = 1; and the refuted band [0.443, 0.5073] (= SG1C_THEOREMS.refutation.crossedBand) is crossed upward by the symmetric minimal-gap family {-d,0,1,1+d}',
+    holds: () => {
+      const t = SG1C_THETA_COVERAGE_INTERVAL;
+      const thetaCmap = (c) => 2 - (3 * c * c) / (1 + c) - c ** 4 / (1 + c) ** 2;
+      const lowerIsThmB =
+        Math.abs(t.coversMinimalGap - (Math.sqrt(73) - 5) / 8) < 1e-15 && Math.abs(t.refutedBand[0] - 0.443) < 1e-3;
+      const cMapEndpoints = thetaCmap(0.72) > 1 && Math.abs(thetaCmap(1) - 0.25) < 1e-12;
+      const cMapMonotone = t.theoremCmap.every((row, idx) => idx === 0 || row.thetaMax < t.theoremCmap[idx - 1].thetaMax);
+      const ladder = 0.25 < t.refutedBand[0] && t.refutedBand[0] < 0.5 && 0.5 < t.refutedBand[1] && t.refutedBand[1] < 0.51;
+      const familyCrosses = t.symFamily.every(
+        (f) => f.theta0 > t.refutedBand[0] && f.theta0 < t.refutedBand[1] && f.dThetaDs > 0,
+      );
+      // map is decreasing, so the lower theta endpoint needs the larger isolation constant
+      const cInverted =
+        t.cAtLowerEndpoint > 0.72 && t.cAtLowerEndpoint < 1 && t.cAtUpperEndpoint > 0.72 && t.cAtUpperEndpoint < t.cAtLowerEndpoint;
+      return lowerIsThmB && cMapEndpoints && cMapMonotone && ladder && familyCrosses && cInverted;
     },
   },
 ];

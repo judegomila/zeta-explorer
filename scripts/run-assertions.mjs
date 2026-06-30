@@ -2006,6 +2006,21 @@ const DATA_MODULES = [
   // equal-product cells coincide to machine precision -- the imp-3064 a*U invariant);
   // the RAW |H_jk| keeps the U scale and does not. Representative/diagnostic; no RH verdict.
   '/src/data/imp-3085-hankel-gap-aU-grid.js',
+  // imp-3087: characterizes the divergence of the imp-3064 excess fraction
+  // phi(s) = G(s)/F(s) at the overflow onset s -> s0+ (s0 = arcsinh(1)). F has a
+  // DOUBLE zero there (F(s0) = 0 and F′(s0) = sinh(s0) - 1 = 0, F′′(s0) = sqrt(2))
+  // while G(s0) = 1 - arcsinh(1) > 0, so phi is a QUADRATIC POLE
+  // phi ~ sqrt(2)*(1 - arcsinh(1))/(s - s0)^2 ~ 0.16776/(s - s0)^2 -> +infinity:
+  // no finite supremum on (s0, inf). Degree-0 scalar one-sided limit; no RH verdict.
+  '/src/data/imp-3087-excess-fraction-onset-divergence.js',
+  // imp-3088: extracts the large-s decay CONSTANT of the imp-3064 excess fraction
+  // phi(s) = G(s)/F(s) (the companion to the imp-3087 onset blow-up). As s = a*U ->
+  // inf, G saturates at sqrt(2) - arcsinh(1) while F ~ e^s/2, so phi(s) ~ K*e^{-s}
+  // with K = 2*(sqrt(2) - arcsinh(1)) ~ 1.06568 (phi*e^s -> K). The next-order
+  // correction is set by the linear -s term in F: (phi*e^s)/K - 1 ~ (2s + 2C - 1/C)
+  // e^{-s}, so the bare e^{-s} fit relative error decays ~2s*e^{-s} (55% at s=2 to
+  // ~8e-8 at s=20). Degree-0 scalar leading asymptotic; no RH verdict.
+  '/src/data/imp-3088-excess-fraction-large-s-decay.js',
 ];
 
 let ALL_MODULES = FAST_MODE

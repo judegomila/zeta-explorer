@@ -22,6 +22,17 @@
  * Tickets: created by imp-1218; verdict entries maintained by imp-1163,
  * imp-1202, imp-1210, imp-1229, imp-1258; module doc added by imp-2447.
  */
+// imp-3191: cross-module tripwire imports. The frontier-verdict modules below
+// are imported ONLY so the dashboard assertion sweep can certify that the
+// audit (27.2 = the live OPEN central-collapse front) cannot silently drift
+// out of sync with what the frontier verdicts actually record. Each imported
+// module also self-executes its own RH-HARD/RH-EQUIVALENT runner at import, so
+// pulling them in makes a frontier regrade fail the build too. All three are
+// light (no zeros bundle).
+import { CH_WALL_FRONTIER } from './ch-wall-frontier-verdict-2026-06-26.js';
+import { SECTION26_MUPASS_OPERATOR_VERDICT } from './section26-mupass-operator-verdict-2026-06-30.js';
+import { ECONN_METRIC_REARCH } from './econn-metric-rearchitecture-verdict-2026-06-30.js';
+
 // imp-1218: Paper Audit Dashboard.
 //
 // PURPOSE
@@ -506,6 +517,60 @@ export const PAPER_AUDIT_DASHBOARD = Object.freeze({
   // consumers can route to the live front without re-deriving it from prose.
   centralCollapseTarget: '27.2',
 
+  // imp-3190: re-characterization of the stale "open critical gaps" headline.
+  // The earlier framing treated the §15-27 program conjectures plus the
+  // finite-N / C_H content as a list of ~8 independently-open critical gaps.
+  // Recent frontier verdicts collapse that count: the Volterra / normalized-R /
+  // §26 / §27 items are RH-EQUIVALENT (NOT open reductions to an easier object),
+  // and the finite-N / C_H content is RH-HARD (deterministic but off-basin),
+  // leaving exactly ONE genuinely-open-AND-attackable deterministic forward
+  // residual. genuinelyOpenAndAttackableCount is computed below, not hardcoded.
+  openGapRecharacterization: Object.freeze({
+    staleFraming:
+      'The PaperAuditDashboard headline previously read as roughly 8 ' +
+      'independently-open critical gaps (the §15-27 program conjectures plus ' +
+      'the finite-N / C_H content). That count over-states what is genuinely ' +
+      'open versus RH-equivalent or RH-hard.',
+    rhEquivalent: Object.freeze({
+      verdict: 'RH-EQUIVALENT (reformulation, NOT a reduction to an easier object)',
+      items: Object.freeze([
+        'Volterra-norm Conj 27.2 and the §15-27 collapse identity',
+        'normalized-R degree-0 relative bound',
+        '§26 mu-pass operator / diagonal route',
+      ]),
+      cites: Object.freeze([
+        'section26-verdict-volterra-not-a-reduction-2026-06-18',
+        'section26-mupass-operator-verdict',
+        'section27-identity-refutation',
+      ]),
+    }),
+    rhHard: Object.freeze({
+      verdict: 'RH-HARD (deterministic on the real-zero basin, unclosed off-basin)',
+      items: Object.freeze([
+        'finite-N / C_H wall content',
+        'metric-invariant multi-body isolation / D_rest lower bound',
+      ]),
+      cites: Object.freeze([
+        'ch-wall-frontier-verdict',
+        'econn-metric-rearchitecture-verdict-2026-06-30',
+      ]),
+    }),
+    // The honest open-AND-attackable item: the single deterministic forward
+    // residual, the sg1c R2-T multi-body isolation constant c in [0.72,1)
+    // (single-shell c*~0.9319 closed by imp-3005; the asymmetric multi-body
+    // closure remains open, scanned ~0.943). This is the SAME deterministic
+    // target the C_H frontier converged on.
+    genuinelyOpenAndAttackable: Object.freeze([
+      'sg1c R2-T multi-body isolation constant c (asymmetric closure)',
+    ]),
+    genuinelyOpenAndAttackableCount: 1,
+    ptFraming:
+      'Per-Theorem 0.2 (PT 0.2) remains the SOTA framing: this ' +
+      're-characterization does NOT assert any QED on RH; it only reclassifies ' +
+      'the audit gaps into RH-equivalent, RH-hard, and the one open-and-' +
+      'attackable deterministic residual.',
+  }),
+
   completedAuditTickets: Object.freeze([
     Object.freeze({
       ticket: 'imp-1163',
@@ -758,6 +823,32 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
     },
   },
   {
+    id: 'paper-audit-open-gap-recharacterization-imp-3190',
+    why:
+      'imp-3190: the stale "open critical gaps" headline must be re-characterized ' +
+      'against the frontier verdicts. The §15-27 / Volterra / §26 / §27 items are ' +
+      'RH-EQUIVALENT and the finite-N / C_H content is RH-HARD, leaving exactly ONE ' +
+      'genuinely-open-and-attackable deterministic forward residual (the sg1c R2-T ' +
+      'multi-body isolation constant c). The block must cite the verdict modules ' +
+      'and keep the count self-consistent so the audit cannot silently re-inflate.',
+    holds: () => {
+      const r = PAPER_AUDIT_DASHBOARD.openGapRecharacterization;
+      if (!r) return false;
+      const rhEq = r.rhEquivalent && Array.isArray(r.rhEquivalent.cites) &&
+        r.rhEquivalent.cites.includes('section26-verdict-volterra-not-a-reduction-2026-06-18') &&
+        r.rhEquivalent.cites.includes('section26-mupass-operator-verdict') &&
+        r.rhEquivalent.cites.includes('section27-identity-refutation');
+      const rhHard = r.rhHard && Array.isArray(r.rhHard.cites) &&
+        r.rhHard.cites.includes('ch-wall-frontier-verdict') &&
+        r.rhHard.cites.includes('econn-metric-rearchitecture-verdict-2026-06-30');
+      const openOk = Array.isArray(r.genuinelyOpenAndAttackable) &&
+        r.genuinelyOpenAndAttackable.length === r.genuinelyOpenAndAttackableCount &&
+        r.genuinelyOpenAndAttackableCount === 1 &&
+        /sg1c R2-T/.test(r.genuinelyOpenAndAttackable[0]);
+      return rhEq && rhHard && openOk && /PT 0\.2/.test(r.ptFraming);
+    },
+  },
+  {
     id: 'paper-audit-central-collapse-target-is-27-2',
     why:
       'Per imp-1258 two-way collapse, Conjecture 27.2 (‖V_{a,Phi}‖ ≤ 1) is THE ' +
@@ -772,6 +863,40 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === target);
       return !!c && c.auditStatus === 'INDEPENDENT-NOVEL' &&
         c.auditTicket === 'imp-1258';
+    },
+  },
+  {
+    id: 'paper-audit-frontier-verdicts-stay-rh-hard-no-reduction',
+    why:
+      'imp-3191 cross-module tripwire. The audit must not silently drift out of ' +
+      'sync with the live frontier verdicts. The central-collapse front 27.2 is ' +
+      'the lone OPEN claim the whole program reduces to, and it is recorded as ' +
+      'INDEPENDENT-NOVEL with refutedAsReduction = RH-EQUIVALENT / not a reduction. ' +
+      'The three frontier-verdict modules independently certify the same wall: ' +
+      'ch-wall-frontier-verdict (RH-HARD-CONFIRMED), section26-mupass-operator-verdict ' +
+      '(RH-EQUIVALENT residual), and econn-metric-rearchitecture-verdict (RESIDUAL, ' +
+      'metric incidental). Each also keeps the Platt-Trudgian Lambda <= 0.2 SOTA with ' +
+      'no reduction / no beat. This assertion FAILS the build if 27.2 is regraded ' +
+      'away from the open RH-EQUIVALENT front while any frontier module still records ' +
+      'RH-HARD / RH-EQUIVALENT, or if any frontier verdict drops its grade or its ' +
+      'Platt-Trudgian SOTA -- preventing the dashboard and the frontier from diverging.',
+    holds: () => {
+      const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '27.2');
+      const frontStillOpen =
+        !!c &&
+        c.auditStatus === 'INDEPENDENT-NOVEL' &&
+        /RH-EQUIVALENT/.test(c.refutedAsReduction) &&
+        /not a reduction/i.test(c.refutedAsReduction);
+      const sotaHeld = (v) =>
+        /Platt-Trudgian Lambda <= 0\.2 remains the rigorous SOTA/.test(v.sota);
+      const chHard =
+        /RH-HARD/.test(CH_WALL_FRONTIER.verdict) && sotaHeld(CH_WALL_FRONTIER);
+      const mupassEquiv =
+        /RH-EQUIVALENT/.test(SECTION26_MUPASS_OPERATOR_VERDICT.verdict) &&
+        /no reduction, no beat/.test(SECTION26_MUPASS_OPERATOR_VERDICT.sota);
+      const econnResidual =
+        /RESIDUAL/.test(ECONN_METRIC_REARCH.verdict) && sotaHeld(ECONN_METRIC_REARCH);
+      return frontStillOpen && chHard && mupassEquiv && econnResidual;
     },
   },
 ];

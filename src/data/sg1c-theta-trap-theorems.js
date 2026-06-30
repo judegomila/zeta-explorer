@@ -1174,7 +1174,93 @@ export const SG1C_R1T4_RHO1_REPELLER = (() => {
   };
 })();
 
+// imp-3072: does Theorem B's SHARPER minimal-gap trap threshold Theta_b =
+// (sqrt(73)-5)/8 = 0.443 yield a TIGHTER collision-time ceiling than Corollary A1's
+// t_c <= g_min(0)^2/6 (which evaluates the squeeze at the looser Theta = 1/4)?
+// The pair identity dg/ds = -(4/g)(1 - Theta) gives EXACTLY d(g^2)/ds = 2 g dg/ds =
+// -8 (1 - Theta). Under any trap Theta(s) <= Theta* the SLOWEST (least-negative)
+// contraction occurs at the cap, so d(g^2)/ds <= -8 (1 - Theta*) throughout and,
+// integrating the fixed tracked pair from g_min(0)^2 to 0,
+//   t_c  <=  g_min(0)^2 / ( 8 (1 - Theta*) ).
+// A1 is exactly this at Theta* = 1/4: 8(1 - 1/4) = 6. Feeding the higher Theta_b
+// gives 8(1 - Theta_b) = 8 - (sqrt(73) - 5) = 13 - sqrt(73) ~ 4.4558, i.e.
+//   t_c  <=  g_min(0)^2 / (13 - sqrt(73))  ~  g_min(0)^2 / 4.4558.
+// VERDICT (honest): the higher threshold yields a LOOSER (LARGER) ceiling, NOT a
+// tighter one -- the denominator 8(1 - Theta*) is strictly DECREASING in Theta*, so
+// raising the admissible Theta cap shrinks the guaranteed contraction-rate floor and
+// ENLARGES the collision ceiling by the exact factor 6/(13 - sqrt(73)) ~ 1.3465. The
+// VALUE of Theorem B is therefore NOT ceiling-tightening but HYPOTHESIS-BROADENING: it
+// secures a (necessarily weaker) finite collision ceiling for minimal-gap pairs in the
+// band 1/4 < Theta(0) <= 0.443 where A1 is SILENT (its Theta(0) <= 1/4 hypothesis fails),
+// whereas for every config with Theta(0) <= 1/4 -- including all measured real-zero rows
+// Theta(0) = 0.167/0.088/0.046 -- the Theorem A trap keeps Theta <= 1/4 and A1's strictly
+// tighter g_min(0)^2/6 stays in force. So Theorem B trades ceiling sharpness for a wider
+// trapping basin; it does NOT improve the A1 constant. ASSESS only, no QED; PT Lambda <= 0.2 stays SOTA.
+export const SG1C_B_VS_A1_CEILING = (() => {
+  const thetaB = (Math.sqrt(73) - 5) / 8; // 0.443000... Theorem B sharp minimal-gap threshold
+  // exact collision-ceiling denominator 8(1 - Theta*) from d(g^2)/ds = -8(1 - Theta)
+  const denom = (thetaStar) => 8 * (1 - thetaStar);
+  const denomA1 = denom(0.25); // = 6 (Corollary A1)
+  const denomB = denom(thetaB); // = 13 - sqrt(73) ~ 4.4558 (Theorem B threshold)
+  const denomBClosed = 13 - Math.sqrt(73); // independent closed form for denomB
+  // cross-check d(g^2)/ds = -8(1 - Theta) against the exact pair identity dg/ds =
+  // -(4/g)(1 - Theta) on a generic tracked pair (Theta evaluated via the module helper)
+  const x = [0, 1, 3.5, 7, 12]; // tracked pair (0,1), Theta(0) < 1/4
+  const g = x[1] - x[0];
+  const theta = dThetaDs(x, 0).theta;
+  const dg2dsFromIdentity = 2 * g * (-(4 / g) * (1 - theta)); // = -8(1 - Theta) exactly
+  const dg2dsClosed = -8 * (1 - theta);
+  return {
+    thetaB,
+    ceilingFormula: 't_c <= g_min(0)^2 / (8 (1 - Theta*))',
+    denomA1, // 6
+    denomB, // 13 - sqrt(73) ~ 4.4558
+    denomBClosed, // 13 - sqrt(73)
+    denomBClosedForm: '13 - sqrt(73)',
+    ceilingA1: 'g_min(0)^2 / 6',
+    ceilingB: 'g_min(0)^2 / (13 - sqrt(73))',
+    // higher threshold => smaller denominator => LARGER ceiling => LOOSER bound
+    thresholdBIsTighter: denomB > denomA1, // FALSE: 4.4558 < 6, so B is NOT tighter
+    looseningFactor: denomA1 / denomB, // 6/(13 - sqrt(73)) ~ 1.3465 (how much B loosens A1)
+    looseningFactorClosed: 6 / (13 - Math.sqrt(73)),
+    // identity cross-check: d(g^2)/ds = -8(1 - Theta)
+    dg2dsFromIdentity,
+    dg2dsClosed,
+    identityResidual: Math.abs(dg2dsFromIdentity - dg2dsClosed), // ~0
+    realZeroThetas: [0.1666, 0.0884, 0.0459], // all < 1/4 -> A1 (tighter g^2/6) applies
+    a1StaysTighterOnRealZeros: [0.1666, 0.0884, 0.0459].every((t) => t < 0.25),
+    summary:
+      'Feeding Theorem B threshold Theta_b = (sqrt(73)-5)/8 = 0.443 into the exact ceiling '
+      + 't_c <= g_min(0)^2/(8(1-Theta*)) gives denominator 8(1-Theta_b) = 13 - sqrt(73) ~ 4.4558, '
+      + 'i.e. t_c <= g_min(0)^2/(13-sqrt(73)) -- a LOOSER (larger) ceiling than A1 g_min(0)^2/6, NOT '
+      + 'tighter, since the denominator 8(1-Theta*) strictly DECREASES in Theta* (the collision ceiling '
+      + 'is set by the SLOWEST contraction, which the higher cap weakens). The exact loosening factor is '
+      + '6/(13-sqrt(73)) ~ 1.3465. Theorem B therefore broadens the HYPOTHESIS (it secures a finite ceiling '
+      + 'for minimal-gap pairs with 1/4 < Theta(0) <= 0.443, where A1 is silent) rather than improving the '
+      + 'A1 constant; for Theta(0) <= 1/4 -- including all measured real-zero rows 0.167/0.088/0.046 -- the '
+      + 'Theorem A trap keeps A1 g_min(0)^2/6 in force as the strictly tighter bound. ASSESS only, no QED.',
+  };
+})();
+
 export const SG1C_THEOREM_ASSERTIONS = [
+  {
+    id: 'sg1c-theoremB-vs-A1-ceiling-looser-not-tighter',
+    description: 'imp-3072: feeding Theorem B threshold Theta_b = (sqrt(73)-5)/8 into the exact collision ceiling t_c <= g_min(0)^2/(8(1-Theta*)) yields denominator 13-sqrt(73) ~ 4.4558 < 6, a LOOSER ceiling than A1 g_min(0)^2/6 (the denominator 8(1-Theta*) decreases in Theta*); the loosening factor is exactly 6/(13-sqrt(73)) ~ 1.3465, d(g^2)/ds = -8(1-Theta) matches the pair identity, and for the real-zero rows (Theta<1/4) A1 stays the tighter bound -- Theorem B broadens the hypothesis, it does not tighten the ceiling',
+    holds: () => {
+      const t = SG1C_B_VS_A1_CEILING;
+      return (
+        Math.abs(t.denomA1 - 6) < 1e-12 &&
+        Math.abs(t.denomB - (13 - Math.sqrt(73))) < 1e-12 &&
+        Math.abs(t.denomB - t.denomBClosed) < 1e-12 &&
+        t.denomB < t.denomA1 &&
+        t.thresholdBIsTighter === false &&
+        Math.abs(t.looseningFactor - 6 / (13 - Math.sqrt(73))) < 1e-12 &&
+        t.looseningFactor > 1.34 && t.looseningFactor < 1.35 &&
+        t.identityResidual < 1e-12 &&
+        t.a1StaysTighterOnRealZeros
+      );
+    },
+  },
   {
     id: 'sg1c-r1t4-rho1-repeller',
     description: 'imp-3048: the single-neighbour R2-T isolation rate has a unique interior fixed point at rho = 1 (F(1) = 0) whose closed-form linearization F-prime(1) = 9 > 0 certifies a linearly unstable repeller (eigenvalue +9/d_1^2, matched by central difference); sign(F) = sign(rho-1) so the margin flows away from 1, and a perturbed RK4 integration from rho = 1 +/- 1e-3 drifts away on both sides -- confirming the rho = 1 lattice boundary R1-T4 relies on is unstable',

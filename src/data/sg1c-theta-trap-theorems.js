@@ -924,7 +924,98 @@ export const SG1C_R1T3_MARGIN_SWEEP = (() => {
   };
 })();
 
+// imp-3048: linear-stability certificate of the rho = 1 repeller that Lemma
+// R1-T4 leans on. The single-neighbour R2-T rate
+//   d(rho)/ds = (g - d_1)/d_1^2 * [ 2/(g + d_1) + 4 (g + d_1)/(d_1 g) ]
+// is scale-free in rho = g/d_1: set d_1 = 1, g = rho to get the autonomous scalar
+//   d(rho)/ds = F(rho)/d_1^2,  F(rho) = (rho - 1) * B(rho),  B(rho) = 2/(rho+1) + 4(rho+1)/rho.
+// rho = 1 is the unique interior fixed point (F(1) = 0). Linearising rho = 1 + eps:
+//   d(eps)/ds = F-prime(1)/d_1^2 * eps,  F-prime(1) = B(1) = 2/2 + 4 + 4 = 9 > 0,
+// since F = (rho-1)B gives F-prime(1) = B(1) exactly. The eigenvalue +9/d_1^2 is
+// STRICTLY POSITIVE, so rho = 1 is a linearly UNSTABLE fixed point -- a repeller --
+// confirming R1-T4: an isolated pair at rho < 1 cannot reach the near-uniform lattice
+// rho = 1 by flowing inward. We cross-check the closed-form F-prime(1) = 9 against a
+// central difference, verify sign(F) = sign(rho - 1) over a grid (so the margin always
+// moves AWAY from 1), and integrate the scalar ODE from rho = 1 +/- delta to confirm the
+// perturbed lattice drifts AWAY from rho = 1. HONEST: this certifies the SINGLE-NEIGHBOUR
+// reduction only (the exact closed form R1-T4 cites); the multi-body R2-T residual stays
+// open and PT Lambda <= 0.2 stays SOTA.
+export const SG1C_R1T4_RHO1_REPELLER = (() => {
+  // dimensionless single-neighbour isolation rate (d_1 = 1, g = rho)
+  const F = (rho) => (rho - 1) * (2 / (rho + 1) + 4 * (rho + 1) / rho);
+  const fixedPointResidual = Math.abs(F(1)); // F(1) = 0 exactly
+  // closed-form linearization F-prime(1) = B(1) = 9
+  const eigenClosed = 9;
+  // central-difference cross-check of F-prime(1)
+  const h = 1e-6;
+  const eigenNumeric = (F(1 + h) - F(1 - h)) / (2 * h);
+  const eigenDev = Math.abs(eigenNumeric - eigenClosed);
+  // sign law: F < 0 strictly for rho < 1, F > 0 strictly for rho > 1 (margin flows away from 1)
+  const grid = [0.30, 0.50, 0.72, 0.90, 0.99, 1.01, 1.10, 1.50, 2.00];
+  const signRows = grid.map((rho) => ({ rho, F: F(rho), correctSign: Math.sign(F(rho)) === Math.sign(rho - 1) }));
+  const signLawHolds = signRows.every((r) => r.correctSign);
+  // perturbed-lattice scalar RK4 integration: start at rho = 1 +/- delta, integrate
+  // d(rho)/ds = F(rho) and confirm |rho - 1| GROWS (drift away from the repeller)
+  const drift = (rho0, steps, dt) => {
+    let rho = rho0;
+    for (let s = 0; s < steps; s++) {
+      const k1 = F(rho);
+      const k2 = F(rho + 0.5 * dt * k1);
+      const k3 = F(rho + 0.5 * dt * k2);
+      const k4 = F(rho + dt * k3);
+      rho += (dt / 6) * (k1 + 2 * k2 + 2 * k3 + k4);
+      if (rho <= 1e-6 || rho > 1e6) break; // collapsed to 0 (below) or ran off (above)
+    }
+    return rho;
+  };
+  const delta = 1e-3;
+  const below = { start: 1 - delta, end: drift(1 - delta, 4000, 1e-3) };
+  below.movedAway = (1 - below.end) > delta; // |rho-1| grew while staying < 1
+  const above = { start: 1 + delta, end: drift(1 + delta, 4000, 1e-3) };
+  above.movedAway = (above.end - 1) > delta; // |rho-1| grew while staying > 1
+  const driftsAway = below.movedAway && above.movedAway;
+  return {
+    eigenClosed, // F-prime(1) = 9 (closed form)
+    eigenNumeric, // central-difference value (~9)
+    eigenDev, // |numeric - closed|, ~1e-9
+    fixedPointResidual, // |F(1)|, exactly 0
+    linearlyUnstable: eigenClosed > 0, // eigenvalue > 0 => repeller
+    signRows,
+    signLawHolds, // sign(F) = sign(rho-1) on the grid (margin moves away from 1)
+    below,
+    above,
+    driftsAway, // both perturbations drift AWAY from rho = 1
+    theoremCConstant: 0.72, // the basin constant sits well below rho = 1
+    summary:
+      'Linear-stability certificate of the rho = 1 repeller underpinning Lemma R1-T4. '
+      + 'The single-neighbour R2-T isolation rate reduces (scale-free in rho = g/d_1) to the '
+      + 'autonomous scalar d(rho)/ds = F(rho)/d_1^2 with F(rho) = (rho-1)[2/(rho+1)+4(rho+1)/rho]; '
+      + 'rho = 1 is the unique interior fixed point (F(1) = 0) and the closed-form linearization '
+      + 'F-prime(1) = B(1) = 9 > 0 (matched by central difference to ~1e-9) certifies it as a linearly '
+      + 'UNSTABLE repeller with eigenvalue +9/d_1^2. sign(F) = sign(rho-1) over a 0.30..2.0 grid, so the '
+      + 'isolation margin always flows AWAY from 1; a perturbed-lattice RK4 integration from rho = 1 +/- 1e-3 '
+      + 'drifts away on both sides (collapsing toward 0 below, growing above). This confirms the near-uniform '
+      + 'lattice rho = 1 is unreachable by an isolated pair flowing inward, as R1-T4 claims. Certifies the '
+      + 'single-neighbour reduction only; the multi-body R2-T residual stays open and PT Lambda <= 0.2 stays SOTA.',
+  };
+})();
+
 export const SG1C_THEOREM_ASSERTIONS = [
+  {
+    id: 'sg1c-r1t4-rho1-repeller',
+    description: 'imp-3048: the single-neighbour R2-T isolation rate has a unique interior fixed point at rho = 1 (F(1) = 0) whose closed-form linearization F-prime(1) = 9 > 0 certifies a linearly unstable repeller (eigenvalue +9/d_1^2, matched by central difference); sign(F) = sign(rho-1) so the margin flows away from 1, and a perturbed RK4 integration from rho = 1 +/- 1e-3 drifts away on both sides -- confirming the rho = 1 lattice boundary R1-T4 relies on is unstable',
+    holds: () => {
+      const t = SG1C_R1T4_RHO1_REPELLER;
+      return (
+        t.fixedPointResidual === 0 &&
+        t.linearlyUnstable &&
+        t.eigenDev < 1e-5 &&
+        Math.abs(t.eigenClosed - 9) < 1e-12 &&
+        t.signLawHolds &&
+        t.driftsAway
+      );
+    },
+  },
   {
     id: 'sg1c-theoremB-sharpness-sign-flip',
     description: 'imp-3042: on the capped-greedy minimal-gap profile {-1,0,1,1+d_2}, dTheta/ds flips sign UPWARD exactly at the closed-form threshold Theta_b = (sqrt(73)-5)/8 = 0.443 (d_2 = 1.1854g), with the measured rate +0.034 at Theta = 0.448 -- the static cover is sharp, not a loose upper bound',

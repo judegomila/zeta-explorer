@@ -26,6 +26,7 @@ import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section
 import { IMP3105_EXCESS_FRACTION_CROSSOVER_LANDMARKS } from '../data/imp-3105-excess-fraction-crossover-landmarks-2026-06-30.js';
 import { C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108 } from '../data/imp-3108-c-shock-margin-cross-validation.js';
 import { IMP3064_DEFICIT_EXCESS_FRACTION_GRID } from '../data/imp-3064-deficit-excess-fraction-grid.js';
+import { IMP3065_RESIDUAL_DEFICIT_QUADRATURE } from '../data/imp-3065-residual-deficit-quadrature-2026-06-30.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 const R = CLOSURE_ROUTES;
@@ -1508,6 +1509,83 @@ export default function ClosureRoutesPage() {
         <p style={{ marginTop: 12, color: '#64748b', fontSize: 11, fontFamily: mono }}>
           Source: imp-3007-mupass-overflow-cover.js &mdash; RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction.
           Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+
+      {/* ─── imp-3065: independent quadrature cross-check ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Independent Quadrature Cross-Check of Scalar Cover (imp-3065)
+      </h2>
+      <div
+        className="card"
+        style={{
+          marginTop: 16,
+          borderLeft: '4px solid #10b981',
+          background: 'rgba(16,185,129,0.04)',
+        }}
+      >
+        <h3 style={{ color: '#10b981', marginTop: 0 }}>
+          Composite Simpson confirms D_pass = 0 across 28 cells — independent of imp-3007
+        </h3>
+        <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+          imp-3007 uses a single <em>midpoint</em> rule (N&thinsp;=&thinsp;200 panels) at a
+          fixed U&thinsp;=&thinsp;6 sweep. A skeptic could worry the zero is a degenerate
+          artifact of a broken integrator (any rule returns 0 when every sample is clamped to 0).
+          imp-3065 removes that worry by two independent checks:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, margin: '12px 0' }}>
+          <div style={{ padding: '10px 14px', borderRadius: 6, background: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.25)', fontSize: 12, color: '#94a3b8', lineHeight: 1.65 }}>
+            <div style={{ color: '#10b981', fontWeight: 700, marginBottom: 4, fontSize: 12.5 }}>(A) Different rule, denser grid</div>
+            Composite Simpson (M&thinsp;=&thinsp;1000 panels) over a-grid
+            &#x7B;1, 0.5, 0.25, 0.2, 0.1, 0.05, 0.02&#x7D; × U-range &#x7B;4, 6, 8, 10&#x7D; — {IMP3065_RESIDUAL_DEFICIT_QUADRATURE.method.cellCount} cells.
+            Residual deficit = <strong style={{ color: '#10b981' }}>0 exactly</strong> in every cell.
+          </div>
+          <div style={{ padding: '10px 14px', borderRadius: 6, background: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.25)', fontSize: 12, color: '#94a3b8', lineHeight: 1.65 }}>
+            <div style={{ color: '#10b981', fontWeight: 700, marginBottom: 4, fontSize: 12.5 }}>(B) Integrator validated on non-zero companion</div>
+            Same Simpson rule on the <em>signed</em> (un-clamped) integrand sinh&thinsp;&minus;&thinsp;cosh
+            = &minus;e<sup>&minus;a&tau;</sup> reproduces the closed form &minus;(1&thinsp;&minus;&thinsp;e<sup>&minus;aU</sup>)/a to &lt;&thinsp;10<sup>&minus;6</sup> relative.
+            Worst error across all cells: {IMP3065_RESIDUAL_DEFICIT_QUADRATURE.worstIntegratorRelError.toExponential(2)}.
+          </div>
+        </div>
+        <div
+          style={{
+            margin: '14px 0',
+            padding: '10px 14px',
+            borderRadius: 6,
+            background: 'rgba(16,185,129,0.07)',
+            border: '1px solid rgba(16,185,129,0.3)',
+            fontFamily: mono,
+            fontSize: 12.5,
+            color: '#6ee7b7',
+          }}
+        >
+          D_pass(a, U) = &#x222B;&#x2080;&#x1D41C; max(0, sinh(a&#x03C4;) &#x2212; cosh(a&#x03C4;)) d&#x03C4; = 0&nbsp;&nbsp;(Simpson, 28 cells)
+          &nbsp;&nbsp;&rarr;&nbsp;&nbsp;covered fraction = 1 EXACTLY
+        </div>
+        <div
+          style={{
+            padding: '10px 14px',
+            borderRadius: 6,
+            background: 'rgba(239,68,68,0.07)',
+            border: '1px solid rgba(239,68,68,0.3)',
+            fontSize: 12,
+            color: '#cbd5e1',
+            lineHeight: 1.65,
+          }}
+        >
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 5 }}>
+            HONEST SCOPE — SCALAR COVER ONLY
+          </div>
+          This certifies the <em>degree-0 pointwise/diagonal</em> residual deficit is zero — the
+          same SCALAR statement as imp-3007, now independently cross-checked by a different rule
+          over a wider grid. The <strong>operator step</strong> (off-diagonal endpoint-Hankel
+          R&thinsp;=&thinsp;G<sub>pass</sub><sup>&minus;&frac12;</sup> G<sub>shear</sub> G<sub>pass</sub><sup>&minus;&frac12;</sup> contraction)
+          is explicitly <strong style={{ color: '#f87171' }}>out of scope and untouched</strong>.
+          RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction; NOT a proof.
+          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </div>
+        <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+          Source: imp-3065-residual-deficit-quadrature-2026-06-30.js
         </p>
       </div>
 

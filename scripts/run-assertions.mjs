@@ -1571,6 +1571,14 @@ const DATA_MODULES = [
   // beta over heights [100,1e4] gives beta g^2 ~ 6e-3 << x* (beats A1 on the
   // MODEL), but stays CONDITIONAL on the punctured-min-gap residual. 4 tripwires.
   '/src/data/imp-mingap-beta-bound.js',
+  // imp-3023: ASSESS-only classification of beta (route-map opp:5). Restates the
+  // discharging estimate (PUNCTURED-GAP) h(s)>=c*g and shows it FACTORS: part (I)
+  // the time-evolution half is DETERMINISTIC (dh/ds = +2/g_pair - 4/h + O(1), so
+  // h is non-decreasing once c_0=h_0/g>2; witness h_min/h_0=1, RH-free) and
+  // dischargeable; part (II) the residual reduces to ONE RH-hard scalar, the
+  // uniform initial ratio c_0 = h_min(0)/g_min(0), which funnels into the shared
+  // Montgomery-PCC / C_H wall. beta spawns no new wall. NOT closed. 4 tripwires.
+  '/src/data/imp-3023-beta-dischargeability.js',
   // imp-2690: verifies coefficient 8 (sharp; B=0 pure 2-particle => du/ds=-8
   // exact, t_c=g^2/8) and reconciles imp-366 "-8+O(g_min)" with imp-2563 exact
   // "-8+4 B u". The adjacent-gap background drift telescopes to 2 r B, so the
@@ -1713,6 +1721,9 @@ const DATA_MODULES = [
   '/src/data/imp-2686-mupass-construction.js',
   // imp-2841: degree-0 deficit profile quantifying the section26-verdict "~64% of tau" overflow.
   '/src/data/imp-mu-pass-overflow-quantification.js',
+  // imp-3007: degree-0 cover of that overflow by the cosh-completion mu^pass (residual deficit
+  // exactly 0); isolates the off-diagonal endpoint-Hankel operator step as the lone remaining gap.
+  '/src/data/imp-3007-mupass-overflow-cover.js',
   '/src/data/full-route-map-2026-06-19.js',
   // imp-2833: lock Route B closure invariant — closesIf says it is already
   // closed unconditionally; tripwires guard against a false promotion that
@@ -1908,6 +1919,17 @@ const DATA_MODULES = [
   // imp-2681: pin C_shock from the cusp-density C_cusp via the quantile-spacing
   // identity — bounded/pinnable, isolating the C_H obstruction to C_Lip alone.
   '/src/data/imp-2786-c-shock-cusp-constant.js',
+  // imp-3026: cross-validate the cusp-law C_shock (<1/3) against the squared-gap
+  // surrogate constant C_shock^2/8 — both routes recover the SAME C_shock (~0.2692
+  // at N*=1e4) to < 1e-9, confirming the two ch-wall-verdict appearances are one
+  // constant. Consistency check only; surrogate stays refuted, PT 0.2 stays SOTA.
+  '/src/data/imp-3026-c-shock-cross-validation.js',
+  // imp-3029: independently recompute the local-energy reconditioning self-term
+  // 2 g dg/dW via centered finite difference of g along the cusp family and confirm
+  // it lands on the ch-wall-verdict literal C_shock^2 = 0.071289, FLAT across
+  // W = 1e-2 .. 1e-10 (spread 1.4e-14). Numerical verification + flatness tripwire
+  // of the g-coordinate-artifact cancellation; no new bound, PT 0.2 stays SOTA.
+  '/src/data/imp-3029-reconditioning-flatness.js',
   // imp-2688: pin the E_flow Gronwall amplification constant C_G = 2/y_star^2 on
   // the explicit mesoscopic Trudgian density-floor strip (N-uniform), distinct
   // from the imp-2640 microscopic 2/g^2 wall.

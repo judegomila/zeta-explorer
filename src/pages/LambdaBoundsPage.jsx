@@ -360,6 +360,35 @@ export default function LambdaBoundsPage() {
 
       {/* ── The 5-step chain ─────────────────────────────────────────── */}
       <h2 style={{ marginTop: 24, marginBottom: 12 }}>The 5-step chain to RH</h2>
+      {/* Honest-status note (imp-3077): make the per-step grading explicit so
+          readers see that the chain is NOT a closed unconditional proof. */}
+      <div
+        className="card"
+        style={{ ...cardBaseLeft('#ef4444'), marginBottom: 16 }}
+      >
+        <div style={cardLabel}>Honest status — the chain does not yet close</div>
+        <div style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+          Per the grades below:{' '}
+          {['rigorous', 'numerical', 'unverified'].map((v, i) => {
+            const steps = LAMBDA_CHAIN_STEPS.filter((s) => s.verification === v);
+            if (steps.length === 0) return null;
+            return (
+              <span key={v}>
+                {i > 0 ? '; ' : ''}
+                <strong style={{ color: stepColor(v) }}>{v}</strong>
+                {' — Step'}
+                {steps.length > 1 ? 's ' : ' '}
+                {steps.map((s) => s.step).join(', ')}
+              </span>
+            );
+          })}
+          . Step 5 (the final RH combination) is{' '}
+          <strong style={{ color: stepColor('unverified') }}>UNVERIFIED</strong>, and
+          Steps 2 and 4 are only numerical, so{' '}
+          <strong>RH does NOT yet follow unconditionally</strong> from this chain.
+          The grades are stated, not assumed away.
+        </div>
+      </div>
       <div style={{ display: 'grid', gap: 14, marginBottom: 24 }}>
         {LAMBDA_CHAIN_STEPS.map((s) => (
           <div key={s.step} className="card" style={cardBaseLeft(stepColor(s.verification))}>

@@ -14,7 +14,7 @@ import { RANKED_OPPORTUNITIES } from '../data/full-route-map-2026-06-19.js';
 import { ASSERTION_FRESHNESS } from '../data/assertion-freshness.js';
 import { LAMBDA_ESTIMATOR_TRIPTYCH_IMP2991 } from '../data/lambda-estimator-triptych-imp2991.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
-import { CH_LIP_BASIN_CONDITIONAL } from '../data/ch-lip-basin-conditional-2026-06-30.js';
+import { CH_LIP_BASIN_CONDITIONAL, CH_LIP_DIVERGENCE_DECOMPOSITION } from '../data/ch-lip-basin-conditional-2026-06-30.js';
 
 // ── Assertion freshness stamp (imp-2999) ─────────────────────────────────────
 function FreshnessStamp() {
@@ -588,6 +588,93 @@ function CHWallFrontierPanel() {
   );
 }
 
+function CLipDivergenceDecompositionPanel() {
+  const d = CH_LIP_DIVERGENCE_DECOMPOSITION;
+  const tc = d.thetaChannel;
+  const nc = d.linearNChannel;
+  return (
+    <div style={{
+      border: '1px solid rgba(239,68,68,0.45)',
+      borderRadius: 10,
+      background: 'rgba(15,23,42,0.7)',
+      padding: '14px 18px',
+      marginBottom: 24,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+        <span style={{
+          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
+          color: '#ef4444', background: 'rgba(239,68,68,0.12)',
+          border: '1px solid rgba(239,68,68,0.4)',
+          borderRadius: 4, padding: '2px 8px',
+        }}>
+          C_Lip DIVERGENCE SCOPE &mdash; imp-3063 &mdash; {d.date}
+        </span>
+        <span style={{
+          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
+          color: '#94a3b8', marginLeft: 'auto',
+        }}>
+          O(N) SURVIVES
+        </span>
+      </div>
+      <div style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6, marginBottom: 12 }}>
+        Formula: <span style={{ fontFamily: 'var(--font-mono)', color: '#cbd5e1' }}>{d.formula}</span>
+        <br />
+        The basin reconditioning decomposes the two independent divergence sources and removes exactly one.
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
+        <div style={{
+          border: '1px solid rgba(16,185,129,0.4)',
+          borderRadius: 7, background: 'rgba(16,185,129,0.06)',
+          padding: '10px 12px',
+        }}>
+          <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#10b981', marginBottom: 6 }}>
+            THETA CHANNEL &mdash; REMOVED
+          </div>
+          <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: '#cbd5e1', marginBottom: 4 }}>
+            {tc.factor}
+          </div>
+          <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.5, marginBottom: 6 }}>
+            {tc.mechanism}
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '90px 1fr', gap: '3px 8px', fontSize: 11 }}>
+            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)' }}>ON-BASIN</span>
+            <span style={{ color: '#10b981', fontFamily: 'var(--font-mono)' }}>
+              {tc.basinNominal.toFixed(1)} (Theta=0) &ndash; {tc.basinCeiling.toFixed(4)} (Theta=1/4 trap)
+            </span>
+            <span style={{ color: '#475569', fontFamily: 'var(--font-mono)' }}>OFF-BASIN</span>
+            <span style={{ color: '#ef4444', fontFamily: 'var(--font-mono)' }}>
+              {tc.offBasinBlowup[0]} &ndash; {tc.offBasinBlowup[1]} (dTheta/W_1 ~ 1/g0)
+            </span>
+          </div>
+        </div>
+        <div style={{
+          border: '1px solid rgba(239,68,68,0.4)',
+          borderRadius: 7, background: 'rgba(239,68,68,0.06)',
+          padding: '10px 12px',
+        }}>
+          <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#ef4444', marginBottom: 6 }}>
+            LINEAR-N CHANNEL &mdash; UNTOUCHED
+          </div>
+          <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: '#cbd5e1', marginBottom: 4 }}>
+            {nc.factor} &nbsp; (at N*=1e4: value = {nc.valueAtNAst.toExponential(0)})
+          </div>
+          <div style={{ fontSize: 11, color: '#94a3b8', lineHeight: 1.5 }}>
+            {nc.mechanism}
+          </div>
+        </div>
+      </div>
+      <div style={{
+        border: '1px solid rgba(239,68,68,0.3)',
+        borderRadius: 6, background: 'rgba(239,68,68,0.06)',
+        padding: '8px 12px', fontSize: 11, color: '#fca5a5', lineHeight: 1.6,
+        fontFamily: 'var(--font-mono)',
+      }}>
+        HONEST: {d.honest}
+      </div>
+    </div>
+  );
+}
+
 function BasinConditionalLipschitzPanel() {
   const v = CH_LIP_BASIN_CONDITIONAL;
   const rows = [
@@ -709,6 +796,9 @@ export default function RigorDashboardPage() {
 
       {/* Basin-conditional Lipschitz verdict — C_Lip finite on isolated-pair basin (imp-3006/imp-3051) */}
       <BasinConditionalLipschitzPanel />
+
+      {/* C_Lip divergence scope decomposition — basin removes Theta channel only, O(N) survives (imp-3063) */}
+      <CLipDivergenceDecompositionPanel />
 
       {/* Summary counts */}
       <div style={{

@@ -258,7 +258,11 @@ export const IMP3007_MUPASS_OVERFLOW_COVER = Object.freeze({
     scalarResidualIsNecessaryNotSufficient: true,
     order: 'operator (Gpass >= Gshear <=> K_a >= 0), NOT mass',
     genuineDeg2DeficitNonzero: 9.28e-9,        // corrects the surrogate "exactly zero" artifact
-    genuineDeg2OverflowFractionOfTau: 0.194,   // overflow on 19.4% of tau in the genuine deg-2 measure
+    genuineDeg2OverflowFractionOfTau: 0.194,   // imp-3144 COARSE-GRID (N=200-class) snapshot; UNDER-reports -- see resolvedOverflowFractionOfTau
+    // imp-3175 resolution-converged genuine overflow fraction: refining the tau-grid moves the
+    // value UP (monotone) to ~0.2092285 at N=204800, NOT down toward 0.194. The imp-3144 0.194 and
+    // imp-3154 0.200 are coarse-grid snapshots that UNDER-report; the resolved genuine value is ~0.209.
+    resolvedOverflowFractionOfTau: 0.2092285,  // imp-3175 resolution-converged (N=204800) genuine value
     genuineDeg0SpectralOverflowFraction: 0.64, // the ~64%-of-tau the raw diagonal cannot dominate
     surrogateArtifact:
       'the imp-2841/imp-2686 mu_diag=A, nu=sinh*A surrogate forces residual deficit ' +

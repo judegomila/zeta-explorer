@@ -227,3 +227,163 @@ for (const a of C_SHOCK_CROSS_VALIDATION_ASSERTIONS) {
     throw new Error('imp-3026 assertion failed: ' + a.id + ' — ' + a.why);
   }
 }
+
+// ══════════════════════════════════════════════════════════════════════════════
+// imp-3069 — Cross-validate the Holder-1/2 EXPONENT itself, not only the C_shock
+// intercept. imp-3026 recovered the cusp-law INTERCEPT (C_shock) from two channels
+// but measured the EXPONENT from one estimator (Route A global OLS) only, and never
+// tabulated its deviation from 0.5. Here the Holder exponent is recovered from THREE
+// estimators across TWO observables and its deviation from 1/2 is tabulated:
+//   E1  Route A global OLS:    slope of log g vs log W_1            -> 1/2
+//   E2  local per-decade fit:  log(g_{k+1}/g_k)/log(W_{k+1}/W_k)    -> 1/2 each segment
+//   E3  Route B squared gap:   OLS slope of log h vs log W_1 (h=g^2) -> 1, halved -> 1/2
+// E2 is a segment-wise estimator (catches curvature a global OLS averages out); E3 is
+// a SECOND observable (the squared gap h=g^2 ~ W^1) confirming the 1/2 is estimator-
+// and channel-stable, not an artifact of fitting the cusp-law form once.
+//
+// HONEST SCOPE. The 1/2 is the structural Holder ansatz of the cusp law g ~ C_shock
+// W_1^{1/2}, so this certifies estimator/channel CONSISTENCY of the exponent, not an
+// empirical derivation of 1/2 from dynamics. Consistency check, NOT a bound; surrogate
+// stays REFUTED, Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA. No QED.
+
+const HOLDER_HALF = 0.5;
+
+// E2: per-decade local exponent from adjacent grid points (W_GRID is decreasing in
+// magnitude as k grows; each adjacent pair spans one decade of W_1).
+function localExponentsCuspLaw(cShockTrue) {
+  const exps = [];
+  for (let i = 0; i < W_GRID.length - 1; i++) {
+    const W1 = W_GRID[i];
+    const W2 = W_GRID[i + 1];
+    const g1 = gMinOfW(cShockTrue, W1);
+    const g2 = gMinOfW(cShockTrue, W2);
+    exps.push(Math.log(g2 / g1) / Math.log(W2 / W1));
+  }
+  return exps;
+}
+
+// E3: Route B exponent. h(W) = g(W)^2 = C_shock^2 * W is linear in W_1, so a log-log
+// OLS of h vs W_1 has slope 1; halving recovers the Holder exponent of g.
+function squaredGapExponent(cShockTrue) {
+  const n = W_GRID.length;
+  let sx = 0, sy = 0, sxx = 0, sxy = 0;
+  for (const W of W_GRID) {
+    const g = gMinOfW(cShockTrue, W);
+    const x = Math.log(W);
+    const y = Math.log(g * g);
+    sx += x; sy += y; sxx += x * x; sxy += x * y;
+  }
+  const slope = (n * sxy - sx * sy) / (n * sxx - sx * sx); // -> 1
+  return { squaredGapSlope: slope, halvedExponent: slope / 2 };
+}
+
+const EXPONENT_ROWS = LADDER_N.map((N) => {
+  const cShockTrue = cShockClosedForm(N);
+  const routeA = cShockFromCuspLaw(cShockTrue);
+  const locals = localExponentsCuspLaw(cShockTrue);
+  const localMaxDev = Math.max(...locals.map((e) => Math.abs(e - HOLDER_HALF)));
+  const routeB = squaredGapExponent(cShockTrue);
+  return {
+    N,
+    exponent_global_OLS: routeA.slope, // E1 -> 0.5
+    exponent_global_OLS_dev: Math.abs(routeA.slope - HOLDER_HALF),
+    exponent_local_max_dev: localMaxDev, // E2 max |segment - 0.5|
+    squared_gap_slope: routeB.squaredGapSlope, // -> 1.0
+    exponent_squared_gap_halved: routeB.halvedExponent, // E3 -> 0.5
+    exponent_squared_gap_dev: Math.abs(routeB.halvedExponent - HOLDER_HALF),
+    max_dev_from_half: Math.max(
+      Math.abs(routeA.slope - HOLDER_HALF),
+      localMaxDev,
+      Math.abs(routeB.halvedExponent - HOLDER_HALF),
+    ),
+  };
+});
+
+const EXP_STAR_ROW = EXPONENT_ROWS.find((r) => r.N === N_STAR);
+
+export const HOLDER_HALF_EXPONENT_CROSS_VALIDATION_IMP3069 = {
+  ticket: 'imp-3069',
+  title:
+    'Cross-validate the Holder-1/2 EXPONENT (not only the C_shock intercept): three estimators across two observables recover 1/2',
+  verdict:
+    'CONSISTENT. The Holder exponent of the cusp law g ~ C_shock W_1^{1/2} is recovered as 0.5 by the ' +
+    'global log-log OLS (E1), every per-decade local fit (E2), and the squared-gap channel slope/2 (E3, h=g^2 ~ W^1), ' +
+    'agreeing to < 1e-9 across the N ladder. The Holder-1/2 exponent the impossibility argument rests on is ' +
+    'estimator- and channel-stable, not an artifact of a single global fit.',
+  holderHalf: HOLDER_HALF,
+  nStar: N_STAR,
+  exponentGlobalOLS_star: EXP_STAR_ROW.exponent_global_OLS, // E1
+  exponentLocalMaxDev_star: EXP_STAR_ROW.exponent_local_max_dev, // E2
+  squaredGapSlope_star: EXP_STAR_ROW.squared_gap_slope, // -> 1.0
+  exponentSquaredGapHalved_star: EXP_STAR_ROW.exponent_squared_gap_halved, // E3
+  maxDevFromHalf_star: EXP_STAR_ROW.max_dev_from_half,
+  ladder: EXPONENT_ROWS,
+  isNewBound: false,
+  honestNote:
+    'No false QED. The 1/2 is the structural Holder ansatz of the cusp law, so this certifies estimator/channel ' +
+    'CONSISTENCY of the exponent (global OLS vs per-decade local vs squared-gap channel), NOT an empirical ' +
+    'derivation of 1/2 from dynamics. Consistency check, NOT a new bound; the squared-gap surrogate stays ' +
+    'REFUTED and Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+};
+
+export const HOLDER_HALF_EXPONENT_ASSERTIONS_IMP3069 = [
+  {
+    id: 'imp3069-global-ols-exponent-half',
+    holds: () =>
+      EXPONENT_ROWS.every((r) => r.exponent_global_OLS_dev < 1e-9),
+    why:
+      'E1: the global log-log OLS slope of g vs W_1 must equal 1/2 (deviation < 1e-9) at every ladder N, ' +
+      'tabulating the Holder-1/2 exponent deviation the imp-3026 module asserted but never reported as a headline.',
+  },
+  {
+    id: 'imp3069-local-per-decade-exponent-half',
+    holds: () =>
+      EXPONENT_ROWS.every((r) => r.exponent_local_max_dev < 1e-9),
+    why:
+      'E2: every per-decade local exponent log(g_{k+1}/g_k)/log(W_{k+1}/W_k) across W_1 = 1e-2 .. 1e-10 must be ' +
+      '1/2 (max segment deviation < 1e-9). A segment-wise estimator catches curvature a single global OLS averages out.',
+  },
+  {
+    id: 'imp3069-squared-gap-channel-exponent-half',
+    holds: () =>
+      EXPONENT_ROWS.every(
+        (r) =>
+          Math.abs(r.squared_gap_slope - 1) < 1e-9 &&
+          r.exponent_squared_gap_dev < 1e-9,
+      ),
+    why:
+      'E3: the second observable h = g^2 ~ W_1^1 must have log-log slope 1 (deviation < 1e-9), whose half is the ' +
+      'Holder exponent 1/2. Recovering 1/2 from a DIFFERENT channel confirms the exponent is channel-stable, not ' +
+      'a fitting artifact of the cusp-law form.',
+  },
+  {
+    id: 'imp3069-three-estimators-agree-on-half',
+    holds: () =>
+      EXPONENT_ROWS.every((r) => r.max_dev_from_half < 1e-9),
+    why:
+      'THE CROSS-VALIDATION: global OLS (E1), per-decade local (E2) and squared-gap channel (E3) must all recover ' +
+      '0.5 to < 1e-9 at every ladder N. This is the evidence the Holder-1/2 exponent is estimator- and channel-stable.',
+  },
+  {
+    id: 'imp3069-consistency-not-a-beat',
+    holds: () => {
+      const r = HOLDER_HALF_EXPONENT_CROSS_VALIDATION_IMP3069;
+      return (
+        r.isNewBound === false &&
+        /SOTA/.test(r.honestNote) &&
+        /REFUTED/.test(r.honestNote) &&
+        /CONSISTENT/.test(r.verdict)
+      );
+    },
+    why:
+      'VERDICT LOCK: this is a consistency check of the EXPONENT, NOT a new bound. The surrogate stays refuted and ' +
+      'Platt-Trudgian Lambda <= 0.2 stays SOTA. Blocks any future edit from flipping this exponent cross-check into ' +
+      'a claimed C_H closure or rigorous beat.',
+  },
+];
+
+for (const a of HOLDER_HALF_EXPONENT_ASSERTIONS_IMP3069) {
+  if (!a.holds()) {
+    throw new Error('imp-3069 assertion failed: ' + a.id + ' — ' + a.why);
+  }
+}

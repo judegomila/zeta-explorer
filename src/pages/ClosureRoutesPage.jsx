@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { CLOSURE_ROUTES, findRoute } from '../data/closure-routes-section.js';
 import { IMP3085_HANKEL_GAP_AU_GRID } from '../data/imp-3085-hankel-gap-aU-grid.js';
+import { IMP3107_DEHOMOGENIZED_OFFDIAG_AU_GRID } from '../data/imp-3107-dehomogenized-offdiag-aU-grid.js';
 import { IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP } from '../data/imp-3084-offdiagonal-gap-degree-sweep.js';
 import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orthogonalized-basis-conditioning.js';
 import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section26-gram-vs-monomial-gap.js';
@@ -792,6 +793,131 @@ function OperatorGapCollapseViz() {
   );
 }
 
+// ── imp-3107: de-homogenized off-diagonal s-trend viz ─────────────────────────
+// Shows min R_jk, max R_jk (left axis, 0-1), and the operator/diagonal gap
+// (right axis, 0-4.5, from imp-3085) all vs s = a*U, confirming monotone rise
+// and saturation below the common-exponential Perron limit (R_jk -> 1).
+function DeHomogOffDiagSTrendViz() {
+  const M7 = IMP3107_DEHOMOGENIZED_OFFDIAG_AU_GRID.measured;
+  const M5 = IMP3085_HANKEL_GAP_AU_GRID.measured;
+  const trend7 = M7.sTrend;
+  const trend5 = M5.sTrend;
+
+  const W = 720, H = 340, ML = 58, MR = 66, MT = 22, MB = 44;
+  const sMax = 8.5, rMax = 1.05, gapMax = 4.5;
+
+  const px = (s) => ML + (s / sMax) * (W - ML - MR);
+  const pyL = (v) => H - MB - (v / rMax) * (H - MT - MB);
+  const pyR = (v) => H - MB - (v / gapMax) * (H - MT - MB);
+  const mkPath = (pts) => pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
+
+  const minPath = mkPath(trend7.map((t) => [px(t.s), pyL(t.minOffDiagonalR)]));
+  const maxPath = mkPath(trend7.map((t) => [px(t.s), pyL(t.maxOffDiagonalR)]));
+  const gapPts = trend5.map((t) => [px(t.s), pyR(t.operatorDiagonalGap)]);
+  const gapPath = mkPath(gapPts);
+
+  const sTicks = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  const rTicks = [0, 0.25, 0.5, 0.75, 1.0];
+  const gTicks = [0, 1, 2, 3, 4];
+  const atS3 = trend7.find((t) => Math.abs(t.s - 3) < 1e-9);
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #10b981', background: 'rgba(16,185,129,0.04)' }}>
+      <h3 style={{ color: '#10b981', marginTop: 0 }}>
+        Off-diagonal extremes monotonically saturate below Perron limit vs s = a&middot;U (imp-3107)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The de-homogenized off-diagonal entries{' '}
+        <span style={{ fontFamily: mono }}>R&#x2C7C;&#x2096; = H&#x2C7C;&#x2096; / &radic;(D&#x2C7C;&#x2C7C; D&#x2096;&#x2096;)</span>{' '}
+        depend on <strong>s = a&middot;U</strong> alone (equal-product cells coincide to
+        ~{M7.maxOffDiagMismatchAcrossEqualProductPairs.toExponential(0)}).
+        Both extremes (min and max over j&ne;k) rise monotonically and saturate strictly
+        below 1, approaching the common-exponential Perron limit from below &mdash; they
+        neither peak nor decay. The operator/diagonal gap (imp-3085, right axis, cyan)
+        follows the same saturating trend.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {rTicks.map((v) => (
+            <g key={`rg${v}`}>
+              <line x1={ML} y1={pyL(v)} x2={W - MR} y2={pyL(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={pyL(v) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{v.toFixed(2)}</text>
+            </g>
+          ))}
+          {sTicks.map((s) => (
+            <text key={`st${s}`} x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{s}</text>
+          ))}
+          {gTicks.map((g) => (
+            <text key={`gt${g}`} x={W - MR + 8} y={pyR(g) + 4} textAnchor="start" fontSize="11" fill="#06b6d4" fontFamily={mono}>{g}</text>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={W - MR} y1={MT} x2={W - MR} y2={H - MB} stroke="#1e4a5c" strokeWidth="1" strokeDasharray="3 2" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>s = a&middot;U  (shear weight &times; lag window)</text>
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>min/max R&#x2C7C;&#x2096;</text>
+          <text x={W - 10} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill="#06b6d4" fontFamily={mono} transform={`rotate(90 ${W - 10} ${(MT + H - MB) / 2})`}>gap (right)</text>
+          <line x1={ML} y1={pyL(1)} x2={W - MR} y2={pyL(1)} stroke="#f59e0b" strokeWidth="1" strokeDasharray="5 3" strokeOpacity="0.5" />
+          <text x={ML + 6} y={pyL(1) - 4} fontSize="10" fill="#f59e0b" fontFamily={mono} fillOpacity="0.75">Perron limit (every R&#x2C7C;&#x2096; &rarr; 1)</text>
+          <path d={gapPath} fill="none" stroke="#06b6d4" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.7" />
+          {gapPts.map((p, i) => (
+            <circle key={`gp${i}`} cx={p[0]} cy={p[1]} r="3.5" fill="#06b6d4" fillOpacity="0.5" stroke="#06b6d4" strokeWidth="1">
+              <title>{`s=${trend5[i].s}  gap=${trend5[i].operatorDiagonalGap.toFixed(4)}`}</title>
+            </circle>
+          ))}
+          <path d={maxPath} fill="none" stroke="#f59e0b" strokeWidth="2" />
+          {trend7.map((t, i) => (
+            <circle key={`mxR${i}`} cx={px(t.s)} cy={pyL(t.maxOffDiagonalR)} r="4" fill="#f59e0b" fillOpacity="0.65" stroke="#f59e0b" strokeWidth="1.2">
+              <title>{`s=${t.s}  max R_jk=${t.maxOffDiagonalR.toFixed(5)}`}</title>
+            </circle>
+          ))}
+          <path d={minPath} fill="none" stroke="#10b981" strokeWidth="2" />
+          {trend7.map((t, i) => (
+            <circle key={`mnR${i}`} cx={px(t.s)} cy={pyL(t.minOffDiagonalR)} r="4" fill="#10b981" fillOpacity="0.65" stroke="#10b981" strokeWidth="1.2">
+              <title>{`s=${t.s}  min R_jk=${t.minOffDiagonalR.toFixed(5)}`}</title>
+            </circle>
+          ))}
+          {atS3 && (
+            <g>
+              <line x1={px(3)} y1={pyL(atS3.maxOffDiagonalR) + 10} x2={px(3)} y2={H - MB - 18} stroke="#94a3b8" strokeWidth="0.8" strokeDasharray="2 2" />
+              <text x={px(3) + 5} y={H - MB - 20} fontSize="10" fill="#94a3b8" fontFamily={mono}>
+                s=3: min {atS3.minOffDiagonalR.toFixed(4)}, max {atS3.maxOffDiagonalR.toFixed(4)}
+              </text>
+            </g>
+          )}
+          <g transform={`translate(${ML + 10}, ${MT + 8})`}>
+            <line x1="0" y1="6" x2="18" y2="6" stroke="#10b981" strokeWidth="2" />
+            <circle cx="9" cy="6" r="3.5" fill="#10b981" fillOpacity="0.65" stroke="#10b981" strokeWidth="1" />
+            <text x="22" y="10" fontSize="11" fill="#10b981" fontFamily={mono}>min R&#x2C7C;&#x2096; (left axis)</text>
+          </g>
+          <g transform={`translate(${ML + 10}, ${MT + 26})`}>
+            <line x1="0" y1="6" x2="18" y2="6" stroke="#f59e0b" strokeWidth="2" />
+            <circle cx="9" cy="6" r="3.5" fill="#f59e0b" fillOpacity="0.65" stroke="#f59e0b" strokeWidth="1" />
+            <text x="22" y="10" fontSize="11" fill="#f59e0b" fontFamily={mono}>max R&#x2C7C;&#x2096; (left axis)</text>
+          </g>
+          <g transform={`translate(${ML + 10}, ${MT + 44})`}>
+            <line x1="0" y1="6" x2="18" y2="6" stroke="#06b6d4" strokeWidth="1.5" strokeDasharray="4 3" />
+            <circle cx="9" cy="6" r="3" fill="#06b6d4" fillOpacity="0.5" stroke="#06b6d4" strokeWidth="1" />
+            <text x="22" y="10" fontSize="11" fill="#06b6d4" fontFamily={mono}>&#x2016;R&#x2016; - max R&#x2C7C;&#x2C7C; (right axis, imp-3085)</text>
+          </g>
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          DIAGNOSTIC -- NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Measured on the same representative degree-4 monomial-moment truncation as imp-3066/3085, NOT the
+          section-26 Gram. The scale invariance is a property of the de-homogenized R, not the bare Gram
+          entries. Positivity was not attempted. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3107-dehomogenized-offdiag-aU-grid.js + imp-3085-hankel-gap-aU-grid.js
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3087+3088: phi(s) log-log profile viz ──────────────────────────────────
 // Log-log plot of phi(s) = G(s)/F(s) vs eps = s - s0, with the onset quadratic-pole
 // envelope C/(s-s0)^2 (slope -2, dashed cyan) and the large-s exponential-decay
@@ -1242,6 +1368,12 @@ export default function ClosureRoutesPage() {
         The operator obstruction tracks one scale (imp-3085)
       </h2>
       <OperatorGapCollapseViz />
+
+      {/* ─── imp-3107: de-homogenized off-diagonal s-trend ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        De-homogenized off-diagonal min/max R&#x2C7C;&#x2096; vs s: monotone rise to Perron limit (imp-3107)
+      </h2>
+      <DeHomogOffDiagSTrendViz />
 
       {/* ─── imp-3110: toy vs genuine §26 Gram explainer ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

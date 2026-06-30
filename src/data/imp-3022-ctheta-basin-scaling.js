@@ -242,6 +242,13 @@ export const CTHETA_BASIN_SCALING_ASSERTIONS = [
       && CTHETA_FLAT_INVARIANT.decadesSpanned > 5,
   },
   {
+    id: 'ctheta-rho-star-independent-root-solve',
+    description: 'imp-3068: the bisection root of Theta(rho,1) - 1/4 = 0 recovers rho* = 2/3 to machine precision and sits strictly below the 0.72 operating cap with a positive margin',
+    holds: () => CTHETA_RHO_STAR_ROOT.solveErrorVsTwoThirds < 1e-9
+      && CTHETA_RHO_STAR_ROOT.rhoStarSolved < C_OPERATING_CAP
+      && CTHETA_RHO_STAR_ROOT.capMargin > 0.05,
+  },
+  {
     id: 'ctheta-no-false-qed-pt-stays-sota',
     description: 'this is a diagnosis of the basin-conditional limit, NOT a closure; PT 0.2 stays SOTA and the beat stays an ESTIMATE',
     holds: () => /does NOT close/.test(CTHETA_BASIN_SCALING.honest)

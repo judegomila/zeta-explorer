@@ -1955,6 +1955,14 @@ const DATA_MODULES = [
   // exact worst case 0.0447131. Closed-form floor on an already-proven cap, NOT a new
   // bound; surrogate stays refuted, PT 0.2 stays SOTA.
   '/src/data/imp-3132-c-shock-worst-case-margin-floor.js',
+  // imp-3151: profile the imp-3108 margin 1/3 - C_shock(N) BELOW the smallest assembly
+  // N=2458 (margin is monotone decreasing in N, so its infimum lies below 2458, not at
+  // it). Pins the sub-ladder crossing N_star = zeroCountAtHeight(e^6) ~ 203.03 where the
+  // margin hits 0 (gamma_N = e^6), two ways (closed form + bisection, agree < 1e-5).
+  // HONEST: cap C_shock < 1/3 is NOT inviolable at every N (fails for N < ~203) but
+  // N_star is ~12.1x below N=2458, so every assembly clears e^6 with margin >= 0.0447.
+  // Numerical profile of an already-proven cap, NOT a new bound; PT 0.2 stays SOTA.
+  '/src/data/imp-3151-c-shock-submargin-profile.js',
   // imp-3047: tabulate the route-1 IMPOSSIBILITY lower bound C_Lip >= C_shock/(2 sqrt(W_1))
   // across a decreasing W_1 grid (1e-2 .. 1e-12) on the cusp law g_min = C_shock W_1^{1/2}.
   // The realized Lipschitz quotient reproduces C_shock/(2 sqrt(W_1)) to machine precision,
@@ -2192,6 +2200,17 @@ const DATA_MODULES = [
   // ~213x over the next two decades (2.1e-4 -> 4.5e-2); no shared arcsinh(1)/sqrt(2)
   // closed form. Pure cross-validation of two degree-0 scalars; no QED; PT 0.2 SOTA.
   '/src/data/imp-3126-regular-mass-vs-c-shock-coincidence.js',
+  // imp-3152: cross-module tripwire LOCKING the imp-3126 COINCIDENCE verdict.
+  // Independently recomputes the imp-3106 regular tail mass int_{s0+1}^inf phi ds
+  // ~0.26900597 (own Simpson path) and the imp-3026/imp-3070 cusp constant C_shock(N)
+  // = sqrt(2/(3 log gamma_N)) on the ladder N in {1e4,1e5,1e6}, and certifies: the
+  // recomputed regular mass and C_shock(N) match the live imp-3126 exports to ~1e-9;
+  // the abs diff |C_shock(N) - regularMass| is STRICTLY INCREASING in N (2.12e-4 ->
+  // 2.53e-2 -> 4.52e-2); and the end-to-end blowup is ~213x (matching the live
+  // absDiffBlowupOverLadder). A constant edit that shrinks the divergence to re-create
+  // a false near-identity between the two degree-0 scalars is caught here. Pure
+  // cross-validation; NOT an operator step; lock only, no QED; PT 0.2 SOTA.
+  '/src/data/imp-3152-c-shock-coincidence-divergence-lock.js',
   // imp-3006+3061+3062+3063+3090+3091: basin-conditional local-energy C_Lip assembly
   // (c*=0.93185 closed form, BASIN_RHO=0.72 < ASYM_SCAN_INF=0.927, margin 0.207),
   // margin sensitivity ladder, gap-channel theta-sweep [0,1/4], divergence decomposition

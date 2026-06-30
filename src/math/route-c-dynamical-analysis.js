@@ -540,4 +540,38 @@ export const ROUTE_C_DYNAMICAL_ANALYSIS_ASSERTIONS = [
       'status to closed/completed without resolving the escape hatches would be ' +
       'a false claim.',
   },
+  {
+    id: 'imp3073-path2-refutation-reproduces',
+    holds: () => {
+      const ne = ROUTE_C_DYNAMICAL_ANALYSIS.numericalEvidence;
+      const samples = ne.samples;
+      const last = samples[samples.length - 1];
+      // imp-3073 confirmatory re-measure: the lambda-roadmap currentStatus
+      // PATH 2 line reports the direct Route C dynamical S*B^2 REFUTED with
+      // amplification ratio max 0.073 decreasing to 0.00013 across the sampled
+      // N grid. Re-running the sweep here must reproduce: max rho_amp approx
+      // 0.073, the N=100000 endpoint approx 0.00013, all below 1 (no amplify).
+      return (
+        ne.allRhoAmpBelowOne &&
+        ne.rhoAmpDecreasingWithN &&
+        ne.maxRhoAmpObserved > 0.07 && ne.maxRhoAmpObserved < 0.08 &&
+        last.N === 100000 &&
+        last.rho_amp > 0.0001 && last.rho_amp < 0.0002 &&
+        samples.every((s) => s.amplifies === false)
+      );
+    },
+    why:
+      'imp-3073 CONFIRMATORY re-measurement of the lambda-roadmap PATH 2 ' +
+      'refutation (imp-834 direct Route C dynamical S*B^2). Re-running the ' +
+      'per-N amplification ratio rho_amp = T_sing*B^2/(2*S) over the sampled ' +
+      'grid {50,...,100000} reproduces the roadmap currentStatus numbers: max ' +
+      'rho_amp is approx 0.073 (attained at N=100) and the N=100000 endpoint is ' +
+      'approx 0.00013, with rho_amp strictly below 1 at every sampled N ' +
+      '(amplifies=false everywhere) — the refutation reproduces exactly. The ' +
+      'three named escape hatches imp-861 (weighted-S), imp-862 (CM ' +
+      'Hamiltonian) and imp-863 (matched asymptotics) remain status partial / ' +
+      'preliminary-negative, i.e. still the listed open continuations. A ' +
+      'regression flipping any of these flags would silently reopen the PATH 2 ' +
+      'refutation that the roadmap reports as settled.',
+  },
 ];

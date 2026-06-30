@@ -14,6 +14,7 @@ import { RANKED_OPPORTUNITIES } from '../data/full-route-map-2026-06-19.js';
 import { ASSERTION_FRESHNESS } from '../data/assertion-freshness.js';
 import { LAMBDA_ESTIMATOR_TRIPTYCH_IMP2991 } from '../data/lambda-estimator-triptych-imp2991.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
+import { CH_LIP_BASIN_CONDITIONAL } from '../data/ch-lip-basin-conditional-2026-06-30.js';
 
 // ── Assertion freshness stamp (imp-2999) ─────────────────────────────────────
 function FreshnessStamp() {
@@ -587,6 +588,60 @@ function CHWallFrontierPanel() {
   );
 }
 
+function BasinConditionalLipschitzPanel() {
+  const v = CH_LIP_BASIN_CONDITIONAL;
+  const rows = [
+    { label: 'STATUS', value: v.status, color: '#a78bfa' },
+    { label: 'c* CLOSED FORM', value: `sqrt(2+sqrt(3))-1 ≈ ${v.cStarClosedForm.toFixed(5)} (imp-3005, exact)`, color: '#10b981' },
+    { label: 'BASIN SEPARATION', value: `basin rho=0.72 < asym bracket inf 0.927 (margin ${v.basinSafetyMargin.toFixed(3)}); d(rho)/ds<0 certified independent of open global constant`, color: '#10b981' },
+    { label: 'GAP CHANNEL', value: `g_min/4 ≈ ${v.gapChannelNominal.toExponential(2)} (nominal) – g_min/3 ≈ ${v.gapChannelTrappedCeiling.toExponential(3)} (Theta=1/4 ceiling); dominant on basin`, color: '#f59e0b' },
+    { label: 'C_THETA', value: v.cThetaStatus, color: '#94a3b8' },
+    { label: 'GLOBAL CONSTANT', value: v.globalConstantStatus, color: '#f97316' },
+    { label: 'HONEST CAVEAT', value: v.honest, color: '#ef4444' },
+  ];
+  return (
+    <div style={{
+      border: '1px solid rgba(167,139,250,0.4)',
+      borderRadius: 10,
+      background: 'rgba(15,23,42,0.7)',
+      padding: '14px 18px',
+      marginBottom: 24,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+        <span style={{
+          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
+          color: '#a78bfa', background: 'rgba(167,139,250,0.14)',
+          border: '1px solid rgba(167,139,250,0.4)',
+          borderRadius: 4, padding: '2px 8px',
+        }}>
+          BASIN-CONDITIONAL LIPSCHITZ &mdash; imp-3006 &mdash; {v.date}
+        </span>
+        <span style={{
+          fontSize: 11, fontFamily: 'var(--font-mono)', fontWeight: 700,
+          color: '#a78bfa', marginLeft: 'auto',
+        }}>
+          C_Lip FINITE ON BASIN
+        </span>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr', gap: '7px 12px' }}>
+        {rows.map(({ label, value, color }) => (
+          <React.Fragment key={label}>
+            <span style={{
+              fontSize: 11, fontFamily: 'var(--font-mono)', color: '#475569',
+              fontWeight: 600, paddingTop: 2, letterSpacing: 0.3,
+            }}>
+              {label}
+            </span>
+            <span style={{ fontSize: 12, color, lineHeight: 1.55 }}>
+              {value}
+            </span>
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function RigorDashboardPage() {
   const [expandedStep, setExpandedStep] = useState(null);
 
@@ -651,6 +706,9 @@ export default function RigorDashboardPage() {
 
       {/* C_H frontier verdict panel — RH-HARD-CONFIRMED + norm-mismatch diagnosis (imp-3009) */}
       <CHWallFrontierPanel />
+
+      {/* Basin-conditional Lipschitz verdict — C_Lip finite on isolated-pair basin (imp-3006/imp-3051) */}
+      <BasinConditionalLipschitzPanel />
 
       {/* Summary counts */}
       <div style={{

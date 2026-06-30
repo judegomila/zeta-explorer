@@ -7,6 +7,8 @@ import { ZETA_ZEROS } from '../math/zeta.js';
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
 const TRAP_B = (Math.sqrt(73) - 5) / 8;   // minimal-gap trap: sharp threshold ~0.443
+const TRAP_CSTAR = Math.sqrt(2 + Math.sqrt(3)) - 1;  // isolation onset ~0.93185 (R2-T2 closed form)
+const EXCURSION_CAP_DRESSED = 0.5073;                 // dressed symmetric excursion peak
 
 function computeThetaData(N) {
   const zs = ZETA_ZEROS.slice(0, N);
@@ -148,6 +150,96 @@ function ThetaTrapSection() {
         On the measured real-zero rows <InlineMath tex={"\\Theta(0) \\in \\{0.167, 0.088, 0.046\\}"} />,
         all well under 1/4 — A1 applies unconditionally to actual zero configurations.
       </p>
+    </div>
+  );
+}
+
+function ThetaLadderTable() {
+  const rows = [
+    {
+      threshold: "Θ ≤ 1/4",
+      name: "Theorem A",
+      value: "0.2500",
+      color: "#10b981",
+      status: "RIGOROUS",
+      note: "Unconditional trap — every pair with Θ≤1/4 stays trapped forever; Corollary A1 gives t_c ≤ g_min²/6.",
+    },
+    {
+      threshold: "Θ ≤ (√73−5)/8",
+      name: "Theorem B (minimal-gap)",
+      value: TRAP_B.toFixed(4),
+      color: "#f59e0b",
+      status: "RIGOROUS",
+      note: "Sharp static-cover ceiling — capped-greedy profile flips dΘ/ds>0 exactly here; no static bound surpasses it.",
+    },
+    {
+      threshold: "Θ ≤ ~0.5073",
+      name: "Dressed excursion cap",
+      value: EXCURSION_CAP_DRESSED.toFixed(4),
+      color: "#ef4444",
+      status: "NUMERICAL",
+      note: "Symmetric peak exactly 1/2 at R1-T tie; dressed near-uniform variant reaches ~0.5073. Band (0.443, 0.5073) REFUTED: no absolute static cap lives there.",
+    },
+    {
+      threshold: "ρ ≤ √(2+√3)−1",
+      name: "R2-T2 isolation onset c*",
+      value: TRAP_CSTAR.toFixed(5),
+      color: "#8b5cf6",
+      status: "RIGOROUS",
+      note: "ρ = g/d₁ is the isolation ratio (not Θ); self-isolation dρ/ds < 0 for ρ < c*. Basin cap 0.72 sits below c* with safety margin ≥0.207.",
+    },
+  ];
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #f59e0b" }}>
+      <h3 style={{ color: "#f59e0b", fontSize: 16, marginBottom: 4 }}>
+        Theta-Trap Threshold Ladder
+      </h3>
+      <p style={{ color: "#64748b", fontSize: 12, marginBottom: 16 }}>
+        Four certified levels from the sg1c analysis, ascending order.
+        The band (0.443, 0.5073) is REFUTED: no absolute static Theta* cover exists inside it.
+        The c* row is the self-isolation ratio threshold (not a Theta value).
+      </p>
+      <div style={{ overflowX: "auto" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: "1px solid #334155" }}>
+              {["Threshold", "Name", "Value", "Status", "Note"].map((h) => (
+                <th key={h} style={{ color: "#64748b", fontWeight: 600, padding: "6px 10px", textAlign: "left" }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.name} style={{ borderBottom: "1px solid #1e293b" }}>
+                <td style={{ padding: "8px 10px", color: row.color, fontFamily: "monospace" }}>
+                  {row.threshold}
+                </td>
+                <td style={{ padding: "8px 10px", color: row.color, fontWeight: 600, whiteSpace: "nowrap" }}>
+                  {row.name}
+                </td>
+                <td style={{ padding: "8px 10px", color: "#e2e8f0", fontFamily: "monospace" }}>
+                  {row.value}
+                </td>
+                <td style={{ padding: "8px 10px", whiteSpace: "nowrap" }}>
+                  <span style={{
+                    background: row.status === "RIGOROUS" ? "rgba(16,185,129,0.15)" : "rgba(245,158,11,0.15)",
+                    color: row.status === "RIGOROUS" ? "#10b981" : "#f59e0b",
+                    padding: "2px 6px", borderRadius: 4, fontSize: 10, fontWeight: 700,
+                  }}>
+                    {row.status}
+                  </span>
+                </td>
+                <td style={{ padding: "8px 10px", color: "#94a3b8", lineHeight: 1.5 }}>
+                  {row.note}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
@@ -466,6 +558,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Theta-Trap Explorer ─── */}
       <ThetaTrapSection />
+
+      {/* ─── Theta-Trap Threshold Ladder Table ─── */}
+      <ThetaLadderTable />
 
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>

@@ -1933,6 +1933,13 @@ const DATA_MODULES = [
   // W = 1e-2 .. 1e-10 (spread 1.4e-14). Numerical verification + flatness tripwire
   // of the g-coordinate-artifact cancellation; no new bound, PT 0.2 stays SOTA.
   '/src/data/imp-3029-reconditioning-flatness.js',
+  // imp-3070: tabulate the N-dependence of the closed-form cusp constant
+  // C_shock(N) = sqrt(2/(3 log gamma_N)) across the assembly N-range (N=2458..1e6)
+  // and certify it stays strictly under the imp-2786 cap 1/3 with margin everywhere.
+  // C_shock(N) is strictly decreasing (slow 1/sqrt(log gamma_N) factor); worst case
+  // is the smallest N=2458 with C_shock ~ 0.2886, margin ~0.0447. Numerical uniformity
+  // certificate of an already-proven cap, NOT a new bound; PT 0.2 stays SOTA.
+  '/src/data/imp-3070-c-shock-n-dependence.js',
   // imp-3047: tabulate the route-1 IMPOSSIBILITY lower bound C_Lip >= C_shock/(2 sqrt(W_1))
   // across a decreasing W_1 grid (1e-2 .. 1e-12) on the cusp law g_min = C_shock W_1^{1/2}.
   // The realized Lipschitz quotient reproduces C_shock/(2 sqrt(W_1)) to machine precision,
@@ -1993,6 +2000,12 @@ const DATA_MODULES = [
   // norm strictly above it, the gap fed entirely by the off-diagonal Hankel cross-terms.
   // Representative/diagnostic: ||R|| carries no RH verdict; positivity not attempted.
   '/src/data/imp-3066-offdiagonal-hankel-obstruction.js',
+  // imp-3085: sweeps the imp-3066 operator/diagonal gap across the Cartesian a x U
+  // grid and finds the off-diagonal endpoint-Hankel obstruction tracks the single
+  // product s = a*U exactly (the U prefactor cancels in the de-homogenized R, so
+  // equal-product cells coincide to machine precision -- the imp-3064 a*U invariant);
+  // the RAW |H_jk| keeps the U scale and does not. Representative/diagnostic; no RH verdict.
+  '/src/data/imp-3085-hankel-gap-aU-grid.js',
 ];
 
 let ALL_MODULES = FAST_MODE

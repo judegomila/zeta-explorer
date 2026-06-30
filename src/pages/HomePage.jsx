@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { getAllExplorations } from '../data/explorations.js';
 import { getAllReferences } from '../data/literature.js';
+import { PAPER_AUDIT_DASHBOARD } from '../data/paper-audit-dashboard.js';
 import InsightDAG from '../components/InsightDAG.jsx';
 import HeroSignalFlow from '../components/HeroSignalFlow.jsx';
 
@@ -602,6 +603,14 @@ export default function HomePage() {
   const explorations = getAllExplorations();
   const references = getAllReferences();
 
+  // imp-3192: paper-audit headline counts computed live from the single source
+  // of truth (PAPER_AUDIT_DASHBOARD) so they cannot drift as new conjectures
+  // are entered or re-verdicted. Previously these were hardcoded as "13/13".
+  const paperTotal = PAPER_AUDIT_DASHBOARD.totalCount;
+  const paperAudited = PAPER_AUDIT_DASHBOARD.auditedCount;
+  const paperSubsumedRH = PAPER_AUDIT_DASHBOARD.statusCounts['SUBSUMED-BY-RH'];
+  const paperNonRH = paperTotal - paperSubsumedRH;
+
   return (
     <div className="page">
       {/* ── Hero ── */}
@@ -633,7 +642,7 @@ export default function HomePage() {
         <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.7, marginBottom: 14 }}>
           Rigorous SOTA: Platt-Trudgian <strong style={{ color: '#f59e0b' }}>Λ ≤ 0.2</strong>.
           The C_H constant (multi-body isolation in the sg1c R2-T sector) is the sole open gap —
-          13 paper conjectures fully audited, five subsumed by RH equivalence, three independent
+          {paperTotal} paper conjectures fully audited, {paperSubsumedRH} subsumed by RH equivalence, three independent
           closure routes live but all terminate at C_H.
         </p>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -671,11 +680,11 @@ export default function HomePage() {
           MILESTONE
         </div>
         <h2 style={{ fontSize: 32, fontWeight: 900, color: '#10b981', margin: '8px 0 12px', fontFamily: 'var(--font-mono)' }}>
-          13/13 Paper Conjectures Audited
+          {paperAudited}/{paperTotal} Paper Conjectures Audited
         </h2>
         <p style={{ fontSize: 14, color: '#6ee7b7', lineHeight: 1.6, maxWidth: 600, margin: '0 auto 16px' }}>
-          Complete audit of the foundational paper — all 13 conjectures reviewed, verified, or subsumed.
-          Five resolved by RH equivalence; eight remain open critical gaps for the attack.
+          Complete audit of the foundational paper — all {paperTotal} conjectures reviewed, verified, or subsumed.
+          {' '}{paperSubsumedRH} resolved by RH equivalence; {paperNonRH} carry independent or partial verdicts.
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginTop: 14 }}>
           <Link to="/paper" style={{

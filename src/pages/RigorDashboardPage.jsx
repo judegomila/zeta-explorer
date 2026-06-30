@@ -585,6 +585,20 @@ function CHWallFrontierPanel() {
           </React.Fragment>
         ))}
       </div>
+      {/* imp-3019 — wire the C_H frontier verdict to its two other appearances so the story is traceable */}
+      <div style={{
+        marginTop: 12, paddingTop: 10, borderTop: '1px solid rgba(148,163,184,0.15)',
+        display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'center',
+        fontSize: 11, fontFamily: 'var(--font-mono)', color: '#475569',
+      }}>
+        <span>SAME VERDICT APPEARS IN:</span>
+        <Link to="/route-map" style={{ color: '#94a3b8', textDecoration: 'none' }}>
+          Route Map (Frontier Assault) →
+        </Link>
+        <Link to="/what-we-know" style={{ color: '#94a3b8', textDecoration: 'none' }}>
+          What We Know (C_H Wall) →
+        </Link>
+      </div>
     </div>
   );
 }

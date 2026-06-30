@@ -705,6 +705,60 @@ export const SG1C_THETA_COVERAGE_INTERVAL = (() => {
   };
 })();
 
+// imp-3071: numerically verify the THEOREM C isolation-for-cover map
+//   Theta_max(c) = 2 - 3 c^2/(1+c) - c^4/(1+c)^2
+// is monotone DECREASING on (0, 0.72] and reaches the unit cover level Theta_max = 1
+// at the c = 0.72 cap, certifying the Theorem C claim that "for c <= 0.72 every level
+// Theta* <= 1 is non-crossable while g <= c d_1 holds". The parent imp-3017 export
+// SG1C_THETA_COVERAGE_INTERVAL only spot-checks the map at the coarse grid
+// {0.5,0.6,0.72,0.8,0.9,0.95,1} and asserts thetaCmap(0.72) > 1; here we densely
+// tabulate the map across the FULL isolation window (0, 0.72], certify strict
+// monotone decrease step-by-step, pin the endpoint limits (Theta_max -> 2 as c -> 0+,
+// Theta_max(1) = 1/4 = the Theorem A trap), and -- by independent bisection on
+// Theta_max(c) - 1 = 0 -- locate the EXACT isolation constant at which the cover drops
+// to exactly 1: c_unit = 0.72208381..., just ABOVE the rounded Theorem C cap 0.72.
+// HONEST: this shows 0.72 is a slightly CONSERVATIVE rounding of the exact unit-cover
+// crossing c_unit ~ 0.722 -- at the cap c = 0.72 the cover is Theta_max ~ 1.00498 >= 1
+// (a small +0.005 margin), so every level Theta* <= 1 is indeed covered there. This is
+// the STATIC isolation criterion only; persistence of the isolation g <= c d_1 itself
+// (residual R2) is out of scope and unaffected. No new bound; PT Lambda <= 0.2 stays SOTA.
+export const SG1C_THETAMAX_ISOLATION_MAP = (() => {
+  const thetaMax = (c) => 2 - (3 * c * c) / (1 + c) - c ** 4 / (1 + c) ** 2;
+  const theoremCCap = 0.72;
+  // dense tabulation across the isolation window (0, 0.72]
+  const grid = [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.72];
+  const table = grid.map((c) => ({ c, thetaMax: thetaMax(c), coversUnitLevel: thetaMax(c) >= 1 }));
+  // strict monotone decrease certified step-by-step on a fine (0,0.72] sweep
+  let monotoneDecreasing = true, prev = Infinity;
+  for (let i = 1; i <= 720; i++) { const v = thetaMax(i / 1000); if (v >= prev) monotoneDecreasing = false; prev = v; }
+  // independent bisection root of Theta_max(c) - 1 = 0 (map strictly decreasing => unique)
+  let lo = 0.5, hi = 1;
+  for (let it = 0; it < 200; it++) { const m = (lo + hi) / 2; if (thetaMax(m) > 1) lo = m; else hi = m; }
+  const cUnit = (lo + hi) / 2; // ~0.72208381, exact c where the cover drops to exactly 1
+  return {
+    map: 'Theta_max(c) = 2 - 3 c^2/(1+c) - c^4/(1+c)^2',
+    table,
+    theoremCCap, // 0.72 -- the rounded Theorem C isolation constant
+    thetaMaxAtCap: thetaMax(theoremCCap), // ~1.004975 >= 1, so level <= 1 covered at the cap
+    capCoversUnitLevel: thetaMax(theoremCCap) >= 1,
+    monotoneDecreasing,
+    limitAtZero: thetaMax(0), // = 2 (least isolation needed for the highest cover)
+    valueAtOne: thetaMax(1), // = 1/4 = Theorem A trap (c=1 degeneracy)
+    cUnit, // exact c with Theta_max(c) = 1, by independent bisection
+    unitRootResidual: thetaMax(cUnit) - 1, // ~0 to machine precision
+    capIsConservativeRounding: theoremCCap < cUnit, // 0.72 < 0.72208 => cap is a safe under-round
+    summary:
+      'The Theorem C isolation-for-cover map Theta_max(c) = 2 - 3c^2/(1+c) - c^4/(1+c)^2 is strictly '
+      + 'monotone DECREASING across the isolation window (0, 0.72] -- from Theta_max -> 2 as c -> 0+ down '
+      + 'to Theta_max(0.72) ~ 1.00498 -- and degenerates to the Theorem A trap value 1/4 at c = 1. An '
+      + 'independent bisection on Theta_max(c) - 1 = 0 puts the EXACT unit-cover crossing at c_unit ~ '
+      + '0.72208, just above the rounded Theorem C cap 0.72; so at the cap the cover is Theta_max ~ 1.005 '
+      + '>= 1 (a +0.005 margin) and every level Theta* <= 1 is non-crossable while g <= 0.72 d_1 holds. '
+      + '0.72 is thus a slightly conservative rounding of c_unit. STATIC isolation criterion only; '
+      + 'persistence of the isolation itself (residual R2) is out of scope. No new bound; PT Lambda <= 0.2 stays SOTA.',
+  };
+})();
+
 // imp-3024: verify COROLLARY A1 (t_c <= g_min(0)^2/6 when the initial minimal
 // pair has Theta(0) <= 1/4) on the THREE measured real-zero rows of the parent
 // module (kind = riemann-zeros). For each row we recompute the A1 ceiling
@@ -1458,6 +1512,18 @@ export const SG1C_THEOREM_ASSERTIONS = [
         t.allNonVacuous &&
         t.rows.every((c) => c.ladderOrdered && Math.abs(c.coarseningFactor - c.coarseningClosedForm) < 5e-4)
       );
+    },
+  },
+  {
+    id: 'sg1c-thetamax-isolation-map-monotone-unit-cover',
+    description: 'imp-3071: the Theorem C isolation-for-cover map Theta_max(c) = 2 - 3c^2/(1+c) - c^4/(1+c)^2 is strictly monotone decreasing on (0,0.72], runs from Theta_max -> 2 (c->0+) down to Theta_max(0.72) ~ 1.005 >= 1 and degenerates to the Theorem A trap 1/4 at c = 1; an independent bisection puts the exact unit-cover crossing at c_unit ~ 0.72208 just above the rounded cap 0.72, so the cap covers every level Theta* <= 1 with a small margin and 0.72 is a conservative under-rounding',
+    holds: () => {
+      const t = SG1C_THETAMAX_ISOLATION_MAP;
+      const monotone = t.monotoneDecreasing && t.table.every((r, idx) => idx === 0 || r.thetaMax < t.table[idx - 1].thetaMax);
+      const endpoints = Math.abs(t.limitAtZero - 2) < 1e-12 && Math.abs(t.valueAtOne - 0.25) < 1e-12;
+      const capCovers = t.thetaMaxAtCap >= 1 && t.thetaMaxAtCap < 1.01 && t.capCoversUnitLevel;
+      const unitRoot = Math.abs(t.unitRootResidual) < 1e-9 && t.cUnit > 0.72 && t.cUnit < 0.723 && t.capIsConservativeRounding;
+      return monotone && endpoints && capCovers && unitRoot;
     },
   },
 ];

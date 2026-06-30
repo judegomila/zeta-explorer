@@ -33,6 +33,7 @@ import { IMP3125_ORTHOGONALIZED_RESIDUAL_GAP_DEGREE_SWEEP } from '../data/imp-31
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 import { asymOnsetDrho, SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
 import { IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID } from '../data/imp-3146-residual-gap-limit-aU-grid.js';
+import { IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING } from '../data/imp-3153-cosh-monomial-conditioning-ceiling.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -1868,6 +1869,170 @@ function ResidualGapDegreeSweepViz() {
   );
 }
 
+// ── imp-3182: cosh-monomial conditioning ceiling cond(P) and cond(H) vs DEG (imp-3153) ──
+function CoshMonomialConditioningViz() {
+  const D = IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING;
+  const table = D.measured.table;
+  const trustMax = D.measured.trustworthyMaxDegree;
+  const firstUntrst = D.measured.firstUntrustworthyDegree;
+  const recEps = D.construction.reciprocalEpsThreshold;
+  const ceiling = D.measured.analyticCeiling;
+
+  const W = 680, H = 320, ML = 62, MR = 24, MT = 32, MB = 52;
+  const LOG_MIN = 0, LOG_MAX = 20;
+  const DEG_MIN = 2, DEG_MAX = 16;
+
+  const px = (deg) => ML + ((deg - DEG_MIN) / (DEG_MAX - DEG_MIN)) * (W - ML - MR);
+  const py = (logV) => H - MB - ((logV - LOG_MIN) / (LOG_MAX - LOG_MIN)) * (H - MT - MB);
+  const logScale = (v) => {
+    if (!Number.isFinite(v) || v <= 0) return LOG_MAX;
+    return Math.min(Math.log10(v), LOG_MAX);
+  };
+
+  const recEpsLog = logScale(recEps);
+
+  const condPData = table.map((r) => ({
+    d: r.degree,
+    l: logScale(r.condP),
+    trust: r.respectsCeiling,
+    finite: Number.isFinite(r.condP) && r.condP > 0,
+  }));
+  const condHData = table.map((r) => ({
+    d: r.degree,
+    l: logScale(r.condH),
+    finite: Number.isFinite(r.condH) && r.condH > 0,
+  }));
+
+  const pathP = condPData
+    .map((p, i) => (i === 0 ? "M" : "L") + " " + px(p.d).toFixed(1) + " " + py(p.l).toFixed(1))
+    .join(" ");
+  const pathH = condHData
+    .map((p, i) => (i === 0 ? "M" : "L") + " " + px(p.d).toFixed(1) + " " + py(p.l).toFixed(1))
+    .join(" ");
+
+  const logTicks = [0, 4, 8, 12, 16, 20];
+  const degTicks = [2, 4, 6, 8, 10, 12, 14, 16];
+  const ycx = (MT + H - MB) / 2;
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #f97316", background: "rgba(249,115,22,0.04)" }}>
+      <h3 style={{ color: "#f97316", marginTop: 0 }}>
+        Cosh-monomial conditioning ceiling: cond(P) and cond(H) vs DEG (~2 orders per +2DEG),
+        trust boundary DEG={trustMax} / {firstUntrst} (imp-3153)
+      </h3>
+      <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
+        The passive cosh Gram P and shear sinh Hankel H in the rescaled monomial basis
+        phi_j=(tau/U)^j are Hilbert-type matrices: their spectral condition numbers grow
+        geometrically (roughly two orders of magnitude per +2 DEG step). Once cond(P)
+        crosses the IEEE double trust threshold 1/eps&asymp;4.5e15, the Cholesky factor
+        loses all significant digits and the de-homogenized &#x2016;R_orth&#x2016; breaks through
+        its analytic ceiling tanh(aU)={ceiling.toFixed(5)}. The largest DEG whose
+        &#x2016;R_orth&#x2016; still respects the ceiling is trustworthyMaxDegree={trustMax};
+        the first that breaches it is firstUntrustworthyDegree={firstUntrst}. The entire
+        imp-3125 sweep &#123;2,4,6,8,10&#125; sits inside the trustworthy range.
+      </p>
+      <div style={{ overflowX: "auto", marginTop: 10 }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
+          {logTicks.map((l) => (
+            <g key={"lg" + l}>
+              <line x1={ML} y1={py(l)} x2={W - MR} y2={py(l)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 6} y={py(l) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{"1e" + l}</text>
+            </g>
+          ))}
+          {degTicks.map((d) => (
+            <g key={"dg" + d}>
+              <line x1={px(d)} y1={MT} x2={px(d)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{d}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>truncation degree DEG</text>
+          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono} transform={"rotate(-90 14 " + ycx + ")"}>log10 cond</text>
+          <line x1={ML} y1={py(recEpsLog)} x2={W - MR} y2={py(recEpsLog)} stroke="#ef4444" strokeWidth="1.5" strokeDasharray="6 3" />
+          <text x={ML + 8} y={py(recEpsLog) - 5} fontSize="10" fill="#ef4444" fontFamily={mono}>1/eps~4.5e15 (trust threshold)</text>
+          {trustMax !== null && (
+            <g>
+              <line x1={px(trustMax)} y1={MT} x2={px(trustMax)} y2={H - MB} stroke="#10b981" strokeWidth="1.5" strokeDasharray="5 3" />
+              <text x={px(trustMax) + 4} y={MT + 14} fontSize="10" fill="#10b981" fontFamily={mono}>{"DEG=" + trustMax}</text>
+              <text x={px(trustMax) + 4} y={MT + 26} fontSize="9" fill="#10b981" fontFamily={mono}>(max trusted)</text>
+            </g>
+          )}
+          {firstUntrst !== null && (
+            <g>
+              <line x1={px(firstUntrst)} y1={MT} x2={px(firstUntrst)} y2={H - MB} stroke="#f87171" strokeWidth="1.5" strokeDasharray="5 3" />
+              <text x={px(firstUntrst) + 4} y={MT + 42} fontSize="10" fill="#f87171" fontFamily={mono}>{"DEG=" + firstUntrst}</text>
+              <text x={px(firstUntrst) + 4} y={MT + 54} fontSize="9" fill="#f87171" fontFamily={mono}>(1st untrst)</text>
+            </g>
+          )}
+          <path d={pathP} fill="none" stroke="#f97316" strokeWidth="2" />
+          {condPData.map((p) => (
+            <circle
+              key={"cp" + p.d}
+              cx={px(p.d)} cy={py(p.l)} r="4"
+              fill={p.trust ? "#f97316" : "#64748b"}
+              fillOpacity="0.85"
+              stroke={p.trust ? "#f97316" : "#ef4444"}
+              strokeWidth="1.5"
+            >
+              <title>{"DEG=" + p.d + " cond(P)=" + (p.finite ? Math.pow(10, p.l).toExponential(2) : "overflow")}</title>
+            </circle>
+          ))}
+          <path d={pathH} fill="none" stroke="#06b6d4" strokeWidth="2" />
+          {condHData.map((p) => (
+            <circle key={"ch" + p.d} cx={px(p.d)} cy={py(p.l)} r="3" fill="#06b6d4" fillOpacity="0.75" stroke="#06b6d4">
+              <title>{"DEG=" + p.d + " cond(H)=" + (p.finite ? Math.pow(10, p.l).toExponential(2) : "overflow")}</title>
+            </circle>
+          ))}
+          <g transform={"translate(" + (ML + 16) + ", " + (H - MB - 56) + ")"}>
+            <line x1="0" y1="0" x2="18" y2="0" stroke="#f97316" strokeWidth="2" />
+            <circle cx="9" cy="0" r="4" fill="#f97316" fillOpacity="0.85" />
+            <text x="24" y="4" fontSize="11" fill="#cbd5e1" fontFamily={mono}>cond(P) passive cosh Gram</text>
+          </g>
+          <g transform={"translate(" + (ML + 16) + ", " + (H - MB - 36) + ")"}>
+            <line x1="0" y1="0" x2="18" y2="0" stroke="#06b6d4" strokeWidth="2" />
+            <circle cx="9" cy="0" r="3" fill="#06b6d4" fillOpacity="0.75" />
+            <text x="24" y="4" fontSize="11" fill="#cbd5e1" fontFamily={mono}>cond(H) shear sinh Hankel</text>
+          </g>
+          <g transform={"translate(" + (ML + 16) + ", " + (H - MB - 16) + ")"}>
+            <line x1="0" y1="0" x2="18" y2="0" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="6 3" />
+            <text x="24" y="4" fontSize="11" fill="#cbd5e1" fontFamily={mono}>1/eps trust threshold</text>
+          </g>
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+        <div style={{ padding: "8px 12px", borderRadius: 6, background: "rgba(16,185,129,0.07)", border: "1px solid rgba(16,185,129,0.25)", fontSize: 12, color: "#94a3b8", lineHeight: 1.65 }}>
+          <div style={{ color: "#10b981", fontWeight: 700, marginBottom: 3 }}>trustworthyMaxDegree</div>
+          <span style={{ fontFamily: mono, color: "#6ee7b7", fontSize: 14 }}>{trustMax}</span>
+          <div style={{ marginTop: 4, fontSize: 11 }}>Last DEG with &#x2016;R_orth&#x2016; below tanh(aU)</div>
+        </div>
+        <div style={{ padding: "8px 12px", borderRadius: 6, background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.25)", fontSize: 12, color: "#94a3b8", lineHeight: 1.65 }}>
+          <div style={{ color: "#ef4444", fontWeight: 700, marginBottom: 3 }}>firstUntrustworthyDegree</div>
+          <span style={{ fontFamily: mono, color: "#fca5a5", fontSize: 14 }}>{firstUntrst}</span>
+          <div style={{ marginTop: 4, fontSize: 11 }}>First DEG where ceiling is breached</div>
+        </div>
+        <div style={{ padding: "8px 12px", borderRadius: 6, background: "rgba(249,115,22,0.07)", border: "1px solid rgba(249,115,22,0.25)", fontSize: 12, color: "#94a3b8", lineHeight: 1.65 }}>
+          <div style={{ color: "#f97316", fontWeight: 700, marginBottom: 3 }}>analytic ceiling tanh(aU)</div>
+          <span style={{ fontFamily: mono, color: "#fed7aa", fontSize: 14 }}>{ceiling.toFixed(6)}</span>
+          <div style={{ marginTop: 4, fontSize: 11 }}>&#x2016;R_orth&#x2016; must stay strictly below this</div>
+        </div>
+      </div>
+      <div style={{ marginTop: 12, padding: "10px 14px", borderRadius: 6, background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.3)", fontSize: 12, color: "#cbd5e1", lineHeight: 1.65 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: "#f87171", letterSpacing: "0.06em", marginBottom: 5 }}>
+          HONEST CAVEAT &mdash; NUMERICAL-CONDITIONING DIAGNOSTIC, NO RH VERDICT
+        </div>
+        This quantifies WHERE the monomial-moment orthogonalizer can be trusted &mdash; NOT whether
+        the cover holds or fails. The trust boundary is setup-dependent (a=0.5, U=6, NQ=4000
+        midpoint panels, IEEE double). A higher-precision or better-conditioned basis would push
+        it further. Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 10, color: "#64748b", fontSize: 11, fontFamily: mono }}>
+        Source: imp-3153-cosh-monomial-conditioning-ceiling.js &mdash; a=0.5, U=6, DEG&isin;&#123;2,4,6,8,10,12,14,16&#125;, 1/eps&asymp;{recEps.toExponential(2)}.
+      </p>
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function ClosureRoutesPage() {
   return (
@@ -2306,6 +2471,12 @@ export default function ClosureRoutesPage() {
         Residual-gap DEG-saturation: survives orthogonalization, converges to tanh(3)&minus;tanh(1.5) (imp-3125)
       </h2>
       <ResidualGapDegreeSweepViz />
+
+      {/* ─── imp-3182: cosh-monomial conditioning ceiling cond(P)/cond(H) vs DEG (imp-3153) ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Cosh-monomial conditioning ceiling: geometric cond(P)/cond(H) growth, trust boundary pinned numerically (imp-3153)
+      </h2>
+      <CoshMonomialConditioningViz />
 
       {/* ─── Conjectures ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

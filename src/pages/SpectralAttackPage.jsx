@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SpectralAttackViz from '../components/SpectralAttackViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
-import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL, SG1C_R1T4_BASIN_GRID, SG1C_R1T4_RHO1_REPELLER } from '../data/sg1c-theta-trap-theorems.js';
+import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL, SG1C_R1T4_BASIN_GRID, SG1C_R1T4_RHO1_REPELLER, SG1C_R2T2_SHELL_CROSSCHECK } from '../data/sg1c-theta-trap-theorems.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -755,6 +755,101 @@ function R1T4BasinClosureSection() {
   );
 }
 
+// imp-3060: symmetric shell-onset ladder table (SG1C_R2T2_SHELL_CROSSCHECK, imp-3008)
+function ShellOnsetLadderSection() {
+  const cc = SG1C_R2T2_SHELL_CROSSCHECK;
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #06b6d4" }}>
+      <h3 style={{ color: "#06b6d4", fontSize: 16, marginBottom: 8 }}>
+        Symmetric Shell-Onset Ladder (Lemma R2-T2 cross-check)
+      </h3>
+      <p style={{ color: "#94a3b8", fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        For the symmetric (2K+2)-body shell config{" "}
+        <span style={{ fontFamily: "monospace", color: "#e2e8f0" }}>
+          &#123;&minus;(&rho;/2+K..1), &minus;&rho;/2, &rho;/2, &rho;/2+1..K&#125;
+        </span>{" "}
+        (unit spacing), the worsening-onset &rho;* &mdash; where the central-pair isolation flow
+        d&rho;/ds crosses 0 from below &mdash; is bisected for each shell count K.{" "}
+        <strong style={{ color: "#e2e8f0" }}>K=1</strong> reproduces the{" "}
+        <strong style={{ color: "#06b6d4" }}>imp-3005 closed form</strong>{" "}
+        c* = &radic;(2+&radic;3)&minus;1 &asymp; {cc.cStarClosed.toFixed(8)} to machine precision,
+        and the onset rises monotonically with K toward 1 &mdash; so the single shell (K=1) is the
+        <em> worst</em> symmetric case. Every onset sits far above the Theorem-C basin constant{" "}
+        {cc.theoremCConstant}.
+      </p>
+
+      <div style={{ overflowX: "auto", marginBottom: 14 }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: "1px solid #334155" }}>
+              {["Shell count K", "Bodies (2K+2)", "Worsening onset rho*", "rho* - c*", "Margin over 0.72"].map((h) => (
+                <th key={h} style={{ color: "#64748b", fontWeight: 600, padding: "5px 8px", textAlign: "left" }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {cc.shells.map((r) => (
+              <tr key={r.shellCount} style={{ borderBottom: "1px solid #1e293b" }}>
+                <td style={{ padding: "6px 8px", color: "#e2e8f0" }}>
+                  {r.shellCount}
+                  {r.shellCount === 1 && (
+                    <span style={{ marginLeft: 6, background: "rgba(6,182,212,0.15)", color: "#06b6d4", padding: "1px 5px", borderRadius: 4, fontSize: 9, fontWeight: 700 }}>
+                      = c* (closed form)
+                    </span>
+                  )}
+                </td>
+                <td style={{ padding: "6px 8px", color: "#94a3b8", fontFamily: "monospace" }}>{2 * r.shellCount + 2}</td>
+                <td style={{ padding: "6px 8px", color: "#06b6d4", fontFamily: "monospace" }}>{r.onsetNumeric.toFixed(8)}</td>
+                <td style={{ padding: "6px 8px", color: "#f59e0b", fontFamily: "monospace" }}>
+                  {Math.abs(r.deltaFromCStar) < 1e-7 ? "<1e-7" : "+" + r.deltaFromCStar.toFixed(6)}
+                </td>
+                <td style={{ padding: "6px 8px", color: "#10b981", fontFamily: "monospace" }}>
+                  +{(r.onsetNumeric - cc.theoremCConstant).toFixed(4)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 12 }}>
+        <div style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: 8, padding: "10px 14px" }}>
+          <div style={{ color: "#ef4444", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+            Asymmetric minimal-pair scan
+          </div>
+          <div style={{ color: "#e2e8f0", fontSize: 13 }}>
+            inf &asymp; <strong>{cc.asymMinPairScan}</strong> &lt; c* (imp-3005, 2e6 configs)
+          </div>
+          <div style={{ color: "#94a3b8", fontSize: 11, marginTop: 4 }}>
+            Asymmetric configs worsen marginally <em>earlier</em> than the symmetric closed form.
+          </div>
+        </div>
+        <div style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.3)", borderRadius: 8, padding: "10px 14px" }}>
+          <div style={{ color: "#10b981", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+            Adversarial multi-body scan
+          </div>
+          <div style={{ color: "#e2e8f0", fontSize: 13 }}>
+            inf &asymp; <strong>{cc.scannedMultiBodyInf}</strong> &gt; c* (Lemma R2-T, 3e6 configs)
+          </div>
+          <div style={{ color: "#94a3b8", fontSize: 11, marginTop: 4 }}>
+            Brackets the closed form c* &asymp; {cc.cStarClosed.toFixed(5)} from above.
+          </div>
+        </div>
+      </div>
+
+      <div style={{ background: "rgba(245,158,11,0.07)", border: "1px solid rgba(245,158,11,0.25)", borderRadius: 8, padding: "10px 14px" }}>
+        <div style={{ color: "#f59e0b", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+          Honest residual: global multi-body constant stays OPEN
+        </div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.7 }}>
+          {cc.agreement}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function SpectralAttackPage() {
   return (
     <div className="page">
@@ -1084,6 +1179,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── R1-T4 Basin Closure Narrative (imp-3055) ─── */}
       <R1T4BasinClosureSection />
+
+      {/* ─── Symmetric Shell-Onset Ladder (imp-3060) ─── */}
+      <ShellOnsetLadderSection />
 
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>

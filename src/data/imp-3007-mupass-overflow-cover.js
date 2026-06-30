@@ -245,6 +245,27 @@ export const IMP3007_MUPASS_OVERFLOW_COVER = Object.freeze({
     sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
     didNotRerunBarePilot: true,
   }),
+
+  /* imp-3144: the genuine-density correction the section26 operator-verdict surfaced.
+     The "residual deficit exactly 0" above is the SCALAR (degree-0, pointwise
+     cosh >= sinh) cover -- exact and correct AS A SCALAR statement, but it is
+     necessary-but-NOT-sufficient and lives at OPERATOR order, not mass order. The
+     imp-2841/imp-2686 surrogate (mu_diag=A, nu=sinh*A) FORCED "exactly zero" on A
+     support as an artifact; the GENUINE degree-2 occupation measure instead gives a
+     tiny NONZERO deficit, and the genuine degree-0 spectral overflow is ~64%. */
+  genuineDensityCorrection: Object.freeze({
+    scalarResidualIsExactZero: true,
+    scalarResidualIsNecessaryNotSufficient: true,
+    order: 'operator (Gpass >= Gshear <=> K_a >= 0), NOT mass',
+    genuineDeg2DeficitNonzero: 9.28e-9,        // corrects the surrogate "exactly zero" artifact
+    genuineDeg2OverflowFractionOfTau: 0.194,   // overflow on 19.4% of tau in the genuine deg-2 measure
+    genuineDeg0SpectralOverflowFraction: 0.64, // the ~64%-of-tau the raw diagonal cannot dominate
+    surrogateArtifact:
+      'the imp-2841/imp-2686 mu_diag=A, nu=sinh*A surrogate forces residual deficit ' +
+      'exactly zero on A support; the genuine degree-2 occupation measure gives ' +
+      '9.28e-9 (19.4% of tau) instead -- tiny but NONZERO',
+    ref: 'section26-mupass-operator-verdict-2026-06-30.js',
+  }),
 });
 
 // -- Tripwire assertions ------------------------------------------------------
@@ -324,6 +345,26 @@ export const IMP3007_MUPASS_OVERFLOW_COVER_ASSERTIONS = [
         c.didNotRerunBarePilot === true &&
         /Platt-Trudgian/.test(c.sota) &&
         IMP3007_MUPASS_OVERFLOW_COVER.remainingGap.operatorStepOpen === true
+      );
+    },
+  },
+  {
+    id: 'imp3007-genuine-density-correction-necessary-not-sufficient',
+    why: 'imp-3144: the scalar "residual deficit exactly 0" is necessary-but-NOT-sufficient and ' +
+         'sits at OPERATOR order, not mass order; the genuine degree-2 occupation measure gives a ' +
+         'tiny NONZERO deficit (9.28e-9, 19.4% of tau), correcting the imp-2841/imp-2686 surrogate ' +
+         '"exactly zero" artifact, and the genuine degree-0 spectral overflow is ~64%. A flip here ' +
+         'would re-assert the surrogate artifact as a genuine zero.',
+    holds: () => {
+      const g = IMP3007_MUPASS_OVERFLOW_COVER.genuineDensityCorrection;
+      return (
+        g.scalarResidualIsExactZero === true &&
+        g.scalarResidualIsNecessaryNotSufficient === true &&
+        /operator/.test(g.order) && /NOT mass/.test(g.order) &&
+        g.genuineDeg2DeficitNonzero > 0 &&
+        Math.abs(g.genuineDeg2DeficitNonzero - 9.28e-9) < 1e-11 &&
+        Math.abs(g.genuineDeg2OverflowFractionOfTau - 0.194) < 1e-9 &&
+        Math.abs(g.genuineDeg0SpectralOverflowFraction - 0.64) < 1e-9
       );
     },
   },

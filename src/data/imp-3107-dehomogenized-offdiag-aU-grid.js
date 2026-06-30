@@ -298,6 +298,27 @@ export const IMP3107_DEHOMOGENIZED_OFFDIAG_AU_GRID_ASSERTIONS = [
       Math.abs(headlineCell.maxOffDiagonalR - 0.98549338) < 1e-6,
   },
   {
+    id: 'imp3107-equal-product-offdiag-extremes-locked-1e13',
+    why: 'THE imp-3128 LOCK (the off-diagonal analogue of the imp-3113 gap lock): rebuild R at the ' +
+         'two DISTINCT equal-product cells (a,U) = (0.5,6) and (0.3,10), both s = a*U = 3, and certify ' +
+         'the de-homogenized OFF-DIAGONAL extremes to a TIGHTER 1e-13: (a) |min R_jk^(1) - min R_jk^(2)| ' +
+         '< 1e-13 AND |max R_jk^(1) - max R_jk^(2)| < 1e-13 (the U prefactor cancels in EVERY entry of ' +
+         'R_jk = H_jk/sqrt(D_jj D_kk), so the off-diagonal min and max are functions of s = a*U alone), ' +
+         'while (b) the RAW min |H_jk| DIFFERS by O(1) between them (it keeps the dimensionful U scale). ' +
+         'imp-3113 pinned the gap + ||R|| at this exact pair; this pins the off-diagonal min/max R_jk on ' +
+         'the SAME pair so a silent construction edit cannot drift the off-diagonal s-invariance. ' +
+         'Measured: both extremes coincide to ~1e-15, headline min R_jk ~ 0.77125669, max R_jk ~ 0.98549338.',
+    holds: () => {
+      const c1 = cellMetrics(0.5, 6);
+      const c2 = cellMetrics(0.3, 10);
+      const minInvariant = Math.abs(c1.minOffDiagonalR - c2.minOffDiagonalR) < 1e-13;
+      const maxInvariant = Math.abs(c1.maxOffDiagonalR - c2.maxOffDiagonalR) < 1e-13;
+      const rawHankelDiffers =
+        Math.abs(c1.minOffDiagonalHankelCrossTerm - c2.minOffDiagonalHankelCrossTerm) > 1;
+      return minInvariant && maxInvariant && rawHankelDiffers;
+    },
+  },
+  {
     id: 'imp3107-honest-diagnostic-not-a-verdict',
     why: 'Mandatory honesty: this is a REPRESENTATIVE diagnostic tabulation, the off-diagonal ' +
          'entries carry no RH verdict, positivity was not attempted, it is not a proof or a ' +

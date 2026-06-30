@@ -175,10 +175,17 @@ function verify() {
   }
   const indexMtime = fs.statSync(OUTPUT_FILE).mtimeMs;
   const queueMtime = fs.statSync(QUEUE_FILE).mtimeMs;
+  const improvMtime = fs.statSync(IMPROVEMENTS_FILE).mtimeMs;
   if (indexMtime < queueMtime) {
     fail(
       1,
       `queue-index.json (mtime ${new Date(indexMtime).toISOString()}) is OLDER than improvement-queue.js (mtime ${new Date(queueMtime).toISOString()}); regenerate via: node scripts/build-queue-index.mjs`,
+    );
+  }
+  if (indexMtime < improvMtime) {
+    fail(
+      1,
+      `queue-index.json (mtime ${new Date(indexMtime).toISOString()}) is OLDER than improvements.js (mtime ${new Date(improvMtime).toISOString()}); nextImprovementId may be stale; regenerate via: node scripts/build-queue-index.mjs`,
     );
   }
   let index;

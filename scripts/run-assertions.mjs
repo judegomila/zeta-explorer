@@ -2014,6 +2014,17 @@ const DATA_MODULES = [
   // equal-product cells coincide to machine precision -- the imp-3064 a*U invariant);
   // the RAW |H_jk| keeps the U scale and does not. Representative/diagnostic; no RH verdict.
   '/src/data/imp-3085-hankel-gap-aU-grid.js',
+  // imp-3124: TESTS whether the imp-3085 exact s = a*U collapse BREAKS once the bare
+  // hyperbolic weight is replaced by a Phi-proxy window (a fixed-scale Gaussian surrogate
+  // for the completed Riemann kernel), as imp-3110 survivesSwap DERIVES it must. The global
+  // U prefactor still cancels in R, but the window argument W(U*x) carries U directly, so
+  // equal-product cells (0.5,6) and (0.3,10) -- identical to ~1e-15 under the bare weight --
+  // split by ~0.246 once windowed (SIGMA=6); a SIGMA sweep shows the violation decays
+  // monotonically to 0 as SIGMA -> infinity, pinning the break to the finite intrinsic scale.
+  // Only the scale collapse breaks: the strictly-positive gap EXISTENCE survives on every
+  // cell, exactly the imp-3110 survivesSwap split. Gaussian proxy, not the genuine kernel;
+  // representative/diagnostic; no positivity; no RH verdict; PT 0.2 stays SOTA.
+  '/src/data/imp-3124-phi-windowed-aU-collapse-break.js',
   // imp-3107: tabulates the DE-HOMOGENIZED off-diagonal extremes min/max_{j!=k} R_jk
   // (R_jk = H_jk/sqrt(D_jj D_kk)) across the imp-3085 a x U grid -- the curve imp-3085
   // never reported, having only contrasted the RAW |H_jk|. Confirms the de-homogenized
@@ -2077,6 +2088,16 @@ const DATA_MODULES = [
   // Loewdin disagree ~6-7%, both overshoot the analytic ceiling). Representative/
   // diagnostic; no RH verdict; positivity not attempted; PT 0.2 stays SOTA.
   '/src/data/imp-3104-orthogonalized-opnorm-degree-sweep.js',
+  // imp-3125: profiles the imp-3086/imp-3102 BASIS-INVARIANT surviving residual gap
+  // ||R_orth|| - max_j R_orth_jj (R_orth = L H L^T) vs monomial truncation degree DEG in
+  // {2,4,6,8,10} on the headline cell a=0.5,U=6 (both parents measured DEG=4 only). The
+  // gap SATURATES: ||R_orth|| rises toward tanh(a*U)=tanh(3)~0.99505 (imp-3104) while the
+  // max diagonal is pinned at the constant-direction closed form R_orth_00=(cosh(aU)-1)/
+  // sinh(aU)=tanh(aU/2)~0.90515 (DEG-independent), so the survivor converges from below to
+  // tanh(aU)-tanh(aU/2)~0.08991 (measured 0.08471->0.08959, distance to limit shrinks ~16x).
+  // Intrinsic obstruction neither grows unbounded nor vanishes. Representative diagnostic;
+  // no RH verdict; positivity not attempted; DEG inside the imp-3104 trustworthy range; PT 0.2 SOTA.
+  '/src/data/imp-3125-orthogonalized-residual-gap-degree-sweep.js',
   // imp-3106: assesses the INTEGRABILITY of the imp-3064 excess fraction phi(s) =
   // G(s)/F(s) over the admissible range (s0, inf). The integral DIVERGES: the
   // imp-3087 onset pole phi ~ C/(s-s0)^2 (C = sqrt(2)*(1-arcsinh(1)) ~ 0.16776) is
@@ -2100,6 +2121,14 @@ const DATA_MODULES = [
   // silent edit to F or G in either module cannot drift C or K unnoticed. 6 tripwires;
   // degree-0 scalar measure; RH-equivalent; lock only, no QED; PT 0.2 SOTA.
   '/src/data/imp-3112-onset-decay-constant-locks.js',
+  // imp-3126: cross-checks whether the imp-3106 convergent regular tail mass
+  // int_{s0+1}^inf phi ds ~0.26900597 is structurally related to the imp-3026/imp-3070
+  // cusp constant C_shock = sqrt(2/(3 log gamma_N)) ~0.26922 (which agree to ~2.1e-4 at
+  // N*=1e4) or a coincidence. VERDICT COINCIDENCE: the regular mass is a fixed
+  // N-independent integral while C_shock(N) decays monotonically, so the abs diff grows
+  // ~213x over the next two decades (2.1e-4 -> 4.5e-2); no shared arcsinh(1)/sqrt(2)
+  // closed form. Pure cross-validation of two degree-0 scalars; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3126-regular-mass-vs-c-shock-coincidence.js',
   // imp-3006+3061+3062+3063+3090+3091: basin-conditional local-energy C_Lip assembly
   // (c*=0.93185 closed form, BASIN_RHO=0.72 < ASYM_SCAN_INF=0.927, margin 0.207),
   // margin sensitivity ladder, gap-channel theta-sweep [0,1/4], divergence decomposition

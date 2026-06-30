@@ -2006,6 +2006,14 @@ const DATA_MODULES = [
   // equal-product cells coincide to machine precision -- the imp-3064 a*U invariant);
   // the RAW |H_jk| keeps the U scale and does not. Representative/diagnostic; no RH verdict.
   '/src/data/imp-3085-hankel-gap-aU-grid.js',
+  // imp-3107: tabulates the DE-HOMOGENIZED off-diagonal extremes min/max_{j!=k} R_jk
+  // (R_jk = H_jk/sqrt(D_jj D_kk)) across the imp-3085 a x U grid -- the curve imp-3085
+  // never reported, having only contrasted the RAW |H_jk|. Confirms the de-homogenized
+  // off-diagonal entries ARE functions of s = a*U alone (equal-product cells coincide to
+  // ~1e-15, e.g. s=3 gives min R_jk 0.77125669, max R_jk 0.98549338) unlike the raw |H_jk|
+  // (split 5.58 vs 9.31), and both extremes rise monotonically + saturate below 1 toward the
+  // common-exponential Perron limit. Representative/diagnostic; no RH verdict; PT 0.2 SOTA.
+  '/src/data/imp-3107-dehomogenized-offdiag-aU-grid.js',
   // imp-3087: characterizes the divergence of the imp-3064 excess fraction
   // phi(s) = G(s)/F(s) at the overflow onset s -> s0+ (s0 = arcsinh(1)). F has a
   // DOUBLE zero there (F(s0) = 0 and F′(s0) = sinh(s0) - 1 = 0, F′′(s0) = sqrt(2))
@@ -2021,6 +2029,15 @@ const DATA_MODULES = [
   // e^{-s}, so the bare e^{-s} fit relative error decays ~2s*e^{-s} (55% at s=2 to
   // ~8e-8 at s=20). Degree-0 scalar leading asymptotic; no RH verdict.
   '/src/data/imp-3088-excess-fraction-large-s-decay.js',
+  // imp-3105: locates the INTERIOR landmark scales of the imp-3064 excess fraction
+  // phi(s) = G(s)/F(s) between the imp-3087 onset pole and the imp-3088 large-s decay.
+  // The two asymptotic envelopes C/(s-s0)^2 and K e^{-s} cross TWICE (physical handoff
+  // s ~ 1.91504; algebraic-vs-exponential re-crossing s ~ 4.31751); phi(s) = 1 at the
+  // unique s* ~ 1.48895 where F = G ~ 0.30723 (transcendental, no closed form); and the
+  // steepest transition max |dlog_phi/ds| has NO finite interior maximizer -- the slope
+  // rises monotonically from -infinity at the onset double zero to -1, so the steepest
+  // point is the onset boundary itself. Degree-0 scalar measure; RH-equivalent; no RH verdict.
+  '/src/data/imp-3105-excess-fraction-crossover-landmarks-2026-06-30.js',
   // imp-3102: sweeps the imp-3086 BASIS-INVARIANT residual gap ||R_orth|| - max_j
   // R_orth_jj (R_orth = L H L^T, L = (Cholesky of the FULL passive cosh Gram)^{-1})
   // across the Cartesian a x U grid and finds the SURVIVING intrinsic obstruction also
@@ -2052,6 +2069,18 @@ const DATA_MODULES = [
   // Loewdin disagree ~6-7%, both overshoot the analytic ceiling). Representative/
   // diagnostic; no RH verdict; positivity not attempted; PT 0.2 stays SOTA.
   '/src/data/imp-3104-orthogonalized-opnorm-degree-sweep.js',
+  // imp-3106: assesses the INTEGRABILITY of the imp-3064 excess fraction phi(s) =
+  // G(s)/F(s) over the admissible range (s0, inf). The integral DIVERGES: the
+  // imp-3087 onset pole phi ~ C/(s-s0)^2 (C = sqrt(2)*(1-arcsinh(1)) ~ 0.16776) is
+  // non-integrable at s0, so int_{s0+eps}^{s0+1} phi ds ~ C/eps (eps-cutoff ladder
+  // grows ~10x per decade, eps*I(eps) -> C from above, and tracks the analytic
+  // principal part C*(1/eps-1) to <1%). The area-weighted MEAN price thus has no
+  // finite value. Away from the onset all is finite: the imp-3088 tail phi ~ K e^{-s}
+  // (K ~ 1.06568) gives a convergent tail mass int_S^inf phi ds ~ K e^{-S}, and the
+  // whole regular mass int_{s0+1}^inf phi ds ~ 0.2690 is fixed; the divergence is
+  // localised ENTIRELY at the onset (I(1e-4) overruns 0.2690 by ~6250x). Divergence
+  // characterization, not a value; degree-0 scalar measure; RH-equivalent; PT 0.2 SOTA.
+  '/src/data/imp-3106-excess-fraction-integrability.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -244,6 +244,164 @@ function ThetaLadderTable() {
   );
 }
 
+const BASIN_CAP_RHO = 0.72;
+
+function ThetaRhoPhaseDiagram() {
+  const [N, setN] = useState(30);
+
+  const points = useMemo(() => {
+    const zs = ZETA_ZEROS.slice(0, N);
+    const pts = [];
+    for (let k = 1; k < N - 2; k++) {
+      const g = zs[k + 1] - zs[k];
+      const dLeft = zs[k] - zs[k - 1];
+      const dRight = zs[k + 2] - zs[k + 1];
+      const d1 = Math.min(dLeft, dRight);
+      const rho = g / d1;
+      let E = 0;
+      for (let j = 0; j < N; j++) {
+        if (j === k || j === k + 1) continue;
+        E += 1 / ((zs[k] - zs[j]) * (zs[k + 1] - zs[j]));
+      }
+      const theta = (g * g * E) / 2;
+      pts.push({ k, rho: Math.min(rho, 1.09), theta: Math.min(theta, 0.59) });
+    }
+    return pts;
+  }, [N]);
+
+  const svgW = 520, svgH = 280, padL = 44, padR = 16, padT = 16, padB = 36;
+  const chartW = svgW - padL - padR;
+  const chartH = svgH - padT - padB;
+  const rhoMax = 1.1, thetaMax = 0.60;
+
+  const xS = (r) => padL + (Math.min(r, rhoMax) / rhoMax) * chartW;
+  const yS = (t) => padT + chartH * (1 - Math.min(t, thetaMax) / thetaMax);
+
+  const y25 = yS(TRAP_A);
+  const y443 = yS(TRAP_B);
+  const xBasin = xS(BASIN_CAP_RHO);
+  const xCstar = xS(TRAP_CSTAR);
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #8b5cf6' }}>
+      <h3 style={{ color: '#8b5cf6', fontSize: 16, marginBottom: 8 }}>
+        Theta-Trap Phase Diagram: (&rho;, &Theta;) Plane
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        Each adjacent zeta-zero pair plotted at its isolation ratio &rho;&nbsp;=&nbsp;g/d&#x2081; (x-axis)
+        and coupling parameter &Theta;&nbsp;=&nbsp;g&#xb2;E/2 (y-axis). Shaded zones show trap coverage.
+        Theorem&nbsp;A (green) is unconditional for all &rho;; Theorem&nbsp;B (amber) requires
+        minimal-gap status. The vertical lines mark the Theorem-C basin cap (&rho;&nbsp;=&nbsp;0.72)
+        and the R2-T2 self-isolation onset c*&nbsp;&asymp;&nbsp;0.932.
+      </p>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+        <label style={{ color: '#94a3b8', fontSize: 13, whiteSpace: 'nowrap' }}>
+          N = <strong style={{ color: '#e2e8f0' }}>{N}</strong> zeros
+        </label>
+        <input type="range" min={10} max={50} value={N}
+          onChange={(e) => setN(Number(e.target.value))}
+          style={{ flex: 1 }} />
+      </div>
+      <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+        {/* Shaded trap zones */}
+        <rect x={padL} y={y25} width={chartW} height={padT + chartH - y25}
+          fill="rgba(16,185,129,0.12)" />
+        <rect x={padL} y={y443} width={chartW} height={y25 - y443}
+          fill="rgba(245,158,11,0.10)" />
+        <rect x={padL} y={padT} width={chartW} height={y443 - padT}
+          fill="rgba(239,68,68,0.07)" />
+
+        {/* Horizontal threshold lines */}
+        <line x1={padL} y1={y25} x2={svgW - padR} y2={y25}
+          stroke="#10b981" strokeWidth={1.5} strokeDasharray="5 2" />
+        <text x={svgW - padR - 2} y={y25 - 4} fill="#10b981" fontSize={9} textAnchor="end">
+          Thm A: 1/4
+        </text>
+        <line x1={padL} y1={y443} x2={svgW - padR} y2={y443}
+          stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="4 2" />
+        <text x={svgW - padR - 2} y={y443 - 4} fill="#f59e0b" fontSize={9} textAnchor="end">
+          Thm B: 0.443
+        </text>
+
+        {/* Vertical threshold lines */}
+        <line x1={xBasin} y1={padT} x2={xBasin} y2={padT + chartH}
+          stroke="#06b6d4" strokeWidth={1.5} strokeDasharray="6 3" />
+        <text x={xBasin + 3} y={padT + 10} fill="#06b6d4" fontSize={9}>
+          &#x3c1;=0.72
+        </text>
+        <line x1={xCstar} y1={padT} x2={xCstar} y2={padT + chartH}
+          stroke="#8b5cf6" strokeWidth={1} strokeDasharray="3 2" />
+        <text x={xCstar - 3} y={padT + 20} fill="#8b5cf6" fontSize={9} textAnchor="end">
+          c*
+        </text>
+
+        {/* Scatter points */}
+        {points.map((p, i) => {
+          const col = p.theta < TRAP_A ? '#10b981' : p.theta < TRAP_B ? '#f59e0b' : '#ef4444';
+          return (
+            <circle key={i}
+              cx={xS(p.rho)} cy={yS(p.theta)}
+              r={3.5} fill={col} opacity={0.75}
+            />
+          );
+        })}
+
+        {/* Axes */}
+        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH}
+          stroke="#334155" strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={padT + chartH}
+          stroke="#334155" strokeWidth={1} />
+
+        {/* Y-axis ticks */}
+        {[0, 0.1, 0.2, 0.3, 0.4, 0.5].map((v) => (
+          <g key={v}>
+            <text x={padL - 4} y={yS(v) + 3} fill="#475569" fontSize={8} textAnchor="end">
+              {v.toFixed(1)}
+            </text>
+            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#334155" />
+          </g>
+        ))}
+        <text x={12} y={padT + chartH / 2} fill="#94a3b8" fontSize={10} textAnchor="middle"
+          transform={`rotate(-90, 12, ${padT + chartH / 2})`}>
+          {'Θ'}
+        </text>
+
+        {/* X-axis ticks */}
+        {[0, 0.25, 0.5, 0.72, 1.0].map((v) => (
+          <g key={v}>
+            <text x={xS(v)} y={padT + chartH + 14} fill="#475569" fontSize={8} textAnchor="middle">
+              {v.toFixed(2)}
+            </text>
+            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 4} stroke="#334155" />
+          </g>
+        ))}
+        <text x={padL + chartW / 2} y={svgH - 3} fill="#94a3b8" fontSize={10} textAnchor="middle">
+          {'ρ = g / d₁  (isolation ratio)'}
+        </text>
+      </svg>
+
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 10, fontSize: 11 }}>
+        {[
+          { col: '#10b981', label: 'Θ < 1/4 — Theorem A unconditional' },
+          { col: '#f59e0b', label: '1/4 ≤ Θ < 0.443 — Theorem B zone' },
+          { col: '#ef4444', label: 'Θ ≥ 0.443 — above static cap' },
+        ].map(({ col, label }) => (
+          <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ width: 10, height: 10, borderRadius: '50%', background: col, flexShrink: 0 }} />
+            <span style={{ color: '#94a3b8' }}>{label}</span>
+          </div>
+        ))}
+      </div>
+      <p style={{ color: '#64748b', fontSize: 12, marginTop: 8, lineHeight: 1.7 }}>
+        The cyan vertical at &rho;&nbsp;=&nbsp;0.72 is the Theorem-C basin cap: pairs with
+        &rho;&nbsp;&lt;&nbsp;0.72 are certified in-basin (Theta_max&nbsp;&ge;&nbsp;1 there).
+        The purple c* line marks the R2-T2 self-isolation onset (d&rho;/ds&nbsp;&lt;&nbsp;0 for
+        &rho;&nbsp;&lt;&nbsp;c*&nbsp;&asymp;&nbsp;0.932), the basin safety margin is 0.207.
+      </p>
+    </div>
+  );
+}
+
 export default function SpectralAttackPage() {
   return (
     <div className="page">
@@ -561,6 +719,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Theta-Trap Threshold Ladder Table ─── */}
       <ThetaLadderTable />
+
+      {/* ─── Theta-Trap Phase Diagram ─── */}
+      <ThetaRhoPhaseDiagram />
 
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>

@@ -2088,6 +2088,17 @@ const DATA_MODULES = [
   // localised ENTIRELY at the onset (I(1e-4) overruns 0.2690 by ~6250x). Divergence
   // characterization, not a value; degree-0 scalar measure; RH-equivalent; PT 0.2 SOTA.
   '/src/data/imp-3106-excess-fraction-integrability.js',
+  // imp-3112: single cross-module build assertion locking BOTH companion asymptotic
+  // constants of the imp-3064 excess fraction phi(s) = G(s)/F(s): the imp-3087 onset
+  // pole constant C = sqrt(2)*(1 - arcsinh(1)) ~ 0.16776 (phi ~ C/(s-s0)^2 at s -> s0+)
+  // and the imp-3088 large-s decay constant K = 2*(sqrt(2) - arcsinh(1)) ~ 1.06568
+  // (phi ~ K e^{-s} at s -> inf). Recomputes both from the closed forms F, G, certifies
+  // them to the published anchors to ~1e-10, certifies the live imp-3087/imp-3088
+  // exports equal those closed forms to machine precision, and certifies the two
+  // convergence signatures phi(s0+eps)/(C/eps^2) -> 1 and phi(s) e^s / K -> 1, so a
+  // silent edit to F or G in either module cannot drift C or K unnoticed. 6 tripwires;
+  // degree-0 scalar measure; RH-equivalent; lock only, no QED; PT 0.2 SOTA.
+  '/src/data/imp-3112-onset-decay-constant-locks.js',
   // imp-3006+3061+3062+3063+3090+3091: basin-conditional local-energy C_Lip assembly
   // (c*=0.93185 closed form, BASIN_RHO=0.72 < ASYM_SCAN_INF=0.927, margin 0.207),
   // margin sensitivity ladder, gap-channel theta-sweep [0,1/4], divergence decomposition

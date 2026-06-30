@@ -391,3 +391,93 @@ export const THETA_CHANNEL_CEILING_ASSERTIONS = [
 for (const a of THETA_CHANNEL_CEILING_ASSERTIONS) {
   if (!a.holds()) throw new Error(`theta-channel-ceiling assertion failed: ${a.id}`);
 }
+
+// imp-3091: DERIVE the crowding/g0 scale at which the OFF-BASIN C_Theta blowup
+// overtakes the dominant gap channel. ch-lip-basin-conditional calls C_Theta
+// "subdominant" ON the basin, but imp-3022 (CTHETA_FLAT_INVARIANT) certifies that
+// OFF the basin (crowded near-uniform lattice, rho == 1) C_Theta = dTheta/dW_1
+// acquires a 1/g0 blowup with the scale-free closed form
+//     C_Theta_offbasin(g0) = (16/27) / g0          (N = 1 normalisation),
+// i.e. the flat invariant g0 * dTheta/dW_1 = 16/27 = 0.59259 (dTheta/dg =
+// 16 g d1/(g+2 d1)^3 evaluated at d1 = g0 gives 16/(27 g0)). The gap channel is
+// fixed at GAP_NOMINAL = g_min/4 (or the trapped ceiling GAP_CEILING = g_min/3).
+// The "subdominant" claim is exactly the inequality C_Theta_offbasin(g0) <
+// gap channel; it FAILS once g0 falls below the crossover where the two are equal:
+//     (16/27) / g0* = g_min/4   =>   g0* = 64 / (27 g_min) .
+// Two honest facts fall straight out at N* = 1e4 (g_min = 0.0376985):
+//   (a) the crossover gap g0* ~ 62.88 (nominal) / 47.16 (trapped ceiling) is
+//       ENORMOUS -- ~1668x the operative minimal gap g_min itself; and
+//   (b) AT the operative scale g0 = g_min the off-basin C_Theta already EXCEEDS the
+//       gap channel by the dominance ratio 64/(27 g_min^2) ~ 1668. Since gaps
+//       SHRINK with height (g_min decreases), g0 only moves further below g0*, so
+//       off-basin C_Theta never recovers subdominance -- the "subdominant" claim is
+//       a strictly basin (rho < 2/3) phenomenon, not something that survives even
+//       marginally off the basin.
+// This QUANTIFIES the basin safety boundary against the gap channel; it does NOT
+// close the off-basin divergence and is NOT a global-W_1 beat. PT Lambda <= 0.2 SOTA.
+const OFF_BASIN_PRODUCT = 16 / 27;                                   // g0 * dTheta/dW_1, certified flat (imp-3067)
+const cThetaOffBasin = (g0) => OFF_BASIN_PRODUCT / g0;              // off-basin C_Theta = (16/27)/g0, N = 1
+const G0_CROSS_NOMINAL = OFF_BASIN_PRODUCT / GAP_NOMINAL;           // 64/(27 g_min) ~ 62.88, vs gap channel g_min/4
+const G0_CROSS_CEILING = OFF_BASIN_PRODUCT / GAP_CEILING;           // 16/(9 g_min) ~ 47.16, vs trapped ceiling g_min/3
+const CTHETA_OFFBASIN_AT_GMIN = cThetaOffBasin(G_MIN_N1E4);         // ~15.72 at the operative gap scale
+const DOMINANCE_RATIO_AT_GMIN = CTHETA_OFFBASIN_AT_GMIN / GAP_NOMINAL; // 64/(27 g_min^2) ~ 1668 (C_Theta / gap channel)
+const CROSS_TO_OPERATIVE = G0_CROSS_NOMINAL / G_MIN_N1E4;           // ~1668: crossover gap as a multiple of operative g_min
+
+export const CTHETA_GAP_CROSSOVER = {
+  ticket: 'imp-3091',
+  date: '2026-06-30',
+  parent: 'imp-3022-ctheta-basin-scaling (off-basin 16/27 invariant) + ch-lip-basin-conditional (gap channel g_min/4)',
+  offBasinLaw: 'C_Theta_offbasin(g0) = (16/27)/g0 (N=1); g0 * dTheta/dW_1 = 16/27 certified flat off-basin (rho == 1)',
+  gapChannelNominal: GAP_NOMINAL,                                  // g_min/4 ~ 9.42e-3
+  gapChannelTrappedCeiling: GAP_CEILING,                           // g_min/3 ~ 1.257e-2
+  crossoverEquation: '(16/27)/g0* = g_min/4  =>  g0* = 64/(27 g_min)',
+  g0CrossNominal: G0_CROSS_NOMINAL,                               // ~62.88 vs the g_min/4 nominal gap channel
+  g0CrossTrappedCeiling: G0_CROSS_CEILING,                        // ~47.16 vs the g_min/3 trapped ceiling
+  cThetaOffBasinAtGmin: CTHETA_OFFBASIN_AT_GMIN,                  // ~15.72 at the operative gap g_min(1e4)
+  dominanceRatioAtGmin: DOMINANCE_RATIO_AT_GMIN,                  // ~1668: off-basin C_Theta / gap channel at g_min
+  crossoverGapAsMultipleOfGmin: CROSS_TO_OPERATIVE,              // ~1668: g0* is this many times the operative g_min
+  subdominantClaimHoldsAtGmin: CTHETA_OFFBASIN_AT_GMIN < GAP_NOMINAL, // false: off-basin C_Theta dominates at g_min
+  conclusion: 'OFF the basin the subdominant claim fails for every g0 below g0* = 64/(27 g_min) ~ 62.88; at the operative minimal gap g_min(1e4) = 0.0377 the off-basin C_Theta ~ 15.72 already EXCEEDS the gap channel ~9.42e-3 by ~1668x. The crossover gap is ~1668x larger than the operative gap, and since gaps shrink with height the off-basin C_Theta only moves deeper into dominance -- so C_Theta being subdominant is a strictly basin (rho < 2/3) phenomenon.',
+  honest: 'Quantifies WHERE off-basin C_Theta overtakes the gap channel (the basin safety boundary); it does NOT close the off-basin divergence and is NOT a global-W_1 beat. Platt-Trudgian Lambda <= 0.2 stays the rigorous SOTA and the finite-N*=1e4 beat stays an ESTIMATE. No false QED.',
+};
+
+export const CTHETA_GAP_CROSSOVER_ASSERTIONS = [
+  {
+    id: 'ctheta-crossover-closed-form-64-over-27-gmin',
+    description: 'the crossover gap solving (16/27)/g0 = g_min/4 is g0* = 64/(27 g_min) ~ 62.88, equal to OFF_BASIN_PRODUCT/GAP_NOMINAL',
+    holds: () => Math.abs(G0_CROSS_NOMINAL - 64 / (27 * G_MIN_N1E4)) < 1e-9
+      && Math.abs(G0_CROSS_NOMINAL - 62.88) < 0.02,
+  },
+  {
+    id: 'ctheta-crossover-ceiling-below-nominal',
+    description: 'the trapped-ceiling crossover g0* = 16/(9 g_min) ~ 47.16 sits below the nominal crossover (larger gap channel => smaller crossover gap), bracketing the boundary in [47.16, 62.88]',
+    holds: () => Math.abs(G0_CROSS_CEILING - 16 / (9 * G_MIN_N1E4)) < 1e-9
+      && G0_CROSS_CEILING < G0_CROSS_NOMINAL
+      && Math.abs(G0_CROSS_CEILING - 47.16) < 0.02,
+  },
+  {
+    id: 'ctheta-offbasin-dominates-at-operative-gmin',
+    description: 'at the operative minimal gap g_min(1e4) the off-basin C_Theta ~15.72 EXCEEDS the gap channel ~9.42e-3 (subdominant claim fails off-basin), dominance ratio 64/(27 g_min^2) ~ 1668',
+    holds: () => CTHETA_OFFBASIN_AT_GMIN > GAP_NOMINAL
+      && CTHETA_GAP_CROSSOVER.subdominantClaimHoldsAtGmin === false
+      && Math.abs(DOMINANCE_RATIO_AT_GMIN - 64 / (27 * G_MIN_N1E4 * G_MIN_N1E4)) < 1e-6
+      && Math.abs(DOMINANCE_RATIO_AT_GMIN - 1668) < 2,
+  },
+  {
+    id: 'ctheta-crossover-gap-enormous-vs-operative',
+    description: 'the crossover gap g0* is ~1668x the operative minimal gap g_min, equal to the dominance ratio, so off-basin C_Theta only worsens as gaps shrink with height',
+    holds: () => Math.abs(CROSS_TO_OPERATIVE - DOMINANCE_RATIO_AT_GMIN) < 1e-6
+      && CROSS_TO_OPERATIVE > 1000,
+  },
+  {
+    id: 'ctheta-crossover-no-false-qed',
+    description: 'the crossover derivation quantifies the basin safety boundary only: it does NOT close the off-basin divergence, is NOT a global-W_1 beat, and PT Lambda <= 0.2 stays SOTA',
+    holds: () => /does NOT close the off-basin divergence/.test(CTHETA_GAP_CROSSOVER.honest)
+      && /NOT a global-W_1 beat/.test(CTHETA_GAP_CROSSOVER.honest)
+      && /Lambda <= 0.2 stays the rigorous SOTA/.test(CTHETA_GAP_CROSSOVER.honest),
+  },
+];
+
+for (const a of CTHETA_GAP_CROSSOVER_ASSERTIONS) {
+  if (!a.holds()) throw new Error(`ctheta-gap-crossover assertion failed: ${a.id}`);
+}

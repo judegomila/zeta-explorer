@@ -2121,6 +2121,16 @@ const DATA_MODULES = [
   // silent edit to F or G in either module cannot drift C or K unnoticed. 6 tripwires;
   // degree-0 scalar measure; RH-equivalent; lock only, no QED; PT 0.2 SOTA.
   '/src/data/imp-3112-onset-decay-constant-locks.js',
+  // imp-3127: single cross-module build assertion locking the THREE interior landmark
+  // scales of the imp-3064 excess fraction phi(s) = G(s)/F(s) that imp-3105 located:
+  // the unique phi = 1 scale s* ~ 1.48895 (F = G ~ 0.30723), the physical onset->decay
+  // envelope handoff s_cross1 ~ 1.91504, and the algebraic-vs-exponential re-crossing
+  // s_cross2 ~ 4.31751. Recomputes all three by an independent bracketed root find on
+  // the closed forms F, G, certifies them to the published anchors to ~1e-9, and
+  // certifies the live imp-3105 exports equal those recomputed scales to ~1e-9, so a
+  // silent edit to F or G in imp-3105 cannot drift the interior landmarks unnoticed.
+  // 6 tripwires; degree-0 scalar measure; RH-equivalent; lock only, no QED; PT 0.2 SOTA.
+  '/src/data/imp-3127-interior-landmark-locks.js',
   // imp-3126: cross-checks whether the imp-3106 convergent regular tail mass
   // int_{s0+1}^inf phi ds ~0.26900597 is structurally related to the imp-3026/imp-3070
   // cusp constant C_shock = sqrt(2/(3 log gamma_N)) ~0.26922 (which agree to ~2.1e-4 at

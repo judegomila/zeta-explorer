@@ -2230,6 +2230,30 @@ const DATA_MODULES = [
   // deliverable is the DEG-trend + overflow fraction. Representative diagnostic;
   // necessary-but-not-sufficient at operator order; no positivity, no RH verdict; PT 0.2 SOTA.
   '/src/data/imp-3154-genuine-deg2-deficit-degree-sweep.js',
+  // imp-3199: generalizes the imp-3175 SINGLE-cell (a=0.5,U=6,NPHI=10) O(N) prefix/suffix
+  // overflow-fraction resolution sweep to SEVEN genuine Phi cells (vary a, U, NPHI one knob
+  // at a time) and certifies the O(N) sinh(a(v-u)) addition-law factorization against a
+  // direct O(N^2) recompute at EACH cell. FINDINGS: (F1) the factorized nu(tau) reproduces
+  // the direct O(N^2) loop to machine precision (max rel error ~1e-16) at every cell, not
+  // just the base; (F2) the overflow fraction is monotone-increasing-to-a-converged-value at
+  // every cell; (F3) the converged FRACTION is cell-dependent but ONLY through U (a in
+  // {0.3,0.5,0.7} and NPHI in {6,10,14} all give ~0.209 -- the kernel saturates by NPHI=6;
+  // U=5 -> 0.251, U=6 -> 0.209, U=8 -> 0.157), while the ABSOLUTE overflow-support measure
+  // frac*U is ~1.2535 +- 0.001 across ALL seven cells. So the imp-3175 ~0.209 is the U=6
+  // normalization of a cell-invariant overflow-support lag-length ~1.254, NOT a universal
+  // fraction. Throws on import if any cell breaks the factorization, monotonicity, or the
+  // invariant measure. Diagnostic; overflow-support only; necessary-but-not-sufficient at
+  // operator order; no positivity, no RH verdict; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-3199-overflow-fraction-cell-sweep.js',
+  // imp-3197: tests the section26-mupass verdict claim that the K_a>=0 bridge sign-positivity
+  // is "derived from Phi ALONE (not from |Gshear| own spectrum)" at the genuine Phi (NPHI=10,
+  // a=0.5, U=6). Splits "correct sign at correct lags" into SIGN and MAGNITUDE: Phi>=0 on [0,U]
+  // makes its autocorrelation nonnegative, so sign Gshear(u,v)=sign(v-u) -- the Phi-only sign
+  // matches the |Gshear| entry sign on 100% of off-diagonal mass (zero gap). But the
+  // lag-stationary surrogate carrying exactly Phi autocorrelation captures only ~3% of the true
+  // ||Gshear|| (~97% is Phi position concentration = the |Gshear| spectrum). So the sign half is
+  // Phi-only and free; the binding magnitude half stays operator-level / RH-equivalent. PT 0.2 SOTA.
+  '/src/data/imp-3197-mupass-bridge-sign-phi-only.js',
   // imp-3126: cross-checks whether the imp-3106 convergent regular tail mass
   // int_{s0+1}^inf phi ds ~0.26900597 is structurally related to the imp-3026/imp-3070
   // cusp constant C_shock = sqrt(2/(3 log gamma_N)) ~0.26922 (which agree to ~2.1e-4 at

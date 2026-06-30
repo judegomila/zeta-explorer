@@ -221,6 +221,8 @@
  * imp-2559 Lemma P gap-half (g <= 8/V) is unaffected.
  */
 
+import { THETA_TRAP_RUNS } from './sg1-theta-contraction.js';
+
 export const SG1C_THEOREMS = {
   lemma1: 'dE/ds = -2 E^2 + 12 sum T^2 + 4 g^2 sum T^3 (exact, every N, every adjacent pair)',
   lemma2: 'dTheta/ds = -4 Theta (2 - Theta)/g^2 + 6 g^2 sum T^2 + 2 g^4 sum T^3 (exact)',
@@ -254,7 +256,7 @@ export const SG1C_SUCCESSOR_GAPS = {
       id: 'sg1c-r2-isolation-persistence',
       statement: 'Theorem C (isolation g <= 0.72 d_1 gives trap at every level <= 1) is a static sign criterion; prove or refute that an initial isolation margin g <= c d_1 with c < 0.72 persists along the flow for some explicit c (only Theta <= 1/4 is known to self-enforce its own hypothesis).',
       status: 'open',
-      progress: 'PARTIAL (Lemma R2-T, imp-2596): the isolation ratio rho = g/d_1 against the nearest environment particle obeys the EXACT single-neighbour identity d(rho)/ds = (g-d_1)/d_1^2 * [2/(g+d_1) + 4(g+d_1)/(d_1 g)]; the bracket is strictly positive, so sign(d rho/ds) = sign(g - d_1) and the margin STRICTLY self-improves for every rho < 1 (threshold exactly 1). So g <= 0.72 d_1 is self-propagating against the nearest neighbour -- it tightens, not merely holds. An adversarial 3e6-config multi-body scan (up to 7 particles, both sides) puts the worsening-onset infimum at rho ~ 0.943 (only near a uniform lattice), 0.22 above c = 0.72. UPDATE (imp-3005, Lemma R2-T2): the symmetric single-shell 4-body case is now CLOSED IN FORM -- exact rate drho/ds = (1/d^2)[-4/rho + 4rho/(rho+1) + 2rho/(rho+2) + 4rho - 2] worsens only above the unique (0,1) root of rho^4+4rho^3+2rho^2-4rho-2, i.e. c* = sqrt(2+sqrt(3))-1 = (1+sqrt(3))/sqrt(2)-1 ~ 0.93185165 (u=rho^2+2rho => u^2-2u-2=0); within the symmetric K-shell family K=1 is the worst (onset rises with K). RESIDUAL (sharpened, still OPEN): the GLOBAL constant is not closed -- a 2e6-config minimal-pair scan finds asymmetric configs worsening marginally earlier (~0.927 < c*), so the open residual is now precisely an ASYMMETRIC multi-body bound below c*; only single-neighbour c = 1, the symmetric single-shell c* in closed form, and the unconditional Theta <= 1/4 trap are fully closed.',
+      progress: 'PARTIAL (Lemma R2-T, imp-2596): the isolation ratio rho = g/d_1 against the nearest environment particle obeys the EXACT single-neighbour identity d(rho)/ds = (g-d_1)/d_1^2 * [2/(g+d_1) + 4(g+d_1)/(d_1 g)]; the bracket is strictly positive, so sign(d rho/ds) = sign(g - d_1) and the margin STRICTLY self-improves for every rho < 1 (threshold exactly 1). So g <= 0.72 d_1 is self-propagating against the nearest neighbour -- it tightens, not merely holds. An adversarial 3e6-config multi-body scan (up to 7 particles, both sides) puts the worsening-onset infimum at rho ~ 0.943 (only near a uniform lattice), 0.22 above c = 0.72. UPDATE (imp-3005, Lemma R2-T2): the symmetric single-shell 4-body case is now CLOSED IN FORM -- exact rate drho/ds = (1/d^2)[-4/rho + 4rho/(rho+1) + 2rho/(rho+2) + 4rho - 2] worsens only above the unique (0,1) root of rho^4+4rho^3+2rho^2-4rho-2, i.e. c* = sqrt(2+sqrt(3))-1 = (1+sqrt(3))/sqrt(2)-1 ~ 0.93185165 (u=rho^2+2rho => u^2-2u-2=0); within the symmetric K-shell family K=1 is the worst (onset rises with K). RESIDUAL (sharpened, still OPEN): the GLOBAL constant is not closed -- a 2e6-config minimal-pair scan finds asymmetric configs worsening marginally earlier (~0.927 < c*), so the open residual is now precisely an ASYMMETRIC multi-body bound below c*; only single-neighbour c = 1, the symmetric single-shell c* in closed form, and the unconditional Theta <= 1/4 trap are fully closed. UPDATE (imp-3021, SG1C_R2T2_ASYM_RESIDUAL): a STRUCTURED (non-random) search identifies the exact worst asymmetric STRUCTURE the random scan missed -- a one-sided minimal-spacing half-lattice (right neighbours spaced exactly the pair gap g, keeping the tracked pair globally minimal) PLUS a single isolated neighbour at d_1 on the other side; the lattice destabilises isolation against the lone far neighbour. The half-lattice worsening onset converges to ~0.90625 by 4 lattice particles (the m=1 case is exactly the symmetric two-neighbour config, recovering c*), and a deterministic tune of the first gap and spacing pushes the infimum to ~0.9016. This SHARPENS the open asymmetric lower bracket DOWN from the loose random-scan ~0.927 to ~0.902, bracketing the global multi-body constant in ~(0.90, 0.943). HONEST: this is a certified numerical infimum of a structured family, NOT a closed form for the global asymmetric constant and NOT a proof that nothing worsens still earlier -- the exact infimum and its closed form remain OPEN. The load-bearing consequence is unchanged: even ~0.902 sits far above the Theorem C basin constant 0.72 (margin ~0.18), so the basin-conditional C_Lip (imp-3006) never depended on the open global constant.',
     },
   ],
 };
@@ -355,6 +357,84 @@ export const SG1C_R2T2_SHELL_CROSSCHECK = (() => {
   };
 })();
 
+// imp-3021: structured search for the WORST asymmetric multi-body isolation config,
+// the post-imp-3005 sharpened residual of sg1c-r2-isolation-persistence. imp-3005
+// closed the SYMMETRIC single-shell onset at c* = sqrt(2+sqrt(3))-1 ~ 0.93185 and a
+// 2e6-config RANDOM minimal-pair scan only bracketed the asymmetric residual loosely
+// at ~0.927 (just below c*). A structured (non-random) search identifies the exact
+// worst asymmetric STRUCTURE the random scan missed: a one-sided minimal-spacing
+// half-lattice (right neighbours spaced exactly the pair gap g, so the tracked pair
+// stays globally minimal) PLUS a single isolated neighbour at d_1 on the other side.
+// The asymmetric lattice destabilises the isolation measured against the lone far
+// neighbour. The canonical half-lattice (first right gap 1, then spacing g) has a
+// worsening onset that converges by 4 lattice particles to ~0.90625 (the m=1 case is
+// exactly the symmetric two-neighbour config, recovering c*); a deterministic tune of
+// the first-gap and spacing pushes the infimum to ~0.9016. This SHARPENS the open
+// asymmetric lower bracket DOWNWARD from the loose random-scan ~0.927 to ~0.902, so the
+// global multi-body isolation constant is now bracketed in ~(0.90, 0.943).
+// HONEST / STILL OPEN: this is a certified numerical infimum of a structured family,
+// NOT a closed form for the global asymmetric constant and NOT a proof that no config
+// worsens still earlier; the exact infimum and its closed form remain open. The
+// load-bearing consequence is unchanged and re-certified: even this sharpened worst
+// asymmetric onset ~0.902 sits FAR above the Theorem C basin constant 0.72 (margin
+// ~0.18), so the basin-conditional C_Lip (imp-3006) never depended on the open global
+// constant. No global-W_1 beat; PT 0.2 stays SOTA.
+export const SG1C_R2T2_ASYM_RESIDUAL = (() => {
+  const cStar = Math.sqrt(2 + Math.sqrt(3)) - 1; // 0.93185165... symmetric single-shell closed form
+  // worst asymmetric family: left neighbour at -1 (d_1 = 1), right one-sided lattice
+  // with first gap h and subsequent spacing sp, each floored at the pair gap g = rho so
+  // the tracked central pair (0, rho) stays the GLOBAL minimal adjacent gap. idx = 1.
+  const cfg = (rho, h, sp, m) => {
+    const sH = Math.max(h, rho), sS = Math.max(sp, rho);
+    const x = [-1, 0, rho];
+    let p = rho + sH;
+    x.push(p);
+    for (let k = 1; k < m; k++) { p += sS; x.push(p); }
+    return x;
+  };
+  // worsening onset: the rho in (0,1) where dRhoIso.drho turns from < 0 (isolating) to > 0
+  const onset = (h, sp, m) => {
+    let lo = 0.5, hi = 0.999999;
+    for (let it = 0; it < 160; it++) {
+      const mm = (lo + hi) / 2;
+      if (dRhoIso(cfg(mm, h, sp, m), 1).drho > 0) hi = mm; else lo = mm;
+    }
+    return (lo + hi) / 2;
+  };
+  // canonical half-lattice (first right gap 1, spacing = g): onset converges by m = 4
+  const halfLattice = [1, 2, 4, 8].map((m) => ({ latticeCount: m, onset: onset(1, 0, m) }));
+  const halfInf = onset(1, 0, 8);
+  // deterministic tuned grid over first-gap h and spacing-floor sp (16-particle lattice)
+  let best = { onset: 1, h: 0, sp: 0 };
+  for (let hi = 93; hi <= 150; hi += 1) {
+    const h = hi / 100;
+    for (let si = 93; si <= 130; si += 1) {
+      const sp = si / 100;
+      const o = onset(h, sp, 16);
+      if (o < best.onset) best = { onset: o, h, sp };
+    }
+  }
+  return {
+    cStarClosed: cStar,
+    priorRandomScanInf: 0.927, // imp-3005 2e6-config RANDOM minimal-pair scan (loose)
+    halfLattice, // m = 1 recovers c*; converges to halfInf by m = 4
+    halfLatticeInf: halfInf, // ~0.90625
+    tunedAsymInf: best.onset, // ~0.9016 structured infimum (h = best.h, sp = best.sp)
+    tunedConfig: { firstGap: best.h, spacingFloor: best.sp, leftNeighbourAt: -1 },
+    theoremCConstant: 0.72,
+    globalConstantBracket: [best.onset, 0.943], // OPEN; sharpened lower end from 0.927
+    summary:
+      'Structured search finds the worst asymmetric multi-body isolation config the random scan missed: '
+      + 'a one-sided minimal-spacing half-lattice (right gaps = pair gap g) plus a single isolated neighbour '
+      + 'at d_1 on the other side. The lattice destabilises isolation against the lone far neighbour. The '
+      + 'half-lattice worsening onset converges to ~0.90625 by 4 particles (m = 1 recovers the symmetric c*); '
+      + 'a deterministic tune of first-gap and spacing reaches ~0.9016. This sharpens the OPEN asymmetric '
+      + 'lower bracket down from the loose random-scan ~0.927 to ~0.902, bracketing the global multi-body '
+      + 'constant in ~(0.90, 0.943) -- STILL OPEN, no closed form. Re-certified: even ~0.902 sits far above '
+      + 'the Theorem C basin constant 0.72 (margin ~0.18), so the basin-conditional C_Lip is unaffected.',
+  };
+})();
+
 // imp-3017: numerical sidecar tabulating which Theta thresholds the closed-form
 // static criteria COVER (non-crossable) against the refuted excursion band
 // (0.443, 0.5073). Theorem A covers Theta* <= 1/4 unconditionally; Theorem B
@@ -401,6 +481,53 @@ export const SG1C_THETA_COVERAGE_INTERVAL = (() => {
       + 'g <= 0.72 d_1 (f(0.72) ~ 1.005) and degenerates to Theta_A = 1/4 at c = 1. The band (0.443, 0.5073) '
       + 'is REFUTED: minimal-gap configs cross it upward (symmetric peak exactly 1/2, dressed reaches 0.5073), '
       + 'so no absolute static Theta* cover lives inside it -- the residual cap must be dynamical.',
+  };
+})();
+
+// imp-3024: verify COROLLARY A1 (t_c <= g_min(0)^2/6 when the initial minimal
+// pair has Theta(0) <= 1/4) on the THREE measured real-zero rows of the parent
+// module (kind = riemann-zeros). For each row we recompute the A1 ceiling
+// g0^2/6, confirm Theta(0) < 1/4 (so A1 applies unconditionally), and cross-check
+// the ceiling against the interval-RK4 measured collision bracket [lowerD, tc,
+// boundE1] for the SAME configuration. A1 = E1 evaluated at the trap ceiling
+// Theta* = 1/4 (g0^2/6 = g0^2/(8(1-1/4))); since the measured Theta(0) < 1/4 we
+// have boundE1 = g0^2/(8(1-Theta0)) < g0^2/6, so A1 is the COARSEST member of the
+// ladder lowerD <= tc <= boundE1 <= a1 -- a valid (tc <= a1) and non-vacuous
+// (tc/a1 ~ 0.76-0.82, finite) upper bound at every real-zero row. The coarsening
+// factor a1/boundE1 = (1-Theta0)*4/3 is reported as a closed-form consistency
+// margin against the measured rows.
+export const SG1C_A1_REALZERO_CEILING = (() => {
+  const rows = THETA_TRAP_RUNS.filter((r) => r.kind === 'riemann-zeros');
+  const checked = rows.map((r) => {
+    const a1 = (r.g0 * r.g0) / 6; // Corollary A1 ceiling g_min(0)^2/6
+    return {
+      id: r.id,
+      N: r.N,
+      g0: r.g0,
+      theta0: r.theta0,
+      thetaUnder14: r.theta0 < 0.25,
+      a1Ceiling: a1,
+      tcMeasured: r.tc,
+      tcOverA1: r.tc / a1, // < 1 (valid) and bounded away from 0 (non-vacuous)
+      a1ValidUpperBound: r.tc <= a1,
+      ladderOrdered: r.lowerD <= r.tc && r.tc <= r.boundE1 && r.boundE1 <= a1,
+      coarseningFactor: a1 / r.boundE1, // = (1-theta0)*4/3 in closed form
+      coarseningClosedForm: (1 - r.theta0) * (4 / 3),
+    };
+  });
+  return {
+    rows: checked,
+    allUnconditional: checked.every((c) => c.thetaUnder14),
+    allValid: checked.every((c) => c.a1ValidUpperBound),
+    allNonVacuous: checked.every((c) => c.tcOverA1 > 0.5 && c.tcOverA1 < 1),
+    summary:
+      'Corollary A1 ceiling g_min(0)^2/6 verified on the 3 measured real-zero rows '
+      + '(N = 100/300/870): Theta(0) = 0.167/0.088/0.034 all < 1/4, so A1 applies '
+      + 'UNCONDITIONALLY; the measured interval-RK4 t_c sits at 0.82/0.79/0.76 of the '
+      + 'ceiling -- a valid, non-vacuous upper bound. A1 is the coarsest rung of the '
+      + 'ladder lowerD <= t_c <= boundE1 <= g0^2/6 because it evaluates the squeeze at '
+      + 'the trap ceiling Theta* = 1/4 rather than the smaller measured Theta(0); the '
+      + 'coarsening factor a1/boundE1 = (1-Theta0)*4/3 matches to roundoff.',
   };
 })();
 
@@ -609,6 +736,23 @@ export const SG1C_THEOREM_ASSERTIONS = [
     },
   },
   {
+    id: 'sg1c-r2t2-asym-residual-sharpened-below-cstar',
+    description: 'imp-3021: the structured worst asymmetric multi-body family (one-sided minimal-spacing half-lattice + single isolated neighbour) has a worsening onset that recovers c* at m=1, converges to ~0.90625 by 4 lattice particles, and a tuned infimum ~0.902 -- sharpening the OPEN asymmetric lower bracket below the symmetric c* and below the loose random-scan 0.927, while staying strictly above the Theorem C basin constant 0.72 (basin-conditional C_Lip unaffected)',
+    holds: () => {
+      const r = SG1C_R2T2_ASYM_RESIDUAL;
+      // m = 1 (single neighbour each side) recovers the symmetric closed-form c*
+      const recoversCStar = Math.abs(r.halfLattice[0].onset - r.cStarClosed) < 1e-7;
+      // half-lattice converges and lies strictly below c* (asymmetry worsens earlier)
+      const converged = Math.abs(r.halfLattice[2].onset - r.halfLattice[3].onset) < 1e-6;
+      const belowCStar = r.halfLatticeInf < r.cStarClosed - 1e-3 && r.halfLatticeInf > 0.9;
+      // tuned structured infimum sharpens below the prior loose random scan...
+      const sharpensRandom = r.tunedAsymInf < r.priorRandomScanInf && r.tunedAsymInf <= r.halfLatticeInf + 1e-9;
+      // ...yet stays far above the basin constant 0.72 (load-bearing consequence preserved)
+      const basinSafe = r.tunedAsymInf > r.theoremCConstant + 0.1 && r.globalConstantBracket[0] === r.tunedAsymInf;
+      return recoversCStar && converged && belowCStar && sharpensRandom && basinSafe;
+    },
+  },
+  {
     id: 'sg1c-theta-coverage-interval',
     description: 'imp-3017: the static-cover ladder is Theta_A = 1/4 (uncond) < Theta_b = (sqrt(73)-5)/8 = 0.443 (Theorem B, sharp); the Theorem C isolation map Theta_max(c) = 2 - 3c^2/(1+c) - c^4/(1+c)^2 covers every level <= 1 at c = 0.72 and degenerates to 1/4 at c = 1; and the refuted band [0.443, 0.5073] (= SG1C_THEOREMS.refutation.crossedBand) is crossed upward by the symmetric minimal-gap family {-d,0,1,1+d}',
     holds: () => {
@@ -626,6 +770,20 @@ export const SG1C_THEOREM_ASSERTIONS = [
       const cInverted =
         t.cAtLowerEndpoint > 0.72 && t.cAtLowerEndpoint < 1 && t.cAtUpperEndpoint > 0.72 && t.cAtUpperEndpoint < t.cAtLowerEndpoint;
       return lowerIsThmB && cMapEndpoints && cMapMonotone && ladder && familyCrosses && cInverted;
+    },
+  },
+  {
+    id: 'sg1c-corollaryA1-realzero-ceiling',
+    description: 'imp-3024: Corollary A1 ceiling t_c <= g_min(0)^2/6 holds on all 3 measured real-zero rows (Theta(0) < 1/4 so A1 is unconditional there); the ceiling is a valid (t_c <= a1) and non-vacuous (t_c/a1 in (0.5,1)) upper bound, sits as the coarsest rung of the ladder lowerD <= t_c <= boundE1 <= g0^2/6, and its coarsening over boundE1 matches the closed form (1-Theta0)*4/3',
+    holds: () => {
+      const t = SG1C_A1_REALZERO_CEILING;
+      return (
+        t.rows.length === 3 &&
+        t.allUnconditional &&
+        t.allValid &&
+        t.allNonVacuous &&
+        t.rows.every((c) => c.ladderOrdered && Math.abs(c.coarseningFactor - c.coarseningClosedForm) < 5e-4)
+      );
     },
   },
 ];

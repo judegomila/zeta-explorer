@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { CLOSURE_ROUTES, findRoute } from '../data/closure-routes-section.js';
 import { IMP3085_HANKEL_GAP_AU_GRID } from '../data/imp-3085-hankel-gap-aU-grid.js';
+import { IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP } from '../data/imp-3084-offdiagonal-gap-degree-sweep.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 const R = CLOSURE_ROUTES;
@@ -331,6 +332,115 @@ function ConjectureCard({ conj, accent }) {
 
       <p style={{ marginTop: 10, color: '#94a3b8', fontSize: 12, lineHeight: 1.7 }}>
         <em>{conj.note}</em>
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3084 raw-basis operator/diagonal gap vs truncation degree sweep ────────
+// Shows the operator/diagonal gap ||R|| - max_j R_jj growing monotonically from
+// ~1.79 (DEG=2) to ~10.8 (DEG=12) while the scalar-cover ceiling max_j R_jj stays
+// pinned just below 1. All values are READ from the imp-3084 module export.
+function RawBasisOpGapDegreeSweepViz() {
+  const M = IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP.measured;
+  const sweep = M.sweep;
+
+  const W = 680, H = 300, ML = 52, MR = 24, MT = 22, MB = 44;
+  const degMin = sweep[0].degree;
+  const degMax = sweep[sweep.length - 1].degree;
+  const gapMax = Math.ceil(M.lastGap) + 1;
+
+  const px = (deg) => ML + ((deg - degMin) / (degMax - degMin)) * (W - ML - MR);
+  const py = (val) => H - MB - (val / gapMax) * (H - MT - MB);
+
+  const gapPath = sweep
+    .map((row, i) => `${i === 0 ? 'M' : 'L'} ${px(row.degree).toFixed(1)} ${py(row.operatorDiagonalGap).toFixed(1)}`)
+    .join(' ');
+
+  const diagPath = sweep
+    .map((row, i) => `${i === 0 ? 'M' : 'L'} ${px(row.degree).toFixed(1)} ${py(row.rDiagMax).toFixed(1)}`)
+    .join(' ');
+
+  const degTicks = [2, 4, 6, 8, 10, 12];
+  const gapTicks = [0, 2, 4, 6, 8, 10, 12];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #f59e0b', background: 'rgba(245,158,11,0.04)' }}>
+      <h3 style={{ color: '#f59e0b', marginTop: 0 }}>
+        Raw-basis operator/diagonal gap GROWS with truncation degree (imp-3084)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        Sweeping the monomial truncation degree DEG from 2 to 12 (same a=0.5, U=6 grid as
+        imp-3066): the off-diagonal operator/diagonal gap{' '}
+        <span style={{ fontFamily: mono }}>&#x2016;R&#x2016; &minus; max&#x2C7C; R&#x2C7C;&#x2C7C;</span>{' '}
+        grows monotonically from ~{M.firstGap.toFixed(2)} (DEG=2) to ~{M.lastGap.toFixed(2)} (DEG=12) &mdash;
+        the raw-basis obstruction <strong>grows without saturation</strong> as the truncation refines.
+        Meanwhile, the scalar-cover ceiling{' '}
+        <span style={{ fontFamily: mono }}>max&#x2C7C; R&#x2C7C;&#x2C7C;</span>{' '}
+        stays pinned just below 1 (~{sweep[0].rDiagMax.toFixed(3)}&rarr;~{sweep[sweep.length - 1].rDiagMax.toFixed(3)}),
+        confirming the necessary scalar cover holds at every degree while the off-diagonal
+        cross-term contribution diverges.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {gapTicks.map((g) => (
+            <g key={`gt${g}`}>
+              <line x1={ML} y1={py(g)} x2={W - MR} y2={py(g)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(g) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{g}</text>
+            </g>
+          ))}
+          {degTicks.map((d) => (
+            <g key={`dt${d}`}>
+              <line x1={px(d)} y1={MT} x2={px(d)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(d)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{d}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#334155" strokeWidth="1" strokeDasharray="3 3" />
+          <text x={W - MR - 4} y={py(1) - 4} textAnchor="end" fontSize="10" fill="#475569" fontFamily={mono}>ceiling = 1</text>
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>truncation degree DEG</text>
+          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}
+            transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>magnitude</text>
+          <path d={gapPath} fill="none" stroke="#f59e0b" strokeWidth="2" />
+          <path d={diagPath} fill="none" stroke="#10b981" strokeWidth="2" />
+          {sweep.map((row) => (
+            <circle key={`g${row.degree}`} cx={px(row.degree)} cy={py(row.operatorDiagonalGap)} r="4"
+              fill="#f59e0b" fillOpacity="0.7" stroke="#f59e0b" strokeWidth="1">
+              <title>{`DEG=${row.degree}: gap=${row.operatorDiagonalGap.toFixed(4)}, ||R||=${row.operatorNorm.toFixed(4)}`}</title>
+            </circle>
+          ))}
+          {sweep.map((row) => (
+            <circle key={`d${row.degree}`} cx={px(row.degree)} cy={py(row.rDiagMax)} r="4"
+              fill="#10b981" fillOpacity="0.7" stroke="#10b981" strokeWidth="1">
+              <title>{`DEG=${row.degree}: max diag=${row.rDiagMax.toFixed(5)}`}</title>
+            </circle>
+          ))}
+          <g transform={`translate(${ML + 16}, ${MT + 10})`}>
+            <line x1="0" y1="0" x2="18" y2="0" stroke="#f59e0b" strokeWidth="2" />
+            <circle cx="9" cy="0" r="4" fill="#f59e0b" fillOpacity="0.7" />
+            <text x="24" y="4" fontSize="11" fill="#cbd5e1" fontFamily={mono}>gap &#x2016;R&#x2016; &minus; max&#x2C7C; R&#x2C7C;&#x2C7C;</text>
+          </g>
+          <g transform={`translate(${ML + 16}, ${MT + 30})`}>
+            <line x1="0" y1="0" x2="18" y2="0" stroke="#10b981" strokeWidth="2" />
+            <circle cx="9" cy="0" r="4" fill="#10b981" fillOpacity="0.7" />
+            <text x="24" y="4" fontSize="11" fill="#cbd5e1" fontFamily={mono}>scalar ceiling max&#x2C7C; R&#x2C7C;&#x2C7C; (pinned &lt; 1)</text>
+          </g>
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          REPRESENTATIVE DIAGNOSTIC &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Growing &#x2016;R&#x2016; in the raw monomial basis is NOT a claim that the cover fails &mdash; the
+          basis is not the section-26 Gram and the divergence is a known monomial-conditioning effect.
+          Whether an orthogonalized basis tames the growth is the separate imp-3086 question.
+          Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3084-offdiagonal-gap-degree-sweep.js (same a=0.5, U=6 grid as imp-3066; only DEG varies).
       </p>
     </div>
   );
@@ -819,6 +929,12 @@ export default function ClosureRoutesPage() {
           Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
         </p>
       </div>
+
+      {/* ─── imp-3084: raw-basis gap grows with DEG ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Raw-basis off-diagonal gap grows with truncation degree (imp-3084)
+      </h2>
+      <RawBasisOpGapDegreeSweepViz />
 
       {/* ─── imp-3085: operator-gap a*U collapse viz ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

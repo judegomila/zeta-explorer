@@ -4,7 +4,7 @@ import SpectralAttackViz from '../components/SpectralAttackViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { SG1C_THEOREMS, SG1C_THETA_COVERAGE_INTERVAL, SG1C_R1T4_BASIN_GRID, SG1C_R1T4_RHO1_REPELLER, SG1C_R2T2_SHELL_CROSSCHECK, SG1C_LEMMA1_CROSS_N, SG1C_LEMMA2_CROSS_N } from '../data/sg1c-theta-trap-theorems.js';
-import { CTHETA_FLAT_INVARIANT } from '../data/imp-3022-ctheta-basin-scaling.js';
+import { CTHETA_FLAT_INVARIANT, CTHETA_ON_BASIN_VANISHING } from '../data/imp-3022-ctheta-basin-scaling.js';
 import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orthogonalized-basis-conditioning.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
@@ -1231,6 +1231,121 @@ function CThetaFlatInvariantPanel() {
   );
 }
 
+// imp-3096: two-curve log-log visualization of the imp-3022 C_Theta sensitivity.
+// Plots dTheta/dW_1 vs g0 on log-log axes for BOTH regimes over the same ~6-decade
+// g0 sweep: the off-basin (crowded, rho == 1) 1/g0 BLOWUP (slope -1, sensitivity
+// dTheta/dW_1 = (16/27)/g0 climbing as g0 falls) against the on-basin (isolated,
+// rho -> 0) VANISHING line (slope +1, dTheta/dW_1 = 2 g0/D^2 -> 0). The off-basin
+// column is reconstructed as product/g0 from the certified CTHETA_FLAT_INVARIANT
+// table (the flat product g0*dTheta/dW_1 = 16/27); the on-basin column is onDW
+// straight from CTHETA_ON_BASIN_VANISHING. UX only: does NOT close the off-basin
+// divergence; PT Lambda <= 0.2 stays SOTA.
+function CThetaSensitivityLogLogPlot() {
+  const off = CTHETA_FLAT_INVARIANT.table.map((r) => ({ g0: r.g0, dW: r.product / r.g0 }));
+  const on = CTHETA_ON_BASIN_VANISHING.table.map((r) => ({ g0: r.g0, dW: r.onDW }));
+  const log10 = (v) => Math.log10(v);
+
+  const xs = off.map((p) => log10(p.g0));
+  const ys = [...off, ...on].map((p) => log10(p.dW));
+  const xMin = Math.min(...xs), xMax = Math.max(...xs);
+  const yMin = Math.floor(Math.min(...ys)), yMax = Math.ceil(Math.max(...ys));
+
+  const svgW = 540, svgH = 320, padL = 50, padR = 18, padT = 18, padB = 56;
+  const chartW = svgW - padL - padR;
+  const chartH = svgH - padT - padB;
+  const xS = (lg) => padL + (chartW * (lg - xMin)) / (xMax - xMin);
+  const yS = (ly) => padT + chartH * (1 - (ly - yMin) / (yMax - yMin));
+
+  const polyOff = off.map((p) => `${xS(log10(p.g0))},${yS(log10(p.dW))}`).join(' ');
+  const polyOn = on.map((p) => `${xS(log10(p.g0))},${yS(log10(p.dW))}`).join(' ');
+
+  const xTicks = [];
+  for (let t = Math.ceil(xMin); t <= Math.floor(xMax); t++) xTicks.push(t);
+  const yTicks = [];
+  for (let t = yMin; t <= yMax; t += 2) yTicks.push(t);
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #f97316' }}>
+      <h3 style={{ color: '#f97316', fontSize: 16, marginBottom: 8 }}>
+        C&#x398; Sensitivity in g&#x2080;-Space: Off-Basin 1/g&#x2080; Blowup vs On-Basin Vanishing (imp-3096)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        The same imp-3022 sensitivity column, now in <strong style={{ color: '#e2e8f0' }}>g&#x2080;/sensitivity
+        space</strong> (distinct from the &#x398;(&rho;) phase plot and the d&rho;/ds self-isolation plots,
+        which live in &rho;-space). On log-log axes the two basins are mirror-image straight lines about the
+        &rho;* = 2/3 regime split. <strong style={{ color: '#f97316' }}>Off-basin</strong> (crowded lattice,
+        &rho; = 1): d&#x398;/dW&#x2081; = (16/27)/g&#x2080; climbs with <strong style={{ color: '#e2e8f0' }}>slope
+        &minus;1</strong> (11.97&nbsp;&rarr;&nbsp;95.77 over the first three halvings, &rarr;&nbsp;
+        {(off[off.length - 1].dW).toExponential(1)} at the sweep floor) &mdash; the flat product
+        g&#x2080;&middot;d&#x398;/dW&#x2081; = <strong style={{ color: '#f97316', fontFamily: 'monospace' }}>16/27
+        = {(16 / 27).toFixed(5)}</strong>. <strong style={{ color: '#22d3ee' }}>On-basin</strong> (isolated pair,
+        &rho;&nbsp;&rarr;&nbsp;0): d&#x398;/dW&#x2081; = 2&nbsp;g&#x2080;/D&sup2; vanishes with{' '}
+        <strong style={{ color: '#e2e8f0' }}>slope +1</strong>, halving at every halving.
+      </p>
+
+      <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+        {/* grid + y ticks (log10 dTheta/dW_1) */}
+        {yTicks.map((t) => (
+          <g key={`y${t}`}>
+            <line x1={padL} y1={yS(t)} x2={svgW - padR} y2={yS(t)} stroke="#1e293b" strokeWidth={1} />
+            <text x={padL - 6} y={yS(t) + 3} fill="#475569" fontSize={8} textAnchor="end">{`1e${t}`}</text>
+          </g>
+        ))}
+        {/* x ticks (log10 g0) */}
+        {xTicks.map((t) => (
+          <g key={`x${t}`}>
+            <line x1={xS(t)} y1={padT} x2={xS(t)} y2={padT + chartH} stroke="#1e293b" strokeWidth={1} />
+            <text x={xS(t)} y={padT + chartH + 14} fill="#475569" fontSize={8} textAnchor="middle">{`1e${t}`}</text>
+          </g>
+        ))}
+
+        {/* off-basin blowup (slope -1) */}
+        <polyline points={polyOff} fill="none" stroke="#f97316" strokeWidth={2} />
+        {off.map((p, i) => (
+          <circle key={`off${i}`} cx={xS(log10(p.g0))} cy={yS(log10(p.dW))} r={2} fill="#f97316" />
+        ))}
+        {/* on-basin vanishing (slope +1) */}
+        <polyline points={polyOn} fill="none" stroke="#22d3ee" strokeWidth={2} />
+        {on.map((p, i) => (
+          <circle key={`on${i}`} cx={xS(log10(p.g0))} cy={yS(log10(p.dW))} r={2} fill="#22d3ee" />
+        ))}
+
+        {/* axes */}
+        <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#334155" strokeWidth={1} />
+        <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke="#334155" strokeWidth={1} />
+
+        {/* axis labels */}
+        <text x={padL + chartW / 2} y={svgH - 6} fill="#64748b" fontSize={10} textAnchor="middle">log&#8321;&#8320; g&#8320; (gap scale)</text>
+        <text x={14} y={padT + chartH / 2} fill="#64748b" fontSize={10} textAnchor="middle"
+          transform={`rotate(-90 14 ${padT + chartH / 2})`}>log&#8321;&#8320; d&#x398;/dW&#8321;</text>
+
+        {/* curve labels */}
+        <text x={xS(xMin) + 6} y={yS(log10(off[off.length - 1].dW)) + 2} fill="#f97316" fontSize={9}>off-basin: slope &minus;1 (16/27)/g&#8320;</text>
+        <text x={xS(xMin) + 6} y={yS(log10(on[on.length - 1].dW)) - 4} fill="#22d3ee" fontSize={9}>on-basin: slope +1, 2g&#8320;/D&sup2;</text>
+
+        {/* legend */}
+        <rect x={padL + 6} y={svgH - 30} width={12} height={3} fill="#f97316" />
+        <text x={padL + 22} y={svgH - 25} fill="#94a3b8" fontSize={9}>off-basin &rho;=1 blowup (flat product 16/27)</text>
+        <rect x={padL + 300} y={svgH - 30} width={12} height={3} fill="#22d3ee" />
+        <text x={padL + 316} y={svgH - 25} fill="#94a3b8" fontSize={9}>on-basin &rho;&rarr;0 vanishing</text>
+      </svg>
+
+      <div style={{ background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.25)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
+        <div style={{ color: '#f59e0b', fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+          Honest scope: g&#x2080;-space visualization only &mdash; does NOT close the off-basin divergence
+        </div>
+        <div style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7 }}>
+          The two lines separate exactly at &rho;* = 2/3 (where &#x398; hits the Theorem-A trap 1/4): below it
+          the on-basin sensitivity vanishes, above it the off-basin sensitivity diverges as 1/g&#x2080;. This
+          MEASURES why the reconditioning is only basin-conditional; it does not remove the off-basin
+          blowup. Platt-Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 stays the rigorous SOTA; the finite-N*=1e4
+          beat stays an ESTIMATE. No false QED.
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // imp-3038: surface the two EXACT analytic identities (Lemma 1 dE/ds, Lemma 2
 // dTheta/ds) -- the analytic engine of the whole Theta-trap result -- with their
 // independent cross-N re-verification max-rel-err (SG1C_LEMMA1_CROSS_N / _LEMMA2_CROSS_N).
@@ -1649,6 +1764,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Off-Basin C_Theta Flat Invariant 16/27 (imp-3098 surfaces imp-3067) ─── */}
       <CThetaFlatInvariantPanel />
+
+      {/* ─── C_Theta sensitivity log-log plot in g0-space (imp-3096) ─── */}
+      <CThetaSensitivityLogLogPlot />
 
       {/* ─── Conditioning Collapse before/after bars (imp-3116 surfaces imp-3086) ─── */}
       <ConditioningCollapseBars />

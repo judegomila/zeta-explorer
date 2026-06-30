@@ -22,6 +22,7 @@ import { IMP3085_HANKEL_GAP_AU_GRID } from '../data/imp-3085-hankel-gap-aU-grid.
 import { IMP3084_OFFDIAGONAL_GAP_DEGREE_SWEEP } from '../data/imp-3084-offdiagonal-gap-degree-sweep.js';
 import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orthogonalized-basis-conditioning.js';
 import { IMP3110_SECTION26_GRAM_VS_MONOMIAL_GAP } from '../data/imp-3110-section26-gram-vs-monomial-gap.js';
+import { C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108 } from '../data/imp-3108-c-shock-margin-cross-validation.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 
 const R = CLOSURE_ROUTES;
@@ -917,6 +918,104 @@ function PhiProfileLogLogViz() {
   );
 }
 
+// ── imp-3136: C_shock margin 1/3 - C_shock(N) grows with N (imp-3108 data) ───
+function CShockMarginCurveViz() {
+  const M = C_SHOCK_MARGIN_CROSS_VALIDATION_IMP3108;
+  const rows = M.marginCurve;
+
+  const W = 720, H = 270, ML = 68, MR = 28, MT = 22, MB = 46;
+  const logMin = Math.log10(2000);
+  const logMax = Math.log10(1.3e6);
+  const yMin = 0.02, yMax = 0.135;
+
+  const px = (N) => ML + ((Math.log10(N) - logMin) / (logMax - logMin)) * (W - ML - MR);
+  const py = (m) => H - MB - ((m - yMin) / (yMax - yMin)) * (H - MT - MB);
+
+  const linePath = rows
+    .map((r, i) => `${i === 0 ? 'M' : 'L'} ${px(r.N).toFixed(1)} ${py(r.margin_to_cap).toFixed(1)}`)
+    .join(' ');
+
+  const xTicks = [
+    { N: 3000, label: '3k' },
+    { N: 10000, label: '10k' },
+    { N: 30000, label: '30k' },
+    { N: 100000, label: '100k' },
+    { N: 300000, label: '300k' },
+    { N: 1000000, label: '1M' },
+  ];
+  const yTicks = [0.04, 0.06, 0.08, 0.10, 0.12];
+
+  const worstRow = rows[0];
+  const wxp = px(worstRow.N);
+  const wyp = py(worstRow.margin_to_cap);
+  const ycx = (MT + H - MB) / 2;
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #10b981', background: 'rgba(16,185,129,0.04)' }}>
+      <h3 style={{ color: '#10b981', marginTop: 0 }}>
+        Margin 1/3 &minus; C<sub>shock</sub>(N) grows with N &mdash; worst case at smallest assembly (imp-3108)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        C<sub>shock</sub>(N) = &radic;(2 / (3 log &gamma;<sub>N</sub>)) strictly decreases with N (imp-3070),
+        so its complement &mdash; the margin to the 1/3 cap &mdash; grows strictly with N. The worst case
+        (smallest margin &asymp; {M.minMargin.toFixed(4)}) occurs at the smallest assembly
+        N = {worstRow.N.toLocaleString()}. By N = 10<sup>6</sup> the margin widens to
+        &asymp; {M.maxMargin.toFixed(4)}. The reduced inequality log &gamma;<sub>N</sub> &gt; 6 holds at
+        every assembly N, confirming C<sub>shock</sub> &lt; 1/3 throughout the physical range.
+      </p>
+      <div style={{ overflowX: 'auto', marginTop: 10 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {/* y grid lines + labels */}
+          {yTicks.map((m) => (
+            <g key={`y${m}`}>
+              <line x1={ML} y1={py(m)} x2={W - MR} y2={py(m)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(m) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{m.toFixed(2)}</text>
+            </g>
+          ))}
+          {/* x ticks */}
+          {xTicks.map(({ N, label }) => (
+            <g key={`x${N}`}>
+              <line x1={px(N)} y1={H - MB} x2={px(N)} y2={H - MB + 5} stroke="#334155" strokeWidth="1" />
+              <text x={px(N)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{label}</text>
+            </g>
+          ))}
+          {/* axes */}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          {/* axis labels */}
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>N  (log scale)</text>
+          <text x={14} y={ycx} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 14 ${ycx})`}>1/3 &minus; C_shock</text>
+          {/* margin curve */}
+          <path d={linePath} fill="none" stroke="#10b981" strokeWidth="2.5" />
+          {/* dots: worst-case N=2458 in amber, rest in green */}
+          {rows.map((r, i) => (
+            <circle key={i} cx={px(r.N)} cy={py(r.margin_to_cap)} r={i === 0 ? 5.5 : 3.5}
+              fill={i === 0 ? '#f59e0b' : '#10b981'} stroke={i === 0 ? '#fbbf24' : '#059669'} strokeWidth="1.2">
+              <title>{`N=${r.N.toLocaleString()}  C_shock=${r.C_shock.toFixed(5)}  margin=${r.margin_to_cap.toFixed(5)}`}</title>
+            </circle>
+          ))}
+          {/* worst-case annotation */}
+          <line x1={wxp} y1={wyp - 7} x2={wxp + 4} y2={wyp - 32} stroke="#f59e0b" strokeWidth="1" strokeDasharray="3 2" />
+          <text x={wxp + 8} y={wyp - 32} fontSize="11" fill="#fbbf24" fontFamily={mono}>worst case</text>
+          <text x={wxp + 8} y={wyp - 20} fontSize="10" fill="#94a3b8" fontFamily={mono}>N=2458, margin~{M.minMargin.toFixed(4)}</text>
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          NUMERICAL CROSS-CHECK &mdash; NOT A NEW BOUND
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Certifies an already-proven cap (imp-2786: C<sub>shock</sub> &lt; 1/3 in closed form). NOT a new
+          bound, does NOT close C<sub>H</sub>. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3108-c-shock-margin-cross-validation.js &mdash; marginIsIncreasing: {String(M.marginIsIncreasing)}, {rows.length} grid points.
+      </p>
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function ClosureRoutesPage() {
   return (
@@ -1155,6 +1254,12 @@ export default function ClosureRoutesPage() {
         The excess fraction phi(s): onset pole to exponential tail (imp-3087 + imp-3088)
       </h2>
       <PhiProfileLogLogViz />
+
+      {/* ─── imp-3136: C_shock margin grows with N (imp-3108) ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Margin to the 1/3 cap grows with N &mdash; worst case at smallest assembly (imp-3108)
+      </h2>
+      <CShockMarginCurveViz />
 
       {/* ─── Conjectures ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

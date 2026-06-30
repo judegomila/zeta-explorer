@@ -373,6 +373,108 @@ export const glossary = [
     relatedTerms: ['Vortex field', 'RH-equivalent', 'PCC-free', 'de Bruijn-Newman Constant Λ'],
     link: '/vortex-field',
   },
+
+  // ═══════════════════════════════════════════════════════════════════════
+  // FRONTIER CONSTANTS (sg1c / Theta-trap / C_H analysis)
+  // ═══════════════════════════════════════════════════════════════════════
+  {
+    term: 'C_shock (Holder-1/2 shock modulus)',
+    category: 'constant',
+    definition:
+      'The cusp-scaling constant in the Holder-1/2 law g_min ~ C_shock * W_1^{1/2} near a ' +
+      'particle collision in the Calogero-Moser flow. Closed form: C_shock(N) = sqrt(2 / (3 log gamma_N)), ' +
+      'which evaluates to approx 0.2692 at the N*=1e4 assembly scale and decreases monotonically ' +
+      'along the prime ladder (strictly below 1/3 everywhere). ' +
+      'Of the two factors in C_H = C_shock * C_Lip / 4, C_shock is now pinned and bounded; ' +
+      'the obstruction to closing the heat-flow route lies entirely in C_Lip. ' +
+      'Cross-validated: the cusp-law log-log fit and the squared-gap finite-difference route ' +
+      'agree to < 1e-9 (imp-3026).',
+    firstUsed: 'imp-2786 (2026)',
+    relatedTerms: ['C_H wall', 'C_Lip', 'Holder-1/2', 'Calogero-Moser'],
+    link: '/spectral-attack',
+  },
+  {
+    term: 'Theta-trap',
+    category: 'constant',
+    definition:
+      'The family of dynamical traps on the dimensionless pair-energy parameter ' +
+      'Theta = g^2 E / 2 (gap^2 times environment energy / 2) for an adjacent pair ' +
+      'in the Calogero-Moser flow. Four certified threshold levels: ' +
+      '(1) Theta* = 1/4 — unconditional (Theorem A, sg1c-theta-trap-theorems); ' +
+      '(2) Theta_b = (sqrt(73) - 5)/8 = 0.443 — sharp minimal-gap trap (Theorem B); ' +
+      '(3) Theta_max(c) up to 1 for isolation ratio rho <= 0.72 (Theorem C); ' +
+      '(4) excursion cap approx 0.5073 for the dressed refutation family. ' +
+      'The band (0.443, 0.5073) is fully REFUTED: configs exist that cross upward. ' +
+      'On actual zero configurations Theta(0) = 0.167 / 0.088 / 0.046, well below 1/4, ' +
+      'so the unconditional trap already applies.',
+    firstUsed: 'imp-theta-trap-sign-audit / sg1c-theta-trap-theorems (2026)',
+    relatedTerms: ['C_shock', 'C_Lip', 'isolation ratio rho', 'excursion cap'],
+    link: '/spectral-attack',
+  },
+  {
+    term: 'isolation ratio rho',
+    category: 'constant',
+    definition:
+      'The dimensionless ratio rho = g / d_1 of the minimal pair gap g to the nearest ' +
+      'environment particle distance d_1 (Theorem C of sg1c-theta-trap-theorems). ' +
+      'Self-isolation: d(rho)/ds < 0 strictly for every rho strictly below the ' +
+      'worsening-onset threshold c* approx 0.93185 (imp-3005 closed form sqrt(2+sqrt(3))-1), ' +
+      'so an isolated pair becomes more isolated over time. ' +
+      'The Theorem-C basin operates at rho <= 0.72; this sits 0.207 below the open bracket ' +
+      '[0.927, 0.943] for the global multi-body scan, certifying the basin unconditionally ' +
+      '(imp-3006). Regime-separation threshold: rho* = 2/3, where Theta = 1/4 exactly.',
+    firstUsed: 'sg1c-theta-trap-theorems / imp-3006 (2026)',
+    relatedTerms: ['Theta-trap', 'C_Lip', 'C_H wall', 'excursion cap'],
+    link: '/spectral-attack',
+  },
+  {
+    term: 'excursion cap',
+    category: 'constant',
+    definition:
+      'The maximum value of Theta that the tracked minimal pair can reach before ' +
+      'minimality transfers to a competitor. For the symmetric 4-config refutation family ' +
+      'the cap is exactly 1/2 (Lemma R1-T): the rising central pair carries Theta = 1/2 at ' +
+      'the minimality-tie (uniform lattice), then an outer pair seizes minimality and Theta ' +
+      'resets to 1/3. For the asymmetric / dressed variant the tie is pushed marginally to ' +
+      'approx 0.5073 (measured; Lemma R1-T2). This cap is the reason the empirical ' +
+      'sg1c 34-run trap held: all configs entering above ~0.51 still decreased (the lattice ' +
+      'is the highest-excursion attractor and it decays). The residual is to extend ' +
+      'the seizing dominance to ASYMMETRIC configs beyond the measured 0.5073.',
+    firstUsed: 'sg1c-theta-trap-theorems (imp-3000 era, 2026)',
+    relatedTerms: ['Theta-trap', 'isolation ratio rho', 'C_Lip'],
+    link: '/spectral-attack',
+  },
+  {
+    term: 'C_Lip',
+    category: 'constant',
+    definition:
+      'The Lipschitz modulus of the Calogero-Moser flow, the dominant undischarged factor in ' +
+      'C_H = C_shock * C_Lip / 4. ON the isolated-pair basin (rho <= 0.72): ' +
+      'C_Lip_basin = g_min / (4 (1 - Theta)) [gap channel, finite]; C_Theta is bounded and ' +
+      'subdominant. At N*=1e4: C_Lip_basin approx 9.42e-3 (nominal Theta -> 0) to 1.257e-2 ' +
+      '(trapped ceiling Theta = 1/4). OFF the basin (crowded near-uniform lattice, rho >= 2/3): ' +
+      'C_Lip diverges due to the linear-N norm-mismatch (C_Lip ~ N g0 / (4(1-Theta))). ' +
+      'This off-basin divergence is NOT resolved by the basin-conditional reconditioning; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-3006 (ch-lip-basin-conditional-2026-06-30)',
+    relatedTerms: ['C_H wall', 'C_shock', 'C_Theta', 'Theta-trap', 'isolation ratio rho'],
+    link: '/spectral-attack',
+  },
+  {
+    term: 'C_Theta',
+    category: 'constant',
+    definition:
+      'The Theta-channel contribution to C_Lip in the reconditioning formula ' +
+      'C_Lip_basin = g_min/(4(1-Theta)) + C_Theta. On the isolated-pair basin (rho < rho* = 2/3): ' +
+      'C_Theta is bounded and vanishing — Theta ~ rho^2 -> 0 as the pair self-isolates, ' +
+      'and dTheta/dW_1 ~ 2N g0/D^2 -> 0. Off the basin (crowded lattice, d_1 comoving with g): ' +
+      'C_Theta acquires the 1/g0 divergence dTheta/dW_1 ~ 1/g0 with flat invariant ' +
+      'g0 * dTheta/dW_1 = 16/27 = 0.59259 (certified by independent reproduction, imp-3022). ' +
+      'The off-basin C_Theta blowup is the root cause of the C_H wall remaining open.',
+    firstUsed: 'imp-3022 (ctheta-basin-scaling, 2026)',
+    relatedTerms: ['C_Lip', 'C_H wall', 'isolation ratio rho', 'Theta-trap'],
+    link: '/spectral-attack',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

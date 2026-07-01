@@ -127,6 +127,7 @@ const OnsetBracketLedgerPage = lazy(() => import('./pages/OnsetBracketLedgerPage
 const OpenFrontierPage = lazy(() => import('./pages/OpenFrontierPage.jsx'));
 const Section26ConditioningArtifactPage = lazy(() => import('./pages/Section26ConditioningArtifactPage.jsx'));
 const ExcessFractionPhiPage = lazy(() => import('./pages/ExcessFractionPhiPage.jsx'));
+const CShockNumericalCoincidencePage = lazy(() => import('./pages/CShockNumericalCoincidencePage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -698,6 +699,7 @@ function AppShell() {
           <Route path="/open-frontier" element={<OpenFrontierPage />} />
           <Route path="/section26-conditioning-artifact" element={<Section26ConditioningArtifactPage />} />
           <Route path="/excess-fraction-phi" element={<ExcessFractionPhiPage />} />
+          <Route path="/c-shock-numerical-coincidence" element={<CShockNumericalCoincidencePage />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

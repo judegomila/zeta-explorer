@@ -157,7 +157,10 @@ do_start() {
             . "$SCRIPT_DIR/.env"
             set +a
           fi
-          claude --print --dangerously-skip-permissions --model claude-haiku-4-5 "$IMPROVE_PROMPT" \
+          # FAST-TIER MODEL: bump to claude-fable-5 once Fable Mythos access is granted
+          # (2026-07-01: fable-5 returns "currently unavailable / fable-mythos-access" on
+          #  both subscription and API channels, so the fast tier stays on claude-haiku-4-5).
+          claude --print --strict-mcp-config --dangerously-skip-permissions --model claude-haiku-4-5 "$IMPROVE_PROMPT" \
             >> "$log_file" 2>&1
         ) || true
       else

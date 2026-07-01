@@ -170,7 +170,7 @@ do_start() {
       if command -v claude &>/dev/null; then
         cd "$PROJECT_DIR"
         unset CLAUDECODE
-        claude --print --model "${API_ENGINE_MODEL:-claude-opus-4-8}" --dangerously-skip-permissions "$IMPROVE_PROMPT_API" \
+        claude --print --strict-mcp-config --model "${API_ENGINE_MODEL:-claude-opus-4-8}" --dangerously-skip-permissions "$IMPROVE_PROMPT_API" \
           >> "$log_file" 2>&1
         exit_code=$?
       else

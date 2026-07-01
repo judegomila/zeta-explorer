@@ -51,7 +51,7 @@ HARD RULES: NO false QED framing — descriptions must say assess/derive/measure
 run_pass() {
   echo "[$(date -u +%FT%TZ)] frontier-scout pass starting (model claude-opus-4-8)" >> "$LOG"
   # macOS has no GNU `timeout`; emulate with a background kill-timer.
-  claude --print --model claude-opus-4-8 --dangerously-skip-permissions "$SCOUT_PROMPT" >> "$LOG" 2>&1 &
+  claude --print --strict-mcp-config --model claude-opus-4-8 --dangerously-skip-permissions "$SCOUT_PROMPT" >> "$LOG" 2>&1 &
   local cpid=$!
   ( sleep 900; kill -9 "$cpid" 2>/dev/null ) >/dev/null 2>&1 &
   local killer=$!

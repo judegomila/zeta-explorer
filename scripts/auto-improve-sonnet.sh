@@ -100,7 +100,7 @@ do_start() {
   echo "Starting auto-improvement engine (SONNET tier)..."
   echo "  Interval: ${INTERVAL}s ($(( INTERVAL / 60 )) minutes)"
   echo "  Max runs: $MAX_RUNS"
-  echo "  Model:    claude-sonnet-4-6"
+  echo "  Model:    claude-sonnet-5"
   echo "  Logs:     $LOG_DIR (run_sonnet_*.log)"
   echo "  PID file: $PID_FILE"
 
@@ -145,7 +145,7 @@ do_start() {
             . "$SCRIPT_DIR/.env"
             set +a
           fi
-          claude --print --dangerously-skip-permissions --model claude-sonnet-4-6 "$IMPROVE_PROMPT" \
+          claude --print --strict-mcp-config --dangerously-skip-permissions --model claude-sonnet-5 "$IMPROVE_PROMPT" \
             >> "$log_file" 2>&1
         ) || true
       else

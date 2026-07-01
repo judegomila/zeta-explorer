@@ -189,7 +189,7 @@ worker_loop() {
     local exit_code=0
     if command -v claude &>/dev/null; then
       run_with_timeout "$TURN_TIMEOUT" \
-        claude --print --model "${API_ENGINE_MODEL:-claude-opus-4-8}" --dangerously-skip-permissions "$prompt" \
+        claude --print --strict-mcp-config --model "${API_ENGINE_MODEL:-claude-opus-4-8}" --dangerously-skip-permissions "$prompt" \
         >> "$log_file" 2>&1
       exit_code=$?
       if [ "$exit_code" -eq 124 ]; then

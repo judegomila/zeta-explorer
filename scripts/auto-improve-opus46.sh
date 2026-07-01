@@ -157,7 +157,7 @@ do_start() {
             . "$SCRIPT_DIR/.env"
             set +a
           fi
-          claude --print --dangerously-skip-permissions --model claude-opus-4-6 "$IMPROVE_PROMPT" \
+          claude --print --strict-mcp-config --dangerously-skip-permissions --model claude-opus-4-6 "$IMPROVE_PROMPT" \
             >> "$log_file" 2>&1
         ) || true
       else

@@ -954,6 +954,44 @@ export const glossary = [
     ],
     link: '/closure-routes',
   },
+  {
+    term: "asym-onset ledger rigor-status taxonomy",
+    category: 'numerical',
+    definition:
+      "The four-tier classification applied to every row in the asymmetric-isolation onset " +
+      "ledger, recording HOW the onset value was established and whether it is a valid " +
+      "lower bound on the global isolation constant c_glob. " +
+      "\n\nThe four tiers are:" +
+      "\n\n(1) CLOSED-FORM-EXACT: onset derived analytically, e.g. the symmetric two-body " +
+      "value c_sym = arctan(1)/pi ~ 0.25. Rigorously bounds c_glob from above IF it is a " +
+      "genuine isolation transition; useless as a lower bound without proof." +
+      "\n\n(2) CERTIFIED-NUMERICAL-INF: onset obtained by a certified numerical infimum " +
+      "over a well-defined family, e.g. Config-B onset 0.9015828 (imp-3200) verified via " +
+      "bisection to full integration tolerance. Provides a valid UPPER BOUND on c_glob " +
+      "within the tested family; NOT a lower bound unless the family is provably exhaustive." +
+      "\n\n(3) RANDOM-SCAN: onset found by random search over environment configurations. " +
+      "Provides only a heuristic upper bound -- the search may have missed lower onsets. " +
+      "Cannot bound c_glob from above certifiably, and certainly not from below." +
+      "\n\n(4) SELECTOR-ARTIFACT: onset produced by a GLOBAL nearest-particle selector " +
+      "(e.g. imp-3045/imp-3173/imp-3194 bisection over the global min-gap). The bisector " +
+      "locks onto a TIE in the discrete spacing rather than a smooth isolation transition; " +
+      "the recorded onset is an artifact of which particle pair the selector latches onto, " +
+      "NOT a property of the environment. Selector-artifact rows are diagnostically useful " +
+      "for understanding tie structure but DO NOT BOUND c_glob in any direction. " +
+      "\n\nSIGNIFICANCE: confusing selector-artifact onsets with certified-numerical-inf " +
+      "onsets is the primary source of false brackets in the asymmetric ledger. A row " +
+      "that reads onset ~ 0.906 from a global-selector bisection looks numerically close " +
+      "to the Config-B certified 0.9015828, but the two carry completely different " +
+      "epistemic weight. Only certified-numerical-inf and closed-form-exact rows can " +
+      "bracket c_glob; random-scan and selector-artifact rows cannot.",
+    firstUsed: "imp-3246 (asym-onset ledger rigor-status taxonomy), 2026",
+    relatedTerms: [
+      "global asymmetric isolation constant (c_glob)",
+      "selector-artifact onset (imp-3045/3173/3194)",
+      "Config-B certified onset 0.9015828 (imp-3200)",
+    ],
+    link: '/spectral-attack',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

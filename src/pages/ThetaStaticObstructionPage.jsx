@@ -244,6 +244,10 @@ export default function ThetaStaticObstructionPage() {
 
       <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #ef4444' }}>
         <h3 style={{ color: '#ef4444', fontSize: 16, marginBottom: 8 }}>Honest Status</h3>
+        <div style={{ background: 'rgba(239,68,68,0.10)', border: '1px solid rgba(239,68,68,0.45)', borderRadius: 6, padding: '8px 12px', marginBottom: 12 }}>
+          <span style={{ color: '#f87171', fontWeight: 700, fontSize: 12, letterSpacing: '0.04em' }}>R1 EXCURSION-CAP RESIDUAL: PURELY DYNAMICAL</span>
+          <span style={{ color: '#94a3b8', fontSize: 12 }}> &mdash; The static route is closed as an <em>obstruction</em> (<InlineMath tex={"\\Theta_K \\to 1"} />), not as a cap &lt; 1. No static tie comparison can bound the excursion peak; the open question is now entirely dynamical: whether the CM flow, started from real-zero-like data, can reach a near-uniform lattice.</span>
+        </div>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
           <strong style={{ color: '#e2e8f0' }}>What this closes (as an obstruction):</strong> the
           candidate static route — "bound the tie value of the central pair to show the excursion peak

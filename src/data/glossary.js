@@ -1065,6 +1065,38 @@ export const glossary = [
     ],
     link: '/spectral-attack',
   },
+  {
+    term: "mass-feasibility vs operator-positivity",
+    category: "proof-status",
+    definition:
+      "Two distinct necessary conditions for the section26 bridge construction, carrying " +
+      "entirely different epistemic weight.\n\n" +
+      "MASS-FEASIBILITY (NECESSARY, NOT SUFFICIENT): The section26-mupass verdict finds that " +
+      "the deg-2 occupation deficit (~9.28e-9) sits 3-4 orders of magnitude below the " +
+      "off-diagonal bridge budget. This kills only one specific IMPOSSIBILITY route -- it rules " +
+      "out the scenario where the deficit alone is too large for any passive-core construction " +
+      "to absorb. It does NOT construct a passive core, does NOT establish K_a >= 0 in the " +
+      "Loewner order, and does NOT close the bridge argument.\n\n" +
+      "OPERATOR-POSITIVITY (BINDING REQUIREMENT): The residual obstruction is the operator " +
+      "inequality K_a >= Gshear in the Loewner (semidefinite) order. Since Gshear is indefinite " +
+      "(hollow antisymmetric shear Gram, minimum eigenvalue ~ -||Gshear|| ~ -4.8e-6), any " +
+      "candidate passive core K_a >= 0 fails the domination condition K_a - Gshear >= 0. " +
+      "Mass-feasibility arguments cannot bridge this gap: an operator with sufficiently large " +
+      "total mass (trace) can still be indefinite and violate K_a >= Gshear pointwise.\n\n" +
+      "CONSEQUENCE: reading the section26 deficit result as evidence that the bridge is " +
+      "'almost closed' conflates a mass integral (scalar, positive) with an operator-order " +
+      "condition (matrix inequality, signed). The correct summary is: mass-feasibility is " +
+      "NECESSARY-BUT-NOT-SUFFICIENT; operator-positivity K_a >= 0 for the full bridge kernel " +
+      "K_a = Gpass - Gshear is the binding open requirement (RH-EQUIVALENT).",
+    firstUsed: "imp-3261 (mass-feasibility vs operator-positivity glossary), 2026",
+    relatedTerms: [
+      "partial-isometry tautology (||R||=1.0000 exact)",
+      "hollow antisymmetric shear Gram (Gshear)",
+      "section-26 mupass operator verdict",
+      "K_a >= 0 operator-order obstruction",
+    ],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

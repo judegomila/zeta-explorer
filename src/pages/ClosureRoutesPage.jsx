@@ -2581,6 +2581,163 @@ function OverflowFractionResolutionSweepViz() {
   );
 }
 
+// ── imp-3250: U-sweep overflow fraction vs U collapsing onto frac*U ~1.2535 ──
+// Two-panel SVG: (LEFT) scatter of frac vs U with the amber hyperbola frac=1.2535/U;
+// (RIGHT) frac*U for all 7 cells showing near-flat invariance.
+function USweeOverflowFractionViz() {
+  const data = IMP3199_OVERFLOW_FRACTION_CELL_SWEEP;
+  const cells = data.measured.perCell;
+  const inv = data.measured.measureMean; // ~1.2535
+
+  // U-varying cells only (a=0.5, NPHI=10)
+  const uCells = cells.filter((r) => r.a === 0.5 && r.NPHI === 10).sort((a, b) => a.U - b.U);
+
+  // ── LEFT PANEL: frac vs U + hyperbola ──────────────────────────────────────
+  const W1 = 340, H1 = 200;
+  const p1 = { t: 30, r: 16, b: 44, l: 52 };
+  const cW1 = W1 - p1.l - p1.r;
+  const cH1 = H1 - p1.t - p1.b;
+  const Umin = 4.0, Umax = 9.5;
+  const Fmin = 0, Fmax = 0.31;
+  const xS1 = (U) => p1.l + ((U - Umin) / (Umax - Umin)) * cW1;
+  const yS1 = (f) => p1.t + (1 - (f - Fmin) / (Fmax - Fmin)) * cH1;
+
+  const hypPts = [];
+  for (let u = 4.3; u <= 9.1; u += 0.08) hypPts.push([xS1(u), yS1(inv / u)]);
+  const hypPath = hypPts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
+
+  const uTicks = [5, 6, 7, 8, 9];
+  const fTicks = [0, 0.1, 0.2, 0.3];
+
+  // ── RIGHT PANEL: frac*U for all 7 cells ───────────────────────────────────
+  const W2 = 240, H2 = 200;
+  const p2 = { t: 30, r: 12, b: 44, l: 52 };
+  const cW2 = W2 - p2.l - p2.r;
+  const cH2 = H2 - p2.t - p2.b;
+  const Mmin = 1.242, Mmax = 1.264;
+  const xS2 = (i) => p2.l + ((i + 0.5) / cells.length) * cW2;
+  const yS2 = (m) => p2.t + (1 - (m - Mmin) / (Mmax - Mmin)) * cH2;
+  const mTicks = [1.245, 1.250, 1.255, 1.260];
+
+  const dotColor = (r) => {
+    if (r.U === 5) return '#10b981';
+    if (r.U === 8) return '#8b5cf6';
+    if (r.U === 6 && r.a === 0.5 && r.NPHI === 10) return '#06b6d4';
+    return '#94a3b8';
+  };
+
+  return (
+    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid #06b6d4', background: 'rgba(6,182,212,0.03)' }}>
+      <h3 style={{ color: '#06b6d4', marginTop: 0, fontSize: 15 }}>
+        U-Sweep Collapse: overflow fraction &prop; 1/U, product frac&times;U &asymp; 1.2535 (imp-3199)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+        The three U-varying cells (U&nbsp;=&nbsp;5,&nbsp;6,&nbsp;8; a&nbsp;=&nbsp;0.5 fixed) lie on
+        the hyperbola frac&nbsp;=&nbsp;1.2535/U (amber dashes). The fraction drops from 0.251 at
+        U&nbsp;=&nbsp;5 to 0.157 at U&nbsp;=&nbsp;8 — but the product frac&times;U stays
+        near&nbsp;{inv.toFixed(4)} across all seven cells including a-varying and NPHI-varying ones
+        (right panel). Varying a or NPHI does not move the fraction; only U matters.
+      </p>
+      <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap', alignItems: 'flex-start' }}>
+        {/* LEFT: frac vs U + hyperbola */}
+        <svg width={W1} height={H1} style={{ display: 'block' }}>
+          {/* Grid */}
+          {fTicks.map((f) => (
+            <line key={f} x1={p1.l} x2={p1.l + cW1} y1={yS1(f)} y2={yS1(f)} stroke="#1e293b" strokeWidth={1} />
+          ))}
+          {uTicks.map((u) => (
+            <line key={u} x1={xS1(u)} x2={xS1(u)} y1={p1.t} y2={p1.t + cH1} stroke="#1e293b" strokeWidth={1} />
+          ))}
+          {/* Hyperbola frac = inv/U */}
+          <path d={hypPath} fill="none" stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="5,3" />
+          <text x={xS1(8.6)} y={yS1(inv / 8.6) - 7} fill="#f59e0b" fontSize={9} textAnchor="middle">
+            frac&times;U&asymp;{inv.toFixed(4)}
+          </text>
+          {/* U-varying data points */}
+          {uCells.map((r) => (
+            <g key={r.label}>
+              <circle cx={xS1(r.U)} cy={yS1(r.convergedFraction)} r={5.5} fill={dotColor(r)} stroke="#0f172a" strokeWidth={1} />
+              <text x={xS1(r.U) + 9} y={yS1(r.convergedFraction) + 4} fill={dotColor(r)} fontSize={9}>
+                {r.convergedFraction.toFixed(3)}
+              </text>
+              <text x={xS1(r.U)} y={yS1(r.convergedFraction) - 9} fill="#94a3b8" fontSize={9} textAnchor="middle">
+                U={r.U}
+              </text>
+            </g>
+          ))}
+          {/* Axes */}
+          <line x1={p1.l} x2={p1.l + cW1} y1={p1.t + cH1} y2={p1.t + cH1} stroke="#475569" strokeWidth={1} />
+          <line x1={p1.l} x2={p1.l} y1={p1.t} y2={p1.t + cH1} stroke="#475569" strokeWidth={1} />
+          {uTicks.map((u) => (
+            <g key={u}>
+              <line x1={xS1(u)} x2={xS1(u)} y1={p1.t + cH1} y2={p1.t + cH1 + 4} stroke="#475569" />
+              <text x={xS1(u)} y={p1.t + cH1 + 14} fill="#94a3b8" fontSize={9} textAnchor="middle">{u}</text>
+            </g>
+          ))}
+          {fTicks.map((f) => (
+            <g key={f}>
+              <line x1={p1.l - 4} x2={p1.l} y1={yS1(f)} y2={yS1(f)} stroke="#475569" />
+              <text x={p1.l - 7} y={yS1(f) + 4} fill="#94a3b8" fontSize={9} textAnchor="end">{f.toFixed(1)}</text>
+            </g>
+          ))}
+          <text x={p1.l + cW1 / 2} y={H1 - 5} fill="#64748b" fontSize={10} textAnchor="middle">lag cutoff U</text>
+          <text
+            x={11} y={p1.t + cH1 / 2} fill="#64748b" fontSize={10} textAnchor="middle"
+            transform={`rotate(-90, 11, ${p1.t + cH1 / 2})`}
+          >overflow fraction</text>
+          <text x={p1.l + cW1 / 2} y={19} fill="#94a3b8" fontSize={10} textAnchor="middle">frac vs U</text>
+        </svg>
+
+        {/* RIGHT: frac*U for all 7 cells */}
+        <svg width={W2} height={H2} style={{ display: 'block' }}>
+          {/* Y grid */}
+          {mTicks.map((m) => (
+            <line key={m} x1={p2.l} x2={p2.l + cW2} y1={yS2(m)} y2={yS2(m)} stroke="#1e293b" strokeWidth={0.5} />
+          ))}
+          {/* Mean line */}
+          <line x1={p2.l} x2={p2.l + cW2} y1={yS2(inv)} y2={yS2(inv)} stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="4,2" />
+          <text x={p2.l + cW2 - 2} y={yS2(inv) - 4} fill="#f59e0b" fontSize={9} textAnchor="end">
+            mean&asymp;{inv.toFixed(4)}
+          </text>
+          {/* Dots for all 7 cells */}
+          {cells.map((r, i) => (
+            <circle key={r.label} cx={xS2(i)} cy={yS2(r.supportMeasure)} r={4.5}
+              fill={dotColor(r)} stroke="#0f172a" strokeWidth={1} />
+          ))}
+          {/* Axes */}
+          <line x1={p2.l} x2={p2.l + cW2} y1={p2.t + cH2} y2={p2.t + cH2} stroke="#475569" strokeWidth={1} />
+          <line x1={p2.l} x2={p2.l} y1={p2.t} y2={p2.t + cH2} stroke="#475569" strokeWidth={1} />
+          {mTicks.map((m) => (
+            <g key={m}>
+              <line x1={p2.l - 4} x2={p2.l} y1={yS2(m)} y2={yS2(m)} stroke="#475569" />
+              <text x={p2.l - 7} y={yS2(m) + 4} fill="#94a3b8" fontSize={8} textAnchor="end">{m.toFixed(3)}</text>
+            </g>
+          ))}
+          <text x={p2.l + cW2 / 2} y={H2 - 4} fill="#64748b" fontSize={10} textAnchor="middle">all 7 cells</text>
+          <text
+            x={10} y={p2.t + cH2 / 2} fill="#64748b" fontSize={10} textAnchor="middle"
+            transform={`rotate(-90, 10, ${p2.t + cH2 / 2})`}
+          >frac&times;U</text>
+          <text x={p2.l + cW2 / 2} y={19} fill="#94a3b8" fontSize={10} textAnchor="middle">frac&times;U invariant</text>
+        </svg>
+      </div>
+
+      {/* Legend */}
+      <div style={{ display: 'flex', gap: 14, marginTop: 8, flexWrap: 'wrap' }}>
+        <span style={{ color: '#10b981', fontSize: 11 }}>&#9679; U=5 (frac=0.251)</span>
+        <span style={{ color: '#06b6d4', fontSize: 11 }}>&#9679; U=6 base (frac=0.209)</span>
+        <span style={{ color: '#8b5cf6', fontSize: 11 }}>&#9679; U=8 (frac=0.157)</span>
+        <span style={{ color: '#94a3b8', fontSize: 11 }}>&#9679; a- / NPHI-varying cells</span>
+        <span style={{ color: '#f59e0b', fontSize: 11 }}>&#8212; frac&times;U&asymp;1.2535 hyperbola / mean</span>
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3199-overflow-fraction-cell-sweep.js &mdash; DIAGNOSTIC; overflow-support only;
+        NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3197: sign-vs-magnitude decomposition of K_a >= 0 bridge obstruction ──
 // Shows that the SIGN half is FREE (Phi-only, 100% magnitude-weighted agreement,
 // zero mismatch mass) while the MAGNITUDE half is the whole residual: the
@@ -3320,6 +3477,12 @@ export default function ClosureRoutesPage() {
           NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
         </p>
       </div>
+
+      {/* ─── imp-3250: U-sweep overflow fraction viz ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        U-Sweep: frac vs U Collapse onto frac&times;U &asymp; 1.2535 (imp-3199)
+      </h2>
+      <USweeOverflowFractionViz />
 
       {/* ─── imp-3202: bridge lag-cutoff capture curve viz ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

@@ -40,6 +40,7 @@ import { SECTION26_MUPASS_OPERATOR_VERDICT } from '../data/section26-mupass-oper
 import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equal-product-cell-invariance-lock.js';
 import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-bridge-lag-cutoff-sweep.js';
 import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bridge-sign-phi-only.js';
+import { IMP3199_OVERFLOW_FRACTION_CELL_SWEEP } from '../data/imp-3199-overflow-fraction-cell-sweep.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -3093,6 +3094,62 @@ export default function ClosureRoutesPage() {
         Overflow Fraction Resolution Sweep (imp-3175)
       </h2>
       <OverflowFractionResolutionSweepViz />
+
+      {/* ─── imp-3199: cell-invariant absolute overflow-support length ─── */}
+      <div
+        className="card"
+        style={{
+          marginTop: 14,
+          borderLeft: '4px solid #f59e0b',
+          background: 'rgba(245,158,11,0.04)',
+        }}
+      >
+        <h3 style={{ color: '#f59e0b', marginTop: 0, fontSize: 14 }}>
+          imp-3199: ~0.209 is the U=6 reading of a cell-invariant absolute lag-length ~1.254 &mdash; NOT a universal fraction
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+          The multi-cell sweep (imp-3199) varies <em>a</em>, <em>U</em>, and <em>NPHI</em> around
+          the base cell. The converged overflow <strong>fraction</strong> shifts with <em>U</em>
+          (0.251 at U=5, 0.209 at U=6, 0.157 at U=8) but the absolute overflow-support
+          <strong> measure frac&times;U</strong> is &asymp;{IMP3199_OVERFLOW_FRACTION_CELL_SWEEP.measured.measureMean.toFixed(4)}&thinsp;&plusmn;&thinsp;{IMP3199_OVERFLOW_FRACTION_CELL_SWEEP.measured.measureSpread.toFixed(4)} across
+          all seven cells. Varying <em>a</em> (0.3, 0.5, 0.7) or <em>NPHI</em> (6, 10, 14)
+          does <strong>not</strong> move the fraction. The imp-3175 ~0.209 is therefore the
+          U=6 normalization of the cell-invariant overflow-support lag-length &asymp;1.254; it is
+          NOT a universal fraction.
+        </p>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ fontSize: 11, borderCollapse: 'collapse', color: '#94a3b8', width: '100%', maxWidth: 540 }}>
+            <thead>
+              <tr style={{ color: '#64748b', borderBottom: '1px solid #1e293b' }}>
+                <th style={{ textAlign: 'left', padding: '3px 8px', fontWeight: 500 }}>cell</th>
+                <th style={{ textAlign: 'right', padding: '3px 8px', fontWeight: 500 }}>a</th>
+                <th style={{ textAlign: 'right', padding: '3px 8px', fontWeight: 500 }}>U</th>
+                <th style={{ textAlign: 'right', padding: '3px 8px', fontWeight: 500 }}>NPHI</th>
+                <th style={{ textAlign: 'right', padding: '3px 8px', fontWeight: 500 }}>frac</th>
+                <th style={{ textAlign: 'right', padding: '3px 8px', fontWeight: 500, color: '#f59e0b' }}>frac&times;U</th>
+              </tr>
+            </thead>
+            <tbody>
+              {IMP3199_OVERFLOW_FRACTION_CELL_SWEEP.measured.perCell.map((row) => (
+                <tr key={row.label} style={{ borderBottom: '1px solid #0f172a' }}>
+                  <td style={{ padding: '3px 8px', fontFamily: mono, fontSize: 10.5 }}>{row.label}</td>
+                  <td style={{ textAlign: 'right', padding: '3px 8px' }}>{row.a}</td>
+                  <td style={{ textAlign: 'right', padding: '3px 8px' }}>{row.U}</td>
+                  <td style={{ textAlign: 'right', padding: '3px 8px' }}>{row.NPHI}</td>
+                  <td style={{ textAlign: 'right', padding: '3px 8px' }}>{row.convergedFraction.toFixed(6)}</td>
+                  <td style={{ textAlign: 'right', padding: '3px 8px', color: '#f59e0b', fontWeight: 600 }}>
+                    {row.supportMeasure.toFixed(5)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+          Source: imp-3199-overflow-fraction-cell-sweep.js &mdash; DIAGNOSTIC; overflow-support only;
+          NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+        </p>
+      </div>
 
       {/* ─── imp-3202: bridge lag-cutoff capture curve viz ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

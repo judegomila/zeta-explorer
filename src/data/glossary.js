@@ -992,6 +992,43 @@ export const glossary = [
     ],
     link: '/spectral-attack',
   },
+  {
+    term: "hollow antisymmetric shear Gram (Gshear)",
+    category: 'numerical',
+    definition:
+      "The de Branges Wronskian kernel Gshear(u,v) = q(u)p(v) - p(u)q(v), where " +
+      "p(tau) = Phi(tau) cosh(a*tau) and q(tau) = Phi(tau) sinh(a*tau). " +
+      "This kernel is ANTISYMMETRIC (Gshear(v,u) = -Gshear(u,v)) and HOLLOW: " +
+      "Gshear(0,v) = 0 for every v, because sinh(0) = 0 forces q(0) = 0, " +
+      "so the entire tau=0 row/column of the discretized Gram vanishes. " +
+      "\n\nINDEFINITENESS: the operator associated with Gshear has a spectrum " +
+      "symmetric about zero; its minimum eigenvalue is ~ -||Gshear|| (the operator " +
+      "norm of |Gshear|), confirmed numerically across resolution in imp-3197 and " +
+      "imp-3252. The spectral symmetry is the hallmark of an antisymmetric kernel: " +
+      "if lambda is an eigenvalue then so is -lambda. " +
+      "\n\nCRUCIAL OBSTRUCTION: no scalar multiple of the identity and no positive " +
+      "diagonal operator can dominate Gshear in the semidefinite (Loewner) order. " +
+      "Domination D >= Gshear requires D - Gshear >= 0, which forces D to have at " +
+      "least as much negative spectral mass as Gshear. A scalar or diagonal passive " +
+      "core K_a has all non-negative eigenvalues by construction, so K_a - Gshear " +
+      "must have a negative eigenvalue of magnitude ~ ||Gshear||; the semidefinite " +
+      "condition K_a >= Gshear is infeasible for any K_a >= 0. " +
+      "\n\nSIGNIFICANCE (section 26 mupass verdict): this is the core reason why " +
+      "no scalar or diagonal passive-core ansatz for the de Branges bridge can " +
+      "dominate the shear term. The off-diagonal bridge would need to absorb the " +
+      "entire negative spectral mass of Gshear, which the mupass deficit and " +
+      "partial-isometry tautology analyses show is impossible without circular " +
+      "construction (||R|| = 1.0000 only when Gpass = |Gshear|, i.e. the passive " +
+      "core is defined by the very operator it is supposed to dominate).",
+    firstUsed: "imp-3197 (mupass bridge sign analysis), 2026",
+    relatedTerms: [
+      "section-26 mupass operator verdict",
+      "partial-isometry tautology (||R||=1.0000 exact)",
+      "mass-feasibility vs operator-positivity",
+      "asym-onset ledger rigor-status taxonomy",
+    ],
+    link: '/spectral-attack',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -871,6 +871,32 @@ export const glossary = [
     ],
     link: '/closure-routes',
   },
+  {
+    term: "pointwise degree-0 cover margin (e^{-a*tau})",
+    category: 'numerical',
+    definition:
+      "The exact scalar margin by which the passive term dominates the shear term at every " +
+      "lag tau, at polynomial degree 0 (constant approximant). The passive kernel is " +
+      "cosh(a*tau) and the shear kernel is sinh(a*tau); their difference is " +
+      "cosh(a*tau) - sinh(a*tau) = e^{-a*tau}, which is strictly positive for all finite tau. " +
+      "\n\nThis means the degree-0 cover is not merely a MEAN-level statement: the passive " +
+      "term exceeds the shear term AT EVERY INDIVIDUAL LAG tau, not just on average. No " +
+      "tau-interval can make sinh(a*tau) >= cosh(a*tau), so there is no local failure. " +
+      "\n\nConsequences (imp-3156): the degree-0 occupation deficit D_pass = 0 exactly " +
+      "(no lag is uncovered), and the covered fraction coveredFraction = 1 exactly. " +
+      "Both hold for all shear weights a > 0 and all truncation windows, with no " +
+      "finite-N or finite-tau corrections. " +
+      "\n\nContrast with higher degrees: at degree >= 1 the approximant introduces a " +
+      "sign-dependent shear component that can create local exceedances at large tau, " +
+      "so the pointwise cover no longer holds automatically and the occupation deficit " +
+      "becomes non-trivial.",
+    firstUsed: "imp-3156 (pointwise passive-over-shear cover), 2026",
+    relatedTerms: [
+      "bridge-kernel sign-free / magnitude-binding split",
+      "section-26-vs-monomial gap (D1-D4)",
+    ],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

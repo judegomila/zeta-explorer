@@ -840,6 +840,37 @@ export const glossary = [
     ],
     link: '/closure-routes',
   },
+  {
+    term: "algebraic vs geometric residual-gap convergence",
+    category: 'numerical',
+    definition:
+      "The diagnostic that distinguishes power-law (algebraic) from exponential (geometric) " +
+      "decay of the residual gap resid(DEG) = G(s) - gap(DEG) as the polynomial degree DEG " +
+      "increases. " +
+      "\n\nGeometric convergence: the ratio resid(DEG)/resid(DEG-2) converges to a CONSTANT " +
+      "r < 1 as DEG grows. Each increment of DEG multiplies the residual by the same factor, " +
+      "giving an exponential envelope resid ~ C * r^(DEG/2). " +
+      "\n\nAlgebraic (power-law) convergence: the ratio resid(DEG)/resid(DEG-2) RISES TOWARD 1 " +
+      "as DEG grows, never settling at a constant below 1. The envelope instead follows " +
+      "resid ~ C * DEG^(-p) for some exponent p > 0. The ratio test detects this because " +
+      "(DEG/(DEG-2))^(-p) -> 1 from above as DEG -> inf. " +
+      "\n\nImp-3196 diagnostic: for the monomial-basis residual gap at equal-s cells " +
+      "(s = a*U in 0.8..3.0), the ratio resid(DEG)/resid(DEG-2) rises toward 1 (observed " +
+      "range ~0.78-0.91 at DEG=8-10), confirming an algebraic tail with fitted exponent " +
+      "p rising monotonically from ~1.49 at s=0.8 to ~1.72 at s=3.0. The algebraic fit " +
+      "achieves R^2 ~ 0.996-0.999 vs geometric fit R^2 ~ 0.96-0.97. " +
+      "\n\nConsequence: the cosh-monomial basis is NOT exponentially efficient for this " +
+      "problem; the gap(DEG) series converges slowly (power-law). Richardson extrapolation " +
+      "(imp-3223) can extend the reach beyond the DEG<=10 conditioning ceiling (imp-3153). " +
+      "A better-conditioned non-monomial basis (imp-3235) might recover geometric convergence.",
+    firstUsed: "imp-3196 (residual-gap convergence-rate sweep), 2026",
+    relatedTerms: [
+      "section-26-vs-monomial gap (D1-D4)",
+      "bridge-kernel sign-free / magnitude-binding split",
+      "golden-ratio residual-gap maximum (phi^{-5/2})",
+    ],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

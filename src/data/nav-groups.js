@@ -100,6 +100,7 @@ export const NAV_GROUPS = [
       { to: '/theta-static-obstruction', label: 'Theta Static Obstruction' },
       { to: '/theta-basin-closure', label: 'Theta Basin Closure' },
       { to: '/onset-bracket-ledger', label: 'Onset Bracket Ledger' },
+      { to: '/open-frontier', label: 'Open Frontier' },
       { to: '/gap-closing', label: 'Gap Closing' },
       { to: '/twistor', label: 'Twistor' },
       { to: '/zx-calculus', label: 'ZX-Calculus' },

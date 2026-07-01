@@ -123,6 +123,7 @@ const ThetaSeizingMarginPage = lazy(() => import('./pages/ThetaSeizingMarginPage
 const ThetaStaticObstructionPage = lazy(() => import('./pages/ThetaStaticObstructionPage.jsx'));
 const ThetaBasinClosurePage = lazy(() => import('./pages/ThetaBasinClosurePage.jsx'));
 const OnsetBracketLedgerPage = lazy(() => import('./pages/OnsetBracketLedgerPage.jsx'));
+const OpenFrontierPage = lazy(() => import('./pages/OpenFrontierPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -690,6 +691,7 @@ function AppShell() {
           <Route path="/theta-static-obstruction" element={<ThetaStaticObstructionPage />} />
           <Route path="/theta-basin-closure" element={<ThetaBasinClosurePage />} />
           <Route path="/onset-bracket-ledger" element={<OnsetBracketLedgerPage />} />
+          <Route path="/open-frontier" element={<OpenFrontierPage />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

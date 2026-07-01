@@ -96,6 +96,7 @@ export const NAV_GROUPS = [
       { to: '/connes-adelic', label: 'Connes Adelic' },
       { to: '/rh-attack', label: 'RH Attack' },
       { to: '/spectral-attack', label: 'Spectral' },
+      { to: '/theta-seizing-margin', label: 'Theta Seizing Margin' },
       { to: '/gap-closing', label: 'Gap Closing' },
       { to: '/twistor', label: 'Twistor' },
       { to: '/zx-calculus', label: 'ZX-Calculus' },

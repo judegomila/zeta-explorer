@@ -1220,8 +1220,12 @@ function PhiProfileLogLogViz() {
         </svg>
       </div>
       <p style={{ marginTop: 8, color: "#64748b", fontSize: 11, fontFamily: mono }}>
-        C = sqrt(2)*(1 &minus; arcsinh(1)) &asymp; {C.toFixed(5)} (imp-3087 onset pole constant).{" "}
+        C = sqrt(2)*(1 &minus; arcsinh(1)) &asymp; {C.toFixed(5)} (imp-3087 onset pole constant);{" "}
         K = 2*(sqrt(2) &minus; arcsinh(1)) &asymp; {K.toFixed(5)} (imp-3088 large-s decay constant).{" "}
+        Convergence signatures (imp-3112): &phi;(s<sub>0</sub>+&epsilon;)&epsilon;<sup>2</sup>/C&rarr;1 as &epsilon;&rarr;0+
+        (ratio within ~3.3&times;10<sup>&minus;5</sup> of 1 at &epsilon;=10<sup>&minus;5</sup>);{" "}
+        &phi;(s)e<sup>s</sup>/K&rarr;1 as s&rarr;&infin;
+        (ratio within ~10<sup>&minus;7</sup> of 1 at s=20).{" "}
         imp-3105 landmarks: s*&asymp;1.48895 (phi=1), s_c1&asymp;1.91504 (handoff; exact phi&asymp;0.378 &ne; envelope&asymp;0.157), s_c2&asymp;4.31751 (re-crossing, artifact).{" "}
         Degree-0 scalar measure only; RH-EQUIVALENT; NOT the operator step.{" "}
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.

@@ -61,8 +61,8 @@ export const IMP_3160_FINDING_MODULE_SURFACING_AUDIT = {
     },
     {
       file: 'imp-3104-orthogonalized-opnorm-degree-sweep.js',
-      surfaced: false,
-      surfacedBy: null,
+      surfaced: true,
+      surfacedBy: 'src/pages/ClosureRoutesPage.jsx',
       honestScope: 'orthogonalized degree sweep; representative diagnostic; no RH verdict',
     },
     {
@@ -73,8 +73,8 @@ export const IMP_3160_FINDING_MODULE_SURFACING_AUDIT = {
     },
     {
       file: 'imp-3106-excess-fraction-integrability.js',
-      surfaced: false,
-      surfacedBy: null,
+      surfaced: true,
+      surfacedBy: 'src/pages/ClosureRoutesPage.jsx',
       honestScope: 'integrability assessment of excess fraction phi(s); analytic tie; no RH verdict',
     },
     {
@@ -120,8 +120,8 @@ export const IMP_3160_FINDING_MODULE_SURFACING_AUDIT = {
       honestScope: 'build-assertion lock for interior landmark scales; lock module only; no RH verdict',
     },
   ],
-  surfacedCount: 5,
-  orphanCount: 6,
+  surfacedCount: 7,
+  orphanCount: 4,
   recommendation:
     'Mint surfacing tickets for each of the seven orphaned modules so each is ' +
     'rendered on at least one page with its honest scope caveat; do not fabricate pages here.',

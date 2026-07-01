@@ -45,6 +45,7 @@ import { IMP3199_OVERFLOW_FRACTION_CELL_SWEEP } from '../data/imp-3199-overflow-
 import { IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE } from '../data/imp-3196-residual-gap-convergence-rate.js';
 import { IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP } from '../data/imp-3154-genuine-deg2-deficit-degree-sweep.js';
 import { IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP } from '../data/imp-3104-orthogonalized-opnorm-degree-sweep.js';
+import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-fraction-integrability.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -4091,6 +4092,56 @@ export default function ClosureRoutesPage() {
         </div>
         <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
           Source: imp-3104-orthogonalized-opnorm-degree-sweep.js &mdash; a=0.5, U=6, DEG&isin;[2,12], NQ=4000.
+        </p>
+      </div>
+
+      {/* ─── imp-3106: excess fraction integrability ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Excess fraction &phi;(s) is non-integrable at overflow onset; mean cosh-completion price is unbounded (imp-3106)
+      </h2>
+      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid #f59e0b', background: 'rgba(245,158,11,0.04)' }}>
+        <h3 style={{ color: '#f59e0b', marginTop: 0, fontSize: 14 }}>
+          Onset divergence ladder: I(&epsilon;) ~ C/&epsilon;, C&asymp;{IMP3106_EXCESS_FRACTION_INTEGRABILITY.onsetDivergence.onsetConstant.toFixed(5)}; regular mass &asymp;{IMP3106_EXCESS_FRACTION_INTEGRABILITY.convergentTail.regularMass.toFixed(4)} (imp-3106)
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+          imp-3087 measured the onset pole &phi;(s) ~ C/(s&minus;s<sub>0</sub>)&sup2; and imp-3088 measured the
+          tail &phi; ~ K e<sup>&minus;s</sup>, but the TOTAL area was never assessed. This module closes the gap:
+          the integral of the imp-3064 excess fraction over the overflow range DIVERGES at s<sub>0</sub> = arcsinh(1).
+          An &epsilon;-cutoff ladder shows I(&epsilon;) grows ~10&times; per decade (the 1/&epsilon; power law) and
+          &epsilon;&middot;I(&epsilon;) &rarr; C from above. The finite regular mass beyond the onset window
+          int<sub>s0+1</sub><sup>&infin;</sup>&phi;ds &asymp; {IMP3106_EXCESS_FRACTION_INTEGRABILITY.convergentTail.regularMass.toFixed(4)} is
+          overrun by C/&epsilon; at the finest cutoff by a factor of &asymp;{Math.round(IMP3106_EXCESS_FRACTION_INTEGRABILITY.whereDivergenceDominates.onsetToRegularRatioAtFinestEps)}&times;.
+        </p>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8' }}>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>&epsilon;</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>I(&epsilon;)</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>&epsilon;&middot;I(&epsilon;)</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>ratio to C/&epsilon;</th>
+            </tr>
+          </thead>
+          <tbody>
+            {IMP3106_EXCESS_FRACTION_INTEGRABILITY.onsetRungs.map((row, i) => (
+              <tr key={i} style={{ borderBottom: '1px solid #1e293b' }}>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#cbd5e1' }}>{row.eps.toExponential(0)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#f59e0b', textAlign: 'right' }}>{row.mass.toFixed(3)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#fbbf24', textAlign: 'right' }}>{row.epsTimesMass.toFixed(5)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#fcd34d', textAlign: 'right' }}>{row.ratioToPrincipal.toFixed(4)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+          <strong style={{ color: '#f87171' }}>Honest scope (imp-3106):</strong>{' '}
+          DIVERGENCE CHARACTERIZATION, NOT A VALUE. Degree-0 scalar measure only (RH-equivalent).
+          The integrability result for the imp-3064 scalar ratio &phi;(s) neither proves nor weakens RH;
+          the off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction and
+          is untouched. No finite mean to report.
+          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </div>
+        <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+          Source: imp-3106-excess-fraction-integrability.js &mdash; s0=arcsinh(1)&asymp;0.88137, C&asymp;{IMP3106_EXCESS_FRACTION_INTEGRABILITY.onsetDivergence.onsetConstant.toFixed(5)}, K&asymp;{IMP3106_EXCESS_FRACTION_INTEGRABILITY.convergentTail.tailConstant.toFixed(5)}.
         </p>
       </div>
 

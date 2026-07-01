@@ -148,7 +148,7 @@ export default function OnsetBracketLedgerPage() {
         </table>
       </div>
 
-      {/* Selector artifacts */}
+      {/* Selector artifacts — imp-3304 audit: confirmed NO page in src/pages renders these as valid c_glob bounds */}
       <div style={{
         background: '#1a0000', border: '1px solid #7f1d1d', borderRadius: 8,
         padding: '16px 20px', marginBottom: 24,

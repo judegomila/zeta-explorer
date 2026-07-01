@@ -44,6 +44,7 @@ import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bri
 import { IMP3199_OVERFLOW_FRACTION_CELL_SWEEP } from '../data/imp-3199-overflow-fraction-cell-sweep.js';
 import { IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE } from '../data/imp-3196-residual-gap-convergence-rate.js';
 import { IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP } from '../data/imp-3154-genuine-deg2-deficit-degree-sweep.js';
+import { IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP } from '../data/imp-3104-orthogonalized-opnorm-degree-sweep.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -4034,6 +4035,62 @@ export default function ClosureRoutesPage() {
         </div>
         <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
           Source: imp-3102-orthogonalized-gap-aU-grid.js &mdash; a&isin;&#123;0.5,0.3,0.2,0.1&#125;, U&isin;&#123;4,6,8,10&#125;, DEG=4, NQ=4000.
+        </p>
+      </div>
+
+      {/* ─── imp-3104: orthogonalized operator-norm degree sweep ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Orthogonalized operator norm converges to tanh(a&middot;U); raw divergence is a conditioning artifact (imp-3104)
+      </h2>
+      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid #8b5cf6', background: 'rgba(139,92,246,0.04)' }}>
+        <h3 style={{ color: '#8b5cf6', marginTop: 0, fontSize: 14 }}>
+          &#x2016;R<sub>orth</sub>&#x2016; vs DEG sweep at a=0.5, U=6 &mdash; basis-invariant, bounded below tanh(3)&asymp;{IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP.measured.analyticCeilingTanhAU.toFixed(5)} (imp-3104)
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+          imp-3084 swept the RAW-monomial operator norm and found it DIVERGES (~1.79&rarr;10.8); imp-3086
+          orthogonalized at a single cell (DEG=4) and found the intrinsic norm stays bounded. This module
+          runs the FULL degree sweep on the ORTHOGONALIZED basis across DEG&isin;[2,12]. On the numerically
+          trustworthy range DEG&isin;[{IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP.measured.validDegreeRange[0]},{IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP.measured.validDegreeRange[1]}] the
+          norm rises monotonically ({IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP.measured.firstValidOperatorNorm.toFixed(5)}&rarr;{IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP.measured.lastValidOperatorNorm.toFixed(5)})
+          and converges to tanh(a&middot;U), bounded below 1. The ceiling-distance shrinks
+          ~{IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP.measured.ceilingDistanceShrinkFactor.toFixed(0)}&times;.
+          At DEG&ge;11 the cosh-Hankel is catastrophically ill-conditioned; those tail rows measure the
+          orthogonalizer breakdown, not the operator.
+        </p>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8' }}>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>DEG</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>&#x2016;R<sub>orth</sub>&#x2016; (GS)</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>&#x2016;R<sub>sym</sub>&#x2016; (Loewdin)</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>dist to tanh(3)</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP.measured.sweep.map((row, i) => (
+              <tr key={i} style={{ borderBottom: '1px solid #1e293b', opacity: row.orthogonalizerTrustworthy ? 1 : 0.5 }}>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#cbd5e1' }}>{row.degree}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#8b5cf6', textAlign: 'right' }}>{row.operatorNormGS.toFixed(5)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#a78bfa', textAlign: 'right' }}>{row.operatorNormLoewdin.toFixed(5)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#c4b5fd', textAlign: 'right' }}>{row.distanceToCeiling.toExponential(2)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: row.orthogonalizerTrustworthy ? '#4ade80' : '#f87171', textAlign: 'right' }}>
+                  {row.orthogonalizerTrustworthy ? 'valid' : 'ill-cond'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+          <strong style={{ color: '#f87171' }}>Honest scope (imp-3104):</strong>{' '}
+          REPRESENTATIVE / DIAGNOSTIC on the SAME monomial-moment truncation as imp-3084/imp-3086 --
+          NOT the section-26 Gram. The measured &#x2016;R<sub>orth</sub>&#x2016; and DEG-trend carry
+          NO RH verdict: a converging bounded norm neither claims the cover holds nor that it fails.
+          Positivity not attempted; bare-V pilot (imp-1240) not re-run.
+          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </div>
+        <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+          Source: imp-3104-orthogonalized-opnorm-degree-sweep.js &mdash; a=0.5, U=6, DEG&isin;[2,12], NQ=4000.
         </p>
       </div>
 

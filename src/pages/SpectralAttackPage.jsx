@@ -1783,6 +1783,34 @@ function AsymIsolationOnsetLadderViz() {
   );
 }
 
+// imp-3248: honest-status banner — c_glob is an INFIMUM, every onset is an upper bound, only basin 0.72 is load-bearing
+function CglobInfimumHonestBanner() {
+  const ledger = SG1C_ASYM_ONSET_BRACKET_LEDGER;
+  return (
+    <div style={{ background: "rgba(239,68,68,0.08)", border: "2px solid rgba(239,68,68,0.4)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
+      <div style={{ color: "#ef4444", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
+        OPEN: c_glob is an infimum — located onsets are upper bounds only
+      </div>
+      <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.75 }}>
+        The global asymmetric isolation constant{" "}
+        <strong style={{ color: "#e2e8f0" }}>c_glob</strong> is defined as the{" "}
+        <strong style={{ color: "#f87171" }}>infimum</strong> of all asymmetric
+        configuration onset values. An infimum can only be{" "}
+        <em>approached from above</em>: every configuration we locate gives an onset
+        which is an <strong style={{ color: "#f87171" }}>upper bound</strong> on c_glob, never
+        a lower bound. Current bracket: ~({ledger.openBracket[0].toFixed(4)},&#8202;
+        {ledger.openBracket[1].toFixed(4)}). The lower end {ledger.openBracket[0].toFixed(4)} is
+        the tightest located onset (a ceiling), not a proven floor.{" "}
+        <strong style={{ color: "#fbbf24" }}>No proven lower bound below the
+        Theorem-C basin {ledger.basinConstant} exists.</strong>{" "}
+        The Theorem-C basin cap &rho;&#8201;=&#8201;{ledger.basinConstant} is the only
+        load-bearing constant for the &Lambda;&#8201;&le;&#8201;0.2 rigorous result;
+        closing c_glob is not required.
+      </div>
+    </div>
+  );
+}
+
 // imp-3203: viz of the imp-3173 minimal-gap selector discontinuity
 function MinGapSelectorDiscontinuityViz() {
   const d = SG1C_MINGAP_SELECTOR_DISCONTINUITY;
@@ -2489,6 +2517,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Asymmetric Isolation Onset Ladder vs 0.72 Basin (imp-3205) ─── */}
       <AsymIsolationOnsetLadderViz />
+
+      {/* ─── c_glob infimum honest-status banner (imp-3248) ─── */}
+      <CglobInfimumHonestBanner />
 
       {/* ─── Minimal-Gap Selector Discontinuity Viz (imp-3203 surfaces imp-3173) ─── */}
       <MinGapSelectorDiscontinuityViz />

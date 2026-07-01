@@ -50,6 +50,7 @@ export const NAV_GROUPS = [
       { to: '/ht-window-census', label: 'H_t Finite-Window Census (exactly 8)' },
       { to: '/collapse-chain', label: 'Collapse Chain: ‖V‖ ≤ 1 ⇔ CDB-Exist' },
       { to: '/hidden-square-program', label: 'Hidden-Square Program (§25–27)' },
+      { to: '/section26-conditioning-artifact', label: 'Section-26 Conditioning Artifact (§26)' },
       { to: '/reciprocal-program', label: 'Reciprocal Program (Apps B–G)' },
     ],
   },

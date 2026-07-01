@@ -157,9 +157,12 @@ do_start() {
             . "$SCRIPT_DIR/.env"
             set +a
           fi
-          # FAST-TIER MODEL: bump to claude-fable-5 once Fable Mythos access is granted
-          # (2026-07-01: fable-5 returns "currently unavailable / fable-mythos-access" on
-          #  both subscription and API channels, so the fast tier stays on claude-haiku-4-5).
+          # FAST-TIER MODEL: keep claude-haiku-4-5 here. Do NOT route Fable 5 to this
+          # fast/cheap engine -- Fable 5 ("claude-fable-5[1m]", $10/$50 per Mtok) is a
+          # premium FLAGSHIP ("most capable for hardest/longest tasks"), so it belongs on
+          # the frontier tier (api-pool / frontier-scout), not bulk polish. The entitled
+          # model string is "claude-fable-5[1m]" WITH the [1m] suffix; bare "claude-fable-5"
+          # returns "unavailable" (2026-07-01).
           claude --print --strict-mcp-config --dangerously-skip-permissions --model claude-haiku-4-5 "$IMPROVE_PROMPT" \
             >> "$log_file" 2>&1
         ) || true

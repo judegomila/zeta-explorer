@@ -46,6 +46,7 @@ import { IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE } from '../data/imp-3196-residual
 import { IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP } from '../data/imp-3154-genuine-deg2-deficit-degree-sweep.js';
 import { IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP } from '../data/imp-3104-orthogonalized-opnorm-degree-sweep.js';
 import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-fraction-integrability.js';
+import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -3885,31 +3886,55 @@ export default function ClosureRoutesPage() {
       </h2>
       <EqualProductCellInvarianceViz />
 
-      {/* ─── imp-3163: honest-status -- 0.2690 vs 0.2692 near-miss is a NUMERICAL COINCIDENCE ─── */}
-      <div style={{
-        marginTop: 12,
-        padding: '10px 14px',
-        background: 'rgba(180,83,9,0.18)',
-        border: '1px solid #b45309',
-        borderRadius: 6,
-        color: '#fde68a',
-        fontSize: 13,
-        fontFamily: mono,
-        lineHeight: 1.6,
-      }}>
-        <strong style={{ color: '#fbbf24' }}>HONEST STATUS (imp-3126):</strong>{' '}
-        The proximity of the imp-3106 regular tail mass (~0.2690) and the imp-3026/imp-3070 cusp
-        constant C<sub>shock</sub>(N*=10<sup>4</sup>) (~0.2692) is a{' '}
-        <strong>NUMERICAL COINCIDENCE</strong> -- N-fragile and not structural.
-        The regular mass is a FIXED N-independent definite integral;
-        C<sub>shock</sub>(N) = &radic;(2 / (3 log &gamma;<sub>N</sub>)) decays monotonically in N.
-        They agree to ~2e-4 at exactly one ladder point (N*=10<sup>4</sup>) because the
-        slowly-decaying C<sub>shock</sub>(N) slides through the fixed 0.2690 there.
-        The abs difference then <strong>grows ~213x</strong> over two decades (2.1e-4 at N=10<sup>4</sup>
-        {' '}&rarr; 4.5e-2 at N=10<sup>6</sup>).
-        There is no shared arcsinh(1)/sqrt(2) closed form linking the two --
-        only the bare sqrt(2) atom used in unrelated ways.
-        Do NOT read the ~0.269 values as an identity.
+      {/* ─── imp-3126: regular-mass vs C_shock near-miss is a NUMERICAL COINCIDENCE ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Regular tail mass ~0.2690 vs C<sub>shock</sub>(N*=10<sup>4</sup>) ~0.2692: NUMERICAL COINCIDENCE, not structural (imp-3126)
+      </h2>
+      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid #b45309', background: 'rgba(180,83,9,0.06)' }}>
+        <h3 style={{ color: '#fbbf24', marginTop: 0, fontSize: 14 }}>
+          N-ladder cross-check: regular mass fixed at {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.regularMass.toFixed(6)}, C<sub>shock</sub>(N) decays monotonically (imp-3126)
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+          imp-3106 measured the convergent regular tail mass int<sub>s0+1</sub><sup>&infin;</sup>&phi;&thinsp;ds &asymp;{' '}
+          <span style={{ fontFamily: mono, color: '#fbbf24' }}>{REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.regularMass.toFixed(8)}</span>{' '}
+          (FIXED, N-independent). The imp-3026/imp-3070 cusp constant C<sub>shock</sub>(N)=&radic;(2/(3&thinsp;log&thinsp;&gamma;<sub>N</sub>)) evaluates to{' '}
+          <span style={{ fontFamily: mono, color: '#fbbf24' }}>{REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.cShockStar.toFixed(8)}</span>{' '}
+          at N*=10<sup>4</sup>, agreeing to ~2e-4. The decisive test is N-dependence: C<sub>shock</sub>(N) DECAYS
+          while the regular mass is fixed; the abs diff{' '}
+          <strong style={{ color: '#fbbf24' }}>grows ~{Math.round(REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.absDiffBlowupOverLadder)}&times;</strong>{' '}
+          over two decades. Agreement is confined to one ladder point. <strong>VERDICT: COINCIDENCE.</strong>
+        </p>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8' }}>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>N</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>regular mass (A, fixed)</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>C<sub>shock</sub>(N) (B, decaying)</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>|A&minus;B|</th>
+            </tr>
+          </thead>
+          <tbody>
+            {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.ladder.map((row) => (
+              <tr key={row.N} style={{ borderBottom: '1px solid #1e293b' }}>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#cbd5e1' }}>{row.N.toExponential(0)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#64748b', textAlign: 'right' }}>{row.regularMass.toFixed(8)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#fbbf24', textAlign: 'right' }}>{row.cShock.toFixed(8)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: row.N === REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.nStar ? '#4ade80' : '#f87171', textAlign: 'right' }}>
+                  {row.absDiff.toExponential(2)}
+                  {row.N === REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.nStar ? ' ← near-miss' : ''}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+          <strong style={{ color: '#f87171' }}>Honest scope (imp-3126):</strong>{' '}
+          {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.honestCaveat.operatorStepUntouched}{' '}
+          {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.honestCaveat.sota}.
+        </div>
+        <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+          Source: imp-3126-regular-mass-vs-c-shock-coincidence.js &mdash; N&isin;&#123;10<sup>4</sup>,10<sup>5</sup>,10<sup>6</sup>&#125;, absDiffBlowup&asymp;{Math.round(REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.absDiffBlowupOverLadder)}&times;.
+        </p>
       </div>
 
       {/* ─── imp-3125: residual-gap DEG-saturation curve ─── */}

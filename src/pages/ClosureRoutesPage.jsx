@@ -38,6 +38,7 @@ import { IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS } from '../data/imp-3155-ons
 import { IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE } from '../data/imp-3175-overflow-fraction-resolution-reconcile.js';
 import { SECTION26_MUPASS_OPERATOR_VERDICT } from '../data/section26-mupass-operator-verdict-2026-06-30.js';
 import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equal-product-cell-invariance-lock.js';
+import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-bridge-lag-cutoff-sweep.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -2299,6 +2300,126 @@ function NextOrderConvergenceCorrectionViz() {
   );
 }
 
+function BridgeLagCutoffCaptureViz() {
+  const M = IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP;
+  const table = M.measured.table;
+  const knee = M.measured.minimalLagSupport;
+  const satTol = M.measured.saturationTol;
+
+  const svgW = 520, svgH = 200, padL = 48, padR = 14, padT = 16, padB = 34;
+  const chartW = svgW - padL - padR;
+  const chartH = svgH - padT - padB;
+
+  const xMin = 0, xMax = 2.0;
+  const yMin = 0, yMax = 1.08;
+  const xScale = (v) => padL + ((v - xMin) / (xMax - xMin)) * chartW;
+  const yScale = (v) => padT + chartH * (1 - (v - yMin) / (yMax - yMin));
+
+  const polyline = table
+    .map((r) => `${xScale(r.cutoff).toFixed(1)},${yScale(r.capture).toFixed(1)}`)
+    .join(' ');
+
+  const xTicks = [0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.5, 2.0];
+  const yTicks = [0, 0.2, 0.4, 0.6, 0.8, 1.0];
+
+  return (
+    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid #a78bfa', background: 'rgba(167,139,250,0.03)' }}>
+      <h3 style={{ color: '#a78bfa', marginTop: 0, fontSize: 15 }}>
+        Bridge Lag-Cutoff Capture Curve (imp-3202): capture(c) = ||T_c|| / ||T||
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+        The capture fraction rises steeply with the lag cutoff c and{' '}
+        <strong style={{ color: '#e2e8f0' }}>saturates at a finite minimal lag-support</strong>{' '}
+        (knee at c&thinsp;=&thinsp;{knee}), locating where the bridge contraction mass stops
+        accruing. A small (&lt;0.5%) overshoot above 1 appears near the knee: truncating the
+        indefinite far-lag tail transiently raises the dominant singular value.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+          {/* grid lines */}
+          {yTicks.map((v) => (
+            <line key={v} x1={padL} y1={yScale(v)} x2={svgW - padR} y2={yScale(v)}
+              stroke="#1e293b" strokeWidth={1} />
+          ))}
+
+          {/* saturation band: y in [1-satTol, 1+satTol] */}
+          <rect
+            x={padL} y={yScale(1 + satTol)}
+            width={chartW} height={yScale(1 - satTol) - yScale(1 + satTol)}
+            fill="rgba(167,139,250,0.07)"
+          />
+          <line x1={padL} y1={yScale(1)} x2={svgW - padR} y2={yScale(1)}
+            stroke="#a78bfa" strokeWidth={1} strokeDasharray="5 3" />
+          <text x={padL + 4} y={yScale(1) - 3} fill="#a78bfa" fontSize={9}>capture = 1</text>
+
+          {/* verdict anchors: 0.20 and 0.40 */}
+          <line x1={xScale(0.2)} y1={padT} x2={xScale(0.2)} y2={padT + chartH}
+            stroke="#fbbf24" strokeWidth={1} strokeDasharray="4 3" />
+          <text x={xScale(0.2) + 2} y={padT + 10} fill="#fbbf24" fontSize={8}>c=0.20</text>
+          <line x1={xScale(0.4)} y1={padT} x2={xScale(0.4)} y2={padT + chartH}
+            stroke="#fbbf24" strokeWidth={1} strokeDasharray="4 3" />
+          <text x={xScale(0.4) + 2} y={padT + 10} fill="#fbbf24" fontSize={8}>c=0.40</text>
+
+          {/* knee marker */}
+          {knee != null && (
+            <>
+              <line x1={xScale(knee)} y1={padT} x2={xScale(knee)} y2={padT + chartH}
+                stroke="#34d399" strokeWidth={1.5} strokeDasharray="6 3" />
+              <text x={xScale(knee) + 3} y={padT + 22} fill="#34d399" fontSize={8}>knee c={knee}</text>
+            </>
+          )}
+
+          {/* capture curve */}
+          <polyline points={polyline} fill="none" stroke="#a78bfa" strokeWidth={2} />
+          {table.map((r) => (
+            <circle key={r.cutoff} cx={xScale(r.cutoff)} cy={yScale(r.capture)} r={3}
+              fill="#a78bfa" />
+          ))}
+
+          {/* axes */}
+          <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke="#475569" strokeWidth={1.5} />
+          <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#475569" strokeWidth={1.5} />
+
+          {/* y-axis ticks */}
+          {yTicks.map((v) => (
+            <text key={v} x={padL - 4} y={yScale(v) + 3.5} fill="#64748b" fontSize={9} textAnchor="end">
+              {v.toFixed(1)}
+            </text>
+          ))}
+
+          {/* x-axis ticks */}
+          {xTicks.map((v) => (
+            <text key={v} x={xScale(v)} y={padT + chartH + 12} fill="#64748b" fontSize={9} textAnchor="middle">
+              {v}
+            </text>
+          ))}
+
+          {/* axis labels */}
+          <text x={padL + chartW / 2} y={svgH - 2} fill="#64748b" fontSize={10} textAnchor="middle">
+            lag cutoff c
+          </text>
+          <text x={10} y={padT + chartH / 2} fill="#64748b" fontSize={10} textAnchor="middle"
+            transform={`rotate(-90 10 ${padT + chartH / 2})`}>
+            capture(c)
+          </text>
+        </svg>
+      </div>
+      <div style={{
+        marginTop: 8, padding: '7px 10px', borderRadius: 4,
+        background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.2)',
+        fontSize: 11.5, color: '#94a3b8', lineHeight: 1.6,
+      }}>
+        <strong style={{ color: '#fbbf24' }}>Honest caveat (imp-3202 sub-gap):</strong>{' '}
+        This plots the in-repo lag-cutoff capture of the Toeplitz surrogate T(u,v) = sinh(a(v-u))
+        &times; Abar(|v-u|). It does NOT reproduce the verdict scalars ||R||&thinsp;=&thinsp;0.876
+        / 0.711, which require the un-ported out-of-repo symmetric G<sub>pass</sub><sup>-1/2</sup>{' '}
+        core-normalization. Dashed yellow lines mark the verdict anchors c&thinsp;=&thinsp;0.20 and
+        0.40; green marks the minimal lag-support knee.
+      </div>
+    </div>
+  );
+}
+
 function OverflowFractionResolutionSweepViz() {
   const M = IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE;
   const sweep = M.measured.sweep; // [{N, overflowFraction}, ...]
@@ -2755,6 +2876,12 @@ export default function ClosureRoutesPage() {
         Overflow Fraction Resolution Sweep (imp-3175)
       </h2>
       <OverflowFractionResolutionSweepViz />
+
+      {/* ─── imp-3202: bridge lag-cutoff capture curve viz ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Bridge Lag-Cutoff Capture Curve (imp-3202)
+      </h2>
+      <BridgeLagCutoffCaptureViz />
 
       {/* ─── imp-3065: independent quadrature cross-check ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

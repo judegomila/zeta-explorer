@@ -39,6 +39,7 @@ import { IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE } from '../data/imp-3175
 import { SECTION26_MUPASS_OPERATOR_VERDICT } from '../data/section26-mupass-operator-verdict-2026-06-30.js';
 import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equal-product-cell-invariance-lock.js';
 import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-bridge-lag-cutoff-sweep.js';
+import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bridge-sign-phi-only.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -2578,6 +2579,202 @@ function OverflowFractionResolutionSweepViz() {
   );
 }
 
+// ── imp-3197: sign-vs-magnitude decomposition of K_a >= 0 bridge obstruction ──
+// Shows that the SIGN half is FREE (Phi-only, 100% magnitude-weighted agreement,
+// zero mismatch mass) while the MAGNITUDE half is the whole residual: the
+// lag-stationary Toeplitz surrogate captures only ~3% of ||Gshear||, with ~97%
+// from Phi position concentration.
+function BridgeSignMagnitudeDecompositionViz() {
+  const M = IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY.measured;
+
+  // Two vertical proportion bars + stats
+  const W = 660, H = 320, MT = 36, MB = 54;
+  const barH = H - MT - MB;
+  const barW = 130;
+  const p1x = 110; // sign bar left edge
+  const p2x = 400; // magnitude bar left edge
+
+  // SIGN panel: match (green) bottom, mismatch (red) top
+  const matchH = barH * M.signMatchMassFraction; // effectively barH
+  const mismatchH = barH - matchH;               // effectively 0
+
+  // MAGNITUDE panel: concentration (red) bottom, toeplitz (amber) top
+  const concentrationH = barH * M.positionConcentrationFraction; // ~97%
+  const toeplitzH = barH - concentrationH;                        // ~3%
+
+  const matchY = MT + mismatchH; // bar bottom-anchored
+  const concY = MT + toeplitzH;
+
+  const toeplitzPct = (M.lagStationaryNormRatio * 100).toFixed(1);
+  const concentrationPct = (M.positionConcentrationFraction * 100).toFixed(1);
+  const matchPct = (M.signMatchMassFraction * 100).toFixed(1);
+  const mismatchPct = (M.mismatchMassFraction * 100).toFixed(1);
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #f59e0b', background: 'rgba(245,158,11,0.04)' }}>
+      <h3 style={{ color: '#f59e0b', marginTop: 0 }}>
+        K&#x2090;&thinsp;&ge;&thinsp;0 sign-vs-magnitude split: SIGN is FREE (Phi-only), MAGNITUDE is the binding obstruction (imp-3197)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The section26-mupass verdict claims the bridge sign-positivity is "derived from Phi ALONE."
+        imp-3197 tests this at the genuine de Bruijn-Newman Phi (NPHI=10, a=0.5, U=6, N=200) by
+        splitting the requirement into two halves. The SIGN half is exactly Phi-only (trivially, because
+        Phi&thinsp;&ge;&thinsp;0 on [0,U]). The MAGNITUDE half is the entire residual: the
+        lag-stationary Toeplitz surrogate carrying the exact Phi autocorrelation symbol
+        captures only <strong>~{toeplitzPct}%</strong> of &#x2016;G&#x209B;&#x2095;&#x2091;&#x2090;&#x2072;&#x2016;,
+        with <strong>~{concentrationPct}%</strong> from Phi position concentration.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg
+          width={W} height={H}
+          style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}
+          role="img"
+          aria-label="Sign vs magnitude decomposition: two vertical proportion bars"
+        >
+          {/* ── Panel 1: SIGN ── */}
+          <text x={p1x + barW / 2} y={MT - 18} textAnchor="middle"
+            fontSize="13" fontWeight="700" fill="#10b981" fontFamily={mono}>
+            SIGN HALF
+          </text>
+          <text x={p1x + barW / 2} y={MT - 5} textAnchor="middle"
+            fontSize="10" fill="#6ee7b7" fontFamily={mono}>
+            (Phi-only, FREE)
+          </text>
+
+          {/* mismatch sliver (essentially invisible — honest) */}
+          {mismatchH > 0 && (
+            <rect x={p1x} y={MT} width={barW} height={mismatchH} fill="#ef4444" fillOpacity="0.8" />
+          )}
+          {/* match block */}
+          <rect x={p1x} y={matchY} width={barW} height={matchH} fill="#10b981" fillOpacity="0.85" rx="3" />
+
+          {/* match label inside bar */}
+          <text x={p1x + barW / 2} y={matchY + matchH / 2 + 5}
+            textAnchor="middle" fontSize="22" fontWeight="700" fill="#052e16" fontFamily={mono}>
+            {matchPct}%
+          </text>
+          <text x={p1x + barW / 2} y={matchY + matchH / 2 + 22}
+            textAnchor="middle" fontSize="10" fill="#052e16" fontFamily={mono}>
+            sign match
+          </text>
+
+          {/* mismatch annotation below */}
+          <text x={p1x + barW / 2} y={H - MB + 16}
+            textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}>
+            mismatch: {mismatchPct}%
+          </text>
+          <text x={p1x + barW / 2} y={H - MB + 30}
+            textAnchor="middle" fontSize="10" fill="#6ee7b7" fontFamily={mono}>
+            0 mismatch cells
+          </text>
+          <text x={p1x + barW / 2} y={H - MB + 44}
+            textAnchor="middle" fontSize="10" fill="#6ee7b7" fontFamily={mono}>
+            zero gap
+          </text>
+
+          {/* ── Panel 2: MAGNITUDE ── */}
+          <text x={p2x + barW / 2} y={MT - 18} textAnchor="middle"
+            fontSize="13" fontWeight="700" fill="#ef4444" fontFamily={mono}>
+            MAGNITUDE HALF
+          </text>
+          <text x={p2x + barW / 2} y={MT - 5} textAnchor="middle"
+            fontSize="10" fill="#fca5a5" fontFamily={mono}>
+            (operator-level, BINDING)
+          </text>
+
+          {/* Toeplitz slice (amber, top ~3%) */}
+          <rect x={p2x} y={MT} width={barW} height={toeplitzH} fill="#f59e0b" fillOpacity="0.85" rx="3" />
+
+          {/* position-concentration block (red, bottom ~97%) */}
+          <rect x={p2x} y={concY} width={barW} height={concentrationH} fill="#ef4444" fillOpacity="0.82" rx="3" />
+
+          {/* Toeplitz label (annotation arrow since it is tiny) */}
+          <line x1={p2x + barW + 5} y1={MT + toeplitzH / 2} x2={p2x + barW + 55} y2={MT + toeplitzH / 2 + 12}
+            stroke="#f59e0b" strokeWidth="1.2" />
+          <text x={p2x + barW + 57} y={MT + toeplitzH / 2 + 16}
+            fontSize="10" fill="#f59e0b" fontFamily={mono}>
+            Toeplitz {toeplitzPct}%
+          </text>
+
+          {/* concentration label inside bar */}
+          <text x={p2x + barW / 2} y={concY + concentrationH / 2 + 5}
+            textAnchor="middle" fontSize="22" fontWeight="700" fill="#fff1f2" fontFamily={mono}>
+            {concentrationPct}%
+          </text>
+          <text x={p2x + barW / 2} y={concY + concentrationH / 2 + 22}
+            textAnchor="middle" fontSize="10" fill="#fecaca" fontFamily={mono}>
+            position conc.
+          </text>
+
+          {/* annotations below magnitude panel */}
+          <text x={p2x + barW / 2} y={H - MB + 16}
+            textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}>
+            ||T|| / ||Gshear|| = {M.lagStationaryNormRatio.toFixed(4)}
+          </text>
+          <text x={p2x + barW / 2} y={H - MB + 30}
+            textAnchor="middle" fontSize="10" fill="#fca5a5" fontFamily={mono}>
+            surrogate under-reports ~33x
+          </text>
+          <text x={p2x + barW / 2} y={H - MB + 44}
+            textAnchor="middle" fontSize="10" fill="#fca5a5" fontFamily={mono}>
+            RH-equivalent gap
+          </text>
+
+          {/* divider */}
+          <line x1={W / 2} y1={MT - 22} x2={W / 2} y2={H - MB + 50}
+            stroke="#1e293b" strokeWidth="1.5" strokeDasharray="4 3" />
+        </svg>
+      </div>
+
+      {/* Two-cell stat summary */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 12 }}>
+        <div style={{ padding: '10px 14px', borderRadius: 6, background: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.3)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#10b981', letterSpacing: '0.06em', marginBottom: 6 }}>
+            SIGN HALF &mdash; FREE (Phi-only)
+          </div>
+          <p style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+            Phi is nonnegative on [0, U] (0 genuine sign changes; tail underflows, never negative),
+            so its on-domain autocorrelation is &ge;0 at every lag. Therefore sign&thinsp;G&#x209B;(u,v)&thinsp;=&thinsp;sign(v&minus;u)
+            &mdash; a pure antisymmetric sinh sign. The Phi-only predicted sign matches the
+            |G&#x209B;|-derived entry sign on <strong style={{ color: '#6ee7b7' }}>100%</strong> of
+            the off-diagonal mass, with <strong>0 mismatch cells</strong> and zero mismatch mass.
+            This is the EASY half: it follows trivially from nonnegativity and does NOT advance K&#x2090;&thinsp;&ge;&thinsp;0.
+          </p>
+        </div>
+        <div style={{ padding: '10px 14px', borderRadius: 6, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.3)' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 6 }}>
+            MAGNITUDE HALF &mdash; BINDING OBSTRUCTION
+          </div>
+          <p style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+            The lag-stationary Toeplitz surrogate carrying the exact Phi autocorrelation symbol
+            captures only <strong style={{ color: '#fca5a5' }}>~{toeplitzPct}%</strong> of
+            &#x2016;G&#x209B;&#x2095;&#x2091;&#x2090;&#x2072;&#x2016; (ratio {M.lagStationaryNormRatio.toFixed(4)},
+            N-stable across N&thinsp;&isin;&thinsp;&#x7B;160,240,320&#x7D;).
+            The remaining <strong style={{ color: '#fca5a5' }}>~{concentrationPct}%</strong> comes from
+            Phi <em>position concentration</em> &mdash; the |G&#x209B;| spectrum &mdash;
+            which the 1D autocorrelation does NOT determine. The surrogate under-reports the operator
+            norm by ~33x. The magnitude at the correct lags is NOT Phi-autocorrelation-readable and
+            remains the entire RH-equivalent obstruction.
+          </p>
+        </div>
+      </div>
+
+      <div style={{ marginTop: 10, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          ASSESSMENT ONLY &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Sign result is trivial (follows from Phi&thinsp;&ge;&thinsp;0) and does not advance K&#x2090;&thinsp;&ge;&thinsp;0.
+          Positivity was not attempted. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3197-mupass-bridge-sign-phi-only.js &mdash; NPHI=10, a=0.5, U=6, N=200.
+      </p>
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function ClosureRoutesPage() {
   return (
@@ -2902,6 +3099,12 @@ export default function ClosureRoutesPage() {
         Bridge Lag-Cutoff Capture Curve (imp-3202)
       </h2>
       <BridgeLagCutoffCaptureViz />
+
+      {/* ─── imp-3197: sign-vs-magnitude decomposition ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        K&#x2090;&thinsp;&ge;&thinsp;0 Sign-vs-Magnitude Split (imp-3197)
+      </h2>
+      <BridgeSignMagnitudeDecompositionViz />
 
       {/* ─── imp-3065: independent quadrature cross-check ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

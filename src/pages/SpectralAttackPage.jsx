@@ -10,6 +10,7 @@ import { SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-clo
 import { SG1C_MINGAP_SELECTOR_DISCONTINUITY } from '../data/sg1c-mingap-selector-discontinuity-2026-06-30.js';
 import { SG1C_ASYM_ONSET_BRACKET_LEDGER } from '../data/sg1c-asym-onset-bracket-ledger-2026-06-30.js';
 import { SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR } from '../data/sg1c-asym-onset-independent-integrator-2026-06-30.js';
+import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -2296,6 +2297,13 @@ export default function SpectralAttackPage() {
       <div style={{ marginTop: 24 }}>
         <SpectralAttackViz />
       </div>
+
+      {/* ─── Theta-Trap Honest-Status Banner (imp-3245) ─── */}
+      <HonestCeilingBanner
+        variant="REFUTED"
+        title="SG1c optimistic form is REFUTED on the band (0.443, 0.5073)"
+        body="The conjecture that some absolute Theta* < 1 near 1 holds for every minimal-gap config is false: explicit configs in (0.443, 0.5073) cross upward. The trap survives rigorously only at Theta <= 1/4 (Theorem A, unconditional) and at Theta <= 0.443 (Theorem B, minimal-gap hypothesis). The residual cap above 0.443 requires a dynamical minimality-transfer argument, not a static bound."
+      />
 
       {/* ─── Theta-Trap Explorer ─── */}
       <ThetaTrapSection />

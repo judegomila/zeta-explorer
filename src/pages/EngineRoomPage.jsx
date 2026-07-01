@@ -77,9 +77,13 @@ export default function EngineRoomPage() {
         Refreshes every 25s; the snapshot is committed whenever a ticket completes.
       </p>
 
-      {err && <div className="card" style={{ borderLeft: '3px solid #f59e0b', fontSize: 12 }}>
-        Status feed not loaded yet ({err}). It appears after the first ticket completes and deploys.
-      </div>}
+      {err && (
+        <div className="card" style={{ borderLeft: `3px solid ${err.includes('404') ? '#3b82f6' : '#f59e0b'}`, fontSize: 12 }}>
+          {err.includes('404')
+            ? <><strong>Live data only available locally.</strong> The deployed site has no local engine writer — run the dev server locally to see live fleet activity. The snapshot below populates after the first ticket completes and is committed.</>
+            : <>Status feed unavailable ({err}). Retrying every 25 s.</>}
+        </div>
+      )}
 
       {data && (
         <>

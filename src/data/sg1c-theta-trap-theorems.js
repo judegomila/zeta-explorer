@@ -2015,6 +2015,25 @@ export const SG1C_THEOREM_ASSERTIONS = [
       return monotone && endpoints && capCovers && unitRoot;
     },
   },
+  {
+    id: 'sg1c-prose-threshold-constants-match-computed',
+    description: 'imp-3037 drift guard: the four Theta-trap threshold constants cited as literals in SG1C_THEOREMS prose (1/4, 0.443, c*, 0.5073) must match their computed counterparts -- theoremA.trapLevel === 0.25 exactly; refutation.crossedBand[0] === 0.443 matches theoremB.trapLevel (formula (sqrt(73)-5)/8) to within 5e-4; cStarClosed from SG1C_R2T2_SHELL_CROSSCHECK equals the closed form sqrt(2+sqrt(3))-1 to machine precision; refutation.crossedBand[1] equals the known dressed-variant upper bound 0.5073',
+    holds: () => {
+      const tA = SG1C_THEOREMS.theoremA.trapLevel;
+      const tB = SG1C_THEOREMS.theoremB.trapLevel;
+      const crossedLow = SG1C_THEOREMS.refutation.crossedBand[0];
+      const crossedHigh = SG1C_THEOREMS.refutation.crossedBand[1];
+      const cStarFormula = Math.sqrt(2 + Math.sqrt(3)) - 1;
+      const cStarCached = SG1C_R2T2_SHELL_CROSSCHECK.cStarClosed;
+      return (
+        tA === 0.25 &&
+        Math.abs(tB - (Math.sqrt(73) - 5) / 8) < 1e-15 &&
+        Math.abs(crossedLow - tB) < 5e-4 &&
+        crossedHigh === 0.5073 &&
+        Math.abs(cStarCached - cStarFormula) < 1e-15
+      );
+    },
+  },
 ];
 
 for (const a of SG1C_THEOREM_ASSERTIONS) {

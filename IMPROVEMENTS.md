@@ -3115,3 +3115,4 @@ below are the engine contract — do not rename or reorder.
 | 3228 | 2026-07-02T04:00:00Z | imp-3011 (ux): replace manual honest-ceiling li in VizNearZeroPage with shared VizCeilingNote component | src/pages/VizNearZeroPage.jsx |
 | 3229 | 2026-07-02T05:00:00Z | imp-3018 (ux): differentiate 404 "live locally" message from generic error in EngineRoomPage -- deployed site shows blue informational note instead of amber error code | src/pages/EngineRoomPage.jsx |
 | 3230 | 2026-07-02T06:00:00Z | imp-3035 (content): add A1 collision-bound real-zero-row table to SpectralAttackPage -- Theta(0) for N=10/20/50, g_min, t_c<=g_min^2/6, confirming A1 applies unconditionally | src/pages/SpectralAttackPage.jsx |
+| 3231 | 2026-07-02T07:00:00Z | imp-3037 (meta): add drift-guard assertion that the four Theta-trap prose constants (1/4, 0.443, c*, 0.5073) match their computed values in SG1C_THEOREMS | src/data/sg1c-theta-trap-theorems.js |

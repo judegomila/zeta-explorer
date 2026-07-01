@@ -248,8 +248,10 @@ export const IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP = Object.freeze({
       'accuracy. The deficit lives on that concentrated support, so refining the monomial basis cannot ' +
       'move it: the deg-2 deficit is a STRUCTURAL feature of the genuine occupation, not a truncation artifact.',
     reproducesRecordedAnchor:
-      'The overflow fraction 0.200 of tau reproduces the recorded imp-3144 / section26-verdict 19.4% ' +
-      'anchor. The absolute deficit (~1.19e-7) sits at the same tiny order and sign as the recorded ' +
+      'The overflow fraction 0.200 of tau is in the same ~20% coarse-grid ballpark as the recorded ' +
+      'imp-3144 / section26-verdict 19.4% anchor; both 0.200 and 0.194 are single-resolution ' +
+      'snapshots that under-report the resolution-converged genuine fraction ~0.209 (imp-3175). ' +
+      'The absolute deficit (~1.19e-7) sits at the same tiny order and sign as the recorded ' +
       '9.28e-9; the offline normalization convention sets the exact magnitude, so only the DEG-trend and ' +
       'the overflow fraction are claimed here, not the absolute value.',
   }),

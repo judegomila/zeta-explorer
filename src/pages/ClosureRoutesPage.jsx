@@ -2405,16 +2405,36 @@ function BridgeLagCutoffCaptureViz() {
         </svg>
       </div>
       <div style={{
-        marginTop: 8, padding: '7px 10px', borderRadius: 4,
-        background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.2)',
-        fontSize: 11.5, color: '#94a3b8', lineHeight: 1.6,
+        marginTop: 10, padding: '10px 12px', borderRadius: 6,
+        background: 'rgba(251,191,36,0.08)', border: '2px solid rgba(251,191,36,0.4)',
+        fontSize: 12, color: '#94a3b8', lineHeight: 1.65,
       }}>
-        <strong style={{ color: '#fbbf24' }}>Honest caveat (imp-3202 sub-gap):</strong>{' '}
-        This plots the in-repo lag-cutoff capture of the Toeplitz surrogate T(u,v) = sinh(a(v-u))
-        &times; Abar(|v-u|). It does NOT reproduce the verdict scalars ||R||&thinsp;=&thinsp;0.876
-        / 0.711, which require the un-ported out-of-repo symmetric G<sub>pass</sub><sup>-1/2</sup>{' '}
-        core-normalization. Dashed yellow lines mark the verdict anchors c&thinsp;=&thinsp;0.20 and
-        0.40; green marks the minimal lag-support knee.
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#fbbf24', letterSpacing: '0.06em', marginBottom: 6 }}>
+          OPEN SUB-GAP (imp-3202): TWO HALVES, ONE UN-PORTED
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 6 }}>
+          <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.35)' }}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: '#10b981', letterSpacing: '0.05em', marginBottom: 3 }}>HALF 1 &mdash; DONE (in-repo)</div>
+            <div style={{ fontSize: 11.5, color: '#cbd5e1' }}>
+              Cutoff-localization: this chart measures capture(c)&thinsp;=&thinsp;||T_c||/||T||
+              for the Toeplitz surrogate T(u,v)&thinsp;=&thinsp;sinh(a(v&minus;u))&thinsp;&times;&thinsp;Abar(|v&minus;u|).
+              The knee locates where bridge contraction mass saturates.
+            </div>
+          </div>
+          <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.35)' }}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: '#f87171', letterSpacing: '0.05em', marginBottom: 3 }}>HALF 2 &mdash; OPEN (un-ported)</div>
+            <div style={{ fontSize: 11.5, color: '#cbd5e1' }}>
+              Core-normalization: anchoring the exact verdict scalars ||R||&thinsp;=&thinsp;0.876
+              (lag&thinsp;&le;&thinsp;0.20) and 0.711 (lag&thinsp;&le;&thinsp;0.40) requires the
+              out-of-repo symmetric G<sub>pass</sub><sup>-1/2</sup> normalization, which has
+              not been ported in-repo.
+            </div>
+          </div>
+        </div>
+        <div style={{ fontSize: 11, color: '#94a3b8' }}>
+          Dashed yellow lines mark the verdict anchors c&thinsp;=&thinsp;0.20 and 0.40; green marks the minimal lag-support knee.
+          The in-repo chart shows the correct capture SHAPE but cannot reproduce the verdict norm values until Half 2 is ported.
+        </div>
       </div>
     </div>
   );

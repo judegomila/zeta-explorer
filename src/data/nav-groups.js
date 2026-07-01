@@ -98,6 +98,7 @@ export const NAV_GROUPS = [
       { to: '/spectral-attack', label: 'Spectral' },
       { to: '/theta-seizing-margin', label: 'Theta Seizing Margin' },
       { to: '/theta-static-obstruction', label: 'Theta Static Obstruction' },
+      { to: '/theta-basin-closure', label: 'Theta Basin Closure' },
       { to: '/gap-closing', label: 'Gap Closing' },
       { to: '/twistor', label: 'Twistor' },
       { to: '/zx-calculus', label: 'ZX-Calculus' },

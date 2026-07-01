@@ -7,6 +7,7 @@ import {
   ROUTE_MAP_CROSS_CHECK,
 } from '../data/full-route-map-2026-06-19.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
+import { ECONN_METRIC_REARCH } from '../data/econn-metric-rearchitecture-verdict-2026-06-30.js';
 import { C_SHOCK_CROSS_VALIDATION_IMP3026 } from '../data/imp-3026-c-shock-cross-validation.js';
 import { C_SHOCK_N_DEPENDENCE_IMP3070 } from '../data/imp-3070-c-shock-n-dependence.js';
 import { STATUS_COLOR, StatusTag, StatusLegend } from '../components/StatusLegend.jsx';
@@ -231,6 +232,12 @@ export default function RouteMapPage() {
         </div>
         <div style={{ marginTop: 10, fontSize: 12, color: '#64748b' }}>
           Sharpest diagnosis: {CH_WALL_FRONTIER.sharpestDiagnosis}
+        </div>
+        <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 5, background: 'rgba(99,102,241,0.07)', border: '1px solid rgba(99,102,241,0.3)', fontSize: 12, color: '#a5b4fc', lineHeight: 1.6 }}>
+          <strong style={{ color: '#818cf8', letterSpacing: '0.04em' }}>TWO INDEPENDENT ASSAULTS — SAME TARGET.</strong>{' '}
+          The C_H frontier ({CH_WALL_FRONTIER.date}) and the econn-metric rearchitecture ({ECONN_METRIC_REARCH.date})
+          converge on the <em>same named deterministic target</em>:{' '}
+          <strong>D_rest(t_c)</strong> — {ECONN_METRIC_REARCH.trueWall}.
         </div>
       </div>
 

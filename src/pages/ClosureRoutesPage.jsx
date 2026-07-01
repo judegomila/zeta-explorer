@@ -42,6 +42,7 @@ import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-
 import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bridge-sign-phi-only.js';
 import { IMP3199_OVERFLOW_FRACTION_CELL_SWEEP } from '../data/imp-3199-overflow-fraction-cell-sweep.js';
 import { IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE } from '../data/imp-3196-residual-gap-convergence-rate.js';
+import { IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP } from '../data/imp-3154-genuine-deg2-deficit-degree-sweep.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -3887,6 +3888,56 @@ export default function ClosureRoutesPage() {
         Next-order convergence corrections: onset slope A<sub>1</sub>&asymp;3.256 and decay (2s+D<sub>0</sub>)e<sup>&minus;s</sup> (imp-3155)
       </h2>
       <NextOrderConvergenceCorrectionViz />
+
+      {/* ─── imp-3154: genuine deg-2 deficit degree sweep ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Genuine deg-2 occupation deficit: DEG-independent (FIXED), strictly positive (imp-3154)
+      </h2>
+      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid #a78bfa', background: 'rgba(167,139,250,0.04)' }}>
+        <h3 style={{ color: '#a78bfa', marginTop: 0, fontSize: 14 }}>
+          Genuine degree-2 (absolute) occupation deficit &mdash; sweep over monomial truncation degree DEG&isin;&#123;2,4,6,8,10&#125; (imp-3154)
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+          The imp-3144 section26-mupass verdict recorded a genuine nonzero degree-2 deficit
+          (9.28e-9, overflow on ~19.4% of the lag grid). This sweep asks whether that deficit
+          is a monomial-basis truncation artifact that enrichment removes. Trend:{' '}
+          <strong style={{ color: '#a78bfa' }}>{IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP.measured.trend}</strong>
+          {' '}&mdash; the deficit converges within ~0.42% by DEG=2 and is flat from DEG=6,
+          overflow fraction pinned at{' '}
+          <span style={{ fontFamily: mono, color: '#a78bfa' }}>{IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP.measured.overflowFraction.toFixed(3)}</span>{' '}
+          at every degree.
+        </p>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8' }}>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>DEG</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>deficit</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>overflow frac of tau</th>
+            </tr>
+          </thead>
+          <tbody>
+            {IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP.measured.sweep.map((row) => (
+              <tr key={row.degree} style={{ borderBottom: '1px solid #1e293b' }}>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#cbd5e1' }}>{row.degree}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#a78bfa', textAlign: 'right' }}>{row.deficit.toExponential(4)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#64748b', textAlign: 'right' }}>{row.overflowFractionOfTau.toFixed(3)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+          <strong style={{ color: '#f87171' }}>Honest scope (imp-3154):</strong>{' '}
+          REPRESENTATIVE / DIAGNOSTIC at the genuine Phi (NPHI=10). The absolute deficit
+          (~1.19e-7) carries this module&apos;s density normalization convention; only the
+          DEG-trend (FIXED, strictly positive) and the reproduced ~19.4-20% overflow fraction
+          are the deliverables. Necessary-but-NOT-sufficient: a nonzero deg-2 deficit neither
+          proves nor disproves the operator cover. No RH verdict.
+          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </div>
+        <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+          Source: imp-3154-genuine-deg2-deficit-degree-sweep.js &mdash; a=0.5, U=6, N=200, DEG&isin;&#123;2,4,6,8,10&#125;.
+        </p>
+      </div>
 
       {/* ─── Conjectures ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

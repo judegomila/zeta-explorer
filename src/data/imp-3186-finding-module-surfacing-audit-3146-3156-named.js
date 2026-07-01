@@ -77,8 +77,8 @@ export const IMP_3186_FINDING_MODULE_SURFACING_AUDIT = {
     },
     {
       file: 'imp-3154-genuine-deg2-deficit-degree-sweep.js',
-      surfaced: false,
-      surfacedBy: null,
+      surfaced: true,
+      surfacedBy: 'src/pages/ClosureRoutesPage.jsx',
       honestScope: 'genuine degree-2 occupation deficit sweep across DEG; diagnostic only; no RH verdict',
     },
     {
@@ -112,8 +112,8 @@ export const IMP_3186_FINDING_MODULE_SURFACING_AUDIT = {
       honestScope: 'C_H Lipschitz three-proofs comparison table; frontier verdict summary; no RH verdict',
     },
   ],
-  surfacedCount: 7,
-  orphanCount: 3,
+  surfacedCount: 8,
+  orphanCount: 2,
   recommendation:
     'Mint surfacing tickets for each of the three orphaned modules so each is ' +
     'rendered on at least one page with its honest scope caveat; do not fabricate pages here.',
@@ -135,7 +135,7 @@ const IMP_3186_ASSERTIONS = [
       const surfaced = m.filter((x) => x.surfaced).length;
       return surfaced === IMP_3186_FINDING_MODULE_SURFACING_AUDIT.surfacedCount;
     },
-    why: 'Exactly 7 modules are SURFACED (imp-3146/3151/3153/3155/sg1c-asym-isolation-closed-form/econn-metric/ch-lip-three-proofs).',
+    why: 'Exactly 8 modules are SURFACED (imp-3146/3151/3153/3154/3155/sg1c-asym-isolation-closed-form/econn-metric/ch-lip-three-proofs).',
   },
   {
     id: 'imp3186-orphan-count-matches',
@@ -144,7 +144,7 @@ const IMP_3186_ASSERTIONS = [
       const orphan = m.filter((x) => !x.surfaced).length;
       return orphan === IMP_3186_FINDING_MODULE_SURFACING_AUDIT.orphanCount;
     },
-    why: 'Exactly 3 modules are ORPHANED (imp-3152/3154/3156).',
+    why: 'Exactly 2 modules are ORPHANED (imp-3152/3156).',
   },
   {
     id: 'imp3186-covers-all-ten-modules',

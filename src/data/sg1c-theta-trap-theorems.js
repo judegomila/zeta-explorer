@@ -2034,6 +2034,27 @@ export const SG1C_THEOREM_ASSERTIONS = [
       );
     },
   },
+  {
+    id: 'sg1c-theta-trap-constants-cross-module-tripwire',
+    description: 'imp-3287 cross-module constant tripwire: Theta_K = K/(K+1) and the Lemma R1-T3 seizing margin 1/(b(b+1)(b+2)) are locked at canonical values by inline re-derivation and cross-checked against the SG1C_R1T2_LATTICE_LADDER and SG1C_R1T3_MARGIN_SWEEP stored fields, detecting silent drift in either the formula or the stored computation',
+    holds: () => {
+      const tK = (K) => K / (K + 1);
+      const mB = (b) => 1 / (b * (b + 1) * (b + 2));
+      const spotChecks =
+        Math.abs(tK(1) - 0.5) < 1e-15 &&
+        Math.abs(tK(6) - 6 / 7) < 1e-15 &&
+        tK(200) > 0.99 && tK(200) < 1 &&
+        Math.abs(mB(1) - 1 / 6) < 1e-15 &&
+        Math.abs(mB(2) - 1 / 24) < 1e-15;
+      const ladderCrossOk = SG1C_R1T2_LATTICE_LADDER.rows.every(
+        (r) => Math.abs(r.thetaClosed - tK(r.K)) < 1e-15,
+      );
+      const marginCrossOk = SG1C_R1T3_MARGIN_SWEEP.rows.every(
+        (r) => Math.abs(r.marginRational - mB(r.b)) < 1e-12,
+      );
+      return spotChecks && ladderCrossOk && marginCrossOk;
+    },
+  },
 ];
 
 for (const a of SG1C_THEOREM_ASSERTIONS) {

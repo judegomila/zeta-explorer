@@ -336,6 +336,116 @@ function ThetaCoverageLadderSection() {
 
 const BASIN_CAP_RHO = 0.72;
 
+// imp-3244: dTheta/ds sign diagram vs Theta showing trap zones and the REFUTED band
+function ThetaTrapSignViz() {
+  const svgW = 520, svgH = 240;
+  const padL = 50, padR = 16, padT = 18, padB = 62;
+  const chartW = svgW - padL - padR;
+  const chartH = svgH - padT - padB;
+  const thetaMin = 0, thetaMax = 0.6;
+  const yMin = -2.2, yMax = 3.0;
+
+  const xS = (t) => padL + ((t - thetaMin) / (thetaMax - thetaMin)) * chartW;
+  const yS = (v) => padT + chartH * (1 - (Math.max(yMin, Math.min(yMax, v)) - yMin) / (yMax - yMin));
+
+  // Theorem A upper bound on dTheta/ds * g^2:
+  //   4 * Theta * (Theta + 2) * (4*Theta - 1)
+  // Negative for Theta < 1/4 (unconditional trap), crosses zero exactly at 1/4.
+  const thmABound = (t) => 4 * t * (t + 2) * (4 * t - 1);
+
+  const N = 400;
+  const ts = Array.from({ length: N }, (_, i) => thetaMin + (i / (N - 1)) * (thetaMax - thetaMin));
+  const boundPath = ts.map((t, i) => {
+    const v = Math.max(yMin, Math.min(yMax, thmABound(t)));
+    return (i === 0 ? 'M' : 'L') + xS(t).toFixed(1) + ',' + yS(v).toFixed(1);
+  }).join(' ');
+
+  const yZero = yS(0);
+  const x025 = xS(0.25);
+  const xTB = xS(TRAP_B);
+  const xEC = xS(EXCURSION_CAP_DRESSED);
+  // Refuting data point: family {-d,0,1,1+d} at d=1.05, Theta=0.4646, dTheta/ds=+0.1378 (g=1)
+  const xRefuted = xS(0.4646);
+  const yRefuted = yS(0.1378);
+  const yTicks = [-2, -1, 0, 1, 2];
+  const xTicks = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6];
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #ef4444' }}>
+      <h3 style={{ color: '#ef4444', fontSize: 16, marginBottom: 4 }}>
+        d&Theta;/ds Sign vs &Theta;: Trap Zones and Refuted Band
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
+        Y-axis: d&Theta;/ds&thinsp;&middot;&thinsp;g&#xb2; (g&#xb2;-normalised rate, Lemma&nbsp;2 exact identity).
+        Cyan curve: Theorem&nbsp;A upper bound 4&Theta;(&Theta;+2)(4&Theta;&minus;1) &mdash; strictly negative for
+        &Theta;&nbsp;&lt;&nbsp;1/4 (unconditional trap, green), crosses zero exactly at 1/4.
+        Amber zone (&le;&nbsp;0.443): Theorem&nbsp;B extends the trap under the minimal-gap hypothesis.
+        Red zone (0.443,&thinsp;0.5073) is{' '}
+        <strong style={{ color: '#ef4444' }}>REFUTED</strong>: explicit family
+        &#123;&minus;d,&thinsp;0,&thinsp;1,&thinsp;1+d&#125; at d&thinsp;=&thinsp;1.05
+        reaches &Theta;&thinsp;=&thinsp;0.4646 with d&Theta;/ds&thinsp;&gt;&thinsp;0 (orange point, +0.138).
+      </p>
+      <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+        {/* Zone fills */}
+        <rect x={padL} y={padT} width={x025 - padL} height={chartH} fill="rgba(16,185,129,0.12)" />
+        <rect x={x025} y={padT} width={xTB - x025} height={chartH} fill="rgba(245,158,11,0.10)" />
+        <rect x={xTB} y={padT} width={xEC - xTB} height={chartH} fill="rgba(239,68,68,0.14)" />
+        {/* Zero line */}
+        <line x1={padL} y1={yZero} x2={svgW - padR} y2={yZero} stroke="#334155" strokeWidth={1} />
+        {/* Theorem A bound curve */}
+        <path d={boundPath} stroke="#06b6d4" strokeWidth={2} fill="none" />
+        {/* Threshold verticals */}
+        <line x1={x025} y1={padT} x2={x025} y2={padT + chartH} stroke="#10b981" strokeWidth={1.5} strokeDasharray="5 2" />
+        <line x1={xTB} y1={padT} x2={xTB} y2={padT + chartH} stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="5 2" />
+        <line x1={xEC} y1={padT} x2={xEC} y2={padT + chartH} stroke="#ef4444" strokeWidth={1} strokeDasharray="3 2" />
+        {/* Threshold labels at top */}
+        <text x={x025} y={padT - 3} fill="#10b981" fontSize={8} textAnchor="middle">1/4</text>
+        <text x={xTB} y={padT - 3} fill="#f59e0b" fontSize={8} textAnchor="middle">0.443</text>
+        <text x={xEC} y={padT - 3} fill="#ef4444" fontSize={8} textAnchor="middle">0.5073</text>
+        {/* Refuting data point */}
+        <circle cx={xRefuted} cy={yRefuted} r={5} fill="#f97316" stroke="#fff" strokeWidth={1.5} />
+        <line x1={xRefuted} y1={yRefuted} x2={xRefuted + 46} y2={yRefuted - 22} stroke="#f97316" strokeWidth={1} strokeDasharray="3 1" />
+        <text x={xRefuted + 48} y={yRefuted - 26} fill="#f97316" fontSize={8} fontWeight="bold">d=1.05</text>
+        <text x={xRefuted + 48} y={yRefuted - 14} fill="#f97316" fontSize={8}>+0.138</text>
+        {/* Zone labels below axis */}
+        <text x={(padL + x025) / 2} y={padT + chartH + 14} fill="#10b981" fontSize={8} textAnchor="middle" fontWeight="bold">TRAP</text>
+        <text x={(padL + x025) / 2} y={padT + chartH + 23} fill="#10b981" fontSize={7} textAnchor="middle">unconditional</text>
+        <text x={(x025 + xTB) / 2} y={padT + chartH + 14} fill="#f59e0b" fontSize={8} textAnchor="middle" fontWeight="bold">TRAP</text>
+        <text x={(x025 + xTB) / 2} y={padT + chartH + 23} fill="#f59e0b" fontSize={7} textAnchor="middle">min-gap</text>
+        <text x={(xTB + xEC) / 2} y={padT + chartH + 14} fill="#ef4444" fontSize={8} textAnchor="middle" fontWeight="bold">REFUTED</text>
+        <text x={(xEC + svgW - padR) / 2} y={padT + chartH + 14} fill="#64748b" fontSize={8} textAnchor="middle">open</text>
+        {/* Y-axis ticks */}
+        {yTicks.map((v) => (
+          <g key={v}>
+            <line x1={padL - 4} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#334155" strokeWidth={1} />
+            <text x={padL - 6} y={yS(v) + 3} fill="#475569" fontSize={8} textAnchor="end">{v}</text>
+          </g>
+        ))}
+        {/* X-axis ticks */}
+        {xTicks.map((v) => (
+          <g key={v}>
+            <line x1={xS(v)} y1={padT + chartH} x2={xS(v)} y2={padT + chartH + 3} stroke="#334155" strokeWidth={1} />
+            <text x={xS(v)} y={padT + chartH + 12} fill="#475569" fontSize={8} textAnchor="middle">{v.toFixed(1)}</text>
+          </g>
+        ))}
+        {/* Axis labels */}
+        <text x={padL + chartW / 2} y={padT + chartH + 36} fill="#64748b" fontSize={9} textAnchor="middle">
+          &Theta;
+        </text>
+        <text x={11} y={padT + chartH / 2} fill="#64748b" fontSize={9} textAnchor="middle"
+          transform={`rotate(-90, 11, ${padT + chartH / 2})`}>
+          d&Theta;/ds&thinsp;&middot;&thinsp;g&#xb2;
+        </text>
+        {/* Legend */}
+        <line x1={padL} y1={padT + chartH - 8} x2={padL + 16} y2={padT + chartH - 8} stroke="#06b6d4" strokeWidth={2} />
+        <text x={padL + 19} y={padT + chartH - 4} fill="#06b6d4" fontSize={8}>Thm&nbsp;A bound</text>
+        <circle cx={padL + 92} cy={padT + chartH - 8} r={3} fill="#f97316" />
+        <text x={padL + 97} y={padT + chartH - 4} fill="#f97316" fontSize={8}>refuting config</text>
+      </svg>
+    </div>
+  );
+}
+
 function ThetaRhoPhaseDiagram() {
   const [N, setN] = useState(30);
 
@@ -2198,6 +2308,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Theorem-C Static-Cover Ladder (imp-3017) ─── */}
       <ThetaCoverageLadderSection />
+
+      {/* ─── dTheta/ds Sign Diagram (imp-3244) ─── */}
+      <ThetaTrapSignViz />
 
       {/* ─── Theta-Trap Phase Diagram ─── */}
       <ThetaRhoPhaseDiagram />

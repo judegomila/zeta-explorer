@@ -2728,6 +2728,10 @@ export default function SpectralAttackPage() {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
           <Link to="/rh-attack" style={{ color: '#3b82f6', fontSize: 13 }}>RH Attack</Link>
           <span style={{ color: '#334155' }}>|</span>
+          <Link to="/theta-seizing-margin" style={{ color: '#8b5cf6', fontSize: 13 }}>Theta Seizing Margin (R1-T3)</Link>
+          <span style={{ color: '#334155' }}>|</span>
+          <Link to="/theta-static-obstruction" style={{ color: '#06b6d4', fontSize: 13 }}>Theta Static Obstruction (R1-T2)</Link>
+          <span style={{ color: '#334155' }}>|</span>
           <Link to="/gap-closing" style={{ color: '#f97316', fontSize: 13 }}>Gap Closing</Link>
           <span style={{ color: '#334155' }}>|</span>
           <Link to="/formal-proof" style={{ color: '#10b981', fontSize: 13 }}>Formal Proof</Link>

@@ -51,5 +51,30 @@ window.addEventListener('unhandledrejection', (event) => {
   if (CHUNK_ERR_RE.test(msg)) reloadOnceForChunkFailure();
 });
 
+// Reset the reload budget once the app has proven stable. MAX_CHUNK_RELOADS is a
+// guard against a reload LOOP within a single staleness episode — NOT a lifetime
+// cap. Without this reset, a long-open tab that survives several deploys (each a
+// legitimate one-shot reload) permanently exhausts the budget, after which every
+// later stale-chunk navigation shows the error box instead of recovering — i.e.
+// "various pages stop loading" until a manual hard refresh. If the app stays up
+// for STABLE_MS with no chunk-triggered reload, the current index.html + its
+// chunks are demonstrably consistent, so we clear the counter and hand the next
+// episode a fresh budget. The 20s window is safely longer than the 10s reload
+// throttle, so a genuinely-missing chunk still caps at MAX_CHUNK_RELOADS.
+const STABLE_MS = 20000;
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    try {
+      const last = Number(sessionStorage.getItem(CHUNK_RELOAD_KEY) || 0);
+      if (Date.now() - last > STABLE_MS) {
+        sessionStorage.removeItem(CHUNK_RELOAD_COUNT_KEY);
+        sessionStorage.removeItem(CHUNK_RELOAD_KEY);
+      }
+    } catch {
+      /* sessionStorage blocked — nothing to reset */
+    }
+  }, STABLE_MS);
+});
+
 const root = createRoot(document.getElementById('root'));
 root.render(<App />);

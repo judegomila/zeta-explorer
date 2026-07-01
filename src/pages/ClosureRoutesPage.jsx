@@ -2308,6 +2308,8 @@ function BridgeLagCutoffCaptureViz() {
   const table = M.measured.table;
   const knee = M.measured.minimalLagSupport;
   const satTol = M.measured.saturationTol;
+  const c020 = M.measured.captureAt020;
+  const c040 = M.measured.captureAt040;
 
   const svgW = 520, svgH = 200, padL = 48, padR = 14, padT = 16, padB = 34;
   const chartW = svgW - padL - padR;
@@ -2355,13 +2357,15 @@ function BridgeLagCutoffCaptureViz() {
             stroke="#a78bfa" strokeWidth={1} strokeDasharray="5 3" />
           <text x={padL + 4} y={yScale(1) - 3} fill="#a78bfa" fontSize={9}>capture = 1</text>
 
-          {/* verdict anchors: 0.20 and 0.40 */}
+          {/* verdict anchors: 0.20 and 0.40 with capture % annotations */}
           <line x1={xScale(0.2)} y1={padT} x2={xScale(0.2)} y2={padT + chartH}
             stroke="#fbbf24" strokeWidth={1} strokeDasharray="4 3" />
           <text x={xScale(0.2) + 2} y={padT + 10} fill="#fbbf24" fontSize={8}>c=0.20</text>
+          <text x={xScale(0.2) + 2} y={padT + 20} fill="#fbbf24" fontSize={8}>{(c020 * 100).toFixed(0)}%</text>
           <line x1={xScale(0.4)} y1={padT} x2={xScale(0.4)} y2={padT + chartH}
             stroke="#fbbf24" strokeWidth={1} strokeDasharray="4 3" />
           <text x={xScale(0.4) + 2} y={padT + 10} fill="#fbbf24" fontSize={8}>c=0.40</text>
+          <text x={xScale(0.4) + 2} y={padT + 20} fill="#fbbf24" fontSize={8}>{(c040 * 100).toFixed(0)}%</text>
 
           {/* knee marker */}
           {knee != null && (

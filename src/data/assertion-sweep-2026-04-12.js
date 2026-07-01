@@ -142,6 +142,7 @@ import './imp-2866-en-classification-consistency.js'; // imp-2866: 4 assertions 
 import './imp-2872-c-c-pinned-value-lock.js';        // imp-2872: 3 assertions (value-lock on the most load-bearing non-rigorous constant: C_C_PINNED===(1/8).sqrt(3pi) to 1e-12; carries the live C_H=1/8 derivation not a substituted value; stays ANSATZ -- flipping to rigorous requires discharging C_H imp-2642 first)
 import './imp-2886-c-c-ansatz-cross-module-consistency.js'; // imp-2886: 3 assertions (cross-module consistency tripwire -- canonical C_C_PINNED reproduces (1/8)sqrt(3pi), and the C_C recorded in every E_coll reconciliation module imp-2643/2633/1135 matches it within 1e-9; catches a silent dropped-factor drift in one copy that per-module locks would miss)
 import './imp-2875-tc-units-conversion-lock.js';     // imp-2875: 3 assertions (units-audit tripwire locking the de Bruijn-Newman vs CM-flow t_c conversion factor -- gronwall/sg1c/bridge all share the -2 s=-t flow, conversion factor === 1 with the 30x ratio PHYSICAL not normalization, and |t_c| A1 trap g_min^2/6 stays inside the 2.37e-4 ceiling (imp-2762); guards against the imp-2630/imp-2621 factor-N renormalization trap)
+import './imp-3267-section26-mupass-verdict-lock.js'; // imp-3267: 6 assertions (section26-mupass verdict headline lock: deficit 9.28e-9, ||V||_HS ~1.90e-4, B/D=1.074, hollow+indefinite shear-Gram, ||R||=1.0000 partial-isometry tautology, honest-caveat RH-EQUIVALENT + PT SOTA)
 
 // NOTE: imp469-cross-verification.js is already live via m-raw-from-umon-bridge.js (imp-473: 5 assertions).
 

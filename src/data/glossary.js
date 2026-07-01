@@ -897,6 +897,63 @@ export const glossary = [
     ],
     link: '/closure-routes',
   },
+  {
+    term: "saturating-gap closed form (tanh(aU) - tanh(aU/2))",
+    category: 'numerical',
+    definition:
+      "The strictly-positive closed-form limit that the basis-invariant residual gap " +
+      "||R_orth|| - max_j R_orth_jj saturates toward as the monomial truncation degree DEG " +
+      "increases. R_orth = L H L^T is the orthogonalized shear operator (L = (Cholesky of " +
+      "the FULL passive cosh Gram)^{-1}), so the passive Gram becomes the identity and the " +
+      "gap is truly basis-invariant. " +
+      "\n\nThe limit is pinned by two analytic anchors: (1) the operator norm ||R_orth|| " +
+      "equals the largest cosh-weighted Rayleigh quotient of tanh(a*tau) on [0,U], which is " +
+      "strictly bounded by tanh(a*U) and converges to it from below as DEG grows (imp-3104). " +
+      "(2) The largest diagonal max_j R_orth_jj is permanently fixed at tanh(a*U/2) " +
+      "(the constant-direction diagonal floor) regardless of DEG. Hence the gap converges " +
+      "to tanh(a*U) - tanh(a*U/2) from below. " +
+      "\n\nAt the headline cell a = 0.5, U = 6 this limit is tanh(3) - tanh(1.5) ~ 0.08991, " +
+      "and the sweep over DEG in {2,4,6,8,10} confirms the gap rises monotonically " +
+      "(0.08471 -> 0.08959) with strictly shrinking increments, reaching within 3.15e-4 " +
+      "of the analytic limit at DEG = 10 -- a ~16x distance shrink across the sweep. " +
+      "\n\nSIGNIFICANCE (imp-3125): the intrinsic basis-invariant obstruction neither grows " +
+      "unbounded (no divergence) nor vanishes (no cancellation) -- it converges to a " +
+      "strictly positive constant. This is a structural / diagnostic finding; the trend " +
+      "carries no RH verdict.",
+    firstUsed: "imp-3125 (orthogonalized residual gap degree sweep), 2026",
+    relatedTerms: [
+      "constant-direction diagonal floor (R_orth_00 = tanh(aU/2))",
+      "orthogonalized shear operator (R_orth)",
+      "section-26-vs-monomial gap (D1-D4)",
+    ],
+    link: '/closure-routes',
+  },
+  {
+    term: "constant-direction diagonal floor (R_orth_00 = tanh(aU/2))",
+    category: 'numerical',
+    definition:
+      "The largest diagonal of the orthogonalized shear operator R_orth = L H L^T, achieved " +
+      "at the j = 0 (constant function) direction at every truncation degree DEG. It equals " +
+      "the closed form R_orth_00 = (cosh(aU) - 1) / sinh(aU) = tanh(aU/2), " +
+      "the cosh-weighted Rayleigh quotient of the constant function on [0, U]. " +
+      "\n\nCRUCIAL PROPERTY: R_orth_00 is DEG-INDEPENDENT. Adding higher-degree monomials to " +
+      "the basis cannot change the constant-function direction normalization, so the floor " +
+      "is pinned at tanh(aU/2) to machine precision throughout the entire degree sweep. " +
+      "\n\nAt the headline cell a = 0.5, U = 6 this floor is tanh(1.5) ~ 0.90515, confirmed " +
+      "pinned across DEG in {2,4,6,8,10} in imp-3125. Combined with the operator norm " +
+      "||R_orth|| converging to tanh(aU) from below (imp-3104), the fixed floor makes the " +
+      "residual gap ||R_orth|| - max_j R_orth_jj converge to the saturating-gap closed form " +
+      "tanh(aU) - tanh(aU/2) ~ 0.08991. " +
+      "\n\nSIGNIFICANCE: because the floor is pinned, the only moving part in the gap is " +
+      "the operator norm; the saturation rate is therefore set entirely by how fast " +
+      "||R_orth|| climbs toward tanh(aU) as DEG increases.",
+    firstUsed: "imp-3125 (orthogonalized residual gap degree sweep), 2026",
+    relatedTerms: [
+      "saturating-gap closed form (tanh(aU) - tanh(aU/2))",
+      "orthogonalized shear operator (R_orth)",
+    ],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

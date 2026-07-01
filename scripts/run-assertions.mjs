@@ -1718,6 +1718,12 @@ const DATA_MODULES = [
   '/src/data/section26-verdict-volterra-not-a-reduction-2026-06-18.js',
   '/src/data/ch-wall-frontier-verdict-2026-06-26.js',
   '/src/data/section26-mupass-operator-verdict-2026-06-30.js',
+  // imp-3267: cross-module tripwire locking the five section26-mupass verdict headline
+  // numbers (deficit 9.28e-9, ||V||_HS ~1.90e-4, B/D=1.074, hollow+indefinite shear-Gram,
+  // ||R||=1.0000) against silent drift -- must be listed here so L1..L6 top-level throws
+  // fire in run-assertions.mjs (the module is wired into assertion-sweep-2026-04-12.js via
+  // rh-attack.js, but that path is not in MATH_MODULES, so a direct entry is required).
+  '/src/data/imp-3267-section26-mupass-verdict-lock.js',
   '/src/data/econn-metric-rearchitecture-verdict-2026-06-30.js',
   // imp-2686: endpoint-bridge-enriched mu^pass construction (the surviving RH-equivalent Volterra target).
   '/src/data/imp-2686-mupass-construction.js',

@@ -33888,13 +33888,15 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Verify the imp-3267 section26-mupass verdict-lock (checks L1..L6 over deficit 9.28e-9, ||V||_HS ~1.90e-4, B/D=1.074, hollow+indefinite shear-Gram, ||R||=1.0000, honesty gate) is actually wired into scripts/run-assertions.mjs and passes green, since the module documents the checks but a lock only protects if it runs',
     category: 'meta',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-3267-section26-mupass-verdict-lock defines six cross-module checks (L1..L6) locking the five section26-mupass headline numbers and the RH-EQUIVALENT honesty gate against silent drift. Verify the module is imported and executed by scripts/run-assertions.mjs (or the equivalent assertion runner), that all six checks currently pass, and record the wiring so the lock is not dormant. Honest scope: assertion-wiring verification only; no mathematical change, no RH claim.",
     rationale: 'Frontier scout: imp-3267-section26-mupass-verdict-lock.js (six L1..L6 checks authored; a lock protects only if run-assertions actually executes it -- wiring unverified)',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
 ];
 

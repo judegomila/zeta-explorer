@@ -122,9 +122,11 @@ const VoroninUniversalityPage = lazy(() => import('./pages/VoroninUniversalityPa
 const ThetaSeizingMarginPage = lazy(() => import('./pages/ThetaSeizingMarginPage.jsx'));
 const ThetaStaticObstructionPage = lazy(() => import('./pages/ThetaStaticObstructionPage.jsx'));
 const ThetaBasinClosurePage = lazy(() => import('./pages/ThetaBasinClosurePage.jsx'));
+const TheoremBThresholdPage = lazy(() => import('./pages/TheoremBThresholdPage.jsx'));
 const OnsetBracketLedgerPage = lazy(() => import('./pages/OnsetBracketLedgerPage.jsx'));
 const OpenFrontierPage = lazy(() => import('./pages/OpenFrontierPage.jsx'));
 const Section26ConditioningArtifactPage = lazy(() => import('./pages/Section26ConditioningArtifactPage.jsx'));
+const ExcessFractionPhiPage = lazy(() => import('./pages/ExcessFractionPhiPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -691,9 +693,11 @@ function AppShell() {
           <Route path="/theta-seizing-margin" element={<ThetaSeizingMarginPage />} />
           <Route path="/theta-static-obstruction" element={<ThetaStaticObstructionPage />} />
           <Route path="/theta-basin-closure" element={<ThetaBasinClosurePage />} />
+          <Route path="/theorem-b-threshold" element={<TheoremBThresholdPage />} />
           <Route path="/onset-bracket-ledger" element={<OnsetBracketLedgerPage />} />
           <Route path="/open-frontier" element={<OpenFrontierPage />} />
           <Route path="/section26-conditioning-artifact" element={<Section26ConditioningArtifactPage />} />
+          <Route path="/excess-fraction-phi" element={<ExcessFractionPhiPage />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

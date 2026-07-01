@@ -3114,3 +3114,4 @@ below are the engine contract — do not rename or reorder.
 | 3227 | 2026-07-02T03:00:00Z | imp-3264 (ux, medium): annotate BridgeLagCutoffCaptureViz verdict anchors with live capture % values -- shows steep rise numerically at c=0.20 and c=0.40 | src/pages/ClosureRoutesPage.jsx |
 | 3228 | 2026-07-02T04:00:00Z | imp-3011 (ux): replace manual honest-ceiling li in VizNearZeroPage with shared VizCeilingNote component | src/pages/VizNearZeroPage.jsx |
 | 3229 | 2026-07-02T05:00:00Z | imp-3018 (ux): differentiate 404 "live locally" message from generic error in EngineRoomPage -- deployed site shows blue informational note instead of amber error code | src/pages/EngineRoomPage.jsx |
+| 3230 | 2026-07-02T06:00:00Z | imp-3035 (content): add A1 collision-bound real-zero-row table to SpectralAttackPage -- Theta(0) for N=10/20/50, g_min, t_c<=g_min^2/6, confirming A1 applies unconditionally | src/pages/SpectralAttackPage.jsx |

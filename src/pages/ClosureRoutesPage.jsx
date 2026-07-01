@@ -2546,6 +2546,49 @@ export default function ClosureRoutesPage() {
             does not reach here. This is the lone remaining obstruction — and the RH-hard part.
           </div>
         </div>
+        {/* imp-3208: MASS-FEASIBILITY table */}
+        <div style={{ marginTop: 12, marginBottom: 4 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#a78bfa', letterSpacing: '0.05em', marginBottom: 6 }}>
+            MASS-FEASIBILITY (imp-3144 / imp-3208): deficit sits 2400&ndash;20000&times; below available budget
+          </div>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11.5 }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8', textAlign: 'left' }}>
+                <th style={{ padding: '4px 8px' }}>Degree / Measure</th>
+                <th style={{ padding: '4px 8px', color: '#f87171' }}>Deficit</th>
+                <th style={{ padding: '4px 8px', color: '#34d399' }}>Budget</th>
+                <th style={{ padding: '4px 8px', color: '#fbbf24' }}>Ratio (Budget/Deficit)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{ borderBottom: '1px solid #1e293b' }}>
+                <td style={{ padding: '4px 8px', color: '#cbd5e1' }}>deg-2 vs L1 off-diagonal</td>
+                <td style={{ padding: '4px 8px', color: '#f87171', fontFamily: mono }}>9.28e-9</td>
+                <td style={{ padding: '4px 8px', color: '#34d399', fontFamily: mono }}>2.26e-5</td>
+                <td style={{ padding: '4px 8px', color: '#fbbf24' }}>~2400&times;</td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid #1e293b' }}>
+                <td style={{ padding: '4px 8px', color: '#cbd5e1' }}>deg-2 vs &#x2016;V&#x2016;<sub>HS</sub></td>
+                <td style={{ padding: '4px 8px', color: '#f87171', fontFamily: mono }}>9.28e-9</td>
+                <td style={{ padding: '4px 8px', color: '#34d399', fontFamily: mono }}>1.90e-4</td>
+                <td style={{ padding: '4px 8px', color: '#fbbf24' }}>~20000&times;</td>
+              </tr>
+              <tr>
+                <td style={{ padding: '4px 8px', color: '#cbd5e1' }}>deg-0 cosh-completion B vs D&#x2080;</td>
+                <td style={{ padding: '4px 8px', color: '#f87171', fontFamily: mono }}>D&#x2080; = 13.07</td>
+                <td style={{ padding: '4px 8px', color: '#34d399', fontFamily: mono }}>B = 14.04</td>
+                <td style={{ padding: '4px 8px', color: '#fbbf24' }}>B/D = 1.074</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style={{ marginTop: 7, padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11.5, color: '#94a3b8', lineHeight: 1.65 }}>
+            <strong style={{ color: '#f87171' }}>Honest note:</strong>{' '}
+            Mass-feasibility kills the impossibility option but does <strong>not</strong> close the
+            operator-level K&#x2090;&thinsp;&#x2265;&thinsp;0 residual. The budget proxy &#x2016;V&#x2016;<sub>HS</sub> is
+            itself the RH-equivalent quantity; the deg-0 B/D comparison is additionally circular.
+            Construction is mass-feasible, NOT independently constructible.
+          </div>
+        </div>
         <p style={{ marginTop: 12, color: '#64748b', fontSize: 11, fontFamily: mono }}>
           Source: imp-3007-mupass-overflow-cover.js &mdash; RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction.
           Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.

@@ -809,6 +809,37 @@ export const glossary = [
     ],
     link: '/section26',
   },
+  {
+    term: "bridge-kernel sign-free / magnitude-binding split",
+    category: 'proof-status',
+    definition:
+      "The imp-3197 decomposition of the K_a>=0 bridge obstruction into two separate questions: " +
+      "a SIGN question (resolved, free) and a MAGNITUDE question (open, binding). " +
+      "\n\nSign is Phi-only and free: the bridge kernel K_a(tau,tau') = sinh(a*tau') * Phi(tau) has " +
+      "its sign pattern determined entirely by Phi -- the on-domain Phi autocorrelation is " +
+      "nonneg by the SG1b pass, and the sinh factor is antisymmetric, giving a zero sign-gap. " +
+      "No additional obstruction lives in the sign; this part is CLOSED. " +
+      "\n\nMagnitude is the whole residual: the binding obstruction is the operator-norm " +
+      "||Gshear|| ~ 0.876 (lag <= 0.2), which the 1D lag-stationary Toeplitz surrogate " +
+      "(built from the Phi autocorrelation alone) captures at only ~3% -- a ~33x under-report. " +
+      "The missing ~97% of ||Gshear|| comes from position concentration in the joint " +
+      "(tau, tau') distribution, invisible to the 1D projection. " +
+      "\n\nConsequence (RH-EQUIVALENT): the entire remaining difficulty of the K_a>=0 bridge " +
+      "is a pure spectrum-magnitude question about |Gshear|. If ||Gshear|| could be shown " +
+      "bounded below 1 by a complementary argument, the bridge would close. " +
+      "Honest status: the magnitude obstruction is OPEN; no bound ||Gshear|| < 1 exists; " +
+      "this is the residual sub-gap named in imp-3202. RH-EQUIVALENT; no QED; " +
+      "Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+    firstUsed: "imp-3197 (mupass-bridge-sign-phi-only decomposition), 2026",
+    relatedTerms: [
+      'Gshear operator norm (||Gshear||)',
+      'overflow fraction (lag-support)',
+      'Toeplitz surrogate operator-norm capture ratio',
+      'section-26-vs-monomial gap (D1-D4)',
+      'golden-ratio residual-gap maximum (phi^{-5/2})',
+    ],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

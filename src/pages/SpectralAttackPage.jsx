@@ -9,6 +9,7 @@ import { IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING } from '../data/imp-3086-orth
 import { SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
 import { SG1C_MINGAP_SELECTOR_DISCONTINUITY } from '../data/sg1c-mingap-selector-discontinuity-2026-06-30.js';
 import { SG1C_ASYM_ONSET_BRACKET_LEDGER } from '../data/sg1c-asym-onset-bracket-ledger-2026-06-30.js';
+import { SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR } from '../data/sg1c-asym-onset-independent-integrator-2026-06-30.js';
 
 // Theorem constants from sg1c-theta-trap-theorems (Theorem A / Corollary A1 / Theorem B)
 const TRAP_A = 1 / 4;                      // unconditional trap: every pair with Theta<=1/4 stays trapped
@@ -1811,6 +1812,69 @@ function MinGapSelectorDiscontinuityViz() {
   );
 }
 
+function IndependentIntegratorCrossValidationPanel() {
+  const d = SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR;
+  const rows = [
+    {
+      test: "Generic-point drho/ds (Config B at rho=0.90)",
+      rk4Value: "-0.01721419",
+      analyticValue: "-0.01721420",
+      residual: "~1e-9",
+      residualColor: "#10b981",
+    },
+    {
+      test: "Config-B onset (genuine smooth zero)",
+      rk4Value: d.configB.rk4Onset.toFixed(10),
+      analyticValue: d.configB.analyticOnset.toFixed(10),
+      residual: d.configB.rk4VsAnalyticError.toExponential(1),
+      residualColor: "#10b981",
+    },
+    {
+      test: "Config-A pinned onset vs digamma c_asym",
+      rk4Value: d.configA.pinnedRK4Onset.toFixed(10),
+      analyticValue: d.configA.closedFormOnset.toFixed(10),
+      residual: d.configA.pinnedRK4OnsetError.toExponential(1),
+      residualColor: "#f59e0b",
+    },
+  ];
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #06b6d4" }}>
+      <h3 style={{ color: "#06b6d4", fontSize: 15, marginBottom: 4 }}>
+        Independent-Integrator Cross-Validation (imp-3200)
+      </h3>
+      <p style={{ color: "#64748b", fontSize: 12, marginBottom: 12 }}>
+        Scheme: {d.scheme}
+      </p>
+      <div style={{ overflowX: "auto" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+          <thead>
+            <tr>
+              <th style={{ textAlign: "left", color: "#64748b", padding: "4px 8px", borderBottom: "1px solid #1e293b" }}>Test</th>
+              <th style={{ textAlign: "right", color: "#64748b", padding: "4px 8px", borderBottom: "1px solid #1e293b" }}>RK4 / Numeric</th>
+              <th style={{ textAlign: "right", color: "#64748b", padding: "4px 8px", borderBottom: "1px solid #1e293b" }}>Analytic / Closed-form</th>
+              <th style={{ textAlign: "right", color: "#64748b", padding: "4px 8px", borderBottom: "1px solid #1e293b" }}>|Residual|</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r, i) => (
+              <tr key={i} style={{ borderBottom: "1px solid rgba(30,41,59,0.5)" }}>
+                <td style={{ color: "#94a3b8", padding: "6px 8px" }}>{r.test}</td>
+                <td style={{ color: "#e2e8f0", padding: "6px 8px", textAlign: "right", fontFamily: "monospace" }}>{r.rk4Value}</td>
+                <td style={{ color: "#e2e8f0", padding: "6px 8px", textAlign: "right", fontFamily: "monospace" }}>{r.analyticValue}</td>
+                <td style={{ color: r.residualColor, padding: "6px 8px", textAlign: "right", fontFamily: "monospace", fontWeight: 700 }}>{r.residual}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ background: "rgba(239,68,68,0.07)", border: "1px solid rgba(239,68,68,0.25)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
+        <div style={{ color: "#ef4444", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Honest status</div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.7 }}>{d.honest}</div>
+      </div>
+    </div>
+  );
+}
+
 export default function SpectralAttackPage() {
   return (
     <div className="page">
@@ -2158,6 +2222,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Minimal-Gap Selector Discontinuity Viz (imp-3203 surfaces imp-3173) ─── */}
       <MinGapSelectorDiscontinuityViz />
+
+      {/* ─── Independent-Integrator Cross-Validation (imp-3243 surfaces imp-3200) ─── */}
+      <IndependentIntegratorCrossValidationPanel />
 
       {/* ─── Off-Basin C_Theta Flat Invariant 16/27 (imp-3098 surfaces imp-3067) ─── */}
       <CThetaFlatInvariantPanel />

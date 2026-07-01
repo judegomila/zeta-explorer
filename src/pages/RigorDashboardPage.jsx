@@ -470,6 +470,15 @@ function EstimatorTriptych() {
             }}>
               {e.status + ' · ' + e.kind}
             </span>
+            {e.key === 'kernel-hack' && (
+              <span style={{
+                display: 'inline-block', fontSize: 10, fontFamily: 'var(--font-mono)',
+                color: '#f87171', border: '1px solid #f8717180', borderRadius: 4,
+                padding: '1px 6px', marginBottom: 8, marginLeft: 6,
+              }}>
+                DIFFERENT SCALE — scope-matched only
+              </span>
+            )}
             <div style={{ fontSize: 11, color: '#cbd5e1', lineHeight: 1.5 }}>
               {e.honestLimit}
             </div>

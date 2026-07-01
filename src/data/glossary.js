@@ -1098,6 +1098,48 @@ export const glossary = [
     link: '/closure-routes',
   },
   {
+    term: "Theorem-B minimal-gap sharp threshold (Theta_b)",
+    category: "constant",
+    definition:
+      "The EXACT sharp threshold Theta_b = (sqrt(73) - 5) / 8 = 0.443000... below which " +
+      "the static minimal-gap trap dTheta/ds <= 0 is guaranteed for the adjacent pair in " +
+      "the Calogero-Moser flow (Theorem B of sg1c-theta-trap-theorems). " +
+      "\n\nPROOF SKETCH: Define normalized tensions mu_j = g^2 T_j (each mu_j <= 1/2 by " +
+      "minimality of g) and Theta = g^2 E / 2 = (sum mu_j) / 2. The key object is the " +
+      "quartic combination of power sums that appears in dTheta/ds; since power sums are " +
+      "SCHUR-CONVEX, the worst-case (maximum) is achieved by the CAPPED-GREEDY profile, " +
+      "which packs as much mass as possible at the cap mu = 1/2 and places the remainder " +
+      "in one smaller particle. On this extremal profile the boundary condition reduces to " +
+      "r(2r^2 + 7r - 3) <= 0, where Theta = 1/4 + r/2; setting the bracket to zero gives " +
+      "the positive root r* = (-7 + sqrt(73)) / 4, hence Theta_b = 1/4 + r*/2 = (sqrt(73) - 5) / 8. " +
+      "\n\nSHARPNESS (Theorem B is exact, not merely an upper estimate): The capped-greedy " +
+      "profile is REALIZED by the environment configuration d_1 = g on one side, " +
+      "d_2 ~ 1.185 g on the opposite side. This config achieves dTheta/ds = 0 exactly at " +
+      "Theta_b, and dTheta/ds = +0.034 > 0 at Theta = 0.448 (just above threshold), " +
+      "confirming the threshold is tight -- no static bound can cover Theta* > Theta_b. " +
+      "\n\nWHAT THEOREM B BUYS vs THEOREM A (Theta* = 1/4): Theorem B broadens the trap to " +
+      "a wider initial-condition class (all configs with Theta(0) <= 0.443, not just <= 1/4). " +
+      "COLLISION-TIME CAVEAT: plugging Theta_b into the Corollary A1 ceiling gives a LARGER " +
+      "constant 13 - sqrt(73) ~ 4.456 vs the Theorem A constant 6, i.e. t_c <= g_min(0)^2 / " +
+      "(13 - sqrt(73)). So Theorem B trades a tighter ceiling for a broader hypothesis. " +
+      "\n\nREFUTED BAND CONSEQUENCE: the capped-greedy saturating profile shows every Theta* in " +
+      "(0.443, 0.5073) is CROSSED UPWARD by some explicit 4-particle family {-d, 0, 1, 1+d}. " +
+      "Static bounds are provably exhausted at Theta_b; the residual R1 excursion cap is " +
+      "purely DYNAMICAL (minimality-transfer argument). " +
+      "\n\nHonest scope: Theorem B is a RIGOROUS STATIC bound on the isolated-pair basin. " +
+      "The real-zero configurations measured have Theta(0) in {0.167, 0.088, 0.046}, well " +
+      "below both 1/4 and 0.443, so Theorem A already applies there unconditionally. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; no QED.",
+    firstUsed: "sg1c-theta-trap-theorems / imp-3042 (Theorem-B sharpness tabulation), 2026",
+    relatedTerms: [
+      "Theta-trap",
+      "excursion cap",
+      "isolation ratio rho",
+      "Lipschitz/Gronwall route foreclosure",
+    ],
+    link: "/spectral-attack",
+  },
+  {
     term: "E(N) bridge-constant reframing",
     category: "proof-status",
     definition:

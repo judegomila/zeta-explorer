@@ -37,6 +37,7 @@ import { IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING } from '../data/imp-3153-cos
 import { IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS } from '../data/imp-3155-onset-decay-next-order-corrections.js';
 import { IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE } from '../data/imp-3175-overflow-fraction-resolution-reconcile.js';
 import { SECTION26_MUPASS_OPERATOR_VERDICT } from '../data/section26-mupass-operator-verdict-2026-06-30.js';
+import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equal-product-cell-invariance-lock.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -1787,6 +1788,124 @@ function ResidualGapLimitCurveViz() {
   );
 }
 
+// ── imp-3210: equal-product cell invariance bar viz (s=0.8,1.2,2.0,3.0 pairs) ──
+function EqualProductCellInvarianceViz() {
+  const lock = IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK;
+  const pairs = lock.measured.pairs;
+
+  const W = 600, H = 295, ML = 60, MR = 24, MT = 32, MB = 70;
+  const plotH = H - MT - MB;
+  const yMax = 0.36;
+  const yMin = 0;
+  const groupW = (W - ML - MR) / pairs.length;
+  const barW = 22;
+  const barGap = 6;
+
+  const gx = (i) => ML + (i + 0.5) * groupW;
+  const py = (v) => MT + plotH * (1 - (v - yMin) / (yMax - yMin));
+  const barBase = py(0);
+  const yTicks = [0.0, 0.1, 0.2, 0.3];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #0ea5e9", background: "rgba(14,165,233,0.04)" }}>
+      <h3 style={{ color: "#0ea5e9", marginTop: 0 }}>
+        Equal-product cell invariance: both cells of each equal-s pair give the same saturating gap (imp-3177 / imp-3210)
+      </h3>
+      <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
+        Four equal-product pairs on the imp-3146 a&times;U grid confirm that the rebuilt residual gap
+        ||R<sub>orth</sub>||&minus;max&thinsp;R<sub>orth,jj</sub> depends only on s&nbsp;=&nbsp;a&middot;U.
+        Both cells of each pair produce the SAME gap (pair spread&nbsp;&lt;&nbsp;{lock.measured.maxPairSpread.toExponential(1)}).
+        The amber diamond marks the closed-form limit G(s)&nbsp;=&nbsp;tanh(s)&minus;tanh(s/2);
+        the DEG&nbsp;=&nbsp;4 rebuilt gap (bars) saturates from below.
+        Cross-module drift vs imp-3146: &lt;{lock.measured.maxDriftVsLiveGrid.toExponential(1)}.
+      </p>
+      <div style={{ overflowX: "auto", marginTop: 10 }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={"yg" + v}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{v.toFixed(1)}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={barBase} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={barBase} x2={W - MR} y2={barBase} stroke="#334155" strokeWidth="1" />
+          {pairs.map((pair, i) => {
+            const cx = gx(i);
+            const xA = cx - barW - barGap / 2;
+            const xB = cx + barGap / 2;
+            const hA = ((pair.rebuiltGapA - yMin) / (yMax - yMin)) * plotH;
+            const hB = ((pair.rebuiltGapB - yMin) / (yMax - yMin)) * plotH;
+            const yLim = py(pair.gapLimit);
+            const dm = 6;
+            return (
+              <g key={"pg" + i}>
+                <rect x={xA} y={barBase - hA} width={barW} height={hA} fill="#06b6d4" opacity="0.82" rx="2">
+                  <title>{"a=" + pair.cellA.a + " U=" + pair.cellA.U + " gap=" + pair.rebuiltGapA.toFixed(5)}</title>
+                </rect>
+                <rect x={xB} y={barBase - hB} width={barW} height={hB} fill="#10b981" opacity="0.82" rx="2">
+                  <title>{"a=" + pair.cellB.a + " U=" + pair.cellB.U + " gap=" + pair.rebuiltGapB.toFixed(5)}</title>
+                </rect>
+                <line x1={xA - 2} y1={barBase - hA} x2={xB + barW + 2} y2={barBase - hA}
+                  stroke="rgba(255,255,255,0.18)" strokeWidth="1" strokeDasharray="3 2" />
+                <text x={cx} y={barBase - hA - 6} textAnchor="middle" fontSize="8.5" fill="#e2e8f0" fontFamily={mono}>
+                  {pair.rebuiltGapA.toFixed(4)}
+                </text>
+                <line x1={cx} y1={barBase - hA - 14} x2={cx} y2={yLim + dm + 2}
+                  stroke="#f59e0b" strokeWidth="0.8" strokeDasharray="3 2" opacity="0.5" />
+                <polygon
+                  points={cx + "," + (yLim - dm) + " " + (cx + dm) + "," + yLim + " " + cx + "," + (yLim + dm) + " " + (cx - dm) + "," + yLim}
+                  fill="#f59e0b" opacity="0.92"
+                >
+                  <title>{"G(" + pair.product + ")=" + pair.gapLimit.toFixed(5)}</title>
+                </polygon>
+                <text x={cx} y={barBase + 13} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono}>
+                  s={pair.product}
+                </text>
+                <text x={xA + barW / 2} y={barBase + 24} textAnchor="middle" fontSize="8" fill="#67e8f9" fontFamily={mono}>
+                  a={pair.cellA.a}
+                </text>
+                <text x={xA + barW / 2} y={barBase + 33} textAnchor="middle" fontSize="8" fill="#67e8f9" fontFamily={mono}>
+                  U={pair.cellA.U}
+                </text>
+                <text x={xB + barW / 2} y={barBase + 24} textAnchor="middle" fontSize="8" fill="#6ee7b7" fontFamily={mono}>
+                  a={pair.cellB.a}
+                </text>
+                <text x={xB + barW / 2} y={barBase + 33} textAnchor="middle" fontSize="8" fill="#6ee7b7" fontFamily={mono}>
+                  U={pair.cellB.U}
+                </text>
+              </g>
+            );
+          })}
+          <text x={13} y={(MT + barBase) / 2} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}
+            transform={"rotate(-90 13 " + ((MT + barBase) / 2) + ")"}>
+            gap
+          </text>
+          <text x={(ML + W - MR) / 2} y={H - 5} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}>
+            s = a&middot;U (equal-product pairs)
+          </text>
+        </svg>
+      </div>
+      <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8, fontSize: 11, color: "#94a3b8" }}>
+        {[
+          { col: "#06b6d4", lbl: "Cell A rebuilt gap (higher a, lower U)" },
+          { col: "#10b981", lbl: "Cell B rebuilt gap (lower a, higher U)" },
+          { col: "#f59e0b", lbl: "G(s) = tanh(s)−tanh(s/2) limit (diamond, bars saturate from below)" },
+        ].map(({ col, lbl }) => (
+          <div key={lbl} style={{ display: "flex", alignItems: "center", gap: 5 }}>
+            <div style={{ width: 12, height: 12, background: col, borderRadius: 2, flexShrink: 0 }} />
+            <span>{lbl}</span>
+          </div>
+        ))}
+      </div>
+      <p style={{ marginTop: 6, color: "#64748b", fontSize: 11, fontFamily: mono }}>
+        Source: imp-3177-equal-product-cell-invariance-lock.js &mdash; pairs={lock.measured.pairCount},
+        maxSpread&lt;{lock.measured.maxPairSpread.toExponential(1)},
+        maxDrift&lt;{lock.measured.maxDriftVsLiveGrid.toExponential(1)}
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3125: residual-gap DEG-saturation curve ──────────────────────────────
 function ResidualGapDegreeSweepViz() {
   const M = IMP3125_ORTHOGONALIZED_RESIDUAL_GAP_DEGREE_SWEEP;
@@ -2808,6 +2927,12 @@ export default function ClosureRoutesPage() {
         Residual-gap limit G(s)=tanh(s)&minus;tanh(s/2): maximum &phi;<sup>&minus;5/2</sup>&asymp;0.300 at cosh(s*)=&phi; (imp-3146)
       </h2>
       <ResidualGapLimitCurveViz />
+
+      {/* ─── imp-3210: equal-product cell invariance bar viz (imp-3177) ─── */}
+      <h2 style={{ marginTop: 24, color: '#e2e8f0', fontSize: 20, fontFamily: mono }}>
+        Equal-product cell invariance: both cells of each equal-s pair coincide (imp-3146/imp-3177)
+      </h2>
+      <EqualProductCellInvarianceViz />
 
       {/* ─── imp-3163: honest-status -- 0.2690 vs 0.2692 near-miss is a NUMERICAL COINCIDENCE ─── */}
       <div style={{

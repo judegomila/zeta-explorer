@@ -330,6 +330,65 @@ export default function PaperAuditDashboardPage() {
         </div>
       </header>
 
+      {/* ── RH-EQUIVALENT re-characterization banner (imp-3213) ────────── */}
+      <section
+        style={{
+          marginBottom: 20,
+          padding: '14px 18px',
+          background: 'rgba(245,158,11,0.08)',
+          border: '1px solid rgba(245,158,11,0.35)',
+          borderRadius: 8,
+          display: 'grid',
+          gap: 10,
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontFamily: mono,
+              fontSize: 11,
+              letterSpacing: 0.5,
+              color: '#fbbf24',
+              fontWeight: 700,
+            }}
+          >
+            HONEST STATUS — §15-27 PROGRAM TARGET IS RH-EQUIVALENT
+          </span>
+          <span style={{ fontFamily: mono, fontSize: 11, color: '#64748b' }}>
+            (imp-3190 re-characterization)
+          </span>
+        </div>
+        <div style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6 }}>
+          The entire §15-27 program collapses (imp-1258 two-way collapse) to a
+          single claim: <strong>Conjecture 27.2 (Volterra-norm ‖V<sub>a,Φ</sub>‖ ≤ 1)</strong>.
+          That conjecture is <strong>RH-EQUIVALENT</strong> — closing it would{' '}
+          <em>be</em> proving RH, not a sub-step. The §15-27 collapse is a
+          reformulation, NOT a reduction to an easier object.
+        </div>
+        <div style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.6 }}>
+          <span
+            style={{
+              color: '#86efac',
+              fontFamily: mono,
+              fontSize: 11,
+              fontWeight: 700,
+            }}
+          >
+            GENUINELY OPEN &amp; ATTACKABLE (
+            {D.openGapRecharacterization.genuinelyOpenAndAttackableCount}):
+          </span>{' '}
+          {D.openGapRecharacterization.genuinelyOpenAndAttackable.join('; ')}.
+          This is the only deterministic-forward residual — RH-hard on the real-zero
+          basin, and the same target the C_H frontier converged on.
+        </div>
+        <div style={{ color: '#64748b', fontSize: 12, fontFamily: mono, lineHeight: 1.5 }}>
+          RH-equivalent items: {D.openGapRecharacterization.rhEquivalent.items.join(' · ')}
+          <span style={{ marginLeft: 12, color: '#475569' }}>
+            PT Lambda ≤ 0.2 remains SOTA · no QED
+          </span>
+        </div>
+      </section>
+
       {/* ── Status summary chips ───────────────────────────────────── */}
       <section style={{ marginBottom: 20 }}>
         <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>

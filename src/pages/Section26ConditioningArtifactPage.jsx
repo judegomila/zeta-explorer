@@ -229,6 +229,26 @@ export default function Section26ConditioningArtifactPage() {
         </div>
       </div>
 
+      <div className="card" style={{ marginTop: 14, borderLeft: '3px solid #f59e0b' }}>
+        <h3 style={{ color: '#f59e0b', fontSize: 15, marginBottom: 8 }}>Honest status: bounded, cell-localized deficit (imp-3303)</h3>
+        <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.75 }}>
+          The basis-invariant scalar-core gap is <strong style={{ color: '#fbbf24' }}>tanh(s)&minus;tanh(s/2)</strong>, s=aU.
+          This gap <strong>vanishes in both limits</strong>: as s&#x2192;0 both tanh(s)&#x2192;0 and tanh(s/2)&#x2192;0,
+          so the gap&#x2192;0; as s&#x2192;&#x221e; both approach 1, so the gap&#x2192;0 again.
+          The gap peaks only near the golden-ratio cell (imp-3146 maximum &#x3c6;&#x207b;&#x2075;&#x2044;&#x00b2;).
+          For the headline cell (s=3): tanh(3)&#x2212;tanh(1.5)&#x2248;{(Math.tanh(3) - Math.tanh(1.5)).toFixed(4)}.
+        </p>
+        <div style={{ background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)', borderRadius: 6, padding: '8px 12px', marginTop: 10 }}>
+          <span style={{ color: '#fcd34d', fontWeight: 700, fontSize: 11 }}>CORRECTION:</span>
+          <span style={{ color: '#94a3b8', fontSize: 12 }}>
+            {' '}The raw-basis divergence (&#x2016;R&#x2016; growing 1.79&#x2192;10.8) creates a false impression
+            of a large, universal failure. The actual scalar-cosh-core deficit is a <em>bounded, cell-localized</em> quantity
+            that vanishes at both the weakly-coupled and strongly-coupled limits and is worst
+            only near the golden-ratio cell. It does NOT imply a diverging or universally large closure obstruction.
+          </span>
+        </div>
+      </div>
+
       <div className="card" style={{ marginTop: 14 }}>
         <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', fontSize: 12 }}>
           <Link to="/closure-routes" style={{ color: '#94a3b8' }}>Section-26 Closure Routes</Link>

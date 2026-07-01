@@ -36,6 +36,7 @@ import { IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID } from '../data/imp-3146-residual-ga
 import { IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING } from '../data/imp-3153-cosh-monomial-conditioning-ceiling.js';
 import { IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS } from '../data/imp-3155-onset-decay-next-order-corrections.js';
 import { IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE } from '../data/imp-3175-overflow-fraction-resolution-reconcile.js';
+import { SECTION26_MUPASS_OPERATOR_VERDICT } from '../data/section26-mupass-operator-verdict-2026-06-30.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -2588,6 +2589,41 @@ export default function ClosureRoutesPage() {
             itself the RH-equivalent quantity; the deg-0 B/D comparison is additionally circular.
             Construction is mass-feasible, NOT independently constructible.
           </div>
+        </div>
+        {/* imp-3209: ||R|| grows with resolution -- no scalar core works at operator level */}
+        <div
+          style={{
+            marginTop: 10,
+            padding: '9px 14px',
+            borderRadius: 6,
+            background: 'rgba(239,68,68,0.07)',
+            border: '1px solid rgba(239,68,68,0.28)',
+            fontSize: 12,
+            color: '#94a3b8',
+            lineHeight: 1.7,
+          }}
+        >
+          <div style={{ color: '#f87171', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
+            HONEST STATUS (imp-3209): NO SCALAR/DIAGONAL CORE WORKS AT OPERATOR ORDER
+          </div>
+          For <strong>every</strong> scalar or diagonal passive core &mu;, the contraction ratio{' '}
+          <span style={{ fontFamily: mono, color: '#fbbf24' }}>&#x2016;R&#x2016;</span>{' '}
+          <strong>grows unboundedly with resolution</strong>: the raw physical diagonal{' '}
+          <span style={{ fontFamily: mono }}>m(&tau;)</span>{' '}
+          gives{' '}
+          <span style={{ fontFamily: mono, color: '#f87171' }}>&#x2016;R&#x2016;&thinsp;&#x223C;&thinsp;34&thinsp;&rarr;&thinsp;45</span>{' '}
+          (and reaches{' '}
+          <span style={{ fontFamily: mono, color: '#f87171' }}>&#x223C;10<sup>272</sup></span>{' '}
+          in a degree-100 Legendre basis — the Sec.&thinsp;27 future-tail renormalization made
+          quantitative). The cosh scalar enrichment (imp-2686) is ~5% better but still{' '}
+          <span style={{ fontFamily: mono }}>&#x2016;R&#x2016;&thinsp;&#x223C;&thinsp;40</span>.{' '}
+          The <strong>only</strong> core attaining{' '}
+          <span style={{ fontFamily: mono, color: '#10b981' }}>&#x2016;R&#x2016;&thinsp;=&thinsp;1.0000</span>{' '}
+          is the full operator{' '}
+          <span style={{ fontFamily: mono }}>G<sub>pass</sub>&thinsp;=&thinsp;|G<sub>shear</sub>|</span>,{' '}
+          which reads its answer off the operator it must dominate (tautological partial isometry —
+          not an independent construction). Source:{' '}
+          <span style={{ fontFamily: mono, color: '#64748b' }}>SECTION26_MUPASS_OPERATOR_VERDICT.noScalarCore</span>.
         </div>
         <p style={{ marginTop: 12, color: '#64748b', fontSize: 11, fontFamily: mono }}>
           Source: imp-3007-mupass-overflow-cover.js &mdash; RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction.

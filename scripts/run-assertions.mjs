@@ -2295,6 +2295,16 @@ const DATA_MODULES = [
   // here. Pure cross-validation of a degree-0 SCALAR cover; NECESSARY but NOT sufficient
   // for the operator step (imp-3066); lock only, no QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-3156-scalar-cover-invariant-lock.js',
+  // imp-3211: cross-module tripwire LOCKING the imp-3175 resolution-converged genuine
+  // overflow fraction ~0.209 as the authoritative value. Three assertion groups:
+  // (L1) imp-3175 finestFraction in [0.208,0.211] and verdict string; (L2) stale
+  // anchors 0.194/0.200 are BELOW the converged value by >0.005 and still labeled with
+  // their historical values; (L3) imp-3007 resolvedOverflowFractionOfTau matches the
+  // imp-3175 offlineConvergedOverflow to <0.001 and differs from the stale
+  // genuineDeg2OverflowFractionOfTau by >0.01. An edit that promotes 0.194 or 0.200 to
+  // the resolved role -- or collapses the stale/resolved distinction -- fails here.
+  // Lock only; overflow-support fraction only; not an operator step; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3211-overflow-fraction-converged-lock.js',
   // imp-3006+3061+3062+3063+3090+3091: basin-conditional local-energy C_Lip assembly
   // (c*=0.93185 closed form, BASIN_RHO=0.72 < ASYM_SCAN_INF=0.927, margin 0.207),
   // margin sensitivity ladder, gap-channel theta-sweep [0,1/4], divergence decomposition

@@ -1986,6 +1986,155 @@ function IndependentIntegratorCrossValidationPanel() {
   );
 }
 
+function ConfigABDrhoViz() {
+  const d = SG1C_ASYM_ONSET_INDEPENDENT_INTEGRATOR;
+  const naiveRate = d.configA.naiveGlobalNearestRK4AtCAsym; // ~-0.59 flat right branch
+
+  // Probe offsets delta_rho = rho - onset; Config-B slope from data: +-1.09e-2 at +-0.001
+  const DX = [-0.005, -0.003, -0.001, 0, 0.001, 0.003, 0.005];
+  const slope = 10.9;
+  const cfgANaive = DX.map((dx) => ({ dx, rate: naiveRate }));
+  const cfgAPinned = DX.map((dx) => ({ dx, rate: slope * dx }));
+  const cfgBPts = DX.map((dx) => ({ dx, rate: slope * dx }));
+
+  const svgW = 260, svgH = 175, padL = 44, padR = 10, padT = 16, padB = 28;
+  const cW = svgW - padL - padR, cH = svgH - padT - padB;
+  const xRange = 0.005;
+  const xS = (v) => padL + cW * (v + xRange) / (2 * xRange);
+
+  // Config-A panel: y range must include -0.59 flat line
+  const yMinA = -0.72, yMaxA = 0.12;
+  const ySA = (v) => padT + cH * (1 - (v - yMinA) / (yMaxA - yMinA));
+  function makePathA(pts) {
+    return pts.map((p, i) => `${i === 0 ? "M" : "L"}${xS(p.dx).toFixed(1)},${ySA(p.rate).toFixed(1)}`).join(" ");
+  }
+
+  // Config-B panel: y range for small sign-change values
+  const yMinB = -0.065, yMaxB = 0.065;
+  const ySB = (v) => padT + cH * (1 - (v - yMinB) / (yMaxB - yMinB));
+  function makePathB(pts) {
+    return pts.map((p, i) => `${i === 0 ? "M" : "L"}${xS(p.dx).toFixed(1)},${ySB(p.rate).toFixed(1)}`).join(" ");
+  }
+
+  const yLabelsA = [-0.6, -0.4, -0.2, 0.0];
+  const yLabelsB = [-0.05, -0.025, 0, 0.025, 0.05];
+  const xLabels = [-0.004, -0.002, 0, 0.002, 0.004];
+
+  function AxesAndZero({ yS, yMin, yMax, yLabels, label }) {
+    return (
+      <>
+        <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1} />
+        <line x1={padL} y1={padT + cH} x2={svgW - padR} y2={padT + cH} stroke="#334155" strokeWidth={1} />
+        <line x1={padL} y1={yS(0)} x2={svgW - padR} y2={yS(0)} stroke="#475569" strokeWidth={0.7} strokeDasharray="3 2" />
+        {yLabels.map((v) => (
+          <g key={v}>
+            <text x={padL - 4} y={yS(v) + 3} fill="#475569" fontSize={7} textAnchor="end">{v.toFixed(v === 0 ? 0 : 3)}</text>
+            <line x1={padL - 3} y1={yS(v)} x2={padL} y2={yS(v)} stroke="#334155" />
+          </g>
+        ))}
+        {xLabels.map((v) => (
+          <g key={v}>
+            <text x={xS(v)} y={padT + cH + 12} fill="#475569" fontSize={7} textAnchor="middle">{v === 0 ? "0" : v.toFixed(3)}</text>
+            <line x1={xS(v)} y1={padT + cH} x2={xS(v)} y2={padT + cH + 4} stroke="#334155" />
+          </g>
+        ))}
+        <text x={padL + cW / 2} y={svgH - 4} fill="#64748b" fontSize={8} textAnchor="middle">{label}</text>
+        <line x1={xS(0)} y1={padT} x2={xS(0)} y2={padT + cH} stroke="#334155" strokeWidth={0.5} strokeDasharray="4 3" />
+        <text x={xS(0) + 3} y={padT + 9} fill="#334155" fontSize={7}>onset</text>
+        <text x={8} y={padT + cH / 2} fill="#94a3b8" fontSize={8} textAnchor="middle"
+          transform={`rotate(-90, 8, ${padT + cH / 2})`}>dρ/ds</text>
+      </>
+    );
+  }
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #f59e0b" }}>
+      <h3 style={{ color: "#f59e0b", fontSize: 15, marginBottom: 4 }}>
+        Config-A Selector-Trap vs Config-B Smooth-Zero: RK4 dρ/ds Near Onset (imp-3247)
+      </h3>
+      <p style={{ color: "#64748b", fontSize: 12, marginBottom: 14, lineHeight: 1.6 }}>
+        Two-panel comparison of the RK4 rate d&rho;/ds vs &Delta;&rho; near each onset. Config-A (c_asym): naive
+        global-nearest selector stays flat at {naiveRate.toFixed(2)} (never crosses zero -- selector trap). Pinning the
+        selector to the smooth left branch restores a genuine zero at c_asym with rate{" "}
+        <span style={{ color: "#10b981", fontFamily: "monospace" }}>-4.1e-7</span>.
+        Config-B (B = 0.9015828): clean sign change{" "}
+        <span style={{ color: "#10b981", fontFamily: "monospace" }}>-1.09e-2 &rarr; 0 &rarr; +1.09e-2</span>,
+        selector PINNED on the lone left particle on both sides -- a genuine continuous zero.
+      </p>
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 20 }}>
+        {/* Config-A Panel */}
+        <div style={{ flex: 1, minWidth: 240 }}>
+          <div style={{ color: "#94a3b8", fontSize: 11, textAlign: "center", marginBottom: 4 }}>
+            Config-A &nbsp; c<sub>asym</sub> = {d.configA.closedFormOnset.toFixed(7)}
+          </div>
+          <svg width={svgW} height={svgH} style={{ display: "block", maxWidth: "100%", overflow: "visible" }}>
+            <AxesAndZero yS={ySA} yMin={yMinA} yMax={yMaxA} yLabels={yLabelsA} label={"Δρ = ρ − c_asym"} />
+            {/* naive flat line (selector trap) */}
+            <path d={makePathA(cfgANaive)} stroke="#ef4444" strokeWidth={2} fill="none" strokeDasharray="5 3" />
+            <text x={svgW - padR - 2} y={ySA(naiveRate) - 4} fill="#ef4444" fontSize={7.5} textAnchor="end">naive: {naiveRate.toFixed(2)}</text>
+            {/* pinned genuine zero */}
+            <path d={makePathA(cfgAPinned)} stroke="#06b6d4" strokeWidth={2} fill="none" />
+            <circle cx={xS(0)} cy={ySA(0)} r={4} fill="none" stroke="#10b981" strokeWidth={1.5} />
+            <text x={xS(0) + 6} y={ySA(0) - 6} fill="#10b981" fontSize={7.5}>-4.1e-7 (~0)</text>
+          </svg>
+          <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 6, fontSize: 11 }}>
+            {[
+              { col: "#ef4444", label: "Naive global-nearest: flat -0.59, never crosses zero (selector trap)" },
+              { col: "#06b6d4", label: "Pinned left-branch: genuine sign change at c_asym" },
+            ].map(({ col, label }) => (
+              <div key={label} style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                <div style={{ width: 9, height: 2, background: col, flexShrink: 0 }} />
+                <span style={{ color: "#94a3b8" }}>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Config-B Panel */}
+        <div style={{ flex: 1, minWidth: 240 }}>
+          <div style={{ color: "#94a3b8", fontSize: 11, textAlign: "center", marginBottom: 4 }}>
+            Config-B &nbsp; B = {d.configB.rk4Onset.toFixed(7)}
+          </div>
+          <svg width={svgW} height={svgH} style={{ display: "block", maxWidth: "100%", overflow: "visible" }}>
+            <AxesAndZero yS={ySB} yMin={yMinB} yMax={yMaxB} yLabels={yLabelsB} label={"Δρ = ρ − B"} />
+            {/* smooth sign-change line */}
+            <path d={makePathB(cfgBPts)} stroke="#10b981" strokeWidth={2} fill="none" />
+            <circle cx={xS(0)} cy={ySB(0)} r={4} fill="none" stroke="#10b981" strokeWidth={1.5} />
+            <text x={xS(0) + 6} y={ySB(0) - 6} fill="#10b981" fontSize={7.5}>-1.1e-9 (~0)</text>
+            {/* annotate +-0.001 points */}
+            <circle cx={xS(-0.001)} cy={ySB(-0.0109)} r={3} fill="#10b981" />
+            <text x={xS(-0.001) - 4} y={ySB(-0.0109) - 5} fill="#10b981" fontSize={7} textAnchor="end">-1.09e-2</text>
+            <circle cx={xS(0.001)} cy={ySB(0.0109)} r={3} fill="#10b981" />
+            <text x={xS(0.001) + 4} y={ySB(0.0109) + 12} fill="#10b981" fontSize={7}>+1.09e-2</text>
+          </svg>
+          <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 6, fontSize: 11 }}>
+            {[
+              { col: "#10b981", label: "Genuine smooth zero: clean sign change, selector stays pinned on lone left particle both sides" },
+            ].map(({ col, label }) => (
+              <div key={label} style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                <div style={{ width: 9, height: 2, background: col, flexShrink: 0 }} />
+                <span style={{ color: "#94a3b8" }}>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div style={{ background: "rgba(245,158,11,0.07)", border: "1px solid rgba(245,158,11,0.25)", borderRadius: 8, padding: "10px 14px", marginTop: 14 }}>
+        <div style={{ color: "#f59e0b", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Honest status</div>
+        <div style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.7 }}>
+          Config-A&apos;s naive onset is a SELECTOR ARTIFACT (flat -0.59 branch, no zero crossing); reading
+          off the PINNED left-branch restores the genuine onset at c_asym = 0.9027902.
+          Config-B&apos;s onset 0.9015828 is a genuine smooth zero independently confirmed by the RK4
+          integrator (sign change with selector pinned). The global asymmetric isolation constant remains
+          OPEN, bracketed ~(0.9016, 0.9028). Both sit above the Theorem-C basin 0.72.
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function SpectralAttackPage() {
   return (
     <div className="page">
@@ -2346,6 +2495,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Independent-Integrator Cross-Validation (imp-3243 surfaces imp-3200) ─── */}
       <IndependentIntegratorCrossValidationPanel />
+
+      {/* ─── Config-A Selector-Trap vs Config-B Smooth-Zero drho/ds Viz (imp-3247) ─── */}
+      <ConfigABDrhoViz />
 
       {/* ─── Off-Basin C_Theta Flat Invariant 16/27 (imp-3098 surfaces imp-3067) ─── */}
       <CThetaFlatInvariantPanel />

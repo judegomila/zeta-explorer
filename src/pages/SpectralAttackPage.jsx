@@ -2220,6 +2220,126 @@ function ConfigABDrhoViz() {
   );
 }
 
+// imp-3099: annotated number-line of isolation-ratio rho landmarks (0-to-1 overview)
+function IsolationRatioLandmarksNumberLine() {
+  const C_STAR = Math.sqrt(2 + Math.sqrt(3)) - 1; // ~0.93185 (algebraic single-shell onset)
+  const RHO_STAR = 2 / 3;                          // ~0.6667 (1/4-trap crossing)
+  const BASIN_CAP = 0.72;                           // Theorem-C operating cap
+  const BRACKET_LO = 0.927;                         // random-scan onset lower
+  const BRACKET_HI = 0.943;                         // random-scan onset upper
+
+  const svgW = 580, svgH = 158;
+  const padL = 36, padR = 20, padT = 16, padB = 42;
+  const chartW = svgW - padL - padR;
+  const axisY = padT + 54;
+
+  const xS = (v) => padL + v * chartW;
+
+  const axisTicks = [0, 0.25, 0.5, 0.75, 1.0];
+
+  return (
+    <div className="card" style={{ marginTop: 24, borderLeft: "3px solid #a855f7" }}>
+      <h3 style={{ color: "#a855f7", fontSize: 15, marginBottom: 6 }}>
+        Isolation-Ratio &rho; Landmarks — Full Range Overview (imp-3099)
+      </h3>
+      <p style={{ color: "#94a3b8", fontSize: 13, lineHeight: 1.7, marginBottom: 10 }}>
+        Annotated number line of the four key &rho;&nbsp;=&nbsp;g/d&#x2081; thresholds.
+        The <strong style={{ color: "#10b981" }}>basin safe zone</strong> (green) covers &rho;&nbsp;&lt;&nbsp;0.72.
+        The <strong style={{ color: "#f59e0b" }}>open multi-body bracket</strong> [0.927, 0.943] marks
+        where random-scan onsets bound the still-open global constant c_glob from above.
+        The <strong style={{ color: "#8b5cf6" }}>algebraic single-shell onset</strong> c*&nbsp;&asymp;&nbsp;0.932
+        sits inside the bracket. The Theorem-C basin cap (0.72) has a protective margin of&nbsp;&gt;0.18
+        below the tightest located onset.
+      </p>
+      <svg viewBox={`0 0 ${svgW} ${svgH}`} style={{ width: "100%", maxWidth: svgW, display: "block" }}>
+
+        {/* Basin safe zone shading */}
+        <rect x={xS(0)} y={padT} width={xS(BASIN_CAP) - xS(0)} height={svgH - padT - padB}
+          fill="rgba(16,185,129,0.08)" />
+
+        {/* Open multi-body bracket shading */}
+        <rect x={xS(BRACKET_LO)} y={padT} width={xS(BRACKET_HI) - xS(BRACKET_LO)} height={svgH - padT - padB}
+          fill="rgba(245,158,11,0.14)" rx={2} />
+
+        {/* Main axis line */}
+        <line x1={padL} y1={axisY} x2={svgW - padR} y2={axisY} stroke="#475569" strokeWidth={1.5} />
+
+        {/* Axis ticks and labels */}
+        {axisTicks.map((v) => (
+          <g key={v}>
+            <line x1={xS(v)} y1={axisY} x2={xS(v)} y2={axisY + 5} stroke="#475569" strokeWidth={1} />
+            <text x={xS(v)} y={axisY + 15} fill="#475569" fontSize={9} textAnchor="middle">
+              {v === 0.25 ? "1/4" : v === 0.75 ? "3/4" : v === 0.5 ? "1/2" : v.toFixed(0)}
+            </text>
+          </g>
+        ))}
+        <text x={padL + chartW / 2} y={svgH - 3} fill="#94a3b8" fontSize={10} textAnchor="middle">
+          {"ρ = g / d₁  (isolation ratio)"}
+        </text>
+
+        {/* rho* = 2/3 — above axis: tick up + label above */}
+        <line x1={xS(RHO_STAR)} y1={axisY - 38} x2={xS(RHO_STAR)} y2={axisY + 8}
+          stroke="#ef4444" strokeWidth={2} />
+        <circle cx={xS(RHO_STAR)} cy={axisY} r={4} fill="#ef4444" />
+        <text x={xS(RHO_STAR)} y={axisY - 42} fill="#ef4444" fontSize={9} textAnchor="middle" fontWeight="bold">
+          {"ρ*=2/3"}
+        </text>
+        <text x={xS(RHO_STAR)} y={axisY - 33} fill="#ef4444" fontSize={8} textAnchor="middle">
+          {"1/4-trap crossing"}
+        </text>
+
+        {/* 0.72 Theorem-C basin cap — below axis */}
+        <line x1={xS(BASIN_CAP)} y1={axisY - 8} x2={xS(BASIN_CAP)} y2={axisY + 28}
+          stroke="#06b6d4" strokeWidth={2} strokeDasharray="5 2.5" />
+        <circle cx={xS(BASIN_CAP)} cy={axisY} r={4} fill="#06b6d4" />
+        <text x={xS(BASIN_CAP)} y={axisY + 37} fill="#06b6d4" fontSize={9} textAnchor="middle" fontWeight="bold">
+          {"0.72"}
+        </text>
+        <text x={xS(BASIN_CAP)} y={axisY + 47} fill="#06b6d4" fontSize={8} textAnchor="middle">
+          {"Theorem-C cap"}
+        </text>
+
+        {/* Open bracket edges 0.927 and 0.943 */}
+        <line x1={xS(BRACKET_LO)} y1={padT} x2={xS(BRACKET_LO)} y2={axisY + 8}
+          stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="4 2" />
+        <line x1={xS(BRACKET_HI)} y1={padT} x2={xS(BRACKET_HI)} y2={axisY + 8}
+          stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="4 2" />
+        <text x={(xS(BRACKET_LO) + xS(BRACKET_HI)) / 2} y={padT + 10} fill="#f59e0b" fontSize={8}
+          textAnchor="middle" fontWeight="bold">
+          {"open multi-body bracket"}
+        </text>
+        <text x={xS(BRACKET_LO) - 2} y={axisY + 27} fill="#f59e0b" fontSize={8} textAnchor="end">
+          {"0.927"}
+        </text>
+        <text x={xS(BRACKET_HI) + 2} y={axisY + 27} fill="#f59e0b" fontSize={8} textAnchor="start">
+          {"0.943"}
+        </text>
+        <text x={(xS(BRACKET_LO) + xS(BRACKET_HI)) / 2} y={axisY + 37} fill="#f59e0b" fontSize={8}
+          textAnchor="middle">
+          {"(random-scan upper bounds on c_glob)"}
+        </text>
+
+        {/* c* = 0.93185 — above axis */}
+        <line x1={xS(C_STAR)} y1={axisY - 28} x2={xS(C_STAR)} y2={axisY + 6}
+          stroke="#8b5cf6" strokeWidth={2} />
+        <circle cx={xS(C_STAR)} cy={axisY} r={4} fill="#8b5cf6" />
+        <text x={xS(C_STAR)} y={axisY - 33} fill="#8b5cf6" fontSize={9} textAnchor="middle" fontWeight="bold">
+          {"c*≈0.932"}
+        </text>
+        <text x={xS(C_STAR)} y={axisY - 23} fill="#8b5cf6" fontSize={8} textAnchor="middle">
+          {"single-shell closed"}
+        </text>
+
+        {/* c=1 right end tick */}
+        <line x1={xS(1.0)} y1={axisY - 10} x2={xS(1.0)} y2={axisY + 10}
+          stroke="#10b981" strokeWidth={1.5} />
+        <text x={xS(1.0)} y={axisY - 14} fill="#10b981" fontSize={8} textAnchor="middle">{"c=1"}</text>
+
+      </svg>
+    </div>
+  );
+}
+
 export default function SpectralAttackPage() {
   return (
     <div className="page">
@@ -2598,6 +2718,9 @@ export default function SpectralAttackPage() {
 
       {/* ─── Conditioning Collapse before/after bars (imp-3116 surfaces imp-3086) ─── */}
       <ConditioningCollapseBars />
+
+      {/* ─── Isolation-Ratio rho Landmarks Number Line (imp-3099) ─── */}
+      <IsolationRatioLandmarksNumberLine />
 
       {/* Related Pages */}
       <div className="card" style={{ marginTop: 24, background: 'rgba(59,130,246,0.04)' }}>

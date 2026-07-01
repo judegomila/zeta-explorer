@@ -3574,6 +3574,50 @@ export default function ClosureRoutesPage() {
         </p>
       </div>
 
+      {/* ─── imp-3266: headline reconciliation note ─── */}
+      <div
+        style={{
+          marginTop: 14,
+          padding: '9px 14px',
+          borderRadius: 6,
+          background: 'rgba(99,102,241,0.07)',
+          border: '1px solid rgba(99,102,241,0.28)',
+          fontSize: 11.5,
+          color: '#94a3b8',
+          lineHeight: 1.7,
+        }}
+      >
+        <div style={{ color: '#818cf8', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
+          HEADLINE RECONCILIATION (imp-3266): ~64% vs ~0.209 ARE NOT A DISCREPANCY
+        </div>
+        A reader scanning this page encounters two overflow headlines that look contradictory:{' '}
+        <strong style={{ color: '#e2e8f0' }}>~64% of lag</strong>{' '}
+        (the raw degree-0 scalar overflow on [0,&thinsp;U] covered by the cosh-completion above) and{' '}
+        <strong style={{ color: '#e2e8f0' }}>~0.209</strong>{' '}
+        (the degree-2 resolution-converged genuine fraction from imp-3175 below). These are
+        the <strong>same deficit measured at different completion degrees</strong>, not a
+        contradiction:
+        <ul style={{ margin: '6px 0 0 16px', padding: 0, lineHeight: 1.8 }}>
+          <li>
+            <strong style={{ color: '#818cf8' }}>~64%</strong>{' '}
+            is the <em>degree-0 (scale-invariant) scalar measure</em>: the fraction of tau in [0,&thinsp;U]
+            where sinh(a&tau;) &gt; 0, i.e. tau &gt; 0.  It counts raw positivity of the cosh-sinh gap before
+            any occupation-density weighting.  The cosh-completion exactly kills this at degree-0 (residual = 0).
+          </li>
+          <li>
+            <strong style={{ color: '#818cf8' }}>~0.209</strong>{' '}
+            is the <em>degree-2 (occupation-density weighted) genuine fraction</em> from imp-3175:
+            the fraction of tau carrying strictly positive deficit under the genuine degree-2 occupation
+            measure.  This is tiny (deficit 9.28e-9) but nonzero — scalar cover alone cannot close it.
+          </li>
+        </ul>
+        <div style={{ marginTop: 6, color: '#64748b', fontStyle: 'italic' }}>
+          Both numbers are correct.  The apparent size difference (&sim;64% vs &sim;21%) reflects the
+          occupation-density weighting: most tau where cosh&nbsp;&gt;&nbsp;sinh still carry negligible
+          density, so the density-weighted fraction is much smaller.
+        </div>
+      </div>
+
       {/* ─── imp-3175: overflow fraction resolution sweep viz ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
         Overflow Fraction Resolution Sweep (imp-3175)

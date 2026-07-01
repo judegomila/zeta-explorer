@@ -30,6 +30,7 @@ import { IMP3064_DEFICIT_EXCESS_FRACTION_GRID } from '../data/imp-3064-deficit-e
 import { IMP3065_RESIDUAL_DEFICIT_QUADRATURE } from '../data/imp-3065-residual-deficit-quadrature-2026-06-30.js';
 import { IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION } from '../data/imp-3066-offdiagonal-hankel-obstruction.js';
 import { IMP3125_ORTHOGONALIZED_RESIDUAL_GAP_DEGREE_SWEEP } from '../data/imp-3125-orthogonalized-residual-gap-degree-sweep.js';
+import { IMP3102_ORTHOGONALIZED_GAP_AU_GRID } from '../data/imp-3102-orthogonalized-gap-aU-grid.js';
 import DownstreamVerdictCallout from '../components/DownstreamVerdictCallout.jsx';
 import { asymOnsetDrho, SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
 import { IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID } from '../data/imp-3146-residual-gap-limit-aU-grid.js';
@@ -3980,6 +3981,59 @@ export default function ClosureRoutesPage() {
         </div>
         <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
           Source: imp-3154-genuine-deg2-deficit-degree-sweep.js &mdash; a=0.5, U=6, N=200, DEG&isin;&#123;2,4,6,8,10&#125;.
+        </p>
+      </div>
+
+      {/* ─── imp-3102: orthogonalized gap a*U grid ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Orthogonalized residual gap sweeps the full a&times;U grid; survivor tracks s=a&middot;U (imp-3102)
+      </h2>
+      <div className="card" style={{ marginTop: 14, borderLeft: '4px solid #8b5cf6', background: 'rgba(139,92,246,0.04)' }}>
+        <h3 style={{ color: '#8b5cf6', marginTop: 0, fontSize: 14 }}>
+          Basis-invariant residual gap &#x2016;R<sub>orth</sub>&#x2016;&minus;max&#x2C7C;&thinsp;R<sub>orth,jj</sub> on the Cartesian a&times;U grid (imp-3102)
+        </h3>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+          imp-3086 orthogonalized the full passive cosh Gram at one cell (a=0.5, U=6) and found the
+          raw gap 3.63 collapses to ~0.09; a strictly-positive residual obstruction survives. This
+          module extends that single-cell measurement to the full Cartesian a&times;U grid and tests
+          whether the SURVIVING gap still tracks the single product s=a&middot;U. It does: equal-product
+          cells coincide to ~{IMP3102_ORTHOGONALIZED_GAP_AU_GRID.measured.maxGapMismatchAcrossEqualProductPairs.toExponential(0)}{' '}
+          (Cholesky-conditioned, a few orders looser than the raw imp-3085 ~1e-15 diagonal-normalized
+          coincidence, but still machine precision). The survivor is strictly positive on every grid cell.
+        </p>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8' }}>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>a</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>U</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>s=a&middot;U</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>&#x2016;R<sub>orth</sub>&#x2016;</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>residual gap</th>
+            </tr>
+          </thead>
+          <tbody>
+            {IMP3102_ORTHOGONALIZED_GAP_AU_GRID.measured.grid.map((c, i) => (
+              <tr key={i} style={{ borderBottom: '1px solid #1e293b' }}>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#cbd5e1' }}>{c.a}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#cbd5e1', textAlign: 'right' }}>{c.U}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#a78bfa', textAlign: 'right' }}>{c.s.toFixed(2)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#8b5cf6', textAlign: 'right' }}>{c.operatorNorm.toFixed(5)}</td>
+                <td style={{ padding: '3px 8px', fontFamily: mono, color: '#c4b5fd', textAlign: 'right' }}>{c.residualGap.toFixed(5)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+          <strong style={{ color: '#f87171' }}>Honest scope (imp-3102):</strong>{' '}
+          REPRESENTATIVE / DIAGNOSTIC on the SAME monomial-moment truncation as imp-3066/imp-3086 --
+          NOT the section-26 Gram. The measured &#x2016;R<sub>orth</sub>&#x2016; and residual gaps carry
+          NO RH verdict: they neither claim the cover holds nor that it fails. Only the a&middot;U
+          scaling of the basis-invariant survivor is asserted. Positivity was not attempted;
+          the bare-V pilot (imp-1240) is not re-run.
+          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </div>
+        <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+          Source: imp-3102-orthogonalized-gap-aU-grid.js &mdash; a&isin;&#123;0.5,0.3,0.2,0.1&#125;, U&isin;&#123;4,6,8,10&#125;, DEG=4, NQ=4000.
         </p>
       </div>
 

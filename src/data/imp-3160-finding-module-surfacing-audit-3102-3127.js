@@ -55,8 +55,8 @@ export const IMP_3160_FINDING_MODULE_SURFACING_AUDIT = {
   modules: [
     {
       file: 'imp-3102-orthogonalized-gap-aU-grid.js',
-      surfaced: false,
-      surfacedBy: null,
+      surfaced: true,
+      surfacedBy: 'src/pages/ClosureRoutesPage.jsx',
       honestScope: 'basis-invariant residual gap a-U grid; representative diagnostic; no RH verdict',
     },
     {
@@ -120,8 +120,8 @@ export const IMP_3160_FINDING_MODULE_SURFACING_AUDIT = {
       honestScope: 'build-assertion lock for interior landmark scales; lock module only; no RH verdict',
     },
   ],
-  surfacedCount: 4,
-  orphanCount: 7,
+  surfacedCount: 5,
+  orphanCount: 6,
   recommendation:
     'Mint surfacing tickets for each of the seven orphaned modules so each is ' +
     'rendered on at least one page with its honest scope caveat; do not fabricate pages here.',
@@ -143,7 +143,7 @@ const IMP_3160_ASSERTIONS = [
       const surfaced = m.filter((x) => x.surfaced).length;
       return surfaced === IMP_3160_FINDING_MODULE_SURFACING_AUDIT.surfacedCount;
     },
-    why: 'Exactly 4 modules are SURFACED (imp-3105/3107/3108/3110 via ClosureRoutesPage.jsx).',
+    why: 'Exactly 5 modules are SURFACED (imp-3102/3105/3107/3108/3110 via ClosureRoutesPage.jsx).',
   },
   {
     id: 'imp3160-orphan-count-matches',
@@ -152,7 +152,7 @@ const IMP_3160_ASSERTIONS = [
       const orphan = m.filter((x) => !x.surfaced).length;
       return orphan === IMP_3160_FINDING_MODULE_SURFACING_AUDIT.orphanCount;
     },
-    why: 'Exactly 7 modules are ORPHANED (imp-3102/3104/3106/3112/3125/3126/3127).',
+    why: 'Exactly 6 modules are ORPHANED (imp-3104/3106/3112/3125/3126/3127).',
   },
   {
     id: 'imp3160-covers-all-eleven-modules',

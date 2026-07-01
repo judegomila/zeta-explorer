@@ -1097,6 +1097,41 @@ export const glossary = [
     ],
     link: '/closure-routes',
   },
+  {
+    term: "E(N) bridge-constant reframing",
+    category: "proof-status",
+    definition:
+      "The correct reading of the Step-4 bridge | Lambda + t_c(N) | <= E(N), from imp-2564, " +
+      "establishing what SG1 / Theta / imp-2520 collision-bound descendants actually control " +
+      "versus what governs the headline Lambda <= 0 route to RH.\n\n" +
+      "HEADLINE INEQUALITY (Lambda <= E(N)): Inserting only the trivial lower bound t_c >= 0 " +
+      "into the upper face of the bracket gives Lambda <= -0 + E(N) = E(N). Driving this to " +
+      "<= 0 (RH) requires only E(N) -> 0. The trivial t_c >= 0 suffices for the headline; " +
+      "no per-N sharpening of the collision time is needed for the Lambda upper bound itself.\n\n" +
+      "WHAT COLLISION BOUNDS ACTUALLY BUY: SG1 and its descendants produce UPPER bounds " +
+      "t_c(N) <= U. An upper bound feeds the LOWER face of the bracket: Lambda >= -U - E(N). " +
+      "Since U, E(N) >= 0, this lower bound is always non-positive and is dominated by the " +
+      "unconditional Rodgers-Tao floor Lambda >= 0. Upper bounds on t_c therefore do NOT " +
+      "advance the headline Lambda <= 0 inequality directly.\n\n" +
+      "FIDELITY ROLE (CORRECT FRAMING): What per-N collision bounds do control is the BRIDGE " +
+      "CONSTANTS E(N) -- how faithfully the truncated N-particle collision proxy tracks the " +
+      "true Lambda. A sharper collision-time estimate tightens E(N), making the per-N model a " +
+      "more faithful surrogate of the infinite-volume limit. The SG1 / Theta program improves " +
+      "model fidelity (shrinks E(N)), not headline-inequality leverage.\n\n" +
+      "CONSEQUENCE: The roadmap narrative framing SG1 as the headline lever must be replaced " +
+      "by: SG1 tightens E(N); only E(N) -> 0 closes the bridge to RH. This reframing was " +
+      "established by the signed-direction audit of imp-2564 after two independent fanout " +
+      "referees flagged a directional inconsistency in the t_c -> Lambda bookkeeping.",
+    firstUsed: "imp-2564 (chain-direction audit), imp-3262 (glossary entry), 2026",
+    relatedTerms: [
+      "bridge error E(N)",
+      "Step-4 bridge",
+      "SG1 theta-contraction",
+      "Rodgers-Tao floor (Lambda >= 0)",
+      "collision time t_c(N)",
+    ],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -1029,6 +1029,42 @@ export const glossary = [
     ],
     link: '/spectral-attack',
   },
+  {
+    term: "partial-isometry tautology (||R||=1.0000 exact)",
+    category: 'numerical',
+    definition:
+      "In the section-26 mupass operator verdict, the passive-core ratio ||R|| is defined " +
+      "as ||Gpass|| / ||Gshear||, where Gpass is the passive (positive-semidefinite) part of " +
+      "a de Branges bridge ansatz. The verdict records ||R|| = 1.0000 EXACTLY in the case " +
+      "where the ansatz is set to Gpass = |Gshear| (the absolute-value operator of Gshear). " +
+      "\n\nWHY THIS IS CIRCULAR: When one sets Gpass := |Gshear|, the ratio trivially equals " +
+      "||Gpass|| / ||Gshear|| = |||Gshear||| / ||Gshear|| = ||Gshear|| / ||Gshear|| = 1. " +
+      "The polar decomposition of Gshear writes Gshear = R |Gshear|, where R is the partial " +
+      "isometry part. Setting Gpass = |Gshear| therefore makes R the partial isometry of " +
+      "Gshear itself -- R reads its answer off the very operator it is supposed to dominate. " +
+      "No independent construction of a passive core occurs; the unit ratio is a tautology " +
+      "of the polar decomposition, not an evidence that a genuine passive core can achieve " +
+      "||R|| = 1. " +
+      "\n\nCONSEQUENCE: The fact that ||R|| = 1.0000 for the choice Gpass = |Gshear| does " +
+      "NOT mean a passive core can dominate Gshear in the Loewner (semidefinite) order. " +
+      "Operator domination K_a >= Gshear requires K_a - Gshear >= 0; since Gshear is " +
+      "indefinite (minimum eigenvalue ~ -||Gshear||), any K_a >= 0 fails this condition. " +
+      "The tautological ||R|| = 1 merely confirms that |Gshear| has the same operator norm " +
+      "as Gshear, which is true for any operator by definition of the absolute value. " +
+      "\n\nSIGNIFICANCE: the tautology is NOT an independent passive-core construction. " +
+      "A genuine passive-core bridge would need to construct Gpass from the physics of the " +
+      "de Branges chain without referring to Gshear, and then show K_a >= Gshear. The " +
+      "partial-isometry tautology forecloses this: any ansatz that sets Gpass proportional " +
+      "to |Gshear| is circular, and no K_a >= 0 can dominate the indefinite Gshear.",
+    firstUsed: "imp-3260 (partial-isometry tautology glossary), 2026",
+    relatedTerms: [
+      "hollow antisymmetric shear Gram (Gshear)",
+      "section-26 mupass operator verdict",
+      "mass-feasibility vs operator-positivity",
+      "K_a >= 0 operator-order obstruction",
+    ],
+    link: '/spectral-attack',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

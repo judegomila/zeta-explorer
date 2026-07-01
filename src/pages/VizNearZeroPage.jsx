@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ZeroStepper from '../components/ZeroStepper.jsx';
+import VizCeilingNote from '../components/VizCeilingNote.jsx';
 
 /*
  * Near a Zeta Zero: rings, nodal lines, and vortex structure.
@@ -291,7 +292,7 @@ export default function VizNearZeroPage() {
           <li><strong>Nodal lines = the skeleton.</strong> Blue (Re H = 0) and orange (Im H = 0) are the curves where the real and imaginary parts vanish. They always intersect at the zeros: two arcs of each colour, four arcs total per simple zero.</li>
           <li><strong>Winding number = 1.</strong> As any small loop encircles the yellow dot, arg H completes a full 2π rotation. This is the argument principle: each simple zero = one unit of winding.</li>
           <li><strong>Vortex at the crossing.</strong> The four-arc intersection is the phase vortex of V = H'/H. Under RH every such vortex lies on the critical line Re s = ½ (dashed). An off-axis vortex = an off-axis zero = an RH violation.</li>
-          <li style={{ color: '#94a3b8' }}><strong>Honest ceiling:</strong> panel 7 of the <Link to="/visual-geometries">Visual Geometries gallery</Link>. Per the <Link to="/route-map">route map</Link> the vortex/winding thread re-derives Λ ≥ 0 only. Exact exploratory visualization — not a rigorous new bound.</li>
+          <VizCeilingNote claim="Λ ≥ 0" ceiling="panel 7 of the Visual Geometries gallery; vortex/winding thread re-derives Λ ≥ 0 only" />
         </ul>
         <div style={{ fontSize: 12, marginTop: 8 }}>
           Related:{' '}

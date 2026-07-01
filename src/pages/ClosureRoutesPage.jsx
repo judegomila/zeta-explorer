@@ -1349,6 +1349,155 @@ function DeficitExcessFractionGridPanel() {
   );
 }
 
+// ── imp-3095: scalar-phi collapse -- phi(s) = G(s)/F(s) single curve + grid dots ─────
+// Implements the scalar-phi collapse that OperatorGapCollapseViz calls "pending imp-3095".
+// Plots the continuous curve phi(s) = G(s)/F(s) with all 20 (a,U) grid cells overlaid
+// as colored dots, demonstrating that equal-product cells collapse onto a single point.
+function PhiCollapseViz() {
+  const M = IMP3064_DEFICIT_EXCESS_FRACTION_GRID;
+  const rows = M.rows;
+  const si = M.scaleInvariantFinding;
+
+  const ASINH1 = Math.asinh(1);   // ~0.88137 -- overflow onset s0
+  const SQRT2  = Math.SQRT2;
+  const F = (s) => Math.cosh(s) - SQRT2 - s + ASINH1;
+  const G = (s) => SQRT2 - ASINH1 - Math.exp(-s);
+  const phi = (s) => (s > ASINH1 ? G(s) / F(s) : null);
+
+  const W = 720, H = 340, ML = 60, MR = 24, MT = 24, MB = 48;
+  const S_MIN = 0.9, S_MAX = 5.5, PHI_MAX = 2.2;
+  const px = (s) => ML + ((s - S_MIN) / (S_MAX - S_MIN)) * (W - ML - MR);
+  const py = (v) => H - MB - (v / PHI_MAX) * (H - MT - MB);
+
+  const sTicks = [1, 2, 3, 4, 5];
+  const phiTicks = [0, 0.5, 1.0, 1.5, 2.0];
+
+  // Continuous curve: dense points from just above s0 to S_MAX
+  const S_CURVE_START = ASINH1 + 0.015;
+  const N_CURVE = 400;
+  const curvePts = [];
+  for (let i = 0; i <= N_CURVE; i++) {
+    const s = S_CURVE_START + (i / N_CURVE) * (S_MAX - S_CURVE_START);
+    const v = phi(s);
+    if (v !== null && v <= PHI_MAX * 1.05) curvePts.push({ s, v });
+  }
+  const curvePath = curvePts
+    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${px(p.s).toFixed(1)} ${py(Math.min(p.v, PHI_MAX)).toFixed(1)}`)
+    .join(' ');
+
+  // Grid dots: cells with overflow only
+  const dotRows = rows.filter((r) => r.hasOverflow && r.s >= S_MIN && r.s <= S_MAX);
+
+  // Headline coincidence pair: (a=0.5,U=6) and (a=0.3,U=10) both at s=3
+  const eqPairS = 3.0;
+  const eqPhi   = phi(eqPairS);
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #f59e0b", background: "rgba(245,158,11,0.04)" }}>
+      <h3 style={{ color: "#f59e0b", marginTop: 0 }}>
+        phi(s) = G(s)/F(s): all equal-product (a,U) cells collapse onto one curve (imp-3095)
+      </h3>
+      <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
+        The excess fraction <span style={{ fontFamily: mono }}>phi = E / D_raw</span> depends only on
+        the product <span style={{ fontFamily: mono }}>s = a&middot;U</span>. Here the continuous curve{" "}
+        <span style={{ fontFamily: mono }}>phi(s) = G(s)/F(s)</span> (white) is plotted linearly,
+        with all grid cells from the 5&times;4 (a, U) array overlaid as colored dots.
+        Every dot lands exactly on the curve; cells sharing the same product (gold annotation at s=3)
+        are indistinguishable. As s grows, <span style={{ fontFamily: mono }}>F(s)~e^s/2</span> diverges
+        while <span style={{ fontFamily: mono }}>G(s)</span> saturates at{" "}
+        <span style={{ fontFamily: mono }}>&radic;2&minus;arcsinh(1)&asymp;{si.saturationCeiling.toFixed(4)}</span>,
+        so <span style={{ fontFamily: mono }}>phi&rarr;0</span>: the no-ghost surplus is small
+        precisely where the overflow is large.
+      </p>
+      <div style={{ overflowX: "auto" }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
+          {/* grid lines */}
+          {phiTicks.map((v) => (
+            <g key={"pt" + v}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{v.toFixed(1)}</text>
+            </g>
+          ))}
+          {sTicks.map((s) => (
+            <g key={"st" + s}>
+              <line x1={px(s)} y1={MT} x2={px(s)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{s}</text>
+            </g>
+          ))}
+          {/* axes */}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          {/* onset vertical at s0 */}
+          <line x1={px(ASINH1)} y1={MT} x2={px(ASINH1)} y2={H - MB} stroke="#ef4444" strokeWidth="1" strokeDasharray="3 3" opacity="0.5" />
+          <text x={px(ASINH1) + 4} y={MT + 14} fontSize="10" fill="#ef4444" fontFamily={mono}>s0=arcsinh(1)</text>
+          {/* phi=0 reference */}
+          <line x1={ML} y1={py(0)} x2={W - MR} y2={py(0)} stroke="#334155" strokeWidth="1.5" />
+          {/* phi=1 reference */}
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#64748b" strokeWidth="1" strokeDasharray="4 3" opacity="0.6" />
+          <text x={W - MR - 4} y={py(1) - 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>phi=1</text>
+          {/* axis labels */}
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>
+            s = a&middot;U
+          </text>
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}
+            transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>
+            phi(s) = G(s)/F(s)
+          </text>
+          {/* continuous phi(s) curve */}
+          <path d={curvePath} fill="none" stroke="#e2e8f0" strokeWidth="2" />
+          {/* grid dots colored by a */}
+          {dotRows.map((r, i) => (
+            <circle key={i} cx={px(r.s)} cy={py(r.excessFraction)} r="5"
+              fill={A_COLORS[r.a] || "#94a3b8"} fillOpacity="0.65"
+              stroke={A_COLORS[r.a] || "#94a3b8"} strokeWidth="1.2">
+              <title>{`a=${r.a}, U=${r.U}  s=${r.s.toFixed(2)}  phi=${r.excessFraction.toFixed(5)}`}</title>
+            </circle>
+          ))}
+          {/* equal-product annotation at s=3 */}
+          {eqPhi !== null && eqPhi <= PHI_MAX && (
+            <g>
+              <line x1={px(eqPairS)} y1={py(eqPhi) - 10} x2={px(eqPairS)} y2={MT + 6}
+                stroke="#fbbf24" strokeWidth="1" strokeDasharray="2 2" />
+              <text x={px(eqPairS) + 5} y={MT + 16} fontSize="10" fill="#fbbf24" fontFamily={mono}>
+                s=3: (0.5,6)=(0.3,10)
+              </text>
+              <text x={px(eqPairS) + 5} y={MT + 27} fontSize="10" fill="#fbbf24" fontFamily={mono}>
+                phi={eqPhi.toFixed(4)}
+              </text>
+            </g>
+          )}
+          {/* legend */}
+          {[0.5, 0.3, 0.2, 0.1].map((a, i) => (
+            <g key={"leg" + a} transform={`translate(${W - MR - 90}, ${MT + 10 + i * 18})`}>
+              <circle cx="0" cy="-4" r="5" fill={A_COLORS[a]} fillOpacity="0.65" stroke={A_COLORS[a]} strokeWidth="1.2" />
+              <text x="12" y="0" fontSize="11" fill="#cbd5e1" fontFamily={mono}>a = {a}</text>
+            </g>
+          ))}
+        </svg>
+      </div>
+      <div style={{ marginTop: 10, padding: "8px 12px", borderRadius: 5, background: "rgba(245,158,11,0.07)", border: "1px solid rgba(245,158,11,0.3)", fontSize: 12, color: "#cbd5e1", lineHeight: 1.65 }}>
+        <strong style={{ color: "#fbbf24", fontFamily: mono }}>SCALE INVARIANCE: </strong>
+        Every (a,U) dot lies on the smooth curve phi(s)=G(s)/F(s).
+        The (0.5,6) and (0.3,10) dots are indistinguishable at s=3 (gold annotation).
+        Cells below the onset s0=arcsinh(1) have no overflow and are omitted.
+        F(s)=cosh(s)&minus;&radic;2&minus;s+arcsinh(1), G(s)=&radic;2&minus;arcsinh(1)&minus;e^(&minus;s).
+      </div>
+      <div style={{ marginTop: 8, padding: "8px 12px", borderRadius: 6, background: "rgba(148,163,184,0.06)", border: "1px solid rgba(148,163,184,0.25)" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", letterSpacing: "0.06em", marginBottom: 4 }}>
+          DEGREE-0 SCALAR ONLY &mdash; RH-EQUIVALENT &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          {M.honestCaveat.operatorStepUntouched} {M.honestCaveat.sota}.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: "#64748b", fontSize: 11, fontFamily: mono }}>
+        Source: imp-3064-deficit-excess-fraction-grid.js &mdash; scalar companion to the imp-3085 operator-gap collapse viz.
+        imp-3095.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3136: C_shock margin 1/3 - C_shock(N) grows with N (imp-3108 data) ───
 // ── imp-3180: onset derivative drho/ds showing c_asym root vs imp-3045 false onset ──
 function AsymOnsetDerivativeViz() {
@@ -3588,6 +3737,12 @@ export default function ClosureRoutesPage() {
         Scalar cover price: degree-0 excess-fraction grid, phi = E / D_raw (imp-3064)
       </h2>
       <DeficitExcessFractionGridPanel />
+
+      {/* ─── imp-3095: scalar-phi collapse curve ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Scalar-phi collapse: phi(s) single curve with all (a,U) grid cells (imp-3095)
+      </h2>
+      <PhiCollapseViz />
 
       {/* ─── imp-3084: raw-basis gap grows with DEG ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

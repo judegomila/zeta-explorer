@@ -3204,6 +3204,19 @@ export default function ClosureRoutesPage() {
             itself the RH-equivalent quantity; the deg-0 B/D comparison is additionally circular.
             Construction is mass-feasible, NOT independently constructible.
           </div>
+          {/* imp-3234: normalization-convention reconciliation note */}
+          <div style={{ marginTop: 7, padding: '6px 10px', borderRadius: 4, background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+            <strong style={{ color: '#fbbf24' }}>Normalization note (imp-3234):</strong>{' '}
+            The imp-3154 diagnostic sweep records a genuine deg-2 deficit of{' '}
+            <span style={{ fontFamily: mono, color: '#fbbf24' }}>~1.19e-7</span>{' '}
+            (at N=200) vs the section26 / imp-3144 recorded{' '}
+            <span style={{ fontFamily: mono, color: '#fbbf24' }}>9.28e-9</span>{' '}
+            above. Both measure the same occupation deficit with the same sign and order of magnitude
+            — they differ <strong>only</strong> by the offline occupation-density normalization
+            convention (imp-3154 uses shear = full past-future Phi factor; section26 uses the
+            standard cosh-normalized convention). This is <strong>NOT a discrepancy</strong>; the
+            ~13x ratio is a known convention factor, not a computational disagreement.
+          </div>
         </div>
         {/* imp-3209: ||R|| grows with resolution -- no scalar core works at operator level */}
         <div

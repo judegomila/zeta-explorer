@@ -41,6 +41,7 @@ import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equ
 import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-bridge-lag-cutoff-sweep.js';
 import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bridge-sign-phi-only.js';
 import { IMP3199_OVERFLOW_FRACTION_CELL_SWEEP } from '../data/imp-3199-overflow-fraction-cell-sweep.js';
+import { IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE } from '../data/imp-3196-residual-gap-convergence-rate.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -2776,6 +2777,162 @@ function BridgeSignMagnitudeDecompositionViz() {
   );
 }
 
+// ── imp-3196: residual-gap convergence RATE (log-log, power-law vs geometric) ──
+function ResidualGapConvergenceRateViz() {
+  const M = IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE;
+  const cells = M.measured.cellRates;
+
+  const W = 620, H = 320, ML = 74, MR = 30, MT = 28, MB = 58;
+  const L10 = Math.log10;
+  const chartW = W - ML - MR;
+  const chartH = H - MT - MB;
+
+  const allRes = cells.flatMap((c) => Array.from(c.residuals));
+  const yMinLog = Math.floor(L10(Math.min(...allRes)) - 0.3);
+  const yMaxLog = Math.ceil(L10(Math.max(...allRes)) + 0.3);
+
+  const xMinLog = L10(1.7);
+  const xMaxLog = L10(11.5);
+
+  const px = (d) => ML + ((L10(d) - xMinLog) / (xMaxLog - xMinLog)) * chartW;
+  const py = (r) => H - MB - ((L10(r) - yMinLog) / (yMaxLog - yMinLog)) * chartH;
+
+  const COLS = ['#fbbf24', '#10b981', '#06b6d4', '#a855f7'];
+  const DEG_VALS = [2, 4, 6, 8, 10];
+
+  function fitC(residuals, p) {
+    const lr = Array.from(residuals).map((r) => Math.log(r));
+    const ld = DEG_VALS.map((d) => Math.log(d));
+    const mlr = lr.reduce((a, b) => a + b, 0) / lr.length;
+    const mld = ld.reduce((a, b) => a + b, 0) / ld.length;
+    return Math.exp(mlr + p * mld);
+  }
+
+  const yTicks = [];
+  for (let e = yMinLog; e <= yMaxLog; e++) yTicks.push(Math.pow(10, e));
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #22d3ee', background: 'rgba(34,211,238,0.04)' }}>
+      <h3 style={{ color: '#22d3ee', marginTop: 0 }}>
+        Residual-gap convergence RATE: algebraic power-law decay, exponent p
+        &asymp;{M.measured.pMin.toFixed(2)}&rarr;{M.measured.pMax.toFixed(2)} rising with s (imp-3196)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        Log-log plot of resid(DEG)&nbsp;=&nbsp;G(s)&minus;gap(DEG) vs DEG at four equal-s cells
+        (s&nbsp;=&nbsp;0.8, 1.2, 2.0, 3.0; a&nbsp;=&nbsp;0.5, U&nbsp;=&nbsp;2s).
+        Straight log-log lines confirm algebraic power-law decay resid&nbsp;~&nbsp;C&thinsp;DEG<sup>&minus;p</sup> at
+        every cell (R<sup>2</sup>&asymp;0.996&ndash;0.999), decisively beating the geometric (semi-log) fit
+        (R<sup>2</sup>&asymp;0.96&ndash;0.97).
+        The exponent p rises mildly with s; larger shear products converge modestly faster.
+        Consecutive ratio resid(DEG)/resid(DEG&minus;2) RISES toward 1 (&asymp;0.40&rarr;0.67) &mdash;
+        the algebraic-tail signature distinguishing a power law from an exponential.
+      </p>
+      <div style={{ overflowX: 'auto', marginTop: 10 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((r) => (
+            <g key={"yg" + r}>
+              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>
+                {r.toExponential(0)}
+              </text>
+            </g>
+          ))}
+          {DEG_VALS.map((d) => (
+            <g key={"xg" + d}>
+              <line x1={px(d)} y1={MT} x2={px(d)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(d)} y={H - MB + 16} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{d}</text>
+            </g>
+          ))}
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>DEG (monomial truncation degree)</text>
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}
+            transform={"rotate(-90 14 " + Math.round((MT + H - MB) / 2) + ")"}>resid(DEG) [log scale]</text>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+
+          {cells.map((cell, ci) => {
+            const col = COLS[ci];
+            const C = fitC(cell.residuals, cell.algebraicExponentP);
+            const p = cell.algebraicExponentP;
+            const fitPath = "M " + px(2).toFixed(1) + " " + py(C * Math.pow(2, -p)).toFixed(1) +
+                            " L " + px(10).toFixed(1) + " " + py(C * Math.pow(10, -p)).toFixed(1);
+            const dotPath = cell.sweep.map((row, i) =>
+              (i === 0 ? "M " : "L ") + px(row.degree).toFixed(1) + " " + py(row.residual).toFixed(1)
+            ).join(" ");
+            const lx = ML + chartW - 186;
+            const ly = MT + 10 + ci * 38;
+            return (
+              <g key={"cell" + ci}>
+                <path d={fitPath} fill="none" stroke={col} strokeWidth="1.2" strokeDasharray="5 3" opacity={0.65} />
+                <path d={dotPath} fill="none" stroke={col} strokeWidth="2" />
+                {cell.sweep.map((row) => (
+                  <circle key={"pt" + row.degree} cx={px(row.degree)} cy={py(row.residual)} r={4.5}
+                    fill={col} stroke="#0f172a" strokeWidth="1.5">
+                    <title>{"s=" + cell.s + "  DEG=" + row.degree + "  resid=" + row.residual.toExponential(3)}</title>
+                  </circle>
+                ))}
+                <line x1={lx} y1={ly} x2={lx + 18} y2={ly} stroke={col} strokeWidth="2.5" />
+                <circle cx={lx + 9} cy={ly} r={3.5} fill={col} />
+                <text x={lx + 24} y={ly + 4} fontSize="10" fill={col} fontFamily={mono}>
+                  {"s=" + cell.s + "  p=" + p.toFixed(2) + "  R²=" + cell.algebraicR2.toFixed(3)}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      <div style={{ overflowX: 'auto', marginTop: 12 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+          <thead>
+            <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8', textAlign: 'left' }}>
+              <th style={{ padding: '6px 8px', fontFamily: mono }}>s = a&middot;U</th>
+              <th style={{ padding: '6px 8px', fontFamily: mono }}>Exponent p</th>
+              <th style={{ padding: '6px 8px', fontFamily: mono }}>Alg. R<sup>2</sup></th>
+              <th style={{ padding: '6px 8px', fontFamily: mono }}>Geom. R<sup>2</sup></th>
+              <th style={{ padding: '6px 8px', fontFamily: mono }}>Best fit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cells.map((cell, ci) => (
+              <tr key={"tr" + ci} style={{ borderBottom: '1px solid #1e293b' }}>
+                <td style={{ padding: '6px 8px', color: COLS[ci], fontFamily: mono, fontWeight: 700 }}>
+                  {cell.s.toFixed(1)}
+                </td>
+                <td style={{ padding: '6px 8px', color: '#e2e8f0', fontFamily: mono }}>
+                  {cell.algebraicExponentP.toFixed(3)}
+                </td>
+                <td style={{ padding: '6px 8px', color: '#10b981', fontFamily: mono }}>
+                  {cell.algebraicR2.toFixed(4)}
+                </td>
+                <td style={{ padding: '6px 8px', color: '#64748b', fontFamily: mono }}>
+                  {cell.geometricR2.toFixed(4)}
+                </td>
+                <td style={{ padding: '6px 8px', color: '#10b981', fontFamily: mono }}>ALGEBRAIC</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          REPRESENTATIVE / DIAGNOSTIC &mdash; CARRIES NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Empirical least-squares rate over DEG in &#123;2,4,6,8,10&#125; inside the imp-3104 numerically-trustworthy
+          range; NOT a proved asymptotic order. The off-diagonal endpoint-Hankel operator step (imp-3066)
+          remains the lone obstruction and is untouched.
+          Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3196-residual-gap-convergence-rate.js &mdash; a=0.5, U=2s, NQ=4000,
+        DEG&isin;&#123;2,4,6,8,10&#125;, cells: s&isin;&#123;0.8,1.2,2.0,3.0&#125;.
+      </p>
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function ClosureRoutesPage() {
   return (
@@ -3373,6 +3530,12 @@ export default function ClosureRoutesPage() {
         Residual-gap DEG-saturation: survives orthogonalization, converges to tanh(3)&minus;tanh(1.5) (imp-3125)
       </h2>
       <ResidualGapDegreeSweepViz />
+
+      {/* ─── imp-3196: residual-gap convergence RATE (log-log, power-law vs geometric) ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Residual-gap convergence RATE: algebraic power-law decay, exponent p rising 1.49&rarr;1.72 with s (imp-3196)
+      </h2>
+      <ResidualGapConvergenceRateViz />
 
       {/* ─── imp-3182: cosh-monomial conditioning ceiling cond(P)/cond(H) vs DEG (imp-3153) ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

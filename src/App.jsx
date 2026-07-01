@@ -120,6 +120,7 @@ const PairCorrelationPage = lazy(() => import('./pages/PairCorrelationPage.jsx')
 const RiemannSiegelZPage = lazy(() => import('./pages/RiemannSiegelZPage.jsx'));
 const VoroninUniversalityPage = lazy(() => import('./pages/VoroninUniversalityPage.jsx'));
 const ThetaSeizingMarginPage = lazy(() => import('./pages/ThetaSeizingMarginPage.jsx'));
+const ThetaStaticObstructionPage = lazy(() => import('./pages/ThetaStaticObstructionPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -684,6 +685,7 @@ function AppShell() {
           <Route path="/gap-closing" element={<GapClosingPage />} />
           <Route path="/spectral-attack" element={<SpectralAttackPage />} />
           <Route path="/theta-seizing-margin" element={<ThetaSeizingMarginPage />} />
+          <Route path="/theta-static-obstruction" element={<ThetaStaticObstructionPage />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

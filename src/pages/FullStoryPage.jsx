@@ -20,6 +20,7 @@ import {
 // table). Source modules still serve as the authoritative computation
 // target for run-assertions.mjs and daily-health-check.sh.
 import { EMPIRICAL_M_SWEEP_EXTENDED_SUMMARY as EMPIRICAL_M_SWEEP_EXTENDED } from '../data/empirical-m-sweep-extended-summary.js';
+import Path1FloorExtensionViz from '../components/Path1FloorExtensionViz.jsx';
 import { ROUTE_C_DYNAMICAL_ANALYSIS_SUMMARY as ROUTE_C_DYNAMICAL_ANALYSIS } from '../math/route-c-dynamical-analysis-summary.js';
 import { C_MB_WEAKER_BOUND_SEARCH_SUMMARY as C_MB_WEAKER_BOUND_SEARCH } from '../math/c-mb-weaker-bound-search-summary.js';
 
@@ -1117,6 +1118,7 @@ function S15_UncondSequence() {
           no <InlineMath tex="C_{\text{mb}}" />, no GUE. The previous empirical floor (870 zeros)
           became 100,000 zeros: a {Math.round(sweep.newEmpiricalFloor.N_max / sweep.previousEmpiricalFloor.N_max)}× widening.
         </Para>
+        <Path1FloorExtensionViz />
       </Card>
 
       {/* PATH 2 */}

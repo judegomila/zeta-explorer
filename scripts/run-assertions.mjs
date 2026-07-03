@@ -3484,6 +3484,20 @@ const DATA_MODULES = [
   // imp-3725 and imp-3728 baked rows). Derivation only; imp-3066 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-3854-thetabar-insensitivity-derivation.js',
+  // imp-3868: INDEPENDENT second-solver confirmation of the imp-3849 inner-converged
+  // exact-saddle ratio crossing n* = 215.2 and the eps_n sign-change at n = 149, via a
+  // STRUCTURALLY DISTINCT quadrature rule. imp-3849 located those features with composite
+  // Neumaier-compensated Simpson (order-4) throughout; this module re-runs the IDENTICAL
+  // NPHI=10 kernel and D_n/Q_n/saddle algebra through composite 5-point Gauss-Legendre
+  // (degree-9 exact, O(h^10)) for both the inner A(tau) and every outer moment. Since GL
+  // and Simpson share no node placement, weights or error exponent, agreement cannot be a
+  // shared Simpson-order artifact. Result: first sub-unity rung n = 216, crossing 215.2325
+  // (imp-3849 215.231), r_226 = -8.737e-5 (imp-3849 -8.738e-5, agree ~1e-8), eps sign-change
+  // n = 149, well min -5.844e-4 at n = 500; GL-internal node convergence ~1e-13. So the
+  // crossing/eps sign-change are NOT Simpson-order-floor artifacts and the imp-3731 225.54
+  // crossing was an inner-A(tau)-quadrature artifact independent of the rule. Measurement;
+  // imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED; imp-3849/imp-3731 left intact. 10 assertions.
+  '/src/data/imp-3868-saddle-crossing-gauss-legendre-cross-solver.js',
   // imp-3479: shared sigma(N) sub-term helper consolidating the byte-identical
   // parts(N)/bridgeRow formula duplicated inline across imp-3220/imp-3323/
   // imp-3406/imp-3443/imp-3444/imp-3446. Consolidation assessment only -- the

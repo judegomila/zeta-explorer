@@ -2357,6 +2357,15 @@ const DATA_MODULES = [
   // self-executing assertions fail. Basin-conditional ONLY; NOT a global-W_1 beat;
   // PT Lambda <= 0.2 stays the rigorous SOTA.
   '/src/data/ch-lip-basin-conditional-2026-06-30.js',
+  // imp-3270 (fable-5 frontier): CLOSED FORM for the imp-3194 half-lattice lone-neighbour
+  // L->infinity isolation onset -- the lower end of the open asymmetric bracket. Exact rate
+  // R(rho) = 4+4rho-4/rho-4/(rho+1)-2[psi(1+2/rho)-psi(1+1/rho)], unique root (rigorous
+  // monotonicity via trigamma(2)=pi^2/6-1<2) c_half = 0.8980208880762339, retro-certifying the
+  // Aitken 0.898021 to ~1e-7 and PROVING the O(1/L^2) convergence (the O(1/L) terms cancel).
+  // Class closure only: c_glob stays OPEN with c_half as the tightest located ceiling; basin
+  // margin to 0.72 stays 0.178; PT Lambda <= 0.2 stays SOTA. 10 self-executing assertions
+  // (dual digamma routes, finite-L O(1/L^2) match, onset descent, chain order, honesty gate).
+  '/src/data/sg1c-halflattice-lone-limit-closed-form-2026-07-02.js',
 ];
 
 let ALL_MODULES = FAST_MODE

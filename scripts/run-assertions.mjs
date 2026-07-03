@@ -2448,6 +2448,29 @@ const DATA_MODULES = [
   // imp-3267 band [1.895e-4,1.905e-4]. Throws on import if the norms depart at any N. Diagnostic; RH-equivalent;
   // imp-3066 endpoint-Hankel obstruction untouched; no QED; PT 0.2 SOTA.
   '/src/data/imp-3343-shear-gram-opnorm-equals-volterra-hs-identity.js',
+  // imp-3345: RICHARDSON-EXTRAPOLATES the imp-3256 matched-h ||V||_HS sequence (a=0.5, N=500..8000, h=5/N halving) to its
+  // h->0 limit. Measured order ratio ~4.000 (clean O(h^2) midpoint convergence, p=2); the level-1 Richardson tableau
+  // (divisor 3) collapses from a 5.7e-11 spread to a 1.0e-13 spread and pins the continuum limit at 1.9003171e-4. DECISION:
+  // the 3-sig-fig headline 1.90e-4 is resolution-stable (the limit rounds to it), the sharper value is 1.9003e-4 (5 s.f.),
+  // and the raw N=8000 point 1.9002884e-4 is itself ~0.0015% short of the limit (convergent-from-below creep). The limit is
+  // +0.0968% above the imp-1267 N=1000 anchor 1.8984785338e-4 (the imp-3256 "~0.02%" note measures the limit vs the headline)
+  // and lands inside the imp-3267 band [1.895e-4,1.905e-4]. The 4th sig fig is NOT pinned: the imp-3343 U=6 ladder gives
+  // ~1.9014e-4 (agrees to 3 s.f., differs ~0.06% at the 4th) -- a residual discretization-family sub-gap. Throws on import if
+  // the order ratio departs 4, the tableau fails to collapse, or the limit leaves the band. Diagnostic; RH-equivalent;
+  // imp-3066 endpoint-Hankel obstruction untouched; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3345-vhs-richardson-limit.js',
+  // imp-3344: RECONCILES the section26-mupass verdict-cited shear-Gram min-eig magnitude "~-4.8e-6" with imp-3252's
+  // measured unscaled (~4.79e-3) and single-weight (~1.896e-4) magnitudes at the genuine cell (NPHI=10,a=0.5,U=6).
+  // FINDING: the verdict applied the midpoint quadrature weight H=U/N TWICE -- -4.8e-6 is the DOUBLE-weight magnitude
+  // H^2 mu=(U/N)^2 mu at the workflow grid N=240 (H^2 mu(240)=4.636e-6 ~ verdict to one sig fig), whereas the PHYSICAL
+  // single-weight operator norm H mu(240)=1.854e-4 converges to the imp-3252/imp-3343 continuum ~1.896e-4. The scale
+  // factor the verdict never recorded is ONE EXTRA quadrature weight H=U/N=0.025 (~1/40) vs the operator norm, i.e.
+  // H^2=6.25e-4 vs the unscaled mu. Since H^2 mu=(U/N)(H mu) keeps one residual 1/N factor, -4.8e-6 is resolution-
+  // DEPENDENT (brackets 4.8e-6 between N=200, 5.50e-6 and N=240, 4.64e-6, crossing at N~232), NOT the operator norm --
+  // which is why it sits ~40x below 1.896e-4. imp-3252 KEY result min eig/(-||Gshear||)=1 is UNAFFECTED (dimensionless
+  // ratio, every weight convention cancels). Throws on import if H^2 mu(240) departs the verdict band or the extra
+  // factor is not exactly H. Accuracy-diagnostic; RH-equivalent; imp-3066 endpoint-Hankel obstruction untouched; no QED.
+  '/src/data/imp-3344-shear-gram-verdict-scale-factor.js',
   // imp-3240: (a,U)-cell dependence of that SAME capture ratio r=||T||/||Gshear|| across the imp-3085 grid
   // {0.5,0.3,0.2,0.1}x{4,6,8,10} at N=240. FINDING: the ~3% deficit is a function of U ALONE (to <1 part in
   // 1e3) -- essentially a-INDEPENDENT and NOT a function of the product s=a*U (the OPPOSITE of the imp-3085

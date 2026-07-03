@@ -57,6 +57,7 @@ import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-
 import { IMP3324_SIGMA_CH_SENSITIVITY } from '../data/imp-3324-sigma-CH-sensitivity.js';
 import { IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE } from '../data/imp-3219-mupass-bridge-overshoot-knee.js';
 import { IMP3255_BRIDGE_RATIO_CLOSED_FORM } from '../data/imp-3255-bridge-ratio-closed-form.js';
+import { IMP3322_SPREAD_CONTRACTION_DISCRIMINATOR } from '../data/imp-3322-spread-contraction-discriminator.js';
 import { IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL } from '../data/imp-3257-bridge-sign-phi-nonneg-structural.js';
 import { IMP3256_VHS_CROSSVAL } from '../data/imp-3256-vhs-crossval.js';
 
@@ -3491,6 +3492,120 @@ function UnderflowArtifactVsTrueFractionViz() {
   );
 }
 
+// ── imp-3394: truncation-threshold sweep -- support length tracks the closed-form
+// underflow horizon tau_2(T), not a fixed Phi-autocorrelation length (imp-3322) ──
+// Overlays the DISCRETE measured support length (frac x U, at each swept threshold T)
+// against the DENSE closed-form curve tau_2(T) - tau_1 (the horizon, shifted down by
+// the fixed genuine lower endpoint tau_1), showing the endpoint moves inward with T
+// rather than sitting still at a fixed Phi-intrinsic length.
+function TruncationThresholdHorizonViz() {
+  const D = IMP3322_SPREAD_CONTRACTION_DISCRIMINATOR.measured;
+  const sweep = D.d1ThresholdSweep;
+  const tau1 = sweep[0].tau1;
+
+  // Closed-form horizon tau_2(T) = (1/4) ln X, root of pi X - ln(2 pi^2 X) = ln(1/T).
+  function horizonTau(T) {
+    const rhs = -Math.log(T);
+    const f = (X) => Math.PI * X - Math.log(2 * Math.PI * Math.PI * X) - rhs;
+    let lo = 1e-6, hi = rhs;
+    for (let it = 0; it < 100; it++) {
+      const mid = 0.5 * (lo + hi);
+      if (f(mid) > 0) hi = mid; else lo = mid;
+    }
+    return 0.25 * Math.log(0.5 * (lo + hi));
+  }
+  const expOf = (T) => -Math.log10(T);
+
+  const W = 480, H = 260;
+  const p = { t: 26, r: 16, b: 44, l: 46 };
+  const cW = W - p.l - p.r;
+  const cH = H - p.t - p.b;
+  const Emin = 90, Emax = 330;
+  const Lmin = 0.9, Lmax = 1.42;
+  const xS = (E) => p.l + ((E - Emin) / (Emax - Emin)) * cW;
+  const yS = (len) => p.t + (1 - (len - Lmin) / (Lmax - Lmin)) * cH;
+
+  const curvePts = [];
+  for (let E = 95; E <= 323.2; E += 4) {
+    curvePts.push([xS(E), yS(horizonTau(Math.pow(10, -E)) - tau1)]);
+  }
+  const nativeE = expOf(sweep[0].effectiveThreshold);
+  curvePts.push([xS(nativeE), yS(horizonTau(Math.pow(10, -nativeE)) - tau1)]);
+  const curvePath = curvePts.map((pt, i) => `${i === 0 ? 'M' : 'L'}${pt[0].toFixed(1)} ${pt[1].toFixed(1)}`).join(' ');
+
+  const eTicks = [100, 150, 200, 250, 300];
+
+  return (
+    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid #38bdf8', background: 'rgba(56,189,248,0.03)' }}>
+      <h3 style={{ color: '#38bdf8', marginTop: 0, fontSize: 15 }}>
+        Truncation-Threshold Sweep: Support Length Tracks the Closed-Form Horizon (imp-3394 / imp-3322)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+        Raising the arithmetic truncation threshold <em>T</em> (zeroing kernel samples below <em>T</em>, from the
+        native 2<sup>&minus;1074</sup> subnormal out to 1e&minus;100) moves the measured support length (gold dots)
+        <strong> inward</strong>, tracking the dense closed-form horizon curve
+        &tau;<sub>2</sub>(T)&thinsp;&minus;&thinsp;&tau;<sub>1</sub> (cyan). The length is <em>not</em> a fixed
+        Phi-autocorrelation constant &mdash; it is the arithmetic underflow horizon, moving with precision.
+      </p>
+      <svg width={W} height={H} style={{ display: 'block' }}>
+        {[0.9, 1.0, 1.1, 1.2, 1.3, 1.4].map((l) => (
+          <line key={l} x1={p.l} x2={p.l + cW} y1={yS(l)} y2={yS(l)} stroke="#1e293b" strokeWidth={1} />
+        ))}
+        {eTicks.map((e) => (
+          <line key={e} x1={xS(e)} x2={xS(e)} y1={p.t} y2={p.t + cH} stroke="#1e293b" strokeWidth={1} />
+        ))}
+        <path d={curvePath} fill="none" stroke="#38bdf8" strokeWidth={1.8} />
+        {sweep.map((row) => (
+          <circle
+            key={row.threshold}
+            cx={xS(expOf(row.effectiveThreshold))}
+            cy={yS(row.measure)}
+            r={3.5}
+            fill="#f59e0b"
+            stroke="#0f172a"
+            strokeWidth={1}
+          />
+        ))}
+        {/* native anchor annotation */}
+        <text x={xS(nativeE) - 6} y={yS(sweep[0].measure) - 10} fill="#f59e0b" fontSize={9} textAnchor="end">
+          native &asymp; {sweep[0].measure.toFixed(3)}
+        </text>
+        <text x={xS(100) + 6} y={yS(sweep[sweep.length - 1].measure) + 16} fill="#f59e0b" fontSize={9} textAnchor="start">
+          T=1e&minus;100 &asymp; {sweep[sweep.length - 1].measure.toFixed(3)}
+        </text>
+        {/* Axes */}
+        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke="#475569" strokeWidth={1} />
+        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke="#475569" strokeWidth={1} />
+        {eTicks.map((e) => (
+          <g key={e}>
+            <line x1={xS(e)} x2={xS(e)} y1={p.t + cH} y2={p.t + cH + 4} stroke="#475569" />
+            <text x={xS(e)} y={p.t + cH + 14} fill="#94a3b8" fontSize={9} textAnchor="middle">1e&minus;{e}</text>
+          </g>
+        ))}
+        {[0.9, 1.0, 1.1, 1.2, 1.3, 1.4].map((l) => (
+          <g key={l}>
+            <line x1={p.l - 4} x2={p.l} y1={yS(l)} y2={yS(l)} stroke="#475569" />
+            <text x={p.l - 7} y={yS(l) + 4} fill="#94a3b8" fontSize={9} textAnchor="end">{l.toFixed(1)}</text>
+          </g>
+        ))}
+        <text x={p.l + cW / 2} y={H - 5} fill="#64748b" fontSize={10} textAnchor="middle">truncation threshold T (native at right edge)</text>
+        <text
+          x={10} y={p.t + cH / 2} fill="#64748b" fontSize={10} textAnchor="middle"
+          transform={`rotate(-90, 10, ${p.t + cH / 2})`}
+        >support length</text>
+      </svg>
+      <div style={{ display: 'flex', gap: 14, marginTop: 6, flexWrap: 'wrap' }}>
+        <span style={{ color: '#38bdf8', fontSize: 11 }}>&#8212;&#8212; closed-form &tau;<sub>2</sub>(T)&minus;&tau;<sub>1</sub></span>
+        <span style={{ color: '#f59e0b', fontSize: 11 }}>&#9679; measured support length (frac&times;U)</span>
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3322-spread-contraction-discriminator.js (d1ThresholdSweep) &mdash; DIAGNOSTIC; overflow-support
+        geometry only; NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3197: sign-vs-magnitude decomposition of K_a >= 0 bridge obstruction ──
 // Shows that the SIGN half is FREE (Phi-only, 100% magnitude-weighted agreement,
 // zero mismatch mass) while the MAGNITUDE half is the whole residual: the
@@ -4694,6 +4809,9 @@ export default function ClosureRoutesPage() {
 
       {/* ─── imp-3314: measured-artifact vs true overflow-fraction viz ─── */}
       <UnderflowArtifactVsTrueFractionViz />
+
+      {/* ─── imp-3394: truncation-threshold sweep vs closed-form horizon viz ─── */}
+      <TruncationThresholdHorizonViz />
 
       {/* ─── imp-3250: U-sweep overflow fraction viz ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

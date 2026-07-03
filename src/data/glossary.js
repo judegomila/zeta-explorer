@@ -590,6 +590,30 @@ export const glossary = [
     link: '/closure-routes',
   },
   {
+    term: 'Degree-0 bridge margin B/D(s) (NPHI-independent scale function)',
+    category: 'constant',
+    definition:
+      'A THIRD scale-only quantity in the mu^pass degree-0 cover, alongside the imp-3064 excess fraction phi(s) ' +
+      'and the imp-3085 operator gap: the ratio of the cosh-completion bridge mass B(a,U) = int_0^U (cosh(a*tau) - 1) ' +
+      'd(tau) = sinh(aU)/a - U to the raw overflow deficit D_0(a,U) = int_{tauStar}^U (sinh(a*tau) - 1) d(tau) = ' +
+      '[cosh(aU) - sqrt2 + arcsinh(1)]/a - U. With s = a*U the shared 1/a prefactor cancels EXACTLY, so ' +
+      'B/D(s) = (sinh(s) - s) / (cosh(s) - s + arcsinh(1) - sqrt2) depends on the single scale variable s = a*U ' +
+      'alone -- three distinct (a,U) cells sharing s = 3 (e.g. (0.5,6), (1,3), (0.25,12)) return an identical ratio ' +
+      '1.073920 to machine precision, even though B and D_0 themselves scale as 1/a. B/D is strictly decreasing in ' +
+      's, diverging to +inf as s -> arcsinh(1)+ (D_0 -> 0) and shrinking to 1+ as s -> inf, so the recorded 1.074 ' +
+      '~7.4% surplus at the genuine cell s = 3 is a cell-specific value, not a universal constant. ' +
+      'CONTRAST with imp-3085: both quantities track s = a*U alone and both cancel their 1/a (or U) prefactor in ' +
+      'the ratio, but B/D is a purely SCALAR Lebesgue-integral ratio of the raw cosh/sinh weights with NO Phi^2 ' +
+      'kernel anywhere in its definition, so it is NPHI-INDEPENDENT outright -- unlike the imp-3085 operator gap, ' +
+      'which is computed on the Phi-weighted monomial Gram and only inherits s = a*U scale invariance as a property ' +
+      'of that operator construction. Honest caveat: DIAGNOSTIC only, RH-equivalent, necessary-but-not-sufficient ' +
+      '(mass-feasibility B > D_0 does not touch the surviving operator-level K_a >= 0 sign-positivity); Platt-Trudgian ' +
+      'Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-3255 (bridge-margin closed form, 2026), companion to imp-3251 resolution sweep',
+    relatedTerms: ['a*U scale invariant', 'mu^pass overflow-cover vocabulary (D_raw, D_pass, E(a))', 'Operator-side mu^pass vocabulary (de-homogenized R, endpoint-Hankel gap)'],
+    link: '/closure-routes',
+  },
+  {
     term: 'mu^pass overflow-cover vocabulary (D_raw, D_pass, E(a))',
     category: 'constant',
     definition:

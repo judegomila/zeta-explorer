@@ -2746,6 +2746,14 @@ const DATA_MODULES = [
   // which lives one normalization removed. Does NOT touch K_a>=0; no reduction; no RH
   // verdict; PT Lambda<=0.2 SOTA. 6 self-executing assertions.
   '/src/data/imp-3331-ceiling-lift-per-n-deficit-assessment.js',
+  // imp-3369 (accuracy): AUDIT of modules exporting *_ASSERTIONS that are absent
+  // from this list, so their build-time assertions never fire (the imp-3274 /
+  // imp-3371 imp-861 silent-assertion class). Snapshot 2026-07-02: 114 exporters
+  // unwired; the 63 zero-import ones all still PASS (391 assertions), the 51
+  // with-imports (14 touch the heavy zeros bundle) need cautious one-at-a-time
+  // wiring. Audit-only, no mass-import; the audit module itself is light + wired
+  // here so its own consistency tripwires fire. PT Lambda<=0.2 SOTA. 8 asserts.
+  '/src/data/imp-3369-unwired-assertion-coverage-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

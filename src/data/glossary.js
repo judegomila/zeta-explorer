@@ -4025,6 +4025,49 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3730 A-weight subleading correction limit c_inf ~ 0.3543: the third-of-a-log-unit floor above the leading pi e^{4 tau} decay",
+    category: "numerical",
+    definition:
+      "The autocorrelation weight A(tau) = int_0^inf Phi(s) Phi(s + tau) ds (Phi the NPHI=10 " +
+      "completed-Riemann kernel) decays super-exponentially as A(tau) ~ exp(-pi e^{4 tau}) " +
+      "(imp-3665), so it is natural to ask what the SUBLEADING correction c(tau) = -ln A(tau) - " +
+      "pi e^{4 tau} does as tau grows: settle to a positive constant, or decay to 0? imp-3716 " +
+      "measured c(tau) positive and decreasing across [0.5,2.0] (0.617 -> 0.363) but its uniform " +
+      "Simpson grid stalled past tau ~ 2.5 because the near-s=0 peak of Phi(s)Phi(s+tau) sharpens " +
+      "like e^{4 tau} (width ~ 1/(4 pi e^{4 tau})), leaving sg-3716-correction-limit OPEN." +
+      "\n\nimp-3730 resolved it with the imp-3709 peak-adapted quadrature (10-pt Gauss-Legendre on " +
+      "power-graded panels clustering the collapsing peak, factored log-domain kernel so nothing " +
+      "underflows at the ~1e-4067 magnitude class), converging c(tau) to <1e-9 out to tau ~ 6 -- " +
+      "2.4x the uniform-grid ceiling. RESULT: c(tau) approaches a POSITIVE CONSTANT c_inf ~ 0.3543 " +
+      "(extrapolated 0.354291 from the last clean rungs c(5)=0.354314, c(5.5)=0.354300); it does " +
+      "NOT decay to 0. The decrement c(tau) - c_inf shrinks GEOMETRICALLY, c(tau) = c_inf + " +
+      "B e^{-2 tau}, with the ratio of consecutive 0.5-step differences settling at ~0.367 = e^{-1}. " +
+      "By tau = 5.5 the increment has collapsed below 1.5e-5 while c stays ~0.3543 -- the " +
+      "correction never vanishes, it plateaus a third of a natural-log unit above the leading law " +
+      "forever. imp-3844 later DERIVED this numeric floor in closed form: c_inf = pi - ln(pi/2) - " +
+      "ln(acc0) = -ln((pi/2)Phi(0)) = 0.35429228409357, with the geometric-approach coefficient " +
+      "B = 3/(2 pi) = 0.477465 (matching the imp-3730 measured e^{-1} step ratio, since 2 tau steps " +
+      "of 0.5 give e^{-2*0.5}=e^{-1})." +
+      "\n\nHONEST FLOOR: c is a difference of two O(pi e^{4 tau}) quantities, so ~11 of 16 double " +
+      "digits cancel by tau=6 and the ladder goes noisy past tau ~ 6.5 -- a floating-point " +
+      "cancellation floor, not a quadrature failure (the integral itself is bit-stable across a 4x " +
+      "panel and grade 6->8 refinement there). The plateau is already reached before the floor " +
+      "bites, so c_inf > 0 does not depend on pushing further." +
+      "\n\nHONEST SCOPE: measurement/numerical result (later closed-form-derived), RH-equivalent, " +
+      "necessary-but-not-sufficient; establishes NO operator positivity. The operator-level K_a >= 0 " +
+      "off-diagonal endpoint-Hankel positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3730 (peak-adapted graded-GL measurement determining c(tau) approaches the positive constant c_inf ~ 0.3543 rather than decaying to 0, resolving the imp-3716 open sub-gap sg-3716-correction-limit), 2026",
+    relatedTerms: [
+      "imp-3665 A-weight super-exponential decay confirmation: exp(-pi e^{4 tau}), no hard support endpoint (imp-3665)",
+      "imp-3709 peak-adapted graded Gauss-Legendre log-domain A-weight quadrature (imp-3709)",
+      "imp-3844 closed-form derivation of c_inf and B = 3/(2 pi) (imp-3844)",
+      "imp-3850 dual-path -ln A(tau) reconciliation extended to tau in {2.5,3.0} (imp-3850)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

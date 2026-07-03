@@ -91,6 +91,8 @@ import { IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION } from '../data/imp-347
 import { IMP3481_AUTOCORRELATION_MOMENT_LADDER } from '../data/imp-3481-autocorrelation-moment-ladder.js';
 import { IMP3485_TTILDE_INDEPENDENT_OPERATOR_NORM_CROSSVAL } from '../data/imp-3485-Ttilde-independent-operator-norm-crossval.js';
 import { IMP3487_DEGREE2_DEFICIT_A_THRESHOLD } from '../data/imp-3487-degree2-deficit-a-threshold.js';
+import { IMP3400_TTILDE_SPECTRAL_SLOPE_CLOSED_FORM } from '../data/imp-3400-Ttilde-spectral-slope-closed-form.js';
+import { IMP3407_C_INF_INDEPENDENT_EXTRAPOLATION_CERTIFICATION } from '../data/imp-3407-C-inf-independent-extrapolation-certification.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -1789,6 +1791,74 @@ function PSDPeakSlopeStationarityPanel() {
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3470-Ttilde-spectral-peak-xistar-obstruction.js &mdash; baked reference profile,
         U=6, N=360, NPHI=10, &xi;&isin;[10,14] step 0.1.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3400/imp-3407 (surfaced per imp-3459 RECOMMENDATION): the numerator closed form
+// and its independent C_inf certification, orphaned data modules until this panel wired them
+// beside the existing C_inf / spectral-peak sections above.
+function TtildeClosedFormAndCertificationPanel() {
+  const F400 = IMP3400_TTILDE_SPECTRAL_SLOPE_CLOSED_FORM;
+  const F407 = IMP3407_C_INF_INDEPENDENT_EXTRAPOLATION_CERTIFICATION;
+  const m400 = F400.measured;
+  const m407 = F407.measured;
+
+  const rows = [
+    { label: '||Ttilde|| / (a·peak slope) [imp-3400]', value: m400.bestRatio.toFixed(6), note: '→ 1 confirms the closed-form identity' },
+    { label: 'ξ* argmax (peak-slope frequency) [imp-3400]', value: m400.argmaxXiStar.toFixed(4), note: `U-spread ${m400.argmaxSpread.toExponential(2)}` },
+    { label: 'Aitken Δ² C∞ [imp-3407]', value: m407.aitkenCInf.toFixed(7), note: `vs imp-3346: ${m407.aitkenVsImp3346.toExponential(2)}` },
+    { label: 'Quadratic Richardson C∞ [imp-3407]', value: m407.quadraticCInf.toFixed(7), note: `vs imp-3346: ${m407.quadraticVsImp3346.toExponential(2)}` },
+    { label: 'route agreement (Aitken vs quadratic) [imp-3407]', value: m407.routeAgreement.toExponential(2), note: `quoted precision ${m407.quotedPrecision.toExponential(0)}` },
+  ];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #fbbf24', background: 'rgba(251,191,36,0.04)' }}>
+      <h3 style={{ color: '#fbbf24', marginTop: 0, fontSize: 14 }}>
+        Numerator closed form &amp; independent C<sub>&infin;</sub> certification (imp-3400 / imp-3407)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        imp-3400 gives the imp-3346 numerator norm &#x2016;Ttilde&#x2016; a CLOSED symbolic form: a
+        skew-Toeplitz convolution operator&apos;s norm equals its symbol&apos;s sup, so
+        &#x2016;Ttilde&#x2016; = a&middot;sup<sub>&xi;</sub>|d/d&xi;|&Phi;hat(&xi;)|&sup2;| (a times the
+        peak slope of the &Phi; power spectrum), certified numerically (ratio {m400.bestRatio.toFixed(4)}
+        &rarr; 1) at a U-stable &xi;*&asymp;{m400.argmaxXiStar.toFixed(2)}. imp-3407 independently
+        certifies the resulting C<sub>&infin;</sub>&asymp;0.1751 headline against a higher-N geometric
+        ladder (top cell N={Math.max(...m407.nLadder)}, exceeding the parent max N=800) using two
+        extrapolation orders never used by the parent &mdash; Aitken &Delta;&sup2; and a quadratic
+        Richardson fit &mdash; both landing within the parent&apos;s quoted 1e-4 precision.
+      </p>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
+        <thead>
+          <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8' }}>
+            <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>metric</th>
+            <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>value</th>
+            <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>note</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i} style={{ borderBottom: '1px solid #1e293b' }}>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#cbd5e1' }}>{r.label}</td>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#fbbf24', textAlign: 'right' }}>{r.value}</td>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#64748b', textAlign: 'right' }}>{r.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(251,191,36,0.07)', border: '1px solid rgba(251,191,36,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#fbbf24' }}>Honest scope (imp-3400/imp-3407):</strong>{' '}
+        The closed form is an exact operator identity but its VALUE stays transcendental (no elementary
+        &xi;* or &Phi;hat), so C<sub>&infin;</sub>&asymp;0.1751 remains a determined number, not a closed
+        constant; the certification cross-checks that number, it does not construct one. Neither module
+        attempts the imp-3066 K<sub>a</sub>&nbsp;&ge;&nbsp;0 positivity. RH-EQUIVALENT,
+        necessary-but-not-sufficient, no RH verdict, NO QED. Platt&ndash;Trudgian
+        &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3400-Ttilde-spectral-slope-closed-form.js, imp-3407-C-inf-independent-extrapolation-certification.js
+        &mdash; U&isin;&#123;10,15,22.5&#125; (imp-3407), U&isin;&#123;6,8&#125; (imp-3400), h=0.025, NPHI=10.
       </p>
     </div>
   );
@@ -8265,6 +8335,8 @@ export default function ClosureRoutesPage() {
       <GKFamilyHandoverPanel />
 
       <CInfThirdExtrapolationLadderPanel />
+
+      <TtildeClosedFormAndCertificationPanel />
 
       <Degree0VsDegree2KLadderPanel />
 

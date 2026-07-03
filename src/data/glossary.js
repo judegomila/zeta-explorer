@@ -2625,6 +2625,37 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Skew-Toeplitz N=1600 gap non-monotonicity: Krylov-truncation deficit, not a reversal (imp-3575)",
+    category: "numerical",
+    definition:
+      "imp-3555 excluded the N=1600 rung of the skew-Toeplitz gap ladder -log rho(N) as a non-monotone " +
+      "data-quality outlier (its -log rho = 6.4546e-4 sat ABOVE the N=1200 value 4.2946e-4) without testing " +
+      "why. imp-3575 re-measures rho = lambda_3/lambda_1 at N=1600 (and the untested N=2000) with the Lanczos " +
+      "Krylov depth grown past the imp-3545 m=200 reference and finds the N=1600 rho was STILL MOVING at " +
+      "m=200: growing to m=240 shifts it +4.03e-4 (0.9993548 -> 0.9997580), then LOCKS (m=280/320/360 agree " +
+      "to < 2e-14). At the N=1200 anchor the m=200 rho is ALREADY converged (stable to 1.3e-13), so the " +
+      "deficit is N-SPECIFIC and GROWS with N -- the same imp-3505/imp-3537 pattern where m=80 sufficed below " +
+      "N=800 but under-resolved N=800 itself, resurfacing one ladder rung up. The corrected N=1600 -log rho = " +
+      "2.4204e-4 now sits BELOW N=1200 (not above it), so the ladder -log rho(N) is STRICTLY DECREASING " +
+      "through N=2000 (6.1746e-4, 4.2946e-4, 2.4204e-4, 1.5509e-4) and the local log-log slope CONTINUES the " +
+      "imp-3555 climb toward the -2 section-gap heuristic: -1.9933 (1200->1600), -1.9949 (1600->2000), both " +
+      "sharper than the imp-3555 -1.9915 at 1000->1200. The converged top-6 Ritz spectrum stays " +
+      "skew-symmetry PAIRED (lambda_1=lambda_2, lambda_3=lambda_4), confirming lambda_3 is a genuine level, " +
+      "not a reorthogonalization ghost." +
+      "\n\nHONEST SCOPE: measurement/correction only -- resolves a Krylov-truncation deficit in a previously " +
+      "baked gap measurement and re-establishes monotonicity; does NOT construct the missing magnitude and " +
+      "does NOT attempt the imp-3066 K_a >= 0 off-diagonal endpoint-Hankel positivity, which remains " +
+      "UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3575 (re-measurement of the imp-3555 N=1600 non-monotone rung with a Krylov depth grown past m=200, attributing the non-monotonicity to lambda_3 truncation and restoring the -log rho(N) monotone climb toward -2), 2026",
+    relatedTerms: [
+      "Skew-Toeplitz gap-exponent CONVERGENCE to the -2 section-gap heuristic (imp-3555)",
+      "imp-3545 power-iteration budget measured at N=1000/1200/1600 (the m=200 reference re-measured here)",
+      "imp-3505/imp-3537 Krylov-truncation deficit pattern (m=80 under-resolving N=800)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -2496,6 +2496,20 @@ const DATA_MODULES = [
   // zeros stop drifting left or the interior loses positivity. Diagnostic; RH-equivalent; imp-3066 magnitude
   // obstruction untouched; no QED; PT 0.2 SOTA.
   '/src/data/imp-3347-phi-leftmost-zero-vs-nphi.js',
+  // imp-3352: ASSESSES whether the imp-3257 termwise structure yields a QUANTITATIVE strictly-positive
+  // pointwise floor Phi_NPHI(u)>=f(u)>0 on [0,U] (beyond the >=0 nonnegativity), and DECIDES whether such
+  // a floor could feed the still-open operator-norm MAGNITUDE half of the imp-3197 K_a>=0 obstruction.
+  // YES to the floor: dropping all but n=1 gives Phi_NPHI(u)>=T_1(u)=pi e^{2u}(2 pi e^{2u}-3)exp(-pi e^{4u})>0
+  // on [0,U] (every summand >=0 for u>=0>u_1*), with f(0)=pi(2 pi-3)e^{-pi}=0.445727 and essentially tight
+  // (T_1(0)/Phi=0.9978, ratio->1 by u=0.25). NO to a positive-CONSTANT floor: T_1 peaks left of 0 (u~-0.1344),
+  // is monotone decreasing on [0,U] and crushed super-exponentially by exp(-pi e^{4u}) (~1e-8 by u=0.5,
+  // underflow by u~1.37), so inf over [0,U]->0 as U grows (the full Phi itself vanishes at +inf). NO to feeding
+  // the magnitude half: it needs an UPPER bound on ||Gshear||/||R||<=1, whereas a lower bound on Phi bounds
+  // |Gshear| from BELOW (wrong direction); and the diagonal-dominance route is vacuous because Gshear is HOLLOW
+  // (Gshear(u,u)=Phi(u)^2 sinh(0)=0 identically). Throws on import if the floor stops being a genuine positive
+  // envelope, becomes a positive constant, or is wrongly credited to the magnitude half. Assessment; RH-equivalent;
+  // imp-3066 magnitude obstruction untouched; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3352-phi-quantitative-floor.js',
   // imp-3240: (a,U)-cell dependence of that SAME capture ratio r=||T||/||Gshear|| across the imp-3085 grid
   // {0.5,0.3,0.2,0.1}x{4,6,8,10} at N=240. FINDING: the ~3% deficit is a function of U ALONE (to <1 part in
   // 1e3) -- essentially a-INDEPENDENT and NOT a function of the product s=a*U (the OPPOSITE of the imp-3085

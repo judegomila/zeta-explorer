@@ -2624,6 +2624,19 @@ const DATA_MODULES = [
   // Throws on import if the baseline reproduction, monotonicity, swing, power-law fit, or
   // elasticity-vs-slope consistency breaks. Measurement only; no QED; PT 0.2 SOTA.
   '/src/data/imp-3443-nmax-etrunc-sensitivity.js',
+  // imp-3446: REPLACES the imp-3406 ternary search for the interior MAX location N_max ~
+  // 9.22e5 of the imp-3220 conditional share sigma(N)=E_coll/E(N) with a CLOSED FORM.
+  // Differentiates R=(E_trunc+E_flow)/E_coll in N, sets dR/dN=0, and (log-differentiating
+  // against the Riemann-von Mangoldt height T0, dN/dT0=l/2pi) derives the implicit
+  // stationarity equation E_flow[1/(l+1)+1/L-1]/(E_trunc+E_flow) = 1/(2L) - l/(2(l-1)),
+  // L=log T0, l=log(T0/2pi). Its unique interior root gives N_max=9.218633e5, matching the
+  // imp-3406 ternary value to relative error ~3e-8, so the ternary search is unnecessary.
+  // The crude leading-order form N ~ G L(l^2-1)/(4 pi^2 E_trunc) ~ 1.6e6 misses by ~73%
+  // because at the peak E_flow ~ 1.53 x E_trunc (comparable) and the log-derivatives are
+  // order 1 -- the full implicit equation is required. Throws on import if the implicit
+  // root fails to match the ternary search, the residual does not vanish/bracket the peak,
+  // or the crude-form miss changes sign. Derivation only; no QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3446-nmax-closed-form.js',
   // imp-3324: MEASURES how load-bearing the C_H=1/8 ansatz is for the imp-3220 widest-gap
   // conditional share sigma(10^6)~0.949. Reuses the identical imp-3220 sub-terms, parametrizes
   // E_coll linearly in C_H (R=E_trunc+E_flow fixed), and finds sigma=E_coll/(R+E_coll) is a

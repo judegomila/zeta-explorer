@@ -2431,6 +2431,35 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "sigma(N) conditional-share crossing-spacing odds-ratio law N = K logT0 ((1-sigma)/sigma)^2 (imp-3556)",
+    category: "numerical",
+    definition:
+      "imp-3529 loosely summarised the post-peak sigma(N) = E_coll(N)/E(N) drop as \"~0.4 per decade\" " +
+      "early on, without root-solving the actual threshold crossings or deriving the spacing law. imp-3556 " +
+      "root-solves (400-iter bisection in ln N, residual < 1e-9) the six post-peak crossings on the exact " +
+      "imp-3220/imp-3406/imp-3463 sub-terms -- sigma < 0.9 at N=2.572e7, <0.75 at 3.172e8, <0.5 at 3.267e9, " +
+      "<0.25 at 3.259e10, <0.1 at 3.213e11, <0.01 at 4.624e13 -- and derives the cancellation-free ODDS-RATIO " +
+      "closed form N = K logT0(N) ((1-sigma)/sigma)^2, K = (C_C_PINNED/E_trunc)^2 = 1.5727e8, solved as a " +
+      "fixed point on logT0. The law matches the exact roots with relative error EQUAL to the neglected " +
+      "E_flow term, shrinking monotonically from 24.6% (sigma=0.9) to 1e-4% (sigma=0.01), so the interior " +
+      "crossings 0.75/0.5/0.25/0.1 (odds ratios 1/3, 1, 3, 9) land ~1 decade of N apart. It also CORRECTS the " +
+      "imp-3529 phrasing: -dsigma/dlog10N is not a flat ~0.4 constant but a LOGISTIC-in-lnN bump " +
+      "(ln10/2) sigma(1-sigma)(1 - dln logT0/dln N), peaking at 0.2738/decade exactly at the imp-3444 " +
+      "E_coll = E_trunc crossover (sigma ~ 0.4957, N ~ 3.39e9), trimmed below the ln10/8 = 0.2879 logistic " +
+      "cap by logT0 drift, and vanishing at both the flat interior maximum and the far tail." +
+      "\n\nHONEST SCOPE: measurement/derivation only, sharpening the imp-3529 decay-rate claim into an exact " +
+      "root-solved spacing law with a quantified residual (the neglected E_flow term). Conditional-share " +
+      "diagnostic under the GUE-conditional C_mb <= 1 bridge, not an RH bound; the imp-3066 off-diagonal " +
+      "endpoint-Hankel obstruction is UNTOUCHED; no QED.",
+    firstUsed: "imp-3556 (root-solve of the six sigma(N) post-peak threshold crossings and derivation of the odds-ratio spacing law + logistic drop profile), 2026",
+    relatedTerms: [
+      "sigma(N) post-peak local decay exponent p(N) = -dln sigma/dln N (imp-3529)",
+      "sigma(N) machine-precision landmark ladder L1-L5 (imp-3444)",
+      "sigma(N) far-tail decay (imp-3463)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "Skew-Toeplitz gap-exponent CONVERGENCE to the -2 section-gap heuristic (imp-3555)",
     category: "numerical",
     definition:

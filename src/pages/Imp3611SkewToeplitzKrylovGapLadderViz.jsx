@@ -245,6 +245,10 @@ export default function Imp3611SkewToeplitzKrylovGapLadderViz() {
         <Link to="/viz-imp3540-power-iteration-budget" style={{ color: '#7c3aed' }}>
           Power-Iteration Budget Ladder (imp-3540)
         </Link>
+        {' | '}
+        <Link to="/viz-imp3656-triple-skew-toeplitz-gap-ladder" style={{ color: '#7c3aed' }}>
+          Triple Skew-Toeplitz Gap Ladder (imp-3656)
+        </Link>
       </div>
     </div>
   );

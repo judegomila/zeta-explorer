@@ -190,6 +190,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3613-replica-fold-in-geometry',
   '/viz-imp3614-sigma-crossover-floor-invariance',
   '/viz-imp3655-flow-gap-residual-ladder',
+  '/viz-imp3656-triple-skew-toeplitz-gap-ladder',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

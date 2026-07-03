@@ -42,6 +42,7 @@ import { SECTION26_MUPASS_OPERATOR_VERDICT } from '../data/section26-mupass-oper
 import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equal-product-cell-invariance-lock.js';
 import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-bridge-lag-cutoff-sweep.js';
 import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bridge-sign-phi-only.js';
+import { IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID } from '../data/imp-3240-mupass-capture-ratio-aU-grid.js';
 import { IMP3199_OVERFLOW_FRACTION_CELL_SWEEP } from '../data/imp-3199-overflow-fraction-cell-sweep.js';
 import { IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM } from '../data/imp-3216-overflow-support-length-closed-form.js';
 import { IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE } from '../data/imp-3196-residual-gap-convergence-rate.js';
@@ -3589,6 +3590,125 @@ function BridgeSignMagnitudeDecompositionViz() {
   );
 }
 
+// ── imp-3358: capture ratio r = ||T||/||Gshear|| vs U, with the r ~ C/U fit overlay ──
+// Reads the imp-3240 (a, U) grid: shows the ratio falls off as the inverse lag window
+// (fit C/U, C ~ 0.178) and that the complementary position-concentration share 1 - r
+// rises toward 1 as U grows. All values are READ from the imp-3240 module export.
+function CaptureRatioVsUViz() {
+  const M = IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID.measured;
+  const grid = M.grid;
+  const C = M.inverseUConstantC;
+
+  const W = 680, H = 340, ML = 56, MR = 24, MT = 22, MB = 44;
+  const uMax = 11, ratioMax = 0.08;
+  const px = (u) => ML + (u / uMax) * (W - ML - MR);
+  const py = (r) => H - MB - (r / ratioMax) * (H - MT - MB);
+
+  const uTicks = [0, 2, 4, 6, 8, 10];
+  const rTicks = [0, 0.02, 0.04, 0.06, 0.08];
+
+  // C/U fit curve, sampled densely over the plotted U range.
+  const fitPts = [];
+  for (let u = 3; u <= uMax; u += 0.25) fitPts.push([px(u), py(C / u)]);
+  const fitPath = fitPts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
+
+  const A_COLORS_LOCAL = { 0.5: '#f59e0b', 0.3: '#06b6d4', 0.2: '#a855f7', 0.1: '#10b981' };
+  const aValues = [0.5, 0.3, 0.2, 0.1];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #f59e0b', background: 'rgba(245,158,11,0.04)' }}>
+      <h3 style={{ color: '#f59e0b', marginTop: 0 }}>
+        Capture ratio r = &#x2016;T&#x2016;/&#x2016;G&#x209B;&#x2095;&#x2091;&#x2090;&#x2072;&#x2016; falls off as C/U (imp-3240)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        Across the full (a, U) grid the imp-3197 lag-stationary capture ratio is essentially
+        a function of the lag window U alone, matching the closed form{' '}
+        <span style={{ fontFamily: mono }}>r &#8776; C/U</span> with{' '}
+        <strong>C &#8776; {C.toFixed(4)}</strong>. Equivalently the position-concentration share{' '}
+        <span style={{ fontFamily: mono }}>1&thinsp;&minus;&thinsp;r</span> rises toward 1 as the
+        window widens, since the fixed-width Phi mass becomes an ever-smaller fraction of it.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {rTicks.map((r) => (
+            <g key={`r${r}`}>
+              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{r.toFixed(2)}</text>
+            </g>
+          ))}
+          {uTicks.map((u) => (
+            <text key={`u${u}`} x={px(u)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{u}</text>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>lag cutoff U</text>
+          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>capture ratio r</text>
+
+          {/* C/U fit curve */}
+          <path d={fitPath} fill="none" stroke="#475569" strokeWidth="1.5" strokeDasharray="4 3" />
+
+          {/* per-cell scatter, colored by a */}
+          {grid.map((c, i) => (
+            <circle
+              key={i}
+              cx={px(c.U)}
+              cy={py(c.ratio)}
+              r="5"
+              fill={A_COLORS_LOCAL[c.a] || '#94a3b8'}
+              fillOpacity="0.6"
+              stroke={A_COLORS_LOCAL[c.a] || '#94a3b8'}
+              strokeWidth="1.2"
+            >
+              <title>{`a=${c.a}, U=${c.U}  ->  r=${c.ratio.toFixed(5)}, r*U=${c.ratioTimesU.toFixed(4)}, position share=${c.positionConcentrationFraction.toFixed(4)}`}</title>
+            </circle>
+          ))}
+
+          {/* legend */}
+          {aValues.map((a, i) => (
+            <g key={`leg${a}`} transform={`translate(${W - MR - 92}, ${MT + 10 + i * 18})`}>
+              <circle cx="0" cy="-4" r="5" fill={A_COLORS_LOCAL[a]} fillOpacity="0.6" stroke={A_COLORS_LOCAL[a]} strokeWidth="1.2" />
+              <text x="12" y="0" fontSize="11" fill="#cbd5e1" fontFamily={mono}>a = {a}</text>
+            </g>
+          ))}
+          <text x={px(9.3)} y={py(C / 9.3) - 10} fontSize="11" fill="#94a3b8" fontFamily={mono}>r &#8776; {C.toFixed(3)}/U</text>
+        </svg>
+      </div>
+
+      <div style={{ marginTop: 12, padding: '10px 14px', borderRadius: 6, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#10b981', letterSpacing: '0.06em', marginBottom: 6 }}>
+          POSITION-CONCENTRATION SHARE 1 &minus; r RISES TOWARD 1
+        </div>
+        <p style={{ color: '#cbd5e1', fontSize: 12.5, lineHeight: 1.7, margin: 0 }}>
+          At U = 4 the share is already{' '}
+          <strong style={{ color: '#6ee7b7' }}>
+            {(1 - (grid.find((c) => c.a === 0.5 && c.U === 4)?.ratio ?? 0)).toFixed(4)}
+          </strong>{' '}
+          and it climbs to{' '}
+          <strong style={{ color: '#6ee7b7' }}>
+            {(1 - (grid.find((c) => c.a === 0.5 && c.U === 10)?.ratio ?? 0)).toFixed(4)}
+          </strong>{' '}
+          at U = 10, as the fixed-width Phi mass becomes an ever-smaller fraction of the widening window.
+        </p>
+      </div>
+
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          ASSESSMENT ONLY &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          r &#8776; C/U is a leading-order fit (r&middot;U drifts {M.ratioTimesUMin.toFixed(3)}&ndash;{M.ratioTimesUMax.toFixed(3)}
+          {' '}across the grid), not an exact identity, and the ratio is essentially a-independent at fixed U
+          (unlike the imp-3085 gap, which tracks s = a&middot;U). Positivity was not attempted.
+          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3240-mupass-capture-ratio-aU-grid.js &mdash; parent: imp-3197.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3354: termwise Phi>=0 structure viz (imp-3257) — Phi_NPHI(u) with the per-term
 // sign-flip thresholds u_n* marked; u_1* (rightmost, worst) sits strictly left of [0,U],
 // so the headline domain lies entirely in the termwise-positive region.
@@ -4493,6 +4613,12 @@ export default function ClosureRoutesPage() {
         K&#x2090;&thinsp;&ge;&thinsp;0 Sign-vs-Magnitude Split (imp-3197)
       </h2>
       <BridgeSignMagnitudeDecompositionViz />
+
+      {/* ─── imp-3358: capture ratio vs U with the C/U fit ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Capture Ratio vs Lag Window U (imp-3358)
+      </h2>
+      <CaptureRatioVsUViz />
       <PhiTermwiseNonnegativityViz />
 
       {/* ─── imp-3065: independent quadrature cross-check ─── */}

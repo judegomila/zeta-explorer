@@ -3248,6 +3248,25 @@ const DATA_MODULES = [
   // Certification/measurement only, imp-3066 untouched, RH-equivalent, no QED, PT
   // Lambda<=0.2 SOTA. 6 assertions.
   '/src/data/imp-3579-miss-factor-moment-refinement-invariance.js',
+
+  // imp-3581 (accuracy): DERIVES the moment-remainder tail exponent p=2 in closed
+  // form for both the odd sinh R_3 and even cosh R_4, and certifies the imp-3553
+  // fitted p=1.99999 (and imp-3502 fits) equal the derived 2 up to a quantified
+  // O(a^2) log-log fit bias. From R_n(a)=sum_{m>=n,step2} a^m/m! M_m the relative
+  // residual r_n(a)=[R_n-(a^n/n!)M_n]/[(a^n/n!)M_n]=C_n a^2[1+D_n a^2+O(a^4)] with
+  // the CLOSED leading coefficient C_n=M_(n+2)/((n+1)(n+2)M_n) (C_3=M_5/(20 M_3)
+  // ~1.4573e-3, C_4=M_6/(30 M_4)~1.2329e-3), so the leading power of a is EXACTLY 2.
+  // The next-order D_n=M_(n+4)/((n+3)(n+4)M_(n+2))-M_(n+2)/((n+1)(n+2)M_n) gives the
+  // closed fit bias p_fit=2+D_n cov(a^2,ln a)/var(ln a), which reproduces the ACTUAL
+  // least-squares slope to ~1e-9 (odd fitted 1.99998842 vs pred 1.99998843, |p-2|
+  // ~1.16e-5; even 1.99998204 vs 1.99998205, |p-2|~1.80e-5) -- so the imp-3553
+  // 1.99999 IS the derived 2 up to curvature bias, not exponent drift. r_n(a)/a^2
+  // -> C_n (deepest rung matches to 1.5e-9 for n=3, 7.4e-8 for n=4) and |p_fit-2|
+  // shrinks monotonically as the ladder deepens (6.66e-5 at 3 rungs -> 1.16e-5 at
+  // the imp-3553 nine rungs -> 3.19e-6 at 18), the nine-rung floor set by the odd
+  // cancellation limit a0*M_1*eps~5e-21. Measurement/derivation only, imp-3066
+  // untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 10 assertions.
+  '/src/data/imp-3581-remainder-tail-exponent-derivation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

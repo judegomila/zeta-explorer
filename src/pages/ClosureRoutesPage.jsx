@@ -85,6 +85,7 @@ import { IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING } from '../data/imp-3403-le
 import { IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING } from '../data/imp-3442-sinh-residual-coefficient-U-scaling.js';
 import { IMP3469_DEGREE2_BRIDGE_MASS_SCALING, AUTOCORR_WEIGHT_PROFILE } from '../data/imp-3469-degree2-bridge-mass-scaling.js';
 import { IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION } from '../data/imp-3470-Ttilde-spectral-peak-xistar-obstruction.js';
+import { IMP3481_AUTOCORRELATION_MOMENT_LADDER } from '../data/imp-3481-autocorrelation-moment-ladder.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -1175,6 +1176,138 @@ function AutocorrWeightSupportPanel() {
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3469-degree2-bridge-mass-scaling.js (AUTOCORR_WEIGHT_PROFILE) &mdash; NPHI=10,
         support threshold 1e-3&times;peak.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3481: autocorrelation moment ladder M_0..M_4 alongside the moment-indexed Taylor-
+// remainder residual convergence ── The genuine-Phi autocorrelation moments M_n = int tau^n
+// A(tau)d(tau) decay roughly geometrically, and each is the leading small-a coefficient of a
+// successive Taylor remainder R_n(a) of the A-weighted degree-2 masses (imp-3469's B_2(a)~
+// (a^2/2)M_2 is the n=2 rung). Halving a should quarter every per-moment relative residual
+// (order-a^2 convergence) -- plotted here per n=0..4.
+function MomentLadderResidualPanel() {
+  const F = IMP3481_AUTOCORRELATION_MOMENT_LADDER;
+  const moments = F.measured.moments;
+  const laddersByA = F.measured.laddersByA;
+  const N_COLORS = ['#f59e0b', '#38bdf8', '#34d399', '#c4b5fd', '#f472b6'];
+
+  // -- Chart A: moment ladder M_0..M_4, log-y bar chart --------------------
+  const momentRows = [0, 1, 2, 3, 4].map((n) => ({ n, value: moments[`M${n}`] }));
+  const Wa = 620, Ha = 200, MLa = 56, MRa = 20, MTa = 20, MBa = 32;
+  const yMinA = 1e-8, yMaxA = 1e-3;
+  const pxA = (i) => MLa + ((i + 0.5) / momentRows.length) * (Wa - MLa - MRa);
+  const barW = ((Wa - MLa - MRa) / momentRows.length) * 0.55;
+  const pyA = (v) => Ha - MBa - ((Math.log10(v) - Math.log10(yMinA)) / (Math.log10(yMaxA) - Math.log10(yMinA))) * (Ha - MTa - MBa);
+  const yTicksA = [1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3];
+
+  // -- Chart B: per-n relative residual vs a (log-log), halving ladder 0.5/0.25/0.125 --
+  const Wb = 620, Hb = 220, MLb = 56, MRb = 20, MTb = 20, MBb = 32;
+  const aVals = laddersByA.map((l) => l.a);
+  const log2Min = Math.log2(Math.min(...aVals));
+  const log2Max = Math.log2(Math.max(...aVals));
+  const pxB = (a) => MLb + ((Math.log2(a) - log2Min) / (log2Max - log2Min)) * (Wb - MLb - MRb);
+  const yMinB = 1e-5, yMaxB = 1e-2;
+  const pyB = (v) => Hb - MBb - ((Math.log10(v) - Math.log10(yMinB)) / (Math.log10(yMaxB) - Math.log10(yMinB))) * (Hb - MTb - MBb);
+  const yTicksB = [1e-5, 1e-4, 1e-3, 1e-2];
+  const residualPaths = [0, 1, 2, 3, 4].map((n) => {
+    const pts = laddersByA.map((l) => ({ a: l.a, relResid: l.rungs[n].relResid }));
+    const path = pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${pxB(p.a).toFixed(1)} ${pyB(p.relResid).toFixed(1)}`).join(' ');
+    return { n, pts, path };
+  });
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #38bdf8', background: 'rgba(56,189,248,0.04)' }}>
+      <h3 style={{ color: '#38bdf8', marginTop: 0, fontSize: 14 }}>
+        Autocorrelation moment ladder M<sub>0</sub>..M<sub>4</sub> and Taylor-remainder residual convergence (imp-3481)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        The genuine-Phi autocorrelation moments M<sub>n</sub> = &int; &tau;<sup>n</sup> A(&tau;) d&tau;
+        fall roughly geometrically from M<sub>0</sub>&asymp;{moments.M0.toExponential(3)} to
+        M<sub>4</sub>&asymp;{moments.M4.toExponential(3)}, and each is the leading small-a
+        coefficient of a successive Taylor remainder R<sub>n</sub>(a) &asymp; (a<sup>n</sup>/n!)M<sub>n</sub> of
+        the A-weighted degree-2 masses (imp-3469's B<sub>2</sub>(a)&asymp;(a&sup2;/2)M<sub>2</sub> is the n=2
+        rung). Halving a from 0.5&rarr;0.25&rarr;0.125 quarters every per-moment relative residual
+        (minimum ratio {F.measured.minConvergenceRatio.toFixed(2)}, order-a&sup2;), confirming the
+        leading form is genuine rather than a coincidental fit.
+      </p>
+      <p style={{ color: '#64748b', fontSize: 11, fontFamily: mono, marginBottom: 4 }}>
+        Moment ladder M<sub>n</sub> (log scale)
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={Wa} height={Ha} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicksA.map((v) => (
+            <g key={`ya${v}`}>
+              <line x1={MLa} y1={pyA(v)} x2={Wa - MRa} y2={pyA(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={MLa - 8} y={pyA(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{v.toExponential(0)}</text>
+            </g>
+          ))}
+          <line x1={MLa} y1={MTa} x2={MLa} y2={Ha - MBa} stroke="#334155" strokeWidth="1" />
+          <line x1={MLa} y1={Ha - MBa} x2={Wa - MRa} y2={Ha - MBa} stroke="#334155" strokeWidth="1" />
+          {momentRows.map((r, i) => (
+            <g key={`mb${r.n}`}>
+              <rect
+                x={pxA(i) - barW / 2}
+                y={pyA(r.value)}
+                width={barW}
+                height={Ha - MBa - pyA(r.value)}
+                fill={N_COLORS[r.n]}
+                opacity={0.85}
+              >
+                <title>{`M_${r.n} = ${r.value.toExponential(4)}`}</title>
+              </rect>
+              <text x={pxA(i)} y={Ha - MBa + 16} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>
+                M<tspan dy="2" fontSize="8">{r.n}</tspan>
+              </text>
+            </g>
+          ))}
+        </svg>
+      </div>
+      <p style={{ color: '#64748b', fontSize: 11, fontFamily: mono, margin: '10px 0 4px' }}>
+        Per-moment relative residual |R<sub>n</sub>(a) &minus; (a<sup>n</sup>/n!)M<sub>n</sub>| / |R<sub>n</sub>(a)| vs a (log&ndash;log, halving ladder)
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={Wb} height={Hb} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicksB.map((v) => (
+            <g key={`yb${v}`}>
+              <line x1={MLb} y1={pyB(v)} x2={Wb - MRb} y2={pyB(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={MLb - 8} y={pyB(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{v.toExponential(0)}</text>
+            </g>
+          ))}
+          {aVals.map((a) => (
+            <g key={`xb${a}`}>
+              <line x1={pxB(a)} y1={MTb} x2={pxB(a)} y2={Hb - MBb} stroke="#1e293b" strokeWidth="1" />
+              <text x={pxB(a)} y={Hb - MBb + 16} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>a={a}</text>
+            </g>
+          ))}
+          <line x1={MLb} y1={MTb} x2={MLb} y2={Hb - MBb} stroke="#334155" strokeWidth="1" />
+          <line x1={MLb} y1={Hb - MBb} x2={Wb - MRb} y2={Hb - MBb} stroke="#334155" strokeWidth="1" />
+          {residualPaths.map(({ n, pts, path }) => (
+            <g key={`rp${n}`}>
+              <path d={path} fill="none" stroke={N_COLORS[n]} strokeWidth="1.6" />
+              {pts.map((p) => (
+                <circle key={`rc${n}${p.a}`} cx={pxB(p.a)} cy={pyB(p.relResid)} r={2.8} fill={N_COLORS[n]}>
+                  <title>{`n=${n}, a=${p.a}: relResid=${p.relResid.toExponential(4)}`}</title>
+                </circle>
+              ))}
+            </g>
+          ))}
+          <text x={Wb - MRb - 4} y={MTb + 10} textAnchor="end" fontSize="10" fill="#94a3b8" fontFamily={mono}>
+            n=0..4 (top&rarr;bottom at a=0.5)
+          </text>
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3481):</strong>{' '}
+        Moment/Taylor characterization only &mdash; establishes NO operator positivity. Mass-feasibility
+        is necessary-but-not-sufficient and the degree-2 face carries no feasibility comparison at all
+        (imp-3469: D<sub>2</sub>=0). The operator-level K<sub>a</sub>&nbsp;&ge;&nbsp;0 sign-positivity
+        (imp-3066) is UNTOUCHED. No RH verdict. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
+        remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3481-autocorrelation-moment-ladder.js &mdash; NPHI=10, T_A=6, a&isin;{'{'}0.5,0.25,0.125{'}'}.
       </p>
     </div>
   );
@@ -7770,6 +7903,8 @@ export default function ClosureRoutesPage() {
       <Degree0VsDegree2KLadderPanel />
 
       <AutocorrWeightSupportPanel />
+
+      <MomentLadderResidualPanel />
 
       <PSDPeakSlopeStationarityPanel />
 

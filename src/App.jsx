@@ -134,6 +134,7 @@ const Imp3467ClosedFormCViz = lazy(() => import('./pages/Imp3467ClosedFormCViz.j
 const Imp3540PowerIterationBudgetViz = lazy(() => import('./pages/Imp3540PowerIterationBudgetViz.jsx'));
 const Imp3541CoshCancellationMarginViz = lazy(() => import('./pages/Imp3541CoshCancellationMarginViz.jsx'));
 const Imp3542DegreeDMissFactorViz = lazy(() => import('./pages/Imp3542DegreeDMissFactorViz.jsx'));
+const Imp3543XiStarRobustnessViz = lazy(() => import('./pages/Imp3543XiStarRobustnessViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -712,6 +713,7 @@ function AppShell() {
           <Route path="/viz-imp3540-power-iteration-budget" element={<Imp3540PowerIterationBudgetViz />} />
           <Route path="/viz-imp3541-cosh-cancellation-margin" element={<Imp3541CoshCancellationMarginViz />} />
           <Route path="/viz-imp3542-degree-d-miss-factor" element={<Imp3542DegreeDMissFactorViz />} />
+          <Route path="/viz-imp3543-xistar-robustness" element={<Imp3543XiStarRobustnessViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

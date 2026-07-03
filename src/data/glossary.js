@@ -2523,6 +2523,39 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Cosh-certificate OVER-ESTIMATION factor F_n(a) = cosh(a T_A)/S_n(a), ceiling 1<=F_n<=cosh(a T_A) (imp-3552)",
+    category: "numerical",
+    definition:
+      "imp-3532 promoted the imp-3501 moment-tail residual to the closed sharp certificate " +
+      "|R_n(a)-(a^n/n!)M_n| <= (a^(n+2)/(n+2)!) M_(n+2) cosh(a T_A) but only checked the bound HOLDS; " +
+      "imp-3546 measured the reciprocal ratio |E_n(a)|/sharp -> 1 in the small-a limit without " +
+      "quantifying the over-estimation across the full imp-3532 a-ladder. imp-3552 supplies that " +
+      "profile: writing the exact residual tail as E_n(a) = L_n(a) S_n(a) with leading term " +
+      "L_n(a) = (a^(n+2)/(n+2)!) M_(n+2) and residual-shape factor S_n(a) := |E_n(a)|/L_n(a) >= 1, the " +
+      "over-estimation factor F_n(a) := bound_sharp(a,n)/|E_n(a)| = cosh(a T_A)/S_n(a) factors CLEANLY, " +
+      "giving the closed ceiling 1 <= F_n(a) <= cosh(a T_A). MEASURED across a in {0.5, 0.25, 0.125, " +
+      "0.0625}, rungs n=0..4 (reusing the imp-3481 ladder M_0..M_6, T_A=6): F_n(a) is ~10.06 at a=0.5 " +
+      "(matching cosh 3 ~ 10.0677), ~2.35 at a=0.25, ~1.29 at a=0.125, and ~1.07 at a=0.0625 -- the " +
+      "certificate sits up to ~10x above the exact residual at the top of the ladder, tightening " +
+      "monotonically toward the a-limit 1. The over-estimation is DOMINATED by the cosh inflation " +
+      "constant, not the residual shape: S_n(a) stays within [1, 1.00045] across the whole ladder " +
+      "(residual within 0.045% of its leading term), and the decomposition identity F_n(a)*S_n(a) = " +
+      "cosh(a T_A) reproduces to <1e-12 on every rung/a." +
+      "\n\nHONEST SCOPE: measurement/certification only -- quantifies the over-estimation factor of an " +
+      "explicit closed constant for the small-a moment-tail error of the degree-2 (absolute-measure) " +
+      "masses and establishes NO operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT, " +
+      "and the degree-2 face carries no feasibility comparison at all (imp-3469: D_2 = 0). The " +
+      "operator-level K_a >= 0 off-diagonal endpoint-Hankel obstruction (imp-3066) remains UNTOUCHED. " +
+      "No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3552 (cosh-certificate over-estimation factor F_n(a), measuring how far the imp-3532 sharp certificate sits above the exact residual across the full a-ladder), 2026",
+    relatedTerms: [
+      "Moment-tail CLOSED error certificate |R_n(a)-(a^n/n!)M_n| <= (a^(n+2)/(n+2)!) M_(n+2) e^(a T_A), valid for ALL n",
+      "genuine-Phi autocorrelation MOMENT LADDER M_0..M_4 and the moment-indexed leading form R_n(a) ~ (a^n/n!) M_n (imp-3481)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

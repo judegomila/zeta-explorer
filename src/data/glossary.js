@@ -3716,6 +3716,42 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3642 mesoscopic density-floor SLOPE invariant V0(gamma)/log(gamma/2pi)=0.48458",
+    category: "numerical",
+    definition:
+      "Distinct from the imp-3642 collision-time t_c(N_x) reading (the 2pi-in-the-log correction to the " +
+      "anchor-to-crossover shrink factor), this entry is about the SLOPE quantity itself: across the whole " +
+      "imp-3642 height ladder (log gamma from 9.1981 at the anchor gamma_{N*} to 20.8576 at the crossover " +
+      "gamma_{N_x}), the measured mesoscopic density floor V0(gamma) = sup_strip Im M(x + i y_star) " +
+      "(y_star = 4 d, d = 2pi / log(gamma / 2pi) the Riemann-von Mangoldt mean spacing) divided by " +
+      "log(gamma / 2pi) is CONSTANT to machine epsilon (mean 0.48458, spread < 1e-9): V0 is EXACTLY linear " +
+      "in the log local density, with no curvature across more than eleven natural-log units of height. " +
+      "That linearity is what makes the shock collision time t_c ~ 1/(2 V0) genuinely inverse-log rather " +
+      "than following some other power of log gamma." +
+      "\n\nimp-3707 later DERIVED the coefficient analytically from the equilibrium (uniform) Calogero-Moser " +
+      "lattice via the Mittag-Leffler cotangent identity sup_x Im M = (pi/d) coth(pi y_star/d), giving " +
+      "V0/log(gamma/2pi) = (1/2) coth(pi y_star/d), which equals 0.5000000000 at y_star = 4d (coth(4pi)-1 " +
+      "~ 5e-11) and stays exactly 1/2 for every y_star >= 2d -- a universal continuum value, NOT strip-" +
+      "height dependent. So the imp-3642 measured 0.48458 is NOT itself a closed form: it is the M = 161 " +
+      "FINITE-BLOCK truncation of the continuum 1/2, with deficit 1.58e-2 matching the leading tail law " +
+      "8/(pi M); the invariant climbs toward 1/2 as the block size grows (0.4687 at M=81 to 0.4994 at " +
+      "M=4001). The candidate closed form c/(2pi) was tested and REJECTED -- it merely re-expresses V0 " +
+      "itself. So the honest status is: machine-epsilon CONSTANT across height (confirmed, imp-3642), but " +
+      "the constant's own VALUE is a finite-block artifact of the true universal 1/2 (imp-3707)." +
+      "\n\nHONEST SCOPE: measurement/derivation of a mesoscopic density-floor diagnostic only; establishes " +
+      "no operator positivity. RH-equivalent, necessary-but-not-sufficient; the off-diagonal endpoint-" +
+      "Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
+      "Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3642 (measuring V0(gamma)/log(gamma/2pi) constant to machine epsilon across an eleven-log-unit height ladder; imp-3707 later derived the exact continuum value 1/2 and identified 0.48458 as its M=161 finite-block truncation), 2026",
+    relatedTerms: [
+      "density-corrected crossover collision time t_c(N_x)~9.17e-5: the 2pi-in-the-log correction (imp-3642)",
+      "backward-flow-stability-gronwall Lemma B/C, density floor V0, shock time t_c ~ 1/(2 V0) (imp-2520)",
+      "imp-3671 mesoscopic-vs-shock strip-height ladder: Gronwall floor collapse exp(-k^2 E_meso) (imp-3671)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

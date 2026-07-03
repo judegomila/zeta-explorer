@@ -90,6 +90,7 @@ import { IMP3469_DEGREE2_BRIDGE_MASS_SCALING, AUTOCORR_WEIGHT_PROFILE } from '..
 import { IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION } from '../data/imp-3470-Ttilde-spectral-peak-xistar-obstruction.js';
 import { IMP3481_AUTOCORRELATION_MOMENT_LADDER } from '../data/imp-3481-autocorrelation-moment-ladder.js';
 import { IMP3485_TTILDE_INDEPENDENT_OPERATOR_NORM_CROSSVAL } from '../data/imp-3485-Ttilde-independent-operator-norm-crossval.js';
+import { IMP3487_DEGREE2_DEFICIT_A_THRESHOLD } from '../data/imp-3487-degree2-deficit-a-threshold.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -1465,6 +1466,92 @@ function MomentLadderResidualPanel() {
       </div>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3481-autocorrelation-moment-ladder.js &mdash; NPHI=10, T_A=6, a&isin;{'{'}0.5,0.25,0.125{'}'}.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3487: degree-2 deficit a-threshold ── Raising the shear a shrinks the imp-3469
+// crossover tauStar = arcsinh(1)/a; past a bisected threshold aStar it drags tauStar back
+// inside the A(tau) support and switches on a nonzero overflow deficit D_2. This panel plots
+// the B_2/D_2 ratio collapsing from astronomic (~1e+200 at aStar) down to ~3.4e+6 by a=2,
+// marking the effective floor thresholds a_eff(1e-12) and a_eff(1e-6) and the two out-of-band
+// base cells a=0.4, 0.5 (where D_2=0 identically, ratio undefined).
+function Degree2DeficitAThresholdPanel() {
+  const F = IMP3487_DEGREE2_DEFICIT_A_THRESHOLD;
+  const m = F.measured;
+  const definedRows = m.sweep.filter((r) => r.deficitDefined && Number.isFinite(r.ratio) && r.ratio > 0);
+
+  const W = 620, H = 240, ML = 60, MR = 20, MT = 24, MB = 34;
+  const aMin = m.aStar, aMax = 3.0;
+  const yMin = 1e6, yMax = 1e200;
+  const px = (a) => ML + ((a - aMin) / (aMax - aMin)) * (W - ML - MR);
+  const py = (v) => H - MB - ((Math.log10(v) - Math.log10(yMin)) / (Math.log10(yMax) - Math.log10(yMin))) * (H - MT - MB);
+
+  const path = definedRows
+    .map((r, i) => `${i === 0 ? 'M' : 'L'} ${px(r.a).toFixed(1)} ${py(Math.max(r.ratio, yMin)).toFixed(1)}`)
+    .join(' ');
+  const yTicks = [1e6, 1e50, 1e100, 1e150, 1e200];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #38bdf8', background: 'rgba(56,189,248,0.04)' }}>
+      <h3 style={{ color: '#38bdf8', marginTop: 0, fontSize: 14 }}>
+        Degree-2 deficit a-threshold: B<sub>2</sub>/D<sub>2</sub> collapse from astronomic to ~3.4e+6 (imp-3487)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        Because tauStar = arcsinh(1)/a DECREASES as a rises, raising a eventually drags the degree-2
+        overflow crossover back INSIDE the genuine-Phi autocorrelation support, switching the deficit
+        D<sub>2</sub> on at a bisected threshold aStar&asymp;{m.aStar.toFixed(4)} (tauStar&asymp;{m.tauStarAtAStar.toFixed(3)},
+        the A-underflow point). Just above aStar the ratio B<sub>2</sub>/D<sub>2</sub> is astronomic
+        (&asymp;10<sup>200</sup>); it falls to &asymp;{m.ratioAtAEff1e12.toExponential(1)} at the
+        1e-12 effective floor a<sub>eff</sub>&asymp;{m.aEff1e12.toFixed(3)} and to &asymp;{m.ratioAtA2.toExponential(1)} at
+        a=2. Both imp-3469 base cells a=0.4 and a=0.5 sit BELOW aStar (aStar exceeds a=0.5 by
+        &asymp;{((m.aStarOverBaseA05 - 1) * 100).toFixed(0)}% and a=0.4 by &asymp;{((m.aStarOverBaseA04 - 1) * 100).toFixed(0)}%),
+        so D<sub>2</sub>=0 identically there and the ratio is undefined.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={`yt${v}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{v.toExponential(0)}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={ML - 46} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 ${ML - 46} ${(MT + H - MB) / 2})`}>
+            B<tspan dy="2" fontSize="8">2</tspan>/D<tspan dy="2" fontSize="8">2</tspan> (log)
+          </text>
+          <text x={(ML + W - MR) / 2} y={H - MB + 28} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono}>a</text>
+
+          <path d={path} fill="none" stroke="#38bdf8" strokeWidth="1.6" />
+          {definedRows.map((r) => (
+            <g key={`pt${r.a}`}>
+              <circle cx={px(r.a)} cy={py(Math.max(r.ratio, yMin))} r={3} fill="#38bdf8">
+                <title>{`a=${r.a.toFixed(4)}: B_2/D_2=${r.ratio.toExponential(3)}`}</title>
+              </circle>
+            </g>
+          ))}
+          <line x1={px(m.aEff1e12)} y1={MT} x2={px(m.aEff1e12)} y2={H - MB} stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={px(m.aEff1e12) + 4} y={MT + 12} fontSize="10" fill="#f59e0b" fontFamily={mono}>a_eff(1e-12)</text>
+          <line x1={px(m.aEff1e6)} y1={MT} x2={px(m.aEff1e6)} y2={H - MB} stroke="#f472b6" strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={px(m.aEff1e6) + 4} y={MT + 26} fontSize="10" fill="#f472b6" fontFamily={mono}>a_eff(1e-6)</text>
+          <circle cx={ML} cy={H - MB} r={3.4} fill="#64748b">
+            <title>{`base cells a=0.4, 0.5 (below aStar=${m.aStar.toFixed(4)}): D_2=0 identically, ratio undefined`}</title>
+          </circle>
+          <text x={ML + 6} y={H - MB - 6} fontSize="10" fill="#64748b" fontFamily={mono}>a=0.4,0.5 (out-of-band): D&#x2082;=0</text>
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3487):</strong>{' '}
+        Threshold-location assessment only &mdash; establishes NO operator positivity. Even where
+        B<sub>2</sub>/D<sub>2</sub> is defined (a&gt;aStar) it is enormous, so no physically meaningful
+        degree-2 feasibility ratio emerges within the small-a construction band; the imp-3469
+        D<sub>2</sub>=0 conclusion stands. Operator positivity (imp-3066) UNTOUCHED, no RH verdict.
+        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3487-degree2-deficit-a-threshold.js &mdash; NPHI=10, T_A=6, aStar bisected to 200 iters.
       </p>
     </div>
   );
@@ -8184,6 +8271,8 @@ export default function ClosureRoutesPage() {
       <AutocorrWeightSupportPanel />
 
       <MomentLadderResidualPanel />
+
+      <Degree2DeficitAThresholdPanel />
 
       <CaptureConstantIndependentNormConvergencePanel />
 

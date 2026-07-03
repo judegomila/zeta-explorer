@@ -250,7 +250,7 @@ export const SG1C_SUCCESSOR_GAPS = {
       id: 'sg1c-r1-excursion-cap',
       statement: 'Prove an absolute excursion cap Theta_exc < 1 (numerical evidence ~ 0.51) for the minimal-pair Theta process under the attractive CM flow, via a dynamic minimality-transfer argument: the family {-d,0,1,1+d} shows the rising pair loses minimality at the Theta ~ 0.5 tie. Static bounds are provably exhausted at Theta_b = (sqrt(73)-5)/8 (Theorem B is sharp).',
       status: 'open',
-      progress: 'PARTIAL (Lemma R1-T, imp-2595; extended R1-T2, imp-2608). R1-T caps the symmetric 4-config at exactly 1/2 (outer pairs at Theta = 1/3 shrink faster and seize). R1-T2 (imp-2608) carries the seizing MECHANISM to asymmetric/dressed ties -- a 1.3e5-config sweep finds the competitor that seizes always carries strictly lower Theta (margin > 0, zero violations) -- but PROVES the static peak is uncapped: the uniform lattice with K unit neighbours per side gives central tie Theta_K = K/(K+1) -> 1 (K=1 is the 1/2 case, K=6 already 6/7). So the static tie-comparison route named here is obstructed; the residual is now DYNAMICAL: show the attractive CM flow from generic (real-zero-like) data never reaches a long near-uniform minimal-gap lattice. R1-T3 (imp-2628) closes the asymmetric 4-particle tie {-1,0,1,1+b} IN EXACT CLOSED FORM: the tied competitor seizing margin is 1/(b(b+1)(b+2)) > 0 for all b >= 1 (=1/6 at the symmetric b=1), Theta_central = 1/4 + 1/(2b(b+1)) is maximised at b=1 (=1/2) so asymmetry only lowers the peak, and Theta_central -> 1/4 (the Theorem-A trap) as the far neighbour recedes -- the margin -> 0+ limit is benign on this family. Only the multi-body near-uniform lattice (margin -> 0+ while the tie value rises) remains, the same dynamical residual. R1-T4 (imp-2637) addresses that dynamical residual on the real-zero BASIN: CM-flow integration from an isolated minimal pair (rho = g/d_1 < 1, Theta(0) < 1/4 -- the measured regime) gives peak min-pair Theta = Theta(0) to machine precision (zero excursion), vs ~0.8 for a near-uniform-lattice control (rho ~ 1); the mechanism is Lemma R2-T -- the minimal pair has rho <= 1 and drho/ds < 0 strictly for rho < 1, so it isolates into the Theorem-A trap, while the lattice rho = 1 is the unstable repelling threshold and so is not reachable by flowing inward. Hence the excursion cap and the A1 hypothesis self-enforce on the isolated-pair basin; the residual is now exactly R2-T multi-body (the rho < 1 -> isolation sign law is closed in form only for the single nearest neighbour, scanned to inf ~0.943), so the cap is NOT yet unconditional over all configs.',
+      progress: 'PARTIAL (Lemma R1-T, imp-2595; extended R1-T2, imp-2608). R1-T caps the symmetric 4-config at exactly 1/2 (outer pairs at Theta = 1/3 shrink faster and seize). R1-T2 (imp-2608) carries the seizing MECHANISM to asymmetric/dressed ties -- a 1.3e5-config sweep finds the competitor that seizes always carries strictly lower Theta (margin > 0, zero violations) -- but PROVES the static peak is uncapped: the uniform lattice with K unit neighbours per side gives central tie Theta_K = K/(K+1) -> 1 (K=1 is the 1/2 case, K=6 already 6/7). So the static tie-comparison route named here is obstructed; the residual is now DYNAMICAL: show the attractive CM flow from generic (real-zero-like) data never reaches a long near-uniform minimal-gap lattice. R1-T3 (imp-2628) closes the asymmetric 4-particle tie {-1,0,1,1+b} IN EXACT CLOSED FORM: the tied competitor seizing margin is 1/(b(b+1)(b+2)) > 0 for all b >= 1 (=1/6 at the symmetric b=1), Theta_central = 1/4 + 1/(2b(b+1)) is maximised at b=1 (=1/2) so asymmetry only lowers the peak, and Theta_central -> 1/4 (the Theorem-A trap) as the far neighbour recedes -- the margin -> 0+ limit is benign on this family. Only the multi-body near-uniform lattice (margin -> 0+ while the tie value rises) remains, the same dynamical residual. R1-T4 (imp-2637) addresses that dynamical residual on the real-zero BASIN: CM-flow integration from an isolated minimal pair (rho = g/d_1 < 1, Theta(0) < 1/4 -- the measured regime) gives peak min-pair Theta = Theta(0) to machine precision (zero excursion), vs ~0.8 for a near-uniform-lattice control (rho ~ 1); the mechanism is Lemma R2-T -- the minimal pair has rho <= 1 and drho/ds < 0 strictly for rho < 1, so it isolates into the Theorem-A trap, while the lattice rho = 1 is the unstable repelling threshold and so is not reachable by flowing inward. Hence the excursion cap and the A1 hypothesis self-enforce on the isolated-pair basin; the residual is now exactly R2-T multi-body (the rho < 1 -> isolation sign law is closed in form only for the single nearest neighbour, scanned to inf ~0.943), so the cap is NOT yet unconditional over all configs. Lemma R1-FN (SG1C_R1_FINITE_N_CAP) now CLOSES THE STATIC HALF in sharp closed form: for the global minimal pair in ANY finite N-particle config, Theta <= 1 - 2/N, with the uniform minimal-spacing lattice the PROVEN UNIQUE maximiser (equality iff N even + balanced split); exact per-N max = [K_R/(K_R+1)+K_L/(K_L+1)]/2. Proof: scale g=1, all gaps >= 1, so the r-th environment particle per side has cumulative distance s_r >= r and T_r = 1/(s_r(s_r+1)) <= 1/(r(r+1)); the telescoping majorant sums to K_side/(K_side+1), and strict concavity of x/(x+1) forces the balanced split. This UPGRADES the R1-T2 obstruction from "the lattice is an example that reaches 1" to "the lattice is THE extremiser and 1 - 2/N is the exact static cap at each N", recovering R1-T (N=4 -> 1/2) and the R1-T2 ladder Theta_K = K/(K+1) as the equality case, and proving cleanly why no absolute (N-uniform) cap exists (sup_N(1-2/N) = 1). CONSEQUENCE: the excursion can approach 1 ONLY via N -> inf on a long near-uniform minimal lattice, so the ONLY remaining residual is the SAME dynamical-reachability question (R1-T4 / R2-T) -- ruling out that the CM flow drives generic finite data onto a long uniform minimal lattice (equivalently, that N-particle excursions saturate their 1 - 2/N ceiling). The static route is now fully accounted for; the open residual is purely dynamical and DETERMINISTIC (CM-flow dynamics, not RH-hard). PT Lambda <= 0.2 stays SOTA.',
     },
     {
       id: 'sg1c-r2-isolation-persistence',
@@ -416,6 +416,82 @@ export const SG1C_R2T2_SHELL_K2_CLOSEDFORM = (() => {
   };
 })();
 
+// imp-3238: does the EXACT Lemma-1/Lemma-2 dynamics yield a SHARPER per-pair
+// collision-time bound than Corollary A1 t_c <= g_min(0)^2 / 6 on the measured
+// real-zero rows? A1 gets its constant 6 from the STATIC cap Theta <= 1/4 fed into
+// the exact pair identity dg/ds = -(4/g)(1 - Theta): since d(g^2)/ds = 2 g dg/ds
+// = -8 (1 - Theta), the worst-case Theta = 1/4 gives d(g^2)/ds <= -8*(3/4) = -6.
+// ASSESSMENT (YES, strictly sharper except at the sharp triplet). The exact
+// identities control Theta DYNAMICALLY: Theorem A's proof gives dTheta/ds < 0 for
+// 0 < Theta < 1/4, so Theta is NON-INCREASING and Theta(s) <= Theta(0) for all
+// s in [0, t_c) (ThetaMax = Theta(0) to 1e-9 in every measured run). Feeding that
+// dynamic ceiling -- not the static 1/4 -- into the SAME exact identity gives
+//     d(g^2)/ds = -8 (1 - Theta(s)) <= -8 (1 - Theta(0)),   hence
+//     t_c(N) <= g_min(0)^2 / (8 (1 - Theta(0)))   [= parent Corollary E1 boundE1],
+// which beats A1 by the exact factor  boundE1 / A1 = 6 / (8 (1 - Theta(0)))
+// = 3 / (4 (1 - Theta(0))) < 1 whenever Theta(0) < 1/4. On the three real-zero rows
+// Theta(0) = 0.1666 / 0.0884 / 0.0342 this is a ~10% / 18% / 22% tightening. The two
+// bounds COINCIDE (factor 1) exactly at the symmetric triplet Theta(0) = 1/4, which
+// is precisely where A1s static cap is tight -- so the sharpening is genuine, not an
+// artefact. HONEST scope: (i) A1 stays valid unconditionally regardless; this only
+// records that the EXACT-identity route already available in the parent (E1) is
+// strictly tighter and quantifies the gap A1 leaves on the shell of the tested
+// configs. (ii) A FULLY dynamic bound would be sharper still -- since Theta(s)
+// strictly decreases, d(g^2)/ds is steeper than -8(1 - Theta(0)) for s > 0 and the
+// true t_c sits below boundE1, approaching the collision floor g^2/8 as Theta(0) ->
+// 0 (measured t_c/(g^2/8) ratios 1.095 / 1.048 / 1.024 -> 1); that residual gap has
+// no closed form (needs the trajectory), so boundE1 is the sharpest CLOSED-FORM
+// constant-rate bound. Bridge-fidelity target; no QED; PT Lambda <= 0.2 stays SOTA.
+export const SG1C_A1_VS_E1_SHARPER_BOUND = (() => {
+  const realZeros = THETA_TRAP_RUNS.filter((r) => r.kind === 'riemann-zeros');
+  const rows = realZeros.map((r) => {
+    const a1Bound = (r.g0 * r.g0) / 6;                         // Corollary A1: static Theta <= 1/4
+    const e1Bound = (r.g0 * r.g0) / (8 * (1 - r.theta0));      // exact-identity route (parent E1)
+    const sharpenFactor = 6 / (8 * (1 - r.theta0));            // e1Bound / a1Bound = 3/(4(1-theta0))
+    return {
+      id: r.id,
+      N: r.N,
+      theta0: r.theta0,
+      g0: r.g0,
+      tc: r.tc,
+      a1Bound,                                                 // g0^2 / 6
+      e1Bound,                                                 // g0^2 / (8(1-theta0)) -- sharper
+      sharpenFactor,                                           // < 1 => tighter than A1
+      tighterByPct: (1 - sharpenFactor) * 100,
+      e1Holds: r.tc <= e1Bound + 1e-12,                        // sharper bound still bounds t_c
+      e1TighterThanA1: e1Bound < a1Bound,
+      matchesParentBoundE1: Math.abs(e1Bound - r.boundE1) < 1e-4,
+    };
+  });
+  // sharp-coincidence check at the symmetric triplet: Theta(0) = 1/4 => factor 1
+  const triplet = THETA_TRAP_RUNS.find((r) => r.id === 'triplet-symmetric');
+  const tripletA1 = (triplet.g0 * triplet.g0) / 6;
+  const tripletE1 = (triplet.g0 * triplet.g0) / (8 * (1 - triplet.theta0));
+  return {
+    rows,
+    allE1Hold: rows.every((r) => r.e1Holds),
+    allE1TighterThanA1: rows.every((r) => r.e1TighterThanA1),
+    allMatchParent: rows.every((r) => r.matchesParentBoundE1),
+    tripletCoincidence: {
+      theta0: triplet.theta0,                                  // 0.25 exactly
+      a1Bound: tripletA1,
+      e1Bound: tripletE1,
+      coincide: Math.abs(tripletA1 - tripletE1) < 1e-12,       // true: both = g^2/6 at Theta = 1/4
+    },
+    verdict:
+      'YES -- the exact Lemma-1/Lemma-2 dynamics yield a strictly sharper collision bound than '
+      + 'Corollary A1 t_c <= g_min(0)^2/6 on every real-zero row. A1s constant 6 comes from the '
+      + 'STATIC cap Theta <= 1/4 in the exact d(g^2)/ds = -8(1-Theta); replacing it by the DYNAMIC '
+      + 'ceiling Theta(s) <= Theta(0) (Theorem-A monotonicity, ThetaMax = Theta(0)) gives the parent '
+      + 'Corollary E1 t_c <= g_min(0)^2/(8(1-Theta(0))), tighter by 3/(4(1-Theta(0))): ~10%/18%/22% '
+      + 'on Theta(0)=0.1666/0.0884/0.0342. The two bounds coincide exactly at the symmetric triplet '
+      + '(Theta=1/4), where A1s cap is tight. A1 remains valid unconditionally; a fully-dynamic bound '
+      + 'would be sharper still (true t_c -> g^2/8 floor as Theta(0)->0, measured ratios 1.095/1.048/'
+      + '1.024) but has no closed form -- E1 is the sharpest closed-form constant-rate bound. '
+      + 'Bridge-fidelity target; no QED; PT Lambda <= 0.2 SOTA.',
+  };
+})();
+
 // imp-3043: tabulate the Lemma R1-T2 (imp-2608) uniform-lattice central-tie LADDER
 // and its vanishing seizing margin for K = 1..8, the static-no-cap obstruction that
 // the parent certificate sg1c-r1-asymmetric-extension-and-static-obstruction only
@@ -486,6 +562,151 @@ export const SG1C_R1T2_LATTICE_LADDER = (() => {
       + 'the cap is pushed to the DYNAMICAL reachability route (R1-T4 / R2-T): showing the '
       + 'attractive CM flow never reaches a long near-uniform minimal-gap lattice. NOT a '
       + 'dynamical cap claim -- purely the static-route obstruction, tabulated.',
+  };
+})();
+
+// LEMMA R1-FN (finite-N excursion cap -- the uniform lattice is the EXTREMISER, sharp per-N cap)
+// -----------------------------------------------------------------------------------------------
+// R1-T2 (imp-2608) exhibited the uniform lattice Theta_K = K/(K+1) -> 1 as an OBSTRUCTION
+// (the static peak is uncapped as K -> inf) and R1T2_LATTICE_LADDER tabulated it, but neither
+// proved the uniform lattice is the EXTREMAL minimal-pair config -- it was logged as an example
+// that rises to 1, leaving open whether some non-lattice minimal config could exceed it at fixed
+// particle count. This lemma closes that: for the minimal pair in ANY finite N-particle config
+// the excursion is bounded by a clean closed form in N, with the uniform lattice the UNIQUE
+// maximiser.
+//
+//   THEOREM. Let the tracked pair be the GLOBAL minimal-gap adjacent pair (gap g minimal, so
+//   every environment gap >= g). Then Theta = g^2 E / 2 satisfies
+//        Theta  <=  1 - 2/N          (sharp; equality iff N even AND both sides are balanced
+//                                     uniform minimal-spacing lattices, K = (N-2)/2 per side),
+//   and more precisely the EXACT per-N maximum is
+//        Theta_max(N) = [ K_R/(K_R+1) + K_L/(K_L+1) ] / 2,  K_R = ceil((N-2)/2), K_L = floor(...).
+//
+//   PROOF (fully rigorous, static). Scale g = 1; all gaps >= 1. All environment particles lie
+//   OUTSIDE the adjacent pair, so every T_j = 1/((x_i - x_j)(x_{i+1} - x_j)) > 0. Index the right
+//   environment particles r = 1, 2, ... outward: the r-th is r gaps beyond x_{i+1}, each gap >= 1,
+//   so its distance s_r := x_j - x_{i+1} >= r, and T_{right,r} = 1/((s_r + 1) s_r) is decreasing
+//   in s_r > 0, giving T_{right,r} <= 1/(r(r+1)). Summing the telescoping majorant,
+//        E_right = sum_r T_{right,r}  <=  sum_{r=1}^{K_R} 1/(r(r+1))  =  K_R/(K_R+1),
+//   and identically E_left <= K_L/(K_L+1) with K_R + K_L = N - 2. Hence
+//        Theta = E/2 <= [K_R/(K_R+1) + K_L/(K_L+1)]/2. Since x/(x+1) is STRICTLY CONCAVE, the
+//   right side is maximised over the split at K_R = K_L = (N-2)/2, giving (N-2)/N = 1 - 2/N.
+//   Equality forces s_r = r for every r (all gaps exactly the minimal g -> a uniform lattice)
+//   and a balanced integer split (N even). QED.
+//
+// CONSEQUENCE. This upgrades the R1-T2 obstruction from "the lattice is an example that reaches 1"
+// to "the lattice is the PROVEN extremiser and Theta_exc(N) = 1 - 2/N is the exact static cap at
+// each N". It confirms rigorously why NO absolute (N-uniform) cap Theta_exc < 1 exists: the cap is
+// 1 - 2/N with sup_N = 1. Equivalently, the excursion can approach 1 ONLY through N -> inf on a
+// long near-uniform minimal-gap lattice -- exactly the dynamical-reachability residual (R1-T4 /
+// R2-T). So the static half of R1 is now CLOSED in sharp closed form (extremiser + exact cap),
+// and the open residual is isolated cleanly to: rule out that the CM flow drives generic finite
+// data onto a long uniform minimal lattice (equivalently, that N-particle excursions saturate
+// their 1 - 2/N ceiling). HONEST: this is a static per-N cap, NOT the absolute cap R1 originally
+// hoped for (which R1-T2 already refuted) and NOT a dynamical bound; PT Lambda <= 0.2 stays SOTA.
+export const SG1C_R1_FINITE_N_CAP = (() => {
+  const f = (K) => K / (K + 1);
+  // exact per-N maximum from the balanced split (uniform minimal lattice)
+  const thetaMax = (N) => {
+    const M = N - 2;
+    const KR = Math.ceil(M / 2), KL = Math.floor(M / 2);
+    return (f(KR) + f(KL)) / 2;
+  };
+  // brute-force the optimal split to certify the balanced split is the maximiser of the majorant
+  const bestSplit = (N) => {
+    const M = N - 2;
+    let best = -1, split = null;
+    for (let KR = 0; KR <= M; KR++) {
+      const s = (f(KR) + f(M - KR)) / 2;
+      if (s > best) { best = s; split = [KR, M - KR]; }
+    }
+    return { best, split };
+  };
+  // explicit uniform minimal-spacing lattice (spacing 1), central pair = global minimal pair
+  const uniformLattice = (N) => {
+    const x = [];
+    for (let i = 0; i < N; i++) x.push(i);
+    return { x, i: Math.floor(N / 2) - 1 };
+  };
+  // termwise majorant check: r-th right particle has s_r >= r, T_r <= 1/(r(r+1)), on random configs
+  const termwiseHolds = () => {
+    for (let trial = 0; trial < 4000; trial++) {
+      const N = 5 + Math.floor(Math.random() * 12);
+      const gaps = [];
+      for (let k = 0; k < N - 1; k++) gaps.push(1 + (Math.random() < 0.5 ? 0 : Math.random() * 2.5));
+      gaps[Math.floor(Math.random() * (N - 1))] = 1; // force a minimal gap = 1
+      const x = [0];
+      for (const g of gaps) x.push(x[x.length - 1] + g);
+      const mi = minPairIdx(x);
+      const a = x[mi], b = x[mi + 1];
+      if (Math.abs((b - a) - 1) > 1e-12) continue; // ensure the tracked pair IS the minimal gap 1
+      // right particles
+      let r = 0;
+      for (let j = mi + 2; j < x.length; j++) {
+        r++;
+        const s = x[j] - b;
+        const T = 1 / ((x[mi] - x[j]) * (x[mi + 1] - x[j]));
+        if (s < r - 1e-9) return false;              // s_r >= r
+        if (T > 1 / (r * (r + 1)) + 1e-12) return false; // T_r <= 1/(r(r+1))
+      }
+      // and the global cap
+      const th = dThetaDs(x, mi).theta;
+      if (th > 1 - 2 / N + 1e-9) return false;
+      if (th > thetaMax(N) + 1e-9) return false;      // never exceeds the exact per-N max
+    }
+    return true;
+  };
+  const rows = [4, 5, 6, 8, 10, 12, 20, 50, 100].map((N) => {
+    const { x, i } = uniformLattice(N);
+    const latticeTheta = dThetaDs(x, i).theta;
+    const bs = bestSplit(N);
+    return {
+      N,
+      latticeThetaNumeric: latticeTheta,     // Theta of the uniform lattice minimal pair
+      thetaMaxClosed: thetaMax(N),           // exact per-N maximum (balanced split)
+      cap1minus2overN: 1 - 2 / N,            // clean universal upper bound (tight for even N)
+      balancedSplit: bs.split,               // maximiser split (proves balanced is optimal)
+      latticeMatchesMax: Math.abs(latticeTheta - thetaMax(N)) < 1e-10,
+    };
+  });
+  const maxLatticeDev = Math.max(...rows.map((r) => Math.abs(r.latticeThetaNumeric - r.thetaMaxClosed)));
+  // even-N: exact 1 - 2/N; odd-N: strictly below 1 - 2/N
+  const evenExact = rows.filter((r) => r.N % 2 === 0)
+    .every((r) => Math.abs(r.thetaMaxClosed - (1 - 2 / r.N)) < 1e-12);
+  const oddStrictlyBelow = rows.filter((r) => r.N % 2 === 1)
+    .every((r) => r.thetaMaxClosed < 1 - 2 / r.N - 1e-12);
+  const capAlwaysBelow1 = rows.every((r) => r.cap1minus2overN < 1);
+  const balancedIsMaximiser = rows.every((r) => {
+    const M = r.N - 2;
+    const [lo, hi] = [...r.balancedSplit].sort((p, q) => p - q); // order-agnostic (ties at |KR-KL|<=1)
+    return lo === Math.floor(M / 2) && hi === Math.ceil(M / 2);
+  });
+  return {
+    theorem: 'minimal-pair Theta <= 1 - 2/N; exact max = [K_R/(K_R+1)+K_L/(K_L+1)]/2, balanced split; uniform lattice is the UNIQUE maximiser',
+    rows,
+    maxLatticeDeviationFromClosedMax: maxLatticeDev, // ~0: lattice numeric == closed-form max
+    latticeIsExtremiser: rows.every((r) => r.latticeMatchesMax),
+    termwiseMajorantHolds: termwiseHolds(),          // s_r >= r, T_r <= 1/(r(r+1)), Theta <= 1-2/N on 4000 random minimal configs
+    evenNExactCap: evenExact,                         // even N: max = 1 - 2/N exactly (recovers K/(K+1))
+    oddNStrictlyBelowCap: oddStrictlyBelow,           // odd N: max < 1 - 2/N (balanced split unavailable)
+    capAlwaysStrictlyBelow1: capAlwaysBelow1,         // 1 - 2/N < 1 for all finite N
+    balancedSplitIsMaximiser: balancedIsMaximiser,
+    supOverN: 1,                                      // sup_N (1 - 2/N) = 1: no absolute N-uniform cap
+    recoversR1T: Math.abs(thetaMax(4) - 0.5) < 1e-12, // N=4 -> 1/2 (Lemma R1-T)
+    recoversR1T2Ladder: Math.abs(thetaMax(6) - 2 / 3) < 1e-12
+      && Math.abs(thetaMax(14) - 6 / 7) < 1e-12,      // K/(K+1) at K=2 (N=6) and K=6 (N=14)
+    summary:
+      'Closes the STATIC half of R1 in sharp closed form: for the global minimal pair in any finite '
+      + 'N-particle config, Theta <= 1 - 2/N, with the uniform minimal-spacing lattice the PROVEN unique '
+      + 'maximiser (equality iff N even + balanced split). Proof: scale g=1, all gaps >= 1, so the r-th '
+      + 'environment particle per side has cumulative distance s_r >= r and T_r = 1/(s_r(s_r+1)) <= 1/(r(r+1)); '
+      + 'the telescoping majorant sums to K_side/(K_side+1) and strict concavity of x/(x+1) forces the balanced '
+      + 'split, giving 1 - 2/N. This upgrades the R1-T2 obstruction from "the lattice is an example reaching 1" '
+      + 'to "the lattice is THE extremiser and 1 - 2/N is the exact per-N cap", recovering R1-T (N=4 -> 1/2) and '
+      + 'the R1-T2 ladder Theta_K = K/(K+1) as its equality case. It also proves cleanly why no absolute '
+      + '(N-uniform) cap Theta_exc < 1 exists (sup_N (1-2/N) = 1): the excursion can approach 1 ONLY via N -> inf '
+      + 'on a long near-uniform minimal lattice, isolating the open residual to the dynamical-reachability '
+      + 'question (R1-T4 / R2-T). Static, not dynamical; PT Lambda <= 0.2 stays SOTA.',
   };
 })();
 
@@ -1613,6 +1834,25 @@ export const SG1C_B_VS_A1_CEILING = (() => {
 })();
 
 export const SG1C_THEOREM_ASSERTIONS = [
+  {
+    id: 'sg1c-r1-finite-N-excursion-cap-lattice-extremiser',
+    description: 'Lemma R1-FN: for the global minimal pair in any finite N-particle config, Theta = g^2 E/2 <= 1 - 2/N with the uniform minimal-spacing lattice the UNIQUE maximiser (equality iff N even + balanced split); exact per-N max = [K_R/(K_R+1)+K_L/(K_L+1)]/2. Proof by the termwise majorant s_r >= r => T_r <= 1/(r(r+1)), telescoping to K/(K+1), plus strict concavity of x/(x+1) forcing the balanced split. Certifies the lattice numeric equals the closed-form max, the termwise majorant + global cap hold on 4000 random minimal configs, even-N is exact and odd-N strictly below 1-2/N, balanced split is the maximiser, sup_N = 1 (no absolute cap), and recovers R1-T (N=4 -> 1/2) and the R1-T2 ladder K/(K+1)',
+    holds: () => {
+      const t = SG1C_R1_FINITE_N_CAP;
+      return (
+        t.latticeIsExtremiser &&
+        t.maxLatticeDeviationFromClosedMax < 1e-10 &&
+        t.termwiseMajorantHolds &&
+        t.evenNExactCap &&
+        t.oddNStrictlyBelowCap &&
+        t.capAlwaysStrictlyBelow1 &&
+        t.balancedSplitIsMaximiser &&
+        t.supOverN === 1 &&
+        t.recoversR1T &&
+        t.recoversR1T2Ladder
+      );
+    },
+  },
   {
     id: 'sg1c-theoremB-vs-A1-ceiling-looser-not-tighter',
     description: 'imp-3072: feeding Theorem B threshold Theta_b = (sqrt(73)-5)/8 into the exact collision ceiling t_c <= g_min(0)^2/(8(1-Theta*)) yields denominator 13-sqrt(73) ~ 4.4558 < 6, a LOOSER ceiling than A1 g_min(0)^2/6 (the denominator 8(1-Theta*) decreases in Theta*); the loosening factor is exactly 6/(13-sqrt(73)) ~ 1.3465, d(g^2)/ds = -8(1-Theta) matches the pair identity, and for the real-zero rows (Theta<1/4) A1 stays the tighter bound -- Theorem B broadens the hypothesis, it does not tighten the ceiling',

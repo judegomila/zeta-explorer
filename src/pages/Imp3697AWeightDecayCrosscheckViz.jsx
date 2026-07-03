@@ -206,6 +206,26 @@ export default function Imp3697AWeightDecayCrosscheckViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Correction (imp-3739):</strong> the tau=1.5 and
+        tau=2.0 rungs above read ratio &lt; 1 (0.99977 and 0.99976), off the imp-3665 N=12000
+        Simpson grid. imp-3716 refined that grid and found this is a DISCRETIZATION ARTIFACT:
+        the converged grid (N=160000) gives R(1.5) = 1.0003 &gt; 1, with the subleading
+        correction c(1.5) = -ln A(1.5) - pi e^4(1.5) = +0.380, not the coarse-grid -0.171. On
+        the converged grid the ratio approaches 1 strictly from above across the whole range --
+        there is no sign change below 1.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
           background: 'rgba(148,163,184,0.04)',
           borderLeft: '3px solid #334155',
           borderRadius: '0 4px 4px 0',

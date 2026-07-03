@@ -10,7 +10,15 @@
  * Reference literals are baked from the imp-3665 measured.rungs table (self-computing
  * at import) -- no re-derivation here.
  *
+ * CORRECTION NOTE (imp-3739, honest): the tau=1.5 and tau=2.0 rungs below carry ratio < 1
+ * (0.99977 and 0.99976), read off the imp-3665 N=12000 Simpson grid. imp-3716 refined that
+ * grid and found the ratio < 1 reading is a DISCRETIZATION ARTIFACT, not a real sign change:
+ * the converged grid (N=160000) gives R(1.5) = 1.0003 > 1 (c(1.5) = -ln A(1.5) - pi e^{4 tau}
+ * = +0.380, not the coarse-grid -0.171). The ratio converges to 1 strictly FROM ABOVE across
+ * the whole tau range on the converged grid -- there is no crossing below 1.
+ *
  * @see imp-3665-a-weight-superexp-decay-crosscheck.js (source module: rungs, ratios, verdict)
+ * @see imp-3716-a-weight-ratio-crossing-nonexistence.js (REFUTES the ratio<1 rungs baked below; converged values)
  *
  * Ticket: imp-3697 (ux, low). Presentation only, RH-equivalent; imp-3066
  * untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.

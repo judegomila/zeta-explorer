@@ -45,6 +45,7 @@ import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-
 import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bridge-sign-phi-only.js';
 import { IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID } from '../data/imp-3240-mupass-capture-ratio-aU-grid.js';
 import { IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION } from '../data/imp-3346-capture-ratio-C-constant-derivation.js';
+import { IMP3350_CAPTURE_RATIO_LINEAR_SHEAR_LIMIT } from '../data/imp-3350-capture-ratio-linear-shear-limit.js';
 import { IMP3199_OVERFLOW_FRACTION_CELL_SWEEP } from '../data/imp-3199-overflow-fraction-cell-sweep.js';
 import { IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM } from '../data/imp-3216-overflow-support-length-closed-form.js';
 import { IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE } from '../data/imp-3196-residual-gap-convergence-rate.js';
@@ -4230,6 +4231,92 @@ function CInfFixedResolutionConvergenceViz() {
   );
 }
 
+// ── imp-3412: imp-3350 sinh a -> 0 capture-ratio ladder converging to the exactly-linear-shear ratio ──
+function SinhToLinearShearLimitViz() {
+  const M = IMP3350_CAPTURE_RATIO_LINEAR_SHEAR_LIMIT.measured;
+  const aLadder = M.aLadderAtUStar;
+  const ratios = M.ladderRatios;
+  const linearLimit = M.headlineLinearRatio;
+  const gap = M.maxLimitEqualsLinearGap;
+
+  const W = 640, H = 300, ML = 68, MR = 24, MT = 22, MB = 44;
+  const xMin = Math.log(aLadder[aLadder.length - 1]), xMax = Math.log(aLadder[0]);
+  const yLo = Math.min(...ratios, linearLimit), yHi = Math.max(...ratios, linearLimit);
+  const yPad = (yHi - yLo) * 0.25;
+  const yMin = yLo - yPad, yMax = yHi + yPad;
+  const px = (a) => ML + ((Math.log(a) - xMin) / (xMax - xMin)) * (W - ML - MR);
+  const py = (r) => H - MB - ((r - yMin) / (yMax - yMin)) * (H - MT - MB);
+
+  const xTicks = aLadder;
+  const yTicks = [yLo, (yLo + yHi) / 2, yHi];
+
+  const ladderPath = aLadder
+    .map((a, i) => `${i === 0 ? 'M' : 'L'} ${px(a).toFixed(1)} ${py(ratios[i]).toFixed(1)}`)
+    .join(' ');
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #14b8a6', background: 'rgba(20,184,166,0.04)' }}>
+      <h3 style={{ color: '#14b8a6', marginTop: 0 }}>
+        sinh-shear capture ratio r(a) &#8594; exactly-linear-shear ratio as a&#8594;0, gap &lt; 5e&minus;15 (imp-3350)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        At fixed U = 6 the sinh-shear capture ratio <span style={{ fontFamily: mono }}>r(a) = ||T|| / ||Gshear||</span>{' '}
+        decreases monotonically as <span style={{ fontFamily: mono }}>a &#8594; 0</span> (log a&#8209;axis), a vanishing
+        O(a&sup2;) sinh-nonlinearity drift of only {M.ladderTotalDrift.toExponential(2)}. The a&sup2;-Richardson
+        extrapolated limit equals the exactly-linear-shear ratio{' '}
+        <span style={{ fontFamily: mono }}>r_lin = ||Tlin|| / ||Glin||</span> (dashed asymptote) to within{' '}
+        <strong style={{ color: '#5eead4' }}>{gap.toExponential(2)}</strong> &mdash; the same equality holds at U = 8
+        and U = 10 to below 5e&minus;15.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}
+          role="img" aria-label="sinh a to 0 capture ratio ladder converging to the exactly-linear-shear ratio">
+          {yTicks.map((r, i) => (
+            <g key={`y${i}`}>
+              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{r.toFixed(7)}</text>
+            </g>
+          ))}
+          {xTicks.map((a) => (
+            <text key={`x${a}`} x={px(a)} y={H - MB + 18} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>{a}</text>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>shear weight a (log scale)</text>
+          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}
+            transform={`rotate(-90 20 ${(MT + H - MB) / 2})`}>r(a)</text>
+
+          {/* exactly-linear-shear asymptote */}
+          <line x1={ML} y1={py(linearLimit)} x2={W - MR} y2={py(linearLimit)} stroke="#14b8a6" strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.7" />
+          <text x={W - MR - 4} y={py(linearLimit) - 6} textAnchor="end" fontSize="10" fill="#5eead4" fontFamily={mono}>r_lin = {linearLimit.toFixed(7)}</text>
+
+          {/* sinh-shear a-ladder, decreasing toward r_lin */}
+          <path d={ladderPath} fill="none" stroke="#14b8a6" strokeWidth="1.5" />
+          {aLadder.map((a, i) => (
+            <circle key={i} cx={px(a)} cy={py(ratios[i])} r="4.5" fill="#14b8a6" fillOpacity="0.75" stroke="#5eead4" strokeWidth="1">
+              <title>{`a=${a}  ->  r(a)=${ratios[i].toFixed(9)}`}</title>
+            </circle>
+          ))}
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          MEASUREMENT ONLY &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          The equality is certified numerically (Richardson extrapolation + power iteration), not by a symbolic
+          proof that the O(a&sup2;) sinh-nonlinearity vanishes exactly in the norm ratio. The a&#8209;free
+          linear-shear characterization is diagnostic; the imp-3066 off-diagonal endpoint-Hankel magnitude remains
+          the lone obstruction. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3350-capture-ratio-linear-shear-limit.js &mdash; parent: imp-3240; related: imp-3346.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3354: termwise Phi>=0 structure viz (imp-3257) — Phi_NPHI(u) with the per-term
 // sign-flip thresholds u_n* marked; u_1* (rightmost, worst) sits strictly left of [0,U],
 // so the headline domain lies entirely in the termwise-positive region.
@@ -5262,6 +5349,12 @@ export default function ClosureRoutesPage() {
         Fixed-Resolution Capture-Ratio Convergence to C&#8734; (imp-3346)
       </h2>
       <CInfFixedResolutionConvergenceViz />
+
+      {/* ─── imp-3412: imp-3350 sinh a -> 0 capture ratio converging to the exactly-linear-shear ratio ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Sinh-Shear a&#8594;0 Capture-Ratio Limit Equals the Linear-Shear Ratio (imp-3350)
+      </h2>
+      <SinhToLinearShearLimitViz />
       <PhiTermwiseNonnegativityViz />
 
       {/* ─── imp-3411: imp-3347 leftmost-zero drift vs ln(NPHI), left-margin-below-u1* overlay ─── */}

@@ -77,6 +77,7 @@ import { IMP3309_TWO_TAIL_UNDERFLOW_HORIZONS } from '../data/imp-3309-two-tail-u
 import { IMP3382_RAWDIAGONAL_R_DEGREE_GROWTH_LAW } from '../data/imp-3382-rawdiagonal-R-degree-growth-law.js';
 import { IMP3384_INTERIOR_CROSSOVER_BELOW_HORIZON } from '../data/imp-3384-interior-crossover-below-horizon.js';
 import { IMP3404_SHEAR_GRAM_FULL_SPECTRUM_CELL_INDEPENDENCE } from '../data/imp-3404-shear-gram-full-spectrum-cell-independence.js';
+import { IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER } from '../data/imp-3409-capture-ratio-sinh-residual-order.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -4905,6 +4906,147 @@ function SinhToLinearShearLimitViz() {
   );
 }
 
+// ── imp-3456: imp-3409 sinh-residual e(a) = r(a) - r_lin vanishing RATE -- log-log slope-2 fit
+// plus point-to-point local exponents descending toward 2. Distinct from imp-3412 (which shows
+// the ladder converging to r_lin); this shows HOW FAST it converges.
+function SinhResidualVanishingRateViz() {
+  const M = IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER.measured;
+  const aLadder = M.aLadder;
+  const residuals = M.residuals;
+  const localExponents = M.localExponents;
+  const SMALL_A_WINDOW = 4; // mirrors the imp-3409 module's small-a restricted fit window
+
+  const olsFit = (xs, ys) => {
+    const n = xs.length;
+    let Sx = 0, Sy = 0, Sxx = 0, Sxy = 0;
+    for (let i = 0; i < n; i++) { Sx += xs[i]; Sy += ys[i]; Sxx += xs[i] * xs[i]; Sxy += xs[i] * ys[i]; }
+    const slope = (n * Sxy - Sx * Sy) / (n * Sxx - Sx * Sx);
+    return { slope, intercept: (Sy - slope * Sx) / n };
+  };
+
+  const lnA = aLadder.map((a) => Math.log(a));
+  const lnE = residuals.map((e) => Math.log(e));
+  const fullFit = olsFit(lnA, lnE);
+  const smallStart = lnA.length - SMALL_A_WINDOW;
+  const smallFit = olsFit(lnA.slice(smallStart), lnE.slice(smallStart));
+
+  // Panel 1: log-log residual e(a) vs a, with the full-grid and small-a fit lines overlaid.
+  const W = 640, H = 300, ML = 68, MR = 24, MT = 22, MB = 44;
+  const xMin = Math.min(...lnA), xMax = Math.max(...lnA);
+  const yMin = Math.min(...lnE), yMax = Math.max(...lnE);
+  const yPad = (yMax - yMin) * 0.12;
+  const yLo = yMin - yPad, yHi = yMax + yPad;
+  const px = (x) => ML + ((x - xMin) / (xMax - xMin)) * (W - ML - MR);
+  const py = (y) => H - MB - ((y - yLo) / (yHi - yLo)) * (H - MT - MB);
+  const fullLine = `M ${px(xMin).toFixed(1)} ${py(fullFit.intercept + fullFit.slope * xMin).toFixed(1)} ` +
+    `L ${px(xMax).toFixed(1)} ${py(fullFit.intercept + fullFit.slope * xMax).toFixed(1)}`;
+  const smallX0 = lnA[smallStart], smallX1 = lnA[lnA.length - 1];
+  const smallLine = `M ${px(smallX0).toFixed(1)} ${py(smallFit.intercept + smallFit.slope * smallX0).toFixed(1)} ` +
+    `L ${px(smallX1).toFixed(1)} ${py(smallFit.intercept + smallFit.slope * smallX1).toFixed(1)}`;
+  const dataPath = lnA
+    .map((x, i) => `${i === 0 ? 'M' : 'L'} ${px(x).toFixed(1)} ${py(lnE[i]).toFixed(1)}`)
+    .join(' ');
+
+  // Panel 2: point-to-point local exponents p_k, descending toward 2 as a -> 0 (zoomed y-axis).
+  const W2 = 640, H2 = 150, ML2 = 68, MR2 = 24, MT2 = 16, MB2 = 36;
+  const localA = aLadder.slice(1).map((a) => Math.log(a)); // smaller-a of each adjacent pair
+  const xMin2 = Math.min(...localA), xMax2 = Math.max(...localA);
+  const eLo = Math.min(...localExponents, 2), eHi = Math.max(...localExponents);
+  const ePad = Math.max((eHi - eLo) * 0.3, 0.00002);
+  const yLo2 = eLo - ePad, yHi2 = eHi + ePad;
+  const px2 = (x) => ML2 + ((x - xMin2) / (xMax2 - xMin2)) * (W2 - ML2 - MR2);
+  const py2 = (y) => H2 - MB2 - ((y - yLo2) / (yHi2 - yLo2)) * (H2 - MT2 - MB2);
+  const localPath = localA
+    .map((x, i) => `${i === 0 ? 'M' : 'L'} ${px2(x).toFixed(1)} ${py2(localExponents[i]).toFixed(1)}`)
+    .join(' ');
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #f59e0b', background: 'rgba(245,158,11,0.04)' }}>
+      <h3 style={{ color: '#f59e0b', marginTop: 0 }}>
+        Sinh-Residual Vanishing RATE: e(a) = r(a) &minus; r_lin &#8764; c a&sup2; (imp-3409)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The imp-3350 residual between the sinh-shear ratio and the a&#8209;free linear-shear ratio,{' '}
+        <span style={{ fontFamily: mono }}>e(a) = r(a) &minus; r_lin</span>, vanishes as{' '}
+        <strong style={{ color: '#fbbf24' }}>O(a&sup2;)</strong>: the full-grid log-log fit lands at slope{' '}
+        <strong style={{ color: '#fbbf24' }}>p = {fullFit.slope.toFixed(3)}</strong> (R&sup2; = {M.fullGridR2.toFixed(6)}),
+        and the small-a restricted fit (the {SMALL_A_WINDOW} smallest a) confirms the asymptotic rate at{' '}
+        <strong style={{ color: '#fbbf24' }}>p = {smallFit.slope.toFixed(3)}</strong> (R&sup2; = {M.asymptoticR2.toFixed(6)}), with fitted
+        leading coefficient c &#8776; {M.coefficientFromFit.toExponential(2)}.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}
+          role="img" aria-label="log-log plot of the sinh-residual e(a) vs a with slope-2 fit lines">
+          {[yLo, (yLo + yHi) / 2, yHi].map((y, i) => (
+            <g key={`y${i}`}>
+              <line x1={ML} y1={py(y)} x2={W - MR} y2={py(y)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(y) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{y.toFixed(2)}</text>
+            </g>
+          ))}
+          {aLadder.map((a) => (
+            <text key={`x${a}`} x={px(Math.log(a))} y={H - MB + 18} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>{a.toFixed(4)}</text>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>ln(a)</text>
+          <text x={20} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}
+            transform={`rotate(-90 20 ${(MT + H - MB) / 2})`}>ln e(a)</text>
+
+          <path d={fullLine} fill="none" stroke="#64748b" strokeWidth="1.25" strokeDasharray="1 3" />
+          <path d={smallLine} fill="none" stroke="#f59e0b" strokeWidth="2" />
+          <path d={dataPath} fill="none" stroke="#f59e0b" strokeWidth="1" strokeOpacity="0.4" />
+          {lnA.map((x, i) => (
+            <circle key={i} cx={px(x)} cy={py(lnE[i])} r="4.5" fill="#f59e0b" fillOpacity="0.8" stroke="#fbbf24" strokeWidth="1">
+              <title>{`a=${aLadder[i]}  e(a)=${residuals[i].toExponential(4)}`}</title>
+            </circle>
+          ))}
+          <text x={W - MR - 4} y={MT + 12} textAnchor="end" fontSize="10" fill="#94a3b8" fontFamily={mono}>
+            &mdash; full-grid fit (p={fullFit.slope.toFixed(3)})  &#8212; small-a fit (p={smallFit.slope.toFixed(3)})
+          </text>
+        </svg>
+      </div>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 12, marginTop: 10, marginBottom: 4 }}>
+        Point-to-point local exponents p_k = ln(e_k/e_{'{k+1}'}) / ln(a_k/a_{'{k+1}'}) descend monotonically toward 2 as a&#8594;0:
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W2} height={H2} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}
+          role="img" aria-label="point-to-point local exponents of the sinh residual descending toward 2">
+          <line x1={ML2} y1={py2(2)} x2={W2 - MR2} y2={py2(2)} stroke="#14b8a6" strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.7" />
+          <text x={W2 - MR2 - 4} y={py2(2) - 5} textAnchor="end" fontSize="9" fill="#5eead4" fontFamily={mono}>p = 2 (asymptotic target)</text>
+          {[eLo, eHi].map((y, i) => (
+            <text key={`y2${i}`} x={ML2 - 8} y={py2(y) + 4} textAnchor="end" fontSize="9" fill="#64748b" fontFamily={mono}>{y.toFixed(4)}</text>
+          ))}
+          <line x1={ML2} y1={MT2} x2={ML2} y2={H2 - MB2} stroke="#334155" strokeWidth="1" />
+          <line x1={ML2} y1={H2 - MB2} x2={W2 - MR2} y2={H2 - MB2} stroke="#334155" strokeWidth="1" />
+          {aLadder.slice(1).map((a) => (
+            <text key={`x2${a}`} x={px2(Math.log(a))} y={H2 - MB2 + 14} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>{a.toFixed(4)}</text>
+          ))}
+          <path d={localPath} fill="none" stroke="#f59e0b" strokeWidth="1.5" />
+          {localA.map((x, i) => (
+            <circle key={i} cx={px2(x)} cy={py2(localExponents[i])} r="3.5" fill="#f59e0b" fillOpacity="0.85" stroke="#fbbf24" strokeWidth="1">
+              <title>{`p_${i} = ${localExponents[i].toFixed(6)}`}</title>
+            </circle>
+          ))}
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          MEASUREMENT ONLY &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          The O(a&sup2;) rate is certified numerically (log-log fit + point-to-point local exponents), matching the
+          sinh(a&Delta;) = a&Delta;(1 + (a&Delta;)&sup2;/6 + &hellip;) expansion, not a symbolic proof that a&sup2; is the
+          exact leading correction. Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel magnitude remains the
+          lone obstruction. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3409-capture-ratio-sinh-residual-order.js &mdash; parent: imp-3350; related: imp-3412 (convergence ladder, this: vanishing rate).
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3413: roundup of the imp-334x/335x capture-ratio & shear-Gram cluster verdicts,
 // closing on the single shared imp-3066 obstruction none of them touch.
 function CaptureRatioShearGramClusterSummaryPanel() {
@@ -6240,6 +6382,12 @@ export default function ClosureRoutesPage() {
       </h2>
       <SinhToLinearShearLimitViz />
       <PhiTermwiseNonnegativityViz />
+
+      {/* ─── imp-3456: imp-3409 sinh-residual vanishing RATE (slope-2 log-log fit + local exponents) ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Sinh-Residual Vanishing Rate: e(a) = r(a) &minus; r_lin &#8764; O(a&sup2;) (imp-3409)
+      </h2>
+      <SinhResidualVanishingRateViz />
 
       {/* ─── imp-3411: imp-3347 leftmost-zero drift vs ln(NPHI), left-margin-below-u1* overlay ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

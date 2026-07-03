@@ -173,6 +173,7 @@ const EXPLICIT_VIZ_ROUTES = new Set([
 const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3256-vhs-crossval',
   '/viz-imp3252-scaled-mu',
+  '/viz-imp3467-closed-form-c',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

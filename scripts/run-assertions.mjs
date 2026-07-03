@@ -2549,6 +2549,16 @@ const DATA_MODULES = [
   // position-concentration ratio FREE of a -- exactly the linear-shear limit where imp-3346 located C. Throws on import
   // if the sinh limit and linear ratio diverge or the rank-2 closed form fails. Diagnostic; RH-equivalent; no QED; PT 0.2 SOTA.
   '/src/data/imp-3350-capture-ratio-linear-shear-limit.js',
+  // imp-3399: SYMBOLIC upgrade of the imp-3350 numerical coincidence r_star=r_lin to an EXACT limit identity.
+  // sinh is ODD => sinh(a Delta)=a Delta g((a Delta)^2), g even entire, g(0)=1; so G_a=a Ghat_a, T_a=a That_a with
+  // entries even in a, and ||a M||=|a| ||M|| makes the leading a factor cancel IDENTICALLY (all orders):
+  // r(a)=||That_a||/||Ghat_a||. Hence r is EVEN in a (r(+0.3)=r(-0.3) to 0 ULPs, no odd term), and as a->0 the
+  // 1-Lipschitz operator norm gives r_star=lim r(a)=||T_lin||/||G_lin||=r_lin EXACTLY (< 5e-15) -- a theorem at fixed N.
+  // BUT the O(a^2) sinh-nonlinearity does NOT cancel: r(a)=r_lin+c2 a^2+O(a^4), c2=dr/d(a^2)|0 ~1.58e-5 nonzero
+  // (the imp-3350 ~4e-6 drift). Leading a cancels exactly; identity is about the a->0 LIMIT, not constancy. Throws on
+  // import if evenness, the |a| factorization, the limit identity, or the nonzero residual fails. Proof (limit only);
+  // RH-equivalent; imp-3066 K_a>=0 untouched; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3399-capture-ratio-sinh-odd-factorization-identity.js',
   // imp-3219: MEASURES the imp-3202 capture(c)>1 overshoot that the coarse 14-point cutoff grid could
   // not resolve. Sweeps the same genuine Phi cell (NPHI=10,a=0.5,U=6,N=200) on the FINE lag grid (one
   // integer lag step H=U/N=0.03 per sample) and locates the transient rise of the dominant singular
@@ -2774,6 +2784,15 @@ const DATA_MODULES = [
   // raw diagonal is not a valid asymptotic passive core (Sec.27 renorm). No
   // positivity, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
   '/src/data/imp-3382-rawdiagonal-R-degree-growth-law.js',
+  // imp-3389 (numerical): MEASURES the precision-invariance of the imp-3309
+  // (1/4)ln2 horizon-gap ratio -- re-solves both underflow-horizon balances at a
+  // ladder of artificial subnormal thresholds L = ln(1/MIN) (single 2^-149,
+  // 2^-256, 2^-512, double 2^-1074, x87-ext 2^-16445). The absolute horizons
+  // slide ~1.15 with L (grow like (1/4)ln L) while the gap stays pinned below
+  // (1/4)ln2 and converges monotonely up to it (dev O(ln L / L)). Confirms the
+  // band width is a precision-INVARIANT ratio: arithmetic bookkeeping, not Phi
+  // structure. No positivity, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 7 asserts.
+  '/src/data/imp-3389-horizon-gap-precision-invariance.js',
 ];
 
 let ALL_MODULES = FAST_MODE

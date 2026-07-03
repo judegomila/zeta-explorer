@@ -83,7 +83,7 @@ import { IMP3404_SHEAR_GRAM_FULL_SPECTRUM_CELL_INDEPENDENCE } from '../data/imp-
 import { IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER } from '../data/imp-3409-capture-ratio-sinh-residual-order.js';
 import { IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING } from '../data/imp-3403-leading-order-residual-nphi-scaling.js';
 import { IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING } from '../data/imp-3442-sinh-residual-coefficient-U-scaling.js';
-import { IMP3469_DEGREE2_BRIDGE_MASS_SCALING } from '../data/imp-3469-degree2-bridge-mass-scaling.js';
+import { IMP3469_DEGREE2_BRIDGE_MASS_SCALING, AUTOCORR_WEIGHT_PROFILE } from '../data/imp-3469-degree2-bridge-mass-scaling.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -1097,6 +1097,83 @@ function Degree0VsDegree2KLadderPanel() {
       </div>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3469-degree2-bridge-mass-scaling.js &mdash; base cell (a,U)=(0.5,6), s=3, k&isin;{'{'}2,3,4,6,8{'}'}.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3469: genuine-Phi autocorrelation weight A(tau) finite support vs tauStar (imp-3493) ──
+// Plots the fixed autocorrelation weight A(tau) that defines the degree-2 (absolute) bridge
+// mass, showing it dies out inside a small finite support (~[0,0.6]), with the degree-2
+// overflow crossover tauStar = arcsinh(1)/a marked WELL OUTSIDE that support for both base
+// cells -- making visible why the degree-2 overflow deficit D_2 vanishes identically (R4).
+function AutocorrWeightSupportPanel() {
+  const P = AUTOCORR_WEIGHT_PROFILE;
+  const rows = P.samples;
+
+  const W = 620, H = 240, ML = 56, MR = 20, MT = 26, MB = 34;
+  const tauMax = P.chartTauMax;
+  const yMax = P.peakA * 1.12;
+  const px = (tau) => ML + (tau / tauMax) * (W - ML - MR);
+  const py = (v) => H - MB - (v / yMax) * (H - MT - MB);
+
+  const path = rows.map((r, i) => `${i === 0 ? 'M' : 'L'} ${px(r.tau).toFixed(1)} ${py(r.A).toFixed(1)}`).join(' ');
+  const xTicks = [0, 0.5, 1, 1.5, 2, 2.5].filter((t) => t <= tauMax);
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #38bdf8', background: 'rgba(56,189,248,0.04)' }}>
+      <h3 style={{ color: '#38bdf8', marginTop: 0, fontSize: 14 }}>
+        A(&tau;) finite support vs the degree-2 crossover tauStar (imp-3469)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        The genuine-Phi autocorrelation A(&tau;) = &int; &Phi;(s)&Phi;(s+&tau;) ds that weights the
+        degree-2 (absolute) bridge mass decays to numerically negligible ( &lt;{' '}
+        {(1e-3).toExponential(0)} of its peak) by &tau;&asymp;{P.supportEnd.toFixed(3)}, its
+        located finite support edge. The degree-2 overflow crossover tauStar = arcsinh(1)/a sits
+        at {P.tauStarBaseS3.toFixed(3)} for the base cell a=0.5 and {P.tauStarBaseS4.toFixed(3)} for
+        a=0.4 &mdash; both WELL OUTSIDE the support, which is exactly why the degree-2 deficit
+        D<sub>2</sub> = 0 identically (R4): the overflow tail [tauStar, U] never meets A(&tau;).
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {xTicks.map((t) => (
+            <g key={`xt${t}`}>
+              <line x1={px(t)} y1={MT} x2={px(t)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(t)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>{t}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={ML - 42} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 ${ML - 42} ${(MT + H - MB) / 2})`}>
+            A(&tau;)
+          </text>
+          <text x={(ML + W - MR) / 2} y={H - MB + 28} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono}>
+            &tau;
+          </text>
+
+          <path d={path} fill="none" stroke="#38bdf8" strokeWidth="1.6" />
+
+          <line x1={px(P.supportEnd)} y1={MT} x2={px(P.supportEnd)} y2={H - MB} stroke="#f59e0b" strokeWidth="1.4" strokeDasharray="4 3" />
+          <text x={px(P.supportEnd) + 4} y={MT + 10} fontSize="10" fill="#f59e0b" fontFamily={mono}>support edge</text>
+
+          {px(P.tauStarBaseS3) <= W - MR && (
+            <g>
+              <line x1={px(P.tauStarBaseS3)} y1={MT} x2={px(P.tauStarBaseS3)} y2={H - MB} stroke="#c4b5fd" strokeWidth="1.4" strokeDasharray="2 2" />
+              <text x={px(P.tauStarBaseS3) + 4} y={MT + 24} fontSize="10" fill="#c4b5fd" fontFamily={mono}>tauStar(a=0.5)</text>
+            </g>
+          )}
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3469):</strong>{' '}
+        Numerical characterization of the fixed A(&tau;) weight and its support only &mdash;
+        establishes NO operator positivity. RH-EQUIVALENT, necessary-but-not-sufficient; operator
+        positivity (imp-3066) untouched, no RH verdict. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
+        remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3469-degree2-bridge-mass-scaling.js (AUTOCORR_WEIGHT_PROFILE) &mdash; NPHI=10,
+        support threshold 1e-3&times;peak.
       </p>
     </div>
   );
@@ -7573,6 +7650,8 @@ export default function ClosureRoutesPage() {
       <CInfThirdExtrapolationLadderPanel />
 
       <Degree0VsDegree2KLadderPanel />
+
+      <AutocorrWeightSupportPanel />
 
       <SigmaCHSaturationPanel />
 

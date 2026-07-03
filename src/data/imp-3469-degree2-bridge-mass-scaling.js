@@ -146,6 +146,34 @@ function degree2Mass(weightFn, lo) {
 /** The fixed second autocorrelation moment M_2 = int tau^2 A(tau) d(tau). */
 const M2_MOMENT = degree2Mass((tau) => tau * tau, 0);
 
+// Sample A(tau) for charting over [0, CHART_TAU_MAX], subsampled from the precomputed grid,
+// and locate the numerical edge of its finite support (imp-3469 R4: the degree-2 overflow
+// deficit D_2 vanishes because tauStar = arcsinh(1)/a sits OUTSIDE this support).
+const CHART_TAU_MAX = 2.5;
+const CHART_STRIDE = 8;
+const peakA = Math.max(...A_GRID);
+const SUPPORT_THRESHOLD = 1e-3;                 // fraction of peak below which A(tau) is negligible
+let supportEndIdx = 0;
+for (let j = 0; j <= NM; j += 1) {
+  if (A_GRID[j] > SUPPORT_THRESHOLD * peakA) supportEndIdx = j;
+}
+const supportEnd = supportEndIdx * H_A;          // numerically located edge of the A(tau) support
+
+const autocorrSamples = [];
+for (let j = 0; j <= NM && j * H_A <= CHART_TAU_MAX; j += CHART_STRIDE) {
+  autocorrSamples.push({ tau: j * H_A, A: A_GRID[j] });
+}
+
+/** Charting-only profile of A(tau): its finite support edge and the two base-cell tauStar values. */
+export const AUTOCORR_WEIGHT_PROFILE = Object.freeze({
+  samples: Object.freeze(autocorrSamples),
+  peakA,
+  supportEnd,
+  chartTauMax: CHART_TAU_MAX,
+  tauStarBaseS3: ASINH1 / 0.5,                    // tauStar for base cell (a=0.5,U=6), s=3
+  tauStarBaseS4: ASINH1 / 0.4,                    // tauStar for base cell (a=0.4,U=10), s=4
+});
+
 /** Degree-2 bridge mass B_2 and overflow deficit D_2 at a cell (a, U). */
 function degree2Masses(a, u) {
   const tauStar = ASINH1 / a;

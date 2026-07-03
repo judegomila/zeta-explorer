@@ -1927,6 +1927,30 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "PSD peak-slope maximizer xi* = 12.0870439 (transcendental root of P2(xi) = 0)",
+    category: "numerical",
+    definition:
+      "imp-3400 gave the capture-ratio numerator norm the closed form ||Ttilde|| = a * sup_xi " +
+      "|d/dxi |Phihat(xi)|^2|, but left the maximizing frequency xi* as a coarse grid estimate ~12.05. " +
+      "imp-3470 LOCATES xi* to machine precision by exploiting that the peak slope is attained where " +
+      "the slope itself is stationary -- the PSD inflection P''(xi*) = 0, with P = C^2 + S^2 the power " +
+      "spectral density built from the Fourier cos/sin parts C, S of the truncated de Bruijn-Newman " +
+      "kernel Phi. Bracketing the coarse imp-3400 peak and bisecting P''(xi) = 0 pins xi* = 12.0870439, " +
+      "U-INDEPENDENT (spread ~0 across the U ladder) and a genuine max (|P'| strictly smaller on both " +
+      "sides, P'(xi*) < 0 on the falling flank). The equation P''(xi) = 0 is a trigonometric combination " +
+      "of ten non-elementary dBN spectral integrals (Gaussian tails times log-frequency oscillation " +
+      "under the substitution x = e^{4u}) -- a Mellin-type kernel with no elementary antiderivative -- " +
+      "so xi* is TRANSCENDENTAL: the obstruction to a closed form for C_inf ~ 0.1751 is not the missing " +
+      "||Ttilde|| identity (imp-3400 supplied it) but the transcendence of this spectral inflection.",
+    firstUsed: "imp-3470 (PSD peak-slope maximizer xi* location and transcendence characterization), 2026",
+    relatedTerms: [
+      "Wiener-Khinchin numerator-norm identity (||Ttilde|| = a sup_xi |d/dxi |Phihat(xi)|^2|)",
+      "capture ratio C_inf (imp-3346)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

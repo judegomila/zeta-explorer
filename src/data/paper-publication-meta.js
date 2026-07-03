@@ -33,6 +33,38 @@ export const PAPER_FILE_SIZE_KB = +(PAPER_FILE_SIZE_BYTES / 1024).toFixed(1);
 export const PAPER_BUILT_AT = '2026-05-26T23:43:43Z';
 export const PAPER_LATEX_COMPILER = 'tectonic 0.16.9';
 
+// Lightweight reference layer for capture-ratio constants: literal numbers +
+// citing ticket ids only, so summary pages can name-drop the supporting
+// evidence for the imp-3346 C_inf ~ 0.1751 consensus without importing the
+// heavy imp-3346/imp-3485/imp-3489/imp-3483 data modules. Per-field detail
+// (derivations, tripwires, grids) lives in those modules, not here.
+export const CAPTURE_CONSTANT_C_INF = 0.1751370;
+export const CAPTURE_CONSTANT_C_INF_SUPPORTING_EVIDENCE = Object.freeze([
+  {
+    ticket: 'imp-3346',
+    note: 'the capture-ratio constant is a true finite limit C_inf ~ 0.1751, not a fixed-N resolution artifact',
+  },
+  {
+    ticket: 'imp-3485',
+    note: 'a structurally distinct Krylov/Lanczos solver reproduces C = 0.1751370 to <0.4% relative agreement, ' +
+      'solver-independent of the imp-3467 closed-form assembly',
+  },
+]);
+
+export const XI_STAR_PEAK_SLOPE_MAXIMIZER = 12.0870439;
+export const XI_STAR_SUPPORTING_EVIDENCE = Object.freeze([
+  {
+    ticket: 'imp-3489',
+    note: 'xi* = 12.0870439 is U-independent: recomputed as a root of the PSD peak-slope stationarity on the ' +
+      'full capture-ratio grid, matching the imp-3470 value to 2.7e-8',
+  },
+  {
+    ticket: 'imp-3483',
+    note: 'xi* = 12.0870439 is the UNIQUE global maximizer -- exactly one root of P2(xi)=0 on the full domain ' +
+      '[0, 120], stable across the U ladder',
+  },
+]);
+
 export const PAPER_PUBLICATION_META = Object.freeze({
   title:          PAPER_TITLE,
   authors:        PAPER_AUTHORS,

@@ -2960,6 +2960,17 @@ const DATA_MODULES = [
   // (<1e-3, reconciled to r_k to <1e-12). Derivation/certification only,
   // imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
   '/src/data/imp-3488-degree2-miss-factor-closed-form.js',
+  // imp-3489 (numerical): CERTIFIES the imp-3470 claim that the PSD peak-slope
+  // maximizer xi*=12.0870439 (root of the curvature P2(xi)=0) is U-INDEPENDENT,
+  // by re-solving P2(xi)=0 on the FULL imp-3240 U-grid {4,6,8,10} (imp-3470 used
+  // only {6,8}) and measuring the drift. Reusing the imp-3470 P2 assembly with
+  // fixed panel width H=1/60 (N=60*U), every window locates the SAME xi*=
+  // 12.08704387272693 bit-for-bit, so the drift is EXACTLY 0 -- because Phi has
+  // compact effective support (underflow by u~1.4) so all windows U>=4 use
+  // identical quadrature nodes. The strongest form of the imp-3470 spread~0
+  // claim; sharpens the imp-3400 caveat. Certification only, imp-3066 untouched,
+  // no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3489-xistar-U-independence-certification.js',
 ];
 
 let ALL_MODULES = FAST_MODE

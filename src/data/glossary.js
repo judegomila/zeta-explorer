@@ -3236,6 +3236,35 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Lemma R1-FN (finite-N static excursion cap)",
+    category: "theorem",
+    definition:
+      "Closes the STATIC half of the Theta-trap excursion question: for the global minimal " +
+      "pair in ANY finite N-particle configuration, Theta = g^2 E / 2 <= 1 - 2/N, with the " +
+      "uniform minimal-spacing lattice the PROVEN UNIQUE maximiser (equality iff N is even and " +
+      "both sides are balanced). Proof: scaling the minimal gap to g=1 forces every gap >= 1, so " +
+      "the r-th environment particle per side has cumulative distance s_r >= r and its term " +
+      "T_r = 1/(s_r(s_r+1)) <= 1/(r(r+1)); the telescoping majorant sums to K_side/(K_side+1) per " +
+      "side, and strict concavity of x/(x+1) forces the balanced split K_R = K_L = (N-2)/2, giving " +
+      "the exact per-N maximum [K_R/(K_R+1)+K_L/(K_L+1)]/2 = 1 - 2/N for even N (odd N sits " +
+      "strictly below, since a balanced split is unavailable). This upgrades the R1-T2 lattice " +
+      "ladder Theta_K = K/(K+1) from a mere example reaching 1 to the PROVEN extremiser, and " +
+      "explains cleanly why no absolute N-uniform cap Theta_exc < 1 can exist: sup_N(1 - 2/N) = 1, " +
+      "so the excursion approaches 1 only in the N -> infinity limit on a long near-uniform " +
+      "minimal lattice. CONSEQUENCE: with the static route fully accounted for, the only residual " +
+      "is DYNAMICAL -- whether the attractive CM flow from generic (real-zero-like) data can ever " +
+      "drive finite N-particle data onto such a long uniform minimal lattice (the R1-T4 / R2-T " +
+      "reachability question). Unconditional; Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "SG1C_R1_FINITE_N_CAP (closes the static half of the R1 excursion-cap question in sharp closed form; per-N table added by imp-3363), 2026",
+    relatedTerms: [
+      "R1-T2 uniform K-shell lattice ladder Theta_K = K/(K+1) (imp-2608)",
+      "R1-T4 / R2-T dynamical reachability residual (imp-2637)",
+      "Theorem A unconditional Theta <= 1/4 trap (imp-2595)",
+      "Corollary A1 isolated-minimal-pair self-enforcement (imp-2637)",
+    ],
+    link: "/spectral-attack",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

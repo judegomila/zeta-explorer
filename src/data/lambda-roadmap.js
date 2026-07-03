@@ -280,7 +280,14 @@ export const LAMBDA_CHAIN_STEPS = [
       '|Λ − (−t_c(N))| ≤ E(N) makes E(N) → 0 the headline attack; t_c >= 0 is automatic, so ' +
       'closing Step 4 with an unconditional E(N) bound gives Λ ≤ E(N) → 0. Combined with ' +
       'Rodgers-Tao Λ ≥ 0 gives Λ = 0 unconditionally. Per-N collision bounds (SG1/Theta/routes ' +
-      'A/B/C) feed the E(N) constants, not the headline inequality.',
+      'A/B/C) feed the E(N) constants, not the headline inequality. ' +
+      'HONEST STATUS (imp-3671): the imp-3642 mesoscopic density-floor profile V0(gamma) does NOT ' +
+      'supply a Hölder-1/2 modulus for G6a_shock_lipschitz -- structurally silent verdict, two ' +
+      'independent obstructions: (S1) V0 is a strip-sup density scalar, the wrong TYPE of object for ' +
+      'a spatial |τ_c(x) − τ_c(x_prime)| <= C_Lip|x − x_prime|^{1/2} modulus; (S2) the mesoscopic ' +
+      'reading at y_star = 4d is Gronwall-vacuous at the true nearest-pair front (floor collapses to ' +
+      '0 as strip height -> 0, per imp-2520 negative-finding 1). G6a_shock_lipschitz remains OPEN; no ' +
+      'candidate closure route has been found via the direct-flow V0 measurement.',
   },
   {
     step: 5,

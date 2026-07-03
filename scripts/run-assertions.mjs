@@ -2288,6 +2288,15 @@ const DATA_MODULES = [
   // Throws on import if any endpoint, the underflow ordering, or the U-scaling breaks. Diagnostic;
   // overflow-support geometry only; necessary-but-not-sufficient; no positivity; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-3216-overflow-support-length-closed-form.js',
+  // imp-3312: cross-module tripwire (mirroring imp-3211/imp-3267) LOCKING the imp-3216
+  // underflow-horizon finding. Independently re-implements the kernel bisection and the
+  // closed-form horizon estimate and cross-checks them against the imp-3216 recorded
+  // tau_2 mean, then asserts the imp-3216 module's live fields still record mu underflowing
+  // strictly before nu, tau_2 matching the underflow horizon, and the underflow-artifact
+  // verdict string -- so a future edit cannot silently re-promote the ~1.2535 cell-invariant
+  // support length back to a genuine Phi-autocorrelation length. Lock only; no QED; PT
+  // Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-3312-underflow-horizon-lock.js',
   // imp-3197: tests the section26-mupass verdict claim that the K_a>=0 bridge sign-positivity
   // is "derived from Phi ALONE (not from |Gshear| own spectrum)" at the genuine Phi (NPHI=10,
   // a=0.5, U=6). Splits "correct sign at correct lags" into SIGN and MAGNITUDE: Phi>=0 on [0,U]
@@ -2319,6 +2328,29 @@ const DATA_MODULES = [
   // Throws on import if the peak is unlocated, over 0.5%, or the rise-then-relax shape breaks.
   // Diagnostic; RH-equivalent; imp-3214/imp-3066 sub-gaps untouched; no QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-3219-mupass-bridge-overshoot-knee.js',
+  // imp-3221: QUANTIFIES the position concentration that imp-3197 attributes ~97% of ||Gshear|| to but
+  // never measures, at the genuine Phi cell (NPHI=10,a=0.5,U=6,N=200). Two measures: (1) the energy
+  // occupation w=Phi^2 has participation-ratio support fraction f=PR/N~0.0156 and concentration factor
+  // C=N/PR~64x vs uniform (genuine Phi occupies an effective ~1.56% of the domain), both N-stable across
+  // N in {160,200,240,320}; (2) the uniform-occupation surrogate Gflat=cflat^2 sinh(a(v-u)) at matched
+  // total energy has ||Gshear||/||Gflat||~0.011 -- the genuine norm is ~1.1% of the flat spread because
+  // concentration holds mass near the small-lag diagonal while flattening reaches the large-lag sinh
+  // blow-up. Complements imp-3197 (arrangement beyond lag marginals) from a spatial-peakedness baseline.
+  // Throws on import if the occupation is not strongly concentrated, the flat ratio leaves [0,0.05), or
+  // the measures are not N-stable. Diagnostic; RH-equivalent; imp-3066 lone obstruction; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3221-mupass-position-concentration-measure.js',
+  // imp-3220: TABULATES the E(N) bridge-constant fidelity across the assembly range
+  // N* in {2..10^6} (imp-2643/imp-2715 only evaluate the single point N*=1e4), reusing
+  // the identical E(N)=E_trunc+E_flow+E_coll sub-term formulas (same effectiveHeightForN,
+  // C_C_PINNED, C_F). The fidelity quantity is the conditional share sigma(N)=E_coll/E(N)
+  // -- the fraction of the bridge budget resting on the GUE-conditional C_H ansatz (=C_mb
+  // <=1, imp-486). Finding: sigma(N) is U-shaped, minimized ~0.841 near N~100 and WIDEST
+  // ~0.949 at the N*=10^6 ceiling -- exactly where PATH 1 extended the unconditional
+  // empirical E1/E2 floor -- so the empirical-vs-analytic gap is widest at the top of the
+  // range; an unconditional bridge is gated solely by discharging C_H (E_flow/E_trunc are
+  // already unconditional). Throws on import if the U-shape, capstone reproduction, or
+  // widest-at-ceiling structure breaks. Assessment only; no positivity; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3220-en-bridge-fidelity-frontier.js',
   // imp-3126: cross-checks whether the imp-3106 convergent regular tail mass
   // int_{s0+1}^inf phi ds ~0.26900597 is structurally related to the imp-3026/imp-3070
   // cusp constant C_shock = sqrt(2/(3 log gamma_N)) ~0.26922 (which agree to ~2.1e-4 at

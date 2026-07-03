@@ -2322,6 +2322,20 @@ const DATA_MODULES = [
   // support length back to a genuine Phi-autocorrelation length. Lock only; no QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-3312-underflow-horizon-lock.js',
+  // imp-3253: reconciles the TWO section-26 overflow numbers a reader meets in the verdict --
+  // the degree-2 resolution-converged overflow-support fraction ~0.209 of tau (imp-3175) and the
+  // degree-0 (RH-equivalent) spectral overflow ~64% of tau. VERDICT: they are the SAME nu > mu
+  // overflow phenomenon at two different COMPLETION DEGREES, NOT distinct objects. Degree-2
+  // (absolute occupation) weights nu, mu by their Phi^2-scaled magnitude, super-concentrated at
+  // small lag inside the crossover tau_star = arcsinh(1)/a where the bare diagonal dominates, giving
+  // ~0.209 (re-derived live to ~0.20906 at N=6400). Degree-0 (scale-invariant normalized-spectral)
+  // quotients that scale out, so the comparison is bare shear sinh(a tau) vs bare diagonal 1, i.e.
+  // tau > tau_star -- a geometric bare-crossover fraction (U - tau_star)/U ~ 0.706 the full spectral
+  // construction refines to ~64%. The two headlines BRACKET one phenomenon (0.209 < 0.64 < 0.706):
+  // 0.209 is its degree-2 face, ~64% its degree-0 face. SUB-GAP imp-3253-subgap-exact-deg0-spectral-
+  // fraction: light module does NOT reproduce the exact 64% (needs the full section 25-26 spectral
+  // construction). Diagnostic; RH-equivalent; imp-3066 untouched; no positivity; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3253-overflow-degree-reconcile.js',
   // imp-3258: decides whether the imp-3199 overflow-support measure frac x U has a weak GENUINE
   // U-dependence or is finite-resolution noise. imp-3199 tabulated it as cell-invariant ~1.2535 yet
   // its N=6400 anchors drift monotonically down with the lag cutoff (U=5 -> 1.25391, U=6 -> 1.25438,

@@ -213,13 +213,14 @@ export default function Imp3697AWeightDecayCrosscheckViz() {
           color: '#94a3b8',
         }}
       >
-        <strong style={{ color: '#f87171' }}>Correction (imp-3739):</strong> the tau=1.5 and
-        tau=2.0 rungs above read ratio &lt; 1 (0.99977 and 0.99976), off the imp-3665 N=12000
-        Simpson grid. imp-3716 refined that grid and found this is a DISCRETIZATION ARTIFACT:
-        the converged grid (N=160000) gives R(1.5) = 1.0003 &gt; 1, with the subleading
-        correction c(1.5) = -ln A(1.5) - pi e^4(1.5) = +0.380, not the coarse-grid -0.171. On
-        the converged grid the ratio approaches 1 strictly from above across the whole range --
-        there is no sign change below 1.
+        <strong style={{ color: '#f87171' }}>Re-bake (imp-3853, supersedes imp-3739):</strong>{' '}
+        the tau=1.5 and tau=2.0 rungs above previously read ratio &lt; 1 (0.99977 and 0.99976)
+        off the imp-3665 N=12000 Simpson grid, corrected only in prose by imp-3739. imp-3716
+        showed that reading is a DISCRETIZATION ARTIFACT, so the rungs are now RE-BAKED to the
+        imp-3716/imp-3736 converged grid: R(1.5) = 1.00030 (c = -ln A(1.5) - pi e^4(1.5) =
+        +0.37957) and R(2.0) = 1.00004 (c = +0.3632), both &gt; 1. The chart now renders the
+        ratio approaching 1 strictly from above across the whole range -- there is no sign
+        change below 1.
       </div>
 
       <div

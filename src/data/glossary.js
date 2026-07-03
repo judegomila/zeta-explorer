@@ -2725,6 +2725,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "sigma=1/2 <=> E_coll=E_trunc crossover coincidence: EXACTLY floor-invariant, flow-gap grows 0.228%->0.687% (imp-3580)",
+    category: "numerical",
+    definition:
+      "imp-3556 certified at the SINGLE baseline E_trunc floor (3.06e-5) that the sigma(N)=1/2 half-decay of the " +
+      "conditional collision share COINCIDES with the E_coll=E_trunc crossover (imp-3444), the two crossings " +
+      "sitting only 0.40% apart. imp-3580 re-root-solves BOTH N_half (sigma=1/2) and N_x (E_coll=E_trunc) across " +
+      "the imp-3443 half-to-double E_trunc floor grid (0.5x..2x baseline, five nodes) to separate what is " +
+      "STRUCTURAL from what is a baseline-floor accident. (1) The coincidence ITSELF is EXACTLY floor-invariant: " +
+      "dropping the tiny E_flow term, sigma=x/(1+x) with x=E_coll/E_trunc, so sigma=1/2 <=> x=1 <=> E_coll=E_trunc " +
+      "for ANY floor -- root-solving confirms x(N_x)=1.000000 to machine precision at all five floors, with " +
+      "sigma(N_x) sitting just under 1/2 (0.499727 down to 0.499184 as the floor rises from 0.5x to 2x). This is a " +
+      "structural odds-ratio property, not a baseline accident. (2) The N_half/N_x ratio stays in the tight band " +
+      "[0.99313, 0.99772] ~ 0.996 across the whole grid, with the baseline node reproducing imp-3556 to the last " +
+      "digit (ratio 0.996019, N_x=3.280294e9, gap 0.398%). (3) HONEST REFINEMENT: the ~0.40% flow-gap is NOT a " +
+      "floor-invariant constant -- it grows MONOTONICALLY with the floor, 0.228% (0.5x) -> 0.398% (1x, imp-3556) " +
+      "-> 0.687% (2x), straddling the baseline reading. What IS invariant is the structural law behind it: " +
+      "gap = 1 - N_half/N_x ~ 2 E_flow(N_x)/E_trunc (leading order), and the measured gap tracks this law across " +
+      "the grid to within ~5% (e.g. 0.228% vs 0.218%, 0.687% vs 0.653%). So the coincidence is a genuine " +
+      "E_flow/E_trunc property exactly as imp-3556 suspected, but the specific 0.40% is a baseline-floor READING " +
+      "of that law, not a universal constant -- correcting a literal 'gap stays ~0.40%' expectation." +
+      "\n\nHONEST SCOPE: measurement/certification only (400-iter bisection roots, residual < 1e-9) -- a " +
+      "conditional-share diagnostic, NOT an RH bound. No positivity, no bridge closure, no RH claim, no QED. " +
+      "imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity remains UNTOUCHED. Platt-Trudgian Lambda <= 0.2 " +
+      "remains the rigorous SOTA.",
+    firstUsed: "imp-3580 (re-root-solving the imp-3556 sigma=1/2 <=> E_coll=E_trunc crossover coincidence across the imp-3443 half-to-double E_trunc floor grid, showing the coincidence is exactly floor-invariant while the ~0.40% flow-gap is a baseline reading of a monotonically-growing structural law), 2026",
+    relatedTerms: [
+      "imp-3556 baseline half-decay <=> crossover certification (imp-3556)",
+      "imp-3444 E_coll=E_trunc crossover landmark (imp-3444)",
+      "imp-3443 half-to-double E_trunc floor sensitivity grid (imp-3443)",
+      "imp-398 E_flow C_F prefactor (imp-398)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

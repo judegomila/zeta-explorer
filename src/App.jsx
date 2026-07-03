@@ -154,6 +154,7 @@ const Imp3695FeatureFoldinFloorLadderViz = lazy(() => import('./pages/Imp3695Fea
 const Imp3696MatchedPairKrylovDepthSweepViz = lazy(() => import('./pages/Imp3696MatchedPairKrylovDepthSweepViz.jsx'));
 const Imp3697AWeightDecayCrosscheckViz = lazy(() => import('./pages/Imp3697AWeightDecayCrosscheckViz.jsx'));
 const Imp3698FifthPairAdjacentPairingViz = lazy(() => import('./pages/Imp3698FifthPairAdjacentPairingViz.jsx'));
+const Imp3699FitBiasDecayViz = lazy(() => import('./pages/Imp3699FitBiasDecayViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -752,6 +753,7 @@ function AppShell() {
           <Route path="/viz-imp3696-matched-pair-krylov-depth-sweep" element={<Imp3696MatchedPairKrylovDepthSweepViz />} />
           <Route path="/viz-imp3697-a-weight-decay-crosscheck" element={<Imp3697AWeightDecayCrosscheckViz />} />
           <Route path="/viz-imp3698-fifth-pair-adjacent-pairing" element={<Imp3698FifthPairAdjacentPairingViz />} />
+          <Route path="/viz-imp3699-fit-bias-decay" element={<Imp3699FitBiasDecayViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

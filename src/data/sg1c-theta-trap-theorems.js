@@ -1430,6 +1430,103 @@ export const SG1C_THETA_COVERAGE_INTERVAL = (() => {
   };
 })();
 
+// imp-3289: MEASURE how high the STATIC minimal-pair Theta crossing can reach in
+// the sg1c refutation family {-d,0,1,1+d} (d in (1,1.0735)) and in wider
+// asymmetric / multi-particle families, quantifying (a) the gap UP to 1 and
+// (b) the gap DOWN to the Theorem-B minimal-gap threshold Theta_b=(sqrt(73)-5)/8.
+// The parent refutation logs crossedBand [0.443, 0.5073] and excursionCapEvidence
+// 0.51 but never says whether 0.5073 is a genuine static wall or merely a
+// small-N artifact. Here we recompute (via the same dThetaDs machinery) the exact
+// static crossing ceiling on three nested families, keeping the tracked pair the
+// GLOBAL minimal pair (all other gaps >= g):
+//   (1) symmetric 4-body {-d,0,1,1+d}: Theta_static = g^2 E/2 = 1/(d(1+d)),
+//       supremum 1/2 as d -> 1+ (the uniform tie), sweeping DOWN through the whole
+//       crossed band to Theta_b=0.443 at d=1.083456; the family thus covers the
+//       band lower half exactly and its ceiling is EXACTLY 1/2.
+//   (2) asymmetric 4-body {-a,0,1,1+b} (a,b>=1): a 0.01-grid scan puts the max at
+//       a=b=1 (Theta=1/2) -- asymmetry only LOWERS the static crossing (R1-T3), so
+//       no 4-body config beats 1/2 and the dressed 0.5073 MUST use N>=5.
+//   (3) uniform K-shell lattice {-K..-1,0,1,2..K+1} (N=2K+2): the tracked central
+//       tie carries Theta_K = K/(K+1) = 1-2/N (the R1-FN extremiser), which already
+//       exceeds 0.5073 at K=2 (N=6, 0.6667) and rises monotonically toward 1.
+// CONCLUSION (measurement, not a new theorem): 0.5073 is NOT a static wall -- it is
+// only the small-N (N~5) crossing ceiling; the static ceiling has NO finite bound
+// below 1 and approaches 1 ONLY through N -> inf (gap-up-to-1 = 2/N, closes only in
+// the N->inf limit; it is UNCLOSABLE at any fixed N in these minimal-gap families).
+// Downward the symmetric family reaches the sharp Theorem-B floor 0.443 exactly.
+// HONEST SCOPE: this measures how close a STATIC minimal-pair crossing can get to 1
+// (answer: arbitrarily, via N->inf); it does NOT prove the dynamical excursion cap
+// Theta_exc<1 (the sg1c-r1-excursion-cap sub-gap stays OPEN) and makes NO RH claim.
+export const SG1C_STATIC_CROSSING_CEILING = (() => {
+  const thetaB = (Math.sqrt(73) - 5) / 8; // Theorem B sharp floor = 0.443000...
+  const symTheta = (d) => dThetaDs([-d, 0, 1, 1 + d], 1).theta; // = 1/(d(1+d))
+  // symmetric 4-body sweep across the parent d-window and slightly beyond, to the
+  // exact d where Theta drops to the Theorem-B floor
+  const symSweep = [1 + 1e-9, 1.02, 1.05, 1.0735, 1.083456].map((d) => ({
+    d, theta: symTheta(d), closedForm: 1 / (d * (1 + d)),
+  }));
+  const symSup = symTheta(1 + 1e-12); // supremum 1/2 as d -> 1+ (uniform tie)
+  // exact d at which the symmetric family hits the Theorem-B floor: d(1+d)=1/thetaB
+  const dAtThetaB = (-1 + Math.sqrt(1 + 4 / thetaB)) / 2; // ~1.083456
+  // asymmetric 4-body {-a,0,1,1+b}, a,b>=1 (keeps [0,1] globally minimal): max scan
+  let asymMax = 0, asymAt = [1, 1];
+  for (let a = 1; a <= 3.0001; a += 0.01) {
+    for (let b = 1; b <= 3.0001; b += 0.01) {
+      const t = dThetaDs([-a, 0, 1, 1 + b], 1).theta;
+      if (t > asymMax) { asymMax = t; asymAt = [a, b]; }
+    }
+  }
+  // uniform K-shell lattice ladder Theta_K = K/(K+1) = 1-2/N (R1-FN extremiser)
+  const lattice = (K) => {
+    const x = [];
+    for (let k = K; k >= 1; k--) x.push(-k);
+    x.push(0); x.push(1);
+    for (let k = 1; k <= K; k++) x.push(1 + k);
+    return x;
+  };
+  const ladder = [1, 2, 3, 4, 6, 8, 12, 20].map((K) => {
+    const x = lattice(K);
+    return { K, N: x.length, theta: dThetaDs(x, K).theta, closed: K / (K + 1), gapToOne: 2 / x.length };
+  });
+  const firstKabove5073 = ladder.find((r) => r.theta > 0.5073).K; // = 2 (N=6)
+  return {
+    family: 'x = {-d,0,1,1+d} and asymmetric/multi-particle generalizations, tracked pair = global minimal pair',
+    thetaB, // Theorem B sharp lower floor 0.443
+    crossedBand: SG1C_THEOREMS.refutation.crossedBand, // [0.443, 0.5073]
+    // (1) symmetric 4-body
+    symmetricSup: symSup, // = 1/2 exactly (approached as d -> 1+)
+    symmetricSweep: symSweep,
+    dAtThetaB, // ~1.083456: where the symmetric family reaches the Theorem-B floor
+    symmetricCoversBandDown: Math.abs(symTheta(dAtThetaB) - thetaB) < 1e-9,
+    // (2) asymmetric 4-body: asymmetry only lowers -> max still 1/2 at a=b=1
+    asymmetric4bodyMax: asymMax,
+    asymmetric4bodyArgmax: asymAt,
+    asymmetryOnlyLowers: Math.abs(asymMax - 0.5) < 1e-6,
+    dressedNeedsNge5: asymMax <= 0.5 + 1e-9, // 0.5073 > 1/2 => cannot be a 4-body crossing
+    // (3) multi-particle uniform lattice ladder -> 1
+    latticeLadder: ladder,
+    firstLatticeKabove5073: firstKabove5073, // K=2, N=6 (Theta=0.6667) already beats 0.5073
+    // gap quantification
+    gapUpToOneAt4body: 1 - symSup, // exactly 1/2 -- UNCLOSABLE at N=4
+    gapUpToOneClosesOnlyAtInfN: true, // gap = 2/N -> 0 only as N -> inf (R1-FN cap 1-2/N)
+    gapDownToThetaB: symSup - thetaB, // ~0.057: band from 1/2 down to 0.443, all covered by symmetric family
+    fiveZeroSevenThreeIsStaticWall: false, // 0.5073 is a small-N artifact, NOT a static wall
+    summary:
+      'Static minimal-pair Theta crossing ceiling, measured on the sg1c refutation family and its widenings. '
+      + 'The exact 4-body family {-d,0,1,1+d} has closed-form Theta = 1/(d(1+d)) with supremum EXACTLY 1/2 as '
+      + 'd -> 1+ (the uniform tie) and sweeps DOWN to the sharp Theorem-B floor 0.443 at d = 1.083456; the '
+      + 'asymmetric 4-body {-a,0,1,1+b} maxes at the symmetric a=b=1 (Theta = 1/2) -- asymmetry only lowers the '
+      + 'crossing (R1-T3), so the dressed 0.5073 necessarily uses N >= 5. Widening to the uniform K-shell '
+      + 'lattice raises the ceiling along the exact ladder Theta_K = K/(K+1) = 1-2/N (the R1-FN extremiser), '
+      + 'which already exceeds 0.5073 at K=2 (N=6, Theta = 0.6667) and rises monotonically toward 1. So 0.5073 '
+      + 'is NOT a static wall but only the small-N crossing ceiling: the static ceiling has NO finite bound '
+      + 'below 1, the gap up to 1 equals 2/N and closes ONLY as N -> inf (unclosable at any fixed N in these '
+      + 'minimal-gap families), while downward the symmetric family covers the whole band to the 0.443 floor. '
+      + 'HONEST: this measures how close a STATIC crossing gets to 1; it does NOT prove the dynamical excursion '
+      + 'cap Theta_exc < 1 (sg1c-r1-excursion-cap stays OPEN) and makes NO RH claim.',
+  };
+})();
+
 // imp-3071: numerically verify the THEOREM C isolation-for-cover map
 //   Theta_max(c) = 2 - 3 c^2/(1+c) - c^4/(1+c)^2
 // is monotone DECREASING on (0, 0.72] and reaches the unit cover level Theta_max = 1

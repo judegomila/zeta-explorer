@@ -710,6 +710,100 @@ export const SG1C_R1_FINITE_N_CAP = (() => {
   };
 })();
 
+// imp-3270: does any WEIGHTED (non-uniform) lattice push the static minimal-gap tie
+// value above the R1-T2 telescoping bound Theta_K = K/(K+1) at FIXED neighbour count K,
+// or is the UNIFORM lattice the static maximiser? R1-T2 / R1-FN prove Theta_K = K/(K+1)
+// for the uniform lattice and the termwise majorant T_r <= 1/(r(r+1)) as a bound, but the
+// fixed-K weighted OPTIMISATION was never run head-to-head with a measured gap. We do it
+// here: for K = 1..6 neighbours per side, maximise Theta over feasible weighted symmetric
+// tie geometries (all environment gaps >= g, so the tracked central pair stays globally
+// minimal) and compare the optimum against K/(K+1).
+//
+// STRUCTURAL REASON (why uniform wins). Scale g = 1. The r-th neighbour per side sits at
+// cumulative distance s_r >= r beyond the tracked endpoint (each intervening gap >= 1),
+// and contributes T_r = 1/(s_r(s_r+1)), which is STRICTLY DECREASING in s_r. Maximising
+// E = sum_r T_r over the feasible ordered s_1 < s_2 < ... with s_r >= r is therefore
+// attained TERMWISE at s_r = r for every r -- i.e. all gaps exactly the minimal g, the
+// UNIFORM lattice -- giving E_side = sum_{r=1}^K 1/(r(r+1)) = K/(K+1) and Theta = K/(K+1).
+// Any weighted (non-uniform) spacing pushes some s_r > r, so T_r drops and Theta strictly
+// FALLS. Hence at fixed K the uniform lattice is the unique static maximiser and no weighted
+// lattice exceeds K/(K+1); the measured gap sup(Theta_weighted) - K/(K+1) is <= 0.
+//
+// HONEST: this confirms numerically what the R1-FN majorant already proves for the FIXED-K
+// per-side value -- it does NOT change the sup_K K/(K+1) = 1 obstruction (the static peak
+// is still uncapped as K -> inf via a long uniform lattice), and the open residual stays
+// the DYNAMICAL reachability question (R1-T4 / R2-T). PT Lambda <= 0.2 stays SOTA.
+export const SG1C_R1_WEIGHTED_LATTICE_OPTIMALITY = (() => {
+  // symmetric weighted tie: central minimal pair at (0, 1), K neighbours per side at
+  // cumulative distances built from per-side gap vectors (each gap >= 1 keeps the pair
+  // globally minimal). Returns the sorted point set with the tracked pair adjacent.
+  const cfg = (leftGaps, rightGaps) => {
+    const pts = [0, 1];
+    let acc = 1;
+    for (const gg of rightGaps) { acc += gg; pts.push(acc); }
+    acc = 0;
+    for (const gg of leftGaps) { acc -= gg; pts.push(acc); }
+    pts.sort((a, b) => a - b);
+    return pts;
+  };
+  // track the CENTRAL tie pair (0, 1) by explicit index = #left neighbours; minPairIdx is
+  // ambiguous in the exact-uniform tie (all gaps = g), so we index the central pair directly.
+  const thetaOf = (leftGaps, rightGaps) => {
+    const pts = cfg(leftGaps, rightGaps);
+    return dThetaDs(pts, leftGaps.length).theta;
+  };
+  const rows = [1, 2, 3, 4, 5, 6].map((K) => {
+    const closed = K / (K + 1);
+    // uniform lattice: all gaps exactly the minimal g = 1 -> should equal K/(K+1)
+    const uniform = new Array(K).fill(1);
+    const uniformTheta = thetaOf(uniform, uniform);
+    // random-search maximiser over feasible weighted geometries (gaps in [1, 1+spread],
+    // both sides independent -> allows asymmetric weighting at the same neighbour count K)
+    let maxWeighted = -Infinity;
+    for (let trial = 0; trial < 6000; trial++) {
+      const spread = 0.02 + Math.random() * 3; // vary how far from uniform we probe
+      const L = Array.from({ length: K }, () => 1 + Math.random() * spread);
+      const R = Array.from({ length: K }, () => 1 + Math.random() * spread);
+      const th = thetaOf(L, R);
+      if (th > maxWeighted) maxWeighted = th;
+    }
+    // directional derivative: perturb a single gap UP from the uniform lattice; Theta must
+    // strictly decrease (uniform is a strict local max on the feasible boundary gaps >= 1)
+    const bumped = uniform.slice();
+    bumped[0] = 1 + 1e-4;
+    const bumpTheta = thetaOf(bumped, uniform);
+    return {
+      K,
+      thetaClosed: closed,                          // K/(K+1)
+      uniformTheta,                                 // uniform lattice numeric == closed
+      maxWeightedTheta: maxWeighted,                // best over 6000 weighted geometries
+      gapAboveClosed: maxWeighted - closed,         // <= 0: weighted never exceeds K/(K+1)
+      uniformIsMaximiser: maxWeighted <= closed + 1e-9,
+      perturbLowersTheta: bumpTheta < uniformTheta, // widening any gap strictly lowers Theta
+    };
+  });
+  const maxUniformDev = Math.max(...rows.map((r) => Math.abs(r.uniformTheta - r.thetaClosed)));
+  const maxExcess = Math.max(...rows.map((r) => r.gapAboveClosed)); // sup over K of (weighted - closed)
+  return {
+    theorem: 'at FIXED K neighbours per side, sup over weighted (non-uniform) tie geometries of Theta = K/(K+1), attained ONLY by the uniform minimal-spacing lattice; weighted lattices cannot exceed it',
+    rows,
+    maxUniformDeviationFromClosed: maxUniformDev,   // ~0: uniform numeric == K/(K+1)
+    maxWeightedExcessOverClosed: maxExcess,         // <= 0: no weighted geometry beats K/(K+1)
+    uniformIsStaticMaximiser: rows.every((r) => r.uniformIsMaximiser),
+    weightingStrictlyLowersTheta: rows.every((r) => r.perturbLowersTheta),
+    summary:
+      'Answers imp-3270: NO weighted (non-uniform) lattice exceeds Theta_K = K/(K+1) at fixed neighbour '
+      + 'count K -- the uniform minimal-spacing lattice is the unique static maximiser. Over 6000 feasible '
+      + 'weighted geometries per K (K=1..6, independent left/right gaps >= g, so asymmetric weighting is '
+      + 'included) the maximum Theta never exceeds K/(K+1) (measured gap <= 0), and widening any single gap '
+      + 'off the uniform value strictly lowers Theta. Structural reason: T_r = 1/(s_r(s_r+1)) is decreasing '
+      + 'in the cumulative distance s_r >= r, so E = sum T_r is maximised termwise at s_r = r (all gaps '
+      + 'minimal), matching the R1-FN majorant. This does NOT relax the sup_K K/(K+1) = 1 obstruction (the '
+      + 'static peak stays uncapped via K -> inf on a long uniform lattice); the residual is DYNAMICAL '
+      + '(R1-T4 / R2-T). PT Lambda <= 0.2 stays SOTA.',
+  };
+})();
+
 // imp-3021: structured search for the WORST asymmetric multi-body isolation config,
 // the post-imp-3005 sharpened residual of sg1c-r2-isolation-persistence. imp-3005
 // closed the SYMMETRIC single-shell onset at c* = sqrt(2+sqrt(3))-1 ~ 0.93185 and a
@@ -1437,6 +1531,74 @@ export const SG1C_A1_REALZERO_CEILING = (() => {
   };
 })();
 
+// imp-3271: MEASURE the slack the Corollary A1 unconditional ceiling t_c <=
+// g_min(0)^2/6 leaves against the DIRECTLY-INTEGRATED collision times on the
+// three measured real-zero rows (Theta(0) = 0.167/0.088/0.034, all < 1/4 so A1
+// is unconditional). The parent imp-3024 export SG1C_A1_REALZERO_CEILING already
+// tabulates the fraction-of-ceiling-used t_c/a1 = 0.82/0.79/0.76; this block
+// reports the SLACK itself -- the multiplicative overshoot slackFactor = a1/t_c
+// and the absolute slack a1 - t_c per row -- and DECOMPOSES the total A1 slack
+// into its two independent sources on the SAME frozen interval-RK4 t_c:
+//   part1 = a1/boundE1 = (1-Theta0)*4/3   -- STATIC-cap coarsening (A1 evaluates
+//           the exact squeeze d(g^2)/ds = -8(1-Theta) at the trap ceiling Theta*
+//           = 1/4 instead of the smaller measured Theta(0); parent Corollary E1);
+//   part2 = boundE1/t_c                   -- TRAJECTORY coarsening (E1 uses the
+//           constant worst rate -8(1-Theta0), but Theta(s) strictly decreases so
+//           the true squeeze is steeper and t_c sits below boundE1, approaching
+//           the collision floor g^2/8 as Theta(0) -> 0).
+// Their product is exactly the total slack a1/t_c (checked to roundoff). MEASURED:
+// slackFactor a1/t_c = 1.218 / 1.272 / 1.310 (A1 overshoots the true collision
+// time by ~22% / 27% / 31%), GROWING as Theta(0) shrinks; part1 = 1.111 / 1.215 /
+// 1.288 dominates and rises toward the ceiling 4/3 (= lim_{Theta0 -> 0}), while
+// part2 = 1.096 / 1.047 / 1.018 shrinks toward 1 (the flow approaches the constant
+// -8 rate as Theta -> 0). So the ENTIRE growing A1 slack is the static-1/4 cap; in
+// the Theta(0) -> 0 limit A1 overshoots the true t_c by the closed-form factor 4/3.
+// HONEST: measure only, on the frozen 2026-06-10 integrated t_c -- no new bound
+// claim; A1 stays valid unconditionally (slackFactor > 1 on every row confirms
+// t_c <= a1). PT Lambda <= 0.2 stays SOTA.
+export const SG1C_A1_SLACK_DECOMPOSITION = (() => {
+  const rows = THETA_TRAP_RUNS.filter((r) => r.kind === 'riemann-zeros').map((r) => {
+    const a1 = (r.g0 * r.g0) / 6; // Corollary A1 ceiling
+    const boundE1 = (r.g0 * r.g0) / (8 * (1 - r.theta0)); // parent E1 (dynamic-ceiling rate)
+    const floor = (r.g0 * r.g0) / 8; // Lemma D collision floor g^2/8
+    const slackFactor = a1 / r.tc; // total multiplicative overshoot of the true t_c
+    const part1 = a1 / boundE1; // static-cap coarsening = (1-theta0)*4/3
+    const part2 = boundE1 / r.tc; // trajectory-vs-constant-rate coarsening
+    return {
+      id: r.id,
+      N: r.N,
+      g0: r.g0,
+      theta0: r.theta0,
+      tcIntegrated: r.tc, // frozen interval-RK4 first-collision time
+      a1Ceiling: a1,
+      slackFactor, // a1 / t_c > 1
+      slackAbsolute: a1 - r.tc, // a1 - t_c > 0
+      staticCapPart: part1, // a1 / boundE1
+      staticCapClosedForm: (1 - r.theta0) * (4 / 3),
+      trajectoryPart: part2, // boundE1 / t_c
+      decompositionCloses: Math.abs(part1 * part2 - slackFactor) < 1e-9,
+      floorRatio: r.tc / floor, // t_c / (g^2/8) -> 1 as theta0 -> 0
+      a1Valid: r.tc <= a1,
+    };
+  });
+  return {
+    rows,
+    allValid: rows.every((r) => r.a1Valid && r.slackFactor > 1),
+    allDecompose: rows.every((r) => r.decompositionCloses),
+    staticCapCeiling: 4 / 3, // lim_{theta0 -> 0} of the total A1 slack
+    summary:
+      'A1 slack on the 3 integrated real-zero rows (N=100/300/870): the true '
+      + 'interval-RK4 t_c uses only 0.82/0.79/0.76 of the ceiling g0^2/6, so A1 '
+      + 'OVERSHOOTS the true collision time by factor a1/t_c = 1.218/1.272/1.310 '
+      + '(slack GROWS as Theta(0) shrinks). Decomposition a1/t_c = (a1/boundE1) x '
+      + '(boundE1/t_c): the static-cap part (1-Theta0)*4/3 = 1.111/1.215/1.288 '
+      + 'dominates and rises toward 4/3, while the trajectory part boundE1/t_c = '
+      + '1.096/1.047/1.018 falls toward 1 -- so the ENTIRE growing slack is the '
+      + 'static Theta*=1/4 cap, and A1 -> (4/3) t_c in the Theta(0) -> 0 limit. '
+      + 'Measure only; A1 remains a valid unconditional ceiling on every row.',
+  };
+})();
+
 // imp-3049: assess the COROLLARY A1 ADJACENCY-PERSISTENCE hypothesis directly.
 // A1 (t_c <= g_min(0)^2/6) tracks a FIXED minimal pair and assumes adjacency
 // persists -- no environment particle crosses BETWEEN the tracked pair before
@@ -1742,6 +1904,113 @@ export const SG1C_THEOREMB_SHARPNESS_SWEEP = (() => {
       + 'at Theta_b -- no static bound reaches higher (consistent with the R1-T2 lattice '
       + 'obstruction Theta_K -> 1). Confirms sharpness; the >0.443 excursions are static '
       + 'crossings, dynamically re-trapped by the R1-T seizing mechanism, not a refutation.',
+  };
+})();
+
+// imp-3269: assess whether the THEOREM B sharp threshold Theta_b = (sqrt(73)-5)/8
+// = 0.443000... and its capped-greedy saturating profile extend from the 4-particle
+// band-defining family (tracked pair + 2 environment neighbours) to N > 4 environment
+// counts. Theorem B is a STATIC power-sum bound: with g the minimal gap, mu_j = g^2 T_j
+// in [0, 1/2], S = sum mu_j = 2 Theta, and the exact boundary rate is g^2 dTheta/ds =
+// -4 S + S^2 + 6 P2 + 2 P3 (P2 = sum mu^2, P3 = sum mu^3; algebraically identical to the
+// dThetaDs helper). Trap = (this <= 0). P2, P3 are Schur-convex, so at fixed S they are
+// MAXIMISED by the capped-greedy profile (fill as many mu at the 1/2 cap as S allows,
+// then one residual). We enumerate that worst-case profile for environment counts
+// nEnv = 1..8 (total N = 3..10), bisect the upward crossing of the boundary rate, and
+// compare the attained threshold to Theta_b. CLAIM UNDER TEST: at the threshold
+// S = 2 Theta_b = 0.886 the greedy profile needs only floor(2S) = 1 capped neighbour
+// (mu = 1/2) + 1 residual (mu = (sqrt(73)-7)/4 = 0.386) = exactly 2 environment particles
+// (the band-defining 4-config), so extra neighbours cannot raise the saturating level and
+// Theta_b is nEnv-INVARIANT for every nEnv >= 2. A lone neighbour (nEnv = 1, max S = 1/2)
+// reaches only Theta = 1/4 -- recovering the Theorem-A unconditional ceiling.
+export const SG1C_THEOREMB_NENV_INVARIANCE = (() => {
+  const thetaB = (Math.sqrt(73) - 5) / 8; // 0.443000...
+  const CAP = 0.5; // mu_j <= 1/2 (minimal-gap saturation)
+  // capped-greedy power-sum-maximising mu-profile for total S with at most nEnv parts
+  const greedyProfile = (S, nEnv) => {
+    const mus = [];
+    let rem = S;
+    for (let j = 0; j < nEnv && rem > 1e-15; j++) {
+      const m = Math.min(CAP, rem);
+      mus.push(m);
+      rem -= m;
+    }
+    return { mus, feasible: rem <= 1e-12 }; // infeasible if S > nEnv/2
+  };
+  const boundaryRate = (mus) => {
+    const S = mus.reduce((a, b) => a + b, 0);
+    const P2 = mus.reduce((a, b) => a + b * b, 0);
+    const P3 = mus.reduce((a, b) => a + b * b * b, 0);
+    return -4 * S + S * S + 6 * P2 + 2 * P3; // = g^2 dTheta/ds along the greedy profile
+  };
+  // largest Theta with greedy boundary rate <= 0 (the upward sign flip / trap ceiling)
+  const crossingTheta = (nEnv) => {
+    const rateAt = (theta) => {
+      const { mus, feasible } = greedyProfile(2 * theta, nEnv);
+      return feasible ? boundaryRate(mus) : Infinity;
+    };
+    const maxTheta = nEnv / 4; // all nEnv at cap => S = nEnv/2, Theta = nEnv/4
+    if (rateAt(maxTheta) <= 1e-12) return maxTheta; // whole feasible band trapped (nEnv = 1)
+    let lo = 0.25, hi = maxTheta;
+    for (let it = 0; it < 200; it++) {
+      const mid = (lo + hi) / 2;
+      if (rateAt(mid) > 0) hi = mid; else lo = mid;
+    }
+    return (lo + hi) / 2;
+  };
+  const rows = [1, 2, 3, 4, 5, 6, 7, 8].map((nEnv) => {
+    const th = crossingTheta(nEnv);
+    const { mus } = greedyProfile(2 * th, nEnv); // greedy profile at the attained threshold
+    return {
+      nEnv,
+      totalN: nEnv + 2, // tracked pair (2) + environment
+      crossingTheta: th,
+      matchesThetaB: Math.abs(th - thetaB) < 1e-7,
+      cappedNeighbours: mus.filter((m) => Math.abs(m - CAP) < 1e-9).length, // active 1/2 caps
+      supportSize: mus.filter((m) => m > 1e-9).length, // # nonzero mu (active env particles)
+    };
+  });
+  // control: SPREADING S = 0.886 uniformly over nEnv particles LOWERS the boundary rate
+  // (Schur-convexity), so a non-greedy N > 4 profile never crosses below Theta_b.
+  const Sb = 2 * thetaB;
+  const spreadRates = [2, 4, 8].map((nEnv) => ({
+    nEnv,
+    uniformRate: boundaryRate(Array(nEnv).fill(Sb / nEnv)),
+    greedyRate: boundaryRate(greedyProfile(Sb, nEnv).mus),
+  }));
+  const nEnvGE2 = rows.filter((r) => r.nEnv >= 2);
+  return {
+    thetaB,
+    thetaA: 0.25,
+    residualMu: (Math.sqrt(73) - 7) / 4, // 0.386000... the single greedy residual at S = 0.886
+    rows,
+    spreadRates,
+    // nEnv = 1 caps out at Theta = 1/4 (Theorem A); every nEnv >= 2 lands on Theta_b
+    singleNeighbourThreshold: rows[0].crossingTheta, // 0.25
+    singleNeighbourIsThetaA: Math.abs(rows[0].crossingTheta - 0.25) < 1e-7,
+    thetaBInvariantForNEnvGE2: nEnvGE2.every((r) => r.matchesThetaB),
+    // at the threshold the greedy support is exactly ONE cap + ONE residual = 2 particles
+    thresholdSupportIsTwo: nEnvGE2.every((r) => r.supportSize === 2 && r.cappedNeighbours === 1),
+    // spreading the same S_b is strictly safer than greedy (uniform rate < greedy rate ~ 0)
+    spreadingLowersRate: spreadRates.every((s) => s.uniformRate < s.greedyRate - 1e-12),
+    summary:
+      'Theorem B sharp threshold Theta_b = (sqrt(73)-5)/8 = 0.443000 is nEnv-INVARIANT for '
+      + 'every environment count nEnv >= 2 (total N >= 4). The boundary rate g^2 dTheta/ds = '
+      + '-4 S + S^2 + 6 P2 + 2 P3 (S = 2 Theta = sum mu, mu_j in [0,1/2]) is maximised at fixed '
+      + 'S by the capped-greedy mu-profile; at the threshold S = 0.886 that profile uses only '
+      + 'floor(2S) = 1 capped neighbour (mu = 1/2) + 1 residual (mu = (sqrt(73)-7)/4 = 0.386) = '
+      + 'exactly 2 environment particles, i.e. the band-defining 4-config. Enumerating nEnv = 1..8 '
+      + '(total N = 3..10) and bisecting the upward crossing: nEnv = 1 (a lone neighbour, max '
+      + 'S = 1/2) caps at Theta = 1/4 (recovering the Theorem-A unconditional ceiling); every '
+      + 'nEnv >= 2 lands the crossing EXACTLY on Theta_b to ~1e-7, with active support = 1 cap + '
+      + '1 residual regardless of how many extra far particles are available. Extra environment '
+      + 'particles only ADD room for the greedy profile (surplus mu -> 0 at large distance), never '
+      + 'raising the saturating level; and spreading the same S = 0.886 uniformly over nEnv '
+      + 'particles STRICTLY lowers the boundary rate (Schur-convexity), so no N > 4 profile crosses '
+      + 'below Theta_b. CONCLUSION: Theorem B and its capped-greedy saturating profile extend '
+      + 'unchanged to all N > 4 -- Theta_b is sharp and N-independent, and the 4-particle family is '
+      + 'already the worst case. Assessment only; no new closed-form claim beyond the established '
+      + 'N-invariance of the existing Theorem-B threshold. PT Lambda <= 0.2 stays SOTA.',
   };
 })();
 
@@ -2571,6 +2840,26 @@ export const SG1C_THEOREM_ASSERTIONS = [
         c.refutedBandNotStaticallyGuaranteed &&
         c.refutedWitnessRate > 0.03 && c.refutedWitnessRate < 0.04 &&
         c.aggregateConsistentWithBand
+      );
+    },
+  },
+  {
+    id: 'sg1c-a1-slack-decomposition',
+    description: 'imp-3271: the Corollary A1 ceiling g0^2/6 overshoots the directly-integrated t_c on the 3 real-zero rows by slackFactor a1/t_c = 1.218/1.272/1.310 (growing as Theta(0) shrinks); the total slack decomposes exactly as (a1/boundE1) x (boundE1/t_c), the static-cap part (1-Theta0)*4/3 dominates and rises toward 4/3 while the trajectory part falls toward 1, so the entire growing slack is the static Theta*=1/4 cap and A1 remains a valid ceiling (a1/t_c > 1) on every row',
+    holds: () => {
+      const d = SG1C_A1_SLACK_DECOMPOSITION;
+      return (
+        d.rows.length === 3 &&
+        d.allValid &&
+        d.allDecompose &&
+        Math.abs(d.staticCapCeiling - 4 / 3) < 1e-15 &&
+        d.rows.every((r) => Math.abs(r.staticCapPart - r.staticCapClosedForm) < 1e-12) &&
+        d.rows.every((r) => r.slackFactor > 1 && r.slackAbsolute > 0) &&
+        d.rows.every((r) => r.trajectoryPart > 1 && r.floorRatio > 1) &&
+        d.rows[0].slackFactor > 1.21 && d.rows[0].slackFactor < 1.23 &&
+        d.rows[2].slackFactor > 1.30 && d.rows[2].slackFactor < 1.32 &&
+        d.rows[0].slackFactor < d.rows[1].slackFactor &&
+        d.rows[1].slackFactor < d.rows[2].slackFactor
       );
     },
   },

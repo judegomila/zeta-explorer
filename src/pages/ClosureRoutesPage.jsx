@@ -68,6 +68,9 @@ import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-re
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
 import { IMP3406_SIGMA_HIGHN_EXTRAPOLATION } from '../data/imp-3406-sigma-highN-extrapolation.js';
 import { IMP3443_NMAX_ETRUNC_SENSITIVITY } from '../data/imp-3443-nmax-etrunc-sensitivity.js';
+import { IMP3486_CRITICAL_DECAY_EXPONENT } from '../data/imp-3486-critical-decay-exponent.js';
+import { effectiveHeightForN } from '../data/lambda-rh-height-mapping.js';
+import { C_C_PINNED } from '../data/polymath15-constant-C-C.js';
 import { IMP3445_C_INF_THIRD_EXTRAPOLATION_WYNN } from '../data/imp-3445-C-inf-third-extrapolation-wynn.js';
 import { IMP3324_SIGMA_CH_SENSITIVITY } from '../data/imp-3324-sigma-CH-sensitivity.js';
 import { IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE } from '../data/imp-3219-mupass-bridge-overshoot-knee.js';
@@ -895,6 +898,159 @@ function NmaxEtruncSensitivityPanel() {
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3443-nmax-etrunc-sensitivity.js &mdash; E_trunc&isin;[0.5,2.0]&times;3.06e-5 (9-point grid),
         log-log axes, fit slope &asymp;{slope.toFixed(3)}, R&sup2;&asymp;{sens.power_fit_R2.toFixed(5)}.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3520: the imp-3486 g(N;k) family -- global-min HANDOVER at k_c~0.1967 ──
+// Recomputes the identical imp-3486/imp-3465/imp-3406 g(N;k) sub-terms directly for a small
+// ladder of floor exponents k straddling the imp-3486 threshold, so the global-min HANDOVER
+// from the interior stationary point to the N=1e2 window boundary is visible on the curves
+// themselves rather than only in the imp-3486 scalar certificate.
+const IMP3520_K_LADDER = [
+  { k: 0, label: 'k=0 (fixed floor, imp-3406 control)', color: '#34d399' },
+  { k: 0.1, label: 'k=0.1', color: '#a78bfa' },
+  { k: IMP3486_CRITICAL_DECAY_EXPONENT.criticalExponent.k_c, label: 'k=k_c≈0.1967', color: '#fde047' },
+  { k: 0.2, label: 'k=0.2', color: '#f59e0b' },
+  { k: 0.4, label: 'k=0.4 (Ingham sigma=3/4)', color: '#f472b6' },
+];
+const IMP3520_TWO_PI = 2 * Math.PI;
+const IMP3520_E_TRUNC_BASE = 3.06e-5; // imp-2631/imp-3220/imp-3406/imp-3486 fixed truncation floor
+const IMP3520_T_PT = 3e12;
+const IMP3520_LN_T_PT = Math.log(IMP3520_T_PT);
+const IMP3520_GRONWALL = Math.exp(1.0 * 2.37e-4); // matches imp-3220/imp-3406/imp-3465/imp-3486 exactly
+const imp3520PowerFloor = (k) => (T0) => IMP3520_E_TRUNC_BASE * Math.exp(k * (IMP3520_LN_T_PT - Math.log(T0)));
+function imp3520GOf(N, floorFn) {
+  const T0 = effectiveHeightForN(N);
+  const L = Math.log(T0);
+  const C_F = (Math.log(T0 / IMP3520_TWO_PI) + 1) / IMP3520_TWO_PI; // imp-398 pinned prefactor
+  const E_flow = C_F * (L / T0) * IMP3520_GRONWALL;
+  const E_coll = C_C_PINNED * Math.sqrt(L / N);
+  const E_trunc = floorFn(T0);
+  return (E_trunc + E_flow) / E_coll;
+}
+const IMP3520_LO_N = 1e2;
+const IMP3520_HI_N = 1e7;
+const IMP3520_STEPS = 48;
+const IMP3520_CURVES = IMP3520_K_LADDER.map(({ k, label, color }) => {
+  const floorFn = imp3520PowerFloor(k);
+  const a = Math.log(IMP3520_LO_N);
+  const b = Math.log(IMP3520_HI_N);
+  const points = [];
+  for (let i = 0; i <= IMP3520_STEPS; i++) {
+    const N = Math.exp(a + ((b - a) * i) / IMP3520_STEPS);
+    points.push({ N, g: imp3520GOf(N, floorFn) });
+  }
+  let minIdx = 0;
+  for (let i = 1; i < points.length; i++) if (points[i].g < points[minIdx].g) minIdx = i;
+  return { k, label, color, points, minIdx, isBoundaryGlobalMin: minIdx === 0 };
+});
+
+function GKFamilyHandoverPanel() {
+  const F = IMP3486_CRITICAL_DECAY_EXPONENT;
+  const kc = F.criticalExponent.k_c;
+  const N_atKc = F.mechanism.interiorStationaryN_atKc;
+
+  const W = 660, H = 300, ML = 56, MR = 20, MT = 26, MB = 40;
+  const allG = IMP3520_CURVES.flatMap((c) => c.points.map((p) => p.g));
+  const logGMin = Math.log10(Math.min(...allG)) - 0.12;
+  const logGMax = Math.log10(Math.max(...allG)) + 0.12;
+  const logNMin = Math.log10(IMP3520_LO_N);
+  const logNMax = Math.log10(IMP3520_HI_N);
+  const px = (N) => ML + ((Math.log10(N) - logNMin) / (logNMax - logNMin)) * (W - ML - MR);
+  const py = (g) => H - MB - ((Math.log10(g) - logGMin) / (logGMax - logGMin)) * (H - MT - MB);
+
+  const xTicks = [1e2, 1e3, 1e4, 1e5, 1e6, 1e7];
+  const yTicks = [0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10].filter(
+    (v) => Math.log10(v) >= logGMin && Math.log10(v) <= logGMax
+  );
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #38bdf8', background: 'rgba(56,189,248,0.04)' }}>
+      <h3 style={{ color: '#38bdf8', marginTop: 0, fontSize: 14 }}>
+        The imp-3486 g(N;k) family: global-min HANDOVER at k<sub>c</sub>&asymp;{kc.toFixed(4)} (imp-3520)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        Recomputing the identical imp-3486/imp-3465/imp-3406 g(N;k) = (E<sub>trunc</sub>+E<sub>flow</sub>)/E<sub>coll</sub>{' '}
+        sub-terms directly for a small floor-exponent ladder, the interior stationary minimum (circle markers) seen at
+        k=0 (N&asymp;9.2&times;10<sup>5</sup>) and k=0.1 shifts LEFT as k rises toward k<sub>c</sub>&asymp;{kc.toFixed(4)}, where
+        it still exists at N&asymp;{N_atKc.toExponential(1).replace('e+', 'e')} but its value is just overtaken by the
+        amplified low-N floor. Above k<sub>c</sub> (k=0.2, 0.4) the global minimum HANDS OFF to the N=10<sup>2</sup> window
+        boundary (diamond markers): a shallow interior dip may still exist, but the boundary value is now the lower
+        one, so g climbs away from N=10<sup>2</sup> for the rest of the plotted window.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={`yt${v}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{v}</text>
+            </g>
+          ))}
+          {xTicks.map((N) => (
+            <g key={`xt${N}`}>
+              <line x1={px(N)} y1={MT} x2={px(N)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(N)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>
+                {N.toExponential(0).replace('e+', 'e')}
+              </text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={ML - 42} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 ${ML - 42} ${(MT + H - MB) / 2})`}>
+            g(N;k) (log)
+          </text>
+
+          {/* the N=1e2 window boundary shared by every curve */}
+          <line x1={px(IMP3520_LO_N)} y1={MT} x2={px(IMP3520_LO_N)} y2={H - MB} stroke="#64748b" strokeWidth="1" strokeDasharray="3 3" />
+          <text x={px(IMP3520_LO_N) + 4} y={MT + 10} fontSize="9" fill="#94a3b8" fontFamily={mono}>N=10&sup2; boundary</text>
+
+          {/* the k_c interior stationary point, still present but about to hand over */}
+          <line x1={px(N_atKc)} y1={MT} x2={px(N_atKc)} y2={H - MB} stroke="#fde047" strokeWidth="1" strokeDasharray="2 3" />
+          <text x={px(N_atKc) + 4} y={H - MB - 6} fontSize="9" fill="#fde047" fontFamily={mono}>interior pt @ k_c</text>
+
+          {IMP3520_CURVES.map((c) => {
+            const path = c.points
+              .map((p, i) => `${i === 0 ? 'M' : 'L'} ${px(p.N).toFixed(1)} ${py(p.g).toFixed(1)}`)
+              .join(' ');
+            const marker = c.points[c.minIdx];
+            return (
+              <g key={`curve${c.k}`}>
+                <path d={path} fill="none" stroke={c.color} strokeWidth="2" />
+                {c.isBoundaryGlobalMin ? (
+                  <rect
+                    x={px(marker.N) - 4} y={py(marker.g) - 4} width={8} height={8}
+                    transform={`rotate(45 ${px(marker.N)} ${py(marker.g)})`}
+                    fill={c.color}
+                  >
+                    <title>{`${c.label}: global min at the N=1e2 boundary, g=${marker.g.toExponential(4)}`}</title>
+                  </rect>
+                ) : (
+                  <circle cx={px(marker.N)} cy={py(marker.g)} r={4} fill={c.color}>
+                    <title>{`${c.label}: interior min at N=${marker.N.toExponential(3)}, g=${marker.g.toExponential(4)}`}</title>
+                  </circle>
+                )}
+              </g>
+            );
+          })}
+          {IMP3520_CURVES.map((c, i) => (
+            <text key={`lg${c.k}`} x={W - MR - 4} y={MT + 12 + i * 12} textAnchor="end" fontSize="9" fill={c.color} fontFamily={mono}>
+              {c.label}
+            </text>
+          ))}
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3520):</strong>{' '}
+        UX/visualization only, reusing the identical imp-3486/imp-3465/imp-3406 sub-term formulas &mdash; no
+        re-derivation, frontier-direction. RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity
+        (imp-3066) untouched, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains
+        the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3486-critical-decay-exponent.js formulas recomputed at N&isin;[10<sup>2</sup>,10<sup>7</sup>]
+        (log-N, 48-step grid) for k&isin;{'{'}0, 0.1, k<sub>c</sub>&asymp;0.1967, 0.2, 0.4{'}'}.
       </p>
     </div>
   );
@@ -7897,6 +8053,8 @@ export default function ClosureRoutesPage() {
       <SigmaNShapeExtrapolationPanel />
 
       <NmaxEtruncSensitivityPanel />
+
+      <GKFamilyHandoverPanel />
 
       <CInfThirdExtrapolationLadderPanel />
 

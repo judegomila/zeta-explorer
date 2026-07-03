@@ -54,6 +54,7 @@ import { IMP3288_ANALYTIC_CEILING_LEMMA } from '../data/imp-3288-analytic-ceilin
 import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-fraction-integrability.js';
 import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
+import { IMP3324_SIGMA_CH_SENSITIVITY } from '../data/imp-3324-sigma-CH-sensitivity.js';
 import { IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE } from '../data/imp-3219-mupass-bridge-overshoot-knee.js';
 import { IMP3255_BRIDGE_RATIO_CLOSED_FORM } from '../data/imp-3255-bridge-ratio-closed-form.js';
 import { IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL } from '../data/imp-3257-bridge-sign-phi-nonneg-structural.js';
@@ -673,6 +674,94 @@ function ConditionalShareUShapePanel() {
       </div>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3220-en-bridge-fidelity-frontier.js &mdash; N&isin;{'{2..10'}<sup>6</sup>{'}'}, dual-axis (&sigma;(N) left, E_coll/E_flow right).
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3324/imp-3393: sigma(C_H) saturation curve + semi-elasticity sigma(1-sigma) ──
+// Shows the conditional share sigma(10^6) rising toward its saturation ceiling 1 as
+// C_H sweeps the plausible [0.0625, 1.0] bracket, and the semi-elasticity
+// d(sigma)/d(log C_H) = sigma(1-sigma) (right axis) shrinking toward 0 as sigma nears
+// that ceiling -- the mechanism behind the imp-3324 robustness finding.
+function SigmaCHSaturationPanel() {
+  const D = IMP3324_SIGMA_CH_SENSITIVITY;
+  const sweep = D.sweep;
+  const n = sweep.length;
+
+  const W = 640, H = 260, ML = 56, MR = 60, MT = 24, MB = 44;
+  const sigmaMin = 0.88, sigmaMax = 1.0;
+  const elastMin = 0, elastMax = 0.14;
+  const px = (i) => ML + (i / (n - 1)) * (W - ML - MR);
+  const pySigma = (v) => H - MB - ((v - sigmaMin) / (sigmaMax - sigmaMin)) * (H - MT - MB);
+  const pyElast = (v) => H - MB - ((v - elastMin) / (elastMax - elastMin)) * (H - MT - MB);
+
+  const sigmaPath = sweep.map((row, i) => `${i === 0 ? 'M' : 'L'} ${px(i)} ${pySigma(row.sigma)}`).join(' ');
+  const elastPath = sweep
+    .map((row, i) => `${i === 0 ? 'M' : 'L'} ${px(i)} ${pyElast(row.sigma * (1 - row.sigma))}`)
+    .join(' ');
+
+  const sigmaTicks = [0.88, 0.92, 0.96, 1.0];
+  const elastTicks = [0, 0.05, 0.1];
+  const ansatzIdx = sweep.findIndex((r) => r.C_H === 0.125);
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #a78bfa', background: 'rgba(167,139,250,0.04)' }}>
+      <h3 style={{ color: '#a78bfa', marginTop: 0, fontSize: 14 }}>
+        &sigma;(C<sub>H</sub>) saturates toward 1, so the semi-elasticity &sigma;(1&minus;&sigma;) shrinks toward 0 (imp-3324)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        At N*=10<sup>6</sup>, &sigma;(C<sub>H</sub>) (solid, left axis) rises from &asymp;{D.robustness.sigma_at_half_ansatz.toFixed(3)} at
+        C<sub>H</sub>=0.0625 to &asymp;{D.robustness.sigma_at_placeholder.toFixed(3)} at C<sub>H</sub>=1.0 &mdash; a 16&times; C<sub>H</sub> range
+        compressed into a &asymp;{(D.robustness.bracket_share_span * 100).toFixed(1)}-point share band. The semi-elasticity
+        d&sigma;/d(log&nbsp;C<sub>H</sub>) = &sigma;(1&minus;&sigma;) (dashed, right axis) falls from
+        &asymp;{(sweep[0].sigma * (1 - sweep[0].sigma)).toFixed(3)} to &asymp;{(sweep[n - 1].sigma * (1 - sweep[n - 1].sigma)).toFixed(4)} across the
+        same sweep, the saturation signature behind the imp-3324 robustness finding.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {sigmaTicks.map((v) => (
+            <g key={`ss${v}`}>
+              <line x1={ML} y1={pySigma(v)} x2={W - MR} y2={pySigma(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={pySigma(v) + 4} textAnchor="end" fontSize="11" fill="#a78bfa" fontFamily={mono}>{v.toFixed(2)}</text>
+            </g>
+          ))}
+          {elastTicks.map((v) => (
+            <text key={`es${v}`} x={W - MR + 10} y={pyElast(v) + 4} textAnchor="start" fontSize="11" fill="#f59e0b" fontFamily={mono}>{v.toFixed(2)}</text>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          {/* sigma(C_H) saturation curve, left axis */}
+          <path d={sigmaPath} fill="none" stroke="#a78bfa" strokeWidth="2.5" />
+          {sweep.map((row, i) => (
+            <circle key={`sc${i}`} cx={px(i)} cy={pySigma(row.sigma)} r={i === ansatzIdx ? 4.5 : 3} fill="#a78bfa">
+              <title>{`C_H=${row.C_H}, sigma=${row.sigma}`}</title>
+            </circle>
+          ))}
+          {/* semi-elasticity sigma(1-sigma), right axis, dashed */}
+          <path d={elastPath} fill="none" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="5 3" />
+          {sweep.map((row, i) => (
+            <circle key={`ec${i}`} cx={px(i)} cy={pyElast(row.sigma * (1 - row.sigma))} r="2.5" fill="#f59e0b">
+              <title>{`C_H=${row.C_H}, sigma(1-sigma)=${(row.sigma * (1 - row.sigma)).toFixed(5)}`}</title>
+            </circle>
+          ))}
+          {sweep.map((row, i) => (
+            <text key={`xl${i}`} x={px(i)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>
+              {row.C_H}
+            </text>
+          ))}
+          <text x={ML} y={16} textAnchor="start" fontSize="10" fill="#a78bfa" fontFamily={mono}>&sigma;(C_H) (left)</text>
+          <text x={W - MR} y={16} textAnchor="end" fontSize="10" fill="#f59e0b" fontFamily={mono}>&sigma;(1&minus;&sigma;) (right)</text>
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#f87171' }}>Honest scope (imp-3324):</strong>{' '}
+        ASSESSMENT ONLY: C<sub>H</sub> is load-bearing for the absolute E<sub>coll</sub> budget (linear) but NOT for the
+        conditional share &sigma;, which saturates toward 1. No positivity, no bridge closure, no RH claim, NO QED.
+        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3324-sigma-CH-sensitivity.js &mdash; N*=10<sup>6</sup>, C<sub>H</sub>&isin;[0.0625,&thinsp;1.0], dual-axis (&sigma;(C_H) left, &sigma;(1&minus;&sigma;) right).
       </p>
     </div>
   );
@@ -5058,6 +5147,8 @@ export default function ClosureRoutesPage() {
       <AnalyticCeilingConcentratingFamilyPanel />
 
       <ConditionalShareUShapePanel />
+
+      <SigmaCHSaturationPanel />
 
       <CaptureOvershootKneePanel />
 

@@ -3,7 +3,9 @@
  * @fileoverview imp-3669 -- INDEPENDENTLY reproduce and VERIFY the imp-3643 baked N = 2000
  *   (and N = 1200, 1600) dense top-8 Gram eigenvalues, guarding against a baked-literal
  *   transcription or offline-drift error before downstream tickets (e.g. imp-3668) build on
- *   imp-3643. Verification/measurement only, NO QED; imp-3066 untouched.
+ *   imp-3643. Verification/measurement only; does NOT attempt the imp-3066 K_a >= 0
+ *   positivity. RH-EQUIVALENT. NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
+ *   remains the rigorous SOTA.
  *
  *   CONTEXT
  *   -------
@@ -91,7 +93,9 @@ export const IMP3669_DENSE_THIRD_GAP_INDEPENDENT_VERIFY = Object.freeze({
     'shared with imp-3643 (an orthogonal similarity that preserves the spectrum exactly); the ' +
     'independence lever is the Sturm-bisection eigenvalue EXTRACTION and the re-typed assembly. ' +
     'This confirms the baked literals against transcription/offline-drift and a QL-convergence ' +
-    'bug; it does NOT re-establish the underlying imp-3505 assembly or the imp-3066 program.',
+    'bug; it does NOT re-establish the underlying imp-3505 assembly, does NOT attempt the ' +
+    'imp-3066 K_a >= 0 positivity, and does NOT re-establish the imp-3066 program. ' +
+    'RH-EQUIVALENT; NO RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 stays SOTA.',
   summary:
     'Independent Sturm-bisection re-solve reproduces the imp-3643 baked deep-rung dense top-8 ' +
     'to worst relative 1.77e-15 at N = 1200/1600/2000 and the third gap sigma_3 to worst 3.38e-14 ' +
@@ -120,6 +124,15 @@ export const IMP3669_DENSE_THIRD_GAP_INDEPENDENT_VERIFY_ASSERTIONS = [
     check: () => {
       const c = IMP3669_DENSE_THIRD_GAP_INDEPENDENT_VERIFY.honestCaveat;
       return c.includes('NO QED') && c.includes('imp-3066');
+    },
+  },
+  {
+    // imp-3706 honesty-audit fix: this pure verification module was missing the
+    // RH-EQUIVALENT / Platt-Trudgian-SOTA banner carried by its imp-3623/imp-3625/imp-3668 precedents.
+    id: 'imp3669-honesty-gate-rh-equivalent-sota',
+    check: () => {
+      const c = IMP3669_DENSE_THIRD_GAP_INDEPENDENT_VERIFY.honestCaveat;
+      return /RH-EQUIVALENT/.test(c) && /Platt-Trudgian/.test(c) && /SOTA/.test(c);
     },
   },
 ];

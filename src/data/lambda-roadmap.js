@@ -730,7 +730,17 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
         'as a conservative upper bound at larger N, valid modulo this non-regression ' +
         'hypothesis (maxSmoothScaleRatio = 2.15 from imp-962 plateau scan) plus the ' +
         'unproved expectation that K_paper_cert decreases with N. Measurement at ' +
-        'larger N (imp-1082/1087/1088 sub-measurement gaps) will retire this conditional.',
+        'larger N (imp-1082/1087/1088 sub-measurement gaps) will retire this conditional. ' +
+        'DISCHARGED (imp-3725, 2026-07-03, modulo the Odlyzko zero table as input): ' +
+        'the gap-domination bootstrap lemma (src/data/imp-3725-fmb-plateau-domination-' +
+        'lemma.js) proves the TRUE-FLOW enclosure H^2/8 <= t_c(N) <= H^2/(8*theta) ' +
+        'per plateau with theta >= 0.99716, giving certified K_paper(N) <= 2.4238e-6 ' +
+        'uniformly on [1e4, 1e6] -- 8.3e4x below the 0.2014 carryforward. The ' +
+        'non-regression hypothesis and the 2.15 smooth-scale slack are no longer ' +
+        'load-bearing on (1e4, 1e6]; the imp-1082/1087/1088 sub-measurement gaps ' +
+        'become optional tightening, not soundness requirements. Node retained for ' +
+        'dependency-graph continuity; residual conditioning of bound-imp-1088-finite-' +
+        '1e6 now rests on its OTHER legs (see cond-CH).',
     },
     {
       id: 'cond-CH',
@@ -847,7 +857,7 @@ export const LAMBDA_DEPENDENCY_MATRIX = {
       label: 'Lambda(1e6) <= 0.2 rigorous conditional (carryforward modulo F_mb non-regression)',
       kind: 'bound',
       dependsOn: ['bound-imp-440-finite-1e4', 'blk-imp-963', 'cond-fmb-nonregression-above-1e4'],
-      note: 'Carryforward extension of imp-440; modulo the F_mb non-regression hypothesis above N = 1e4.',
+      note: 'Carryforward extension of imp-440; the F_mb non-regression leg is DISCHARGED by imp-3725 (certified K_paper <= 2.4238e-6 on [1e4, 1e6] at true-flow semantics, modulo the Odlyzko zero table); residual conditioning rests on the other legs (cond-CH et al.).',
     },
   ],
 };

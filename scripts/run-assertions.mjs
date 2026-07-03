@@ -3432,6 +3432,19 @@ const DATA_MODULES = [
   // feature. Measurement/certification only, imp-3066 K_a>=0 positivity UNTOUCHED, RH-equivalent,
   // no QED, PT Lambda<=0.2 SOTA. 9 assertions.
   '/src/data/imp-3622-planted-replica-argmax-drift.js',
+  // imp-3725: gap-domination bootstrap lemma — rigorous two-sided TRUE-FLOW
+  // t_c(N) enclosure [H^2/8, H^2/(8 theta)] per H_raw-plateau on [1e4, 1e6]
+  // from initial gap data only (no RK4). Psi_N is a monotone partial sum in N
+  // within each plateau, so 10 plateau-end evaluations cover all ~1e6 discrete
+  // N: certified K_paper <= 2.4238e-6 on [1e4, 1e6] at true-flow semantics,
+  // 8.3e4x below the 0.2014 conditional carryforward. Discharges
+  // cond-fmb-nonregression-above-1e4 (modulo the Odlyzko zero table) and
+  // retires the maxSmoothScaleRatio = 2.15 heuristic on (1e4, 1e6]. Cross-
+  // checked: imp-2509 pair index 6708 + measured t_c(1e4) inside the analytic
+  // enclosure; imp-360 ladder brackets contain the enclosures at 25k/50k/100k.
+  // Import-light (baked rows; zeros table consumed only by the offline
+  // generator script). RH-free; PT Lambda<=0.2 stays SOTA. 13 assertions.
+  '/src/data/imp-3725-fmb-plateau-domination-lemma.js',
 ];
 
 let ALL_MODULES = FAST_MODE

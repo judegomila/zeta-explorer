@@ -3178,6 +3178,38 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3670 observable fit-bias decay: |p_fit-2| = |D_n| covVar CONFIRMED, naive (ln n)^2/n^3 rate still drifting",
+    category: "numerical",
+    definition:
+      "imp-3646 DERIVED the closed slowly-varying coefficient laws C_n = Q_n/((n+1)(n+2)) ~ (ln n)^2/(16 n^2) and " +
+      "D_n = C_(n+2) - C_n ~ O((ln n)^2/n^3), from the Laplace saddle of the moment integrand (tau*(n) solving " +
+      "n = 4 pi tau* e^{4 tau*}), but never MEASURED whether these propagate to the OBSERVABLE least-squares " +
+      "fit-bias |p_fit - 2|. imp-3670 measures it across the rung ladder n=3..18 on the imp-3624/imp-3648 base " +
+      "a-window (aHi=0.5, ratio=0.5, K=9). THREE readings: (1) the observable law is CONFIRMED -- |p_fit-2| equals " +
+      "|D_n| cov(a^2,ln a)/var(ln a) to <= ~2e-9 at every rung, and decays monotonically 1.1575e-5 (n=3) -> " +
+      "1.0786e-6 (n=18); (2) the NAIVE (ln n)^2/n^3 rate does NOT yet give a constant ratio -- |p_fit-2|/((ln n)^2/n^3) " +
+      "is strictly increasing 2.59e-4 -> 7.53e-4 (~2.9x, still climbing at n=18), so the fully-simplified asymptotic " +
+      "form is not reached at these finite rungs; (3) the drift is traced to the crude tau*(n) ~ (ln n)/4 substitution, " +
+      "NOT an unmodeled term -- swapping in the ACTUAL Laplace saddle tau*(n)^2 is faithful, with |D_n|/|D_n^saddle| " +
+      "falling monotonically to 1 from above (3.644 -> 1.095), mirroring imp-3646's own Q_n/tau*^2 -> 1 measurement. " +
+      "Pure 1/n^3 (no log factor) drifts ~20x more, confirming the log-growing prefactor is real rather than an " +
+      "artifact. Named residual sg-3670-lnn-saddle-not-asymptotic-at-n18: the (ln n)/4 substitution is pre-asymptotic " +
+      "through n=18; a larger-n ladder or the exact saddle is needed to see the (ln n)^2/n^3 ratio plateau." +
+      "\n\nHONEST SCOPE: measurement only, at the RH-equivalent scale class. This measures the observable decay of a " +
+      "fixed-weight Taylor-remainder decay-order read-out against a derived slowly-varying rate; it establishes NO " +
+      "operator positivity. Mass-feasibility is necessary-but-not-sufficient. The operator-level K_a >= 0 " +
+      "sign-positivity (off-diagonal endpoint-Hankel step, imp-3066) is untouched. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3670 (measures the observable |p_fit-2| fit-bias decay against the imp-3646-derived (ln n)^2/n^3 rate across rungs n=3..18, confirming the law but finding the naive rate still pre-asymptotic), 2026",
+    relatedTerms: [
+      "imp-3646 remainder-tail moment-ratio asymptotics and the C_n/D_n log-divergent prefactor laws (imp-3646)",
+      "imp-3648/imp-3667 base a-window fit-bias sensitivity cross-checks at n=7,9 (imp-3648)",
+      "imp-3581 closed-form remainder-tail exponent derivation (imp-3581)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

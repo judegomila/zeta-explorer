@@ -2369,6 +2369,35 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "sigma(N) post-peak local decay exponent p(N) = -dln sigma/dln N (imp-3529)",
+    category: "numerical",
+    definition:
+      "imp-3406 pinned the imp-3220 GUE-conditional share sigma(N) = E_coll(N)/E(N) to an interior " +
+      "MAXIMUM at N_max ~ 9.219e5 (sigma_max ~ 0.94943) and asserted it then decays MONOTONELY toward " +
+      "0, while imp-3463 derived the FAR-tail leading form sigma(N) ~ (C_C/E_trunc) sqrt(logT0/N) valid " +
+      "only far above the E_coll = E_trunc crossover (N >> 3.28e9). Neither pins down the decay RATE " +
+      "across the intermediate regime between the two. imp-3529 measures the local power-law decay " +
+      "exponent p(N) = -dln sigma/dln N (central difference in ln N on the exact imp-3220/imp-3406/" +
+      "imp-3463 sub-terms) and finds it is NOT constant: p climbs monotonely from ~0 at the flat interior " +
+      "maximum (a stationary point) up to the imp-3463 asymptotic value 1/2, approached FROM BELOW " +
+      "(p ~ 0.473 at N=1e13, ~0.496 at N=1e50) because the slow logT0 growth keeps the measured exponent " +
+      "just under the bare sqrt(1/N) rate. The half-decay point sigma = 1/2 lands EXACTLY at the imp-3444 " +
+      "E_coll = E_trunc crossover N ~ 3.27e9, where p ~ 0.238 -- roughly halfway to the 1/2 asymptote, " +
+      "marking the inflection of the decay steepening. So the post-peak arm is a single continuous " +
+      "interpolation from a flat cap (p=0) to the far-tail sqrt law (p=1/2), not a single power law with " +
+      "a fixed exponent." +
+      "\n\nHONEST SCOPE: measurement/derivation only, quantifying the roadmap's qualitative monotone-decay " +
+      "claim. Does not change the GUE-conditional C_mb <= 1 bridge assumption or touch the imp-3066 " +
+      "off-diagonal endpoint-Hankel obstruction; no RH claim, no QED.",
+    firstUsed: "imp-3529 (measurement of the sigma(N) post-peak local decay exponent p(N) and its 0 -> 1/2 drift), 2026",
+    relatedTerms: [
+      "sigma(N) N-shape (interior min ~97.8, interior max ~9.22e5) (imp-3406)",
+      "sigma(N) machine-precision landmark ladder L1-L5 (imp-3444)",
+      "sigma(N) far-tail decay (imp-3463)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

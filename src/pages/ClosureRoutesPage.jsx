@@ -83,6 +83,7 @@ import { IMP3404_SHEAR_GRAM_FULL_SPECTRUM_CELL_INDEPENDENCE } from '../data/imp-
 import { IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER } from '../data/imp-3409-capture-ratio-sinh-residual-order.js';
 import { IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING } from '../data/imp-3403-leading-order-residual-nphi-scaling.js';
 import { IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING } from '../data/imp-3442-sinh-residual-coefficient-U-scaling.js';
+import { IMP3469_DEGREE2_BRIDGE_MASS_SCALING } from '../data/imp-3469-degree2-bridge-mass-scaling.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -996,6 +997,106 @@ function CInfThirdExtrapolationLadderPanel() {
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3445-C-inf-third-extrapolation-wynn.js &mdash; U&isin;{'{'}10,15,22.5,33.75{'}'}, h=0.025,
         N&isin;{'{'}400,600,900,1350{'}'}, Wynn epsilon eps_2 on the top triple.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3469: degree-0 (exponent p=1) vs degree-2 (exponent p=2) k-ladder scaling contrast ──
+// The imp-3405 degree-0 bridge mass obeys the EXACT law B(a/k,kU) = k*B(a,U) (mass ratio
+// grows linearly in k). The imp-3469 degree-2 (absolute) mass instead obeys B_2(a/k,kU) =
+// B_2(a,U)/k^2 (mass ratio shrinks as 1/k^2). The panel plots both ratios against k on a log
+// y-axis alongside the closed-form relative miss 1 - 1/k^3 of the degree-0 law when
+// (wrongly) applied to the degree-2 mass.
+function Degree0VsDegree2KLadderPanel() {
+  const F = IMP3469_DEGREE2_BRIDGE_MASS_SCALING;
+  const ladder = F.measured.ladderS3;
+  const baseB2 = ladder.base.B2;
+  const rows = ladder.rungs.map((r) => ({
+    k: r.k,
+    degree0Ratio: r.k,                     // exact law: B(a/k,kU)/B(a,U) = k
+    degree2Ratio: r.B2 / baseB2,           // measured: B_2(a/k,kU)/B_2(a,U) ~ 1/k^2
+    missFactor: r.closedFormMiss,          // 1 - 1/k^3
+  }));
+
+  const W = 620, H = 260, ML = 56, MR = 20, MT = 26, MB = 34;
+  const kMin = 1, kMax = 9;
+  const yMin = 0.01, yMax = 10;
+  const px = (k) => ML + ((k - kMin) / (kMax - kMin)) * (W - ML - MR);
+  const py = (v) => H - MB - ((Math.log10(v) - Math.log10(yMin)) / (Math.log10(yMax) - Math.log10(yMin))) * (H - MT - MB);
+
+  const yTicks = [0.01, 0.1, 1, 10];
+  const kTicks = rows.map((r) => r.k);
+
+  const degree0Path = rows.map((r, i) => `${i === 0 ? 'M' : 'L'} ${px(r.k).toFixed(1)} ${py(r.degree0Ratio).toFixed(1)}`).join(' ');
+  const degree2Path = rows.map((r, i) => `${i === 0 ? 'M' : 'L'} ${px(r.k).toFixed(1)} ${py(r.degree2Ratio).toFixed(1)}`).join(' ');
+  const missPath = rows.map((r, i) => `${i === 0 ? 'M' : 'L'} ${px(r.k).toFixed(1)} ${py(r.missFactor).toFixed(1)}`).join(' ');
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #38bdf8', background: 'rgba(56,189,248,0.04)' }}>
+      <h3 style={{ color: '#38bdf8', marginTop: 0, fontSize: 14 }}>
+        Degree-0 (p=1) vs degree-2 (p=2) k-ladder scaling contrast (imp-3469)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        Under the identical k-ladder a&rarr;a/k, U&rarr;kU, the imp-3405 degree-0 bridge mass grows
+        EXACTLY linearly in k (B(a/k,kU)/B(a,U) = k), while the imp-3469 degree-2 (absolute) mass
+        instead SHRINKS as 1/k&sup2; (B<sub>2</sub>(a/k,kU)/B<sub>2</sub>(a,U) &asymp;{' '}
+        {rows[rows.length - 1].degree2Ratio.toExponential(2)} at k={rows[rows.length - 1].k}). The
+        closed-form relative miss 1 &minus; 1/k&sup3; of the degree-0 law rises from{' '}
+        {rows[0].missFactor.toFixed(3)} (k={rows[0].k}) to {rows[rows.length - 1].missFactor.toFixed(3)} (k=
+        {rows[rows.length - 1].k}), quantifying how badly the degree-0 law over-predicts the degree-2 mass.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={`yt${v}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>{v}</text>
+            </g>
+          ))}
+          {kTicks.map((k) => (
+            <g key={`xt${k}`}>
+              <line x1={px(k)} y1={MT} x2={px(k)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(k)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>k={k}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={ML - 42} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 ${ML - 42} ${(MT + H - MB) / 2})`}>
+            mass ratio (log)
+          </text>
+
+          <path d={degree0Path} fill="none" stroke="#f59e0b" strokeWidth="1.6" />
+          <path d={degree2Path} fill="none" stroke="#38bdf8" strokeWidth="1.6" />
+          <path d={missPath} fill="none" stroke="#c4b5fd" strokeWidth="1.4" strokeDasharray="4 3" />
+          {rows.map((r) => (
+            <g key={`pt${r.k}`}>
+              <circle cx={px(r.k)} cy={py(r.degree0Ratio)} r={3} fill="#f59e0b">
+                <title>{`k=${r.k}: degree-0 ratio = ${r.degree0Ratio} (exponent p=1)`}</title>
+              </circle>
+              <circle cx={px(r.k)} cy={py(r.degree2Ratio)} r={3} fill="#38bdf8">
+                <title>{`k=${r.k}: degree-2 ratio = ${r.degree2Ratio.toExponential(4)} (exponent p=2)`}</title>
+              </circle>
+              <circle cx={px(r.k)} cy={py(r.missFactor)} r={2.6} fill="#c4b5fd">
+                <title>{`k=${r.k}: closed miss 1-1/k^3 = ${r.missFactor.toFixed(6)}`}</title>
+              </circle>
+            </g>
+          ))}
+          <text x={W - MR - 4} y={py(rows[0].degree0Ratio) - 8} textAnchor="end" fontSize="10" fill="#f59e0b" fontFamily={mono}>degree-0: ratio = k (p=1)</text>
+          <text x={W - MR - 4} y={py(rows[rows.length - 1].degree2Ratio) + 14} textAnchor="end" fontSize="10" fill="#38bdf8" fontFamily={mono}>degree-2: ratio = 1/k&sup2; (p=2)</text>
+          <text x={px(rows[0].k) + 6} y={py(rows[0].missFactor) - 8} fontSize="10" fill="#c4b5fd" fontFamily={mono}>miss 1&minus;1/k&sup3;</text>
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3469):</strong>{' '}
+        Numerical scaling-law characterization only &mdash; the degree-0 law does not extend to the
+        degree-2 (absolute) mass, which instead scales as a&sup2; (U-independent, fixed by the second
+        genuine-Phi autocorrelation moment M<sub>2</sub>). RH-EQUIVALENT, necessary-but-not-sufficient;
+        operator positivity (imp-3066) untouched, no RH verdict.
+        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3469-degree2-bridge-mass-scaling.js &mdash; base cell (a,U)=(0.5,6), s=3, k&isin;{'{'}2,3,4,6,8{'}'}.
       </p>
     </div>
   );
@@ -7470,6 +7571,8 @@ export default function ClosureRoutesPage() {
       <NmaxEtruncSensitivityPanel />
 
       <CInfThirdExtrapolationLadderPanel />
+
+      <Degree0VsDegree2KLadderPanel />
 
       <SigmaCHSaturationPanel />
 

@@ -1897,6 +1897,36 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Degree-0 vs degree-2 scaling BREAK: exponent contrast p=1 vs p=2 and the closed-form k^3 over-prediction",
+    category: "numerical",
+    definition:
+      "imp-3405 certified the degree-0 lambda-scaling law B(a/k,kU) = k*B(a,U) -- exponent p = 1 in k. " +
+      "imp-3469 ran the IDENTICAL k-ladder {2,3,4,6,8} on the degree-2 (absolute) bridge mass B_2(a,U) = " +
+      "int_0^U (cosh(a tau) - 1) A(tau) d(tau) and found it obeys a DIFFERENT exponent, p = 2: " +
+      "B_2(a/k,kU) = B_2(a,U)/k^2 to full precision (measured log(base/scaled)/log(k) = 2.0000..2.0005 " +
+      "on every rung, both base cells). The mechanism is the SAME substitution tau = k*sigma that drives " +
+      "the degree-0 law -- but at degree 0 it maps the Lebesgue weight to itself, while at degree 2 the " +
+      "FIXED genuine-Phi autocorrelation A(tau) is left uncompensated (A(k*sigma) != A(sigma)), so the " +
+      "k-prefactor from the substitution is not the whole story. Because the degree-0 law naively predicts " +
+      "k*B_2(a,U) while the true degree-2 mass is B_2(a,U)/k^2, the degree-0 prediction OVER-predicts by " +
+      "the exact closed factor k^3: the relative miss |k*B_2 - B_2/k^2| / (k*B_2) = 1 - 1/k^3, verified to " +
+      "<1e-3 on every rung of both base cells (0.5,6),s=3 and (0.4,10),s=4 -- climbing from 0.875 at k=2 to " +
+      "0.998 at k=8." +
+      "\n\nHONEST SCOPE: numerical characterization of the exponent contrast between the two scaling laws " +
+      "only, distinct from the imp-3405 degree-0 law itself and from the imp-3469 M_2-moment root-cause " +
+      "entry above. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face carries no " +
+      "feasibility ratio at all (D_2 = 0 identically). The operator-level K_a >= 0 off-diagonal " +
+      "endpoint-Hankel positivity (imp-3066) remains the lone RH obstruction, UNTOUCHED. No RH verdict, " +
+      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3469 (degree-2 bridge-mass k-ladder scaling break), 2026",
+    relatedTerms: [
+      "General lambda-scaling law (B(a/k,kU) = k*B(a,U), D_0(a/k,kU) = k*D_0(a,U))",
+      "Second genuine-Phi autocorrelation moment M_2 and the degree-2 leading form B_2(a) ~ (a^2/2) M_2",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

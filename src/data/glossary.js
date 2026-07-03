@@ -3008,6 +3008,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3623/imp-3625 dense-solver resolution of the N=2000 skew-Toeplitz third-pair Krylov artifact (imp-3654)",
+    category: "numerical",
+    definition:
+      "imp-3602 measured the third skew-Toeplitz pair lambda_5=lambda_6 (from the same lambda_5/lambda_1 second-gap " +
+      "sigma_2 line as the first-gap rho) and found the pair spread DEGRADED from ~2e-14 at N=1600 to 1.010245749617736e-11 " +
+      "at N=2000 under a fixed-depth m=440 Lanczos solve -- an apparent loss of the third-pair degeneracy right at the " +
+      "deepest rung. imp-3623 re-extracted the top-6 Gram eigenvalues at N=1200/1600/2000 with an INDEPENDENT full-" +
+      "spectrum solver (Householder tridiagonalization + implicit-QL, no Krylov subspace, no reorthogonalization): the " +
+      "dense lambda_5=lambda_6 spread stays at machine precision (~1.18e-15) at every rung including N=2000, while the " +
+      "dense route reproduces the imp-3602 Lanczos sigma_2=lambda_5/lambda_1=0.999586510492813 to a worst relative " +
+      "difference ~2e-14 -- so the N=2000 pair loss is solver-specific, not a property of the underlying spectrum. " +
+      "imp-3625 pinned down the mechanism directly on the Lanczos route: sweeping Krylov depth m in {440,480,560,640} at " +
+      "the fixed N=2000 third pair shows the spread contracts from the m=440 reading of 1.010245749617736e-11 down to " +
+      "~6.06e-15 at m=480 and stays at that machine-precision floor through m=640 (a ~540-1667x contraction), while the " +
+      "second gap sigma_2 is unchanged across the whole depth sweep to <5e-14. CONCLUSION: the N=2000 lambda_5=lambda_6 " +
+      "degeneracy loss is a fixed-depth Lanczos reorthogonalization under-resolution (a Krylov-depth artifact, in the " +
+      "exact imp-3575 pattern one gap and one rung deeper), NOT a genuine third-pair splitting; lambda_5 remains a " +
+      "genuine adjacent-paired third-pair level at every deep rung, and the depth artifact does not corrupt the -2 " +
+      "section-gap exponent ladder or the sigma_2 amplitude, both of which are depth/solver-invariant." +
+      "\n\nHONEST SCOPE: cross-validation/measurement only -- confirms a spectral degeneracy and its solver-dependent " +
+      "artifact, establishes NO operator positivity. Mass-feasibility remains NECESSARY-BUT-NOT-SUFFICIENT; the " +
+      "operator-level K_a >= 0 off-diagonal endpoint-Hankel positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3623/imp-3625 (dense Householder+QL cross-validation and Krylov-depth sweep jointly certify the imp-3602 N=2000 third-pair loss as a Lanczos reorthogonalization artifact, not a genuine splitting), 2026",
+    relatedTerms: [
+      "imp-3602 second skew-Toeplitz gap sigma_2 and (j^2-1) amplitude law (imp-3602)",
+      "imp-3619 third skew-Toeplitz gap sigma_3 and pair j=4 amplitude corroboration (imp-3619)",
+      "imp-3575 first-gap Krylov-depth artifact precedent (imp-3575)",
+      "imp-3643 dense certification of the fourth-pair lambda_7=lambda_8 Krylov artifact (imp-3643)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -3524,6 +3524,11 @@ const DATA_MODULES = [
   // six existing modules keep their own inline copy; this helper is for future
   // sigma(N) tickets to import instead of re-typing the formula. 3 assertions.
   '/src/data/sigma-n-subterms.js',
+  // imp-3933: eps'-field-robust plateau-domination bootstrap — deterministic
+  // N-uniform collision-time transfer modulus in the vector-field-error channel
+  // (the C_Lip breach-point reroute); 7 assertions incl. the imp-3725 eps'=0
+  // cross-pin and the 3H^4/64 field-modulus law.
+  '/src/data/imp-3933-eps-field-robust-bootstrap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

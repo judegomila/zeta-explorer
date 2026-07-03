@@ -1,7 +1,7 @@
 /**
- * @module imp-3932-eps-field-robust-bootstrap
+ * @module imp-3933-eps-field-robust-bootstrap
  *
- * imp-3932 (proof, RH-FREE, deterministic): eps'-FIELD-ROBUST plateau-domination
+ * imp-3933 (proof, RH-FREE, deterministic): eps'-FIELD-ROBUST plateau-domination
  * bootstrap — a finite, N-uniform, deterministic collision-time TRANSFER MODULUS
  * in the VECTOR-FIELD-ERROR channel, certified on every H_raw plateau of
  * N in [1e4, 1e6]. This is the C_Lip breach-point assault (ch-wall-frontier /
@@ -61,7 +61,7 @@
  * and no GUE/PCC input anywhere: the multi-body isolation content enters ONLY
  * through Psi(T, eps'), a finite computation on the actual table.
  *
- * CERTIFIED NUMBERS (scripts/imp-3932-eps-field-robust-bootstrap-compute.mjs)
+ * CERTIFIED NUMBERS (scripts/imp-3933-eps-field-robust-bootstrap-compute.mjs)
  * ---------------------------------------------------------------------------
  * All 10 H_raw plateaus of [1e4, 1e6] certify at thetaBar = 0.99 for every
  * eps' in the grid {0, 0.25, 1, 4, 10, 20}:
@@ -114,7 +114,7 @@
  *
  * HONEST SCOPE — WHAT REMAINS OPEN (named; NO false QED)
  * -------------------------------------------------------
- *  - sub-gap imp-3932-sub-eps-certificate: a rigorous DETERMINISTIC bound
+ *  - sub-gap imp-3933-sub-eps-certificate: a rigorous DETERMINISTIC bound
  *    eps'_true for the true xi backward-heat-flow zero dynamics vs the
  *    window-Dyson field along the horizon [0, T]: mirror-zero pairing, RvM
  *    tail of above-window zeros, far-zero displacement control over the tiny
@@ -126,7 +126,7 @@
  *    proof, only the record-pair term needs eps'_a) removes the edge
  *    sensitivity entirely and is the recommended closure route. ESTIMATES,
  *    not theorems, until that module lands.
- *  - sub-gap imp-3932-sub-bracket-rearchitecture: restate the E(N) chain so
+ *  - sub-gap imp-3933-sub-bracket-rearchitecture: restate the E(N) chain so
  *    the model-to-true transfer routes through this field channel, replacing
  *    the C_H * W_1^{1/2} leg of E_coll. The remaining legs E_trunc, E_flow
  *    keep their ansatz constants (C_T = C_F = 1, undischarged), so E(N) < 0.2
@@ -141,10 +141,10 @@
  * @see ch-wall-frontier-verdict-2026-06-26 / econn-metric-rearchitecture-verdict-2026-06-30
  * @see imp-2662-clip-theta-endpoint-route (the C_Theta residual this channel dissolves)
  * @see sg1c-cglo-lower-bound-2026-07-02 (the isolation sign-law asset; not needed here)
- * @see scripts/imp-3932-eps-field-robust-bootstrap-compute.mjs (generator)
+ * @see scripts/imp-3933-eps-field-robust-bootstrap-compute.mjs (generator)
  */
 
-// Baked from scripts/imp-3932-eps-field-robust-bootstrap-compute.mjs
+// Baked from scripts/imp-3933-eps-field-robust-bootstrap-compute.mjs
 // (esbuild bundle + node, 2026-07-03). DO NOT hand-edit; regenerate via the script.
 const THETA_BAR = 0.99;
 const EPS_GRID = Object.freeze([0, 0.25, 1, 4, 10, 20]);
@@ -189,7 +189,7 @@ const MAX_WIDTH_AT_EPS1 = Math.max(
 );
 
 export const EPS_FIELD_ROBUST_BOOTSTRAP = {
-  ticket: 'imp-3932',
+  ticket: 'imp-3933',
   date: '2026-07-03',
   verdict:
     'PARTIAL-POSITIVE (rigorous lemma + certified table; named residuals). The C_Lip wall is BYPASSED in the '
@@ -226,7 +226,7 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP = {
   },
   openSubGaps: [
     {
-      id: 'imp-3932-sub-eps-certificate',
+      id: 'imp-3933-sub-eps-certificate',
       statement:
         'Certify a deterministic eps\'_true (ideally the per-gap profile eps\'_l) for the true xi backward-heat-flow '
         + 'zero dynamics vs the window-Dyson field on [0, T]: mirror-zero pairing, RvM tail of above-window zeros, '
@@ -235,7 +235,7 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP = {
       status: 'open',
     },
     {
-      id: 'imp-3932-sub-bracket-rearchitecture',
+      id: 'imp-3933-sub-bracket-rearchitecture',
       statement:
         'Restate the E(N) bracket so the model-to-true collision-time transfer routes through the field channel '
         + '(W(eps\'_true) <= ~5e-7), replacing the C_H * W_1^{1/2} leg of E_coll. E_trunc/E_flow constants stay '
@@ -257,7 +257,7 @@ const REL = (x, y) => Math.abs(x - y) / Math.max(Math.abs(x), Math.abs(y), 1e-30
 
 export const EPS_FIELD_ROBUST_BOOTSTRAP_ASSERTIONS = [
   {
-    id: 'imp3932-eps0-reproduces-imp3725',
+    id: 'imp3933-eps0-reproduces-imp3725',
     description:
       'the eps\'=0 column reproduces the imp-3725 baked (theta, tcLo, tcHi) on every plateau to 1e-6 relative — '
       + 'the field-robust lemma degenerates exactly to the parent at zero field error',
@@ -269,7 +269,7 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP_ASSERTIONS = [
     }),
   },
   {
-    id: 'imp3932-tlo-closed-form-recomputed',
+    id: 'imp3933-tlo-closed-form-recomputed',
     description:
       'tLo(eps\') equals the closed form ln(1 + eps\' H^2/4)/(2 eps\') (H^2/8 at eps\'=0) recomputed live to 1e-6 rel, '
       + 'is strictly decreasing in eps\', and respects the second-order floor H^2/8 - eps\' H^4/63 '
@@ -288,7 +288,7 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP_ASSERTIONS = [
     }),
   },
   {
-    id: 'imp3932-theta-identity-monotone-certified',
+    id: 'imp3933-theta-identity-monotone-certified',
     description:
       'theta = 1 - (Psi + 2 eps\' H^2)/8 recomputed from baked Psi to 1e-6, strictly decreasing in eps\', '
       + 'every grid row certified (theta >= thetaBar = 0.99), tHi = H^2/(8 theta) to 1e-6, width strictly increasing',
@@ -311,7 +311,7 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP_ASSERTIONS = [
     }),
   },
   {
-    id: 'imp3932-epsmax-floor-20',
+    id: 'imp3933-epsmax-floor-20',
     description:
       'the certifiable field-error headroom epsMax(thetaBar=0.99) is >= 20 on EVERY plateau (floor 22.9 at plateau 1, '
       + 'rising to 1216.6 at plateau 9) — the whole eps\' grid sits inside the certified region',
@@ -320,7 +320,7 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP_ASSERTIONS = [
       && EPS_FIELD_ROWS[9].epsMax > 1000,
   },
   {
-    id: 'imp3932-field-modulus-3H4-over-64-n-uniform',
+    id: 'imp3933-field-modulus-3H4-over-64-n-uniform',
     description:
       'the field-channel modulus slope C_field = W(1) - W(0) matches the analytic 3H^4/64 within 5% on every plateau, '
       + 'is monotone decreasing along the plateau ladder (vanishes with height), and its max is < 1e-7 — the '
@@ -334,7 +334,7 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP_ASSERTIONS = [
     }) && MAX_SLOPE < 1e-7,
   },
   {
-    id: 'imp3932-transfer-beats-w1-holder-leg',
+    id: 'imp3933-transfer-beats-w1-holder-leg',
     description:
       'the certified model<->true transfer width at unit field-Lipschitz error (max 5.17e-7 over plateaus) is '
       + '>= 1e5x tighter than the C_H-route W_1-Holder E_coll placeholder 0.0913 at N*=1e4 that it replaces',
@@ -342,7 +342,7 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP_ASSERTIONS = [
       && EPS_FIELD_ROBUST_BOOTSTRAP.transferAdvantageFactor > 1e5,
   },
   {
-    id: 'imp3932-honest-no-false-qed',
+    id: 'imp3933-honest-no-false-qed',
     description:
       'honesty gate: PARTIAL verdict, W_1-channel verdicts explicitly untouched, both residual sub-gaps OPEN, '
       + 'no rigorous beat claimed, PT Lambda <= 0.2 cited as SOTA',
@@ -356,5 +356,5 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP_ASSERTIONS = [
 ];
 
 for (const a of EPS_FIELD_ROBUST_BOOTSTRAP_ASSERTIONS) {
-  if (!a.holds()) throw new Error(`imp-3932 eps-field-robust-bootstrap assertion failed: ${a.id}`);
+  if (!a.holds()) throw new Error(`imp-3933 eps-field-robust-bootstrap assertion failed: ${a.id}`);
 }

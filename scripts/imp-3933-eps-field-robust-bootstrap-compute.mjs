@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// scripts/imp-3932-eps-field-robust-bootstrap-compute.mjs
-// imp-3932 OFFLINE COMPUTE: eps'-FIELD-ROBUST plateau-domination bootstrap.
+// scripts/imp-3933-eps-field-robust-bootstrap-compute.mjs
+// imp-3933 OFFLINE COMPUTE: eps'-FIELD-ROBUST plateau-domination bootstrap.
 //
 // Extends the imp-3725 per-plateau gap-domination certificate from the pure
 // backward-Dyson field to the PERTURBED-FIELD class
@@ -30,9 +30,9 @@
 // eps' grid, the max certifiable eps' (theta(eps') = thetaBar bisection), and
 // the field-channel modulus slope (width(1) - width(0)).
 //
-// Run:  node_modules/.bin/esbuild scripts/imp-3932-eps-field-robust-bootstrap-compute.mjs \
-//         --bundle --format=cjs --platform=node --outfile=/tmp/imp3932.cjs \
-//       && node /tmp/imp3932.cjs
+// Run:  node_modules/.bin/esbuild scripts/imp-3933-eps-field-robust-bootstrap-compute.mjs \
+//         --bundle --format=cjs --platform=node --outfile=/tmp/imp3933.cjs \
+//       && node /tmp/imp3933.cjs
 
 import { ZEROS_EXTENDED } from '../src/data/zeros-to-1e6.js';
 

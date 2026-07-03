@@ -1428,6 +1428,47 @@ export const glossary = [
     ],
     link: '/closure-routes',
   },
+  {
+    term: "raw physical-diagonal conditioning artifact (Gpass future-tail underflow)",
+    category: 'numerical',
+    definition:
+      "imp-3382 finding: the recorded divergence of the raw physical-diagonal passive-core " +
+      "normalized operator norm ||R||(D) = ||Gpass^{-1/2} Gshear Gpass^{-1/2}|| -- growing " +
+      "from ~34 to ~45 with quadrature resolution and reaching ~1e272 in a degree-100 " +
+      "Legendre basis -- is a CONDITIONING/precision signature of inverting Gpass, not a " +
+      "bounded operator norm blowing up." +
+      "\n\nMechanism: the raw physical diagonal density m(tau) = (1/2pi) Phi(tau)^2 " +
+      "sinh(2 a tau) is super-exponentially concentrated near tau <= ~0.3 and UNDERFLOWS to " +
+      "0 beyond tau ~ 1.2 -- the Sec.27 future tail. Its Legendre moment (Gram) matrix " +
+      "Gpass(D) is therefore catastrophically ill-conditioned: log10 lambda_min(Gpass(D)) ~ " +
+      "-4.31 - 3.846*D (R^2 ~ 0.9999, ~7000x shrink per degree, constant log-differences => " +
+      "GEOMETRIC decay, not factorial or power), extrapolating to cond(Gpass(100)) ~ 10^385. " +
+      "Inverting that matrix is what manufactures the recorded ~1e272 at degree 100 -- a " +
+      "precision artifact of representing an astronomically ill-conditioned matrix, not a " +
+      "genuine operator-norm divergence." +
+      "\n\nBy contrast, the WELL-POSED (regularized pseudo-inverse) ||R||(D) -- inverting " +
+      "only the numerically resolvable block of Gpass -- PLATEAUS O(1), growing only " +
+      "mildly from ~0.75 (D=1) to ~1.33 (D=6): the smooth rank-2 shear pair (Q, Pc) lives " +
+      "almost entirely in the well-conditioned low-degree block and barely excites the " +
+      "exponentially-tiny tail null-space." +
+      "\n\nHonest scope: this confirms and sharpens the section26-mupass verdict that the raw " +
+      "physical diagonal is NOT a valid asymptotic passive core and must be renormalized -- " +
+      "it is a diagnostic of WHY the raw diagonal fails, necessary but not sufficient at " +
+      "operator order. IEEE-754 double floors lambda_min(Gpass) below the representable " +
+      "relative floor by degree ~4, so the geometric law is fit on degrees {1,2,3} and " +
+      "extrapolated; matching the exact recorded constants needs the out-of-repo " +
+      "extended-precision arbiter. MEASUREMENT/DIAGNOSTIC ONLY; RH-equivalent; the " +
+      "off-diagonal endpoint-Hankel obstruction (imp-3066) is untouched; no QED; " +
+      "Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+    firstUsed: "imp-3382 (rawdiagonal-R-degree-growth-law), 2026",
+    relatedTerms: [
+      'lag-band (box) truncation destroys Toeplitz positive-definiteness; Fejer stays PD',
+      'Gshear operator norm (||Gshear||)',
+      'Toeplitz surrogate operator-norm capture ratio',
+      'kernel Phi(u)',
+    ],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -84,6 +84,7 @@ import { IMP3409_CAPTURE_RATIO_SINH_RESIDUAL_ORDER } from '../data/imp-3409-capt
 import { IMP3403_LEADING_ORDER_RESIDUAL_NPHI_SCALING } from '../data/imp-3403-leading-order-residual-nphi-scaling.js';
 import { IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING } from '../data/imp-3442-sinh-residual-coefficient-U-scaling.js';
 import { IMP3469_DEGREE2_BRIDGE_MASS_SCALING, AUTOCORR_WEIGHT_PROFILE } from '../data/imp-3469-degree2-bridge-mass-scaling.js';
+import { IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION } from '../data/imp-3470-Ttilde-spectral-peak-xistar-obstruction.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -1174,6 +1175,123 @@ function AutocorrWeightSupportPanel() {
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3469-degree2-bridge-mass-scaling.js (AUTOCORR_WEIGHT_PROFILE) &mdash; NPHI=10,
         support threshold 1e-3&times;peak.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3470: PSD peak-slope stationarity P2(xi) crossing zero at xi* (imp-3495) ──
+// The peak of the dBN power-spectrum slope |d/dxi |Phihat(xi)|^2| sits where its own
+// curvature P2(xi) is stationary. Baked reference literals (U=6, N=360, same as the
+// imp-3470 primary cell) show P2(xi) crossing zero at the located xi*=12.0870439, and the
+// companion peak-slope objective |P1(xi)| = |d/dxi |Phihat(xi)|^2| peaking there at 6.54639e-5.
+const XISTAR_PROFILE = Object.freeze([
+  [10.0, -6.346914e-5, -1.956998e-6], [10.1, -6.365988e-5, -1.857729e-6], [10.2, -6.38407e-5, -1.758864e-6],
+  [10.3, -6.401166e-5, -1.660428e-6], [10.4, -6.4172800e-5, -1.562446e-6], [10.5, -6.432417e-5, -1.464943e-6],
+  [10.6, -6.446581e-5, -1.367944e-6], [10.7, -6.459778e-5, -1.271472e-6], [10.8, -6.472012e-5, -1.175552e-6],
+  [10.9, -6.48329e-5, -1.080206e-6], [11.0, -6.493618e-5, -9.854578e-7], [11.1, -6.503002e-5, -8.913299e-7],
+  [11.2, -6.511447e-5, -7.978442e-7], [11.3, -6.518961e-5, -7.050225e-7], [11.4, -6.52555e-5, -6.128859e-7],
+  [11.5, -6.531221e-5, -5.214552e-7], [11.6, -6.535981e-5, -4.307508e-7], [11.7, -6.539838e-5, -3.407926e-7],
+  [11.8, -6.5428e-5, -2.516e-7], [11.9, -6.544873e-5, -1.631919e-7], [12.0, -6.546066e-5, -7.558693e-8],
+  [12.1, -6.546387e-5, 1.11969e-8], [12.2, -6.545845e-5, 9.714202e-8], [12.3, -6.544447e-5, 1.822313e-7],
+  [12.4, -6.542203e-5, 2.664483e-7], [12.5, -6.539121e-5, 3.497766e-7], [12.6, -6.535211e-5, 4.322008e-7],
+  [12.7, -6.530481e-5, 5.137056e-7], [12.8, -6.52494e-5, 5.942764e-7], [12.9, -6.518598e-5, 6.73899e-7],
+  [13.0, -6.511465e-5, 7.525597e-7], [13.1, -6.50355e-5, 8.302454e-7], [13.2, -6.494863e-5, 9.069433e-7],
+  [13.3, -6.485415e-5, 9.826412e-7], [13.4, -6.475214e-5, 1.057328e-6], [13.5, -6.464272e-5, 1.130991e-6],
+  [13.6, -6.452598e-5, 1.203621e-6], [13.7, -6.440203e-5, 1.275207e-6], [13.8, -6.427097e-5, 1.34574e-6],
+  [13.9, -6.413291e-5, 1.41521e-6], [14.0, -6.398796e-5, 1.483608e-6],
+]);
+
+function PSDPeakSlopeStationarityPanel() {
+  const F = IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION;
+  const xiStar = F.measured.xiStar;
+  const peakSlope = F.measured.peakSlope;
+  const rows = XISTAR_PROFILE.map(([xi, p1, p2]) => ({ xi, p1, absP1: Math.abs(p1), p2 }));
+
+  const W = 300, H = 240, ML = 50, MR = 12, MT = 24, MB = 32;
+  const xiMin = 10, xiMax = 14;
+  const px = (xi) => ML + ((xi - xiMin) / (xiMax - xiMin)) * (W - ML - MR);
+
+  // Left: P2(xi) crossing zero.
+  const p2Min = Math.min(...rows.map((r) => r.p2)) * 1.1;
+  const p2Max = Math.max(...rows.map((r) => r.p2)) * 1.1;
+  const py2 = (v) => H - MB - ((v - p2Min) / (p2Max - p2Min)) * (H - MT - MB);
+  const p2Path = rows.map((r, i) => `${i === 0 ? 'M' : 'L'} ${px(r.xi).toFixed(1)} ${py2(r.p2).toFixed(1)}`).join(' ');
+
+  // Right: peak-slope objective |P1(xi)|, peaking at xi*.
+  const p1Min = Math.min(...rows.map((r) => r.absP1)) * 0.999;
+  const p1Max = Math.max(...rows.map((r) => r.absP1)) * 1.0006;
+  const py1 = (v) => H - MB - ((v - p1Min) / (p1Max - p1Min)) * (H - MT - MB);
+  const p1Path = rows.map((r, i) => `${i === 0 ? 'M' : 'L'} ${px(r.xi).toFixed(1)} ${py1(r.absP1).toFixed(1)}`).join(' ');
+
+  const xTicks = [10, 11, 12, 13, 14];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #38bdf8', background: 'rgba(56,189,248,0.04)' }}>
+      <h3 style={{ color: '#38bdf8', marginTop: 0, fontSize: 14 }}>
+        PSD peak-slope stationarity: P2(&xi;) crosses zero at &xi;*={xiStar.toFixed(7)} (imp-3470)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        The dBN power-spectrum slope P1(&xi;) = d/d&xi; |&Phi;hat(&xi;)|&sup2; peaks where its own
+        curvature P2(&xi;) is stationary. Bisecting the exact P2(&xi;)=0 condition pins the maximizer at
+        &xi;*={xiStar.toFixed(7)} (left panel, zero-crossing marked), where the peak-slope objective
+        |P1(&xi;)| reaches {peakSlope.toExponential(5)} (right panel) &mdash; the U-independent
+        transcendental root behind C<sub>&infin;</sub>&asymp;0.1751.
+      </p>
+      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'flex-start' }}>
+        <svg width={W} height={H} style={{ display: 'block', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {xTicks.map((t) => (
+            <g key={`xt${t}`}>
+              <line x1={px(t)} y1={MT} x2={px(t)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(t)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>{t}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={py2(0)} x2={W - MR} y2={py2(0)} stroke="#475569" strokeWidth="1" strokeDasharray="3 2" />
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>
+            P2(&xi;)
+          </text>
+          <path d={p2Path} fill="none" stroke="#38bdf8" strokeWidth="1.6" />
+          <line x1={px(xiStar)} y1={MT} x2={px(xiStar)} y2={H - MB} stroke="#f59e0b" strokeWidth="1.4" strokeDasharray="4 3" />
+          <circle cx={px(xiStar)} cy={py2(0)} r={4} fill="#f59e0b">
+            <title>{`P2(xi*) = 0 at xi* = ${xiStar}`}</title>
+          </circle>
+          <text x={px(xiStar) + 4} y={MT + 10} fontSize="10" fill="#f59e0b" fontFamily={mono}>&xi;*={xiStar.toFixed(3)}</text>
+          <text x={(ML + W - MR) / 2} y={19} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono}>curvature P2(&xi;)</text>
+        </svg>
+
+        <svg width={W} height={H} style={{ display: 'block', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {xTicks.map((t) => (
+            <g key={`xt2${t}`}>
+              <line x1={px(t)} y1={MT} x2={px(t)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(t)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>{t}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>
+            |P1(&xi;)|
+          </text>
+          <path d={p1Path} fill="none" stroke="#c4b5fd" strokeWidth="1.6" />
+          <line x1={px(xiStar)} y1={MT} x2={px(xiStar)} y2={H - MB} stroke="#f59e0b" strokeWidth="1.4" strokeDasharray="4 3" />
+          <circle cx={px(xiStar)} cy={py1(peakSlope)} r={4} fill="#f59e0b">
+            <title>{`peak slope = ${peakSlope} at xi* = ${xiStar}`}</title>
+          </circle>
+          <text x={px(xiStar) + 4} y={py1(peakSlope) - 8} fontSize="10" fill="#f59e0b" fontFamily={mono}>{peakSlope.toExponential(5)}</text>
+          <text x={(ML + W - MR) / 2} y={19} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono}>peak-slope objective |P1(&xi;)|</text>
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.07)', border: '1px solid rgba(56,189,248,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#38bdf8' }}>Honest scope (imp-3470):</strong>{' '}
+        Locates the peak-slope maximizer to machine precision; does NOT give &xi;* or the sup an
+        elementary closed form (P2(&xi;)=0 is transcendental). C<sub>&infin;</sub>&asymp;0.1751 stays a
+        determined number. RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity (imp-3066)
+        untouched, no RH verdict. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3470-Ttilde-spectral-peak-xistar-obstruction.js &mdash; baked reference profile,
+        U=6, N=360, NPHI=10, &xi;&isin;[10,14] step 0.1.
       </p>
     </div>
   );
@@ -7652,6 +7770,8 @@ export default function ClosureRoutesPage() {
       <Degree0VsDegree2KLadderPanel />
 
       <AutocorrWeightSupportPanel />
+
+      <PSDPeakSlopeStationarityPanel />
 
       <SigmaCHSaturationPanel />
 

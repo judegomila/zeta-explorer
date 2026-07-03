@@ -3655,6 +3655,39 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3647 feature-specific fold-in floor N_fold(xi_true) vs the generic imp-3582 worst-case N_replica",
+    category: "numerical",
+    definition:
+      "imp-3582 derived the generic replica-hiding grid floor N_replica = xi_max U/pi ~ 764 by taking the " +
+      "LOOSEST possible in-band source, xi_true = xi_max = 400: for N above this floor, NO first-order " +
+      "aliasing replica of ANY in-band feature can fold into the scanned band (0, 400], so the imp-3558 " +
+      "argmax-drift-0 discriminator is decisive for every rung. imp-3647 asks the sharper, feature-specific " +
+      "question: for a PARTICULAR planted source at xi_true (not the worst case), how far can N drop before " +
+      "its own replica folds in? The fold-in condition 2 xi_Nyq - xi_true <= xi_max solves to " +
+      "N_fold(xi_true) = (xi_max + xi_true) U/(2 pi), which is STRICTLY BELOW the generic 764 for any " +
+      "xi_true < xi_max. For the imp-3622 planted feature xi_true = 250 this gives N_fold ~ 620.70 " +
+      "(1950/pi), and imp-3647 measured the sub-floor ladder N in {400,512,640,700,764,900} directly: for " +
+      "every N > 620.70 (including 764, 700, 640, all below the generic worst-case floor) the replica sits " +
+      "outside the band and the discriminator stays decisive; for N < 620.70 (512, 400) the replica folds " +
+      "in with EXACTLY the genuine peak's height (Dirichlet comb tie, rel. diff ~1e-15), producing two " +
+      "equal in-band maxima and destroying decisiveness. So the generic 764 remains a correct upper bound " +
+      "for ALL in-band sources, but it is conservative for any specific feature below the band ceiling; the " +
+      "true failure point for a given feature is its own, lower N_fold(xi_true)." +
+      "\n\nHONEST SCOPE: measurement/certification of a synthetic planted feature only, sharpening WHERE the " +
+      "generic imp-3582 floor is conservative; establishes no new bound on the |P1| objective itself and " +
+      "gives xi* no closed form. RH-equivalent; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 magnitude " +
+      "is the lone obstruction, UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-3647 (measuring the sub-floor fold-in crossover of the imp-3622 planted feature at xi_true=250, locating its feature-specific floor N_fold~620.70 strictly below the imp-3582 generic worst-case N_replica~764), 2026",
+    relatedTerms: [
+      "imp-3582 analytic replica-hiding grid threshold N_replica~764 (imp-3582)",
+      "imp-3622 planted-feature argmax-drift test above the generic floor (imp-3622)",
+      "imp-3558 four-rung far-tail argmax-drift-0 discriminator (imp-3558)",
+      "imp-3681 sub-floor replica fold-in crossover visualization (imp-3681)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -3134,6 +3134,57 @@ const DATA_MODULES = [
   // Measurement only, imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA.
   // 8 assertions.
   '/src/data/imp-3554-power-budget-beyond-8320-U20-agreement-floor.js',
+  // imp-3555 (numerical): RE-FITS the imp-3530 skew-Toeplitz gap-decay power law
+  // -log rho(N)=A N^q on an N ladder EXTENDED above 800 (imp-3530 N=160..800 plus
+  // the imp-3545-measured N=1000/1200/1600, all -log rho baked from the two source
+  // modules) to certify whether q~-1.9725 converges to the -2 section-gap heuristic
+  // or drifts. IT CONVERGES: the LOCAL pairwise log-log slope climbs monotonically
+  // toward -2 across every consecutive monotone rung (-1.9540,-1.9671,-1.9743,
+  // -1.9789,-1.9832,-1.9870) and the two NEW above-800 rungs CONTINUE the climb
+  // (-1.9896 at 800->1000, -1.9915 at 1000->1200), within 0.0086 of -2. The extended
+  // OLS on the monotone ladder N=160..1200 gives q=-1.9770 (R^2=0.99999), SHARPER
+  // toward -2 than the imp-3530 base -1.9725. The lone N=1600 rung is a non-monotone
+  // measurement artifact (its -log rho rises above N=1200, the imp-3545 per-N
+  // non-monotonicity); naively including it collapses the OLS to q=-1.763 (R^2 0.96)
+  // -- a data outlier degrading the fit, not the exponent drifting. Import-light
+  // (baked -log rho literals, log-log OLS arithmetic). Fit only, imp-3066 untouched,
+  // RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
+  '/src/data/imp-3555-skew-toeplitz-gap-exponent-convergence.js',
+  // imp-3549 (numerical): INDEPENDENTLY RE-MEASURES the power-iteration
+  // budget-to-1e-9 at the untested skew-Toeplitz sections N=1000/1200 and checks
+  // it against the imp-3530 closed-form budget(N)~K N^2 extrapolated a priori above
+  // the N=800 ~6250 ceiling. imp-3545 first measured these rungs but baked the
+  // budgets as offline literals whose tripwires only compare baked-vs-baked; this
+  // module re-ran the measurement ONCE offline from a from-scratch transcription of
+  // the imp-3505/imp-3530 assembly (NPHI=10, H0=0.025 midpoint, Ttilde(u,v)=a(v-u)R,
+  // start sin(0.3 i + 1), converged Lanczos m=200) and confirmed every quantity
+  // reproduces the imp-3545 baked literal to the last stored digit: N=1000->9780
+  // (~24.9s), N=1200->14123 (~39.8s), identical sigmaRef/split/rho/gapAtClose. Both
+  // exceed ~6250 and are monotone. Against the imp-3530 K N^2 extrapolation
+  // (10571.65/15147) the relative error is -7.49%/-6.76% (ratio 0.925/0.932 climbing
+  // toward 1), far inside the factor-of-2 the ladder fit held to -- confirming the
+  // a-priori N^2 climb from an INDEPENDENT run, not the baked literal alone. Baked
+  // import-light literals (~65s of O(N^2) matvecs combined). Independent
+  // re-measurement/verification only, imp-3066 untouched, RH-equivalent, no QED,
+  // PT Lambda<=0.2 SOTA. 8 assertions.
+  '/src/data/imp-3549-power-iteration-budget-N1000-1200-independent-remeasure.js',
+  // imp-3556 (numerical): ROOT-SOLVES the imp-3529 post-peak sigma(N) threshold
+  // crossings (sigma<0.9,0.75,0.5,0.25,0.1,0.01) to residual <1e-9 on the exact
+  // imp-3220/imp-3406/imp-3463 sub-terms (no ladder read-off): sigma<0.9 at N=2.572e7,
+  // <0.75 at 3.172e8, <0.5 at 3.267e9, <0.25 at 3.259e10, <0.1 at 3.213e11, <0.01 at
+  // 4.624e13. CERTIFIES sigma=1/2 coincides with the imp-3444 E_coll=E_trunc crossover:
+  // the exact half-decay crossing sits 0.40% below N_x=3.280e9, the gap being exactly
+  // the E_flow contribution (odds ratio x=E_coll/E_trunc=1 and sigma(N_x)=0.49953 at
+  // N_x). QUANTIFIES the crossing-spacing law with the cancellation-free odds-ratio
+  // closed form N=K logT0(N) ((1-sigma)/sigma)^2, K=(C_C/E_trunc)^2=1.573e8, which
+  // matches the exact roots with rel err = the neglected E_flow (24.6% at 0.9 shrinking
+  // monotonically to 1e-4% at 0.01), so the interior crossings 0.75/0.5/0.25/0.1 land ~1
+  // decade of N apart. CORRECTS the imp-3529 loose ~0.4-drop phrasing: -d sigma/d log10 N
+  // is a logistic-in-lnN bump peaking at 0.274 sigma/decade at the crossover (sigma~0.494,
+  // under the ln10/8=0.288 cap) and vanishing at both ends. Import-light (reuses
+  // effectiveHeightForN + C_C_PINNED). Measurement/certification only, imp-3066 K_a>=0
+  // positivity UNTOUCHED, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3556-sigma-threshold-crossings-rootsolve.js',
 ];
 
 let ALL_MODULES = FAST_MODE

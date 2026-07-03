@@ -305,6 +305,16 @@ export const IMP3665_A_WEIGHT_SUPEREXP_DECAY_CROSSCHECK = Object.freeze({
     a10ConvergedBelowQuote,
     directUnderflowsAtLargeTau,
     verdict,
+    // imp-3852: AUTHORITATIVE converged reference for -ln A(1.5) and -ln A(2). This module's
+    // live N=12000 uniform-Simpson rungs above are grid-convergence-LOW by ~0.03-0.05% (near-s=0
+    // peak under-resolution, imp-3736 verdict); the imp-3736 two-path graded-Gauss-Legendre +
+    // Simpson-Richardson integration converges them to these values. Order and every verdict above
+    // are UNCHANGED (refinement only) -- downstream consumers should cite convergedNegLnA, not the
+    // coarse live rungs. Fixes log10 A(2) = -4067.3064, A(2) ~ 4.94e-4068.
+    convergedNegLnA: Object.freeze({ 1.5: 1267.7886, 2: 9365.319 }),
+    convergedProvenance:
+      'imp-3736 (two-path graded Gauss-Legendre + Simpson-Richardson, converged N=8e5+); ' +
+      'supersedes the coarse N=12000 live rungs as the reference literal, refinement only, order unchanged',
   }),
 
   interpretation: Object.freeze({
@@ -389,6 +399,21 @@ export const IMP3665_A_WEIGHT_SUPEREXP_DECAY_CROSSCHECK_ASSERTIONS = [
     holds: () =>
       verdict ===
       'A-WEIGHT-SUPER-EXP-DECAY-CONFIRMED:-ln A(tau)/(pi e^{4 tau})->1-AND-slope/(4 pi e^{4 tau})->1-AT-tau={0.5,1,1.5,2}-(LOG-DOMAIN-REQUIRED-PAST-tau~1.4);-A(1)-CORRECTED-3e-75->2.1e-75-SAME-ORDER,-LEADING-LAW-INTACT',
+  },
+  {
+    id: 'imp3852-live-grid-below-converged-reference',
+    why: 'imp-3852: the live N=12000 uniform-Simpson rungs at tau=1.5,2 are grid-convergence-LOW ' +
+         '(strictly below the imp-3736 converged reference 1267.7886, 9365.319) by ~0.03-0.05% -- ' +
+         'a resolution refinement, order and leading-law verdict unchanged.',
+    holds: () => {
+      const c = IMP3665_A_WEIGHT_SUPEREXP_DECAY_CROSSCHECK.measured.convergedNegLnA;
+      return (
+        RUNGS[2].negLnA < c[1.5] &&
+        RUNGS[3].negLnA < c[2] &&
+        (c[1.5] - RUNGS[2].negLnA) / c[1.5] < 1e-3 &&
+        (c[2] - RUNGS[3].negLnA) / c[2] < 1e-3
+      );
+    },
   },
   {
     id: 'imp3665-honest-diagnostic-not-a-verdict',

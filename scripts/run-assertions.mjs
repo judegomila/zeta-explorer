@@ -160,6 +160,9 @@ const MATH_MODULES = [
   '/src/math/esy-o1-closure.js',
   // imp-2548: matched-N cross-validation of kernel-hack vs Path C collision time.
   '/src/math/imp-2548-kernel-pathc-matched-n.js',
+  // imp-3371: B1 escape hatch weighted-S per-site sweep (imp-861), corrected --
+  // was previously computed but never wired into the sweep.
+  '/src/math/route-c-weighted-s-analysis.js',
 ];
 
 // ── Data module registrations for imp-857 baseline sweep result. ──

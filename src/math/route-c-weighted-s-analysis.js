@@ -61,18 +61,28 @@
  * the integrated product reaches > 2 before the first collision. But (b) is a
  * necessary condition for any static-weight variant to have a chance.
  *
- * NUMERICAL EVIDENCE (this file)
- * ------------------------------
+ * NUMERICAL EVIDENCE (this file, CORRECTED per imp-3371)
+ * -------------------------------------------------------
  * Compute rho_amp_k for every interior site k at N in
  * {50, 100, 200, 500, 1000, 2000, 5000}, record the argmax site, and aggregate
- * rho_amp_max(N). Empirically rho_amp_max(N) is far below 1 and DECREASING
- * with N, mirroring the site-k^* behaviour from imp-834.
+ * rho_amp_max(N). CONTRARY to the original claim above (which only checked
+ * rho_amp AT the argmin-gap site kStar, mirroring imp-834), the full per-site
+ * sweep shows rho_amp_max(N) EXCEEDS 1 at every sampled N and GROWS with N
+ * (5.50 at N=50 up to 653.65 at N=5000). The argmax site is a DIFFERENT site
+ * from kStar at every sampled N -- rho_at_kStar itself stays small and
+ * decreasing, matching imp-834, but that is not the site that maximises
+ * rho_amp_k.
  *
- * VERDICT
- * -------
- * PRELIMINARY NEGATIVE on the STATIC-WEIGHTS variant of weighted-S: at every
- * sampled N, rho_amp_max(N) < 1, so no choice of non-negative static weights
- * can yield dW/dtau > 0 at the initial configuration.
+ * VERDICT (CORRECTED)
+ * --------------------
+ * Case (b) of the structural lemma applies at every sampled N, not case (a):
+ * rho_amp_max(N) > 1, so placing static weight on the argmax site k^
+ * DOES give dW/dtau|_{leading,tau=0} > 0. This REOPENS the static-weights
+ * variant as a live candidate escape hatch -- it does NOT close Route C,
+ * since (per the structural-lemma discussion above) one must still verify
+ * the inequality persists over the full backward trajectory and that the
+ * integrated product exceeds the static ceiling of 2 before the first
+ * collision, neither of which is checked by this file.
  *
  * OPEN (new sub-gap)
  * ------------------
@@ -89,13 +99,14 @@
 
 import { ZEROS_EXTENDED } from '../data/zeros-to-1e6.js';
 
-// imp-861-sub-argmax-drift-at-large-N: the sweep below caps at N=5000; at
-// larger N the argmax rho_amp_k site could in principle drift away from the
-// argmin-gap site kStar. Observed trend through imp-834's N=10^5 sample:
-// rho_amp_max(N) decreases from 0.073 (N=50) to 0.00013 (N=10^5), so any
-// drift would need an order-of-magnitude jump against the observed decay
-// to flip the verdict. Extending this check to N=10^5 and higher is
-// tracked as a separate sub-gap ticket.
+// imp-861-sub-argmax-drift-at-large-N: the sweep below caps at N=5000. The
+// argmax rho_amp_k site is ALREADY confirmed (imp-3371) to be different from
+// the argmin-gap site kStar at every sampled N, and rho_amp_max(N) is
+// GROWING with N (5.50 at N=50 to 653.65 at N=5000), the opposite of the
+// originally assumed decreasing trend (that trend holds only for rho_at_kStar
+// itself, not for the true per-site max). Extending this sweep past N=5000 to
+// see whether rho_amp_max(N) keeps growing, and whether the argmax site
+// follows an identifiable pattern, is tracked as a separate sub-gap ticket.
 
 // ── Core per-site computation ─────────────────────────────────────────────
 
@@ -182,6 +193,7 @@ const SAMPLES = SAMPLE_Ns
   .map((N) => sweepSites(N));
 
 const ALL_RHO_MAX_BELOW_ONE   = SAMPLES.every((s) => s.rho_amp_max < 1);
+const ALL_RHO_MAX_ABOVE_ONE   = SAMPLES.every((s) => s.rho_amp_max > 1);
 const MAX_RHO_MAX_OBSERVED    = Math.max(...SAMPLES.map((s) => s.rho_amp_max));
 const RHO_MAX_DECREASING      =
   SAMPLES[SAMPLES.length - 1].rho_amp_max <= SAMPLES[0].rho_amp_max;
@@ -195,8 +207,16 @@ export const ROUTE_C_WEIGHTED_S_ANALYSIS = {
   id: 'imp-861',
   title: 'B1 escape hatch: weighted-S variant of Route C dynamical',
   status: 'partial',
-  closureLevel: 'preliminary-negative-on-static-weights',
+  closureLevel: 'static-weights-hatch-reopened-pending-trajectory-check',
   parent: 'imp-834',
+  correctionNote:
+    'imp-3371: the original preliminary-negative closure below was based on ' +
+    'checking rho_amp only AT the argmin-gap site kStar (mirroring imp-834). ' +
+    'The full per-site sweep in numericalEvidence shows rho_amp_max(N) > 1 at ' +
+    'every sampled N and growing with N -- case (b) of the structural lemma, ' +
+    'not case (a). The static-weights escape hatch is therefore an OPEN ' +
+    'candidate, not ruled out. See staticWeightsResult below for the corrected ' +
+    'statement.',
 
   derivation: {
     target:
@@ -217,34 +237,52 @@ export const ROUTE_C_WEIGHTED_S_ANALYSIS = {
       'static-weight sweep and remains an independent research question.',
   },
 
-  preliminaryNegativeResult: {
+  staticWeightsResult: {
     scope: 'Static non-negative weights at the initial configuration tau = 0.',
     statement:
-      'At every sampled N in {50,100,200,500,1000,2000,5000}, rho_amp_max(N) < 1, ' +
-      'and the argmax site coincides with the argmin-gap site k^* in every case. ' +
-      'Therefore no non-negative static-weight linear combination of per-site ' +
-      'products S_k * B_k^2 can achieve dW/dtau > 0 at tau = 0 at those N.',
+      'At every sampled N in {50,100,200,500,1000,2000,5000}, rho_amp_max(N) > 1 ' +
+      '(from 5.50 at N=50 up to 653.65 at N=5000, growing with N), and the argmax ' +
+      'site is NOT the argmin-gap site k^*. Therefore case (b) of the structural ' +
+      'lemma applies: placing static weight on the argmax site gives ' +
+      'dW/dtau|_{leading,tau=0} > 0 at every sampled N.',
     corollary:
-      'The cheapest escape route (static weights) is RULED OUT at every N we can ' +
-      'compute. Combined with imp-834 (direct case), this strengthens the negative ' +
-      'evidence for Route C dynamical via the standard quadratic Cauchy-sum quantity.',
+      'The static-weights escape hatch is REOPENED as a candidate at every N we ' +
+      'can compute -- it is NOT ruled out. This does not by itself close Route C: ' +
+      'the argmax-site inequality must still be shown to persist over the full ' +
+      'backward trajectory (not just tau=0) and the integrated product must be ' +
+      'shown to exceed the static ceiling of 2 before the first collision. Neither ' +
+      'is checked here; both are named as open sub-gaps below.',
   },
 
   numericalEvidence: {
     samples: SAMPLES,
     allRhoMaxBelowOne:            ALL_RHO_MAX_BELOW_ONE,
+    allRhoMaxAboveOne:            ALL_RHO_MAX_ABOVE_ONE,
     maxRhoMaxObservedAcrossN:     MAX_RHO_MAX_OBSERVED,
     rhoMaxDecreasingWithN:        RHO_MAX_DECREASING,
     argmaxSiteIsArgminGapSite:    ARGMAX_IS_ARGMIN_GAP,
     note:
       'Per-site sweep over every interior site k in [1, N-2] at each sampled N. ' +
       'rho_amp_max(N) = max_k rho_amp_k, k_argmax = argmax_k rho_amp_k. ' +
-      'Empirically k_argmax equals the argmin-gap site kStar at every sampled N, ' +
-      'and rho_amp_max(N) is strictly less than 1 and decreasing with N, consistent ' +
-      'with the imp-834 scaling. No static-weight variant escapes.',
+      'Empirically k_argmax does NOT coincide with the argmin-gap site kStar at ' +
+      'any sampled N, and rho_amp_max(N) exceeds 1 at every sampled N and GROWS ' +
+      'with N (opposite of the original claim, which only checked rho_at_kStar). ' +
+      'The static-weight escape hatch is an open candidate, not ruled out.',
   },
 
   newSubGaps: [
+    {
+      id: 'imp-861-sub-argmax-trajectory-persistence',
+      statement:
+        'Whether the argmax-site inequality rho_amp_k(tau) > 1 (found here at ' +
+        'tau = 0 for every sampled N) persists over a non-trivial segment of the ' +
+        'backward CM trajectory, and whether the integrated weighted product ' +
+        'actually exceeds the static ceiling of 2 before the first collision. ' +
+        'Neither is checked by this file; both are required before case (b) could ' +
+        'close Route C rather than merely reopen it as a candidate.',
+      difficulty: 'research-grade',
+      status: 'open',
+    },
     {
       id: 'imp-861-sub-tau-dependent-weights',
       statement:
@@ -270,11 +308,14 @@ export const ROUTE_C_WEIGHTED_S_ANALYSIS = {
 
   deliverables: [
     'Generalisation of the imp-834 per-site derivation to an arbitrary interior site k.',
-    'Structural lemma: rho_amp_max(N) < 1 ==> dW/dtau|_{leading,tau=0} < 0 for all ' +
-      'non-negative static weights (this file).',
-    'Per-site numerical sweep of rho_amp_k at N in {50,100,200,500,1000,2000,5000} ' +
-      'confirming rho_amp_max(N) < 1 at every sampled N, with argmax at the argmin-gap site.',
-    'Two named sub-gaps (tau-dependent and signed weights) for follow-on research.',
+    'Structural lemma covering both cases: rho_amp_max(N) < 1 ==> dW/dtau|_{leading,tau=0} ' +
+      '< 0 for all non-negative static weights; rho_amp_max(N) > 1 ==> the argmax-site ' +
+      'weighting gives dW/dtau|_{leading,tau=0} > 0 (this file).',
+    'Per-site numerical sweep of rho_amp_k at N in {50,100,200,500,1000,2000,5000} showing ' +
+      'case (b) holds at every sampled N: rho_amp_max(N) > 1 and growing, argmax site NOT ' +
+      'the argmin-gap site (corrected per imp-3371 -- see correctionNote).',
+    'Three named sub-gaps (argmax trajectory persistence, tau-dependent weights, signed ' +
+      'weights) for follow-on research.',
   ],
 
   nextInSequence:
@@ -288,32 +329,34 @@ export const ROUTE_C_WEIGHTED_S_ANALYSIS = {
 
 export const ROUTE_C_WEIGHTED_S_ANALYSIS_ASSERTIONS = [
   {
-    id: 'imp861-rho-amp-max-below-one-at-samples',
-    holds: () => ROUTE_C_WEIGHTED_S_ANALYSIS.numericalEvidence.allRhoMaxBelowOne,
+    id: 'imp861-rho-amp-max-above-one-at-samples',
+    holds: () => ROUTE_C_WEIGHTED_S_ANALYSIS.numericalEvidence.allRhoMaxAboveOne,
     why:
-      'The structural lemma in this file says: if rho_amp_max(N) < 1 then NO ' +
-      'non-negative static-weight choice can produce dW/dtau > 0 at tau = 0. ' +
-      'Empirically rho_amp_max(N) is ORDERS below 1 at every sampled N and ' +
-      'decreasing with N. A flip to >= 1 at any sampled N would invalidate the ' +
-      'preliminary-negative closure recorded here.',
+      'The structural lemma in this file says: if rho_amp_max(N) > 1, case (b) ' +
+      'applies and placing static weight on the argmax site gives dW/dtau > 0 ' +
+      'at tau = 0. Empirically rho_amp_max(N) is above 1 at every sampled N ' +
+      '(imp-3371 correction). A flip back below 1 at any sampled N would mean ' +
+      'the static-weights escape hatch has closed again at that N, invalidating ' +
+      'the staticWeightsResult recorded here.',
   },
   {
-    id: 'imp861-argmax-coincides-with-argmin-gap',
-    holds: () => ROUTE_C_WEIGHTED_S_ANALYSIS.numericalEvidence.argmaxSiteIsArgminGapSite,
+    id: 'imp861-max-rho-observed-comfortably-above-one',
+    holds: () => ROUTE_C_WEIGHTED_S_ANALYSIS.numericalEvidence.maxRhoMaxObservedAcrossN > 2,
     why:
-      'Empirically the site maximising rho_amp_k is the argmin-gap site k^* at ' +
-      'every sampled N. This means the imp-834 single-site analysis at k^* is ' +
-      'actually the MOST favourable static-weight configuration, so no other ' +
-      'site offers a better candidate. A future data change flipping this would ' +
-      'require revisiting the single-site-is-worst-case reasoning.',
+      'The largest observed rho_amp_max across samples is 653.65 (N=5000), far ' +
+      'above the case (b) threshold of 1. This tripwire guards against the ' +
+      'above-one assertion passing only on floating-point noise near the ' +
+      'threshold; a drop below 2 would warrant re-checking the site-statistics ' +
+      'computation for a regression.',
   },
   {
     id: 'imp861-status-partial',
     holds: () => ROUTE_C_WEIGHTED_S_ANALYSIS.status === 'partial',
     why:
-      'This file delivers a preliminary NEGATIVE result restricted to non-negative ' +
-      'static weights at tau = 0, and names two open research sub-gaps ' +
-      '(tau-dependent and signed weights). Flipping status to closed/completed ' +
+      'This file delivers a corrected but still OPEN result: the static-weights ' +
+      'escape hatch is reopened as a candidate (case (b)), not proven to close ' +
+      'Route C. Three sub-gaps remain (argmax trajectory persistence, ' +
+      'tau-dependent weights, signed weights). Flipping status to closed/completed ' +
       'without resolving those sub-gaps would be a false claim.',
   },
 ];

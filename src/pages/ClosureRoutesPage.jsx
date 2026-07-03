@@ -93,6 +93,7 @@ import { IMP3485_TTILDE_INDEPENDENT_OPERATOR_NORM_CROSSVAL } from '../data/imp-3
 import { IMP3487_DEGREE2_DEFICIT_A_THRESHOLD } from '../data/imp-3487-degree2-deficit-a-threshold.js';
 import { IMP3400_TTILDE_SPECTRAL_SLOPE_CLOSED_FORM } from '../data/imp-3400-Ttilde-spectral-slope-closed-form.js';
 import { IMP3407_C_INF_INDEPENDENT_EXTRAPOLATION_CERTIFICATION } from '../data/imp-3407-C-inf-independent-extrapolation-certification.js';
+import { IMP3402_LEFTMOST_ZERO_DRIFT_RATE_FIT } from '../data/imp-3402-leftmost-zero-drift-rate-fit.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -6854,6 +6855,68 @@ function LeftmostZeroDriftVsLnNphiViz() {
   );
 }
 
+// ── imp-3402 (surfaced per imp-3459 RECOMMENDATION): the OLS drift-rate coefficient
+// fit of the imp-3347 leftmost-zero recession, orphaned until wired beside the
+// imp-3403 residual-shrink refinement it feeds.
+function Imp3402DriftRateFitPanel() {
+  const F402 = IMP3402_LEFTMOST_ZERO_DRIFT_RATE_FIT;
+  const m402 = F402.measured;
+
+  const rows = [
+    { label: 'drift slope (coeff. of ln NPHI)', value: m402.driftSlope.toFixed(5), note: `vs leading-order ${m402.leadingOrderSlope}` },
+    { label: 'drift intercept', value: m402.driftIntercept.toFixed(5), note: `vs leading-order ${m402.leadingOrderIntercept.toFixed(5)}` },
+    { label: 'R²', value: m402.rSquared.toFixed(5), note: `RMSE ${m402.rmse.toExponential(2)}` },
+    { label: 'max |residual|', value: m402.maxAbsResidual.toExponential(2), note: 'over NPHI∈{10,20,40,80}' },
+    { label: 'slope deviation from −1', value: `+${m402.slopeDeviationFromMinusOne.toFixed(5)}`, note: 'finite-N Gaussian curvature' },
+  ];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #a78bfa', background: 'rgba(167,139,250,0.04)' }}>
+      <h3 style={{ color: '#a78bfa', marginTop: 0, fontSize: 14 }}>
+        Leftmost-zero drift-rate coefficient fit (imp-3402)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        imp-3347 verified the leftmost genuine zero u<sub>0</sub>(NPHI) recedes to &minus;&infin; roughly like
+        &minus;ln(NPHI) but never FIT the coefficient directly. This OLS fit of u<sub>0</sub> against
+        ln(NPHI) over NPHI&isin;&#123;10,20,40,80&#125; measures the drift-rate slope at{' '}
+        <strong style={{ color: '#c4b5fd' }}>{m402.driftSlope.toFixed(5)}</strong>, within{' '}
+        {m402.slopeDeviationFromMinusOne.toFixed(4)} of the elementary leading-order &minus;1, with R&sup2;&nbsp;=
+        &nbsp;{m402.rSquared.toFixed(5)}. The refinement below (imp-3403) attributes this small deficit mostly to a
+        neglected Faulhaber finite-N power-sum term rather than pure Gaussian curvature.
+      </p>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginBottom: 8 }}>
+        <thead>
+          <tr style={{ borderBottom: '1px solid #334155', color: '#94a3b8' }}>
+            <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'left' }}>metric</th>
+            <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>value</th>
+            <th style={{ padding: '4px 8px', fontFamily: mono, textAlign: 'right' }}>note</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i} style={{ borderBottom: '1px solid #1e293b' }}>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#cbd5e1' }}>{r.label}</td>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#c4b5fd', textAlign: 'right' }}>{r.value}</td>
+              <td style={{ padding: '3px 8px', fontFamily: mono, color: '#64748b', textAlign: 'right' }}>{r.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(167,139,250,0.07)', border: '1px solid rgba(167,139,250,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#a78bfa' }}>Honest scope (imp-3402):</strong>{' '}
+        Measurement only &mdash; the leftmost zero is a truncation artifact of the finite sum defining
+        &Phi;<sub>NPHI</sub> (the untruncated de Bruijn&ndash;Newman &Phi; is positive on all of R); the
+        imp-3197/imp-3257 [0,U] window and the binding imp-3066 operator-norm magnitude obstruction
+        K<sub>a</sub>&nbsp;&ge;&nbsp;0 are entirely untouched. No new positivity, no reduction, NO QED.
+        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3402-leftmost-zero-drift-rate-fit.js; parent: imp-3347; refined by: imp-3403.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3457: viz of the imp-3403 leftmost-zero residual shrink law — log|residual|
 // vs ln(NPHI) at slope -0.982 with residual*NPHI -> -1/2, alongside the
 // Faulhaber-vs-Gaussian-curvature decomposition (Faulhaber dominant ~102.3%,
@@ -7873,6 +7936,9 @@ export default function ClosureRoutesPage() {
         Leftmost Truncation-Zero Drift vs ln(NPHI) (imp-3347)
       </h2>
       <LeftmostZeroDriftVsLnNphiViz />
+
+      {/* ─── imp-3402: drift-rate coefficient fit of the imp-3347 leftmost-zero recession ─── */}
+      <Imp3402DriftRateFitPanel />
 
       {/* ─── imp-3457: imp-3403 residual shrink law (O(1/NPHI)) + Faulhaber-vs-Gaussian decomposition ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

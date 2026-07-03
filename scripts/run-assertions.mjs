@@ -2664,6 +2664,18 @@ const DATA_MODULES = [
   // fails to match the finite-difference / measured value, the baseline peak drifts off
   // 9.22e5, or the drift is non-monotone. Derivation only; no QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-3462-nmax-turnover-exponent-derivation.js',
+  // imp-3578: RE-EVALUATES the imp-3462 closed exponent (**) = -(l/(l-1)) dx/dlnE_trunc across a
+  // WIDER E_trunc floor decade (0.1x .. 10x the imp-2631 baseline 3.06e-5), re-solving the
+  // imp-3446 implicit root at each floor. Findings: (W1) the closed form matches a re-solved-root
+  // finite-difference elasticity to < 1e-4 (max rel err ~5e-10) at EVERY node, confirming the
+  // imp-3462 differentiation far outside its half-to-double validation window; (W2) the imp-3462
+  // [1.36,1.39] band is a NARROW floor window ~0.80x .. 1.29x the baseline (l ~ 11.67 .. 11.07)
+  // that p exits monotonically -- down to ~1.27 at 0.1x, up to ~1.64 at 10x; (W3) as l grows p
+  // keeps drifting DOWN monotonically toward the structural limit p -> 1 (still ~1.10 at l ~ 32),
+  // never plateauing in reach. Throws on import if the baseline peak/exponent drifts, the
+  // analytic-vs-FD agreement breaks across the decade, the band window is not narrow, or the
+  // asymptotic drift is non-monotone. Measurement only; no QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3578-nmax-exponent-wide-floor-grid.js',
   // imp-3465: ASSESSES whether the imp-3406 interior sigma(N) MAX at N_max ~ 9.22e5 survives
   // once the imp-2631 truncation floor E_trunc = 3.06e-5 is made HEIGHT-DEPENDENT. Re-runs the
   // identical imp-3406 scan/ternary with the same imp-3220 sub-terms but a family of floor
@@ -3168,6 +3180,25 @@ const DATA_MODULES = [
   // re-measurement/verification only, imp-3066 untouched, RH-equivalent, no QED,
   // PT Lambda<=0.2 SOTA. 8 assertions.
   '/src/data/imp-3549-power-iteration-budget-N1000-1200-independent-remeasure.js',
+  // imp-3575 (numerical): RE-MEASURES the imp-3530/imp-3545 skew-Toeplitz gap
+  // rho=lambda_3/lambda_1 at the imp-3555-flagged NON-MONOTONE N=1600 rung (and the
+  // untested N=2000) with a Lanczos Krylov subspace grown past the imp-3545 m=200
+  // reference, to test whether the non-monotonicity is a KRYLOV-TRUNCATION deficit in
+  // lambda_3 or a genuine gap reversal. It is a truncation deficit: at N=1600 rho is
+  // still moving at m=200 (rho=0.9993548, the imp-3545 baked value reproduced to the
+  // last digit); growing to m=240 shifts it +4.03e-4 to 0.9997580, then it LOCKS
+  // (m=280/320/360 agree <2e-14). At the N=1200 ANCHOR the m=200 rho=0.99957063 is
+  // ALREADY converged (m=200->240 stable to 1.3e-13, reproducing the imp-3545 bake), so
+  // the deficit is N-specific and GROWS with N -- the imp-3505/imp-3537 pattern (m=80
+  // sufficed below N=800 but under-resolved N=800). The CORRECTED N=1600 -log rho
+  // =2.4204e-4 now sits BELOW N=1200 4.2946e-4 (the imp-3555 bake had it ABOVE at
+  // 6.4546e-4), so the ladder -log rho is strictly decreasing through N=2000 (6.1746e-4,
+  // 4.2946e-4, 2.4204e-4, 1.5509e-4) and the local slope continues the imp-3555 climb
+  // toward -2: -1.9933 (1200->1600), -1.9949 (1600->2000). The top-6 Ritz spectrum is
+  // skew-symmetry PAIRED so lambda_3 is a genuine level, not a ghost. Baked import-light
+  // rho(m) tables; monotonicity/exponent arithmetic self-checks. Measurement only,
+  // imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3575-skew-toeplitz-gap-N1600-krylov-reconverge.js',
   // imp-3556 (numerical): ROOT-SOLVES the imp-3529 post-peak sigma(N) threshold
   // crossings (sigma<0.9,0.75,0.5,0.25,0.1,0.01) to residual <1e-9 on the exact
   // imp-3220/imp-3406/imp-3463 sub-terms (no ladder read-off): sigma<0.9 at N=2.572e7,

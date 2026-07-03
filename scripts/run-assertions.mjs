@@ -3345,6 +3345,20 @@ const DATA_MODULES = [
   // confirming the tail exponent is EXACTLY 2 window by window. Measurement only, imp-3066
   // K_a>=0 positivity UNTOUCHED, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
   '/src/data/imp-3624-fit-bias-a-window-sensitivity.js',
+  // imp-3648 (numerical): EXTENDS the imp-3624 a-window sensitivity test of the fit-bias law
+  // p_fit = 2 + D_n cov(a^2,ln a)/var(ln a) from n=3..6 to the imp-3618 deeper rungs n=7,8,
+  // reusing the SAME NM=1600 [0,T_A] Simpson moments M_0..M_16 (carrying the M_11..M_14 imp-3618
+  // feeds the deep ladder; no new moment computation). Across the SAME six imp-3624 windows
+  // (covVar ~0.00286..0.05957, ~20x) the fitted exponent moves by up to 8.95e-6 (n=7) while
+  // slopeModelErr=|p_fit-fitted| stays at the imp-3624 ~1e-9 level (global max 8.32e-10 across all
+  // 12 (n,window) cells). (fitted-2)/covVar recovers the closed D_7~-1.5787e-4 / D_8~-1.3198e-4 to
+  // <=9.58e-5 relative at every window, so D_n is window-invariant and the read-out drift IS the
+  // cov(a^2,ln a)/var(ln a) term at the deeper rungs too. Two cross-checks vs imp-3618 pin it to the
+  // certified ladder: the n=7 base window reproduces the nine-rung fitted 1.99999536, the n=8 short6
+  // window the six-rung 1.99999214. Tail exponent EXACTLY 2 window by window; sub-2 read-out is the
+  // derived O(a^2) curvature bias. Measurement only, imp-3066 K_a>=0 positivity UNTOUCHED,
+  // RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 9 assertions.
+  '/src/data/imp-3648-fit-bias-a-window-sensitivity-n78.js',
   // imp-3599 (numerical): DERIVES the next-order O((E_flow/E_trunc)^2) correction to the
   // imp-3580 flow-gap law gap ~ 2 E_flow(N_x)/E_trunc. Dividing the two root conditions gives
   // the EXACT identity gap = 1 - (L_half/L_x)/(1+eta)^2 (eta=E_flow(N_half)/E_trunc), which

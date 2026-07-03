@@ -2797,6 +2797,46 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "analytic replica-hiding grid threshold N_replica = xi_max U/pi ~ 764 (imp-3582)",
+    category: "numerical",
+    definition:
+      "imp-3558 hardened the imp-3511 far-tail |P1| no-missed-maximizer bound to four grid-invariant " +
+      "rungs (N in {1200,2400,4800,9600}) resting on an EMPIRICAL contrast: a sub-threshold aliasing " +
+      "replica of the true peak would sit near 2 xi_Nyq - xi_true and move ~2(delta xi_Nyq)~8797 across " +
+      "the widened ladder, whereas genuine peaks keep a bit-fixed argmax (drift 0). That is a numerical " +
+      "contrast, not an analytic threshold -- imp-3558 never derived the grid size below which a replica " +
+      "could still fold into the scanned band and co-locate with a genuine peak. imp-3582 supplies that " +
+      "floor. Midpoint quadrature on [0,U] with N panels samples at spacing H=U/N and sampling frequency " +
+      "omega_s=2 pi N/U=2 xi_Nyq (Nyquist xi_Nyq=pi N/U), so a genuine feature at xi_true produces its " +
+      "first positive-baseband replica at L(xi_true)=2 xi_Nyq-xi_true. That replica is observable only if " +
+      "it folds back into the scanned band (0,xi_max], xi_max=400: 0 < 2 xi_Nyq-xi_true <= xi_max. The " +
+      "loosest in-band source (xi_true=xi_max) makes this possible only for xi_Nyq <= xi_max, i.e. " +
+      "N <= N_replica = xi_max U/pi = 2400/pi ~ 763.94 (ceil 764, U=6). For N > N_replica the ENTIRE band " +
+      "(0,400] is provably replica-free -- no first-order alias of any in-band feature can appear " +
+      "anywhere in the band -- so the drift-0 observation is analytically DECISIVE, not merely a numerical " +
+      "contrast. Two tighter refinements give context: the co-location floor (a replica landing within " +
+      "the argmax resolution dxi of the largest genuine peak xi_peak_max~320.01) is N_colocate = " +
+      "(xi_max+xi_peak_max)U/(2 pi) ~ 688; the main-maximizer floor (a replica of the global maximizer " +
+      "xi* ~ 12.087, imp-3470) is only reachable below N ~ 394. The smallest imp-3558 rung N=1200 " +
+      "(xi_Nyq~628.3) sits a factor ~1.57 above N_replica~764, so all four rungs are replica-free and the " +
+      "argmax-drift-0 discriminator has an analytic floor underneath its empirical contrast." +
+      "\n\nHONEST SCOPE: derivation/certification only, using the standard FIRST-order sampling-alias " +
+      "model (higher-order images 2k xi_Nyq-xi_true, k>=2, fold in only at even smaller N, so k=1 is the " +
+      "binding floor). It gives no closed form for xi* or the sup (the imp-3470 stationarity equation " +
+      "stays transcendental), does not extend the finite domain (0,400], and measures the tail ratio, not " +
+      "operator positivity. RH-EQUIVALENT necessary-but-not-sufficient; the imp-3066 off-diagonal " +
+      "endpoint-Hankel K_a >= 0 magnitude is the lone obstruction, UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3582 (analytic replica-hiding grid threshold N_replica = xi_max U/pi ~ 764 hardening the imp-3558 argmax-drift-0 discriminator with an a-priori floor, all four ladder rungs sitting ~1.57x above it), 2026",
+    relatedTerms: [
+      "imp-3558 far-tail band-max grid ladder N=1200..9600 (imp-3558)",
+      "imp-3511 no-missed-maximizer wide-range robustness (imp-3511)",
+      "imp-3470 spectral peak xi* transcendental obstruction (imp-3470)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

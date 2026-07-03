@@ -2489,6 +2489,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Far-tail band-max midpoint quadrature: ANALYTIC O(H^2) error bound (imp-3550)",
+    category: "numerical",
+    definition:
+      "imp-3531 certified the imp-3511 far-tail |P1| decade-band-max grid ladder converged over " +
+      "successive panel-count doublings, but flagged that convergence as an EMPIRICAL Cauchy/O(H^2) " +
+      "observation over a finite ladder, not an analytic error bound. imp-3550 closes that gap: P1 = " +
+      "2(C C1 + S S1) is assembled from four composite-midpoint integrals of the smooth de Bruijn-Newman " +
+      "integrand over [0, U], and the Euler-Maclaurin midpoint remainder int g - M_H[g] = " +
+      "(H^2/24)[g_prime(U) - g_prime(0)] + O(H^4) gives the rigorous bound | int g - M_H[g] | <= " +
+      "(U/24) H^2 sup|g_prime2|. Bounding the second derivatives of the trig-weighted integrand by " +
+      "M2 + 2 xi M1 + xi^2 M0 (and the analogous H-sup-norm form for the u-weighted pair) and propagating " +
+      "through P1 yields |P1_N(xi) - P1(xi)| <= K(xi) H^2, hence |bandMax_N - bandMax_exact| <= B_band H^2 " +
+      "with B_band = sup_{(320,400]} K(xi). Halving H shrinks the certified error EXACTLY 4x (verified to " +
+      "machine precision), and the imp-3531 empirical 2400 -> 4800 leg change sits UNDER the analytic " +
+      "envelope B_band(H_2400^2 - H_4800^2), with the Richardson-extrapolated limit landing inside the " +
+      "certified band about the N=4800 reading -- so the finite Cauchy ladder is now bracketed by an " +
+      "a-priori formula instead of resting on a table of doublings alone." +
+      "\n\nHONEST SCOPE: the bound is RIGOROUS but CONSERVATIVE -- the triangle-inequality sup|g_prime2| " +
+      "(dominated by the xi^2 M0 term at xi ~ 400) over-estimates the true quadrature residual by orders " +
+      "of magnitude, so it certifies the O(H^2) SCALING and brackets the ladder, not a sharp constant. It " +
+      "does NOT give xi* or the sup an elementary closed form (the imp-3470 stationarity equation stays " +
+      "transcendental), and it governs only the FINITE domain [0, 400] -- it is not a no-root proof at " +
+      "arbitrarily large xi. RH-equivalent; the imp-3066 off-diagonal endpoint-Hankel K_a >= 0 magnitude " +
+      "remains the lone obstruction, UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 " +
+      "remains the rigorous SOTA.",
+    firstUsed: "imp-3550 (Euler-Maclaurin midpoint analytic O(H^2) far-tail band-max error bound, upgrading the imp-3531 empirical Cauchy ladder), 2026",
+    relatedTerms: [
+      "far-tail xi* band-max grid ladder: four grid-invariant rungs to N=9600, xi_Nyq~5027 (imp-3558)",
+      "PSD peak-slope maximizer xi* = 12.0870439 (transcendental root of P2(xi) = 0) (imp-3470)",
+      "far-tail xi* replica-hiding grid threshold N_replica~764 (imp-3582)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

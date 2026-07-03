@@ -3079,6 +3079,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3665 A-weight super-exponential decay confirmation: exp(-pi e^{4 tau}), no hard support endpoint",
+    category: "numerical",
+    definition:
+      "imp-3646 based its C_n ~ (ln n)^2/(16 n^2) moment-ratio law on a claim that the autocorrelation weight " +
+      "A(tau) = int_0^inf Phi(s) Phi(s + tau) ds (Phi the NPHI=10-truncated completed-Riemann kernel) decays " +
+      "SUPER-exponentially, A(tau) ~ exp(-pi e^{4 tau}), with NO hard support endpoint -- quoting A(0.5) ~ 4.5e-11 " +
+      "and A(1) ~ 3e-75 but never independently cross-checking the law or those magnitudes. imp-3665 recomputed " +
+      "A(tau) at tau in {0.5,1,1.5,2} on a refined grid. Because A(1.5) ~ e^{-1267} ~ 1e-550 and A(2) ~ e^{-9363} ~ " +
+      "1e-4067 UNDERFLOW IEEE-754 double (min ~1e-308, the naive integrand is exactly 0.0 there), A(tau) was " +
+      "evaluated entirely in the LOG DOMAIN: ln Phi via a log-sum-exp over the kernel terms, and the Simpson " +
+      "integral itself as a log-sum-exp of ln(weight)+lnPhi(s)+lnPhi(s+tau)+ln(h/3), so -ln A(tau) is exact at all " +
+      "four tau (171.955, 1267.12, 9362.72, ...) with no term ever exponentiated at full scale. RESULT: the ratio " +
+      "-ln A(tau)/(pi e^{4 tau}) -> 1 from above (1.0266, 1.0025, 0.99977, 0.99976) and the central-difference " +
+      "slope d(-ln A)/dtau tracks 4 pi e^{4 tau} to <1% (ratio 0.9925 -> 0.9997 -> 0.9993 -> 0.9999): the leading " +
+      "law and its slope are CONFIRMED as asymptotic. Extending the outer cutoff [0,7] -> [0,12] refines -ln A by " +
+      "only ~1e-3 relative and never truncates, confirming NO compact-support edge -- the no-hard-endpoint premise " +
+      "behind imp-3646 holds. ONE honest correction: the converged A(1) is ~2.1e-75, not the quoted 3e-75 -- " +
+      "imp-3646's coarser n=1200 Simpson on [0,7] under-resolves the sharp near-s=0 peak of Phi(s)Phi(s+1); both " +
+      "values are the SAME order and both satisfy the pi e^{4 tau} law, so this is a ~30% amplitude refinement, " +
+      "not a change of regime. A(0.5) ~ 4.47e-11 matches the quoted 4.5e-11 to two figures." +
+      "\n\nHONEST SCOPE: measurement/cross-check only -- confirms (and lightly corrects) the decay rate of a fixed " +
+      "autocorrelation weight used inside a mass-feasibility diagnostic; establishes NO operator positivity. " +
+      "Mass-feasibility remains NECESSARY-BUT-NOT-SUFFICIENT; the operator-level K_a >= 0 off-diagonal " +
+      "endpoint-Hankel positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 " +
+      "remains the rigorous SOTA.",
+    firstUsed: "imp-3665 (log-domain cross-check of the imp-3646 A-weight super-exponential decay claim at tau in {0.5,1,1.5,2}), 2026",
+    relatedTerms: [
+      "imp-3646 remainder-tail moment-ratio asymptotics and C_n ~ (ln n)^2/(16 n^2) (imp-3646)",
+      "imp-3581 remainder-tail exponent derivation, closed C_n/D_n law (imp-3581)",
+      "imp-3501 general moment-ladder derivation R_n = sum a^m/m! M_m (imp-3501)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -37,6 +37,7 @@ import { IMP3146_RESIDUAL_GAP_LIMIT_AU_GRID } from '../data/imp-3146-residual-ga
 import { IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING } from '../data/imp-3153-cosh-monomial-conditioning-ceiling.js';
 import { IMP3155_ONSET_DECAY_NEXT_ORDER_CORRECTIONS } from '../data/imp-3155-onset-decay-next-order-corrections.js';
 import { IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT } from '../data/imp-3222-onset-decay-second-order-coefficient.js';
+import { IMP3325_ONSET_PADE_RESUMMATION } from '../data/imp-3325-onset-pade-resummation.js';
 import { IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE } from '../data/imp-3175-overflow-fraction-resolution-reconcile.js';
 import { SECTION26_MUPASS_OPERATOR_VERDICT } from '../data/section26-mupass-operator-verdict-2026-06-30.js';
 import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equal-product-cell-invariance-lock.js';
@@ -2948,6 +2949,115 @@ function NextOrderConvergenceCorrectionViz() {
   );
 }
 
+// ── imp-3396: imp-3325 T2/T3/P11 relative-error-vs-eps accuracy radii viz ────
+function OnsetPadeAccuracyRadiusViz() {
+  const M = IMP3325_ONSET_PADE_RESUMMATION;
+  const ASINH1 = Math.asinh(1);
+  const SQRT2 = Math.SQRT2;
+  const S0 = ASINH1;
+  const C = SQRT2 * (1 - ASINH1);
+  const A1 = (SQRT2 - 1) / (1 - ASINH1) - SQRT2 / 6;
+  const A2 = -(2 * SQRT2 - 1) / (6 * (1 - ASINH1)) - 1 / 36;
+  const PADE_C = -A2 / A1;
+  const PADE_B = A1 + PADE_C;
+
+  const F_s = (s) => Math.cosh(s) - SQRT2 - s + ASINH1;
+  const G_s = (s) => SQRT2 - ASINH1 - Math.exp(-s);
+  const PHI = (s) => G_s(s) / F_s(s);
+  const S_TRUE = (eps) => PHI(S0 + eps) * eps * eps / C;
+  const T2 = (eps) => 1 + A1 * eps;
+  const T3 = (eps) => 1 + A1 * eps + A2 * eps * eps;
+  const P11 = (eps) => (1 + PADE_B * eps) / (1 + PADE_C * eps);
+  const relErr = (fn, eps) => Math.abs(fn(eps) - S_TRUE(eps)) / Math.abs(S_TRUE(eps));
+
+  const EPS_MIN = 0.01, EPS_MAX = 0.5, N = 240;
+  const series = ["t2", "t3", "p11"].map((k) => ({ k, fn: k === "t2" ? T2 : k === "t3" ? T3 : P11 }));
+  const curves = series.map(({ k, fn }) => {
+    const pts = [];
+    for (let i = 0; i <= N; i++) {
+      const eps = EPS_MIN * Math.pow(EPS_MAX / EPS_MIN, i / N);
+      const err = Math.max(relErr(fn, eps), 1e-6);
+      pts.push({ eps, err });
+    }
+    return { k, pts };
+  });
+
+  const W = 460, H = 300, ML = 56, MR = 16, MT = 20, MB = 40;
+  const logMin = Math.log10(EPS_MIN), logMax = Math.log10(EPS_MAX);
+  const px = (eps) => ML + ((Math.log10(eps) - logMin) / (logMax - logMin)) * (W - ML - MR);
+  const yMin = -4, yMax = 0; // log10(rel err) from 1e-4 to 1
+  const py = (err) => H - MB - ((Math.log10(err) - yMin) / (yMax - yMin)) * (H - MT - MB);
+
+  const colors = { t2: "#ef4444", t3: "#fbbf24", p11: "#22d3ee" };
+  const labels = { t2: "T2 (two-term)", t3: "T3 (three-term poly)", p11: "P11 ([1/1] Pade)" };
+
+  const yTicks = [-4, -3, -2, -1, 0];
+  const xTicks = [0.01, 0.03, 0.1, 0.3];
+
+  const R = M.accuracyRadius;
+  const radii1pct = { t2: R.twoTermEps1pct, t3: R.threeTermEps1pct, p11: R.padeEps1pct };
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #22d3ee", background: "rgba(34,211,238,0.04)" }}>
+      <h3 style={{ color: "#22d3ee", marginTop: 0 }}>
+        imp-3325 accuracy radii: T2/T3/P11 relative error vs &epsilon;, and the T3&asymp;P11 overlap
+      </h3>
+      <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
+        Relative error |approx/&phi; &minus; 1| of the two-term T2, three-term polynomial T3, and
+        [1/1] Pade P11 reconstructions of the imp-3064 onset signature, plotted on a log-log axis
+        against a direct finite-&epsilon; evaluation of &phi;. Dashed horizontal lines mark the 1%
+        and 0.1% tolerance thresholds; dotted verticals mark each curve's 1%-crossing radius
+        (T2 &epsilon;*&asymp;{radii1pct.t2.toFixed(3)}, T3 &epsilon;*&asymp;{radii1pct.t3.toFixed(3)},
+        P11 &epsilon;*&asymp;{radii1pct.p11.toFixed(3)}). T3 and P11 track almost exactly until
+        &epsilon;&gt;~0.3, where P11 pulls slightly ahead &mdash; visual confirmation that the Pade
+        rational structure adds almost nothing beyond simply keeping the A2 term.
+      </p>
+      <svg width={W} height={H} style={{ display: "block", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
+        {yTicks.map((v) => (
+          <g key={"y" + v}>
+            <line x1={ML} y1={py(Math.pow(10, v))} x2={W - MR} y2={py(Math.pow(10, v))} stroke="#1e293b" strokeWidth="1" />
+            <text x={ML - 6} y={py(Math.pow(10, v)) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>
+              {v === 0 ? "1" : "1e" + v}
+            </text>
+          </g>
+        ))}
+        {xTicks.map((eps) => (
+          <g key={"x" + eps}>
+            <line x1={px(eps)} y1={H - MB} x2={px(eps)} y2={H - MB + 4} stroke="#334155" strokeWidth="1" />
+            <text x={px(eps)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>{eps}</text>
+          </g>
+        ))}
+        <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+        <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+        <line x1={ML} y1={py(0.01)} x2={W - MR} y2={py(0.01)} stroke="#10b981" strokeWidth="1" strokeDasharray="5 3" />
+        <text x={W - MR} y={py(0.01) - 4} textAnchor="end" fontSize="9" fill="#10b981" fontFamily={mono}>1% tol</text>
+        <line x1={ML} y1={py(0.001)} x2={W - MR} y2={py(0.001)} stroke="#a78bfa" strokeWidth="1" strokeDasharray="5 3" />
+        <text x={W - MR} y={py(0.001) - 4} textAnchor="end" fontSize="9" fill="#a78bfa" fontFamily={mono}>0.1% tol</text>
+        {["t2", "t3", "p11"].map((k) => (
+          <line key={"vr" + k} x1={px(radii1pct[k])} y1={MT} x2={px(radii1pct[k])} y2={H - MB} stroke={colors[k]} strokeWidth="1" strokeDasharray="2 3" opacity="0.6" />
+        ))}
+        {curves.map(({ k, pts }) => (
+          <path key={k} d={pts.map((p, i) => (i === 0 ? "M" : "L") + " " + px(p.eps).toFixed(1) + " " + py(p.err).toFixed(1)).join(" ")}
+            fill="none" stroke={colors[k]} strokeWidth={k === "t2" ? 1.5 : 2} strokeDasharray={k === "t2" ? "6 3" : undefined} />
+        ))}
+        <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}>&epsilon; (log scale)</text>
+        <text x={12} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono} transform={"rotate(-90 12 " + (MT + H - MB) / 2 + ")"}>rel. error (log)</text>
+        {["t2", "t3", "p11"].map((k, i) => (
+          <g key={"leg" + k}>
+            <line x1={ML + 4} y1={MT + 12 + i * 14} x2={ML + 18} y2={MT + 12 + i * 14} stroke={colors[k]} strokeWidth={k === "t2" ? 1.5 : 2} strokeDasharray={k === "t2" ? "6 3" : undefined} />
+            <text x={ML + 22} y={MT + 16 + i * 14} fontSize="9" fill="#94a3b8" fontFamily={mono}>{labels[k]}</text>
+          </g>
+        ))}
+      </svg>
+      <p style={{ marginTop: 8, color: "#64748b", fontSize: 11, fontFamily: mono }}>
+        Source: imp-3325-onset-pade-resummation.js &mdash; 1% radii T2&asymp;{radii1pct.t2.toFixed(5)},
+        T3&asymp;{radii1pct.t3.toFixed(5)}, P11&asymp;{radii1pct.p11.toFixed(5)}. RH-equivalent, degree-0
+        scalar diagnostic; imp-3066 lone obstruction untouched; Platt-Trudgian &Lambda;&le;0.2 SOTA.
+      </p>
+    </div>
+  );
+}
+
 function BridgeLagCutoffCaptureViz() {
   const M = IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP;
   const table = M.measured.table;
@@ -5220,6 +5330,12 @@ export default function ClosureRoutesPage() {
         Next-order convergence corrections: onset slope A<sub>1</sub>&asymp;3.256 and decay (2s+D<sub>0</sub>)e<sup>&minus;s</sup> (imp-3155)
       </h2>
       <NextOrderConvergenceCorrectionViz />
+
+      {/* ─── imp-3396: imp-3325 T2/T3/P11 accuracy radii viz ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Onset-signature accuracy radii: T2/T3/P11 relative error vs &epsilon;, ~4x extension and T3&asymp;P11 overlap (imp-3325)
+      </h2>
+      <OnsetPadeAccuracyRadiusViz />
 
       {/* ─── imp-3154: genuine deg-2 deficit degree sweep ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

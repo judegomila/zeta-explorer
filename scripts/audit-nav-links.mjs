@@ -186,6 +186,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3586-sigma-crossing-logistic-drop',
   '/viz-imp3589-cosh-overestimation-factor',
   '/viz-imp3611-skew-toeplitz-krylov-gap-ladder',
+  '/viz-imp3612-fit-bias-depth-sweep',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

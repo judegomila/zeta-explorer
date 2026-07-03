@@ -143,6 +143,7 @@ const Imp3586SigmaCrossingLogisticDropViz = lazy(() => import('./pages/Imp3586Si
 const Imp3567ClosedErrorCertificateViz = lazy(() => import('./pages/Imp3567ClosedErrorCertificateViz.jsx'));
 const Imp3589CoshOverestimationFactorViz = lazy(() => import('./pages/Imp3589CoshOverestimationFactorViz.jsx'));
 const Imp3611SkewToeplitzKrylovGapLadderViz = lazy(() => import('./pages/Imp3611SkewToeplitzKrylovGapLadderViz.jsx'));
+const Imp3612FitBiasDepthSweepViz = lazy(() => import('./pages/Imp3612FitBiasDepthSweepViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -730,6 +731,7 @@ function AppShell() {
           <Route path="/viz-imp3567-closed-error-certificate" element={<Imp3567ClosedErrorCertificateViz />} />
           <Route path="/viz-imp3589-cosh-overestimation-factor" element={<Imp3589CoshOverestimationFactorViz />} />
           <Route path="/viz-imp3611-skew-toeplitz-krylov-gap-ladder" element={<Imp3611SkewToeplitzKrylovGapLadderViz />} />
+          <Route path="/viz-imp3612-fit-bias-depth-sweep" element={<Imp3612FitBiasDepthSweepViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

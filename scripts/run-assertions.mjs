@@ -3062,6 +3062,19 @@ const DATA_MODULES = [
   // at a=0.5 (equivalence). Measurement/certification, imp-3066 untouched, no QED,
   // PT Lambda<=0.2 SOTA. 9 assertions.
   '/src/data/imp-3526-remainder-tail-cancellation-free-r4.js',
+  // imp-3532 (proof): FORMALIZES the imp-3501 general-n moment-tail remainder as an
+  // EXPLICIT closed error bound valid for ALL n (not just n=0..4). imp-3501 derived
+  // R_n(a)=sum_{m>=n,m==n mod2} a^m/m! M_m and R_n=(a^n/n!)M_n+O(a^(n+2)) but left the
+  // constant unquantified. Subtracting the m=n term leaves E_n(a)=sum_{k>=1}
+  // a^(n+2k)/(n+2k)! M_(n+2k); bounding by absolute moments Mbar_j=int tau^j |A| gives
+  // Mbar_(n+2k) <= T_A^(2k-2) Mbar_(n+2) on [0,T_A], and (n+2k)! >= (n+2)!(2k-2)!
+  // collapses the sum to (a^(n+2)/(n+2)!) Mbar_(n+2) cosh(a T_A) <= (a^(n+2)/(n+2)!)
+  // Mbar_(n+2) e^(a T_A). Unconditional in Mbar; under A>=0 (moments all positive)
+  // Mbar=M, the ticket form, with the sharper cosh constant. Certified on the imp-3481
+  // ladder M_0..M_6, T_A=6, a in {0.5,0.25,0.125}, n=0..4: tail <= sharp <= clean,
+  // moment-decay domination holds, cosh strictly below e^. Derivation/certification,
+  // imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3532-moment-tail-closed-error-bound.js',
 ];
 
 let ALL_MODULES = FAST_MODE

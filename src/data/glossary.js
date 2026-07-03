@@ -4100,6 +4100,44 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3736 honest-status note: the imp-3665-vs-imp-3709 -ln A(2) gap is ENTIRELY grid-convergence residual, not a method disagreement",
+    category: "numerical",
+    definition:
+      "PROVENANCE RECORD, not a new derivation: settles whether the ~2.6-natural-log-unit gap " +
+      "between imp-3665's baked uniform-Simpson literal -ln A(2)=9362.72 and imp-3709's " +
+      "independent graded-Gauss-Legendre value -ln A(2)=9365.32 (rel ~2.8e-4) reflected a genuine " +
+      "disagreement between the two structurally different quadratures, or was simply an " +
+      "under-converged grid. imp-3709's own partial Richardson ladder had stopped at n=2e5, " +
+      "still ~0.08 short of the graded-GL value, so it only CONJECTURED the reconciliation " +
+      "without demonstrating it." +
+      "\n\nimp-3736 drove imp-3665's uniform log-Simpson ladder past that stopping point, to " +
+      "n=8e5 (self-computing) and n=3.2e6 (offline-verified literal), and confirmed the graded-GL " +
+      "path is already cutoff- and grade-invariant (hi=12/14/16 and grade 4/6 agree bit-for-bit), " +
+      "i.e. a genuine converged value rather than a grid plateau. The uniform-Simpson -ln A(2) " +
+      "climbs monotonically onto the graded-GL limit as n grows (9362.79 @ 12000 -> 9365.24 @ 2e5 " +
+      "-> 9365.318968 @ 3.2e6), landing on a converged -ln A(1.5)=1267.788621 and " +
+      "-ln A(2)=9365.318970, with the two independent paths agreeing to ~10 significant figures " +
+      "(residual ~2e-6 absolute, rel ~2e-10) at full convergence." +
+      "\n\nVERDICT: the gap was ENTIRELY grid-convergence residual in imp-3665's uniform grid, " +
+      "which cannot resolve the near-s=0 integrand peak whose width collapses like " +
+      "1/(4 pi e^{4 tau}) ~ 1e-5 at tau=2. imp-3665's precise literals (9362.72, 1267.12) were " +
+      "~0.03-0.05% LOW -- a resolution refinement only. The A(2) ~ 1e-4067 super-exponential-decay " +
+      "ORDER (log10 A(2)=-4067.31) is UNCHANGED; only the trailing literals refine onto " +
+      "-ln A(2)=9365.3190." +
+      "\n\nHONEST SCOPE: a convergence-provenance record only, at the RH-equivalent scale class. " +
+      "No new derivation, no re-solve, and no operator positivity; the off-diagonal endpoint-Hankel " +
+      "obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
+      "Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3736 (driving imp-3665's uniform log-Simpson ladder past imp-3709's partial n=2e5 Richardson stop to full n=3.2e6 convergence, confirming the ~2.6-log-unit -ln A(2) gap is grid residual and both paths agree to ~10 sig figs), 2026",
+    relatedTerms: [
+      "imp-3665 A-weight super-exponential decay confirmation: exp(-pi e^{4 tau}), no hard support endpoint (imp-3665)",
+      "imp-3709 peak-adapted graded Gauss-Legendre log-domain A-weight quadrature (imp-3709)",
+      "imp-3746 verification-provenance catalog: which deep-rung baked-literal families carry an INDEPENDENT reproduction vs remain single-source (imp-3746)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

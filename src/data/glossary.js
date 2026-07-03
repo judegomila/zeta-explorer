@@ -2421,12 +2421,18 @@ export const glossary = [
       "equation stays transcendental -- and the convergence remains an EMPIRICAL Cauchy/O(H^2) observation " +
       "over a finite ladder N <= 9600, not an analytic quadrature error bound. The imp-3066 off-diagonal " +
       "endpoint-Hankel K_a >= 0 magnitude remains the lone RH obstruction, UNTOUCHED. RH-equivalent; no RH " +
-      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA." +
+      "\n\nCAVEAT (imp-3647): the drift-0 discriminator is decisive here only because all four rungs " +
+      "(N>=1200) sit above the imp-3582 worst-case floor N_replica~764. Below a feature-specific fold-in " +
+      "floor a folded-in replica can co-locate with the genuine peak at equal height while a coarse scan " +
+      "still reports argmax drift 0 (the replica sits off the coarse grid node); below that floor the " +
+      "decisive quantity is the in-band comb-peak COUNT, not the coarse argmax location.",
     firstUsed: "imp-3558 (four-rung far-tail xi* band-max grid ladder extension to N=9600, xi_Nyq~5027), 2026",
     relatedTerms: [
       "PSD peak-slope maximizer xi* = 12.0870439 (transcendental root of P2(xi) = 0) (imp-3470)",
       "PSD peak-slope maximizer xi* = 12.0870439: U-invariance and global uniqueness (imp-3489, imp-3483)",
       "far-tail xi* replica-hiding grid threshold N_replica~764 (imp-3582)",
+      "sub-floor replica fold-in caveat: feature-specific floor N_fold, peak-count decisiveness (imp-3647)",
     ],
     link: "/closure-routes",
   },

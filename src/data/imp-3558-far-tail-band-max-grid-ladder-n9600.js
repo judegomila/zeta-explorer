@@ -45,9 +45,19 @@
  *   off-diagonal endpoint-Hankel K_a >= 0 magnitude is the lone RH obstruction, UNTOUCHED. NO RH
  *   verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.
  *
+ *   CAVEAT (imp-3647): the argmax-drift-0 discriminator used above is decisive ONLY because every
+ *   rung here (N >= 1200) sits above the imp-3582 worst-case floor N_replica ~ 764. imp-3647 shows
+ *   that below a feature-specific fold-in floor N_fold(xi_true) = (xi_max+xi_true) U/(2 pi) -- which
+ *   can sit well under the generic 764 -- a coarse in-band scan keeps reporting the SAME argmax
+ *   (drift 0) even when a folded-in replica has co-located with the genuine peak at equal height,
+ *   because the coarse grid step samples the replica off-node. A drift-0 read is therefore UNSAFE
+ *   below that floor; the decisive quantity there is the in-band comb-PEAK COUNT (one peak: decisive;
+ *   two equal-height peaks: masked), not the coarse argmax location.
+ *
  *   @see imp-3531-far-tail-band-max-grid-convergence.js (parent: three-rung ladder N<=4800)
  *   @see imp-3511-xistar-uniqueness-wide-range-robustness.js (tail bound + aliasing guard)
  *   @see imp-3470-Ttilde-spectral-peak-xistar-obstruction.js (located xi* by one bracket)
+ *   @see imp-3647-below-floor-replica-foldin-margin.js (sub-floor fold-in caveat + peak-count test)
  *
  *   Ticket: imp-3558 (numerical, medium). Certification only; RH-equivalent; NO QED.
  */

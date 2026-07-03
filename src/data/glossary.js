@@ -3619,6 +3619,42 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3646 remainder-tail moment-ratio asymptotics: LOG-DIVERGENT C_n ~ (ln n)^2/(16 n^2), NOT a fixed b^2/n^2 saturation",
+    category: "numerical",
+    definition:
+      "imp-3581/imp-3600/imp-3618/imp-3638 gave the closed relative-residual coefficients C_n = M_(n+2)/((n+1)(n+2)M_n) " +
+      "and D_n = C_(n+2) - C_n driving r_n(a) = C_n a^2 [1 + D_n a^2 + O(a^4)], certified rung-by-rung through n=9,10, " +
+      "but never characterized the large-n behaviour of the driving moment ratio Q_n = M_(n+2)/M_n. A natural guess was " +
+      "that Q_n SATURATES to a fixed A-scale ceiling b^2 (an endpoint/hard-support constant), giving C_n ~ b^2/n^2 with " +
+      "a FIXED prefactor and D_n = O(1/n^3). imp-3646 measured Q_n across n=3..18 on the NM=1600 [0,T_A] Simpson moment " +
+      "reference and REFUTED that guess: because the autocorrelation weight A(tau) = int Phi(s)Phi(s+tau) ds decays " +
+      "SUPER-exponentially (A(tau) ~ exp(-pi e^{4 tau}), cross-checked in imp-3665) with NO hard support endpoint, " +
+      "Q_n instead GROWS slowly and without bound (Q_3~0.02915, Q_10~0.08020, Q_18~0.12840) and n^2 C_n is STRICTLY " +
+      "INCREASING over n=3..18 (0.0131 -> 0.1095): C_n is NOT a fixed b^2/n^2. The growth is governed by the Laplace " +
+      "saddle of the moment integrand tau^n A(tau), peaking at tau*(n) solving n = 4 pi tau* e^{4 tau*}, with " +
+      "Q_n/tau*(n)^2 -> 1 monotonically from above (1.207 at n=6 -> 1.040 at n=18, extended to 1.005 at n=40 by " +
+      "imp-3664), so Q_n ~ tau*(n)^2 with tau*(n) ~ (1/4) ln n (plus a ln ln n correction, pinned exactly by imp-3664). " +
+      "This yields the CLOSED slowly-varying laws C_n = Q_n/((n+1)(n+2)) ~ (ln n)^2/(16 n^2) -- O((ln n)^2/n^2), a " +
+      "LOG-DIVERGENT n^2 C_n prefactor, not a finite constant -- D_n = C_(n+2) - C_n < 0 -> 0 like O((ln n)^2/n^3), and " +
+      "|p_fit - 2| = |D_n| cov(a^2,ln a)/var(ln a) -> 0 like the same O((ln n)^2/n^3), confirmed at the observable level " +
+      "by imp-3670. So: a genuine DECAY law holds (C_n, D_n, |p_fit-2| all -> 0) but there is NO finite-constant " +
+      "n -> inf limit for Q_n or n^2 C_n." +
+      "\n\nHONEST SCOPE: measurement/derivation of a mass-feasibility diagnostic's large-n rate only; establishes NO " +
+      "operator positivity. Mass-feasibility remains NECESSARY-BUT-NOT-SUFFICIENT; the off-diagonal endpoint-Hankel " +
+      "obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-3646 (measuring the driving moment ratio Q_n=M_(n+2)/M_n across n=3..18, refuting the fixed-b^2/n^2 saturation guess and deriving the closed log-divergent-prefactor decay laws C_n~(ln n)^2/(16 n^2), D_n and |p_fit-2| -> 0 as O((ln n)^2/n^3)), 2026",
+    relatedTerms: [
+      "imp-3665 A-weight super-exponential decay confirmation: exp(-pi e^{4 tau}), no hard support endpoint (imp-3665)",
+      "imp-3664 moment-ratio saddle law extension to n=40 and sub-leading tau*(n) correction (imp-3664)",
+      "imp-3670 observable |p_fit-2| fit-bias decay rate cross-check against the imp-3646 law (imp-3670)",
+      "imp-3581 remainder-tail exponent derivation, closed C_n/D_n law (imp-3581)",
+      "imp-3501 general moment-ladder derivation R_n = sum a^m/m! M_m (imp-3501)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

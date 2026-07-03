@@ -1469,6 +1469,29 @@ export const glossary = [
     ],
     link: '/closure-routes',
   },
+  {
+    term: "onset-signature Taylor coefficients (sign-alternating A1..A4)",
+    category: 'constant',
+    definition:
+      "The Taylor coefficients of the imp-3064 excess fraction phi(s) = G(s)/F(s), expanded " +
+      "around its double pole at s0 = arcsinh(1) (sinh s0 = 1, cosh s0 = sqrt2). Dividing out " +
+      "the double pole with C = sqrt2*(1-arcsinh1) (the onset quadratic-pole constant) gives the " +
+      "analytic ONSET SIGNATURE S(eps) = phi(s0+eps) eps^2/C = 1 + A1 eps + A2 eps^2 + A3 eps^3 " +
+      "+ A4 eps^4 + ..., telescoped coefficient-by-coefficient from the double-zero Taylor blocks " +
+      "of F and G at s0. Writing G0 = 1 - arcsinh(1) = G(s0), the four coefficients have closed " +
+      "forms: A1 = (sqrt2-1)/G0 - sqrt2/6 ~ +3.25605 (imp-3155), A2 = -(2 sqrt2-1)/(6 G0) - 1/36 " +
+      "~ -2.59666 (imp-3222), A3 = (2 sqrt2+1)/(36 G0) + 11 sqrt2/1080 ~ +0.91088 (imp-3383), and " +
+      "A4 = (sqrt2-1)/G0 * (-1/36 - 19 sqrt2/1080) - 7/6480 ~ -0.18495 (imp-3383 bonus term, added " +
+      "to enable a genuine [2/2] Pade). The signs SIGN-ALTERNATE (+, -, +, -); each closed form " +
+      "was checked against an exact series division of num/den to 1e-16 and, for A3, against an " +
+      "independent Richardson extrapolation of a direct finite-eps evaluation of phi. The four " +
+      "coefficients feed the imp-3383 higher-order Pade resummations ([2/1], [1/2], [2/2]) of the " +
+      "onset signature. Degree-0 scalar diagnostic only; RH-equivalent; the off-diagonal " +
+      "endpoint-Hankel obstruction (imp-3066) is untouched; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-3155 (A1), imp-3222 (A2), imp-3383 (A3, A4, sign-alternation), 2026",
+    relatedTerms: ['onset quadratic-pole divergence', 'envelope crossover handoff (s_cross1)'],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

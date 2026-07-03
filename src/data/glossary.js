@@ -1592,6 +1592,33 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Rank-2 hollow-antisymmetry (shear Gram Gshear = p q^T - q p^T)",
+    category: "method",
+    definition:
+      "imp-3404 shows the hollow-antisymmetric shear Gram Gshear(u,v) = Phi(u) Phi(v) sinh(a (v - u)) " +
+      "factors, since sinh is odd, as Gshear = p q^T - q p^T with p_i = Phi_i cosh(a u_i) and " +
+      "q_i = Phi_i sinh(a u_i) -- a RANK-2 real antisymmetric matrix. A rank-2 antisymmetric matrix " +
+      "has at most two nonzero singular values, coming in an equal pair, so i Gshear has spectrum " +
+      "{ +mu, -mu, 0, ..., 0 } (N - 2 EXACT zeros) with mu^2 = |p|^2 |q|^2 - <p,q>^2. Because there " +
+      "are no intermediate eigenvalues to vary, the normalized spectrum { +1, 0, ..., 0, -1 } is " +
+      "IDENTICAL at every (a, U, Phi) cell -- the imp-3351 cell-independent identity min eig(i Gshear) " +
+      "= -||Gshear|| is therefore a TRIVIAL algebraic consequence of this rank-2 hollow antisymmetry, " +
+      "not extra structure: there is nothing intermediate left to be cell-dependent. imp-3404 measured " +
+      "this at N = 240 across all 16 imp-3085 grid cells via three independent routes (analytic mu, " +
+      "power-iteration top singular value, Frobenius energy), finding the extremal pair carries the " +
+      "entire spectral energy to machine precision at every cell." +
+      "\n\nHONEST SCOPE: structural/diagnostic only -- does not construct a dominating passive core and " +
+      "does not attempt the K_a >= 0 positivity. The binding RH-equivalent residual (the imp-3066 " +
+      "off-diagonal endpoint-Hankel step) is untouched; Platt-Trudgian Lambda <= 0.2 stays SOTA. No QED.",
+    firstUsed: "imp-3404 (rank-2 hollow-antisymmetry full-spectrum cell-independence), 2026",
+    relatedTerms: [
+      "cell-independent min-eig identity (imp-3351)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+      "Gshear operator norm (||Gshear||)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

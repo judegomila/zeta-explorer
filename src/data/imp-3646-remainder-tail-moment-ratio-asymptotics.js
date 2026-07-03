@@ -280,6 +280,20 @@ export const IMP3646_REMAINDER_TAIL_MOMENT_RATIO_ASYMPTOTICS = Object.freeze({
       'like O((ln n)^2/n^3), so |p_fit-2| -> 0, but the shrinkage carries the log-varying prefactor, not a pure n^-3.',
   }),
 
+  statusCorrection: Object.freeze({
+    supersededBy: 'imp-3665-a-weight-superexp-decay-crosscheck.js',
+    note:
+      'imp-3665 independently recomputed A(tau) on a refined log-domain grid and found the converged A(1) is ' +
+      '~2.1e-75, not the ~3e-75 quoted above: the coarse n=1200 [0,7] Simpson used here under-resolves the sharp ' +
+      'near-s=0 peak of Phi(s)Phi(s+1). Both values are the SAME order of magnitude (~30% amplitude refinement, not ' +
+      'an order-of-magnitude error) and confirm the SAME leading law A(tau) ~ exp(-pi e^{4 tau}). imp-3689 further ' +
+      'confirmed the refinement is CONFINED to the single A(1) magnitude: it does not shift the C_n ~ (ln n)^2/' +
+      '(16 n^2) moment-ratio law or the D_n bias law derived here, which stand unchanged on the refined grid.',
+    affectedValue: 'A(1) ~ 3e-75 (quoted in derivation.weightDecay and summary above)',
+    correctedValue: 'A(1) ~ 2.1e-75',
+    conclusionsAffected: false,
+  }),
+
   honestCaveat: Object.freeze({
     isProof: false,
     isReductionBelowRH: false,
@@ -343,6 +357,19 @@ export const IMP3646_REMAINDER_TAIL_MOMENT_RATIO_ASYMPTOTICS_ASSERTIONS = [
     holds: () =>
       verdict ===
       'MOMENT-RATIO-Q_n=M_(n+2)/M_n-DIVERGES-SLOWLY-(NO-FIXED-b^2)-VIA-LAPLACE-SADDLE-tau*~(ln n)/4-SO-C_n~(ln n)^2/(16 n^2)-AND-D_n,|p_fit-2|->0-AS-O((ln n)^2/n^3)',
+  },
+  {
+    id: 'imp3646-status-correction-recorded',
+    why: 'imp-3665 corrected the A(1) magnitude quoted by this module from ~3e-75 to a converged ~2.1e-75 (same ' +
+         'order, same leading law); the module must carry that correction rather than silently keep the stale figure.',
+    holds: () => {
+      const sc = IMP3646_REMAINDER_TAIL_MOMENT_RATIO_ASYMPTOTICS.statusCorrection;
+      return (
+        sc.supersededBy === 'imp-3665-a-weight-superexp-decay-crosscheck.js' &&
+        sc.conclusionsAffected === false &&
+        /2\.1e-75/.test(sc.correctedValue)
+      );
+    },
   },
   {
     id: 'imp3646-honest-diagnostic-not-a-verdict',

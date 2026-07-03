@@ -61,6 +61,7 @@ import { IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE } from '../data/imp-3219-mupass-br
 import { IMP3255_BRIDGE_RATIO_CLOSED_FORM } from '../data/imp-3255-bridge-ratio-closed-form.js';
 import { IMP3322_SPREAD_CONTRACTION_DISCRIMINATOR } from '../data/imp-3322-spread-contraction-discriminator.js';
 import { IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL } from '../data/imp-3257-bridge-sign-phi-nonneg-structural.js';
+import { IMP3347_PHI_LEFTMOST_ZERO_VS_NPHI } from '../data/imp-3347-phi-leftmost-zero-vs-nphi.js';
 import { IMP3256_VHS_CROSSVAL } from '../data/imp-3256-vhs-crossval.js';
 import { IMP3309_TWO_TAIL_UNDERFLOW_HORIZONS } from '../data/imp-3309-two-tail-underflow-horizons.js';
 
@@ -4364,6 +4365,114 @@ function PhiTermwiseNonnegativityViz() {
   );
 }
 
+// ── imp-3411: imp-3347 leftmost-zero drift vs ln(NPHI), with the growing
+// left-margin-below-u1* overlay (the unused conservatism of the imp-3257 termwise bound) ──
+function LeftmostZeroDriftVsLnNphiViz() {
+  const M = IMP3347_PHI_LEFTMOST_ZERO_VS_NPHI.measured;
+  const cells = M.cells;
+  const u1Star = M.u1Star;
+
+  const W = 640, H = 320, ML = 60, MR = 24, MT = 24, MB = 46;
+  const xMin = Math.log(8), xMax = Math.log(96);
+  const yMin = -5.1, yMax = -0.1;
+  const px = (lnN) => ML + ((lnN - xMin) / (xMax - xMin)) * (W - ML - MR);
+  const py = (u) => H - MB - ((u - yMin) / (yMax - yMin)) * (H - MT - MB);
+
+  const xTicks = cells.map((c) => ({ nphi: c.nphi, x: Math.log(c.nphi) }));
+  const yTicks = [-0.5, -1, -2, -3, -4, -5];
+
+  const fitPts = [];
+  for (let n = 8; n <= 96; n += 2) {
+    const lnN = Math.log(n);
+    fitPts.push([px(lnN), py(0.5 * Math.log(5 / (2 * Math.PI)) - lnN)]);
+  }
+  const fitPath = fitPts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
+
+  const zeroPath = cells
+    .map((c, i) => `${i === 0 ? 'M' : 'L'} ${px(Math.log(c.nphi)).toFixed(1)} ${py(c.leftmostZero).toFixed(1)}`)
+    .join(' ');
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #f472b6', background: 'rgba(244,114,182,0.04)' }}>
+      <h3 style={{ color: '#f472b6', marginTop: 0 }}>
+        Leftmost truncation zero u&#8320;(NPHI) recedes left, widening the margin below u&#8321;* (imp-3347 / imp-3411)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The full truncated &Phi;<sub>NPHI</sub> stays strictly positive well below the termwise threshold{' '}
+        <span style={{ fontFamily: mono }}>u<sub>1</sub>* = {u1Star.toFixed(5)}</span> (dashed line). Its leftmost
+        genuine zero <span style={{ fontFamily: mono }}>u<sub>0</sub>(NPHI)</span> (solid markers) drifts log&#8209;linearly
+        left as NPHI doubles, tracking the elementary closed form{' '}
+        <span style={{ fontFamily: mono }}>u<sub>0</sub> &#8776; (1/2)ln(5/(2&pi)) &minus; ln N</span> (dashed fit). The
+        shaded band at each cell is the unused left margin{' '}
+        <span style={{ fontFamily: mono }}>u<sub>1</sub>* &minus; u<sub>0</sub>(NPHI)</span>, which GROWS from 2.09 to
+        4.13 &mdash; the conservatism of the imp-3257 termwise bound below u<sub>1</sub>*.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}
+          role="img" aria-label="Leftmost zero u0(NPHI) vs ln(NPHI) with the left-margin-below-u1-star overlay">
+          {yTicks.map((v) => (
+            <g key={`y${v}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{v}</text>
+            </g>
+          ))}
+          {xTicks.map(({ nphi, x }) => (
+            <text key={`x${nphi}`} x={px(x)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>
+              {`NPHI=${nphi}`}
+            </text>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>ln(NPHI)</text>
+          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}
+            transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>u</text>
+
+          {/* u_1* termwise threshold */}
+          <line x1={ML} y1={py(u1Star)} x2={W - MR} y2={py(u1Star)} stroke="#22c55e" strokeWidth="1.4" strokeDasharray="2 3" />
+          <text x={W - MR - 4} y={py(u1Star) - 6} textAnchor="end" fontSize="10" fill="#4ade80" fontFamily={mono}>u_1*</text>
+
+          {/* left-margin-below-u1* overlay: shaded band per cell */}
+          {cells.map((c) => (
+            <line key={`m${c.nphi}`} x1={px(Math.log(c.nphi))} y1={py(u1Star)} x2={px(Math.log(c.nphi))} y2={py(c.leftmostZero)}
+              stroke="#f472b6" strokeWidth="6" strokeOpacity="0.16" />
+          ))}
+          {cells.map((c) => (
+            <text key={`ml${c.nphi}`} x={px(Math.log(c.nphi)) + 8} y={(py(u1Star) + py(c.leftmostZero)) / 2 + 4}
+              fontSize="10" fill="#f9a8d4" fontFamily={mono}>
+              {`margin ${c.leftMarginBelowU1Star.toFixed(2)}`}
+            </text>
+          ))}
+
+          {/* leading-order closed-form fit */}
+          <path d={fitPath} fill="none" stroke="#94a3b8" strokeWidth="1.3" strokeDasharray="4 3" />
+
+          {/* measured leftmost zero u_0(NPHI) */}
+          <path d={zeroPath} fill="none" stroke="#f472b6" strokeWidth="2" />
+          {cells.map((c) => (
+            <circle key={`z${c.nphi}`} cx={px(Math.log(c.nphi))} cy={py(c.leftmostZero)} r="5" fill="#f472b6" stroke="#f9a8d4" strokeWidth="1.2">
+              <title>{`NPHI=${c.nphi}  ->  u_0=${c.leftmostZero.toFixed(4)}`}</title>
+            </circle>
+          ))}
+        </svg>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          DIAGNOSTIC MEASUREMENT &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          u<sub>0</sub>(NPHI) is a pure truncation artifact of the finite sum (the untruncated de&nbsp;Bruijn&ndash;Newman
+          &Phi; is positive on all of R) and recedes to &minus;&infin; as NPHI grows; it never touches the
+          imp-3197/imp-3257 [0,U] window and leaves the imp-3066 operator-norm magnitude obstruction untouched.
+          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3347-phi-leftmost-zero-vs-nphi.js.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3196: residual-gap convergence RATE (log-log, power-law vs geometric) ──
 function ResidualGapConvergenceRateViz() {
   const M = IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE;
@@ -5154,6 +5263,12 @@ export default function ClosureRoutesPage() {
       </h2>
       <CInfFixedResolutionConvergenceViz />
       <PhiTermwiseNonnegativityViz />
+
+      {/* ─── imp-3411: imp-3347 leftmost-zero drift vs ln(NPHI), left-margin-below-u1* overlay ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Leftmost Truncation-Zero Drift vs ln(NPHI) (imp-3347)
+      </h2>
+      <LeftmostZeroDriftVsLnNphiViz />
 
       {/* ─── imp-3065: independent quadrature cross-check ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

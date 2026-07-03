@@ -2678,6 +2678,21 @@ const DATA_MODULES = [
   // reproduction, physical-floor dissolution, no-power-survives, k* flip, log preservation, or
   // honesty gate breaks. Measurement/diagnostic only; no QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-3465-nmax-height-dependent-floor.js',
+  // imp-3486: CERTIFIES the imp-3465 critical capture-decay exponent k_c at which the imp-3406
+  // interior minimum of g(N) = (E_trunc+E_flow)/E_coll ceases to form (g monotone from N=1e2,
+  // sigma monotone decreasing). Reuses the exact imp-3465 power floor E_trunc=3.06e-5*(T_PT/T0)^k
+  // and sub-terms. Two structurally independent locators -- (A) bisecting the imp-3465
+  // SCAN_STEPS=2000 classifyShape INTERIOR->BOUNDARY-LO transition, (B) bisecting the smooth
+  // condition g_min^interior(k)=g(1e2;k) -- agree on k_c = 0.1966894 to ~8 significant figures.
+  // The interior min persists for 0<=k<k_c and is gone above it via a GLOBAL-MIN HANDOVER: at
+  // k_c the interior stationary point survives (N~2.5e3) but is overtaken in value by the
+  // amplified low-N floor, so the global min hands off to the N=1e2 window boundary. This
+  // sharpens imp-3465s "any k>0 kills it" (its smallest positive grid sample k=0.2 merely sat
+  // just above the threshold); k_c is window-dependent and sits below the large-N limit-flip
+  // k*=1/2. Throws on import if the k=0 control reproduction (~9.22e5), the two-locator
+  // agreement, the interior/boundary separation across k_c, the handover value-crossing, the
+  // imp-3465 grid straddle, or the honesty gate breaks. Measurement only; no QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3486-critical-decay-exponent.js',
   // imp-3324: MEASURES how load-bearing the C_H=1/8 ansatz is for the imp-3220 widest-gap
   // conditional share sigma(10^6)~0.949. Reuses the identical imp-3220 sub-terms, parametrizes
   // E_coll linearly in C_H (R=E_trunc+E_flow fixed), and finds sigma=E_coll/(R+E_coll) is a
@@ -2910,6 +2925,41 @@ const DATA_MODULES = [
   // ladder (M_2 reproduced as anchor). Measurement/derivation only, imp-3066
   // untouched, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
   '/src/data/imp-3481-autocorrelation-moment-ladder.js',
+  // imp-3485 (accuracy): CROSS-VALIDATES the imp-3467 assembled capture constant
+  // C = ||Ttilde||/(a m0 sigma_Phi) = 0.1751370 by recomputing the skew-Toeplitz
+  // numerator operator norm ||Ttilde|| a SECOND, structurally INDEPENDENT way on
+  // the full imp-3240 U-grid {4,6,8,10,12,16,20}. imp-3467 used ONE solver (power
+  // iteration on M^T M); this adds a symmetric Lanczos (Krylov-subspace) route
+  // with full reorthogonalization whose top eigenvalue is found by a cyclic Jacobi
+  // rotation sweep -- no shared code path. The independent norm reproduces the
+  // power-iteration norm to relative error 1.7e-9 (U=4) .. 1.0e-4 (U=20), so the
+  // imp-3467 direct number is NOT a power-iteration artifact; assembling C from it
+  // gives 0.174468 -> 0.175109, below the closed-form 0.1751370 with per-U
+  // agreement tightening 0.38% -> 0.016%, reproducing the imp-3467 ratio ladder
+  // 0.9962 -> 0.9998 from a distinct solver. Cross-validation only, imp-3066
+  // untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3485-Ttilde-independent-operator-norm-crossval.js',
+  // imp-3487 (numerical): assesses whether RAISING the shear a (shrinking the
+  // imp-3469 crossover tauStar=arcsinh(1)/a) can push tauStar INSIDE the A(tau)
+  // support and induce a NONZERO degree-2 overflow deficit D_2. Bisects the
+  // a-threshold aStar~0.6475 (tauStar~1.361 = the hard A-underflow point) where
+  // D_2 flips from EXACTLY 0 to positive; aStar sits ABOVE both base cells and
+  // counter to the ladder direction (a->a/k), and the induced deficit is
+  // negligible (B_2/D_2~1e+200 at threshold, ~3.4e+6 at a=2), so no meaningful
+  // degree-2 ratio emerges in the small-a construction band. Assessment only,
+  // imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
+  '/src/data/imp-3487-degree2-deficit-a-threshold.js',
+  // imp-3488 (numerical): DERIVES the imp-3469 degree-2 miss factor 1-1/k^3 and
+  // exponent p=2 in closed form from the leading form B_2(a)=(a^2/2)M_2+O(a^4)
+  // (M_2 fixed, U-independent): a^2 homogeneity gives B_2(a/k)=k^{-2}B_2(a)
+  // (p=2 analytically), so the degree-0 prediction k*B_2 over-predicts by k^3
+  // and the relative miss is |k^{-3}-1|=1-1/k^3. Certifies against the imp-3469
+  // k-ladder {2,3,4,6,8} on both base cells: with r_k=B_2(a/k)/B_2(a) the
+  // measured residual IS 1-r_k/k, over-prediction IS k/r_k (both to <1e-12), and
+  // derived-minus-measured miss IS the closed leading-form tail (r_k-1/k^2)/k
+  // (<1e-3, reconciled to r_k to <1e-12). Derivation/certification only,
+  // imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3488-degree2-miss-factor-closed-form.js',
 ];
 
 let ALL_MODULES = FAST_MODE

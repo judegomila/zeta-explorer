@@ -2269,6 +2269,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Moment-tail CLOSED error certificate |R_n(a)-(a^n/n!)M_n| <= (a^(n+2)/(n+2)!) M_(n+2) e^(a T_A), valid for ALL n",
+    category: "numerical",
+    definition:
+      "imp-3501 derived the moment-tail identity R_n(a) = (a^n/n!) M_n + O(a^{n+2}) but left the " +
+      "residual as an unquantified big-O, with closed forms instantiated only for n = 0..4. imp-3532 " +
+      "promotes it to an EXPLICIT closed bound valid for every n. Peeling the leading (m=n) term from " +
+      "the imp-3501 moment-tail identity leaves the exact residual E_n(a) := R_n(a) - (a^n/n!)M_n = " +
+      "sum_{k>=1} a^{n+2k}/(n+2k)! M_{n+2k}. Bounding termwise by absolute moments Mbar_j := " +
+      "int_0^{T_A} tau^j |A(tau)| d(tau) >= |M_j| gives the decay bound Mbar_{n+2k} <= T_A^{2k-2} " +
+      "Mbar_{n+2} on the compact support [0, T_A], and the binomial factorial bound " +
+      "(n+2k)! >= (n+2)!(2k-2)! collapses the tail sum to (a^{n+2}/(n+2)!) Mbar_{n+2} cosh(a T_A) <= " +
+      "(a^{n+2}/(n+2)!) Mbar_{n+2} e^(a T_A) -- the inner sum is exactly the even half of the " +
+      "exponential series, i.e. cosh(a T_A). The bound is UNCONDITIONAL in the absolute moments; on " +
+      "the effective support A(tau) >= 0 (measured moments all positive) Mbar = M and it collapses to " +
+      "the ticket form with the sharper cosh(a T_A) constant available in place of e^(a T_A). Certified " +
+      "against the imp-3481 ladder (M_0..M_6, T_A = 6) on a in {0.5, 0.25, 0.125} and n = 0..4: the " +
+      "exact residual tail never exceeds the sharp cosh bound, which never exceeds the clean exp bound, " +
+      "the per-term moment-decay domination holds, and cosh(a T_A) is strictly tighter than e^(a T_A) " +
+      "on every rung." +
+      "\n\nHONEST SCOPE: derivation/certification only -- supplies an explicit constant for the " +
+      "small-a Taylor/moment error of the degree-2 (absolute-measure) masses and establishes NO " +
+      "operator positivity. Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face " +
+      "carries no feasibility comparison at all (imp-3469: D_2 = 0). The operator-level K_a >= 0 " +
+      "off-diagonal endpoint-Hankel obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3532 (closed error certificate promoting the imp-3501 O(a^{n+2}) moment-tail statement to an explicit all-n constant), 2026",
+    relatedTerms: [
+      "imp-3501 general-n moment-tail identity R_n(a) = (a^n/n!) M_n + O(a^{n+2})",
+      "Fitted moment-remainder tail EXPONENT p_n ~ 2, upgrading the imp-3481 worst-case ratio to a genuine decay law (imp-3502)",
+      "genuine-Phi autocorrelation MOMENT LADDER M_0..M_4 and the moment-indexed leading form R_n(a) ~ (a^n/n!) M_n (imp-3481)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

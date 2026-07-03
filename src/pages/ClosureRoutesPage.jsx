@@ -53,6 +53,7 @@ import { IMP3288_ANALYTIC_CEILING_LEMMA } from '../data/imp-3288-analytic-ceilin
 import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-fraction-integrability.js';
 import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
+import { IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE } from '../data/imp-3219-mupass-bridge-overshoot-knee.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -661,6 +662,84 @@ function ConditionalShareUShapePanel() {
       </div>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3220-en-bridge-fidelity-frontier.js &mdash; N&isin;{'{2..10'}<sup>6</sup>{'}'}, dual-axis (&sigma;(N) left, E_coll/E_flow right).
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3219 fine-grid capture(c) overshoot: rise to peak, then monotone relax ──
+// Shows the near-diagonal bridge capture curve capture(c) = ||T_c|| / ||T|| on the
+// fine lag grid: it crosses 1 at the onset cutoff, overshoots to a bounded (<0.5%)
+// peak one lag step later, then relaxes monotonically back to 1 -- the minimal
+// lag-support carrying essentially the entire bridge operator norm.
+function CaptureOvershootKneePanel() {
+  const M = IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE.measured;
+  const table = M.fineTable;
+  const n = table.length;
+
+  const W = 640, H = 260, ML = 56, MR = 24, MT = 22, MB = 44;
+  const xMax = table[n - 1].cutoff;
+  const yMin = 0.98, yMax = 1.006;
+  const px = (c) => ML + (c / xMax) * (W - ML - MR);
+  const py = (v) => H - MB - ((v - yMin) / (yMax - yMin)) * (H - MT - MB);
+  const yTicks = [0.98, 0.99, 1.0, M.overshootPeak, 1.005];
+
+  const linePath = table.map((row, i) => `${i === 0 ? 'M' : 'L'} ${px(row.cutoff)} ${py(row.capture)}`).join(' ');
+  const onsetRow = table.find((r) => r.cutoff === M.onsetCutoff) || table.find((r) => r.capture > 1);
+  const peakRow = table.find((r) => r.capture === M.overshootPeak);
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #34d399', background: 'rgba(52,211,153,0.04)' }}>
+      <h3 style={{ color: '#34d399', marginTop: 0, fontSize: 14 }}>
+        Fine-grid capture(c) overshoots 1 by &lt;0.5%, peaking at c*&asymp;{M.cStar.toFixed(2)}, then relaxes monotonically (imp-3219)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        On the fine lag grid (one integer lag step per sample), the near-diagonal band-truncated capture
+        first crosses 1 at the onset c&asymp;{M.onsetCutoff.toFixed(2)}, overshoots to a peak
+        capture&asymp;{M.overshootPeak.toFixed(6)} ({M.overshootPercent.toFixed(3)}%) at c*&asymp;{M.cStar.toFixed(2)}, then
+        relaxes monotonically back to within 1e-4 of 1 by c&asymp;{table[n - 1].cutoff.toFixed(2)}. The overshoot means the
+        near-diagonal band alone carries marginally MORE operator norm than the full bridge operator -- the far-lag
+        tail is indefinite and partially self-cancelling, not additive.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={`yt${v.toFixed(5)}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily="var(--font-mono)">{v.toFixed(4)}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          {/* capture = 1 reference line */}
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#475569" strokeWidth="1" strokeDasharray="4 3" />
+          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill="#64748b" fontFamily="var(--font-mono)">capture = 1</text>
+          {/* capture(c) curve */}
+          <path d={linePath} fill="none" stroke="#34d399" strokeWidth="2" />
+          {onsetRow && (
+            <g>
+              <circle cx={px(onsetRow.cutoff)} cy={py(onsetRow.capture)} r="4" fill="#facc15" />
+              <text x={px(onsetRow.cutoff)} y={py(onsetRow.capture) - 8} textAnchor="middle" fontSize="10" fill="#facc15" fontFamily="var(--font-mono)">onset c&asymp;{onsetRow.cutoff.toFixed(2)}</text>
+            </g>
+          )}
+          {peakRow && (
+            <g>
+              <circle cx={px(peakRow.cutoff)} cy={py(peakRow.capture)} r="4" fill="#f87171" />
+              <text x={px(peakRow.cutoff)} y={py(peakRow.capture) - 8} textAnchor="middle" fontSize="10" fill="#f87171" fontFamily="var(--font-mono)">peak c*&asymp;{peakRow.cutoff.toFixed(2)}</text>
+            </g>
+          )}
+          <text x={px(xMax)} y={H - MB + 16} textAnchor="end" fontSize="10" fill="#64748b" fontFamily="var(--font-mono)">c&rarr;{xMax.toFixed(2)} (relaxed)</text>
+          <text x={ML} y={H - MB + 16} textAnchor="start" fontSize="10" fill="#64748b" fontFamily="var(--font-mono)">c=0</text>
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#f87171' }}>Honest scope (imp-3219):</strong>{' '}
+        RH-EQUIVALENT diagnostic only: locating the capture overshoot peak is a cutoff-localization
+        measurement, NOT a construction of the missing operator-norm magnitude or the K<sub>a</sub>&thinsp;&ge;&thinsp;0
+        positivity residual. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
+        Source: imp-3219-mupass-bridge-overshoot-knee.js &mdash; a=0.5, U=6, N=200, fine lag-band sweep.
       </p>
     </div>
   );
@@ -4583,6 +4662,8 @@ export default function ClosureRoutesPage() {
       <AnalyticCeilingConcentratingFamilyPanel />
 
       <ConditionalShareUShapePanel />
+
+      <CaptureOvershootKneePanel />
 
       {/* ─── imp-3106: excess fraction integrability ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

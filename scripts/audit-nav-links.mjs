@@ -199,6 +199,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3698-fifth-pair-adjacent-pairing',
   '/viz-imp3699-fit-bias-decay',
   '/viz-imp3700-mesoscopic-shock-scale-separation',
+  '/viz-imp3374-overflow-degree',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

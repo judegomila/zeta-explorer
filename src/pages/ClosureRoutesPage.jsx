@@ -3921,7 +3921,9 @@ export default function ClosureRoutesPage() {
             — they differ <strong>only</strong> by the offline occupation-density normalization
             convention (imp-3154 uses shear = full past-future Phi factor; section26 uses the
             standard cosh-normalized convention). This is <strong>NOT a discrepancy</strong>; the
-            ~13x ratio is a known convention factor, not a computational disagreement.
+            ~13x ratio is the imp-3218-derived connecting factor R&#x2009;&#x2248;&#x2009;4&pi;, with the
+            1/2&pi; shear/passive normalization asymmetry named as the dominant source (see below) —
+            not an unexplained computational disagreement.
             <div style={{ marginTop: 5, paddingTop: 5, borderTop: '1px solid rgba(251,191,36,0.18)' }}>
               <strong style={{ color: '#fbbf24' }}>Derived (imp-3218):</strong>{' '}
               the connecting factor is{' '}

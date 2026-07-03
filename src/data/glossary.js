@@ -803,6 +803,46 @@ export const glossary = [
       'symmetric isolation onset (c*)',
       'Theorem-C basin constant (0.72)',
       'telescoping sum',
+      'digamma-difference isolation onset (c_half)',
+    ],
+    link: '/closure-routes',
+  },
+  {
+    term: "digamma-difference isolation onset (c_half)",
+    category: 'constant',
+    definition:
+      "The half-lattice lone-neighbour SG1c isolation onset c_half = 0.8980208880762339, " +
+      "the L -> infinity limit of the imp-3194 sweep, now CLOSED in closed form (imp-3270) as " +
+      "the unique root in (0,1) of R(rho) = 4 + 4 rho - 4/rho - 4/(rho+1) - " +
+      "2 [psi(1 + 2/rho) - psi(1 + 1/rho)], where psi is the digamma function. " +
+      "Setup: positions {-1, 0, rho} union {1 + k rho : k = 1..L}, tracked pair (0, rho) " +
+      "against the FIXED lone left neighbour at -1 (the tie-robust branch; the naive " +
+      "global-nearest selector locks onto a d_1 = 1 tie artifact at ~0.90625, imp-3249). " +
+      "Why a DIFFERENCE of two digammas, unlike c_asym: c_asym's opposite lattice sits at " +
+      "unit spacing, so its transcendental tail is the single value psi(g+1) + gamma. Here " +
+      "the opposite lattice is spaced at rho itself (denser than unit, since rho < 1), and " +
+      "the lone-neighbour distance (fixed at 1) and the lattice spacing (rho) are " +
+      "incommensurate scales, so the divergent lattice sum resolves to the DIFFERENCE " +
+      "psi(1 + 2/rho) - psi(1 + 1/rho) instead of a single digamma value. " +
+      "Rigor: R(1) = 1 exactly (psi(3) - psi(2) = 1/2) and R -> -infinity as rho -> 0+, so a " +
+      "root exists; dR/drho > 2/rho^2 > 0 strictly on (0,1], so R is strictly increasing and " +
+      "the root is unique (not merely bracketed). The O(1/L) finite-size corrections cancel " +
+      "exactly between the gap side and the lone-neighbour side, proving the O(1/L^2) " +
+      "convergence order that imp-3194 could only measure empirically. " +
+      "Located-onset chain (each an upper bound on the still-open global constant c_glob): " +
+      "c_half = 0.89802 < structured tune 0.9015828 (imp-3021/3172) < c_asym = 0.9027902 " +
+      "(imp-3170) < c* = 0.9318517 (imp-3005). c_half is now the tightest located ceiling. " +
+      "Honest scope: c_half closes only this rho-spaced class, as its infimum approached at " +
+      "L -> infinity (never attained at finite L); it is NOT proven to be the global " +
+      "asymmetric infimum, which remains OPEN. The Theorem-C basin constant 0.72 stays safely " +
+      "below with margin c_half - 0.72 = 0.178. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA; no QED.",
+    firstUsed: "imp-3270 (sg1c-halflattice-lone-limit-closed-form), 2026",
+    relatedTerms: [
+      'digamma transcendental isolation onset (c_asym)',
+      'isolation-constant ladder',
+      'Theorem-C basin constant (0.72)',
+      'asym-onset ledger rigor-status taxonomy',
     ],
     link: '/closure-routes',
   },

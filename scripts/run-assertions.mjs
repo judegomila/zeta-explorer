@@ -2274,6 +2274,20 @@ const DATA_MODULES = [
   // invariant measure. Diagnostic; overflow-support only; necessary-but-not-sufficient at
   // operator order; no positivity, no RH verdict; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-3199-overflow-fraction-cell-sweep.js',
+  // imp-3216: assesses whether the imp-3199 cell-invariant overflow-support length frac x U ~ 1.2535
+  // has a closed form. Resolving {tau : nu > mu} to N=51200 shows the overflow set is a SINGLE
+  // contiguous interval [tau_1, tau_2] with BOTH endpoints cell-invariant (tau_1 ~ 0.1109, tau_2 ~
+  // 1.3660, spread < 3e-4). FINDING: the invariance is EXACT but NOT a Phi-autocorrelation length --
+  // tau_1 is a genuine a-scale-free nu/mu crossover, but tau_2 ~ 1.367 is the IEEE-754 double UNDERFLOW
+  // HORIZON of the kernel Phi(u) (exp(-pi e^{4u}) drops below 2^-1074 at tau ~ (1/4)ln(X*), pi X* -
+  // ln(2 pi^2 X*) = 744.44). The Phi^2-tail mu underflows FIRST (tau ~ 1.196) while single-Phi-tail nu
+  // stays > mu until IT underflows at tau ~ 1.366, so the region ends by arithmetic underflow, not a
+  // crossover. REVISES imp-3199 F3: mathematically the overflow is [tau_1, U], the true fraction
+  // (U - tau_1)/U -> 1 as U grows (0.981 -> 0.991 over U=6..12) while the MEASURED (tau_2 - tau_1)/U
+  // falls like 1/U (0.209 -> 0.105); the ~1.2535 length is a double-precision underflow artifact.
+  // Throws on import if any endpoint, the underflow ordering, or the U-scaling breaks. Diagnostic;
+  // overflow-support geometry only; necessary-but-not-sufficient; no positivity; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3216-overflow-support-length-closed-form.js',
   // imp-3197: tests the section26-mupass verdict claim that the K_a>=0 bridge sign-positivity
   // is "derived from Phi ALONE (not from |Gshear| own spectrum)" at the genuine Phi (NPHI=10,
   // a=0.5, U=6). Splits "correct sign at correct lags" into SIGN and MAGNITUDE: Phi>=0 on [0,U]

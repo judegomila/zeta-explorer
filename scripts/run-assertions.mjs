@@ -2322,6 +2322,17 @@ const DATA_MODULES = [
   // support length back to a genuine Phi-autocorrelation length. Lock only; no QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-3312-underflow-horizon-lock.js',
+  // imp-3258: decides whether the imp-3199 overflow-support measure frac x U has a weak GENUINE
+  // U-dependence or is finite-resolution noise. imp-3199 tabulated it as cell-invariant ~1.2535 yet
+  // its N=6400 anchors drift monotonically down with the lag cutoff (U=5 -> 1.25391, U=6 -> 1.25438,
+  // U=8 -> 1.25250, ~0.15%). Reproduces that drift, then the DECISIVE TEST: sweeping U=6 and U=8 up
+  // N in {6400..51200} the U6-vs-U8 gap CONTRACTS monotonically 1.9e-3 -> 3.9e-5 (~O(1/N)) toward 0 and
+  // both windows converge to the SAME ~1.2552, and holding the grid step H=U/N fixed collapses the
+  // cross-U spread to ~1e-4 -- so the drift is an H=U/N panel-width artifact, not a U-dependence of the
+  // length (exactly the imp-3216 U-independent-endpoint prediction). Throws on import if the gap stops
+  // contracting or the matched-step collapse breaks. Diagnostic; overflow-support only; the length itself
+  // is a double-precision underflow-horizon reading (imp-3216); necessary-not-sufficient; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3258-overflow-support-U-drift-resolution.js',
   // imp-3197: tests the section26-mupass verdict claim that the K_a>=0 bridge sign-positivity
   // is "derived from Phi ALONE (not from |Gshear| own spectrum)" at the genuine Phi (NPHI=10,
   // a=0.5, U=6). Splits "correct sign at correct lags" into SIGN and MAGNITUDE: Phi>=0 on [0,U]

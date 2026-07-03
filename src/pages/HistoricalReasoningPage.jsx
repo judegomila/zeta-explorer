@@ -14,13 +14,13 @@ const reasoningEntries = [
     title: 'The Central Problem Is Finite → Infinite Convergence',
     category: 'meta-strategy',
     status: 'active',
-    content: `Both the ZPO framework and Connes' latest work (Zeta Spectral Triples, Nov 2025; Letter to Riemann, Feb 2026) face the SAME core challenge: proving that properties verified for finitely many primes persist in the infinite limit.
+    content: `Both the Twin-Ladder Bridge framework and Connes' latest work (Zeta Spectral Triples, Nov 2025; Letter to Riemann, Feb 2026) face the SAME core challenge: proving that properties verified for finitely many primes persist in the infinite limit.
 
 **ZPO version:** For N primes, the scattering matrix satisfies S_N†S_N ≈ I with deficit O(p_N^{-1}). We need lim_{N→∞} S_N†S_N = I (exact unitarity).
 
 **Connes' version:** For primes p ≤ x, he constructs self-adjoint operators whose eigenvalues match the first ~50 zeta zeros to accuracy 10^{-55}. He needs the eigenvalues to converge to exact zeros as x → ∞.
 
-**Key insight:** These are not independent problems. If we solve one, the techniques likely transfer to the other. The ZPO framework provides physical intuition (cascaded oscillators, scattering theory) while Connes provides the functional-analytic rigor (spectral triples, Toeplitz matrices). A bridge between them could be decisive.`,
+**Key insight:** These are not independent problems. If we solve one, the techniques likely transfer to the other. The Twin-Ladder Bridge framework provides physical intuition (cascaded oscillators, scattering theory) while Connes provides the functional-analytic rigor (spectral triples, Toeplitz matrices). A bridge between them could be decisive.`,
     implications: [
       'Gap S7 (Darlington) and Connes\' convergence problem are the same problem in different languages',
       'Super-convergence of unitarity deficit (O(p^{-1}) vs predicted O(1/√p)) suggests hidden structure',
@@ -114,7 +114,7 @@ C-F says: if the associated Toeplitz matrix is PSD, the spectral triple is self-
 4. C-F positivity: Toeplitz matrix of Euler product coefficients is PSD
 5. Connes self-adjointness: scaling + rank-one perturbation is self-adjoint
 
-If ANY of these can be proven, all follow. The ZPO framework suggests attacking via (3), as scattering theory provides computational and intuitive tools.`,
+If ANY of these can be proven, all follow. The Twin-Ladder Bridge framework suggests attacking via (3), as scattering theory provides computational and intuitive tools.`,
     implications: [
       'All five equivalent conditions reduce to a single positivity statement',
       'The "easiest" formulation may be Darlington (3) because it allows iterative verification prime by prime',
@@ -242,7 +242,7 @@ In ZPO terms:
 2. The bridge unitarity |χ(½+it)| = 1 is NECESSARY but NOT SUFFICIENT
 3. The Euler product (= factorization into prime oscillators) is the essential additional ingredient
 
-**ZPO interpretation:** In a twin-ladder without Euler product structure, the bridge can be unitary but the ladder itself is not constructed from independent oscillator stages. Without independence, you can't do Darlington synthesis (which requires realizability as a cascade of 2-ports). The D-H function is a "non-physical" network — it satisfies the port conditions but has no internal structure to decompose.
+**Twin-Ladder Bridge interpretation:** In a twin-ladder without Euler product structure, the bridge can be unitary but the ladder itself is not constructed from independent oscillator stages. Without independence, you can't do Darlington synthesis (which requires realizability as a cascade of 2-ports). The D-H function is a "non-physical" network — it satisfies the port conditions but has no internal structure to decompose.
 
 **Proof constraint:** Any valid proof of RH MUST at some point use the prime factorization. Arguments based solely on:
 - Functional equation ✗
@@ -334,7 +334,7 @@ This means Connes' prolate wave operator IS a harmonic oscillator on the space o
 
 **Physical meaning in ZPO:** The de Bruijn-Newman constant measures how much "heat" (backward diffusion) you can apply to ξ(s) before zeros fall off the critical line. Λ = 0 means the system is at the KNIFE-EDGE — any perturbation away from the Euler product structure would dislodge zeros.
 
-**ZPO interpretation of the heat flow:**
+**Twin-Ladder Bridge interpretation of the heat flow:**
 - Forward heat (τ > 0): Smear the prime oscillator frequencies → zeros ATTRACTED to critical line
 - Backward heat (τ < 0): Sharpen the frequencies → zeros REPELLED from critical line
 - Λ = 0: The natural (unperturbed) Euler product sits exactly at the transition
@@ -438,7 +438,7 @@ export default function HistoricalReasoningPage() {
         <h1>Historical Reasoning</h1>
         <p>
           Evolving log of our proof strategy, novel ideas, and mathematical reasoning about the
-          Riemann Hypothesis through the ZPO framework. Each entry records a key insight, connection,
+          Riemann Hypothesis through the Twin-Ladder Bridge framework. Each entry records a key insight, connection,
           or strategy decision — building a chain of reasoning that guides our attack.
         </p>
       </div>

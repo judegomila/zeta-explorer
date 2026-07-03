@@ -24,7 +24,7 @@ function findNearestZetaZero(t) {
 }
 
 /**
- * RHRigorViz — Numerical stress tests of ZPO model claims.
+ * RHRigorViz — Numerical stress tests of Twin-Ladder Bridge model claims.
  *
  * Three diagnostic panels:
  * 1. Hamiltonian minimization: does H actually minimize at σ=0.5 for all t?
@@ -594,7 +594,7 @@ export default function RHRigorViz() {
       {activeTest === 'hamiltonian' && (
         <div className="tab-explainer accent-orange">
           <strong>The test:</strong> For each <InlineMath tex="t" /> value, scan <InlineMath tex={"\\sigma \\in [0.1, 0.9]"} /> to find
-          where <InlineMath tex={"H(\\sigma, t)"} /> is minimized. The ZPO model claims the minimum always occurs
+          where <InlineMath tex={"H(\\sigma, t)"} /> is minimized. The Twin-Ladder Bridge model claims the minimum always occurs
           at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> (the critical line). Each dot shows the minimizing <InlineMath tex={"\\sigma"} /> for
           one <InlineMath tex="t" /> value; the green dashed line marks <InlineMath tex={"\\sigma = 0.5"} />.
           <strong> Look for:</strong> how tightly dots cluster around the green line as you increase the number of primes.
@@ -661,7 +661,7 @@ export default function RHRigorViz() {
             <h4 style={{ color: '#f59e0b', margin: '0 0 8px' }}>Interpretation: Hamiltonian Minimization Test</h4>
             <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7 }}>
               For each value of <InlineMath tex="t" />, we scan <InlineMath tex={"\\sigma \\in [0.1, 0.9]"} /> and find
-              where <InlineMath tex={"H(\\sigma, t)"} /> is minimized. <strong style={{ color: '#e2e8f0' }}>If the ZPO model's claim
+              where <InlineMath tex={"H(\\sigma, t)"} /> is minimized. <strong style={{ color: '#e2e8f0' }}>If the Twin-Ladder Bridge model's claim
               is correct</strong>, all points should lie exactly on the green dashed
               line at <InlineMath tex={"\\sigma = 0.5"} />.
             </p>

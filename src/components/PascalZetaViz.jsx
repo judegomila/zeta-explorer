@@ -936,7 +936,7 @@ function ModPTab() {
         <BlockMath tex={`d_H(${modP}) = \\frac{\\log ${nonzeroCount}}{\\log ${modP}} \\approx ${fractalDim}`} />
         <p style={{ color: '#94a3b8', margin: 0 }}>
           For p = 2 this is <InlineMath tex={"\\log 3 / \\log 2 \\approx 1.585"} />, the classical
-          Sierpinski dimension. In the ZPO model, <InlineMath tex={"d_H(p)"} /> encodes the
+          Sierpinski dimension. In the Twin-Ladder Bridge model, <InlineMath tex={"d_H(p)"} /> encodes the
           "harmonic complexity" of the p-oscillator's contribution to the Hasse–Sondow representation.
         </p>
       </div>

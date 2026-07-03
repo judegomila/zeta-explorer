@@ -28,7 +28,7 @@ export default function FormalProofPage() {
       {/* ── Header ── */}
       <PageHeader title="Formal Proof Attempt">
         <p>
-          A structured attempt to prove the Riemann Hypothesis through the Zero-Point Oscillator
+          A structured attempt to prove the Riemann Hypothesis through the Twin-Ladder Bridge
           (ZPO) framework. This page lays out every step of the argument, identifies exactly
           where the gaps lie, and provides computational verification of each claim.
         </p>
@@ -39,7 +39,7 @@ export default function FormalProofPage() {
         <h3 style={{ color: '#ef4444', fontSize: 14, marginBottom: 8 }}>Intellectual Honesty Statement</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
           This is <strong style={{ color: '#ef4444' }}>NOT</strong> a complete proof of the Riemann Hypothesis.
-          It is a <em>framework for identifying exactly where the gaps lie</em>. The ZPO model
+          It is a <em>framework for identifying exactly where the gaps lie</em>. The Twin-Ladder Bridge model
           provides a physically motivated structure that is consistent with RH, but{' '}
           <strong>consistency is not proof</strong>. Of the 10 sections below,{' '}
           only {status.counts.proven} are rigorously proven, {status.counts.conditional} are conditional
@@ -212,7 +212,7 @@ export default function FormalProofPage() {
           Critical Path: What Needs to Be Proved
         </h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
-          The ZPO framework identifies three independent paths that would each prove RH if completed.
+          The Twin-Ladder Bridge framework identifies three independent paths that would each prove RH if completed.
           Each requires closing a single critical gap:
         </p>
 
@@ -279,7 +279,7 @@ export default function FormalProofPage() {
           background: 'rgba(139,92,246,0.08)', border: '1px solid #8b5cf640',
           fontSize: 12, color: '#a78bfa', lineHeight: 1.7,
         }}>
-          <strong>Bottom line:</strong> The ZPO framework reduces the Riemann Hypothesis to a question
+          <strong>Bottom line:</strong> The Twin-Ladder Bridge framework reduces the Riemann Hypothesis to a question
           in spectral theory (construct a self-adjoint operator), network synthesis
           (prove Darlington conditions for an infinite analytic network), or Weil positivity
           (prove non-negativity of <InlineMath tex={"W(g * \\tilde{g})"} /> for all admissible{' '}
@@ -379,7 +379,7 @@ export default function FormalProofPage() {
           side</strong> (sum over nontrivial zeros) should equal the{' '}
           <strong style={{ color: '#e2e8f0' }}>geometric side</strong> (sum over prime powers).
           Agreement provides a consistency check on the prime-zero duality that underlies both the
-          ZPO framework and classical analytic number theory.
+          Twin-Ladder Bridge framework and classical analytic number theory.
         </p>
         <BlockMath tex={
           '\\sum_{\\rho}\\, h(\\gamma_\\rho) \\;=\\; ' +
@@ -505,7 +505,7 @@ export default function FormalProofPage() {
           Updated Scorecard
         </h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 16 }}>
-          Summary of all computational tests now available in the ZPO framework:
+          Summary of all computational tests now available in the Twin-Ladder Bridge framework:
         </p>
         <table style={{ width: '100%', fontSize: 12, color: '#94a3b8', borderCollapse: 'collapse' }}>
           <thead>
@@ -591,7 +591,7 @@ export default function FormalProofPage() {
           <strong>Summary:</strong> Six of eight tests pass outright. Berry-Keating eigenvalues
           are partial (semiclassical only), and bootstrap confidence is mixed. None of these
           computational results constitute a proof, but they provide strong evidence that the
-          ZPO framework captures genuine structure in the distribution of zeta zeros.
+          Twin-Ladder Bridge framework captures genuine structure in the distribution of zeta zeros.
         </div>
       </div>
 
@@ -601,7 +601,7 @@ export default function FormalProofPage() {
           Computational Evidence Summary
         </h3>
         <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 16 }}>
-          Compact scorecard of every numerical test executed across the ZPO framework.
+          Compact scorecard of every numerical test executed across the Twin-Ladder Bridge framework.
           Each entry records the test name, domain, verdict, and the section of the proof it supports.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 10 }}>

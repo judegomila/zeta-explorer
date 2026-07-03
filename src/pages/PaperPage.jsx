@@ -50,12 +50,12 @@ export default function PaperPage() {
       {/* Title Block */}
       <div style={{ textAlign: 'center', marginBottom: 40, paddingTop: 20 }}>
         <h1 style={{ fontSize: 28, color: '#f1f5f9', lineHeight: 1.3, marginBottom: 12 }}>
-          The Zeta Prime Oscillator Programme:
+          The Twin-Ladder Bridge Programme:
           <br />
           A Unified Circuit-Theoretic Framework for the Riemann Hypothesis
         </h1>
         <p style={{ color: '#94a3b8', fontSize: 14, fontStyle: 'italic', marginTop: 16 }}>
-          An expository paper accompanying the ZPO Explorer interactive application
+          An expository paper accompanying the Twin-Ladder Bridge interactive application
         </p>
         <p style={{ color: '#64748b', fontSize: 13, marginTop: 8 }}>
           March 2026
@@ -474,7 +474,7 @@ export default function PaperPage() {
         <P>
           The RH has been verified computationally for the first <InlineMath tex="10^{13}" /> zeros
           (Gourdon, 2004; Platt-Trudgian, 2021 using rigorous interval arithmetic to
-          height <InlineMath tex={"3 \\times 10^{12}"} />). The ZPO Explorer implements:
+          height <InlineMath tex={"3 \\times 10^{12}"} />). The Twin-Ladder Bridge implements:
         </P>
         <ul style={{ color: '#cbd5e1', fontSize: 14, lineHeight: 1.8, marginTop: 8 }}>
           <li><strong>Riemann-Siegel formula</strong> for fast zeta evaluation on the critical line, with
@@ -493,7 +493,7 @@ export default function PaperPage() {
 
       <Section number={13} title="Summary and Open Questions">
         <P>
-          The Zeta Prime Oscillator programme provides a unified physical framework that
+          The Twin-Ladder Bridge programme provides a unified physical framework that
           connects disparate mathematical perspectives on the Riemann Hypothesis:
         </P>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, margin: '16px 0' }}>
@@ -552,7 +552,7 @@ export default function PaperPage() {
         </Thm>
 
         <P>
-          <strong>Implications for the ZPO framework.</strong> Connes' result validates one of the
+          <strong>Implications for the Twin-Ladder Bridge framework.</strong> Connes' result validates one of the
           ZPO programme's central insights from an information-theoretic perspective: <em>small primes
           dominate the information content of zeta zeros</em>. In rate-distortion terms, the zero
           sequence <InlineMath tex={"\\{\\gamma_n\\}"} /> has a highly compressible representation in terms of
@@ -591,7 +591,7 @@ export default function PaperPage() {
 
         <P>
           The Weil explicit formula underlying Connes' computation is itself a manifestation of the
-          prime-zero duality that the ZPO model encodes as the coupling between the direct and dual
+          prime-zero duality that the Twin-Ladder Bridge model encodes as the coupling between the direct and dual
           ladders. The extremization procedure — finding the configuration of the Weil form that best
           approximates the zeros — is the analytic counterpart of gradient descent on the ZPO
           Hamiltonian. The fact that only five primes suffice is a concrete, quantitative demonstration

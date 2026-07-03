@@ -27,7 +27,7 @@ export default function RHAttackPage() {
       <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #ef4444' }}>
         <h3 style={{ color: '#ef4444', fontSize: 14, marginBottom: 8 }}>Intellectual Honesty Statement</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-          The ZPO model provides a beautiful physical framework for understanding the zeta function,
+          The Twin-Ladder Bridge model provides a beautiful physical framework for understanding the zeta function,
           but <strong>analogies are not proofs</strong>. The gap between "the model is consistent with RH"
           and "the model proves RH" is enormous. This page makes those gaps explicit and testable.
           Every green checkmark below comes with a caveat; every red flag identifies a genuine
@@ -67,7 +67,7 @@ export default function RHAttackPage() {
         <div className="card">
           <h3 style={{ color: '#f59e0b', fontSize: 14 }}>The Central Gap</h3>
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 12 }}>
-            The ZPO model shows that at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />:
+            The Twin-Ladder Bridge model shows that at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />:
           </p>
           <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
             <li>The bridge <InlineMath tex={"\\chi(s)"} /> is unitary (<InlineMath tex={"|\\chi| = 1"} />)</li>
@@ -92,7 +92,7 @@ export default function RHAttackPage() {
       <div className="card" style={{ marginTop: 32, borderColor: '#8b5cf6' }}>
         <h3 style={{ color: '#8b5cf6' }}>The Darlington Synthesis Strategy</h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
-          The most promising path from the ZPO model to RH uses a classical result from
+          The most promising path from the Twin-Ladder Bridge model to RH uses a classical result from
           microwave network synthesis:
         </p>
         <BlockMath tex={"\\text{Darlington (1939): For a lossless reciprocal 2-port, zeros of } S_{21} \\text{ lie on the } j\\omega \\text{ axis.}"} />

@@ -431,7 +431,7 @@ export default function CalabiYauPage() {
           Our CY Lift: A Geometric Interpretation of <InlineMath tex="\zeta(s)" />
         </h4>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-          The ZPO framework interprets <InlineMath tex="\zeta(s)" /> through families of CY 3-folds.
+          The Twin-Ladder Bridge framework interprets <InlineMath tex="\zeta(s)" /> through families of CY 3-folds.
           While no single CY3 has <InlineMath tex="L(H^3, s) = \zeta(s)" /> (see the obstructions
           in Section 6), we can decompose <InlineMath tex="\zeta(s)" /> using the Langlands framework:
         </p>

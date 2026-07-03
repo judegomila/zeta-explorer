@@ -713,7 +713,7 @@ export default function OddZetaPage() {
         <p style={{ marginTop: 8, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
           Explore related topics:{' '}
           <Link to="/concepts" style={{ color: '#8b5cf6' }}>Core Concepts</Link>{' '}
-          (ZPO model foundations and the twin-ladder framework),{' '}
+          (Twin-Ladder Bridge model foundations and the twin-ladder framework),{' '}
           <Link to="/fourier" style={{ color: '#3b82f6' }}>Fourier Domain</Link>{' '}
           (spectral decomposition of primes and the explicit formula),{' '}
           <Link to="/info-theory" style={{ color: '#10b981' }}>Information Theory</Link>{' '}

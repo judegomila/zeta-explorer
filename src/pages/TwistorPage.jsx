@@ -140,7 +140,7 @@ export default function TwistorPage() {
 
         <div style={{ marginBottom: 20 }}>
           <h4 style={{ color: '#10b981', fontSize: 13, marginBottom: 8 }}>
-            ZPO interpretation: direct and dual ladders share a common zero
+            Twin-Ladder Bridge interpretation: direct and dual ladders share a common zero
           </h4>
           <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8, marginBottom: 8 }}>
             In the ZPO mapping, <InlineMath tex={"Z"} /> encodes the direct ladder{' '}

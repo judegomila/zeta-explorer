@@ -340,7 +340,7 @@ export default function SupercriticalPage() {
           background: 'rgba(168,85,247,0.08)', border: '1px solid #a855f730',
           fontSize: 12, color: '#c4b5fd', lineHeight: 1.7,
         }}>
-          <strong>ZPO interpretation:</strong> Heat flow "blurs" the oscillator frequencies. At{' '}
+          <strong>Twin-Ladder Bridge interpretation:</strong> Heat flow "blurs" the oscillator frequencies. At{' '}
           <InlineMath tex={"t < 0"} /> (backward flow), resonances sharpen destructively and zeros
           drift off the real axis. At <InlineMath tex={"t = 0"} />, zeros are maximally sharp and
           sit exactly on the critical line (assuming RH). Forward flow (<InlineMath tex={"t > 0"} />)

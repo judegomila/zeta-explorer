@@ -613,7 +613,7 @@ export default function HomePage() {
     <div className="page">
       {/* ── Hero ── */}
       <div className="hero">
-        <h1>Zeta Prime Oscillator Explorer</h1>
+        <h1>Twin-Ladder Bridge Explorer</h1>
         <p>
           Exploring the Riemann Hypothesis through the lens of circuit theory, spectral geometry,
           and scattering matrices — a personal investigation by Jude Gomila into connections between
@@ -691,7 +691,7 @@ export default function HomePage() {
         Building the Twin Ladder Model
       </h2>
       <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 24 }}>
-        The ZPO framework starts from a single observation: each factor of the Euler product
+        The Twin-Ladder Bridge framework starts from a single observation: each factor of the Euler product
         is a transfer function. We build up from one prime to the complete system in three steps.
       </p>
 
@@ -793,7 +793,7 @@ export default function HomePage() {
         <h3 style={{ color: '#ef4444', fontSize: 14, marginBottom: 8 }}>The Central Question</h3>
         <BlockMath tex={"\\text{Do all transmission zeros of the twin ladder lie on } \\sigma = \\tfrac{1}{2} \\text{ ?}"} />
         <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginTop: 8 }}>
-          If yes, this is the <strong>Riemann Hypothesis</strong>. The ZPO framework translates this into
+          If yes, this is the <strong>Riemann Hypothesis</strong>. The Twin-Ladder Bridge framework translates this into
           concrete questions: Can we construct a self-adjoint operator whose spectrum encodes the zeros
           (<Link to="/gap-closing" style={{ color: '#f97316' }}>Hilbert-Polya, Gap S5</Link>)?
           Can we prove the infinite twin-ladder satisfies Darlington losslessness
@@ -807,7 +807,7 @@ export default function HomePage() {
         Connected Insights
       </h2>
       <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, marginBottom: 24 }}>
-        How every insight in the ZPO framework connects — from foundational identities through
+        How every insight in the Twin-Ladder Bridge framework connects — from foundational identities through
         the oscillator model and analysis layers down to the open gaps and the Riemann Hypothesis
         itself. Hover to trace dependencies; click any node to explore that topic.
       </p>
@@ -1050,7 +1050,7 @@ export default function HomePage() {
         <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 16 }}>Suggested Learning Path</h2>
         <div className="card" style={{ padding: '20px 24px' }}>
           <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 16 }}>
-            New to the ZPO model? Follow this progression — each page builds on concepts from the previous ones.
+            New to the Twin-Ladder Bridge model? Follow this progression — each page builds on concepts from the previous ones.
           </p>
           <div style={{ display: 'grid', gap: 8 }}>
             {[
@@ -1114,7 +1114,7 @@ export default function HomePage() {
           <div className="card"><h3 style={{ color: '#06b6d4' }}>Literature</h3><p>{references.length}+ annotated references spanning number theory and circuit theory.</p></div>
         </Link>
         <Link to="/paper" style={{ textDecoration: 'none' }}>
-          <div className="card"><h3 style={{ color: '#8b5cf6' }}>Paper</h3><p>The formal write-up of the ZPO framework as a research paper.</p></div>
+          <div className="card"><h3 style={{ color: '#8b5cf6' }}>Paper</h3><p>The formal write-up of the Twin-Ladder Bridge framework as a research paper.</p></div>
         </Link>
         <Link to="/research-journal" style={{ textDecoration: 'none' }}>
           <div className="card"><h3 style={{ color: '#a855f7' }}>Research Journal</h3><p>Coarse-grained session narratives of the RH Λ attack — built for cheap session handoff.</p></div>

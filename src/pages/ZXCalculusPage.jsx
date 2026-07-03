@@ -246,7 +246,7 @@ export default function ZXCalculusPage() {
         <h4 style={{ color: '#f59e0b', fontSize: 14, marginBottom: 8, marginTop: 16 }}>Unitarity at the Critical Line</h4>
         <p style={{ marginBottom: 8, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.8 }}>
           A key property of the Hadamard gate is that <InlineMath tex={"H^2 = I"} /> (it is its own inverse).
-          In the ZPO model, the bridge satisfies <InlineMath tex={"|\\chi(s)| = 1"} /> exactly
+          In the Twin-Ladder Bridge model, the bridge satisfies <InlineMath tex={"|\\chi(s)| = 1"} /> exactly
           when <InlineMath tex={"\\sigma = 1/2"} />, making it a unitary (norm-preserving) transformation on
           the critical line. This means the color change is <em>lossless</em>: the Z-chain and X-chain
           have identical magnitudes, and swapping perspectives costs nothing:
@@ -270,7 +270,7 @@ export default function ZXCalculusPage() {
         <h3 style={{ color: '#06b6d4' }}>Why This Mapping Matters</h3>
         <p style={{ marginBottom: 12, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.8 }}>
           The ZX-calculus mapping is more than an analogy — it provides a rigorous categorical
-          framework that could elevate the ZPO model from "the zeta function is <em>like</em> an
+          framework that could elevate the Twin-Ladder Bridge model from "the zeta function is <em>like</em> an
           oscillator chain" to "the zeta function <em>is</em> a ZX diagram with specific spider
           phases, and its properties <em>are</em> rewrite-rule consequences."
         </p>

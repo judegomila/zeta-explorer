@@ -696,7 +696,7 @@ const TIMELINE = [
   {
     year: 2026,
     era: 'recent',
-    title: 'ZPO Explorer Honesty Audit: Overclaims Withdrawn',
+    title: 'Twin-Ladder Bridge Honesty Audit: Overclaims Withdrawn',
     content: "An internal max-fanout adversarial review of this project's own results catches and withdraws six overclaims rather than letting them stand. The headline correction: a claimed thin-strip bound putting Lambda below 0.2 at large height was a frozen-kappa_T height-mismatch artifact, non-binding at scale. These are recorded as corrections, not setbacks — accountability requires logging caught errors as durably as wins. See the full route map (2026-06-19) and the Withdrawn Claims section below.",
     highlight: true,
   },
@@ -1058,7 +1058,7 @@ export default function HistoryPage() {
       <div style={{ marginTop: 48 }}>
         <h2 style={{ color: '#e2e8f0', marginBottom: 4, fontSize: 22 }}>Key Results Explained</h2>
         <p style={{ color: '#64748b', fontSize: 14, marginTop: 0, marginBottom: 24 }}>
-          Accessible summaries of the mathematical results that underpin the ZPO framework and the broader
+          Accessible summaries of the mathematical results that underpin the Twin-Ladder Bridge framework and the broader
           study of the Riemann zeta function.
         </p>
 
@@ -1096,7 +1096,7 @@ export default function HistoryPage() {
             tldr="The zeta function, originally defined for Re(s) > 1, can be extended to the entire complex plane (except s = 1) while preserving all its analytic properties."
             math={"\\zeta(s) = \\frac{\\eta(s)}{1 - 2^{1-s}}, \\quad \\eta(s) = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n-1}}{n^s} \\text{ converges for Re}(s) > 0"}
             explanation="The Dirichlet series Σ 1/n^s converges only for Re(s) > 1. But the alternating series η(s) = Σ (-1)^{n-1}/n^s converges for Re(s) > 0 by the alternating series test. Since ζ(s) = η(s)/(1-2^{1-s}), this extends ζ into the critical strip. The functional equation then extends it to Re(s) < 0."
-            whyItMatters="The zeros of ζ live in the critical strip 0 < Re(s) < 1, where the original Dirichlet series diverges. Without analytic continuation, we can't even talk about these zeros. This is Gap S4 in the ZPO framework."
+            whyItMatters="The zeros of ζ live in the critical strip 0 < Re(s) < 1, where the original Dirichlet series diverges. Without analytic continuation, we can't even talk about these zeros. This is Gap S4 in the Twin-Ladder Bridge framework."
             zpoConnection="The eta relation is how the oscillator cascade extends into the critical strip. The regularization factor 1/(1-2^{1-s}) accounts for the 'impedance mismatch' at the prime 2."
           />
 
@@ -1145,7 +1145,7 @@ export default function HistoryPage() {
             math={"\\zeta(3) = \\frac{5}{2} \\sum_{n=1}^{\\infty} \\frac{(-1)^{n-1}}{n^3 \\binom{2n}{n}} \\notin \\mathbb{Q}"}
             explanation="Apéry constructed sequences a_n, b_n satisfying the recurrence (n+1)³a_{n+1} = (2n+1)(17n²+17n+5)a_n - n³a_{n-1}, with a_n integers and b_n·ζ(3) - a_n → 0 faster than any geometric sequence. If ζ(3) = p/q, then q·b_n·ζ(3) - q·a_n would be a nonzero integer smaller than 1 for large n — contradiction."
             whyItMatters="One of the most surprising proofs in 20th century mathematics. Even today, ζ(5) irrationality remains open. The recurrence coefficients (17n²+17n+5) seem miraculous."
-            zpoConnection="In the ZPO model, odd zeta values correspond to anti-resonant modes where the dual ladder contributes zero information. Their irrationality reflects the irreducible complexity of the prime distribution."
+            zpoConnection="In the Twin-Ladder Bridge model, odd zeta values correspond to anti-resonant modes where the dual ladder contributes zero information. Their irrationality reflects the irreducible complexity of the prime distribution."
           />
 
           {/* Rodgers-Tao */}

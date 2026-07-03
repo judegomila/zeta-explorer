@@ -111,7 +111,7 @@ export default function HamiltonianPage() {
               The explicit formula is a proven identity — it holds unconditionally. The zeros used here
               are tabulated values with <InlineMath tex={"\\sigma = 1/2"} /> as an <strong style={{ color: '#e2e8f0' }}>input assumption</strong>, not
               a consequence of the Hamiltonian construction. Placing zeros on the critical line is
-              assumed from numerical tables (Odlyzko et al.), not derived from the ZPO model.
+              assumed from numerical tables (Odlyzko et al.), not derived from the Twin-Ladder Bridge model.
               Adding more zeros shows convergence of the known explicit formula, not evidence for RH.
             </span>
           </div>
@@ -194,7 +194,7 @@ export default function HamiltonianPage() {
         </p>
         <BlockMath tex={"E_n \\;\\longleftrightarrow\\; \\rho_n = \\tfrac{1}{2} + i\\gamma_n"} />
         <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-          <strong>Connection to the ZPO model:</strong> the <InlineMath tex={"xp"} /> Hamiltonian is the
+          <strong>Connection to the Twin-Ladder Bridge model:</strong> the <InlineMath tex={"xp"} /> Hamiltonian is the
           continuum limit of the discrete ladder Hamiltonian used in the prime oscillator chain. In
           the ZPO picture every prime contributes a separate oscillator; taking the product over all
           primes and passing to the continuum recovers the Berry-Keating operator.

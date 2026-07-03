@@ -403,7 +403,7 @@ export default function ImprovementQueuePage() {
         <p style={{ color: '#94a3b8', maxWidth: 700, lineHeight: 1.7 }}>
           A prioritized queue of concrete improvements targeting proof gaps, visualizations,
           accuracy, and workflow acceleration. Each item is ranked by its impact on proving
-          the Riemann Hypothesis through the ZPO framework.
+          the Riemann Hypothesis through the Twin-Ladder Bridge framework.
         </p>
       </div>
 

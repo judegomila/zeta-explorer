@@ -368,7 +368,7 @@ function DocumentTitle() {
   const { pathname } = useLocation();
   useEffect(() => {
     const match = ALL_ROUTES.find(r => r.to === pathname);
-    document.title = match ? `${match.label} | ZPO Explorer` : 'ZPO Explorer';
+    document.title = match ? `${match.label} | Twin-Ladder Bridge` : 'Twin-Ladder Bridge';
   }, [pathname]);
   return null;
 }
@@ -620,7 +620,7 @@ function NavBar({ onShowShortcuts, onShowPalette }) {
   return (
     <div className="nav-bar" ref={navRef}>
       <NavLink to="/" end className="nav-logo" style={{ textDecoration: 'none' }}>
-        ZPO<span className="nav-logo-text"> Explorer</span>
+        Twin-Ladder<span className="nav-logo-text"> Bridge</span>
       </NavLink>
       <button
         onClick={onShowPalette}

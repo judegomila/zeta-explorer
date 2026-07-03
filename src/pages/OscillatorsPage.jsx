@@ -33,7 +33,7 @@ export default function OscillatorsPage() {
       <div className="card" style={{ marginBottom: 32, borderColor: '#06b6d4' }}>
         <h3 style={{ color: '#06b6d4', marginBottom: 16 }}>Building the Model: From Euler Factor to LC Oscillator</h3>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8, marginBottom: 16 }}>
-          The ZPO framework constructs a physical model step-by-step, mapping each Euler factor
+          The Twin-Ladder Bridge framework constructs a physical model step-by-step, mapping each Euler factor
           to a linear system and then identifying it with an LC resonator. Here is the derivation.
         </p>
 

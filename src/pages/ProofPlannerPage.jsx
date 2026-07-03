@@ -103,7 +103,7 @@ export default function ProofPlannerPage() {
       <div className="page-header">
         <h1>Proof Strategy Planner</h1>
         <p>
-          An interactive dependency graph of the 10 proof sections in the ZPO framework for the
+          An interactive dependency graph of the 10 proof sections in the Twin-Ladder Bridge framework for the
           Riemann Hypothesis. Visualise the critical paths, assess tractability, and identify
           where effort should be concentrated.
         </p>

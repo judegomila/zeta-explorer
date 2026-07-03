@@ -114,7 +114,7 @@ export default function ExplorationsPage() {
           <div>
             <h4 style={{ margin: '0 0 6px', color: '#06b6d4', fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Depth Scale</h4>
             <p style={{ margin: '0 0 8px' }}>
-              Each entry has a <strong style={{ color: '#e2e8f0' }}>Depth 1–6</strong> rating indicating how deep into the ZPO model it reaches:
+              Each entry has a <strong style={{ color: '#e2e8f0' }}>Depth 1–6</strong> rating indicating how deep into the Twin-Ladder Bridge model it reaches:
             </p>
             <ul style={{ margin: 0, paddingLeft: 16, lineHeight: 1.7 }}>
               <li><strong style={{ color: '#e2e8f0' }}>1–2</strong> — Setup: Euler product reinterpretation, single-prime resonators</li>

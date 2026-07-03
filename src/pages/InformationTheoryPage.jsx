@@ -188,7 +188,7 @@ export default function InformationTheoryPage() {
         </ol>
         <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 12 }}>
           The weakness in Step 2 is fundamental: zeros of a transfer function do not generically occur at
-          capacity maxima. The ZPO model has special structure (Euler product, functional equation symmetry)
+          capacity maxima. The Twin-Ladder Bridge model has special structure (Euler product, functional equation symmetry)
           that might force this, but a proof would require deep results from both information theory and
           analytic number theory.
         </p>

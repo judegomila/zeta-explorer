@@ -35,7 +35,7 @@ export default function ProofStatusCard() {
     ctx.fillText('RIEMANN HYPOTHESIS', w / 2, 36);
     ctx.font = '13px "JetBrains Mono", monospace';
     ctx.fillStyle = '#64748b';
-    ctx.fillText('ZPO Twin Ladder Proof Framework — Status Report', w / 2, 56);
+    ctx.fillText('Twin-Ladder Bridge Proof Framework — Status Report', w / 2, 56);
 
     // Proof sections grid
     const sections = [
@@ -122,7 +122,7 @@ export default function ProofStatusCard() {
     ctx.fillStyle = '#334155';
     ctx.font = '9px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
-    ctx.fillText('ZPO Explorer by Jude Gomila • localhost:3002', w / 2, h - 8);
+    ctx.fillText('Twin-Ladder Bridge by Jude Gomila • localhost:3002', w / 2, h - 8);
   }, []);
 
   // Draw once on mount so the card is visible without requiring a user click —

@@ -9,7 +9,7 @@ export default function ProofCheckerPage() {
     <div className="page">
       <PageHeader title="Proof Checker">
         <p>
-          A skeptical verification engine that tests every claim in the ZPO framework.
+          A skeptical verification engine that tests every claim in the Twin-Ladder Bridge framework.
           Includes the Davenport-Heilbronn counterexample — a function that satisfies
           most ZPO properties but violates RH, identifying exactly which arguments are valid.
         </p>
@@ -30,7 +30,7 @@ export default function ProofCheckerPage() {
           <h3 style={{ color: '#10b981', fontSize: 14 }}>What the Checker Verifies</h3>
           <ul style={{ marginLeft: 16, color: '#94a3b8', fontSize: 12, lineHeight: 2 }}>
             <li><strong>Mathematical identities</strong> — functional equation, bridge unitarity, Euler convergence</li>
-            <li><strong>ZPO model claims</strong> — Hamiltonian minimum, impedance matching, entropy maximum</li>
+            <li><strong>Twin-Ladder Bridge model claims</strong> — Hamiltonian minimum, impedance matching, entropy maximum</li>
             <li><strong>Davenport-Heilbronn discrimination</strong> — which claims are unique to ζ?</li>
             <li><strong>Logical structure</strong> — circularity detection, implication strength</li>
             <li><strong>Stress tests</strong> — large t, near zeros, few primes, numerical stability</li>

@@ -129,7 +129,7 @@ export default function PascalPage() {
           Pascal's Triangle and Prime Oscillator Coupling
         </h2>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 12 }}>
-          The binomial structure of Pascal's triangle appears naturally in the ZPO framework
+          The binomial structure of Pascal's triangle appears naturally in the Twin-Ladder Bridge framework
           when expanding the explicit formula and connecting to the Li coefficients. Here we trace
           three threads linking Pascal's triangle to the oscillator chain.
         </p>
@@ -213,7 +213,7 @@ export default function PascalPage() {
           Per-Prime Harmonic Frequencies
         </h3>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 8 }}>
-          In the ZPO model, each prime <InlineMath tex={"p"} /> contributes an oscillator with
+          In the Twin-Ladder Bridge model, each prime <InlineMath tex={"p"} /> contributes an oscillator with
           fundamental frequency <InlineMath tex={"\\omega_p = \\log p"} />. The harmonics of this
           oscillator occur at integer multiples <InlineMath tex={"k \\cdot \\log p = \\log(p^k)"} />,
           corresponding to the powers of <InlineMath tex={"p"} />. The Euler factor expansion makes
@@ -243,7 +243,7 @@ export default function PascalPage() {
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: 8 }}>
           The rate of density decay is governed by <InlineMath tex={"(p+1)/(2p)"} />, which is closer
           to <InlineMath tex={"1"} /> for large primes and equals <InlineMath tex={"3/4"} /> for <InlineMath tex={"p = 2"} />.
-          In the ZPO framework, this corresponds to the fact that higher primes contribute more
+          In the Twin-Ladder Bridge framework, this corresponds to the fact that higher primes contribute more
           slowly decaying harmonics (their oscillators are "less damped"), while <InlineMath tex={"p = 2"} /> — the
           most aggressive fractal — produces the strongest harmonic attenuation.
         </p>

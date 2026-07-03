@@ -55,9 +55,9 @@ export default function RHRigorPage() {
       <div className="page-header">
         <h1>RH Rigor Check</h1>
         <p>
-          A systematic self-criticism of the ZPO model's claims about the Riemann Hypothesis.
+          A systematic self-criticism of the Twin-Ladder Bridge model's claims about the Riemann Hypothesis.
           Each entry identifies a specific mathematical issue, explains why it matters, and proposes
-          a corrected formulation. The goal is intellectual honesty: the ZPO model is a beautiful
+          a corrected formulation. The goal is intellectual honesty: the Twin-Ladder Bridge model is a beautiful
           analogy, but analogies are not proofs.
         </p>
       </div>
@@ -107,7 +107,7 @@ export default function RHRigorPage() {
           The Central Problem
         </h3>
         <p style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
-          The ZPO model constructs a Hamiltonian <InlineMath tex={"H(\\sigma,t)"} /> that is minimized
+          The Twin-Ladder Bridge model constructs a Hamiltonian <InlineMath tex={"H(\\sigma,t)"} /> that is minimized
           at <InlineMath tex={"\\sigma = 1/2"} /> and interprets this as evidence for RH. However, the
           Hamiltonian is <strong style={{ color: '#e2e8f0' }}>designed</strong> to have this minimum —
           it is not derived from the zeros of <InlineMath tex={"\\zeta"} />. The argument is:
@@ -118,7 +118,7 @@ export default function RHRigorPage() {
         </p>
         <BlockMath tex={"\\text{Derive } H \\text{ from } \\zeta \\;\\Rightarrow\\; \\text{Prove } \\min H \\iff \\zeta = 0 \\;\\Rightarrow\\; \\text{Prove } \\min H \\text{ at } \\sigma = \\tfrac{1}{2}"} />
         <p style={{ color: '#f59e0b', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
-          The first two steps are missing. Without them, the ZPO model is a vivid illustration of what
+          The first two steps are missing. Without them, the Twin-Ladder Bridge model is a vivid illustration of what
           RH "looks like" in circuit language, but not a path to proving it. Below we enumerate every
           gap we've identified and show how to patch each one.
         </p>
@@ -372,7 +372,7 @@ export default function RHRigorPage() {
         <h3 style={{ color: '#8b5cf6', margin: '0 0 12px' }}>What Would a Rigorous Approach Look Like?</h3>
         <div style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.8 }}>
           <p>
-            The ZPO model is a creative repackaging of known identities (Euler product, functional equation,
+            The Twin-Ladder Bridge model is a creative repackaging of known identities (Euler product, functional equation,
             explicit formula) in engineering language. To turn it into mathematics that could address RH, one would need:
           </p>
           <ol style={{ paddingLeft: 20, marginTop: 12 }}>
@@ -397,7 +397,7 @@ export default function RHRigorPage() {
             </li>
           </ol>
           <p style={{ marginTop: 12 }}>
-            The ZPO Explorer is a tool for building intuition, not a proof. Treat it as a playground for
+            The Twin-Ladder Bridge is a tool for building intuition, not a proof. Treat it as a playground for
             understanding <em>why</em> mathematicians believe RH is true, not as evidence that it is.
           </p>
         </div>

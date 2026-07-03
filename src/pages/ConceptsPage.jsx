@@ -70,7 +70,7 @@ const CONCEPTS = [
     term: 'Euler Product',
     definition: 'The product formula expressing zeta as a product over primes. This is the bridge between additive (sum over integers) and multiplicative (product over primes) number theory.',
     formula: '\\zeta(s) = \\prod_{p} \\frac{1}{1 - p^{-s}} = \\frac{1}{1-2^{-s}} \\cdot \\frac{1}{1-3^{-s}} \\cdot \\frac{1}{1-5^{-s}} \\cdots',
-    intuition: 'In the ZPO model, each factor is one oscillator stage. The product is the cascade transfer function.',
+    intuition: 'In the Twin-Ladder Bridge model, each factor is one oscillator stage. The product is the cascade transfer function.',
   },
   {
     id: 'functional-equation',
@@ -78,7 +78,7 @@ const CONCEPTS = [
     term: 'Functional Equation',
     definition: 'The symmetry xi(s) = xi(1-s) relating zeta at s to zeta at 1-s. This is the deepest structural property of the zeta function.',
     formula: '\\xi(s) = \\tfrac{1}{2}s(s-1)\\pi^{-s/2}\\Gamma(s/2)\\zeta(s) = \\xi(1-s)',
-    intuition: 'A mirror symmetry about the line sigma = 1/2. In the ZPO model, it is the lossless bridge coupling direct and dual ladders.',
+    intuition: 'A mirror symmetry about the line sigma = 1/2. In the Twin-Ladder Bridge model, it is the lossless bridge coupling direct and dual ladders.',
   },
   {
     id: 'critical-strip',
@@ -121,7 +121,7 @@ const CONCEPTS = [
     term: 'Prime Number',
     definition: 'A positive integer greater than 1 whose only divisors are 1 and itself. The building blocks of all integers via unique factorization.',
     formula: 'p \\in \\{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, \\ldots\\}',
-    intuition: 'The atoms of arithmetic. In the ZPO model, each prime is one oscillator in the chain.',
+    intuition: 'The atoms of arithmetic. In the Twin-Ladder Bridge model, each prime is one oscillator in the chain.',
   },
   {
     id: 'pnt',
@@ -181,7 +181,7 @@ const CONCEPTS = [
     category: 'physics',
     term: 'Euler Factor (Oscillator Stage)',
     symbol: 'H_p(s)',
-    definition: 'The contribution of a single prime p to the Euler product. In the ZPO model, this is the transfer function of one LC resonator.',
+    definition: 'The contribution of a single prime p to the Euler product. In the Twin-Ladder Bridge model, this is the transfer function of one LC resonator.',
     formula: 'H_p(s) = \\frac{1}{1 - p^{-s}}, \\quad L_p = \\log p, \\quad C_p = \\frac{1}{\\log p}',
     intuition: 'One oscillator in the chain — it resonates at universal frequency omega_0 = 1 with impedance Z_0 = log(p).',
   },
@@ -190,7 +190,7 @@ const CONCEPTS = [
     category: 'physics',
     term: 'Quality Factor',
     symbol: 'Q',
-    definition: 'Measures how underdamped an oscillator is. Higher Q means sharper resonance. In the ZPO model, Q = 1/(2 sigma) is universal for all primes.',
+    definition: 'Measures how underdamped an oscillator is. Higher Q means sharper resonance. In the Twin-Ladder Bridge model, Q = 1/(2 sigma) is universal for all primes.',
     formula: 'Q = \\frac{1}{2\\sigma}, \\quad Q = 1 \\text{ at } \\sigma = \\tfrac{1}{2} \\text{ (critical damping)}',
     intuition: 'At sigma = 1/2, every prime oscillator is critically damped — not too sharp, not too broad.',
   },
@@ -199,7 +199,7 @@ const CONCEPTS = [
     category: 'physics',
     term: 'Impedance',
     symbol: 'Z',
-    definition: 'Opposition to signal flow, generalizing resistance to include frequency-dependent (reactive) effects. In the ZPO model, characteristic impedance Z_0(p) = log(p).',
+    definition: 'Opposition to signal flow, generalizing resistance to include frequency-dependent (reactive) effects. In the Twin-Ladder Bridge model, characteristic impedance Z_0(p) = log(p).',
     formula: 'Z_0(p) = \\sqrt{L_p/C_p} = \\log p',
     intuition: 'How much each prime "resists" signal propagation — bigger primes have higher impedance.',
   },
@@ -263,7 +263,7 @@ const CONCEPTS = [
     term: 'Hilbert–Pólya Conjecture',
     definition: 'The idea that the nontrivial zeros of ζ(s) are eigenvalues of a self-adjoint operator. If such an operator exists, RH follows because self-adjoint operators have real eigenvalues, forcing Im(ρ) to be real (i.e. Re(ρ) = ½).',
     formula: '\\hat{H}\\psi_n = \\gamma_n \\psi_n, \\quad \\gamma_n = \\text{Im}(\\rho_n)',
-    intuition: 'Zeta zeros as energy levels of a quantum system. In the ZPO model, the Hamiltonian H is a candidate for this operator.',
+    intuition: 'Zeta zeros as energy levels of a quantum system. In the Twin-Ladder Bridge model, the Hamiltonian H is a candidate for this operator.',
   },
   {
     id: 'berry-keating',
@@ -295,7 +295,7 @@ const CONCEPTS = [
     id: 'scattering-resonance',
     category: 'quantum',
     term: 'Scattering Resonance',
-    definition: 'In quantum scattering, a resonance is a complex energy where the S-matrix has a pole. The ZPO model maps zeta zeros to transmission nulls of the oscillator cascade — frequencies where the cascade output vanishes via total destructive interference.',
+    definition: 'In quantum scattering, a resonance is a complex energy where the S-matrix has a pole. The Twin-Ladder Bridge model maps zeta zeros to transmission nulls of the oscillator cascade — frequencies where the cascade output vanishes via total destructive interference.',
     formula: 'S(E) = \\frac{E - E_r + i\\Gamma/2}{E - E_r - i\\Gamma/2}, \\quad \\text{resonance at } E = E_r',
     intuition: 'At a zeta zero, the cascade transfer function vanishes: ζ(ρ) = 0 means the oscillator stages interfere destructively, producing zero net output.',
   },
@@ -316,7 +316,7 @@ const CONCEPTS = [
     term: 'Bost–Connes System',
     definition: 'A quantum statistical mechanical system whose partition function is ζ(β) at inverse temperature β. It has a phase transition at β = 1 (σ = 1 for zeta), where symmetry breaking selects a prime.',
     formula: 'Z(\\beta) = \\text{Tr}(e^{-\\beta H}) = \\zeta(\\beta) = \\sum_n n^{-\\beta}',
-    intuition: 'The zeta function IS a partition function. The pole at s = 1 is a genuine phase transition. The ZPO model makes this physical: σ controls "temperature" of the oscillator chain.',
+    intuition: 'The zeta function IS a partition function. The pole at s = 1 is a genuine phase transition. The Twin-Ladder Bridge model makes this physical: σ controls "temperature" of the oscillator chain.',
   },
   {
     id: 'free-energy',
@@ -543,7 +543,7 @@ const CONCEPTS = [
     id: 'nyquist-criterion',
     category: 'physics',
     term: 'Nyquist Stability Criterion',
-    definition: 'A graphical test for feedback system stability: plot the loop gain L(jω) as ω sweeps from -∞ to +∞. The number of encirclements of the critical point -1 equals the number of unstable closed-loop poles. In the ZPO model, zeta zeros correspond to frequencies where the Nyquist plot crosses the unit circle.',
+    definition: 'A graphical test for feedback system stability: plot the loop gain L(jω) as ω sweeps from -∞ to +∞. The number of encirclements of the critical point -1 equals the number of unstable closed-loop poles. In the Twin-Ladder Bridge model, zeta zeros correspond to frequencies where the Nyquist plot crosses the unit circle.',
     formula: 'N = Z - P, \\quad Z = \\text{closed-loop poles}, \\; P = \\text{open-loop poles}, \\; N = \\text{encirclements of } -1',
     intuition: 'Draw a circle around -1 and count how many times the frequency response curve wraps around it. Each wrap means an unstable mode.',
   },
@@ -551,7 +551,7 @@ const CONCEPTS = [
     id: 'bode-plot',
     category: 'physics',
     term: 'Bode Diagram',
-    definition: 'A pair of plots showing magnitude (dB) and phase (degrees) of a transfer function versus log-frequency. In the ZPO model, the Bode plot of the cascade reveals the spectral signature of each prime oscillator as a resonance peak at ω = log(p).',
+    definition: 'A pair of plots showing magnitude (dB) and phase (degrees) of a transfer function versus log-frequency. In the Twin-Ladder Bridge model, the Bode plot of the cascade reveals the spectral signature of each prime oscillator as a resonance peak at ω = log(p).',
     formula: '|H(j\\omega)|_{\\text{dB}} = 20\\log_{10}|H(j\\omega)|, \\quad \\angle H(j\\omega) = \\arg H(j\\omega)',
     intuition: 'A "fingerprint" of the system showing how it amplifies or attenuates each frequency. Each prime adds a bump at its characteristic frequency.',
   },
@@ -738,7 +738,7 @@ export default function ConceptsPage() {
       <PageHeader title="Key Concepts & Definitions">
         <p>
           A reference guide to the mathematical ideas behind the Riemann Hypothesis and the
-          Zeta Prime Oscillator model. Start with Foundations and work your way through.
+          Twin-Ladder Bridge model. Start with Foundations and work your way through.
         </p>
       </PageHeader>
 
@@ -909,7 +909,7 @@ export default function ConceptsPage() {
               <InlineMath tex="10^{-55}" />. The approximating values provably lie exactly on{' '}
               <InlineMath tex="\sigma = \tfrac{1}{2}" />. This demonstrates that an extraordinarily small
               amount of prime data encodes the zero locations with extreme precision — exactly what the
-              ZPO framework predicts.
+              Twin-Ladder Bridge framework predicts.
             </p>
           </div>
         </div>

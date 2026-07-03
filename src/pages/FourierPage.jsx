@@ -260,7 +260,7 @@ export default function FourierPage() {
             <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.8, marginTop: 8 }}>
               This is a trace formula: the left side sums over the "spectrum" (zeros), the right side
               sums over the "geometry" (primes). It is the number-theoretic analogue of the
-              Selberg trace formula and underpins the spectral interpretation of the ZPO model.
+              Selberg trace formula and underpins the spectral interpretation of the Twin-Ladder Bridge model.
             </p>
           </div>
         </div>
@@ -318,7 +318,7 @@ export default function FourierPage() {
         </p>
         <BlockMath tex={"\\sum_{n=1}^{\\infty} \\frac{|a_n|^2}{n} = \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} \\left|\\sum_{n=1}^{\\infty} \\frac{a_n}{n^{1/2+it}}\\right|^2 dt"} />
         <p style={{ marginTop: 12, color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8 }}>
-          In the ZPO model, this is the statement that <strong>total oscillator energy is
+          In the Twin-Ladder Bridge model, this is the statement that <strong>total oscillator energy is
           conserved</strong> between the prime-indexed "position" basis and the zero-indexed
           "frequency" basis. The critical line <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> is
           special because it is the unique line where the Mellin-Parseval identity holds with

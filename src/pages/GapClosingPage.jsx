@@ -392,7 +392,7 @@ export default function GapClosingPage() {
     <div className="page">
       <div className="page-header">
         <h1>Gap Analysis &amp; Closing</h1>
-        <p>Three critical gaps stand between the ZPO framework and a proof of RH.
+        <p>Three critical gaps stand between the Twin-Ladder Bridge framework and a proof of RH.
            This page provides computational infrastructure to understand and close each gap.</p>
       </div>
 
@@ -795,7 +795,7 @@ export default function GapClosingPage() {
         <p style={{ color: '#a855f7', fontSize: 13, lineHeight: 1.8, fontWeight: 600 }}>
           Status: Path C offers the most algebraically natural route to RH. Connes has reduced the
           problem to proving positivity of <InlineMath tex={"W(f,f)"} /> for a specific class of test
-          functions on the adele class space. The ZPO framework may provide the missing "physical"
+          functions on the adele class space. The Twin-Ladder Bridge framework may provide the missing "physical"
           intuition — scattering unitarity is the network-theoretic incarnation of Weil positivity.
         </p>
       </div>

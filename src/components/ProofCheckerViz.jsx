@@ -109,7 +109,7 @@ function IdentityTestsTab({ numPrimes }) {
     <div>
       <div className="tab-explainer accent-green">
         <p style={{ margin: '0 0 8px' }}>
-          Numerical verification of three mathematical identities used by the ZPO model:
+          Numerical verification of three mathematical identities used by the Twin-Ladder Bridge model:
         </p>
         <BlockMath tex={"\\zeta(s) = \\chi(s)\\,\\zeta(1-s), \\qquad |\\chi(\\tfrac{1}{2}+it)| = 1, \\qquad \\prod_p (1 - p^{-s})^{-1} \\;\\text{for } \\operatorname{Re}(s) > 1"} />
         <p style={{ margin: '8px 0 0' }}>
@@ -865,7 +865,7 @@ function FullReportTab({ numPrimes }) {
         Aggregated proof-checking report combining all identity tests, counterexample analysis, and logic
         gap detection into a single verdict. The score reflects how many checks pass, how many gaps remain,
         and how severe the circularity issues are.
-        <strong> Result:</strong> the ZPO model is a pedagogical tool for visualizing RH &mdash; not a proof.
+        <strong> Result:</strong> the Twin-Ladder Bridge model is a pedagogical tool for visualizing RH &mdash; not a proof.
       </div>
       {/* Verdict box */}
       <div style={{

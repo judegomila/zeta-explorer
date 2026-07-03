@@ -375,7 +375,7 @@ export default function ZetaPage() {
         </p>
         <div style={{ marginTop: 12, padding: 12, background: 'rgba(16,185,129,0.08)', borderRadius: 8 }}>
           <p style={{ fontSize: 13, color: '#34d399' }}>
-            <strong>ZPO interpretation:</strong> The eta relation is a "regularization" of the ladder
+            <strong>Twin-Ladder Bridge interpretation:</strong> The eta relation is a "regularization" of the ladder
             cascade — it subtracts alternating copies of the signal to make the series converge in the
             critical strip. Where the raw cascade <InlineMath tex={"\\sum n^{-s}"} /> diverges
             for <InlineMath tex={"\\mathrm{Re}(s) \\leq 1"} />, the alternating subtraction damps the
@@ -522,7 +522,7 @@ export default function ZetaPage() {
         </p>
         <div style={{ marginTop: 12, padding: 12, background: 'rgba(6,182,212,0.08)', borderRadius: 8 }}>
           <p style={{ fontSize: 13, color: '#22d3ee' }}>
-            <strong>ZPO interpretation:</strong> The Hadamard product is the transfer function of the
+            <strong>Twin-Ladder Bridge interpretation:</strong> The Hadamard product is the transfer function of the
             oscillator chain written as a cascade of resonance notches — one notch filter per zero. Each
             zero <InlineMath tex={"\\rho = \\tfrac{1}{2} + i\\gamma"} /> contributes a transmission null at
             frequency <InlineMath tex={"\\gamma"} />, and the complete chain response is the product of all notch filters.

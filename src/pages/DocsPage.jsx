@@ -33,7 +33,7 @@ export default function DocsPage() {
     <div className="page">
       <PageHeader title="Documentation">
         <p>
-          Complete technical reference for the ZPO Explorer app: mathematical model,
+          Complete technical reference for the Twin-Ladder Bridge app: mathematical model,
           architecture, algorithms, and every module and component documented.
         </p>
       </PageHeader>
@@ -44,8 +44,8 @@ export default function DocsPage() {
       <section id="overview" className="docs-section">
         <h2>Overview</h2>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
-          ZPO Explorer is an interactive mathematical visualization app that explores the Riemann zeta function
-          through the lens of a <strong>Zeta Prime Oscillator (ZPO)</strong> model. The central idea: the Euler product
+          Twin-Ladder Bridge is an interactive mathematical visualization app that explores the Riemann zeta function
+          through the lens of a <strong>Twin-Ladder Bridge (ZPO)</strong> model. The central idea: the Euler product
         </p>
         <BlockMath tex={"\\zeta(s) = \\prod_{p\\;\\text{prime}} \\frac{1}{1 - p^{-s}}"} />
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
@@ -68,7 +68,7 @@ export default function DocsPage() {
       <section id="system-diagram" className="docs-section">
         <h2>System Architecture</h2>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14, marginBottom: 16 }}>
-          The ZPO framework spans five conceptual layers, from number-theoretic foundations through
+          The Twin-Ladder Bridge framework spans five conceptual layers, from number-theoretic foundations through
           physical modelling to computational implementation. Hover over nodes to see mathematical
           definitions and trace data flow dependencies.
         </p>
@@ -216,7 +216,7 @@ export default function DocsPage() {
             { route: '/history', name: 'History', desc: '38 historical figures across 4 eras with TLDR explainers' },
             { route: '/explorations', name: 'Explorations', desc: '72 AI exploration entries with LaTeX math, insights, reference links' },
             { route: '/literature', name: 'Literature', desc: '85+ annotated references with clickable DOI/arXiv paper links' },
-            { route: '/paper', name: 'Paper', desc: 'Formal write-up of the ZPO framework as a research paper (14 sections)' },
+            { route: '/paper', name: 'Paper', desc: 'Formal write-up of the Twin-Ladder Bridge framework as a research paper (14 sections)' },
             { route: '/docs', name: 'Docs', desc: 'This page — complete technical documentation of the application' },
             { route: '/improvements', name: 'Improvements', desc: '700+ auto-improvement log entries with filterable categories' },
             { route: '/reasoning', name: 'Reasoning', desc: 'Historical reasoning log — evolving proof strategy entries organized by epoch' },
@@ -584,7 +584,7 @@ export default function DocsPage() {
   tags: string[],      // topic tags
   summary: string,     // one-paragraph summary
   keyInsight: string,  // key insight for this project
-  relevance: string,   // how it relates to ZPO model
+  relevance: string,   // how it relates to Twin-Ladder Bridge model
   doi: string,         // DOI (optional, used for "View Paper" links)
   url: string,         // Direct URL (optional, fallback for doi)
 }`}
@@ -703,7 +703,7 @@ export default function DocsPage() {
           {[
             {
               title: 'Not a proof of RH',
-              desc: 'The ZPO model is an exploratory mathematical analogy. The observation that the Hamiltonian is minimized at σ = ½ follows from the functional equation symmetry and does not constitute a proof of the Riemann Hypothesis. All "equivalence" claims are model-internal, not mathematical theorems.',
+              desc: 'The Twin-Ladder Bridge model is an exploratory mathematical analogy. The observation that the Hamiltonian is minimized at σ = ½ follows from the functional equation symmetry and does not constitute a proof of the Riemann Hypothesis. All "equivalence" claims are model-internal, not mathematical theorems.',
               color: 'var(--accent-red)',
             },
             {

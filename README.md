@@ -20,7 +20,7 @@ This project does both of the following simultaneously, in public:
 2. **Operationalizes a research-program paper.** The "Twin-Ladder Deformations of ξ" v52 paper (191 pages, 29 main sections + appendices A-T+) is wired into the app via 9 dedicated sections + a master roadmap + an audit dashboard.
 3. **Visualizes the structure.** 80 interactive pages, 4 new visualization pages (log-phase spiral, twin-ladder tomography, Euler transport flow, hyperbolic prime spiral) connecting twin-ladder coordinates to spiral / interferometric / flow representations, 80+ exploration journal entries, a 33-node insight DAG, and a live improvement queue so a reader can follow the proof attempt as it evolves.
 
-The framing of the visualization side — the **Zero-Point Oscillator (ZPO) twin-ladder model** — reinterprets ζ(s) as a cascade of prime harmonic oscillators coupled by a lossless bridge, giving every classical RH attack route a single geometric home. The v52 research-program paper sharpens this into a **shift-bridge / four-route / Blaschke-ghost / three-attack** decomposition.
+The framing of the visualization side — the **Twin-Ladder Bridge model** — reinterprets ζ(s) as a cascade of prime harmonic oscillators coupled by a lossless bridge, giving every classical RH attack route a single geometric home. The v52 research-program paper sharpens this into a **shift-bridge / four-route / Blaschke-ghost / three-attack** decomposition.
 
 ## Headline results
 
@@ -132,13 +132,13 @@ npm run build      # → dist/
 
 **Reference** — `/concepts`, `/history`, `/explorations`, `/literature`, `/paper`, `/papers`, `/selberg-trace`, `/rh-equivalents`, `/blog`, `/wiki`, `/index`, `/docs`
 
-### The ZPO framing in one paragraph
+### The Twin-Ladder Bridge framing in one paragraph
 
 Every prime `p` defines a harmonic oscillator with energy levels `E_k = k · log p`. Summing over excitations gives `H_p(s) = 1/(1 − p⁻ˢ)` — simultaneously a partition function (statistical mechanics) and a transfer function (circuit theory). Cascading all primes recovers the Euler product. The **twin-ladder system** pairs ζ(s) with the dual ladder ζ(1−s) coupled by a bridge χ(s) satisfying `|χ(½+it)|=1` (lossless on the critical line). Under this framing the Riemann Hypothesis becomes: **the twin-ladder network is Darlington-lossless**, forcing all transmission zeros onto σ=½.
 
 This gives every classical RH attack a network-theoretic interpretation:
 
-| Classical attack | ZPO interpretation |
+| Classical attack | Twin-Ladder Bridge interpretation |
 |---|---|
 | Hilbert–Polya (spectral) | Self-adjoint Hamiltonian of the ladder chain |
 | Darlington (network) | Twin-ladder is exactly lossless |

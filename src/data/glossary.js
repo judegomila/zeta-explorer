@@ -3548,6 +3548,46 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "density-corrected crossover collision time t_c(N_x)~9.17e-5: the 2pi-in-the-log correction (imp-3642)",
+    category: "numerical",
+    definition:
+      "imp-3620 derived the crossover-scale Gronwall flow factor from the imp-398 closed form t_c(N) ~ " +
+      "1/log gamma_N, ASSERTING (never cross-checking) that the 1/log gamma_N shrink shape and its 0.4410 " +
+      "anchor-to-crossover factor hold for the actual Step-2 backward-Dyson flow. imp-3642 runs that direct " +
+      "check: it seeds a locally-uniform mesoscopic gas at the Riemann-von Mangoldt local density d = 2pi / " +
+      "log(gamma / 2pi) across a ladder of heights from the anchor gamma_{N*} (log = 9.1981) to the " +
+      "crossover gamma_{N_x} = exp(20.8576), integrates the attractive Calogero-Moser flow dx_k/ds = -2 sum " +
+      "1/(x_k - x_j) by RK4, and measures the mesoscopic density floor V0(gamma) = sup_strip Im M that " +
+      "governs the imp-2520 shock time t_c ~ 1/(2 V0). Two findings: (F1) the SHAPE is reproduced -- the " +
+      "measured V0(gamma) is exactly linear in log(gamma / 2pi) (invariant V0/log(gamma/2pi) = 0.48458, " +
+      "spread < 1e-9 across the ladder), so t_c ~ 1/(2 V0) is genuinely inverse-log, not a 1/log^2 " +
+      "nearest-pair law, and the Lemma B Gronwall floor is respected along the flow at every rung (worst " +
+      "ratio > 0.98). (F2) the ARGUMENT of the log is wrong in imp-3620/imp-398: the direct anchor-to-" +
+      "crossover shrink is r_direct = 0.3870 (V0(N*)/V0(N_x)), not the assumed bare-height ratio 0.4410 -- " +
+      "the actual flow shrinks with the LOCAL DENSITY log(gamma / 2pi), while imp-398 used the BARE " +
+      "Riemann-von Mangoldt height log gamma_N. Missing the 2pi inside the log makes imp-398/imp-3620 " +
+      "OVER-STATE the surviving crossover collision time by ~13.96%. (F3) re-anchoring the direct shape to " +
+      "the same A1-trap 2.37e-4 constant gives the density-corrected t_c(N_x) = 2.37e-4 * 0.3870 = 9.1714e-5 " +
+      "(vs imp-3620's 1.0452e-4) and the C_G=1 flow factor 1.0000917 (vs 1.0001045) -- still deep inside the " +
+      "imp-3604 bracket [1, 1.000474], now at ~19.3% of it (down from imp-3620's 22.05%), moving TOWARD 1, " +
+      "so the imp-3604/imp-3620 N_half/N_x band ~0.996 is unchanged at its published 6-digit precision." +
+      "\n\nHONEST SCOPE: the seed is a locally-uniform MESOSCOPIC gas, so only the imp-2520 density-floor " +
+      "SHOCK shape/ratio is measured, not the microscopic nearest-pair collision; the absolute shock " +
+      "constant c_sh (imp-2520 SG1, OPEN) is untouched and the scale stays pinned to 2.37e-4 exactly as " +
+      "imp-398 does. Measurement/derivation only, RH-equivalent, necessary-but-not-sufficient; no " +
+      "positivity, no bridge closure, no RH claim, no QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 " +
+      "positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3642 (direct RK4 backward-Dyson integration cross-checking the imp-3620/imp-398 1/log gamma_N shrink shape: confirms the shape but corrects the anchor-to-crossover factor from the bare-height 0.4410 to the density-corrected 0.3870, moving the crossover flow-factor pin from 1.0001045 toward 1.0000917), 2026",
+    relatedTerms: [
+      "sigma-crossover flow factor PINNED via the imp-398 closed form t_c(N)~1/log gamma_N (imp-3620)",
+      "imp-3604 sigma-crossover flow-factor bracket invariance [1,1.000474] (imp-3604)",
+      "backward-flow-stability-gronwall Lemma B/C, density floor V0, shock time t_c ~ 1/(2 V0) (imp-2520)",
+      "imp-2644 A1 Theta-trap discharge, |t_c| <= g_min^2/6 = 2.37e-4, C_G in [1,2] (imp-2644)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

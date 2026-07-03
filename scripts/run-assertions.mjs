@@ -202,6 +202,8 @@ const DATA_MODULES = [
   '/src/data/finite-k-c-mb-unconditional.js',
   // imp-1086: cross-verification of imp-963 K = 0.2014 with DP45 second integrator.
   '/src/data/finite-k-c-mb-crosscheck.js',
+  // imp-3275: assess/measure weaker-K C_mb tolerance vs the imp-486 rescue gate.
+  '/src/data/imp-3275-weaker-k-cmb-degradation.js',
   // imp-1202: HONEST PARTIAL numerical audit of Conj 15.4 (prime-delay domination) at sigma=0.6.
   '/src/data/imp-1202-conjecture-15-4-numerical-audit.js',
   // imp-962 HONEST PARTIAL: plateau-structure scan on (10⁴, 10⁶].
@@ -2421,6 +2423,18 @@ const DATA_MODULES = [
   // already unconditional). Throws on import if the U-shape, capstone reproduction, or
   // widest-at-ceiling structure breaks. Assessment only; no positivity; no QED; PT 0.2 SOTA.
   '/src/data/imp-3220-en-bridge-fidelity-frontier.js',
+  // imp-3276: quantifies the per-N safety MARGIN of the PATH-1 leading-order
+  // predicates E1 (rho_{J*(N)} non-decreasing) and E2 (tau_c_est non-increasing)
+  // over the full Odlyzko sweep N in {2..10^6}, upgrading the roadmap ZERO-violations
+  // binary into a signed margin. Finding: rho(N)/tau_c(N) are piecewise-constant and
+  // move only at 25 RECORD steps (prefix-min gap can only enter at the top pair, always
+  // a higher gamma), so both predicates hold STRUCTURALLY and the naive min margin over
+  // all ~10^6 adjacent-N steps is an EXACT TIE at 0 -- NOT a fragile drift. The strict
+  // per-decade record jump: E1 rho stays bounded away from 0 (~1.8e-3 in top decade =>
+  // ROBUST floor), E2 tau_c drop decays (1.47 -> 5.3e-6) but stays strictly positive and
+  // is implied by E1+UMon. Throws on import if violations reappear, the tie/record count
+  // shifts, or a record jump loses sign. Measurement only; no proof; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3276-e1-e2-margin-quantification.js',
   // imp-3126: cross-checks whether the imp-3106 convergent regular tail mass
   // int_{s0+1}^inf phi ds ~0.26900597 is structurally related to the imp-3026/imp-3070
   // cusp constant C_shock = sqrt(2/(3 log gamma_N)) ~0.26922 (which agree to ~2.1e-4 at

@@ -4138,6 +4138,44 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-33223 honest-status note: sg-3844-watson-tail is now REDUCED-AND-PINNED (imp-3866 -> imp-3892), not open",
+    category: "meta",
+    definition:
+      "PROVENANCE RECORD, not a new derivation: the sub-gap sg-3844-watson-tail (a rigorous " +
+      "all-orders bound on the O(e^{-4 tau}) tail of c(tau) - (c_inf + B e^{-2 tau}), left external " +
+      "by imp-3844) predates two closure steps, and some consumers -- notably imp-3867's own " +
+      "honest-caveat text -- still describe it as fully open." +
+      "\n\nimp-3866 first showed the tail splits into three STANDARD analytic-Watson remainders: " +
+      "(R1) the dropped n>=2 kernel tail (super-exponentially small, measured as machine zero), " +
+      "(R2) a Watson endpoint remainder controlled by radius-1 Cauchy estimates of the real-analytic " +
+      "amplitude phi(t) = e^{-pi(1+t)} acc(s(t)), giving bracket(tau) = 2 pi - 3 e^{-2 tau} + rho(tau) " +
+      "with |rho(tau)| <= K0 e^{-4 tau}, and (R3) the elementary ln(1+x) propagation remainder -- " +
+      "leaving only ONE external piece, renamed sg-3866-watson-majorant-constant (a single explicit K0)." +
+      "\n\nimp-3892 then PINNED that residual constant in closed form: K_lead = 2 phi'(0)/Phi(0) = " +
+      "-2 pi + acc'(0)/(2 acc(0)) = -3.4120570431 (an exact finite sum over the NPHI=10 kernel), with " +
+      "the next Watson coefficient K6 = +2.1066020628 reproducing imp-3866's measured rho/e^{-4 tau} " +
+      "ratios to ~3e-5. Because rho is a negative constant plus a shrinking positive correction, " +
+      "|rho(tau)| <= K0 e^{-4 tau} holds on tau >= 2 with the single explicit majorant K0 = 3.46." +
+      "\n\nVERDICT: sg-3844-watson-tail is CERTIFIED-MODULO-ONE-EXPLICIT-CONSTANT, not an external " +
+      "unknown -- the chain imp-3844 (leading terms) -> imp-3866 (reduction to three standard " +
+      "estimates) -> imp-3892 (closed pin of the remaining K0) closes the tail bound end to end. " +
+      "Consumers still citing sg-3844-watson-tail as open (e.g. imp-3867's honest-caveat text, " +
+      "written before imp-3866/imp-3892 existed) describe a state that no longer holds; this note " +
+      "is a status correction, not an edit to those modules." +
+      "\n\nHONEST SCOPE: a provenance/status note only. It establishes NO operator positivity; the " +
+      "off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED, the NPHI=10 kernel " +
+      "truncation remains an upstream modeling choice, and this is a diagnostic-limit asymptotic, not " +
+      "a theorem about zeros. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-33223 (recording that imp-3866's three-remainder reduction plus imp-3892's closed pin K0=3.46 together certify sg-3844-watson-tail, and that consumers citing it as open predate that chain), 2026",
+    relatedTerms: [
+      "imp-3844 A-weight correction limit closed form: c_inf, B (imp-3844)",
+      "imp-3866 Watson-tail bound assessment: three-remainder reduction of sg-3844-watson-tail (imp-3866)",
+      "imp-3892 Watson majorant constant: closed pin K_lead=-3.4120570431, K0=3.46 (imp-3892)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

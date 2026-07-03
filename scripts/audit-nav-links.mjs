@@ -213,6 +213,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3672-direct-dyson-flow-crosscheck',
   '/viz-imp3675-dense-lanczos-pair-spread-crossover',
   '/viz-imp3678-moment-ratio-asymptotics',
+  '/viz-imp3681-sub-floor-replica-foldin-crossover',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

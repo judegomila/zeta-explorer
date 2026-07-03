@@ -2265,6 +2265,120 @@ export const SG1C_A1_INTERLOPER_MARGIN = (() => {
   };
 })();
 
+// imp-3368: QUANTIFY the GROWTH LAW of the imp-3277 neighbour clearance d_1/g along the
+// CM flow, upgrading the binary "min clearance >= 2.6 and GROWS" flag to a signed
+// clearance-rate margin per row. imp-3277 (SG1C_A1_INTERLOPER_MARGIN) reported only that
+// the clearance c(s) = d_1/g stays bounded away from 1 and increases as the tracked pair
+// collides; it never fit the rate. Here we integrate the SAME attractive CM flow on the
+// same three measured real-zero Theta(0) = 0.167/0.088/0.034 isolated-pair models, sample
+// c(s) = d_1/g at every step against flow time s and against the shrinking gap g, and fit
+// two complementary quantities: (1) the collapse growth law c ~ A * g^(-q) by a log-log
+// regression of log c on log g -- the exponent q measures HOW FAST clearance blows up as
+// g -> 0; and (2) the instantaneous signed clearance rate dc/ds = -drho/rho^2 (drho < 0 for
+// the isolated pair, rho = g/d_1), whose worst-case (minimum) value over the trajectory is
+// the SIGNED clearance-rate margin: strictly positive means the pair outruns every neighbour
+// at every instant. Measure only: on the three rows q ~ 1.015/1.010/1.006 (clearance grows
+// essentially like 1/g, r^2 > 0.9998 -- a clean power law), and min dc/ds ~ 64.9/200.9/959.8
+// is strictly positive and GROWS with isolation (smaller Theta(0) -> faster clearance growth),
+// so the pair-outruns-neighbours margin is signed-positive and sharpens down the three rows.
+// Corroborates imp-3277/imp-3049 with a rate, no theorem/QED, no claim beyond the tested rows.
+export const SG1C_A1_CLEARANCE_GROWTH_LAW = (() => {
+  const N = 12;
+  // isolated central pair in a unit lattice (same construction as imp-3277 / R1T4 / imp-3049)
+  const isoCfg = (Nn, g0) => {
+    const x = [];
+    for (let i = 0; i < Nn; i++) x.push(i);
+    const c = Math.floor(Nn / 2) - 1;
+    for (let i = c + 1; i < Nn; i++) x[i] -= (1 - g0);
+    return { x, idx: c };
+  };
+  // tune the central gap so the tracked-pair Theta(0) matches the measured row
+  const gapForTheta = (target) => {
+    let lo = 0.02, hi = 0.99;
+    for (let it = 0; it < 200; it++) {
+      const m = (lo + hi) / 2;
+      const { x, idx } = isoCfg(N, m);
+      if (dThetaDs(x, idx).theta > target) hi = m; else lo = m;
+    }
+    return (lo + hi) / 2;
+  };
+  // ordinary-least-squares slope/intercept and R^2 of ys on xs
+  const linfit = (xs, ys) => {
+    const n = xs.length;
+    let sx = 0, sy = 0, sxx = 0, sxy = 0;
+    for (let k = 0; k < n; k++) { sx += xs[k]; sy += ys[k]; sxx += xs[k] * xs[k]; sxy += xs[k] * ys[k]; }
+    const m = (n * sxy - sx * sy) / (n * sxx - sx * sx);
+    const b = (sy - m * sx) / n;
+    let ssr = 0, sst = 0; const my = sy / n;
+    for (let k = 0; k < n; k++) { const pr = m * xs[k] + b; ssr += (ys[k] - pr) ** 2; sst += (ys[k] - my) ** 2; }
+    return { m, b, r2: 1 - ssr / sst };
+  };
+  // integrate the CM flow (same RK4 scheme + adaptive step as the parent), sampling the
+  // clearance c = d_1/g against g at every step and the instantaneous rate dc/ds = -drho/rho^2
+  const track = (x0, idx, floor) => {
+    let x = x0.slice();
+    const logG = [], logC = [];
+    let minRate = Infinity, flowTime = 0, samples = 0;
+    for (let step = 0; step < 200000; step++) {
+      const g = x[idx + 1] - x[idx];
+      if (g < floor) break;
+      const ri = dRhoIso(x, idx);
+      const c = ri.d1 / g;                 // clearance = 1/rho
+      const rate = -ri.drho / (ri.rho * ri.rho); // dc/ds = d(1/rho)/ds
+      if (rate < minRate) minRate = rate;
+      logG.push(Math.log(g)); logC.push(Math.log(c)); samples++;
+      const h = Math.min(2e-3, 0.05 * g * g);
+      const k1 = force(x); const x2 = x.map((v, k) => v + 0.5 * h * k1[k]); const k2 = force(x2);
+      const x3 = x.map((v, k) => v + 0.5 * h * k2[k]); const k3 = force(x3);
+      const x4 = x.map((v, k) => v + h * k3[k]); const k4 = force(x4);
+      x = x.map((v, k) => v + (h / 6) * (k1[k] + 2 * k2[k] + 2 * k3[k] + k4[k]));
+      flowTime += h;
+    }
+    const f = linfit(logG, logC); // log c = log A - q log g  =>  slope = -q
+    return { growthExponent: -f.m, prefactorA: Math.exp(f.b), r2: f.r2, minClearanceRate: minRate, samples, flowTime };
+  };
+  const measured = [
+    { id: 'zeros-N100', theta0: 0.1666 },
+    { id: 'zeros-N300', theta0: 0.0884 },
+    { id: 'zeros-N870', theta0: 0.0342 },
+  ];
+  const floor = 1e-4;
+  const rows = measured.map((r) => {
+    const gLat = gapForTheta(r.theta0);
+    const { x, idx } = isoCfg(N, gLat);
+    const t = track(x, idx, floor);
+    return {
+      id: r.id,
+      measuredTheta0: r.theta0,
+      modelGap: gLat,
+      growthExponent: t.growthExponent,     // q in c = d_1/g ~ A g^(-q); expect ~1 (clearance ~ 1/g)
+      prefactorA: t.prefactorA,              // A in the power law; expect ~1.03-1.04
+      fitR2: t.r2,                           // log-log fit quality; expect > 0.9998
+      signedClearanceRateMargin: t.minClearanceRate, // min dc/ds over the trajectory; > 0 => always grows
+      samples: t.samples,
+      flowTime: t.flowTime,
+    };
+  });
+  return {
+    rows,
+    N,
+    floor,
+    allGrowExpNearOne: rows.every((r) => Math.abs(r.growthExponent - 1) < 0.03),
+    allMarginPositive: rows.every((r) => r.signedClearanceRateMargin > 0),
+    worstR2: rows.reduce((m, r) => Math.min(m, r.fitR2), 1),
+    summary:
+      'Upgrades the imp-3277 binary "clearance d_1/g stays >= 2.6 and GROWS" flag to a fitted '
+      + 'growth law + signed rate margin. Integrating the attractive CM flow on the three measured '
+      + 'real-zero Theta(0)=0.167/0.088/0.034 isolated-pair models, the neighbour clearance obeys a '
+      + 'clean power law c = d_1/g ~ A g^(-q) with q = 1.015/1.010/1.006 (r^2 > 0.9998), i.e. clearance '
+      + 'blows up essentially like 1/g as the pair collides, and the instantaneous signed clearance '
+      + 'rate dc/ds = -drho/rho^2 has minimum 64.9/200.9/959.8 -- strictly positive on every row and '
+      + 'GROWING with isolation (smaller Theta(0) => faster clearance growth), so the pair outruns any '
+      + 'neighbour at every instant with a margin that sharpens down the rows. Measure only; corroborates '
+      + 'imp-3277/imp-3049 with a rate, no theorem/QED, no unconditional claim beyond the tested rows.',
+  };
+})();
+
 // imp-3041: cross-N tabulated re-verification of the Lemma 2 EXACT Theta identity
 //   dTheta/ds = -4 Theta (2 - Theta)/g^2 + 6 g^2 sum T^2 + 2 g^4 sum T^3
 // against central finite differences of Theta along an Euler step of the CM flow,
@@ -3630,6 +3744,25 @@ export const SG1C_THEOREM_ASSERTIONS = [
         d.minClearanceOverall >= 1 &&
         d.rows[0].peakRho > d.rows[1].peakRho &&
         d.rows[1].peakRho > d.rows[2].peakRho
+      );
+    },
+  },
+  {
+    id: 'sg1c-a1-clearance-growth-law',
+    description: 'imp-3368: fits the imp-3277 neighbour clearance d_1/g along the CM flow on the three measured real-zero rows to a power law c ~ A g^(-q) with q~1.015/1.010/1.006 (r^2>0.9998, clearance ~ 1/g), and reports the signed clearance-rate margin min dc/ds = 64.9/200.9/959.8 -- strictly positive and GROWING with isolation, quantifying HOW FAST the pair outruns any neighbour (measure only, no theorem/QED beyond the tested rows)',
+    holds: () => {
+      const d = SG1C_A1_CLEARANCE_GROWTH_LAW;
+      return (
+        d.rows.length === 3 &&
+        d.allGrowExpNearOne &&
+        d.allMarginPositive &&
+        d.worstR2 > 0.9998 &&
+        d.rows.every((r) => r.growthExponent > 1 && r.growthExponent < 1.03) &&
+        d.rows.every((r) => r.prefactorA > 1 && r.prefactorA < 1.1) &&
+        d.rows[0].growthExponent > d.rows[1].growthExponent &&
+        d.rows[1].growthExponent > d.rows[2].growthExponent &&
+        d.rows[0].signedClearanceRateMargin < d.rows[1].signedClearanceRateMargin &&
+        d.rows[1].signedClearanceRateMargin < d.rows[2].signedClearanceRateMargin
       );
     },
   },

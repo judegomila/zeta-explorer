@@ -3688,6 +3688,34 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3671 mesoscopic-vs-shock strip-height ladder: Gronwall floor collapse exp(-k^2 E_meso)",
+    category: "numerical",
+    definition:
+      "imp-3642 measured the worst mesoscopic Gronwall floor 0.991 at strip height y_star = 4 d (d the " +
+      "local mean spacing), fixing the mesoscopic contraction exponent E_meso = -ln(0.991) = 0.009041 = " +
+      "2 s / y_star^2. Writing any strip height as y = y_star / k, the SAME Gronwall floor exp(-2 s / y^2) " +
+      "becomes floor(k) = exp(-k^2 * E_meso) = floor_meso^{k^2} -- a strip-height ladder that COLLAPSES as " +
+      "k grows from the mesoscopic scale (k=1) toward the microscopic nearest-pair scale (k large): " +
+      "k=1 (y_star=4d) gives 0.99100, the mesoscopic reading imp-3642 respects; k=4 (mean spacing d) is " +
+      "already down to 0.86532; the floor crosses ONE HALF at k~8.76 (y~0.457 d), i.e. the mesoscopic " +
+      "contraction is already half-lost above the mean spacing; and by k=50 (y~0.08 d, near the nearest-pair " +
+      "scale) the floor is ~1.5e-10 -- numerically VACUOUS. This quantifies imp-3671's negative finding " +
+      "(S2): the imp-3642 mesoscopic V0 reading sits on a Gronwall floor that is essentially trivial (~0.99) " +
+      "at its own strip height, but the SAME floor formula, evaluated at the microscopic nearest-pair strip " +
+      "height the G6a_shock_lipschitz modulus would need, is Gronwall-vacuous -- so no amount of refining " +
+      "the mesoscopic V0 measurement can reach the shock front; the scale separation itself blocks it, " +
+      "independent of the imp-3671 (S1) type/dimension obstruction.",
+    firstUsed: "imp-3671 (deriving the strip-height ladder floor(k) = exp(-k^2 E_meso) from the imp-3642 measured floor 0.991, to quantify the mesoscopic-vs-shock scale separation), 2026",
+    relatedTerms: [
+      "imp-3671 G6a_shock_lipschitz structural-silence verdict: mesoscopic V0 does NOT supply a Hoelder-1/2 modulus (imp-3671)",
+      "imp-3642 sigma-crossover t_c direct-Dyson cross-check, V0 linear in log(gamma/2pi) (imp-3642)",
+      "imp-2520 shock time t_c ~ 1/(2 V0), negative-finding 1: nearest-pair is Gronwall-vacuous (imp-2520)",
+      "imp-3691 half-floor scale k~8.76 vs the E(N) bridge assessment (imp-3691)",
+      "imp-3700 mesoscopic-vs-shock scale-separation visualization (imp-3700)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

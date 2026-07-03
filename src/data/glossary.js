@@ -2042,6 +2042,38 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "closed-form degree-2 miss factor 1 - 1/k^3 (imp-3488)",
+    category: "numerical",
+    definition:
+      "imp-3469 MEASURED, from a k-ladder {2,3,4,6,8}, that the imp-3405 degree-0 " +
+      "scaling law k*B_2(a,U) over-predicts the degree-2 (absolute-measure) bridge mass " +
+      "B_2(a/k, kU) by a closed factor 1 - 1/k^3, but only fitted it empirically. " +
+      "imp-3488 DERIVES it: because the genuine-Phi autocorrelation A(tau) truncates " +
+      "inside every cutoff U (imp-3482), B_2 is U-independent and small-a, with leading " +
+      "form B_2(a) ~ (a^2/2) M_2 (M_2 the fixed second autocorrelation moment, imp-3481). " +
+      "That leading term is exactly degree-2 HOMOGENEOUS in a, so B_2(a/k) = k^{-2} B_2(a) " +
+      "-- the exponent p = 2 is analytic, not fitted. The degree-0 law instead multiplies " +
+      "by k (one Lebesgue power), so the ratio of the degree-0 prediction to the actual " +
+      "degree-2 mass is k*B_2(a) / (k^{-2} B_2(a)) = k^3: an over-prediction by EXACTLY " +
+      "k^3, and a relative miss |k^{-3} - 1| = 1 - 1/k^3 (k >= 2). CERTIFIED against the " +
+      "imp-3469 ladder on both base cells (0.5,6) and (0.4,10): the exact ratio " +
+      "r_k = B_2(a/k)/B_2(a) reconciles the imp-3469 residual (1 - r_k/k), the derived " +
+      "miss to the O(a^4) leading-form tail (< 1e-3), and the fitted exponent to 2 " +
+      "(within 0.01) -- all to machine precision." +
+      "\n\nHONEST SCOPE: derivation/certification only. The degree-2 face carries no " +
+      "feasibility ratio at all (D_2 = 0 identically, imp-3482), so this establishes NO " +
+      "operator positivity. The off-diagonal endpoint-Hankel obstruction K_a >= 0 " +
+      "(imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 " +
+      "remains the rigorous SOTA.",
+    firstUsed: "imp-3488 (closed-form derivation of the degree-2 miss factor 1 - 1/k^3 and exponent p = 2), 2026",
+    relatedTerms: [
+      "genuine-Phi autocorrelation MOMENT LADDER M_0..M_4 (imp-3481)",
+      "Second genuine-Phi autocorrelation moment M_2 and the degree-2 leading form B_2(a) ~ (a^2/2) M_2",
+      "degree-0 lambda-scaling law B(a/k, kU) = k*B(a,U) (imp-3405)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

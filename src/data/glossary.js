@@ -1868,6 +1868,35 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Second genuine-Phi autocorrelation moment M_2 and the degree-2 leading form B_2(a) ~ (a^2/2) M_2",
+    category: "numerical",
+    definition:
+      "The degree-2 (absolute) bridge mass B_2(a,U) = int_0^U (cosh(a tau) - 1) A(tau) d(tau) weights " +
+      "the same cosh(a tau) - 1 integrand used at degree 0 by the FIXED genuine-Phi autocorrelation " +
+      "A(tau) = int Phi(s) Phi(s + tau) ds (imp-2686). Because A(tau) is negligible outside its support " +
+      "(~[0, 0.6], far inside every cutoff U >= 6 on the imp-3405 k-ladder), the small-a Taylor expansion " +
+      "cosh(a tau) - 1 = (a tau)^2/2 + O(a^4) carries through the whole integral, giving the closed leading " +
+      "form B_2(a) ~ (a^2/2) M_2, where M_2 = int tau^2 A(tau) d(tau) ~ 4.54e-6 is the FIXED second moment " +
+      "of A(tau) -- independent of both a and U. imp-3469 measured M_2 self-computingly (composite Simpson " +
+      "on the precomputed A(tau) grid) and checked the leading form against the two base cells of the " +
+      "degree-2 k-ladder, (a,U) = (0.5,6) and (0.4,10): the closed form reproduces both measured B_2 values " +
+      "to within ~4e-4 relative. This is the ROOT CAUSE behind the imp-3469 degree-2 scaling break -- B_2 " +
+      "scales as a^2 (exponent p = 2), not as the degree-0 exponent p = 1, because M_2 is a fixed constant " +
+      "that never co-scales with the tau = k*sigma substitution used to rescale a and U." +
+      "\n\nHONEST SCOPE: numerical characterization of the degree-2 bridge-mass leading form only. " +
+      "Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face carries no feasibility " +
+      "ratio at all (the overflow deficit D_2 = 0 identically). The operator-level K_a >= 0 off-diagonal " +
+      "endpoint-Hankel positivity (imp-3066) remains the lone RH obstruction, UNTOUCHED. No RH verdict, " +
+      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3469 (degree-2 bridge-mass k-ladder scaling break), 2026",
+    relatedTerms: [
+      "General lambda-scaling law (B(a/k,kU) = k*B(a,U), D_0(a/k,kU) = k*D_0(a,U))",
+      "genuine-Phi autocorrelation A(tau) (imp-2686)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

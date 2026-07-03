@@ -2545,6 +2545,11 @@ function NextOrderConvergenceCorrectionViz() {
   const yTicksB = [1.0, 1.1, 1.2, 1.3, 1.4];
   const xTicksB = [4, 6, 8, 10, 12];
 
+  // imp-3222 accuracy radius: eps* (onset) and s* (decay) where the imp-3155
+  // two-term truncation error crosses 1%, marking the trustworthy expansion window.
+  const epsStar1pct = IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT.accuracyRadius.onsetEps1pct;
+  const sStar1pct = IMP3222_ONSET_DECAY_SECOND_ORDER_COEFFICIENT.accuracyRadius.decayS1pct;
+
   return (
     <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #6366f1", background: "rgba(99,102,241,0.04)" }}>
       <h3 style={{ color: "#6366f1", marginTop: 0 }}>
@@ -2559,7 +2564,9 @@ function NextOrderConvergenceCorrectionViz() {
         (2s+D<sub>0</sub>)e<sup>&minus;s</sup> with slope&nbsp;2 and constant part
         D<sub>0</sub>=2K<sub>0</sub>&minus;1/K<sub>0</sub>&asymp;{D0.toFixed(5)} (K<sub>0</sub>=&#8730;2&minus;arcsinh1)
         (right panel; dashed: 1+(2s+D<sub>0</sub>)e<sup>&minus;s</sup>). Both are closed-form;
-        operator step (imp-3066) untouched.
+        operator step (imp-3066) untouched. The green band marks the imp-3222 accuracy radius
+        &mdash; where the dropped second-order term stays under 1%: &epsilon;&lt;&epsilon;*&asymp;{epsStar1pct.toFixed(3)}
+        (onset, left) and s&gt;s*&asymp;{sStar1pct.toFixed(2)} (decay, right).
       </p>
       <div style={{ display: "flex", gap: 20, flexWrap: "wrap", marginTop: 10 }}>
         <div>
@@ -2581,6 +2588,9 @@ function NextOrderConvergenceCorrectionViz() {
             ))}
             <line x1={MLA} y1={MTA} x2={MLA} y2={HA - MBA} stroke="#334155" strokeWidth="1" />
             <line x1={MLA} y1={HA - MBA} x2={WA - MRA} y2={HA - MBA} stroke="#334155" strokeWidth="1" />
+            <rect x={MLA} y={MTA} width={pxA(epsStar1pct) - MLA} height={(HA - MBA) - MTA} fill="rgba(16,185,129,0.08)" />
+            <line x1={pxA(epsStar1pct)} y1={MTA} x2={pxA(epsStar1pct)} y2={HA - MBA} stroke="#10b981" strokeWidth="1.5" strokeDasharray="4 2" />
+            <text x={pxA(epsStar1pct)} y={MTA - 8} textAnchor="middle" fontSize="9" fill="#10b981" fontFamily={mono}>&epsilon;*&asymp;{epsStar1pct.toFixed(3)} (1% err)</text>
             <line x1={MLA} y1={yA1} x2={WA - MRA} y2={yA1} stroke="#475569" strokeWidth="1" strokeDasharray="3 2" />
             <text x={WA - MRA - 4} y={yA1 - 4} textAnchor="end" fontSize="9" fill="#64748b" fontFamily={mono}>1 (limit)</text>
             <path d={pathLA} fill="none" stroke="#fbbf24" strokeWidth="1.5" strokeDasharray="6 3" />
@@ -2612,6 +2622,9 @@ function NextOrderConvergenceCorrectionViz() {
             ))}
             <line x1={MLB} y1={MTB} x2={MLB} y2={HB - MBB} stroke="#334155" strokeWidth="1" />
             <line x1={MLB} y1={HB - MBB} x2={WB - MRB} y2={HB - MBB} stroke="#334155" strokeWidth="1" />
+            <rect x={pxB(sStar1pct)} y={MTB} width={(WB - MRB) - pxB(sStar1pct)} height={(HB - MBB) - MTB} fill="rgba(16,185,129,0.08)" />
+            <line x1={pxB(sStar1pct)} y1={MTB} x2={pxB(sStar1pct)} y2={HB - MBB} stroke="#10b981" strokeWidth="1.5" strokeDasharray="4 2" />
+            <text x={pxB(sStar1pct)} y={MTB - 8} textAnchor="middle" fontSize="9" fill="#10b981" fontFamily={mono}>s*&asymp;{sStar1pct.toFixed(2)} (1% err)</text>
             <line x1={MLB} y1={yB1} x2={WB - MRB} y2={yB1} stroke="#475569" strokeWidth="1" strokeDasharray="3 2" />
             <text x={WB - MRB - 4} y={yB1 - 4} textAnchor="end" fontSize="9" fill="#64748b" fontFamily={mono}>1 (limit)</text>
             <path d={pathCB} fill="none" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="6 3" />

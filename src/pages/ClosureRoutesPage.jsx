@@ -69,6 +69,7 @@ import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-f
 import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
 import { IMP3406_SIGMA_HIGHN_EXTRAPOLATION } from '../data/imp-3406-sigma-highN-extrapolation.js';
+import { IMP3711_SIGMA_POSTPEAK_CONTINUATION } from '../data/imp-3711-sigma-postpeak-continuation.js';
 import { IMP3443_NMAX_ETRUNC_SENSITIVITY } from '../data/imp-3443-nmax-etrunc-sensitivity.js';
 import { IMP3486_CRITICAL_DECAY_EXPONENT } from '../data/imp-3486-critical-decay-exponent.js';
 import { effectiveHeightForN } from '../data/lambda-rh-height-mapping.js';
@@ -811,6 +812,16 @@ function SigmaNShapeExtrapolationPanel() {
         No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
         remains the rigorous SOTA.
       </div>
+      <p style={{ marginTop: 10, color: '#94a3b8', fontSize: 11.5, lineHeight: 1.65, padding: '6px 10px', borderRadius: 4, background: 'rgba(56,189,248,0.05)', border: '1px solid rgba(56,189,248,0.18)' }}>
+        <strong style={{ color: '#38bdf8' }}>Post-peak continuation (imp-3711):</strong>{' '}
+        evaluating the SAME model just past the peak at &#123;1.5, 2, 5, 10&#125;&times;10<sup>6</sup> (the
+        5&times;10<sup>6</sup> rung is newly tabulated) gives {IMP3711_SIGMA_POSTPEAK_CONTINUATION.continuationLadder.map((r) => r.sigma).join(', ')} &mdash;
+        strictly monotone decreasing, confirming the turnover. The decay is a slow power law: the log-log slope
+        steepens from &asymp;{IMP3711_SIGMA_POSTPEAK_CONTINUATION.decayShape.logLogSlopes[0].slope} at 10<sup>7</sup> toward
+        the sqrt-law asymptote &minus;&frac12; in the deep tail. The peak half-life (&sigma;<sub>max</sub>/2&asymp;{IMP3711_SIGMA_POSTPEAK_CONTINUATION.halfLife.sigma_half})
+        lands near N&asymp;{IMP3711_SIGMA_POSTPEAK_CONTINUATION.halfLife.N_half_peak.toExponential(2).replace('e+', 'e')} (&asymp;{IMP3711_SIGMA_POSTPEAK_CONTINUATION.halfLife.decades_above_peak} decades above the peak).
+        MODEL-ONLY: the empirical E<sub>coll</sub> is O(N&sup2;)-infeasible past &asymp;10<sup>5</sup> (imp-1082).
+      </p>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3406-sigma-highN-extrapolation.js &mdash; N&isin;[10<sup>5</sup>,10<sup>15</sup>], log<sub>10</sub>(N) x-axis,
         continuing the imp-3220 panel above past the 10<sup>6</sup> assembly ceiling.

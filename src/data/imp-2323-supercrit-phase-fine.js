@@ -1,12 +1,25 @@
 // @module data/imp-2323-supercrit-phase-fine
-// imp-2323: Finer-grid super-critical-strip phase / winding empirical survey.
+// imp-2323: Finer-grid super-critical-strip phase / arg-difference empirical survey.
+//
+// ⚠ CORRECTION (2026-07-03, novel-angles adversarial workflow): the field formerly
+// named `totalWindingNumber` is RENAMED `segmentArgDelta`. It is NOT a winding number
+// or a quantized argument-principle zero count -- it is the arg-difference of zeta along
+// ONE open vertical SEGMENT, W_seg(sigma) = (1/2pi)[arg zeta(sigma+i200) - arg zeta(sigma+i0.5)],
+// dominated by its endpoints. The tell: the values are NON-integer and slide SMOOTHLY
+// through zero (~ -7.78 at sigma=0.51 to +9.13 at sigma=0.99, crossing 0 near sigma~0.8),
+// whereas a genuine winding/zero count is quantized. The real finite-height zero count is
+// the CLOSED-rectangle argument principle already in src/math/turing-method.js (imp-090) and
+// src/math/backlund-zero-count.js (imp-175); this survey field carries no topological content
+// and no Lambda contact. The closureNote conclusions below rest on sign-changes and
+// zero-approaches (legitimate), NOT on reading this field as a winding number.
 //
 // WHAT THIS COMPUTES
 // ------------------
 // For each sigma in the fine grid {0.51, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99}
 // and t sweeping [0.5, 200] at 2001 uniformly-spaced points (dt ~ 0.1), we record:
 //
-//   - totalWindingNumber:  net accumulated arg(zeta) / (2*pi) over the t range
+//   - segmentArgDelta:  arg(zeta) difference / (2*pi) over the OPEN vertical segment
+//                        (endpoint boundary term; NOT a winding/zero count -- see CORRECTION)
 //   - phaseSignChanges:    number of Im(zeta) sign changes (proxy for oscillation count)
 //   - meanMagnitude:       mean |zeta(sigma + it)| over the sweep
 //   - minMagnitude:        minimum |zeta(sigma + it)| (approach to zeros)
@@ -44,7 +57,7 @@ const DT = (T_MAX - T_MIN) / T_STEPS;  // ~ 0.09975
 // ── Per-sigma slice data (from scripts/compute-imp-2323-supercrit-phase.mjs) ──
 // Fields per slice:
 //   sigma               -- Re(s) value
-//   totalWindingNumber  -- net arg(zeta) / (2*pi) accumulated over t in [0.5, 200]
+//   segmentArgDelta  -- net arg(zeta) / (2*pi) accumulated over t in [0.5, 200]
 //   phaseSignChanges    -- number of Im(zeta) sign reversals
 //   meanMagnitude       -- mean |zeta(sigma+it)| over 2001 t-points
 //   minMagnitude        -- minimum |zeta(sigma+it)|
@@ -52,17 +65,17 @@ const DT = (T_MAX - T_MIN) / T_STEPS;  // ~ 0.09975
 //   zeroApproaches      -- count of t-points with |zeta| < 0.1
 
 const SLICES = [
-  { sigma: 0.51, totalWindingNumber: -7.784202, phaseSignChanges:  90, meanMagnitude: 1.285162, minMagnitude: 0.01293642, phaseAmplitude: 6.091190, zeroApproaches: 26 },
-  { sigma: 0.55, totalWindingNumber: -5.788905, phaseSignChanges:  90, meanMagnitude: 1.254060, minMagnitude: 0.03072836, phaseAmplitude: 6.077924, zeroApproaches: 17 },
-  { sigma: 0.60, totalWindingNumber: -3.795524, phaseSignChanges:  88, meanMagnitude: 1.220901, minMagnitude: 0.06249774, phaseAmplitude: 5.824983, zeroApproaches:  6 },
-  { sigma: 0.65, totalWindingNumber: -3.802983, phaseSignChanges:  84, meanMagnitude: 1.193006, minMagnitude: 0.04507952, phaseAmplitude: 6.068036, zeroApproaches:  1 },
-  { sigma: 0.70, totalWindingNumber: -2.811281, phaseSignChanges:  82, meanMagnitude: 1.169671, minMagnitude: 0.01875552, phaseAmplitude: 5.506245, zeroApproaches:  5 },
-  { sigma: 0.75, totalWindingNumber: -0.820384, phaseSignChanges:  80, meanMagnitude: 1.150625, minMagnitude: 0.04173056, phaseAmplitude: 4.574996, zeroApproaches:  6 },
-  { sigma: 0.80, totalWindingNumber:  0.169775, phaseSignChanges:  80, meanMagnitude: 1.135931, minMagnitude: 0.06678329, phaseAmplitude: 5.318110, zeroApproaches:  3 },
-  { sigma: 0.85, totalWindingNumber:  3.159308, phaseSignChanges:  80, meanMagnitude: 1.126707, minMagnitude: 0.10905010, phaseAmplitude: 5.503347, zeroApproaches:  0 },
-  { sigma: 0.90, totalWindingNumber:  5.148372, phaseSignChanges:  84, meanMagnitude: 1.126084, minMagnitude: 0.07304089, phaseAmplitude: 6.188773, zeroApproaches:  1 },
-  { sigma: 0.95, totalWindingNumber:  9.137167, phaseSignChanges:  80, meanMagnitude: 1.142524, minMagnitude: 0.18844570, phaseAmplitude: 6.171927, zeroApproaches:  0 },
-  { sigma: 0.99, totalWindingNumber:  9.128162, phaseSignChanges:  78, meanMagnitude: 1.199308, minMagnitude: 0.24057640, phaseAmplitude: 5.541922, zeroApproaches:  0 },
+  { sigma: 0.51, segmentArgDelta: -7.784202, phaseSignChanges:  90, meanMagnitude: 1.285162, minMagnitude: 0.01293642, phaseAmplitude: 6.091190, zeroApproaches: 26 },
+  { sigma: 0.55, segmentArgDelta: -5.788905, phaseSignChanges:  90, meanMagnitude: 1.254060, minMagnitude: 0.03072836, phaseAmplitude: 6.077924, zeroApproaches: 17 },
+  { sigma: 0.60, segmentArgDelta: -3.795524, phaseSignChanges:  88, meanMagnitude: 1.220901, minMagnitude: 0.06249774, phaseAmplitude: 5.824983, zeroApproaches:  6 },
+  { sigma: 0.65, segmentArgDelta: -3.802983, phaseSignChanges:  84, meanMagnitude: 1.193006, minMagnitude: 0.04507952, phaseAmplitude: 6.068036, zeroApproaches:  1 },
+  { sigma: 0.70, segmentArgDelta: -2.811281, phaseSignChanges:  82, meanMagnitude: 1.169671, minMagnitude: 0.01875552, phaseAmplitude: 5.506245, zeroApproaches:  5 },
+  { sigma: 0.75, segmentArgDelta: -0.820384, phaseSignChanges:  80, meanMagnitude: 1.150625, minMagnitude: 0.04173056, phaseAmplitude: 4.574996, zeroApproaches:  6 },
+  { sigma: 0.80, segmentArgDelta:  0.169775, phaseSignChanges:  80, meanMagnitude: 1.135931, minMagnitude: 0.06678329, phaseAmplitude: 5.318110, zeroApproaches:  3 },
+  { sigma: 0.85, segmentArgDelta:  3.159308, phaseSignChanges:  80, meanMagnitude: 1.126707, minMagnitude: 0.10905010, phaseAmplitude: 5.503347, zeroApproaches:  0 },
+  { sigma: 0.90, segmentArgDelta:  5.148372, phaseSignChanges:  84, meanMagnitude: 1.126084, minMagnitude: 0.07304089, phaseAmplitude: 6.188773, zeroApproaches:  1 },
+  { sigma: 0.95, segmentArgDelta:  9.137167, phaseSignChanges:  80, meanMagnitude: 1.142524, minMagnitude: 0.18844570, phaseAmplitude: 6.171927, zeroApproaches:  0 },
+  { sigma: 0.99, segmentArgDelta:  9.128162, phaseSignChanges:  78, meanMagnitude: 1.199308, minMagnitude: 0.24057640, phaseAmplitude: 5.541922, zeroApproaches:  0 },
 ];
 
 // ── Derived analysis ──────────────────────────────────────────────────────────
@@ -137,9 +150,11 @@ export const IMP_2323_SUPERCRIT_PHASE_FINE = Object.freeze({
     'all metrics vary smoothly. The structural transition is at the boundaries ' +
     'sigma=1/2 (critical line zeros) and sigma=1 (absolute Euler-product ' +
     'convergence), not inside the strip. Supports the novel-angle program: ' +
-    'the strip (1/2, 1) is dynamically featureless in the phase / winding ' +
-    'picture, strengthening the case that all nontrivial zeros are confined ' +
-    'to the critical line.',
+    'the strip (1/2, 1) is dynamically featureless in the phase picture ' +
+    '(sign-changes, zero-approaches, magnitudes), strengthening the case that ' +
+    'all nontrivial zeros are confined to the critical line. (Note: the ' +
+    'segmentArgDelta field is a segment endpoint arg-difference, not a winding/zero ' +
+    'count; it carries no topological content -- see the header CORRECTION.)',
 });
 
 // ── Build-time tripwires (>= 5) ───────────────────────────────────────────────

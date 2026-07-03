@@ -171,16 +171,16 @@ for (const sigma of SIGMA_GRID) {
 
   const nPts = T_STEPS + 1;
   const meanMag = sumMag / nPts;
-  const totalWindingNumber = accumulatedPhase / (2 * Math.PI); // net winding
+  const segmentArgDelta = accumulatedPhase / (2 * Math.PI); // segment arg-difference over the open vertical segment (endpoint term; NOT a winding/zero count)
 
   const sliceMs = performance.now() - tStart;
-  process.stderr.write(` phaseWinding=${totalWindingNumber.toFixed(2)}, signChanges=${phaseSignChanges}, minMag=${minMag.toExponential(3)} [${sliceMs.toFixed(0)} ms]\n`);
+  process.stderr.write(` segArgDelta=${segmentArgDelta.toFixed(2)}, signChanges=${phaseSignChanges}, minMag=${minMag.toExponential(3)} [${sliceMs.toFixed(0)} ms]\n`);
 
   slices.push({
     sigma,
     tRange: [T_MIN, T_MAX],
     tSteps: T_STEPS,
-    totalWindingNumber: parseFloat(totalWindingNumber.toFixed(6)),
+    segmentArgDelta: parseFloat(segmentArgDelta.toFixed(6)),
     phaseSignChanges,
     meanMagnitude: parseFloat(meanMag.toFixed(6)),
     minMagnitude: parseFloat(minMag.toExponential(6)),
@@ -197,7 +197,7 @@ const totalMs = performance.now() - t0;
 // ── Detect structural transitions ─────────────────────────────────────────────
 // Look for monotone trends or jumps in winding number / sign changes across sigma
 const sigmaVals     = slices.map(s => s.sigma);
-const windingVals   = slices.map(s => s.totalWindingNumber);
+const segArgDeltaVals   = slices.map(s => s.segmentArgDelta);
 const signChangeVals = slices.map(s => s.phaseSignChanges);
 const meanMagVals   = slices.map(s => s.meanMagnitude);
 
@@ -207,14 +207,14 @@ for (let i = 1; i < slices.length; i++) {
   windingDeltas.push({
     sigmaFrom: sigmaVals[i - 1],
     sigmaTo:   sigmaVals[i],
-    dWinding:  windingVals[i] - windingVals[i - 1],
+    dWinding:  segArgDeltaVals[i] - segArgDeltaVals[i - 1],
     dSignChanges: signChangeVals[i] - signChangeVals[i - 1],
   });
 }
 
 // Identify monotone decrease in |winding| as sigma increases (expected: fewer oscillations further from critical line)
-const windingMonotonicallyDecreasing = windingVals.every((v, i) =>
-  i === 0 || Math.abs(v) <= Math.abs(windingVals[i - 1]) + 0.5
+const windingMonotonicallyDecreasing = segArgDeltaVals.every((v, i) =>
+  i === 0 || Math.abs(v) <= Math.abs(segArgDeltaVals[i - 1]) + 0.5
 );
 
 // Find the sigma where sign-change rate drops sharply (>30% drop in consecutive steps)
@@ -242,8 +242,8 @@ function buildClosureNote(slices, windingMonotonicallyDecreasing, transitionSigm
     `KEY FINDINGS:`,
     ``,
     `1. Phase winding (accumulated arg / 2pi over t in [${T_MIN}, ${T_MAX}]):`,
-    `   sigma=0.51: ${sigNear.totalWindingNumber.toFixed(2)} turns  (closest to critical line)`,
-    `   sigma=0.99: ${sigFar.totalWindingNumber.toFixed(2)} turns  (closest to sigma=1)`,
+    `   sigma=0.51: ${sigNear.segmentArgDelta.toFixed(2)} arg-delta/2pi  (closest to critical line)`,
+    `   sigma=0.99: ${sigFar.segmentArgDelta.toFixed(2)} arg-delta/2pi  (closest to sigma=1)`,
     `   Winding number magnitude is ${windingMonotonicallyDecreasing ? 'monotone NON-INCREASING' : 'non-monotone'} as sigma increases from 0.51 to 0.99.`,
     ``,
     `2. Im(zeta) sign changes over t in [${T_MIN}, ${T_MAX}]:`,

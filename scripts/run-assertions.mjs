@@ -2308,6 +2308,17 @@ const DATA_MODULES = [
   // Throws on import if the ratio is non-monotone, drifts out of band, or the norms stop growing.
   // Diagnostic; RH-equivalent; imp-3066 endpoint-Hankel obstruction untouched; no QED; PT 0.2 SOTA.
   '/src/data/imp-3215-mupass-capture-ratio-n-scaling.js',
+  // imp-3219: MEASURES the imp-3202 capture(c)>1 overshoot that the coarse 14-point cutoff grid could
+  // not resolve. Sweeps the same genuine Phi cell (NPHI=10,a=0.5,U=6,N=200) on the FINE lag grid (one
+  // integer lag step H=U/N=0.03 per sample) and locates the transient rise of the dominant singular
+  // value of the band-truncated bridge T_c: capture peaks at ~1.003925 (~0.392% overshoot, under the
+  // <0.5% margin imp-3202 notes) at c*~0.24, one lag step past the minimal-lag-support knee c~0.21 at
+  // which capture first reaches the 1% saturation band and first crosses 1, then relaxes monotonically
+  // to within 1e-4 of 1 by c~0.42. The overshoot means the near-diagonal band alone carries marginally
+  // MORE operator norm than the full operator -- the far-lag tail is indefinite / partially cancelling.
+  // Throws on import if the peak is unlocated, over 0.5%, or the rise-then-relax shape breaks.
+  // Diagnostic; RH-equivalent; imp-3214/imp-3066 sub-gaps untouched; no QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-3219-mupass-bridge-overshoot-knee.js',
   // imp-3126: cross-checks whether the imp-3106 convergent regular tail mass
   // int_{s0+1}^inf phi ds ~0.26900597 is structurally related to the imp-3026/imp-3070
   // cusp constant C_shock = sqrt(2/(3 log gamma_N)) ~0.26922 (which agree to ~2.1e-4 at

@@ -70,9 +70,21 @@
  *   (off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict, no QED.
  *   Platt-Trudgian Lambda &lt;= 0.2 remains the rigorous SOTA.
  *
+ *   PRECISION NOTE (imp-3743, honest): the -ln A(1.5)=1267.12 and -ln A(2)=9362.72 literals
+ *   above come from this module's N=12000 log-domain Simpson grid. imp-3709's INDEPENDENT
+ *   reproduction (graded Gauss-Legendre + Simpson-Richardson) converges these two rungs to
+ *   -ln A(1.5)=1267.79 and -ln A(2)=9365.32 -- a relative gap of ~5.3e-4 and ~2.8e-4, i.e.
+ *   this module's N=12000 grid under-resolves the two largest exponents at only the 3rd-4th
+ *   significant figure, NOT the 5-6 digits printed. The tau=0.5 and tau=1 rungs (23.8303,
+ *   171.9548) match imp-3709's independent value to <1e-5 rel and are NOT affected. The
+ *   leading-order law A(tau) ~ exp(-pi e^{4 tau}) and every qualitative verdict above (order
+ *   confirmed, no hard endpoint, log-domain required) are UNCHANGED by this refinement --
+ *   only the last 2-3 printed digits of -ln A(1.5) and -ln A(2) move.
+ *
  *   @see imp-3646-remainder-tail-moment-ratio-asymptotics.js (the claim under test)
  *   @see imp-3581-remainder-tail-exponent-derivation.js (the closed C_n/D_n and bias law)
  *   @see imp-3501-moment-ladder-general-derivation.js (R_n = sum a^m/m! M_m)
+ *   @see imp-3709-a-weight-logdomain-independent-reproduction.js (independent reproduction; converged tau=1.5,2 literals)
  *
  *   Ticket: imp-3665 (numerical, medium).
  */

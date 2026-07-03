@@ -44,6 +44,7 @@ import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equ
 import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-bridge-lag-cutoff-sweep.js';
 import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bridge-sign-phi-only.js';
 import { IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID } from '../data/imp-3240-mupass-capture-ratio-aU-grid.js';
+import { IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION } from '../data/imp-3346-capture-ratio-C-constant-derivation.js';
 import { IMP3199_OVERFLOW_FRACTION_CELL_SWEEP } from '../data/imp-3199-overflow-fraction-cell-sweep.js';
 import { IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM } from '../data/imp-3216-overflow-support-length-closed-form.js';
 import { IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE } from '../data/imp-3196-residual-gap-convergence-rate.js';
@@ -4146,6 +4147,88 @@ function CaptureRatioVsUViz() {
   );
 }
 
+function CInfFixedResolutionConvergenceViz() {
+  const M = IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION.measured;
+  const uLadder = M.uLadder;
+  const rU = M.rUFixedRes;
+  const cInf = M.cInfEstimate;
+  const bAvg = 0.5 * (M.extrap_10_20.b + M.extrap_16_20.b);
+
+  const W = 680, H = 320, ML = 60, MR = 24, MT = 22, MB = 44;
+  const uMax = 22, rUMin = 0.174, rUMax = 0.181;
+  const px = (u) => ML + (u / uMax) * (W - ML - MR);
+  const py = (r) => H - MB - ((r - rUMin) / (rUMax - rUMin)) * (H - MT - MB);
+
+  const uTicks = [0, 4, 8, 12, 16, 20];
+  const rTicks = [0.174, 0.176, 0.178, 0.18];
+
+  const fitPts = [];
+  for (let u = 3.5; u <= uMax; u += 0.25) fitPts.push([px(u), py(cInf + bAvg / u)]);
+  const fitPath = fitPts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #06b6d4', background: 'rgba(6,182,212,0.04)' }}>
+      <h3 style={{ color: '#06b6d4', marginTop: 0 }}>
+        Fixed-resolution r&middot;U DECREASES to C&#8734; &#8776; {cInf.toFixed(4)} (imp-3346)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        Rebuilt at a FIXED grid step (h = 0.025 held constant as U grows, rather than the imp-3240
+        fixed-N = 240 convention that coarsens with U), the rescaled capture ratio{' '}
+        <span style={{ fontFamily: mono }}>r&middot;U</span> falls monotonically as{' '}
+        <span style={{ fontFamily: mono }}>C(U) = C&#8734; + b/U</span> instead of rising &mdash; the
+        imp-3240 apparent rise (0.178&rarr;0.181) was a resolution artifact, not drift.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {rTicks.map((r) => (
+            <g key={`r${r}`}>
+              <line x1={ML} y1={py(r)} x2={W - MR} y2={py(r)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(r) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{r.toFixed(3)}</text>
+            </g>
+          ))}
+          {uTicks.map((u) => (
+            <text key={`u${u}`} x={px(u)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{u}</text>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>lag cutoff U</text>
+          <text x={18} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 18 ${(MT + H - MB) / 2})`}>r&middot;U</text>
+
+          {/* C_inf + b/U fit curve */}
+          <path d={fitPath} fill="none" stroke="#475569" strokeWidth="1.5" strokeDasharray="4 3" />
+          {/* C_inf asymptote */}
+          <line x1={ML} y1={py(cInf)} x2={W - MR} y2={py(cInf)} stroke="#06b6d4" strokeWidth="1" strokeDasharray="2 3" strokeOpacity="0.6" />
+
+          {/* fixed-resolution ladder points, decreasing toward C_inf */}
+          {uLadder.map((u, i) => (
+            <circle key={i} cx={px(u)} cy={py(rU[i])} r="5" fill="#06b6d4" fillOpacity="0.7" stroke="#06b6d4" strokeWidth="1.2">
+              <title>{`U=${u}  ->  r*U=${rU[i].toFixed(5)}`}</title>
+            </circle>
+          ))}
+
+          <text x={px(20.4)} y={py(cInf) - 8} textAnchor="end" fontSize="11" fill="#22d3ee" fontFamily={mono}>C&#8734; &#8776; {cInf.toFixed(4)}</text>
+        </svg>
+      </div>
+
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          ASSESSMENT ONLY &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          C&#8734; is a determined number fixed by Richardson extrapolation of the fixed-resolution
+          ladder (two independent extrapolations agree to &#8776;1e&minus;4), not a closed-form
+          identity; the imp-3066 off-diagonal endpoint-Hankel K&#8339;&thinsp;&ge;&thinsp;0 magnitude
+          remains the lone obstruction. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains
+          the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3346-capture-ratio-C-constant-derivation.js &mdash; parent: imp-3240.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3354: termwise Phi>=0 structure viz (imp-3257) — Phi_NPHI(u) with the per-term
 // sign-flip thresholds u_n* marked; u_1* (rightmost, worst) sits strictly left of [0,U],
 // so the headline domain lies entirely in the termwise-positive region.
@@ -5064,6 +5147,12 @@ export default function ClosureRoutesPage() {
         Capture Ratio vs Lag Window U (imp-3358)
       </h2>
       <CaptureRatioVsUViz />
+
+      {/* ─── imp-3410: fixed-resolution r*U convergence to C_inf (imp-3346) ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Fixed-Resolution Capture-Ratio Convergence to C&#8734; (imp-3346)
+      </h2>
+      <CInfFixedResolutionConvergenceViz />
       <PhiTermwiseNonnegativityViz />
 
       {/* ─── imp-3065: independent quadrature cross-check ─── */}

@@ -221,7 +221,7 @@
  * imp-2559 Lemma P gap-half (g <= 8/V) is unaffected.
  */
 
-import { THETA_TRAP_RUNS } from './sg1-theta-contraction.js';
+import { THETA_TRAP_RUNS, STRESS_TEST_ADDENDUM } from './sg1-theta-contraction.js';
 
 export const SG1C_THEOREMS = {
   lemma1: 'dE/ds = -2 E^2 + 12 sum T^2 + 4 g^2 sum T^3 (exact, every N, every adjacent pair)',
@@ -1621,6 +1621,86 @@ export const SG1C_THEOREMB_SHARPNESS_SWEEP = (() => {
   };
 })();
 
+// imp-3242: apply the Lemma 2 dTheta/ds boundary criterion as a STATIC per-run
+// sign CLASSIFIER over the full empirical Theta-trap config set, and flag every
+// run whose initial Theta(0) sits in the REFUTED upward-crossing band
+// (Theta_b, 0.5073). This APPLIES the criterion imp-3041 only verified as an
+// identity. The static Theta-only bands DETERMINE the dTheta/ds sign only below
+// Theta_b: at Theta(0) <= 1/4 Theorem A guarantees dTheta/ds <= 0 for ANY config
+// (unconditional), and at 1/4 < Theta(0) <= Theta_b = (sqrt(73)-5)/8 = 0.443
+// Theorem B guarantees it for the minimal-gap-saturating family. Above Theta_b
+// the exact rate depends on the full T-spectrum (not on Theta alone), so the
+// static classifier returns INDETERMINATE there -- and (Theta_b, 0.5073) is
+// exactly the refuted band where SOME minimal-gap config has dTheta/ds > 0
+// (the Theorem-B saturating witness at Theta = 0.448 gives +0.034). The empirical
+// set is the 9 documented THETA_TRAP_RUNS (per-row Theta(0)/Theta_max recorded)
+// plus the 25 aggregate STRESS_TEST_ADDENDUM runs (per-row configs not stored;
+// their reported "all configs entering above ~0.51 still decreased" is consistent
+// with the band ceiling 0.5073 < 0.51). Bookkeeping/diagnostic; the optimistic
+// SG1c is already refuted on this band, no QED; PT Lambda <= 0.2 stays SOTA.
+export const SG1C_EMPIRICAL_TRAP_BAND_CLASSIFIER = (() => {
+  const thetaA = 0.25; // Theorem A unconditional trap ceiling
+  const thetaB = (Math.sqrt(73) - 5) / 8; // 0.443000... Theorem B minimal-gap threshold
+  const bandUpper = 0.5073; // dressed refuted-band ceiling (module refutation.crossedBand[1])
+  const EPS = 1e-9;
+  const classify = (theta0) => {
+    if (theta0 <= thetaA + EPS) return 'unconditional-trap'; // Theorem A: dTheta/ds <= 0 for ANY config
+    if (theta0 <= thetaB + EPS) return 'minimal-gap-trap'; // Theorem B: dTheta/ds <= 0 for minimal-gap configs
+    if (theta0 < bandUpper - EPS) return 'refuted-band'; // static sign indeterminate; SOME config crosses upward
+    return 'above-band'; // > 0.5073; static sign indeterminate, empirically decreased
+  };
+  const rows = THETA_TRAP_RUNS.map((r) => ({
+    id: r.id,
+    kind: r.kind,
+    theta0: r.theta0,
+    band: classify(r.theta0),
+    inRefutedBand: r.theta0 > thetaB + EPS && r.theta0 < bandUpper - EPS,
+    // the trap actually HELD (Theta non-increasing) iff Theta_max did not exceed Theta(0)
+    measuredTrapHeld: r.thetaMax <= r.theta0 + 1e-9,
+    staticallyGuaranteed: r.theta0 <= thetaB + EPS,
+  }));
+  const inRefutedBand = rows.filter((r) => r.inRefutedBand);
+  const bandCounts = rows.reduce((acc, r) => { acc[r.band] = (acc[r.band] || 0) + 1; return acc; }, {});
+  // the Theorem-B saturating witness is the ONLY place the exact criterion goes positive
+  const refutedWitnessRate = SG1C_THEOREMB_SHARPNESS_SWEEP.rateAt448; // ~ +0.034 at Theta = 0.448
+  return {
+    thetaA,
+    thetaB,
+    bandUpper,
+    documentedRuns: rows.length, // 9
+    aggregateStressRuns: STRESS_TEST_ADDENDUM.trapRunsTotal, // 25
+    totalEmpiricalRuns: rows.length + STRESS_TEST_ADDENDUM.trapRunsTotal, // 34
+    rows,
+    bandCounts,
+    inRefutedBand, // exactly the runs to flag
+    refutedBandRunIds: inRefutedBand.map((r) => r.id),
+    // every documented run empirically had a non-increasing Theta (trap held)
+    allDocumentedTrapsHeld: rows.every((r) => r.measuredTrapHeld),
+    // the refuted-band runs are exactly the ones the STATIC criterion cannot vouch for
+    refutedBandNotStaticallyGuaranteed: inRefutedBand.every((r) => !r.staticallyGuaranteed),
+    refutedWitnessRate,
+    aggregateConsistentWithBand:
+      STRESS_TEST_ADDENDUM.trapViolations === 0 && bandUpper < 0.51,
+    summary:
+      'Static Lemma-2 sign classifier applied per-run over the 34-run empirical trap set '
+      + '(9 documented + 25 aggregate). Exactly ONE documented run sits in the refuted band '
+      + '(Theta_b = 0.443, 0.5073): lattice41-uniform at Theta(0) = 0.4875. Its Theta was still '
+      + 'non-increasing (Theta_max = Theta(0)), which is precisely the "explained, not '
+      + 'contradicted" point -- membership in the refuted band means SOME minimal-gap config '
+      + 'crosses upward there (the Theorem-B saturating witness at Theta = 0.448 gives +0.034), '
+      + 'NOT that this particular near-edge lattice does. The 3 real-zero rows (0.167/0.088/0.034) '
+      + 'and the symmetric triplet (0.25) sit at Theta(0) <= 1/4 (Theorem A, unconditional); the '
+      + 'two short-gap/two-shortgap lattices (0.2945/0.2911) sit in (1/4, Theta_b] (Theorem B, '
+      + 'minimal-gap guaranteed); the two above-band lattices (0.658, 0.875) decreased empirically (the 0.95 short-gap row '
+      + 'has exact dTheta/ds = -0.612). The static criterion vouches for a decrease ONLY below '
+      + 'Theta_b; above it the sign needs the full T-spectrum, so the classifier returns '
+      + 'INDETERMINATE and defers to the R1-T dynamical seizing mechanism. The 25 aggregate stress '
+      + 'runs (all configs entering above ~0.51 still decreased) are consistent with the band '
+      + 'ceiling 0.5073 < 0.51. Bookkeeping/diagnostic; SG1c stays refuted on the band, no QED; '
+      + 'PT Lambda <= 0.2 stays SOTA.',
+  };
+})();
+
 // imp-3044: standalone tabulated cross-check of LEMMA R1-T3 across a b >= 1 grid.
 // On the asymmetric minimal-gap 4-tie {-1, 0, 1, 1+b} (central pair (0,1) at index 1,
 // tied left-outer competitor (-1,0) at index 0) we directly evaluate Theta = g^2 E/2
@@ -2346,6 +2426,28 @@ export const SG1C_THEOREM_ASSERTIONS = [
         (r) => Math.abs(r.marginRational - mB(r.b)) < 1e-12,
       );
       return spotChecks && ladderCrossOk && marginCrossOk;
+    },
+  },
+  {
+    id: 'sg1c-empirical-trap-band-classifier',
+    description: 'imp-3242: the static Lemma-2 band classifier over the 34-run empirical trap set (9 documented + 25 aggregate) flags EXACTLY the runs whose Theta(0) sits in the refuted band (Theta_b, 0.5073) -- here the single lattice41-uniform row at 0.4875 -- every documented run still had a non-increasing Theta, the refuted-band rows are exactly the ones the static criterion cannot statically guarantee, and the aggregate stress runs are consistent with the band ceiling',
+    holds: () => {
+      const c = SG1C_EMPIRICAL_TRAP_BAND_CLASSIFIER;
+      return (
+        c.documentedRuns === 9 &&
+        c.aggregateStressRuns === 25 &&
+        c.totalEmpiricalRuns === 34 &&
+        c.inRefutedBand.length === 1 &&
+        c.refutedBandRunIds[0] === 'lattice41-uniform' &&
+        c.inRefutedBand[0].theta0 > 0.443 && c.inRefutedBand[0].theta0 < 0.5073 &&
+        c.rows.filter((r) => r.band === 'unconditional-trap').length === 4 &&
+        c.rows.filter((r) => r.band === 'minimal-gap-trap').length === 2 &&
+        c.rows.filter((r) => r.band === 'above-band').length === 2 &&
+        c.allDocumentedTrapsHeld &&
+        c.refutedBandNotStaticallyGuaranteed &&
+        c.refutedWitnessRate > 0.03 && c.refutedWitnessRate < 0.04 &&
+        c.aggregateConsistentWithBand
+      );
     },
   },
 ];

@@ -940,7 +940,13 @@ export const LAMBDA_ROADMAP = {
     'chain is the active research frontier. QUANTIFIED (imp-3220): the E(N) bridge conditional share ' +
     'sigma(N) = E_coll(N)/E(N) is U-shaped across N* in {2..10^6}, and is WIDEST (~94.9%) exactly at ' +
     'the N* = 10^6 ceiling — precisely the point PATH 1 extended the unconditional empirical E1/E2 ' +
-    'floor to. The two frontiers diverge hardest where the empirical coverage was hardest-won.',
+    'floor to. RECONCILED (imp-3406): extrapolating sigma(N) past the 10^6 ceiling shows the ' +
+    '"widest at 10^6" reading is a flat-cap SAMPLING ARTIFACT of the ladder endpoint, not a still-' +
+    'climbing frontier — the true interior maximum sits at N ~ 9.22e5 (sigma_max ~ 0.9494), with ' +
+    '10^6 landing just 2.1e-5 below it on the downslope. Past the peak sigma decays monotonically ' +
+    'toward 0 as the constant truncation floor E_trunc outlives the vanishing GUE-conditional E_coll, ' +
+    'so the empirical-vs-analytic conditional gap does NOT keep growing past the range PATH 1 covered ' +
+    '— it has already essentially peaked at 10^6.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

@@ -182,6 +182,16 @@ export const IMP3324_SIGMA_CH_SENSITIVITY = {
     'conclusion survive any plausible C_H, shifting the exact percentage by at most a few ' +
     'points. The absolute-budget and share roles of C_H must not be conflated.',
   isRigorous: false,
+  honestStatus:
+    'HONEST STATUS (imp-3392): C_H = 1/8 is LOAD-BEARING for the ABSOLUTE collision ' +
+    'budget E_coll -- E_coll is linear in C_H, so the 16x plausible bracket ' +
+    '[0.0625, 1.0] is a 16x E_coll range (7.0e-4 -> 1.12e-2 at N* = 10^6). It is NOT ' +
+    'load-bearing for the conditional SHARE sigma = E_coll/(R + E_coll), which ' +
+    'saturates toward 1 and so stays within [0.9037, 0.9934] over the same bracket. ' +
+    'These two roles of C_H (absolute-budget driver vs near-saturated-share driver) ' +
+    'must not be conflated: a large swing in C_H produces an equally large swing in ' +
+    'E_coll but only a small swing in sigma. No positivity, no bridge closure, no RH ' +
+    'claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   verdict:
     'ASSESSMENT (frontier-direction, NOT rigorous). At the N* = 10^6 assembly ceiling the ' +
     'imp-3220 widest-gap conditional share sigma(10^6) = 0.949408 has local slope ' +
@@ -262,6 +272,17 @@ export const IMP3324_SIGMA_CH_SENSITIVITY_ASSERTIONS = [
       /ABSOLUTE/.test(IMP3324_SIGMA_CH_SENSITIVITY.loadBearingAssessment) &&
       /NO QED/.test(IMP3324_SIGMA_CH_SENSITIVITY.verdict) &&
       /remains SOTA/.test(IMP3324_SIGMA_CH_SENSITIVITY.verdict),
+  },
+  {
+    // imp-3392: explicit honestStatus stamp so the absolute-budget-vs-share distinction
+    // is discoverable as its own field, not just inline prose in loadBearingAssessment.
+    id: 'imp3392-honest-status-field-present',
+    description: 'honestStatus field states C_H is load-bearing for E_coll but NOT for sigma',
+    holds: () =>
+      typeof IMP3324_SIGMA_CH_SENSITIVITY.honestStatus === 'string' &&
+      /LOAD-BEARING/.test(IMP3324_SIGMA_CH_SENSITIVITY.honestStatus) &&
+      /NOT.*load-bearing/.test(IMP3324_SIGMA_CH_SENSITIVITY.honestStatus) &&
+      /must not be conflated/.test(IMP3324_SIGMA_CH_SENSITIVITY.honestStatus),
   },
 ];
 

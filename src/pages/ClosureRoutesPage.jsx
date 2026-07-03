@@ -664,6 +664,13 @@ function ConditionalShareUShapePanel() {
         unconditionally rigorous. No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian
         &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
       </div>
+      <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(167,139,250,0.05)', border: '1px solid rgba(167,139,250,0.18)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#a78bfa' }}>C<sub>H</sub> load-bearing note (imp-3324/imp-3392):</strong>{' '}
+        C<sub>H</sub> = 1/8 is load-bearing for the <em>absolute</em> collision budget E<sub>coll</sub> (linear in
+        C<sub>H</sub>, so a 16&times; bracket [0.0625,&thinsp;1.0] swings E<sub>coll</sub> 16&times;) but NOT for the
+        <em> conditional share</em> &sigma;(N) plotted above, which saturates toward 1 and stays within
+        [0.904,&thinsp;0.993] over that same bracket. The two roles must not be conflated.
+      </div>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3220-en-bridge-fidelity-frontier.js &mdash; N&isin;{'{2..10'}<sup>6</sup>{'}'}, dual-axis (&sigma;(N) left, E_coll/E_flow right).
       </p>

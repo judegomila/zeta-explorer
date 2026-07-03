@@ -3034,6 +3034,22 @@ const DATA_MODULES = [
   // to O(a^2). Derivation/certification only, imp-3066 untouched, no QED, PT
   // Lambda<=0.2 SOTA. 9 assertions.
   '/src/data/imp-3524-general-degree-d-miss-factor.js',
+  // imp-3525 (numerical): RE-RUNS the imp-3485 solver-independent operator-norm
+  // cross-check with the imp-3505-corrected settings (Lanczos Krylov m=120 plus a
+  // converged 8320-step power budget) on the full imp-3240 U-grid, and measures the
+  // corrected U=20 solver agreement. RESULT: the U=20 relative agreement collapses
+  // from imp-3485s 1.0e-4 to ~1.9e-11 (a ~5.5e6x improvement) and to ~1e-14 on every
+  // smaller cell; m=120 vs m=160 Lanczos agree to 1.6e-14, so the corrected reference
+  // is fully resolved and the residual ~1.9e-11 is remaining power convergence, not
+  // Krylov deficit. Reproducing the imp-3485 settings recovers its 1.025e-4 gap, which
+  // splits into power under-convergence at 260 steps 1.036e-4 (~99%), the m=80 Krylov
+  // reference deficit 1.127e-6 (~1.1%, reproducing imp-3505s 1.13e-6), and genuine
+  // solver disagreement ~1.6e-14 -- so removing the reference deficit ALONE would not
+  // have improved the agreement; only both corrections together collapse it. imp-3485s
+  // 1.0e-4 was two stacked under-convergence deficits, not solver disagreement.
+  // Measurement only, imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA.
+  // 8 assertions.
+  '/src/data/imp-3525-corrected-solver-agreement-crossval.js',
   // imp-3526 (numerical): RECOVERS the sub-a=0.125 rungs of the imp-3502 degree-4
   // remainder tail-exponent fit by reformulating R_4 cancellation-free. imp-3502
   // formed R_4=C-M_0-(a^2/2)M_2 subtractively, so the O(a^6) residual sat on an

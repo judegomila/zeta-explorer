@@ -183,6 +183,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3565-sigma-postpeak-decay-exponent',
   '/viz-imp3566-cosh-sinh-margin-contrast',
   '/viz-imp3567-closed-error-certificate',
+  '/viz-imp3586-sigma-crossing-logistic-drop',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

@@ -139,6 +139,7 @@ const Imp3563QuadratureStraddleViz = lazy(() => import('./pages/Imp3563Quadratur
 const Imp3564PowerIterationClosedFormViz = lazy(() => import('./pages/Imp3564PowerIterationClosedFormViz.jsx'));
 const Imp3565SigmaPostpeakDecayExponentViz = lazy(() => import('./pages/Imp3565SigmaPostpeakDecayExponentViz.jsx'));
 const Imp3566CoshSinhMarginContrastViz = lazy(() => import('./pages/Imp3566CoshSinhMarginContrastViz.jsx'));
+const Imp3586SigmaCrossingLogisticDropViz = lazy(() => import('./pages/Imp3586SigmaCrossingLogisticDropViz.jsx'));
 const Imp3567ClosedErrorCertificateViz = lazy(() => import('./pages/Imp3567ClosedErrorCertificateViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
@@ -723,6 +724,7 @@ function AppShell() {
           <Route path="/viz-imp3564-power-iteration-closed-form" element={<Imp3564PowerIterationClosedFormViz />} />
           <Route path="/viz-imp3565-sigma-postpeak-decay-exponent" element={<Imp3565SigmaPostpeakDecayExponentViz />} />
           <Route path="/viz-imp3566-cosh-sinh-margin-contrast" element={<Imp3566CoshSinhMarginContrastViz />} />
+          <Route path="/viz-imp3586-sigma-crossing-logistic-drop" element={<Imp3586SigmaCrossingLogisticDropViz />} />
           <Route path="/viz-imp3567-closed-error-certificate" element={<Imp3567ClosedErrorCertificateViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />

@@ -60,6 +60,7 @@ import { IMP3255_BRIDGE_RATIO_CLOSED_FORM } from '../data/imp-3255-bridge-ratio-
 import { IMP3322_SPREAD_CONTRACTION_DISCRIMINATOR } from '../data/imp-3322-spread-contraction-discriminator.js';
 import { IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL } from '../data/imp-3257-bridge-sign-phi-nonneg-structural.js';
 import { IMP3256_VHS_CROSSVAL } from '../data/imp-3256-vhs-crossval.js';
+import { IMP3309_TWO_TAIL_UNDERFLOW_HORIZONS } from '../data/imp-3309-two-tail-underflow-horizons.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -3606,6 +3607,120 @@ function TruncationThresholdHorizonViz() {
   );
 }
 
+// ── imp-3395: imp-3309 two-tail underflow horizons -- Phi and Phi^2 magnitude
+// decay (as -ln|magnitude|, the "exponent debt") crossing the 2^-1074 subnormal
+// line L at tau_mu (Phi^2, first) and tau_nu (Phi, later), leaving the band
+// (tau_mu, tau_nu) where nu > 0 = mu. ──
+function TwoTailUnderflowHorizonsViz() {
+  const M = IMP3309_TWO_TAIL_UNDERFLOW_HORIZONS.measured;
+  const L = M.lnInvMinSubnormal;
+  const tauMu = M.muHorizonClosedForm;
+  const tauNu = M.nuHorizonClosedForm;
+
+  // Exponent debt (-ln|magnitude|) of the leading tail terms: underflows once this exceeds L.
+  const nuDebt = (tau) => {
+    const X = Math.exp(4 * tau);
+    return Math.PI * X - Math.log(2 * Math.PI * Math.PI * X);
+  };
+  const muDebt = (tau) => {
+    const X = Math.exp(4 * tau);
+    return 2 * Math.PI * X - Math.log(4 * Math.pow(Math.PI, 4) * X * X);
+  };
+
+  const W = 480, H = 260;
+  const p = { t: 26, r: 16, b: 44, l: 52 };
+  const cW = W - p.l - p.r;
+  const cH = H - p.t - p.b;
+  const tMin = 0.95, tMax = 1.42;
+  const dMin = 0, dMax = 950;
+  const xS = (t) => p.l + ((t - tMin) / (tMax - tMin)) * cW;
+  const yS = (d) => p.t + (1 - (Math.min(d, dMax) - dMin) / (dMax - dMin)) * cH;
+
+  const nuPts = [];
+  const muPts = [];
+  for (let t = tMin; t <= tMax; t += 0.01) {
+    nuPts.push([xS(t), yS(nuDebt(t))]);
+    muPts.push([xS(t), yS(muDebt(t))]);
+  }
+  const nuPath = nuPts.map((pt, i) => `${i === 0 ? 'M' : 'L'}${pt[0].toFixed(1)} ${pt[1].toFixed(1)}`).join(' ');
+  const muPath = muPts.map((pt, i) => `${i === 0 ? 'M' : 'L'}${pt[0].toFixed(1)} ${pt[1].toFixed(1)}`).join(' ');
+
+  const tTicks = [1.0, 1.1, 1.2, 1.3, 1.4];
+  const dTicks = [0, 250, 500, 750];
+
+  return (
+    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid #2dd4bf', background: 'rgba(45,212,191,0.03)' }}>
+      <h3 style={{ color: '#2dd4bf', marginTop: 0, fontSize: 15 }}>
+        Two-Tail Underflow Horizons: Phi (single) vs Phi<sup>2</sup> Crossing the Subnormal Line (imp-3395 / imp-3309)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+        Plotted is the exponent debt &minus;ln|magnitude| of each leading tail term against lag &tau; (X&thinsp;=&thinsp;e<sup>4&tau;</sup>):
+        the single-Phi tail 2&pi;<sup>2</sup>X e<sup>&minus;&pi;X</sup> (teal, debt &pi;X&thinsp;&minus;&thinsp;ln(2&pi;<sup>2</sup>X)) and the
+        Phi<sup>2</sup> tail 4&pi;<sup>4</sup>X<sup>2</sup> e<sup>&minus;2&pi;X</sup> (purple, debt 2&pi;X&thinsp;&minus;&thinsp;ln(4&pi;<sup>4</sup>X<sup>2</sup>)).
+        Both cross the IEEE-754 smallest-subnormal line L&thinsp;=&thinsp;ln(2<sup>1074</sup>)&thinsp;&asymp;&thinsp;{L.toFixed(1)} (red dashed)
+        &mdash; because the Phi<sup>2</sup> exponent is exactly twice the single-Phi exponent, Phi<sup>2</sup> crosses FIRST, at
+        &tau;<sub>mu</sub>&thinsp;&asymp;&thinsp;{tauMu.toFixed(3)}, then Phi crosses at &tau;<sub>nu</sub>&thinsp;&asymp;&thinsp;{tauNu.toFixed(3)},
+        leaving the band ({tauMu.toFixed(3)}, {tauNu.toFixed(3)}) where nu&thinsp;&gt;&thinsp;0&thinsp;=&thinsp;mu.
+      </p>
+      <svg width={W} height={H} style={{ display: 'block' }}>
+        {dTicks.map((d) => (
+          <line key={d} x1={p.l} x2={p.l + cW} y1={yS(d)} y2={yS(d)} stroke="#1e293b" strokeWidth={1} />
+        ))}
+        {tTicks.map((t) => (
+          <line key={t} x1={xS(t)} x2={xS(t)} y1={p.t} y2={p.t + cH} stroke="#1e293b" strokeWidth={1} />
+        ))}
+        {/* Subnormal threshold line L */}
+        <line x1={p.l} x2={p.l + cW} y1={yS(L)} y2={yS(L)} stroke="#f87171" strokeWidth={1.4} strokeDasharray="5,3" />
+        <text x={p.l + 4} y={yS(L) - 5} fill="#f87171" fontSize={9}>L&thinsp;=&thinsp;ln(2<tspan dy="-4" fontSize={7}>1074</tspan><tspan dy="4">)&thinsp;&asymp;&thinsp;{L.toFixed(1)}</tspan></text>
+        {/* Debt curves */}
+        <path d={muPath} fill="none" stroke="#a78bfa" strokeWidth={1.8} />
+        <path d={nuPath} fill="none" stroke="#2dd4bf" strokeWidth={1.8} />
+        {/* Horizon markers */}
+        <line x1={xS(tauMu)} x2={xS(tauMu)} y1={yS(L)} y2={p.t + cH} stroke="#a78bfa" strokeWidth={1} strokeDasharray="2,3" />
+        <circle cx={xS(tauMu)} cy={yS(L)} r={3.5} fill="#a78bfa" stroke="#0f172a" strokeWidth={1} />
+        <line x1={xS(tauNu)} x2={xS(tauNu)} y1={yS(L)} y2={p.t + cH} stroke="#2dd4bf" strokeWidth={1} strokeDasharray="2,3" />
+        <circle cx={xS(tauNu)} cy={yS(L)} r={3.5} fill="#2dd4bf" stroke="#0f172a" strokeWidth={1} />
+        <text x={xS(tauMu)} y={p.t + cH + 14} fill="#a78bfa" fontSize={9} textAnchor="middle">
+          &tau;<tspan dy="2" fontSize={7}>mu</tspan><tspan dy="-2">&thinsp;{tauMu.toFixed(3)}</tspan>
+        </text>
+        <text x={xS(tauNu)} y={p.t + cH + 26} fill="#2dd4bf" fontSize={9} textAnchor="middle">
+          &tau;<tspan dy="2" fontSize={7}>nu</tspan><tspan dy="-2">&thinsp;{tauNu.toFixed(3)}</tspan>
+        </text>
+        {/* Axes */}
+        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke="#475569" strokeWidth={1} />
+        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke="#475569" strokeWidth={1} />
+        {tTicks.map((t) => (
+          <g key={t}>
+            <line x1={xS(t)} x2={xS(t)} y1={p.t + cH} y2={p.t + cH + 4} stroke="#475569" />
+            <text x={xS(t)} y={p.t + cH + 14} fill="#94a3b8" fontSize={9} textAnchor="middle">{t.toFixed(1)}</text>
+          </g>
+        ))}
+        {dTicks.map((d) => (
+          <g key={d}>
+            <line x1={p.l - 4} x2={p.l} y1={yS(d)} y2={yS(d)} stroke="#475569" />
+            <text x={p.l - 7} y={yS(d) + 4} fill="#94a3b8" fontSize={9} textAnchor="end">{d}</text>
+          </g>
+        ))}
+        <text x={p.l + cW / 2} y={H - 5} fill="#64748b" fontSize={10} textAnchor="middle">lag &tau;</text>
+        <text
+          x={12} y={p.t + cH / 2} fill="#64748b" fontSize={10} textAnchor="middle"
+          transform={`rotate(-90, 12, ${p.t + cH / 2})`}
+        >exponent debt &minus;ln|magnitude|</text>
+      </svg>
+      <div style={{ display: 'flex', gap: 14, marginTop: 6, flexWrap: 'wrap' }}>
+        <span style={{ color: '#a78bfa', fontSize: 11 }}>&#8212;&#8212; Phi<sup>2</sup> (mu) debt, crosses L first</span>
+        <span style={{ color: '#2dd4bf', fontSize: 11 }}>&#8212;&#8212; Phi (nu) debt, crosses L later</span>
+        <span style={{ color: '#f87171', fontSize: 11 }}>&#8212; &#8212; subnormal threshold L</span>
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3309-two-tail-underflow-horizons.js &mdash; closed-form horizons vs measured largest-representable-lag
+        agree to &lt;3e-3; band width {M.bandWidthClosed.toFixed(5)}&thinsp;&asymp;&thinsp;(1/4)ln2. DIAGNOSTIC; confirms
+        imp-3216 finding E2; NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3197: sign-vs-magnitude decomposition of K_a >= 0 bridge obstruction ──
 // Shows that the SIGN half is FREE (Phi-only, 100% magnitude-weighted agreement,
 // zero mismatch mass) while the MAGNITUDE half is the whole residual: the
@@ -4812,6 +4927,9 @@ export default function ClosureRoutesPage() {
 
       {/* ─── imp-3394: truncation-threshold sweep vs closed-form horizon viz ─── */}
       <TruncationThresholdHorizonViz />
+
+      {/* ─── imp-3395: two-tail underflow horizons (Phi vs Phi^2 crossing the subnormal line) viz ─── */}
+      <TwoTailUnderflowHorizonsViz />
 
       {/* ─── imp-3250: U-sweep overflow fraction viz ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

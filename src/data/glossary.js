@@ -2339,6 +2339,36 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Skew-Toeplitz top-singular-pair DEGENERACY and the power-iteration budget(N) ~ K N^2 law (imp-3530)",
+    category: "numerical",
+    definition:
+      "imp-3505 tabulated the power-iteration step budget needed to reach 1e-9 relative agreement on the " +
+      "skew-Toeplitz section norm ||Ttilde|| and observed it growing monotonically with the section size N " +
+      "(160 -> 520 through 800 -> ~6250), attributing the growth to a shrinking top-singular gap without " +
+      "fitting a closed predictor. imp-3530 shows the naive gap ratio lambda_2/lambda_1 is the WRONG " +
+      "quantity: because Ttilde(u,v) = a(v-u) R(|v-u|) is SKEW-symmetric, the Gram S = T^T T has a " +
+      "DEGENERATE top pair (lambda_1 = lambda_2 to machine precision at every N), so power iteration on S " +
+      "actually converges at the rate set by the ratio to the NEXT DISTINCT eigenvalue, rho(N) = " +
+      "lambda_3(N)/lambda_1(N). That ratio climbs monotonically toward 1 as N grows (0.977 at N=160 -> " +
+      "0.999 at N=800), and since the Rayleigh-type eigenvalue error decays like rho^(2k), the budget to " +
+      "reach a tolerance eps is budget(N) = C log(1/eps)/(-log rho(N)) with a single least-squares prefactor " +
+      "C ~ 0.32 reproducing the imp-3505 ladder within a factor of 2 at every rung. The gap decay itself " +
+      "closes as a power law -log rho(N) = A N^q with q ~ -1.97 (near the -2 section-gap heuristic), giving " +
+      "the fully-closed predictor budget(N) ~ K N^2 that extrapolates a-priori budgets at untested N (1000, " +
+      "1200, 1600) without re-sweeping." +
+      "\n\nHONEST SCOPE: measurement/fit only -- closes a solver-cost predictor from the measured section " +
+      "spectral gap and establishes NO operator positivity. The operator-level K_a >= 0 off-diagonal " +
+      "endpoint-Hankel obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
+      "Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3530 (identification of the skew-forced top-pair degeneracy and the closed budget(N) ~ K N^2 power-iteration cost fit), 2026",
+    relatedTerms: [
+      "imp-3505 power-iteration budget-to-1e-9 convergence sweep (the ladder fit here)",
+      "imp-3467 Ttilde closed-form C_infinity assembly (the power-iteration route)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

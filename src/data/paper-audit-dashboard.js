@@ -333,6 +333,27 @@ const CONJECTURE_ENTRIES = [
       'baselines. The imp-440 / imp-963 finite-height beat (Lambda <= 0.02 ' +
       'at N* = 1e4) already partially realizes this in the de Bruijn-Newman ' +
       'setting.',
+    // imp-3932 (2026-07-03): first direct attack on 22.1 truth status (the
+    // auditStatus above is a NOVELTY verdict and is unchanged by this).
+    truthAttackTicket: 'imp-3932',
+    truthAttackDate: '2026-07-03',
+    truthAttackNote:
+      'RIGOROUS coefficient-dimension obstruction (adversarially refereed): ' +
+      'the Fourier transform of any eq (20)-(21) proxy -- or finite Gaussian ' +
+      'mixture -- with D stored coefficients has at most D-1 sign changes on ' +
+      '(0,inf) (Fourier closure + Polya-Szego exponential-polynomial zero ' +
+      'bound), so certifying the M_sc = 12,363,153,437,138 sign changes of ' +
+      'Xi over the Platt-Trudgian 2021 verified range forces D >= 1.2363e13 ' +
+      'coefficients vs a 691,008-term Riemann-Siegel main sum: the strong ' +
+      'global reading of 22.1 is FALSE at the audit-named benchmark under ' +
+      'any per-coefficient-cost evaluation model. PARTIAL overall: named ' +
+      'surviving readings are windowed/modulated proxies (= Odlyzko-' +
+      'Schonhage band-limited interpolation, hence PARTIALLY-RELATED rather ' +
+      'than novel), small-height constant-chasing, and exotic fast-evaluable ' +
+      'exponential polynomials (blocked only by absent algebraic-complexity ' +
+      'lower bounds). See imp-3932-conjecture-22-1-frozen-ladder-' +
+      'obstruction.js for the theorem chain, referee record, and the ' +
+      '2x-margin caveat on the comparison form.',
   },
   {
     id: '22.2',
@@ -738,6 +759,26 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
       const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '22.1');
       return !!c && c.auditStatus === 'INDEPENDENT-NOVEL' &&
         c.auditTicket === 'imp-1210';
+    },
+  },
+  {
+    id: 'paper-audit-22-1-truth-attack-recorded',
+    why:
+      'imp-3932 delivered the first direct truth-status attack on 22.1 (the ' +
+      'rigorous frozen-ladder coefficient-dimension obstruction falsifying ' +
+      'the strong global reading at the Platt-Trudgian benchmark, with the ' +
+      'partial-overall boundary named). The 22.1 dashboard entry must carry ' +
+      'the truthAttack fields, keep them distinct from the imp-1210 NOVELTY ' +
+      'verdict, and state both the FALSE-at-benchmark finding and the ' +
+      'PARTIAL overall status. Dropping this note would silently un-push ' +
+      'the only INDEPENDENT-NOVEL Section 22 conjecture.',
+    holds: () => {
+      const c = PAPER_AUDIT_DASHBOARD.conjectures.find((x) => x.id === '22.1');
+      return !!c && c.truthAttackTicket === 'imp-3932' &&
+        typeof c.truthAttackNote === 'string' &&
+        /FALSE at the audit-named benchmark/.test(c.truthAttackNote) &&
+        /PARTIAL overall/.test(c.truthAttackNote) &&
+        c.auditStatus === 'INDEPENDENT-NOVEL';
     },
   },
   {

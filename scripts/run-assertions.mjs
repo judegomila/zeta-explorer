@@ -3508,6 +3508,16 @@ const DATA_MODULES = [
   // FIDELITY gap (super-exponential surrogate vs real A(tau)), not a truncation artifact.
   // imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED. 8 assertions.
   '/src/data/imp-3871-saddle-correction-fifth-sixth-derivative.js',
+  // imp-3932: rigorous coefficient-dimension obstruction to v52 Conjecture
+  // 22.1 (twin-ladder usefulness, the sole never-attacked INDEPENDENT-NOVEL
+  // conjecture). Fourier closure + Polya-Szego exponential-polynomial zero
+  // bound cap a D-coefficient frozen ladder at D-1 sign changes, so matching
+  // the Platt-Trudgian 2021 baseline deliverable forces D >= 1.2363e13 vs a
+  // 691,008-term Riemann-Siegel main sum: strong global reading FALSE at the
+  // audit-named benchmark; PARTIAL overall with obstructions named.
+  // Adversarially refereed (comparison form repaired with 2x-margin
+  // hypothesis). Zero imports. 7 assertions.
+  '/src/data/imp-3932-conjecture-22-1-frozen-ladder-obstruction.js',
   // imp-3479: shared sigma(N) sub-term helper consolidating the byte-identical
   // parts(N)/bridgeRow formula duplicated inline across imp-3220/imp-3323/
   // imp-3406/imp-3443/imp-3444/imp-3446. Consolidation assessment only -- the

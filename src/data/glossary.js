@@ -3114,6 +3114,39 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3671 G6a_shock_lipschitz structural-silence verdict: mesoscopic V0 does NOT supply a Hoelder-1/2 modulus",
+    category: "proof",
+    definition:
+      "The roadmap Step-4 Polymath15-bridge sub-gap G6a_shock_lipschitz needs a Hoelder-1/2 modulus C_Lip in " +
+      "|tau_c(x) - tau_c(x_prime)| <= C_Lip |x - x_prime|^{1/2} governing the SPATIAL regularity of the " +
+      "collision-time field at the Burgers shock front. imp-3671 assessed whether the imp-3642 direct-flow " +
+      "measurement of the mesoscopic density floor V0(gamma) -- exactly linear in log(gamma / 2 pi) and " +
+      "respecting the Gronwall floor exp(-2 s / y_star^2) ~ 0.991 at y_star = 4 d -- could supply that modulus, " +
+      "and found it STRUCTURALLY SILENT for two INDEPENDENT reasons. (S1) TYPE/DIMENSION MISMATCH: V0 is a " +
+      "strip-SUP density scalar quantifying WHEN the shock forms (t_c ~ 1/(2 V0)); C_Lip is a spatial modulus " +
+      "quantifying HOW the front bends in x. The strip sup erases the microscopic x-gradient structure, so a " +
+      "single density-floor scalar carries no (x - x_prime) difference information and is the wrong TYPE of " +
+      "object for a Hoelder-1/2 modulus, independent of scale. (S2) SCALE MISMATCH: the mesoscopic reading " +
+      "lives at y_star = 4 d where the Gronwall floor is ~0.99, but the shock-front Lipschitz constant is a " +
+      "nearest-pair quantity at strip height y -> 0. Writing y = y_star / k, the same floor is " +
+      "floor_meso^{k^2}, collapsing from 0.991 (mesoscopic) to 0.865 at the mean spacing d, half-lost already " +
+      "at ~0.46 d, and vacuous (~1.5e-10) by k=50 -- exactly imp-2520 negative-finding 1 that the nearest-pair " +
+      "regime is a different, Gronwall-vacuous scale. What V0 DOES supply is the collision-TIME scale " +
+      "t_c ~ 1/(2 V0), which per imp-2564 feeds the E(N) bridge CONSTANTS (imp-3661 already propagated it), " +
+      "not the shock-front modulus. G6a_shock_lipschitz therefore stays OPEN." +
+      "\n\nHONEST SCOPE: assessment/derivation only -- no positivity, no bridge closure, no RH claim, no QED. " +
+      "imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 " +
+      "remains the rigorous SOTA.",
+    firstUsed: "imp-3671 (assessing whether the imp-3642 mesoscopic V0 profile supplies a G6a_shock_lipschitz modulus), 2026",
+    relatedTerms: [
+      "imp-3642 sigma-crossover t_c direct-Dyson cross-check, V0 linear in log(gamma/2pi) (imp-3642)",
+      "imp-3661 density-corrected t_c pin propagating the scale into E(N) bridge constants (imp-3661)",
+      "imp-2520 shock time t_c ~ 1/(2 V0), negative-finding 1: nearest-pair is Gronwall-vacuous (imp-2520)",
+      "imp-2564 per-N collision scale feeds E(N) bridge constants, not the headline inequality (imp-2564)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

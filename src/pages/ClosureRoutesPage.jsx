@@ -54,6 +54,7 @@ import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-f
 import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
 import { IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE } from '../data/imp-3219-mupass-bridge-overshoot-knee.js';
+import { IMP3255_BRIDGE_RATIO_CLOSED_FORM } from '../data/imp-3255-bridge-ratio-closed-form.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -1754,6 +1755,118 @@ function PhiCollapseViz() {
       <p style={{ marginTop: 10, color: "#64748b", fontSize: 11, fontFamily: mono }}>
         Source: imp-3064-deficit-excess-fraction-grid.js &mdash; scalar companion to the imp-3085 operator-gap collapse viz.
         imp-3095.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3353: degree-0 bridge-margin ratio B/D(s) as a curve over s=aU (imp-3255 closed form) ──
+// B/D(s) = (sinh s - s) / (cosh s - s + arcsinh(1) - sqrt2), diverging as s -> arcsinh(1)+
+// (D_0 -> 0) and -> 1+ as s -> inf. Same closed form as IMP3255_BRIDGE_RATIO_CLOSED_FORM;
+// sampled densely here purely for smooth rendering (no new computation, matches the PhiCollapseViz pattern).
+function BridgeMarginRatioCurvePanel() {
+  const M = IMP3255_BRIDGE_RATIO_CLOSED_FORM.measured;
+  const C = IMP3255_BRIDGE_RATIO_CLOSED_FORM.construction;
+
+  const ASINH1 = Math.asinh(1);          // ~0.881374 -- the D_0=0 pole, s0 = arcsinh(1)
+  const RATIO_CONST = ASINH1 - Math.SQRT2;
+  const ratioOfScale = (s) => (Math.sinh(s) - s) / (Math.cosh(s) - s + RATIO_CONST);
+
+  const W = 680, H = 300, ML = 56, MR = 24, MT = 22, MB = 44;
+  const S_MIN = ASINH1, S_MAX = 6.5, Y_MIN = 1, Y_MAX = 3.2;
+  const px = (s) => ML + ((s - S_MIN) / (S_MAX - S_MIN)) * (W - ML - MR);
+  const py = (v) => H - MB - ((v - Y_MIN) / (Y_MAX - Y_MIN)) * (H - MT - MB);
+
+  const sTicks = [1, 2, 3, 4, 5, 6];
+  const yTicks = [1, 1.5, 2, 2.5, 3];
+
+  // Continuous curve: dense points from just above the pole to S_MAX, clipped at Y_MAX.
+  const S_CURVE_START = ASINH1 + 0.01;
+  const N_CURVE = 400;
+  const curvePts = [];
+  for (let i = 0; i <= N_CURVE; i++) {
+    const s = S_CURVE_START + (i / N_CURVE) * (S_MAX - S_CURVE_START);
+    const v = ratioOfScale(s);
+    if (v <= Y_MAX * 1.05) curvePts.push({ s, v });
+  }
+  const curvePath = curvePts
+    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${px(p.s).toFixed(1)} ${py(Math.min(p.v, Y_MAX)).toFixed(1)}`)
+    .join(' ');
+
+  // Cross-check dots from the module's own s-sweep table, where they fall in the plotted window.
+  const tableDots = M.ratioVsS.filter((r) => r.s >= S_MIN && r.s <= S_MAX && r.ratio <= Y_MAX);
+  const sGenuine = C.sGenuine;
+  const ratioGenuine = M.ratioExact;
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: "4px solid #38bdf8", background: "rgba(56,189,248,0.04)" }}>
+      <h3 style={{ color: "#38bdf8", marginTop: 0 }}>
+        Bridge-margin ratio B/D(s) as a curve over s=aU: diverges at the D&#x2080;=0 pole, &#x2192;1 as s&#x2192;&#x221E; (imp-3255 / imp-3353)
+      </h3>
+      <p style={{ color: "var(--text-secondary)", fontSize: 13, lineHeight: 1.75 }}>
+        The degree-0 cosh-completion bridge margin{' '}
+        <span style={{ fontFamily: mono }}>B/D(s) = (sinh s &minus; s) / (cosh s &minus; s + arcsinh(1) &minus; &radic;2)</span>{' '}
+        depends only on the single scale <span style={{ fontFamily: mono }}>s = a&middot;U</span> (imp-3255). It
+        diverges to +&#x221E; as <span style={{ fontFamily: mono }}>s &#x2192; arcsinh(1)&#x207A;</span> (the raw
+        overflow deficit <span style={{ fontFamily: mono }}>D&#x2080; &#x2192; 0</span>), and relaxes toward{' '}
+        <span style={{ fontFamily: mono }}>1&#x207A;</span> as s grows &mdash; the recorded 1.074 surplus is just
+        the genuine cell&apos;s <span style={{ fontFamily: mono }}>s = {sGenuine}</span> point on this curve, not a
+        universal constant.
+      </p>
+      <div style={{ overflowX: "auto" }}>
+        <svg width={W} height={H} style={{ display: "block", maxWidth: "100%", background: "rgba(2,6,23,0.4)", borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={`yt${v}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily={mono}>{v.toFixed(1)}</text>
+            </g>
+          ))}
+          {sTicks.map((s) => (
+            <g key={`st${s}`}>
+              <line x1={px(s)} y1={MT} x2={px(s)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(s)} y={H - MB + 18} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{s}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          {/* D_0=0 pole at s0=arcsinh(1) */}
+          <line x1={px(ASINH1)} y1={MT} x2={px(ASINH1)} y2={H - MB} stroke="#ef4444" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
+          <text x={px(ASINH1) + 4} y={MT + 14} fontSize="10" fill="#ef4444" fontFamily={mono}>s0=arcsinh(1)={ASINH1.toFixed(5)}</text>
+          {/* B/D -> 1 asymptote */}
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#64748b" strokeWidth="1" strokeDasharray="4 3" opacity="0.6" />
+          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>B/D&rarr;1</text>
+          <text x={(ML + W - MR) / 2} y={H - 8} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>s = a&middot;U</text>
+          <text x={14} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}
+            transform={`rotate(-90 14 ${(MT + H - MB) / 2})`}>B/D(s)</text>
+          {/* continuous B/D(s) curve */}
+          <path d={curvePath} fill="none" stroke="#e2e8f0" strokeWidth="2" />
+          {/* cross-check dots from the module's own s-sweep table */}
+          {tableDots.map((r) => (
+            <circle key={`d${r.s}`} cx={px(r.s)} cy={py(r.ratio)} r="4" fill="#38bdf8" fillOpacity="0.7" stroke="#38bdf8" strokeWidth="1">
+              <title>{`s=${r.s}: B/D=${r.ratio.toFixed(5)}`}</title>
+            </circle>
+          ))}
+          {/* genuine cell s=3 */}
+          <g>
+            <circle cx={px(sGenuine)} cy={py(ratioGenuine)} r="5" fill="#fbbf24" stroke="#fbbf24" strokeWidth="1.5" />
+            <text x={px(sGenuine) + 6} y={py(ratioGenuine) - 8} fontSize="10" fill="#fbbf24" fontFamily={mono}>
+              genuine cell s={sGenuine}, B/D={ratioGenuine.toFixed(3)}
+            </text>
+          </g>
+        </svg>
+      </div>
+      <div style={{ marginTop: 10, padding: "8px 12px", borderRadius: 6, background: "rgba(148,163,184,0.06)", border: "1px solid rgba(148,163,184,0.25)" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", letterSpacing: "0.06em", marginBottom: 4 }}>
+          DEGREE-0 SCALAR MASS-FEASIBILITY ONLY &mdash; RH-EQUIVALENT &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: "#94a3b8", fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          B/D &gt; 1 kills the impossibility option but is necessary-but-not-sufficient; the operator-level
+          K&#x2090;&thinsp;&#x2265;&thinsp;0 endpoint-Hankel obstruction (imp-3066) is untouched. Platt&ndash;Trudgian
+          &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: "#64748b", fontSize: 11, fontFamily: mono }}>
+        Source: imp-3255-bridge-ratio-closed-form.js &mdash; genuine cell a=0.5, U=6, s=aU=3.
       </p>
     </div>
   );
@@ -4087,6 +4200,8 @@ export default function ClosureRoutesPage() {
           Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
         </p>
       </div>
+
+      <BridgeMarginRatioCurvePanel />
 
       {/* ─── imp-3266: headline reconciliation note ─── */}
       <div

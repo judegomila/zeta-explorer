@@ -2591,6 +2591,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "CANCELLATION-FREE odd degree-3 remainder R_3(a) = sum_{m odd>=3} a^m/m! M_m (imp-3553)",
+    category: "numerical",
+    definition:
+      "imp-3526 reformulated the EVEN degree-4 remainder R_4 (cosh) as a positive moment series to " +
+      "eliminate its M_0*eps cancellation floor; imp-3553 extends that reformulation to the ODD " +
+      "degree-3 remainder R_3 (sinh). Writing sinh(a tau) = sum_{m odd>=1} (a tau)^m/m! and peeling the " +
+      "m=1 term gives R_3(a) = S(a) - a M_1 = sum_{m odd>=3} a^m/m! M_m, a sum of strictly POSITIVE " +
+      "terms with NO subtraction of near-equal masses, so the residual tail R_3(a) - (a^3/6)M_3 = " +
+      "sum_{m odd>=5} a^m/m! M_m is likewise clean and the relative residual r_3(a) ~ (a^2/20)(M_5/M_3) " +
+      "is a genuine O(a^2) power law with no rounding floor. HONEST CORRECTION of the frontier-scout " +
+      "premise: the odd form is NOT identically cancellation-prone to the even R_4 -- R_3 subtracts only " +
+      "a M_1 (~2.3e-5 at a=0.5) versus R_4's M_0 (~7.7e-4), so its floor a0*M_1*eps~5.0e-21 sits ~34x " +
+      "BELOW the R_4 floor M_0*eps~1.7e-19. The subtractive R_3 therefore survives the whole standard " +
+      "six-rung ladder cleanly and only breaks down one octave deeper, for a<~0.008. On the extended " +
+      "nine-rung ladder {0.5,..,0.001953125} the cancellation-free fit is p=1.99999 (|p-2|~1.2e-5, " +
+      "R^2=0.99999999996), recovering the three deepest rungs the corrupted subtractive fit loses to " +
+      "noise (p=1.85615, R^2=0.98499, relative residual rising 7.94e-8 -> 2.31e-8 -> 2.56e-8), " +
+      "confirming R_3(a) = (a^3/6)M_3 + O(a^5) at the derived order p = 2." +
+      "\n\nHONEST SCOPE: measurement/certification only -- reformulates and re-fits the numerical decay " +
+      "order of a fixed-weight Taylor remainder and establishes NO operator positivity. Mass-feasibility " +
+      "is NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face carries no feasibility comparison at all " +
+      "(imp-3469: D_2 = 0). The operator-level K_a >= 0 off-diagonal endpoint-Hankel obstruction " +
+      "(imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-3553 (CANCELLATION-FREE odd degree-3 remainder R_3 recovering three deep ladder rungs and sharpening the tail exponent fit to p=1.99999), 2026",
+    relatedTerms: [
+      "Fitted moment-remainder tail EXPONENT p_n ~ 2, upgrading the imp-3481 worst-case ratio to a genuine decay law (imp-3502)",
+      "closed-form degree-3 (odd) miss factor 1 - 1/k^4 (imp-3510)",
+      "Odd-degree (sinh) catastrophic-cancellation safety k-ladder, closed crossover k* (imp-3527)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -2351,6 +2351,23 @@ const DATA_MODULES = [
   // support length back to a genuine Phi-autocorrelation length. Lock only; no QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-3312-underflow-horizon-lock.js',
+  // imp-3322: RECONCILES the imp-3224 finer-N verdict (overflow-support length frac x U N-converges to
+  // ~1.2552 and the cross-cell spread CONTRACTS with N, read there as a genuine cell-invariant length)
+  // against imp-3216/imp-3312 (the upper endpoint tau_2 ~ 1.366 is the IEEE-754 kernel underflow horizon).
+  // FINDING: the imp-3224 C2 spread-contraction is NON-DISCRIMINATING -- the underflow horizon is a MACHINE
+  // CONSTANT independent of a/U/NPHI, hence cell-invariant by construction, so refining N pulls every cell
+  // toward the SAME horizon and the spread contracts whether or not tau_2 is genuine. The discriminating knob
+  // is the arithmetic TRUNCATION level, not the grid: (D1) sweeping a truncation threshold T at fixed N, the
+  // support length DECREASES monotonically as T rises and the measured upper endpoint tracks the closed-form
+  // horizon tau_2(T)=(1/4)ln X(T) at every T -- so the endpoint IS the arithmetic horizon; (D2) at a fixed
+  // manifestly-artificial threshold T0=1e-150 the imp-3224 N-ladder cross-cell spread reproduces the SAME C2
+  // contraction (1.95e-3 -> 1.17e-4 over U-only cells that share both endpoints), so the signature cannot
+  // separate genuine from artifact; (D3) the lower endpoint tau_1 ~ 0.111 (imp-3216/imp-3307 genuine crossover)
+  // is UNMOVED across the sweep. VERDICT: the N-converged ~1.2552 is the double-precision READING, not a genuine
+  // Phi-autocorrelation length -- confirms imp-3216/imp-3312, consistent with the imp-3308 log-domain fraction.
+  // Throws on import if any of D1/D2/D3 breaks. Diagnostic; overflow-support only; necessary-but-not-sufficient
+  // at operator order (imp-3066 untouched); no positivity, no RH verdict; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3322-spread-contraction-discriminator.js',
   // imp-3309: DERIVES both IEEE-754 double underflow horizons that bound the section-26 overflow
   // region (imp-3216 finding E2 left the mu horizon and band at measured values). nu carries a
   // single-Phi tail (2 pi^2 X exp(-pi X), X = e^{4u}), mu a Phi^2 tail (4 pi^4 X^2 exp(-2 pi X));

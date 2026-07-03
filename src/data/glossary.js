@@ -1237,6 +1237,37 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "termwise structural nonnegativity of Phi (last flip u_1*)",
+    category: 'proof-status',
+    definition:
+      "The imp-3257 elementary proof that Phi_NPHI(u) >= 0 on [0,U] for EVERY U >= 0 and " +
+      "every truncation NPHI, upgrading the imp-3197 bridge-sign agreement from a one-cell " +
+      "measurement to a structural guarantee. " +
+      "\n\nArgument: the nth kernel summand factors as pi*n^2*e^{2u} * (2*pi*n^2*e^{2u} - 3), " +
+      "times a strictly positive Gaussian exp(-pi*n^2*e^{4u}). The strictly positive prefactor " +
+      "and Gaussian leave the summand's sign equal to sign(2*pi*n^2*e^{2u} - 3), which is " +
+      "nonneg exactly for u >= u_n* = (1/2)*ln(3/(2*pi*n^2)). The rightmost (worst-case, " +
+      "largest) threshold is u_1* = (1/2)*ln(3/(2*pi)) = -0.36963238887, strictly negative. " +
+      "\n\nSince [0,U] lies entirely to the right of every u_n* (u_1* being the rightmost), " +
+      "every summand is nonneg on [0,U] for all n >= 1, and truncating at any NPHI only drops " +
+      "nonneg terms -- so the truncated partial sum Phi_NPHI(u) stays nonneg on [0,U] for all " +
+      "U >= 0 and all NPHI. This upgrades the imp-3197 bridge-SIGN half of the K_a>=0 " +
+      "obstruction from measured-at-one-cell to STRUCTURAL. " +
+      "\n\nHonest scope: the argument is SUFFICIENT but conservative -- it only guarantees " +
+      "Phi >= 0 on [u_1*, infinity), not the full classical de Bruijn-Newman positivity below " +
+      "u_1* (irrelevant here since imp-3197 only needs [0,U], a subset of [u_1*, infinity)). " +
+      "The bridge-MAGNITUDE half (the ||Gshear|| operator-norm question) remains entirely " +
+      "open and untouched by this result. RH-EQUIVALENT; no QED; " +
+      "Platt-Trudgian Lambda <= 0.2 stays SOTA.",
+    firstUsed: "imp-3257 (termwise structural proof), 2026",
+    relatedTerms: [
+      'bridge-kernel sign-free / magnitude-binding split',
+      'Gshear operator norm (||Gshear||)',
+      'kernel Phi(u)',
+    ],
+    link: '/closure-routes',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

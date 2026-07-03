@@ -2996,6 +2996,31 @@ const DATA_MODULES = [
   // derived next tail ->1 (<1e-3), tightening as a halves. Derivation/certification
   // only, imp-3066 untouched, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
   '/src/data/imp-3501-moment-ladder-general-derivation.js',
+  // imp-3509 (numerical): CERTIFIES the imp-3490 R4 catastrophic-cancellation
+  // safety of the near-cancelling cosh(a tau)-1 term as a CLOSED FUNCTION of the
+  // ladder index k (not just k=24). Worst argument x_k=a0*T_A/k, so the relative
+  // cancellation error rho(k)=eps/(cosh(x_k)-1)~2 eps k^2/(a0 T_A)^2 grows like
+  // k^2 while the O(a^2) tail (a^2/12)(M_4/M_2)~1/k^2 shrinks -- margin tail/rho
+  // collapses like k^{-4}. Closed-form crossover k*=[a0^4 T_A^2 M_4/(24 eps M_2)]^
+  // {1/4}. MEASURED on {2,3,4,6,8,12,16,24} from cells (0.5,6),(0.4,10): rho grows
+  // (1.6e-16->2.8e-14, matching 2 eps k^2/(a0 T_A)^2 to <1%), tail shrinks
+  // (1.1e-4->7.7e-7), margin stays >=7 orders (6.7e11->2.7e7), realized error
+  // never exceeds the derived bound, crossover k*=1730(S3)/1384(S4) ~60-70x beyond
+  // k=24 with rho(k*)=tail(k*)~1.48e-10. Certification only, imp-3066 untouched,
+  // no QED, PT Lambda<=0.2 SOTA. 8 assertions.
+  '/src/data/imp-3509-cosh-cancellation-safety-k-ladder.js',
+  // imp-3510 (numerical): DERIVES the ODD-degree analogue of the imp-3488 degree-2
+  // miss factor. The degree-3 (sinh, absolute-measure) bridge mass B_3(a)=int
+  // (sinh(a tau)-a tau)A(tau)d(tau)=S(a)-a M_1 (the imp-3481 odd remainder R_3) has
+  // leading form (a^3/6)M_3, so by a^3 homogeneity B_3(a/k)=k^{-3}B_3(a): exponent
+  // p=3, over-prediction k^4, relative miss 1-1/k^4 (shifting the imp-3488 even form
+  // p:2->3, k^3->k^4, 1-1/k^3->1-1/k^4). Certified vs a measured degree-3 k-ladder
+  // {2,3,4,6,8} on bases (0.5,6),(0.4,10) with r_k=B_3(a/k)/B_3(a): degree-0 residual
+  // == 1-r_k/k (<1e-12), derived 1-1/k^4 matches to leading-form tail (r_k-1/k^3)/k
+  // (<1e-3, reconciled to r_k <1e-12), over-prediction k/r_k matches k^4, fitted
+  // exponent matches 3 to O(a^2). Derivation/certification only, imp-3066 untouched,
+  // no QED, PT Lambda<=0.2 SOTA. 8 assertions.
+  '/src/data/imp-3510-degree3-miss-factor-closed-form.js',
 ];
 
 let ALL_MODULES = FAST_MODE

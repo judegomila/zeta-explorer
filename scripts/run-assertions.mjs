@@ -2471,6 +2471,19 @@ const DATA_MODULES = [
   // ratio, every weight convention cancels). Throws on import if H^2 mu(240) departs the verdict band or the extra
   // factor is not exactly H. Accuracy-diagnostic; RH-equivalent; imp-3066 endpoint-Hankel obstruction untouched; no QED.
   '/src/data/imp-3344-shear-gram-verdict-scale-factor.js',
+  // imp-3347: MEASURES how far LEFT of the last per-term sign-flip u_1*=(1/2)ln(3/(2 pi))=-0.36963 the FULL truncated
+  // de Bruijn-Newman kernel Phi_NPHI stays strictly positive, and locates its leftmost genuine zero u_0(NPHI) for
+  // NPHI in {10,20,40,80}. imp-3257 gave Phi>=0 termwise only on [u_1*,inf); below u_1* the full Phi stays positive
+  // by classical de Bruijn-Newman positivity, quantified here. As u->-inf the Gaussians ->1 and each retained summand
+  // ->-3 pi n^2 e^{2u}<0, so the truncation loses positivity far left and has a leftmost zero u_0 = -2.4619, -3.1337,
+  // -3.8153, -4.5024 at NPHI=10,20,40,80 (bisected to machine precision). The zeros march LEFT by ~ln2 per doubling
+  // (shifts -0.672,-0.682,-0.687) and match the elementary closed form u_0 ~ (1/2)ln(5/(2 pi N^2)) to within 0.045,
+  // so u_0->-inf as NPHI->inf (the untruncated Phi is positive on all of R). The unused left margin u_1*-u_0 GROWS
+  // (2.09,2.76,3.45,4.13), showing how conservative the termwise bound is below u_1*. imp-3197/imp-3257 use only
+  // [0,U] subset [u_1*,inf), right of every u_0, so the bridge-sign result is untouched. Throws on import if the
+  // zeros stop drifting left or the interior loses positivity. Diagnostic; RH-equivalent; imp-3066 magnitude
+  // obstruction untouched; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3347-phi-leftmost-zero-vs-nphi.js',
   // imp-3240: (a,U)-cell dependence of that SAME capture ratio r=||T||/||Gshear|| across the imp-3085 grid
   // {0.5,0.3,0.2,0.1}x{4,6,8,10} at N=240. FINDING: the ~3% deficit is a function of U ALONE (to <1 part in
   // 1e3) -- essentially a-INDEPENDENT and NOT a function of the product s=a*U (the OPPOSITE of the imp-3085

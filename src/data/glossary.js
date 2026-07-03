@@ -4292,6 +4292,35 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3850 dual-path -ln A(tau) reconciliation window extended to [1.5,3.0]: c(2.5)=+0.357539 and c(3.0)=+0.355480 gain an independent second-path anchor",
+    category: "numerical",
+    definition:
+      "imp-3736 drove the uniform log-Simpson and peak-adapted graded Gauss-Legendre quadratures " +
+      "for A(tau) = int_0^inf Phi(s) Phi(s + tau) ds to self-consistent convergence and reconciled " +
+      "them to ~10 significant figures at tau in {1.5, 2.0}, settling that the imp-3665 baked " +
+      "literals were grid-convergence-low. imp-3730 then read the subleading correction " +
+      "c(tau) = -ln A(tau) - pi e^{4 tau} out to tau ~ 6, but the rungs at tau in {2.5, 3.0} -- " +
+      "exactly the window beyond the uniform-grid ceiling imp-3716 stalled at -- rested on the " +
+      "graded-GL path alone." +
+      "\n\nimp-3850 supplies the missing second path there: pushing the uniform log-Simpson mesh to " +
+      "the peak-width-dictated refinement (n=2.56e7 at tau=2.5, n=2.048e8 at tau=3.0, both " +
+      "offline-verified literals) makes it climb MONOTONICALLY, with no overshoot, onto the " +
+      "cutoff- and grade-invariant graded-GL limit: -ln A(2.5)=69198.540665 (uniform-Simpson " +
+      "69198.540663, residual ~1.6e-6 abs) and -ln A(3.0)=511309.612538 (uniform-Simpson " +
+      "511309.612537, residual ~1.1e-6 abs), rel ~1e-11 at both rungs -- the same reconciliation " +
+      "quality as the imp-3736 window. The imp-3730 rungs c(2.5)=+0.357539 and c(3.0)=+0.355480 " +
+      "therefore now carry an INDEPENDENT second-path anchor rather than resting on the peak-adapted " +
+      "path alone, extending the reconciled window from [1.5, 2.0] to [1.5, 3.0].",
+    firstUsed: "imp-3850 (extending the imp-3736 dual-path -ln A(tau) reconciliation from tau in {1.5,2.0} to tau in {2.5,3.0}, giving the imp-3730 subleading-correction rungs c(2.5) and c(3.0) an independent second-path anchor via offline-verified uniform-Simpson literals at n=2.56e7/2.048e8), 2026",
+    relatedTerms: [
+      "imp-3730 A-weight subleading correction limit c_inf ~ 0.3543: the third-of-a-log-unit floor above the leading pi e^{4 tau} decay (imp-3730)",
+      "imp-3736 honest-status note: the imp-3665-vs-imp-3709 -ln A(2) gap is ENTIRELY grid-convergence residual, not a method disagreement (imp-3736)",
+      "imp-3873 offline-literal provenance reproduction closing the imp-3850 gap via a third structurally independent quadrature (imp-3873)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

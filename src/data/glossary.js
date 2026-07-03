@@ -3048,6 +3048,37 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3663 matched-pair Krylov depth law: m*(N) sub-linear/concave, correcting imp-3645s flat reading",
+    category: "numerical",
+    definition:
+      "imp-3645 tried to fit the minimal-converged Lanczos Krylov depth m*(N) from two anchors at DIFFERENT pair " +
+      "indices (N=1600 lambda_3 pair-2, m*=280; N=2000 lambda_5=lambda_6 pair-3, m*=480), leaving the growth form " +
+      "under-determined and reading the same-pair depth as FLAT in N from the lambda_3 anchors (280 at both N=1600 " +
+      "and N=2000). imp-3663 closed that gap by measuring m*(N) for a FIXED pair -- the lambda_5=lambda_6 third pair " +
+      "-- across N in {1600,2000,2400}, obtaining the homogeneous anchor triple m*(1600)=360, m*(2000)=480, " +
+      "m*(2400)=560 (the N=2000 value reproduces the imp-3625 baked pair56 exactly, confirming the identical " +
+      "assembly). RESULT: the fixed-pair depth GENUINELY GROWS with N (360->480->560), correcting imp-3645s flat " +
+      "reading, which was a grid-floor artifact of the lambda_3 pair locking near the smallest swept depth. The " +
+      "growth is SUB-LINEAR/CONCAVE: two equal Delta N=400 steps give decelerating Delta m (120 then 80), so a " +
+      "linear law is disfavoured (least-squares RMS ranks log ~4.7 < sqrt ~7.1 < linear ~9.4, linear worst). Log " +
+      "vs sqrt is NOT discriminated -- the ~2.4-unit RMS gap sits below the +/-20 uncertainty from the 40-step " +
+      "Krylov sub-depth grid (named residual sg-3663-log-vs-sqrt-fixed-pair). The matched-pair law also undercuts " +
+      "imp-3645s pair-index-confounded bracket: measured m*(2400)=560 is below the bracket 644..680, and the " +
+      "matched fits extrapolate N=3200 to ~706-767, far below imp-3645s linear-slope prediction of 1080." +
+      "\n\nHONEST SCOPE: measurement/fit only -- discriminates the depth-law form as far as the grid allows (linear " +
+      "ruled out; log vs sqrt left open); does NOT construct the missing magnitude and does NOT attempt the " +
+      "imp-3066 K_a >= 0 positivity. RH-EQUIVALENT. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains " +
+      "the rigorous SOTA.",
+    firstUsed: "imp-3663 (matched-pair Krylov depth sweep at fixed pair index 3 across N=1600/2000/2400, closing sg-3645-matched-pair-depth-sweep), 2026",
+    relatedTerms: [
+      "imp-3645 skew-Toeplitz Krylov depth-vs-N law, two-anchor bracket (imp-3645)",
+      "imp-3625 N=2000 lambda_5=lambda_6 Krylov-depth artifact resolution (imp-3625)",
+      "imp-3575 first-gap Krylov-truncation deficit precedent (imp-3575)",
+      "imp-3623/imp-3625 dense-solver resolution of the N=2000 skew-Toeplitz third-pair Krylov artifact (imp-3654)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

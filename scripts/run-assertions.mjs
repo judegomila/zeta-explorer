@@ -2514,6 +2514,16 @@ const DATA_MODULES = [
   // the resolved role -- or collapses the stale/resolved distinction -- fails here.
   // Lock only; overflow-support fraction only; not an operator step; no QED; PT 0.2 SOTA.
   '/src/data/imp-3211-overflow-fraction-converged-lock.js',
+  // imp-3311: ASSESSMENT of the imp-3211 lock after the imp-3216/imp-3306 underflow
+  // correction. Machine-checks that (A1) the ~0.209 the lock binds IS the imp-3306
+  // underflow-pinned measured fraction at U=6 (a 1/U artifact), so the lock as
+  // LABELLED "genuine/authoritative" is falsified; (A2) yet its checks stay valid as
+  // FIXED-cell (a=0.5,U=6,NPHI=10,N=6400) reproducibility guards (do not delete);
+  // (A3) it binds no U-varying quantity; (A4) the arithmetic-independent quantity to
+  // enforce instead is tau_1~0.111 U-invariance + no genuine upper crossing +
+  // (U-tau_1)/U -> 1. Diagnostic/maintenance record, does NOT edit imp-3211; no QED;
+  // PT Lambda <= 0.2 stays SOTA. 6 self-executing assertions.
+  '/src/data/imp-3311-overflow-fraction-lock-invariant-assessment.js',
   // imp-3006+3061+3062+3063+3090+3091: basin-conditional local-energy C_Lip assembly
   // (c*=0.93185 closed form, BASIN_RHO=0.72 < ASYM_SCAN_INF=0.927, margin 0.207),
   // margin sensitivity ladder, gap-channel theta-sweep [0,1/4], divergence decomposition

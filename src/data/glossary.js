@@ -1700,6 +1700,30 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "sigma(N) interior-MAX floor-value artifact (imp-3443)",
+    category: "numerical",
+    definition:
+      "CAVEAT on the imp-3406 sigma(N) N-shape: imp-3443 re-ran the identical imp-3406 ternary search " +
+      "over a 9-point grid spanning half to double the imp-2631 truncation floor E_trunc = 3.06e-5, and " +
+      "found the interior MAX location N_max is NOT a robust landmark. N_max swings 6.7x over the 4x " +
+      "floor range -- from ~2.356e6 (half floor) through the baseline ~9.219e5 (reproducing imp-3406 " +
+      "exactly) down to ~3.501e5 (double floor) -- following a near power law N_max ~ (1/E_trunc)^1.376 " +
+      "(R^2 ~ 0.99992, local elasticity dlnN_max/dlnE_trunc ~ -1.373); sigma_max rises as the floor " +
+      "falls (0.9612 half, 0.9494 baseline, 0.9348 double). Mechanism: the interior MAX is where " +
+      "g = (E_trunc+E_flow)/E_coll is minimized, and the E_trunc/E_coll arm scales LINEARLY in E_trunc, " +
+      "so raising the floor pushes the balance to lower N. So the imp-3406/imp-3444 quoted turnover " +
+      "N_max ~ 9.22e5 is a FLOOR-SENSITIVITY READOUT of the specific imp-2631 floor value, not an " +
+      "intrinsic feature of the GUE-conditional share -- readers should not over-interpret the exact " +
+      "location as a fixed landmark.",
+    firstUsed: "imp-3443 (N_max-vs-E_trunc floor sensitivity power law), 2026",
+    relatedTerms: [
+      "sigma(N) N-shape (interior min ~97.8, interior max ~9.22e5) (imp-3406)",
+      "sigma(N) machine-precision landmark ladder L1-L5 (imp-3444)",
+      "truncation floor E_trunc (imp-2631)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "Faulhaber-dominant leftmost-zero residual (residual*NPHI -> -1/2)",
     category: "numerical",
     definition:

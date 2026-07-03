@@ -2328,6 +2328,20 @@ const DATA_MODULES = [
   // Throws on import if any endpoint, the underflow ordering, or the U-scaling breaks. Diagnostic;
   // overflow-support geometry only; necessary-but-not-sufficient; no positivity; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-3216-overflow-support-length-closed-form.js',
+  // imp-3307: DERIVES/ASSESSES the transcendental Phi-moment balance whose root is the imp-3216
+  // lower overflow endpoint tau_1 ~ 0.1109 (finding E1). Expanding sinh(a(v-u)) and sinh(2au), the
+  // leading term of each is proportional to a, so a factors out of nu=mu at O(a) and the leading
+  // balance N1(tau)=M1(tau) is a-FREE, N1=A(tau)B_U - B(tau)A_U (past-future first-moment block,
+  // AB cross-terms cancel), M1=(1/pi) int_tau^U u Phi^2 du. Rooting to N=120000 gives tau_1^(0) ~
+  // 0.11062 (the finite-a crossover matches tau_1^(0)+slope*a^2 to ~1e-7). ASSESSMENT: the
+  // a-cancellation is EXACT ONLY AT O(a) -- the a^3 blocks carry different moment weights, so the
+  // crossover drifts as tau_1(a)=tau_1^(0)+slope*a^2, slope ~ 5.9e-4 from first-order root
+  // perturbation; residual/a^2 is constant to 4 figs down the a ladder {0.5..0.0625}, and the a^2
+  // model predicts the ~2e-4 a-drift imp-3216 saw over a in {0.3,0.7}. So E1 is the root of an
+  // explicit a-free Phi-moment balance, a-scale-free at O(a) with only an O(a^2) tail (NOT exact to
+  // all orders). Throws on import if the root, quadratic convergence, or the a^2 slope breaks.
+  // Diagnostic; lower-endpoint balance only; necessary-but-not-sufficient; no positivity; PT 0.2 SOTA.
+  '/src/data/imp-3307-tau1-phi-moment-balance.js',
   // imp-3312: cross-module tripwire (mirroring imp-3211/imp-3267) LOCKING the imp-3216
   // underflow-horizon finding. Independently re-implements the kernel bisection and the
   // closed-form horizon estimate and cross-checks them against the imp-3216 recorded

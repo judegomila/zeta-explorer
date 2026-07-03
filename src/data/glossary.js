@@ -3308,6 +3308,31 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Rescue Gate / Rescue Budget K_max(N) (imp-486)",
+    category: "numerical",
+    definition:
+      "The threshold K * log(N) / sqrt(N) < rho_min = 0.12751 that gates whether a " +
+      "weaker unconditional bound C_mb <= K (K possibly > 1) still delivers the " +
+      "finite-height beat L_pt(N) < 0.2 (Platt-Trudgian). Equivalently the rescue " +
+      "budget K_max(N) = 0.12751 * sqrt(N) / log(N) is the largest K the gate admits " +
+      "at height N; it is increasing in N and diverges, so every finite K is admitted " +
+      "above some finite entry height N_min(K). C_mb enters L_pt = |t_c| + E_flow + " +
+      "E_coll + E_trunc ONLY through this gate, not as an additive term (E_coll is " +
+      "pinned by C_C = (1/8)*sqrt(3*pi), imp-399, independent of C_mb), so a weaker K " +
+      "costs ENTRY HEIGHT, not headline value -- L_pt(N) is K-free below the gate, and " +
+      "the guaranteed unconditional Lambda at a given K is simply E(N_min(K)).",
+    firstUsed:
+      "imp-486 (deriving rho_min = 0.12751 from the GUE-universality irreducibility " +
+      "argument and the C_MB_RESCUE_TABLE), extended by imp-3275 (K-to-height map)",
+    relatedTerms: [
+      "C_mb Montgomery pair-correlation constant",
+      "L_pt finite-height beat assembly (imp-452)",
+      "imp-963 unconditional finite-K bound",
+      "imp-3275 rescue budget K-to-height degradation map",
+    ],
+    link: "/viz-imp3377-rescue-budget-height-map",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

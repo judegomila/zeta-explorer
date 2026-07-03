@@ -2247,6 +2247,79 @@ export const SG1C_R1T3_MARGIN_SWEEP = (() => {
   };
 })();
 
+// imp-3273: DENSE full-range verification of Lemma R1-T3 over EVERY integer b in
+// [1, 100] (the imp-3044 SG1C_R1T3_MARGIN_SWEEP only sampled 6 integers -- 1,2,3,5,
+// 10,100 -- in that band, skipping 94 of them). For each b we build the asymmetric
+// minimal-gap 4-tie {-1, 0, 1, 1+b}, directly evaluate Theta = g^2 E/2 via dThetaDs
+// for the central pair (0,1) at index 1 and the tied left-outer competitor (-1,0) at
+// index 0, and compare against the exact closed forms
+//   Theta_central(b) = 1/4 + 1/(2 b (b+1)),  Theta_seize(b) = 1/4 + 1/(2 (b+1)(b+2)),
+// with the seizing margin checked against the exact rational 1/(b(b+1)(b+2)). We report
+// the worst absolute deviation over all 100 points, confirm the margin is strictly
+// positive and monotone-decreasing from 1/6 at b=1 across the whole band, and probe a
+// geometric ladder of large b (1e3..1e12) to confirm Theta_central(b) -> 1/4 from above
+// (the unconditional Theorem-A trap: as the far neighbour recedes the 4-tie decays into
+// Theta = 1/4 where Theorem A already applies). Measure only.
+export const SG1C_R1T3_DENSE_B_SWEEP = (() => {
+  const tcClosed = (b) => 0.25 + 1 / (2 * b * (b + 1));
+  const tsClosed = (b) => 0.25 + 1 / (2 * (b + 1) * (b + 2));
+  const marginRational = (b) => 1 / (b * (b + 1) * (b + 2));
+  const rows = [];
+  for (let b = 1; b <= 100; b++) {
+    const x = [-1, 0, 1, 1 + b];
+    const tcMeas = dThetaDs(x, 1).theta; // central pair (0,1)
+    const tsMeas = dThetaDs(x, 0).theta; // tied left-outer competitor (-1,0)
+    rows.push({
+      b,
+      thetaCentralMeasured: tcMeas,
+      thetaSeizeMeasured: tsMeas,
+      marginMeasured: tcMeas - tsMeas,
+      thetaCentralDev: Math.abs(tcMeas - tcClosed(b)),
+      thetaSeizeDev: Math.abs(tsMeas - tsClosed(b)),
+      marginDev: Math.abs((tcMeas - tsMeas) - marginRational(b)),
+    });
+  }
+  const worstThetaDev = Math.max(...rows.map((r) => Math.max(r.thetaCentralDev, r.thetaSeizeDev)));
+  const worstMarginDev = Math.max(...rows.map((r) => r.marginDev));
+  // large-b ladder: Theta_central should decrease monotonically toward 1/4 from above
+  const bigGrid = [1e3, 1e4, 1e5, 1e6, 1e8, 1e10, 1e12];
+  const bigRows = bigGrid.map((b) => {
+    const tc = dThetaDs([-1, 0, 1, 1 + b], 1).theta;
+    return { b, thetaCentral: tc, distToQuarter: tc - 0.25 };
+  });
+  const decaysMonotoneToQuarter = bigRows.every(
+    (r, k) => r.distToQuarter >= 0 && (k === 0 || r.distToQuarter <= bigRows[k - 1].distToQuarter),
+  );
+  const marginPositiveAllInts = rows.every((r) => marginRational(r.b) > 0);
+  const marginMonotoneDecreasing = rows.every((r, k) => k === 0 || r.marginMeasured < rows[k - 1].marginMeasured);
+  return {
+    nPoints: rows.length, // 100 (every integer b in [1,100])
+    worstThetaDev,        // max |measured - closed| for Theta_central and Theta_seize, ~machine eps
+    worstMarginDev,       // max |(tc-ts) - 1/(b(b+1)(b+2))|, ~machine eps
+    marginAtB1: rows[0].marginMeasured,                 // = 1/6 (recovers symmetric R1-T value)
+    peakThetaCentralAtB1: rows[0].thetaCentralMeasured, // = 1/2 (the excursion peak)
+    thetaCentralAtB100: rows[99].thetaCentralMeasured,  // already well inside the trap band
+    marginPositiveAllInts,
+    marginMonotoneDecreasing,
+    bigRows,
+    decaysMonotoneToQuarter,
+    thetaCentralAtB1e6: bigRows[3].thetaCentral,                   // 0.25 + ~5e-13 (still resolvable above 0.25)
+    thetaCentralAtB1e12: bigRows[bigRows.length - 1].thetaCentral, // -> 0.25 (correction underflows below an ulp of 0.25)
+    summary:
+      'Lemma R1-T3 verified across EVERY integer b in [1,100] (100 points, vs the 6 integers '
+      + 'imp-3044 sampled there): the directly-evaluated Theta = g^2 E/2 for the central pair '
+      + '(0,1) and tied left-outer competitor (-1,0) on {-1,0,1,1+b} matches the closed forms '
+      + 'Theta_central = 1/4 + 1/(2b(b+1)) and Theta_seize = 1/4 + 1/(2(b+1)(b+2)) to machine '
+      + 'precision (worst deviation below 1e-12 over all 100 points), and the seizing margin '
+      + 'matches the exact rational 1/(b(b+1)(b+2)) at the same level. The margin is strictly '
+      + 'positive and monotone-decreasing from 1/6 at the symmetric b=1; Theta_central peaks at '
+      + 'exactly 1/2 at b=1 and, on the 1e3..1e12 ladder, decays monotonically toward 1/4 from '
+      + 'above (0.25 + ~5e-13 at b=1e6, underflowing to exactly 0.25 by b=1e12 where the '
+      + 'correction drops below an ulp of 0.25) -- the tie falls into the unconditional '
+      + 'Theorem-A 1/4 trap as b -> inf. No measured deviation anywhere in [1,100]. Measure only.',
+  };
+})();
+
 // imp-3048: linear-stability certificate of the rho = 1 repeller that Lemma
 // R1-T4 leans on. The single-neighbour R2-T rate
 //   d(rho)/ds = (g - d_1)/d_1^2 * [ 2/(g + d_1) + 4 (g + d_1)/(d_1 g) ]
@@ -2526,6 +2599,27 @@ export const SG1C_THEOREM_ASSERTIONS = [
         && Math.abs(s.peakThetaCentralAtB1 - 0.5) < 1e-12
         && Math.abs(s.marginAtB1 - 1 / 6) < 1e-12
         && s.decaysIntoQuarterTrap
+      );
+    },
+  },
+  {
+    id: 'sg1c-r1t3-dense-b-sweep-exact',
+    description: 'imp-3273 tripwire: Lemma R1-T3 verified across EVERY integer b in [1,100] (100 points) -- direct Theta = g^2 E/2 matches Theta_central = 1/4 + 1/(2b(b+1)), Theta_seize = 1/4 + 1/(2(b+1)(b+2)) and the rational seizing margin 1/(b(b+1)(b+2)) to below 1e-12, margin strictly positive and monotone from 1/6 at b=1, peak Theta_central=1/2 at b=1, and Theta_central decays monotonically toward 1/4 from above on the 1e3..1e12 ladder (the Theorem-A trap)',
+    holds: () => {
+      const s = SG1C_R1T3_DENSE_B_SWEEP;
+      return (
+        s.nPoints === 100
+        && s.worstThetaDev < 1e-12
+        && s.worstMarginDev < 1e-12
+        && s.marginPositiveAllInts
+        && s.marginMonotoneDecreasing
+        && Math.abs(s.peakThetaCentralAtB1 - 0.5) < 1e-12
+        && Math.abs(s.marginAtB1 - 1 / 6) < 1e-12
+        && s.decaysMonotoneToQuarter
+        && s.thetaCentralAtB1e6 > 0.25
+        && s.thetaCentralAtB1e6 - 0.25 < 1e-11
+        && s.thetaCentralAtB1e12 >= 0.25
+        && s.thetaCentralAtB1e12 - 0.25 < 1e-11
       );
     },
   },

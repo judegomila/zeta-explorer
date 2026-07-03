@@ -3027,6 +3027,38 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "Skew-Toeplitz SECOND gap sigma_2=lambda_5/lambda_1 also converges to -2, fixed ~8/3 amplitude ratio (imp-3602)",
+    category: "numerical",
+    definition:
+      "imp-3575 certified the -2 section-gap heuristic only for the FIRST skew-Toeplitz gap rho=lambda_3/lambda_1, " +
+      "while merely noting that the top-6 Gram Ritz spectrum is skew-symmetry PAIRED (lambda_1=lambda_2, " +
+      "lambda_3=lambda_4, lambda_5=lambda_6), leaving a SECOND independent gap sigma_2=lambda_5/lambda_1 unmeasured. " +
+      "imp-3602 re-ran the identical imp-3505/imp-3575 assembly (Ttilde(u,v)=a(v-u)R(|v-u|), NPHI=10, H0=0.025) with " +
+      "a full-reorthogonalization Lanczos at converged Krylov depth m=min(N,440), extracting the top-six Ritz values " +
+      "across the imp-3555 ladder N=160..2000. FOUND: (1) the second gap ALSO converges to the -2 heuristic -- its " +
+      "local log-log exponent climbs monotonically from -1.9551 (160->240) to -1.9948 (1600->2000), " +
+      "indistinguishable from the first-gap exponent at every step (< 2e-3 apart), with global fit q_2=-1.9813 " +
+      "(R^2=0.99999) matching q_1=-1.9811; (2) the two gaps share ONE power law with a FIXED amplitude ratio: " +
+      "-log sigma_2/-log rho is nearly constant across the ladder (2.6691 at N=160 down to 2.6667 at N=2000, mean " +
+      "2.6671, tending to 8/3) -- the signature of a common N^-2 law with pair-index amplitude a_j proportional to " +
+      "(j^2-1), giving a_3/a_2=8/3 exactly (reported as an EMPIRICAL structural observation, tested through only a " +
+      "single ratio, not a derived law); (3) lambda_5=lambda_6 holds to relative < 2e-14 through N=1200 (< 1.1e-11 " +
+      "at N=2000), confirming lambda_5 is a genuine third-pair level (imp-3596 adjacent-pairing), not a Lanczos " +
+      "reorthogonalization ghost." +
+      "\n\nHONEST SCOPE: measurement only -- extends a section-gap decay exponent one pair further and reports an " +
+      "empirical amplitude ordering; establishes NO operator positivity. Mass-feasibility remains NECESSARY-BUT-" +
+      "NOT-SUFFICIENT; the operator-level K_a >= 0 off-diagonal endpoint-Hankel positivity (imp-3066) is UNTOUCHED. " +
+      "No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3602 (measures the second skew-Toeplitz gap sigma_2=lambda_5/lambda_1, certifies its convergence to the -2 section-gap heuristic, and reports the near-constant ~8/3 amplitude ratio against the first gap), 2026",
+    relatedTerms: [
+      "Skew-Toeplitz gap-exponent CONVERGENCE to the -2 section-gap heuristic (imp-3555)",
+      "imp-3619 third skew-Toeplitz gap sigma_3=lambda_7/lambda_1 and pair j=4 amplitude corroboration (imp-3619)",
+      "imp-3623/imp-3625 dense-solver resolution of the N=2000 third-pair Krylov artifact (imp-3654)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "Skew-Toeplitz THIRD gap sigma_3=lambda_7/lambda_1 also converges to -2, j^2-1 amplitude law holds through pair j=4 (imp-3619)",
     category: "numerical",
     definition:

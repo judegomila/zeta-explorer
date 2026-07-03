@@ -2425,6 +2425,23 @@ const DATA_MODULES = [
   // margin to 0.72 stays 0.178; PT Lambda <= 0.2 stays SOTA. 10 self-executing assertions
   // (dual digamma routes, finite-L O(1/L^2) match, onset descent, chain order, honesty gate).
   '/src/data/sg1c-halflattice-lone-limit-closed-form-2026-07-02.js',
+  // imp-3236: FIRST rigorous nontrivial LOWER bound on the open global asymmetric isolation constant
+  // c_glob. Exact force-difference rate drho/ds = -2[2/rho+(1-rho)/(1+rho)-2rho+SUM T_m]; right
+  // particles destabilise, left stabilise, |T_m| decreasing, so the densest one-sided right half-lattice
+  // is the worst config; the telescoping majorant S_dest <= (1+rho)/(2+rho) makes the rate strictly
+  // negative for rho < c_lo = 0.8656641635, hence c_glob >= 0.86566. Narrows the open interval to
+  // (0.86566, 0.89802] against the imp-3270 located ceiling c_half; c_glob stays OPEN there. 10
+  // self-executing assertions (rate matches direct N-body, majorant, worst-case monotonicity, honesty).
+  '/src/data/sg1c-cglo-lower-bound-2026-07-02.js',
+  // imp-3237: does a THIRD independent integrator + a wider asymmetric environment family beat the
+  // imp-3200 Config-B onset 0.9015828? A 5th-order Dormand-Prince (DOPRI5) step + central finite
+  // difference (distinct tableau AND order from the imp-3200 RK4 check) reproduces the Config-B onset
+  // to <1e-6, then a broadened scan (spacing-floor density, right-lattice length, lone-offset in the
+  // isolation-ratio metric) shows the DENSE half-lattice family UNDERCUTS Config B by ~3.6e-3,
+  // descending toward the imp-3270 closed form c_half=0.8980 at O(1/m^2). Config B is the lower of the
+  // two imp-3200 families, NOT the global infimum; c_glob stays OPEN with c_half the tightest located
+  // ceiling; basin margin > 0.17; PT Lambda<=0.2 SOTA. 7 self-executing assertions.
+  '/src/data/sg1c-asym-onset-third-integrator-scan-2026-07-02.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -2430,6 +2430,36 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Skew-Toeplitz gap-exponent CONVERGENCE to the -2 section-gap heuristic (imp-3555)",
+    category: "numerical",
+    definition:
+      "imp-3530 fit the skew-Toeplitz top-pair-degenerate Gram gap decay -log rho(N) = A N^q on N=160..800 and " +
+      "found q ~ -1.9725, calling it merely \"near\" the -2 section-gap heuristic without settling whether " +
+      "extending the ladder would converge to -2 or drift away. imp-3555 extends the ladder above 800 with the " +
+      "imp-3545-measured N=1000/1200/1600 rungs (baked -log rho literals, no Lanczos re-run) and reads the LOCAL " +
+      "pairwise log-log slope q_local = log(li_{k+1}/li_k)/log(N_{k+1}/N_k) between every consecutive rung. The " +
+      "local slope climbs MONOTONICALLY toward -2 through the whole ladder -- -1.9540 (160->240), -1.9671, " +
+      "-1.9743, -1.9789, -1.9832, -1.9870 (640->800) -- and the two NEW above-800 rungs continue the identical " +
+      "climb, -1.9896 (800->1000) and -1.9915 (1000->1200), landing within 0.0086 of -2. The extended global OLS " +
+      "on the monotone N=160..1200 ladder (9 rungs) gives q = -1.9770 (R^2 = 0.99999), marginally CLOSER to -2 " +
+      "than the imp-3530 base, so extending the ladder SHARPENS the exponent rather than loosening it. The lone " +
+      "N=1600 rung is a NON-MONOTONE measurement artifact (its -log rho rises above the N=1200 value, the " +
+      "imp-3545-flagged per-N non-monotonicity): naively including it collapses the OLS to q = -1.763 (R^2 " +
+      "0.99999 -> 0.9605), a data-quality outlier, not the true exponent drifting from -2." +
+      "\n\nHONEST SCOPE: measurement/fit only -- extends a section-gap decay ladder and certifies q -> -2 " +
+      "numerically (a finite-N trend, not a proven asymptotic), excludes one non-monotone rung as an artifact, " +
+      "and establishes NO operator positivity. The operator-level K_a >= 0 off-diagonal endpoint-Hankel " +
+      "obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains " +
+      "the rigorous SOTA.",
+    firstUsed: "imp-3555 (extension of the imp-3530 gap-decay ladder above N=800 and certification that the local log-log slope converges monotonically to the -2 section-gap heuristic), 2026",
+    relatedTerms: [
+      "Skew-Toeplitz top-singular-pair DEGENERACY and the power-iteration budget(N) ~ K N^2 law (imp-3530)",
+      "imp-3545 power-iteration budget measured at N=1000/1200/1600 (the extension rungs)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

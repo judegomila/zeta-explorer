@@ -49,6 +49,7 @@ import { IMP3217_RESIDUAL_EXPONENT_S_LIMIT } from '../data/imp-3217-residual-exp
 import { IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP } from '../data/imp-3154-genuine-deg2-deficit-degree-sweep.js';
 import { IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR } from '../data/imp-3218-deg2-deficit-normalization-factor.js';
 import { IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP } from '../data/imp-3104-orthogonalized-opnorm-degree-sweep.js';
+import { IMP3288_ANALYTIC_CEILING_LEMMA } from '../data/imp-3288-analytic-ceiling-lemma.js';
 import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-fraction-integrability.js';
 import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
 
@@ -492,6 +493,85 @@ function OffDiagHankelObstructionPanel() {
       </div>
       <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
         Source: imp-3066-offdiagonal-hankel-obstruction.js &mdash; RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3288 concentrating-family Rayleigh quotient climbing to the analytic ceiling ──
+// Shows Q(f_delta) rising toward sup Q = tanh(a*U) < 1 as the indicator family
+// f_delta = 1_{[U-delta, U]} collapses toward tau=U (delta -> 0), with the strictly
+// positive margin 1 - tanh(a*U) shaded between the curve and the ceiling = 1 line.
+function AnalyticCeilingConcentratingFamilyPanel() {
+  const L = IMP3288_ANALYTIC_CEILING_LEMMA.lemma;
+  const M = IMP3288_ANALYTIC_CEILING_LEMMA.measured;
+  const ladder = M.concentratingLadder;
+  const ceiling = L.analyticCeilingTanhAU;
+  const margin = L.marginOneMinusCeiling;
+
+  const W = 640, H = 260, ML = 56, MR = 24, MT = 22, MB = 44;
+  const n = ladder.length;
+  const yMin = Math.floor(ladder[0].quotient * 20) / 20 - 0.02;
+  const yMax = 1.0;
+  const px = (i) => ML + (i / (n - 1)) * (W - ML - MR);
+  const py = (v) => H - MB - ((v - yMin) / (yMax - yMin)) * (H - MT - MB);
+  const yTicks = [yMin, ceiling, 1.0].concat(
+    [0.94, 0.96, 0.98].filter((v) => v > yMin && v < ceiling - 0.002),
+  );
+
+  const linePath = ladder.map((row, i) => `${i === 0 ? 'M' : 'L'} ${px(i)} ${py(row.quotient)}`).join(' ');
+  const shadedPath = `${linePath} L ${px(n - 1)} ${py(ceiling)} L ${px(0)} ${py(ceiling)} Z`;
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #06b6d4', background: 'rgba(6,182,212,0.04)' }}>
+      <h3 style={{ color: '#06b6d4', marginTop: 0, fontSize: 14 }}>
+        Concentrating family Q(f<sub>&delta;</sub>) climbs to the analytic ceiling tanh(a&middot;U)&thinsp;&lt;&thinsp;1 (imp-3288)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        f<sub>&delta;</sub> = 1<sub>[U-&delta;, U]</sub> concentrates all its mass toward &tau;=U as &delta;&rarr;0<sup>+</sup>.
+        The Rayleigh quotient Q(f<sub>&delta;</sub>) rises monotonically toward the sharp, non-attained
+        supremum sup Q = tanh(a&middot;U) = {ceiling.toFixed(5)} &mdash; strictly below the trivial ceiling 1,
+        leaving a strictly positive margin 1&thinsp;&minus;&thinsp;tanh(a&middot;U) = {margin.toFixed(5)} (shaded).
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={`yt${v.toFixed(5)}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#64748b" fontFamily="var(--font-mono)">{v.toFixed(3)}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          {/* trivial ceiling = 1 dashed line */}
+          <line x1={ML} y1={py(1)} x2={W - MR} y2={py(1)} stroke="#334155" strokeWidth="1" strokeDasharray="4 3" />
+          <text x={W - MR - 4} y={py(1) - 5} textAnchor="end" fontSize="10" fill="#475569" fontFamily="var(--font-mono)">1 (trivial)</text>
+          {/* analytic ceiling tanh(a*U) dashed line */}
+          <line x1={ML} y1={py(ceiling)} x2={W - MR} y2={py(ceiling)} stroke="#06b6d4" strokeWidth="1.5" strokeDasharray="6 3" />
+          <text x={W - MR - 4} y={py(ceiling) - 5} textAnchor="end" fontSize="10" fill="#06b6d4" fontFamily="var(--font-mono)">tanh(a&middot;U) = {ceiling.toFixed(5)}</text>
+          {/* strictly-positive margin, shaded */}
+          <path d={shadedPath} fill="#06b6d4" fillOpacity="0.12" stroke="none" />
+          {/* Q(f_delta) curve */}
+          <path d={linePath} fill="none" stroke="#22d3ee" strokeWidth="2" />
+          {ladder.map((row, i) => (
+            <g key={`pt${i}`}>
+              <circle cx={px(i)} cy={py(row.quotient)} r="3" fill="#22d3ee" />
+              <title>&delta;={row.delta}, Q={row.quotient.toFixed(6)}</title>
+            </g>
+          ))}
+          <text x={px(0)} y={H - MB + 16} textAnchor="start" fontSize="10" fill="#64748b" fontFamily="var(--font-mono)">&delta;={ladder[0].delta} (spread out)</text>
+          <text x={px(n - 1)} y={H - MB + 16} textAnchor="end" fontSize="10" fill="#64748b" fontFamily="var(--font-mono)">&delta;={ladder[n - 1].delta} (&rarr;U)</text>
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#f87171' }}>Honest scope (imp-3288):</strong>{' '}
+        Rigorous NEGATIVE result about the SCALAR cosh passive core ONLY, proved over the full
+        L2([0,U]) span (not merely this trial family). Does NOT touch the operator-positivity
+        residual K<sub>a</sub>&thinsp;&ge;&thinsp;0, makes NO claim the cover holds or fails, carries NO RH verdict.
+        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
+        Source: imp-3288-analytic-ceiling-lemma.js &mdash; a={L.a}, U={L.U}, concentrating ladder &delta;&isin;[{ladder[n - 1].delta},{ladder[0].delta}].
       </p>
     </div>
   );
@@ -4395,6 +4475,8 @@ export default function ClosureRoutesPage() {
           Source: imp-3104-orthogonalized-opnorm-degree-sweep.js &mdash; a=0.5, U=6, DEG&isin;[2,12], NQ=4000.
         </p>
       </div>
+
+      <AnalyticCeilingConcentratingFamilyPanel />
 
       {/* ─── imp-3106: excess fraction integrability ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

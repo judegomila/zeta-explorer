@@ -898,7 +898,10 @@ export const LAMBDA_ROADMAP = {
     'interval-arithmetic certification recommended as imp-857. Net: empirical leading-order predicates ' +
     'now cover the entire finite-height assembly range; the full analytic chain still uses C_mb <= 1 ' +
     '(GUE-conditional per imp-486). Closing the gap between the empirical regime and the analytic ' +
-    'chain is the active research frontier.',
+    'chain is the active research frontier. QUANTIFIED (imp-3220): the E(N) bridge conditional share ' +
+    'sigma(N) = E_coll(N)/E(N) is U-shaped across N* in {2..10^6}, and is WIDEST (~94.9%) exactly at ' +
+    'the N* = 10^6 ceiling — precisely the point PATH 1 extended the unconditional empirical E1/E2 ' +
+    'floor to. The two frontiers diverge hardest where the empirical coverage was hardest-won.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

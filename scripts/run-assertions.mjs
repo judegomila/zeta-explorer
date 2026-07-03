@@ -3313,6 +3313,20 @@ const DATA_MODULES = [
   // (reuses effectiveHeightForN + C_C_PINNED). Measurement/derivation only, imp-3066 K_a>=0
   // positivity UNTOUCHED, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 6 assertions.
   '/src/data/imp-3599-flow-gap-nextorder-correction.js',
+  // imp-3617 (numerical): PUSHES the imp-3599 closed expansion of the exact flow-gap identity
+  // gap = 1 - (L_half/L_x)/(1+eta)^2 to O(eps^3). Expanding Du = ln(N_half/N_x) = d1 eps + d2 eps^2 +
+  // d3 eps^3 self-consistently gives d1 = -2/(1-lambda), d2 = [(1/2) s d1^2 + 1 - 2 mu d1]/(1-lambda)
+  // (FIRST requiring the slope-curvature s = d2 lnL/d(lnN)2 and E_flow log-curvature nu), and d3 adding
+  // the log-N third derivative t. Re-root-solving both crossings per floor (400-iter bisection,
+  // reproducing imp-3580/imp-3599) shows the residual falls geometrically (per-order ratio ~100-500):
+  // resid_lead ~6.5e-5..5.1e-4, resid_O(eps^2) ~1.4e-7..3.3e-6, resid_O(eps^3) ~3e-10..2.3e-8 pp --
+  // shrinking the imp-3599 O(eps^2) tail (4.5e-4..1.9e-3 pp) by >=1e4x toward the ~1e-13 exact floor.
+  // The resummed leading d1=-2/(1-lambda) already beats the imp-3599 crude 2 eps(1+lambda) model.
+  // HONEST SUB-GAP imp-3617-fourthorder-fd-floor: does NOT reach the ~1e-13 exact floor; a plateau
+  // survives from the O(eps^4) truncation and finite-difference curvature evaluation. Import-light
+  // (reuses effectiveHeightForN + C_C_PINNED). Measurement/derivation only, imp-3066 K_a>=0 positivity
+  // UNTOUCHED, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
+  '/src/data/imp-3617-flow-gap-thirdorder-expansion.js',
   // imp-3604 (numerical): RE-ROOT-SOLVES the imp-3580 sigma=1/2 half-decay N_half and the
   // E_coll=E_trunc crossover N_x across the half-to-double E_trunc floor grid with the Gronwall
   // multiplier swept over the RIGOROUS bracket [1, exp(2.37e-4)=1.000237 (imp-3580 C_G=1),

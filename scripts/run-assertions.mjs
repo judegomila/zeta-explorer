@@ -2479,6 +2479,17 @@ const DATA_MODULES = [
   // already unconditional). Throws on import if the U-shape, capstone reproduction, or
   // widest-at-ceiling structure breaks. Assessment only; no positivity; no QED; PT 0.2 SOTA.
   '/src/data/imp-3220-en-bridge-fidelity-frontier.js',
+  // imp-3324: MEASURES how load-bearing the C_H=1/8 ansatz is for the imp-3220 widest-gap
+  // conditional share sigma(10^6)~0.949. Reuses the identical imp-3220 sub-terms, parametrizes
+  // E_coll linearly in C_H (R=E_trunc+E_flow fixed), and finds sigma=E_coll/(R+E_coll) is a
+  // SATURATING function: closed-form d(sigma)/d(C_H)=(1-sigma)sigma/C_H=0.384 at the ansatz,
+  // semi-elasticity sigma(1-sigma)=0.048. Sweeping C_H over its plausible bracket [0.0625,1.0]
+  // (16x range: half-ansatz to the imp-366 placeholder, through the imp-2643 audited 0.127)
+  // moves the share only within [0.9037,0.9934] -- audited loosening 7.6e-4, full placeholder
+  // +4.40pp. C_H is load-bearing for the ABSOLUTE E_coll budget but NOT the SHARE (saturates
+  // toward 1), so the "94.9% rests on the ansatz" headline is robust. Throws on import if the
+  // derivative/numeric cross-check or bracket robustness breaks. Assessment only; no QED; PT SOTA.
+  '/src/data/imp-3324-sigma-CH-sensitivity.js',
   // imp-3276: quantifies the per-N safety MARGIN of the PATH-1 leading-order
   // predicates E1 (rho_{J*(N)} non-decreasing) and E2 (tau_c_est non-increasing)
   // over the full Odlyzko sweep N in {2..10^6}, upgrading the roadmap ZERO-violations

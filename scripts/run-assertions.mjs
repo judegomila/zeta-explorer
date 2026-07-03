@@ -2637,6 +2637,47 @@ const DATA_MODULES = [
   // root fails to match the ternary search, the residual does not vanish/bracket the peak,
   // or the crude-form miss changes sign. Derivation only; no QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-3446-nmax-closed-form.js',
+  // imp-3466: RECONCILES the imp-3446 crude leading-order N_crude = G L(l^2-1)/(4 pi^2 E_trunc)
+  // ~ 1.60e6 (which misses the exact root N_max = 9.218633e5 by ~73%) with the full implicit
+  // stationarity equation (*). Solving (*) for the peak floor ratio E_flow/E_trunc yields the
+  // closed pure-log CORRECTION FACTOR g(l,L) = (1 + a - b)/(1 - a - b - 2c), a = 1/(l-1),
+  // b = 1/L, c = 1/(l+1). Since the crude balance is E_flow = E_trunc (g -> 1, frozen logs),
+  // the corrected closed form is the fixed point N_corr = N_crude/g, which reproduces the
+  // imp-3446 bisection root to relative error ~1e-15: the whole 73% miss is the one factor
+  // g ~ 1.5306 (= E_flow/E_trunc at the peak, 1/g ~ 0.6533). The leading order-1/l truncation
+  // g ~ 1 + 4 l/(l^2-1) cuts the miss from ~73% to ~18%. HONEST SUB-GAP: one analytic order
+  // lands ~18%, not a few percent; the few-percent reconciliation rests on the full rational g.
+  // Throws on import if the corrected fixed point fails to match the bisection root, g does not
+  // equal E_flow/E_trunc at the peak, or the leading truncation fails to improve on the crude
+  // form. Derivation only; no QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3466-nmax-nextorder-correction.js',
+  // imp-3462: DERIVES the imp-3443 measured turnover exponent p ~ 1.376 (N_max ~ (1/E_trunc)^p)
+  // in closed form by implicitly differentiating the imp-3446 stationarity equation
+  // F = E_flow A/(E_trunc+E_flow) - B = 0 with respect to ln E_trunc. Using the collapse
+  // E_flow-prime/E_flow = A (x = log T0), the implicit-function theorem gives p =
+  // -(l/(l-1)) dx/dlnE_trunc = -(l/(l-1))(dF/dlnE_trunc)/(dF/dx), an explicit rational
+  // function of the peak log-derivatives A, A-prime, B-prime. At the baseline floor p ~ 1.373,
+  // matching the imp-3443 local elasticity (-1.373), agreeing with a re-solved-root finite
+  // difference to ~1e-4, and (grid chord) reproducing the imp-3443 global 1.376; the local
+  // exponent drifts gently 1.34 -> 1.42 across the half-to-double floor grid, so the measured
+  // power law is a slowly-varying local elasticity. Throws on import if the analytic exponent
+  // fails to match the finite-difference / measured value, the baseline peak drifts off
+  // 9.22e5, or the drift is non-monotone. Derivation only; no QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3462-nmax-turnover-exponent-derivation.js',
+  // imp-3465: ASSESSES whether the imp-3406 interior sigma(N) MAX at N_max ~ 9.22e5 survives
+  // once the imp-2631 truncation floor E_trunc = 3.06e-5 is made HEIGHT-DEPENDENT. Re-runs the
+  // identical imp-3406 scan/ternary with the same imp-3220 sub-terms but a family of floor
+  // laws calibrated to 3.06e-5 at T_PT=3e12: POWER E_trunc = 3.06e-5*(T_PT/T0)^k and LOG
+  // E_trunc = 3.06e-5*(logT_PT/logT0)^q. Finding: the constant control (k=0) reproduces the
+  // interior MAX ~9.22e5, but the PHYSICALLY-MOTIVATED fixed-strip Ingham sigma=3/4 floor
+  // E_trunc = 3*T0^{-0.4} (k=0.4) DISSOLVES it -- sigma(N) monotone decreasing, NO interior
+  // maximum. Every positive power kills the turnover (monotone decreasing for k in {0.2,0.4,
+  // 0.5}, increasing to 1 for k=0.6; large-N limit flips at k* ~ 1/2 = the E_coll decay rate);
+  // only quasi-constant LOG floors (q=1,2) preserve it, landing lower (~3.6e5, ~1.2e5). So the
+  // turnover is a CONSTANT-FLOOR artifact, sharpening imp-3443. Throws on import if the control
+  // reproduction, physical-floor dissolution, no-power-survives, k* flip, log preservation, or
+  // honesty gate breaks. Measurement/diagnostic only; no QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3465-nmax-height-dependent-floor.js',
   // imp-3324: MEASURES how load-bearing the C_H=1/8 ansatz is for the imp-3220 widest-gap
   // conditional share sigma(10^6)~0.949. Reuses the identical imp-3220 sub-terms, parametrizes
   // E_coll linearly in C_H (R=E_trunc+E_flow fixed), and finds sigma=E_coll/(R+E_coll) is a

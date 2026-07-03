@@ -1843,6 +1843,31 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "C_inf three-route extrapolation consensus (imp-3346/3407/3445)",
+    category: "numerical",
+    definition:
+      "Three independent extrapolation routes for the imp-3346 capture constant C_inf, run on the " +
+      "same r*U vs 1/U geometric ladder, are tabulated here for a single at-a-glance comparison: the " +
+      "imp-3346 headline first-order Richardson C_inf = 0.1751 (quoted to ~1e-4), the imp-3407 Aitken " +
+      "Delta^2 acceleration C_inf = 0.1750631 (the low outlier), the imp-3407 second-order quadratic " +
+      "Richardson C_inf = 0.1751079, and the imp-3445 Wynn epsilon top-triple {15, 22.5, 33.75} " +
+      "acceleration C_inf = 0.1751107 (anchored on the newer N = 1350 rung). The quadratic and Wynn " +
+      "top-triple values CLUSTER at ~0.17511, isolating the Aitken value 0.1750631 as the low outlier " +
+      "since it drops the O(1/U^2) tail term. All four values agree with each other to within ~5e-5 " +
+      "and fall inside the imp-3346 quoted 1e-4 precision band, but the honest sub-gap between the " +
+      "clustered ~0.17511 estimate and the Aitken ~0.17506 estimate is NOT resolved to 1e-5 by any of " +
+      "these routes." +
+      "\n\nHONEST SCOPE: tabulation of existing numerical results only -- no new computation, no closed " +
+      "form, no RH claim. The imp-3066 off-diagonal endpoint-Hankel obstruction is untouched; " +
+      "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-3475 (three-route C_inf consensus tabulation), 2026",
+    relatedTerms: [
+      "capture ratio C_inf (imp-3346)",
+      "Wiener-Khinchin numerator-norm identity (||Ttilde|| = a sup_xi |d/dxi |Phihat(xi)|^2|)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

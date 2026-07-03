@@ -1649,6 +1649,30 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "sigma(N) N-shape (interior min ~97.8, interior max ~9.22e5)",
+    category: "numerical",
+    definition:
+      "imp-3406 extrapolated the imp-3220 GUE-conditional share sigma(N) = E_coll(N)/E(N) past the " +
+      "N* = 10^6 assembly ceiling and found it is not the one-sided U-curve imp-3220 reported, but a " +
+      "full N-SHAPE: sigma rises from small N, dips to an interior MIN near N ~ 97.8 (sigma ~ 0.841, " +
+      "the exact argmin located by imp-3323), rises again to an interior MAX at N_max ~ 9.21863e5 " +
+      "(sigma_max ~ 0.9494), and then DECAYS toward 0 as N grows further, because the constant " +
+      "truncation floor E_trunc (imp-2631, ~3.06e-5) eventually dominates the vanishing collision term " +
+      "E_coll ~ sqrt(log T0/N). This corrects the imp-3220 headline that sigma is 'widest ~94.9% exactly " +
+      "at the N* = 10^6 ceiling': N* = 10^6 sits only 2.1e-5 below the true interior peak, so the " +
+      "ceiling value is a flat-cap sampling coincidence, not evidence of an unbounded-widening frontier." +
+      "\n\nHONEST SCOPE: measurement/extrapolation only. Does not change the GUE-conditional C_mb <= 1 " +
+      "bridge assumption or touch the imp-3066 off-diagonal endpoint-Hankel obstruction; no RH claim, " +
+      "no QED.",
+    firstUsed: "imp-3406 (sigma(N) N-shape extrapolation past the 10^6 ceiling), 2026",
+    relatedTerms: [
+      "E(N) bridge-constant frontier (imp-3220)",
+      "GUE-conditional share argmin (imp-3323)",
+      "truncation floor E_trunc (imp-2631)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

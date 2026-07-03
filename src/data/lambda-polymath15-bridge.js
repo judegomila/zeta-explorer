@@ -15,7 +15,9 @@
  *   Koksma-Hlawka W_1 modulus composed with the Hölder-1/2 modulus of the
  *   first-collision functional tau_c at the Burgers shock from imp-366
  *   (Polymath15 Lemma 5.2 port). Sum yields E(N) ≤ C_★ · (log N)² / N^kappa
- *   with kappa > 0 unconditionally, hence E(N) → 0 at a polylog-over-N rate.
+ *   with kappa > 0 unconditionally: the polylog-over-N RATE of E(N) is thus
+ *   unconditional, but E(N) → 0 is GATED on the N-uniform leading constant C_★
+ *   (RH-hard C_H; imp-2640 NEGATIVE), NOT unconditional (see CORRECTION below).
  *
  * Proof-chain step: G6_polymath15_bridge closure (S8 / Polymath15 layer). This
  *   file is the load-bearing bridge that upgrades the imp-341 unconditional
@@ -24,8 +26,10 @@
  *   since Λ is defined via the entire heat-evolved function H_t not via any
  *   finite truncation. Without this bridge the imp-341 theorem is silent on Λ;
  *   with it, the chain imp-317 (tail bound) + imp-341 (Burgers uniformity) +
- *   imp-366 (Hölder-1/2 modulus at the shock) compose into an unconditional
- *   bound |Λ − (−t_c(N))| ≤ E(N) → 0. The G6a_shock_lipschitz sub-gap that was
+ *   imp-366 (Hölder-1/2 modulus at the shock) compose into the bound
+ *   |Λ − (−t_c(N))| ≤ E(N), whose polylog-over-N RATE is unconditional but whose
+ *   E(N) → 0 conclusion is GATED on the RH-hard C_H (imp-2640 NEGATIVE), NOT
+ *   unconditional (see CORRECTION below). The G6a_shock_lipschitz sub-gap that was
  *   the single open analytic step at imp-345 inception was closed by imp-366
  *   and the coordinated G6 flip was performed by imp-387; verdict.closure is
  *   now "closed" (modulo symbolic constants of order unity).
@@ -50,6 +54,18 @@
  *     explanation), and openWork array of three follow-up directions.
  *   - LAMBDA_POLYMATH15_BRIDGE_ASSERTIONS: array of ten holds()/why guard
  *     predicates consumed by the dashboard self-check pipeline.
+ *
+ * ⚠ CORRECTION (imp-3321, 2026-07-02, max-fanout Fable-5 whole-corpus audit):
+ *   earlier revisions of this module said the composed bound gives
+ *   "E(N) → 0 UNCONDITIONALLY". That is SUPERSEDED and WRONG. What is
+ *   unconditional is the RATE (the polylog-over-N exponent kappa > 0) and the
+ *   structural lim-sup |t_c(N)| = 0 (imp-341 / route B). E(N) → 0 itself is
+ *   GATED on the N-uniform leading constant C_★, dominated by the RH-HARD C_H
+ *   (imp-2640 Gronwall discharge NEGATIVE; ch-wall-frontier-verdict-2026-06-26
+ *   RH-HARD-CONFIRMED), so it is NOT unconditional. Platt-Trudgian Lambda <= 0.2
+ *   remains the rigorous SOTA. The limsup=0 wording is left intact; only the
+ *   E(N) → 0 unconditional wording is restated. Sibling fix: imp-366
+ *   polymath15-lemma52-shock-holder.js (commit 23565975).
  *
  * Key assertions (each a holds()/why pair):
  *   - imp345-consumes-imp344-by-id: LAMBDA_INTERCEPT_UNCONDITIONAL.id must
@@ -588,7 +604,10 @@ export const LAMBDA_POLYMATH15_BRIDGE = {
       'All three error terms are established: E_trunc and E_flow via Polymath15 ' +
       'Lemma 3.3 + imp-317 Guth-Maynard tail + Tao Proposition 4.1; E_coll via ' +
       'imp-366 Holder-1/2 port of Polymath15 Lemma 5.2 (coordinated flip imp-387). ' +
-      'Full E(N) = O((log N / N)^{1/2}) → 0 UNCONDITIONALLY.',
+      'Full E(N) = O((log N / N)^{1/2}): this RATE is unconditional, but E(N) → 0 is ' +
+      'GATED on the N-uniform leading constant C_★ (RH-hard C_H; imp-2640 NEGATIVE, ' +
+      'ch-wall-frontier-verdict-2026-06-26 RH-HARD-CONFIRMED), NOT unconditional ' +
+      '(CORRECTED imp-3321). Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
     whatIsRigorous: [
       'The decomposition E(N) = E_trunc + E_flow + E_coll.',
       'E_trunc(N) ≤ C_T · T_0(N)^(−kappa_T) · log T_0(N) with kappa_T > 0 ' +

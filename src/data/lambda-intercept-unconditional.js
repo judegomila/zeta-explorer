@@ -183,7 +183,12 @@ const G6_POLYMATH15_BRIDGE = {
     'O((log N / N)^{1/2}) unconditionally. The imp-345 bridge decomposition ' +
     'E(N) = E_trunc + E_flow + E_coll is now fully rigorous modulo symbolic ' +
     'constants C_T, C_F, C_C of order unity, establishing |Lambda - (-t_c(N))| ' +
-    '<= E(N) → 0 UNCONDITIONALLY.',
+    '<= E(N) with an unconditional polylog-over-N RATE. CORRECTED imp-3321: ' +
+    'E(N) → 0 is NOT unconditional -- it is GATED on the N-uniform leading ' +
+    'constant C_H, which is RH-HARD (imp-2640 Gronwall discharge NEGATIVE; ' +
+    'ch-wall-frontier-verdict-2026-06-26 RH-HARD-CONFIRMED). The structural ' +
+    'lim-sup |t_c(N)| = 0 (route B) stays unconditional; Platt-Trudgian ' +
+    'Lambda <= 0.2 remains the rigorous SOTA.',
   closures: [
     'imp-345 — E_trunc + E_flow rigorous modulo constants (Polymath15 Lemma 3.3 ' +
       '+ Guth-Maynard tail).',
@@ -199,8 +204,11 @@ const G6_POLYMATH15_BRIDGE = {
   closedBecause:
     'imp-345 gave the E(N) decomposition with E_trunc and E_flow rigorous; ' +
     'imp-366 closed the last sub-gap G6a by porting Polymath15 Lemma 5.2, ' +
-    'giving E_coll = O((log N / N)^{1/2}) → 0 without any open conjecture. ' +
-    'The full chain |Lambda - (-t_c(N))| <= E(N) → 0 is now unconditional.',
+    'giving the E_coll = O((log N / N)^{1/2}) RATE (the Holder-1/2 exponent). ' +
+    'CORRECTED imp-3321: the full chain |Lambda - (-t_c(N))| <= E(N) has an ' +
+    'unconditional RATE, but E(N) → 0 is GATED on the RH-hard leading constant ' +
+    'C_H (imp-2640 NEGATIVE), NOT unconditional. Only limsup |t_c(N)| = 0 is ' +
+    'unconditional (route B).',
   firstSurfacedIn: 'imp-344',
   closedIn: 'imp-387 (lambda-intercept-unconditional.js coordinated flip)',
   previouslyImplicitIn: [

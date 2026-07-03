@@ -2977,6 +2977,37 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "OUTER composite-Simpson truncation of the higher moments M_5..M_10 certified below the imp-3600 fit tolerance (imp-3621)",
+    category: "numerical",
+    definition:
+      "imp-3600 fed the higher moments M_5..M_10 (from the NM=1600 composite-Simpson OUTER grid on [0,T_A]) into " +
+      "the closed C_5=M_7/(42 M_5), C_6=M_8/(56 M_6) and next-order D_5, D_6 exponent-ladder brackets, reporting " +
+      "the p=2 fit-bias law reproduces the actual least-squares slope to ~1e-9 -- but those higher moments never " +
+      "received an OUTER-truncation cross-check (imp-3603 covered only M_0..M_4). imp-3621 holds the INNER A(tau) " +
+      "rule identical (composite Simpson, INNER_N=1200 on [0,7]) on both paths and compares the imp-3600 outer-" +
+      "Simpson moments against an independent imp-3603-class Gauss-Legendre OUTER reference (GL-24, 200 panels), " +
+      "itself self-converged to ~1e-15 under panel doubling. MEASURED: the per-moment outer-Simpson relative gap " +
+      "is ~1.31e-10 at M_5 and drops to the ~1e-15 rounding floor for M_6..M_10 (M_6 ~3.9e-13, M_7 ~1.8e-13, " +
+      "M_8..M_10 ~1e-15) -- the worst case, ~1.31e-10, sits more than an ORDER OF MAGNITUDE below the imp-3600 " +
+      "~1e-9 fit tolerance. The C_5, C_6, D_5, D_6 brackets reconstructed from the Simpson-outer moments match " +
+      "those from the GL-outer moments to << 1e-9, so the imp-3600 |p_fit-2| read-outs (~6.99e-6, ~1.14e-5) carry " +
+      "no residual outer-quadrature bias -- extending the imp-3603 M_0..M_4 Simpson-free confirmation to the " +
+      "M_5..M_10 rungs imp-3600 actually feeds the p=2 ladder." +
+      "\n\nHONEST SCOPE: cross-validation/measurement only -- bounds an outer quadrature-truncation error against " +
+      "an independent reference; establishes NO operator positivity. Mass-feasibility remains NECESSARY-BUT-NOT-" +
+      "SUFFICIENT; the operator-level K_a >= 0 off-diagonal endpoint-Hankel positivity (imp-3066) is UNTOUCHED. " +
+      "No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3621 (bounds the imp-3600 M_5..M_10 outer composite-Simpson truncation against an independent Gauss-Legendre outer reference, certifying the max per-moment gap ~1.31e-10 sits over an order of magnitude below the ~1e-9 fit tolerance), 2026",
+    relatedTerms: [
+      "imp-3600 remainder-tail exponent ladder n=5,6 (imp-3600)",
+      "imp-3603 inner-truncation Gauss-Legendre cross-validation, M_0..M_4 (imp-3603)",
+      "imp-3581 closed C_n/D_n derivation and fit-bias law, n=3,4 (imp-3581)",
+      "imp-3618 moment-remainder tail exponent ladder extended to n=7,8 (imp-3618)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -2304,6 +2304,41 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Odd-degree (sinh) catastrophic-cancellation safety k-ladder, closed crossover k* (imp-3527)",
+    category: "numerical",
+    definition:
+      "imp-3509 audited the EVEN (cosh) degree-2 catastrophic-cancellation safety of the near-cancelling " +
+      "cosh(a tau) - 1 term across the imp-3510 k-ladder; imp-3527 supplies the missing ODD (degree-3) " +
+      "analogue for the near-cancelling sinh(a tau) - a tau term of the degree-3 bridge mass " +
+      "B_3(a,U) = int_0^U (sinh(a tau) - a tau) A(tau) d(tau). On rung k the worst small sinh argument is " +
+      "x_k = a0*T_A/k; forming sinh(x_k) - x_k by direct subtraction and bounding the sinh rounding error " +
+      "gives the relative cancellation error rho(k) = eps*x_k/(sinh(x_k) - x_k), whose small-x limit " +
+      "(sinh(x) - x ~ x^3/6) is rho(k) ~ 6*eps*k^2/(a0*T_A)^2 -- GROWING like k^2, with leading coefficient " +
+      "6, three times the imp-3509 degree-2 coefficient 2, because the odd difference cancels one order " +
+      "deeper (x^3/6 vs x^2/2). The competing O(a^2) leading-form tail of B_3 -- " +
+      "tail(k) = (a0^2/(20 k^2))(M_5/M_3), the gap from (a^3/6)M_3 to the next odd term (a^5/120)M_5 -- " +
+      "SHRINKS like 1/k^2, so the safety margin tail/rho collapses like k^{-4}. Setting rho(k) = tail(k) " +
+      "gives the closed-form crossover k* = [a0^4*T_A^2*M_5/(120*eps*M_3)]^{1/4}, with the crossover value " +
+      "rho(k*) = tail(k*) cell-independent since a0/k* is constant. Measured on the imp-3510 ladder " +
+      "{2,3,4,6,8,12,16,24} on two base cells: rho grows monotonically (5.29e-16 at k=2 to 8.54e-14 at " +
+      "k=24 on S3, matching the closed form to <1%), the tail shrinks monotonically (9.11e-5 to 6.33e-7), " +
+      "the margin tail/rho stays at least SIX orders of magnitude on every rung (down to ~7.4e6 at k=24 " +
+      "on S3, ~3.0e6 on S4), and the crossover k* = 1252.52 (S3) / 1002.02 (S4) sits roughly 40-50x beyond " +
+      "the largest tested rung k=24, where both errors equal ~2.32e-10." +
+      "\n\nHONEST SCOPE: measurement/certification only -- certifies the floating-point cancellation-safety " +
+      "of the degree-3 integrand across the k-ladder and establishes NO operator positivity. " +
+      "Mass-feasibility is NECESSARY-BUT-NOT-SUFFICIENT. The operator-level K_a >= 0 off-diagonal " +
+      "endpoint-Hankel obstruction (imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
+      "Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3527 (derivation and measurement of the odd-degree sinh cancellation safety k-ladder and closed crossover k*), 2026",
+    relatedTerms: [
+      "closed-form degree-3 (odd) miss factor 1 - 1/k^4 (imp-3510)",
+      "genuine-Phi autocorrelation MOMENT LADDER M_0..M_4 and the moment-indexed leading form R_n(a) ~ (a^n/n!) M_n (imp-3481)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

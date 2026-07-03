@@ -3727,6 +3727,14 @@ function ResidualExponentSLimitViz() {
         Source: imp-3217-residual-exponent-s-limit.js &mdash; a=0.5, U=2s, NQ=4000,
         DEG&isin;&#123;2,4,6,8,10&#125;, cells: s&isin;&#123;0.8,1.2,1.6,2.0,3.0,4.0,6.0&#125;.
       </p>
+      <div style={{ marginTop: 8, padding: '8px 12px', borderRadius: 6, background: 'rgba(100,116,139,0.06)', border: '1px dashed rgba(100,116,139,0.3)' }}>
+        <div style={{ fontSize: 10, fontWeight: 700, color: '#64748b', letterSpacing: '0.06em', marginBottom: 4 }}>
+          WHAT REMAINS
+        </div>
+        <p style={{ color: '#64748b', fontSize: 11, lineHeight: 1.6, margin: 0 }}>
+          {M.whatRemains.finiteLimitBeyondDoublePrecision} {M.whatRemains.extendedPrecisionFollowUp}
+        </p>
+      </div>
     </div>
   );
 }

@@ -384,6 +384,19 @@ export const IMP3217_RESIDUAL_EXPONENT_S_LIMIT = Object.freeze({
       'endpoint-Hankel operator step (imp-3066) remains the lone obstruction and is NOT addressed here.',
     sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA',
   }),
+
+  whatRemains: Object.freeze({
+    finiteLimitBeyondDoublePrecision:
+      'The s -> inf finite-limit question for p(s) is BEYOND double-precision reach past s ~ 6: G(s) = ' +
+      'tanh(s) - tanh(s/2) -> 0 as both tanh terms saturate to 1, so resid = G(s) - gap(DEG) becomes a ' +
+      'catastrophic cancellation of two tiny near-equal double-precision floats, and the cosh-monomial ' +
+      'Cholesky loses the resolving power needed to fit a clean power law past that point.',
+    extendedPrecisionFollowUp:
+      'Settling whether p(s) has ANY finite limit -- or keeps rising without bound -- would require redoing ' +
+      'this same rebuildCellGap path in extended (e.g. double-double or arbitrary) precision so that G(s) ' +
+      'and gap(DEG) can be subtracted without the current double-precision floor destroying the residual; ' +
+      'not attempted here.',
+  }),
 });
 
 // -- Tripwire assertions ------------------------------------------------------

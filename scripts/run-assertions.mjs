@@ -3102,6 +3102,38 @@ const DATA_MODULES = [
   // offline literals (N=1600 ~25k O(N^2) matvecs, import-light). Measurement only,
   // imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
   '/src/data/imp-3545-power-iteration-budget-measured-N1000-1600.js',
+  // imp-3553 (accuracy): EXTENDS the imp-3526 cancellation-free moment reformulation
+  // from the even degree-4 R_4 (cosh) to the ODD degree-3 R_3 (sinh). Writing
+  // R_3(a)=S(a)-a M_1 as the positive odd-moment series sum_{m odd>=3} a^m/m! M_m
+  // (no subtraction of the O(a M_1) mass) removes the rounding floor. HONEST
+  // CORRECTION of the scout premise: the odd R_3 does NOT lose the sub-0.125 rungs
+  // "identically" to R_4 — its subtracted mass a M_1 (~2.3e-5) is ~34x smaller than
+  // R_4 M_0 (~7.7e-4), so its floor a0*M_1*eps~5.0e-21 sits ~34x below the R_4
+  // M_0*eps~1.7e-19 floor. The subtractive R_3 survives the whole standard six-rung
+  // ladder and only breaks down one octave deeper (a<~0.008), where its relative
+  // residual rises non-monotonically (7.94e-8->2.31e-8->2.56e-8) into noise. On the
+  // extended nine-rung ladder {0.5,..,0.001953125} the free fit is p=1.99999
+  // (R^2=0.99999999996) vs the corrupted subtractive p=1.85615 (R^2=0.98499),
+  // recovering the three deep rungs; matches subtractive R_3 to rel 4.4e-13 at a=0.5.
+  // Confirms R_3(a)=(a^3/6)M_3+O(a^5) at derived p=2. Measurement/certification,
+  // imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 9 assertions.
+  '/src/data/imp-3553-remainder-tail-cancellation-free-r3.js',
+  // imp-3554 (numerical): MEASURES whether pushing the imp-3525 power-iteration
+  // budget BEYOND 8320 steps at U=20 (N=800) drives the corrected solver agreement
+  // below its residual ~1.9e-11 toward the machine floor, isolating the remaining
+  // power-convergence deficit from any algebraic solver disagreement. Reusing the
+  // identical imp-3525 skew-Toeplitz assembly, checkpointed power iteration and
+  // Lanczos m=120 reference, on budgets {8320,16640,33280}: the U=20 agreement falls
+  // from ~1.879e-11 at 8320 (reproducing imp-3525) to ~1.294e-14 at 16640 (a ~1450x
+  // collapse) and holds ~1.336e-14 at 33280 -- so the residual is PURE power
+  // under-convergence, removed by one budget doubling. Power self-convergence
+  // tightens to ~4.18e-16 by 16640, and the converged power-vs-Lanczos120 gap ~1.34e-14
+  // sits at the same machine level as the Lanczos m=120 vs m=160 self-consistency
+  // ~1.65e-14, so there is NO algebraic solver-disagreement floor above ~1e-14.
+  // Baked import-light literals (N=800 power run to 33280 ~= 33k O(N^2) matvecs, ~38s).
+  // Measurement only, imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA.
+  // 8 assertions.
+  '/src/data/imp-3554-power-budget-beyond-8320-U20-agreement-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

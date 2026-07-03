@@ -2107,6 +2107,37 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Solver-independent operator-norm cross-validation of the capture constant C = 0.1751370 (imp-3485)",
+    category: "numerical",
+    definition:
+      "imp-3467 assembled the capture constant C = ||Ttilde|| / (a * m0 * sigma_Phi) = 0.1751370 from a " +
+      "single solver: power iteration on M^T M (260 steps, one fixed start vector) for the numerator norm " +
+      "||Ttilde||, across the full imp-3240 U-grid {4, 6, 8, 10, 12, 16, 20}. imp-3485 recomputes ||Ttilde|| " +
+      "by a STRUCTURALLY INDEPENDENT route -- a symmetric Lanczos (Krylov-subspace) tridiagonalization of " +
+      "S = T^T T with full reorthogonalization, its top eigenvalue extracted by a cyclic Jacobi rotation " +
+      "sweep, sharing no code path with the power-iteration solver -- and divides by the same exact rank-2 " +
+      "shear-Gram denominator a * m0 * sigma_Phi. The independent norm reproduces the imp-3467 value to " +
+      "relative error 1.7e-9 (U = 4) widening to 1.0e-4 (U = 20), so the imp-3467 assembly is NOT a " +
+      "power-iteration artifact of one solver. Assembling C from the independent norm gives 0.174468 " +
+      "(U = 4) rising to 0.175109 (U = 20), sitting below the closed-form 0.1751370 on every cell (the " +
+      "Szego finite-section deficit) and converging upward, reproducing the imp-3467 ratio ladder " +
+      "0.9962 to 0.9998 from a distinct solver. (A follow-up, imp-3505/imp-3525, later traced the residual " +
+      "U = 20 gap to a stacked power-under-convergence and Lanczos Krylov-truncation deficit and collapsed " +
+      "it to ~1e-11 by raising both solvers' budgets, confirming the two solvers agree to machine precision " +
+      "once fully converged.)" +
+      "\n\nHONEST SCOPE: cross-validation/measurement only, no new closed form. C = 0.1751370 characterizes " +
+      "the capture-ratio numerator norm, not positivity. The off-diagonal endpoint-Hankel obstruction " +
+      "K_a >= 0 (imp-3066) remains the lone RH obstruction, UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3485 (solver-independent Lanczos/Jacobi cross-validation of the imp-3467 capture constant C = 0.1751370), 2026",
+    relatedTerms: [
+      "Ttilde closed-form C-assembly across the imp-3240 U-grid (imp-3467)",
+      "capture ratio C_inf (imp-3346)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/viz-imp3467-closed-form-c",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -146,6 +146,7 @@ const Imp3611SkewToeplitzKrylovGapLadderViz = lazy(() => import('./pages/Imp3611
 const Imp3612FitBiasDepthSweepViz = lazy(() => import('./pages/Imp3612FitBiasDepthSweepViz.jsx'));
 const Imp3629RemainderTailCoeffLadderViz = lazy(() => import('./pages/Imp3629RemainderTailCoeffLadderViz.jsx'));
 const Imp3738FmbPlateauEnclosureViz = lazy(() => import('./pages/Imp3738FmbPlateauEnclosureViz.jsx'));
+const Imp3864FmbSmallNEnclosureViz = lazy(() => import('./pages/Imp3864FmbSmallNEnclosureViz.jsx'));
 const Imp3613ReplicaFoldInGeometryViz = lazy(() => import('./pages/Imp3613ReplicaFoldInGeometryViz.jsx'));
 const Imp3614SigmaCrossoverFloorInvarianceViz = lazy(() => import('./pages/Imp3614SigmaCrossoverFloorInvarianceViz.jsx'));
 const Imp3627FlowGapNextorderViz = lazy(() => import('./pages/Imp3627FlowGapNextorderViz.jsx'));
@@ -766,6 +767,7 @@ function AppShell() {
           <Route path="/viz-imp3612-fit-bias-depth-sweep" element={<Imp3612FitBiasDepthSweepViz />} />
           <Route path="/viz-imp3629-remainder-tail-coeff-ladder" element={<Imp3629RemainderTailCoeffLadderViz />} />
           <Route path="/viz-imp3738-fmb-plateau-enclosure" element={<Imp3738FmbPlateauEnclosureViz />} />
+          <Route path="/viz-imp3864-fmb-small-n-enclosure" element={<Imp3864FmbSmallNEnclosureViz />} />
           <Route path="/viz-imp3613-replica-fold-in-geometry" element={<Imp3613ReplicaFoldInGeometryViz />} />
           <Route path="/viz-imp3614-sigma-crossover-floor-invariance" element={<Imp3614SigmaCrossoverFloorInvarianceViz />} />
           <Route path="/viz-imp3627-flow-gap-nextorder" element={<Imp3627FlowGapNextorderViz />} />

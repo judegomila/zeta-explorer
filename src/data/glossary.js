@@ -1815,6 +1815,34 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "sinh-drift coefficient c(U) inherits the 1/U capture law (imp-3442)",
+    category: "numerical",
+    definition:
+      "imp-3409 fit the O(a^2) sinh-nonlinearity residual e(a) = r(a) - r_lin ~ c a^2 of the mupass " +
+      "capture ratio at the single cutoff U = 6 only (c ~ 1.58e-5), leaving its U-dependence unmapped. " +
+      "imp-3442 reruns the identical sqrt(2)-geometric a-ladder fit at each U in the extended imp-3240 " +
+      "grid {4,6,8,10,12,16,20} and extracts c(U): the coefficient DECREASES monotonically (2.38e-5 at " +
+      "U = 4 down to 4.86e-6 at U = 20), tracking a near-1/U power law c(U) = k U^q with q ~ -0.96 " +
+      "(R^2 ~ 0.997). The linear capture ratio r_lin(U) itself carries essentially the same slope over " +
+      "the grid, q_lin ~ -0.94 (R^2 ~ 0.998) -- the two exponents agree to within ~0.02. So the O(a^2) " +
+      "sinh-drift coefficient and the imp-3240 1/U capture decay SHARE a scaling: c(U) inherits the " +
+      "r ~ C/U law, with the product c(U)*U near-constant (~9.5e-5) across the grid while c(U)*U^2 " +
+      "grows monotonically, ruling out a 1/U^2 rate. Every per-U small-a exponent stays pinned at " +
+      "p = 2.000 (R^2 = 1.000000), so the residual is a clean O(a^2) drift at every cutoff, with only " +
+      "its coefficient sliding as ~1/U." +
+      "\n\nHONEST SCOPE: numerical measurement only (fitted exponent over a finite U-grid, not a " +
+      "symbolic identity; q sits ~4% short of exactly -1). Does not construct the missing off-diagonal " +
+      "magnitude and does not attempt the imp-3066 K_a >= 0 positivity. RH-equivalent; no RH verdict, " +
+      "no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3442 (sinh-drift coefficient c(U) U-scaling sweep), 2026",
+    relatedTerms: [
+      "O(a^2) sinh-nonlinearity residual (imp-3409)",
+      "mupass capture ratio r ~ C/U law (imp-3240)",
+      "linear-shear limit (imp-3350)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

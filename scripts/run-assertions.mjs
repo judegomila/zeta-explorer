@@ -3471,6 +3471,19 @@ const DATA_MODULES = [
   // WHOLLY NEW, G6a OPEN; imp-3066 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 5 assertions.
   '/src/data/imp-3846-g6a-k4-caustic-regularity-toolkit-assessment.js',
+  // imp-3854: analytic derivation of the imp-3728 thetaBar-insensitivity.
+  // Differentiates Psi_N in the frozen horizon T: d s_l/dT = -4/s_l gives the
+  // rigorous LEMMA 3854  0 <= dPsi_N/dT <= (8/smin^2) Psi_N (smin the smallest
+  // individual shrunk gap, smin <= Dmin), hence d theta_N/d thetaBar <=
+  // (1/thetaBar^2)(H/smin)^2 (1-theta_N) -- a product of two O((H/Dmin)^2)
+  // factors, so the certified K_paper enclosure is horizon-robust when
+  // Dmin/H >> 1. The O((H/Dmin)^2) prediction matches the imp-3728 measured
+  // improveFactor on all 10 plateaus to within a factor [0.79,1.56]; largest
+  // feasible relative K_paper shift 1.4e-5 => carryforward 8.31e4x stable to
+  // 5 sig figs, thetaBar-robust not lucky. Import-light (derives live from the
+  // imp-3725 and imp-3728 baked rows). Derivation only; imp-3066 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-3854-thetabar-insensitivity-derivation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

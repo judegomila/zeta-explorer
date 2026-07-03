@@ -616,6 +616,41 @@ export const OPEN_GAPS = [
     severity: 'closed',
     blocks: null,
   },
+  {
+    // imp-3401: formalizes the recurring imp-3066 "lone obstruction" (cited in the
+    // honestCaveats of imp-3346 / imp-3347 / imp-3350 / imp-3351 but never recorded as a
+    // named gap) as a single canonical open-gap descriptor carrying its best measured magnitude.
+    id: 'G7',
+    label: 'K_a ≥ 0 off-diagonal endpoint-Hankel operator positivity (the imp-3066 lone obstruction)',
+    status:
+      'OPEN (imp-3066 + imp-3351) — the RH-equivalent OPERATOR step the COMPLETE scalar mu^pass cover ' +
+      '(imp-3007, residual deficit 0) leaves untouched. The scalar cover pins every DIAGONAL of ' +
+      'R = Gpass^{-1/2} Gshear Gpass^{-1/2} strictly below 1, but Gshear is a genuine off-diagonal ' +
+      'endpoint-Hankel form: the contraction ‖R‖ ≤ 1 (equivalently K_a ≥ 0) additionally needs the ' +
+      'off-diagonal cross-terms bounded. Cited as the lone obstruction in the imp-3346 / imp-3347 / ' +
+      'imp-3350 / imp-3351 honestCaveats; consolidated here into one named gap by imp-3401. ' +
+      'Assessment only; PT Lambda ≤ 0.2 stays SOTA; NO RH verdict.',
+    statement:
+      'K_a ≥ 0, i.e. the de-homogenized R = Gpass^{-1/2} Gshear Gpass^{-1/2} is a contraction ' +
+      '(‖R‖ ≤ 1), where Gpass is the passive (cosh) diagonal and Gshear the shear (sinh) ' +
+      'endpoint-Hankel Gram of section 26.',
+    whatClosesIt:
+      'A positivity bound on the OFF-DIAGONAL endpoint-Hankel cross-terms of Gshear that pointwise ' +
+      '(scalar) weight domination cannot see — e.g. a dominating passive core making R a contraction ' +
+      'on the actual section-26 Gram, not merely on a representative truncation.',
+    currentMagnitude:
+      'On the imp-3066 representative degree-4 monomial truncation (a = 0.5, U = 6): every diagonal ' +
+      'R_jj < 1 (max ≈ 0.9909) yet the Perron operator norm ‖R‖ ≈ 4.617, an operator/diagonal gap ' +
+      '≈ 3.626 fed entirely by the off-diagonal Hankel cross-terms (off-diagonal Frobenius norm ' +
+      '≈ 4.082). imp-3351 confirms min eig(i·Gshear) = −‖Gshear‖ to machine precision at all 16 ' +
+      '(a, U) cells (rank-2 hollow antisymmetry), so the Gpass = |Gshear| partial-isometry ‖R‖ = 1 ' +
+      'is a tautology and the binding residual is exactly this still-unbounded off-diagonal magnitude. ' +
+      'Live source: imp-3066-offdiagonal-hankel-obstruction.js .measured.',
+    owner: 'imp-3066',
+    nextTickets: [],
+    severity: 'open',
+    blocks: 'operator positivity K_a ≥ 0 (the RH-equivalent section-26 Gram contraction ‖R‖ ≤ 1)',
+  },
 ];
 
 // ── Dependency matrix (imp-2336) ───────────────────────────────────────────

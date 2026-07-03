@@ -51,6 +51,8 @@ import { IMP3386_MUPASS_MULTIHARMONIC_SCALAR_CORE_SATURATION } from '../data/imp
 import { IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID } from '../data/imp-3240-mupass-capture-ratio-aU-grid.js';
 import { IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION } from '../data/imp-3346-capture-ratio-C-constant-derivation.js';
 import { IMP3350_CAPTURE_RATIO_LINEAR_SHEAR_LIMIT } from '../data/imp-3350-capture-ratio-linear-shear-limit.js';
+import { IMP3399_CAPTURE_RATIO_SINH_ODD_FACTORIZATION_IDENTITY } from '../data/imp-3399-capture-ratio-sinh-odd-factorization-identity.js';
+import { IMP3405_BRIDGE_MASS_LAMBDA_SCALING_LAW } from '../data/imp-3405-bridge-mass-lambda-scaling-law.js';
 import { IMP3343_SHEAR_GRAM_OPNORM_EQUALS_VOLTERRA_HS_IDENTITY } from '../data/imp-3343-shear-gram-opnorm-equals-volterra-hs-identity.js';
 import { IMP3344_SHEAR_GRAM_VERDICT_SCALE_FACTOR } from '../data/imp-3344-shear-gram-verdict-scale-factor.js';
 import { IMP3345_VHS_RICHARDSON_LIMIT } from '../data/imp-3345-vhs-richardson-limit.js';
@@ -6349,6 +6351,8 @@ function CaptureRatioShearGramClusterSummaryPanel() {
   const m3344 = IMP3344_SHEAR_GRAM_VERDICT_SCALE_FACTOR.measured;
   const m3345 = IMP3345_VHS_RICHARDSON_LIMIT;
   const m3351 = IMP3351_SHEAR_GRAM_SYMMETRIC_SPECTRUM_AU_GRID.measured;
+  const m3399 = IMP3399_CAPTURE_RATIO_SINH_ODD_FACTORIZATION_IDENTITY.measured;
+  const m3405 = IMP3405_BRIDGE_MASS_LAMBDA_SCALING_LAW.measured;
 
   const rows = [
     {
@@ -6388,12 +6392,24 @@ function CaptureRatioShearGramClusterSummaryPanel() {
         `${m3351.cells.length} cells of the a x U grid (max deviation ${m3351.maxRatioDev.toExponential(1)}), ` +
         'not only the genuine-Phi cell -- a cell-independent structural identity.',
     },
+    {
+      id: 'imp-3399',
+      note: 'sinh is odd, so the leading a-factor cancels EXACTLY (all orders) in the capture ratio and the ' +
+        `a->0 limit r_star equals the exactly-linear ratio r_lin (~${m3399.rLin.toFixed(6)} at U=6) as a proven ` +
+        `identity, not a coincidence -- but a nonzero O(a²) residual (c2 ~ ${m3399.residualC2.toExponential(2)}) survives.`,
+    },
+    {
+      id: 'imp-3405',
+      note: 'the imp-3349 k=2 two-point bridge-mass identity B(a/k,kU)=k*B(a,U) extends to a GENERAL ' +
+        'lambda-scaling law, certified across k in {2,3,4,6,8} from two independent base cells by direct ' +
+        `Simpson integration (max relative residual ${Math.max(m3405.maxRelResidB, m3405.maxRelResidD).toExponential(1)}).`,
+    },
   ];
 
   return (
     <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #a78bfa', background: 'rgba(167,139,250,0.04)' }}>
       <h3 style={{ color: '#a78bfa', marginTop: 0 }}>
-        Capture-Ratio &amp; Shear-Gram Cluster Roundup: seven diagnostics, one shared obstruction (imp-3413)
+        Capture-Ratio &amp; Shear-Gram Cluster Roundup: nine diagnostics, one shared obstruction (imp-3413)
       </h3>
       <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
         The imp-334x/335x cluster reconciles a set of published capture-ratio and shear-Gram measurements against
@@ -6431,7 +6447,7 @@ function CaptureRatioShearGramClusterSummaryPanel() {
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
-        Sources: imp-3343/3344/3345/3346/3347/3350/3351; shared obstruction: imp-3066-offdiagonal-hankel-obstruction.js.
+        Sources: imp-3343/3344/3345/3346/3347/3350/3351/3399/3405; shared obstruction: imp-3066-offdiagonal-hankel-obstruction.js.
       </p>
     </div>
   );

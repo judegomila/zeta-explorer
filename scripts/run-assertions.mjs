@@ -3075,6 +3075,18 @@ const DATA_MODULES = [
   // moment-decay domination holds, cosh strictly below e^. Derivation/certification,
   // imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
   '/src/data/imp-3532-moment-tail-closed-error-bound.js',
+  // imp-3546 (accuracy): CERTIFIES the imp-3532 sharp cosh(a T_A) moment-tail bound
+  // is asymptotically TIGHT and EXTENDS its bound-holds check past n=0..4. The k=1
+  // term of the exact residual E_n(a)=sum_{k>=1} a^(n+2k)/(n+2k)! M_(n+2k) IS the
+  // leading bound term and cosh(a T_A)->1, so |E_n(a)|/sharp -> 1 as a->0 (known
+  // limit), with 1-ratio = a^2[T_A^2/2 - M_(n+4)/((n+3)(n+4)M_(n+2))]+O(a^4). MEASURED
+  // on a in {0.125,0.0625,0.03125,0.015625}, n=0..4: ratio climbs monotonically to
+  // >0.99 and the deficit-decay converges to 4 (order a^2). Recomputing the imp-3481
+  // ladder to M_10 extends the imp-3532 C1 bound-holds check to n=0..8 (nine rungs vs
+  // five) on a in {0.5,0.25,0.125}: tail<=sharp<=clean and M_(n+2k)<=T_A^(2k-2)M_(n+2)
+  // both hold; recomputed M_0..M_6 anchor to imp-3481 bit-for-bit. Measurement/
+  // certification, imp-3066 untouched, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 8 assertions.
+  '/src/data/imp-3546-moment-tail-bound-tightness.js',
 ];
 
 let ALL_MODULES = FAST_MODE

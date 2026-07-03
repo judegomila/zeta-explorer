@@ -43,7 +43,9 @@ import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-
 import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bridge-sign-phi-only.js';
 import { IMP3199_OVERFLOW_FRACTION_CELL_SWEEP } from '../data/imp-3199-overflow-fraction-cell-sweep.js';
 import { IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE } from '../data/imp-3196-residual-gap-convergence-rate.js';
+import { IMP3217_RESIDUAL_EXPONENT_S_LIMIT } from '../data/imp-3217-residual-exponent-s-limit.js';
 import { IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP } from '../data/imp-3154-genuine-deg2-deficit-degree-sweep.js';
+import { IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR } from '../data/imp-3218-deg2-deficit-normalization-factor.js';
 import { IMP3104_ORTHOGONALIZED_OPNORM_DEGREE_SWEEP } from '../data/imp-3104-orthogonalized-opnorm-degree-sweep.js';
 import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-fraction-integrability.js';
 import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
@@ -3252,6 +3254,106 @@ function ResidualGapConvergenceRateViz() {
   );
 }
 
+// ── imp-3217: does the fitted exponent p(s) saturate (to 2) as s -> inf? ──────
+function ResidualExponentSLimitViz() {
+  const M = IMP3217_RESIDUAL_EXPONENT_S_LIMIT;
+  const sVals = M.measured.sValues;
+  const pVals = M.measured.pValues;
+  const rf = M.measured.risingFit;
+  const sf = M.measured.saturatingFit;
+
+  const W = 620, H = 300, ML = 60, MR = 30, MT = 28, MB = 52;
+  const chartW = W - ML - MR;
+  const chartH = H - MT - MB;
+
+  const sMin = 0, sMax = 6.6;
+  const pMin = 1.3, pMax = 2.2;
+  const px = (s) => ML + ((s - sMin) / (sMax - sMin)) * chartW;
+  const py = (p) => H - MB - ((p - pMin) / (pMax - pMin)) * chartH;
+
+  const risingPath = "M " + px(0).toFixed(1) + " " + py(rf.alpha).toFixed(1) +
+                     " L " + px(6.6).toFixed(1) + " " + py(rf.alpha + rf.beta * 6.6).toFixed(1);
+  const satPts = [];
+  for (let s = 0.8; s <= 6.6; s += 0.1) satPts.push([s, sf.asymptoteA + sf.slope / s]);
+  const satPath = satPts.map(([s, p], i) => (i === 0 ? "M " : "L ") + px(s).toFixed(1) + " " + py(p).toFixed(1)).join(" ");
+  const dataPath = sVals.map((s, i) => (i === 0 ? "M " : "L ") + px(s).toFixed(1) + " " + py(pVals[i]).toFixed(1)).join(" ");
+
+  const pTicks = [1.4, 1.6, 1.8, 2.0, 2.2];
+  const sTicks = [0, 1, 2, 3, 4, 5, 6];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #f472b6', background: 'rgba(244,114,182,0.04)' }}>
+      <h3 style={{ color: '#f472b6', marginTop: 0 }}>
+        Exponent p(s) rises past 2 &mdash; NO saturation to 2 within reach (imp-3217)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The imp-3196 power-law exponent p in resid(DEG)&nbsp;~&nbsp;C&thinsp;DEG<sup>&minus;p</sup>, refitted at seven
+        equal-s cells extending to s&nbsp;=&nbsp;6.0 (a&nbsp;=&nbsp;0.5, U&nbsp;=&nbsp;2s, NQ&nbsp;=&nbsp;4000, DEG&isin;&#123;2,4,6,8,10&#125;).
+        p(s) rises MONOTONICALLY from &asymp;{M.measured.pMin.toFixed(2)} to &asymp;{M.measured.pMax.toFixed(2)} and CROSSES 2 near s&nbsp;&asymp;&nbsp;6.
+        A rising meta-law p&nbsp;&asymp;&nbsp;{rf.alpha.toFixed(2)}&thinsp;+&thinsp;{rf.beta.toFixed(2)}&middot;s fits well (R<sup>2</sup>&asymp;{rf.r2.toFixed(3)})
+        and beats the saturating law p&nbsp;&asymp;&nbsp;{sf.asymptoteA.toFixed(2)}&minus;B/s (R<sup>2</sup>&asymp;{sf.r2.toFixed(3)}), whose
+        asymptote sits BELOW the measured p<sub>max</sub>. So the natural p&nbsp;&rarr;&nbsp;2 conjecture is REFUTED as a ceiling.
+      </p>
+      <div style={{ overflowX: 'auto', marginTop: 10 }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {pTicks.map((p) => (
+            <g key={"pg" + p}>
+              <line x1={ML} y1={py(p)} x2={W - MR} y2={py(p)} stroke={p === 2.0 ? '#f472b6' : '#1e293b'} strokeWidth={p === 2.0 ? 1.2 : 1} strokeDasharray={p === 2.0 ? '4 3' : undefined} />
+              <text x={ML - 8} y={py(p) + 4} textAnchor="end" fontSize="10" fill={p === 2.0 ? '#f472b6' : '#64748b'} fontFamily={mono}>{p.toFixed(1)}</text>
+            </g>
+          ))}
+          {sTicks.map((s) => (
+            <g key={"sg" + s}>
+              <line x1={px(s)} y1={MT} x2={px(s)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(s)} y={H - MB + 16} textAnchor="middle" fontSize="11" fill="#64748b" fontFamily={mono}>{s}</text>
+            </g>
+          ))}
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}>s = a&middot;U</text>
+          <text x={13} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily={mono}
+            transform={"rotate(-90 13 " + Math.round((MT + H - MB) / 2) + ")"}>fitted exponent p</text>
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+
+          <path d={satPath} fill="none" stroke="#64748b" strokeWidth="1.4" strokeDasharray="3 3" opacity={0.7} />
+          <path d={risingPath} fill="none" stroke="#22d3ee" strokeWidth="1.4" strokeDasharray="6 3" opacity={0.8} />
+          <path d={dataPath} fill="none" stroke="#f472b6" strokeWidth="2" />
+          {sVals.map((s, i) => (
+            <circle key={"pt" + i} cx={px(s)} cy={py(pVals[i])} r={4.5} fill="#f472b6" stroke="#0f172a" strokeWidth="1.5">
+              <title>{"s=" + s + "  p=" + pVals[i].toFixed(4)}</title>
+            </circle>
+          ))}
+          <g>
+            <line x1={ML + 14} y1={MT + 8} x2={ML + 32} y2={MT + 8} stroke="#f472b6" strokeWidth="2.5" />
+            <text x={ML + 38} y={MT + 12} fontSize="10" fill="#f472b6" fontFamily={mono}>measured p(s)</text>
+            <line x1={ML + 14} y1={MT + 24} x2={ML + 32} y2={MT + 24} stroke="#22d3ee" strokeWidth="2" strokeDasharray="6 3" />
+            <text x={ML + 38} y={MT + 28} fontSize="10" fill="#22d3ee" fontFamily={mono}>rising &alpha;+&beta;s (R²={rf.r2.toFixed(3)})</text>
+            <line x1={ML + 14} y1={MT + 40} x2={ML + 32} y2={MT + 40} stroke="#64748b" strokeWidth="2" strokeDasharray="3 3" />
+            <text x={ML + 38} y={MT + 44} fontSize="10" fill="#64748b" fontFamily={mono}>saturating A&minus;B/s (R²={sf.r2.toFixed(3)})</text>
+          </g>
+        </svg>
+      </div>
+
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          REPRESENTATIVE / DIAGNOSTIC &mdash; CARRIES NO RH VERDICT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Empirical least-squares exponent trend over DEG in &#123;2,4,6,8,10&#125; inside the imp-3104
+          numerically-trustworthy range; the s&nbsp;=&nbsp;4,&nbsp;6 cells sit near the resolution floor and are
+          corroborating-only. The s&nbsp;&rarr;&nbsp;&infin; limit is UNRESOLVED &mdash; past s&nbsp;&asymp;&nbsp;6, G(s)&nbsp;&rarr;&nbsp;0
+          forces resid into catastrophic cancellation below the numerical floor. The finding is that p does NOT
+          saturate to 2 within reach, NOT that a specific limit was established. The endpoint-Hankel operator
+          step (imp-3066) remains the lone obstruction and is untouched. Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3217-residual-exponent-s-limit.js &mdash; a=0.5, U=2s, NQ=4000,
+        DEG&isin;&#123;2,4,6,8,10&#125;, cells: s&isin;&#123;0.8,1.2,1.6,2.0,3.0,4.0,6.0&#125;.
+      </p>
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function ClosureRoutesPage() {
   return (
@@ -3535,6 +3637,27 @@ export default function ClosureRoutesPage() {
             convention (imp-3154 uses shear = full past-future Phi factor; section26 uses the
             standard cosh-normalized convention). This is <strong>NOT a discrepancy</strong>; the
             ~13x ratio is a known convention factor, not a computational disagreement.
+            <div style={{ marginTop: 5, paddingTop: 5, borderTop: '1px solid rgba(251,191,36,0.18)' }}>
+              <strong style={{ color: '#fbbf24' }}>Derived (imp-3218):</strong>{' '}
+              the connecting factor is{' '}
+              <span style={{ fontFamily: mono, color: '#fbbf24' }}>
+                R = {IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR.measured.connectingFactorR.toFixed(4)}
+              </span>
+              , within{' '}
+              <span style={{ fontFamily: mono, color: '#fbbf24' }}>
+                {(IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR.measured.fourPiRelativeResidual * 100).toFixed(2)}%
+              </span>{' '}
+              of{' '}
+              <span style={{ fontFamily: mono, color: '#fbbf24' }}>4&pi; = {IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR.measured.fourPi.toFixed(4)}</span>{' '}
+              &mdash; the symmetric 2&#xB7;(2&pi;) angular normalization from the 1/2&pi; shear/passive
+              asymmetry. D<sub>3154</sub>&#x2009;/&#x2009;4&pi; ={' '}
+              <span style={{ fontFamily: mono, color: '#fbbf24' }}>
+                {IMP3218_DEG2_DEFICIT_NORMALIZATION_FACTOR.measured.fourPiReconciledMagnitude.toExponential(2)}
+              </span>{' '}
+              vs the recorded 9.28e-9. <strong>Same quantity to leading order and sign</strong>; the
+              ~1.7% residual is the un-reproducible 3-sig-fig offline grid. Diagnostic /
+              RH-equivalent; no QED.
+            </div>
           </div>
         </div>
         {/* imp-3209: ||R|| grows with resolution -- no scalar core works at operator level */}
@@ -3948,6 +4071,12 @@ export default function ClosureRoutesPage() {
         Residual-gap convergence RATE: algebraic power-law decay, exponent p rising 1.49&rarr;1.72 with s (imp-3196)
       </h2>
       <ResidualGapConvergenceRateViz />
+
+      {/* ─── imp-3217: does the fitted exponent p(s) saturate (to 2) as s -> inf? ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Exponent p(s) rises past 2 as s grows: the p&rarr;2 conjecture is refuted, s&rarr;&infin; limit unresolved (imp-3217)
+      </h2>
+      <ResidualExponentSLimitViz />
 
       {/* ─── imp-3182: cosh-monomial conditioning ceiling cond(P)/cond(H) vs DEG (imp-3153) ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

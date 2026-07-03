@@ -2131,6 +2131,18 @@ const DATA_MODULES = [
   // Loewdin disagree ~6-7%, both overshoot the analytic ceiling). Representative/
   // diagnostic; no RH verdict; positivity not attempted; PT 0.2 stays SOTA.
   '/src/data/imp-3104-orthogonalized-opnorm-degree-sweep.js',
+  // imp-3288: UPGRADES imp-3104 from a monomial-truncation measurement to a FUNCTION-SPACE-
+  // COMPLETE rigorous negative result. States and verifies the analytic ceiling lemma over ALL
+  // of L2([0,U]): Q(f) = int sinh(a*tau) f^2 / int cosh(a*tau) f^2 <= tanh(a*U) for EVERY f
+  // (proof: sinh = cosh*tanh, tanh(a*tau) <= tanh(a*U) integrated against the nonnegative weight
+  // cosh(a*tau) f^2), and sup Q = tanh(a*U) < 1 is sharp (concentrating indicators reach it) but
+  // NOT attained. imp-3104 only measured monomials approaching from below; here the ceiling is
+  // proved over the full span and certified: 10 diverse non-monomial probes stay strictly below,
+  // the concentrating ladder rises past the best imp-3104 monomial norm (~0.99474) toward tanh(3),
+  // and the lemma re-verifies across an (a,U) family. Operator-order corollary: H <= tanh(a*U) P
+  // sharply, deficit >= 1 - tanh(a*U) > 0. Rigorous NEGATIVE result about the SCALAR core ONLY;
+  // does NOT touch K_a >= 0; no RH verdict; PT 0.2 stays SOTA.
+  '/src/data/imp-3288-analytic-ceiling-lemma.js',
   // imp-3125: profiles the imp-3086/imp-3102 BASIS-INVARIANT surviving residual gap
   // ||R_orth|| - max_j R_orth_jj (R_orth = L H L^T) vs monomial truncation degree DEG in
   // {2,4,6,8,10} on the headline cell a=0.5,U=6 (both parents measured DEG=4 only). The
@@ -2271,6 +2283,17 @@ const DATA_MODULES = [
   // ||Gshear|| (~97% is Phi position concentration = the |Gshear| spectrum). So the sign half is
   // Phi-only and free; the binding magnitude half stays operator-level / RH-equivalent. PT 0.2 SOTA.
   '/src/data/imp-3197-mupass-bridge-sign-phi-only.js',
+  // imp-3215: N-scaling of the imp-3197 lag-stationary Toeplitz surrogate vs |Gshear| operator-norm
+  // CAPTURE RATIO r(N)=||T||/||Gshear|| at the genuine Phi cell (NPHI=10,a=0.5,U=6), over the WIDER
+  // ladder N in {160,240,320,480,640,800} (imp-3197 reported stability only over {160,240,320}). r(N)
+  // decreases monotonically from ~0.03004 to ~0.02941 with shrinking decrements, converging from above
+  // to a finite continuum limit ~0.0294 (Richardson ~0.02936): the ~3% capture NEITHER decays to zero
+  // NOR grows -- it is a fixed structural fraction (the ratio is quadrature-weight-independent since the
+  // common 1/H factor cancels; both norms grow ~linearly in N). So the ~97% position-concentration share
+  // (~97.06%) is a genuine |Gshear| spectrum property, not a finite-N artifact -- sharpening imp-3197.
+  // Throws on import if the ratio is non-monotone, drifts out of band, or the norms stop growing.
+  // Diagnostic; RH-equivalent; imp-3066 endpoint-Hankel obstruction untouched; no QED; PT 0.2 SOTA.
+  '/src/data/imp-3215-mupass-capture-ratio-n-scaling.js',
   // imp-3126: cross-checks whether the imp-3106 convergent regular tail mass
   // int_{s0+1}^inf phi ds ~0.26900597 is structurally related to the imp-3026/imp-3070
   // cusp constant C_shock = sqrt(2/(3 log gamma_N)) ~0.26922 (which agree to ~2.1e-4 at

@@ -2691,6 +2691,40 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Degree-d bridge miss factor 1 - 1/k^(d+1): moment-independent, EXACTLY zero refinement shift (imp-3579)",
+    category: "numerical",
+    definition:
+      "The imp-3488 degree-2 (1 - 1/k^3) and imp-3510 degree-3 (1 - 1/k^4) bridge-mass MISS-FACTOR constants " +
+      "are DERIVED from the a^d homogeneity of the leading form (a^d/d!)M_d: the moment M_d is the leading " +
+      "coefficient and CANCELS identically in the scaling ratio r_k = B_d(a/k)/B_d(a) = k^{-d}[1 + O(a^2)]. So " +
+      "the derived constant 1 - 1/k^(d+1) is a PURE FUNCTION OF k that carries no moment at all. imp-3579 " +
+      "propagates the imp-3557 refined moments (M_4 = 9.62528e-8, M_3, relative corrections ~1.55e-6 to " +
+      "~5.41e-6 across M_2..M_5) through both miss factors and confirms this by direct computation: the " +
+      "reported closed-form constants shift by EXACTLY ZERO under the refinement, on every k-ladder rung " +
+      "{2,3,4,6,8} and both imp-3469 base cells (0.5,6) and (0.4,10). The only residual moment sensitivity " +
+      "enters through the O(a^2) leading-form tail, where the ratio depends on M_(d+2)/M_d (degree-2: M_4/M_2; " +
+      "degree-3: M_5/M_3); building the two-term model T_2(a)=(a^2/2)M_2+(a^4/24)M_4 and " +
+      "T_3(a)=(a^3/6)M_3+(a^5/120)M_5 and evaluating with base-vs-converged moments gives a miss-factor shift " +
+      "of only ~9.2e-11 (degree-2) / ~5.2e-11 (degree-3) -- four-plus orders below the propagated moment " +
+      "correction (max ~3.8e-6 / ~5.4e-6) and ~seven orders inside the leading-form tail budgets " +
+      "tail_2=(a^2/12)(M_4/M_2) ~4.4e-4 and tail_3=(a^2/20)(M_5/M_3) ~3.6e-4. The reported miss factors stand " +
+      "UNPERTURBED by the imp-3557 refinement." +
+      "\n\nHONEST SCOPE: certification/measurement only -- propagates a resolved quadrature-truncation correction " +
+      "through existing miss-factor constants and adds NO new mathematical structure. Mass-feasibility remains " +
+      "NECESSARY-BUT-NOT-SUFFICIENT (imp-3481); the operator-level K_a >= 0 off-diagonal endpoint-Hankel " +
+      "positivity (imp-3066) is UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the " +
+      "rigorous SOTA.",
+    firstUsed: "imp-3579 (propagation of the imp-3557 refined M_4/M_3 moments into the imp-3488/imp-3510 degree-2/degree-3 miss-factor constants, showing the derived 1 - 1/k^(d+1) carries no moment and shifts exactly zero, with the two-term model shift ~1e-10 confined to the O(a^2) tail), 2026",
+    relatedTerms: [
+      "imp-3557 refined M_4 leading-form propagation (imp-3557)",
+      "imp-3488 degree-2 miss-factor closed form 1 - 1/k^3 (imp-3488)",
+      "imp-3510 degree-3 miss-factor closed form 1 - 1/k^4 (imp-3510)",
+      "imp-3481 autocorrelation moment ladder (imp-3481)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

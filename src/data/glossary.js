@@ -1674,6 +1674,32 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "sigma(N) machine-precision landmark ladder L1-L5 (imp-3444)",
+    category: "numerical",
+    definition:
+      "imp-3444 bisected the full imp-3406 sigma(N) N-shape to machine precision on the identical " +
+      "sub-term formulas, pinning five landmarks in strict N-order: (L1) interior MIN N ~ 97.7968, " +
+      "sigma ~ 0.840968 (matches imp-3323); (L2) interior MAX N ~ 9.218633e5, sigma ~ 0.949429 " +
+      "(matches imp-3406); (L3) the sigma(2)-recross, where the decaying right arm falls back through " +
+      "the small-N start value sigma(2) ~ 0.911741, at N ~ 1.789296e7; (L4) the sigma = 0.5 crossing " +
+      "at N ~ 3.267235e9; and (L5) the E_coll = E_trunc crossover (the vanishing GUE-conditional " +
+      "collision term dropping through the constant truncation floor, imp-2631) at N ~ 3.280294e9. " +
+      "L3 and L4 confirm the imp-3406 coarse quotes '~1.79e7' and '~3.27e9' to 3 significant figures. " +
+      "The added finding: L4 and L5 are NEARLY COINCIDENT, only ~0.40% apart in N, because E_flow has " +
+      "decayed to near-negligibility on the far right arm (E_flow/E_trunc ~ 1.9e-3 there) -- so the " +
+      "half-share crossing essentially IS the floor-crossover, to sub-percent accuracy." +
+      "\n\nHONEST SCOPE: measurement only, reusing exact imp-3220/imp-3323/imp-3406 sub-term formulas " +
+      "with no re-derivation. Does not touch the imp-3066 off-diagonal endpoint-Hankel obstruction; " +
+      "no RH claim, no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    firstUsed: "imp-3444 (sigma(N) N-shape landmark ladder bisected to machine precision), 2026",
+    relatedTerms: [
+      "sigma(N) N-shape (interior min ~97.8, interior max ~9.22e5) (imp-3406)",
+      "GUE-conditional share argmin (imp-3323)",
+      "truncation floor E_trunc (imp-2631)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "Faulhaber-dominant leftmost-zero residual (residual*NPHI -> -1/2)",
     category: "numerical",
     definition:

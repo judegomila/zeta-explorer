@@ -47,6 +47,7 @@ import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-
 import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bridge-sign-phi-only.js';
 import { IMP3310_MUPASS_PASSIVE_CORE_ASSEMBLY_RECIPE } from '../data/imp-3310-mupass-passive-core-assembly-recipe.js';
 import { IMP3385_MUPASS_SMOOTH_CORE_FAMILY_SEARCH } from '../data/imp-3385-mupass-smooth-core-family-search.js';
+import { IMP3386_MUPASS_MULTIHARMONIC_SCALAR_CORE_SATURATION } from '../data/imp-3386-mupass-multiharmonic-scalar-core-saturation.js';
 import { IMP3240_MUPASS_CAPTURE_RATIO_AU_GRID } from '../data/imp-3240-mupass-capture-ratio-aU-grid.js';
 import { IMP3346_CAPTURE_RATIO_C_CONSTANT_DERIVATION } from '../data/imp-3346-capture-ratio-C-constant-derivation.js';
 import { IMP3350_CAPTURE_RATIO_LINEAR_SHEAR_LIMIT } from '../data/imp-3350-capture-ratio-linear-shear-limit.js';
@@ -3512,6 +3513,87 @@ function SmoothCoreLagContrastCeilingViz() {
   );
 }
 
+function MultiharmonicScalarCoreSaturationViz() {
+  const m = IMP3386_MUPASS_MULTIHARMONIC_SCALAR_CORE_SATURATION.measured;
+  const ratios = m.ratioToK1; // [K=1..6] shape-normalized ||R||_K / ||R||_1
+  const maxDev = m.maxRelDeviation;
+
+  const svgW = 460, svgH = 180, padL = 44, padR = 14, padT = 16, padB = 30;
+  const chartW = svgW - padL - padR;
+  const chartH = svgH - padT - padB;
+
+  const kMin = 1, kMax = ratios.length;
+  const yMin = 0.98, yMax = 1.005;
+  const xScale = (K) => padL + ((K - kMin) / (kMax - kMin)) * chartW;
+  const yScale = (v) => padT + chartH * (1 - (v - yMin) / (yMax - yMin));
+
+  const polyline = ratios.map((r, i) => `${xScale(i + 1).toFixed(1)},${yScale(r).toFixed(1)}`).join(' ');
+  const yTicks = [0.98, 0.985, 0.99, 0.995, 1.0];
+
+  return (
+    <div className="card" style={{ marginTop: 18, borderLeft: '3px solid #f472b6', background: 'rgba(244,114,182,0.03)' }}>
+      <h3 style={{ color: '#f472b6', marginTop: 0, fontSize: 15 }}>
+        Multi-Harmonic Scalar-Core Saturation vs Single-Cosh Baseline (imp-3386)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+        Enriching the imp-2686 single-cosh scalar core with higher harmonics
+        m<sub>K</sub>(t)&thinsp;=&thinsp;&sum;<sub>k=1..K</sub>&thinsp;cosh(k&thinsp;a&thinsp;t) barely moves the
+        shape-normalized rank-2 norm &#8214;R&#8214;<sub>K</sub>&thinsp;/&thinsp;&#8214;R&#8214;<sub>1</sub> (imp-3310
+        evaluator): it drifts monotonely from 1.000000 (K=1) to only {ratios[ratios.length - 1].toFixed(4)} (K={kMax}),
+        a total shift of {(maxDev * 100).toFixed(2)}% across five added harmonics &mdash; the family{' '}
+        <strong style={{ color: '#e2e8f0' }}>saturates</strong> well short of the full-operator &#8214;R&#8214;=1.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+          {yTicks.map((v) => (
+            <line key={v} x1={padL} y1={yScale(v)} x2={svgW - padR} y2={yScale(v)}
+              stroke="#1e293b" strokeWidth={1} />
+          ))}
+          <polyline points={polyline} fill="none" stroke="#f472b6" strokeWidth={2} />
+          {ratios.map((r, i) => (
+            <circle key={i} cx={xScale(i + 1)} cy={yScale(r)} r={3} fill="#f472b6" />
+          ))}
+          <line x1={padL} y1={padT} x2={padL} y2={padT + chartH} stroke="#475569" strokeWidth={1.5} />
+          <line x1={padL} y1={padT + chartH} x2={svgW - padR} y2={padT + chartH} stroke="#475569" strokeWidth={1.5} />
+          {yTicks.map((v) => (
+            <text key={v} x={padL - 4} y={yScale(v) + 3.5} fill="#64748b" fontSize={9} textAnchor="end">
+              {v.toFixed(3)}
+            </text>
+          ))}
+          {ratios.map((_, i) => (
+            <text key={i} x={xScale(i + 1)} y={padT + chartH + 12} fill="#64748b" fontSize={9} textAnchor="middle">
+              K={i + 1}
+            </text>
+          ))}
+          <text x={padL + chartW / 2} y={svgH - 2} fill="#64748b" fontSize={10} textAnchor="middle">
+            harmonics K
+          </text>
+          <text x={10} y={padT + chartH / 2} fill="#64748b" fontSize={10} textAnchor="middle"
+            transform={`rotate(-90 10 ${padT + chartH / 2})`}>
+            &#8214;R&#8214;_K / &#8214;R&#8214;_1
+          </text>
+        </svg>
+      </div>
+      <div style={{
+        marginTop: 10, padding: '10px 12px', borderRadius: 6,
+        background: 'rgba(239,68,68,0.06)', border: '2px solid rgba(239,68,68,0.35)',
+        fontSize: 12, color: '#94a3b8', lineHeight: 1.65,
+      }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 6 }}>
+          SATURATES (imp-3386): WIDER SCALAR FAMILY STILL CANNOT BEAT SINGLE-COSH
+        </div>
+        <div style={{ fontSize: 11.5, color: '#cbd5e1' }}>
+          100% of the genuine-&Phi; autocorrelation mass sits below lag &asymp;&thinsp;0.435, where even
+          cosh(2at)/cosh(at) exceeds 1 by only &asymp;&thinsp;7%, so every harmonic looks like the constant 1 on
+          the support that controls the shear. Confirms the section26-mupass "no scalar core works" verdict from a
+          strictly larger family than imp-2686 tested. Measurement only, RH-equivalent, no positivity attempted;
+          Platt-Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function OverflowFractionResolutionSweepViz() {
   const M = IMP3175_OVERFLOW_FRACTION_RESOLUTION_RECONCILE;
   const sweep = M.measured.sweep; // [{N, overflowFraction}, ...]
@@ -6525,6 +6607,12 @@ export default function ClosureRoutesPage() {
         Smooth-Core Lag-Contrast Ceiling vs Additive-Fejer Crossing (imp-3385)
       </h2>
       <SmoothCoreLagContrastCeilingViz />
+
+      {/* ─── imp-3458: surface the orphaned imp-3386 multi-harmonic scalar-core saturation ─── */}
+      <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>
+        Multi-Harmonic Scalar-Core Saturation (imp-3386)
+      </h2>
+      <MultiharmonicScalarCoreSaturationViz />
 
       {/* ─── imp-3197: sign-vs-magnitude decomposition ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

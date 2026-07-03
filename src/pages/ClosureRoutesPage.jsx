@@ -43,6 +43,7 @@ import { IMP3177_EQUAL_PRODUCT_CELL_INVARIANCE_LOCK } from '../data/imp-3177-equ
 import { IMP3202_MUPASS_BRIDGE_LAG_CUTOFF_SWEEP } from '../data/imp-3202-mupass-bridge-lag-cutoff-sweep.js';
 import { IMP3197_MUPASS_BRIDGE_SIGN_PHI_ONLY } from '../data/imp-3197-mupass-bridge-sign-phi-only.js';
 import { IMP3199_OVERFLOW_FRACTION_CELL_SWEEP } from '../data/imp-3199-overflow-fraction-cell-sweep.js';
+import { IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM } from '../data/imp-3216-overflow-support-length-closed-form.js';
 import { IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE } from '../data/imp-3196-residual-gap-convergence-rate.js';
 import { IMP3217_RESIDUAL_EXPONENT_S_LIMIT } from '../data/imp-3217-residual-exponent-s-limit.js';
 import { IMP3154_GENUINE_DEG2_DEFICIT_DEGREE_SWEEP } from '../data/imp-3154-genuine-deg2-deficit-degree-sweep.js';
@@ -3814,6 +3815,34 @@ export default function ClosureRoutesPage() {
           Source: imp-3199-overflow-fraction-cell-sweep.js &mdash; DIAGNOSTIC; overflow-support only;
           NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
         </p>
+        <div
+          style={{
+            marginTop: 12,
+            padding: '9px 14px',
+            borderRadius: 6,
+            background: 'rgba(248,113,113,0.06)',
+            border: '1px solid rgba(248,113,113,0.28)',
+            fontSize: 11.5,
+            color: '#94a3b8',
+            lineHeight: 1.7,
+          }}
+        >
+          <div style={{ color: '#f87171', fontWeight: 700, fontSize: 11, letterSpacing: '0.05em', marginBottom: 5 }}>
+            HONEST-STATUS CORRECTION (imp-3216): the ~1.254 length above is a double-precision underflow artifact
+          </div>
+          Resolving the overflow interval to N&thinsp;=&thinsp;51200 shows the upper endpoint <span style={{ fontFamily: mono }}>&tau;<sub>2</sub>&thinsp;&asymp;&thinsp;1.366</span> above is{' '}
+          <strong style={{ color: '#e2e8f0' }}>not a genuine nu/mu down-crossing</strong> &mdash; it is the IEEE-754{' '}
+          <strong style={{ color: '#e2e8f0' }}>kernel underflow horizon</strong> where Phi(u) drops below the smallest
+          representable double. The lower endpoint <span style={{ fontFamily: mono }}>&tau;<sub>1</sub>&thinsp;&asymp;&thinsp;0.111</span> is genuine, but past it{' '}
+          <span style={{ fontFamily: mono }}>nu&thinsp;&gt;&thinsp;mu</span> holds all the way to <em>U</em>, with no
+          further crossing &mdash; the mathematically correct overflow region is <span style={{ fontFamily: mono }}>[&tau;<sub>1</sub>, U]</span> and
+          its fraction <span style={{ fontFamily: mono }}>(U&thinsp;&minus;&thinsp;&tau;<sub>1</sub>)/U&thinsp;&rarr;&thinsp;1</span> as{' '}
+          <em>U</em> grows, not a fixed &sim;0.209. The <strong>~1.2535 / ~0.209 numbers above are kept as historical
+          double-precision snapshots</strong>, not deleted, but should be read through this correction. See{' '}
+          <span style={{ fontFamily: mono, color: '#64748b' }}>imp-3216-overflow-support-length-closed-form.js</span>{' '}
+          (verdict: {IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM.measured.verdict}). DIAGNOSTIC correction; no new
+          positivity; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+        </div>
       </div>
 
       {/* ─── imp-3250: U-sweep overflow fraction viz ─── */}

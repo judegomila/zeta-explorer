@@ -1561,6 +1561,37 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "PCC-free x RH-equivalent route-matrix conclusion (empty live-target set)",
+    category: "method",
+    definition:
+      "The section26-mupass verdict's nextMove reads: \"redirect to PCC-free routes not yet " +
+      "shown RH-equivalent.\" imp-3381 enumerates that target set against the closure family -- " +
+      "twin-ladder routes A/B/C/D, the Volterra ||V|| <= 1 collapse, the normalized-R/mu^pass " +
+      "passive core, and the endpoint-Hankel operator step (imp-3066) -- and finds it EMPTY: " +
+      "every one of those routes is already shown RH-equivalent (Theorem 16.1 plus the section26 " +
+      "verdicts), while the sole closure-family route that is NOT a reformulation of RH -- " +
+      "ESY/Selberg-trace -- is blocked squarely by the shared Montgomery pair-correlation-" +
+      "conjecture 50-year wall, so it is not PCC-free either." +
+      "\n\nRead literally, the nextMove therefore points OUT of the K_a-positivity closure " +
+      "family, not to an untried closure route. The two opportunities that ARE genuinely " +
+      "PCC-free and not yet RH-equivalent live outside that family entirely: the C_H/G6a " +
+      "Holder-1/2 shock modulus on the Lambda-upper side (RANKED_OPPORTUNITIES rank 1, gated by " +
+      "the imp-2640 refuted-Gronwall obstruction), and the under-explored winding-under-heat-flow " +
+      "thread (a topological Lyapunov re-derivation whose realistic ceiling still will not beat " +
+      "Platt-Trudgian)." +
+      "\n\nHONEST SCOPE: assessment/scoping only -- no positivity, no reduction, no QED. " +
+      "Confirms the full-route-map verdict of no hidden shortcut below RH inside the closure " +
+      "family; imp-3066 remains the lone operator obstruction; Platt-Trudgian Lambda <= 0.2 " +
+      "stays SOTA.",
+    firstUsed: "imp-3381 (PCC-free route enumeration), 2026",
+    relatedTerms: [
+      "section26-mupass ruled-out passive-core family ladder (band / additive-Fejer / smooth / sharp-compact)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+      "Volterra collapse ||V|| <= 1",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

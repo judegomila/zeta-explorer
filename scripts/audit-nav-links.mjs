@@ -203,6 +203,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3375-interloper-margin',
   '/viz-imp3376-kshell-onset-ladder',
   '/viz-imp3377-rescue-budget-height-map',
+  '/viz-imp3380-path1-record-step-margin',
 ]);
 
 const isVizRoute = (p) => p.startsWith('/viz-') || EXPLICIT_VIZ_ROUTES.has(p);

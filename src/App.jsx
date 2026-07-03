@@ -160,6 +160,7 @@ const Imp3374OverflowDegreeViz = lazy(() => import('./pages/Imp3374OverflowDegre
 const Imp3375InterloperMarginViz = lazy(() => import('./pages/Imp3375InterloperMarginViz.jsx'));
 const Imp3376KShellOnsetLadderViz = lazy(() => import('./pages/Imp3376KShellOnsetLadderViz.jsx'));
 const Imp3377RescueBudgetHeightMapViz = lazy(() => import('./pages/Imp3377RescueBudgetHeightMapViz.jsx'));
+const Imp3380PathOneRecordStepMarginViz = lazy(() => import('./pages/Imp3380PathOneRecordStepMarginViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -764,6 +765,7 @@ function AppShell() {
           <Route path="/viz-imp3375-interloper-margin" element={<Imp3375InterloperMarginViz />} />
           <Route path="/viz-imp3376-kshell-onset-ladder" element={<Imp3376KShellOnsetLadderViz />} />
           <Route path="/viz-imp3377-rescue-budget-height-map" element={<Imp3377RescueBudgetHeightMapViz />} />
+          <Route path="/viz-imp3380-path1-record-step-margin" element={<Imp3380PathOneRecordStepMarginViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

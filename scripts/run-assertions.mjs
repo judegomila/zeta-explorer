@@ -3216,6 +3216,38 @@ const DATA_MODULES = [
   // effectiveHeightForN + C_C_PINNED). Measurement/certification only, imp-3066 K_a>=0
   // positivity UNTOUCHED, RH-equivalent, no QED, PT Lambda<=0.2 SOTA. 7 assertions.
   '/src/data/imp-3556-sigma-threshold-crossings-rootsolve.js',
+  // imp-3580 (numerical): RE-ROOT-SOLVES both N_half (sigma=1/2) and N_x (E_coll=E_trunc)
+  // across the imp-3443 half-to-double E_trunc floor grid (0.5x..2x the imp-2631 baseline
+  // 3.06e-5) to test the robustness of the imp-3556 half-decay <=> crossover coincidence.
+  // Findings: (F1) the coincidence is EXACTLY floor-invariant -- x(N_x)=E_coll/E_trunc=1.000000
+  // and sigma(N_x) just under 1/2 at every node (a structural odds-ratio property, not a
+  // baseline accident); (F2) the N_half/N_x ratio stays in the tight band [0.99313,0.99772]
+  // ~0.996, the baseline node reproducing imp-3556 exactly (0.996019, N_x=3.280294e9); (F3)
+  // HONEST REFINEMENT -- the flow-gap is NOT a fixed 0.40%: it grows monotonically with the
+  // floor (0.228% at 0.5x -> 0.687% at 2x, straddling the baseline) tracking the structural
+  // law gap ~ 2 E_flow(N_x)/E_trunc within the sqrt/log linearization, so the 0.40% is a
+  // baseline reading of an E_flow/E_trunc law not a universal constant. Import-light (reuses
+  // effectiveHeightForN + C_C_PINNED). Throws on import if the coincidence is not exactly
+  // floor-invariant, the ratio band drifts off 0.996, the baseline node fails to reproduce
+  // imp-3556, or the gap is not monotone / off the structural law. Measurement/certification
+  // only, imp-3066 K_a>=0 positivity UNTOUCHED, RH-equivalent, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-3580-sigma-crossover-floor-invariance.js',
+  // imp-3579 (accuracy): PROPAGATES the imp-3557 refined moments (M_4=9.62528e-8, M_3)
+  // into the imp-3488 degree-2 (1-1/k^3) and imp-3510 degree-3 (1-1/k^4) bridge-mass
+  // MISS-FACTOR constants and certifies they and their whole k-ladder shift by no more
+  // than the propagated relative moment correction, inside the leading-form tail budgets.
+  // Recomputes M_2,M_3,M_4,M_5 at the imp-3481 base Simpson (inner=1200, outer=1600) and
+  // the imp-3528/imp-3557 converged GL (dg_{16}/200/160): relcorr M_2~1.55e-6, M_3~2.34e-6,
+  // M_4~3.78e-6 (imp-3557), M_5~5.41e-6. KEY FACT: the derived miss factor 1-1/k^(d+1) is a
+  // PURE k-power (the moment M_d cancels in r_k=B_d(a/k)/B_d(a)=k^{-d}[1+O(a^2)]), so it
+  // carries no moment and shifts by EXACTLY 0. The two-term leading-form miss factor
+  // T_2=(a^2/2)M_2+(a^4/24)M_4, T_3=(a^3/6)M_3+(a^5/120)M_5 on bases (0.5,6),(0.4,10) over
+  // {2,3,4,6,8} shifts by only ~9.2e-11 (d=2) / ~5.2e-11 (d=3) base-vs-converged -- four-plus
+  // orders below the moment correction (max ~3.8e-6/5.4e-6) and ~1e-7 of the tail budgets
+  // tail_2=(a^2/12)(M_4/M_2)~4.4e-4, tail_3=(a^2/20)(M_5/M_3)~3.6e-4. Miss factors UNPERTURBED.
+  // Certification/measurement only, imp-3066 untouched, RH-equivalent, no QED, PT
+  // Lambda<=0.2 SOTA. 6 assertions.
+  '/src/data/imp-3579-miss-factor-moment-refinement-invariance.js',
 ];
 
 let ALL_MODULES = FAST_MODE

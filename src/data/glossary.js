@@ -2172,6 +2172,36 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3485 U=20 residual floor is a Lanczos Krylov-truncation deficit, not power under-convergence (imp-3505)",
+    category: "numerical",
+    definition:
+      "imp-3485 cross-validated the imp-3467 power-iteration operator norm ||Ttilde|| against an " +
+      "independent m = 80 Lanczos/Jacobi solver and saw relative agreement widen from 1.7e-9 (U = 4) " +
+      "to 1.0e-4 (U = 20), attributing the growth to 260-step power-iteration under-convergence " +
+      "without sweeping the budget. imp-3505 sweeps the power-iteration budget {260..6500} at the " +
+      "N = 800 (U = 20) section against a CONVERGED m = 160 Lanczos reference and finds two things: " +
+      "(A) the under-convergence attribution is real -- the gap falls monotonically from 1.04e-4 at " +
+      "260 steps and crosses 1e-9 at budget ~6250 (~24x the imp-3485 budget); (B) the imp-3485 " +
+      "residual floor was NEVER an artifact of the power solver alone. Measured against the m = 80 " +
+      "Lanczos value imp-3485 actually used (6.491213563635e-5), power iteration fully CONVERGES by " +
+      "budget ~8320 to sigma = 6.491220876901e-5 (stable to 1e-14 out to 33280 steps) -- a value " +
+      "sitting 1.13e-6 ABOVE the m = 80 reference, so the m = 80 gap floors at 1.13e-6 and never " +
+      "reaches 1e-9. The m = 80 Lanczos reference is itself under-resolved at N = 800: enriching the " +
+      "Krylov dimension to m >= 120 lifts it onto the power-converged value (agreement 6e-14), " +
+      "confirming both solvers agree to machine precision once each is fully converged on its own terms." +
+      "\n\nHONEST SCOPE: measurement/certification only -- separates two pre-existing solver error " +
+      "sources and does not construct any new closed form. The off-diagonal endpoint-Hankel " +
+      "obstruction K_a >= 0 (imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian " +
+      "Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3505 (power-iteration budget sweep separating under-convergence from Lanczos Krylov-truncation deficit), 2026",
+    relatedTerms: [
+      "Solver-independent operator-norm cross-validation of the capture constant C = 0.1751370 (imp-3485)",
+      "Ttilde closed-form C-assembly across the imp-3240 U-grid (imp-3467)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/viz-imp3467-closed-form-c",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

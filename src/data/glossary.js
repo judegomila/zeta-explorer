@@ -2138,6 +2138,40 @@ export const glossary = [
     ],
     link: "/viz-imp3467-closed-form-c",
   },
+  {
+    term: "closed-form degree-3 (odd) miss factor 1 - 1/k^4 (imp-3510)",
+    category: "numerical",
+    definition:
+      "imp-3488 derived the EVEN degree-2 miss factor 1 - 1/k^3 from the degree-2 bridge mass " +
+      "B_2(a) ~ (a^2/2) M_2. imp-3510 derives the ODD analogue for the degree-3 (sinh, " +
+      "absolute-measure) bridge mass B_3(a, U) = int_0^U (sinh(a tau) - a tau) A(tau) d(tau) = " +
+      "S(a) - a*M_1, the imp-3481 odd remainder R_3. Because the genuine-Phi autocorrelation " +
+      "A(tau) truncates inside every cutoff U (imp-3482), B_3 is U-independent and small-a, with " +
+      "leading form B_3(a) ~ (a^3/6) M_3 (M_3 the fixed third autocorrelation moment, imp-3481). " +
+      "That leading term is exactly degree-3 HOMOGENEOUS in a, so B_3(a/k) = k^{-3} B_3(a) -- the " +
+      "exponent p = 3 is analytic, not fitted. The imp-3405 degree-0 law still multiplies by k " +
+      "(one Lebesgue power), so the ratio of the degree-0 prediction to the actual degree-3 mass " +
+      "is k*B_3(a) / (k^{-3} B_3(a)) = k^4: an over-prediction by EXACTLY k^4, and a relative miss " +
+      "|k^{-4} - 1| = 1 - 1/k^4 (k >= 2). This shifts the imp-3488 even form one notch: " +
+      "p: 2 -> 3, over-prediction k^3 -> k^4, miss 1 - 1/k^3 -> 1 - 1/k^4 -- the Lebesgue power " +
+      "stays fixed at k^1 while the homogeneity power tracks the mass degree. CERTIFIED against a " +
+      "degree-3 k-ladder {2,3,4,6,8} on the imp-3469 base cells (0.5,6) and (0.4,10): with " +
+      "r_k = B_3(a/k)/B_3(a) the exact measured ratio, the degree-0 residual equals 1 - r_k/k " +
+      "identically (< 1e-12), the derived miss 1 - 1/k^4 matches it to the closed leading-form " +
+      "tail (r_k - 1/k^3)/k (< 1e-3, reconciled to r_k to < 1e-12), and the fitted exponent " +
+      "matches 3 to the O(a^2) tail (within 0.01) -- all to machine precision." +
+      "\n\nHONEST SCOPE: derivation/certification only. The degree-3 (odd) face carries no " +
+      "feasibility ratio at all, so this establishes NO operator positivity. The off-diagonal " +
+      "endpoint-Hankel obstruction K_a >= 0 (imp-3066) remains UNTOUCHED. No RH verdict, no QED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3510 (closed-form derivation of the degree-3 miss factor 1 - 1/k^4 and exponent p = 3), 2026",
+    relatedTerms: [
+      "closed-form degree-2 miss factor 1 - 1/k^3 (imp-3488)",
+      "genuine-Phi autocorrelation MOMENT LADDER M_0..M_4 (imp-3481)",
+      "degree-0 lambda-scaling law B(a/k, kU) = k*B(a,U) (imp-3405)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

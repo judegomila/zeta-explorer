@@ -65,6 +65,7 @@ import { IMP3288_ANALYTIC_CEILING_LEMMA } from '../data/imp-3288-analytic-ceilin
 import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-fraction-integrability.js';
 import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
+import { IMP3406_SIGMA_HIGHN_EXTRAPOLATION } from '../data/imp-3406-sigma-highN-extrapolation.js';
 import { IMP3324_SIGMA_CH_SENSITIVITY } from '../data/imp-3324-sigma-CH-sensitivity.js';
 import { IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE } from '../data/imp-3219-mupass-bridge-overshoot-knee.js';
 import { IMP3255_BRIDGE_RATIO_CLOSED_FORM } from '../data/imp-3255-bridge-ratio-closed-form.js';
@@ -690,6 +691,103 @@ function ConditionalShareUShapePanel() {
       </div>
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3220-en-bridge-fidelity-frontier.js &mdash; N&isin;{'{2..10'}<sup>6</sup>{'}'}, dual-axis (&sigma;(N) left, E_coll/E_flow right).
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3406: full sigma(N) N-shape past the 10^6 ceiling ──────────────────────
+// Continues the ConditionalShareUShapePanel U-curve past its 10^6 endpoint: sigma(N)
+// TURNS OVER at an interior maximum N_max~9.22e5 (essentially at the ceiling, a
+// flat-cap sampling artifact) and then decays monotonically to 0 as the vanishing
+// GUE-conditional E_coll falls through the constant E_trunc truncation floor.
+function SigmaNShapeExtrapolationPanel() {
+  const F = IMP3406_SIGMA_HIGHN_EXTRAPOLATION;
+  const tp = F.turningPoint;
+  const dm = F.decayMarkers;
+
+  // Continuous log10(N) axis so the interior max and the far-out crossings can be
+  // placed precisely, rather than at discrete uneven ladder indices.
+  const points = [
+    { N: 1e5, sigma: F.decayLadder[0].sigma },
+    { N: tp.N_max, sigma: tp.sigma_max },
+    ...F.decayLadder.slice(1),
+  ];
+
+  const W = 660, H = 260, ML = 56, MR = 20, MT = 26, MB = 40;
+  const logMin = Math.log10(1e5), logMax = Math.log10(1e15);
+  const sigmaMax = 1.0;
+  const px = (N) => ML + ((Math.log10(N) - logMin) / (logMax - logMin)) * (W - ML - MR);
+  const py = (v) => H - MB - (v / sigmaMax) * (H - MT - MB);
+
+  const curvePath = points
+    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${px(p.N).toFixed(1)} ${py(p.sigma).toFixed(1)}`)
+    .join(' ');
+
+  const xTicks = [1e5, 1e6, 1e7, 1e8, 1e9, 1e10, 1e12, 1e15];
+  const yTicks = [0, 0.25, 0.5, 0.75, 1.0];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #fb7185', background: 'rgba(251,113,133,0.04)' }}>
+      <h3 style={{ color: '#fb7185', marginTop: 0, fontSize: 14 }}>
+        Past the ceiling, &sigma;(N) TURNS OVER and decays to 0 &mdash; the full N-shape (imp-3406)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        Extrapolating the imp-3220 U-curve above, the right arm does not keep widening: &sigma;(N) attains an
+        interior MAXIMUM N<sub>max</sub>&asymp;{tp.N_max.toExponential(3).replace('e+', 'e')} (&sigma;<sub>max</sub>&asymp;{tp.sigma_max.toFixed(6)}),
+        only {tp.peak_above_ceiling.toExponential(1)} above the N=10<sup>6</sup> sample &mdash; a flat-cap sampling
+        artifact, not a still-climbing arm. Beyond the peak &sigma;(N) falls monotonically back through{' '}
+        {dm.sigma_smallN_start.toFixed(4)} near N&asymp;{dm.N_back_to_smallN_start.toExponential(2).replace('e+', 'e')}, through
+        0.5 near N&asymp;{dm.N_down_to_half.toExponential(2).replace('e+', 'e')}, and on toward 0 as the vanishing
+        GUE-conditional E<sub>coll</sub> falls through the constant E<sub>trunc</sub> floor.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={`yt${v}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#fb7185" fontFamily={mono}>{v.toFixed(2)}</text>
+            </g>
+          ))}
+          {xTicks.map((N) => (
+            <g key={`xt${N}`}>
+              <line x1={px(N)} y1={MT} x2={px(N)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(N)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>
+                {N.toExponential(0).replace('e+', 'e')}
+              </text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+
+          {/* the 1e6 flat-cap sampling ceiling */}
+          <line x1={px(1e6)} y1={MT} x2={px(1e6)} y2={H - MB} stroke="#38bdf8" strokeWidth="1.2" strokeDasharray="4 3" />
+          <text x={px(1e6) + 4} y={MT + 10} fontSize="9" fill="#38bdf8" fontFamily={mono}>10&sup6; ceiling</text>
+
+          {/* sigma=0.5 crossing */}
+          <line x1={px(dm.N_down_to_half)} y1={MT} x2={px(dm.N_down_to_half)} y2={H - MB} stroke="#64748b" strokeWidth="1" strokeDasharray="3 3" />
+          <text x={px(dm.N_down_to_half) + 4} y={H - MB - 6} fontSize="9" fill="#94a3b8" fontFamily={mono}>&sigma;=0.5</text>
+
+          <path d={curvePath} fill="none" stroke="#fb7185" strokeWidth="2.5" />
+          {points.map((p, i) => (
+            <circle key={`np${i}`} cx={px(p.N)} cy={py(p.sigma)} r={p.N === tp.N_max ? 4.5 : 3} fill="#fb7185">
+              <title>{`N=${p.N.toExponential(3)}, sigma=${p.sigma}`}</title>
+            </circle>
+          ))}
+          <text x={px(tp.N_max)} y={py(tp.sigma_max) - 10} textAnchor="middle" fontSize="9" fill="#fde68a" fontFamily={mono}>
+            N_max&asymp;{tp.N_max.toExponential(2).replace('e+', 'e')}
+          </text>
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#f87171' }}>Honest scope (imp-3406):</strong>{' '}
+        ASSESSMENT/extrapolation only, reusing the identical imp-3220 sub-term formulas &mdash; no re-derivation.
+        No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
+        remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3406-sigma-highN-extrapolation.js &mdash; N&isin;[10<sup>5</sup>,10<sup>15</sup>], log<sub>10</sub>(N) x-axis,
+        continuing the imp-3220 panel above past the 10<sup>6</sup> assembly ceiling.
       </p>
     </div>
   );
@@ -6484,6 +6582,8 @@ export default function ClosureRoutesPage() {
       <AnalyticCeilingConcentratingFamilyPanel />
 
       <ConditionalShareUShapePanel />
+
+      <SigmaNShapeExtrapolationPanel />
 
       <SigmaCHSaturationPanel />
 

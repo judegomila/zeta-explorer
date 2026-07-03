@@ -55,6 +55,7 @@ import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-re
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
 import { IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE } from '../data/imp-3219-mupass-bridge-overshoot-knee.js';
 import { IMP3255_BRIDGE_RATIO_CLOSED_FORM } from '../data/imp-3255-bridge-ratio-closed-form.js';
+import { IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL } from '../data/imp-3257-bridge-sign-phi-nonneg-structural.js';
 
 const R = CLOSURE_ROUTES;
 const mono = 'var(--font-mono)';
@@ -3588,6 +3589,141 @@ function BridgeSignMagnitudeDecompositionViz() {
   );
 }
 
+// ── imp-3354: termwise Phi>=0 structure viz (imp-3257) — Phi_NPHI(u) with the per-term
+// sign-flip thresholds u_n* marked; u_1* (rightmost, worst) sits strictly left of [0,U],
+// so the headline domain lies entirely in the termwise-positive region.
+function PhiTermwiseNonnegativityViz() {
+  const M = IMP3257_BRIDGE_SIGN_PHI_NONNEG_STRUCTURAL.measured;
+
+  const NPHI = 10; // headline cell
+  const U = 6;     // headline cell
+  const phiKernel = (uu, nphi) => {
+    let s = 0;
+    const e2 = Math.exp(2 * uu);
+    const e4 = Math.exp(4 * uu);
+    for (let n = 1; n <= nphi; n++) {
+      const n2 = n * n;
+      const n4 = n2 * n2;
+      s += (2 * Math.PI * Math.PI * n4 * e4 - 3 * Math.PI * n2 * e2) * Math.exp(-Math.PI * n2 * e4);
+    }
+    return s;
+  };
+  const termFlipThreshold = (n) => 0.5 * Math.log(3 / (2 * Math.PI * n * n));
+  const thresholds = [1, 2, 3, 4, 5].map((n) => ({ n, u: termFlipThreshold(n) }));
+
+  const W = 680, H = 300, ML = 56, MR = 24, MT = 26, MB = 44;
+  const U_MIN = -2.3, U_MAX = U + 0.4;
+  const LOG_FLOOR = -8, LOG_CEIL = 3; // log10(Phi) display range
+  const px = (u) => ML + ((u - U_MIN) / (U_MAX - U_MIN)) * (W - ML - MR);
+  const py = (logv) => H - MB - ((logv - LOG_FLOOR) / (LOG_CEIL - LOG_FLOOR)) * (H - MT - MB);
+
+  const N_CURVE = 500;
+  const curvePts = [];
+  for (let i = 0; i <= N_CURVE; i++) {
+    const u = U_MIN + (i / N_CURVE) * (U_MAX - U_MIN);
+    const phi = phiKernel(u, NPHI);
+    const logv = Math.log10(Math.max(phi, Math.pow(10, LOG_FLOOR)));
+    curvePts.push({ u, logv });
+  }
+  const curvePath = curvePts
+    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${px(p.u).toFixed(1)} ${py(p.logv).toFixed(1)}`)
+    .join(' ');
+
+  const yTicks = [3, 2, 1, 0, -2, -4, -6, -8];
+  const uTicks = [-2, -1, 0, 1, 2, 3, 4, 5, 6];
+  const u1Star = M.u1Star;
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #22c55e', background: 'rgba(34,197,94,0.04)' }}>
+      <h3 style={{ color: '#22c55e', marginTop: 0 }}>
+        Termwise &Phi;&thinsp;&ge;&thinsp;0 structure: per-term sign-flip thresholds, all left of [0,U] (imp-3257)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        Each summand of &Phi;<sub>NPHI</sub>(u) flips sign at{' '}
+        <span style={{ fontFamily: mono }}>u<sub>n</sub>* = (1/2)&thinsp;ln(3/(2&pi;n&sup2;))</span>; the
+        rightmost (worst-case) threshold is{' '}
+        <span style={{ fontFamily: mono }}>u<sub>1</sub>* = {u1Star.toFixed(5)}</span>, strictly negative,
+        and every u<sub>n</sub>* for n&thinsp;&ge;&thinsp;2 sits further left still. So the headline domain
+        [0,&thinsp;U] (U=6, NPHI=10) lies entirely inside the termwise-positive region [u<sub>1</sub>*,&thinsp;&infin;),
+        and every summand &mdash; hence the truncated sum &mdash; stays &ge;&thinsp;0 there (curve on a log&#8321;&#8320;
+        scale; it underflows toward 0 for u&nbsp;&gtrsim;&nbsp;1.5 but never goes negative).
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg
+          width={W} height={H}
+          style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}
+          role="img"
+          aria-label="Phi_NPHI(u) on a log scale with per-term sign-flip thresholds marked"
+        >
+          {yTicks.map((v) => (
+            <g key={`yt${v}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="10" fill="#64748b" fontFamily={mono}>
+                {`1e${v}`}
+              </text>
+            </g>
+          ))}
+          {uTicks.map((u) => (
+            <g key={`ut${u}`}>
+              <line x1={px(u)} y1={MT} x2={px(u)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(u)} y={H - MB + 16} textAnchor="middle" fontSize="10" fill="#64748b" fontFamily={mono}>{u}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+
+          {/* termwise-positive region [u_1*, U_MAX], lightly shaded */}
+          <rect x={px(u1Star)} y={MT} width={px(U_MAX) - px(u1Star)} height={H - MT - MB}
+            fill="#22c55e" fillOpacity="0.07" />
+          {/* [0, U] headline domain, more distinct shading */}
+          <rect x={px(0)} y={MT} width={px(U) - px(0)} height={H - MT - MB}
+            fill="#22c55e" fillOpacity="0.14" />
+          <text x={(px(0) + px(U)) / 2} y={MT + 14} textAnchor="middle" fontSize="10" fill="#4ade80" fontFamily={mono}>
+            [0, U] headline domain
+          </text>
+
+          {/* per-term thresholds u_n* */}
+          {thresholds.map(({ n, u }) => (
+            <g key={`th${n}`}>
+              <line x1={px(u)} y1={MT} x2={px(u)} y2={H - MB} stroke={n === 1 ? '#ef4444' : '#f59e0b'}
+                strokeWidth={n === 1 ? 1.6 : 1} strokeDasharray="3 3" opacity={n === 1 ? 0.9 : 0.5} />
+              <text x={px(u)} y={n % 2 === 0 ? MT - 16 : MT - 4} textAnchor="middle" fontSize="9"
+                fill={n === 1 ? '#ef4444' : '#f59e0b'} fontFamily={mono}>
+                {`u_${n}*`}
+              </text>
+            </g>
+          ))}
+
+          {/* Phi_NPHI(u) curve */}
+          <path d={curvePath} fill="none" stroke="#e2e8f0" strokeWidth="2" />
+
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}>u</text>
+          <text x={16} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="11" fill="#94a3b8" fontFamily={mono}
+            transform={`rotate(-90 16 ${(MT + H - MB) / 2})`}>
+            Phi_NPHI(u)
+          </text>
+        </svg>
+      </div>
+      <div style={{ marginTop: 10, padding: '8px 12px', borderRadius: 6, background: 'rgba(148,163,184,0.06)', border: '1px solid rgba(148,163,184,0.25)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: '0.06em', marginBottom: 4 }}>
+          STRUCTURAL, NOT MEASURED &mdash; NO U OR NPHI SWEEP CAN BREAK IT
+        </div>
+        <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          u<sub>1</sub>*&thinsp;&lt;&thinsp;0 for every truncation, so [0, U] is right of the last per-term flip
+          for ANY U&thinsp;&ge;&thinsp;0 and ANY NPHI &mdash; a {M.sweepCellCount}-cell sweep across
+          U&thinsp;&isin;&thinsp;&#123;6,8,12,16,24&#125; &times; NPHI&thinsp;&isin;&thinsp;&#123;10,20,40,80&#125; finds
+          {' '}{M.totalGenuineNegatives} genuine negatives. This upgrades the imp-3197 sign half from measured to
+          structural; the operator-norm magnitude (imp-3197 magnitude half) remains untouched.
+          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 stays SOTA.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3257-bridge-sign-phi-nonneg-structural.js &mdash; headline cell NPHI=10, U=6; curve on log&#8321;&#8320; scale, floor 1e-8.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3196: residual-gap convergence RATE (log-log, power-law vs geometric) ──
 function ResidualGapConvergenceRateViz() {
   const M = IMP3196_RESIDUAL_GAP_CONVERGENCE_RATE;
@@ -4357,6 +4493,7 @@ export default function ClosureRoutesPage() {
         K&#x2090;&thinsp;&ge;&thinsp;0 Sign-vs-Magnitude Split (imp-3197)
       </h2>
       <BridgeSignMagnitudeDecompositionViz />
+      <PhiTermwiseNonnegativityViz />
 
       {/* ─── imp-3065: independent quadrature cross-check ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

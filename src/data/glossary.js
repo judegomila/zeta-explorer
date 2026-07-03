@@ -3752,6 +3752,50 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3713 exact-saddle ratio finite-n overshoot: R_n crosses 1 and dips BELOW at n* ~ 226",
+    category: "numerical",
+    definition:
+      "imp-3670/imp-3685 tracked the exact-Laplace-saddle ratio R_n = |D_n|/|D_n^saddle| " +
+      "(D_n = C_(n+2) - C_n from the imp-3646 closed moment-ratio coefficients, D_n^saddle from " +
+      "C_n^saddle = tau*(n)^2/((n+1)(n+2)) with tau*(n) the exact root of n = 4 pi tau* e^{4 tau*}) " +
+      "only out to n=40, where R_n sits comfortably above 1 (R_40 ~ 1.02438). imp-3713 extended the " +
+      "same [0,T_A] Simpson-moment machinery to n=3..230 and found the approach to 1 is qualitatively " +
+      "different from a simple decaying tail: R_n first falls within 1e-3 of 1 at n=152, and BOTH " +
+      "ticket-candidate laws for the residual r_n = R_n - 1 (c/n and c/ln n) are REJECTED -- n*r_n and " +
+      "(ln n)*r_n are both strictly DECREASING, not converging to a constant. The local exponent " +
+      "p(n) = -d ln r_n/d ln n grows WITHOUT BOUND (1.72 at n=30 -> 4.00 at n=150), and the reason is " +
+      "that R_n does not asymptote to 1 from above at all: it OVERSHOOTS, crossing 1 at a finite " +
+      "n* ~ 226 (r_225 = +2.746e-6, r_226 = -2.314e-6, linear interp ~225.5) and continuing BELOW 1 " +
+      "out to n=240. So the exact-saddle convergence is a finite-n zero-crossing of |D_n| - " +
+      "|D_n^saddle|, not a power-law tail -- distinct from the separate sg-3670/sg-3685 question of " +
+      "the CRUDE (ln n)^2/n^3 plateau rate, which never crosses zero." +
+      "\n\nPROVENANCE UPDATE: imp-3713's own moment accumulation pinned n* only to +-1 (D_n loses " +
+      "~log10(n/4) digits to cancellation). imp-3731 applied Neumaier-compensated summation and " +
+      "pinned the crossing to n* = 225.5427323 (grid-stable to ~1e-9), also finding the sub-unity dip " +
+      "is a bounded shallow well (deepest r_min ~ -1.129e-4 at n=276) that RECOVERS toward 1, not a " +
+      "monotone dive. imp-3849 then showed imp-3731's own grid-convergence check had refined only the " +
+      "outer moment panels while leaving the INNER A(tau) quadrature at the coarse imp-3713 resolution " +
+      "-- converging that inner integral moves the crossing further in, to n* = 215.231, and deepens " +
+      "the well roughly 5x (r_min ~ -5.845e-4 near n=500) before R_n again recovers toward 1. So the " +
+      "QUALITATIVE finding here (finite-n overshoot below 1, not a plateau) is confirmed at every " +
+      "refinement; the QUANTITATIVE crossing location keeps moving as quadrature resolution improves, " +
+      "and imp-3735/imp-3848 traced the underlying driver to the n-difference of the imp-3646 " +
+      "correction eps_n = Q_n/tau*(n)^2 - 1, which changes sign near n~149." +
+      "\n\nHONEST SCOPE: measurement/characterization of a mass-feasibility diagnostic's finite-n " +
+      "convergence shape only; establishes no operator positivity. RH-equivalent, necessary-but-not-" +
+      "sufficient; the off-diagonal endpoint-Hankel obstruction K_a >= 0 (imp-3066) is UNTOUCHED. No " +
+      "RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3713 (extending the exact-saddle ratio R_n to n=3..230, rejecting both c/n and c/ln n residual laws, and discovering the finite-n overshoot through 1 at n* ~ 226; imp-3731 and imp-3849 later refined the crossing location and well depth via compensated and inner-quadrature-converged re-measurement), 2026",
+    relatedTerms: [
+      "imp-3646 remainder-tail moment-ratio asymptotics: LOG-DIVERGENT C_n ~ (ln n)^2/(16 n^2), NOT a fixed b^2/n^2 saturation (imp-3646)",
+      "imp-3731 Neumaier-compensated crossing pin n*=225.5427323 and shallow-well recovery (imp-3731)",
+      "imp-3849 inner-quadrature-converged crossing n*=215.231 and 5x-deeper well (imp-3849)",
+      "imp-3735 moment-ratio correction tail eps_n and its sign change near n~149 (imp-3735)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

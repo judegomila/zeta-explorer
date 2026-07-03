@@ -67,6 +67,7 @@ import { IMP3106_EXCESS_FRACTION_INTEGRABILITY } from '../data/imp-3106-excess-f
 import { REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126 } from '../data/imp-3126-regular-mass-vs-c-shock-coincidence.js';
 import { IMP3220_EN_BRIDGE_FIDELITY_FRONTIER } from '../data/imp-3220-en-bridge-fidelity-frontier.js';
 import { IMP3406_SIGMA_HIGHN_EXTRAPOLATION } from '../data/imp-3406-sigma-highN-extrapolation.js';
+import { IMP3443_NMAX_ETRUNC_SENSITIVITY } from '../data/imp-3443-nmax-etrunc-sensitivity.js';
 import { IMP3324_SIGMA_CH_SENSITIVITY } from '../data/imp-3324-sigma-CH-sensitivity.js';
 import { IMP3219_MUPASS_BRIDGE_OVERSHOOT_KNEE } from '../data/imp-3219-mupass-bridge-overshoot-knee.js';
 import { IMP3255_BRIDGE_RATIO_CLOSED_FORM } from '../data/imp-3255-bridge-ratio-closed-form.js';
@@ -793,6 +794,103 @@ function SigmaNShapeExtrapolationPanel() {
       <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
         Source: imp-3406-sigma-highN-extrapolation.js &mdash; N&isin;[10<sup>5</sup>,10<sup>15</sup>], log<sub>10</sub>(N) x-axis,
         continuing the imp-3220 panel above past the 10<sup>6</sup> assembly ceiling.
+      </p>
+    </div>
+  );
+}
+
+// ── imp-3443: N_max sensitivity to the E_trunc floor -- log-log power-law fit ──
+// The imp-3406 turnover point N_max~9.22e5 is NOT a robust landmark: re-running the
+// identical ternary search over a half-to-double grid of the imp-2631 truncation floor
+// shows N_max falling monotonically, following a near power law N_max ~ (1/E_trunc)^1.376
+// (R^2~0.99992). This log-log panel makes that power-law collapse visible.
+function NmaxEtruncSensitivityPanel() {
+  const F = IMP3443_NMAX_ETRUNC_SENSITIVITY;
+  const grid = F.grid;
+  const base = F.baseline;
+  const sens = F.sensitivity;
+
+  const W = 620, H = 260, ML = 60, MR = 20, MT = 26, MB = 40;
+  const logE = grid.map((r) => Math.log10(r.E_trunc));
+  const logN = grid.map((r) => Math.log10(r.N_max));
+  const xMin = Math.min(...logE) - 0.05, xMax = Math.max(...logE) + 0.05;
+  const yMin = Math.min(...logN) - 0.1, yMax = Math.max(...logN) + 0.1;
+  const px = (x) => ML + ((x - xMin) / (xMax - xMin)) * (W - ML - MR);
+  const py = (y) => H - MB - ((y - yMin) / (yMax - yMin)) * (H - MT - MB);
+
+  // fitted line: log10(N_max) = -power_exponent * log10(E_trunc) + c, solved through the
+  // baseline point so it passes visibly through the measured grid.
+  const slope = -sens.power_exponent;
+  const intercept = Math.log10(base.N_max) - slope * Math.log10(base.E_trunc);
+  const fitLine = [xMin, xMax].map((x) => ({ x, y: slope * x + intercept }));
+
+  const xTicks = [xMin, ...logE, xMax].filter((v, i, a) => a.indexOf(v) === i);
+  const yTicks = [5.5, 5.75, 6.0, 6.25, 6.5].filter((v) => v >= yMin - 0.15 && v <= yMax + 0.15);
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #a78bfa', background: 'rgba(167,139,250,0.04)' }}>
+      <h3 style={{ color: '#a78bfa', marginTop: 0, fontSize: 14 }}>
+        N<sub>max</sub> ~ (1/E<sub>trunc</sub>)<sup>{sens.power_exponent.toFixed(3)}</sup>, R&sup2;&asymp;{sens.power_fit_R2.toFixed(5)} &mdash; the imp-3406 turnover is a floor-sensitivity readout (imp-3443)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.7, marginBottom: 10 }}>
+        Re-running the imp-3406 ternary search over the half-to-double imp-2631 floor grid, the peak location
+        N<sub>max</sub> falls monotonically from {grid[0].N_max.toExponential(3).replace('e+', 'e')} (half floor)
+        through the baseline {base.N_max.toExponential(3).replace('e+', 'e')} to{' '}
+        {grid[grid.length - 1].N_max.toExponential(3).replace('e+', 'e')} (double floor) &mdash; a log-log fit
+        gives slope &asymp;{slope.toFixed(3)} (power exponent &asymp;{sens.power_exponent.toFixed(3)}), matching the local
+        elasticity &asymp;{sens.local_elasticity.toFixed(3)} at the baseline.
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <svg width={W} height={H} style={{ display: 'block', maxWidth: '100%', background: 'rgba(2,6,23,0.4)', borderRadius: 6 }}>
+          {yTicks.map((v) => (
+            <g key={`yt${v}`}>
+              <line x1={ML} y1={py(v)} x2={W - MR} y2={py(v)} stroke="#1e293b" strokeWidth="1" />
+              <text x={ML - 8} y={py(v) + 4} textAnchor="end" fontSize="11" fill="#a78bfa" fontFamily={mono}>{v.toFixed(2)}</text>
+            </g>
+          ))}
+          {xTicks.map((v) => (
+            <g key={`xt${v}`}>
+              <line x1={px(v)} y1={MT} x2={px(v)} y2={H - MB} stroke="#1e293b" strokeWidth="1" />
+              <text x={px(v)} y={H - MB + 16} textAnchor="middle" fontSize="9" fill="#64748b" fontFamily={mono}>{v.toFixed(2)}</text>
+            </g>
+          ))}
+          <line x1={ML} y1={MT} x2={ML} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <line x1={ML} y1={H - MB} x2={W - MR} y2={H - MB} stroke="#334155" strokeWidth="1" />
+          <text x={ML - 44} y={(MT + H - MB) / 2} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono} transform={`rotate(-90 ${ML - 44} ${(MT + H - MB) / 2})`}>
+            log&#8321;&#8320;(N_max)
+          </text>
+          <text x={(ML + W - MR) / 2} y={H - 6} textAnchor="middle" fontSize="10" fill="#94a3b8" fontFamily={mono}>
+            log&#8321;&#8320;(E_trunc)
+          </text>
+
+          <path
+            d={`M ${px(fitLine[0].x).toFixed(1)} ${py(fitLine[0].y).toFixed(1)} L ${px(fitLine[1].x).toFixed(1)} ${py(fitLine[1].y).toFixed(1)}`}
+            fill="none" stroke="#64748b" strokeWidth="1.4" strokeDasharray="5 3"
+          />
+
+          {grid.map((r, i) => {
+            const isBase = Math.abs(r.E_trunc - base.E_trunc) < 1e-12;
+            return (
+              <circle key={`g${i}`} cx={px(logE[i])} cy={py(logN[i])} r={isBase ? 5 : 3.2} fill={isBase ? '#fde68a' : '#a78bfa'}>
+                <title>{`E_trunc=${r.E_trunc.toExponential(3)}, N_max=${r.N_max.toExponential(3)}, sigma_max=${r.sigma_max}`}</title>
+              </circle>
+            );
+          })}
+          <text x={px(Math.log10(base.E_trunc))} y={py(Math.log10(base.N_max)) - 10} textAnchor="middle" fontSize="9" fill="#fde68a" fontFamily={mono}>
+            imp-2631 baseline
+          </text>
+        </svg>
+      </div>
+      <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(167,139,250,0.07)', border: '1px solid rgba(167,139,250,0.22)', fontSize: 11, color: '#94a3b8', lineHeight: 1.65 }}>
+        <strong style={{ color: '#c4b5fd' }}>Honest scope (imp-3443):</strong>{' '}
+        Measurement/extrapolation only, reusing the identical imp-3406/imp-3220 sub-term formulas &mdash; no
+        re-derivation. &sigma;<sub>max</sub> at the baseline &asymp;{grid.find((r) => Math.abs(r.E_trunc - base.E_trunc) < 1e-12)?.sigma_max ?? base.N_max}.
+        No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
+        remains the rigorous SOTA.
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3443-nmax-etrunc-sensitivity.js &mdash; E_trunc&isin;[0.5,2.0]&times;3.06e-5 (9-point grid),
+        log-log axes, fit slope &asymp;{slope.toFixed(3)}, R&sup2;&asymp;{sens.power_fit_R2.toFixed(5)}.
       </p>
     </div>
   );
@@ -7263,6 +7361,8 @@ export default function ClosureRoutesPage() {
       <ConditionalShareUShapePanel />
 
       <SigmaNShapeExtrapolationPanel />
+
+      <NmaxEtruncSensitivityPanel />
 
       <SigmaCHSaturationPanel />
 

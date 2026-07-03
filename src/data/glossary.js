@@ -955,6 +955,40 @@ export const glossary = [
     link: '/closure-routes',
   },
   {
+    term: "analytic ceiling lemma (Q(f) <= tanh(aU))",
+    category: 'numerical',
+    definition:
+      "The function-space-complete upgrade of the imp-3104 monomial DEG-sweep saturation: " +
+      "over EVERY f in L2([0, U]) (not merely finite monomial truncations), the scalar " +
+      "cosh passive-core Rayleigh quotient " +
+      "Q(f) = int_0^U sinh(a*tau) f(tau)^2 dtau / int_0^U cosh(a*tau) f(tau)^2 dtau " +
+      "satisfies Q(f) <= tanh(a*U) < 1. " +
+      "\n\nPROOF SKETCH: sinh(a*tau) = cosh(a*tau)*tanh(a*tau), and tanh is strictly " +
+      "increasing, so tanh(a*tau) <= tanh(a*U) pointwise on [0, U]. Integrating this " +
+      "pointwise inequality against the nonnegative weight cosh(a*tau) f^2 gives the bound " +
+      "for EVERY f -- no basis, no truncation, no degree required. " +
+      "\n\nSHARP BUT NOT ATTAINED: the concentrating indicator family f_delta = " +
+      "1_[U-delta,U] drives Q(f_delta) -> tanh(a*U) as delta -> 0+, so the bound is tight, " +
+      "but equality would force all of f's mass onto the single point tau = U (Lebesgue-null), " +
+      "impossible for an L2 function -- the supremum is never attained. " +
+      "\n\nOPERATOR-ORDER COROLLARY: as quadratic forms H <= tanh(a*U) * P (P the cosh " +
+      "passive Gram, H the sinh shear form), so the passive core dominates the shear form " +
+      "with guaranteed normalized deficit >= 1 - tanh(a*U) > 0, and no scalar cosh passive " +
+      "core can do better than this margin. " +
+      "\n\nSIGNIFICANCE (imp-3288): imp-3104 only measured ||R_orth|| approaching tanh(a*U) " +
+      "from below over finite monomial truncations; this lemma certifies the SAME ceiling " +
+      "holds over the entire L2 span, closing the measured-from-below gap rigorously. " +
+      "It is a NEGATIVE result about the SCALAR cosh passive core ONLY -- it does not touch " +
+      "operator-positivity K_a >= 0, makes no claim about the cover, and carries no RH verdict.",
+    firstUsed: "imp-3288 (analytic ceiling lemma, full-L2 upgrade), 2026",
+    relatedTerms: [
+      "saturating-gap closed form (tanh(aU) - tanh(aU/2))",
+      "constant-direction diagonal floor (R_orth_00 = tanh(aU/2))",
+      "orthogonalized shear operator (R_orth)",
+    ],
+    link: '/closure-routes',
+  },
+  {
     term: "asym-onset ledger rigor-status taxonomy",
     category: 'numerical',
     definition:

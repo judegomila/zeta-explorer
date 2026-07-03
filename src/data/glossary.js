@@ -1673,6 +1673,37 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "Faulhaber-dominant leftmost-zero residual (residual*NPHI -> -1/2)",
+    category: "numerical",
+    definition:
+      "imp-3347 recorded the leadingOrderResidual -- the gap between the measured leftmost genuine " +
+      "zero u_0(NPHI) of the truncated de Bruijn-Newman kernel and the elementary closed-form estimate " +
+      "u_0_lead = (1/2)ln(5/(2 pi N^2)) -- as bounded but unattributed, and imp-3402 re-attributed the " +
+      "whole gap to 'Gaussian curvature'. imp-3403 decomposed it instead: the elementary estimate drops " +
+      "TWO neglected pieces, the Faulhaber finite-N power-sum tails (sum n^4 ~ N^5/5, sum n^2 ~ N^3/3, " +
+      "each missing an N^4/2, N^2/2 tail) and the Gaussian curvature (every exp(-pi n^2 e^{4u}) set to 1). " +
+      "Solving the Gaussians=1 kernel with the EXACT power sums S2, S4 gives u_0_faulh = u_0_lead - " +
+      "1/(2N) -- the Faulhaber correction ALONE reproduces the measured -1/(2N) leading shrink, " +
+      "accounting for ~102.3% of the full residual at N=10 (residual*NPHI climbs -0.451 at N=10 toward " +
+      "the clean limit -1/2 by N=1280). The leftover piece residual - residual_faulh is a SUBDOMINANT, " +
+      "OPPOSITE-sign +O(1/N^2) term (only ~2.27% of |residual| at N=10, later pinned by imp-3441 to the " +
+      "closed form 5/(14 pi)). So the imp-3347/imp-3402 attribution of the residual to Gaussian " +
+      "curvature was imprecise: the leading O(1/N) shrink is the neglected Faulhaber power-sum tail, " +
+      "and genuine Gaussian curvature enters only at the next order." +
+      "\n\nHONEST SCOPE: measurement/re-attribution only, refines (does not overturn) the prior labeling. " +
+      "The leftmost zero is a truncation artifact of a TRUNCATED kernel (the untruncated de " +
+      "Bruijn-Newman Phi is positive on all of R); leaves the imp-3197/imp-3257 [0,U] window and the " +
+      "imp-3066 off-diagonal endpoint-Hankel K_a >= 0 obstruction entirely untouched. RH-equivalent; " +
+      "no positivity, no reduction, NO QED.",
+    firstUsed: "imp-3403 (Faulhaber-vs-Gaussian-curvature residual decomposition), 2026",
+    relatedTerms: [
+      "leftmost genuine zero u_0(NPHI) (imp-3347)",
+      "leftmost-zero drift-rate fit (imp-3402)",
+      "Gaussian-curvature coefficient closed form 5/(14 pi) (imp-3441)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

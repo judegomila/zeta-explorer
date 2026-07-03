@@ -4321,6 +4321,37 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "imp-3854 thetaBar double-inertness: d theta_N/d thetaBar = O((H/Dmin)^2 (1-theta_N)), so the certified K_paper elasticity is thetaBar-robust to its fifth significant figure",
+    category: "numerical",
+    definition:
+      "imp-3728 MEASURED that moving the frozen-horizon knob thetaBar to its per-plateau " +
+      "feasibility fixed point thetaBar* improves sup K_paper on [1e4,1e6] by only 1.000014x, " +
+      "but left the near-insensitivity unexplained. imp-3854 DERIVES it. Differentiating the " +
+      "retardation Psi_N(T) with respect to the frozen horizon T shows each active-gap term " +
+      "d ln t_j/dT <= 8/smin^2, where smin is the smallest individual shrunk gap; hence " +
+      "0 <= dPsi_N/dT <= (8/smin^2) Psi_N (LEMMA 3854)." +
+      "\n\nChaining through T = H^2/(8 thetaBar) gives d theta_N/d thetaBar <= " +
+      "(1/thetaBar^2)(H/smin)^2 (1-theta_N): a PRODUCT of two independently small factors, " +
+      "the near-degeneracy ratio (H/smin)^2 (<= ~2.4e-3) and the retardation deficit " +
+      "1-theta_N (<= ~2.8e-3). Since 1-theta_N is itself O((H/Dmin)^2), the horizon-sensitivity " +
+      "of theta_N is O((H/Dmin)^4) -- the knob is doubly inert -- and the certified K_paper " +
+      "elasticity |d ln K_paper/d thetaBar| ~= (H/smin)^2/thetaBar^2 governed by the same small " +
+      "parameter that makes Psi small in the first place. The analytic prediction matches the " +
+      "imp-3728 measured relative K_paper change on all 10 plateaus to within a factor in " +
+      "[0.79, 1.56], and the largest feasible relative K_paper shift is 1.4e-5, so the imp-3728 " +
+      "carryforward margin 8.31e4x is stable to its fifth significant figure under ANY feasible " +
+      "thetaBar. Derivation-only: no new Lambda bound, imp-3066 untouched, Platt-Trudgian " +
+      "Lambda <= 0.2 remains SOTA, NO QED.",
+    firstUsed: "imp-3854 (deriving the closed-form horizon-sensitivity bound dPsi_N/dT <= (8/smin^2) Psi_N and confirming the resulting O((H/Dmin)^2) prediction against the imp-3728 measured thetaBar-insensitivity), 2026",
+    relatedTerms: [
+      "imp-3728 fmb thetaBar-sensitivity measurement: moving thetaBar to its feasibility fixed point improves sup K_paper by only 1.000014x (imp-3728)",
+      "imp-3847 near-degeneracy margin Dmin/H proxy underlying the (H/Dmin)^2 small parameter (imp-3847)",
+      "imp-3725 F_mb plateau-domination bootstrap lemma this sensitivity bound is derived on top of (imp-3725)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

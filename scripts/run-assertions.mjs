@@ -2971,6 +2971,18 @@ const DATA_MODULES = [
   // claim; sharpens the imp-3400 caveat. Certification only, imp-3066 untouched,
   // no QED, PT Lambda<=0.2 SOTA. 7 assertions.
   '/src/data/imp-3489-xistar-U-independence-certification.js',
+  // imp-3490 (numerical): STRESS-TESTS the imp-3469 degree-2 scaling exponent
+  // p=2 (B_2(a/k,kU)=B_2(a,U)/k^2) on a WIDER k-ladder -- adds k in {12,16,24}
+  // to the {2,3,4,6,8} originally tested -- from both base cells (0.5,6),(0.4,10).
+  // RESULT: p=2 does NOT break; it TIGHTENS toward 2. The new large-k rungs sit
+  // inside [2.0000889,2.0001767] (tighter than the 2.00048 at k=2), the exponent
+  // deviation is monotone decreasing in k (smaller scaled a => smaller O(a^2)
+  // tail), the leading form B_2~(a^2/2)M_2 sharpens (rel err ~1/k^2, 7.7e-7 at
+  // k=24), U-independence persists out to U=240 (D_2=0 identically), and there
+  // is no quadrature degradation (cosh(a tau)-1 cancellation error ~3e-14 at
+  // a*T_A<=0.125). Stress-test only, imp-3066 untouched, no QED, PT Lambda<=0.2
+  // SOTA. 8 assertions.
+  '/src/data/imp-3490-degree2-exponent-wide-k-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

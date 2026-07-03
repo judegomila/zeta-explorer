@@ -2397,6 +2397,24 @@ const DATA_MODULES = [
   // fraction: light module does NOT reproduce the exact 64% (needs the full section 25-26 spectral
   // construction). Diagnostic; RH-equivalent; imp-3066 untouched; no positivity; no QED; PT 0.2 SOTA.
   '/src/data/imp-3253-overflow-degree-reconcile.js',
+  // imp-3366: computes the INTERMEDIATE degree-1 (single Phi weight) overflow-support fraction
+  // imp-3253 left unmeasured, realizing the completion degree d as Phi-HOMOGENEITY of the
+  // imp-3175/imp-3253 factorized densities (each Phi factor raised to power d/2; nu carries
+  // Phi^(d/2) past+future, mu carries Phi^d). At the genuine cell (a=0.5, U=6, NPHI=10) at N=6400:
+  // h(2)=0.20906 (reproduces the degree-2 anchor), h(1)=0.20391 (the degree-1 fraction),
+  // h(0.5)=0.19875, h(0)=0.0 (bare integrated, passive mu dominates). FINDING: the imp-3253
+  // implicit monotone-interpolation expectation between 0.209 and 0.64 is REFUTED along the
+  // Phi-homogeneity axis -- the degree-1 fraction ~0.204 sits WITH the degree-2 face (~0.209),
+  // NOT at a ~0.42 midpoint; h(d) is monotone non-increasing and pinned in [0.188, 0.209] for all
+  // d in (0,2], never climbing to 0.64. MECHANISM: Phi decays super-exponentially (support ends at
+  // tau~0.586, far below the bare crossover tau_star=arcsinh(1)/a~1.763), so any positive Phi power
+  // confines the integrated overflow to tau<~1.25. The 0.209->0.64 gap is carried by the
+  // normalized-spectral scale-quotient (Gpass^{-1/2} Gshear Gpass^{-1/2}), ORTHOGONAL to the
+  // completion degree. SUB-GAP imp-3366-subgap-fractional-spectral-degree1: the interpolating
+  // spectral degree-1 needs the fractional (s=1/2) normalized-spectral construction (same
+  // obstruction as the imp-3253 sub-gap). Diagnostic; RH-equivalent; imp-3066 untouched; no
+  // positivity; no QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-3366-degree1-overflow-bridge.js',
   // imp-3258: decides whether the imp-3199 overflow-support measure frac x U has a weak GENUINE
   // U-dependence or is finite-resolution noise. imp-3199 tabulated it as cell-invariant ~1.2535 yet
   // its N=6400 anchors drift monotonically down with the lag cutoff (U=5 -> 1.25391, U=6 -> 1.25438,

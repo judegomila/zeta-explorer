@@ -189,6 +189,7 @@ const EXEMPT_FROM_INDEX = new Set([
   '/viz-imp3612-fit-bias-depth-sweep',
   '/viz-imp3613-replica-fold-in-geometry',
   '/viz-imp3614-sigma-crossover-floor-invariance',
+  '/viz-imp3627-flow-gap-nextorder',
   '/viz-imp3655-flow-gap-residual-ladder',
   '/viz-imp3656-triple-skew-toeplitz-gap-ladder',
   '/viz-imp3657-sigma-crossover-tc-closedform-pin',

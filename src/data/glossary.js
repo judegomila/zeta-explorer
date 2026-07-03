@@ -4026,6 +4026,44 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "imp-3846 K4 caustic-regularity toolkit assessment: the four absent hypotheses form a dependency chain rooted at H2",
+    category: "proof",
+    definition:
+      "imp-3727 gave a FLAT availability tally against the imp-3642 CM-flow machinery for the six K4 " +
+      "hypotheses H1-H6: H6 partial, H2 latent, H1/H3/H4/H5 absent. imp-3846 walks the classical " +
+      "caustic-regularity TOOLKIT tool-by-tool instead -- Oleinik one-sided E-condition (T1), Lax/" +
+      "Dafermos genuinely-nonlinear shock-set structure (T2), Hopf-Lax value-function representation " +
+      "(T3), Arnold A_2-fold/A_3-cusp caustic classification (T4), Bec-Khanin Lagrangian-map framework " +
+      "(T5) -- and finds the toolkit is INTERNALLY COUPLED: T3 supplies H1, T2 supplies H3, T1 supplies " +
+      "H4, T4 supplies H5, and EVERY one of T1, T2, T3 requires H2 (genuine nonlinearity / convex flux) " +
+      "as a prerequisite (Oleinik decay needs f'' bounded below, Lax admissibility is stated for " +
+      "genuinely-nonlinear flux, Hopf-Lax needs a convex Hamiltonian)." +
+      "\n\nSo the four absent hypotheses are not independent gaps but a DEPENDENCY CHAIN " +
+      "H2 -> {H1, H3} -> H4 -> (with H5) -> the Hoelder-1/2 modulus C_Lip, whose single unwritten ROOT " +
+      "is H2 -- the repo never writes the continuum complex-inviscid-Burgers limit of the imp-3642 flow " +
+      "nor certifies its flux is uniformly convex. T5 is the only tool with even partial availability: " +
+      "the imp-3642 RK4 advances the discrete Lagrangian characteristic map (matching H6 at the " +
+      "discrete level), but T5 reads regularity OFF an already-constructed continuum entropy solution, " +
+      "so it is downstream of the H2-rooted chain, not a shortcut around it. The imp-2520 Lemma B " +
+      "Gronwall floor still cannot discharge H4 or upgrade T5, being exactly the mesoscopic mechanism " +
+      "K4 is defined to bypass." +
+      "\n\nThis is a SCOPING REFINEMENT, not a closure: naming H2 as the root does not supply it, and " +
+      "none of T1-T4 is discharged by the repo. K4 stays confirmed WHOLLY NEW (consistent with imp-3714 " +
+      "/ imp-3727) and G6a_shock_lipschitz stays OPEN." +
+      "\n\nHONEST SCOPE: literature-anchored scoping/derivation only -- no estimate shipped, no " +
+      "positivity, no bridge closure, no RH claim, NO QED. imp-3066 off-diagonal endpoint-Hankel " +
+      "K_a >= 0 positivity UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3846 (walking the classical caustic-regularity toolkit tool-by-tool and refining the imp-3727 flat availability tally into a dependency chain rooted at H2), 2026",
+    relatedTerms: [
+      "imp-3727 K4 entropy-solution regularity scoping: the six hypotheses a Burgers/CM caustic-map route to G6a Hoelder-1/2 would need (imp-3727)",
+      "imp-3714 G6a_shock_lipschitz modulus candidates K1-K4: consolidated status table (imp-3714)",
+      "imp-3671 G6a_shock_lipschitz structural-silence verdict: S1 wrong type, S2 wrong scale (imp-3671)",
+      "backward-flow-stability-gronwall Lemma B/C, the one-sided floor K4 must bypass (imp-2520)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "imp-3730 A-weight subleading correction limit c_inf ~ 0.3543: the third-of-a-log-unit floor above the leading pi e^{4 tau} decay",
     category: "numerical",
     definition:

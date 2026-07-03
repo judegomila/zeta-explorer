@@ -137,6 +137,7 @@ const Imp3542DegreeDMissFactorViz = lazy(() => import('./pages/Imp3542DegreeDMis
 const Imp3543XiStarRobustnessViz = lazy(() => import('./pages/Imp3543XiStarRobustnessViz.jsx'));
 const Imp3563QuadratureStraddleViz = lazy(() => import('./pages/Imp3563QuadratureStraddleViz.jsx'));
 const Imp3564PowerIterationClosedFormViz = lazy(() => import('./pages/Imp3564PowerIterationClosedFormViz.jsx'));
+const Imp3565SigmaPostpeakDecayExponentViz = lazy(() => import('./pages/Imp3565SigmaPostpeakDecayExponentViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -718,6 +719,7 @@ function AppShell() {
           <Route path="/viz-imp3543-xistar-robustness" element={<Imp3543XiStarRobustnessViz />} />
           <Route path="/viz-imp3563-quadrature-straddle" element={<Imp3563QuadratureStraddleViz />} />
           <Route path="/viz-imp3564-power-iteration-closed-form" element={<Imp3564PowerIterationClosedFormViz />} />
+          <Route path="/viz-imp3565-sigma-postpeak-decay-exponent" element={<Imp3565SigmaPostpeakDecayExponentViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

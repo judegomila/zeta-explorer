@@ -91,6 +91,12 @@ import { IMP3442_SINH_RESIDUAL_COEFFICIENT_U_SCALING } from '../data/imp-3442-si
 import { IMP3469_DEGREE2_BRIDGE_MASS_SCALING, AUTOCORR_WEIGHT_PROFILE } from '../data/imp-3469-degree2-bridge-mass-scaling.js';
 import { IMP3470_TTILDE_SPECTRAL_PEAK_XISTAR_OBSTRUCTION } from '../data/imp-3470-Ttilde-spectral-peak-xistar-obstruction.js';
 import { IMP3481_AUTOCORRELATION_MOMENT_LADDER } from '../data/imp-3481-autocorrelation-moment-ladder.js';
+import { IMP3501_MOMENT_LADDER_GENERAL_DERIVATION } from '../data/imp-3501-moment-ladder-general-derivation.js';
+import { IMP3502_REMAINDER_TAIL_EXPONENT_FIT } from '../data/imp-3502-remainder-tail-exponent-fit.js';
+import { IMP3503_MOMENT_LADDER_GL_CROSSVAL } from '../data/imp-3503-moment-ladder-gauss-legendre-crossval.js';
+import { IMP3526_REMAINDER_TAIL_CANCELLATION_FREE_R4 } from '../data/imp-3526-remainder-tail-cancellation-free-r4.js';
+import { IMP3528_DEGREE4_MOMENT_SIMPSON_REFINEMENT } from '../data/imp-3528-degree4-moment-simpson-refinement.js';
+import { IMP3532_MOMENT_TAIL_CLOSED_ERROR_BOUND } from '../data/imp-3532-moment-tail-closed-error-bound.js';
 import { IMP3485_TTILDE_INDEPENDENT_OPERATOR_NORM_CROSSVAL } from '../data/imp-3485-Ttilde-independent-operator-norm-crossval.js';
 import { IMP3487_DEGREE2_DEFICIT_A_THRESHOLD } from '../data/imp-3487-degree2-deficit-a-threshold.js';
 import { IMP3400_TTILDE_SPECTRAL_SLOPE_CLOSED_FORM } from '../data/imp-3400-Ttilde-spectral-slope-closed-form.js';
@@ -6453,6 +6459,115 @@ function CaptureRatioShearGramClusterSummaryPanel() {
   );
 }
 
+// ── imp-3570: roundup of the imp-3481/3501/3502/3503/3526/3528/3532 autocorrelation
+// moment-ladder + closed-error-certificate cluster verdicts, closing on the single shared
+// imp-3066 obstruction none of them touch.
+function MomentLadderClusterSummaryPanel() {
+  const m3501 = IMP3501_MOMENT_LADDER_GENERAL_DERIVATION.certified;
+  const m3502 = IMP3502_REMAINDER_TAIL_EXPONENT_FIT.measured;
+  const m3503 = IMP3503_MOMENT_LADDER_GL_CROSSVAL.measured;
+  const m3526 = IMP3526_REMAINDER_TAIL_CANCELLATION_FREE_R4.measured;
+  const m3528 = IMP3528_DEGREE4_MOMENT_SIMPSON_REFINEMENT.measured;
+  const m3532 = IMP3532_MOMENT_TAIL_CLOSED_ERROR_BOUND.certified;
+
+  const rows = [
+    {
+      id: 'imp-3481',
+      note: 'computes the fixed genuine-Phi autocorrelation moment ladder M_0..M_6 and shows each ' +
+        'M_n is the leading small-a coefficient (a^n/n!)M_n of the n-th Taylor remainder of the ' +
+        'A-weighted cosh/sinh masses, extending the single imp-3469 n=2 result to a full ladder.',
+    },
+    {
+      id: 'imp-3501',
+      note: 'DERIVES (not fits) the leading form for every n via termwise integration of the ' +
+        `uniformly convergent cosh/sinh series; the derived form matches imp-3481's measured ` +
+        `leading form bit-for-bit (gap ${m3501.maxLeadGap}) and the two-term expansion tightens the ` +
+        `single-term residual from <1e-3 to ${m3501.maxTwoTermRelResid.toExponential(0)}.`,
+    },
+    {
+      id: 'imp-3502',
+      note: 'fits the O(a^2) residual-decay exponent per moment on a 6-rung geometric a-ladder: every ' +
+        `n=0..4 exponent lands within ${m3502.worstExponentDev.toFixed(3)} of 2 (worst R&sup2; ` +
+        `${m3502.worstR2.toFixed(5)}), upgrading imp-3481's qualitative ratio check to a fitted exponent.`,
+    },
+    {
+      id: 'imp-3503',
+      note: 'cross-validates the Simpson moment ladder against an independent Gauss-Legendre rule ' +
+        `sharing no abscissa: agreement to 6-7 significant figures (worst relative gap ` +
+        `${m3503.maxRelDiff.toExponential(1)}), and the GL M_2 reproduces the imp-3469 anchor to ` +
+        `${m3503.glM2AnchorRelErr.toExponential(1)} -- the ladder is quadrature-rule-independent.`,
+    },
+    {
+      id: 'imp-3526',
+      note: 'reformulates the degree-4 remainder as a cancellation-free positive moment sum, recovering ' +
+        'three sub-a=0.125 rungs imp-3502 had to drop below its cancellation floor and sharpening the ' +
+        `n=4 exponent deviation from ${m3526.subtractiveFitExponentDev.toFixed(3)} to ` +
+        `${m3526.freeFitExponentDev.toExponential(1)}.`,
+    },
+    {
+      id: 'imp-3528',
+      note: 'closes the imp-3503 degree-4 Simpson-vs-GL gap by co-refining the inner/outer panel counts: ' +
+        `the gap shrinks ~${m3528.minGapRatio.toFixed(0)}x per doubling (O(h&#8308;)) to ` +
+        `${m3528.finestGap.toExponential(1)}, landing the converged M_4=${m3528.convergedM4.toExponential(5)} ` +
+        'on the machine-converged GL value and localizing the residual to the inner A(tau) integral.',
+    },
+    {
+      id: 'imp-3532',
+      note: 'promotes the imp-3501 O(a^(n+2)) order statement to an EXPLICIT closed bound valid for ALL n: ' +
+        '|R_n(a)-(a^n/n!)M_n| &le; (a^(n+2)/(n+2)!) M_(n+2) e^(a T_A), certified with the exact residual ' +
+        `always at most ${(m3532.worstTailOverSharp * 100).toFixed(0)}% of the sharp cosh(a T_A) constant.`,
+    },
+  ];
+
+  return (
+    <div className="card" style={{ marginTop: 16, borderLeft: '4px solid #38bdf8', background: 'rgba(56,189,248,0.04)' }}>
+      <h3 style={{ color: '#38bdf8', marginTop: 0 }}>
+        Autocorrelation Moment-Ladder Cluster Roundup: seven diagnostics, one shared obstruction (imp-3570)
+      </h3>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
+        The imp-3481/3501/3502/3503/3526/3528/3532 cluster builds out the genuine-Phi autocorrelation moment
+        ladder M<sub>0</sub>..M<sub>6</sub> and its degree-2 bridge-mass Taylor remainders end to end &mdash;
+        from the first measurement, through an analytic derivation and an explicit closed error certificate, to
+        two independent quadrature cross-validations that close every residual gap left open along the way.
+      </p>
+      <div style={{ overflowX: 'auto', margin: '12px 0' }}>
+        <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: 12 }}>
+          <thead>
+            <tr>
+              <th style={{ textAlign: 'left', padding: '4px 8px', color: '#7dd3fc', borderBottom: '1px solid rgba(56,189,248,0.3)', fontFamily: mono }}>Ticket</th>
+              <th style={{ textAlign: 'left', padding: '4px 8px', color: '#7dd3fc', borderBottom: '1px solid rgba(56,189,248,0.3)' }}>Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr key={r.id}>
+                <td style={{ padding: '5px 8px', color: '#38bdf8', fontFamily: mono, verticalAlign: 'top', whiteSpace: 'nowrap' }}>{r.id}</td>
+                <td style={{ padding: '5px 8px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{r.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 6, background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.3)' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#f87171', letterSpacing: '0.06em', marginBottom: 4 }}>
+          SHARED OBSTRUCTION &mdash; NO RH VERDICT
+        </div>
+        <p style={{ color: '#cbd5e1', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
+          Every diagnostic above is a measurement, derivation, or quadrature cross-validation of the
+          A-weighted degree-2 (absolute-measure) Taylor structure. None of them touch the off-diagonal
+          endpoint-Hankel operator contraction K&#x2090;&thinsp;&#x2265;&thinsp;0 (imp-3066), which remains the
+          single irreducible RH-equivalent residual across the entire cluster. Mass-feasibility is
+          necessary-but-not-sufficient and the degree-2 face carries no feasibility ratio at all. Platt&ndash;Trudgian
+          &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA; NO QED.
+        </p>
+      </div>
+      <p style={{ marginTop: 10, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Sources: imp-3481/3501/3502/3503/3526/3528/3532; shared obstruction: imp-3066-offdiagonal-hankel-obstruction.js.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3415: full 16-cell tabulation of the imp-3351 (a, U)-grid min-eig=-||Gshear||
 // cell-independence result — every cell agrees to |ratio-1| < 9e-16 with reduced trace 0.
 function Imp3351CellIndependenceTable() {
@@ -8425,6 +8540,8 @@ export default function ClosureRoutesPage() {
       <AutocorrWeightSupportPanel />
 
       <MomentLadderResidualPanel />
+
+      <MomentLadderClusterSummaryPanel />
 
       <Degree2DeficitAThresholdPanel />
 

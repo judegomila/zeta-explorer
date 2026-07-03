@@ -80,7 +80,93 @@ export const SECTION26_MUPASS_OPERATOR_VERDICT = {
   nextMove: 'do NOT re-attack mu^pass (both options closed); redirect to PCC-free routes not yet shown RH-equivalent',
 };
 
+/**
+ * imp-3254 -- FORMAL NECESSARY-CONDITION LEMMA for verdict point 1.
+ *
+ * Upgrades the one-cell numeric observation "deficit 3-4 orders below the
+ * off-diagonal bridge budget" into a stated lemma with hypotheses and an
+ * EXPLICIT non-sufficiency caveat. NO reduction, NO QED; imp-3066 remains the
+ * lone obstruction and Platt-Trudgian Lambda <= 0.2 stays SOTA.
+ *
+ * Setup (genuine de Bruijn-Newman Phi cell, NPHI=10, a=0.5, U=6, tau in [0,U]):
+ *   - mu_diag: the diagonal passive-core occupation measure, density m_diag(tau);
+ *   - nu: the target occupation measure, density n(tau);
+ *   - deficit  D   := integral_[0,U] (n - m_diag)^+ dtau  (positive-part overflow
+ *                     the passive core alone fails to cover) = 9.28e-9 (deg-2);
+ *   - budget   B_off := off-diagonal L1 mass of the shear Gram = 2.26e-5,
+ *                     with HS reference ||V||_HS = 1.90e-4.
+ *
+ * LEMMA (mass-feasibility, NECESSARY). IF a passive-over-shear cover exists --
+ *   i.e. an admissible passive core with Gpass >= Gshear in OPERATOR order
+ *   (equivalently ||R|| <= 1, equivalently the RH-equivalent no-ghost positivity
+ *   K_a >= 0) -- THEN the uncovered diagonal deficit is absorbable by the
+ *   off-diagonal bridge, so NECESSARILY D <= B_off.
+ *   Contrapositive: if D > B_off the cover is IMPOSSIBLE. The measurement gives
+ *   D = 9.28e-9 << B_off = 2.26e-5 (factor ~2400x; ~20000x vs ||V||_HS), so the
+ *   impossibility branch is ruled OUT with 3-4 orders of margin: mass-FEASIBLE.
+ *
+ * HYPOTHESES.
+ *   (H-a) genuine Phi cell (NPHI=10, a=0.5, U=6); D and B_off on the SAME tau-grid
+ *         and normalization (like-for-like L1 accounting);
+ *   (H-b) "cover" means the operator inequality Gpass >= Gshear, which is exactly
+ *         the RH-equivalent K_a >= 0;
+ *   (H-c) B_off is the total off-diagonal L1 mass of Gshear; the claimed necessary
+ *         condition is the scalar mass-accounting inequality D <= B_off.
+ *
+ * NON-SUFFICIENCY CAVEAT (explicit). D <= B_off is a scalar/L1 mass-accounting
+ *   CONSEQUENCE of the operator inequality; the converse FAILS. Enough total
+ *   off-diagonal mass -- right amount, right place inside Phi autocorrelation
+ *   support (lag <= ~0.4) -- does NOT force the mass to carry the correct SIGN at
+ *   the correct lags. The surviving requirement is exactly the operator-level
+ *   sign-positivity K_a >= 0 (= ||R|| <= 1), which mass-feasibility leaves
+ *   UNTOUCHED. The degree-0 budget proxy is additionally CIRCULAR: its budget IS
+ *   ||V||, the RH-equivalent quantity itself. So mass-feasibility kills the
+ *   impossibility option but does NOT close the route. imp-3066 remains the lone
+ *   obstruction; PT Lambda <= 0.2 stays SOTA. No reduction, no QED.
+ */
+export const SECTION26_MASS_FEASIBILITY_NECESSARY_LEMMA = {
+  id: 'imp-3254-mass-feasibility-necessary-lemma',
+  cell: { NPHI: 10, a: 0.5, U: 6 },
+  deficit: 9.28e-9,
+  offDiagonalBudget: 2.26e-5,
+  hsReference: 1.90e-4,
+  marginFactorVsBudget: 2400,
+  marginFactorVsHS: 20000,
+  statement:
+    'IF a passive-over-shear cover exists (Gpass >= Gshear in operator order, i.e. ||R|| <= 1, i.e. K_a >= 0) THEN necessarily the diagonal deficit D <= off-diagonal bridge budget B_off. Measured D = 9.28e-9 << B_off = 2.26e-5 (2400x), so the impossibility branch is ruled out: mass-feasible.',
+  hypotheses: [
+    'genuine de Bruijn-Newman Phi cell (NPHI=10, a=0.5, U=6); D and B_off on the same tau-grid and normalization',
+    'cover means the operator inequality Gpass >= Gshear, which is exactly the RH-equivalent K_a >= 0',
+    'B_off is the total off-diagonal L1 mass of Gshear; the necessary condition is the scalar mass-accounting inequality D <= B_off',
+  ],
+  isNecessary: true,
+  isSufficient: false,
+  nonSufficiencyCaveat:
+    'NECESSARY-BUT-NOT-SUFFICIENT. D <= B_off is a scalar/L1 consequence of the operator inequality; the converse fails -- enough total mass does NOT force the correct SIGN at the correct lags. The surviving requirement is the operator-level sign-positivity K_a >= 0, untouched by mass-feasibility. The degree-0 budget proxy is circular (its budget IS ||V||). imp-3066 remains the lone obstruction; PT Lambda <= 0.2 stays SOTA. No reduction, no QED.',
+  closesRoute: false,
+  loneObstruction: 'imp-3066',
+  sota: 'Platt-Trudgian Lambda <= 0.2',
+};
+
 export const SECTION26_MUPASS_OPERATOR_ASSERTIONS = [
+  {
+    id: 'sec26-mupass-mass-feasibility-necessary-not-sufficient-lemma',
+    description: 'imp-3254: mass-feasibility lemma is stated NECESSARY-but-NOT-sufficient (D <= B_off), does NOT close the route, imp-3066 lone obstruction, deficit/budget match the verdict anchors',
+    holds: () => {
+      const L = SECTION26_MASS_FEASIBILITY_NECESSARY_LEMMA;
+      return (
+        L.isNecessary === true &&
+        L.isSufficient === false &&
+        L.closesRoute === false &&
+        L.loneObstruction === 'imp-3066' &&
+        Math.abs(L.deficit - 9.28e-9) < 1e-11 &&
+        Math.abs(L.offDiagonalBudget - 2.26e-5) < 1e-8 &&
+        L.deficit < L.offDiagonalBudget &&
+        /NECESSARY-BUT-NOT-SUFFICIENT/.test(L.nonSufficiencyCaveat) &&
+        /K_a >= 0/.test(L.nonSufficiencyCaveat)
+      );
+    },
+  },
   {
     id: 'sec26-mupass-rh-equivalent-operator-level',
     description: 'mu^pass route confirmed RH-equivalent at the operator level (residual = K_a>=0); mass-feasible but not a reduction',

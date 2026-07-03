@@ -1724,6 +1724,15 @@ const DATA_MODULES = [
   // fire in run-assertions.mjs (the module is wired into assertion-sweep-2026-04-12.js via
   // rh-attack.js, but that path is not in MATH_MODULES, so a direct entry is required).
   '/src/data/imp-3267-section26-mupass-verdict-lock.js',
+  // imp-3256: per-N cross-validation of ||V||_HS between the verdict genuine-Phi cell (U=6,
+  // 1.90e-4) and imp-1267 (U=5, 1.8985e-4). FINDING: SAME lower-triangular Volterra HS norm --
+  // at matched step size h the two windows are bit-identical (Phi underflows past u~2), and the
+  // imp-1267 1.8984785338e-4 is reproduced EXACTLY at N=1000; 1.8985e-4 rounds to 1.90e-4 at 3
+  // sig figs, so the asserted ~0.08% "gap" is significant-figure ROUNDING of one number, NOT a
+  // grid/normalization offset. Matched-N discrepancy is O(h), shrinking 1.71e-3 -> 6.65e-6.
+  // Throws on import if the values leave the imp-3267 lock band or the same-object identity breaks.
+  // Numerical cross-validation; RH-equivalent; imp-3066 untouched; no QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-3256-vhs-crossval.js',
   '/src/data/econn-metric-rearchitecture-verdict-2026-06-30.js',
   // imp-2686: endpoint-bridge-enriched mu^pass construction (the surviving RH-equivalent Volterra target).
   '/src/data/imp-2686-mupass-construction.js',

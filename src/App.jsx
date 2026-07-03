@@ -172,6 +172,7 @@ const Imp3672DirectDysonFlowCrosscheckViz = lazy(() => import('./pages/Imp3672Di
 const Imp3675DenseLanczosPairSpreadCrossoverViz = lazy(() => import('./pages/Imp3675DenseLanczosPairSpreadCrossoverViz.jsx'));
 const Imp3678MomentRatioAsymptoticsViz = lazy(() => import('./pages/Imp3678MomentRatioAsymptoticsViz.jsx'));
 const Imp3681SubFloorReplicaFoldinCrossoverViz = lazy(() => import('./pages/Imp3681SubFloorReplicaFoldinCrossoverViz.jsx'));
+const Imp3860AWeightCorrectionLimitViz = lazy(() => import('./pages/Imp3860AWeightCorrectionLimitViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -788,6 +789,7 @@ function AppShell() {
           <Route path="/viz-imp3675-dense-lanczos-pair-spread-crossover" element={<Imp3675DenseLanczosPairSpreadCrossoverViz />} />
           <Route path="/viz-imp3678-moment-ratio-asymptotics" element={<Imp3678MomentRatioAsymptoticsViz />} />
           <Route path="/viz-imp3681-sub-floor-replica-foldin-crossover" element={<Imp3681SubFloorReplicaFoldinCrossoverViz />} />
+          <Route path="/viz-imp3860-a-weight-correction-limit" element={<Imp3860AWeightCorrectionLimitViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

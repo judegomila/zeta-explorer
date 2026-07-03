@@ -39,15 +39,24 @@ export const PAPER_LATEX_COMPILER = 'tectonic 0.16.9';
 // heavy imp-3346/imp-3485/imp-3489/imp-3483 data modules. Per-field detail
 // (derivations, tripwires, grids) lives in those modules, not here.
 export const CAPTURE_CONSTANT_C_INF = 0.1751370;
+export const CAPTURE_CONSTANT_ONE_OVER_U_LAW =
+  'C(U) = C_inf + b/U, b ~ 0.018 (imp-3346 Richardson fit of the U ladder, C_inf ~ 0.1751 to 1e-4)';
+export const CAPTURE_RATIO_LINEAR_SHEAR_LIMIT_MAX_GAP = 5e-15;
 export const CAPTURE_CONSTANT_C_INF_SUPPORTING_EVIDENCE = Object.freeze([
   {
     ticket: 'imp-3346',
-    note: 'the capture-ratio constant is a true finite limit C_inf ~ 0.1751, not a fixed-N resolution artifact',
+    note: 'the capture-ratio constant is a true finite limit C_inf ~ 0.1751, not a fixed-N resolution artifact, ' +
+      'and obeys the one-over-U law C(U) = C_inf + b/U with b ~ 0.018',
   },
   {
     ticket: 'imp-3485',
     note: 'a structurally distinct Krylov/Lanczos solver reproduces C = 0.1751370 to <0.4% relative agreement, ' +
       'solver-independent of the imp-3467 closed-form assembly',
+  },
+  {
+    ticket: 'imp-3350',
+    note: 'the a -> 0 sinh-shear capture limit r_star equals the exactly-linear-shear ratio r_lin to below ' +
+      '5e-15 at every U tested (U=6,8,10), so C_inf is a property of the a-free linear kernel alone',
   },
 ]);
 

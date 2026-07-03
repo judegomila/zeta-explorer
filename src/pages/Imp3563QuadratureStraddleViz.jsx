@@ -216,7 +216,7 @@ export default function Imp3563QuadratureStraddleViz() {
         only -- no proof, no reduction below RH. The trapezoid Richardson extrapolant
         ({IMP3563_TRAPEZOID_RICHARDSON_LIMIT.toFixed(9)}) and the Gauss-Legendre limit agree to
         {' '}{IMP3563_CROSS_SCHEME_SPREAD.toExponential(1)}, and both agree with the imp-3523
-        headline to inside its conservative 1e-6 residual band -- confirming xi*_inf is
+        headline to inside the imp-3551 SHARPENED 1e-9 residual band -- confirming xi*_inf is
         quadrature-scheme-INVARIANT, not a midpoint-extrapolation-model artifact. It does not
         give xi* a closed form (the imp-3470 stationarity equation stays transcendental) and does
         not construct the missing imp-3066 K_a &ge; 0 sign-positivity residual, which remains

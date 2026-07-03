@@ -2398,6 +2398,38 @@ export const glossary = [
     ],
     link: "/closure-routes",
   },
+  {
+    term: "far-tail xi* band-max grid ladder: four grid-invariant rungs to N=9600, xi_Nyq~5027 (imp-3558)",
+    category: "numerical",
+    definition:
+      "imp-3531 certified the imp-3511 far-tail |P1| decade-band-max grid ladder converged over three panel " +
+      "counts N = {1200, 2400, 4800} (quadrature Nyquist xi_Nyq = pi N/U doubling 628 -> 1257 -> 2513), but " +
+      "stopped there. imp-3558 reuses the imp-3531/imp-3511/imp-3470 P1 assembly VERBATIM and adds one more " +
+      "doubling, N = 9600 (xi_Nyq ~ 5027), pushing the aliasing discriminator across a full 8x Nyquist span " +
+      "(628 -> 5027) with FOUR grid-invariant rungs instead of three. Three legs of evidence persist at the " +
+      "extended grid: (a) the far-tail band-max change keeps SHRINKING on every leg, including the new " +
+      "4800 -> 9600 rung (3.89e-10 -> 2.07e-11 -> 1.28e-12, another ~16x shrink), so the Cauchy chain extends " +
+      "cleanly with the finest-pair relative change staying < 1.1e-4 in every band; (b) the band argmax " +
+      "LOCATIONS are bit-identical at all four rungs (drift 0: 12.07, 40, 80, 160.01, 320.01) while a " +
+      "putative Nyquist replica of the true peak would move ~8797 across the widened ladder -- a fixed " +
+      "location under a 8x Nyquist span is the sharpened signature of GENUINE decay, not aliasing; (c) the " +
+      "far-tail ratio stays under 1% (~1.850e-4) and the band maxima decay MONOTONICALLY at every rung, with " +
+      "the peak itself converging (~6.5894e-5, spread ~4e-8). So the imp-3511 no-missed-maximizer bound " +
+      "survives another octave of refinement." +
+      "\n\nHONEST SCOPE: measurement/certification only, hardening the imp-3511 tail bound by one further " +
+      "doubling. It does NOT give xi* or the sup an elementary closed form -- the imp-3470 stationarity " +
+      "equation stays transcendental -- and the convergence remains an EMPIRICAL Cauchy/O(H^2) observation " +
+      "over a finite ladder N <= 9600, not an analytic quadrature error bound. The imp-3066 off-diagonal " +
+      "endpoint-Hankel K_a >= 0 magnitude remains the lone RH obstruction, UNTOUCHED. RH-equivalent; no RH " +
+      "verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3558 (four-rung far-tail xi* band-max grid ladder extension to N=9600, xi_Nyq~5027), 2026",
+    relatedTerms: [
+      "PSD peak-slope maximizer xi* = 12.0870439 (transcendental root of P2(xi) = 0) (imp-3470)",
+      "PSD peak-slope maximizer xi* = 12.0870439: U-invariance and global uniqueness (imp-3489, imp-3483)",
+      "far-tail xi* replica-hiding grid threshold N_replica~764 (imp-3582)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

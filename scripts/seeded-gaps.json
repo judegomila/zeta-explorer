@@ -213,7 +213,7 @@
   },
   "__meta": {
     "dryStreak": 0,
-    "lastScoutAt": "2026-06-19T19:43:56.081Z"
+    "lastScoutAt": "2026-06-29T14:46:07.970Z"
   },
   "src/data/lambda-roadmap.js#closesIf:imp-371 rerun confirms agreement on extended ladder": {
     "impId": "imp-2615",
@@ -242,5 +242,33 @@
   "src/data/lambda-roadmap.js#closesIf:imp-371 rerun confirms agreement on extended ladder — DONE (": {
     "impId": "imp-2624",
     "seededAt": "2026-06-12T19:54:49.538Z"
+  },
+  "src/data/proof-chain-snapshot-2026-06-23.js#closesIf:Already closed unconditionally. Feeds E(N) chain if C_H can ": {
+    "impId": "imp-2833",
+    "seededAt": "2026-06-26T00:23:08.586Z"
+  },
+  "src/data/proof-chain-snapshot-2026-06-23.js#closesIf:C_H Holder-1/2 shock modulus bounded unconditionally (imp-26": {
+    "impId": "imp-2834",
+    "seededAt": "2026-06-26T00:23:08.768Z"
+  },
+  "src/data/proof-chain-snapshot-2026-06-23.js#closesIf:N/A — structurally dead. Thin-strip route grows with height.": {
+    "impId": "imp-2835",
+    "seededAt": "2026-06-26T00:23:08.950Z"
+  },
+  "src/data/proof-chain-snapshot-2026-06-23.js#closesIf:Only if RH is proved; this is RH-EQUIVALENT, not a route to ": {
+    "impId": "imp-2836",
+    "seededAt": "2026-06-26T00:23:09.128Z"
+  },
+  "src/data/proof-chain-snapshot-2026-06-23.js#closesIf:Field bound beta proved (imp-2683) would close the two-sided": {
+    "impId": "imp-2837",
+    "seededAt": "2026-06-26T00:23:09.312Z"
+  },
+  "src/data/proof-chain-snapshot-2026-06-23.js#closesIf:Would require a genuine breakthrough on the Montgomery PCC c": {
+    "impId": "imp-2838",
+    "seededAt": "2026-06-26T00:23:09.495Z"
+  },
+  "src/data/imp-holder-exponent-sharpness.js#subgap-tau-c-saturating-family": {
+    "impId": "imp-2988",
+    "seededAt": "2026-06-26T02:38:10.728Z"
   }
 }

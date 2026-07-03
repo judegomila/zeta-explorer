@@ -1,24 +1,37 @@
 {
-  "generatedAt": "2026-04-12T23:08:03.604Z",
+  "generatedAt": "2026-07-03T02:20:23.094Z",
   "source": "imp-514 offline compute harness (scripts/compute-dyson-ladder-extended.mjs)",
   "zerosProvenance": "Odlyzko zeta tables (https://www-users.cse.umn.edu/~odlyzko/zeta_tables/)",
-  "zerosLoaded": 10000,
+  "zerosLoaded": 250000,
   "dtParam": 0.0001,
   "maxStepsParam": 120,
   "dtNote": "Effective dt per N is gap-seeded: dtEff = min(DT, d_min^2/80). See row.dt for actual dt used (imp514d). Additionally, currentDt is capped to mg^2/12 at each step to prevent late-stage overshoot (imp514f). dysonDerivBackward uses antisymmetry (N*(N-1)/2 pairs, ~2x speedup vs N^2, no Kahan).",
   "rows": [
     {
-      "N": 10000,
+      "N": 150000,
       "source": "measured-float64-rk4",
-      "t_c": 0.00017772,
+      "t_c": 0.00002701,
       "reason": "gap-nonpositive",
-      "dt": 0.00001776471033634661,
+      "dt": 0.0000027016674574094323,
       "nSteps": 300,
-      "stepsRun": 37,
-      "wallTimeMs": 26621,
-      "olsProjection": 0.00714,
-      "initialMinGap": 0.0376985,
-      "note": "Float64 RK4 (NOT certified). dt gap-seeded: initialMinGap=3.770e-2, dtEff=1.776e-5 (imp514d fix). Estimated ~0s/step. Collision detected at t_c ~ 0.000178."
+      "stepsRun": 35,
+      "wallTimeMs": 1417959,
+      "olsProjection": 0.00668173,
+      "initialMinGap": 0.01470148,
+      "note": "Float64 RK4 (NOT certified). dt gap-seeded: initialMinGap=1.470e-2, dtEff=2.702e-6 (imp514d fix). Estimated ~23s/step. Collision detected at t_c ~ 0.000027."
+    },
+    {
+      "N": 250000,
+      "source": "measured-float64-rk4",
+      "t_c": 0.00002701,
+      "reason": "gap-nonpositive",
+      "dt": 0.0000027016674574094323,
+      "nSteps": 300,
+      "stepsRun": 35,
+      "wallTimeMs": 6316006,
+      "olsProjection": 0.00666864,
+      "initialMinGap": 0.01470148,
+      "note": "Float64 RK4 (NOT certified). dt gap-seeded: initialMinGap=1.470e-2, dtEff=2.702e-6 (imp514d fix). Estimated ~63s/step. Collision detected at t_c ~ 0.000027."
     }
   ],
   "subGaps": [

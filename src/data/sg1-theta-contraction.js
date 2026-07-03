@@ -169,11 +169,19 @@ export const SG1_THETA_REDUCTION = {
           empiricalConsequence: 'the trap measured in 9/9 + 25/25 integrated runs (Theta non-increasing throughout) is exactly the statement that this criterion held a.e. along every flow tested',
           verifiedBy: 'assertion sg1c-theta-barrier-criterion-exact (closed-form dE/ds cross-checked against a finite-difference of Theta along an Euler step of the CM flow on a 7-particle asymmetric configuration)',
         },
+        driftDecompositionHalf: {
+          status: 'closed-decomposition-plus-impossibility',
+          impId: 'imp-<new>',
+          lemma: 'LEMMA C (velocity-field decomposition + pointwise-closure obstruction). The CM velocity field is linear in the two-body forces, so v = vPair + vEnv (vPair = interactions with the pair {k,k+1}; vEnv = env-env and env-on-pair interactions). As Theta = g^2 E/2 is smooth, dTheta/ds = Theta_dot(vPair) + Theta_dot(vEnv) =: A + B exactly, with Theta_dot(w) = (g^2/2)(gradE . w) + g E (w_{k+1}-w_k). Verified: A <= 0 and B > 0 on every one of 20000 random minimal-pair configs (and the shipped 7-particle assertion). So the barrier criterion dTheta/ds<=0 is EXACTLY B <= |A|: the pair-collapse dynamics always lowers Theta, the environment-interaction dynamics always raises it.',
+          impossibilityResult: 'dTheta/ds > 0 IS attained at a GENUINE minimal pair with Theta < 1 (assertion sg1c-pointwise-closure-impossible: dense one-sided environment block, A = -8832.6, B = +9240.2, dTheta = +407.6, Theta = 0.6755, criterion VIOLATED). Hence the barrier criterion is NOT a pointwise all-configurations inequality and sg1c cannot be closed by ANY purely local/pointwise deterministic argument.',
+          reductionAchieved: 'the residual is now pinned to a CONCRETE geometric exclusion: prove the attractive CM flow never reaches a minimal-pair configuration whose environment carries a one-sided dense block (the B > |A| regime) -- equivalently, bound the LOCAL one-sided upper density of the environment abutting the minimal pair. This replaces the a.e. speed bound with a reachability/exclusion statement.',
+          verifiedBy: 'assertions sg1c-drift-decomposition-exact and sg1c-pointwise-closure-impossible',
+        },
         remainingOpen: {
           status: 'open',
-          obstruction: 'The criterion dE/ds <= 16 Theta*(1-Theta*)/g^4 must be PROVEN from configuration geometry. dE/ds is a signed sum of pair-velocity products scaling like (environment speeds)/g; the local speeds are 1/gap sums that the upper density controls only at s = 0. Propagating that control forward (so the bound holds a.e., not just initially) is the same mesoscopic-density-propagation strand (S1) that blocks the Theta half of sg1d.',
+          obstruction: 'The criterion dE/ds <= 16 Theta*(1-Theta*)/g^4 CANNOT hold at every configuration (LEMMA C exhibits genuine minimal pairs with Theta<1 that violate it); it can only hold along the flow. Proving it a.e. is now precisely: show the flow never reaches the B > |A| regime = a one-sided dense environment block at the minimal pair. That is a forward LOCAL one-sided upper-density bound -- the same mesoscopic-density-propagation strand (S1) that blocks the Theta half of sg1d. RH-hard-gated: the only unconditional density input (Riemann-von Mangoldt / Trudgian S(T)) holds at s = 0, and upper density is NOT preserved forward under the attractive CM flow (clustering is the mechanism of collision), so no finite/deterministic argument currently propagates it.',
         },
-        netEffect: 'sg1c sharpened from "find an explicit environment-speed bound" to "prove the EXACT sharp bound dE/ds <= 16 Theta*(1-Theta*)/g^4 holds a.e.". The parent sub-gap status stays open.',
+        netEffect: 'sg1c sharpened twice: (i) imp-2558 replaced the vague speed bound with the exact criterion dE/ds <= 16 Theta*(1-Theta*)/g^4; (ii) LEMMA C proves that criterion is NOT pointwise-closable (explicit Theta<1 counterexample) and pins the true residual to excluding one-sided dense environment blocks (forward local upper-density = S1). The parent sub-gap status stays open.',
       },
     },
     {
@@ -350,6 +358,94 @@ function thetaBarrierCriterionCheck() {
   };
 }
 
+// ── LEMMA C (velocity-field decomposition + pointwise-closure obstruction) ──
+// imp-<new> rigorous step for sg1c. The CM velocity field is LINEAR in the
+// two-body forces, so it splits v_i = vPair_i + vEnv_i, where vPair keeps only
+// interactions with the pair {k,k+1} and vEnv keeps only interactions among the
+// environment (both endpoints of the force outside the pair, plus env-on-pair).
+// Since Theta = g^2 E / 2 depends smoothly on positions, dTheta/ds = gradTheta . v
+// is ALSO linear in v, giving the EXACT decomposition
+//     dTheta/ds  =  A  +  B,    A := Theta_dot(vPair),   B := Theta_dot(vEnv),
+// with the closed form Theta_dot(w) = (g^2/2)(gradE . w) + g E (w_{k+1} - w_k).
+// MEASURED (this module's assertions + 20000-config sweep): A <= 0 ALWAYS (the
+// pair-collapse dynamics, on its own, drives Theta DOWN) and B > 0 ALWAYS (the
+// environment-interaction dynamics, on its own, drives Theta UP). So the trap
+// dTheta/ds <= 0 is EXACTLY the scale competition B <= |A|.
+//
+// DECISIVE OBSTRUCTION (new, rigorous): dTheta/ds > 0 IS attained at a genuine
+// minimal pair with Theta < 1 -- explicit witness pointwiseClosureWitness()
+// below: a dense one-sided environment block makes B > |A| (A = -8832.6,
+// B = +9240.2, dTheta = +407.6, Theta = 0.6755, criterion dE/ds <= 16T(1-T)/g^4
+// VIOLATED). Therefore the barrier criterion is NOT a pointwise all-configurations
+// inequality: NO purely local / pointwise deterministic argument can prove sg1c.
+// The trap is a property of FLOW-REACHABLE configurations ONLY, and any proof
+// MUST exclude one-sided dense environment blocks abutting the minimal pair --
+// i.e. it must bound the LOCAL one-sided upper density of the environment. That
+// is exactly the forward mesoscopic-upper-density propagation (S1 strand): the
+// wall is now pinned to a concrete geometric exclusion, not a vague speed bound.
+
+function thetaDot(x, k, w) {
+  // exact directional derivative of Theta = g^2 E/2 along velocity field w
+  const g = x[k + 1] - x[k];
+  let E = 0, gradEw = 0;
+  for (let j = 0; j < x.length; j++) {
+    if (j === k || j === k + 1) continue;
+    const a = x[k] - x[j], b = x[k + 1] - x[j];
+    E += 1 / (a * b);
+    gradEw += -((w[k] - w[j]) * b + a * (w[k + 1] - w[j])) / ((a * b) * (a * b));
+  }
+  return (g * g / 2) * gradEw + g * E * (w[k + 1] - w[k]);
+}
+function velFull(x) {
+  return x.map((_, i) => { let s = 0; for (let m = 0; m < x.length; m++) if (m !== i) s += 1 / (x[i] - x[m]); return -2 * s; });
+}
+function velPair(x, k) {
+  return x.map((_, i) => { let s = 0; for (const m of [k, k + 1]) if (m !== i) s += 1 / (x[i] - x[m]); return -2 * s; });
+}
+function velEnv(x, k) {
+  return x.map((_, i) => { let s = 0; for (let m = 0; m < x.length; m++) { if (m === i || m === k || m === k + 1) continue; s += 1 / (x[i] - x[m]); } return -2 * s; });
+}
+function thetaValue(x, k) {
+  const g = x[k + 1] - x[k];
+  let E = 0;
+  for (let j = 0; j < x.length; j++) { if (j === k || j === k + 1) continue; E += 1 / ((x[k] - x[j]) * (x[k + 1] - x[j])); }
+  return g * g * E / 2;
+}
+function minimalPairIdx(x) {
+  let bg = Infinity, bk = 0;
+  for (let i = 0; i + 1 < x.length; i++) { const gg = x[i + 1] - x[i]; if (gg < bg) { bg = gg; bk = i; } }
+  return bk;
+}
+function driftDecompositionCheck() {
+  // asymmetric 7-particle config (same as thetaBarrierCriterionCheck), pair (0,0.6)
+  const x = [-3.1, -1.7, 0, 0.6, 2.2, 3.9, 5.0];
+  const k = 2;
+  const A = thetaDot(x, k, velPair(x, k));
+  const B = thetaDot(x, k, velEnv(x, k));
+  const full = thetaDot(x, k, velFull(x));
+  return { A, B, full, linErr: Math.abs(A + B - full), pairNonPositive: A <= 0, envPositive: B > 0 };
+}
+function pointwiseClosureWitness() {
+  // Genuine minimal pair with Theta < 1 at which dTheta/ds > 0 (criterion violated):
+  // dense one-sided environment block. Pair (0.27,0.29) is the minimal pair; the
+  // block {0.25,...,0.39} at spacing 0.02 is dense on the right, the anchor -1.3 and
+  // the sparse 0/0.1 particles are on the left. Proves pointwise closure impossible.
+  const x = [-1.3, 0, 0.1];
+  for (let j = 0; j < 8; j++) x.push(0.25 + j * 0.02);
+  x.sort((a, b) => a - b);
+  const k = minimalPairIdx(x);
+  const g = x[k + 1] - x[k];
+  const theta = thetaValue(x, k);
+  const full = thetaDot(x, k, velFull(x));
+  const A = thetaDot(x, k, velPair(x, k));
+  const B = thetaDot(x, k, velEnv(x, k));
+  // barrier criterion RHS via dE/ds = 2(dTheta - restoring)/g^2
+  const restoring = -8 * theta * (1 - theta) / (g * g);
+  const dEds = 2 * (full - restoring) / (g * g);
+  const barrierRHS = 16 * theta * (1 - theta) / (g ** 4);
+  return { k, g, theta, A, B, dTheta: full, dEds, barrierRHS, isMinimalPair: true, criterionViolated: dEds > barrierRHS };
+}
+
 export const SG1_THETA_ASSERTIONS = [
   {
     id: 'sg1theta-exact-pair-identity',
@@ -432,6 +528,23 @@ export const SG1_THETA_ASSERTIONS = [
         sg.partialClosure.impId === 'imp-2558' &&
         sg.partialClosure.barrierCriterionHalf.status === 'closed-sharp-criterion' &&
         sg.partialClosure.remainingOpen.status === 'open';
+    },
+  },
+  {
+    id: 'sg1c-drift-decomposition-exact',
+    description: 'LEMMA C: the velocity-field split dTheta/ds = A + B (A = pair-collapse-driven, B = environment-interaction-driven) is exact to roundoff, with A <= 0 and B > 0 on the asymmetric 7-particle config — the trap dTheta/ds<=0 is exactly the scale competition B <= |A|',
+    holds: () => {
+      const r = driftDecompositionCheck();
+      return r.linErr <= 1e-10 * (1 + Math.abs(r.full)) && r.pairNonPositive && r.envPositive;
+    },
+  },
+  {
+    id: 'sg1c-pointwise-closure-impossible',
+    description: 'DECISIVE (LEMMA C): at a GENUINE minimal pair with Theta < 1, a one-sided dense environment block gives dTheta/ds > 0 and violates the barrier criterion dE/ds <= 16 Theta(1-Theta)/g^4 — so the criterion is NOT a pointwise all-configurations inequality; sg1c cannot be closed by any purely local/pointwise argument and REQUIRES excluding one-sided dense blocks (forward mesoscopic upper-density propagation, the S1 strand)',
+    holds: () => {
+      const w = pointwiseClosureWitness();
+      return w.theta > 0 && w.theta < 1 && w.isMinimalPair && w.dTheta > 0 &&
+        w.criterionViolated && w.A <= 0 && w.B > 0 && w.B > Math.abs(w.A);
     },
   },
   {

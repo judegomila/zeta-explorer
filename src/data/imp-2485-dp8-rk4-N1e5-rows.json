@@ -1,6 +1,6 @@
 {
   "generatedBy": "scripts/compute-imp2485-dp8-rk4-N1e4.mjs",
-  "generatedAtUtc": "2026-06-26T04:01:06.897Z",
+  "generatedAtUtc": "2026-06-26T04:20:18.476Z",
   "smoke": false,
   "N": 100000,
   "zeroSource": "src/data/zeros-to-1e6.js (Odlyzko, imp-359)",
@@ -43,13 +43,13 @@
       "t_c": -0.0001,
       "steps": 1,
       "minSpacing": -0.11375920491991565,
-      "wallMs": 89574
+      "wallMs": 88079
     },
     "dp8": {
       "t_c": -0.0001,
       "steps": 1,
       "minSpacing": -0.028864611471362878,
-      "wallMs": 265709
+      "wallMs": 266928
     }
   },
   "refinedRow": {
@@ -74,7 +74,7 @@
     "maxIntervalWidth": 3.259629011154175e-9,
     "stepsTaken": 1,
     "reason": "gap-lower-bound-nonpositive",
-    "wallMs": 2257106
+    "wallMs": 2268143
   },
   "intervalFine": {
     "dt": 0.00002,

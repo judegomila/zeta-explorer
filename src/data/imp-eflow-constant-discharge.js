@@ -70,6 +70,8 @@
  */
 
 import { IMP2644_EFLOW_GRONWALL_CG_DISCHARGE } from './imp-2644-eflow-gronwall-cg-discharge.js';
+// imp-3013: N = 1e5 height for the benign-Gronwall cross-check below.
+import { effectiveHeightForN } from './lambda-rh-height-mapping.js';
 
 const TWO_PI = 2 * Math.PI;
 const N_STAR = 1e4;
@@ -88,6 +90,49 @@ const EFLOW_EXPLICIT = PREFACTOR * Math.exp(BENIGN_EXPONENT); // ~1.239487e-3
 // Microscopic collision strip y ~ sqrt(2 pi / N): exponent 2 S / y^2 = S N / pi.
 const microscopicCollisionExponent = (N, S) => (S * N) / Math.PI;
 const COLLISION_EXP_N1E6 = microscopicCollisionExponent(1e6, 1.9e-4);  // ~60.5, vacuous
+
+// ── imp-3013: N = 1e5 cross-check of the BENIGN Gronwall amplification ────────
+// The benign E_flow Gronwall constant C_G = 2/y_star^2 lives on the order-one
+// density-floor strip (y_star >= 1) and is therefore N-INDEPENDENT: it is the
+// SAME 2.0 at N = 1e5 as at N* = 1e4 (unlike the divergent collision-Gronwall,
+// whose S N / pi exponent grows with N). We cross-validate the Lemma B closed
+// form exp(C_G . |t_c|) at the N = 1e5 beat against a DUAL numeric integration of
+// the scalar Gronwall ODE  dw/dt = C_G . w,  w(0) = 1, over t in [0, |t_c|]: an
+// RK4 integrator and an INDEPENDENT fine-step Euler integrator. Agreement of both
+// with the closed form certifies the amplification literal is correctly composed
+// at N = 1e5, where E_flow is ALSO smaller than at 1e4 (the prefactor
+// C_F . L / T0 decreases as T0 = gamma_N grows).
+const N_STAR_1E5 = 1e5;
+const T0_N1E5 = effectiveHeightForN(N_STAR_1E5);
+const PREFACTOR_N1E5 =
+  ((Math.log(T0_N1E5 / TWO_PI) + 1) / TWO_PI) * Math.log(T0_N1E5) / T0_N1E5;
+
+// horizon |t_c|: same rigorous A1 bound g_min^2/6 (the benign C_G is N-independent)
+const HORIZON_TC = TC_A1;                                    // ~2.369e-4 (from imp-2644)
+const A_CLOSED_N1E5 = Math.exp(C_G_GRONWALL * HORIZON_TC);   // Lemma B closed form
+
+// dual integrator of dw/dt = C_G . w on [0, HORIZON_TC], w(0) = 1
+function integrateGronwallRK4(cG, horizon, steps) {
+  const h = horizon / steps;
+  let w = 1;
+  for (let i = 0; i < steps; i++) {
+    const k1 = cG * w;
+    const k2 = cG * (w + (h / 2) * k1);
+    const k3 = cG * (w + (h / 2) * k2);
+    const k4 = cG * (w + h * k3);
+    w += (h / 6) * (k1 + 2 * k2 + 2 * k3 + k4);
+  }
+  return w;
+}
+function integrateGronwallEuler(cG, horizon, steps) {
+  const h = horizon / steps;
+  let w = 1;
+  for (let i = 0; i < steps; i++) w += h * cG * w;
+  return w;
+}
+const A_RK4_N1E5 = integrateGronwallRK4(C_G_GRONWALL, HORIZON_TC, 64);
+const A_EULER_N1E5 = integrateGronwallEuler(C_G_GRONWALL, HORIZON_TC, 200000);
+const EFLOW_EXPLICIT_N1E5 = PREFACTOR_N1E5 * A_CLOSED_N1E5;
 
 export const IMP_EFLOW_CONSTANT_DISCHARGE = {
   id: 'imp-2845',
@@ -114,6 +159,20 @@ export const IMP_EFLOW_CONSTANT_DISCHARGE = {
     divergent: 'C_Lip collision-Gronwall on the microscopic strip y ~ sqrt(2pi/N): exponent S N / pi grows without bound (~60.5 at N=1e6, S~1.9e-4). VACUOUS; E_coll/C_H stay the soft terms.',
     collision_exponent_N1e6: +COLLISION_EXP_N1E6.toFixed(2),     // ~60.5
     doNotConflate: 'Pinning E_flow does NOT discharge the C_Lip wall; the two Gronwalls have opposite fates and must not be conflated.',
+  },
+  crossCheckN1e5: {
+    N: N_STAR_1E5,
+    note: 'imp-3013: the benign Gronwall constant C_G = 2/y_star^2 is N-INDEPENDENT (order-one density-floor strip); it is the same 2.0 at N=1e5 as at N*=1e4. The Lemma B closed-form amplification exp(C_G.|t_c|) is cross-validated against a DUAL (RK4 + fine-Euler) numeric integration of dw/dt = C_G.w; both agree, certifying the literal is correctly composed at the N=1e5 beat.',
+    C_G: C_G_GRONWALL,
+    horizon_tc: +HORIZON_TC.toExponential(4),               // ~2.369e-4
+    amplification_closed: +A_CLOSED_N1E5.toFixed(9),        // exp(C_G.|t_c|)
+    amplification_rk4: +A_RK4_N1E5.toFixed(9),              // RK4 numeric
+    amplification_euler: +A_EULER_N1E5.toFixed(9),          // fine-Euler numeric
+    rk4_vs_closed_abs: +Math.abs(A_RK4_N1E5 - A_CLOSED_N1E5).toExponential(2),
+    euler_vs_closed_abs: +Math.abs(A_EULER_N1E5 - A_CLOSED_N1E5).toExponential(2),
+    E_flow_N1e5: +EFLOW_EXPLICIT_N1E5.toExponential(6),
+    smallerThanN1e4: EFLOW_EXPLICIT_N1E5 < EFLOW_EXPLICIT,  // prefactor C_F.L/T0 shrinks as T0 grows
+    withinTarget: EFLOW_EXPLICIT_N1E5 <= EFLOW_TARGET,
   },
   residualsNoFalseQED: [
     'No NEW mathematical claim: this module only multiplies out the constants already discharged in imp-2644 and records the benign/divergent separation.',
@@ -155,6 +214,23 @@ export const IMP_EFLOW_CONSTANT_DISCHARGE_ASSERTIONS = [
     id: 'imp2845-prefactor-consistency',
     description: 'Sanity: the imported prefactor matches C_F . L / T0 with C_F = (log(T0/2pi)+1)/2pi and is ~1.2389e-3',
     holds: () => PREFACTOR > 1.2e-3 && PREFACTOR < 1.3e-3 && TWO_PI > 6.28 && TWO_PI < 6.29,
+  },
+  {
+    id: 'imp3013-n1e5-dual-integrator-agreement',
+    description: 'N=1e5 cross-check: the Lemma B closed-form benign amplification exp(C_G.|t_c|) agrees with BOTH an RK4 and an independent fine-Euler numeric integration of dw/dt = C_G.w to < 1e-8',
+    holds: () =>
+      Math.abs(A_RK4_N1E5 - A_CLOSED_N1E5) < 1e-8 &&
+      Math.abs(A_EULER_N1E5 - A_CLOSED_N1E5) < 1e-8,
+  },
+  {
+    id: 'imp3013-benign-cg-n-independent',
+    description: 'The benign Gronwall constant C_G = 2/y_star^2 is N-independent: the identical 2.0 is used at N=1e5 and N*=1e4 (contrast the divergent collision-Gronwall S N / pi)',
+    holds: () => Math.abs(C_G_GRONWALL - 2.0) < 1e-12 && A_CLOSED_N1E5 > 1 && A_CLOSED_N1E5 < 1.001,
+  },
+  {
+    id: 'imp3013-eflow-n1e5-smaller-and-within-target',
+    description: 'E_flow at N=1e5 is <= the 1.3e-3 target and strictly smaller than at N*=1e4 (the prefactor C_F.L/T0 decreases as T0 = gamma_N grows)',
+    holds: () => EFLOW_EXPLICIT_N1E5 <= EFLOW_TARGET && EFLOW_EXPLICIT_N1E5 < EFLOW_EXPLICIT,
   },
 ];
 

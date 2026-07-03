@@ -148,6 +148,7 @@ const Imp3613ReplicaFoldInGeometryViz = lazy(() => import('./pages/Imp3613Replic
 const Imp3614SigmaCrossoverFloorInvarianceViz = lazy(() => import('./pages/Imp3614SigmaCrossoverFloorInvarianceViz.jsx'));
 const Imp3655FlowGapResidualLadderViz = lazy(() => import('./pages/Imp3655FlowGapResidualLadderViz.jsx'));
 const Imp3656TripleSkewToeplitzGapLadderViz = lazy(() => import('./pages/Imp3656TripleSkewToeplitzGapLadderViz.jsx'));
+const Imp3657SigmaCrossoverTcClosedformPinViz = lazy(() => import('./pages/Imp3657SigmaCrossoverTcClosedformPinViz.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -740,6 +741,7 @@ function AppShell() {
           <Route path="/viz-imp3614-sigma-crossover-floor-invariance" element={<Imp3614SigmaCrossoverFloorInvarianceViz />} />
           <Route path="/viz-imp3655-flow-gap-residual-ladder" element={<Imp3655FlowGapResidualLadderViz />} />
           <Route path="/viz-imp3656-triple-skew-toeplitz-gap-ladder" element={<Imp3656TripleSkewToeplitzGapLadderViz />} />
+          <Route path="/viz-imp3657-sigma-crossover-tc-closedform-pin" element={<Imp3657SigmaCrossoverTcClosedformPinViz />} />
           <Route path="/proof-checker" element={<ProofCheckerPage />} />
           <Route path="/reasoning" element={<HistoricalReasoningPage />} />
           <Route path="/papers" element={<PapersListPage />} />

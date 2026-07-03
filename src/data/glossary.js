@@ -3373,6 +3373,44 @@ export const glossary = [
     ],
     link: "/viz-imp3377-rescue-budget-height-map",
   },
+  {
+    term: "Exact flow-gap identity gap = 1 - (L_half/L_x)/(1+eta)^2 (imp-3599)",
+    category: "numerical",
+    definition:
+      "imp-3580 root-solved both the sigma=1/2 half-decay scale N_half and the E_coll=E_trunc " +
+      "crossover scale N_x across the imp-3443 half-to-double E_trunc floor grid and found the " +
+      "flow-gap gap = 1 - N_half/N_x tracks a leading law gap ~ 2 E_flow(N_x)/E_trunc within a " +
+      "sqrt/log linearization, but with an unexplained residual of ~0.01-0.03 percentage points. " +
+      "imp-3599 divides the two imp-3580 root conditions -- E_coll(N_x) = E_trunc and " +
+      "E_coll(N_half) = E_trunc + E_flow(N_half) -- against the closed form E_coll = C_C sqrt(L/N) " +
+      "(L = log T0) to get the EXACT identity gap = 1 - (L_half/L_x)/(1+eta)^2, eta = " +
+      "E_flow(N_half)/E_trunc, with no linearization. This reproduces the imp-3580 root-solved gaps " +
+      "to ~1e-14 at every floor -- the closed object the leading law approximated by setting " +
+      "L_half/L_x = 1 and expanding (1+eta)^-2 ~ 1-2eta. Expanding to O(eps^2) (eps = " +
+      "E_flow(N_x)/E_trunc) with the local log-log slopes lambda = d lnL/d lnN (the sqrt(N) " +
+      "log-drift of L, lambda ~ 1/L ~ 0.043..0.048) and mu = d lnE_flow/d lnN at N_x gives the " +
+      "next-order model gap = 2 eps(1+lambda) - (4 mu+4 lambda+3) eps^2, whose dominant correction " +
+      "2 lambda eps is exactly the sign and size of the residual. Re-root-solving both crossings " +
+      "per floor (400-iter bisection, residual <1e-9) shows the next-order model shrinks the " +
+      "leading-law residual ~20x across f in {0.5,0.75,1.0,1.5,2.0} (0.00983->0.00045, 0.01413->" +
+      "0.00068, 0.01826->0.00092, 0.02618->0.00141, 0.03376->0.00192 pp), closing ~94-95% of it " +
+      "uniformly." +
+      "\n\nHONEST SUB-GAP imp-3599-nextorder-residual-tail: a ~5% tail survives from the neglected " +
+      "O(eps^3) term, the slope-expansion curvature, and the finite-difference evaluation of " +
+      "lambda, mu -- the exact identity (A) is complete, only the perturbative closed expansion (B) " +
+      "is truncated at O(eps^2) (imp-3617 later pushes this to O(eps^3), shrinking the tail a " +
+      "further ~5-6 orders). Derivation/measurement only; no positivity, no bridge closure, no RH " +
+      "claim, NO QED. imp-3066 off-diagonal endpoint-Hankel K_a >= 0 positivity UNTOUCHED. " +
+      "Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.",
+    firstUsed: "imp-3599 (dividing the imp-3580 root conditions into the exact flow-gap identity and its O(eps^2) next-order correction closing ~95% of the residual), 2026",
+    relatedTerms: [
+      "imp-3580 sigma-crossover floor invariance / leading gap law (imp-3580)",
+      "imp-3617 self-consistent O(eps^3) flow-gap expansion (imp-3617)",
+      "imp-3556 baseline half-decay <=> crossover certification (imp-3556)",
+      "imp-3443 half-to-double E_trunc floor grid (imp-3443)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -62,12 +62,23 @@
  * No false QED. Honest next move (per synthesis): redirect throughput to PCC-free
  * routes NOT yet shown RH-equivalent; do NOT re-attack mu^pass (both options closed).
  *
+ * HONEST-STATUS NOTE (imp-3356, post imp-3256). The "~20000x, independently
+ * matching imp-1267's 1.8985e-4" phrase above is RECLASSIFIED: imp-3256's
+ * per-N cross-validation showed hsReference=1.90e-4 (U=6) and imp-1267's
+ * 1.8985e-4 (U=5) are the SAME lower-triangular Volterra HS norm (bit-identical
+ * at matched step size; imp-1267 reproduced EXACTLY at N=1000), and the
+ * asserted ~0.08% gap is pure 3-vs-5 significant-figure ROUNDING of one number.
+ * It is NOT a second independent measurement -- do not double-count it as
+ * independent corroboration. See imp-3256-vhs-crossval.js.
+ *
  * @see section26-verdict-volterra-not-a-reduction-2026-06-18 (the scale-level verdict this sharpens)
  * @see ch-wall-frontier-verdict-2026-06-26 (the C_H wall, the sibling frontier verdict)
  * @see full-route-map-2026-06-19 (the route classification)
+ * @see imp-3256-vhs-crossval.js (reclassifies the ||V||_HS "independent match" as same-object rounding)
  */
 
 import { IMP3007_MUPASS_OVERFLOW_COVER } from './imp-3007-mupass-overflow-cover.js';
+import { IMP3256_VHS_CROSSVAL } from './imp-3256-vhs-crossval.js';
 
 export const SECTION26_MUPASS_OPERATOR_VERDICT = {
   date: '2026-06-30',
@@ -78,6 +89,7 @@ export const SECTION26_MUPASS_OPERATOR_VERDICT = {
   surrogateCorrection: 'genuine deg-2 deficit is 9.28e-9 (19.4% of tau), NOT the imp-2841/imp-2686 surrogate "exactly zero"; genuine deg-0 spectral overflow is ~64%',
   sota: 'Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA; no reduction, no beat',
   nextMove: 'do NOT re-attack mu^pass (both options closed); redirect to PCC-free routes not yet shown RH-equivalent',
+  hsIndependentMatchHonestStatus: 'RECLASSIFIED by imp-3256: hsReference=1.90e-4 (U=6) and imp-1267 1.8985e-4 (U=5) are the SAME lower-triangular Volterra HS norm (bit-identical at matched step size); the ~0.08% gap is 3-vs-5 significant-figure rounding of ONE number, NOT an independent measurement -- do not double-count as independent corroboration',
 };
 
 /**
@@ -202,6 +214,23 @@ export const SECTION26_MUPASS_OPERATOR_ASSERTIONS = [
         Math.abs(g.genuineDeg2OverflowFractionOfTau - 0.194) < 1e-9 &&
         /9\.28e-9/.test(SECTION26_MUPASS_OPERATOR_VERDICT.surrogateCorrection) &&
         /19\.4% of tau/.test(SECTION26_MUPASS_OPERATOR_VERDICT.surrogateCorrection)
+      );
+    },
+  },
+  {
+    // imp-3356: the verdict's "independently matching" HS phrasing must carry an
+    // honest-status reclassification cross-checked against the imp-3256 module that
+    // established the same-object rounding identity, so the match is never
+    // double-counted as independent evidence.
+    id: 'sec26-mupass-hs-independent-match-honest-status',
+    description: 'the hsReference "independent match" is reclassified as a same-object 3-vs-5-sig-fig rounding identity per imp-3256, not a second independent measurement',
+    holds: () => {
+      const status = SECTION26_MUPASS_OPERATOR_VERDICT.hsIndependentMatchHonestStatus;
+      return (
+        /RECLASSIFIED/.test(status) &&
+        /NOT an independent measurement/.test(status) &&
+        IMP3256_VHS_CROSSVAL.verdict_conclusion.sameHilbertSchmidtNorm === true &&
+        IMP3256_VHS_CROSSVAL.verdict_conclusion.gapIsSignificantFigureRounding === true
       );
     },
   },

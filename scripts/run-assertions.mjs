@@ -3021,6 +3021,31 @@ const DATA_MODULES = [
   // exponent matches 3 to O(a^2). Derivation/certification only, imp-3066 untouched,
   // no QED, PT Lambda<=0.2 SOTA. 8 assertions.
   '/src/data/imp-3510-degree3-miss-factor-closed-form.js',
+  // imp-3524 (proof): DERIVES the GENERAL degree-d miss factor 1-1/k^(d+1) UNIFYING
+  // imp-3488 (d=2: 1-1/k^3) and imp-3510 (d=3: 1-1/k^4). From imp-3501 the degree-d
+  // bridge mass B_d(a)=sum_{m>=d,m==d(2)} a^m/m! M_m has leading form (a^d/d!)M_d, so
+  // by a^d homogeneity B_d(a/k)=k^{-d}B_d(a): exponent p=d, the imp-3405 degree-0
+  // prediction k B_d(a) over-predicts by k^(d+1), and relative miss = 1-1/k^(d+1).
+  // Specializes to 1-1/k^3 (d=2) and 1-1/k^4 (d=3) bit-for-bit (gap 0). Certified vs
+  // self-computed d=2 (cosh-1) and d=3 (sinh-a tau) k-ladders {2,3,4,6,8} on bases
+  // (0.5,6),(0.4,10) with r_k=B_d(a/k)/B_d(a): degree-0 residual == 1-r_k/k (<1e-12),
+  // derived 1-1/k^(d+1) matches to leading-form tail (r_k-1/k^d)/k (<1e-3, reconciled
+  // to r_k <1e-12), over-prediction k/r_k matches k^(d+1), fitted exponent matches d
+  // to O(a^2). Derivation/certification only, imp-3066 untouched, no QED, PT
+  // Lambda<=0.2 SOTA. 9 assertions.
+  '/src/data/imp-3524-general-degree-d-miss-factor.js',
+  // imp-3526 (numerical): RECOVERS the sub-a=0.125 rungs of the imp-3502 degree-4
+  // remainder tail-exponent fit by reformulating R_4 cancellation-free. imp-3502
+  // formed R_4=C-M_0-(a^2/2)M_2 subtractively, so the O(a^6) residual sat on an
+  // M_0*eps~1e-18 floor and the fit truncated to 3 rungs (p=1.97083, R^2=0.9999323).
+  // Using cosh(a tau)=sum (a tau)^m/m! gives R_4(a)=sum_{m even>=4} a^m/m! M_m, a
+  // positive sum with NO subtraction, so the residual sum_{m>=6,even} a^m/m! M_m
+  // decays cleanly 7.7e-14->7.2e-23 across {0.5,..,0.015625} (all 3 sub-0.125 rungs
+  // below the old 5e-18 floor yet pure signal). 6-rung fit sharpens to p=1.99998
+  // (R^2=0.99999999995), |p-2| 0.029->1.8e-5; matches subtractive R_4 to rel 1.6e-9
+  // at a=0.5 (equivalence). Measurement/certification, imp-3066 untouched, no QED,
+  // PT Lambda<=0.2 SOTA. 9 assertions.
+  '/src/data/imp-3526-remainder-tail-cancellation-free-r4.js',
 ];
 
 let ALL_MODULES = FAST_MODE

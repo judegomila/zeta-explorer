@@ -2236,6 +2236,39 @@ export const glossary = [
     ],
     link: "/viz-imp3467-closed-form-c",
   },
+  {
+    term: "Fitted moment-remainder tail EXPONENT p_n ~ 2, upgrading the imp-3481 worst-case ratio to a genuine decay law",
+    category: "numerical",
+    definition:
+      "imp-3481 only certified that each moment-ladder remainder R_n(a) = (a^n/n!) M_n + O(a^{n+2}) " +
+      "shrinks at order a^2 via a WORST-CASE per-halving ratio > 3.5 on the three-point ladder " +
+      "{0.5, 0.25, 0.125} -- never a fitted decay exponent. imp-3502 sweeps a on the extended geometric " +
+      "ladder {0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625}, computes the relative residual " +
+      "r_n(a) = |R_n(a) - (a^n/n!)M_n| / |R_n(a)|, and least-squares fits ln r_n(a) vs ln a: the slope " +
+      "is the tail exponent p_n, expected 2 since r_n(a) ~ const * a^2. MEASURED: n=0 p=1.99993 " +
+      "(R^2=1.0000000, 6 rungs), n=1 p=1.99995 (R^2=1.0000000, 6 rungs), n=2 p=1.99878 " +
+      "(R^2=0.9999996, 6 rungs), n=3 p=1.99995 (R^2=1.0000000, 4 rungs), n=4 p=1.97083 " +
+      "(R^2=0.9999323, only 3 rungs). Every fitted exponent lies within 0.03 of 2 with R^2 > 0.9999, " +
+      "upgrading the imp-3481 unfitted ratio claim to a genuine fitted decay law across the full " +
+      "n = 0..4 moment ladder. The n=4 fit is limited to 3 rungs because R_4 = C - M_0 - (a^2/2)M_2 " +
+      "subtracts O(M_0) ~ 7.7e-4 magnitude masses, so the residual numerator carries an absolute " +
+      "M_0*eps ~ 1e-18 cancellation floor: below a = 0.125 the O(a^6) tail sinks under that floor " +
+      "(numerator falls from 1.96e-17 at a = 0.125 to 4.9e-19 at a = 0.0625) and the local slope " +
+      "decorrelates (1.94 -> 1.33 -> negative), so those rungs are excluded before fitting." +
+      "\n\nHONEST SCOPE: measurement/certification only -- fits the numerical decay order of a " +
+      "fixed-weight Taylor remainder and establishes NO operator positivity. Mass-feasibility is " +
+      "NECESSARY-BUT-NOT-SUFFICIENT, and the degree-2 face carries no feasibility comparison at all " +
+      "(imp-3469: D_2 = 0). The operator-level K_a >= 0 off-diagonal endpoint-Hankel obstruction " +
+      "(imp-3066) remains UNTOUCHED. No RH verdict, no QED. Platt-Trudgian Lambda <= 0.2 remains " +
+      "the rigorous SOTA.",
+    firstUsed: "imp-3502 (fitted moment-remainder tail exponent certifying the imp-3481 order-a^2 residual decay), 2026",
+    relatedTerms: [
+      "genuine-Phi autocorrelation MOMENT LADDER M_0..M_4 and the moment-indexed leading form R_n(a) ~ (a^n/n!) M_n (imp-3481)",
+      "Second genuine-Phi autocorrelation moment M_2 and the degree-2 leading form B_2(a) ~ (a^2/2) M_2 (imp-3469)",
+      "off-diagonal endpoint-Hankel obstruction (imp-3066)",
+    ],
+    link: "/closure-routes",
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

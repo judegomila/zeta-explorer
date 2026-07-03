@@ -2912,6 +2912,112 @@ function USweeOverflowFractionViz() {
   );
 }
 
+// ── imp-3314: measured (underflow-pinned) vs true overflow fraction vs U ──
+// Contrasts the imp-3216 MEASURED fraction (tau_2 - tau_1)/U -- falling like
+// 1/U because tau_2 is pinned at the kernel underflow horizon -- against the
+// mathematically-correct fraction (U - tau_1)/U, which rises toward 1.
+function UnderflowArtifactVsTrueFractionViz() {
+  const data = IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM;
+  const tau1 = data.measured.tau1Mean;
+  const tau2 = data.measured.tau2Mean;
+  const horizon = data.measured.phiUnderflowHorizon;
+  const ladder = data.measured.uLadder;
+
+  const W = 460, H = 240;
+  const p = { t: 30, r: 14, b: 44, l: 48 };
+  const cW = W - p.l - p.r;
+  const cH = H - p.t - p.b;
+  const Umin = 4.5, Umax = 13.5;
+  const Fmin = 0, Fmax = 1.04;
+  const xS = (U) => p.l + ((U - Umin) / (Umax - Umin)) * cW;
+  const yS = (f) => p.t + (1 - (f - Fmin) / (Fmax - Fmin)) * cH;
+
+  const measuredPts = [];
+  const truePts = [];
+  for (let u = Umin + 0.15; u <= Umax - 0.1; u += 0.15) {
+    measuredPts.push([xS(u), yS((tau2 - tau1) / u)]);
+    truePts.push([xS(u), yS(1 - tau1 / u)]);
+  }
+  const measuredPath = measuredPts.map((pt, i) => `${i === 0 ? 'M' : 'L'}${pt[0].toFixed(1)} ${pt[1].toFixed(1)}`).join(' ');
+  const truePath = truePts.map((pt, i) => `${i === 0 ? 'M' : 'L'}${pt[0].toFixed(1)} ${pt[1].toFixed(1)}`).join(' ');
+
+  const uTicks = [5, 6, 8, 10, 12];
+  const fTicks = [0, 0.25, 0.5, 0.75, 1.0];
+
+  return (
+    <div className="card" style={{ marginTop: 14, borderLeft: '3px solid #f87171', background: 'rgba(248,113,113,0.03)' }}>
+      <h3 style={{ color: '#f87171', marginTop: 0, fontSize: 15 }}>
+        Measured vs True Overflow Fraction: 1/U underflow artifact vs &rarr;1 (imp-3314 / imp-3216)
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: 12, lineHeight: 1.65, marginBottom: 10 }}>
+        The MEASURED fraction (&tau;<sub>2</sub>&nbsp;&minus;&nbsp;&tau;<sub>1</sub>)/U (red, falling)
+        uses &tau;<sub>2</sub>&thinsp;&asymp;&thinsp;{tau2.toFixed(3)}, which is pinned at the IEEE-754
+        kernel <strong>underflow horizon</strong> ({horizon.toFixed(3)}) rather than a genuine crossing, so it
+        falls like 1/U as U grows. The mathematically-correct fraction (U&nbsp;&minus;&nbsp;&tau;<sub>1</sub>)/U
+        (green, rising) uses only the genuine lower endpoint &tau;<sub>1</sub>&thinsp;&asymp;&thinsp;{tau1.toFixed(3)}
+        and climbs toward 1 as U grows &mdash; because past &tau;<sub>1</sub> the overflow region
+        genuinely extends all the way to U.
+      </p>
+      <svg width={W} height={H} style={{ display: 'block' }}>
+        {fTicks.map((f) => (
+          <line key={f} x1={p.l} x2={p.l + cW} y1={yS(f)} y2={yS(f)} stroke="#1e293b" strokeWidth={1} />
+        ))}
+        {uTicks.map((u) => (
+          <line key={u} x1={xS(u)} x2={xS(u)} y1={p.t} y2={p.t + cH} stroke="#1e293b" strokeWidth={1} />
+        ))}
+        {/* Asymptote at f=1 */}
+        <line x1={p.l} x2={p.l + cW} y1={yS(1)} y2={yS(1)} stroke="#10b981" strokeWidth={1} strokeDasharray="2,3" opacity={0.5} />
+        {/* Curves */}
+        <path d={truePath} fill="none" stroke="#10b981" strokeWidth={1.8} />
+        <path d={measuredPath} fill="none" stroke="#f87171" strokeWidth={1.8} strokeDasharray="5,3" />
+        {/* Ladder data points */}
+        {ladder.map((row) => (
+          <g key={`m${row.U}`}>
+            <circle cx={xS(row.U)} cy={yS(row.measuredFraction)} r={3.5} fill="#f87171" stroke="#0f172a" strokeWidth={1} />
+            <circle cx={xS(row.U)} cy={yS(row.trueFraction)} r={3.5} fill="#10b981" stroke="#0f172a" strokeWidth={1} />
+          </g>
+        ))}
+        {/* tau_1 annotation (asymptotic slope driver) */}
+        <text x={xS(11.5)} y={yS(1 - tau1 / 11.5) - 8} fill="#10b981" fontSize={9} textAnchor="middle">
+          &tau;<tspan dy="2" fontSize={7}>1</tspan><tspan dy="-2">&thinsp;&asymp;&thinsp;{tau1.toFixed(3)}</tspan>
+        </text>
+        {/* underflow horizon annotation */}
+        <text x={xS(9)} y={yS((tau2 - tau1) / 9) + 15} fill="#f87171" fontSize={9} textAnchor="middle">
+          &tau;<tspan dy="2" fontSize={7}>2</tspan><tspan dy="-2">&thinsp;pinned&thinsp;&asymp;&thinsp;{horizon.toFixed(3)} (underflow horizon)</tspan>
+        </text>
+        {/* Axes */}
+        <line x1={p.l} x2={p.l + cW} y1={p.t + cH} y2={p.t + cH} stroke="#475569" strokeWidth={1} />
+        <line x1={p.l} x2={p.l} y1={p.t} y2={p.t + cH} stroke="#475569" strokeWidth={1} />
+        {uTicks.map((u) => (
+          <g key={u}>
+            <line x1={xS(u)} x2={xS(u)} y1={p.t + cH} y2={p.t + cH + 4} stroke="#475569" />
+            <text x={xS(u)} y={p.t + cH + 14} fill="#94a3b8" fontSize={9} textAnchor="middle">{u}</text>
+          </g>
+        ))}
+        {fTicks.map((f) => (
+          <g key={f}>
+            <line x1={p.l - 4} x2={p.l} y1={yS(f)} y2={yS(f)} stroke="#475569" />
+            <text x={p.l - 7} y={yS(f) + 4} fill="#94a3b8" fontSize={9} textAnchor="end">{f.toFixed(2)}</text>
+          </g>
+        ))}
+        <text x={p.l + cW / 2} y={H - 5} fill="#64748b" fontSize={10} textAnchor="middle">lag cutoff U</text>
+        <text
+          x={10} y={p.t + cH / 2} fill="#64748b" fontSize={10} textAnchor="middle"
+          transform={`rotate(-90, 10, ${p.t + cH / 2})`}
+        >overflow fraction</text>
+      </svg>
+      <div style={{ display: 'flex', gap: 14, marginTop: 6, flexWrap: 'wrap' }}>
+        <span style={{ color: '#f87171', fontSize: 11 }}>&#8212;&#8212; measured (&tau;<sub>2</sub>&minus;&tau;<sub>1</sub>)/U &rarr; 0 as 1/U</span>
+        <span style={{ color: '#10b981', fontSize: 11 }}>&#8212; true (U&minus;&tau;<sub>1</sub>)/U &rarr; 1</span>
+      </div>
+      <p style={{ marginTop: 8, color: '#64748b', fontSize: 11, fontFamily: mono }}>
+        Source: imp-3216-overflow-support-length-closed-form.js (uLadder) &mdash; DIAGNOSTIC; overflow-support
+        geometry only; NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+      </p>
+    </div>
+  );
+}
+
 // ── imp-3197: sign-vs-magnitude decomposition of K_a >= 0 bridge obstruction ──
 // Shows that the SIGN half is FREE (Phi-only, 100% magnitude-weighted agreement,
 // zero mismatch mass) while the MAGNITUDE half is the whole residual: the
@@ -3844,6 +3950,9 @@ export default function ClosureRoutesPage() {
           positivity; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
         </div>
       </div>
+
+      {/* ─── imp-3314: measured-artifact vs true overflow-fraction viz ─── */}
+      <UnderflowArtifactVsTrueFractionViz />
 
       {/* ─── imp-3250: U-sweep overflow fraction viz ─── */}
       <h2 style={{ marginTop: 28, color: '#e2e8f0', fontSize: 22, fontFamily: mono }}>

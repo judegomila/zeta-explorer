@@ -3480,6 +3480,38 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
+    term: "imp-3726 self-similar backward-flow depth schedule s_k = c g_k^2: the scale-invariant Lemma B floor exp(-2c)",
+    category: "proof",
+    definition:
+      "imp-3708 showed a SINGLE global backward-Dyson flow depth s is Gronwall-vacuous at the " +
+      "nearest-pair scale: writing the Lemma B floor exp(-2 s / y^2) at shrinking strip height y = g_k " +
+      "(the local gap, imp-3693) makes the exponent 2 s / g_k^2 -> infinity as g_k -> 0, collapsing the " +
+      "floor to 0 (the imp-3671 floor_meso^{k^2} ladder). imp-3726 escapes this by making the depth " +
+      "PER-PAIR instead of global: schedule s_k = c g_k^2, with c a fixed constant chosen once. " +
+      "Substituting into the same floor formula gives exp(-2 s_k / g_k^2) = exp(-2 (c g_k^2) / g_k^2) = " +
+      "exp(-2c) -- the g_k^2 cancels EXACTLY, so the floor is the SAME constant exp(-2c) at every pair " +
+      "k, regardless of how small the local gap g_k becomes. Running each pair's flow only as deep as " +
+      "the square of its own gap, rather than to one depth shared by all pairs, is what keeps " +
+      "2 s_k / g_k^2 pinned at a constant instead of blowing up: the reparameterization is scale-" +
+      "invariant by construction, not by a numerical coincidence. Both surviving G6a_shock_lipschitz " +
+      "candidate constructions (K1, K2, imp-3714) require exactly this schedule. Residual gaps the " +
+      "schedule does NOT close by itself: whether a heterogeneous-depth backward-Dyson RK4 integrated " +
+      "with per-site s_k actually realizes exp(-2c) numerically (N1), what integrator adapts cleanly to " +
+      "per-site depth (N2), and the two-point pair-separation extension REQ-i still needs on top (N3)." +
+      "\n\nHONEST SCOPE: derivation/scoping of the depth schedule only; no construction shipped, no " +
+      "numerical verification of the heterogeneous-depth flow, no positivity, no bridge closure. " +
+      "imp-3066 off-diagonal endpoint-Hankel K_a >= 0 UNTOUCHED. Platt-Trudgian Lambda <= 0.2 remains " +
+      "the rigorous SOTA. NO QED.",
+    firstUsed: "imp-3726 (deriving the self-similar depth schedule s_k = c g_k^2 that makes the Lemma B Gronwall floor scale-invariant, the escape from the imp-3708 floor_meso^{k^2} collapse of a single global depth), 2026",
+    relatedTerms: [
+      "imp-3714 G6a_shock_lipschitz modulus candidates K1-K4: consolidated status table (imp-3714)",
+      "imp-3671 mesoscopic-vs-shock strip-height ladder: Gronwall floor collapse exp(-k^2 E_meso) (imp-3671)",
+      "imp-3708 y2-adapted flow depth s(y) ~ y^2 as the REQ-ii escape (imp-3708)",
+      "backward-flow-stability-gronwall Lemma B/C, density floor V0, shock time t_c ~ 1/(2 V0) (imp-2520)",
+    ],
+    link: "/closure-routes",
+  },
+  {
     term: "imp-3714 REQ-i/REQ-ii coupling: why the joint G6a modulus requirement-set is not two independent knobs",
     category: "proof",
     definition:
